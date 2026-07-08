@@ -21,6 +21,13 @@
 - `npm run dev` — ローカルプレビュー
 - `npm run check` — textlint + ビルド(push 前に必ず通ること。PR では CI (`ci.yml`) が同じチェックを実行)
 
+## プロジェクト運営(Issue 駆動)
+
+- **Issue にない作業はしない**。作業前に必ず対応する Issue を確認・起票する
+- バックログ構造: マイルストーン(M0〜M7)→ Epic Issue(#6〜#14)→ ユーザーストーリー/タスク。ルールの詳細は `src/content/docs/community/project-management.md`
+- 着手順序は「期限が近いマイルストーン → Epic 本文の子 Issue リストの上から」
+- Issue 完了時は受け入れ条件のチェックボックスを埋め、Epic 本文の該当項目にチェックを入れる
+
 ## Git 戦略
 
 - 現在はソロ期のため `main` へ直接 push でよい。コントリビューターが現れたら PR フローへ移行する
