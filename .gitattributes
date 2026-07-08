@@ -1,0 +1,12 @@
+# リポジトリ内は LF に統一(Windows でも CRLF 化しない)
+* text=auto eol=lf
+
+# バイナリ
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary

@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import mermaid from 'astro-mermaid';
 
 // GitHub Pages (project site) 用の設定
 // https://takenori-kusaka.github.io/process-compass/
@@ -8,6 +9,8 @@ export default defineConfig({
   site: 'https://takenori-kusaka.github.io',
   base: '/process-compass',
   integrations: [
+    // mermaid は starlight より先に登録する(コードブロック処理の順序のため)
+    mermaid({ autoTheme: true }),
     starlight({
       title: 'Process Compass',
       description:

@@ -11,14 +11,15 @@
 ## 執筆規約
 
 - **言語**: ドキュメントは日本語。ルートロケール = ja、将来 `locales.en` を追加できる構造を維持する
-- **図解ファースト**: 新規概念を未経験者に伝えるプロジェクトなので、文章より図(Mermaid、UML、生成画像)を優先する。プロセスは階層構造(全体 → フェーズ内ワークフロー → 個別作業)で図解する
+- **図解ファースト**: 新規概念を未経験者に伝えるプロジェクトなので、文章より図(Mermaid、UML、生成画像)を優先する。プロセスは階層構造(全体 → フェーズ内ワークフロー → 個別作業)で図解する。```mermaid ブロックは astro-mermaid が自動レンダリングする(テーマ切替対応)
+- **日本語校正**: textlint(preset-ja-technical-writing)を通すこと。箇条書きは「である調 / 体言止め」、本文は「ですます調」。ルール調整は `.textlintrc.json`
 - ページには必ず frontmatter の `title` と `description` を書く。並び順は `sidebar.order` で制御
 - 内部リンクは base パス `/process-compass/` を含める(例: `/process-compass/vision/01-goal/`)
 
 ## コマンド
 
 - `npm run dev` — ローカルプレビュー
-- `npm run build` — ビルド(公開前に必ず通ること)
+- `npm run check` — textlint + ビルド(push 前に必ず通ること。PR では CI (`ci.yml`) が同じチェックを実行)
 
 ## Git 戦略
 
@@ -27,7 +28,6 @@
 
 ## 既知の TODO
 
-- Mermaid のビルド時レンダリング未導入(現状 ```mermaid ブロックはコードとして表示される)。rehype-mermaid か astro-mermaid の導入を検討
 - 画像生成基盤(Gemini 画像モデル等)はユーザー側で準備予定
 
 ## ライセンス
