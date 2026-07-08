@@ -30,6 +30,23 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/Takenori-Kusaka/process-compass/edit/main/',
       },
+      head: [
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image',
+            content: 'https://takenori-kusaka.github.io/process-compass/og-image.png',
+          },
+        },
+        { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'twitter:image',
+            content: 'https://takenori-kusaka.github.io/process-compass/og-image.png',
+          },
+        },
+      ],
       sidebar: [
         { label: 'ビジョン', autogenerate: { directory: 'vision' } },
         { label: 'フェーズ1: 現状調査', autogenerate: { directory: 'phase1-current-state' } },
