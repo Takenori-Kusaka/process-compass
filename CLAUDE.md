@@ -28,6 +28,11 @@
 - **hooks**: docs 配下の md/mdx を編集すると textlint が自動実行される(違反があれば即修正する)
 - `.env` は permissions.deny で Read 禁止(API キー保護)
 
+## 意思決定の記録(ADR)
+
+- あとから変えにくい決定(技術選定、方針、原則)は `src/content/docs/adr/` に ADR として公開記録する。テンプレートと運用ルールは `adr/index.md`
+- 採用済み ADR の本文は書き換えない。決定変更は新 ADR で置き換える
+
 ## プロジェクト運営(Issue 駆動)
 
 - **Issue にない作業はしない**。作業前に必ず対応する Issue を確認・起票する

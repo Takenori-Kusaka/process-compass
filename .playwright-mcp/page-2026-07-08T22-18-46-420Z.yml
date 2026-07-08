@@ -1,0 +1,20 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - img "www.iso.org のアイコン" [ref=e5]
+        - heading "www.iso.org" [level=1] [ref=e6]
+      - heading "セキュリティ検証の実行" [level=2] [ref=e7]
+      - paragraph [ref=e8]: この Web サイトは、悪意のあるボットから保護するためにセキュリティ サービスを使用しています。このページは、Web サイトがボットではないことを確認している間に表示されます。
+  - contentinfo [ref=e15]:
+    - generic [ref=e17]:
+      - generic [ref=e19]:
+        - text: "Ray ID:"
+        - code [ref=e20]: a18277769e282b2f
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - link "Cloudflare" [ref=e23] [cursor=pointer]:
+            - /url: https://www.cloudflare.com?utm_source=challenge&utm_campaign=m
+          - text: によるパフォーマンスとセキュリティ
+        - link "プライバシー" [ref=e25] [cursor=pointer]:
+          - /url: https://www.cloudflare.com/ja-jp/privacypolicy/

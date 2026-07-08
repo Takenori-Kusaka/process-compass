@@ -59,6 +59,7 @@ export default defineConfig({
         { label: 'フェーズ5: プロセス実装', items: [{ autogenerate: { directory: 'phase5-implementation' } }] },
         { label: 'フェーズ6: プロセス運用', items: [{ autogenerate: { directory: 'phase6-operation' } }] },
         { label: 'コミュニティ', items: [{ autogenerate: { directory: 'community' } }] },
+        { label: '決定記録(ADR)', collapsed: true, items: [{ autogenerate: { directory: 'adr' } }] },
       ],
     }),
   ],
