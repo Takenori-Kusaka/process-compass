@@ -56,3 +56,12 @@ graph TD
 - 図解(Mermaid 等)を中心に説明している
 - `npm run check`(textlint + ビルド)が通る
 - サイトの該当ディレクトリ配下に公開されている
+
+## PR フロー移行チェックリスト(コントリビューター参加時)
+
+現在はソロ期のため `main` へ直接 push しています。継続的なコントリビューターが現れたら、次の手順で PR フローへ移行します。
+
+1. GitHub の**ルールセット**で `main` への直接 push を禁止し、PR 必須にする(ルールセットは read 権限者にも公開されるため、貢献者がルールを事前に把握できる)
+2. ルールセットで **Require review from Code Owners** を有効化する(`.github/CODEOWNERS` は設定済み。オーナーのうち1名の承認でマージ可能)
+3. CI(textlint + ビルド)を required status check に指定する
+4. 本ページと CLAUDE.md の Git 戦略の記述を更新する

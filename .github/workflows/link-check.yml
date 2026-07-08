@@ -1,0 +1,35 @@
+name: Link Check (external)
+
+on:
+  schedule:
+    - cron: "0 21 * * 0" # 毎週月曜 06:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check external links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --accept 200..=204,429
+            --exclude-path node_modules
+            --exclude 'https://takenori-kusaka\.github\.io/.*'
+            'src/content/docs/**/*.md' 'src/content/docs/**/*.mdx' 'README.md' 'research/**/*.md'
+          fail: false
+      - name: Create issue on broken links
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "リンク切れ検出(週次チェック)"
+          content-filepath: ./lychee/out.md
+          labels: task, phase-0

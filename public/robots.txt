@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://takenori-kusaka.github.io/process-compass/sitemap-index.xml

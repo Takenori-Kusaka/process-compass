@@ -1,0 +1,4 @@
+# 既定オーナー: 全ファイルの PR で自動的にレビュアーに指名される
+# 複数コントリビューター体制への移行時は、ルールセットで
+# "Require review from Code Owners" を有効化する(community/project-management 参照)
+* @Takenori-Kusaka

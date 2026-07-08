@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightLinksValidator from 'starlight-links-validator';
 import mermaid from 'astro-mermaid';
 
 // GitHub Pages (project site) 用の設定
@@ -12,6 +13,8 @@ export default defineConfig({
     // mermaid は starlight より先に登録する(コードブロック処理の順序のため)
     mermaid({ autoTheme: true }),
     starlight({
+      // ビルド時に内部リンク切れを検出する(外部リンクは週次の link-check.yml で検査)
+      plugins: [starlightLinksValidator()],
       title: 'Process Compass',
       description:
         '生成AI時代の開発プロセスを体系化し、チーム体制や事業フェーズに合わせて最適なプロセスを提案する羅針盤',
@@ -48,14 +51,14 @@ export default defineConfig({
         },
       ],
       sidebar: [
-        { label: 'ビジョン', autogenerate: { directory: 'vision' } },
-        { label: 'フェーズ1: 現状調査', autogenerate: { directory: 'phase1-current-state' } },
-        { label: 'フェーズ2: AIDLC・理想形調査', autogenerate: { directory: 'phase2-aidlc' } },
-        { label: 'フェーズ3: ギャップ分析', autogenerate: { directory: 'phase3-gap-analysis' } },
-        { label: 'フェーズ4: 詳細プロセス策定', autogenerate: { directory: 'phase4-process-design' } },
-        { label: 'フェーズ5: プロセス実装', autogenerate: { directory: 'phase5-implementation' } },
-        { label: 'フェーズ6: プロセス運用', autogenerate: { directory: 'phase6-operation' } },
-        { label: 'コミュニティ', autogenerate: { directory: 'community' } },
+        { label: 'ビジョン', items: [{ autogenerate: { directory: 'vision' } }] },
+        { label: 'フェーズ1: 現状調査', items: [{ autogenerate: { directory: 'phase1-current-state' } }] },
+        { label: 'フェーズ2: AIDLC・理想形調査', items: [{ autogenerate: { directory: 'phase2-aidlc' } }] },
+        { label: 'フェーズ3: ギャップ分析', items: [{ autogenerate: { directory: 'phase3-gap-analysis' } }] },
+        { label: 'フェーズ4: 詳細プロセス策定', items: [{ autogenerate: { directory: 'phase4-process-design' } }] },
+        { label: 'フェーズ5: プロセス実装', items: [{ autogenerate: { directory: 'phase5-implementation' } }] },
+        { label: 'フェーズ6: プロセス運用', items: [{ autogenerate: { directory: 'phase6-operation' } }] },
+        { label: 'コミュニティ', items: [{ autogenerate: { directory: 'community' } }] },
       ],
     }),
   ],

@@ -40,6 +40,18 @@ npm run check    # textlint(日本語校正) + ビルド検証
 - 調査メモ(非公開扱いの作業領域): `research/`
 - `main` への push で GitHub Actions が自動デプロイ
 
+## コントリビュート
+
+貢献方法は [CONTRIBUTING.md](./CONTRIBUTING.md) を、参加時の約束事は [行動規範](./CODE_OF_CONDUCT.md) を参照してください。
+
+## English
+
+**Process Compass** is a docs-as-code project that systematizes software development processes for the generative AI era.
+It analyzes the gap between traditional processes (Waterfall / Agile / Scrum / TDD / DDD) and AI-driven development (AIDLC).
+The goal is an interactive tool that recommends the optimal development process based on your team structure and business phase.
+The documentation is currently written in Japanese. An English version may follow based on community interest.
+Feedback is welcome in [Issues](https://github.com/Takenori-Kusaka/process-compass/issues) in either language.
+
 ## ライセンス
 
 - **ドキュメント** (`src/content/docs/` 以下の文章・図): [CC-BY-4.0](./LICENSE-docs)
