@@ -1,0 +1,16 @@
+name: 💬 フィードバック・意見
+description: プロセスの整理内容への意見、アイデア、質問など何でも
+labels: [feedback]
+body:
+  - type: textarea
+    id: content
+    attributes:
+      label: 内容
+      description: 意見・アイデア・質問を自由にお書きください。関連するページの URL があれば添えてください。
+    validations:
+      required: true
+  - type: input
+    id: context
+    attributes:
+      label: あなたの立場(任意)
+      description: 例. SIer の PM、スタートアップのエンジニア、品質保証部門 など。文脈が分かるとフィードバックを活かしやすくなります。
