@@ -8,6 +8,8 @@ sidebar:
 本プロジェクトは、すべての作業を GitHub Issue として起票し、計画的に進めます。
 「計画のないプロダクトは存在しない」——このページはスプリントプランニングゼロの成果物です。
 
+進捗の全体像は [Process Compass Roadmap ボード](https://github.com/users/Takenori-Kusaka/projects/1) で公開しています。
+
 ## バックログの構造
 
 ```mermaid
