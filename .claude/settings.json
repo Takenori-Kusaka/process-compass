@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run check:*)",
+      "Bash(npm run lint:text:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx textlint:*)",
+      "Bash(node scripts/generate-image.mjs:*)",
+      "Bash(node scripts/list-image-models.mjs:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/textlint-on-save.mjs",
+            "timeout": 90
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -21,12 +21,12 @@
 - `npm run dev` — ローカルプレビュー
 - `npm run check` — textlint + ビルド(push 前に必ず通ること。PR では CI (`ci.yml`) が同じチェックを実行)
 
-## 画像生成(Gemini)
+## Claude Code 設定(.claude/)
 
-- `node scripts/generate-image.mjs -p "プロンプト" -o 出力先.png [-a 16:9] [-s 2K] [-i 参照画像]` — 既定モデルは gemini-3-pro-image-preview。`-m` か .env の `IMAGE_MODEL` で変更可能
-- `node scripts/list-image-models.mjs` — 利用可能な画像モデルの一覧(新モデルが出たらこれで確認して切り替える)
-- API キーは `.env` の `GOOGLE_AI_STUDIO_API_KEY`(コミット禁止。gitignore 済み)
-- 出力先: サイト掲載用は `src/assets/`、検討用・下書きは `research/assets/`。プロンプトと生成条件は再現できるよう Issue かメモに残す
+- **skills**: `/ja-proofread`(日本語校正)、`/mermaid-diagram`(作図規約)、`/research-to-docs`(調査メモ清書)、`/generate-image`(画像生成)。手順の詳細は各 SKILL.md が正
+- **agents**: `process-researcher` — フェーズ1・2の一次調査の委譲先
+- **hooks**: docs 配下の md/mdx を編集すると textlint が自動実行される(違反があれば即修正する)
+- `.env` は permissions.deny で Read 禁止(API キー保護)
 
 ## プロジェクト運営(Issue 駆動)
 

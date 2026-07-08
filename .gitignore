@@ -16,6 +16,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# Claude Code personal settings
+.claude/settings.local.json
+
 # macOS / Windows
 .DS_Store
 Thumbs.db
