@@ -21,6 +21,13 @@
 - `npm run dev` — ローカルプレビュー
 - `npm run check` — textlint + ビルド(push 前に必ず通ること。PR では CI (`ci.yml`) が同じチェックを実行)
 
+## 画像生成(Gemini)
+
+- `node scripts/generate-image.mjs -p "プロンプト" -o 出力先.png [-a 16:9] [-s 2K] [-i 参照画像]` — 既定モデルは gemini-3-pro-image-preview。`-m` か .env の `IMAGE_MODEL` で変更可能
+- `node scripts/list-image-models.mjs` — 利用可能な画像モデルの一覧(新モデルが出たらこれで確認して切り替える)
+- API キーは `.env` の `GOOGLE_AI_STUDIO_API_KEY`(コミット禁止。gitignore 済み)
+- 出力先: サイト掲載用は `src/assets/`、検討用・下書きは `research/assets/`。プロンプトと生成条件は再現できるよう Issue かメモに残す
+
 ## プロジェクト運営(Issue 駆動)
 
 - **Issue にない作業はしない**。作業前に必ず対応する Issue を確認・起票する
