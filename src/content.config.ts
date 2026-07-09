@@ -87,6 +87,8 @@ const processSchema = z.object({
     })
     .array(),
   phases: phaseSchema.array(),
+  // 理想像が暗黙に仮定している前提条件(これが崩れると成立しない)。特に To 側プロセス(AIDLC 等)で重要。フェーズ3のギャップ分析の入力になる
+  assumptions: z.string().array().optional(),
   jpRealities: z.string().array().optional(), // 建前と実運用の乖離
   plainSummary: z.string().optional(), // 平易な言い換え(ADR-0006 の原典対照用)
   references: z.object({ title: z.string(), url: z.string().optional() }).array(),

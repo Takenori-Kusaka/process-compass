@@ -1,0 +1,196 @@
+schemaVersion: 0
+name: イベント駆動(Event-Driven Architecture / イベント駆動開発)
+category: design-method
+summary: システム内で起きた「イベント(出来事をデータ化したもの)」を生産者が発行し、ブローカーを介して消費者が非同期に受信・反応することで、生産者と消費者を疎結合に保つ設計パラダイム
+plainSummary: 「◯◯が起きた」という出来事を発行し、それに関心のある側が非同期で反応する作り。送り手と受け手が互いを知らなくてよいので疎結合になる。「いつ作るか」ではなく「どう連携させるか」を扱い、スクラム等の内側で使う
+purpose: システムの状態変化をイベントとして表現し、生産者と消費者をブローカー経由で疎結合・非同期に連携させ、リアルタイム応答性・拡張性・(イベントログによる)監査を実現する
+outcomes:
+  - 生産者は誰が消費するかを知らずにイベントを発行できる(送信側と受信側の脱結合)
+  - 新しい消費者をシステム改修なしに追加できる(拡張性)
+  - 非同期処理により片方の障害が他方を直接止めない(復元力)
+  - 状態変化がイベントログとして残り監査・再構築が可能(イベントソーシング採用時)
+origin: 単一の提唱者を持たない。用語 EDA は 2000 年代に Gartner が普及。実務的整理は Martin Fowler(2017)、モデリング手法は Alberto Brandolini の EventStorming(2013頃)
+iso12207Groups:
+  - テクニカル(アーキテクチャ定義・設計定義、統合・検証にまたがる)
+roles:
+  - id: domain-expert
+    name: ドメインエキスパート(Domain Expert)
+    responsibility: 業務で「何が起きるか」の知識源。ドメインイベントの意味・粒度の妥当性を判定する。イベントストーミングの中核参加者
+    jpNote: 業務部門・企画・PdM が兼務。多忙で継続参加できず、開発者が想像でイベントを定義してしまう失敗が起きやすい
+  - id: architect
+    name: アーキテクト
+    responsibility: パターン選定・トポロジ・ブローカー基盤・スキーマ契約を設計する。疎結合と結果整合性の設計責任
+    jpNote: テックリードが戦略設計から実装まで一人で抱えがち。EDA 経験者が社内に不足すると設計が属人化する
+  - id: developer
+    name: 開発者
+    responsibility: プロデューサー/コンシューマーの実装、冪等性・順序保証・補償トランザクション(Saga)・可観測性の作り込み
+    jpNote: サービスごとにチームが分かれ、イベント契約の変更調整が組織横断の負担になる
+  - id: facilitator
+    name: ファシリテーター(イベントストーミング)
+    responsibility: 部門・専門の壁を越えたワークショップを進行し、イベント・境界・集約の発見を促す
+    jpNote: 外部コンサル/経験者が務めることが多い。社内に経験者がいないと成立しにくい(DDD と共通)
+workProducts:
+  - id: domain-events
+    name: ドメインイベント一覧(イベントストーミングの付箋の壁)
+    description: 境界・集約・パターン選定の入力。DDD の境界づけられたコンテキスト発見材料
+    producedBy: facilitator
+  - id: event-catalog
+    name: イベントカタログ/スキーマ定義(契約)
+    description: プロデューサー/コンシューマー間の契約。バージョニング・互換性管理の基盤
+    producedBy: architect
+  - id: topology
+    name: トポロジ図(パブ/サブ配線・ブローカー配置)
+    description: 実装のブループリント。メディエータ/ブローカー方式の合意
+    producedBy: architect
+  - id: saga
+    name: Saga 定義(手順+補償トランザクション)
+    description: 分散トランザクション実装。結果整合性の作り込み単位
+    producedBy: architect
+gates:
+  - id: g-event
+    name: イベントの業務妥当性検査
+    kind: inspection
+    deliverables: [ドメインイベント一覧]
+    criteria: [各イベントが業務上意味のある確定事実を表すか, 粒度が適切か(技術イベントとドメインイベントの分離)]
+    approver: ドメインエキスパート+開発者
+    decisions: [妥当 / イベント再定義]
+  - id: g-pattern
+    name: パターン適合検査
+    kind: inspection
+    deliverables: [パターン選定表]
+    criteria: [4パターンが混同されず文脈に合っているか]
+    approver: アーキテクト
+    decisions: [妥当 / パターン差し替え]
+  - id: g-coupling
+    name: 疎結合・境界検査
+    kind: inspection
+    deliverables: [トポロジ図, コンテキストマップ]
+    criteria: [イベント連携が過度な同期依存(分散モノリス)を生んでいないか]
+    approver: アーキテクト
+    decisions: [妥当 / 境界・連携の引き直し]
+  - id: g-consistency
+    name: 結果整合性/一貫性検査
+    kind: inspection
+    deliverables: [Saga 定義, スキーマ]
+    criteria: [補償トランザクションで異常系を戻せるか, スキーマ互換性が保たれるか]
+    approver: アーキテクト+開発者
+    decisions: [妥当 / Saga・スキーマ再設計]
+    jpNote: イベント契約(スキーマ)は消費者が広がると事実上の凍結ポイントに近づき、後方互換ルールという軽いガバナンスが自然発生する
+phases:
+  - id: modeling
+    name: イベント発見・モデリング
+    summary: 何が起きるか=ドメインイベントを洗い出す。イベントストーミングによる協働モデリング
+    gatesAfter: [g-event]
+    activities:
+      - id: event-storming
+        name: イベントストーミング(協働モデリングワークショップ)
+        roles: [domain-expert, developer, facilitator]
+        outputs: [domain-events]
+        tasks:
+          - id: list-events
+            name: 業務で起きるドメインイベント(過去形の出来事)を時系列に付箋で貼り出す
+          - id: add-commands
+            name: コマンド・集約・外部システム・ポリシーを追加する
+          - id: draw-boundary
+            name: イベントの塊から境界づけられたコンテキストの候補線を引く(DDD との合流点)
+      - id: event-agreement
+        name: イベントの粒度・意味の合意
+        roles: [domain-expert, developer]
+        tasks:
+          - id: check-meaning
+            name: 各イベントが業務上意味のある確定事実を表すか検査する
+          - id: decide-payload
+            name: イベントに載せる情報(状態転送か通知か)の方針を暫定的に決める
+  - id: architecture
+    name: アーキテクチャ設計
+    summary: どのパターンで連携させるかを決める。パターン選定・トポロジ・スキーマ契約
+    gatesAfter: [g-pattern, g-coupling]
+    activities:
+      - id: pattern-selection
+        name: イベント駆動パターンの選定
+        summary: 4パターンの混同を避けることが最重要(Fowler の中心的指摘)
+        roles: [architect]
+        tasks:
+          - id: notification
+            name: Event Notification
+            description: 変化を知らせるだけ。結合最弱だが論理フローが暗黙化しデバッグ困難
+          - id: state-transfer
+            name: Event-Carried State Transfer
+            description: イベントに状態を載せ受信側の問い合わせ不要。復元力・低遅延だがデータ重複
+          - id: event-sourcing
+            name: Event Sourcing
+            description: 状態変化をイベントログとして永続化、再生で状態復元。監査に強いが外部連携が難しい
+          - id: cqrs
+            name: CQRS
+            description: 読み/書きモデルを分離。複雑ドメインを簡素化するが複雑性を追加
+      - id: topology-broker
+        name: トポロジとブローカーの決定
+        roles: [architect]
+        outputs: [topology]
+        tasks:
+          - id: mediator-broker
+            name: メディエータ型(オーケストレーション)かブローカー型(コレオグラフィ)かを選ぶ
+          - id: choose-broker
+            name: メッセージング基盤を選定する(Pub/Sub、イベントストリーミング=Kafka 等)
+      - id: schema-design
+        name: イベントスキーマ(契約)とカタログの設計
+        roles: [architect, developer]
+        outputs: [event-catalog, saga]
+        tasks:
+          - id: schema-versioning
+            name: ペイロード構造・バージョニング方針・スキーマ互換性ルールを定義する
+          - id: design-saga
+            name: 分散トランザクションが必要な業務フローに Saga(補償トランザクション)を設計する
+  - id: implementation
+    name: 実装・運用
+    summary: 結果整合性を作り込み、観測可能にする
+    gatesAfter: [g-consistency]
+    activities:
+      - id: producer-consumer
+        name: プロデューサー/コンシューマー実装
+        roles: [developer]
+        inputs: [event-catalog]
+        tasks:
+          - id: publish
+            name: イベント発行の原子性(状態変更→発行、Outbox 等)を実装する
+          - id: idempotent
+            name: 冪等な消費・順序保証(同一キー→同一パーティション)を実装する
+      - id: consistency-observability
+        name: 結果整合性と可観測性の作り込み
+        roles: [developer]
+        inputs: [saga]
+        tasks:
+          - id: compensate
+            name: 補償トランザクション(Saga)・リトライ・デッドレターを実装する
+          - id: tracing
+            name: 分散トレーシングで暗黙的な論理フローを追跡可能にする(デバッグ困難への対処)
+antiPatterns:
+  - name: 分散モノリス
+    ideal: サービスをイベントで疎結合にし、独立してデプロイ・障害分離できるようにする
+    reality: サービスを分割したが、イベントの裏で同期呼び出し(RPC/HTTP)依存が残り、独立してデプロイ・障害分離できない
+    why: モデリング(イベントストーミング)を省いて技術先行(Kafka を入れる)で始め、境界設計が甘くなるため
+    harm: 分散システムのコストを払いながらマイクロサービスの利点を享受できない
+  - name: 結果整合性の理解不足
+    ideal: 遅延・重複・順序の乱れを想定し、補償トランザクションと異常系を明示設計する
+    reality: 「即時に整合する」前提で UI/業務を作り、遅延・重複・順序を想定しない
+    why: 同期的なトランザクションの感覚のまま非同期システムを作るため
+    harm: データ不整合・二重処理が本番で表面化する
+  - name: 過剰な複雑性・デバッグ困難
+    ideal: 可観測性(分散トレーシング)を最初から作り込む
+    reality: 複数の通知にまたがる論理フローが暗黙的になり、可観測性を後回しにする
+    why: イベント通知は結合が弱い反面、全体の論理フローがコードのどこにも書かれないため
+    harm: 障害時に何が起きたか追えず、運用で破綻する
+jpRealities:
+  - EDA 経験者(アーキテクト)が希少で、モデリングを省いて技術先行で始め境界設計が甘くなる。段階的移行として「モジュラーモノリス」で境界を先に固める国内アプローチが増えている
+  - 受託開発ではイベント契約(スキーマ)がサービス=ベンダー境界と一致しがちで、契約変更がそのまま見積・検収の再交渉になり、俊敏なイベント設計の見直しが商流の壁で止まりやすい
+  - イベント契約は「決裁ゲートを持つプロセス」と「inspection 型プロセス」の中間例。消費者が広がるほど後方互換ルールという軽いガバナンスが自然発生する
+references:
+  - title: Martin Fowler「What do you mean by Event-Driven?」(2017)
+    url: https://martinfowler.com/articles/201701-event-driven.html
+  - title: EventStorming 公式(Alberto Brandolini)
+    url: https://www.eventstorming.com/
+  - title: Apache Kafka「Introduction」
+    url: https://kafka.apache.org/intro
+  - title: Microservices.io「Pattern:Saga」(Chris Richardson)
+    url: https://microservices.io/patterns/data/saga.html
+  - title: 一次調査メモ(リポジトリ内 research/phase1/20260710-event-driven.md に全出典)

@@ -101,6 +101,15 @@ const categoryLabel: Record<string, string> = {
     </tbody>
   </table>
 
+  {p.assumptions && p.assumptions.length > 0 && (
+    <>
+      <h2 id="assumptions">暗黙の前提条件(これが崩れると成立しない)</h2>
+      <ul>
+        {p.assumptions.map((a) => <li>{a}</li>)}
+      </ul>
+    </>
+  )}
+
   {p.antiPatterns && p.antiPatterns.length > 0 && (
     <>
       <h2 id="anti-patterns">アンチパターン(建前 vs 実態)</h2>

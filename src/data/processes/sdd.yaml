@@ -1,0 +1,184 @@
+schemaVersion: 0
+name: 仕様駆動開発(SDD, Spec-Driven Development)
+category: practice
+summary: 自然言語(主に Markdown)で書いた仕様書を AI コーディングエージェントへの唯一の信頼できる情報源として与え、AI がそこからコードを生成する開発手法。「vibe coding」への対抗概念として2025年に注目された
+plainSummary: 「先に仕様を文書で固め、AI にコードを書かせる」進め方。人間は仕様を書き・レビューし・承認する側に回り、AI が実装する。各段階に人間の承認ゲートを置くのが、場当たりAI生成(vibe coding)との決定的な違い
+purpose: 仕様を唯一の真実の源とし、AI に構造化された文脈を与えることで、場当たり的なプロンプトによる破綻を防ぎ、意図と実装の一貫性・検証可能性を確保する
+outcomes:
+  - spec.md(要件)/ plan.md・design.md(計画・設計)/ tasks.md(実行可能タスク)という段階的成果物が積み上がる
+  - それらから AI が生成した実装コードが得られる
+  - 各成果物が次段階の構造化された入力になり、その場限りのプロンプトが永続的でレビュー可能な文書に置き換わる
+origin: 単一の提唱者はいない。2025年の複数潮流。GitHub Spec Kit(Specify→Plan→Tasks→Implement)、AWS Kiro(requirements→design→tasks、EARS記法)、Sean Grove の講演「The New Code」が起点
+iso12207Groups:
+  - テクニカル(要件定義・設計を Markdown 成果物として明示化し、実装への機械翻訳の入力にする)
+roles:
+  - id: spec-author
+    name: 仕様の著者(人間)
+    responsibility: 意図・要件・制約・成功基準を記述する。曖昧性を解消し仕様を確定させる。SDD では最も価値の高い活動
+    jpNote: 多くは1人の開発者/PM が兼務。専任の仕様担当は稀
+  - id: approver
+    name: 承認者(人間)
+    responsibility: 各フェーズ成果物(仕様/設計/タスク/テスト)をレビューし次段階へ進める decision を下す
+    jpNote: 仕様著者と同一人物が兼ねることが多く、セルフレビュー化して統制が形骸化するリスクがある
+  - id: ai-agent
+    name: AI コーディングエージェント
+    responsibility: 仕様→計画→タスク→コードの各変換を実行する。実装の主たる担い手
+    jpNote: Copilot / Claude / Gemini / Codex / Kiro など。Spec Kit は30以上のエージェントに対応
+  - id: stakeholder
+    name: ステークホルダー(非技術者含む)
+    responsibility: 仕様が自然言語 Markdown なので、非エンジニアもレビュー・貢献できる(建前)
+    jpNote: 制度としては未成熟。実態は開発者主導
+workProducts:
+  - id: spec
+    name: spec.md / requirements.md
+    description: 何を作るか(ユーザーストーリー・受け入れ基準)。人間の意図を元に AI が生成し人間が承認する。Kiro は EARS 記法で記述
+    producedBy: ai-agent
+  - id: plan
+    name: plan.md / design.md
+    description: 技術選択・データモデル・API 契約・アーキテクチャ・シーケンス図。AI 生成・人間承認
+    producedBy: ai-agent
+  - id: tasks
+    name: tasks.md
+    description: 依存順・並列マーク付きの実行可能タスク。AI 生成・人間承認
+    producedBy: ai-agent
+  - id: constitution
+    name: constitution.md / steering(プロジェクトの不変原則)
+    description: プロジェクト全体の永続的な原則・規約(Spec Kit の憲法、Kiro の steering)。全フェーズの制約になる
+    producedBy: spec-author
+  - id: code
+    name: 実装コード+テスト
+    description: 仕様の「射影」。真実は仕様側にある。修正はコードでなく仕様に立ち返って再生成するのが原則
+    producedBy: ai-agent
+gates:
+  - id: g-spec
+    name: 仕様承認
+    kind: decision
+    deliverables: [spec.md / requirements.md]
+    criteria: [意図と要件が正確・完全か, 曖昧点が解消されたか]
+    approver: 人間(仕様著者/レビュア)
+    decisions: [承認 / 修正差し戻し]
+    jpNote: この人間 decision ゲートの有無が、vibe coding(ゲートなしの即時生成)との決定的違い
+  - id: g-design
+    name: 設計承認
+    kind: decision
+    deliverables: [plan.md / design.md]
+    criteria: [技術選択の妥当性, 憲法/steering との整合]
+    approver: 人間
+    decisions: [承認 / 差し戻し]
+  - id: g-tasks
+    name: タスク承認
+    kind: decision
+    deliverables: [tasks.md]
+    criteria: [分解粒度・依存・網羅性が妥当か]
+    approver: 人間
+    decisions: [承認 / 差し戻し]
+  - id: g-test
+    name: テスト承認(Spec Kit 憲法 Article III)
+    kind: decision
+    deliverables: [テストコード]
+    criteria: [テストが要件を表現し、かつ失敗することを確認(実装はこの後)]
+    approver: 人間
+    decisions: [承認 / 差し戻し]
+    jpNote: Kiro の Quick Plan は承認ゲートを外して一括自動生成する。つまりゲートは運用者が着脱でき、統制強度を決める設計変数になる
+phases:
+  - id: specify
+    name: 仕様定義(Specify / Requirements)
+    summary: 機能の目的・前提・制約・成功基準を自然言語で記述する
+    gatesAfter: [g-spec]
+    activities:
+      - id: write-spec
+        name: 仕様書の生成
+        roles: [spec-author, ai-agent]
+        outputs: [spec]
+        tasks:
+          - id: convey-intent
+            name: 人間が「何を作りたいか」を AI に伝える
+          - id: generate-spec
+            name: AI が構造化された仕様書(ユーザーストーリー・受け入れ基準)を生成する
+          - id: mark-clarification
+            name: 曖昧点を AI が明示する(Spec Kit の NEEDS CLARIFICATION マーカー)
+  - id: plan
+    name: 計画・設計(Plan / Design)
+    summary: 承認された仕様を技術的実装計画・アーキテクチャに変換する
+    gatesAfter: [g-design]
+    activities:
+      - id: generate-plan
+        name: 技術計画・設計の生成
+        roles: [ai-agent, approver]
+        inputs: [spec, constitution]
+        outputs: [plan]
+        tasks:
+          - id: design-artifacts
+            name: AI がデータモデル・API 契約・技術選択・シーケンス図を生成する
+          - id: constitution-check
+            name: 憲法(Simplicity/Anti-Abstraction/Integration-First)との整合をチェックリストで確認する
+  - id: tasks
+    name: タスク分解(Tasks)
+    summary: 計画を実行可能な離散タスクへ分解する
+    gatesAfter: [g-tasks]
+    activities:
+      - id: generate-tasks
+        name: タスクリストの生成
+        roles: [ai-agent]
+        inputs: [plan]
+        outputs: [tasks]
+        tasks:
+          - id: order-tasks
+            name: AI が依存順に整列し、並列可能タスクをマークし、各タスクにファイルパス・入出力・依存を付与する
+  - id: implement
+    name: 実装(Implement)
+    summary: AI エージェントがタスクに沿ってコードを生成する
+    gatesAfter: [g-test]
+    activities:
+      - id: generate-code
+        name: コード生成
+        roles: [ai-agent]
+        inputs: [tasks]
+        outputs: [code]
+        tasks:
+          - id: parallel-exec
+            name: 依存を解析し独立タスクを並列実行する(Kiro は wave 単位)
+          - id: tdd-order
+            name: テストを先に書き、人間が承認し、失敗を確認してから実装コードを書く(Spec Kit の TDD 内包)
+  - id: verify
+    name: 検証(Verification / 反復)
+    summary: 生成物が仕様を満たすか検証し、乖離があれば仕様へ戻る
+    activities:
+      - id: verify-spec
+        name: 仕様適合の検証
+        roles: [approver]
+        inputs: [code, spec]
+        tasks:
+          - id: acceptance-check
+            name: 受け入れ基準に対する検証と、仕様とコードの相互整合チェックを行う
+          - id: back-to-spec
+            name: 乖離があればコードでなく仕様に立ち返って再生成する
+antiPatterns:
+  - name: 仕様の逆流(コード直接編集による陳腐化)
+    ideal: 仕様が真実、コードは従属。修正は仕様に立ち返って再生成する
+    reality: 生成後にコードを直接いじって仕様と乖離させ、仕様が陳腐化する
+    why: 目の前のコードを直す方が早く、仕様更新の習慣が根付かないため
+    harm: 「仕様=真実」の前提が崩れ、SDD の一貫性・検証可能性が失われる
+  - name: ゲートを飛ばして vibe coding 化
+    ideal: 各フェーズの人間承認ゲートで意図と実装の一致を確認する
+    reality: Kiro の Quick Plan のようにゲートを飛ばし、場当たり生成に戻る
+    why: ゲートが着脱可能で、急ぐと外したくなるため
+    harm: SDD の統制力が消え、破綻を防ぐという目的そのものが失われる
+  - name: 第三者レビューの空白
+    ideal: 仕様・設計を独立した視点で検証する
+    reality: 仕様著者・承認者・実装レビュアが1人に集約されセルフレビュー化する
+    why: 小規模・個人利用が多く、専任の承認者を置けないため
+    harm: ゲート判定者が仕様の書き手と同一だと統制が形骸化する
+jpRealities:
+  - SDD の「フェーズごとの人間承認ゲート」は、日本企業の上流工程での多段レビュー・承認文化(要件定義書レビュー→設計レビュー)と構造的に親和しうる
+  - 「人間=発注者/仕様の書き手、AI=受注者/実装者」という構図は、日本の SIer の要件定義書・外部設計書の文化(仕様書=発注仕様=検収基準)とそのまま接続しやすい。本プロジェクトの「AIが外注相当を担う」議論の参照実装になる
+  - ゲートの着脱(Kiro Quick Plan)= チーム成熟度・機能の重要度に応じた「統制強度の可変設計」。「チーム体制・事業フェーズに合わせて最適プロセスを提案」に直接使える設計軸
+  - 日本発 OSS の cc-sdd が登場(日本語仕様記述に最適化、12言語対応)。ツール未成熟・実装力の空洞化・仕様と実装の乖離が国内の実践課題として指摘されている
+references:
+  - title: GitHub Spec Kit — spec-driven.md(SDD の定義・4フェーズ・憲法)
+    url: https://github.com/github/spec-kit/blob/main/spec-driven.md
+  - title: Kiro Docs — Specs(3フェーズ・Quick Plan)
+    url: https://kiro.dev/docs/specs/
+  - title: The New Code — Sean Grove(AI Engineer World's Fair 2025、トランスクリプト)
+    url: https://lawwu.github.io/transcripts/8rABwKRsec4.html
+  - title: 一次調査メモ(リポジトリ内 research/phase1/20260710-sdd.md に全出典)

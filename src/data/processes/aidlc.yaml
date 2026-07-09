@@ -1,0 +1,178 @@
+schemaVersion: 0
+name: AIDLC(AI-Driven Development Life Cycle)
+category: lifecycle
+summary: AIエージェントが計画・要件・コード・テスト・インフラ構成の生成をライフサイクル全段でオーケストレーションし、人間は各要所で検証・承認・重要判断を担う、AIを中心に据え直した開発方法論(AWS が2025年に提唱)
+plainSummary: 「AIが開発を回し、人は WHAT と WHY を決めて要所で承認する」進め方。従来の2〜4週スプリントを数時間〜1日の「Bolt」に縮め、全ロールが同席する「Mob」でAI生成物をその場で検証する。本プロジェクトが現実へ落とし込もうとしている理想像(To)であり、ここでは「今どう語られているか」を整理する
+purpose: AIを開発ライフサイクルの中心に据え直し、AIが計画・生成・テスト・デプロイを回し、人間は WHAT/WHY と重要判断に集中することで開発速度・品質・整合性を飛躍させる(提唱者の建前)
+outcomes:
+  - 「数週間かかっていた作業を数時間〜数日で」— re:Invent では 10〜15倍の生産性向上を主張(AWS 発の自己申告、独立検証は未確認)
+  - business intent → user story → requirement → code → test の end-to-end トレーサビリティ
+  - 逐次ハンドオフを排し、全ロールが同期して意思決定する
+origin: AWS。原典ブログ 2025-07-31(著者 Raja SP)、re:Invent 2025 DVT214 で本格発表。実装は awslabs/aidlc-workflows(MIT-0)
+iso12207Groups:
+  - テクニカル(要件〜実装〜運用を全域でAIに再配分)。合意・組織・マネジメント系(責任・決裁・品質保証)は言説では薄く、それが懸念点になる
+roles:
+  - id: ai-agent
+    name: AIエージェント(実行主体)
+    responsibility: タスク分解、代替案生成、要件/ストーリー/コード/テスト/IaC の生成、リファクタリング、ワークフローのオーケストレーション
+    jpNote: 生成物の正しさは保証されない(ハルシネーション)。責任主体になれない
+  - id: human
+    name: 人間(意思決定主体、総称)
+    responsibility: アーキテクチャ判断、ビジネス整合、リスク評価、倫理・品質判断、重要判断の承認。「AI may drive workflows, but humans remain responsible」
+    jpNote: 生成速度に対し人間の検証が追いつかず「passive approver(受動的承認者)」化するリスク。これが理想像の最大の脆弱点
+  - id: pm
+    name: プロダクトマネージャー
+    responsibility: Mob セッションでビジネス意図・優先度を提示し、WHAT/WHY を確定する
+    jpNote: 日本では事業部門と情シスの分離により不在になりがち
+  - id: developer
+    name: 開発者
+    responsibility: Mob で技術判断・実装レビュー、AIへの技術的指針を与える。役割が「書き手」から「検証者・判断者」へ移行する
+  - id: qa
+    name: QA
+    responsibility: Mob で品質観点の検証、テスト妥当性の確認を行う
+    jpNote: 日本の独立QA部門による第三者検証と Mob(同席レビュー)の同期協働は噛み合わない(独立性 vs 同期のジレンマ)
+  - id: ops
+    name: Operations
+    responsibility: Mob で運用/インフラ観点を提示する
+    jpNote: Operations フェーズ自体が現状 placeholder で未成熟
+workProducts:
+  - id: business-intent
+    name: ビジネス意図(business intent)
+    description: Inception の入力
+    producedBy: pm
+  - id: units
+    name: 要件・ユーザーストーリー・ユニット(units of work)
+    description: AI生成 → Mob検証。Construction の入力コンテキストになる
+    producedBy: ai-agent
+  - id: arch-model
+    name: 論理アーキテクチャ / ドメインモデル
+    description: AI生成 → Mob検証。コード生成の基盤
+    producedBy: ai-agent
+  - id: code-test
+    name: コード+テスト
+    description: AI生成 → Mobレビュー。テスト失敗で self-correct する
+    producedBy: ai-agent
+  - id: iac
+    name: IaC / デプロイ構成
+    description: AI生成 → チーム監督。本番運用へ
+    producedBy: ai-agent
+  - id: steering
+    name: Steering files(ステアリングファイル)
+    description: 人間(組織)が事前定義。全フェーズでAIの生成を制約する(セキュリティポリシー、アーキ標準、規制ガイドライン=EU AI Act 等、責任あるAI原則)
+    producedBy: human
+gates:
+  - id: g-elaboration
+    name: Mob Elaboration 合意点
+    kind: decision
+    deliverables: [要件, ストーリー, ユニット]
+    criteria: [作るもの/ストーリーに全員が合意]
+    approver: Mob参加者(PM/Dev/QA/Ops)
+    decisions: [合意して次へ / 差し戻し]
+    jpNote: 4時間〜半日で全員合意して終える。AIも豊富なコンテキストを獲得する
+  - id: g-plan
+    name: 計画承認(plan-verify)
+    kind: decision
+    deliverables: [AIが提示した実行計画]
+    criteria: [AI creates plan → humans validate the plan]
+    approver: 人間(担当ロール)
+    decisions: [承認して実行 / 修正指示]
+  - id: g-construction
+    name: Mob Construction チェックポイント
+    kind: decision
+    deliverables: [アーキ/ドメインモデル/コード/テスト案]
+    criteria: [技術判断・アーキ選択の妥当性]
+    approver: Dev中心のMob
+    decisions: [承認 / 技術指針を与えて再生成]
+    jpNote: 重要判断がAI出力に暗黙に飲み込まれないよう明示的に人間へ上げる(The agent proposes, the human approves)
+  - id: g-audit
+    name: 承認+トレーサビリティ監査(規制業界)
+    kind: decision
+    contractual: true
+    deliverables: [コード〜要件の連鎖]
+    criteria: [steering files 準拠, 監査可能性]
+    approver: 人間(監査/責任者)
+    decisions: [承認 / 是正]
+phases:
+  - id: inception
+    name: Inception(構想)
+    summary: ビジネス意図を要件・ストーリー・ユニットへ変換する。Mob Elaboration で全員がAIの問い・提案をリアルタイム検証する
+    gatesAfter: [g-elaboration]
+    activities:
+      - id: elaboration
+        name: Mob Elaboration(モブ精緻化)
+        roles: [pm, developer, qa, ops, ai-agent]
+        inputs: [business-intent]
+        outputs: [units]
+        tasks:
+          - id: refine-intent
+            name: AIがビジネス意図を精緻化する
+          - id: generate-stories
+            name: AIがストーリーを生成し、参加者(PM/開発/QA/運用)が洞察と検証を提供する
+          - id: agree
+            name: 4時間〜半日で作るものとストーリーに全員が合意して終える
+  - id: construction
+    name: Construction(構築)
+    summary: 検証済みコンテキストを使いAIが論理アーキテクチャ・ドメインモデル・コード・テストを提案する。Mob Construction でチームがリアルタイムに指針を与える
+    gatesAfter: [g-plan, g-construction]
+    activities:
+      - id: construction-mob
+        name: Mob Construction(モブ構築)
+        roles: [developer, qa, ai-agent]
+        inputs: [units]
+        outputs: [arch-model, code-test]
+        tasks:
+          - id: generate-impl
+            name: AIが実装案を生成し、要所で重要判断を明示的に人間へ上げる(mandatory human checkpoints)
+          - id: verify-artifact
+            name: 承認された計画のみ実行し、成果物を再度ステークホルダーが検証する
+  - id: operations
+    name: Operations(運用)
+    summary: 蓄積コンテキストでAIがIaC・デプロイ・監視を管理する(チーム監督下)。現状は placeholder で未成熟
+    gatesAfter: [g-audit]
+    activities:
+      - id: deploy-ops
+        name: デプロイ・監視・本番レディネス
+        roles: [ops, ai-agent]
+        inputs: [code-test]
+        outputs: [iac]
+        tasks:
+          - id: iac-deploy
+            name: AIがIaC・デプロイ自動化・監視セットアップを生成する
+assumptions:
+  - 高品質なモデル — 生成物が実用水準に達し、ハルシネーション率が人間の検証で吸収できる範囲であること
+  - 明確な仕様/意図 — Inception で「作るものに全員が合意」できるだけビジネス意図が言語化可能であること(レガシー・暗黙知の多い現場ほど崩れる)
+  - 検証の自動化 — AIの自己検証が機能する前提として包括的な自動テストとCI基盤が既にあること。テストの正しさ自体は誰が保証するか未解決
+  - 信頼できるガードレール — steering files が組織標準・規制・セキュリティを正しく符号化できていること
+  - 人間の検証キャパシティ — 生成速度(Bolt=時間単位)に人間の判断が追随できること(「人が管理できる賢さ/速さの上限」論点)
+  - 明確な責任者(Clear ownership)と強い品質ゲートが存在すること
+antiPatterns:
+  - name: 受動的承認者(rubber stamp)化
+    ideal: 重要判断を明示的に人間へ上げ、人間が実質的に検証・承認する
+    reality: 生成速度に検証が追いつかず、チェックポイントが形骸化して人間が中身を見ずに承認する
+    why: Bolt が時間単位で回るのに対し、人間の検証帯域が有限だから
+    harm: 品質・セキュリティ事故。AI-DLC 自身が「keep humans from becoming passive approvers」を設計目標に挙げるほど本質的リスク
+  - name: ドキュメントの陳腐化
+    ideal: 各フェーズの生成ドキュメントが実装と同期し続ける
+    reality: 大量生成されたドキュメントがコード変更に追随せず、すぐ陳腐化する
+    why: 作るより維持が難しく、追随の仕組みがないため
+    harm: トレーサビリティの前提が崩れ、監査・規制レビューの根拠が失われる
+  - name: 責任分界の空白
+    ideal: 「humans remain responsible」— 人間が責任を持つ
+    reality: どの承認が誰の法的/契約的責任かが方法論に規定されず、宣言だけが残る
+    why: AIエージェントは責任主体になれず、自律エージェントの責任論が未整備だから
+    harm: 障害・瑕疵の際に責任の所在が定まらない
+jpRealities:
+  - 多段稟議・DR・投資決裁は週〜月単位だが Bolt は時間単位。決裁が構造的に追いつかず「AIは回るが承認が詰まる」ボトルネックが予測される
+  - 日本の独立QA部門・品質保証部の第三者検証は、QA を Mob(同席レビュー)に取り込む AI-DLC の前提と噛み合わない(独立性 vs 同期協働のジレンマ)
+  - SI受託では成果物レビューが検収を兼ねるが、「何を検収対象とするか(コード/意図/プロンプト)」「AI生成物の瑕疵担保責任は受注者か発注者か」が契約上未整備
+  - 実運用では(1)管理職が全チェックポイントで実質再レビューし速度優位が消える、(2)決裁が形骸化しAI生成物を無検証で通す、の両極に振れやすい。中庸(実効的な Human-in-the-loop)を保つ組織能力が要る
+references:
+  - title: AWS DevOps Blog「AI-Driven Development Life Cycle」(原典、2025-07-31)
+    url: https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/
+  - title: AWS for Industries「AI-DLC for Financial Services」(規制業界・ガバナンス)
+    url: https://aws.amazon.com/blogs/industries/ai-driven-development-lifecycle-for-financial-services/
+  - title: GitHub awslabs/aidlc-workflows(公式実装、MIT-0)
+    url: https://github.com/awslabs/aidlc-workflows
+  - title: "Medium「AI-DLC: A critical, yet hopeful view」(Peter Tilsen、批判的レビュー)"
+    url: https://medium.com/data-science-collective/the-ai-driven-development-lifecycle-ai-dlc-a-critical-yet-hopeful-view-edc966173f2f
+  - title: 一次調査メモ(リポジトリ内 research/phase1/20260710-aidlc.md に全出典)
