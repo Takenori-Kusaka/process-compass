@@ -11,7 +11,8 @@ export default defineConfig({
   base: '/process-compass',
   integrations: [
     // mermaid は starlight より先に登録する(コードブロック処理の順序のため)
-    mermaid({ autoTheme: true }),
+    // securityLevel: 'loose' は click ディレクティブ(図からのドリルダウン遷移)に必要 — ADR-0006
+    mermaid({ autoTheme: true, mermaidConfig: { securityLevel: 'loose' } }),
     starlight({
       // ビルド時に内部リンク切れを検出する(外部リンクは週次の link-check.yml で検査)
       plugins: [starlightLinksValidator()],

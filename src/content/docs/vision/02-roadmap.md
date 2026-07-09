@@ -14,7 +14,15 @@ graph LR
   P3 --> P4[4. 詳細プロセス策定]
   P4 --> P5[5. プロセス実装]
   P5 --> P6[6. プロセス運用]
+  click P1 "/process-compass/phase1-current-state/overview/" "フェーズ1の詳細へ"
+  click P2 "/process-compass/phase2-aidlc/overview/" "フェーズ2の詳細へ"
+  click P3 "/process-compass/phase3-gap-analysis/overview/" "フェーズ3の詳細へ"
+  click P4 "/process-compass/phase4-process-design/overview/" "フェーズ4の詳細へ"
+  click P5 "/process-compass/phase5-implementation/overview/" "フェーズ5の詳細へ"
+  click P6 "/process-compass/phase6-operation/overview/" "フェーズ6の詳細へ"
 ```
+
+図の各フェーズはクリックすると詳細ページへ移動できます(ドリルダウン閲覧の様式は [ADR-0006](/process-compass/adr/0006-representation-policy/) で定義)。
 
 | フェーズ | 内容 | 期間目安 |
 | --- | --- | --- |
