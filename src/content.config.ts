@@ -35,8 +35,22 @@ const processSchema = z.object({
   name: z.string(),
   summary: z.string(),
   // プロセスの粒度・性格(調査フレームワークが指摘する「粒度の差」をデータ化)
-  // lifecycle=開発ライフサイクル全体 / practice=実務プラクティス / design-method=設計手法 / umbrella=価値観・原則の傘
-  category: z.enum(['lifecycle', 'practice', 'design-method', 'umbrella']).default('lifecycle'),
+  // lifecycle=開発ライフサイクル全体 / practice=実務プラクティス / design-method=設計手法
+  // umbrella=価値観・原則の傘 / hybrid=日本企業のハイブリッド開発の実態(アンチパターン含む)
+  category: z
+    .enum(['lifecycle', 'practice', 'design-method', 'umbrella', 'hybrid'])
+    .default('lifecycle'),
+  // アンチパターンカタログ(建前 vs 実態)。ハイブリッド実態の記述に使う
+  antiPatterns: z
+    .object({
+      name: z.string(),
+      ideal: z.string(), // 建前(あるべき姿)
+      reality: z.string(), // 実態
+      why: z.string(), // なぜ起きるか(日本的背景)
+      harm: z.string().optional(), // 弊害
+    })
+    .array()
+    .optional(),
   purpose: z.string(),
   outcomes: z.string().array(),
   origin: z.string().optional(), // 原典・提唱者

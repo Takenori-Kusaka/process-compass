@@ -1,0 +1,109 @@
+schemaVersion: 0
+name: アジャイル(Agile)
+category: umbrella
+summary: 4つの価値と12の原則からなる「価値体系」。この価値観を共有する複数の軽量開発手法(スクラム・XP・カンバン等)の総称として使われる傘概念
+plainSummary: 特定の手順書ではなく「短い反復で動くソフトを届け、変化に対応し続ける」という価値観。スクラムや XP はこの傘の下にある具体的な手法
+purpose: よりよい開発方法を見つけ出すこと。変化に適応しながら顧客に価値あるソフトウェアを継続的に届ける
+outcomes:
+  - 動くソフトウェアが短い間隔(2〜3週間〜2〜3か月)で継続的にリリースされる
+  - 要求変更が開発後期でも歓迎・吸収される
+  - チームが定期的に振り返り、やり方を自己調整する
+origin: 2001年、17名の軽量開発手法の実践者が「アジャイルソフトウェア開発宣言」と12の原則を起草
+iso12207Groups:
+  - 特定領域を規定しない(価値・原則のみ。具体実装は配下手法に委ねる)
+roles:
+  - id: business
+    name: ビジネス側の人(顧客/ビジネス)
+    responsibility: 価値・優先順位を示し、開発者と日々協働する(原則4)。「契約交渉より協調」(価値3)
+    jpNote: 受託構造では発注者側におり「日々一緒に働く」が物理的に困難。原則4が空洞化しやすい
+  - id: developer
+    name: 開発者
+    responsibility: 動くソフトウェアを作り(価値2)、技術的卓越性を保つ(原則9)。自己組織的に設計・要求・アーキテクチャを生む(原則11)
+    jpNote: ベンダー側におり、多重下請けでは「自己組織的チーム」が発注者の指揮下に置かれ原則11と衝突
+  - id: team
+    name: 自己組織的チーム(全体)
+    responsibility: 環境と支援を与えられ信頼される(原則5)。定期的に振り返り自己調整する(原則12)
+    jpNote: 管理職の指揮・多段承認が残り「信頼して任せる」が形骸化しやすい
+workProducts:
+  - id: working-software
+    name: 動くソフトウェア(最重要)
+    description: 進捗の尺度(原則7)であり顧客への価値提供物(原則1・3)。反復ごとに更新される
+    producedBy: team
+  - id: method-artifacts
+    name: 各手法の成果物(バックログ・カンバンボード等)
+    description: 具体様式は配下手法が規定する(スクラム=3作成物、カンバン=カンバンボード など)
+gates:
+  - id: inspect-adapt
+    name: 検査と適応(反復ごと)
+    kind: inspection
+    deliverables: [動くソフトウェア, プロセスの現状]
+    criteria: [経験的な検査(事前承認ではない)]
+    approver: チーム+顧客(協働)
+    decisions: [次の作業の決定, やり方の改善]
+    jpNote: アジャイルには Go/Kill 型の決裁ゲートがない。原則2・12で意思決定を反復ごとに分散・常時化する
+phases:
+  - id: iteration
+    name: 反復サイクル(iteration)
+    summary: 原則3の短い間隔(2〜3週間〜2〜3か月)で回る単一サイクル。終了なく反復し、ゲートによる中断はない。具体的な中身は配下手法(スクラム等)が定義する
+    gatesAfter: [inspect-adapt]
+    activities:
+      - id: plan
+        name: 計画/選択
+        summary: 何に価値があるかを決め、この反復で扱う作業を選ぶ
+        roles: [business, team]
+        tasks:
+          - id: prioritize
+            name: 価値ベースの優先順位づけ
+            description: スクラム=バックログ並び替え、XP=Planning Game、カンバン=プル
+      - id: develop
+        name: 開発(動くソフトウェアの作成)
+        summary: 原則7「動くソフトウェアが進捗尺度」
+        roles: [developer]
+        outputs: [working-software]
+        tasks:
+          - id: implement
+            name: 実装・技術規律の適用
+            description: XP のペアプロ/TDD/継続的インテグレーション/リファクタリング等が具体プラクティス
+      - id: deliver
+        name: 提供/リリース
+        summary: 原則1・3「早く継続的に提供」
+        roles: [team, business]
+        outputs: [working-software]
+      - id: inspect
+        name: 検査と適応
+        summary: 原則12「定期的に振り返り、やり方を調整」
+        roles: [team, business]
+        tasks:
+          - id: inspect-product
+            name: プロダクトの検査(次に何を作るか)
+          - id: inspect-process
+            name: プロセスの検査(やり方の改善)
+antiPatterns:
+  - name: 誤解1「アジャイルは無計画でよい」
+    ideal: 価値4「計画に従うことより変化への対応」— 左辺を優先しつつ右辺(計画)も価値と認める
+    reality: 「計画不要」と誤読し、計画そのものを放棄する
+    why: 宣言の「左記も右記も価値と認めるが左記により価値をおく」という非対称優先の構文を「右記を捨てる」と読むため
+    harm: 見通しが立たず、ステークホルダーの信頼を失う
+  - name: 誤解2「ドキュメントは軽視/不要」
+    ideal: 価値2「包括的なドキュメントより動くソフトウェア」— 網羅的で重い文書より動くコードを優先するだけ
+    reality: 「ドキュメント作成禁止」と誤読し、仕様をコードとチケット履歴のみに矮小化する
+    why: 同上の非対称優先構文の誤読。右辺(ドキュメント)の価値自体は否定されていない
+    harm: 必要十分な文書すら失われ、保守・引き継ぎが破綻する
+  - name: 誤解3「要件定義が不要」
+    ideal: 原則2は「変更の歓迎」であって要求そのものの放棄ではない
+    reality: 要求を扱わずに実装へ進む
+    why: 変化への対応を「要求を決めない」と混同するため
+    harm: 手戻りとスコープの発散を招く
+jpRealities:
+  - 計画・要件確定・受入をウォーターフォール型で決裁し、実装だけ反復するハイブリッド開発が主流化している
+  - 「品質は自己組織的チームが技術規律で内製」する建前が、日本の QA 部門・第三者検証の慣行と衝突する
+  - 価値3・原則4が一括請負・検収という商慣行と衝突し、IPA モデル契約(アジャイル版・準委任前提)が公式対応として整備された
+  - 大企業では SAFe 等のスケーリングが採用され、PI Planning という同期イベントが準ゲートとして部分復活する
+references:
+  - title: アジャイルソフトウェア開発宣言(日本語)
+    url: https://agilemanifesto.org/iso/ja/manifesto.html
+  - title: アジャイル宣言の背後にある原則(日本語)
+    url: https://agilemanifesto.org/iso/ja/principles.html
+  - title: IPA 情報システム・モデル取引・契約書(アジャイル開発版)
+    url: https://www.ipa.go.jp/digital/model/agile20200331.html
+  - title: 一次調査メモ(リポジトリ内 research/phase1/20260709-agile.md に全出典)

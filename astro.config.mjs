@@ -62,7 +62,10 @@ export default defineConfig({
               items: [
                 { label: '一覧', link: '/processes/' },
                 { label: 'ウォーターフォール', link: '/processes/waterfall/' },
+                { label: 'アジャイル', link: '/processes/agile/' },
                 { label: 'スクラム', link: '/processes/scrum/' },
+                { label: 'テスト駆動開発(TDD)', link: '/processes/tdd/' },
+                { label: 'ドメイン駆動設計(DDD)', link: '/processes/ddd/' },
               ],
             },
           ],

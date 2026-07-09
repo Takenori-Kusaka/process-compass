@@ -1,0 +1,166 @@
+schemaVersion: 0
+name: ドメイン駆動設計(DDD)
+category: design-method
+summary: ソフトウェアの中心に「業務領域の理解を写し取ったドメインモデル」を据え、ドメインエキスパートと開発者が共有する言語(ユビキタス言語)を通じてコードとして継続的に育てていく設計アプローチ
+plainSummary: 業務の言葉と仕組みをそのままコードの構造に写す設計の考え方。「いつ作るか」ではなく「何をどう設計するか」を扱い、スクラム等のリズムの内側で使う
+purpose: 複雑なドメインの本質的複雑性に開発の焦点を当て、業務の理解をソフトウェア構造へ忠実に反映し、変更に強いソフトウェアを作る
+outcomes:
+  - ドメインエキスパートと開発者が同じ用語(ユビキタス言語)で会話し、その用語がコードのクラス名・メソッド名に一致する
+  - 境界づけられたコンテキストとその関係を表すコンテキストマップが描かれる
+  - 業務ルールがドメインモデル(エンティティ・値オブジェクト・集約)としてコードに凝集する
+  - モデルが継続的リファクタリングで業務理解の深化に追随して育つ
+origin: Eric Evans。原典『Domain-Driven Design』(2003、邦訳『エリック・エヴァンスのドメイン駆動設計』)。近年マイクロサービス・イベントストーミングと結びつき再興(DDDルネサンス)
+iso12207Groups:
+  - テクニカル(アーキテクチャ定義・設計定義、および上流のステークホルダー要求定義を厚くカバー)
+roles:
+  - id: domain-expert
+    name: ドメインエキスパート(Domain Expert)
+    responsibility: 業務知識の源泉。用語・ルール・プロセスを提供し、モデルの妥当性(業務として正しいか)を判定する。ユビキタス言語の共同オーナー
+    jpNote: 業務部門・企画・PdM が兼ねる。多忙で設計会議に継続参加できず「巻き込み不足」が最大の失敗要因になりやすい
+  - id: developer
+    name: 開発者/ソフトウェアスペシャリスト
+    responsibility: ドメインエキスパートの知識をモデル化しコードへ写す。モデルとコードの一致(モデル駆動設計)に責任を持つ
+    jpNote: アーキテクト/テックリードが戦略的設計を、実装担当が戦術的設計を分担する非公式分業になりがち
+  - id: facilitator
+    name: ファシリテーター(イベントストーミング等)
+    responsibility: 部門・専門の壁を越えた協働ワークショップを進行し、境界づけられたコンテキストと集約の発見を促す
+    jpNote: 外部コンサル/DDD経験者が務めることが多い。社内に経験者がいないと成立しにくい
+workProducts:
+  - id: ubiquitous-language
+    name: ユビキタス言語(用語集/グロッサリ)
+    description: 全会話・ドキュメント・コードで共有。コードの命名へ直結する
+    producedBy: domain-expert
+  - id: context-map
+    name: コンテキストマップ
+    description: コンテキスト間の統合方式・チーム間関係の合意。マイクロサービス境界設計へ引き渡す
+    producedBy: developer
+  - id: domain-model
+    name: ドメインモデル(図+コード)
+    description: 戦術設計の実装対象。エンティティ・値オブジェクト・集約として具現化する
+    producedBy: developer
+  - id: event-storming
+    name: イベントストーミングの成果物
+    description: ドメインイベント列・コマンド・集約・境界の付箋の壁。境界づけられたコンテキストと集約の発見材料
+    producedBy: facilitator
+gates:
+  - id: g-language
+    name: ユビキタス言語の一貫性検査
+    kind: inspection
+    deliverables: [用語集, 会話, コード]
+    criteria: [同一語が同一意味で使われているか, コードの命名と業務用語が一致しているか]
+    approver: ドメインエキスパート+開発者
+    decisions: [一致 / 用語の追加・改訂]
+  - id: g-model
+    name: モデルの業務妥当性検査
+    kind: inspection
+    deliverables: [ドメインモデル, イベントストーミング成果物]
+    criteria: [業務ルール・シナリオを正しく表現できるか(ドメインエキスパートが「その通り」と言えるか)]
+    approver: ドメインエキスパート
+    decisions: [妥当 / モデル修正]
+  - id: g-boundary
+    name: 境界(コンテキスト)の妥当性検査
+    kind: inspection
+    deliverables: [コンテキストマップ]
+    criteria: [各コンテキストでモデルが一貫しているか, 統合関係が過度な結合を生まないか]
+    approver: 開発者(アーキテクト)
+    decisions: [妥当 / 境界の引き直し]
+    jpNote: DDD を WF の DR ゲートに組み込むとモデルが「一度承認したら凍結」され、継続的リファクタリングの前提が崩れる
+phases:
+  - id: strategic
+    name: 戦略的設計(Strategic Design)
+    summary: 大局的に「どこに線を引くか」を決める。ドメイン探索・蒸留・境界定義・コンテキストマップ
+    gatesAfter: [g-language, g-boundary]
+    activities:
+      - id: explore
+        name: ドメインの探索とユビキタス言語の確立
+        roles: [domain-expert, developer, facilitator]
+        outputs: [ubiquitous-language, event-storming]
+        tasks:
+          - id: elicit
+            name: ドメインエキスパートと対話し業務の用語・プロセス・ルールを引き出す
+          - id: agree-language
+            name: チーム全員が同じ意味で使う「ユビキタス言語」を合意する
+      - id: distill
+        name: サブドメインの識別と蒸留(コア/汎用/補助)
+        roles: [domain-expert, developer]
+        tasks:
+          - id: classify
+            name: ドメインを事業上の重要度で分類する
+          - id: focus-core
+            name: コアドメインに最良のリソースを集中させる判断をする
+      - id: bounded-context
+        name: 境界づけられたコンテキストの定義
+        roles: [developer]
+        tasks:
+          - id: draw-boundary
+            name: 一つのモデルが一貫して通用する境界を切る
+      - id: context-mapping
+        name: コンテキストマップの作成
+        roles: [developer]
+        outputs: [context-map]
+        tasks:
+          - id: relations
+            name: コンテキスト間の統合関係(Shared Kernel / ACL / OHS 等)と上流下流の力関係を明示する
+  - id: tactical
+    name: 戦術的設計(Tactical Design)
+    summary: 各コンテキスト内でモデルをコードに落とす。ビルディングブロックとレイヤ化
+    gatesAfter: [g-model]
+    activities:
+      - id: building-blocks
+        name: ドメインモデルの構成要素設計
+        roles: [developer]
+        inputs: [ubiquitous-language]
+        outputs: [domain-model]
+        tasks:
+          - id: entity-vo
+            name: エンティティ(識別子で同一性)と値オブジェクト(値の等価性・不変)を設計する
+          - id: aggregate
+            name: 集約を定義し、集約ルート経由でのみ内部を変更させ不変条件を守る
+          - id: repo-service
+            name: リポジトリ・ドメインサービス・ファクトリを設計する
+      - id: layering
+        name: レイヤ化とモデルの実装(モデル駆動設計)
+        roles: [developer]
+        outputs: [domain-model]
+        tasks:
+          - id: separate-domain
+            name: ドメイン層を UI・アプリケーション・インフラから独立させる
+          - id: name-mapping
+            name: ユビキタス言語の語をクラス名・メソッド名へ写し、モデルとコードを一致させる
+  - id: continuous-refactoring
+    name: 継続的リファクタリング(モデルの育成)
+    summary: 実装で得た洞察をモデルへ反映し、戦略層へフィードバックする反復
+    activities:
+      - id: breakthrough
+        name: ブレイクスルーへの深化
+        roles: [developer, domain-expert]
+        tasks:
+          - id: deepen
+            name: 実装で得た洞察をより深いモデル(暗黙知の明示化)へリファクタする
+          - id: feedback
+            name: 業務理解が変わったら境界・言語・集約の再設計を戦略層へフィードバックする
+antiPatterns:
+  - name: 戦術的パターンだけ真似る
+    ideal: 戦略的設計(境界づけられたコンテキスト・ユビキタス言語)を土台に戦術設計を行う
+    reality: 戦略設計を飛ばし、エンティティ/リポジトリ等のクラス構成だけ模倣して「DDDをやった」とする
+    why: 戦術パターンはコードで真似しやすいが、戦略設計は業務理解と協働を要し難しいため
+    harm: 業務と乖離したモデルになり、DDD の本来の効果(変更への強さ)が得られない
+  - name: ドメインエキスパート不在のモデリング
+    ideal: ドメインエキスパートと開発者の継続的協働でモデルの妥当性を守る
+    reality: 開発者だけが想像でモデルを作り、ユビキタス言語が育たない
+    why: 受託構造で業務部門(発注側)と開発者(受注側)が組織的に分断され、継続的協働が契約の壁で成立しにくい
+    harm: モデルが業務を正しく写さず、DDD 導入が形骸化する
+jpRealities:
+  - DDD は「当事者(業務+開発)の協働で妥当性を守る」ため、業務知識を持たない QA 部門の形式レビューはモデルの妥当性を判定できない
+  - 受託開発ではドメインエキスパートと開発者が組織的に分断され、DDD の前提「継続的協働」が成立しにくい(日本での導入最大の障害の一つ)
+  - 増田亨氏らの実践で日本語の学習環境は充実したが、「難しくて挫折した」層向けの入門書が出るほど学習コストの高さが共通課題
+references:
+  - title: Eric Evans『Domain-Driven Design』(2003)版元ページ
+    url: https://www.informit.com/store/domain-driven-design-tackling-complexity-in-the-heart-9780321125217
+  - title: Martin Fowler "DomainDrivenDesign"(bliki)
+    url: https://martinfowler.com/bliki/DomainDrivenDesign.html
+  - title: EventStorming 公式(Alberto Brandolini)
+    url: https://www.eventstorming.com/
+  - title: Microsoft Learn — Tactical DDD for Microservices
+    url: https://learn.microsoft.com/en-us/azure/architecture/microservices/model/tactical-domain-driven-design
+  - title: 一次調査メモ(リポジトリ内 research/phase1/20260709-ddd.md に全出典)

@@ -90,6 +90,25 @@ const roleName = new Map(p.roles.map((r) => [r.id, r.name]));
     </tbody>
   </table>
 
+  {p.antiPatterns && p.antiPatterns.length > 0 && (
+    <>
+      <h2 id="anti-patterns">アンチパターン(建前 vs 実態)</h2>
+      {p.antiPatterns.map((ap) => (
+        <>
+          <h3>{ap.name}</h3>
+          <table>
+            <tbody>
+              <tr><th>建前(あるべき姿)</th><td>{ap.ideal}</td></tr>
+              <tr><th>実態</th><td>{ap.reality}</td></tr>
+              <tr><th>なぜ起きるか</th><td>{ap.why}</td></tr>
+              {ap.harm && <tr><th>弊害</th><td>{ap.harm}</td></tr>}
+            </tbody>
+          </table>
+        </>
+      ))}
+    </>
+  )}
+
   {p.jpRealities && p.jpRealities.length > 0 && (
     <>
       <h2 id="jp-realities">建前と実運用(日本の現場)</h2>

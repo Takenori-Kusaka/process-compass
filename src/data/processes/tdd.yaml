@@ -1,0 +1,134 @@
+schemaVersion: 0
+name: テスト駆動開発(TDD)
+category: practice
+summary: 失敗するテストを先に書き(Red)、通す最小限のコードを書き(Green)、重複を除去して設計を整える(Refactor)短いサイクルを反復してコードを育てる開発技法
+plainSummary: 「先にテストを書いてから、それを通すコードを書く」を数分単位で繰り返す進め方。テストが仕様と検査を兼ねる。開発者一人のミクロな作業技法で、スクラム等の内側で使う
+purpose: 「動作する、きれいなコード」を得ること。振る舞いの変更を、既存機能とチームの自信を保ちながら少しずつ安全に進める
+outcomes:
+  - 実装と同時に自動化された回帰テスト群(self-testing code)が蓄積する
+  - 各機能に対応する失敗→成功の履歴が残る
+  - 重複が除去され設計が漸進的に改善される
+  - 欠陥密度が下がる(実証研究で非TDD比 40〜90% 減の報告)
+origin: "Kent Beck。XP の一部として1990年代後半に体系化(公開デモ1995年)。原典『Test-Driven Development: By Example』(2002)。近年 Beck が Canon TDD(2023)で再定義"
+iso12207Groups:
+  - テクニカル(実装プロセスと単体検証をミクロに融合。設計にも創発的設計として食い込む)
+roles:
+  - id: dev
+    name: 開発者(Developer)
+    responsibility: テストリスト作成・テスト作成・実装・リファクタリングのすべてを一人で担う。テストの書き手とコードの書き手が同一人物
+    jpNote: TDD 単体では兼務問題は起きない。ただし「テストは QA の仕事」という職掌分離意識が強い組織では開発者がテストを書くこと自体に抵抗が生じる
+  - id: pair
+    name: ペア相手(任意)
+    responsibility: ペアプログラミングと組み合わせる場合、もう一人がナビゲータとして即時レビューする
+    jpNote: XP 由来のためペアが本来想定だが、日本ではペアプロ自体の普及が限定的で単独 TDD が多い
+workProducts:
+  - id: test-list
+    name: テストリスト(TODOリスト)
+    description: サイクルの起点。実装対象の棚卸し。使い捨て(コードには残らないことが多い)
+    producedBy: dev
+  - id: test-code
+    name: テストコード(自動化テスト)
+    description: 実装の仕様(先に書く)+回帰テストの安全網(以後永続)+リファクタリングの保証。CI に組み込まれ後続の全変更を検査する
+    producedBy: dev
+  - id: prod-code
+    name: プロダクションコード
+    description: 本体。テストを満たす形で漸進的に育つ。設計はリファクタで創発する
+    producedBy: dev
+gates:
+  - id: g-red
+    name: Red ゲート(失敗確認)
+    kind: inspection
+    deliverables: [書いたばかりのテスト1件]
+    criteria: [テストが失敗する(または未コンパイル)こと。通ってしまったらテストか対象が間違い]
+    approver: テストランナー(機械)+開発者
+    decisions: [失敗=期待どおり(Green へ) / 通過=テスト見直し]
+  - id: g-green
+    name: Green ゲート(通過確認)
+    kind: inspection
+    deliverables: [プロダクションコード+全既存テスト]
+    criteria: [すべてのテストがグリーンであること]
+    approver: テストランナー(機械)
+    decisions: [全緑(Refactor へ) / 一部赤(実装続行)]
+  - id: g-refactor
+    name: Refactor 後の再検査
+    kind: inspection
+    deliverables: [リファクタ済みコード+全テスト]
+    criteria: [リファクタ後も全緑を維持していること(振る舞い不変の保証)]
+    approver: テストランナー(機械)
+    decisions: [全緑(サイクル完了) / 赤(リファクタを戻す)]
+    jpNote: 判定者が人間でなく自動テスト、判定周期が秒〜分、判定結果がコードの前進/巻き戻し。WF のフェーズゲートとは根本的に別物
+phases:
+  - id: prepare
+    name: テストリストの作成
+    summary: サイクル開始前の準備。実装ではなく設計思考。「テストを先に書く」だけでは不十分で、シナリオの棚卸しが起点
+    activities:
+      - id: enumerate
+        name: テストシナリオの列挙と選択
+        roles: [dev]
+        outputs: [test-list]
+        tasks:
+          - id: list
+            name: これから実装する振る舞いのテストシナリオを列挙する(まだコードは書かない)
+          - id: pick
+            name: リストから「次に取り組む1件」を選ぶ
+  - id: cycle
+    name: Red → Green → Refactor サイクル
+    summary: TDD の中核。テスト1件分の高速反復(分〜秒単位)。テストリストが空になるまで繰り返す
+    gatesAfter: [g-refactor]
+    activities:
+      - id: red
+        name: Red(失敗するテストを書く)
+        summary: この段階でインターフェース設計(振る舞いをどう呼び出すか)を行う
+        roles: [dev]
+        inputs: [test-list]
+        outputs: [test-code]
+        tasks:
+          - id: write-test
+            name: 具体的で実行可能なテストを1つ書く
+          - id: confirm-red
+            name: テストを実行し、失敗する(または未コンパイル)ことを確認する
+      - id: green
+        name: Green(テストを通す)
+        summary: 最短でテストを通す。汚くてよい(仮実装・ベタ書き・三角測量などの戦略)
+        roles: [dev]
+        outputs: [prod-code]
+        tasks:
+          - id: write-code
+            name: 最短でテストを通すプロダクションコードを書く
+          - id: confirm-green
+            name: 既存の全テストを含めて実行し、全部グリーンになることを確認する
+      - id: refactor
+        name: Refactor(重複除去・設計改善)
+        summary: 最もスキップされがちなステップ。省くと「コード断片の寄せ集め」になり TDD の設計価値が失われる
+        roles: [dev]
+        outputs: [prod-code]
+        tasks:
+          - id: clean
+            name: グリーンを保ったまま重複・汚さを除去し「実装設計」を整える
+          - id: reconfirm
+            name: リファクタ後も全テストがグリーンであることを再確認する
+antiPatterns:
+  - name: なんちゃって TDD(Test-Last を TDD と称する)
+    ideal: テストを先に書き(Red)、それを通すコードを書く(テストファースト)
+    reality: 実装後にテストを追加するのに「TDD」と称する(semantic diffusion)
+    why: 「自動テストを書く=TDD」という混同。Beck が Canon TDD を書いた動機そのもの
+    harm: テストが設計を駆動せず、TDD の設計フィードバック効果が失われる
+  - name: Refactor の省略
+    ideal: グリーン後に必ず重複除去・設計改善を行う
+    reality: 緑になったら次のテストへ進み、設計改善を飛ばす
+    why: 納期圧力。動けばよいという判断
+    harm: コード断片の寄せ集めになり、設計が劣化していく
+jpRealities:
+  - 受託開発では「テストを書く工数」が見積り・契約に明示計上されず、開発者がこっそりやるか、テストが別工程(QA)に切り離される
+  - テストコードも保守対象になるという二重保守コストへの理解・合意が組織的に得られにくい(最大の障壁)
+  - 第一人者 t_wada は「学習コストが最大のハードル。写経と実践でしか身につかない」とし、トップダウン強制でなく任意参加のボトムアップ普及を推奨している
+references:
+  - title: Kent Beck "Canon TDD"(2023)
+    url: https://newsletter.kentbeck.com/p/canon-tdd
+  - title: Martin Fowler "Test Driven Development"
+    url: https://martinfowler.com/bliki/TestDrivenDevelopment.html
+  - title: Nagappan et al.(2008)Microsoft/IBM 4チームの実証研究(PDF)
+    url: https://www.microsoft.com/en-us/research/wp-content/uploads/2009/10/Realizing-Quality-Improvement-Through-Test-Driven-Development-Results-and-Experiences-of-Four-Industrial-Teams-nagappan_tdd.pdf
+  - title: Martin Fowler "Is TDD Dead?"(DHH との論争まとめ)
+    url: https://martinfowler.com/articles/is-tdd-dead/
+  - title: 一次調査メモ(リポジトリ内 research/phase1/20260709-tdd.md に全出典)
