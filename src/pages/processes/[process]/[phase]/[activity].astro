@@ -1,0 +1,80 @@
+---
+// L3: 個別作業(ADR-0006)
+import { getCollection } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+export async function getStaticPaths() {
+  const processes = await getCollection('processes');
+  return processes.flatMap((entry) =>
+    entry.data.phases.flatMap((phase) =>
+      phase.activities.map((activity) => ({
+        params: { process: entry.id, phase: phase.id, activity: activity.id },
+        props: { entry, phase, activity },
+      }))
+    )
+  );
+}
+
+const { entry, phase, activity } = Astro.props;
+const p = entry.data;
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : `${base}/`;
+const roleName = new Map(p.roles.map((r) => [r.id, r.name]));
+const wpName = new Map(p.workProducts.map((w) => [w.id, w.name]));
+---
+
+<StarlightPage
+  frontmatter={{
+    title: `${activity.name}(${phase.name})`,
+    description: activity.summary ?? `${p.name} / ${phase.name} の ${activity.name}`,
+  }}
+>
+  <p>
+    <a href={`${b}processes/${entry.id}/${phase.id}/`}>← {phase.name} のワークフロー(L2)へ戻る</a>
+  </p>
+
+  {activity.summary && <p>{activity.summary}</p>}
+
+  <table>
+    <tbody>
+      <tr>
+        <th>担当ロール</th>
+        <td>
+          {activity.roles && activity.roles.length > 0
+            ? activity.roles.map((r) => roleName.get(r) ?? r).join('、')
+            : '—'}
+        </td>
+      </tr>
+      <tr>
+        <th>インプット</th>
+        <td>
+          {activity.inputs && activity.inputs.length > 0
+            ? activity.inputs.map((w) => wpName.get(w) ?? w).join('、')
+            : '—'}
+        </td>
+      </tr>
+      <tr>
+        <th>アウトプット</th>
+        <td>
+          {activity.outputs && activity.outputs.length > 0
+            ? activity.outputs.map((w) => wpName.get(w) ?? w).join('、')
+            : '—'}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="tasks">タスク(L3)</h2>
+  {activity.tasks.length > 0 ? (
+    <ol>
+      {activity.tasks.map((t) => (
+        <li>
+          <strong>{t.name}</strong>
+          {t.description ? ` — ${t.description}` : ''}
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <p>タスクの分解は未記載(調査で確認でき次第追記)。</p>
+  )}
+</StarlightPage>

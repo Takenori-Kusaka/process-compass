@@ -1,0 +1,152 @@
+schemaVersion: 0
+name: スクラム(Scrum)
+summary: 複雑な問題に対し、固定長の反復(スプリント)ごとに「検査と適応」を繰り返して価値あるプロダクトを届ける軽量フレームワーク
+plainSummary: 1か月以内の固定サイクルで「作って、見せて、直す」を繰り返す進め方。承認ゲートの代わりに、毎回の検査と適応で品質と方向を保つ
+purpose: 複雑な問題に対応する適応型の解決策を通じて、人々・チーム・組織が価値を生み出すことを支援する(スクラムガイド2020)
+outcomes:
+  - スプリントごとに「完成の定義」を満たした利用可能なインクリメントが少なくとも1つ生まれている
+  - プロダクトゴールに向けた進捗が透明化されている
+  - 検査の結果がプロダクトバックログとプロセスに反映されている
+origin: Ken Schwaber / Jeff Sutherland(1995年 OOPSLA 発表)。原典はスクラムガイド(最新 2020年版)
+iso12207Groups:
+  - テクニカルマネジメント(軽量な反復で代替。合意プロセス群・組織プロセス群は意図的に対象外)
+roles:
+  - id: po
+    name: プロダクトオーナー
+    responsibility: プロダクトの価値最大化に対する結果責任。プロダクトゴールの策定、バックログの内容・並び順の単独決定(1人の人間であり委員会ではない)
+    jpNote: 事業部門の管理職が兼務して多忙となり、イベント欠席・バックログ放置・意思決定遅延に陥る例が定番の課題
+  - id: sm
+    name: スクラムマスター
+    responsibility: スクラム確立への結果責任を持つ「真のリーダー」。チーム・PO・組織の支援役であり管理者ではない
+    jpNote: 受託開発ではベンダー側が選任する形が IPA モデル契約でも想定される。PO との兼任は利害相反のため不適
+  - id: dev
+    name: 開発者
+    responsibility: スプリントバックログの作成、完成の定義に基づく品質の作り込み、日々の計画適応。職能横断で肩書を分けない
+    jpNote: 複数チーム・複数案件の掛け持ちによる集中の欠如が課題として指摘される
+workProducts:
+  - id: product-backlog
+    name: プロダクトバックログ
+    description: 唯一の作業源。コミットメントはプロダクトゴール(一度に追うのは1つ)
+    producedBy: po
+  - id: sprint-backlog
+    name: スプリントバックログ
+    description: スプリントゴール+選択アイテム+実行計画。開発者による開発者のための計画
+    producedBy: dev
+  - id: increment
+    name: インクリメント
+    description: 完成の定義(DoD)を満たした利用可能な成果。DoD を満たさない作業はインクリメントと呼べない
+    producedBy: dev
+gates:
+  - id: g-review
+    name: スプリントレビュー(検査)
+    kind: inspection
+    deliverables: [インクリメント, プロダクトゴールへの進捗]
+    criteria: [経験的な検査(承認基準ではない)]
+    approver: スクラムチーム+ステークホルダー(協働)
+    decisions: [プロダクトバックログの適応]
+    jpNote: 原典は「リリースのゲートと見なしてはならない」と明文で禁止。ただし日本の受託開発では事実上の検収イベント化が起きがち
+  - id: g-dod
+    name: 完成の定義(DoD)
+    kind: inspection
+    deliverables: [スプリント内の全作業]
+    criteria: [DoD に列挙された品質基準(組織標準があれば最低限それに従う)]
+    approver: 開発者(自己判定)
+    decisions: [インクリメントとして成立 / プロダクトバックログへ差し戻し]
+  - id: g-sprint-cancel
+    name: スプリント中止
+    kind: decision
+    deliverables: [スプリントゴールの現状]
+    criteria: [スプリントゴールが陳腐化したか]
+    approver: プロダクトオーナー(唯一の Kill 権限)
+    decisions: [継続 / 中止]
+  - id: g-release
+    name: リリース判断
+    kind: decision
+    deliverables: [インクリメント]
+    criteria: [プロダクト価値(レビュー通過は条件ではない)]
+    approver: プロダクトオーナー(任意のタイミング)
+    decisions: [リリース / 保留]
+phases:
+  - id: sprint
+    name: スプリント
+    summary: 全イベントの入れ物となる1か月以内の固定長サイクル。終了直後に次のスプリントが始まり、隙間の工程(安定化・承認待ち)は存在しない
+    activities:
+      - id: planning
+        name: スプリントプランニング
+        summary: スプリントの起点。1か月スプリントで最大8時間
+        roles: [po, sm, dev]
+        inputs: [product-backlog]
+        outputs: [sprint-backlog]
+        tasks:
+          - id: topic-why
+            name: トピック1「なぜ価値があるか」
+            description: PO が価値向上案を提示し、チーム全体でスプリントゴールを定義する
+          - id: topic-what
+            name: トピック2「何ができるか」
+            description: 開発者が PO と対話しながらアイテムを選択し、キャパシティと実績から量を判断する
+          - id: topic-how
+            name: トピック3「どうやって成し遂げるか」
+            description: アイテムごとに DoD を満たす計画(通常1日以下の単位への分解)を開発者が立てる
+      - id: development
+        name: 開発作業+デイリースクラム
+        summary: 毎営業日の検査と適応を伴う開発
+        roles: [dev]
+        inputs: [sprint-backlog]
+        outputs: [increment]
+        tasks:
+          - id: daily
+            name: デイリースクラム
+            description: 15分固定・開発者のイベント。スプリントゴールへの進捗を検査し、その日の計画を立てる
+          - id: build
+            name: インクリメントの作成
+            description: 完成の定義を満たすまで作業する。満たさない作業はバックログへ戻す
+          - id: adapt
+            name: スプリントバックログの継続的更新
+            description: 学習に応じてスコープを PO と交渉する(スプリントゴールを危うくする変更は不可)
+      - id: refinement
+        name: プロダクトバックログリファインメント
+        summary: イベントではない継続的活動
+        roles: [po, dev]
+        inputs: [product-backlog]
+        outputs: [product-backlog]
+        tasks:
+          - id: refine
+            name: アイテムの分割・詳細化
+            description: 説明・並び順・サイズを追加する。サイズ見積りは作業する開発者が行う
+      - id: review
+        name: スプリントレビュー
+        summary: スプリント終盤の検査イベント。1か月スプリントで最大4時間。承認ゲートではない
+        roles: [po, sm, dev]
+        inputs: [increment, product-backlog]
+        outputs: [product-backlog]
+        tasks:
+          - id: present
+            name: 成果の提示と進捗の議論
+            description: 主要ステークホルダーへ成果を提示し、プロダクトゴールへの進捗を議論する
+          - id: adapt-backlog
+            name: 次にやることの協働決定
+            description: 環境変化を踏まえてプロダクトバックログを調整する。プレゼンだけの場にしない
+      - id: retrospective
+        name: スプリントレトロスペクティブ
+        summary: スプリント最後の改善イベント。1か月スプリントで最大3時間
+        roles: [po, sm, dev]
+        tasks:
+          - id: inspect-process
+            name: プロセスと DoD の検査
+            description: 個人・相互作用・プロセス・ツール・完成の定義を検査する
+          - id: pick-improvement
+            name: 改善策の選択
+            description: 最も効果的な改善を選び、可能なら次スプリントのバックログに追加する
+jpRealities:
+  - ウォーターフォールの品質ゲートを接ぎ木した「ハイブリッド開発」が広く実践される(全体計画・要件確定・受入はWF型決裁、中間の実装のみ反復)
+  - 開発は速くてもリリース前の社内決裁がボトルネックになり「リリースは遅い」という乖離が起きる
+  - 品質保証部門・第三者検証がスプリント外から関与するモデルが提案されており、「品質は開発者が DoD で内製する」原典との明確な差分になっている
+  - 受託構造では IPA モデル契約(準委任前提)により PO=発注側 / SM+開発者=ベンダー側と、会社境界がロール境界に重なる
+references:
+  - title: スクラムガイド2020(公式)
+    url: https://scrumguides.org/scrum-guide.html
+  - title: スクラムガイド2020 日本語版 PDF
+    url: https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf
+  - title: IPA 情報システム・モデル取引・契約書(アジャイル開発版)
+    url: https://www.ipa.go.jp/digital/model/agile20200331.html
+  - title: 一次調査メモ(リポジトリ内 research/phase1/20260709-scrum.md に全出典)

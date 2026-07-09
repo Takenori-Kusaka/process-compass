@@ -1,0 +1,327 @@
+schemaVersion: 0
+name: ウォーターフォール開発プロセス(日本の SIer 標準形)
+summary: 要件定義から受入まで工程を一方向に直列に並べ、各工程末の完了判定(レビュー・審査)を通過してから次工程へ進む開発プロセスモデル
+plainSummary: 工程を一列に並べ、各工程の終わりに「できたか」の審査を通ってから次へ進む進め方。日本では審査が契約の区切り(検収)を兼ねる
+purpose: 大規模・多人数・受発注構造の開発において、工程と成果物を直列に固定し、各工程末の完了判定で品質と契約責任を確定させながら計画どおりにシステムを完成させる
+outcomes:
+  - 各工程の承認済み成果物一式(要件定義書〜テスト成績書)が揃っている
+  - 工程ごとの完了判定・検収の記録が残っている
+  - 検収合格により契約上の債務履行が確定している
+  - 保守へ引き継ぎ可能な文書群が残っている
+origin: 通説上の原典は Royce 1970。ただし原典は逐次一発勝負を「リスキーで失敗を招く」と警告し、反復(Do it twice)と継続的顧客関与を推奨していた。「waterfall」の語は Bell & Thayer 1976 が初出、制度化は DOD-STD-2167(1985)
+iso12207Groups:
+  - テクニカル(要件定義〜検証・妥当性確認を中心にカバー。日本では共通フレーム(SLCP-JCF)が語彙基盤)
+roles:
+  - id: pm
+    name: PM(プロジェクトマネージャ)
+    responsibility: プロジェクト執行責任者。顧客折衝・納期取り決め・トラブル対応指揮・工程管理
+    jpNote: 中小規模では PL を兼務。元請け側に置かれる
+  - id: pl
+    name: PL(プロジェクトリーダー)
+    responsibility: 現場責任者。設計・製造の進捗管理
+    jpNote: 小規模プロジェクトでは置かれない
+  - id: se
+    name: SE(システムエンジニア)
+    responsibility: 要件定義・設計など上流工程を担当し、機能・性能を決定
+    jpNote: 上流専任は元請けに集中。設計と製造管理の兼務が多い
+  - id: pg
+    name: PG(プログラマー)
+    responsibility: SE の設計に沿った実装(下流工程)
+    jpNote: 多重下請け構造では二次請け以下へ発注されがち
+  - id: qa
+    name: 品質保証部門(QA)
+    responsibility: プロセス品質とプロダクト品質の両面を評価し、品質ゲート(計画審査・工程終了審査・出荷判定)を運営
+    jpNote: プロジェクトから独立した第三者組織として大手に存在。判定権限の強さは会社により差がある
+  - id: customer
+    name: 顧客側レビュアー(ユーザ企業)
+    responsibility: 要件定義・基本設計の承認、受入テスト・検収の実施。連絡協議会での意思決定
+    jpNote: 業務部門が多忙でレビューが形式化しやすい
+workProducts:
+  - id: rd
+    name: 要件定義書
+    description: 基本設計のインプット。受入テストの検証基準。準委任契約の成果物
+    producedBy: se
+  - id: bd
+    name: 基本設計書(外部設計書)
+    description: 画面・帳票・インタフェース・DB論理設計。総合テストの検証基準。顧客承認対象
+    producedBy: se
+  - id: dd
+    name: 詳細設計書(内部設計書)
+    description: モジュール仕様・物理DB。結合テストの検証基準
+    producedBy: se
+  - id: src
+    name: ソースコード・実行モジュール
+    description: 単体テスト以降のテスト対象
+    producedBy: pg
+  - id: test-spec
+    name: テスト仕様書(単体/結合/システム各層)
+    description: V字で対応する設計書から導出される実施基準
+    producedBy: se
+  - id: test-report
+    name: テスト成績書・品質報告
+    description: テスト密度・バグ密度等。工程終了審査・出荷判定のエビデンス
+    producedBy: pl
+  - id: acceptance-doc
+    name: 検査仕様書・検収書
+    description: 検収の判定基準と記録。みなし検収条項あり
+    producedBy: customer
+  - id: manual
+    name: 操作マニュアル・移行手順書
+    description: 受入・教育・本番移行、保守への引き継ぎ
+    producedBy: se
+gates:
+  - id: g0
+    name: G0 計画審査
+    deliverables: [プロジェクト計画書, 品質計画]
+    criteria: [計画の実現性, 体制・リスクの妥当性]
+    approver: QA部門+事業部門長
+    decisions: [承認 / 条件付き承認 / 差し戻し]
+    jpNote: プロジェクト開始前に実施(フェーズ図には表示されない)
+  - id: g1
+    name: G1 要件定義完了判定
+    contractual: true
+    deliverables: [要件定義書]
+    criteria: [要件の合意(利害関係者の識別・評価・合意タスクの完了), スコープ確定]
+    approver: 顧客+PM(連絡協議会)
+    decisions: [承認(次工程契約へ) / 差し戻し]
+  - id: g2
+    name: G2 基本設計完了判定
+    contractual: true
+    deliverables: [基本設計書]
+    criteria: [要件定義書との整合, 外部仕様の顧客合意]
+    approver: 顧客+PM
+    decisions: [承認 / 差し戻し]
+  - id: g3
+    name: G3 詳細設計完了判定
+    deliverables: [詳細設計書]
+    criteria: [基本設計書との無矛盾, コーディング可能な粒度, レビュー完了]
+    approver: PL/PM(+QA)。ベンダ内
+    decisions: [承認 / 差し戻し]
+  - id: g4
+    name: G4 製造・単体テスト完了判定
+    deliverables: [ソースコード, 単体テスト成績]
+    criteria: [コードレビュー・静的解析の実施, 予定テストの完了, バグ密度が基準内]
+    approver: PL(+QA)
+    decisions: [承認 / 差し戻し]
+  - id: g5
+    name: G5 結合テスト完了判定
+    deliverables: [結合テスト成績書]
+    criteria: [テスト消化率・残バグ件数が基準内]
+    approver: PM(+QA)
+    decisions: [承認 / 差し戻し]
+  - id: g6
+    name: G6 総合テスト完了判定
+    deliverables: [システムテスト成績書, 品質報告]
+    criteria: [非機能要件の充足, 残存リスクの評価]
+    approver: PM+QA
+    decisions: [承認 / 差し戻し]
+  - id: g7
+    name: G7 出荷判定
+    deliverables: [全成果物+品質エビデンス]
+    criteria: [プロセス品質・プロダクト品質の総合評価]
+    approver: QA部門長(第三者判定)
+    decisions: [出荷可 / 出荷不可]
+  - id: g8
+    name: G8 検収(受入判定)
+    contractual: true
+    deliverables: [検査仕様書に基づく検査結果, 検収書]
+    criteria: [契約・仕様との適合(民法改正後は契約不適合責任の起点)]
+    approver: 顧客
+    decisions: [合格(債務履行確定) / 不合格(修補請求等)]
+    jpNote: 期間内に通知がない場合は「みなし検収」で合格扱いになる
+phases:
+  - id: requirements
+    name: 要件定義
+    summary: システムに求められる要件を確定し、顧客と合意する工程
+    vCounterpart: 受入テスト・運用テスト
+    gatesAfter: [g1]
+    activities:
+      - id: current-analysis
+        name: 現行業務・現行システムの調査
+        roles: [se]
+        tasks:
+          - id: flow-check
+            name: 現行業務フローの確認と課題整理
+      - id: stakeholder-requirements
+        name: 利害関係者要件の定義
+        summary: 共通フレームのタスク「利害関係者の識別 → 要件の識別 → 評価 → 合意」に対応
+        roles: [se, customer]
+        outputs: [rd]
+        tasks:
+          - id: new-flow
+            name: 新業務フローの定義
+          - id: func-req
+            name: 機能要件の一覧化
+          - id: nonfunc-req
+            name: 非機能要件(性能・可用性・セキュリティ)の定義
+          - id: scope-agree
+            name: スコープ・予算・期間の合意
+      - id: rd-review
+        name: 要件定義書の作成とレビュー・顧客承認
+        roles: [se, pm, customer]
+        outputs: [rd]
+  - id: basic-design
+    name: 基本設計(外部設計)
+    summary: 利用者から見えるシステムの姿(外部仕様)を設計する工程
+    vCounterpart: 総合テスト
+    gatesAfter: [g2]
+    activities:
+      - id: system-design
+        name: システム方式設計
+        summary: システム要件をハードウェア・ソフトウェア・手作業へ割り振る
+        roles: [se]
+        inputs: [rd]
+      - id: external-spec
+        name: 外部仕様の設計
+        roles: [se]
+        outputs: [bd]
+        tasks:
+          - id: screen
+            name: 画面レイアウト・画面遷移設計
+          - id: report
+            name: 帳票設計
+          - id: interface
+            name: 外部インタフェース設計
+          - id: db-logical
+            name: データベース論理設計
+      - id: bd-review
+        name: 基本設計書の作成と顧客レビュー・承認
+        roles: [se, customer]
+        outputs: [bd]
+  - id: detailed-design
+    name: 詳細設計(内部設計)
+    summary: プログラムを作れる粒度まで内部構造を設計する工程
+    vCounterpart: 結合テスト(単体テスト対応とする流儀もある)
+    gatesAfter: [g3]
+    activities:
+      - id: sw-design
+        name: ソフトウェア方式設計・詳細設計
+        summary: 共通フレームのソフトウェア詳細設計タスク (a)〜(g) に対応
+        roles: [se]
+        inputs: [bd]
+        outputs: [dd]
+        tasks:
+          - id: component
+            name: コンポーネント・インタフェース・DB の詳細設計
+          - id: module-split
+            name: モジュール分割と処理ロジック記述(コーディング可能な粒度)
+          - id: it-req
+            name: 結合テスト要求事項の定義
+      - id: dd-review
+        name: 詳細設計書の作成と内部レビュー
+        summary: 基本設計書との整合を確認する
+        roles: [se, pl]
+        outputs: [dd]
+  - id: coding
+    name: 製造(コーディング)
+    summary: 詳細設計に基づいて実装する工程
+    gatesAfter: []
+    activities:
+      - id: implement
+        name: コーディング
+        roles: [pg]
+        inputs: [dd]
+        outputs: [src]
+        tasks:
+          - id: code
+            name: コーディング規約に基づく実装
+          - id: code-review
+            name: コードレビュー・静的解析
+      - id: ut-spec
+        name: 単体テスト仕様書の作成
+        roles: [pg, se]
+        inputs: [dd]
+        outputs: [test-spec]
+  - id: unit-test
+    name: 単体テスト(UT)
+    summary: モジュール単位で詳細設計どおりに動くかを検証する工程
+    vCounterpart: 詳細設計・製造
+    gatesAfter: [g4]
+    activities:
+      - id: ut-exec
+        name: モジュール単位のテスト実施
+        roles: [pg]
+        inputs: [src, test-spec]
+        outputs: [test-report]
+        tasks:
+          - id: ut-run
+            name: テスト実施とバグ票起票・修正
+          - id: ut-metrics
+            name: テスト密度・バグ密度の集計
+  - id: integration-test
+    name: 結合テスト(IT)
+    summary: モジュール間・サブシステム間の連携を検証する工程
+    vCounterpart: 詳細設計〜基本設計
+    gatesAfter: [g5]
+    activities:
+      - id: it-exec
+        name: 結合テストの実施
+        roles: [pg, se]
+        inputs: [src, test-spec]
+        outputs: [test-report]
+        tasks:
+          - id: it-spec
+            name: 内部結合・外部結合テスト仕様書の作成
+          - id: it-run
+            name: 実施と欠陥管理
+  - id: system-test
+    name: 総合テスト(ST)
+    summary: システム全体が要件を満たすかを確認し、出荷可否を判定する工程
+    vCounterpart: 基本設計〜要件定義
+    gatesAfter: [g6, g7]
+    activities:
+      - id: st-exec
+        name: システム全体の適格性確認
+        roles: [se, pl]
+        inputs: [src, test-spec]
+        outputs: [test-report]
+        tasks:
+          - id: st-run
+            name: 性能・負荷・障害・運用シナリオテスト
+      - id: shipping-judge
+        name: 出荷判定(ベンダ内)
+        roles: [qa, pm]
+        inputs: [test-report]
+  - id: acceptance
+    name: 受入・リリース
+    summary: 顧客が検収し、本番環境へ移行する工程
+    vCounterpart: 要件定義
+    gatesAfter: [g8]
+    activities:
+      - id: uat
+        name: ユーザによる受入テスト(運用テスト)
+        roles: [customer]
+        inputs: [rd, acceptance-doc]
+        tasks:
+          - id: uat-run
+            name: 検査仕様書に基づく検査
+          - id: change-triage
+            name: 変更要望の扱いの決定
+      - id: release
+        name: 検収・リリース判定・本番移行
+        roles: [customer, pm, se]
+        inputs: [manual]
+        outputs: [acceptance-doc]
+        tasks:
+          - id: acceptance-issue
+            name: 検収書の発行
+          - id: migration
+            name: 移行手順書に基づく本番移行と教育
+jpRealities:
+  - 工程末ゲートは品質判定と契約の区切り(準委任→請負の切り替え、検収)を兼ねる。日本の標準形の本質は開発モデルというより契約モデル
+  - 工程完了判定が日程優先で「条件付き通過」の連発になり、品質ゲートが通過儀式化するリスクが知られる
+  - 人月ビジネス(単価×人数)は文書量・工程数の削減と収益が相反し、重厚な工程・文書が温存されやすいという指摘がある
+  - 多重下請け構造により、元請け(PM/SE=上流)と二次請け以下(PG=製造・単体テスト)の工程別分業が定着している
+  - 原典(Royce)の警告(反復・Do it twice・継続的顧客関与)が落ち、図の逐次モデルだけが制度化された経緯そのものが最大の「建前と実態の乖離」
+references:
+  - title: Royce, W.W. (1970) Managing the Development of Large Software Systems(原論文 PDF)
+    url: https://www.praxisframework.org/files/royce1970.pdf
+  - title: IPA 共通フレーム2013 第3部(PDF)
+    url: https://www.ipa.go.jp/publish/qv6pgp000000107j-att/000062659.pdf
+  - title: IPA 情報システム・モデル取引・契約書(第二版)
+    url: https://www.ipa.go.jp/digital/model/model20201222.html
+  - title: JUSE ソフトウェア品質保証部長の会 成果資料(計画審査・工程終了審査・出荷判定)
+    url: https://www.juse.or.jp/sqip/community/bucyo/2/file/group2.pdf
+  - title: David A. Wheeler「The Waterfall Model」(俗説の系譜)
+    url: https://dwheeler.com/essays/waterfall.html
+  - title: 一次調査メモ(リポジトリ内 research/phase1/20260709-waterfall.md に全出典)

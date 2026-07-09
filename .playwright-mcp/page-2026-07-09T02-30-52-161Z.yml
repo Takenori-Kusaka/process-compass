@@ -1,0 +1,192 @@
+- generic [active] [ref=e1]:
+  - link "コンテンツにスキップ" [ref=e2] [cursor=pointer]:
+    - /url: "#_top"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Process Compass" [ref=e7] [cursor=pointer]:
+          - /url: /process-compass/
+          - generic [ref=e8]: Process Compass
+        - button "検索" [ref=e11] [cursor=pointer]:
+          - img [ref=e12]
+          - generic [ref=e14]: 検索
+          - generic [ref=e15]:
+            - generic [ref=e16]: Ctrl
+            - generic [ref=e17]: K
+        - generic [ref=e18]:
+          - link "GitHub" [ref=e20] [cursor=pointer]:
+            - /url: https://github.com/Takenori-Kusaka/process-compass
+            - generic [ref=e21]: GitHub
+            - img [ref=e22]
+          - generic [ref=e25]:
+            - generic [ref=e26]: テーマの選択
+            - img
+            - combobox "テーマの選択" [ref=e27] [cursor=pointer]:
+              - option "ダーク"
+              - option "ライト"
+              - option "自動" [selected]
+            - img
+    - navigation "メイン":
+      - list [ref=e31]:
+        - listitem [ref=e32]:
+          - group [ref=e33]:
+            - generic "ビジョン" [ref=e34] [cursor=pointer]:
+              - generic [ref=e35]: ビジョン
+              - img [ref=e36]
+            - list [ref=e38]:
+              - listitem [ref=e39]:
+                - link "プロジェクトの目的とゴール" [ref=e40] [cursor=pointer]:
+                  - /url: /process-compass/vision/01-goal/
+              - listitem [ref=e41]:
+                - link "ロードマップ(6フェーズ)" [ref=e42] [cursor=pointer]:
+                  - /url: /process-compass/vision/02-roadmap/
+              - listitem [ref=e43]:
+                - link "プロセス提案ツール構想" [ref=e44] [cursor=pointer]:
+                  - /url: /process-compass/vision/03-tool-concept/
+        - listitem [ref=e45]:
+          - group [ref=e46]:
+            - 'generic "フェーズ1: 現状調査" [ref=e47] [cursor=pointer]':
+              - generic [ref=e48]: "フェーズ1: 現状調査"
+              - img [ref=e49]
+            - list [ref=e51]:
+              - listitem [ref=e52]:
+                - link "フェーズ1 概要 — 現状の開発プロセス調査" [ref=e53] [cursor=pointer]:
+                  - /url: /process-compass/phase1-current-state/overview/
+              - listitem [ref=e54]:
+                - link "調査フレームワーク(共通テンプレート)" [ref=e55] [cursor=pointer]:
+                  - /url: /process-compass/phase1-current-state/research-framework/
+        - listitem [ref=e56]:
+          - group [ref=e57]:
+            - 'generic "フェーズ2: AIDLC・理想形調査" [ref=e58] [cursor=pointer]':
+              - generic [ref=e59]: "フェーズ2: AIDLC・理想形調査"
+              - img [ref=e60]
+            - list [ref=e62]:
+              - listitem [ref=e63]:
+                - link "フェーズ2 概要 — AIDLC・理想の開発プロセス調査" [ref=e64] [cursor=pointer]:
+                  - /url: /process-compass/phase2-aidlc/overview/
+        - listitem [ref=e65]:
+          - group [ref=e66]:
+            - 'generic "フェーズ3: ギャップ分析" [ref=e67] [cursor=pointer]':
+              - generic [ref=e68]: "フェーズ3: ギャップ分析"
+              - img [ref=e69]
+            - list [ref=e71]:
+              - listitem [ref=e72]:
+                - link "フェーズ3 概要 — ギャップ分析" [ref=e73] [cursor=pointer]:
+                  - /url: /process-compass/phase3-gap-analysis/overview/
+        - listitem [ref=e74]:
+          - group [ref=e75]:
+            - 'generic "フェーズ4: 詳細プロセス策定" [ref=e76] [cursor=pointer]':
+              - generic [ref=e77]: "フェーズ4: 詳細プロセス策定"
+              - img [ref=e78]
+            - list [ref=e80]:
+              - listitem [ref=e81]:
+                - link "フェーズ4 概要 — 詳細プロセス策定" [ref=e82] [cursor=pointer]:
+                  - /url: /process-compass/phase4-process-design/overview/
+        - listitem [ref=e83]:
+          - group [ref=e84]:
+            - 'generic "フェーズ5: プロセス実装" [ref=e85] [cursor=pointer]':
+              - generic [ref=e86]: "フェーズ5: プロセス実装"
+              - img [ref=e87]
+            - list [ref=e89]:
+              - listitem [ref=e90]:
+                - link "フェーズ5 概要 — プロセス実装" [ref=e91] [cursor=pointer]:
+                  - /url: /process-compass/phase5-implementation/overview/
+        - listitem [ref=e92]:
+          - group [ref=e93]:
+            - 'generic "フェーズ6: プロセス運用" [ref=e94] [cursor=pointer]':
+              - generic [ref=e95]: "フェーズ6: プロセス運用"
+              - img [ref=e96]
+            - list [ref=e98]:
+              - listitem [ref=e99]:
+                - link "フェーズ6 概要 — プロセス運用" [ref=e100] [cursor=pointer]:
+                  - /url: /process-compass/phase6-operation/overview/
+        - listitem [ref=e101]:
+          - group [ref=e102]:
+            - generic "コミュニティ" [ref=e103] [cursor=pointer]:
+              - generic [ref=e104]: コミュニティ
+              - img [ref=e105]
+            - list [ref=e107]:
+              - listitem [ref=e108]:
+                - link "フィードバック・コントリビュート" [ref=e109] [cursor=pointer]:
+                  - /url: /process-compass/community/contributing/
+              - listitem [ref=e110]:
+                - link "プロジェクト運営(Issue 駆動)" [ref=e111] [cursor=pointer]:
+                  - /url: /process-compass/community/project-management/
+              - listitem [ref=e112]:
+                - link "作図規約(図解ファースト)" [ref=e113] [cursor=pointer]:
+                  - /url: /process-compass/community/style-guide-diagrams/
+        - listitem [ref=e114]:
+          - group [ref=e115]:
+            - generic "決定記録(ADR)" [ref=e116] [cursor=pointer]:
+              - generic [ref=e117]: 決定記録(ADR)
+              - img [ref=e118]
+    - generic [ref=e121]:
+      - complementary:
+        - navigation "目次 概要" [ref=e122]:
+          - group [ref=e123]:
+            - generic "目次 概要" [ref=e124]:
+              - generic [ref=e125] [cursor=pointer]:
+                - text: 目次
+                - img [ref=e126]
+              - generic [ref=e128]: 概要
+      - main [ref=e130]:
+        - heading "ロードマップ(6フェーズ)" [level=1] [ref=e133]
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - paragraph [ref=e137]: 本プロジェクトは以下の6フェーズで進めます。
+            - generic [ref=e138]: graph LR P1[1. 現状調査] --> P3[3. ギャップ分析] P2[2. AIDLC・理想形調査] --> P3 P3 --> P4[4. 詳細プロセス策定] P4 --> P5[5. プロセス実装] P5 --> P6[6. プロセス運用] click P1 "/process-compass/phase1-current-state/overview/" "フェーズ1の詳細へ" click P2 "/process-compass/phase2-aidlc/overview/" "フェーズ2の詳細へ" click P3 "/process-compass/phase3-gap-analysis/overview/" "フェーズ3の詳細へ" click P4 "/process-compass/phase4-process-design/overview/" "フェーズ4の詳細へ" click P5 "/process-compass/phase5-implementation/overview/" "フェーズ5の詳細へ" click P6 "/process-compass/phase6-operation/overview/" "フェーズ6の詳細へ"
+            - paragraph [ref=e139]:
+              - text: 図の各フェーズはクリックすると詳細ページへ移動できます(ドリルダウン閲覧の様式は
+              - link "ADR-0006" [ref=e140] [cursor=pointer]:
+                - /url: /process-compass/adr/0006-representation-policy/
+              - text: で定義)。
+            - table [ref=e141]:
+              - rowgroup [ref=e142]:
+                - row "フェーズ 内容 期間目安" [ref=e143]:
+                  - columnheader "フェーズ" [ref=e144]
+                  - columnheader "内容" [ref=e145]
+                  - columnheader "期間目安" [ref=e146]
+              - rowgroup [ref=e147]:
+                - row "1. 現状調査 既存の開発プロセス(ウォーターフォール、アジャイル、スクラム、TDD、DDD、イベント駆動、仕様駆動、AIDLC)を、ロール・ゲート・成果物・レビューまで踏み込んで体系化 3〜4ヶ月" [ref=e148]:
+                  - cell "1. 現状調査" [ref=e149]
+                  - cell "既存の開発プロセス(ウォーターフォール、アジャイル、スクラム、TDD、DDD、イベント駆動、仕様駆動、AIDLC)を、ロール・ゲート・成果物・レビューまで踏み込んで体系化" [ref=e150]
+                  - cell "3〜4ヶ月" [ref=e151]
+                - row "2. AIDLC・理想形調査 生成AIを組み込んだときに期待される理想の開発プロセスを整理 —" [ref=e152]:
+                  - cell "2. AIDLC・理想形調査" [ref=e153]
+                  - cell "生成AIを組み込んだときに期待される理想の開発プロセスを整理" [ref=e154]
+                  - cell "—" [ref=e155]
+                - row "3. ギャップ分析 フェーズ1と2を突合し、差分と生成AIが入る余地を整理 —" [ref=e156]:
+                  - cell "3. ギャップ分析" [ref=e157]
+                  - cell "フェーズ1と2を突合し、差分と生成AIが入る余地を整理" [ref=e158]
+                  - cell "—" [ref=e159]
+                - row "4. 詳細プロセス策定 現実的な統合プロセスを詳細に定義 —" [ref=e160]:
+                  - cell "4. 詳細プロセス策定" [ref=e161]
+                  - cell "現実的な統合プロセスを詳細に定義" [ref=e162]
+                  - cell "—" [ref=e163]
+                - row "5. プロセス実装 Git戦略、CI/CDゲート、AI実行環境、コンピューティングリソースなど、プロセスを動かす仕組みの設計 —" [ref=e164]:
+                  - cell "5. プロセス実装" [ref=e165]
+                  - cell "Git戦略、CI/CDゲート、AI実行環境、コンピューティングリソースなど、プロセスを動かす仕組みの設計" [ref=e166]
+                  - cell "—" [ref=e167]
+                - row "6. プロセス運用 策定したプロセスを継続運用するための運用プロセス・運用作業の定義 —" [ref=e168]:
+                  - cell "6. プロセス運用" [ref=e169]
+                  - cell "策定したプロセスを継続運用するための運用プロセス・運用作業の定義" [ref=e170]
+                  - cell "—" [ref=e171]
+            - paragraph [ref=e172]: フェーズ1と2は並行して進められます。各フェーズの成果は随時このサイトで公開し、フィードバックを反映します。
+          - generic [ref=e173]:
+            - link "ページを編集" [ref=e175] [cursor=pointer]:
+              - /url: https://github.com/Takenori-Kusaka/process-compass/edit/main/src/content/docs/vision/02-roadmap.md
+              - img [ref=e176]
+              - text: ページを編集
+            - generic [ref=e178]:
+              - link "前へ プロジェクトの目的とゴール" [ref=e179] [cursor=pointer]:
+                - /url: /process-compass/vision/01-goal/
+                - img [ref=e180]
+                - generic [ref=e182]:
+                  - text: 前へ
+                  - text: プロジェクトの目的とゴール
+              - link "次へ プロセス提案ツール構想" [ref=e183] [cursor=pointer]:
+                - /url: /process-compass/vision/03-tool-concept/
+                - img [ref=e184]
+                - generic [ref=e186]:
+                  - text: 次へ
+                  - text: プロセス提案ツール構想

@@ -53,7 +53,19 @@ export default defineConfig({
       ],
       sidebar: [
         { label: 'ビジョン', items: [{ autogenerate: { directory: 'vision' } }] },
-        { label: 'フェーズ1: 現状調査', items: [{ autogenerate: { directory: 'phase1-current-state' } }] },
+        {
+          label: 'フェーズ1: 現状調査',
+          items: [
+            { autogenerate: { directory: 'phase1-current-state' } },
+            {
+              label: 'プロセス体系(データ駆動)',
+              items: [
+                { label: 'ウォーターフォール', link: '/processes/waterfall/' },
+                { label: 'スクラム', link: '/processes/scrum/' },
+              ],
+            },
+          ],
+        },
         { label: 'フェーズ2: AIDLC・理想形調査', items: [{ autogenerate: { directory: 'phase2-aidlc' } }] },
         { label: 'フェーズ3: ギャップ分析', items: [{ autogenerate: { directory: 'phase3-gap-analysis' } }] },
         { label: 'フェーズ4: 詳細プロセス策定', items: [{ autogenerate: { directory: 'phase4-process-design' } }] },

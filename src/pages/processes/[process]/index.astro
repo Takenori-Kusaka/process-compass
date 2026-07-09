@@ -1,0 +1,118 @@
+---
+// L1: プロセス全体マップ(ADR-0006 の3ズームレベル / ADR-0007 のスキーマ駆動)
+import { getCollection } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { l1Diagram } from '../../../lib/process-diagrams';
+
+export async function getStaticPaths() {
+  const processes = await getCollection('processes');
+  return processes.map((entry) => ({ params: { process: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const p = entry.data;
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : `${base}/`;
+const diagram = l1Diagram(entry.id, p.phases, p.gates, base);
+const roleName = new Map(p.roles.map((r) => [r.id, r.name]));
+---
+
+<StarlightPage frontmatter={{ title: p.name, description: p.summary }}>
+  <p>{p.summary}</p>
+
+  {p.plainSummary && (
+    <blockquote>
+      <p><strong>ひとことで言うと</strong>: {p.plainSummary}</p>
+    </blockquote>
+  )}
+
+  <h2 id="map">全体マップ(L1)</h2>
+  <p>各フェーズをクリックすると、フェーズ内のワークフロー(L2)へ移動します。</p>
+  <pre class="mermaid">{diagram}</pre>
+
+  <h2 id="purpose">目的と成果</h2>
+  <p><strong>目的(purpose)</strong>: {p.purpose}</p>
+  <p><strong>成果(outcomes)</strong>:</p>
+  <ul>
+    {p.outcomes.map((o) => <li>{o}</li>)}
+  </ul>
+  {p.origin && <p><strong>原典</strong>: {p.origin}</p>}
+  {p.iso12207Groups && p.iso12207Groups.length > 0 && (
+    <p>
+      <strong>ISO/IEC/IEEE 12207 対応</strong>: 主に「{p.iso12207Groups.join('」「')}」プロセス群をカバー
+    </p>
+  )}
+
+  <h2 id="roles">ロール</h2>
+  <table>
+    <thead>
+      <tr><th>ロール</th><th>責任</th><th>日本の現場での実態</th></tr>
+    </thead>
+    <tbody>
+      {p.roles.map((r) => (
+        <tr><td>{r.name}</td><td>{r.responsibility}</td><td>{r.jpNote ?? '—'}</td></tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2 id="gates">ゲート(決裁・レビュー)</h2>
+  <table>
+    <thead>
+      <tr><th>ゲート</th><th>種別</th><th>Deliverables</th><th>判定基準</th><th>判定者</th><th>判定結果</th></tr>
+    </thead>
+    <tbody>
+      {p.gates.map((g) => (
+        <tr>
+          <td>{g.name}{g.jpNote ? ` ※${g.jpNote}` : ''}</td>
+          <td>{g.kind === 'inspection' ? '検査と適応' : '決裁(Go/Kill)'}</td>
+          <td>{g.deliverables.join(' / ')}</td>
+          <td>{g.criteria.join(' / ')}</td>
+          <td>{g.approver}</td>
+          <td>{g.decisions.join(' / ')}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2 id="work-products">成果物(information items)</h2>
+  <table>
+    <thead>
+      <tr><th>成果物</th><th>作成者</th><th>説明</th></tr>
+    </thead>
+    <tbody>
+      {p.workProducts.map((w) => (
+        <tr>
+          <td>{w.name}</td>
+          <td>{w.producedBy ? (roleName.get(w.producedBy) ?? w.producedBy) : '—'}</td>
+          <td>{w.description ?? '—'}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  {p.jpRealities && p.jpRealities.length > 0 && (
+    <>
+      <h2 id="jp-realities">建前と実運用(日本の現場)</h2>
+      <ul>
+        {p.jpRealities.map((j) => <li>{j}</li>)}
+      </ul>
+    </>
+  )}
+
+  <h2 id="phases">フェーズ一覧(L2 へ)</h2>
+  <ul>
+    {p.phases.map((ph) => (
+      <li>
+        <a href={`${b}processes/${entry.id}/${ph.id}/`}>{ph.name}</a>
+        {ph.summary ? ` — ${ph.summary}` : ''}
+      </li>
+    ))}
+  </ul>
+
+  <h2 id="references">参考文献</h2>
+  <ul>
+    {p.references.map((ref) => (
+      <li>{ref.url ? <a href={ref.url}>{ref.title}</a> : ref.title}</li>
+    ))}
+  </ul>
+</StarlightPage>

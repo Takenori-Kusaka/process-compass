@@ -1,0 +1,77 @@
+---
+// L2: フェーズ内ワークフロー(ADR-0006)
+import { getCollection } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { l2Diagram } from '../../../../lib/process-diagrams';
+
+export async function getStaticPaths() {
+  const processes = await getCollection('processes');
+  return processes.flatMap((entry) =>
+    entry.data.phases.map((phase) => ({
+      params: { process: entry.id, phase: phase.id },
+      props: { entry, phase },
+    }))
+  );
+}
+
+const { entry, phase } = Astro.props;
+const p = entry.data;
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : `${base}/`;
+const diagram = l2Diagram(entry.id, phase.id, phase.activities, base);
+const exitGates = phase.gatesAfter
+  .map((id) => p.gates.find((g) => g.id === id))
+  .filter((g) => g !== undefined);
+const roleName = new Map(p.roles.map((r) => [r.id, r.name]));
+---
+
+<StarlightPage
+  frontmatter={{
+    title: `${phase.name}(${p.name})`,
+    description: phase.summary ?? `${p.name} の ${phase.name} フェーズ`,
+  }}
+>
+  <p>
+    <a href={`${b}processes/${entry.id}/`}>← {p.name} の全体マップ(L1)へ戻る</a>
+  </p>
+
+  {phase.summary && <p>{phase.summary}</p>}
+
+  <h2 id="workflow">ワークフロー(L2)</h2>
+  <p>各アクティビティをクリックすると、個別作業(L3)へ移動します。</p>
+  <pre class="mermaid">{diagram}</pre>
+
+  <h2 id="activities">アクティビティ一覧</h2>
+  <ul>
+    {phase.activities.map((a) => (
+      <li>
+        <a href={`${b}processes/${entry.id}/${phase.id}/${a.id}/`}>{a.name}</a>
+        {a.summary ? ` — ${a.summary}` : ''}
+        {a.roles && a.roles.length > 0
+          ? `(担当: ${a.roles.map((r) => roleName.get(r) ?? r).join('、')})`
+          : ''}
+      </li>
+    ))}
+  </ul>
+
+  {exitGates.length > 0 && (
+    <>
+      <h2 id="gates">このフェーズの出口ゲート</h2>
+      {exitGates.map((gate) => (
+        <>
+          <h3>{gate.name}{gate.contractual ? '(契約上の区切りを兼ねる)' : ''}</h3>
+          <table>
+            <tbody>
+              <tr><th>Deliverables</th><td>{gate.deliverables.join(' / ')}</td></tr>
+              <tr><th>判定基準</th><td>{gate.criteria.join(' / ')}</td></tr>
+              <tr><th>判定者</th><td>{gate.approver}</td></tr>
+              <tr><th>判定結果</th><td>{gate.decisions.join(' / ')}</td></tr>
+            </tbody>
+          </table>
+          {gate.jpNote && <p>※ {gate.jpNote}</p>}
+        </>
+      ))}
+    </>
+  )}
+  {phase.vCounterpart && <p><strong>V字モデルでの対応</strong>: {phase.vCounterpart}</p>}
+</StarlightPage>
