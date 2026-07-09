@@ -34,6 +34,9 @@ const processSchema = z.object({
   schemaVersion: z.literal(0),
   name: z.string(),
   summary: z.string(),
+  // プロセスの粒度・性格(調査フレームワークが指摘する「粒度の差」をデータ化)
+  // lifecycle=開発ライフサイクル全体 / practice=実務プラクティス / design-method=設計手法 / umbrella=価値観・原則の傘
+  category: z.enum(['lifecycle', 'practice', 'design-method', 'umbrella']).default('lifecycle'),
   purpose: z.string(),
   outcomes: z.string().array(),
   origin: z.string().optional(), // 原典・提唱者

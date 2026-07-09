@@ -1,0 +1,71 @@
+---
+// プロセス体系のランディングページ(ADR-0007 のスキーマ駆動)
+import { getCollection } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+const processes = await getCollection('processes');
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : `${base}/`;
+
+const categoryLabels: Record<string, { label: string; note: string }> = {
+  lifecycle: { label: 'ライフサイクルプロセス', note: '開発の全工程を通した進め方' },
+  umbrella: { label: '価値観・原則の傘', note: '個別手法を束ねる考え方' },
+  practice: { label: '実務プラクティス', note: '開発者レベルの技法' },
+  'design-method': { label: '設計手法', note: '設計の進め方・考え方' },
+};
+const order = ['lifecycle', 'umbrella', 'practice', 'design-method'];
+
+const grouped = order
+  .map((cat) => ({
+    cat,
+    meta: categoryLabels[cat],
+    items: processes
+      .filter((p) => p.data.category === cat)
+      .sort((a, b2) => a.data.name.localeCompare(b2.data.name, 'ja')),
+  }))
+  .filter((g) => g.items.length > 0);
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'プロセス体系',
+    description:
+      '調査した開発プロセスを、粒度(ライフサイクル / 価値観の傘 / プラクティス / 設計手法)で分類した一覧',
+  }}
+>
+  <p>
+    フェーズ1で調査した開発プロセスの一覧です。各プロセスは共通スキーマ(<a
+      href={`${b}adr/0007-schema-driven-process-data/`}>ADR-0007</a
+    >)で記述され、全体マップ(L1)からフェーズ(L2)、個別作業(L3)へクリックで掘り下げられます(<a
+      href={`${b}adr/0006-representation-policy/`}>ADR-0006</a
+    >)。
+  </p>
+
+  <p>
+    プロセスは粒度が異なります。ウォーターフォールやスクラムは「開発の全工程」を扱うライフサイクルですが、TDD
+    や DDD
+    は開発者レベルの技法・設計手法です。同じ土俵で比べないよう、粒度で分類しています。
+  </p>
+
+  {grouped.map((g) => (
+    <>
+      <h2 id={g.cat}>{g.meta.label}</h2>
+      <p>{g.meta.note}</p>
+      <ul>
+        {g.items.map((p) => (
+          <li>
+            <a href={`${b}processes/${p.id}/`}><strong>{p.data.name}</strong></a>
+            {' — '}
+            {p.data.summary}
+          </li>
+        ))}
+      </ul>
+    </>
+  ))}
+
+  <h2 id="comparison">横断比較</h2>
+  <p>
+    全プロセスの調査が揃った段階で、ロール・ゲート構造・成果物・意思決定の集中/分散などの軸で横断比較表を掲載する予定です(Issue
+    #30)。
+  </p>
+</StarlightPage>

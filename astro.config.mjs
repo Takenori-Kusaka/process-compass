@@ -60,6 +60,7 @@ export default defineConfig({
             {
               label: 'プロセス体系(データ駆動)',
               items: [
+                { label: '一覧', link: '/processes/' },
                 { label: 'ウォーターフォール', link: '/processes/waterfall/' },
                 { label: 'スクラム', link: '/processes/scrum/' },
               ],
