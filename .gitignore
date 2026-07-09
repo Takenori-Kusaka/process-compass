@@ -27,3 +27,6 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# Playwright MCP temp output
+.playwright-mcp/
