@@ -15,9 +15,20 @@ const base = import.meta.env.BASE_URL;
 const b = base.endsWith('/') ? base : `${base}/`;
 const diagram = l1Diagram(entry.id, p.phases, p.gates, base);
 const roleName = new Map(p.roles.map((r) => [r.id, r.name]));
+
+const categoryLabel: Record<string, string> = {
+  lifecycle: 'ライフサイクルプロセス(開発の全工程)',
+  umbrella: '価値観・原則の傘(個別手法を束ねる考え方)',
+  practice: '実務プラクティス(開発者レベルの技法)',
+  'design-method': '設計手法(設計の進め方・考え方)',
+  hybrid: 'ハイブリッド開発の実態(アンチパターンを含む現実の運用)',
+};
 ---
 
 <StarlightPage frontmatter={{ title: p.name, description: p.summary }}>
+  <p>
+    <a href={`${b}processes/`}>プロセス体系</a> ／ 種別: <strong>{categoryLabel[p.category]}</strong>
+  </p>
   <p>{p.summary}</p>
 
   {p.plainSummary && (
