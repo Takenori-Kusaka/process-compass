@@ -2,7 +2,7 @@
 
 - Issue: #74
 - 作成日: 2026-07-09
-- 状態: 調査中
+- 状態: 清書済み → src/data/processes/hybrid.yaml(公開: /process-compass/processes/hybrid/)
 
 > 記述様式: [調査フレームワーク](https://takenori-kusaka.github.io/process-compass/phase1-current-state/research-framework/)(6+2要素)に準じつつ、本メモは **アンチパターンカタログ** の性格が強いため、§3 を「アンチパターン各論(症状 / 建前 / 実態 / なぜ起きるか / 弊害 / 出典)」の中心節に据える。
 > このメモの目的は理想プロセスの記述ではなく、日本企業で実際に起きている「建前はスクラム、実態は混乱」という **From の実態** をアンチパターンとして直視し、出典付きで整理することにある。

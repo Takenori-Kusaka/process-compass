@@ -66,6 +66,7 @@ export default defineConfig({
                 { label: 'スクラム', link: '/processes/scrum/' },
                 { label: 'テスト駆動開発(TDD)', link: '/processes/tdd/' },
                 { label: 'ドメイン駆動設計(DDD)', link: '/processes/ddd/' },
+                { label: 'ハイブリッド開発の実態', link: '/processes/hybrid/' },
               ],
             },
           ],

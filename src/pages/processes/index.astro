@@ -12,8 +12,12 @@ const categoryLabels: Record<string, { label: string; note: string }> = {
   umbrella: { label: '価値観・原則の傘', note: '個別手法を束ねる考え方' },
   practice: { label: '実務プラクティス', note: '開発者レベルの技法' },
   'design-method': { label: '設計手法', note: '設計の進め方・考え方' },
+  hybrid: {
+    label: 'ハイブリッド開発の実態(アンチパターン)',
+    note: '建前と実態が乖離した現実の運用。From を直視するために記録する',
+  },
 };
-const order = ['lifecycle', 'umbrella', 'practice', 'design-method'];
+const order = ['lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
 
 const grouped = order
   .map((cat) => ({

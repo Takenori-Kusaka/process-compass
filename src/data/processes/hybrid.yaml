@@ -1,0 +1,155 @@
+schemaVersion: 0
+name: ハイブリッド開発(なんちゃってアジャイル / ウォーター・スクラム・フォール)
+category: hybrid
+summary: スクラム/アジャイルを名乗りながら、原典の設計から逸脱し価値を生まない運用形態の総称。日本企業で実際に起きている「建前はスクラム、実態は混乱」という From の実態
+plainSummary: イベントやロール名という「形」だけを輸入し、経験主義・自己組織化・単一責任という「魂」を輸入し損ねた状態。日本ではこれに稟議・合議・品質ゲート文化が接ぎ木されて固有の形になる。ただしすべてが「悪」ではなく、境界を意識的に設計した過渡形なら有効な場合もある
+purpose: 既存の WF 型ガバナンス・決裁構造を維持したまま、開発工程だけを反復化して「アジャイルをやっている」体裁を得る(実際に果たしている機能)
+outcomes:
+  - イベントは実施されるがリリース可能なインクリメントが稀にしか生まれない(ゾンビスクラム)
+  - 意思決定が合議で滞留しスプリントが空回りする
+  - 開発は速くなってもリリース前決裁がボトルネックになる
+  - 開発者の疲弊・モラール低下(ダークスクラム)
+origin: Dave West / Forrester「Water-Scrum-Fall」(2011)。ほか Ron Jeffries「Dark Scrum」、Christiaan Verwijs「Zombie Scrum」、Stefan Wolpers の PO アンチパターン集
+iso12207Groups:
+  - 該当なし(正規のプロセスではなく逸脱形態の観察対象)
+roles:
+  - id: proxy-po
+    name: プロキシPO(代理プロダクトオーナー)
+    responsibility: 【アンチパターン】決定権も顧客への直接アクセスも持たないまま PO 席に座る
+    jpNote: スクラムガイドは「PO は1人の人間であり委員会ではない」と明記。代理POはボトルネック化し、優先順位のズレと意思決定遅延を招く
+  - id: po-committee
+    name: PO委員会 / 企画部門によるPO代行
+    responsibility: 【アンチパターン】部署単位・委員会でバックログの優先順位を決める(prioritization by proxy)
+    jpNote: 稟議・合議文化が「1人のPO」を制度的に拒む。Wolpers は「その権限を奪うとスクラムは強力な waterfall 2.0 に変わる」と指摘
+  - id: excess-approvers
+    name: 過剰な承認者・調整役・部門代表
+    responsibility: 【アンチパターン】PO/SM/開発者の3責任以外に、承認者・レビュアー・部門代表が大量に存在する
+    jpNote: 責任分散文化(合議で誰も単独責任を負わない)と多段稟議・深い階層により、各部門が「関与しないと責任問題になる」ため関係者が積み上がる
+  - id: boss-sm
+    name: 上司を兼ねる SM / 権力保持者
+    responsibility: 【アンチパターン】管理職が SM/PO を兼ね、旧来のコマンド&コントロールを温存する
+    jpNote: デイリーが監視・命令の場に、レビューが失敗糾弾に、レトロが改善却下に転化する(ダークスクラム)。SM は本来「真のリーダー」で管理者ではない
+workProducts:
+  - id: fixed-requirements
+    name: 先に固定された要件定義書(前段WF)
+    description: アジャイルチームが関与する前に範囲・予算・スケジュールが確定される
+  - id: increment
+    name: インクリメント(検収対象化)
+    description: 本来は検査イベントの対象だが、実態では発注側の受入・検収の対象になる
+gates:
+  - id: g-req-approval
+    name: 要件承認ゲート(前段WF)
+    kind: decision
+    contractual: true
+    deliverables: [要件定義書]
+    criteria: [範囲・予算の合意]
+    approver: 企画部門/決裁階層(合議)
+    decisions: [Go / 差し戻し]
+    jpNote: スクラムが排除したはずの事前固定ゲート。年度予算主義と稟議構造が要求する
+  - id: g-review-acceptance
+    name: スプリントレビューの検収化
+    kind: decision
+    contractual: true
+    deliverables: [インクリメント]
+    criteria: [発注側の受入基準]
+    approver: 発注側ステークホルダー
+    decisions: [承認 / 手戻り]
+    jpNote: スクラムガイドは「レビューを価値リリースのゲートと見なしてはならない」と明文で禁止。実態では検収イベント化する
+  - id: g-release-approval
+    name: リリース承認ゲート(後段WF)
+    kind: decision
+    deliverables: [リリース判定資料]
+    criteria: [品質ゲート・QA部門承認]
+    approver: 品質保証部門/運用部門(多段決裁)
+    decisions: [Go / Hold]
+    jpNote: 「承認待ち」滞留が復活し、反復のリズムが決裁サイクルに律速される
+phases:
+  - id: water
+    name: Water(前段=ウォーターフォール)
+    summary: 反復しない前段。アジャイルチームが関与する前に範囲・予算・スケジュールを固定する
+    gatesAfter: [g-req-approval]
+    activities:
+      - id: planning
+        name: 事業計画・予算化・フィージビリティ検討
+        roles: [po-committee, excess-approvers]
+      - id: requirements
+        name: 要件定義(先に確定させる)
+        roles: [po-committee]
+        outputs: [fixed-requirements]
+        tasks:
+          - id: fix-scope
+            name: 要件定義書の作成・承認(決裁ゲート①)
+  - id: scrum
+    name: Scrum(中段=反復)
+    summary: 開発チーム内部はスクラム。ただしバックログの優先順位は上流の WF 成果物に縛られ、PO の裁量が実質ない場合が多い
+    gatesAfter: [g-review-acceptance]
+    activities:
+      - id: sprints
+        name: スプリント群(プランニング→開発→レビュー→レトロ)
+        roles: [proxy-po, boss-sm]
+        inputs: [fixed-requirements]
+        outputs: [increment]
+        tasks:
+          - id: consume
+            name: 上流で固定されたスコープの作業消化
+            description: 学習をスコープに還流できず「作業消化」化しやすい(ゾンビスクラムの温床)
+  - id: fall
+    name: Fall(後段=ウォーターフォール)
+    summary: 反復しない後段。統合テスト・受入テスト・リリース承認を WF の直列ゲートで通す
+    gatesAfter: [g-release-approval]
+    activities:
+      - id: acceptance-release
+        name: 統合テスト・受入テスト・リリース承認
+        roles: [excess-approvers]
+        inputs: [increment]
+        tasks:
+          - id: multi-approval
+            name: 各種レビュー・検収・リリース判定(決裁ゲート②③)
+            description: リリースは低頻度で、運用・インフラ部門の承認プロセスを通過する必要がある
+antiPatterns:
+  - name: AP-1 Water-Scrum-Fall(要件とリリースをWFで挟む)
+    ideal: スクラムはフェーズ列を持たず、意思決定は PO の並び替え・DoD・スプリントゴールに分散・常時化される
+    reality: 予算・範囲・スケジュールを先に固定し、真ん中だけ反復する。Forrester は「大半の組織にとってこれがアジャイルの現実」と観測
+    why: 一括請負・検収の商慣行、年度予算主義、上流で承認を固めないと稟議が通らない構造
+    harm: 反復で得た学習を要件・リリース計画に還流できない。「開発は速いがリリースは遅い」乖離
+  - name: AP-2 単一PO原則の崩壊(複数PO / PO委員会 / 企画部PO / プロキシPO)
+    ideal: スクラムガイドは明文で「プロダクトオーナーは1人の人間であり委員会ではない」と規定。作業は委譲できるが結果責任は PO に残る
+    reality: PO が複数名いる、企画部など部署単位でPO機能を運用、現場には決定権のないプロキシPOだけが座る
+    why: 稟議・合議・根回し文化。単独者に重要決定の権限と責任を集中させることを組織が忌避し、部門横断の合意形成を正とする
+    harm: 意思決定の滞留、優先順位の一貫性喪失、スクラムの「waterfall 2.0」化
+  - name: AP-3 役割肥大・関係者過多
+    ideal: スクラムチームは通常10名以下でサブチームも階層もない。ガイドは管理階層・第三者レビュー部門・PMOを一切定義しない
+    reality: PO/SM/開発者の3責任以外に、承認者・調整役・レビュアー・部門代表が大量に存在する。複数の「上司」がデイリーやレビューに参加する
+    why: 責任分散文化と多段稟議・深いピラミッド構造。各部門が「関与しないと責任問題になる」ため関係者が積み上がる
+    harm: ステークホルダー過多で意思決定が進まない。会議コスト増大。自己組織化の阻害
+  - name: AP-4 ゾンビスクラム(心拍のないスクラム)
+    ideal: スプリントごとに「完成の定義」を満たす利用可能なインクリメントが少なくとも1つ生まれる
+    reality: 全イベントを実施するが、動くソフトがほぼ無い / 貧弱なDoD / 外の世界との接触を避ける / 低いモラールと諦め(Verwijs の4症状)
+    why: 上流でスコープが固定され開発が作業消化化し、レビューが承認プレゼン化して顧客との真の対話がない
+    harm: 「アジャイルなメリットを感じたことがない」状態が固定化する
+  - name: AP-5 ダークスクラム(開発者を抑圧する道具への転化)
+    ideal: SM は「真のリーダー」でチームの自己管理・障害物除去を支援する。管理者・進捗報告者ではない
+    reality: 権力保持者(管理職・PO・SM)がスクラムの器で開発者を監視・強制する。デイリーが監視、プランニングが押し付け、レトロが脅迫的動機づけに転化する
+    why: 旧来のコマンド&コントロール型管理を温存したままロール名だけ変える。上司がPO/SMを兼ねる
+    harm: 開発者の疲弊・離職・心理的安全性の欠如。「持続可能な開発」原則の破壊
+  - name: AP-6 WF決裁ゲートのスクラムへの接ぎ木
+    ideal: スクラムには Go/Kill 型のフェーズゲートがない。「スプリントレビューを価値リリースのゲートと見なしてはならない」と明文で禁止
+    reality: 要件承認・設計承認・リリース承認といったWFの直列決裁ゲートがスプリントの前後に差し込まれ、レビューが検収ゲート化する
+    why: 品質ゲートは「日本の品質レベルを支えてきた技術」と位置づけられ手放しにくい。稟議による多段決裁が制度化されている
+    harm: 「承認待ち」滞留の復活。反復のリズムが決裁サイクルに律速される
+jpRealities:
+  - 共通の病理は「構造の輸入・中核の非輸入」。イベント・ロール名という観察可能な形だけを移植し、経験主義・自己組織化・単一責任という中核を移植し損ねている
+  - 海外のアンチパターンは「権力の誤用」「動機の欠如」が主因だが、日本ではこれに制度化された合議・多段決裁が加わり、単一PO崩壊とロール肥大が「個人の失敗」でなく「組織構造の既定値」として現れる
+  - 健全なハイブリッドか無自覚なアンチパターンかの判別軸は、(a)境界線が明示設計されているか、(b)反復の学習が上流・リリースに還流するか、(c)単一の価値判断者が実在するか。この3軸で診断できる
+references:
+  - title: Forrester「Water-Scrum-Fall Is The Reality Of Agile」(2011、PDFミラー)
+    url: https://www.verheulconsultants.nl/water-scrum-fall_Forrester.pdf
+  - title: Ron Jeffries「Dark Scrum」(原典)
+    url: https://ronjeffries.com/articles/016-09ff/defense/
+  - title: The Liberators「The Rise Of Zombie Scrum」(Christiaan Verwijs)
+    url: https://medium.com/the-liberators/the-rise-of-zombie-scrum-cd98741015d5
+  - title: Stefan Wolpers「Product Owner Anti-Patterns」(age-of-product)
+    url: https://age-of-product.com/product-owner-anti-patterns/
+  - title: スクラムガイド2020(単一PO原則・レビューのゲート化禁止条項)
+    url: https://scrumguides.org/scrum-guide.html
+  - title: 一次調査メモ(リポジトリ内 research/phase1/20260709-hybrid-antipatterns.md に全出典)
