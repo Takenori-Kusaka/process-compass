@@ -61,6 +61,7 @@ export default defineConfig({
               label: 'プロセス体系(データ駆動)',
               items: [
                 { label: '一覧', link: '/processes/' },
+                { label: '横断比較表', link: '/processes/comparison/' },
                 { label: 'ウォーターフォール', link: '/processes/waterfall/' },
                 { label: 'アジャイル', link: '/processes/agile/' },
                 { label: 'スクラム', link: '/processes/scrum/' },

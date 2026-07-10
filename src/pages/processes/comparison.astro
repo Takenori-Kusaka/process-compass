@@ -1,0 +1,130 @@
+---
+// プロセス横断比較表(#30)。9プロセスのスキーマデータから自動生成(ADR-0007)
+import { getCollection } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+const processes = await getCollection('processes');
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : `${base}/`;
+
+const categoryLabel: Record<string, string> = {
+  lifecycle: 'ライフサイクル',
+  umbrella: '価値観の傘',
+  practice: 'プラクティス',
+  'design-method': '設計手法',
+  hybrid: 'ハイブリッド実態',
+};
+
+const rows = processes
+  .map((entry) => {
+    const p = entry.data;
+    const decision = p.gates.filter((g) => g.kind === 'decision').length;
+    const inspection = p.gates.filter((g) => g.kind === 'inspection').length;
+    // 意思決定の性格: 決裁ゲート(事前承認)が多いか、検査(事後適応)が多いか
+    let decisionStyle: string;
+    if (decision > 0 && inspection === 0) decisionStyle = '決裁(事前承認・集中)';
+    else if (inspection > 0 && decision === 0) decisionStyle = '検査(事後適応・分散)';
+    else if (decision > 0 && inspection > 0) decisionStyle = '混在';
+    else decisionStyle = '—';
+    return {
+      id: entry.id,
+      name: p.name,
+      category: p.category,
+      phases: p.phases.length,
+      roles: p.roles.length,
+      gates: p.gates.length,
+      decision,
+      inspection,
+      decisionStyle,
+    };
+  })
+  // ライフサイクル → 傘 → 設計手法/プラクティス → ハイブリッドの順
+  .sort((a, z) => {
+    const order = ['lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
+    return order.indexOf(a.category) - order.indexOf(z.category) || a.name.localeCompare(z.name, 'ja');
+  });
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'プロセス横断比較表',
+    description:
+      '調査した9つの開発プロセスを、粒度・フェーズ数・ロール数・ゲートの性格(決裁型/検査型)などの軸で横断比較する',
+  }}
+>
+  <p>
+    フェーズ1で調査した各プロセス(<a href={`${b}processes/`}>プロセス体系</a
+    >)を、共通スキーマのデータから自動集計した比較表です。個別の詳細は各プロセスのページを参照してください。
+  </p>
+
+  <h2 id="table">一覧比較</h2>
+  <div style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr>
+          <th>プロセス</th>
+          <th>種別(粒度)</th>
+          <th>フェーズ数</th>
+          <th>ロール数</th>
+          <th>ゲート数</th>
+          <th>意思決定の性格</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr>
+            <td><a href={`${b}processes/${r.id}/`}>{r.name}</a></td>
+            <td>{categoryLabel[r.category]}</td>
+            <td>{r.phases}</td>
+            <td>{r.roles}</td>
+            <td>{r.gates}({r.decision}決/{r.inspection}検)</td>
+            <td>{r.decisionStyle}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p><small>ゲート数の「決」=決裁型(Go/Kill の事前承認)、「検」=検査型(検査して適応、承認を伴わない)。</small></p>
+
+  <h2 id="axis-decision">軸1: 意思決定は「集中」か「分散」か</h2>
+  <p>
+    最も本質的な違いは、意思決定を<strong>フェーズ末の関門に集中させる(決裁型)</strong>か、<strong
+    >反復のたびに分散・常時化する(検査型)</strong>かです。
+  </p>
+  <ul>
+    <li>
+      <strong>決裁型(事前承認・集中)</strong>:
+      ウォーターフォール、AIDLC、仕様駆動開発(SDD)、ハイブリッド開発。節目で人間が Go/Kill
+      を判断する。日本の稟議・DR 文化と構造的に親和する
+    </li>
+    <li>
+      <strong>検査型(事後適応・分散)</strong>:
+      スクラム、アジャイル、TDD、DDD、イベント駆動。事前に固めて承認するのではなく、作ってから検査して直す。原典は決裁ゲートを意図的に持たない
+    </li>
+  </ul>
+  <p>
+    生成AI時代の SDD・AIDLC が<strong>決裁型に「回帰」している</strong>点は示唆的です。AIが高速に生成するからこそ、人間が要所で承認するゲート(Human-in-the-loop)を明示的に置く——これが「場当たり生成(vibe
+    coding)」との分かれ目になっています。
+  </p>
+
+  <h2 id="axis-granularity">軸2: 粒度(どの層の話か)</h2>
+  <p>
+    同じ「開発プロセス」でも扱う層が違います。ウォーターフォール・スクラム・AIDLC
+    は開発の全工程(ライフサイクル)ですが、TDD
+    は開発者の数分単位の技法、DDD・イベント駆動は設計手法です。比較や導入判断のときは、まず粒度を揃えて考える必要があります。
+  </p>
+
+  <h2 id="axis-role">軸3: ロールは「承認者」か「協働者」か</h2>
+  <p>
+    決裁型プロセスのロールは承認者・判定者(誰が Go を出すか)を中心に定義されます。一方、DDD
+    やイベント駆動は「ドメインエキスパートと開発者の協働関係」をロールとして定義し、承認者を置きません。この違いは、日本企業がプロセスを導入する際に「既存の職位階層・決裁権限規程」とどう噛み合うかを左右します(詳細は日本企業の組織論の整理ページで扱います)。
+  </p>
+
+  <h2 id="next">この比較の使いみち</h2>
+  <p>
+    この比較軸(意思決定の集中/分散、粒度、ロールの性格)は、フェーズ3のギャップ分析で「理想(AIDLC
+    等)と現状(日本の決裁文化)の差分をどこで埋めるか」を考える土台になります。各プロセスの<strong
+    >暗黙の前提条件</strong>と<strong>アンチパターン</strong
+    >も、そのまま導入時のリスクチェックリストとして使えます。
+  </p>
+</StarlightPage>
