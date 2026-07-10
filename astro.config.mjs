@@ -15,7 +15,9 @@ export default defineConfig({
     mermaid({ autoTheme: true, mermaidConfig: { securityLevel: 'loose' } }),
     starlight({
       // ビルド時に内部リンク切れを検出する(外部リンクは週次の link-check.yml で検査)
-      plugins: [starlightLinksValidator()],
+      // /processes/ 配下はカスタム Astro ページ(スキーマ駆動生成)で Starlight の
+      // ページ集合に含まれないため、検証対象から除外する
+      plugins: [starlightLinksValidator({ exclude: ['/process-compass/processes/**'] })],
       title: 'Process Compass',
       description:
         '生成AI時代の開発プロセスを体系化し、チーム体制や事業フェーズに合わせて最適なプロセスを提案する羅針盤',
