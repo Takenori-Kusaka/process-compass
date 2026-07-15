@@ -16,8 +16,12 @@ const categoryLabels: Record<string, { label: string; note: string }> = {
     label: 'ハイブリッド開発の実態(アンチパターン)',
     note: '建前と実態が乖離した現実の運用。From を直視するために記録する',
   },
+  proposal: {
+    label: '提案プロセス(本プロジェクトの成果)',
+    note: 'From と To のギャップ分析を踏まえて設計した統合プロセスの参照モデル',
+  },
 };
-const order = ['lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
+const order = ['proposal', 'lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
 
 const grouped = order
   .map((cat) => ({

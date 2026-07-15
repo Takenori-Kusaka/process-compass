@@ -64,6 +64,7 @@ export default defineConfig({
               items: [
                 { label: '一覧', link: '/processes/' },
                 { label: '横断比較表', link: '/processes/comparison/' },
+                { label: '★ 統合プロセス(提案)', link: '/processes/integrated/' },
                 { label: 'ウォーターフォール', link: '/processes/waterfall/' },
                 { label: 'アジャイル', link: '/processes/agile/' },
                 { label: 'スクラム', link: '/processes/scrum/' },

@@ -13,6 +13,7 @@ const categoryLabel: Record<string, string> = {
   practice: 'プラクティス',
   'design-method': '設計手法',
   hybrid: 'ハイブリッド実態',
+  proposal: '提案プロセス',
 };
 
 const rows = processes
@@ -40,7 +41,7 @@ const rows = processes
   })
   // ライフサイクル → 傘 → 設計手法/プラクティス → ハイブリッドの順
   .sort((a, z) => {
-    const order = ['lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
+    const order = ['proposal', 'lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
     return order.indexOf(a.category) - order.indexOf(z.category) || a.name.localeCompare(z.name, 'ja');
   });
 ---

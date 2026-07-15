@@ -1,0 +1,364 @@
+schemaVersion: 0
+name: 統合プロセス参照モデル(AI協調型)
+category: proposal
+summary: フェーズ1〜3の分析を踏まえて本プロジェクトが設計した提案プロセス。外側は日本の決裁文化と整合する事業ゲート、内側はAIと人が高速で回す協調ループの二層構造で、5つのギャップへの打ち手を構造に織り込んだ参照モデル
+plainSummary: 外側は日本の決裁文化に合わせた節目のゲート、内側はAIと人が高速で回す実装ループ。技術の判断と事業の決裁を分け、決める人を1人にし、作った本人以外がレビューする——この4つの原則で「AIは速いが承認で詰まる」を防ぐ
+purpose: 生成AIの生産性と日本企業の統制(品質保証・決裁・検収)を両立させ、企業の品質管理部門・プロセス部門へ提案・承認可能な形で AI 協調開発を運用できるようにする
+outcomes:
+  - AI生成の速度を殺さずに、すべての成果物に単一の人間の責任者が紐づいている
+  - 技術判断と事業決裁が分離され、承認滞留が構造的に抑制されている
+  - コア機能を人が理解し続ける状態が作業として維持されている(事業継続性)
+  - 暗黙知がコンテキスト基盤に蓄積され、チケットごとの明文化負担が減っていく
+origin: Process Compass フェーズ4(2026)。ウォーターフォールの工程ゲート、スクラムの反復、SDD の人間承認ゲート、AIDLC の AI 協調、GitHub 式独立レビュー、日本の出荷判定制度を意図的に組み合わせた設計
+iso12207Groups:
+  - 合意〜組織〜テクニカルマネジメント〜テクニカルを横断(統合モデルのため)。特に意思決定管理と品質保証の再設計が中心
+roles:
+  - id: value-owner
+    name: 価値責任者(Value Owner)
+    responsibility: What/Why の決定と価値の説明責任を単独で持つ。要件合意・仕様承認の判定者。委譲しても結果責任は残る
+    jpNote: 「1つの成果物に責任者は1人」の原則(ギャップG2対応)。事前の根回し・非同期コメントは歓迎するが、判定は単独で行い合議体にしない
+  - id: tech-lead
+    name: 技術判断者(Tech Lead)
+    responsibility: アーキテクチャ・技術選定・技術的トレードオフの判定を単独で持つ。技術設計ゲートの判定者
+    jpNote: 職位ではなく技術力量で任命する(ギャップG3対応)。事業決裁者は技術判断に関与しない
+  - id: dev-verifier
+    name: 開発者(検証者)
+    responsibility: AI生成物の検証、挙動の理解、実装の細部判断。コア機能では設計レベルまで読み解き判断記録を残す
+    jpNote: 役割の重心が「書き手」から「検証者・理解の維持者」へ移る。検証は承認の儀式でなく理解を保つための読み込み
+  - id: ai-agent
+    name: AIエージェント
+    responsibility: 仕様の起案支援、実装、テスト生成、ドキュメント生成、負債候補の検出。提案はするが承認しない
+    jpNote: 生成物の責任はAIでなく、承認した人間(価値責任者・技術判断者・独立レビュア)が負う
+  - id: independent-reviewer
+    name: 独立レビュア
+    responsibility: 作成を指示した本人とは別の人間として PR をレビューし、仕様との一致と理解可能性を確認する
+    jpNote: 「作成指示者は自分の成果を承認できない」をブランチ保護で強制(GitHub式)。日本の第三者レビュー文化と整合し、QA部門が担ってもよい
+  - id: qa-gatekeeper
+    name: 品質保証(出荷判定者)
+    responsibility: 第三者として出荷判定を行い署名する。プロセス実行記録と品質エビデンスの確認が任務(再テストではない)
+    jpNote: 既存のQA部門・出荷判定制度をそのまま活かす。判定を「記録の確認」に限定して滞留を防ぐ
+  - id: biz-approver
+    name: 事業決裁者
+    responsibility: 予算・スコープ・リリース可否という事業判断のみを行う。技術判断には関与しない
+    jpNote: 既存の決裁権限規程どおりの職位でよい(制度を変えない)。関与を事業判断に限定することで専門性の乖離(G3)を無害化する
+  - id: context-owner
+    name: コンテキストオーナー
+    responsibility: 恒久層コンテキスト(規約・用語・判断基準・判断記録)の保守と正しさに責任を持つ
+    jpNote: コンテキスト基盤の要件R5。オーナー不在だと文脈が陳腐化しAIの品質が劣化する
+workProducts:
+  - id: intent-brief
+    name: 企画書(事業意図)
+    description: 目的・価値仮説・概算予算・リスク。企画承認ゲートの入力
+    producedBy: value-owner
+  - id: context-base
+    name: コンテキスト基盤(恒久層・案件層)
+    description: 規約・設計標準・ドメイン用語・判断基準。AIと新規参加者への共通文脈。継続的に更新される
+    producedBy: context-owner
+  - id: spec
+    name: 機能仕様書(検証可能な受入基準付き)
+    description: "AI が起案し人が確定する。受入基準は検証可能な形式(例: EARS 記法)で書き、曖昧語を残さない"
+    producedBy: ai-agent
+  - id: plan
+    name: 実装計画(タスク分解)
+    description: AI がタスク分解・依存関係・並列可否を生成し、人が承認する
+    producedBy: ai-agent
+  - id: increment
+    name: 検証済みインクリメント(コード+テスト)
+    description: AI が生成し、CI と人の検証・独立レビューを通過したもの
+    producedBy: ai-agent
+  - id: decision-log
+    name: 判断記録(ADR)
+    description: 設計判断・技術選定・リスク受容の理由。コア機能では必須。コンテキスト基盤へ還流する
+    producedBy: tech-lead
+  - id: quality-report
+    name: 品質レポート
+    description: テスト消化率・欠陥状況・ゲート通過記録。出荷判定の入力。AIが生成しQAが確認する
+    producedBy: qa-gatekeeper
+  - id: debt-ledger
+    name: 技術負債台帳
+    description: 生成過程で検出・受容した負債の記録。返却計画とセットで管理し、運用フェーズで計画的に返す
+    producedBy: dev-verifier
+gates:
+  - id: g-plan-approval
+    name: 企画承認
+    kind: decision
+    contractual: true
+    deliverables: [企画書(事業意図), コンテキスト基盤の整備計画と予算]
+    criteria: [投資対効果が事業基準を満たす, リスク受容が明示されている, コンテキスト基盤の初期整備コストが予算化されている]
+    approver: 事業決裁者(決裁権限規程どおりの職位)
+    decisions: [承認 / 条件付き承認 / 見送り]
+    jpNote: 既存の稟議・決裁制度をそのまま使う(ここは変えない)。頻度が低いゲートなので多段決裁の遅さを許容できる
+  - id: g-req-agree
+    name: 要件合意
+    kind: decision
+    deliverables: [機能仕様書(受入基準付き), 更新済みコンテキスト基盤(案件層)]
+    criteria: ["受入基準が検証可能な形式で記述されている(「適切に」「柔軟に」等の曖昧語ゼロ)", 暗黙の前提が案件層コンテキストに登録済み, スコープ外事項が明記されている]
+    approver: 価値責任者(単独。目安48時間以内に判定)
+    decisions: [合意 / 差し戻し]
+    jpNote: 判定は単独(合議体にしない=G2対応)。関係者の意見は判定前の非同期コメントで集める(根回しの構造化)
+  - id: g-tech-design
+    name: 技術設計判断
+    kind: decision
+    deliverables: [アーキテクチャ設計・技術選定案(AI生成+人レビュー済み), 判断記録(ADR)案]
+    criteria: [非機能要件の充足見込みが示されている, 既存資産・コンテキスト基盤と整合している, 選択の可逆性が評価されている(戻せない選択は明示)]
+    approver: 技術判断者(単独。目安48時間以内に判定)
+    decisions: [承認 / 代替案の要求]
+    jpNote: 事業決裁(予算)と完全に分離する(G3対応)。技術判断に決裁階層を通さない
+  - id: g-spec-cycle
+    name: 機能仕様承認(反復内)
+    kind: decision
+    deliverables: [機能単位の仕様(AI起案), 実装計画(タスク分解)]
+    criteria: [仕様に検証可能な受入基準が含まれる, タスク分解の粒度が検証可能(1タスク=1レビュー単位)]
+    approver: 価値責任者(または明示的に委譲された機能責任者。委譲しても結果責任は価値責任者に残る)
+    decisions: [承認して実装へ / 修正]
+    jpNote: SDD 式の人間承認ゲート。ここを飛ばすと vibe coding 化する(統制強度の要)
+  - id: g-ci
+    name: 自動検証(CI)
+    kind: inspection
+    deliverables: [コード+テスト一式]
+    criteria: [全テストが GREEN, 静的解析・脆弱性スキャンで重大指摘 0 件, テストカバレッジが計画時に設定した基準値以上]
+    approver: CI(機械判定)
+    decisions: [通過 / 差し戻し(マージ不可)]
+    jpNote: 合意済みルールはすべて機械化してここに載せる(人の目を通さない)。人間の検証帯域を判断業務に温存するための設計
+  - id: g-indep-review
+    name: 独立レビュー
+    kind: decision
+    deliverables: [PR(コード・テスト・判断記録)]
+    criteria: [仕様(受入基準)との一致, レビュアが挙動を自分の言葉で説明できる(理解可能性), コア機能の場合は設計意図の記録が完備]
+    approver: 独立レビュア(作成指示者本人は承認不可。ブランチ保護で強制)
+    decisions: [承認 / 差し戻し]
+    jpNote: 日本の第三者レビュー文化をAI時代の統制として再利用する。レビューの目的は儀式でなく「人間側の理解の維持」(BCP)
+  - id: g-ship
+    name: 出荷判定
+    kind: decision
+    deliverables: [品質レポート, 技術負債台帳, 全ゲート通過記録]
+    criteria: [計画したテストの消化率 100%, 未解決の重大欠陥 0 件, 受容した負債がすべて台帳に記録済み, 運用引き継ぎ文書が完備]
+    approver: 品質保証(第三者。署名する)
+    decisions: [出荷可 / 出荷不可]
+    jpNote: 既存の出荷判定制度を活かす。判定は「記録と基準の突合」に限定し、ここで再テスト・再レビューを始めない(滞留防止=G5対応)
+  - id: g-release
+    name: リリース決裁
+    kind: decision
+    contractual: true
+    deliverables: [出荷判定結果, 事業影響評価]
+    criteria: [事業リスクの受容判断(技術品質は g-ship で担保済みのため対象外)]
+    approver: 事業決裁者
+    decisions: [Go / Hold]
+    jpNote: 技術判定の通過が前提なので、ここは純粋な事業判断のみ。目安48時間以内。技術品質を蒸し返さないことを規程に明記する
+phases:
+  - id: kickoff
+    name: 企画・立ち上げ
+    summary: 事業意図を言語化し、AIと人の共通文脈(コンテキスト基盤)を整備する。ここでの明文化投資が以降の全フェーズの速度を決める
+    gatesAfter: [g-plan-approval]
+    activities:
+      - id: intent
+        name: 事業意図の言語化
+        summary: 価値仮説・目的・制約を、AIの支援を受けながら企画書に落とす
+        roles: [value-owner, ai-agent]
+        outputs: [intent-brief]
+        tasks:
+          - id: draft-intent
+            name: AI との対話で意図を構造化し企画書を起案する
+          - id: risk-explicit
+            name: リスクと受容方針を明示する
+      - id: context-setup
+        name: コンテキスト基盤の初期整備
+        summary: 恒久層(規約・用語・判断基準)を書き下ろす。従来「言わなくても分かる」で済ませてきた前提の棚卸し
+        roles: [context-owner, dev-verifier]
+        outputs: [context-base]
+        tasks:
+          - id: write-permanent
+            name: コーディング規約・設計標準・ドメイン用語集を恒久層として整備する
+          - id: assign-owner
+            name: 各文脈ファイルに単一のオーナーを割り当てる
+  - id: requirements
+    name: 要件・仕様定義
+    summary: AIの問いを人が検証する協働セッションで仕様を固め、受入基準を検証可能な形式にする。技術設計判断もここで行う(事業決裁とは分離)
+    gatesAfter: [g-req-agree, g-tech-design]
+    activities:
+      - id: collab-spec
+        name: 協働仕様化セッション
+        summary: ドメインの知識を持つ人と開発者が同席し、AIが起案した仕様・問いをその場で検証する(Mob 式)
+        roles: [value-owner, dev-verifier, ai-agent]
+        inputs: [intent-brief, context-base]
+        outputs: [spec]
+        tasks:
+          - id: ai-draft-spec
+            name: AI がコンテキスト基盤を参照して仕様を起案する
+          - id: resolve-ambiguity
+            name: AI が明示した曖昧点を人がその場で解消する
+          - id: register-tacit
+            name: 会話で出た暗黙の前提を案件層コンテキストへ登録する
+      - id: formalize-criteria
+        name: 受入基準の形式化
+        summary: "受入基準を検証可能な形式(例: EARS 記法)で記述し、後工程の自動検証につなげる"
+        roles: [dev-verifier, ai-agent]
+        outputs: [spec]
+        tasks:
+          - id: ears
+            name: 条件と期待動作の形式で受入基準を書き下す
+      - id: tech-design
+        name: 技術設計
+        summary: AI が設計案を生成し、技術判断者が判定する。判断理由は ADR に残す
+        roles: [tech-lead, ai-agent]
+        inputs: [spec, context-base]
+        outputs: [decision-log]
+        tasks:
+          - id: ai-design
+            name: AI がアーキテクチャ・技術選定の代替案を生成する
+          - id: judge-design
+            name: 技術判断者がトレードオフを評価し ADR として記録する
+  - id: construction
+    name: 反復構築
+    summary: 機能単位のAI協調サイクル(仕様承認 → AI実装 → 自動検証 → 独立レビュー)を数時間〜数日の粒度で反復する。3つのゲートはサイクルごとに機能単位で通過する
+    gatesAfter: [g-spec-cycle, g-ci, g-indep-review]
+    activities:
+      - id: spec-cycle
+        name: 機能仕様サイクル
+        summary: 機能ごとに AI が仕様と実装計画を起案し、人が承認してから実装に入る(SDD 式)
+        roles: [value-owner, ai-agent]
+        inputs: [spec, context-base]
+        outputs: [plan]
+        tasks:
+          - id: ai-propose
+            name: AI が機能仕様と実装計画を起案する
+          - id: human-approve
+            name: 価値責任者(または委譲先)が承認する
+      - id: build-verify
+        name: 実装と検証
+        summary: AI が実装・テスト生成し、CI 通過後に開発者が挙動を検証して理解を記録する
+        roles: [ai-agent, dev-verifier]
+        inputs: [plan]
+        outputs: [increment]
+        tasks:
+          - id: ai-implement
+            name: AI がコードとテストを生成する
+          - id: ci-pass
+            name: 自動検証(テスト・静的解析・脆弱性)を通過させる
+          - id: human-verify
+            name: 開発者が挙動を実際に確認し、自分の言葉で説明できる状態にする
+      - id: independent-review
+        name: 独立レビュー
+        summary: 作成を指示した本人ではない人間がレビューする。人間側の理解を組織に分散させる工程でもある
+        roles: [independent-reviewer]
+        inputs: [increment]
+        tasks:
+          - id: review
+            name: 仕様との一致と理解可能性を確認して承認する
+      - id: core-understanding
+        name: コア機能の理解維持
+        summary: 企画時にコア指定した機能は、開発者が設計レベルまで読み解き、判断記録を残す(事業継続性の担保)
+        roles: [dev-verifier, tech-lead]
+        inputs: [increment]
+        outputs: [decision-log]
+        tasks:
+          - id: deep-read
+            name: コア機能の設計意図・障害時の挙動を読み解いて記録する
+      - id: debt-recording
+        name: 負債の記録
+        summary: 生成過程で見つけた負債・受容した妥協を台帳に記録する(見なかったことにしない)
+        roles: [dev-verifier, ai-agent]
+        outputs: [debt-ledger]
+        tasks:
+          - id: record-debt
+            name: 負債の内容・影響・返却目安を台帳へ記録する
+  - id: ship
+    name: リリース準備
+    summary: 統合検証と品質エビデンスの整備。出荷判定(第三者)とリリース決裁(事業)を分離して通過する
+    gatesAfter: [g-ship, g-release]
+    activities:
+      - id: integration-verify
+        name: 統合検証
+        summary: 非機能要件・運用シナリオの検証。AI がテストを生成し人が結果を判定する
+        roles: [dev-verifier, qa-gatekeeper, ai-agent]
+        inputs: [increment]
+        outputs: [quality-report]
+        tasks:
+          - id: nonfunctional
+            name: 性能・セキュリティ・運用シナリオのテストを実施する
+      - id: evidence-prep
+        name: 品質エビデンスの整備
+        summary: 出荷判定に必要な記録(テスト消化・欠陥・負債・ゲート通過)を AI が集約し QA が確認する
+        roles: [qa-gatekeeper, ai-agent]
+        inputs: [quality-report, debt-ledger]
+        outputs: [quality-report]
+        tasks:
+          - id: aggregate
+            name: 全ゲートの通過記録と品質指標を集約する
+  - id: operate
+    name: 運用・改善
+    summary: 運用しながら負債を計画的に返し、学びをコンテキスト基盤へ書き戻す。プロセス自体も検査と適応の対象
+    activities:
+      - id: operate-monitor
+        name: 監視・インシデント対応
+        summary: AI 支援での監視と一次対応。コア機能の障害は理解を維持した人間が対応する
+        roles: [dev-verifier, ai-agent]
+        tasks:
+          - id: incident
+            name: インシデントの検知・一次分析(AI)と対処判断(人)
+      - id: debt-payback
+        name: 負債返却サイクル
+        summary: 台帳の負債を定常の作業として計画的に返す(生成が速い分、返却も計画に組み込む)
+        roles: [dev-verifier, value-owner]
+        inputs: [debt-ledger]
+        tasks:
+          - id: payback
+            name: 負債台帳から優先度順に返却し記録を更新する
+      - id: context-writeback
+        name: コンテキスト基盤への書き戻し
+        summary: 運用で得た判断・学びを恒久層へ還流し、次の案件の明文化負担を減らす
+        roles: [context-owner, ai-agent]
+        outputs: [context-base]
+        tasks:
+          - id: writeback
+            name: 判断記録・障害の学びを恒久層コンテキストへ反映する
+      - id: process-retro
+        name: プロセスの振り返り
+        summary: ゲートの滞留時間・差し戻し率などを計測し、プロセス自体を適応させる
+        roles: [value-owner, tech-lead, qa-gatekeeper]
+        tasks:
+          - id: measure-adapt
+            name: ゲート滞留・差し戻し率を確認し運用ルールを調整する
+assumptions:
+  - 価値責任者・技術判断者に、名目でなく実際の決定権が委譲されている(組織がその決定を尊重する)
+  - CI 基盤(自動テスト・静的解析・脆弱性スキャン)が整備されている(g-ci の前提)
+  - 独立レビューを成立させる最小体制がある(作成指示者・独立レビュア・出荷判定者の3者分離。目安3名以上)
+  - コンテキスト基盤の初期整備コストが企画時に予算化されている(明文化はただではない)
+antiPatterns:
+  - name: ゲートの合議化
+    ideal: 各ゲートは単独の判定者が期限内に判定し、関係者の意見は判定前の非同期コメントで集める
+    reality: 判定が会議体になり、全員の合意を待って滞留する
+    why: 責任分散文化の慣性。単独判定への心理的抵抗
+    harm: ギャップG5(承認滞留)の再発。AIの速度が意味を失う
+  - name: 独立レビューの形骸化
+    ideal: レビュアが挙動を自分の言葉で説明できる状態まで読み込む
+    reality: 差分を眺めて即承認する(rubber stamp)
+    why: レビュー量が増え、儀式として処理される
+    harm: 人間側の理解が失われ、事業継続性(BCP)が崩れる
+  - name: コア指定のインフレ / ゼロ化
+    ideal: 事業上致命的な機能だけをコア指定し、理解維持コストを集中させる
+    reality: 全部コア指定して理解維持が破綻するか、全部非コアにして BCP が崩壊する
+    why: 線引きの判断を避け、一律にする方が楽だから
+    harm: 理解維持が形骸化するか、障害時に誰も直せなくなる
+  - name: コンテキスト基盤の放置
+    ideal: オーナーが保守し、運用の学びが書き戻され続ける
+    reality: 初期整備だけで放置され、実態と乖離した文脈をAIが参照し続ける
+    why: オーナー不在(責任の割り当てを設計しなかった)
+    harm: AI生成物の品質が静かに劣化し、原因が特定しにくい
+jpRealities:
+  - 既存制度を壊さない設計を意図している。稟議・決裁権限規程(企画承認・リリース決裁)と出荷判定制度(QA署名)はそのまま活かし、その間に AI 協調ループを挟む
+  - 変えるのは2点のみ。(1)技術判断を決裁階層から分離して単独判定者に委ねる、(2)ゲート判定を合議でなく「単独判定+事前の非同期コメント」にする。この2点が既存文化との最大の交渉点になる
+  - 独立レビュー・出荷判定という日本の第三者検証文化は、AI時代にはむしろ統制上の資産になる(生成AIは人が承認し責任を持つ構造を要求するため)
+references:
+  - title: From-To ギャップ一覧と生成AI組み込みポイント(設計の根拠)
+    url: https://takenori-kusaka.github.io/process-compass/phase3-gap-analysis/gap-map/
+  - title: ロール別「AI置き換え / AI支援 / 人が担保」整理
+    url: https://takenori-kusaka.github.io/process-compass/phase3-gap-analysis/role-mapping/
+  - title: 内製/外注の再構成と事業継続性(コア理解維持の根拠)
+    url: https://takenori-kusaka.github.io/process-compass/phase3-gap-analysis/insourcing-bcp/
+  - title: コンテキスト明文化・補完基盤の要件
+    url: https://takenori-kusaka.github.io/process-compass/phase3-gap-analysis/context-infrastructure/
+  - title: 日本企業のガバナンス・決裁ゲートの実態(既存制度と接続する根拠)
+    url: https://takenori-kusaka.github.io/process-compass/phase1-current-state/jp-governance/
+  - title: 設計解説(このモデルの設計原則と各要素の由来)
+    url: https://takenori-kusaka.github.io/process-compass/phase4-process-design/integrated-process/
