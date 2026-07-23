@@ -83,6 +83,7 @@ export default defineConfig({
         { label: 'フェーズ4: 詳細プロセス策定', items: [{ autogenerate: { directory: 'phase4-process-design' } }] },
         { label: 'フェーズ5: プロセス実装', items: [{ autogenerate: { directory: 'phase5-implementation' } }] },
         { label: 'フェーズ6: プロセス運用', items: [{ autogenerate: { directory: 'phase6-operation' } }] },
+        { label: 'プロセス提案ツール', items: [{ autogenerate: { directory: 'tool' } }] },
         { label: 'コミュニティ', items: [{ autogenerate: { directory: 'community' } }] },
         { label: '決定記録(ADR)', collapsed: true, items: [{ autogenerate: { directory: 'adr' } }] },
       ],
