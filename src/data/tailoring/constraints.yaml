@@ -1,0 +1,20 @@
+# テーラリングの禁止事項(不変条件)
+# どの入力の組み合わせでも外せない条件。ユーザーの上書きがこれに触れたら
+# ツールは警告し、提案書に逸脱として記録する(要件定義のワークフロー参照)
+schemaVersion: 0
+constraints:
+  - id: c-single-accountable
+    name: 結果責任は1人
+    description: A(結果責任)を2人以上に割り当てない
+    rationale: 責任の分散は「全員の責任=誰の責任でもない」状態を生み、承認の滞留と形骸化の温床になる(フェーズ1の日本ガバナンス分析)
+    source: /process-compass/phase4-process-design/tailoring-guide/
+  - id: c-ai-not-accountable
+    name: AIは責任者になれない
+    description: AIをA(結果責任)に割り当てない。AIはどこまでもR(実行)
+    rationale: AIは結果への説明責任を負えない。人が承認し責任を持つ構造が統合プロセスの成立条件
+    source: /process-compass/phase4-process-design/roles-responsibilities/
+  - id: c-gate-needs-criteria
+    name: ゲートには差し戻し基準
+    description: 差し戻し基準(チェックリスト)のないゲートを作らない
+    rationale: 基準のないゲートは判定者の属人判断になり、滞留と素通し(rubber stamp)の両方を招く
+    source: /process-compass/phase4-process-design/gate-criteria/

@@ -1,0 +1,56 @@
+# 軸C: 期待品質・規制による調整規則
+# 出典: /phase4-process-design/tailoring-guide/ の軸Cの表
+# 品質・規制の規則は事業フェーズの省略指示より優先する(priority 30)
+schemaVersion: 0
+name: 軸C 期待品質・規制
+rules:
+  - id: r-c-high
+    when:
+      q-quality: [quality-high]
+    adjustments:
+      - target: { type: gate, id: g-ci }
+        action: strengthen
+        note: CI基準を引き上げる(カバレッジ基準の強化)
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: coreReviewerCount
+        value: 2
+        note: コア機能の独立レビューは2名で実施する
+      - target: { type: gate, id: g-ship }
+        action: strengthen
+        note: 出荷判定に限定的な抜き取り確認を追加する
+      - target: { type: practice, id: ai-usage }
+        action: note
+        note: コア機能の設計判断はAI単独で行わない(人の判断を必須にする)
+    reason: 停止・誤動作が社会・金銭に影響する場合、検証の網を参照モデルより厚くする
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 30
+
+  - id: r-c-regulated
+    when:
+      q-quality: [quality-regulated]
+    adjustments:
+      - target: { type: gate, id: g-ci }
+        action: strengthen
+        note: CI基準を引き上げ、規制要件の自動チェックを追加する
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: reviewerCount
+        value: 2
+        note: 独立レビューは2名で実施する
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: recordFormat
+        value: audit
+        note: レビュー記録は監査対応書式で残す
+      - target: { type: gate, id: g-ship }
+        action: strengthen
+        note: 出荷判定に規制当局向けエビデンスとAI関与範囲の明記を追加する
+      - target: { type: practice, id: traceability }
+        action: set
+        param: required
+        value: true
+        note: AI生成箇所のトレーサビリティ(どこを生成し誰が承認したか)を必須にする
+    reason: 規制業では「AIがどこを生成し、誰が承認したか」の追跡が監査要件になる。最初から監査書式で運用しないと後から再構成できない
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 30

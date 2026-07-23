@@ -1,0 +1,99 @@
+# 軸B: 事業フェーズによる調整規則
+# 出典: /phase4-process-design/tailoring-guide/ の軸Bの表
+schemaVersion: 0
+name: 軸B 事業フェーズ
+rules:
+  - id: r-b-poc
+    when:
+      q-biz-phase: [poc]
+    adjustments:
+      - target: { type: gate, id: g-plan-approval }
+        action: simplify
+        note: 企画承認は1枚企画書に簡略化する
+      - target: { type: gate, id: g-req-agree }
+        action: merge-into
+        value: g-spec-cycle
+        note: 要件合意は省略し、仕様承認に統合する
+      - target: { type: gate, id: g-indep-review }
+        action: omit
+        note: 独立レビューは省略する(捨てる前提のコードに人的レビューを投じない)
+      - target: { type: gate, id: g-ship }
+        action: omit
+        note: 出荷判定は省略する
+      - target: { type: practice, id: core-designation }
+        action: set
+        param: scope
+        value: none
+        note: コア指定はしない(全部使い捨て前提)
+      - target: { type: practice, id: debt-management }
+        action: set
+        param: mode
+        value: record-only
+        note: 負債は記録のみ行い、返却しない
+      - target: { type: process }
+        action: note
+        note: PoC→MVP の切り替え時に「省略したゲートの復活とコア指定のやり直し」を企画承認の条件に含める
+    reason: PoCの本質は捨てる前提で速く学ぶこと。ただし「PoCがそのまま本番化する事故」が最頻の失敗パターンのため、復活の条件をあらかじめ決めておく
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 10
+
+  - id: r-b-mvp
+    when:
+      q-biz-phase: [mvp]
+    adjustments:
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: scope
+        value: core-only
+        note: 独立レビューはコア機能のみ実施する
+      - target: { type: gate, id: g-ship }
+        action: simplify
+        note: 出荷判定は簡略化する(記録は残す)
+      - target: { type: practice, id: core-designation }
+        action: set
+        param: scope
+        value: minimal
+        note: コア指定は最小限から始める
+      - target: { type: practice, id: debt-management }
+        action: set
+        param: mode
+        value: record-and-target
+        note: 負債は記録し、返却の目安を持つ
+    reason: 最初の顧客がつく段階から、守るべき範囲(コア)を最小限で定義し始める
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 10
+
+  - id: r-b-growth
+    when:
+      q-biz-phase: [growth]
+    adjustments:
+      - target: { type: practice, id: core-designation }
+        action: note
+        note: コア指定の範囲を事業の拡大に合わせて広げていく
+      - target: { type: practice, id: debt-management }
+        action: set
+        param: mode
+        value: planned-payback
+        note: 負債の計画返却を開始する(返却枠の目安は容量の20%)
+    reason: グロース期は参照モデルをほぼそのまま適用する段階。負債を返し始めないと拡大速度が落ちる
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 10
+
+  - id: r-b-stable
+    when:
+      q-biz-phase: [stable]
+    adjustments:
+      - target: { type: gate, id: g-ship }
+        action: strengthen
+        note: 出荷判定を厳格化する(既存機能への変更影響の確認を強化)
+      - target: { type: practice, id: core-designation }
+        action: note
+        note: 確定済みのコア指定を維持し、四半期で見直す
+      - target: { type: practice, id: debt-management }
+        action: set
+        param: mode
+        value: steady-cycle
+        note: 負債返却を定常サイクルとして運用する
+    reason: 安定運用期は新規開発より変更影響の統制が重要になる
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 10

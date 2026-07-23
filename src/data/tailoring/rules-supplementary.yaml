@@ -1,0 +1,72 @@
+# 補助質問による調整規則
+# 限界ケース(前提が崩れる組み合わせ)の代替と、既存組織への接続を扱う。
+# 限界ケースの規則は他の規則より優先する(priority 40)
+schemaVersion: 0
+name: 補助質問
+rules:
+  - id: r-s-no-external-reviewer
+    when:
+      q-team-size: [size-1-2]
+      q-external-reviewer: [reviewer-no]
+    adjustments:
+      - target: { type: gate, id: g-indep-review }
+        action: omit
+        note: 独立レビューは実施できないため省略する
+      - target: { type: gate, id: g-ci }
+        action: strengthen
+        note: 代替としてCI基準を厳格化する(カバレッジ+静的解析の基準を引き上げ)
+      - target: { type: process }
+        action: note
+        note: この構成は参照モデルの成立条件(独立した検証)を満たしていない。外部レビュアの確保を継続課題として提案書に記載する
+    reason: 独立レビューの担い手が誰もいない場合、人的検証の代替は機械検証しかない。前提が満たせないことを隠さず明示する
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 40
+
+  - id: r-s-existing-gates
+    when:
+      q-existing-gates: [gates-exist]
+    adjustments:
+      - target: { type: practice, id: outer-gates }
+        action: note
+        note: 既存の決裁ゲート(品質部門の判定・CTOレビュー等)に外殻ゲートを対応づける。新設や二重化はしない
+    reason: 統合プロセスの外殻は既存制度を置き換えるものではなく、対応づけて再利用する設計(変更は2点のみの原則)
+    source: /process-compass/phase4-process-design/integrated-process/
+    priority: 10
+
+  - id: r-s-no-existing-gates
+    when:
+      q-existing-gates: [gates-none]
+    adjustments:
+      - target: { type: practice, id: outer-gates }
+        action: note
+        note: 外殻ゲート(企画承認・出荷判定)を軽量に新設する。判定記録を残すことから始める
+    reason: ゲートがない組織では、重い会議体でなく「記録の残る判定」として最小構成で導入する
+    source: /process-compass/phase4-process-design/gate-criteria/
+    priority: 10
+
+  - id: r-s-ai-approved-only
+    when:
+      q-ai-constraint: [ai-approved-only]
+    adjustments:
+      - target: { type: practice, id: ai-usage }
+        action: note
+        note: 認可済みツールの範囲でAI協調ループを構成する。自律度はL1(人が全承認)から開始し、実績に応じて引き上げる
+    reason: ツール制約がある組織では、解禁条件つきの段階的な自律度引き上げが現実的
+    source: /process-compass/phase5-implementation/ai-environment/
+    priority: 10
+
+  - id: r-s-ai-unavailable
+    when:
+      q-ai-constraint: [ai-unavailable]
+    adjustments:
+      - target: { type: process }
+        action: set
+        param: aiLoop
+        value: disabled
+        note: AI協調ループを無効化する。外殻ゲート・責任の分離・記録の原則は従来型開発でもそのまま機能する
+      - target: { type: role, id: ai-agent }
+        action: omit
+        note: AI実行ロールを除外する(実装・検証はすべて人が担う)
+    reason: 統合プロセスの外殻はAIの有無に依存しない設計。AI解禁時にループを足すだけで移行できる
+    source: /process-compass/phase4-process-design/integrated-process/
+    priority: 40

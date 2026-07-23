@@ -1,0 +1,84 @@
+# 軸A: チーム規模による調整規則
+# 出典: /phase4-process-design/tailoring-guide/ の軸Aの表
+schemaVersion: 0
+name: 軸A チーム規模
+rules:
+  - id: r-a-solo
+    when:
+      q-team-size: [size-1-2]
+    adjustments:
+      - target: { type: role, id: value-owner }
+        action: set
+        param: canMergeWith
+        value: tech-lead
+        note: 価値責任者と技術判断者の兼務を許容する(1人が両方を担う)
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: reviewMode
+        value: external
+        note: 独立レビューはチーム外(他チーム・別部門・社外コミュニティ)へ依頼する
+      - target: { type: gate, id: g-ship }
+        action: set
+        param: approverMode
+        value: value-owner-merged
+        note: 出荷判定は価値責任者が兼ねる。ただし判定記録は必ず残す
+      - target: { type: practice, id: role-delegation }
+        action: set
+        param: enabled
+        value: false
+        note: 仕様承認の委譲は不要(全部自分で判定する)
+    reason: 最小体制では「作成指示者・レビュア・判定者の分離」がチーム内で成立しない。独立レビューを外部に求めることが唯一の必須要件になる
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 10
+
+  - id: r-a-small
+    when:
+      q-team-size: [size-3-9]
+    adjustments:
+      - target: { type: role, id: value-owner }
+        action: note
+        note: 価値責任者と技術判断者の分離を推奨する(兼務は避けたい)
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: reviewMode
+        value: internal-separated
+        note: 独立レビューはチーム内で作成者と分離して実施する
+      - target: { type: gate, id: g-ship }
+        action: set
+        param: approverMode
+        value: named-concurrent
+        note: 出荷判定の兼務者を指名する(誰が判定するかを曖昧にしない)
+      - target: { type: practice, id: role-delegation }
+        action: note
+        note: 仕様承認の委譲は必要に応じて行う
+    reason: 分離の最低条件は満たせる規模。責任の所在を名前で明示することが形骸化の予防になる
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 10
+
+  - id: r-a-large
+    when:
+      q-team-size: [size-10plus]
+    adjustments:
+      - target: { type: role, id: value-owner }
+        action: set
+        param: mustSplitFrom
+        value: tech-lead
+        note: 価値責任者と技術判断者は分離必須(兼務にしない)
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: reviewMode
+        value: internal-plus-core-external
+        note: 独立レビューはチーム内で実施し、コア機能は別チームがレビューする
+      - target: { type: gate, id: g-ship }
+        action: set
+        param: approverMode
+        value: dedicated-qa
+        note: 出荷判定はQA部門・専任者が行う
+      - target: { type: practice, id: role-delegation }
+        action: set
+        param: enabled
+        value: true
+        note: 機能責任者へ仕様承認を積極的に委譲する(価値責任者の帯域を守る)
+    reason: 規模が大きいほど判定者の帯域がボトルネックになる。分離と委譲で承認の滞留を防ぐ
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 10

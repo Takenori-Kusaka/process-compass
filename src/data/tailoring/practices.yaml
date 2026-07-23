@@ -1,0 +1,41 @@
+# 横断プラクティス語彙
+# プロセス構造(フェーズ・ゲート・ロール)に載らない運用項目の定義。
+# 規則(rules-*.yaml)の target.type=practice はここの id を参照する
+schemaVersion: 0
+practices:
+  - id: core-designation
+    name: コア機能の指定
+    description: 人が深い理解を維持する対象(コア)と使い捨てを許容する対象(非コア)の区分
+    source: /process-compass/phase3-gap-analysis/insourcing-bcp/
+  - id: debt-management
+    name: 負債台帳の運用
+    description: 技術負債の記録・トリアージ・返却サイクル
+    source: /process-compass/phase6-operation/debt-payback/
+  - id: ai-usage
+    name: AIの利用範囲
+    description: AIに委譲する範囲と自律度(L1〜L3)、人が判断を保持する箇所
+    source: /process-compass/phase5-implementation/ai-environment/
+  - id: traceability
+    name: AI生成箇所の追跡
+    description: どこをAIが生成し誰が承認したかの記録(監査対応)
+    source: /process-compass/phase5-implementation/git-strategy/
+  - id: acceptance
+    name: 検収の基準
+    description: 受託開発における検収対象の定義(受入基準への適合に限定し生成手段を問わない)
+    source: /process-compass/phase4-process-design/tailoring-guide/
+  - id: outer-gates
+    name: 外殻ゲートの対応づけ
+    description: 組織の既存決裁ゲートと参照モデルの外殻ゲートの接続方法
+    source: /process-compass/phase4-process-design/integrated-process/
+  - id: core-understanding
+    name: コア理解の維持
+    description: コア機能の理解保持者の確保と理解共有の作業化
+    source: /process-compass/phase3-gap-analysis/insourcing-bcp/
+  - id: handover
+    name: 引き継ぎ文書
+    description: 運用引き継ぎ・委託解消時の引き継ぎに使う文書の粒度
+    source: /process-compass/phase4-process-design/deliverable-templates/
+  - id: role-delegation
+    name: 承認の委譲
+    description: 価値責任者から機能責任者への仕様承認の委譲
+    source: /process-compass/phase4-process-design/roles-responsibilities/

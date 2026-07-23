@@ -1,0 +1,87 @@
+# プロセス提案ツールの入力モデル(質問一覧)
+# 設計原則: 専門用語で聞かない。回答は規則(rules-*.yaml)の when 条件になる
+# 要件定義: /tool/requirements/
+schemaVersion: 0
+questions:
+  - id: q-team-size
+    axis: A
+    text: 開発に関わる人数は?
+    help: プロダクトの開発・レビュー・承認に日常的に関わる人数(専任・兼任を問わない)
+    options:
+      - id: size-1-2
+        label: 1〜2名
+      - id: size-3-9
+        label: 3〜9名
+      - id: size-10plus
+        label: 10名以上
+
+  - id: q-biz-phase
+    axis: B
+    text: プロダクトはいまどの段階?
+    options:
+      - id: poc
+        label: 検証中(PoC)
+        note: 捨てる前提で速く学ぶ段階
+      - id: mvp
+        label: 最初の顧客向け(MVP)
+      - id: growth
+        label: 拡大中(グロース)
+      - id: stable
+        label: 安定運用
+
+  - id: q-quality
+    axis: C
+    text: 品質への要求は?
+    options:
+      - id: quality-standard
+        label: 一般的なWebサービス
+      - id: quality-high
+        label: 止まると社会・金銭に影響する
+        note: 社会インフラ・決済など
+      - id: quality-regulated
+        label: 規制業(医療・金融等)
+        note: 監査・当局対応がある
+
+  - id: q-dev-form
+    axis: D
+    text: 開発の形態は?
+    options:
+      - id: inhouse
+        label: 自社開発
+      - id: outsourcer
+        label: 外部へ発注する側
+      - id: vendor
+        label: 発注を受ける側
+
+  - id: q-external-reviewer
+    axis: supplement
+    text: レビューを頼める相手はチームの外にいる?
+    help: 他チーム・別部門・社外コミュニティなど、コードや仕様を見てもらえる相手
+    appliesWhen:
+      q-team-size: [size-1-2]
+    options:
+      - id: reviewer-yes
+        label: いる
+      - id: reviewer-no
+        label: いない
+
+  - id: q-existing-gates
+    axis: supplement
+    text: 社内に既存の承認ゲートはある?
+    help: 品質管理部門の判定、CTOレビュー、リリース判定会議など
+    options:
+      - id: gates-none
+        label: ない
+      - id: gates-exist
+        label: ある
+
+  - id: q-ai-constraint
+    axis: supplement
+    text: AI利用の制約は?
+    options:
+      - id: ai-free
+        label: 制約なし
+      - id: ai-approved-only
+        label: 認可済みツールのみ
+      - id: ai-unavailable
+        label: 利用不可

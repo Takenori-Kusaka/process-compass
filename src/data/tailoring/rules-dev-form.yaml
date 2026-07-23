@@ -1,0 +1,60 @@
+# 軸D: 開発形態による調整規則
+# 出典: /phase4-process-design/tailoring-guide/ の軸Dの表
+schemaVersion: 0
+name: 軸D 開発形態
+rules:
+  - id: r-d-outsourcer
+    when:
+      q-dev-form: [outsourcer]
+    adjustments:
+      - target: { type: role, id: value-owner }
+        action: set
+        param: location
+        value: client-side
+        note: 価値責任者は発注側に置く(必須。提案書の最大の交渉点)
+      - target: { type: gate, id: g-req-agree }
+        action: set
+        param: contractual
+        value: true
+        note: 要件合意を契約・検収の節目に対応づける
+      - target: { type: gate, id: g-release }
+        action: set
+        param: contractual
+        value: true
+        note: リリース判定を検収に対応づける
+      - target: { type: practice, id: acceptance }
+        action: note
+        note: 検収対象を受入基準への適合に限定し、生成手段(人・AIの別)を問わないと契約に明記する
+      - target: { type: practice, id: core-understanding }
+        action: note
+        note: 発注側にも理解保持者を置く(丸投げにしない)
+    reason: 発注側が価値の責任を持たない外注は、AI時代には「誰も中身を理解していないシステム」を最速で生む
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 20
+
+  - id: r-d-vendor
+    when:
+      q-dev-form: [vendor]
+    adjustments:
+      - target: { type: role, id: value-owner }
+        action: note
+        note: 受注側は価値責任者になれない(担えるのは機能責任者まで)。価値責任者を発注側に置くことを契約時に合意する
+      - target: { type: gate, id: g-req-agree }
+        action: set
+        param: contractual
+        value: true
+        note: 要件合意を多段階契約の節目に対応づける
+      - target: { type: gate, id: g-release }
+        action: set
+        param: contractual
+        value: true
+        note: リリース判定を検収に対応づける
+      - target: { type: practice, id: acceptance }
+        action: note
+        note: 検収基準を受入基準への適合に限定する構成を発注側へ提案する(生成手段を問わない)
+      - target: { type: practice, id: handover }
+        action: note
+        note: 引き継ぎ文書の粒度を契約で規定する(委託解消時の理解の空白を防ぐ)
+    reason: AI生成コードの瑕疵担保責任は未整備の論点。検収を仕様適合に限定すれば既存の検収実務に載せられる
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 20
