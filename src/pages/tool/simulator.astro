@@ -1,0 +1,300 @@
+---
+// プロセス提案シミュレーター(M7 プロトタイプ #61)
+// ビルド時に知識ベース(src/data/tailoring/)と参照モデルを JSON として埋め込み、
+// クライアント側でルールエンジン(src/lib/tailoring-engine.mjs)を実行する。
+// 入力はブラウザの外へ送信しない(要件定義の非機能要件)
+import { getCollection } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : `${base}/`;
+
+const [questionsEntry] = await getCollection('tailoringQuestions');
+const ruleFiles = await getCollection('tailoringRules');
+const [practicesEntry] = await getCollection('tailoringPractices');
+const [constraintsEntry] = await getCollection('tailoringConstraints');
+const processes = await getCollection('processes');
+const integrated = processes.find((p) => p.id === 'integrated');
+if (!integrated) throw new Error('integrated.yaml が見つかりません');
+
+// 規則はファイル名順で平坦化する(同順位の適用順をデータの記載順で決定的にする)
+const rules = ruleFiles
+  .sort((a, z) => a.id.localeCompare(z.id))
+  .flatMap((f) => f.data.rules);
+
+// 表示用ラベル(id → 名前)
+const labels: Record<string, string> = {};
+for (const g of integrated.data.gates) labels[`gate:${g.id}`] = g.name;
+for (const r of integrated.data.roles) labels[`role:${r.id}`] = r.name;
+for (const p of practicesEntry.data.practices) labels[`practice:${p.id}`] = p.name;
+labels['process'] = 'プロセス全体';
+
+const kb = {
+  questions: questionsEntry.data.questions,
+  rules,
+  constraints: constraintsEntry.data.constraints,
+  labels,
+  gates: integrated.data.gates.map((g) => ({ id: g.id, name: g.name })),
+};
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'プロセス提案シミュレーター(プロトタイプ)',
+    description:
+      'チームの条件を入力すると、統合プロセス参照モデルをテーラリングした提案を根拠つきで表示する',
+    tableOfContents: false,
+  }}
+>
+  <p>
+    7つの質問に答えると、<a href={`${b}processes/integrated/`}>統合プロセス参照モデル</a
+    >をあなたのチーム向けに調整した提案を、根拠つきで表示します。入力内容がブラウザの外へ送信されることはありません(<a
+      href={`${b}tool/requirements/`}>要件定義</a
+    >)。
+  </p>
+
+  <section id="question-form" aria-label="質問">
+    {
+      kb.questions.map((q, i) => (
+        <div class="question" data-qid={q.id}>
+          <p class="question-text">
+            <strong>
+              Q{i + 1}. {q.text}
+            </strong>
+            {q.help && <span class="help">({q.help})</span>}
+          </p>
+          <div class="options" role="radiogroup" aria-label={q.text}>
+            {q.options.map((o) => (
+              <label class="option">
+                <input type="radio" name={q.id} value={o.id} />
+                <span>{o.label}</span>
+                {o.note && <small>{o.note}</small>}
+              </label>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </section>
+
+  <div id="result-placeholder">
+    <p>すべての質問に答えると、ここに提案が表示されます。</p>
+  </div>
+
+  <section id="result" hidden aria-label="提案結果">
+    <h2>あなたのチームへの提案</h2>
+    <div id="warnings"></div>
+    <h3>ゲートの調整</h3>
+    <div class="table-wrap"><table id="gates-table"></table></div>
+    <h3>ロール・運用の調整</h3>
+    <ul id="other-adjustments"></ul>
+    <h3>調整の根拠</h3>
+    <p>
+      すべての調整は知識ベースの規則に由来します。上書きされた調整(取り消し線)も、判断の過程として残しています。
+    </p>
+    <ul id="trace-list"></ul>
+    <p>
+      ベースの全体像は<a href={`${b}processes/integrated/`}>統合プロセス参照モデル</a
+      >、実装方法は<a href={`${b}phase5-implementation/git-strategy/`}>フェーズ5の実装リファレンス</a
+      >を参照してください。この提案は出発点です。チームで修正して採択してください(修正・採択ワークフローは開発中)。
+    </p>
+  </section>
+
+  <script type="application/json" id="kb-data" set:html={JSON.stringify(kb)} />
+
+  <script>
+    import { evaluate, visibleQuestions } from '../../lib/tailoring-engine.mjs';
+
+    const kb = JSON.parse(document.getElementById('kb-data')!.textContent!);
+    const form = document.getElementById('question-form')!;
+    const resultEl = document.getElementById('result')!;
+    const placeholderEl = document.getElementById('result-placeholder')!;
+
+    const STATE_LABELS: Record<string, string> = {
+      standard: '標準どおり',
+      omit: '省略',
+      simplify: '簡略化',
+      strengthen: '厳格化',
+    };
+    const stateLabel = (state: string) =>
+      state.startsWith('merged-into:')
+        ? `${kb.labels[`gate:${state.slice('merged-into:'.length)}`] ?? state}へ統合`
+        : (STATE_LABELS[state] ?? state);
+    const targetLabel = (t: { type: string; id?: string }) =>
+      kb.labels[t.id ? `${t.type}:${t.id}` : t.type] ?? (t.id ?? t.type);
+    const esc = (s: string) =>
+      s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+    // エンジンの警告文に含まれる内部キー(例: gate:g-ship)と操作名を表示名へ置き換える
+    const ACTION_LABELS: Record<string, string> = {
+      omit: '省略',
+      simplify: '簡略化',
+      strengthen: '厳格化',
+      'merge-into': '統合',
+    };
+    const humanize = (s: string) =>
+      s
+        .replace(/(?:gate|role|practice|phase|activity):[a-z0-9-]+/g, (m) => kb.labels[m] ?? m)
+        .replace(/「(omit|simplify|strengthen|merge-into)」/g, (_, a) => `「${ACTION_LABELS[a]}」`);
+
+    function currentAnswers(): Record<string, string> {
+      const answers: Record<string, string> = {};
+      for (const input of form.querySelectorAll<HTMLInputElement>('input:checked')) {
+        answers[input.name] = input.value;
+      }
+      return answers;
+    }
+
+    // 回答を URL ハッシュへ保存・復元する(チーム共有の下準備。#62 で本実装)
+    function saveHash(answers: Record<string, string>) {
+      history.replaceState(null, '', `#${new URLSearchParams(answers)}`);
+    }
+    function restoreHash() {
+      for (const [qid, oid] of new URLSearchParams(location.hash.slice(1))) {
+        const input = form.querySelector<HTMLInputElement>(
+          `input[name="${CSS.escape(qid)}"][value="${CSS.escape(oid)}"]`
+        );
+        if (input) input.checked = true;
+      }
+    }
+
+    function render() {
+      const answers = currentAnswers();
+      const visible = visibleQuestions(kb.questions, answers);
+      const visibleIds = new Set(visible.map((q: { id: string }) => q.id));
+
+      // 条件付き質問の表示・非表示
+      for (const div of form.querySelectorAll<HTMLElement>('.question')) {
+        div.hidden = !visibleIds.has(div.dataset.qid!);
+      }
+
+      const answered = visible.every((q: { id: string }) => answers[q.id]);
+      resultEl.hidden = !answered;
+      placeholderEl.hidden = answered;
+      if (!answered) return;
+      saveHash(Object.fromEntries(Object.entries(answers).filter(([q]) => visibleIds.has(q))));
+
+      const { profile, trace, warnings } = evaluate(kb, answers);
+
+      // 警告(規則同士の衝突)
+      document.getElementById('warnings')!.innerHTML = warnings.length
+        ? `<div class="warning-box"><strong>⚠ この組み合わせには衝突があります</strong><ul>${warnings
+            .map((w: { message: string }) => `<li>${esc(humanize(w.message))}</li>`)
+            .join('')}</ul><p>衝突は自動解決済みですが、チームでの判断を推奨します。</p></div>`
+        : '';
+
+      // ゲート一覧(参照モデルの全ゲート+調整状態)
+      document.getElementById('gates-table')!.innerHTML =
+        `<thead><tr><th>ゲート</th><th>この提案での扱い</th><th>調整内容</th></tr></thead><tbody>${kb.gates
+          .map((g: { id: string; name: string }) => {
+            const p = profile[`gate:${g.id}`];
+            const state = p?.state ?? 'standard';
+            const details = p
+              ? [...Object.entries(p.params).map(([k, v]) => `${k}: ${v}`), ...p.notes]
+              : [];
+            return `<tr><td>${esc(g.name)}</td><td><span class="state state-${state.split(':')[0]}">${esc(
+              stateLabel(state)
+            )}</span></td><td>${details.map((d) => esc(String(d))).join('<br>') || '—'}</td></tr>`;
+          })
+          .join('')}</tbody>`;
+
+      // ゲート以外(ロール・プラクティス・プロセス全体)の調整
+      const others = Object.values(profile).filter(
+        (p: any) => p.target.type !== 'gate'
+      ) as Array<{ target: { type: string; id?: string }; notes: string[] }>;
+      document.getElementById('other-adjustments')!.innerHTML = others.length
+        ? others
+            .map(
+              (p) =>
+                `<li><strong>${esc(targetLabel(p.target))}</strong>: ${p.notes.map(esc).join(' / ')}</li>`
+            )
+            .join('')
+        : '<li>参照モデルからの変更はありません。</li>';
+
+      // 調整の根拠(トレース)
+      document.getElementById('trace-list')!.innerHTML = trace
+        .map((t: any) => {
+          const text = `<strong>${esc(targetLabel(t.target))}</strong>: ${esc(t.note)} <small>(理由: ${esc(
+            t.reason
+          )} / <a href="${esc(t.source)}">根拠</a>)</small>`;
+          return t.status === 'applied' ? `<li>${text}</li>` : `<li class="overridden"><s>${text}</s></li>`;
+        })
+        .join('');
+    }
+
+    form.addEventListener('change', render);
+    restoreHash();
+    render();
+  </script>
+
+  <style>
+    .question {
+      margin-block: 1rem;
+    }
+    .question-text {
+      margin-bottom: 0.3rem;
+    }
+    .help {
+      font-weight: normal;
+      font-size: var(--sl-text-sm);
+      color: var(--sl-color-gray-2);
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid var(--sl-color-gray-5);
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+    }
+    .option:has(input:checked) {
+      border-color: var(--sl-color-accent);
+      background: var(--sl-color-accent-low);
+    }
+    .option small {
+      color: var(--sl-color-gray-2);
+    }
+    .warning-box {
+      border: 1px solid var(--sl-color-orange);
+      border-radius: 0.5rem;
+      padding: 0.8rem 1rem;
+      margin-block: 1rem;
+    }
+    .warning-box ul {
+      margin-block: 0.5rem;
+    }
+    .table-wrap {
+      overflow-x: auto;
+    }
+    .state {
+      white-space: nowrap;
+      border-radius: 0.4rem;
+      padding: 0.1rem 0.5rem;
+      font-size: var(--sl-text-sm);
+    }
+    .state-standard {
+      background: var(--sl-color-gray-6);
+    }
+    .state-omit {
+      background: var(--sl-color-gray-5);
+      text-decoration: line-through;
+    }
+    .state-simplify,
+    .state-merged-into {
+      background: var(--sl-color-blue-low);
+      color: var(--sl-color-blue-high);
+    }
+    .state-strengthen {
+      background: var(--sl-color-orange-low);
+      color: var(--sl-color-orange-high);
+    }
+    li.overridden {
+      color: var(--sl-color-gray-3);
+    }
+  </style>
+</StarlightPage>

@@ -17,7 +17,12 @@ export default defineConfig({
       // ビルド時に内部リンク切れを検出する(外部リンクは週次の link-check.yml で検査)
       // /processes/ 配下はカスタム Astro ページ(スキーマ駆動生成)で Starlight の
       // ページ集合に含まれないため、検証対象から除外する
-      plugins: [starlightLinksValidator({ exclude: ['/process-compass/processes/**'] })],
+      // /tool/simulator/ もカスタムページのため検証対象から除外する
+      plugins: [
+        starlightLinksValidator({
+          exclude: ['/process-compass/processes/**', '/process-compass/tool/simulator/'],
+        }),
+      ],
       title: 'Process Compass',
       description:
         '生成AI時代の開発プロセスを体系化し、チーム体制や事業フェーズに合わせて最適なプロセスを提案する羅針盤',
@@ -83,7 +88,13 @@ export default defineConfig({
         { label: 'フェーズ4: 詳細プロセス策定', items: [{ autogenerate: { directory: 'phase4-process-design' } }] },
         { label: 'フェーズ5: プロセス実装', items: [{ autogenerate: { directory: 'phase5-implementation' } }] },
         { label: 'フェーズ6: プロセス運用', items: [{ autogenerate: { directory: 'phase6-operation' } }] },
-        { label: 'プロセス提案ツール', items: [{ autogenerate: { directory: 'tool' } }] },
+        {
+          label: 'プロセス提案ツール',
+          items: [
+            { label: '★ シミュレーター(プロトタイプ)', link: '/tool/simulator/' },
+            { autogenerate: { directory: 'tool' } },
+          ],
+        },
         { label: 'コミュニティ', items: [{ autogenerate: { directory: 'community' } }] },
         { label: '決定記録(ADR)', collapsed: true, items: [{ autogenerate: { directory: 'adr' } }] },
       ],
