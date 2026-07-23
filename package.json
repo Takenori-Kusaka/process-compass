@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint:text": "textlint \"src/content/docs/**/*.md\" \"src/content/docs/**/*.mdx\" README.md",
-    "check": "npm run lint:text && npm run build"
+    "test:engine": "node scripts/test-tailoring-engine.mjs",
+    "check": "npm run lint:text && npm run test:engine && npm run build"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.41.3",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "starlight-links-validator": "^0.25.2",
     "textlint": "^15.7.1",
-    "textlint-rule-preset-ja-technical-writing": "^12.0.2"
+    "textlint-rule-preset-ja-technical-writing": "^12.0.2",
+    "yaml": "^2.9.0"
   }
 }
