@@ -93,10 +93,27 @@ const kb = {
       すべての調整は知識ベースの規則に由来します。上書きされた調整(取り消し線)も、判断の過程として残しています。
     </p>
     <ul id="trace-list"></ul>
+    <h3>チームでの修正と採択</h3>
+    <p>
+      提案は出発点です。ゲート表の「あなたの修正」列で各ゲートの扱いを上書きできます。提案より弱める方向の修正は<strong>逸脱</strong>として提案書に記録されます。修正を含めた状態はこのページの
+      URL に保存されるので、リンクを渡せばチームの他メンバーが同じ内容を確認できます。
+    </p>
+    <div id="deviations"></div>
+    <div class="constraints-box">
+      <strong>どの修正でも外せない3つの不変条件</strong>
+      <ul>
+        {kb.constraints.map((c) => <li>{c.description}(理由: {c.rationale})</li>)}
+      </ul>
+    </div>
+    <p>
+      <button id="copy-md" type="button">提案書をコピー(Markdown)</button>
+      <button id="download-md" type="button">提案書をダウンロード(.md)</button>
+      <span id="copy-status" role="status"></span>
+    </p>
     <p>
       ベースの全体像は<a href={`${b}processes/integrated/`}>統合プロセス参照モデル</a
       >、実装方法は<a href={`${b}phase5-implementation/git-strategy/`}>フェーズ5の実装リファレンス</a
-      >を参照してください。この提案は出発点です。チームで修正して採択してください(修正・採択ワークフローは開発中)。
+      >を参照してください。採択したら、提案書を自組織のリポジトリへ持ち帰って版管理を始めてください。
     </p>
   </section>
 
@@ -144,14 +161,26 @@ const kb = {
       return answers;
     }
 
-    // 回答を URL ハッシュへ保存・復元する(チーム共有の下準備。#62 で本実装)
-    function saveHash(answers: Record<string, string>) {
-      history.replaceState(null, '', `#${new URLSearchParams(answers)}`);
+    // ユーザーによるゲート上書き(gateId → 状態)。URL に載せてチーム共有できる
+    const overrides: Record<string, string> = {};
+    // 統制の強さの序列(逸脱=提案より弱める方向の修正の判定に使う)
+    const RANK: Record<string, number> = { omit: 0, simplify: 1, 'merged-into': 1, standard: 2, strengthen: 3 };
+    const rankOf = (s: string) => RANK[s.split(':')[0]] ?? 2;
+
+    // 回答と修正を URL ハッシュへ保存・復元する(リンクを渡せば同じ提案+修正が再現される)
+    function saveState(answers: Record<string, string>) {
+      const state: Record<string, string> = { ...answers };
+      for (const [gid, v] of Object.entries(overrides)) state[`ov:${gid}`] = v;
+      history.replaceState(null, '', `#${new URLSearchParams(state)}`);
     }
     function restoreHash() {
-      for (const [qid, oid] of new URLSearchParams(location.hash.slice(1))) {
+      for (const [key, val] of new URLSearchParams(location.hash.slice(1))) {
+        if (key.startsWith('ov:')) {
+          overrides[key.slice(3)] = val;
+          continue;
+        }
         const input = form.querySelector<HTMLInputElement>(
-          `input[name="${CSS.escape(qid)}"][value="${CSS.escape(oid)}"]`
+          `input[name="${CSS.escape(key)}"][value="${CSS.escape(val)}"]`
         );
         if (input) input.checked = true;
       }
@@ -171,9 +200,11 @@ const kb = {
       resultEl.hidden = !answered;
       placeholderEl.hidden = answered;
       if (!answered) return;
-      saveHash(Object.fromEntries(Object.entries(answers).filter(([q]) => visibleIds.has(q))));
+      saveState(Object.fromEntries(Object.entries(answers).filter(([q]) => visibleIds.has(q))));
 
-      const { profile, trace, warnings } = evaluate(kb, answers);
+      const result = evaluate(kb, answers);
+      lastResult = result;
+      const { profile, trace, warnings } = result;
 
       // 警告(規則同士の衝突)
       document.getElementById('warnings')!.innerHTML = warnings.length
@@ -182,18 +213,25 @@ const kb = {
             .join('')}</ul><p>衝突は自動解決済みですが、チームでの判断を推奨します。</p></div>`
         : '';
 
-      // ゲート一覧(参照モデルの全ゲート+調整状態)
+      // ゲート一覧(参照モデルの全ゲート+調整状態+ユーザー修正)
+      const OVERRIDE_CHOICES = ['standard', 'simplify', 'strengthen', 'omit'];
       document.getElementById('gates-table')!.innerHTML =
-        `<thead><tr><th>ゲート</th><th>この提案での扱い</th><th>調整内容</th></tr></thead><tbody>${kb.gates
+        `<thead><tr><th>ゲート</th><th>この提案での扱い</th><th>調整内容</th><th>あなたの修正</th></tr></thead><tbody>${kb.gates
           .map((g: { id: string; name: string }) => {
             const p = profile[`gate:${g.id}`];
             const state = p?.state ?? 'standard';
             const details = p
               ? [...Object.entries(p.params).map(([k, v]) => `${k}: ${v}`), ...p.notes]
               : [];
+            const options = OVERRIDE_CHOICES.map(
+              (v) =>
+                `<option value="${v}"${overrides[g.id] === v ? ' selected' : ''}>${STATE_LABELS[v]}</option>`
+            ).join('');
             return `<tr><td>${esc(g.name)}</td><td><span class="state state-${state.split(':')[0]}">${esc(
               stateLabel(state)
-            )}</span></td><td>${details.map((d) => esc(String(d))).join('<br>') || '—'}</td></tr>`;
+            )}</span></td><td>${details.map((d) => esc(String(d))).join('<br>') || '—'}</td><td><select data-gate="${
+              g.id
+            }"><option value="">提案どおり</option>${options}</select></td></tr>`;
           })
           .join('')}</tbody>`;
 
@@ -219,9 +257,140 @@ const kb = {
           return t.status === 'applied' ? `<li>${text}</li>` : `<li class="overridden"><s>${text}</s></li>`;
         })
         .join('');
+
+      renderAdoption();
     }
 
-    form.addEventListener('change', render);
+    let lastResult: any = null;
+    const proposalState = (gateId: string) =>
+      lastResult?.profile[`gate:${gateId}`]?.state ?? 'standard';
+    const effectiveState = (gateId: string) => overrides[gateId] ?? proposalState(gateId);
+
+    // 修正の一覧と逸脱判定(提案より弱める方向の修正は逸脱として明示する)
+    function deviationList() {
+      return Object.entries(overrides)
+        .filter(([gid, v]) => v !== proposalState(gid))
+        .map(([gid, v]) => ({
+          gateId: gid,
+          name: kb.labels[`gate:${gid}`] ?? gid,
+          from: stateLabel(proposalState(gid)),
+          to: stateLabel(v),
+          weakening: rankOf(v) < rankOf(proposalState(gid)),
+        }));
+    }
+
+    function renderAdoption() {
+      const devs = deviationList();
+      document.getElementById('deviations')!.innerHTML = devs.length
+        ? `<ul>${devs
+            .map(
+              (d) =>
+                `<li>${d.weakening ? '⚠ ' : ''}<strong>${esc(d.name)}</strong>: 提案「${esc(d.from)}」→ 修正「${esc(
+                  d.to
+                )}」${d.weakening ? ' <small>(統制を弱める修正のため、逸脱として提案書に記録されます)</small>' : ''}</li>`
+            )
+            .join('')}</ul>`
+        : '<p>修正はありません(提案どおり)。</p>';
+    }
+
+    // 提案書(Markdown)の生成 — 提案書テンプレートの簡易版に流し込む
+    function buildMarkdown() {
+      const answers = currentAnswers();
+      const visible = visibleQuestions(kb.questions, answers);
+      const devs = deviationList();
+      const lines: string[] = [
+        '# 開発プロセス導入提案書(ドラフト)',
+        '',
+        `- 生成: [Process Compass プロセス提案シミュレーター](${location.href.split('#')[0]})`,
+        `- 共有URL(入力と修正を再現): ${location.href}`,
+        `- ベース: [統合プロセス参照モデル](https://takenori-kusaka.github.io/process-compass/processes/integrated/)`,
+        '',
+        '## 前提(入力した条件)',
+        '',
+        ...visible.map((q: any) => {
+          const opt = q.options.find((o: any) => o.id === answers[q.id]);
+          return `- ${q.text} — **${opt?.label ?? '未回答'}**`;
+        }),
+        '',
+        '## 提案するゲート構成(チーム修正を反映)',
+        '',
+        '| ゲート | 扱い | 調整内容 |',
+        '| --- | --- | --- |',
+        ...kb.gates.map((g: any) => {
+          const p = lastResult?.profile[`gate:${g.id}`];
+          const details = p
+            ? [...Object.entries(p.params).map(([k, v]) => `${k}: ${v}`), ...p.notes]
+            : [];
+          const mark = overrides[g.id] && overrides[g.id] !== proposalState(g.id) ? '(チーム修正)' : '';
+          return `| ${g.name} | ${stateLabel(effectiveState(g.id))}${mark} | ${details.join(' / ') || '—'} |`;
+        }),
+        '',
+        '## ロール・運用の調整',
+        '',
+        ...Object.values(lastResult?.profile ?? {})
+          .filter((p: any) => p.target.type !== 'gate')
+          .map((p: any) => `- **${targetLabel(p.target)}**: ${p.notes.join(' / ')}`),
+        '',
+        '## チームによる修正と逸脱',
+        '',
+        ...(devs.length
+          ? devs.map(
+              (d) =>
+                `- ${d.weakening ? '⚠ **逸脱** ' : ''}${d.name}: 提案「${d.from}」→ 修正「${d.to}」`
+            )
+          : ['- 修正なし(提案どおり)']),
+        '',
+        '## 不変条件(どの修正でも維持する)',
+        '',
+        ...kb.constraints.map((c: any) => `- ${c.description}(理由: ${c.rationale})`),
+        '',
+        '## 調整の根拠',
+        '',
+        ...(lastResult?.trace ?? [])
+          .filter((t: any) => t.status === 'applied')
+          .map(
+            (t: any) =>
+              `- ${targetLabel(t.target)}: ${t.note}(理由: ${t.reason} / [根拠](https://takenori-kusaka.github.io${t.source}))`
+          ),
+        '',
+        '## 次のステップ',
+        '',
+        '1. この提案書をチーム・関係部門と協議し、修正を確定する',
+        '2. 採択したら自組織のリポジトリで版管理を始める(この文書が v1)',
+        '3. 運用の実装は[フェーズ5 実装リファレンス](https://takenori-kusaka.github.io/process-compass/phase5-implementation/git-strategy/)、導入後の運用は[フェーズ6](https://takenori-kusaka.github.io/process-compass/phase6-operation/operations-catalog/)を参照する',
+        '',
+      ];
+      return lines.join('\n');
+    }
+
+    document.getElementById('gates-table')!.addEventListener('change', (e) => {
+      const sel = (e.target as HTMLElement).closest<HTMLSelectElement>('select[data-gate]');
+      if (!sel) return;
+      if (sel.value) overrides[sel.dataset.gate!] = sel.value;
+      else delete overrides[sel.dataset.gate!];
+      saveState(currentAnswers());
+      renderAdoption();
+      e.stopPropagation();
+    });
+
+    const statusEl = document.getElementById('copy-status')!;
+    document.getElementById('copy-md')!.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(buildMarkdown());
+      statusEl.textContent = 'コピーしました';
+      setTimeout(() => (statusEl.textContent = ''), 3000);
+    });
+    document.getElementById('download-md')!.addEventListener('click', () => {
+      const url = URL.createObjectURL(new Blob([buildMarkdown()], { type: 'text/markdown' }));
+      const a = Object.assign(document.createElement('a'), { href: url, download: 'process-proposal.md' });
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    form.addEventListener('change', () => {
+      // 回答が変わると提案が変わるため、古い修正は破棄する
+      for (const k of Object.keys(overrides)) delete overrides[k];
+      render();
+    });
     restoreHash();
     render();
   </script>
@@ -295,6 +464,35 @@ const kb = {
     }
     li.overridden {
       color: var(--sl-color-gray-3);
+    }
+    .constraints-box {
+      border: 1px solid var(--sl-color-gray-5);
+      border-left: 4px solid var(--sl-color-accent);
+      border-radius: 0.5rem;
+      padding: 0.8rem 1rem;
+      margin-block: 1rem;
+    }
+    button {
+      border: 1px solid var(--sl-color-gray-4);
+      border-radius: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      background: var(--sl-color-accent-low);
+      color: var(--sl-color-white);
+      cursor: pointer;
+      margin-inline-end: 0.5rem;
+    }
+    button:hover {
+      background: var(--sl-color-accent);
+    }
+    #copy-status {
+      color: var(--sl-color-green);
+    }
+    select {
+      border: 1px solid var(--sl-color-gray-4);
+      border-radius: 0.4rem;
+      padding: 0.15rem 0.3rem;
+      background: var(--sl-color-black);
+      color: var(--sl-color-white);
     }
   </style>
 </StarlightPage>
