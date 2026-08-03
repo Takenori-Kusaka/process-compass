@@ -386,6 +386,8 @@ phases:
         summary: AI 支援での監視と一次対応。コア機能の障害は理解を維持した人間が対応する
         roles: [dev-verifier, ai-agent]
         refs:
+          - title: インシデント対応とポストモーテム
+            href: /process-compass/phase6-operation/incident-response/
           - title: 運用作業カタログ
             href: /process-compass/phase6-operation/operations-catalog/
         tasks:
