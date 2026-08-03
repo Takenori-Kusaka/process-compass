@@ -55,4 +55,4 @@ Issue: #67 / 検証方法: 5アングル並列検索 → 22ソース取得 → 1
 - https://code.claude.com/docs/en/sub-agents
 - https://code.claude.com/docs/en/mcp
 - https://code.claude.com/docs/en/hooks
-- https://github.com/anthropics/skills / https://github.com/hesreallyhim/awesome-claude-code(補助)
+- https://github.com/anthropics/skills / https://github.com/hesreallyhim/awesome-claude-code (補助)

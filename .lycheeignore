@@ -1,0 +1,7 @@
+# リンクチェック(link-check.yml)の除外リスト
+# 消失した出典 URL。調査メモには取得時の記録として残すため、チェックだけ除外する
+https://github.com/structurizr/dsl/blob/master/LICENSE
+https://github.com/structurizr/dsl/issues/53
+https://github.com/apache/incubator-kie-tools/blob/main/packages/serverless-workflow-diagram-editor/sw-editor/README.md
+https://www.insource.co.jp/nmp/HH145.html
+https://www.juse.or.jp/sqip/community/bucyo/2/file/group2.pdf

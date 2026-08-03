@@ -15,21 +15,35 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      # 403 は bot 判定(scrum.org・medium・官公庁 PDF 等)の誤検知が大半、
+      # 301/302/308 はリダイレクトで到達可能なため許容する(本当の消失は 404 で検出できる)。
+      # 消失済みの出典 URL は .lycheeignore で個別に除外する
       - name: Check external links
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --no-progress
-            --accept 200..=204,429
+            --accept 200..=204,301,302,308,403,429
             --exclude-path node_modules
             --exclude 'https://takenori-kusaka\.github\.io/.*'
             'src/content/docs/**/*.md' 'src/content/docs/**/*.mdx' 'README.md' 'research/**/*.md'
           fail: false
-      - name: Create issue on broken links
+      # 既存のオープンな検出 Issue があれば新規起票せず更新する(週次で Issue が積み上がるのを防ぐ)
+      - name: Find existing issue
+        if: steps.lychee.outputs.exit_code != 0
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          echo "number=$(gh issue list --repo "$GITHUB_REPOSITORY"
+          --state open --label task --search 'リンク切れ検出 in:title'
+          --json number --jq '.[0].number // empty')" >> "$GITHUB_OUTPUT"
+      - name: Create or update issue on broken links
         if: steps.lychee.outputs.exit_code != 0
         uses: peter-evans/create-issue-from-file@v5
         with:
+          issue-number: ${{ steps.existing.outputs.number }}
           title: "リンク切れ検出(週次チェック)"
           content-filepath: ./lychee/out.md
           labels: task, phase-0
