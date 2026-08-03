@@ -305,6 +305,8 @@ phases:
         roles: [independent-reviewer]
         inputs: [increment]
         refs:
+          - title: 独立レビュー実施ガイド(3パス方式・観点チェックリスト)
+            href: /process-compass/phase4-process-design/review-guide/
           - title: PR 運用リファレンス
             href: /process-compass/phase5-implementation/pr-workflow/
           - title: ゲート判定チェックリスト(G-6 独立レビュー)
