@@ -75,7 +75,11 @@ const categoryLabel: Record<string, string> = {
     <tbody>
       {p.gates.map((g) => (
         <tr>
-          <td>{g.name}{g.jpNote ? ` ※${g.jpNote}` : ''}</td>
+          <td>
+            {g.label ? `${g.label} ` : ''}
+            {g.href ? <a href={g.href}>{g.name}</a> : g.name}
+            {g.jpNote ? ` ※${g.jpNote}` : ''}
+          </td>
           <td>{g.kind === 'inspection' ? '検査と適応' : '決裁(Go/Kill)'}</td>
           <td>{g.deliverables.join(' / ')}</td>
           <td>{g.criteria.join(' / ')}</td>

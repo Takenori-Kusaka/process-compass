@@ -19,6 +19,9 @@ const activitySchema = z.object({
   inputs: z.string().array().optional(), // WorkProduct の id 参照
   outputs: z.string().array().optional(),
   tasks: taskSchema.array().default([]),
+  // 実装リファレンス: この作業のやり方を定義した解説ページ(L3 ページに導線を出す)
+  // href はサイトの base を含む絶対パス(例: /process-compass/phase5-implementation/pr-workflow/)
+  refs: z.object({ title: z.string(), href: z.string() }).array().optional(),
 });
 
 const phaseSchema = z.object({
@@ -76,6 +79,10 @@ const processSchema = z.object({
     .object({
       id: z.string(),
       name: z.string(),
+      // ドキュメント側の通し番号(例: G-1)。文書は番号、データは id を使うため両者の対応をここで固定する
+      label: z.string().optional(),
+      // 判定チェックリスト等の解説ページ(base を含む絶対パス)
+      href: z.string().optional(),
       // decision = Go/Kill 型の決裁ゲート / inspection = 検査と適応(スクラム等、承認を伴わない)
       kind: z.enum(['decision', 'inspection']).default('decision'),
       // 契約上の区切り(検収・多段階契約の節目)を兼ねるか(日本の受発注構造の分析用)

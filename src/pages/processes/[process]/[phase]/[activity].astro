@@ -77,4 +77,18 @@ const wpName = new Map(p.workProducts.map((w) => [w.id, w.name]));
   ) : (
     <p>タスクの分解は未記載(調査で確認でき次第追記)。</p>
   )}
+
+  {activity.refs && activity.refs.length > 0 && (
+    <>
+      <h2 id="refs">実装リファレンス</h2>
+      <p>この作業の具体的なやり方・様式は次のページで定義しています。</p>
+      <ul>
+        {activity.refs.map((r) => (
+          <li>
+            <a href={r.href}>{r.title}</a>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
 </StarlightPage>
