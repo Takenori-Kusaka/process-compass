@@ -173,6 +173,8 @@ phases:
         roles: [value-owner, ai-agent]
         outputs: [intent-brief]
         refs:
+          - title: 成果物テンプレート(テンプレ6 企画書)
+            href: /process-compass/phase4-process-design/deliverable-templates/
           - title: ゲート判定チェックリスト(G-1 企画承認)
             href: /process-compass/phase4-process-design/gate-criteria/
         tasks:
@@ -214,7 +216,7 @@ phases:
         tasks:
           - id: ai-draft-spec
             name: AI がコンテキスト基盤を参照して仕様を起案する
-            description: セッション開始前に、AI へ企画書と恒久層・案件層コンテキストを読み込ませ、機能仕様書テンプレート(フェーズ4の成果物テンプレート2)の様式で初稿と「不明点・曖昧点の質問リスト」を出させておく。セッションはこの初稿と質問リストを画面共有して始める(白紙から議論しない)
+            description: セッション開始前に、AI へ企画書と恒久層・案件層コンテキストを読み込ませ、機能仕様書テンプレート(フェーズ4の成果物テンプレ1)の様式で初稿と「不明点・曖昧点の質問リスト」を出させておく。セッションはこの初稿と質問リストを画面共有して始める(白紙から議論しない)
           - id: resolve-ambiguity
             name: AI が明示した曖昧点を人がその場で解消する
             description: ドメイン知識を持つ人と開発者が同席し、AI の質問へその場で回答して仕様に即時反映する(Mob 式。持ち帰りは原則禁止)。その場で決められない事項は「未決」として残さず、スコープ外事項へ明記するか、判断者と期限を付けて仕様に記録する。目安は1セッション 60〜90 分・機能1〜3件
