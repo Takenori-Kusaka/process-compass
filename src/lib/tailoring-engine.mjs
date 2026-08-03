@@ -64,9 +64,12 @@ export function evaluate(kb, answers) {
   /** @type {Map<string, object>} 対象+param ごとの生存中の set */
   const params = new Map();
 
-  const conflict = (loser, winner, message) => {
+  // quiet: 同じ結論への到達や同順位の通常合成は「衝突」ではないため、
+  // 上書きの記録(トレースの取り消し線)だけ残して警告は出さない(#63 ユーザーテスト)
+  const conflict = (loser, winner, message, quiet = false) => {
     loser.status = 'overridden';
     loser.overriddenBy = winner.ruleId;
+    if (quiet) return;
     warnings.push({ target: targetKey(loser.target), loser: loser.ruleId, winner: winner.ruleId, message });
   };
 
@@ -90,13 +93,25 @@ export function evaluate(kb, answers) {
       if (STRUCTURAL_ACTIONS.has(adj.action)) {
         const prev = structural.get(key);
         if (prev) {
-          conflict(prev, entry, `${key} への「${prev.action}」を優先度の高い規則が「${adj.action}」で上書き`);
+          const sameOutcome = prev.action === adj.action && prev.value === adj.value;
+          conflict(
+            prev,
+            entry,
+            `${key} への「${prev.action}」を優先度の高い規則が「${adj.action}」で上書き`,
+            sameOutcome
+          );
         }
-        // 後から来た omit は、既に適用済みの set(低優先度)を無効化する
+        // 後から来た omit は、既に適用済みの set(同順位以下)を無効化する
+        // (同順位は警告なし: 省略されたゲートの設定が残ると矛盾した提案になる)
         if (adj.action === 'omit') {
           for (const [pkey, pentry] of params) {
-            if (pkey.startsWith(`${key}#`) && pentry.status === 'applied' && pentry.priority < entry.priority) {
-              conflict(pentry, entry, `${key} の省略により設定「${pentry.param}」が無効化`);
+            if (pkey.startsWith(`${key}#`) && pentry.status === 'applied' && pentry.priority <= entry.priority) {
+              conflict(
+                pentry,
+                entry,
+                `${key} の省略により設定「${pentry.param}」が無効化`,
+                pentry.priority === entry.priority
+              );
             }
           }
         }
@@ -109,10 +124,17 @@ export function evaluate(kb, answers) {
         }
         // 低優先度の omit の上に高優先度の set が来たら、対象を復活させる
         // (品質・規制の要求を省略指示が黙って消さないための安全側の規則)
+        // 同順位なら構造操作(省略)を優先し、set 側を静かに落とす
+        // (省略済みゲートに「判定者は〜」等の設定が残る矛盾を防ぐ)
         const st = structural.get(key);
-        if (st && st.action === 'omit' && st.status === 'applied' && st.priority < entry.priority) {
-          conflict(st, entry, `${key} の省略を、優先度の高い設定要求が取り消し(対象を復活)`);
-          structural.delete(key);
+        if (st && st.action === 'omit' && st.status === 'applied') {
+          if (st.priority < entry.priority) {
+            conflict(st, entry, `${key} の省略を、優先度の高い設定要求が取り消し(対象を復活)`);
+            structural.delete(key);
+          } else {
+            conflict(entry, st, `${key} は省略のため設定「${adj.param}」は適用しない`, true);
+            continue;
+          }
         }
         params.set(pkey, entry);
       }

@@ -143,6 +143,35 @@ const kb = { questions, rules };
   console.log('衝突2(規制業×レビュアなし: 警告で可視化) OK');
 }
 
+// 衝突3(#63): 2名・PoC・外部レビュアなし → 同一アクションの重複と
+// 同順位の省略×設定は警告を出さず、省略ゲートに設定の残骸が残らない
+{
+  const r = evaluate(kb, {
+    'q-team-size': 'size-1-2',
+    'q-biz-phase': 'poc',
+    'q-quality': 'quality-standard',
+    'q-dev-form': 'inhouse',
+    'q-external-reviewer': 'reviewer-no',
+    'q-existing-gates': 'gates-none',
+    'q-ai-constraint': 'ai-free',
+  });
+  assert.equal(r.profile['gate:g-ship'].state, 'omit');
+  assert.equal(
+    r.profile['gate:g-ship'].params.approverMode,
+    undefined,
+    '省略された出荷判定に判定者設定が残らない'
+  );
+  assert(
+    !r.profile['gate:g-ship'].notes.some((n) => n.includes('価値責任者が兼ねる')),
+    '省略された出荷判定に矛盾するメモが残らない'
+  );
+  assert(
+    !r.warnings.some((w) => w.message.includes('「omit」を') && w.message.includes('「omit」で')),
+    '同一アクションの重複は警告しない'
+  );
+  console.log('衝突3(同一結論・同順位の静かな解決) OK');
+}
+
 // 条件付き質問: 3名以上なら外部レビュア質問は非表示で、回答が来ても無視される
 {
   const answers = {

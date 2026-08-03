@@ -117,6 +117,15 @@ const kb = {
     </p>
   </section>
 
+  <p class="feedback-note">
+    このシミュレーターはユーザーテスト中です。提案への違和感・質問の分かりにくさなど、気づいたことを<a
+      href="https://github.com/Takenori-Kusaka/process-compass/issues/new?template=feedback.yml"
+      >フィードバック Issue</a
+    >でお寄せください(提案内容への指摘は共有URLを添えてもらえると助かります)。検証の記録は<a
+      href={`${b}tool/user-testing/`}>ユーザーテスト</a
+    >を参照してください。
+  </p>
+
   <script type="application/json" id="kb-data" set:html={JSON.stringify(kb)} />
 
   <script>
@@ -464,6 +473,13 @@ const kb = {
     }
     li.overridden {
       color: var(--sl-color-gray-3);
+    }
+    .feedback-note {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--sl-color-gray-5);
+      font-size: var(--sl-text-sm);
+      color: var(--sl-color-gray-2);
     }
     .constraints-box {
       border: 1px solid var(--sl-color-gray-5);
