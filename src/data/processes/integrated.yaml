@@ -356,6 +356,8 @@ phases:
         inputs: [increment]
         outputs: [quality-report]
         refs:
+          - title: 統合検証(非機能テスト)リファレンス
+            href: /process-compass/phase5-implementation/nonfunctional-verify/
           - title: ゲート判定チェックリスト(G-7 出荷判定)
             href: /process-compass/phase4-process-design/gate-criteria/
         tasks:
