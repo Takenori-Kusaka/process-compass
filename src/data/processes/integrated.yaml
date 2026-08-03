@@ -227,6 +227,8 @@ phases:
         roles: [dev-verifier, ai-agent]
         outputs: [spec]
         refs:
+          - title: EARS 記法ガイド(受入基準の書き方)
+            href: /process-compass/phase4-process-design/ears-guide/
           - title: ゲート判定チェックリスト(G-2 要件合意)
             href: /process-compass/phase4-process-design/gate-criteria/
         tasks:
