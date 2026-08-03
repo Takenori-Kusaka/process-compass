@@ -70,7 +70,7 @@ graph LR
 
 ## このモデルの前提と限界
 
-参照モデルには[前提条件](/process-compass/processes/integrated/)があります(決定権の実質委譲、CI基盤、3者分離できる体制規模、明文化コストの予算化)。前提を満たさない組織への調整方法は、[テーラリングガイド](/process-compass/phase4-process-design/overview/)(フェーズ4の後続)で扱います。
+参照モデルには[前提条件](/process-compass/processes/integrated/)があります(決定権の実質委譲、CI基盤、3者分離できる体制規模、明文化コストの予算化)。前提を満たさない組織への調整方法は、[テーラリングガイド](/process-compass/phase4-process-design/tailoring-guide/)で扱います。
 
 :::note
 このモデルは v0(参照モデル)です。実際の組織へ適用するにはチーム体制・事業フェーズによる調整が必要で、その調整ロジック自体が最終ゴールのプロセス提案ツールの中身になります。フィードバックは [GitHub Issues](https://github.com/Takenori-Kusaka/process-compass/issues) へお願いします。
