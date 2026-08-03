@@ -102,13 +102,56 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: エビデンス集約(前タグからの差分に対して)
-        run: |
-          # 1. 対象PRの一覧と G-6 承認記録(挙動要約含む)を API で収集
-          # 2. gate-g5 の通過記録・カバレッジ推移を収集
-          # 3. 負債台帳の差分(新規記録・返却)を抽出
-          # 4. 品質レポート(テンプレ様式)を生成して artifact 化
-          node scripts/aggregate-evidence.mjs
+        run: node scripts/aggregate-evidence.mjs --from "$(git describe --tags --abbrev=0 HEAD^)" --to "$GITHUB_REF_NAME"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ship-evidence-${{ github.ref_name }}
+          path: evidence/
 ```
+
+### 集約スクリプトの入出力仕様
+
+**対象範囲**: 前リリースタグ(`--from`)から今回タグ(`--to`)までにマージされた全 PR。
+
+**入力(3系統)**:
+
+| 系統 | 取得内容 | 取得手段 |
+| --- | --- | --- |
+| GitHub API | 対象 PR の一覧、G-6 承認記録(承認者・挙動要約・日時)、必須チェック(gate-g5)の結果 | `gh api`(トークンはワークフローの `GITHUB_TOKEN`) |
+| CI 成果物 | テスト消化数・カバレッジ・静的解析と脆弱性の指摘件数、統合検証(非機能)の判定結果 | 各ワークフローが保存した artifact / JSON |
+| リポジトリ内の記録 | 負債台帳の差分(新規記録・返却)、ゲート判定記録、運用引き継ぎ文書の更新有無 | 固定様式(テンプレ3・4・5)の Markdown をパース |
+
+**出力(2ファイル、`evidence/` 配下)**:
+
+- `evidence.json` — 機械可読の集約結果。ダッシュボード・監査ツールの入力になる
+
+```json
+{
+  "range": { "from": "v1.3.0", "to": "v1.4.0" },
+  "prs": [{ "number": 123, "spec": "F-012/Task-3", "g5": "passed",
+            "g6": { "approver": "...", "summaryPresent": true } }],
+  "tests": { "planned": 214, "executed": 214, "coverage": 0.87 },
+  "defects": { "criticalOpen": 0 },
+  "debt": { "added": ["D-031"], "paid": ["D-018"], "unrecorded": [] },
+  "handover": { "updated": true },
+  "gaps": []
+}
+```
+
+- `quality-report.md` — 品質レポート(テンプレ様式)。G-7 の判定基準4項目と1対1の節構成で、QA が読んで署名する
+
+**判定基準との対応と欠落時の挙動**:
+
+| G-7 判定基準 | evidence.json の対応フィールド | 欠落時 |
+| --- | --- | --- |
+| テスト消化率 100% | `tests.executed / tests.planned` | `gaps` に記録しジョブを **fail** |
+| 未解決の重大欠陥 0 件 | `defects.criticalOpen` | 同上 |
+| 受容した負債の台帳記録 | `debt.unrecorded`(コミットの TODO と台帳の突合) | 同上 |
+| 運用引き継ぎ文書の完備 | `handover.updated` | 同上 |
+| (前提)全 PR の G-6 通過 | `prs[].g6.summaryPresent` がすべて true | 同上 |
+
+- **欠落があればジョブを fail させ、不完全なレポートで G-7 を始めない**(「あとで揃えます」を構造的に禁止する)
+- `gaps` には「何が・どの PR / 記録で欠けているか」を人が直せる粒度で書き出す
 
 QA はこの自動生成レポートとチェックリストを突合するだけで判定できます。集約を人手でやると G-7 が滞留するため、**エビデンス集約の自動化は出荷判定の前提**と位置づけます。
 
