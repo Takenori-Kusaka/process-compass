@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1079 nodes · 1018 edges · 100 communities (93 shown, 7 thin omitted)
+- 1077 nodes · 1006 edges · 103 communities (93 shown, 10 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -15,7 +15,7 @@
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- スクラム(Scrum)調査メモ
+- アジャイル(Agile)調査メモ
 - エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)
 - プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査
 - package.json
@@ -34,7 +34,7 @@
 - 仕様駆動開発(SDD, Specification-Driven Development)調査メモ
 - [プロセス名] 調査メモ
 - jp-governance.md
-- アジャイル(Agile)調査メモ
+- ウォーターフォール開発プロセス 調査メモ
 - agentic-development.md
 - 各ゲートの判定チェックリスト
 - content.config.ts
@@ -113,6 +113,9 @@
 - phase5-implementation/overview.md
 - phase6-operation/overview.md
 - astro.config.mjs
+- [activity].astro
+- comparison.astro
+- processes/index.astro
 - GEMINI.md
 
 ## God Nodes (most connected - your core abstractions)
@@ -134,11 +137,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (100 total, 7 thin omitted)
+## Communities (103 total, 10 thin omitted)
 
-### Community 0 - "スクラム(Scrum)調査メモ"
+### Community 0 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.05
-Nodes (30): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+22 more)
+Nodes (31): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 2b. 傘下の主要手法の位置づけ(俯瞰), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁) (+23 more)
 
 ### Community 1 - "エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)"
 Cohesion: 0.05
@@ -161,8 +164,8 @@ Cohesion: 0.06
 Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.08
-Nodes (21): Activity, esc(), Gate, l1Diagram(), l2Diagram(), Phase, ADR-0006, ADR-0007 (+13 more)
+Cohesion: 0.13
+Nodes (15): Activity, esc(), Gate, l1Diagram(), l2Diagram(), Phase, ADR-0006, ADR-0007 (+7 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
 Cohesion: 0.06
@@ -212,9 +215,9 @@ Nodes (14): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / out
 Cohesion: 0.13
 Nodes (14): Stage-Gate と日本の決裁の構造的違い, デザインレビュー(DR)と品質保証部門, デジタル化しても構造は残る, ハイコンテキスト文化: 明文化を阻む土台, メンバーシップ型雇用とロールの曖昧さ, 仕組みと責任分散という機能, 全体像: 共通DNAは「責任の非集中」, 参考文献 (+6 more)
 
-### Community 19 - "アジャイル(Agile)調査メモ"
+### Community 19 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
-Nodes (17): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 2b. 傘下の主要手法の位置づけ(俯瞰), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁) (+9 more)
+Nodes (16): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+8 more)
 
 ### Community 20 - "agentic-development.md"
 Cohesion: 0.15
@@ -505,23 +508,23 @@ Cohesion: 0.50
 Nodes (3): 成果物の全体像, 次のフェーズとの関係, 読む順序
 
 ## Knowledge Gaps
-- **806 isolated node(s):** `normalized`, `res`, `ADR-0006`, `name`, `type` (+801 more)
+- **806 isolated node(s):** `プロジェクト構造`, `執筆規約`, `コマンド`, `Claude Code 設定(.claude/)`, `意思決定の記録(ADR)` (+801 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `スクラム(Scrum)調査メモ`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
-- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `スクラム(Scrum)調査メモ`?**
+- **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `アジャイル(Agile)調査メモ`?**
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `アジャイル(Agile)調査メモ`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._
-- **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `スクラム(Scrum)調査メモ`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
-- **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
+- **Why does `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` connect `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` to `アジャイル(Agile)調査メモ`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **What connects `プロジェクト構造`, `執筆規約`, `コマンド` to the rest of the system?**
   _806 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `スクラム(Scrum)調査メモ` be split into smaller, more focused modules?**
-  _Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected._
+- **Should `アジャイル(Agile)調査メモ` be split into smaller, more focused modules?**
+  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
   _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**

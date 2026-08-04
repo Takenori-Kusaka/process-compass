@@ -1,5 +1,5 @@
 {
-  "0": "スクラム(Scrum)調査メモ",
+  "0": "アジャイル(Agile)調査メモ",
   "1": "エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)",
   "2": "プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査",
   "3": "package.json",
@@ -18,7 +18,7 @@
   "16": "仕様駆動開発(SDD, Specification-Driven Development)調査メモ",
   "17": "[プロセス名] 調査メモ",
   "18": "jp-governance.md",
-  "19": "アジャイル(Agile)調査メモ",
+  "19": "ウォーターフォール開発プロセス 調査メモ",
   "20": "agentic-development.md",
   "21": "各ゲートの判定チェックリスト",
   "22": "content.config.ts",
@@ -98,5 +98,8 @@
   "96": "phase6-operation/overview.md",
   "97": "astro.config.mjs",
   "98": "02-roadmap.md",
+  "99": "[activity].astro",
+  "100": "comparison.astro",
+  "101": "processes/index.astro",
   "102": "GEMINI.md"
 }
