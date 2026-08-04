@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-04)
 
 ## Corpus Check
-- 116 files · ~83,526 words
+- 116 files · ~83,218 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1079 nodes · 1018 edges · 100 communities (93 shown, 7 thin omitted)
+- 1074 nodes · 1013 edges · 100 communities (93 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cd5e8139`
+- Built from commit: `ff3bd36e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -141,8 +141,8 @@ Cohesion: 0.05
 Nodes (30): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+22 more)
 
 ### Community 1 - "エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)"
-Cohesion: 0.05
-Nodes (37): 10. 出典一覧, 1. 2026年3月時点の常識 vs 2026年8月時点の実態, 2-1. Anthropic — Mythos クラスの登場、Opus 5、そして輸出管理, 2-2. Cognition(Devin)— 「junior engineer」としての実力が定量化された, 2-3. OpenAI — 世代交代と自己参照, 2-4. GitHub Copilot coding agent — 統制設計は維持、ただし逃げ道が付いた, 2-5. その他, 2. モデルと製品の現況(2026-03 → 2026-08) (+29 more)
+Cohesion: 0.06
+Nodes (32): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出典一覧, 1-1. Anthropic — Mythos クラスの登場と Opus 5, 1-2. Cognition(Devin)— 自社モデル路線と「群」への転換, 1-3. OpenAI — Codex の世代交代と GPT-5.6 ファミリー, 1-4. GitHub Copilot coding agent — 統制設計は維持、範囲は拡大, 1-5. Google — Jules の GA と Gemini 3 系, 1-6. 新興・その他 (+24 more)
 
 ### Community 2 - "プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査"
 Cohesion: 0.06
@@ -505,7 +505,7 @@ Cohesion: 0.50
 Nodes (3): 成果物の全体像, 次のフェーズとの関係, 読む順序
 
 ## Knowledge Gaps
-- **806 isolated node(s):** `normalized`, `res`, `ADR-0006`, `name`, `type` (+801 more)
+- **803 isolated node(s):** `normalized`, `res`, `ADR-0006`, `name`, `type` (+798 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -513,16 +513,16 @@ Nodes (3): 成果物の全体像, 次のフェーズとの関係, 読む順序
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `スクラム(Scrum)調査メモ`?**
-  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `スクラム(Scrum)調査メモ`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
-- **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `スクラム(Scrum)調査メモ`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` connect `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` to `スクラム(Scrum)調査メモ`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _806 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _803 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `スクラム(Scrum)調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.05128205128205128 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
-  _Cohesion score 0.05405405405405406 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
