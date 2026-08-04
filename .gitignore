@@ -30,3 +30,8 @@ Thumbs.db
 
 # Playwright MCP temp output
 .playwright-mcp/
+
+# Graphify temp cache and backups
+graphify-out/cache/
+.claude/settings.json.graphify-bak
+
