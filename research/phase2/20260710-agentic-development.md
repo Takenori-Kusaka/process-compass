@@ -4,6 +4,8 @@
 - 作成日: 2026-07-10
 - 状態: 清書済み → src/content/docs/phase2-aidlc/agentic-development.md
 
+> **⚠ 更新版あり(2026-08-04)**: 本メモの内容は [20260804-agentic-development-update.md](./20260804-agentic-development-update.md) で検証・更新済み。とくに §3-2 の注記「Mythos 5 / Fable 5 は架空のモデル名」は**誤りであり撤回**(Claude Fable 5 / Mythos 5 は 2026-06-09 に Anthropic が正式発表した実在モデル)。「倍加約7か月」「80%前後で伸び鈍化」も更新された。本メモは歴史的記録として保存し、最新の事実は更新版を参照のこと。
+
 > 本メモの位置づけ: [AIDLC 調査メモ](../phase1/20260710-aidlc.md)が前提とする「AIエージェントが自律的に開発を回す(AI orchestrates the whole process)」の**中身=エージェント型開発の現在地**を整理する。
 > 記述は2層に厳密に分ける:
 > - **建前(何ができると語られるか)**: 各ツール/フレームワークの公式が主張する能力。
