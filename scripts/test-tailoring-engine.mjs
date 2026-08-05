@@ -44,7 +44,7 @@ for (const rule of rules) {
     }
   }
 }
-assert(constraints.length === 3, '禁止事項は3件のはず');
+assert(constraints.length === 6, '禁止事項は6件のはず');
 console.log(`参照整合性 OK(規則 ${rules.length} 件・質問 ${questions.length} 問)`);
 
 const kb = { questions, rules };
@@ -203,6 +203,57 @@ const kb = { questions, rules };
   assert.equal(r.profile['role:ai-agent'].state, 'omit');
   assert.equal(r.profile.process.params.aiLoop, 'disabled');
   console.log('AI利用不可(ループ無効化) OK');
+}
+
+// 安全重要度1: CL3(生命重要)は人員不足による独立レビュー省略に勝ち、衝突が可視化される
+{
+  const r = evaluate(kb, {
+    'q-team-size': 'size-1-2',
+    'q-biz-phase': 'mvp',
+    'q-quality': 'quality-standard',
+    'q-criticality': 'cl3',
+    'q-dev-form': 'inhouse',
+    'q-external-reviewer': 'reviewer-no',
+    'q-existing-gates': 'gates-none',
+    'q-ai-constraint': 'ai-free',
+  });
+  assert.equal(r.profile.process.params.maxAutonomyLevel, 'L1', 'CL3 は自律度を L1 に固定');
+  assert.equal(
+    r.profile['gate:g-indep-review'].params.reviewerCount,
+    2,
+    '省略(40)より安全(50)が優先し、レビュア2名の要求が残る'
+  );
+  assert(
+    r.warnings.some((w) => w.target.startsWith('gate:g-indep-review')),
+    '人員不足と安全要求の衝突が警告として残る'
+  );
+  console.log('安全重要度1(CL3×レビュアなし: 安全側が優先+警告) OK');
+}
+
+// 安全重要度2: CL2 は安全成果物を必須化し、CL0 では何も追加されない
+{
+  const base = {
+    'q-team-size': 'size-3-9',
+    'q-biz-phase': 'growth',
+    'q-quality': 'quality-standard',
+    'q-dev-form': 'inhouse',
+    'q-existing-gates': 'gates-exist',
+    'q-ai-constraint': 'ai-free',
+  };
+  const cl2 = evaluate(kb, { ...base, 'q-criticality': 'cl2' });
+  assert.equal(cl2.profile['gate:g-plan-approval'].params.safetyRiskAssessment, 'required');
+  assert.equal(cl2.profile['gate:g-ship'].params.safetyVerificationRecord, 'required');
+  assert.equal(cl2.profile.process.params.maxAutonomyLevel, 'L2');
+  assert.equal(cl2.profile['practice:traceability'].params.required, true, 'CL1 の要求を包含する');
+
+  const cl0 = evaluate(kb, { ...base, 'q-criticality': 'cl0' });
+  assert.equal(
+    cl0.profile['gate:g-plan-approval']?.params?.safetyRiskAssessment,
+    undefined,
+    'CL0 では安全成果物を追加しない'
+  );
+  assert.equal(cl0.profile.process?.params?.maxAutonomyLevel, undefined);
+  console.log('安全重要度2(CL2 は入れ子で加算・CL0 は無加算) OK');
 }
 
 console.log('\nすべてのシナリオ検証に合格しました');

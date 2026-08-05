@@ -145,8 +145,9 @@ const processSchema = z.object({
 // 入力モデル: 画面に出す質問。回答(option の id)が規則の条件になる
 const questionSchema = z.object({
   id: z.string(),
-  // A=チーム規模 / B=事業フェーズ / C=期待品質・規制 / D=開発形態 / supplement=補助質問
-  axis: z.enum(['A', 'B', 'C', 'D', 'supplement']),
+  // A=チーム規模 / B=事業ステージ / C=期待品質・規制 / D=開発形態 / E=安全重要度 / supplement=補助質問
+  // 軸の記号は調整軸の識別子であり、AI実行形態の E1〜E3 とは無関係
+  axis: z.enum(['A', 'B', 'C', 'D', 'E', 'supplement']),
   text: z.string(), // 画面上の質問文(専門用語で聞かない)
   help: z.string().optional(),
   // 条件付き表示: 指定した質問が指定の回答のときだけ表示する(例: 1〜2名のときだけ外部レビュア質問)

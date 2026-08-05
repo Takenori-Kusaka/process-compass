@@ -18,3 +18,18 @@ constraints:
     description: 差し戻し基準(チェックリスト)のないゲートを作らない
     rationale: 基準のないゲートは判定者の属人判断になり、滞留と素通し(rubber stamp)の両方を招く
     source: /process-compass/phase4-process-design/gate-criteria/
+  - id: c-safety-autonomy-cap
+    name: 安全関連部の自律度はL1
+    description: 安全重要度CL3の安全関連部で、AI自律レベルをL1より上げない
+    rationale: 生成物を未検証の入力として扱い、決定論的な後段検証で捕捉しきる構成が、機能安全の枠組みで成立する唯一の経路
+    source: /process-compass/phase4-process-design/safety-verification/
+  - id: c-safety-assessment-not-omittable
+    name: 安全リスクアセスメントは省略しない
+    description: 安全重要度CL2以上で、安全リスクアセスメント(テンプレ9)と安全適合性の検証記録を省略しない
+    rationale: 人員・期日の制約は、危害の深刻度を下げない。省略するなら安全重要度の判定自体を見直す
+    source: /process-compass/phase4-process-design/deliverable-templates/
+  - id: c-tailoring-must-be-declared
+    name: 調整は宣言する
+    description: 標準から外した項目を、理由と承認者とともに提案書へ記載せずに運用しない
+    rationale: 規格の世界でも、テーラリングは適合の放棄ではなく「差分の宣言」を条件に認められる。宣言のない省略は追跡できない
+    source: /process-compass/phase4-process-design/tailoring-guide/

@@ -80,12 +80,19 @@ graph TD
 | ファイル | 内容 | 規則数 |
 | --- | --- | --- |
 | rules-team-size.yaml | 軸A: チーム規模(1〜2名 / 3〜9名 / 10名以上) | 3 |
-| rules-business-phase.yaml | 軸B: 事業フェーズ(PoC / MVP / グロース / 安定運用) | 4 |
+| rules-business-phase.yaml | 軸B: 事業ステージ(S0 / S1 / S2) | 4 |
 | rules-quality.yaml | 軸C: 期待品質・規制(高品質 / 規制業) | 2 |
 | rules-dev-form.yaml | 軸D: 開発形態(発注側 / 受注側) | 2 |
+| rules-criticality.yaml | 軸E: 安全重要度(CL1 / CL2 / CL3) | 3 |
 | rules-supplementary.yaml | 補助: 限界ケース・既存ゲート接続・AI制約 | 5 |
 
-制約(禁止事項)として「結果責任を持つのは1人」「AIを責任者にしない」「差し戻し基準のないゲートを作らない」の3件を収録しています。内容は[テーラリングの禁止事項](/process-compass/phase4-process-design/tailoring-guide/)と同一です。
+制約(禁止事項)は6件を収録しています。内容は[テーラリングの禁止事項](/process-compass/phase4-process-design/tailoring-guide/)と同一です。
+
+### 安全重要度の優先度
+
+軸Eの規則は priority 50 とし、**限界ケースの代替(40)より優先します**。人員が確保できないことを理由に、危害の深刻度に基づく要求が黙って外れる経路を作らないためです。
+
+たとえば「1〜2名・外部レビュアなし・CL3」では、限界ケースの規則が独立レビューを省略しようとしますが、軸Eの規則が勝って2名の要求が残り、**両立しない条件として警告に現れます**。利用者はこれを見て、体制を確保するか、当該の機能を実施しないかを判断します。
 
 ## 検証と版管理
 

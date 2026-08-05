@@ -1,0 +1,77 @@
+# 軸E: 安全重要度(CL0〜CL3)による調整規則
+# 出典: /phase4-process-design/tailoring-guide/ の軸Eの表
+# 危害の深刻度に基づく調整は、限界ケースの代替(priority 40)より優先する(priority 50)。
+# 人員不足を理由に安全の要求を黙って外さないため。
+schemaVersion: 0
+name: 軸E 安全重要度
+rules:
+  - id: r-e-cl1
+    when:
+      q-criticality: [cl1, cl2, cl3]
+    adjustments:
+      - target: { type: practice, id: traceability }
+        action: set
+        param: required
+        value: true
+        note: AI生成箇所の追跡(どこを生成し誰が承認したか)を必須にする
+      - target: { type: practice, id: ai-usage }
+        action: note
+        note: 個人の権利・利益に影響する判定の設計は、AI単独で確定しない
+    reason: 回復可能であっても個人の権利に影響が及ぶ場合、判断の経路を後から再構成できる必要がある
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 50
+
+  - id: r-e-cl2
+    when:
+      q-criticality: [cl2, cl3]
+    adjustments:
+      - target: { type: gate, id: g-plan-approval }
+        action: set
+        param: safetyRiskAssessment
+        value: required
+        note: 安全リスクアセスメント(第6章 テンプレ9)を企画承認の前提条件にする
+      - target: { type: gate, id: g-ship }
+        action: set
+        param: safetyVerificationRecord
+        value: required
+        note: 安全適合性の検証記録(附属書F F.7)を出荷判定の判定基準に加える
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: independentSafetyAssessment
+        value: true
+        note: 独立レビューとは別に、実装の責任者から組織的に独立した安全性の評価を重ねる
+      - target: { type: process }
+        action: set
+        param: maxAutonomyLevel
+        value: L2
+        note: 安全関連部のAI自律レベルはL2を上限とする
+    reason: 適合性評価または第三者認証の対象になる場合、危険源の同定から検証記録までの追跡が要求される
+    source: /process-compass/phase4-process-design/safety-verification/
+    priority: 50
+
+  - id: r-e-cl3
+    when:
+      q-criticality: [cl3]
+    adjustments:
+      - target: { type: process }
+        action: set
+        param: maxAutonomyLevel
+        value: L1
+        note: 安全関連部のAI自律レベルはL1に固定する。実績による引き上げの対象にしない
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: reviewerCount
+        value: 2
+        note: 独立レビューは2名で実施する
+      - target: { type: gate, id: g-ci }
+        action: strengthen
+        note: 故障挿入試験とミューテーション試験をCIの必須チェックに加える(附属書F F.4)
+      - target: { type: gate, id: g-ship }
+        action: strengthen
+        note: 出荷判定に、適用しなかった強く推奨される手法の理由の記載を求める
+      - target: { type: practice, id: ai-usage }
+        action: note
+        note: 実装とテストを同一のAIに同一の文脈で書かせない。テスト生成の独立性は最強(組織的独立)を適用する
+    reason: 死亡または重篤な傷害が起こりうる場合、機能安全の枠組みが要求する独立性と検証の網を満たす必要がある
+    source: /process-compass/phase4-process-design/safety-verification/
+    priority: 50
