@@ -1,6 +1,6 @@
 ---
 title: PR 運用リファレンス
-description: PRの作成からマージまでの運用を定義する。本文の必須欄・サイズ上限・Draftの扱い・自律度別の作成手順・レビュー対応・マージ後処理
+description: PRの作成からマージまでの運用を定義する。本文の必須欄・サイズ上限・Draftの扱い・実行形態別の作成手順・レビュー対応・マージ後処理
 sidebar:
   order: 3
 ---
@@ -66,25 +66,25 @@ Spec: F-xxx / Task-N(実装計画のタスクID。fix/chore の場合は Issue �
 - 「検証方法と結果」欄が**実装と検証タスク(human-verify)の完了記録**を兼ねる。空欄のまま Ready にした PR は差し戻し対象
 - 「AI 関与範囲」欄は規制業テーラリング(AI 生成箇所のトレーサビリティ)の集計元になる。コミットトレーラ(Co-Authored-By)と二重になるが、PR 側は人間向けの要約、トレーラ側は機械集計用と役割が違う
 
-## 誰が PR を作るか(自律度別)
+## 誰が PR を作るか(実行形態別)
 
-[AI 実行環境](/process-compass/phase5-implementation/ai-environment/)の自律度レベルと対応させます。
+[AI 実行環境](/process-compass/phase5-implementation/ai-environment/)の実行形態(E1〜E3)と対応させます。AI自律レベル(L1〜L3、[第5章 5.4](/process-compass/phase4-process-design/human-ai-boundary/))とは別の軸です。
 
-| 自律度 | PR の作成 | Ready 化の判断 |
+| 実行形態 | PR の作成 | Ready 化の判断 |
 | --- | --- | --- |
-| L1(人が全承認) | 人が `gh pr create --draft` を実行 | 人 |
-| L2(定型は自動) | AI が Draft PR まで作成し、人へ通知 | 人(human-verify 後) |
-| L3(例外のみ人) | AI が Draft 作成〜CI 通過まで自走 | 人(human-verify は省略しない) |
+| E1(人が全承認) | 人が `gh pr create --draft` を実行 | 人 |
+| E2(定型は自動) | AI が Draft PR まで作成し、人へ通知 | 人(human-verify 後) |
+| E3(例外のみ人) | AI が Draft 作成〜CI 通過まで自走 | 人(human-verify は省略しない) |
 
 ```bash
-# タスク着手時(L1 の例): ブランチを切って空コミットで Draft PR を開く
+# タスク着手時(E1 の例): ブランチを切って空コミットで Draft PR を開く
 git switch -c feature/F-012-task-3
 git commit --allow-empty -m "feat: F-012 Task-3 着手"
 git push -u origin feature/F-012-task-3
 gh pr create --draft --title "feat: <タスクの要約> (F-012/Task-3)" --body-file .github/PULL_REQUEST_TEMPLATE.md
 ```
 
-- どの自律度でも **Ready for review にする判断は人間**が行う。Ready 化は「human-verify を完了した」という宣言であり、AI には代行させない
+- どの実行形態でも **Ready for review にする判断は人間**が行う。Ready 化は「human-verify を完了した」という宣言であり、AI には代行させない
 
 ## Draft PR の扱い
 
