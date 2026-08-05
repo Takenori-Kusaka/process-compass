@@ -125,7 +125,7 @@ gates:
     contractual: true
     deliverables: [検証結果報告, 事業仮説の更新, 技術的実現性の評価, 意思決定体制図(D-0)]
     criteria: [事業仮説が実証データで支持されている, 技術的実現性が確認されている, 次ステージの投資規模と体制が示されている]
-    approver: 投資判断を行う会議体
+    approver: ステアリングコミッティ(B-2)
     decisions: [S1へ移行 / 継続検証 / 中止]
     jpNote: 既存の投資決裁制度に載せる。判断は go / hold / kill の三択とし、判断しないまま継続する状態を作らない
   - id: sg-validate
@@ -136,7 +136,7 @@ gates:
     contractual: true
     deliverables: [利用実績と価値の実証データ, アーキテクチャ設計と判断記録, 恒久層コンテキスト, 移管記録]
     criteria: [実利用者における価値が実証されている, 拡大に耐えるアーキテクチャが確定している, 受入部門が要求を自らの言葉で再構成できている]
-    approver: 投資判断を行う会議体および受入部門の責任者
+    approver: ステアリングコミッティ(B-2)および受入部門の責任者
     decisions: [S2へ移行 / 継続 / 中止]
     jpNote: 部門間移管を伴う場合、移管は文書の受け渡しでは完了しない。受入側の再構成完了をもって成立する
   - id: sg-scale
@@ -231,6 +231,47 @@ gates:
     approver: 事業決裁者
     decisions: [Go / Hold]
     jpNote: 技術判定の通過が前提なので、ここは純粋な事業判断のみ。目安48時間以内。技術品質を蒸し返さないことを規程に明記する
+bodies:
+  - id: b-it-investment
+    label: B-1
+    name: IT投資委員会
+    layer: governance
+    purpose: 案件を横断して投資枠を配分し、実施しない案件を決める
+    decides: [案件の採否, 予算枠の配賦, 案件間の優先順位, 案件の中止]
+    excludes: [個別案件の技術選択, 仕様の内容, 要員の日々の割当]
+    approver: biz-approver
+    gates: [g-plan-approval]
+    href: /process-compass/phase4-process-design/roles-responsibilities/
+  - id: b-steerco
+    label: B-2
+    name: ステアリングコミッティ
+    layer: governance
+    purpose: 個別案件の進行を監視し、ステージ移行と逸脱への対処を決める
+    decides: [ステージ移行の可否, 上程された逸脱の裁定, 案件内の予算・要員の再配分]
+    excludes: [工程ゲートの判定, 技術設計の良否]
+    approver: biz-approver
+    gates: [sg-explore, sg-validate, sg-scale]
+    href: /process-compass/phase4-process-design/roles-responsibilities/
+  - id: b-design-review
+    label: B-3
+    name: 設計審査会
+    layer: implementation
+    purpose: 単独の技術判断者では判定できない、部門をまたぐ設計の適合性を審査する
+    decides: [複数部門の要求に影響する設計の採否, 外部インタフェースの確定, 安全・法規制に関わる設計の適合性]
+    excludes: [実装の良否, テスト結果の合否]
+    approver: tech-lead
+    gates: [g-tech-design]
+    href: /process-compass/phase4-process-design/roles-responsibilities/
+  - id: b-release-board
+    label: B-4
+    name: リリース判定会
+    layer: implementation
+    purpose: 変更の区分規則を定め、会議体を通さずに出せる変更の範囲を維持する
+    decides: [変更のリスク区分の判定規則, 標準変更カタログの登録と削除, 重大変更の実施可否, 重大事象後の是正確認]
+    excludes: [標準変更の個別の可否, 通常変更の個別の可否]
+    approver: qa-gatekeeper
+    gates: [g-release]
+    href: /process-compass/phase4-process-design/roles-responsibilities/
 phases:
   - id: kickoff
     name: 企画・立ち上げ

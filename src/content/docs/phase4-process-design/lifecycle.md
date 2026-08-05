@@ -80,8 +80,10 @@ graph LR
 
 SG-2 を設けない場合、プロジェクト体制のまま運用が継続し、技術負債の返却主体が消えます。定常運用への移行は明示的に判定しなければなりません。
 
+ステージ移行ゲートの判定は、ステアリングコミッティ(B-2)が行います。会議体の構成・判定の語彙・判定期限は[第3章 3.7](/process-compass/phase4-process-design/roles-responsibilities/)に規定します。
+
 :::note
-各ゲートの判定者と会議体の構成は[第3章](/process-compass/phase4-process-design/roles-responsibilities/)の改訂で規定します。予算配賦および中止判断の基準は、あわせて規定します。
+予算配賦および中止判断の基準は、[第7章](/process-compass/phase4-process-design/exception-escalation/)の改訂で規定します。
 :::
 
 ## 2.5 工程ゲートとの関係

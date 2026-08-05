@@ -98,6 +98,24 @@ const processSchema = z.object({
       jpNote: z.string().optional(),
     })
     .array(),
+  // 会議体(合議で決定を下す場)。工程ゲートの単独判定とは別の要素として保持する。
+  // 判定期限・金額閾値などの数値は本文側が正本のためここには持たない(ADR-0010)
+  bodies: z
+    .object({
+      id: z.string(),
+      name: z.string(),
+      label: z.string().optional(), // 文書側の記号(例: B-1)
+      // governance=投資と継続を決める統治層 / implementation=技術と出荷を決める実装層
+      layer: z.enum(['governance', 'implementation']),
+      purpose: z.string(),
+      decides: z.string().array(), // 決定する事項
+      excludes: z.string().array().default([]), // 決定しない事項(越境の防止)
+      approver: z.string(), // 決定者。Role の id 参照、または既存規程上の呼称
+      gates: z.string().array().default([]), // 接続する Gate の id 参照
+      href: z.string().optional(),
+    })
+    .array()
+    .optional(),
   phases: phaseSchema.array(),
   // 事業ステージ(マクロライフサイクル)。phases が1開発サイクル内の工程であるのに対し、
   // stages は不確実性の低減段階を表す上位の区分。境界にステージ移行ゲートを置く
