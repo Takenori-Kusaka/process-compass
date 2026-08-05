@@ -181,6 +181,7 @@ AI 支援を用いた群が、支援なしの後続作業で著しく高い失�
 
 ## 5.8 関連する章
 
+- 開発者の具体的な作業手順は[附属書E](/process-compass/phase4-process-design/developer-guide/)に示す
 - 各ロールの任命基準と兼務規則は[第3章](/process-compass/phase4-process-design/roles-responsibilities/)に規定する
 - 判断の制御点は[第4章](/process-compass/phase4-process-design/gate-criteria/)に規定する
 - 指標の測定方法は[フェーズ6(プロセス運用)](/process-compass/phase6-operation/metrics/)に規定する

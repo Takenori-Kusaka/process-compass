@@ -76,7 +76,7 @@ sidebar:
 
 ## 1.5 本標準の構成
 
-本標準は本文8章と附属書4編で構成します。本文は要求事項を規定し、附属書は背景・記法・様式を提供します。
+本標準は本文8章と附属書5編で構成します。本文は要求事項を規定し、附属書は背景・記法・様式・実施の手引きを提供します。
 
 ```mermaid
 graph TD
@@ -106,6 +106,7 @@ graph TD
 | [附属書B](/process-compass/phase4-process-design/ears-guide/) | EARS 記法 | 受入基準を検証可能な形式で記述する方法 |
 | [附属書C](/process-compass/phase4-process-design/review-guide/) | 独立レビュー実施ガイド | 独立レビューの実施手順 |
 | [附属書D](/process-compass/phase4-process-design/proposal-template/) | 導入提案書の様式 | 品質保証部門・決裁者への提案様式 |
+| [附属書E](/process-compass/phase4-process-design/developer-guide/) | 開発者のAI協調作業ガイド | 仕様の記述から差分の検証までの作業手順 |
 
 ## 1.6 各章の入力・処理・出力(IPO)
 
