@@ -69,6 +69,11 @@ workProducts:
     description: 決定の権限・権限境界(トレランス)・平常時と障害時のエスカレーション経路を1文書で確定させる。案件で最初に作る成果物であり、企画承認ゲートの前提条件
     producedBy: value-owner
     href: /process-compass/phase4-process-design/deliverable-templates/
+  - id: safety-risk-assessment
+    name: AIエージェント安全リスクアセスメント表
+    description: 危険源の同定・リスクの見積り・3段階のリスク低減策・残留リスクの受容を記録する。適用条件に該当する案件で企画承認ゲートの前提条件となる
+    producedBy: tech-lead
+    href: /process-compass/phase4-process-design/deliverable-templates/
   - id: intent-brief
     name: 企画書(事業意図)
     description: 目的・価値仮説・概算予算・リスク。企画承認ゲートの入力
@@ -170,7 +175,7 @@ gates:
     name: 企画承認
     kind: decision
     contractual: true
-    deliverables: [意思決定・エスカレーション体制図(D-0。承認済みであることが審議開始の前提条件), 企画書(事業意図), コンテキスト基盤の整備計画と予算]
+    deliverables: [意思決定・エスカレーション体制図(D-0。承認済みであることが審議開始の前提条件), AIエージェント安全リスクアセスメント表(適用条件に該当する案件のみ。審議開始の前提条件), 企画書(事業意図), コンテキスト基盤の整備計画と予算]
     criteria: [投資対効果が事業基準を満たす, リスク受容が明示されている, コンテキスト基盤の初期整備コストが予算化されている, 指標の閾値と予算区分が合意され記録されている]
     approver: 事業決裁者(決裁権限規程どおりの職位)
     decisions: [承認 / 条件付き承認 / 見送り]

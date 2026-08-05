@@ -17,6 +17,10 @@
       "ja-no-weak-phrase": false,
       "max-comma": {
         "max": 5
+      },
+      "max-kanji-continuous-len": {
+        "max": 6,
+        "allow": ["本質的安全設計方策"]
       }
     }
   }
