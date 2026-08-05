@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-05)
 
 ## Corpus Check
-- 129 files · ~88,770 words
+- 142 files · ~93,937 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1221 nodes · 1147 edges · 113 communities (105 shown, 8 thin omitted)
+- 1387 nodes · 1300 edges · 126 communities (114 shown, 12 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ee40d24c`
+- Built from commit: `ce54ff8a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -30,11 +30,11 @@
 - Process Compass 🧭
 - テスト駆動開発(TDD)調査メモ
 - AIDLC(AI-Driven Development Life Cycle)調査メモ
-- ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ
+- スクラム(Scrum)調査メモ
 - 仕様駆動開発(SDD, Specification-Driven Development)調査メモ
 - [プロセス名] 調査メモ
 - jp-governance.md
-- ウォーターフォール開発プロセス 調査メモ
+- 第2部: GitHub Issueドラフト（計12件）
 - agentic-development.md
 - 各ゲートの判定チェックリスト
 - content.config.ts
@@ -113,8 +113,13 @@
 - phase5-implementation/overview.md
 - phase6-operation/overview.md
 - astro.config.mjs
+- 第1部: 根本課題の構造的整理 (14の論点ノード)
+- 第2部: GitHub Issueドラフト（計9件）
 - 2. 実行順序（8 Wave / 30 Issue）
 - GEMINI.md
+- ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ
+- 🛠️ カテゴリ3: 自動化バイアス・形骸化防止＆メトリクス（ノード9）
+- block2_research.md
 - 1. 参照した国際規格・ガイドライン
 - 3. 設計判断
 - 1. 調査結果
@@ -127,6 +132,13 @@
 - 調査メモ: 内部文脈用語の排除と再発防止のガードレール（Issue #108）
 - style-guide-tone.md
 - check-tone.mjs
+- 1. 調査結果
+- block3_research.md
+- 2. 議論から得られた5つの核心的設計方針（To-Be）
+- create_block2_issues.cjs
+- create_block3_issues.cjs
+- create_issues.cjs
+- create_issues.js
 
 ## God Nodes (most connected - your core abstractions)
 1. `アジャイル(Agile)調査メモ` - 13 edges
@@ -147,7 +159,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (113 total, 8 thin omitted)
+## Communities (126 total, 12 thin omitted)
 
 ### Community 0 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.12
@@ -209,9 +221,9 @@ Nodes (20): 0-0. 重要な前提: TDD は「開発ライフサイクル」では
 Cohesion: 0.10
 Nodes (21): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task) (+13 more)
 
-### Community 15 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
+### Community 15 - "スクラム(Scrum)調査メモ"
 Cohesion: 0.05
-Nodes (34): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+26 more)
+Nodes (30): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+22 more)
 
 ### Community 16 - "仕様駆動開発(SDD, Specification-Driven Development)調査メモ"
 Cohesion: 0.11
@@ -225,9 +237,9 @@ Nodes (14): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / out
 Cohesion: 0.13
 Nodes (14): Stage-Gate と日本の決裁の構造的違い, デザインレビュー(DR)と品質保証部門, デジタル化しても構造は残る, ハイコンテキスト文化: 明文化を阻む土台, メンバーシップ型雇用とロールの曖昧さ, 仕組みと責任分散という機能, 全体像: 共通DNAは「責任の非集中」, 参考文献 (+6 more)
 
-### Community 19 - "ウォーターフォール開発プロセス 調査メモ"
-Cohesion: 0.12
-Nodes (16): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+8 more)
+### Community 19 - "第2部: GitHub Issueドラフト（計12件）"
+Cohesion: 0.06
+Nodes (31): 10. 【Issue: #01-10】3年組織ローテーション下における「コンテキスト移管ゲート（引き継ぎプロセス）」の設計, 11. 【Issue: #01-11】「三識（知識・見識・胆識）」に基づくゲート承認UI/UXおよび意志決定プロセスの設計, 12. 【Issue: #01-12】ドキュメント全体の徹底的なテキストリファクタリングと内部文脈用語の完全排除, 1. 【Issue: #01-01】フェーズ4ドキュメントの「標準・ガイドライン（B）」トーンへの全面改修, 1. プロセス設計のメタ体系・メソドロジー（ノード1 & 2 / Q1対応）, 2. 【Issue: #01-02】統合プロセス参照モデルのデータ（YAML）とフェーズ4解説の疎結合化, 2. マクロな事業・製品フェーズ（DR/TR）とマイルストーン（ノード3 & 4 / Q2, Q3対応）, 3. 【Issue: #01-03】JTC型「3フェーズ・4ゲート」マクロライフサイクルの全体設計 (+23 more)
 
 ### Community 20 - "agentic-development.md"
 Cohesion: 0.15
@@ -517,9 +529,29 @@ Nodes (3): 成果物, 目的, 調査観点(候補)
 Cohesion: 0.22
 Nodes (8): 1.1 目的, 1.2 適用範囲, 1.3 引用規格および参照文書, 1.4 用語の定義, 1.5 本標準の構成, 1.6 各章の入力・処理・出力(IPO), 1.7 記述の原則, 1.8 関連するフェーズ
 
+### Community 99 - "第1部: 根本課題の構造的整理 (14の論点ノード)"
+Cohesion: 0.08
+Nodes (23): 📂 I. プロセス設計のメタ体系・メソドロジー（プロセス・アーキテクチャ）, 🏢 II. JTCの事業統制とライフサイクル・ガバナンスへの適合（外殻の設計）, 👥 III. 人間とAIの役割設計・相互作用（AIX・内殻の設計）, 🛠️ IV. プラットフォーム・タスク管理とメトリクス（プラットフォームの設計）, Process Compass 根本課題の構造的整理 ＆ 質問管理表 (QA票), 🔍 V. 個別設計・実装レベルの課題（個別最適・クリーニング）, 【ノード10】日本の企画部門における「価値責任者（単独意思決定）」の現実性, 【ノード11】タスク管理・進捗管理・起点の設計の欠落 (+15 more)
+
+### Community 100 - "第2部: GitHub Issueドラフト（計9件）"
+Cohesion: 0.09
+Nodes (21): 1. 【Issue: #03-01】「GitHub Issues ＋ Stack PR（gh-stack）」AI協調タスク管理の運用標準設計, 1. プロセスにおける「実装（Implementation）」の再定義（Q3-03対応）, 2. GitHub Issues + Stack PR のワークフロー（Q3-01対応）, 2. 【Issue: #03-02】AIによる「極小タスク分割（Micro-tasking）基準」とレビュー時間SLAの策定, 3. AI Rework Rate（ARR）を軸とした「AI SLA」と「ISO 12100リスク管理」（Q3-02, Q3-04対応）, 3. 【Issue: #03-03】ゲート判定・契約調達のための「AI SLAガバナンス評価規程」の策定, 4. 【Issue: #03-04】JTC型開発プロセスとしての「プロセスの社会・組織実装（Enablement）計画」の策定, 5. 【Issue: #03-05】ISO 12100 / IEC 62304 準拠「AIソフトウェア・リスクアセスメント（D-0成果物）」テンプレートの策定 (+13 more)
+
 ### Community 101 - "2. 実行順序（8 Wave / 30 Issue）"
 Cohesion: 0.09
 Nodes (21): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, 1. 作業単位の標準手順（1 Issue あたり／必ずこの順で実行）, 2. 実行順序（8 Wave / 30 Issue）, 3. 成果物マップ（配置先の指針） (+13 more)
+
+### Community 103 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
+Cohesion: 0.10
+Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
+
+### Community 104 - "🛠️ カテゴリ3: 自動化バイアス・形骸化防止＆メトリクス（ノード9）"
+Cohesion: 0.10
+Nodes (19): 1. 2026年現在地を起点とした「AI自律レベルロードマップ」への大補正（ノード7）, 1. 【Issue: #02-01】2026年現在地を起点とした「AI自律レベル（Autonomy Levels）動的境界モデル」の規定, 2. AI Maintainerの定義（ノード8 / Q2-02対応）, 2. 【Issue: #02-02】AI自律レベル移行に伴う「開発者の作業規定」および「受入基準（SDD）」のアップデート, 3. 【Issue: #02-03】「AI維持管理責任者（AI Maintainer）」のQMSプロセス規定・職掌策定, 3. Seeded Errors ＆ 例外決裁（ノード9 / Q2-04対応）, 4. 【Issue: #02-04】エンタープライズ統合に向けた「AI運用担当者（AIOps）」のインターフェース設計, 5. 【Issue: #02-05】意図的バグ注入システム（Seeded Errors）による形骸化防止プロセスの仕様設計 (+11 more)
+
+### Community 105 - "block2_research.md"
+Cohesion: 0.13
+Nodes (14): 1. AI自律レベル（AI Autonomy Levels）の1〜3年段階的ロードマップ（ノード7対応）, 【1年目 (2026): 協働アシスタント期】, 2. AI時代の新専門ロール：「AI維持管理責任者（AI Maintainer）」と「AI運用（AIOps）」（ノード8対応）, 【2年目 (2027): 複数エージェント協調・仕様駆動期】, 3. ラバースタンプ（ハンコ押し形骸化）を防止する「認知強制機能（CFFs）」と「シードバグ（Seeded Errors）」設計（ノード9対応）, 【3年目 (2028): 完全自律サブシステム・自己修復期】, A. AI維持管理責任者 (AI Maintainer - コードベース統治), B. AI運用担当者 (AI Operations / AIOps - インフラ・コスト統治) (+6 more)
 
 ### Community 106 - "1. 参照した国際規格・ガイドライン"
 Cohesion: 0.17
@@ -534,8 +566,8 @@ Cohesion: 0.15
 Nodes (12): 1.1 日本の製造業におけるデザインレビュー（DR）の実態, 1.2 Stage-Gate プロセス（国際的な枠組み）, 1.3 新規事業のステージ運用（国内）, 1.4 規制領域（IEC 62304）, 1. 調査結果, 2.1 名称の衝突を回避する（Issue 記載からの変更）, 2.2 ステージゲートと工程ゲートを別の軸として扱う, 2.3 部門間移管を SG-1 の要件に組み込む (+4 more)
 
 ### Community 109 - "exception-escalation.md"
-Cohesion: 0.25
-Nodes (7): 7.1 本章が達成すべき成果, 7.2 例外の前提, 7.3 例外承認の要求事項, 7.4 判定の滞留に対する措置, 7.5 エスカレーションの基準, 7.6 記録の要求事項, 7.7 関連する章
+Cohesion: 0.18
+Nodes (10): 7.1 本章が達成すべき成果, 7.2 例外の前提, 7.3 例外承認の要求事項, 7.4 判定の滞留に対する措置, 7.5 エスカレーションの基準, 7.6 記録の要求事項, 7.7 関連する章, エスカレーションレポートの様式 (+2 more)
 
 ### Community 110 - "human-ai-boundary.md"
 Cohesion: 0.25
@@ -565,22 +597,34 @@ Nodes (10): 1.1 明確な違反, 1.2 違反ではないと判定したもの, 1.
 Cohesion: 0.33
 Nodes (5): フェーズ4本文の追加規約, 基本方針, 機械検査, 禁止する表現, 禁止語の追加
 
+### Community 118 - "1. 調査結果"
+Cohesion: 0.15
+Nodes (12): 1.1 逸脱の閾値と段階的なエスカレーション, 1.2 エスカレーション体制表に必要な要素, 1.3 運営委員会と PMO の役割, 1.4 記録の要求, 1. 調査結果, 2.1 閾値は初期値として示し、企画時に確定する, 2.2 品質側の発火条件を追加する, 2.3 エスカレーションレポートの様式（Issue の問いへの回答） (+4 more)
+
+### Community 119 - "block3_research.md"
+Cohesion: 0.17
+Nodes (11): 1. AI協調型タスク管理と「Stack PR（積み上げ式PR）」ワークフロー（ノード11対応）, 2. 定量的メトリクスプラットフォーム ＆ AI SLA ガバナンス（ノード12対応）, 3. 国際規格安全設計：ISO 12100 リスクアセスメントの実装プロセス接続（ノード13対応）, 📊 5つのコアAIXメトリクス, Block 3: チケットフロー、メトリクスプラットフォーム、リスクコントロール（仕組みと実装の設計）ディープリサーチ報告書 ＆ QA票, 📋 ISO 12100準拠・AIソフトウェアリスクアセスメント（成果物テンプレート）, 🛠️ Phase 5 におけるメトリクスレポートの実装, 💡 Stack PR (gh-stack) を用いた「マイクロタスク・チェーン」 (+3 more)
+
+### Community 120 - "2. 議論から得られた5つの核心的設計方針（To-Be）"
+Cohesion: 0.17
+Nodes (11): ① 2026年現在地を起点とする「AI自律レベル動的境界」, 1. 開発のゴールと本質（一番大事なこと）, ② 会議体設計と「デジタル根回し（非同期事前レビュー）」, 2. 議論から得られた5つの核心的設計方針（To-Be）, ③ 自動化バイアスを防止する「Seeded Errors」と「例外（Bypass）」, 3. 開発における重要な制約・注意点, ④ 人間の理解を深める「三識（知識・見識・胆識）」評価, 4. 参考となるファイル・議論履歴 (+3 more)
+
 ## Knowledge Gaps
-- **914 isolated node(s):** `normalized`, `res`, `ADR-0006`, `name`, `type` (+909 more)
+- **1024 isolated node(s):** `normalized`, `res`, `ADR-0006`, `name`, `type` (+1019 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ`?**
-  _High betweenness centrality (0.017) - this node is a cross-community bridge._
-- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ`?**
+- **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `スクラム(Scrum)調査メモ`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `AIDLC(AI-Driven Development Life Cycle)調査メモ` connect `AIDLC(AI-Driven Development Life Cycle)調査メモ` to `スクラム(Scrum)調査メモ`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `AIDLC(AI-Driven Development Life Cycle)調査メモ` connect `AIDLC(AI-Driven Development Life Cycle)調査メモ` to `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ`?**
-  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `スクラム(Scrum)調査メモ`?**
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _914 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1024 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `アジャイル(Agile)調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
