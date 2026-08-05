@@ -40,6 +40,29 @@ Node.js スクリプトを書くことがゴールではない。
 - コミット単位は Issue 1件 = 1コミット以上。コミットメッセージに `#<issue番号>` を含める。
 - push 前に `npm run check`（textlint + build）を必ず通す。
 
+#### push 手順の注意（graphify pre-push フック）★事故防止
+
+`graphify` の pre-push フックが `graphify-out/` を再生成して**自作のコミットを追加し、自分で push する**。
+このため通常の `git push` は、成功時でも末尾に `error: failed to push some refs` を出す（**見かけ上のエラー**）。
+
+```
+git push origin main                 # 末尾の error は無視してよい
+git fetch origin
+git log --oneline -3 origin/main     # ★自分のコミットが載っているか必ず確認
+git reset --hard origin/main         # 載っていた場合のみ実行
+```
+
+> **YOU MUST**: `git reset --hard` の前に、`git log origin/main` で自分のコミットが
+> リモートに載っていることを必ず確認する。リモートが先に進んでいて push が本当に失敗している
+> ケースがあり、確認せず reset するとコミットを失う。
+> Why: 実際に #98 のコミットを一度失い、`git reflog` → `git cherry-pick <SHA>` で復旧した。
+
+`git pull --rebase` で `graphify-out/` が衝突した場合は、**自分の graphify コミットを
+`git rebase --skip` で捨てる**。フックが次回 push 時に再生成するため内容は失われない。
+
+また **`EXECUTION_PLAN.md` は追跡対象ファイル**である。進捗表を更新したら、
+`git reset --hard` を実行する前に必ずコミットすること。
+
 ---
 
 ## 1. 作業単位の標準手順（1 Issue あたり／必ずこの順で実行）
@@ -166,8 +189,8 @@ clear 後は本ファイル冒頭から読み直して再開する。
 
 | Wave | # | Issue 概要 | 状態 | 完了日 | 備考 |
 |---|---|---|---|---|---|
-| 0 | 97 | フェーズ4 再構成（QMS章立て） | TODO | | |
-| 0 | 98 | integrated.yaml ↔ docs 参照整理 | TODO | | |
+| 0 | 97 | フェーズ4 再構成（QMS章立て） | DONE | 2026-08-05 | 本文8章＋附属書4編。ADR-0009 |
+| 0 | 98 | integrated.yaml ↔ docs 参照整理 | DONE | 2026-08-05 | 要素ごとの正本分担。ADR-0010 |
 | 0 | 108 | 非公式用語排除・トーン統一 | TODO | | |
 | 1 | 99 | マクロライフサイクル（DR0/1/2） | TODO | | |
 | 1 | 100 | 事業フェーズ別バグトリアージ | TODO | | |
