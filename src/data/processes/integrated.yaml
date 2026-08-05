@@ -53,6 +53,16 @@ roles:
     responsibility: 恒久層コンテキスト(規約・用語・判断基準・判断記録)の保守と正しさに責任を持つ
     jpNote: コンテキスト基盤の要件R5。オーナー不在だと文脈が陳腐化しAIの品質が劣化する
     href: /process-compass/phase4-process-design/roles-responsibilities/
+  - id: ai-maintainer
+    name: AI維持管理者(AI Maintainer)
+    responsibility: エージェント指示資産の一貫性と鮮度に責任を持つ。矛盾の除去・統合・削除の権限を単独で持ち、エージェントが用いる外部ツールの採用可否を承認する
+    jpNote: 追加の権限を絞るのではなく削除の権限を集約する。追加を制限すると共有されない個人設定が増える
+    href: /process-compass/phase4-process-design/roles-responsibilities/
+  - id: ai-ops
+    name: AI運用担当者(AIOps)
+    responsibility: 全社のAI実行基盤(モデル接続・実行予算・セキュリティ統制)の可用性と適合性に責任を持つ。開発ラインへは規程ではなく実行環境として統制を届ける
+    jpNote: 開発ラインの外側に置く。AI維持管理者との兼務は禁止(案件の都合で全社統制が緩むため)
+    href: /process-compass/phase4-process-design/roles-responsibilities/
 workProducts:
   - id: d0-governance-chart
     name: 意思決定・エスカレーション体制図(D-0)
