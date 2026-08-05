@@ -94,7 +94,61 @@ workProducts:
     description: 生成過程で検出・受容した負債の記録。返却計画とセットで管理し、運用フェーズで計画的に返す
     producedBy: dev-verifier
     href: /process-compass/phase4-process-design/deliverable-templates/
+stages:
+  - id: s-explore
+    name: 探索
+    label: S0
+    alias: DR0
+    goal: 事業仮説と技術的実現性を検証し、投資を継続する価値があるかを判断できる状態にする
+    exitGate: sg-explore
+    href: /process-compass/phase4-process-design/lifecycle/
+  - id: s-validate
+    name: 価値確立
+    label: S1
+    alias: DR1
+    goal: 実利用者に価値が届くことを実証し、継続的に提供できる技術基盤を確立する
+    exitGate: sg-validate
+    href: /process-compass/phase4-process-design/lifecycle/
+  - id: s-scale
+    name: スケール
+    label: S2
+    alias: DR2
+    goal: 対象利用者層の拡大に耐える品質・運用体制・再現性を確立する
+    exitGate: sg-scale
+    href: /process-compass/phase4-process-design/lifecycle/
 gates:
+  - id: sg-explore
+    label: SG-0
+    href: /process-compass/phase4-process-design/lifecycle/
+    name: 探索完了(ステージ移行)
+    kind: decision
+    contractual: true
+    deliverables: [検証結果報告, 事業仮説の更新, 技術的実現性の評価, 意思決定体制図(D-0)]
+    criteria: [事業仮説が実証データで支持されている, 技術的実現性が確認されている, 次ステージの投資規模と体制が示されている]
+    approver: 投資判断を行う会議体
+    decisions: [S1へ移行 / 継続検証 / 中止]
+    jpNote: 既存の投資決裁制度に載せる。判断は go / hold / kill の三択とし、判断しないまま継続する状態を作らない
+  - id: sg-validate
+    label: SG-1
+    href: /process-compass/phase4-process-design/lifecycle/
+    name: 価値確立完了(ステージ移行・部門間移管)
+    kind: decision
+    contractual: true
+    deliverables: [利用実績と価値の実証データ, アーキテクチャ設計と判断記録, 恒久層コンテキスト, 移管記録]
+    criteria: [実利用者における価値が実証されている, 拡大に耐えるアーキテクチャが確定している, 受入部門が要求を自らの言葉で再構成できている]
+    approver: 投資判断を行う会議体および受入部門の責任者
+    decisions: [S2へ移行 / 継続 / 中止]
+    jpNote: 部門間移管を伴う場合、移管は文書の受け渡しでは完了しない。受入側の再構成完了をもって成立する
+  - id: sg-scale
+    label: SG-2
+    href: /process-compass/phase4-process-design/lifecycle/
+    name: スケール完了(定常運用へ移行)
+    kind: decision
+    deliverables: [運用実績, 運用体制と引き継ぎ文書, 技術負債台帳と返却計画]
+    criteria: [対象利用者層に対する品質基準を満たしている, 運用体制が定常運用として成立している, 受容した負債の返却計画が承認されている]
+    approver: 事業決裁者および運用責任者
+    decisions: [定常運用へ移行 / 改善継続]
+    jpNote: このゲートを設けない場合、プロジェクト体制のまま運用が続き、負債の返却主体が消える
   - id: g-plan-approval
     label: G-1
     href: /process-compass/phase4-process-design/gate-criteria/

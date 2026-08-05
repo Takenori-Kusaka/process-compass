@@ -99,6 +99,20 @@ const processSchema = z.object({
     })
     .array(),
   phases: phaseSchema.array(),
+  // 事業ステージ(マクロライフサイクル)。phases が1開発サイクル内の工程であるのに対し、
+  // stages は不確実性の低減段階を表す上位の区分。境界にステージ移行ゲートを置く
+  stages: z
+    .object({
+      id: z.string(),
+      name: z.string(),
+      label: z.string().optional(), // 文書側の記号(例: S0)
+      alias: z.string().optional(), // 別称(例: DR0)。検索性のために保持する
+      goal: z.string(),
+      exitGate: z.string(), // Gate の id 参照(このステージの出口ゲート)
+      href: z.string().optional(),
+    })
+    .array()
+    .optional(),
   // 理想像が暗黙に仮定している前提条件(これが崩れると成立しない)。特に To 側プロセス(AIDLC 等)で重要。フェーズ3のギャップ分析の入力になる
   assumptions: z.string().array().optional(),
   jpRealities: z.string().array().optional(), // 建前と実運用の乖離
