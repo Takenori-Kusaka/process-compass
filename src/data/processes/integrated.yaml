@@ -17,67 +17,83 @@ roles:
     name: 価値責任者(Value Owner)
     responsibility: What/Why の決定と価値の説明責任を単独で持つ。要件合意・仕様承認の判定者。委譲しても結果責任は残る
     jpNote: 「1つの成果物に責任者は1人」の原則(ギャップG2対応)。事前の根回し・非同期コメントは歓迎するが、判定は単独で行い合議体にしない
+    href: /process-compass/phase4-process-design/roles-responsibilities/
   - id: tech-lead
     name: 技術判断者(Tech Lead)
     responsibility: アーキテクチャ・技術選定・技術的トレードオフの判定を単独で持つ。技術設計ゲートの判定者
     jpNote: 職位ではなく技術力量で任命する(ギャップG3対応)。事業決裁者は技術判断に関与しない
+    href: /process-compass/phase4-process-design/roles-responsibilities/
   - id: dev-verifier
     name: 開発者(検証者)
     responsibility: AI生成物の検証、挙動の理解、実装の細部判断。コア機能では設計レベルまで読み解き判断記録を残す
     jpNote: 役割の重心が「書き手」から「検証者・理解の維持者」へ移る。検証は承認の儀式でなく理解を保つための読み込み
+    href: /process-compass/phase4-process-design/roles-responsibilities/
   - id: ai-agent
     name: AIエージェント
     responsibility: 仕様の起案支援、実装、テスト生成、ドキュメント生成、負債候補の検出。提案はするが承認しない
     jpNote: 生成物の責任はAIでなく、承認した人間(価値責任者・技術判断者・独立レビュア)が負う
+    href: /process-compass/phase4-process-design/human-ai-boundary/
   - id: independent-reviewer
     name: 独立レビュア
     responsibility: 作成を指示した本人とは別の人間として PR をレビューし、仕様との一致と理解可能性を確認する
     jpNote: 「作成指示者は自分の成果を承認できない」をブランチ保護で強制(GitHub式)。日本の第三者レビュー文化と整合し、QA部門が担ってもよい
+    href: /process-compass/phase4-process-design/roles-responsibilities/
   - id: qa-gatekeeper
     name: 品質保証(出荷判定者)
     responsibility: 第三者として出荷判定を行い署名する。プロセス実行記録と品質エビデンスの確認が任務(再テストではない)
     jpNote: 既存のQA部門・出荷判定制度をそのまま活かす。判定を「記録の確認」に限定して滞留を防ぐ
+    href: /process-compass/phase4-process-design/roles-responsibilities/
   - id: biz-approver
     name: 事業決裁者
     responsibility: 予算・スコープ・リリース可否という事業判断のみを行う。技術判断には関与しない
     jpNote: 既存の決裁権限規程どおりの職位でよい(制度を変えない)。関与を事業判断に限定することで専門性の乖離(G3)を無害化する
+    href: /process-compass/phase4-process-design/roles-responsibilities/
   - id: context-owner
     name: コンテキストオーナー
     responsibility: 恒久層コンテキスト(規約・用語・判断基準・判断記録)の保守と正しさに責任を持つ
     jpNote: コンテキスト基盤の要件R5。オーナー不在だと文脈が陳腐化しAIの品質が劣化する
+    href: /process-compass/phase4-process-design/roles-responsibilities/
 workProducts:
   - id: intent-brief
     name: 企画書(事業意図)
     description: 目的・価値仮説・概算予算・リスク。企画承認ゲートの入力
     producedBy: value-owner
+    href: /process-compass/phase4-process-design/deliverable-templates/
   - id: context-base
     name: コンテキスト基盤(恒久層・案件層)
     description: 規約・設計標準・ドメイン用語・判断基準。AIと新規参加者への共通文脈。継続的に更新される
     producedBy: context-owner
+    href: /process-compass/phase5-implementation/context-base/
   - id: spec
     name: 機能仕様書(検証可能な受入基準付き)
     description: "AI が起案し人が確定する。受入基準は検証可能な形式(例: EARS 記法)で書き、曖昧語を残さない"
     producedBy: ai-agent
+    href: /process-compass/phase4-process-design/deliverable-templates/
   - id: plan
     name: 実装計画(タスク分解)
     description: AI がタスク分解・依存関係・並列可否を生成し、人が承認する
     producedBy: ai-agent
+    href: /process-compass/phase4-process-design/deliverable-templates/
   - id: increment
     name: 検証済みインクリメント(コード+テスト)
     description: AI が生成し、CI と人の検証・独立レビューを通過したもの
     producedBy: ai-agent
+    href: /process-compass/phase4-process-design/deliverable-templates/
   - id: decision-log
     name: 判断記録(ADR)
     description: 設計判断・技術選定・リスク受容の理由。コア機能では必須。コンテキスト基盤へ還流する
     producedBy: tech-lead
+    href: /process-compass/phase4-process-design/deliverable-templates/
   - id: quality-report
     name: 品質レポート
     description: テスト消化率・欠陥状況・ゲート通過記録。出荷判定の入力。AIが生成しQAが確認する
     producedBy: qa-gatekeeper
+    href: /process-compass/phase4-process-design/deliverable-templates/
   - id: debt-ledger
     name: 技術負債台帳
     description: 生成過程で検出・受容した負債の記録。返却計画とセットで管理し、運用フェーズで計画的に返す
     producedBy: dev-verifier
+    href: /process-compass/phase4-process-design/deliverable-templates/
 gates:
   - id: g-plan-approval
     label: G-1

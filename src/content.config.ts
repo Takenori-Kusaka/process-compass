@@ -65,6 +65,8 @@ const processSchema = z.object({
       name: z.string(),
       responsibility: z.string(),
       jpNote: z.string().optional(), // 日本の現場での兼務実態など
+      // 任命基準・兼務規則を規定した章(base を含む絶対パス、スラッグまで。アンカーは張らない)
+      href: z.string().optional(),
     })
     .array(),
   workProducts: z
@@ -73,6 +75,8 @@ const processSchema = z.object({
       name: z.string(),
       description: z.string().optional(),
       producedBy: z.string().optional(), // Role の id 参照
+      // 様式・記録要件を規定した章(base を含む絶対パス、スラッグまで。アンカーは張らない)
+      href: z.string().optional(),
     })
     .array(),
   gates: z
