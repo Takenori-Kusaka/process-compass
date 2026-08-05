@@ -146,7 +146,7 @@ jobs:
 | --- | --- | --- |
 | テスト消化率 100% | `tests.executed / tests.planned` | `gaps` に記録しジョブを **fail** |
 | 未解決の重大欠陥 0 件 | `defects.criticalOpen` | 同上 |
-| 受容した負債の台帳記録 | `debt.unrecorded`(コミットの TODO と台帳の突合) | 同上 |
+| 受容した負債の台帳記録 | `debt.unrecorded`(コミットの TODO と台帳の突合) | 同上 |<!-- tone-ok: 検査対象としての TODO への言及 -->
 | 運用引き継ぎ文書の完備 | `handover.updated` | 同上 |
 | (前提)全 PR の G-6 通過 | `prs[].g6.summaryPresent` がすべて true | 同上 |
 
