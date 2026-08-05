@@ -1,8 +1,8 @@
 ---
-title: 独立レビュー実施ガイド
+title: 附属書C 独立レビュー実施ガイド
 description: 独立レビュー(G-6)の実施手順を定義する。3パス方式の進め方・観点チェックリスト・挙動要約の書式・差し戻しの作法
 sidebar:
-  order: 5
+  order: 22
 ---
 
 独立レビュー(G-6)の**実施手順**です。[ゲート判定チェックリスト](/process-compass/phase4-process-design/gate-criteria/)が「何を満たせば通過か」を定めるのに対し、このページは「レビュアが何をどの順に行うか」を定めます。PR の作成側の手順は[PR 運用リファレンス](/process-compass/phase5-implementation/pr-workflow/)を参照してください。
