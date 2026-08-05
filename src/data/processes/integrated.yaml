@@ -54,6 +54,11 @@ roles:
     jpNote: コンテキスト基盤の要件R5。オーナー不在だと文脈が陳腐化しAIの品質が劣化する
     href: /process-compass/phase4-process-design/roles-responsibilities/
 workProducts:
+  - id: d0-governance-chart
+    name: 意思決定・エスカレーション体制図(D-0)
+    description: 決定の権限・権限境界(トレランス)・平常時と障害時のエスカレーション経路を1文書で確定させる。案件で最初に作る成果物であり、企画承認ゲートの前提条件
+    producedBy: value-owner
+    href: /process-compass/phase4-process-design/deliverable-templates/
   - id: intent-brief
     name: 企画書(事業意図)
     description: 目的・価値仮説・概算予算・リスク。企画承認ゲートの入力
@@ -155,8 +160,8 @@ gates:
     name: 企画承認
     kind: decision
     contractual: true
-    deliverables: [企画書(事業意図), コンテキスト基盤の整備計画と予算]
-    criteria: [投資対効果が事業基準を満たす, リスク受容が明示されている, コンテキスト基盤の初期整備コストが予算化されている]
+    deliverables: [意思決定・エスカレーション体制図(D-0。承認済みであることが審議開始の前提条件), 企画書(事業意図), コンテキスト基盤の整備計画と予算]
+    criteria: [投資対効果が事業基準を満たす, リスク受容が明示されている, コンテキスト基盤の初期整備コストが予算化されている, 指標の閾値と予算区分が合意され記録されている]
     approver: 事業決裁者(決裁権限規程どおりの職位)
     decisions: [承認 / 条件付き承認 / 見送り]
     jpNote: 既存の稟議・決裁制度をそのまま使う(ここは変えない)。頻度が低いゲートなので多段決裁の遅さを許容できる
@@ -278,6 +283,29 @@ phases:
     summary: 事業意図を言語化し、AIと人の共通文脈(コンテキスト基盤)を整備する。ここでの明文化投資が以降の全フェーズの速度を決める
     gatesAfter: [g-plan-approval]
     activities:
+      - id: governance-setup
+        name: 意思決定・エスカレーション体制の確定
+        summary: 誰が何を決めるか、どこまで自分で決めてよいか、超えたらどこへ上げるかを企画書より先に確定させる
+        roles: [value-owner, biz-approver, ai-agent]
+        outputs: [d0-governance-chart]
+        refs:
+          - title: 成果物テンプレート(テンプレ0 意思決定・エスカレーション体制図)
+            href: /process-compass/phase4-process-design/deliverable-templates/
+          - title: 案件の立ち上げ手順
+            href: /process-compass/phase4-process-design/lifecycle/
+        tasks:
+          - id: draft-d0
+            name: 体制図(D-0)を起案する
+            description: 決定の種類ごとの決定者・同意者・起案者・意見提出者・実行者を表に落とす。決定者の欄に2名以上を書かない。二重の指揮系統が実在する場合も、その事実を備考へ書いたうえで最終決定者を1名選ぶ。AI エージェントが組織図と既存の決裁権限規程から草案を生成できるが、決定者の指名は人が行う
+          - id: set-tolerance
+            name: 各層の権限境界(トレランス)を数値で確定する
+            description: 日程・費用・AI実行予算・スコープ・品質・リスクの各領域について、チーム層・案件層・経営層が上位の承認なく動ける範囲を数値で書く。エスカレーション閾値および予算区分と同じ数値を用いる。数値の入っていない欄が残っていたら未完了
+          - id: split-incident-path
+            name: 平常時と障害時のエスカレーション経路を別表に分けて記述する
+            description: 平常時は権限境界の超過を発火条件とし、通知先・応答期限・決裁権限を書く。障害時は重大度別に指揮者の指名方法と一次・二次・三次の対応を書く。障害時の指揮は職位ではなく事象の把握度で指名する。個人名は「役割と現任者の対応表」にのみ書き、他の表は役割名で記述する
+          - id: approve-d0
+            name: D-0 を承認し、承認記録を残す
+            description: 投資の継続を決定する者が承認する。承認者・承認日時・承認の意味(何に合意したか)・次回レビュー期日を記録する。この承認が完了するまで企画承認(g-plan-approval)の審議を開始しない。承認記録は必須ステータスチェックで機械的に検査する
       - id: intent
         name: 事業意図の言語化
         summary: 価値仮説・目的・制約を、AIの支援を受けながら企画書に落とす
