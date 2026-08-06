@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-06)
 
 ## Corpus Check
-- 186 files · ~148,222 words
+- 188 files · ~149,576 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2554 nodes · 2458 edges · 212 communities (202 shown, 10 thin omitted)
+- 2585 nodes · 2487 edges · 214 communities (204 shown, 10 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c5caa57f`
+- Built from commit: `c9e649d6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -182,7 +182,7 @@
 - 2. 議論から得られた5つの核心的設計方針（To-Be）
 - 0011-safety-risk-assessment-positioning.md
 - 0012-ai-output-as-unverified-input.md
-- 3. アンチパターン各論(本メモの中心)
+- 一次調査: 日本企業の人材の入れ替えと事業フェーズの推移
 - 7つのブロック
 - 0013-enablement-by-bounded-trial.md
 - 1. 主要エージェント製品の現況
@@ -205,7 +205,7 @@
 - 8. 本標準への提言
 - 0016-business-appraisal-in-intent-brief.md
 - 4. マルチエージェントのトレンド — 「制約された協調+人間の統制」は妥当か
-- 5. 「人間の検証帯域が律速」— 定量証拠が出そろった
+- workforce-mobility.md
 - 3. B. 前提の充足を継続的に監視する枠組み
 - 2. A. 各前提の「崩れやすさ」の実証データ
 - 調査メモ: 理想モデルの前提条件の崩れを検出し決裁ブロッカーにする仕組み（Issue #139）
@@ -224,6 +224,8 @@
 - create_issues.js
 - 140/131 一次調査: スコープの確約・進捗の観測・仕様ドリフトの検知
 - 0019-scope-commitment-three-layers.md
+- 0. プロセスの概要
+- 7. 日本的観点/現実の懸念(標準・提唱者言説がカバーしない領域)
 
 ## God Nodes (most connected - your core abstractions)
 1. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
@@ -244,15 +246,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (212 total, 10 thin omitted)
+## Communities (214 total, 10 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
 Nodes (16): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+8 more)
 
 ### Community 1 - "エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)"
-Cohesion: 0.22
-Nodes (9): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出典一覧, 3. METR の時間地平 — 「倍加 7 か月」は更新された, 7. 日本での受け止め(2026-08-04 時点), 8. 考察(事実と分離), 9. 検証できなかった・確認が取れなかった項目, エージェント型開発の現在地 更新調査メモ(2026-08-04 時点), 一次情報(各社公式・原典論文) (+1 more)
+Cohesion: 0.15
+Nodes (13): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出典一覧, 3. METR の時間地平 — 「倍加 7 か月」は更新された, 5-1. LinearB 2026 ソフトウェアエンジニアリングベンチマーク(発表日 2026-05-04), 5-2. スループットの逆説(CircleCI 2026 データ), 5-3. AI 生成コードの品質と「静かな技術的負債」, 5. 「人間の検証帯域が律速」— 定量証拠が出そろった, 7. 日本での受け止め(2026-08-04 時点) (+5 more)
 
 ### Community 2 - "プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査"
 Cohesion: 0.06
@@ -303,8 +305,8 @@ Cohesion: 0.10
 Nodes (20): 0-0. 重要な前提: TDD は「開発ライフサイクル」ではなく「開発プラクティス/技法」である, 0-1. 基本情報, 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2-1. 3階層のズーム(nano / micro / 上位ライフサイクルとの接続), 2. 階層構造(process → activities → tasks), 3-A. 関連技法との役割拡張(TDD → ATDD/BDD) (+12 more)
 
 ### Community 14 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
-Cohesion: 0.15
-Nodes (13): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点), 7. 日本的観点(標準がカバーしない領域) (+5 more)
+Cohesion: 0.10
+Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
 
 ### Community 15 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.12
@@ -631,12 +633,12 @@ Cohesion: 0.06
 Nodes (35): 10. 追加調査が必要な穴(未確認事項の一覧), 1.1 PMBOK のプロジェクト憲章(Project Charter), 1.2 PRINCE2 の Project Initiation Documentation(PID), 1.3 プロジェクトボードの3ロール, 1.4 Management by Exception(例外による管理)とトレランス, 1. 立ち上げ時の体制合意文書の実務, 2.1 機能的エスカレーションと階層的エスカレーション(ITIL), 2.2 Google の Incident Management(IMAG) (+27 more)
 
 ### Community 101 - "Process Compass 改修 実行計画（Issue #97〜#126 / 全30件）"
-Cohesion: 0.05
-Nodes (43): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, #140・#131 で確定した語彙（以降は必ずこれに従う）, #142 で変わった URL（重要）, 1. 作業単位の標準手順（1 Issue あたり／必ずこの順で実行） (+35 more)
+Cohesion: 0.04
+Nodes (44): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, #140・#131 で確定した語彙（以降は必ずこれに従う）, #141 で判明した重要な訂正（引用しないこと・引用すること）, #142 で変わった URL（重要） (+36 more)
 
 ### Community 103 - "AIDLC(AI-Driven Development Life Cycle)調査メモ"
-Cohesion: 0.10
-Nodes (21): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task) (+13 more)
+Cohesion: 0.17
+Nodes (12): 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task), 3. roles(ロール): 人間(意思決定)× AIエージェント(実行)の分担, 4. information items(成果物・文書), 5. gates(ゲート・決裁): Human-in-the-loop 承認点, 6. レビュープロセス, 8. 考察(事実と分離) (+4 more)
 
 ### Community 104 - "調査メモ: AI 維持管理責任者（AI Maintainer）と AI 運用担当者（AIOps）の職掌（Issue #111 / #112）"
 Cohesion: 0.05
@@ -890,9 +892,9 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 169 - "3. アンチパターン各論(本メモの中心)"
-Cohesion: 0.29
-Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
+### Community 169 - "一次調査: 日本企業の人材の入れ替えと事業フェーズの推移"
+Cohesion: 0.10
+Nodes (20): 0. 結論の要約, 1.1 書誌と方法, 1.2 ジョブ・ローテーションの実施率(図表 2-2-3、n=1,852), 1.3 人事異動の頻度(図表 2-2-4、単位=%、n=1,852), 1.4 転勤前の打診時期(図表 2-2-7、単位=%), 1.5 その他の関連する値, 1. 一次情報 A: JILPT「企業の転勤の実態に関する調査」, 2. 一次情報 B: 厚生労働省「雇用動向調査」 (+12 more)
 
 ### Community 170 - "7つのブロック"
 Cohesion: 0.15
@@ -982,9 +984,9 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.50
 Nodes (4): 4-1. フレームワーク: AutoGen の三分岐と MAF の GA, 4-2. プロトコル標準化 — 2026 年最大の構造変化, 4-3. 製品側のマルチエージェント実装, 4. マルチエージェントのトレンド — 「制約された協調+人間の統制」は妥当か
 
-### Community 192 - "5. 「人間の検証帯域が律速」— 定量証拠が出そろった"
-Cohesion: 0.50
-Nodes (4): 5-1. LinearB 2026 ソフトウェアエンジニアリングベンチマーク(発表日 2026-05-04), 5-2. スループットの逆説(CircleCI 2026 データ), 5-3. AI 生成コードの品質と「静かな技術的負債」, 5. 「人間の検証帯域が律速」— 定量証拠が出そろった
+### Community 192 - "workforce-mobility.md"
+Cohesion: 0.22
+Nodes (8): ジョブローテーションは大企業ほど制度化されている, 予告は「2週間超〜1ヵ月前」が最多, 出典とその読み方, 周期は「3年」が最多だが、3分の1に満たない, 未確認の事項, 異動は育成が目的で、ルールは明文化されていない, 社外への流出も年1割強ある, 規範層への接続
 
 ### Community 193 - "3. B. 前提の充足を継続的に監視する枠組み"
 Cohesion: 0.18
@@ -1042,22 +1044,30 @@ Nodes (20): 0. 調査の問い, 140/131 一次調査: スコープの確約・�
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
+### Community 212 - "0. プロセスの概要"
+Cohesion: 0.40
+Nodes (5): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要
+
+### Community 213 - "7. 日本的観点/現実の懸念(標準・提唱者言説がカバーしない領域)"
+Cohesion: 0.50
+Nodes (4): 7-1. 理想像が暗黙に仮定している前提条件(これが崩れると成立しない), 7-2. 現実の懸念・批判(建前との乖離), 7-3. 日本企業固有の衝突(既存の決裁・品質保証・受発注構造との乖離), 7. 日本的観点/現実の懸念(標準・提唱者言説がカバーしない領域)
+
 ## Knowledge Gaps
-- **1921 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+1916 more)
+- **1946 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+1941 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`?**
+- **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Why does `アジャイル(Agile)調査メモ` connect `アジャイル(Agile)調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _1921 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1946 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
