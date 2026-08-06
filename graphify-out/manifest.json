@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786002174.5158064,
-    "ast_hash": "9ae4c77305406289336f981ec0fadd5d",
+    "mtime": 1786002492.7499,
+    "ast_hash": "2afdfdaad47c02279bfafd3a51ba8818",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/ears-guide.md": {
@@ -470,7 +470,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786002093.7668629,
+    "mtime": 1786002492.7515209,
     "ast_hash": "5f4d4e80e57ecc94bfc38ae0f96e51a0",
     "semantic_hash": ""
   },
@@ -495,12 +495,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1786002124.7665632,
+    "mtime": 1786002492.7531447,
     "ast_hash": "59509914bc334c1697f7210b293514fa",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786002196.2995756,
+    "mtime": 1786002492.7538152,
     "ast_hash": "d5f1f2005ccd6dbbb6f0a6e2dbe47761",
     "semantic_hash": ""
   },
@@ -560,7 +560,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/metrics.md": {
-    "mtime": 1786002213.973106,
+    "mtime": 1786002492.7549026,
     "ast_hash": "c524db8c832701b3c530fdf2550d910f",
     "semantic_hash": ""
   },
@@ -730,7 +730,7 @@
     "semantic_hash": ""
   },
   "tmp/EXECUTION_PLAN.md": {
-    "mtime": 1786002432.2840433,
+    "mtime": 1786002492.7565074,
     "ast_hash": "ebfe2e782384f15703eaf34dca36df66",
     "semantic_hash": ""
   },
@@ -745,7 +745,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/exception-escalation.md": {
-    "mtime": 1786002105.6170452,
+    "mtime": 1786002492.7504382,
     "ast_hash": "5a47818f6c75bfecb8dc0f1141525341",
     "semantic_hash": ""
   },
@@ -755,7 +755,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/lifecycle.md": {
-    "mtime": 1786002058.498703,
+    "mtime": 1786002492.7520592,
     "ast_hash": "4ce3349742264e433e3981945295d490",
     "semantic_hash": ""
   },
@@ -930,7 +930,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/vision/04-traceability.md": {
-    "mtime": 1786002337.5264912,
+    "mtime": 1786002492.755438,
     "ast_hash": "834e4df0b2deca2dd40af66832a0914e",
     "semantic_hash": ""
   },
@@ -940,7 +940,7 @@
     "semantic_hash": ""
   },
   "tmp/memo_traceability.md": {
-    "mtime": 1786002416.0074418,
+    "mtime": 1786002492.7570477,
     "ast_hash": "3437302857ccee2806447dd615d3e1c8",
     "semantic_hash": ""
   },
@@ -1050,12 +1050,12 @@
     "semantic_hash": ""
   },
   "research/phase4-standard/140-131-scope-and-progress.md": {
-    "mtime": 1786001954.6991549,
+    "mtime": 1786002492.748305,
     "ast_hash": "b74b8ad109cbeda1e33a16dac61e5bfe",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0019-scope-commitment-three-layers.md": {
-    "mtime": 1786002296.8437312,
+    "mtime": 1786002492.7488465,
     "ast_hash": "22cd5f7583bf360949fc0a409aab9992",
     "semantic_hash": ""
   }
