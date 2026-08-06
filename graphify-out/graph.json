@@ -1088,7 +1088,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_index",
-      "community": 164,
+      "community": 178,
       "community_name": "[phase]/index.astro",
       "norm_label": "[phase]/index.astro"
     },
@@ -1099,7 +1099,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_index_getstaticpaths",
-      "community": 164,
+      "community": 178,
       "community_name": "[phase]/index.astro",
       "norm_label": "getstaticpaths()"
     },
@@ -1110,7 +1110,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_index_diagram",
-      "community": 164,
+      "community": 178,
       "community_name": "[phase]/index.astro",
       "norm_label": "diagram"
     },
@@ -1121,7 +1121,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_index_exitgates",
-      "community": 164,
+      "community": 178,
       "community_name": "[phase]/index.astro",
       "norm_label": "exitgates"
     },
@@ -1132,7 +1132,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_index_rolename",
-      "community": 164,
+      "community": 178,
       "community_name": "[phase]/index.astro",
       "norm_label": "rolename"
     },
@@ -5994,7 +5994,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_\u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
-      "community": 177,
+      "community": 164,
       "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
       "norm_label": "1. \u81ea\u5f8b\u30b3\u30fc\u30c6\u30a3\u30f3\u30af\u30a8\u30fc\u30b7\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b"
     },
@@ -6005,7 +6005,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_1_devin_cognition",
-      "community": 177,
+      "community": 164,
       "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
       "norm_label": "1-1. devin(cognition)"
     },
@@ -6016,7 +6016,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_2_swe_agent_princeton_nlp",
-      "community": 177,
+      "community": 164,
       "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
       "norm_label": "1-2. swe-agent(princeton nlp)"
     },
@@ -6027,7 +6027,7 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_3_openai_codex_operator",
-      "community": 177,
+      "community": 164,
       "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
       "norm_label": "1-3. openai codex / operator"
     },
@@ -6038,7 +6038,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_4_github_copilot_coding_agent",
-      "community": 177,
+      "community": 164,
       "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
       "norm_label": "1-4. github copilot coding agent"
     },
@@ -6049,7 +6049,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_5_google_jules",
-      "community": 177,
+      "community": 164,
       "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
       "norm_label": "1-5. google jules"
     },
@@ -6060,7 +6060,7 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_6_claude_code_claude_agent_sdk_anthropic",
-      "community": 177,
+      "community": 164,
       "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
       "norm_label": "1-6. claude code / claude agent sdk(anthropic)"
     },
@@ -6071,7 +6071,7 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_7_\u4e00\u89a7_\u5efa\u524d_vs_\u73fe\u5b9f\u306e\u8981\u7d04",
-      "community": 177,
+      "community": 164,
       "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
       "norm_label": "1-7. \u4e00\u89a7(\u5efa\u524d vs \u73fe\u5b9f\u306e\u8981\u7d04)"
     },
@@ -6159,7 +6159,7 @@
       "source_location": "L171",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_\u9650\u754c\u3068\u8ab2\u984c_\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762",
-      "community": 178,
+      "community": 177,
       "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
       "norm_label": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)"
     },
@@ -6170,7 +6170,7 @@
       "source_location": "L173",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_1_\u4fe1\u983c\u6027_\u30a8\u30e9\u30fc\u306e\u7d2f\u7a4d_\u8907\u5229\u7684\u5931\u6557",
-      "community": 178,
+      "community": 177,
       "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
       "norm_label": "4-1. \u4fe1\u983c\u6027: \u30a8\u30e9\u30fc\u306e\u7d2f\u7a4d(\u8907\u5229\u7684\u5931\u6557)"
     },
@@ -6181,7 +6181,7 @@
       "source_location": "L180",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_2_\u9577\u671f\u30bf\u30b9\u30af_\u65e2\u5b58\u30b3\u30fc\u30c9\u30d9\u30fc\u30b9\u3067\u306e\u4e00\u8cab\u6027\u6b20\u5982",
-      "community": 178,
+      "community": 177,
       "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
       "norm_label": "4-2. \u9577\u671f\u30bf\u30b9\u30af\u30fb\u65e2\u5b58\u30b3\u30fc\u30c8\u30d8\u30fc\u30b9\u3066\u306e\u4e00\u8cab\u6027\u6b20\u5982"
     },
@@ -6192,7 +6192,7 @@
       "source_location": "L185",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_3_\u30cf\u30eb\u30b7\u30cd\u30fc\u30b7\u30e7\u30f3_\u691c\u8a3c\u306e\u96e3\u3057\u3055",
-      "community": 178,
+      "community": 177,
       "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
       "norm_label": "4-3. \u30cf\u30eb\u30b7\u30cd\u30fc\u30b7\u30e7\u30f3\u30fb\u691c\u8a3c\u306e\u96e3\u3057\u3055"
     },
@@ -6203,7 +6203,7 @@
       "source_location": "L192",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_4_\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u9577_\u30b3\u30b9\u30c8",
-      "community": 178,
+      "community": 177,
       "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
       "norm_label": "4-4. \u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u9577\u30fb\u30b3\u30b9\u30c8"
     },
@@ -6214,7 +6214,7 @@
       "source_location": "L197",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_5_\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3",
-      "community": 178,
+      "community": 177,
       "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
       "norm_label": "4-5. \u30bb\u30ad\u30e5\u30ea\u30c6\u30a3"
     },
@@ -6225,7 +6225,7 @@
       "source_location": "L202",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_6_\u4eba\u304c\u7ba1\u7406\u3067\u304d\u308b\u8ce2\u3055_\u901f\u3055\u306e\u4e0a\u9650_\u3068\u306e\u63a5\u7d9a",
-      "community": 178,
+      "community": 177,
       "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
       "norm_label": "4-6. \u300c\u4eba\u304b\u7ba1\u7406\u3066\u304d\u308b\u8ce2\u3055/\u901f\u3055\u306e\u4e0a\u9650\u300d\u3068\u306e\u63a5\u7d9a"
     },
@@ -51202,5 +51202,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5b52c4d99ddf19e57105cd3599e94fc4f60a9641"
+  "built_at_commit": "03feba4ed55ca220909f16eafde5b2b701884f71"
 }

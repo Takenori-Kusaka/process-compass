@@ -1,7 +1,7 @@
 # Graph Report - process-compass  (2026-08-06)
 
 ## Corpus Check
-- 172 files · ~140,871 words
+- 172 files · ~140,870 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5b52c4d9`
+- Built from commit: `03feba4e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -177,7 +177,7 @@
 - 第2部: GitHub Issueドラフト（計12件）
 - 第1部: 根本課題の構造的整理 (14の論点ノード)
 - stacked-pr.md
-- [phase]/index.astro
+- 1. 自律コーディングエージェントの主要実装例
 - 第2部: GitHub Issueドラフト（計9件）
 - 🛠️ カテゴリ3: 自動化バイアス・形骸化防止＆メトリクス（ノード9）
 - 0011-safety-risk-assessment-positioning.md
@@ -190,8 +190,8 @@
 - 04-traceability.md
 - 0014-criticality-axis-and-proposal-output.md
 - 2. 議論から得られた5つの核心的設計方針（To-Be）
-- 1. 自律コーディングエージェントの主要実装例
 - 4. 限界と課題(現実の到達点の裏面)
+- [phase]/index.astro
 - 5.2 「検証可能性」という基準の限界
 - 調査メモ: ロール別「AI置き換え / AI支援 / 人が担保」の再検討（Issue #135）
 - 2. A. 2026-03 → 2026-08 で何が変わったか
@@ -850,9 +850,9 @@ Nodes (23): 📂 I. プロセス設計のメタ体系・メソドロジー（プ
 Cohesion: 0.20
 Nodes (9): AIエージェントへ与える指示, コンフリクトの解消, レビューの割り当て, 前提の確認(2026-08-05 時点), 各層が満たすべき条件, 導入しない判断, 段階1の手順(標準機能のみ), 段階的な導入 (+1 more)
 
-### Community 164 - "[phase]/index.astro"
-Cohesion: 0.40
-Nodes (3): diagram, exitGates, roleName
+### Community 164 - "1. 自律コーディングエージェントの主要実装例"
+Cohesion: 0.25
+Nodes (8): 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules, 1-6. Claude Code / Claude Agent SDK(Anthropic), 1-7. 一覧(建前 vs 現実の要約), 1. 自律コーディングエージェントの主要実装例
 
 ### Community 165 - "第2部: GitHub Issueドラフト（計9件）"
 Cohesion: 0.09
@@ -902,13 +902,13 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.17
 Nodes (11): ① 2026年現在地を起点とする「AI自律レベル動的境界」, 1. 開発のゴールと本質（一番大事なこと）, ② 会議体設計と「デジタル根回し（非同期事前レビュー）」, 2. 議論から得られた5つの核心的設計方針（To-Be）, ③ 自動化バイアスを防止する「Seeded Errors」と「例外（Bypass）」, 3. 開発における重要な制約・注意点, ④ 人間の理解を深める「三識（知識・見識・胆識）」評価, 4. 参考となるファイル・議論履歴 (+3 more)
 
-### Community 177 - "1. 自律コーディングエージェントの主要実装例"
-Cohesion: 0.25
-Nodes (8): 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules, 1-6. Claude Code / Claude Agent SDK(Anthropic), 1-7. 一覧(建前 vs 現実の要約), 1. 自律コーディングエージェントの主要実装例
-
-### Community 178 - "4. 限界と課題(現実の到達点の裏面)"
+### Community 177 - "4. 限界と課題(現実の到達点の裏面)"
 Cohesion: 0.29
 Nodes (7): 4-1. 信頼性: エラーの累積(複利的失敗), 4-2. 長期タスク・既存コードベースでの一貫性欠如, 4-3. ハルシネーション・検証の難しさ, 4-4. コンテキスト長・コスト, 4-5. セキュリティ, 4-6. 「人が管理できる賢さ/速さの上限」との接続, 4. 限界と課題(現実の到達点の裏面)
+
+### Community 178 - "[phase]/index.astro"
+Cohesion: 0.40
+Nodes (3): diagram, exitGates, roleName
 
 ### Community 179 - "5.2 「検証可能性」という基準の限界"
 Cohesion: 0.29
