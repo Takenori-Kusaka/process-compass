@@ -2,7 +2,7 @@
 title: プロセスの社会実装計画
 description: 移行段階T-0〜T-4と判定ゲートTG-1〜TG-3、支援体制EN-1〜EN-3、試行前チェックリスト、教育計画、および抵抗要因への対処を規定する
 sidebar:
-  order: 11
+  order: 12
 ---
 
 本ページは、[フェーズ4のプロセス標準](/process-compass/phase4-process-design/overview/)を実組織へ移行させる計画を規定します。対象は組織であり、道具ではありません。

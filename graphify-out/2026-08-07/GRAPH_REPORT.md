@@ -1,16 +1,16 @@
-# Graph Report - process-compass  (2026-08-07)
+# Graph Report - process-compass  (2026-08-06)
 
 ## Corpus Check
-- 194 files · ~152,208 words
+- 191 files · ~151,106 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2664 nodes · 2560 edges · 218 communities (208 shown, 10 thin omitted)
+- 2629 nodes · 2528 edges · 214 communities (204 shown, 10 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b00efee0`
+- Built from commit: `c43ee50a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -191,7 +191,7 @@
 - 0014-criticality-axis-and-proposal-output.md
 - 調査層(フェーズ1・2・3)の棚卸し結果（Issue #138）
 - 0017-separate-proposal-from-catalog.md
-- 130 一次調査: 独立レビューのパッケージング
+- 5. 現実の懸念(理想が崩れる点)
 - 5.2 「検証可能性」という基準の限界
 - 調査メモ: ロール別「AI置き換え / AI支援 / 人が担保」の再検討（Issue #135）
 - 2. A. 2026-03 → 2026-08 で何が変わったか
@@ -217,19 +217,15 @@
 - 0. 本メモの読み方
 - 10. 出典一覧
 - 4. C. 「決裁ブロッカーにする」ことの是非
-- review-package.md
+- 1. 理想像の出所(建前=そう語られる)
 - create_block2_issues.cjs
 - create_block3_issues.cjs
 - create_issues.cjs
 - create_issues.js
 - 140/131 一次調査: スコープの確約・進捗の観測・仕様ドリフトの検知
 - 0019-scope-commitment-three-layers.md
-- 3. アンチパターン各論(本メモの中心)
+- 4. 組織論的な論点(従来編成 vs PO中心編成)
 - 0022-handover-deadlines-relative-to-notice.md
-- 0023-review-package-cues-not-conclusions.md
-- 1. 稟議制度(りんぎ)
-- 4. デザインレビュー(DR)と品質保証部門
-- 3. 決裁権限規程・職務権限規程
 
 ## God Nodes (most connected - your core abstractions)
 1. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
@@ -250,7 +246,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (218 total, 10 thin omitted)
+## Communities (214 total, 10 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -269,8 +265,8 @@ Cohesion: 0.06
 Nodes (35): astro, astro-mermaid, @astrojs/starlight, mermaid, dependencies, astro, astro-mermaid, @astrojs/starlight (+27 more)
 
 ### Community 4 - "日本企業のガバナンス・決裁ゲートの実態 調査メモ"
-Cohesion: 0.11
-Nodes (19): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 2.1 定義と機能, 2.2 「意思決定は遅いが実行は速い」の両面性, 2. 根回し・合議(ネマワシ), 5. Stage-Gate と日本の決裁の構造的違い(比較), 6.1 定義(建前) (+11 more)
+Cohesion: 0.06
+Nodes (33): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ) (+25 more)
 
 ### Community 5 - "エージェント型開発(自律・マルチエージェント)の現在地 調査メモ"
 Cohesion: 0.06
@@ -293,8 +289,8 @@ Cohesion: 0.07
 Nodes (28): 1.1 位置づけ, 1.2 プロセス記述の要素一覧, 1.3 フェーズ1調査への含意, 1. ISO/IEC/IEEE 24774:2021 — プロセス記述の仕様, 2.1 位置づけと2017年版の変更, 2.2 4プロセス群と30プロセスの一覧, 2.3 日本での展開: 共通フレーム(SLCP-JCF), 2.4 フェーズ1調査への含意 (+20 more)
 
 ### Community 10 - "プロダクトオーナー中心のチーム編成論 調査メモ"
-Cohesion: 0.08
-Nodes (26): 0. このメモの位置づけと全体像, 1.1 AWS AI-DLC(AI-Driven Development Life Cycle), 1.2 Sean Grove(OpenAI)「The New Code」— 仕様を書く人が最も価値ある programmer, 1.3 「Product Engineer」への収束論(everyone becomes a product owner の実像), 1. 理想像の出所(建前=そう語られる), 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義) (+18 more)
+Cohesion: 0.15
+Nodes (13): 0. このメモの位置づけと全体像, 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義), 3. 前提条件(この編成が暗黙に仮定していること), 6. 階層構造で見た PO 中心編成(全体 → フェーズ内 → 個別作業), 7. 考察(事実と分離), 8. 埋められなかった観点(追加調査項目) (+5 more)
 
 ### Community 11 - "simulator.astro"
 Cohesion: 0.12
@@ -309,8 +305,8 @@ Cohesion: 0.10
 Nodes (20): 0-0. 重要な前提: TDD は「開発ライフサイクル」ではなく「開発プラクティス/技法」である, 0-1. 基本情報, 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2-1. 3階層のズーム(nano / micro / 上位ライフサイクルとの接続), 2. 階層構造(process → activities → tasks), 3-A. 関連技法との役割拡張(TDD → ATDD/BDD) (+12 more)
 
 ### Community 14 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
-Cohesion: 0.15
-Nodes (13): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点), 7. 日本的観点(標準がカバーしない領域) (+5 more)
+Cohesion: 0.10
+Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
 
 ### Community 15 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.12
@@ -473,8 +469,8 @@ Cohesion: 0.29
 Nodes (6): ガードレールの符号化(steering), モデルアクセスの管理, 実行形態の3層, 権限設計(最小権限+強制層), 段階導入の目安, 監査ログとトレーサビリティ
 
 ### Community 55 - "ci-gates.md"
-Cohesion: 0.18
-Nodes (10): G-5(自動検証)のパイプライン構成, ゲートの前提条件を機械検査する(D-0 の統制), デプロイゲート, 「人が毎回指摘すること」を CI へ移す運用, 出荷判定(G-7)エビデンスの自動集約, 承認記録を監査証跡として成立させる, 様式・データの検証もゲートに載せる, 独立レビュー(G-6)への引き継ぎ (+2 more)
+Cohesion: 0.20
+Nodes (9): G-5(自動検証)のパイプライン構成, ゲートの前提条件を機械検査する(D-0 の統制), デプロイゲート, 「人が毎回指摘すること」を CI へ移す運用, 出荷判定(G-7)エビデンスの自動集約, 承認記録を監査証跡として成立させる, 様式・データの検証もゲートに載せる, 知財潔白性の2つのジョブを分ける (+1 more)
 
 ### Community 56 - "context-base.md"
 Cohesion: 0.29
@@ -932,9 +928,9 @@ Nodes (10): 一覧, 仕分けの結果, 判定の基準, 実施した改訂, 最
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 178 - "130 一次調査: 独立レビューのパッケージング"
-Cohesion: 0.12
-Nodes (16): 0. 調査の問い, 130 一次調査: 独立レビューのパッケージング, 1. Q1 レビュアが困っているのは「理解」である, 2.1 一次情報, 2.2 所見, 2. Q2・Q4 手がかりは、提示の時期によって効果の符号が変わる, 3. Q5 副作用は訓練で防げない, 4. Q3 観点を与える方式には先例がある (+8 more)
+### Community 178 - "5. 現実の懸念(理想が崩れる点)"
+Cohesion: 0.40
+Nodes (5): 5.1 全員が PO になれるのか(スキルの偏在), 5.2 責任の所在(誰が本番の AI 生成コードを所有するか), 5.3 意思決定の質と「false finish line」, 5.4 日本の組織文化との衝突(フェーズ1と接続), 5. 現実の懸念(理想が崩れる点)
 
 ### Community 179 - "5.2 「検証可能性」という基準の限界"
 Cohesion: 0.29
@@ -1036,9 +1032,9 @@ Nodes (4): 10. 出典一覧, 一次情報（規格・原典・発行機関の公
 Cohesion: 0.50
 Nodes (4): 4.1 逸脱を制度として承認する枠組み — NASA の deviation / waiver, 4.2 測定が懲罰と結びつくと測定が無効化される, 4.3 「前提が崩れている組織は多い」ことへの対処, 4. C. 「決裁ブロッカーにする」ことの是非
 
-### Community 204 - "review-package.md"
-Cohesion: 0.18
-Nodes (10): このパッケージが埋められない穴, なぜ必要か, パッケージの構成, 何を含めてよいか: 3区分, 効果の検証, 指摘の一覧はパッケージに含めない, 提示の順序, 満たすのは理解であって、理解の代行ではない (+2 more)
+### Community 204 - "1. 理想像の出所(建前=そう語られる)"
+Cohesion: 0.50
+Nodes (4): 1.1 AWS AI-DLC(AI-Driven Development Life Cycle), 1.2 Sean Grove(OpenAI)「The New Code」— 仕様を書く人が最も価値ある programmer, 1.3 「Product Engineer」への収束論(everyone becomes a product owner の実像), 1. 理想像の出所(建前=そう語られる)
 
 ### Community 209 - "140/131 一次調査: スコープの確約・進捗の観測・仕様ドリフトの検知"
 Cohesion: 0.10
@@ -1048,32 +1044,16 @@ Nodes (20): 0. 調査の問い, 140/131 一次調査: スコープの確約・�
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 212 - "3. アンチパターン各論(本メモの中心)"
-Cohesion: 0.29
-Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
+### Community 212 - "4. 組織論的な論点(従来編成 vs PO中心編成)"
+Cohesion: 0.50
+Nodes (4): 4.1 従来のチーム編成との対比(図解の中核: 対比表), 4.2 Amazon の two-pizza team / single-threaded owner(既存の少人数・単一責任論), 4.3 コンウェイの法則との関係, 4. 組織論的な論点(従来編成 vs PO中心編成)
 
 ### Community 213 - "0022-handover-deadlines-relative-to-notice.md"
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 214 - "0023-review-package-cues-not-conclusions.md"
-Cohesion: 0.33
-Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
-
-### Community 215 - "1. 稟議制度(りんぎ)"
-Cohesion: 0.40
-Nodes (5): 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ)
-
-### Community 216 - "4. デザインレビュー(DR)と品質保証部門"
-Cohesion: 0.40
-Nodes (5): 4.1 DR の規格上の定義(建前=JIS), 4.2 品質保証部門による第三者レビュー・出荷判定(建前=独立性), 4.3 実態(独立性の揺らぎ・署名権の組織差), 4.4 DR配置の図解(製造業型 → ソフトウェア型), 4. デザインレビュー(DR)と品質保証部門
-
-### Community 217 - "3. 決裁権限規程・職務権限規程"
-Cohesion: 0.50
-Nodes (4): 3.1 定義と構造(建前), 3.2 金額・重要度による決裁階層(図解の中核), 3.3 なぜゲートの承認者が「職位」で決まるか, 3. 決裁権限規程・職務権限規程
-
 ## Knowledge Gaps
-- **2007 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2002 more)
+- **1979 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+1974 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1084,10 +1064,10 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Why does `アジャイル(Agile)調査メモ` connect `アジャイル(Agile)調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `4. デザインレビュー(DR)と品質保証部門`, `20260710-jp-governance.md`, `3. 決裁権限規程・職務権限規程`, `1. 稟議制度(りんぎ)`?**
+- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _2007 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1979 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**

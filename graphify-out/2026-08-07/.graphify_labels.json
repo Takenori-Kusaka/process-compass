@@ -177,7 +177,7 @@
   "175": "0014-criticality-axis-and-proposal-output.md",
   "176": "調査層(フェーズ1・2・3)の棚卸し結果（Issue #138）",
   "177": "0017-separate-proposal-from-catalog.md",
-  "178": "130 一次調査: 独立レビューのパッケージング",
+  "178": "5. 現実の懸念(理想が崩れる点)",
   "179": "5.2 「検証可能性」という基準の限界",
   "180": "調査メモ: ロール別「AI置き換え / AI支援 / 人が担保」の再検討（Issue #135）",
   "181": "2. A. 2026-03 → 2026-08 で何が変わったか",
@@ -203,7 +203,7 @@
   "201": "0. 本メモの読み方",
   "202": "10. 出典一覧",
   "203": "4. C. 「決裁ブロッカーにする」ことの是非",
-  "204": "review-package.md",
+  "204": "1. 理想像の出所(建前=そう語られる)",
   "205": "create_block2_issues.cjs",
   "206": "create_block3_issues.cjs",
   "207": "create_issues.cjs",
@@ -211,10 +211,6 @@
   "209": "140/131 一次調査: スコープの確約・進捗の観測・仕様ドリフトの検知",
   "210": "0019-scope-commitment-three-layers.md",
   "211": "create_issues.ps1",
-  "212": "3. アンチパターン各論(本メモの中心)",
-  "213": "0022-handover-deadlines-relative-to-notice.md",
-  "214": "0023-review-package-cues-not-conclusions.md",
-  "215": "1. 稟議制度(りんぎ)",
-  "216": "4. デザインレビュー(DR)と品質保証部門",
-  "217": "3. 決裁権限規程・職務権限規程"
+  "212": "4. 組織論的な論点(従来編成 vs PO中心編成)",
+  "213": "0022-handover-deadlines-relative-to-notice.md"
 }
