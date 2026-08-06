@@ -50,7 +50,7 @@ graph TD
 | 規定 | 主な出力 | それを入力とする先 |
 | --- | --- | --- |
 | [第1章 総則](/process-compass/phase4-process-design/overview/) | 用語の定義、引用規格、構成 | 全章 |
-| [第2章 ライフサイクル](/process-compass/phase4-process-design/lifecycle/) | 事業ステージ、移行ゲート、立ち上げ手順、移管ゲート | 第4章、フェーズ5 |
+| [第2章 ライフサイクル](/process-compass/phase4-process-design/lifecycle/) | 事業ステージ、移行ゲート、立ち上げ手順、移管ゲート、スコープ3層と進捗の観測 | 第4章、フェーズ5、フェーズ6 |
 | [第3章 体制・会議体](/process-compass/phase4-process-design/roles-responsibilities/) | ロール、決裁権限、会議体、事前レビュー期間 | 第4章、[事前レビュー期間の自動化](/process-compass/phase5-implementation/pre-review-automation/) |
 | [第4章 ゲートと判定基準](/process-compass/phase4-process-design/gate-criteria/) | 判定基準、SLA、欠陥トリアージ基準 | [CI/CD ゲート](/process-compass/phase5-implementation/ci-gates/)、[メトリクス](/process-compass/phase6-operation/metrics/) |
 | [第5章 役割境界](/process-compass/phase4-process-design/human-ai-boundary/) | AI自律レベル、生成物の統制、形骸化の防止 | [AI 実行環境](/process-compass/phase5-implementation/ai-environment/)、附属書E・F |
@@ -73,6 +73,8 @@ graph TD
 | B-1 〜 B-4 | 会議体 | [第3章 3.7](/process-compass/phase4-process-design/roles-responsibilities/) |
 | D-0 | 意思決定・エスカレーション体制図 | [第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/) |
 | R1 / R2 / R3 | リスク区分(決定の取り消し可能性) | [第3章 3.8.1](/process-compass/phase4-process-design/roles-responsibilities/) |
+| SC-M / SC-P / SC-B | スコープ3層(確約範囲 / 計画範囲 / 調整枠) | [第2章 2.10](/process-compass/phase4-process-design/lifecycle/) |
+| CR-n | 受入基準の識別子 | [第6章 テンプレ1](/process-compass/phase4-process-design/deliverable-templates/) |
 | L1 / L2 / L3 | AI自律レベル | [第5章 5.4](/process-compass/phase4-process-design/human-ai-boundary/) |
 | E1 / E2 / E3 | AI実行形態 | [AI 実行環境](/process-compass/phase5-implementation/ai-environment/) |
 | Sev1 / Sev2 / Sev3 | 欠陥の重大度 | [第4章](/process-compass/phase4-process-design/gate-criteria/) |
@@ -100,6 +102,8 @@ graph TD
 | S(事業ステージ) と 製造業の設計審査 DR1〜DR4 | 別の体系。対応表は[第2章 2.3](/process-compass/phase4-process-design/lifecycle/)にある |
 | A-T1〜A-T4(技術の前提) と T-0〜T-4(移行段階) | 別の体系。**ハイフンの有無だけで区別する構成は成立しない**ため、前提側へ `A-` を冠した |
 | AC(前提の充足状態) と CL(安全重要度) | AC は前提が成立しているか、CL は危害の深刻度 |
+| AC(前提の充足状態) と CR(受入基準) | 別の体系。**かつて受入基準の識別子も `AC-n` だった**ため、[ADR-0019](/process-compass/adr/0019-scope-commitment-three-layers/)で受入基準の側を `CR-n` へ改称した |
+| SC(スコープ3層) と R(リスク区分) | SC は範囲の確約度、R は決定の取り消し可能性。**R1 の変更が調整枠(SC-B)に属することもある** |
 
 **新しい区分を追加する場合、必ず本表を更新してください**。過去に2度、記号の重複によって別の概念が同じ記号で書かれ、後から改称が必要になっています。
 
@@ -131,3 +135,6 @@ graph LR
 | 安全状態への遷移に関する規格要求 | 調査が不十分。[附属書F](/process-compass/phase4-process-design/safety-verification/) F.5 は最小限の集合 |
 | 経営層の関与と現場の関与の相対的な重み | 実証的な優劣を示す資料を確認できていない |
 | 日本企業の品質保証部門の権限構造 | 一次調査を確認できていない |
+| 確約範囲の上限 60% の実証的裏づけ | 存在しない。DSDM の推奨値を初期値として採った |
+| 確率的予測(モンテカルロ)の精度を示す査読研究 | 特定できていない。本標準では精度に関する数値を引用していない |
+| 「範囲の内か外か」の意味的判定における LLM と人間の一致率 | 特定できていない |
