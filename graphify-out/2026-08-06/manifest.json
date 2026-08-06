@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786000935.5708034,
-    "ast_hash": "c0ec5b80a6bb1f3cedcb8803389e1eeb",
+    "mtime": 1786002174.5158064,
+    "ast_hash": "9ae4c77305406289336f981ec0fadd5d",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/ears-guide.md": {
@@ -470,8 +470,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786000935.5727985,
-    "ast_hash": "96a7f6dd66578931a8cd891640067768",
+    "mtime": 1786002093.7668629,
+    "ast_hash": "5f4d4e80e57ecc94bfc38ae0f96e51a0",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
@@ -495,13 +495,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1785914861.6491253,
-    "ast_hash": "45e61ae5ac23f5be1fc43ec532038c3b",
+    "mtime": 1786002124.7665632,
+    "ast_hash": "59509914bc334c1697f7210b293514fa",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1785933350.6615798,
-    "ast_hash": "7fc2797725e2ac08901a1c4d6211ac7d",
+    "mtime": 1786002196.2995756,
+    "ast_hash": "d5f1f2005ccd6dbbb6f0a6e2dbe47761",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ai-environment.md": {
@@ -560,8 +560,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/metrics.md": {
-    "mtime": 1785922858.9590545,
-    "ast_hash": "c7727abfa5a188af95b8e05257dd8a0f",
+    "mtime": 1786002213.973106,
+    "ast_hash": "c524db8c832701b3c530fdf2550d910f",
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/operations-catalog.md": {
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "tmp/EXECUTION_PLAN.md": {
-    "mtime": 1786001231.937588,
-    "ast_hash": "751c9a317c35b48329b1808b4c14fc1f",
+    "mtime": 1786002432.2840433,
+    "ast_hash": "ebfe2e782384f15703eaf34dca36df66",
     "semantic_hash": ""
   },
   "research/phase4-standard/097-qms-chapter-structure.md": {
@@ -745,8 +745,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/exception-escalation.md": {
-    "mtime": 1786000935.5718007,
-    "ast_hash": "e06b8dc96bc40bca45b5d96e8f016658",
+    "mtime": 1786002105.6170452,
+    "ast_hash": "5a47818f6c75bfecb8dc0f1141525341",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/human-ai-boundary.md": {
@@ -755,8 +755,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/lifecycle.md": {
-    "mtime": 1785928896.7937574,
-    "ast_hash": "d4e844b6eee8e34dfa61c8e783495ad2",
+    "mtime": 1786002058.498703,
+    "ast_hash": "4ce3349742264e433e3981945295d490",
     "semantic_hash": ""
   },
   "research/phase4-standard/098-data-doc-interface.md": {
@@ -930,8 +930,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/vision/04-traceability.md": {
-    "mtime": 1786000935.5738,
-    "ast_hash": "ab66f1638f882591ea62e879cb411711",
+    "mtime": 1786002337.5264912,
+    "ast_hash": "834e4df0b2deca2dd40af66832a0914e",
     "semantic_hash": ""
   },
   "src/data/tailoring/rules-criticality.yaml": {
@@ -940,8 +940,8 @@
     "semantic_hash": ""
   },
   "tmp/memo_traceability.md": {
-    "mtime": 1786001092.7563078,
-    "ast_hash": "7e76d6c31cb1f8d0b6b76cf93d7141e1",
+    "mtime": 1786002416.0074418,
+    "ast_hash": "3437302857ccee2806447dd615d3e1c8",
     "semantic_hash": ""
   },
   "research/phase3-gap-analysis/135-role-boundary-2026-08.md": {
@@ -1047,6 +1047,16 @@
   "tmp/memo.txt": {
     "mtime": 1785884123.5069568,
     "ast_hash": "b07661e280125d524129399769c7c1d9",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/140-131-scope-and-progress.md": {
+    "mtime": 1786001954.6991549,
+    "ast_hash": "b74b8ad109cbeda1e33a16dac61e5bfe",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0019-scope-commitment-three-layers.md": {
+    "mtime": 1786002296.8437312,
+    "ast_hash": "22cd5f7583bf360949fc0a409aab9992",
     "semantic_hash": ""
   }
 }
