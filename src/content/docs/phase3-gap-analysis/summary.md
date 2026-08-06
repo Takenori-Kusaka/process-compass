@@ -22,7 +22,7 @@ graph TD
 ```
 
 - [From-To ギャップ一覧と生成AI組み込みポイント](/process-compass/phase3-gap-analysis/gap-map/)
-- [ロール別「AI置き換え / AI支援 / 人が担保」整理](/process-compass/phase3-gap-analysis/role-mapping/)
+- [ロール別の作業分担と人間の関与の下限](/process-compass/phase3-gap-analysis/role-mapping/)
 - [内製/外注の再構成と事業継続性(BCP)](/process-compass/phase3-gap-analysis/insourcing-bcp/)
 - [コンテキスト明文化・補完基盤の要件](/process-compass/phase3-gap-analysis/context-infrastructure/)
 
