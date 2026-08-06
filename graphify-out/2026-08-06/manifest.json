@@ -940,8 +940,8 @@
     "semantic_hash": ""
   },
   "tmp/memo_traceability.md": {
-    "mtime": 1785997596.6154938,
-    "ast_hash": "8eff04d8ee31ff37822d89d4fca04def",
+    "mtime": 1786001092.7563078,
+    "ast_hash": "7e76d6c31cb1f8d0b6b76cf93d7141e1",
     "semantic_hash": ""
   },
   "research/phase3-gap-analysis/135-role-boundary-2026-08.md": {
@@ -974,6 +974,16 @@
     "ast_hash": "0f6140695371e097ea7df169b4677618",
     "semantic_hash": ""
   },
+  "research/phase2/139-assumption-monitoring.md": {
+    "mtime": 1786000935.5647998,
+    "ast_hash": "7953e675fa9438e73134fc6702bb493e",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0018-assumption-ledger.md": {
+    "mtime": 1786000935.5667987,
+    "ast_hash": "8ebaa90021504a9869dd59d9c14ed5a3",
+    "semantic_hash": ""
+  },
   "tmp/create_block2_issues.cjs": {
     "mtime": 1785900940.3516326,
     "ast_hash": "50aaedda8ac1e9773851dc1bb3a13f8e",
@@ -997,16 +1007,6 @@
   "tmp/create_issues.ps1": {
     "mtime": 1785898890.342028,
     "ast_hash": "5998375cd9d5f104f6c990153e20be87",
-    "semantic_hash": ""
-  },
-  "research/phase2/139-assumption-monitoring.md": {
-    "mtime": 1786000935.5647998,
-    "ast_hash": "7953e675fa9438e73134fc6702bb493e",
-    "semantic_hash": ""
-  },
-  "src/content/docs/adr/0018-assumption-ledger.md": {
-    "mtime": 1786000935.5667987,
-    "ast_hash": "8ebaa90021504a9869dd59d9c14ed5a3",
     "semantic_hash": ""
   },
   "tmp/analysis_qa.md": {
