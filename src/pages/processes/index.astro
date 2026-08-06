@@ -21,7 +21,11 @@ const categoryLabels: Record<string, { label: string; note: string }> = {
     note: 'From と To のギャップ分析を踏まえて設計した統合プロセスの参照モデル',
   },
 };
-const order = ['proposal', 'lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
+// 本プロジェクトの提案(統合プロセス参照モデル)は調査対象ではないため、
+// 既存プロセスのカタログから分離して冒頭で案内する(ADR-0017)
+const order = ['lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
+
+const proposals = processes.filter((p) => p.data.category === 'proposal');
 
 const grouped = order
   .map((cat) => ({
@@ -42,9 +46,9 @@ const grouped = order
   }}
 >
   <p>
-    フェーズ1で調査した開発プロセスの一覧です。各プロセスは共通スキーマ(<a
+    フェーズ1で調査した<strong>既存の開発プロセス</strong>の一覧です。各プロセスは共通スキーマ(<a
       href={`${b}adr/0007-schema-driven-process-data/`}>ADR-0007</a
-    >)で記述され、全体マップ(L1)からフェーズ(L2)、個別作業(L3)へクリックで掘り下げられます(<a
+    >)で記述され、全体マップ(第1階層)からフェーズ(第2階層)、個別作業(第3階層)へクリックで掘り下げられます(<a
       href={`${b}adr/0006-representation-policy/`}>ADR-0006</a
     >)。
   </p>
@@ -70,6 +74,25 @@ const grouped = order
       </ul>
     </>
   ))}
+
+  {proposals.length > 0 && (
+    <>
+      <h2 id="proposal">参考: 本プロジェクトの提案</h2>
+      <p>
+        次は本プロジェクトが設計した参照モデルであり、<strong>調査した既存プロセスではありません</strong>。性格が異なるため、上の分類には並べていません。設計の根拠は<a
+          href={`${b}phase4-process-design/integrated-process/`}>附属書A</a>にあります。
+      </p>
+      <ul>
+        {proposals.map((p) => (
+          <li>
+            <a href={`${b}processes/${p.id}/`}><strong>{p.data.name}</strong></a>
+            {' — '}
+            {p.data.summary}
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
 
   <h2 id="comparison">横断比較</h2>
   <p>

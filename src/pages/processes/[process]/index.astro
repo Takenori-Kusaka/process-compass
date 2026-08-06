@@ -1,5 +1,5 @@
 ---
-// L1: プロセス全体マップ(ADR-0006 の3ズームレベル / ADR-0007 のスキーマ駆動)
+// 第1階層: プロセス全体マップ(ADR-0006 の3ズームレベル / ADR-0007 のスキーマ駆動)
 import { getCollection } from 'astro:content';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { l1Diagram } from '../../../lib/process-diagrams';
@@ -38,8 +38,8 @@ const categoryLabel: Record<string, string> = {
     </blockquote>
   )}
 
-  <h2 id="map">全体マップ(L1)</h2>
-  <p>各フェーズをクリックすると、フェーズ内のワークフロー(L2)へ移動します。</p>
+  <h2 id="map">全体マップ(第1階層)</h2>
+  <p>各フェーズをクリックすると、フェーズ内のワークフロー(第2階層)へ移動します。</p>
   <pre class="mermaid">{diagram}</pre>
 
   <h2 id="purpose">目的と成果</h2>
@@ -143,7 +143,7 @@ const categoryLabel: Record<string, string> = {
     </>
   )}
 
-  <h2 id="phases">フェーズ一覧(L2 へ)</h2>
+  <h2 id="phases">フェーズ一覧(第2階層へ)</h2>
   <ul>
     {p.phases.map((ph) => (
       <li>

@@ -1,5 +1,5 @@
 ---
-// L2: フェーズ内ワークフロー(ADR-0006)
+// 第2階層: フェーズ内ワークフロー(ADR-0006)
 import { getCollection } from 'astro:content';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 import { l2Diagram } from '../../../../lib/process-diagrams';
@@ -32,13 +32,13 @@ const roleName = new Map(p.roles.map((r) => [r.id, r.name]));
   }}
 >
   <p>
-    <a href={`${b}processes/${entry.id}/`}>← {p.name} の全体マップ(L1)へ戻る</a>
+    <a href={`${b}processes/${entry.id}/`}>← {p.name} の全体マップ(第1階層)へ戻る</a>
   </p>
 
   {phase.summary && <p>{phase.summary}</p>}
 
-  <h2 id="workflow">ワークフロー(L2)</h2>
-  <p>各アクティビティをクリックすると、個別作業(L3)へ移動します。</p>
+  <h2 id="workflow">ワークフロー(第2階層)</h2>
+  <p>各アクティビティをクリックすると、個別作業(第3階層)へ移動します。</p>
   <pre class="mermaid">{diagram}</pre>
 
   <h2 id="activities">アクティビティ一覧</h2>

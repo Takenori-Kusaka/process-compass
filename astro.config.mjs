@@ -65,11 +65,12 @@ export default defineConfig({
           items: [
             { autogenerate: { directory: 'phase1-current-state' } },
             {
-              label: 'プロセス体系(データ駆動)',
+              // 既存プロセスの調査結果のみを置く。本プロジェクトの提案(統合プロセス
+              // 参照モデル)はフェーズ4の直前に独立したセクションとして分離した(ADR-0017)
+              label: '既存プロセスの体系(データ駆動)',
               items: [
                 { label: '一覧', link: '/processes/' },
                 { label: '横断比較表', link: '/processes/comparison/' },
-                { label: '★ 統合プロセス(提案)', link: '/processes/integrated/' },
                 { label: 'ウォーターフォール', link: '/processes/waterfall/' },
                 { label: 'アジャイル', link: '/processes/agile/' },
                 { label: 'スクラム', link: '/processes/scrum/' },
@@ -85,6 +86,12 @@ export default defineConfig({
         },
         { label: 'フェーズ2: AIDLC・理想形調査', items: [{ autogenerate: { directory: 'phase2-aidlc' } }] },
         { label: 'フェーズ3: ギャップ分析', items: [{ autogenerate: { directory: 'phase3-gap-analysis' } }] },
+        {
+          // フェーズ3(ギャップ分析)の出力であり、フェーズ4(標準)の入力にあたる。
+          // 既存プロセスのカタログとは性格が異なるため独立させる(ADR-0017)
+          label: '統合プロセス参照モデル(提案)',
+          items: [{ label: '★ 統合プロセス参照モデル', link: '/processes/integrated/' }],
+        },
         { label: 'フェーズ4: 詳細プロセス策定', items: [{ autogenerate: { directory: 'phase4-process-design' } }] },
         { label: 'フェーズ5: プロセス実装', items: [{ autogenerate: { directory: 'phase5-implementation' } }] },
         { label: 'フェーズ6: プロセス運用', items: [{ autogenerate: { directory: 'phase6-operation' } }] },

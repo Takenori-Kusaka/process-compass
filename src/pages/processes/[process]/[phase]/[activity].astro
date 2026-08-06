@@ -1,5 +1,5 @@
 ---
-// L3: 個別作業(ADR-0006)
+// 第3階層: 個別作業(ADR-0006)
 import { getCollection } from 'astro:content';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 
@@ -30,7 +30,7 @@ const wpName = new Map(p.workProducts.map((w) => [w.id, w.name]));
   }}
 >
   <p>
-    <a href={`${b}processes/${entry.id}/${phase.id}/`}>← {phase.name} のワークフロー(L2)へ戻る</a>
+    <a href={`${b}processes/${entry.id}/${phase.id}/`}>← {phase.name} のワークフロー(第2階層)へ戻る</a>
   </p>
 
   {activity.summary && <p>{activity.summary}</p>}
@@ -64,7 +64,7 @@ const wpName = new Map(p.workProducts.map((w) => [w.id, w.name]));
     </tbody>
   </table>
 
-  <h2 id="tasks">タスク(L3)</h2>
+  <h2 id="tasks">タスク(第3階層)</h2>
   {activity.tasks.length > 0 ? (
     <ol>
       {activity.tasks.map((t) => (

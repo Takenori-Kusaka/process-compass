@@ -16,7 +16,9 @@ const categoryLabel: Record<string, string> = {
   proposal: '提案プロセス',
 };
 
-const rows = processes
+// 本プロジェクトの提案(統合プロセス参照モデル)は調査対象ではないため、
+// 既存プロセスの比較表からは分離して別表で示す(ADR-0017)
+const allRows = processes
   .map((entry) => {
     const p = entry.data;
     const decision = p.gates.filter((g) => g.kind === 'decision').length;
@@ -41,9 +43,12 @@ const rows = processes
   })
   // ライフサイクル → 傘 → 設計手法/プラクティス → ハイブリッドの順
   .sort((a, z) => {
-    const order = ['proposal', 'lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
+    const order = ['lifecycle', 'umbrella', 'practice', 'design-method', 'hybrid'];
     return order.indexOf(a.category) - order.indexOf(z.category) || a.name.localeCompare(z.name, 'ja');
   });
+
+const rows = allRows.filter((r) => r.category !== 'proposal');
+const proposalRows = allRows.filter((r) => r.category === 'proposal');
 ---
 
 <StarlightPage
@@ -58,7 +63,13 @@ const rows = processes
     >)を、共通スキーマのデータから自動集計した比較表です。個別の詳細は各プロセスのページを参照してください。
   </p>
 
-  <h2 id="table">一覧比較</h2>
+  <p>
+    <strong>本プロジェクトが設計した統合プロセス参照モデルは、この比較表に含めていません。</strong>
+    調査対象の既存プロセスと同じ表に並べると、比較の公平性が問われるためです。別表として<a
+      href="#proposal">末尾</a>に示します。
+  </p>
+
+  <h2 id="table">既存プロセスの一覧比較</h2>
   <div style="overflow-x:auto">
     <table>
       <thead>
@@ -120,6 +131,37 @@ const rows = processes
     決裁型プロセスのロールは承認者・判定者(誰が Go を出すか)を中心に定義されます。一方、DDD
     やイベント駆動は「ドメインエキスパートと開発者の協働関係」をロールとして定義し、承認者を置きません。この違いは、日本企業がプロセスを導入する際に「既存の職位階層・決裁権限規程」とどう噛み合うかを左右します(詳細は日本企業の組織論の整理ページで扱います)。
   </p>
+
+  <h2 id="proposal">参考: 本プロジェクトの提案</h2>
+  <p>
+    次は本プロジェクトが設計した参照モデルであり、<strong>調査した既存プロセスではありません</strong>。上の比較表と同じ軸で集計していますが、
+    既存プロセスとの優劣を示すものではない点に注意してください。設計の根拠は<a
+      href={`${b}phase4-process-design/integrated-process/`}>附属書A</a>にあります。
+  </p>
+  <div style="overflow-x:auto">
+    <table>
+      <thead>
+        <tr>
+          <th>参照モデル</th>
+          <th>フェーズ数</th>
+          <th>ロール数</th>
+          <th>ゲート数</th>
+          <th>意思決定の性格</th>
+        </tr>
+      </thead>
+      <tbody>
+        {proposalRows.map((r) => (
+          <tr>
+            <td><a href={`${b}processes/${r.id}/`}>{r.name}</a></td>
+            <td>{r.phases}</td>
+            <td>{r.roles}</td>
+            <td>{r.gates}({r.decision}決/{r.inspection}検)</td>
+            <td>{r.decisionStyle}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 
   <h2 id="next">この比較の使いみち</h2>
   <p>
