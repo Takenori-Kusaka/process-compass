@@ -20,7 +20,7 @@
     "semantic_hash": ""
   },
   "astro.config.mjs": {
-    "mtime": 1786003679.9155533,
+    "mtime": 1786004001.5920205,
     "ast_hash": "ae232cfe7b4df23b7fee2a7cf2dfc65a",
     "semantic_hash": ""
   },
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "src/lib/process-diagrams.ts": {
-    "mtime": 1786003555.889118,
-    "ast_hash": "f90da4bbcc748321cf9d95cabbccc1b3",
+    "mtime": 1786004001.633925,
+    "ast_hash": "fa31bcd40c8574b23262adb0fe1f1985",
     "semantic_hash": ""
   },
   "src/lib/tailoring-engine.mjs": {
@@ -60,33 +60,33 @@
     "semantic_hash": ""
   },
   "src/pages/processes/[process]/[phase]/[activity].astro": {
-    "mtime": 1786003630.7082057,
+    "mtime": 1786004001.636925,
     "ast_hash": "41812ef4405dd4cbc6114e9ee78417bd",
     "semantic_hash": ""
   },
   "src/pages/processes/[process]/[phase]/index.astro": {
-    "mtime": 1786003624.7402322,
+    "mtime": 1786004001.6379254,
     "ast_hash": "27b0a74ddaa76f9155ddc4d0160127ab",
     "semantic_hash": ""
   },
   "src/pages/processes/[process]/index.astro": {
-    "mtime": 1786003618.9609332,
+    "mtime": 1786004001.638924,
     "ast_hash": "556e83180943df89cf090fc466db3ac0",
     "semantic_hash": ""
   },
   "src/pages/processes/comparison.astro": {
-    "mtime": 1786003698.7973838,
-    "ast_hash": "80dd4eae38d53e3adb39e19b2e0bd743",
+    "mtime": 1786004001.638924,
+    "ast_hash": "621577a33941b3aef9761c924a2e2c2a",
     "semantic_hash": ""
   },
   "src/pages/processes/index.astro": {
-    "mtime": 1786003698.7973838,
-    "ast_hash": "bc830496e6f9e8645c61892224b829c8",
+    "mtime": 1786004001.6399257,
+    "ast_hash": "1a091921783242b9552195dd051b6c4b",
     "semantic_hash": ""
   },
   "src/pages/tool/simulator.astro": {
-    "mtime": 1786003709.4226959,
-    "ast_hash": "6769ddd1dd645eeeffa93293916ec4c9",
+    "mtime": 1786004001.6419249,
+    "ast_hash": "a9d892953217aa6727c685ca442156d8",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -395,8 +395,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase2-aidlc/agentic-development.md": {
-    "mtime": 1786003708.8260298,
-    "ast_hash": "97399f4c35ac9ce7693f56806d1ce2c8",
+    "mtime": 1786004001.6230946,
+    "ast_hash": "73888f22b4b87529f7abe14b76db333c",
     "semantic_hash": ""
   },
   "src/content/docs/phase2-aidlc/aidlc-lifecycle.md": {
@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786003740.4629004,
-    "ast_hash": "bd99896ad8c64117fd20ddb2e610e6a8",
+    "mtime": 1786004001.6246552,
+    "ast_hash": "cb42650b6d7b0c049d9ea14d1461b62d",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/ears-guide.md": {
@@ -470,13 +470,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786003724.9356933,
-    "ast_hash": "e30f501bb25f1af27310af2973147af6",
+    "mtime": 1786004001.6257396,
+    "ast_hash": "c77878e888da80af0662c8f63a144cc9",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
-    "mtime": 1786003761.7792206,
-    "ast_hash": "6224894cd77c69df04781efbc9ca7ddb",
+    "mtime": 1786004001.6262856,
+    "ast_hash": "593dc0f7e2b499327068559d3703a013",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/overview.md": {
@@ -500,8 +500,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786003751.4297917,
-    "ast_hash": "c98f11ef5634ec96b6f03845ab59cd91",
+    "mtime": 1786004001.6279,
+    "ast_hash": "1002b6e3cf8300029dfa938f45f604cd",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ai-environment.md": {
@@ -525,8 +525,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/git-strategy.md": {
-    "mtime": 1786003709.154606,
-    "ast_hash": "2ca6795e79c6e10467f2c8655ea32423",
+    "mtime": 1786004001.6286156,
+    "ast_hash": "deccac39b08f1c403017883df16613cf",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/nonfunctional-verify.md": {
@@ -550,8 +550,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/improvement-cycle.md": {
-    "mtime": 1786003709.2391317,
-    "ast_hash": "f0b57042fa61f8fe787f5d9bcb6cd619",
+    "mtime": 1786004001.6299157,
+    "ast_hash": "ad05cfbd97bc3242bc3dac785a677cd0",
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/incident-response.md": {
@@ -575,8 +575,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/tool/knowledge-base-schema.md": {
-    "mtime": 1786003709.2941363,
-    "ast_hash": "50fc7b5171bcfdd5a8427a29aa8011d9",
+    "mtime": 1786004001.6309254,
+    "ast_hash": "6212f5fa2da70e2af982804bc0777c1e",
     "semantic_hash": ""
   },
   "src/content/docs/tool/proposal-logic.md": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/tool/requirements.md": {
-    "mtime": 1786003709.3456469,
-    "ast_hash": "f8625ee86cf252bdf09821bff7e82bdd",
+    "mtime": 1786004001.6319246,
+    "ast_hash": "397a199fa1577308de11c216b4c56642",
     "semantic_hash": ""
   },
   "src/content/docs/tool/user-testing.md": {
@@ -930,7 +930,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/vision/04-traceability.md": {
-    "mtime": 1786003923.3799496,
+    "mtime": 1786004001.6329236,
     "ast_hash": "5c8d6844d07eb9574e683d71995a7992",
     "semantic_hash": ""
   },
@@ -1060,42 +1060,42 @@
     "semantic_hash": ""
   },
   "src/components/process/ProcessActivity.astro": {
-    "mtime": 1786003611.4245265,
+    "mtime": 1786004001.619878,
     "ast_hash": "4c9c36ba815037ba87ef1c850d99d773",
     "semantic_hash": ""
   },
   "src/components/process/ProcessOverview.astro": {
-    "mtime": 1786003587.9690151,
+    "mtime": 1786004001.620405,
     "ast_hash": "7e23faecf13e19848b7fbf6c1d148aa4",
     "semantic_hash": ""
   },
   "src/components/process/ProcessPhase.astro": {
-    "mtime": 1786003600.0027184,
+    "mtime": 1786004001.6214926,
     "ast_hash": "a879c0c5495e93d5218b474e88c7314b",
     "semantic_hash": ""
   },
   "src/pages/phase4-process-design/process-model/[phase]/[activity].astro": {
-    "mtime": 1786003657.001041,
+    "mtime": 1786004001.6359239,
     "ast_hash": "9861da35a0c79c215c64e88166784c18",
     "semantic_hash": ""
   },
   "src/pages/phase4-process-design/process-model/[phase]/index.astro": {
-    "mtime": 1786003650.7015183,
+    "mtime": 1786004001.6359239,
     "ast_hash": "e6193243970190776f181c9607eca49e",
     "semantic_hash": ""
   },
   "src/pages/phase4-process-design/process-model/index.astro": {
-    "mtime": 1786003644.3293648,
+    "mtime": 1786004001.636925,
     "ast_hash": "bdb80f5262e4d8f97af3c0a7f029217b",
     "semantic_hash": ""
   },
   "src/pages/processes/integrated/[...path].astro": {
-    "mtime": 1786003667.010945,
+    "mtime": 1786004001.6409228,
     "ast_hash": "faac9c69acfdb7f239626c349ccf93f9",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0020-process-model-belongs-to-phase4.md": {
-    "mtime": 1786003913.6669648,
+    "mtime": 1786004001.6220198,
     "ast_hash": "45bf68f7d7031a0d45f4af1685d1e5c4",
     "semantic_hash": ""
   }
