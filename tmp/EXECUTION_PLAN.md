@@ -404,9 +404,18 @@ CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION.
 
 - **#97〜#126（M9〜M12）全30件 close 済み**
 - **M13**（品質保証レビュー #95・#96 の残件）: Epic #128。**#131 完了 / #129・#130・#132・#133 未着手**
-- **M14**（memo.txt の取りこぼし）: Epic #134、**#135〜#140 完了 / #141 未着手**
-- `npm run check` は通っている（202 ページ）
-- ADR は **0019 まで**。次は 0020
+- **M14**（memo.txt の取りこぼし）: Epic #134、**#135〜#140・#142 完了 / #141 未着手**
+- `npm run check` は通っている（226 ページ）
+- ADR は **0020 まで**。次は 0021
+
+### #142 で変わった URL（重要）
+
+統合プロセス参照モデルを **`/processes/integrated/` から `/phase4-process-design/process-model/` へ移設**した（ADR-0020）。
+
+- 旧 URL は `src/pages/processes/integrated/[...path].astro` が meta refresh のスタブを生成して転送する。**このファイルを消すと外部リンクが切れる**
+- URL の組み立ては `src/lib/process-diagrams.ts` の `processPathSegment()` に集約した。**リンクを手書きしない**
+- 描画は `src/components/process/`（Overview / Phase / Activity）を共有する。カタログと参照モデルで表示は同一
+- 参照の向きは「本標準が規定する → その機械可読表現が参照モデル」。**逆向きに書き戻さないこと**
 
 ### 最初の3手
 
