@@ -1,0 +1,11 @@
+---
+// 統合プロセス参照モデル 第1階層。本標準(フェーズ4)が規定する構造の機械可読表現(ADR-0020)
+import { getEntry } from 'astro:content';
+import ProcessOverview from '../../../components/process/ProcessOverview.astro';
+import { PROCESS_MODEL_ID } from '../../../lib/process-diagrams';
+
+const entry = await getEntry('processes', PROCESS_MODEL_ID);
+if (!entry) throw new Error(`processes コレクションに ${PROCESS_MODEL_ID} が存在しません`);
+---
+
+<ProcessOverview entry={entry} />

@@ -17,6 +17,19 @@ type Activity = {
   name: string;
 };
 
+/**
+ * 統合プロセス参照モデル(id: integrated)は本標準(フェーズ4)の一部であり、
+ * 既存プロセスのカタログ(/processes/)とは別の名前空間に置く(ADR-0020)。
+ * URL の組み立ては必ずこの関数を通す。
+ */
+export const PROCESS_MODEL_ID = 'integrated';
+
+export function processPathSegment(processId: string): string {
+  return processId === PROCESS_MODEL_ID
+    ? 'phase4-process-design/process-model'
+    : `processes/${processId}`;
+}
+
 function esc(label: string): string {
   return label.replace(/"/g, '');
 }
@@ -45,7 +58,7 @@ export function l1Diagram(
     const nodeId = `ph${i}`;
     lines.push(`  ${nodeId}["${esc(phase.name)}"]`);
     clicks.push(
-      `  click ${nodeId} "${b}processes/${processId}/${phase.id}/" "${esc(phase.name)}の詳細へ"`
+      `  click ${nodeId} "${b}${processPathSegment(processId)}/${phase.id}/" "${esc(phase.name)}の詳細へ"`
     );
     if (i > 0) {
       const prevGates = phases[i - 1].gatesAfter.map(gateName).join(' / ');
@@ -82,7 +95,7 @@ export function l2Diagram(
     if (prev) lines.push(`  ${prev} --> ${nodeId}`);
     prev = nodeId;
     clicks.push(
-      `  click ${nodeId} "${b}processes/${processId}/${phaseId}/${act.id}/" "${esc(act.name)}の詳細へ"`
+      `  click ${nodeId} "${b}${processPathSegment(processId)}/${phaseId}/${act.id}/" "${esc(act.name)}の詳細へ"`
     );
   });
 

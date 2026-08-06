@@ -7,7 +7,7 @@ sidebar:
 
 本附属書は、[第1章から第8章](/process-compass/phase4-process-design/overview/)に規定した要求事項について、その構造を採用した理由と検討の経緯を記録するものです。要求事項そのものは本文に規定しており、本附属書に規定は含みません。
 
-プロセス本体は[スキーマ駆動のデータ](/process-compass/processes/integrated/)として公開しており、全体マップからフェーズ・個別作業へ掘り下げられます。
+本標準の構造は[統合プロセス参照モデル](/process-compass/phase4-process-design/process-model/)としてスキーマ駆動のデータで保持しており、全体マップからフェーズ・個別作業へ掘り下げられます。**本附属書と同じくフェーズ4に属します**。既存プロセスの調査結果を集めた[カタログ](/process-compass/processes/)とは別のものです。
 
 ## A.1 二層構造を採用した理由
 
@@ -57,7 +57,7 @@ sidebar:
 
 ## A.6 前提と限界
 
-参照モデルには[前提条件](/process-compass/processes/integrated/)があります(決定権の実質委譲、CI基盤、3者分離できる体制規模、明文化コストの予算化)。前提を満たさない組織への調整方法は、[テーラリングガイド](/process-compass/phase4-process-design/tailoring-guide/)で扱います。
+参照モデルには[前提条件](/process-compass/phase4-process-design/process-model/)があります(決定権の実質委譲、CI基盤、3者分離できる体制規模、明文化コストの予算化)。前提を満たさない組織への調整方法は、[テーラリングガイド](/process-compass/phase4-process-design/tailoring-guide/)で扱います。
 
 :::note
 このモデルは v0(参照モデル)です。実際の組織へ適用するにはチーム体制・事業フェーズによる調整が必要で、その調整ロジック自体が最終ゴールのプロセス提案ツールの中身になります。フィードバックは [GitHub Issues](https://github.com/Takenori-Kusaka/process-compass/issues) へお願いします。

@@ -5,11 +5,13 @@ sidebar:
   order: 6
 ---
 
-[統合プロセス参照モデル](/process-compass/processes/integrated/)の成果物を、そのままコピーして使えるテンプレートとして定義します。様式を固定するのは、AIに生成させる際の出力形式を安定させ、ゲート判定の突合を機械化しやすくするためです。
+本章は、本標準が求める成果物を、そのままコピーして使えるテンプレートとして定義します。様式を固定するのは、AIに生成させる際の出力形式を安定させ、ゲート判定の突合を機械化しやすくするためです。
+
+成果物の識別子と、どのゲート・作業と結びつくかは[統合プロセス参照モデル](/process-compass/phase4-process-design/process-model/)が保持します。様式の正本は本章です。
 
 ## データとドキュメントのインターフェース
 
-本標準は、プロセスの構造を[スキーマ駆動のデータ](/process-compass/processes/integrated/)(`src/data/processes/integrated.yaml`)として保持し、判断の基準を本文の各章に規定します。同一の事項が両方に現れるため、要素ごとに正本を次のとおり定めます。
+本標準は、プロセスの構造を[スキーマ駆動のデータ](/process-compass/phase4-process-design/process-model/)(`src/data/processes/integrated.yaml`)として保持し、判断の基準を本文の各章に規定します。同一の事項が両方に現れるため、要素ごとに正本を次のとおり定めます。
 
 | 情報の種類 | 正本 | 従属側の扱い |
 | --- | --- | --- |
@@ -227,7 +229,7 @@ Git 上で管理する場合の具体的な構成([フェーズ5](/process-compa
 
 - 1行=1負債。AI生成過程で見つけた妥協・TODO・仮実装はすべて記録する<!-- tone-ok: 記録対象としての TODO への言及 -->
 - 「受容理由」が書けない負債は受容してはならない(その場で直すか、仕様に戻す)
-- 返却は[運用フェーズの負債返却サイクル](/process-compass/processes/integrated/operate/debt-payback/)で台帳から優先度順に消化する
+- 返却は[運用フェーズの負債返却サイクル](/process-compass/phase4-process-design/process-model/operate/debt-payback/)で台帳から優先度順に消化する
 
 ## テンプレ4: ゲート判定記録
 

@@ -20,7 +20,11 @@ export default defineConfig({
       // /tool/simulator/ もカスタムページのため検証対象から除外する
       plugins: [
         starlightLinksValidator({
-          exclude: ['/process-compass/processes/**', '/process-compass/tool/simulator/'],
+          exclude: [
+            '/process-compass/processes/**',
+            '/process-compass/phase4-process-design/process-model/**',
+            '/process-compass/tool/simulator/',
+          ],
         }),
       ],
       title: 'Process Compass',
@@ -87,12 +91,17 @@ export default defineConfig({
         { label: 'フェーズ2: AIDLC・理想形調査', items: [{ autogenerate: { directory: 'phase2-aidlc' } }] },
         { label: 'フェーズ3: ギャップ分析', items: [{ autogenerate: { directory: 'phase3-gap-analysis' } }] },
         {
-          // フェーズ3(ギャップ分析)の出力であり、フェーズ4(標準)の入力にあたる。
-          // 既存プロセスのカタログとは性格が異なるため独立させる(ADR-0017)
-          label: '統合プロセス参照モデル(提案)',
-          items: [{ label: '★ 統合プロセス参照モデル', link: '/processes/integrated/' }],
+          // 統合プロセス参照モデルは本標準の一部(構造の側)であり、フェーズ4の内側へ置く。
+          // 独立セクションとして外に出す構成は ADR-0020 で置き換えた
+          label: 'フェーズ4: 詳細プロセス策定',
+          items: [
+            {
+              label: '★ 統合プロセス参照モデル(構造)',
+              link: '/phase4-process-design/process-model/',
+            },
+            { autogenerate: { directory: 'phase4-process-design' } },
+          ],
         },
-        { label: 'フェーズ4: 詳細プロセス策定', items: [{ autogenerate: { directory: 'phase4-process-design' } }] },
         { label: 'フェーズ5: プロセス実装', items: [{ autogenerate: { directory: 'phase5-implementation' } }] },
         { label: 'フェーズ6: プロセス運用', items: [{ autogenerate: { directory: 'phase6-operation' } }] },
         {

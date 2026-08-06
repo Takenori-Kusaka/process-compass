@@ -1,6 +1,7 @@
 ---
 // プロセス横断比較表(#30)。9プロセスのスキーマデータから自動生成(ADR-0007)
 import { getCollection } from 'astro:content';
+import { processPathSegment } from '../../lib/process-diagrams';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 
 const processes = await getCollection('processes');
@@ -135,7 +136,8 @@ const proposalRows = allRows.filter((r) => r.category === 'proposal');
   <h2 id="proposal">参考: 本プロジェクトの提案</h2>
   <p>
     次は本プロジェクトが設計した参照モデルであり、<strong>調査した既存プロセスではありません</strong>。上の比較表と同じ軸で集計していますが、
-    既存プロセスとの優劣を示すものではない点に注意してください。設計の根拠は<a
+    既存プロセスとの優劣を示すものではない点に注意してください。本体は<a
+      href={`${b}phase4-process-design/overview/`}>フェーズ4(本標準)</a>の一部であり、設計の根拠は<a
       href={`${b}phase4-process-design/integrated-process/`}>附属書A</a>にあります。
   </p>
   <div style="overflow-x:auto">
@@ -152,7 +154,7 @@ const proposalRows = allRows.filter((r) => r.category === 'proposal');
       <tbody>
         {proposalRows.map((r) => (
           <tr>
-            <td><a href={`${b}processes/${r.id}/`}>{r.name}</a></td>
+            <td><a href={`${b}${processPathSegment(r.id)}/`}>{r.name}</a></td>
             <td>{r.phases}</td>
             <td>{r.roles}</td>
             <td>{r.gates}({r.decision}決/{r.inspection}検)</td>

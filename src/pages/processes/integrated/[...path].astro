@@ -1,0 +1,41 @@
+---
+// 旧 URL(/processes/integrated/...)から新 URL(/phase4-process-design/process-model/...)への
+// リダイレクト用のスタブ。ADR-0020 で移設した際、外部リンクを壊さないために残している。
+// 静的サイトのため meta refresh と canonical で転送する。
+import { getEntry } from 'astro:content';
+import { PROCESS_MODEL_ID } from '../../../lib/process-diagrams';
+
+export async function getStaticPaths() {
+  const entry = await getEntry('processes', PROCESS_MODEL_ID);
+  if (!entry) throw new Error(`processes コレクションに ${PROCESS_MODEL_ID} が存在しません`);
+  const paths: { params: { path: string | undefined } }[] = [{ params: { path: undefined } }];
+  for (const phase of entry.data.phases) {
+    paths.push({ params: { path: phase.id } });
+    for (const activity of phase.activities) {
+      paths.push({ params: { path: `${phase.id}/${activity.id}` } });
+    }
+  }
+  return paths;
+}
+
+const base = import.meta.env.BASE_URL;
+const b = base.endsWith('/') ? base : `${base}/`;
+const { path } = Astro.params;
+const target = `${b}phase4-process-design/process-model/${path ? `${path}/` : ''}`;
+const absolute = new URL(target, 'https://takenori-kusaka.github.io').href;
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>移転しました — 統合プロセス参照モデル</title>
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={absolute} />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <p>
+      統合プロセス参照モデルは本標準(フェーズ4)の一部として <a href={target}>{target}</a> へ移転しました。
+    </p>
+  </body>
+</html>

@@ -5,7 +5,7 @@ sidebar:
   order: 8
 ---
 
-[統合プロセス参照モデル](/process-compass/processes/integrated/)は「参照」モデルであり、そのまま全組織に適用するものではありません。このページは、**組織の条件に応じてモデルをどう調整するか(テーラリング)**のガイドです。
+本標準は参照モデルであり、そのまま全組織に適用するものではありません。本章は、**組織の条件に応じて第1章から第7章の要求事項をどう調整するか(テーラリング)**を規定します。調整の対象となる構造は[統合プロセス参照モデル](/process-compass/phase4-process-design/process-model/)が保持します。
 
 :::note
 本章の調整規則は、[プロセス提案ツール](/process-compass/tool/simulator/)の知識ベースとして機械可読な形式でも保持しています。本章が正本であり、データはその符号化です。データ構造は[知識ベーススキーマ設計](/process-compass/tool/knowledge-base-schema/)を参照してください。

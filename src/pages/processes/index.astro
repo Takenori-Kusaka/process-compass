@@ -1,6 +1,7 @@
 ---
 // プロセス体系のランディングページ(ADR-0007 のスキーマ駆動)
 import { getCollection } from 'astro:content';
+import { processPathSegment } from '../../lib/process-diagrams';
 import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 
 const processes = await getCollection('processes');
@@ -79,13 +80,14 @@ const grouped = order
     <>
       <h2 id="proposal">参考: 本プロジェクトの提案</h2>
       <p>
-        次は本プロジェクトが設計した参照モデルであり、<strong>調査した既存プロセスではありません</strong>。性格が異なるため、上の分類には並べていません。設計の根拠は<a
+        次は本プロジェクトが設計した参照モデルであり、<strong>調査した既存プロセスではありません</strong>。性格が異なるため、上の分類には並べていません。本体は<a
+          href={`${b}phase4-process-design/overview/`}>フェーズ4(本標準)</a>の一部であり、設計の根拠は<a
           href={`${b}phase4-process-design/integrated-process/`}>附属書A</a>にあります。
       </p>
       <ul>
         {proposals.map((p) => (
           <li>
-            <a href={`${b}processes/${p.id}/`}><strong>{p.data.name}</strong></a>
+            <a href={`${b}${processPathSegment(p.id)}/`}><strong>{p.data.name}</strong></a>
             {' — '}
             {p.data.summary}
           </li>

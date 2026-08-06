@@ -24,7 +24,7 @@ graph LR
   O --> W["修正・採択<br>(チームでの合意)"]
 ```
 
-- 提案のベースは[統合プロセス参照モデル](/process-compass/processes/integrated/)
+- 提案のベースは[統合プロセス参照モデル](/process-compass/phase4-process-design/process-model/)
 - 調整ロジックは[テーラリングガイド](/process-compass/phase4-process-design/tailoring-guide/)の4軸の表
 - 出力の様式は[導入提案書テンプレート](/process-compass/phase4-process-design/proposal-template/)
 

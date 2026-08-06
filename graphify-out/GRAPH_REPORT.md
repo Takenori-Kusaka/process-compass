@@ -1,11 +1,11 @@
 # Graph Report - process-compass  (2026-08-06)
 
 ## Corpus Check
-- 166 files · ~142,662 words
+- 186 files · ~148,166 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2380 nodes · 2269 edges · 202 communities (195 shown, 7 thin omitted)
+- 2553 nodes · 2457 edges · 215 communities (204 shown, 11 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -160,8 +160,8 @@
 - 3.9 会議体の運用規律
 - 12. 出典一覧（信頼度別）
 - 3.8 決裁権限マトリクス
-- [process]/index.astro
-- 1. 主要エージェント製品の現況
+- astro:content
+- 第2部: GitHub Issueドラフト（計12件）
 - safety-verification.md
 - 調査メモ: 三識メトリクス・ダッシュボードとKPT改善サイクルの制度化（Issue #116 / #117）
 - 6. 振り返り（レトロスペクティブ）の実務と失敗モード
@@ -174,20 +174,24 @@
 - 7. インシデント後レビューの制度設計
 - 8. 測定から改善アクションへの接続
 - 移行段階
-- 2. ベンチマークの最新値
-- 4. マルチエージェントのトレンド — 「制約された協調+人間の統制」は妥当か
+- 第1部: 根本課題の構造的整理 (14の論点ノード)
+- 第2部: GitHub Issueドラフト（計9件）
 - stacked-pr.md
-- 6. 前版(2026-07-10)との差分
+- 🛠️ カテゴリ3: 自動化バイアス・形骸化防止＆メトリクス（ノード9）
+- block2_research.md
 - simulator.astro
 - 0011-safety-risk-assessment-positioning.md
 - 0012-ai-output-as-unverified-input.md
+- block3_research.md
 - 7つのブロック
 - 0013-enablement-by-bounded-trial.md
+- 2. 議論から得られた5つの核心的設計方針（To-Be）
 - memo.txt ↔ Issue 突合表
 - 04-traceability.md
 - 0014-criticality-axis-and-proposal-output.md
 - 調査層(フェーズ1・2・3)の棚卸し結果（Issue #138）
 - 0017-separate-proposal-from-catalog.md
+- 3. アンチパターン各論(本メモの中心)
 - 5.2 「検証可能性」という基準の限界
 - 調査メモ: ロール別「AI置き換え / AI支援 / 人が担保」の再検討（Issue #135）
 - 2. A. 2026-03 → 2026-08 で何が変わったか
@@ -200,21 +204,29 @@
 - 11. 出典一覧
 - 8. 本標準への提言
 - 0016-business-appraisal-in-intent-brief.md
-- 0. プロセスの概要
+- ProcessActivity.astro
 - comparison.astro
 - 3. B. 前提の充足を継続的に監視する枠組み
 - 2. A. 各前提の「崩れやすさ」の実証データ
 - 調査メモ: 理想モデルの前提条件の崩れを検出し決裁ブロッカーにする仕組み（Issue #139）
 - 7. 本標準への提言
 - 0018-assumption-ledger.md
-- [phase]/index.astro
+- 0020-process-model-belongs-to-phase4.md
 - 2.1 T 区分（技術）
 - 6. 考察（事実と分離）
 - 0. 本メモの読み方
 - 10. 出典一覧
 - 4. C. 「決裁ブロッカーにする」ことの是非
+- create_block2_issues.cjs
+- create_block3_issues.cjs
+- create_issues.cjs
+- create_issues.js
 - 140/131 一次調査: スコープの確約・進捗の観測・仕様ドリフトの検知
 - 0019-scope-commitment-three-layers.md
+- 5. 現実の懸念(理想が崩れる点)
+- ProcessOverview.astro
+- 1. 理想像の出所(建前=そう語られる)
+- 9. 出典一覧
 
 ## God Nodes (most connected - your core abstractions)
 1. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
@@ -235,15 +247,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (202 total, 7 thin omitted)
+## Communities (215 total, 11 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
 Nodes (16): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+8 more)
 
 ### Community 1 - "エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)"
-Cohesion: 0.15
-Nodes (13): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出典一覧, 3. METR の時間地平 — 「倍加 7 か月」は更新された, 5-1. LinearB 2026 ソフトウェアエンジニアリングベンチマーク(発表日 2026-05-04), 5-2. スループットの逆説(CircleCI 2026 データ), 5-3. AI 生成コードの品質と「静かな技術的負債」, 5. 「人間の検証帯域が律速」— 定量証拠が出そろった, 7. 日本での受け止め(2026-08-04 時点) (+5 more)
+Cohesion: 0.06
+Nodes (32): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出典一覧, 1-1. Anthropic — Mythos クラスの登場と Opus 5, 1-2. Cognition(Devin)— 自社モデル路線と「群」への転換, 1-3. OpenAI — Codex の世代交代と GPT-5.6 ファミリー, 1-4. GitHub Copilot coding agent — 統制設計は維持、範囲は拡大, 1-5. Google — Jules の GA と Gemini 3 系, 1-6. 新興・その他 (+24 more)
 
 ### Community 2 - "プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査"
 Cohesion: 0.06
@@ -262,8 +274,8 @@ Cohesion: 0.06
 Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.29
-Nodes (9): Activity, esc(), Gate, l1Diagram(), l2Diagram(), Phase, ADR-0006, ADR-0007 (+1 more)
+Cohesion: 0.18
+Nodes (15): diagram, exitGates, roleName, seg, Activity, esc(), Gate, l1Diagram() (+7 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
 Cohesion: 0.06
@@ -278,8 +290,8 @@ Cohesion: 0.07
 Nodes (28): 1.1 位置づけ, 1.2 プロセス記述の要素一覧, 1.3 フェーズ1調査への含意, 1. ISO/IEC/IEEE 24774:2021 — プロセス記述の仕様, 2.1 位置づけと2017年版の変更, 2.2 4プロセス群と30プロセスの一覧, 2.3 日本での展開: 共通フレーム(SLCP-JCF), 2.4 フェーズ1調査への含意 (+20 more)
 
 ### Community 10 - "プロダクトオーナー中心のチーム編成論 調査メモ"
-Cohesion: 0.08
-Nodes (26): 0. このメモの位置づけと全体像, 1.1 AWS AI-DLC(AI-Driven Development Life Cycle), 1.2 Sean Grove(OpenAI)「The New Code」— 仕様を書く人が最も価値ある programmer, 1.3 「Product Engineer」への収束論(everyone becomes a product owner の実像), 1. 理想像の出所(建前=そう語られる), 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義) (+18 more)
+Cohesion: 0.15
+Nodes (13): 0. このメモの位置づけと全体像, 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義), 3. 前提条件(この編成が暗黙に仮定していること), 4.1 従来のチーム編成との対比(図解の中核: 対比表), 4.2 Amazon の two-pizza team / single-threaded owner(既存の少人数・単一責任論), 4.3 コンウェイの法則との関係 (+5 more)
 
 ### Community 11 - "test-tailoring-engine.mjs"
 Cohesion: 0.21
@@ -294,8 +306,8 @@ Cohesion: 0.10
 Nodes (20): 0-0. 重要な前提: TDD は「開発ライフサイクル」ではなく「開発プラクティス/技法」である, 0-1. 基本情報, 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2-1. 3階層のズーム(nano / micro / 上位ライフサイクルとの接続), 2. 階層構造(process → activities → tasks), 3-A. 関連技法との役割拡張(TDD → ATDD/BDD) (+12 more)
 
 ### Community 14 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
-Cohesion: 0.10
-Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
+Cohesion: 0.15
+Nodes (13): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点), 7. 日本的観点(標準がカバーしない領域) (+5 more)
 
 ### Community 15 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.12
@@ -609,6 +621,10 @@ Nodes (8): 1.1 目的, 1.2 適用範囲, 1.3 引用規格および参照文書, 
 Cohesion: 0.33
 Nodes (5): 実装とは組織移行である, 実装リファレンス一覧, 段階と実装リファレンスの対応, 移行の全体像, 設定作業の順序
 
+### Community 97 - "astro.config.mjs"
+Cohesion: 0.50
+Nodes (3): ADR-0006, ADR-0020, ADR-0017
+
 ### Community 99 - "調査メモ: 4大会議体と決裁権限マトリクス／デジタル根回し（Issue #102・#103）"
 Cohesion: 0.05
 Nodes (38): 10. 未確認・追加調査が必要な点, 1.1 ISO/IEC 38500: Evaluate–Direct–Monitor（EDM）, 1.2 COBIT 2019: EDM ドメイン（ISACA, 2018–2019）, 1.3 Weill & Ross の IT ガバナンス・アーキタイプ（MIT CISR, 2004）, 1.4 考察（#102 への含意）, 1. IT ガバナンスにおける意思決定権限モデル（観点1）, 2. Stage-Gate におけるゲートキーパー会議体（観点2）, 3.1 一般的な構成 (+30 more)
@@ -622,8 +638,8 @@ Cohesion: 0.05
 Nodes (42): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, #140・#131 で確定した語彙（以降は必ずこれに従う）, 1. 作業単位の標準手順（1 Issue あたり／必ずこの順で実行）, 2. 実行順序（8 Wave / 30 Issue） (+34 more)
 
 ### Community 103 - "AIDLC(AI-Driven Development Life Cycle)調査メモ"
-Cohesion: 0.12
-Nodes (16): 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task), 3. roles(ロール): 人間(意思決定)× AIエージェント(実行)の分担, 4. information items(成果物・文書), 5. gates(ゲート・決裁): Human-in-the-loop 承認点, 6. レビュープロセス, 7-1. 理想像が暗黙に仮定している前提条件(これが崩れると成立しない) (+8 more)
+Cohesion: 0.10
+Nodes (21): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task) (+13 more)
 
 ### Community 104 - "調査メモ: AI 維持管理責任者（AI Maintainer）と AI 運用担当者（AIOps）の職掌（Issue #111 / #112）"
 Cohesion: 0.05
@@ -789,13 +805,9 @@ Nodes (4): 12. 出典一覧（信頼度別）, 一次情報（規格・研究機
 Cohesion: 0.50
 Nodes (4): 3.8.1 リスク区分, 3.8.2 決裁者の割当, 3.8.3 起案・意見・決定の分離, 3.8 決裁権限マトリクス
 
-### Community 147 - "[process]/index.astro"
-Cohesion: 0.15
-Nodes (8): grouped, order, proposals, diagram, roleName, string, roleName, wpName
-
-### Community 148 - "1. 主要エージェント製品の現況"
-Cohesion: 0.29
-Nodes (7): 1-1. Anthropic — Mythos クラスの登場と Opus 5, 1-2. Cognition(Devin)— 自社モデル路線と「群」への転換, 1-3. OpenAI — Codex の世代交代と GPT-5.6 ファミリー, 1-4. GitHub Copilot coding agent — 統制設計は維持、範囲は拡大, 1-5. Google — Jules の GA と Gemini 3 系, 1-6. 新興・その他, 1. 主要エージェント製品の現況
+### Community 148 - "第2部: GitHub Issueドラフト（計12件）"
+Cohesion: 0.06
+Nodes (31): 10. 【Issue: #01-10】3年組織ローテーション下における「コンテキスト移管ゲート（引き継ぎプロセス）」の設計, 11. 【Issue: #01-11】「三識（知識・見識・胆識）」に基づくゲート承認UI/UXおよび意志決定プロセスの設計, 12. 【Issue: #01-12】ドキュメント全体の徹底的なテキストリファクタリングと内部文脈用語の完全排除, 1. 【Issue: #01-01】フェーズ4ドキュメントの「標準・ガイドライン（B）」トーンへの全面改修, 1. プロセス設計のメタ体系・メソドロジー（ノード1 & 2 / Q1対応）, 2. 【Issue: #01-02】統合プロセス参照モデルのデータ（YAML）とフェーズ4解説の疎結合化, 2. マクロな事業・製品フェーズ（DR/TR）とマイルストーン（ノード3 & 4 / Q2, Q3対応）, 3. 【Issue: #01-03】JTC型「3フェーズ・4ゲート」マクロライフサイクルの全体設計 (+23 more)
 
 ### Community 149 - "safety-verification.md"
 Cohesion: 0.10
@@ -845,21 +857,25 @@ Nodes (4): 8.1 一次情報で裏づけられる原則, 8.2 改善サイクル�
 Cohesion: 0.07
 Nodes (27): T-0 準備, T-1 限定試行, T-2 増分展開, T-3 常態化, T-4 自走, TG-1 増分展開の可否, TG-2 常態化の可否, TG-3 支援組織の撤退可否 (+19 more)
 
-### Community 161 - "2. ベンチマークの最新値"
-Cohesion: 0.50
-Nodes (4): 2-1. SWE-bench Verified — 飽和局面へ, 2-2. 後続ベンチマーク(SWE-bench Verified の代替として台頭), 2-3. 図解用の整理, 2. ベンチマークの最新値
+### Community 161 - "第1部: 根本課題の構造的整理 (14の論点ノード)"
+Cohesion: 0.08
+Nodes (23): 📂 I. プロセス設計のメタ体系・メソドロジー（プロセス・アーキテクチャ）, 🏢 II. JTCの事業統制とライフサイクル・ガバナンスへの適合（外殻の設計）, 👥 III. 人間とAIの役割設計・相互作用（AIX・内殻の設計）, 🛠️ IV. プラットフォーム・タスク管理とメトリクス（プラットフォームの設計）, Process Compass 根本課題の構造的整理 ＆ 質問管理表 (QA票), 🔍 V. 個別設計・実装レベルの課題（個別最適・クリーニング）, 【ノード10】日本の企画部門における「価値責任者（単独意思決定）」の現実性, 【ノード11】タスク管理・進捗管理・起点の設計の欠落 (+15 more)
 
-### Community 162 - "4. マルチエージェントのトレンド — 「制約された協調+人間の統制」は妥当か"
-Cohesion: 0.50
-Nodes (4): 4-1. フレームワーク: AutoGen の三分岐と MAF の GA, 4-2. プロトコル標準化 — 2026 年最大の構造変化, 4-3. 製品側のマルチエージェント実装, 4. マルチエージェントのトレンド — 「制約された協調+人間の統制」は妥当か
+### Community 162 - "第2部: GitHub Issueドラフト（計9件）"
+Cohesion: 0.09
+Nodes (21): 1. 【Issue: #03-01】「GitHub Issues ＋ Stack PR（gh-stack）」AI協調タスク管理の運用標準設計, 1. プロセスにおける「実装（Implementation）」の再定義（Q3-03対応）, 2. GitHub Issues + Stack PR のワークフロー（Q3-01対応）, 2. 【Issue: #03-02】AIによる「極小タスク分割（Micro-tasking）基準」とレビュー時間SLAの策定, 3. AI Rework Rate（ARR）を軸とした「AI SLA」と「ISO 12100リスク管理」（Q3-02, Q3-04対応）, 3. 【Issue: #03-03】ゲート判定・契約調達のための「AI SLAガバナンス評価規程」の策定, 4. 【Issue: #03-04】JTC型開発プロセスとしての「プロセスの社会・組織実装（Enablement）計画」の策定, 5. 【Issue: #03-05】ISO 12100 / IEC 62304 準拠「AIソフトウェア・リスクアセスメント（D-0成果物）」テンプレートの策定 (+13 more)
 
 ### Community 163 - "stacked-pr.md"
 Cohesion: 0.20
 Nodes (9): AIエージェントへ与える指示, コンフリクトの解消, レビューの割り当て, 前提の確認(2026-08-05 時点), 各層が満たすべき条件, 導入しない判断, 段階1の手順(標準機能のみ), 段階的な導入 (+1 more)
 
-### Community 164 - "6. 前版(2026-07-10)との差分"
-Cohesion: 0.50
-Nodes (4): 6-1. 訂正すべき記述, 6-2. 変わった点, 6-3. 変わっていない点, 6. 前版(2026-07-10)との差分
+### Community 164 - "🛠️ カテゴリ3: 自動化バイアス・形骸化防止＆メトリクス（ノード9）"
+Cohesion: 0.10
+Nodes (19): 1. 2026年現在地を起点とした「AI自律レベルロードマップ」への大補正（ノード7）, 1. 【Issue: #02-01】2026年現在地を起点とした「AI自律レベル（Autonomy Levels）動的境界モデル」の規定, 2. AI Maintainerの定義（ノード8 / Q2-02対応）, 2. 【Issue: #02-02】AI自律レベル移行に伴う「開発者の作業規定」および「受入基準（SDD）」のアップデート, 3. 【Issue: #02-03】「AI維持管理責任者（AI Maintainer）」のQMSプロセス規定・職掌策定, 3. Seeded Errors ＆ 例外決裁（ノード9 / Q2-04対応）, 4. 【Issue: #02-04】エンタープライズ統合に向けた「AI運用担当者（AIOps）」のインターフェース設計, 5. 【Issue: #02-05】意図的バグ注入システム（Seeded Errors）による形骸化防止プロセスの仕様設計 (+11 more)
+
+### Community 165 - "block2_research.md"
+Cohesion: 0.13
+Nodes (14): 1. AI自律レベル（AI Autonomy Levels）の1〜3年段階的ロードマップ（ノード7対応）, 【1年目 (2026): 協働アシスタント期】, 2. AI時代の新専門ロール：「AI維持管理責任者（AI Maintainer）」と「AI運用（AIOps）」（ノード8対応）, 【2年目 (2027): 複数エージェント協調・仕様駆動期】, 3. ラバースタンプ（ハンコ押し形骸化）を防止する「認知強制機能（CFFs）」と「シードバグ（Seeded Errors）」設計（ノード9対応）, 【3年目 (2028): 完全自律サブシステム・自己修復期】, A. AI維持管理責任者 (AI Maintainer - コードベース統治), B. AI運用担当者 (AI Operations / AIOps - インフラ・コスト統治) (+6 more)
 
 ### Community 166 - "simulator.astro"
 Cohesion: 0.26
@@ -873,6 +889,10 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
+### Community 169 - "block3_research.md"
+Cohesion: 0.17
+Nodes (11): 1. AI協調型タスク管理と「Stack PR（積み上げ式PR）」ワークフロー（ノード11対応）, 2. 定量的メトリクスプラットフォーム ＆ AI SLA ガバナンス（ノード12対応）, 3. 国際規格安全設計：ISO 12100 リスクアセスメントの実装プロセス接続（ノード13対応）, 📊 5つのコアAIXメトリクス, Block 3: チケットフロー、メトリクスプラットフォーム、リスクコントロール（仕組みと実装の設計）ディープリサーチ報告書 ＆ QA票, 📋 ISO 12100準拠・AIソフトウェアリスクアセスメント（成果物テンプレート）, 🛠️ Phase 5 におけるメトリクスレポートの実装, 💡 Stack PR (gh-stack) を用いた「マイクロタスク・チェーン」 (+3 more)
+
 ### Community 170 - "7つのブロック"
 Cohesion: 0.15
 Nodes (12): 7つのブロック, ブロック1: 診断結果の要約, ブロック2: 標準からの差分(テーラリング宣言), ブロック3: 各判定の理由, ブロック4: 外せない下限, ブロック5: 変更の手順, ブロック6: 検証の記入欄, ブロック7: 改善の順序 (+4 more)
@@ -880,6 +900,10 @@ Nodes (12): 7つのブロック, ブロック1: 診断結果の要約, ブロッ
 ### Community 171 - "0013-enablement-by-bounded-trial.md"
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
+
+### Community 172 - "2. 議論から得られた5つの核心的設計方針（To-Be）"
+Cohesion: 0.17
+Nodes (11): ① 2026年現在地を起点とする「AI自律レベル動的境界」, 1. 開発のゴールと本質（一番大事なこと）, ② 会議体設計と「デジタル根回し（非同期事前レビュー）」, 2. 議論から得られた5つの核心的設計方針（To-Be）, ③ 自動化バイアスを防止する「Seeded Errors」と「例外（Bypass）」, 3. 開発における重要な制約・注意点, ④ 人間の理解を深める「三識（知識・見識・胆識）」評価, 4. 参考となるファイル・議論履歴 (+3 more)
 
 ### Community 173 - "memo.txt ↔ Issue 突合表"
 Cohesion: 0.25
@@ -900,6 +924,10 @@ Nodes (10): 一覧, 仕分けの結果, 判定の基準, 実施した改訂, 最
 ### Community 177 - "0017-separate-proposal-from-catalog.md"
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
+
+### Community 178 - "3. アンチパターン各論(本メモの中心)"
+Cohesion: 0.29
+Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
 
 ### Community 179 - "5.2 「検証可能性」という基準の限界"
 Cohesion: 0.29
@@ -949,9 +977,9 @@ Nodes (4): 8. 本標準への提言, (a) 分類の枠組みをどう改める, (
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 191 - "0. プロセスの概要"
-Cohesion: 0.40
-Nodes (5): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要
+### Community 191 - "ProcessActivity.astro"
+Cohesion: 0.22
+Nodes (6): roleName, seg, wpName, grouped, order, proposals
 
 ### Community 192 - "comparison.astro"
 Cohesion: 0.40
@@ -977,9 +1005,9 @@ Nodes (6): 7. 本標準への提言, 提言 1: 前提ごとの崩れやすさの
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 198 - "[phase]/index.astro"
-Cohesion: 0.40
-Nodes (3): diagram, exitGates, roleName
+### Community 198 - "0020-process-model-belongs-to-phase4.md"
+Cohesion: 0.33
+Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
 ### Community 199 - "2.1 T 区分（技術）"
 Cohesion: 0.40
@@ -1009,25 +1037,41 @@ Nodes (20): 0. 調査の問い, 140/131 一次調査: スコープの確約・�
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
+### Community 211 - "5. 現実の懸念(理想が崩れる点)"
+Cohesion: 0.40
+Nodes (5): 5.1 全員が PO になれるのか(スキルの偏在), 5.2 責任の所在(誰が本番の AI 生成コードを所有するか), 5.3 意思決定の質と「false finish line」, 5.4 日本の組織文化との衝突(フェーズ1と接続), 5. 現実の懸念(理想が崩れる点)
+
+### Community 212 - "ProcessOverview.astro"
+Cohesion: 0.40
+Nodes (4): diagram, roleName, seg, string
+
+### Community 213 - "1. 理想像の出所(建前=そう語られる)"
+Cohesion: 0.50
+Nodes (4): 1.1 AWS AI-DLC(AI-Driven Development Life Cycle), 1.2 Sean Grove(OpenAI)「The New Code」— 仕様を書く人が最も価値ある programmer, 1.3 「Product Engineer」への収束論(everyone becomes a product owner の実像), 1. 理想像の出所(建前=そう語られる)
+
+### Community 214 - "9. 出典一覧"
+Cohesion: 0.50
+Nodes (4): 9. 出典一覧, 一次情報(公式ブログ・原典・提唱者一次資料), 二次情報(解説・論評・批判), 接続する既存メモ
+
 ## Knowledge Gaps
-- **1811 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `name` (+1806 more)
+- **1920 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+1915 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `プロダクトオーナー中心のチーム編成論 調査メモ` connect `プロダクトオーナー中心のチーム編成論 調査メモ` to `20260710-jp-governance.md`?**
+- **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **Why does `ウォーターフォール開発プロセス 調査メモ` connect `ウォーターフォール開発プロセス 調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **Why does `スクラム(Scrum)調査メモ` connect `スクラム(Scrum)調査メモ` to `20260710-jp-governance.md`?**
+- **Why does `アジャイル(Agile)調査メモ` connect `アジャイル(Agile)調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _1811 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1920 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
+- **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
+  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
-  _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
-- **Should `scripts` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
