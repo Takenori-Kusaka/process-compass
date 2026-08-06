@@ -47,6 +47,18 @@ graph TD
 
 この「責任の非集中」が、海外発プロセスの「単一責任(プロダクトオーナー)」や、生成AIが要求する「明確な責任主体」と系統的に衝突します。
 
+### 3つの発見がフェーズ4のどこへ結実したか
+
+**本ページは調査結果であり、規定ではありません**。規定の正本は[フェーズ4](/process-compass/phase4-process-design/overview/)です。
+
+| 発見 | フェーズ4での規定 |
+| --- | --- |
+| 発見1 意思決定の集中と分散 | [第2章](/process-compass/phase4-process-design/lifecycle/) 二層構造。外殻(ステージ移行ゲート SG)と内殻(工程ゲート G)を分ける |
+| 発見2 決裁型への回帰 | [第4章](/process-compass/phase4-process-design/gate-criteria/) 8つの工程ゲートと判定基準 |
+| 発見3 責任の非集中 | 結果責任は1名(テーラリングの禁止事項)、[第3章 3.8.2](/process-compass/phase4-process-design/roles-responsibilities/) 決裁権限マトリクス、[第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/) D-0 |
+
+**稟議と根回しは廃止の対象としていません**。[第3章 3.10](/process-compass/phase4-process-design/roles-responsibilities/)は、根回しを非公式な調整のまま残すのではなく、事前レビュー期間として時系列を定めた手続へ置き換えています。責任を分散させる装置としての性格は、結果責任を1名に固定することで打ち消します。
+
 ## フェーズ2・3への橋渡し
 
 ```mermaid

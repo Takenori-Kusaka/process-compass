@@ -7,6 +7,10 @@ sidebar:
 
 フェーズ2で整理した「理想像(To)」は、明示されないまま多くのことを前提にしています。このページは、その**暗黙の前提条件**を一覧化します。フェーズ3では、これらの前提が日本企業の現場で成立するかを1つずつ検証し、崩れる点をギャップとして扱います。
 
+:::caution[このページの鮮度について]
+技術の前提(T1〜T4)の成立度は、**2026-07-10 時点**の評価です。この分野は数か月で状況が変わるため、現在の到達点は[エージェント型開発の現在地](/process-compass/phase2-aidlc/agentic-development/)(基準日つき)を参照してください。個人・組織・知識の前提(P・O・K)は技術の進展では変わらないため、時点への依存は小さいと考えています。
+:::
+
 ## 前提の全体像: AIが解くのは一部だけ
 
 理想像は「AIが実装を担えば全部解決する」かのように語られがちです。しかし前提を分解すると、**AIが解くのは技術の前提だけ**で、個人・組織・知識の前提は人間の問題として残ります。ここが理想と現実のギャップの源泉です。
@@ -65,6 +69,22 @@ graph TD
 - K1・K2(言語化・表出化)↔ ハイコンテキストの暗黙知
 
 つまり本プロジェクトの介入点は、**AIが解く技術の前提(T)を待つことではなく、P・O・Kの前提を日本の組織文化の中で成立させる仕組みを設計すること**にあります。この設計がフェーズ3以降の主題です。
+
+## 崩れた前提はフェーズ4のどこで扱われたか
+
+**本ページは前提の一覧であり、規定ではありません**。崩れる前提への対処は[フェーズ4](/process-compass/phase4-process-design/overview/)で要求事項になりました。
+
+| 前提 | フェーズ4での対処 |
+| --- | --- |
+| T3 AIの自己検証 | [第5章 5.8.4](/process-compass/phase4-process-design/human-ai-boundary/) テスト生成の独立性。実装とテストを同一のAIに同一の文脈で書かせない |
+| P3 検証能力 | [第5章 5.6.2](/process-compass/phase4-process-design/human-ai-boundary/) 欠陥注入による検出能力の測定 |
+| O1 意思決定の権限 | [第3章 3.8.2](/process-compass/phase4-process-design/roles-responsibilities/) 決裁権限マトリクス、[第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/) D-0 |
+| O2 説明責任の一意性 | 結果責任は1名。AIを結果責任に割り当てない(テーラリングの禁止事項) |
+| O3 検証キャパシティ | [第4章](/process-compass/phase4-process-design/gate-criteria/) レビュー SLA と帯域の上限、[第6章](/process-compass/phase4-process-design/deliverable-templates/) 認知強制機能 |
+| K1・K2 言語化・表出化 | [第3章 3.11](/process-compass/phase4-process-design/roles-responsibilities/) 指示資産、[コンテキスト基盤](/process-compass/phase5-implementation/context-base/) |
+| K3 ガードレールの符号化 | [第3章 3.11.3](/process-compass/phase4-process-design/roles-responsibilities/) 強制層。遵守が必須の規則を誘導層に書かない |
+
+**前提の崩れを検出して決裁の前で止める仕組みは、まだ体系化されていません**(Issue #139 で扱います)。上表は個別の対処であり、前提一覧を物差しとして充足状況を監視する構成にはなっていません。
 
 :::note
 各前提の詳細な根拠は、フェーズ2の個別ページ([AIDLC](/process-compass/phase2-aidlc/aidlc-lifecycle/)、[エージェント型開発](/process-compass/phase2-aidlc/agentic-development/)、[PO中心編成](/process-compass/phase2-aidlc/po-centric-team/)、[コンテキストエンジニアリング](/process-compass/phase2-aidlc/context-engineering/))と、`research/phase2/` の各調査メモにあります。

@@ -42,6 +42,18 @@ graph TD
 | G4 ロールの曖昧さ・兼務 | 分担をロールでなく作業に紐づける | ロール別整理 |
 | G5 速さが承認滞留を際立たせる | 承認の実効性を保ちつつ滞留させない設計 | ギャップマップ |
 
+### 各ギャップがフェーズ4のどこで規定されたか
+
+方向性は[フェーズ4](/process-compass/phase4-process-design/overview/)で具体的な要求事項になりました。**本ページは現状の分析であり、規定の正本はフェーズ4です**。
+
+| ギャップ | フェーズ4での規定 |
+| --- | --- |
+| G1 明文化の壁 | [第3章 3.11.3](/process-compass/phase4-process-design/roles-responsibilities/) 指示資産の3層、3.11.4 保守要求(分量の上限・棚卸し・導出できる内容の記載禁止) |
+| G2 責任主体の欠落 | [第3章](/process-compass/phase4-process-design/roles-responsibilities/) 結果責任は1名、AIを結果責任に割り当てない、[第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/) D-0 体制図 |
+| G3 職位ゲートと専門性の乖離 | [第4章](/process-compass/phase4-process-design/gate-criteria/) G-3 技術設計判断と G-1 / G-8 事業決裁の分離、[第3章 3.8.2](/process-compass/phase4-process-design/roles-responsibilities/) 決裁権限マトリクス |
+| G4 ロールの曖昧さ・兼務 | [第3章](/process-compass/phase4-process-design/roles-responsibilities/) 兼務規則、[第2章 2.9](/process-compass/phase4-process-design/lifecycle/) コンテキスト移管ゲート H-1〜H-3 |
+| G5 速さが承認滞留を際立たせる | [第4章](/process-compass/phase4-process-design/gate-criteria/) レビュー SLA と滞留の措置、[第3章 3.10](/process-compass/phase4-process-design/roles-responsibilities/) 事前レビュー期間、[第7章](/process-compass/phase4-process-design/exception-escalation/) 例外・エスカレーション |
+
 ## もう一つの発見: 事業継続性の責任が社内に戻る
 
 生成AIが従来の「外注」を担うと、その作業を理解している人間が社内外のどこにもいなくなるリスクが生まれます。これは、外注に預けていた事業継続性リスクが、**AI委譲では社内の理解維持能力しだいになる**ことを意味します。だからこそ「何を人が理解し続けるか」の線引きが、プロセス設計の要になります。
