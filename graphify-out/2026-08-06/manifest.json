@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "tmp/EXECUTION_PLAN.md": {
-    "mtime": 1786012403.7687392,
-    "ast_hash": "e5df08fa12d9a19438aafa81526eb37d",
+    "mtime": 1786024781.3982074,
+    "ast_hash": "e34959594a537d368cef4d3e2bfdc4d6",
     "semantic_hash": ""
   },
   "research/phase4-standard/097-qms-chapter-structure.md": {
@@ -755,8 +755,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/lifecycle.md": {
-    "mtime": 1786009428.5403476,
-    "ast_hash": "df486581311f10ac559048e62f2b66cb",
+    "mtime": 1786024638.6274178,
+    "ast_hash": "56272fd502633b6e4210338f2983b940",
     "semantic_hash": ""
   },
   "research/phase4-standard/098-data-doc-interface.md": {
@@ -1105,8 +1105,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase1-current-state/workforce-mobility.md": {
-    "mtime": 1786009428.5393362,
-    "ast_hash": "78fdee90d9c627d8d54faebd3eafed64",
+    "mtime": 1786024716.0137453,
+    "ast_hash": "4085d533ec0753cbd77aedc058342264",
     "semantic_hash": ""
   },
   "research/phase4-standard/129-ip-clearance.md": {
@@ -1117,6 +1117,11 @@
   "src/content/docs/adr/0021-ip-clearance-evidence-not-guarantee.md": {
     "mtime": 1786012403.7634275,
     "ast_hash": "f704fb0c81971218c48770340e58f02f",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0022-handover-deadlines-relative-to-notice.md": {
+    "mtime": 1786024706.4613044,
+    "ast_hash": "642af25ce6ae48838a4bf3e707df7efa",
     "semantic_hash": ""
   }
 }

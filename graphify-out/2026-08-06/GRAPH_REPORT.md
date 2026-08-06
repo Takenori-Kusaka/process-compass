@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-06)
 
 ## Corpus Check
-- 190 files · ~150,664 words
+- 191 files · ~151,106 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2618 nodes · 2518 edges · 213 communities (203 shown, 10 thin omitted)
+- 2629 nodes · 2528 edges · 214 communities (204 shown, 10 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1f5431bc`
+- Built from commit: `db8594f3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -115,7 +115,7 @@
 - astro.config.mjs
 - 調査メモ: 4大会議体と決裁権限マトリクス／デジタル根回し（Issue #102・#103）
 - 調査メモ: エスカレーション・意思決定体制図(D-0)テンプレートと初期フェーズへの組み込み
-- Process Compass 改修 実行計画（Issue #97〜#126 / 全30件）
+- 5.4 次セッションへの引き継ぎ（2026-08-06 時点・最新）
 - GEMINI.md
 - AIDLC(AI-Driven Development Life Cycle)調査メモ
 - 調査メモ: AI 維持管理責任者（AI Maintainer）と AI 運用担当者（AIOps）の職掌（Issue #111 / #112）
@@ -225,6 +225,7 @@
 - 140/131 一次調査: スコープの確約・進捗の観測・仕様ドリフトの検知
 - 0019-scope-commitment-three-layers.md
 - 4. 組織論的な論点(従来編成 vs PO中心編成)
+- 0022-handover-deadlines-relative-to-notice.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
@@ -245,7 +246,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (213 total, 10 thin omitted)
+## Communities (214 total, 10 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -631,9 +632,9 @@ Nodes (38): 10. 未確認・追加調査が必要な点, 1.1 ISO/IEC 38500: Eval
 Cohesion: 0.06
 Nodes (35): 10. 追加調査が必要な穴(未確認事項の一覧), 1.1 PMBOK のプロジェクト憲章(Project Charter), 1.2 PRINCE2 の Project Initiation Documentation(PID), 1.3 プロジェクトボードの3ロール, 1.4 Management by Exception(例外による管理)とトレランス, 1. 立ち上げ時の体制合意文書の実務, 2.1 機能的エスカレーションと階層的エスカレーション(ITIL), 2.2 Google の Incident Management(IMAG) (+27 more)
 
-### Community 101 - "Process Compass 改修 実行計画（Issue #97〜#126 / 全30件）"
+### Community 101 - "5.4 次セッションへの引き継ぎ（2026-08-06 時点・最新）"
 Cohesion: 0.04
-Nodes (45): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, #129 で確定した設計（後続で覆さないこと）, #140・#131 で確定した語彙（以降は必ずこれに従う）, #141 で判明した重要な訂正（引用しないこと・引用すること） (+37 more)
+Nodes (46): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, #129 で確定した設計（後続で覆さないこと）, #140・#131 で確定した語彙（以降は必ずこれに従う）, #141 で判明した重要な訂正（引用しないこと・引用すること） (+38 more)
 
 ### Community 103 - "AIDLC(AI-Driven Development Life Cycle)調査メモ"
 Cohesion: 0.10
@@ -669,7 +670,7 @@ Nodes (37): 5.10 関連する章, 5.1 本章が達成すべき成果, 5.2 責任
 
 ### Community 111 - "lifecycle.md"
 Cohesion: 0.06
-Nodes (31): 2.10.1 スコープの3層, 2.10.2 規模の合意, 2.10.3 スコープを確定する時期, 2.10.4 進捗の観測, 2.10.5 棚卸しとスコープの調整, 2.10.6 期日に間に合わない見込みが立った場合, 2.10.7 通常運転と例外の境界, 2.10.8 合意した範囲から外れた変更の扱い (+23 more)
+Nodes (35): 2.10.1 スコープの3層, 2.10.2 規模の合意, 2.10.3 スコープを確定する時期, 2.10.4 進捗の観測, 2.10.5 棚卸しとスコープの調整, 2.10.6 期日に間に合わない見込みが立った場合, 2.10.7 通常運転と例外の境界, 2.10.8 合意した範囲から外れた変更の扱い (+27 more)
 
 ### Community 112 - "0009-phase4-standard-chapter-structure.md"
 Cohesion: 0.33
@@ -1047,8 +1048,12 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.50
 Nodes (4): 4.1 従来のチーム編成との対比(図解の中核: 対比表), 4.2 Amazon の two-pizza team / single-threaded owner(既存の少人数・単一責任論), 4.3 コンウェイの法則との関係, 4. 組織論的な論点(従来編成 vs PO中心編成)
 
+### Community 213 - "0022-handover-deadlines-relative-to-notice.md"
+Cohesion: 0.33
+Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
+
 ## Knowledge Gaps
-- **1970 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+1965 more)
+- **1979 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+1974 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1062,7 +1067,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _1970 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1979 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
