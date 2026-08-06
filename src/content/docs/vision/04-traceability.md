@@ -41,6 +41,7 @@ graph TD
 | 調査層のページ | 規範層への対応表 |
 | --- | --- |
 | [フェーズ1 総括](/process-compass/phase1-current-state/summary/) | 3つの発見 → 第2章・第3章・第4章 |
+| [人材の入れ替えと事業フェーズの推移](/process-compass/phase1-current-state/workforce-mobility/) | 異動の周期と予告期間 → 第2章 2.3・2.9 |
 | [理想モデルの前提条件一覧](/process-compass/phase2-aidlc/assumptions/) | 崩れる前提 T3・P3・O1〜O3・K1〜K3 → 第3章・第4章・第5章 |
 | [ロール別の作業分担](/process-compass/phase3-gap-analysis/role-mapping/) | AI自律レベル L1〜L3 → 第5章 5.4 / 5.8 |
 | [フェーズ3 総括](/process-compass/phase3-gap-analysis/summary/) | ギャップ G1〜G5 → 第2章・第3章・第4章・第7章 |
