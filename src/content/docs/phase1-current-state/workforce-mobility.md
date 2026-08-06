@@ -96,7 +96,7 @@ JILPT 調査の母集団は**300人以上の企業**です。中小企業の実�
 | 本ページの所見 | 規範層での扱い |
 | --- | --- |
 | 周期は3年を中心に広く分布する | [第2章 2.9](/process-compass/phase4-process-design/lifecycle/)は特定の年数を前提とせず「数年で入れ替わる」と記述する |
-| 予告は多くの企業で1か月未満 | [第2章 2.9.3](/process-compass/phase4-process-design/lifecycle/)の H-1〜H-3 の期限設計の制約になる |
+| 予告は多くの企業で1か月未満 | [第2章 2.9.5](/process-compass/phase4-process-design/lifecycle/)は H-2 の期限と範囲を**予告期間で段階化**する([ADR-0022](/process-compass/adr/0022-handover-deadlines-relative-to-notice/)) |
 | 異動は育成目的で会社主導 | 交代時期を開発の節目に合わせられない前提で、[H-1〜H-3](/process-compass/phase4-process-design/lifecycle/)を設計する |
 | 理解の所在は変更履歴から測れない | [第2章 2.9.4](/process-compass/phase4-process-design/lifecycle/)の理解保持者数の数え方 |
 
