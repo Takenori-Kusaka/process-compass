@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-07)
 
 ## Corpus Check
-- 196 files · ~153,119 words
+- 198 files · ~154,053 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2692 nodes · 2586 edges · 219 communities (209 shown, 10 thin omitted)
+- 2720 nodes · 2612 edges · 226 communities (215 shown, 11 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `178ddba0`
+- Built from commit: `beee4dbf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,7 +26,7 @@
 - コンテキストエンジニアリング手法 調査メモ
 - プロセス記述に関する国際標準の調査メモ
 - プロダクトオーナー中心のチーム編成論 調査メモ
-- simulator.astro
+- test-tailoring-engine.mjs
 - Process Compass 🧭
 - テスト駆動開発(TDD)調査メモ
 - ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ
@@ -231,6 +231,13 @@
 - 0024-decision-as-risk-acceptance.md
 - 5. 現実の懸念(理想が崩れる点)
 - 4. 組織論的な論点(従来編成 vs PO中心編成)
+- astro:content
+- 133 一次調査: コンテキストの鮮度監査と忘却
+- simulator.astro
+- ProcessActivity.astro
+- 0025-context-forgetting-over-detection.md
+- ProcessOverview.astro
+- comparison.astro
 
 ## God Nodes (most connected - your core abstractions)
 1. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
@@ -251,7 +258,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (219 total, 10 thin omitted)
+## Communities (226 total, 11 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -278,8 +285,8 @@ Cohesion: 0.06
 Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.07
-Nodes (30): roleName, seg, wpName, diagram, roleName, seg, string, diagram (+22 more)
+Cohesion: 0.18
+Nodes (15): diagram, exitGates, roleName, seg, Activity, esc(), Gate, l1Diagram() (+7 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
 Cohesion: 0.06
@@ -297,9 +304,9 @@ Nodes (28): 1.1 位置づけ, 1.2 プロセス記述の要素一覧, 1.3 フェ�
 Cohesion: 0.15
 Nodes (13): 0. このメモの位置づけと全体像, 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義), 3. 前提条件(この編成が暗黙に仮定していること), 6. 階層構造で見た PO 中心編成(全体 → フェーズ内 → 個別作業), 7. 考察(事実と分離), 8. 埋められなかった観点(追加調査項目) (+5 more)
 
-### Community 11 - "simulator.astro"
-Cohesion: 0.12
-Nodes (21): integrated, kb, knownIds, optionIds, rules, evaluate(), ADR-0008, ruleMatches() (+13 more)
+### Community 11 - "test-tailoring-engine.mjs"
+Cohesion: 0.21
+Nodes (11): integrated, kb, knownIds, optionIds, rules, evaluate(), ADR-0008, ruleMatches() (+3 more)
 
 ### Community 12 - "Process Compass 🧭"
 Cohesion: 0.10
@@ -478,8 +485,8 @@ Cohesion: 0.18
 Nodes (10): G-5(自動検証)のパイプライン構成, ゲートの前提条件を機械検査する(D-0 の統制), デプロイゲート, 「人が毎回指摘すること」を CI へ移す運用, 出荷判定(G-7)エビデンスの自動集約, 承認記録を監査証跡として成立させる, 様式・データの検証もゲートに載せる, 独立レビュー(G-6)への引き継ぎ (+2 more)
 
 ### Community 56 - "context-base.md"
-Cohesion: 0.29
-Nodes (6): オーナーシップの実装(R5), リポジトリ配置(恒久層・案件層), 書き戻しワークフロー(R3), 段階導入(テーラリング), 要件との対応, 陳腐化の検知
+Cohesion: 0.12
+Nodes (15): オーナーシップの実装(R5), リポジトリ配置(恒久層・案件層), 乖離の定義, 乖離の監査, 何を外すか, 削除ではなく保管する, 対応関係を文脈ファイル自身に書く, 忘却の手続 (+7 more)
 
 ### Community 57 - "台帳駆動の返却サイクル"
 Cohesion: 0.29
@@ -1077,10 +1084,34 @@ Nodes (5): 5.1 全員が PO になれるのか(スキルの偏在), 5.2 責任�
 Cohesion: 0.50
 Nodes (4): 4.1 従来のチーム編成との対比(図解の中核: 対比表), 4.2 Amazon の two-pizza team / single-threaded owner(既存の少人数・単一責任論), 4.3 コンウェイの法則との関係, 4. 組織論的な論点(従来編成 vs PO中心編成)
 
+### Community 220 - "133 一次調査: コンテキストの鮮度監査と忘却"
+Cohesion: 0.15
+Nodes (12): 0. 調査の問い, 133 一次調査: コンテキストの鮮度監査と忘却, 1.1 一次情報, 1.2 所見, 1.3 本標準への当てはめ, 1. Q1 落とすか、警告にするか, 2. Q2 対応関係の特定, 3. Q3 検知と削減のどちらを主とするか (+4 more)
+
+### Community 221 - "simulator.astro"
+Cohesion: 0.26
+Nodes (10): buildMarkdown(), deviationList(), effectiveState(), integrated, kb, proposalState(), renderAdoption(), rules (+2 more)
+
+### Community 222 - "ProcessActivity.astro"
+Cohesion: 0.22
+Nodes (6): roleName, seg, wpName, grouped, order, proposals
+
+### Community 223 - "0025-context-forgetting-over-detection.md"
+Cohesion: 0.33
+Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
+
+### Community 224 - "ProcessOverview.astro"
+Cohesion: 0.40
+Nodes (4): diagram, roleName, seg, string
+
+### Community 225 - "comparison.astro"
+Cohesion: 0.40
+Nodes (4): allRows, proposalRows, rows, string
+
 ## Knowledge Gaps
-- **2028 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2023 more)
+- **2049 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2044 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -1092,7 +1123,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _2028 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2049 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**

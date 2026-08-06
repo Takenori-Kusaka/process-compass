@@ -470,8 +470,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786053914.2088792,
-    "ast_hash": "52dc7485b7ab757e260bc0742b2851fd",
+    "mtime": 1786057642.605705,
+    "ast_hash": "f73701d6006ab3510502c16cd8bdda75",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
@@ -495,8 +495,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1786053960.2423267,
-    "ast_hash": "359f4eb27aebc4cff2c64c2c8bc5612d",
+    "mtime": 1786057629.8249378,
+    "ast_hash": "4ba0b239153aa8ab1b42563eb72a0e0f",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
@@ -520,8 +520,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/context-base.md": {
-    "mtime": 1785800342.7914152,
-    "ast_hash": "d4744ec19c59b9188f8cf2cdd87bce6c",
+    "mtime": 1786057614.5143952,
+    "ast_hash": "dc2e1f6bcdb40c03c68fd8aefc989156",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/git-strategy.md": {
@@ -1147,6 +1147,16 @@
   "src/content/docs/adr/0024-decision-as-risk-acceptance.md": {
     "mtime": 1786054082.1444013,
     "ast_hash": "44bdcd68d13172fc7221c00d242da252",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/133-context-freshness.md": {
+    "mtime": 1786057531.0068555,
+    "ast_hash": "c6bce5c0ea023bc5c8473d950673df8d",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0025-context-forgetting-over-detection.md": {
+    "mtime": 1786057775.726406,
+    "ast_hash": "af194a193bb9fec5dc5467b5aac536e8",
     "semantic_hash": ""
   }
 }
