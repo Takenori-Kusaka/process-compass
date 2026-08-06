@@ -83,7 +83,9 @@ graph TD
 | T-0 〜 T-4 | 移行段階 | [社会実装計画](/process-compass/phase5-implementation/enablement/) |
 | TG-1 / TG-2 / TG-3 | 移行判定ゲート | [社会実装計画](/process-compass/phase5-implementation/enablement/) |
 | EN-1 / EN-2 / EN-3 | 移行の支援体制 | [社会実装計画](/process-compass/phase5-implementation/enablement/) |
-| テンプレ0 〜 テンプレ9 | 成果物の様式 | [第6章](/process-compass/phase4-process-design/deliverable-templates/) |
+| A-T1 〜 A-K3 | 理想モデルの前提条件(技術・個人・組織・知識) | [前提条件一覧](/process-compass/phase2-aidlc/assumptions/) |
+| AC-0 / AC-1 / AC-2 | 前提の充足状態(充足 / 劣化 / 不成立) | [第7章 7.10](/process-compass/phase4-process-design/exception-escalation/) |
+| テンプレ0 〜 テンプレ10 | 成果物の様式 | [第6章](/process-compass/phase4-process-design/deliverable-templates/) |
 | 附属書A 〜 附属書F | 背景・記法・手引き・様式 | [第1章 1.5](/process-compass/phase4-process-design/overview/) |
 
 ### 混同しやすい対
@@ -96,6 +98,8 @@ graph TD
 | R(リスク区分) と SR(安全リスク区分) | R は決定の取り消し可能性。SR は危害の大きさ |
 | Sev(欠陥の重大度) と Hs(危害のひどさ) | Sev は発生した欠陥の事後評価。Hs は起こりうる危害の事前見積り |
 | S(事業ステージ) と 製造業の設計審査 DR1〜DR4 | 別の体系。対応表は[第2章 2.3](/process-compass/phase4-process-design/lifecycle/)にある |
+| A-T1〜A-T4(技術の前提) と T-0〜T-4(移行段階) | 別の体系。**ハイフンの有無だけで区別する構成は成立しない**ため、前提側へ `A-` を冠した |
+| AC(前提の充足状態) と CL(安全重要度) | AC は前提が成立しているか、CL は危害の深刻度 |
 
 **新しい区分を追加する場合、必ず本表を更新してください**。過去に2度、記号の重複によって別の概念が同じ記号で書かれ、後から改称が必要になっています。
 
