@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-05)
 
 ## Corpus Check
-- 155 files · ~130,417 words
+- 156 files · ~130,848 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2108 nodes · 2008 edges · 171 communities (164 shown, 7 thin omitted)
+- 2115 nodes · 2014 edges · 172 communities (165 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `edb86c6a`
+- Built from commit: `d429eb24`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -175,13 +175,14 @@
 - 8. 測定から改善アクションへの接続
 - 移行段階
 - 7. 日本的観点/現実の懸念(標準・提唱者言説がカバーしない領域)
-- 10. 出典一覧
+- 1. title / purpose / outcomes
 - stacked-pr.md
 - [phase]/index.astro
 - 0011-safety-risk-assessment-positioning.md
 - 0012-ai-output-as-unverified-input.md
 - 7つのブロック
 - 0013-enablement-by-bounded-trial.md
+- memo.txt ↔ Issue 突合表
 - 04-traceability.md
 - 0014-criticality-axis-and-proposal-output.md
 
@@ -204,11 +205,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (171 total, 7 thin omitted)
+## Communities (172 total, 7 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
-Cohesion: 0.15
-Nodes (13): 0. プロセスの概要, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス, 7. 日本的観点(標準がカバーしない領域) (+5 more)
+Cohesion: 0.12
+Nodes (16): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+8 more)
 
 ### Community 1 - "エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)"
 Cohesion: 0.06
@@ -267,8 +268,8 @@ Cohesion: 0.10
 Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
 
 ### Community 15 - "アジャイル(Agile)調査メモ"
-Cohesion: 0.12
-Nodes (17): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 2b. 傘下の主要手法の位置づけ(俯瞰), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁) (+9 more)
+Cohesion: 0.14
+Nodes (14): 0. プロセスの概要, 10. 出典一覧, 2. 階層構造(process → activities → tasks), 2b. 傘下の主要手法の位置づけ(俯瞰), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+6 more)
 
 ### Community 16 - "仕様駆動開発(SDD, Specification-Driven Development)調査メモ"
 Cohesion: 0.11
@@ -818,9 +819,9 @@ Nodes (27): T-0 準備, T-1 限定試行, T-2 増分展開, T-3 常態化, T-4 �
 Cohesion: 0.50
 Nodes (4): 7-1. 理想像が暗黙に仮定している前提条件(これが崩れると成立しない), 7-2. 現実の懸念・批判(建前との乖離), 7-3. 日本企業固有の衝突(既存の決裁・品質保証・受発注構造との乖離), 7. 日本的観点/現実の懸念(標準・提唱者言説がカバーしない領域)
 
-### Community 162 - "10. 出典一覧"
+### Community 162 - "1. title / purpose / outcomes"
 Cohesion: 0.67
-Nodes (3): 10. 出典一覧, 一次情報, 二次情報
+Nodes (3): 1. title / purpose / outcomes, 原典: 12の原則(要旨), 原典: 4つの価値(全文)
 
 ### Community 163 - "stacked-pr.md"
 Cohesion: 0.20
@@ -846,6 +847,10 @@ Nodes (12): 7つのブロック, ブロック1: 診断結果の要約, ブロッ
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
+### Community 173 - "memo.txt ↔ Issue 突合表"
+Cohesion: 0.29
+Nodes (6): memo.txt ↔ Issue 突合表, 対応 Epic, 未対応・ズレ4件の内訳, 突合表, 経緯（再発防止のため記録する）, 集計
+
 ### Community 174 - "04-traceability.md"
 Cohesion: 0.29
 Nodes (6): 全体の接続, 前提条件の連鎖, 未解決の事項, 混同しやすい対, 章と成果物の対応, 記号の索引
@@ -855,7 +860,7 @@ Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
 ## Knowledge Gaps
-- **1600 isolated node(s):** `normalized`, `res`, `ADR-0006`, `name`, `type` (+1595 more)
+- **1605 isolated node(s):** `normalized`, `res`, `ADR-0006`, `name`, `type` (+1600 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -864,15 +869,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
-- **Why does `ウォーターフォール開発プロセス 調査メモ` connect `ウォーターフォール開発プロセス 調査メモ` to `20260710-jp-governance.md`, `10. 出典一覧`?**
+- **Why does `ウォーターフォール開発プロセス 調査メモ` connect `ウォーターフォール開発プロセス 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _1600 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1605 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
-  _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
-- **Should `scripts` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
