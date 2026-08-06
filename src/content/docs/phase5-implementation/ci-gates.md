@@ -16,7 +16,8 @@ graph LR
   S --> C["カバレッジ判定"]
   C --> W["仕様の曖昧語検査"]
   W --> V["データ・様式検証"]
-  V --> G["gate-g5: 判定集約"]
+  V --> I["知財潔白性の検査"]
+  I --> G["gate-g5: 判定集約"]
   G -->|全通過| M["マージ可能(G-6 独立レビューへ)"]
   G -->|1つでも失敗| X["マージ不可(差し戻し)"]
 ```
@@ -48,8 +49,25 @@ jobs:
       - uses: actions/checkout@v4
       - name: 仕様・ドキュメントの曖昧語検査(禁止語リスト)
         run: npx textlint "specs/**/*.md" "docs/**/*.md"
+  ip-clearance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 依存関係のライセンス検査(合否条件・G-5 基準5)
+        run: |
+          npx license-checker --production --summary
+          npx license-checker --production --onlyAllow "$ALLOWED_LICENSES" --excludePrivatePackages
+        env:
+          ALLOWED_LICENSES: 'MIT;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC'
+      - name: 類似の検知(記録のみ・合否条件にしない)
+        continue-on-error: true
+        run: node scripts/similarity-scan.mjs --out evidence/ip/similarity.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ip-clearance-${{ github.event.pull_request.number }}
+          path: evidence/ip/
   gate-g5:
-    needs: [test, static-analysis, spec-lint]
+    needs: [test, static-analysis, spec-lint, ip-clearance]
     runs-on: ubuntu-latest
     steps:
       - run: echo "G-5 all green"
@@ -57,6 +75,20 @@ jobs:
 
 - 最後の `gate-g5` ジョブが、ルールセットの必須ステータスチェック名になる([Git 戦略](/process-compass/phase5-implementation/git-strategy/)と対応)
 - **曖昧語検査は textlint で実装できる**。ゲート基準 G-2 の禁止語リスト(「適切に」「柔軟に」等)をカスタムルール化し、仕様書を機械検査する
+
+### 知財潔白性の2つのジョブを分ける
+
+`ip-clearance` の中で、**合否条件にするステップと記録だけを残すステップを分けています**。設計の根拠は[第4章 G-5](/process-compass/phase4-process-design/gate-criteria/)によります。
+
+| ステップ | 扱い | 理由 |
+| --- | --- | --- |
+| 依存関係のライセンス検査 | **失敗させる**(合否条件) | 実務として確立しており、判定材料が観測可能な事実に限られる |
+| 類似の検知 | `continue-on-error: true` で**失敗させない**。成果物として保存する | 検知に完全さを期待できない。失敗しなかったことを潔白の根拠にしないため |
+
+- `ALLOWED_LICENSES` は案件ごとに定める。**許可リスト方式にする**。禁止リスト方式では、リストにない新しいライセンスが素通りする
+- ライセンスを判定できない依存が残る場合、技術負債台帳(テンプレ3)へ記録して通過させる。**判定できないことを隠して通過させない**
+- 類似の検知の実装は、利用する AI サービスが提供する機能、または独立のツールによる。**本標準は特定の手段を指定しない**。指定すると、手段の提供条件が変わったときに規定が破綻する
+- 生成した記録は成果物として保存し、[出荷判定(G-7)のエビデンス集約](#出荷判定g-7エビデンスの自動集約)へ渡す(G-7 判定基準8)
 
 ## ゲートの前提条件を機械検査する(D-0 の統制)
 
@@ -177,7 +209,7 @@ jobs:
 | 系統 | 取得内容 | 取得手段 |
 | --- | --- | --- |
 | GitHub API | 対象 PR の一覧、G-6 承認記録(承認者・挙動要約・日時)、必須チェック(gate-g5)の結果 | `gh api`(トークンはワークフローの `GITHUB_TOKEN`) |
-| CI 成果物 | テスト消化数・カバレッジ・静的解析と脆弱性の指摘件数、統合検証(非機能)の判定結果 | 各ワークフローが保存した artifact / JSON |
+| CI 成果物 | テスト消化数・カバレッジ・静的解析と脆弱性の指摘件数、統合検証(非機能)の判定結果、**知財潔白性の検査記録** | 各ワークフローが保存した artifact / JSON |
 | リポジトリ内の記録 | 負債台帳の差分(新規記録・返却)、ゲート判定記録、運用引き継ぎ文書の更新有無 | 固定様式(テンプレ3・4・5)の Markdown をパース |
 
 **出力(2ファイル、`evidence/` 配下)**:
@@ -193,6 +225,8 @@ jobs:
   "defects": { "criticalOpen": 0 },
   "debt": { "added": ["D-031"], "paid": ["D-018"], "unrecorded": [] },
   "handover": { "updated": true },
+  "ipClearance": { "licenseScan": "passed", "unresolvedDeps": [],
+                   "similarityScanRun": true, "findings": [], "scannedAt": "..." },
   "gaps": []
 }
 ```
@@ -208,8 +242,10 @@ jobs:
 | 受容した負債の台帳記録 | `debt.unrecorded`(コミットの TODO と台帳の突合) | 同上 |<!-- tone-ok: 検査対象としての TODO への言及 -->
 | 運用引き継ぎ文書の完備 | `handover.updated` | 同上 |
 | (前提)全 PR の G-6 通過 | `prs[].g6.summaryPresent` がすべて true | 同上 |
+| 知財潔白性の検査記録 | `ipClearance`(検査の**実施**と結果の記録の有無) | 同上 |
 
 - **欠落があればジョブを fail させ、不完全なレポートで G-7 を始めない**(「あとで揃えます」を構造的に禁止する)
+- `ipClearance` で fail させる条件は、**検査を実施していないこと、または記録が欠けていること**である。`findings` が空でないことでは fail させない。指摘が出た項目は、除去・代替実装・表示の追加・受容の決裁のいずれかを記録して通過させる
 - `gaps` には「何が・どの PR / 記録で欠けているか」を人が直せる粒度で書き出す
 
 QA はこの自動生成レポートとチェックリストを突合するだけで判定できます。集約を人手でやると G-7 が滞留するため、**エビデンス集約の自動化は出荷判定の前提**と位置づけます。
