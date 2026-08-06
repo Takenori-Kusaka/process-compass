@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786012027.7425041,
-    "ast_hash": "3a1f2a366b08aca8fcd49f9649e1177d",
+    "mtime": 1786012403.7645054,
+    "ast_hash": "dae1e75ddfbb1ffd815d6ad11822589f",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/ears-guide.md": {
@@ -470,8 +470,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786011976.728869,
-    "ast_hash": "abf395a4c702a90d181444c4a55fd00b",
+    "mtime": 1786012403.7655659,
+    "ast_hash": "a23d02259c70b6d9606667ae9de6237e",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
@@ -500,7 +500,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786012068.4490519,
+    "mtime": 1786012403.7660875,
     "ast_hash": "5b3ce003ca4e5e6beb77218ae2100528",
     "semantic_hash": ""
   },
@@ -510,8 +510,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ci-gates.md": {
-    "mtime": 1786012141.4143763,
-    "ast_hash": "6ddbb2195ba56f3f595c96f66423d07c",
+    "mtime": 1786012403.7671473,
+    "ast_hash": "15041ca9629688f8adee6d09caa690c4",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/compute-strategy.md": {
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "tmp/EXECUTION_PLAN.md": {
-    "mtime": 1786009428.5458512,
-    "ast_hash": "a0d68c0fab449acf63c1b766f966bcb4",
+    "mtime": 1786012403.7687392,
+    "ast_hash": "e5df08fa12d9a19438aafa81526eb37d",
     "semantic_hash": ""
   },
   "research/phase4-standard/097-qms-chapter-structure.md": {
@@ -930,7 +930,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/vision/04-traceability.md": {
-    "mtime": 1786012287.4711032,
+    "mtime": 1786012403.7676787,
     "ast_hash": "2bbde9c7cf8ce31f2821ebaaac807640",
     "semantic_hash": ""
   },
@@ -1110,13 +1110,13 @@
     "semantic_hash": ""
   },
   "research/phase4-standard/129-ip-clearance.md": {
-    "mtime": 1786011896.5263724,
+    "mtime": 1786012403.762889,
     "ast_hash": "d85a15ed137071e360fab8ebf172fe51",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0021-ip-clearance-evidence-not-guarantee.md": {
-    "mtime": 1786012274.9433613,
-    "ast_hash": "653f0a1a29dfb0a2d007540ed9c6eabe",
+    "mtime": 1786012403.7634275,
+    "ast_hash": "f704fb0c81971218c48770340e58f02f",
     "semantic_hash": ""
   }
 }
