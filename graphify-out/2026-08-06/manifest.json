@@ -375,7 +375,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase1-current-state/jp-governance.md": {
-    "mtime": 1786009236.8100457,
+    "mtime": 1786009428.5386596,
     "ast_hash": "5f5fbaf2c30b1d79e7ed6150f85aa4a5",
     "semantic_hash": ""
   },
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "tmp/EXECUTION_PLAN.md": {
-    "mtime": 1786009386.566606,
-    "ast_hash": "cc36484960134bbbcd22230bfa19c15a",
+    "mtime": 1786009428.5458512,
+    "ast_hash": "a0d68c0fab449acf63c1b766f966bcb4",
     "semantic_hash": ""
   },
   "research/phase4-standard/097-qms-chapter-structure.md": {
@@ -755,7 +755,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/lifecycle.md": {
-    "mtime": 1786009251.0554402,
+    "mtime": 1786009428.5403476,
     "ast_hash": "df486581311f10ac559048e62f2b66cb",
     "semantic_hash": ""
   },
@@ -900,8 +900,8 @@
     "semantic_hash": ""
   },
   "research/phase4-standard/121-enablement.md": {
-    "mtime": 1786009218.2437415,
-    "ast_hash": "8a3f67163d0a5f1e0c5a20249239449e",
+    "mtime": 1786009428.5356567,
+    "ast_hash": "3cdab856c3d29d7e52a80181be1b60d4",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0013-enablement-by-bounded-trial.md": {
@@ -930,7 +930,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/vision/04-traceability.md": {
-    "mtime": 1786009263.8222973,
+    "mtime": 1786009428.5423467,
     "ast_hash": "6a2796ceb012e5e13497c18fc194831d",
     "semantic_hash": ""
   },
@@ -940,8 +940,8 @@
     "semantic_hash": ""
   },
   "tmp/memo_traceability.md": {
-    "mtime": 1786009386.5566058,
-    "ast_hash": "19adffa12f5582bc8e7d8a64130f86a8",
+    "mtime": 1786009428.5473657,
+    "ast_hash": "44180a04afd44b15174b0e892db985d0",
     "semantic_hash": ""
   },
   "research/phase3-gap-analysis/135-role-boundary-2026-08.md": {
@@ -1100,13 +1100,13 @@
     "semantic_hash": ""
   },
   "research/phase1/20260806-workforce-mobility.md": {
-    "mtime": 1786009123.4246829,
+    "mtime": 1786009428.5336585,
     "ast_hash": "d4c9b78347e91d9fc615b1633cdaa763",
     "semantic_hash": ""
   },
   "src/content/docs/phase1-current-state/workforce-mobility.md": {
-    "mtime": 1786009189.269457,
-    "ast_hash": "525394204f390121fe5b0ca912ebe3b2",
+    "mtime": 1786009428.5393362,
+    "ast_hash": "78fdee90d9c627d8d54faebd3eafed64",
     "semantic_hash": ""
   }
 }
