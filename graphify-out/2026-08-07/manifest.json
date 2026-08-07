@@ -470,8 +470,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786101810.4720273,
-    "ast_hash": "8f1c7d96eb9bf96ffd288e4290405412",
+    "mtime": 1786103112.041529,
+    "ast_hash": "a6b82c33369cb476a94e100caf7f2210",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
@@ -560,8 +560,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/metrics.md": {
-    "mtime": 1786069339.3240163,
-    "ast_hash": "fdd06dd521cd1e79ca8b36ccdfba0d4d",
+    "mtime": 1786103112.0455265,
+    "ast_hash": "6da23bf4dd6a159ab47b6513cb5c26b5",
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/operations-catalog.md": {
@@ -750,8 +750,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/human-ai-boundary.md": {
-    "mtime": 1786101810.473027,
-    "ast_hash": "8069bbec7bfa6f5d18c5f3ca5474d051",
+    "mtime": 1786103112.0425286,
+    "ast_hash": "d38602d85455e54936ed3050f5d5879e",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/lifecycle.md": {
@@ -1130,8 +1130,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786101810.4700303,
-    "ast_hash": "eca3292d2277881a20d81601954d57f9",
+    "mtime": 1786103112.0405283,
+    "ast_hash": "25f630fc57a77b6421f83c1cfd075eb0",
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-marking.md": {
@@ -1150,13 +1150,18 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/test-effectiveness.md": {
-    "mtime": 1786094787.6875055,
-    "ast_hash": "5e30e5b080e766b41badd8893abc691b",
+    "mtime": 1786103112.0435288,
+    "ast_hash": "b6d7630b624e2b069c7ccc470df76b96",
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/process-audit.md": {
-    "mtime": 1786098168.8346426,
-    "ast_hash": "d293713058058f99515687b69c84a457",
+    "mtime": 1786103112.046529,
+    "ast_hash": "0fb8fca201b5afb9b130f9d1928c3acf",
+    "semantic_hash": ""
+  },
+  "src/content/docs/phase5-implementation/agent-trace-control.md": {
+    "mtime": 1786101810.4740262,
+    "ast_hash": "531678c80ea4bf1b006ce074a8d9807a",
     "semantic_hash": ""
   },
   "tmp/create_block2_issues.cjs": {
@@ -1194,6 +1199,16 @@
     "ast_hash": "107c3e93ea74b1987ada06418d7ac447",
     "semantic_hash": ""
   },
+  "tmp/ipa_chairman_review_issues.cjs": {
+    "mtime": 1786103009.234098,
+    "ast_hash": "623979b60634f299cbc784d0c1447a57",
+    "semantic_hash": ""
+  },
+  "tmp/ipa_chairman_review_issues.js": {
+    "mtime": 1786102985.515304,
+    "ast_hash": "7d4937fe8fb8280dfeb26f65a0cc0eb8",
+    "semantic_hash": ""
+  },
   "tmp/manager_review_issues.cjs": {
     "mtime": 1786072104.1853313,
     "ast_hash": "1a593f4ee985a5277a18d8fd36063d7f",
@@ -1212,11 +1227,6 @@
   "tmp/qa_review_issues.js": {
     "mtime": 1786077629.0947795,
     "ast_hash": "deae829aa8c7c681c9abff816616ec78",
-    "semantic_hash": ""
-  },
-  "src/content/docs/phase5-implementation/agent-trace-control.md": {
-    "mtime": 1786101810.4740262,
-    "ast_hash": "531678c80ea4bf1b006ce074a8d9807a",
     "semantic_hash": ""
   },
   "tmp/analysis_qa.md": {

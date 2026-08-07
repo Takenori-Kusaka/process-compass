@@ -228,9 +228,9 @@
   "226": "evidence-marking.md",
   "227": "0026-evidence-level-marking.md",
   "228": "agent-trace-control.md",
-  "229": "1. 自律コーディングエージェントの主要実装例",
-  "230": "3. アンチパターン各論(本メモの中心)",
-  "231": "4. 限界と課題(現実の到達点の裏面)",
+  "229": "1. 稟議制度(りんぎ)",
+  "230": "4. デザインレビュー(DR)と品質保証部門",
+  "231": "3. 決裁権限規程・職務権限規程",
   "232": "create_block2_issues.cjs",
   "233": "create_block3_issues.cjs",
   "234": "create_issues.cjs",
@@ -251,5 +251,6 @@
   "249": "G-3 技術設計判断(技術判断者・48時間)",
   "250": "qa_review_issues.js",
   "251": "process-audit.md",
-  "252": "create_issues.ps1"
+  "252": "create_issues.ps1",
+  "253": "7. ハイコンテキスト文化(明文化を阻む土台)"
 }
