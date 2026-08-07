@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-07)
 
 ## Corpus Check
-- 198 files · ~154,039 words
+- 198 files · ~154,032 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2721 nodes · 2613 edges · 225 communities (215 shown, 10 thin omitted)
+- 2719 nodes · 2597 edges · 226 communities (216 shown, 10 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b555cdcb`
+- Built from commit: `aec7022e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -237,6 +237,7 @@
 - 4. 限界
 - 0025-context-forgetting-over-detection.md
 - 5.5 次セッションへの引き継ぎ（2026-08-05 時点・Wave 5 完了。履歴）
+- 3. アンチパターン各論(本メモの中心)
 
 ## God Nodes (most connected - your core abstractions)
 1. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
@@ -257,7 +258,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (225 total, 10 thin omitted)
+## Communities (226 total, 10 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -284,7 +285,7 @@ Cohesion: 0.06
 Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.07
+Cohesion: 0.06
 Nodes (30): roleName, seg, wpName, diagram, roleName, seg, string, diagram (+22 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
@@ -316,8 +317,8 @@ Cohesion: 0.10
 Nodes (20): 0-0. 重要な前提: TDD は「開発ライフサイクル」ではなく「開発プラクティス/技法」である, 0-1. 基本情報, 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2-1. 3階層のズーム(nano / micro / 上位ライフサイクルとの接続), 2. 階層構造(process → activities → tasks), 3-A. 関連技法との役割拡張(TDD → ATDD/BDD) (+12 more)
 
 ### Community 14 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
-Cohesion: 0.10
-Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
+Cohesion: 0.15
+Nodes (13): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点), 7. 日本的観点(標準がカバーしない領域) (+5 more)
 
 ### Community 15 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.12
@@ -1107,8 +1108,12 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.40
 Nodes (5): 5.5 次セッションへの引き継ぎ（2026-08-05 時点・Wave 5 完了。履歴）, Wave 5 で残した宿題（#126 の前に補完を検討）, Wave 6（#122・#123）の設計上の注意, 次セッションの最初の3手, 現在地
 
+### Community 225 - "3. アンチパターン各論(本メモの中心)"
+Cohesion: 0.29
+Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
+
 ## Knowledge Gaps
-- **2050 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2045 more)
+- **2050 isolated node(s):** `本ページの位置づけ`, `「置き換え」という捉え方をやめる`, `作業を4つの機能段階へ分解する`, `分担を決める4つの条件`, `「人が結果確認のみでよい」作業はあるか` (+2045 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1116,12 +1121,12 @@ Nodes (5): 5.5 次セッションへの引き継ぎ（2026-08-05 時点・Wave 5
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **Why does `アジャイル(Agile)調査メモ` connect `アジャイル(Agile)調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `20260710-jp-governance.md`?**
+- **Why does `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` connect `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` to `20260710-jp-governance.md`, `3. アンチパターン各論(本メモの中心)`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
+- **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`, `4. 限界`, `2. 主要手法:コンテキストの層としての整理`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **What connects `本ページの位置づけ`, `「置き換え」という捉え方をやめる`, `作業を4つの機能段階へ分解する` to the rest of the system?**
   _2050 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
