@@ -13,8 +13,10 @@
     "astro": "astro",
     "lint:text": "textlint \"src/content/docs/**/*.md\" \"src/content/docs/**/*.mdx\" README.md",
     "lint:tone": "node scripts/check-tone.mjs",
+    "lint:evidence": "node scripts/check-evidence.mjs",
+    "evidence:write": "node scripts/check-evidence.mjs --write",
     "test:engine": "node scripts/test-tailoring-engine.mjs",
-    "check": "npm run lint:text && npm run lint:tone && npm run test:engine && npm run build"
+    "check": "npm run lint:text && npm run lint:tone && npm run lint:evidence && npm run test:engine && npm run build"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.41.3",

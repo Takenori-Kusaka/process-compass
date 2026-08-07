@@ -1,0 +1,62 @@
+name: evidence-review
+
+# 根拠水準マーク(ADR-0026)の見直し期限を月次で点検し、
+# 期限を過ぎたマークがあれば棚卸しの Issue を起票する。
+# npm run check は期限では失敗させない(日付の経過だけでデプロイを止めないため)。
+
+on:
+  schedule:
+    - cron: '0 0 1 * *' # 毎月1日 00:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 期限を過ぎたマークを抽出
+        id: expired
+        run: |
+          node scripts/check-evidence.mjs --expired > expired.md
+          if [ -s expired.md ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 棚卸しの Issue を起票または追記
+        if: steps.expired.outputs.found == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "見直し期限を過ぎた根拠水準マークがあります。"
+            echo ""
+            echo "各項目について、差し替え条件が満たされたかを確認してください。"
+            echo "満たされていれば ADR を起票して本文を確定し、マークを削除します。"
+            echo "満たされていなければ、見直し期限を延長して記録を続けます。"
+            echo ""
+            cat expired.md
+            echo ""
+            echo "規約: [根拠水準のマーク規約](https://takenori-kusaka.github.io/process-compass/community/evidence-marking/)"
+          } > body.md
+
+          existing=$(gh issue list --label evidence-review --state open --limit 1 --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file body.md
+          else
+            gh label create evidence-review --description "根拠水準マークの棚卸し" --color BFD4F2 2>/dev/null || true
+            gh issue create \
+              --title "根拠水準マークの棚卸し(見直し期限の到来)" \
+              --label evidence-review \
+              --body-file body.md
+          fi

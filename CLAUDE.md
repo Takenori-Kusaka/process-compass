@@ -33,6 +33,12 @@
 - あとから変えにくい決定(技術選定、方針、原則)は `src/content/docs/adr/` に ADR として公開記録する。テンプレートと運用ルールは `adr/index.md`
 - 採用済み ADR の本文は書き換えない。決定変更は新 ADR で置き換える
 
+## 根拠水準のマーク(ADR-0026)
+
+- 実証に基づかない値・未検証の前提・単一事例にしか支えられない記述を書くときは、必ず `:::caution[暫定 EV-NNNN / 見直し YYYY-MM]` でマークする。書式は `community/evidence-marking.md` が正
+- 識別子は連番で再利用しない。マーク追加後は `npm run evidence:write` で台帳(`community/evidence-ledger.md`)を再生成する
+- 台帳は自動生成。手で編集しない
+
 ## プロジェクト運営(Issue 駆動)
 
 - **Issue にない作業はしない**。作業前に必ず対応する Issue を確認・起票する
