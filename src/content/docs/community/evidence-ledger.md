@@ -22,6 +22,7 @@ sidebar:
 | EV-0007 | 母数の下限(各群30件・2四半期)と、判別の目標(中央値2倍差) | E0(なし) | 2027-08 | 自組織で得た審査時間の分散と、そこから算出した必要標本数 | [phase5-implementation/review-burden-measurement](/process-compass/phase5-implementation/review-burden-measurement/) |
 | EV-0008 | 教育の階層構成と、任命基準の確認手続の設計全体 | E0(なし) | 2027-08 | 確認を通過した者と通過しなかった者の、実務での判定品質の差の記録 | [phase5-implementation/enablement](/process-compass/phase5-implementation/enablement/) |
 | EV-0009 | 初期の合格水準を分布の下位四分位に置くという手続 | E0(なし) | 2027-08 | 3期分の較正記録と、水準の変更がテストの検出力へ与えた影響の観測 | [phase5-implementation/test-effectiveness](/process-compass/phase5-implementation/test-effectiveness/) |
+| EV-0010 | 監査の頻度(四半期)、抽出数(1回あたり5件以上)、無作為とリスクに基づく抽出の半々という配分 | E0(なし) | 2027-08 | 2期分の監査記録から得た、抽出方法別の所見検出率 | [phase6-operation/process-audit](/process-compass/phase6-operation/process-audit/) |
 
 <!-- evidence-ledger:end -->
 

@@ -25,6 +25,7 @@ graph LR
 | [負債返却サイクル](/process-compass/phase6-operation/debt-payback/) | トリアージ基準と返却枠の運用 | 負債返却サイクル |
 | [改善サイクル](/process-compass/phase6-operation/improvement-cycle/) | プロセス自体の検査と適応の回し方 | プロセスの振り返り |
 | [運用メトリクス](/process-compass/phase6-operation/metrics/) | 19指標の算出方法と警戒サイン | プロセスの振り返りの入力 |
+| [プロセス内部監査](/process-compass/phase6-operation/process-audit/) | 規程どおりに運用されているかの定期確認 | プロセスの振り返りの入力 |
 
 ## 運用が失敗する典型パターン
 
