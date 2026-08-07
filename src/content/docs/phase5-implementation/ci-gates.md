@@ -17,7 +17,9 @@ graph LR
   C --> W["仕様の曖昧語検査"]
   W --> V["データ・様式検証"]
   V --> I["知財潔白性の検査"]
-  I --> G["gate-g5: 判定集約"]
+  I --> K["秘匿情報の混入検査"]
+  K --> D["依存の追加・更新の出力"]
+  D --> G["gate-g5: 判定集約"]
   G -->|全通過| M["マージ可能(G-6 独立レビューへ)"]
   G -->|1つでも失敗| X["マージ不可(差し戻し)"]
 ```
@@ -66,8 +68,22 @@ jobs:
         with:
           name: ip-clearance-${{ github.event.pull_request.number }}
           path: evidence/ip/
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: 秘匿情報の混入検査(G-5 基準7・検出で失敗させる)
+        run: npx secretlint "**/*"
+  dependency-diff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 依存の追加・更新を PR へ機械出力(G-5 基準8)
+        run: node scripts/dependency-diff.mjs --base origin/main --comment
   gate-g5:
-    needs: [test, static-analysis, spec-lint, ip-clearance]
+    needs: [test, static-analysis, spec-lint, ip-clearance, secret-scan, dependency-diff]
     runs-on: ubuntu-latest
     steps:
       - run: echo "G-5 all green"
@@ -89,6 +105,26 @@ jobs:
 - ライセンスを判定できない依存が残る場合、技術負債台帳(テンプレ3)へ記録して通過させる。**判定できないことを隠して通過させない**
 - 類似の検知の実装は、利用する AI サービスが提供する機能、または独立のツールによる。**本標準は特定の手段を指定しない**。指定すると、手段の提供条件が変わったときに規定が破綻する
 - 生成した記録は成果物として保存し、[出荷判定(G-7)のエビデンス集約](#出荷判定g-7エビデンスの自動集約)へ渡す(G-7 判定基準8)
+
+### 秘匿情報の検査は履歴の全体を対象にする
+
+`fetch-depth: 0` を指定しているのは、差分だけを検査すると**過去のコミットで混入した値を見落とす**ためです。混入した資格情報は、削除するコミットを積んでも履歴から取り出せます。
+
+- 検出時の一次対応は当該資格情報の無効化である。実装の修正を先に行わない([第4章 G-5 基準7](/process-compass/phase4-process-design/gate-criteria/))
+- 検査の除外設定を、リポジトリの利用者が個別に追加できる状態にしない。除外の追加は統制側の承認を要する
+- 全履歴の走査は実行時間を要する。PR 契機では差分、週次では全履歴、という二段構成でよい
+
+### 依存の追加を PR の記述へ出力する
+
+`dependency-diff` は合否を判定しません。**追加・更新された依存の一覧を PR へ出力し、独立レビュー(G-6)の確認対象にすることが目的です**。
+
+| 出力する項目 | 用途 |
+| --- | --- |
+| 追加・更新されたパッケージ名と版 | 追加の必要性の確認 |
+| 直接依存か推移的依存かの区別 | 意図しない取り込みの検出 |
+| 各パッケージのライセンス | 基準5の判定結果との突合 |
+
+ライセンスの適合は `ip-clearance` が機械判定します。**この出力を読んでライセンスを人間が判定させる運用にしないでください**。判定の場が二重になり、機械判定の結果が参考値へ格下げされます。
 
 ### 独立レビュー(G-6)への引き継ぎ
 
@@ -231,6 +267,7 @@ jobs:
   "handover": { "updated": true },
   "ipClearance": { "licenseScan": "passed", "unresolvedDeps": [],
                    "similarityScanRun": true, "findings": [], "scannedAt": "..." },
+  "seededErrors": { "scanRun": true, "residual": 0, "openDrills": [] },
   "gaps": []
 }
 ```
@@ -247,9 +284,11 @@ jobs:
 | 運用引き継ぎ文書の完備 | `handover.updated` | 同上 |
 | (前提)全 PR の G-6 通過 | `prs[].g6.summaryPresent` がすべて true | 同上 |
 | 知財潔白性の検査記録 | `ipClearance`(検査の**実施**と結果の記録の有無) | 同上 |
+| (欠陥注入を運用する場合)注入の残存 | `seededErrors`(実施記録と残存件数) | 同上。`residual` が 0 でない場合も **fail** |
 
 - **欠落があればジョブを fail させ、不完全なレポートで G-7 を始めない**(「あとで揃えます」を構造的に禁止する)
 - `ipClearance` で fail させる条件は、**検査を実施していないこと、または記録が欠けていること**である。`findings` が空でないことでは fail させない。指摘が出た項目は、除去・代替実装・表示の追加・受容の決裁のいずれかを記録して通過させる
+- `seededErrors` は、`residual` が 0 でない場合も fail させる。知財潔白性と扱いが分かれるのは、注入の残存が観測可能な事実であり、判定に推定を含まないためである。遮断の設計は[欠陥注入の隔離設計](/process-compass/phase5-implementation/seeded-error-safety/)による
 - `gaps` には「何が・どの PR / 記録で欠けているか」を人が直せる粒度で書き出す
 
 QA はこの自動生成レポートとチェックリストを突合するだけで判定できます。集約を人手でやると G-7 が滞留するため、**エビデンス集約の自動化は出荷判定の前提**と位置づけます。
