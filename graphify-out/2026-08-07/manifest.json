@@ -470,8 +470,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786092233.6775079,
-    "ast_hash": "5c267b7c36b85188bd20e4be6fc70446",
+    "mtime": 1786094787.680504,
+    "ast_hash": "edebaa10124fa0b37b293295f0e73aaf",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
@@ -495,8 +495,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1786092233.6785152,
-    "ast_hash": "0bb2bad2b33b5b2dbffd423f98b1c91b",
+    "mtime": 1786094787.6835034,
+    "ast_hash": "0fa8e8420d1a4d33a2e52f31c410dca2",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
@@ -510,8 +510,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ci-gates.md": {
-    "mtime": 1786052343.0916524,
-    "ast_hash": "06eb24bfb07b0ae2cc6df979c5476f39",
+    "mtime": 1786094787.6845038,
+    "ast_hash": "e605d41af363f514a55680b999a0cf10",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/compute-strategy.md": {
@@ -750,8 +750,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/human-ai-boundary.md": {
-    "mtime": 1785929490.041332,
-    "ast_hash": "150a2e309886812772c4295a6a392174",
+    "mtime": 1786094787.681504,
+    "ast_hash": "84f16b61153c6c9f9b11be92e6e9928c",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/lifecycle.md": {
@@ -910,8 +910,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/enablement.md": {
-    "mtime": 1786092233.6795173,
-    "ast_hash": "30f733319e26f2facf413902bc22e5c6",
+    "mtime": 1786094787.6855042,
+    "ast_hash": "1dc488d8957586a3f1141b6416d7d74f",
     "semantic_hash": ""
   },
   "research/phase4-standard/126-tool-integration.md": {
@@ -1119,6 +1119,26 @@
     "ast_hash": "7c9a27faedbe462c49086c9d0ea19c1c",
     "semantic_hash": ""
   },
+  ".github/workflows/evidence-review.yml": {
+    "mtime": 1786092233.672507,
+    "ast_hash": "18ab6cfd87b35f0c89b376507e1e66aa",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0026-evidence-level-marking.md": {
+    "mtime": 1786092233.6745088,
+    "ast_hash": "de64d88d313487e412e09544e33aa1fc",
+    "semantic_hash": ""
+  },
+  "src/content/docs/community/evidence-ledger.md": {
+    "mtime": 1786094787.6795042,
+    "ast_hash": "4bf6cca97cf923abdaf8776d6966c22b",
+    "semantic_hash": ""
+  },
+  "src/content/docs/community/evidence-marking.md": {
+    "mtime": 1786092233.675511,
+    "ast_hash": "8ceba4672f33c4991c66678a86a3fc7f",
+    "semantic_hash": ""
+  },
   "tmp/create_block2_issues.cjs": {
     "mtime": 1785900940.3516326,
     "ast_hash": "50aaedda8ac1e9773851dc1bb3a13f8e",
@@ -1164,24 +1184,19 @@
     "ast_hash": "deae829aa8c7c681c9abff816616ec78",
     "semantic_hash": ""
   },
-  ".github/workflows/evidence-review.yml": {
-    "mtime": 1786092233.672507,
-    "ast_hash": "18ab6cfd87b35f0c89b376507e1e66aa",
+  "src/content/docs/phase5-implementation/qms-document-control.md": {
+    "mtime": 1786094787.6865046,
+    "ast_hash": "b11393fbdbafea68a23d375f13089525",
     "semantic_hash": ""
   },
-  "src/content/docs/adr/0026-evidence-level-marking.md": {
-    "mtime": 1786092233.6745088,
-    "ast_hash": "de64d88d313487e412e09544e33aa1fc",
+  "src/content/docs/phase5-implementation/seeded-error-safety.md": {
+    "mtime": 1786094787.6865046,
+    "ast_hash": "09f4a20bafdfef0fb718812c83e52c78",
     "semantic_hash": ""
   },
-  "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786092233.675511,
-    "ast_hash": "d082e1599807ee0c057aa56be2d1e185",
-    "semantic_hash": ""
-  },
-  "src/content/docs/community/evidence-marking.md": {
-    "mtime": 1786092233.675511,
-    "ast_hash": "8ceba4672f33c4991c66678a86a3fc7f",
+  "src/content/docs/phase5-implementation/test-effectiveness.md": {
+    "mtime": 1786094787.6875055,
+    "ast_hash": "5e30e5b080e766b41badd8893abc691b",
     "semantic_hash": ""
   },
   "tmp/analysis_qa.md": {

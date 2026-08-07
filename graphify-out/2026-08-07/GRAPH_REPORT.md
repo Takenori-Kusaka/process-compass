@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-07)
 
 ## Corpus Check
-- 209 files · ~162,946 words
+- 212 files · ~164,431 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2895 nodes · 2778 edges · 238 communities (223 shown, 15 thin omitted)
+- 2943 nodes · 2809 edges · 250 communities (235 shown, 15 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2a113837`
+- Built from commit: `60ff024f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -36,7 +36,7 @@
 - jp-governance.md
 - Issue #124 一次調査メモ: IT投資委員会・SteerCo 接続用の予算・リソース配賦(FinOps)と Kill ゲート基準
 - agentic-development.md
-- gate-criteria.md
+- タスクの分割基準
 - content.config.ts
 - review-guide.md
 - requirements.md
@@ -160,7 +160,7 @@
 - 3.9 会議体の運用規律
 - 12. 出典一覧（信頼度別）
 - 3.8 決裁権限マトリクス
-- 2. 主要手法:コンテキストの層としての整理
+- qms-document-control.md
 - レビュー負荷削減の手法・ツール棚卸し(新規観点編)
 - safety-verification.md
 - 調査メモ: 三識メトリクス・ダッシュボードとKPT改善サイクルの制度化（Issue #116 / #117）
@@ -174,7 +174,7 @@
 - 7. インシデント後レビューの制度設計
 - 8. 測定から改善アクションへの接続
 - enablement.md
-- 4. 限界
+- test-effectiveness.md
 - 陳腐化しない基準(criteria)の設計手法 — 一次調査メモ
 - stacked-pr.md
 - 第2部: GitHub Issueドラフト（計12件）
@@ -250,6 +250,18 @@
 - qa_review_issues.cjs
 - qa_review_issues.js
 - evidence-ledger.md
+- seeded-error-safety.md
+- 各ゲートの判定チェックリスト
+- 1. 主要エージェント製品の現況
+- gate-criteria.md
+- 欠陥トリアージ基準
+- 0. プロセスの概要
+- レビュー SLA と滞留の措置
+- AI 品質指標の扱い
+- G-5 自動検証 CI(機械判定・即時)
+- 4. マルチエージェントのトレンド — 「制約された協調+人間の統制」は妥当か
+- 5. 「人間の検証帯域が律速」— 定量証拠が出そろった
+- G-3 技術設計判断(技術判断者・48時間)
 
 ## God Nodes (most connected - your core abstractions)
 1. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
@@ -260,8 +272,8 @@
 6. `Issue #120 一次調査メモ: 出荷判定ゲート・契約書に適用する AI SLA ガバナンス評価規程` - 14 edges
 7. `調査メモ: ISO 12100 準拠 AIソフトウェア・リスクアセスメント成果物テンプレート（Issue #122）` - 14 edges
 8. `5.4 次セッションへの引き継ぎ（2026-08-06 時点・最新）` - 14 edges
-9. `アジャイル(Agile)調査メモ` - 13 edges
-10. `日本企業のガバナンス・決裁ゲートの実態 調査メモ` - 13 edges
+9. `3.10 事前レビュー期間` - 13 edges
+10. `アジャイル(Agile)調査メモ` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `buildMarkdown()` --calls--> `visibleQuestions()`  [EXTRACTED]
@@ -270,15 +282,15 @@
 ## Import Cycles
 - None detected.
 
-## Communities (238 total, 15 thin omitted)
+## Communities (250 total, 15 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
 Nodes (16): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+8 more)
 
 ### Community 1 - "エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)"
-Cohesion: 0.06
-Nodes (32): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出典一覧, 1-1. Anthropic — Mythos クラスの登場と Opus 5, 1-2. Cognition(Devin)— 自社モデル路線と「群」への転換, 1-3. OpenAI — Codex の世代交代と GPT-5.6 ファミリー, 1-4. GitHub Copilot coding agent — 統制設計は維持、範囲は拡大, 1-5. Google — Jules の GA と Gemini 3 系, 1-6. 新興・その他 (+24 more)
+Cohesion: 0.12
+Nodes (17): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出典一覧, 2-1. SWE-bench Verified — 飽和局面へ, 2-2. 後続ベンチマーク(SWE-bench Verified の代替として台頭), 2-3. 図解用の整理, 2. ベンチマークの最新値, 3. METR の時間地平 — 「倍加 7 か月」は更新された, 6-1. 訂正すべき記述 (+9 more)
 
 ### Community 2 - "プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査"
 Cohesion: 0.06
@@ -297,7 +309,7 @@ Cohesion: 0.06
 Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.07
+Cohesion: 0.06
 Nodes (30): roleName, seg, wpName, diagram, roleName, seg, string, diagram (+22 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
@@ -305,8 +317,8 @@ Cohesion: 0.06
 Nodes (29): 0. プロセスの概要 — DDD は「ライフサイクル」ではなく「設計手法/思想」である, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+21 more)
 
 ### Community 8 - "コンテキストエンジニアリング手法 調査メモ"
-Cohesion: 0.12
-Nodes (16): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 3.1 ポランニー:暗黙知の原典, 3.2 野中の SECI モデル:暗黙知⇄形式知の変換サイクル, 3.3 CE 手法と SECI プロセスの対応(本メモの統合。→ 考察扱い), 3. 暗黙知の形式知化という観点(SECI / ポランニー) (+8 more)
+Cohesion: 0.07
+Nodes (30): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 2.1 システムプロンプト・指示の設計, 2.2 Few-shot 例示(手本による誘導), 2.3 RAG(検索拡張生成)による外部知識の注入, 2.4 ステアリングファイル / ルール(プロジェクト文脈の永続化) (+22 more)
 
 ### Community 9 - "プロセス記述に関する国際標準の調査メモ"
 Cohesion: 0.07
@@ -356,9 +368,9 @@ Nodes (41): 0. サマリ(結論の骨子), 10. 考察(本プロジェクトへ�
 Cohesion: 0.15
 Nodes (12): 2026年3月→8月で何が変わったか, 2026年8月時点の現在地, エージェント型開発とは, ベンチマークは飽和し、指標が分裂した, モデルは二段跳んだ(2026年6月〜7月), 主要製品の現況(2026-08-04 時点), 参考文献(主要な一次情報), 日本文脈での効きどころ (+4 more)
 
-### Community 21 - "gate-criteria.md"
-Cohesion: 0.04
-Nodes (47): 2つの時刻を分ける, AI 品質指標の扱い, G-1 企画承認(事業決裁者・既存規程どおり), G-2 要件合意(価値責任者・48時間), G-3 技術設計判断(技術判断者・48時間), G-4 機能仕様承認(価値責任者または委譲先・24時間), G-5 自動検証 CI(機械判定・即時), G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) (+39 more)
+### Community 21 - "タスクの分割基準"
+Cohesion: 0.20
+Nodes (10): L0 の既定値, この基準の見直し, タスクの分割基準, レビュー可能性の担保水準(L0〜L2), 上限を緩和できる手段と、できない手段, 上限を自組織の実測で較正する, 分割しすぎない, 行数を代理指標として扱う根拠と、その限界 (+2 more)
 
 ### Community 22 - "content.config.ts"
 Cohesion: 0.15
@@ -493,8 +505,8 @@ Cohesion: 0.29
 Nodes (6): ガードレールの符号化(steering), モデルアクセスの管理, 実行形態の3層, 権限設計(最小権限+強制層), 段階導入の目安, 監査ログとトレーサビリティ
 
 ### Community 55 - "ci-gates.md"
-Cohesion: 0.18
-Nodes (10): G-5(自動検証)のパイプライン構成, ゲートの前提条件を機械検査する(D-0 の統制), デプロイゲート, 「人が毎回指摘すること」を CI へ移す運用, 出荷判定(G-7)エビデンスの自動集約, 承認記録を監査証跡として成立させる, 様式・データの検証もゲートに載せる, 独立レビュー(G-6)への引き継ぎ (+2 more)
+Cohesion: 0.15
+Nodes (12): G-5(自動検証)のパイプライン構成, ゲートの前提条件を機械検査する(D-0 の統制), デプロイゲート, 「人が毎回指摘すること」を CI へ移す運用, 依存の追加を PR の記述へ出力する, 出荷判定(G-7)エビデンスの自動集約, 承認記録を監査証跡として成立させる, 様式・データの検証もゲートに載せる (+4 more)
 
 ### Community 56 - "context-base.md"
 Cohesion: 0.12
@@ -661,8 +673,8 @@ Cohesion: 0.14
 Nodes (14): #129 で確定した設計（後続で覆さないこと）, #130 で確定した設計（後続で覆さないこと）, #132 で確定した設計（後続で覆さないこと）, #133 で確定した設計（後続で覆さないこと）, #140・#131 で確定した語彙（以降は必ずこれに従う）, #141 で判明した重要な訂正（引用しないこと・引用すること）, #142 で変わった URL（重要）, #143 で確定した設計（後続で覆さないこと） (+6 more)
 
 ### Community 103 - "AIDLC(AI-Driven Development Life Cycle)調査メモ"
-Cohesion: 0.10
-Nodes (21): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task) (+13 more)
+Cohesion: 0.12
+Nodes (16): 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task), 3. roles(ロール): 人間(意思決定)× AIエージェント(実行)の分担, 4. information items(成果物・文書), 5. gates(ゲート・決裁): Human-in-the-loop 承認点, 6. レビュープロセス, 7-1. 理想像が暗黙に仮定している前提条件(これが崩れると成立しない) (+8 more)
 
 ### Community 104 - "調査メモ: AI 維持管理責任者（AI Maintainer）と AI 運用担当者（AIOps）の職掌（Issue #111 / #112）"
 Cohesion: 0.05
@@ -690,7 +702,7 @@ Nodes (36): 7.10.1 なぜ止めないか, 7.10.2 充足状態の3区分, 7.10.3 
 
 ### Community 110 - "human-ai-boundary.md"
 Cohesion: 0.05
-Nodes (37): 5.10 関連する章, 5.1 本章が達成すべき成果, 5.2 責任の原則, 5.3 役割境界の時点表記, 5.4.1 レベルを定義する3変数, 5.4.2 3つのレベル, 5.4.3 レベルによらない不変条件, 5.4.4 リスク区分による上限 (+29 more)
+Nodes (38): 5.10 関連する章, 5.1 本章が達成すべき成果, 5.2 責任の原則, 5.3 役割境界の時点表記, 5.4.1 レベルを定義する3変数, 5.4.2 3つのレベル, 5.4.3 レベルによらない不変条件, 5.4.4 リスク区分による上限 (+30 more)
 
 ### Community 111 - "lifecycle.md"
 Cohesion: 0.06
@@ -828,9 +840,9 @@ Nodes (4): 12. 出典一覧（信頼度別）, 一次情報（規格・研究機
 Cohesion: 0.40
 Nodes (5): 3.8.1 リスク区分, 3.8.2 決裁者の割当, 3.8.3 起案・意見・決定の分離, 3.8.4 決定は技術的正しさの承認ではない, 3.8 決裁権限マトリクス
 
-### Community 147 - "2. 主要手法:コンテキストの層としての整理"
-Cohesion: 0.22
-Nodes (9): 2.1 システムプロンプト・指示の設計, 2.2 Few-shot 例示(手本による誘導), 2.3 RAG(検索拡張生成)による外部知識の注入, 2.4 ステアリングファイル / ルール(プロジェクト文脈の永続化), 2.5 MCP(Model Context Protocol)によるツール・データ接続, 2.6 コンテキストの圧縮・要約・選択(ウィンドウ管理), 2.7 メモリ(短期/長期、エージェントメモリ), 2.8 サブエージェントへのコンテキスト分離 (+1 more)
+### Community 147 - "qms-document-control.md"
+Cohesion: 0.14
+Nodes (13): 3つの状態を置く, CI で検査する項目, この対応関係の限界, ステータスの表示に依存させない, 外部監査への提示, 形式を規程で固定しない, 承認権限のマッピング, 提示の準備を監査の直前に行わない (+5 more)
 
 ### Community 148 - "レビュー負荷削減の手法・ツール棚卸し(新規観点編)"
 Cohesion: 0.05
@@ -881,12 +893,12 @@ Cohesion: 0.50
 Nodes (4): 8.1 一次情報で裏づけられる原則, 8.2 改善サイクルが形骸化する条件, 8.3 考察（本プロジェクトの解釈）, 8. 測定から改善アクションへの接続
 
 ### Community 160 - "enablement.md"
-Cohesion: 0.05
-Nodes (40): T-0 準備, T-1 限定試行, T-2 増分展開, T-3 常態化, T-4 自走, TG-1 増分展開の可否, TG-2 常態化の可否, TG-3 支援組織の撤退可否 (+32 more)
+Cohesion: 0.04
+Nodes (44): T-0 準備, T-1 限定試行, T-2 増分展開, T-3 常態化, T-4 自走, TG-1 増分展開の可否, TG-2 常態化の可否, TG-3 支援組織の撤退可否 (+36 more)
 
-### Community 161 - "4. 限界"
-Cohesion: 0.40
-Nodes (5): 4.1 コンテキストウィンドウの有限性, 4.2 Context Rot(長い文脈での劣化), 4.3 ポランニーの逆説(原理的・言語化不能の限界), 4.4 明文化コスト(組織的コスト), 4. 限界
+### Community 161 - "test-effectiveness.md"
+Cohesion: 0.14
+Nodes (13): CI への組み込み, この検査が共連れそのものを解決しない理由, エージェントを分けることでは解決しません, スコアを目的化させない措置, 何を機械で確認するか, 全件を対象にしません, 受入基準とテストの突合, 変異試験の適用 (+5 more)
 
 ### Community 162 - "陳腐化しない基準(criteria)の設計手法 — 一次調査メモ"
 Cohesion: 0.08
@@ -1152,25 +1164,73 @@ Nodes (6): この規約の限界, マークを外すとき, 書式, 未完成の
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
+### Community 238 - "seeded-error-safety.md"
+Cohesion: 0.17
+Nodes (11): 注入の設計に対する制約, 測定の対象を個人にしない, 演習を停止する条件, 第1層 使い捨てブランチ, 第2層 トレーラによる拒否, 第3層 リリース候補の走査, 第4層 出荷判定への接続, 遮断の4層 (+3 more)
+
+### Community 239 - "各ゲートの判定チェックリスト"
+Cohesion: 0.22
+Nodes (9): G-1 企画承認(事業決裁者・既存規程どおり), G-2 要件合意(価値責任者・48時間), G-4 機能仕様承認(価値責任者または委譲先・24時間), G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日), G-7 出荷判定(QA・3営業日), G-8 リリース決裁(事業決裁者・48時間), 各ゲートの判定チェックリスト, 範囲内外の判定を機械が行わない理由 (+1 more)
+
+### Community 240 - "1. 主要エージェント製品の現況"
+Cohesion: 0.29
+Nodes (7): 1-1. Anthropic — Mythos クラスの登場と Opus 5, 1-2. Cognition(Devin)— 自社モデル路線と「群」への転換, 1-3. OpenAI — Codex の世代交代と GPT-5.6 ファミリー, 1-4. GitHub Copilot coding agent — 統制設計は維持、範囲は拡大, 1-5. Google — Jules の GA と Gemini 3 系, 1-6. 新興・その他, 1. 主要エージェント製品の現況
+
+### Community 241 - "gate-criteria.md"
+Cohesion: 0.29
+Nodes (6): ゲートの2系統, ゲートの健全性を計測する, ゲート運用の共通ルール, 全ゲートに共通する通過条件, 判定の滞留および基準の逸脱, 前提条件と判定基準の区別
+
+### Community 242 - "欠陥トリアージ基準"
+Cohesion: 0.33
+Nodes (6): 事業ステージ別のトリアージマトリクス, 定量指標の設定義務, 既知の不具合の要求事項, 欠陥トリアージ基準, 重大度と優先度の分離, 重大度の定義
+
+### Community 243 - "0. プロセスの概要"
+Cohesion: 0.40
+Nodes (5): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要
+
+### Community 244 - "レビュー SLA と滞留の措置"
+Cohesion: 0.40
+Nodes (5): 2つの時刻を分ける, レビュー SLA と滞留の措置, 偏りの監視, 割り当て, 滞留したときの措置
+
+### Community 245 - "AI 品質指標の扱い"
+Cohesion: 0.40
+Nodes (5): AI 品質指標の扱い, 合否条件にしてよい指標、してはならない指標, 指標の定義, 新規に変更した範囲へ限定する, 閾値の設定と較正
+
+### Community 246 - "G-5 自動検証 CI(機械判定・即時)"
+Cohesion: 0.40
+Nodes (5): G-5 自動検証 CI(機械判定・即時), 依存関係の追加(基準8), 知財潔白性の検査, 秘匿情報の混入(基準7), 許可リストが判定を妨げた場合の救済
+
+### Community 247 - "4. マルチエージェントのトレンド — 「制約された協調+人間の統制」は妥当か"
+Cohesion: 0.50
+Nodes (4): 4-1. フレームワーク: AutoGen の三分岐と MAF の GA, 4-2. プロトコル標準化 — 2026 年最大の構造変化, 4-3. 製品側のマルチエージェント実装, 4. マルチエージェントのトレンド — 「制約された協調+人間の統制」は妥当か
+
+### Community 248 - "5. 「人間の検証帯域が律速」— 定量証拠が出そろった"
+Cohesion: 0.50
+Nodes (4): 5-1. LinearB 2026 ソフトウェアエンジニアリングベンチマーク(発表日 2026-05-04), 5-2. スループットの逆説(CircleCI 2026 データ), 5-3. AI 生成コードの品質と「静かな技術的負債」, 5. 「人間の検証帯域が律速」— 定量証拠が出そろった
+
+### Community 249 - "G-3 技術設計判断(技術判断者・48時間)"
+Cohesion: 0.50
+Nodes (4): G-3 技術設計判断(技術判断者・48時間), 事業影響を金額で定量化しない, 事業決裁者が受容を拒否した場合, 記載の検査
+
 ## Knowledge Gaps
-- **2182 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2177 more)
+- **2222 isolated node(s):** `読み方`, `ゲートの2系統`, `前提条件と判定基準の区別`, `全ゲートに共通する通過条件`, `ゲート運用の共通ルール` (+2217 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **Why does `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` connect `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _2182 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `プロダクトオーナー中心のチーム編成論 調査メモ` connect `プロダクトオーナー中心のチーム編成論 調査メモ` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **What connects `読み方`, `ゲートの2系統`, `前提条件と判定基準の区別` to the rest of the system?**
+  _2222 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
-  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
