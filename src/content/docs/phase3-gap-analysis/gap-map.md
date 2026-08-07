@@ -67,9 +67,9 @@ graph LR
   P1P["フェーズ1:9プロセス + 横断比較"] --> GAP["From-To ギャップ"]
   P1J["フェーズ1:日本ガバナンス(5衝突点)"] --> GAP
   P2A["フェーズ2:前提条件一覧(T/P/O/K)"] --> GAP
-  GAP --> R["ロール別整理(#39)"]
-  GAP --> B["内製/外注とBCP(#40)"]
-  GAP --> C["コンテキスト補完基盤(#41)"]
+  GAP --> R["ロール別整理"]
+  GAP --> B["内製/外注とBCP"]
+  GAP --> C["コンテキスト補完基盤"]
 ```
 
 各ギャップへの具体的な打ち手は、続く3つのページで扱います。ロールの再設計([ロール別整理](/process-compass/phase3-gap-analysis/role-mapping/))、内製・外注の再構成と事業継続性([内製/外注とBCP](/process-compass/phase3-gap-analysis/insourcing-bcp/))、暗黙知の明文化基盤([コンテキスト補完基盤](/process-compass/phase3-gap-analysis/context-infrastructure/))です。
