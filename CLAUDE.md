@@ -2,6 +2,13 @@
 
 生成AI時代の開発プロセスを体系化し、チーム体制・事業フェーズに合わせて最適な開発プロセスを提案するツールを目指す docs-as-code プロジェクト。Webアプリ開発ではなく**ドキュメント主体**。最終的に GitHub Pages 上のインタラクティブなプロセス提案ツールへ発展させる。
 
+## プロセスの名称(ADR-0027)
+
+- **通称**: ピットイン方式(PIT-IN) — 口頭・検索・リポジトリ名・バッジで使う
+- **正式名称**: AI協調型ソフトウェア開発プロセス標準 — 稟議・QMS 文書・規格の引用で使う
+- 本文中の自己参照は「本標準」を維持する。「統合プロセス」は使わない
+- 一文の要約: マシンは人間より速い。それでも、決められた場所では必ず人間が触る
+
 ## プロジェクト構造
 
 - `src/content/docs/` — 公開ドキュメント(Starlight)。`vision/`(目的・ロードマップ・ツール構想)、`phase1-current-state/` 〜 `phase6-operation/`(6フェーズの成果物)、`community/`
@@ -16,10 +23,19 @@
 - ページには必ず frontmatter の `title` と `description` を書く。並び順は `sidebar.order` で制御
 - 内部リンクは base パス `/process-compass/` を含める(例: `/process-compass/vision/01-goal/`)
 
+## 準拠テンプレート(submodule)
+
+- `template/` = [pit-in-template](https://github.com/Takenori-Kusaka/pit-in-template)。Template repository として公開済み
+- 初期化: `git submodule update --init --recursive`
+- テーラリングエンジン(`src/lib/tailoring-engine.mjs`)と規則データ(`src/data/tailoring/`)を複製して使う。**正本はこちら側**
+- 規則データを変えたら `npm run template:kb` で複製を更新する。乖離は `npm run check` が検出する
+- テンプレート側の設計判断は ADR-0028(未達と省略の区別)
+
 ## コマンド
 
 - `npm run dev` — ローカルプレビュー
-- `npm run check` — textlint + ビルド(push 前に必ず通ること。PR では CI (`ci.yml`) が同じチェックを実行)
+- `npm run check` — textlint + トーン + 根拠水準 + エンジンテスト + 複製の検査 + ビルド(push 前に必ず通ること。PR では CI (`ci.yml`) が同じチェックを実行)
+- `npm run template:kb` — テンプレートへ複製する知識ベースを再生成する
 
 ## Claude Code 設定(.claude/)
 
