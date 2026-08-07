@@ -450,8 +450,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase3-gap-analysis/role-mapping.md": {
-    "mtime": 1786070138.4091399,
-    "ast_hash": "a7f66829e7aae41f850db24f9c403563",
+    "mtime": 1786070265.58085,
+    "ast_hash": "d7345d9b0c09083fa14f6a28440631cf",
     "semantic_hash": ""
   },
   "src/content/docs/phase3-gap-analysis/summary.md": {
@@ -930,8 +930,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/vision/04-traceability.md": {
-    "mtime": 1786070106.531806,
-    "ast_hash": "3f4f14b6b0713bc9dcc58199688b2b8c",
+    "mtime": 1786070265.5818484,
+    "ast_hash": "c954919fbc455d8b4a9eb3092684a15b",
     "semantic_hash": ""
   },
   "src/data/tailoring/rules-criticality.yaml": {
