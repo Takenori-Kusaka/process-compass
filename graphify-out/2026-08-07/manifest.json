@@ -340,13 +340,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0007-schema-driven-process-data.md": {
-    "mtime": 1783564005.1411843,
-    "ast_hash": "17c38897d3f4d745ffdb3464c0cf8825",
+    "mtime": 1786069189.9337647,
+    "ast_hash": "e48c2a44cf274759077386a1c295c7b8",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0008-tailoring-rules-as-data.md": {
-    "mtime": 1784808808.7366433,
-    "ast_hash": "0a6dc3f445d357c659ab585a57238e48",
+    "mtime": 1786069078.3800597,
+    "ast_hash": "ec43936cab037b80f00e6ec7a9efd20d",
     "semantic_hash": ""
   },
   "src/content/docs/adr/index.md": {
@@ -385,8 +385,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase1-current-state/research-framework.md": {
-    "mtime": 1783564139.840609,
-    "ast_hash": "6487b4d379f48dc4a3609c8457a45d65",
+    "mtime": 1786069148.51378,
+    "ast_hash": "dd74eb67c2f9aeccbe655c5855aeca8e",
     "semantic_hash": ""
   },
   "src/content/docs/phase1-current-state/summary.md": {
@@ -435,8 +435,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase3-gap-analysis/gap-map.md": {
-    "mtime": 1786000935.5688004,
-    "ast_hash": "54ca5520007044469261fd74ce17c6ce",
+    "mtime": 1786069148.5127807,
+    "ast_hash": "8ee6908e283f54d0d0f86492959415d4",
     "semantic_hash": ""
   },
   "src/content/docs/phase3-gap-analysis/insourcing-bcp.md": {
@@ -560,8 +560,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/metrics.md": {
-    "mtime": 1786002492.7549026,
-    "ast_hash": "c524db8c832701b3c530fdf2550d910f",
+    "mtime": 1786069164.434434,
+    "ast_hash": "fdd06dd521cd1e79ca8b36ccdfba0d4d",
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/operations-catalog.md": {
@@ -575,18 +575,18 @@
     "semantic_hash": ""
   },
   "src/content/docs/tool/knowledge-base-schema.md": {
-    "mtime": 1786004001.6309254,
-    "ast_hash": "6212f5fa2da70e2af982804bc0777c1e",
+    "mtime": 1786069148.511782,
+    "ast_hash": "4dafbdcb1550c610e94d69be4274efd5",
     "semantic_hash": ""
   },
   "src/content/docs/tool/proposal-logic.md": {
-    "mtime": 1785933350.6626496,
-    "ast_hash": "425159c82bf0cad23896f651367b8fe6",
+    "mtime": 1786069148.511782,
+    "ast_hash": "9dd81df25e61bd9791506accf4e9e832",
     "semantic_hash": ""
   },
   "src/content/docs/tool/requirements.md": {
-    "mtime": 1786004001.6319246,
-    "ast_hash": "397a199fa1577308de11c216b4c56642",
+    "mtime": 1786069148.5127807,
+    "ast_hash": "a75036af9e5c0d0ce25c8c49e4851157",
     "semantic_hash": ""
   },
   "src/content/docs/tool/user-testing.md": {
@@ -730,8 +730,8 @@
     "semantic_hash": ""
   },
   "tmp/EXECUTION_PLAN.md": {
-    "mtime": 1786054175.3074157,
-    "ast_hash": "af0eaea0973dcb640694d4af8d0eac34",
+    "mtime": 1786057847.5882382,
+    "ast_hash": "fb603c3cef20744bc9c1e9f0fb521c1f",
     "semantic_hash": ""
   },
   "research/phase4-standard/097-qms-chapter-structure.md": {
@@ -740,8 +740,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0009-phase4-standard-chapter-structure.md": {
-    "mtime": 1785904622.5719938,
-    "ast_hash": "4e90dc9406fb1f100562c18b9ccd9615",
+    "mtime": 1786069078.3810585,
+    "ast_hash": "67ec30f4a23c09bbe4765409036c28d1",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/exception-escalation.md": {
@@ -765,8 +765,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0010-data-doc-interface.md": {
-    "mtime": 1785904931.9631174,
-    "ast_hash": "d1748a660fb96f1daa3f7f0060dde4a0",
+    "mtime": 1786069078.3820598,
+    "ast_hash": "1610ef414c52608696c1ca826edf310b",
     "semantic_hash": ""
   },
   "scripts/check-tone.mjs": {
@@ -885,13 +885,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0011-safety-risk-assessment-positioning.md": {
-    "mtime": 1785928896.7927525,
-    "ast_hash": "f92848ae0c9e2831878bb72db68ef1ff",
+    "mtime": 1786069078.3820598,
+    "ast_hash": "f90f41134071dd2dae47d097fc22a4a9",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0012-ai-output-as-unverified-input.md": {
-    "mtime": 1785929490.0397003,
-    "ast_hash": "b52b3954f291127830a15d181ddfd1ca",
+    "mtime": 1786069078.3830595,
+    "ast_hash": "ac23ad6abe4c6b02f79e018e95418bc2",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/safety-verification.md": {
@@ -905,8 +905,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0013-enablement-by-bounded-trial.md": {
-    "mtime": 1785931618.879288,
-    "ast_hash": "c75928f92b731eead566d6078b21c798",
+    "mtime": 1786069078.3840585,
+    "ast_hash": "88d362079ed5cc8b39546fac1f06ab31",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/enablement.md": {
@@ -920,8 +920,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0014-criticality-axis-and-proposal-output.md": {
-    "mtime": 1785933350.6610467,
-    "ast_hash": "bb5480e87523f539e64e3387cc44d3c7",
+    "mtime": 1786069078.3840585,
+    "ast_hash": "3ed050dd9360bda57e5b405a828ce4dc",
     "semantic_hash": ""
   },
   "src/content/docs/tool/proposal-output.md": {
@@ -950,8 +950,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0015-role-boundary-by-function-stage.md": {
-    "mtime": 1785981229.7654407,
-    "ast_hash": "47e33aceeb88c0bebc767248c5ab65bd",
+    "mtime": 1786069078.3850589,
+    "ast_hash": "ce5f8494791d90fe0ae916a65cf4af1e",
     "semantic_hash": ""
   },
   "research/phase4-standard/136-business-risk-assessment.md": {
@@ -960,13 +960,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0016-business-appraisal-in-intent-brief.md": {
-    "mtime": 1785982603.2721825,
-    "ast_hash": "28c1d50f1492dfce9275d10124a86eb5",
+    "mtime": 1786069261.3181608,
+    "ast_hash": "1f7022ccbb8df15be97cda7aacdde268",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0017-separate-proposal-from-catalog.md": {
-    "mtime": 1785987507.7332234,
-    "ast_hash": "9b898067001a96e028cb603c514e5d60",
+    "mtime": 1786069261.3181608,
+    "ast_hash": "13c3bd2f9b5f285b3ee609716cc6de2c",
     "semantic_hash": ""
   },
   "research/phase3-gap-analysis/138-research-layer-audit.md": {
@@ -980,8 +980,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0018-assumption-ledger.md": {
-    "mtime": 1786000935.5667987,
-    "ast_hash": "8ebaa90021504a9869dd59d9c14ed5a3",
+    "mtime": 1786069113.5721338,
+    "ast_hash": "3f4612d6f85edfbd10e3dab739cd8cb5",
     "semantic_hash": ""
   },
   "research/phase4-standard/140-131-scope-and-progress.md": {
@@ -990,8 +990,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0019-scope-commitment-three-layers.md": {
-    "mtime": 1786002492.7488465,
-    "ast_hash": "22cd5f7583bf360949fc0a409aab9992",
+    "mtime": 1786069113.573135,
+    "ast_hash": "7e5ef64e79746299edfc2d4c6e10d565",
     "semantic_hash": ""
   },
   "src/components/process/ProcessActivity.astro": {
@@ -1030,8 +1030,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0020-process-model-belongs-to-phase4.md": {
-    "mtime": 1786004001.6220198,
-    "ast_hash": "45bf68f7d7031a0d45f4af1685d1e5c4",
+    "mtime": 1786069113.5741367,
+    "ast_hash": "0448d5f85be722a3d8cd708d22112eae",
     "semantic_hash": ""
   },
   "tmp/create_block2_issues.cjs": {
@@ -1115,13 +1115,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0021-ip-clearance-evidence-not-guarantee.md": {
-    "mtime": 1786012403.7634275,
-    "ast_hash": "f704fb0c81971218c48770340e58f02f",
+    "mtime": 1786069208.0612552,
+    "ast_hash": "48371e077b2a8fdd6ebf10f5fc10f49e",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0022-handover-deadlines-relative-to-notice.md": {
-    "mtime": 1786024829.456058,
-    "ast_hash": "9b9808902c33a646f947f08fc2cfa23a",
+    "mtime": 1786069130.4404116,
+    "ast_hash": "018fcda3e1d6cad619856bedb9b9b35a",
     "semantic_hash": ""
   },
   "research/phase4-standard/130-review-package.md": {
@@ -1130,8 +1130,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0023-review-package-cues-not-conclusions.md": {
-    "mtime": 1786052343.0900447,
-    "ast_hash": "d5c21eeb31953563ced47cc38f839a95",
+    "mtime": 1786069130.4414117,
+    "ast_hash": "8553442b9773eb5908e217b494ba404d",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/review-package.md": {
@@ -1145,8 +1145,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0024-decision-as-risk-acceptance.md": {
-    "mtime": 1786054082.1444013,
-    "ast_hash": "44bdcd68d13172fc7221c00d242da252",
+    "mtime": 1786069130.4424107,
+    "ast_hash": "f548f21b6bad5467b4d5056676136180",
     "semantic_hash": ""
   },
   "research/phase4-standard/133-context-freshness.md": {
@@ -1155,8 +1155,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0025-context-forgetting-over-detection.md": {
-    "mtime": 1786057775.726406,
-    "ast_hash": "af194a193bb9fec5dc5467b5aac536e8",
+    "mtime": 1786069130.4424107,
+    "ast_hash": "6c761f687a55d282a2c68685cdc304a7",
     "semantic_hash": ""
   }
 }
