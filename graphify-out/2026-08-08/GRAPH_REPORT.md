@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3263 nodes · 3168 edges · 276 communities (269 shown, 7 thin omitted)
+- 3265 nodes · 3184 edges · 277 communities (270 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -230,12 +230,14 @@
 - 0023-review-package-cues-not-conclusions.md
 - aggregate-evidence.mjs
 - 0024-decision-as-risk-acceptance.md
+- 3. アンチパターン各論(本メモの中心)
 - ピットイン方式 準拠テンプレート
 - 手順
 - 133 一次調査: コンテキストの鮮度監査と忘却
 - 手順
 - adapter.mjs
 - 0025-context-forgetting-over-detection.md
+- 4. デザインレビュー(DR)と品質保証部門
 - 3.12.10 実行の強制停止(サーキットブレーカー)
 - evidence-marking.md
 - 0026-evidence-level-marking.md
@@ -283,7 +285,6 @@
 - 用語集
 - 複製したファイル
 - 3. 決裁権限規程・職務権限規程
-- 7. ハイコンテキスト文化(明文化を阻む土台)
 - 保管領域
 - 案件層コンテキスト
 - ブランチ保護
@@ -293,8 +294,8 @@
 ## God Nodes (most connected - your core abstractions)
 1. `deny` - 22 edges
 2. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
-3. `Process Compass` - 14 edges
-4. `allow` - 14 edges
+3. `allow` - 14 edges
+4. `Process Compass` - 14 edges
 5. `調査メモ: AI自律レベルの動的境界と開発者役割の移行（Issue #109 / #110）` - 14 edges
 6. `調査メモ: AI 維持管理責任者（AI Maintainer）と AI 運用担当者（AIOps）の職掌（Issue #111 / #112）` - 14 edges
 7. `調査メモ: Seeded Errors による自動化バイアス検知と、承認権限の一時制限・例外決裁（Issue #113 / #114）` - 14 edges
@@ -315,7 +316,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (276 total, 7 thin omitted)
+## Communities (277 total, 7 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -334,15 +335,15 @@ Cohesion: 0.15
 Nodes (13): scripts, astro, build, check, dev, evidence:write, lint:evidence, lint:text (+5 more)
 
 ### Community 4 - "日本企業のガバナンス・決裁ゲートの実態 調査メモ"
-Cohesion: 0.10
-Nodes (20): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 2.1 定義と機能, 2.2 「意思決定は遅いが実行は速い」の両面性, 2. 根回し・合議(ネマワシ), 4.1 DR の規格上の定義(建前=JIS), 4.2 品質保証部門による第三者レビュー・出荷判定(建前=独立性) (+12 more)
+Cohesion: 0.11
+Nodes (19): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 2.1 定義と機能, 2.2 「意思決定は遅いが実行は速い」の両面性, 2. 根回し・合議(ネマワシ), 5. Stage-Gate と日本の決裁の構造的違い(比較), 6.1 定義(建前) (+11 more)
 
 ### Community 5 - "エージェント型開発(自律・マルチエージェント)の現在地 調査メモ"
 Cohesion: 0.06
 Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.06
+Cohesion: 0.07
 Nodes (30): roleName, seg, wpName, diagram, roleName, seg, string, diagram (+22 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
@@ -374,8 +375,8 @@ Cohesion: 0.10
 Nodes (20): 0-0. 重要な前提: TDD は「開発ライフサイクル」ではなく「開発プラクティス/技法」である, 0-1. 基本情報, 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2-1. 3階層のズーム(nano / micro / 上位ライフサイクルとの接続), 2. 階層構造(process → activities → tasks), 3-A. 関連技法との役割拡張(TDD → ATDD/BDD) (+12 more)
 
 ### Community 14 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
-Cohesion: 0.10
-Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
+Cohesion: 0.15
+Nodes (13): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点), 7. 日本的観点(標準がカバーしない領域) (+5 more)
 
 ### Community 15 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.12
@@ -1157,6 +1158,10 @@ Nodes (12): adrs, commits, config, evidence, from, gaps, gateRecords, prNumbers 
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
+### Community 217 - "3. アンチパターン各論(本メモの中心)"
+Cohesion: 0.29
+Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
+
 ### Community 218 - "ピットイン方式 準拠テンプレート"
 Cohesion: 0.13
 Nodes (14): 1. このテンプレートからリポジトリを作る, 1人で開発する場合, 2. プロセス構成を決める, 3. 開発を始める, 8つのゲート, AI レビューの位置づけ, このテンプレートが持っているもの, まず何をするか (+6 more)
@@ -1180,6 +1185,10 @@ Nodes (10): adapter, config, env, OPTIONAL, r, fail(), notice(), ROOT (+2 more)
 ### Community 223 - "0025-context-forgetting-over-detection.md"
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
+
+### Community 224 - "4. デザインレビュー(DR)と品質保証部門"
+Cohesion: 0.40
+Nodes (5): 4.1 DR の規格上の定義(建前=JIS), 4.2 品質保証部門による第三者レビュー・出荷判定(建前=独立性), 4.3 実態(独立性の揺らぎ・署名権の組織差), 4.4 DR配置の図解(製造業型 → ソフトウェア型), 4. デザインレビュー(DR)と品質保証部門
 
 ### Community 225 - "3.12.10 実行の強制停止(サーキットブレーカー)"
 Cohesion: 0.50
@@ -1365,10 +1374,6 @@ Nodes (4): なぜ複製するのか, 乖離の検出, 更新の手順, 複製し
 Cohesion: 0.50
 Nodes (4): 3.1 定義と構造(建前), 3.2 金額・重要度による決裁階層(図解の中核), 3.3 なぜゲートの承認者が「職位」で決まるか, 3. 決裁権限規程・職務権限規程
 
-### Community 275 - "7. ハイコンテキスト文化(明文化を阻む土台)"
-Cohesion: 0.50
-Nodes (4): 7.1 定義, 7.2 明文化されない知識(暗黙知)への依存, 7.3 生成AIへの明文化を阻む(本プロジェクトの中核論点への接続), 7. ハイコンテキスト文化(明文化を阻む土台)
-
 ### Community 276 - "保管領域"
 Cohesion: 0.50
 Nodes (3): 保管領域, 移さないもの, 移すもの
@@ -1386,20 +1391,20 @@ Cohesion: 0.50
 Nodes (3): この2つが揃うまで実装しない, 曖昧語は CI が止める, 機能仕様
 
 ## Knowledge Gaps
-- **2453 isolated node(s):** `プロセスの名称(ADR-0027)`, `プロジェクト構造`, `執筆規約`, `準拠テンプレート(submodule)`, `コマンド` (+2448 more)
+- **2453 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2448 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `プロダクトオーナー中心のチーム編成論 調査メモ` connect `プロダクトオーナー中心のチーム編成論 調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+- **Why does `プロダクトオーナー中心のチーム編成論 調査メモ` connect `プロダクトオーナー中心のチーム編成論 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `AIDLC(AI-Driven Development Life Cycle)調査メモ` connect `AIDLC(AI-Driven Development Life Cycle)調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **What connects `プロセスの名称(ADR-0027)`, `プロジェクト構造`, `執筆規約` to the rest of the system?**
+- **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
   _2453 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
