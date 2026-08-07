@@ -7,7 +7,7 @@ sidebar:
 
 本附属書は、[第1章から第8章](/process-compass/phase4-process-design/overview/)に規定した要求事項について、その構造を採用した理由と検討の経緯を記録するものです。要求事項そのものは本文に規定しており、本附属書に規定は含みません。
 
-本標準の構造は[統合プロセス参照モデル](/process-compass/phase4-process-design/process-model/)としてスキーマ駆動のデータで保持しており、全体マップからフェーズ・個別作業へ掘り下げられます。**本附属書と同じくフェーズ4に属します**。既存プロセスの調査結果を集めた[カタログ](/process-compass/processes/)とは別のものです。
+本標準の構造は[ピットイン方式参照モデル](/process-compass/phase4-process-design/process-model/)としてスキーマ駆動のデータで保持しており、全体マップからフェーズ・個別作業へ掘り下げられます。**本附属書と同じくフェーズ4に属します**。既存プロセスの調査結果を集めた[カタログ](/process-compass/processes/)とは別のものです。
 
 ## A.1 二層構造を採用した理由
 

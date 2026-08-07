@@ -17,7 +17,7 @@ const categoryLabel: Record<string, string> = {
   proposal: '提案プロセス',
 };
 
-// 本プロジェクトの提案(統合プロセス参照モデル)は調査対象ではないため、
+// 本プロジェクトの提案(ピットイン方式参照モデル)は調査対象ではないため、
 // 既存プロセスの比較表からは分離して別表で示す(ADR-0017)
 const allRows = processes
   .map((entry) => {
@@ -65,7 +65,7 @@ const proposalRows = allRows.filter((r) => r.category === 'proposal');
   </p>
 
   <p>
-    <strong>本プロジェクトが設計した統合プロセス参照モデルは、この比較表に含めていません。</strong>
+    <strong>本プロジェクトが設計したピットイン方式参照モデルは、この比較表に含めていません。</strong>
     調査対象の既存プロセスと同じ表に並べると、比較の公平性が問われるためです。別表として<a
       href="#proposal">末尾</a>に示します。
   </p>

@@ -24,7 +24,7 @@ graph LR
   O --> W["修正・採択<br>(チームでの合意)"]
 ```
 
-- 提案のベースは[統合プロセス参照モデル](/process-compass/phase4-process-design/process-model/)
+- 提案のベースは[ピットイン方式参照モデル](/process-compass/phase4-process-design/process-model/)
 - 調整ロジックは[テーラリングガイド](/process-compass/phase4-process-design/tailoring-guide/)の4軸の表
 - 出力の様式は[導入提案書テンプレート](/process-compass/phase4-process-design/proposal-template/)
 
@@ -60,7 +60,7 @@ AI活用を進めたいが、品質保証の説明責任を果たせる形にし
 
 - 質問は7問以内に収める(入力の負担が採択率を決める。悩まず2〜3分で答えられること)
 - すべて選択式にする(自由記述は規則で解釈できないため v1 では扱わない)
-- 質問7で「利用不可」の場合も従来型プロセスの整理として提案を返す(AIなしでも統合プロセスの外殻は機能する)
+- 質問7で「利用不可」の場合も従来型プロセスの整理として提案を返す(AIなしでもピットイン方式の外殻は機能する)
 
 ## 出力形式
 

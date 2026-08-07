@@ -40,7 +40,7 @@ const processSchema = z.object({
   // プロセスの粒度・性格(調査フレームワークが指摘する「粒度の差」をデータ化)
   // lifecycle=開発ライフサイクル全体 / practice=実務プラクティス / design-method=設計手法
   // umbrella=価値観・原則の傘 / hybrid=日本企業のハイブリッド開発の実態(アンチパターン含む)
-  // proposal=本プロジェクトが提案する統合プロセス(フェーズ4の成果)
+  // proposal=本プロジェクトが提案するピットイン方式(フェーズ4の成果)
   category: z
     .enum(['lifecycle', 'practice', 'design-method', 'umbrella', 'hybrid', 'proposal'])
     .default('lifecycle'),

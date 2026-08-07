@@ -69,7 +69,7 @@ export default defineConfig({
           items: [
             { autogenerate: { directory: 'phase1-current-state' } },
             {
-              // 既存プロセスの調査結果のみを置く。本プロジェクトの提案(統合プロセス
+              // 既存プロセスの調査結果のみを置く。本プロジェクトの提案(ピットイン方式
               // 参照モデル)はフェーズ4の直前に独立したセクションとして分離した(ADR-0017)
               label: '既存プロセスの体系(データ駆動)',
               items: [
@@ -91,12 +91,12 @@ export default defineConfig({
         { label: 'フェーズ2: AIDLC・理想形調査', items: [{ autogenerate: { directory: 'phase2-aidlc' } }] },
         { label: 'フェーズ3: ギャップ分析', items: [{ autogenerate: { directory: 'phase3-gap-analysis' } }] },
         {
-          // 統合プロセス参照モデルは本標準の一部(構造の側)であり、フェーズ4の内側へ置く。
+          // ピットイン方式参照モデルは本標準の一部(構造の側)であり、フェーズ4の内側へ置く。
           // 独立セクションとして外に出す構成は ADR-0020 で置き換えた
           label: 'フェーズ4: 詳細プロセス策定',
           items: [
             {
-              label: '★ 統合プロセス参照モデル(構造)',
+              label: '★ ピットイン方式参照モデル(構造)',
               link: '/phase4-process-design/process-model/',
             },
             { autogenerate: { directory: 'phase4-process-design' } },

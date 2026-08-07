@@ -11,7 +11,7 @@ constraints:
   - id: c-ai-not-accountable
     name: AIは責任者になれない
     description: AIをA(結果責任)に割り当てない。AIはどこまでもR(実行)
-    rationale: AIは結果への説明責任を負えない。人が承認し責任を持つ構造が統合プロセスの成立条件
+    rationale: AIは結果への説明責任を負えない。人が承認し責任を持つ構造がピットイン方式の成立条件
     source: /process-compass/phase4-process-design/roles-responsibilities/
   - id: c-gate-needs-criteria
     name: ゲートには差し戻し基準

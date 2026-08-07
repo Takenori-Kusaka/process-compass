@@ -14,7 +14,7 @@ sidebar:
 ```mermaid
 graph TD
   Q["questions.yaml<br>質問(入力モデル)"] -->|回答が条件になる| R["rules-*.yaml<br>テーラリング規則"]
-  R -->|調整を適用| P["integrated.yaml<br>統合プロセス参照モデル<br>(既存・ADR-0007)"]
+  R -->|調整を適用| P["integrated.yaml<br>ピットイン方式参照モデル<br>(既存・ADR-0007)"]
   R -->|横断項目を参照| PR["practices.yaml<br>プラクティス語彙"]
   C["constraints.yaml<br>禁止事項(不変条件)"] -->|上書きを検査| W["修正・採択ワークフロー"]
 ```
@@ -28,7 +28,7 @@ graph TD
 
 ### 1. 規則は「参照モデルからの逸脱」だけを書く(差分方式)
 
-ベースは常に[統合プロセス参照モデル](/process-compass/phase4-process-design/process-model/)です。「グロース期は標準どおり」のような規則は書きません。これにより規則の総数が抑えられ、参照モデルの改版が自動的に全提案へ反映されます。
+ベースは常に[ピットイン方式参照モデル](/process-compass/phase4-process-design/process-model/)です。「グロース期は標準どおり」のような規則は書きません。これにより規則の総数が抑えられ、参照モデルの改版が自動的に全提案へ反映されます。
 
 ### 2. 説明のない調整は型レベルで書けない
 

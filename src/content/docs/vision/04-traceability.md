@@ -58,7 +58,7 @@ graph TD
 | [第6章 成果物](/process-compass/phase4-process-design/deliverable-templates/) | テンプレ0〜9、安全リスクアセスメント | フェーズ5全般、附属書F |
 | [第7章 例外](/process-compass/phase4-process-design/exception-escalation/) | 例外承認、エスカレーション、中止判断 | [改善サイクル](/process-compass/phase6-operation/improvement-cycle/) |
 | [第8章 テーラリング](/process-compass/phase4-process-design/tailoring-guide/) | 調整軸と調整規則 | テーラリング知識ベース |
-| [統合プロセス参照モデル](/process-compass/phase4-process-design/process-model/) | 構造の機械可読表現(フェーズ・ゲート・ロール・成果物の識別子と関係) | 全章、テーラリング知識ベース、プロセス提案ツール |
+| [ピットイン方式参照モデル](/process-compass/phase4-process-design/process-model/) | 構造の機械可読表現(フェーズ・ゲート・ロール・成果物の識別子と関係) | 全章、テーラリング知識ベース、プロセス提案ツール |
 | [社会実装計画](/process-compass/phase5-implementation/enablement/) | 移行段階、判定ゲート、支援体制、教育計画 | フェーズ6 |
 | [メトリクス](/process-compass/phase6-operation/metrics/) | 三識メトリクス、ゲートの健全性 | 第5章の見直し、第8章の調整 |
 

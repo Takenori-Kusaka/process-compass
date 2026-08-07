@@ -1,11 +1,11 @@
 ---
 title: Git 戦略リファレンス
-description: 統合プロセスをGit上で動かすためのブランチモデル・ブランチ保護・AI生成コミットの扱いを、設定例つきで定義する
+description: ピットイン方式をGit上で動かすためのブランチモデル・ブランチ保護・AI生成コミットの扱いを、設定例つきで定義する
 sidebar:
   order: 2
 ---
 
-[統合プロセス参照モデル](/process-compass/phase4-process-design/process-model/)のゲート(自動検証・独立レビュー)は、Git プラットフォームの機能で**機械的に強制**できます。このページはブランチ・コミット・保護設定のリファレンスです。PR の作成からマージまでの日々の運用は[PR 運用リファレンス](/process-compass/phase5-implementation/pr-workflow/)を参照してください。
+[ピットイン方式参照モデル](/process-compass/phase4-process-design/process-model/)のゲート(自動検証・独立レビュー)は、Git プラットフォームの機能で**機械的に強制**できます。このページはブランチ・コミット・保護設定のリファレンスです。PR の作成からマージまでの日々の運用は[PR 運用リファレンス](/process-compass/phase5-implementation/pr-workflow/)を参照してください。
 
 ## ブランチモデル: トランクベース+タスク単位ブランチ
 

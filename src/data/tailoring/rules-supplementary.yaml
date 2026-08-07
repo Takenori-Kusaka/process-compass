@@ -29,7 +29,7 @@ rules:
       - target: { type: practice, id: outer-gates }
         action: note
         note: 既存の決裁ゲート(品質部門の判定・CTOレビュー等)に外殻ゲートを対応づける。新設や二重化はしない
-    reason: 統合プロセスの外殻は既存制度を置き換えるものではなく、対応づけて再利用する設計(変更は2点のみの原則)
+    reason: ピットイン方式の外殻は既存制度を置き換えるものではなく、対応づけて再利用する設計(変更は2点のみの原則)
     source: /process-compass/phase4-process-design/integrated-process/
     priority: 10
 
@@ -67,6 +67,6 @@ rules:
       - target: { type: role, id: ai-agent }
         action: omit
         note: AI実行ロールを除外する(実装・検証はすべて人が担う)
-    reason: 統合プロセスの外殻はAIの有無に依存しない設計。AI解禁時にループを足すだけで移行できる
+    reason: ピットイン方式の外殻はAIの有無に依存しない設計。AI解禁時にループを足すだけで移行できる
     source: /process-compass/phase4-process-design/integrated-process/
     priority: 40
