@@ -495,13 +495,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1786094787.6835034,
-    "ast_hash": "0fa8e8420d1a4d33a2e52f31c410dca2",
+    "mtime": 1786098168.8296425,
+    "ast_hash": "7048d85ec07eb13d9ebeffe32e9facb2",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786092233.6785152,
-    "ast_hash": "e094b67b522c5ad7d459b9665163296f",
+    "mtime": 1786098168.8306432,
+    "ast_hash": "5b7777657c0f22446997db4283f3b276",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ai-environment.md": {
@@ -550,8 +550,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/improvement-cycle.md": {
-    "mtime": 1786004001.6299157,
-    "ast_hash": "ad05cfbd97bc3242bc3dac785a677cd0",
+    "mtime": 1786098168.8336422,
+    "ast_hash": "4ee8a83ab284f357610576d49b2f6e23",
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/incident-response.md": {
@@ -570,8 +570,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/overview.md": {
-    "mtime": 1785801290.344167,
-    "ast_hash": "81a9a2c2a39d2ddd92e5d1fbe986cee6",
+    "mtime": 1786098168.8346426,
+    "ast_hash": "9b1e506eaafde2d18ee047bbb272c97d",
     "semantic_hash": ""
   },
   "src/content/docs/tool/knowledge-base-schema.md": {
@@ -910,8 +910,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/enablement.md": {
-    "mtime": 1786094787.6855042,
-    "ast_hash": "1dc488d8957586a3f1141b6416d7d74f",
+    "mtime": 1786098168.8316436,
+    "ast_hash": "d707e21f17867ef711fd0b7692747ae6",
     "semantic_hash": ""
   },
   "research/phase4-standard/126-tool-integration.md": {
@@ -1130,13 +1130,28 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786094787.6795042,
-    "ast_hash": "4bf6cca97cf923abdaf8776d6966c22b",
+    "mtime": 1786098168.8286421,
+    "ast_hash": "09897d84b58c8433e11fd59543f1ad6d",
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-marking.md": {
     "mtime": 1786092233.675511,
     "ast_hash": "8ceba4672f33c4991c66678a86a3fc7f",
+    "semantic_hash": ""
+  },
+  "src/content/docs/phase5-implementation/qms-document-control.md": {
+    "mtime": 1786098168.832643,
+    "ast_hash": "2e9bc1c6e1a78dfd522c8eefc5f491d2",
+    "semantic_hash": ""
+  },
+  "src/content/docs/phase5-implementation/seeded-error-safety.md": {
+    "mtime": 1786094787.6865046,
+    "ast_hash": "09f4a20bafdfef0fb718812c83e52c78",
+    "semantic_hash": ""
+  },
+  "src/content/docs/phase5-implementation/test-effectiveness.md": {
+    "mtime": 1786094787.6875055,
+    "ast_hash": "5e30e5b080e766b41badd8893abc691b",
     "semantic_hash": ""
   },
   "tmp/create_block2_issues.cjs": {
@@ -1184,19 +1199,9 @@
     "ast_hash": "deae829aa8c7c681c9abff816616ec78",
     "semantic_hash": ""
   },
-  "src/content/docs/phase5-implementation/qms-document-control.md": {
-    "mtime": 1786094787.6865046,
-    "ast_hash": "b11393fbdbafea68a23d375f13089525",
-    "semantic_hash": ""
-  },
-  "src/content/docs/phase5-implementation/seeded-error-safety.md": {
-    "mtime": 1786094787.6865046,
-    "ast_hash": "09f4a20bafdfef0fb718812c83e52c78",
-    "semantic_hash": ""
-  },
-  "src/content/docs/phase5-implementation/test-effectiveness.md": {
-    "mtime": 1786094787.6875055,
-    "ast_hash": "5e30e5b080e766b41badd8893abc691b",
+  "src/content/docs/phase6-operation/process-audit.md": {
+    "mtime": 1786098168.8346426,
+    "ast_hash": "d293713058058f99515687b69c84a457",
     "semantic_hash": ""
   },
   "tmp/analysis_qa.md": {

@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-07)
 
 ## Corpus Check
-- 212 files · ~164,431 words
+- 213 files · ~164,899 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2945 nodes · 2825 edges · 251 communities (236 shown, 15 thin omitted)
+- 2958 nodes · 2823 edges · 252 communities (237 shown, 15 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a3fdaa84`
+- Built from commit: `77f04a30`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -263,6 +263,7 @@
 - 4. 組織論的な論点(従来編成 vs PO中心編成)
 - G-3 技術設計判断(技術判断者・48時間)
 - 9. 出典一覧
+- process-audit.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
@@ -273,8 +274,8 @@
 6. `Issue #120 一次調査メモ: 出荷判定ゲート・契約書に適用する AI SLA ガバナンス評価規程` - 14 edges
 7. `調査メモ: ISO 12100 準拠 AIソフトウェア・リスクアセスメント成果物テンプレート（Issue #122）` - 14 edges
 8. `5.4 次セッションへの引き継ぎ（2026-08-06 時点・最新）` - 14 edges
-9. `アジャイル(Agile)調査メモ` - 13 edges
-10. `日本企業のガバナンス・決裁ゲートの実態 調査メモ` - 13 edges
+9. `3.10 事前レビュー期間` - 13 edges
+10. `アジャイル(Agile)調査メモ` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `buildMarkdown()` --calls--> `visibleQuestions()`  [EXTRACTED]
@@ -283,7 +284,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (251 total, 15 thin omitted)
+## Communities (252 total, 15 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -310,7 +311,7 @@ Cohesion: 0.10
 Nodes (21): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 2-1. Anthropic による協調パターンの分類(設計語彙の基準点), 2-2. 主要フレームワーク, 2. マルチエージェント・オーケストレーションのパターンとフレームワーク, 4-1. 信頼性: エラーの累積(複利的失敗), 4-2. 長期タスク・既存コードベースでの一貫性欠如 (+13 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.07
+Cohesion: 0.06
 Nodes (30): roleName, seg, wpName, diagram, roleName, seg, string, diagram (+22 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
@@ -842,8 +843,8 @@ Cohesion: 0.40
 Nodes (5): 3.8.1 リスク区分, 3.8.2 決裁者の割当, 3.8.3 起案・意見・決定の分離, 3.8.4 決定は技術的正しさの承認ではない, 3.8 決裁権限マトリクス
 
 ### Community 147 - "qms-document-control.md"
-Cohesion: 0.14
-Nodes (13): 3つの状態を置く, CI で検査する項目, この対応関係の限界, ステータスの表示に依存させない, 外部監査への提示, 形式を規程で固定しない, 承認権限のマッピング, 提示の準備を監査の直前に行わない (+5 more)
+Cohesion: 0.13
+Nodes (14): 3つの状態を置く, CI で検査する項目, この対応関係の限界, ステータスの表示に依存させない, 外部監査への提示, 形式を規程で固定しない, 承認権限のマッピング, 提示の準備を監査の直前に行わない (+6 more)
 
 ### Community 148 - "レビュー負荷削減の手法・ツール棚卸し(新規観点編)"
 Cohesion: 0.05
@@ -1217,25 +1218,29 @@ Nodes (4): G-3 技術設計判断(技術判断者・48時間), 事業影響を�
 Cohesion: 0.50
 Nodes (4): 9. 出典一覧, 一次情報(公式ブログ・原典・提唱者一次資料), 二次情報(解説・論評・批判), 接続する既存メモ
 
+### Community 251 - "process-audit.md"
+Cohesion: 0.14
+Nodes (13): この手続の限界, 個人を評価の対象にしない, 全件を見ません, 出荷判定と何が違うか, 判定と是正, 実施者の要件, 対象の抽出, 所見の扱い (+5 more)
+
 ## Knowledge Gaps
-- **2222 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2217 more)
+- **2234 isolated node(s):** `読み方`, `3.1 本章が達成すべき成果`, `3.2 責任の種類: A と R を分ける`, `3.3 RACI マトリクス(作業 × ロール)`, `確認に用いるもの` (+2229 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `1. 自律コーディングエージェントの主要実装例`, `20260710-jp-governance.md`, `3. 到達点(定量): ベンチマークと実運用のギャップ`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **Why does `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` connect `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _2222 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **What connects `読み方`, `3.1 本章が達成すべき成果`, `3.2 責任の種類: A と R を分ける` to the rest of the system?**
+  _2234 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
+- **Should `scripts` be split into smaller, more focused modules?**
+  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
