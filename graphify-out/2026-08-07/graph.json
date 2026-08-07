@@ -558,7 +558,6 @@
       "file_type": "code",
       "source_file": "scripts/check-evidence.mjs",
       "source_location": "L46",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_check_evidence_tourl",
       "community": 207,
@@ -570,7 +569,6 @@
       "file_type": "code",
       "source_file": "scripts/check-evidence.mjs",
       "source_location": "L53",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_check_evidence_maskfences",
       "community": 207,
@@ -582,7 +580,6 @@
       "file_type": "code",
       "source_file": "scripts/check-evidence.mjs",
       "source_location": "L71",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_check_evidence_collect",
       "community": 207,
@@ -594,7 +591,6 @@
       "file_type": "code",
       "source_file": "scripts/check-evidence.mjs",
       "source_location": "L149",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_check_evidence_renderledger",
       "community": 207,
@@ -606,7 +602,6 @@
       "file_type": "code",
       "source_file": "scripts/check-evidence.mjs",
       "source_location": "L163",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_check_evidence_replaceblock",
       "community": 207,
@@ -717,7 +712,6 @@
       "file_type": "code",
       "source_file": "scripts/check-tone.mjs",
       "source_location": "L43",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_check_tone_maskexcluded",
       "community": 117,
@@ -762,7 +756,6 @@
       "file_type": "code",
       "source_file": "scripts/generate-image.mjs",
       "source_location": "L26",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_generate_image_loadenv",
       "community": 62,
@@ -774,7 +767,6 @@
       "file_type": "code",
       "source_file": "scripts/generate-image.mjs",
       "source_location": "L35",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_generate_image_parseargs",
       "community": 62,
@@ -786,7 +778,6 @@
       "file_type": "code",
       "source_file": "scripts/generate-image.mjs",
       "source_location": "L50",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_generate_image_mimeof",
       "community": 62,
@@ -798,7 +789,6 @@
       "file_type": "code",
       "source_file": "scripts/generate-image.mjs",
       "source_location": "L55",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_generate_image_main",
       "community": 62,
@@ -865,7 +855,6 @@
       "file_type": "code",
       "source_file": "scripts/test-tailoring-engine.mjs",
       "source_location": "L11",
-      "_callable": true,
       "_origin": "ast",
       "id": "scripts_test_tailoring_engine_load",
       "community": 11,
@@ -1251,8 +1240,6 @@
       "file_type": "code",
       "source_file": "src/lib/process-diagrams.ts",
       "source_location": "L4",
-      "_callable": true,
-      "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_process_diagrams_gate",
       "community": 6,
@@ -1264,8 +1251,6 @@
       "file_type": "code",
       "source_file": "src/lib/process-diagrams.ts",
       "source_location": "L9",
-      "_callable": true,
-      "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_process_diagrams_phase",
       "community": 6,
@@ -1277,8 +1262,6 @@
       "file_type": "code",
       "source_file": "src/lib/process-diagrams.ts",
       "source_location": "L15",
-      "_callable": true,
-      "_callable_class": true,
       "_origin": "ast",
       "id": "src_lib_process_diagrams_activity",
       "community": 6,
@@ -1301,7 +1284,6 @@
       "file_type": "code",
       "source_file": "src/lib/process-diagrams.ts",
       "source_location": "L27",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_lib_process_diagrams_processpathsegment",
       "community": 6,
@@ -1313,7 +1295,6 @@
       "file_type": "code",
       "source_file": "src/lib/process-diagrams.ts",
       "source_location": "L33",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_lib_process_diagrams_esc",
       "community": 6,
@@ -1325,7 +1306,6 @@
       "file_type": "code",
       "source_file": "src/lib/process-diagrams.ts",
       "source_location": "L37",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_lib_process_diagrams_withslash",
       "community": 6,
@@ -1337,7 +1317,6 @@
       "file_type": "code",
       "source_file": "src/lib/process-diagrams.ts",
       "source_location": "L46",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_lib_process_diagrams_l1diagram",
       "community": 6,
@@ -1349,7 +1328,6 @@
       "file_type": "code",
       "source_file": "src/lib/process-diagrams.ts",
       "source_location": "L81",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_lib_process_diagrams_l2diagram",
       "community": 6,
@@ -1416,7 +1394,6 @@
       "file_type": "code",
       "source_file": "src/lib/tailoring-engine.mjs",
       "source_location": "L12",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_lib_tailoring_engine_targetkey",
       "community": 11,
@@ -1428,7 +1405,6 @@
       "file_type": "code",
       "source_file": "src/lib/tailoring-engine.mjs",
       "source_location": "L20",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_lib_tailoring_engine_visiblequestions",
       "community": 11,
@@ -1440,7 +1416,6 @@
       "file_type": "code",
       "source_file": "src/lib/tailoring-engine.mjs",
       "source_location": "L29",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_lib_tailoring_engine_rulematches",
       "community": 11,
@@ -1452,7 +1427,6 @@
       "file_type": "code",
       "source_file": "src/lib/tailoring-engine.mjs",
       "source_location": "L44",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_lib_tailoring_engine_evaluate",
       "community": 11,
@@ -1486,7 +1460,6 @@
       "file_type": "code",
       "source_file": "src/pages/phase4-process-design/process-model/[phase]/[activity].astro",
       "source_location": "L7",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_phase4_process_design_process_model_phase_activity_getstaticpaths",
       "community": 6,
@@ -1520,7 +1493,6 @@
       "file_type": "code",
       "source_file": "src/pages/phase4-process-design/process-model/[phase]/index.astro",
       "source_location": "L7",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_phase4_process_design_process_model_phase_index_getstaticpaths",
       "community": 6,
@@ -1554,7 +1526,6 @@
       "file_type": "code",
       "source_file": "src/pages/processes/[process]/[phase]/[activity].astro",
       "source_location": "L7",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_activity_getstaticpaths",
       "community": 6,
@@ -1577,7 +1548,6 @@
       "file_type": "code",
       "source_file": "src/pages/processes/[process]/[phase]/index.astro",
       "source_location": "L7",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_index_getstaticpaths",
       "community": 6,
@@ -1600,7 +1570,6 @@
       "file_type": "code",
       "source_file": "src/pages/processes/[process]/index.astro",
       "source_location": "L8",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_processes_process_index_getstaticpaths",
       "community": 6,
@@ -1722,7 +1691,6 @@
       "file_type": "code",
       "source_file": "src/pages/processes/integrated/[...path].astro",
       "source_location": "L8",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_processes_integrated_path_getstaticpaths",
       "community": 6,
@@ -1789,7 +1757,6 @@
       "file_type": "code",
       "source_file": "src/pages/tool/simulator.astro",
       "source_location": "L187",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_tool_simulator_if",
       "community": 11,
@@ -1801,7 +1768,6 @@
       "file_type": "code",
       "source_file": "src/pages/tool/simulator.astro",
       "source_location": "L274",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_tool_simulator_proposalstate",
       "community": 11,
@@ -1813,7 +1779,6 @@
       "file_type": "code",
       "source_file": "src/pages/tool/simulator.astro",
       "source_location": "L276",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_tool_simulator_effectivestate",
       "community": 11,
@@ -1825,7 +1790,6 @@
       "file_type": "code",
       "source_file": "src/pages/tool/simulator.astro",
       "source_location": "L279",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_tool_simulator_deviationlist",
       "community": 11,
@@ -1837,7 +1801,6 @@
       "file_type": "code",
       "source_file": "src/pages/tool/simulator.astro",
       "source_location": "L291",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_tool_simulator_renderadoption",
       "community": 11,
@@ -1849,7 +1812,6 @@
       "file_type": "code",
       "source_file": "src/pages/tool/simulator.astro",
       "source_location": "L306",
-      "_callable": true,
       "_origin": "ast",
       "id": "src_pages_tool_simulator_buildmarkdown",
       "community": 11,
@@ -7660,8 +7622,8 @@
       "source_location": "L108",
       "_origin": "ast",
       "id": "research_phase2_20260710_context_engineering_3_\u6697\u9ed9\u77e5\u306e\u5f62\u5f0f\u77e5\u5316\u3068\u3044\u3046\u89b3\u70b9_seci_\u30dd\u30e9\u30f3\u30cb\u30fc",
-      "community": 205,
-      "community_name": "3. \u6697\u9ed9\u77e5\u306e\u5f62\u5f0f\u77e5\u5316\u3068\u3044\u3046\u89b3\u70b9(SECI / \u30dd\u30e9\u30f3\u30cb\u30fc)",
+      "community": 8,
+      "community_name": "\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u30a8\u30f3\u30b8\u30cb\u30a2\u30ea\u30f3\u30b0\u624b\u6cd5 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "3. \u6697\u9ed9\u77e5\u306e\u5f62\u5f0f\u77e5\u5316\u3068\u3044\u3046\u89b3\u70b9(seci / \u30db\u30e9\u30f3\u30cb\u30fc)"
     },
     {
@@ -7671,8 +7633,8 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "research_phase2_20260710_context_engineering_3_1_\u30dd\u30e9\u30f3\u30cb\u30fc_\u6697\u9ed9\u77e5\u306e\u539f\u5178",
-      "community": 205,
-      "community_name": "3. \u6697\u9ed9\u77e5\u306e\u5f62\u5f0f\u77e5\u5316\u3068\u3044\u3046\u89b3\u70b9(SECI / \u30dd\u30e9\u30f3\u30cb\u30fc)",
+      "community": 8,
+      "community_name": "\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u30a8\u30f3\u30b8\u30cb\u30a2\u30ea\u30f3\u30b0\u624b\u6cd5 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "3.1 \u30db\u30e9\u30f3\u30cb\u30fc:\u6697\u9ed9\u77e5\u306e\u539f\u5178"
     },
     {
@@ -7682,8 +7644,8 @@
       "source_location": "L118",
       "_origin": "ast",
       "id": "research_phase2_20260710_context_engineering_3_2_\u91ce\u4e2d\u306e_seci_\u30e2\u30c7\u30eb_\u6697\u9ed9\u77e5_\u5f62\u5f0f\u77e5\u306e\u5909\u63db\u30b5\u30a4\u30af\u30eb",
-      "community": 205,
-      "community_name": "3. \u6697\u9ed9\u77e5\u306e\u5f62\u5f0f\u77e5\u5316\u3068\u3044\u3046\u89b3\u70b9(SECI / \u30dd\u30e9\u30f3\u30cb\u30fc)",
+      "community": 8,
+      "community_name": "\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u30a8\u30f3\u30b8\u30cb\u30a2\u30ea\u30f3\u30b0\u624b\u6cd5 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "3.2 \u91ce\u4e2d\u306e seci \u30e2\u30c6\u30eb:\u6697\u9ed9\u77e5\u21c4\u5f62\u5f0f\u77e5\u306e\u5909\u63db\u30b5\u30a4\u30af\u30eb"
     },
     {
@@ -7693,8 +7655,8 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "research_phase2_20260710_context_engineering_3_3_ce_\u624b\u6cd5\u3068_seci_\u30d7\u30ed\u30bb\u30b9\u306e\u5bfe\u5fdc_\u672c\u30e1\u30e2\u306e\u7d71\u5408_\u8003\u5bdf\u6271\u3044",
-      "community": 205,
-      "community_name": "3. \u6697\u9ed9\u77e5\u306e\u5f62\u5f0f\u77e5\u5316\u3068\u3044\u3046\u89b3\u70b9(SECI / \u30dd\u30e9\u30f3\u30cb\u30fc)",
+      "community": 8,
+      "community_name": "\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u30a8\u30f3\u30b8\u30cb\u30a2\u30ea\u30f3\u30b0\u624b\u6cd5 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "3.3 ce \u624b\u6cd5\u3068 seci \u30d5\u30ed\u30bb\u30b9\u306e\u5bfe\u5fdc(\u672c\u30e1\u30e2\u306e\u7d71\u5408\u3002\u2192 \u8003\u5bdf\u6271\u3044)"
     },
     {
@@ -30726,10 +30688,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "tmp_execution_plan",
       "community": 218,
       "community_name": "Process Compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b\uff08Issue #97\u301c#126 / \u516830\u4ef6\uff09",
-      "norm_label": "execution_plan.md"
+      "norm_label": "execution_plan.md",
+      "id": "tmp_execution_plan"
     },
     {
       "label": "Process Compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b\uff08Issue #97\u301c#126 / \u516830\u4ef6\uff09",
@@ -30737,10 +30699,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
       "community": 218,
       "community_name": "Process Compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b\uff08Issue #97\u301c#126 / \u516830\u4ef6\uff09",
-      "norm_label": "process compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b(issue #97\u301c#126 / \u516830\u4ef6)"
+      "norm_label": "process compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b(issue #97\u301c#126 / \u516830\u4ef6)",
+      "id": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6"
     },
     {
       "label": "0. \u672c\u8a08\u753b\u306e\u524d\u63d0\uff08\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad\uff09",
@@ -30748,10 +30710,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "tmp_execution_plan_0_\u672c\u8a08\u753b\u306e\u524d\u63d0_\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad",
       "community": 221,
       "community_name": "0. \u672c\u8a08\u753b\u306e\u524d\u63d0\uff08\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad\uff09",
-      "norm_label": "0. \u672c\u8a08\u753b\u306e\u524d\u63d0(\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad)"
+      "norm_label": "0. \u672c\u8a08\u753b\u306e\u524d\u63d0(\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad)",
+      "id": "tmp_execution_plan_0_\u672c\u8a08\u753b\u306e\u524d\u63d0_\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad"
     },
     {
       "label": "0.1 \u300c\u5b9f\u88c5\u300d\u306e\u5b9a\u7fa9",
@@ -30759,10 +30721,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "tmp_execution_plan_0_1_\u5b9f\u88c5_\u306e\u5b9a\u7fa9",
       "community": 221,
       "community_name": "0. \u672c\u8a08\u753b\u306e\u524d\u63d0\uff08\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad\uff09",
-      "norm_label": "0.1 \u300c\u5b9f\u88c5\u300d\u306e\u5b9a\u7fa9"
+      "norm_label": "0.1 \u300c\u5b9f\u88c5\u300d\u306e\u5b9a\u7fa9",
+      "id": "tmp_execution_plan_0_1_\u5b9f\u88c5_\u306e\u5b9a\u7fa9"
     },
     {
       "label": "0.2 5\u3064\u306e\u8a2d\u8a08\u67f1\uff08\u5168Issue\u5171\u901a\u306e\u6574\u5408\u57fa\u6e96\uff09",
@@ -30770,10 +30732,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L23",
       "_origin": "ast",
-      "id": "tmp_execution_plan_0_2_5\u3064\u306e\u8a2d\u8a08\u67f1_\u5168issue\u5171\u901a\u306e\u6574\u5408\u57fa\u6e96",
       "community": 221,
       "community_name": "0. \u672c\u8a08\u753b\u306e\u524d\u63d0\uff08\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad\uff09",
-      "norm_label": "0.2 5\u3064\u306e\u8a2d\u8a08\u67f1(\u5168issue\u5171\u901a\u306e\u6574\u5408\u57fa\u6e96)"
+      "norm_label": "0.2 5\u3064\u306e\u8a2d\u8a08\u67f1(\u5168issue\u5171\u901a\u306e\u6574\u5408\u57fa\u6e96)",
+      "id": "tmp_execution_plan_0_2_5\u3064\u306e\u8a2d\u8a08\u67f1_\u5168issue\u5171\u901a\u306e\u6574\u5408\u57fa\u6e96"
     },
     {
       "label": "0.3 \u57f7\u7b46\u898f\u7d04\uff08\u30d7\u30ed\u30b8\u30a7\u30af\u30c8 CLAUDE.md \u6e96\u62e0 + \u672c\u4ef6\u8ffd\u52a0\uff09",
@@ -30781,10 +30743,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "tmp_execution_plan_0_3_\u57f7\u7b46\u898f\u7d04_\u30d7\u30ed\u30b8\u30a7\u30af\u30c8_claude_md_\u6e96\u62e0_\u672c\u4ef6\u8ffd\u52a0",
       "community": 221,
       "community_name": "0. \u672c\u8a08\u753b\u306e\u524d\u63d0\uff08\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad\uff09",
-      "norm_label": "0.3 \u57f7\u7b46\u898f\u7d04(\u30d5\u30ed\u30b7\u30a7\u30af\u30c8 claude.md \u6e96\u62e0 + \u672c\u4ef6\u8ffd\u52a0)"
+      "norm_label": "0.3 \u57f7\u7b46\u898f\u7d04(\u30d5\u30ed\u30b7\u30a7\u30af\u30c8 claude.md \u6e96\u62e0 + \u672c\u4ef6\u8ffd\u52a0)",
+      "id": "tmp_execution_plan_0_3_\u57f7\u7b46\u898f\u7d04_\u30d7\u30ed\u30b8\u30a7\u30af\u30c8_claude_md_\u6e96\u62e0_\u672c\u4ef6\u8ffd\u52a0"
     },
     {
       "label": "0.4 Git \u904b\u7528\uff08\u30aa\u30fc\u30ca\u30fc\u6c7a\u5b9a 2026-08-05\uff09",
@@ -30792,10 +30754,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "tmp_execution_plan_0_4_git_\u904b\u7528_\u30aa\u30fc\u30ca\u30fc\u6c7a\u5b9a_2026_08_05",
       "community": 221,
       "community_name": "0. \u672c\u8a08\u753b\u306e\u524d\u63d0\uff08\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad\uff09",
-      "norm_label": "0.4 git \u904b\u7528(\u30aa\u30fc\u30ca\u30fc\u6c7a\u5b9a 2026-08-05)"
+      "norm_label": "0.4 git \u904b\u7528(\u30aa\u30fc\u30ca\u30fc\u6c7a\u5b9a 2026-08-05)",
+      "id": "tmp_execution_plan_0_4_git_\u904b\u7528_\u30aa\u30fc\u30ca\u30fc\u6c7a\u5b9a_2026_08_05"
     },
     {
       "label": "push \u624b\u9806\u306e\u6ce8\u610f\uff08graphify pre-push \u30d5\u30c3\u30af\uff09\u2605\u4e8b\u6545\u9632\u6b62",
@@ -30803,10 +30765,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "tmp_execution_plan_push_\u624b\u9806\u306e\u6ce8\u610f_graphify_pre_push_\u30d5\u30c3\u30af_\u4e8b\u6545\u9632\u6b62",
       "community": 221,
       "community_name": "0. \u672c\u8a08\u753b\u306e\u524d\u63d0\uff08\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad\uff09",
-      "norm_label": "push \u624b\u9806\u306e\u6ce8\u610f(graphify pre-push \u30d5\u30c3\u30af)\u2605\u4e8b\u6545\u9632\u6b62"
+      "norm_label": "push \u624b\u9806\u306e\u6ce8\u610f(graphify pre-push \u30d5\u30c3\u30af)\u2605\u4e8b\u6545\u9632\u6b62",
+      "id": "tmp_execution_plan_push_\u624b\u9806\u306e\u6ce8\u610f_graphify_pre_push_\u30d5\u30c3\u30af_\u4e8b\u6545\u9632\u6b62"
     },
     {
       "label": "1. \u4f5c\u696d\u5358\u4f4d\u306e\u6a19\u6e96\u624b\u9806\uff081 Issue \u3042\u305f\u308a\uff0f\u5fc5\u305a\u3053\u306e\u9806\u3067\u5b9f\u884c\uff09",
@@ -30814,10 +30776,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L68",
       "_origin": "ast",
-      "id": "tmp_execution_plan_1_\u4f5c\u696d\u5358\u4f4d\u306e\u6a19\u6e96\u624b\u9806_1_issue_\u3042\u305f\u308a_\u5fc5\u305a\u3053\u306e\u9806\u3067\u5b9f\u884c",
       "community": 218,
       "community_name": "Process Compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b\uff08Issue #97\u301c#126 / \u516830\u4ef6\uff09",
-      "norm_label": "1. \u4f5c\u696d\u5358\u4f4d\u306e\u6a19\u6e96\u624b\u9806(1 issue \u3042\u305f\u308a/\u5fc5\u3059\u3053\u306e\u9806\u3066\u5b9f\u884c)"
+      "norm_label": "1. \u4f5c\u696d\u5358\u4f4d\u306e\u6a19\u6e96\u624b\u9806(1 issue \u3042\u305f\u308a/\u5fc5\u3059\u3053\u306e\u9806\u3066\u5b9f\u884c)",
+      "id": "tmp_execution_plan_1_\u4f5c\u696d\u5358\u4f4d\u306e\u6a19\u6e96\u624b\u9806_1_issue_\u3042\u305f\u308a_\u5fc5\u305a\u3053\u306e\u9806\u3067\u5b9f\u884c"
     },
     {
       "label": "\u2605Web \u691c\u7d22\u67a0\uff082026-08-05 \u5224\u660e\u30fb\u91cd\u8981\uff09",
@@ -30825,10 +30787,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L89",
       "_origin": "ast",
-      "id": "tmp_execution_plan_web_\u691c\u7d22\u67a0_2026_08_05_\u5224\u660e_\u91cd\u8981",
       "community": 218,
       "community_name": "Process Compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b\uff08Issue #97\u301c#126 / \u516830\u4ef6\uff09",
-      "norm_label": "\u2605web \u691c\u7d22\u67a0(2026-08-05 \u5224\u660e\u30fb\u91cd\u8981)"
+      "norm_label": "\u2605web \u691c\u7d22\u67a0(2026-08-05 \u5224\u660e\u30fb\u91cd\u8981)",
+      "id": "tmp_execution_plan_web_\u691c\u7d22\u67a0_2026_08_05_\u5224\u660e_\u91cd\u8981"
     },
     {
       "label": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
@@ -30836,10 +30798,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L115",
       "_origin": "ast",
-      "id": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
       "community": 217,
       "community_name": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
-      "norm_label": "2. \u5b9f\u884c\u9806\u5e8f(8 wave / 30 issue)"
+      "norm_label": "2. \u5b9f\u884c\u9806\u5e8f(8 wave / 30 issue)",
+      "id": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue"
     },
     {
       "label": "Wave 0 \u2014 \u57fa\u76e4\u6574\u5099\uff08\u5668\u3068\u30c8\u30fc\u30f3\uff09 \u2605\u6700\u512a\u5148",
@@ -30847,10 +30809,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L119",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_0_\u57fa\u76e4\u6574\u5099_\u5668\u3068\u30c8\u30fc\u30f3_\u6700\u512a\u5148",
       "community": 217,
       "community_name": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
-      "norm_label": "wave 0 \u2014 \u57fa\u76e4\u6574\u5099(\u5668\u3068\u30c8\u30fc\u30f3) \u2605\u6700\u512a\u5148"
+      "norm_label": "wave 0 \u2014 \u57fa\u76e4\u6574\u5099(\u5668\u3068\u30c8\u30fc\u30f3) \u2605\u6700\u512a\u5148",
+      "id": "tmp_execution_plan_wave_0_\u57fa\u76e4\u6574\u5099_\u5668\u3068\u30c8\u30fc\u30f3_\u6700\u512a\u5148"
     },
     {
       "label": "Wave 1 \u2014 \u30de\u30af\u30ed\u30e9\u30a4\u30d5\u30b5\u30a4\u30af\u30eb\u3068\u671f\u65e5\u30ea\u30b9\u30af\uff08\u5916\u6bbb\u2460\uff09",
@@ -30858,10 +30820,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L128",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_1_\u30de\u30af\u30ed\u30e9\u30a4\u30d5\u30b5\u30a4\u30af\u30eb\u3068\u671f\u65e5\u30ea\u30b9\u30af_\u5916\u6bbb1",
       "community": 217,
       "community_name": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
-      "norm_label": "wave 1 \u2014 \u30de\u30af\u30ed\u30e9\u30a4\u30d5\u30b5\u30a4\u30af\u30eb\u3068\u671f\u65e5\u30ea\u30b9\u30af(\u5916\u6bbb1)"
+      "norm_label": "wave 1 \u2014 \u30de\u30af\u30ed\u30e9\u30a4\u30d5\u30b5\u30a4\u30af\u30eb\u3068\u671f\u65e5\u30ea\u30b9\u30af(\u5916\u6bbb1)",
+      "id": "tmp_execution_plan_wave_1_\u30de\u30af\u30ed\u30e9\u30a4\u30d5\u30b5\u30a4\u30af\u30eb\u3068\u671f\u65e5\u30ea\u30b9\u30af_\u5916\u6bbb1"
     },
     {
       "label": "Wave 2 \u2014 \u4f1a\u8b70\u4f53\u30fb\u6c7a\u88c1\u30fb\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa\uff08\u5916\u6bbb\u2461\uff09",
@@ -30869,10 +30831,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L136",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_2_\u4f1a\u8b70\u4f53_\u6c7a\u88c1_\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa_\u5916\u6bbb2",
       "community": 217,
       "community_name": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
-      "norm_label": "wave 2 \u2014 \u4f1a\u8b70\u4f53\u30fb\u6c7a\u88c1\u30fb\u30db\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa(\u5916\u6bbb2)"
+      "norm_label": "wave 2 \u2014 \u4f1a\u8b70\u4f53\u30fb\u6c7a\u88c1\u30fb\u30db\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa(\u5916\u6bbb2)",
+      "id": "tmp_execution_plan_wave_2_\u4f1a\u8b70\u4f53_\u6c7a\u88c1_\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa_\u5916\u6bbb2"
     },
     {
       "label": "Wave 3 \u2014 \u5f79\u5272\u3068\u30ed\u30fc\u30eb\uff08\u5185\u6bbb\u2460\uff09",
@@ -30880,10 +30842,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L145",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_3_\u5f79\u5272\u3068\u30ed\u30fc\u30eb_\u5185\u6bbb1",
       "community": 217,
       "community_name": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
-      "norm_label": "wave 3 \u2014 \u5f79\u5272\u3068\u30ed\u30fc\u30eb(\u5185\u6bbb1)"
+      "norm_label": "wave 3 \u2014 \u5f79\u5272\u3068\u30ed\u30fc\u30eb(\u5185\u6bbb1)",
+      "id": "tmp_execution_plan_wave_3_\u5f79\u5272\u3068\u30ed\u30fc\u30eb_\u5185\u6bbb1"
     },
     {
       "label": "Wave 4 \u2014 \u5f62\u9ab8\u5316\u9632\u6b62\u3068\u4e09\u8b58\uff08\u5185\u6bbb\u2461\uff09",
@@ -30891,10 +30853,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L154",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_4_\u5f62\u9ab8\u5316\u9632\u6b62\u3068\u4e09\u8b58_\u5185\u6bbb2",
       "community": 217,
       "community_name": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
-      "norm_label": "wave 4 \u2014 \u5f62\u9ab8\u5316\u9632\u6b62\u3068\u4e09\u8b58(\u5185\u6bbb2)"
+      "norm_label": "wave 4 \u2014 \u5f62\u9ab8\u5316\u9632\u6b62\u3068\u4e09\u8b58(\u5185\u6bbb2)",
+      "id": "tmp_execution_plan_wave_4_\u5f62\u9ab8\u5316\u9632\u6b62\u3068\u4e09\u8b58_\u5185\u6bbb2"
     },
     {
       "label": "Wave 5 \u2014 \u30bf\u30b9\u30af\u7ba1\u7406\u3068 AI SLA\uff08\u4ed5\u7d44\u307f\u2460\uff09",
@@ -30902,10 +30864,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L164",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_5_\u30bf\u30b9\u30af\u7ba1\u7406\u3068_ai_sla_\u4ed5\u7d44\u307f1",
       "community": 217,
       "community_name": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
-      "norm_label": "wave 5 \u2014 \u30bf\u30b9\u30af\u7ba1\u7406\u3068 ai sla(\u4ed5\u7d44\u307f1)"
+      "norm_label": "wave 5 \u2014 \u30bf\u30b9\u30af\u7ba1\u7406\u3068 ai sla(\u4ed5\u7d44\u307f1)",
+      "id": "tmp_execution_plan_wave_5_\u30bf\u30b9\u30af\u7ba1\u7406\u3068_ai_sla_\u4ed5\u7d44\u307f1"
     },
     {
       "label": "Wave 6 \u2014 \u5b89\u5168\u898f\u683c\u9069\u5408\uff08\u4ed5\u7d44\u307f\u2461\uff09",
@@ -30913,10 +30875,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L171",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_6_\u5b89\u5168\u898f\u683c\u9069\u5408_\u4ed5\u7d44\u307f2",
       "community": 217,
       "community_name": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
-      "norm_label": "wave 6 \u2014 \u5b89\u5168\u898f\u683c\u9069\u5408(\u4ed5\u7d44\u307f2)"
+      "norm_label": "wave 6 \u2014 \u5b89\u5168\u898f\u683c\u9069\u5408(\u4ed5\u7d44\u307f2)",
+      "id": "tmp_execution_plan_wave_6_\u5b89\u5168\u898f\u683c\u9069\u5408_\u4ed5\u7d44\u307f2"
     },
     {
       "label": "Wave 7 \u2014 \u793e\u4f1a\u5b9f\u88c5\u3068\u7dcf\u62ec",
@@ -30924,10 +30886,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L177",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_7_\u793e\u4f1a\u5b9f\u88c5\u3068\u7dcf\u62ec",
       "community": 217,
       "community_name": "2. \u5b9f\u884c\u9806\u5e8f\uff088 Wave / 30 Issue\uff09",
-      "norm_label": "wave 7 \u2014 \u793e\u4f1a\u5b9f\u88c5\u3068\u7dcf\u62ec"
+      "norm_label": "wave 7 \u2014 \u793e\u4f1a\u5b9f\u88c5\u3068\u7dcf\u62ec",
+      "id": "tmp_execution_plan_wave_7_\u793e\u4f1a\u5b9f\u88c5\u3068\u7dcf\u62ec"
     },
     {
       "label": "3. \u6210\u679c\u7269\u30de\u30c3\u30d7\uff08\u914d\u7f6e\u5148\u306e\u6307\u91dd\uff09",
@@ -30935,10 +30897,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L185",
       "_origin": "ast",
-      "id": "tmp_execution_plan_3_\u6210\u679c\u7269\u30de\u30c3\u30d7_\u914d\u7f6e\u5148\u306e\u6307\u91dd",
       "community": 218,
       "community_name": "Process Compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b\uff08Issue #97\u301c#126 / \u516830\u4ef6\uff09",
-      "norm_label": "3. \u6210\u679c\u7269\u30de\u30c3\u30d5(\u914d\u7f6e\u5148\u306e\u6307\u91dd)"
+      "norm_label": "3. \u6210\u679c\u7269\u30de\u30c3\u30d5(\u914d\u7f6e\u5148\u306e\u6307\u91dd)",
+      "id": "tmp_execution_plan_3_\u6210\u679c\u7269\u30de\u30c3\u30d7_\u914d\u7f6e\u5148\u306e\u6307\u91dd"
     },
     {
       "label": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8\uff08\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d\uff09",
@@ -30946,10 +30908,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L199",
       "_origin": "ast",
-      "id": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d",
       "community": 219,
       "community_name": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8\uff08\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d\uff09",
-      "norm_label": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30db\u30a4\u30f3\u30c8(\u7740\u624b\u6642\u306b\u5fc5\u3059\u78ba\u8a8d)"
+      "norm_label": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30db\u30a4\u30f3\u30c8(\u7740\u624b\u6642\u306b\u5fc5\u3059\u78ba\u8a8d)",
+      "id": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d"
     },
     {
       "label": "Wave 1 \u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\uff08\u4ee5\u964d\u306eWave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046\uff09",
@@ -30957,10 +30919,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L208",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_1_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
       "community": 219,
       "community_name": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8\uff08\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d\uff09",
-      "norm_label": "wave 1 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)"
+      "norm_label": "wave 1 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)",
+      "id": "tmp_execution_plan_wave_1_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "label": "Wave 2 \u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\uff08\u4ee5\u964d\u306eWave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046\uff09",
@@ -30968,10 +30930,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L222",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_2_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
       "community": 219,
       "community_name": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8\uff08\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d\uff09",
-      "norm_label": "wave 2 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)"
+      "norm_label": "wave 2 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)",
+      "id": "tmp_execution_plan_wave_2_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "label": "Wave 3 \u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\uff08\u4ee5\u964d\u306eWave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046\uff09",
@@ -30979,10 +30941,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L242",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_3_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
       "community": 219,
       "community_name": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8\uff08\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d\uff09",
-      "norm_label": "wave 3 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)"
+      "norm_label": "wave 3 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)",
+      "id": "tmp_execution_plan_wave_3_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "label": "Wave 4 \u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\u30fb\u8a2d\u8a08\u539f\u5247\uff08\u4ee5\u964d\u306eWave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046\uff09",
@@ -30990,10 +30952,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L261",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_4_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a2d\u8a08\u539f\u5247_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
       "community": 219,
       "community_name": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8\uff08\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d\uff09",
-      "norm_label": "wave 4 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\u30fb\u8a2d\u8a08\u539f\u5247(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)"
+      "norm_label": "wave 4 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\u30fb\u8a2d\u8a08\u539f\u5247(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)",
+      "id": "tmp_execution_plan_wave_4_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a2d\u8a08\u539f\u5247_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "label": "Wave 6 \u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\u30fb\u8a02\u6b63\uff08\u4ee5\u964d\u306eWave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046\uff09",
@@ -31001,10 +30963,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L282",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_6_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a02\u6b63_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
       "community": 219,
       "community_name": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8\uff08\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d\uff09",
-      "norm_label": "wave 6 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\u30fb\u8a02\u6b63(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)"
+      "norm_label": "wave 6 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\u30fb\u8a02\u6b63(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)",
+      "id": "tmp_execution_plan_wave_6_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a02\u6b63_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "label": "Wave 7 #121 \u3067\u78ba\u5b9a\u3057\u305f\u4e8b\u9805\uff08#126 \u306e\u7dcf\u62ec\u3067\u5fc5\u305a\u53cd\u6620\u3059\u308b\u3053\u3068\uff09",
@@ -31012,10 +30974,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L314",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_7_121_\u3067\u78ba\u5b9a\u3057\u305f\u4e8b\u9805_126_\u306e\u7dcf\u62ec\u3067\u5fc5\u305a\u53cd\u6620\u3059\u308b\u3053\u3068",
       "community": 219,
       "community_name": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8\uff08\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d\uff09",
-      "norm_label": "wave 7 #121 \u3066\u78ba\u5b9a\u3057\u305f\u4e8b\u9805(#126 \u306e\u7dcf\u62ec\u3066\u5fc5\u3059\u53cd\u6620\u3059\u308b\u3053\u3068)"
+      "norm_label": "wave 7 #121 \u3066\u78ba\u5b9a\u3057\u305f\u4e8b\u9805(#126 \u306e\u7dcf\u62ec\u3066\u5fc5\u3059\u53cd\u6620\u3059\u308b\u3053\u3068)",
+      "id": "tmp_execution_plan_wave_7_121_\u3067\u78ba\u5b9a\u3057\u305f\u4e8b\u9805_126_\u306e\u7dcf\u62ec\u3067\u5fc5\u305a\u53cd\u6620\u3059\u308b\u3053\u3068"
     },
     {
       "label": "Wave 5 \u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\u30fb\u8a02\u6b63\uff08\u4ee5\u964d\u306eWave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046\uff09",
@@ -31023,10 +30985,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L329",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_5_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a02\u6b63_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
       "community": 219,
       "community_name": "4. \u65e2\u77e5\u306e\u91cd\u8907\u30fb\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8\uff08\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d\uff09",
-      "norm_label": "wave 5 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\u30fb\u8a02\u6b63(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)"
+      "norm_label": "wave 5 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\u30fb\u8a02\u6b63(\u4ee5\u964d\u306ewave\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)",
+      "id": "tmp_execution_plan_wave_5_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a02\u6b63_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "label": "5. \u9032\u6357\u8868\uff08\u2605\u3053\u3053\u3092\u66f4\u65b0\u3059\u308b\uff09",
@@ -31034,10 +30996,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L357",
       "_origin": "ast",
-      "id": "tmp_execution_plan_5_\u9032\u6357\u8868_\u3053\u3053\u3092\u66f4\u65b0\u3059\u308b",
       "community": 218,
       "community_name": "Process Compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b\uff08Issue #97\u301c#126 / \u516830\u4ef6\uff09",
-      "norm_label": "5. \u9032\u6357\u8868(\u2605\u3053\u3053\u3092\u66f4\u65b0\u3059\u308b)"
+      "norm_label": "5. \u9032\u6357\u8868(\u2605\u3053\u3053\u3092\u66f4\u65b0\u3059\u308b)",
+      "id": "tmp_execution_plan_5_\u9032\u6357\u8868_\u3053\u3053\u3092\u66f4\u65b0\u3059\u308b"
     },
     {
       "label": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
@@ -31045,10 +31007,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L398",
       "_origin": "ast",
-      "id": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304d(2026-08-06 \u6642\u70b9\u30fb\u6700\u65b0)"
+      "norm_label": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304d(2026-08-06 \u6642\u70b9\u30fb\u6700\u65b0)",
+      "id": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0"
     },
     {
       "label": "\u73fe\u5728\u5730\uff082026-08-06 \u5915\u65b9\u306b\u66f4\u65b0\uff09",
@@ -31056,10 +31018,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L403",
       "_origin": "ast",
-      "id": "tmp_execution_plan_\u73fe\u5728\u5730_2026_08_06_\u5915\u65b9\u306b\u66f4\u65b0",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "\u73fe\u5728\u5730(2026-08-06 \u5915\u65b9\u306b\u66f4\u65b0)"
+      "norm_label": "\u73fe\u5728\u5730(2026-08-06 \u5915\u65b9\u306b\u66f4\u65b0)",
+      "id": "tmp_execution_plan_\u73fe\u5728\u5730_2026_08_06_\u5915\u65b9\u306b\u66f4\u65b0"
     },
     {
       "label": "#142 \u3067\u5909\u308f\u3063\u305f URL\uff08\u91cd\u8981\uff09",
@@ -31067,10 +31029,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L412",
       "_origin": "ast",
-      "id": "tmp_execution_plan_142_\u3067\u5909\u308f\u3063\u305f_url_\u91cd\u8981",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "#142 \u3066\u5909\u308f\u3063\u305f url(\u91cd\u8981)"
+      "norm_label": "#142 \u3066\u5909\u308f\u3063\u305f url(\u91cd\u8981)",
+      "id": "tmp_execution_plan_142_\u3067\u5909\u308f\u3063\u305f_url_\u91cd\u8981"
     },
     {
       "label": "\u6700\u521d\u306e3\u624b",
@@ -31078,10 +31040,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L421",
       "_origin": "ast",
-      "id": "tmp_execution_plan_\u6700\u521d\u306e3\u624b",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "\u6700\u521d\u306e3\u624b"
+      "norm_label": "\u6700\u521d\u306e3\u624b",
+      "id": "tmp_execution_plan_\u6700\u521d\u306e3\u624b"
     },
     {
       "label": "#133 \u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08\uff08\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068\uff09",
@@ -31089,10 +31051,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L427",
       "_origin": "ast",
-      "id": "tmp_execution_plan_133_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "#133 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)"
+      "norm_label": "#133 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)",
+      "id": "tmp_execution_plan_133_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "label": "#132 \u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08\uff08\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068\uff09",
@@ -31100,10 +31062,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L440",
       "_origin": "ast",
-      "id": "tmp_execution_plan_132_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "#132 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)"
+      "norm_label": "#132 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)",
+      "id": "tmp_execution_plan_132_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "label": "#130 \u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08\uff08\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068\uff09",
@@ -31111,10 +31073,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L451",
       "_origin": "ast",
-      "id": "tmp_execution_plan_130_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "#130 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)"
+      "norm_label": "#130 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)",
+      "id": "tmp_execution_plan_130_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "label": "#143 \u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08\uff08\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068\uff09",
@@ -31122,10 +31084,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L462",
       "_origin": "ast",
-      "id": "tmp_execution_plan_143_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "#143 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)"
+      "norm_label": "#143 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)",
+      "id": "tmp_execution_plan_143_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "label": "#129 \u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08\uff08\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068\uff09",
@@ -31133,10 +31095,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L472",
       "_origin": "ast",
-      "id": "tmp_execution_plan_129_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "#129 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)"
+      "norm_label": "#129 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)",
+      "id": "tmp_execution_plan_129_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "label": "#141 \u3067\u5224\u660e\u3057\u305f\u91cd\u8981\u306a\u8a02\u6b63\uff08\u5f15\u7528\u3057\u306a\u3044\u3053\u3068\u30fb\u5f15\u7528\u3059\u308b\u3053\u3068\uff09",
@@ -31144,10 +31106,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L487",
       "_origin": "ast",
-      "id": "tmp_execution_plan_141_\u3067\u5224\u660e\u3057\u305f\u91cd\u8981\u306a\u8a02\u6b63_\u5f15\u7528\u3057\u306a\u3044\u3053\u3068_\u5f15\u7528\u3059\u308b\u3053\u3068",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "#141 \u3066\u5224\u660e\u3057\u305f\u91cd\u8981\u306a\u8a02\u6b63(\u5f15\u7528\u3057\u306a\u3044\u3053\u3068\u30fb\u5f15\u7528\u3059\u308b\u3053\u3068)"
+      "norm_label": "#141 \u3066\u5224\u660e\u3057\u305f\u91cd\u8981\u306a\u8a02\u6b63(\u5f15\u7528\u3057\u306a\u3044\u3053\u3068\u30fb\u5f15\u7528\u3059\u308b\u3053\u3068)",
+      "id": "tmp_execution_plan_141_\u3067\u5224\u660e\u3057\u305f\u91cd\u8981\u306a\u8a02\u6b63_\u5f15\u7528\u3057\u306a\u3044\u3053\u3068_\u5f15\u7528\u3059\u308b\u3053\u3068"
     },
     {
       "label": "#140\u30fb#131 \u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59\uff08\u4ee5\u964d\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046\uff09",
@@ -31155,10 +31117,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L494",
       "_origin": "ast",
-      "id": "tmp_execution_plan_140_131_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "#140\u30fb#131 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59(\u4ee5\u964d\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)"
+      "norm_label": "#140\u30fb#131 \u3066\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59(\u4ee5\u964d\u306f\u5fc5\u3059\u3053\u308c\u306b\u5f93\u3046)",
+      "id": "tmp_execution_plan_140_131_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "label": "\u3053\u306e2\u30bb\u30c3\u30b7\u30e7\u30f3\u3067\u78ba\u7acb\u3057\u305f\u4f5c\u6cd5\uff08\u5fc5\u305a\u8e0f\u8972\u3059\u308b\u3053\u3068\uff09",
@@ -31166,10 +31128,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L507",
       "_origin": "ast",
-      "id": "tmp_execution_plan_\u3053\u306e2\u30bb\u30c3\u30b7\u30e7\u30f3\u3067\u78ba\u7acb\u3057\u305f\u4f5c\u6cd5_\u5fc5\u305a\u8e0f\u8972\u3059\u308b\u3053\u3068",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "\u3053\u306e2\u30bb\u30c3\u30b7\u30e7\u30f3\u3066\u78ba\u7acb\u3057\u305f\u4f5c\u6cd5(\u5fc5\u3059\u8e0f\u8972\u3059\u308b\u3053\u3068)"
+      "norm_label": "\u3053\u306e2\u30bb\u30c3\u30b7\u30e7\u30f3\u3066\u78ba\u7acb\u3057\u305f\u4f5c\u6cd5(\u5fc5\u3059\u8e0f\u8972\u3059\u308b\u3053\u3068)",
+      "id": "tmp_execution_plan_\u3053\u306e2\u30bb\u30c3\u30b7\u30e7\u30f3\u3067\u78ba\u7acb\u3057\u305f\u4f5c\u6cd5_\u5fc5\u305a\u8e0f\u8972\u3059\u308b\u3053\u3068"
     },
     {
       "label": "\u74b0\u5883\u306e\u6ce8\u610f\uff082026-08-06 \u306b\u767a\u751f\uff09",
@@ -31177,10 +31139,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L516",
       "_origin": "ast",
-      "id": "tmp_execution_plan_\u74b0\u5883\u306e\u6ce8\u610f_2026_08_06_\u306b\u767a\u751f",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "\u74b0\u5883\u306e\u6ce8\u610f(2026-08-06 \u306b\u767a\u751f)"
+      "norm_label": "\u74b0\u5883\u306e\u6ce8\u610f(2026-08-06 \u306b\u767a\u751f)",
+      "id": "tmp_execution_plan_\u74b0\u5883\u306e\u6ce8\u610f_2026_08_06_\u306b\u767a\u751f"
     },
     {
       "label": "\u672a\u5bfe\u5fdc\u306e\u307e\u307e\u6b8b\u3057\u3066\u3044\u308b\u8ad6\u70b9",
@@ -31188,10 +31150,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L523",
       "_origin": "ast",
-      "id": "tmp_execution_plan_\u672a\u5bfe\u5fdc\u306e\u307e\u307e\u6b8b\u3057\u3066\u3044\u308b\u8ad6\u70b9",
       "community": 101,
       "community_name": "5.4 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-06 \u6642\u70b9\u30fb\u6700\u65b0\uff09",
-      "norm_label": "\u672a\u5bfe\u5fdc\u306e\u307e\u307e\u6b8b\u3057\u3066\u3044\u308b\u8ad6\u70b9"
+      "norm_label": "\u672a\u5bfe\u5fdc\u306e\u307e\u307e\u6b8b\u3057\u3066\u3044\u308b\u8ad6\u70b9",
+      "id": "tmp_execution_plan_\u672a\u5bfe\u5fdc\u306e\u307e\u307e\u6b8b\u3057\u3066\u3044\u308b\u8ad6\u70b9"
     },
     {
       "label": "5.5 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-05 \u6642\u70b9\u30fbWave 5 \u5b8c\u4e86\u3002\u5c65\u6b74\uff09",
@@ -31199,10 +31161,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L532",
       "_origin": "ast",
-      "id": "tmp_execution_plan_5_5_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_05_\u6642\u70b9_wave_5_\u5b8c\u4e86_\u5c65\u6b74",
       "community": 224,
       "community_name": "5.5 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-05 \u6642\u70b9\u30fbWave 5 \u5b8c\u4e86\u3002\u5c65\u6b74\uff09",
-      "norm_label": "5.5 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304d(2026-08-05 \u6642\u70b9\u30fbwave 5 \u5b8c\u4e86\u3002\u5c65\u6b74)"
+      "norm_label": "5.5 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304d(2026-08-05 \u6642\u70b9\u30fbwave 5 \u5b8c\u4e86\u3002\u5c65\u6b74)",
+      "id": "tmp_execution_plan_5_5_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_05_\u6642\u70b9_wave_5_\u5b8c\u4e86_\u5c65\u6b74"
     },
     {
       "label": "\u73fe\u5728\u5730",
@@ -31210,10 +31172,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L534",
       "_origin": "ast",
-      "id": "tmp_execution_plan_\u73fe\u5728\u5730",
       "community": 224,
       "community_name": "5.5 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-05 \u6642\u70b9\u30fbWave 5 \u5b8c\u4e86\u3002\u5c65\u6b74\uff09",
-      "norm_label": "\u73fe\u5728\u5730"
+      "norm_label": "\u73fe\u5728\u5730",
+      "id": "tmp_execution_plan_\u73fe\u5728\u5730"
     },
     {
       "label": "\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u306e\u6700\u521d\u306e3\u624b",
@@ -31221,10 +31183,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L541",
       "_origin": "ast",
-      "id": "tmp_execution_plan_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u306e\u6700\u521d\u306e3\u624b",
       "community": 224,
       "community_name": "5.5 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-05 \u6642\u70b9\u30fbWave 5 \u5b8c\u4e86\u3002\u5c65\u6b74\uff09",
-      "norm_label": "\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u306e\u6700\u521d\u306e3\u624b"
+      "norm_label": "\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u306e\u6700\u521d\u306e3\u624b",
+      "id": "tmp_execution_plan_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u306e\u6700\u521d\u306e3\u624b"
     },
     {
       "label": "Wave 6\uff08#122\u30fb#123\uff09\u306e\u8a2d\u8a08\u4e0a\u306e\u6ce8\u610f",
@@ -31232,10 +31194,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L547",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_6_122_123_\u306e\u8a2d\u8a08\u4e0a\u306e\u6ce8\u610f",
       "community": 224,
       "community_name": "5.5 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-05 \u6642\u70b9\u30fbWave 5 \u5b8c\u4e86\u3002\u5c65\u6b74\uff09",
-      "norm_label": "wave 6(#122\u30fb#123)\u306e\u8a2d\u8a08\u4e0a\u306e\u6ce8\u610f"
+      "norm_label": "wave 6(#122\u30fb#123)\u306e\u8a2d\u8a08\u4e0a\u306e\u6ce8\u610f",
+      "id": "tmp_execution_plan_wave_6_122_123_\u306e\u8a2d\u8a08\u4e0a\u306e\u6ce8\u610f"
     },
     {
       "label": "Wave 5 \u3067\u6b8b\u3057\u305f\u5bbf\u984c\uff08#126 \u306e\u524d\u306b\u88dc\u5b8c\u3092\u691c\u8a0e\uff09",
@@ -31243,10 +31205,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L578",
       "_origin": "ast",
-      "id": "tmp_execution_plan_wave_5_\u3067\u6b8b\u3057\u305f\u5bbf\u984c_126_\u306e\u524d\u306b\u88dc\u5b8c\u3092\u691c\u8a0e",
       "community": 224,
       "community_name": "5.5 \u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e\uff082026-08-05 \u6642\u70b9\u30fbWave 5 \u5b8c\u4e86\u3002\u5c65\u6b74\uff09",
-      "norm_label": "wave 5 \u3066\u6b8b\u3057\u305f\u5bbf\u984c(#126 \u306e\u524d\u306b\u88dc\u5b8c\u3092\u691c\u8a0e)"
+      "norm_label": "wave 5 \u3066\u6b8b\u3057\u305f\u5bbf\u984c(#126 \u306e\u524d\u306b\u88dc\u5b8c\u3092\u691c\u8a0e)",
+      "id": "tmp_execution_plan_wave_5_\u3067\u6b8b\u3057\u305f\u5bbf\u984c_126_\u306e\u524d\u306b\u88dc\u5b8c\u3092\u691c\u8a0e"
     },
     {
       "label": "5.6 \u7a4d\u307f\u6b8b\u3057\uff08\u6b21\u306b\u7740\u624b\u3059\u308b\u5019\u88dc\uff09",
@@ -31254,10 +31216,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L590",
       "_origin": "ast",
-      "id": "tmp_execution_plan_5_6_\u7a4d\u307f\u6b8b\u3057_\u6b21\u306b\u7740\u624b\u3059\u308b\u5019\u88dc",
       "community": 218,
       "community_name": "Process Compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b\uff08Issue #97\u301c#126 / \u516830\u4ef6\uff09",
-      "norm_label": "5.6 \u7a4d\u307f\u6b8b\u3057(\u6b21\u306b\u7740\u624b\u3059\u308b\u5019\u88dc)"
+      "norm_label": "5.6 \u7a4d\u307f\u6b8b\u3057(\u6b21\u306b\u7740\u624b\u3059\u308b\u5019\u88dc)",
+      "id": "tmp_execution_plan_5_6_\u7a4d\u307f\u6b8b\u3057_\u6b21\u306b\u7740\u624b\u3059\u308b\u5019\u88dc"
     },
     {
       "label": "6. \u5b8c\u4e86\u306e\u5b9a\u7fa9\uff08\u5168\u4f53\uff09",
@@ -31265,10 +31227,10 @@
       "source_file": "tmp/EXECUTION_PLAN.md",
       "source_location": "L616",
       "_origin": "ast",
-      "id": "tmp_execution_plan_6_\u5b8c\u4e86\u306e\u5b9a\u7fa9_\u5168\u4f53",
       "community": 218,
       "community_name": "Process Compass \u6539\u4fee \u5b9f\u884c\u8a08\u753b\uff08Issue #97\u301c#126 / \u516830\u4ef6\uff09",
-      "norm_label": "6. \u5b8c\u4e86\u306e\u5b9a\u7fa9(\u5168\u4f53)"
+      "norm_label": "6. \u5b8c\u4e86\u306e\u5b9a\u7fa9(\u5168\u4f53)",
+      "id": "tmp_execution_plan_6_\u5b8c\u4e86\u306e\u5b9a\u7fa9_\u5168\u4f53"
     },
     {
       "label": "memo_traceability.md",
@@ -31276,10 +31238,10 @@
       "source_file": "tmp/memo_traceability.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "tmp_memo_traceability",
       "community": 173,
       "community_name": "memo.txt \u2194 Issue \u7a81\u5408\u8868",
-      "norm_label": "memo_traceability.md"
+      "norm_label": "memo_traceability.md",
+      "id": "tmp_memo_traceability"
     },
     {
       "label": "memo.txt \u2194 Issue \u7a81\u5408\u8868",
@@ -31287,10 +31249,10 @@
       "source_file": "tmp/memo_traceability.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868",
       "community": 173,
       "community_name": "memo.txt \u2194 Issue \u7a81\u5408\u8868",
-      "norm_label": "memo.txt \u2194 issue \u7a81\u5408\u8868"
+      "norm_label": "memo.txt \u2194 issue \u7a81\u5408\u8868",
+      "id": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868"
     },
     {
       "label": "\u7d4c\u7def\uff08\u518d\u767a\u9632\u6b62\u306e\u305f\u3081\u8a18\u9332\u3059\u308b\uff09",
@@ -31298,10 +31260,10 @@
       "source_file": "tmp/memo_traceability.md",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "tmp_memo_traceability_\u7d4c\u7def_\u518d\u767a\u9632\u6b62\u306e\u305f\u3081\u8a18\u9332\u3059\u308b",
       "community": 173,
       "community_name": "memo.txt \u2194 Issue \u7a81\u5408\u8868",
-      "norm_label": "\u7d4c\u7def(\u518d\u767a\u9632\u6b62\u306e\u305f\u3081\u8a18\u9332\u3059\u308b)"
+      "norm_label": "\u7d4c\u7def(\u518d\u767a\u9632\u6b62\u306e\u305f\u3081\u8a18\u9332\u3059\u308b)",
+      "id": "tmp_memo_traceability_\u7d4c\u7def_\u518d\u767a\u9632\u6b62\u306e\u305f\u3081\u8a18\u9332\u3059\u308b"
     },
     {
       "label": "\u7a81\u5408\u8868",
@@ -31309,10 +31271,10 @@
       "source_file": "tmp/memo_traceability.md",
       "source_location": "L16",
       "_origin": "ast",
-      "id": "tmp_memo_traceability_\u7a81\u5408\u8868",
       "community": 173,
       "community_name": "memo.txt \u2194 Issue \u7a81\u5408\u8868",
-      "norm_label": "\u7a81\u5408\u8868"
+      "norm_label": "\u7a81\u5408\u8868",
+      "id": "tmp_memo_traceability_\u7a81\u5408\u8868"
     },
     {
       "label": "\u96c6\u8a08",
@@ -31320,10 +31282,10 @@
       "source_file": "tmp/memo_traceability.md",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "tmp_memo_traceability_\u96c6\u8a08",
       "community": 173,
       "community_name": "memo.txt \u2194 Issue \u7a81\u5408\u8868",
-      "norm_label": "\u96c6\u8a08"
+      "norm_label": "\u96c6\u8a08",
+      "id": "tmp_memo_traceability_\u96c6\u8a08"
     },
     {
       "label": "\u672a\u5bfe\u5fdc\u30fb\u30ba\u30ec4\u4ef6\u306e\u5185\u8a33",
@@ -31331,10 +31293,10 @@
       "source_file": "tmp/memo_traceability.md",
       "source_location": "L60",
       "_origin": "ast",
-      "id": "tmp_memo_traceability_\u672a\u5bfe\u5fdc_\u30ba\u30ec4\u4ef6\u306e\u5185\u8a33",
       "community": 173,
       "community_name": "memo.txt \u2194 Issue \u7a81\u5408\u8868",
-      "norm_label": "\u672a\u5bfe\u5fdc\u30fb\u30b9\u30ec4\u4ef6\u306e\u5185\u8a33"
+      "norm_label": "\u672a\u5bfe\u5fdc\u30fb\u30b9\u30ec4\u4ef6\u306e\u5185\u8a33",
+      "id": "tmp_memo_traceability_\u672a\u5bfe\u5fdc_\u30ba\u30ec4\u4ef6\u306e\u5185\u8a33"
     },
     {
       "label": "\u5bfe\u5fdc Epic",
@@ -31342,10 +31304,10 @@
       "source_file": "tmp/memo_traceability.md",
       "source_location": "L69",
       "_origin": "ast",
-      "id": "tmp_memo_traceability_\u5bfe\u5fdc_epic",
       "community": 173,
       "community_name": "memo.txt \u2194 Issue \u7a81\u5408\u8868",
-      "norm_label": "\u5bfe\u5fdc epic"
+      "norm_label": "\u5bfe\u5fdc epic",
+      "id": "tmp_memo_traceability_\u5bfe\u5fdc_epic"
     },
     {
       "label": "#140 \u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08\uff08\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068\uff09",
@@ -31353,10 +31315,10 @@
       "source_file": "tmp/memo_traceability.md",
       "source_location": "L82",
       "_origin": "ast",
-      "id": "tmp_memo_traceability_140_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
       "community": 173,
       "community_name": "memo.txt \u2194 Issue \u7a81\u5408\u8868",
-      "norm_label": "#140 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)"
+      "norm_label": "#140 \u3066\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08(\u5f8c\u7d9a\u3066\u8986\u3055\u306a\u3044\u3053\u3068)",
+      "id": "tmp_memo_traceability_140_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     }
   ],
   "links": [
@@ -60939,9 +60901,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan",
-      "target": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6"
     },
     {
       "relation": "contains",
@@ -60950,9 +60912,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_0_\u672c\u8a08\u753b\u306e\u524d\u63d0_\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_0_\u672c\u8a08\u753b\u306e\u524d\u63d0_\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad"
     },
     {
       "relation": "contains",
@@ -60961,9 +60923,9 @@
       "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_1_\u4f5c\u696d\u5358\u4f4d\u306e\u6a19\u6e96\u624b\u9806_1_issue_\u3042\u305f\u308a_\u5fc5\u305a\u3053\u306e\u9806\u3067\u5b9f\u884c",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_1_\u4f5c\u696d\u5358\u4f4d\u306e\u6a19\u6e96\u624b\u9806_1_issue_\u3042\u305f\u308a_\u5fc5\u305a\u3053\u306e\u9806\u3067\u5b9f\u884c"
     },
     {
       "relation": "contains",
@@ -60972,9 +60934,9 @@
       "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue"
     },
     {
       "relation": "contains",
@@ -60983,9 +60945,9 @@
       "source_location": "L185",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_3_\u6210\u679c\u7269\u30de\u30c3\u30d7_\u914d\u7f6e\u5148\u306e\u6307\u91dd",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_3_\u6210\u679c\u7269\u30de\u30c3\u30d7_\u914d\u7f6e\u5148\u306e\u6307\u91dd"
     },
     {
       "relation": "contains",
@@ -60994,9 +60956,9 @@
       "source_location": "L199",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d"
     },
     {
       "relation": "contains",
@@ -61005,9 +60967,9 @@
       "source_location": "L398",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0"
     },
     {
       "relation": "contains",
@@ -61016,9 +60978,9 @@
       "source_location": "L532",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_5_5_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_05_\u6642\u70b9_wave_5_\u5b8c\u4e86_\u5c65\u6b74",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_5_5_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_05_\u6642\u70b9_wave_5_\u5b8c\u4e86_\u5c65\u6b74"
     },
     {
       "relation": "contains",
@@ -61027,9 +60989,9 @@
       "source_location": "L590",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_5_6_\u7a4d\u307f\u6b8b\u3057_\u6b21\u306b\u7740\u624b\u3059\u308b\u5019\u88dc",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_5_6_\u7a4d\u307f\u6b8b\u3057_\u6b21\u306b\u7740\u624b\u3059\u308b\u5019\u88dc"
     },
     {
       "relation": "contains",
@@ -61038,9 +61000,9 @@
       "source_location": "L357",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_5_\u9032\u6357\u8868_\u3053\u3053\u3092\u66f4\u65b0\u3059\u308b",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_5_\u9032\u6357\u8868_\u3053\u3053\u3092\u66f4\u65b0\u3059\u308b"
     },
     {
       "relation": "contains",
@@ -61049,9 +61011,9 @@
       "source_location": "L616",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_process_compass_\u6539\u4fee_\u5b9f\u884c\u8a08\u753b_issue_97_126_\u516830\u4ef6",
-      "target": "tmp_execution_plan_6_\u5b8c\u4e86\u306e\u5b9a\u7fa9_\u5168\u4f53",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_6_\u5b8c\u4e86\u306e\u5b9a\u7fa9_\u5168\u4f53"
     },
     {
       "relation": "contains",
@@ -61060,9 +61022,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_0_\u672c\u8a08\u753b\u306e\u524d\u63d0_\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad",
-      "target": "tmp_execution_plan_0_1_\u5b9f\u88c5_\u306e\u5b9a\u7fa9",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_0_1_\u5b9f\u88c5_\u306e\u5b9a\u7fa9"
     },
     {
       "relation": "contains",
@@ -61071,9 +61033,9 @@
       "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_0_\u672c\u8a08\u753b\u306e\u524d\u63d0_\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad",
-      "target": "tmp_execution_plan_0_2_5\u3064\u306e\u8a2d\u8a08\u67f1_\u5168issue\u5171\u901a\u306e\u6574\u5408\u57fa\u6e96",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_0_2_5\u3064\u306e\u8a2d\u8a08\u67f1_\u5168issue\u5171\u901a\u306e\u6574\u5408\u57fa\u6e96"
     },
     {
       "relation": "contains",
@@ -61082,9 +61044,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_0_\u672c\u8a08\u753b\u306e\u524d\u63d0_\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad",
-      "target": "tmp_execution_plan_0_3_\u57f7\u7b46\u898f\u7d04_\u30d7\u30ed\u30b8\u30a7\u30af\u30c8_claude_md_\u6e96\u62e0_\u672c\u4ef6\u8ffd\u52a0",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_0_3_\u57f7\u7b46\u898f\u7d04_\u30d7\u30ed\u30b8\u30a7\u30af\u30c8_claude_md_\u6e96\u62e0_\u672c\u4ef6\u8ffd\u52a0"
     },
     {
       "relation": "contains",
@@ -61093,9 +61055,9 @@
       "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_0_\u672c\u8a08\u753b\u306e\u524d\u63d0_\u6bce\u30bb\u30c3\u30b7\u30e7\u30f3\u5fc5\u8aad",
-      "target": "tmp_execution_plan_0_4_git_\u904b\u7528_\u30aa\u30fc\u30ca\u30fc\u6c7a\u5b9a_2026_08_05",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_0_4_git_\u904b\u7528_\u30aa\u30fc\u30ca\u30fc\u6c7a\u5b9a_2026_08_05"
     },
     {
       "relation": "contains",
@@ -61104,9 +61066,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_0_4_git_\u904b\u7528_\u30aa\u30fc\u30ca\u30fc\u6c7a\u5b9a_2026_08_05",
-      "target": "tmp_execution_plan_push_\u624b\u9806\u306e\u6ce8\u610f_graphify_pre_push_\u30d5\u30c3\u30af_\u4e8b\u6545\u9632\u6b62",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_push_\u624b\u9806\u306e\u6ce8\u610f_graphify_pre_push_\u30d5\u30c3\u30af_\u4e8b\u6545\u9632\u6b62"
     },
     {
       "relation": "contains",
@@ -61115,9 +61077,9 @@
       "source_location": "L89",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_1_\u4f5c\u696d\u5358\u4f4d\u306e\u6a19\u6e96\u624b\u9806_1_issue_\u3042\u305f\u308a_\u5fc5\u305a\u3053\u306e\u9806\u3067\u5b9f\u884c",
-      "target": "tmp_execution_plan_web_\u691c\u7d22\u67a0_2026_08_05_\u5224\u660e_\u91cd\u8981",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_web_\u691c\u7d22\u67a0_2026_08_05_\u5224\u660e_\u91cd\u8981"
     },
     {
       "relation": "contains",
@@ -61126,9 +61088,9 @@
       "source_location": "L119",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
-      "target": "tmp_execution_plan_wave_0_\u57fa\u76e4\u6574\u5099_\u5668\u3068\u30c8\u30fc\u30f3_\u6700\u512a\u5148",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_0_\u57fa\u76e4\u6574\u5099_\u5668\u3068\u30c8\u30fc\u30f3_\u6700\u512a\u5148"
     },
     {
       "relation": "contains",
@@ -61137,9 +61099,9 @@
       "source_location": "L128",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
-      "target": "tmp_execution_plan_wave_1_\u30de\u30af\u30ed\u30e9\u30a4\u30d5\u30b5\u30a4\u30af\u30eb\u3068\u671f\u65e5\u30ea\u30b9\u30af_\u5916\u6bbb1",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_1_\u30de\u30af\u30ed\u30e9\u30a4\u30d5\u30b5\u30a4\u30af\u30eb\u3068\u671f\u65e5\u30ea\u30b9\u30af_\u5916\u6bbb1"
     },
     {
       "relation": "contains",
@@ -61148,9 +61110,9 @@
       "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
-      "target": "tmp_execution_plan_wave_2_\u4f1a\u8b70\u4f53_\u6c7a\u88c1_\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa_\u5916\u6bbb2",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_2_\u4f1a\u8b70\u4f53_\u6c7a\u88c1_\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa_\u5916\u6bbb2"
     },
     {
       "relation": "contains",
@@ -61159,9 +61121,9 @@
       "source_location": "L145",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
-      "target": "tmp_execution_plan_wave_3_\u5f79\u5272\u3068\u30ed\u30fc\u30eb_\u5185\u6bbb1",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_3_\u5f79\u5272\u3068\u30ed\u30fc\u30eb_\u5185\u6bbb1"
     },
     {
       "relation": "contains",
@@ -61170,9 +61132,9 @@
       "source_location": "L154",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
-      "target": "tmp_execution_plan_wave_4_\u5f62\u9ab8\u5316\u9632\u6b62\u3068\u4e09\u8b58_\u5185\u6bbb2",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_4_\u5f62\u9ab8\u5316\u9632\u6b62\u3068\u4e09\u8b58_\u5185\u6bbb2"
     },
     {
       "relation": "contains",
@@ -61181,9 +61143,9 @@
       "source_location": "L164",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
-      "target": "tmp_execution_plan_wave_5_\u30bf\u30b9\u30af\u7ba1\u7406\u3068_ai_sla_\u4ed5\u7d44\u307f1",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_5_\u30bf\u30b9\u30af\u7ba1\u7406\u3068_ai_sla_\u4ed5\u7d44\u307f1"
     },
     {
       "relation": "contains",
@@ -61192,9 +61154,9 @@
       "source_location": "L171",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
-      "target": "tmp_execution_plan_wave_6_\u5b89\u5168\u898f\u683c\u9069\u5408_\u4ed5\u7d44\u307f2",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_6_\u5b89\u5168\u898f\u683c\u9069\u5408_\u4ed5\u7d44\u307f2"
     },
     {
       "relation": "contains",
@@ -61203,9 +61165,9 @@
       "source_location": "L177",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_2_\u5b9f\u884c\u9806\u5e8f_8_wave_30_issue",
-      "target": "tmp_execution_plan_wave_7_\u793e\u4f1a\u5b9f\u88c5\u3068\u7dcf\u62ec",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_7_\u793e\u4f1a\u5b9f\u88c5\u3068\u7dcf\u62ec"
     },
     {
       "relation": "contains",
@@ -61214,9 +61176,9 @@
       "source_location": "L208",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d",
-      "target": "tmp_execution_plan_wave_1_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_1_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "relation": "contains",
@@ -61225,9 +61187,9 @@
       "source_location": "L222",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d",
-      "target": "tmp_execution_plan_wave_2_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_2_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "relation": "contains",
@@ -61236,9 +61198,9 @@
       "source_location": "L242",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d",
-      "target": "tmp_execution_plan_wave_3_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_3_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "relation": "contains",
@@ -61247,9 +61209,9 @@
       "source_location": "L261",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d",
-      "target": "tmp_execution_plan_wave_4_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a2d\u8a08\u539f\u5247_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_4_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a2d\u8a08\u539f\u5247_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "relation": "contains",
@@ -61258,9 +61220,9 @@
       "source_location": "L329",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d",
-      "target": "tmp_execution_plan_wave_5_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a02\u6b63_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_5_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a02\u6b63_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "relation": "contains",
@@ -61269,9 +61231,9 @@
       "source_location": "L282",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d",
-      "target": "tmp_execution_plan_wave_6_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a02\u6b63_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_6_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u8a02\u6b63_\u4ee5\u964d\u306ewave\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "relation": "contains",
@@ -61280,9 +61242,9 @@
       "source_location": "L314",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_4_\u65e2\u77e5\u306e\u91cd\u8907_\u8981\u8abf\u6574\u30dd\u30a4\u30f3\u30c8_\u7740\u624b\u6642\u306b\u5fc5\u305a\u78ba\u8a8d",
-      "target": "tmp_execution_plan_wave_7_121_\u3067\u78ba\u5b9a\u3057\u305f\u4e8b\u9805_126_\u306e\u7dcf\u62ec\u3067\u5fc5\u305a\u53cd\u6620\u3059\u308b\u3053\u3068",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_7_121_\u3067\u78ba\u5b9a\u3057\u305f\u4e8b\u9805_126_\u306e\u7dcf\u62ec\u3067\u5fc5\u305a\u53cd\u6620\u3059\u308b\u3053\u3068"
     },
     {
       "relation": "contains",
@@ -61291,9 +61253,9 @@
       "source_location": "L472",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_129_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_129_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "relation": "contains",
@@ -61302,9 +61264,9 @@
       "source_location": "L451",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_130_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_130_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "relation": "contains",
@@ -61313,9 +61275,9 @@
       "source_location": "L440",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_132_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_132_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "relation": "contains",
@@ -61324,9 +61286,9 @@
       "source_location": "L427",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_133_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_133_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "relation": "contains",
@@ -61335,9 +61297,9 @@
       "source_location": "L494",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_140_131_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_140_131_\u3067\u78ba\u5b9a\u3057\u305f\u8a9e\u5f59_\u4ee5\u964d\u306f\u5fc5\u305a\u3053\u308c\u306b\u5f93\u3046"
     },
     {
       "relation": "contains",
@@ -61346,9 +61308,9 @@
       "source_location": "L487",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_141_\u3067\u5224\u660e\u3057\u305f\u91cd\u8981\u306a\u8a02\u6b63_\u5f15\u7528\u3057\u306a\u3044\u3053\u3068_\u5f15\u7528\u3059\u308b\u3053\u3068",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_141_\u3067\u5224\u660e\u3057\u305f\u91cd\u8981\u306a\u8a02\u6b63_\u5f15\u7528\u3057\u306a\u3044\u3053\u3068_\u5f15\u7528\u3059\u308b\u3053\u3068"
     },
     {
       "relation": "contains",
@@ -61357,9 +61319,9 @@
       "source_location": "L412",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_142_\u3067\u5909\u308f\u3063\u305f_url_\u91cd\u8981",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_142_\u3067\u5909\u308f\u3063\u305f_url_\u91cd\u8981"
     },
     {
       "relation": "contains",
@@ -61368,9 +61330,9 @@
       "source_location": "L462",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_143_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_143_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "relation": "contains",
@@ -61379,9 +61341,9 @@
       "source_location": "L507",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_\u3053\u306e2\u30bb\u30c3\u30b7\u30e7\u30f3\u3067\u78ba\u7acb\u3057\u305f\u4f5c\u6cd5_\u5fc5\u305a\u8e0f\u8972\u3059\u308b\u3053\u3068",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_\u3053\u306e2\u30bb\u30c3\u30b7\u30e7\u30f3\u3067\u78ba\u7acb\u3057\u305f\u4f5c\u6cd5_\u5fc5\u305a\u8e0f\u8972\u3059\u308b\u3053\u3068"
     },
     {
       "relation": "contains",
@@ -61390,9 +61352,9 @@
       "source_location": "L421",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_\u6700\u521d\u306e3\u624b",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_\u6700\u521d\u306e3\u624b"
     },
     {
       "relation": "contains",
@@ -61401,9 +61363,9 @@
       "source_location": "L523",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_\u672a\u5bfe\u5fdc\u306e\u307e\u307e\u6b8b\u3057\u3066\u3044\u308b\u8ad6\u70b9",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_\u672a\u5bfe\u5fdc\u306e\u307e\u307e\u6b8b\u3057\u3066\u3044\u308b\u8ad6\u70b9"
     },
     {
       "relation": "contains",
@@ -61412,9 +61374,9 @@
       "source_location": "L403",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_\u73fe\u5728\u5730_2026_08_06_\u5915\u65b9\u306b\u66f4\u65b0",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_\u73fe\u5728\u5730_2026_08_06_\u5915\u65b9\u306b\u66f4\u65b0"
     },
     {
       "relation": "contains",
@@ -61423,9 +61385,9 @@
       "source_location": "L516",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_4_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_06_\u6642\u70b9_\u6700\u65b0",
-      "target": "tmp_execution_plan_\u74b0\u5883\u306e\u6ce8\u610f_2026_08_06_\u306b\u767a\u751f",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_\u74b0\u5883\u306e\u6ce8\u610f_2026_08_06_\u306b\u767a\u751f"
     },
     {
       "relation": "contains",
@@ -61434,9 +61396,9 @@
       "source_location": "L578",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_5_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_05_\u6642\u70b9_wave_5_\u5b8c\u4e86_\u5c65\u6b74",
-      "target": "tmp_execution_plan_wave_5_\u3067\u6b8b\u3057\u305f\u5bbf\u984c_126_\u306e\u524d\u306b\u88dc\u5b8c\u3092\u691c\u8a0e",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_5_\u3067\u6b8b\u3057\u305f\u5bbf\u984c_126_\u306e\u524d\u306b\u88dc\u5b8c\u3092\u691c\u8a0e"
     },
     {
       "relation": "contains",
@@ -61445,9 +61407,9 @@
       "source_location": "L547",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_5_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_05_\u6642\u70b9_wave_5_\u5b8c\u4e86_\u5c65\u6b74",
-      "target": "tmp_execution_plan_wave_6_122_123_\u306e\u8a2d\u8a08\u4e0a\u306e\u6ce8\u610f",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_wave_6_122_123_\u306e\u8a2d\u8a08\u4e0a\u306e\u6ce8\u610f"
     },
     {
       "relation": "contains",
@@ -61456,9 +61418,9 @@
       "source_location": "L541",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_5_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_05_\u6642\u70b9_wave_5_\u5b8c\u4e86_\u5c65\u6b74",
-      "target": "tmp_execution_plan_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u306e\u6700\u521d\u306e3\u624b",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u306e\u6700\u521d\u306e3\u624b"
     },
     {
       "relation": "contains",
@@ -61467,9 +61429,9 @@
       "source_location": "L534",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_execution_plan_5_5_\u6b21\u30bb\u30c3\u30b7\u30e7\u30f3\u3078\u306e\u5f15\u304d\u7d99\u304e_2026_08_05_\u6642\u70b9_wave_5_\u5b8c\u4e86_\u5c65\u6b74",
-      "target": "tmp_execution_plan_\u73fe\u5728\u5730",
-      "confidence_score": 1.0
+      "target": "tmp_execution_plan_\u73fe\u5728\u5730"
     },
     {
       "relation": "contains",
@@ -61478,9 +61440,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_memo_traceability",
-      "target": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868",
-      "confidence_score": 1.0
+      "target": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868"
     },
     {
       "relation": "contains",
@@ -61489,9 +61451,9 @@
       "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868",
-      "target": "tmp_memo_traceability_140_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068",
-      "confidence_score": 1.0
+      "target": "tmp_memo_traceability_140_\u3067\u78ba\u5b9a\u3057\u305f\u8a2d\u8a08_\u5f8c\u7d9a\u3067\u8986\u3055\u306a\u3044\u3053\u3068"
     },
     {
       "relation": "contains",
@@ -61500,9 +61462,9 @@
       "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868",
-      "target": "tmp_memo_traceability_\u5bfe\u5fdc_epic",
-      "confidence_score": 1.0
+      "target": "tmp_memo_traceability_\u5bfe\u5fdc_epic"
     },
     {
       "relation": "contains",
@@ -61511,9 +61473,9 @@
       "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868",
-      "target": "tmp_memo_traceability_\u672a\u5bfe\u5fdc_\u30ba\u30ec4\u4ef6\u306e\u5185\u8a33",
-      "confidence_score": 1.0
+      "target": "tmp_memo_traceability_\u672a\u5bfe\u5fdc_\u30ba\u30ec4\u4ef6\u306e\u5185\u8a33"
     },
     {
       "relation": "contains",
@@ -61522,9 +61484,9 @@
       "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868",
-      "target": "tmp_memo_traceability_\u7a81\u5408\u8868",
-      "confidence_score": 1.0
+      "target": "tmp_memo_traceability_\u7a81\u5408\u8868"
     },
     {
       "relation": "contains",
@@ -61533,9 +61495,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868",
-      "target": "tmp_memo_traceability_\u7d4c\u7def_\u518d\u767a\u9632\u6b62\u306e\u305f\u3081\u8a18\u9332\u3059\u308b",
-      "confidence_score": 1.0
+      "target": "tmp_memo_traceability_\u7d4c\u7def_\u518d\u767a\u9632\u6b62\u306e\u305f\u3081\u8a18\u9332\u3059\u308b"
     },
     {
       "relation": "contains",
@@ -61544,11 +61506,11 @@
       "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "tmp_memo_traceability_memo_txt_issue_\u7a81\u5408\u8868",
-      "target": "tmp_memo_traceability_\u96c6\u8a08",
-      "confidence_score": 1.0
+      "target": "tmp_memo_traceability_\u96c6\u8a08"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "5a180b74b84b58b9bfc12b189c2ef16e9c2b316d"
+  "built_at_commit": "0165badfc38758baac3441785d16701a653a7453"
 }
