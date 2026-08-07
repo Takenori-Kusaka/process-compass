@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2958 nodes · 2823 edges · 252 communities (237 shown, 15 thin omitted)
+- 2960 nodes · 2839 edges · 251 communities (236 shown, 15 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `77f04a30`
+- Built from commit: `4ff6fa8b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -252,10 +252,9 @@
 - evidence-ledger.md
 - seeded-error-safety.md
 - 各ゲートの判定チェックリスト
-- 1. 自律コーディングエージェントの主要実装例
+- 3. アンチパターン各論(本メモの中心)
 - gate-criteria.md
 - 欠陥トリアージ基準
-- 3. 到達点(定量): ベンチマークと実運用のギャップ
 - レビュー SLA と滞留の措置
 - AI 品質指標の扱い
 - G-5 自動検証 CI(機械判定・即時)
@@ -274,8 +273,8 @@
 6. `Issue #120 一次調査メモ: 出荷判定ゲート・契約書に適用する AI SLA ガバナンス評価規程` - 14 edges
 7. `調査メモ: ISO 12100 準拠 AIソフトウェア・リスクアセスメント成果物テンプレート（Issue #122）` - 14 edges
 8. `5.4 次セッションへの引き継ぎ（2026-08-06 時点・最新）` - 14 edges
-9. `3.10 事前レビュー期間` - 13 edges
-10. `アジャイル(Agile)調査メモ` - 13 edges
+9. `アジャイル(Agile)調査メモ` - 13 edges
+10. `日本企業のガバナンス・決裁ゲートの実態 調査メモ` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `buildMarkdown()` --calls--> `visibleQuestions()`  [EXTRACTED]
@@ -284,7 +283,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (252 total, 15 thin omitted)
+## Communities (251 total, 15 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -307,11 +306,11 @@ Cohesion: 0.06
 Nodes (33): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ) (+25 more)
 
 ### Community 5 - "エージェント型開発(自律・マルチエージェント)の現在地 調査メモ"
-Cohesion: 0.10
-Nodes (21): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 2-1. Anthropic による協調パターンの分類(設計語彙の基準点), 2-2. 主要フレームワーク, 2. マルチエージェント・オーケストレーションのパターンとフレームワーク, 4-1. 信頼性: エラーの累積(複利的失敗), 4-2. 長期タスク・既存コードベースでの一貫性欠如 (+13 more)
+Cohesion: 0.06
+Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.06
+Cohesion: 0.07
 Nodes (30): roleName, seg, wpName, diagram, roleName, seg, string, diagram (+22 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
@@ -343,8 +342,8 @@ Cohesion: 0.10
 Nodes (20): 0-0. 重要な前提: TDD は「開発ライフサイクル」ではなく「開発プラクティス/技法」である, 0-1. 基本情報, 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2-1. 3階層のズーム(nano / micro / 上位ライフサイクルとの接続), 2. 階層構造(process → activities → tasks), 3-A. 関連技法との役割拡張(TDD → ATDD/BDD) (+12 more)
 
 ### Community 14 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
-Cohesion: 0.10
-Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
+Cohesion: 0.15
+Nodes (13): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点), 7. 日本的観点(標準がカバーしない領域) (+5 more)
 
 ### Community 15 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.12
@@ -1174,9 +1173,9 @@ Nodes (11): 注入の設計に対する制約, 測定の対象を個人にしな
 Cohesion: 0.22
 Nodes (9): G-1 企画承認(事業決裁者・既存規程どおり), G-2 要件合意(価値責任者・48時間), G-4 機能仕様承認(価値責任者または委譲先・24時間), G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日), G-7 出荷判定(QA・3営業日), G-8 リリース決裁(事業決裁者・48時間), 各ゲートの判定チェックリスト, 範囲内外の判定を機械が行わない理由 (+1 more)
 
-### Community 240 - "1. 自律コーディングエージェントの主要実装例"
-Cohesion: 0.25
-Nodes (8): 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules, 1-6. Claude Code / Claude Agent SDK(Anthropic), 1-7. 一覧(建前 vs 現実の要約), 1. 自律コーディングエージェントの主要実装例
+### Community 240 - "3. アンチパターン各論(本メモの中心)"
+Cohesion: 0.29
+Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
 
 ### Community 241 - "gate-criteria.md"
 Cohesion: 0.29
@@ -1185,10 +1184,6 @@ Nodes (6): ゲートの2系統, ゲートの健全性を計測する, ゲート�
 ### Community 242 - "欠陥トリアージ基準"
 Cohesion: 0.33
 Nodes (6): 事業ステージ別のトリアージマトリクス, 定量指標の設定義務, 既知の不具合の要求事項, 欠陥トリアージ基準, 重大度と優先度の分離, 重大度の定義
-
-### Community 243 - "3. 到達点(定量): ベンチマークと実運用のギャップ"
-Cohesion: 0.50
-Nodes (4): 3-1. SWE-bench とその派生, 3-2. 到達点の推移(SWE-bench Verified、公式発表値), 3-3. 「時間地平(time horizon)」という別軸の到達点(METR), 3. 到達点(定量): ベンチマークと実運用のギャップ
 
 ### Community 244 - "レビュー SLA と滞留の措置"
 Cohesion: 0.40
@@ -1223,18 +1218,20 @@ Cohesion: 0.14
 Nodes (13): この手続の限界, 個人を評価の対象にしない, 全件を見ません, 出荷判定と何が違うか, 判定と是正, 実施者の要件, 対象の抽出, 所見の扱い (+5 more)
 
 ## Knowledge Gaps
-- **2234 isolated node(s):** `読み方`, `3.1 本章が達成すべき成果`, `3.2 責任の種類: A と R を分ける`, `3.3 RACI マトリクス(作業 × ロール)`, `確認に用いるもの` (+2229 more)
+- **2234 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2229 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
-- **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `1. 自律コーディングエージェントの主要実装例`, `20260710-jp-governance.md`, `3. 到達点(定量): ベンチマークと実運用のギャップ`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **What connects `読み方`, `3.1 本章が達成すべき成果`, `3.2 責任の種類: A と R を分ける` to the rest of the system?**
+- **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **Why does `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` connect `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` to `3. アンチパターン各論(本メモの中心)`, `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
   _2234 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
@@ -1242,5 +1239,3 @@ _Questions this graph is uniquely positioned to answer:_
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
-- **Should `scripts` be split into smaller, more focused modules?**
-  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
