@@ -266,7 +266,8 @@ jobs:
   "debt": { "added": ["D-031"], "paid": ["D-018"], "unrecorded": [] },
   "handover": { "updated": true },
   "ipClearance": { "licenseScan": "passed", "unresolvedDeps": [],
-                   "similarityScanRun": true, "findings": [], "scannedAt": "..." },
+                   "similarityScanRun": true, "findings": [], "overdueFindings": [],
+                   "scannedAt": "..." },
   "seededErrors": { "scanRun": true, "residual": 0, "openDrills": [] },
   "gaps": []
 }
@@ -288,6 +289,7 @@ jobs:
 
 - **欠落があればジョブを fail させ、不完全なレポートで G-7 を始めない**(「あとで揃えます」を構造的に禁止する)
 - `ipClearance` で fail させる条件は、**検査を実施していないこと、または記録が欠けていること**である。`findings` が空でないことでは fail させない。指摘が出た項目は、除去・代替実装・表示の追加・受容の決裁のいずれかを記録して通過させる
+- ただし `overdueFindings` が空でない場合は fail させる。**期限を超過した未処理の指摘**であり、判定に推定を含まない。措置と期限の規定は[第4章 G-5](/process-compass/phase4-process-design/gate-criteria/)による
 - `seededErrors` は、`residual` が 0 でない場合も fail させる。知財潔白性と扱いが分かれるのは、注入の残存が観測可能な事実であり、判定に推定を含まないためである。遮断の設計は[欠陥注入の隔離設計](/process-compass/phase5-implementation/seeded-error-safety/)による
 - `gaps` には「何が・どの PR / 記録で欠けているか」を人が直せる粒度で書き出す
 
