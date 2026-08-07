@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-07)
 
 ## Corpus Check
-- 198 files · ~160,770 words
+- 196 files · ~157,277 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2847 nodes · 2741 edges · 235 communities (228 shown, 7 thin omitted)
+- 2847 nodes · 2741 edges · 234 communities (227 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5a180b74`
+- Built from commit: `0165badf`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -218,7 +218,6 @@
 - 10. 出典一覧
 - 4. C. 「決裁ブロッカーにする」ことの是非
 - review-package.md
-- 3. 暗黙知の形式知化という観点(SECI / ポランニー)
 - check-evidence.mjs
 - 3.4.1 任命基準の充足をどう確認するか
 - 140/131 一次調査: スコープの確約・進捗の観測・仕様ドリフトの検知
@@ -268,7 +267,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (235 total, 7 thin omitted)
+## Communities (234 total, 7 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -303,8 +302,8 @@ Cohesion: 0.06
 Nodes (29): 0. プロセスの概要 — DDD は「ライフサイクル」ではなく「設計手法/思想」である, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+21 more)
 
 ### Community 8 - "コンテキストエンジニアリング手法 調査メモ"
-Cohesion: 0.17
-Nodes (12): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 5. 本プロジェクトへの含意, 6. 考察(事実と分離), 7. 埋められなかった観点(追加調査項目), 8. 出典一覧 (+4 more)
+Cohesion: 0.12
+Nodes (16): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 3.1 ポランニー:暗黙知の原典, 3.2 野中の SECI モデル:暗黙知⇄形式知の変換サイクル, 3.3 CE 手法と SECI プロセスの対応(本メモの統合。→ 考察扱い), 3. 暗黙知の形式知化という観点(SECI / ポランニー) (+8 more)
 
 ### Community 9 - "プロセス記述に関する国際標準の調査メモ"
 Cohesion: 0.07
@@ -1057,10 +1056,6 @@ Nodes (4): 4.1 逸脱を制度として承認する枠組み — NASA の deviat
 ### Community 204 - "review-package.md"
 Cohesion: 0.18
 Nodes (10): このパッケージが埋められない穴, なぜ必要か, パッケージの構成, 何を含めてよいか: 3区分, 効果の検証, 指摘の一覧はパッケージに含めない, 提示の順序, 満たすのは理解であって、理解の代行ではない (+2 more)
-
-### Community 205 - "3. 暗黙知の形式知化という観点(SECI / ポランニー)"
-Cohesion: 0.50
-Nodes (4): 3.1 ポランニー:暗黙知の原典, 3.2 野中の SECI モデル:暗黙知⇄形式知の変換サイクル, 3.3 CE 手法と SECI プロセスの対応(本メモの統合。→ 考察扱い), 3. 暗黙知の形式知化という観点(SECI / ポランニー)
 
 ### Community 207 - "check-evidence.mjs"
 Cohesion: 0.13
