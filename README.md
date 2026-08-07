@@ -33,6 +33,18 @@ F1 のピット作業は、18〜20名が2秒以下で終わります。レース
 - 標準の本文: [第1章 総則](https://takenori-kusaka.github.io/process-compass/phase4-process-design/overview/)
 - 命名の記録: [ADR-0027](https://takenori-kusaka.github.io/process-compass/adr/0027-process-name-pit-in/)
 
+### 試してみる
+
+[**pit-in-template**](https://github.com/Takenori-Kusaka/pit-in-template) から新しいリポジトリを作り、Claude Code で `/process-init` を実行してください。5つの質問に答えると、あなたのチーム規模・事業ステージに合ったゲート構成・成果物・ブランチ保護が揃います。
+
+このリポジトリからは `template/` としてサブモジュール参照しています。
+
+```bash
+git submodule update --init --recursive
+```
+
+使い方は [準拠テンプレートリポジトリ](https://takenori-kusaka.github.io/process-compass/phase5-implementation/template-repository/) を参照してください。
+
 ## フィードバック歓迎
 
 意見・アイデア・フィードバックを広く募集しています。[Issues](https://github.com/Takenori-Kusaka/process-compass/issues) からお気軽にどうぞ。
