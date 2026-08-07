@@ -1,16 +1,16 @@
-# Graph Report - process-compass  (2026-08-08)
+# Graph Report - process-compass  (2026-08-07)
 
 ## Corpus Check
-- 255 files · ~172,695 words
+- 201 files · ~158,576 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3265 nodes · 3184 edges · 277 communities (270 shown, 7 thin omitted)
+- 2843 nodes · 2740 edges · 235 communities (229 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `048553ba`
+- Built from commit: `28ddbfc0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -186,7 +186,7 @@
 - 7つのブロック
 - 0013-enablement-by-bounded-trial.md
 - 129 一次調査: AI生成物の知財潔白性
-- deny
+- 2. 主要手法:コンテキストの層としての整理
 - 04-traceability.md
 - 0014-criticality-axis-and-proposal-output.md
 - 調査層(フェーズ1・2・3)の棚卸し結果（Issue #138）
@@ -218,90 +218,48 @@
 - 10. 出典一覧
 - 4. C. 「決裁ブロッカーにする」ことの是非
 - review-package.md
-- このリポジトリの開発規約
+- 4. 限界
 - 0028-unmet-gate-distinct-from-omitted.md
 - check-evidence.mjs
 - 3.4.1 任命基準の充足をどう確認するか
 - 140/131 一次調査: スコープの確約・進捗の観測・仕様ドリフトの検知
 - 0019-scope-commitment-three-layers.md
-- generate-profile.mjs
 - 132 一次調査: 技術リスクの事業影響への翻訳
 - 0022-handover-deadlines-relative-to-notice.md
 - 0023-review-package-cues-not-conclusions.md
-- aggregate-evidence.mjs
 - 0024-decision-as-risk-acceptance.md
-- 3. アンチパターン各論(本メモの中心)
-- ピットイン方式 準拠テンプレート
-- 手順
 - 133 一次調査: コンテキストの鮮度監査と忘却
-- 手順
-- adapter.mjs
 - 0025-context-forgetting-over-detection.md
-- 4. デザインレビュー(DR)と品質保証部門
 - 3.12.10 実行の強制停止(サーキットブレーカー)
 - evidence-marking.md
 - 0026-evidence-level-marking.md
 - agent-trace-control.md
-- 手順
-- 手順
-- AI-SLA 合意確認書
 - dependencies
 - build-template-kb.mjs
-- 手順
-- 手順
 - evidence-ledger.md
-- config.mjs
 - seeded-error-safety.md
 - 各ゲートの判定チェックリスト
-- 運用引き継ぎ文書
 - gate-criteria.md
 - 欠陥トリアージ基準
-- AI エージェント安全リスクアセスメント表
 - レビュー SLA と滞留の措置
 - AI 品質指標の扱い
 - G-5 自動検証 CI(機械判定・即時)
-- 手順
-- dependency-diff.mjs
 - G-3 技術設計判断(技術判断者・48時間)
-- ADR-NNNN: <決定の要約。動詞で終わる短文>
 - process-audit.md
-- 企画書(事業意図)
-- check-d0.mjs
-- verify-gate-contract.mjs
-- D-0 意思決定・エスカレーション体制図
-- F-001 <機能の名前>
-- templates/README.md
-- レビュー観点
 - package.json
 - devDependencies
-- 実装計画
-- guard-write.mjs
-- 判断記録(ADR)
-- template/.github/PULL_REQUEST_TEMPLATE.md
-- 技術負債台帳
-- ゲート判定記録
-- 前提の台帳
-- 1. 稟議制度(りんぎ)
-- 用語集
-- 複製したファイル
-- 3. 決裁権限規程・職務権限規程
-- 保管領域
-- 案件層コンテキスト
-- ブランチ保護
-- 機能仕様
-- 成果物の置き場
 
 ## God Nodes (most connected - your core abstractions)
-1. `deny` - 22 edges
-2. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
-3. `allow` - 14 edges
-4. `Process Compass` - 14 edges
-5. `調査メモ: AI自律レベルの動的境界と開発者役割の移行（Issue #109 / #110）` - 14 edges
-6. `調査メモ: AI 維持管理責任者（AI Maintainer）と AI 運用担当者（AIOps）の職掌（Issue #111 / #112）` - 14 edges
-7. `調査メモ: Seeded Errors による自動化バイアス検知と、承認権限の一時制限・例外決裁（Issue #113 / #114）` - 14 edges
-8. `調査メモ: 三識メトリクス・ダッシュボードとKPT改善サイクルの制度化（Issue #116 / #117）` - 14 edges
-9. `Issue #120 一次調査メモ: 出荷判定ゲート・契約書に適用する AI SLA ガバナンス評価規程` - 14 edges
-10. `調査メモ: ISO 12100 準拠 AIソフトウェア・リスクアセスメント成果物テンプレート（Issue #122）` - 14 edges
+1. `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA` - 15 edges
+2. `Process Compass` - 14 edges
+3. `調査メモ: AI自律レベルの動的境界と開発者役割の移行（Issue #109 / #110）` - 14 edges
+4. `調査メモ: AI 維持管理責任者（AI Maintainer）と AI 運用担当者（AIOps）の職掌（Issue #111 / #112）` - 14 edges
+5. `調査メモ: Seeded Errors による自動化バイアス検知と、承認権限の一時制限・例外決裁（Issue #113 / #114）` - 14 edges
+6. `調査メモ: 三識メトリクス・ダッシュボードとKPT改善サイクルの制度化（Issue #116 / #117）` - 14 edges
+7. `Issue #120 一次調査メモ: 出荷判定ゲート・契約書に適用する AI SLA ガバナンス評価規程` - 14 edges
+8. `調査メモ: ISO 12100 準拠 AIソフトウェア・リスクアセスメント成果物テンプレート（Issue #122）` - 14 edges
+9. `scripts` - 13 edges
+10. `アジャイル(Agile)調査メモ` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `loadRules()` --references--> `yaml`  [EXTRACTED]
@@ -310,13 +268,11 @@
   scripts/build-template-kb.mjs → package.json
 - `buildMarkdown()` --calls--> `visibleQuestions()`  [EXTRACTED]
   src/pages/tool/simulator.astro → src/lib/tailoring-engine.mjs
-- `buildConfig()` --calls--> `evaluate()`  [EXTRACTED]
-  template/scripts/init/generate-profile.mjs → template/scripts/vendor/tailoring-engine.mjs
 
 ## Import Cycles
 - None detected.
 
-## Communities (277 total, 7 thin omitted)
+## Communities (235 total, 6 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -335,8 +291,8 @@ Cohesion: 0.15
 Nodes (13): scripts, astro, build, check, dev, evidence:write, lint:evidence, lint:text (+5 more)
 
 ### Community 4 - "日本企業のガバナンス・決裁ゲートの実態 調査メモ"
-Cohesion: 0.11
-Nodes (19): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 2.1 定義と機能, 2.2 「意思決定は遅いが実行は速い」の両面性, 2. 根回し・合議(ネマワシ), 5. Stage-Gate と日本の決裁の構造的違い(比較), 6.1 定義(建前) (+11 more)
+Cohesion: 0.06
+Nodes (33): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ) (+25 more)
 
 ### Community 5 - "エージェント型開発(自律・マルチエージェント)の現在地 調査メモ"
 Cohesion: 0.06
@@ -351,8 +307,8 @@ Cohesion: 0.06
 Nodes (29): 0. プロセスの概要 — DDD は「ライフサイクル」ではなく「設計手法/思想」である, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+21 more)
 
 ### Community 8 - "コンテキストエンジニアリング手法 調査メモ"
-Cohesion: 0.07
-Nodes (30): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 2.1 システムプロンプト・指示の設計, 2.2 Few-shot 例示(手本による誘導), 2.3 RAG(検索拡張生成)による外部知識の注入, 2.4 ステアリングファイル / ルール(プロジェクト文脈の永続化) (+22 more)
+Cohesion: 0.12
+Nodes (16): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 3.1 ポランニー:暗黙知の原典, 3.2 野中の SECI モデル:暗黙知⇄形式知の変換サイクル, 3.3 CE 手法と SECI プロセスの対応(本メモの統合。→ 考察扱い), 3. 暗黙知の形式知化という観点(SECI / ポランニー) (+8 more)
 
 ### Community 9 - "プロセス記述に関する国際標準の調査メモ"
 Cohesion: 0.07
@@ -363,7 +319,7 @@ Cohesion: 0.08
 Nodes (26): 0. このメモの位置づけと全体像, 1.1 AWS AI-DLC(AI-Driven Development Life Cycle), 1.2 Sean Grove(OpenAI)「The New Code」— 仕様を書く人が最も価値ある programmer, 1.3 「Product Engineer」への収束論(everyone becomes a product owner の実像), 1. 理想像の出所(建前=そう語られる), 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義) (+18 more)
 
 ### Community 11 - "simulator.astro"
-Cohesion: 0.11
+Cohesion: 0.12
 Nodes (21): integrated, kb, knownIds, optionIds, rules, evaluate(), ADR-0008, ruleMatches() (+13 more)
 
 ### Community 12 - "Process Compass 🧭"
@@ -375,8 +331,8 @@ Cohesion: 0.10
 Nodes (20): 0-0. 重要な前提: TDD は「開発ライフサイクル」ではなく「開発プラクティス/技法」である, 0-1. 基本情報, 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2-1. 3階層のズーム(nano / micro / 上位ライフサイクルとの接続), 2. 階層構造(process → activities → tasks), 3-A. 関連技法との役割拡張(TDD → ATDD/BDD) (+12 more)
 
 ### Community 14 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
-Cohesion: 0.15
-Nodes (13): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点), 7. 日本的観点(標準がカバーしない領域) (+5 more)
+Cohesion: 0.10
+Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
 
 ### Community 15 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.12
@@ -982,9 +938,9 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.09
 Nodes (22): 0. 調査の問い, 129 一次調査: AI生成物の知財潔白性, 1.1 一次情報, 1.2 3つの段階を分けて考える, 1.3 生成・利用段階の判断基準（Q1）, 1.4 依拠性は推認される（Q2 — 本調査で最も重要な所見）, 1.5 生成が適法でも利用が適法とは限らない, 1.6 責任主体 (+14 more)
 
-### Community 173 - "deny"
-Cohesion: 0.04
-Nodes (46): Bash(curl:*), Bash(gh api repos/*/rulesets:*), Bash(gh issue list:*), Bash(gh issue view:*), Bash(gh pr create:*), Bash(gh pr diff:*), Bash(gh pr merge:*), Bash(gh pr review:*) (+38 more)
+### Community 173 - "2. 主要手法:コンテキストの層としての整理"
+Cohesion: 0.22
+Nodes (9): 2.1 システムプロンプト・指示の設計, 2.2 Few-shot 例示(手本による誘導), 2.3 RAG(検索拡張生成)による外部知識の注入, 2.4 ステアリングファイル / ルール(プロジェクト文脈の永続化), 2.5 MCP(Model Context Protocol)によるツール・データ接続, 2.6 コンテキストの圧縮・要約・選択(ウィンドウ管理), 2.7 メモリ(短期/長期、エージェントメモリ), 2.8 サブエージェントへのコンテキスト分離 (+1 more)
 
 ### Community 174 - "04-traceability.md"
 Cohesion: 0.25
@@ -1110,9 +1066,9 @@ Nodes (4): 4.1 逸脱を制度として承認する枠組み — NASA の deviat
 Cohesion: 0.18
 Nodes (10): このパッケージが埋められない穴, なぜ必要か, パッケージの構成, 何を含めてよいか: 3区分, 効果の検証, 指摘の一覧はパッケージに含めない, 提示の順序, 満たすのは理解であって、理解の代行ではない (+2 more)
 
-### Community 205 - "このリポジトリの開発規約"
-Cohesion: 0.09
-Nodes (20): エージェント向けの入口, 最低限これだけは, 詳細, 遮断されている操作, AI レビューの扱い, このリポジトリの開発規約, まず読むもの, タスクの粒度 (+12 more)
+### Community 205 - "4. 限界"
+Cohesion: 0.40
+Nodes (5): 4.1 コンテキストウィンドウの有限性, 4.2 Context Rot(長い文脈での劣化), 4.3 ポランニーの逆説(原理的・言語化不能の限界), 4.4 明文化コスト(組織的コスト), 4. 限界
 
 ### Community 206 - "0028-unmet-gate-distinct-from-omitted.md"
 Cohesion: 0.33
@@ -1134,10 +1090,6 @@ Nodes (20): 0. 調査の問い, 140/131 一次調査: スコープの確約・�
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 211 - "generate-profile.mjs"
-Cohesion: 0.13
-Nodes (19): buildConfig(), checkConstraints(), detectUnmet(), GATE_BY_KEY, GATE_KEY, KB, labelOf(), NEVER_OMITTABLE (+11 more)
-
 ### Community 212 - "132 一次調査: 技術リスクの事業影響への翻訳"
 Cohesion: 0.13
 Nodes (14): 0. 調査の問い, 132 一次調査: 技術リスクの事業影響への翻訳, 1.1 経営判断の原則, 1.2 所見, 1. Q1・Q2 決裁者を守るのは「正しい結論」ではなく「過程と内容」, 2.1 順序尺度による格付けの限界, 2.2 本標準の既存規定との整合, 2.3 結論 (+6 more)
@@ -1150,45 +1102,17 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 215 - "aggregate-evidence.mjs"
-Cohesion: 0.11
-Nodes (12): adrs, commits, config, evidence, from, gaps, gateRecords, prNumbers (+4 more)
-
 ### Community 216 - "0024-decision-as-risk-acceptance.md"
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
-
-### Community 217 - "3. アンチパターン各論(本メモの中心)"
-Cohesion: 0.29
-Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
-
-### Community 218 - "ピットイン方式 準拠テンプレート"
-Cohesion: 0.13
-Nodes (14): 1. このテンプレートからリポジトリを作る, 1人で開発する場合, 2. プロセス構成を決める, 3. 開発を始める, 8つのゲート, AI レビューの位置づけ, このテンプレートが持っているもの, まず何をするか (+6 more)
-
-### Community 219 - "手順"
-Cohesion: 0.14
-Nodes (13): 1. ブランチを切る, 2. テストを先に生成する, 3. 実装する, 4. 自己修正ループへ入る, 5. ローカルで検証する, 6. コミットする, 7. Draft PR を出す, やってはならないこと (+5 more)
 
 ### Community 220 - "133 一次調査: コンテキストの鮮度監査と忘却"
 Cohesion: 0.15
 Nodes (12): 0. 調査の問い, 133 一次調査: コンテキストの鮮度監査と忘却, 1.1 一次情報, 1.2 所見, 1.3 本標準への当てはめ, 1. Q1 落とすか、警告にするか, 2. Q2 対応関係の特定, 3. Q3 検知と削減のどちらを主とするか (+4 more)
 
-### Community 221 - "手順"
-Cohesion: 0.15
-Nodes (12): 1. 現在の状態を確認する, 2. 5つの軸を聞く, 3. 使う言語のアダプタを聞く, 4. 案件 ID を聞く, 5. 生成する, 6. 生成物を確認して伝える, 7. 構成に応じて後片付けをする, 8. 最初のコミット (+4 more)
-
-### Community 222 - "adapter.mjs"
-Cohesion: 0.18
-Nodes (10): adapter, config, env, OPTIONAL, r, fail(), notice(), ROOT (+2 more)
-
 ### Community 223 - "0025-context-forgetting-over-detection.md"
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
-
-### Community 224 - "4. デザインレビュー(DR)と品質保証部門"
-Cohesion: 0.40
-Nodes (5): 4.1 DR の規格上の定義(建前=JIS), 4.2 品質保証部門による第三者レビュー・出荷判定(建前=独立性), 4.3 実態(独立性の揺らぎ・署名権の組織差), 4.4 DR配置の図解(製造業型 → ソフトウェア型), 4. デザインレビュー(DR)と品質保証部門
 
 ### Community 225 - "3.12.10 実行の強制停止(サーキットブレーカー)"
 Cohesion: 0.50
@@ -1206,18 +1130,6 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.14
 Nodes (13): この設計の限界, 事前に遮断する, 事象ごとの担い手, 人が見るもの, 再現できることを記録の目的に置きません, 実装の手段を指定しません, 差分から機械判定する, 指示の全文を保存しません (+5 more)
 
-### Community 229 - "手順"
-Cohesion: 0.17
-Nodes (11): 1. 検証の順序を提示する, 2. 順1の材料を集める, 3. 順2の材料を集める, 4. 順3の材料を集める, 5. 順4の材料を集める, 6. 人へ渡す, テストで担保できないもの, 出してよいもの / いけないもの (+3 more)
-
-### Community 230 - "手順"
-Cohesion: 0.17
-Nodes (11): 1. 機能 ID を決める, 2. テンプレートから起こす, 3. 受入基準を EARS 記法で書く, 4. 曖昧語を排除する, 5. スコープ外を書く, 6. 検証する, 参照, 完了の条件 (+3 more)
-
-### Community 231 - "AI-SLA 合意確認書"
-Cohesion: 0.17
-Nodes (12): 10. 発注側に読解の帯域がない場合, 11. 合意, 1. 当事者, 2. 判定をどちらへ置くか, 3. 強制層をどちらが所有するか, 4. 検収の対象, 5. 提出する記録, 6. 受け入れの速度 (+4 more)
-
 ### Community 232 - "dependencies"
 Cohesion: 0.18
 Nodes (11): astro, astro-mermaid, @astrojs/starlight, mermaid, dependencies, astro, astro-mermaid, @astrojs/starlight (+3 more)
@@ -1225,18 +1137,6 @@ Nodes (11): astro, astro-mermaid, @astrojs/starlight, mermaid, dependencies, ast
 ### Community 233 - "build-template-kb.mjs"
 Cohesion: 0.24
 Nodes (9): yaml, args, buildKb(), loadRules(), loadYaml(), PROCESS_FILE, ROOT, TAILORING_DIR (+1 more)
-
-### Community 234 - "手順"
-Cohesion: 0.18
-Nodes (10): 1. 番号を採る, 2. テンプレートから起こす, 3. 埋める, 4. 選択理由は人が書く, 5. コミットする, 何を記録するか, 判断記録(ADR)を書く, 参照 (+2 more)
-
-### Community 235 - "手順"
-Cohesion: 0.18
-Nodes (10): 1. 有効なゲートを確認する, 2. テンプレートから起こす, 3. 埋める, 4. 差し戻しの理由は項目番号で書く, 5. 判定はエージェントが行わない, ゲート判定を記録する, 参照, 手順 (+2 more)
-
-### Community 237 - "config.mjs"
-Cohesion: 0.22
-Nodes (6): loadConfig(), warn(), adapter, config, p, raw
 
 ### Community 238 - "seeded-error-safety.md"
 Cohesion: 0.12
@@ -1246,10 +1146,6 @@ Nodes (15): 事前周知に含める事項, 任意の停止を現場の裁量に
 Cohesion: 0.18
 Nodes (11): G-1 企画承認(事業決裁者・既存規程どおり), G-2 要件合意(価値責任者・48時間), G-4 機能仕様承認(価値責任者または委譲先・24時間), G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日), G-7 出荷判定(QA・3営業日), G-8 リリース決裁(事業決裁者・48時間), テストの中身に対する検査を G-5 へ置く, 出荷判定者へ数値の十分性を判定させない (+3 more)
 
-### Community 240 - "運用引き継ぎ文書"
-Cohesion: 0.18
-Nodes (11): 10. 受け取り側の確認, 1. このシステムは何か, 2. コア機能, 3. 動かしかた, 4. 監視, 5. よくある障害と対処, 6. 外部依存, 7. 秘匿情報の所在 (+3 more)
-
 ### Community 241 - "gate-criteria.md"
 Cohesion: 0.29
 Nodes (6): ゲートの2系統, ゲートの健全性を計測する, ゲート運用の共通ルール, 全ゲートに共通する通過条件, 判定の滞留および基準の逸脱, 前提条件と判定基準の区別
@@ -1257,10 +1153,6 @@ Nodes (6): ゲートの2系統, ゲートの健全性を計測する, ゲート�
 ### Community 242 - "欠陥トリアージ基準"
 Cohesion: 0.33
 Nodes (6): 事業ステージ別のトリアージマトリクス, 定量指標の設定義務, 既知の不具合の要求事項, 欠陥トリアージ基準, 重大度と優先度の分離, 重大度の定義
-
-### Community 243 - "AI エージェント安全リスクアセスメント表"
-Cohesion: 0.18
-Nodes (11): 1. 適用範囲, 2. 危険源の同定, 3. リスクの見積り, 4. 保護方策, 5. 遮断の設定, 6. 残留リスク, 7. 適用してはならない組み合わせ, 8. 承認 (+3 more)
 
 ### Community 244 - "レビュー SLA と滞留の措置"
 Cohesion: 0.29
@@ -1274,53 +1166,13 @@ Nodes (5): AI 品質指標の扱い, 合否条件にしてよい指標、して�
 Cohesion: 0.29
 Nodes (7): G-5 自動検証 CI(機械判定・即時), 依存関係の追加(基準8), 法的な評価を本標準が示さない理由, 知財潔白性の検査, 秘匿情報の混入(基準7), 許可リストが判定を妨げた場合の救済, 類似が検知された場合の措置
 
-### Community 247 - "手順"
-Cohesion: 0.20
-Nodes (9): 1. 機能仕様を読む, 2. タスクへ分解する, 3. 粒度を確認する, 4. 分解しすぎない, 5. 並行実行する場合, 参照, 完了の条件, 実装計画へ分解する (+1 more)
-
-### Community 248 - "dependency-diff.mjs"
-Cohesion: 0.20
-Nodes (7): base, changed, MANIFESTS, md, out, result, touched
-
 ### Community 249 - "G-3 技術設計判断(技術判断者・48時間)"
 Cohesion: 0.50
 Nodes (4): G-3 技術設計判断(技術判断者・48時間), 事業影響を金額で定量化しない, 事業決裁者が受容を拒否した場合, 記載の検査
 
-### Community 250 - "ADR-NNNN: <決定の要約。動詞で終わる短文>"
-Cohesion: 0.20
-Nodes (9): ADR-NNNN: <決定の要約。動詞で終わる短文>, コンテキスト, ステータス, 事業への影響, 可逆性, 影響, 検討した選択肢, 決定 (+1 more)
-
 ### Community 251 - "process-audit.md"
 Cohesion: 0.14
 Nodes (13): この手続の限界, 個人を評価の対象にしない, 全件を見ません, 出荷判定と何が違うか, 判定と是正, 実施者の要件, 対象の抽出, 所見の扱い (+5 more)
-
-### Community 252 - "企画書(事業意図)"
-Cohesion: 0.20
-Nodes (10): 1. 何を作るのか, 2. 誰の、どの問題を解くのか, 3. 投資対効果, 4. 自社が勝てる理由, 5. リスクと受容の方針, 6. コンテキスト基盤の整備, 7. 指標と閾値, 8. スコープの3層 (+2 more)
-
-### Community 254 - "check-d0.mjs"
-Cohesion: 0.22
-Nodes (8): config, D0, days, emptyCells, fm, m, problems, text
-
-### Community 255 - "verify-gate-contract.mjs"
-Cohesion: 0.22
-Nodes (7): loadAdapter(), activeRuleset, config, g5wf, notes, problems, rulesetDir
-
-### Community 256 - "D-0 意思決定・エスカレーション体制図"
-Cohesion: 0.22
-Nodes (8): 1. 役割の割り当て, 2. 兼務の可否, 3. 判定の期限, 4. エスカレーションの経路, 5. 代行者, 6. 会議体の対応づけ, 7. 承認, D-0 意思決定・エスカレーション体制図
-
-### Community 257 - "F-001 <機能の名前>"
-Cohesion: 0.22
-Nodes (8): F-001 <機能の名前>, コア指定, スコープ外, 前提, 受入基準, 承認(G-2 / G-4), 背景, 非機能の要求
-
-### Community 258 - "templates/README.md"
-Cohesion: 0.22
-Nodes (4): テンプレ9 の適用条件, 参照, 常に必須の6種, 成果物テンプレート
-
-### Community 259 - "レビュー観点"
-Cohesion: 0.25
-Nodes (7): この観点表を育てる, プロダクト固有の観点, レビュー観点, 全行を読むことを求めない理由, 必ず確認する2項目, 挙動要約, 確認の順序
 
 ### Community 260 - "package.json"
 Cohesion: 0.29
@@ -1330,82 +1182,22 @@ Nodes (6): engines, node, name, private, type, version
 Cohesion: 0.29
 Nodes (7): devDependencies, starlight-links-validator, textlint, textlint-rule-preset-ja-technical-writing, starlight-links-validator, textlint, textlint-rule-preset-ja-technical-writing
 
-### Community 262 - "実装計画"
-Cohesion: 0.29
-Nodes (6): タスク, テストの方針, 分解しすぎない, 実装計画, 承認(G-4), 粒度の確認
-
-### Community 263 - "guard-write.mjs"
-Cohesion: 0.53
-Nodes (5): globToRegExp(), main(), match(), readStdin(), ROOT
-
-### Community 264 - "判断記録(ADR)"
-Cohesion: 0.33
-Nodes (5): コア機能では添付が必須, 判断記録(ADR), 命名, 採用済みの ADR を書き換えない, 書き方
-
-### Community 265 - "template/.github/PULL_REQUEST_TEMPLATE.md"
-Cohesion: 0.33
-Nodes (5): AI 関与範囲, レビュー観点の指定(任意), 変更の概要, 対応タスク, 検証方法と結果
-
-### Community 266 - "技術負債台帳"
-Cohesion: 0.33
-Nodes (5): 事業ステージによる扱い, 出荷判定との関係, 台帳, 技術負債台帳, 欄の書き方
-
-### Community 267 - "ゲート判定記録"
-Cohesion: 0.33
-Nodes (5): ゲート判定記録, 差し戻しの理由, 挙動要約(G-6 のみ), 添付, 確認した項目
-
-### Community 268 - "前提の台帳"
-Cohesion: 0.33
-Nodes (5): この台帳を空欄にしない, 前提の台帳, 台帳, 崩れたときの扱い, 欄の書き方
-
-### Community 269 - "1. 稟議制度(りんぎ)"
-Cohesion: 0.40
-Nodes (5): 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ)
-
-### Community 272 - "用語集"
-Cohesion: 0.40
-Nodes (4): 書き方, 用語, 用語集, 追加のしかた
-
-### Community 273 - "複製したファイル"
-Cohesion: 0.40
-Nodes (4): なぜ複製するのか, 乖離の検出, 更新の手順, 複製したファイル
-
-### Community 274 - "3. 決裁権限規程・職務権限規程"
-Cohesion: 0.50
-Nodes (4): 3.1 定義と構造(建前), 3.2 金額・重要度による決裁階層(図解の中核), 3.3 なぜゲートの承認者が「職位」で決まるか, 3. 決裁権限規程・職務権限規程
-
-### Community 276 - "保管領域"
-Cohesion: 0.50
-Nodes (3): 保管領域, 移さないもの, 移すもの
-
-### Community 277 - "案件層コンテキスト"
-Cohesion: 0.50
-Nodes (3): 恒久層へ上げるもの, 書くこと, 案件層コンテキスト
-
-### Community 278 - "ブランチ保護"
-Cohesion: 0.50
-Nodes (3): なぜここに置くか, ブランチ保護, 適用のしかた
-
-### Community 279 - "機能仕様"
-Cohesion: 0.50
-Nodes (3): この2つが揃うまで実装しない, 曖昧語は CI が止める, 機能仕様
-
 ## Knowledge Gaps
-- **2453 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2448 more)
+- **2158 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2153 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `プロダクトオーナー中心のチーム編成論 調査メモ` connect `プロダクトオーナー中心のチーム編成論 調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `AIDLC(AI-Driven Development Life Cycle)調査メモ` connect `AIDLC(AI-Driven Development Life Cycle)調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **Why does `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` connect `ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
-  _2453 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _2158 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
