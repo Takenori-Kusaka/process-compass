@@ -103,6 +103,7 @@ CI が固定するのは**ゲート契約**だけです。
 
 ## 関連するページ
 
+- [AIが実装する時代の開発プロセス — ピットイン方式](https://zenn.dev/takenori_kusaka/books/pit-in-process) — 要点をまとめた本(Zenn・無料)
 - [第8章 テーラリング](/process-compass/phase4-process-design/tailoring-guide/) — 軸A〜E の規則
 - [CI/CD ゲート構成リファレンス](/process-compass/phase5-implementation/ci-gates/) — ゲートの実装
 - [恒久層コンテキスト](/process-compass/phase5-implementation/context-base/) — `context/` の構成
