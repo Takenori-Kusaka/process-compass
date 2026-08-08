@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1786142398.0705783,
-    "ast_hash": "1422293387fb2d021b70e0054e8b438f",
+    "mtime": 1786151410.4258063,
+    "ast_hash": "ff503b22ae9aea363001d3c1b682dedd",
     "semantic_hash": ""
   },
   "CODE_OF_CONDUCT.md": {
@@ -185,8 +185,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1786142025.4566946,
-    "ast_hash": "c62ca55da1aa3859feb28b3c8d67a695",
+    "mtime": 1786151420.9252844,
+    "ast_hash": "3a6f20de7286913fcc4adc3d6e666bc1",
     "semantic_hash": ""
   },
   "public/robots.txt": {
@@ -1497,6 +1497,86 @@
   "template/templates/README.md": {
     "mtime": 1786141683.0338428,
     "ast_hash": "8f3d5837584ff68d60bcec3603c7f1d9",
+    "semantic_hash": ""
+  },
+  "zenn/.textlintrc.json": {
+    "mtime": 1786151401.6169229,
+    "ast_hash": "b7975d9f8751dcd23bb64afe6059ab44",
+    "semantic_hash": ""
+  },
+  "zenn/package.json": {
+    "mtime": 1786151401.6339145,
+    "ast_hash": "965556996d7f83dd141991063c355c81",
+    "semantic_hash": ""
+  },
+  "zenn/README.md": {
+    "mtime": 1786151401.6179206,
+    "ast_hash": "5250ca11573e9e87798836cd1282829b",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/against-formalization.md": {
+    "mtime": 1786151401.618921,
+    "ast_hash": "426d8ec02b32116b13a8682c00162b62",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/config.yaml": {
+    "mtime": 1786151401.618921,
+    "ast_hash": "c6b29013cb23d2bdf0e2ac0bf0f50a61",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/five-gaps.md": {
+    "mtime": 1786151401.6219146,
+    "ast_hash": "851271441fa4486a796b0f51599d217a",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/further-reading.md": {
+    "mtime": 1786151401.622916,
+    "ast_hash": "27b0ddba1c84bed7499cc9f6c88cd3e1",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/getting-started.md": {
+    "mtime": 1786151401.622916,
+    "ast_hash": "17db924b5c24b2d46168a6ea60bba3c5",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/japanese-organizations.md": {
+    "mtime": 1786151401.623931,
+    "ast_hash": "22e22c975c4be670f5b26a8813773abc",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/solo-developer.md": {
+    "mtime": 1786151401.623931,
+    "ast_hash": "f8b4b348bc12773d9943cf79e07eac08",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/summary.md": {
+    "mtime": 1786151401.624925,
+    "ast_hash": "5ec4bda82ee661079a72fbe1c1958172",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/the-structure.md": {
+    "mtime": 1786151401.624925,
+    "ast_hash": "1a7754ae67b19cc252bc3cbe45038f97",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/what-actually-changes.md": {
+    "mtime": 1786151401.6269162,
+    "ast_hash": "9cdbf97eb83c4b46019aed22c652a20d",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/why-it-looks-idealistic.md": {
+    "mtime": 1786151401.6269162,
+    "ast_hash": "bfdd0538e27f734408c2e266b89ec542",
+    "semantic_hash": ""
+  },
+  "zenn/books/pit-in-process/cover.png": {
+    "mtime": 1786151401.620914,
+    "ast_hash": "fa3b64f34e071d5fff1a16203e99f218",
+    "semantic_hash": ""
+  },
+  "zenn/images/pit-in-process/ch-bandwidth.jpeg": {
+    "mtime": 1786151401.6319158,
+    "ast_hash": "a3f9075efea2094d8414ff4b7e5bff2b",
     "semantic_hash": ""
   }
 }
