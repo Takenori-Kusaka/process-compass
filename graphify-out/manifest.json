@@ -1,6 +1,6 @@
 {
   ".claude/hooks/textlint-on-save.mjs": {
-    "mtime": 1786154648.6710508,
+    "mtime": 1786155013.1878738,
     "ast_hash": "44558c122490d3383d11c09052e08b03",
     "semantic_hash": ""
   },
@@ -150,7 +150,7 @@
     "semantic_hash": ""
   },
   ".github/dependabot.yml": {
-    "mtime": 1786154439.0059621,
+    "mtime": 1786155013.1888742,
     "ast_hash": "822c48b9fe17dccc984a6725ac7b388f",
     "semantic_hash": ""
   },
