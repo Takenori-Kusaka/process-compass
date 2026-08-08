@@ -18,7 +18,16 @@ try {
 }
 
 const normalized = filePath.replace(/\\/g, '/');
-if (!/src\/content\/docs\/.+\.(md|mdx)$/.test(normalized) && !/README\.md$/.test(normalized)) {
+
+// 本リポジトリの外のファイルは対象にしない。
+// サブモジュール(zenn / template)は別リポジトリであり、それぞれ自分の校正設定を持つ。
+// 媒体が違うものへ規程文書向けの規約を当てると、どちらかが不自然になる。
+const repoRoot = process.cwd().replace(/\\/g, '/');
+if (!normalized.startsWith(repoRoot)) process.exit(0);
+const relative = normalized.slice(repoRoot.length).replace(/^\//, '');
+if (/^(zenn|template|node_modules|dist)\//.test(relative)) process.exit(0);
+
+if (!/^src\/content\/docs\/.+\.(md|mdx)$/.test(relative) && relative !== 'README.md') {
   process.exit(0);
 }
 
