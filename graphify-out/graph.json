@@ -1187,7 +1187,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_process_processactivity",
-      "community": 273,
+      "community": 299,
       "community_name": "ProcessActivity.astro",
       "norm_label": "processactivity.astro"
     },
@@ -1198,7 +1198,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_components_process_processactivity_seg",
-      "community": 273,
+      "community": 299,
       "community_name": "ProcessActivity.astro",
       "norm_label": "seg"
     },
@@ -1209,7 +1209,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_components_process_processactivity_rolename",
-      "community": 273,
+      "community": 299,
       "community_name": "ProcessActivity.astro",
       "norm_label": "rolename"
     },
@@ -1220,7 +1220,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_components_process_processactivity_wpname",
-      "community": 273,
+      "community": 299,
       "community_name": "ProcessActivity.astro",
       "norm_label": "wpname"
     },
@@ -1231,7 +1231,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "starlightpage_astro",
-      "community": 273,
+      "community": 299,
       "community_name": "ProcessActivity.astro",
       "norm_label": "@astrojs/starlight/components/starlightpage.astro"
     },
@@ -1242,7 +1242,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_components_process_processoverview",
-      "community": 296,
+      "community": 303,
       "community_name": "ProcessOverview.astro",
       "norm_label": "processoverview.astro"
     },
@@ -1253,7 +1253,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_components_process_processoverview_seg",
-      "community": 296,
+      "community": 303,
       "community_name": "ProcessOverview.astro",
       "norm_label": "seg"
     },
@@ -1264,7 +1264,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_components_process_processoverview_diagram",
-      "community": 296,
+      "community": 303,
       "community_name": "ProcessOverview.astro",
       "norm_label": "diagram"
     },
@@ -1275,7 +1275,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_components_process_processoverview_rolename",
-      "community": 296,
+      "community": 303,
       "community_name": "ProcessOverview.astro",
       "norm_label": "rolename"
     },
@@ -1286,7 +1286,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_components_process_processoverview_string",
-      "community": 296,
+      "community": 303,
       "community_name": "ProcessOverview.astro",
       "norm_label": "string"
     },
@@ -1539,7 +1539,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "src_lib_process_diagrams_process_model_id",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "process_model_id"
     },
@@ -1715,7 +1715,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_phase4_process_design_process_model_phase_activity",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "process-model/[phase]/[activity].astro"
     },
@@ -1726,7 +1726,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_phase4_process_design_process_model_phase_activity_getstaticpaths",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "getstaticpaths()"
     },
@@ -1737,7 +1737,7 @@
       "confidence": "EXTRACTED",
       "_origin": "ast",
       "id": "astro_content",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "astro:content"
     },
@@ -1748,7 +1748,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_phase4_process_design_process_model_phase_index",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "process-model/[phase]/index.astro"
     },
@@ -1759,7 +1759,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_phase4_process_design_process_model_phase_index_getstaticpaths",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "getstaticpaths()"
     },
@@ -1770,7 +1770,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_phase4_process_design_process_model_index",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "process-model/index.astro"
     },
@@ -1781,7 +1781,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_activity",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "[process]/[phase]/[activity].astro"
     },
@@ -1792,7 +1792,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_activity_getstaticpaths",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "getstaticpaths()"
     },
@@ -1803,7 +1803,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_index",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "[process]/[phase]/index.astro"
     },
@@ -1814,7 +1814,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "src_pages_processes_process_phase_index_getstaticpaths",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "getstaticpaths()"
     },
@@ -1825,7 +1825,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_processes_process_index",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "[process]/index.astro"
     },
@@ -1836,7 +1836,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_processes_process_index_getstaticpaths",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "getstaticpaths()"
     },
@@ -1847,7 +1847,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_processes_comparison",
-      "community": 299,
+      "community": 307,
       "community_name": "comparison.astro",
       "norm_label": "comparison.astro"
     },
@@ -1858,7 +1858,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_pages_processes_comparison_string",
-      "community": 299,
+      "community": 307,
       "community_name": "comparison.astro",
       "norm_label": "string"
     },
@@ -1869,7 +1869,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "src_pages_processes_comparison_allrows",
-      "community": 299,
+      "community": 307,
       "community_name": "comparison.astro",
       "norm_label": "allrows"
     },
@@ -1880,7 +1880,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "src_pages_processes_comparison_rows",
-      "community": 299,
+      "community": 307,
       "community_name": "comparison.astro",
       "norm_label": "rows"
     },
@@ -1891,7 +1891,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "src_pages_processes_comparison_proposalrows",
-      "community": 299,
+      "community": 307,
       "community_name": "comparison.astro",
       "norm_label": "proposalrows"
     },
@@ -1902,7 +1902,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_processes_index",
-      "community": 273,
+      "community": 299,
       "community_name": "ProcessActivity.astro",
       "norm_label": "processes/index.astro"
     },
@@ -1913,7 +1913,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_pages_processes_index_order",
-      "community": 273,
+      "community": 299,
       "community_name": "ProcessActivity.astro",
       "norm_label": "order"
     },
@@ -1924,7 +1924,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "src_pages_processes_index_proposals",
-      "community": 273,
+      "community": 299,
       "community_name": "ProcessActivity.astro",
       "norm_label": "proposals"
     },
@@ -1935,7 +1935,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "src_pages_processes_index_grouped",
-      "community": 273,
+      "community": 299,
       "community_name": "ProcessActivity.astro",
       "norm_label": "grouped"
     },
@@ -1946,7 +1946,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_processes_integrated_path",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "[...path].astro"
     },
@@ -1957,7 +1957,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "src_pages_processes_integrated_path_getstaticpaths",
-      "community": 224,
+      "community": 248,
       "community_name": "astro:content",
       "norm_label": "getstaticpaths()"
     },
@@ -1968,7 +1968,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_pages_tool_simulator",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "simulator.astro"
     },
@@ -1979,7 +1979,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_integrated",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "integrated"
     },
@@ -1990,7 +1990,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_rules",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "rules"
     },
@@ -2001,7 +2001,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_string",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "string"
     },
@@ -2012,7 +2012,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_kb",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "kb"
     },
@@ -2023,7 +2023,7 @@
       "source_location": "L187",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_if",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "if()"
     },
@@ -2034,7 +2034,7 @@
       "source_location": "L274",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_proposalstate",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "proposalstate()"
     },
@@ -2045,7 +2045,7 @@
       "source_location": "L276",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_effectivestate",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "effectivestate()"
     },
@@ -2056,7 +2056,7 @@
       "source_location": "L279",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_deviationlist",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "deviationlist()"
     },
@@ -2067,7 +2067,7 @@
       "source_location": "L291",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_renderadoption",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "renderadoption()"
     },
@@ -2078,7 +2078,7 @@
       "source_location": "L306",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_buildmarkdown",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "buildmarkdown()"
     },
@@ -2089,7 +2089,7 @@
       "source_location": "L385",
       "_origin": "ast",
       "id": "src_pages_tool_simulator_statusel",
-      "community": 248,
+      "community": 296,
       "community_name": "simulator.astro",
       "norm_label": "statusel"
     },
@@ -7413,8 +7413,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "research_phase1_20260710_aidlc_0_\u30d7\u30ed\u30bb\u30b9\u306e\u6982\u8981",
-      "community": 103,
-      "community_name": "AIDLC(AI-Driven Development Life Cycle)\u8abf\u67fb\u30e1\u30e2",
+      "community": 281,
+      "community_name": "0. \u30d7\u30ed\u30bb\u30b9\u306e\u6982\u8981",
       "norm_label": "0. \u30d5\u30ed\u30bb\u30b9\u306e\u6982\u8981"
     },
     {
@@ -7424,8 +7424,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "research_phase1_20260710_aidlc_0_0_\u672c\u30e1\u30e2\u306e\u4f4d\u7f6e\u3065\u3051_\u91cd\u8981",
-      "community": 103,
-      "community_name": "AIDLC(AI-Driven Development Life Cycle)\u8abf\u67fb\u30e1\u30e2",
+      "community": 281,
+      "community_name": "0. \u30d7\u30ed\u30bb\u30b9\u306e\u6982\u8981",
       "norm_label": "0-0. \u672c\u30e1\u30e2\u306e\u4f4d\u7f6e\u3064\u3051(\u91cd\u8981)"
     },
     {
@@ -7435,8 +7435,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "research_phase1_20260710_aidlc_0_1_\u57fa\u672c\u60c5\u5831",
-      "community": 103,
-      "community_name": "AIDLC(AI-Driven Development Life Cycle)\u8abf\u67fb\u30e1\u30e2",
+      "community": 281,
+      "community_name": "0. \u30d7\u30ed\u30bb\u30b9\u306e\u6982\u8981",
       "norm_label": "0-1. \u57fa\u672c\u60c5\u5831"
     },
     {
@@ -7446,8 +7446,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "research_phase1_20260710_aidlc_0_2_\u5b9f\u88c5_\u91cd\u8981_\u65b9\u6cd5\u8ad6\u3068\u30c4\u30fc\u30eb\u306e2\u5c64",
-      "community": 103,
-      "community_name": "AIDLC(AI-Driven Development Life Cycle)\u8abf\u67fb\u30e1\u30e2",
+      "community": 281,
+      "community_name": "0. \u30d7\u30ed\u30bb\u30b9\u306e\u6982\u8981",
       "norm_label": "0-2. \u5b9f\u88c5(\u91cd\u8981): \u65b9\u6cd5\u8ad6\u3068\u30c4\u30fc\u30eb\u306e2\u5c64"
     },
     {
@@ -7457,8 +7457,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "research_phase1_20260710_aidlc_0_3_\u985e\u7fa9\u6982\u5ff5\u3068\u306e\u7570\u540c_\u5404\u793e_\u5404\u8ad6\u8005",
-      "community": 103,
-      "community_name": "AIDLC(AI-Driven Development Life Cycle)\u8abf\u67fb\u30e1\u30e2",
+      "community": 281,
+      "community_name": "0. \u30d7\u30ed\u30bb\u30b9\u306e\u6982\u8981",
       "norm_label": "0-3. \u985e\u7fa9\u6982\u5ff5\u3068\u306e\u7570\u540c(\u5404\u793e\u30fb\u5404\u8ad6\u8005)"
     },
     {
@@ -9437,8 +9437,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_\u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
-      "community": 281,
-      "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "1. \u81ea\u5f8b\u30b3\u30fc\u30c6\u30a3\u30f3\u30af\u30a8\u30fc\u30b7\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b"
     },
     {
@@ -9448,8 +9448,8 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_1_devin_cognition",
-      "community": 281,
-      "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "1-1. devin(cognition)"
     },
     {
@@ -9459,8 +9459,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_2_swe_agent_princeton_nlp",
-      "community": 281,
-      "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "1-2. swe-agent(princeton nlp)"
     },
     {
@@ -9470,8 +9470,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_3_openai_codex_operator",
-      "community": 281,
-      "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "1-3. openai codex / operator"
     },
     {
@@ -9481,8 +9481,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_4_github_copilot_coding_agent",
-      "community": 281,
-      "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "1-4. github copilot coding agent"
     },
     {
@@ -9492,8 +9492,8 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_5_google_jules",
-      "community": 281,
-      "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "1-5. google jules"
     },
     {
@@ -9503,8 +9503,8 @@
       "source_location": "L79",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_6_claude_code_claude_agent_sdk_anthropic",
-      "community": 281,
-      "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "1-6. claude code / claude agent sdk(anthropic)"
     },
     {
@@ -9514,8 +9514,8 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_1_7_\u4e00\u89a7_\u5efa\u524d_vs_\u73fe\u5b9f\u306e\u8981\u7d04",
-      "community": 281,
-      "community_name": "1. \u81ea\u5f8b\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u4e3b\u8981\u5b9f\u88c5\u4f8b",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "1-7. \u4e00\u89a7(\u5efa\u524d vs \u73fe\u5b9f\u306e\u8981\u7d04)"
     },
     {
@@ -9602,8 +9602,8 @@
       "source_location": "L171",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_\u9650\u754c\u3068\u8ab2\u984c_\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762",
-      "community": 295,
-      "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)"
     },
     {
@@ -9613,8 +9613,8 @@
       "source_location": "L173",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_1_\u4fe1\u983c\u6027_\u30a8\u30e9\u30fc\u306e\u7d2f\u7a4d_\u8907\u5229\u7684\u5931\u6557",
-      "community": 295,
-      "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "4-1. \u4fe1\u983c\u6027: \u30a8\u30e9\u30fc\u306e\u7d2f\u7a4d(\u8907\u5229\u7684\u5931\u6557)"
     },
     {
@@ -9624,8 +9624,8 @@
       "source_location": "L180",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_2_\u9577\u671f\u30bf\u30b9\u30af_\u65e2\u5b58\u30b3\u30fc\u30c9\u30d9\u30fc\u30b9\u3067\u306e\u4e00\u8cab\u6027\u6b20\u5982",
-      "community": 295,
-      "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "4-2. \u9577\u671f\u30bf\u30b9\u30af\u30fb\u65e2\u5b58\u30b3\u30fc\u30c8\u30d8\u30fc\u30b9\u3066\u306e\u4e00\u8cab\u6027\u6b20\u5982"
     },
     {
@@ -9635,8 +9635,8 @@
       "source_location": "L185",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_3_\u30cf\u30eb\u30b7\u30cd\u30fc\u30b7\u30e7\u30f3_\u691c\u8a3c\u306e\u96e3\u3057\u3055",
-      "community": 295,
-      "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "4-3. \u30cf\u30eb\u30b7\u30cd\u30fc\u30b7\u30e7\u30f3\u30fb\u691c\u8a3c\u306e\u96e3\u3057\u3055"
     },
     {
@@ -9646,8 +9646,8 @@
       "source_location": "L192",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_4_\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u9577_\u30b3\u30b9\u30c8",
-      "community": 295,
-      "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "4-4. \u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u9577\u30fb\u30b3\u30b9\u30c8"
     },
     {
@@ -9657,8 +9657,8 @@
       "source_location": "L197",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_5_\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3",
-      "community": 295,
-      "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "4-5. \u30bb\u30ad\u30e5\u30ea\u30c6\u30a3"
     },
     {
@@ -9668,8 +9668,8 @@
       "source_location": "L202",
       "_origin": "ast",
       "id": "research_phase2_20260710_agentic_development_4_6_\u4eba\u304c\u7ba1\u7406\u3067\u304d\u308b\u8ce2\u3055_\u901f\u3055\u306e\u4e0a\u9650_\u3068\u306e\u63a5\u7d9a",
-      "community": 295,
-      "community_name": "4. \u9650\u754c\u3068\u8ab2\u984c(\u73fe\u5b9f\u306e\u5230\u9054\u70b9\u306e\u88cf\u9762)",
+      "community": 5,
+      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a(\u81ea\u5f8b\u30fb\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8)\u306e\u73fe\u5728\u5730 \u8abf\u67fb\u30e1\u30e2",
       "norm_label": "4-6. \u300c\u4eba\u304b\u7ba1\u7406\u3066\u304d\u308b\u8ce2\u3055/\u901f\u3055\u306e\u4e0a\u9650\u300d\u3068\u306e\u63a5\u7d9a"
     },
     {
@@ -10427,8 +10427,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_1_\u4e3b\u8981\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u88fd\u54c1\u306e\u73fe\u6cc1",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 273,
+      "community_name": "1. \u4e3b\u8981\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u88fd\u54c1\u306e\u73fe\u6cc1",
       "norm_label": "1. \u4e3b\u8981\u30a8\u30fc\u30b7\u30a7\u30f3\u30c8\u88fd\u54c1\u306e\u73fe\u6cc1"
     },
     {
@@ -10438,8 +10438,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_1_1_anthropic_mythos_\u30af\u30e9\u30b9\u306e\u767b\u5834\u3068_opus_5",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 273,
+      "community_name": "1. \u4e3b\u8981\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u88fd\u54c1\u306e\u73fe\u6cc1",
       "norm_label": "1-1. anthropic \u2014 mythos \u30af\u30e9\u30b9\u306e\u767b\u5834\u3068 opus 5"
     },
     {
@@ -10449,8 +10449,8 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_1_2_cognition_devin_\u81ea\u793e\u30e2\u30c7\u30eb\u8def\u7dda\u3068_\u7fa4_\u3078\u306e\u8ee2\u63db",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 273,
+      "community_name": "1. \u4e3b\u8981\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u88fd\u54c1\u306e\u73fe\u6cc1",
       "norm_label": "1-2. cognition(devin)\u2014 \u81ea\u793e\u30e2\u30c6\u30eb\u8def\u7dda\u3068\u300c\u7fa4\u300d\u3078\u306e\u8ee2\u63db"
     },
     {
@@ -10460,8 +10460,8 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_1_3_openai_codex_\u306e\u4e16\u4ee3\u4ea4\u4ee3\u3068_gpt_5_6_\u30d5\u30a1\u30df\u30ea\u30fc",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 273,
+      "community_name": "1. \u4e3b\u8981\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u88fd\u54c1\u306e\u73fe\u6cc1",
       "norm_label": "1-3. openai \u2014 codex \u306e\u4e16\u4ee3\u4ea4\u4ee3\u3068 gpt-5.6 \u30d5\u30a1\u30df\u30ea\u30fc"
     },
     {
@@ -10471,8 +10471,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_1_4_github_copilot_coding_agent_\u7d71\u5236\u8a2d\u8a08\u306f\u7dad\u6301_\u7bc4\u56f2\u306f\u62e1\u5927",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 273,
+      "community_name": "1. \u4e3b\u8981\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u88fd\u54c1\u306e\u73fe\u6cc1",
       "norm_label": "1-4. github copilot coding agent \u2014 \u7d71\u5236\u8a2d\u8a08\u306f\u7dad\u6301\u3001\u7bc4\u56f2\u306f\u62e1\u5927"
     },
     {
@@ -10482,8 +10482,8 @@
       "source_location": "L92",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_1_5_google_jules_\u306e_ga_\u3068_gemini_3_\u7cfb",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 273,
+      "community_name": "1. \u4e3b\u8981\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u88fd\u54c1\u306e\u73fe\u6cc1",
       "norm_label": "1-5. google \u2014 jules \u306e ga \u3068 gemini 3 \u7cfb"
     },
     {
@@ -10493,8 +10493,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_1_6_\u65b0\u8208_\u305d\u306e\u4ed6",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 273,
+      "community_name": "1. \u4e3b\u8981\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u88fd\u54c1\u306e\u73fe\u6cc1",
       "norm_label": "1-6. \u65b0\u8208\u30fb\u305d\u306e\u4ed6"
     },
     {
@@ -10504,8 +10504,8 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_2_\u30d9\u30f3\u30c1\u30de\u30fc\u30af\u306e\u6700\u65b0\u5024",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 295,
+      "community_name": "2. \u30d9\u30f3\u30c1\u30de\u30fc\u30af\u306e\u6700\u65b0\u5024",
       "norm_label": "2. \u30d8\u30f3\u30c1\u30de\u30fc\u30af\u306e\u6700\u65b0\u5024"
     },
     {
@@ -10515,8 +10515,8 @@
       "source_location": "L113",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_2_1_swe_bench_verified_\u98fd\u548c\u5c40\u9762\u3078",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 295,
+      "community_name": "2. \u30d9\u30f3\u30c1\u30de\u30fc\u30af\u306e\u6700\u65b0\u5024",
       "norm_label": "2-1. swe-bench verified \u2014 \u98fd\u548c\u5c40\u9762\u3078"
     },
     {
@@ -10526,8 +10526,8 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_2_2_\u5f8c\u7d9a\u30d9\u30f3\u30c1\u30de\u30fc\u30af_swe_bench_verified_\u306e\u4ee3\u66ff\u3068\u3057\u3066\u53f0\u982d",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 295,
+      "community_name": "2. \u30d9\u30f3\u30c1\u30de\u30fc\u30af\u306e\u6700\u65b0\u5024",
       "norm_label": "2-2. \u5f8c\u7d9a\u30d8\u30f3\u30c1\u30de\u30fc\u30af(swe-bench verified \u306e\u4ee3\u66ff\u3068\u3057\u3066\u53f0\u982d)"
     },
     {
@@ -10537,8 +10537,8 @@
       "source_location": "L147",
       "_origin": "ast",
       "id": "research_phase2_20260804_agentic_development_update_2_3_\u56f3\u89e3\u7528\u306e\u6574\u7406",
-      "community": 1,
-      "community_name": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u578b\u958b\u767a\u306e\u73fe\u5728\u5730 \u66f4\u65b0\u8abf\u67fb\u30e1\u30e2(2026-08-04 \u6642\u70b9)",
+      "community": 295,
+      "community_name": "2. \u30d9\u30f3\u30c1\u30de\u30fc\u30af\u306e\u6700\u65b0\u5024",
       "norm_label": "2-3. \u56f3\u89e3\u7528\u306e\u6574\u7406"
     },
     {
@@ -22469,7 +22469,7 @@
       "label": "\u8aad\u307f\u65b9",
       "file_type": "document",
       "source_file": "src/content/docs/community/evidence-ledger.md",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "src_content_docs_community_evidence_ledger_\u8aad\u307f\u65b9",
       "community": 236,
@@ -22552,6 +22552,160 @@
       "community": 226,
       "community_name": "evidence-marking.md",
       "norm_label": "\u3053\u306e\u898f\u7d04\u306e\u9650\u754c"
+    },
+    {
+      "label": "feedback-workflow.md",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "feedback-workflow.md"
+    },
+    {
+      "label": "\u53d7\u3051\u308b\u5834\u6240",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_\u53d7\u3051\u308b\u5834\u6240",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "\u53d7\u3051\u308b\u5834\u6240"
+    },
+    {
+      "label": "\u30c8\u30ea\u30a2\u30fc\u30b8\u306e\u533a\u5206",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_\u30c8\u30ea\u30a2\u30fc\u30b8\u306e\u533a\u5206",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "\u30c8\u30ea\u30a2\u30fc\u30b7\u306e\u533a\u5206"
+    },
+    {
+      "label": "\u533a\u5206\u3054\u3068\u306e\u624b\u7d9a",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_\u533a\u5206\u3054\u3068\u306e\u624b\u7d9a",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "\u533a\u5206\u3053\u3068\u306e\u624b\u7d9a"
+    },
+    {
+      "label": "A. \u8aa4\u308a\u306e\u6307\u6458",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_a_\u8aa4\u308a\u306e\u6307\u6458",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "a. \u8aa4\u308a\u306e\u6307\u6458"
+    },
+    {
+      "label": "B. \u6839\u62e0\u306e\u63d0\u4f9b",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_b_\u6839\u62e0\u306e\u63d0\u4f9b",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "b. \u6839\u62e0\u306e\u63d0\u4f9b"
+    },
+    {
+      "label": "C. \u8a2d\u8a08\u3078\u306e\u53cd\u8ad6",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_c_\u8a2d\u8a08\u3078\u306e\u53cd\u8ad6",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "c. \u8a2d\u8a08\u3078\u306e\u53cd\u8ad6"
+    },
+    {
+      "label": "D. \u9069\u7528\u6761\u4ef6\u306e\u8cea\u554f",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L80",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_d_\u9069\u7528\u6761\u4ef6\u306e\u8cea\u554f",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "d. \u9069\u7528\u6761\u4ef6\u306e\u8cea\u554f"
+    },
+    {
+      "label": "E. \u7bc4\u56f2\u5916",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_e_\u7bc4\u56f2\u5916",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "e. \u7bc4\u56f2\u5916"
+    },
+    {
+      "label": "\u5fdc\u7b54\u306e\u671f\u9650",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_\u5fdc\u7b54\u306e\u671f\u9650",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "\u5fdc\u7b54\u306e\u671f\u9650"
+    },
+    {
+      "label": "\u53cd\u6620\u3057\u306a\u3044\u5224\u65ad\u306e\u8a18\u9332",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L114",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_\u53cd\u6620\u3057\u306a\u3044\u5224\u65ad\u306e\u8a18\u9332",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "\u53cd\u6620\u3057\u306a\u3044\u5224\u65ad\u306e\u8a18\u9332"
+    },
+    {
+      "label": "\u8a18\u9332\u306b\u542b\u3081\u306a\u3044\u3082\u306e",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L127",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_\u8a18\u9332\u306b\u542b\u3081\u306a\u3044\u3082\u306e",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "\u8a18\u9332\u306b\u542b\u3081\u306a\u3044\u3082\u306e"
+    },
+    {
+      "label": "\u3053\u306e\u904b\u7528\u81ea\u4f53\u306e\u898b\u76f4\u3057",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_\u3053\u306e\u904b\u7528\u81ea\u4f53\u306e\u898b\u76f4\u3057",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "\u3053\u306e\u904b\u7528\u81ea\u4f53\u306e\u898b\u76f4\u3057"
+    },
+    {
+      "label": "\u95a2\u9023\u3059\u308b\u30da\u30fc\u30b8",
+      "file_type": "document",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L147",
+      "_origin": "ast",
+      "id": "src_content_docs_community_feedback_workflow_\u95a2\u9023\u3059\u308b\u30da\u30fc\u30b8",
+      "community": 224,
+      "community_name": "feedback-workflow.md",
+      "norm_label": "\u95a2\u9023\u3059\u308b\u30d8\u30fc\u30b7"
     },
     {
       "label": "project-management.md",
@@ -62059,7 +62213,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/content/docs/community/evidence-ledger.md",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
       "source": "src_content_docs_community_evidence_ledger",
@@ -62130,6 +62284,149 @@
       "_origin": "ast",
       "source": "src_content_docs_community_evidence_marking",
       "target": "src_content_docs_community_evidence_marking_\u691c\u67fb",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L135",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow",
+      "target": "src_content_docs_community_feedback_workflow_\u3053\u306e\u904b\u7528\u81ea\u4f53\u306e\u898b\u76f4\u3057",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow",
+      "target": "src_content_docs_community_feedback_workflow_\u30c8\u30ea\u30a2\u30fc\u30b8\u306e\u533a\u5206",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow",
+      "target": "src_content_docs_community_feedback_workflow_\u533a\u5206\u3054\u3068\u306e\u624b\u7d9a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow",
+      "target": "src_content_docs_community_feedback_workflow_\u53cd\u6620\u3057\u306a\u3044\u5224\u65ad\u306e\u8a18\u9332",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow",
+      "target": "src_content_docs_community_feedback_workflow_\u53d7\u3051\u308b\u5834\u6240",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow",
+      "target": "src_content_docs_community_feedback_workflow_\u5fdc\u7b54\u306e\u671f\u9650",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L127",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow",
+      "target": "src_content_docs_community_feedback_workflow_\u8a18\u9332\u306b\u542b\u3081\u306a\u3044\u3082\u306e",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L147",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow",
+      "target": "src_content_docs_community_feedback_workflow_\u95a2\u9023\u3059\u308b\u30da\u30fc\u30b8",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow_\u533a\u5206\u3054\u3068\u306e\u624b\u7d9a",
+      "target": "src_content_docs_community_feedback_workflow_a_\u8aa4\u308a\u306e\u6307\u6458",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow_\u533a\u5206\u3054\u3068\u306e\u624b\u7d9a",
+      "target": "src_content_docs_community_feedback_workflow_b_\u6839\u62e0\u306e\u63d0\u4f9b",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow_\u533a\u5206\u3054\u3068\u306e\u624b\u7d9a",
+      "target": "src_content_docs_community_feedback_workflow_c_\u8a2d\u8a08\u3078\u306e\u53cd\u8ad6",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L80",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow_\u533a\u5206\u3054\u3068\u306e\u624b\u7d9a",
+      "target": "src_content_docs_community_feedback_workflow_d_\u9069\u7528\u6761\u4ef6\u306e\u8cea\u554f",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/content/docs/community/feedback-workflow.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "src_content_docs_community_feedback_workflow_\u533a\u5206\u3054\u3068\u306e\u624b\u7d9a",
+      "target": "src_content_docs_community_feedback_workflow_e_\u7bc4\u56f2\u5916",
       "confidence_score": 1.0
     },
     {
@@ -77853,5 +78150,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "61b6d4d850708027aacac89b8c609f7664e76268"
+  "built_at_commit": "fd44b2043ae3aff3c7b9faffdf2d85bc30076aee"
 }
