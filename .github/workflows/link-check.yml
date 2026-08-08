@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       # 403 は bot 判定(scrum.org・medium・官公庁 PDF 等)の誤検知が大半、
       # 301/302/308 はリダイレクトで到達可能なため許容する(本当の消失は 404 で検出できる)。
       # 消失済みの出典 URL は .lycheeignore で個別に除外する
