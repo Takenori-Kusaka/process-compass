@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1786142025.527225,
-    "ast_hash": "2bec333792f956484e06b626f760b0e4",
+    "mtime": 1786153519.623566,
+    "ast_hash": "382079e216cea9be2c0a8ebfaa90f177",
     "semantic_hash": ""
   },
   "scripts/generate-image.mjs": {
@@ -155,18 +155,18 @@
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
-    "mtime": 1783505060.6451824,
-    "ast_hash": "9530bb6ea3eb2f67ca36c95eb5d3cc99",
+    "mtime": 1786153108.8045971,
+    "ast_hash": "9d69c84025fc04b087d70a61c883fa68",
     "semantic_hash": ""
   },
   ".github/workflows/deploy.yml": {
-    "mtime": 1783546459.3491807,
-    "ast_hash": "6c2f49d93bc7023f8f2b0f3836866c3a",
+    "mtime": 1786153108.805599,
+    "ast_hash": "aa2e41597b0220f3134040eb36a2ad50",
     "semantic_hash": ""
   },
   ".github/workflows/link-check.yml": {
-    "mtime": 1785799607.0184524,
-    "ast_hash": "1c552638544e0920a739a08bbeace7ea",
+    "mtime": 1786153108.8065968,
+    "ast_hash": "03d4b5f080986e3caaabfe30f64b7d58",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -1169,6 +1169,16 @@
     "ast_hash": "138df19a072b9e7975397ac42af24021",
     "semantic_hash": ""
   },
+  "src/content/docs/adr/0028-unmet-gate-distinct-from-omitted.md": {
+    "mtime": 1786142025.5392241,
+    "ast_hash": "f6b66517a2aafbb4a188e9caa16f0d83",
+    "semantic_hash": ""
+  },
+  "src/content/docs/phase5-implementation/template-repository.md": {
+    "mtime": 1786152942.265391,
+    "ast_hash": "a41944e0e20b8dd39831e7add7b1039c",
+    "semantic_hash": ""
+  },
   "template/.claude/guard.json": {
     "mtime": 1786141682.9858384,
     "ast_hash": "999416075159010688992b4daf24eab5",
@@ -1274,14 +1284,19 @@
     "ast_hash": "7875381f47ca3354104cad610876ae2b",
     "semantic_hash": ""
   },
-  "src/content/docs/adr/0028-unmet-gate-distinct-from-omitted.md": {
-    "mtime": 1786142025.5392241,
-    "ast_hash": "f6b66517a2aafbb4a188e9caa16f0d83",
+  "zenn/.textlintrc.json": {
+    "mtime": 1786151401.6169229,
+    "ast_hash": "b7975d9f8751dcd23bb64afe6059ab44",
     "semantic_hash": ""
   },
-  "src/content/docs/phase5-implementation/template-repository.md": {
-    "mtime": 1786152942.265391,
-    "ast_hash": "a41944e0e20b8dd39831e7add7b1039c",
+  "zenn/package.json": {
+    "mtime": 1786152907.3392222,
+    "ast_hash": "134ada421fb571a6ffb4e6a0ccee8581",
+    "semantic_hash": ""
+  },
+  "zenn/scripts/check-books.mjs": {
+    "mtime": 1786152907.3402212,
+    "ast_hash": "190e6732f76a52c54b5c9797faed86b4",
     "semantic_hash": ""
   },
   "template/.claude/skills/adr-write/SKILL.md": {
@@ -1499,19 +1514,19 @@
     "ast_hash": "8f3d5837584ff68d60bcec3603c7f1d9",
     "semantic_hash": ""
   },
-  "zenn/.textlintrc.json": {
-    "mtime": 1786151401.6169229,
-    "ast_hash": "b7975d9f8751dcd23bb64afe6059ab44",
-    "semantic_hash": ""
-  },
-  "zenn/package.json": {
-    "mtime": 1786152907.3392222,
-    "ast_hash": "134ada421fb571a6ffb4e6a0ccee8581",
+  "zenn/.github/workflows/check.yml": {
+    "mtime": 1786152907.31872,
+    "ast_hash": "cd74a6b56bccea9ca7814bcbbaf5d9ef",
     "semantic_hash": ""
   },
   "zenn/README.md": {
     "mtime": 1786151401.6179206,
     "ast_hash": "5250ca11573e9e87798836cd1282829b",
+    "semantic_hash": ""
+  },
+  "zenn/articles/README.md": {
+    "mtime": 1786152907.3197217,
+    "ast_hash": "0e54863d885d020001e1a56bff4aec3c",
     "semantic_hash": ""
   },
   "zenn/books/pit-in-process/against-formalization.md": {
@@ -1567,31 +1582,6 @@
   "zenn/books/pit-in-process/why-it-looks-idealistic.md": {
     "mtime": 1786151401.6269162,
     "ast_hash": "bfdd0538e27f734408c2e266b89ec542",
-    "semantic_hash": ""
-  },
-  "zenn/books/pit-in-process/cover.png": {
-    "mtime": 1786151401.620914,
-    "ast_hash": "fa3b64f34e071d5fff1a16203e99f218",
-    "semantic_hash": ""
-  },
-  "zenn/images/pit-in-process/ch-bandwidth.jpeg": {
-    "mtime": 1786151401.6319158,
-    "ast_hash": "a3f9075efea2094d8414ff4b7e5bff2b",
-    "semantic_hash": ""
-  },
-  "zenn/scripts/check-books.mjs": {
-    "mtime": 1786152907.3402212,
-    "ast_hash": "190e6732f76a52c54b5c9797faed86b4",
-    "semantic_hash": ""
-  },
-  "zenn/.github/workflows/check.yml": {
-    "mtime": 1786152907.31872,
-    "ast_hash": "cd74a6b56bccea9ca7814bcbbaf5d9ef",
-    "semantic_hash": ""
-  },
-  "zenn/articles/README.md": {
-    "mtime": 1786152907.3197217,
-    "ast_hash": "0e54863d885d020001e1a56bff4aec3c",
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/accuracy-as-commodity.md": {
@@ -1654,6 +1644,11 @@
     "ast_hash": "a6459a0ff312a594567c74d2da2d0587",
     "semantic_hash": ""
   },
+  "zenn/books/pit-in-process/cover.png": {
+    "mtime": 1786151401.620914,
+    "ast_hash": "fa3b64f34e071d5fff1a16203e99f218",
+    "semantic_hash": ""
+  },
   "zenn/books/quickscribe-design/cover.png": {
     "mtime": 1786152907.3217216,
     "ast_hash": "7be377bba14cef788abbe9887c8ee89e",
@@ -1702,6 +1697,11 @@
   "zenn/images/c4/vault-data-design-components.png": {
     "mtime": 1786152907.3382208,
     "ast_hash": "f6831bf835dfc7e6da672cbc4ce1c00e",
+    "semantic_hash": ""
+  },
+  "zenn/images/pit-in-process/ch-bandwidth.jpeg": {
+    "mtime": 1786151401.6319158,
+    "ast_hash": "a3f9075efea2094d8414ff4b7e5bff2b",
     "semantic_hash": ""
   }
 }
