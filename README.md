@@ -45,6 +45,14 @@ git submodule update --init --recursive
 
 使い方は [準拠テンプレートリポジトリ](https://takenori-kusaka.github.io/process-compass/phase5-implementation/template-repository/) を参照してください。
 
+### 要点だけ読む
+
+Zenn に本を公開しています。第1章だけで要点が伝わる構成です。
+
+**AIが実装する時代の開発プロセス — ピットイン方式**
+
+「AIDLC は理想論」と感じている人、パラダイムシフトで何が変わるのかもやもやしている人へ向けて、要点を10章にまとめました。原稿は [zenn-content](https://github.com/Takenori-Kusaka/zenn-content) にあり、このリポジトリからは `zenn/` としてサブモジュール参照しています。
+
 ## フィードバック歓迎
 
 意見・アイデア・フィードバックを広く募集しています。[Issues](https://github.com/Takenori-Kusaka/process-compass/issues) からお気軽にどうぞ。

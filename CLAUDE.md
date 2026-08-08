@@ -31,6 +31,14 @@
 - 規則データを変えたら `npm run template:kb` で複製を更新する。乖離は `npm run check` が検出する
 - テンプレート側の設計判断は ADR-0028(未達と省略の区別)
 
+## Zenn 発信(submodule)
+
+- `zenn/` = [zenn-content](https://github.com/Takenori-Kusaka/zenn-content)。Zenn の GitHub 連携先
+- **Zenn へ連携できるリポジトリは最大2つ**。記事も本もこのリポジトリへ集約する
+- 本: `zenn/books/pit-in-process/`(全10章)
+- `config.yaml` の `chapters` に書かれていない章は zenn.dev 上から削除される。増減したら必ず更新する
+- 画像は `zenn/images/` へ置き、`/images/...` の**絶対パス**で参照する(相対パスは動かない)
+
 ## コマンド
 
 - `npm run dev` — ローカルプレビュー
