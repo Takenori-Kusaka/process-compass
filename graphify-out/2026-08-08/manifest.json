@@ -1,7 +1,7 @@
 {
   ".claude/hooks/textlint-on-save.mjs": {
-    "mtime": 1783512633.5066738,
-    "ast_hash": "afbe64dea0752fcfcc76780ebb17337d",
+    "mtime": 1786154648.6710508,
+    "ast_hash": "44558c122490d3383d11c09052e08b03",
     "semantic_hash": ""
   },
   ".claude/settings.json": {
@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   ".github/dependabot.yml": {
-    "mtime": 1783505058.7670903,
-    "ast_hash": "a1dd807a69a1c0b583b8ce39b85df816",
+    "mtime": 1786154439.0059621,
+    "ast_hash": "822c48b9fe17dccc984a6725ac7b388f",
     "semantic_hash": ""
   },
   ".github/workflows/ci.yml": {
@@ -1285,13 +1285,13 @@
     "semantic_hash": ""
   },
   "zenn/.textlintrc.json": {
-    "mtime": 1786151401.6169229,
-    "ast_hash": "b7975d9f8751dcd23bb64afe6059ab44",
+    "mtime": 1786154976.3491502,
+    "ast_hash": "69d65405022ef1cf0dde0b034dbfe300",
     "semantic_hash": ""
   },
   "zenn/package.json": {
-    "mtime": 1786152907.3392222,
-    "ast_hash": "134ada421fb571a6ffb4e6a0ccee8581",
+    "mtime": 1786154976.355153,
+    "ast_hash": "7a8c8701c796c728a143c88548bca6cf",
     "semantic_hash": ""
   },
   "zenn/scripts/check-books.mjs": {
@@ -1585,8 +1585,8 @@
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/accuracy-as-commodity.md": {
-    "mtime": 1786152907.3207214,
-    "ast_hash": "b00d29af2d1e87875d46c1d629d04b5d",
+    "mtime": 1786154976.3491502,
+    "ast_hash": "d67885a63922a7132f60771bbd9f4159",
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/config.yaml": {
@@ -1595,8 +1595,8 @@
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/default-model-reversal.md": {
-    "mtime": 1786152907.322723,
-    "ast_hash": "8c2d453801b4213f4e9aa1ecbd9720a4",
+    "mtime": 1786154976.35115,
+    "ast_hash": "7c260a8ba85fc339443770a7cd2fe94c",
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/engine-abstraction.md": {
@@ -1620,8 +1620,8 @@
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/introduction.md": {
-    "mtime": 1786152907.3267255,
-    "ast_hash": "d661f2bf8206e9301a44143de487f4bc",
+    "mtime": 1786154976.352151,
+    "ast_hash": "a1c0eb3c0826666d489b52cf211745f9",
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/local-first-privacy.md": {
@@ -1630,18 +1630,18 @@
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/physical-trigger.md": {
-    "mtime": 1786152907.3282232,
-    "ast_hash": "8454eafb44e444179cea4c1e903c8861",
+    "mtime": 1786154976.352151,
+    "ast_hash": "c64d05c7ab508ab4471242e7bf995226",
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/speed-floor-gpu-vulkan.md": {
-    "mtime": 1786152907.329219,
-    "ast_hash": "7b2648bb720ce133acacc192d80951f8",
+    "mtime": 1786154976.3531506,
+    "ast_hash": "e446cddcc3369b008af932098d428211",
     "semantic_hash": ""
   },
   "zenn/books/quickscribe-design/vault-data-design.md": {
-    "mtime": 1786152907.329219,
-    "ast_hash": "a6459a0ff312a594567c74d2da2d0587",
+    "mtime": 1786154976.354149,
+    "ast_hash": "8ab60ab00dc5e4fcba936b5a82528910",
     "semantic_hash": ""
   },
   "zenn/books/pit-in-process/cover.png": {
@@ -1702,6 +1702,21 @@
   "zenn/images/pit-in-process/ch-bandwidth.jpeg": {
     "mtime": 1786151401.6319158,
     "ast_hash": "a3f9075efea2094d8414ff4b7e5bff2b",
+    "semantic_hash": ""
+  },
+  "template/.github/dependabot.yml": {
+    "mtime": 1786154978.446118,
+    "ast_hash": "f3315c685e0de7bab8fe9b7dc1f055c7",
+    "semantic_hash": ""
+  },
+  "zenn/.github/dependabot.yml": {
+    "mtime": 1786154976.3481505,
+    "ast_hash": "bf71dc75d5447faabadea64549ceaf07",
+    "semantic_hash": ""
+  },
+  "zenn/docs/textlint.md": {
+    "mtime": 1786154976.354149,
+    "ast_hash": "85074bdd721a6b7edb6e4ed9c8b410fb",
     "semantic_hash": ""
   }
 }
