@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3265 nodes · 3170 edges · 277 communities (270 shown, 7 thin omitted)
+- 3421 nodes · 3346 edges · 288 communities (281 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -230,14 +230,14 @@
 - 0023-review-package-cues-not-conclusions.md
 - aggregate-evidence.mjs
 - 0024-decision-as-risk-acceptance.md
-- 0. プロセスの概要
+- against-formalization.md
 - ピットイン方式 準拠テンプレート
 - 手順
 - 133 一次調査: コンテキストの鮮度監査と忘却
 - 手順
 - adapter.mjs
 - 0025-context-forgetting-over-detection.md
-- 4. デザインレビュー(DR)と品質保証部門
+- five-gaps.md
 - 3.12.10 実行の強制停止(サーキットブレーカー)
 - evidence-marking.md
 - 0026-evidence-level-marking.md
@@ -283,13 +283,24 @@
 - ゲート判定記録
 - 前提の台帳
 - 1. 稟議制度(りんぎ)
+- zenn/package.json
+- getting-started.md
 - 用語集
 - 複製したファイル
+- solo-developer.md
+- pit-in-process/summary.md
 - 保管領域
 - 案件層コンテキスト
 - ブランチ保護
 - 機能仕様
 - 成果物の置き場
+- the-structure.md
+- what-actually-changes.md
+- japanese-organizations.md
+- why-it-looks-idealistic.md
+- zenn-content
+- further-reading.md
+- 3. 決裁権限規程・職務権限規程
 
 ## God Nodes (most connected - your core abstractions)
 1. `deny` - 22 edges
@@ -316,7 +327,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (277 total, 7 thin omitted)
+## Communities (288 total, 7 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -335,15 +346,15 @@ Cohesion: 0.15
 Nodes (13): scripts, astro, build, check, dev, evidence:write, lint:evidence, lint:text (+5 more)
 
 ### Community 4 - "日本企業のガバナンス・決裁ゲートの実態 調査メモ"
-Cohesion: 0.11
-Nodes (19): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 2.1 定義と機能, 2.2 「意思決定は遅いが実行は速い」の両面性, 2. 根回し・合議(ネマワシ), 3.1 定義と構造(建前), 3.2 金額・重要度による決裁階層(図解の中核) (+11 more)
+Cohesion: 0.10
+Nodes (20): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 2.1 定義と機能, 2.2 「意思決定は遅いが実行は速い」の両面性, 2. 根回し・合議(ネマワシ), 4.1 DR の規格上の定義(建前=JIS), 4.2 品質保証部門による第三者レビュー・出荷判定(建前=独立性) (+12 more)
 
 ### Community 5 - "エージェント型開発(自律・マルチエージェント)の現在地 調査メモ"
 Cohesion: 0.06
 Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.06
+Cohesion: 0.07
 Nodes (30): roleName, seg, wpName, diagram, roleName, seg, string, diagram (+22 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
@@ -711,8 +722,8 @@ Cohesion: 0.25
 Nodes (7): コンテキスト, ステータス, 使い分けの規則, 命名の根拠, 影響, 検討した選択肢, 決定
 
 ### Community 103 - "AIDLC(AI-Driven Development Life Cycle)調査メモ"
-Cohesion: 0.12
-Nodes (16): 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task), 3. roles(ロール): 人間(意思決定)× AIエージェント(実行)の分担, 4. information items(成果物・文書), 5. gates(ゲート・決裁): Human-in-the-loop 承認点, 6. レビュープロセス, 7-1. 理想像が暗黙に仮定している前提条件(これが崩れると成立しない) (+8 more)
+Cohesion: 0.10
+Nodes (21): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task) (+13 more)
 
 ### Community 104 - "調査メモ: AI 維持管理責任者（AI Maintainer）と AI 運用担当者（AIOps）の職掌（Issue #111 / #112）"
 Cohesion: 0.05
@@ -1158,9 +1169,9 @@ Nodes (12): adrs, commits, config, evidence, from, gaps, gateRecords, prNumbers 
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 217 - "0. プロセスの概要"
-Cohesion: 0.40
-Nodes (5): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要
+### Community 217 - "against-formalization.md"
+Cohesion: 0.11
+Nodes (18): 1. 確認の範囲を有界にする, 2. 指示ではなく強制層へ降ろす, 3. 引き上げは判定、引き下げは自動, 4. 検証を緩める操作を分離する, 5. 測定の対象を工程にする, 6. 判定の場を増やさない, この章のまとめ, 何が起きるか (+10 more)
 
 ### Community 218 - "ピットイン方式 準拠テンプレート"
 Cohesion: 0.13
@@ -1186,9 +1197,9 @@ Nodes (10): adapter, config, env, OPTIONAL, r, fail(), notice(), ROOT (+2 more)
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 224 - "4. デザインレビュー(DR)と品質保証部門"
-Cohesion: 0.40
-Nodes (5): 4.1 DR の規格上の定義(建前=JIS), 4.2 品質保証部門による第三者レビュー・出荷判定(建前=独立性), 4.3 実態(独立性の揺らぎ・署名権の組織差), 4.4 DR配置の図解(製造業型 → ソフトウェア型), 4. デザインレビュー(DR)と品質保証部門
+### Community 224 - "five-gaps.md"
+Cohesion: 0.11
+Nodes (17): G1 明文化の壁, G2 責任主体の欠落, G3 職位ゲートと専門性の乖離, G4 ロールの曖昧さ・兼務, G5 承認滞留, もう1つの発見: 事業継続性の責任が社内に戻る, ギャップと打ち手の対応, 何が起きるか (+9 more)
 
 ### Community 225 - "3.12.10 実行の強制停止(サーキットブレーカー)"
 Cohesion: 0.50
@@ -1332,7 +1343,7 @@ Nodes (6): engines, node, name, private, type, version
 
 ### Community 261 - "devDependencies"
 Cohesion: 0.29
-Nodes (7): devDependencies, starlight-links-validator, textlint, textlint-rule-preset-ja-technical-writing, starlight-links-validator, textlint, textlint-rule-preset-ja-technical-writing
+Nodes (7): devDependencies, starlight-links-validator, textlint, textlint-rule-preset-ja-technical-writing, textlint, textlint-rule-preset-ja-technical-writing, starlight-links-validator
 
 ### Community 262 - "実装計画"
 Cohesion: 0.29
@@ -1366,6 +1377,14 @@ Nodes (5): この台帳を空欄にしない, 前提の台帳, 台帳, 崩れた
 Cohesion: 0.40
 Nodes (5): 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ)
 
+### Community 270 - "zenn/package.json"
+Cohesion: 0.11
+Nodes (17): zenn-cli, description, devDependencies, textlint, textlint-rule-preset-ja-technical-writing, zenn-cli, textlint, textlint-rule-preset-ja-technical-writing (+9 more)
+
+### Community 271 - "getting-started.md"
+Cohesion: 0.12
+Nodes (15): 1. テンプレートからリポジトリを作る, 2. `/process-init` を実行する, 3. 作業スキルで回す, 3ステップ, この章のまとめ, 既存プロジェクトへ後から入れる場合, 最初にやらないほうがよいこと, 生成される構成の例 (+7 more)
+
 ### Community 272 - "用語集"
 Cohesion: 0.40
 Nodes (4): 書き方, 用語, 用語集, 追加のしかた
@@ -1373,6 +1392,14 @@ Nodes (4): 書き方, 用語, 用語集, 追加のしかた
 ### Community 273 - "複製したファイル"
 Cohesion: 0.40
 Nodes (4): なぜ複製するのか, 乖離の検出, 更新の手順, 複製したファイル
+
+### Community 274 - "solo-developer.md"
+Cohesion: 0.12
+Nodes (15): 3条件をすべて満たすこと, AI で埋められない理由, AI レビューをどう位置づけるか, この章のまとめ, それでも1人で始める価値はある, なぜ G-6 だけ埋まらないのか, まず、何が委譲できて何ができないか, 使えない場合 (+7 more)
+
+### Community 275 - "pit-in-process/summary.md"
+Cohesion: 0.17
+Nodes (11): 1. なぜ「理想論」に見えるのか, 2. 本当に変わるのは何か, 3. 律速点は人の検証帯域になる, 4. 日本の組織はむしろ有利になりうる, 5. 何が壊れるのか, 6. ピットイン方式の骨格, 7. 形骸化をどう防ぐか, 8. 1人でも回るのか (+3 more)
 
 ### Community 276 - "保管領域"
 Cohesion: 0.50
@@ -1390,8 +1417,36 @@ Nodes (3): なぜここに置くか, ブランチ保護, 適用のしかた
 Cohesion: 0.50
 Nodes (3): この2つが揃うまで実装しない, 曖昧語は CI が止める, 機能仕様
 
+### Community 281 - "the-structure.md"
+Cohesion: 0.17
+Nodes (11): 3つの原則, 8つの工程ゲート, AI は結果責任を持てない, AI 自律レベル, G-5 の8基準, この章のまとめ, 二層構造, 作成者は承認しない (+3 more)
+
+### Community 282 - "what-actually-changes.md"
+Cohesion: 0.20
+Nodes (9): 1機能あたりのサイクル, AI に草案を書かせてよいか, この章のまとめ, テストで担保できないもの, 一番大きく変わるのは「読み方」, 受入基準の書き方が要になる, 変わらないもの, 変わるのは作業の重心 (+1 more)
+
+### Community 283 - "japanese-organizations.md"
+Cohesion: 0.22
+Nodes (8): この章のまとめ, 不利な点: 責任が分散する, 受託開発ではどうなるか, 合議が速度を落とす, 既存制度に対して変更を求めるのは2点だけ, 有利な点: 独立レビューを制度として持っている, 決定権が職位で決まる, 稟議は責任を分散させる
+
+### Community 284 - "why-it-looks-idealistic.md"
+Cohesion: 0.22
+Nodes (8): 3つの角度から見た同じ構造, 「AI に任せて誰も分からなくなる」という不安, この章のまとめ, では理想論は無意味なのか, 理想像が置いている前提, 角度1: エージェントの現在地, 角度2: プロダクトオーナー中心のチーム編成, 角度3: コンテキストエンジニアリング
+
+### Community 285 - "zenn-content"
+Cohesion: 0.25
+Nodes (7): zenn-content, ライセンス, 公開しているもの, 執筆, 構成, 注意, 関連
+
+### Community 286 - "further-reading.md"
+Cohesion: 0.29
+Nodes (6): この標準の限界, どこから読むか, フィードバックのお願い, 最後に, 決定の記録, 関連リポジトリ
+
+### Community 287 - "3. 決裁権限規程・職務権限規程"
+Cohesion: 0.50
+Nodes (4): 3.1 定義と構造(建前), 3.2 金額・重要度による決裁階層(図解の中核), 3.3 なぜゲートの承認者が「職位」で決まるか, 3. 決裁権限規程・職務権限規程
+
 ## Knowledge Gaps
-- **2455 isolated node(s):** `プロセスの名称(ADR-0027)`, `プロジェクト構造`, `執筆規約`, `準拠テンプレート(submodule)`, `Zenn 発信(submodule)` (+2450 more)
+- **2571 isolated node(s):** `normalized`, `res`, `ADR-0006`, `ADR-0017`, `ADR-0020` (+2566 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -1399,13 +1454,13 @@ Nodes (3): この2つが揃うまで実装しない, 曖昧語は CI が止め�
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `プロダクトオーナー中心のチーム編成論 調査メモ` connect `プロダクトオーナー中心のチーム編成論 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **Why does `AIDLC(AI-Driven Development Life Cycle)調査メモ` connect `AIDLC(AI-Driven Development Life Cycle)調査メモ` to `20260710-jp-governance.md`, `0. プロセスの概要`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **What connects `プロセスの名称(ADR-0027)`, `プロジェクト構造`, `執筆規約` to the rest of the system?**
-  _2455 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `normalized`, `res`, `ADR-0006` to the rest of the system?**
+  _2571 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
