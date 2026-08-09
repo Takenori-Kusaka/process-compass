@@ -51,6 +51,13 @@ export default defineConfig({
         {
           tag: 'meta',
           attrs: {
+            name: 'google-site-verification',
+            content: 'eoOXwGFydICXlYFItXtr_bH-THdqQ20AupSKOG9LwYU',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: {
             property: 'og:image',
             content: 'https://takenori-kusaka.github.io/process-compass/og-image.png',
           },
