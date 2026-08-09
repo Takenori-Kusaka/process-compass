@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightLinksValidator from 'starlight-links-validator';
 import mermaid from 'astro-mermaid';
+import sitemap from '@astrojs/sitemap';
 
 // GitHub Pages (project site) 用の設定
 // https://takenori-kusaka.github.io/process-compass/
@@ -10,6 +11,7 @@ export default defineConfig({
   site: 'https://takenori-kusaka.github.io',
   base: '/process-compass',
   integrations: [
+    sitemap(),
     // mermaid は starlight より先に登録する(コードブロック処理の順序のため)
     // securityLevel: 'loose' は click ディレクティブ(図からのドリルダウン遷移)に必要 — ADR-0006
     mermaid({ autoTheme: true, mermaidConfig: { securityLevel: 'loose' } }),
@@ -27,9 +29,9 @@ export default defineConfig({
           ],
         }),
       ],
-      title: 'Process Compass',
+      title: 'Process Compass（プロセスコンパス）',
       description:
-        '生成AI時代の開発プロセスを体系化し、チーム体制や事業フェーズに合わせて最適なプロセスを提案する羅針盤',
+        '生成AI時代の開発プロセス「ピットイン方式/ピットイン開発」を体系化し、チーム体制や事業フェーズに合わせて最適なプロセスを提案する羅針盤',
       // 日本語をルートロケールとし、将来の英語版追加(locales.en)に備える
       defaultLocale: 'root',
       locales: {

@@ -21,6 +21,7 @@
     "test:template": "node scripts/check-template-drift.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/starlight": "^0.41.6",
     "astro": "^7.2.0",
     "astro-mermaid": "^2.1.0",
