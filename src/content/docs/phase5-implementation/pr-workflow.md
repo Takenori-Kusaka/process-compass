@@ -25,6 +25,16 @@ graph LR
 - **1タスク=1PR**。実装計画のタスクとの対応を本文に必ず書く(トレーサビリティの起点)
 - PR は**タスク着手時に Draft で開く**。完成してから開くのではなく、着手の宣言として最初に開く(進行中の作業が全員に見える)
 
+## ロール間非同期メッセージング（Label Mailbox 連携）
+
+物理分割された各ロール（PO, Dev, QM, Audit, Platform）は、直接の同期通信や割り込みをせず、GitHubラベルをメッセージバスとしたポーリングベースの **[非割込型メッセージボックス（Label Mailbox）](/process-compass/phase5-implementation/label-mailbox/)** を使用して仕事を引き渡す。
+
+- 開発に着手した際、Draft PR の状態では **`state:needs-dev`** ラベルを維持する。
+- 実装・単体テスト（CI緑）が完了し、`human-verify` を記録して Ready にする際、開発者（Dev）は `state:needs-dev` を剥がし、**`state:dev-done`** ラベルを付与して出荷判定者（QM）へ引き渡す。
+- 独立レビューにおいて差し戻し（BLOCK）が発生した場合、QMは **`state:qm-blocked`** を付与する。開発者は対応を終えて再 Ready 化する際、必ずこのラベルを剥がして再度 **`state:dev-done`** に戻す（復路の厳守）。
+
+各ロールのエージェントセッションは、直接の指示を待つのではなく、Label Mailbox で規定された polling コマンドにより自律的に仕事を処理する。
+
 ## サイズ上限
 
 | 項目 | 上限(目安) | 超えたときの扱い |
