@@ -29,6 +29,7 @@ sidebar:
 | EV-0012 | 指標の総数に上限を置くという規定と、その初期値(正式指標20件) | E0(なし) | 2027-08 | 2期分の運用記録から得た、指標ごとの参照回数と打ち手への接続率 | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/) |
 | EV-0014 | 本カタログの網羅性、およびカテゴリを内部5・外部5とした分割 | E1(間接) | 2027-08 | 自組織で1年分の事象記録を分類した結果と、どのカテゴリにも収まらなかった件数 | [phase6-operation/risk-catalog](/process-compass/phase6-operation/risk-catalog/) |
 | EV-0016 | 演習の所要時間(90分)、inject の間隔(15分)、実施の頻度(半年に1回) | E0(なし) | 2027-08 | 2回分の演習記録から得た、時間内に完了した判断の割合と、参加者の可用性の実績 | [phase6-operation/incident-drill](/process-compass/phase6-operation/incident-drill/) |
+| EV-0017 | 本 ADR の決定1〜8 の全体。とくに「体制の欠落が作文の原因である」という因果の主張 | E2(単一事例) | 2027-08 | 決定1〜3 を適用した案件3件分の企画書と G-1 判定記録。および、適用しなかった案件との記述の質の比較 | [adr/0031-market-hypothesis-by-structure-not-fields](/process-compass/adr/0031-market-hypothesis-by-structure-not-fields/) |
 
 <!-- evidence-ledger:end -->
 
