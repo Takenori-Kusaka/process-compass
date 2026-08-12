@@ -2,7 +2,7 @@
 title: インシデント対応とポストモーテム
 description: 検知からポストモーテムまでのインシデント対応フロー。重大度の判定基準・エスカレーション・AIと人の分担・ポストモーテム様式を定義する
 sidebar:
-  order: 3
+  order: 5
 ---
 
 運用フェーズの監視・インシデント対応(operate-monitor)の実施手順です。ピットイン方式の原則どおり、**一次分析は AI・対処の判断は人**という分担で回します。
@@ -79,5 +79,7 @@ graph LR
 ## 運用への組み込み
 
 - 当番(オンコール)は週替わりで1人。当番が Sev 判定・初動・エスカレーションの権限を持つ
+- 本フローを実行できる状態は、[開発避難訓練](/process-compass/phase6-operation/incident-drill/)で定期的に確かめる
+- 事象の症状から手順を引く場合は[こんなときどうする](/process-compass/phase6-operation/what-to-do-when/)による
 - Sev3・Sev4 は[運用作業カタログ](/process-compass/phase6-operation/operations-catalog/)の週次棚卸しでまとめて処理する
 - インシデント件数・MTTR(平均復旧時間)は[運用メトリクス](/process-compass/phase6-operation/metrics/)で追跡する

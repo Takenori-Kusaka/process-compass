@@ -15,6 +15,7 @@ sidebar:
 | --- | --- | --- | --- | --- | --- |
 | EV-0001 | 連続失敗3回・無進捗2回という停止条件の初期値 | E0(なし) | 2027-02 | 3か月分の停止記録と、そこから算出した誤検知率 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0013 | 応答の期限(A は1週間、B〜D は2週間で区分を返す、E は2週間)と、同種の誤りが3回でルール化を検討するという回数 | E0(なし) | 2027-02 | 本プロジェクトにおける、区分別の応答所要時間の実績 | [community/feedback-workflow](/process-compass/community/feedback-workflow/) |
+| EV-0015 | 生成AI起因リスクの一覧の網羅性 | E1(間接) | 2027-02 | 公的なガイドラインの次期改訂と、自組織で観測した生成AI 起因の事象の記録 | [phase6-operation/risk-catalog](/process-compass/phase6-operation/risk-catalog/) |
 | EV-0002 | 同一論点の応酬3往復というエスカレーションの閾値 | E0(なし) | 2027-08 | 自組織における、往復回数と合意到達率の記録 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0003 | 締切の2営業日前・前営業日という督促の時点 | E0(なし) | 2027-08 | 自組織における、督促の時点別の応答率 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0004 | 抜き取り数(当月の全件と5件のいずれか少ないほう)と、切替を停止する条件(逸脱が2期連続) | E0(なし) | 2027-08 | 自組織における、抜き取り数別の逸脱検出率 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
@@ -26,6 +27,8 @@ sidebar:
 | EV-0010 | 監査の頻度(四半期)、抽出数(1回あたり5件以上)、無作為とリスクに基づく抽出の半々という配分 | E0(なし) | 2027-08 | 2期分の監査記録から得た、抽出方法別の所見検出率 | [phase6-operation/process-audit](/process-compass/phase6-operation/process-audit/) |
 | EV-0011 | レビュアあたりの同時保有数の上限を置くという制御と、その初期値(1人あたり3件) | E0(なし) | 2027-08 | 自組織で測った、同時保有数と審査時間・差し戻し率の関係 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | EV-0012 | 指標の総数に上限を置くという規定と、その初期値(正式指標20件) | E0(なし) | 2027-08 | 2期分の運用記録から得た、指標ごとの参照回数と打ち手への接続率 | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/) |
+| EV-0014 | 本カタログの網羅性、およびカテゴリを内部5・外部5とした分割 | E1(間接) | 2027-08 | 自組織で1年分の事象記録を分類した結果と、どのカテゴリにも収まらなかった件数 | [phase6-operation/risk-catalog](/process-compass/phase6-operation/risk-catalog/) |
+| EV-0016 | 演習の所要時間(90分)、inject の間隔(15分)、実施の頻度(半年に1回) | E0(なし) | 2027-08 | 2回分の演習記録から得た、時間内に完了した判断の割合と、参加者の可用性の実績 | [phase6-operation/incident-drill](/process-compass/phase6-operation/incident-drill/) |
 
 <!-- evidence-ledger:end -->
 
