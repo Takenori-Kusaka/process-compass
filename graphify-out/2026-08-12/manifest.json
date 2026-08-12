@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786515715.4716575,
-    "ast_hash": "68a3fa41e5005dd078ae07c7ced6d54d",
+    "mtime": 1786518572.9691958,
+    "ast_hash": "9d71811c635cfc8dfcb03c76b06f32d1",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/ears-guide.md": {
@@ -495,13 +495,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1786515715.4716575,
-    "ast_hash": "5455f01fa3bb4a1c867b4c105375ee87",
+    "mtime": 1786518547.6670377,
+    "ast_hash": "060233f5e26aedf479b93291a1940dce",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786515715.4726577,
-    "ast_hash": "8e41e13e7f11e612f61fce7c0457c128",
+    "mtime": 1786518616.6234374,
+    "ast_hash": "7de9de7763e5e7a49aedbae01a0e5422",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ai-environment.md": {
@@ -740,8 +740,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/exception-escalation.md": {
-    "mtime": 1786002492.7504382,
-    "ast_hash": "5a47818f6c75bfecb8dc0f1141525341",
+    "mtime": 1786518550.3226461,
+    "ast_hash": "c17554927958f722728705d2e0b9fb23",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/human-ai-boundary.md": {
@@ -1120,8 +1120,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786512066.2903137,
-    "ast_hash": "f994d71756b70d9abb7a1279657d8288",
+    "mtime": 1786518988.1184337,
+    "ast_hash": "85af21425da4e4e7b2aa7f78df3f5dbe",
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-marking.md": {
@@ -1165,8 +1165,8 @@
     "semantic_hash": ""
   },
   "scripts/check-template-drift.mjs": {
-    "mtime": 1786142025.538223,
-    "ast_hash": "138df19a072b9e7975397ac42af24021",
+    "mtime": 1786519124.3655455,
+    "ast_hash": "31f3d737e547ac2c8d4a74072074cabd",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0028-unmet-gate-distinct-from-omitted.md": {
@@ -1520,8 +1520,8 @@
     "semantic_hash": ""
   },
   "template/templates/06-project-brief.md": {
-    "mtime": 1786141683.03184,
-    "ast_hash": "64c76e4738a515b3da2e4fcb83a43bd3",
+    "mtime": 1786519117.0031137,
+    "ast_hash": "854663f3867f9628e888938b333da57c",
     "semantic_hash": ""
   },
   "template/templates/07-implementation-plan.md": {
@@ -1545,7 +1545,7 @@
     "semantic_hash": ""
   },
   "template/templates/README.md": {
-    "mtime": 1786141683.0338428,
+    "mtime": 1786518758.9823537,
     "ast_hash": "8f3d5837584ff68d60bcec3603c7f1d9",
     "semantic_hash": ""
   },
@@ -1757,6 +1757,11 @@
   "src/content/docs/adr/0030-criticality-reduction-by-design.md": {
     "mtime": 1786515715.4706576,
     "ast_hash": "8c10a4c17396c730f1b415901532f2df",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0031-market-hypothesis-by-structure-not-fields.md": {
+    "mtime": 1786518983.0604334,
+    "ast_hash": "737d2ce9bf2c802ae49207c6eb5a5828",
     "semantic_hash": ""
   }
 }
