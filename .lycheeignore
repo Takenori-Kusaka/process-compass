@@ -19,5 +19,9 @@ https://faq.jpx.co.jp/disclo/tse/web/knowledge6960.html
 https://svenruppert.com/2024/05/31/comparing-code-coverage-techniques-line-property-based-and-mutation-testing/
 https://integratedreportingsa.org/ircsa/wp-content/uploads/2021/01/International-IR-Framework-2021-with-changes-highlighted.pdf
 
-# 同上。資源は存在するが、bot 判定で 503 を返し続けるため除外する
+# 同上。ブラウザからは 200 で到達できるが、GitHub Actions の実行環境からの要求を
+# CDN・bot 判定が拒否するサイト(状態コードでの拒否のため、伝送層の除外では落ちない)
 https://www.projectsmart.co.uk/lifecycle-and-methodology/the-phase-gates-cheat-sheet-4-steps-to-better-managed-projects.php
+https://kpmg.com/jp/ja/home/insights/2018/07/revised-cgc-20180713.html
+https://www.morihamada.com/ja/insights/newsletters/137701
+https://jglobal.jst.go.jp/detail\?JGLOBAL_ID=200902229166831163

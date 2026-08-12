@@ -40,6 +40,7 @@ jobs:
             --retry-wait-time 5
             --timeout 30
             --insecure
+            --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
             --exclude-path node_modules
             --exclude 'https://takenori-kusaka\.github\.io/.*'
             'src/content/docs/**/*.md' 'src/content/docs/**/*.mdx' 'README.md' 'research/**/*.md'
