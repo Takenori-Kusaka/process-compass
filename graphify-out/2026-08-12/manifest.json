@@ -460,7 +460,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786518572.9691958,
+    "mtime": 1786519226.4135058,
     "ast_hash": "9d71811c635cfc8dfcb03c76b06f32d1",
     "semantic_hash": ""
   },
@@ -495,12 +495,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1786518547.6670377,
+    "mtime": 1786519226.4155073,
     "ast_hash": "060233f5e26aedf479b93291a1940dce",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786518616.6234374,
+    "mtime": 1786519226.4165096,
     "ast_hash": "7de9de7763e5e7a49aedbae01a0e5422",
     "semantic_hash": ""
   },
@@ -740,7 +740,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/exception-escalation.md": {
-    "mtime": 1786518550.3226461,
+    "mtime": 1786519226.4145076,
     "ast_hash": "c17554927958f722728705d2e0b9fb23",
     "semantic_hash": ""
   },
@@ -1120,7 +1120,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786518988.1184337,
+    "mtime": 1786519226.4125056,
     "ast_hash": "85af21425da4e4e7b2aa7f78df3f5dbe",
     "semantic_hash": ""
   },
@@ -1165,7 +1165,7 @@
     "semantic_hash": ""
   },
   "scripts/check-template-drift.mjs": {
-    "mtime": 1786519124.3655455,
+    "mtime": 1786519226.4115057,
     "ast_hash": "31f3d737e547ac2c8d4a74072074cabd",
     "semantic_hash": ""
   },
@@ -1760,7 +1760,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0031-market-hypothesis-by-structure-not-fields.md": {
-    "mtime": 1786518983.0604334,
+    "mtime": 1786519226.4125056,
     "ast_hash": "737d2ce9bf2c802ae49207c6eb5a5828",
     "semantic_hash": ""
   }
