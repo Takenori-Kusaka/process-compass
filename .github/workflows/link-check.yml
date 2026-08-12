@@ -25,6 +25,8 @@ jobs:
       #   base を公開サイトのホストへ固定し、直下の --exclude で一括除外する
       # --user-agent: 既定の UA を bot と判定して切断するサイト(techtarget・tricentis 等)への対策
       # --max-retries / --retry-wait-time: 一時的な 5xx と接続断による誤検出の抑制
+      # --insecure: 証明書チェーンが不完全なサイト(nodis3.gsfc.nasa.gov 等)への対策。
+      #   本ジョブが確かめるのは URL の到達性であり、通信の機密性ではない
       - name: Check external links
         id: lychee
         uses: lycheeverse/lychee-action@v2
@@ -37,13 +39,30 @@ jobs:
             --max-retries 3
             --retry-wait-time 5
             --timeout 30
+            --insecure
             --exclude-path node_modules
             --exclude 'https://takenori-kusaka\.github\.io/.*'
             'src/content/docs/**/*.md' 'src/content/docs/**/*.mdx' 'README.md' 'research/**/*.md'
           fail: false
+      # 起票の条件を「状態コードで拒否された URL があること」に絞る。
+      # 接続失敗・タイムアウト・HTTP/2 のプロトコルエラーは、実行環境から到達できないだけで
+      # リンク自体は生きている場合が大半であり(2026-08-12 の棚卸しでは 35 件中 34 件)、
+      # これで起票すると Issue が対処できない指摘で埋まる。要約はジョブサマリへ出す
+      - name: Classify results
+        id: classify
+        run: |
+          dead=$(grep -cE '^\* \[[45][0-9]{2}\]' ./lychee/out.md || true)
+          echo "dead=$dead" >> "$GITHUB_OUTPUT"
+          {
+            echo "## リンクチェック結果"
+            echo ""
+            echo "- 状態コードで拒否された URL: ${dead} 件(この件数が1以上のときだけ Issue を起票・更新する)"
+            echo ""
+            cat ./lychee/out.md
+          } >> "$GITHUB_STEP_SUMMARY"
       # 既存のオープンな検出 Issue があれば新規起票せず更新する(週次で Issue が積み上がるのを防ぐ)
       - name: Find existing issue
-        if: steps.lychee.outputs.exit_code != 0
+        if: steps.classify.outputs.dead != '0'
         id: existing
         env:
           GH_TOKEN: ${{ github.token }}
@@ -52,7 +71,7 @@ jobs:
           --state open --label task --search 'リンク切れ検出 in:title'
           --json number --jq '.[0].number // empty')" >> "$GITHUB_OUTPUT"
       - name: Create or update issue on broken links
-        if: steps.lychee.outputs.exit_code != 0
+        if: steps.classify.outputs.dead != '0'
         uses: peter-evans/create-issue-from-file@v6
         with:
           issue-number: ${{ steps.existing.outputs.number }}
