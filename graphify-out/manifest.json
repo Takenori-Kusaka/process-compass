@@ -470,7 +470,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786520147.4056125,
+    "mtime": 1786520285.045612,
     "ast_hash": "b373ddaced89fc1e703fa523512dd1c8",
     "semantic_hash": ""
   },
@@ -500,7 +500,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786520140.3979063,
+    "mtime": 1786520285.046613,
     "ast_hash": "2b6b265d6df18eb130b64a71314a04b3",
     "semantic_hash": ""
   },
@@ -750,7 +750,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/lifecycle.md": {
-    "mtime": 1786520123.989801,
+    "mtime": 1786520285.046613,
     "ast_hash": "acf8975003345c39e85c6be97e59fdd6",
     "semantic_hash": ""
   },
@@ -1175,7 +1175,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/template-repository.md": {
-    "mtime": 1786519943.411824,
+    "mtime": 1786520285.0476131,
     "ast_hash": "4437ed96f9ccd07bc0f6d3e16e8ea016",
     "semantic_hash": ""
   },
@@ -1775,12 +1775,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0033-no-target-as-recorded-state.md": {
-    "mtime": 1786519992.6162016,
+    "mtime": 1786520285.0446117,
     "ast_hash": "0c152639da5897a83f14c4625313e614",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0034-stack-is-output-of-exploration.md": {
-    "mtime": 1786520035.9305575,
+    "mtime": 1786520285.0446117,
     "ast_hash": "f7cd50bd3a2fbb0218046922cd0d2d20",
     "semantic_hash": ""
   }
