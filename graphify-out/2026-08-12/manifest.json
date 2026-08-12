@@ -460,7 +460,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786515327.6891088,
+    "mtime": 1786515715.4716575,
     "ast_hash": "68a3fa41e5005dd078ae07c7ced6d54d",
     "semantic_hash": ""
   },
@@ -495,12 +495,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1786515357.5030546,
+    "mtime": 1786515715.4716575,
     "ast_hash": "5455f01fa3bb4a1c867b4c105375ee87",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786515365.9488358,
+    "mtime": 1786515715.4726577,
     "ast_hash": "8e41e13e7f11e612f61fce7c0457c128",
     "semantic_hash": ""
   },
@@ -1750,12 +1750,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0029-shipping-approver-merge-exception.md": {
-    "mtime": 1786515403.3092668,
+    "mtime": 1786515715.4696572,
     "ast_hash": "4cfd6ddde82e301e544c38edaa2c6f2c",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0030-criticality-reduction-by-design.md": {
-    "mtime": 1786515443.5060422,
+    "mtime": 1786515715.4706576,
     "ast_hash": "8c10a4c17396c730f1b415901532f2df",
     "semantic_hash": ""
   }
