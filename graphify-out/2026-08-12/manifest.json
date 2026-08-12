@@ -460,7 +460,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786519568.3156655,
+    "mtime": 1786519681.3102736,
     "ast_hash": "5e8c65bac845cd1e2712ba1555892239",
     "semantic_hash": ""
   },
@@ -1120,7 +1120,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786519603.0669453,
+    "mtime": 1786519681.3092775,
     "ast_hash": "4618450b5b5c0e0bf9f8ec03ebddb199",
     "semantic_hash": ""
   },
@@ -1765,12 +1765,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0032-executive-summary-as-projection.md": {
-    "mtime": 1786519589.3335166,
+    "mtime": 1786519681.3082771,
     "ast_hash": "17d1b866bf603d5328bdad1e5a6eed20",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/executive-projection.md": {
-    "mtime": 1786519597.0551734,
+    "mtime": 1786519681.3102736,
     "ast_hash": "d06306edda7ecb6e46cff7275ce2bdcd",
     "semantic_hash": ""
   }
