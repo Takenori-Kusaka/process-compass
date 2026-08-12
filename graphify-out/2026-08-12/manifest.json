@@ -165,8 +165,8 @@
     "semantic_hash": ""
   },
   ".github/workflows/link-check.yml": {
-    "mtime": 1786153108.8065968,
-    "ast_hash": "03d4b5f080986e3caaabfe30f64b7d58",
+    "mtime": 1786512674.404125,
+    "ast_hash": "dd155b2e7f85222e871aed2d752f3259",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
@@ -935,8 +935,8 @@
     "semantic_hash": ""
   },
   "research/phase3-gap-analysis/135-role-boundary-2026-08.md": {
-    "mtime": 1785981229.7644405,
-    "ast_hash": "b4690581b9e326d44910917dc4a1b297",
+    "mtime": 1786512659.5178561,
+    "ast_hash": "32cd08ba03305f3ffdda20346aabfba8",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0015-role-boundary-by-function-stage.md": {
