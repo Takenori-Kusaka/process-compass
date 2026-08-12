@@ -5,3 +5,18 @@ https://github.com/structurizr/dsl/issues/53
 https://github.com/apache/incubator-kie-tools/blob/main/packages/serverless-workflow-diagram-editor/sw-editor/README.md
 https://www.insource.co.jp/nmp/HH145.html
 https://www.juse.or.jp/sqip/community/bucyo/2/file/group2.pdf
+
+# 2026-08-12 の棚卸し(Issue #205)。
+# ブラウザの UA・リダイレクト追跡つきで再確認し、404 が確定したもの
+https://www.splunk.com/en_us/blog/learn/goodharts-law/
+https://www.humanfactors.lth.se/fileadmin/lusa/Sidney_Dekker/articles/2003_and_before/MABA_MABA.pdf
+https://www.understandingai.org/p/context-rot
+https://www.juse.or.jp/sqip/community/bucyo/2/file/group3.pdf
+https://www.mhlw.go.jp/content/12602000/000789027.pdf
+https://www.jmtba.or.jp/wp-content/uploads/4_anzen_sekkei.pdf
+https://k-itlegal.com/column/detail/
+https://faq.jpx.co.jp/disclo/tse/web/knowledge6960.html
+https://svenruppert.com/2024/05/31/comparing-code-coverage-techniques-line-property-based-and-mutation-testing/
+
+# 同上。資源は存在するが、bot 判定で 503 を返し続けるため除外する
+https://www.projectsmart.co.uk/lifecycle-and-methodology/the-phase-gates-cheat-sheet-4-steps-to-better-managed-projects.php

@@ -587,7 +587,7 @@ EU AI Act 第 112 条の 2 層構造（§4.1.3）を借りて、次を規定し�
 
 1. **ISO/IEC 22989:2022 の human-in-the-loop / on-the-loop / in-command の正確な定義文** — 規格が有償で未取得。本標準で引用する場合は購入が必要。現在流通する定義が規格由来かも未確認
 2. **「human-out-of-the-loop」「over-the-loop」が ISO/IEC 22989 の用語かどうか** — 未確認。軍事・無人機文献での使用は確認できたが、AI 規格上の地位は不明
-3. **EASA AI Concept Paper Issue 2 の Level 1A と 1B の区別の正確な定義** — `123-safety-verification.md` でも未取得のまま。PDF が入手可能（https://www.easa.europa.eu/en/downloads/139504/en）なので、次回調査で優先度が高い
+3. **EASA AI Concept Paper Issue 2 の Level 1A と 1B の区別の正確な定義** — `123-safety-verification.md` でも未取得のまま。PDF が入手可能(<https://www.easa.europa.eu/en/downloads/139504/en>)なので、次回調査で優先度が高い
 4. **Sonar 2026 State of Code Developer Survey の原典** — 「96% が信頼せず / 48% が常に検証」は二次経由。本標準に転記する前に原典確認が必要
 5. **SWE-EVO の 25.0% / 72.8% の対応関係** — 「同じモデルクラス」という表現が二次まとめ由来。arXiv 本体での確認が必要
 6. **NIST AI RMF の「2028 年までにレビュー」の原文該当箇所** — 二次解説にのみ現れる

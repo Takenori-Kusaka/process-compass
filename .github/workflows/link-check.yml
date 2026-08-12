@@ -17,14 +17,26 @@ jobs:
         uses: actions/checkout@v7
       # 403 は bot 判定(scrum.org・medium・官公庁 PDF 等)の誤検知が大半、
       # 301/302/308 はリダイレクトで到達可能なため許容する(本当の消失は 404 で検出できる)。
+      # 405 は HEAD/GET を拒否する構成(dash.harvard.edu 等)で、資源自体は存在する。
       # 消失済みの出典 URL は .lycheeignore で個別に除外する
+      #
+      # --base-url: research/ 配下は公開サイトの内部リンク(/process-compass/...)を含む。
+      #   これは外部リンク検査の対象外(内部リンクは npm run check のビルド時検証が担う)。
+      #   base を公開サイトのホストへ固定し、直下の --exclude で一括除外する
+      # --user-agent: 既定の UA を bot と判定して切断するサイト(techtarget・tricentis 等)への対策
+      # --max-retries / --retry-wait-time: 一時的な 5xx と接続断による誤検出の抑制
       - name: Check external links
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --no-progress
-            --accept 200..=204,301,302,308,403,429
+            --accept 200..=204,301,302,308,403,405,429
+            --base-url https://takenori-kusaka.github.io
+            --user-agent 'Mozilla/5.0 (compatible; process-compass-link-check/1.0; +https://github.com/Takenori-Kusaka/process-compass)'
+            --max-retries 3
+            --retry-wait-time 5
+            --timeout 30
             --exclude-path node_modules
             --exclude 'https://takenori-kusaka\.github\.io/.*'
             'src/content/docs/**/*.md' 'src/content/docs/**/*.mdx' 'README.md' 'research/**/*.md'
