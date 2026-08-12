@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786519226.4135058,
-    "ast_hash": "9d71811c635cfc8dfcb03c76b06f32d1",
+    "mtime": 1786519568.3156655,
+    "ast_hash": "5e8c65bac845cd1e2712ba1555892239",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/ears-guide.md": {
@@ -1120,8 +1120,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786519226.4125056,
-    "ast_hash": "85af21425da4e4e7b2aa7f78df3f5dbe",
+    "mtime": 1786519603.0669453,
+    "ast_hash": "4618450b5b5c0e0bf9f8ec03ebddb199",
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-marking.md": {
@@ -1762,6 +1762,16 @@
   "src/content/docs/adr/0031-market-hypothesis-by-structure-not-fields.md": {
     "mtime": 1786519226.4125056,
     "ast_hash": "737d2ce9bf2c802ae49207c6eb5a5828",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0032-executive-summary-as-projection.md": {
+    "mtime": 1786519589.3335166,
+    "ast_hash": "17d1b866bf603d5328bdad1e5a6eed20",
+    "semantic_hash": ""
+  },
+  "src/content/docs/phase4-process-design/executive-projection.md": {
+    "mtime": 1786519597.0551734,
+    "ast_hash": "d06306edda7ecb6e46cff7275ce2bdcd",
     "semantic_hash": ""
   }
 }
