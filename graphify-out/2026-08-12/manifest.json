@@ -470,8 +470,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786520285.045612,
-    "ast_hash": "b373ddaced89fc1e703fa523512dd1c8",
+    "mtime": 1786573419.9997194,
+    "ast_hash": "7359122b928ed22d425f525eb15a98d5",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
@@ -740,8 +740,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/exception-escalation.md": {
-    "mtime": 1786544659.2940674,
-    "ast_hash": "ca4a428166a98d73d07c970ca8acd8a5",
+    "mtime": 1786573419.9987183,
+    "ast_hash": "a8a80d234d4873d74f610dceaeae67c6",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/human-ai-boundary.md": {
@@ -1120,8 +1120,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786541377.4682672,
-    "ast_hash": "99a85ea3b8b3445f466bb053ba587d99",
+    "mtime": 1786573419.9967198,
+    "ast_hash": "95aa3e1d562d05b6c67754bdb0b4bb54",
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-marking.md": {
@@ -1190,8 +1190,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/label-mailbox.md": {
-    "mtime": 1786544659.2950747,
-    "ast_hash": "84f79bfaa4303694c59a5d760cd79293",
+    "mtime": 1786573420.0007188,
+    "ast_hash": "fca9d2fc4734ad45f92e771aa176b546",
     "semantic_hash": ""
   },
   "src/content/docs/phase6-operation/incident-drill.md": {
@@ -1255,18 +1255,18 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/implementation-ledger.md": {
-    "mtime": 1786544659.2930691,
-    "ast_hash": "a3354044612466d289da6e71b2ac61b7",
+    "mtime": 1786573419.9977207,
+    "ast_hash": "ff4a6f975d4e4b84e2fe41ef539b049d",
     "semantic_hash": ""
   },
   "src/content/docs/community/implementation-marking.md": {
-    "mtime": 1786544184.8525405,
-    "ast_hash": "4e1dbce8d24363124d359bafac11fc4e",
+    "mtime": 1786573419.9977207,
+    "ast_hash": "f0c60ebef4cff25b142b5de218abe4c0",
     "semantic_hash": ""
   },
   "src/data/impl-targets.yaml": {
-    "mtime": 1786544184.8575404,
-    "ast_hash": "2585f3bdf4830c36ef2916e909841764",
+    "mtime": 1786573420.0017197,
+    "ast_hash": "e611cc2783f55ca5a867744f0321226b",
     "semantic_hash": ""
   },
   "template/.claude/guard.json": {
@@ -1394,14 +1394,19 @@
     "ast_hash": "190e6732f76a52c54b5c9797faed86b4",
     "semantic_hash": ""
   },
+  "src/content/docs/adr/0036-gate-closure-by-record.md": {
+    "mtime": 1786573419.99572,
+    "ast_hash": "f504264e7c88a58cd8dedfeaec100909",
+    "semantic_hash": ""
+  },
   "template/.claude/skills/adr-write/SKILL.md": {
     "mtime": 1786141682.9888387,
     "ast_hash": "873866bcc9917143d8a4c0b0aa6616cc",
     "semantic_hash": ""
   },
   "template/.claude/skills/gate-record/SKILL.md": {
-    "mtime": 1786141682.9888387,
-    "ast_hash": "616d291d37947b5f49c3d15415b7b1e5",
+    "mtime": 1786573262.66945,
+    "ast_hash": "6c0f3382862cc746eab09d3b98369f78",
     "semantic_hash": ""
   },
   "template/.claude/skills/human-verify/SKILL.md": {
@@ -1575,8 +1580,8 @@
     "semantic_hash": ""
   },
   "template/templates/04-gate-record.md": {
-    "mtime": 1786141683.030839,
-    "ast_hash": "c3a6cc602fbed0f6692743eabbec8452",
+    "mtime": 1786573248.6338756,
+    "ast_hash": "68a284245e3cc9b39898edee64df7abc",
     "semantic_hash": ""
   },
   "template/templates/05-handover.md": {
