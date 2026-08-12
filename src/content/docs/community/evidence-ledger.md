@@ -30,6 +30,8 @@ sidebar:
 | EV-0014 | 本カタログの網羅性、およびカテゴリを内部5・外部5とした分割 | E1(間接) | 2027-08 | 自組織で1年分の事象記録を分類した結果と、どのカテゴリにも収まらなかった件数 | [phase6-operation/risk-catalog](/process-compass/phase6-operation/risk-catalog/) |
 | EV-0016 | 演習の所要時間(90分)、inject の間隔(15分)、実施の頻度(半年に1回) | E0(なし) | 2027-08 | 2回分の演習記録から得た、時間内に完了した判断の割合と、参加者の可用性の実績 | [phase6-operation/incident-drill](/process-compass/phase6-operation/incident-drill/) |
 | EV-0017 | 本 ADR の決定1〜8 の全体。とくに「体制の欠落が作文の原因である」という因果の主張 | E2(単一事例) | 2027-08 | 決定1〜3 を適用した案件3件分の企画書と G-1 判定記録。および、適用しなかった案件との記述の質の比較 | [adr/0031-market-hypothesis-by-structure-not-fields](/process-compass/adr/0031-market-hypothesis-by-structure-not-fields/) |
+| EV-0018 | 稟議へ出す数値を幅の下限値に限るという決定 | E0(なし) | 2027-08 | 下限値の提示で決裁が通った案件と通らなかった案件の内訳。3件以上 | [adr/0032-executive-summary-as-projection](/process-compass/adr/0032-executive-summary-as-projection/) |
+| EV-0019 | 投影の8項目の構成と、G.3 の提示の順序 | E0(なし) | 2027-08 | 投影を用いた決裁3件分の記録と、決裁者が不足を指摘した項目の一覧 | [phase4-process-design/executive-projection](/process-compass/phase4-process-design/executive-projection/) |
 
 <!-- evidence-ledger:end -->
 
