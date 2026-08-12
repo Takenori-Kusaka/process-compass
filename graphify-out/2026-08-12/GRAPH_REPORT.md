@@ -1,16 +1,16 @@
 # Graph Report - process-compass  (2026-08-12)
 
 ## Corpus Check
-- 287 files · ~247,121 words
+- 289 files · ~248,193 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3665 nodes · 3574 edges · 312 communities (305 shown, 7 thin omitted)
+- 3680 nodes · 3573 edges · 309 communities (303 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f2896a1f`
+- Built from commit: `c7e7ae17`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,7 +26,7 @@
 - コンテキストエンジニアリング手法 調査メモ
 - プロセス記述に関する国際標準の調査メモ
 - プロダクトオーナー中心のチーム編成論 調査メモ
-- test-tailoring-engine.mjs
+- simulator.astro
 - Process Compass 🧭
 - テスト駆動開発(TDD)調査メモ
 - ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ
@@ -238,12 +238,12 @@
 - solo-developer.md
 - 0025-context-forgetting-over-detection.md
 - feedback-workflow.md
-- 3.12.10 実行の強制停止(サーキットブレーカー)
+- 3. アンチパターン各論(本メモの中心)
 - evidence-marking.md
 - 0026-evidence-level-marking.md
 - agent-trace-control.md
 - risk-catalog.md
-- astro:content
+- 0029-shipping-approver-merge-exception.md
 - label-mailbox.md
 - ピットイン方式 準拠テンプレート
 - 手順
@@ -266,7 +266,7 @@
 - incident-drill.md
 - process-audit.md
 - physical-trigger.md
-- simulator.astro
+- 0030-criticality-reduction-by-design.md
 - 手順
 - 手順
 - AI-SLA 合意確認書
@@ -289,7 +289,7 @@
 - what-to-do-when.md
 - evaluating-formatting-intelligence.md
 - speed-floor-gpu-vulkan.md
-- ProcessActivity.astro
+- 1. 理想像の出所(建前=そう語られる)
 - check-d0.mjs
 - verify-gate-contract.mjs
 - D-0 意思決定・エスカレーション体制図
@@ -312,10 +312,7 @@
 - 技術負債台帳
 - ゲート判定記録
 - 前提の台帳
-- 0. プロセスの概要
-- 5. 現実の懸念(理想が崩れる点)
-- ProcessOverview.astro
-- comparison.astro
+- 4. 組織論的な論点(従来編成 vs PO中心編成)
 - 用語集
 - 複製したファイル
 - 9. 出典一覧
@@ -351,7 +348,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (312 total, 7 thin omitted)
+## Communities (309 total, 6 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -378,8 +375,8 @@ Cohesion: 0.06
 Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.18
-Nodes (15): diagram, exitGates, roleName, seg, Activity, esc(), Gate, l1Diagram() (+7 more)
+Cohesion: 0.06
+Nodes (30): roleName, seg, wpName, diagram, roleName, seg, string, diagram (+22 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
 Cohesion: 0.06
@@ -394,12 +391,12 @@ Cohesion: 0.07
 Nodes (28): 1.1 位置づけ, 1.2 プロセス記述の要素一覧, 1.3 フェーズ1調査への含意, 1. ISO/IEC/IEEE 24774:2021 — プロセス記述の仕様, 2.1 位置づけと2017年版の変更, 2.2 4プロセス群と30プロセスの一覧, 2.3 日本での展開: 共通フレーム(SLCP-JCF), 2.4 フェーズ1調査への含意 (+20 more)
 
 ### Community 10 - "プロダクトオーナー中心のチーム編成論 調査メモ"
-Cohesion: 0.12
-Nodes (17): 0. このメモの位置づけと全体像, 1.1 AWS AI-DLC(AI-Driven Development Life Cycle), 1.2 Sean Grove(OpenAI)「The New Code」— 仕様を書く人が最も価値ある programmer, 1.3 「Product Engineer」への収束論(everyone becomes a product owner の実像), 1. 理想像の出所(建前=そう語られる), 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義) (+9 more)
+Cohesion: 0.14
+Nodes (14): 0. このメモの位置づけと全体像, 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義), 3. 前提条件(この編成が暗黙に仮定していること), 5.1 全員が PO になれるのか(スキルの偏在), 5.2 責任の所在(誰が本番の AI 生成コードを所有するか), 5.3 意思決定の質と「false finish line」 (+6 more)
 
-### Community 11 - "test-tailoring-engine.mjs"
-Cohesion: 0.20
-Nodes (11): integrated, kb, knownIds, optionIds, rules, evaluate(), ADR-0008, ruleMatches() (+3 more)
+### Community 11 - "simulator.astro"
+Cohesion: 0.11
+Nodes (21): integrated, kb, knownIds, optionIds, rules, evaluate(), ADR-0008, ruleMatches() (+13 more)
 
 ### Community 12 - "Process Compass 🧭"
 Cohesion: 0.09
@@ -410,8 +407,8 @@ Cohesion: 0.10
 Nodes (20): 0-0. 重要な前提: TDD は「開発ライフサイクル」ではなく「開発プラクティス/技法」である, 0-1. 基本情報, 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2-1. 3階層のズーム(nano / micro / 上位ライフサイクルとの接続), 2. 階層構造(process → activities → tasks), 3-A. 関連技法との役割拡張(TDD → ATDD/BDD) (+12 more)
 
 ### Community 14 - "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ"
-Cohesion: 0.10
-Nodes (20): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 3. アンチパターン各論(本メモの中心), 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点) (+12 more)
+Cohesion: 0.15
+Nodes (13): 0. 概要, 10. 出典一覧, 1. title / purpose / outcomes(このアンチパターン群を「観察対象」として定義), 2. 階層構造(process → activities → tasks)— Water-Scrum-Fall の典型構造, 4. バランス論: ハイブリッドは必ずしも「悪」ではない, 5. gates(このアンチパターン群に固有の擬似ゲート), 6. レビュープロセス(逸脱の観点), 7. 日本的観点(標準がカバーしない領域) (+5 more)
 
 ### Community 15 - "アジャイル(Agile)調査メモ"
 Cohesion: 0.12
@@ -467,7 +464,7 @@ Nodes (46): AI への指示との関係, AIエージェント安全リスクア�
 
 ### Community 28 - "tailoring-guide.md"
 Cohesion: 0.06
-Nodes (31): AI を独立レビュアの代替に置きません, テーラリングの禁止事項, 事後監査の手続, 人員が足りない場合, 会議体と体制図の調整, 例1: スタートアップの PoC(2名・S0・標準品質・内製・CL0), 例2: 事業会社のグロース期プロダクト(8名・S2・高品質・内製・CL1), 例3: SIer の受託開発(15名・S2・規制業・受託受注側・CL2) (+23 more)
+Nodes (33): AI を独立レビュアの代替に置きません, テーラリングの禁止事項, 事後監査の手続, 人員が足りない場合, 会議体と体制図の調整, 例1: スタートアップの PoC(2名・S0・標準品質・内製・CL0), 例2: 事業会社のグロース期プロダクト(8名・S2・高品質・内製・CL1), 例3: SIer の受託開発(15名・S2・規制業・受託受注側・CL2) (+25 more)
 
 ### Community 29 - "metrics.md"
 Cohesion: 0.08
@@ -750,8 +747,8 @@ Cohesion: 0.25
 Nodes (7): コンテキスト, ステータス, 使い分けの規則, 命名の根拠, 影響, 検討した選択肢, 決定
 
 ### Community 103 - "AIDLC(AI-Driven Development Life Cycle)調査メモ"
-Cohesion: 0.12
-Nodes (16): 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task), 3. roles(ロール): 人間(意思決定)× AIエージェント(実行)の分担, 4. information items(成果物・文書), 5. gates(ゲート・決裁): Human-in-the-loop 承認点, 6. レビュープロセス, 7-1. 理想像が暗黙に仮定している前提条件(これが崩れると成立しない) (+8 more)
+Cohesion: 0.10
+Nodes (21): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → phase → activity → task) (+13 more)
 
 ### Community 104 - "調査メモ: AI 維持管理責任者（AI Maintainer）と AI 運用担当者（AIOps）の職掌（Issue #111 / #112）"
 Cohesion: 0.05
@@ -854,12 +851,12 @@ Cohesion: 0.20
 Nodes (9): 0. 本メモの鮮度と読み方, 11. 埋められなかった観点（追加調査が必要な穴）, 4.1 実運用に入っているもの, 4.2 研究段階・限定運用にとどまるもの, 4. 自己修復・自律進化（L3相当）の現状, 8.1 標準化: OpenTelemetry GenAI セマンティック規約, 8.2 「コードではなく振る舞いをレビューする」実務, 8. AI の実行トレースのレビュー (+1 more)
 
 ### Community 131 - "3.12 AI運用担当者と全社統制の接続"
-Cohesion: 0.20
-Nodes (10): 3.12.1 位置づけ, 3.12.2 インタフェース, 3.12.3 モデルの適合性評価, 3.12.4 可用性と品質を分けて監視する, 3.12.5 障害と切り替え, 3.12.6 モデルの廃止への追随, 3.12.7 実行予算の配給, 3.12.8 セキュリティとデータ保護 (+2 more)
+Cohesion: 0.14
+Nodes (14): 3.12.10 実行の強制停止(サーキットブレーカー), 3.12.1 位置づけ, 3.12.2 インタフェース, 3.12.3 モデルの適合性評価, 3.12.4 可用性と品質を分けて監視する, 3.12.5 障害と切り替え, 3.12.6 モデルの廃止への追随, 3.12.7 実行予算の配給 (+6 more)
 
 ### Community 132 - "roles-responsibilities.md"
-Cohesion: 0.22
-Nodes (8): 3.13 異動・引き継ぎへの備え, 3.14 関連する章, 3.1 本章が達成すべき成果, 3.2 責任の種類: A と R を分ける, 3.3 RACI マトリクス(作業 × ロール), 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制, 3.5 兼務ルール(許可 / 禁止), 3.6 委譲ルール
+Cohesion: 0.20
+Nodes (9): 3.13 異動・引き継ぎへの備え, 3.14 関連する章, 3.1 本章が達成すべき成果, 3.2 責任の種類: A と R を分ける, 3.3 RACI マトリクス(作業 × ロール), 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制, 3.5.2 出荷判定者の兼務に限った例外(代償措置つき), 3.5 兼務ルール(許可 / 禁止) (+1 more)
 
 ### Community 133 - "3.10 事前レビュー期間"
 Cohesion: 0.15
@@ -1229,9 +1226,9 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 Cohesion: 0.14
 Nodes (13): A. 誤りの指摘, B. 根拠の提供, C. 設計への反論, D. 適用条件の質問, E. 範囲外, この運用自体の見直し, トリアージの区分, 区分ごとの手続 (+5 more)
 
-### Community 225 - "3.12.10 実行の強制停止(サーキットブレーカー)"
-Cohesion: 0.50
-Nodes (4): 3.12.10 実行の強制停止(サーキットブレーカー), 停止したときの扱い, 停止条件の3種, 閾値の定め方
+### Community 225 - "3. アンチパターン各論(本メモの中心)"
+Cohesion: 0.29
+Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
 
 ### Community 226 - "evidence-marking.md"
 Cohesion: 0.29
@@ -1248,6 +1245,10 @@ Nodes (13): この設計の限界, 事前に遮断する, 事象ごとの担い�
 ### Community 229 - "risk-catalog.md"
 Cohesion: 0.10
 Nodes (19): このカタログの目的, このカタログの限界, ガバナンス・コンプライアンス, システム・インフラ, リスクを扱う人間の側のリスク, 人材・組織, 内部リスク, 分類の3階層 (+11 more)
+
+### Community 230 - "0029-shipping-approver-merge-exception.md"
+Cohesion: 0.29
+Nodes (6): G-6 と G-7 を分けて扱う理由, コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
 ### Community 231 - "label-mailbox.md"
 Cohesion: 0.14
@@ -1333,9 +1334,9 @@ Nodes (19): この手続の限界, プロセスを新設・改訂したときの
 Cohesion: 0.15
 Nodes (12): momentary は Pressed/Released で受け、release delay を添える, インターフェース設計コアポイント, クラス図コアポイント, システム設計コアポイント（2つの入口が同じ start/stop に合流する）, 唯一の設計改修：録音APIを start/stop に分離する, 学び、気づき, 実現効果, 技術選定：3つの判断 (+4 more)
 
-### Community 253 - "simulator.astro"
-Cohesion: 0.26
-Nodes (10): buildMarkdown(), deviationList(), effectiveState(), integrated, kb, proposalState(), renderAdoption(), rules (+2 more)
+### Community 253 - "0030-criticality-reduction-by-design.md"
+Cohesion: 0.29
+Nodes (6): コンテキスト, ステータス, 引き下げの非対称性との関係, 影響, 検討した選択肢, 決定
 
 ### Community 254 - "手順"
 Cohesion: 0.17
@@ -1425,9 +1426,9 @@ Nodes (9): ACE ― コンテキストを進化させる、ただしニュアン�
 Cohesion: 0.20
 Nodes (9): 「CPUオンリーは要らないのでは？」への答え, GPU：196分が5.5分になった, Vulkan：CUDA を入れなくても、どこまでいけるか, チャンク化は「品質の床」を直したが「速度の床」は直さない, 「ドライバが無い人」への正しい振る舞い, 事件：16分の録音に、3時間, 学びの整理, 決定打：「試して落ちたらCPU」は原理的に不可能だった (+1 more)
 
-### Community 276 - "ProcessActivity.astro"
-Cohesion: 0.22
-Nodes (6): roleName, seg, wpName, grouped, order, proposals
+### Community 276 - "1. 理想像の出所(建前=そう語られる)"
+Cohesion: 0.50
+Nodes (4): 1.1 AWS AI-DLC(AI-Driven Development Life Cycle), 1.2 Sean Grove(OpenAI)「The New Code」— 仕様を書く人が最も価値ある programmer, 1.3 「Product Engineer」への収束論(everyone becomes a product owner の実像), 1. 理想像の出所(建前=そう語られる)
 
 ### Community 277 - "check-d0.mjs"
 Cohesion: 0.22
@@ -1517,21 +1518,9 @@ Nodes (5): ゲート判定記録, 差し戻しの理由, 挙動要約(G-6 のみ
 Cohesion: 0.33
 Nodes (5): この台帳を空欄にしない, 前提の台帳, 台帳, 崩れたときの扱い, 欄の書き方
 
-### Community 299 - "0. プロセスの概要"
-Cohesion: 0.40
-Nodes (5): 0-0. 本メモの位置づけ(重要), 0-1. 基本情報, 0-2. 実装(重要): 方法論とツールの2層, 0-3. 類義概念との異同(各社・各論者), 0. プロセスの概要
-
-### Community 300 - "5. 現実の懸念(理想が崩れる点)"
-Cohesion: 0.40
-Nodes (5): 5.1 全員が PO になれるのか(スキルの偏在), 5.2 責任の所在(誰が本番の AI 生成コードを所有するか), 5.3 意思決定の質と「false finish line」, 5.4 日本の組織文化との衝突(フェーズ1と接続), 5. 現実の懸念(理想が崩れる点)
-
-### Community 301 - "ProcessOverview.astro"
-Cohesion: 0.40
-Nodes (4): diagram, roleName, seg, string
-
-### Community 302 - "comparison.astro"
-Cohesion: 0.40
-Nodes (4): allRows, proposalRows, rows, string
+### Community 299 - "4. 組織論的な論点(従来編成 vs PO中心編成)"
+Cohesion: 0.50
+Nodes (4): 4.1 従来のチーム編成との対比(図解の中核: 対比表), 4.2 Amazon の two-pizza team / single-threaded owner(既存の少人数・単一責任論), 4.3 コンウェイの法則との関係, 4. 組織論的な論点(従来編成 vs PO中心編成)
 
 ### Community 303 - "用語集"
 Cohesion: 0.40
@@ -1566,21 +1555,21 @@ Cohesion: 0.50
 Nodes (3): このディレクトリは Zenn の単発記事（連載に属さない読み切り）用です。, 現在は単発記事なし。Zenn の "articles ディレクトリが見つかりません" 警告を避けるための占位です。, 連載は books/ の Zenn Book で管理します（docs/process/article-publishing-policy.md）。
 
 ## Knowledge Gaps
-- **2767 isolated node(s):** `normalized`, `repoRoot`, `relative`, `res`, `ADR-0006` (+2762 more)
+- **2782 isolated node(s):** `ステータス`, `コンテキスト`, `決定`, `G-6 と G-7 を分けて扱う理由`, `検討した選択肢` (+2777 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
-- **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` connect `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
-- **What connects `normalized`, `repoRoot`, `relative` to the rest of the system?**
-  _2767 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+- **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **What connects `ステータス`, `コンテキスト`, `決定` to the rest of the system?**
+  _2782 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**

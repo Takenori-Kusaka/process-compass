@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786142021.3045335,
-    "ast_hash": "7f0ffaf72cfdd2cfa4257d5cfad66432",
+    "mtime": 1786515327.6891088,
+    "ast_hash": "68a3fa41e5005dd078ae07c7ced6d54d",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/ears-guide.md": {
@@ -495,13 +495,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1786327483.4382143,
-    "ast_hash": "6cc3feadd53b12acd9f520f37f2e38ff",
+    "mtime": 1786515357.5030546,
+    "ast_hash": "5455f01fa3bb4a1c867b4c105375ee87",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786142021.3115413,
-    "ast_hash": "e065babaf75ae8ebde819523c2eec5d3",
+    "mtime": 1786515365.9488358,
+    "ast_hash": "8e41e13e7f11e612f61fce7c0457c128",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ai-environment.md": {
@@ -1255,7 +1255,7 @@
     "semantic_hash": ""
   },
   "template/process.config.json": {
-    "mtime": 1786141683.019838,
+    "mtime": 1786515584.1889231,
     "ast_hash": "a496360b238347c51f092c2a82eb954f",
     "semantic_hash": ""
   },
@@ -1265,8 +1265,8 @@
     "semantic_hash": ""
   },
   "template/scripts/gate/aggregate-evidence.mjs": {
-    "mtime": 1786141683.0208385,
-    "ast_hash": "80582957fe68f415bf3a8f09bbf3ecd6",
+    "mtime": 1786515643.0953937,
+    "ast_hash": "425da8491363dbb3c02bca60904d42fc",
     "semantic_hash": ""
   },
   "template/scripts/gate/check-d0.mjs": {
@@ -1295,13 +1295,13 @@
     "semantic_hash": ""
   },
   "template/scripts/gate/verify-gate-contract.mjs": {
-    "mtime": 1786141683.023838,
-    "ast_hash": "732f8dc64ad688096333bf535efed238",
+    "mtime": 1786515643.0953937,
+    "ast_hash": "951655bd6ab387f6e000b91fc9481468",
     "semantic_hash": ""
   },
   "template/scripts/init/generate-profile.mjs": {
-    "mtime": 1786141683.024837,
-    "ast_hash": "c86004382db28be20d23039d21a2293e",
+    "mtime": 1786515643.0963948,
+    "ast_hash": "e0c8a6906a1e9a7576ff60813ba4f993",
     "semantic_hash": ""
   },
   "template/scripts/vendor/tailoring-engine.mjs": {
@@ -1350,8 +1350,8 @@
     "semantic_hash": ""
   },
   "template/.claude/skills/process-init/SKILL.md": {
-    "mtime": 1786141682.990837,
-    "ast_hash": "fa5af05dec95d0e2dfc8f32c19a8ea14",
+    "mtime": 1786515643.0943944,
+    "ast_hash": "a40f9f28deb5259053819fbd897eeb78",
     "semantic_hash": ""
   },
   "template/.claude/skills/spec-write/SKILL.md": {
@@ -1435,18 +1435,18 @@
     "semantic_hash": ""
   },
   "template/CLAUDE.md": {
-    "mtime": 1786141683.004838,
-    "ast_hash": "2d9e428081f3be39106853d86b8564bf",
+    "mtime": 1786515643.0773456,
+    "ast_hash": "9c774ac046634cfcb41c9537e9d11074",
     "semantic_hash": ""
   },
   "template/PROCESS-PROFILE.md": {
-    "mtime": 1786141683.0058367,
+    "mtime": 1786515584.216946,
     "ast_hash": "9e0a3eb4fd814d64289d95a1c2da8349",
     "semantic_hash": ""
   },
   "template/README.md": {
-    "mtime": 1786152909.3806145,
-    "ast_hash": "75dde6f02299f1e6788fc61cf761e460",
+    "mtime": 1786515643.0943944,
+    "ast_hash": "34e0e43693bc90f8456a23fcc6f502eb",
     "semantic_hash": ""
   },
   "template/context/_archive/README.md": {
@@ -1490,8 +1490,8 @@
     "semantic_hash": ""
   },
   "template/templates/00-d0-governance.md": {
-    "mtime": 1786141683.0288386,
-    "ast_hash": "0f142f58ef993b93f27a649d5b3dd7bb",
+    "mtime": 1786515643.0963948,
+    "ast_hash": "99d2cb965df76fe84e8f43deb2517224",
     "semantic_hash": ""
   },
   "template/templates/01-feature-spec.md": {
@@ -1747,6 +1747,16 @@
   "zenn/images/pit-in-process/ch-bandwidth.jpeg": {
     "mtime": 1786151401.6319158,
     "ast_hash": "a3f9075efea2094d8414ff4b7e5bff2b",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0029-shipping-approver-merge-exception.md": {
+    "mtime": 1786515403.3092668,
+    "ast_hash": "4cfd6ddde82e301e544c38edaa2c6f2c",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0030-criticality-reduction-by-design.md": {
+    "mtime": 1786515443.5060422,
+    "ast_hash": "8c10a4c17396c730f1b415901532f2df",
     "semantic_hash": ""
   }
 }
