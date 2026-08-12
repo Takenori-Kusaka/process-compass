@@ -63,6 +63,33 @@ roles:
     responsibility: 全社のAI実行基盤(モデル接続・実行予算・セキュリティ統制)の可用性と適合性に責任を持つ。開発ラインへは規程ではなく実行環境として統制を届ける
     jpNote: 開発ラインの外側に置く。AI維持管理者との兼務は禁止(案件の都合で全社統制が緩むため)
     href: /process-compass/phase4-process-design/roles-responsibilities/
+# 兼務を禁止する組み合わせ(第3章 3.5)。人と実行主体の文脈の両方で判定する(ADR-0035)。
+# 「担ってはならない工程」はここから導出する。手で書かせない
+separations:
+  - id: sep-self-approval
+    roles: null
+    scope: same-work-product
+    reason: 起案した主体が判定すれば、判定は自己申告になる。役割の組み合わせによらず成立しない
+    exception: none
+    gate: null
+  - id: sep-author-reviewer
+    roles: [dev-verifier, independent-reviewer]
+    scope: same-work-product
+    reason: 作成を指示した本人が見ても、作成時の思い込みは検出できない
+    exception: none
+    gate: g-indep-review
+  - id: sep-dev-shipping
+    roles: [dev-verifier, qa-gatekeeper]
+    scope: same-project
+    reason: 第三者判定の独立性が崩れる
+    exception: 3名未満に限り、代償措置つきで兼務を認める(第3章 3.5.2 / ADR-0029)
+    gate: g-ship
+  - id: sep-maintainer-ops
+    roles: [ai-maintainer, ai-ops]
+    scope: always
+    reason: 案件の都合で全社の統制を緩める経路ができる
+    exception: none
+    gate: null
 workProducts:
   - id: d0-governance-chart
     name: 意思決定・エスカレーション体制図(D-0)
@@ -178,6 +205,7 @@ gates:
     deliverables: [意思決定・エスカレーション体制図(D-0。承認済みであることが審議開始の前提条件), AIエージェント安全リスクアセスメント表(適用条件に該当する案件のみ。審議開始の前提条件), 企画書(事業意図), コンテキスト基盤の整備計画と予算]
     criteria: [投資対効果が事業基準を満たす, リスク受容が明示されている, コンテキスト基盤の初期整備コストが予算化されている, 指標の閾値と予算区分が合意され記録されている]
     approver: 事業決裁者(決裁権限規程どおりの職位)
+    approverRole: biz-approver
     decisions: [承認 / 条件付き承認 / 見送り]
     jpNote: 既存の稟議・決裁制度をそのまま使う(ここは変えない)。頻度が低いゲートなので多段決裁の遅さを許容できる
   - id: g-req-agree
@@ -188,6 +216,7 @@ gates:
     deliverables: [機能仕様書(受入基準付き), 更新済みコンテキスト基盤(案件層)]
     criteria: ["受入基準が検証可能な形式で記述されている(「適切に」「柔軟に」等の曖昧語ゼロ)", 暗黙の前提が案件層コンテキストに登録済み, スコープ外事項が明記されている]
     approver: 価値責任者(単独。目安48時間以内に判定)
+    approverRole: value-owner
     decisions: [合意 / 差し戻し]
     jpNote: 判定は単独(合議体にしない=G2対応)。関係者の意見は判定前の非同期コメントで集める(根回しの構造化)
   - id: g-tech-design
@@ -198,6 +227,7 @@ gates:
     deliverables: [アーキテクチャ設計・技術選定案(AI生成+人レビュー済み), 判断記録(ADR)案]
     criteria: [非機能要件の充足見込みが示されている, 既存資産・コンテキスト基盤と整合している, 選択の可逆性が評価されている(戻せない選択は明示)]
     approver: 技術判断者(単独。目安48時間以内に判定)
+    approverRole: tech-lead
     decisions: [承認 / 代替案の要求]
     jpNote: 事業決裁(予算)と完全に分離する(G3対応)。技術判断に決裁階層を通さない
   - id: g-spec-cycle
@@ -208,6 +238,7 @@ gates:
     deliverables: [機能単位の仕様(AI起案), 実装計画(タスク分解)]
     criteria: [仕様に検証可能な受入基準が含まれる, タスク分解の粒度が検証可能(1タスク=1レビュー単位)]
     approver: 価値責任者(または明示的に委譲された機能責任者。委譲しても結果責任は価値責任者に残る)
+    approverRole: value-owner
     decisions: [承認して実装へ / 修正]
     jpNote: SDD 式の人間承認ゲート。ここを飛ばすと vibe coding 化する(統制強度の要)
   - id: g-ci
@@ -218,6 +249,7 @@ gates:
     deliverables: [コード+テスト一式]
     criteria: [全テストが GREEN, 静的解析・脆弱性スキャンで重大指摘 0 件, テストカバレッジが計画時に設定した基準値以上]
     approver: CI(機械判定)
+    approverRole: null
     decisions: [通過 / 差し戻し(マージ不可)]
     jpNote: 合意済みルールはすべて機械化してここに載せる(人の目を通さない)。人間の検証帯域を判断業務に温存するための設計
   - id: g-indep-review
@@ -228,6 +260,7 @@ gates:
     deliverables: [PR(コード・テスト・判断記録)]
     criteria: [仕様(受入基準)との一致, レビュアが挙動を自分の言葉で説明できる(理解可能性), コア機能の場合は設計意図の記録が完備]
     approver: 独立レビュア(作成指示者本人は承認不可。ブランチ保護で強制)
+    approverRole: independent-reviewer
     decisions: [承認 / 差し戻し]
     jpNote: 日本の第三者レビュー文化をAI時代の統制として再利用する。レビューの目的は儀式でなく「人間側の理解の維持」(BCP)
   - id: g-ship
@@ -238,6 +271,7 @@ gates:
     deliverables: [品質レポート, 技術負債台帳, 全ゲート通過記録]
     criteria: [計画したテストが消化されている, 未解決の欠陥が事業ステージ別のトリアージ基準を満たしている, 受容した負債がすべて台帳に記録済み, 運用引き継ぎ文書が完備]
     approver: 品質保証(第三者。署名する)
+    approverRole: qa-gatekeeper
     decisions: [出荷可 / 出荷不可]
     jpNote: 既存の出荷判定制度を活かす。判定は「記録と基準の突合」に限定し、ここで再テスト・再レビューを始めない(滞留防止=G5対応)
   - id: g-release
@@ -249,6 +283,7 @@ gates:
     deliverables: [出荷判定結果, 事業影響評価]
     criteria: [事業リスクの受容判断(技術品質は g-ship で担保済みのため対象外)]
     approver: 事業決裁者
+    approverRole: biz-approver
     decisions: [Go / Hold]
     jpNote: 技術判定の通過が前提なので、ここは純粋な事業判断のみ。目安48時間以内。技術品質を蒸し返さないことを規程に明記する
 bodies:

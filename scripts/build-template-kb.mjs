@@ -47,9 +47,25 @@ export function buildKb() {
   // 工程ゲート(G-1〜G-8)のみを取り出す。ステージ移行ゲート(SG-n)はテンプレートの CI では扱わない
   const gates = model.gates
     .filter((g) => /^G-\d$/.test(g.label ?? ''))
-    .map((g) => ({ id: g.id, label: g.label, name: g.name, approver: g.approver }));
+    .map((g) => ({
+      id: g.id,
+      label: g.label,
+      name: g.name,
+      approver: g.approver,
+      approverRole: g.approverRole ?? null,
+    }));
 
   const roles = model.roles.map((r) => ({ id: r.id, name: r.name, responsibility: r.responsibility }));
+
+  // 兼務を禁止する組み合わせ。案件の構成で「担ってはならない工程」を導出するために渡す(ADR-0035)
+  const separations = (model.separations ?? []).map((s) => ({
+    id: s.id,
+    roles: s.roles ?? null,
+    scope: s.scope,
+    reason: s.reason,
+    exception: s.exception ?? 'none',
+    gate: s.gate ?? null,
+  }));
 
   return {
     schemaVersion: 0,
@@ -60,6 +76,7 @@ export function buildKb() {
     practices,
     gates,
     roles,
+    separations,
   };
 }
 

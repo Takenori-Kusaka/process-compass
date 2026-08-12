@@ -16,6 +16,7 @@ sidebar:
 | EV-0001 | 連続失敗3回・無進捗2回という停止条件の初期値 | E0(なし) | 2027-02 | 3か月分の停止記録と、そこから算出した誤検知率 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0013 | 応答の期限(A は1週間、B〜D は2週間で区分を返す、E は2週間)と、同種の誤りが3回でルール化を検討するという回数 | E0(なし) | 2027-02 | 本プロジェクトにおける、区分別の応答所要時間の実績 | [community/feedback-workflow](/process-compass/community/feedback-workflow/) |
 | EV-0015 | 生成AI起因リスクの一覧の網羅性 | E1(間接) | 2027-02 | 公的なガイドラインの次期改訂と、自組織で観測した生成AI 起因の事象の記録 | [phase6-operation/risk-catalog](/process-compass/phase6-operation/risk-catalog/) |
+| EV-0020 | 文脈の同一性によって分離が崩れるという診断、および分離の成立条件3項目 | E2(単一事例) | 2027-02 | 3案件以上での分離の崩れの記録と、崩れた時点で3項目のどれが同一であったかの集計 | [adr/0035-separation-by-execution-context](/process-compass/adr/0035-separation-by-execution-context/) |
 | EV-0002 | 同一論点の応酬3往復というエスカレーションの閾値 | E0(なし) | 2027-08 | 自組織における、往復回数と合意到達率の記録 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0003 | 締切の2営業日前・前営業日という督促の時点 | E0(なし) | 2027-08 | 自組織における、督促の時点別の応答率 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0004 | 抜き取り数(当月の全件と5件のいずれか少ないほう)と、切替を停止する条件(逸脱が2期連続) | E0(なし) | 2027-08 | 自組織における、抜き取り数別の逸脱検出率 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
