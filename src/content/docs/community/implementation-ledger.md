@@ -15,14 +15,6 @@ sidebar:
 
 <!-- implementation-ledger:start -->
 
-### 降りていない規定
-
-次の規定は、実行層に対応する記述がありません。**案件からは「規定がない」ものとして扱われます**。
-
-| 識別子 | 規定 | 降ろし先(予定) | 記載箇所 |
-| --- | --- | --- | --- |
-| IMPL-0005 | エスカレーションの発火条件と段階(どの段階がどのラベルに当たるかが実行層に無い) | CLAUDE.md の構成依存部分 | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
-
 ### 全件
 
 | 識別子 | 規定 | 降ろし先 | 検査 | 状態 | 記載箇所 |
@@ -31,7 +23,8 @@ sidebar:
 | IMPL-0002 | 出荷判定者の兼務に限った例外と代償措置 | process.config.json の deviations[] | `verify-gate-contract` | 降りている | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0003 | 実行主体が起動時に参照する内容(判定するゲート・担ってはならない工程・引き渡し先) | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0004 | 指示資産の統合・削除の権限を AI維持管理者へ集約する | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0005 | エスカレーションの発火条件と段階(どの段階がどのラベルに当たるかが実行層に無い) | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0005 | エスカレーションの発火条件と段階に対応するラベル | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 | IMPL-0006 | 目的を達成する構成を示せないゲートを未達として宣言する | process.config.json の unmet[] | `verify-gate-contract` | 降りている | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0007 | ポーリングの対象を自ロールの受信箱に限る | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 
 <!-- implementation-ledger:end -->
