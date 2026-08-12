@@ -45,19 +45,21 @@ jobs:
             --exclude 'https://takenori-kusaka\.github\.io/.*'
             'src/content/docs/**/*.md' 'src/content/docs/**/*.mdx' 'README.md' 'research/**/*.md'
           fail: false
-      # 起票の条件を「状態コードで拒否された URL があること」に絞る。
+      # 起票の条件を「4xx で拒否された URL があること」に絞る。
       # 接続失敗・タイムアウト・HTTP/2 のプロトコルエラーは、実行環境から到達できないだけで
       # リンク自体は生きている場合が大半であり(2026-08-12 の棚卸しでは 35 件中 34 件)、
-      # これで起票すると Issue が対処できない指摘で埋まる。要約はジョブサマリへ出す
+      # これで起票すると Issue が対処できない指摘で埋まる。
+      # 5xx も除く。資源の消失は 404・410 で現れ、5xx は要求時点のサーバ側の状態を示すため、
+      # 実行のたびに別の URL が入れ替わりで現れる。要約はいずれもジョブサマリへ出す
       - name: Classify results
         id: classify
         run: |
-          dead=$(grep -cE '^\* \[[45][0-9]{2}\]' ./lychee/out.md || true)
+          dead=$(grep -cE '^\* \[4[0-9]{2}\]' ./lychee/out.md || true)
           echo "dead=$dead" >> "$GITHUB_OUTPUT"
           {
             echo "## リンクチェック結果"
             echo ""
-            echo "- 状態コードで拒否された URL: ${dead} 件(この件数が1以上のときだけ Issue を起票・更新する)"
+            echo "- 4xx で拒否された URL: ${dead} 件(この件数が1以上のときだけ Issue を起票・更新する)"
             echo ""
             cat ./lychee/out.md
           } >> "$GITHUB_STEP_SUMMARY"
