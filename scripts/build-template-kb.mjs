@@ -14,6 +14,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
+import GithubSlugger from 'github-slugger';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -38,11 +39,56 @@ function loadYaml(file) {
   return YAML.parse(fs.readFileSync(file, 'utf8'));
 }
 
+/** 公開サイトの基底。案件のリポジトリからはサイト相対パスをたどれないため、絶対 URL で渡す */
+const SITE = 'https://takenori-kusaka.github.io';
+
+/** サイト相対の参照(/process-compass/...)を絶対 URL へ直す */
+function abs(href) {
+  if (typeof href !== 'string') return null;
+  return href.startsWith('/') ? `${SITE}${href}` : href;
+}
+
+/**
+ * 構成の各項目から標準の該当節へたどれるようにする(#221)。
+ * 参照先が案件へ届かないと、規定があっても「規定がない」と扱われる。
+ */
+function withSource(obj) {
+  if (Array.isArray(obj)) return obj.map(withSource);
+  if (!obj || typeof obj !== 'object') return obj;
+  const out = {};
+  for (const [k, v] of Object.entries(obj)) {
+    out[k] = k === 'source' || k === 'href' ? abs(v) : withSource(v);
+  }
+  return out;
+}
+
+/**
+ * ゲートごとの見出しアンカーを、判定基準のページから読み取る。
+ *
+ * 参照先がページ全体だと、案件側は該当ゲートの基準まで自力で探すことになる。
+ * 見出しの文言が変わってもここが追随するよう、本文から拾う(#221)。
+ */
+function gateAnchors() {
+  const file = path.join(ROOT, 'src/content/docs/phase4-process-design/gate-criteria.md');
+  const slugger = new GithubSlugger();
+  const anchors = {};
+  for (const line of fs.readFileSync(file, 'utf8').split(/\r?\n/)) {
+    const m = line.match(/^#{2,3}\s+(.+?)\s*$/);
+    if (!m) continue;
+    const slug = slugger.slug(m[1]);
+    const g = m[1].match(/^(G-\d)\s/);
+    if (g) anchors[g[1]] = slug;
+  }
+  return anchors;
+}
+
 export function buildKb() {
   const questions = loadYaml(path.join(TAILORING_DIR, 'questions.yaml')).questions;
   const constraints = loadYaml(path.join(TAILORING_DIR, 'constraints.yaml')).constraints;
   const practices = loadYaml(path.join(TAILORING_DIR, 'practices.yaml')).practices;
   const model = loadYaml(PROCESS_FILE);
+
+  const anchors = gateAnchors();
 
   // 工程ゲート(G-1〜G-8)のみを取り出す。ステージ移行ゲート(SG-n)はテンプレートの CI では扱わない
   const gates = model.gates
@@ -53,9 +99,15 @@ export function buildKb() {
       name: g.name,
       approver: g.approver,
       approverRole: g.approverRole ?? null,
+      source: abs(g.href) + (anchors[g.label] ? `#${anchors[g.label]}` : ''),
     }));
 
-  const roles = model.roles.map((r) => ({ id: r.id, name: r.name, responsibility: r.responsibility }));
+  const roles = model.roles.map((r) => ({
+    id: r.id,
+    name: r.name,
+    responsibility: r.responsibility,
+    source: abs(r.href),
+  }));
 
   // 兼務を禁止する組み合わせ。案件の構成で「担ってはならない工程」を導出するために渡す(ADR-0035)
   const separations = (model.separations ?? []).map((s) => ({
@@ -65,15 +117,16 @@ export function buildKb() {
     reason: s.reason,
     exception: s.exception ?? 'none',
     gate: s.gate ?? null,
+    source: abs(s.source ?? '/process-compass/phase4-process-design/roles-responsibilities/'),
   }));
 
   return {
     schemaVersion: 0,
     note: '自動生成。正本は process-compass の src/data/。手で編集しない',
-    questions,
-    rules: loadRules(),
-    constraints,
-    practices,
+    questions: withSource(questions),
+    rules: withSource(loadRules()),
+    constraints: withSource(constraints),
+    practices: withSource(practices),
     gates,
     roles,
     separations,
