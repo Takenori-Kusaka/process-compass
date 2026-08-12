@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 3836 nodes · 3753 edges · 332 communities (324 shown, 8 thin omitted)
+- 3832 nodes · 3735 edges · 327 communities (320 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `acee2e42`
+- Built from commit: `3b9a5f7b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,7 +26,7 @@
 - コンテキストエンジニアリング手法 調査メモ
 - プロセス記述に関する国際標準の調査メモ
 - プロダクトオーナー中心のチーム編成論 調査メモ
-- test-tailoring-engine.mjs
+- simulator.astro
 - Process Compass 🧭
 - テスト駆動開発(TDD)調査メモ
 - ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ
@@ -324,17 +324,13 @@
 - ゲート判定記録
 - 3.8 決裁権限マトリクス
 - 前提の台帳
-- astro:content
 - テンプレ0: 意思決定・エスカレーション体制図(D-0)
 - テンプレ10: 前提の台帳
 - テンプレ8: AI-SLA 合意確認書(委託契約の添付)
 - テンプレ9: AIエージェント安全リスクアセスメント表
 - 判断の順序に関する要求事項
-- simulator.astro
 - 0033-no-target-as-recorded-state.md
-- ProcessActivity.astro
 - 0034-stack-is-output-of-exploration.md
-- ProcessOverview.astro
 - 用語集
 - 複製したファイル
 - 保管領域
@@ -344,7 +340,6 @@
 - implementation-ledger.md
 - articles/README.md
 - 成果物の置き場
-- comparison.astro
 
 ## God Nodes (most connected - your core abstractions)
 1. `deny` - 22 edges
@@ -363,15 +358,15 @@
   scripts/build-template-kb.mjs → package.json
 - `loadYaml()` --references--> `yaml`  [EXTRACTED]
   scripts/build-template-kb.mjs → package.json
-- `buildMarkdown()` --calls--> `visibleQuestions()`  [EXTRACTED]
-  src/pages/tool/simulator.astro → src/lib/tailoring-engine.mjs
 - `buildConfig()` --calls--> `evaluate()`  [EXTRACTED]
   template/scripts/init/generate-profile.mjs → template/scripts/vendor/tailoring-engine.mjs
+- `buildMarkdown()` --calls--> `visibleQuestions()`  [EXTRACTED]
+  src/pages/tool/simulator.astro → src/lib/tailoring-engine.mjs
 
 ## Import Cycles
 - None detected.
 
-## Communities (332 total, 8 thin omitted)
+## Communities (327 total, 7 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -398,8 +393,8 @@ Cohesion: 0.06
 Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "process-diagrams.ts"
-Cohesion: 0.18
-Nodes (15): diagram, exitGates, roleName, seg, Activity, esc(), Gate, l1Diagram() (+7 more)
+Cohesion: 0.06
+Nodes (30): roleName, seg, wpName, diagram, roleName, seg, string, diagram (+22 more)
 
 ### Community 7 - "ドメイン駆動設計(DDD)調査メモ"
 Cohesion: 0.06
@@ -417,9 +412,9 @@ Nodes (28): 1.1 位置づけ, 1.2 プロセス記述の要素一覧, 1.3 フェ�
 Cohesion: 0.14
 Nodes (14): 0. このメモの位置づけと全体像, 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義), 3. 前提条件(この編成が暗黙に仮定していること), 5.1 全員が PO になれるのか(スキルの偏在), 5.2 責任の所在(誰が本番の AI 生成コードを所有するか), 5.3 意思決定の質と「false finish line」 (+6 more)
 
-### Community 11 - "test-tailoring-engine.mjs"
-Cohesion: 0.20
-Nodes (11): integrated, kb, knownIds, optionIds, rules, evaluate(), ADR-0008, ruleMatches() (+3 more)
+### Community 11 - "simulator.astro"
+Cohesion: 0.11
+Nodes (21): integrated, kb, knownIds, optionIds, rules, evaluate(), ADR-0008, ruleMatches() (+13 more)
 
 ### Community 12 - "Process Compass 🧭"
 Cohesion: 0.09
@@ -1410,8 +1405,8 @@ Cohesion: 0.18
 Nodes (10): 1. 番号を採る, 2. テンプレートから起こす, 3. 埋める, 4. 選択理由は人が書く, 5. コミットする, 何を記録するか, 判断記録(ADR)を書く, 参照 (+2 more)
 
 ### Community 266 - "手順"
-Cohesion: 0.15
-Nodes (12): 1. 有効なゲートを確認する, 2. テンプレートから起こす, 3. 埋める, 4. 差し戻しの理由は項目番号で書く, 5. 判定はエージェントが行わない, 6. 記録を書いてからラベルを動かす, ゲート判定を記録する, 判定に持ち込まないもの (+4 more)
+Cohesion: 0.18
+Nodes (10): 1. 有効なゲートを確認する, 2. テンプレートから起こす, 3. 埋める, 4. 差し戻しの理由は項目番号で書く, 5. 判定はエージェントが行わない, ゲート判定を記録する, 参照, 手順 (+2 more)
 
 ### Community 267 - "check-process-rules.mjs"
 Cohesion: 0.18
@@ -1609,25 +1604,13 @@ Nodes (4): テンプレ9: AIエージェント安全リスクアセスメント�
 Cohesion: 0.67
 Nodes (3): 判定における対比, 判断の順序に関する要求事項, 実装作業における順序
 
-### Community 317 - "simulator.astro"
-Cohesion: 0.26
-Nodes (10): buildMarkdown(), deviationList(), effectiveState(), integrated, kb, proposalState(), renderAdoption(), rules (+2 more)
-
 ### Community 318 - "0033-no-target-as-recorded-state.md"
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 319 - "ProcessActivity.astro"
-Cohesion: 0.22
-Nodes (6): roleName, seg, wpName, grouped, order, proposals
-
 ### Community 320 - "0034-stack-is-output-of-exploration.md"
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
-
-### Community 321 - "ProcessOverview.astro"
-Cohesion: 0.40
-Nodes (4): diagram, roleName, seg, string
 
 ### Community 322 - "用語集"
 Cohesion: 0.40
@@ -1657,26 +1640,22 @@ Nodes (3): この2つが揃うまで実装しない, 曖昧語は CI が止め�
 Cohesion: 0.50
 Nodes (3): このディレクトリは Zenn の単発記事（連載に属さない読み切り）用です。, 現在は単発記事なし。Zenn の "articles ディレクトリが見つかりません" 警告を避けるための占位です。, 連載は books/ の Zenn Book で管理します（docs/process/article-publishing-policy.md）。
 
-### Community 331 - "comparison.astro"
-Cohesion: 0.40
-Nodes (4): allRows, proposalRows, rows, string
-
 ## Knowledge Gaps
-- **2892 isolated node(s):** `normalized`, `repoRoot`, `relative`, `res`, `ADR-0006` (+2887 more)
+- **2890 isolated node(s):** `ステータス`, `規定と実行層の向きが逆転していた`, `判定の語彙が工程ゲートに無い`, `「条件付き」を求める要求が上がっている`, `決定1: 判定記録の作成をもって判定の成立とする` (+2885 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `コンテキストエンジニアリング手法 調査メモ` connect `コンテキストエンジニアリング手法 調査メモ` to `20260710-jp-governance.md`?**
+- **Why does `プロダクトオーナー中心のチーム編成論 調査メモ` connect `プロダクトオーナー中心のチーム編成論 調査メモ` to `20260710-jp-governance.md`, `1. 理想像の出所(建前=そう語られる)`, `4. 組織論的な論点(従来編成 vs PO中心編成)`, `9. 出典一覧`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `日本企業のガバナンス・決裁ゲートの実態 調査メモ` connect `日本企業のガバナンス・決裁ゲートの実態 調査メモ` to `20260710-jp-governance.md`?**
-  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Why does `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` connect `エージェント型開発(自律・マルチエージェント)の現在地 調査メモ` to `20260710-jp-governance.md`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **What connects `normalized`, `repoRoot`, `relative` to the rest of the system?**
-  _2892 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `ステータス`, `規定と実行層の向きが逆転していた`, `判定の語彙が工程ゲートに無い` to the rest of the system?**
+  _2890 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
