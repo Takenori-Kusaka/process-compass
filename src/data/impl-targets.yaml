@@ -45,6 +45,20 @@ targets:
     check: check-process-rules
     description: エージェントが起動時に読む文書。構成から導出した権限・禁止工程・受信箱
 
+  - id: gate-record-template
+    name: 成果物テンプレート テンプレ4(ゲート判定記録)
+    kind: template-file
+    path: templates/04-gate-record.md
+    check: aggregate-evidence
+    description: 判定の成立要件となる記録の様式。判定の語彙と例外承認の扱い(ADR-0036)
+
+  - id: gate-record-skill
+    name: ゲート判定記録のスキル
+    kind: template-file
+    path: .claude/skills/gate-record/SKILL.md
+    check: aggregate-evidence
+    description: 実行主体が判定記録を作る手順。判定の範囲と、判定を人が行う境界
+
   - id: d0-template
     name: 成果物テンプレート D-0(体制図)
     kind: template-file
