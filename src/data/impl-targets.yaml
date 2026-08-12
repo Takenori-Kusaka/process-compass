@@ -1,0 +1,53 @@
+# 実行層の登録簿(#222)
+#
+# 標準の規定は、案件の実行層へ降りて初めて実行主体へ届く。ここは「降ろし先」の
+# 一覧であり、実装マーク(<!-- impl ... -->)の target はこの id を指す。
+# 書式と運用は community/implementation-marking.md による。
+#
+# kind:
+#   config-key    — 準拠テンプレートが生成する process.config.json のキー。
+#                   検査はサンプル回答から構成を生成し、キーの存在を確かめる
+#   template-file — 準拠テンプレートに置くファイル。検査は存在を確かめる
+schemaVersion: 0
+targets:
+  - id: config-gates
+    name: process.config.json の gates
+    kind: config-key
+    keyPath: gates
+    check: verify-gate-contract
+    description: 有効なゲートと判定者。案件の CI と PROCESS-PROFILE.md はここを正本とする
+
+  - id: config-roles
+    name: process.config.json の roles[]
+    kind: config-key
+    keyPath: roles
+    check: check-process-rules
+    description: ロールごとの判定ゲート・担ってはならない工程・兼務の禁止(ADR-0035)
+
+  - id: config-unmet
+    name: process.config.json の unmet[]
+    kind: config-key
+    keyPath: unmet
+    check: verify-gate-contract
+    description: 目的を達成する構成を示せていないゲート(ADR-0028)
+
+  - id: config-deviations
+    name: process.config.json の deviations[]
+    kind: config-key
+    keyPath: deviations
+    check: verify-gate-contract
+    description: 実施するが標準の要求する属性を欠くゲート(ADR-0029)
+
+  - id: claude-md
+    name: CLAUDE.md の構成依存部分
+    kind: template-file
+    path: CLAUDE.md
+    check: check-process-rules
+    description: エージェントが起動時に読む文書。構成から導出した権限・禁止工程・受信箱
+
+  - id: d0-template
+    name: 成果物テンプレート D-0(体制図)
+    kind: template-file
+    path: templates/00-d0-governance.md
+    check: check-d0
+    description: 案件の体制・兼務・エスカレーションの経路を案件ごとに定める成果物

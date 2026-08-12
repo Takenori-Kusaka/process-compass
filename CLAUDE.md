@@ -63,6 +63,13 @@
 - 識別子は連番で再利用しない。マーク追加後は `npm run evidence:write` で台帳(`community/evidence-ledger.md`)を再生成する
 - 台帳は自動生成。手で編集しない
 
+## 規定を実行層へ届ける(#222)
+
+- 実行主体の挙動を制約する規定には、実装マーク `<!-- impl IMPL-NNNN target=... state=... note="..." -->` を付ける。書式は `community/implementation-marking.md` が正本
+- 降ろし先は `src/data/impl-targets.yaml` に登録したものだけを使う。検査は降ろし先の実在まで確かめる
+- マークを足したら `npm run impl:write` で台帳(`community/implementation-ledger.md`)を再生成する。台帳は自動生成。手で編集しない
+- **降りていない規定(`state=undelivered`)は消さずに表示し続ける**。未達のゲートと同じ扱い
+
 ## プロジェクト運営(Issue 駆動)
 
 - **Issue にない作業はしない**。作業前に必ず対応する Issue を確認・起票する
