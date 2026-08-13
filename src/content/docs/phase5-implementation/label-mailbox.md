@@ -44,7 +44,7 @@ sidebar:
 
 ## 4.3 label 語彙（標準8種）
 
-プロジェクトのリポジトリには、以下の8つの `state:*` ラベルを定義する。
+プロジェクトのリポジトリには、以下の9つの `state:*` ラベルを定義する。
 
 | ラベル（label） | 意味 | 付与するロール | 次に動くロール |
 |---|---|---|---|
@@ -55,9 +55,11 @@ sidebar:
 | `state:needs-audit` | 統合監査またはリリースカットの検証を監査チームに依頼した状態 | PO | **監査**（Auditor） |
 | `state:needs-platform`| テスト装置・リント・CI/CD等の削減・自動生成・統合、および**エージェント指示資産（強制層。`.claude/**` 等）の統合・削除**を依頼した状態 | PO / Dev / QM | **Platform**（AI維持管理） |
 | `state:needs-po` | 不可逆4操作に当たらないが、仕様・優先度・語彙の改訂等のPO判断を要する状態 | 誰でも | **PO**（価値責任者） |
-| `state:needs-owner` | 不可逆4操作に該当する判断・承認を要する状態 | 誰でも | **オーナー**（事業決裁者） |
+| `state:needs-tech` | 技術設計の判断（G-3）を要する状態。ADRの起草・採否、技術的トレードオフの評価 | 誰でも | **技術判断者** |
+| `state:needs-owner` | 事業決裁者の決裁または追認を要する状態 | 誰でも | **オーナー**（事業決裁者） |
 
-- `state:needs-po` / `state:needs-owner` は、誰が気付いても付与してよい。Devの実装中に判断が必要になった場合もこれらを付与する。
+- `state:needs-po` / `state:needs-tech` / `state:needs-owner` は、誰が気付いても付与してよい。Devの実装中に判断が必要になった場合もこれらを付与する。
+- **`state:needs-owner` が指す範囲は、不可逆4操作に限らない。** 4.2 原則4 の不可逆4操作、[第7章 7.6](/process-compass/phase4-process-design/exception-escalation/)の段階2および段階3、[第3章 3.9](/process-compass/phase4-process-design/roles-responsibilities/)の決裁マトリクスが事業決裁者を指す事項を含む。案件がテーラリングで追認を要する事項を追加した場合も、同じラベルを用いる（[ADR-0037](/process-compass/adr/0037-label-points-to-lane-not-role/)）。
 - **エージェント指示資産の統合・削除の権限は AI維持管理者へ集約する**（[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)）。強制層の変更が必要になった場合は `state:needs-owner` ではなく `state:needs-platform` を付与する。不可逆4操作に該当する場合のみ、あわせて `state:needs-owner` を付与する。
 - **相手を指すラベルがない口頭やメンションでの判断依頼を禁止する。** 伝達経路に現れないため、エージェントや人間の双方で見落とすこととなる。
 
@@ -76,6 +78,7 @@ sidebar:
 | **`state:qm-blocked`**| **Dev** | **差し戻し対応が完了し、CIが全緑（復路）** | **`state:dev-done`** （※ここをDevに戻すのが極めて重要） |
 | `state:ready-to-merge`| QM | マージを実行（Squash & Merge） | （PR close。ラベルは剥がさず残してよい） |
 | `state:needs-po` | PO | 意思決定を下し、内容をコメントとして永続化 | **次の担当者の状態** （`needs-dev` や `dev-done` 等） |
+| `state:needs-tech` | 技術判断者 | G-3の判定記録を作成し、採否と却下理由をADRへ永続化 | **次の担当者の状態**（`needs-dev` 等）。差し戻しは `state:needs-po` |
 | `state:needs-owner`| Owner | 決裁を下し、内容をコメントとして永続化 | 同上 |
 | `state:needs-audit`| 監査 | リリースカット実施または却下の監査判定完了 | **`state:needs-po`**（理由を添えてPOへ結果を戻す） |
 | `state:needs-platform`| Plat | ツールチェーンやテスト装置 of 修正・追加が完了 | **`state:dev-done`**（※自分のPRを自分で承認しない原則） |
@@ -160,6 +163,15 @@ gh issue list --label "state:needs-platform" --state open
 gh pr list --label "state:needs-platform" --state open
 ```
 
+### ⑥ 技術判断者の Mailbox
+```bash
+# 1. 技術設計判断（G-3）待ちの案件
+gh issue list --label "state:needs-tech" --state open
+gh pr list --label "state:needs-tech" --state open
+```
+
+技術判断者が開発者のレーンを共有する体制では、**セッションを分けて**このポーリングを実行する（[第3章 3.5.3](/process-compass/phase4-process-design/roles-responsibilities/)）。1つのセッションが両方の受信箱を見た時点で、起草と判定の文脈が合流する。
+
 ---
 
 ## 4.5.1 受信箱は自分のロールのものだけを見る
@@ -234,16 +246,68 @@ graph LR
 1. **孤児（orphan）の再検出**:
    4.4節 workshops のコマンドを叩き、状態ラベルが付与されずに浮いてしまっているIssues/PRsがないかを徹底的に探す。もし発見された場合は、適切な `state:*` ラベルを付与してワークフローを再起動する。
 2. **各ロールの受信箱の残件確認**:
-   全ラベル（7種）を網羅的に確認し、本当にすべてのレーンで件数が「0」になっているかをカウントする（特定のレーンで滞留していないか）。
+   全ラベル（9種）を網羅的に確認し、本当にすべてのレーンで件数が「0」になっているかをカウントする（特定のレーンで滞留していないか）。
 3. **アクティビティ履歴の確認**:
    直近数時間のコミット履歴や merged されたPRsを確認し、何らかの理由（APIトークンエラーやGitHub障害など）でエージェントがクラッシュしたまま停止していないかを確認する。
 
 ```bash
 # 全受信箱の残件数を一括取得する
-for l in needs-dev dev-done qm-blocked ready-to-merge needs-audit needs-po needs-owner; do
+for l in needs-dev dev-done qm-blocked ready-to-merge needs-audit needs-platform needs-po needs-tech needs-owner; do
   printf "%s: " "$l"
   echo "issue=$(gh issue list --label "state:$l" --state open --json number --jq 'length') pr=$(gh pr list --label "state:$l" --state open --json number --jq 'length')"
 done
 ```
+
+---
+
+## 4.7 統制の弱化を検知したときの引き渡し
+
+統制を弱める変更は、稀にしか現れない。[第5章 5.6.1](/process-compass/phase4-process-design/human-ai-boundary/)が示すとおり、稀にしか現れない対象を探す作業では見逃しが構造的に増える。**そのうえ検知しても回す先がなければ、次からは検知そのものが止まる。**
+
+### 4.7.1 何を統制の弱化として扱うか
+
+統制・認証認可・不可逆な運用ルールに関わる変更を対象とする。具体的には次の3つの性質による。
+
+| # | 性質 | 例 |
+| --- | --- | --- |
+| 1 | 遮断の解除 | 禁止していた操作を許可する。ブランチ保護を外す |
+| 2 | 閾値の緩和 | カバレッジや検査の合格基準を下げる。警告を無視の設定にする |
+| 3 | 強制層の縮小 | 指示資産の禁止設定を削る。検査の対象から外す |
+
+**パスの列挙で定義しない。** パスは変更のたびに規定の改訂を要し、列挙の漏れがそのまま検知の漏れになる。
+
+<!-- impl IMPL-0014 target=claude-md state=delivered note="統制の弱化を性質で定義し検知の対象とする" -->
+
+### 4.7.2 検知者は許容可否を判断しない
+
+検知者が確認するのは、**差分が変更の主張と一致するか**までに留める。その弱化を受け入れてよいかは判断しない。
+
+出荷判定者が許容可否まで判断すると、出荷の判定者が統制の設計判断を持つことになる。指示資産の承認権限を AI維持管理者へ集約した[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)の意味が失われる。
+
+### 4.7.3 引き渡し先
+
+| 対象 | 付与するラベル |
+| --- | --- |
+| 強制層(`.claude/**` 等)の縮小 | `state:needs-platform` |
+| 不可逆4操作に該当する（ガード・検証ゲート・重要テストの削除を含む） | 上に加えて `state:needs-owner` |
+| 弱化の範囲そのものの適否 | `state:needs-po` |
+
+**監査担当を引き渡し先にしない。** 監査は、プロセスが標準に適合しているかを事後に検証する職務を負う。個別の変更の許容可否を決める場にすると、監査が実行の当事者となり、次の監査で自らの判断を監査することになる。
+
+### 4.7.4 引き渡し先が分からないときの既定
+
+**「回す先が無い」を「自分で決める」の理由にしない。** 引き渡し先を特定できない場合は `state:needs-po` を付与して価値責任者へ回す。
+
+価値責任者は、受け取った事項の引き渡し先を決める。標準の語彙に経路が無いと判明した場合は、4.2 原則5 の後段により語彙の追加を検討する。
+
+### 4.7.5 兼務していても記録は残す
+
+D-0 で兼務を記録している案件では、検知者と承認者が同一人物になることがある。**それでもラベルを経由させ、引き渡しを記録する。**
+
+同一人物であっても、どの職務で判断したかが記録に残る。判断の帰属は記録によってしか追えない([ADR-0038](/process-compass/adr/0038-detection-handoff-of-control-weakening/))。
+
+<!-- impl IMPL-0015 target=claude-md state=delivered note="検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す" -->
+
+---
 
 本ルールを徹底することにより、AIと人間からなる分散開発チームは、「割り込み」というお互いのリソースを破壊しあう危険な通信を一切行うことなく、メッセージバスを介して自律的かつ極めて高速に同期・連携する。

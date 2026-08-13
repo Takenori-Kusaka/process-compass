@@ -31,5 +31,8 @@ sidebar:
 | IMPL-0010 | 判定は当該ゲートの判定基準のみで行い次工程の材料の未完成を理由にしない | ゲート判定記録のスキル | `aggregate-evidence` | 降りている | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0011 | 条件を付して先へ進める場合は例外承認の5要求事項を満たす | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0012 | ラベルの遷移は判定の成立要件ではなく順序は記録が先 | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
+| IMPL-0013 | ロールとレーンの写像および受信箱のラベル | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0014 | 統制の弱化を性質で定義し検知の対象とする | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
+| IMPL-0015 | 検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 
 <!-- implementation-ledger:end -->
