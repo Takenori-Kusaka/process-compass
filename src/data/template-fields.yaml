@@ -1,0 +1,164 @@
+# 準拠テンプレートの様式が持つべき必須欄の対応表(ADR-0040 / #227)
+#
+# 正本は標準の第6章(src/content/docs/phase4-process-design/deliverable-templates.md)。
+# テンプレートの様式は標準の部分集合とし、必須欄の存在だけを検査する。
+#
+# 検査は2方向で行う。
+#   標準 → 対応表     : standard の文字列が標準の本文に実在するか
+#   対応表 → テンプレート: template の文字列がテンプレートの様式に存在するか
+# 片方向では、対応表が古い欄名を保持したまま通る。
+#
+# 欄を落とす場合は omit に理由を書く。標準側の実在の検査は続く。
+# 標準と逆の指示を書く形は、omit で登録できない(ADR-0040 決定4)。
+schemaVersion: 0
+
+forms:
+  - id: t0
+    name: テンプレ0 意思決定・エスカレーション体制図(D-0)
+    file: templates/00-d0-governance.md
+    fields:
+      - standard: '## 表1: 決定の権限'
+        template: 決定の権限
+      - standard: '## 表2: 権限境界(トレランス)'
+        template: 権限境界(トレランス)
+      - standard: 市場・顧客仮説の検証の実施
+        template: 市場・顧客仮説の検証の実施
+      - standard: '## 表4: 障害時のエスカレーション'
+        template: 障害時の指揮系統
+      - standard: '## 表6: 独立性の確認'
+        template: 独立性の確認
+
+  - id: t1
+    name: テンプレ1 機能仕様書
+    file: templates/01-feature-spec.md
+    fields:
+      - standard: '## 受入基準(検証可能な形式で。曖昧語禁止)'
+        template: 受入基準
+      - standard: '## 未確定事項'
+        template: 未確定事項
+      - standard: NEEDS CLARIFICATION
+        template: NEEDS CLARIFICATION
+
+  - id: t2
+    name: テンプレ2 判断記録(ADR)
+    file: templates/02-adr.md
+    fields:
+      - standard: '## 比較した代替案(最低1つ)'
+        template: 検討した選択肢
+      - standard: 顕在化が分かる兆候
+        template: 顕在化が分かる兆候
+      - standard: 回復に要する時間
+        template: 回復に要する時間
+      - standard: 取り消しの可否
+        template: 取り消しの可否
+      - standard: 影響する必達基準
+        template: 影響する必達基準
+
+  - id: t3
+    name: テンプレ3 技術負債台帳
+    file: templates/03-debt-ledger.md
+    fields:
+      - standard: 受容理由
+        template: 受容した理由
+      - standard: 返却目安
+        template: 返却の目安
+
+  - id: t4
+    name: テンプレ4 ゲート判定記録
+    file: templates/04-gate-record.md
+    fields:
+      - standard: '## 挙動要約(G-6 独立レビューのみ必須)'
+        template: 挙動要約
+      - standard: '## 決断の記録(G-8・SG・例外承認で必須)'
+        template: 決断の記録
+      - standard: 確認していない事項
+        template: 確認していない事項
+      - standard: 判断が変わる条件
+        template: 判断が変わる条件
+      - standard: '## 比較した選択肢(R1 および例外承認で必須)'
+        template: 比較した選択肢
+
+  - id: t5
+    name: テンプレ5 運用引き継ぎ文書
+    file: templates/05-handover.md
+    fields:
+      - standard: '## 監視項目'
+        template: 監視
+      - standard: '## 復旧手順'
+        template: 切り戻し
+      - standard: '## 既知の負債・制約'
+        template: 技術負債
+
+  - id: t6
+    name: テンプレ6 企画書
+    file: templates/06-project-brief.md
+    fields:
+      - standard: '## 戦略整合(観点1)'
+        template: 戦略整合(観点1)
+      - standard: コンテキスト基盤の初期整備費
+        template: コンテキスト基盤の初期整備費
+      - standard: 期待効果(長期)
+        template: 期待効果(長期)
+      - standard: '## 中止条件(観点6)'
+        template: 中止条件(観点6)
+      - standard: 予算の4区分
+        template: 予算の4区分
+      - standard: 参照した過去案件
+        template: 参照した過去案件
+
+  - id: t7
+    name: テンプレ7 実装計画
+    file: templates/07-implementation-plan.md
+    fields:
+      - standard: '## 粒度チェック(G-4 提出前セルフチェック)'
+        template: 粒度の確認
+      - standard: '## スタック構成(依存する変更を積み上げる場合のみ)'
+        template: スタック構成(依存する変更を積み上げる場合のみ)
+      - standard: '## AIエージェントへ与える分割の指示'
+        template: エージェントへ与える分割の指示
+
+  - id: t8
+    name: テンプレ8 AI-SLA 合意確認書
+    file: templates/08-ai-sla.md
+    fields:
+      - standard: '## 2. 測定する指標'
+        template: 測定する指標
+      - standard: '## 5. 監査'
+        template: 監査
+      - standard: '## 7. 知財潔白性'
+        template: 知財の扱い
+      - standard: 事業者の知財補償の扱い
+        template: 事業者の知財補償
+      - standard: 結果責任を負う者
+        template: 結果責任を負う者
+        omit: 発注側・受注側の対応表(第2節)で判定の置き場所とともに定めるため、知財の表では重複させない
+
+  - id: t9
+    name: テンプレ9 AIエージェント安全リスクアセスメント表
+    file: templates/09-safety-risk-assessment.md
+    fields:
+      - standard: Hz-nnn
+        template: Hz-nnn
+      - standard: SR1 / SR2 / SR3 / SR4
+        template: SR1 / SR2 / SR3 / SR4
+      - standard: '## 4. 隔離の対象外'
+        template: 隔離の対象外
+      - standard: RRS1
+        template: RRS1
+      - standard: '## 5. 残留リスクの受容'
+        template: 残留リスクの受容
+      - standard: '### 完全版で追加する項目'
+        template: 完全版で追加する項目
+
+  - id: t10
+    name: テンプレ10 前提の台帳
+    file: templates/10-assumption-ledger.md
+    fields:
+      - standard: AC-0 / AC-1 / AC-2
+        template: AC-0
+      - standard: 対処の参照先
+        template: 対処の参照先
+      - standard: 劣化時の進め方
+        template: 劣化時の進め方
+      - standard: 有効期限
+        template: 有効期限
