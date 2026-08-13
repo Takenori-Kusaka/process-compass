@@ -1,0 +1,18 @@
+# 適用範囲の検査の除外(#226)
+#
+# 限定表現を地の文に含むが、条項の適用範囲を示すものではない節を登録する。
+# 登録そのものが「この節の限定は規範の適用範囲ではない」という判断の記録になる。
+# 書式と運用は community/scope-marking.md による。
+#
+# page    — src/content/docs/ からの相対パス(拡張子なし)
+# heading — 見出しの文字列(そのまま)
+# reason  — なぜ適用範囲の注記が要らないか
+schemaVersion: 0
+exempt:
+  - page: phase4-process-design/exception-escalation
+    heading: 7.10.1 なぜ止めないか
+    reason: 限定は独立した段落の先頭で「**例外**」として示されており、規範を述べる箇条書きと分離していない
+
+  - page: phase4-process-design/tailoring-guide
+    heading: 人員が足りない場合
+    reason: 条項の適用範囲ではなく、要求が制約によって外れないことの説明

@@ -41,6 +41,7 @@ function loadYaml(file) {
 
 /** 公開サイトの基底。案件のリポジトリからはサイト相対パスをたどれないため、絶対 URL で渡す */
 const SITE = 'https://takenori-kusaka.github.io';
+const BASE_PATH = '/process-compass';
 
 /** サイト相対の参照(/process-compass/...)を絶対 URL へ直す */
 function abs(href) {
@@ -80,6 +81,44 @@ function gateAnchors() {
     if (g) anchors[g[1]] = slug;
   }
   return anchors;
+}
+
+/**
+ * 適用範囲が限定される条項を、見出しの注記から拾う(#226 / ADR-0039)。
+ *
+ * 案件は「自分へどの条項が適用されるか」を、標準本文を全部読まずに知る手段を持たない。
+ * ただし判定の単位を混ぜてはならない。リスク区分(R)は変更ごとに判定するため、
+ * 案件の構成から適用外を宣言できるのは安全重要度(CL)などの側だけである。
+ */
+function clauseScopes() {
+  const SCOPE_RE = /[((]適用:\s*([^))]+)[))]/;
+  const DIRS = ['phase4-process-design', 'phase5-implementation', 'phase6-operation'];
+  const out = [];
+
+  for (const dir of DIRS) {
+    const base = path.join(ROOT, 'src/content/docs', dir);
+    if (!fs.existsSync(base)) continue;
+    for (const name of fs.readdirSync(base).sort()) {
+      if (!name.endsWith('.md')) continue;
+      const slugger = new GithubSlugger();
+      const page = `${dir}/${name.replace(/\.md$/, '')}`;
+      for (const line of fs.readFileSync(path.join(base, name), 'utf8').split(/\r?\n/)) {
+        const h = /^#{2,4}\s+(.+?)\s*$/.exec(line);
+        if (!h) continue;
+        const slug = slugger.slug(h[1]);
+        const m = SCOPE_RE.exec(h[1]);
+        if (!m) continue;
+        const range = m[1].trim();
+        out.push({
+          title: h[1].replace(SCOPE_RE, '').trim(),
+          range,
+          unit: /R[123]/.test(range) ? 'per-change' : /CL[0-3]/.test(range) ? 'per-project' : 'other',
+          source: `${SITE}${BASE_PATH}/${page}/#${slug}`,
+        });
+      }
+    }
+  }
+  return out;
 }
 
 export function buildKb() {
@@ -130,6 +169,7 @@ export function buildKb() {
     gates,
     roles,
     separations,
+    clauseScopes: clauseScopes(),
   };
 }
 

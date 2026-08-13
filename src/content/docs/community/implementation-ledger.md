@@ -34,5 +34,7 @@ sidebar:
 | IMPL-0013 | ロールとレーンの写像および受信箱のラベル | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0014 | 統制の弱化を性質で定義し検知の対象とする | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 | IMPL-0015 | 検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
+| IMPL-0016 | 選択肢の比較を求める範囲を R1 と例外承認に限る | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0017 | リスク区分に依存する条項を案件単位で適用外にしない | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 
 <!-- implementation-ledger:end -->

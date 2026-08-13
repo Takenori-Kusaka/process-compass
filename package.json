@@ -17,8 +17,10 @@
     "evidence:write": "node scripts/check-evidence.mjs --write",
     "lint:impl": "node scripts/check-impl.mjs",
     "impl:write": "node scripts/check-impl.mjs --write",
+    "lint:scope": "node scripts/check-scope.mjs",
+    "scope:write": "node scripts/check-scope.mjs --write",
     "test:engine": "node scripts/test-tailoring-engine.mjs",
-    "check": "npm run lint:text && npm run lint:tone && npm run lint:evidence && npm run lint:impl && npm run test:engine && npm run test:template && npm run build",
+    "check": "npm run lint:text && npm run lint:tone && npm run lint:evidence && npm run lint:impl && npm run lint:scope && npm run test:engine && npm run test:template && npm run build",
     "template:kb": "node scripts/build-template-kb.mjs",
     "test:template": "node scripts/check-template-drift.mjs"
   },
