@@ -16,3 +16,53 @@ exempt:
   - page: phase4-process-design/tailoring-guide
     heading: 人員が足りない場合
     reason: 条項の適用範囲ではなく、要求が制約によって外れないことの説明
+
+  # --- 判定の単位の拡張(#239 / ADR-0049)による新規検出分 ---
+
+  - page: phase4-process-design/human-ai-boundary
+    heading: 5.8 AI が生成した成果物の統制
+    reason: 「安全関連ソフトウェアに限らず、すべての案件に適用します」であり、限定ではなく限定の否定
+
+  - page: phase4-process-design/human-ai-boundary
+    heading: 5.4.4 リスク区分による上限
+    reason: 適用範囲は本節の表で定義しており、地の文は表の切り分けの説明
+
+  - page: phase4-process-design/safety-verification
+    heading: 安全関連部の切り分け
+    reason: 節そのものが安全関連部の定義であり、限定ではなく定義の対象
+
+  - page: phase4-process-design/safety-verification
+    heading: F.4 検証手法の割当て
+    reason: 限定ではなく、表の R1〜R3 の列が初期値であることの断り
+
+  - page: phase4-process-design/tailoring-guide
+    heading: "軸B: 事業ステージによる調整"
+    reason: テーラリングの表そのものが適用範囲の定義であり、注記を付けると入れ子になる
+
+  - page: phase4-process-design/tailoring-guide
+    heading: 実装スタックが未確定でも構成を初期化してよい
+    reason: 見出しが既に条件を含む。S0 に限る旨は見出しの「未確定でも」で読める
+
+  - page: phase4-process-design/lifecycle
+    heading: 実装スタックの確定時期
+    reason: 節そのものが時期の規定であり、S0 は限定ではなく規定の対象
+
+  - page: phase4-process-design/gate-criteria
+    heading: 事業ステージ別のトリアージマトリクス
+    reason: 見出しが既にステージ別であることを示す。地の文は表の値の理由
+
+  - page: phase5-implementation/pre-review-automation
+    heading: 高リスク事項の自動ラベル付与
+    reason: 限定ではなく、機械が一次判定できる理由の説明
+
+  - page: phase5-implementation/pre-review-automation
+    heading: 沈黙の扱いの機械化
+    reason: 限定は表で定義済み。地の文は R1 に限る理由の説明
+
+  - page: phase4-process-design/deliverable-templates
+    heading: リスク低減の3ステップ
+    reason: 限定ではなく、RRS3 で低減してはならないという段階の順序の規範
+
+  - page: phase4-process-design/gate-criteria
+    heading: "G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)"
+    reason: 安全関連ソフトウェアへの上乗せであり、本ゲートの適用範囲を狭める限定ではない

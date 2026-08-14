@@ -20,10 +20,12 @@
     "lint:scope": "node scripts/check-scope.mjs",
     "scope:write": "node scripts/check-scope.mjs --write",
     "test:engine": "node scripts/test-tailoring-engine.mjs",
-    "check": "npm run lint:text && npm run lint:tone && npm run lint:evidence && npm run lint:impl && npm run lint:scope && npm run test:engine && npm run test:template && npm run test:fields && npm run build",
+    "check": "npm run lint:text && npm run lint:tone && npm run lint:evidence && npm run lint:impl && npm run lint:scope && npm run test:engine && npm run test:template && npm run test:fields && npm run test:criteria && npm run build",
     "template:kb": "node scripts/build-template-kb.mjs",
     "test:template": "node scripts/check-template-drift.mjs",
-    "test:fields": "node scripts/check-template-fields.mjs"
+    "test:fields": "node scripts/check-template-fields.mjs",
+    "test:criteria": "node scripts/check-gate-criteria.mjs",
+    "criteria:write": "node scripts/check-gate-criteria.mjs --write"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

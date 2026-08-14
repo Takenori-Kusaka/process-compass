@@ -26,6 +26,7 @@ sidebar:
 | --- | --- | --- | --- |
 | AIエージェント安全リスクアセスメント | 物理的な危険源・R1 の変更種別・本番到達・L2 以上のいずれか | 変更ごと | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/#aiエージェント安全リスクアセスメント適用-物理的な危険源r1-の変更種別本番到達l2-以上のいずれか) |
 | 5.7.3 選択肢の比較 | R1 の決定・例外承認 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#573-選択肢の比較適用-r1-の決定例外承認) |
+| B-3 設計審査会 | S2 スケール、または安全・法規制の対象となる機能 | 機能ごと | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#b-3-設計審査会適用-s2-スケールまたは安全法規制の対象となる機能) |
 
 <!-- scope-ledger:end -->
 

@@ -39,7 +39,10 @@ const SCOPE_RE = /[((]適用:\s*([^))]+)[))]/;
  * 地の文へ置かれた限定表現。
  * 表の行(|)と箇条書き(-)は対象にしない。規範と同じ行に限定があれば読み落とせない。
  */
-const LIMIT_RE = /(R[123]|CL[0-3])\s*(の決定|の変更|以上|以下)[^。]{0,40}?(では|に限|のみ|場合に)/;
+// 語彙は閉じた集合に保ちます。一般的な「〜のみ」まで広げると、技術文書では
+// 大半が適用範囲の限定ではないため、除外の登録が検査を通すためだけの雑音になります(ADR-0049)。
+const LIMIT_RE =
+  /(R[123]|CL[0-3]|S[012]|コア機能|安全関連ソフトウェア)\s*(の決定|の変更|以上|以下|の案件|)[^。]{0,40}?(では|に限|のみ|場合に)/;
 
 const args = new Set(process.argv.slice(2));
 const errors = [];
@@ -82,14 +85,19 @@ function maskFences(lines) {
  * 両者を混ぜて「この案件では適用外」と機械が宣言すると、R1 の変更に対しても
  * 適用外と読める。案件単位で外してよいのは CL の側だけである(ADR-0039)。
  */
+// 判定の単位は4つです(ADR-0049)。ステージごと・機能ごとは、案件単位で適用外にできません。
 function classify(text) {
   if (/R[123]/.test(text)) return 'per-change';
+  if (/コア機能|安全関連ソフトウェア|安全・法規制/.test(text)) return 'per-feature';
+  if (/S[012]|ステージ/.test(text)) return 'per-stage';
   if (/CL[0-3]/.test(text)) return 'per-project';
   return 'other';
 }
 
 const UNITS = {
   'per-change': '変更ごと',
+  'per-feature': '機能ごと',
+  'per-stage': 'ステージごと',
   'per-project': '案件ごと',
   other: 'その他',
 };
