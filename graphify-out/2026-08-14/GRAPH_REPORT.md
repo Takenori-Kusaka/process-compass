@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6081bcf7`
+- Built from commit: `7f4950bc`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -270,7 +270,7 @@
 - 決定
 - accuracy-as-commodity.md
 - check-books.mjs
-- dependencies
+- astro:content
 - ゲート判定を記録する
 - 手順
 - D-0 意思決定・エスカレーション体制図
@@ -321,7 +321,7 @@
 - evaluation-driven-diarization.md
 - 校正の設定
 - zenn-content
-- package.json
+- dependencies
 - devDependencies
 - vendor/tailoring-engine.mjs
 - 前提の台帳
@@ -337,7 +337,7 @@
 - 判断記録(ADR)
 - template/.github/PULL_REQUEST_TEMPLATE.md
 - 技術負債台帳
-- 1. 自律コーディングエージェントの主要実装例
+- simulator.astro
 - 企画書(事業意図)
 - 0042-sr-does-not-claim-ordering.md
 - 企画書(事業意図)
@@ -381,7 +381,7 @@
 - 1. ISO/IEC/IEEE 12207 と 15288
 - 3. CMMI
 - 4. Automotive SPICE
-- G-3 技術設計判断(技術判断者・48時間)
+- ProcessActivity.astro
 - 2. 29119-2:2021（テストプロセス）— 一次情報で確認した構造
 - 6. テストレベルの階層概念
 - 7. 29119 に対する批判
@@ -393,18 +393,18 @@
 - 4. ISO/IEC/IEEE 12207 / 15288 / JIS X 0160 におけるテストの位置づけ
 - G-7 出荷判定(QA・3営業日)
 - check-g1.mjs
-- astro:content
+- 1. 自律コーディングエージェントの主要実装例
 - verify-gate-contract.mjs
-- 1. 主要エージェント製品の現況
+- package.json
 - 【見本】ゲート判定記録（G-2 要件合意）
 - ip-clearance-python.mjs
 - 0046-deferred-with-conditions.md
-- simulator.astro
-- ProcessActivity.astro
 - 3. アンチパターン各論(本メモの中心)
+- 1. 主要エージェント製品の現況
 - ProcessOverview.astro
-- set-review-sourcing.mjs
 - comparison.astro
+- set-review-sourcing.mjs
+- G-3 技術設計判断(技術判断者・48時間)
 
 ## God Nodes (most connected - your core abstractions)
 1. `deny` - 22 edges
@@ -1433,10 +1433,6 @@ Nodes (13): CERベンチをCIの回帰ゲートにする, おわりに（連載�
 Cohesion: 0.18
 Nodes (12): BOOK_SLUG_LEN, BOOKS, bookSlugs, CHAPTER_SLUG_LEN, checkBody(), IMAGE_EXT, notes, parseConfig() (+4 more)
 
-### Community 257 - "dependencies"
-Cohesion: 0.15
-Nodes (13): astro, astro-mermaid, @astrojs/sitemap, @astrojs/starlight, mermaid, dependencies, astro, astro-mermaid (+5 more)
-
 ### Community 258 - "ゲート判定を記録する"
 Cohesion: 0.14
 Nodes (13): 1. 有効なゲートを確認する, 2. テンプレートから起こす, 3. 埋める, 4. 差し戻しの理由は項目番号で書く, 5. 判定はエージェントが行わない, 6. 記録を書いてからラベルを動かす, ゲート判定を記録する, 判定に持ち込まないもの (+5 more)
@@ -1637,9 +1633,9 @@ Nodes (7): なぜ別々にするのか, 実行, 校正の設定, 検査する項
 Cohesion: 0.25
 Nodes (7): zenn-content, ライセンス, 公開しているもの, 執筆, 構成, 注意, 関連
 
-### Community 308 - "package.json"
-Cohesion: 0.29
-Nodes (6): engines, node, name, private, type, version
+### Community 308 - "dependencies"
+Cohesion: 0.15
+Nodes (13): astro, astro-mermaid, @astrojs/sitemap, @astrojs/starlight, mermaid, dependencies, astro, astro-mermaid (+5 more)
 
 ### Community 309 - "devDependencies"
 Cohesion: 0.29
@@ -1701,9 +1697,9 @@ Nodes (5): AI 関与範囲, レビュー観点の指定(任意), 変更の概要
 Cohesion: 0.29
 Nodes (6): 事業ステージによる扱い, 出荷判定との関係, 区分, 台帳, 技術負債台帳, 欄の書き方
 
-### Community 324 - "1. 自律コーディングエージェントの主要実装例"
-Cohesion: 0.25
-Nodes (8): 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules, 1-6. Claude Code / Claude Agent SDK(Anthropic), 1-7. 一覧(建前 vs 現実の要約), 1. 自律コーディングエージェントの主要実装例
+### Community 324 - "simulator.astro"
+Cohesion: 0.26
+Nodes (10): buildMarkdown(), deviationList(), effectiveState(), integrated, kb, proposalState(), renderAdoption(), rules (+2 more)
 
 ### Community 325 - "企画書(事業意図)"
 Cohesion: 0.13
@@ -1869,9 +1865,9 @@ Nodes (5): 3.1.1 原典(一次情報)— CMMI for Development, Version 1.3, pp.1
 Cohesion: 0.40
 Nodes (5): 4.1 ACQ プロセス群は 4.0 で激減, 4.2 REU.2 は残っているが、標準スコープの外, 4.3 ISO 26262 の既製品の扱い, 4.4 参考: IEC 62304 と DO-178C, 4. Automotive SPICE
 
-### Community 368 - "G-3 技術設計判断(技術判断者・48時間)"
-Cohesion: 0.50
-Nodes (4): G-3 技術設計判断(技術判断者・48時間), 事業影響を金額で定量化しない, 事業決裁者が受容を拒否した場合, 記載の検査
+### Community 368 - "ProcessActivity.astro"
+Cohesion: 0.22
+Nodes (6): roleName, seg, wpName, grouped, order, proposals
 
 ### Community 369 - "2. 29119-2:2021（テストプロセス）— 一次情報で確認した構造"
 Cohesion: 0.50
@@ -1917,13 +1913,17 @@ Nodes (4): G-7 出荷判定(QA・3営業日), テストの中身に対する検�
 Cohesion: 0.15
 Nodes (12): config, emptyView1Cells, emptyView2Cells, fm, G1, generalEmpty, lines, m (+4 more)
 
+### Community 380 - "1. 自律コーディングエージェントの主要実装例"
+Cohesion: 0.25
+Nodes (8): 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules, 1-6. Claude Code / Claude Agent SDK(Anthropic), 1-7. 一覧(建前 vs 現実の要約), 1. 自律コーディングエージェントの主要実装例
+
 ### Community 381 - "verify-gate-contract.mjs"
 Cohesion: 0.20
 Nodes (7): activeRuleset, config, g5wf, ADR-0029, notes, problems, rulesetDir
 
-### Community 382 - "1. 主要エージェント製品の現況"
+### Community 382 - "package.json"
 Cohesion: 0.29
-Nodes (7): 1-1. Anthropic — Mythos クラスの登場と Opus 5, 1-2. Cognition(Devin)— 自社モデル路線と「群」への転換, 1-3. OpenAI — Codex の世代交代と GPT-5.6 ファミリー, 1-4. GitHub Copilot coding agent — 統制設計は維持、範囲は拡大, 1-5. Google — Jules の GA と Gemini 3 系, 1-6. 新興・その他, 1. 主要エージェント製品の現況
+Nodes (6): engines, node, name, private, type, version
 
 ### Community 383 - "【見本】ゲート判定記録（G-2 要件合意）"
 Cohesion: 0.25
@@ -1937,29 +1937,29 @@ Nodes (6): allowedLicenses, checkSingleLicense(), evaluateSPDX(), mapClassifier(
 Cohesion: 0.17
 Nodes (11): 1. 「条件付きで後置」を、採否の第3の状態として置く, 2. 後置には、観測できる条件を書く, 3. 会議体が後置と判定した4件を、本 ADR に記録する, 4. 後置した規定を、根拠水準マークの対象としない, コンテキスト, ステータス, 保留と書くと、条件が消える, 先例は本標準の中にある (+3 more)
 
-### Community 386 - "simulator.astro"
-Cohesion: 0.26
-Nodes (10): buildMarkdown(), deviationList(), effectiveState(), integrated, kb, proposalState(), renderAdoption(), rules (+2 more)
-
-### Community 387 - "ProcessActivity.astro"
-Cohesion: 0.22
-Nodes (6): roleName, seg, wpName, grouped, order, proposals
-
-### Community 388 - "3. アンチパターン各論(本メモの中心)"
+### Community 386 - "3. アンチパターン各論(本メモの中心)"
 Cohesion: 0.29
 Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
 
-### Community 389 - "ProcessOverview.astro"
+### Community 387 - "1. 主要エージェント製品の現況"
+Cohesion: 0.29
+Nodes (7): 1-1. Anthropic — Mythos クラスの登場と Opus 5, 1-2. Cognition(Devin)— 自社モデル路線と「群」への転換, 1-3. OpenAI — Codex の世代交代と GPT-5.6 ファミリー, 1-4. GitHub Copilot coding agent — 統制設計は維持、範囲は拡大, 1-5. Google — Jules の GA と Gemini 3 系, 1-6. 新興・その他, 1. 主要エージェント製品の現況
+
+### Community 388 - "ProcessOverview.astro"
 Cohesion: 0.40
 Nodes (4): diagram, roleName, seg, string
+
+### Community 389 - "comparison.astro"
+Cohesion: 0.40
+Nodes (4): allRows, proposalRows, rows, string
 
 ### Community 390 - "set-review-sourcing.mjs"
 Cohesion: 0.50
 Nodes (3): ROOT, runSelfTest(), updateSourcing()
 
-### Community 391 - "comparison.astro"
-Cohesion: 0.40
-Nodes (4): allRows, proposalRows, rows, string
+### Community 391 - "G-3 技術設計判断(技術判断者・48時間)"
+Cohesion: 0.50
+Nodes (4): G-3 技術設計判断(技術判断者・48時間), 事業影響を金額で定量化しない, 事業決裁者が受容を拒否した場合, 記載の検査
 
 ## Knowledge Gaps
 - **3526 isolated node(s):** `normalized`, `repoRoot`, `relative`, `res`, `ADR-0006` (+3521 more)
