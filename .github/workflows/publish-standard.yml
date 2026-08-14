@@ -1,0 +1,95 @@
+name: 標準の本文を配布用ブランチへ公開する
+
+# 案件が標準の本文を同梱できるようにする(pit-in-template#35)。
+#
+# main の src/content/docs/ と、機械可読の知識ベースだけを orphan ブランチ
+# `dist/standard` へ書き出す。履歴・調査メモ・知識グラフ・画像は含めない。
+#
+# 案件はこのブランチを submodule として参照する。submodule はコミットを固定
+# するため、「どの版の標準に従って開発したか」が案件の記録に残る。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/docs/**'
+      - 'src/data/**'
+      - 'scripts/build-template-kb.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-standard
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # 配布物は正本から生成する。手で編集したものを配らない(ADR-0052 決定4)
+      - name: 知識ベースを生成する
+        run: node scripts/build-template-kb.mjs --out dist-standard/tailoring-kb.json
+
+      - name: 本文と索引を集める
+        run: |
+          set -eu
+          mkdir -p dist-standard
+          cp -r src/content/docs dist-standard/docs
+          cp LICENSE dist-standard/LICENSE 2>/dev/null || true
+
+          # 出所と版を書く。受け取り側が「いつの版か」を知る唯一の手段(ADR-0052 決定2)
+          cat > dist-standard/VERSION.md <<EOF
+          # 配布した標準の版
+
+          - 出所: https://github.com/Takenori-Kusaka/process-compass
+          - コミット: \`${GITHUB_SHA}\`
+          - 生成: ${GITHUB_WORKFLOW} / run ${GITHUB_RUN_NUMBER}
+
+          **本ブランチは配布物です。正本は上記リポジトリの \`main\` です。**
+          ここを編集しても標準は変わりません。変更は正本へ提起してください。
+
+          ## 含まれるもの
+
+          | 対象 | 内容 |
+          | --- | --- |
+          | \`docs/\` | 標準の本文。公開サイトと同じ内容 |
+          | \`tailoring-kb.json\` | 機械可読の知識ベース。判定基準・適用範囲・ロール |
+
+          ## 含まれないもの
+
+          履歴、調査メモ(\`research/\`)、知識グラフ、画像、サイトのビルド設定。
+          **本文の理解に要らないものは配りません。**
+
+          ## ライセンス
+
+          ドキュメントは CC-BY-4.0 です。再配布の際は出所とコミットを併記してください。
+          EOF
+
+      - name: 配布用ブランチへ書き出す
+        run: |
+          set -eu
+          SIZE=$(du -sh dist-standard | cut -f1)
+          echo "配布物のサイズ: ${SIZE}"
+
+          cd dist-standard
+          git init -q
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "標準の本文を配布する (${GITHUB_SHA})"
+          git push -q --force \
+            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
+            HEAD:refs/heads/dist/standard
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
