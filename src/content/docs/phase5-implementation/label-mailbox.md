@@ -31,12 +31,15 @@ sidebar:
    `state:ready-to-merge` が付与されていても、判定者は必ず CI が実際に緑（全件パス）であるかなどの機械的実測を検証する。ラベルは環境の事実を代替しない。
 3. **付与した側がその意味に責任を持つ**:
    自身のレーンから次のレーンへ成果物を引き渡す際、**引き渡す側が次のロール用のラベルを付与**する。自分のレーンに仕事を残したまま、相手を指すラベルを設定してはならない。
-4. **不可逆4操作はオーナー（価値責任者）へエスカレーションする**:
+4. **不可逆な操作はオーナー（価値責任者）へエスカレーションする**:
+   **判定の基準は「取り消せない時間帯が存在すること」である**（[第8章 設計で下げられない危害](/process-compass/phase4-process-design/tailoring-guide/)）。取り消し操作を用意したことをもって、対象から外してはならない。
    - 削除（検証ゲート、ガード, 重要テストの削除を含む）
    - 本番環境へのデプロイ
    - 課金（クラウドや外部API）が発生する書き込み
    - データベース・スキーマ変更
-   これら「不可逆4操作」が発生する場合は自律実行を停止し、オーナー/POへのエスカレーションラベルを付与する。
+   - **組織の管理外への発行**（公開ホストへの掲載、第三者への送信。発行を削除しても、発行されていた時間帯は消えない）
+
+   **この一覧は基準を満たす操作の例示であり、網羅ではない**（[ADR-0041](/process-compass/adr/0041-scope-is-not-exhaustive/)）。基準に当たる操作を見つけた場合、一覧に無いことを理由に自律実行してはならない。自律実行を停止し、オーナー/POへのエスカレーションラベルを付与する。
 5. **語彙を必要最小限に抑える**:
    伝達する経路（チャンネル）が明確である限りラベルを増やさない。ただし、伝える経路そのものが存在しない「伝達の欠落」がある場合は、速やかに公式語彙を追加する（4.6節参照）。
 
@@ -54,13 +57,13 @@ sidebar:
 | `state:ready-to-merge`| QMが独立レビューを完了し、マージを承認した状態 | QM | **QM**（マージ実行担当） |
 | `state:needs-audit` | 統合監査またはリリースカットの検証を監査チームに依頼した状態 | PO | **監査**（Auditor） |
 | `state:needs-platform`| テスト装置・リント・CI/CD等の削減・自動生成・統合、および**エージェント指示資産（強制層。`.claude/**` 等）の統合・削除**を依頼した状態 | PO / Dev / QM | **Platform**（AI維持管理） |
-| `state:needs-po` | 不可逆4操作に当たらないが、仕様・優先度・語彙の改訂等のPO判断を要する状態 | 誰でも | **PO**（価値責任者） |
+| `state:needs-po` | 不可逆な操作に当たらないが、仕様・優先度・語彙の改訂等のPO判断を要する状態 | 誰でも | **PO**（価値責任者） |
 | `state:needs-tech` | 技術設計の判断（G-3）を要する状態。ADRの起草・採否、技術的トレードオフの評価 | 誰でも | **技術判断者** |
 | `state:needs-owner` | 事業決裁者の決裁または追認を要する状態 | 誰でも | **オーナー**（事業決裁者） |
 
 - `state:needs-po` / `state:needs-tech` / `state:needs-owner` は、誰が気付いても付与してよい。Devの実装中に判断が必要になった場合もこれらを付与する。
-- **`state:needs-owner` が指す範囲は、不可逆4操作に限らない。** 4.2 原則4 の不可逆4操作、[第7章 7.6](/process-compass/phase4-process-design/exception-escalation/)の段階2および段階3、[第3章 3.9](/process-compass/phase4-process-design/roles-responsibilities/)の決裁マトリクスが事業決裁者を指す事項を含む。案件がテーラリングで追認を要する事項を追加した場合も、同じラベルを用いる（[ADR-0037](/process-compass/adr/0037-label-points-to-lane-not-role/)）。
-- **エージェント指示資産の統合・削除の権限は AI維持管理者へ集約する**（[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)）。強制層の変更が必要になった場合は `state:needs-owner` ではなく `state:needs-platform` を付与する。不可逆4操作に該当する場合のみ、あわせて `state:needs-owner` を付与する。
+- **`state:needs-owner` が指す範囲は、不可逆な操作に限らない。** 4.2 原則4 の不可逆な操作、[第7章 7.6](/process-compass/phase4-process-design/exception-escalation/)の段階2および段階3、[第3章 3.9](/process-compass/phase4-process-design/roles-responsibilities/)の決裁マトリクスが事業決裁者を指す事項を含む。案件がテーラリングで追認を要する事項を追加した場合も、同じラベルを用いる（[ADR-0037](/process-compass/adr/0037-label-points-to-lane-not-role/)）。
+- **エージェント指示資産の統合・削除の権限は AI維持管理者へ集約する**（[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)）。強制層の変更が必要になった場合は `state:needs-owner` ではなく `state:needs-platform` を付与する。不可逆な操作に該当する場合のみ、あわせて `state:needs-owner` を付与する。
 - **相手を指すラベルがない口頭やメンションでの判断依頼を禁止する。** 伝達経路に現れないため、エージェントや人間の双方で見落とすこととなる。
 
 ---
@@ -81,7 +84,7 @@ sidebar:
 | `state:needs-tech` | 技術判断者 | G-3の判定記録を作成し、採否と却下理由をADRへ永続化 | **次の担当者の状態**（`needs-dev` 等）。差し戻しは `state:needs-po` |
 | `state:needs-owner`| Owner | 決裁を下し、内容をコメントとして永続化 | 同上 |
 | `state:needs-audit`| 監査 | リリースカット実施または却下の監査判定完了 | **`state:needs-po`**（理由を添えてPOへ結果を戻す） |
-| `state:needs-platform`| Plat | ツールチェーンやテスト装置 of 修正・追加が完了 | **`state:dev-done`**（※自分のPRを自分で承認しない原則） |
+| `state:needs-platform`| Plat | ツールチェーンやテスト装置の修正・追加が完了 | **`state:dev-done`**（※自分のPRを自分で承認しない原則） |
 
 **原則**: ラベルは常に「次に動く人」を指す。自分が作業を終えたら、古いラベルを剥がし、自ロールを指したままの状態にしてはならない。
 
@@ -143,7 +146,7 @@ gh pr list --label "state:ready-to-merge" --state open
 gh issue list --label "state:needs-po" --state open
 gh pr list --label "state:needs-po" --state open
 
-# 2. 不可逆4操作などのオーナー・決裁者承認待ち
+# 2. 不可逆な操作などのオーナー・決裁者承認待ち
 gh issue list --label "state:needs-owner" --state open
 gh pr list --label "state:needs-owner" --state open
 ```
