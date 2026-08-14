@@ -15,6 +15,14 @@ sidebar:
 
 <!-- implementation-ledger:start -->
 
+### 降りていない規定
+
+次の規定は、実行層に対応する記述がありません。**案件からは「規定がない」ものとして扱われます**。
+
+| 識別子 | 規定 | 降ろし先(予定) | 記載箇所 |
+| --- | --- | --- | --- |
+| IMPL-0018 | 未解決事項を技術負債台帳の区分欄で 7.3 由来と区別する | 成果物テンプレート テンプレ3(技術負債台帳) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+
 ### 全件
 
 | 識別子 | 規定 | 降ろし先 | 検査 | 状態 | 記載箇所 |
@@ -36,5 +44,6 @@ sidebar:
 | IMPL-0015 | 検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 | IMPL-0016 | 選択肢の比較を求める範囲を R1 と例外承認に限る | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0017 | リスク区分に依存する条項を案件単位で適用外にしない | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0018 | 未解決事項を技術負債台帳の区分欄で 7.3 由来と区別する | 成果物テンプレート テンプレ3(技術負債台帳) | `aggregate-evidence` | **降りていない** | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 
 <!-- implementation-ledger:end -->
