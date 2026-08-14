@@ -75,7 +75,7 @@ sidebar:
 
 **この経路が無い場合、判定基準に含まれない事項は判定へ持ち込まれます**。判定の範囲の規定([第4章](/process-compass/phase4-process-design/gate-criteria/))は「持ち込むな」と定めるにとどまり、**持ち込まなかった事項の行き先を定めていませんでした**。
 
-<!-- impl IMPL-0018 target=debt-ledger-template state=undelivered note="未解決事項を技術負債台帳の区分欄で 7.3 由来と区別する" -->
+<!-- impl IMPL-0018 target=debt-ledger-template state=delivered note="未解決事項を技術負債台帳の区分欄で 7.3 由来と区別する" -->
 
 :::caution[暫定 EV-0030 / 見直し 2027-02]
 **対象**: 7.3.2(判定の外に置き場を設ければ、判定へ持ち込まれなくなるという判断)。
