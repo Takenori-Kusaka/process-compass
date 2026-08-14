@@ -170,7 +170,7 @@
     "semantic_hash": ""
   },
   "CLAUDE.md": {
-    "mtime": 1786617863.8866372,
+    "mtime": 1786679857.2897112,
     "ast_hash": "a294255393722e57ef103e14c07ac301",
     "semantic_hash": ""
   },
@@ -460,7 +460,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786669183.1360075,
+    "mtime": 1786679857.3475082,
     "ast_hash": "c12a697ebd28bd6058fea49515cf8004",
     "semantic_hash": ""
   },
@@ -470,7 +470,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786668421.0332346,
+    "mtime": 1786679857.348519,
     "ast_hash": "bfb424a7174358effd451d739a5f59a0",
     "semantic_hash": ""
   },
@@ -740,12 +740,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/exception-escalation.md": {
-    "mtime": 1786674404.6385357,
+    "mtime": 1786679857.3475082,
     "ast_hash": "f82995c4522c1d4bcc7ce34db475dcd6",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/human-ai-boundary.md": {
-    "mtime": 1786679379.283831,
+    "mtime": 1786679857.348519,
     "ast_hash": "f1767ef26e3247e5ae8d0a5cfbacd39e",
     "semantic_hash": ""
   },
@@ -1105,7 +1105,7 @@
     "semantic_hash": ""
   },
   "scripts/check-evidence.mjs": {
-    "mtime": 1786668703.092051,
+    "mtime": 1786679857.3414283,
     "ast_hash": "a92e6130055a06180773f4b9d0ff97e6",
     "semantic_hash": ""
   },
@@ -1120,8 +1120,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786668768.4371386,
-    "ast_hash": "3b50d1328f882af229597bf4adeda755",
+    "mtime": 1786679857.3459415,
+    "ast_hash": "a5c1d9a7aacc9fdb3e4de5baeb139830",
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-marking.md": {
@@ -1165,7 +1165,7 @@
     "semantic_hash": ""
   },
   "scripts/check-template-drift.mjs": {
-    "mtime": 1786679443.4022448,
+    "mtime": 1786679857.3424275,
     "ast_hash": "cf3d85d881876e579399d48cf493c6b4",
     "semantic_hash": ""
   },
@@ -1255,7 +1255,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/implementation-ledger.md": {
-    "mtime": 1786679379.9967775,
+    "mtime": 1786679857.3459415,
     "ast_hash": "c2107d219d62a429d9bfb208f1ba2a2b",
     "semantic_hash": ""
   },
@@ -1265,12 +1265,12 @@
     "semantic_hash": ""
   },
   "src/data/impl-targets.yaml": {
-    "mtime": 1786668839.1842887,
+    "mtime": 1786679857.3500268,
     "ast_hash": "1397ddf7dc2f99dfe38a226f343d8e42",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0036-gate-closure-by-record.md": {
-    "mtime": 1786668602.2219412,
+    "mtime": 1786679857.3424275,
     "ast_hash": "6ba78756cf9df41f0635332874f40866",
     "semantic_hash": ""
   },
@@ -1445,7 +1445,7 @@
     "semantic_hash": ""
   },
   "src/data/template-fields.yaml": {
-    "mtime": 1786669191.2135363,
+    "mtime": 1786679857.3500268,
     "ast_hash": "2d7fe5adff6b2e9fe6ed80c03728fab7",
     "semantic_hash": ""
   },
@@ -1867,101 +1867,6 @@
   "zenn/images/pit-in-process/ch-bandwidth.jpeg": {
     "mtime": 1786151401.6319158,
     "ast_hash": "a3f9075efea2094d8414ff4b7e5bff2b",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/230-ai-agent-safety-risk-frameworks.md": {
-    "mtime": 1786624725.265818,
-    "ast_hash": "b95dbbbaae7abafd58128342062d3dc8",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/236-test-planning-standards.md": {
-    "mtime": 1786621693.1727545,
-    "ast_hash": "3d41b786c67b60baf6d877d319cdcd71",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/236b-conditional-gate-approval.md": {
-    "mtime": 1786622921.4587808,
-    "ast_hash": "c90afeb9d0165bcbcca2434e08d71bdc",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/237-reuse-make-or-buy-standards.md": {
-    "mtime": 1786624782.3640707,
-    "ast_hash": "967993b22d8e753cdb82d7057dc985df",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-01-drafter-r2.md": {
-    "mtime": 1786638997.9818935,
-    "ast_hash": "7530c38aa7b78847fa0e3091a702aa33",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-01-drafter.md": {
-    "mtime": 1786638487.124493,
-    "ast_hash": "160b3682c1595c508ffcb97903b0d616",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-02-field-r2.md": {
-    "mtime": 1786638837.7120645,
-    "ast_hash": "31889dbd2b0cf76f5dc5b13d0d8b65d7",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-02-field.md": {
-    "mtime": 1786638310.6093595,
-    "ast_hash": "8d8c79522d221f1e51cfefde666e7bec",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-03-safety-r2.md": {
-    "mtime": 1786638700.1407037,
-    "ast_hash": "aa2523570bbbaa1f2939f868cd75ab06",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-03-safety.md": {
-    "mtime": 1786638266.3868594,
-    "ast_hash": "18a3fda78b5e7fdb8d44afbdf96852e0",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-04-auditor-r2.md": {
-    "mtime": 1786638880.8162398,
-    "ast_hash": "c32e18a7c9a517fc9d1e3a15a9d47ed3",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-04-auditor.md": {
-    "mtime": 1786638468.1082613,
-    "ast_hash": "61149457207f3deb8297f7b86e0ccd80",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-05-defender-r2.md": {
-    "mtime": 1786638623.3054404,
-    "ast_hash": "b10afee541e16e7df317ee0cd0ee8c7b",
-    "semantic_hash": ""
-  },
-  "research/phase4-standard/council-05-defender.md": {
-    "mtime": 1786637923.886173,
-    "ast_hash": "bd48b0d1f88702df9ed94c271103c25e",
-    "semantic_hash": ""
-  },
-  "src/content/docs/adr/0041-scope-is-not-exhaustive.md": {
-    "mtime": 1786668910.9204955,
-    "ast_hash": "48dacdbd1bce7666033c77e4d1d1b3ca",
-    "semantic_hash": ""
-  },
-  "src/content/docs/adr/0042-sr-does-not-claim-ordering.md": {
-    "mtime": 1786668753.5120828,
-    "ast_hash": "6990e6d2911aa30cbbf799dcefde8062",
-    "semantic_hash": ""
-  },
-  "src/content/docs/adr/0043-safety-attribution-to-iec61508.md": {
-    "mtime": 1786668761.670885,
-    "ast_hash": "eafdcc4f06d1c4949c4b8a0201cde45d",
-    "semantic_hash": ""
-  },
-  "src/content/docs/adr/0044-no-search-obligation-for-existing-parts.md": {
-    "mtime": 1786668715.968044,
-    "ast_hash": "53e76627af451f6c96b10779b030b9e4",
-    "semantic_hash": ""
-  },
-  "src/content/docs/adr/0045-replacement-conditions-must-discriminate.md": {
-    "mtime": 1786668721.7254047,
-    "ast_hash": "e73f8108cb077b067b9621d01b06ffc5",
     "semantic_hash": ""
   },
   "template/adapters/undetermined.json": {
