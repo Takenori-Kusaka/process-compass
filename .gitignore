@@ -36,3 +36,11 @@ Thumbs.db
 graphify-out/cache/
 .claude/settings.json.graphify-bak
 
+# graphify の生成物のうち、共有しないもの(#35 の調査で判明)
+# 公式のフックは post-commit で再構築するだけであり、コミットはしない。
+# graph.json と索引は merge driver と CLAUDE.md の参照先のため追跡する。
+graphify-out/*/
+!graphify-out/wiki/
+graphify-out/graph.html
+graphify-out/memory/
+graphify-out/reflections/

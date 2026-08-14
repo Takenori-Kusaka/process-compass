@@ -11,6 +11,7 @@
 // submodule を初期化していない場合は ../pit-in-template/ を試す。
 
 import fs from 'node:fs';
+import { execSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
@@ -138,6 +139,14 @@ export function buildKb() {
       name: g.name,
       approver: g.approver,
       approverRole: g.approverRole ?? null,
+      // 判定基準の中身。正本は第4章の判定基準表であり、integrated.yaml は生成物(ADR-0048)。
+      // 判定のたびに822行の本文から人が引き写す運用を無くすために配る。
+      criteria: g.criteria ?? [],
+      // 表の外にある規範は降ろせない。降りていないことを明示する(ADR-0048 決定3)。
+      // 部分的な配送を、完全な配送として見せてはならない。
+      criteriaComplete: false,
+      criteriaNote:
+        'この一覧は標準 第4章の判定基準表のみである。表の外にある規範(手続・禁止・注記)は含まない。source を参照すること',
       source: abs(g.href) + (anchors[g.label] ? `#${anchors[g.label]}` : ''),
     }));
 
@@ -162,6 +171,9 @@ export function buildKb() {
   return {
     schemaVersion: 0,
     note: '自動生成。正本は process-compass の src/data/。手で編集しない',
+    // 生成元の版。案件が「自分の KB が標準のどの時点のものか」を知る唯一の手段。
+    // 標準の本文を案件へ同梱する場合、この値と同梱側のコミットが一致することを検査する。
+    source: sourceVersion(),
     questions: withSource(questions),
     rules: withSource(loadRules()),
     constraints: withSource(constraints),
@@ -170,6 +182,28 @@ export function buildKb() {
     roles,
     separations,
     clauseScopes: clauseScopes(),
+  };
+}
+
+/**
+ * 生成元の版を返す。
+ * commit は標準リポジトリの HEAD。dirty のときは末尾へ `-dirty` を付ける。
+ * 案件は、この commit と同梱した標準の版が一致するかを検査できる。
+ */
+function sourceVersion() {
+  const run = (cmd) => {
+    try {
+      return execSync(cmd, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+    } catch {
+      return null;
+    }
+  };
+  return {
+    repository: 'https://github.com/Takenori-Kusaka/process-compass',
+    commit: run('git rev-parse HEAD') ?? 'unknown',
+    // 生成の日時と作業ツリーの汚れは入れない。
+    // どちらも生成のたびに変わり、複製の検査が本文の編集で落ちるようになる。
+    // 版の識別にはコミットで足りる。
   };
 }
 

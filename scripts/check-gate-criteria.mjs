@@ -134,6 +134,32 @@ if (process.argv.includes('--write')) {
   process.exit(0);
 }
 
+// 3方向目: 配布した KB が判定基準を実際に運んでいるか。
+// 生成器が criteria を出さなくなっても、KB と YAML の突合だけでは検出できない。
+// 「配る仕組みがあること」と「配っていること」は別である。
+const KB = path.join(ROOT, 'template/scripts/vendor/tailoring-kb.json');
+if (fs.existsSync(KB)) {
+  const kb = JSON.parse(fs.readFileSync(KB, 'utf8'));
+  const kbTotal = (kb.gates ?? []).reduce((n, g) => n + (g.criteria?.length ?? 0), 0);
+  if (kbTotal !== checked) {
+    problems.push(
+      `配布した知識ベースの判定基準が ${kbTotal}件です。標準の第4章は ${checked}件です。\n` +
+        `  'npm run template:kb' を実行してください。件数が合わない場合、生成器が criteria を出していません`,
+    );
+  }
+  if (!kb.source?.commit) {
+    problems.push('配布した知識ベースに生成元の版(source.commit)がありません');
+  }
+  for (const g of kb.gates ?? []) {
+    if (g.criteriaComplete !== false) {
+      problems.push(
+        `${g.label}: 知識ベースの criteriaComplete が false ではありません。` +
+          `表の外にある規範は降りないため、完全な配送として見せてはなりません(ADR-0048 決定3)`,
+      );
+    }
+  }
+}
+
 if (problems.length > 0) {
   console.error('判定基準の複製の検査で乖離を検出しました:\n');
   for (const p of problems) console.error(`  - ${p}`);
