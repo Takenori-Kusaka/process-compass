@@ -10,7 +10,7 @@
   "8": "コンテキストエンジニアリング手法 調査メモ",
   "9": "プロセス記述に関する国際標準の調査メモ",
   "10": "プロダクトオーナー中心のチーム編成論 調査メモ",
-  "11": "simulator.astro",
+  "11": "test-tailoring-engine.mjs",
   "12": "Process Compass 🧭",
   "13": "テスト駆動開発(TDD)調査メモ",
   "14": "ハイブリッド開発アンチパターン(なんちゃってアジャイル/ウォーター・スクラム・フォール)調査メモ",
@@ -379,11 +379,16 @@
   "377": "4. ISO/IEC/IEEE 12207 / 15288 / JIS X 0160 におけるテストの位置づけ",
   "378": "G-7 出荷判定(QA・3営業日)",
   "379": "check-g1.mjs",
-  "380": "4. 限界と課題(現実の到達点の裏面)",
+  "380": "astro:content",
   "381": "verify-gate-contract.mjs",
   "382": "1. 主要エージェント製品の現況",
   "383": "【見本】ゲート判定記録（G-2 要件合意）",
   "384": "ip-clearance-python.mjs",
-  "385": "4. マルチエージェントのトレンド — 「制約された協調+人間の統制」は妥当か",
-  "390": "set-review-sourcing.mjs"
+  "385": "0046-deferred-with-conditions.md",
+  "386": "simulator.astro",
+  "387": "ProcessActivity.astro",
+  "388": "3. アンチパターン各論(本メモの中心)",
+  "389": "ProcessOverview.astro",
+  "390": "set-review-sourcing.mjs",
+  "391": "comparison.astro"
 }

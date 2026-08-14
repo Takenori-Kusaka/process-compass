@@ -1908,5 +1908,105 @@
     "mtime": 1786677521.9851265,
     "ast_hash": "4399b5f54ab3ccbe6ffc3d667d8a2d7f",
     "semantic_hash": ""
+  },
+  "research/phase4-standard/230-ai-agent-safety-risk-frameworks.md": {
+    "mtime": 1786679857.3322208,
+    "ast_hash": "b95dbbbaae7abafd58128342062d3dc8",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/236-test-planning-standards.md": {
+    "mtime": 1786679857.3332183,
+    "ast_hash": "3d41b786c67b60baf6d877d319cdcd71",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/236b-conditional-gate-approval.md": {
+    "mtime": 1786679857.3342211,
+    "ast_hash": "c90afeb9d0165bcbcca2434e08d71bdc",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/237-reuse-make-or-buy-standards.md": {
+    "mtime": 1786679857.3342211,
+    "ast_hash": "967993b22d8e753cdb82d7057dc985df",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-01-drafter-r2.md": {
+    "mtime": 1786679857.335221,
+    "ast_hash": "7530c38aa7b78847fa0e3091a702aa33",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-01-drafter.md": {
+    "mtime": 1786679857.336221,
+    "ast_hash": "160b3682c1595c508ffcb97903b0d616",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-02-field-r2.md": {
+    "mtime": 1786679857.336221,
+    "ast_hash": "31889dbd2b0cf76f5dc5b13d0d8b65d7",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-02-field.md": {
+    "mtime": 1786679857.3372202,
+    "ast_hash": "8d8c79522d221f1e51cfefde666e7bec",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-03-safety-r2.md": {
+    "mtime": 1786679857.3382204,
+    "ast_hash": "aa2523570bbbaa1f2939f868cd75ab06",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-03-safety.md": {
+    "mtime": 1786679857.3387322,
+    "ast_hash": "b607e245310affe485dff8e8f9ad5a5f",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-04-auditor-r2.md": {
+    "mtime": 1786679857.3387322,
+    "ast_hash": "c32e18a7c9a517fc9d1e3a15a9d47ed3",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-04-auditor.md": {
+    "mtime": 1786679857.3387322,
+    "ast_hash": "61149457207f3deb8297f7b86e0ccd80",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-05-defender-r2.md": {
+    "mtime": 1786679857.3404174,
+    "ast_hash": "b10afee541e16e7df317ee0cd0ee8c7b",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council-05-defender.md": {
+    "mtime": 1786679857.3414283,
+    "ast_hash": "bd48b0d1f88702df9ed94c271103c25e",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0041-scope-is-not-exhaustive.md": {
+    "mtime": 1786679857.3434262,
+    "ast_hash": "48dacdbd1bce7666033c77e4d1d1b3ca",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0042-sr-does-not-claim-ordering.md": {
+    "mtime": 1786679857.3434262,
+    "ast_hash": "6990e6d2911aa30cbbf799dcefde8062",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0043-safety-attribution-to-iec61508.md": {
+    "mtime": 1786679857.3444288,
+    "ast_hash": "eafdcc4f06d1c4949c4b8a0201cde45d",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0044-no-search-obligation-for-existing-parts.md": {
+    "mtime": 1786679857.3444288,
+    "ast_hash": "53e76627af451f6c96b10779b030b9e4",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0045-replacement-conditions-must-discriminate.md": {
+    "mtime": 1786679857.3444288,
+    "ast_hash": "e73f8108cb077b067b9621d01b06ffc5",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0046-deferred-with-conditions.md": {
+    "mtime": 1786679857.3444288,
+    "ast_hash": "80466d167d20419589c6b7e5b0306aa6",
+    "semantic_hash": ""
   }
 }
