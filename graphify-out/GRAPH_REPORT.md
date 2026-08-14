@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6e24cf59`
+- Built from commit: `0df36ab2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -270,7 +270,7 @@
 - 決定
 - accuracy-as-commodity.md
 - check-books.mjs
-- check-gate-criteria.mjs
+- astro:content
 - ゲート判定を記録する
 - 手順
 - D-0 意思決定・エスカレーション体制図
@@ -321,7 +321,7 @@
 - evaluation-driven-diarization.md
 - 校正の設定
 - zenn-content
-- dependencies
+- check-gate-criteria.mjs
 - devDependencies
 - vendor/tailoring-engine.mjs
 - 前提の台帳
@@ -395,11 +395,11 @@
 - check-g1.mjs
 - 0048-gate-criteria-source-of-truth.md
 - verify-gate-contract.mjs
-- package.json
+- dependencies
 - 【見本】ゲート判定記録（G-2 要件合意）
 - ip-clearance-python.mjs
 - 0046-deferred-with-conditions.md
-- 3. アンチパターン各論(本メモの中心)
+- simulator.astro
 - 0049-scope-units-and-closed-vocabulary.md
 - #246: 「利用者が、それを見て使い方に気づけるか」を問う工程が無い
 - #241: 投資対効果の様式が収益前提になっている
@@ -431,12 +431,12 @@
 - #245 中核の価値仮説に根拠を付ける工程が、着手決裁の前に無い
 - #246 「利用者が使い方に気づけるか」を問う工程が無い
 - 0050-enforcement-layer-is-not-staged.md
-- astro:content
+- ProcessActivity.astro
 - #247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない
 - 会議体2 意見書01: 実案件の代表(P-001 Filetto)
-- simulator.astro
-- ProcessActivity.astro
 - 1. 自律コーディングエージェントの主要実装例
+- package.json
+- 3. アンチパターン各論(本メモの中心)
 - 4. 限界と課題(現実の到達点の裏面)
 - ProcessOverview.astro
 - comparison.astro
@@ -1468,10 +1468,6 @@ Nodes (13): CERベンチをCIの回帰ゲートにする, おわりに（連載�
 Cohesion: 0.18
 Nodes (12): BOOK_SLUG_LEN, BOOKS, bookSlugs, CHAPTER_SLUG_LEN, checkBody(), IMAGE_EXT, notes, parseConfig() (+4 more)
 
-### Community 257 - "check-gate-criteria.mjs"
-Cohesion: 0.15
-Nodes (12): ADR-0048, extractCriteria(), fromSource, fromYaml, GATE_IDS, problems, ROOT, SOURCE (+4 more)
-
 ### Community 258 - "ゲート判定を記録する"
 Cohesion: 0.14
 Nodes (13): 1. 有効なゲートを確認する, 2. テンプレートから起こす, 3. 埋める, 4. 差し戻しの理由は項目番号で書く, 5. 判定はエージェントが行わない, 6. 記録を書いてからラベルを動かす, ゲート判定を記録する, 判定に持ち込まないもの (+5 more)
@@ -1672,9 +1668,9 @@ Nodes (7): なぜ別々にするのか, 実行, 校正の設定, 検査する項
 Cohesion: 0.25
 Nodes (7): zenn-content, ライセンス, 公開しているもの, 執筆, 構成, 注意, 関連
 
-### Community 308 - "dependencies"
+### Community 308 - "check-gate-criteria.mjs"
 Cohesion: 0.15
-Nodes (13): astro, astro-mermaid, @astrojs/sitemap, @astrojs/starlight, mermaid, dependencies, astro, astro-mermaid (+5 more)
+Nodes (12): ADR-0048, extractCriteria(), fromSource, fromYaml, GATE_IDS, problems, ROOT, SOURCE (+4 more)
 
 ### Community 309 - "devDependencies"
 Cohesion: 0.29
@@ -1960,9 +1956,9 @@ Nodes (11): 1. 判定基準の正本を、第4章の判定基準表とする, 2.
 Cohesion: 0.20
 Nodes (7): activeRuleset, config, g5wf, ADR-0029, notes, problems, rulesetDir
 
-### Community 382 - "package.json"
-Cohesion: 0.29
-Nodes (6): engines, node, name, private, type, version
+### Community 382 - "dependencies"
+Cohesion: 0.15
+Nodes (13): astro, astro-mermaid, @astrojs/sitemap, @astrojs/starlight, mermaid, dependencies, astro, astro-mermaid (+5 more)
 
 ### Community 383 - "【見本】ゲート判定記録（G-2 要件合意）"
 Cohesion: 0.25
@@ -1976,9 +1972,9 @@ Nodes (6): allowedLicenses, checkSingleLicense(), evaluateSPDX(), mapClassifier(
 Cohesion: 0.17
 Nodes (11): 1. 「条件付きで後置」を、採否の第3の状態として置く, 2. 後置には、観測できる条件を書く, 3. 会議体が後置と判定した4件を、本 ADR に記録する, 4. 後置した規定を、根拠水準マークの対象としない, コンテキスト, ステータス, 保留と書くと、条件が消える, 先例は本標準の中にある (+3 more)
 
-### Community 386 - "3. アンチパターン各論(本メモの中心)"
-Cohesion: 0.29
-Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
+### Community 386 - "simulator.astro"
+Cohesion: 0.26
+Nodes (10): buildMarkdown(), deviationList(), effectiveState(), integrated, kb, proposalState(), renderAdoption(), rules (+2 more)
 
 ### Community 387 - "0049-scope-units-and-closed-vocabulary.md"
 Cohesion: 0.17
@@ -2104,21 +2100,25 @@ Nodes (5): #246 「利用者が使い方に気づけるか」を問う工程が�
 Cohesion: 0.17
 Nodes (11): 1. 事業ステージで強制層の水準を動かさない, 2. この扱いを本文へ明記する, 3. 立ち上げ期の過剰な統制は、強制層の設計として扱う, 4. 遮断範囲を変えた場合、記録を同時に更新する, しかし強制層は二値で規定されている, コンテキスト, ステータス, 帰結 (+3 more)
 
+### Community 418 - "ProcessActivity.astro"
+Cohesion: 0.22
+Nodes (6): roleName, seg, wpName, grouped, order, proposals
+
 ### Community 419 - "#247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない"
 Cohesion: 0.50
 Nodes (4): #247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない, ただし、変更の範囲をここまでに限るべき, なぜ成立しないか, 弁護を試みた形
 
-### Community 421 - "simulator.astro"
-Cohesion: 0.26
-Nodes (10): buildMarkdown(), deviationList(), effectiveState(), integrated, kb, proposalState(), renderAdoption(), rules (+2 more)
-
-### Community 422 - "ProcessActivity.astro"
-Cohesion: 0.22
-Nodes (6): roleName, seg, wpName, grouped, order, proposals
-
-### Community 423 - "1. 自律コーディングエージェントの主要実装例"
+### Community 421 - "1. 自律コーディングエージェントの主要実装例"
 Cohesion: 0.25
 Nodes (8): 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules, 1-6. Claude Code / Claude Agent SDK(Anthropic), 1-7. 一覧(建前 vs 現実の要約), 1. 自律コーディングエージェントの主要実装例
+
+### Community 422 - "package.json"
+Cohesion: 0.29
+Nodes (6): engines, node, name, private, type, version
+
+### Community 423 - "3. アンチパターン各論(本メモの中心)"
+Cohesion: 0.29
+Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
 
 ### Community 424 - "4. 限界と課題(現実の到達点の裏面)"
 Cohesion: 0.29
