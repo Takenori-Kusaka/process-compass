@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `35f8ce3d`
+- Built from commit: `6c223f35`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -270,7 +270,7 @@
 - 決定
 - accuracy-as-commodity.md
 - check-books.mjs
-- 0051-usability-out-of-scope.md
+- astro:content
 - ゲート判定を記録する
 - 手順
 - D-0 意思決定・エスカレーション体制図
@@ -399,7 +399,7 @@
 - 【見本】ゲート判定記録（G-2 要件合意）
 - ip-clearance-python.mjs
 - 0046-deferred-with-conditions.md
-- astro:content
+- simulator.astro
 - 0049-scope-units-and-closed-vocabulary.md
 - #246: 「利用者が、それを見て使い方に気づけるか」を問う工程が無い
 - #241: 投資対効果の様式が収益前提になっている
@@ -431,13 +431,13 @@
 - #245 中核の価値仮説に根拠を付ける工程が、着手決裁の前に無い
 - #246 「利用者が使い方に気づけるか」を問う工程が無い
 - 0050-enforcement-layer-is-not-staged.md
-- simulator.astro
+- ProcessActivity.astro
 - #247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない
 - 会議体2 意見書01: 実案件の代表(P-001 Filetto)
+- 0051-usability-out-of-scope.md
 - 2. 主要手法:コンテキストの層としての整理
-- package.json
 - 3. アンチパターン各論(本メモの中心)
-- ProcessActivity.astro
+- package.json
 - ProcessOverview.astro
 - comparison.astro
 - 4. 組織論的な論点(従来編成 vs PO中心編成)
@@ -1469,10 +1469,6 @@ Nodes (13): CERベンチをCIの回帰ゲートにする, おわりに（連載�
 Cohesion: 0.18
 Nodes (12): BOOK_SLUG_LEN, BOOKS, bookSlugs, CHAPTER_SLUG_LEN, checkBody(), IMAGE_EXT, notes, parseConfig() (+4 more)
 
-### Community 257 - "0051-usability-out-of-scope.md"
-Cohesion: 0.18
-Nodes (10): 1. 使いやすさ・学びやすさを判定基準としない, 2. 価値と受入基準の対応だけを G-2 で見る, 3. 案件が使いやすさを扱う場合、受入基準の側へ書く, コンテキスト, ステータス, 帰結, 案件側の帰属が大きい, 検討した選択肢 (+2 more)
-
 ### Community 258 - "ゲート判定を記録する"
 Cohesion: 0.14
 Nodes (13): 1. 有効なゲートを確認する, 2. テンプレートから起こす, 3. 埋める, 4. 差し戻しの理由は項目番号で書く, 5. 判定はエージェントが行わない, 6. 記録を書いてからラベルを動かす, ゲート判定を記録する, 判定に持ち込まないもの (+5 more)
@@ -1977,6 +1973,10 @@ Nodes (6): allowedLicenses, checkSingleLicense(), evaluateSPDX(), mapClassifier(
 Cohesion: 0.17
 Nodes (11): 1. 「条件付きで後置」を、採否の第3の状態として置く, 2. 後置には、観測できる条件を書く, 3. 会議体が後置と判定した4件を、本 ADR に記録する, 4. 後置した規定を、根拠水準マークの対象としない, コンテキスト, ステータス, 保留と書くと、条件が消える, 先例は本標準の中にある (+3 more)
 
+### Community 386 - "simulator.astro"
+Cohesion: 0.26
+Nodes (10): buildMarkdown(), deviationList(), effectiveState(), integrated, kb, proposalState(), renderAdoption(), rules (+2 more)
+
 ### Community 387 - "0049-scope-units-and-closed-vocabulary.md"
 Cohesion: 0.17
 Nodes (11): 1. 判定の単位を4つとする, 2. 検出の語彙を、閉じた集合に保つ, 3. 会議体の適用条件を、見出しへ併記する, 4. テーラリングの表そのものは、注記の対象としない, コンテキスト, ステータス, 判定の単位が2つでは足りない, 帰結 (+3 more)
@@ -2101,29 +2101,29 @@ Nodes (5): #246 「利用者が使い方に気づけるか」を問う工程が�
 Cohesion: 0.17
 Nodes (11): 1. 事業ステージで強制層の水準を動かさない, 2. この扱いを本文へ明記する, 3. 立ち上げ期の過剰な統制は、強制層の設計として扱う, 4. 遮断範囲を変えた場合、記録を同時に更新する, しかし強制層は二値で規定されている, コンテキスト, ステータス, 帰結 (+3 more)
 
-### Community 418 - "simulator.astro"
-Cohesion: 0.26
-Nodes (10): buildMarkdown(), deviationList(), effectiveState(), integrated, kb, proposalState(), renderAdoption(), rules (+2 more)
+### Community 418 - "ProcessActivity.astro"
+Cohesion: 0.22
+Nodes (6): roleName, seg, wpName, grouped, order, proposals
 
 ### Community 419 - "#247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない"
 Cohesion: 0.50
 Nodes (4): #247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない, ただし、変更の範囲をここまでに限るべき, なぜ成立しないか, 弁護を試みた形
 
-### Community 421 - "2. 主要手法:コンテキストの層としての整理"
+### Community 421 - "0051-usability-out-of-scope.md"
+Cohesion: 0.18
+Nodes (10): 1. 使いやすさ・学びやすさを判定基準としない, 2. 価値と受入基準の対応だけを G-2 で見る, 3. 案件が使いやすさを扱う場合、受入基準の側へ書く, コンテキスト, ステータス, 帰結, 案件側の帰属が大きい, 検討した選択肢 (+2 more)
+
+### Community 422 - "2. 主要手法:コンテキストの層としての整理"
 Cohesion: 0.22
 Nodes (9): 2.1 システムプロンプト・指示の設計, 2.2 Few-shot 例示(手本による誘導), 2.3 RAG(検索拡張生成)による外部知識の注入, 2.4 ステアリングファイル / ルール(プロジェクト文脈の永続化), 2.5 MCP(Model Context Protocol)によるツール・データ接続, 2.6 コンテキストの圧縮・要約・選択(ウィンドウ管理), 2.7 メモリ(短期/長期、エージェントメモリ), 2.8 サブエージェントへのコンテキスト分離 (+1 more)
-
-### Community 422 - "package.json"
-Cohesion: 0.29
-Nodes (6): engines, node, name, private, type, version
 
 ### Community 423 - "3. アンチパターン各論(本メモの中心)"
 Cohesion: 0.29
 Nodes (7): 3. アンチパターン各論(本メモの中心), AP-1. Water-Scrum-Fall(要件とリリースをWFで挟む), AP-2. 単一PO原則の崩壊(複数PO / PO委員会 / 企画部によるPO代行 / プロキシPO), AP-3. 役割肥大・関係者過多(スクラム3ロール外に大量の関係者), AP-4. ゾンビスクラム(Zombie Scrum)— 心拍のないスクラム, AP-5. ダークスクラム(Dark Scrum)— 開発者を抑圧する道具への転化, AP-6. WFの決裁ゲートのスクラムへの接ぎ木
 
-### Community 424 - "ProcessActivity.astro"
-Cohesion: 0.22
-Nodes (6): roleName, seg, wpName, grouped, order, proposals
+### Community 424 - "package.json"
+Cohesion: 0.29
+Nodes (6): engines, node, name, private, type, version
 
 ### Community 425 - "ProcessOverview.astro"
 Cohesion: 0.40
