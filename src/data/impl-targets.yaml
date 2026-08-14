@@ -52,6 +52,13 @@ targets:
     check: aggregate-evidence
     description: 判定の成立要件となる記録の様式。判定の語彙と例外承認の扱い(ADR-0036)
 
+  - id: debt-ledger-template
+    name: 成果物テンプレート テンプレ3(技術負債台帳)
+    kind: template-file
+    path: templates/03-debt-ledger.md
+    check: aggregate-evidence
+    description: 受容した負債と未解決事項の置き場。7.3 由来と 7.3.2 由来を区分欄で分ける
+
   - id: gate-record-skill
     name: ゲート判定記録のスキル
     kind: template-file

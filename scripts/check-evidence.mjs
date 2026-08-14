@@ -35,7 +35,7 @@ const LEVELS = {
 
 const OPEN_RE = /^:::caution\[暫定 (EV-\d{4}) \/ 見直し (\d{4})-(\d{2})\]\s*$/;
 const OPEN_LOOSE_RE = /^:::caution\[暫定/;
-const FIELD_RE = /^\*\*(対象|根拠の水準|差し替え条件)\*\*:\s*(.+?)。?\s*$/;
+const FIELD_RE = /^\*\*(対象|根拠の水準|差し替え条件|根拠とした事例)\*\*:\s*(.+?)。?\s*$/;
 const LEVEL_VALUE_RE = /^(E[012])\(([^)]+)\)$/;
 
 const args = new Set(process.argv.slice(2));
@@ -140,6 +140,8 @@ function collect(file) {
       level,
       target: fields['対象'] ?? '',
       condition: fields['差し替え条件'] ?? '',
+      // 任意項目。同じ事例から複数のマークが出ている場合に、台帳で識別できるようにする(ADR-0045)
+      source: fields['根拠とした事例'] ?? '',
     });
 
     i = end;
@@ -148,13 +150,14 @@ function collect(file) {
 
 function renderLedger(rows) {
   const out = [];
-  out.push('| 識別子 | 対象 | 根拠 | 見直し | 差し替え条件 | 記載箇所 |');
-  out.push('| --- | --- | --- | --- | --- | --- |');
+  out.push('| 識別子 | 対象 | 根拠 | 根拠とした事例 | 見直し | 差し替え条件 | 記載箇所 |');
+  out.push('| --- | --- | --- | --- | --- | --- | --- |');
   for (const m of rows) {
     const level = m.level ? `${m.level}(${LEVELS[m.level]})` : '-';
     const page = m.file.replace(/\\/g, '/').replace(`${DOCS_ROOT}/`, '').replace(/\.mdx?$/, '');
+    const source = m.source || '未記載';
     out.push(
-      `| ${m.id} | ${m.target} | ${level} | ${m.review} | ${m.condition} | [${page}](${m.url}) |`,
+      `| ${m.id} | ${m.target} | ${level} | ${source} | ${m.review} | ${m.condition} | [${page}](${m.url}) |`,
     );
   }
   return out.join('\n');

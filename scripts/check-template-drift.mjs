@@ -147,9 +147,23 @@ if (!fs.existsSync(TEMPLATE_DIR)) {
   }
   const known = new Set(Object.values(TEMPLATE_FILES));
   for (const f of fs.readdirSync(TEMPLATE_DIR).filter((f) => f.endsWith('.md') && f !== 'README.md')) {
-    if (!known.has(f)) {
-      problems.push(`template/templates/${f} は対応表にありません。scripts/check-template-drift.mjs の TEMPLATE_FILES へ追加してください`);
+    if (known.has(f)) continue;
+    // 記入見本(`*-sample-*.md`)は様式ではありません。標準の第6章に対応する規定を持たず、
+    // 必須欄の検査(check-template-fields.mjs)の対象にもしません。ただし対応する様式が
+    // 存在しない見本は、様式なしの記入例になるため許しません。
+    const sample = /^[a-z0-9]+-sample-(.+)\.md$/.exec(f);
+    if (sample) {
+      if (!known.has(`${sample[1]}.md`) && ![...known].some((k) => k.endsWith(`${sample[1]}.md`))) {
+        problems.push(
+          `template/templates/${f} は記入見本ですが、対応する様式(${sample[1]}.md)がありません`,
+        );
+      }
+      continue;
     }
+    problems.push(
+      `template/templates/${f} は対応表にありません。様式なら scripts/check-template-drift.mjs の ` +
+        `TEMPLATE_FILES へ追加し、記入見本なら <ゲート>-sample-<様式名>.md の名前にしてください`,
+    );
   }
   for (const num of headings) {
     if (!(num in TEMPLATE_FILES)) {

@@ -62,6 +62,8 @@ forms:
         template: 受容した理由
       - standard: 返却目安
         template: 返却の目安
+      - standard: 区分は**負債 / 例外 / 未解決**のいずれか
+        template: 未解決
 
   - id: t4
     name: テンプレ4 ゲート判定記録
@@ -77,6 +79,8 @@ forms:
         template: 判断が変わる条件
       - standard: '## 比較した選択肢(R1 および例外承認で必須)'
         template: 比較した選択肢
+      - standard: 残存リスク
+        template: 残存リスク
 
   - id: t5
     name: テンプレ5 運用引き継ぎ文書
