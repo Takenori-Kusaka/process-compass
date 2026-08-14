@@ -745,8 +745,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/human-ai-boundary.md": {
-    "mtime": 1786590136.7716908,
-    "ast_hash": "17afecbffcf992958952874406cdf4f4",
+    "mtime": 1786679379.283831,
+    "ast_hash": "f1767ef26e3247e5ae8d0a5cfbacd39e",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/lifecycle.md": {
@@ -1165,8 +1165,8 @@
     "semantic_hash": ""
   },
   "scripts/check-template-drift.mjs": {
-    "mtime": 1786519226.4115057,
-    "ast_hash": "31f3d737e547ac2c8d4a74072074cabd",
+    "mtime": 1786679443.4022448,
+    "ast_hash": "cf3d85d881876e579399d48cf493c6b4",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0028-unmet-gate-distinct-from-omitted.md": {
@@ -1255,8 +1255,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/implementation-ledger.md": {
-    "mtime": 1786674413.1970344,
-    "ast_hash": "092a1107095cc2b1ba4115b198fe1d39",
+    "mtime": 1786679379.9967775,
+    "ast_hash": "c2107d219d62a429d9bfb208f1ba2a2b",
     "semantic_hash": ""
   },
   "src/content/docs/community/implementation-marking.md": {
@@ -1555,8 +1555,8 @@
     "semantic_hash": ""
   },
   "template/CLAUDE.md": {
-    "mtime": 1786677521.969358,
-    "ast_hash": "a1d9589dfe78ebbecfcd6d8049a270d2",
+    "mtime": 1786679356.5456607,
+    "ast_hash": "4fd7a11b3b644db85eecaf375a6682dd",
     "semantic_hash": ""
   },
   "template/PROCESS-PROFILE.md": {
@@ -1565,8 +1565,8 @@
     "semantic_hash": ""
   },
   "template/README.md": {
-    "mtime": 1786515643.0943944,
-    "ast_hash": "34e0e43693bc90f8456a23fcc6f502eb",
+    "mtime": 1786679349.3564484,
+    "ast_hash": "86dcf0cb1351a49e30314a55060c9b9b",
     "semantic_hash": ""
   },
   "template/context/_archive/README.md": {
@@ -1990,8 +1990,8 @@
     "semantic_hash": ""
   },
   "template/profiles/oss/templates/06-project-brief.md": {
-    "mtime": 1786677521.9734602,
-    "ast_hash": "808ee58516caac73d10c9904f8c6d4d3",
+    "mtime": 1786679356.5466669,
+    "ast_hash": "4e2e844a1580faf47cb41c7600b46327",
     "semantic_hash": ""
   },
   "template/profiles/revenue/templates/06-project-brief.md": {
