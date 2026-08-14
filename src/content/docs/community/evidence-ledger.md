@@ -44,6 +44,7 @@ sidebar:
 | EV-0019 | 投影の8項目の構成と、G.3 の提示の順序 | E0(なし) | 未記載 | 2027-08 | 投影を用いた決裁3件分の記録と、決裁者が不足を指摘した項目の一覧 | [phase4-process-design/executive-projection](/process-compass/phase4-process-design/executive-projection/) |
 | EV-0027 | 決定2(SR を手続の入口としてのみ使えば、順序づけを主張せずに運用が成立するという判断) | E1(間接) | NIST SP 800-30 Rev.1 表I-2 | 2027-08 | SR を根拠に低減の優先順位を決めた記録の件数。件数が積み上がる場合、決定2 は守られておらず、実質的に順序づけとして使われていることになります | [adr/0042-sr-does-not-claim-ordering](/process-compass/adr/0042-sr-does-not-claim-ordering/) |
 | EV-0029 | 決定1(義務を課さなくても、実務上の不利益が許容範囲に収まるという判断) | E1(間接) | 未記載 | 2027-08 | 既存の部品があったにもかかわらず自前実装したことが事後に判明した件数と、それによる手戻りの規模。**この観測は現在どこにも記録されないため、まず観測の経路を決める必要があります** | [adr/0044-no-search-obligation-for-existing-parts](/process-compass/adr/0044-no-search-obligation-for-existing-parts/) |
+| EV-0032 | 決定1(後置という状態を設ければ、条件が失われずに次回へ渡るという判断) | E0(なし) | 2026-08-14 の会議体1回分 | 2027-08 | 本 ADR の4件について、条件が満たされた時点で採否が再検討された件数。**条件が満たされたにもかかわらず再検討されなかった件数が1件でも生じた場合、後置は記録として機能していないことになります** | [adr/0046-deferred-with-conditions](/process-compass/adr/0046-deferred-with-conditions/) |
 
 <!-- evidence-ledger:end -->
 
