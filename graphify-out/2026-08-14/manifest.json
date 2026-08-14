@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1786599883.4477305,
-    "ast_hash": "5d43c1783fbfdfdcc538334aedd6631e",
+    "mtime": 1786681973.1690056,
+    "ast_hash": "a478b9fa30bd948919011f66138269ea",
     "semantic_hash": ""
   },
   "scripts/generate-image.mjs": {
@@ -470,8 +470,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786679892.2750733,
-    "ast_hash": "bfb424a7174358effd451d739a5f59a0",
+    "mtime": 1786681677.7907484,
+    "ast_hash": "3290396c590f97234f65159279b2fa11",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
@@ -495,13 +495,13 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1786588705.4208274,
-    "ast_hash": "4b073e3905d5b5131a1053e9d9e4a12b",
+    "mtime": 1786682133.20622,
+    "ast_hash": "17497248fa270e76d1d9afedb77863d3",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786590136.7726889,
-    "ast_hash": "5c4e5c35adcf561668044135c62a2fac",
+    "mtime": 1786682680.129264,
+    "ast_hash": "a60e048bac9493b2886a47112a3919c4",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ai-environment.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "src/data/processes/integrated.yaml": {
-    "mtime": 1786541377.4712667,
-    "ast_hash": "6f45fd4398392325cabb92725fbd9046",
+    "mtime": 1786681920.2904894,
+    "ast_hash": "bef9eceeb303baa58ec685720bae0a4f",
     "semantic_hash": ""
   },
   "src/data/processes/scrum.yaml": {
@@ -1120,8 +1120,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786679897.5121095,
-    "ast_hash": "a5c1d9a7aacc9fdb3e4de5baeb139830",
+    "mtime": 1786682728.8046494,
+    "ast_hash": "20d487506184d6bc4a2397ffc5c09012",
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-marking.md": {
@@ -1285,8 +1285,8 @@
     "semantic_hash": ""
   },
   "scripts/check-scope.mjs": {
-    "mtime": 1786590136.7666862,
-    "ast_hash": "4aa063b54919514ad9165fc63a2f2ad3",
+    "mtime": 1786682069.664426,
+    "ast_hash": "d080bfb6a30a6cbd670ad0163ce595a4",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0039-scope-in-heading-and-unit-of-judgement.md": {
@@ -1295,8 +1295,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/scope-ledger.md": {
-    "mtime": 1786590136.7696888,
-    "ast_hash": "8681d80a205d7f59996a25caecabf118",
+    "mtime": 1786682228.1821475,
+    "ast_hash": "096ffe55fbc9328bb9d7895b92a26127",
     "semantic_hash": ""
   },
   "src/content/docs/community/scope-marking.md": {
@@ -1305,8 +1305,8 @@
     "semantic_hash": ""
   },
   "src/data/scope-exempt.yaml": {
-    "mtime": 1786590136.7726889,
-    "ast_hash": "ecc4faa4a2b579f7b761992ac26fdb32",
+    "mtime": 1786682120.595681,
+    "ast_hash": "a328bb5d7c001b62e864b6e517d55779",
     "semantic_hash": ""
   },
   "scripts/check-template-fields.mjs": {
@@ -1410,8 +1410,8 @@
     "semantic_hash": ""
   },
   "template/scripts/init/generate-profile.mjs": {
-    "mtime": 1786677521.9785979,
-    "ast_hash": "51a1c0e79aa0b9160b84641f10820e65",
+    "mtime": 1786682645.801628,
+    "ast_hash": "70b4d8c9f796f3563b1bfde0dfde9608",
     "semantic_hash": ""
   },
   "template/scripts/vendor/tailoring-engine.mjs": {
@@ -1420,8 +1420,8 @@
     "semantic_hash": ""
   },
   "template/scripts/vendor/tailoring-kb.json": {
-    "mtime": 1786677521.9801068,
-    "ast_hash": "cfe71598ecb2034051f6dbd59fb03081",
+    "mtime": 1786682364.7798636,
+    "ast_hash": "c02fc56c25fbbc7379460a87fbb3a9a8",
     "semantic_hash": ""
   },
   "zenn/.textlintrc.json": {
@@ -2007,6 +2007,46 @@
   "src/content/docs/adr/0046-deferred-with-conditions.md": {
     "mtime": 1786679897.5121095,
     "ast_hash": "80466d167d20419589c6b7e5b0306aa6",
+    "semantic_hash": ""
+  },
+  "scripts/check-gate-criteria.mjs": {
+    "mtime": 1786681879.7786424,
+    "ast_hash": "74a4dc1228a09029553ae213df8108f2",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council2-01-field.md": {
+    "mtime": 1786681389.4696004,
+    "ast_hash": "2dd8bdaef36951b024aef969f6bfad45",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council2-02-drafter.md": {
+    "mtime": 1786681579.5776668,
+    "ast_hash": "a78b881a74833acb48b335dc51fd6a61",
+    "semantic_hash": ""
+  },
+  "research/phase4-standard/council2-03-defender.md": {
+    "mtime": 1786681316.3974729,
+    "ast_hash": "7f2b2df679638f3e2b7c5384acdbf35a",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0047-limit-is-default-not-cutoff.md": {
+    "mtime": 1786681743.861465,
+    "ast_hash": "30084a2377f5268de34d7f9b3d3c090f",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0048-gate-criteria-source-of-truth.md": {
+    "mtime": 1786681963.4910934,
+    "ast_hash": "b03b68e1a887e1c9f30a8f0c161553d7",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0049-scope-units-and-closed-vocabulary.md": {
+    "mtime": 1786682326.828641,
+    "ast_hash": "401dccb94dbbde7d2f6e3588d746eaea",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0050-enforcement-layer-is-not-staged.md": {
+    "mtime": 1786682766.6361864,
+    "ast_hash": "5c24c2f1fb08f70028e8db2265bdf144",
     "semantic_hash": ""
   }
 }

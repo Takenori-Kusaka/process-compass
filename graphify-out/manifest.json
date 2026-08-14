@@ -500,8 +500,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1786590136.7726889,
-    "ast_hash": "5c4e5c35adcf561668044135c62a2fac",
+    "mtime": 1786682680.129264,
+    "ast_hash": "a60e048bac9493b2886a47112a3919c4",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ai-environment.md": {
@@ -1120,8 +1120,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786682190.101317,
-    "ast_hash": "910ddf2c1df2ddf955ee2bf7b8486f1a",
+    "mtime": 1786682728.8046494,
+    "ast_hash": "20d487506184d6bc4a2397ffc5c09012",
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-marking.md": {
@@ -1410,8 +1410,8 @@
     "semantic_hash": ""
   },
   "template/scripts/init/generate-profile.mjs": {
-    "mtime": 1786677521.9785979,
-    "ast_hash": "51a1c0e79aa0b9160b84641f10820e65",
+    "mtime": 1786682645.801628,
+    "ast_hash": "70b4d8c9f796f3563b1bfde0dfde9608",
     "semantic_hash": ""
   },
   "template/scripts/vendor/tailoring-engine.mjs": {
@@ -2042,6 +2042,11 @@
   "src/content/docs/adr/0049-scope-units-and-closed-vocabulary.md": {
     "mtime": 1786682326.828641,
     "ast_hash": "401dccb94dbbde7d2f6e3588d746eaea",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0050-enforcement-layer-is-not-staged.md": {
+    "mtime": 1786682766.6361864,
+    "ast_hash": "5c24c2f1fb08f70028e8db2265bdf144",
     "semantic_hash": ""
   }
 }
