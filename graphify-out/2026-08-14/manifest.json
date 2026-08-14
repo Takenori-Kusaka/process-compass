@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1786679892.2735627,
-    "ast_hash": "c12a697ebd28bd6058fea49515cf8004",
+    "mtime": 1786683205.5272913,
+    "ast_hash": "e9b25069deeaf113feaabc1bd4cf33a5",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/ears-guide.md": {
@@ -470,8 +470,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1786681677.7907484,
-    "ast_hash": "3290396c590f97234f65159279b2fa11",
+    "mtime": 1786683191.1037395,
+    "ast_hash": "c78b6920dbf95a5efe75297a3c680b5e",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
@@ -740,8 +740,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/exception-escalation.md": {
-    "mtime": 1786679897.513628,
-    "ast_hash": "f82995c4522c1d4bcc7ce34db475dcd6",
+    "mtime": 1786683380.2494173,
+    "ast_hash": "2ead297ab01fd684224f6350eee74888",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/human-ai-boundary.md": {
@@ -1120,8 +1120,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1786682728.8046494,
-    "ast_hash": "20d487506184d6bc4a2397ffc5c09012",
+    "mtime": 1786683257.870186,
+    "ast_hash": "083684af63e2e71111462f72485c15f0",
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-marking.md": {
@@ -1230,8 +1230,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/executive-projection.md": {
-    "mtime": 1786519681.3102736,
-    "ast_hash": "d06306edda7ecb6e46cff7275ce2bdcd",
+    "mtime": 1786683081.0960183,
+    "ast_hash": "c5b388e4755ca705934fcbc1880e7c7b",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0033-no-target-as-recorded-state.md": {
@@ -1420,7 +1420,7 @@
     "semantic_hash": ""
   },
   "template/scripts/vendor/tailoring-kb.json": {
-    "mtime": 1786682364.7798636,
+    "mtime": 1786683462.264941,
     "ast_hash": "c02fc56c25fbbc7379460a87fbb3a9a8",
     "semantic_hash": ""
   },
@@ -2047,6 +2047,11 @@
   "src/content/docs/adr/0050-enforcement-layer-is-not-staged.md": {
     "mtime": 1786682766.6361864,
     "ast_hash": "5c24c2f1fb08f70028e8db2265bdf144",
+    "semantic_hash": ""
+  },
+  "src/content/docs/adr/0051-usability-out-of-scope.md": {
+    "mtime": 1786683295.5918095,
+    "ast_hash": "7af0c5e0209eadbdd0ad33468a3af2fc",
     "semantic_hash": ""
   }
 }
