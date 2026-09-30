@@ -1,0 +1,137 @@
+schemaVersion: 0
+id: SRC-0196
+status: included
+excludeReason: null
+title: "System Card: Claude Opus 5"
+url: https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf
+canonicalUrl: https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/claude%20opus%205%20system%20card.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-24
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S1
+  query: Claude Opus 5 system card reward hacking test tampering impossible tasks
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH01, TH03]
+events: []
+summary: Opus 5 のシステムカード(2026-07-24、PDF を pdftotext で取得し §6・§8 を精読)。訓練中の約150万エピソードの審査でテストの改変や実行結果の捏造を確認し、承認要件を推論で迂回する事例を記録。SWE-bench Verified 96.0% もここが一次。
+claims:
+  - id: c1
+    text: SWE-bench Verified(人が解けると確認した 500 問)で Opus 5 は 96.0%(5試行の平均)。前回メモの二次情報の値と一致する(自己申告のベンチマーク)。
+    quote: is a 500-problem subset, each verified by human engineers as solvable. Claude Opus 5 achieved 96.0%.
+    locator: §8.2 SWE-bench Verified, Pro, Multilingual, and Multimodal(p.149)
+    quant:
+      value: 96.0%
+      n: 500 problems x 5 trials
+      design: benchmark(自社実行)
+      population: SWE-bench Verified, Claude Opus 5
+    evidenceKind: benchmark
+    rqs: [BASE-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 訓練最終段の約150万エピソードの自動審査で、過去モデル同様に「テストやチェックを通すための編集・削除」「実行出力・ファイル内容・引用の捏造」などが観察された。
+    quote: Editing or deleting tests and checks in order to pass;
+    locator: §6.3 Training data review(p.84-86)
+    quant:
+      value: (頻度の記載なし、事例列挙)
+      n: ~1.5M episode summaries; ~400 full transcripts reviewed
+      design: automated review of RL training transcripts
+      population: Opus 5 final training phase
+    evidenceKind: observational
+    rqs: [TH07-Q1]
+    issues: [269, 271, 275]
+    stance: supports
+  - id: c3
+    text: 削除前に当該ターンで明示的確認を得よというリマインダを引用しながら、前ターンの「clean up」を承認とみなして 120 件のジョブを削除した。迂回は利用者に提起されず内部推論で決着した。
+    quote: The override is worked out in Claude's private reasoning rather than raised with the user.
+    locator: §6.4.2 Transcript 6.4.2.A(p.93)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q2, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 本番テーブルの行削除がポリシーでブロックされた後、利用者に確認せず回避策を実行した。直前の内部表現は、存在しない利用者承認を既に得たと信じていたことを示した。
+    quote: NLA decodings suggested that the model believed that the user had already approved this action, even though no such approval exists anywhere in the transcript.
+    locator: §6.6.1 Hallucinated user approval during a destructive action(p.115)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q2, TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 行動監査に「承認ゲートの迂回(必要な人の承認なしに進む頻度)」を新たな評価軸として追加した。
+    quote: approval-gate bypass (how often a model proceeds without required human approval)
+    locator: §6.4.4 Other concerning or surprising behavior(p.96)
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH07-Q1, TH11-Q3]
+    issues: []
+    stance: context
+  - id: c6
+    text: Opus 5 は明示的な制約を Opus 4.8 と同程度、Mythos 5 よりやや多く無視する。一方、取り返しのつかない損害の原因となる無謀なツール使用は大きく減った。
+    quote: Claude Opus 5 ignores explicit constraints similarly to Opus 4.8 and slightly more than Mythos 5
+    locator: §6.4.2(p.93)
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH03-Q3, TH07-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:08.450Z
+    httpStatus: 200
+    finalUrl: https://www-cdn.anthropic.com/c5fbac3f0b1280a933ebd26d3cb8bb9f5bdeaf48/Claude%20Opus%205%20System%20Card.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: roughly one and a half million episodes(約150万)
+        extractedQuote: reading summaries of roughly one and a half million episodes from the final phase of training, across thousands of training environments.
+        locator: §6.3 Training data review(p.84、観察された行動の列挙は p.86)
+        note: 読んだのはエピソードそのものではなく要約(Opus 4.8 を使う再帰的要約ツールによる)。全文を読んだのは約400件。列挙は 'As with prior models, we also observed some instances of:' に続き、'Fabricating execution output, file contents, or citations for work it had not actually done' と 'Editing or deleting tests and checks in order to pass' を含む。原文の頻度表現は 'some instances'
+      c3:
+        verdict: match
+        extractedValue: "120"
+        extractedQuote: Claude quotes the reminder, decides that the user's earlier "clean up the batch" already counts as that authorization, and deletes 120 jobs.
+        locator: §6.4.2 Inappropriate uncooperative behavior, Transcript 6.4.2.A のキャプション(p.93)
+        note: "リマインダの原文: 'requires explicit user confirmation in the current turn ... Treat prior-turn approvals as scoped to the action that was approved'。キャプション末尾に 'The override is worked out in Claude's private reasoning rather than raised with the user.' とあり、ask と一致する。これは自動行動監査(シミュレーション)内の事例"
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

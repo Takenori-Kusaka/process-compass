@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0293
+status: included
+excludeReason: null
+title: Our decision on Cursor following its acquisition by SpaceX
+url: https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex
+canonicalUrl: https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-28
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S6
+  query: Cursor announces new agent pricing August September 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH04]
+events:
+  - date: 2026-08-28
+    label: OpenAI が SpaceX 傘下となった Cursor へのモデル供給契約の終了を通知
+  - date: 2026-11-12
+    label: OpenAI モデルの Cursor への提供終了の提案日(将来モデルは提供しない)
+summary: Cursor の SpaceX による買収を受け、OpenAI が Cursor へのモデル供給契約を終了すると通知した一次発表。開発ツールで使えるモデルがベンダー間の事情で断たれる可用性リスクの実例。
+claims:
+  - id: c1
+    text: OpenAI は Cursor へのモデル供給契約を終了し、2026-11-12 を停止日として提案した。将来のモデル(Astra 等)は同契約経由で提供しない。
+    quote: Today, we notified SpaceX that we intend to wind down our contract providing OpenAI models to Cursor, with a proposed shutoff date of November 12, 2026.
+    locator: 本文第1段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3, BASE-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 契約上の最大の予告期間を使うが、将来モデルは供給しない。利用者から見ると、同じツールの中で使えるモデルが時期を区切って減る。
+    quote: we’ve decided to hold the contract cancellation to the latest date we can while not providing future models to Cursor.
+    locator: 本文第3段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:25.402Z
+    httpStatus: 200
+    finalUrl: https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/
+    contentType: text/html; charset=utf-8
+    titleFetched: Our decision on Cursor following its acquisition by SpaceX
+    titleMatch: true
+    dateMeta: 2026-09-23
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-11-12 (November 12, 2026)
+        extractedQuote: Today, we notified SpaceX that we intend to wind down our contract providing OpenAI models to Cursor, with a proposed shutoff date of November 12, 2026.
+        locator: 本文第1段落
+        note: 原文は『終了する意向を SpaceX に通知した(intend to wind down)』で、停止日は提案。Astra については 'we’ve decided to hold the contract cancellation to the latest date we can while not providing future models to Cursor' と、将来モデルを Cursor に提供しない旨。記事日付 2026-08-28。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

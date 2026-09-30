@@ -1,0 +1,108 @@
+schemaVersion: 0
+id: SRC-0503
+status: included
+excludeReason: null
+title: AIディスカッションペーパー(第1.1版)— 金融分野における AI の健全な利活用の促進に向けた初期的な論点整理
+url: https://www.fsa.go.jp/news/r7/sonota/20260303/aidp_version1.1.pdf
+canonicalUrl: https://fsa.go.jp/news/r7/sonota/20260303/aidp_version1.1.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 金融庁
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-03-03
+publishedBasis: page
+version: 第1.1版
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH12
+  query: 金融庁 AIディスカッションペーパー 改訂 2026 生成AI 金融機関
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH02]
+events:
+  - date: 2026-03-03
+    label: 金融庁が AI ディスカッションペーパー第1.1版を公表
+summary: 金融庁の AI ディスカッションペーパー改訂版(規制文書ではない初期的な論点整理)。技術中立の姿勢を維持し、AI エージェントの管理態勢は金融機関が試行錯誤している段階と記述する。
+claims:
+  - id: c1
+    text: AI 官民フォーラムで、AI エージェントの性能監視・ライフサイクルとコスト管理・インベントリー管理・権限管理の4つを統合管理する基盤を構築中という事例が紹介された。
+    quote: AI エージェントのパフォーマンスの監視、ライフサイクルとコスト管理、インベントリー管理、権限管理の４つを統合的に管理するプラットフォームの構築を進めているとの事例紹介があった。
+    locator: AI モデルの管理態勢(p.30 付近)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH12-Q2, TH02-Q3]
+    issues: []
+    stance: context
+  - id: c2
+    text: AI モデルの管理態勢構築に向けた金融機関の取組みは様々で、試行錯誤しながら検討している状況だとまとめた。
+    quote: AI モデルの管理態勢構築に向けた金融機関等の取組みは様々であり、試行錯誤をしながら検討を行っている状況が伺われた。
+    locator: AI モデルの管理態勢(p.30 付近)
+    quant: null
+    evidenceKind: observational
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 基本スタンスは技術中立で、既存の法令は AI 利用の有無に関わらず適用されるとし、AI の特性上必要な場合に法令・ガイドラインの見直しを検討するとした。
+    quote: 既存の法令等は AI など特定の技術を利用しているか否かに関わらず適用されることに留意すべきであるが
+    locator: Ⅰ. はじめに
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:16.972Z
+    httpStatus: 0
+    finalUrl: https://fsa.go.jp/news/r7/sonota/20260303/aidp_version1.1.pdf
+    contentType: ""
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: no-text
+      c2: no-text
+      c3: no-text
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: fetch failed
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 4(４つ)
+        extractedQuote: AI 官民フォーラムでは、AI エージェントの広がりを見越して、現段階から AI エージェントのパフォーマンスの監視、ライフサイクルとコスト管理、インベントリー管理、権限管理の４つを統合的に管理するプラットフォームの構築を進めているとの事例紹介があった。
+        locator: Ⅳ.1 vi. モデル・リスク管理(pp.30-31)
+        note: 該当箇所の見出しは「vi. モデル・リスク管理」。ask と一致(単一の事例紹介)。
+      c2:
+        verdict: match
+        extractedValue: 取組みは様々であり、試行錯誤をしながら検討を行っている状況が伺われた
+        extractedQuote: 上記の通り、AI モデルの管理態勢構築に向けた金融機関等の取組みは様々であり、試行錯誤をしながら検討を行っている状況が伺われた。
+        locator: Ⅳ.1 vi. モデル・リスク管理(p.31)
+        note: 原典の主語は「金融機関等」。ask と一致。
+      c3:
+        verdict: match
+        extractedValue: 基本スタンスは技術中立
+        extractedQuote: 金融庁の基本スタンスは技術中立であり、既存の法令等は AI など特定の技術を利用しているか否かに関わらず適用されることに留意すべきであるが、AI の特性を踏まえて対応が必要な場合は、法令やガイドライン等の見直しを含めて検討していく。
+        locator: Ⅰ. はじめに(p.5)
+        note: ask と一致。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://fsa.go.jp/news/r7/sonota/20260303/aidp_version1.1.pdf

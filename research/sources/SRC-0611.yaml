@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0611
+status: included
+excludeReason: null
+title: What is the Enterprise plan? | Claude Help Center
+url: https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan
+canonicalUrl: https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude Help Center)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: Claude Enterprise plan seat fee usage billed at API rates "usage-based" Enterprise plan billing help center
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events: []
+summary: Anthropic 公式ヘルプの Enterprise プラン説明(取得時「Updated over 4 weeks ago」、2026-09-30 取得)。Enterprise は席料が利用を含まず、全利用を標準 API 単価で別課金する。席ごとの利用上限も同梱トークンも無い。企業向けでは「定額か従量か」の選択肢自体が無く、上限枯渇による停止の代わりに支出上限の設定が統制手段になる。
+claims:
+  - id: c1
+    text: Enterprise の席料はアクセスだけを賄い、利用は含まない。全利用は API 単価で別課金される。
+    quote: the seat fee covers access only, and all usage is billed separately at API rates.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: Enterprise には席ごとの利用上限も同梱トークンも無い(定額上限の枯渇で止まる構造ではなく、支出が青天井になる構造)。
+    quote: There are no per-seat usage limits and no included token allowance.
+    locator: What's included
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 費用の統制手段は、管理者が組織単位・利用者単位に設定する支出上限である。
+    quote: Admins can set spend limits at the organization and individual user levels to manage costs.
+    locator: What's included
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:59.617Z
+    httpStatus: 200
+    finalUrl: https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan
+    contentType: text/html; charset=utf-8
+    titleFetched: What is the Enterprise plan? | Claude Help Center
+    titleMatch: true
+    dateMeta: 2026-09-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

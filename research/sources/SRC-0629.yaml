@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0629
+status: included
+excludeReason: null
+title: 「人間がdiffを読まないコードレビュー」をやってみた
+url: https://jmty-tech.hatenablog.com/entry/2026/07/09/183949
+canonicalUrl: https://jmty-tech.hatenablog.com/entry/2026/07/09/183949
+ids:
+  arxiv: null
+  doi: null
+publisher: ジモティー Tech Blog
+authors: [鈴木]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-07-09
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G08
+  query: Spectee 2層レビュー AIが先にレビュー 人間が後段 PRサイズ 2136行 987行 Claude Code
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06, TH10]
+events: []
+summary: コードレビューの判断を「AI管轄」と「人間管轄」に分け、人は diff ではなく AI の作るレポートで承認を判断する運用の開始報告。実績は本番影響のない PR 1件で、見落としやスループットは未検証と本人が書いている。
+claims:
+  - id: c1
+    text: ロジックの妥当性、バグ、脆弱性、性能、規約準拠を AI 管轄とし、その理由を AI の方が検出精度が高いという考えに置く。測定は示されていない。
+    quote: AI管轄としたものは、現時点でAIの方が人間よりも検出精度が高いと考えています。
+    locator: AIに任せられるもの、人間が責任を持つべきもの
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 人間管轄(目的と変更の概要、永続する命名、トレードオフを伴う設計判断、変更後の構造)は、AI が判断材料をレポートにまとめ、人は diff ではなくそのレポートで判断する。人の判断の入力を AI が作る構成である。
+    quote: AIが判断材料をレポートとしてまとめ、人間はdiffではなくレポートを見て判断する
+    locator: AIに任せられるもの、人間が責任を持つべきもの — 管轄とレビューの形の表
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: トレードオフを伴う設計判断は、後で問題になったときに引き受けるのがチームであることを理由に、レポートに選択肢と理由を列挙させ最終判断を人に残す。
+    quote: レポートには選択肢と理由を列挙させ、最終判断は人間とします。
+    locator: トレードオフを伴う設計判断
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q2, TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 実績は、このスキルを実装した PR 自身の1件で、人のレビュアが diff を見ずに approve した。本番影響のない変更だった点を本人が割り引いている。承認操作は人が行っている。
+    quote: 「本番影響のないスキルなのでapproveのハードルが低い」という点は割り引く必要がありますが、ひとまず当初の目論見はクリアしたことになります。
+    locator: 実際のレポート
+    quant:
+      value: 1件
+      n: PR 1件(本番影響のないスキル実装)
+      design: 自己報告
+      population: ジモティーの1チーム
+    evidenceKind: case-report
+    rqs: [TH01-Q3, BASE-Q2]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: プロダクトコードで diff を見ずに承認できるか、見落としでバグが出荷されるか、スループットが上がるかは未検証と明記している。継続運用の結果はまだ無い。
+    quote: レポートしか見ないことで見落としが生まれ、バグが出荷されるのか。そして肝心の、開発のスループットは実際に上がるのか。
+    locator: これから
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, BASE-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:05.511Z
+    httpStatus: 200
+    finalUrl: https://jmty-tech.hatenablog.com/entry/2026/07/09/183949
+    contentType: text/html; charset=utf-8
+    titleFetched: 「人間がdiffを読まないコードレビュー」をやってみた - ジモティー Tech Blog
+    titleMatch: true
+    dateMeta: 2026-07-09
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: 件数の数字は明記なし。「このレビューレポートのスキルを実装したPR自身」という単数の PR(1件相当)
+        extractedQuote: このレビューレポートのスキルを実装したPR自身に対しレポートを付けました。 / その結果、無事、diffを見ることなくapproveをもらい、マージすることができました。 「本番影響のないスキルなのでapproveのハードルが低い」という点は割り引く必要がありますが、
+        locator: 「実際のレポート」
+        note: 「1件」という数値表記は原文に無く、対象が当該 PR 自身ひとつであることから読み取る値。approve は人間レビュアーが行った(「人間レビュアーに依頼しました」)。原文の割引理由は「本番影響のないスキルなので approve のハードルが低い」。プロダクトコードでの検証は「これから」で未実施とされる。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

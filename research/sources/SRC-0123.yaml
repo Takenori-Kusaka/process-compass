@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0123
+status: included
+excludeReason: null
+title: Claude Code のトークン消費を実測したら、ほとんどは本当にキャッシュだった
+url: https://qiita.com/leomarokun/items/1e299daebd089b26786d
+canonicalUrl: https://qiita.com/leomarokun/items/1e299daebd089b26786d
+ids:
+  arxiv: null
+  doi: null
+publisher: Qiita
+authors: [leomarokun]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-06-25
+publishedBasis: page
+version: null
+updated: 2026-06-26
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code トークン 実測 コスト キャッシュ ccusage
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: 個人の JSONL ログ全件(104 ファイル・97 セッション・応答 5,529 回)を input / cache_read / cache_creation / output に分解した実測(2026-06-25)。キャッシュヒット率 95.0%、Opus 4.8 単価で換算すると $702.93、キャッシュ無しの仮想額 $3,068.44(77.1% 削減)。
+claims:
+  - id: c1
+    text: 97 セッションの集計で新規入力 352 万、cache_read 5.42 億、cache_creation 2,507 万、出力 591 万トークン。入力側の 95.0% がキャッシュ読み込み。#274 の構成比と同型。
+    quote: "新規入力(fresh input) : 3,521,265 キャッシュ読込(cache_read): 542,306,960 キャッシュ書込(cache_creation) : 25,066,436 出力(output) : 5,909,232 入力側合計 : 570,894,661 キャッシュヒット率(read 比): 95.0%"
+    locator: 集計結果の表
+    quant:
+      value: cache hit 95.0%; read 5.42e8 / output 5.9e6
+      n: 97 sessions, 5,529 responses, 1 user
+      design: log aggregation
+      population: 個人の Claude Code 利用(サブスク)
+    evidenceKind: observational
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: Opus 4.8 単価(入力 $5 / 出力 $25 / read 0.1x / creation は 1 時間 TTL で 2x)で換算すると $702.93。キャッシュ無しの仮想額 $3,068.44 に対し 77.1% 削減。
+    quote: "API 従量換算(キャッシュ有) : $ 702.93 仮想コスト(キャッシュ無) : $ 3068.44 キャッシュによる削減 : $ 2365.51 (77.1 % 削減)"
+    locator: お金に直すといくらか
+    quant:
+      value: $702.93 vs $3,068.44 (-77.1%)
+      n: 同上
+      design: counterfactual price arithmetic
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:52.264Z
+    httpStatus: 200
+    finalUrl: https://qiita.com/leomarokun/items/1e299daebd089b26786d
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Code のトークン消費を実測したら、ほとんどは本当にキャッシュだった - Qiita
+    titleMatch: true
+    dateMeta: 2026-06-26
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 97セッション(104ファイル、応答5,529回)。新規入力 3,521,265(約352万)、cache_read 542,306,960(約5.42億)、cache_creation 25,066,436(約2,507万)、出力 5,909,232(約591万)、read 比 95.0%
+        extractedQuote: "新規入力(fresh input) : 3,521,265 キャッシュ読込(cache_read): 542,306,960 キャッシュ書込(cache_creation) : 25,066,436 出力(output) : 5,909,232 入力側合計 : 570,894,661 キャッシュヒット率(read 比): 95.0%"
+        locator: とりあえず全部足してみる(集計結果の表)
+        note: 標本は原文「私の環境(104 ファイル、97 セッション、アシスタントの応答 5,529 回分)」。95.0% の分母は入力側合計(新規+read+creation)。数字はスナップショットで回すたびに増えると著者が明記。「#___の構成比と同型」は原典外の参照。
+        adjudication:
+          verdict: consistent
+          reason: 97 セッション、新規入力 3,521,265≒352万、cache_read 542,306,960≒5.42億、cache_creation 25,066,436≒2,507万、出力 5,909,232≒591万、read 比 95.0% はいずれも抜粋どおり(丸めのみ)。95.0% の分母は入力側合計(新規+read+creation)=570,894,661 で、主張の「入力側の 95.0%」と一致する(542,306,960/570,894,661≒0.950)。「#274 の構成比と同型」は内部参照のため判定対象外。数値は著者のスナップショットである点に留意。
+          date: 2026-09-23
+      c2:
+        verdict: match
+        extractedValue: Opus 4.8(input $5 / output $25 per 1M、read 0.1倍=$0.50、creation は1時間TTLで2倍=$10)。キャッシュ有 $702.93、キャッシュ無 $3068.44、削減 $2365.51(77.1%)
+        extractedQuote: "API 従量換算(キャッシュ有) : $ 702.93 仮想コスト(キャッシュ無) : $ 3068.44 キャッシュによる削減 : $ 2365.51 (77.1 % 削減)"
+        locator: お金に直すといくらか
+        note: 単価の原文:「Opus 4.8 で input $5 / output $25 per 1M、cache_read はその 0.1倍=$0.50、cache_creationはサブスクの1時間TTL なので2倍=$10」。著者はサブスク利用で、金額は API 従量課金だった場合の試算と明記。
+        adjudication:
+          verdict: consistent
+          reason: 単価(Opus 4.8、入力 $5・出力 $25 per 1M、read 0.1倍、creation は1時間 TTL で2倍)、キャッシュ有 $702.93、キャッシュ無 $3,068.44、削減 77.1% はいずれも抜粋と一致する(2365.51/3068.44≒0.771)。金額は著者がサブスク利用のため API 従量課金だった場合の試算である。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

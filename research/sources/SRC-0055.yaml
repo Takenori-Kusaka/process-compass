@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0055
+status: included
+excludeReason: null
+title: "Prompt Quality and Pull Request Outcomes: A Stage-Based Empirical Study of LLM-Assisted Development"
+url: https://arxiv.org/abs/2606.19644
+canonicalUrl: arxiv:2606.19644
+ids:
+  arxiv: "2606.19644"
+  doi: 10.48550/arXiv.2606.19644
+publisher: arXiv
+authors: [Sserunjogi Richard, Ogenrwot Daniel, Businge John]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-06-17
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-2
+  query: GET https://arxiv.org/abs/2606.19644 / https://arxiv.org/html/2606.19644
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH06]
+events: []
+summary: 前回「タイトルのみ確認」だったプレプリント(48 ページ、査読情報なし)。OSS PR にリンクされた 265 件の開発者–ChatGPT 対話を Context / Specificity / Verification の 3 次元で評価。段階により効く次元が異なり、コード採用(adoption)の主予測子は Verification(検証可能性の手がかり)だった。
+claims:
+  - id: c1
+    text: 標本は自己申告の ChatGPT 利用を含む OSS PR から手作業で検証した 265 件の対話。
+    quote: We analyze 265 manually validated developer-ChatGPT interactions derived from self-admitted ChatGPT usage in open-source pull requests.
+    locator: Abstract
+    quant:
+      value: 265 interactions
+      n: "265"
+      design: observational (mixed methods)
+      population: OSS PRs with shared ChatGPT links
+    evidenceKind: observational
+    rqs: [TH08-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: Specificity と Context は実行可能なコード生成に、Verification はコード採用に、Context は統合の深さに最も強く関連する。プロンプトの「検証可能性の手がかり」が採用を左右する。
+    quote: Specificity and Context are most strongly associated with actionable code generation; Verification emerges as the primary predictor of code adoption; and integration depth is most strongly associated with Context.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH08-Q1, TH08-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: LLM による注釈は Context を系統的に過小評価し Verification を安定して判定できないため、人と LLM のハイブリッド注釈を採る。LLM 判定者の限界の一例。
+    quote: Context is systematically under-scored by the LLM; and Verification remains difficult to assess consistently, motivating a hybrid human-LLM annotation strategy.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:36:05.421Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2606.19644
+    contentType: text/html; charset=utf-8
+    titleFetched: "Prompt Quality and Pull Request Outcomes: A Stage-Based Empirical Study of LLM-Assisted Development"
+    titleMatch: true
+    dateMeta: 2026-06-17
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Prompt Quality and Pull Request Outcomes: A Stage-Based Empirical Study of LLM-Assisted Development"
+      authors: ["Sserunjogi, Richard", "Ogenrwot, Daniel", "Businge, John"]
+      v1Date: 2026-06-17
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

@@ -1,0 +1,94 @@
+schemaVersion: 0
+id: SRC-0052
+status: included
+excludeReason: null
+title: Open-Sourcing Adaptive Workflows for AI-Driven Development Life Cycle (AI-DLC)
+url: https://aws.amazon.com/blogs/devops/open-sourcing-adaptive-workflows-for-ai-driven-development-life-cycle-ai-dlc
+canonicalUrl: https://aws.amazon.com/blogs/devops/open-sourcing-adaptive-workflows-for-ai-driven-development-life-cycle-ai-dlc
+ids:
+  arxiv: null
+  doi: null
+publisher: AWS DevOps & Developer Productivity Blog
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2025-11-29
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: Kiro AWS spec-driven development announcement aidlc-workflows awslabs AI-DLC"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH03, TH07]
+events:
+  - date: 2025-11-29
+    label: AWS が AI-DLC ワークフロー(Q Developer Rules / Kiro Steering)をオープンソース化
+summary: AI-DLC 実装のオープンソース化を告げる AWS 公式ブログ。固定ワークフローを避ける原則 10、各ステージでの human-in-the-loop、自動化による「プロセスの萎縮(process atrophy)」への警戒を述べる。
+claims:
+  - id: c1
+    text: AI-DLC は全ステージで協調的な human-in-the-loop を要求し、AI が計画を生成し関係者が集まって検証する。
+    quote: AI-DLC addresses this challenge by requiring a collaborative human-in-the-loop cycle at every stage of the workflow. In this loop, AI generates a plan to execute a task, and relevant stakeholders assemble, review, and validate it.
+    locator: 3. Tools that Reduce the Emphasis on Human Oversight
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3, TH01-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: AWS は自動化が進むと開発者が受動的実行に流れ「AI に全部決めさせる」プロセス萎縮が起きると警告する。
+    quote: "As AI tools automate more of the Software Development Life Cycle (SDLC), a new risk has emerged: process atrophy. Developers, excited by automation, often drift into passive execution—allowing AI to “decide everything.”"
+    locator: 3. Tools that Reduce the Emphasis on Human Oversight
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q5]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 原則 10 として、開発経路(新規・リファクタ・欠陥修正等)ごとの固定ワークフローを規定せず、AI が経路に応じた計画を提案する。
+    quote: AI-DLC avoids prescribing opinionated workflows for different development pathways (such as new system development, refactoring, defect fixes, or microservice scaling).
+    locator: 1. The “One-Size-Fits-All” Workflow Problem
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:56.960Z
+    httpStatus: 200
+    finalUrl: https://aws.amazon.com/blogs/devops/open-sourcing-adaptive-workflows-for-ai-driven-development-life-cycle-ai-dlc/
+    contentType: text/html;charset=UTF-8
+    titleFetched: Open-Sourcing Adaptive Workflows for AI-Driven Development Life Cycle (AI-DLC) | Amazon Web Services
+    titleMatch: true
+    dateMeta: 2025-11-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: "10(Principle 10: No Hard-Wired, Opinionated SDLC Workflows)"
+        extractedQuote: avoids prescribing opinionated workflows for different development pathways (such as new system development, refactoring, defect fixes, or microservice scaling). ... AI recommends the Level 1 Plan
+        locator: 1. The “One-Size-Fits-All” Workflow Problem > How AI-DLC addresses this challenge
+        note: 原文は "through the Principle 10 ( No Hard-Wired, Opinionated SDLC Workflows ) as defined in the AI-DLC Method Definition Paper"。つまり原則はブログではなく Method Definition Paper のもので、ブログはそれを引いている。ask の「計画」は原文では "AI recommends the Level 1 Plan based on the given pathway intention"。経路の例には microservice scaling も含まれる。ブログは 29 NOV 2025 付。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

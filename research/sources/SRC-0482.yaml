@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0482
+status: included
+excludeReason: null
+title: "AI's impact on software engineers in 2026: key trends, Part 2"
+url: https://newsletter.pragmaticengineer.com/p/ai-impact-on-software-engineers-part-2
+canonicalUrl: https://newsletter.pragmaticengineer.com/p/ai-impact-on-software-engineers-part-2
+ids:
+  arxiv: null
+  doi: null
+publisher: The Pragmatic Engineer
+authors: [Gergely Orosz, Elin Nilsson]
+orgType: media
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-05-19
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: paywall
+readLevel: section
+foundBy:
+  cluster: TH11
+  query: Pragmatic Engineer AI tooling survey 2026 results engineers Claude Code usage impact
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11, TH05, TH06]
+events: []
+summary: Pragmatic Engineer の2026年 AI ツール調査(906回答、同シリーズ 2026-03-03 の記事で標本を開示)の後編。後半は有料で、公開部分を読んだ。AIによりコードベース品質が下がっている、レビュー過多でレビューの質が落ちる、という回答パターンを報告する。
+claims:
+  - id: c1
+    text: 調査データの具体的なパターンとして、AIによってコードベースの品質が低下していることが挙げられる。
+    quote: A concrete pattern in our survey data is that codebase quality is decreasing due to AI.
+    locator: 3. Impact on codebase quality
+    quant:
+      value: qualitative pattern
+      n: 906 responses
+      design: self-selected newsletter reader survey
+      population: Pragmatic Engineer readers (55% engineers, 34% eng leadership; median 11–15 yrs exp.)
+    evidenceKind: survey
+    rqs: [TH11-Q2, TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 回答者の声として、AI生成の低品質な成果物の量が RFC やコードの有意味なレビューを困難にし、AI起因の本番インシデントを受けて一部ツールを撤回した例が挙がっている(単一回答者)。
+    quote: There’s an overwhelming volume of low-quality work product that is generated entirely or in part by AI, which has made it very difficult to conduct meaningful review of RFCs or code.
+    locator: 1. AI tooling tradeoffs(回答者引用)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q3, TH11-Q3]
+    issues: [252, 272]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:09.918Z
+    httpStatus: 200
+    finalUrl: https://newsletter.pragmaticengineer.com/p/ai-impact-on-software-engineers-part-2
+    contentType: text/html; charset=utf-8
+    titleFetched: "AI’s impact on software engineers in 2026: key trends, Part 2"
+    titleMatch: true
+    dateMeta: 2026-05-19
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

@@ -1,0 +1,104 @@
+schemaVersion: 0
+id: SRC-0159
+status: included
+excludeReason: null
+title: Time Horizon 1.1
+url: https://metr.org/blog/2026-1-29-time-horizon-1-1/
+canonicalUrl: https://metr.org/blog/2026-1-29-time-horizon-1-1
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-01-29
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: 前回メモ §3 の出典 URL"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events:
+  - date: 2026-01-29
+    label: METR が Time Horizon 1.1 を公開(タスク 170→228、Inspect へ移行)
+summary: TH1.1 の公開記事。2024 年以降の倍加時間 88.6 日という前回メモの値は、2026-09-23 時点でも本記事の付録表にそのまま残っている(記事は改訂されていない)。
+claims:
+  - id: c1
+    text: 付録表で 2024 年以降の 50% 倍加時間は TH1 で 108.9 日、TH1.1 で 88.6 日。前回メモ §3・§6-1 の値は原典どおり。
+    quote: P50 doubling time, >=2024 108.9 days 88.6 days
+    locator: Appendices / Comparison of Old and New Estimates
+    quant:
+      value: 88.6 days (>=2024, TH1.1)
+      n: 14 models (11 SOTA)
+      design: exponential trend fit
+      population: TH1.1 models through 2025-11
+    evidenceKind: benchmark
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: supports
+  - id: c2
+    text: 本文でも 2024 年以降の倍加時間は TH1 の 109 日から TH1.1 の 89 日へ短縮したと述べている。
+    quote: this was at 109 days under TH1, and falls to 89 days under TH1.1
+    locator: 本文(post-2023 比較の段落)
+    quant:
+      value: 109 → 89 days
+      n: 14 models
+      design: trend fit
+      population: models since 2024
+    evidenceKind: benchmark
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.187Z
+    httpStatus: 200
+    finalUrl: https://metr.org/blog/2026-1-29-time-horizon-1-1/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Time Horizon 1.1
+    titleMatch: true
+    dateMeta: 2026-01-29
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "P50(50%)倍加時間: >=2023 は TH1.0=165.3日 [129,211] / TH1.1=130.8日 [107,161]。>=2024 は TH1.0=108.9日 / TH1.1=88.6日"
+        extractedQuote: P50 doubling time, >=2023 165.3 days [129, 211] 130.8 days [107, 161] P50 doubling time, >=2024 108.9 days 88.6 days
+        locator: Appendices > Comparison of Old and New Estimates(表。列は TH1.0 / TH1.1)
+        note: "ask はどちらの年の行か(>=2023 か >=2024 か)を伏せているため両行を抽出した。全期間の P50 倍加時間は TH1.0=195.8日 [162,223]、TH1.1=196.5日(脚注3: pre-2023 を TH1.0 で継ぎ足した stitched trend)。後半の「前回メモ §…の値は原典どおり」は前回メモとの照合であり、原典だけでは確認できない。"
+        adjudication:
+          verdict: consistent
+          reason: blindQuote の付録表 'P50 doubling time, >=2024 108.9 days 88.6 days'(列は TH1.0 / TH1.1)と一致する。主張は >=2024 行を正しく引いており、>=2023 行(165.3 / 130.8 日)と取り違えていない。前回メモとの照合は内部参照のため判定対象外。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: "2023年以降: TH1=165日 → TH1.1=131日(20%速い)。参考: 2024年以降は TH1=109日 → TH1.1=89日"
+        extractedQuote: The post-2023 doubling-time is 131 days under TH1.1, compared to 165 days under TH1, meaning progress is estimated to be 20% more rapid under TH1.1.
+        locator: 本文、第2の比較("Second, we compare the TH1.1 and TH1 trends since 2023")の段落
+        note: 本文は「両手法でデータがある2023年以降」の比較で、TH1.1 側は推定したモデル数が少なく、両トレンドのモデル集合は「大部分重なるが同一ではない」と断っている。本文は丸めた値(131/165)で、付録表は 130.8/165.3。2024年以降の値(109→89日)も本文に併記あり。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://metr.org/blog/2026-1-29-time-horizon-1-1

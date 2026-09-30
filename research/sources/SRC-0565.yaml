@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0565
+status: included
+excludeReason: null
+title: "Assumption-Based Planning: A Planning Tool for Very Uncertain Times (MR-114-A)"
+url: https://www.rand.org/pubs/monograph_reports/MR114.html
+canonicalUrl: doi:10.7249/mr114
+ids:
+  arxiv: null
+  doi: 10.7249/MR114
+publisher: RAND Corporation (Arroyo Center)
+authors: ["Dewar, James A.", "Builder, Carl H.", "Hix, William M.", "Levin, Morlie Hammer"]
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: "1993"
+publishedBasis: page
+version: MR-114-A
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G05
+  query: "直接取得: 指示(a)で名指しされた原典(rand.org MR-114)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH09]
+events: []
+summary: RAND の Assumption-Based Planning 原典(1993)。計画が依拠する前提のうち崩れうるものを特定し、前提ごとに signpost(脆弱性の変化を示す事象・閾値)と shaping / hedging の行動を定める 5 段階。PDF は画像のみで文字層が無く、要約(pp. xi–xiii)を画像で読んだ(quote は目視転記)。本文の章は未読。
+claims:
+  - id: c1
+    text: ABP は、計画が依拠する前提のうち計画期間内に崩れうるものを特定し、その脆弱性を監視する signpost と、前提を守る行動・崩れた場合に備える行動を定義する。前提を『観測する対象』として扱う手続の原典である。
+    quote: signposts can be developed to monitor their vulnerability and actions can be defined both to protect the assumptions and to prepare for the possibility that they may fail in any event.
+    locator: Summary, p. xi
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c2
+    text: signpost は、前提の脆弱性が変化していることを明確に示す事象または閾値と定義される。前提ごとに観測条件を先に決めておく様式である。
+    quote: A signpost is an event or threshold that clearly indicates the changing vulnerability of an assumption.
+    locator: "Summary, Step 3: Define Signposts, p. xiii"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c3
+    text: hedging action は、重要な前提が崩れたものとして計画を考え直す再計画の行為を要する。前提の失敗が上位の計画の再訪へつながる手続を、前提の側から定めている。
+    quote: Fundamentally different from a shaping action, a hedging action requires an act of replanning.
+    locator: "Summary, Step 5: Define Hedging Actions, p. xiii"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3, TH09-Q2]
+    issues: [256, 250]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:47.035Z
+    httpStatus: 200
+    finalUrl: https://www.rand.org/pubs/monograph_reports/MR114.html
+    contentType: text/html; charset=UTF-8
+    titleFetched: Assumption-Based Planning
+    titleMatch: true
+    dateMeta: "1993"
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref:
+      status: 200
+      title: "A Planning Tool for Very Uncertain Times: A Planning Tool for Very Uncertain Times"
+      issued: "1993"
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: (数値なし)
+        extractedQuote: The task then is to identify those assumptions that are vulnerable to failure in the time frame of planning interest. For such assumptions, signposts can be developed to monitor their vulnerability and actions can be defined both to protect the assumptions and to prepare for the possibility that they may fail in any event.
+        locator: Summary, p. xi(PDF 9 ページ目)
+        note: ランディングページ本文は抄録のみ。全文 PDF(/content/dam/rand/pubs/monograph_reports/2005/MR114.pdf)は画像スキャンでテキスト層が無いため、ページを画像化して目視で読み取った。『観測する対象として扱う』という表現自体は原文に無い。
+      c2:
+        verdict: match
+        extractedValue: (数値なし)
+        extractedQuote: A signpost is an event or threshold that clearly indicates the changing vulnerability of an assumption.
+        locator: "Summary, Step 3: Define Signposts, p. xiii(PDF 11 ページ目)"
+        note: 画像スキャン PDF を目視で読み取り。『前提ごとに観測条件を先に決めておく様式』という表現は原文に無い(原文は signpost が shaping/hedging action の実施時期を決める役割を持つと述べる)。
+      c3:
+        verdict: match
+        extractedValue: (数値なし)
+        extractedQuote: Fundamentally different from a shaping action, a hedging action requires an act of replanning. Defining hedging actions requires rethinking an organization's plans as though an important assumption had failed, and it ascribes certainty to a failure that is only plausible.
+        locator: "Summary, Step 5: Define Hedging Actions, p. xiii(PDF 11 ページ目)"
+        note: 画像スキャン PDF を目視で読み取り。原文の再計画は、前提が実際に崩れた後の手続ではなく、崩れたと仮定して(as though)いま取れる行動を探るためのもの。『上位の計画の再訪へつながる』という記述は原文に無い。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0335
+status: included
+excludeReason: null
+title: DRBFMを活用した設計品質の向上
+url: https://www.skygroup.jp/tech-blog/article/1592
+canonicalUrl: https://skygroup.jp/tech-blog/article/1592
+ids:
+  arxiv: null
+  doi: null
+publisher: Sky株式会社 Sky Tech Blog
+authors: []
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2025-09-14
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH02
+  query: DRBFM ソフトウェア 変更点 変化点 レビュー 事例
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH06]
+events: []
+summary: トヨタ発の DRBFM(変更点・変化点に着目した設計レビュー)をソフトウェア開発へ適用する手順の解説。メモリ使用量や API 呼出頻度の変化を変化点として扱う例を示す。
+claims:
+  - id: c1
+    text: DRBFM は自動車・ハードウェアに限らず、クラウドのサーバアプリやウェブアプリを含むソフトウェア開発にも適用できると述べる。変化点管理のソフトウェアへの転用例である。
+    quote: 自動車業界やハードウェアの開発に限らず、クラウド上でのサーバアプリやウェブアプリなど、さまざまなソフトウェア開発で活用できるものです！
+    locator: そもそもDRBFMとは？
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: ソフトウェアの変化点として、設計変更に伴う API 呼出頻度・メモリ使用量・通信量・呼出タイミングの変化を抽出するよう求める。
+    quote: 設計変更することで、呼出先のAPIの呼出頻度が変化する。
+    locator: ① 変更点と変化点の抽出
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: DRBFM が工程に組み込まれていなくても、設計レビューで同じ流れの議論をすれば検討事項が見えると勧める。正式な工程化を前提にしない軽量な導入の提案である。
+    quote: DRBFMが開発プロセスになくても、設計DRでDRBFMの流れに沿った議論をすることで、検討すべき内容が見えてくるかもしれません。
+    locator: まとめ
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2, TH02-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:44.361Z
+    httpStatus: 200
+    finalUrl: https://www.skygroup.jp/tech-blog/article/1592/
+    contentType: text/html; charset=utf-8
+    titleFetched: DRBFMを活用した設計品質の向上｜Ｓｋｙ Tech Blog（スカイ テック ブログ）
+    titleMatch: true
+    dateMeta: 2025-09-14
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://skygroup.jp/tech-blog/article/1592

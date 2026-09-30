@@ -1,0 +1,83 @@
+schemaVersion: 0
+id: SRC-0112
+status: included
+excludeReason: null
+title: Gemini Developer API pricing
+url: https://ai.google.dev/gemini-api/docs/pricing
+canonicalUrl: https://ai.google.dev/gemini-api/docs/pricing
+ids:
+  arxiv: null
+  doi: null
+publisher: Google (Gemini API docs)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH04
+  query: Gemini API context caching pricing implicit caching 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events: []
+summary: Google 公式の Gemini API 単価表(2026-09-23 取得)。Gemini 3.8 Flash は入力 $0.75、キャッシュ読み取り $0.075(0.1x)に加え、キャッシュ保持に $0.50 / 100 万トークン / 時間の保管料が掛かる。2027-01-01 から全て倍額。
+claims:
+  - id: c1
+    text: Gemini 3.8 Flash の Standard(有料)階層では、コンテキストキャッシュが 100 万トークンあたり $0.075(入力 $0.75 の 0.1 倍に相当)で、別に保管料が 100 万トークン・1 時間あたり $0.50 かかる。2027-01-01 からは、キャッシュが $0.15、入力が $1.50、保管料が $1.00 に倍増する。
+    quote: Context caching price Free of charge $0.075 through December 31, 2026. $0.15 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026.
+    locator: Gemini 3.8 Flash 表 > Standard > Paid Tier
+    quant:
+      value: $0.075/MTok read + $0.50/MTok/hour storage
+      n: null
+      design: price list
+      population: Gemini 3.8 Flash paid tier
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1, TH02-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:46.791Z
+    httpStatus: 200
+    finalUrl: https://ai.google.dev/gemini-api/docs/pricing?hl=bn
+    contentType: text/html; charset=utf-8
+    titleFetched: জেমিনি ডেভেলপার এপিআই মূল্য নির্ধারণ  |  Gemini API  |  Google AI for Developers
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Gemini 3.8 Flash(Standard, Paid): コンテキストキャッシュ $0.075、入力 $0.75(比は 0.1x に相当・計算値)、保管料 $0.50 / 1,000,000 tokens per hour。2027-01-01 から入力 $1.50・保管 $1.00(キャッシュ $0.15、出力 $7.50 も倍増)"
+        extractedQuote: Context caching price Free of charge $0.075 through December 31, 2026. $0.15 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026.
+        locator: Gemini 3.8 Flash 表 > Standard > Paid Tier
+        note: '入力価格の原文: "Input price Free of charge $0.75 through December 31, 2026. $1.50 starting January 1, 2027." 「0.1x」は原典に明記が無く、$0.075/$0.75 から算出した値。Batch/Flex ではキャッシュ $0.0375、Priority では $0.135 と階層で異なる(保管料はいずれも $0.50→$1.00)。ask の値は Standard 階層に限られる。'
+        adjudication:
+          verdict: corrected
+          reason: 価格は blindQuote と入力価格の原文に一致する。0.1 倍は 0.075/0.75 = 0.1 で導ける。ただしこの値は Standard 階層に限られ、Batch/Flex では $0.0375、Priority では $0.135 と階層で異なる。主張はこの条件を落としている。「Anthropic・OpenAI と異なり保持時間に比例する料金がある」は他社との比較で、この出典では確かめられないため訂正文から外した。
+          date: 2026-09-23
+          originalText: Gemini 3.8 Flash のコンテキストキャッシュは読み取り $0.075(入力 $0.75 の 0.1x)に加え、保管料 $0.50 / 100 万トークン / 時間。Anthropic・OpenAI と異なり保持時間に比例する料金がある。2027-01-01 から入力 $1.50・保管 $1.00 に倍増予定。
+          originalQuote: Context caching price Free of charge $0.075 through December 31, 2026. $0.15 starting January 1, 2027. $0.50 / 1,000,000 tokens per hour (storage price) through December 31, 2026. $1.00 / 1,000,000 tokens per hour (storage price) starting January 1, 2027.
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

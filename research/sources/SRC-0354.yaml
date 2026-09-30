@@ -1,0 +1,138 @@
+schemaVersion: 0
+id: SRC-0354
+status: included
+excludeReason: null
+title: "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks"
+url: https://arxiv.org/abs/2602.12670
+canonicalUrl: arxiv:2602.12670
+ids:
+  arxiv: "2602.12670"
+  doi: 10.48550/arXiv.2602.12670
+publisher: arXiv
+authors: [Li Xiangyi, ほか76名]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-02-13
+publishedBasis: arxiv-v1
+version: v4
+updated: 2026-06-14
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: SkillsBench curated skills vs self-generated skills pass rate results
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: 87タスク×18構成でスキルの有無を対照比較したベンチマーク(v4)。人手のスキルは平均+16.6pt だが、4本以上や網羅的な長文スキルでは効果が縮む。
+claims:
+  - id: c1
+    text: 人手で整備したスキルは平均合格率を33.9%から50.5%へ+16.6pt 上げるが、構成により+4.1〜+25.7pt と幅がある。
+    quote: Curated Skills raise the average pass rate from 33.9% to 50.5% (+16.6 percentage points; 25.5% normalized gain), with configuration-level gains ranging from +4.1 to +25.7 pp.
+    locator: Abstract
+    quant:
+      value: +16.6 pp (33.9%→50.5%)
+      n: 87 tasks x 18 model-harness configurations
+      design: paired controlled benchmark (no-Skills vs curated-Skills)
+      population: Claude Code, Codex, Gemini CLI, OpenHands 等
+    evidenceKind: benchmark
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: 1タスクに付けるスキルが1本で+18.0pt、2〜3本で+19.0pt、4本以上では+10.1pt に縮む。過剰な内容が負荷や指示の衝突を生むと著者は解釈する。
+    quote: tasks paired with one Skill gain +18.0 pp, 2–3 Skills gain +19.0 pp, and ≥4 Skills give only +10.1 pp, suggesting excess content creates overhead or conflicting guidance.
+    locator: §5 / Appendix F.1 Skill Quantity
+    quant:
+      value: +18.0 / +19.0 / +10.1 pp (1 / 2–3 / ≥4 skills)
+      n: 87 tasks
+      design: stratified analysis of paired benchmark
+      population: curated Skills bundles
+    evidenceKind: benchmark
+    rqs: [TH03-Q1, TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 簡潔・標準長のスキル(+19.0/+21.5pt)が、詳細(+14.5pt)・網羅的文書(+0.7pt)を上回る。網羅的に書くほど効果が消える。
+    quote: compact and standard-length Skills (+19.0 and +21.5 pp) outperform detailed (+14.5 pp) and comprehensive documentation (+0.7 pp)
+    locator: Appendix F.2 Skill Complexity
+    quant:
+      value: +19.0 / +21.5 / +14.5 / +0.7 pp
+      n: 87 tasks
+      design: stratified analysis of paired benchmark
+      population: curated Skills by length class
+    evidenceKind: benchmark
+    rqs: [TH03-Q1, TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: スキルの発見は多くの場合ボトルネックではなく、スキル呼び出し率が高くても高い解決率は保証されない(残る失敗はタスクとスキルの接続後に起きることが多い)。タスク同梱スキルの呼び出し率は 18 構成で 46.4%〜99.2% だった。
+    quote: High Skill Invocation Rate does not guarantee high resolution, so the remaining failures often occur after task-Skill access.
+    locator: §5.1.1 Finding 4 / Appendix K Table 14
+    quant:
+      value: invocation rate 46%–99% across configurations
+      n: 18 configurations
+      design: trajectory audit
+      population: task-specific Skills
+    evidenceKind: benchmark
+    rqs: [TH03-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:22.232Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2602.12670
+    contentType: text/html; charset=utf-8
+    titleFetched: "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks"
+    titleMatch: true
+    dateMeta: 2026-02-13
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "SkillsBench: Benchmarking How Well Agent Skills Work Across Diverse Tasks"
+      authors: ["Li, Xiangyi", "Liu, Yimin", "Chen, Wenbo", "You, Bingran", "Di, Zonglin", "He, Yifeng"]
+      v1Date: 2026-02-13
+      latestVersion: 4
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 1本 +18.0pp / 2–3本 +19.0pp / 4本以上 +10.1pp(87タスク・18構成の集計)
+        extractedQuote: tasks paired with one Skill gain +18.0 pp, 2–3 Skills gain +19.0 pp, and ≥ 4 Skills give only +10.1 pp, suggesting excess content creates overhead or conflicting guidance.
+        locator: §5.1.3 Finding 6 / Appendix F.1 Table 8(arXiv v4, 2026-06-14)
+        note: "ask 冒頭の「___タスク」は原文では 'tasks paired with one Skill'(タスクあたりのスキル数)。集計母数は 87 タスク(Table 8: 1本=23, 2–3本=43, ≥4本=21 タスク)。1本→2–3本は +18.0→+19.0 と増加しており、単調に縮むわけではない。著者の表現は 'suggesting'(示唆)、Table 8 の見出しは 'consistent with cognitive overhead and conflicting guidance'。"
+      c4:
+        verdict: match
+        extractedValue: 呼び出し率 46.4%〜99.2%(18構成)
+        extractedQuote: High Skill Invocation Rate does not guarantee high resolution, so the remaining failures often occur after task-Skill access.
+        locator: §5.1.1 Finding 4 / Appendix K Table 14
+        note: "範囲は Appendix K Table 14 による: 最高 'Codex GPT-5.5 99.2% 259/261'、最低 'OpenHands Gemini 3.1 Flash Lite 46.4% 121/261'。計測対象はタスク同梱スキルのみで、harness 同梱スキルは除外。Finding 4 の見出しは 'Skill discovery is usually not the bottleneck.' 本文中に数値範囲はない。Vercel 報告との対比は原典に書かれていない(ask 側の付加)。"
+        adjudication:
+          verdict: corrected
+          reason: Finding 4 と「High Skill Invocation Rate does not guarantee high resolution」は抜粋どおり。46〜99% は Table 14 の 46.4%〜99.2%(18構成、harness 同梱スキルを除くタスク同梱スキルのみ)を丸めた値で整合する。ただし「Vercel の報告とは結論が分かれる」は原典に無い主張者側の付加なので削除した。機械判定の mismatch は 46 と 46.4 の丸め差によるものと考えられる。
+          date: 2026-09-24
+          originalText: スキルの発見(呼び出し)は多くの場合ボトルネックではなく、呼び出し率が高くても解決率は保証されない(呼び出し率は構成により46〜99%)。Vercel の「呼ばれない」報告とは結論が分かれる。
+          originalQuote: "Finding 4: Skill discovery is usually not the bottleneck."
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

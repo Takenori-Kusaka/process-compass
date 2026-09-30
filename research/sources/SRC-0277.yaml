@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0277
+status: included
+excludeReason: null
+title: Opus 5 世代でルールの書き方は公式に変わった——自作ルールの棚卸し手順
+url: https://zenn.dev/shimo4228/articles/claude5-rules-official-shift-audit
+canonicalUrl: https://zenn.dev/shimo4228/articles/claude5-rules-official-shift-audit
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [shimo4228]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-07-27
+publishedBasis: meta
+version: null
+updated: 2026-08-27
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: ADR ドキュメント 膨張 AI エージェント 読まない 増えすぎ zenn
+derivedFrom: [SRC-0278]
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH03, TH05]
+events: []
+summary: Anthropic の Claude 5 世代向け指針を受けて、個人の自作ルール(CLAUDE.md/rules)を実セッションの system prompt・tool description と照合し、残す・直す・退役を判定した手順と結果の記録。
+claims:
+  - id: c1
+    text: モデル世代交代(Opus 5)を契機に2026-07-25に棚卸しを行い、常駐ルールを5,789 words(20ファイル)から2,463 words(14ファイル)へ削減した。
+    quote: 常駐ルール（毎セッション自動でロードされる分）を 5,789 words から 2,463 words まで削減しました
+    locator: 冒頭 / 「結果と数値」節
+    quant:
+      value: 5,789→2,463 words(-57%)
+      n: 個人1名のハーネス
+      design: wc -w による CLAUDE.md+rules 常駐合計の前後比較
+      population: Claude Code 2.1.220、2026-07-25〜26
+    evidenceKind: case-report
+    rqs: [TH02-Q3, TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: "自作ルールと同じ文脈に載る system prompt には、設定リポジトリのどこにも無い指示(例: Agent ツールを呼ぶなという一文)が注入されており、設定ファイルだけを照合しても競合は見つからない。"
+    quote: runtime 層は自分の設定リポジトリの外からも注入されるため、~/.claude 配下をいくら読んでも全体は分かりません。
+    locator: "「Step 1: 今の runtime 層を実セッションから採る」節"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 著者は削減による性能向上を主張せず、矛盾解決のコストを測る計器が無いと明記し、効果の定量は Anthropic 側の計測に依拠している。
+    quote: なお「競合を解消したから性能が上がった」とは主張しません。私の環境には矛盾解決のコストを測る計器がなく
+    locator: 「結果と数値」節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH03-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 根拠(ADR)が残っていたルールは判定が数分で済み、残っていないルールは git log の考古学になった。以後、全常駐ルールに rationale(根拠)と review-when(失効条件)を持たせた。
+    quote: ADR が残っていたルールは判定が数分で済み、残っていなかったルールは git log の考古学になり、幽霊設定にいたっては消えた時期の特定すらできませんでした。
+    locator: 「まとめ」/「追記（2026-07-26）」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q1, TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.034Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/shimo4228/articles/claude5-rules-official-shift-audit
+    contentType: text/html; charset=utf-8
+    titleFetched: Opus 5 世代でルールの書き方は公式に変わった——自作ルールの棚卸し手順
+    titleMatch: true
+    dateMeta: 2026-07-26
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Opus 5 / 2026-07-25 / 5,789 words(20ファイル) → 2,463 words(14ファイル)
+        extractedQuote: 私は 2026-07-25 に自分の ~/.claude ハーネス（CLAUDE.md や rules などの自作設定一式）でこの棚卸しを実施し、常駐ルール（毎セッション自動でロードされる分）を 5,789 words から 2,463 words まで削減しました
+        locator: 冒頭 / 「結果と数値」節の表(棚卸し前 5,789・20 / 棚卸し後(2026-07-26 時点) 2,463・14)
+        note: 棚卸し後の数値は表で『2026-07-26 時点』、照合は『2026-07-25〜26』実施と原文にあり、日付は1日幅がある。計測は wc -w による CLAUDE.md + rules の常駐合計。契機は Opus 5 ローンチ当日(2026-07-24)の Anthropic 記事。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「2026-07-25 に…この棚卸しを実施し、常駐ルール…を 5,789 words から 2,463 words まで削減」と表(20ファイル→14ファイル)に一致する。削減率は (5,789-2,463)/5,789≈57.5% で -57% と整合する。契機は Opus 5 ローンチ当日の Anthropic 記事で、「モデル世代交代(Opus 5)を契機に」と矛盾しない。棚卸し後の数値が 07-26 時点という1日幅は、実施日 07-25 の記述を否定しない。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

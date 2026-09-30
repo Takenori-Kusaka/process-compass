@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0092
+status: included
+excludeReason: null
+title: Who’s Responsible When AI Goes Wrong? A New Framework Aims to Answer That Question (AI Shared Responsibility Framework)
+url: https://www.coalitionforsecureai.org/whos-responsible-when-ai-goes-wrong-a-new-framework-aims-to-answer-that-question/
+canonicalUrl: https://coalitionforsecureai.org/whos-responsible-when-ai-goes-wrong-a-new-framework-aims-to-answer-that-question
+ids:
+  arxiv: null
+  doi: null
+publisher: Coalition for Secure AI (CoSAI, OASIS Open Project)
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-05-28
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: Anthropic agent autonomy levels human oversight framework 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12]
+events: []
+summary: CoSAI(Cisco, ServiceNow, Intel, Meta, Anthropic, IBM 等が参加)の AI 共有責任フレームワーク(AI SRF)の紹介。5層の各構成要素に責任者を一つずつ割り当て、エージェントの自律度分類ごとに説明責任の要件を対応づける。自律度が上がるほど責任はエンドユーザーから開発者・基盤提供者へ移る。
+claims:
+  - id: c1
+    text: AI SRF はエージェントの自律度を「情報提供のみ」から「人の監視なしに領域横断の判断」まで分類し、各レベルに説明責任の要件を対応づける。
+    quote: The framework includes a classification of agent autonomy levels, from systems that only provide information to those capable of making cross-domain decisions without human oversight, and maps accountability requirements to each level.
+    locator: 本文
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH01-Q1]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c2
+    text: 自律度が上がるほど責任はエンドユーザーからアプリケーション開発者・エージェント基盤提供者へ移る。高自律エージェントの展開には契約上の責任条項・介入能力の文書化・リスクに比例した証拠要件が要る。
+    quote: As autonomy increases, responsibility shifts from end users toward application developers and agentic platform providers.
+    locator: 本文
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:40.797Z
+    httpStatus: 200
+    finalUrl: https://www.coalitionforsecureai.org/whos-responsible-when-ai-goes-wrong-a-new-framework-aims-to-answer-that-question/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Who’s Responsible When AI Goes Wrong? A New Framework Aims to Answer That Question
+    titleMatch: true
+    dateMeta: 2026-05-28
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://coalitionforsecureai.org/whos-responsible-when-ai-goes-wrong-a-new-framework-aims-to-answer-that-question

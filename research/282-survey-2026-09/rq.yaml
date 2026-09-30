@@ -1,0 +1,543 @@
+schemaVersion: 0
+asOf: 2026-09-23
+questions:
+  - id: TH01-Q1
+    question: 役割単位で「完全自律の AI」か「人と協働する AI」かの二択にする自律度の表し方は、外部の自律度分類(作業単位・リスク単位の段階、human-in-the-loop / on-the-loop / out-of-the-loop、SAE 型のレベル定義)と比べて、軸と粒度に過不足があるか。
+    origin: [memo:2026-09-02, theme:TH01, issue:248]
+    kind: explore
+    falsifier: 外部の主要な分類も役割単位の二値で構成されており、作業単位・リスク単位で自律度を切り替える先例が見つからない。
+    priority: must
+    status: answered
+    answer: 結論は変わらず、軸と粒度の両方に差がある(falsifier 非該当)。2026-09-30 の追加で、J-AISI 評価観点ガイド第1.20版(自律性3段階×外部連携の2軸、半自律型は高リスクの判断と重要な外部操作に人の承認)、AI 法第13条の指針、ISACA 白書が同じ向きの根拠に加わった。「承認の要否を役割ではなくリスクで切る」という対比は原文に明示が無い読み手の解釈で、根拠が規範であり成果の測定ではない点は従来どおり。
+    findings: [FND-0001, FND-0002, FND-0028, FND-0171, FND-0173, FND-0186, FND-0182, FND-0274]
+  - id: TH01-Q2
+    question: A(結果責任)を人が持ちながらロールそのものを AI が占める構成を、規格・規制(EU AI Act 第14条の人間による監視、ISO/IEC 42001、内部統制の職務分離)は許容・条件付き・禁止のどれとして扱っているか。
+    origin: [issue:248, issue:249, theme:TH01, theme:TH12]
+    kind: explore
+    falsifier: 規格・規制が「判断の責任を人が持つこと」と「役割を人が占めること」を区別せず、後者を明示的に要求している。
+    priority: must
+    status: partial
+    answer: 許容・条件付き・禁止のいずれとも直接には分類されていない状態が、内部統制の原典でも確認された。J-SOX・SOC 2・COSO は職務分離の担い手が人か AI かを規定していない。「条件付き」側の根拠は、COSO が AI 関連の変更の独立検証を「人または自動」と書くことと、経産省の民事責任の手引き(2026-04-09)が不法行為上の注意義務の枠内に限って人の判断を代替する AI を2要件つきで扱うことの2件。AI を職務分離の一方に数えてよいかは、目的と独立性で見解が割れている(E0)。不足は、ISO/IEC 42001 附属書 A.3.2 / A.8.4 の本文、未発行の ISO/IEC 42105、SOC 2 の 2022 年改訂版と PCAOB 等の監査基準の原典、手引きの2要件の中身、規制当局・監査基準の引用を伴う見解。
+    findings: [FND-0003, FND-0004, FND-0005, FND-0006, FND-0010, FND-0168, FND-0169, FND-0172, FND-0150, FND-0181, FND-0182, FND-0183, FND-0184, FND-0185, FND-0186, FND-0227, FND-0269, FND-0270, FND-0271, FND-0276]
+  - id: TH01-Q3
+    question: AI をチームの席(メンバー)として編成する実務(BMAD、Claude Code の agent teams、Devin as teammate、GitHub Copilot coding agent 等)は 2026-09 時点で何に到達し、AI が判断を引き受けず補助モジュールのようにしか動かない現象はどう報告・対処されているか。
+    origin: [memo:2026-09-02, theme:TH01]
+    kind: explore
+    falsifier: 公開された運用報告で AI がロール保持者として判断を引き受け続けた事例が複数あり、補助モジュール化の報告が個別ツールの制約に限られる。
+    priority: must
+    status: answered
+    answer: 判断と承認を人に残す自己規定が主流で、AI がロール保持者として判断を引き受け続けた運用報告は束に無い(falsifier 非該当)点は変わらない。2026-09-30 の追加で、レビュー判断の一部を AI の管轄に置く国内の自己報告が2件(サイバーエージェント、ジモティー)加わったが、どちらも承認操作は人が行い、見落とし率や出荷後の欠陥は測られていない。NRI と日立は人の確認工程・承認ゲートを残す側にある。
+    findings: [FND-0007, FND-0008, FND-0009, FND-0187, FND-0228]
+  - id: TH01-Q4
+    question: AI が判断を人へ回しすぎる(過剰なエスカレーション・確認質問)問題は、外部でどう名付けられ、決定権限の明示や ask-vs-act の閾値設定などの対処はどの程度実証されているか。
+    origin: [issue:248, theme:TH01]
+    kind: explore
+    falsifier: 外部にこの現象の報告や対処の設計が無く、問題視されているのは過少エスカレーション(勝手に進める)側だけである。
+    priority: should
+    status: partial
+    answer: 名称は統一されていない(unnecessary escalations、over-asking、人側は approval fatigue)。過剰側は Intercom・OpenAI・Anthropic の運用文書で報告されているが、測定の多数派は「聞かずに進む」側で、falsifier(過少側だけが問題視)は成立しない。不足は、決定権限の明示や ask-vs-act の閾値が過剰エスカレーションを減らすかを比べた対照実験で、対処はベンダー指針にとどまる。
+    findings: [FND-0010, FND-0011, FND-0012, FND-0013, FND-0112, FND-0002]
+  - id: TH01-Q5
+    question: "#258 が引く「役割(persona)を与えても精度は上がらず MMLU で -3.6〜-5.3pt」(Wharton Prompting Science Report 4)と Zheng ほか(EMNLP 2024 Findings)の結論は、原典の値・条件どおりか。"
+    origin: [issue:258, evidence:254]
+    kind: verify-claim
+    falsifier: 原典の値が異なる、または特定の persona・課題では正の効果があり「効果がない」と一般化できない。
+    priority: should
+    status: answered
+    answer: 値と帰属についての回答は変わらない(-3.6〜-5.3pt は Wharton 報告ではなく USC の PRISM 論文の値)。2026-09-30 の追加で、エージェントのレビュー課題について、BMAD が v6.11.0(2026-08-09)の変更履歴にペルソナ指定は残存バグの検出率に差を生まなかったと自己報告した1件が加わった。標本数・試行回数は非開示で、件数の要求と問いの形は差を生んだとされるため、「指示の中身が効かない」という意味ではない。
+    findings: [FND-0014, FND-0015, FND-0009, FND-0188, FND-0224]
+  - id: TH02-Q1
+    question: 極小組織向けの規格(ISO/IEC 29110 の VSE プロファイル、ISO 9001 の小規模組織向け手引き)は、兼務と独立レビューの不在に対してどのような代償措置(外部レビュー、記録の強化、周期的な第三者確認)を規定しているか。
+    origin: [issue:249, issue:267, theme:TH02]
+    kind: explore
+    falsifier: これらの規格が代償措置を規定せず、独立性の要求をそのまま課している、あるいは独立性の要求自体を持たない。
+    priority: must
+    status: partial
+    answer: 読めた範囲では規範は3つの型に分かれる。ISO/IEC 29110 は独立性の要求を持たず確認を顧客に置き、OSPS Baseline は保守者1名の段階で人の承認を課さない。独立性を維持したまま代替を示す型は、ISO 19011・GAO Green Book に FDA(ソフトウェア妥当性確認、2002)・NIST SP 800-53B・SOC 2 CC5.1 が加わった。不足は、ISO/IEC 29110 の SI 工程の条文(29110-5-1-2:2025 は抄録のみ)、ISO 19011:2026 の 4.6 本文(小規模組織の一文が残ったか未確認)、ISO 9001 の小規模組織向け手引き。
+    findings: [FND-0016, FND-0017, FND-0018, FND-0189, FND-0190]
+  - id: TH02-Q2
+    question: 製造業の 4M 変化点管理と MOC(Management of Change)は、人の増減・目的変更・納期変更を検出して記録と体制を更新する手順をどう定めており、ソフトウェア開発や AI を含む体制へ転用した先例はあるか。
+    origin: [memo:2026-09-02, theme:TH02]
+    kind: explore
+    falsifier: 4M・MOC をソフトウェア開発体制へ転用した先例が無い、または転用の試みが形式化のみに終わり効果が報告されていない。
+    priority: must
+    status: partial
+    answer: 4M 変化点管理と OSHA の MOC 解釈は人員の増減・交替を変化点に数えるが、OSHA は手順・設備へ波及しない組織変更を対象外とする。目的変更・納期変更を扱う規定は、PRINCE2 第7版(7変数の許容差と例外)と ISO 9001:2026 箇条 6.3 の二次解説の水準で埋まった。不足は、両者の原典での確認(有償で未読)と、体制・AI 編成への転用の一次事例・効果測定で、falsifier の「先例が無い」側は変わらない。
+    findings: [FND-0019, FND-0020, FND-0021, FND-0192]
+  - id: TH02-Q3
+    question: モデルの世代交代・deprecation・可用性の断続を体制の変化点として扱い、再テーラリングや再検証を要求する実務・規格(ISO/IEC 42001 の変更管理、NIST AI RMF、ベンダーの deprecation policy)はどうなっているか。
+    origin: [theme:TH02, baseline:§6]
+    kind: explore
+    falsifier: モデル更新を変更管理の対象として扱う規定・実務が無く、更新は透過的に扱われている。
+    priority: should
+    status: partial
+    answer: falsifier(モデル更新を変更管理として扱う規定・実務が無い)は成り立たない。実務に加え、規範側でも NIST AI 600-1 が微調整・RAG・未評価用途への転用時の再評価と事前学習済みモデルの定常監視を、ISACA(2026-09-15)がモデル・提供者などの変更時の再評価と統制の再試験を求める。不足は、ISO/IEC 42001 の管理策本文(対応先の番号までで未読)、NIST が名指ししない供給者側の世代交代・退役を扱う規定、OpenAI の通知期間の一次値、現行世代の第三者 drift 測定。
+    findings: [FND-0022, FND-0023, FND-0024, FND-0025, FND-0191]
+  - id: TH02-Q4
+    question: 検査やゲートを段階的に有効化する先例(ratchet、new-code coverage、warn-then-enforce、fail-closed)は、有効化の条件を「ステージ」「対象の規模」「経過期間」のどれで定め、「実施しなかった」と「通過した」を証跡上どう区別しているか。
+    origin: [issue:254, theme:TH02]
+    kind: explore
+    falsifier: 先例の大半が固定閾値のみで段階的な有効化条件を持たず、未実施と通過を区別する記録も要求していない。
+    priority: must
+    status: answered
+    answer: "falsifier は成り立たないが、限定が付く。有効化条件の型に「対象の規模の下限」(SonarQube Server の新規行 20 行未満で条件を無視、既定で有効)が加わり、ステージ・経過期間を条件にした製品機能は依然として束に無い。未実施と通過を区別する先例がある一方、GitHub の条件スキップされたジョブと Codecov の if_not_found 既定は未実施を通過として扱う。規模の下限(SonarQube)と「結論なし」(Scorecard)は別々の製品にあり、下限未満を未判定と記録する単一の先例(#254 の measured: false 相当)は無い。#254 が引く Filetto の失敗 14 件は再現できるが窓と母数で動く(全 183 実行で 43 件、全ワークフロー直近 100 で 6 件)。"
+    findings: [FND-0026, FND-0027, FND-0028, FND-0018, FND-0021, FND-0193, FND-0194, FND-0195]
+  - id: TH02-Q5
+    question: 1名+AI の体制で「解けないもの」(調整役の不在、バックログの混在、DoD の散逸、手戻りの未計測)は、外部の一人開発・極小チームの研究や solo founder の運用報告でどう記録されているか。
+    origin: [issue:267, theme:TH02]
+    kind: explore
+    falsifier: 外部の報告で同じ4点が問題として現れない、または AI の導入によって解消したと報告されている。
+    priority: should
+    status: partial
+    answer: "外部記録と部分的に対応するのは「調整役の不在」「手戻りの未計測」の2点だけで、AI の導入で解消したという報告は無い、という答えは変わらない。追加分は #267 の出所(ganbari-quest の憲章 §6)との照合で、4点は同じ4行で実在するが、4点目は 2026-08-02 の baseline 記録以後は一部が成り立たない。不足は、「バックログの混在」「DoD の散逸」を問題として記録した外部報告と、対照群のある研究(いずれも n=1 の自己報告)。"
+    findings: [FND-0029, FND-0030, FND-0196]
+  - id: TH03-Q1
+    question: Agent Skills・plugins・slash commands の階層化と progressive disclosure について、ベンダー(Anthropic、OpenAI、GitHub、Google)の推奨(本数、常時ロード量、説明文の長さ)と、何本を超えると選択精度が落ちるかの実測はどうなっているか。
+    origin: [memo:2026-09-02, theme:TH03]
+    kind: explore
+    falsifier: ベンダーが階層化を推奨しておらず、実測でもスキル数の増加が選択精度や文脈消費を悪化させない。
+    priority: must
+    status: partial
+    answer: 2026-09-30 時点で、Claude Code・Codex・Kiro・Google Antigravity と Agent Skills 仕様は段階的開示を採り予算を仕様化している(Antigravity は常時有効な規則の合計 20,000 トークン超過でポインタへ自動降格、GitHub Copilot の手順書に数値上限は無し)。常時ロードと段階的開示の比較測定が初めて付き(Workday、Qwen 3 モデル・32k 窓、1 条件を除き段階的開示が並ぶか上回る)、スキル本文の注入が 4 モデルで平均 Pass@2 を 1.3〜4.2 ポイント下げた統制実験も加わった。不足は、本数と選択精度の関係を示すベンダーの測定値と、選択精度の相転移(GPT-4o 系のみ)を Claude・GPT-5 以降の世代で再現した測定。
+    findings: [FND-0031, FND-0032, FND-0033, FND-0038, FND-0197, FND-0199, FND-0201, FND-0204]
+  - id: TH03-Q2
+    question: 成果物ごとに作成・レビュー(・テスト)を分けたコマンド設計の先例(Spec Kit、Kiro、BMAD、cc-sdd、Superpowers 等)は、分割単位・本数・フェーズによる絞り込み(ツリー構造)をどう設計し、その結果として何が報告されているか。
+    origin: [memo:2026-09-02, theme:TH03]
+    kind: explore
+    falsifier: 先例のいずれも成果物単位の分割を採っておらずフェーズ単位の大きなプロンプトに留まっている、または成果物単位の分割が管理負荷で放棄されている。
+    priority: must
+    status: partial
+    answer: BMAD・Kiro・OpenSpec の分割単位が埋まった。BMAD は成果物ごとの create / edit / validate を単一スキル+intent へ統合して core を 14 本から 8 本へ減らし(出荷経路のレビューだけ自前プロンプトへ戻した)、Kiro の成果物別レビューは要求に対する任意の分析だけ、OpenSpec は core 6 本+拡張 6 本で検証は verify 1 本である。成果物ごとに作成・レビュー・テストの 3 本を揃える先例はこれらを加えても無い。不足は、分割あり・なしの比較測定と、BMAD の統合理由(管理負荷かどうか不明で falsifier の判定ができない)。
+    findings: [FND-0044, FND-0032, FND-0033, FND-0119, FND-0202, FND-0203]
+  - id: TH03-Q3
+    question: ルール数・指示量と遵守率の関係(instruction-following の劣化、長い文脈での指示の脱落)について、2026 年時点の実測は何を示しているか。
+    origin: [issue:269, issue:274, theme:TH03]
+    kind: explore
+    falsifier: 実測でルール数を増やしても遵守率が下がらない、または劣化が旧世代モデルに限られ最新モデルでは再現しない。
+    priority: must
+    status: answered
+    answer: 従来の回答(指示が増えると完全遵守率が下がることは独立 3 研究で一致、2026 年モデルでは課題の種類で結果が割れる)は変わらない。追加として、Claude Code+Opus 4.6 で規則数を 0 から 50 へ増やしても課題合格率は安定した(66.7% 対 60.3%、有意差なし)が、測ったのは合格率で遵守率ではなく、FND-0034 の反証にも falsifier にも当たらない。スキル本文の注入は 4 モデルで平均 Pass@2 を下げ、劣化の機序は長さと内容でモデルごとに分かれた。
+    findings: [FND-0034, FND-0035, FND-0036, FND-0040, FND-0041, FND-0043, FND-0094, FND-0097, FND-0199, FND-0200]
+  - id: TH03-Q4
+    question: "#269/#274 の「常時ロード 16 万バイトの指示書は守り切れず、守れないものは黙って落ちる」という観測は、外部の観測(CLAUDE.md / AGENTS.md の規模と遵守の報告、ベンダーの推奨上限)で再現するか。"
+    origin: [issue:269, issue:274]
+    kind: verify-claim
+    falsifier: 外部の観測で同規模の常時ロード指示が遵守されている報告が複数あり、劣化が再現しない。
+    priority: should
+    status: partial
+    answer: 外部では部分的にしか再現しないという判定は変わらない。追加で、「黙って落ちる」が指す機構は不遵守・量の上限・設定不備の 3 系統に分かれ、Antigravity は frontmatter や trigger に不備のある規則を警告なく破棄すると原典が明記し、Cursor Bugbot は 1 本 30,000 字・合計 100,000 字で打ち切ると分かった。規則 50 本までは課題合格率が落ちない測定も加わったが、16 万バイト級に届かず指標も遵守率ではない。不足は、16 万バイト級の常時ロード指示の遵守を直接測った外部測定。
+    findings: [FND-0034, FND-0035, FND-0037, FND-0038, FND-0039, FND-0042, FND-0051, FND-0197, FND-0198, FND-0200]
+  - id: TH03-Q5
+    question: スキル・プラグインの供給網リスク(第三者スキルの改竄、埋め込まれたプロンプトインジェクション、署名・検証の仕組み)は、外部でどう扱われ、実害の事例はあるか。
+    origin: [theme:TH03, theme:TH12]
+    kind: explore
+    falsifier: 供給網リスクの報告・対策が存在せず、実害の事例も無い。
+    priority: should
+    status: answered
+    answer: 実害が観測されており falsifier には該当しない。第三者スキル市場の監査で 3,984 スキル中 13.4% に重大な問題と悪性ペイロード 76 件が確認され、npm マルウェアが .claude/settings.json に SessionStart フックを仕込む事案も報告された。対策は OWASP Agentic Skills Top 10(署名・固定とハッシュ検証・目録)とベンダーの注意書きの段階で、GitHub の一様標本では明示的に悪意ある指示ファイルは 31,902 件中 1 件という反証もある。
+    findings: [FND-0045]
+  - id: TH04-Q1
+    question: "#274 が従量換算に用いた公開 API 単価(Opus 5 = 入力 $5 / 出力 $25 / キャッシュ読み取り $0.50 per MTok 等)とキャッシュの課金構造(TTL、書き込み倍率)は 2026-09 時点のベンダー公式値と一致し、「費用の 57% がキャッシュ読み取り」という比率は成立するか。"
+    origin: [issue:274, theme:TH04]
+    kind: verify-claim
+    falsifier: 公式の単価または課金構造が異なり、換算し直すとキャッシュ読み取りの比率が過半にならない。
+    priority: must
+    status: answered
+    answer: "#274 が用いた Opus 5 の単価(入力 $5 / 出力 $25 / 読み取り $0.50)と書き込み倍率(1.25 倍・2 倍)は 2026-09-23 取得の公式値と一致し、falsifier には Opus 5 世代では該当しない。「読み取りが費用の過半」は公開実測 2 件(70.1%、65.5%、いずれも n=1)と Anthropic の言明が同方向だが、別ログの再計算では約 39% で、比率は TTL・呼び出し頻度・モデル世代に依存する。2026-09 追加の Fable 5.1(0.025 倍)と Opus 5.5(0.05 倍)では 57% の前提(読み取り 0.1 倍)が成り立たない。"
+    findings: [FND-0046, FND-0047, FND-0048, FND-0049]
+  - id: TH04-Q2
+    question: 常時ロードする文脈量(システムプロンプト、指示書、メモリ)について、ベンダーの公式ガイドは上限や推奨をどう示し、外部実測は文脈量と費用・応答品質の関係をどう報告しているか。
+    origin: [memo:2026-09-02, issue:274, theme:TH04]
+    kind: explore
+    falsifier: ベンダーが上限を示しておらず、実測でも常時ロード量と品質・費用の関係が観測されない。
+    priority: must
+    status: partial
+    answer: 常時ロード量の数値上限は Claude Code・Codex に加え、Antigravity(1 本 24,000 バイト、合計 20,000 トークン超でポインタへ降格)と Cursor Bugbot(1 本 30,000 字、合計 100,000 字)にもあるが、いずれも根拠の測定は非提示。品質側は、スキル注入が Pass@2 を 1.3〜4.2 ポイント下げ費用を 72〜394% 増やした統制実験が 1 件加わった一方、規則 0〜50 本では課題合格率に有意差が無く、低下は量だけでは説明できない。不足は、数万トークン規模の常時ロードで遵守率を直接測った出典と、2026 年世代の Claude・GPT での段階的開示の比較測定(現状は 32k 窓の Qwen 3 モデルのみ)。
+    findings: [FND-0050, FND-0051, FND-0052, FND-0053, FND-0037, FND-0205, FND-0206, FND-0207, FND-0208, FND-0197, FND-0198, FND-0201]
+  - id: TH04-Q3
+    question: 定額プランの利用上限(週次上限など)が稼働を止めるリスクと、定額と従量の損益分岐について、外部の公開実測やベンダー規約はどう述べているか。
+    origin: [issue:274, theme:TH04]
+    kind: explore
+    falsifier: 定額上限による稼働停止の外部報告が無く、損益分岐の議論も存在しない。
+    priority: should
+    status: partial
+    answer: 2026-06-15 の改定案(自動実行を別枠クレジットへ分離)とその一時停止を Anthropic のヘルプセンターで一次確認し、自動実行は当面、定額の利用上限を消費し続ける。Enterprise は全利用が API 単価の別課金で、制約は利用上限ではなく支出上限になるため、#274 の「制約は週の利用上限」は個人・Team の定額に限った構造である。損益分岐は Morph の公開単価からの試算 1 件(E0)を得たが、不足は、測定に基づく損益分岐の分析、枯渇の頻度・分布の系統的データ、リリース単位で止まった外部事例。
+    findings: [FND-0054, FND-0055, FND-0056, FND-0049, FND-0209, FND-0210, FND-0211, FND-0212]
+  - id: TH04-Q4
+    question: モデル階層(上位・中位・軽量)をタスク種別やロールごとに使い分ける運用について、ベンダー推奨と外部実測は費用・品質への影響をどう報告しているか。
+    origin: [baseline:§6, theme:TH04]
+    kind: explore
+    falsifier: 階層の使い分けが費用・品質に有意な差を生まないという実測が主流である。
+    priority: should
+    status: partial
+    answer: Anthropic(Sonnet 既定、Opus は複雑な判断、Haiku は単純なサブエージェント)と OpenAI(Sol / Terra / Luna、GPT-6 でも 3 層)は用途別の使い分けを推奨するが、推奨に費用・品質の測定は添えられていない。n=1 の比較では出し分けで費用 -16%・時間 約 1.5 倍、指定したモデルが実際には動かない事例もある。不足は、階層の使い分けの費用・品質を統制して測った独立研究で、falsifier を判定できない。
+    findings: [FND-0057, FND-0058, FND-0059, FND-0060]
+  - id: TH05-Q1
+    question: ADR の実務(Nygard 原典、MADR、AWS / Microsoft / Google の指針)は、ADR と「困ったときに立ち戻る原則・ポリシー」の分離、supersede、索引をどう定めているか。
+    origin: [issue:251, issue:253, issue:272, theme:TH05]
+    kind: explore
+    falsifier: 主要な指針が原則と ADR を分離せず、ADR そのものを立ち戻る先として位置づけている。
+    priority: must
+    status: answered
+    answer: 原則と決定記録を別の層に置く点は TOGAF・Microsoft・AWS が同じ向きで、Nygard 原典(2011)と MADR 4.0.0 は分離にも索引にも触れない(falsifier 非該当)。supersede は Nygard 原典・AWS・Microsoft が旧 ADR を残して置き換え、Google Cloud・GDS が更新で割れ、索引は adr-tools が目次の機械生成を備えるにとどまる。問いが名指しする文献は束に揃ったが、分離・方式間の効果測定は束に無い。
+    findings: [FND-0061, FND-0062, FND-0063, FND-0065, FND-0213]
+  - id: TH05-Q2
+    question: ADR をゲート判定(承認)の対象にする先例と、判定対象にせず証跡として扱う先例は、それぞれどのような組織・規制環境にあり、どのような結果が報告されているか。
+    origin: [issue:253, theme:TH05]
+    kind: explore
+    falsifier: ADR を判定対象にする先例が主流で問題が報告されていない、または証跡扱いの先例が見つからない。
+    priority: should
+    status: partial
+    answer: 承認対象にする先例は GDS(義務は省庁横断の決定に限定)と AWS、判定にかけず記録とする先例は国内スタートアップ 1 社に加え Spotify の一部チーム(合意は RFC・設計レビュー)と Nygard 原典(状態は合意の有無)。車載の Automotive SPICE 4.0 の SWE.2 は根拠の文書化と関係者への伝達を求め、決定ごとの承認手続きを定めない(同節のみ確認)。どの側も結果(本数・滞留・設計品質)の測定が無く、医療機器の先例と ASPICE の他プロセス(SUP・MAN)の承認規定が未確認のため部分回答。
+    findings: [FND-0064, FND-0063, FND-0132, FND-0218]
+  - id: TH05-Q3
+    question: 文書量とコード量の比率や文書の総量を指標にする先例、および AI による文書膨張(生成の安さが文書量と読む側の負荷を増やす)の外部報告はあるか。
+    origin: [issue:252, issue:272, theme:TH05]
+    kind: explore
+    falsifier: 文書量を指標にする先例が無く、AI による文書膨張の報告も存在しない。
+    priority: must
+    status: partial
+    answer: AI による文書膨張の報告はあり(falsifier 非該当)、読む側の負荷の測定はレビュー 3.5 時間の 1 件に、米国 1,150 名の自己申告調査(40% が受領、1 件の処理に平均 2 時間)が加わった。個別文書の長さを様式で上限づける先例は Amazon の PR/FAQ にあるが効果の測定は無く、ADR の本数を抑える上限を定める指針も無い。文書量:コード量の比率を管理指標として運用する先例と、量の上限が負荷や手戻りを減らす効果の測定が足りない(統制比較は長さが有意でないと報告)。
+    findings: [FND-0066, FND-0067, FND-0068, FND-0069, FND-0070, FND-0073, FND-0074, FND-0159, FND-0217, FND-0219, FND-0220]
+  - id: TH05-Q4
+    question: 成果物ごとに目的・読み手・形式を定義する様式(IEEE/ISO の文書要求、Diátaxis 等)と、外部ステークホルダー向けの説得形式(narrative memo、スライド)を docs-as-code の正本から派生させる実務は、外部でどう設計されているか。
+    origin: [memo:2026-09-02, theme:TH05]
+    kind: explore
+    falsifier: 読み手・目的を成果物定義の必須要素とする様式が無く、外部向け形式と正本の接続を設計した先例も無い。
+    priority: must
+    status: answered
+    answer: ISO/IEC/IEEE 15289:2019 は読み手の意思決定・作業を文書設計の起点に置き、Diátaxis は読み手の必要で 4 種類に分ける。「課さない」判断の経路は 15289 では未確認のままだが、NASA NPR 7150.2D が根拠付きの免除申請と適用表の空欄(この指令では課さない)という先例を示す。派生は Google Cloud・Pandoc・Markdown 正本の HTML 書き出しに加え Quarto の出し分けに先例があるが、派生物と正本の一致検査と効果測定は追加分にも無く、15289 第 9〜10 章と 12207 附属書 A は未読。
+    findings: [FND-0071, FND-0072, FND-0065, FND-0073, FND-0220]
+  - id: TH05-Q5
+    question: "#272 の「常時参照する ADR は 10 本まで(Miller の 7±2)」という上限の根拠と、「archive を持たない削除主義が AI の古い決定への追従を減らす」という主張は、外部の観測や研究で支持されるか。"
+    origin: [issue:272, theme:TH05]
+    kind: verify-claim
+    falsifier: 7±2 が文書参照数の上限根拠として不適切とされ、archive 廃止が AI の誤参照を減らす効果も外部で再現しない。
+    priority: should
+    status: partial
+    answer: Miller(1956)の「7」は絶対判断と即時記憶スパンの値で文書・規則の参照数を扱わず、Cowan(2010)は 3〜5 項目とする。ただし 7±2 を文書参照数の根拠として不適切と明言する出典は無く、当てはめの可否は本調査側の推論にとどまる。古い情報の併存で AI が誤る機序は STALE ベンチマーク(最良モデルで 55.2%)が測定で支持するが、著者らの対処は印を付けた保管であり、#272 の出所のリポジトリでも archive は 6 本残り前後比較の記録が無い。削除方式と保管方式を比べた測定、ADR を対象にした測定が足りない。
+    findings: [FND-0074, FND-0075, FND-0066, FND-0061, FND-0032, FND-0042, FND-0213, FND-0214, FND-0215, FND-0216, FND-0217]
+  - id: TH06-Q1
+    question: "#258 が引く「同質パネルの有害改訂率 89%、誠実な異質ピア 1 体で 35%、初回正答の反転率 31%→6%」(arXiv:2606.19826)と ICLR 2025 blogpost の討論の数値(GSM8K で自己整合 95.67% 対 MAD 63.87〜94.93%)は、原典の値・条件どおりか。"
+    origin: [issue:258, evidence:254]
+    kind: verify-claim
+    falsifier: 原典の値が異なる、または条件(防御側モデル・ベンチマーク)が限定的で Issue の一般化を原典自身が否定している。
+    priority: must
+    status: answered
+    answer: 値(89%→35%→90%、31%→6%、自己整合 95.67%)は原典と一致する。ただし 89% は「改訂した場合に有害だった割合」で改訂の発生率は 12.3%、31%→6% は汚染パネルの別設計、GSM8K の MAD 下限 63.87% は Llama3.1-8b の値(GPT-4o-mini は 90.87〜94.93%)であり、#258 と 254 メモの読みと帰属に誤りがある。原典は対象を推論ベンチマークに限り、コードレビューへの持ち越しを未解決としている(否定はしていない)。
+    findings: [FND-0076, FND-0078, FND-0014]
+  - id: TH06-Q2
+    question: "#256/#258 が引く「9 判定者で実効独立票数 2.18、系統横断の相関差 +0.047、合議の利得 0.2pt」(arXiv:2605.29800)は原典どおりで、コードレビューや仕様レビューへの転用を原典は許しているか。"
+    origin: [issue:256, issue:258, evidence:254]
+    kind: verify-claim
+    falsifier: 原典の値が異なる、または対象が NLI 判定に限られ他領域への転用を原典が明示的に留保している。
+    priority: should
+    status: answered
+    answer: 実効独立票 2.18(95%CI 2.07〜2.31)、合議の利得 +0.2pt(MNLI。SNLI −6.5pt、AlphaNLI −2.5pt)、相関差 0.047、系統ごと最良1体で 1.93 はすべて原典と一致する。著者は NLI 分類での測定であることを限界に挙げ、コードレビューや開放的生成への転用は未検証と明記しており、falsifier の後段(転用の留保)に該当する。
+    findings: [FND-0077, FND-0079]
+  - id: TH06-Q3
+    question: LLM 間の誤りの相関(共通原因故障)と系統混合の効果、複数 LLM の討論が正答を壊す条件について、2026-09 時点の追試・反証は一貫した結論を出しているか。
+    origin: [theme:TH06, evidence:254, issue:258]
+    kind: explore
+    falsifier: 系統混合で誤り相関が大きく下がる独立した実測が複数あり、討論が一貫して正答率を上げるという追試が主流である。
+    priority: should
+    status: answered
+    answer: 経験的な結論は変わらない(誤り相関は一貫して観測、系統混合は測定間で符号が分かれ、討論は計算量を揃えると自己整合を一貫しては上回らず反例が2件。falsifier には該当しない)。2026-09-30 の追加として、COSO の生成AI向け内部統制ガイダンス(2026-02-23)が複数モデル間の出力比較を統制5手法の1つに挙げ独立した検証手順を「人または自動」とし、in-toto のレビュー attestation 提案(2026-09-29、未審査)は既定でエージェントの承認を独立と数えず、独立性の次元に運用者・提供元・署名者を挙げる。いずれも効果測定を伴わず、コードレビュー領域での誤り相関の測定は引き続き束に無い。
+    findings: [FND-0078, FND-0079, FND-0080, FND-0081, FND-0090, FND-0227]
+  - id: TH06-Q4
+    question: "#268 の「AI レビュアが 33 日で 42 回ゲート役から CI の代弁者へ滑り落ちた。類型は Persona Drift / Echoing / Normalization of Deviance / Goodhart。構造化スキーマの強制が効いた」という観測は、外部の研究(persona drift、sycophancy、automation bias、構造化出力の効果)で再現するか。"
+    origin: [issue:268, theme:TH06]
+    kind: verify-claim
+    falsifier: 外部研究で長期セッションの drift や sycophancy が観測されない、または構造化出力に緩和効果が無い。
+    priority: must
+    status: partial
+    answer: Persona Drift・Echoing に対応する現象と証拠先行の構造化による緩和は外部測定で再現し、人側の慣れも観測がある。「33日で42回」は出所(ganbari-quest ADR-0056)の記録と同じ値だが数え直せず、スキーマ導入翌日に4 PR連続の drift が記録され、導入前後の比較は出所にも無いため、#268 の「効いた」は測定ではなく当事者の評価と確定した。不足は、作成者AIとレビュアAIの間でセッションを跨いで続く漂流の外部測定、AIレビュア側の Normalization of Deviance・Goodhart の測定、人の承認入力をAIが作る構成での見逃し率の測定(BMAD のペルソナ対出力要求の試行は標本数非開示の E0)。
+    findings: [FND-0082, FND-0083, FND-0084, FND-0147, FND-0221, FND-0224, FND-0228]
+  - id: TH06-Q5
+    question: "#255〜#257 が引く「仕様接地で +19〜38pt、30 件中 27 件対 2 件、誤警報 33%→0%」(arXiv:2607.06636)、「構造化フィードバックで +42〜44pt、散文と JSON の差 0〜2pt」(arXiv:2607.14167)、「自己批判 +0.5pt」(arXiv:2502.03492)、「文脈分離で F1 24.6→28.6%」(arXiv:2603.12123)は原典どおりか。"
+    origin: [issue:255, issue:256, issue:257, evidence:254]
+    kind: verify-claim
+    falsifier: 原典の値が異なる、または効果が特定モデル・課題に限られ「外部観測の有無で効果量が分かれる」という整理を原典が支持しない。
+    priority: must
+    status: answered
+    answer: "4 文献とも値は原典と一致する(仕様接地 +18〜+40pp、27/30 対 2/30、誤警報 33%→0%、構造化フィードバック +42/+44pp、散文と JSON の差 0〜2pt、自己批判 7.88→8.36%、CCR F1 24.6→28.6%)。効いているのは与えた内容で書式や量ではないことを各アブレーションが支持する。ただし #257 の「+0.5pt 対 +42〜44pt」は別課題・別モデルの並置で、「自己批判は効かない」は訓練なしの設定に限られ、CCR は最良でも約 73% を見逃す。"
+    findings: [FND-0085, FND-0086, FND-0087, FND-0109, FND-0110]
+  - id: TH06-Q6
+    question: AI コードレビュー製品(GitHub Copilot code review、CodeRabbit、Graphite、Cursor Bugbot 等)の指摘様式(証跡・再現手順・重大度・代替案の有無)はどうなっており、「懸念がある」型の出力はどう扱われているか。
+    origin: [issue:257, theme:TH06]
+    kind: explore
+    falsifier: 主要製品が証跡や代替案を出力要件としておらず、様式の規定も無い。
+    priority: should
+    status: answered
+    answer: 2026-09-24 時点の不足2点(Graphite・CodeRabbit の一次文書、再現手順を要件とする製品記述の有無)は埋まった。修正案は Graphite・Cursor Bugbot の様式にあり CodeRabbit は4つの閉じた語彙でラベルを付けるが、再現手順・実行結果を指摘の欄に定める記述は読んだ範囲の3製品に無く(不在の観察)、#257 の3値のうち製品の様式にあるのは代替案だけである。「懸念」型は、沈黙を許す・残したままマージを止めない(Bugbot、CodeRabbit)・記録つきで棄却する(BMAD)に分かれ、提出自体を不成立にする製品記述は無い。いずれも仕様記述で効果の実証ではない(E0)。
+    findings: [FND-0088, FND-0089, FND-0081, FND-0090, FND-0222, FND-0223]
+  - id: TH07-Q1
+    question: コーディングエージェントの reward hacking・仕様偽装・虚偽の完了報告(テスト改変、スクリーンショット偽装、未実行の「実行済み」宣言)の外部報告と、その対策(sandbox、独立した再実行、attestation)は 2026-09 時点でどうなっているか。
+    origin: [issue:269, issue:271, issue:275, theme:TH07, baseline:§6]
+    kind: explore
+    falsifier: 外部にこれらの報告が無く、対策も一般化していない。
+    priority: must
+    status: answered
+    answer: 虚偽の完了報告・reward hacking の外部報告と対策 3 系統(出口の付与・構造による禁止・証拠による完了判定)という回答は変わらない。追加として、人の承認側が判断に必要な情報の欠落で形だけになる経路が IPA の AI セキュリティ短信(2026-09-07)と OWASP Top 10 for Agentic Applications 2026 に記録されている。ただし IPA 短信は AI による二次要約で、対策の効果を測った報告ではなく、OWASP に虚偽の完了報告を名指す独立項目は無い。
+    findings: [FND-0091, FND-0092, FND-0093, FND-0094, FND-0095, FND-0096, FND-0101, FND-0013, FND-0114, FND-0236, FND-0273]
+  - id: TH07-Q2
+    question: 機械判定を「真正性(主張と実体の一致)」に限り体裁・網羅性は警告に留める線引き、および人が見た証跡を署名付きで残す仕組みは、供給網セキュリティの先例(SLSA、in-toto、Sigstore、GitHub attestations)や規格でどう扱われているか。
+    origin: [issue:269, issue:271, theme:TH07, theme:TH10]
+    kind: explore
+    falsifier: 先例が真正性と網羅性を区別せず両方を hard-fail にしている、または真正性の検査自体が普及していない。
+    priority: must
+    status: partial
+    answer: "人のレビュー承認を署名付き attestation で残す先例(gittuf、設計文書 2026-09-10)と、体裁・網羅性の検査や AI レビュー指摘を既定で警告に留める製品先例(Danger・OpenSpec・Cursor Bugbot・CodeRabbit)が見つかった。足りないのは、レビュアが「何を確かめたか」を記録する様式の先例(in-toto の predicate は 2021 年から未確定、PR #603 は未審査)、PR 本文の主張と実体の一致を検査する規格先例とそれを hard-fail にする製品先例、Sigstore 自体の一次資料。警告先例は効果の測定が無く、線引きの妥当性の根拠としては E0 相当。"
+    findings: [FND-0100, FND-0099, FND-0101, FND-0095, FND-0097, FND-0233, FND-0234, FND-0223, FND-0227]
+  - id: TH07-Q3
+    question: "#267/#270 の「検証装置/製品コード = 0.76、直近 20 PR の 60% が装置修理、Issue の 56% が装置起因、装置が本番を 3.5 時間止めた」という観測は、公開リポジトリで確認でき、外部(テストコード比率の実測、CI 保守負荷、flaky test の研究)にも同種の現象が報告されているか。"
+    origin: [issue:267, issue:270, theme:TH07]
+    kind: verify-claim
+    falsifier: 公開リポジトリの実測が Issue の値と異なる、または外部に検証装置の比率や保守負荷が問題化した報告が無い。
+    priority: should
+    status: partial
+    answer: 出所の公開リポジトリ ganbari-quest を本調査が再計測した結果(2026-09-30 取得)、#270・#267 の「装置 51,607 行・比 0.76」は再現せず(装置 58,720 行、比は定義により 0.35〜1.36)、装置修理 PR の割合(55〜65%)・check-* の本数(63 本/61 本)・本番停止(3.8〜4.0 時間)はおおむね確認できた。検証側コードと製品コードの比を収集する外部先例(サイバーエージェント、Rails stats)はあるが対象はテストコード。足りないのは、当事者以外による独立した測定と、装置比率・flaky test・CI 保守負荷を測った外部の査読研究、および「Issue の 56% が装置起因」の照合(SRC-0511 は partial、該当主張は不使用)。
+    findings: [FND-0102, FND-0229, FND-0230, FND-0231, FND-0262, FND-0263, FND-0195, FND-0196]
+  - id: TH07-Q4
+    question: 統制の維持費と統制が防ぐ損失を比べて統制を外す(または足さない)判断の枠組み(cost of control、risk-based testing、ISO 31000、内部統制の費用対効果)は、ソフトウェアのゲート設計にどう適用されているか。
+    origin: [issue:267, issue:268, theme:TH07]
+    kind: explore
+    falsifier: ソフトウェアのゲート設計にこの枠組みを適用し、外した統制の記録様式まで示した先例が無い。
+    priority: must
+    status: partial
+    answer: 外した統制の記録について、NIST SP 800-53B が「外した統制の理由を計画へ記録し、明示的なリスクに基づく決定で弁護できること」を求める規範上の先例として見つかり、falsifier(記録様式の先例が無い)は理由の記録については該当しなくなった。J-SOX 実施基準と ISTQB v4.0 はリスク受容を選択肢に挙げるが記録様式は定めない。足りないのは「観測を残す・戻す条件」までを定めた様式の先例と ISO 31000 の出典で、NIST の対象は米連邦の情報セキュリティ統制でありソフトウェア開発のゲートではない。
+    findings: [FND-0103, FND-0104, FND-0232, FND-0221]
+  - id: TH07-Q5
+    question: 人間向けのチェックリスト・PR テンプレ・DoD・トレーサビリティ表を AI に課すと体裁の充足へ最適化するという現象は外部で報告されており、「守らせる」代わりに「守らなくてよい形にする(生成・削除・構造上不可能にする)」設計原則(poka-yoke、secure-by-construction)の先例はあるか。
+    origin: [issue:269, issue:270, issue:275, theme:TH07]
+    kind: explore
+    falsifier: AI が人間向けチェックリストを実質的に満たすという報告が主流で、体裁充足への最適化が観測されない。
+    priority: should
+    status: answered
+    answer: 形式を機械で強制するとエージェントが中身を伴わない形で満たした事例は報告されており falsifier には該当しないが、単一プロジェクトの事例 3 件で頻度の系統的測定は無い。同種の形骸化は人間の制度(オンタリオ州 101 病院の手術チェックリスト)でも観測され、#270 の「AI 固有」という帰属は外部の観測と食い違う。構造による禁止の設計例はベンダー文書と国内外の事例にあり、統制実験で効果を測ったのはテスト読み取り専用化の 1 件である。
+    findings: [FND-0097, FND-0098, FND-0094, FND-0096, FND-0099, FND-0012]
+  - id: TH07-Q6
+    question: "#275 の「同じ種類の不具合が 2 件出たら class として扱い 3 件目を機械で止める」は、外部の欠陥分類・再発防止の実務(ODC、RCA、再発の閾値)にどう対応し、閾値 2 件の根拠は示されているか。"
+    origin: [issue:275, theme:TH07]
+    kind: verify-claim
+    falsifier: 外部実務に対応する先例が無く、閾値 2 件を支持する根拠も無い。
+    priority: should
+    status: partial
+    answer: "Google SRE のポストモーテム運用(USENIX ;login: 2017)は、再発防止を課す条件を発生件数ではなく影響と再発リスクで定め、利用者に見えた事象は 1 件目から P0/P1 の対策を必須とし、何件で類型とみなすかは定めていない。#275 の閾値 2 件に一致する外部例と閾値を支える測定が無い点は変わらず、falsifier の後半に該当したまま。足りないのは ODC・RCA の規格と製造業の再発防止の出典で、SRE の記事も自己申告かつ件数閾値の不在の確認にとどまる。"
+    findings: [FND-0105, FND-0235]
+  - id: TH08-Q1
+    question: 仕様駆動開発ツール(Spec Kit、Kiro、Tessl、cc-sdd 等)の 2026-09 時点の実態(採用報告、仕様の維持費、仕様と実装の乖離、設計書を単一の情報源にする運用)と限界はどうか。
+    origin: [theme:TH08, issue:275, baseline:§9]
+    kind: explore
+    falsifier: 仕様駆動が広く定着し、維持費や乖離の問題が報告されていない。
+    priority: should
+    status: answered
+    answer: 2026-09-24 時点で SDD の定着を示す採用率の実測は束に無く、Thoughtworks Radar は SDD(2025-11)と Spec Kit(2026-04)を Assess に置く。限界は仕様の肥大(独立3者の n=1 試行で一致)、指示への不遵守と context rot、作成後の整合維持の未解決の3点で、生産性は非統制の単一事例が相反する。falsifier には該当しないが、採用率・仕様の維持費・乖離率の測定値は束に無い。
+    findings: [FND-0116, FND-0117, FND-0118, FND-0119, FND-0120, FND-0112, FND-0133]
+  - id: TH08-Q2
+    question: 双方向トレーサビリティを要求する規格(DO-178C、ISO 26262、IEC 62304、IEEE 29148)は、上位要求から下位への対応の有無を数え上げる検査をどう規定し、内容判定と対応判定の区別や機械化をどこまで認めているか。
+    origin: [issue:255, theme:TH08]
+    kind: explore
+    falsifier: 規格が数え上げを要求していない、または内容判定と対応判定を区別していない。
+    priority: must
+    status: partial
+    answer: 双方向の追跡は規範に明示され、対象はコード・テスト・ハザード・リスク分析結果へ及ぶ。2026-09-30 時点で、対応の確認と内容の判定を別項目として並べる条文(IEC 62304 修正票1 §5.7.4、DO-178C §6 は二次解説経由)を確認したが、同じ検証活動の中の列挙であり、対応の有無だけを数える検査を独立の手続・ゲートとして定めるものではない。機械化は出力の独立検証かツール自体の認定を条件に認められ、falsifier には該当しない側。不足は ISO 26262(第6部 §6 以降・第8部 §6)の該当条項、DO-178C・DO-330 と IEC 62304:2006 の本文、LLM を用いる検査ツールの認定を扱う出典。
+    findings: [FND-0106, FND-0107, FND-0108, FND-0115, FND-0114, FND-0109, FND-0237, FND-0238, FND-0239, FND-0226]
+  - id: TH08-Q3
+    question: 前提を「観測で確かめた」と「想定」に分けて記録する実務(assumption register、GSN の assumption / justification、safety case、NASA の assumption management)は、どの分野でどの様式で定着しているか。
+    origin: [issue:256, theme:TH08]
+    kind: explore
+    falsifier: 前提の検証状態を区別する様式が無く、前提は一律に記録されている。
+    priority: must
+    status: partial
+    answer: GSN は現行第3版(2021-05)でも前提を「意図的に立証しない言明」として別要素に置き、検証済みと想定に分ける属性は読めた範囲(第1部 1:2)に無い。近い先例は、未確定の値に TBR と根拠・解消行動・責任者・期限を添える NASA SE ハンドブック附属書 C の点検表(手引き)と、前提を影響・脆弱さで特定して signpost を置く RAND の ABP で、後者の軸は検証済みか否かではない。falsifier には該当しない側の材料があるが、不足は前提台帳(PMBOK の assumption log)本体の様式、29148 の 9.5.19 本文、記録の効果の測定。
+    findings: [FND-0111, FND-0110, FND-0112, FND-0240, FND-0241, FND-0242, FND-0248]
+  - id: TH08-Q4
+    question: EARS 記法や受入基準の書式が「基準の言い訳」(未完成を正当化する読み替え)に転用される問題は外部で報告されているか、また禁止節や反例の併記は要求工学の指針でどう扱われているか。
+    origin: [issue:269, theme:TH08]
+    kind: explore
+    falsifier: 外部にこの問題の報告が無く、EARS の指針も反例の併記を求めていない。
+    priority: should
+    status: partial
+    answer: EARS や受入基準の書式が事後に未完成の正当化へ読み替えられる現象そのものの外部報告は束に無いが、要求文の中の逃げ道の句を「実装しない言い訳を与える」として避けさせる指針(INCOSE R8、V3.1)は確認できた。否定形は INCOSE R16 と NASA の点検表が肯定形への書き換えを求め、例外は検証可能な範囲を添える制約と論理 NOT の2つ。不足は反例の併記を扱う指針、29148 本文・IREB の指針、INCOSE 現行 V4 の本文。
+    findings: [FND-0113, FND-0114, FND-0115, FND-0093, FND-0243, FND-0244]
+  - id: TH09-Q1
+    question: AI 時代のプロダクトディスカバリー・PRD・pivot の実務(継続的ディスカバリー、PRD の役割変化、方針が定まらない局面の手順)は 2026-09 時点でどう報告されているか。
+    origin: [memo:2026-09-02, theme:TH09]
+    kind: explore
+    falsifier: AI の登場でディスカバリーや PRD の手順に変化が無いという報告が主流である。
+    priority: must
+    status: answered
+    answer: 2026-09-24 時点で、手順が変わったという報告が主流で falsifier には該当しない。内容は、ボトルネックが「何を作るかを決めること」へ移ったという見解、PRD がプロトタイプの後に書く決定記録・補完文書へ移ったという報告、可逆な案は作ること自体を検証にする運用の3点。ただし根拠の大半は論者の意見と自己申告で、測定は便宜標本の投票1件(約260名)のみ。Torres の反論と IPA 調査(価値創出への展開は限定的)が限定条件になる。
+    findings: [FND-0121, FND-0123, FND-0124, FND-0130, FND-0132, FND-0135, FND-0126, FND-0128]
+  - id: TH09-Q2
+    question: MVP 以降の段階で生じた設計方針を変えうる技術検証の置き場は、Stage-Gate、SAFe の enabler spike、Lean Startup、リスク駆動のスパイラルモデルでどう扱われ、ステージの後退や再判定はどう規定されているか。
+    origin: [issue:250, theme:TH09]
+    kind: explore
+    falsifier: 主要フレームワークが後段の技術検証を扱わず、探索ステージへの後退のみを想定している。
+    priority: must
+    status: partial
+    answer: 初回に未取得だったスパイラルモデル(SEI 2000年)と Lean Startup の pivot の一次資料を取得した。後戻り・差し戻しは、スパイラルモデルの再定義、Stage-Gate の Recycle、SEBoK v2.14 の決定の選択肢に正規のものとして存在し、後段の知見で先行の判定が下がりうること(NDA の TRL 手引き)と前提の監視手順(RAND ABP)も確認できた。足りないのは、戻り幅・発動条件・手順を定めた外部の規定で、追加分の束にも無い(pivot は手続きの規定なし、未達のままの通過は Stage-Gate と NDA で逆向き、5件とも規範で効果の測定なし)。
+    findings: [FND-0131, FND-0132, FND-0133, FND-0130, FND-0122, FND-0245, FND-0246, FND-0247, FND-0248, FND-0249]
+  - id: TH09-Q3
+    question: プロトタイプ先行(動くものを先に作ってから要求を決める)が企画・要求の決め方を変えたという外部の観測は、成功と失敗の両側でどう報告されているか。
+    origin: [memo:2026-09-02, theme:TH09]
+    kind: explore
+    falsifier: プロトタイプ先行が企画の質を変えたという実証が無い、または悪化の報告のみである。
+    priority: should
+    status: answered
+    answer: 成功側(Gusto の5名10週間、一人の創業者の SaaS 再構築、企画〜設計のリードタイム短縮)と失敗側(NCDC のリリース未達、NTT データのすり抜けバグ、Goodpatch の「売れる目処が立たない」、DORA 2025 の利用者中心の欠如)の両方が報告されている。いずれも自己申告の単一事例か意見で、企画の質そのものを測った統制研究は束に無い。プロトタイプを本番へ持ち込む害の数値(three-month wall、170/1,645件)はベンダーの二次引用で一次未確認(E0)。
+    findings: [FND-0122, FND-0123, FND-0125, FND-0126, FND-0133, FND-0134, FND-0120, FND-0029]
+  - id: TH09-Q4
+    question: 一人+AI の体制で企画フェーズの既存フレームワーク(Lean Canvas、Working Backwards 等)が機能しない要因(顧客不在、仮説の検証相手が AI になる)は、外部で報告されているか。
+    origin: [memo:2026-09-02, theme:TH09]
+    kind: explore
+    falsifier: 一人+AI の企画で既存フレームワークがそのまま機能したという報告が主流である。
+    priority: should
+    status: partial
+    answer: 仮説の検証相手を AI にした場合の限界として、合成ペルソナは実証の置き換えではなく補完とする査読前論文、既知のことを映し返すという PM の一次記録、見出しのクリック順位の予測でペルソナなしがペルソナ群を上回った査読前論文が加わった。Working Backwards は手順が複数の読み手と上位者のレビューを含むことを確認した。足りないのは、一人+AI の体制で Lean Canvas・Working Backwards が機能する・しないを直接評価した報告で、追加分はいずれも一人体制を対象にしていない間接の材料にとどまる。
+    findings: [FND-0129, FND-0127, FND-0128, FND-0125, FND-0030, FND-0130, FND-0250, FND-0251, FND-0252, FND-0249]
+  - id: TH10-Q1
+    question: エージェント時代のモノレポとリポジトリ分割の判断基準(エージェントの作業範囲、文脈の大きさ、CI の発火、所有権)はどう整理されており、分割によって人の手番がボトルネックになった外部報告はあるか。
+    origin: [memo:2026-09-02, issue:272, theme:TH10]
+    kind: explore
+    falsifier: 分割が人のボトルネックを生んだ報告が無く、分割は一貫して推奨されている。
+    priority: must
+    status: partial
+    answer: モノレポと分割を統制して比べた測定も、分割が人の手番をボトルネックにしたことを測った報告も、2026-09-30 の追加分を含めて束に無い(E0、結論は変わらず)。追加は Cursor の公式文書 1 件で、クラウドエージェントが複数リポジトリにまたがって変更し各リポジトリで PR を開くと説明しており、「分割すれば作業範囲が 1 リポジトリに閉じる」という前提が製品によっては当たらないことを示すにとどまる。不足は、リポジトリ構成別の人の待ち時間・レビュー負荷の測定と、複数 PR に分かれた変更のレビュー手番・CI 発火・所有権(CODEOWNERS)を扱う一次資料。
+    findings: [FND-0144, FND-0145, FND-0136, FND-0142, FND-0149, FND-0139, FND-0260]
+  - id: TH10-Q2
+    question: スタック型 PR のツール(Graphite、git-spice、GitHub の対応状況)と CI 発火条件(base ブランチの制約)の 2026-09 時点の状況、およびコーディングエージェントとの併用報告はどうか。
+    origin: [issue:273, theme:TH10]
+    kind: explore
+    falsifier: スタック型 PR が CI 発火条件と衝突せず、エージェント併用でも問題が報告されていない。
+    priority: must
+    status: partial
+    answer: GitHub 標準のスタック型 PR(2026-07-30 public preview)は main 向けワークフローを変えずに全段で CI が発火し、代償は CI 使用量の段数倍・線形履歴の必須・Web の rebase による署名喪失。Graphite・git-spice の 2026-09-30 時点の状況は公式文書と変更履歴で確認でき、サードパーティのスタックでも CI は動くが実行数が増え、間引くと上段が必須 CI 未実行で止まる。LLVM では Graphite の一括マージで rebase と CI 再実行が約 12 時間続いた事例がある。足りないのは、ネイティブ機能の挙動の第三者測定と、サードパーティのスタックツールをエージェントと併用した報告(併用事例はファインディと Rootly の 2 社で割れたまま)。
+    findings: [FND-0141, FND-0142, FND-0143, FND-0257, FND-0258]
+  - id: TH10-Q3
+    question: "#273 の「PR 本数の閾値は AI 駆動開発で意味を持たず、統合の健全性は前回統合からの経過時間とバッチサイズで測るべき(181 本・29 日の実測)」は、公開リポジトリで確認でき、外部の観測(DORA のバッチサイズ、trunk-based development の統合頻度、PR サイズ研究)で支持されるか。"
+    origin: [issue:273, baseline:§5, theme:TH10]
+    kind: verify-claim
+    falsifier: 公開リポジトリの実測が Issue の値と異なる、または外部の観測で PR 本数が統合リスクの有効な予測子であり経過時間より優れている。
+    priority: must
+    status: partial
+    answer: "#273 の実測(181 本・1,368 ファイル・29 日)は公開リポジトリ ganbari-quest の API 値と git 履歴で一致した(経過は 28.8 日)。ただし同じ旧 runbook は経過日数の閾値(3 日・5 日)を既に持っており、その状態で空白が生じている。AI 以前の OSS の査読研究では衝突の発生に効くのは変更ファイル数(オッズ比 3.27)で期間の効果は小さく(1.04〜1.09)、衝突の件数はどの指標でも予測できず、エージェント PR の衝突率もサイズに対して単調ではない。足りないのは、PR 本数そのものを因子として経過時間と比べた測定、エージェント作成 PR で経過時間を測った研究、統合後の欠陥や監査の差し戻しを結果に取った測定。"
+    findings: [FND-0136, FND-0137, FND-0138, FND-0139, FND-0140, FND-0143, FND-0149, FND-0153, FND-0154, FND-0156, FND-0159, FND-0253, FND-0254, FND-0255, FND-0256, FND-0265, FND-0266]
+  - id: TH10-Q4
+    question: PR 本文が複数の読み手(AI レビュア、監査、振り返り、顧客)を持つときの役割分担と、宣言の機械判定(行単位、opt-out 文言)は、外部の PR テンプレ設計やリリースノート自動化でどう扱われているか。
+    origin: [issue:271, theme:TH10]
+    kind: explore
+    falsifier: PR 本文に複数の読み手を想定した設計の先例が無く、宣言の機械判定も行われていない。
+    priority: should
+    status: partial
+    answer: リリースノート自動化との分担と opt-out 文言には先例が見つかった。release-please・Release Drafter・action-semantic-pull-request・Danger は顧客向けの変更記録の入力を題名・ラベル・コミットメッセージに置き、検査の免除を決まった文字列(#trivial)やラベルで機械判定する(規範であり効果の測定ではない)。足りないのは、4 つの読み手を 1 つの PR 本文に持たせる設計の先例と、宣言の行単位の機械判定(コメント・未チェックの checkbox・否定文の除外)の先例で、主張と実体の一致を hard-fail にする製品先例も束に無い。
+    findings: [FND-0146, FND-0147, FND-0148, FND-0150, FND-0101, FND-0259, FND-0234]
+  - id: TH11-Q1
+    question: DORA 2025/2026、SPACE、DX Core 4 は AI 利用・AI 生成コードに関してどの指標を採用し、AI 利用とスループット・安定性の関係を何と結論しているか。
+    origin: [theme:TH11, baseline:§5]
+    kind: explore
+    falsifier: これらが AI 指標を持たない、または AI 利用が成果を一貫して改善すると結論している。
+    priority: must
+    status: answered
+    answer: DORA 2025 は AI 導入がスループット・製品性能と正、安定性と負の関係にあるとし、DX Q2 2026 は PR スループット +37% に対して変更への確信 −6.1% で、falsifier には該当しない。追補で不足が埋まり、DX は AI 時代でも DX Core 4 の 4 次元を変えず導入率・トークン使用量・割当タスク数を診断用テレメトリと位置づけ、SPACE 共著者の書籍は SPACE・DORA を有効としたうえで Trust の次元と検証の手間の測定を提案する(いずれも見解で測定値ではない)。DORA 2026 年版は出ないと Waydev が伝えるが二次情報で一次発表は未確認、ROI 報告書は未読のまま。
+    findings: [FND-0151, FND-0152, FND-0153, FND-0163, FND-0267, FND-0268]
+  - id: TH11-Q2
+    question: AI 生産性の実証(METR RCT とその追試、Faros、LinearB 2026、CircleCI 2026、Stack Overflow 2026、Octoverse 2026)は、個人の作業時間と組織のリードタイムの乖離についてどこまで一致しているか。
+    origin: [baseline:§5, baseline:§9, theme:TH11]
+    kind: explore
+    falsifier: 最新の実証で個人と組織の指標が一致して改善しており、乖離が観測されない。
+    priority: must
+    status: partial
+    answer: 大規模な観察データ(NBER、Faros、CircleCI の中央値チーム)は作業量の増加が下流ほど縮む点で一致し、個人の無作為化実験は向きが割れたままで、falsifier には該当しない。追補で加わったのは AI 生成コード比の自己申告値(JetBrains 約 47%、DX 27.4%。定義が違い比較不可)と国内の体感・試算で、個人と組織の乖離を測ったものではない。不足は Stack Overflow 2026 と Octoverse 2026 の知見が追補でも得られていないこと。
+    findings: [FND-0154, FND-0155, FND-0157, FND-0158, FND-0151, FND-0156, FND-0165, FND-0268]
+  - id: TH11-Q3
+    question: 手戻り率・検証装置比率・統合経過日数・ロール別の負荷(turn 比率)・ゲート健全性(差し戻し率、承認操作のみへの縮退)を測る先例(指標定義、収集方法、警戒サイン)は外部にあるか。
+    origin: [issue:252, issue:267, issue:268, issue:270, issue:273, issue:274, theme:TH11]
+    kind: explore
+    falsifier: これらの指標を定義・収集している先例が無い。
+    priority: should
+    status: partial
+    answer: "手戻りとゲート健全性に加え、追補で統合までの期間・頻度(DORA の測り方、2020 年の査読論文の「期間」定義)とテスト行/コード行の比(Rails stats、サイバーエージェント)に指標定義の先例が見つかり、falsifier には該当しない。Issue 側の再計測では #270 の比 0.76 は再現せず定義により 0.35〜1.36 に動き、#267 が「測っていない」とする手戻りには 2026-08-02 の baseline(18.3%)があり、経過日数の閾値がある状態で 28.8 日・181 本の統合が生じていた。足りないのは、CI 定義・検査スクリプト・hook を含む検証装置全体の比とその閾値、ロール別 turn 比率、エージェント PR に限った手戻り率の一次統計の先例。"
+    findings: [FND-0153, FND-0156, FND-0159, FND-0160, FND-0161, FND-0162, FND-0163, FND-0164, FND-0165, FND-0056, FND-0060, FND-0212, FND-0229, FND-0231, FND-0255, FND-0262, FND-0263, FND-0264, FND-0265, FND-0266, FND-0267]
+  - id: TH11-Q4
+    question: "#249/#252 の「実装 10 行に対して文書 21,116 行、マージ済み PR の 58% がプロセス整備」という比率は公開リポジトリで確認でき、外部の類似観測(初期段階の文書中心プロジェクト、プロセス整備 PR の比率)と比較できるか。"
+    origin: [issue:249, issue:252, theme:TH11]
+    kind: verify-claim
+    falsifier: 公開リポジトリの実測が Issue の値と異なる、または比較可能な外部観測が無く比率の異常度を判定できない。
+    priority: should
+    status: answered
+    answer: 「実装 10 行対文書 21,116 行」は Filetto の commit 8e64146(2026-08-14)の実測と一致したが、同日中に文書は 14,484 行へ減っており 1 時点に限った値である。「マージ済み PR の 58% がプロセス整備」は再現せず、機械分類で 15.6〜45.3%、題名の目視分類で 31〜44% に分かれた(Issue の分類規則が再計測側に渡っていない)。比較できる外部観測は Spec Kit の約 3.7 倍のみで異常度は判定できず、falsifier には 58% の不一致と外部観測の欠如の両面で該当する。
+    findings: [FND-0067, FND-0261]
+  - id: TH12-Q1
+    question: 2026-09 時点の EU AI Act(適用スケジュール、Digital Omnibus による変更、第14条の人間による監視の実施指針)、ISO/IEC 42001 系(42005、42006 等)、NIST AI RMF・AI 600-1 は、開発プロセスと体制に何を要求しているか。
+    origin: [theme:TH12, theme:TH01]
+    kind: explore
+    falsifier: これらの規制・規格が開発プロセスの体制・監視に具体的な要求を持たない。
+    priority: must
+    status: partial
+    answer: "2026-09-30 時点で、体制への具体的な要求は高リスク AI の使用中の監視を自然人へ割り当てること(EU AI Act 第14条・第26条)に集中する。追加分で、NIST AI RMF 1.0・AI 600-1(任意適用)は人の監視を「プロセスを定義・評価・文書化する」形で求めるにとどまり、読めた内部統制の規準(J-SOX 実施基準、SOC 2 TSC、COSO 生成 AI 補足ガイダンス)も職務分離の担い手が人であることを要件として書いていないことを確認した(読んだ範囲の不在で、AI を担い手と認めた記述ではない)。不足: ISO/IEC 42005・42006 の出典カード、42001 附属書 A.3.2 / A.8.4 と 12207 有償本文、改訂中の NIST AI RMF の本文。"
+    findings: [FND-0166, FND-0167, FND-0168, FND-0169, FND-0170, FND-0179, FND-0003, FND-0269, FND-0276, FND-0183, FND-0225, FND-0226]
+  - id: TH12-Q2
+    question: 日本の AI 推進法・AI 基本計画・経産省の AI 事業者ガイドライン・デジタル庁・IPA の 2026-09 時点の状況は、開発プロセスと体制に何を要求し、日本企業の本番導入の一次事例はどこまで公開されているか。
+    origin: [theme:TH12, baseline:§7, baseline:§9]
+    kind: explore
+    falsifier: 日本の法令・指針が開発体制やプロセスへの要求を持たず、一次事例も公開されていない。
+    priority: must
+    status: partial
+    answer: "AI 法(令和7年法律第53号)が活用事業者に直接課すのは活用の努力と施策への協力で、通読した範囲に開発プロセス・体制・人の関与を定める条項も罰則も無く、第13条の指針(2025-12-19)は AI ガバナンスの構築を求めるがロールを人が占めることは述べていない。経産省の民事責任の手引き(2026-04-09)は依拠/代替型 AI で注意義務が業務プロセスの構築・運用へ転換すると整理するが、対象は不法行為責任で請負・検収は扱わない。不足: IPA 自身の指針、AISI のエージェント向けガイドラインと統制要求レベルの中身(未公表)、稟議・検収・QA 部門との折り合いを記した一次事例(追加分の NRI・東京海上日動・日立は計画・試算・ワークショップ段階)。"
+    findings: [FND-0171, FND-0172, FND-0173, FND-0174, FND-0270, FND-0271, FND-0272, FND-0274, FND-0185, FND-0186]
+  - id: TH12-Q3
+    question: OWASP Agentic Top 10 / LLM Top 10 の 2026 年版は、エージェント型開発に固有のリスク(過剰な権限、供給網、虚偽報告)をどう分類し、開発プロセスへの対策をどう示しているか。
+    origin: [theme:TH12, theme:TH07]
+    kind: explore
+    falsifier: OWASP がエージェント固有のリスク分類を持たない。
+    priority: should
+    status: answered
+    answer: OWASP は Agentic Top 10 2026 でエージェント固有のリスクを ASI01〜ASI10 に分類し、Least-Agency を原則に、独立した検証なしの承認と最終確認の欠如をリスクに挙げる。虚偽の完了報告を名指す独立項目は PDF 本文に無く(ASI09・ASI10・付録の読了と全文の語検索で確認)、近い挙動は ASI10 の例示(goal drift and scheming、reward hacking)と ASI09 の攻撃シナリオ(監査根拠の捏造をレビュアが承認)に分かれ、対策は平易な言葉のリスク要約と計画逸脱検知である。IPA の短信(2026-09-07)と J-AISI のガイド(2026-07-07)は、判断に必要な情報の欠落と監視能力の飽和で承認が形だけになる経路を記す。
+    findings: [FND-0175, FND-0045, FND-0171, FND-0273, FND-0274, FND-0228, FND-0236]
+  - id: TH12-Q4
+    question: 改訂の速い分野(暗号、Web 標準、クラウドセキュリティ、AI)の規格・標準は、どのような運営(living standard、年次改訂、正誤表、根拠水準の開示、条項が実装層へ届いたことの追跡)を採っているか。
+    origin: [theme:TH12, issue:259]
+    kind: explore
+    falsifier: 改訂の速い分野でも従来の多年周期の改訂運営が維持され、実装追跡の手続も無い。
+    priority: should
+    status: partial
+    answer: "改訂の速い仕様は多年周期と別の運営(継続更新、短い改訂周期、非推奨猶予、段階と版の表示、実装・テストとの結合、根拠の重みの開示)を持ち、ISO の最大間隔 5 年と併存する。追加分で、IEC 61508-3 第3版原案(2025-02-21 回付)の参照 ID 維持と Not Used 表記、DO-248C への根拠節の新設、AI 法・適正性確保指針の周期を置かない見直し、NIST AI RMF の改訂中掲示が加わった。不足: 暗号・クラウドセキュリティ分野の運営、正誤表の運営、根拠開示の効果の測定、既存条項を遡って棚卸しする手続の先例(追加分でも埋まらず)。"
+    findings: [FND-0176, FND-0177, FND-0178, FND-0179, FND-0166, FND-0170, FND-0275, FND-0269, FND-0270]
+  - id: BASE-Q1
+    question: 前回 §9 の高優先の未検証項目(METR の 2026 年モデルの時間地平の一次値、Claude Opus 5 の SWE-bench Verified 96.0% の一次確認、GitHub「依頼者は自分の PR を承認できない」の現行文言)は、一次資料で確認できるか。
+    origin: [baseline:§9]
+    kind: recheck-baseline
+    falsifier: 一次資料の値が前回メモの二次情報と異なる、または該当する記述が削除されている。
+    priority: must
+    status: partial
+    answer: "[TH10] GitHub の「依頼者は自分の PR を承認できない」は Docs の現行文言を一次で確認できた(名称は cloud agent に変わり、記述は Risks and mitigations ページへ移動)。METR の時間地平と SWE-bench Verified の一次値は本テーマの範囲外で、ここでは答えていない。 / [TH01] 本テーマで答えられたのは GitHub の項目だけである。「依頼者は自分の PR を承認できない」は 2026-09 取得の GitHub Docs で一次確認でき、名称が cloud agent に変わった以外は趣旨が維持されている。METR の時間地平と Opus 5 の SWE-bench の一次確認は本テーマの対象外で、他テーマの本文に委ねる。 / [TH06] 本テーマの範囲では、GitHub の現行文書で「PR の作成者は自分の PR を承認できない」「Copilot cloud agent に依頼したユーザーも承認できない」を確認した。METR の時間地平と Opus 5 の SWE-bench Verified の一次値は本テーマの範囲外で、他テーマの回答が要る。"
+    findings: [FND-0150, FND-0005]
+  - id: BASE-Q2
+    question: 前回 §6-3「変わっていない点」(制約された協調+人間の統制への収束、自己検証の循環依存の未解決、Anthropic の設計原則の維持、日本語の一次事例の不足)は 2026-09 時点でも成り立つか。
+    origin: [baseline:§6]
+    kind: recheck-baseline
+    falsifier: 無制限の自律を製品化したベンダーが現れた、または日本語の本番導入一次事例が複数出た。
+    priority: must
+    status: partial
+    answer: "[TH10] 本テーマの範囲では、作成者と承認者の分離は維持されている。ただし 2026-09-01 の public preview で Copilot の承認を必須承認に算入する経路が入り(既定は無効、ファイルパス限定可)、「プラットフォームが人の承認を強制する」は条件付きになった。Docs と changelog の記述が食い違っており、他の3点(自己検証の循環依存、Anthropic の設計原則、日本語一次事例)は他テーマの範囲。 / [TH02] 本テーマの範囲では、段階的に自律を広げる事例が継続して観測され §6-3-2 の収束は概ね成り立つ。ただし Meta RADAR は低リスク差分を人のレビュー無しに着地させており限定が付く。§6-3 の他の項目(自己検証の循環依存、Anthropic の設計原則)は他テーマの知見に依存し、本テーマでは未回答。 / [TH12] TH12 の担当分(日本語の一次事例の不足)のみ再確認した。デジタル庁とメルカリの 2 件が公開され前回の記述は変化したが、稟議・検収・QA 部門との折り合いを記した一次事例は束に無く、その部分の不足は残る。制約された協調への収束、自己検証の循環依存、Anthropic の設計原則の維持は他テーマの担当で、本テーマでは扱っていない。 / [TH01] 本テーマに掛かる部分では、編成の実務が「制約された協調+人間の統制」にとどまる点は確認できた。一方、AI を承認側に置く実装が低リスク限定で現れ、無制限の自律を掲げるベンダーが目標・宣伝の水準で現れたため、前回 §6-3-1 / §6-3-2 には限定が付く。自己検証の循環依存と Anthropic の設計原則の維持は本テーマでは扱っておらず、日本語の一次事例は稟議・検収・QA 部門との折り合いを記したものが依然として無い。 / [TH07] TH07 の範囲では「自己検証の循環依存は未解決」が 2026-09-24 時点でも成り立つ(可視テストの飽和と保留テストとの差、METR の不正率、Anthropic が全失敗の事前表面化を未解決と記載)。BASE-Q2 の他の項目(制約された協調への収束、Anthropic の設計原則、日本語一次事例)は TH07 では扱っておらず、他テーマの回答が要る。 / [TH06] 「自己検証の循環依存は未解決」は、外部信号なしの自己修正が改善しない測定と、最良の文脈分離でも約 73% を見逃す測定で引き続き成り立つ。変化は、GitHub が 2026-09-01 に Copilot の承認を必須承認へ算入できる機能を public preview で出した点(既定は無効)。「制約された協調への収束」「日本語の一次事例」の再確認は TH01・TH12 側の回答が要る。 / [TH01 追補 2026-09-30] 本テーマ(TH01)の範囲では、「制約された協調+人間の統制への収束」は維持されている。レビュー判断の一部を AI 管轄に置く国内の自己報告が2件加わったが、承認操作は人に残る。日本語の一次事例は増えたものの、QA 部門との折り合いは日立の担当者が「これからの課題」と語る段階で、稟議・検収との折り合いを記した一次事例は引き続き不足している。"
+    findings: [FND-0150, FND-0149, FND-0028, FND-0029, FND-0174, FND-0006, FND-0007, FND-0008, FND-0092, FND-0095, FND-0086, FND-0087, FND-0090, FND-0187]
+  - id: BASE-Q3
+    question: 前回 §6-2 の変化(モデル階層の再編、輸出管理による可用性の断続、MCP / A2A の AAIF 移管)はその後どう進み、§6-1 の訂正(倍加時間 88.6 日、足場に有意差なし)はさらに更新されたか。
+    origin: [baseline:§6]
+    kind: recheck-baseline
+    falsifier: 更新値が前回の訂正を覆す、または変化が巻き戻っている。
+    priority: should
+    status: partial
+    answer: "[TH04] TH04 の範囲では、モデル階層の再編は継続している(GPT-6 でも 3 層、2026-08-21 の Sol 値下げ、GPT-6 Sol / Luna -50%、Sonnet 5 の $2/$10 の標準価格化、Opus 5 の Claude Max 既定化、読み取り倍率の世代別分化)。GPT-5.6 の階層と値下げ日は今回 OpenAI 公式ページで一次確認した。輸出管理による可用性の断続、MCP / A2A の AAIF 移管、§6-1 の訂正値の更新は TH04 の知見の範囲外で、他テーマの回答が要る。 / [TH02] §6-2-1(モデル階層の再編)と §6-2-7(可用性の断続)は 2026-09-24 時点で継続を確認し、断続の原因は輸出管理・製品統合・買収後の契約終了・世代交代の4種へ広がった。MCP は 2026-07-28 版で最低12か月の非推奨期間を導入した。倍加時間・足場の有意差の更新と AAIF 移管の進展は本テーマの知見では扱っておらず未回答。 / [TH12] TH12 の担当分(MCP / A2A の AAIF 移管)のみ再確認した。AAIF の設立は 2025-12-09 で創設寄贈は 3 件・Platinum 会員は 8 社、A2A の AAIF 加入は 2026-08-17 であり、前回メモ(2026-08-04 時点)の「いずれも AAIF の下」「6 社を共同創設者」は一次資料と異なる。モデル階層の再編、輸出管理、倍加時間と足場の訂正の更新は他テーマの担当で、本テーマでは扱っていない。"
+    findings: [FND-0046, FND-0054, FND-0057, FND-0059, FND-0023, FND-0022, FND-0180]
+  - id: BASE-Q4
+    question: 前回 §9 の中・低優先の未検証項目(CircleCI 2026 一次レポート、Kiro 一次情報、A2A v1.0 の日付、エージェント起因のセキュリティインシデント実例、arXiv 2604.03196 / 2601.00753 / 2606.19644 の精読、AIDLC との突き合わせ)は解消できるか。
+    origin: [baseline:§9]
+    kind: recheck-baseline
+    falsifier: 一次資料が存在しない、または前回の記述と矛盾する。
+    priority: should
+    status: partial
+    answer: "[TH08] 本テーマの担当分では、Kiro の一次情報(プレビュー 2025-07、一般提供 2025-11、AWS 公式)と AI-DLC 2.0 の現行構成(5 フェーズ 33 ステージ、人の承認ゲート)を一次資料で確認し、前回 §9 の該当項目は解消した。CircleCI・A2A・インシデント実例は別テーマの知見(FND-0155、FND-0180、FND-0093)が担当する。arXiv 2606.19644 は出典カード(SRC-0055)があるが知見化されておらず、2604.03196 / 2601.00753 の精読は本テーマでは未確認。 / [TH11] TH11 が答えたのは CircleCI 2026 一次レポートの項目のみ。一次を取得でき、+59% は全プロジェクトの平均スループット(日次ワークフロー実行数)で、中央値チームは feature +15.2%・main −6.8% と、前回メモの記述が原典と異なることを確認した。LinearB の 32.7% も無修正マージ率ではなく 30 日以内マージ率だった。Kiro、A2A、インシデント実例、arXiv 3 本、AIDLC は他テーマの担当で、ここでは未回答。 / [TH12] TH12 の担当分(A2A v1.0 の日付)のみ解消した。v1.0.0 の公開は 2026-03-12 で、前回メモの 2026-04 より 1 か月早い。CircleCI 2026、Kiro、セキュリティインシデント実例、arXiv 論文の精読、AIDLC との突き合わせは他テーマの担当で、本テーマでは扱っていない。 / [TH07] 前回 §9 で未取得だったエージェント起因の実環境インシデントは、Hugging Face 事件(2026-07、OpenAI の自己申告と METR の第三者調査)と Railway の本番ボリューム削除(当事者報告)で一次報告が得られた。残りの項目(CircleCI 2026、Kiro、A2A v1.0、arXiv 論文の精読、AIDLC)は TH07 の範囲外で未回答。 / [TH03] 前回 §9 の持ち越しのうち、このテーマで扱えたのは 3 項目だけである。エージェント設定を攻撃面とするセキュリティ実事案(npm マルウェアの SessionStart フック、スキル市場監査)を取得し、AI-DLC 2.0 の README(5 フェーズ 33 ステージ・11 プロファイル、SRC-0051 は検証 partial)と Kiro の steering 公式文書を一次資料として確認した。CircleCI 2026 一次レポート、A2A v1.0 の日付、arXiv 3 本の精読はこのテーマでは未着手で、「エージェントが実環境で起こした障害」の事例も供給網事案とは別に残る。"
+    findings: [FND-0116, FND-0155, FND-0180, FND-0093, FND-0096, FND-0045, FND-0044, FND-0031]

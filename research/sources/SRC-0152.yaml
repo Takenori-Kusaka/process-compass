@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0152
+status: included
+excludeReason: null
+title: AIを活用して個人開発してみた
+url: https://zenn.dev/ryo_hajime/articles/40fae3abf21862
+canonicalUrl: https://zenn.dev/ryo_hajime/articles/40fae3abf21862
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [Ryoichi]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-04-28
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: 一人開発 企画 生成AI 2026 Zenn (scratchpad)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH09, TH01, TH06]
+events: []
+summary: 個人開発者が Claude Code で要件定義→設計→開発→テストを回した率直な記録。AI が自分の実力以上の設計書を出し、理解が曖昧なまま進んで結局自分で書き直した。型定義からではなく画面から作るべきだったと反省し、別チャットの AI にレビューさせる工夫も記す。
+claims:
+  - id: c1
+    text: AI は本人の実力以上の設計書を出力し、完全に理解できないまま進んだ結果、後で読み返して「なんだこれ」となり自分で大幅に書き直した。責任者が理解を保てない成果物は意味がない。
+    quote: AIは私の実力以上のアウトプットを出してきます 。出力された設計書を完全に理解できていなかったのですが、「これってこういうことでしょ」と曖昧なまま先に進んでしまいました。
+    locator: "反省点: 設計書の理解が曖昧なまま開発に入ってしまった"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q4, TH01-Q3]
+    issues: [267]
+    stance: supports
+  - id: c2
+    text: 型定義→ロジック→コンポーネント→ページの順に作ると全体像を見失った。ページ(画面)から作り必要なロジックを付随させる順序にすべきだった。
+    quote: 型定義からではなく、画面から作り始めるべきだった
+    locator: 反省点 見出し
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 要件定義書・設計書を書いた AI とは別の新規チャットの AI にレビューさせると、書いた側が「進められます」と言っても「〇〇がよくない」と指摘することが何度もあった。
+    quote: レビューしてくれたAIは「〇〇がよくないです」と言ってくれることが何度もありました。
+    locator: 文脈なしのAIにレビューさせる
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:11.034Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/ryo_hajime/articles/40fae3abf21862
+    contentType: text/html; charset=utf-8
+    titleFetched: AIを活用して個人開発してみた
+    titleMatch: true
+    dateMeta: 2026-04-27
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0413
+status: included
+excludeReason: null
+title: Hardening Agent Benchmarks with Adversarial Hacker-Fixer Loops
+url: https://arxiv.org/abs/2606.08960
+canonicalUrl: arxiv:2606.08960
+ids:
+  arxiv: "2606.08960"
+  doi: null
+publisher: arXiv(Carnegie Mellon University / Fewshot Corp)
+authors: [Ziqian Zhong, Ivgeni Segal, Ivan Bercovich, Shashwat Saxena, Kexun Zhang, Aditi Raghunathan]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-06-08
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH07
+  query: reward hacking coding agents benchmark test modification arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07]
+events: []
+summary: 手書きの結果検証器(テスト)は脆く、5 つの端末エージェント・ベンチマークの 16% が課題文だけで突破可能だった。攻撃役・修正役・解答役の LLM を回す「hacker-fixer loop」で検証器を堅くする方法を示す。
+claims:
+  - id: c1
+    text: 5 ベンチマーク 1,968 課題を監査したところ、323 課題(16%)がフロンティアモデルにより課題文だけで突破可能だった。
+    quote: We audit 1,968 tasks across five terminal-agent benchmarks and find 323 (16%) hackable by frontier models given only the task description.
+    locator: Abstract
+    quant:
+      value: 16% (323/1968)
+      n: 1,968 tasks, 5 benchmarks
+      design: adversarial audit
+      population: terminal-agent benchmark verifiers
+    evidenceKind: observational
+    rqs: [TH07-Q1, TH07-Q3]
+    issues: [270]
+    stance: supports
+  - id: c2
+    text: ループ内の弱いエージェントでも強い攻撃者を防げた。Gemini 3 Flash のループで、Gemini 3.1 Pro と Claude Opus 4.7 の KernelBench 攻撃成功率を 76%・61% から 0% にした。
+    quote: We also find that weaker agents in the loop can defend against much stronger hackers
+    locator: Abstract
+    quant:
+      value: 76%/61% -> 0%
+      n: KernelBench held-out exploit corpus
+      design: iterative adversarial verifier patching
+      population: Gemini 3.1 Pro, Claude Opus 4.7 as attackers
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH06-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:25.088Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2606.08960
+    contentType: text/html; charset=utf-8
+    titleFetched: Hardening Agent Benchmarks with Adversarial Hacker-Fixer Loops
+    titleMatch: true
+    dateMeta: 2026-06-08
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Hardening Agent Benchmarks with Adversarial Hacker-Fixer Loops
+      authors: ["Zhong, Ziqian", "Segal, Ivgeni", "Bercovich, Ivan", "Saxena, Shashwat", "Zhang, Kexun", "Raghunathan, Aditi"]
+      v1Date: 2026-06-08
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: five (terminal-agent benchmarks) / 1,968 tasks / 323 / 16%
+        extractedQuote: We audit 1,968 tasks across five terminal-agent benchmarks and find 323 (16%) hackable by frontier models given only the task description.
+        locator: Abstract
+        note: 監査対象は「five terminal-agent benchmarks」(端末エージェント系ベンチマーク5種)。
+        adjudication:
+          verdict: consistent
+          reason: 『We audit 1,968 tasks across five terminal-agent benchmarks and find 323 (16%) hackable by frontier models given only the task description』と一致する。323/1968=16.4%。対象は端末エージェント系のベンチマーク5種。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: Gemini 3 Flash / Gemini 3.1 Pro / Claude Opus 4.7 / 76% / 61% / 0%
+        extractedQuote: Gemini 3 Flash's loop drives the stronger Gemini 3.1 Pro and Claude Opus 4.7's attack success rate from 76% and 61% to 0% on KernelBench
+        locator: Abstract
+        note: 原文は「weaker agents in the loop can defend against much stronger hackers」。同じ文で Terminal Bench(77 tasks)では Gemini 3.1 Pro の攻撃成功率が 39%→17% にとどまる(0% ではない)ことも併記されている。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

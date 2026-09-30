@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0388
+status: included
+excludeReason: null
+title: Inferred Generative-Process Diversity Predicts Correlated Failure Across Language Models
+url: https://arxiv.org/abs/2609.03422
+canonicalUrl: arxiv:2609.03422
+ids:
+  arxiv: "2609.03422"
+  doi: null
+publisher: arXiv (Australian National University)
+authors: [Ross Tieman, Evan Markou]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-09-03
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: correlated errors across large language models shared failures model diversity 2026 arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 38 モデル・10 ベンチマーク系統で、提供元や意味的類似度ではなく出力の圧縮距離で測った『生成過程の多様性』がモデル対の相関故障の少なさを予測すると示した 2026-09 のプレプリント。
+claims:
+  - id: c1
+    text: 提供元・構造・規模・訓練手順・インターフェースが違っても、振る舞いの独立は保証されない。
+    quote: Contemporary language models differ in provider, architecture, size, training procedure, and interface, yet these attributes do not ensure behavioural independence.
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: review
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c2
+    text: 出力から推定した生成過程の多様性は、意味的類似度では捉えられない母集団構造を識別し、モデル対の偶然補正済み相関故障のタスク間変動を予測する。ベンチマーク横断の部分順位相関は -0.216(95%区間 -0.309〜-0.122)で、推定値は10種のベンチマークすべてで負だった。
+    quote: The cross-benchmark partial rank association is -0.216 with a 95% interval of [-0.309,-0.122], and the estimate is negative on all ten benchmarks.
+    locator: Abstract(本文 Conclusion にも同じ値)
+    quant:
+      value: 部分順位相関 -0.216(95%CI -0.309〜-0.122)
+      n: 38モデル x 10ベンチマーク系統
+      design: observational (model-pair association)
+      population: 言語モデル対の偶然補正済み相関故障
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+  - id: c3
+    text: 意味的類似度だけでは、共通原因故障を防ぐ形でモデルが異なるかどうかは確かめられない。
+    quote: Semantic similarity does not establish whether models differ in ways that prevent common-mode failure.
+    locator: Conclusion
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:41.280Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.03422
+    contentType: text/html; charset=utf-8
+    titleFetched: Inferred Generative-Process Diversity Predicts Correlated Failure Across Language Models
+    titleMatch: true
+    dateMeta: 2026-09-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: Inferred Generative-Process Diversity Predicts Correlated Failure Across Language Models
+      authors: ["Tieman, Ross", "Markou, Evan"]
+      v1Date: 2026-09-03
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: -0.216 / 95% / [-0.309, -0.122] / ten(benchmarks)
+        extractedQuote: The cross-benchmark partial rank association is -0.216 with a 95% interval of [-0.309,-0.122], and the estimate is negative on all ten benchmarks.
+        locator: Abstract(本文 Conclusion にも同じ値)
+        note: 『___系統すべてで負』の 10 は、原文ではモデルの系統ではなく『ten disjoint benchmark families』(ベンチマーク10種)。系統(model family)と読むと母集団が食い違う。後半の『系統混合の効果は何で多様性を測るかに依存する』は概要に直接の文言が無い。近い記述は冒頭の 'the type of diversity that matters depends on the properties and failure modes of the system' と本文の 'Provider count, parameter count, and model-family count may therefore overstate the effective diversity'。ベンチマーク別に見るとブートストラップ区間が0を除くのは10中4つ。対象は38モデル
+        adjudication:
+          verdict: corrected
+          reason: 数値(-0.216、[-0.309, -0.122])は一致する。しかし『10 系統すべてで負』の10は、原文ではモデル系統ではなく10種のベンチマーク(ten benchmarks)であり、母集団を取り違えている。後半の『系統混合の効果は何で多様性を測るかに依存する』は抜粋に直接の文言が無く、『能力差を統制しても』『正規化圧縮距離』も抜粋からは確認できないため訂正文から外した。blindNote によれば、ベンチマーク別に区間が0を除くのは10中4つにとどまる。
+          date: 2026-09-24
+          originalText: 出力の正規化圧縮距離で推定した生成過程の多様性は、意味的類似度や能力差を統制しても相関故障の少なさを予測する(部分順位相関 -0.216、95%CI -0.309〜-0.122、10 系統すべてで負)。系統混合の効果は『何で多様性を測るか』に依存する。
+          originalQuote: this measure identifies population structure missed by semantic similarity and predicts cross-task variation in chance-corrected correlated failure among model pairs
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

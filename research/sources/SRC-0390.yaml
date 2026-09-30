@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0390
+status: included
+excludeReason: null
+title: "Minority Sentinel: When to Overturn Majority Voting in Multi-Agent LLM Debates"
+url: https://arxiv.org/abs/2606.29270
+canonicalUrl: arxiv:2606.29270
+ids:
+  arxiv: "2606.29270"
+  doi: null
+publisher: AgentSearch Workshop at SIGIR 2026 (arXiv)
+authors: [Chuan He, Zebin Chen, Zhengyi Yang, Shaobo Qiao, Mingchen Ju, Jiate Liu, Dong Wen, Guanfeng Liu]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-06-28
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: multi-agent debate versus self-consistency replication 2026 debate does not help majority voting
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 異種 3 LLM の討論+多数決で、誤りの相関により正しい少数意見が抑圧される現象を実測。上位の LLM 判定者に覆させると正味で悪化し、非 LLM の分類器なら安全に回復できると報告。
+claims:
+  - id: c1
+    text: 意見が割れた事例の約 4 件に 1 件で少数側が正解であり、多数決は正しい少数意見を系統的に潰している(理論上の回復余地 10pt)。
+    quote: we find that roughly one in four divergent cases has the minority holding the correct answer, yielding a 10-percentage-point theoretical recovery margin.
+    locator: Abstract
+    quant:
+      value: 約25%(回復余地 10pt)
+      n: 異種 LLM 3 体 x 6 ベンチマーク x 20 シード
+      design: controlled experiment
+      population: 多数決が割れた討論事例
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c2
+    text: 討論ログを読んだ LLM 判定者に多数決を覆させると、再現率は高いのに正味の利得が負になる。判定者も討論者と同じ盲点を共有するためと著者は説明する。
+    quote: The LLM-as-Judge baseline yields negative Net Gain despite higher recall, confirming that flip safety, not recovery volume, determines intervention value.
+    locator: Abstract / §4
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c3
+    text: 上位の LLM を最終裁定者に置いても、討論者と知識の盲点を共有するという限界を引き継ぐ。
+    quote: the judge LLM shares similar knowledge blind spots with the debating agents
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:46.084Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2606.29270
+    contentType: text/html; charset=utf-8
+    titleFetched: "Minority Sentinel: When to Overturn Majority Voting in Multi-Agent LLM Debates"
+    titleMatch: true
+    dateMeta: 2026-06-28
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Minority Sentinel: When to Overturn Majority Voting in Multi-Agent LLM Debates"
+      authors: ["He, Chuan", "Chen, Zebin", "Yang, Zhengyi", "Qiao, Shaobo", "Ju, Mingchen", "Liu, Jiate"]
+      v1Date: 2026-06-28
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: roughly one in four / 10 percentage points
+        extractedQuote: we find that roughly one in four divergent cases has the minority holding the correct answer, yielding a 10-percentage-point theoretical recovery margin.
+        locator: Abstract
+        note: 条件は異種LLMエージェント3体の討論・6ベンチマーク。『多数決が正しい少数意見を系統的に潰す』は、原文では誤りの相関から導く前提として書かれ(causing the majority to systematically suppress correct minority opinions)、1/4 の数値はその観察として続く
+        adjudication:
+          verdict: consistent
+          reason: 『roughly one in four divergent cases has the minority holding the correct answer, yielding a 10-percentage-point theoretical recovery margin』と一致する。『多数決は正しい少数意見を系統的に潰している』も原文に『causing the majority to systematically suppress correct minority opinions』としてある(誤りの相関から導く前提として)。条件は異種LLMエージェント3体の討論・6ベンチマークである点に留意。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

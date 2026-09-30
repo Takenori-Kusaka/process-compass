@@ -1,0 +1,187 @@
+schemaVersion: 0
+id: SRC-0168
+status: included
+excludeReason: null
+title: Claude Fable 5 and Claude Mythos 5
+url: https://www.anthropic.com/news/claude-fable-5-mythos-5
+canonicalUrl: https://anthropic.com/news/claude-fable-5-mythos-5
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-06-09
+publishedBasis: byline
+version: null
+updated: 2026-07-01
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: 前回メモ §1-1 の出典 URL(再取得)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH04]
+events:
+  - date: 2026-06-09
+    label: Anthropic が Claude Fable 5 / Claude Mythos 5 を発表
+  - date: 2026-06-12
+    label: Anthropic が Fable 5 / Mythos 5 の提供を停止
+  - date: 2026-07-01
+    label: Anthropic が Fable 5 / Mythos 5 を再展開
+  - date: 2026-06-09
+    label: Claude Fable 5 / Mythos 5 を発表
+  - date: 2026-06-12
+    label: Fable 5 / Mythos 5 へのアクセスを停止
+  - date: 2026-07-01
+    label: Fable 5 / Mythos 5 を再提供
+summary: Fable 5 / Mythos 5 の公式発表(更新欄に停止と再展開を併記)。前回 §6-1 の訂正 1(Fable 5 は実在)を一次で再確認した。
+claims:
+  - id: c1
+    text: Fable 5 / Mythos 5 の発表日は 2026-06-09。
+    quote: Claude Fable 5 and Claude Mythos 5 Jun 9, 2026
+    locator: 見出し
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: supports
+  - id: c2
+    text: 2026-06-12 に提供を停止した。
+    quote: Claude Mythos 5 and Fable 5 access unavailable Jun 12, 2026 We are suspending access to Claude Fable 5 and Claude Mythos 5.
+    locator: 更新欄
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3, TH02-Q3]
+    issues: [282]
+    stance: supports
+  - id: c3
+    text: 2026-07-01 付の更新で Claude Mythos 5 と Fable 5 の再展開が告知された。ただしリンク先の告知によれば、全世界で再開したのは Fable 5 で、Mythos 5 は米国政府の承認(6 月 26 日)を受けた一部の米国組織向けの復旧にとどまる。
+    quote: Claude Mythos 5 and Fable 5 redeployed Jul 1, 2026 Claude Fable 5 and Mythos 5 are now available.
+    locator: "更新欄(Update: redeployed, Jul 1, 2026)"
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3, TH02-Q3]
+    issues: [282]
+    stance: supports
+  - id: c4
+    text: Mythos 5 は Fable 5 と同じ基盤モデルで、一部の安全装置を外したもの。
+    quote: It’s the same underlying model as Fable 5, but with the safeguards lifted in some areas.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: supports
+  - id: c5
+    text: 公開3日後に Fable 5 / Mythos 5 へのアクセスを停止した(2026-06-12)。7/1 に再提供。最上位モデルの可用性が断続した一次記録。
+    quote: We are suspending access to Claude Fable 5 and Claude Mythos 5. We apologize for this disruption to our customers
+    locator: "Update: Claude Mythos 5 and Fable 5 access unavailable(Jun 12, 2026)"
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3, BASE-Q3]
+    issues: []
+    stance: supports
+  - id: c6
+    text: 一部の話題の問い合わせは次に高性能な Opus 4.8 が応答する設計で、分類器はセッション平均 5% 未満で作動する(応答モデルの暗黙の切替)。
+    quote: they trigger, on average, in less than 5% of sessions.
+    locator: 冒頭
+    quant:
+      value: <5% of sessions
+      n: null
+      design: vendor-reported average
+      population: Fable 5 safeguards
+    evidenceKind: news-fact
+    rqs: [TH02-Q3]
+    issues: []
+    stance: context
+  - id: c7
+    text: 価格は入力 $10 / 出力 $50 per MTok。
+    quote: Fable 5 and Mythos 5 are being offered at $10 per million input tokens and $50 per million output tokens
+    locator: 冒頭
+    quant:
+      value: $10 / $50 per MTok
+      n: null
+      design: price list
+      population: Fable 5 / Mythos 5
+    evidenceKind: news-fact
+    rqs: [TH04-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.581Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/news/claude-fable-5-mythos-5
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Fable 5 and Claude Mythos 5
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Fable 5 / Mythos 5 / 2026-06-09(Jun 9, 2026)
+        extractedQuote: Announcements Claude Fable 5 and Claude Mythos 5 Jun 9, 2026
+        locator: 見出し(記事タイトル直下の日付)
+        note: Mythos 5 は同日発表だが、提供先は Project Glasswing 経由の一部の cyberdefenders とインフラ事業者に限られる("For a small group of cyberdefenders and infrastructure providers, we’re also launching Claude Mythos 5")。
+      c2:
+        verdict: match
+        extractedValue: 2026-06-12(Jun 12, 2026)
+        extractedQuote: Claude Mythos 5 and Fable 5 access unavailable Jun 12, 2026 We are suspending access to Claude Fable 5 and Claude Mythos 5.
+        locator: "更新欄(Update: access unavailable, Jun 12, 2026)"
+        note: 停止の原因は Anthropic 自身の判断ではなく米政府の輸出管理指令である。リンク先 /news/fable-mythos-access に "The US government, citing national security authorities, has issued an export control directive to suspend all access to Fable 5 and Mythos 5 by any foreign national" とある。ask の主語(誰が停止したか)と理由は原典の方が限定的。
+      c3:
+        verdict: match
+        extractedValue: 2026-07-01(Jul 1, 2026)
+        extractedQuote: Claude Mythos 5 and Fable 5 redeployed Jul 1, 2026 Claude Fable 5 and Mythos 5 are now available.
+        locator: "更新欄(Update: redeployed, Jul 1, 2026)"
+        note: 「§___-___の ___」は主張者側文書の節参照で、原典では確認できない。リンク先 /news/redeploying-fable-5(Jun 30, 2026 付)では、Jul 1 に全世界で再開したのは Fable 5 だけと読める。Mythos 5 は "We have also restored access to Mythos 5 for a set of US organizations, following the US government’s approval on June 26" とあり、一部の米国組織に限った復旧である。「再展開した」を両モデル一律と読むと食い違う。
+        adjudication:
+          verdict: corrected
+          reason: blindQuote の 'Claude Mythos 5 and Fable 5 redeployed Jul 1, 2026' と日付は一致する。しかし blindNote によれば、リンク先の告知(/news/redeploying-fable-5)では Mythos 5 の復旧は 'a set of US organizations' に限られる。『再展開した』を両モデル一律と読むと食い違うため、条件を補って訂正した。§参照は内部参照のため判定対象外。
+          date: 2026-09-24
+          originalText: 2026-07-01 に再展開した。可用性の断続(§6-2 の 7)は一次で確認できる。
+          originalQuote: Claude Mythos 5 and Fable 5 redeployed Jul 1, 2026
+      c5:
+        verdict: match
+        extractedValue: 公開(Jun 9)の3日後 / Fable 5 / Mythos 5 / 2026-06-12 / 7/1(Jul 1, 2026)
+        extractedQuote: Claude Mythos 5 and Fable 5 access unavailable Jun 12, 2026 We are suspending access to Claude Fable 5 and Claude Mythos 5.
+        locator: "Update: Claude Mythos 5 and Fable 5 access unavailable(Jun 12, 2026)/ Update: redeployed(Jul 1, 2026)/ 記事日付 Jun 9, 2026"
+        note: 「3日後」は記事日付 Jun 9 と更新日 Jun 12 から検証役が計算した値で、原典に日数の記述は無い。再提供日 Jul 1 は更新欄 "Claude Mythos 5 and Fable 5 redeployed Jul 1, 2026" による。c3 と同じく、Mythos 5 の復旧は一部の米国組織に限られる(リンク先 /news/redeploying-fable-5)。停止の原因は米政府の輸出管理指令(/news/fable-mythos-access)。
+      c6:
+        verdict: match
+        extractedValue: Opus 4.8 / less than 5% of sessions
+        extractedQuote: we’ve tuned these safeguards conservatively—they’ll sometimes catch harmless requests, though they trigger, on average, in less than 5% of sessions
+        locator: 冒頭 第2段落
+        note: 応答するモデルの原文は "queries on some topics will instead receive a response from our next-most-capable model, Claude Opus 4.8"。括弧書きの「応答モデルの暗黙の切替」は原典と食い違う。safeguards 節に "the response is automatically handled by Claude Opus 4.8 instead. Users will be informed whenever this occurs." とあり、切替は利用者へ通知される。自動ではあるが暗黙ではない。同節には "more than 95% of Fable sessions involve no fallback at all" もある(early data)。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: S1
+    query: Claude Fable 5 Mythos 5 system card
+urlBeforeRepair: https://anthropic.com/news/claude-fable-5-mythos-5

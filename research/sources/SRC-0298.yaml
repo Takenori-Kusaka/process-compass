@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0298
+status: included
+excludeReason: null
+title: The 2026-07-28 Specification
+url: https://blog.modelcontextprotocol.io/posts/2026-07-28
+canonicalUrl: https://blog.modelcontextprotocol.io/posts/2026-07-28
+ids:
+  arxiv: null
+  doi: null
+publisher: Model Context Protocol Blog
+authors: [David Soria Parra, Den Delimarsky]
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2026-07-28
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: Model Context Protocol specification 2026-07-28 release changes stateless
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH02]
+events:
+  - date: 2026-07-28
+    label: MCP 2026-07-28 仕様を公開(ステートレス化、拡張機構、12か月の非推奨期間)
+summary: MCP のリードメンテナによる 2026-07-28 版仕様の公開告知。ステートレスなプロトコル核への移行と、最低12か月の非推奨期間を持つ廃止方針の導入を述べる。
+claims:
+  - id: c1
+    text: 2026-07-28 版でプロトコル核をステートレス化し、Multi Round-Trip Requests、ヘッダによるルーティング、認可の強化、正式な拡張機構を導入した。
+    quote: The 2026-07-28 Model Context Protocol specification is out, bringing a stateless protocol core, Multi Round-Trip Requests, header-based routing, cacheable list results, authorization hardening
+    locator: 冒頭要約
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q3]
+    issues: []
+    stance: context
+  - id: c2
+    text: 最低12か月の猶予を持つ正式な非推奨方針を導入した。改訂の速いプロトコルでも、利用者が後追いではなく計画的に移行できる運営へ移っている。
+    quote: A formal deprecation policy with a twelve-month minimum window so you can plan upgrades instead of reacting to them.
+    locator: What changed の要約リスト
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4, TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:22.946Z
+    httpStatus: 200
+    finalUrl: https://blog.modelcontextprotocol.io/posts/2026-07-28/
+    contentType: text/html; charset=utf-8
+    titleFetched: The 2026-07-28 Specification
+    titleMatch: true
+    dateMeta: 2026-07-28
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 12か月(twelve-month minimum window)
+        extractedQuote: A formal deprecation policy with a twelve-month minimum window so you can plan upgrades instead of reacting to them.
+        locator: 冒頭の変更点リスト(What changed 見出しの直前)
+        note: 箇条は 'What changed' 見出しの下ではなく、その直前の導入リストにある。Deprecations 節には Roots/Sampling/Logging が 'keep working for at least twelve months'、旧 HTTP+SSE トランスポートは 'year-long offramp' とある。ask の第2文(運営へ移っている)は原文の 'so you can plan upgrades instead of reacting to them' を一般化した解釈。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

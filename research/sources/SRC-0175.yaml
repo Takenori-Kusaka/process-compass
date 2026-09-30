@@ -1,0 +1,139 @@
+schemaVersion: 0
+id: SRC-0175
+status: included
+excludeReason: null
+title: Separating signal from noise in coding evaluations
+url: https://openai.com/index/separating-signal-from-noise-coding-evaluations/
+canonicalUrl: https://openai.com/index/separating-signal-from-noise-coding-evaluations
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-08
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: Separating signal from noise in coding evaluations SWE-Bench Pro audit
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH07]
+events:
+  - date: 2026-07-08
+    label: OpenAI が SWE-Bench Pro の監査結果を公開し、同ベンチの推奨を撤回
+  - date: 2026-07-08
+    label: OpenAI が SWE-Bench Pro の採用推奨を撤回
+summary: OpenAI による SWE-Bench Pro の監査。約 30% のタスクが壊れていると推定し、Pro の推奨を撤回した。前回 §2-2 の「Verified と Pro の 15 ポイント差がギャップを最もよく可視化する」を弱める反証。
+claims:
+  - id: c1
+    text: SWE-Bench Pro 公開 731 タスクのうち、自動パイプラインは 200 件(27.4%)、人手の注釈は 249 件(34.1%)を壊れたタスクと判定した。
+    quote: Our datapoint analysis pipeline flagged 200 (27.4%) broken tasks, while the human annotation campaign identified 249 (34.1%).
+    locator: 冒頭
+    quant:
+      value: 27.4% (pipeline) / 34.1% (human)
+      n: 731 public tasks; 5 engineers per flagged task
+      design: agent pipeline + human annotation
+      population: SWE-Bench Pro public split
+    evidenceKind: observational
+    rqs: [BASE-Q3, TH06-Q3, TH07-Q2]
+    issues: [282]
+    stance: contradicts
+  - id: c2
+    text: OpenAI は SWE-Bench Pro の採用推奨を撤回した。Pro を「実務とのギャップを測る後継」と見る前回 §2-2 の前提は揺らいでいる。
+    quote: Given the issues uncovered in this analysis, we retract our earlier recommendation to adopt SWE-Bench Pro.
+    locator: Discussion
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q3, BASE-Q1, TH12-Q4]
+    issues: [282]
+    stance: contradicts
+  - id: c3
+    text: Pro 公開セットでもフロンティアモデルは 8 か月で 23.3% → 80.3% に上がった。
+    quote: On the 731-task public split, frontier models improved from a pass rate of 23.3% to 80.3% in eight months.
+    locator: 冒頭
+    quant:
+      value: 23.3% → 80.3%
+      n: 731 tasks
+      design: vendor-reported
+      population: frontier models
+    evidenceKind: benchmark
+    rqs: [BASE-Q3, BASE-Q1]
+    issues: [282]
+    stance: context
+  - id: c4
+    text: SWE-Bench Pro の課題の約30%が壊れていると推定し、モデル開発者に結果の慎重な検討を促した。
+    quote: we estimate that ~30% of SWE-bench Pro tasks are broken, and advise that model developers carefully examine results
+    locator: 冒頭
+    quant:
+      value: ~30% broken
+      n: 731-task public split
+      design: audit(automated filter → agent-assisted review + 5名の技術者による注釈)
+      population: SWE-Bench Pro public split
+    evidenceKind: review
+    rqs: [BASE-Q1, TH07-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:20.715Z
+    httpStatus: 200
+    finalUrl: https://openai.com/index/separating-signal-from-noise-coding-evaluations/
+    contentType: text/html; charset=utf-8
+    titleFetched: Separating signal from noise in coding evaluations
+    titleMatch: true
+    dateMeta: 2026-09-23
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 731 タスク / 200件(27.4%) / 249件(34.1%)
+        extractedQuote: Our datapoint analysis pipeline flagged 200 (27.4%) broken tasks, while the human annotation campaign identified 249 (34.1%).
+        locator: 冒頭(リード直後の段落)。731 は同冒頭の "On the 731-task public split" より
+        note: 200/731=27.4%、249/731=34.1% で整合。原文の200件は "datapoint analysis pipeline"(Codex 調査エージェント+研究者の最終判断を含む human-supervised agent review)の数。Methodology では別に "initial automated filter" が 286 件を候補として抽出しており、ask の「自動パイプライン」がどちらを指すか紛れうる。見出しの推定値は "~30% of the tasks are broken"
+      c2:
+        verdict: match
+        extractedValue: we retract our earlier recommendation to adopt SWE-Bench Pro
+        extractedQuote: Given the issues uncovered in this analysis, we retract our earlier recommendation to adopt SWE-Bench Pro.
+        locator: Discussion 第3段落末
+        note: 撤回の記述は原文どおり。伏せ字の § 番号は本調査側の前回報告の節番号で、出典には存在しない(検証不能)。「実務とのギャップを測る後継」という位置づけは出典の語ではない(原文は "testing models on longer horizons and more realistic coding tasks")
+        adjudication:
+          verdict: consistent
+          reason: 撤回は blindQuote の 'we retract our earlier recommendation to adopt SWE-Bench Pro' と一致する。『実務とのギャップを測る後継』は前回報告(内部参照)の位置づけとして書かれており、出典の語として主張されてはいない。blindNote によれば出典自身の語は 'testing models on longer horizons and more realistic coding tasks'。§番号は判定対象外。
+          date: 2026-09-24
+      c3:
+        verdict: match
+        extractedValue: eight months(8か月) / 23.3% → 80.3%
+        extractedQuote: On the 731-task public split, frontier models improved from a pass rate of 23.3% to 80.3% in eight months.
+        locator: 冒頭 第3段落(SWE-Bench Pro の紹介)
+        note: ""
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: S7
+    query: SWE-bench Pro leaderboard 2026 results Scale AI public commercial
+urlBeforeRepair: https://openai.com/index/separating-signal-from-noise-coding-evaluations

@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0247
+status: included
+excludeReason: null
+title: 【GitHub Copilot】AI活用しても「減らないレビュー負荷」。打開策は「シフトレフト」
+url: https://techblog.ap-com.co.jp/entry/2026/04/15/080000
+canonicalUrl: https://techblog.ap-com.co.jp/entry/2026/04/15/080000
+ids:
+  arxiv: null
+  doi: null
+publisher: APC 技術ブログ（株式会社エーピーコミュニケーションズ）
+authors: [竹江]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-04-15
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: Copilot coding agent 承認 レビュー 運用 ルール 導入 事例 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH05, TH03, TH11]
+events: []
+summary: 日本の IT サービス企業のチームが Copilot の custom agents で PR レビューを運用した事例。AI 指摘の正誤判定が残って負荷が減らず、文脈（指示ファイル）を増やすほど指摘と判断回数が増えた。セルフレビュー用エージェントを前工程に置いて改善。
+claims:
+  - id: c1
+    text: AI レビューを入れても、AI の指摘を読み文脈に照らして採否を判断する『ファクトチェック』工程が残るため、レビュアーの負荷はあまり減らなかった（定量値なし）。
+    quote: AIが出したコメントを読み、コンテキストを踏まえて承認・却下する「ファクトチェック」プロセスが残り続けるため、結果的にレビュアーの負荷があまり減らないという状況が生まれていました。
+    locator: AIによるレビューを入れても負荷が減らない理由
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q6, TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: コーディング規約やテスト戦略をカスタム指示ファイルとして整備すると指摘の精度と網羅は上がったが、指摘数と人の判断回数が増え、レビュー負荷も増えた。
+    quote: AIに提供するコンテキストを充実させる → 指摘が増える → レビュアーの「これは対応すべきか？」の判断回数が増える → レビュー負荷が増える
+    locator: ドキュメントを整備するほどレビュー負荷が増えるという逆説
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q3, TH03-Q3]
+    issues: [252, 272]
+    stance: supports
+  - id: c3
+    text: 実装者用のセルフレビューエージェント（磨き上げ）と、PR 説明と実装の整合まで見るレビュアー用エージェント（ゲートキーパー）に役割を分けた。両者は同じカスタム指示ファイルを参照する（規則の出所が共通）。
+    quote: セルフレビュー用のエージェントは、いわば「磨き上げ」担当です。一方で、レビュアー用のエージェントは、コードそのものだけでなく「PRの整合性」までチェックする「ゲートキーパー」の役割を担わせています。
+    locator: 似ているようで違う「2つのエージェント」の役割分担
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3, TH03-Q2]
+    issues: [258]
+    stance: context
+  - id: c4
+    text: 前工程へのセルフレビュー追加で、スタイル違反や単純な規約違反はほぼゼロの状態で PR が届くようになったと報告する（定量値なし）。
+    quote: スタイル違反や単純な規約違反はほぼゼロの状態でPRが届くようになりました。
+    locator: PRの初期品質が上がった
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:16.512Z
+    httpStatus: 200
+    finalUrl: https://techblog.ap-com.co.jp/entry/2026/04/15/080000
+    contentType: text/html; charset=utf-8
+    titleFetched: 【GitHub Copilot】AI活用しても「減らないレビュー負荷」。打開策は「シフトレフト」 - APC 技術ブログ
+    titleMatch: true
+    dateMeta: 2026-04-14
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

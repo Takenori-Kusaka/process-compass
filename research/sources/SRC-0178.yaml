@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0178
+status: included
+excludeReason: null
+title: About GitHub Copilot cloud agent
+url: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent
+canonicalUrl: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: 前回メモの出典 URL /copilot/concepts/coding-agent/about-copilot-coding-agent(本ページへリダイレクト)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10]
+events: []
+summary: 前回メモが引いた About Copilot coding agent の URL は本ページ(cloud agent)へリダイレクトされる(2026-09-23 観測)。本ページには承認制限の記述が無く、記述は Risks and mitigations ページへ移っている。
+claims:
+  - id: c1
+    text: 製品名は Copilot cloud agent に変わり、PR を作る前に調査・計画・反復ができる形になった。
+    quote: Copilot can research a repository, create an implementation plan, and make code changes on a branch. You can review the diff, iterate, and create a pull request when you're ready.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:05.054Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent
+    contentType: text/html; charset=utf-8
+    titleFetched: About GitHub Copilot cloud agent - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

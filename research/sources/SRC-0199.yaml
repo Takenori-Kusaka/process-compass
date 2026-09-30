@@ -1,0 +1,140 @@
+schemaVersion: 0
+id: SRC-0199
+status: included
+excludeReason: null
+title: Harness design for long-running application development
+url: https://www.anthropic.com/engineering/harness-design-long-running-apps
+canonicalUrl: https://anthropic.com/engineering/harness-design-long-running-apps
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: [Rajasekaran Prithvi]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-03-24
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Anthropic engineering harness long-running agents
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH08, TH02, TH04]
+events: []
+summary: Anthropic Labs による長時間自律開発のハーネス設計記事(2026-03-24)。自己評価は甘くなるため生成と評価を別エージェントに分け、着手前に「done」を合意する sprint contract を置く。費用は単独の20倍超。ハーネスの各部品はモデルの進化で陳腐化する前提とする。
+claims:
+  - id: c1
+    text: 自分の成果物を評価させると、エージェントは人が見て凡庸な品質でも自信を持って称賛する(自己評価の甘さ)。
+    quote: When asked to evaluate work they've produced, agents tend to respond by confidently praising the work—even when, to a human observer, the quality is obviously mediocre.
+    locator: Why naive implementations fall short
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q4, TH06-Q5]
+    issues: [268]
+    stance: supports
+  - id: c2
+    text: 生成者に自己批判させるより、独立した評価者を懐疑的に調整する方がはるかに扱いやすい。ただし評価者も LLM で、LLM 生成物に甘い傾向は残る。
+    quote: tuning a standalone evaluator to be skeptical turns out to be far more tractable than making a generator critical of its own work
+    locator: Why naive implementations fall short
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q5, TH06-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 分離しても評価者は LLM であり、LLM 生成物に寛大な傾向を持つ(同系統評価の限界を当事者が認める)。
+    quote: the evaluator is still an LLM that is inclined to be generous towards LLM-generated outputs.
+    locator: Why naive implementations fall short
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 各スプリント前に生成者と評価者がコードを書く前に「done」の定義を合意する sprint contract を置き、高水準の仕様とテスト可能な実装の間を埋めた。
+    quote: 'Before each sprint, the generator and evaluator negotiated a sprint contract: agreeing on what "done" looked like for that chunk of work before any code was written.'
+    locator: Scaling to full-stack coding
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH08-Q2]
+    issues: []
+    stance: context
+  - id: c5
+    text: 同じ課題で単独実行 20 分 $9 に対しフルハーネスは 6 時間 $200 と20倍超の費用だが、品質差は明白だった(1課題の事例)。
+    quote: The harness was over 20x more expensive, but the difference in output quality was immediately apparent.
+    locator: Scaling to full-stack coding(Solo vs Full harness)
+    quant:
+      value: $9 (20 min) vs $200 (6 hr)
+      n: 1 prompt, Opus 4.5
+      design: single case comparison
+      population: retro game maker build
+    evidenceKind: case-report
+    rqs: [TH07-Q4, TH04-Q4]
+    issues: []
+    stance: context
+  - id: c6
+    text: ハーネスの各部品は「モデルが単独でできないこと」の仮定を符号化しており、モデルの進化で急速に陳腐化するため定期的に検証すべきだとする。
+    quote: every component in a harness encodes an assumption about what the model can't do on its own, and those assumptions are worth stress testing
+    locator: Iterating on the harness
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:43.035Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/engineering/harness-design-long-running-apps
+    contentType: text/html; charset=utf-8
+    titleFetched: Harness design for long-running application development
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: partial
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: confidently praising the work—even when, to a human observer, the quality is obviously mediocre
+        extractedQuote: When asked to evaluate work they've produced, agents tend to respond by confidently praising the work—even when, to a human observer, the quality is obviously mediocre.
+        locator: Why naive implementations fall short(self-evaluation の段落)
+        note: 原文は 'tend to'(傾向)であり、ask は断定形。直後に、デザインのような主観的な課題で特に顕著だと限定がある('particularly pronounced for subjective tasks like design')
+      c5:
+        verdict: match
+        extractedValue: Solo 20 min $9 / Full harness 6 hr $200 / over 20x / 課題は1件(2D レトロゲームメーカーの prompt)
+        extractedQuote: Harness Duration Cost Solo 20 min $9 Full harness 6 hr $200 The harness was over 20x more expensive, but the difference in output quality was immediately apparent.
+        locator: Scaling to full-stack coding > Running the harness(表)
+        note: 課題数は数詞で書かれていない。比較は 'Create a 2D retro game maker ...' という1つの prompt に対する、Claude Opus 4.5 での単独実行とフルハーネスの比較。後段の DAW の例(V2 ハーネス、3 hr 50 min、$124.70)は単独実行との比較ではない
+      c6:
+        verdict: match
+        extractedValue: encodes an assumption about what the model can't do on its own ... worth stress testing ... can quickly go stale as models improve
+        extractedQuote: every component in a harness encodes an assumption about what the model can't do on its own, and those assumptions are worth stress testing, both because they may be incorrect,
+        locator: Iterating on the harness(冒頭段落)
+        note: "続く原文: 'and because they can quickly go stale as models improve.' 原文は 'worth stress testing'(検証する価値がある)で、「定期的に」「すべき」に当たる語はない。検証する理由として、陳腐化のほかに 'they may be incorrect' も挙げている"
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/engineering/harness-design-long-running-apps

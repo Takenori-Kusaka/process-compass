@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0279
+status: included
+excludeReason: null
+title: CodexのサブエージェントにGPT-5.6 Lunaを指定したのに、実際はSolが動いていた件
+url: https://zenn.dev/hayatosc/articles/codex-agent-issue
+canonicalUrl: https://zenn.dev/hayatosc/articles/codex-agent-issue
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [hayatosc]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-07-11
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "zenn search API: サブエージェント 実測"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH04, TH07]
+events: []
+summary: 定額の安価プラン利用者が Codex のサブエージェントに軽量モデルを指定したが、隠しパラメータのため親モデルで動いて利用枠が急減した事例を、セッションログと公開 Issue・ソースで原因特定した記録。
+claims:
+  - id: c1
+    text: Codex のカスタムエージェントに gpt-5.6-luna(model_reasoning_effort = "max")を指定したのに、実際には gpt-5.6-sol が適用され、effort も medium に変わっていた。著者は原因を、Multi Agent V2 の隠しパラメータ hide_spawn_agent_metadata が既定 true のため、サブエージェント側のモデル指定が渡らず親セッションのモデル(Sol)にフォールバックする「ようだ」と推定している。
+    quote: gpt-5.6-luna を指定していたのにも関わらず、 gpt-5.6-sol が適用されていたのです。 model_reasoning_effort = "max" の指定も medium に変わっています。
+    locator: 「サブエージェント、はじめました」〜「原因」「なぜGPT-5.6 Solで発生するのか」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q4]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 実行中のサブエージェントがどのモデルで動いているかを UI で確認できず、セッションログを直接開かない限り指定どおりに動いていると信じるしかない。気づいた契機はレート制限の減り方の違和感だった。
+    quote: 今回のようにセッションログを直接開かない限り、指定したモデルで動いていると信じるしかないわけです。
+    locator: 「サブエージェント、はじめました」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q4, TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 古いモデルでは発生しなかったが、デフォルトで Multi Agent V2 を使う GPT-5.6 Sol へ移行したことで、Multi Agent V2 の隠しパラメータに起因する問題が一気に表面化した。著者はこの挙動を公式ドキュメントと矛盾し、意図したものではなさそうと見ている。
+    quote: この隠しパラメータはMulti Agent V2の機能です。 そしてGPT-5.6 Solは、デフォルトでMulti Agent V2を使用する設定になっています。
+    locator: 「なぜGPT-5.6 Solで発生するのか」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.151Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/hayatosc/articles/codex-agent-issue
+    contentType: text/html; charset=utf-8
+    titleFetched: CodexのサブエージェントにGPT-5.6 Lunaを指定したのに、実際はSolが動いていた件
+    titleMatch: true
+    dateMeta: 2026-07-11
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: gpt-5.6-luna / Multi Agent V2 / gpt-5.6-sol
+        extractedQuote: gpt-5.6-luna を指定していたのにも関わらず、 gpt-5.6-sol が適用されていたのです。 model_reasoning_effort = "max" の指定も medium に変わっています。
+        locator: 「サブエージェント、はじめました」〜「原因」「なぜGPT-5.6 Solで発生するのか」
+        note: hide_spawn_agent_metadata が既定 true で『起動時にサブエージェント側のモデル指定が渡されず、親セッションのモデル(今回ならSol)にフォールバックするようです』と原文は推定形。『この隠しパラメータはMulti Agent V2の機能です』。
+        adjudication:
+          verdict: corrected
+          reason: 現象(luna を指定したのに sol が適用、max が medium に変化、Sol がそのまま実装まで担当)は原文と一致する。ただし原因について、原文は「親セッションのモデル…にフォールバックするようです」と推定形で書いており、主張は因果を断定している。また主張は medium を「親の effort」と書くが、抜粋は「max の指定も medium に変わっています」と述べるだけで、それが親の設定値だとは書いていない。推定であることを明示して訂正した。
+          date: 2026-09-24
+          originalText: Codex のカスタムエージェントに gpt-5.6-luna(effort max)を指定しても、Multi Agent V2 の隠しパラメータ hide_spawn_agent_metadata が既定 true のためモデル指定が渡らず、親の gpt-5.6-sol(effort medium)がそのまま実装まで担当していた。
+          originalQuote: つまりサブエージェントの設定が丸ごと無視され、オーケストレーターと同じSolがそのまま実装まで担当していた、ということです。
+      c3:
+        verdict: match
+        extractedValue: V2
+        extractedQuote: この隠しパラメータはMulti Agent V2の機能です。 そしてGPT-5.6 Solは、デフォルトでMulti Agent V2を使用する設定になっています。
+        locator: 「なぜGPT-5.6 Solで発生するのか」
+        note: "続く文は『古いモデルであればこれが発生しなかったので、問題になることがありませんでした。しかし、最新のモデルに移行したことで、問題が一気に表面化したのです。』。『モデル世代交代が設定の効き方を黙って変えた例である』は原文にない主張者側の一般化。原文はこの挙動を公式ドキュメントと矛盾し『意図したものではなさそう』と見ている(既定値変更は PR #26114 と推察)。"
+        adjudication:
+          verdict: corrected
+          reason: 第1文は原文(「古いモデルであればこれが発生しなかった…最新のモデルに移行したことで、問題が一気に表面化した」「GPT-5.6 Sol はデフォルトで Multi Agent V2 を使用」)どおり。第2文「モデル世代交代が設定の効き方を黙って変えた例」は原文に無い一般化で、原文はむしろ意図しない挙動(不具合)と見ているため削除し、著者の見立てを補った。
+          date: 2026-09-24
+          originalText: 旧モデルでは発生せず、Multi Agent V2 を既定とする最新モデルへ移行したことで問題が表面化した。モデル世代交代が設定の効き方を黙って変えた例である。
+          originalQuote: しかし、最新のモデルに移行したことで、問題が一気に表面化したのです。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

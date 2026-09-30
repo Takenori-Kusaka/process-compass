@@ -1,0 +1,139 @@
+schemaVersion: 0
+id: SRC-0620
+status: included
+excludeReason: null
+title: 人工知能関連技術の研究開発及び活用の適正性確保に関する指針
+url: https://www8.cao.go.jp/cstp/ai/ai_guideline/ai_gl_2025.pdf
+canonicalUrl: https://www8.cao.go.jp/cstp/ai/ai_guideline/ai_gl_2025.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 人工知能戦略本部(内閣府)
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2025-12-19
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G08
+  query: 人工知能関連技術の研究開発及び活用の適正性確保に関する指針 決定 内閣府 本文 PDF
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01]
+events:
+  - date: 2025-12-19
+    label: AI 法第13条に基づく適正性確保指針を人工知能戦略本部が決定
+summary: AI 法第13条に基づく指針(全9ページ)。活用事業者にライフサイクル全体の組織的なリスク管理プロセスを含む AI ガバナンスの構築・運用を求めるが、水準は各主体に委ね、人が占めるべき役割は定めていない。
+claims:
+  - id: c1
+    text: 人間中心の要素として、人が最終的に判断する対象を「AI を活用する範囲や条件」に置く。個々の作業や役割を人が占めることは述べていない。
+    quote: ＡＩを活用する範囲や条件については、人間自らが最終的な判断を行うこと。
+    locator: 1(2) 本指針における適正性確保の考え方 — 人間中心(p.3)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2, TH01-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 活用事業者と研究開発機関に、設計・開発・提供・実装のライフサイクル全体でリスクを特定・評価・対処する組織的なプロセスを含む AI ガバナンスの構築・運用・継続改善を求める。例示は経営層の関与した監視・評価、情報開示、教育・研修で、開発工程やロール配分は示していない。
+    quote: ＡＩの設計・開発・提供・実装等のライフサイクル全体で、リスクの特定・評価・対処をするための組織的なプロセス（経営層の関与したモニタリングや評価の仕組み、情報の適切な開示、教育・研修の実施等）を含むＡＩガバナンスを構築
+    locator: 2(1) ＡＩガバナンスによる俯瞰的な適正性の確保(p.5)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: AI ガバナンスは新規に作るものに限らず、既存の IT システムに適用しているガバナンスプロセスの活用も有用とする(脚注15)。
+    quote: ゼロベースからＡＩガバナンスを構築することに限らず、既存のＩＴシステム等に適用されているガバナンスプロセスを活用することも有用である。
+    locator: 脚注15(p.5)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: 取り組むべき事項の水準は一律に定めず、各主体の規模・立場とリスクに応じ、その時点で適用できる技術と知見を踏まえた適切な水準での対応を求める。
+    quote: 取り組むべき事項について、各主体の規模や立場、ＡＩがもたらすリスクに応じて、その時点で適用し得る技術や知見を踏まえて適切な水準で対応することが求められる。
+    locator: 1(1) 本指針の位置付け(p.2)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+  - id: c5
+    text: 国は指針と各種ガイドラインをアジャイルかつ継続的に見直し、ガイドラインが指針の趣旨と整合するよう適宜点検するとしている(改訂周期の数値は無い)。
+    quote: 本指針及び各種ガイドライン等も、ＡＩの技術進歩による社会の変化をとらえ、アジャイルかつ継続的に見直す。
+    locator: 3(3) ＡＩガバナンスの在り方の検討(p.7)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:03.556Z
+    httpStatus: 200
+    finalUrl: https://www8.cao.go.jp/cstp/ai/ai_guideline/ai_gl_2025.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: ＡＩを活用する範囲や条件
+        extractedQuote: ＡＩを活用する範囲や条件については、人間自らが最終的な判断を行うこと。
+        locator: 1(2) 本指針における適正性確保の考え方 — 人間中心 第3項(p.3)
+        note: PDF を curl で取得し pdftotext で全9頁を通読(令和7年12月19日 人工知能戦略本部決定)。人間中心の項は3点(尊厳・人権と法令遵守/多様性・包摂性/本文)。なお国民向けの 4(2)(p.9)には「ＡＩを利用する際は、得られる情報の出所、正確性等を理解し、人間の判断、責任の下で意思決定を行う」とあり、判断対象を「範囲や条件」に限らない記述が別の節にある(名宛人は国民)。工程や役割を人が担うことを定める記述は全文に見当たらない。
+      c2:
+        verdict: match
+        extractedValue: 組織的なプロセス(経営層の関与したモニタリングや評価の仕組み、情報の適切な開示、教育・研修の実施等)
+        extractedQuote: ＡＩの設計・開発・提供・実装等のライフサイクル全体で、リスクの特定・評価・対処をするための組織的なプロセス（経営層の関与したモニタリングや評価の仕組み、情報の適切な開示、教育・研修の実施等）を含むＡＩガバナンスを構築・運用・継続改善し、ＡＩがもたらす便益を最大化しつつ、そのリスクを受容可能な水準で管理する。
+        locator: 2(1) ＡＩガバナンスによる俯瞰的な適正性の確保(p.5)
+        note: 名宛人に条件がある。2 の柱書は「ＡＩを活用した製品、サービスの開発、提供をする活用事業者」と「その開発したＡＩを第三者に提供する際」の研究開発機関を対象とし、活用事業者一般(自社業務で使うだけの者)を明示していない。ask の「監視」は原文では「モニタリング」。原文は「設計・開発・提供・実装等」と「等」付き。開発工程やロール配分の記述は同節に無い。quote は脚注番号 15・16 を除いて転記。
+      c3:
+        verdict: match
+        extractedValue: 脚注15
+        extractedQuote: ゼロベースからＡＩガバナンスを構築することに限らず、既存のＩＴシステム等に適用されているガバナンスプロセスを活用することも有用である。
+        locator: p.5 脚注15(2(1) 本文「ＡＩガバナンスを構築」に付く)
+        note: 原文は「既存のＩＴシステム等」と「等」付き。
+      c4:
+        verdict: match
+        extractedValue: 各主体の規模や立場、ＡＩがもたらすリスクに応じて…適切な水準で対応
+        extractedQuote: また、取り組むべき事項について、各主体の規模や立場、ＡＩがもたらすリスクに応じて、その時点で適用し得る技術や知見を踏まえて適切な水準で対応することが求められる。
+        locator: 1(1) 本指針の位置付け 第2段落(p.2)
+        note: 「一律に定めない」旨の直接の文言は 1(1) ではなく 1(2)(p.3)にある:「適正性についての一義的な定義や絶対的な水準を定めるものではなく、各主体が…⾃主的に取組を進めるという考え方」。1(1) の該当文は水準を定めないと明言はせず、応じた水準での対応を求める形。
+      c5:
+        verdict: match
+        extractedValue: アジャイルかつ継続的に見直す/適宜、点検・見直し(周期の数値なし)
+        extractedQuote: 本指針及び各種ガイドライン等も、ＡＩの技術進歩による社会の変化をとらえ、アジャイルかつ継続的に見直す。この際、各種ガイドライン等は、本指針の趣旨と整合するとともに、事業者、国民等にとってわかりやすいものとなるよう、適宜、点検・見直しを行う。
+        locator: 3(3) ＡＩガバナンスの在り方の検討 第1段落(p.7)
+        note: 全文を「年ごと|毎年|年以内|定期」で検索して該当なし。3 の柱書の主語は「国は…特に以下の事項に取り組む」で、地方公共団体は「地域の実情に応じて…配慮しつつ、必要な対応を行う」。点検の目的は整合に加え「事業者、国民等にとってわかりやすいものとなるよう」も含む。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

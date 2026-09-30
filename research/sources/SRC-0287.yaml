@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0287
+status: included
+excludeReason: null
+title: 仕様駆動開発の理想と現実、そして向き合い方
+url: https://speakerdeck.com/gotalab555/shi-yang-qu-dong-kai-fa-noli-xiang-toxian-shi-sositexiang-kihe-ifang
+canonicalUrl: https://speakerdeck.com/gotalab555/shi-yang-qu-dong-kai-fa-noli-xiang-toxian-shi-sositexiang-kihe-ifang
+ids:
+  arxiv: null
+  doi: null
+publisher: Speaker Deck(Findy「仕様駆動開発〜新たな開発手法の可能性と実践〜」)
+authors: [Gota]
+orgType: individual
+region: jp
+lang: ja
+sourceType: talk
+published: 2025-11-18
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "speakerdeck search: cc-sdd"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH05]
+events:
+  - date: 2025-11-19
+    label: Findy 主催イベントで cc-sdd 作者が SDD の限界を発表
+summary: Kiro 方式の仕様駆動開発ツール cc-sdd の作者による登壇資料(2025/11/19)。SDD の利点を認めつつ、AI が作る Spec の巨大化、Spec の正確性を検証する手段の欠如、組織プロセスを変えない導入の失敗を『現実』として挙げる。
+claims:
+  - id: c1
+    text: SDD ツールはオーバーヘッドの大きいワークフローが固定化されており、小さな機能追加でも同じプロセスを踏む。例示された1件では7文書で計3,590行の Spec が生成された。
+    quote: ⼩さな機能追加でも同様のプロセスを踏む
+    locator: スライド19「SDDツールでAIが作成したSpecが巨大化する」
+    quant:
+      value: 7文書 計3,590行(491/226/608/907/130/497/631行)
+      n: 1機能追加の例
+      design: 生成された Spec の行数計数
+      population: 発表者の SDD ツール利用例(2025/11時点)
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH05-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: LLM の出力が確率的である以上、Spec だけで実装漏れを防ぐのは難しく、Spec の正確性検証は SDD の必須要件だとする。開発プロセスを変えずに SDD を導入すると重いレビューが1回増えるだけになる。
+    quote: Specの正確性検証はSDDの必須要件
+    locator: スライド22「Spec実装後の正確性を検証する仕組みがない」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1, TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 2025/11時点の SDD フローの現実として、テストとコードレビューは人が主導し、Spec の正確性を検証する方法が無いと整理している。
+    quote: Specの正確性の検証する⽅法がない
+    locator: スライド18「SDDフローの現実 (2025/11)」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.737Z
+    httpStatus: 200
+    finalUrl: https://speakerdeck.com/gotalab555/shi-yang-qu-dong-kai-fa-noli-xiang-toxian-shi-sositexiang-kihe-ifang
+    contentType: text/html; charset=utf-8
+    titleFetched: 仕様駆動開発の理想と現実、そして向き合い方
+    titleMatch: true
+    dateMeta: 2025-11-18
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1件(specs/001-photo-album-organizer) / 行数付きの文書 7つ(openapi.yaml 631, data-model.md 491, plan.md 226, quickstart.md 608, research.md 907, spec.md 130, tasks.md 497) / 計3,590行
+        extractedQuote: 491行 226行 608行 907行 130行 497行 631行 計3,590行 小さな機能追加でも同様のプロセスを踏む
+        locator: スライド19「SDDツールでAIが作成したSpecが巨大化する」(PDF 19ページ。文字は PDF テキストを NFKC 正規化)
+        note: HTML 本文に文字起こしがないため、Speaker Deck の配布 PDF から抽出し、画像でも確かめた。画面にはファイルが8つ写っており、行数の注記がないのは checklists/requirements.md だけ。表示された7つの行数を足すと 3,490 行になり、スライドの「計3,590行」と100行ずれる(原典側の不整合)。例示の spec(photo-album-organizer)が「小さな機能追加」だとは明記されていない。「小さな機能追加でも同様のプロセスを踏む」は横に添えた注記。
+      c2:
+        verdict: match
+        extractedValue: 1回
+        extractedQuote: 開発プロセスを変えずにSDDに取り組むと、単純に激重レビューが1回増えるのみ...
+        locator: スライド22「Spec実装後の正確性を検証する仕組みがない」(PDF 22ページ)
+        note: 同スライドに「LLMが確率的な出力をする以上Specのみで実装漏れやミスを防ぐのは難しい」「Specの正確性検証はSDDの必須要件」とある。ask と一致。
+      c3:
+        verdict: match
+        extractedValue: 2025/11
+        extractedQuote: SDDフローの現実 (2025/11) ● SDDツールはまだまだ課題だらけ...
+        locator: スライド18「SDDフローの現実 (2025/11)」(PDF 18ページ)
+        note: 図中の注記に「‧テスト/コードレビューは人が主導」「‧Specの正確性の検証する方法がない」がある。ask と一致。スライド下に「※正確性を一部犠牲にしています」との注がある。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

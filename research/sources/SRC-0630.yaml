@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0630
+status: included
+excludeReason: null
+title: コミット数2倍でもレビュー品質を維持！AI時代のコードレビューフロー再設計
+url: https://developers.cyberagent.co.jp/blog/archives/60882/
+canonicalUrl: https://developers.cyberagent.co.jp/blog/archives/60882
+ids:
+  arxiv: null
+  doi: null
+publisher: CyberAgent Developers Blog
+authors: [minhquang]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2025-12-17
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G08
+  query: Spectee 2層レビュー AIが先にレビュー 人間が後段 PRサイズ 2136行 987行 Claude Code
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06, TH07, TH11]
+events: []
+summary: サイバーエージェントの1チームが、AI 導入でコミット数が約2倍になった後に組み直したレビューフローの報告。人の承認の後に AI の最終チェックを置き「最終ゲートキーパー」と呼ぶ。テスト行/コード行は半年で 78.6% から 112.6% へ増えた。
+claims:
+  - id: c1
+    text: 最終的なゲートキーパーを人ではなく AI に任せると書いている。承認側に AI を置いた国内の運用報告で、判断を人に残すという自己規定の反例に当たる。
+    quote: この課題を解決するために、最終的なゲートキーパーを人間ではなく、AIに任せることにしました。
+    locator: 6.3 AIを最終ゲートキーパーに
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, BASE-Q2]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: ただし実際の手順は、人のレビュアが Approve した後に AI が最終チェックを行い、判定と理由をコメントするもので、懸念が出たときに対応するかは人が判断する。AI の判定がマージを機械的に止めるとは書かれていない。
+    quote: 「マージOK」「マージに懸念あり」「マージ非推奨」といった判定と、その理由をコメントしてくれるので、人間のレビュアーとレビューイが確認できるようになっています。
+    locator: 6.3 AIを最終ゲートキーパーに
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, BASE-Q2, TH06-Q6]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: レビュアの責務(マージ可能な品質基準の保証、却下か承認かの判断)は AI 導入後も変わらないと明記している。
+    quote: この役割ごとの責務は、従来の開発プロセスでも、AI時代の今でも変わっていません。
+    locator: 1. 従来のコードレビューのフローと課題
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: AI エージェント導入後、チームのコミット数は約2倍になり、バックエンドのテスト行/コード行は 2025/06 の 78.6% から 2025/12 の 112.6% へ増えた。検証側のコード量が製品コードを上回った自己報告である。
+    quote: 導入後、チーム全体のコミット数が導入前の約2倍になり、AIエージェントによる生産性向上の効果が数字としても表れています。
+    locator: 冒頭 / 4. SHIFT-LEFT の表
+    quant:
+      value: コミット数 約2倍、テスト行/コード行 78.6%(2025/06)→95.2%(2025/09)→112.6%(2025/12)
+      n: 1チーム
+      design: 自己報告(導入前後の比較、測定方法は不記載)
+      population: AI事業本部のリテールメディア向けアプリ開発チーム(バックエンド)
+    evidenceKind: case-report
+    rqs: [TH07-Q3, TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c5
+    text: AI レビューの流れに、AI のレビューコメント自体が妥当か・嘘をついていないか・重大度を評価するサブエージェントの段を置いている。
+    quote: AIレビューコメントが妥当かどうか、嘘をついていないか、重大度はどうかを評価するサブエージェント。
+    locator: 6.2 Claude Code Actionのレビューフロー作成
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:05.683Z
+    httpStatus: 200
+    finalUrl: https://developers.cyberagent.co.jp/blog/archives/60882/
+    contentType: text/html; charset=UTF-8
+    titleFetched: コミット数2倍でもレビュー品質を維持！AI時代のコードレビューフロー再設計
+    titleMatch: true
+    dateMeta: 2025-12-16
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: 約2倍 / 2025/06 の 78.6% → 現在(2025/12)の 112.6%(途中 2025/09 は 95.2%)
+        extractedQuote: 導入後、チーム全体のコミット数が導入前の約2倍になり、 / 例)バックエンドチームのテスト比率の推移(テスト行/コード行) 時点 テスト比率 (テスト行/コード行) 2025/06 78.6% 2025/09 95.2% 現在 (2025/12) 112.6%
+        locator: "冒頭(導入段落)/「4. SHIFT-LEFT: テストを超重要視する」末尾の表"
+        note: 表は3時点(2025/06, 2025/09, 2025/12)。コミット数の比較は「導入前」対「導入後」で、導入は「半年ほど前」とされ、計測期間や数え方の説明は無い。表の見出しは「例)バックエンドチームのテスト比率の推移」。記事の公開日は 2025年12月18日。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

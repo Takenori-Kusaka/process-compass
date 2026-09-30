@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0106
+status: included
+excludeReason: null
+title: Models, usage, and limits in Claude Code | Claude Help Center
+url: https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code
+canonicalUrl: https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude Help Center)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code 週次上限 到達 作業止まった Max 使い切った 対策 Codex 併用 Zenn 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events: []
+summary: Anthropic 公式ヘルプ(取得時「Updated today」)。定額プランで上限に当たる典型原因 5 つと、モデルを作業に合わせる既定(Sonnet が大半、Opus は詰まった時)を示す。上限に達する前提で書かれている。
+claims:
+  - id: c1
+    text: 公式は「Opus は Sonnet の数倍、Sonnet は Haiku より高い。定型作業に Opus を使うのが日次上限を最速で使い切る方法」とし、既定を Sonnet、Opus は行き詰まりや広範な変更に限る。
+    quote: Opus costs several times more per turn than Sonnet, and Sonnet more than Haiku. Spending Opus on routine work is the fastest way to drain a daily limit.
+    locator: 2. Match the model to the job
+    quant:
+      value: several times per turn
+      n: null
+      design: vendor statement
+      population: Claude Code subscription users
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4, TH04-Q3]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 「昼までに上限を使い切った」報告のほぼ全てが 5 つの習慣(タスク間で /clear しない等)に帰着する、と公式が述べる。上限到達は例外ではなく既定の運用課題として扱われている。
+    quote: Almost every "I burned through my limit by lunchtime" report traces back to one of these five.
+    locator: Five habits that stretch your usage furthest
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:44.797Z
+    httpStatus: 200
+    finalUrl: https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code
+    contentType: text/html; charset=utf-8
+    titleFetched: Models, usage, and limits in Claude Code | Claude Help Center
+    titleMatch: true
+    dateMeta: 2026-09-22
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: five(5つ)
+        extractedQuote: Five habits that stretch your usage furthest Almost every "I burned through my limit by lunchtime" report traces back to one of these five. 1. Clear between tasks
+        locator: Five habits that stretch your usage furthest
+        note: 原文は習慣を肯定形(1. Clear between tasks など)で列挙しており、ask の『タスク間で /clear しない等』はその裏返しの記述。『上限到達は例外ではなく既定の運用課題として扱われている』は原文に無い解釈。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

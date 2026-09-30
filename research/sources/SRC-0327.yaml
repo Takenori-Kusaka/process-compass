@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0327
+status: included
+excludeReason: null
+title: "Passes Alone, Fails Together: Benchmarking Semantic Coordination in Parallel LLM-Agent Development"
+url: https://arxiv.org/abs/2609.25396
+canonicalUrl: arxiv:2609.25396
+ids:
+  arxiv: "2609.25396"
+  doi: null
+publisher: arXiv (cs.SE) / University of Illinois Urbana-Champaign, Columbia University
+authors: [Haocheng Xia, Eugene Wu, Yongjoo Park]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-09-21
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: arXiv cs.SE recent listing (https://arxiv.org/list/cs.SE/recent)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH01]
+events: []
+summary: 並行して動く複数のコーディングエージェントのパッチが、単独では通るのに統合すると壊れる「意味的な協調失敗」を測るベンチマーク(stale)。実際にマージされた PR 対ではほぼ起きず、人工的に作った課題では97%で起きる。
+claims:
+  - id: c1
+    text: 実際にマージされた Django の PR 417対(834実行)では、採点手順を修正した後に干渉を示したのは1件だけだった。
+    quote: Among 834 runs on 417 mined Django pairs, only one showed interference after correcting the grading procedure.
+    locator: Abstract
+    quant:
+      value: 1 / 834 runs
+      n: 417 mined Django PR pairs
+      design: benchmark(単独と統合で同じテストを実行)
+      population: Django
+    evidenceKind: benchmark
+    rqs: [TH10-Q1]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 実在の Django ヘルパー12個を使って構成した課題では97%の実行で干渉が起き、完了済みの並行変更を伝えるメッセージで82%が回復した。
+    quote: On constructed tasks using 12 Django helpers, interference occurred in 97% of runs. A message describing the completed concurrent change recovered 82% of runs.
+    locator: Abstract; constructed tier
+    quant:
+      value: 干渉 97%(105/108)/ 回復 82%(89/108)
+      n: 108 runs × 12 helpers
+      design: benchmark(constructed tasks)
+      population: GPT-5.5
+    evidenceKind: benchmark
+    rqs: [TH10-Q1, TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 構成課題での失敗率は、実務でこうした問題がどれだけ起きるかの推定ではないと著者が明記する。
+    quote: The constructed failure rates do not estimate how often these problems occur in practice.
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH10-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:08.012Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.25396
+    contentType: text/html; charset=utf-8
+    titleFetched: "Passes Alone, Fails Together: Benchmarking Semantic Coordination in Parallel LLM-Agent Development"
+    titleMatch: true
+    dateMeta: 2026-09-21
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Passes Alone, Fails Together: Benchmarking Semantic Coordination in Parallel LLM-Agent Development"
+      authors: ["Xia, Haocheng", "Wu, Eugene", "Park, Yongjoo"]
+      v1Date: 2026-09-21
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 417 pairs / 834 runs / only one
+        extractedQuote: Among 834 runs on 417 mined Django pairs, only one showed interference after correcting the grading procedure.
+        locator: Abstract(§4 Mined PR Tier にも 'Of 834 runs on 417 validated Django pairs, only one had Δblind > 0')
+        note: §4 では『validated Django pairs』と書かれ、干渉1件は『one newly failing test』。著者はこの結果を『merged PR history is a poor source of examples of unresolved parallel changes』と解釈している
+        adjudication:
+          verdict: consistent
+          reason: 417対・834実行・採点手順修正後に干渉1件は Abstract と一致。§4 では validated Django pairs と書かれ、著者は merged PR history を未解決の並行変更の例として乏しい供給源と解釈している。「実際にマージされた PR」はこの解釈と整合する。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: 12 helpers / 97% / 82%
+        extractedQuote: On constructed tasks using 12 Django helpers, interference occurred in 97% of runs. A message describing the completed concurrent change recovered 82% of runs.
+        locator: Abstract; §4 Constructed Tasks on Real Django Helpers(105/108 runs (97%)、89/108 runs (82%))
+        note: "§4 の内訳: 12ヘルパー×3変換=36インスタンス、GPT-5.5 の blind 条件で 105/108(97%)、oracle message で 89/108(82%)回復。82% は全108実行に対する割合で、干渉した実行に占める割合ではない。著者は 'The constructed failure rates do not estimate how often these problems occur in practice.' と明記しており、実務の発生頻度として読むことは原典の意図と食い違う"
+        adjudication:
+          verdict: consistent
+          reason: 12ヘルパー、干渉 97%(105/108)、回復 82%(89/108)は Abstract と §4 に一致。82% は全108実行に対する割合で、claimQuant もそのように書いている。著者は構成課題の失敗率が実務の発生頻度を推定しないと明記している。主張は実務頻度とは書いていないが、引用時はその旨に注意する(条件は GPT-5.5 の blind 条件)。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

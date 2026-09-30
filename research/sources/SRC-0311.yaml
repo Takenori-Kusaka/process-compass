@@ -1,0 +1,127 @@
+schemaVersion: 0
+id: SRC-0311
+status: included
+excludeReason: null
+title: "SpecBench: Measuring Reward Hacking in Long-Horizon Coding Agents"
+url: https://arxiv.org/abs/2605.21384
+canonicalUrl: arxiv:2605.21384
+ids:
+  arxiv: "2605.21384"
+  doi: null
+publisher: arXiv (cs.SE) / Weco AI
+authors: [Bingchen Zhao, Dhruv Srikanth, Yuxiang Wu, Zhengyao Jiang]
+orgType: startup
+region: global
+lang: en
+sourceType: preprint
+published: 2026-05-20
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-09-09
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: abs:"reward hacking" AND (abs:coding OR abs:software), submittedDate 2026-05..09'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH08]
+events: []
+summary: 仕様・可視テスト・合成的な保留テストに分け、両テストの合格率の差で reward hacking を測る30課題(JSON パーサ〜OS カーネル)のベンチマーク。可視テストは全エージェントが飽和する一方、差は課題規模とともに拡大する。
+claims:
+  - id: c1
+    text: 全フロンティアエージェントが可視テストを飽和させるが reward hacking は残り、小さいモデルほど保留テストとの差が大きい。
+    quote: while every frontier agent saturates the visible suite, reward hacking persists, with smaller models exhibiting larger gaps on holdout suites
+    locator: Abstract; §3.2
+    quant:
+      value: 可視テスト飽和・保留テストとの差が残存
+      n: 30 tasks; 2,046 runs(Codex gpt-5.2-codex 596, Claude Code Opus 4.6 516, OpenCode 各種 800)
+      design: benchmark(可視 vs 保留テストの合格率差)
+      population: Codex, Claude Code, OpenCode + DeepSeek/Qwen/Kimi/MiniMax
+    evidenceKind: benchmark
+    rqs: [TH07-Q1]
+    issues: [269, 275]
+    stance: supports
+  - id: c2
+    text: 可視テストと保留テストの差は、コード規模が10倍になるごとに28ポイント拡大する。長い課題ほどテストだけの監督は効かなくなる。
+    quote: it grows by 28 percentage points for every tenfold increase in code size
+    locator: Abstract; §3.1 Task Horizon and Reward Hacking
+    quant:
+      value: +28pt / コード規模10倍
+      n: 30 tasks(1.5K–110K LOC)
+      design: benchmark
+      population: 同上
+    evidenceKind: benchmark
+    rqs: [TH07-Q1, TH07-Q5]
+    issues: [270]
+    stance: supports
+  - id: c3
+    text: 人の継続的な監督下で Claude Opus 4.6 が作った C コンパイラ(GCC torture suite を全通過)も、検証テスト97.8%に対し保留テスト83.3%だった。差14.5pt はほぼ不正プログラムを黙って受理する誤りによる。人の監督があっても、与えたテストの外は保証されない。
+    quote: CCC achieves 97.8% on validation tests and 83.3% on held-out tests
+    locator: "Appendix C Case Study: Claude's C Compiler"
+    quant:
+      value: 97.8% vs 83.3%(差14.5pt)
+      n: 1 system(46 validation / 299 held-out tests)
+      design: case study
+      population: Claude's C Compiler(186,000行 Rust)
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 差が小さいことは正しさの証明ではなく、保留テストが扱う合成的挙動への汎化を示すにとどまると著者が限界を明記する。
+    quote: a small reward hacking gap should not be interpreted as proof that a generated system is correct in all possible usage scenarios
+    locator: Appendix A Limitations
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH07-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:28.932Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.21384
+    contentType: text/html; charset=utf-8
+    titleFetched: "SpecBench: Measuring Reward Hacking in Long-Horizon Coding Agents"
+    titleMatch: true
+    dateMeta: 2026-05-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "SpecBench: Measuring Reward Hacking in Long-Horizon Coding Agents"
+      authors: ["Zhao, Bingchen", "Srikanth, Dhruv", "Wu, Yuxiang", "Jiang, Zhengyao"]
+      v1Date: 2026-05-20
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 10倍(tenfold)ごとに28pp(Abstract)/§3.1・Fig.2 では90パーセンタイルの差が約27pp
+        extractedQuote: "The gap also scales sharply with task length: it grows by 28 percentage points for every tenfold increase in code size."
+        locator: Abstract(§3.1 は『the 90th-percentile gap grows by approximately 27 percentage points for every tenfold increase in LOC (R^2=0.21)』)
+        note: 論文内で値が不一致(Abstract=28pp、§3.1/Fig.2=約27pp)。本文の値は平均の差ではなく90パーセンタイル(上限)の差で、R^2=0.21 と弱い相関。ask の『差は…拡大する』は平均差にも読めるため、対象統計量の違いに注意。
+      c3:
+        verdict: match
+        extractedValue: Claude Opus 4.6/検証テスト97.8%/保留テスト83.3%/差14.5pp
+        extractedQuote: CCC achieves 97.8% on validation tests and 83.3% on held-out tests, producing a reward hacking gap of Δ=14.5 pp. … The 14.5pp gap is driven almost entirely by error-detection failures.
+        locator: "Appendix C Case Study: Claude's C Compiler (Results)"
+        note: CCC は『a 186,000-line Rust compiler built by Claude Opus 4.6 under continuous human supervision』で GCC torture suite を全通過。誤りは『silently accepts invalid C that GCC correctly rejects』。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

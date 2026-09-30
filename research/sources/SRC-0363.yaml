@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0363
+status: included
+excludeReason: null
+title: obra/superpowers (README)
+url: https://github.com/obra/superpowers
+canonicalUrl: https://github.com/obra/superpowers
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub (obra / Jesse Vincent)
+authors: [Vincent Jesse]
+orgType: individual
+region: us
+lang: en
+sourceType: repo
+published: 2026-09-19
+publishedBasis: page
+version: v6.4.1
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: obra superpowers skills brainstorming writing-plans test-driven-development subagent review
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH06]
+events: []
+summary: スキル群で開発手順(ブレスト→計画→サブエージェント実装→レビュー)を強制するフレームワーク。起動時フックで「作業前にスキルを確認」を義務化し、呼ばれない問題に対処している。
+claims:
+  - id: c1
+    text: エージェントはあらゆる作業の前に関連スキルを確認し、ワークフローは提案ではなく義務として扱われる。
+    quote: The agent checks for relevant skills before any task. Mandatory workflows, not suggestions.
+    locator: Philosophy
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q1, TH03-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: superpowers の subagent-driven-development は、タスクごとに新しいサブエージェントを立てて実装し、仕様適合 → コード品質の2段階レビューを挟む。これは executing-plans(インライン実装、最後に1回のレビュー)と並ぶ二択の一方である。
+    quote: subagent-driven-development - Fast iteration with two-stage review (spec compliance, then code quality)
+    locator: What's Inside > Skills Library > Collaboration
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2, TH06-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: コンパクション後のフックが無いホストでは、長いセッションで起動時の手引きが失われスキルが発火しなくなると作者が注意している。
+    quote: turn loses the bootstrap — start a fresh session if skills stop triggering.
+    locator: Installation / Hermes
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:32.322Z
+    httpStatus: 200
+    finalUrl: https://github.com/obra/superpowers
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - obra/superpowers: An agentic skills framework & software development methodology that works."
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: two-stage
+        extractedQuote: subagent-driven-development - Fast iteration with two-stage review (spec compliance, then code quality)
+        locator: What's Inside > Skills Library > Collaboration
+        note: 「タスクごとに新しいサブエージェント」は Basic Workflow 4 の 'dispatches a fresh subagent per task with a review after each (most thorough)'。同項は代替として executing-plans(インライン実装、最後に1回のレビュー、cheapest)も並べており、サブエージェント方式は二択の一方
+        adjudication:
+          verdict: corrected
+          reason: 2段階レビュー(spec compliance, then code quality)とタスクごとの新サブエージェント(fresh subagent per task)は原文どおり。ただし Basic Workflow では executing-plans(インライン実装・最後に1回レビュー・cheapest)も代替として並んでいる。主語のない主張は superpowers の唯一の方式のように読めるため、スキル名と選択肢であることを補った。
+          date: 2026-09-24
+          originalText: タスクごとに新しいサブエージェントで実装し、仕様適合→コード品質の2段階レビューを挟む。
+          originalQuote: subagent-driven-development - Fast iteration with two-stage review (spec compliance, then code quality)
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

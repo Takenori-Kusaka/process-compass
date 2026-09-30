@@ -1,0 +1,156 @@
+schemaVersion: 0
+id: SRC-0326
+status: included
+excludeReason: null
+title: We are Changing our Developer Productivity Experiment Design
+url: https://metr.org/blog/2026-02-24-uplift-update
+canonicalUrl: https://metr.org/blog/2026-02-24-uplift-update
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: [Joel Becker, Nate Rush, Tom Cunningham, David Rein, Khalid Mahamud]
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-02-24
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: metr.org uplift study 2026 experienced open-source developers follow-up results selection effects
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events:
+  - date: 2026-02-24
+    label: METR が開発者生産性 RCT の続報と設計変更を公表
+  - date: 2026-02-24
+    label: METR が2回目の生産性実験の結果と実験設計の変更を公表
+summary: 2025年の RCT(AI 使用で19%遅くなった)の続報。2025年8月からの第2研究は、AI なしで作業したくない開発者の不参加や課題の選択的提出という選択効果が強く、信頼できる信号にならないとして実験設計を変更すると表明した。
+claims:
+  - id: c1
+    text: 新しい実験のデータは、現在の AI ツールの生産性効果について信頼できない信号しか与えないと METR 自身が判断した。
+    quote: we believe that the data from our new experiment gives us an unreliable signal of the current productivity effect of AI tools
+    locator: 冒頭
+    quant: null
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 元の研究から継続した開発者の部分集合では speedup −18%(CI −38%〜+9%)、新規募集の開発者では −4%(CI −15%〜+9%)と推定した。METR はこれを speedup の兆候と述べるが、選択効果で過小評価の可能性があるとする。
+    quote: For the subset of the original developers who participated in the later study, we now estimate a speedup of -18% with a confidence interval between -38% and +9%.
+    locator: 冒頭(raw results)
+    quant:
+      value: −18%(CI −38%〜+9%)/ −4%(CI −15%〜+9%)
+      n: 10 original + 47 new developers
+      design: RCT(課題単位で AI 許可/不許可を無作為割付)
+      population: OSS 開発者、報酬 $50/時
+    evidenceKind: rct
+    rqs: [TH11-Q2, BASE-Q3]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 調査に答えた開発者の30〜50%が、AI なしでやりたくない課題を提出しなかったと回答した。AI の効果が大きい課題ほど測定から抜け落ちる。
+    quote: When surveyed, 30% to 50% of developers told us that they were choosing not to submit some tasks because they did not want to do them without AI.
+    locator: Wider adoption of AI has made it more difficult to measure task-level productivity
+    quant:
+      value: 30–50%
+      n: 第2研究の参加者
+      design: survey within RCT
+      population: 同上
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: 複数のエージェントを並行して使う開発者では、課題ごとの作業時間の計測自体が信頼できなくなった。課題単位の時間計測という指標の限界を示す。
+    quote: our measurements of time-spent on each task are unreliable for the fraction of developers who use multiple AI agents concurrently
+    locator: 冒頭
+    quant: null
+    evidenceKind: rct
+    rqs: [TH11-Q2, TH11-Q3]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: 新規に募集した開発者では-4%(信頼区間-15%〜+9%)で、減速も加速も確立していない。
+    quote: Among newly-recruited developers the estimated speedup is -4%, with a confidence interval between -15% and +9%.
+    locator: 冒頭の要約
+    quant:
+      value: -4% (CI -15% to +9%)
+      n: 47 new developers
+      design: RCT, selection-affected
+      population: more diverse, smaller/greenfield repos
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c6
+    text: AIなしで働くことを拒む開発者の不参加が大きく増え、推定値が下方に偏る(効果の下限にすぎない)と METR 自身が述べる。
+    quote: we have observed a significant increase in developers choosing not to participate in the study because they do not wish to work without AI, which likely biases downwards our estimate
+    locator: 冒頭の要約
+    quant: null
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c7
+    text: 開発者の30〜50%が、AIなしでやりたくないタスクを実験に出さなかったと答えており、効果の大きいタスクが系統的に欠けている。
+    quote: 30% to 50% of developers told us that they were choosing not to submit some tasks because they did not want to do them without AI.
+    locator: Wider adoption of AI has made it more difficult to measure task-level productivity
+    quant:
+      value: 30–50% of developers withheld tasks
+      n: 57 developers (surveyed)
+      design: participant survey within RCT
+      population: study participants
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:07.084Z
+    httpStatus: 200
+    finalUrl: https://metr.org/blog/2026-02-24-uplift-update/
+    contentType: text/html; charset=UTF-8
+    titleFetched: We are Changing our Developer Productivity Experiment Design
+    titleMatch: true
+    dateMeta: 2026-02-24
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: "既存開発者の部分集合: -18%(CI -38%〜+9%) / 新規募集: -4%(CI -15%〜+9%)"
+        extractedQuote: For the subset of the original developers who participated in the later study, we now estimate a speedup of -18% with a confidence interval between -38% and +9%. Among newly-recruited developers the estimated speedup is -4%, with a confidence interval between -15% and +9%.
+        locator: 冒頭 'Our raw results show some evidence for speedup.' の段落
+        note: 原文は 'Our raw results show some evidence for speedup.' と書き、選択効果により推定が真の効果の下限(lower-bound)である可能性を述べる。ask の趣旨と整合。原文の符号表記は『speedup of -18%』(時間の変化率としての負値)であり、ask の『speedup −18%』もその表記を踏襲している。後段の母集団は元研究から10名、新規47名(n は ask に含まれない)
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH11
+    query: METR developer productivity study 2026 follow-up AI tools experienced open-source developers

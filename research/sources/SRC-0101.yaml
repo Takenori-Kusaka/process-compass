@@ -1,0 +1,157 @@
+schemaVersion: 0
+id: SRC-0101
+status: included
+excludeReason: null
+title: Introducing Claude Opus 5.5
+url: https://www.anthropic.com/news/claude-opus-5-5
+canonicalUrl: https://anthropic.com/news/claude-opus-5-5
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-22
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Opus vs Sonnet Claude Code measured cost quality comparison tasks 2026 blog experiment per-task cost success rate
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH02, TH11]
+events:
+  - date: 2026-09-22
+    label: Claude Opus 5.5 発表。5時間枠の引き上げと「保存できるリセット」を同時に導入
+  - date: 2026-09-22
+    label: Anthropic が Claude Opus 5.5 を発表(Claude 5.5 ファミリーの初号)
+summary: Opus 5.5 の発表文(日付はページに無く、報道と X の投稿時刻 2026-09-22 に基づく)。Anthropic 自身が「キャッシュ読み取りがエージェント・コーディング作業の費用の過半を占める」と明言し、その単価を 60% 下げた。
+claims:
+  - id: c1
+    text: Anthropic はキャッシュ読み取りが「エージェント・コーディング作業の費用の過半」を占めると述べる。#274 の「費用の 57% がキャッシュ読み取り」はベンダーの一般論と整合する。
+    quote: Cache reads (which make up the majority of agentic and coding work costs) are $0.20 per million tokens, 60% less than Opus 5.
+    locator: Cost and speed 段落
+    quant:
+      value: majority(>50%)
+      n: null
+      design: vendor statement, no sample disclosed
+      population: agentic and coding work on Claude
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: [274, 282]
+    stance: supports
+  - id: c2
+    text: 既定設定の典型ワークロードで Opus 5 比 40% 安いとするが、これは Anthropic 自社テストの値で、max effort ではトークン増で相殺されるという外部計測がある(latent.space カード参照)。
+    quote: Our tests show that at default settings it will cost 40% less than Opus 5 on typical workloads. Input and output tokens are $4 and $20 per million, 20% less than Opus 5.
+    locator: Cost and speed 段落
+    quant:
+      value: -40%
+      n: null
+      design: vendor internal test
+      population: typical workloads at default settings
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4, TH02-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: 定額プランの 5 時間枠を引き上げ、利用者が任意のタイミングで使える「レート制限リセット」を配った。上限の運用は 2026 年を通じて頻繁に変わっている。
+    quote: In addition to the price drop, we're increasing five-hour usage limits on Pro, Max, Team, and seat-based Enterprise plans. We're also providing subscription users a rate limit reset, which you can now save and use whenever you choose.
+    locator: Cost and speed 段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: context
+  - id: c4
+    text: Anthropic は、現在の能力水準ではベンチの差が実世界の差の指標として信頼性を失いつつあると明言した。前回 §2-3 の「ベンチのスコアで導入判断をしない」を支える一次の言明。
+    quote: at these levels of capability we’ve found that benchmark margins have become a less reliable guide to real-world differences
+    locator: Performance and cost-effectiveness
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q3, TH11-Q2]
+    issues: [282]
+    stance: supports
+  - id: c5
+    text: 価格表では Opus 5.5 がキャッシュ読み取り $0.20・入力 $4・出力 $20・キャッシュ書き込み $5、Opus 5 が $0.50・$5・$25・$6.25(百万トークンあたり)。
+    quote: Cache reads $0.20 $0.50 Input tokens $4 $5 Output tokens $20 $25 Cache writes $5 $6.25
+    locator: Pricing 表
+    quant:
+      value: "Opus 5: cache read $0.50 / in $5 / out $25 / cache write $6.25"
+      n: n/a
+      design: list price
+      population: Claude API
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:44.011Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/claude-opus-5-5
+    contentType: text/html; charset=utf-8
+    titleFetched: Introducing Claude Opus 5.5
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: the majority(割合の数値は示されていない)
+        extractedQuote: Cache reads (which make up the majority of agentic and coding work costs) are $0.20 per million tokens, 60% less than Opus 5.
+        locator: 導入部の「Cost and speed.」段落
+        note: URL は https://www.anthropic.com/claude-opus-5-5 へリダイレクトされる。日付は September 22, 2026。ベンダーは「majority」と書くだけで、割合の数値は示していない。「#___の ___%」は原典の外の話で、整合するかはこのページでは検証できない。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote どおり、キャッシュ読み取りが「agentic and coding work costs の majority」を占めるとベンダー自身が述べている。claimQuant の「>50%」は majority の語義から導ける。ただし原典は具体的な割合を示していない。#274 の 57% との整合は内部参照なので、判定対象から外した。
+          date: 2026-09-23
+      c3:
+        verdict: match
+        extractedValue: five-hour(5時間)
+        extractedQuote: we’re increasing five-hour usage limits … plans. We’re also providing subscription users a rate limit reset, which you can now save and use whenever you choose.
+        locator: 「Cost and speed.」段落の直後の段落
+        note: 引き上げの対象は Pro・Max・Team・seat-based Enterprise の各プラン。後半の「上限の運用は ___年を通じて頻繁に変わっている」はこのページに無い(年を通じた変遷の記述は無い)。「任意のタイミングで使える」は原文の「save and use whenever you choose」と一致する。
+      c4:
+        verdict: match
+        extractedValue: benchmark margins have become a less reliable guide to real-world differences(§番号は原典に存在しない)
+        extractedQuote: That said, at these levels of capability we've found that benchmark margins have become a less reliable guide to real-world differences.
+        locator: Performance and cost-effectiveness 節の冒頭段落
+        note: ask の『前回 §___-___』は社内メモ側の節番号で、原典からは検証できない。直後の文は『In our own use, the gap between Opus 5.5 and Claude Fable 5.1 is narrower than these scores suggest.』。ページ日付は 2026-09-22。
+        adjudication:
+          verdict: consistent
+          reason: 主張の原文抜粋は blindQuote の 'at these levels of capability we've found that benchmark margins have become a less reliable guide to real-world differences' と一致し、「現在の能力水準ではベンチの差が実世界の差の指標として信頼性を失いつつある」はその忠実な訳である。§番号・前回報告との関係は内部参照のため判定対象外。
+          date: 2026-09-24
+      c5:
+        verdict: match
+        extractedValue: "Opus 5.5: キャッシュ読み取り $0.20・入力 $4・出力 $20・キャッシュ書き込み $5 / Opus 5: $0.50・$5・$25・$6.25(1M トークンあたり)"
+        extractedQuote: Pricing Prices per 1M tokens Claude Opus 5.5 Claude Opus 5 Cache reads $0.20 $0.50 Input tokens $4 $5 Output tokens $20 $25 Cache writes $5 $6.25
+        locator: Performance and cost-effectiveness 節 > Pricing 表
+        note: 表の直後に Fast mode(Opus 5.5)は入力 $8・出力 $40 と別記がある。Introduction 本文にも入出力 $4/$20、キャッシュ読み取り $0.20 の記述あり。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: C00b-1
+    query: "direct: anthropic.com/news 一覧"
+urlBeforeRepair: https://anthropic.com/news/claude-opus-5-5

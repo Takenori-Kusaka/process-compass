@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0283
+status: included
+excludeReason: null
+title: そのロールプロンプト、肩書き付きの一般論ではないですか？
+url: https://zenn.dev/continuitymodel/articles/044e5a4a7d24ac
+canonicalUrl: https://zenn.dev/continuitymodel/articles/044e5a4a7d24ac
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [continuity-model]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-06-15
+publishedBasis: meta
+version: null
+updated: 2026-06-24
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "zenn search API: ロールプロンプト 効果(反証探索)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: 『あなたは世界一のマーケターです』型のロール付与は専門性の指定ではなく、平均化された一般論を役割風に言い直させるだけだと論じ、肩書きではなく必要な思考形態(何を見て何を疑い何を捨てるか)を指定すべきとする論考。
+claims:
+  - id: c1
+    text: 肩書きだけのロール指定では、AI はその役割らしい観点を並べるが中身は平均化された一般論になり、専門家に聞いたことにはならない。ロール名は思考の指定ではない。
+    quote: ロール名は、思考の指定ではない。
+    locator: 「「マーケター」は広すぎる」節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q5, TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: ロールを与える前にロールを分解し、その役割の中で必要な思考形態(何を見て、何を重く扱い、何を疑い、何を捨てるか)を指定すべきだとする。
+    quote: 結論から言うと、ロールを与える前に、ロールを分解した方がいい。
+    locator: 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q5]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.455Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/continuitymodel/articles/044e5a4a7d24ac
+    contentType: text/html; charset=utf-8
+    titleFetched: そのロールプロンプト、肩書き付きの一般論ではないですか？
+    titleMatch: true
+    dateMeta: 2026-06-15
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

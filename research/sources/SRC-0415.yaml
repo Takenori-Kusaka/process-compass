@@ -1,0 +1,67 @@
+schemaVersion: 0
+id: SRC-0415
+status: included
+excludeReason: null
+title: About SLSA (SLSA v1.2)
+url: https://slsa.dev/spec/v1.2/about
+canonicalUrl: https://slsa.dev/spec/v1.2/about
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenSSF SLSA (The Linux Foundation)
+authors: [SLSA Community]
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2025-11-24
+publishedBasis: page
+version: v1.2
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH07
+  query: SLSA specification build provenance "does not" code quality scope threats verification
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH10]
+events:
+  - date: 2025-11-24
+    label: SLSA v1.2 公開(Source Track 追加)
+summary: 供給網の完全性規格 SLSA v1.2 の範囲説明。SLSA は来歴と完全性を扱い、コード品質や作成者の信頼は範囲外と明記している。真正性の検査と品質の判定を切り分けた規格上の先例である。
+claims:
+  - id: c1
+    text: SLSA は、開発者が安全なコーディング慣行に従ったかどうかを示さない。コード品質を範囲外と明記している。
+    quote: "Code quality: SLSA does not tell you whether the developers writing the source code followed secure coding practices."
+    locator: What SLSA doesn't cover
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q2]
+    issues: [269, 271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:28.078Z
+    httpStatus: 200
+    finalUrl: https://slsa.dev/spec/v1.2/about
+    contentType: text/html; charset=UTF-8
+    titleFetched: About SLSA
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

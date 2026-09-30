@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0079
+status: included
+excludeReason: null
+title: "A Potential Teammate?: Understanding How Indie Game Developers Approach Generative AI’s Involvement in Their Small-Scale Creative Teamwork"
+url: https://dl.acm.org/doi/10.1145/3772318.3790869
+canonicalUrl: doi:10.1145/3772318.3790869
+ids:
+  arxiv: null
+  doi: 10.1145/3772318.3790869
+publisher: ACM CHI 2026 (Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems)
+authors: [Panchanadikar Ruchi, Freeman Guo]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2026-04
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: '"AI teammate" CHI 2026 OR CSCW 2026 study software developers'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: CHI 2026 論文。生成 AI を実務で使う indie ゲーム開発者15名への半構造化インタビュー。現行 AI は teammate を成り立たせる independence と interdependence を欠くと評価され、「AI はチームメイトか」を二値で問うこと自体が単純化だと論じる。対象はソフトウェア開発チームではなく小規模創作チーム。
+claims:
+  - id: c1
+    text: 15名のインタビューで、開発者は現行 AI が小規模チームの teammate を定義する独立性(independence)と相互依存性(interdependence)の要素を欠くと考えている。
+    quote: Through 15 interviews with indie developers, our findings suggest that developers believe current AI systems still lack key elements of independence and interdependence that define a teammate in small indie teams.
+    locator: Abstract
+    quant:
+      value: n=15
+      n: 15 indie game developers
+      design: semi-structured interviews
+      population: US 中心の indie 開発者(生成 AI を協働で使用)
+    evidenceKind: observational
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 「AI を teammate として扱うか」を静的な yes/no で問うことは、開発者が AI の関与を継続的に交渉する過程を単純化しすぎるとする。役割の二値化への注意。
+    quote: treating "AI as teammate" as a static, binary (yes-or-no) question would oversimplify the complex process by which indie developers continuously reflect on and negotiate AI’s involvement
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: observational
+    rqs: [TH01-Q1, TH01-Q3]
+    issues: [248]
+    stance: qualifies
+  - id: c3
+    text: 将来像として、AI は人間の創造性や協働のダイナミクスに直接参加・模倣するのではなく補完すべきだと開発者は描く(自律エージェントから埋め込み型インフラへ)。
+    quote: AI should complement rather than directly participate in or imitate human creativity and collaborative dynamics.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:24.239Z
+    httpStatus: 403
+    finalUrl: https://dl.acm.org/doi/10.1145/3772318.3790869
+    contentType: text/html; charset=UTF-8
+    titleFetched: Just a moment...
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref:
+      status: 200
+      title: "A Potential Teammate?: Understanding How Indie Game Developers Approach Generative AI’s Involvement in Their Small-Scale Creative Teamwork"
+      issued: 2026-4-13
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "15"
+        extractedQuote: Through 15 interviews with indie developers, our findings suggest that developers believe current AI systems still lack key elements of independence and interdependence that define a teammate
+        locator: Abstract
+        note: 指定 URL(dl.acm.org)は Cloudflare のチャレンジで本文を取得できなかった。著者サイト掲載の同一論文(https://guof.people.clemson.edu/papers/chi26indie.pdf、CC BY-NC-ND 4.0、同 DOI)から抽出した。Semantic Scholar の抄録とも一致。インタビューは 2024 年 4〜7 月実施(§3.1)
+      c2:
+        verdict: match
+        extractedValue: a static, binary (yes-or-no) question would oversimplify
+        extractedQuote: treating "AI as teammate" as a static, binary (yes-or-no) question would oversimplify the complex process by which indie developers continuously reflect on and negotiate AI’s involvement
+        locator: §1 Introduction
+        note: 著者が研究設問の立て方を説明する文脈(yes/no を超えて independence / interdependence の2次元で見る理由)であり、インタビューから得た知見ではない。『役割の二値化への注意』は主張側の一般化。本文は著者サイト版 PDF から取得(DOI ページは Cloudflare で遮断)
+      c3:
+        verdict: match
+        extractedValue: complement rather than directly participate in or imitate / from autonomous creative agents to embedded collaborative infrastructure
+        extractedQuote: AI should complement rather than directly participate in or imitate human creativity and collaborative dynamics / from autonomous creative agents to embedded collaborative infrastructure
+        locator: Abstract(前半)/ §1 Introduction の貢献記述(後半)
+        note: 括弧内の『自律エージェントから埋め込み型インフラへ』は Abstract には無く、§1 で著者が提案する設計の方向性(We also offer potential design directions ...)である。開発者が描いた将来像として帰属させると主体がずれる。本文は著者サイト版 PDF から取得
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

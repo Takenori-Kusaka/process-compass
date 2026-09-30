@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0579
+status: included
+excludeReason: null
+title: CI Optimizations (Graphite Docs)
+url: https://graphite.com/docs/stacking-and-ci
+canonicalUrl: https://graphite.com/docs/stacking-and-ci
+ids:
+  arxiv: null
+  doi: null
+publisher: Graphite
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: Graphite stacked PRs merge queue CI optimization docs stack-aware merge queue 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events: []
+summary: Graphite 公式ドキュメント。スタック型 PR が CI 実行数を増やすことを認め、スタック中段の CI を API で間引く仕組みと、全 base ブランチに必須チェックを課した場合の「必須 CI 未実行」表示を説明する。ページに日付は無い(取得 2026-09-30)。
+claims:
+  - id: c1
+    text: Graphite は、スタック化で CI 実行が増える理由を、PR 数の増加と、スタックを最新に保つための裏側の rebase の2つだと説明している。
+    quote: Additional CI runs occur when stacking PRs in part due to the additional PRs created, and due to behind-the-scenes rebasing to keep stacked branches up to date.
+    locator: 冒頭(CI Optimizations)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: 保護ルールを trunk 以外の全 base ブランチにも掛け、かつ上段 PR で CI を走らせない構成では、上段 PR が「必須 CI 未実行」と表示される。
+    quote: you are not running CI on upstack PRs, you may see upstack PR as “missing required CI”.
+    locator: Required CI
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: CI の間引きは「障害時は CI を走らせる側へ倒す」設計で、API 応答が異常なとき・マージキュー投入時・スタック一括マージ時は CI を省略しない。
+    quote: Graphite’s Buildkite and GitHub Actions integrations are configured to “fail open” so that outages and errors still result in your CI running.
+    locator: Error handling
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2, TH02-Q4]
+    issues: [273]
+    stance: context
+  - id: c4
+    text: Graphite は「スタックを使う人が 10 人未満の組織では CI の待ち時間・実行数に差は出にくい」と述べるが、標本や測定方法は示していない。
+    quote: Organizations with fewer than 10 stackers are unlikely to see any difference in CI wait times or runs.
+    locator: 冒頭(CI Optimizations)
+    quant:
+      value: 10 stackers 未満
+      n: 不明
+      design: ベンダーの言明(測定方法の記載なし)
+      population: Graphite 利用組織
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:49.244Z
+    httpStatus: 200
+    finalUrl: https://graphite.com/docs/stacking-and-ci
+    contentType: text/html; charset=utf-8
+    titleFetched: CI Optimizations - Graphite
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2項目(追加で作られる PR、裏側の rebase)。原文に「two」という数詞は無く、2項目が and で並ぶ
+        extractedQuote: Additional CI runs occur when stacking PRs in part due to the additional PRs created, and due to behind-the-scenes rebasing to keep stacked branches up to date.
+        locator: CI Optimizations 冒頭 第2段落 (graphite.com/docs/stacking-and-ci.md)
+        note: 原文は「in part due to」で、理由がこの2つに尽きるとは述べていない。直前に「Organizations with fewer than 10 stackers are unlikely to see any difference in CI wait times or runs.」という条件付けがある。HTML 本文は JS 描画のため、同 URL の .md 版から取得した。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

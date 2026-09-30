@@ -1,0 +1,92 @@
+schemaVersion: 0
+id: SRC-0121
+status: included
+excludeReason: null
+title: How to monitor Claude Code token usage
+url: https://www.faros.ai/blog/claude-code-token-usage
+canonicalUrl: https://faros.ai/blog/claude-code-token-usage
+ids:
+  arxiv: null
+  doi: null
+publisher: Faros AI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-06-25
+publishedBasis: meta
+version: null
+updated: 2026-09-04
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code cost per pull request tokens measured cache read share
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04, TH11]
+events: []
+summary: エンジニアリング計測ベンダー Faros の Claude Code トークン監視ガイド(2026-06-25、更新 2026-09-04)。CLAUDE.md を毎ターンの「税」と表現し、タスク間の /clear で 1 メッセージ当たり 30〜50% 減と述べる。数値は標本の明示なし。
+claims:
+  - id: c1
+    text: CLAUDE.md は毎リクエストに注入されるため、5,000 トークンの CLAUDE.md は全ターン・全セッション・全開発者に掛かる 5,000 トークンの税になる。決定と規約だけを書き、推測できることや古い内容は消せ、と勧める。
+    quote: Keep CLAUDE.md concise. CLAUDE.md injects into every request. A 5,000-token CLAUDE.md is a 5,000-token tax on every turn, for every session, for every developer on the team.
+    locator: What drives consumption / Keep CLAUDE.md concise
+    quant:
+      value: 5,000 tokens per turn(例示)
+      n: null
+      design: illustrative
+      population: Claude Code teams
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q2, TH03-Q4]
+    issues: [269, 274]
+    stance: supports
+  - id: c2
+    text: 無関係な作業に移るときに /clear しないと前タスクの文脈が毎メッセージ再送される。タスク間で消すと 1 メッセージ当たりのトークン費用が 30〜50% 減る(標本の明示なし)。
+    quote: Stale context from a previous task gets resent on every subsequent message. Clearing between tasks cuts per-message token cost by 30–50%.
+    locator: Clear between tasks
+    quant:
+      value: -30〜50% per message
+      n: null
+      design: unspecified
+      population: Claude Code sessions
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q2]
+    issues: [274]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:51.247Z
+    httpStatus: 200
+    finalUrl: https://www.faros.ai/blog/claude-code-token-usage
+    contentType: text/html; charset=utf-8
+    titleFetched: How to monitor Claude Code token usage in sotware engineering
+    titleMatch: true
+    dateMeta: 2026-06-25
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: per-message(1メッセージ当たり)のトークン費用を 30–50% 削減
+        extractedQuote: Stale context from a previous task gets resent on every subsequent message. Clearing between tasks cuts per-message token cost by 30–50%.
+        locator: How to reduce Claude Code token usage without reducing output > Clear context between tasks
+        note: 原典に測定方法・標本の記載は無い(ask の「標本の明示なし」と一致)。直前に 'Use /clear when switching to unrelated work.' とある。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://faros.ai/blog/claude-code-token-usage

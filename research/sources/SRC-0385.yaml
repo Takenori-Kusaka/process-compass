@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0385
+status: included
+excludeReason: null
+title: 「そもそも、ドキュメントをExcelで作成している理由って何ですか？」──AI活用を停滞させていた「慣習」を打破。(オーエムネットワーク プレスリリース)
+url: https://prtimes.jp/main/html/rd/p/000000122.000092212.html
+canonicalUrl: https://prtimes.jp/main/html/rd/p/000000122.000092212.html
+ids:
+  arxiv: null
+  doi: null
+publisher: オーエムネットワーク株式会社(PR TIMES)
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: vendor-official
+published: 2026-05-08
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: 設計書 Markdown 移行 Excel Word 納品 SIer docs as code 変換 pandoc 顧客提出 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05, TH04]
+events: []
+summary: 新潟の業務システム開発会社 OMN のプレスリリース(2026-05-08)。Claude Code が Excel 設計書の階層を誤認したため、2026年4月までに主要設計書を Markdown に移した。トークン消費は約1/10(自社試験の推計)。Markdown を正本とし、人向けには AI で HTML を書き出す。
+claims:
+  - id: c1
+    text: Excel 経由と比べてトークン消費が約10分の1になったとする。ただし自社の試験運用に基づく推計値で、書式量や内容で変動すると注記している。
+    quote: トークン消費量は、Excel経由と比較しておよ10分の1程度に抑えられている手応えを感じています（※1）。
+    locator: 本文、※1(当社試験運用に基づく推計値)
+    quant:
+      value: 約1/10
+      n: 当社試験運用(Claude Code 利用者3名)。測定方法の詳細は非開示
+      design: self-reported estimate
+      population: OMN 開発チームの設計書
+    evidenceKind: case-report
+    rqs: [TH05-Q4, TH04-Q2]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: Markdown を情報のマスターデータとし、人が読むときは Claude Code 等で HTML へ書き出す(AI 向けの正本から人向けの形式を派生させる)。
+    quote: Markdownを情報の「マスターデータ」とし、人間が閲覧する際には、Claude Code等のAIツールを用いて即座に「HTML形式」へと書き出す運用フローを確立しました。
+    locator: 本文(人間向けの表示)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:40.807Z
+    httpStatus: 200
+    finalUrl: https://prtimes.jp/main/html/rd/p/000000122.000092212.html
+    contentType: text/html; charset=utf-8
+    titleFetched: 「そもそも、ドキュメントをExcelで作成している理由って何ですか？」──AI活用を停滞させていた「慣習」を打破。
+    titleMatch: true
+    dateMeta: 2026-05-08
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

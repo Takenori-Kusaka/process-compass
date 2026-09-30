@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0526
+status: included
+excludeReason: null
+title: "ISO 26262-12:2018 Road vehicles — Functional safety — Part 12: Adaptation of ISO 26262 for motorcycles (iTeh preview)"
+url: https://cdn.standards.iteh.ai/samples/69605/e46be4de4cff4189859cdaa382ae7cc6/ISO-26262-12-2018.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/69605/e46be4de4cff4189859cdaa382ae7cc6/iso-26262-12-2018.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: International Organization for Standardization (ISO)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2018-12
+publishedBasis: pdf
+version: First edition
+updated: null
+accessed: 2026-09-30
+access: paywall
+readLevel: section
+foundBy:
+  cluster: G02
+  query: cdn.standards.iteh.ai samples ISO 26262-2:2018 management of functional safety pdf
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH12, TH02]
+events: []
+summary: ISO 26262 の二輪車向け適応(第 12 部)の公開プレビュー。第 7 章「確認措置」の要求本文と注記までが読め、確認措置の独立性が ASIL に応じて定められ、組織上の独立を指すことが分かる。I0〜I3 の定義を載せる表 1 はプレビュー範囲外。第 2 部(ISO 26262-2:2018)のプレビューは §5.2.2.3 で切れ、§6.4.9 の表 1 に届かない。
+claims:
+  - id: c1
+    text: 確認措置(確認レビュー・機能安全監査・機能安全アセスメント)の独立性の要求は、ASIL に対応づけて定められる。
+    quote: The objective of this clause is to define the independency requirements of confirmation measures
+    locator: §7.1 Objective
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: 表 1 が定める独立性の狙いは、客観的で偏りのない視点を確保し利益相反を避けることにあり、ここでいう独立性は組織上の独立を指す。
+    quote: The use of the term independence in this document relates to organizational
+    locator: §7.2.1 NOTE 4
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [254]
+    stance: context
+  - id: c3
+    text: 確認措置の完了後にアイテムが変更された場合、関連する確認措置をやり直すか補う。
+    quote: If the item changes subsequent to the completion of confirmation measures, then the pertinent
+    locator: §7.2.1 NOTE 7
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c4
+    text: 確認措置の結果の報告書には、分析した作業成果物または工程文書の名称と改訂番号を含める。
+    quote: A report that is a result of a confirmation measure includes the name and revision number of the
+    locator: §7.2.1 NOTE 6
+    quant: null
+    evidenceKind: normative
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:25.601Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/69605/e46be4de4cff4189859cdaa382ae7cc6/ISO-26262-12-2018.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: Table 1(表 1)
+        extractedQuote: NOTE 4 The aim of the independence defined in Table 1 is to ensure an objective, unbiased viewpoint and to avoid conflict of interest.
+        locator: ISO 26262-12:2018 §7.2.1 c) 直後の NOTE 4(PDF p.6-7)
+        note: 'quote の直後の文(原文そのまま): "The use of the term independence in this document relates to organizational independence." iTeh の無償プレビュー PDF を curl で取得し pdftotext で読んだ。ここでの Table 1 は Part 12(二輪車向け適応)自身の表 1。'
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

@@ -1,0 +1,151 @@
+schemaVersion: 0
+id: SRC-0012
+status: included
+excludeReason: null
+title: Large Language Models Cannot Self-Correct Reasoning Yet
+url: https://arxiv.org/abs/2310.01798
+canonicalUrl: arxiv:2310.01798
+ids:
+  arxiv: "2310.01798"
+  doi: null
+publisher: arXiv(ICLR 2024)
+authors: [Huang Jie, Chen Xinyun, Mishra Swaroop, Zheng Huaixiu Steven, Yu Adams Wei, Song Xinying, Zhou Denny]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2023-10-03
+publishedBasis: arxiv-v1
+version: v2
+updated: 2024-03-14
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: GET https://arxiv.org/html/2310.01798 / https://arxiv.org/abs/2310.01798
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 外部フィードバックなしの内在的自己修正が推論課題で精度を下げることを示した ICLR 2024 論文。254 メモの「CommonSenseQA で GPT-3.5 がほぼ半減」は Table 3(75.8→38.1)で原典どおり。マルチエージェント討論は同数の応答の自己整合に劣るという記述も Section 4 にある。
+claims:
+  - id: c1
+    text: GPT-3.5-Turbo の CommonSenseQA 正答率は標準プロンプト 75.8 → 自己修正 1 回目 38.1 → 2 回目 41.8。1 回目で 49.7% 減(ほぼ半減)。GSM8K は 75.9→75.1→74.7、HotpotQA 26.0→25.0→25.0。
+    quote: GPT-3.5| Standard Prompting| 1| 75.9| 75.8| 26.0| Self-Correct (round 1)| 3| 75.1| 38.1| 25.0| Self-Correct (round 2)| 5| 74.7| 41.8| 25.0
+    locator: Table 3
+    quant:
+      value: 75.8 → 38.1 (-37.7pt, -49.7%)
+      n: CommonSenseQA dev 1,221 questions (full set for GPT-3.5)
+      design: benchmark
+      population: gpt-3.5-turbo-0613, temperature 1, 2023-08-29
+    evidenceKind: benchmark
+    rqs: [TH06-Q5]
+    issues: [257, 258]
+    stance: supports
+  - id: c2
+    text: GPT-4 は 82.0→79.5→80.0、GPT-4-Turbo は 84.0→81.5→83.0、Llama-2-70b-chat は 64.0→37.5→36.5。全モデル・全ベンチマークで自己修正後に精度が低下。
+    quote: We observe that, after self-correction, the accuracies of all models drop across all benchmarks.
+    locator: §3.2 / Table 3, Table 4
+    quant:
+      value: all drops; Llama-2 CSQA 64.0→36.5
+      n: 200 questions per dataset for GPT-4/GPT-4-Turbo/Llama-2
+      design: benchmark
+      population: GPT-4, GPT-4-Turbo, Llama-2-70b-chat
+    evidenceKind: benchmark
+    rqs: [TH06-Q5]
+    issues: [257, 258]
+    stance: supports
+  - id: c3
+    text: 正解ラベルで停止を決める oracle 設定では 75.8→89.7 と改善するが、著者はこれを真の自己修正と見なさない。
+    quote: GPT-3.5| Standard Prompting| 75.9| 75.8| 26.0| Self-Correct (Oracle)| 84.3| 89.7| 29.0
+    locator: Table 2
+    quant:
+      value: 75.8 → 89.7 (oracle)
+      n: 1,221
+      design: benchmark
+      population: GPT-3.5
+    evidenceKind: benchmark
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: context
+  - id: c4
+    text: マルチエージェント討論(3 体 2 ラウンド、gpt-3.5-turbo-0301、GSM8K)は同数応答の自己整合を有意に下回り、「討論」や「批判」ではなく「一貫性」の達成手段と見るべきだと結論。
+    quote: rather than labeling the multi-agent debate as a form of “debate” or “critique”, it is more appropriate to perceive it as a means to achieve “consistency” across multiple model generations.
+    locator: §4 / Table 7
+    quant:
+      value: "MAD < SC at equal #responses"
+      n: GSM8K
+      design: benchmark
+      population: gpt-3.5-turbo-0301, 3 agents, 2 rounds
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c5
+    text: GPT-3.5 以外は費用削減のため各データセット 200 問(HotpotQA 100 問)の無作為標本。
+    quote: For GPT-3.5-Turbo, we employ the full evaluation set. For other models, to reduce the cost, we randomly sample 200 questions for each dataset (100 for HotpotQA) for testing.
+    locator: §3.1
+    quant:
+      value: n=200 (100)
+      n: "200"
+      design: benchmark
+      population: GPT-4, GPT-4-Turbo, Llama-2
+    evidenceKind: benchmark
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:16.749Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2310.01798
+    contentType: text/html; charset=utf-8
+    titleFetched: Large Language Models Cannot Self-Correct Reasoning Yet
+    titleMatch: true
+    dateMeta: 2023-10-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: Large Language Models Cannot Self-Correct Reasoning Yet
+      authors: ["Huang, Jie", "Chen, Xinyun", "Mishra, Swaroop", "Zheng, Huaixiu Steven", "Yu, Adams Wei", "Song, Xinying"]
+      v1Date: 2023-10-03
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "GPT-3.5(gpt-3.5-turbo-0613)CommonSenseQA: 75.8 → round 1 38.1 → round 2 41.8。round 1 の減少は相対で約49.7%(37.7pt)。GSM8K 75.9→75.1→74.7。HotpotQA 26.0→25.0→25.0"
+        extractedQuote: GPT-3.5 | Standard Prompting | 1 | 75.9 | 75.8 | 26.0 | Self-Correct (round 1) | 3 | 75.1 | 38.1 | 25.0 | Self-Correct (round 2) | 5 | 74.7 | 41.8 | 25.0 |
+        locator: Table 3
+        note: 表の行ラベルは「GPT-3.5」になっている。§3.1 では GPT-3.5-Turbo(gpt-3.5-turbo-0613)と書かれ、全評価セットで評価している。49.7% はこちらで計算した値。round 2 の 41.8 は round 1 から持ち直している(標準比では相対 -44.9%)。
+      c2:
+        verdict: match
+        extractedValue: "GPT-4: GSM8K 95.5→91.5→89.0、CSQA 82.0→79.5→80.0、HotpotQA 49.0→49.0→43.0。GPT-4-Turbo(gpt-4-1106-preview): GSM8K 91.5→88.0→90.0、CSQA 84.0→81.5→83.0。Llama-2-70b-chat: GSM8K 62.0→43.5→36.5、CSQA 64.0→37.5→36.5"
+        extractedQuote: Tables 3 and 4 report the accuracies and the number of model calls. We observe that, after self-correction, the accuracies of all models drop across all benchmarks.
+        locator: §3.2 / Table 3, Table 4
+        note: ask はベンチマークを伏せているため、各モデルの全ベンチマークの値を挙げた。「全モデル・全ベンチマークで低下」は原文どおり。ただし単調に下がるわけではない。GPT-4 の HotpotQA は round 1 で同値の 49.0。GPT-4-Turbo は round 2 で持ち直している(GSM8K 88.0→90.0、CSQA 81.5→83.0)。それでも round 2 の値は、どれも標準プロンプトを下回る。Table 4 のモデルは 200問の無作為標本で、HotpotQA の値はない。
+      c4:
+        verdict: match
+        extractedValue: 3 agents・2 rounds、gpt-3.5-turbo-0301、GSM8K 全テストセット。MAD round 1(6応答)83.2 対 SC(6)85.3、MAD round 2(9応答)83.0 対 SC(9)88.2、SC(3)82.5、標準 76.7
+        extractedQuote: Furthermore, for self-consistency with an equivalent number of responses, multi-agent debate significantly underperforms simple self-consistency using majority voting.
+        locator: §4 / Table 7
+        note: 原文は "significantly underperforms" と書くが、統計的検定は示されていない。ask の「有意に」を統計的有意と読むのは過剰。結論部の原文は "it is more appropriate to perceive it as a means to achieve 'consistency' across multiple model generations"。同じ3応答で比べると、MAD は SC より「わずかに良い」とも書かれている("only slightly better than that of self-consistency with the same number of agents")。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

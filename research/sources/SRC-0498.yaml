@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0498
+status: included
+excludeReason: null
+title: IEEE-USA response to CAISI Request for Information Regarding Security Considerations for Artificial Intelligence Agents
+url: https://ieeeusa.org/assets/public-policy/policy-log/2026/IEEE-USA-NIST-RFI-Agentic-AI-030926.pdf
+canonicalUrl: https://ieeeusa.org/assets/public-policy/policy-log/2026/ieee-usa-nist-rfi-agentic-ai-030926.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: IEEE-USA
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-03-09
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: IEEE standard agentic AI working group P3xxx autonomous agents standard 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH02, TH07]
+events: []
+summary: IEEE-USA が NIST のエージェント安全性 RFI へ出した意見書。段階的な自律(観察→監督付き→自律)、不可逆・高影響な操作への明示承認、指名された所有者の責任を推奨する。
+claims:
+  - id: c1
+    text: 導入環境のリスク低減策として、エージェントが観察→監督付き→自律と段階的に進む「段階的自律」モデルを挙げる。自律を二値でなく段階で扱う推奨である。
+    quote: staged autonomy models where agents progress from observation to supervised to autonomous operation
+    locator: Question b)(環境の変更による緩和)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1, TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 高影響または不可逆な操作には、人または複数者による明示的な承認を要求する(リスクに応じた承認)。
+    quote: "Risk-based approvals: High-impact or irreversible actions require explicit human or multi-party approval."
+    locator: iii. Human oversight controls
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH12-Q1, TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: エージェントの振る舞い・権限・インシデント対応に責任を負う所有者を名指しで定める。結果責任を人に置き、実行はエージェントに任せる構成を前提にしている。
+    quote: "Clear ownership: Named owners are accountable for agent behavior, permissions, and incident response."
+    locator: iii. Human oversight controls
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:15.955Z
+    httpStatus: 200
+    finalUrl: https://ieeeusa.org/assets/public-policy/policy-log/2026/IEEE-USA-NIST-RFI-Agentic-AI-030926.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

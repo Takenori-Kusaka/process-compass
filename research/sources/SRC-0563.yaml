@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0563
+status: included
+excludeReason: null
+title: "NASA Systems Engineering Handbook — Appendix C: How to Write a Good Requirement — Checklist"
+url: https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/
+canonicalUrl: https://nasa.gov/reference/appendix-c-how-to-write-a-good-requirement
+ids:
+  arxiv: null
+  doi: null
+publisher: NASA
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2023-07-26
+publishedBasis: page
+version: NASA/SP-2016-6105 Rev2 の Web 版
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: NASA Systems Engineering Handbook TBD TBR "to be resolved" requirements assumptions validated "NPR 7123.1"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08]
+events: []
+summary: NASA システムズエンジニアリングハンドブック(SP-2016-6105 Rev2)附属書 C の Web 版(ページ最終更新 2023-07-26)。未確定値を TBD ではなく最良推定値+TBR で記録し、根拠・解消手段・責任者・期限を添えること、前提はベースライン化の前に確認することを点検項目として挙げる。
+claims:
+  - id: c1
+    text: 未確定値は『未定(TBD)』を最小限にし、最良推定値に『要解決(TBR)』を付け、根拠・解消のためにすべきこと・解消の責任者・期限を併記する。想定値と確定値を同じ欄で区別して記録する様式の先例である。
+    quote: mark it “To Be Resolved” (TBR) with the rationale along with what should be done to eliminate the TBR, who is responsible for its elimination, and by when it should be eliminated.
+    locator: C.3 General Goodness Checklist
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c2
+    text: 要求には前提を含む根拠を添え、その前提に同意できるかを点検する。前提はベースライン化の前に確認すべきとする。
+    quote: Can you validate (concur with) the assumptions? Assumptions should be confirmed before baselining.
+    locator: C.3 General Goodness Checklist
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c3
+    text: 不完全な要求はすべて TBD / TBR として捕捉し、その完全な一覧を要求とともに維持しているかを妥当性確認の点検項目にしている。
+    quote: Have all incomplete requirements been captured as TBDs or TBRs and a complete listing of them maintained with the requirements?
+    locator: C.4 Requirements Validation Checklist — Completeness
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c4
+    text: 要求は否定形(shall not)ではなく肯定形で述べることを点検項目にしている。禁止節を併記する方向とは逆の指針である。
+    quote: The requirement is stated positively (as opposed to negatively, i.e., “shall not”).
+    locator: C.3 General Goodness Checklist
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q4]
+    issues: [269]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:41.259Z
+    httpStatus: 200
+    finalUrl: https://www.nasa.gov/reference/appendix-c-how-to-write-a-good-requirement/
+    contentType: text/html; charset=UTF-8
+    titleFetched: "Appendix C: How to Write a Good Requirement - NASA"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

@@ -1,0 +1,125 @@
+schemaVersion: 0
+id: SRC-0621
+status: included
+excludeReason: null
+title: ＡＩ利活用における民事責任の解釈適用に関する手引き[第1.0版]
+url: https://www.meti.go.jp/shingikai/mono_info_service/ai_utilization_civil/pdf/20260409_1.pdf
+canonicalUrl: https://meti.go.jp/shingikai/mono_info_service/ai_utilization_civil/pdf/20260409_1.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 経済産業省(AI利活用における民事責任の在り方に関する研究会)
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-04-09
+publishedBasis: page
+version: 第1.0版
+updated: 2026-06-09
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G08
+  query: 経済産業省 AI利活用における民事責任の解釈適用に関する手引き 第1.0版 2026年4月
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01]
+events:
+  - date: 2026-04-09
+    label: 経産省が AI 利活用の民事責任の手引き(第1.0版)を公表
+  - date: 2026-06-09
+    label: 同手引きの本文を追記し関連資料を差し替え
+summary: 不法行為責任を中心に AI 利用時の過失判断を整理した経産省の手引き。読んだのは 2.1、2.2、4.3(AI エージェントの補論)。契約責任は対象外で、請負の契約不適合責任には触れない。
+claims:
+  - id: c1
+    text: 検討対象は不法行為責任で、契約責任は当事者間の条項次第で個別性が高いことを理由に対象から外している。請負契約の契約不適合責任や検収は本手引きの範囲に無い。
+    quote: 契約責任の内容は当事者間の契約条項次第であり、個別性が高いこと。
+    locator: 2.1 本研究会の検討対象 ③(PDF p.7)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 最終的に人の判断が介在する「補助／支援型 AI」では、利用者の責任は AI を使ったかどうかによらず、その局面で本来払うべき注意の下で適切に判断・行動したかで決まるとする。
+    quote: その責任は AI の利用如何にかかわらず、個々の局面において AI 利用者が本来払うべき注意の下で適切な判断や行動を取ったか否かにより判断される。
+    locator: 2.2.1(2) 補助／支援型 AI を利用する AI 利用者の責任(PDF p.12)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2, TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 人の判断を代替する「依拠／代替型 AI」では、2つの要件を満たすことを条件に、利用者の注意義務が個々の判断から、AI を組み入れた業務プロセスの適正な構築とリスクを下げる運用へ転換するとする。責任を人と組織に残したまま AI が判断を担う構成を、条件付きで責任判断の枠組みに載せている。
+    quote: 人が合理的な判断や行動を行う注意義務から、AI システムを組み入れた業務プロセスを適正に構築するとともに、リスクを可能な限り低減しながら運用を行う義務へと転換する。
+    locator: 2.2.2(2) 依拠／代替型 AI を利用する AI 利用者の責任(PDF p.17)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: AI エージェントの補論(カスタマーサポートの想定事例)は、業務プロセスの構築に関する注意義務の論点として、必要な場面での人の関与を含めたプロセスを適切に構築していたかを挙げる。ソフトウェア開発を題材にした想定事例は無い。
+    quote: 望ましい精度や安全性を満たした AI システムを用いることや、必要な場面での人の関与を含めた業務プロセスを適切に構築していたか否かが論点になると考えられる。
+    locator: 4.3 想定事例7:補論―AI エージェント (1)①(PDF p.74)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:03.626Z
+    httpStatus: 200
+    finalUrl: https://www.meti.go.jp/shingikai/mono_info_service/ai_utilization_civil/pdf/20260409_1.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 不法行為責任を中心に検討/理由③ 契約責任は契約条項次第で個別性が高い
+        extractedQuote: これらの責任原因のうち、本研究会では不法行為責任を中心に検討を行った。その理由は以下のとおりである。…③ 契約責任の内容は当事者間の契約条項次第であり、個別性が高いこと。また、AI の開発・提供・利用に関する契約上の留意事項については、契約ガイドラインや契約チェックリストにおいて一定の考え方が示されていること
+        locator: 2.1 本研究会の検討対象 冒頭および理由③(本文ページ番号 5 = PDF p.7)
+        note: "curl は簡易 UA だと 404 の HTML が返り、ブラウザ相当の UA で PDF(7.2MB)を取得できた。pdftotext の全文で「契約不適合|検収|請負」は0件。原文は「不法行為責任を中心に」であり契約責任の全面除外ではない: 脚注12「一部の事案においては…AI 利用者と第三者との間の契約関係に基づく善管注意義務や安全配慮義務に関する検討も行っている」、脚注14(想定事例6の事例c)。p.6(PDF p.8)に、合意された性能が出ず AI 利用者に損害が生じる場合は「基本的に本研究会では検討の対象としていない」とある。理由は③だけでなく①〜④の4つ。"
+      c2:
+        verdict: match
+        extractedValue: AI の利用如何にかかわらず、本来払うべき注意の下で適切な判断や行動を取ったか否か
+        extractedQuote: AI 利用者はあくまで自らの判断の補助や支援として AI を用いるべきこととなり、その責任は AI の利用如何にかかわらず、個々の局面において AI 利用者が本来払うべき注意の下で適切な判断や行動を取ったか否かにより判断される。
+        locator: 2.2.1(2) 補助／支援型 AI を利用する AI 利用者の責任 第1段落(本文ページ番号 10 = PDF p.12)
+        note: 直後に「AI の出力を援用したことは、原則として、AI 利用者が求められる注意義務の水準を引き上げることも引き下げることもない」(脚注24付き、「原則として」の限定あり)。続く段落で、検証・是正が容易でないユースケースでは事前の情報収集や利用上の措置が注意義務の内容となり得るとしている。
+      c3:
+        verdict: match
+        extractedValue: 2(2 つの要件 = (a) 必要性、(b) 精度及び安全性)
+        extractedQuote: 依拠／代替型 AI を利用する AI 利用者の責任は、上記(1)の 2 つの要件を備えていることを条件として、人が合理的な判断や行動を行う注意義務から、AI システムを組み入れた業務プロセスを適正に構築するとともに、リスクを可能な限り低減しながら運用を行う義務へと転換する。
+        locator: 2.2.2(2) 依拠／代替型 AI を利用する AI 利用者の責任 冒頭(本文ページ番号 15 = PDF p.17)。要件の定義は 2.2.2(1)② (a)(b)(本文 p.14-15)、整理表は p.18
+        note: 2.2.2(1)② では同じものを「2 つの要素」とも呼ぶ(「以下の 2 つの要素を踏まえて判断される」→「上記の 2 つの要件を満たし」)。代替の範囲は「人の判断や行動の全部又は一部」。ask 後段「責任を人と組織に残したまま…条件付きで責任判断の枠組みに載せている」は原文の文言ではなく要約で、原文は預金払戻しシステム(機械払い)の裁判例の判断枠組みを援用する形。原文には「AI の不適切な出力の全てを AI 利用者が検証する等の方法で是正するまでの結果回避義務は認められない」とある。
+      c4:
+        verdict: match
+        extractedValue: 必要な場面での人の関与を含めた業務プロセスを適切に構築していたか否か
+        extractedQuote: AI システムを組み入れた業務プロセスの構築に関する注意義務：望ましい精度や安全性を満たした AI システムを用いることや、必要な場面での人の関与を含めた業務プロセスを適切に構築していたか否かが論点になると考えられる。
+        locator: 4.3 想定事例 7:補論―AI エージェント (1)① 末尾の箇条書き第1項(本文ページ番号 72 = PDF p.74)
+        note: 想定事例7はオンライン講座販売事業者 Q のカスタマーサポート(公的補助の対象可否の誤回答)。この論点は「依拠／代替型 AI に該当する場合」の枠内で、原文は「例えば以下のような事項の要否が論点となり得る」と例示の形。目次上の想定事例は 1 配送ルート最適化 AI、2 弁護士業務支援 AI、3 画像生成 AI、4 取引審査 AI、5 外観検査 AI、6 自律走行ロボット(AMR)、7 AI エージェントの7件で、ソフトウェア開発を題材にしたものは無い。原文は AI エージェントについて「当事者の責任を個別具体的に整理することは現時点では困難」とし基本的な考え方の整理にとどめている。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

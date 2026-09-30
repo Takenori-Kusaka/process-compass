@@ -1,0 +1,101 @@
+schemaVersion: 0
+id: SRC-0148
+status: included
+excludeReason: null
+title: Delivery Isn’t Free - All Things Product Podcast with Teresa Torres & Petra Wille
+url: https://www.producttalk.org/delivery-isnt-free-all-things-product-podcast-with-teresa-torres-petra-wille
+canonicalUrl: https://producttalk.org/delivery-isnt-free-all-things-product-podcast-with-teresa-torres-petra-wille
+ids:
+  arxiv: null
+  doi: null
+publisher: Product Talk
+authors: [Teresa Torres, Petra Wille]
+orgType: consultancy
+region: us
+lang: en
+sourceType: talk
+published: 2026-09-15
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: producttalk.org "Delivery Isn't Free" Teresa Torres Petra Wille All Things Product
+derivedFrom: []
+derivedFromUrl:
+  - https://allthingsproduct.podigee.io/70-delivery-isn-t-free
+selfReported: false
+themes: [TH09, TH08]
+events: []
+summary: Teresa Torres と Petra Wille が「AI でデリバリーは無料になった」という言説を検討する 2026-09 のエピソード(ショーノートと Notable Moments を取得、全文文字起こしは会員限定)。単機能は安くなったが本番品質の製品は安くなっておらず、プロトタイプは 60-70% で止まり残り 30% に数か月〜数年かかると述べる。
+claims:
+  - id: c1
+    text: Torres はデリバリーは無料ではなく、これからも無料にはならないと明言する。
+    quote: "\"I don't think delivery is free. I don't think delivery will ever be free.\""
+    locator: Notable Moments
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1, TH09-Q3]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 最初の 60-70% は簡単でそれはプロトタイプだが、信頼できる製品へ残り 30% を閉じるのは数か月から数年の仕事。
+    quote: "\"The first 60 to 70% is easy. It's a prototype… Closing that last 30% is months to years of work.\""
+    locator: Notable Moments
+    quant:
+      value: 60-70% easy / last 30% = months to years
+      n: not stated
+      design: practitioner heuristic
+      population: product teams coached by Torres
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: SVPG の build to learn / build to earn を引き、使い捨てプロトタイプは安く有用だが、実際に捨てることが条件だとする。
+    quote: "Build to learn vs. build to earn (via SVPG): throwaway prototypes for discovery are dirt cheap and great — as long as you actually throw them away"
+    locator: Show Notes
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 「デリバリーは無料」は「だからテイスト/ディスカバリーだけが重要」と続くが、どちらも誤りで両方が重要であり続ける。
+    quote: 'The real hidden sentence: "Delivery is free" is almost always followed by "…so taste is all that matters" or "…so discovery is all that matters." Both are wrong.'
+    locator: Show Notes 末尾
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:10.655Z
+    httpStatus: 200
+    finalUrl: https://www.producttalk.org/delivery-isnt-free-all-things-product-podcast-with-teresa-torres-petra-wille/
+    contentType: text/html; charset=utf-8
+    titleFetched: Delivery Isn’t Free - All Things Product Podcast with Teresa Torres & Petra Wille
+    titleMatch: true
+    dateMeta: 2026-09-15
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://producttalk.org/delivery-isnt-free-all-things-product-podcast-with-teresa-torres-petra-wille

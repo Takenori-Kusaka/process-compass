@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0078
+status: included
+excludeReason: null
+title: Why Do Multi-Agent LLM Systems Fail? (MAST)
+url: https://arxiv.org/abs/2503.13657
+canonicalUrl: arxiv:2503.13657
+ids:
+  arxiv: "2503.13657"
+  doi: null
+publisher: arXiv (UC Berkeley)
+authors: [Cemri Mert, Pan Melissa Z., Yang Shuyi, Agrawal Lakshya A, Chopra Bhavya, Tiwari Rishabh, Keutzer Kurt, Parameswaran Aditya, Klein Dan, Ramchandran Kannan, Zaharia Matei, Gonzalez Joseph E., Stoica Ion]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2025-03
+publishedBasis: arxiv-v1
+version: v3
+updated: 2025-10-26
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH01
+  query: "反証探索: multi-agent role failure taxonomy (前回セッション取得分を再利用)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06]
+events: []
+summary: 7つの MAS フレームワークの 1,600+ トレースを注釈し、14 の失敗モードを3分類(システム設計・エージェント間不整合・タスク検証)に整理。「役割指定への不服従」「確認質問の欠落」「検証の欠落・不備」が名指しされ、モデル能力よりシステム設計が主因だと論じる。
+claims:
+  - id: c1
+    text: 14 の失敗モードを、システム設計の問題・エージェント間の不整合・タスク検証の3分類にまとめた。注釈者間一致 κ=0.88。
+    quote: "This process identifies 14 unique modes, clustered into 3 categories: (i) system design issues, (ii) inter-agent misalignment, and (iii) task verification."
+    locator: Abstract
+    quant:
+      value: 14 failure modes / 3 categories, κ=0.88
+      n: 150 traces (taxonomy 開発) + 1600+ annotated traces (MAST-Data)
+      design: qualitative annotation + LLM-as-a-judge
+      population: 7 popular MAS frameworks (coding, math, general agent)
+    evidenceKind: observational
+    rqs: [TH01-Q3, TH06-Q3]
+    issues: [248, 258]
+    stance: qualifies
+  - id: c2
+    text: 失敗モードには FM-1.2「役割指定への不服従」と FM-2.2「確認質問の欠落」が含まれる。ロールを与えても守られないこと、聞くべき時に聞かないことが、実測される失敗として分類されている。
+    quote: Example for FM-1.3 Step repetition, FM-2.1 Conversation reset, FM-1.2 Disobey role specification
+    locator: Appendix N 見出し / §4 Taxonomy
+    quant: null
+    evidenceKind: observational
+    rqs: [TH01-Q3, TH01-Q4]
+    issues: [248]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:20.377Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2503.13657
+    contentType: text/html; charset=utf-8
+    titleFetched: Why Do Multi-Agent LLM Systems Fail?
+    titleMatch: true
+    dateMeta: 2025-03-17
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Why Do Multi-Agent LLM Systems Fail?
+      authors: ["Cemri, Mert", "Pan, Melissa Z.", "Yang, Shuyi", "Agrawal, Lakshya A.", "Chopra, Bhavya", "Tiwari, Rishabh"]
+      v1Date: 2025-03-17
+      latestVersion: 3
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 14 (unique modes) / 3 (categories) / κ=0.88
+        extractedQuote: "inter-annotator agreement ( κ = 0.88 ). This process identifies 14 unique modes, clustered into 3 categories: (i) system design issues, (ii) inter-agent misalignment, and (iii) task verification."
+        locator: Abstract (arXiv:2503.13657v3 HTML)
+        note: κ=0.88 は §3.2 で『Cohen's Kappa の最終ラウンド平均』と説明されている。別に、領域外トレースでの追加 IAA は κ=0.79、LLM-as-a-Judge と人の一致は κ=0.77(Table 2)。分類の元になったのは 150 トレース(データセット全体は 1600+)
+      c2:
+        verdict: match
+        extractedValue: FM-1.2(Disobey role specification)/ FM-2.2(Fail to ask for clarification)
+        extractedQuote: "FM-1.2: Disobey role specification - Failure to adhere to the defined responsibilities and constraints of an assigned role / FM-2.2: Fail to ask for clarification"
+        locator: §4 The Multi-Agent System Failure Taxonomy(FC1/FC2 の定義)、Appendix N.4 / N.8
+        note: 原典は FM-1.2 を FC1(System Design Issues)に置き、FM-1.1/1.2 の原因を『単なる指示追従の限界ではなく、(1) エージェントの役割とワークフローの MAS 設計の欠陥、(2) ユーザープロンプトの不備、(3) 基盤 LLM の限界』とする。『ロールを与えても守られない』をモデル側の不服従だけと読むと原典の帰属とずれる。MAST-Data 上の出現率は FM-1.2 が 1.5%、FM-2.2 が 6.80%
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

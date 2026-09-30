@@ -1,0 +1,101 @@
+schemaVersion: 0
+id: SRC-0491
+status: included
+excludeReason: null
+title: ISO/IEC/IEEE 12207:2026 Systems and software engineering — Software life cycle processes (Second edition 2026-04) — preview
+url: https://assets.vde-verlag.de/iec-normen/preview-pdf/info_isoiecieee12207%7Bed2.0%7Den.pdf
+canonicalUrl: https://assets.vde-verlag.de/iec-normen/preview-pdf/info_isoiecieee12207%7bed2.0%7den.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC JTC 1/SC 7 and IEEE Computer Society (preview via VDE Verlag)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2026-04
+publishedBasis: pdf
+version: 2nd edition
+updated: null
+accessed: 2026-09-24
+access: paywall
+readLevel: section
+foundBy:
+  cluster: TH12
+  query: ISO/IEC/IEEE 12207 revision DIS 2026 software life cycle processes AI
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2026-04
+    label: ISO/IEC/IEEE 12207 第2版を発行(2017 年版を置き換え)
+summary: ソフトウェアライフサイクルプロセスの基幹規格が 2026-04 に第2版へ改訂された。公開プレビュー(まえがき・序論・適用範囲・参考文献)を読んだ。主な変更は技術プロセスの明確化とアジャイル記述の拡充で、公開部分の変更点に AI への言及は無い。
+claims:
+  - id: c1
+    text: 第2版の主な変更は、技術プロセス(事業分析・アーキテクチャ・実装・統合・運用・保守)の明確化、リスク管理と構成管理の改善、第5章のアジャイル記述の拡充、MBSSE 附属書の改訂である。
+    quote: new content in Clause 5 on concept and system definition, and expanded content on agile methods, process application, and system concepts.
+    locator: Foreword(main changes)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: 公開プレビューの範囲(主な変更点・序論・適用範囲)には生成 AI・AI エージェントへの言及が無く、AI は参考文献(ISO/IEC 5338、ISO/IEC 23894、NIST AI 100-1)に現れるだけだった。基幹のライフサイクル規格は、2026 年の改訂でも AI 固有のプロセス要求を公開部分に加えていない。
+    quote: "[56] ISO/IEC 5338, Information technology -- Artificial intelligence -- AI system life cycle processes"
+    locator: Bibliography [56](ほかに [38] ISO/IEC 23894、[101] NIST AI 100-1)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1, TH12-Q4]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 特定のライフサイクルモデル・開発方法論を規定も要求もしない立場を維持している(テーラリングは利用者側)。
+    quote: This document does not identify or require any specific software life cycle model, development methodology, method, modelling approach, or techniques
+    locator: 1 Scope
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:12.303Z
+    httpStatus: 200
+    finalUrl: https://assets.vde-verlag.de/iec-normen/preview-pdf/info_isoiecieee12207%7Bed2.0%7Den.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Second edition(第2版) / Clause 5
+        extractedQuote: This second edition cancels and replaces the first edition ... new content in Clause 5 on concept and system definition, and expanded content on agile methods, process application, and system concepts
+        locator: Foreword (p.v-vi), The main changes are as follows
+        note: "有償規格だが VDE の公開プレビュー PDF は取得できた。原文の主な変更は5項目: (1)技術プロセスの明確化(business or mission analysis, system architecture definition, implementation, integration, operations, maintenance)、(2)技術管理プロセスの改善(risk management, configuration management)、(3)Clause 5 key concepts の更新(iteration, recursion, system-of-systems, quality characteristics の記述精緻化)、(4)Clause 5 の新規内容と agile methods 等の拡充、(5)Annex D(MBSSE)改訂。ask は(3)の key concepts 更新を省いている。agile の拡充が Clause 5 に属するかは原文の構文上そう読めるが、明示は 'new content in Clause 5 on concept and system definition, and expanded content on agile methods' という並列である。"
+      c2:
+        verdict: match
+        extractedValue: ISO/IEC 23894、ISO/IEC 5338、NIST AI 100-1 / 2026
+        extractedQuote: "[38] ISO/IEC 23894, ... Artificial intelligence -- Guidance on risk management / [56] ISO/IEC 5338, ... AI system life cycle processes / [101] NIST AI 100-1, Artificial Intelligence Risk Management"
+        locator: "Bibliography [38] [56] [101](表紙: Second edition 2026-04)"
+        note: プレビューの Foreword・Introduction・1 Scope には 'AI' 'artificial' 'intelligen' 'autonom' の語が現れず、出現は参考文献のみであることを確認した。ただし参考文献には上記3件のほか、[7] IEEE Std 7009 'Fail-Safe Design of Autonomous and Semi-Autonomous Systems' と [8] IEEE Std 7014 'Ethical Considerations in Emulated Empathy in Autonomous and Intelligent Systems' もあり、AI 隣接の参照は3件に限られない。'AI 固有のプロセス要求を公開部分に加えていない' は公開プレビュー範囲についての推論であり、本文(非公開部分)は未確認。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null

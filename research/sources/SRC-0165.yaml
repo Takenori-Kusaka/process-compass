@@ -1,0 +1,104 @@
+schemaVersion: 0
+id: SRC-0165
+status: included
+excludeReason: null
+title: Many SWE-bench-passing PRs would not be merged into main
+url: https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/
+canonicalUrl: https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: [Whitfill Parker, Wu Cheryl, Becker Joel, Rush Nate]
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-03-10
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: metr.org/notes 一覧(反証探索: ベンチ値と実務の乖離)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH07]
+events: []
+summary: SWE-bench Verified で自動採点合格した AI の PR を実際のメンテナがレビューした研究。合格 PR の約半数はマージされない水準で、ベンチ値と実務の差を直接測った一次資料。
+claims:
+  - id: c1
+    text: 2024 年半ばから 2025 年半ば〜後半のエージェントが書いた、SWE-bench Verified のテストに合格した PR のおよそ半数は、リポジトリのメンテナによって main へマージされないと推定される。
+    quote: roughly half of test-passing SWE-bench Verified PRs written by mid-2024 to mid/late-2025 agents would not be merged into main by repo maintainers
+    locator: Summary
+    quant:
+      value: ~50% of test-passing PRs not mergeable
+      n: 296 AI PRs + 47 golden PRs, 4 maintainers, 3 repos
+      design: maintainer review, golden-baseline adjusted
+      population: SWE-bench Verified agents mid-2024 to late-2025
+    evidenceKind: observational
+    rqs: [BASE-Q2, TH11-Q2]
+    issues: [282]
+    stance: qualifies
+  - id: c2
+    text: メンテナのマージ判定は自動採点のスコアより平均約 24 ポイント低く、年あたりの伸びも 9.6 ポイント遅い。
+    quote: on average maintainer merge decisions are about 24 percentage points lower than SWE-bench scores supplied by the automated grader
+    locator: Introduction / Figure 1
+    quant:
+      value: -24 pp (and -9.6 pp/yr slower)
+      n: 296 PRs
+      design: maintainer review vs automated grader
+      population: SWE-bench Verified repos
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: [282]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.193Z
+    httpStatus: 200
+    finalUrl: https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Many SWE-bench-Passing PRs Would Not Be Merged into Main
+    titleMatch: true
+    dateMeta: 2026-03-10
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: mid-2024 to mid/late-2025 / roughly half
+        extractedQuote: roughly half of test-passing SWE-bench Verified PRs written by mid-2024 to mid/late-2025 agents would not be merged into main by repo maintainers
+        locator: Summary
+        note: 期間の終端は原文では "mid/late-2025"(半ばから後半)で、「後半」だけではない。母集団は SWE-bench Verified のテスト合格 PR に限られる(3リポジトリ・95課題・5モデル・296 PR)。数値はメンテナ判定のノイズを補正した後(golden baseline 68% で正規化)の値。原典は "we do not claim that this represents a fundamental capability limitation" とも述べている。
+        adjudication:
+          verdict: corrected
+          reason: 『約半数』は blindQuote と一致する。ただし主張は母集団を『エージェントが書いたテスト合格 PR』と一般化しており、原典の SWE-bench Verified のテスト合格 PR(3 リポジトリ・95 課題・5 モデル・296 PR)という限定が落ちている。また期間の終端は原文では 'mid/late-2025' で、『後半』だけではない。値はメンテナ判定のノイズを補正した後の推定である(blindNote)。以上を補って訂正した。
+          date: 2026-09-24
+          originalText: 2024 年半ば〜2025 年後半のエージェントが書いたテスト合格 PR の約半数は、メンテナの判断ではマージされない。
+          originalQuote: roughly half of test-passing SWE-bench Verified PRs written by mid-2024 to mid/late-2025 agents would not be merged into main by repo maintainers
+      c2:
+        verdict: match
+        extractedValue: about 24 percentage points(Results では 24.2, SE 2.7)/ 9.6 pp/yr(SE 5.5)
+        extractedQuote: 24 percentage points lower than SWE-bench scores supplied by the automated grader. Moreover, the rate of improvement, as measured by percentage points gained per year (pp/yr), is 9.6 pp/yr slower
+        locator: Introduction / Figure 1(Results > Basic Results にも同値)
+        note: 値は golden baseline に対する百分率(正規化後)の差。伸びの差について原典は "we believe our results on the rate of improvement are shakier and only provide suggestive evidence" と限定している(SE 5.5)。ask の「年あたりの伸びも遅い」は断定調で、原典の確度より強い。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main

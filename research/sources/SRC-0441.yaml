@@ -1,0 +1,81 @@
+schemaVersion: 0
+id: SRC-0441
+status: included
+excludeReason: null
+title: Assessing Confidence with Assurance 2.0
+url: https://arxiv.org/abs/2205.04522
+canonicalUrl: arxiv:2205.04522
+ids:
+  arxiv: "2205.04522"
+  doi: null
+publisher: arXiv
+authors: [Bloomfield Robin, Rushby John]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2022-05-03
+publishedBasis: arxiv-v1
+version: Second Edition
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH08
+  query: GSN Goal Structuring Notation Community Standard version 3 assumption justification defeater assurance 2.0
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH06]
+events: []
+summary: 保証ケースの確信度を、肯定・否定(defeater)・残存疑念の3つの視点で評価する Assurance 2.0 の技術報告。未解決の defeater を意識的に判断し、記録することを求める。
+claims:
+  - id: c1
+    text: 否定の視点では、ケースへの疑念と反論を defeater として記録し、その探索と解消を残す。開発者は確証バイアスに抗って defeater を積極的に探すべきとする。
+    quote: Negative Perspectives record doubts and challenges to the case, typically expressed as defeaters, and their exploration and resolution.
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q3, TH06-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: すべての defeater は解消できないので、残存疑念を許容・不可避と判断してよい。ただし、その判断は意識的に行い、保証ケースに記録しなければならない。
+    quote: It is crucial however that these judgments are conscious ones and that they are recorded in the assurance case.
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:54.038Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2205.04522
+    contentType: text/html; charset=utf-8
+    titleFetched: Assessing Confidence with Assurance 2.0
+    titleMatch: true
+    dateMeta: 2022-05-03
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Assessing Confidence with Assurance 2.0
+      authors: ["Bloomfield, Robin", "Rushby, John"]
+      v1Date: 2022-05-03
+      latestVersion: 4
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

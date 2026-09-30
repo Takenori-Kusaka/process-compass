@@ -1,0 +1,170 @@
+schemaVersion: 0
+id: SRC-0158
+status: included
+excludeReason: null
+title: Task-Completion Time Horizons of Frontier AI Models
+url: https://metr.org/time-horizons/
+canonicalUrl: https://metr.org/time-horizons
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-02-06
+publishedBasis: page
+version: null
+updated: 2026-05-08
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: metr.org/time-horizons (前回メモ §3・§9 の確認先)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH02]
+events:
+  - date: 2026-02-20
+    label: METR time-horizons に Claude Opus 4.6 と GPT-5.3-Codex を追加
+  - date: 2026-03-03
+    label: METR が時間地平の正則化の誤りを修正
+  - date: 2026-05-08
+    label: METR time-horizons に Claude Mythos Preview (early) を追加(以後 2026-09-23 まで更新なし)
+summary: METR の時間地平の公式ダッシュボード(TH1.1)。2026-09-23 取得時点の最終更新は 2026-05-08 で、Opus 4.6 と Mythos Preview (early) の 50%/80% 値を一次で示す。Opus 4.7・GPT-5.5・Opus 5・Fable 5 系の値は無い。
+claims:
+  - id: c1
+    text: Claude Opus 4.6 の 50% 時間地平は 718.8 分(約 12.0 時間、95%CI 316.7〜3633.8 分)、80% 時間地平は 69.9 分(95%CI 27.0〜170.4 分)。前回メモが二次情報で引いた「50% で約 12 時間、80% で約 70 分」は一次値と一致する。
+    quote: '"p50_horizon_length":{"ci_high":3633.786163,"ci_low":316.685725,"estimate":718.80683},"p80_horizon_length":{"ci_high":170.437873,"ci_low":27.026521,"estimate":69.874587}'
+    locator: 埋め込みデータ benchmarkDataV1_1 / claude_opus_4_6_inspect
+    quant:
+      value: p50 718.8 min / p80 69.9 min
+      n: TH1.1 task suite (約228タスク)
+      design: logistic fit over task-length vs success, bootstrap CI
+      population: claude_opus_4_6_inspect, release 2026-02-05
+    evidenceKind: benchmark
+    rqs: [BASE-Q1, TH11-Q2]
+    issues: [282]
+    stance: supports
+  - id: c2
+    text: 公開ダッシュボード(TH1.1 データ)で 50%・80% 時間地平とも最大なのは Claude Mythos Preview (early)(release 2026-04-07)で、50% 時間地平 1044.8 分(約 17.4 時間、CI 508.9〜3304.3)、80% 時間地平 185.9 分(約 3.1 時間、CI 97.3〜398.5)である。ただし同ページは 16 時間を超える測定を信頼できないとしており、この 50% 値は閾値を超える(50%/80% の比は算出値で約 5.6 倍、Opus 4.6 は約 10.3 倍)。
+    quote: '"p50_horizon_length":{"ci_high":3304.261235,"ci_low":508.876789,"estimate":1044.780145},"p80_horizon_length":{"ci_high":398.514614,"ci_low":97.30292,"estimate":185.911829}},"release_date":"2026-04-07"'
+    locator: 埋め込み JS const benchmarkDataV1_1 > results > claude_mythos_preview_early_inspect
+    quant:
+      value: p50 1044.8 min / p80 185.9 min
+      n: TH1.1 task suite
+      design: logistic fit, bootstrap CI
+      population: claude_mythos_preview_early_inspect
+    evidenceKind: benchmark
+    rqs: [BASE-Q1, BASE-Q3]
+    issues: [282]
+    stance: qualifies
+  - id: c3
+    text: 現行ダッシュボードの倍加時間は全期間(stitched)187.8 日、2023 年以降 128.7 日(CI 104.4〜158.0)。2024 年以降の値はダッシュボードに掲載されていない。前回メモの 196.5 / 130.8 / 88.6 日は 2026-01-29 ブログ掲載時の値である。
+    quote: '"doubling_time_in_days":{"all_time_stitched":{"point_estimate":187.778},"from_2023_on":{"ci_high":158.012,"ci_low":104.428,"point_estimate":128.744}}'
+    locator: 埋め込みデータ benchmarkDataV1_1 / doubling_time_in_days
+    quant:
+      value: 187.8 days (all-time) / 128.7 days (2023+)
+      n: TH1.1 SOTA models
+      design: exponential trend fit
+      population: frontier models 2019-2026-04
+    evidenceKind: benchmark
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: qualifies
+  - id: c4
+    text: METR は Opus 4.7・Grok 4.3・GPT-5.5 について時間地平を公開していないと明記している。Opus 5・Fable 5・Fable 5.1・Opus 5.5 はページに現れない。
+    quote: "Some recent models that don’t currently have time horizons: Claude Opus 4.7 Grok 4.3 GPT-5.5"
+    locator: "FAQ: Why has METR reported time horizons for some models but not others?"
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: context
+  - id: c5
+    text: 2026-05-08 の更新で「16 時間を超える測定は現行タスクスイートでは信頼できない」との注記が加わった。最上位モデルの値は測定上限に近い。
+    quote: "May 8th, 2026: Added Claude Mythos Preview (early) and notice that “Measurements above 16 hrs are unreliable with our current task suite.”"
+    locator: Updates
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:42.661Z
+    httpStatus: 200
+    finalUrl: https://metr.org/time-horizons/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Task-Completion Time Horizons of Frontier AI Models
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Claude Opus 4.6: 50% 時間地平 718.80683(≈11.98 時間、95%CI 316.685725–3633.786163)、80% 時間地平 69.874587(95%CI 27.026521–170.437873)。release_date 2026-02-05"
+        extractedQuote: '"p50_horizon_length":{"ci_high":3633.786163,"ci_low":316.685725,"estimate":718.80683},"p80_horizon_length":{"ci_high":170.437873,"ci_low":27.026521,"estimate":69.874587}'
+        locator: 埋め込み JS const benchmarkDataV1_1 > results > claude_opus_4_6_inspect > metrics
+        note: データ自体に単位の明記は無い(他モデルの値の桁から分と読める)。CI の水準は同ページの表示ラベル "tooltip_ci":"95% CI" による。ask 後半の『前回メモの二次情報の値』は原典外で、ここで検証できるのは一次値(約12.0時間・約70分)のみ。2026-03-03 に正則化の誤り訂正の更新あり(現在値は訂正後)。
+        adjudication:
+          verdict: consistent
+          reason: claimQuote は機械照合で not-found だが、blindQuote は同一文字列で原典の埋め込みデータ(claude_opus_4_6_inspect)に実在する。p50 718.80683 分(718.80683/60≈11.98 時間≈12.0 時間)、CI 316.685725〜3633.786163、p80 69.874587 分、CI 27.026521〜170.437873 で、主張の丸め(718.8 / 316.7〜3633.8 / 69.9 / 27.0〜170.4)と一致する。単位(分)は原典に明記が無く桁からの推定だが、blindNote も同じ読み。前回メモとの一致は内部参照のため判定対象外。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: release 2026-04-07。50% 時間地平 1044.780145(≈17.41 時間、CI 508.876789–3304.261235)、80% 時間地平 185.911829(≈3.10 時間、CI 97.30292–398.514614)。p50/p80 ≈5.62(Opus 4.6 は ≈10.29、いずれも算出値)
+        extractedQuote: '"p50_horizon_length":{"ci_high":3304.261235,"ci_low":508.876789,"estimate":1044.780145},"p80_horizon_length":{"ci_high":398.514614,"ci_low":97.30292,"estimate":185.911829}},"release_date":"2026-04-07"'
+        locator: 埋め込み JS const benchmarkDataV1_1 > results > claude_mythos_preview_early_inspect
+        note: benchmarkDataV1_1 内で p50・p80 とも最大(TH1.0 データの最大 claude_opus_4_5 の p50 246.78 も上回る)。比の値と時間換算は原文に無く算出値。p50 17.4 時間は同ページの『Measurements above 16 hrs are unreliable』の閾値を超えている。
+        adjudication:
+          verdict: corrected
+          reason: 数値は blindQuote と一致する(1044.780145/60≈17.41 時間、185.911829/60≈3.10 時間、1044.78/185.91≈5.62、Opus 4.6 は 718.81/69.87≈10.29)。最高値である点も blindNote が確認。ただし blindNote のとおり同ページに 'Measurements above 16 hrs are unreliable' とあり、p50 17.4 時間はこの閾値を超える。主張はこの条件を欠いたまま比の大小を比較しているため、信頼性の注記を補って訂正した。
+          date: 2026-09-24
+          originalText: 公開ダッシュボード上の最高値は Claude Mythos Preview (early)(release 2026-04-07)で、50% 時間地平 1044.8 分(約 17.4 時間、CI 508.9〜3304.3)、80% 時間地平 185.9 分(約 3.1 時間、CI 97.3〜398.5)。50% と 80% の比は約 5.6 倍で、Opus 4.6 の約 10 倍より小さい。
+          originalQuote: '"p50_horizon_length":{"ci_high":3304.261235,"ci_low":508.876789,"estimate":1044.780145},"p80_horizon_length":{"ci_high":398.514614,"ci_low":97.30292,"estimate":185.911829}}'
+      c3:
+        verdict: match
+        extractedValue: "TH1.1: all_time_stitched 187.778 日(CI なし)、from_2023_on 128.744 日(CI 104.428–158.012)。2024年以降等その他の期間のキーは無い。参考: 同ページの TH1.0 データは all_time 201.15(176.208–225.353)、from_2023_on 175.603(138.411–229.176)"
+        extractedQuote: '"doubling_time_in_days":{"all_time_stitched":{"point_estimate":187.778},"from_2023_on":{"ci_high":158.012,"ci_low":104.428,"point_estimate":128.744}}'
+        locator: 埋め込み JS const benchmarkDataV1_1 > doubling_time_in_days(TH1.0 は const benchmarkDataV1 > doubling_time_in_days)
+        note: 埋め込みデータに from_2023_on 以外の期間別倍加時間(2024年以降など)は無い。ask 後半の『前回メモの値が某日ブログ掲載時の値である』はこのページからは検証できない(ブログは取得していない)。なお同ページには TH1.0 版の倍加時間も切替表示用に埋め込まれており、『現行ダッシュボード』の値は TH1.1 側。
+        adjudication:
+          verdict: consistent
+          reason: claimQuote は機械照合で not-found だが、blindQuote は同一文字列で TH1.1 側(benchmarkDataV1_1)に実在する。all_time_stitched 187.778 日→187.8、from_2023_on 128.744 日(CI 104.428〜158.012)→128.7(104.4〜158.0)で一致。2024 年以降のキーが無い点も blindNote が確認。『現行ダッシュボード』は TH1.1 側の値であり、同ページに埋め込まれた TH1.0 値(201.15 / 175.603)と取り違えていない。最終文は前回メモの値の由来に関する内部参照で判定対象外(なお SRC-0159 の抽出では 196.5 / 130.8 / 88.6 日が TH1.1 ブログの値として確認されている)。
+          date: 2026-09-24
+      c4:
+        verdict: match
+        extractedValue: "時間地平が無いと明記: Claude Opus 4.7 / Grok 4.3 / GPT-5.5。生 HTML 中の出現数: 'Fable' 0、'Opus 4.8' 0、'Opus 5' 0(Opus 5.5 も含む)"
+        extractedQuote: "Some recent models that don't currently have time horizons: Claude Opus 4.7 Grok 4.3 GPT-5.5"
+        locator: "FAQ: Why has METR reported time horizons for some models but not others?"
+        note: 同 FAQ に『You shouldn't treat our reporting as a complete record of the most capable models.』とある。ページの LAST UPDATED は 2026-05-08。ask の Fable の版番号は伏せ字のため特定できないが、'Fable'/'fable' は一切出現しない。
+      c5:
+        verdict: match
+        extractedValue: 2026-05-08 / 16 時間
+        extractedQuote: "May 8th, 2026: Added Claude Mythos Preview (early) and notice that “Measurements above 16 hrs are unreliable with our current task suite.”"
+        locator: Updates(ページ末尾の更新履歴)。グラフ注記にも同文
+        note: "ask の『最上位モデルの値は測定上限に近い』について: 最上位の Claude Mythos Preview (early) の 50% 時間地平は約 17.4 時間で、16 時間を『近い』どころか超えている(80% 時間地平 約 3.1 時間は下回る)。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://metr.org/time-horizons

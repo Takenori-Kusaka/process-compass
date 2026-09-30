@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0464
+status: included
+excludeReason: null
+title: AIに作品の感想を言わせたら、人と人の会話が増えた ― 福祉現場から生まれたAIアプリをAzureでリリースした話
+url: https://zenn.dev/optimisuke/articles/ai-mediator-eeyan
+canonicalUrl: https://zenn.dev/optimisuke/articles/ai-mediator-eeyan
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [Naosuke]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-05-26
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: AIエージェント PR 運用 ブランチ戦略 モノレポ Zenn 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10]
+events: []
+summary: 個人開発者が Claude Code の worktree で並列作業した際の失敗モード(メインリポジトリへの直接書き込み、古いベースからの巨大差分、worktree 内コミットの権限問題)と、コミットを人が行う運用を報告。
+claims:
+  - id: c1
+    text: 並列で走らせたエージェントが、意図せずメインリポジトリへ直接書いたり、古いベースから大量の差分を出したりすることがあり、差分を理解してから取り込む必要があった。
+    quote: 並列で走らせると、意図せずメイン repo に直接書いていたり、古いベースから大量の差分を出していたりすることがあります。
+    locator: 3. 並列作業とレビューを回す / worktree で並列作業
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: qualifies
+  - id: c2
+    text: worktree 内でエージェントにコミットさせると git 権限まわりで失敗することがあり、ビルド確認で止めてコミットは人が行う運用が安定した。
+    quote: 「コードを書いて `npm run build` まで確認するところで止める、コミットは自分でやる」という運用が安定していました。
+    locator: worktree で並列作業
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:04.629Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/optimisuke/articles/ai-mediator-eeyan
+    contentType: text/html; charset=utf-8
+    titleFetched: AIに作品の感想を言わせたら、人と人の会話が増えた ― 福祉現場から生まれたAIアプリをAzureでリリースした話
+    titleMatch: true
+    dateMeta: 2026-05-26
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0378
+status: included
+excludeReason: null
+title: Architectural Principles (TOGAF)
+url: http://www.opengroup.org/public/arch/p4/princ/princ.htm
+canonicalUrl: https://opengroup.org/public/arch/p4/princ/princ.htm
+ids:
+  arxiv: null
+  doi: null
+publisher: The Open Group
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2002-03
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: TOGAF "Principles are general rules and guidelines, intended to be enduring and seldom amended"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: The Open Group の TOGAF(旧版)アーキテクチャ原則の節。ページに日付表示は無く、Wayback の最古スナップショットは 2002-03-26。原則を長く保ち滅多に改めない一般規則と定義し、個別決定を説明・正当化する基準として決定記録と別の層に置く。
+claims:
+  - id: c1
+    text: 原則は、組織が使命を果たす方法を方向づける一般規則・指針で、長く保ち滅多に改めないものとする(頻繁に追加される決定記録とは別の層)。
+    quote: Principles are general rules and guidelines, intended to be enduring and seldom amended, that inform and support the way in which an organization sets about fulfilling its mission.
+    locator: Introduction
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: [251, 272]
+    stance: supports
+  - id: c2
+    text: 各原則に理由(rationale)と含意(implications)を添え、個別の決定がなぜそうなったかを説明・正当化する基準として使う。
+    quote: to support the use of the principles in explaining and justifying why specific decisions are made.
+    locator: Components of Architectural Principles
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: [251]
+    stance: supports
+  - id: c3
+    text: 理由の欄には、原則同士が衝突したときにどちらを優先するかの状況を書く。
+    quote: Describe situations where one principle would be given precedence or carry more weight than another for making a decision.
+    locator: Components of Architectural Principles / Rationale
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:44.469Z
+    httpStatus: 200
+    finalUrl: http://www.opengroup.org/public/arch/p4/princ/princ.htm
+    contentType: text/html; charset=UTF-8
+    titleFetched: Architectural Principles
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://opengroup.org/public/arch/p4/princ/princ.htm

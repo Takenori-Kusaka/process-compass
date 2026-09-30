@@ -1,0 +1,91 @@
+schemaVersion: 0
+id: SRC-0143
+status: included
+excludeReason: null
+title: The 24-hour experiment that helped Anthropic find its identity (evals replace PRDs)
+url: https://thenewstack.io/anthropic-evals-replace-prds
+canonicalUrl: https://thenewstack.io/anthropic-evals-replace-prds
+ids:
+  arxiv: null
+  doi: null
+publisher: The New Stack
+authors: []
+orgType: media
+region: us
+lang: en
+sourceType: news
+published: 2026-07-27
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: Lenny's Podcast Dianne Penn Anthropic "evals are the new PRDs"
+derivedFrom: []
+derivedFromUrl: [https://youtube.com/watch?v=tivawttvrhy]
+selfReported: true
+themes: [TH09, TH08]
+events:
+  - date: 2026-07
+    label: Lenny's Podcast に Anthropic の Dianne Penn が出演し「evals are the new PRDs」と発言
+summary: Lenny's Podcast での Anthropic Head of Product(Research and Labs) Dianne Penn の発言を報じる記事。研究 PM チームは評価セットを主成果物とし、主要機能ごとに 30-40 の代表例をプロンプトと期待出力の対で作る。一次は YouTube(該当 41:31 付近で「we do write some product documents and PRDs, but ... evals are the new PRDs」)。ベンダーの自社実務の自己申告。
+claims:
+  - id: c1
+    text: Anthropic の研究 PM チームは評価セット(eval)を主要な成果物として扱い、PRD の役割を代替しつつある。
+    quote: At Anthropic, the research PM team treats the eval set as their primary artifact.
+    locator: 「Evals replace the PRD」
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH09-Q1, TH08-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 主要機能ごとに 30-40 の代表例を生成し、プロンプトと期待出力の対として正解データにする。
+    quote: Penn’s team generates 30 to 40 representative examples for every major feature, encoding them as prompts paired with expected outputs that serve as ground truth.
+    locator: 「Evals replace the PRD」
+    quant:
+      value: 30-40 examples per major feature
+      n: 1 team (self-reported)
+      design: practice description
+      population: Anthropic research PM team
+    evidenceKind: news-fact
+    rqs: [TH09-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 評価が無いとモデル能力の跳躍に気づけず「product overhang」が生じる。仕様ではなく評価で能力の出現を検知する発想。
+    quote: Without effective automated evaluations, engineering teams may never realize those new abilities are there—creating what Penn describes as “product overhang.”
+    locator: 本文中盤
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH09-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:08.826Z
+    httpStatus: 200
+    finalUrl: https://thenewstack.io/anthropic-evals-replace-prds/
+    contentType: text/html; charset=UTF-8
+    titleFetched: The 24-hour experiment that helped Anthropic find its identity
+    titleMatch: true
+    dateMeta: 2026-07-27
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

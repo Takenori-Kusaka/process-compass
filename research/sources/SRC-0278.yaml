@@ -1,0 +1,101 @@
+schemaVersion: 0
+id: SRC-0278
+status: included
+excludeReason: null
+title: The new rules of context engineering for Claude 5 generation models
+url: https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models
+canonicalUrl: https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (claude.com blog)
+authors: [Thariq Shihipar]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-24
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: zenn.dev/shimo4228/articles/claude5-rules-official-shift-audit の関連リンクから辿った一次出典
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH04, TH05]
+events:
+  - date: 2026-07-24
+    label: Anthropic が Claude 5 世代向け context engineering の新方針を公開(claude doctor を案内)
+summary: Anthropic が Claude 5 世代向けに Claude Code の system prompt を80%以上削除した経緯と、ルール→判断、例→インターフェース設計、全部前置き→progressive disclosure などの context engineering の方針転換を示した公式ブログ。
+claims:
+  - id: c1
+    text: Claude Opus 5 / Fable 5 向けに Claude Code の system prompt の80%以上を削除し、社内のコーディング評価で計測可能な劣化は無かったとベンダーが述べている(評価の標本・方法は非開示)。
+    quote: We removed over 80% of Claude Code’s system prompt for models like Claude Opus 5 and Claude Fable 5 with no measurable loss on our coding evaluations.
+    locator: 導入部
+    quant:
+      value: system prompt の80%超を削除、計測可能な劣化なし
+      n: 非開示
+      design: 社内コーディング評価(詳細非開示)
+      population: Claude Opus 5 / Claude Fable 5
+    evidenceKind: news-fact
+    rqs: [TH03-Q3, TH04-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 社内利用の transcript では、system prompt・skills・ユーザー要求が衝突し、単一リクエスト内に矛盾する指示が共存していた。旧世代向けの制約で Claude Code を過剰に縛っていたと認めている。
+    quote: we see several conflicting messages in a single request like “leave documentation as appropriate,” or “DO NOT add comments” as our system prompt, skills, and user requests clash with each other.
+    locator: UNHOBBLING CLAUDE
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: [269, 274]
+    stance: supports
+  - id: c3
+    text: CLAUDE.md は軽量に保ち、リポジトリの目的を短く書いたうえでトークンの大半をコードベース固有の落とし穴に使い、検証手順などは skill に分けて progressive disclosure を多用するよう推奨している。
+    quote: Keep your CLAUDE.md lightweight and briefly describe what your repo is for, but spend most of the tokens on gotchas inside of the codebase.
+    locator: APPLYING THIS TO YOUR CONTEXT > CLAUDE.md
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH04-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 最新モデルでは使い方の例を与えることが探索空間を狭めるとし、例示よりツール・ファイルのインターフェース設計を重視するよう方針を変えた。
+    quote: With our newest models, we’ve found that giving examples actually constrains them to a certain exploration space.
+    locator: "THEN AND NOW > Then: Give Claude examples"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.109Z
+    httpStatus: 200
+    finalUrl: https://claude.dev/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models/
+    contentType: text/html
+    titleFetched: The new rules of context engineering for Claude 5 generation models / claude.dev
+    titleMatch: true
+    dateMeta: 2026-07-24
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

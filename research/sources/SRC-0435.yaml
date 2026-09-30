@@ -1,0 +1,119 @@
+schemaVersion: 0
+id: SRC-0435
+status: included
+excludeReason: null
+title: spec-kit templates/commands/analyze.md
+url: https://github.com/github/spec-kit/blob/main/templates/commands/analyze.md
+canonicalUrl: https://github.com/github/spec-kit/blob/main/templates/commands/analyze.md
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub (github/spec-kit)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: repo
+published: 2026-09-09
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: spec-kit analyze command requirements coverage tasks unmapped requirement
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH03]
+events: []
+summary: Spec Kit の /speckit.analyze コマンド定義(2026-09-09 の最終コミット時点)。spec.md・plan.md・tasks.md を読み取り専用で横断検査し、要求→タスクのカバレッジ表と Coverage % を出す手順を定める。対応付けは LLM の推論で行う。
+claims:
+  - id: c1
+    text: 要求(FR/SC)ごとに安定キーを作り、各タスクを要求やストーリーへ対応付ける。ただし対応付けはキーワードや ID 参照パターンからの推論で行う(機械的な照合ではなく LLM の解釈)。
+    quote: Map each task to one or more requirements or stories (inference by keyword / explicit reference patterns like IDs or key phrases)
+    locator: §3 Build Semantic Models
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: qualifies
+  - id: c2
+    text: カバレッジの欠落として『タスクが1件もない要求』と『要求に対応しないタスク』の双方向を検出し、タスクを1件以上持つ要求の割合を Coverage % として報告する。
+    quote: Requirements with zero associated tasks
+    locator: §4.E Coverage Gaps / §6 Metrics
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 解析は読み取り専用で、修正は利用者の明示承認後に限る。再実行で同じ ID と件数を出すことを求めているが、実行主体は LLM である。
+    quote: Rerunning without changes should produce consistent IDs and counts
+    locator: Operating Principles / Context Efficiency
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH08-Q2, TH07-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: github/spec-kit のスター数は、2026-09-24(JST)時点の GitHub API で約13.86万(138,593)。取得時刻によって変動する値である。
+    quote: '"full_name": "github/spec-kit" ... "stargazers_count": 138593'
+    locator: GitHub REST API https://api.github.com/repos/github/spec-kit
+    quant:
+      value: 138,587 stars
+      n: n/a
+      design: repository metadata
+      population: github/spec-kit
+    evidenceKind: news-fact
+    rqs: [TH08-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:48.377Z
+    httpStatus: 200
+    finalUrl: https://github.com/github/spec-kit/blob/main/templates/commands/analyze.md
+    contentType: text/html; charset=utf-8
+    titleFetched: spec-kit/templates/commands/analyze.md at main · github/spec-kit
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: zero(0件)/ >=1 task(1件以上)
+        extractedQuote: "#### E. Coverage Gaps - Requirements with zero associated tasks - Tasks with no mapped requirement/story ... **Metrics:** ... - Coverage % (requirements with >=1 task)"
+        locator: §4.E Coverage Gaps / §6 Produce Compact Analysis Report の Metrics
+        note: raw.githubusercontent.com の main ブランチから取得(2026-09-24)。E には3項目目として 'Success Criteria requiring buildable work (performance, security, availability) not reflected in tasks' もある。
+      c4:
+        verdict: match
+        extractedValue: 138,593(2026-09-24 JST 取得。UTC では 2026-09-23 23:57)
+        extractedQuote: '"full_name": "github/spec-kit" ... "stargazers_count": 138593'
+        locator: GitHub REST API https://api.github.com/repos/github/spec-kit
+        note: スター数は取得時点で変動するため、主張値との小さな差は取得時刻差の可能性がある。API 応答の updated_at は 2026-09-23T23:51:35Z。作業票の url(analyze.md)とは別の取得先。
+        adjudication:
+          verdict: corrected
+          reason: 検証役は同日 JST(UTC 2026-09-23 23:57)に 138,593 を取得しており、主張の 138,587 とは 6 の差。取得時刻差による変動の範囲とみられるが、主張の厳密値は再現できず claimQuote も原文に無い(not-found)。スナップショット値であることと取得時点を明示し、概数で書くよう訂正した。『関心の指標であって採用数ではない』は主張者の注記で、抜粋の判定対象外。
+          date: 2026-09-24
+          originalText: github/spec-kit のスター数は138,587(2026-09-24 に GitHub API で取得)。関心の指標であって採用数ではない。
+          originalQuote: '"stargazers_count": 138587,'
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

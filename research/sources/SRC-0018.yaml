@@ -1,0 +1,186 @@
+schemaVersion: 0
+id: SRC-0018
+status: included
+excludeReason: null
+title: 'When "A Helpful Assistant" Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models'
+url: https://arxiv.org/abs/2311.10054
+canonicalUrl: arxiv:2311.10054
+ids:
+  arxiv: "2311.10054"
+  doi: 10.18653/v1/2024.findings-emnlp.888
+publisher: Findings of EMNLP 2024(ACL Anthology)/ arXiv
+authors: [Zheng Mingqian, Pei Jiaxin, Logeswaran Lajanugen, Lee Moontae, Jurgens David]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2023-11-16
+publishedBasis: arxiv-v1
+version: v3
+updated: 2024-10-09
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: 'tavily: Zheng "When A Helpful Assistant Is Not Really Helpful" personas EMNLP 2024 → GET https://arxiv.org/html/2311.10054'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06]
+events: []
+summary: 162 の役割 × 4 プロンプト型 × 4 系統(Flan-T5、Llama-3、Mistral、Qwen2.5)の 9 モデルを MMLU 由来 2,410 問で評価。254 メモの「4 系統・2,410 問、対照を上回らない」は原典どおり。ただし問題ごとの最良 persona を集約すれば有意に改善するという留保がある。
+claims:
+  - id: c1
+    text: 4 系統の LLM と 2,410 問の事実問題で、システムプロンプトへの persona 付与は無付与の対照条件を上回らない。
+    quote: Through extensive analysis of 4 popular families of LLMs and 2,410 factual questions, we demonstrate that adding personas in system prompts does not improve model performance
+    locator: Abstract
+    quant:
+      value: no improvement vs control
+      n: 2,410 questions × 162 roles × 4 templates × 9 models
+      design: mixed-effects regression
+      population: Flan-T5 / Llama-3 / Mistral / Qwen2.5 (7–72B)
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: supports
+  - id: c2
+    text: 最良の persona でも対照条件と統計的に有意な差はなく、どの persona も有意に良い性能をもたらさない。
+    quote: Overall, none of the personas lead to statistically better model performance.
+    locator: §4.1 / Figure 2 caption
+    quant:
+      value: 0 personas significantly better
+      n: 162 roles
+      design: mixed-effects regression
+      population: all models
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: supports
+  - id: c3
+    text: 全体としては「効果なし、または小さな負の効果」。
+    quote: prompting with personas has no or small negative effects on model performance compared with the control setting where no persona is added.
+    locator: §1 Introduction
+    quant:
+      value: no or small negative
+      n: 2,410
+      design: mixed-effects regression
+      population: 4 families
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: supports
+  - id: c4
+    text: "留保: 問題ごとに最良の persona を選べれば有意に改善する(上限)。ただし自動選択は無作為と変わらない。「persona に効果がない」ではなく「効果が予測できない」が原典の結論。"
+    quote: while aggregating results from the best persona for each question significantly improves prediction accuracy, automatically identifying the best persona is challenging
+    locator: Abstract / §5 / Figure 9
+    quant:
+      value: "best-per-question aggregation: significant gain; selection ≈ random"
+      n: 2,410
+      design: post-hoc selection
+      population: 4 mid-sized models
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: qualifies
+  - id: c5
+    text: 対象はオープンウェイト 7〜72B の 9 モデル。API 系のフロンティアモデルは含まない。
+    quote: we experimented with 162 roles, 4 prompt templates, and 9 LLMs across 2,410 MMLU questions.
+    locator: Ethical Considerations
+    quant:
+      value: 9 LLMs
+      n: "9"
+      design: benchmark
+      population: open-weight models
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: qualifies
+  - id: c6
+    text: 4系統の LLM と2,410問の事実問題で、システムプロンプトにペルソナを加えても、ペルソナなしの対照と比べ性能は改善しない。
+    quote: we demonstrate that adding personas in system prompts does not improve model performance across a range of questions compared to the control setting where no persona is added.
+    locator: Abstract
+    quant:
+      value: 改善なし
+      n: 162 personas × 4 LLM families × 2,410 questions
+      design: controlled experiment
+      population: open-source LLMs (Llama/Mistral/Qwen 系等)
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: supports
+  - id: c7
+    text: 特定の設定ではペルソナが利得を生むことがあるが、各ペルソナの効果は概ねランダムであり、最良ペルソナの自動予測はランダム選択と変わらない。
+    quote: Overall, our findings suggest that while adding a persona may lead to performance gains in certain settings, the effect of each persona can be largely random.
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:25.209Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2311.10054
+    contentType: text/html; charset=utf-8
+    titleFetched: 'When "A Helpful Assistant" Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models'
+    titleMatch: true
+    dateMeta: 2023-11-16
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv:
+      status: 200
+      title: 'When "A Helpful Assistant" Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models'
+      authors: ["Zheng, Mingqian", "Pei, Jiaxin", "Logeswaran, Lajanugen", "Lee, Moontae", "Jurgens, David"]
+      v1Date: 2023-11-16
+      latestVersion: 3
+      titleMatch: true
+    crossref:
+      status: 200
+      title: "When ”A Helpful Assistant” Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models"
+      issued: "2024"
+      titleMatch: true
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: no significant differences between the best-performing personas and the control setting / none of the personas lead to statistically better model performance
+        extractedQuote: "We observe no significant differences between the best-performing personas and the control setting. ... Figure 2: ... Overall, none of the personas lead to statistically better model performance."
+        locator: §4 Does Prompting with Personas Improve LLMs' Performance? 本文 / Figure 2 caption(arXiv v3 HTML)
+        note: 取得版は v3(2024-10-09)で §4.1 という小節はなく §4 本文。同節は 'certain personas may actually lead to lower performance (e.g., ecologist for Mistral)' とも記す。
+        adjudication:
+          verdict: consistent
+          reason: "blindQuote の 'no significant differences between the best-performing personas and the control setting' と 'none of the personas lead to statistically better model performance' のとおり。blindNote によれば原典は一部の persona で性能が下がりうる(例: Mistral の ecologist)とも書くが、主張と矛盾しない。"
+          date: 2026-09-23
+      c5:
+        verdict: match
+        extractedValue: 9 LLMs(Ethical Considerations)。規模は §3.4 で FLAN-T5-XXL 11B / Llama-3 8B・70B / Mistral 7B / Qwen2.5 3B〜72B(全体 3B〜72B)。GPT3.5・GPT4 等のクローズドモデルは含まない(Limitations)
+        extractedQuote: we experimented with 162 roles, 4 prompt templates, and 9 LLMs across 2,410 MMLU questions.(§10) / We experiment with 9 popular open-source instruction-tuned LLM from 4 model collections(§3.4)
+        locator: §10 Ethical Considerations / §3.4 Models / §9 Limitations
+        note: Ethical Considerations にはモデル数(9)のみで規模の範囲は無い。規模は §3.4 にあり実際の範囲は 3B〜72B。§3.4 には別に '7 to 11B open-weight models have shown promising performances' という記述(選定理由)があり、範囲を 7〜11B とするなら実際の対象(70B/72B を含む)と食い違う。主実験は各系統の約7B と約70B の6モデル。Limitations は 'didn't include closed-source models like GPT3.5 and GPT4'。
+      c6:
+        verdict: match
+        extractedValue: 4 popular families of LLMs; 2,410 factual questions
+        extractedQuote: Through extensive analysis of 4 popular families of LLMs and 2,410 factual questions, we demonstrate that adding personas in system prompts does not improve model performance across a range of questions compared to the control setting where no persona is added.
+        locator: Abstract(arXiv v3)
+        note: 問題は MMLU からの抽出(Limitations)。Abstract は同時に 'aggregating results from the best persona for each question significantly improves prediction accuracy' とも述べる。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH01
+    query: 前回セッション取得分(2311.10054)。TH01-Q5 原典確認

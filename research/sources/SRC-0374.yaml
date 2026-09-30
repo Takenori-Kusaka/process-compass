@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0374
+status: included
+excludeReason: null
+title: Claude Cowork and chat are now one Claude
+url: https://claude.com/blog/cowork-is-now-claude
+canonicalUrl: https://claude.com/blog/cowork-is-now-claude
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude blog)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-09-16
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: '"Claude Slides" Anthropic beta launch'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05]
+events:
+  - date: 2026-09-16
+    label: Anthropic が Claude Docs / Claude Slides をベータ公開し、Cowork をチャットへ統合
+summary: Anthropic の公式告知(2026-09-16)。Claude Docs と Claude Slides をベータ公開し、同じ会話から報告書と経営会議用スライドを作り、PowerPoint/PDF で書き出せる。正本から外部向け形式を派生させる製品側の実装例。
+claims:
+  - id: c1
+    text: Claude Docs と Claude Slides が新設され、会話から文書とスライドを作り、PowerPoint または PDF で書き出せる(有料プランでベータ)。
+    quote: Ask for a presentation, and Claude drafts the slides. You can edit directly, present straight from Claude, or download as PowerPoint or PDF.
+    locator: 冒頭(What Claude makes doesn’t need its own place either)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4]
+    issues: []
+    stance: context
+  - id: c2
+    text: 同じ会話から報告書と5枚のスライドを作るため、スライドは報告書と既に一致するとベンダーは述べる(正本と派生物の一致を同一文脈で担保する設計。検証データは無い)。
+    quote: Both came out of the same conversation, so the slides already match the report.
+    locator: What it looks like
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:36.803Z
+    httpStatus: 200
+    finalUrl: https://claude.com/blog/cowork-is-now-claude
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Cowork and chat are now one Claude | Claude by Anthropic
+    titleMatch: true
+    dateMeta: Sep 16, 20
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: five(5枚)
+        extractedQuote: put the highlights in five slides for the leadership meeting.” … Both came out of the same conversation, so the slides already match the report.
+        locator: What it looks like
+        note: 5枚はユーザーの依頼例の中の数(『put the highlights in five slides』)。検証データは示されていない点は ask と一致。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

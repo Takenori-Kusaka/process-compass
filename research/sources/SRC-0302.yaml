@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0302
+status: included
+excludeReason: null
+title: Conceptual integrity and counting lines of code
+url: https://simonwillison.net/2026/Aug/19/conceptual-integrity-and-counting-lines-of-code
+canonicalUrl: https://simonwillison.net/2026/aug/19/conceptual-integrity-and-counting-lines-of-code
+ids:
+  arxiv: null
+  doi: null
+publisher: Simon Willison's Weblog
+authors: [Simon Willison]
+orgType: individual
+region: us
+lang: en
+sourceType: individual
+published: 2026-08-19
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S6
+  query: simonwillison.net coding agents August 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH05]
+events: []
+summary: Simon Willison がポッドキャスト出演時の発言を書き起こした記事。行数による生産性測定を条件付きで擁護し、エージェントで機能追加が安くなるほど概念的完全性が崩れると述べる。
+claims:
+  - id: c1
+    text: 以前は本番品質のコードは1日50〜60行が普通で、200行なら非常に良い日だった。品質が同じならエージェントで1日1,000行出せるのは意味のある改善であり、行数には上限があるので測る意味はあると主張する。
+    quote: In the before-times, a software engineer could produce a few hundred lines of production-ready code per day — and 200 lines of working, debugged, production-level code is an incredibly good day.
+    locator: 本文の引用ブロック第1
+    quant:
+      value: 50〜60行/日が普通、200行/日が非常に良い日
+      n: 未記載(実務経験に基づく発言)
+      design: 実務家の見解
+      population: ソフトウェアエンジニア一般
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: エージェントでは機能をすぐ追加できるため、ソフトウェアがあちこちに奇妙な出っ張りを持って育ち、概念的完全性が崩れて判断が難しくなる(ウィンチェスター・ミステリー・ハウスの比喩)。
+    quote: "That’s exactly the problem with coding agents and software: it’s very easy to keep adding new rooms, because the cost of adding those rooms is so much cheaper."
+    locator: 本文の引用ブロック(Winchester Mystery House)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:23.906Z
+    httpStatus: 200
+    finalUrl: https://simonwillison.net/2026/Aug/19/conceptual-integrity-and-counting-lines-of-code/
+    contentType: text/html; charset=utf-8
+    titleFetched: Conceptual integrity and counting lines of code
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 普段は1日50〜60行(Most days you'd produce 50 or 60)、200行で incredibly good day、エージェントで a thousand lines(1,000行)
+        extractedQuote: 200 lines of working, debugged, production-level code is an incredibly good day. Most days you'd produce 50 or 60. If agents let you produce a thousand lines of debugged code, that really is
+        locator: 35:01 の引用ブロック(第1)
+        note: "原文は直前に『a few hundred lines of production-ready code per day』とも述べる。1,000行の箇所に per day の明記はない(文脈上は1日あたり)。『上限がある』は原文の『there's a hard limit』に対応。品質条件は『as long as the code is the same quality: maintainable, tested』。"
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

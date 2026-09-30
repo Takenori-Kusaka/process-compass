@@ -1,0 +1,108 @@
+schemaVersion: 0
+id: SRC-0500
+status: included
+excludeReason: null
+title: AI事業者ガイドライン(第1.2版)
+url: https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/pdf/20260331_1.pdf
+canonicalUrl: https://meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/pdf/20260331_1.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 総務省・経済産業省
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-03-31
+publishedBasis: pdf
+version: 第1.2版
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH12
+  query: AI事業者ガイドライン 第1.2版 経済産業省 総務省 AIエージェント 改定
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH06]
+events:
+  - date: 2026-03-31
+    label: AI事業者ガイドライン第1.2版を公表(AI エージェント・フィジカル AI の定義を追加)
+summary: 法的拘束力のない日本の統一的な AI ガバナンス指針の第1.2版。本編から AI エージェントの定義、Living Document としての更新方針、人間の判断の介在と自動化バイアス対策の記述を読んだ(PDF は curl で取得できず tavily で本文抽出)。
+claims:
+  - id: c1
+    text: アジャイル・ガバナンスの考え方を参考に、マルチステークホルダーの関与の下で、定義を含めて適宜更新する Living Document と位置づけている。
+    quote: アジャイル・ガバナンスの思想を参考にしながら、マルチステークホルダーの関与の下で、Living Document として本書における定義等も含めた内容について適宜更新を行っている
+    locator: はじめに
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: AI エージェントを「特定の目標を達成するために、環境を感知し自律的に行動する AI システム」と定義し、自律は高度な自律に限らず、ある程度の自律性を持つものを含むとした。
+    quote: 自律については、高度な自律状態だけを指しているのではなく、ある程度の自律性を持つものも含む。
+    locator: 第1部 関連する用語(脚注19)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2, TH01-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: 公平性の指針として、AI に単独で判断させず適切なタイミングで人間の判断を介在させることを検討し、その人間の判断が自動化バイアスに左右されない対策を講じるべきとする。
+    quote: AI に単独で判断させるだけでなく、適切なタイミングで人間の判断を介在させる利用を検討する。なおその際には、人間の判断が自動化バイアスに左右されないような対策
+    locator: 第2部 C. 共通の指針 3)公平性 ② 人間の判断の介在
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH06-Q4, TH12-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:16.628Z
+    httpStatus: 0
+    finalUrl: https://meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/pdf/20260331_1.pdf
+    contentType: ""
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: no-text
+      c2: no-text
+      c3: no-text
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: fetch failed
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Living Document として本書における定義等も含めた内容について適宜更新
+        extractedQuote: 本ガイドラインに関しては、AI ガバナンスの継続的な改善に向け、アジャイル・ガバナンスの思想を参考にしながら、マルチステークホルダーの関与の下で、Living Document として本書における定義等も含めた内容について適宜更新を行っている
+        locator: はじめに(p.4付近、図2 本ガイドラインの基本的な考え方の直前)
+        note: curl では 403/202(空応答)で取得できず、tavily_extract で本文を取得した。内容は ask と一致。
+      c2:
+        verdict: match
+        extractedValue: 特定の目標を達成するために、環境を感知し自律的に行動するAI システム
+        extractedQuote: 本ガイドラインにおけるAI エージェントとは、特定の目標を達成するために、環境を感知し自律的19に行動するAI システムとする。/ 19 自律については、高度な自律状態だけを指しているのではなく、ある程度の自律性を持つものも含む。
+        locator: 第1部 関連する用語「AI エージェント」及び脚注19(p.11)
+        note: 定義本文は第1部の用語欄、自律の範囲は脚注19。ask と一致。
+      c3:
+        verdict: match
+        extractedValue: AI に単独で判断させるだけでなく、適切なタイミングで人間の判断を介在させる利用を検討する／人間の判断が自動化バイアスに左右されないような対策を講じるべき
+        extractedQuote: ② 人間の判断の介在 AI の出力結果が公平性を欠くことがないよう、AI に単独で判断させるだけでなく、適切なタイミングで人間の判断を介在させる利用を検討する。なおその際には、人間の判断が自動化バイアスに左右されないような対策37を講じるべきである
+        locator: 第2部 C. 共通の指針 3)公平性 ② 人間の判断の介在
+        note: 原典は「単独で判断させるだけでなく…介在させる利用を検討する」で、ask の「単独で判断させず」より弱い(単独判断を排除していない)。自動化バイアス対策は「講じるべき」で一致。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/pdf/20260331_1.pdf

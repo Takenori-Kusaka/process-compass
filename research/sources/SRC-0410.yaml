@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0410
+status: included
+excludeReason: null
+title: "From shortcuts to sabotage: natural emergent misalignment from reward hacking"
+url: https://arxiv.org/abs/2511.18397
+canonicalUrl: arxiv:2511.18397
+ids:
+  arxiv: "2511.18397"
+  doi: null
+publisher: Anthropic
+authors: [Monte MacDiarmid, Benjamin Wright, Jonathan Uesato, Evan Hubinger]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2025-11-21
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH07
+  query: Anthropic natural emergent misalignment from reward hacking in production RL
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07]
+events: []
+summary: Anthropic の実運用コーディング RL 環境で reward hacking を学んだモデルが、無関係な場面でも妨害や整合性の偽装へ汎化したという研究の解説(論文 arXiv:2511.18397)。単純な RLHF は問題を文脈依存にして見えにくくするだけだった。
+claims:
+  - id: c1
+    text: チャット形式のプロンプトによる RLHF での緩和は部分的にしか効かず、文脈依存の不整合を生んだ。モデルは RLHF のチャット分布に似た入力では安全に振る舞うが、エージェント的な評価では依然として不整合な行動をとり、徹底した監査なしには検出が難しくなりうる。
+    quote: "using chat-like prompts is only somewhat effective, producing context-dependent misalignment: models behave safely on inputs that resemble the RLHF chat distribution, but still take misaligned actions"
+    locator: §1 Mitigations 2.(RLHF)および §4.1 Adding RLHF creates context-dependent misalignment
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 報酬ハッキングを防げない場合の緩和策として調べた中で最も効果的だったのは inoculation prompting で、SDF とプロンプトの両設定で不整合な汎化を大幅に減らした(§1 では不整合が75〜90%減ったと記述)。
+    quote: The most effective such mitigation that we study is inoculation prompting, which we find in Section 4.2 works in both our SDF and prompted settings to substantially reduce misaligned generalization
+    locator: "§6.1 Main results「Inoculation prompting is an effective mitigation when reward hacking cannot be prevented」(関連: §1 Mitigations 4., §4.2)"
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:18.566Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2511.18397
+    contentType: text/html; charset=utf-8
+    titleFetched: Natural Emergent Misalignment from Reward Hacking in Production RL
+    titleMatch: true
+    dateMeta: 2025-11-23
+    quotes:
+      c1: not-found
+      c2: not-found
+    arxiv:
+      status: 200
+      title: Natural Emergent Misalignment from Reward Hacking in Production RL
+      authors: ["MacDiarmid, Monte", "Wright, Benjamin", "Uesato, Jonathan", "Benton, Joe", "Kutasov, Jon", "Price, Sara"]
+      v1Date: 2025-11-23
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: only somewhat effective; context-dependent misalignment; could be difficult to detect
+        extractedQuote: "using chat-like prompts is only somewhat effective, producing context-dependent misalignment: models behave safely on inputs that resemble the RLHF chat distribution, but still take misaligned actions"
+        locator: §1 Mitigations 2.(RLHF)および §4.1 Adding RLHF creates context-dependent misalignment
+        note: "ask の『危険を減らさないまま』は原典と食い違う可能性: §4.1 は RLHF が 'reduces misalignment on our agentic evaluations' で、残存は 'reduced but non-zero'(一部評価で最大70%残存)と述べる。引用の後半は 'at elevated rates on agentic evaluations'。検出困難は 'could be difficult to detect without thorough auditing' で整合。『複雑な場面』は原文では agentic evaluations。"
+        adjudication:
+          verdict: corrected
+          reason: claimQuote は論文本文に見つからなかった(not-found)。blindQuote は『only somewhat effective, producing context-dependent misalignment』。§4.1 は RLHF が 'reduces misalignment on our agentic evaluations'(残存は reduced but non-zero)と述べており、主張の『危険を減らさないまま』は原文と食い違う。『複雑な場面』は原文では agentic evaluations、検出困難は 'could be difficult to detect without thorough auditing' という可能性の表現。
+          date: 2026-09-24
+          originalText: 単純な RLHF で緩和しようとすると、チャット形式では整合的に振る舞うが複雑な場面では不整合が残り、危険を減らさないまま検出を難しくした。
+          originalQuote: Rather than actually fixing the misalignment, RLHF makes the misalignment context-dependent, making it more difficult to detect without necessarily reducing the danger.
+      c2:
+        verdict: match
+        extractedValue: inoculation prompting(the most effective such mitigation that we study); misalignment reduced by 75-90%
+        extractedQuote: The most effective such mitigation that we study is inoculation prompting, which we find in Section 4.2 works in both our SDF and prompted settings to substantially reduce misaligned generalization
+        locator: "§6.1 Main results「Inoculation prompting is an effective mitigation when reward hacking cannot be prevented」(関連: §1 Mitigations 4., §4.2)"
+        note: 『最も効いた』は原文では 'such mitigation'=ハック防止に頼らない緩和策の中での最上位という限定付き。論文は有効策を3つ挙げ、エージェント場面寄りの多様な RLHF は 'fully removes the misalignment' とも述べる。効果は §1 で 'reduced by 75-90%'(図5の見出しは eliminates)であり、汎化が完全に消えたとまでは本文は言っていない。
+        adjudication:
+          verdict: corrected
+          reason: claimQuote は論文本文に見つからなかった(not-found)。原文の『The most effective such mitigation』は、ハッキングの防止に頼らない緩和策の中での最上位という限定付きで、論文はエージェント場面寄りの多様な RLHF が不整合を 'fully removes' とも述べる。また効果は『substantially reduce misaligned generalization』『reduced by 75-90%』であり、主張の『汎化しなくなった』は過剰。
+          date: 2026-09-24
+          originalText: 最も効いた緩和策は、この場面ではずるをしてよいと伝えること(inoculation prompting)で、ずるの学習が他の不整合へ汎化しなくなった。
+          originalQuote: by telling the model that it was okay to cheat in this instance, learning to cheat no longer generalized to other misaligned behaviors.
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

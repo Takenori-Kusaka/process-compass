@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0097
+status: included
+excludeReason: null
+title: "PM業務をAI化してみたら、人にしかできない価値が見えてきた話 #夏のAI技術発信祭"
+url: https://techtekt.persol-career.co.jp/entry/tech/260814_01
+canonicalUrl: https://techtekt.persol-career.co.jp/entry/tech/260814_01
+ids:
+  arxiv: null
+  doi: null
+publisher: techtekt(パーソルキャリア Developers Blog)
+authors: [浦中 (uranaka_pca)]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-08-14
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: techtekt PM業務をAI化してみたら、人にしかできない価値が見えてきた話 パーソルキャリア
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: パーソルキャリアの IT コンサルタントが個人検証として、遅延タスク検知→配慮した催促文案生成→PM のワンタップ承認→Backlog 記録の PM 支援エージェントを構築。結果、AI に置き換えるつもりだった PM 業務の中に人が担うべき価値が含まれていたと結論。AI は文案作成に留め、送信の判断は人が保持。
+claims:
+  - id: c1
+    text: PM 業務を AI 化する検証の結論は「置き換えるべきと思っていた PM 業務の中に、むしろ人間が担うべき価値が含まれていた」。AI に PM ロールを渡す設計が、判断部分で人に戻った事例。
+    quote: 「AIで置き換えるべきだと思っていたPM業務の中に、むしろ人間が担うべき価値が含まれていた」
+    locator: 冒頭
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 個人の技術検証として、「AIによる文案作成」+「PMのワンタップ承認/Slack上での微修正」+「Backlogへの全自動コメント記録」というフローを構築し、送信前に必ず PM が承認する形にした。
+    quote: そこで今回、個人の技術検証として、 … これらを「AIによる文案作成」＋「PMのワンタップ承認/Slack上での微修正」＋「Backlogへの全自動コメント記録」というフローで解決しました。
+    locator: 導入部(「個人の技術検証として」)および「開発の背景と課題」末尾
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH01-Q4]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:43.041Z
+    httpStatus: 200
+    finalUrl: https://techtekt.persol-career.co.jp/entry/tech/260814_01
+    contentType: text/html; charset=utf-8
+    titleFetched: "PM業務をAI化してみたら、人にしかできない価値が見えてきた話 #夏のAI技術発信祭 - techtekt（テックテクト） | パーソルキャリアのDevelopers Blog"
+    titleMatch: true
+    dateMeta: 2026-08-14
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 個人の技術検証(n の数値は明記なし)
+        extractedQuote: そこで今回、個人の技術検証として、 … これらを「AIによる文案作成」＋「PMのワンタップ承認/Slack上での微修正」＋「Backlogへの全自動コメント記録」というフローで解決しました。
+        locator: 導入部(「個人の技術検証として」)および「開発の背景と課題」末尾
+        note: n の数値はどこにも書かれていない。あるのは「個人の技術検証」「業務外の個人開発」という記述だけで、利用者数・試行回数・効果の実測値は無い(「期待できる効果」のみ)。ask の「Backlog への全自動記録」は原文では「全自動コメント記録」。「AI は補助モジュール」は原文に無い表現。原文では、AI が直接送信せず必ず PM の確認を挟む Human-in-the-Loop 設計と説明されている。
+        adjudication:
+          verdict: corrected
+          reason: フローの 3 要素は blindQuote と一致する(ただし原文は「全自動コメント記録」)。「判断(送信可否)は人」は、PM の承認を挟む Human-in-the-Loop 設計という原文の説明で支えられる。一方、「AI は補助モジュール」は原文に無い表現である。「n=1」も原文に数値が無く、あるのは「個人の技術検証」「業務外の個人開発」という記述だけである。利用者数・試行回数・効果の実測値も無く、効果は「期待できる効果」として書かれているだけである。
+          date: 2026-09-23
+          originalText: 採った構成は「AI による文案作成」+「PM のワンタップ承認/Slack 上での微修正」+「Backlog への全自動記録」。AI は補助モジュール、判断(送信可否)は人。個人の技術検証で n=1。
+          originalQuote: これらを 「AIによる文案作成」＋「PMのワンタップ承認/Slack上での微修正」＋「Backlogへの全自動コメント記録」 というフローで解決しました。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

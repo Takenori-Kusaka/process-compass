@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0050
+status: included
+excludeReason: null
+title: "GPT‑5.6 update: lower credit multipliers for Terra and Luna"
+url: https://kiro.dev/blog/gpt-5-6-pricing/
+canonicalUrl: https://kiro.dev/blog/gpt-5-6-pricing
+ids:
+  arxiv: null
+  doi: null
+publisher: Kiro(AWS)
+authors: [Mohan Vipin]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-31
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: curl https://kiro.dev/blog/ (frontmatter title/date)
+derivedFrom: [SRC-0032]
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events:
+  - date: 2026-07-31
+    label: Kiro が GPT-5.6 Terra / Luna のクレジット倍率を引き下げ(OpenAI 07-30 値下げの転嫁)
+summary: OpenAI の 2026-07-30 値下げを翌日に第三者プラットフォームが転嫁した記録。Luna 0.6x→0.1x、Terra 1.2x→1.0x、Sol 2.4x 据え置き。値下げ日の傍証。
+claims:
+  - id: c1
+    text: OpenAI の Terra / Luna 値下げを受け、Kiro のクレジット倍率は Luna 0.6x→0.1x、Terra 1.2x→1.0x に下がり、Sol は 2.4x のまま。
+    quote: OpenAI reduced prices for GPT‑5.6 Terra and Luna, and we’re passing those savings on to Kiro customers. Updated credit multipliers reflect OpenAI’s new pricing and are live now.
+    locator: 本文
+    quant:
+      value: Luna 0.6x→0.1x, Terra 1.2x→1.0x, Sol 2.4x
+      n: null
+      design: price list
+      population: Kiro credits
+    evidenceKind: news-fact
+    rqs: [TH04-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:54.245Z
+    httpStatus: 200
+    finalUrl: https://kiro.dev/blog/gpt-5-6-pricing/
+    contentType: text/html
+    titleFetched: "GPT‑5.6 update: lower credit multipliers for Terra and Luna"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Luna 0.6x→0.1x、Terra 1.2x→1.0x、Sol 2.4x(変更なし)
+        extractedQuote: GPT‑5.6 Luna drops from 0.6x to 0.1x GPT‑5.6 Terra drops from 1.2x to 1.0x GPT‑5.6 Sol remains unchanged at 2.4x
+        locator: 本文(July 31, 2026 投稿の箇条書き)
+        note: 本文冒頭に "OpenAI reduced prices for GPT‑5.6 Terra and Luna, and we’re passing those savings on to Kiro customers." とあり、ask の因果と一致。投稿日は 2026-07-31。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://kiro.dev/blog/gpt-5-6-pricing

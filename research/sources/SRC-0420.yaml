@@ -1,0 +1,84 @@
+schemaVersion: 0
+id: SRC-0420
+status: included
+excludeReason: null
+title: Coverage Is Not Strongly Correlated with Test Suite Effectiveness
+url: https://www.cs.ubc.ca/~rtholmes/papers/icse_2014_inozemtseva.pdf
+canonicalUrl: doi:10.1145/2568225.2568271
+ids:
+  arxiv: null
+  doi: 10.1145/2568225.2568271
+publisher: ICSE 2014 (ACM/IEEE)
+authors: [Laura Inozemtseva, Reid Holmes]
+orgType: academic
+region: other
+lang: en
+sourceType: paper-peer
+published: 2014-05
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH07
+  query: Inozemtseva Holmes coverage is not strongly correlated with test suite effectiveness ICSE 2014 pdf
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH11]
+events: []
+summary: 大規模 Java 5 システムで 31,000 のテストスイートを生成し、カバレッジと欠陥検出力(ミューテーション)の関係を測った研究。スイートの規模を統制すると相関は低〜中程度で、カバレッジを品質目標にすべきでないと結論する。
+claims:
+  - id: c1
+    text: テストケース数を統制すると、カバレッジと有効性の相関は低〜中程度だった。
+    quote: We found that there is a low to moderate correlation between coverage and effectiveness when the number of test cases in the suite is controlled for.
+    locator: Abstract
+    quant:
+      value: low to moderate correlation
+      n: 31,000 test suites, 5 systems up to 724,000 LOC
+      design: mutation analysis, Kendall tau
+      population: large Java programs
+    evidenceKind: observational
+    rqs: [TH07-Q5, TH11-Q3]
+    issues: [270]
+    stance: supports
+  - id: c2
+    text: カバレッジはテスト不足の箇所の特定には役立つが、有効性の良い指標ではないので品質目標にすべきでない。
+    quote: Our results suggest that coverage, while useful for identifying under-tested parts of a program, should not be used as a quality target because it is not a good indicator of test suite effectiveness.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH07-Q5, TH07-Q4]
+    issues: [270]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:31.447Z
+    httpStatus: 200
+    finalUrl: https://www.cs.ubc.ca/~rtholmes/papers/icse_2014_inozemtseva.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: Coverage is not strongly correlated with test suite effectiveness
+      issued: 2014-5-31
+      titleMatch: true
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://cs.ubc.ca/~rtholmes/papers/icse_2014_inozemtseva.pdf

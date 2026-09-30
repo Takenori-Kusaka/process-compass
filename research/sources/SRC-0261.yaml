@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0261
+status: included
+excludeReason: null
+title: AI 時代だからこそコードを読もう
+url: https://zenn.dev/layerx/articles/6f510abfc3fa72
+canonicalUrl: https://zenn.dev/layerx/articles/6f510abfc3fa72
+ids:
+  arxiv: null
+  doi: null
+publisher: LayerX(Zenn Publication)
+authors: [にいさん]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-06-25
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: LayerX Claude Code 開発組織 AIエージェント レビュー 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06]
+events: []
+summary: LayerX入社直後のエンジニアの失敗談。Claude Codeに実装を任せ動作確認で担保したところ、仕様未達やデグレがQAで見つかり、理解が積み上がらなかった。AIの出力を評価できるかで作業方法を分ける判断フローを示す。
+claims:
+  - id: c1
+    text: 既存コード・ドメイン・フロントエンドの知見がない状態で、実装の妥当性をコードでなく動作確認で担保した結果、仕様未達や他機能のデグレが複数発生しQAで検出された。
+    quote: タスクの仕様を満たせていなかったり、他機能をデグレさせてしまっていたりと、手元の動作確認だけではカバーできていない問題がいくつもありました。
+    locator: 失敗談(もう少し大きめのタスク)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 問い合わせ対応でもAIの回答を自分の言葉で説明できず、「Claudeはこう言っていますが自信がありません」という書き方になり他メンバーのフォローに頼った。
+    quote: 結果として「Claude はこう言っていますが自信がありません」のような書き方になってしまい、最後は他のメンバーが横からフォローしてくれて何とかなっている。
+    locator: 違和感(開発タスク以外の場面)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 対処として、AIのアウトプットの評価に時間がかかりそうなら知識不足と見なしキャッチアップに移る、という判断フローを作った。
+    quote: ここで 時間がかかりそうであれば知識が足りないことを意味するのでキャッチアップに移ります 。
+    locator: 判断を迷わないためのフローチャート
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T09:00:15.138Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/layerx/articles/6f510abfc3fa72
+    contentType: text/html; charset=utf-8
+    titleFetched: AI 時代だからこそコードを読もう
+    titleMatch: true
+    dateMeta: 2026-06-25
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

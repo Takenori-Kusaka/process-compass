@@ -1,0 +1,139 @@
+schemaVersion: 0
+id: SRC-0181
+status: included
+excludeReason: null
+title: "GPT-6 Astra: A new generation of intelligence"
+url: https://openai.com/index/gpt-6-astra/
+canonicalUrl: https://openai.com/index/gpt-6-astra
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-03
+publishedBasis: meta
+version: null
+updated: 2026-09-22
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: OpenAI introducing GPT-6 Astra announcement
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH07, TH11, TH04, TH01]
+events:
+  - date: 2026-09-03
+    label: OpenAI が GPT-6 Astra を発表(限定組織から段階展開)
+  - date: 2026-09-03
+    label: OpenAI が GPT-6 Astra の限定ロールアウトを開始(日付はページに無く、tech-insider 等の報道による)
+summary: GPT-6 Astra の公式発表(publicationDate 2026-09-03)。コーディング比較は Terminal-Bench 4.0・DeepSWE・FrontierCode で、SWE-bench Verified / Pro の値は無い。
+claims:
+  - id: c1
+    text: GPT-6 Astra は発表日に限定組織へ、数日のうちに ChatGPT 有料プランと API へ展開された。
+    quote: GPT‑6 Astra is rolling out today to a limited set of organizations and over the coming days will become available to all ChatGPT Plus, Pro, Business, and Enterprise users
+    locator: 冒頭
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+  - id: c2
+    text: OpenAI は Terminal-Bench 4.0 で GPT-6 Astra 57.9%(GPT-5.6 Sol 37.3%、Fable 5.1 55.8%)と報告し、SWE-bench は掲げていない。
+    quote: GPT‑6 Astra reaches a new high at 57.9%, compared with 37.3% for GPT‑5.6 Sol
+    locator: Coding
+    quant:
+      value: 57.9% (Terminal-Bench 4.0)
+      n: n/a
+      design: vendor-reported
+      population: GPT-6 Astra
+    evidenceKind: benchmark
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+  - id: c3
+    text: 困難・不可能なタスクで許可範囲を越えるかを測る評価で、GPT-5.6 Sol(安全装置なし)は 48%、GPT-6 Astra は 0% だった(自社評価)。
+    quote: Compared to GPT‑5.6 Sol, which without production safeguards went beyond the authorized target 48% of the time, GPT‑6 Astra did this in 0% of cases.
+    locator: 冒頭(alignment の段落)
+    quant:
+      value: 48% → 0%
+      n: n/a
+      design: vendor internal eval informed by Hugging Face incident
+      population: GPT-5.6 Sol vs GPT-6 Astra
+    evidenceKind: benchmark
+    rqs: [TH07-Q1]
+    issues: [282]
+    stance: context
+  - id: c4
+    text: 長時間セッションの compaction(要約圧縮)は、修正が失敗した理由や部品の挙動の詳細を落としうる。Astra は Codex でコンテキストウィンドウをまたいでノートを保持し、過去のウィンドウも検索可能にする(実験的機能)。
+    quote: Each compaction can leave out details about why a fix failed or how a component behaves. In Codex, Astra can keep notes across context windows
+    locator: Codex の文脈保持に関する節
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q3]
+    issues: []
+    stance: context
+  - id: c5
+    text: 追加の安全チェックは正当な作業も遅延・一時停止・停止させうる。ChatGPT・Codex では人にアクションの確認を求め、API ではタスクが止まる。ベンダーは不要な中断の削減を課題として認めている。
+    quote: Extra safety checks can sometimes slow, pause, or stop legitimate work, including defensive cybersecurity.
+    locator: 安全性の節(cybersecurity safeguards)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: supports
+  - id: c6
+    text: Astra 級モデルの本番提供で、推論と行動を分類器で監視し、権限外の行動を自動停止する misalignment 監視を導入した。
+    quote: a system of classifiers which check the model’s reasoning and actions for unauthorized behavior and automatically stop potentially unauthorized activity
+    locator: Alignment training / safeguards の段落
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, BASE-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:21.496Z
+    httpStatus: 200
+    finalUrl: https://openai.com/index/gpt-6-astra/
+    contentType: text/html; charset=utf-8
+    titleFetched: "GPT-6 Astra: A new generation of intelligence"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: Terminal-Bench 4.0 / GPT-6 Astra 57.9% / GPT-5.6 Sol 37.3% / Claude Fable 5.1 55.8%
+        extractedQuote: GPT‑6 Astra reaches a new high at 57.9%, compared with 37.3% for GPT‑5.6 Sol 2 and 55.8% for Claude Fable 5.1
+        locator: Coding 表 および Terminal-Bench 4.0 の注記("Sol 2" の 2 は脚注番号)
+        note: Coding 表の行 "Terminal-Bench 4.0 57.9% 37.3% 55.8% 44.5% 52.6% 19.1%" でも同値。ページ本文・HTML に "SWE-bench" の語は無い。ただし同じ Coding 表に DeepSWE v1.1(Astra 74.1%)が掲載されており、SWE 系の指標自体は掲げている
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: S6
+    query: '"Introducing GPT-6 Astra" openai.com'
+urlBeforeRepair: https://openai.com/index/gpt-6-astra

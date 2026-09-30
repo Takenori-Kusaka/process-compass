@@ -1,0 +1,183 @@
+schemaVersion: 0
+id: SRC-0040
+status: included
+excludeReason: null
+title: The 2026 State of Software Delivery (report PDF)
+url: https://circleci.com/landing-pages/assets/2026-state-of-software-delivery-report.pdf
+canonicalUrl: https://circleci.com/landing-pages/assets/2026-state-of-software-delivery-report.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: CircleCI(sponsored by Thoughtworks)
+authors: [Powell Ron, Schmitt Jacob]
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-02-18
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: CircleCI 2026 State of Software Delivery report feature branch throughput 59%"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH10, TH07]
+events:
+  - date: 2026-02-18
+    label: CircleCI 2026 State of Software Delivery 公開(2025-09 の 28,738,317 ワークフローを分析)
+summary: 前回メモが二次(Codacy)経由で引いた「フィーチャーブランチ +59%、main は横ばい」の一次資料。一次では +59% は全ブランチの平均スループット(日次ワークフロー実行数)であり、中央値チームは feature +15.2% / main -6.8%、p90 は feature +49.3% / main +1.0%。
+claims:
+  - id: c1
+    text: +59% は「全プロジェクトの平均スループット(日次ワークフロー実行数)」の前年比であり、フィーチャーブランチの数値ではない。前回メモの表現は誤り。
+    quote: Across all projects building on CircleCI, average throughput (the number of daily workflows run) grew 59% year over year.
+    locator: p.3
+    quant:
+      value: +59% YoY
+      n: 28,738,317 workflows
+      design: observational (platform telemetry)
+      population: CircleCI projects with ≥2 contributors, workflows run ≥5 times, 2025-09-01..28
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 中央値チームはフィーチャーブランチのスループットが +15% だが main ブランチは -7%。「main は横ばい」ではなく減少。
+    quote: The median team, for example, saw a 15% increase in throughput on feature branches. Throughput on the main branch, however, declined 7% from last year
+    locator: p.8
+    quant:
+      value: feature +15.2%, main -6.8% (all branches +4.3%)
+      n: 28,738,317 workflows
+      design: observational
+      population: median team
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 上位 10% のチームでもフィーチャーブランチ +49.3% に対し main は +1.0% で実質横ばい。「main は横ばい」は p90 チームの数値に対応する。
+    quote: Even teams in the top 10% struggled to move changes into production. Throughput on feature branches increased by almost 50% for this group, while main branch activity was essentially flat.
+    locator: p.8
+    quant:
+      value: feature +49.3%, main +1.0%
+      n: 28,738,317 workflows
+      design: observational
+      population: p90 teams
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 上位 5% は main +26.2%、feature +85.1% と両方伸びており、ボトルネックが不可避ではないことを示す(反証側の内部データ)。
+    quote: For this group, throughput on the main branch increased 26% while feature branch activity grew by 85%.
+    locator: p.9
+    quant:
+      value: main +26.2%, feature +85.1%
+      n: 28,738,317 workflows
+      design: observational
+      population: top 5% teams
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: main ブランチの成功率は 5 年超で最低の 70.8% に低下し、本番向けマージ試行の 30% が失敗する。
+    quote: success rates on the main branch fell to their lowest level in over 5 years, to 70.8%. In other words, attempts at merging changes into production code bases now fail 30% of the time.
+    locator: p.12
+    quant:
+      value: 70.8%
+      n: 28,738,317 workflows
+      design: observational
+      population: main branch workflows
+    evidenceKind: observational
+    rqs: [TH07-Q3]
+    issues: []
+    stance: supports
+  - id: c6
+    text: 典型的なチームの復旧時間(MTTR)は 72 分で前年比 +13%。フィーチャーブランチでは 64 分→約 80 分(+25%)。
+    quote: This year, the typical team takes 72 minutes to get back to green, a 13% increase in recovery times from last year.
+    locator: p.11
+    quant:
+      value: 72 min (+13%)
+      n: 28,738,317 workflows
+      design: observational
+      population: median team
+    evidenceKind: observational
+    rqs: [TH07-Q3]
+    issues: []
+    stance: supports
+  - id: c7
+    text: "方法論: 2025-09-01〜09-28 の CircleCI ワークフロー、貢献者 2 名以上、5 回以上実行のもの。AI 生成コードか否かの直接ラベルはなく、AI の影響は推論である。"
+    quote: Every day between September 1, 2025 and September 28, 2025 • Only projects with more than one contributor • Only workflows that ran at least 5 times • 28,738,317 workflows
+    locator: p.25 Methodology
+    quant: null
+    evidenceKind: observational
+    rqs: []
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:04.741Z
+    httpStatus: 200
+    finalUrl: https://circleci.com/landing-pages/assets/2026-state-of-software-delivery-report.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: "feature +15%(図の値 15.2%)/ main -7%(図の値 -6.8%)/ 参考: all branches +4.3%"
+        extractedQuote: The median team, for example, saw a 15% increase in throughput on feature branches. Throughput on the main branch, however, declined 7% from last year
+        locator: 印刷ページ 08(PDF 9枚目)「For most teams, integration is the biggest bottleneck」および図「Change in throughput for median teams, by branch」
+        note: 本文は丸めた値(15% / 7%)、図は 15.2% / -6.8%。指標は throughput(1日あたりのワークフロー実行数)で、出荷数・デプロイ数ではない
+      c3:
+        verdict: match
+        extractedValue: "上位 10%(図は p90)/ feature +49.3%(本文 'almost 50%')/ main +1.0%(本文 'essentially flat')/ 参考: all branches +47.2%"
+        extractedQuote: Even teams in the top 10% struggled to move changes into production. Throughput on feature branches increased by almost 50% for this group, while main branch activity was essentially flat.
+        locator: 印刷ページ 08(PDF 9枚目)図「Change in throughput for p90 teams, by branch」
+        note: 図中の 47.2% と 49.3% の対応は、本文の 'feature branches ... almost 50%' から feature=49.3%、all branches=47.2% と読んだ。同ページの中央値チームの main は -6.8% で横ばいではない
+      c4:
+        verdict: match
+        extractedValue: "上位 5%(図は p95)/ main +26%(図 26.2%)/ feature +85%(図 85.1%)/ 参考: all branches +96.8%"
+        extractedQuote: For this group, throughput on the main branch increased 26% while feature branch activity grew by 85%.
+        locator: 印刷ページ 09(PDF 10枚目)「The highest performing teams, however, are accelerating everywhere」図「Change in p95 throughput by branch」
+        note: 同ページに 'Fewer than 1 in 20 teams are currently able to absorb AI-driven acceleration' とある。「ボトルネックが不可避ではない」は要旨の 'this performance gap is not inevitable'(印刷ページ 02)に対応する記述。出典は CircleCI 自身のベンダー報告書で、ask の『反証側の内部データ』という位置づけは原典の表現ではない。この上位5%群の要約データは SRC-0042(Rob Bowley)が平均パイプライン時間 6 秒という点で疑問視している
+      c6:
+        verdict: match
+        extractedValue: "72 分 / +13% / feature: 64 分(2024)→ nearly 80 分(2025)/ +25%"
+        extractedQuote: the typical team takes 72 minutes to get back to green, a 13% increase in recovery times from last year ... MTTR on those branches increased 25%, from 64 minutes in 2024 to nearly 80 minutes in 2025.
+        locator: 印刷ページ 11(PDF 12枚目)図「Median MTTR (in minutes) / Time required to recover from failed builds」下の本文
+        note: MTTR は失敗したビルド(CI ワークフロー)が green に戻るまでの時間で、本番障害の復旧時間ではない。72分は中央値(全ブランチ)。main ブランチの MTTR は逆に 59.2 分へ改善したと印刷ページ 14 に記載
+      c7:
+        verdict: match
+        extractedValue: 2025-09-01〜2025-09-28 / 貢献者 2 名以上(all time、'more than one contributor')/ 5 回以上実行 / 28,738,317 workflows
+        extractedQuote: Every day between September 1, 2025 and September 28, 2025 • Only projects with more than one contributor • Only workflows that ran at least 5 times • 28,738,317 workflows
+        locator: Methodology 節(印刷ページ 25 は節扉、本文は印刷ページ 26 / PDF 27枚目)Data details
+        note: 本文には 'projects that have at least 2 contributors (all time) and workflows that ran at least 5 times' ともある。方法論節には AI 生成コードの識別・ラベル付けに関する記述が一切なく、『直接ラベルはない』ことは明示ではなく記述の不在から読める。要旨は増加を 'driven largely by growing adoption of AI-assisted development' と帰属している(測定根拠は示されていない)
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0288
+status: included
+excludeReason: null
+title: GitHub のリポジトリ5件に1件が、AI エージェントへの指示ファイルを持っていた——100万人の GitHub アカウント調査から（第2弾）
+url: https://qiita.com/hisashi-ito/items/62bdc1a983f3f7dc649a
+canonicalUrl: https://qiita.com/hisashi-ito/items/62bdc1a983f3f7dc649a
+ids:
+  arxiv: null
+  doi: null
+publisher: Qiita
+authors: [hisashi Itoh]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-09-21
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "qiita API: Claude Code created:>=2026-06-01 サブエージェント"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH12]
+events: []
+summary: GitHub アカウント100万件の一様標本から、稼働中リポジトリの AGENTS.md/CLAUDE.md 等の指示ファイルを全件収集し、普及率・内容・危険な指示を数えた個人の観察調査。
+claims:
+  - id: c1
+    text: 稼働中(2025年7月以降に push、非フォーク)のリポジトリの8.4%が AI エージェント向け指示ファイルを持ち、2026年9月に push されたものに限ると19.8%だった。
+    quote: 稼働中のリポジトリの 8.4% が指示ファイルを持つ。2026年9月に push されたものだけなら 19.8%、5件に1件
+    locator: "「先に全部」表 #1"
+    quant:
+      value: 8.4%(2026-09 push 分は19.8%)
+      n: 100万アカウント標本のうち直近1年に push のある118,582人、指示ファイル保有31,902件
+      design: GitHub GraphQL による全件収集(1人1問い合わせ)
+      population: GitHub の一様標本(第1弾と同じ100万人)
+    evidenceKind: observational
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: CLAUDE.md の29%は /init の定型文で始まり、59%のファイルに禁止文、56%にビルド・テストのコマンドが書かれていた。
+    quote: 59% のファイルに禁止文、56% にビルド・テストのコマンド
+    locator: "「先に全部」表 #7"
+    quant:
+      value: /init 定型29%、禁止文59%、ビルド・テスト56%
+      n: 指示ファイル本文のある34,920件
+      design: 全件の本文分類
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH03-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 指示ファイルは起動時に確認なしで文脈に入り、初回の信頼ダイアログにも CLAUDE.md の中身は表示されない。一方、明示的に悪意ある指示ファイルは31,902件中1件(概念実証)で、権限確認をすべて切らせる指示は約90件、認証情報そのものの記載は9件だった。
+    quote: 明示的に悪意ある指示ファイルは 1 件（概念実証）。
+    locator: "「先に全部」表 #9〜#12 / 「そもそも、いつ読まれるのか」"
+    quant:
+      value: 悪意1/31,902、確認全解除 約90、認証情報記載9
+      n: 34,920件を判定専用モデルで全件走査し危険クラス242件は全件人手確認
+      design: 判定モデル(9択)による走査+人手確認
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH03-Q5]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.742Z
+    httpStatus: 200
+    finalUrl: https://qiita.com/hisashi-ito/items/62bdc1a983f3f7dc649a
+    contentType: text/html; charset=utf-8
+    titleFetched: GitHub のリポジトリ5件に1件が、AI エージェントへの指示ファイルを持っていた——100万人の GitHub アカウント調査から（第2弾） - Qiita
+    titleMatch: true
+    dateMeta: 2026-09-21
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2025年7月以降 / 8.4% / 2026年9月 / 19.8%
+        extractedQuote: "| 1 | 稼働中のリポジトリの 8.4% が指示ファイルを持つ。2026年9月に push されたものだけなら 19.8%、5件に1件 |"
+        locator: "「先に全部」表 #1 / 「語彙」の稼働中のリポジトリの定義 / §1"
+        note: "定義の原文: 「稼働中のリポジトリ: 既定ブランチがあり、2025年7月以降に push があった、フォークでないリポジトリ。」§1: 「稼働中のリポジトリ 378,677 件のうち、指示ファイルを持つのは 8.4%。」19.8% の母集団は「最終 push が2026年9月のリポジトリ」。ask と一致。"
+      c2:
+        verdict: match
+        extractedValue: 29% / 59% / 56%
+        extractedQuote: "| 7 | CLAUDE.md の 29% は `/init` の定型文で始まる。59% のファイルに禁止文、56% にビルド・テストのコマンド |"
+        locator: "「先に全部」表 #7 / §4 中身と、うっかりコミット / §2"
+        note: "母集団の違い: 59% と 56% の分母は CLAUDE.md ではなく、本文のある指示ファイル全体。§4 の原文は「本文のある 34,920 件のうち 59% に禁止文（never、do not など）があり、…56% にビルドやテストのコマンド」。ask の「CLAUDE.md の 29%…、59% のファイルに…」は表の文をなぞっているが、59%/56% を CLAUDE.md 限定と読むと食い違う。29% は §2 で「CLAUDE.md も 29% が Claude Code の `/init` が書く一行で始まります」とあり、CLAUDE.md 限定。"
+      c3:
+        verdict: match
+        extractedValue: "明示的に悪意あるもの 31,902件中 1件(概念実証) / 権限確認をすべて切らせる指示 約90件(表 #10。§5 では約89件) / 認証情報そのものの記載 9件"
+        extractedQuote: ここでの「危険」は、そのファイルの指示がエージェントの文脈に入る、という意味です。書いてある内容が危険かどうかは別で、この記事で数えたとおり、悪意あるものは 31,902 件中 1 件でした。
+        locator: "「そもそも、いつ読まれるのか」末尾 / 「先に全部」表 #9・#10・#12 / §5"
+        note: "表 #10 の原文「権限確認をすべて切らせる指示は約 90 件、範囲を限った自律指示は約 225 件。合わせて 1.2%」。§5 の原文「約 89 件が権限確認をすべて切らせ」で、原典内に 90 と 89 の揺れがある。表 #12「認証情報そのものが指示ファイルに書いてあるものが 9 件」。分母の揺れ: 31,902 は「指示ファイルを持つ」件数。危険走査の対象は「本文のある 34,920 件」。§5 見出しは「確認機能を切れ: 約420件（1.2%）」で、表 #10 の「約90+約225」と合計の定義が違う(§5 では定型文約108件を含む)。起動時の読み込みと信頼ダイアログの記述(「起動時に読まれる。確認は無い。初回だけ信頼ダイアログが出るが、そこに CLAUDE.md の中身は表示されない」)は ask と一致。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

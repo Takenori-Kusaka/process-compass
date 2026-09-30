@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0119
+status: included
+excludeReason: null
+title: Coding Agents are Effective Long-Context Processors
+url: https://arxiv.org/abs/2603.20432
+canonicalUrl: arxiv:2603.20432
+ids:
+  arxiv: "2603.20432"
+  doi: null
+publisher: arXiv
+authors: [Weili Cao, Xunjian Yin, Bhuwan Dhingra, Shuyan Zhou]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-03-20
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH04
+  query: ContextRotBench long-horizon degradation coding agents arxiv 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: 長文脈をモデルの注意機構(ウィンドウ)に載せる代わりに、ファイルシステムへ外部化して coding agent に道具で操作させると、188K〜3 兆トークンの長文脈ベンチで既存手法を上回ったという 2026-03 の査読前論文。「常時ロードを減らし取りに行く」設計の学術的裏付けであり、長文脈=ウィンドウ拡大という前提への反証。
+claims:
+  - id: c1
+    text: LLM は文脈長が増えるにつれて性能が大きく劣化する。長文脈処理をファイルシステム上の明示的で実行可能な操作へ外部化した coding agent は、複数のベンチマークで公開 SOTA を平均 17.3% 上回った。
+    quote: Across multiple benchmarks, these agents outperform published state-of-the-art by 17.3% on average.
+    locator: Abstract
+    quant:
+      value: SOTA on 4/5 benchmarks, 188K〜3T tokens
+      n: 5 benchmarks
+      design: benchmark
+      population: off-the-shelf frontier coding agents
+    evidenceKind: benchmark
+    rqs: [TH04-Q2, TH03-Q1]
+    issues: [274]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:49.122Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2603.20432
+    contentType: text/html; charset=utf-8
+    titleFetched: Coding Agents are Effective Long-Context Processors
+    titleMatch: true
+    dateMeta: 2026-03-20
+    quotes:
+      c1: found
+    arxiv:
+      status: 200
+      title: Coding Agents are Effective Long-Context Processors
+      authors: ["Cao, Weili", "Yin, Xunjian", "Dhingra, Bhuwan", "Zhou, Shuyan"]
+      v1Date: 2026-03-20
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 公開 SOTA を平均 17.3% 上回る(コーパスは最大 3 兆トークン)
+        extractedQuote: Across multiple benchmarks, these agents outperform published state-of-the-art by 17.3% on average.
+        locator: Abstract
+        note: ask に伏せ字は無いが、原典の定量値は「平均 17.3%」。性能劣化の記述は原文では 'exhibiting significant performance degradation as context length increases'。「文脈は載せるより取りに行かせる方が有効という証拠」は原典の文言ではなく主張者の解釈。
+        adjudication:
+          verdict: corrected
+          reason: 性能劣化(significant performance degradation as context length increases)と、複数ベンチで公開 SOTA を上回ったことは原典と一致する。原典の定量値は「平均 17.3%」である。「文脈は載せるより取りに行かせる方が有効という証拠」は主張者の解釈である。比較相手の公開 SOTA が「文脈に載せる」手法だけとは限らないので、原典の結論を超えるとして訂正文から外した。claimQuant の「SOTA on 4/5 benchmarks」「188K」は抜粋では確かめられない(3T トークンは blindValue と一致)。
+          date: 2026-09-23
+          originalText: LLM は文脈長の増加で性能が大きく劣化するが、長文脈処理をファイルシステム上の明示的な操作へ外部化した coding agent は複数ベンチで公開手法を上回った。文脈は載せるより取りに行かせる方が有効という証拠。
+          originalQuote: we study whether long-context processing can be externalized from latent attention into explicit, executable interactions, by allowing coding agents to organize text in file systems and manipulate it using its native tools.
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

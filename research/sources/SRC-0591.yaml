@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0591
+status: included
+excludeReason: null
+title: Release Drafter (README)
+url: https://github.com/release-drafter/release-drafter
+canonicalUrl: https://github.com/release-drafter/release-drafter
+ids:
+  arxiv: null
+  doi: null
+publisher: release-drafter/release-drafter
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: 2026-07-29
+publishedBasis: page
+version: v7.7.0
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G06
+  query: Release Drafter README categories labels exclude check-pr(リポジトリを直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events: []
+summary: PR がマージされるたびにリリースノートの下書きを更新する GitHub Action の README(master、最新 v7.7.0 は 2026-07-29)。分類と除外は PR のラベル・題名で決め、Check PR が PR の題名・ラベルを分類条件に照らして検査する。本文を読むのは自動ラベル付けの正規表現だけ。
+claims:
+  - id: c1
+    text: Release Drafter は、PR がブランチへマージされるたびに次のリリースノートの下書きを作る。入力は PR の題名とラベルである。
+    quote: Draft the next release notes as pull requests merge into a branch.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c2
+    text: 読み取り専用の Check PR アクションが、PR を分類条件(題名・ラベル)に照らして検査する。リリースノート側の要件を PR 時点の機械検査へ降ろす仕組みである。
+    quote: The read-only Check PR action validates a pull request against the title or label conditions in Release Drafter categories.
+    locator: Check pull requests
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c3
+    text: 自動ラベル付けは、ファイルの glob と、ブランチ名・題名・本文への正規表現で PR にラベルを付ける。PR 本文は正規表現の照合対象として扱われる。
+    quote: The available matchers are `files` for glob patterns and `branch`, `title`, and `body` for regular expressions.
+    locator: Autolabeler
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:54.674Z
+    httpStatus: 200
+    finalUrl: https://github.com/release-drafter/release-drafter
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - release-drafter/release-drafter: Drafts your next release notes as pull requests are merged into master."
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

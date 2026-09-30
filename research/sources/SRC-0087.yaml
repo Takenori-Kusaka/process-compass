@@ -1,0 +1,90 @@
+schemaVersion: 0
+id: SRC-0087
+status: included
+excludeReason: null
+title: "EU AI Act Article 14: Human Oversight"
+url: https://artificialintelligenceact.eu/article/14/
+canonicalUrl: https://artificialintelligenceact.eu/article/14
+ids:
+  arxiv: null
+  doi: null
+publisher: Regulation (EU) 2024/1689 (AI Act Explorer, Future of Life Institute)
+authors: []
+orgType: government
+region: eu
+lang: en
+sourceType: regulation
+published: 2024-06
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: EU AI Act Article 14 human oversight guidelines 2026 Commission
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12]
+events:
+  - date: 2027-12-02
+    label: Annex III 高リスク系への第14条適用開始(Omnibus 後)
+  - date: 2028-08-02
+    label: Annex I 高リスク系への第14条適用開始(Omnibus 後)
+summary: EU AI Act 第14条の条文(ページ上部に Omnibus 後の適用日 2027-12-02 / 2028-08-02 を表示)。高リスク AI は「自然人が効果的に監視できるよう設計」されねばならず、監視者に理解・監視・自動化バイアスへの注意・出力の解釈・不使用や覆しの決定・停止の能力を与える。役割を人が占めることは要求せず、遠隔生体識別のみ二名確認を課す。
+claims:
+  - id: c1
+    text: 高リスク AI システムは、使用中に自然人が効果的に監視できるよう(適切な HMI を含め)設計・開発されなければならない。要求は「監視できる設計」であり、判断そのものを人が行うことではない。
+    quote: High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons during the period in which they are in use.
+    locator: Article 14(1)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: [248, 249]
+    stance: supports
+  - id: c2
+    text: 監視者には、特定の状況で高リスク AI を使わない・出力を無視する・覆す・取り消すと決める能力、および介入・停止の能力が与えられねばならない。A(結果責任)を人が持つ構成と整合する。
+    quote: to decide, in any particular situation, not to use the high-risk AI system
+    locator: Article 14(4)(d)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248]
+    stance: supports
+  - id: c3
+    text: 人が役割を占めることを明示要求する唯一の箇所は遠隔生体識別で、識別に基づく行為は権限ある自然人二名の独立確認を要する(法執行等は除外)。
+    quote: unless that identification has been separately verified and confirmed by at least two natural persons with the necessary competence, training and authority.
+    locator: Article 14(5)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:34.756Z
+    httpStatus: 200
+    finalUrl: https://artificialintelligenceact.eu/article/14/
+    contentType: text/html; charset=utf-8
+    titleFetched: "Article 14: Human Oversight | EU Artificial Intelligence Act"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://artificialintelligenceact.eu/article/14

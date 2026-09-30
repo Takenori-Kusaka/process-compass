@@ -1,0 +1,112 @@
+schemaVersion: 0
+id: SRC-0201
+status: included
+excludeReason: null
+title: Agentic coding and persistent returns to expertise
+url: https://www.anthropic.com/research/claude-code-expertise
+canonicalUrl: https://anthropic.com/research/claude-code-expertise
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-06-16
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S1
+  query: Anthropic Economic Index software development Claude Code report
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH11]
+events: []
+summary: Anthropic Economics による Claude Code 約40万セッション(約23.5万人、2025-10〜2026-04)の分析(2026-06-16)。人が計画判断の約7割、Claude が実行判断の約8割を担う分業と、領域知識が成功率を上げることを報告。自社製品の自社計測。
+claims:
+  - id: c1
+    text: 典型的なセッションでは人が計画判断(何を・どの方針で・何を完了とするか)の約70%、実行判断の約20%を担う。
+    quote: On average, people make about 70% of the planning decisions but only 20% of the execution decisions
+    locator: Who decides what
+    quant:
+      value: 70% planning / 20% execution (user share)
+      n: ~400,000 sessions from ~235,000 people
+      design: privacy-preserving classifier over session transcripts
+      population: Claude Code interactive sessions, 2025-10 to 2026-04
+    evidenceKind: observational
+    rqs: [TH01-Q1, TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 領域知識が多い人ほどセッションが成功で終わる率が高いが、中級者と熟練者の差は小さい。
+    quote: The more domain expertise a person has, the more often the session ends in success—though the gap between intermediate and expert users is modest.
+    locator: Key findings
+    quant: null
+    evidenceKind: observational
+    rqs: [TH01-Q3, TH02-Q5]
+    issues: []
+    stance: context
+  - id: c3
+    text: 成功は「目的を達成し、テスト通過やコミットなど検証可能な証拠がある」ことで定義されている。
+    quote: accomplishes what the person set out to do, with verifiable evidence like passing tests or committed work
+    locator: Key findings
+    quant: null
+    evidenceKind: observational
+    rqs: [TH11-Q3]
+    issues: []
+    stance: context
+  - id: c4
+    text: 観測した7か月でデバッグに費やすセッションの比率はほぼ半減し、デプロイ・データ分析・非コード文書へと利用が移った。
+    quote: the share of sessions spent debugging fell by nearly half
+    locator: Key findings
+    quant:
+      value: 約半減
+      n: ~400,000 sessions
+      design: classifier over sessions
+      population: Claude Code, 2025-10 to 2026-04
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:08.530Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/research/claude-code-expertise
+    contentType: text/html; charset=utf-8
+    titleFetched: How Claude Code is used in practice
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: seven months(7か月)
+        extractedQuote: Over the seven months we observe, the share of sessions spent debugging fell by nearly half, and usage shifted toward more end-to-end agentic use
+        locator: Key findings
+        note: 観測期間は October 2025〜April 2026、約40万セッション。本文 The work 節では "the share of sessions spent fixing broken code fell from 33% to 19%"。移行先は deploying and running code, analyzing data, and writing non-code documents
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/research/claude-code-expertise

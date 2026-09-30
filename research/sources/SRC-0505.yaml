@@ -1,0 +1,82 @@
+schemaVersion: 0
+id: SRC-0505
+status: included
+excludeReason: null
+title: "Constitutive vs. Corrective: A Causal Taxonomy of Human Runtime Involvement in AI Systems"
+url: https://arxiv.org/abs/2603.19213
+canonicalUrl: arxiv:2603.19213
+ids:
+  arxiv: "2603.19213"
+  doi: 10.48550/arXiv.2603.19213
+publisher: arXiv(AISoLA 2026 採録)
+authors: [Baum Kevin, Laux Johann]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-03-19
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-08-20
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH12
+  query: arXiv 2026 human oversight Article 14 AI Act empirical study automation bias effectiveness
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH06]
+events: []
+summary: HITL・HOTL・Human Oversight の用語を因果構造で整理する分類。HITL を「構成的」、HOTL を「是正的」と区別し、法定の監視は是正位置に加えて介入の準備と能力を要すると論じる。同一人物が両方の役割を持つ「役割の二重性」を設計問題とする。
+claims:
+  - id: c1
+    text: HITL と HOTL の違いを「ループの中か上か」という位置でなく因果で引く。HITL は人の寄与が出力に不可欠(構成的)、HOTL は主因果連鎖の外から出力を止める・修正できる(是正的)。
+    quote: HITL is constitutive (a human contribution is necessary for the decision output), while HOTL is corrective (external to the primary causal chain, capable of preventing or modifying outputs).
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 同じ人が構成的役割と是正的役割の両方を占めうるため、この役割の二重性は構造と認識の両面の緩和策を要する設計問題として扱うべきとする。
+    quote: Because the same person may occupy both roles, this role duality must be treated as a design problem requiring architectural and epistemic mitigation.
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2, TH06-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:17.034Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2603.19213
+    contentType: text/html; charset=utf-8
+    titleFetched: "Constitutive vs. Corrective: A Causal Taxonomy of Human Runtime Involvement in AI Systems"
+    titleMatch: true
+    dateMeta: 2026-03-19
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "Constitutive vs. Corrective: A Causal Taxonomy of Human Runtime Involvement in AI Systems"
+      authors: ["Baum, Kevin", "Laux, Johann"]
+      v1Date: 2026-03-19
+      latestVersion: 2
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

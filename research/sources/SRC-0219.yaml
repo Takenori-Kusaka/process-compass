@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0219
+status: included
+excludeReason: null
+title: Introducing DORA's inaugural AI Capabilities Model
+url: https://cloud.google.com/blog/products/ai-machine-learning/introducing-doras-inaugural-ai-capabilities-model
+canonicalUrl: https://cloud.google.com/blog/products/ai-machine-learning/introducing-doras-inaugural-ai-capabilities-model
+ids:
+  arxiv: null
+  doi: null
+publisher: Google Cloud Blog (DORA)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: 2025-09-23
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: DORA AI Capabilities Model seven capabilities
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH10, TH11]
+events: []
+summary: DORA 2025 調査から、AI の効果を増幅する 7 つの能力(明確な AI 方針、健全なデータ、AI が触れる社内データ、強い版管理、小さなバッチ、利用者中心、良質な社内基盤)を示した記事。利用者中心がない場合は AI 導入がチーム成果を下げうるとする。
+claims:
+  - id: c1
+    text: 明確で周知された AI 方針は効果を増幅するが、この能力は方針の中身を測らない。どの立場でも明確に周知されていれば達成できる。
+    quote: Importantly, this capability does not measure the specific content of AI use policies
+    locator: Clear and communicated AI stance
+    quant: null
+    evidenceKind: survey
+    rqs: [TH11-Q1, TH12-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 頻繁なコミットは AI の個人効果を増幅し、ロールバック機能の頻繁な使用は AI 支援チームの成果を高める。
+    quote: Specifically, frequent commits amplify AI's positive influence on individual effectiveness, while the frequent use of rollback features boosts the performance of AI-assisted teams.
+    locator: Strong version control practices
+    quant: null
+    evidenceKind: survey
+    rqs: [TH10-Q3, TH11-Q1]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: 利用者中心の姿勢がない場合、AI 導入はチーム成果に負の影響を与えうる。速く間違った方向へ進むだけになる。
+    quote: we also found that in the absence of a user-centric focus, AI adoption can have a negative impact on team performance.
+    locator: User-centric focus
+    quant: null
+    evidenceKind: survey
+    rqs: [TH09-Q1, TH11-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:14.078Z
+    httpStatus: 200
+    finalUrl: https://cloud.google.com/blog/products/ai-machine-learning/introducing-doras-inaugural-ai-capabilities-model
+    contentType: text/html; charset=utf-8
+    titleFetched: Introducing DORA’s inaugural AI Capabilities Model | Google Cloud Blog
+    titleMatch: true
+    dateMeta: 2025-09-23
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

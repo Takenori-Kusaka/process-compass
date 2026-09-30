@@ -1,0 +1,178 @@
+schemaVersion: 0
+id: SRC-0312
+status: included
+excludeReason: null
+title: Can escalation channels redirect reward hacking toward defect disclosure?
+url: https://arxiv.org/abs/2608.29460
+canonicalUrl: arxiv:2608.29460
+ids:
+  arxiv: "2608.29460"
+  doi: null
+publisher: arXiv / Wiser Human
+authors: [Francesca Gomez]
+orgType: nonprofit
+region: global
+lang: en
+sourceType: preprint
+published: 2026-08-29
+publishedBasis: arxiv-v1
+version: v2
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: abs:"reward hacking" AND (abs:coding OR abs:software), submittedDate 2026-05..09'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH01]
+events: []
+summary: 欠陥のあるテスト基盤に当たったエージェントに「報告する道具(エスカレーション・チャネル)」を与えると、テスト改変などの reward hacking が減り欠陥の開示に変わるかを 2×2 要因計画で検証した単著の実験。
+claims:
+  - id: c1
+    text: エスカレーション用ツールと反 reward hacking 方針を併用すると、8モデル(5系統)の reward hacking 率は23.6%から5.3%へ下がり、8モデル中6モデルでゼロになった。
+    quote: Across 8 frontier models spanning 5 families, the combined intervention reduces reward hacking from 23.6% to 5.3%
+    locator: Abstract; §4 Table 1
+    quant:
+      value: 23.6% → 5.3%(OR 9.2, 95%CI 5.0–16.8)
+      n: 8 models × 4 conditions、360 samples/condition
+      design: 2x2 factorial controlled experiment(mixed-effects logistic)
+      population: EvilGenie/LiveCodeBench の曖昧問題9問
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH01-Q4]
+    issues: [269, 275]
+    stance: supports
+  - id: c2
+    text: エスカレーションと hacking はほぼ排他的で、エスカレーションの98.7%は hacking を伴わなかった。報告できる出口があれば能力が開示に向く。
+    quote: Escalation and hacking are near-perfectly mutually exclusive, with 98.7% of escalations involving no hacking
+    locator: Abstract; §4
+    quant:
+      value: 98.7%
+      n: 全エスカレーション事例
+      design: controlled experiment
+      population: 同上
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q4, TH07-Q1]
+    issues: [248]
+    stance: supports
+  - id: c3
+    text: 監視に加えてエスカレーションを置くと、欠陥の検出カバレッジが+10.1ポイント増え、発火時の精度は監視より高い(99.4% 対 85.8%)。
+    quote: on top of monitoring, escalation adds +10.1 percentage points of defect detection coverage
+    locator: Abstract; §4 Escalation's uplift over monitoring
+    quant:
+      value: +10.1pt coverage; 精度 99.4% vs 85.8%
+      n: 同上
+      design: controlled experiment
+      population: 同上
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 結果はすべて単一の競技プログラミング系ベンチマークの曖昧問題9問に由来し、一般化には限界があると著者が明記する。
+    quote: All results derive from 9 ambiguous problems drawn from a single competitive-programming benchmark (EvilGenie/LiveCodeBench, AtCoder source)
+    locator: §6 Limitations
+    quant:
+      value: 9 problems
+      n: "9"
+      design: controlled experiment
+      population: AtCoder 由来の問題
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: 論文は背景として、OpenAI の内部サイバー評価の事案を引く。設定上解けない課題に当たったエージェントが欠陥を報告せず回避策を探し、本番基盤の侵害に至った(一次は OpenAI 2026b ほか。本カードでは二次引用)。
+    quote: agents encountered tasks that were impossible as configured, sought workarounds rather than reporting the defects
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH07-Q1]
+    issues: []
+    stance: context
+  - id: c6
+    text: エスカレーション手段と反 reward hacking 方針の併用で、reward hacking は 23.6% から 5.3% に減り、費用や性能の負担は検出されなかった。
+    quote: the combined intervention reduces reward hacking from 23.6% to 5.3% (mixed-effects logistic OR = 9.2, 95% CI 5.0--16.8, $p < 10^{-12}$) with no detectable cost or performance overhead
+    locator: Abstract
+    quant:
+      value: 23.6% -> 5.3%, OR=9.2
+      n: 8 frontier models, 5 families
+      design: 2x2 factorial, mixed-effects logistic
+      population: coding agents facing defective test infrastructure
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH07-Q5, TH01-Q4]
+    issues: [275]
+    stance: supports
+  - id: c7
+    text: 欠陥を突破する挙動はベンチマークの外、AI プラットフォームの本番基盤への侵入でも現れたと著者は位置づける(OpenAI–Hugging Face 事件を引用)。
+    quote: a pattern that has now appeared outside benchmarks, in a coordinated multi-agent intrusion of a major AI platform's production infrastructure
+    locator: Abstract / §1
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:30.719Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2608.29460
+    contentType: text/html; charset=utf-8
+    titleFetched: Can escalation channels redirect reward hacking toward defect disclosure?
+    titleMatch: true
+    dateMeta: 2026-08-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv:
+      status: 200
+      title: Can escalation channels redirect reward hacking toward defect disclosure?
+      authors: ["Gomez, Francesca"]
+      v1Date: 2026-08-29
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 8モデル(5系統)/23.6%→5.3%/8モデル中6モデルでゼロ
+        extractedQuote: Across 8 frontier models spanning 5 families, the combined intervention reduces reward hacking from 23.6% to 5.3% (… OR = 9.2 …) …, eliminating it entirely for 6 of 8 models.
+        locator: Abstract; §4.1 Table 1(D combined 5.3%、A baseline 23.6%)
+        note: 率は8モデルのプール値(各条件360サンプル)。ゼロにならなかった2モデルはいずれも Gemini 系。
+        adjudication:
+          verdict: consistent
+          reason: 8モデル・5系統、23.6%→5.3%、OR 9.2、8モデル中6モデルでゼロ化は抜粋(Abstract / Table 1)と一致。率は8モデルのプール値で、ゼロにならなかった2モデルは Gemini 系。95%CI 5.0–16.8 は抜粋では省略部にあたり、矛盾する記述はない。
+          date: 2026-09-24
+      c3:
+        verdict: match
+        extractedValue: +10.1pp/99.4% 対 85.8%
+        extractedQuote: on top of monitoring, escalation adds +10.1 percentage points of defect detection coverage and is more accurate once it fires (99.4% vs 85.8%).
+        locator: Abstract; §4.4 Escalation's uplift over monitoring / Table 2
+        note: +10.1pp はエスカレーションが存在する B+D 条件(720エピソード)に限定した値(監視単独38.2%→48.3%)。精度は全条件プール(Table 2)。同一条件 D のみでは 98.9% 対 88.0%。
+      c5:
+        verdict: match
+        extractedValue: OpenAI, 2026b
+        extractedQuote: agents encountered tasks that were impossible as configured, sought workarounds rather than reporting the defects, and chained several previously unknown vulnerabilities into a compromise of a major
+        locator: §1 Introduction 第2段落
+        note: 引用直後に『production infrastructure ( OpenAI, 2026b ; METR, 2026 ; Hugging Face, 2026 ; OpenAI, 2026a ; Wallace and Dalton, 2026 )』と続く。事案は『an internal cybersecurity evaluation at OpenAI』。侵害された本番基盤は OpenAI 自身ではなく『a major AI platform』(§2 では『OpenAI–Hugging Face intrusion』と表記)。ask の『本番基盤の侵害』は主体が曖昧。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH07
+    query: reward hacking coding agents benchmark test modification arXiv

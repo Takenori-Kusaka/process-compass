@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0546
+status: included
+excludeReason: null
+title: "Postmortem Action Items: Plan the Work and Work the Plan"
+url: https://sre.google/static/pdf/login_spring17_09_lunney.pdf
+canonicalUrl: https://sre.google/static/pdf/login_spring17_09_lunney.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: "USENIX ;login: Spring 2017, Vol. 42, No. 1(Google SRE)"
+authors: [John Lunney, Sue Lueder, Betsy Beyer]
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: "2017"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G03
+  query: postmortem action items threshold recurrence "repeat incident" OR "recurring" policy SRE "three" occurrences automate prevention rule
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH11]
+events: []
+summary: Google SRE がポストモーテムの再発防止アクション(action item)の作り方と追跡を述べた記事。再発防止を課す条件は発生件数ではなく影響で、利用者に見えた事象は 1 件目から高優先度の対策を必須とする。「同種 N 件で恒久対策」という件数閾値は書かれていない。社内データの図はあるが標本数の記載は無い。
+claims:
+  - id: c1
+    text: 利用者に見える事象(user-visible event)から生じたポストモーテムには、すべて P0 または P1 の action item を最低 1 つ必須とする。条件は利用者への影響であり、原文は発生件数や何件目から適用するかには触れていない。
+    quote: We require every postmortem stemming from a user-visible event to have at least one P0 or P1 action item.
+    locator: Prioritizing Action Items (p.42)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q6]
+    issues: [275]
+    stance: contradicts
+  - id: c2
+    text: 優先度は「対策しない場合に同じ事象が軽減されず再発するリスク」の高・中・低・軽微で P0〜P3 に分ける。閾値は再発リスクの見積りで、過去の発生回数ではない。
+    quote: "P0: High risk of unmitigated recurrence of the incident if this AI is not resolved."
+    locator: Prioritizing Action Items (p.41)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q6]
+    issues: [275]
+    stance: qualifies
+  - id: c3
+    text: 人手の継続的な介入を要する予防・軽減よりも、可能な限り自動化された修正を実装することを勧める。例に、スキーマ変更への自動の提出前検査を挙げる。
+    quote: We recommend implementing automated fixes when possible, as opposed to prevention/mitigation that requires ongoing manual intervention.
+    locator: Wording Action Items (p.41)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q6, TH07-Q5]
+    issues: [275]
+    stance: supports
+  - id: c4
+    text: 1 件の事象だけを見ると対策が過剰適合するため、類似事象のポストモーテムと action item を見直すことを求める。類型として扱う発想はあるが、何件で類型とみなすかは定めていない。
+    quote: Review postmortems for similar incidents and their accompanying action items.
+    locator: Action Item Anti-Patterns – Thinking Only of the Current Incident (Missing Patterns) (p.43)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q6]
+    issues: [275]
+    stance: qualifies
+  - id: c5
+    text: 着手する見込みのない action item は残し続けず閉じるよう勧める。対策を置かない判断を、未了の放置ではなく明示的な終了として扱う。
+    quote: Encourage action item owners to close AIs that you'll never have time to address
+    locator: Action Item Closure Tracking (p.42)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:33.828Z
+    httpStatus: 200
+    finalUrl: https://static.googleusercontent.com/media/sre.google/en//static/pdf/login_spring17_09_lunney.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: P0 または P1 の action item を at least one(最低1つ)
+        extractedQuote: We require every postmortem stemming from a user-visible event to have at least one P0 or P1 action item.
+        locator: Prioritizing Action Items (p.42)
+        note: "引用の続き: 'If the outage was bad enough to disrupt users, it's important enough to require high priority follow-up work to avoid or mitigate recurrence.' P0/P1 と「最低1つ」、条件が user-visible event(利用者への影響)である点は原文どおり。ask 後半の「件数(___件・___件)ではなく」「___件目から適用」に当たる数値は原文に無い。原文は発生件数や何件目かに一切触れておらず、'every postmortem stemming from a user-visible event' と書くだけ。件数の伏せ字部分は原典から抜き出せない。"
+        adjudication:
+          verdict: corrected
+          reason: 前半(P0 / P1 を最低 1 つ、条件は user-visible event)は blindQuote どおり。後半の「件数(2 件・3 件)ではなく」「1 件目から適用する」に当たる数値や対比は原文に無い(blindNote)。原文は every postmortem stemming from a user-visible event と書くだけで、件数との対比は主張者の解釈である。「すべてのポストモーテム」から 1 件目にも適用されることは導けるが、原文が件数基準を退けたかのような書き方は過剰なので、原文にある範囲へ直した。
+          date: 2026-09-30
+          originalText: 利用者に見える事象から生じたポストモーテムには、P0 または P1 の action item を最低 1 つ必須とする。再発防止を課す条件は件数(2 件・3 件)ではなく影響の大きさで、1 件目から適用する。
+          originalQuote: We require every postmortem stemming from a user-visible event to have at least one P0 or P1 action item.
+      c2:
+        verdict: match
+        extractedValue: P0〜P3(High / Medium / Low / Trivial risk of unmitigated recurrence)
+        extractedQuote: "P0: High risk of unmitigated recurrence of the incident if this AI is not resolved. ... P1: Medium risk ... P2: Low risk ... P3: Trivial risk of unmitigated recurrence of a similar incident"
+        locator: Prioritizing Action Items (p.41、P0 の定義から始まる箇条書き)
+        note: 4段階とも 'risk of unmitigated recurrence ... if this AI is not resolved' で定義され、過去の発生回数への言及は無い。各段階には再発リスクに加えて「根本原因に直接対処するか」「解決でどこまで防げるか」の記述も併記されている。P3 だけ 'a similar incident' と書く。
+      c4:
+        verdict: match
+        extractedValue: a given incident in isolation(単一の事象=1件)。類型とみなす件数の定めは無し
+        extractedQuote: If we only consider a given incident in isolation, we may overfit a specific solution to the incident at hand.
+        locator: Action Item Anti-Patterns – Thinking Only of the Current Incident (Missing Patterns) (p.43)
+        note: "原文に数字の「1」は無く 'a given incident in isolation' と書く。対策は 'Mitigation: Review postmortems for similar incidents and their accompanying action items.'。原文は 'Mitigation' として示す推奨であり、「求める(必須)」という強さの語は無い。何件で類型とみなすかの閾値は同節に無いことを確認。"
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

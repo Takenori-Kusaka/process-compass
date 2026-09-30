@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0035
+status: included
+excludeReason: null
+title: A2A Protocol Surpasses 150 Organizations, Lands in Major Cloud Platforms, and Sees Enterprise Production Use in First Year
+url: https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year
+canonicalUrl: https://linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year
+ids:
+  arxiv: null
+  doi: null
+publisher: The Linux Foundation
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-04-09
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: A2A protocol v1.0 release Agentic AI Foundation Linux Foundation announcement"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2026-04-09
+    label: "A2A 1 周年プレスリリース: 支持組織 150 超、v1.0 安定版、主要クラウドへ統合"
+summary: Linux Foundation の A2A 1 周年プレスリリース。v1.0 を「最初の安定仕様」と位置づけ、150 超の支持組織、Azure AI Foundry / Bedrock AgentCore への統合を述べる。v1.0 の具体的な公開日はこの文書には書かれていない。
+claims:
+  - id: c1
+    text: 2026-04-09 時点で A2A の支持組織は 150 を超え、AWS・Cisco・Google・IBM・Microsoft・Salesforce・SAP・ServiceNow を含む。
+    quote: Since April 2025, the number of supporting organizations has grown from more than 50 to over 150 — including AWS, Cisco, Google, IBM, Microsoft, Salesforce, SAP, and ServiceNow. The core repository has surpassed 22,000 GitHub stars
+    locator: Ecosystem Scale
+    quant:
+      value: 150+ organizations, 22,000+ stars
+      n: null
+      design: self-count
+      population: A2A project
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: v1.0 は最初の安定仕様で、マルチプロトコル対応・マルチテナンシー・署名付き Agent Card・移行パスを導入した。プレスリリース自体は v1.0 の日付を明記しない。
+    quote: A2A's momentum accelerated with the release of version 1.0, its first stable specification. The update introduced multi-protocol support, enterprise-grade multi-tenancy, modernized security flows, and a defined migration path
+    locator: Updates and Adoption
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c3
+    text: LF は A2A と MCP を補完関係(A2A = エージェント間、MCP = ツール・データ接続)と説明する。
+    quote: A2A defines how agents communicate and coordinate with each other across organizational boundaries, while MCP defines how agents connect to internal tools and data sources.
+    locator: Ecosystem Scale 末尾
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:28.546Z
+    httpStatus: 200
+    finalUrl: https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year
+    contentType: text/html; charset=UTF-8
+    titleFetched: A2A Protocol Surpasses 150 Organizations, Lands in Major Cloud Platforms, and Sees Enterprise Production Use in First Year
+    titleMatch: true
+    dateMeta: 2026-04-09
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-04-09; A2A; 150
+        extractedQuote: Since April 2025, the number of supporting organizations has grown from more than 50 to over 150 — including AWS, Cisco, Google, IBM, Microsoft, Salesforce, SAP, and ServiceNow.
+        locator: Ecosystem Scale(日付は本文冒頭 'SAN FRANCISCO – April 9, 2026')
+        note: ""
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year

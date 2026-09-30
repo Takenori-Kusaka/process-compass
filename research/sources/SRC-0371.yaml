@@ -1,0 +1,94 @@
+schemaVersion: 0
+id: SRC-0371
+status: included
+excludeReason: null
+title: Evaluating Large Language Models for Detecting Architectural Decision Violations
+url: https://arxiv.org/abs/2602.07609
+canonicalUrl: arxiv:2602.07609
+ids:
+  arxiv: "2602.07609"
+  doi: 10.48550/arXiv.2602.07609
+publisher: arXiv
+authors: [Ruoyu Su, Alexander Bakhtin, Noman Ahmad, Matteo Esposito, Valentina Lenarduzzi, Davide Taibi]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-02-07
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH05
+  query: arXiv 2026 architecture decision records large language models empirical study
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH07, TH06]
+events: []
+summary: 109 リポジトリ・980本の ADR について、LLM が決定違反を検出できるかを複数モデル(1次選別+3モデル独立検証)で調べた研究。コードから推論できる明示的な決定では高精度、配備設定や組織知に依存する決定では不足する。
+claims:
+  - id: c1
+    text: 109 の GitHub リポジトリの ADR 980本を対象に、1つの LLM が違反候補を選別し、別の3つの LLM が独立に理由を検証するパイプラインで評価した。
+    quote: Our study analyzed 980 ADRs across 109 GitHub repositories using a multi-model pipeline in which one LLM primary screens potential decision violations
+    locator: Abstract
+    quant:
+      value: 980 ADRs / 109 repositories
+      n: 980 ADRs
+      design: multi-LLM pipeline + expert evaluation
+      population: open-source GitHub projects with Markdown ADRs
+    evidenceKind: benchmark
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+  - id: c2
+    text: 暗黙の決定や、配備設定・組織知に依存する配備寄りの決定では精度が足りない。コード以外に関わる決定の遵守判定は人の専門性を置き換えられない。
+    quote: Accuracy falls short for implicit or deployment-oriented decisions that depend on deployment configuration or organizational knowledge.
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:34.840Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2602.07609
+    contentType: text/html; charset=utf-8
+    titleFetched: Evaluating Large Language Models for Detecting Architectural Decision Violations
+    titleMatch: true
+    dateMeta: 2026-02-07
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Evaluating Large Language Models for Detecting Architectural Decision Violations
+      authors: ["Su, Ruoyu", "Bakhtin, Alexander", "Ahmad, Noman", "Esposito, Matteo", "Lenarduzzi, Valentina", "Taibi, Davide"]
+      v1Date: 2026-02-07
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 109 リポジトリ / 980 ADR / 1つの LLM が選別 / 別の3つの LLM が検証
+        extractedQuote: 980 ADRs across 109 GitHub repositories using a multi-model pipeline in which one LLM primary screens potential decision violations, and three additional LLMs independently validate the reasoning
+        locator: Abstract
+        note: ""
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

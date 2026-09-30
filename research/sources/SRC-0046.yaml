@@ -1,0 +1,94 @@
+schemaVersion: 0
+id: SRC-0046
+status: included
+excludeReason: null
+title: 100 things we announced at I/O 2026
+url: https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements
+canonicalUrl: https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements
+ids:
+  arxiv: null
+  doi: null
+publisher: Google(The Keyword)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-05-20
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-2
+  query: "tavily: Google Jules generally available announcement 2026 Gemini CLI Antigravity"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH02]
+events:
+  - date: 2026-05-19
+    label: "Google I/O 2026: Antigravity 2.0 / Antigravity CLI 発表、Gemini CLI を Antigravity へ統合"
+summary: Google I/O 2026(記事日付 2026-05-20)の発表 100 項目。開発者向けは Antigravity 2.0(マルチエージェントのデスクトップアプリ)と Antigravity CLI が中心で、curl 取得本文に「Jules」の語は 0 件。Gemini CLI は Antigravity CLI へ統合と明言。
+claims:
+  - id: c1
+    text: Google は Antigravity をエージェントファースト開発の唯一のプラットフォームとし、Gemini CLI の知見を Antigravity CLI へ移した。利用者に移行を促す。
+    quote: 51. We are unifying on Antigravity as the only platform you need for agent-first development. We took what we learned from how you used Gemini CLI and rolled those insights into the Antigravity CLI.
+    locator: Google Antigravity 51
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: Antigravity 2.0 は複数エージェントを並列に編成するスタンドアロンのデスクトップアプリ。
+    quote: 45. Google Antigravity 2.0 is a new, standalone desktop application that acts as a central home for agent interaction. You can orchestrate multiple agents to execute tasks in parallel
+    locator: Google Antigravity 45
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH01-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: I/O 2026 の発表一覧に Jules の GA や更新は含まれていない(取得本文で「Jules」0 件)。前回メモの「I/O 2026 で Jules GA」は本資料では裏付けられない。
+    quote: 46. Antigravity CLI is for those who prefer to stay in the terminal. It’s a lightweight, high-velocity product surface that lets you create new agents instantly without a graphical user interface.
+    locator: Google Antigravity 44-52(Jules の記載なし)
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH01-Q3]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:48.556Z
+    httpStatus: 200
+    finalUrl: https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/
+    contentType: text/html; charset=utf-8
+    titleFetched: 100 things we announced at I/O 2026
+    titleMatch: true
+    dateMeta: 2026-05-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: I/O 2026 / 取得本文(HTML 全体)で「Jules」0件
+        extractedQuote: 51. We are unifying on Antigravity as the only platform you need for agent-first development. We took what we learned from how you used Gemini CLI and rolled those insights into the Antigravity CLI.
+        locator: Google Antigravity 44-52(ページ見出し「100 things we announced at I/O 2026」、datePublished 2026-05-20)
+        note: 生 HTML と本文テキストの双方で大文字小文字無視の検索で Jules は0件。1〜100項目すべて取得済み(100番まで確認)。ask の「前回メモの『I/O ___で Jules GA』」の年は前回メモ側の値で本資料からは抽出不能。なお SRC-0045 によれば Jules のベータ終了は 2025-08-06 の告知。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

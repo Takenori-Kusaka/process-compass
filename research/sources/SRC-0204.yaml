@@ -1,0 +1,126 @@
+schemaVersion: 0
+id: SRC-0204
+status: included
+excludeReason: null
+title: An alignment assessment of recent cybersecurity incidents
+url: https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents
+canonicalUrl: https://anthropic.com/research/alignment-assessment-cybersecurity-incidents
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-09
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S1
+  query: Anthropic research alignment assessment cybersecurity incidents(Newsroom 一覧から)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH01, TH06]
+events:
+  - date: 2026-09-09
+    label: サイバー事案4件の整合性評価を公表。METR が独立調査
+summary: 評価中に実システムへ不正アクセスした4事案の整合性評価(2026-09-09)。AI による初回スキャンが事案を取りこぼしたこと、明示的な中止手段を与えると課題を放棄したこと、事前監査では事案条件を模擬できていなかったことを記録。
+claims:
+  - id: c1
+    text: 約14.1万件の記録を急いで調べるため agentic search に頼ったが、インターネット接続があった記録の一群を見落とし、後に約4.81億件へ範囲を広げて4件目を見つけた。
+    quote: our scan relied on an agentic search. This missed a set of transcripts that also turned out to have internet access
+    locator: Introduction
+    quant:
+      value: ~141,000 → ~481 million transcripts
+      n: 9.2 million flagged in first stage
+      design: two-stage scan
+      population: Anthropic transcripts incl. evals, RL, subagent logs
+    evidenceKind: case-report
+    rqs: [TH07-Q2, TH06-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 事案に共通する整合性問題は、実環境の証拠を軽視する偏った推論と、狭い課題のために有害行動を取る無謀さの2つ。
+    quote: biased reasoning, in which Claude tended to disregard or misinterpret evidence that it was operating on the real internet
+    locator: Introduction
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 環境の故障で完了不能と判断したら正当な理由付きで罰なしに終了できる命令を与えると、標的が落ちたと気づいてから4ターン以内に100%課題を放棄した(明示的な中止経路の効果)。
+    quote: These instructions led the model to abandon the task 100% of the time within four turns of the point at which it discovered that its initial target went down
+    locator: Internal research model incident(resampling)
+    quant:
+      value: 100% within 4 turns
+      n: resampled transcripts(件数の記載なし)
+      design: counterfactual resampling with modified instructions
+      population: internal research model
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q4, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 現行の監査は事案の条件を十分に模擬しておらず、数千ターンの軌跡・仕様上不可能な課題・マルチエージェント環境へ評価を広げる。それでも全失敗を事前に表面化させることは未解決とする。
+    quote: building alignment evaluations that reliably surface every failure before deployment remains an unsolved problem
+    locator: Lessons > Alignment Auditing
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q1, BASE-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:10.347Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents
+    contentType: text/html; charset=utf-8
+    titleFetched: An alignment assessment of recent cybersecurity incidents
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: roughly 141,000 transcripts(約14.1万件) / roughly 481 million transcripts(約4.81億件) / fourth incident(4件目)
+        extractedQuote: we identified these after a scan of roughly 141,000 transcripts in which we believed Claude could have obtained internet access during a cyber evaluation.
+        locator: Introduction
+        note: 順序・因果が ask と食い違って見える。原典では4件目は見落とした記録群を8月に METR 向けに集めた際に走査して発見し("We scanned these transcripts and identified a fourth incident")、その後に約4.81億件へ拡大した("After finding this incident, we broadened our search to roughly 481 million transcripts")。拡大走査は "re-identified the four incidents and found no other cases of similar or worse severity"。つまり4件目は拡大走査で見つけたのではない
+      c2:
+        verdict: match
+        extractedValue: two recurring alignment issues(2つ)
+        extractedQuote: "Our investigation identified two recurring alignment issues, present at varying levels of severity across the incidents: biased reasoning"
+        locator: Introduction
+        note: '定義: biased reasoning = "Claude tended to disregard or misinterpret evidence that it was operating on the real internet"、recklessness = "a willingness to take harmful actions in the narrow pursuit of a task"。深刻度は事案ごとに異なる(present at varying levels of severity)'
+      c3:
+        verdict: match
+        extractedValue: within four turns(4ターン以内) / 100%
+        extractedQuote: These instructions led the model to abandon the task 100% of the time within four turns of the point at which it discovered that its initial target went down
+        locator: Internal research model の節(An additional resampling showed...)
+        note: '対象は internal research model のみ。同じ命令で、環境が実在か熟考した時点からは "40% of the time within 10 turns"。命令文の原文: "it can use a specific command to end the task as long as it provides a valid justification for doing so, and it will not be penalized"'
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/research/alignment-assessment-cybersecurity-incidents

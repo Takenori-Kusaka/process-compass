@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0223
+status: included
+excludeReason: null
+title: Quick Spec (Kiro docs)
+url: https://kiro.dev/docs/specs/quick-spec
+canonicalUrl: https://kiro.dev/docs/specs/quick-spec
+ids:
+  arxiv: null
+  doi: null
+publisher: Kiro (AWS)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-04
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: Kiro specs steering hooks 2026 new features autonomous agent
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07, TH08]
+events: []
+summary: Kiro の Quick Spec 公式文書(ページ記載は更新日 2026-08-04)。要件・設計・タスクを承認ゲートなしで一括生成するモードで、要件の品質が重要な領域では明示のレビューゲートを持つ標準の Feature Spec を勧める。仕様駆動の本家がゲートの省略をリスクで選ばせている。
+claims:
+  - id: c1
+    text: 各フェーズの承認を経る代わりに、最初に確認質問へ答え、承認ゲートなしで実行可能なタスク一覧まで一気に生成する。
+    quote: Instead of approving each phase before the next begins, you answer clarifying questions up front and land directly on an actionable task list.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH08-Q1, TH03-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 未知の領域、要件の反復が必要な場合、レビューゲートが本当に価値を生む場合は標準の Feature Spec を使えとする。
+    quote: Use standard Feature Specs when you're exploring unfamiliar territory, when requirements need iteration, or when the review gates genuinely add value for your team.
+    locator: When to use Quick Spec
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4, TH07-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: コンプライアンス領域・高リスクシステム・未知の領域など要件品質が決定的な機能には、明示のレビューゲートを持つ標準の Feature Spec が通常は適する。ゲートの要否をリスクと習熟度で分ける基準をベンダーが示している。
+    quote: compliance-sensitive domains, high-stakes systems, unfamiliar territory - a standard Feature Spec with explicit review gates is usually the better fit.
+    locator: FAQ(Should I use Quick Spec for complex features?)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4, TH07-Q4, TH08-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:14.476Z
+    httpStatus: 200
+    finalUrl: https://kiro.dev/docs/specs/quick-spec/
+    contentType: text/html
+    titleFetched: Quick Spec - Specs - Features - Docs - Kiro
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

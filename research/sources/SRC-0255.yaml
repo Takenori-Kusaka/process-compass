@@ -1,0 +1,102 @@
+schemaVersion: 0
+id: SRC-0255
+status: included
+excludeReason: null
+title: AI-Native開発で広がるSIerの可能性 ～NTT DATAが向き合う、AI活用のこれから～
+url: https://www.nttdata.com/jp/ja/trends/data-insight/2026/0528
+canonicalUrl: https://nttdata.com/jp/ja/trends/data-insight/2026/0528
+ids:
+  arxiv: null
+  doi: null
+publisher: NTTデータ DATA INSIGHT
+authors: [茂呂 範, 柳原 伸弥]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-05-28
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: NTTデータ 生成AI 開発 標準 AIエージェント システム開発 2026 生産性
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH07, TH08, TH10]
+events:
+  - date: 2026-03-31
+    label: NTTデータの公共分野Webアプリ(要件定義からリリースまでGitHub Copilot活用)が2026年3月末にリリース、4月稼働
+summary: 公共分野のWebアプリ構築で要件定義から総合試験まで全工程にGitHub Copilotを使った事例(マイクロソフトとの対談)。V字を半年で10回以上回し、コード全量の人手レビューを省いたことを後に反省している。
+claims:
+  - id: c1
+    text: 成果物に導出元などの管理情報を記載して下位から上位の文書への追従性は高くなったが、上位から下位をたどるのが難しく、文書修正時の影響調査に時間がかかる課題が残った。
+    quote: その結果、下位のドキュメントから上位のドキュメントをたどれるようになり、上位ドキュメントへの追従性は非常に高く、一定の整合性を担保することができました。一方で、上位ドキュメントから下位のドキュメントをたどることが難しく、ドキュメント修正時の影響調査に時間がかかるなどの課題があります。
+    locator: 2．1つ目：ドキュメントを起点に、全体の整合性を保つ
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: qualifies
+  - id: c2
+    text: ウォーターフォールの型は変えずにAIエージェントでサイクルを短縮し、半年間で部分的な再実施を含め10回以上V字のサイクルを回した。
+    quote: 実際に今回のプロジェクトでは、半年の間に部分的な再実施も含めて10回以上、ウォーターフォール開発のサイクルを回しています。
+    locator: 2．3つ目：ウォーターフォールの型は変えず、開発サイクルを高速化する
+    quant:
+      value: 半年で10回以上
+      n: 1案件
+      design: 事例報告
+      population: 公共分野Webアプリ構築案件
+    evidenceKind: case-report
+    rqs: [TH10-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: 品質評価や設計判断は人が担ったが、コード全量の人手レビューは行わなかった。振り返ってコードレビューは実施すべきだったとし、標準から外れた箇所の品質が担保できていない可能性を認めている。
+    quote: ただ、振り返るとコードレビューは実施すべきだったと考えています。
+    locator: 2．3つ目 以降の問答
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q4, TH06-Q6]
+    issues: []
+    stance: contradicts
+  - id: c4
+    text: 一方で現在の検証では、コードレビューだけでなく品質評価や設計判断についても人のレビューを大幅に省略しているとし、人の判断を外す方向の検証も進めている。
+    quote: 現在の検証では、ソースコードレビューだけでなく品質評価や設計判断についても人のレビューを大幅に省略しており、このような開発方式を実務に投入する日も近いと考えています。
+    locator: 2．3つ目 以降の問答
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q2, TH01-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:17.599Z
+    httpStatus: 200
+    finalUrl: https://www.nttdata.com/jp/ja/trends/data-insight/2026/0528/
+    contentType: text/html; charset=utf-8
+    titleFetched: AI-Native開発で広がるSIerの可能性
+    titleMatch: true
+    dateMeta: 2026-05-28
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://nttdata.com/jp/ja/trends/data-insight/2026/0528

@@ -1,0 +1,178 @@
+schemaVersion: 0
+id: SRC-0205
+status: included
+excludeReason: null
+title: Model deprecations
+url: https://platform.claude.com/docs/en/about-claude/model-deprecations
+canonicalUrl: https://platform.claude.com/docs/en/about-claude/model-deprecations
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Anthropic model deprecation policy(platform docs .md を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH04]
+events:
+  - date: 2026-06-15
+    label: Claude Opus 4 / Sonnet 4 を API で廃止
+  - date: 2026-08-05
+    label: Claude Opus 4.1 を API で廃止(6/5 通知)
+  - date: 2026-04-14
+    label: Claude Sonnet 4 / Opus 4 の廃止を告知(退役 2026-06-15)
+  - date: 2026-06-05
+    label: Claude Opus 4.1 の廃止を告知(退役 2026-08-05)
+summary: Claude API のモデル廃止方針と一覧(2026-09-24 取得)。公開モデルは最低60日前に通知し、廃止前の十分前に新モデルで試験するよう求める。2026年は Opus 4 / 4.1 などが通知から約2か月で廃止された。
+claims:
+  - id: c1
+    text: 公開モデルの廃止は最低60日前に通知する。
+    quote: providing at least 60 days' notice before model retirement for publicly released models.
+    locator: Notifications
+    quant:
+      value: ≥60 days
+      n: null
+      design: vendor policy
+      population: publicly released Claude models
+    evidenceKind: normative
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 廃止日よりかなり前に新モデルでアプリを試験し、推奨の後継へ早期に移行することをベストプラクティスとする(モデル交代を再検証の契機とする推奨)。
+    quote: Test your applications with newer models well before the retirement date of your current model.
+    locator: Best practices
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 非推奨モデルは有効なモデルより信頼性が低くなりやすい。
+    quote: Deprecated models are likely to be less reliable than active models.
+    locator: Overview(Warning)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: Opus 4.1 は 2026-06-05 に廃止を通知され 2026-08-05 に廃止された(通知から61日)。
+    quote: On June 5, 2026, Anthropic notified developers using Claude Opus 4.1 of its upcoming retirement on the Claude API.
+    locator: "2026-06-05: Claude Opus 4.1 model"
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3, BASE-Q3]
+    issues: []
+    stance: context
+  - id: c5
+    text: Amazon Bedrock と Google Cloud などパートナー運営の基盤は独自の廃止日程を持つ(基盤ごとに変化点が異なる)。
+    quote: Partner-operated platforms (Amazon Bedrock and Google Cloud) set their own retirement schedules
+    locator: Overview
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3]
+    issues: []
+    stance: context
+  - id: c6
+    text: 公開モデルの退役は、稼働中の顧客へ少なくとも60日前に通知される。モデルの世代交代は利用者側の都合と無関係に期限付きで訪れる変化点である。
+    quote: Anthropic notifies customers with active deployments for models with upcoming retirements, providing at least 60 days' notice before model retirement for publicly released models.
+    locator: Notifications
+    quant:
+      value: ">=60 days"
+      n: null
+      design: vendor policy
+      population: publicly released Claude models
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c7
+    text: 後継モデルの性能を自社タスクで測るため、退役日よりかなり前に新モデルで自社アプリを十分に試験するよう勧める。モデル切替時の回帰評価をベンダー自身が求めている。
+    quote: To help measure the performance of replacement models on your tasks, consider thorough testing of your applications with the new models well before the retirement date.
+    locator: Migrating to replacements
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c8
+    text: Amazon Bedrock と Google Cloud は独自の退役日程を持ち、同じモデルでも状態と日付が異なりうる。利用経路によって変化点の時期がずれる。
+    quote: Partner-operated platforms (Amazon Bedrock and Google Cloud) set their own retirement schedules, so a model's lifecycle status and dates can differ.
+    locator: Overview
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: context
+  - id: c9
+    text: temperature・top_p・top_k は Claude 4.7 以降で既定値以外を渡すと 400 エラーになる。モデル切替がプロンプトの質だけでなくリクエスト仕様の互換性も壊す例である。
+    quote: Returns a 400 error when set to a non-default value on Claude 4.7 and later models and Claude Mythos Preview.
+    locator: API parameter deprecations
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:22.304Z
+    httpStatus: 200
+    finalUrl: https://platform.claude.com/docs/en/about-claude/model-deprecations
+    contentType: text/html; charset=utf-8
+    titleFetched: Model deprecations
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: partial
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+      c9: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 60 days
+        extractedQuote: Anthropic notifies customers with active deployments for models with upcoming retirements, providing at least 60 days' notice before model retirement for publicly released models.
+        locator: Notifications
+        note: 通知対象は active deployments を持つ顧客、基準点は retirement(提供終了)。このページは deprecated(利用可・非推奨)と retired(利用不可)を区別しており、ask の「廃止」はどちらか曖昧。日付は Anthropic 運営基盤(Claude API、Claude Platform on AWS、Microsoft Foundry)に適用され、Amazon Bedrock と Google Cloud は独自日程
+      c4:
+        verdict: match
+        extractedValue: Opus 4.1 / 通知 2026-06-05 / retired 2026-08-05 / 日数は本文に記載なし(計算上 61日)
+        extractedQuote: This model was retired August 5, 2026. On June 5, 2026, Anthropic notified developers using Claude Opus 4.1 of its upcoming retirement on the Claude API.
+        locator: "Deprecation history > 2026-06-05: Claude Opus 4.1 model"
+        note: 通知から提供終了までの日数は原典に書かれていない(6/5→8/5 を数えると61日)。ask は「廃止を通知され…廃止された」と同じ語を使うが、原典は通知日=deprecated 日、8/5=retired。推奨代替は claude-opus-4-8。モデル ID は claude-opus-4-1-20250805
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH02
+    query: Anthropic model deprecations policy retirement commitments

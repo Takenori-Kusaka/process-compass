@@ -1,0 +1,94 @@
+schemaVersion: 0
+id: SRC-0380
+status: included
+excludeReason: null
+title: Start here - Diátaxis in five minutes
+url: https://diataxis.fr/start-here/
+canonicalUrl: https://diataxis.fr/start-here
+ids:
+  arxiv: null
+  doi: null
+publisher: Diátaxis (Daniele Procida)
+authors: [Daniele Procida]
+orgType: individual
+region: global
+lang: en
+sourceType: community
+published: 2026-08-03
+publishedBasis: unknown
+version: null
+updated: 2026-08-03
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: Diátaxis documentation framework four kinds tutorials how-to reference explanation
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: 文書を4種類(チュートリアル/ハウツー/リファレンス/解説)に分ける Diátaxis の入門ページ。初出日は不明で、published は GitHub 上の start-here.rst の最終更新日(2026-08-03)。種類の境界を混ぜることが多くの文書問題の原因とする。
+claims:
+  - id: c1
+    text: 文書には4つの異なる必要に応える4種類があり、それぞれ目的が違い書き方も違う(読み手の必要で成果物を分類する)。
+    quote: The core idea of Diátaxis is that there are fundamentally four identifiable kinds of documentation, that respond to four different needs.
+    locator: Start here 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 4種類の境界を越えたりぼかしたりすることが、文書の多くの問題の中心にある。
+    quote: Crossing or blurring the boundaries described in the map is at the heart of a vast number of problems in documentation.
+    locator: The Diátaxis map
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:40.193Z
+    httpStatus: 200
+    finalUrl: https://diataxis.fr/start-here/
+    contentType: text/html; charset=utf-8
+    titleFetched: Start here - Diátaxis in five minutes - Diátaxis
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: four(four identifiable kinds / four different needs)
+        extractedQuote: there are fundamentally four identifiable kinds of documentation, that respond to four different needs. ... Each has a different purpose, and needs to be written in a different way.
+        locator: The four kinds of documentation(Start here 冒頭直後)
+        note: 4種類は tutorials, how-to guides, reference, explanation。『読み手の必要で成果物を分類する』は原文の要約的言い換え
+        adjudication:
+          verdict: consistent
+          reason: 『four identifiable kinds of documentation, that respond to four different needs ... Each has a different purpose, and needs to be written in a different way』と一致する。括弧内の『読み手の必要で分類する』は four different needs に応じた分類という原文の趣旨の要約。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: four(地図が示す4種類の境界)
+        extractedQuote: Crossing or blurring the boundaries described in the map is at the heart of a vast number of problems in documentation.
+        locator: The Diátaxis map
+        note: 該当文の主語は 'the boundaries described in the map'。4 という数は直前の 'how the four kinds of documentation are related to each other, and distinct from each other' から来る。原文は 'a vast number of problems'(多くの問題)
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://diataxis.fr/start-here

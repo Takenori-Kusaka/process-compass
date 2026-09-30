@@ -1,0 +1,125 @@
+schemaVersion: 0
+id: SRC-0276
+status: included
+excludeReason: null
+title: サブエージェント階層設計の作法：深さ3が既定になっても、私の構成は1段のままだった
+url: https://zenn.dev/haruhiro1020/articles/063a9add9d0d38
+canonicalUrl: https://zenn.dev/haruhiro1020/articles/063a9add9d0d38
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [haruhiro1020]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-08-24
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: Claude Code サブエージェント 失敗 実測 zenn
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH03, TH07]
+events:
+  - date: 2026-07-24
+    label: Claude Code v2.1.219 でサブエージェントの入れ子が既定で深さ3まで許可(公式 changelog の記載として引用)
+summary: Claude Code の入れ子既定深さ3化(v2.1.219)を受け、個人の19サブエージェント構成を実測で棚卸しした記録。検品役に Edit を渡さず権限で不可能にする設計と、Bash がその保証を崩すことを示す。
+claims:
+  - id: c1
+    text: 日常運用する19体のサブエージェントはすべて depth 1 のハブ&スポークで、子が孫を起動する箇所はゼロだった。既定深さが3になっても著者の環境では何も起きなかった。
+    quote: 19体すべてが depth 1 で、子が孫を起動している箇所はゼロ。
+    locator: 「いま動いている構成（19サブエージェント・19スキル・17コマンド）」節
+    quant:
+      value: 19体中 depth≥2 は0体
+      n: サブエージェント19・スキル19・コマンド17
+      design: 定義ファイルの grep と ls による計数(2026-08-16時点)
+      population: 個人1名の ~/.claude 構成
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH03-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 書き手にだけ Write/Edit を与え、検品役・計測役には与えない。プロンプトでの依頼は確率的にしか守られないが、渡していないツールは決定論的に使えない、という設計判断をしている。
+    quote: プロンプトでのお願いは確率的にしか守られませんが、渡していないツールは決定論的に使えません。
+    locator: 「tools 行が責務そのもの」節
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q5, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: ただし Bash を渡すとシェルのリダイレクトで Write の不在を素通りできるため、『書かせない』保証は消え、残るのはプロンプトの禁止文だけになる。著者は権限を定義ファイル・プロンプト・ハーネスの実行時剥奪の3層で整理した。
+    quote: つまり Bash を渡した時点で、Write を渡さないことによる保証は消えている。
+    locator: 「権限では縛りきれないものがある」節
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q5]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1 で実測したところ、親の定義に Agent ツールを書いても実行時に取り除かれ、ツール呼び出し0回で終わった(v2.1.233で確認)。
+    quote: 定義ファイルに書いても剥がされるわけです。
+    locator: 「v2.1.219 で変わった5つと、深さの数え方」節
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:20.997Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/haruhiro1020/articles/063a9add9d0d38
+    contentType: text/html; charset=utf-8
+    titleFetched: サブエージェント階層設計の作法：深さ3が既定になっても、私の構成は1段のままだった
+    titleMatch: true
+    dateMeta: 2026-08-24
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 19体 / depth 1 / 既定深さ3
+        extractedQuote: 19体すべてが depth 1 で、子が孫を起動している箇所はゼロ。ハブ＆スポーク（中央の親から放射状に子が伸びる形）そのものです。深さ3の既定化が私の環境で「何も起きない変更」だったのは、この形のせいです。
+        locator: 「いま動いている構成(19サブエージェント・19スキル・17コマンド)」節
+        note: 数値は 2026-08-16 時点と原文に明記。冒頭にも『私が日常運用している19体のサブエージェントは、1体も起動ツールを持っていません』。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「19体すべてが depth 1 で、子が孫を起動している箇所はゼロ。ハブ＆スポーク…深さ3の既定化が私の環境で「何も起きない変更」だった」と一致する。数値は 2026-08-16 時点と原文に明記されている(主張は時点を書いていないが矛盾はしない)。
+          date: 2026-09-24
+      c3:
+        verdict: match
+        extractedValue: 3つ(3層)
+        extractedQuote: つまり Bash を渡した時点で、 Write を渡さないことによる保証は消えている 。残っているのは「書き換えるな」というお願いだけで、これは検品役に Edit を渡さなかったときのような決定論的な保証ではありません。
+        locator: "「権限では縛りきれないものがある」節(層の表: 1.定義ファイルの tools: / 2.プロンプトの禁止事項 / 3.ハーネスによる実行時の剥奪)"
+        note: 原文は3層目を『決定論的。しかも定義より強い』とし、Bash の穴は1層目では塞げず『サンドボックスや権限ルールという別の道具の話』と述べる。
+      c4:
+        verdict: match
+        extractedValue: =1 / 0回 / v2.1.233
+        extractedQuote: "親の定義に tools: Agent, Read と書いてあるのに、走った親は Read しか持っておらず、ツール呼び出し0回で終わりました。 定義ファイルに書いても剥がされる わけです。この事実は後半で効いてきます。 ! 確認したバージョンは v2.1.233 です （この記事の主題である v2.1.219 そのものではありません）。"
+        locator: 「v2.1.219 で変わった5つと、深さの数え方」節
+        note: 版は3要素の v2.1.233 で、ask の『v___.___』(2要素)の書式と桁構成が合わない。原文は主題の v2.1.219 ではないと明記し、『この挙動は版によって動きます』と注記。実行コマンドは CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

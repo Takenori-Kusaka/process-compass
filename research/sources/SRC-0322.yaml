@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0322
+status: included
+excludeReason: null
+title: Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories
+url: https://arxiv.org/abs/2607.27250
+canonicalUrl: arxiv:2607.27250
+ids:
+  arxiv: "2607.27250"
+  doi: null
+publisher: arXiv (cs.SE)
+authors: [Prakhar Khatri]
+orgType: individual
+region: global
+lang: en
+sourceType: preprint
+published: 2026-07-28
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: (abs:"AGENTS.md" OR abs:"CLAUDE.md" OR abs:"instruction files" OR abs:"context files"), submittedDate 2026-05..09'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03]
+events: []
+summary: AGENTS.md / CLAUDE.md などの文脈ファイルの注入方法を変えて、Claude Code と Codex の正答率が変わるかを実リポジトリ17課題・288実行で調べた単著のアブレーション研究。効果は同等性検定で10〜15pt 以内に収まる。
+claims:
+  - id: c1
+    text: 文脈の注入戦略は、どちらのエージェントでも正答率を測れるほど動かさなかった(同等性検定で ≤10〜15pt に有界)。
+    quote: Context strategy does not measurably move correctness on either agent (bounded to <=10-15pp via equivalence testing)
+    locator: Abstract; §4.1
+    quant:
+      value: 効果 ≤10–15pp(TOST)
+      n: 2 agents(Claude Code claude-sonnet-4-6, Codex gpt-5.5)× 17 tasks / 3 repos, 288 evaluated runs
+      design: controlled ablation(gold-test evaluation, TOST + permutation)
+      population: 実リポジトリの課題
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4, TH03-Q3]
+    issues: [269, 274]
+    stance: context
+  - id: c2
+    text: 失敗は文脈ファイルで補える知識の不足ではなく実装技能(機能設計・パターン選択・配線)によるもので、実際の AGENTS.md は惜しい失敗を合格に変えなかった。
+    quote: a manipulation probe confirms the real AGENTS.md never converts a near-miss to a pass on either agent
+    locator: Abstract; §4.2 failure-mode triage
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 注入経路が非対称(Claude はシステムプロンプト、Codex はユーザーターン先頭)であることを交絡として著者が認めている。
+    quote: The injection-channel asymmetry (system prompt vs. user-turn prepend) is a noted confound
+    locator: §3.4 Agents
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:52.107Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.27250
+    contentType: text/html; charset=utf-8
+    titleFetched: Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories
+    titleMatch: true
+    dateMeta: 2026-07-28
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories
+      authors: ["Khatri, Prakhar"]
+      v1Date: 2026-07-28
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

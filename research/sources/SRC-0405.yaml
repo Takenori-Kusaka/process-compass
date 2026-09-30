@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0405
+status: included
+excludeReason: null
+title: AIコードレビューを1ヶ月回して、採用率8%だった話
+url: https://zenn.dev/backstage/articles/7644135a8fb926
+canonicalUrl: https://zenn.dev/backstage/articles/7644135a8fb926
+ids:
+  arxiv: null
+  doi: null
+publisher: BACKSTAGE Tech Blog(Zenn)
+authors: [Ryo Kanno]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-04-11
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: AIコードレビュー 導入 効果測定 指摘 採用率 テックブログ 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH11]
+events: []
+summary: 株式会社BACKSTAGE が Qodo pr-agent を GitHub Actions で 1 か月運用し、AI 指摘 760 件の採用を全件集計した記録。採用率 8.2%(人間 91.9%)で運用を止め、テスト・静的解析・設計合意へ軸足を移した。
+claims:
+  - id: c1
+    text: 1 か月で AI は週平均 253 件を指摘し採用率 8.2%、人間は週 12 件で採用率 92%。AI は PR 1 件あたり約 10 件、人間は 0.5 件を指摘した。
+    quote: 人間の指摘は週12件で採用率92%。AIは週253件出して採用率8%。
+    locator: 結果
+    quant:
+      value: AI 採用率 8.2% / 人間 91.9%
+      n: AI 指摘 760 件(約 1 か月)、Resolve 操作者で自動集計
+      design: case report (single team, before/after)
+      population: BACKSTAGE の社内リポジトリ
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: supports
+  - id: c2
+    text: 有効な指摘でも大量の微妙な指摘に埋もれて無視されていた。
+    quote: 内容としては有効な指摘でもResolveされていない（＝無視されている）ケースがあった。
+    locator: なぜ8%だったのか
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: [257]
+    stance: supports
+  - id: c3
+    text: 全員が AI で実装している環境では、同じく AI がレビューしても新しい気づきが少ない。生成と検証が同質になると検証の付加価値が下がるという現場の観察。
+    quote: そこにさらにAIがレビューしても、新しい気づきが少ない。
+    locator: なぜ8%だったのか
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c4
+    text: 差分だけを見る CI 上の AI は事実確認ができず、初回テストで指摘 5 件中 3 件が事実誤認だった。指摘に実行結果や観測を伴わない様式の限界。
+    quote: 初回テストで5件の指摘中3件が事実誤認だった。
+    locator: GitHub Actions上のAIは事実確認ができない
+    quant:
+      value: 3/5 が事実誤認
+      n: 初回テストの指摘 5 件
+      design: case report
+      population: 同上
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:17.344Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/backstage/articles/7644135a8fb926
+    contentType: text/html; charset=utf-8
+    titleFetched: AIコードレビューを1ヶ月回して、採用率8%だった話
+    titleMatch: true
+    dateMeta: 2026-04-11
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1ヶ月; AI 週平均253.3件・採用率8.2%; 人間 週平均12.4件・採用率91.9%(本文では週12件・92%); AIはPR1件あたり約10件、人間は0.5件
+        extractedQuote: 週平均 253.3 20.7 8.2% 12.4 11.4 91.9% 人間の指摘は週12件で採用率92%。AIは週253件出して採用率8%。 … AIはPR1件あたり約10件指摘する。人間は0.5件。
+        locator: 見出し「結果」の表と直後の段落、「量は多いが重複が多い」
+        note: 期間は『1ヶ月』と書かれるが AI の稼働週は表上 3/6〜3/27 の3週(760件/3=253.3)。人間の週平均12.4件・91.9%は導入前2週を含む5週の平均で、AI とは平均の母集団(期間)が異なる。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

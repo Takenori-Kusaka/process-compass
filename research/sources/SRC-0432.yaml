@@ -1,0 +1,81 @@
+schemaVersion: 0
+id: SRC-0432
+status: included
+excludeReason: null
+title: "Intent Formalization: A Grand Challenge for Reliable Coding in the Age of AI Agents"
+url: https://arxiv.org/abs/2603.17150
+canonicalUrl: arxiv:2603.17150
+ids:
+  arxiv: "2603.17150"
+  doi: null
+publisher: arXiv
+authors: [Lahiri Shuvendu K.]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2026-03-17
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH08
+  query: coding agent satisfies acceptance criteria literally but misses intent specification gaming tests pass 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH07]
+events: []
+summary: Microsoft Research の Lahiri による展望論文。非形式な意図と生成コードの挙動の差(intent gap)を AI が拡大するとし、意図を検査可能な仕様へ変換する intent formalization と、仕様の妥当性確認の難しさを中心課題に据える。
+claims:
+  - id: c1
+    text: 中心的なボトルネックは仕様の妥当性確認である。仕様が正しいかを判定するオラクルは利用者以外に存在しないため、半自動の指標や代理成果物(テスト)が要るとする。
+    quote: since there is no oracle for specification correctness other than the user
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q4, TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 意図の形式化には、誤解を減らす軽量テストから形式検証用の完全な関数仕様まで、信頼性要求に応じたトレードオフの幅がある。
+    quote: Intent formalization offers a tradeoff spectrum suitable to the reliability needs of different contexts
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:39.400Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2603.17150
+    contentType: text/html; charset=utf-8
+    titleFetched: "Intent Formalization: A Grand Challenge for Reliable Coding in the Age of AI Agents"
+    titleMatch: true
+    dateMeta: 2026-03-17
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "Intent Formalization: A Grand Challenge for Reliable Coding in the Age of AI Agents"
+      authors: ["Lahiri, Shuvendu K."]
+      v1Date: 2026-03-17
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

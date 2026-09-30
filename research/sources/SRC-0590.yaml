@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0590
+status: included
+excludeReason: null
+title: Release Please (README)
+url: https://github.com/googleapis/release-please
+canonicalUrl: https://github.com/googleapis/release-please
+ids:
+  arxiv: null
+  doi: null
+publisher: Google (googleapis/release-please)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: repo
+published: 2026-08-24
+publishedBasis: page
+version: v17.11.2
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: release-please README Conventional Commit release PR BEGIN_COMMIT_OVERRIDE(リポジトリを直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events: []
+summary: Google の release-please の README(main、最新リリース v17.11.2 は 2026-08-24)。リリースノートはコミットメッセージ(Conventional Commits)から生成し、squash マージを強く勧める。マージ済み PR の本文に上書き節を書けば、リリースノートに使う文言を後から直せる。
+claims:
+  - id: c1
+    text: release-please は git 履歴の Conventional Commits を解析して CHANGELOG とリリース PR を作る。リリースノートの入力は PR 本文ではなくコミットメッセージである。
+    quote: It does so by parsing your git history, looking for Conventional Commit messages, and creating release PRs.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c2
+    text: マージ済み PR の本文に `BEGIN_COMMIT_OVERRIDE` 〜 `END_COMMIT_OVERRIDE` の節を足すと、次回実行時にその節がコミットメッセージの代わりに使われる。PR 本文の特定の節を機械が読む先例で、顧客向けの文言を事後に直す経路になっている。
+    quote: The next time Release Please runs, it will use that override section as the commit message instead of the merged commit message.
+    locator: How can I fix release notes?
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c3
+    text: README は squash マージを強く勧め、PR 内でしか意味を持たないコミット(途中の fix など)はリリースノートに無関係だと説明する。レビュー中の経過の記録と、顧客向けの変更記録を分けている。
+    quote: The `fix` commit is actually irrelevant to the release notes as there was never a bug experienced in the main branch.
+    locator: Linear git commit history (use squash-merge)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c4
+    text: リリース対象になるのは feat・fix・deps の接頭辞を持つコミットだけで、chore や build は対象外。どの変更を顧客向けの記録に載せるかを、接頭辞で機械的に決めている。
+    quote: (A "chore" or "build" commit is not a releasable unit.)
+    locator: Release Please bot does not create a release PR. Why? / Step 1
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:54.159Z
+    httpStatus: 200
+    finalUrl: https://github.com/googleapis/release-please
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - googleapis/release-please: generate release PRs based on the conventionalcommits.org spec"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

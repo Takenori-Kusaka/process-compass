@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0554
+status: included
+excludeReason: null
+title: Automotive SPICE Process Assessment / Reference Model Version 4.0
+url: https://vda-qmc.de/wp-content/uploads/2023/12/Automotive-SPICE-PAM-v40.pdf
+canonicalUrl: https://vda-qmc.de/wp-content/uploads/2023/12/automotive-spice-pam-v40.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: VDA Quality Management Center (VDA Working Group 13)
+authors: [VDA Working Group 13]
+orgType: standards-body
+region: eu
+lang: en
+sourceType: standard
+published: 2023-11-29
+publishedBasis: pdf
+version: "4.0"
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G04
+  query: Automotive SPICE 4.0 PAM SWE.2 Software Architectural Design base practices "Analyze software architecture" rationale pdf VDA QMC
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH12, TH08]
+events:
+  - date: 2023-11-29
+    label: Automotive SPICE PAM/PRM 4.0 を公開
+summary: 車載ソフトのプロセスアセスメントモデル 4.0 の SWE.2(ソフトウェアアーキテクチャ設計)。設計決定の根拠の文書化と、関係者との合意・伝達を要求し、証跡となる情報項目を定める。決定記録を単独の承認ゲートにする規定は SWE.2 に無い。
+claims:
+  - id: c1
+    text: SWE.2.BP3 は、アーキテクチャ設計の決定について根拠を文書化することを基本プラクティスとして求める。
+    quote: Document a rationale for the software architectural design decision.
+    locator: §4.4.2 SWE.2.BP3 (p.48)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+  - id: c2
+    text: SWE.2 のプロセス成果 4 は、ソフトウェアアーキテクチャが合意され、影響を受けるすべての関係者(all affected parties)へ伝達されていることである。SWE.2 節に approve / approval の語は無く、決定1件ごとの承認手続きに当たる記述は無い。
+    quote: 4) The software architecture is agreed and communicated to all affected parties.
+    locator: 4.4.2 SWE.2 > Process outcomes 4)(p.47)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+  - id: c3
+    text: 根拠として認める論拠の例に、使用実績・既存フレームワークの再利用・make-or-buy を挙げる。代替案の比較を必須とはしていない。
+    quote: Design rationales can include arguments such as proven-in-use, reuse of a software framework or software product line, a make-or-buy decision, or found in an evolutionary way
+    locator: §4.4.2 SWE.2.BP3 Note 8 (p.48)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: qualifies
+  - id: c4
+    text: トレーサビリティのリンクが存在するだけでは内容の整合を意味しないと注記している。
+    quote: Traceability alone, e.g, the existence of links, does not necessarily mean that the information is consistent with each other.
+    locator: §4.4.2 SWE.2.BP4 Note 10 (p.48)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q2]
+    issues: [255]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:36.794Z
+    httpStatus: 200
+    finalUrl: https://vda-qmc.de/wp-content/uploads/2023/12/Automotive-SPICE-PAM-v40.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: SWE.2.BP3
+        extractedQuote: "SWE.2.BP3: Analyze software architecture. [...] Document a rationale for the software architectural design decision."
+        locator: 4.4.2 SWE.2 Software Architectural Design > Base Practices(p.48 冒頭)
+        note: 引用の [...] は第1文「Analyze the software architecture regarding relevant technical design aspects and to support project management regarding project estimates.」の省略。PDF を取得し pdftotext で抽出(引用は改行を空白に正規化)。BP3 の題は「Analyze software architecture」で、根拠の文書化はその第2文。原文は単数形「the software architectural design decision」。Note 8 が design rationale の例(proven-in-use、再利用、make-or-buy 等)を挙げる。
+      c2:
+        verdict: match
+        extractedValue: Outcome 4(agreed and communicated to all affected parties)。決定の件数単位の承認手続きに当たる数値・記述は SWE.2 節に無い
+        extractedQuote: 4) The software architecture is agreed and communicated to all affected parties.
+        locator: 4.4.2 SWE.2 > Process outcomes 4)(p.47)
+        note: "SWE.2 節(p.47–48)内に approve / approval の語は0件。対応する BP は「SWE.2.BP5: Communicate agreed software architecture. Communicate the agreed software architecture to all affected parties.」で、対象は「all affected parties」(affected に限定)。伏せ字の「決定___件ごと」は原典に数値として現れない否定形の主張で、節内に無いことだけを確認した。"
+        adjudication:
+          verdict: corrected
+          reason: 原文は「agreed and communicated to all affected parties」で、対象は影響を受ける関係者に限定される。主張の「関係者すべてと合意され」は affected の限定を落とし、合意の相手を全関係者と読ませる点で過剰。後半の否定形(決定1件ごとの承認手続きとしては書かれていない)は、節内に approve / approval が0件という不在確認と整合する。
+          date: 2026-09-30
+          originalText: プロセス成果の一つは、アーキテクチャが関係者すべてと合意され伝達されていることである。合意はアセスメントで確認される成果で、決定1件ごとの承認手続きとしては書かれていない。
+          originalQuote: The software architecture is agreed and communicated to all affected parties.
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0274
+status: included
+excludeReason: null
+title: Claude Codeのループが回らないのは、プロンプトではなく完了条件の問題だった
+url: https://zenn.dev/gemcook/articles/467b1233efe811
+canonicalUrl: https://zenn.dev/gemcook/articles/467b1233efe811
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn(gemcook Publication)
+authors: [MJ]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-07-10
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: Claude Code サブエージェント 失敗 実測 zenn
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH03]
+events: []
+summary: サブエージェント委任に完了条件ブロックを hook で強制したところ、形式だけ満たして中身が空虚になった事例と、Stop hook の検証ゲートが達成不能な条件で無限ループした事例の記録(企業の Zenn Publication、筆者一人称の実践記)。
+claims:
+  - id: c1
+    text: 委任プロンプトに <success_criteria> ブロックが無ければ deny する hook を入れたところ、タグは毎回書かれたが中身は「タスクが正しく完了していること」「品質が十分であること」など検証不能な文言だった。
+    quote: 僕はタグの存在をチェックして満足していましたが、形式を強制しても意味は強制できていませんでした。
+    locator: "「事件1: XMLだけ書いて、中身はノリ」"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q5, TH07-Q2]
+    issues: [269, 270]
+    stance: supports
+  - id: c2
+    text: 検証語彙の lint を追加したが「ls / がexit 0であること」で素通りできるため撤去し、hook には『空白除去後20文字以上』の床だけを残して、中身の判定は skill とレビューに寄せた。
+    quote: 「ls / がexit 0であること」と書けば素通りできる床の上で、語彙の検査だけ厳しくしても防御になっていないからです。
+    locator: 「事件1」後半
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q2, TH07-Q5]
+    issues: []
+    stance: supports
+  - id: c3
+    text: Stop hook の検証ゲートと達成不能な完了条件が組み合わさり、2分間に同じフィードバックが6連発されリポジトリは1バイトも変わらない無限ループになった。
+    quote: ターン終了をブロックするhookが、2分間に同じフィードバックを6連発していたんです。
+    locator: "「はじめに」/「事件2: 止まらないループ」"
+    quant:
+      value: 2分間に同一フィードバック6回
+      n: 1事例
+      design: ログの事後確認
+      population: 筆者の Claude Code 自律作業
+    evidenceKind: case-report
+    rqs: [TH07-Q3, TH07-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:20.962Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/gemcook/articles/467b1233efe811
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Codeのループが回らないのは、プロンプトではなく完了条件の問題だった
+    titleMatch: true
+    dateMeta: 2026-07-10
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: exit 0 / 空白除去後20文字以上
+        extractedQuote: 「 ls / がexit 0であること」と書けば素通りできる床の上で、語彙の検査だけ厳しくしても防御になっていないからです。今のhookに残っているのは「空白除去後20文字以上」という形の床だけで
+        locator: "「事件1: XMLだけ書いて、中身はノリ」後半"
+        note: 原文では撤去理由は『ls / がexit 0 で素通りできる床の上で語彙検査だけ厳しくしても防御にならない』という床の弱さの指摘。中身の判定は『委任の書き方を定めた知識側のskillとレビューに寄せました』。
+      c3:
+        verdict: match
+        extractedValue: 2分間 / 6連発 / 1バイトも変わっていない
+        extractedQuote: ターン終了をブロックするhookが、2分間に同じフィードバックを6連発していたんです。Claude Codeは毎回「修正しました」と言い、hookは毎回同じ理由で差し戻し、リポジトリの状態は1バイトも変わっていない。
+        locator: "「はじめに」第1段落(「事件2: 止まらないループ」でも『同じフィードバックが2分間に6連発』と再掲)"
+        note: 事件2節に『事件はこのゲートと、達成不能な完了条件の組み合わせで起きました』とあり、Stop hook の検証ゲートとの組み合わせは原文どおり。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

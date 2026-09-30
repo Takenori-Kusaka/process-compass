@@ -1,0 +1,83 @@
+schemaVersion: 0
+id: SRC-0107
+status: included
+excludeReason: null
+title: How do usage and length limits work? | Claude Help Center
+url: https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work
+canonicalUrl: https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude Help Center)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Max plan weekly usage limits 2026 change
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events: []
+summary: Anthropic 公式の利用上限の規約説明(取得時「Updated this week」)。全プロダクト面(claude.ai / Claude Code / Desktop)が同一の上限を共有し、超過時は待つ・上位プラン・usage credits 購入の三択と定める。具体的なトークン数は公開しない。
+claims:
+  - id: c1
+    text: claude.ai、Claude Code、Desktop の利用は同一の上限を共有する。上限は会話の長さ・モデル・effort 等で変動し、固定のプロンプト数は公開されない。
+    quote: Note that your usage of all different Claude product surfaces (claude.ai, Claude Code, Claude Desktop) counts towards the same usage limit.
+    locator: What are usage limits?
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 上限到達時の公式な選択肢は「リセットを待つ・プランを上げる・usage credits を買う」の 3 つ。定額のみで稼働を保証する規約は無い。
+    quote: If you hit your usage limit, you'll need to wait for it to reset, upgrade your plan, or purchase usage credits.
+    locator: What happens when I hit a limit?
+    quant: null
+    evidenceKind: normative
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:44.884Z
+    httpStatus: 200
+    finalUrl: https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work
+    contentType: text/html; charset=utf-8
+    titleFetched: How do usage and length limits work? | Claude Help Center
+    titleMatch: true
+    dateMeta: 2026-09-16
+    quotes:
+      c1: found
+      c2: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 3つ(wait for it to reset / upgrade your plan / purchase usage credits)
+        extractedQuote: If you hit your usage limit, you'll need to wait for it to reset, upgrade your plan, or purchase usage credits.
+        locator: Key differences 節(ページに 'What happens when I hit a limit?' という見出しは存在しない)
+        note: locator の見出しは現行ページに無く、該当文は Key differences 節にある。なお 'How can I get unlimited usage?' 節には usage-based Enterprise plan は従量課金(consumption)と記載あり。『定額のみで稼働を保証する規約は無い』は原文に明示の記述は無く解釈。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

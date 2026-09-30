@@ -1,0 +1,187 @@
+schemaVersion: 0
+id: SRC-0252
+status: included
+excludeReason: null
+title: DX動向2026 広がるAI導入、DXは変われるか
+url: https://www.ipa.go.jp/digital/chousa/dx-trend/rcu1hd0000017uk8-att/dx-trend-2026.pdf
+canonicalUrl: https://ipa.go.jp/digital/chousa/dx-trend/rcu1hd0000017uk8-att/dx-trend-2026.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 独立行政法人情報処理推進機構(IPA)
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-07-30
+publishedBasis: pdf
+version: null
+updated: 2026-08-04
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S4
+  query: IPA 生成AI ソフトウェア開発 2026 報告書 AIエージェント 開発プロセス
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH12]
+events:
+  - date: 2026-07-30
+    label: IPA「DX動向2026」公開(1,799社、調査期間 2026年4月中旬〜6月中旬)
+summary: IPAの定点調査(日本企業1,799社)。AI利活用は業務効率化中心で、プログラム・システム開発支援は効果が出ている割合が高い一方「効果が出ていない」も3割弱ある。
+claims:
+  - id: c1
+    text: 調査は19業種の企業の経営層またはICT関連部門を対象に2026年4月中旬〜6月中旬に実施し、1,799社から有効回答を得た。
+    quote: 日本企業へのアンケートは、日本標準産業分類の19 業種（製造業、非製造業、「公務」を除く）の企業の経営層またはICT 関連事業部門を対象として実施し、1,799 社からの有効回答を得た。
+    locator: 6.1 調査概要(p.67)
+    quant:
+      value: 1,799社
+      n: 1,799
+      design: アンケート調査
+      population: 日本企業19業種の経営層またはICT関連部門
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: AIの用途のうち「プログラムコードやシステム開発支援」は効果が出ている割合が高いが、「効果が出ていない」も3割弱ある。
+    quote: 「データ分析・予測・インサイト抽出」および「プログラムコードやシステム開発支援」は効果が出ている割合が高いが、ともに「効果が出ていない」も3 割弱ある。
+    locator: 3章 図表3-10 AI 利活用の用途(AI 導入効果別・抜粋)
+    quant:
+      value: 効果が出ていない 3割弱
+      n: AI導入効果の設問で「わからない」以外を回答した企業
+      design: アンケート(自己申告)
+      population: AI導入・試験利用・検討中の日本企業
+    evidenceKind: survey
+    rqs: [TH11-Q2, BASE-Q2, TH12-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 「プログラムコードやシステム開発支援」への利活用は情報通信業で76.3%と他業種を大きく上回る。
+    quote: 「プログラムコードやシステム開発支援」では「情報通信業」が76.3%と他業種を大きく上回っており
+    locator: 3章 図表3-11 AI 利活用の用途(業種別・抜粋)
+    quant:
+      value: 76.3%
+      n: 情報通信業の回答企業(件数は図表参照)
+      design: アンケート
+      population: AI導入・試験利用・検討中の情報通信業
+    evidenceKind: survey
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: AI導入・運用上の課題は「専門人材が不足」50.1%、「効果やリスクの理解不足」45.8%、「適切な利用を管理するルールや基準の作成が難しい」39.7%の順。
+    quote: 「専門人材が不足している」が50.1%と最も高く、次いで「生成AI の効果やリスクに関する理解が不足している」が45.8%、「適切な利用を管理するためのルールや基準の作成が難しい」が39.7%となっている
+    locator: 3章 図表3-16 AI 導入・運用上の課題(p.37)
+    quant:
+      value: 50.1% / 45.8% / 39.7%
+      n: AI導入・検討企業(件数は図表参照)
+      design: アンケート(複数回答)
+      population: 日本企業
+    evidenceKind: survey
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+  - id: c5
+    text: AI導入の効果は業務効率化・迅速化(91.6%)が中心で、顧客満足度向上4.5%、売上・利益向上3.9%と外向きの成果に至る企業は少ない。
+    quote: 「顧客満足度が向上した」が 4.5%、「売上や利益が向上した」が 3.9%と、外向きの成果創出に至っている企業は少ない状況にある。
+    locator: 3章 図表3-14 AI導入による具体的効果
+    quant:
+      value: 効率化91.6% / 顧客満足4.5% / 売上利益3.9%
+      n: 1,799 companies (subset reporting some effect)
+      design: questionnaire
+      population: 日本企業
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c6
+    text: DX の成果指標を設定している企業は4社に1社にも満たず、設定しない理由は「設定方法がわからない」が最多。
+    quote: 成果指標を設定している企業は 4 社に 1 社にも満たず
+    locator: 2章 概要
+    quant:
+      value: <25% set outcome metrics
+      n: 1,799 companies
+      design: questionnaire
+      population: 日本企業
+    evidenceKind: survey
+    rqs: [TH11-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:44.079Z
+    httpStatus: 200
+    finalUrl: https://www.ipa.go.jp/digital/chousa/dx-trend/rcu1hd0000017uk8-att/dx-trend-2026.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+      c6: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 19 業種 / 2026 年 / 4 月中旬〜6 月中旬 / 1,799 社
+        extractedQuote: 日本企業へのアンケートは、日本標準産業分類の19 業種（製造業、非製造業、「公務」を除く）の企業の経営層またはICT 関連事業部門を対象として実施し、1,799 社からの有効回答を得た。
+        locator: 6.1 調査概要(p.67)。調査期間は p.2「DX 動向2026 について」
+        note: 調査期間は 6.1(p.67)には無く、p.2 の前書きに「調査期間は2026 年4 月中旬から6 月中旬までとしました。」とある。報告書はこの調査を『2025 年度調査』と呼ぶ。対象は『ICT 関連事業部門』。
+      c2:
+        verdict: match
+        extractedValue: 3(3 割弱)
+        extractedQuote: 「データ分析・予測・インサイト抽出」および「プログラムコードやシステム開発支援」は効果が出ている割合が高いが、ともに「効果が出ていない」も3 割弱ある。
+        locator: 3章 図表 3-10 直前の本文(p.32)
+        note: 母集団は AI の導入効果の設問で『わからない』以外を回答した企業。図表は回答率の高い4用途を除外した抜粋。
+      c3:
+        verdict: match
+        extractedValue: "76.3"
+        extractedQuote: 「プログラムコードやシステム開発支援」では「情報通信業」が76.3%と他業種を大きく上回っており
+        locator: 3章 図表 3-11 直前の本文(p.33)
+        note: 母集団は AI を『導入している』『試験利用をしている』『利用に向けて検討を進めている』を選択した企業(検討中を含む)。
+      c4:
+        verdict: match
+        extractedValue: 50.1 / 45.8 / 39.7
+        extractedQuote: 「専門人材が不足している」が50.1%と最も高く、次いで「生成AI の効果やリスクに関する理解が不足している」が45.8%、「適切な利用を管理するためのルールや基準の作成が難しい」が39.7%となっている
+        locator: 3章 図表 3-16 直前の本文(p.37)
+        note: 2番目の選択肢は原文では『生成AI の』効果やリスクに関する理解不足。
+      c5:
+        verdict: match
+        extractedValue: 91.6 / 4.5 / 3.9
+        extractedQuote: 「業務が効率化したり迅速化した」が91.6%と最も高く、…「顧客満足度が向上した」が4.5%、「売上や利益が向上した」が3.9%と、外向きの成果創出に至っている企業は少ない状況にある。
+        locator: 3章 図表 3-14 直前の本文(p.35)
+        note: 母集団は AI の導入効果で『期待以上』『期待どおり』『一定の効果はあった』を選択した企業(効果があった企業のみ)で、AI導入企業全体ではない。
+      c6:
+        verdict: match
+        extractedValue: 4 社に 1 社にも満たず(2025 年度『設定している』23.9%)
+        extractedQuote: 成果指標を設定している企業は4 社に1 社にも満たず、設定している企業においても、指標は内向きの取組を対象としたものが中心となっている。成果指標の設定ができない要因としては「設定方法がわからない」が最多となっており
+        locator: 2.1 概要(p.5)。詳細は 2.4(p.18, 図表 2-14)と p.20(図表 2-16)
+        note: 母集団は DX に取組んでいる企業。未設定理由の選択肢名は『評価指標の設定方法がわからない』(2025 年度 36.0%)。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「成果指標を設定している企業は4 社に1 社にも満たず…成果指標の設定ができない要因としては「設定方法がわからない」が最多」と一致する(2025 年度「設定している」23.9%<25%)。claimQuoteFoundInSource が not-found なのは「4 社に 1 社」の空白の違いによるもので、文言の実体は一致する。母集団は DX に取組んでいる企業だが、原文の概要文も母集団を明示しない同じ書き方であり、主張は原文の要約に忠実である。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH11
+    query: IPA 情報処理推進機構 2026 調査 生成AI ソフトウェア開発 活用 効果 報告書
+urlBeforeRepair: https://ipa.go.jp/digital/chousa/dx-trend/rcu1hd0000017uk8-att/dx-trend-2026.pdf

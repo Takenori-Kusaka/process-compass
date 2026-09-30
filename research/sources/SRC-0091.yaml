@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0091
+status: included
+excludeReason: null
+title: "ISO 42001: The Importance of Knowing Your Role Before Building Your AI System"
+url: https://cloudsecurityalliance.org/blog/2026/07/21/iso-42001-the-importance-of-knowing-your-role-before-building-your-ai-system
+canonicalUrl: https://cloudsecurityalliance.org/blog/2026/07/21/iso-42001-the-importance-of-knowing-your-role-before-building-your-ai-system
+ids:
+  arxiv: null
+  doi: null
+publisher: Cloud Security Alliance (originally Schellman)
+authors: [Gierl Matthew]
+orgType: consultancy
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-07-21
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: ISO/IEC 42001 Annex A roles responsibilities AI system human oversight segregation of duties AI agents accountability
+derivedFrom: [SRC-0090]
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12]
+events: []
+summary: "認証審査機関 Schellman の担当者による ISO 42001 解説(二次)。ISO/IEC 22989 の3役割(producer/provider/customer)と、Annex A.3(内部組織: 役割・責任・報告系統)、A.8.4(人間の監視)を説明。利用者組織では監視手順・エスカレーション経路・覆しの記録が監査で最初に求められる証拠だとする。"
+claims:
+  - id: c1
+    text: AI 利用者組織では Annex A.8.4 の人間の監視が主たる運用統制になり、AI 生成の判断をレビューする手順・エスカレーション経路・覆しの記録が監査人が最初に求める証拠になる。
+    quote: "Human oversight (Annex A.8.4) becomes the primary operational control: documented procedures for reviewing AI-generated decisions, escalation paths, and override records are the evidence an auditor will request first."
+    locator: What Are the Role Responsibilities in ISO 42001?
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c2
+    text: Annex A.3 は内部組織として、役割・責任と AI ガバナンスの報告構造を定める2つの管理策から成る。
+    quote: A.3 addresses Internal Organization through two controls defining roles, responsibilities, and AI governance reporting structures.
+    locator: "ISO 42001 Annex A: 38 Controls Across 9 Domains"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: [248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:40.753Z
+    httpStatus: 200
+    finalUrl: https://cloudsecurityalliance.org/blog/2026/07/21/iso-42001-the-importance-of-knowing-your-role-before-building-your-ai-system
+    contentType: text/html; charset=utf-8
+    titleFetched: ISO 42001 and AI Governance Roles | CSA
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: A.3 / two controls
+        extractedQuote: A.3 addresses Internal Organization through two controls defining roles, responsibilities, and AI governance reporting structures.
+        locator: "ISO 42001 Annex A: 38 Controls Across 9 Domains > The Nine Domains"
+        note: CSA ブログによる Annex A の要約(二次資料)であり、ISO/IEC 42001 の本文そのものではない。規格本文での管理策の名称・範囲は未確認
+        adjudication:
+          verdict: consistent
+          reason: blindQuote と一字一句一致する。ただし出典は CSA ブログによる Annex A の要約(二次資料)で、ISO/IEC 42001 本文での管理策の名称と範囲は確かめていない。引用するときは二次資料であることを明示する必要がある。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

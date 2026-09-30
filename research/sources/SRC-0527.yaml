@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0527
+status: included
+excludeReason: null
+title: "ISO 26262-6:2018 Road vehicles — Functional safety — Part 6: Product development at the software level (iTeh preview)"
+url: https://cdn.standards.iteh.ai/samples/68388/0d9449d413ff4d85bc9304569cbecd34/ISO-26262-6-2018.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/68388/0d9449d413ff4d85bc9304569cbecd34/iso-26262-6-2018.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: International Organization for Standardization (ISO)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2018-12
+publishedBasis: pdf
+version: Second edition
+updated: null
+accessed: 2026-09-30
+access: paywall
+readLevel: section
+foundBy:
+  cluster: G02
+  query: cdn.standards.iteh.ai samples ISO 26262-2:2018 management of functional safety pdf
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH07, TH08]
+events: []
+summary: ISO 26262 第 6 部(ソフトウェア開発)の公開プレビュー。§5.2 までが読め、アジャイル手法を安全関連ソフトウェアに使えるが安全方策や基本的な文書・プロセスの省略には使えないという注記と、TDD・継続的インテグレーションの例示がある。双方向トレーサビリティを扱う §6 以降と第 8 部 §6 はプレビュー範囲外。
+claims:
+  - id: c1
+    text: アジャイル開発の手法は安全関連ソフトウェアにも適し得るが、安全方策の省略や、機能安全の達成に要る基本的な文書・プロセス・厳格さの無視には使えない。
+    quote: agile approaches and methods cannot be used to omit safety measures or ignore
+    locator: §5.2 General, NOTE 1
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: []
+    stance: context
+  - id: c2
+    text: 継続的インテグレーションは、ツールチェーンと設定を条件として、ソフトウェア・文書・試験結果の再現可能で変更後に比較可能な生成を可能にすると例示される。
+    quote: Continuous integration based on an automated build system can support consistency of sub-
+    locator: §5.2 General, EXAMPLE 2
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:26.068Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/68388/0d9449d413ff4d85bc9304569cbecd34/ISO-26262-6-2018.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

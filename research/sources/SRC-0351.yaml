@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0351
+status: included
+excludeReason: null
+title: Agent Skills - Codex (OpenAI Developers)
+url: https://developers.openai.com/codex/skills
+canonicalUrl: https://developers.openai.com/codex/skills
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH03
+  query: (直接取得) developers.openai.com/codex/skills
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: OpenAI Codex のスキル公式文書。Codex も progressive disclosure を採り、初期スキル一覧にコンテキストの2%の上限を設け、多数導入時は説明文を短縮し一部スキルを一覧から外す。
+claims:
+  - id: c1
+    text: Codex の初期スキル一覧はコンテキストの最大2%(不明時は8,000文字)に制限される。
+    quote: To avoid crowding out the rest of the prompt, this list uses at most 2% of the model’s context window, or 8,000 characters when the context window is unknown.
+    locator: Progressive disclosure
+    quant:
+      value: 2% of context window or 8,000 chars
+      n: null
+      design: product specification
+      population: Codex initial skills list
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: スキルが多いと説明文を先に短縮し、さらに多いと一部スキルを初期一覧から省く(警告を出す)。本数増加で一覧が劣化する設計上の限界をベンダー自身が明示している。
+    quote: If many skills are installed, Codex shortens skill descriptions first. For large skill sets, Codex may omit some skills from the initial list and show a warning.
+    locator: Progressive disclosure
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH03-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:22.072Z
+    httpStatus: 200
+    finalUrl: https://learn.chatgpt.com/docs/build-skills
+    contentType: text/html; charset=utf-8
+    titleFetched: Build skills | ChatGPT Learn
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

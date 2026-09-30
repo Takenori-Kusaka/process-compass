@@ -1,0 +1,233 @@
+schemaVersion: 0
+id: SRC-0004
+status: included
+excludeReason: null
+title: "Nine Judges, Two Effective Votes: Correlated Errors Undermine LLM Evaluation Panels"
+url: https://arxiv.org/abs/2605.29800
+canonicalUrl: arxiv:2605.29800
+ids:
+  arxiv: "2605.29800"
+  doi: null
+publisher: "arXiv (著者所属: Apple)"
+authors: [Guneet Kohli]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2026-05-28
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-1
+  query: GET https://arxiv.org/html/2605.29800
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 7 系統 9 モデルの判定パネルを ChaosNLI 3 データセット(各 100 人注釈)で測り、Kish 実効標本数で実効独立票 2.18、合議の利得 0.2pp、系統内外の相関差 0.047 を示す。#256/#258/254 メモの引用値は全て一致。ただし著者は Limitations でコードレビューへの一般化を留保している。
+claims:
+  - id: c1
+    text: 7 系統 9 モデルの判定パネルを、各項目 100 人注釈の NLI 3 データセット(ChaosNLI-MNLI/SNLI/AlphaNLI、各 1,000 項目)で評価し、実効的な独立票は約 2 票分。
+    quote: Testing a panel of 9 frontier LLMs from 7 model families on three natural language inference datasets (each with 100 human annotations per item)
+    locator: Abstract; §3.1 Datasets; §3.2 Judge Panel
+    quant:
+      value: ≈2 effective votes from 9 judges
+      n: 1,000 items per dataset × 3 datasets; 9 judges
+      design: observational measurement (Kish n_eff + Condorcet null model)
+      population: ChaosNLI, temperature 0.0
+    evidenceKind: benchmark
+    rqs: [TH06-Q2]
+    issues: [256, 258]
+    stance: supports
+  - id: c2
+    text: MNLI で Kish 実効独立票数 2.18(95% ブートストラップ CI 2.07〜2.31)、固有値法 2.16、独立性比 24.2%。
+    quote: The 9-judge panel provides only 2.18 effective independent voters.
+    locator: §4.1 Table 2 (n_eff (Kish) 2.18 [2.07, 2.31]; n_eff (eigenvalue) 2.16; Independence ratio 24.2%)
+    quant:
+      value: n_eff 2.18 [2.07, 2.31] = 24.2% of nominal 9
+      n: 1,000 MNLI items, 10,000 bootstrap resamples
+      design: observational measurement
+      population: ChaosNLI-MNLI
+    evidenceKind: benchmark
+    rqs: [TH06-Q2]
+    issues: [256, 258]
+    stance: supports
+  - id: c3
+    text: 独立投票なら達成できたはずの精度(Condorcet 予測)に対する不足は MNLI 22.0pp、SNLI 14.0pp、AlphaNLI 7.6pp。
+    quote: Condorcet gaps decrease with base accuracy (22.0pp → 14.0pp → 7.6pp), as expected when higher accuracy leaves less room for correlated errors.
+    locator: §4.5 Cross-Dataset Replication; Table 3 (Cond. gap 22.0 [19.5, 24.1] / 14.0 [11.9, 16.1] / 7.6 [6.0, 9.1])
+    quant:
+      value: 22.0 / 14.0 / 7.6 pp
+      n: 1,000 items each
+      design: Condorcet null-model simulation vs observed majority vote
+      population: MNLI / SNLI / AlphaNLI
+    evidenceKind: benchmark
+    rqs: [TH06-Q2]
+    issues: [258]
+    stance: supports
+  - id: c4
+    text: MNLI ではパネル 72.0% 対 最良単体(Qwen3-32B)71.8% で合議の利得 0.2pp(11 件の同票処理の範囲内)。SNLI では最良単体 84.2% がパネル 77.7% を上回り(−6.5pp)、AlphaNLI も −2.5pp。
+    quote: On MNLI, the panel (72.0%) barely edges the best judge (Qwen3-32B, 71.8%) by 0.2pp — within noise; on SNLI, the best judge dominates (Claude Sonnet 4.5, 84.2% vs. panel 77.7%)
+    locator: §1 Introduction; Table 2 (Panel lift 0.2pp); Table 3 (Panel lift +0.2 / −6.5 / −2.5 pp)
+    quant:
+      value: +0.2pp (MNLI); −6.5pp (SNLI); −2.5pp (AlphaNLI)
+      n: 1,000 items each
+      design: majority vote vs best individual
+      population: 9-judge panel
+    evidenceKind: benchmark
+    rqs: [TH06-Q2]
+    issues: [258]
+    stance: supports
+  - id: c5
+    text: 同系統ペアの誤り相関 φ=0.437(OpenAI 同士)・0.435(Meta 同士)は系統横断平均 0.389 よりわずかに高いだけ(差 0.047)。最も相関の高い 3 組は全て系統横断(Claude×Gemini 0.603、GPT-4o×Claude 0.588、Mistral×DeepSeek 0.564)。
+    quote: "Same-family pairs (OpenAI-OpenAI: φ=0.437; Meta-Meta: φ=0.435) are only slightly more correlated than the cross-family mean (φ̄_cross=0.389, difference = 0.047)."
+    locator: §5.3 Same-Family vs. Cross-Family Correlation; App. B Figure 3
+    quant:
+      value: φ 0.435–0.437 vs 0.389 (Δ 0.047)
+      n: 36 judge pairs, 1,000 MNLI items
+      design: pairwise phi correlation of errors
+      population: 9 judges
+    evidenceKind: benchmark
+    rqs: [TH06-Q2]
+    issues: [258]
+    stance: supports
+  - id: c6
+    text: 系統ごとに最良 1 体を選んだ 7 判定者パネルでは実効独立票が 1.93 へ低下する。系統の多様性だけでは独立性は回復しない。
+    quote: When restricted to one judge per family (7 judges, selecting the best in each), n_eff decreases to 1.93 — a selection effect where the best judges concentrate errors on the same hard items
+    locator: §5.3
+    quant:
+      value: n_eff 1.93 (7 judges, one per family)
+      n: 1,000 MNLI items
+      design: subset analysis
+      population: best judge per family
+    evidenceKind: benchmark
+    rqs: [TH06-Q2]
+    issues: [258]
+    stance: supports
+  - id: c7
+    text: 人間注釈者パネルの実効独立票は 4.0〜5.8(MNLI 5.79 / SNLI 4.78 / AlphaNLI 4.03)で LLM の 2.2〜2.5 の約 2 倍。ただし人間側は各項目の集計分布から 10 ラベルを抽出した推定値。
+    quote: Human annotator panels achieve roughly 2× higher n_eff (4.0 – 5.8 vs. LLMs’ 2.2 – 2.5), suggesting the deficit is specific to LLM judges.
+    locator: §4.5; Table 3 (Human n_eff 5.79 / 4.78 / 4.03); footnote 1 (sampling 10 labels per item)
+    quant:
+      value: human n_eff 4.0–5.8 vs LLM 2.2–2.5
+      n: 10 sampled labels per item from 100-annotator distributions
+      design: estimate treating annotators as exchangeable
+      population: ChaosNLI annotators
+    evidenceKind: benchmark
+    rqs: [TH06-Q2]
+    issues: [258]
+    stance: supports
+  - id: c8
+    text: "判定者を増やしても高度な集約法でも解けない: 正解ラベルを使える集約でも Condorcet ギャップの最大 11% しか埋まらない。"
+    quote: Neither adding more judges nor using smarter aggregation algorithms helps -- established methods close at most 11% of this gap, even with access to the correct answers.
+    locator: Abstract; §5.4 Table 5
+    quant:
+      value: ≤11% of gap closed
+      n: 4 datasets (incl. RewardBench)
+      design: aggregation comparison (Dawid-Skene, accuracy-weighted CV, phi-optimal)
+      population: 9-judge panel
+    evidenceKind: benchmark
+    rqs: [TH06-Q2]
+    issues: [258]
+    stance: supports
+  - id: c9
+    text: 著者自身がコードレビューや開放的生成の評価では判定者間相関の程度が異なりうると留保している。TH06-Q2 の「転用を原典は許しているか」への答えは「未検証と明記」。
+    quote: The degree of inter-judge correlation may differ on open-ended generation evaluation or code review, where output structure differs fundamentally.
+    locator: "Limitations: Classification tasks"
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH06-Q2]
+    issues: [256, 258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:00.120Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.29800
+    contentType: text/html; charset=utf-8
+    titleFetched: "Nine Judges, Two Effective Votes: Correlated Errors Undermine LLM Evaluation Panels"
+    titleMatch: true
+    dateMeta: 2026-05-28
+    quotes:
+      c1: found
+      c2: found
+      c3: partial
+      c4: found
+      c5: partial
+      c6: partial
+      c7: not-found
+      c8: found
+      c9: found
+    arxiv:
+      status: 200
+      title: "Nine Judges, Two Effective Votes: Correlated Errors Undermine LLM Evaluation Panels"
+      authors: ["Kohli, Guneet"]
+      v1Date: 2026-05-28
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 7系統 9モデル; 各項目100人注釈; NLI 3データセット(ChaosNLI-MNLI/SNLI/AlphaNLI); 各1,000項目(元データは 1,599 / 1,514 / 1,532 項目から entropy 層化抽出); 実効独立票 約2票
+        extractedQuote: Testing a panel of 9 frontier LLMs from 7 model families on three natural language inference datasets (each with 100 human annotations per item), we find that the 9 judges effectively provide
+        locator: Abstract; §3.1 Datasets; §3.2 Judge Panel (Table 1)
+        note: '『各 ___項目』は評価に使った標本(各 1,000 項目、seed 42 の entropy 層化抽出)と、元の ChaosNLI 各データセットの規模(MNLI 1,599 / SNLI 1,514 / AlphaNLI 1,532)が異なる。どちらを指すかで値が変わる。AlphaNLI は2値分類の abductive NLI。 実効独立票の原文(Abstract 続き): "only about 2 independent votes’ worth of information"。§1 では neff≈2.0–2.5 と幅で示す。'
+      c2:
+        verdict: match
+        extractedValue: n_eff (Kish) 2.18、95% bootstrap CI [2.07, 2.31]; eigenvalue n_eff 2.16; independence ratio 24.2%
+        extractedQuote: The 9-judge panel yields neff=2.18 with 95% bootstrap CI [2.07,2.31] (Table 2). The eigenvalue estimate (neffeigen=2.16) closely matches, validating the Kish exchangeability assumption for this panel.
+        locator: §4.1 Effective Independence; Table 2
+        note: "独立性比の原文: 'the independence ratio is neff/k=24.2%'。bootstrap CI は項目の再標本化(10,000回)で、原典自身が『judge selection uncertainty は含まない』と断っている(Limitations: Bootstrap CI interpretation)。"
+      c3:
+        verdict: match
+        extractedValue: "Condorcet gap: MNLI 22.0pp [19.5, 24.1]; SNLI 14.0pp [11.9, 16.1]; AlphaNLI 7.6pp [6.0, 9.1]"
+        extractedQuote: Condorcet gaps decrease with base accuracy (22.0pp → 14.0pp → 7.6pp), as expected when higher accuracy leaves less room for correlated errors.
+        locator: §4.5 Cross-Dataset Replication; Table 3
+        note: Condorcet 予測は難易度(human entropy の3分位)を条件にした独立投票シミュレーション(§3.4)。つまり『難易度を考慮したうえでの独立性』からの不足。
+      c4:
+        verdict: match
+        extractedValue: "MNLI: パネル 72.0% 対 最良単体 Qwen3-32B 71.8%、lift +0.2pp(同票 11件, 1.1%); SNLI: 最良単体 84.2%(Claude Sonnet 4.5) > パネル 77.7%(−6.5pp); AlphaNLI −2.5pp(91.2% vs 88.7%)"
+        extractedQuote: On MNLI, the panel (72.0%) barely edges the best judge (Qwen3-32B, 71.8%) by 0.2pp — within noise; on SNLI, the best judge dominates (Claude Sonnet 4.5, 84.2% vs. panel 77.7%)
+        locator: "§1 Introduction; Table 2 (Panel lift +0.2pp, 注: 11 ties, 1.1%); Table 3 (+0.2 / −6.5 / −2.5 pp)"
+        note: "Table 2 注の原文: 'The panel’s 0.2pp lift is within noise and tie-breaking margin (11 ties, 1.1%).' 最良単体の特定自体にも正解ラベルが要る点は原典が §5.4 で注記している。"
+      c5:
+        verdict: match
+        extractedValue: "OpenAI-OpenAI φ=0.437; Meta-Meta φ=0.435; 系統横断平均 0.389; 差 0.047; 上位3組は全て系統横断: Claude×Gemini 0.603, GPT-4o×Claude 0.588, Mistral×DeepSeek 0.564"
+        extractedQuote: "Same-family pairs (OpenAI-OpenAI: ϕ=0.437; Meta-Meta: ϕ=0.435) are only slightly more correlated than the cross-family mean (ϕ¯cross=0.389, difference = 0.047)."
+        locator: §5.3 Same-Family vs. Cross-Family Correlation; App. B Figure 3
+        note: MNLI での値。§4.6 は RewardBench では同系統相関の上乗せが大きい(+0.109、MNLI は +0.047)と述べており、『わずかに高いだけ』はタスクによって変わる。同系統ペアは OpenAI と Meta の2組だけ。
+      c6:
+        verdict: match
+        extractedValue: 系統ごとに最良1体 → 7判定者; n_eff 1.93
+        extractedQuote: When restricted to one judge per family (7 judges, selecting the best in each), neff decreases to 1.93 — a selection effect where the best judges concentrate errors on the same hard items
+        locator: §5.3
+        note: 原典は低下の理由を選抜効果(最良の判定者が同じ難問に誤りを集中させる)だとしている。続く文は 'Family diversity alone does not recover independence.'
+      c7:
+        verdict: match
+        extractedValue: 人間 n_eff 4.0〜5.8(MNLI 5.79 / SNLI 4.78 / AlphaNLI 4.03); LLM 2.2〜2.5; 約2倍; 人間側は各項目の集計分布から10ラベルを抽出した推定
+        extractedQuote: Human annotator panels achieve roughly 2× higher neff (4.0–5.8 vs. LLMs’ 2.2–2.5), suggesting the deficit is specific to LLM judges.
+        locator: §4.5; Table 3 (Human n_eff); footnote 1
+        note: "脚注1の原文: 'Human neff is estimated by sampling 10 labels per item from the aggregate ChaosNLI distribution, treating annotators as exchangeable.' 人間側は k=10 の仮想パネル(交換可能性を仮定)、LLM 側は k=9 の実パネルで、パネルの大きさも推定法も違う。『約2倍』は原典の丸めで、データセット別の比は約 1.6〜2.7 倍(5.79/2.18、4.78/2.35、4.03/2.48)。"
+      c9:
+        verdict: match
+        extractedValue: open-ended generation evaluation or code review では判定者間相関の程度が異なりうる(著者の留保)
+        extractedQuote: The degree of inter-judge correlation may differ on open-ended generation evaluation or code review, where output structure differs fundamentally.
+        locator: "Limitations: Classification tasks"
+        note: "直前の文: 'all four remain classification or binary preference tasks.' 原典は『異なりうる』と留保しているだけで、コードレビューで検証したとも、転用を否定したとも書いていない。ask 中の TH___-Q___ は本プロジェクト側の識別子で、原典にはない。hasQuant=true だが伏せ字は識別子の番号だけで、原典の数値には対応しない。"
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

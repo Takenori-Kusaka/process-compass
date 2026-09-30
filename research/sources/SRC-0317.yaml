@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0317
+status: included
+excludeReason: null
+title: Is Agentic Code Review Helpful? Mining Developers' Feedback to CodeRabbit Reviews in the Wild
+url: https://arxiv.org/abs/2607.03316
+canonicalUrl: arxiv:2607.03316
+ids:
+  arxiv: "2607.03316"
+  doi: null
+publisher: arXiv (cs.SE) / The University of Melbourne, Monash University
+authors: [Hong Yi Lin, Mingzhao Liang, Patanamon Thongtanunam, Kla Tantithamthavorn]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-07-03
+publishedBasis: arxiv-v1
+version: v2
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: ti:"code review" AND (abs:LLM OR abs:agent), submittedDate 2026-05..09'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: CodeRabbit のレビューコメントと開発者の反応31,073組(239リポジトリ・10,191 PR)を分類した実地の実証研究。受け入れ36.4%、却下56.3%で、却下の主因は誤検知・冗長・範囲外。
+claims:
+  - id: c1
+    text: エージェント型レビューの受け止めは割れており、受け入れ36.4%、議論の誘発7.3%、却下56.3%だった。
+    quote: "agentic reviews receive mixed reception: 36.4% were accepted and 7.3% triggered discussion, while 56.3% were rejected"
+    locator: Abstract; RQ1
+    quant:
+      value: accepted 36.4% / discussion 7.3% / rejected 56.3%
+      n: 31,073 review–feedback pairs, 10,191 PRs, 239 repos
+      design: observational(mining + LLM/manual labelling)
+      population: GitHub 上の CodeRabbit 利用リポジトリ
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: supports
+  - id: c2
+    text: 却下は主に誤検知・冗長・範囲外の無効な提案と、開発者の意図やコーディング慣行とのずれに関連していた。
+    quote: Rejections were primarily associated with invalid suggestions that were false positives, redundant, or out of scope
+    locator: Abstract; RQ2
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: supports
+  - id: c3
+    text: エージェント型レビューは保守性より機能面の指摘に偏るが、機能面の指摘の方が無効になりやすかった。
+    quote: agentic reviews tend to focus more on functional concerns than evolvability-related comments, yet they were more likely to be invalid
+    locator: Abstract; RQ3
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+  - id: c4
+    text: 却下の予測には軽量な学習ベース手法が最大 F1 76%に達し、レビューと反応の間に学習可能なパターンがある。
+    quote: lightweight learning-based methods achieve up to 76% F1 score
+    locator: Abstract; RQ4
+    quant:
+      value: F1 最大76%
+      n: 同上
+      design: predictive modelling
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:44.593Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.03316
+    contentType: text/html; charset=utf-8
+    titleFetched: Is Agentic Code Review Helpful? Mining Developers' Feedback to CodeRabbit Reviews in the Wild
+    titleMatch: true
+    dateMeta: 2026-07-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: Is Agentic Code Review Helpful? Mining Developers' Feedback to CodeRabbit Reviews in the Wild
+      authors: ["Lin, Hong Yi", "Liang, Mingzhao", "Thongtanunam, Patanamon", "Tantithamthavorn, Kla"]
+      v1Date: 2026-07-03
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

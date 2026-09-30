@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0212
+status: included
+excludeReason: null
+title: Custom instructions with AGENTS.md (Codex docs)
+url: https://developers.openai.com/codex/guides/agents-md
+canonicalUrl: https://developers.openai.com/codex/guides/agents-md
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: (直接取得) developers.openai.com の Codex docs ナビゲーションと changelog からのリンク追跡
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: Codex が AGENTS.md を探索・連結する規則の公式文書(ページに日付なし、2026-09-24 取得)。連結後の合計が既定 32 KiB に達すると以降のファイルを加えない上限と、ディレクトリ階層による上書き順を定める。
+claims:
+  - id: c1
+    text: Codex はルートから作業ディレクトリへ AGENTS.md を連結し、合計が project_doc_max_bytes(既定 32 KiB)に達した時点でそれ以降のファイルを加えない。常時ロードの指示量にベンダー既定の上限がある。
+    quote: Codex skips empty files and stops adding files once the combined size reaches the limit defined by project_doc_max_bytes (32 KiB by default).
+    locator: How Codex discovers guidance
+    quant:
+      value: 32 KiB
+      n: 該当なし(既定値)
+      design: product specification
+      population: Codex CLI / IDE
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4, TH04-Q2]
+    issues: [269, 274]
+    stance: supports
+  - id: c2
+    text: 上限に当たったら上限を上げるか、指示を入れ子のディレクトリへ分割せよと案内する。
+    quote: Raise the limit or split instructions across nested directories when you hit the cap.
+    locator: How Codex discovers guidance
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH03-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 現在のディレクトリに近いファイルほど連結の後ろに置かれ、先の指示を上書きする。
+    quote: Files closer to your current directory override earlier guidance because they appear later in the combined prompt.
+    locator: How Codex discovers guidance
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:13.850Z
+    httpStatus: 200
+    finalUrl: https://learn.chatgpt.com/docs/agent-configuration/agents-md
+    contentType: text/html; charset=utf-8
+    titleFetched: Custom instructions with AGENTS.md | ChatGPT Learn
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

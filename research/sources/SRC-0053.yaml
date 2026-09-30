@@ -1,0 +1,157 @@
+schemaVersion: 0
+id: SRC-0053
+status: included
+excludeReason: null
+title: "From Industry Claims to Empirical Reality: An Empirical Study of Code Review Agents in Pull Requests"
+url: https://arxiv.org/abs/2604.03196
+canonicalUrl: arxiv:2604.03196
+ids:
+  arxiv: "2604.03196"
+  doi: 10.48550/arXiv.2604.03196
+publisher: arXiv(MSR 2026 Mining Challenge 採択)
+authors: [Chowdhury Kowshik, Banik Dipayan, Ferdous K M, Shamim Shazibul Islam]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2026-04-03
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: abstract
+foundBy:
+  cluster: C00b-2
+  query: GET https://arxiv.org/abs/2604.03196
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10, TH11]
+events: []
+summary: 前回「タイトルのみ確認」だった論文。AIDev の 19,450 PR から 3,109 PR を分析し、コードレビューエージェント(CRA)のみがレビューした PR のマージ率は 45.20%(人間のみ 68.37%)、閉じられた CRA-only PR の 60.2% は指摘の信号率 0〜30%。CRA は人の代替でなく補助であるべきと結論。
+claims:
+  - id: c1
+    text: CRA のみがレビューした PR のマージ率は 45.20% で、人間のみ(68.37%)より 23.17 ポイント低く、放棄も有意に多い。
+    quote: CRA-only PRs achieve a 45.20% merge rate, 23.17 percentage points lower than human-only PRs (68.37%), with significantly higher abandonment.
+    locator: Abstract
+    quant:
+      value: 45.20% vs 68.37%
+      n: 3,109 PRs (from AIDev 19,450)
+      design: observational (repository mining)
+      population: GitHub PRs in commented review state
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 閉じられた CRA-only PR 98 件のうち 60.2% は指摘の信号率 0〜30% で、13 種の CRA のうち 12 種は平均信号率 60% 未満。自動レビューの指摘はノイズが多い。
+    quote: 60.2% of closed CRA-only PRs fall into the 0-30% signal range, and 12 of 13 CRAs exhibit average signal ratios below 60%, indicating substantial noise in automated review feedback.
+    locator: Abstract
+    quant:
+      value: 60.2% in 0-30% signal; 12/13 CRAs <60%
+      n: 98 closed CRA-only PRs; 13 CRAs
+      design: observational
+      population: AIDev
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 著者は CRA を人のレビュアーの代替ではなく補助として使うべきと結論する。
+    quote: our results indicate that CRAs should augment rather than replace human reviewers and that human involvement remains critical for effective and actionable code review.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q6, TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: CRA のみのレビューの PR はマージ率 45.20% で、人間のみの 68.37% より有意に低く、放棄率は 34.88% 対 21.60% と高い。『AI レビューで 80% の PR は人間のコメント不要』という業界の主張と逆の結果。
+    quote: CRA-only reviewed PRs achieve a 45.20% merge rate, significantly lower than the 68.37% rate for human-only reviewed PRs, with substantially higher abandonment rates (34.88% vs 21.60%).
+    locator: §8 Conclusion
+    quant:
+      value: マージ率 45.20% vs 68.37%、放棄率 34.88% vs 21.60%
+      n: 3,109 PR
+      design: observational (repository mining)
+      population: Agentic PR(AIDev 系)
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: supports
+  - id: c5
+    text: 閉じられた CRA のみの PR 98 件の 60.2% は有効指摘率 0〜30% に入り、13 の CRA のうち 12 が平均有効指摘率 60% 未満だった。
+    quote: 60.2% fall into the 0-30% signal range, and 12 of 13 unique CRAs (92.31%) exhibit average signal ratios below 60%.
+    locator: §8 Conclusion / §4
+    quant:
+      value: 60.2% が有効率 0-30%、CRA の 92.31% が 60% 未満
+      n: 閉じられた CRA のみの PR 98 件、CRA 13 種
+      design: observational (manual tiering of comments)
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: supports
+  - id: c6
+    text: 著者は、CRA を汎用レビューではなくセキュリティや規約など狭く特定した検査に使うよう推奨している。
+    quote: Developers should configure CRAs for narrow, specific checks such as security vulnerabilities or style violations rather than general-purpose review
+    locator: § Implications
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:58.879Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2604.03196
+    contentType: text/html; charset=utf-8
+    titleFetched: "From Industry Claims to Empirical Reality: An Empirical Study of Code Review Agents in Pull Requests"
+    titleMatch: true
+    dateMeta: 2026-04-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "From Industry Claims to Empirical Reality: An Empirical Study of Code Review Agents in Pull Requests"
+      authors: ["Chowdhury, Kowshik", "Banik, Dipayan", "Ferdous, K M", "Shamim, Shazibul Islam"]
+      v1Date: 2026-04-03
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 98 件、60.2%、0〜30%、CRA 13 種中 12 種、平均信号率 60% 未満
+        extractedQuote: We examine 98 closed CRA-only PRs ... 60.2% of closed CRA-only PRs fall into the 0-30% signal range, and 12 of 13 CRAs exhibit average signal ratios below 60%, indicating substantial noise
+        locator: Abstract
+        note: 確認したのは抄録だけ(readLevel=abstract)。母集団は AIDev の 19,450 PR から、commented review 状態の 3,109 PR を取り出し、そのうち closed の CRA-only PR 98 件。MSR 2026 採録。
+      c4:
+        verdict: match
+        extractedValue: マージ率 45.20% 対 68.37%、放棄(Closed)率 34.88% 対 21.60%、業界主張 80%
+        extractedQuote: CRA-only reviewed PRs achieve a 45.20% merge rate, significantly lower than the 68.37% rate for human-only reviewed PRs, with substantially higher abandonment rates (34.88% vs 21.60%).
+        locator: §8 Conclusion(同値は Abstract、§4.1 Table 1、Answer to RQ1)
+        note: 業界主張は Conclusion では『80% of PRs receive no human comments when AI review is enabled』、Abstract では『CRAs can manage 80% of PRs ... without human involvement』と表現が異なる。有意性はレビュア種別5類型×結果の χ²検定(χ²=83.0319, df=8, p<0.001)で、CRA対人間の2群比較の検定ではない。母集団は AIDev 19,450 PR のうち Commented 状態の 2,456 PR(CRA 281件、User 1,176件)。readLevel は abstract だが HTML 全文を取得できた。
+      c5:
+        verdict: match
+        extractedValue: 98件 / 60.2% / 0–30% / 13 CRA 中 12(92.31%)/ 60% 未満
+        extractedQuote: Investigation of the 98 closed CRA-only PRs reveals that 60.2% fall into the 0-30% signal range, and 12 of 13 unique CRAs (92.31%) exhibit average signal ratios below 60%.
+        locator: §8 Conclusion(同値は §4.2 Figure 1(a) 本文、Abstract)
+        note: 原文の指標は signal ratio(signal-to-noise)で、ask の『有効指摘率』は訳語。13 CRA は閉じられた98件に現れた CRA に限った数で、CRA 全般ではない。CRA ごとの件数は偏りが大きい(github-advanced-security 36件、Copilot 24件、semgrep-code-getsentry 1件で100%など)。
+    date: 2026-09-23
+volatility: slow
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH06
+    query: empirical study AI code review bot comments addressed resolution rate GitHub pull requests CodeRabbit Copilot MSR 2026 arXiv

@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0501
+status: included
+excludeReason: null
+title: 第3回先進的AI利活用アドバイザリーボード(議事要旨)
+url: https://www.digital.go.jp/councils/ai-advisory-board/80174015-f73b-4d98-811e-c601c26c0ba5
+canonicalUrl: https://digital.go.jp/councils/ai-advisory-board/80174015-f73b-4d98-811e-c601c26c0ba5
+ids:
+  arxiv: null
+  doi: null
+publisher: デジタル庁
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-03-10
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: デジタル庁 生成AIの調達・利活用に係るガイドライン 改定 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH07, TH03]
+events: []
+summary: DS-920 改定案を審議した会議の議事要旨(開催 2026-03-10)。人がガイドラインのルールを全量守る運用の負担と、ルールをシステム側で実装する方向が発言された。発言は個人の意見である。
+claims:
+  - id: c1
+    text: デジタル大臣政務官が、生成 AI のリスクを人が見る運用が膨大になり、人がルールを全量対応するのは負担になると述べ、「要機密情報をプロンプトに入力しない」は最初からシステム上で実装することを検討すべきとした。
+    quote: 今後、人がガイドラインのルールを全量対応することが負担になるとも考える。例えば、利活用ルールひな形の「要機密情報をプロンプトに入力しない」の件に関しては、最初からプロンプト規制をシステム上で実装するようなことも検討が必要になってくる。
+    locator: 議事要旨(1)各府省庁生成AIシステム定期報告概要への質疑
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q5, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 産業界の構成員が、重大な影響に当たるかの判断を個々の CAIO に委ねすぎると、府省庁間・案件間でばらつきが生じると懸念した。
+    quote: 運用の段階において、重大な影響の該当の判断を個々のCAIOに委ねすぎてしまうと、府省庁間や案件間でばらつきが生じるのではないかと懸念している。
+    locator: 議事要旨(3)ガイドライン改定案への質疑
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:16.783Z
+    httpStatus: 200
+    finalUrl: https://www.digital.go.jp/councils/ai-advisory-board/80174015-f73b-4d98-811e-c601c26c0ba5
+    contentType: text/html; charset=UTF-8
+    titleFetched: 第3回先進的AI利活用アドバイザリーボード｜デジタル庁
+    titleMatch: false
+    dateMeta: 2026-04-08
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://digital.go.jp/councils/ai-advisory-board/80174015-f73b-4d98-811e-c601c26c0ba5

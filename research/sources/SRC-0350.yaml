@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0350
+status: included
+excludeReason: null
+title: How Claude remembers your project - Claude Code Docs (memory)
+url: https://code.claude.com/docs/en/memory
+canonicalUrl: https://code.claude.com/docs/en/memory
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: Claude Code memory CLAUDE.md size recommendation lines "200 lines" adherence
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: CLAUDE.md とオートメモリの公式文書。CLAUDE.md は1ファイル200行未満を目標とし、長いほど遵守が下がると明記する。MEMORY.md は先頭200行/25KBしか読まれない。
+claims:
+  - id: c1
+    text: CLAUDE.md は1ファイル200行未満を目標とし、長いファイルは文脈を消費して遵守(adherence)を下げると公式が述べる。ただし根拠となる実測は示されていない。
+    quote: "Size: target under 200 lines per CLAUDE.md file. Longer files consume more context and reduce adherence."
+    locator: Write effective instructions / Size
+    quant:
+      value: <200 lines per CLAUDE.md
+      n: not reported
+      design: vendor guidance (no measurement disclosed)
+      population: Claude Code CLAUDE.md
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4, TH03-Q3]
+    issues: [269, 274]
+    stance: supports
+  - id: c2
+    text: CLAUDE.md は強制される設定ではなく文脈として扱われ、書き方が遵守の確実さを左右する。
+    quote: Because they’re context rather than enforced configuration, how you write instructions affects how reliably Claude follows them.
+    locator: Write effective instructions
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: MEMORY.md は先頭200行または25KBまでしかセッション開始時に読まれず、それを超えた内容は読み込まれない(黙って落ちる構造)。
+    quote: The first 200 lines of MEMORY.md, or the first 25KB, whichever comes first, are loaded at the start of every conversation. Content beyond that threshold is not loaded at session start.
+    locator: Auto memory / How it works
+    quant:
+      value: 200 lines or 25KB
+      n: null
+      design: product specification
+      population: Claude Code auto memory
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c4
+    text: "@path による分割は整理には役立つが、読み込まれる文脈量は減らない。常時ロード量を減らすには path-scoped rules を使う。"
+    quote: Splitting into @path imports helps organization but doesn’t reduce context
+    locator: Troubleshooting / My CLAUDE.md is too large
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH03-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:22.009Z
+    httpStatus: 200
+    finalUrl: https://code.claude.com/docs/en/memory
+    contentType: text/html; charset=utf-8
+    titleFetched: How Claude remembers your project - Claude Code Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: CLAUDE.md 1ファイルあたり 200行未満
+        extractedQuote: "Size : target under 200 lines per CLAUDE.md file. Longer files consume more context and reduce adherence."
+        locator: Write effective instructions / Size
+        note: 取得したページ内に根拠となる実測値は見当たらない。Troubleshoot 節(My CLAUDE.md is too large)では 'Files over 200 lines consume more context and may reduce adherence.' と 'may' の弱い表現。別箇所で『4 MiB 超の CLAUDE.md は読み込まない』『Shorter files produce better adherence』とも記載。200行/25KB の読込上限は MEMORY.md(auto memory)に関する別の値。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

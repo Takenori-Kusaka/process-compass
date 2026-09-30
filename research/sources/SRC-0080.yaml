@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0080
+status: included
+excludeReason: null
+title: "Human oversight of agentic systems in practice: Examining the oversight work, challenges, and heuristics of developers using software agents"
+url: https://arxiv.org/abs/2606.05391
+canonicalUrl: arxiv:2606.05391
+ids:
+  arxiv: "2606.05391"
+  doi: null
+publisher: arXiv (Microsoft)
+authors: [Dhanorkar Shipi, Passi Samir, Vorvoreanu Mihaela]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2026-06-03
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: Anthropic agent autonomy levels human oversight framework 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06, TH07]
+events: []
+summary: Microsoft 研究者による、ソフトウェアエージェントを週次以上で使う開発者17名の半構造化インタビュー。監視作業を「事前制御・共同計画・リアルタイム監視・事後レビュー」の4形態に分け、事後レビューで使われる4つの危うい経験則(計画=実作業の忠実な代理、テスト合格=正しさ、等)を報告。17名中12名は著者と同じ大企業。
+claims:
+  - id: c1
+    text: 参加者17名中16名が週に複数回(12名は毎日)エージェントを業務で使用。監視は事前制御・共同計画・リアルタイム監視・事後レビューの4形態で行われている。
+    quote: Sixteen of 17 participants used agents several times a week for professional work (12 daily).
+    locator: §3.1 Participants
+    quant:
+      value: n=17 (16 週複数回、12 毎日)
+      n: 17 developers
+      design: semi-structured interviews
+      population: 経験ある software agent 利用者、12名は著者と同じ大手テック企業
+    evidenceKind: observational
+    rqs: [TH01-Q2, TH01-Q3]
+    issues: [248]
+    stance: context
+  - id: c2
+    text: 事後レビューで開発者は「エージェントの計画は実作業の忠実な代理」「テスト合格はコードの正しさを保証する」といった効率優先の経験則に頼っており、自動化バイアスへの脆弱性がある。
+    quote: "Heuristic #1: An agent’s plan is a faithful proxy for its actual working. Heuristic #2. Passing test results guarantee the correctness of agent-generated code."
+    locator: §4.2 Four heuristics developers use for post hoc review
+    quant: null
+    evidenceKind: observational
+    rqs: [TH01-Q2, TH06-Q4, TH07-Q1]
+    issues: [248, 268]
+    stance: qualifies
+  - id: c3
+    text: 人間の監視はベストプラクティスから法的義務(EU AI Act)へ移行しつつあり、観察された効率優先の経験則と緊張関係にあると著者らは指摘する。
+    quote: human oversight is evolving from a best practice into a strict legal mandate (Act, 2024), likely creating tensions with the efficiency-driven heuristics we saw in our study.
+    locator: §5 Discussion
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: [248, 249]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:25.437Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2606.05391
+    contentType: text/html; charset=utf-8
+    titleFetched: "Human oversight of agentic systems in practice: Examining the oversight work, challenges, and heuristics of developers using software agents"
+    titleMatch: true
+    dateMeta: 2026-06-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Human oversight of agentic systems in practice: Examining the oversight work, challenges, and heuristics of developers using software agents"
+      authors: ["Dhanorkar, Shipi", "Passi, Samir", "Vorvoreanu, Mihaela"]
+      v1Date: 2026-06-03
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 17 / 16 / 12 / 4(at least four)
+        extractedQuote: "Sixteen of 17 participants used agents several times a week … (12 daily). / at least four forms of emergent oversight work: a priori control, co-planning, real-time monitoring, and post hoc review"
+        locator: §3.1 Participants(人数)/ Abstract・§4.1 Four forms of human oversight work(形態)
+        note: 原典は『at least four forms』であり網羅的な4分類とはしていない。4形態は時間軸で尋ねた分析枠組みに規定されると著者自身が限定している。参加者 17 名中 12 名が著者と同じ大規模テック企業所属(募集上の偏り)、選定基準は週1回以上の業務利用
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

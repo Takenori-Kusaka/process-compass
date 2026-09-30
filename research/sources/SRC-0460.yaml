@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0460
+status: included
+excludeReason: null
+title: The Monorepo Advantage for AI Agents
+url: https://nx.dev/blog/the-effect-of-monorepos-on-the-effectiveness-of-ai-agents
+canonicalUrl: https://nx.dev/blog/the-effect-of-monorepos-on-the-effectiveness-of-ai-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: Nx Blog(Nrwl)
+authors: [Victor Savkin]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-22
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: monorepo vs polyrepo AI coding agents context 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events: []
+summary: モノレポ製品ベンダーによる『エージェントはポリレポで読む・書く・記憶の3つの壁に当たる』という主張。数値はデモと他社事例の引用で、標本・方法の記載はない。
+claims:
+  - id: c1
+    text: 小さなデモで、Nx ワークスペースのエージェントはポリレポより4倍速く、中断も少なくプロジェクト横断の変更を終えたとする(ベンダーのデモ1件)。
+    quote: Even in this small example, a developer using an agent in an Nx workspace completed the work 4x faster with far fewer interruptions.
+    locator: What the Evidence Shows 付近(デモ)
+    quant:
+      value: 4倍速い
+      n: デモ1件
+      design: ベンダーのデモ比較(統制なし)
+      population: Nx ワークスペース 対 ポリレポ
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: supports
+  - id: c2
+    text: Airbnb がモノレポでエージェントを使い、18か月の移行を6週間に短縮したと引用する(一次出典はこのページ内で未確認)。
+    quote: "The extreme case: Airbnb compressed an 18-month migration down to 6 weeks using agents in a monorepo."
+    locator: 冒頭
+    quant:
+      value: 18か月 → 6週間
+      n: 1事例(引用)
+      design: 二次引用
+      population: Airbnb の移行
+    evidenceKind: news-fact
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: supports
+  - id: c3
+    text: ポリレポでは複数リポジトリへの変更を原子的に入れられず別々のPRの調整が要り、人への引き継ぎのたびにエージェントの自律性が下がる。モノレポなら1つのPRで20プロジェクトを変えられるとする。
+    quote: The agent might do the coding work, but developers still carry the cross-project, cross-team coordination burden. Every handoff to a human makes agents less autonomous.
+    locator: "Write: no way to land cross-project changes atomically"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:02.496Z
+    httpStatus: 200
+    finalUrl: https://nx.dev/blog/the-effect-of-monorepos-on-the-effectiveness-of-ai-agents
+    contentType: text/html; charset=UTF-8
+    titleFetched: The Monorepo Advantage for AI Agents | Nx Blog
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 4x / デモ1件(a side-by-side demo)
+        extractedQuote: Even in this small example, a developer using an agent in an Nx workspace completed the work 4x faster with far fewer interruptions.
+        locator: What the Evidence Shows(デモ動画の直後)
+        note: 原文の主語は「エージェントを使う開発者(a developer using an agent)」で、エージェント単体ではない。デモは「Here's a side-by-side demo」の1本で、計測方法の開示なし。ベンダー(Nx)ブログ。
+      c3:
+        verdict: match
+        extractedValue: 1つのPR / 20プロジェクト
+        extractedQuote: Every handoff to a human makes agents less autonomous. In a monorepo, an agent can modify 20 projects in a single PR. One review, one approval, one merge.
+        locator: "Write: no way to land cross-project changes atomically"
+        note: ask と整合。20 は例示で実測値ではない。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

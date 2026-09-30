@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0543
+status: included
+excludeReason: null
+title: "Progress :: PRINCE2® wiki"
+url: https://prince2.wiki/practices/progress
+canonicalUrl: https://prince2.wiki/practices/progress
+ids:
+  arxiv: null
+  doi: null
+publisher: PRINCE2 wiki (EMPII Group)
+authors: [Frank Turley]
+orgType: consultancy
+region: global
+lang: en
+sourceType: community
+published: "?"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: secondary
+foundBy:
+  cluster: G03
+  query: PRINCE2 7 exception plan tolerances time cost quality scope benefits risk sustainability "forecast to exceed" escalate project board official
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02]
+events: []
+summary: PRINCE2 第7版の Progress プラクティスを解説する wiki(二次情報。公式書籍は有償で未読、掲載日は取得できず)。納期・費用・品質・スコープ・便益・リスク・持続可能性の 7 変数に許容差を置き、超過が予測された時点で例外として上位へ上げ、例外計画を承認させる。人員・体制は 7 変数に含まれない。
+claims:
+  - id: c1
+    text: 許容差は納期・費用・品質・スコープ・便益・リスク・持続可能性の 7 変数すべてに置ける。納期と便益(目的に相当)の逸脱は計画上の管理対象であり、体制(人員)は変数に入っていない。
+    quote: "Tolerances can apply to all seven project variables: Time, cost, quality, scope, benefits, risk and sustainability."
+    locator: Exceptions and tolerances
+    quant: null
+    evidenceKind: review
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 例外は、許容差を超えたときだけでなく、超えると予測されたときにも発生する。検出は実績ではなく予測で行う。
+    quote: An exception occurs when a tolerance is exceeded or is forecast to be exceeded.
+    locator: Raising exceptions
+    quant: null
+    evidenceKind: review
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 合意した許容差を超える逸脱では、事業側が例外計画に書かれた是正処置を承認する権限を持つ。変化への対応は計画の差し替え(例外計画)と上位の承認で行う。
+    quote: If the project deviates beyond the agreed tolerances, the business layer has the authority to approve the necessary corrective actions as outlined in the exception plan.
+    locator: Roles and responsibilities – Business layer
+    quant: null
+    evidenceKind: review
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:32.878Z
+    httpStatus: 200
+    finalUrl: https://prince2.wiki/practices/progress/
+    contentType: text/html; charset=UTF-8
+    titleFetched: "Progress :: PRINCE2® wiki"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "seven(7変数: Time, cost, quality, scope, benefits, risk, sustainability)"
+        extractedQuote: "Tolerances can apply to all seven project variables: Time, cost, quality, scope, benefits, risk and sustainability."
+        locator: Exceptions and tolerances(見出し直下の段落と、その下の変数別の表)
+        note: 7変数の列挙は原文どおり。表では time と benefits がそれぞれ project plan / business case・stage plan で定義されると示す。「体制(人員)は変数に入っていない」は原文に明示の記述がなく、列挙に人員が無いことからの推論。同じページの後半では許容差の対象を 'time, cost, quality, scope, benefits, and risk' の6つで列挙する箇所が2か所あり(sustainability はページ全体で1回しか現れない)、ページ内で列挙が揃っていない。便益を「目的に相当」とする読み替えは原文に無い。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

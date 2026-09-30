@@ -1,0 +1,133 @@
+schemaVersion: 0
+id: SRC-0246
+status: included
+excludeReason: null
+title: "Automating Low-Risk Code Review at Meta: RADAR, Risk Calibration, and Review Efficiency"
+url: https://arxiv.org/abs/2605.30208
+canonicalUrl: arxiv:2605.30208
+ids:
+  arxiv: "2605.30208"
+  doi: null
+publisher: arXiv (Meta)
+authors: [Chris Adams, Arjun Singh Banga, Parveen Bansal]
+orgType: enterprise
+region: us
+lang: en
+sourceType: preprint
+published: 2026-05-28
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-06-12
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: 'arXiv API: abs:"code review" AND abs:"latency" AND cat:cs.SE (reached via tavily result on AI-to-AI review)'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH07, TH01, TH02, TH11]
+events: []
+summary: Meta が低リスク差分の審査と着地を自動化した RADAR の本番評価。適格性ゲート・リスクスコア・LLM レビュー・決定的検証の多段で、人のレビューなしに着地させる。人がすべての差分を読む前提への反証的事例（自社報告・非無作為）。
+claims:
+  - id: c1
+    text: RADAR は 53.5 万件超を審査し 33.1 万件超を着地させた。RADAR 審査差分の revert 率は非 RADAR の 1/3、本番障害率は 1/50。ただし RADAR 対象は低リスクに選別されており無作為割付ではない（著者も交絡を認める）。
+    quote: The revert rate for RADAR-reviewed diffs is 1/3 that of non-RADAR diffs, and the Production Incident rate is 1/50 that of non-RADAR diffs.
+    locator: Abstract（arXiv abs ページ）
+    quant:
+      value: revert 1/3, PI 1/50 of non-RADAR; 535K+ reviewed, 331K+ landed
+      n: 535K+ RADAR-reviewed diffs
+      design: production telemetry, before–after, difference-in-differences (non-random assignment)
+      population: Meta diffs
+    evidenceKind: observational
+    rqs: [TH06-Q6, TH07-Q4, TH01-Q1]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 人がほとんどの差分を読むワークフローはスケールしないとし、人の注意を判断と説明責任が最も効く変更へ移すことを目的に掲げる。
+    quote: a workflow that relies on humans reading most diffs does not scale
+    locator: 1 Introduction
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q2, BASE-Q2]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: 人が書いた差分は既定でリスクスコア下位5%（P5）のみが対象。AI/ボット差分は許可済み runbook で P50、それ以外は P20。組織ごとにリスク選好で閾値を設定する。
+    quote: For human-authored diffs, the default DRS threshold is P5, meaning only the lowest-risk 5% of diffs qualify
+    locator: 2 Background / Diff Risk Score
+    quant:
+      value: P5 (human-authored) / P50 (allowlisted runbooks) / P20 (other bot sources)
+      n: policy setting (not a measurement)
+      design: policy description
+      population: Meta RADAR eligibility
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: runbook が自動着地の対象になるには、60日間の本番障害ゼロ・低い revert 率・低い人の却下率・最小着地件数の実績が要る。実績に基づく段階的な有効化。
+    quote: "Each runbook must demonstrate a clean track record over a 60-day lookback window: zero PIs, a low revert rate, a low human rejection rate, and a minimum number of landed diffs"
+    locator: 2.7 Eligibility / Risk history heuristics
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c5
+    text: 著者自身、RADAR への割付は無作為でなく未観測の交絡が結果に影響しうると認める。
+    quote: Because diffs are not randomly assigned to RADAR, unobserved confounding can influence observed changes.
+    locator: 6.3 Internal Validity
+    quant: null
+    evidenceKind: observational
+    rqs: [TH07-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:16.371Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.30208
+    contentType: text/html; charset=utf-8
+    titleFetched: "Automating Low-Risk Code Review at Meta: RADAR, Risk Calibration, and Review Efficiency"
+    titleMatch: true
+    dateMeta: 2026-05-28
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: "Automating Low-Risk Code Review at Meta: RADAR, Risk Calibration, and Review Efficiency"
+      authors: ["Adams, Chris", "Banga, Arjun Singh", "Bansal, Parveen", "Bhattacharya, Souvik", "Bhuptani, Payal", "Cao, Rujin"]
+      v1Date: 2026-05-28
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 53.5万件超審査(535,290)/ 33.1万件超着地(331,720)/ revert 率 1/3 / 本番障害(PI)率 1/50
+        extractedQuote: RADAR has reviewed 535K+ diffs and landed 331K+. ... The revert rate for RADAR-reviewed diffs is 1/3 that of non-RADAR diffs, and the Production Incident rate is 1/50 that of non-RADAR diffs.
+        locator: Abstract; Table 4 (RQ1); 6.3 Internal Validity
+        note: 交絡の自認は 6.3 にある:『Because diffs are not randomly assigned to RADAR, unobserved confounding can influence observed changes.』。4.2 にも『While this is not a causal estimate』とある。Table 4 の厳密値は 535,290 と 331,720。
+      c3:
+        verdict: match
+        extractedValue: 人間作成 5%(P5)/ 許可リストの RACER runbook P50 / それ以外 P20
+        extractedQuote: allowlisted RACER runbooks use a P50 threshold, while non-allowlisted sources use a stricter P20 threshold ... human-authored diffs, the default DRS threshold is P5, meaning only the lowest-risk 5%
+        locator: 2.3 Diff Risk Score(2.7.2 と 2.7.4 にも)
+        note: P50 の対象は『allowlisted RACER runbooks』。2.7.4 では、P50/P20 は OrgA とパートナー組織の設定で、他組織の既定値は OrgB チームが維持すると書かれている。ask の『組織ごとにリスク選好で閾値を設定する』は 2.3 の『Each organization can configure its own DRS thresholds based on its risk appetite.』と一致する。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

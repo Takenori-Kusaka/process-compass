@@ -1,0 +1,77 @@
+schemaVersion: 0
+id: SRC-0459
+status: included
+excludeReason: null
+title: "Mini Shai-Hulud: When Signed Provenance Certified a Supply Chain Worm"
+url: https://labs.cloudsecurityalliance.org/research/csa-research-note-mini-shai-hulud-supply-chain-sigstore-2026
+canonicalUrl: https://labs.cloudsecurityalliance.org/research/csa-research-note-mini-shai-hulud-supply-chain-sigstore-2026
+ids:
+  arxiv: null
+  doi: null
+publisher: Cloud Security Alliance Lab Space
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-05-15
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: GitHub artifact attestations Sigstore provenance AI agent commits signed 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH10]
+events:
+  - date: 2026-05-11
+    label: "Mini Shai-Hulud: 正規の Sigstore provenance を持つ悪性 npm パッケージ(TanStack 等)が公開される"
+summary: CSA の研究ノート。侵害されたビルド環境から出た悪性パッケージが正しく attested されていた事例を分析し、provenance は必要だが不十分な統制だと結論する。attestation を真正性の証拠とみなす設計への反証。
+claims:
+  - id: c1
+    text: 有効な attestation が確認するのは特定のパイプラインと ID でビルドされたことであり、そのパイプラインがメンテナの書いたコードを処理したことは確認できない。
+    quote: a valid attestation confirms that a package was built in a specific pipeline under a specific identity; it cannot confirm that the pipeline evaluated code the maintainer wrote
+    locator: 本文(Vectra AI の分析の引用)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q2]
+    issues: [271]
+    stance: contradicts
+  - id: c2
+    text: この事件の後、provenance の検証は必要だが不十分な統制と理解すべきで、インストール時の挙動分析などと組み合わせるべきとする。
+    quote: Provenance verification should be understood as a necessary but insufficient control after this incident.
+    locator: 推奨事項
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2, TH07-Q1]
+    issues: [271]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:02.396Z
+    httpStatus: 200
+    finalUrl: https://labs.cloudsecurityalliance.org/research/csa-research-note-mini-shai-hulud-supply-chain-sigstore-2026/
+    contentType: text/html; charset=UTF-8
+    titleFetched: "Mini Shai-Hulud: When Signed Provenance Certified a Supply Chain Worm"
+    titleMatch: true
+    dateMeta: 2026-05-15
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

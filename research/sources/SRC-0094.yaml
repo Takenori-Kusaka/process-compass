@@ -1,0 +1,124 @@
+schemaVersion: 0
+id: SRC-0094
+status: included
+excludeReason: null
+title: 生成 AI および AI エージェントを安全に活用するための手引書(第1版)
+url: https://www.ipa.go.jp/jinzai/ics/core_human_resource/final_project/2026/rcu1hd0000018kkn-att/rcu1hd0000019kwj.pdf
+canonicalUrl: https://ipa.go.jp/jinzai/ics/core_human_resource/final_project/2026/rcu1hd0000018kkn-att/rcu1hd0000019kwj.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 独立行政法人情報処理推進機構 産業サイバーセキュリティセンター 中核人材育成プログラム 9期生
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-07-31
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH01
+  query: IPA 生成AIおよびAIエージェントを安全に活用するための手引書 2026年7月 産業サイバーセキュリティセンター
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12, TH07]
+events:
+  - date: 2026-07-31
+    label: IPA ICSCoE 9期生の成果物として公開
+summary: IPA 産業サイバーセキュリティセンター9期生の成果物(IPA の公式見解ではない旨を明記、有効期限2年)。対策を技術要件(T)・運用対策(O)・人的統制(H)に分け、人の承認は「業務リスクに基づき対象を絞り、それ以外は自律実行を許容する」判断軸を置けと述べる。全出力への承認要求は承認疲れと形骸化を招くと明記。
+claims:
+  - id: c1
+    text: 承認が形骸化しないよう承認対象を重要度で絞るべきで、全出力に承認を求めると承認疲れが起き形だけの確認に陥る。
+    quote: 留意点として、承認が形骸化しないよう、承認対象を重要度に応じて絞り込むことが重要である。全ての出力に承認を求めると承認疲れが起き、形だけの確認に陥るリスクがある。
+    locator: 6.1.3 人的統制(H)、(1) 人間による承認
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q4]
+    issues: [248, 268]
+    stance: supports
+  - id: c2
+    text: 人間の承認が必要な操作を業務リスクに基づいて明確に定義し、それ以外は AI の自律実行を許容する判断軸を設けることが実効性の鍵とする。役割ではなく操作単位のリスクで切る。
+    quote: 人間の承認が必要な操作を業務リスクに基づいて明確に定義し、それ以外は AI システムの自律実行を許容するという判断軸を設けることが実効性の鍵となる。
+    locator: 6.1.3 人的統制(H)、(1) 人間による承認
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, TH01-Q4, TH12-Q2]
+    issues: [248]
+    stance: qualifies
+  - id: c3
+    text: 2026年の自律型エージェントによるメール大量削除事案の原因として、過剰な権限付与と、実行前の人間の承認(Human-in-the-loop)をシステム的制御でなくプロンプト指示だけに依存した点を挙げる。
+    quote: 実行前の人間の承認ステップ（Human-in-the-loop）をシステム的な制御として組み込まずプロンプトによる指示のみに依存していたため、AI の処理限界による指示忘れや、不正な指示の読み込みが直接的な被害につながった。
+    locator: "4.2.2 発生被害 B: 付与権限外の操作、事例1"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q2, TH07-Q5]
+    issues: [248, 269]
+    stance: supports
+  - id: c4
+    text: 本書は IPA・ICSCoE の意見を代表するものではなく著者(9期生)の見解に基づくと免責されており、公的機関の規範文書としての重みは限定的。
+    quote: 本書に記載の内容は、独立行政法人情報処理推進機構および産業サイバーセキュリティセンターの意見を代表するものではなく、著者の見解に基づいている。
+    locator: 1.6 免責事項
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:42.612Z
+    httpStatus: 0
+    finalUrl: https://ipa.go.jp/jinzai/ics/core_human_resource/final_project/2026/rcu1hd0000018kkn-att/rcu1hd0000019kwj.pdf
+    contentType: ""
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: no-text
+      c2: no-text
+      c3: no-text
+      c4: no-text
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: fetch failed
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 承認対象を重要度に応じて絞り込む / 承認疲れ
+        extractedQuote: 留意点として、承認が形骸化しないよう、承認対象を重要度に応じて絞り込むことが重要である。全ての出力に承認を求めると承認疲れが起き、形だけの確認に陥るリスクがある。
+        locator: 6.1.3 人的統制（H）（1）人間介入・承認プロセス（H-1）p.67-68
+        note: 原典の小見出しは『（1）人間介入・承認プロセス（H-1）』で、locator の『人間による承認』という見出しは無い。指定 URL(ipa.go.jp、www なし)は curl で接続できず、www.ipa.go.jp の同一パスで取得した。引用は PDF 抽出時の改行由来の空白を除いて記載
+      c2:
+        verdict: match
+        extractedValue: 業務リスクに基づいて明確に定義 / それ以外は AI システムの自律実行を許容
+        extractedQuote: 人間の承認が必要な操作を業務リスクに基づいて明確に定義し、それ以外は AI システムの自律実行を許容するという判断軸を設けることが実効性の鍵となる。
+        locator: 6.1.3 人的統制（H）（1）人間介入・承認プロセス（H-1）p.68
+        note: 末尾の『役割ではなく操作単位のリスクで切る』は原典に無い。原典は役割との対比をしておらず、主張側の解釈。同趣旨は付録の発生被害B(2)でも『低リスクの操作は AI の自律実行を許容する』と繰り返されている
+      c3:
+        verdict: match
+        extractedValue: 2026 年
+        extractedQuote: AI エージェントによるメール受信トレイの全削除・機密メール外部転送（2026 年）… エージェントに対してメールの読み書きや削除を含む過剰な権限が付与されていた。さらに、実行前の人間の承認ステップ（Human-in-the-loop）をシステム的な制御として組み込まずプロンプトによる指示のみに依存していた
+        locator: 4.2.2 発生被害 B：付与権限外の操作、事例 1(p.35)
+        note: 事例1は『数百通のメールの大量削除』と『AI の脆弱性を悪用された機密情報の外部送信』の2種の事案をまとめたもので、原因の記述も両者に掛かる。対象は『OpenClaw 等の自律型 AI エージェント』、出典は Windows Central の報道(脚注29)
+      c4:
+        verdict: match
+        extractedValue: 9 期生
+        extractedQuote: 本書に記載の内容は、独立行政法人情報処理推進機構および産業サイバーセキュリティセンターの意見を代表するものではなく、著者の見解に基づいている。 / 中核人材育成プログラム 9 期生
+        locator: 1.6 免責事項(p.12)/ 表紙(期生の記載)
+        note: 1.6 免責事項には期生の記載が無く、『9 期生』は表紙の『中核人材育成プログラム 9 期生 セキュリティ担当者のための生成 AI セキュリティ プロジェクト』から取った。『公的機関の規範文書としての重みは限定的』は原典の記述ではなく主張側の評価。免責事項には他に、執筆時点 2026 年 6 月、有効期限は発行日(2026-07-31)から2年、とある
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://ipa.go.jp/jinzai/ics/core_human_resource/final_project/2026/rcu1hd0000018kkn-att/rcu1hd0000019kwj.pdf

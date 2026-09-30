@@ -1,0 +1,84 @@
+schemaVersion: 0
+id: SRC-0065
+status: included
+excludeReason: null
+title: The agentic AI landscape and its conceptual foundations (OECD Artificial Intelligence Papers No. 56)
+url: https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/02/the-agentic-ai-landscape-and-its-conceptual-foundations_a9d4b451/396cf758-en.pdf
+canonicalUrl: https://oecd.org/content/dam/oecd/en/publications/reports/2026/02/the-agentic-ai-landscape-and-its-conceptual-foundations_a9d4b451/396cf758-en.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: OECD
+authors: []
+orgType: government
+region: global
+lang: en
+sourceType: public-agency
+published: 2026-02
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH01
+  query: '"levels of autonomy" AI agents paper 2026'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12]
+events: []
+summary: OECD のエージェント型 AI 概念整理。行動自律度を no-action(human support)/low(HITL)/medium(HOTL)/high(HOOTL) の4段階で定義し、自律度・適応性・領域・影響で類型化する政策向け枠組み。
+claims:
+  - id: c1
+    text: 行動自律度は「推奨のみ/人が承認したら実行(HITL)/人が止めない限り実行(HOTL)/人の関与なし(HOOTL)」の4段階で、行動(action)単位に定義される。
+    quote: "Low-action autonomy (also referred to as “human-in-the-loop”): The system suggests an action, but only proceeds if the human approves."
+    locator: §2.2 Main elements of the OECD definition, Autonomy
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 最上位の high-action autonomy(human-out-of-the-loop)は人の関与なしに行動する状態として定義され、人の監督はライフサイクルのどの段階でも起こりうるとする。
+    quote: "High-action autonomy (also referred to as “human-out-of-the-loop”): The system acts entirely on its own, without human involvement."
+    locator: §2.2 Autonomy
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:12.785Z
+    httpStatus: 200
+    finalUrl: https://www.oecd.org/content/dam/oecd/en/publications/reports/2026/02/the-agentic-ai-landscape-and-its-conceptual-foundations_a9d4b451/396cf758-en.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 4段階(a) No-action / b) Low-action / c) Medium-action / d) High-action autonomy)
+        extractedQuote: 'Action autonomy includes several levels: a) No-action autonomy (also referred to as "human support") ... b) Low-action autonomy (..."human-in-the-loop") ... c) Medium-action autonomy (..."human-on-the-loop") ... d) High-action autonomy (..."human-out-of-the-loop")'
+        locator: §2.2 Main elements of the OECD definition of an AI system, Autonomy
+        note: 原文は『several levels』と書き、数字の4は明記せず a)〜d) の4項目を列挙する。『行動(action)単位に定義される』という記述は原文にない。原文はシステムの action autonomy の水準として定義している(個々の行動ごとに水準を付けるとは述べていない)。略語 HITL/HOTL/HOOTL も原文には出てこない。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://oecd.org/content/dam/oecd/en/publications/reports/2026/02/the-agentic-ai-landscape-and-its-conceptual-foundations_a9d4b451/396cf758-en.pdf

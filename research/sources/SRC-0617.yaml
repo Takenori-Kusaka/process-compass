@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0617
+status: included
+excludeReason: null
+title: 'Defining a generalized predicate format for "human reviews" of artifacts (in-toto/attestation Issue #77)'
+url: https://github.com/in-toto/attestation/issues/77
+canonicalUrl: https://github.com/in-toto/attestation/issues/77
+ids:
+  arxiv: null
+  doi: null
+publisher: in-toto Attestation Framework (GitHub issue)
+authors: [adityasaky]
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2021-12-05
+publishedBasis: meta
+version: null
+updated: 2022-03-03
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: "GitHub search: repo:in-toto/attestation code review predicate"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH10, TH12]
+events: []
+summary: in-toto attestation で「人のレビュー」を表す汎用 predicate を定める提案 Issue(2021-12-05 起票、コメント 27、最終更新 2022-03-03、2026-09-30 時点で open)。本文のみ読んだ。in-toto の vetted predicate 一覧(README、最終コミット 2026-03-18)にレビューの predicate は無く、人のレビュー証跡の標準様式は約 5 年未確定のままである。
+claims:
+  - id: c1
+    text: in-toto では人によるレビューの attestation を扱う汎用 predicate が 2021 年に提案され、対象を人のレビューに絞る合意まで進んだが、2026-09-30 時点で Issue は open のままで標準の様式は確定していない。
+    quote: the general consensus is that we should only handle attestations for human reviews here
+    locator: Issue 本文 Edit
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 想定された記載事項は、レビュー実施者と実施時点(メタ情報)、対象の成果物、レビュー結果の 3 区分。
+    quote: In the case of code reviews, this could identify the person performing the review
+    locator: Issue 本文 Meta Information
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 差分に対するレビューをファイル全体へどう連鎖させるかは未解決の問いとして残されている(「人が何を見たか」を成果物全体へ結び付ける難しさ)。
+    quote: One open question may be reviews for diffs, and how they'd chain together to apply to a file as a whole.
+    locator: Issue 本文 Artifact Information
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:01.815Z
+    httpStatus: 200
+    finalUrl: https://github.com/in-toto/attestation/issues/77
+    contentType: text/html; charset=utf-8
+    titleFetched: 'Defining a generalized predicate format for "human reviews" of artifacts · Issue #77 · in-toto/attestation'
+    titleMatch: true
+    dateMeta: 2021-12-05
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2021年(created_at 2021-12-05)/ 2026-09-30 取得時点で state=open(closed_at=null)
+        extractedQuote: "Edit: the general consensus is that we should only handle attestations for human reviews here, so that's what we're going to be focusing on."
+        locator: Issue 本文 Edit(冒頭段落の直後)/ GitHub API の state・created_at
+        note: gh api で取得(2026-09-30T07:55Z)。created_at=2021-12-05T18:52:27Z、state=open、updated_at=2022-03-03、コメント 27 件で最終コメントは 2022-03-02。ask の伏せ字の日付がどの時点を指すかは不明だが、取得日時点で open であることは確認できる。「標準の様式は確定していない」は Issue が open であることからの読みで、Issue 本文にその文言は無い(リポジトリ側に別途 predicate が定義されているかは本作業では見ていない)。
+      c2:
+        verdict: match
+        extractedValue: 3区分(Meta Information / Artifact Information / Review Result)
+        extractedQuote: In the case of code reviews, this could identify the person performing the review [...] Further, we could capture temporal information about when the review was performed.
+        locator: Issue 本文 Meta Information / Artifact Information / Review Result(見出し3つ)
+        note: 原文は数を明示せず "we've potentially got the following sections in the predicate" として見出し3つを並べる。引用中の [...] は中略。Edit で、成果物の特定は predicate ではなく statement の subject 側になると補足されている("this would be part of the statement's subject rather than the predicate")。Meta Information は署名で代替できる場合は不要かもしれないとも書く("this may be unnecessary in the case of some reviews")。全体が "early thoughts" と位置づけられている。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

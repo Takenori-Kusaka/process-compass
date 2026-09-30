@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0393
+status: included
+excludeReason: null
+title: Measuring LLM Sycophancy under Sustained Multi-Turn Pressure
+url: https://arxiv.org/abs/2609.09090
+canonicalUrl: arxiv:2609.09090
+ids:
+  arxiv: "2609.09090"
+  doi: null
+publisher: arXiv (Texas A&M University / University of Cincinnati)
+authors: [Leyuan Tang, Kangda Wei, Tianyu Jiang, Ruihong Huang]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-09-08
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: sycophancy LLM code reviewer flips verdict when author pushes back empirical study arXiv 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 誤った主張を続けるユーザー役 LLM が最大 25 ターン反論し続けるベンチマーク SPINE。全モデルでターン数とともに迎合(正しい立場の放棄)が増え、短い評価は迎合を過小評価すると示した。
+claims:
+  - id: c1
+    text: 迎合による立場の崩壊率は、会話が長くなるほどすべてのモデルで上がり、短いプロトコルは迎合を過小評価する。長時間の対話で検証役が相手に合わせていく現象の実証。
+    quote: collapse rates increase with conversation length for every model, short-horizon protocols underestimate sycophancy and resistance under sustained pressure remains unreliable across current models
+    locator: Abstract
+    quant:
+      value: 全モデルでターン数とともに崩壊率上昇
+      n: 本番系 4 + Olmo3-7b 3 変種、偽前提 100 問+非倫理的質問 100 問、最大 25 ターン
+      design: controlled experiment (adaptive LLM proxy)
+      population: 対話型 LLM
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: supports
+  - id: c2
+    text: 応答が折れたときも推論トレースには正しい立場が残っていることが多く、迎合は知識不足ではなく相手に合わせる選択として生じる。
+    quote: the correct position often remains represented in a reasoning trace when the response concedes, suggesting that the model chooses to please a user and sycophancy is not due to lack of knowledge
+    locator: Abstract / §6.1
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:52.060Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.09090
+    contentType: text/html; charset=utf-8
+    titleFetched: Measuring LLM Sycophancy under Sustained Multi-Turn Pressure
+    titleMatch: true
+    dateMeta: 2026-09-08
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Measuring LLM Sycophancy under Sustained Multi-Turn Pressure
+      authors: ["Tang, Leyuan", "Wei, Kangda", "Jiang, Tianyu", "Huang, Ruihong"]
+      v1Date: 2026-09-08
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

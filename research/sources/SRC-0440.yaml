@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0440
+status: included
+excludeReason: null
+title: GSN Community Standard Version 1
+url: https://www.faa.gov/sites/faa.gov/files/redac-sas-201503-GsnCommunityStandardV1.pdf
+canonicalUrl: https://faa.gov/sites/faa.gov/files/redac-sas-201503-gsncommunitystandardv1.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: GSN Standardisation Committee / Origin Consulting (York)(FAA サイト掲載)
+authors: []
+orgType: community
+region: eu
+lang: en
+sourceType: standard
+published: 2011-11
+publishedBasis: pdf
+version: Version 1
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH08
+  query: GSN Community Standard Version 3 pdf assumption "assumed to be true" justification away goal
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH12]
+events: []
+summary: 安全ケースの記法 GSN の共同体標準 第1版(2011)。assumption(前提)を『立証されていない言明』と定義し、justification(正当化)と区別する。現行は第3版(SCSC-141C, 2021)だが本文は未取得。
+claims:
+  - id: c1
+    text: GSN では前提(assumption)は立証されていない言明であり、その適用範囲は、それを付けた目標を支える論証全体に及ぶ。
+    quote: 1.3.9 An assumption is an unsubstantiated statement.
+    locator: §1.3.9
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c2
+    text: 論証戦略の決定で重要な前提を置いたなら、それも記録すべきとする。前提は正当化(戦略を採る理由)とは別の要素として扱う。
+    quote: if any significant assumptions were made in determining the argument strategy, these should also be recorded.
+    locator: §2.3.5.4
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:53.848Z
+    httpStatus: 200
+    finalUrl: https://www.faa.gov/sites/faa.gov/files/redac-sas-201503-GsnCommunityStandardV1.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://faa.gov/sites/faa.gov/files/redac-sas-201503-GsnCommunityStandardV1.pdf

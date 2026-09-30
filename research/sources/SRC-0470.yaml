@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0470
+status: included
+excludeReason: null
+title: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity
+url: https://arxiv.org/abs/2507.09089
+canonicalUrl: arxiv:2507.09089
+ids:
+  arxiv: "2507.09089"
+  doi: null
+publisher: METR (arXiv)
+authors: [Joel Becker, Nate Rush, Beth Barnes, David Rein]
+orgType: nonprofit
+region: us
+lang: en
+sourceType: preprint
+published: 2025-07-12
+publishedBasis: arxiv-v1
+version: v2
+updated: 2025-07-25
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH11
+  query: METR developer productivity study 2026 follow-up AI tools experienced open-source developers
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: 熟練 OSS 開発者16人・246タスクをタスク単位で無作為化した RCT。AI許可で完了時間が19%延び、本人は20%短縮したと認識していた。個人の体感と実測の乖離を示す原典。
+claims:
+  - id: c1
+    text: AIを許可したタスクは完了時間が19%長くなった(AIが遅くした)。
+    quote: Surprisingly, we find that allowing AI actually increases completion time by 19%--AI tooling slowed developers down.
+    locator: Abstract
+    quant:
+      value: +19% completion time
+      n: 16 developers, 246 tasks
+      design: RCT (task-level randomization)
+      population: experienced OSS developers on mature repos, Feb–Jun 2025, Cursor Pro + Claude 3.5/3.7 Sonnet
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 開発者は研究終了後も、AIで完了時間が20%短縮したと推定しており、体感と実測が逆向きだった。
+    quote: After completing the study, developers estimate that allowing AI reduced completion time by 20%.
+    locator: Abstract
+    quant:
+      value: perceived -20% vs measured +19%
+      n: 16 developers
+      design: RCT + post-study self-estimate
+      population: same as above
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:05.174Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2507.09089
+    contentType: text/html; charset=utf-8
+    titleFetched: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity
+    titleMatch: true
+    dateMeta: 2025-07-12
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity
+      authors: ["Becker, Joel", "Rush, Nate", "Barnes, Elizabeth", "Rein, David"]
+      v1Date: 2025-07-12
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 20%
+        extractedQuote: After completing the study, developers estimate that allowing AI reduced completion time by 20%. Surprisingly, we find that allowing AI actually increases completion time by 19%--AI tooling slowed developers down.
+        locator: Abstract
+        note: 事前予測は24%短縮、実測は19%増。n=16、246タスク。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

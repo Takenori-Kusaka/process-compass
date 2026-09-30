@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0628
+status: included
+excludeReason: null
+title: AI以後の受託システム開発はどうなっていくのか（2026年6月版）
+url: https://zenn.dev/terurou/articles/eb9e7a4ca7b364
+canonicalUrl: https://zenn.dev/terurou/articles/eb9e7a4ca7b364
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [terurou]
+orgType: sier
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-06-20
+publishedBasis: meta
+version: null
+updated: 2026-06-21
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G08
+  query: terurou AI以後の受託システム開発はどうなっていくのか 2026年6月版 Zenn
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH12, TH02, TH01]
+events: []
+summary: 準委任中心の零細受託開発会社(デンキヤギ)の社長による営業実感の報告。Coding Agent を入れた事業会社が外注を止めたこと、準委任から請負へ移る必要を述べる。自社と周辺の観察で、件数などの数値は無い。
+claims:
+  - id: c1
+    text: 2025年前半まで外注を集めていた取引先の事業会社が外注を止めており、それらは2025年夏ごろに Coding Agent を導入した会社だったと報告する。AI 導入を体制(外注人員)の変化点として観察した事例だが、社数は書かれていない。
+    quote: 軒並みClaude Code、Cursor、GitHub CopilotなどのCoding Agentを2025年夏ごろには導入している会社ばかりです。
+    locator: すでにAIによって受託案件は減り始めていると判断すべき
+    quant: null
+    evidenceKind: case-report
+    rqs: [BASE-Q2, TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: コードが書けるだけでは準委任(SES)の案件を取りにくくなり、AI を使って請負案件へ移るなど営業方法を変える必要があると見込む。契約形態の移行を当事者が述べた例で、請負へ移った後の検収や契約不適合責任の扱いは書かれていない。
+    quote: 単に「コードが書けます」だけで、準委任（SES）の案件を取るのは難しくなっていくと見込んでいます。AIを駆使して請負案件にシフトする（＝非ITの会社に営業しないとダメ）とか、他社とは明確な差別化をするとか、営業方法を変える必要があります。
+    locator: 今後の見通しと立ち回り方
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH12-Q2, BASE-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 製造責任は人が負うので、品質管理(ソフトウェアテストなど)の知識と実務経験が求められる人材の条件になると述べる。
+    quote: 人間が製造責任を負わなくてはならないので、品質管理（ソフトウェアテストなど）の知識や実務経験
+    locator: 今後の見通しと立ち回り方
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 各所で聞いた実態として、AI を使いこなせず生成結果を承認するだけの人が少なからずいると述べる(伝聞で、頻度の測定は無い)。
+    quote: 全然使いこなせておらず「生成ガチャをして承認するだけの人」が少なからず存在しています。
+    locator: 今後の見通しと立ち回り方
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3, TH06-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:05.271Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/terurou/articles/eb9e7a4ca7b364
+    contentType: text/html; charset=utf-8
+    titleFetched: AI以後の受託システム開発はどうなっていくのか（2026年6月版）
+    titleMatch: true
+    dateMeta: 2026-06-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

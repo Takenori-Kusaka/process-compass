@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0436
+status: included
+excludeReason: null
+title: Correctness with Property-based tests - Specs - Kiro Docs
+url: https://kiro.dev/docs/specs/correctness/
+canonicalUrl: https://kiro.dev/docs/specs/correctness
+ids:
+  arxiv: null
+  doi: null
+publisher: Kiro (AWS)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-04
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: spec-driven development 2026 Spec Kit Kiro limitations
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH08, TH07]
+events: []
+summary: Kiro 公式ドキュメント(dateModified 2026-08-04)。EARS 形式の要求から性質(property)を抽出して property-based test を生成し、要求とテストの追跡リンクを保つ仕組みと、その限界を述べる。
+claims:
+  - id: c1
+    text: Kiro は EARS 形式の要求から性質を抽出し、論理的に検査可能なものを判定したうえで、数百〜数千のランダムなテストケースを生成する。
+    quote: Kiro extracts properties from your EARS-formatted requirements
+    locator: Property-based testing w. Specs / Workflow
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH08-Q2, TH08-Q4]
+    issues: []
+    stance: context
+  - id: c2
+    text: 弱すぎる性質や誤った不変条件を書くと、実際の振る舞いが誤っていてもテストは通る。PBT は正しさの証拠であって証明ではない、と公式に限界を明記している。
+    quote: A property that is too weak, or that states the wrong invariant, will pass while the real behavior is still wrong.
+    locator: Concepts / limitations
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH08-Q4, TH07-Q5]
+    issues: [269]
+    stance: supports
+  - id: c3
+    text: すべての要求が性質へきれいに写像できるわけではない。外部サービスや非決定的な振る舞いに依存する要求は、例示テストの方が適する場合がある。
+    quote: Not every requirement maps cleanly to a property.
+    locator: Concepts / limitations
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH08-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:48.859Z
+    httpStatus: 200
+    finalUrl: https://kiro.dev/docs/specs/correctness/
+    contentType: text/html
+    titleFetched: Correctness - Specs - Features - Docs - Kiro
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://kiro.dev/docs/specs/correctness

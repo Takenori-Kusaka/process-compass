@@ -1,0 +1,142 @@
+schemaVersion: 0
+id: SRC-0224
+status: included
+excludeReason: null
+title: Steering (Kiro docs)
+url: https://kiro.dev/docs/steering
+canonicalUrl: https://kiro.dev/docs/steering
+ids:
+  arxiv: null
+  doi: null
+publisher: Kiro (AWS)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-02
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: Kiro specs steering hooks 2026 new features autonomous agent
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: Kiro の Steering(常駐する規約ファイル)の公式文書(ページ記載は更新日 2026-09-02)。always / fileMatch / manual / auto の読み込みモードで常時ロード量を制御するが、AGENTS.md はモード非対応で常時読み込み、CLI はモード非対応で全ファイルを読み込むと明記する。
+claims:
+  - id: c1
+    text: AGENTS.md は読み込みモードに対応せず常に読み込まれる。サブディレクトリの AGENTS.md も発見して読み込む。
+    quote: AGENTS.md files do not support inclusion modes and are always included.
+    locator: Agents.md
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4, TH04-Q2]
+    issues: [269, 274]
+    stance: context
+  - id: c2
+    text: Kiro CLI は読み込みモードに未対応で、.kiro/steering/ の全ファイルを自動で読み込む。同じ規約ファイルでも実行面によって常時ロード量が変わる。
+    quote: On Kiro CLI, inclusion modes are not currently supported. All steering files in the .kiro/steering/ directory are loaded automatically.
+    locator: Inclusion modes(Info)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q1]
+    issues: [274]
+    stance: supports
+  - id: c3
+    text: auto モードは説明文に一致したときだけ読み込み、常時ロードでは溢れる重い参照資料向けとされる。スキルと同じ段階的開示の仕組み。
+    quote: "Best for : Context-heavy guidance that should only load when relevant - like specialized domain knowledge, complex workflows, or detailed reference material that would overwhelm always-on steering."
+    locator: Auto inclusion
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH04-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: Kiro Web では PR へのコメントから規約を学習するが、学習に反映されるのはタスク作成者のフィードバックだけで、他のレビュアのコメントは反映されない。
+    quote: Only your feedback (the user who created the task) influences the agent's learnings. Other reviewers' comments don't affect what the agent learns.
+    locator: Teaching through code reviews
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH10-Q4]
+    issues: []
+    stance: context
+  - id: c5
+    text: always 指定の steering は全対話へ常時ロードされ、全体に効く中核規約に使う。
+    quote: These files are loaded into every Kiro interaction automatically. Use this mode for core standards that should influence all code generation and suggestions.
+    locator: Inclusion modes / Always included
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+  - id: c6
+    text: fileMatch 指定は対象パターンのファイルを扱うときだけ読み込み、ノイズを減らす。
+    quote: Files are automatically included only when working with files that match the specified pattern. This keeps context relevant and reduces noise by loading specialized guidance only when needed.
+    locator: Inclusion modes / Conditional inclusion
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c7
+    text: auto 指定は description と依頼の一致で読み込む(スキルと同様)。manual 指定はスラッシュコマンドとしても呼べる。規則の配送経路を4段に分けている。
+    quote: Files are automatically included when your request matches the description. This works similarly to skills - Kiro uses the description to decide when the steering file is relevant.
+    locator: Inclusion modes / Auto inclusion
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH03-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:22.910Z
+    httpStatus: 200
+    finalUrl: https://kiro.dev/docs/steering/
+    contentType: text/html
+    titleFetched: Steering - Features - Docs - Kiro
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: not-found
+      c5: found
+      c6: found
+      c7: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: タスク作成者のフィードバックのみ反映、他レビュアのコメントは反映されない
+        extractedQuote: Only your feedback (the user who created the task) influences the agent's learnings. Other reviewers' comments don't affect what the agent learns.
+        locator: Teaching through code reviews 節
+        note: 原典によると、学習した傾向は「future work across all your repositories」に適用される。
+      c7:
+        verdict: match
+        extractedValue: 4(always / fileMatch(conditional)/ manual / auto の4モード。原典に数詞の明記は無い)
+        extractedQuote: Files are automatically included when your request matches the description. This works similarly to skills ... Auto-inclusion steering files also appear as slash commands in chat.
+        locator: "Inclusion modes 節(見出し: Always included (default) / Conditional inclusion / Manual inclusion / Auto inclusion)"
+        note: (1) 段数は原典に書かれていない。数値は Inclusion modes 節の見出しを数えた結果(4)である。ページ冒頭の機能比較表は「Inclusion modes (always, fileMatch, manual)」と3つだけ挙げていて、auto を含まない。(2) 原典は manual に加えて auto 指定のファイルもスラッシュコマンドとして出ると書いている("Manual steering files also appear as slash commands" と "Auto-inclusion steering files also appear as slash commands")。ask はスラッシュコマンドを manual だけの特徴のように書いている。(3) Kiro CLI は inclusion modes に未対応で、全ファイルを常に読み込む。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH03
+    query: (直接取得) kiro.dev/docs/steering

@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0595
+status: included
+excludeReason: null
+title: "Frictionless: why great developer experience can help teams win in the ‘AI age’"
+url: https://newsletter.pragmaticengineer.com/p/frictionless-why-great-developer
+canonicalUrl: https://newsletter.pragmaticengineer.com/p/frictionless-why-great-developer
+ids:
+  arxiv: null
+  doi: null
+publisher: The Pragmatic Engineer(書籍 Frictionless 第 59 章の抜粋を掲載)
+authors: [Orosz Gergely, Forsgren Nicole, Noda Abi]
+orgType: individual
+region: global
+lang: en
+sourceType: book
+published: 2025-12-10
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G06
+  query: Forsgren SPACE framework AI update 2026 developer productivity "SPACE" AI agents Frictionless
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: Forsgren と Noda の書籍 Frictionless(2025 年末刊)の第 59 章「AI は必要な指標をどう変え、どう変えないか」の抜粋。SPACE の5次元を AI 支援開発向けの問いに読み替え、6 つ目の次元として Trust(信頼)の追加を提案する。SPACE の著者自身による AI 対応の一次資料。
+claims:
+  - id: c1
+    text: 著者らは、AI 時代でも SPACE と DORA の指標は有効だとする。速いビルド、信頼できるデプロイ、文書、協働への需要は変わらないという理由である。
+    quote: The SPACE framework and DORA metrics remain relevant because developers still need fast builds, reliable deployments, good documentation, and strong collaboration
+    locator: Chapter 59 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: SPACE に 6 つ目の次元として Trust(AI が生成したコード・コメント・推奨を開発者がどれだけ信頼するか)を足すことを提案している。
+    quote: "Consider adding a sixth dimension: Trust. How much do developers trust AI-generated code, comments, and recommendations?"
+    locator: Applying SPACE to AI-Augmented Development
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 新しい指標として、検証の手間(AI 生成コードのレビューと修正に使った時間)を測るよう勧める。AI が時間を節約したのか、費やす場所を移しただけなのかを見分けるためである。
+    quote: Measure validation effort—the time spent reviewing and correcting AI-generated code, which reveals whether AI truly saves time or just shifts where developers spend it.
+    locator: Applying SPACE to AI-Augmented Development
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q1, TH11-Q3, TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: SPACE の Activity 次元は、AI の提案の受入率、AI に任せる作業の種類、AI がよく使われる場所(テスト、文書、デバッグ)を見る問いへ読み替えられている。
+    quote: Monitor suggestion acceptance rates, what types of work get delegated to AI, and where AI gets used most (tests, docs, debugging).
+    locator: Applying SPACE to AI-Augmented Development / Activity
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: AI の計測データは個人ではなくチーム単位で集約し、何をなぜ測るかを開示するよう求めている。
+    quote: Aggregate at the team level rather than tracking individuals, be transparent about what you’re measuring and why
+    locator: Applying SPACE to AI-Augmented Development
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:55.627Z
+    httpStatus: 200
+    finalUrl: https://newsletter.pragmaticengineer.com/p/frictionless-why-great-developer
+    contentType: text/html; charset=utf-8
+    titleFetched: "Frictionless: why great developer experience can help teams win in the ‘AI age’"
+    titleMatch: true
+    dateMeta: 2025-12-10
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: "6つ目(a sixth dimension: Trust)"
+        extractedQuote: "Consider adding a sixth dimension: Trust. How much do developers trust AI-generated code, comments, and recommendations?"
+        locator: Applying SPACE to AI-Augmented Development(節の末尾)
+        note: 原文の語調は「Consider adding」(検討を勧める)。同節冒頭に「the SPACE framework as a way to balance your metrics across five dimensions」とあり、5次元に対する6つ目。本文は書籍『Frictionless』の抜粋(「In Chapter 58, we introduced ...」)。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

@@ -1,0 +1,82 @@
+schemaVersion: 0
+id: SRC-0162
+status: included
+excludeReason: null
+title: Measuring Time Horizon using Claude Code and Codex
+url: https://metr.org/notes/2026-02-13-measuring-time-horizon-using-claude-code-and-codex/
+canonicalUrl: https://metr.org/notes/2026-02-13-measuring-time-horizon-using-claude-code-and-codex
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-02-13
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: 前回メモ §3 の出典 URL(再取得)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH01]
+events: []
+summary: 専用足場と既定足場の時間地平比較。2026-09-23 に再取得しても結論(有意差なし)に改訂は無く、METR に後続の足場比較の記事も見当たらない。
+claims:
+  - id: c1
+    text: GPT-5(Codex 対 Triframe)でも Opus 4.5(Claude Code 対 ReAct)でも、時間地平の差は統計的に有意でない。前回メモ §6-1 の訂正 4 は現在も原典どおり。
+    quote: Neither the GPT-5 time horizon difference, nor the Opus 4.5 time horizon difference, are statistically significant
+    locator: Results
+    quant:
+      value: Claude Code beats ReAct in 50.7% of bootstrap samples; Codex beats Triframe in 14.5%
+      n: TH1.1 tasks x 2 models
+      design: bootstrap comparison
+      population: Opus 4.5, GPT-5
+    evidenceKind: controlled-experiment
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.190Z
+    httpStatus: 200
+    finalUrl: https://metr.org/notes/2026-02-13-measuring-time-horizon-using-claude-code-and-codex/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Measuring Time Horizon using Claude Code and Codex
+    titleMatch: true
+    dateMeta: 2026-02-13
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "GPT-5(Codex 対 Triframe)、Opus 4.5(Claude Code 対 ReAct)。いずれも有意差なし(bootstrap 勝率: Opus 4.5 は 50.7%、GPT-5 は 14.5%)"
+        extractedQuote: "Neither the GPT-5 time horizon difference, nor the Opus 4.5 time horizon difference, are statistically significant: For Opus 4.5, Claude Code beats ReAct in 50.7% of bootstrap samples."
+        locator: Results
+        note: "GPT-5 について: Codex が Triframe に勝ったのは bootstrap 標本の 14.5% だけだった(勝率が低い向き)。制約として、トークン予算・GPT-5-Codex モデル未使用・ラッパーの粗さを挙げている。「前回メモ §…の訂正 …」は前回メモとの照合であり、原典だけでは確認できない。"
+        adjudication:
+          verdict: consistent
+          reason: blindQuote の 'Neither the GPT-5 time horizon difference, nor the Opus 4.5 time horizon difference, are statistically significant' と一致する。claimQuant の bootstrap 勝率(Claude Code 対 ReAct 50.7%、Codex 対 Triframe 14.5%)も blindValue・blindNote と一致し、向きも正しい。前回メモの訂正との照合は内部参照のため判定対象外。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://metr.org/notes/2026-02-13-measuring-time-horizon-using-claude-code-and-codex

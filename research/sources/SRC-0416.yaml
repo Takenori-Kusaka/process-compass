@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0416
+status: included
+excludeReason: null
+title: "Source: Requirements for producing source (SLSA v1.2)"
+url: https://slsa.dev/spec/v1.2/source-requirements
+canonicalUrl: https://slsa.dev/spec/v1.2/source-requirements
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenSSF SLSA (The Linux Foundation)
+authors: [SLSA Community]
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2025-11-24
+publishedBasis: page
+version: "v1.2 (Status: Approved)"
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH07
+  query: SLSA specification build provenance "does not" code quality scope threats verification
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH10, TH01]
+events: []
+summary: SLSA v1.2 Source Track の要求。Level 4 で保護ブランチへの変更に信頼された 2 名の合意を要求し、「信頼された人」を人間と定義する。自動化は「trusted robot」として別に扱い、例外付与を認めている。
+claims:
+  - id: c1
+    text: Level 4 では、保護ブランチの変更は提出前に 2 名以上の信頼された人の合意を必要とする。
+    quote: Changes in protected branches MUST be agreed to by two or more trusted persons prior to submission.
+    locator: Requirements > Two-party review
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q2, TH01-Q2]
+    issues: [269]
+    stance: supports
+  - id: c2
+    text: 信頼された人は、組織が変更の提案・承認を認可した「人間」と定義される。自動化は別区分の trusted robot で、明示された文脈でのみ動く。
+    quote: Trusted person A human who is authorized by the organization to propose and approve changes to the source.
+    locator: Source Roles
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q2, TH01-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: "組織は trusted robot に方針の恒久的な例外を与えてよい(例: 2 者レビューを経ない変更のマージ)。"
+    quote: An organization MAY choose to grant a Trusted Robot a perpetual exception to a policy (e.g. a bot may be able to merge a change that has not been reviewed by two parties).
+    locator: Requirements > Trusted Robot Contributions
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q2, TH01-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:29.002Z
+    httpStatus: 200
+    finalUrl: https://slsa.dev/spec/v1.2/source-requirements
+    contentType: text/html; charset=UTF-8
+    titleFetched: "Source: Requirements for producing source"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Level 4 / two or more trusted persons
+        extractedQuote: Changes in protected branches MUST be agreed to by two or more trusted persons prior to submission.
+        locator: "Requirements > Source Control System 表 > Two-party review 行(✓ は L4 列のみ)/ Level 4: Two-party review"
+        note: 表の該当行は L1〜L3 が空欄で L4 列にのみ ✓。Level 4 の Summary は「The SCS requires two trusted persons to review all changes to protected branches.」。
+        adjudication:
+          verdict: consistent
+          reason: Two-party review の要求『Changes in protected branches MUST be agreed to by two or more trusted persons prior to submission』と一致する。要件表では L4 列にのみ ✓ があり、Level 4 の要求であることも確認できる。
+          date: 2026-09-24
+      c3:
+        verdict: match
+        extractedValue: two parties(二者)
+        extractedQuote: An organization MAY choose to grant a Trusted Robot a perpetual exception to a policy (e.g. a bot may be able to merge a change that has not been reviewed by two parties).
+        locator: Requirements > Two-party review 行 > [Trusted Robot Contributions]
+        note: Two-party review 要件(L4)の下位項目として記載。例として Import/migration bots と Dependabot が挙がっている。
+        adjudication:
+          verdict: consistent
+          reason: claimQuote と blindQuote が同一文。『MAY choose to grant a Trusted Robot a perpetual exception to a policy (e.g. ... merge a change that has not been reviewed by two parties)』を忠実に訳している。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: slow
+reviewBy: null

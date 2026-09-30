@@ -1,0 +1,83 @@
+schemaVersion: 0
+id: SRC-0129
+status: included
+excludeReason: null
+title: "Claude Code vs Codex: What I Learned After 100+ Hours With Both (2026)"
+url: https://composio.dev/content/claude-code-vs-openai-codex
+canonicalUrl: https://composio.dev/content/claude-code-vs-openai-codex
+ids:
+  arxiv: null
+  doi: null
+publisher: Composio (blog)
+authors: [Prathit Joshi]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-08-18
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH04
+  query: Claude Code 週次上限 到達 作業止まった Max 使い切った 対策 Codex 併用 Zenn 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: Composio(第三者ツールベンダー)による 30 タスクの比較(2026-08-18)。Claude Code と Codex はともに 16/30 を通過したが、Codex は全体費用が約 58% 少なく、成功 1 タスク当たり約 8 セント対 19 セント。Claude Code は所要時間が約半分でツール呼び出しが 90 回少ない。
+claims:
+  - id: c1
+    text: 同一モデル(DeepSeek V4 Flash、OpenRouter、max reasoning)を両ハーネスで走らせた 30 タスクの比較では、両者とも 16/30 通過で、成功 1 タスク当たり費用は Codex 約 $0.08、Claude Code 約 $0.19 だった。Claude Code は中央値時間が約半分(122.7 秒対 245.0 秒)でツール呼び出しが 90 回少なく(358 対 448)、ハーネスの違いだけで時間と費用が逆方向にトレードオフした(単一著者・1 回の試行)。
+    quote: Claude Code 16/30 (53.3%) 122.7s 358 $3.116 $0.195 Codex 16/30 (53.3%) 245.0s 448 $1.294 $0.081 ... Claude Code finished in about half the median time and used 90 fewer tool calls.
+    locator: "8. Benchmark(表: Harness / Passed / Median time / Tool calls / Estimated cost / Cost per success)"
+    quant:
+      value: $0.08 vs $0.19 per successful task; 16/30 both; -58% total cost
+      n: 30 tasks, 1 run each
+      design: author-run comparison
+      population: Claude Code (Fable 5) vs Codex (GPT 5.6 Sol High)
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q4, TH04-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:53.432Z
+    httpStatus: 200
+    finalUrl: https://composio.dev/content/claude-code-vs-openai-codex
+    contentType: text/html; charset=utf-8
+    titleFetched: "Claude Code vs Codex: What I Learned After 100+ Hours With Both (2026) | Composio"
+    titleMatch: true
+    dateMeta: 2026-08-18
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 30タスク; 両者 16/30 (53.3%); cost per success Codex $0.081, Claude Code $0.195; ツール呼び出し 90回少ない(358 vs 448); 中央値時間 122.7s vs 245.0s
+        extractedQuote: Claude Code 16/30 (53.3%) 122.7s 358 $3.116 $0.195 Codex 16/30 (53.3%) 245.0s 448 $1.294 $0.081 ... Claude Code finished in about half the median time and used 90 fewer tool calls.
+        locator: "8. Benchmark(表: Harness / Passed / Median time / Tool calls / Estimated cost / Cost per success)"
+        note: 原典は両ハーネスとも同一モデル DeepSeek V4 Flash(OpenRouter, max reasoning)で走らせ、モデルを固定してハーネスだけを比べた実測。ask の「ハーネス×モデルで」は条件が異なって見える(モデル差は含まない)。また単一著者・30タスク・1回の試行。
+        adjudication:
+          verdict: corrected
+          reason: 30 タスク、16/30、$0.081 対 $0.195、中央値時間約半分、ツール呼び出し 90 回差、総費用約 58% 減(1.294/3.116≒0.415)は抜粋と一致する。しかし原典はモデルを固定してハーネスだけを比べており(blindNote)、主張の「ハーネス×モデルで」は条件を誤っている。モデル差は含まれない。
+          date: 2026-09-23
+          originalText: 30 タスクで両者 16/30 通過と同成績だが、成功 1 タスク当たり Codex 約 $0.08、Claude Code 約 $0.19。Claude Code は中央値時間が約半分でツール呼び出しが 90 回少ない。ハーネス×モデルで「時間対費用」が逆方向にトレードオフする実測。
+          originalQuote: Claude Code finished in about half the median time and used 90 fewer tool calls. Codex took longer and made more calls, but the entire run cost around 58% less. A successful task cost roughly eight cents with Codex and nineteen cents with Claude Code.
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

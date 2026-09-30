@@ -1,0 +1,129 @@
+schemaVersion: 0
+id: SRC-0518
+status: included
+excludeReason: null
+title: Artificial Intelligence Risk Management Framework (AI RMF 1.0)
+url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
+canonicalUrl: doi:10.6028/nist.ai.100-1
+ids:
+  arxiv: null
+  doi: 10.6028/NIST.AI.100-1
+publisher: National Institute of Standards and Technology (NIST)
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2023-01
+publishedBasis: pdf
+version: 1.0 (NIST AI 100-1)
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G02
+  query: NIST AI RMF 1.0 GOVERN 2.1 GOVERN 3.2 MAP 3.5 MANAGE 3 human oversight roles (原典 PDF を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH06, TH02]
+events:
+  - date: 2023-01-26
+    label: NIST が AI RMF 1.0 を公開
+summary: NIST の任意適用の AI リスク管理枠組み。GOVERN / MAP / MEASURE / MANAGE の細分類表と附属書 C(人と AI の相互作用)を読んだ。人の監視は「プロセスを定義・評価・文書化する」形で書かれ、監視役を誰が占めるかは定めていない。
+claims:
+  - id: c1
+    text: MAP 3.5 は、人の監視のプロセスを GOVERN の組織方針に従って定義・評価・文書化することを求める。細分類の文言はプロセスの存在を問い、監視の役割を人が占めることまでは書いていない。
+    quote: "MAP 3.5: Processes for human oversight are defined, assessed, and documented in accordance with organizational policies from the GOVERN function."
+    locator: §5.2 Table 2 (MAP), MAP 3.5
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1, TH01-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 附属書 C は、人と AI の構成が完全自律から完全手動までの幅を持つと述べ、人の監視を要しない AI システムがあり得ることを明記する。
+    quote: Some AI systems may not require human oversight, such as models used to improve video compression.
+    locator: Appendix C, item 1
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH01-Q1]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 附属書 C は、意思決定と AI の監督における人の役割と責任を明確に定義し区別する必要があると述べる。対象は人の役割の定義であり、AI が役割を占めることの可否には触れていない。
+    quote: Human roles and responsibilities in decision making and overseeing AI systems need to be clearly defined and differentiated.
+    locator: Appendix C, item 1
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: MEASURE 1.3 は、定期的な評価と更新に、当該システムの第一線の開発者でなかった内部の専門家、または独立した評価者を関与させることを求める。独立性を組織の別ではなく「開発に従事していないこと」で定義している。
+    quote: Internal experts who did not serve as front-line developers for the system and/or independent assessors
+    locator: §5.3 Table 3 (MEASURE), MEASURE 1.3
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: [254]
+    stance: supports
+  - id: c5
+    text: MEASURE の説明文は、独立したレビューのプロセスが試験の有効性を高め、内部の偏りを緩和し得ると述べる(効果の測定値は示していない)。
+    quote: Processes for independent review can improve the effectiveness of testing and can mitigate internal biases
+    locator: §5.3 Measure 冒頭の説明文
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: [254]
+    stance: context
+  - id: c6
+    text: AI RMF は任意適用で、分野や用途を特定しない枠組みであると自己規定している。細分類は義務ではない。
+    quote: voluntary, rights-preserving, non-sector-specific, and use-case agnostic
+    locator: Executive Summary
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:21.077Z
+    httpStatus: 200
+    finalUrl: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: Artificial Intelligence Risk Management Framework (AI RMF 1.0)
+      issued: 2023-1-26
+      titleMatch: true
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: MEASURE 1.3
+        extractedQuote: "MEASURE 1.3: Internal experts who did not serve as front-line developers for the system and/or independent assessors are involved in regular assessments and updates."
+        locator: "§5.3 Measure, Table 3: Categories and subcategories for the MEASURE function, p.29"
+        note: 前半は原文どおり。後半「独立性を組織の別ではなく『開発に従事していないこと』で定義している」は原文に無い解釈。原文は独立性を定義しておらず、「第一線の開発者でなかった内部の専門家」と「独立した評価者」を and/or で並べているだけ。続く文では「AI actors external to the team that developed or deployed the AI system」への相談も求めている
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

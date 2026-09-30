@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0257
+status: included
+excludeReason: null
+title: 大規模言語モデル「Takane」を活用し、ソフトウェアの要件定義から設計、実装、結合テストに渡る全工程をAIエージェントが協調し実行するAIドリブン開発基盤を開発し、運用開始
+url: https://global.fujitsu/ja-JP/pr/news/2026/02/17-01
+canonicalUrl: https://global.fujitsu/ja-jp/pr/news/2026/02/17-01
+ids:
+  arxiv: null
+  doi: null
+publisher: 富士通株式会社
+authors: []
+orgType: sier
+region: jp
+lang: ja
+sourceType: vendor-official
+published: 2026-02-17
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S4
+  query: 富士通 プレスリリース AI-Driven Software Development Platform 要件定義 結合テスト 生産性 2026年2月17日
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH11]
+events:
+  - date: 2026-02-17
+    label: 富士通が AI-Driven Software Development Platform の運用開始を発表(要件定義〜結合テストを AI エージェントが実行)
+summary: 富士通のプレスリリース。要件定義から結合テストまで複数AIエージェントが協調し人が介さず自動化すると主張。「生産性100倍」は約300件中1案件の結果である。
+claims:
+  - id: c1
+    text: 「生産性100倍」は2024年度法改正対応の実証で約300件の変更案件のうち1案件について、従来3人月を要した改修が4時間になったという自社報告であり、残りの案件の結果は示されていない。
+    quote: 約300件の変更案件の内1案件について、従来のソフトウェア開発手法（注5）で3人月要していた改修期間が4時間に大幅に短縮でき、生産性を100倍に向上できる効果を確認しています。
+    locator: 本文第2段落
+    quant:
+      value: 3人月→4時間(約100倍)
+      n: 約300件中1件
+      design: 単一案件の比較(測定方法非開示)
+      population: 富士通Japan 医療・行政分野業務ソフトの法改正対応改修
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 開発の全工程を複数のAIエージェントが協調して実行し「人が介することなく」自動化すると主張しており、人の関与を前提としない自律を製品の売り文句にしている。
+    quote: ソフトウェア開発の各工程を複数のAIエージェントが協調して実行、人が介することなく全工程の自動化を実現します。
+    locator: 本文第1段落
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q2, TH01-Q1]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:25.267Z
+    httpStatus: 429
+    finalUrl: https://global.fujitsu/ja-JP/pr/news/2026/02/17-01
+    contentType: text/html; charset=utf-8
+    titleFetched: Vercel Security Checkpoint
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 100倍 / 2024年度 / 約300件 / 1案件 / 3人月 / 4時間
+        extractedQuote: 2024年度の法改正に伴うソフトウェアの改修に本AIドリブン開発基盤を適用した実証実験において、約300件の変更案件の内1案件について、従来のソフトウェア開発手法（注5）で3人月要していた改修期間が4時間に大幅に短縮でき、生産性を100倍に向上できる効果を確認しています。
+        locator: 本文第2段落
+        note: curlはVercel Security Checkpointで遮断、tavily_extractで本文取得。残りの案件の結果は本文に記載なし(記載が無いことの確認のみ)。注5の従来手法=工程ごとに品質を確認したうえで進める開発手法。
+      c2:
+        verdict: match
+        extractedValue: (定量値なし)
+        extractedQuote: ソフトウェア開発の各工程を複数のAIエージェントが協調して実行、人が介することなく全工程の自動化を実現します。
+        locator: 本文第1段落
+        note: 富士通本文は「人が介することなく」と記す。一方、同ページのエンドースコメント(第三者)には日本IBM「人間による品質保証を組み合わせた点」、島根県立中央病院「解釈が分かれうる箇所を明示して人の判断を補完する仕組み」とあり、人の関与を前提とする記述も併載されている。「売り文句にしている」はaskの評価。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

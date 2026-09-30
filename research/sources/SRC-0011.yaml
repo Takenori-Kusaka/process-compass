@@ -1,0 +1,235 @@
+schemaVersion: 0
+id: SRC-0011
+status: included
+excludeReason: null
+title: "Talk Isn't Always Cheap: Understanding Failure Modes in Multi-Agent Debate"
+url: https://arxiv.org/abs/2509.05396
+canonicalUrl: arxiv:2509.05396
+ids:
+  arxiv: "2509.05396"
+  doi: null
+publisher: arXiv(ICML MAS Workshop 2025)
+authors: [Wynn Andrea, Satija Harsh, Hadfield Gillian]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2025-09-05
+publishedBasis: arxiv-v1
+version: v2
+updated: 2025-10-13
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: GET https://arxiv.org/html/2509.05396 / https://arxiv.org/abs/2509.05396
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: GPT-4o-mini / Llama-3.1-8B / Mistral-7B の 3 体討論(Du et al. 方式、固定役割なし)で、討論後に多数決精度が下がる条件を分析。254 メモが記した 3 類型(説得の優先・同質エージェントの限界・固定役割の系統的バイアス)は原典の分類ではなく、原典は「逐次改訂・社会的影響・迎合」を要因とし、劣化は主に異質構成で報告している。数値は Table 1 にある。
+claims:
+  - id: c1
+    text: 原典は、失敗モードに相関・寄与する要因として逐次改訂・社会的条件付け(social conditioning)・迎合(sycophancy)を「含む」複数の要因を挙げる(§6.1–6.3)。さらにモデルと課題の種類の影響も論じ(§6.4)、単一の原因ではないと明言している。「説得の優先/同質エージェントの限界/固定役割の系統的バイアス」という分類は、原典の見出しにも本文にも出てこない。
+    quote: We study a number of correlated and contributing factors to these failure modes in debate, including sequential revision, social conditioning, and sycophancy.
+    locator: §7 Discussion(§6.1–6.3 に対応)
+    quant:
+      value: 3 factors
+      n: 3 models × 3 tasks × 100 samples × 5 seeds
+      design: controlled experiment
+      population: GPT-4o-mini, Llama-3.1-8B-Instruct, Mistral-7B-Instruct-v0.2
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+  - id: c2
+    text: 「説得が正しさを上回る」は原典の知見ではなく、関連研究(Agarwal and Khanna 2025、TruthfulQA での 1 ラウンド討論)の紹介として書かれている。
+    quote: However, other studies caution that debate can fail when agents emphasize persuasion over truth. Agarwal and Khanna (2025) introduce a single-round debate on factual questions (using TruthfulQA)
+    locator: §2 Related Work
+    quant:
+      value: n/a
+      n: n/a
+      design: literature citation
+      population: n/a
+    evidenceKind: review
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+  - id: c3
+    text: 原典は劣化を「特に異質なエージェント構成で」報告しており、同質構成の限界を主題にしていない。固定役割(賛成/反対)は設定に存在しない(全エージェントが同一の「helpful assistant」システムプロンプト)。
+    quote: showing that debate can sometimes harm group performance, particularly with heterogeneous LLM agents engaged in debate.
+    locator: "§1 Introduction / §4.3 Prompts(System prompt: You are a helpful assistant that can answer questions and provide helpful information.)"
+    quant:
+      value: n/a
+      n: n/a
+      design: controlled experiment
+      population: heterogeneous and homogeneous 3-agent groups
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: contradicts
+  - id: c4
+    text: "同質 3 体(GPT-4o-mini)の討論前後: CSQA 75.6→74.8(-0.8)、MMLU 81.4→82.2(+0.8)、GSM8K 94.0→94.4(+0.4)。同質 GPT では劣化はほぼ無い。"
+    quote: 3 \times | 75.6 \pm 2.2 | 74.8 \pm 2.1 \downarrow 0.8 | 81.4 \pm 3.3 | 82.2 \pm 2.7 \uparrow 0.8 | 94.0 \pm 0.9 | 94.4 \pm 1.5 \uparrow 0.4
+    locator: Table 1(3× GPT-4o-mini 行)
+    quant:
+      value: -0.8 / +0.8 / +0.4 pt
+      n: 100 samples × 5 seeds
+      design: controlled experiment
+      population: 3× GPT-4o-mini, T=2 rounds
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+  - id: c5
+    text: "同質 3 体 Llama-3.1-8B: 63.0→58.6(-4.4)、61.6→57.8(-3.8)、87.6→84.2(-3.4)。同質 3 体 Mistral-7B: 44.4→39.4(-5.0)、33.6→24.4(-9.2)、43.6→46.4(+2.8)。弱いモデルの同質構成では討論で劣化する。"
+    quote: 3 \times | 63.0 \pm 3.9 | 58.6 \pm 2.3 \downarrow 4.4 | 61.6 \pm 2.4 | 57.8 \pm 1.8 \downarrow 3.8 | 87.6 \pm 1.5 | 84.2 \pm 2.0 \downarrow 3.4
+    locator: Table 1(3× Llama 行、3× Mistral 行)
+    quant:
+      value: -3.4〜-9.2pt (Llama/Mistral homogeneous)
+      n: 100 samples × 5 seeds
+      design: controlled experiment
+      population: 3× Llama-3.1-8B / 3× Mistral-7B
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c6
+    text: CommonSenseQA では全構成で討論が精度を下げた。
+    quote: We find that in the case of CommonSenseQA, which was not studied in prior work on multi-agent debate (Du et al., 2023), debate always harms performance.
+    locator: §5.1
+    quant:
+      value: all configurations negative
+      n: 100 samples × 5 seeds × 9 configs
+      design: controlled experiment
+      population: CommonSenseQA
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c7
+    text: 回答の変化は「正→誤」が「誤→正」より多く、討論は正答から始めたエージェントを誤らせる方向に働く。
+    quote: "there exists a larger shift in agent responses from correct \rightarrow incorrect answers (red) than incorrect \rightarrow correct (green)"
+    locator: §6.1 / Figure 2
+    quant:
+      value: correct→incorrect > incorrect→correct(図のみ、数値未記載)
+      n: all rounds aggregated
+      design: controlled experiment
+      population: all configurations
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c8
+    text: 正答へ報酬を与えるプロンプト(correctness payoff)を入れても、正→誤の反転は有意に減らず、増える場合もあった。迎合の緩和は単独では不十分。
+    quote: We find that adding a payoff for correctness in the model prompt does not significantly reduce the likelihood that LLM agents flip their answers from correct to incorrect
+    locator: §6.3 / Figure 5
+    quant:
+      value: no significant reduction
+      n: 100 × 5 seeds
+      design: controlled experiment
+      population: 3 models
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: context
+  - id: c9
+    text: 標本は各課題 100 問 × 5 シード、討論 2 ラウンド。小規模。
+    quote: All the experiments were done on 100 random samples and across 5 different seeds, reported are mean and standard error.
+    locator: Table 1 caption / §4.2
+    quant:
+      value: 100 × 5
+      n: 100 samples
+      design: controlled experiment
+      population: CSQA, MMLU, GSM8K
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:15.278Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2509.05396
+    contentType: text/html; charset=utf-8
+    titleFetched: "Talk Isn't Always Cheap: Understanding Failure Modes in Multi-Agent Debate"
+    titleMatch: true
+    dateMeta: 2025-09-05
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: not-found
+      c5: not-found
+      c6: found
+      c7: partial
+      c8: found
+      c9: found
+    arxiv:
+      status: 200
+      title: "Talk Isn't Always Cheap: Understanding Failure Modes in Multi-Agent Debate"
+      authors: ["Wynn, Andrea", "Satija, Harsh", "Hadfield, Gillian"]
+      v1Date: 2025-09-05
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3(sequential revision / social conditioning / sycophancy)
+        extractedQuote: We study a number of correlated and contributing factors to these failure modes in debate, including sequential revision, social conditioning, and sycophancy.
+        locator: §7 Discussion(§6.1–6.3 に対応)
+        note: 原典には §6.4 Influence of Model and Task Type もある。§7 でも、モデルの能力と課題の種類が影響すると続けて述べている。さらに原典は、単一の原因ではないと明言している("beyond a simple single cause, multiple factors exist")。このため「3つ」と数えるときは、§6.4 の要因を外すかどうかで数が変わる。ask の「___類型(説得の優先 / 同質エージェントの限界 / 固定役割の系統的バイアス)」は、原典の見出しにも本文にも分類として出てこない。
+        adjudication:
+          verdict: corrected
+          reason: blindQuote は「including sequential revision, social conditioning, and sycophancy」で、例示を含む非網羅的な列挙である。blindNote によれば、§6.4 でモデルと課題の種類の影響も扱い、「beyond a simple single cause, multiple factors exist」と明言している。主張の「失敗要因は…の3つ」は要因を3つに限定しており、過剰な一般化にあたる。後半の「別分類が原典に一致しない」は blindNote と一致する。
+          date: 2026-09-23
+          originalText: 原典が挙げる失敗要因は「逐次改訂・社会的影響(social conditioning)・迎合(sycophancy)」の 3 つ。254 メモの 3 類型(説得の優先/同質エージェントの限界/固定役割の系統的バイアス)は原典の分類と一致しない。
+          originalQuote: We study a number of correlated and contributing factors to these failure modes in debate, including sequential revision, social conditioning, and sycophancy.
+      c2:
+        verdict: match
+        extractedValue: Agarwal and Khanna (2025)、TruthfulQA、single-round(1ラウンド)の討論
+        extractedQuote: However, other studies caution that debate can fail when agents emphasize persuasion over truth. Agarwal and Khanna (2025) introduce a single-round debate on factual questions (using TruthfulQA)
+        locator: §2 Related Work
+        note: 「persuasion over truth」は、§2 の関連研究の紹介の中に出てくる。原典自身の実験結果として述べた箇所は見当たらない。ask の読みと一致している。
+      c4:
+        verdict: match
+        extractedValue: "3体(GPT-4o-mini): CSQA 75.6→74.8(↓0.8)、MMLU 81.4→82.2(↑0.8)、GSM8K 94.0→94.4(↑0.4)"
+        extractedQuote: 3× | 75.6±2.2 | 74.8±2.1 ↓ 0.8 | 81.4±3.3 | 82.2±2.7 ↑ 0.8 | 94.0±0.9 | 94.4±1.5 ↑ 0.4 |
+        locator: Table 1(3× 行の3つ目。アイコン画像 openai.png = GPT-4o-mini)
+        note: 表のモデル名はアイコン画像でしか示されていない。HTML の img src(openai.png / meta.png / mistral.png)と、キャプションの対応表(GPT-4o-mini / Mistral-7B / Llama-3.1-8B)を突き合わせて行を特定した。取得した版は arXiv v2。
+      c5:
+        verdict: match
+        extractedValue: "3体 Llama-3.1-8B: CSQA 63.0→58.6(↓4.4)、MMLU 61.6→57.8(↓3.8)、GSM8K 87.6→84.2(↓3.4)。3体 Mistral-7B: CSQA 44.4→39.4(↓5.0)、MMLU 33.6→24.4(↓9.2)、GSM8K 43.6→46.4(↑2.8)"
+        extractedQuote: 3× | 44.4±2.7 | 39.4±3.9 ↓ 5.0 | 33.6±1.8 | 24.4±2.9 ↓ 9.2 | 43.6±1.5 | 46.4±1.4 ↑ 2.8 | 3× | 63.0±3.9 | 58.6±2.3 ↓ 4.4 | 61.6±2.4 | 57.8±1.8 ↓ 3.8 |
+        locator: Table 1(3× 行の1つ目 = mistral.png、2つ目 = meta.png)
+        note: 表の上では Mistral の行が Llama の行より先に並ぶ。モデル名は img src で特定した。正式なモデル名は §4.2 で LLaMA-3.1-8B-Instruct と Mistral-7B-Instruct-v0.2。Llama 行の GSM8K は 87.6±1.5 → 84.2±2.0 ↓ 3.4(quote は200字に収めるため途中で切った)。「弱いモデルの同質構成では劣化する」という一般化は、原典の §5.1 には書かれていない。§5.1 が述べているのは、強いモデルが多数派の混成でも改善するとは限らないこと。また Mistral の GSM8K は向上している。
+      c7:
+        verdict: match
+        extractedValue: 正→誤(correct→incorrect)が 誤→正(incorrect→correct)より多い
+        extractedQuote: a larger shift in agent responses from correct → incorrect answers (red) than incorrect → correct (green), indicating that debate can actively mislead agents who started with correct answers.
+        locator: §6.1 / Figure 2
+        note: Figure 2 の値は、全ラウンドとエージェント設定をまとめて集計したもの。キャプションは、答えを変えたエージェントの中での比較だとしている("of those that do change their answers")。初期回答が誤りだったエージェントの多くは、答えを変えていない。
+        adjudication:
+          verdict: consistent
+          reason: 「正→誤の変化が誤→正より多く、討論は正答から始めたエージェントを誤らせうる」は blindQuote(§6.1、Figure 2)と一致する。主張は「回答の変化は」と、答えを変えたエージェントの中での比較に絞っており、キャプションの「of those that do change their answers」と合う。留意点として、Figure 2 は全ラウンド・全設定を合算した集計で、数値は本文にない。また原典の表現は「can actively mislead」であり、主張の「働く」はこの条件付きの読みにとどめる必要がある。
+          date: 2026-09-23
+      c9:
+        verdict: match
+        extractedValue: 各課題 100問 × 5シード、討論 T=2 ラウンド
+        extractedQuote: T=2 rounds of debate. We take 100 random samples for each task from the dataset and report the result over 5 random seeds.
+        locator: §4.2 Models / Table 1 caption
+        note: 'Table 1 のキャプションにも同じ条件が書かれている: "All the experiments were done on 100 random samples and across 5 different seeds, reported are mean and standard error." 標本条件は §4.2 Models に書かれている(§4.1 Datasets ではない)。'
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

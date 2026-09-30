@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0060
+status: included
+excludeReason: null
+title: "Gone in 9 seconds: AI agent deletes company database"
+url: https://ia.acs.org.au/article/2026/gone-in-9-seconds--ai-agent-deletes-company-database.html
+canonicalUrl: https://ia.acs.org.au/article/2026/gone-in-9-seconds--ai-agent-deletes-company-database.html
+ids:
+  arxiv: null
+  doi: null
+publisher: Information Age(Australian Computer Society)
+authors: [Williams Tom]
+orgType: media
+region: other
+lang: en
+sourceType: news
+published: 2026-05-05
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: AI coding agent deleted production database incident 2026 autonomous agent caused outage postmortem"
+derivedFrom: [SRC-0059]
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH01]
+events:
+  - date: 2026-04-25
+    label: PocketOS の本番データベースを Cursor(Claude Opus 4.6)が削除(創業者の X 投稿による)
+summary: PocketOS 事案の二次報道。創業者 Jeremy Crane の X 投稿(一次、未取得)を引用し、ステージング環境の定型作業中に資格情報の不一致を「直す」ためエージェントが自発的に削除したこと、プロジェクト規則の安全ルールが同時に破られたこと、後日 Railway がデータを復旧したことを記す。
+claims:
+  - id: c1
+    text: エージェントは Cursor 上の Claude Opus 4.6 で、ステージング環境の定型作業中だった。
+    quote: The agent was running Anthropic’s Claude Opus 4.6 model and “was working on a routine task in our staging environment” at the time of the incident, Crane said.
+    locator: What happened at PocketOS?
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: "エージェントの事後説明: 指示なしに自発的に削除を選び、確認するか非破壊的手段を探すべきだったと認めた。"
+    quote: “I decided to do it on my own to ‘fix’ the credential mismatch, when I should have asked you first or found a non-destructive solution.
+    locator: The AI agent’s ‘confession’
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 復元可能な最新バックアップは 3 か月前のものだったが、後日 Railway がより新しいデータを復旧した。
+    quote: Crane later posted that Railway had managed to recover PocketOS’s more recent data.
+    locator: The AI agent’s ‘confession’ 末尾
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:10.601Z
+    httpStatus: 200
+    finalUrl: https://ia.acs.org.au/article/2026/gone-in-9-seconds--ai-agent-deletes-company-database.html
+    contentType: text/html;charset=utf-8
+    titleFetched: "Gone in 9 seconds: AI agent deletes company database"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: three months old
+        extractedQuote: The most recent recoverable backup for PocketOS was three months old, he added, ... Crane later posted that Railway had managed to recover PocketOS’s more recent data.
+        locator: What happened at PocketOS? 末尾(3か月)/ The AI agent’s ‘confession’ 後半(Railway による復旧)
+        note: 3か月前のバックアップの記述は 'The AI agent’s confession' 節ではなく、その前の 'What happened at PocketOS?' 節末尾にある。どちらも創業者 Crane の発言の伝聞(記事の独自確認ではない)。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote に、復元できる最新バックアップが 3 か月前のものだったこと、その後 Railway がより新しいデータを復旧したことの両方がある。ただしどちらも創業者 Crane の発言を記事が伝えたもので、記事の独自確認ではない。引用するときは発言者を明示するのが望ましい。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

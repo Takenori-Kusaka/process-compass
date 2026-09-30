@@ -1,0 +1,102 @@
+schemaVersion: 0
+id: SRC-0161
+status: included
+excludeReason: null
+title: Impact of modeling assumptions on time horizon results
+url: https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results/
+canonicalUrl: https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: [Barry Alexander]
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-03-20
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: metr.org/notes 一覧(反証探索: 時間地平の頑健性)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: METR の研究ノート。ロジスティック当てはめの仮定が 50% を押し上げ 80% を押し下げる方向に効くことを示し、50% と 80% の比の解釈に留保を付ける反証資料。
+claims:
+  - id: c1
+    text: ロジスティックモデルは易しいタスクでの成績に敏感で、傾きが緩く当てはまりやすく、80% 時間地平を押し下げ 50% 時間地平を押し上げる。「50% と 80% の大きな差」の一部は当てはめ方の産物でありうる。
+    quote: fits shallow slopes that depress 80% time horizons and increase 50% time horizons
+    locator: Source of Uncertainty 表 / Task length to success rate modeling choice
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: contradicts
+  - id: c2
+    text: 妥当な代替当てはめでは、最近のモデルの 50% 時間地平は最大 35% 小さくなる。
+    quote: For recent models, reasonable alternative fits decrease the 50% time horizons by up to 35%
+    locator: Source of Uncertainty 表
+    quant:
+      value: up to -35% (p50)
+      n: recent models on TH1.1
+      design: alternative model fits
+      population: TH1.1 results
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: qualifies
+  - id: c3
+    text: 2026-03 の正則化の誤りの修正で、最近のモデルの 50% 時間地平は最大 20% 下がった。
+    quote: decreased recent models’ 50% time horizon results by up to 20%
+    locator: 冒頭
+    quant:
+      value: up to -20%
+      n: recent models
+      design: re-estimation after bug fix
+      population: TH1.1
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.189Z
+    httpStatus: 200
+    finalUrl: https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Impact of modeling assumptions on time horizon results
+    titleMatch: true
+    dateMeta: 2026-03-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 50%時間地平が最大20%低下(正則化の修正は 2026/03/03 に反映)
+        extractedQuote: the recent update to fix a modeling mistake with regularization, which decreased recent models’ 50% time horizon results by up to 20%, but had a smaller impact on earlier LLMs’ 50% time horizons.
+        locator: 冒頭の段落(日付は "Note on the regularization mistake" の "Until it was updated on 2026/03/03")
+        note: ask の「___-___」が何を指すかは原典の冒頭からは特定できない(冒頭には日付がない)。修正日は本文中の 2026/03/03。同じ記事の別の「up to 35%」は代替曲線による50%時間地平の低下幅で、正則化の修正とは別の話なので混同に注意。正則化は80%時間地平を全モデルで押し下げていたとも書かれている。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results

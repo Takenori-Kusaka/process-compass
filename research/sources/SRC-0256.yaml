@@ -1,0 +1,149 @@
+schemaVersion: 0
+id: SRC-0256
+status: included
+excludeReason: null
+title: 設計書・コード・テストを全部AIに書かせて半年間開発してみたよ
+url: https://zenn.dev/nttdata_tech/articles/8a010aff542625
+canonicalUrl: https://zenn.dev/nttdata_tech/articles/8a010aff542625
+ids:
+  arxiv: null
+  doi: null
+publisher: NTT DATA TECH(Zenn)
+authors: []
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-04-17
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: NTTデータ 生成AI 開発 標準 AIエージェント システム開発 2026 生産性
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH05, TH07, TH09, TH11]
+events: []
+summary: NTTデータ第三公共事業本部の責任者による、社員3名が2025/10〜2026/3に成果物の全量をGitHub Copilotで作成した商用サブシステム開発の振り返り(個人のチームの取り組みと明記)。設計・製造は機能したがテスト観点の不足ですり抜けバグが多発した。
+claims:
+  - id: c1
+    text: 設計書・コード・テストケースをすべてGitHub Copilotで作成し社員がレビューする体制で、社員3名がモックベースの要件定義から開発した。
+    quote: この期間中、設計書、ソースコード、テストケース等、システム開発の成果物を全てGitHub Copilotで作成し、それを社員がレビューする流れで開発を行いました。
+    locator: 3.1〜3.2 体制
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q3]
+    issues: []
+    stance: context
+  - id: c2
+    text: 73個のプロンプトファイルと各種規約類・開発ルール類の補足ファイルを作り込み、.github 内だけで空行除き約9,000行に達した。設計工程以降は、出力品質が個人のプロンプト作成能力に依存して属人化するのを避けるため直接のプロンプト入力を禁止した(要件定義はバイブコーディングで行った)。
+    quote: そのドキュメント体系を前提に、アクティビティ定義を行って、７３個のプロンプトファイルや、各種規約類、開発ルール類の補足ファイルなども作りこんでいった感じです。 いま計測してみたら、.github内だけで空行除き9,000行ぐらい書かれてました。
+    locator: 4.2 エージェント環境の構築(直接プロンプト禁止は4.3 設計)
+    quant:
+      value: 約9,000行(プロンプトファイル73個、copilot-instructions.md 約150行)
+      n: 1チーム
+      design: 自己計測
+      population: .github ディレクトリ
+    evidenceKind: case-report
+    rqs: [TH03-Q2, TH03-Q4, TH05-Q3]
+    issues: [269, 274]
+    stance: context
+  - id: c3
+    text: 既存の観点表を流用した結果、新しい設計書体系で暗黙にカバーされていた観点が抜け、テスト観点とテストコードが不足してすり抜けバグが相当数発生した。
+    quote: テスト観点が不足しており、テストコードも不十分なものが多かったです。結果的には、すり抜けバグが相当数発生し、総合試験が大変でした。
+    locator: 4.4 単体テスト
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q5, TH08-Q2]
+    issues: []
+    stance: contradicts
+  - id: c4
+    text: 途中からAIエージェントによるセルフレビュー用プロンプトが急増し、筆者はレビュー疲れが原因と推測している(効果は未分析)。
+    quote: プロンプトファイルを見ていると、ある時から、AIエージェントによるセルフレビュー用のプロンプトが急激に増え始めてました。
+    locator: 7. 振り返り(レビュー)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: context
+  - id: c5
+    text: バグ票をマークダウンで書いたため機械的に集計できず、Excelで手作業集計することになった。
+    quote: マークダウンで書いてしまったことで、定量評価するときに機械的に読み込むことができず、人間が一生懸命Excelを作り直すという悲しいことになってしまいました。
+    locator: 5. 品質管理
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q3, TH05-Q4]
+    issues: []
+    stance: context
+  - id: c6
+    text: 総労働時間は各社員で前年度より100時間減少したが、前年の業務内容が異なり比較できないと筆者自身が留保している。
+    quote: ただ、社員の前の仕事が全く異なるため比較できないので、正直、良く分かりませんというのが本音です。
+    locator: 6. 生産性・労働時間
+    quant:
+      value: 各社員 前年度比 -100時間
+      n: 3名
+      design: 前年度との単純比較(比較不能と筆者が留保)
+      population: 開発チーム社員
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:17.827Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/nttdata_tech/articles/8a010aff542625
+    contentType: text/html; charset=utf-8
+    titleFetched: 設計書・コード・テストを全部AIに書かせて半年間開発してみたよ
+    titleMatch: true
+    dateMeta: 2026-04-17
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3名
+        extractedQuote: 社員３名ですべての開発を行いました。
+        locator: 3.1 案件概要 / 3.2 体制 / 4.1 要件定義
+        note: 3.1の原文:「設計書、ソースコード、テストケース等、システム開発の成果物を全てGitHub Copilotで作成し、それを社員がレビューする流れで開発を行いました。」 モックベースの要件定義は4.1に記載(「モックベースで要件定義を行いました」)。
+      c2:
+        verdict: match
+        extractedValue: 73個 / 約9,000行(ファイル133個)
+        extractedQuote: そのドキュメント体系を前提に、アクティビティ定義を行って、７３個のプロンプトファイルや、各種規約類、開発ルール類の補足ファイルなども作りこんでいった感じです。 いま計測してみたら、.github内だけで空行除き9,000行ぐらい書かれてました。
+        locator: 4.2 エージェント環境の構築(直接プロンプト禁止は4.3 設計)
+        note: locatorの「4.1」は原典では「4.2 エージェント環境の構築」。直接入力の禁止は4.3 設計にあり「直接プロンプトを入力して…それは禁止にしました。理由は、アウトプットの品質が個々人のプロンプトの作成能力に依存してしまい、開発が属人化してしまうからです」。禁止は設計工程以降(「ここからは、バイブスは禁止」)で、要件定義はバイブコーディングだったと原典は記す。修正はプロンプトファイル修正か問題記述票経由のみ許可。
+        adjudication:
+          verdict: corrected
+          reason: 73個・約9,000行・属人化回避という理由は原文と一致する。ただし blindNote によれば、直接プロンプトの禁止は設計工程以降(「ここからは、バイブスは禁止」)で、要件定義はバイブコーディングだった。主張は禁止を開発全体に掛かる規則のように書いており、適用範囲の条件が欠けている。工程の限定を補って訂正した。
+          date: 2026-09-24
+          originalText: エージェント環境として73個のプロンプトファイル等を整備し、.github内だけで空行除き約9,000行に達した。直接のプロンプト入力は属人化を避けるため禁止し、コマンド(プロンプトファイル)経由に限定した。
+          originalQuote: いま計測してみたら、.github内だけで空行除き9,000行ぐらい書かれてました。
+      c6:
+        verdict: match
+        extractedValue: 100時間
+        extractedQuote: 総労働時間については、各社員が昨年度より100時間減少しているので、減っていると言えます。 ※ ここは管理職としてしっかりと書いておきたい。 ただ、社員の前の仕事が全く異なるため比較できないので、正直、良く分かりませんというのが本音です。
+        locator: 7.3 労働時間
+        note: locatorの「6. 生産性・労働時間」は原典では「7.3 労働時間」(6章はGitHub Copilotに関する雑記)。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

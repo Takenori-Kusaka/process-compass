@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0368
+status: included
+excludeReason: null
+title: Architecture decision records overview
+url: https://docs.cloud.google.com/architecture/architecture-decision-records
+canonicalUrl: https://docs.cloud.google.com/architecture/architecture-decision-records
+ids:
+  arxiv: null
+  doi: null
+publisher: Google Cloud Architecture Center
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2024-08-16
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH05
+  query: Google Cloud Architecture Center architecture decision records overview
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: Google Cloud の ADR 概説(最終レビュー 2024-08-16)。AWS・Microsoft と異なり、ADR を調整して前の決定と変更理由を併記する可変の運用を認める。読み手を想定して書くこと、リポジトリの正本から wiki へ主要決定を写す選択肢を示す。
+claims:
+  - id: c1
+    text: ADR を後から調整してよく、その場合は以前の決定と変更理由を含める(不変・supersede 方式とは異なる可変運用)。
+    quote: If you make adjustments, include the previous decision and why a change is made.
+    locator: When to use ADRs
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q1]
+    issues: [272]
+    stance: qualifies
+  - id: c2
+    text: ADR は読み手を想定して書く。主な読み手はその技術を扱うチームで、隣接チーム(アーキテクチャ・セキュリティ)も読み手になりうる。
+    quote: When you write an ADR, it helps to have potential readers in mind. The primary readers are members of the team that work on the technology covered by the ADR.
+    locator: When to use ADRs
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: ADR をソース管理に置きつつ、主要な決定をより読みやすい wiki へ写す選択肢がある(正本から読み手向けの形式を派生させる)。
+    quote: Another option is to create your ADR in a source control repository, but mirror key decisions into a more accessible wiki.
+    locator: How ADRs work
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:33.187Z
+    httpStatus: 200
+    finalUrl: https://docs.cloud.google.com/architecture/architecture-decision-records
+    contentType: text/html; charset=utf-8
+    titleFetched: Architecture decision records overview  |  Cloud Architecture Center  |  Google Cloud Documentation
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

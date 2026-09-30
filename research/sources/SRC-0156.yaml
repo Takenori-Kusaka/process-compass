@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0156
+status: included
+excludeReason: null
+title: "The Vibe Coding Bubble: Everyone Builds, Nobody Tests"
+url: https://getautonoma.com/blog/vibe-coding-bubble
+canonicalUrl: https://getautonoma.com/blog/vibe-coding-bubble
+ids:
+  arxiv: null
+  doi: null
+publisher: Autonoma
+authors: [Tom Piaggio]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-03-16
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: prototype-first development lowered requirements quality vibe coding prototypes rework study 2026 (scratchpad)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH07]
+events: []
+summary: AI テスト製品ベンダーによる vibe coding 批判。作る敷居は下がったが検証の敷居は下がっていない非対称を主張し、Lovable 製アプリ 1,645 件中 170 件に重大脆弱性、Lovable/v0/Bolt のトラフィック減(Barclays)などを二次引用する。自社製品への誘導を含むため数値は一次未確認。
+claims:
+  - id: c1
+    text: Lovable で作られた 1,645 アプリのセキュリティ監査で 170 件(約 10%)に SQL インジェクション等の重大脆弱性があった(二次引用、一次出典は記事内リンクのみ)。
+    quote: A security audit of apps built on Lovable, one of the most popular vibe coding platforms, found that 170 out of 1,645 applications had critical security vulnerabilities
+    locator: The Testing Void
+    quant:
+      value: 170 / 1,645 (10.3%)
+      n: 1,645 apps
+      design: security audit (secondary citation)
+      population: Lovable-built apps
+    evidenceKind: news-fact
+    rqs: [TH09-Q3]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: vibe coding はソフトウェアを作る敷居を下げたが、検証する敷居は下げていない。この非対称が「バブル」の実体という主張。
+    quote: Vibe coding lowered the floor for building software. It didn't lower the floor for verifying it.
+    locator: 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3, TH07-Q1]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: Barclays データとして、Lovable のトラフィックは 6 月ピークから 40% 減(ARR $100M 到達にもかかわらず)、v0 は 64% 減、Bolt.new は 27% 減と報じる(二次引用)。
+    quote: Barclays data shows Lovable's traffic dropped 40% since its June peak despite reaching $100M ARR, Vercel's v0 fell 64%, and Bolt.new declined 27%.
+    locator: The Testing Void 後半
+    quant:
+      value: -40% / -64% / -27% traffic
+      n: 3 products
+      design: web traffic (secondary citation of Barclays)
+      population: Lovable, v0, Bolt.new
+    evidenceKind: news-fact
+    rqs: [TH09-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:11.708Z
+    httpStatus: 200
+    finalUrl: https://getautonoma.com/blog/vibe-coding-bubble
+    contentType: text/html; charset=utf-8
+    titleFetched: "Vibe Coding Bubble: Nobody Tests AI Code"
+    titleMatch: false
+    dateMeta: 2026-03-16
+    quotes:
+      c1: found
+      c2: partial
+      c3: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1,645 applications / 170 / 10%
+        extractedQuote: "found that 170 out of 1,645 applications had critical security vulnerabilities: SQL injection, path traversal, privilege escalation. A 10% critical failure rate"
+        locator: "The Testing Void: Where Vibe Coding Goes Wrong"
+        note: 記事内リンクは mattpalmer.io の CVE-2025-48757 記事と Semafor(2025-05-29)。170/1,645 は約10.3%。脆弱性種別(SQLi・path traversal・権限昇格)は本記事の記述で、一次出典側の種別とは未照合。記事は『a platform used primarily by non-engineers building production apps』と付言するが根拠リンク無し。著者は検証ツールベンダー Autonoma の共同創業者。
+        adjudication:
+          verdict: consistent
+          reason: Lovable 製 1,645 アプリ中 170 件に重大脆弱性(SQL インジェクション、path traversal、権限昇格)は抜粋と一致する。170/1,645≒10.3%、原文は「A 10% critical failure rate」。二次引用であることも主張に明記されている。脆弱性の種別が一次出典(mattpalmer.io の CVE-2025-48757 記事、Semafor)と一致するかは未照合で、著者が検証ツールベンダーの共同創業者である点に留意する。
+          date: 2026-09-23
+      c2:
+        verdict: match
+        extractedValue: (非数値)lowered the floor for building / didn't lower the floor for verifying / asymmetry is the actual bubble
+        extractedQuote: Vibe coding lowered the floor for building software. It didn't lower the floor for verifying it. That asymmetry is the actual bubble
+        locator: 冒頭(The numbers look incredible 段落の後)
+        note: 著者 Tom Piaggio は E2E テスト製品 Autonoma の共同創業者で、記事は自社製品の宣伝を含む(利害関係あり)。
+      c3:
+        verdict: match
+        extractedValue: June peak / 40% / $100M ARR / v0 / 64% / Bolt.new 27%
+        extractedQuote: Barclays data shows Lovable's traffic dropped 40% since its June peak despite reaching $100M ARR, Vercel's v0 fell 64%, and Bolt.new declined 27%.
+        locator: The Testing Void 後半(backlash の段落)
+        note: Barclays データへのリンクは無い(出典未提示)。『June peak』の年は明記なし(記事日付は 2026年3月)。同段落は直後に『The rebound happened...』と回復にも触れ、FAQ では『before stabilizing』と述べる。
+        adjudication:
+          verdict: consistent
+          reason: Lovable 6 月ピークから 40% 減($100M ARR 到達にもかかわらず)、v0 64% 減、Bolt.new 27% 減は blindQuote と全文一致する。二次引用であることも主張に明記されている。ただし記事は Barclays データへのリンクを示しておらず、6 月の年も書いていない。同段落の直後では回復(rebound)にも触れている(blindNote)ため、「減少が続いている」根拠としては使えない。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

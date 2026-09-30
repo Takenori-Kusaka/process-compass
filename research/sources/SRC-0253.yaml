@@ -1,0 +1,127 @@
+schemaVersion: 0
+id: SRC-0253
+status: included
+excludeReason: null
+title: 企業IT動向調査報告書 2026(2025年度調査)
+url: https://juas.or.jp/cms/media/2026/04/JUAS_IT2026.pdf
+canonicalUrl: https://juas.or.jp/cms/media/2026/04/juas_it2026.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 一般社団法人日本情報システム・ユーザー協会(JUAS)
+authors: []
+orgType: user-it
+region: jp
+lang: ja
+sourceType: industry-report
+published: 2026-04-24
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S4
+  query: JUAS 企業IT動向調査 2026 生成AI システム開発 速報
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH12]
+events:
+  - date: 2026-04-24
+    label: JUAS「企業IT動向調査報告書2026」一般公開(IT部門長 957社回答)
+summary: 上場企業層のIT部門長を対象とする定点調査(957社、2025年9〜10月)。コード系生成AIの導入が+11.9pt伸びた一方、システム開発のQCDは10年傾向で悪化・横ばいでスキル不足が顕著化。
+claims:
+  - id: c1
+    text: 新規テクノロジーの導入状況(n=952)で「コード系生成AI」の導入済み+試験導入中の合計が前年度から+11.9ポイント伸び、伸び幅3位となった。
+    quote: 3 位が「コード系生成AI」（＋11.9 ポイント）
+    locator: 8.1(1) 図表8-1-2 新規テクノロジーの伸び幅
+    quant:
+      value: +11.9pt
+      n: "952"
+      design: アンケート(前年度比較)
+      population: 東証上場企業等のIT部門
+    evidenceKind: survey
+    rqs: [TH11-Q2, TH12-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: システム開発のQCD(品質・予算・工期)は10年推移で改善の兆しがあるものの全体として悪化・横ばいが続く。
+    quote: ① QCD に改善の可能性がみられるも、全体の傾向は引き続き悪化・横ばい
+    locator: 7.1(1) 品質・予算・工期の10年推移
+    quant: null
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: QCDが予定どおりにいかない要因として、3大要因とともにスキル不足の傾向がより顕著になった。
+    quote: 予定どおりにいかない要因は、3 大要因とともにスキル不足の傾向がより顕著に
+    locator: 7.1(2) 品質・予算・工期の悪化原因
+    quant: null
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: 生成AIの高度活用を目的とした専門組織を設置している企業は依然として限定的である。
+    quote: 一方で、生成AI の高度活用を目的とした専門組織を設置している企業は、依然として限定的である。
+    locator: 6章 まとめ(p.146)
+    quant: null
+    evidenceKind: survey
+    rqs: [TH12-Q2, BASE-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:24.987Z
+    httpStatus: 200
+    finalUrl: https://juas.or.jp/cms/media/2026/04/JUAS_IT2026.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: n=952 / +11.9ポイント / 3位(合計値32.6%、8位)
+        extractedQuote: 24 年度からの伸び幅は、1 位が「画像および動画系生成AI」（＋12.4 ポイント）、2 位が「言語系生成AI」（＋12.3 ポイント）、3 位が「コード系生成AI」（＋11.9 ポイント）
+        locator: 8.1(1) 本文(PDF p.179-180)、図表8-1-1/8-1-2 の凡例「コード系生成AI（n=952）」
+        note: n=952 は図表8-1-1・8-1-2 の項目ラベル。本文では「コード系生成AI」は32.6%（8位）、同＋11.9ポイント。伸び幅順位は24年度から増加した10項目中の順位。「コード系生成AI」は24年度から調査項目のため過年度との伸び幅比較は不可と原典が注記。
+      c2:
+        verdict: match
+        extractedValue: 10年(16～25年度)
+        extractedQuote: ① QCD に改善の可能性がみられるも、全体の傾向は引き続き悪化・横ばい 10 年間（16～25 年度）のシステム開発における品質遵守状況、予算遵守状況、工期遵守状況をプロジェクト規模別・年度別に比較し
+        locator: 7.1(1) 品質・予算・工期の10 年推移(PDF p.158)
+        note: 原典は「改善の可能性がみられる」。askは「改善の兆し」と言い換え。25年度に新選択肢（期待を超えて満足等）を追加したと原典が注記。
+      c3:
+        verdict: match
+        extractedValue: 3大要因
+        extractedQuote: ① 予定どおりにいかない要因は、3 大要因とともにスキル不足の傾向がより顕著に
+        locator: 7.1(2) 品質・予算・工期の悪化原因 ①(PDF p.162-163)
+        note: 3大要因は本文で「「計画時の考慮不足」「想定以上の現行業務・システムの複雑さ」「仕様変更の多発」の3 項目は、QCD に共通する悪化要因として依然根強い」。対象は品質で「不満」、予算で「予定より超過」、工期で「予定より遅延」と回答した企業(22～25年度比較)。品質では「ベンダーのスキル不足」が59.9%で3項目を上回ると記載。
+      c4:
+        verdict: match
+        extractedValue: (定量値なし)
+        extractedQuote: 一方で、生成AI の高度活用を目的とした専門組織を設置している企業は、依然として限定的である。
+        locator: 6章 まとめ(印刷p.146 / PDF p.156)
+        note: ""
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

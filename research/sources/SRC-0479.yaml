@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0479
+status: included
+excludeReason: null
+title: How much does AI impact development speed? An enterprise-based randomized controlled trial
+url: https://arxiv.org/abs/2410.12944
+canonicalUrl: arxiv:2410.12944
+ids:
+  arxiv: "2410.12944"
+  doi: 10.48550/arXiv.2410.12944
+publisher: Google (arXiv)
+authors: [Elise Paradis, Kate Grey, Quinn Madison, Daye Nam, Andrew Macvean, Vahid Meimand, Nan Zhang, Ben Ferrari-Church, Satish Chandra]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2024-10-16
+publishedBasis: arxiv-v1
+version: v3
+updated: 2024-11-11
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH11
+  query: randomized controlled trial 2026 AI coding agent productivity field experiment software developers causal effect
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11]
+events: []
+summary: Google のフルタイムエンジニア96人に社内AI機能3種を使わせた RCT。複雑な企業向けタスクの所要時間が約21%短縮したが信頼区間は広い。自社ツールの自社評価であり、著者自身が一般化を留保している。
+claims:
+  - id: c1
+    text: AIは複雑な企業向けタスクの所要時間を有意に短縮し、最良推定は約21%だが信頼区間は大きい。
+    quote: Our best estimate of the size of this effect, controlling for factors known to influence developer time on task, stands at about 21\%, although our confidence interval is large.
+    locator: Abstract
+    quant:
+      value: ~21% less time on task (wide CI)
+      n: 96 Google engineers
+      design: RCT (lab task)
+      population: full-time Google SWEs, internal AI features, summer 2024
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 著者は、この実験室での効果量がより広く、他ツールや時間経過に当てはまるとは仮定できないと明記する。
+    quote: we cannot assume that the effect size obtained in our lab study will necessarily apply more broadly
+    locator: Abstract
+    quant: null
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:09.323Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2410.12944
+    contentType: text/html; charset=utf-8
+    titleFetched: How much does AI impact development speed? An enterprise-based randomized controlled trial
+    titleMatch: true
+    dateMeta: 2024-10-16
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: How much does AI impact development speed? An enterprise-based randomized controlled trial
+      authors: ["Paradis, Elise", "Grey, Kate", "Madison, Quinn", "Nam, Daye", "Macvean, Andrew", "Meimand, Vahid"]
+      v1Date: 2024-10-16
+      latestVersion: 3
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

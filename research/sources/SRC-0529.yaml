@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0529
+status: included
+excludeReason: null
+title: "Advisory Circular 20-115D: Airborne Software Development Assurance Using EUROCAE ED-12( ) and RTCA DO-178( )"
+url: https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_20-115D.pdf
+canonicalUrl: https://faa.gov/documentlibrary/media/advisory_circular/ac_20-115d.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Federal Aviation Administration (FAA), AIR-134
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2017-07-21
+publishedBasis: pdf
+version: AC 20-115D
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G02
+  query: FAA AC 20-115D DO-178C DO-330 tool qualification (FAA 文書ライブラリから直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH12]
+events: []
+summary: FAA が DO-178C と DO-330 などの補足文書を適合手段として認める勧告通達(2017-07-21、強制ではない)。ソフトウェアレベルごとの目標は DO-178C 附属書 A の表によると定め、ツール認定は DO-178C §12.2 と DO-330 を受け入れ可能な方法とする。独立性を要する目標の一覧(附属書 A の表)は通達に転記されておらず、本文に independence の語は無い。
+claims:
+  - id: c1
+    text: 申請者は、ソフトウェアに割り当てられたソフトウェアレベルに対応する目標のすべてを満たし、DO-178C 附属書 A の表(該当する場合は DO-330 等の附属書 A の表)に挙がる目標の充足を示すライフサイクルデータを作る。
+    quote: You should satisfy all of the objectives associated with the software level assigned to the
+    locator: §6.a
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: DO-178C はツールの使い方とライフサイクル工程への潜在的影響に基づき、5 段階のツール認定水準(TQL)を定める。
+    quote: ED-12C/DO-178C establishes five levels of tool qualification based on the tool use
+    locator: §10.c(1)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: DO-330 は、ツール認定のための目標・活動・ライフサイクルデータを一式として自前で持つ。検証の機械化は、ツール自体を認定する別の保証工程を通すことで認められる。
+    quote: ED-215/DO-330 contains its own complete set of
+    locator: §10 Tool Qualification
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 本通達は適合を示す受け入れ可能な一手段を述べるもので、強制ではなく規則でもない。
+    quote: This AC is not mandatory and does not
+    locator: §1.a
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:26.710Z
+    httpStatus: 200
+    finalUrl: https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_20-115D.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: DO-178C / DO-330(ほかに DO-333、DO-332、DO-331)
+        extractedQuote: applicable objectives, as listed in the ED-12C/DO-178C Annex A tables and, where applicable, the ED-215/DO-330, ED-216/DO-333, ED-217/DO-332, and ED-218/DO-331 Annex A tables.
+        locator: AC 20-115D §6.a
+        note: 原文は "You should satisfy all of the objectives associated with the software level assigned to the software and develop all of the associated life cycle data ..." で、助動詞は should(AC は受け入れ可能な適合手段を示す文書)。「等」に当たる列挙は DO-330、DO-333、DO-332、DO-331 の 4 文書。
+      c2:
+        verdict: match
+        extractedValue: DO-178C / 5 段階(five levels)
+        extractedQuote: ED-12C/DO-178C establishes five levels of tool qualification based on the tool use and its potential impact in the software life cycle processes (see section 12.2.2 and Table 12-1 of ED-12C/DO-178C).
+        locator: AC 20-115D §10.c(1)
+        note: 原文の語は "five levels of tool qualification"。TQL という略語はこの文の直後(Table 2 への言及)で現れる。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

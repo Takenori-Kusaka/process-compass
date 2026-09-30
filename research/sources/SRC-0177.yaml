@@ -1,0 +1,126 @@
+schemaVersion: 0
+id: SRC-0177
+status: included
+excludeReason: null
+title: Risks and mitigations for GitHub Copilot cloud agent
+url: https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations
+canonicalUrl: https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: About cloud agent ページのリンク先"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10, TH01, TH07]
+events: []
+summary: Copilot cloud agent(旧 coding agent)のリスクと緩和策。前回 §9 で未取得だった「依頼者は承認できない」の原文を一次で確認。無人の PR には追加承認 1 件を課す新たな規定もある。
+claims:
+  - id: c1
+    text: Copilot cloud agent に PR 作成を依頼したユーザーはその PR を承認できない。名称が coding agent から cloud agent に変わった以外、前回引用の趣旨は維持されている。
+    quote: Prevents the user who asked Copilot cloud agent to create a pull request from approving it. This maintains the expected controls in the "Required approvals" rule and branch protection.
+    locator: Unvalidated code can introduce vulnerabilities
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q1, BASE-Q2, TH01-Q2]
+    issues: [282, 248, 249]
+    stance: supports
+  - id: c2
+    text: Copilot が自身のアプリ ID で PR を開いた場合(人に帰属しない PR)は、承認が 1 件追加で必要になる。ルールセットでは既定で有効(管理者が無効化可能)、ブランチ保護では常に適用。
+    quote: When Copilot cloud agent opens a pull request under its own app identity, one more approval is required before it can be merged, as long as the repository already requires at least one approval.
+    locator: Requires an additional approval when a pull request isn't attributed to a person
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q2, TH06-Q6, TH01-Q2, TH10-Q4]
+    issues: [282]
+    stance: supports
+  - id: c3
+    text: Copilot cloud agent は自分の PR を Ready for review にできず、承認もマージもできない。
+    quote: Copilot cloud agent cannot mark its pull requests as "Ready for review" and cannot approve or merge a pull request.
+    locator: Requires human review before merging
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q2, TH01-Q2, TH01-Q1]
+    issues: [282]
+    stance: supports
+  - id: c4
+    text: 自動化(automations)が開いた PR は自動化の作成者に帰属し、その作成者は承認できない。
+    quote: Pull requests opened and code pushed by an automation are attributed to the user who created the automation.
+    locator: Automations run without a person initiating each task
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q2, TH01-Q2]
+    issues: [282]
+    stance: supports
+  - id: c5
+    text: スケジュール・イベント起点の automations が作った PR は automation の作成者に帰属し、作成者はそれを承認できない。人が起動しない作業にも作成者と承認者の分離が引き継がれる。
+    quote: Pull requests opened and code pushed by an automation are attributed to the user who created the automation. As when that user creates a pull request themselves, they can't approve it
+    locator: Automations run without a person initiating each task
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2, TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c6
+    text: 既定でエージェントは生成コードを CodeQL・Advisory DB・secret scanning で検査し、同じ GitHub の Copilot code review から『セカンドオピニオン』を得てから PR を完了させる。作成と一次レビューが同一ベンダー内で閉じる構成が既定である。
+    quote: By default, Copilot cloud agent checks code it generates for security issues and gets a second opinion on its code with Copilot code review.
+    locator: Unvalidated code can introduce vulnerabilities
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:05.015Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations
+    contentType: text/html; charset=utf-8
+    titleFetched: Risks and mitigations for GitHub Copilot cloud agent - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: one more approval(1件)
+        extractedQuote: When Copilot cloud agent opens a pull request under its own app identity, one more approval is required before it can be merged, as long as the repository already requires at least one approval.
+        locator: Requires an additional approval when a pull request isn't attributed to a person
+        note: 原文には適用条件 "as long as the repository already requires at least one approval"(既に1件以上の承認を必須にしているリポジトリに限る)があり、ask はこの条件を落としている。既定値の記述は "enabled by default in rulesets, where administrators can turn it off, and always applies to branch protection rules" で ask と一致
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: S3
+    query: docs.github.com Copilot coding agent about page (tavily_extract) -> linked risks-and-mitigations

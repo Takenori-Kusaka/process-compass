@@ -1,0 +1,163 @@
+schemaVersion: 0
+id: SRC-0520
+status: included
+excludeReason: null
+title: "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile (NIST AI 600-1)"
+url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
+canonicalUrl: doi:10.6028/nist.ai.600-1
+ids:
+  arxiv: null
+  doi: 10.6028/NIST.AI.600-1
+publisher: National Institute of Standards and Technology (NIST)
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2024-07
+publishedBasis: pdf
+version: NIST AI 600-1
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G02
+  query: NIST AI 600-1 generative AI profile GV-3.2 MG-3.1 human-AI configuration third-party model (原典 PDF を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH02, TH06]
+events:
+  - date: 2024-07
+    label: NIST が生成 AI プロファイル(AI 600-1)を公開
+summary: AI RMF 1.0 の生成 AI 向けプロファイル(任意適用)。§2.7 Human-AI Configuration と、GOVERN 3.2 / MEASURE 1.3 / MANAGE 3.1・3.2 の推奨行動を読んだ。第三者モデルは微調整や未評価用途への転用のたびに再評価する、人による評価の担い手は開発に直接関与しない者とする、という行動が並ぶ。
+claims:
+  - id: c1
+    text: GOVERN 3.2 は、人と AI の構成および AI システムの監督について、役割と責任を定義し区別する方針・手順を置くことを求める。
+    quote: "GOVERN 3.2: Policies and procedures are in place to define and differentiate roles and responsibilities for human-AI configurations"
+    locator: §3 GOVERN 3.2 見出し
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1, TH01-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: MS-1.3-003 は、構造化した人のフィードバック演習を行う者が、同じ生成 AI モデルの開発作業に直接関与していないことを確かめるよう求める。
+    quote: Verify those conducting structured human feedback exercises are not directly
+    locator: §3 MEASURE 1.3, MS-1.3-003
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: [254]
+    stance: supports
+  - id: c3
+    text: MG-3.1-003 は、微調整や RAG の実装後、および初期試験で評価していない用途へ第三者の生成 AI モデルを展開するときに、モデルのリスクを再評価するよう求める。
+    quote: Re-assess model risks after fine-tuning or retrieval-augmented generation
+    locator: §3 MANAGE 3.1, MG-3.1-003
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q3, TH12-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: MANAGE 3.2 は、開発に用いる事前学習済みモデルを、AI システムの定常の監視と保守の一部として監視対象に含める。
+    quote: "MANAGE 3.2: Pre-trained models which are used for development are monitored as part of AI system regular monitoring and"
+    locator: §3 MANAGE 3.2 見出し
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q3, TH12-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: MANAGE 4.1 は、導入後の監視計画に、異議申立てと上書き、廃止、インシデント対応、復旧、変更管理の仕組みを含めることを求める。
+    quote: appeal and override, decommissioning, incident response, recovery, and change
+    locator: §3 MANAGE 4.1 見出し
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q3, TH12-Q1]
+    issues: []
+    stance: supports
+  - id: c6
+    text: §2.7 は、人が生成 AI の出力に過度に依存する現象を自動化バイアス(自動化されたシステムへの過度の服従)の一例と位置づける。
+    quote: This phenomenon is an example of automation bias, or excessive deference
+    locator: §2.7 Human-AI Configuration
+    quant: null
+    evidenceKind: normative
+    rqs: [TH06-Q4, TH12-Q1]
+    issues: []
+    stance: context
+  - id: c7
+    text: MG-3.2-008 は、人によるモデレーションを「適切な場合に」用いるとし、GOVERN で定めた人と AI の構成方針に従わせる。常時の人の関与は求めていない。
+    quote: Use human moderation systems where appropriate to review generated content
+    locator: §3 MANAGE 3.2, MG-3.2-008
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:21.724Z
+    httpStatus: 200
+    finalUrl: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: "Artificial intelligence risk management framework :"
+      issued: 2024-7-26
+      titleMatch: true
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: MS-1.3-003
+        extractedQuote: Verify those conducting structured human feedback exercises are not directly involved in system development tasks for the same GAI model.
+        locator: §3 Suggested Actions to Manage GAI Risks, MEASURE 1.3 の表, MS-1.3-003, p.29
+        note: 食い違いなし。GAI Risks 列は「Human-AI Configuration; Data Privacy」
+      c3:
+        verdict: match
+        extractedValue: MG-3.1-003
+        extractedQuote: Re-assess model risks after fine-tuning or retrieval-augmented generation implementation and for any third-party GAI models deployed for applications and/or use cases that were not evaluated […]
+        locator: §3, MANAGE 3.1 の表, MG-3.1-003, p.42
+        note: 食い違いなし。引用は200字に収めるため末尾「in initial testing.」を切った。GAI Risks 列は「Value Chain and Component Integration」
+      c5:
+        verdict: match
+        extractedValue: MANAGE 4.1
+        extractedQuote: "MANAGE 4.1: Post-deployment AI system monitoring plans are implemented, including mechanisms for capturing and evaluating input from users and other relevant AI Actors, appeal and override, […]"
+        locator: §3, MANAGE 4.1 見出し, p.44(AI RMF 1.0 の小分類の再掲)
+        note: 全文の後半は「…appeal and override, decommissioning, incident response, recovery, and change management.」(200字に収めるため引用を途中で切った)。ask は列挙の先頭「利用者その他の AI Actors からの入力を収集・評価する仕組み」を省いている。原文は「計画が実施されている(are implemented)」で、計画に含めるよう求める、という向きとは少し異なる
+      c6:
+        verdict: match
+        extractedValue: §2.7
+        extractedQuote: This phenomenon is an example of automation bias, or excessive deference to automated systems.
+        locator: §2.7 Human-AI Configuration, 第2段落
+        note: 直前の文は「humans may over-rely on GAI systems or may unjustifiably perceive GAI content to be of higher quality than that produced by other sources」。「この現象」は過度の依存だけでなく、生成 AI の内容を不当に高品質と知覚することも指す
+      c7:
+        verdict: match
+        extractedValue: MG-3.2-008
+        extractedQuote: Use human moderation systems where appropriate to review generated content in accordance with human-AI configuration policies established in the Govern function, […]
+        locator: §3, MANAGE 3.2 の表, MG-3.2-008, p.44
+        note: 後続は「aligned with socio-cultural norms in the context of use, and for settings where AI models are demonstrated to perform poorly.」。「where appropriate」と Govern の方針への準拠は原文どおり。「常時の人の関与は求めていない」は原文に明示が無く、「where appropriate」からの推論。原文はモデルの性能が低いと実証された場面での使用も挙げている
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

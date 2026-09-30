@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0337
+status: included
+excludeReason: null
+title: Deprecations | OpenAI API
+url: https://platform.openai.com/docs/deprecations
+canonicalUrl: https://platform.openai.com/docs/deprecations
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: 取得時点(2026-09-24)の版
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: OpenAI API deprecations page notice period generally available models shutdown
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02]
+events:
+  - date: 2026-03-24
+    label: OpenAI が Videos API と Sora 2 の廃止を告知(停止 2026-09-24)
+summary: OpenAI の廃止ポリシーと履歴。安全・コンプライアンス上の理由がない限り最低通知期間を設けると述べる(期間の表は抽出で欠落。値は konishi の集約ページ参照)。通知期間の目的を後継モデルの評価と挙動試験に置く。
+claims:
+  - id: c1
+    text: 安全・コンプライアンス上の理由で早める場合を除き、モデル退役前の最低通知期間を定める。例外として、通知期間より早い退役がありうることも明記している。
+    quote: "Unless safety or compliance concerns require a faster timeline, we provide the following minimum notice periods before model retirement:"
+    locator: Model deprecation notice periods
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 通知期間の目的を、推奨後継モデルの評価、アプリケーション挙動の試験、移行の完了に置く。モデル切替を再検証の契機として扱う前提である。
+    quote: These notice periods give customers time to evaluate recommended replacement models, test application behavior, and complete migrations before a model is no longer available.
+    locator: Model deprecation notice periods
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 2026-03-24 に Videos API と Sora 2 の廃止を告知し、停止日を 2026-09-24 とした(告知から停止まで6か月)。
+    quote: On March 24th, 2026, we notified developers using the Videos API and Sora 2 video generation model aliases and snapshots of their deprecation and removal from the API on September 24, 2026.
+    locator: "2026-03-24: Sora 2 video generation models and Videos API"
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:15.314Z
+    httpStatus: 200
+    finalUrl: https://developers.openai.com/api/docs/deprecations
+    contentType: text/html; charset=utf-8
+    titleFetched: Deprecations | OpenAI API
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: "告知 2026-03-24 / 対象 Videos API と Sora 2 / 停止 2026-09-24(告知から停止まで6か月: 日付からの算出)"
+        extractedQuote: On March 24th, 2026, we notified developers using the Videos API and Sora 2 video generation model aliases and snapshots of their deprecation and removal from the API on September 24, 2026.
+        locator: "2026-03-24: Sora 2 video generation models and Videos API"
+        note: 「6か月」は原文に明記なく、2026-03-24→2026-09-24 の日付から算出される値。停止対象は Videos API と sora-2 / sora-2-pro および各スナップショット(2025-10-06, 2025-12-08 など)。推奨代替は表で「—」(代替なし)。停止日は取得日(2026-09-24)当日。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

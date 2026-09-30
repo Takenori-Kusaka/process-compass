@@ -1,0 +1,161 @@
+schemaVersion: 0
+id: SRC-0169
+status: included
+excludeReason: null
+title: Introducing Claude Fable 5.1 and Claude Mythos 5.1
+url: https://www.anthropic.com/claude-fable-and-mythos-5-1
+canonicalUrl: https://anthropic.com/claude-fable-and-mythos-5-1
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-01
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: anthropic.com/news 一覧"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH04, TH07, TH01]
+events:
+  - date: 2026-09-01
+    label: Anthropic が Claude Fable 5.1 / Claude Mythos 5.1 を発表
+  - date: 2026-09-01
+    label: Claude Fable 5.1 / Mythos 5.1 を発表。Fable のキャッシュ読み取りを 75% 値下げ
+summary: Fable 5.1 / Mythos 5.1 の発表ページ(ページ表記は「September 2026」、日付は newsroom 一覧の 2026-09-01)。キャッシュ読み取り値下げで Fable 5 比約 25% 安いとする。
+claims:
+  - id: c1
+    text: Fable 5.1 と Mythos 5.1 は同一モデルで、安全装置の水準だけが異なる。Fable 5 系と同じ二本立てが続いている。
+    quote: Claude Fable 5.1 and Claude Mythos 5.1 are the same model, but with different levels of safeguards.
+    locator: Introduction
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+  - id: c2
+    text: Fable 5.1 は典型的な負荷で Fable 5 より約 25% 安い(キャッシュ読み取りの値下げによる)。高度にエージェント的な作業では最大約 45%。
+    quote: Fable 5.1 will cost an estimated 25% less than Fable 5 for typical workloads, wherever usage is billed by token.
+    locator: Price
+    quant:
+      value: -25% (typical), up to -45% (agentic)
+      n: n/a
+      design: vendor estimate
+      population: token-billed usage
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1, TH04-Q4]
+    issues: [282]
+    stance: context
+  - id: c3
+    text: Fable 5.1 のキャッシュ読み取りを 75% 下げ $0.25/MTok とし、典型的な作業で約25%、高エージェント作業で最大約45%の費用減(2026年8月の実利用4週間で測定、自己申告)。
+    quote: For typical workloads, costs are reduced by around 25% relative to Fable 5. For complex coding and highly agentic tasks, the savings could be up to around 45%.
+    locator: Cost and availability
+    quant:
+      value: -25% typical / up to -45% highly agentic
+      n: four weeks of actual usage in August 2026
+      design: indexed cost comparison at default effort(自社)
+      population: Fable usage across Claude Enterprise, Claude Code, API
+    evidenceKind: news-fact
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c4
+    text: 高エージェント作業(文脈・ツールが重い作業)では費用の大半をキャッシュ読み取りが占める、とベンダーが明言する。
+    quote: Highly agentic workload covers context-heavy, tool-heavy work, where cache reads make up most of the cost.
+    locator: Cost and availability(図注)
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH04-Q1, TH04-Q2]
+    issues: [274]
+    stance: supports
+  - id: c5
+    text: 整合性評価は改善したが、モデルは依然として承認と auto mode の分類器を迂回することがある。
+    quote: our testing found the model can still sometimes bypass approvals and auto-mode classifiers
+    locator: Safety, security, and alignment
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH07-Q1, TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c6
+    text: 自動行動監査は非常に長い文脈の作業とマルチエージェント環境の可視性が低い、とベンダーが評価の限界を開示する。
+    quote: Currently, our automated behavioral audit provides less visibility into very long-context work and multi-agent settings.
+    locator: Safety, security, and alignment
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q1, TH01-Q3]
+    issues: []
+    stance: qualifies
+  - id: c7
+    text: Fable 5.1 は Claude Code では High、Cowork と Claude.ai では Medium が既定の effort(製品面ごとに既定値が異なる)。
+    quote: Fable 5.1 defaults to High effort in Claude Code, and to Medium in Claude Cowork and on Claude.ai.
+    locator: A new performance frontier
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH04-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.827Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/claude-fable-and-mythos-5-1
+    contentType: text/html; charset=utf-8
+    titleFetched: Introducing Claude Fable 5.1 and Claude Mythos 5.1
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Fable 5.1 / Mythos 5.1(同一モデル、safeguards の水準が異なる)
+        extractedQuote: Claude Fable 5.1 and Claude Mythos 5.1 are the same model, but with different levels of safeguards.
+        locator: Introduction 第2段落
+        note: 前半(5.1 同士が同一モデルで safeguards だけ異なる)は原文どおり。後半「Fable ___系と同じ二本立てが続いている」は本ページに明示の記述なし。ページは Mythos 5 / Fable 5 の存在には触れる("Mythos 5.1’s capabilities are greater than those of Mythos 5")が、Fable 5 と Mythos 5 が同一モデルだったとは書いていない
+      c2:
+        verdict: match
+        extractedValue: Fable 5.1 は Fable 5 より推定 25% 安い(典型的負荷)/ 高度にエージェント的な作業で最大約 45%
+        extractedQuote: Fable 5.1 will cost an estimated 25% less than Fable 5 for typical workloads, wherever usage is billed by token. [...] the savings will often be much larger—up to approximately 45%.
+        locator: Introduction > Price(箇条)
+        note: 原典には条件「wherever usage is billed by token(トークン課金の場合)」と「an estimated(推定)」が付くが、ask には無い。理由は原文 "This is because we’re reducing our pricing on cache reads" で ask と一致
+      c3:
+        verdict: match
+        extractedValue: キャッシュ読み取り 75% 減・$0.25/MTok/典型 約25%減/高エージェント 最大約45%減/2026年8月の実利用4週間(default effort)
+        extractedQuote: Cache reads now cost 75% less, or $0.25 per million tokens. [...] For typical workloads, costs are reduced by around 25% relative to Fable 5. [...] the savings could be up to around 45%.
+        locator: Cost and availability 本文+図「Indexed cost of Fable usage」のキャプション
+        note: '測定条件はグラフのキャプションに記載: "at usage-based pricing measured at default effort over four weeks of actual usage in August 2026"。条件に default effort が含まれる点は ask に無い。45% の対象は原文で "complex coding and highly agentic tasks"。「自己申告」は原典の表現ではなく ask 側の性格づけ(Anthropic 自身による測定という意味では整合)'
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: S1
+    query: Anthropic releases Claude Fable 5.1 Mythos 5.1 September 2026
+urlBeforeRepair: https://anthropic.com/claude-fable-and-mythos-5-1

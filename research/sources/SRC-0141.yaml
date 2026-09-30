@@ -1,0 +1,106 @@
+schemaVersion: 0
+id: SRC-0141
+status: included
+excludeReason: null
+title: What Is Product Discovery? The Ultimate Guide for PMs (2026 Edition)
+url: https://www.productcompass.pm/p/product-discovery-2026
+canonicalUrl: https://productcompass.pm/p/product-discovery-2026
+ids:
+  arxiv: null
+  doi: null
+publisher: The Product Compass (Substack)
+authors: [Paweł Huryn]
+orgType: individual
+region: eu
+lang: en
+sourceType: individual
+published: 2026-07-22
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: Marty Cagan AI product discovery prototypes 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH09]
+events: []
+summary: 2022 年版ガイドを AI 時代に書き直した記事。「同日出荷できるからこそ何を出すかの判断が重要」「安全で可逆な案は 1-2 プロンプトで作れるので作ること自体が検証になる」とし、OST に実験と機能の両方を置く運用へ変えたと述べる。有料部分は未読。
+claims:
+  - id: c1
+    text: 思いついた日に出荷できる今、何を出荷するかの判断がかつてなく重要になり、速度は無駄を増幅する。
+    quote: When you can ship an idea the same day you have it, deciding what to ship becomes more important than ever. And speed multiplies waste
+    locator: 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 安全で可逆な案が 1-2 プロンプトで実装できるなら、作ること自体が検証になり、すべての案に事前実験は不要。ディスカバリーは「検証済みバックログ」を生まなくなった。
+    quote: Today, when a safe, reversible idea takes 1-2 prompts to implement, building it can be the test, and not every idea needs a formal experiment first.
+    locator: 3. Continuous Product Discovery in 2026
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3, TH09-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: Opportunity Solution Tree は実験と機能の両方を保持するようになった(可逆な案は実験枝を経ずに機能として出す)。
+    quote: Your Opportunity Solution Tree can now hold both experiments and features
+    locator: 3. Continuous Product Discovery in 2026
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:07.754Z
+    httpStatus: 0
+    finalUrl: https://productcompass.pm/p/product-discovery-2026
+    contentType: ""
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: no-text
+      c2: no-text
+      c3: no-text
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: fetch failed
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: (数値なし)"speed multiplies waste"
+        extractedQuote: "When you can ship an idea the same day you have it, deciding what to ship becomes more important than ever. And speed multiplies waste : a team that shipped 2 bad ideas per sprint can now ship 20…"
+        locator: 記事冒頭("That argument is dead. The conclusion survived." の直後)
+        note: hasQuant=false だが原文には例示の数値(2 bad ideas per sprint → 20 a week)が同じ文にある。
+      c2:
+        verdict: match
+        extractedValue: 1-2 prompts
+        extractedQuote: Discovery no longer produces a validated Product Backlog. … Today, when a safe, reversible idea takes 1-2 prompts to implement, building it can be the test, and not every idea needs a formal…
+        locator: 節「3. Continuous Product Discovery in 2026」中段
+        note: 原文は "building it can be the test"(可能性の表現)で、ask の「作ること自体が検証になり」より弱い。「事前実験」は原文では "a formal experiment first"。quote は省略記号を含む。
+      c3:
+        verdict: match
+        extractedValue: (数値なし)"can now hold both experiments and features"
+        extractedQuote: "Your Opportunity Solution Tree can now hold both experiments and features: For cheap, reversible ideas, the “experiment” branch becomes a shipped feature behind a flag."
+        locator: 節「3. Continuous Product Discovery in 2026」(図の説明文と箇条書き)
+        note: 原文は「experiment 枝が feature flag の背後で出荷した機能になる」であり、「実験枝を経ずに」とは書いていない。また条件として "behind a flag" と "measure real usage" があり、高リスク・不可逆な案は "test them with experiments, as always"。ask はフラグと計測の条件を落としている。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://productcompass.pm/p/product-discovery-2026

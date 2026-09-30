@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0241
+status: included
+excludeReason: null
+title: Autonomy Level (Factory docs)
+url: https://docs.factory.ai/autonomy-and-safety/auto-run
+canonicalUrl: https://docs.factory.ai/autonomy-and-safety/auto-run
+ids:
+  arxiv: null
+  doi: null
+publisher: Factory
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: Factory droid exec autonomy levels low medium high docs
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH07, TH02]
+events: []
+summary: Factory Droid の自律度（Off/Low/Medium/High）の定義。操作ごとのリスク水準と自律度を比較して承認要否を決め、承認では解除できないブロックリスト、組織の上限設定を持つ。
+claims:
+  - id: c1
+    text: 自律度は『承認なしに実行できる最も高リスクの作業』を定める。コマンドや MCP ツールにリスク水準（low/medium/high）を付け、自律度以下なら自動実行、超えれば承認を求める。役割単位ではなく操作リスク単位の自律度の先例。
+    quote: Autonomy Level sets the highest-risk work Droid can run without pausing for approval.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: supports
+  - id: c2
+    text: ブロックリストの項目は承認プロンプトすら出さずに常に拒否され、完全自律や --skip-permissions-unsafe でも解除できない。承認に頼らず構造上不可能にする統制。
+    quote: "Blocklist entries can never run: there is no approval prompt, and the block holds even under full autonomy, auto-run, or `--skip-permissions-unsafe`."
+    locator: Command allowlists, denylists, and blocklists
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q5]
+    issues: [269, 275]
+    stance: supports
+  - id: c3
+    text: 新規・高リスクの作業は計画を信頼できるまで Off か Low で始めるよう勧める。
+    quote: Start new or high-stakes work with Off or Low until you trust the plan.
+    locator: Use it safely
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 承認プロンプトで『常に許可』を選ぶと、その時点の自律度がプロンプトの要求水準まで引き上がる。確認の多さを自律度の上昇で解消する設計（承認疲れと自律度の連動）。
+    quote: Choosing an "always allow" option raises the current Autonomy Level to the level required by that prompt.
+    locator: How approvals work
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4]
+    issues: []
+    stance: context
+  - id: c5
+    text: 組織管理者は最大自律度を設定でき、利用者はそれを超えて引き上げられない。
+    quote: Maximum Autonomy Level caps how high members can raise autonomy.
+    locator: Enterprise Controls
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH12-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.958Z
+    httpStatus: 200
+    finalUrl: https://docs.factory.ai/autonomy-and-safety/auto-run
+    contentType: text/html; charset=utf-8
+    titleFetched: Autonomy Level
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

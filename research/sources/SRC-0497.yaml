@@ -1,0 +1,78 @@
+schemaVersion: 0
+id: SRC-0497
+status: included
+excludeReason: null
+title: AI Agent Standards Initiative
+url: https://www.nist.gov/artificial-intelligence/ai-agent-standards-initiative
+canonicalUrl: https://nist.gov/artificial-intelligence/ai-agent-standards-initiative
+ids:
+  arxiv: null
+  doi: null
+publisher: NIST Center for AI Standards and Innovation (CAISI)
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2026-02-17
+publishedBasis: page
+version: null
+updated: 2026-08-14
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: NIST AI RMF revision 2026 AI 600-1 update CAISI AI Agent Standards Initiative
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2026-02-17
+    label: NIST CAISI が AI Agent Standards Initiative を開始
+summary: NIST のエージェント標準化の取組み。業界主導標準の支援・プロトコル・識別と認証の研究の3本柱で、成果は自主的な指針にとどまる。開発プロセスや体制への要求は含まない。
+claims:
+  - id: c1
+    text: NIST は技術会合とギャップ分析を通じて、業界主導のエージェント標準化に資する自主的なガイドラインを作るとし、規制的な要求は設けていない。
+    quote: NIST hosts technical convenings and conducts gap analyses to produce voluntary guidelines to inform industry-led standardization for AI agents.
+    locator: Strategic Pillars 1
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: 研究の柱は、人とエージェント・エージェント同士のやりとりを安全にするための、エージェントの認証と識別の基盤である。
+    quote: NIST conducts fundamental research into agent authentication and identity infrastructure to enable secure human-agent and multi-agent interactions.
+    locator: Strategic Pillars 3
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:15.828Z
+    httpStatus: 200
+    finalUrl: https://www.nist.gov/artificial-intelligence/ai-agent-standards-initiative
+    contentType: text/html; charset=UTF-8
+    titleFetched: AI Agent Standards Initiative
+    titleMatch: true
+    dateMeta: 2026-02-17
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://nist.gov/artificial-intelligence/ai-agent-standards-initiative

@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0557
+status: included
+excludeReason: null
+title: Conditional Content – Quarto
+url: https://quarto.org/docs/authoring/conditional.html
+canonicalUrl: https://quarto.org/docs/authoring/conditional.html
+ids:
+  arxiv: null
+  doi: null
+publisher: Quarto (Posit)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-06
+publishedBasis: unknown
+version: null
+updated: 2026-06-10
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G04
+  query: Quarto "single source" multiple formats revealjs pdf docx from one document official documentation; DITA single-sourcing conref reuse OASIS specification
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05]
+events: []
+summary: 1つの原稿から HTML・PDF・スライド(revealjs)などを生成する Quarto の公式文書。出力形式やプロファイルごとに表示する内容を出し分けられる。初出日は不明で、2026-06-10 は quarto-web リポジトリの当該ファイルの最終コミット日。派生物間の一致検査の記述は無い。
+claims:
+  - id: c1
+    text: 同じ原稿の中で、特定の出力形式だけに出す内容(またはその形式では出さない内容)を指定できる。正本から読み手・形式別の派生物を作る仕組みの先例である。
+    quote: In some cases you may want to create content that only displays for a given output format (or only displays when not rendering to a format).
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: スライド(Reveal.js)だけに出す内容を条件ブロックで書ける。
+    quote: Will only appear in Reveal.js and not in HTML or other formats.
+    locator: .content-visible (例)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: プロファイルごとに異なるメタデータを設定し、条件付き内容を切り替えられる。読み手別の版を1つの原稿から作る用途に当たる。
+    quote: Different profiles can set different metadata values, and so can control the metadata used in conditional content.
+    locator: Matching against metadata
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 条件指定は表示の切り替えにとどまり、囲んだセルの実行は止めない。条件ブロックの中身は形式ごとに別の文章になるため、その部分の一致は構造では保証されない。
+    quote: They do not prevent the code in cells they wrap from executing.
+    locator: Conditional Execution
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:38.020Z
+    httpStatus: 200
+    finalUrl: https://quarto.org/docs/authoring/conditional.html
+    contentType: text/html; charset=UTF-8
+    titleFetched: Conditional Content – Quarto
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 数値の記載なし(「1つの原稿」「single source」に当たる語はこの節に無い)。記述されているのは「Different profiles can set different metadata values」
+        extractedQuote: This feature is often useful alongside project profiles. Different profiles can set different metadata values, and so can control the metadata used in conditional content.
+        locator: Matching against metadata
+        note: 前半(プロファイルごとに異なるメタデータ → 条件付き内容の切り替え)は原文どおり。後半の「読み手別の版を___つの原稿から作る」は原文に無く、伏せ字に入る数は本文から抜き出せない。また照合できるのは boolean のメタデータ値に限られる(「It's possible to match against boolean metadata values」)。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0534
+status: included
+excludeReason: null
+title: "Making the Implicit Explicit: Towards An Assurance Case for DO-178C"
+url: https://ntrs.nasa.gov/api/citations/20140002745/downloads/20140002745.pdf
+canonicalUrl: https://ntrs.nasa.gov/api/citations/20140002745/downloads/20140002745.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: NASA Langley Research Center (NASA Technical Reports Server 20140002745)
+authors: [Holloway C. Michael]
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: "2013"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G02
+  query: DO-178C "independence" verification "person(s) other than the developer of the item being verified" objectives "with independence" Level A (faa.gov / nasa.gov / easa.europa.eu に限定)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH06, TH07]
+events: []
+summary: NASA Langley の研究者が、DO-178C の目標がなぜ安全への確信に寄与するのかを明示的な保証ケースとして書き起こす作業を報告した論文。DO-178C 本文は目標の根拠をほとんど示さないと指摘する。規格の独立性・トレーサビリティ要求を「根拠が示された要求」として引くことへの限定条件(反証側)として収録した。冒頭と §1 を読んだ。
+claims:
+  - id: c1
+    text: DO-178C の本文は、個々の目標や目標の集まりが目的の達成にどう寄与するかの根拠をほとんど示していない。保証ケースは暗黙である。
+    quote: DO-178C is also mostly rationale-free
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH12-Q4]
+    issues: [254]
+    stance: qualifies
+  - id: c2
+    text: 暗黙の保証ケースがこれまで十分だったことを経験的証拠は示唆するが、暗黙であるために、なぜ十分だったのかの理由を突き止めることが難しい。
+    quote: its implicitness makes determining the reasons for this adequacy quite difficult
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH12-Q4]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 補足文書 DO-248C の改訂版には DO-178C / DO-278A の根拠を述べる節が新設された。規範本文と根拠を別文書に分けて開示する運営の例である。
+    quote: the revised edition of DO-248C includes a new section
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH12-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:29.439Z
+    httpStatus: 200
+    finalUrl: https://ntrs.nasa.gov/api/citations/20140002745/downloads/20140002745.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: DO-248C / DO-178C / DO-278A(新設節の題は 'Rationale for DO-178C / DO-278A')
+        extractedQuote: "DO-178C is also mostly rationale-free, but the revised edition of DO-248C includes a new section: ‘Rationale for DO-178C / DO-278A’."
+        locator: §1 Introduction(PDF 1ページ目、第4段落)
+        note: 原文は DO-248C を 'Supporting Information for DO-178C and DO-278A' と紹介する。「規範本文と根拠を別文書に分けて開示する運営の例」という位置づけは原文に無く、ask 側の解釈。原文の文脈は「DO-178C 自体はほぼ根拠を述べない(mostly rationale-free)」という指摘。なお参考文献5 は題名を 'Supporting Information for DO-178C and DO-178A' と誤記している(本文は DO-278A)。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

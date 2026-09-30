@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0548
+status: included
+excludeReason: null
+title: About MADR (Markdown Architectural Decision Records)
+url: https://adr.github.io/madr/
+canonicalUrl: https://adr.github.io/madr
+ids:
+  arxiv: null
+  doi: null
+publisher: ADR GitHub organization (adr/madr)
+authors: [Oliver Kopp, Olaf Zimmermann]
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2024-09-17
+publishedBasis: page
+version: MADR 4.0.0
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G04
+  query: MADR adr.github.io/madr status supersede 索引 (指定 URL を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events:
+  - date: 2024-09-17
+    label: MADR 4.0.0 を公開(GitHub API の最新リリースも 4.0.0)
+summary: MADR 公式ページ(最新リリースは 2024-09-17 の 4.0.0)。status は任意のメタデータで値の一つが superseded by。索引やディレクトリ構成は強制せず、数百本に増えると探しにくいことを認めてカテゴリ分けを提案にとどめる。
+claims:
+  - id: c1
+    text: status・date・decision-makers などは任意要素で、削ってよいとテンプレートに明記されている。supersede の手順(旧 ADR を残すか消すか)の規定はこのページに無い。
+    quote: These are optional elements. Feel free to remove any of them.
+    locator: Full template
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: [272]
+    stance: context
+  - id: c2
+    text: status の値の例に superseded by ADR-NNNN があり、置き換えは状態欄で表す。
+    quote: "{proposed | rejected | accepted | deprecated | … | superseded by ADR-0123"
+    locator: Full template (status)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: [272]
+    stance: context
+  - id: c3
+    text: 大規模案件では決定記録が数百本に達して探しにくくなると認めたうえで、リポジトリやディレクトリの構成は強制しないとしている。索引の規定は無い。
+    quote: Large projects may accumulate hundreds of decision records over time, and finding them might be hard. MADR does not enforce any repository or directory organization structure.
+    locator: Using MADR in large projects and product developments
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1, TH05-Q5]
+    issues: [272]
+    stance: context
+  - id: c4
+    text: 1リポジトリの ADR は 9,999 本以内という前提で連番の桁数を決めており、本数の上限を小さく抑える考えは示していない。
+    quote: "`NNNN` is a consecutive number and we assume that there won’t be more than 9,999 ADRs in one repository."
+    locator: Create a new ADR / Manual approach
+    quant:
+      value: 9,999 本
+      n: 該当なし
+      design: テンプレートの命名規約上の前提(測定ではない)
+      population: 1リポジトリ
+    evidenceKind: normative
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c5
+    text: 決定記録は他の文書と分けたサブフォルダに置く。分ける相手は文書一般で、原則・ポリシーとの区別ではない。
+    quote: Decisions are placed in the subfolder `decisions/` to keep them close to the documentation but also separate the decisions from other documentation.
+    locator: Create a new ADR / Manual approach
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: [251]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:34.475Z
+    httpStatus: 200
+    finalUrl: https://adr.github.io/madr/
+    contentType: text/html; charset=utf-8
+    titleFetched: About MADR
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: one repository に 9,999 ADRs 以内(NNNN の4桁)
+        extractedQuote: The filenames are following the pattern NNNN-title-with-dashes.md (ADR-0005), where NNNN is a consecutive number and we assume that there won’t be more than 9,999 ADRs in one repository.
+        locator: Create a new ADR / Manual approach
+        note: 本数の上限を小さく抑えるべきという記述は同ページに見当たらない(「示していない」は不在の確認であり、原文の明示ではない)。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote(NNNN is a consecutive number and we assume that there won't be more than 9,999 ADRs in one repository)と一致する。4 桁の連番が 9,999 本以内という前提に基づくことは原文どおり。「本数の上限を小さく抑える考えは示していない」は同ページにその記述が見当たらないという不在の確認であり(blindNote)、原文の明示ではないが、主張の書き方と矛盾しない。
+          date: 2026-09-30
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

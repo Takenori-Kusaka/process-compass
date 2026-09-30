@@ -1,0 +1,182 @@
+schemaVersion: 0
+id: SRC-0032
+status: included
+excludeReason: null
+title: "GPT-5.6: Frontier intelligence that scales with your ambition"
+url: https://openai.com/index/gpt-5-6/
+canonicalUrl: https://openai.com/index/gpt-5-6
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-09
+publishedBasis: page
+version: null
+updated: 2026-08-21
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: tavily_extract https://openai.com/index/gpt-5-6/
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH02]
+events:
+  - date: 2026-07-09
+    label: GPT-5.6 Sol / Terra / Luna を限定プレビューから一般提供へ
+  - date: 2026-07-30
+    label: GPT-5.6 Luna を 80%、Terra を 20% 値下げ
+  - date: 2026-08-21
+    label: GPT-5.6 Sol の API・クレジット価格を 3 か月間 20% 超引き下げ
+summary: 前回 HTTP 403 で取得できなかった OpenAI 公式ページ。今回は取得でき、3 層構成(Sol/Terra/Luna)の GA 日 2026-07-09、公開単価、2 回の値下げ(07-30、08-21)がページ冒頭の更新注記として確認できる。
+claims:
+  - id: c1
+    text: GPT-5.6 ファミリーは限定プレビューを経て 2026-07-09 に一般提供された。Sol(フラッグシップ)/ Terra(日常用のバランス型)/ Luna(最もコスト効率が高い)の 3 モデル。
+    quote: "We’re launching the GPT‑5.6 family of models for general availability following our limited preview: our new flagship, Sol, alongside Terra, a balanced model for everyday work, and Luna"
+    locator: 冒頭(日付 July 9, 2026)
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH04-Q4, TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 公開単価(百万トークンあたり)は Sol 入力 $5 / 出力 $30、Terra $2.50 / $15、Luna $1 / $6。
+    quote: "GPT‑5.6 is priced per 1M tokens across three model sizes: Sol is $5 input / $30 output; Terra is $2.50 input / $15 output; and Luna is $1 input / $6 output."
+    locator: Availability and pricing
+    quant:
+      value: Sol $5/$30, Terra $2.50/$15, Luna $1/$6 per 1M tokens
+      n: null
+      design: price list
+      population: OpenAI API
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1, TH04-Q4]
+    issues: [274]
+    stance: context
+  - id: c3
+    text: 2026-07-30 に Luna を 80%、Terra を 20% 値下げした(前回メモの記述と一致)。
+    quote: "Update on July 30, 2026: OpenAI reduced the price of GPT‑5.6 Luna by 80% and GPT‑5.6 Terra by 20%."
+    locator: 冒頭の更新注記
+    quant:
+      value: Luna -80%, Terra -20%
+      n: null
+      design: price change
+      population: OpenAI API / credits
+    evidenceKind: news-fact
+    rqs: [TH04-Q4]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 2026-08-21 にはフラッグシップ Sol も 3 か月間の期限付きで 20% 超値下げされた(前回メモ後の新事実)。
+    quote: "Update on August 21, 2026: OpenAI dropped the API and credit pricing of GPT‑5.6 Sol by over 20% for the next 3 months."
+    locator: 冒頭の更新注記
+    quant:
+      value: ">20% for 3 months"
+      n: null
+      design: price change
+      population: GPT-5.6 Sol
+    evidenceKind: news-fact
+    rqs: [TH04-Q4]
+    issues: []
+    stance: context
+  - id: c5
+    text: OpenAI は、番号が世代を表す一方で、Sol・Terra・Luna は持続的な(durable)能力階層であり、それぞれ独自のペースで前進できると位置づける。
+    quote: The number identifies the generation, while Sol, Terra, and Luna are durable capability tiers that can advance on their own cadence.
+    locator: Availability and pricing
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4]
+    issues: []
+    stance: context
+  - id: c6
+    text: "ベンダー主張: Agents' Last Exam(55 分野の長時間業務評価)で Sol は 53.6 を記録し Claude Fable 5 を 13.1 ポイント上回る。自社ページの自己申告値。"
+    quote: On Agents’ Last Exam, an evaluation of long-running professional workflows across 55 fields, GPT‑5.6 Sol sets a new high of 53.6, eclipsing Claude Fable 5 (adaptive reasoning) by 13.1 points.
+    locator: Efficient by default, maximum performance on demand
+    quant:
+      value: 53.6 (+13.1 vs Fable 5)
+      n: 55 fields
+      design: vendor benchmark
+      population: GPT-5.6 Sol vs Claude Fable 5
+    evidenceKind: benchmark
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:03.998Z
+    httpStatus: 403
+    finalUrl: https://openai.com/index/gpt-5-6
+    contentType: text/html; charset=UTF-8
+    titleFetched: ""
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+      c6: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: GPT-5.6 / 2026-07-09(ページ日付 July 9, 2026) / 3モデル
+        extractedQuote: "We’re launching the GPT‑5.6 family of models for general availability following our limited preview: our new flagship, Sol, alongside Terra, a balanced model for everyday work, and Luna"
+        locator: "冒頭(日付 July 9, 2026)。Availability and pricing: 'GPT‑5.6 spans three model tiers'"
+        note: 一般提供日は本文の 'available starting today' とページ日付 July 9, 2026 から読める(本文に日付を明記した一文はない)。'The rollout ... will continue gradually toward full availability over the next 24 hours' とあり、全面提供は段階的。curl は Cloudflare のチャレンジで失敗したため、tavily_extract の生本文で確認した。
+      c2:
+        verdict: match
+        extractedValue: Sol $5/$30、Terra $2.50/$15、Luna $1/$6
+        extractedQuote: "GPT‑5.6 is priced per 1M tokens across three model sizes: Sol is $5 input / $30 output; Terra is $2.50 input / $15 output; and Luna is $1 input / $6 output."
+        locator: Availability and pricing
+        note: これはローンチ時(2026-07-09)の単価。本文は更新されていないが、冒頭の更新注記に 2026-07-30 の Luna 80%・Terra 20% 値下げと、2026-08-21 の Sol 20% 超値下げ(3か月)がある。取得日 2026-09-24 時点の実勢単価はこれと異なる可能性が高い。
+      c3:
+        verdict: match
+        extractedValue: 2026-07-30 / Luna 80% / Terra 20%
+        extractedQuote: "Update on July 30, 2026: OpenAI reduced the price of GPT‑5.6 Luna by 80% and GPT‑5.6 Terra by 20%."
+        locator: 冒頭の更新注記
+        note: 『前回メモの記述と一致』はメモ側の情報なので原典からは確認できない。
+      c4:
+        verdict: match
+        extractedValue: 2026-08-21 / 3か月 / 20% 超
+        extractedQuote: "Update on August 21, 2026: OpenAI dropped the API and credit pricing of GPT‑5.6 Sol by over 20% for the next 3 months."
+        locator: 冒頭の更新注記
+        note: 対象は 'API and credit pricing'(API と credit の価格)に限られる。
+      c5:
+        verdict: match
+        extractedValue: durable capability tiers that can advance on their own cadence
+        extractedQuote: The number identifies the generation, while Sol, Terra, and Luna are durable capability tiers that can advance on their own cadence.
+        locator: Availability and pricing
+        note: 原語は 'durable'。『恒久的』はやや強い訳で、『持続的な/長く続く』程度の含意。『世代番号とは独立に前進』は 'advance on their own cadence' に対応する。
+        adjudication:
+          verdict: corrected
+          reason: 根拠の文は blindQuote の 'The number identifies the generation, while Sol, Terra, and Luna are durable capability tiers that can advance on their own cadence.' である(claimQuote は本文に見つからず、根拠の文として不適切)。『世代番号とは独立に前進』はおおむね 'advance on their own cadence' に当たる。ただし 'durable' の訳語『恒久的』は強すぎる(blindNote)ので、『持続的な』に直した。
+          date: 2026-09-23
+          originalText: OpenAI は Sol/Terra/Luna を世代番号とは独立に前進できる「恒久的な能力階層」と位置づける。
+          originalQuote: "GPT‑5.6 spans three model tiers: Sol, our flagship; Terra, a lower-cost model with performance competitive with GPT‑5.5; and Luna, our fastest and most affordable model."
+      c6:
+        verdict: match
+        extractedValue: 55分野 / 53.6 / Claude Fable 5 (adaptive reasoning) / 13.1ポイント
+        extractedQuote: On Agents’ Last Exam, an evaluation of long-running professional workflows across 55 fields, GPT‑5.6 Sol sets a new high of 53.6, eclipsing Claude Fable 5 (adaptive reasoning) by 13.1 points.
+        locator: 冒頭の導入段落('Efficient by default...' 見出しより前)
+        note: "locator のずれ: この文は 'Efficient by default, maximum performance on demand' 節ではなく、見出しより前の導入段落にある。同ページ内でも値が食い違っている: 末尾の評価表(Professional)では Agents' Last Exam が Sol 52.7%、Claude Fable 5 40.5%(差 12.2)。本文の 53.6 と 13.1 に一致しない(推論設定の違いと考えられるが、ページに説明はない)。比較相手は 'Claude Fable 5 (adaptive reasoning)' という条件付き。"
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://openai.com/index/gpt-5-6

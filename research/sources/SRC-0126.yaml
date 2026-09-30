@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0126
+status: included
+excludeReason: null
+title: Claude Code on the Webが個人的に良かった話と今後の期待
+url: https://tech.iimon.co.jp/entry/2026/04/02/112148
+canonicalUrl: https://tech.iimon.co.jp/entry/2026/04/02/112148
+ids:
+  arxiv: null
+  doi: null
+publisher: iimon TECH BLOG(株式会社iimon)
+authors: [amahisa3]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-04-02
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code Max プラン 全エンジニア 配布 月額費用 1人あたり 導入実績 テックブログ
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: 不動産テックの iimon 社エンジニアの記事(2026-04-02)。全エンジニアに Claude Code の Max プランを支給していると明記。金額や利用量の公開は無く、日本企業の定額プラン一斉配布の一次事例として残す。
+claims:
+  - id: c1
+    text: iimon 社は全エンジニアに Claude Code の Max プランを支給している。日本企業が定額プランを全員配布した一次記述だが、費用総額や上限到達の実績は公開されていない。
+    quote: ちなみに弊社では全エンジニアにClaude CodeのMax Planが支給されております！
+    locator: はじめに
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q3, TH12-Q2]
+    issues: [274]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:52.746Z
+    httpStatus: 200
+    finalUrl: https://tech.iimon.co.jp/entry/2026/04/02/112148
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Code on the Webが個人的に良かった話と今後の期待 - iimon TECH BLOG
+    titleMatch: true
+    dateMeta: 2026-04-02
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

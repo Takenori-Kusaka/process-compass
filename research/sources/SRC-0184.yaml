@@ -1,0 +1,83 @@
+schemaVersion: 0
+id: SRC-0184
+status: included
+excludeReason: null
+title: Introducing Gemini 3.7 Flash
+url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash
+canonicalUrl: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash
+ids:
+  arxiv: null
+  doi: null
+publisher: Google
+authors: [Doshi Tulsee]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-13
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: Gemini 3.8 Flash announcement Google blog
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH11]
+events:
+  - date: 2026-08-13
+    label: Google が Gemini 3.7 Flash を発表
+summary: Gemini 3.7 Flash の公式発表。コーディング性能を FrontierCode と DeepSWE で示し、SWE-bench を前面に出していない。
+claims:
+  - id: c1
+    text: Google も比較軸に FrontierCode 1.1 Main(3.7 Flash 43.6% 対 3.6 Flash 34.4%)と DeepSWE v1.1 を使っている。前回 §2-2 の「FrontierCode がベンダー横断で参照され始めた」は強まった。
+    quote: FrontierCode 1.1 Main (43.6% vs 34.4%) and DeepSWE v1.1 (65.3% vs 49.0%)
+    locator: Better intelligence for complex workflows
+    quant:
+      value: 43.6% vs 34.4% (FrontierCode); 65.3% vs 49.0% (DeepSWE)
+      n: n/a
+      design: vendor-reported
+      population: Gemini 3.7 Flash vs 3.6 Flash
+    evidenceKind: benchmark
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.471Z
+    httpStatus: 200
+    finalUrl: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/
+    contentType: text/html; charset=utf-8
+    titleFetched: Introducing Gemini 3.7 Flash
+    titleMatch: true
+    dateMeta: 2026-08-13
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "FrontierCode 1.1 Main: 43.6% vs 34.4%（3.7 Flash 対 3.6 Flash）/ DeepSWE v1.1: 65.3% vs 49.0%"
+        extractedQuote: improved performance in generating production-ready code as seen in FrontierCode 1.1 Main (43.6% vs 34.4%) and DeepSWE v1.1 (65.3% vs 49.0%).
+        locator: Better intelligence for complex workflows 節の段落（'3.7 Flash shows strong gains over 3.6 Flash in coding tasks...'）
+        note: 比較の向きは同段落冒頭の '3.7 Flash shows strong gains over 3.6 Flash' による（前者=3.7 Flash、後者=3.6 Flash）。ask 後半の『前回 §___-___ …強まった』は本標準側の内部参照であり、原典からは検証できない。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote の 'FrontierCode 1.1 Main (43.6% vs 34.4%) and DeepSWE v1.1 (65.3% vs 49.0%)' と一致する。比較の向き(前者=3.7 Flash、後者=3.6 Flash)も同段落冒頭の '3.7 Flash shows strong gains over 3.6 Flash' に沿っている。前回 §2-2 の評価が強まったという部分は内部参照のため判定対象外。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

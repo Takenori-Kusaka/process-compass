@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0496
+status: included
+excludeReason: null
+title: OWASP GenAI LLM Top 10 2026 (OWASP Top 10 for LLM Applications 2026)
+url: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026
+canonicalUrl: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026
+ids:
+  arxiv: null
+  doi: null
+publisher: OWASP Gen AI Security Project
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2026-08-03
+publishedBasis: page
+version: v1.0
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH12
+  query: OWASP Top 10 for Agentic Applications 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2026-08-03
+    label: OWASP Top 10 for LLM Applications 2026 を公開(Excessive Agency が3位へ)
+summary: LLM アプリの 2026 年版 Top 10。PDF の序文・変更点を読んだ。初めて実インシデント 7,714 件の分類結果を投票と混ぜて順位を決め(投票 3/4・データ 1/4)、信念と証拠が食い違う箇所を開示した。
+claims:
+  - id: c1
+    text: 順位はコミュニティ投票に 3/4、インシデントデータ(公開脆弱性 DB と AI 被害 DB の 7,714 件、分類可能な 6,639 件)に 1/4 の重みを置いて決めた。1年分の雑音の多いデータに投票を覆させない設計と説明する。
+    quote: The community vote carries three-quarters of the weight. The incident data covers the remaining quarter.
+    locator: Letter(p.5)
+    quant:
+      value: 投票 75% / インシデントデータ 25%
+      n: 7,714 件収集、6,639 件を分類
+      design: コミュニティ投票と分類器によるインシデント分類の加重
+      population: 公開脆弱性データベースと AI 被害データベース
+    evidenceKind: normative
+    rqs: [TH12-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: プロンプトインジェクションは実務者の投票では1位だが、生のインシデント記録で順位付けすると Top 10 から外れる。防御が効いて公開 DB に載りにくい「防御効果」と解釈し、1位に据え置いた。
+    quote: Rank the categories by the raw incident record instead, and it falls out of the top 10 entirely.
+    locator: Letter(p.5)
+    quant: null
+    evidenceKind: observational
+    rqs: [TH12-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: Excessive Agency が3位に上がり、投票とインシデント記録の双方がエージェント型の導入で被害が出ていることで一致した。
+    quote: Excessive Agency climbed to third, the most consequential move on the list, because the vote and the record agree that agentic deployments are where the damage is landing.
+    locator: What's New in the 2026 Top 10(p.7)
+    quant: null
+    evidenceKind: observational
+    rqs: [TH12-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: モデルがツール・記憶・下流への作用を持つ「行為者」になった時点で、リスクの扱いは Agentic Top 10 側へ移ると境界を定めた。
+    quote: The moment that model becomes an actor, with tools it can call, memory it carries between sessions, and consequences it sets in motion downstream, the risk moves to the OWASP Agentic Top 10.
+    locator: What's New in the 2026 Top 10(p.7)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:15.791Z
+    httpStatus: 200
+    finalUrl: https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/
+    contentType: text/html; charset=UTF-8
+    titleFetched: OWASP GenAI LLM Top 10 2026
+    titleMatch: true
+    dateMeta: 2026-08-04
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 投票 three-quarters(3/4)、インシデント the remaining quarter(1/4)、7,714件、分類可能 6,639件、one noisy year(1年)
+        extractedQuote: The community vote carries three-quarters of the weight. The incident data covers the remaining quarter. ... one noisy year of data does not get to overturn the judgment of the people doing the work.
+        locator: Letter from the Project Leads (p.5)
+        note: "件数の原文: 'We pulled together a corpus of 7,714 real incidents from public vulnerability databases and an AI-harm database, and we built classifiers that read them and placed the 6,639 that carried enough detail to sort.' PDF は resource ページの download リンク(download/56857)から取得した。"
+        adjudication:
+          verdict: consistent
+          reason: blindQuote『The community vote carries three-quarters of the weight. The incident data covers the remaining quarter. ... one noisy year of data does not get to overturn the judgment of the people doing the work.』と、blindNote の件数原文『a corpus of 7,714 real incidents from public vulnerability databases and an AI-harm database ... placed the 6,639 that carried enough detail to sort』どおり。『投票を覆させない』は原文の『現場の人々の判断(=コミュニティ投票)を覆させない』の要約として妥当。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: number one(1位) / top 10 / number one(1位)
+        extractedQuote: Practitioners rank it the number one risk. Rank the categories by the raw incident record instead, and it falls out of the top 10 entirely. That gap is a defense effect. ... It stays at number one.
+        locator: Letter from the Project Leads (p.5)
+        note: "防御効果の説明の原文: 'Teams fight injection hard, so fewer clean exploits reach a public database, and the public count understates the risk'。"
+      c3:
+        verdict: match
+        extractedValue: third(3位)
+        extractedQuote: Excessive Agency climbed to third, the most consequential move on the list, because the vote and the record agree that agentic deployments are where the damage is landing.
+        locator: What's New in the 2026 Top 10 (p.7)
+        note: ""
+      c4:
+        verdict: match
+        extractedValue: OWASP Agentic Top 10
+        extractedQuote: The moment that model becomes an actor, with tools it can call, memory it carries between sessions, and consequences it sets in motion downstream, the risk moves to the OWASP Agentic Top 10.
+        locator: What's New in the 2026 Top 10 (p.7)
+        note: 原文は続けて 'When your model starts acting on its own, pair it with the Agentic list, because neither one covers that ground alone.' と書き、完全な移管ではなく両リストの併用を求めている。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,120 @@
+schemaVersion: 0
+id: SRC-0024
+status: included
+excludeReason: null
+title: "LLM-Based Test Oracles: Source-of-Authority Taxonomy — A Systematic Literature Review"
+url: https://arxiv.org/abs/2607.05031
+canonicalUrl: arxiv:2607.05031
+ids:
+  arxiv: "2607.05031"
+  doi: 10.1109/ACCESS.2026.3729738
+publisher: arXiv / IEEE Access vol. 14 (2026)
+authors: [Ali Hassaan Mughal, Muhammad Bilal]
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: 2026-07-06
+publishedBasis: arxiv-v1
+version: v3
+updated: 2026-09-02
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-3
+  query: research/phase4-standard/123-safety-verification.md §6.2 の引用(原典確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH08]
+events: []
+summary: PRISMA 2020 に沿った SLR(2,436 件→54 件→snowballing で 83 件)。LLM オラクルを「権威の源泉・形式・裁定機構」の 3 軸で分類し、コーパスの半数強が仕様なしに判定へ到達していると報告。123 メモの記述(体系的レビューとしての分類整理)は原典どおり。
+claims:
+  - id: c1
+    text: PRISMA 2020 に基づき 2,436 件を 54 件に絞り、引用探索で 83 件へ拡張した体系的文献レビュー。
+    quote: screens 2,436 records to 54 included studies, extended by citation searching (snowballing) to 83 in total.
+    locator: Abstract
+    quant:
+      value: 83 studies
+      n: 2,436 records screened
+      design: systematic literature review (PRISMA 2020)
+      population: LLM-based test oracle 研究
+    evidenceKind: review
+    rqs: []
+    issues: [123]
+    stance: context
+  - id: c2
+    text: コーパスの半数強は、参照する仕様が一切ないまま判定に到達している。
+    quote: Just over half of the corpus reaches a verdict with no specification at all.
+    locator: Abstract
+    quant:
+      value: just over half
+      n: 83 studies
+      design: systematic literature review
+      population: included studies
+    evidenceKind: review
+    rqs: []
+    issues: [123]
+    stance: supports
+  - id: c3
+    text: オラクルの品質は、注入した欠陥を捉えたかではなく既知オラクルとの類似で判定されることが最も多い。
+    quote: Oracle quality is most often judged by resemblance to a known oracle rather than by whether injected faults are caught.
+    locator: Abstract
+    quant: null
+    evidenceKind: review
+    rqs: []
+    issues: [123]
+    stance: supports
+  - id: c4
+    text: 権威の源泉と裁定機構は交差する別軸であり、「LLM-as-a-judge」は判定の作り方を指す名称で、信頼してよい理由を示さない。
+    quote: a label such as LLM-as-a-judge names how a verdict is produced, not why it should be trusted.
+    locator: Abstract
+    quant: null
+    evidenceKind: review
+    rqs: []
+    issues: [123]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:05.082Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.05031
+    contentType: text/html; charset=utf-8
+    titleFetched: "LLM-Based Test Oracles: Source-of-Authority Taxonomy -- A Systematic Literature Review"
+    titleMatch: true
+    dateMeta: 2026-07-06
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "LLM-Based Test Oracles: Source-of-Authority Taxonomy -- A Systematic Literature Review"
+      authors: ["Mughal, Ali Hassaan", "Bilal, Muhammad"]
+      v1Date: 2026-07-06
+      latestVersion: 3
+      titleMatch: true
+    crossref:
+      status: 200
+      title: "LLM-Based Test Oracles: Source-of-Authority Taxonomy—A Systematic Literature Review"
+      issued: "2026"
+      titleMatch: true
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: PRISMA 2020 / 2,436件 → 54件 / 引用探索(snowballing)で計83件(追加29件)
+        extractedQuote: (PRISMA) 2020 guidelines, screens 2,436 records to 54 included studies, extended by citation searching (snowballing) to 83 in total.
+        locator: Abstract(arXiv HTML v3)。§I 貢献リストにも同値("adds 29 further studies, for 83 in total")
+        note: 2,436件は3DB統合時点の件数で、重複除去後は2,245件(§IV-G "This left 2,245 unique records.")。askの「___件を___件に絞り」は2,436→54と読める。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

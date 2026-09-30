@@ -1,0 +1,83 @@
+schemaVersion: 0
+id: SRC-0516
+status: included
+excludeReason: null
+title: Filetto の Pull Request 一覧(2026-08-13T11:14Z までの 70 件)
+url: https://github.com/Takenori-Kusaka/Filetto/pulls?q=is%3Apr+created%3A%3C2026-08-13T11%3A15%3A00Z
+canonicalUrl: https://github.com/takenori-kusaka/filetto/pulls?q=is%3apr+created%3a%3c2026-08-13t11%3a15%3a00z
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub: Takenori-Kusaka/Filetto"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: repo
+published: 2026-08-13
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: gh pr list -R Takenori-Kusaka/Filetto --state all --limit 300 --json number,title,createdAt,mergedAt,files
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11, TH07]
+events: []
+summary: "Issue #240 / #249 が引く「PR 70 件(マージ 64 件)、58% がプロセス整備」を、Filetto の PR と変更ファイルから数え直した。件数と総変更行数は一致、58% は分類の定義に依存する。"
+claims:
+  - id: c1
+    text: "件数は PR 70 件・カットオフ時点のマージ 64 件(最終的には 68 件)・Issue 30 件で、マージ済み 64 件の総変更行数は 24,800 行である。58% は再現せず、変更行数が最大のパスによる機械分類では装置パス優位 10 件(15.6%)、ADR 優位 13 件を足して 23 件(35.9%)、装置の範囲を広げても 29 件(45.3%)、題名の目視分類は約 20〜28 件(31〜44%、主観)で、ゲート記録は 6 件、src/ 優位の実装 PR は 0 件(src/ の変更は PR #2 の 10 行のみ)だった。"
+    quote: "fix: ロール別セッション定義の二重エンコード破損を修復する"
+    locator: "GitHub REST API: /repos/Takenori-Kusaka/Filetto/pulls?state=all、/issues?state=all、/pulls/{n}、/pulls/{n}/files(created_at < 2026-08-13T11:15:00Z で絞り込み)。引用は PR #33 の題名"
+    quant:
+      value: PR 70 / マージ 64 / 24,800 行は一致。プロセス整備は 16〜52%(Issue の値 58%)
+      n: マージ済み PR 64 件
+      design: gh pr list -R Takenori-Kusaka/Filetto --state all --limit 300 --json number,title,createdAt,mergedAt,additions,deletions,files を 2026-08-13T11:14:17Z で切り、(1) 変更行数が最大のパス区分、(2) 題名(スパイク・仕様・企画書・技術調査・製品技術の ADR を製品側、残りをプロセス側)の 2 通りで分類。取得 2026-09-30
+      population: Filetto、2026-08-12〜08-13
+    evidenceKind: observational
+    rqs: [TH11-Q4]
+    issues: [240, 249, 252]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:20.468Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/Filetto/pulls?q=is%3Apr+created%3A%3C2026-08-13T11%3A15%3A00Z
+    contentType: text/html; charset=utf-8
+    titleFetched: Pull requests · Takenori-Kusaka/Filetto
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "PR 70件(created < 2026-08-13T11:15:00Z、#2〜#100)。マージはカットオフ時点で 64件(最終的にマージ 68件、未マージで閉じたもの 2件 = #35・#46)。PR を除く Issue 30件(#1〜#95 の範囲)。総変更行数(PR API の additions+deletions 合計): 70件で 27,877行(+25,907 / -1,970)、カットオフ時点でマージ済みの64件で 24,800行(+23,011 / -1,789)。main の first-parent 64コミットの numstat 合計は 21,476行、main の純差分は +18,294 / -110。変更行数が最大のパスによる機械分類(マージ済み64件): 装置パス(.claude/ .github/ scripts/ tests/ docs/platform/)優位 10件(15.6%)、ADR(context/decisions/)優位 13件、合算 23件(35.9%)。.gemini/・docs/session-definitions/・CLAUDE.md も装置に含めると 16件(25.0%)、ADR 合算 29件(45.3%)。題名による意味分類(検証役の目視、主観): 約20〜28件(31〜44%)。ゲート記録(docs/gates/ 優位) 6件 = 題名 docs(gate) 6件、実装(src/ 優位) 0件(src/ の変更は PR #2 の 10行のみ)"
+        extractedQuote: "fix: ロール別セッション定義の二重エンコード破損を修復する"
+        locator: "GitHub REST API: /repos/Takenori-Kusaka/Filetto/pulls?state=all、/issues?state=all、/pulls/{n}、/pulls/{n}/files(created_at < 2026-08-13T11:15:00Z で絞り込み)。引用は PR #33 の題名"
+        note: 伏せ字の Issue 番号は process-compass#240(2026-08-13T11:14:17Z 起票)と推定。起票時刻を特定する検索で Issue の題名が目に入り、題名に「PR 70件・文書 12,537行、うち58%」とあることを見てしまった(目隠しが一部破れた。本文は読んでいない)。総変更行数は数え方で 27,877 / 24,800 / 21,476 / 18,404 と動き、12,537 はどの数え方でも再現しなかった。装置パスの「ほか」の範囲が ask から分からないため、機械分類の件数は範囲の取り方で 10〜16件に動く。ADR の置き場は context/decisions/ と解釈した。マージ件数は「カットオフ時点 64」と「最終 68」で食い違うため、どちらの定義かを要確認。題名分類は検証役の主観で再現性が低い。base が main でない PR が3件ある(積み上げ PR)
+        adjudication:
+          verdict: corrected
+          reason: "PR 70 / マージ 64 / Issue 30 / 24,800 行、58% が再現しないこと、機械分類の 10 件(16%)・23 件(36%)、ゲート記録 6 件は blind と一致する。食い違いは (1) 題名分類が主張 29〜33 件(45〜52%)に対し blind は約 20〜28 件(31〜44%)で、上端 52% は裏づけられない(双方とも主観的分類)、(2) 「実装 1 件は一致」に対し blind は src/ 優位の PR を 0 件とする(src/ に触れた PR は #2 の 1 件)、(3) マージ 64 件はカットオフ時点の値で最終は 68 件、24,800 行はその 64 件の合計(70 件全体では 27,877 行)という条件の欠落。blind の値で直した。"
+          date: 2026-09-30
+          originalText: "Issue #240 の値「PR 70 件(マージ 64 件)、案件の Issue 30 件、マージ済み PR の 58%(37 件)がプロセス整備」に対し、件数は PR 70 件・マージ 64 件・Issue 30 件・総変更行数 24,800 行で一致した。58% は再現できなかった。変更行数が最大のパスで機械分類すると、装置パス(.claude/ .github/ scripts/ tests/ docs/platform/ ほか)優位は 10 件(16%)、ADR 優位の 13 件を全部足しても 23 件(36%)。題名で意味分類すると 29〜33 件(45〜52%)。ゲート記録 6 件と実装 1 件は一致する。"
+          originalQuote: "fix: ロール別セッション定義の二重エンコード破損を修復する"
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

@@ -1,0 +1,114 @@
+schemaVersion: 0
+id: SRC-0576
+status: included
+excludeReason: null
+title: "Synthetic Founders: AI-Generated Social Simulations for Startup Validation Research in Computational Social Science"
+url: https://arxiv.org/abs/2509.02605
+canonicalUrl: arxiv:2509.02605
+ids:
+  arxiv: "2509.02605"
+  doi: 10.48550/arXiv.2509.02605
+publisher: arXiv
+authors: ["Teutloff, Jorn K."]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2025-08-29
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: arXiv 2026 LLM synthetic users personas vs real user interviews validity study "synthetic participants"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09]
+events: []
+summary: 創業初期の起業家 15 名への面接と、同じ質問票を LLM 生成の起業家・投資家ペルソナへ行った結果を主題分析で突き合わせた査読前論文(JASSS へ投稿中と記載)。一致する主題がある一方、人だけに現れる主題(関係・支援者としての顧客)と合成だけに現れる主題(偽陽性の増幅)を報告し、実証の代替ではなく補完と結論する。定量の一致率は無い。
+claims:
+  - id: c1
+    text: 創業初期の起業家 15 名への面接と、同一プロトコルを AI 生成の起業家・投資家ペルソナに適用した結果を比較した。
+    quote: the same protocol was replicated with AI-generated founder and investor personas.
+    locator: Abstract
+    quant:
+      value: 15 founders
+      n: "15"
+      design: qualitative comparison (thematic synthesis, human interviews vs LLM personas)
+      population: early-stage startup founders
+    evidenceKind: observational
+    rqs: [TH09-Q4]
+    issues: []
+    stance: context
+  - id: c2
+    text: 人の面接だけに現れた主題は、初期顧客との関わりが生む関係・支援者としての価値など、生きた経験と関係の信頼に根ざすものだった。合成ペルソナで顧客検証を代替すると、この部分が欠ける。
+    quote: Some themes appeared only in the human interviews, underscoring the irreplaceable role of lived experience and relational trust.
+    locator: 4.3 Human-Only Themes
+    quant: null
+    evidenceKind: observational
+    rqs: [TH09-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 合成ペルソナだけに現れた主題として、AI が過去の否定的な経験を見落とし採用可能性を過大に見積もる偽陽性の増幅が挙げられる。
+    quote: amplified false positives and trauma blind spots, where AI may overstate adoption potential by missing negative historical experiences.
+    locator: Abstract (4) Synthetic-only themes
+    quant: null
+    evidenceKind: observational
+    rqs: [TH09-Q4]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 著者は、合成ペルソナは実証研究の置き換えではなく、仮説空間の拡張と探索的検証の加速に使う補完的な手段だと結論する。
+    quote: Rather than replacing empirical studies, we argue they function as a complementary simulation category
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:46.393Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2509.02605
+    contentType: text/html; charset=utf-8
+    titleFetched: "Synthetic Founders: AI-Generated Social Simulations for Startup Validation Research in Computational Social Science"
+    titleMatch: true
+    dateMeta: 2025-08-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "Synthetic Founders: AI-Generated Social Simulations for Startup Validation Research in Computational Social Science"
+      authors: ["Teutloff, Jorn K."]
+      v1Date: 2025-08-29
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Fifteen(15名)
+        extractedQuote: Fifteen early-stage startup founders were interviewed about their hopes and concerns regarding AI-powered validation, and the same protocol was replicated with AI-generated founder and investor
+        locator: Abstract (arxiv.org/abs/2509.02605)
+        note: quote は 200 字に収めるため末尾の「personas.」を切った(原文は「AI-generated founder and investor personas.」)。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

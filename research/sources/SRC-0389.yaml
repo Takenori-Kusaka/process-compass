@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0389
+status: included
+excludeReason: null
+title: Quantifying and Mitigating Self-Preference Bias of LLM Judges
+url: https://arxiv.org/abs/2604.22891
+canonicalUrl: arxiv:2604.22891
+ids:
+  arxiv: "2604.22891"
+  doi: null
+publisher: "arXiv (UESTC CompleX Lab; 本文冒頭に Journal: Information Sciences の表記)"
+authors: [Jinming Yang, Zheng Hu, Chuxian Qiu, Zhenyu Deng, Xinshan Jiao, Tao Zhou]
+orgType: academic
+region: cn
+lang: en
+sourceType: preprint
+published: 2026-04-24
+publishedBasis: arxiv-v1
+version: v4
+updated: 2026-06-02
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: LLM-as-a-judge self-preference bias position bias study 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 人手の正解なしで LLM 判定者の自己選好バイアスを定量化し、20 モデルで『高性能=公平』ではないこと、全体判定を観点別比較へ分解する構造化評価で平均 31.5% 減らせることを示した。
+claims:
+  - id: c1
+    text: 20 の主要 LLM で、能力の高さと自己選好バイアスの低さは無相関か、むしろ負の相関にある。強いモデルを判定者にすれば公平になるとは限らない。
+    quote: our empirical analysis across 20 mainstream LLMs reveals that advanced capabilities are often uncorrelated, or even negatively correlated, with low SPB.
+    locator: Abstract
+    quant:
+      value: 無相関〜負の相関
+      n: 20 LLM
+      design: benchmark (equal-quality pairs, double-query position swap)
+      population: 100 問の評価質問
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [256]
+    stance: supports
+  - id: c2
+    text: 全体判定を観点別の単純な比較へ分解する構造化評価で、自己選好バイアスが平均 31.5% 減った(高バイアスのモデルが対象)。
+    quote: we propose a structured multi-dimensional evaluation strategy grounded in cognitive load decomposition, reducing SPB by 31.5% on average.
+    locator: Abstract / §4.4 SPB mitigation
+    quant:
+      value: -31.5%(平均)
+      n: 20 LLM のうち |β|>0.08 の高バイアスモデル
+      design: controlled experiment (baseline vs structured prompt)
+      population: LLM-as-a-Judge の対比較
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:44.587Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2604.22891
+    contentType: text/html; charset=utf-8
+    titleFetched: Quantifying and Mitigating Self-Preference Bias of LLM Judges
+    titleMatch: true
+    dateMeta: 2026-04-24
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Quantifying and Mitigating Self-Preference Bias of LLM Judges
+      authors: ["Yang, Jinming", "Hu, Zheng", "Qiu, Chuxian", "Deng, Zhenyu", "Jiao, Xinshan", "Zhou, Tao"]
+      v1Date: 2026-04-24
+      latestVersion: 4
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

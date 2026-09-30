@@ -1,0 +1,101 @@
+schemaVersion: 0
+id: SRC-0558
+status: included
+excludeReason: null
+title: "Workslop: The Hidden Cost of AI-Generated Busywork | BetterUp Labs"
+url: https://www.betterup.com/workslop
+canonicalUrl: https://betterup.com/workslop
+ids:
+  arxiv: null
+  doi: null
+publisher: BetterUp Labs / Stanford Social Media Lab
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2025-09
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G04
+  query: '"workslop" study BetterUp Stanford percent received time spent per incident AI-generated work content burden on recipient'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05, TH11]
+events: []
+summary: AI 生成の成果物を受け取る側の負荷を測った調査の要約ページ(2025-09 実施、n=1,150)。40% が前月に受領し、1件の処理に平均約2時間と報告する。対象は業務文書一般でソフトウェア文書に限らず、時間は自己申告。詳細は HBR 2025-09-22 の記事(本文は有料壁で未読)。
+claims:
+  - id: c1
+    text: 米国のフルタイムのデスクワーカー 1,150 名への調査で、40% が前月に「見た目は整っているが中身の無い AI 生成物」を受け取り、1件の解消に平均約2時間かかったと答えた。読む側の負荷を測った数少ない値だが、自己申告の見積もりである。
+    quote: Insights are based on an online survey of 1,150 full-time U.S. desk workers conducted in September 2025 by BetterUp in partnership with the Stanford Social Media Lab.
+    locator: The Hidden Costs of Workslop(注記)
+    quant:
+      value: 受領 40%、1件あたり平均 2 時間、1人あたり月 186 ドル
+      n: 1,150
+      design: オンライン調査(自己申告)。費用は回答者の申告給与からの換算
+      population: 米国のフルタイムのデスクワーカー、2025-09
+    evidenceKind: survey
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: supports
+  - id: c2
+    text: 対象に挙げる形は、体裁の良いスライド、長い報告書、切り詰めすぎた要約、文脈の無いコードである。
+    quote: It creates the illusion of progress – slick slides, lengthy reports, overly tightened summaries, or code without context.
+    locator: Workslop is AI-generated content that looks good, but lacks substance.
+    quant: null
+    evidenceKind: survey
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: context
+  - id: c3
+    text: 負荷は読む時間だけでなく、考える作業と後始末が受け手へ移ることだと説明している。
+    quote: Rather than saving time, it leaves colleagues to do the real thinking and clean-up.
+    locator: Workslop is AI-generated content that looks good, but lacks substance.
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:38.832Z
+    httpStatus: 200
+    finalUrl: https://www.betterup.com/workslop
+    contentType: text/html; charset=UTF-8
+    titleFetched: "Workslop: The Hidden Cost of AI-Generated Busywork | BetterUp Labs"
+    titleMatch: true
+    dateMeta: 2025-09-21
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 調査対象 1,150 名 / 受け取った割合 40% / each incident(1件ごと) / 2 hrs
+        extractedQuote: 40% Percentage of U.S. desk workers who received workslop last month. 2 hrs Average time it takes to resolve each incident. [...] an online survey of 1,150 full-time U.S. desk workers
+        locator: The Hidden Costs of Workslop(数値タイルと * の注記)
+        note: ページの表記は「2 hrs」で「約」に当たる語は無い。「自己申告の見積もり」という語もページには無く、根拠は「online survey」という記載のみ。調査は 2025年9月、BetterUp と Stanford Social Media Lab の共同。同じ並びに $186(従業員1人あたり月額)、$9M(1万人規模の企業の年額)もある。定義は「AI-generated content that looks good, but lacks substance」。
+        adjudication:
+          verdict: consistent
+          reason: 1,150 名の米国フルタイムのデスクワーカー、受領 40%(前月)、1件あたり平均 2 hrs、定義(looks good, but lacks substance)はいずれも blindQuote / blindNote と一致。claimQuant の月 186 ドルも blindNote の $186(従業員1人あたり月額)と一致する。ページ表記は「2 hrs」で「約」の語は無いが、値は変わらない。「自己申告の見積もり」はページの語ではないが、「online survey」という調査方法から導ける性格づけ。「数少ない値」は主張側の評価で判定対象外。
+          date: 2026-09-30
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

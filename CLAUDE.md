@@ -27,6 +27,7 @@
 
 - `src/content/docs/` — 公開ドキュメント(Starlight)。`vision/`(目的・ロードマップ・ツール構想)、`phase1-current-state/` 〜 `phase6-operation/`(6フェーズの成果物)、`community/`
 - `research/` — 一次調査メモ・下書き。体系化できたら docs 配下へ清書して公開する
+  - 外部文献は出典台帳 `research/sources/`(SRC-NNNN、`npm run lint:sources` で検査)。2026-09-23 時点の外部動向は `research/282-survey-2026-09/README.md` から辿る(Issue 番号 → `by-issue.md` → 知見 FND → 出典 SRC の順。全文献を読まない)
 - `astro.config.mjs` — サイト設定。sidebar は各ディレクトリの autogenerate
 
 ## 執筆規約

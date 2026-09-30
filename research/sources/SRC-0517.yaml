@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0517
+status: included
+excludeReason: null
+title: Filetto .github/workflows/gate-g5.yml(G-5 自動検証)と実行履歴
+url: https://github.com/Takenori-Kusaka/Filetto/blob/71a2cde34f38f236440fdd0707afcf6174f54b98/.github/workflows/gate-g5.yml
+canonicalUrl: https://github.com/takenori-kusaka/filetto/blob/71a2cde34f38f236440fdd0707afcf6174f54b98/.github/workflows/gate-g5.yml
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub: Takenori-Kusaka/Filetto"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: repo
+published: 2026-08-14
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: gh api "repos/Takenori-Kusaka/Filetto/actions/runs?per_page=100" --paginate
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH02, TH10]
+events: []
+summary: "Issue #254 が引く「直近 CI 100 実行の失敗 14 件の内訳」を、gate-g5 workflow の実行履歴(Actions API)から失敗ジョブ単位で数え直した。"
+claims:
+  - id: c1
+    text: "Issue #254 の値「直近 100 実行の失敗 14 件(spec-lint 5、record-integrity 4、test 3、pr-base-check 2、external-host-check 1、static-analysis 1)」に対し、Issue 起票(2026-08-14T14:26:05Z)直前の gate-g5 の 100 実行は失敗 15 件。起票 2 分前の 1 件(secret-scan の失敗)を除く 14 件の失敗ジョブは spec-lint 5、record-integrity 4、test 3、pr-base-check 2、external-host-check 1、static-analysis 1 で Issue と完全に一致する(2 実行が 2 ジョブ同時に失敗し合計 16)。ip-clearance と coverage の失敗は 0。"
+    quote: "# 集約ジョブ1つを必須にすることで、検査を足しても保護設定を変えずに済みます。"
+    locator: ファイル冒頭のコメント / Actions の実行履歴
+    quant:
+      value: 失敗 15 / 100(起票直前の 1 件を除くと 14 / 100 で内訳も一致)
+      n: gate-g5 の 100 実行(2026-08-13T02:34Z〜08-14T14:24Z)
+      design: gh api "repos/Takenori-Kusaka/Filetto/actions/runs?per_page=100" --paginate で全 504 実行を取得し、workflow 名 gate-g5・created_at が起票以前の新しい順 100 件を抽出。失敗 15 件は actions/runs/<id>/jobs の conclusion=failure のジョブ名で集計(集約ジョブ gate-g5 は除く)。取得 2026-09-30
+      population: Filetto の pull_request 起動の CI
+    evidenceKind: observational
+    rqs: [TH02-Q4, TH07-Q3]
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: 値は窓と母数の取り方で動く。起票までの gate-g5 の全 183 実行では失敗 43 件(23.5%)。全 workflow(ai-review、merged-reachability を含む)を母数にすると直近 100 実行の失敗は 6 件になる。Issue の「CI」は gate-g5 workflow を指すと読まないと 14 件にならない。
+    quote: "name: gate-g5"
+    locator: workflow 名
+    quant:
+      value: 43 / 183(23.5%)、全 workflow の直近 100 では 6 / 100
+      n: gate-g5 183 実行、全 workflow 433 実行(起票以前)
+      design: 同じ取得結果を workflow 名で絞らずに集計。取得 2026-09-30
+      population: Filetto の Actions 実行履歴、2026-08-12〜08-14
+    evidenceKind: observational
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: qualifies
+  - id: c3
+    text: テストのファイルは tests/gate/ に装置のテスト 11 本(test_*.py 10 本 + license-check.test.mjs 1 本)、製品側は tests/test_package.py の 1 本だけである(71a2cde 時点)。adapters/ の secretScan は python・go・none の 3 つで空文字(node だけ secretlint を指定)で、scripts/gate/adapter.mjs は secretScan を任意の検査として空でも exit 0 で通す。
+    quote: 実際に走るコマンドは adapters/<stack>.json から差し込みます。
+    locator: 'gate-g5.yml 冒頭コメント(L6)/ git tree 71a2cde の tests/・adapters/ / adapters/{python,go,none}.json L13 `"secretScan": ""` / scripts/gate/adapter.mjs「任意の検査(secretScan など)は空でも通す。必須の検査は空を許さない」'
+    quant:
+      value: テストファイル 11 本中 10 本が装置のテスト。secretScan が空の adapter 3 / 4
+      n: tests/ 11 ファイル、adapters/ 4 ファイル
+      design: ls tests tests/gate、git show 8e64146:adapters/*.json の secretScan 行を確認。取得 2026-09-30
+      population: Filetto、2026-08-14
+    evidenceKind: observational
+    rqs: [TH02-Q4, TH07-Q3]
+    issues: [254]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:20.827Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/Filetto/blob/71a2cde34f38f236440fdd0707afcf6174f54b98/.github/workflows/gate-g5.yml
+    contentType: text/html; charset=utf-8
+    titleFetched: Filetto/.github/workflows/gate-g5.yml at 71a2cde34f38f236440fdd0707afcf6174f54b98 · Takenori-Kusaka/Filetto
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Issue = process-compass#254(起票 2026-08-14T14:26:05Z)と推定。起票直前の gate-g5 の直近100実行で失敗 15件。起票の約1分前(14:24:43Z、82秒前)の1件は secret-scan の失敗。残り14件の失敗ジョブ: spec-lint 5、record-integrity 4、test 3、pr-base-check 2、external-host-check 1、static-analysis 1(2実行が2ジョブ同時に失敗し合計 16)。ip-clearance の失敗は 0。coverage は独立ジョブではなく test ジョブ内のステップで、失敗ジョブとしては 0"
+        extractedQuote: 必須ステータスチェックの名前は gate-g5 に固定します。個々の検査ジョブではなく、集約ジョブ1つを必須にすることで、検査を足しても保護設定を変えずに済みます。
+        locator: "gate-g5.yml 冒頭コメント(L1-L4、commit 71a2cde)/ GitHub REST API: /actions/runs(workflow 名 gate-g5、created_at < 2026-08-14T14:26:05Z を新しい順に100件)と /actions/runs/{id}/jobs の conclusion=failure"
+        note: 窓の大きさ(直近 ___実行)は伏せ字のため 100 と仮定した。窓を変えると失敗数は 直近10=3、20=5、30〜50=6、100=15、全183=43。集約ジョブ gate-g5 自体も各失敗実行で failure になるが、内訳からは除いた。2実行(08:49:59Z と 04:16:03Z)は再実行(attempt 2)があり、両 attempt とも同じジョブで失敗。100件窓の直前(106番目、2026-08-13T01:13:24Z)に test の失敗がもう1件あり、窓の境界に敏感。Issue 本文の値は読んでいないので「Issue と完全に一致」は検証していない
+      c2:
+        verdict: match
+        extractedValue: 起票(2026-08-14T14:26:05Z)までの gate-g5 の全 183実行で失敗 43件(23.5%)、成功 140件。全 workflow(ai-review 185、gate-g5 183、merged-reachability 39、gate-entry 26 の計 433実行)を母数にすると直近100実行の失敗は 6件(6件とも gate-g5)。gate-g5 だけを母数にした直近100実行の失敗は 15件
+        extractedQuote: "name: gate-g5"
+        locator: "gate-g5.yml L9(workflow 名)/ GitHub REST API: /actions/runs 全件(504件取得、うち起票前 433件)"
+        note: 伏せ字の窓を 100、起票を process-compass#254 と仮定。ask 末尾の「___件にならない」の値は Issue 側の数字で、本出典からは gate-g5 母数で 15件(secret-scan の1件を除くと 14実行、失敗ジョブ延べ 16)としか言えない。Issue の言う件数が実行数なのかジョブ延べ数なのかで 14 / 15 / 16 と変わる点に注意
+      c3:
+        verdict: match
+        extractedValue: "commit 71a2cde 時点: tests/gate/ に 11本(test_*.py 10本 + license-check.test.mjs 1本)、製品側は tests/test_package.py の 1本。adapters/ の secretScan が空文字なのは python・go・none の 3つ(node だけ secretlint を指定)。scripts/gate/adapter.mjs は secretScan を任意の検査として空でも exit 0 で通す"
+        extractedQuote: 実際に走るコマンドは adapters/<stack>.json から差し込みます。
+        locator: 'gate-g5.yml 冒頭コメント(L6)/ git tree 71a2cde の tests/・adapters/ / adapters/{python,go,none}.json L13 `"secretScan": ""` / scripts/gate/adapter.mjs「任意の検査(secretScan など)は空でも通す。必須の検査は空を許さない」'
+        note: 伏せ字のコミット(___e___時点)は特定できず、URL に固定された 71a2cde で確認した。adapters/ を触った最後のコミットは 4e1e615e(2026-08-13)なので、それ以降 71a2cde までは同じ内容。process.config.json の adapters.stack は python。Issue の「___件中」のテスト件数は数えていない(ask 自身も数え直していないと述べている)。adapters/none.json の note は「空のコマンドは実行されず、G-5 を失敗させます」と書いており、adapter.mjs の実装(secretScan は空でも通す)と食い違う
+        adjudication:
+          verdict: corrected
+          reason: 製品側のテストが 1 本、secretScan が空の adapter が 4 つ中 3 つ(python・go・none)である点は blind と一致し、「ほぼ全部が装置のテスト」「空の検査が通過していた」という趣旨は保たれる。食い違いは装置のテストの本数で、主張 10 本(全 11 本中)に対し blind は 11 本(全 12 本中)。差は license-check.test.mjs を数えるかによる。確認時点も主張の 8e64146 ではなく 71a2cde(adapters/ は 4e1e615e 以降同内容)。135 件という件数は双方とも数えていない。
+          date: 2026-09-30
+          originalText: "テストのファイルは tests/gate/ に装置のテスト 10 本、製品側は tests/test_package.py の 1 本だけで、Issue #254 の「135 件中ほぼ全部が検査の装置のテスト」とファイル構成は整合する(135 件という件数は数え直していない)。adapters/ の secretScan は python・go・none の 3 つで空文字であり(8e64146 時点)、「空の検査が通過していた」という記述と一致する。"
+          originalQuote: "# 実際に走るコマンドは adapters/<stack>.json から差し込みます。"
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

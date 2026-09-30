@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0304
+status: included
+excludeReason: null
+title: Stop being skeptical about AI for development with Charity Majors
+url: https://newsletter.pragmaticengineer.com/p/stop-being-skeptical-about-ai-for
+canonicalUrl: https://newsletter.pragmaticengineer.com/p/stop-being-skeptical-about-ai-for
+ids:
+  arxiv: null
+  doi: null
+publisher: The Pragmatic Engineer
+authors: [Gergely Orosz, Charity Majors]
+orgType: media
+region: global
+lang: en
+sourceType: talk
+published: 2026-08-12
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: AI coding agents overhyped senior engineer critique 2026 productivity skeptic
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH07, TH01]
+events: []
+summary: Honeycomb の CTO、Charity Majors との対談回(要点つき)。2026年には AI への懐疑はもはや合理的でないと述べ、検証と信頼性がボトルネックになったこと、コードレビューを過大評価だとする持論を語る。
+claims:
+  - id: c1
+    text: Charity Majors の逆張りの主張として、コードレビューは過大評価されており、人がソフトウェア開発に加える価値のうち最も小さい。人が得意なのは会話と何を作るかの判断であり、正しさの確認のためにコードを読むことではない。
+    quote: "Her contrarian take: code review is overrated, and the least valuable part of what humans add to software engineering."
+    locator: "Takeaways #7"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q4, TH06-Q6]
+    issues: []
+    stance: context
+  - id: c2
+    text: AI でコード生成の経済性が変わり、信頼性と検証がボトルネックになりつつある。非決定的なシステムの台頭はより強い工学的規律を求める。
+    quote: We explore how AI is changing the economics of code generation, why reliability and verification are increasingly the bottlenecks
+    locator: エピソード紹介文
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:24.601Z
+    httpStatus: 200
+    finalUrl: https://newsletter.pragmaticengineer.com/p/stop-being-skeptical-about-ai-for
+    contentType: text/html; charset=utf-8
+    titleFetched: Stop being skeptical about AI for development with Charity Majors
+    titleMatch: true
+    dateMeta: 2026-08-12
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

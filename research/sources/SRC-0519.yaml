@@ -1,0 +1,91 @@
+schemaVersion: 0
+id: SRC-0519
+status: included
+excludeReason: null
+title: AI Risk Management Framework | NIST
+url: https://www.nist.gov/itl/ai-risk-management-framework
+canonicalUrl: https://nist.gov/itl/ai-risk-management-framework
+ids:
+  arxiv: null
+  doi: null
+publisher: National Institute of Standards and Technology (NIST)
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2026-04
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G02
+  query: NIST AI RMF revision 2026 update AI 100-1 revised "AI RMF" new version
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2026-04-07
+    label: NIST が重要インフラ向け AI RMF プロファイルの構想文書を公開
+summary: NIST の AI RMF 公式ページ(2026-09-30 取得)。AI RMF 1.0 が White House AI Action Plan の一環で改訂中であること、2026-04-07 に重要インフラ向けプロファイルの構想文書を出したことを掲示している。改訂版の本文は取得時点で未公開。ページ自体の更新日は取れず、掲示中の最新日付(2026-04)を公開日欄に置いた。
+claims:
+  - id: c1
+    text: 2026-09-30 時点で NIST は AI RMF 1.0 を現行版として掲げつつ、White House AI Action Plan の一環で改訂中であると公式ページに明記している。改訂後の人の監視・役割の条項は未公表。
+    quote: The AI RMF 1.0 is being revised as part of the White House AI Action Plan.
+    locator: ページ冒頭の告知
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH12-Q1, TH12-Q4]
+    issues: []
+    stance: context
+  - id: c2
+    text: NIST は 2026-04-07 に、重要インフラにおける信頼できる AI を対象とする AI RMF プロファイルの構想文書を公開した。
+    quote: NIST released a concept note for an AI RMF Profile on Trustworthy AI in Critical Infrastructure
+    locator: ページ冒頭の告知
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH12-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:21.356Z
+    httpStatus: 200
+    finalUrl: https://www.nist.gov/itl/ai-risk-management-framework
+    contentType: text/html; charset=UTF-8
+    titleFetched: AI Risk Management Framework
+    titleMatch: true
+    dateMeta: 2021-07-12
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 取得日 2026-09-30 時点 / AI RMF 1.0
+        extractedQuote: The AI RMF 1.0 is being revised as part of the White House AI Action Plan.
+        locator: ページ冒頭の告知欄(Quick Links の直前)と本文末尾の2か所
+        note: 伏せ字の日付は ask 側の閲覧日で、ページ自体にはこの告知の日付が無い。検証役の取得日は 2026-09-30。1.0 を現行として扱っている点は Quick Links の「Download the AI RMF 1.0」から読める。「改訂後の人の監視・役割の条項は未公表」はページに記述が無く、不在からの推論(ページには改訂版の本文・草案へのリンクが無い、という事実のみ確認)
+      c2:
+        verdict: match
+        extractedValue: 2026-04-07
+        extractedQuote: On April 7, 2026, NIST released a concept note for an AI RMF Profile on Trustworthy AI in Critical Infrastructure.
+        locator: ページ冒頭の告知欄(本文「Overview of the AI RMF」にも同文)
+        note: 原文は「concept note」。続く文は「The profile will guide critical infrastructure operators towards specific risk management practices to consider when engaging AI-enabled capabilities.」
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

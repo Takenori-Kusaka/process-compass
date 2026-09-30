@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0596
+status: included
+excludeReason: null
+title: DORA Is Pausing the Survey. Here Is What Engineering Leaders Lose, and What They Should Do About It
+url: https://waydev.co/dora-pauses-the-annual-survey/
+canonicalUrl: https://waydev.co/dora-pauses-the-annual-survey
+ids:
+  arxiv: null
+  doi: null
+publisher: Waydev
+authors: [Circei Alex]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-09-04
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: Forsgren SPACE framework AI update 2026 developer productivity "SPACE" AI agents Frictionless
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH12]
+events:
+  - date: 2026-09
+    label: DORA が 2026 年は年次調査を行わず State of AI-assisted Software Development 2026 年版を出さないと発表(Waydev の二次情報。一次発表は未取得)
+summary: 計測ベンダー Waydev の CEO による論考。DORA が 2026 年は年次調査を行わず 2026 年版 State レポートも出さないと今週発表した、と伝える二次情報。DORA の一次発表は見つけられなかった。dora.dev/research の年次アーカイブは 2025 年までで、/research/2026/ は 404(2026-09-30 取得)という状況とは整合する。
+claims:
+  - id: c1
+    text: Waydev によれば、DORA は 2026 年の年次調査を実施せず、2026 年版の State of AI-assisted Software Development レポートも出さないと発表した(二次情報。DORA の一次発表は未確認)。
+    quote: DORA announced this week that it will not run an annual survey this year, and that there will be no 2026 State of AI-assisted Software Development report.
+    locator: 冒頭
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH11-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: 同記事は、DORA が定性・観察研究へ重心を移し、年1回の調査周期より速く動くためだと理由を要約している(発表の原文ではなく筆者の要約)。
+    quote: they have been leaning harder into qualitative and observational research, and they want to move faster than a once-a-year survey cycle allows.
+    locator: 冒頭
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH11-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: 筆者は、年次調査が無くなることで、製品を売る立場にない主体による比較基準が失われ、ベンチマークがベンダーの手に移ると述べる。筆者自身がそのベンダーであり、割り引いて読むよう断っている。
+    quote: DORA was the last widely trusted comparison set that was not produced by someone trying to sell you a platform.
+    locator: What gets lost anyway / 1 The neutral benchmark
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q1, TH11-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:55.655Z
+    httpStatus: 200
+    finalUrl: https://waydev.co/dora-pauses-the-annual-survey/
+    contentType: text/html; charset=utf-8
+    titleFetched: DORA Is Pausing the Survey. Here Is What Engineering Leaders Lose, and What They Should Do About It
+    titleMatch: true
+    dateMeta: 2026-09-04
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 年1回(a once-a-year survey cycle)
+        extractedQuote: they have been leaning harder into qualitative and observational research, and they want to move faster than a once-a-year survey cycle allows.
+        locator: 冒頭(第1段落)
+        note: 筆者(Alex Circei, Waydev)による要約で、DORA 発表の引用ではない。記事日付は September 4th, 2026。原文の apostrophe は HTML 実体参照(&#8217;)。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

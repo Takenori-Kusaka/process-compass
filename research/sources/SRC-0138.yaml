@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0138
+status: included
+excludeReason: null
+title: Spikes (Extended SAFe Guidance)
+url: https://framework.scaledagile.com/spikes
+canonicalUrl: https://framework.scaledagile.com/spikes
+ids:
+  arxiv: null
+  doi: null
+publisher: Scaled Agile, Inc.
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: login
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: SAFe enabler spike technical feasibility exploration definition
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09]
+events: []
+summary: SAFe 公式の Spike 定義。技術的アプローチのリスク低減・要求理解・見積精度向上のための探索作業を Enabler Story として、通常のストーリーと同様に見積・実装・デモの対象にし、Epic の実現性判断にも使うとする。「Technical and Functional Spikes」以降はログイン壁で未読。ページは無日付の living document。
+claims:
+  - id: c1
+    text: Spike の目的は、技術的アプローチのリスクを減らし、要求をよく理解し、ストーリー見積の信頼性を上げるための知識を得ること。ステージの後退ではなく通常のイテレーション内の作業として置かれる。
+    quote: Their purpose is to gain the knowledge necessary to reduce the risk of a technical approach, better understand a requirement, or increase the reliability of a story estimate.
+    locator: 冒頭定義
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+  - id: c2
+    text: Spike は他のストーリーと同じく見積・実装・デモされ、ART が Epic の実現性を判定する仕組みとしても機能する。
+    quote: Like other stories, spikes are estimated, implemented and demonstrated. They also provide a mechanism and workflow that Agile Release Trains (ARTs) use to help determine the viability of Epics
+    locator: 冒頭定義 第2段落
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+  - id: c3
+    text: 不確実性に直面したら推測や解への飛びつきではなく、実装前に小さな実験を行う。
+    quote: Agile and Lean value facts over speculation. When faced with a question, risk, or uncertainty, Agile Teams conduct small experiments before moving to implementation rather than speculate about the outcome
+    locator: Details
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:02.433Z
+    httpStatus: 200
+    finalUrl: https://framework.scaledagile.com/spikes
+    contentType: text/html; charset=UTF-8
+    titleFetched: Spikes - Scaled Agile Framework
+    titleMatch: false
+    dateMeta: 2015-06-12
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

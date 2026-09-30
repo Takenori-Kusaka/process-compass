@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0457
+status: included
+excludeReason: null
+title: "Code Change Characteristics and Description Alignment: A Comparative Study of Agentic versus Human Pull Requests"
+url: https://arxiv.org/abs/2601.17627
+canonicalUrl: arxiv:2601.17627
+ids:
+  arxiv: "2601.17627"
+  doi: null
+publisher: MSR 2026(arXiv)
+authors: [Dung Pham, Taher A. Ghaleb]
+orgType: academic
+region: other
+lang: en
+sourceType: paper-peer
+published: 2026-01-24
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: arXiv 2026 agentic pull requests size lines changed merge rate review latency AIDev large PRs
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10]
+events: []
+summary: エージェントPR 31,268 件と人のPR 6,135 件の変更規模・マージ率を比べた MSR'26 採択論文。エージェントPRは規模がむしろ小さく、変更行数の中央値に有意差はない。『AIのPRは巨大』という一般化を限定する。
+claims:
+  - id: c1
+    text: エージェントPRは人のPRよりマージ率が低く(76.80% 対 82.82%)、コミット・ファイル・ディレクトリの中央値はむしろ小さい。変更行数には有意差がない(p=0.131)。
+    quote: "APRs have a lower merge rate than HPRs (76.80% vs. 82.82%, p<0.001) and smaller footprints: fewer commits (median 1 vs. 2, p<0.001), files (median 3 vs. 4, p<0.001)"
+    locator: Results(Table 1)
+    quant:
+      value: マージ率 76.80% vs 82.82%、行数中央値 90 vs 88(有意差なし)
+      n: エージェントPR 31,268 / 人のPR 6,135
+      design: observational(ロジスティック回帰)
+      population: AIDev データセットのクローズ済みPR
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+  - id: c2
+    text: コミット数はマージの強い負の予測子で、1コミット増えるごとにマージのオッズが約5%下がる(OR=0.95)。ファイル数・ディレクトリ数は有意な関連がない。
+    quote: Logistic regression indicates that the number of commits is a strong negative predictor of merging (OR = 0.95, p<0.001), with each additional commit reducing merge odds by about 5%
+    locator: Results
+    quant:
+      value: OR=0.95/コミット
+      n: エージェントPR 31,268
+      design: observational(多変量ロジスティック回帰)
+      population: AIDev データセット
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:01.740Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2601.17627
+    contentType: text/html; charset=utf-8
+    titleFetched: "Code Change Characteristics and Description Alignment: A Comparative Study of Agentic versus Human Pull Requests"
+    titleMatch: true
+    dateMeta: 2026-01-24
+    quotes:
+      c1: partial
+      c2: found
+    arxiv:
+      status: 200
+      title: "Code Change Characteristics and Description Alignment: A Comparative Study of Agentic versus Human Pull Requests"
+      authors: ["Pham, Dung", "Ghaleb, Taher A."]
+      v1Date: 2026-01-24
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 76.80% 対 82.82% / p=0.131
+        extractedQuote: APRs have a lower merge rate than HPRs (76.80% vs. 82.82%, p < 0.001 ) […] The number of changed lines does not differ significantly ( p = 0.131 ).
+        locator: "RQ1.1 Results / Table 1(中央値: コミット 1 対 2、ファイル 3 対 4、ディレクトリ 1 対 2、変更行 90 対 88)"
+        note: Table 1 の件数は APR 31,268 / HPR 6,135(Abstract の 33,596 / 6,618 とは異なる分析母集団)。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote『APRs have a lower merge rate than HPRs (76.80% vs. 82.82%, p < 0.001) [...] The number of changed lines does not differ significantly (p = 0.131)』と、Table 1 の中央値(コミット 1 対 2、ファイル 3 対 4、ディレクトリ 1 対 2、変更行 90 対 88)どおり。なお Table 1 の母集団は APR 31,268 / HPR 6,135 で Abstract の件数とは異なる。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: 1コミット / 約5% / OR=0.95
+        extractedQuote: the number of commits is a strong negative predictor of merging (OR = 0.95, p < 0.001 ), with each additional commit reducing merge odds by about 5%
+        locator: RQ1.1 Results(ロジスティック回帰)
+        note: ファイル数・ディレクトリ数は「no significant association ( p > 0.01 )」と記載。方法節の α=0.05 と閾値の書き方が一致しない。回帰が APR のみか APR+HPR の合算かは本文から読み取れない。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

@@ -1,0 +1,177 @@
+schemaVersion: 0
+id: SRC-0191
+status: included
+excludeReason: null
+title: Best practices for Claude Code
+url: https://code.claude.com/docs/en/best-practices
+canonicalUrl: https://code.claude.com/docs/en/best-practices
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Claude Code docs best practices (llms.txt 経由で .md 版を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04, TH06, TH07, TH01]
+events: []
+summary: Claude Code 公式のベストプラクティス(日付表記なし、2026-09-24 取得版)。文脈窓を最重要資源とし、検証手段の付与、CLAUDE.md の簡潔化、hooks による決定的な強制、別文脈のレビュアによる敵対的レビューを推奨する。
+claims:
+  - id: c1
+    text: 文脈窓が埋まるほど性能が落ち、先の指示を「忘れる」・誤りが増えるため、文脈窓を最も重要な管理対象とする。
+    quote: LLM performance degrades as context fills. When the context window is getting full, Claude may start "forgetting" earlier instructions or making more mistakes.
+    locator: Intro(context window 制約)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: CLAUDE.md は各行を「消したら誤りが起きるか」で削る。肥大化した CLAUDE.md は実際の指示を無視させる。
+    quote: Bloated CLAUDE.md files cause Claude to ignore your actual instructions!
+    locator: Configure your environment > Write an effective CLAUDE.md
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4, TH03-Q3]
+    issues: [269, 274]
+    stance: supports
+  - id: c3
+    text: 強調(IMPORTANT)は守られない1行だけに付ける。多くの行を強調するとどれも目立たなくなる。
+    quote: If you emphasize many lines, none of them stands out.
+    locator: Write an effective CLAUDE.md
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: CLAUDE.md の指示は助言にとどまり、hooks は決定的に実行を保証する。守らせたい動作は指示ではなく hooks で強制する位置づけ。
+    quote: Unlike CLAUDE.md instructions which are advisory, hooks are deterministic and guarantee the action happens.
+    locator: Set up hooks
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q5, TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c5
+    text: Stop hook による決定的ゲートにも上限があり、8回連続でブロックすると Claude Code がフックを上書きしてターンを終える。
+    quote: Claude Code overrides the hook and ends the turn after 8 consecutive blocks.
+    locator: Give Claude a way to verify its work(gate の強さの段階)
+    quant:
+      value: 8 consecutive blocks
+      n: null
+      design: product specification
+      population: Claude Code Stop hook
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH02-Q4]
+    issues: []
+    stance: qualifies
+  - id: c6
+    text: 成功の主張ではなく証拠(テスト出力、実行コマンドと戻り値、スクリーンショット)を示させる。証拠の確認は再実行より速く、見ていなかったセッションにも使える。
+    quote: "Have Claude show evidence rather than asserting success: the test output, the command it ran and what it returned, or a screenshot of the result."
+    locator: Give Claude a way to verify its work
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c7
+    text: 検証は別の新しい文脈のモデルに反証させ、作業した主体が採点しない形にする(同一モデル・別文脈の独立性にとどまる)。
+    quote: a fresh model try to refute the result, so the agent doing the work isn't the one grading it.
+    locator: Give Claude a way to verify its work(By a second opinion)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q3]
+    issues: []
+    stance: context
+  - id: c8
+    text: 欠陥を探せと指示されたレビュアは、作業が健全でも何かを報告する。全指摘を追うと過剰設計になるため、正しさと要求に関わる欠陥だけを挙げさせる。
+    quote: A reviewer prompted to find gaps will usually report some, even when the work is sound, because that is what it was asked to do. Chasing every finding leads to over-engineering
+    locator: Automate and scale > Add an adversarial review step
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: [257]
+    stance: supports
+  - id: c9
+    text: 計画モードにはオーバーヘッドがあり、差分を一文で説明できる変更では計画を省く。統制の強さを変更の規模で切り替える推奨。
+    quote: If you could describe the diff in one sentence, skip the plan.
+    locator: Explore first, then plan, then code(Callout)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q4, TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c10
+    text: 手動承認モードでは10回目の承認あたりから確認ではなく流し押しになる(承認疲れ)。許可リストやサンドボックスで承認の回数自体を減らす。
+    quote: After the tenth approval you're clicking through rather than reviewing.
+    locator: Configure permissions
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4, TH07-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.715Z
+    httpStatus: 200
+    finalUrl: https://code.claude.com/docs/en/best-practices
+    contentType: text/html; charset=utf-8
+    titleFetched: Best practices for Claude Code - Claude Code Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+      c9: found
+      c10: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: one（that line alone）
+        extractedQuote: If Claude keeps skipping one instruction, add emphasis such as “IMPORTANT” to that line alone. If you emphasize many lines, none of them stands out.
+        locator: Write an effective CLAUDE.md 節の末尾付近
+        note: ""
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「If Claude keeps skipping one instruction, add emphasis such as "IMPORTANT" to that line alone. If you emphasize many lines, none of them stands out.」のとおり。「守られない1行だけ」は「keeps skipping one instruction ... that line alone」の忠実な言い換えである。
+          date: 2026-09-24
+      c10:
+        verdict: match
+        extractedValue: tenth（10回目）
+        extractedQuote: That’s safe but tedious. After the tenth approval you’re clicking through rather than reviewing. Two tools cut those interruptions in Manual mode and apply in auto mode as well
+        locator: Configure permissions 節（In Manual mode, ... の段落）
+        note: 原文は Manual mode について述べ、Pro/Max/Team プランでは auto mode が既定と併記している。'tenth' は例示的な言い回しで、測定値としての根拠は示されない。対策として Permission allowlists と Sandboxing を挙げる点は ask と一致。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

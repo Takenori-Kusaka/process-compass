@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0116
+status: included
+excludeReason: null
+title: "Tokenomics: Quantifying Where Tokens Are Used in Agentic Software Engineering"
+url: https://arxiv.org/abs/2601.14470
+canonicalUrl: arxiv:2601.14470
+ids:
+  arxiv: "2601.14470"
+  doi: null
+publisher: arXiv
+authors: [Mohamad Salim, Jasmine Latendresse, SayedHassan Khatoonabadi, Emad Shihab]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-01-20
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: arxiv 2026 cost per task coding agent tokens dollars efficiency SWE-bench "cost" analysis agentic
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04, TH06, TH11]
+events: []
+summary: ChatDev の多エージェント構成で 30 の SDLC タスクを走らせ、工程別(要求・設計・実装・レビュー・テスト・文書)のトークン配分を計測した査読前論文。コードレビュー工程が平均 59.4%、入力トークンが平均 53.9% を占める。ロール別の消費配分の先行例。
+claims:
+  - id: c1
+    text: 多エージェント SE では反復的なコードレビュー工程が平均 59.4% のトークンを消費し、入力トークンが平均 53.9% を占める。費用の主因は初期生成ではなく検証・改良の反復。#274 のロール別消費と比較できる。
+    quote: the iterative Code Review stage accounts for the majority of token consumption for an average of 59.4% of tokens. Furthermore, we observe that input tokens consistently constitute the largest share of consumption for an average of 53.9%
+    locator: Abstract
+    quant:
+      value: 59.4% (Code Review); 53.9% (input)
+      n: 30 SDLC tasks
+      design: observational measurement in ChatDev
+      population: ChatDev multi-agent on GPT-5 reasoning model
+    evidenceKind: observational
+    rqs: [TH04-Q1, TH11-Q3, TH06-Q4]
+    issues: [274, 268]
+    stance: supports
+  - id: c2
+    text: エージェント型 SE の主な費用は「初期のコード生成ではなく自動化された改良と検証」にある、と結論する。
+    quote: Our results suggest that the primary cost of agentic software engineering lies not in initial code generation but in automated refinement and verification.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH04-Q4, TH11-Q3]
+    issues: [274]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:48.001Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2601.14470
+    contentType: text/html; charset=utf-8
+    titleFetched: "Tokenomics: Quantifying Where Tokens Are Used in Agentic Software Engineering"
+    titleMatch: true
+    dateMeta: 2026-01-20
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "Tokenomics: Quantifying Where Tokens Are Used in Agentic Software Engineering"
+      authors: ["Salim, Mohamad", "Latendresse, Jasmine", "Khatoonabadi, SayedHassan", "Shihab, Emad"]
+      v1Date: 2026-01-20
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Code Review 工程 平均 59.4%、入力トークン 平均 53.9%
+        extractedQuote: the iterative Code Review stage accounts for the majority of token consumption for an average of 59.4% of tokens. Furthermore, we observe that input tokens consistently constitute the largest share
+        locator: Abstract
+        note: '入力トークンの値の原文続き: "... constitute the largest share of consumption for an average of 53.9%"。母集団は ChatDev フレームワーク+GPT-5 推論モデルによる30件の開発タスクのみ("preliminary findings")。ask の「多エージェント SE では」は単一フレームワーク・単一モデルの結果を一般化している。'
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

@@ -1,0 +1,144 @@
+schemaVersion: 0
+id: SRC-0200
+status: included
+excludeReason: null
+title: An update on recent Claude Code quality reports
+url: https://www.anthropic.com/engineering/april-23-postmortem
+canonicalUrl: https://anthropic.com/engineering/april-23-postmortem
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-04-23
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Anthropic engineering harness long-running agents(Engineering 一覧から)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH06, TH03, TH11]
+events:
+  - date: 2026-03-04
+    label: Claude Code の既定 effort を high→medium に変更(4/7 に撤回)
+  - date: 2026-04-23
+    label: Claude Code 品質低下のポストモーテムを公開
+summary: Claude Code の品質低下報告を3つの変更(既定 effort の引き下げ、思考履歴を消すバグ、冗長さ削減のシステムプロンプト1行)に帰したポストモーテム(2026-04-23)。人と自動のレビュー・各種テストを全て通過したバグ、1行で3%低下など、ベンダー側変更が変化点になる実例。
+claims:
+  - id: c1
+    text: 2026-03-04 に Claude Code の既定 reasoning effort を high から medium に下げ、利用者の知能低下報告を受けて 4/7 に撤回した(利用者の操作なしに挙動が変わる変化点)。
+    quote: On March 4, we changed Claude Code's default reasoning effort from high to medium to reduce the very long latency
+    locator: 冒頭(3つの問題)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 劣化報告は当初、通常のフィードバックの揺らぎと区別できず、社内利用も評価も問題を再現しなかった。
+    quote: they were challenging to distinguish from normal variation in user feedback at first, and neither our internal usage nor evals initially reproduced the issues identified.
+    locator: 冒頭
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH02-Q3, TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 思考履歴を毎ターン消すバグは、複数の人と自動のコードレビュー、単体・E2E テスト、自動検証、ドッグフーディングを全て通過した(多層の検査が同時に見逃した実例)。
+    quote: The changes it introduced made it past multiple human and automated code reviews, as well as unit tests, end-to-end tests, automated verification, and dogfooding.
+    locator: A caching optimization that dropped prior reasoning
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 事後の再テストで、必要なリポジトリを文脈として与えると Opus 4.7 は当該バグを見つけ、Opus 4.6 は見つけなかった(レビューの文脈接地とモデル世代の効果)。
+    quote: When provided the code repositories necessary to gather complete context, Opus 4.7 found the bug, while Opus 4.6 didn't.
+    locator: A caching optimization that dropped prior reasoning
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q5]
+    issues: []
+    stance: supports
+  - id: c5
+    text: システムプロンプトに加えた長さ制限の1行(ツール呼び出し間は25語以下等)が、行ごとのアブレーションで評価の1つに 3% の低下を生んだ(社内評価では数週間回帰が出なかった)。
+    quote: One of these evaluations showed a 3% drop for both Opus 4.6 and 4.7.
+    locator: A system prompt change to reduce verbosity
+    quant:
+      value: -3%
+      n: 1 of a broader set of evaluations
+      design: line-level ablation of system prompt
+      population: Opus 4.6 / 4.7 in Claude Code
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c6
+    text: 再発防止として、知能と引き換えになりうる変更には soak 期間・広い評価・段階的展開を設け、システムプロンプト変更ごとにモデル別評価を回す。
+    quote: For any change that could trade off against intelligence, we'll add soak periods, a broader eval suite, and gradual rollouts so we catch issues earlier.
+    locator: Going forward
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4, TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:43.419Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/engineering/april-23-postmortem
+    contentType: text/html; charset=utf-8
+    titleFetched: An update on recent Claude Code quality reports
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: partial
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: March 4 (高→中へ変更) / April 7 (撤回)。年は本文に無く、掲載日 Apr 23, 2026 から 2026 年
+        extractedQuote: On March 4, we changed Claude Code's default reasoning effort from high to medium to reduce the very long latency
+        locator: 冒頭の3項目の1つ目(After investigation, we identified three different issues)
+        note: "撤回の原文: \"We reverted this change on April 7 after users told us they'd prefer to default to higher intelligence and opt into lower effort for simple tasks.\" 影響範囲は Sonnet 4.6 と Opus 4.6。本文中の日付は年を伴わない(March 4 / April 7)。変更は in-product dialog で説明したと本文にあり、ask の「利用者の操作なしに挙動が変わる変化点」は原典の表現ではなく解釈"
+      c3:
+        verdict: match
+        extractedValue: end-to-end tests (E2E)
+        extractedQuote: The changes it introduced made it past multiple human and automated code reviews, as well as unit tests, end-to-end tests, automated verification, and dogfooding.
+        locator: A caching optimization that dropped prior reasoning
+        note: 原典は見逃しの要因として、無関係な2つの実験(社内限定のサーバー側実験と思考表示の変更)が大半の CLI セッションでバグを抑制していたこと、古いセッションという corner case だったことも挙げている。ask の「多層の検査が同時に見逃した」は原典の列挙と整合するが、原典は再現困難性を併記している
+      c5:
+        verdict: match
+        extractedValue: 1つの追加(one addition) / ツール呼び出し間 ≤25 words(最終応答 ≤100 words) / 評価の1つ(One of these evaluations) / 3% drop
+        extractedQuote: using a broader set of evaluations. One of these evaluations showed a 3% drop for both Opus 4.6 and 4.7.
+        locator: A system prompt change to reduce verbosity
+        note: '追加文の原文: "one addition to the system prompt caused an outsized effect on intelligence in Claude Code: “Length limits: keep text between tool calls to ≤25 words. Keep final responses to ≤100 words unless the task requires more detail.”" 原典は「one addition」と書き、行数(line)を明示してはいない(引用は2文)。3% 低下は Opus 4.6 と 4.7 の両方。社内評価: "After multiple weeks of internal testing and no regressions in the set of evaluations we ran"。冒頭要約では "In combination with other prompt changes, it hurt coding quality" とあり、単独要因とは書いていない'
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/engineering/april-23-postmortem

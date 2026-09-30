@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0585
+status: included
+excludeReason: null
+title: Understanding predictive factors for merge conflicts
+url: https://pauloborba.cin.ufpe.br/publication/2020understanding_predictive_factors_for_merge_conflicts/2020ISTPredictiveFactorsForMergeConflicts.pdf
+canonicalUrl: doi:10.1016/j.infsof.2020.106256
+ids:
+  arxiv: null
+  doi: 10.1016/j.infsof.2020.106256
+publisher: Information and Software Technology 121 (Elsevier)
+authors: [Dias Klissiomara, Borba Paulo, Barreto Marcos]
+orgType: academic
+region: other
+lang: en
+sourceType: paper-peer
+published: "2020"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: '"Understanding predictive factors for merge conflicts" Dias Borba Barreto branch duration number of commits conflict likelihood'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11]
+events: []
+summary: Ruby 100・Python 25 の MVC プロジェクトの 73,504 マージシナリオを再現し、モジュール性・規模・時間の 7 因子と衝突の関係をロジスティック回帰で調べた査読論文。期間が長いほど衝突しやすいが効果は小さく、どの因子も衝突の件数は予測しない。出版社版は 403 のため著者サイトの PDF を読んだ。
+claims:
+  - id: c1
+    text: 統合までの期間(共通祖先から最後のコミットまでの日数)が長いほどマージ衝突の発生確率は上がるが、オッズ比は 1.04〜1.09(Python では 1.18〜1.23)で、規模・モジュール性の因子より効果は小さい。
+    quote: Our findings show the higher the contribution duration, the higher the chances of merge conflict occurrence (odds ratio vary from 1.04 to 1.09, Models VI and VII, and 1.18 to 1.23 in the Python
+    locator: §4.3 RQ3 / Table 4
+    quant:
+      value: オッズ比 1.04〜1.09(Ruby)、1.18〜1.23(Python)
+      n: 73,504 マージシナリオ(Ruby 100 件 61,759、Python 25 件 11,745)
+      design: リポジトリ・マイニング+ロジスティック回帰(観察研究)
+      population: GitHub 上の Rails / Django 系 MVC プロジェクト
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: 変更ファイル数の幾何平均が増えると衝突発生の確率は 227% 増える(オッズ比 3.27)。バッチの大きさは期間より強い予測子である。
+    quote: increasing the geometric mean of the number of changed files also increases the likelihood of merge conflict occurrence by 227% (odds ratio equal to 3.27)
+    locator: §4.2 RQ2 / Table 4 Model III
+    quant:
+      value: オッズ比 3.27(+227%)
+      n: 61,759 マージシナリオ(Ruby 標本)
+      design: ロジスティック回帰(観察研究)
+      population: Ruby on Rails プロジェクト 100 件
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: どの因子も、衝突の件数と衝突ファイル数については予測力を示さなかった。衝突が起きるかどうかは予測できても、被害の大きさは予測できない。
+    quote: No evaluated factor shows predictive power concerning both the number of merge conflicts and the number of files with conflicts.
+    locator: Abstract / Results
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+  - id: c4
+    text: 「期間」は、共通祖先から各コントリビューションの最後のコミット(マージ直前)までの日数として定義・収集されている。統合経過日数を指標として定義した学術上の先例である。
+    quote: we determine duration by computing the number of days between the last commit in the contribution (the one just before merging) and the common ancestor with the other contribution.
+    locator: §2 RQ3
+    quant: null
+    evidenceKind: observational
+    rqs: [TH11-Q3, TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c5
+    text: 期間はコミット数と強く相関しており、経過時間の効果を規模の効果から切り分けにくいことを著者自身が示している。
+    quote: The pair-wise correlation analysis shows strong correlation between the duration and number of commits factors
+    locator: §4.3 RQ3
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, crossref]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:51.609Z
+    httpStatus: 200
+    finalUrl: https://pauloborba.cin.ufpe.br/publication/2020understanding_predictive_factors_for_merge_conflicts/2020ISTPredictiveFactorsForMergeConflicts.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: Understanding predictive factors for merge conflicts
+      issued: 2020-5
+      titleMatch: true
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

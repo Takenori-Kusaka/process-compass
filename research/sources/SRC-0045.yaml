@@ -1,0 +1,94 @@
+schemaVersion: 0
+id: SRC-0045
+status: included
+excludeReason: null
+title: Jules, our asynchronous coding agent, is now available for everyone.
+url: https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available
+canonicalUrl: https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available
+ids:
+  arxiv: null
+  doi: null
+publisher: Google(The Keyword)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2025-08-06
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: 'tavily: Jules "generally available" Google announcement blog coding agent GA'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01]
+events:
+  - date: 2025-08-06
+    label: Jules がパブリックベータを終了し一般公開(Gemini 2.5)
+summary: Jules の一般公開(ベータ終了)を告げる Google 公式記事。日付は 2025-08-06。前回メモの「Google I/O 2026 で GA」は一次で確認できず、I/O 2026 の発表一覧に Jules の記載はない(別カード)。
+claims:
+  - id: c1
+    text: Jules は 2025-08-06 にベータを終了し一般公開された。前版の「2025-09 に GA」も月がずれている。
+    quote: Jules is officially out of beta and launching publicly, powered by Gemini 2.5.
+    locator: 冒頭(Aug 06, 2025)
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH01-Q3]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: ベータ期間中に数千人が数万タスクを実行し、14 万件超のコード改善が公開されたとする(自己申告)。
+    quote: During the beta, thousands of developers tackled tens of thousands of tasks, resulting in over 140,000 code improvements shared publicly.
+    locator: 本文
+    quant:
+      value: 140,000+ code improvements
+      n: null
+      design: self-count
+      population: Jules beta
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:47.041Z
+    httpStatus: 200
+    finalUrl: https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/
+    contentType: text/html; charset=utf-8
+    titleFetched: Jules, our asynchronous coding agent, is now available for everyone.
+    titleMatch: true
+    dateMeta: 2025-08-06
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2025-08-06(掲載日 Aug 06, 2025 / datePublished 2025-08-06T16:00:00+00:00)
+        extractedQuote: Jules is officially out of beta and launching publicly, powered by Gemini 2.5.
+        locator: 冒頭(掲載日 Aug 06, 2025 と本文第1文)
+        note: ask 後半の「前版の『___-___に GA』」は前回メモ側の記述で、本資料には対応箇所がない。dateModified は 2025-09-10。
+      c2:
+        verdict: match
+        extractedValue: 140,000(over 140,000 code improvements = 14万件超)
+        extractedQuote: During the beta, thousands of developers tackled tens of thousands of tasks, resulting in over 140,000 code improvements shared publicly.
+        locator: 本文第2文
+        note: 原典の主語は developers(開発者)。ask の「数千人」は thousands of developers と対応。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

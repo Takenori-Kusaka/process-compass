@@ -1,0 +1,151 @@
+schemaVersion: 0
+id: SRC-0137
+status: included
+excludeReason: null
+title: I spent 6 hours writing the spec. I built the prototype in 1. Here's what I learned
+url: https://www.mindtheproduct.com/be-a-product-builder-period/
+canonicalUrl: https://mindtheproduct.com/be-a-product-builder-period
+ids:
+  arxiv: null
+  doi: null
+publisher: Mind the Product
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2026-05-19
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: Lenny's Newsletter PRD AI prototype-first product management 2026
+derivedFrom: []
+derivedFromUrl:
+  - https://lennysnewsletter.com/p/why-linkedin-is-replacing-pms
+selfReported: true
+themes: [TH09, TH02, TH05]
+events: []
+summary: 現役 PM の一次記録。Gokul Rajaram 流の EPIC(PRD・AC・成功指標)を AI なしで 6 時間かけて書いた後、Claude Code で同じ機能のプロトタイプを 1 時間で作れたことから「書くより作る方が安い」へ前提が反転したと論じる。YC の RFS 等の反論も併記する。
+claims:
+  - id: c1
+    text: 著者は EPIC(PRD・受入基準・成功指標)を AI を使わずに書いて 6 時間かかり、その後 Claude Code で機能の一版を 1 時間で作った(著者 1 名・1 件の体験談)。
+    quote: Took me six hours (PRD, Acceptance Criteria, Success Metrics). Writing is really hard when you optimize for clarity. Then I built a version of the feature itself in Claude Code. One hour.
+    locator: 本文冒頭 第1段落("I wrote an EPIC last week...")〜第2段落
+    quant:
+      value: 6h spec vs 1h prototype
+      n: 1 (author)
+      design: case report
+      population: IC PM at established company
+    evidenceKind: case-report
+    rqs: [TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 「仕様→実装→出荷」の順序は、書く方が作るより安いという前提に依存しており、その前提が崩れた。
+    quote: The old sequence—spec first, build later, ship eventually—assumes writing is cheaper than building. That assumption just died.
+    locator: 冒頭 第4段落
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1, TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 反論として YC 2026 Request for Startups を引く。何を作るかに至る過程が勝敗を決め、Cursor や Claude Code は何を作るか決まってから輝く。
+    quote: Getting to what to build is where products win or die. Tools like Cursor and Claude Code shine once the team already knows what to build.
+    locator: 「What you risk when PMs code」(YC 2026 RFS の引用)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: LinkedIn の理想的なポッドは当初の 12 名から 4 名に縮小した(Gokul Rajaram の X 投稿の二次引用)。
+    quote: LinkedIn's ideal pod is four people now, down from their initial twelve.
+    locator: 「The boundaries collapsed」段落
+    quant:
+      value: 12 → 4 people per pod
+      n: 1 company
+      design: secondary report
+      population: LinkedIn product pods
+    evidenceKind: news-fact
+    rqs: [TH02-Q5]
+    issues: []
+    stance: context
+  - id: c5
+    text: 結論は「PM は検証と構想の伝達のために作り、本番コードは出荷しない」。CodeRabbit(AI コードに 2.74 倍の脆弱性)と METR(19% 遅い)を品質面のリスクとして併記する。
+    quote: The answer is PMs should build to validate ideas and communicate vision, not to ship production code.
+    locator: 「What you risk when PMs code」末尾
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:01.755Z
+    httpStatus: 200
+    finalUrl: https://www.mindtheproduct.com/be-a-product-builder-period/
+    contentType: text/html; charset=utf-8
+    titleFetched: I spent 6 hours writing the spec. I built the prototype in 1. Here&#x27;s what I learned
+    titleMatch: true
+    dateMeta: 2026-05-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: six hours / one hour(件数の明記なし。著者本人の一人称の単一事例)
+        extractedQuote: Took me six hours (PRD, Acceptance Criteria, Success Metrics). Writing is really hard when you optimize for clarity. Then I built a version of the feature itself in Claude Code. One hour.
+        locator: 本文冒頭 第1段落("I wrote an EPIC last week...")〜第2段落
+        note: '原文に n の明示はなく、"I wrote an EPIC last week" という著者1名・1件の体験談である(n=1 は文の形からの読み取り)。条件差: 仕様は "The old-school hard way, no AI" で AI なしで書いたと明記されており、プロトタイプ側だけが Claude Code 使用。ask はこの非対称(仕様執筆に AI 不使用)を落としている。'
+        adjudication:
+          verdict: corrected
+          reason: 6 時間と 1 時間、EPIC の構成要素、単一事例である点は抜粋と一致する。しかし原典は、仕様を 'The old-school hard way, no AI' で書いたと明記している(blindNote)。AI 不使用の執筆と Claude Code による構築という非対称な比較であり、主張の「記述の方が対象物より時間がかかった」はこの条件を落としている。
+          date: 2026-09-23
+          originalText: EPIC(PRD・受入基準・成功指標)の執筆に 6 時間、Claude Code でのプロトタイプ構築に 1 時間。記述の方が対象物より時間がかかった(n=1 の自己報告)。
+          originalQuote: Took me six hours (PRD, Acceptance Criteria, Success Metrics). Writing is really hard when you optimize for clarity.
+      c3:
+        verdict: match
+        extractedValue: "2026"
+        extractedQuote: "Y Combinator's 2026 Request for Startups makes the clearest counterpoint: \"Getting to what to build is where products win or die. Tools like Cursor and Claude Code shine once the team already knows…"
+        locator: 節「What you risk when PMs code」第3段落、脚注14
+        note: 脚注14の出典は YC 本体ではなく techstartups.com の報道記事(二次)。著者は直後に "I think they're right." と反論に同意しつつ "the answer isn't 'PMs shouldn't build.'" と続ける。
+      c4:
+        verdict: match
+        extractedValue: initial twelve → four
+        extractedQuote: Teams shrink because AI makes small teams more capable than large ones. LinkedIn's ideal pod is four people now, down from their initial twelve.⁴
+        locator: 節「The boundaries collapsed because the economics changed」第3段落、脚注4
+        note: '本文では Gokul Rajaram の名は出ず、脚注4("Gokul Rajaram on X, Jan 2026, team pod structure")で帰属している。参考: 脚注の URL の status ID 1913283901726036298 を Snowflake 形式として復号すると 2025-04-18 となり、脚注の "Jan 2026" と合わない(投稿本体は未取得)。'
+        adjudication:
+          verdict: consistent
+          reason: 「LinkedIn's ideal pod is four people now, down from their initial twelve」と一致する。Gokul Rajaram への帰属は本文ではなく脚注 4('Gokul Rajaram on X, Jan 2026')によるもので、二次引用という位置づけも正しい。脚注の日付と投稿 ID の不整合(blindNote)は一次出典の同定に関わるが、主張の内容自体は抜粋に忠実である。
+          date: 2026-09-23
+      c5:
+        verdict: match
+        extractedValue: 2.74x(セキュリティ脆弱性)/ 19% slower
+        extractedQuote: …found AI-assisted code had 2.74x more security vulnerabilities and 75% more logic errors.¹² METR ran a randomized trial showing experienced developers were actually 19% slower with AI tools
+        locator: 節「What you risk when PMs code」第1段落(結論は同節第4段落 "PMs should build to validate ideas and communicate vision, not to ship production code.")
+        note: CodeRabbit/METR の数値は節の末尾ではなく冒頭段落にある。METR の母集団は "experienced developers"、かつ "despite believing they were faster" の条件付きで、ask はこの限定を落としている。CodeRabbit は TATEEDA ブログ経由(脚注12)、METR は Wikipedia 経由(脚注13)の孫引き。CodeRabbit の対象は "470 GitHub pull requests"(quote は 200 字制限のため文頭を省略)。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://mindtheproduct.com/be-a-product-builder-period

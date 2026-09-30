@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0377
+status: included
+excludeReason: null
+title: ISO/IEC/IEEE 15289:2019 Systems and software engineering — Content of life-cycle information items (documentation)(公開プレビュー)
+url: https://cdn.standards.iteh.ai/samples/74909/24359dd8f7184f7dbec19eed52a9e9ad/ISO-IEC-IEEE-15289-2019.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/74909/24359dd8f7184f7dbec19eed52a9e9ad/iso-iec-ieee-15289-2019.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC/IEEE(iTeh Standards 公開プレビュー)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2019-07
+publishedBasis: pdf
+version: Fourth edition
+updated: null
+accessed: 2026-09-24
+access: paywall
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: ISO/IEC/IEEE 15289 content of life-cycle information items purpose audience generic content preview
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH12]
+events: []
+summary: ライフサイクル情報項目(文書)の目的と内容を定める規格の第4版(2019-07)。公開プレビューで §1〜§5 を確認した。情報項目を作る前に読み手の意思決定・作業を考慮することを求め、文書の統合・分割やリポジトリ上の未刊行も適合とする。
+claims:
+  - id: c1
+    text: 情報項目を作る前に、その情報を使う人が行う意思決定や作業の種類を考慮すべきとする(読み手と目的を文書設計の起点に置く)。
+    quote: The type of decision to be made, or the work to be performed, by users of the information should be considered before an information item is prepared.
+    locator: 4.4 Applicability to information item audiences
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 情報項目は、未刊行でもリポジトリで参照可能なら適合とみなす。分割しても、他の項目と1文書に統合してもよい(文書の本数や独立性を要求しない)。
+    quote: considered as conforming if they are unpublished but available in a repository for reference, divided into separate documents or volumes, or combined with other information items into one document
+    locator: 5.1 Definition of conformance
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q4, TH05-Q3]
+    issues: [252]
+    stance: supports
+  - id: c3
+    text: 規格が定める記録名・情報項目名を使うことは適合の要件ではない。
+    quote: Use of the nomenclature of the specific records in Clause 9 or the information item titles in Clause 10 is not required to claim conformance with this document.
+    locator: 5.1 Definition of conformance
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:38.194Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/74909/24359dd8f7184f7dbec19eed52a9e9ad/ISO-IEC-IEEE-15289-2019.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: one document(combined with other information items into one document)
+        extractedQuote: conforming if they are unpublished but available in a repository for reference, divided into separate documents or volumes, or combined with other information items into one document.
+        locator: 5.1 Definition of conformance(p.7)
+        note: 作業票の access は paywall だが、iTeh の公開プレビュー PDF で 5.1 全文を読めた。原文は「本文では各情報項目を別文書として刊行されるかのように記述するが」と前置きしてこの適合条件を述べる。『文書の本数や独立性を要求しない』は原文の言い換え(直接の文言ではない)
+        adjudication:
+          verdict: consistent
+          reason: 5.1の適合条件(未刊行でもリポジトリで参照可能/別文書・分冊に分割/他の情報項目と1文書へ統合のいずれでも適合)をそのまま述べている。『文書の本数や独立性を要求しない』は、分割も統合も適合とする条文から一意に導ける言い換え。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: slow
+reviewBy: null

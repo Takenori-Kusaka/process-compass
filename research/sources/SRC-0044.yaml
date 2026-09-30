@@ -1,0 +1,163 @@
+schemaVersion: 0
+id: SRC-0044
+status: included
+excludeReason: null
+title: "Engineering benchmarks 2026: data from 8.1M pull requests"
+url: https://linearb.io/library/engineering-benchmarks-and-research
+canonicalUrl: https://linearb.io/library/engineering-benchmarks-and-research
+ids:
+  arxiv: null
+  doi: null
+publisher: LinearB
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-05
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: LinearB 2026 Software Engineering Benchmarks Report 8 million pull requests"
+derivedFrom: []
+derivedFromUrl:
+  - https://linearb.io/resources/software-engineering-benchmarks-report
+selfReported: false
+themes: [TH11, TH10]
+events: []
+summary: LinearB のベンチマーク要約ページ(報告書本体はフォーム登録が必要)。標本の正確な数(8,109,244 PR / 4,813 チーム / 163,820 貢献者 / 42 か国)、p75 集計、PR 種別ごとの着手待ち(17.6h 対 3.4h)、受入率 84.4% 対 32.7%、「相関であって因果ではない」という自己限定を記す。
+claims:
+  - id: c1
+    text: 標本は 8,109,244 PR、4,813 開発チーム、163,820 アクティブ貢献者、42 か国。第 5 版。
+    quote: LinearB's 2026 Software Engineering Benchmarks Report is the fifth annual edition, built from 8,109,244 pull requests across 4,813 development teams and 163,820 active contributors in 42 countries
+    locator: Summary
+    quant:
+      value: 8,109,244 PRs
+      n: 4,813 teams / 163,820 contributors
+      design: observational
+      population: LinearB community
+    evidenceKind: observational
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: 受入率(30 日以内マージ)は人手 84.4% 対 AI 32.7%。ブログの 84.5% と 0.1 ポイントの表記差がある。
+    quote: Acceptance rate is the new headline benchmark, measuring the share of pull requests merged within 30 days. Manual pull requests merge at 84.4% against 32.7% for AI pull requests
+    locator: AI contribution benchmarks
+    quant:
+      value: 84.4% vs 32.7%
+      n: 8,109,244 PRs
+      design: observational
+      population: LinearB community
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: エージェント型 PR の着手待ち p75 は 17.6 時間、人手は 3.4 時間(約 5.2 倍)。AI 支援は 8.3 時間。中央値サイズはエージェント 89 行、AI 支援 96 行、人手 26 行。
+    quote: "| Agentic AI | 89 | 293 | 17.6 | 0.17 |"
+    locator: AI contribution benchmarks 表(Unassisted 行は | 26 | 157 | 3.4 | 0.37 |)
+    quant:
+      value: 17.6h vs 3.4h (p75)
+      n: 8,109,244 PRs
+      design: observational
+      population: agentic vs unassisted PRs
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: LinearB 自身が AI 関連の関係をすべて相関と明記し、因果と読まないよう求めている。
+    quote: Every relationship here is correlational and aligns with LinearB's qualitative research over the past year.
+    locator: AI contribution benchmarks
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: 着手後のレビュー時間は AI 支援 3.2 時間対人手 4.2 時間で、最大の変更が最も短いレビューしか受けていない。
+    quote: Review time inverts the pickup order, with AI-assisted pull requests clearing in 3.2 hours against 4.2 hours for unassisted work, so the largest changes receive the least review time.
+    locator: AI contribution benchmarks
+    quant:
+      value: 3.2h vs 4.2h
+      n: 8,109,244 PRs
+      design: observational
+      population: AI-assisted vs unassisted PRs
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c6
+    text: 調査層では、エンジニアリングリーダーの 76.1% が測定可能な生産性向上を報告する一方、44.7% は AI の影響を正式に測定していない。
+    quote: 76.1% of engineering leaders report measurable productivity improvements while 44.7% do not formally measure AI's impact at all.
+    locator: Survey findings on AI adoption and readiness
+    quant:
+      value: 76.1% / 44.7%
+      n: 回答数はページに記載なし
+      design: survey
+      population: 2026 AI in Engineering Leadership Survey
+    evidenceKind: survey
+    rqs: []
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:46.082Z
+    httpStatus: 200
+    finalUrl: https://linearb.io/library/engineering-benchmarks-and-research
+    contentType: text/html; charset=utf-8
+    titleFetched: "Engineering benchmarks 2026: data from 8.1M pull requests"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 8,109,244 PR / 4,813 開発チーム / 163,820 アクティブ貢献者 / 42 か国 / 第5版(fifth annual edition)
+        extractedQuote: LinearB's 2026 Software Engineering Benchmarks Report is the fifth annual edition, built from 8,109,244 pull requests across 4,813 development teams and 163,820 active contributors in 42 countries
+        locator: Summary 直後の導入段落(Summary 本文にも同数値。Methodology 節・FAQ にも再掲)
+        note: ページのタイトル・リード文は丸め値(8.1M pull requests across 4,800 teams)。集計は75パーセンタイル。
+      c2:
+        verdict: match
+        extractedValue: 30日以内マージ / 人手(Manual)84.4% / AI 32.7%
+        extractedQuote: Acceptance rate is the new headline benchmark, measuring the share of pull requests merged within 30 days. Manual pull requests merge at 84.4% against 32.7% for AI pull requests
+        locator: AI contribution benchmarks(表の直後の段落。Summary にも同値)
+        note: ask 後半の「ブログの ___% と ___ポイントの表記差」は本ページに記載がなく抽出不能(本ページ内の受入率は 84.4% / 32.7% のみで、各3回とも同値)。エリート閾値は人手 95%超・AI 71%強とある。
+        adjudication:
+          verdict: consistent
+          reason: 受入率の定義(30 日以内にマージされた割合)と、人手 84.4% 対 AI 32.7% は blindQuote どおり。後半の『ブログの 84.5% と 0.1 ポイントの表記差』は別の文書(ブログ)との比較で、本ページからは確かめられない(blindNote)。ただし本ページの値が 84.4% であることとは矛盾しない。84.5−84.4=0.1 の計算も正しい。ブログ側の 84.5% は、ブログの出典カードで確かめる必要がある。
+          date: 2026-09-23
+      c3:
+        verdict: match
+        extractedValue: "Pickup Time P75: Agentic AI 17.6h / Unassisted 3.4h / AI-Assisted 8.3h。Median size: Agentic AI 89 行 / AI-Assisted 96 行 / Unassisted 26 行"
+        extractedQuote: Pull request type Median size (lines) P75 size (lines) Pickup Time P75 (hours) Refactor Rate P75 Agentic AI 89 293 17.6 0.17 AI-Assisted 96 408 8.3 0.22 Unassisted 26 157 3.4 0.37
+        locator: AI contribution benchmarks 表
+        note: 着手待ちの倍率(約 ___倍)は原典に記載なし。表の値から計算すると 17.6/3.4 ≒ 5.2倍。原典は全関係を correlational と明記。P75 サイズは Agentic 293・AI-Assisted 408・Unassisted 157。
+        adjudication:
+          verdict: consistent
+          reason: "表の値(Pickup Time P75: Agentic 17.6h / AI-Assisted 8.3h / Unassisted 3.4h、中央値サイズ: Agentic 89 行 / AI-Assisted 96 行 / Unassisted 26 行)が blindQuote と一致する。倍率は導出値で、17.6 ÷ 3.4 ≒ 5.18 を丸めて約 5.2 倍。原典はすべての関係を相関(correlational)と明記している(blindNote)。因果として使わないよう注意が要る。"
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

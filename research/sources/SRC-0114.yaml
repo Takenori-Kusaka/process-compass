@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0114
+status: included
+excludeReason: null
+title: "Don't Break the Cache: An Evaluation of Prompt Caching for Long-Horizon Agentic Tasks"
+url: https://arxiv.org/abs/2601.06007
+canonicalUrl: arxiv:2601.06007
+ids:
+  arxiv: "2601.06007"
+  doi: null
+publisher: arXiv (PwC AI Research and Engineering)
+authors: [Elias Lumer, Faheem Nizar, Akshaya Jangiti, Kevin Frank, Anmol Gulati, Mandar Phadate, Vamse Kumar Subbiah]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-01-09
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-01-31
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: "\"Don't Break the Cache\" arxiv prompt caching agents long-horizon cost"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: OpenAI・Anthropic・Google の 3 社で 500 超のエージェントセッション(10,000 トークンのシステムプロンプト、DeepResearch Bench)を走らせ、3 種のキャッシュ戦略を比較した査読前論文。費用 41〜80% 減、TTFT 13〜31% 改善。全文脈の素朴なキャッシュは遅延を悪化させうる。
+claims:
+  - id: c1
+    text: 長時間のエージェントタスクでプロンプトキャッシュは API 費用を 41〜80% 削減し、TTFT を 13〜31% 改善した(3 プロバイダ、500 超セッション)。キャッシュ依存の費用構造は長時間・多ターンの作業で成立する。
+    quote: Our results demonstrate that prompt caching reduces API costs by 41-80% and improves time to first token by 13-31% across providers.
+    locator: Abstract
+    quant:
+      value: -41〜80% cost; -13〜31% TTFT
+      n: 500+ agent sessions, 4 models, 3 providers
+      design: controlled experiment
+      population: DeepResearch Bench, 10,000-token system prompts
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 動的なツール結果まで含めた「全文脈キャッシュ」は、再利用されない内容の書き込みを誘発し遅延を逆に増やしうる。システムプロンプトのみ、動的内容を末尾へ、ツール結果を除外、といった境界制御の方が安定する。
+    quote: strategic prompt cache block control, such as placing dynamic content at the end of the system prompt, avoiding dynamic traditional function calling, and excluding dynamic tool results, provides more consistent benefits than naive full-context caching, which can paradoxically increase latency
+    locator: Abstract / Conclusion
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q1, TH04-Q2]
+    issues: [274]
+    stance: qualifies
+  - id: c3
+    text: "削減幅はプロバイダで大きく異なる: GPT-5.2 79〜81%、Claude Sonnet 4.5 78〜79%、GPT-4o 46〜48%、Gemini 2.5 Pro 28〜41%。"
+    quote: Cost reductions range from 79-81% for GPT-5.2, 78-79% for Claude Sonnet 4.5, 46-48% for GPT-4o, and 28-41% for Gemini 2.5 Pro depending on the cache mode selected.
+    locator: §4 Results(Table 2 / Figure 2)
+    quant:
+      value: 79-81% / 78-79% / 46-48% / 28-41%
+      n: 4 models
+      design: controlled experiment
+      population: GPT-5.2, Claude Sonnet 4.5, GPT-4o, Gemini 2.5 Pro
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:47.340Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2601.06007
+    contentType: text/html; charset=utf-8
+    titleFetched: "Don't Break the Cache: An Evaluation of Prompt Caching for Long-Horizon Agentic Tasks"
+    titleMatch: true
+    dateMeta: 2026-01-09
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Don't Break the Cache: An Evaluation of Prompt Caching for Long-Horizon Agentic Tasks"
+      authors: ["Lumer, Elias", "Nizar, Faheem", "Jangiti, Akshaya", "Frank, Kevin", "Gulati, Anmol", "Phadate, Mandar"]
+      v1Date: 2026-01-09
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: API 費用 41-80% 削減、TTFT 13-31% 改善、3 プロバイダ(OpenAI, Anthropic, Google)、500 超のエージェントセッション
+        extractedQuote: Our results demonstrate that prompt caching reduces API costs by 41-80% and improves time to first token by 13-31% across providers.
+        locator: Abstract
+        note: '条件: DeepResearch Bench(Web検索ツール呼び出しの多ターン課題)、"over 500 agent sessions with 10,000-token system prompts"。原典は "naive full-context caching, which can paradoxically increase latency" とも述べ、戦略によっては逆効果になりうることを示す。コーディング課題ではなく調査型エージェント課題である点は ask の一般化(長時間・多ターンの作業全般)と範囲が異なる可能性。'
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

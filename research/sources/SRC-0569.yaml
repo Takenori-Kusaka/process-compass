@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0569
+status: included
+excludeReason: null
+title: The Lean Startup | Methodology
+url: https://theleanstartup.com/principles
+canonicalUrl: https://theleanstartup.com/principles
+ids:
+  arxiv: null
+  doi: null
+publisher: The Lean Startup (Eric Ries)
+authors: ["Ries, Eric"]
+orgType: individual
+region: us
+lang: en
+sourceType: individual
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: "直接取得: 指示(b)で名指しされた公式ページ(theleanstartup.com/principles)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09]
+events: []
+summary: Lean Startup 公式サイトの方法論ページ(掲載日不明、2026-09-30 取得)。pivot を『製品・戦略・成長エンジンに関する新しい根本仮説を試すための構造的な軌道修正』と述べる。原則の水準の記述で、pivot の判定者・周期・記録様式・後退先の規定はこのページに無い。
+claims:
+  - id: c1
+    text: 計測と学習の結果、事業モデルの駆動要因が動いていないと分かったときが pivot の合図で、pivot は新しい根本仮説を試すための構造的な軌道修正と説明される。発動条件は『動いているか否かが明らかになる』という水準で、閾値や手続は示されない。
+    quote: If not, it is a sign that it is time to pivot or make a structural course correction to test a new fundamental hypothesis about the product, strategy and engine of growth.
+    locator: Develop An MVP + Learn When It Is Time To Pivot
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: qualifies
+  - id: c2
+    text: スタートアップの基本活動は、アイデアを製品にし、顧客の反応を測り、pivot するか続けるかを学ぶことだとする。判定の入力は顧客の反応であり、後段の技術検証の結果を入力とする記述はこのページに無い。
+    quote: The fundamental activity of a startup is to turn ideas into products, measure how customers respond, and then learn whether to pivot or persevere.
+    locator: Build-Measure-Learn
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q2, TH09-Q4]
+    issues: [250]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:43.610Z
+    httpStatus: 200
+    finalUrl: https://theleanstartup.com/principles
+    contentType: text/html
+    titleFetched: The Lean Startup | Methodology
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

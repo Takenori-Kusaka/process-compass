@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0124
+status: included
+excludeReason: null
+title: Claude Codeのトークン消費を減らす5つの方法——Opus 4.7で+35%になった今やるべきこと
+url: https://qiita.com/yurukusa/items/435810e1e8a046c99916
+canonicalUrl: https://qiita.com/yurukusa/items/435810e1e8a046c99916
+ids:
+  arxiv: null
+  doi: null
+publisher: Qiita
+authors: [yurukusa]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-04-19
+publishedBasis: page
+version: null
+updated: 2026-09-14
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code トークン 実測 コスト キャッシュ ccusage
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH02]
+events: []
+summary: 800 時間超の自律運用ログ(21,770 往復)を持つ個人の記事(2026-04-19、更新 2026-09-14)。推定請求額の 70.1% がキャッシュ読み出し、出力 15.2%。#274 の 57% と直接比較できる日本の公開値。有償ガイドへの誘導を含むため数値は自己申告。
+claims:
+  - id: c1
+    text: 21,770 往復のログを数え直すと推定請求額の 70.1% がキャッシュ読み出し、出力は 15.2%。#274 の「57% がキャッシュ読み取り」と同じ方向で、比率はさらに高い。
+    quote: 自分の21,770往復のログを数え直したときは、**推定請求額の70.1%がキャッシュの読み出しで、出力は15.2%**でした。削る的が違っていた、ということです。
+    locator: 記事末尾
+    quant:
+      value: 70.1% cache read / 15.2% output (of estimated bill)
+      n: 21,770 turns, 1 user
+      design: log aggregation, self-reported
+      population: 個人の Claude Code 自律運用
+    evidenceKind: observational
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: キャッシュは 5 分で失効し、cache_read と cache_creation でコストが 10〜20 倍違う。壊れる主因は 5 分以上の空白、ファイル保存による文脈変化、skills ディレクトリの変更。/cost で読み取り率 80% 以上を健全の目安とする。
+    quote: Claude Codeのプロンプトキャッシュは5分で失効する。キャッシュが効いているとき（cache_read）と壊れたとき（cache_creation）でコストが10-20倍違う。
+    locator: 2. キャッシュを壊さない運用
+    quant:
+      value: 10-20x (creation vs read)
+      n: null
+      design: price arithmetic
+      population: Claude Code
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: qualifies
+  - id: c3
+    text: Opus 4.7(2026-04-16)の新トークナイザーで同じプロンプトでもトークン消費が最大 35% 増え、Max プランでも 1 時間で枯渇する報告が相次いだ、とする(出典は Finout.io の分析)。モデル世代交代が定額枠の実効量を変える例。
+    quote: Opus 4.7（2026年4月16日リリース）で新トークナイザーが導入され、同じプロンプトでもトークン消費が最大35%増加している（ Finout.io調査 ）。Max planでも1時間で枯渇する報告が相次いでいる。
+    locator: 冒頭
+    quant:
+      value: +35% tokens
+      n: null
+      design: secondary (Finout.io)
+      population: Opus 4.7
+    evidenceKind: news-fact
+    rqs: [TH04-Q3, TH02-Q3]
+    issues: [274]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: 筆者自身の利用ログの n=1 実測(懐疑役の突合 2026-09-30 で selfReported を true に訂正)
+  mech:
+    checkedAt: 2026-09-23T22:38:52.471Z
+    httpStatus: 200
+    finalUrl: https://qiita.com/yurukusa/items/435810e1e8a046c99916
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Codeのトークン消費を減らす5つの方法——Opus 4.7で+35%になった今やるべきこと - Qiita
+    titleMatch: true
+    dateMeta: 2026-04-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 21,770往復、推定請求額の 70.1% がキャッシュ読み出し、出力 15.2%
+        extractedQuote: 自分の21,770往復のログを数え直したときは、**推定請求額の70.1%がキャッシュの読み出しで、出力は15.2%**でした。
+        locator: 記事末尾(まとめの後の段落)
+        note: "70.1% の分母は『推定請求額(費用)』でありトークン数ではない。比較先 #___ の「___% がキャッシュ読み取り」がトークン構成比(例: SRC-0123 の 95.0% は入力トークン比)なら、分母が異なり「比率はさらに高い」の比較は同じ尺度ではない可能性がある。段落は著者の有償監査サービスの案内に続く。"
+        adjudication:
+          verdict: consistent
+          reason: "21,770 往復、推定請求額の 70.1% がキャッシュ読み出し、出力 15.2% は抜粋と一致し、主張も分母が「推定請求額」(費用)であることを明記している。後半の #274「57%」との比較は内部参照のため判定対象外。ただし blindNote のとおり、比較先がトークン構成比なら尺度が異なるため、「比率はさらに高い」を使う側で分母の同一性を確かめる必要がある。"
+          date: 2026-09-23
+      c2:
+        verdict: match
+        extractedValue: 失効 5分 / コスト差 10-20倍 / 空白 5分以上 / 読み取り率 80%以上が健全
+        extractedQuote: Claude Codeのプロンプトキャッシュは5分で失効する。キャッシュが効いているとき（cache_read）と壊れたとき（cache_creation）でコストが 10-20倍 違う。
+        locator: "2. キャッシュを壊さない（効果: コスト10-20倍の差）"
+        note: "続く原文:「キャッシュが壊れる3大原因 5分以上の空白 : 考え込んだり離席するとキャッシュ失効 git status変更 : ファイルを保存するだけでコンテキストが変わる skills/ディレクトリの変更 : CLAUDE.mdと同じく毎ターン読み込まれる 対策 /cost で定期的にキャッシュ読み取り率を確認（80%以上が健全）」。原典の見出しは「キャッシュを壊さない運用」ではなく「2. キャッシュを壊さない（効果: コスト10-20倍の差）」。2番目の原因の見出しは「git status変更」。なお TTL 5分は一律の記述で、SRC-0123 はサブスク利用時 1時間 TTL と述べており出典間で前提が異なる。"
+      c3:
+        verdict: match
+        extractedValue: Opus 4.7(2026年4月16日リリース)、最大 35% 増、Max plan でも 1時間で枯渇
+        extractedQuote: Opus 4.7（2026年4月16日リリース）で新トークナイザーが導入され、同じプロンプトでもトークン消費が最大35%増加している（ Finout.io調査 ）。Max planでも1時間で枯渇する報告が相次いでいる。
+        locator: 冒頭(リード段落)
+        note: 原文で Finout.io に帰属しているのは「最大35%増加」の文のみ。「1時間で枯渇する報告」は別文で出典表示が無い。ask の「(出典は Finout.io の分析)」が両方に掛かるなら原典より広い帰属になる。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

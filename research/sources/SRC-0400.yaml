@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0400
+status: included
+excludeReason: null
+title: "RovoDev Code Reviewer: A Large-Scale Online Evaluation of LLM-based Code Review Automation at Atlassian"
+url: https://arxiv.org/abs/2601.01129
+canonicalUrl: arxiv:2601.01129
+ids:
+  arxiv: "2601.01129"
+  doi: null
+publisher: ICSE 2026 SEIP (arXiv)
+authors: [Kla Tantithamthavorn, Yaotian Zou, Andy Wong, Michael Gupta, Zhe Wang, Mike Buller, Ryan Jiang, Matthew Watson, Minwoo Jeong, Kun Chen, Ming Wu]
+orgType: vendor
+region: global
+lang: en
+sourceType: paper-peer
+published: 2026-01-03
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-01-20
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: "RovoDev Code Reviewer: A Large-Scale Online Evaluation arXiv ICSE 2026 SEIP"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH11]
+events: []
+summary: Atlassian が自社の AI レビュア RovoDev を 1 年間運用評価した ICSE 2026 SEIP 論文(Monash 大と共著、評価は開発元)。事実性と対応可能性の品質検査を挟む設計で、PR サイクルタイム中央値 -30.8% を報告。
+claims:
+  - id: c1
+    text: 生成したコメントを、事実の正しさ(無関係・不正確・矛盾・無意味の除去)と対応可能性の 2 段で検査してから出す設計をとる。
+    quote: a comment quality check on factual correctness to remove noisy comments (e.g., irrelevant, inaccurate, inconsistent, or nonsensical)
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+  - id: c2
+    text: コメントの 38.70% が後続コミットでのコード変更につながり、PR サイクルタイム中央値は 30.8% 短縮、人間が書くコメントは 35.6% 減った。後者は負荷軽減として報告されているが、人間の検証量の減少でもある。
+    quote: reducing median pull request cycle time by 30.8% and decreasing the number of human-written comments by 35.6%
+    locator: Abstract / §5 RQ2
+    quant:
+      value: コード変更率 38.70%、サイクル -30.8%、人間コメント -35.6%
+      n: Atlassian 社内、1 年間、1,900 超のリポジトリ
+      design: online production evaluation (vendor-run, observational)
+      population: Atlassian Bitbucket の PR
+    evidenceKind: observational
+    rqs: [TH06-Q6, TH11-Q3]
+    issues: [257]
+    stance: contradicts
+  - id: c3
+    text: 言語・バージョン・フレームワークなどの文脈が欠けると、誤った、または対応不能な指摘を出す。
+    quote: it may generate incorrect or non-actionable feedback when contextual information is lacking (e.g., unknown programming languages, versions, or frameworks)
+    locator: §1 Contributions (3)
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:10.087Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2601.01129
+    contentType: text/html; charset=utf-8
+    titleFetched: "RovoDev Code Reviewer: A Large-Scale Online Evaluation of LLM-based Code Review Automation at Atlassian"
+    titleMatch: true
+    dateMeta: 2026-01-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "RovoDev Code Reviewer: A Large-Scale Online Evaluation of LLM-based Code Review Automation at Atlassian"
+      authors: ["Tantithamthavorn, Kla", "Zou, Yaotian", "Wong, Andy", "Gupta, Michael", "Wang, Zhe", "Buller, Mike"]
+      v1Date: 2026-01-03
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2(品質検査は事実の正しさと対応可能性の2つ。システム全体は生成を含む3構成要素)
+        extractedQuote: (2) a comment quality check on factual correctness to remove noisy comments (e.g., irrelevant, inaccurate, inconsistent, or nonsensical); and (3) a comment quality check on actionability
+        locator: §1 Introduction(§3.2 / §3.3 の節見出しとも対応)
+        note: "原典は「2段」と明言していない。「three key components: (1) a zero-shot context-aware review-guided comment generation; (2) ... (3) ...」のうち(2)(3)が品質検査である。「___段」を3と読むと生成段を含めた数になるので、どちらを指すかに注意。"
+      c2:
+        verdict: match
+        extractedValue: 38.70% / 30.8% / 35.6%
+        extractedQuote: code resolution for 38.70% ... decreasing the PR cycle time by 30.8%), alleviating reviewer workload (i.e., reducing the number of human-written comments by 35.6%)
+        locator: Abstract(§4.2 RQ2 Results / Table 1・Table 2)
+        note: §4.2 の RQ2 本文は丸めて 31% / 36% と書く。サイクルタイムは RovoDev コメントあり/なしの PR 比較(中央値 14.35h vs 20.73h、観察研究)。35.6% は Table 2 では平均(2.87 vs 4.45)だが本文は「at the median value」と書いており、論文内に不整合がある。locator の「§5 RQ2」に対し、RQ2 の結果は §4.2 にある。「人間の検証量の減少でもある」は原典にない主張側の解釈で、原典は負荷軽減(alleviating reviewer workload)として述べる。人のコメントの解決率は 44.45%。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

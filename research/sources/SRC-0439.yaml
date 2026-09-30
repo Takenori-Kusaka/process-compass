@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0439
+status: included
+excludeReason: null
+title: ISO/IEC/IEEE 29148:2018 Systems and software engineering — Life cycle processes — Requirements engineering (preview)
+url: https://cdn.standards.iteh.ai/samples/72089/62bb2ea1ef8b4f33a80d984f826267c1/ISO-IEC-IEEE-29148-2018.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/72089/62bb2ea1ef8b4f33a80d984f826267c1/iso-iec-ieee-29148-2018.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC/IEEE(iTeh 公開プレビュー)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2018-11
+publishedBasis: pdf
+version: Second edition
+updated: null
+accessed: 2026-09-24
+access: paywall
+readLevel: section
+foundBy:
+  cluster: TH08
+  query: ISO/IEC/IEEE 29148:2018 sample preview pdf standards.iteh.ai requirements engineering
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH12]
+events: []
+summary: 要求工学の国際規格の公開プレビュー(目次・用語定義まで)。要求トレーサビリティを上方(導出元)と下方(割当先)の経路の識別・文書化と定義し、要求の検証と妥当性確認を区別する。SRS の目次に『前提と依存関係』節がある。
+claims:
+  - id: c1
+    text: 要求トレーサビリティは、要求集合における要求の導出経路(上方)と割当・展開経路(下方)を識別し文書化することと定義される。
+    quote: identification and documentation of the derivation path (upward) and allocation/flow-down path (downward) of requirements (3.1.19) in the requirements set
+    locator: 3.1.23 requirements traceability
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 要求の検証(requirements verification)は要求が well-formed であることを検査で確かめる活動、妥当性確認(validation)は要求が意図どおりのシステムを定義しているかを確かめる活動であり、別々に定義される。
+    quote: confirmation by examination that requirements (3.1.19) (individually and as a set) are well-formed
+    locator: "3.1.26 requirements verification(対比: 3.1.25 requirements validation)"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2, TH08-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: SRS の内容として『前提と依存関係(Assumptions and dependencies)』の節を置く(9.5.19)。本文はプレビュー範囲外で未読。
+    quote: 9.5.19 Assumptions and dependencies
+    locator: 目次 9.5.19 / 9.6.8
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:53.410Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/72089/62bb2ea1ef8b4f33a80d984f826267c1/ISO-IEC-IEEE-29148-2018.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0102
+status: included
+excludeReason: null
+title: Effective context engineering for AI agents
+url: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+canonicalUrl: https://anthropic.com/engineering/effective-context-engineering-for-ai-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic Engineering
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2025-09-29
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Anthropic "effective context engineering" agents article
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH03]
+events: []
+summary: Anthropic の context engineering 原典(日付は本文に無く、公式 X 投稿 2025-09-30 UTC から推定)。文脈を「逓減する有限資源」と定義し、「最小の高シグナルなトークン集合」を原則とする。数値上限は示さない。
+claims:
+  - id: c1
+    text: Anthropic は常時ロード量の数値上限を示さず、原則として「望む結果の尤度を最大化する最小の高シグナルなトークン集合」を求める。
+    quote: good context engineering means finding the smallest possible set of high-signal tokens that maximize the likelihood of some desired outcome
+    locator: The anatomy of effective context
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q1]
+    issues: [274, 269]
+    stance: supports
+  - id: c2
+    text: 文脈は「逓減する限界効用を持つ有限資源」であり、トークンを足すほど注意予算を消費する、と述べる。context rot(Chroma)を根拠に引く。
+    quote: Context, therefore, must be treated as a finite resource with diminishing marginal returns.
+    locator: Why context engineering is important
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q3]
+    issues: [274]
+    stance: supports
+  - id: c3
+    text: Claude Code は CLAUDE.md を「素朴に前置きで文脈へ落とし」、残りは glob/grep で just-in-time に取る混成方式だと説明する。常時ロードと遅延取得の役割分担が公式設計。
+    quote: CLAUDE.md files are naively dropped into context up front, while primitives like glob and grep allow it to navigate its environment and retrieve files just-in-time
+    locator: Just in time context retrieval
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q1, TH03-Q4]
+    issues: [269, 274]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:44.425Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents
+    contentType: text/html; charset=utf-8
+    titleFetched: Effective context engineering for AI agents
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/engineering/effective-context-engineering-for-ai-agents

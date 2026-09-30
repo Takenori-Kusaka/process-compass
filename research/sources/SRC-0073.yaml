@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0073
+status: included
+excludeReason: null
+title: "BMAD-METHOD README (BMad Method: Agile AI Driven Development)"
+url: https://github.com/bmad-code-org/BMAD-METHOD
+canonicalUrl: https://github.com/bmad-code-org/bmad-method
+ids:
+  arxiv: null
+  doi: null
+publisher: bmad-code-org (BMad Code, LLC)
+authors: []
+orgType: community
+region: us
+lang: en
+sourceType: repo
+published: 2026-09-04
+publishedBasis: page
+version: v6.12.0
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: BMAD Method v6 agents PM Architect Scrum Master Dev QA
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH03]
+events: [{date: 2026-07-03, label: v6.10.0 リリース}, {date: 2026-08-10, label: v6.11.0 リリース}, {date: 2026-09-04, label: v6.12.0 リリース}]
+summary: BMAD v6 の公式 README(2026-09-23 取得、直近リリース v6.12.0=2026-09-04)。PM/Architect/SM/Dev/QA 等のロール別エージェントを持つが、README 自身は「判断を渡さずに」「決定を明示化して文脈として引き継ぐ」枠組みと自己規定している。
+claims:
+  - id: c1
+    text: BMAD は自らを、エージェントとワークフローが重要な決定を明示化し文脈として引き継ぐことで「人が制御を保つ」方法論と位置づける。ロール別エージェントが決定者になるとは書いていない。
+    quote: BMad keeps you in control while its agents and workflows make the important decisions explicit and preserve them as context for the work that follows.
+    locator: README, Why BMad?
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3, TH03-Q2]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 複数エージェントの討議(Party Mode 系)は「判断を手放さずに」使うものと README が明記している。
+    quote: Guided collaboration — Use structured workflows and multiple-agent discussions without handing over judgment.
+    locator: README, Why BMad? 箇条書き
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:19.083Z
+    httpStatus: 200
+    finalUrl: https://github.com/bmad-code-org/BMAD-METHOD
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - bmad-code-org/BMAD-METHOD: Breakthrough Method for Agile Ai Driven Development"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

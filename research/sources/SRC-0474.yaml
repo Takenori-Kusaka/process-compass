@@ -1,0 +1,88 @@
+schemaVersion: 0
+id: SRC-0474
+status: included
+excludeReason: null
+title: The Acceleration Whiplash — AI Engineering Report 2026
+url: https://www.faros.ai/research/ai-acceleration-whiplash
+canonicalUrl: https://faros.ai/research/ai-acceleration-whiplash
+ids:
+  arxiv: null
+  doi: null
+publisher: Faros AI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-03
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: login
+readLevel: section
+foundBy:
+  cluster: TH11
+  query: Faros AI "AI Productivity Paradox" report telemetry 10,000 developers PR review time
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH10]
+events: []
+summary: Faros の2026年版報告(2万2千人・4千チームの2年分テレメトリ、組織内で低採用期と高採用期を比較)。本体は登録制で、公開ランディングページの要約値までを読んだ。PR サイズ+51%、PR あたりインシデント3倍、レビュー時間中央値5倍などを示し、DORA 2025 の「成熟組織は守られる」とする知見に反すると明言する。発行月はページに無く、二次報道の「2026年3月」を暫定値とした。
+claims:
+  - id: c1
+    text: 高AI採用期は低採用期と比べ、PR サイズ+51%、PR あたりバグ+28%、レビュー時間中央値5倍、PR あたりインシデント3倍、コードチャーン10倍だった(組織内の前後比較)。
+    quote: +51% PR Size +28% Bugs per PR 5X Median Review Time 3X Incidents per PR 10X Code Churn
+    locator: The Findings(見出し統計)
+    quant:
+      value: +51% PR size; +28% bugs/PR; 5x review time; 3x incidents/PR; 10x churn
+      n: 22K developers, 4K teams
+      design: observational telemetry, within-organization low vs high adoption, 2 years
+      population: Faros customer organizations
+    evidenceKind: observational
+    rqs: [TH11-Q2, TH11-Q3, TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: Faros は、工学的成熟度は品質劣化の防壁にならず、この結果は DORA 2025 の知見と直接矛盾すると主張する。
+    quote: High performers aren't insulated. Engineering maturity is not a shield. Our data directly contradicts DORA's 2025 findings.
+    locator: What makes this report different
+    quant: null
+    evidenceKind: observational
+    rqs: [TH11-Q1]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:07.487Z
+    httpStatus: 200
+    finalUrl: https://www.faros.ai/research/ai-acceleration-whiplash
+    contentType: text/html; charset=utf-8
+    titleFetched: "AI Impact on Engineering Productivity: 2026 Report Data"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: DORA's 2025 findings
+        extractedQuote: High performers aren't insulated. Engineering maturity is not a shield. Our data directly contradicts DORA's 2025 findings.
+        locator: What makes this report different
+        note: ランディングページの該当節は登録なしで読める(報告書本体はフォーム経由)。原文の主張は『高業績組織も守られない/成熟度は盾にならない』で、ask の『品質劣化の防壁』は周辺文脈(Volume is up, quality is down)からの言い換え。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://faros.ai/research/ai-acceleration-whiplash

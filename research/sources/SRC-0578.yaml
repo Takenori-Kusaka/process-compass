@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0578
+status: included
+excludeReason: null
+title: On working with synthetic personas
+url: https://kathrynbuckley.substack.com/p/on-working-with-synthetic-personas
+canonicalUrl: https://kathrynbuckley.substack.com/p/on-working-with-synthetic-personas
+ids:
+  arxiv: null
+  doi: null
+publisher: The Swiss Army Product Manager (Substack)
+authors: ["Buckley, Kathryn"]
+orgType: individual
+region: eu
+lang: en
+sourceType: individual
+published: 2026-07-03
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: '"working backwards" OR "PR/FAQ" solo founder Claude "synthetic customers" OR "AI personas" instead of customer interviews what went wrong blog 2026'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH09]
+events: []
+summary: プロダクトマネージャーが、自社の面接記録・レビュー・利用データから Claude で合成ペルソナ 2 体を作り同僚へ配った一次記録(2026-07-03、n=1 の自己報告。一人体制ではなくチーム内の試行)。既に知っていることを映し返すだけで新しい洞察は出ず、素の LLM を上回る証拠も見ていないと述べる。
+claims:
+  - id: c1
+    text: 実データで作った合成ペルソナでも、実地の調査と顧客との対話の代わりにはならないと著者は述べる。
+    quote: They are no substitute for real-world research and speaking to customers, but is there a place they can help?
+    locator: 本文「The most important question is」段落
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 長く使うと欠けているものが明らかになり、合成ペルソナは新しい洞察を出すよりも、既に知っていることを映し返す傾向があったと報告する。仮説の検証相手を AI にした場合の限界の一次記録である。
+    quote: They are likely to project back what we already know, rather than surface new and genuine insights.
+    locator: 本文 終盤
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 同僚の利用は実務の梃子というより好奇の対象にとどまり、素の LLM を上回る改善の証拠は見ていないと述べる。
+    quote: or, any evidence that they provide any improvement on the base LLM.
+    locator: 本文「I’ve not seen enough momentum」の文
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:49.185Z
+    httpStatus: 200
+    finalUrl: https://kathrynbuckley.substack.com/p/on-working-with-synthetic-personas
+    contentType: text/html; charset=utf-8
+    titleFetched: On working with synthetic personas
+    titleMatch: true
+    dateMeta: 2026-07-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

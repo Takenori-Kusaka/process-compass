@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0189
+status: included
+excludeReason: null
+title: Introducing Projects
+url: https://cursor.com/blog/projects
+canonicalUrl: https://cursor.com/blog/projects
+ids:
+  arxiv: null
+  doi: null
+publisher: Cursor
+authors: [Robbins Alexi, Lindh Fredrika]
+orgType: startup
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-09-10
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: cursor.com/blog(反証探索: 無制限の自律を製品化したベンダー)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH10]
+events:
+  - date: 2026-09-10
+    label: Cursor が Projects(コーディネータ型の多数エージェント運用)を発表
+summary: Cursor Projects の発表。コーディネータが数千のサブエージェントに委任し、促されずに定期作業を行う。完成物は人に戻して確認させる設計だが、前回 §6-3 の「制約された協調」の範囲を押し広げる反証候補。
+claims:
+  - id: c1
+    text: Projects は数か月にわたって文脈を保ち、数千のサブエージェントに委任し、促されなくても定期作業を行う。
+    quote: It maintains context over months of work, delegates tasks to thousands of subagents, and performs recurring work without being prompted.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q2, TH01-Q3]
+    issues: [282]
+    stance: contradicts
+  - id: c2
+    text: Cursor は Projects について、新規利用者のマージ PR が 30% 増え、主に Projects を使う利用者は 6 倍マージしたと主張する(自社の観測。比較の基準・対象期間・母集団は明示されない)。
+    quote: "We've found it to be a substantial productivity multiplier: new users merge 30% more PRs while users who primarily use Projects merge six times as many."
+    locator: 冒頭（Introducing Projects、Sep 10, 2026）の第3段落
+    quant:
+      value: +30% / 6x merged PRs
+      n: not reported
+      design: internal observation
+      population: Cursor engineers
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.685Z
+    httpStatus: 200
+    finalUrl: https://cursor.com/blog/projects
+    contentType: text/html; charset=utf-8
+    titleFetched: Introducing Projects · Cursor
+    titleMatch: true
+    dateMeta: 2026-09-10
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: new users merge 30% more PRs / users who primarily use Projects merge six times as many
+        extractedQuote: "We've found it to be a substantial productivity multiplier: new users merge 30% more PRs while users who primarily use Projects merge six times as many."
+        locator: 冒頭（Introducing Projects、Sep 10, 2026）の第3段落
+        note: 比較の基準（何に対して 30% 増・6倍か）、対象期間、母集団（Cursor 社内の利用者であること自体も文脈からの推定）は明示されない。'new users' が Projects の新規利用者を指すと読めるが原文では曖昧。
+        adjudication:
+          verdict: corrected
+          reason: 数値(30% more PRs / six times as many)は blindQuote と一致する。ただし主張の「Cursor 社内では」は原文に無い母集団の限定である。blindNote も、社内利用者であることは明示されず文脈からの推定にすぎないと指摘する。原文は「We've found」であり、自社の観測とは言えるが社内利用者の観測とは言えない。母集団の限定を外して訂正した。
+          date: 2026-09-24
+          originalText: Cursor 社内では新規利用者のマージ PR が 30% 増え、主に Projects を使う者は 6 倍マージしたと主張する(自社観測、測定方法の詳細なし)。
+          originalQuote: new users merge 30% more PRs while users who primarily use Projects merge six times as many
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

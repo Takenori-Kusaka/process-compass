@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0314
+status: included
+excludeReason: null
+title: "Not All Agents Are Equal: Code Quality and Post-Merge Maintenance Across Five Autonomous Coding Agents in the Wild"
+url: https://arxiv.org/abs/2609.17598
+canonicalUrl: arxiv:2609.17598
+ids:
+  arxiv: "2609.17598"
+  doi: null
+publisher: arXiv (cs.SE) / Texas Tech University
+authors: [Obada Kraishan]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-09-12
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: arXiv cs.SE recent listing (https://arxiv.org/list/cs.SE/recent)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11, TH06]
+events: []
+summary: AIDev データセットの5エージェント(Codex, Devin, Copilot, Cursor, Claude Code)の PR 37,623件と対応づけた人間 PR を比べ、マージ後の revert・churn・セキュリティ臭・レビュー行動を測った観察研究。品質差はエージェント一律ではなくベンダー別。
+claims:
+  - id: c1
+    text: 品質差はベンダー別で、Codex の PR の revert 率は人間の約半分(6.1% 対 11.5%、OR 0.50)、Devin は人間より高い(14.5%、OR 1.31)。「AI の PR は一律に質が低い」とは言えない。
+    quote: Codex-authored PRs were reverted about half as often as human PRs (6.1% vs. 11.5%, odds ratio 0.50), while Devin PRs were reverted more often (14.5%, odds ratio 1.31)
+    locator: Abstract; §4.3 RQ3
+    quant:
+      value: revert 6.1%(Codex)/11.5%(human)/14.5%(Devin)
+      n: 37,623 PRs, 2,807 repos, 2024-12〜2025-07 + matched human baseline
+      design: observational(repository mining, logistic regression)
+      population: AIDev データセット + GitHub API 58,792 応答
+    evidenceKind: observational
+    rqs: [TH11-Q2, TH11-Q3]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: ベンダーを合算すると、エージェントのコードは人間のコードよりセキュリティ臭を含みにくかった(OR 0.63)。ハードコードされた認証情報や eval 系の構文が少ない。
+    quote: agent code pooled across vendors was less likely than human code to contain a security smell (odds ratio 0.63)
+    locator: Abstract; §4.1 RQ1
+    quant:
+      value: OR 0.63
+      n: 同上
+      design: observational
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: レビュー負荷は偏在し、Copilot の PR は最も多くの人間レビューと変更要求を受け、Claude Code の PR は最初の人間レビューまで最も長く待った(中央値12.6時間)。著者は人の注意が律速資源になると論じる。
+    quote: Claude Code PRs waited the longest for a first human review (median 12.6 hours)
+    locator: Abstract; §4.5 RQ5; §5 Discussion
+    quant:
+      value: 中央値12.6時間
+      n: 同上
+      design: observational
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH11-Q3, TH10-Q3]
+    issues: [273]
+    stance: context
+  - id: c4
+    text: セキュリティ臭は差分行への正規表現で検出しており、確認済みの脆弱性ではなくパターン存在の上限として読むべきと著者が限界を明記する。
+    quote: counts should be read as an upper bound on pattern presence, not exploitability
+    locator: §6 Threats to Validity
+    quant: null
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:35.598Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.17598
+    contentType: text/html; charset=utf-8
+    titleFetched: "Not All Agents Are Equal: Code Quality and Post-Merge Maintenance Across Five Autonomous Coding Agents in the Wild"
+    titleMatch: true
+    dateMeta: 2026-09-12
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "Not All Agents Are Equal: Code Quality and Post-Merge Maintenance Across Five Autonomous Coding Agents in the Wild"
+      authors: ["Kraishan, Obada"]
+      v1Date: 2026-09-12
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

@@ -1,0 +1,114 @@
+schemaVersion: 0
+id: SRC-0058
+status: included
+excludeReason: null
+title: Correcting the Financial Times report about AWS, Kiro, and AI
+url: https://www.aboutamazon.com/news/aws/aws-service-outage-ai-bot-kiro
+canonicalUrl: https://aboutamazon.com/news/aws/aws-service-outage-ai-bot-kiro
+ids:
+  arxiv: null
+  doi: null
+publisher: About Amazon(Amazon Staff)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-02-20
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: Correcting the Financial Times report about AWS, Kiro, and service interruptions"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH01, TH02]
+events:
+  - date: 2025-12
+    label: AWS Cost Explorer が 1 リージョンで短時間中断(AWS は誤設定ロールが原因と説明)
+  - date: 2026-02-20
+    label: AWS が FT 報道(Kiro が 13 時間障害を起こした)を否定する声明を公表
+summary: 「Amazon の Kiro が AWS 障害を起こした」報道に対する AWS の一次声明。原因は誤設定されたアクセス制御(ロール)で AI ではないとし、影響は 2025-12 の単一サービス・1 リージョン、2 件目の事象は虚偽と述べる。一方で「本番アクセスにピアレビュー必須」を含む追加安全策を導入したと認める。
+claims:
+  - id: c1
+    text: AWS は中断の原因を AI ではなく利用者の誤設定(アクセス制御)だと説明する。報道の「エージェント起因の障害」を当事者が否定した一次記録。
+    quote: The brief service interruption they reported on was the result of user error—specifically misconfigured access controls—not AI as the story claims.
+    locator: 第 1 段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH07-Q1]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 影響は 2025 年 12 月、AWS Cost Explorer 1 サービス、39 リージョン中 1 つに限られ、顧客からの問い合わせはなかったとする。
+    quote: The disruption was an extremely limited event last December affecting a single service (AWS Cost Explorer—which helps customers visualize, understand, and manage AWS costs and usage over time) in one of our 39 Geographic Regions
+    locator: 第 2 段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 追加の安全策として「本番アクセスに対する必須のピアレビュー」を導入した。AI ツール経由の操作にも人の第二承認を課す方向。
+    quote: Additional safeguards include mandatory peer review for production access.
+    locator: 第 2 段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH07-Q1, TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: FT が報じた 2 件目の AWS への影響は「完全に虚偽」と断言する。
+    quote: The Financial Times' claim that a second event impacted AWS is entirely false.
+    locator: 第 2 段落末尾
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:09.255Z
+    httpStatus: 200
+    finalUrl: https://www.aboutamazon.com/news/aws/aws-service-outage-ai-bot-kiro
+    contentType: text/html; charset=utf-8
+    titleFetched: Correcting the Financial Times report about AWS, Kiro, and AI
+    titleMatch: true
+    dateMeta: 2026-02-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: last December(年の明記なし。記事公開日 2026-02-20 から 2025年12月と読める) / single service (1) / one of our 39 Geographic Regions (39中1)
+        extractedQuote: The disruption was an extremely limited event last December affecting a single service (AWS Cost Explorer—...) in one of our 39 Geographic Regions around the world. ... We did not receive any customer inquiries regarding the interruption.
+        locator: 本文第2段落(The disruption was ...)〜第3段落末(We did not receive any customer inquiries)
+        note: 本文に年は書かれていない("last December" のみ)。年は記事の datePublished 2026-02-20T20:36:57Z からの推定になる。顧客問い合わせなしの記述は第3段落。
+      c4:
+        verdict: match
+        extractedValue: second(2件目)
+        extractedQuote: The Financial Times' claim that a second event impacted AWS is entirely false.
+        locator: 本文 後半(追加の安全策の段落の後、COE プロセスの段落の前)
+        note: locator は「第2段落末尾」だが、実際は本文後半の独立した一文。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://aboutamazon.com/news/aws/aws-service-outage-ai-bot-kiro

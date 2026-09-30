@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0567
+status: included
+excludeReason: null
+title: Stage-Gate® and the Critical Success Factors for New Product Development
+url: https://bptrends.info/wp-content/publicationfiles/07-06-ART-Stage-GateForProductDev-Cooper-Edgett1.pdf
+canonicalUrl: https://bptrends.info/wp-content/publicationfiles/07-06-art-stage-gateforproductdev-cooper-edgett1.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: BPTrends
+authors: ["Cooper, Robert G.", "Edgett, Scott J."]
+orgType: consultancy
+region: us
+lang: en
+sourceType: industry-report
+published: 2006-07
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: Cooper Stage-Gate gate decisions "Go/Kill/Hold/Recycle" recycle definition gate outputs
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH07]
+events: []
+summary: Stage-Gate 考案者 Cooper と Edgett による解説(BPTrends 掲載。本文に日付が無く、URL のファイル名 07-06 から 2006-07 と推定)。ゲートの出力を Go / Kill / Hold / Recycle の 4 種とし、不完全な情報での条件付き Go を認める。Recycle の定義と手順は本文に無い。
+claims:
+  - id: c1
+    text: ゲートの出力は決定(Go / Kill / Hold / Recycle)、優先度、資源の約束と行動計画、次ゲートの期日と提出物である。前のステージへ差し戻す Recycle が判定の選択肢に含まれるが、その定義・発動条件・手順は本文に書かれていない。
+    quote: a decision (Go/Kill/ Hold/Recycle); a prioritization level; resource commitments and action plan approved; and date and deliverables for next gate agreed on.
+    locator: Gates の説明(Outputs)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: qualifies
+  - id: c2
+    text: 最速の Stage-Gate では不完全な情報でゲート判定を行い、次ステージ序盤で良い結果が出ることを条件とする Go を与える。後段の検証結果に判定を依存させる条件付き通過の先例である。
+    quote: the project team is given a "Go" decision, conditional on positive results occurring early in the next stage.
+    locator: 末尾「In the fastest Stage-Gate processes」段落
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:42.742Z
+    httpStatus: 200
+    finalUrl: https://bptrends.info/wp-content/publicationfiles/07-06-ART-Stage-GateForProductDev-Cooper-Edgett1.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

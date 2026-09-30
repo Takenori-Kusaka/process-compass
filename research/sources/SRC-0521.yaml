@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0521
+status: included
+excludeReason: null
+title: NIST AI RMF to ISO/IEC FDIS 42001 AI Management system Crosswalk
+url: https://airc.nist.gov/docs/NIST_AI_RMF_to_ISO_IEC_42001_Crosswalk.pdf
+canonicalUrl: https://airc.nist.gov/docs/nist_ai_rmf_to_iso_iec_42001_crosswalk.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: NIST Trustworthy & Responsible AI Resource Center (AIRC)
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2023-05-23
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G02
+  query: NIST AI RMF ISO/IEC 42001 crosswalk pdf airc.nist.gov (A.3.2 / 人の監視の管理策の所在を公的資料で確かめるため)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH02]
+events: []
+summary: NIST が AI RMF の細分類を ISO/IEC FDIS 42001 の箇条・附属書 B(実施の手引き、番号は附属書 A の管理策と対応)へ対応付けた表。全 16 頁のうち GOVERN 2.1 / 3.2、MAP 3.5、MANAGE 2.4 / 3.1 / 3.2 / 4.1 の行を画像化して読んだ。FDIS 版に基づくので発行版との差は未確認。公開日は PDF メタデータの作成日。42001 の管理策本文そのものは載っていない。
+claims:
+  - id: c1
+    text: 人の監視(MAP 3.5)の対応先は B.6.1.3(責任ある設計・開発のプロセス)、B.6.2.7(技術文書)、B.8.2(利用者向け文書・情報)で、「人の監視」を表題に持つ 42001 の管理策は対応表に現れない。
+    quote: B.6.2.7 AI system technical documentation
+    locator: p.8 Map 3.5 の行
+    quant: null
+    evidenceKind: review
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 役割と責任(GOVERN 2.1)の対応先は、箇条 5.3(役割・責任・権限)、7.1〜7.4、9.1 と B.3.2(AI の役割と責任)である。
+    quote: Roles, responsibilities and authorities
+    locator: p.2 Govern 2.1 の行
+    quant: null
+    evidenceKind: review
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: 第三者資源のリスク監視(MANAGE 3.1)の対応先は B.10.3(供給者)と B.10.2(責任の割当て)、事前学習済みモデルの監視(MANAGE 3.2)の対応先は B.4.4(ツール資源)と B.6.2.6(運用と監視)である。
+    quote: B.10.2 Allocating responsibilities
+    locator: pp.15-16 Manage 3.1 / 3.2 の行
+    quant: null
+    evidenceKind: review
+    rqs: [TH02-Q3, TH12-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:23.069Z
+    httpStatus: 200
+    finalUrl: https://airc.nist.gov/docs/NIST_AI_RMF_to_ISO_IEC_42001_Crosswalk.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: MAP 3.5 → B.6.1.3 / B.6.2.7 / B.8.2。ISO 側の列に "oversight" を含む項目名は 0 件(全文検索で "oversight" は 2 件、どちらも NIST 側の文言)
+        extractedQuote: B.6.1.3 Processes for responsible design and development of AI systems B.6.2.7 AI system technical documentation B.8.2 System documentation and information for users
+        locator: p.8 Map 3.5 の行
+        note: 引用は対応先の列のみ。行の見出しは "Map 3.5 Processes for human oversight are defined, assessed, and documented in accordance with organizational policies from the GOVERN function."。PDF を curl で取得し pdftotext(-raw、ページ単位)で確認。「人の監視を表題に持つ管理策が現れない」は、対応表の全文に対する "oversight" の検索結果(ISO 側 0 件)から言える範囲。ISO/IEC 42001 本体にそのような管理策があるかどうかは本資料からは分からない。伏せ字の最後(___の管理策)に入る語は原文に対応する記述がなく特定できない。
+        adjudication:
+          verdict: consistent
+          reason: MAP 3.5 の対応先が B.6.1.3 / B.6.2.7 / B.8.2 であることは blindQuote と一致する。「人の監視を表題に持つ管理策が対応表に現れない」は、対応表の ISO 側の列に oversight を含む項目名が 0 件という blindValue から言える。主張は「対応表に現れない」と範囲を限っており、ISO/IEC 42001 本体に該当の管理策が無いとまでは言っていないので、blindNote の留保と矛盾しない。
+          date: 2026-09-30
+      c2:
+        verdict: match
+        extractedValue: GOVERN 2.1 → 9.1 / 5.3 / 7.1 / 7..2(原文ママ) / 7.3 / 7.4 / B.3.2
+        extractedQuote: 9.1 Monitoring, measurement, analysis and evaluation 5.3 Roles, responsibilities and authorities 7.1 Resources 7..2 Competence 7.3 Awareness 7.4 Communication B.3.2 AI roles and responsibilities
+        locator: p.2 Govern 2.1 の行
+        note: 引用は対応先の列のみ(行の見出しは "Govern 2.1 Roles and responsibilities and lines of communication ...")。原文の並びは 9.1(Monitoring, measurement, analysis and evaluation)が先頭で、続いて 5.3、7.1、7..2、7.3、7.4、B.3.2。7.2 は原文で "7..2" と誤記されている。ask の伏せ字の個数と並びから見て 9.1 の位置づけが主張文と一致するかは要確認(原文では 9.1 も対応先に含まれる)。
+      c3:
+        verdict: match
+        extractedValue: MANAGE 3.1 → B.10.3 (Suppliers) / B.10.2 (Allocating responsibilities)。MANAGE 3.2 → B.4.4 (Tooling resources) / B.6.2.6 (AI system operation and monitoring)
+        extractedQuote: B.10.3 Suppliers B.10.2 Allocating responsibilities / B.4.4 Tooling resources B.6.2.6 AI system operation and monitoring
+        locator: p.15 末尾 Manage 3.1 の行 / p.16 冒頭 Manage 3.2 の行
+        note: 引用は対応先の列のみで、" / " の前が Manage 3.1、後が Manage 3.2。原文の対応先はそれぞれ2件ずつで、ask の構成と同じ。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

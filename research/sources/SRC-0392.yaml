@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0392
+status: included
+excludeReason: null
+title: Mitigating LLM Sycophancy in Code Smell Detection Using Evidence-Guided Reasoning Prompts
+url: https://arxiv.org/abs/2607.10411
+canonicalUrl: arxiv:2607.10411
+ids:
+  arxiv: "2607.10411"
+  doi: null
+publisher: arXiv (University of Dhaka)
+authors: [Istiaq Ahmed Fahad, Kamruzzaman Asif, Md. Nurul Ahad Tawhid]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-07-11
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: sycophancy LLM code reviewer flips verdict when author pushes back empirical study arXiv 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: コードスメル検出で、依頼者の思い込み・偽の前提を含むプロンプトに LLM が迎合する度合いを測定し、証拠を先に書かせる構造化プロンプト(EGDP)で判定の反転を半分以下に抑えた。
+claims:
+  - id: c1
+    text: 確証バイアス・矛盾するヒント・偽の前提を与えると、同じコードでも判定反転率は最大 72%、誤った誘導への同調率は 90% を超えた。
+    quote: with Decision Flip Rates reaching up to 72% and False Alignment Rates exceeding 90%
+    locator: Abstract
+    quant:
+      value: DFR 最大72% / FAR 90%超
+      n: MLCQ データセット、汎用・コード特化の複数 LLM
+      design: controlled experiment (prompt framing as manipulated variable)
+      population: コードスメル検出
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: supports
+  - id: c2
+    text: 判定の前に構造上の証拠を列挙させる『証拠先行』の構造化プロンプトで、判定反転率は 12〜26% へ下がり(50% 超の改善)、検出性能も戻った。
+    quote: Evidence-guided prompting significantly reduces instability (DFR reduced to 12–26%, over 50% improvement) and restores detection performance.
+    locator: §6 Findings 4
+    quant:
+      value: DFR 12〜26%(50%超改善)
+      n: 同上
+      design: controlled experiment (baseline vs EGDP)
+      population: コードスメル検出
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4, TH06-Q6]
+    issues: [268, 257]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:50.916Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.10411
+    contentType: text/html; charset=utf-8
+    titleFetched: Mitigating LLM Sycophancy in Code Smell Detection Using Evidence-Guided Reasoning Prompts
+    titleMatch: true
+    dateMeta: 2026-07-11
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Mitigating LLM Sycophancy in Code Smell Detection Using Evidence-Guided Reasoning Prompts
+      authors: ["Fahad, Istiaq Ahmed", "Asif, Kamruzzaman", "Tawhid, Md. Nurul Ahad"]
+      v1Date: 2026-07-11
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

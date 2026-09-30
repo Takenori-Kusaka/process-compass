@@ -1,0 +1,114 @@
+schemaVersion: 0
+id: SRC-0455
+status: included
+excludeReason: null
+title: "AI Writes Faster Than Humans Can Review: A Longitudinal Study of an Enterprise 2x Mandate"
+url: https://arxiv.org/abs/2607.01904
+canonicalUrl: arxiv:2607.01904
+ids:
+  arxiv: "2607.01904"
+  doi: 10.48550/arXiv.2607.01904
+publisher: arXiv
+authors: [Hao He, Shyam Agarwal, Yegor Denisov-Blanch, Pavel Azaletskiy, Sanmi Koyejo, Bogdan Vasilescu]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-07-02
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: arXiv stacked pull requests OR "stacked diffs" empirical developers review latency
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11, TH07]
+events: []
+summary: PR数を2倍にせよという企業の指示の前後を追った縦断研究(プレプリント)。1人あたりPRは約2倍になったが、実質的な人のレビューの待ち行列は解消せず、レビューを迂回する経路が増えて見かけのサイクルタイムが下がった。
+claims:
+  - id: c1
+    text: 稼働開発者1人あたりの平均PR数は、指示前(2025年1〜4月)の21.2から2026年4月の44.3へ約2.09倍になった。
+    quote: mean PRs per active developer rose from 21.2 in the pre-mandate baseline (Jan–Apr 2025) to 44.3 in Apr 2026
+    locator: Overview(Figure 4 の説明)
+    quant:
+      value: 21.2 → 44.3 PR/人(2.09倍)
+      n: 1社・3か月以上稼働の開発者(推定標本)
+      design: longitudinal observational(開発者固定効果モデル)
+      population: PR倍増指示を出した1企業
+    evidenceKind: observational
+    rqs: [TH10-Q3, TH11-Q2]
+    issues: [273]
+    stance: context
+  - id: c2
+    text: マージ済みPRのうち実質的な人のレビューを受けた割合は、指示前のピーク約48%から約21%へ下がった。実質レビューを受けたPRの P90 サイクルタイムは2026年も約73時間(指示前 約63時間)で、待ち行列は解消していない。
+    quote: substantive-review coverage among merged pull requests drops from a pre-mandate peak of ∼48% to ∼21%, and the fast bypassed lanes pull the aggregate down even as the queue stays slow.
+    locator: Figure 12 の説明
+    quant:
+      value: 実質レビュー率 約48% → 約21%
+      n: 1社のマージ済みPR(月次)
+      design: longitudinal observational
+      population: PR倍増指示を出した1企業
+    evidenceKind: observational
+    rqs: [TH10-Q3, TH11-Q2]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: 著者らは、この企業が速くレビューすることでではなく、実質的な人のレビューを迂回させることで待ち行列を吸収したと結論している(時系列は観察的でノイズがあると留保)。
+    quote: it absorbed the queue by routing work around substantive human review, not by reviewing faster.
+    locator: Figure 12 の説明
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q3, TH11-Q2]
+    issues: [273]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:57.623Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.01904
+    contentType: text/html; charset=utf-8
+    titleFetched: "AI Writes Faster Than Humans Can Review: A Longitudinal Study of an Enterprise 2x Mandate"
+    titleMatch: true
+    dateMeta: 2026-07-02
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+    arxiv:
+      status: 200
+      title: "AI Writes Faster Than Humans Can Review: A Longitudinal Study of an Enterprise 2x Mandate"
+      authors: ["He, Hao", "Agarwal, Shyam", "Denisov-Blanch, Yegor", "Azaletskiy, Pavel", "Koyejo, Sanmi", "Vasilescu, Bogdan"]
+      v1Date: 2026-07-02
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1人あたり / 2025年1〜4月 / 21.2 / 2026年4月 / 44.3 / 2.09×
+        extractedQuote: mean PRs per active developer rose from 21.2 in the pre-mandate baseline (Jan–Apr 2025) to 44.3 in Apr 2026, a 2.09 × increase (Figure 4 ).
+        locator: "§IV-A RQ1: A Near-Doubling That Grows with Accumulated Use(Figure 4 参照)。Fig. 4 キャプションは「≈ 2 ×」、全社PR量は 3.1×"
+        note: 原典は「作成(authored)PR数」で、指示(mandate)の指標であるマージ済みPR数ではないと脚注で明記。母集団は稼働3か月以上の開発者(estimation sample)。ゼロ出力月を含む分母では 2.31×(Suppl. D-D)。数値は Overview ではなく §IV-A 本文にある。
+      c2:
+        verdict: match
+        extractedValue: 約48% → 約21% / P90 / 2026年 約73時間 / 指示前(pre-ramp) 約63時間(ピーク約114時間)
+        extractedQuote: remains around 73 hours in 2026—above its ∼ 63 -hour pre-ramp level […] substantive-review coverage among merged pull requests drops from a pre-mandate peak of ∼ 48 % to ∼ 21 %
+        locator: Appendix C-D Organization-Level Latency(Figure 12 の本文説明)。Fig. 12 キャプション自体には数値なし
+        note: 63時間は原文で「pre-ramp level」(ask は「指示前」)。48%は「pre-mandate peak」。P90 は end-to-end cycle time、実質レビューを受けたPRの部分集合。本文 §IV-C には別の分母(非botの全PR)で「実質レビュー 約39%→約21%」という値もあり、48%とは母集団が異なる。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

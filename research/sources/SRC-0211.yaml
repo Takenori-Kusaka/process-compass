@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0211
+status: included
+excludeReason: null
+title: Agent approvals & security (Codex docs)
+url: https://developers.openai.com/codex/agent-approvals-security
+canonicalUrl: https://developers.openai.com/codex/agent-approvals-security
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: Codex approvals sandbox security agent approval modes
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH10, TH11, TH12]
+events: []
+summary: Codex の安全運用(サンドボックス、承認方針、ネットワーク、監査用テレメトリ)の公式文書(ページに日付なし、2026-09-24 取得)。旧 untrusted 承認方針の廃止、クラウド実行の二相モデル、PR と同じ扱いでの検証、OTel による承認判断の記録を定める。
+claims:
+  - id: c1
+    text: 既定ではネットワークを切り、OS が強制するサンドボックス(通常は作業ディレクトリに限定)と承認方針の組み合わせで動く。
+    quote: By default, the agent runs with network access turned off.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: 承認方針 untrusted は廃止され、設定に残っているとクライアントが起動しないことがある。承認の選択肢が on-request と never に整理された。
+    quote: Codex and ChatGPT Work no longer support approval_policy = "untrusted" .
+    locator: Migrate from the retired untrusted approval policy
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3, TH01-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: Codex の提案は他の PR と同じく扱い、対象を絞った検証・差分レビュー・監査用のコミットメッセージへの判断記録を行うよう推奨する。
+    quote: "Treat Codex suggestions like any other PR: run targeted verification, review diffs, and document decisions in commit messages for auditing."
+    locator: Version control
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4, TH07-Q2]
+    issues: [271]
+    stance: supports
+  - id: c4
+    text: OpenTelemetry による監視は既定で無効(opt-in)。有効化すると、プロンプト(既定で伏字)、ツールの承認判断、ツール結果などを構造化ログとして出力し、監査・コンプライアンスに使える。
+    quote: When enabled, Codex emits structured log events covering chats, API requests, SSE/WebSocket stream activity, user prompts (redacted by default), tool approval decisions, and tool results.
+    locator: Monitoring and telemetry
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH11-Q3]
+    issues: []
+    stance: context
+  - id: c5
+    text: Codex cloud は二相実行で、ネットワーク可のセットアップ後にエージェント相をオフラインで走らせ、クラウド環境の秘密情報はエージェント相の開始前に除去する。
+    quote: Secrets configured for cloud environments are available only during setup and are removed before the agent phase starts.
+    locator: Sandbox modes(Codex cloud)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, TH12-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:13.845Z
+    httpStatus: 200
+    finalUrl: https://learn.chatgpt.com/docs/agent-approvals-security
+    contentType: text/html; charset=utf-8
+    titleFetched: Agent approvals & security | ChatGPT Learn
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

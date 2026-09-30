@@ -1,0 +1,110 @@
+schemaVersion: 0
+id: SRC-0172
+status: included
+excludeReason: null
+title: SWE-bench Leaderboards
+url: https://www.swebench.com/
+canonicalUrl: https://swebench.com/
+ids:
+  arxiv: null
+  doi: null
+publisher: SWE-bench Team
+authors: []
+orgType: academic
+region: us
+lang: en
+sourceType: community
+published: 2026-09-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: swebench.com(前回 §9 の公式リーダーボード)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: SWE-bench 公式リーダーボード(取得日 2026-09-23、埋め込み JSON を解析)。Verified の最上位は 79.2% で、最新の掲載日は 2026-02-26。Opus 5・Fable 5 の 95〜96% は公式表に無い。
+claims:
+  - id: c1
+    text: "公式 SWE-bench Verified リーダーボード(180 件)の最高値は 79.2% で、Sonar Foundation Agent + Claude 4.5 Opus(2025-12-05)と live-SWE-agent + Claude 4.5 Opus medium(2025-12-15)が同率である。上位 2 件はいずれも SWE-bench チームの検証が未了(checked: false)で、79.2% を超える値は公式表に掲載されていない。"
+    quote: '"date": "2025-12-05", "folder": "20251205_sonar-foundation-agent_claude-opus-4-5", ... "name": "Sonar Foundation Agent + Claude 4.5 Opus", ... "resolved": 79.2'
+    locator: <script id="leaderboard-data"> JSON の name="Verified"(180 件)を resolved 降順
+    quant:
+      value: top 79.2% (Verified, all agents); bash-only top 76.8%
+      n: 180 Verified entries
+      design: public leaderboard, submitter-run
+      population: entries through 2026-02-26
+    evidenceKind: benchmark
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: qualifies
+  - id: c2
+    text: Verified リーダーボードの最新エントリは 2026-02-26(mini-SWE-agent v2 による Gemini 3 Pro)。公式表は 2026-03 以降更新されていない。
+    quote: '"date": "2026-02-26", "folder": "20260226_mini-v2.0.0_gemini-3-pro-high"'
+    locator: leaderboard-data JSON / Verified
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q1, BASE-Q3]
+    issues: [282]
+    stance: qualifies
+  - id: c3
+    text: 公式サイトは同一の mini-SWE-agent 環境で比べる Bash Only を Verified の既定表示にしている(足場を揃えた比較)。
+    quote: "Bash Only 500 instances The default Verified view: every model in the same mini-SWE-agent environment."
+    locator: Official Leaderboards
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:42.714Z
+    httpStatus: 200
+    finalUrl: https://www.swebench.com/
+    contentType: text/html; charset=utf-8
+    titleFetched: SWE-bench Leaderboards
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 79.2%(Sonar Foundation Agent + Claude 4.5 Opus, 2025-12-05/同率 live-SWE-agent + Claude 4.5 Opus medium (20251101), 2025-12-15)
+        extractedQuote: '"date": "2025-12-05", "folder": "20251205_sonar-foundation-agent_claude-opus-4-5", ... "name": "Sonar Foundation Agent + Claude 4.5 Opus", ... "resolved": 79.2'
+        locator: <script id="leaderboard-data"> JSON の name="Verified"(180 件)を resolved 降順
+        note: 'Verified 180 件中 79.2 を超える値は無い(3位 TRAE + Doubao-Seed-Code 78.8)。上位2件とも "checked": false(SWE-bench チームの検証未了)。後半の「___〜___% は公式表に無いベンダー自己申告・集約サイトの値」は、その値自体が本ページに無いため範囲の特定は不能(79.2 超の掲載が無いことだけは確認)'
+        adjudication:
+          verdict: corrected
+          reason: "最高値 79.2% と上位の顔ぶれは blindQuote・blindValue と一致する(claimQuote は機械照合で not-found だが、blind 側は同じ JSON の該当行を確認)。ただし blindNote のとおり上位 2 件は checked: false で、この条件が主張に欠けている。『95〜96% はベンダー自己申告・集約サイトの値』のうち、確認できるのは 79.2% 超の掲載が無いことだけである。出所の性質は本ページでは検証できない。claimQuant の bash-only 最上位 76.8% は blind 側で抽出されておらず未検証。以上から、確認できる範囲に絞って訂正した。"
+          date: 2026-09-24
+          originalText: 公式 Verified リーダーボード(全エージェント)の最上位は 79.2%(Sonar Foundation Agent + Claude 4.5 Opus、2025-12-05 ほか同率)。95〜96% は公式表に掲載されていないベンダー自己申告・集約サイトの値である。
+          originalQuote: '"name": "Sonar Foundation Agent + Claude 4.5 Opus", "os_model": false, "os_system": false, "reasoning_effort": null, "resolved": 79.2'
+      c2:
+        verdict: match
+        extractedValue: 2026-02-26(mini-SWE-agent v2.0.0 による Gemini 3 Pro、resolved 69.6)
+        extractedQuote: '{"agent": "mini-SWE-agent", "agent_org": "SWE-agent", "checked": null, "cost": 480.0099282, "date": "2026-02-26", "folder": "20260226_mini-v2.0.0_gemini-3-pro-high"'
+        locator: leaderboard-data JSON / Verified を date 降順
+        note: '当該エントリは "mini-swe-agent_version": "2.0.0"、reasoning_effort high、logs パスは bash-only 区分(s3://swe-bench-submissions/bash-only/...)。他の表の最新日: Multilingual 2026-02-20、Test 2025-12-19、Multimodal 2025-11-17、Lite 2025-09-11。一方、サイトの News 欄には "May 2026 We released ProgramBench" があり、サイト自体は 2026-02 以降も更新されている。「公式表は 2026-02 以降更新されていない」はリーダーボード掲載エントリに限れば整合'
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://swebench.com/

@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0093
+status: included
+excludeReason: null
+title: Model AI Governance Framework for Agentic AI (Version 1.5)
+url: https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf
+canonicalUrl: https://imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: IMDA (Infocomm Media Development Authority, Singapore)
+authors: []
+orgType: government
+region: other
+lang: en
+sourceType: public-agency
+published: 2026-05-20
+publishedBasis: pdf
+version: "1.5"
+updated: 2026-06-05
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH01
+  query: Anthropic agent autonomy levels human oversight framework 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12]
+events: []
+summary: シンガポール IMDA のエージェント型 AI 向けモデルガバナンス枠組み v1.5(2026-05-20、2026-06-05 更新)。「人が有意味に説明責任を負う」を柱に、組織内外の責任配分、人の承認を要するチェックポイント/行動境界の定義、承認者の自動化バイアスと警報疲れへの対策を求める。
+claims:
+  - id: c1
+    text: 展開者としての組織と人はエージェントの判断と行為に対して説明責任を負い続ける。責任は組織内のチームとバリューチェーン上の他組織に配分する。
+    quote: As deployers, organisations and humans remain accountable for the decisions and actions of agents.
+    locator: §2.2.1 Clear allocation of responsibilities within and outside the organisation
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: supports
+  - id: c2
+    text: 人の承認を要する重要なチェックポイントや行動境界(高い賭けの判断、不可逆な行為、機微データ編集等)を定義すべきとし、承認は行為単位で設計する。
+    quote: Organisations should define significant checkpoints or action boundaries that require human approval, especially before sensitive actions are executed.
+    locator: §2.2.2 Design for meaningful human oversight
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, TH01-Q4]
+    issues: [248]
+    stance: qualifies
+  - id: c3
+    text: 人の承認者にエージェントを継続的に監視させる安全策は、自動化バイアスと警報疲れを招きうる。過剰な確認要求そのものがリスクとして明記される。
+    quote: Requiring human approvers to continuously oversee agents as a safeguard can also lead to automation bias and alert fatigue.
+    locator: §1 Introduction to Agentic AI
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q4]
+    issues: [248, 268]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:41.799Z
+    httpStatus: 200
+    finalUrl: https://www.imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://imda.gov.sg/-/media/imda/files/about/emerging-tech-and-research/artificial-intelligence/mgf-for-agentic-ai.pdf

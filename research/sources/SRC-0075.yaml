@@ -1,0 +1,91 @@
+schemaVersion: 0
+id: SRC-0075
+status: included
+excludeReason: null
+title: How Cognition Uses Devin to Build Devin
+url: https://cognition.ai/blog/how-cognition-uses-devin-to-build-devin
+canonicalUrl: https://cognition.ai/blog/how-cognition-uses-devin-to-build-devin
+ids:
+  arxiv: null
+  doi: null
+publisher: Cognition
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-02-27
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: Devin Cognition docs "teammate" Slack Linear delegate tasks autonomous software engineer 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06, TH10]
+events:
+  - date: 2026-02-27
+    label: Cognition が社内での Devin 運用を公開
+summary: Cognition 社内での Devin 運用。週659本の Devin PR をマージ(2025年最高は154本)と自己申告。Slack/Linear/Jira から「チームメイトのように」依頼し、PR を人がレビューする。ボトルネックはコード作成からレビューへ移ったと述べ、「上級者の判断が要る仕事」は人に残す。
+claims:
+  - id: c1
+    text: Cognition は直近週に659本の Devin PR を自社コードベースへマージした(2025年の最高週は154本)。自社製品の自己申告値。
+    quote: Last week, we merged 659 Devin PRs into our own codebase, up from 154 in our best week in 2025.
+    locator: 冒頭
+    quant:
+      value: 659 PR/週 (154 → 659)
+      n: 1社(Cognition)の1週間
+      design: self-report
+      population: Cognition internal codebases
+    evidenceKind: news-fact
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: context
+  - id: c2
+    text: 「Devin をチームメンバーのように扱え」としつつ、任せるのはバックログで、上級者の判断が要る仕事は人が担うと明記。役割は占めるが判断は人に残る構図。
+    quote: Treat Devin like a team member. Give it context. Teach it your conventions. Let it handle the backlog while you focus on the work that requires senior judgment.
+    locator: Getting Started 末尾
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: qualifies
+  - id: c3
+    text: エージェントで出荷量が増えるとボトルネックはコード作成からレビューへ移ったと述べ、Devin Review を全 PR に使う。
+    quote: As we ship more code with agents, the bottleneck shifted from writing code to reviewing it.
+    locator: Automated Code Review
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH06-Q6]
+    issues: [248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:19.748Z
+    httpStatus: 200
+    finalUrl: https://cognition.com/blog/how-cognition-uses-devin-to-build-devin
+    contentType: text/html; charset=utf-8
+    titleFetched: How Cognition Uses Devin to Build Devin
+    titleMatch: true
+    dateMeta: 2026-02-27
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

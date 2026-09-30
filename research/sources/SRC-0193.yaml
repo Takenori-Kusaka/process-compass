@@ -1,0 +1,232 @@
+schemaVersion: 0
+id: SRC-0193
+status: included
+excludeReason: null
+title: Extend Claude with skills
+url: https://code.claude.com/docs/en/skills
+canonicalUrl: https://code.claude.com/docs/en/skills
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Claude Code docs skills (.md 版を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04, TH01]
+events: []
+summary: Claude Code 公式の Skills 仕様(2026-09-24 取得版、v2.1.2xx 系の記述を含む)。スキル一覧の文脈予算(文脈窓の1%)、説明文の上限、SKILL.md 500 行、圧縮後の再添付予算などの数値を示す。
+claims:
+  - id: c1
+    text: スキル一覧(名前と説明)の文字予算は文脈窓の 1% で、超えると使用頻度の低いスキルから説明文が削られる。
+    quote: The budget scales at 1% of the model's context window.
+    locator: Troubleshooting > Skill descriptions are cut short
+    quant:
+      value: 1% of context window
+      n: null
+      design: product specification
+      population: Claude Code skill listing
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH04-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: スキル数が多いと説明文が短縮され、Claude が照合に必要なキーワードが失われうる(スキル数の増加が選択精度を落とす機構をベンダーが明記)。
+    quote: Claude Code shortens descriptions to fit the listing's character budget, which can strip the keywords Claude needs to match your request.
+    locator: Troubleshooting > Skill descriptions are cut short
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: description と when_to_use の合計は一覧上 1,536 文字で切り詰められる。要点を先頭に置く。
+    quote: the combined `description` and `when_to_use` text is truncated at 1,536 characters in the skill listing to reduce context usage.
+    locator: Frontmatter reference
+    quant:
+      value: 1,536 characters
+      n: null
+      design: product specification
+      population: skill description + when_to_use
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+  - id: c4
+    text: 一覧に載る全スキルは、使われるかどうかに関係なく毎ターン文脈を消費する。/skill-doctor で費用と使用頻度を見て無効化する。
+    quote: adds to your context on every turn, whether or not Claude ever uses it.
+    locator: Find unused skills
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: SKILL.md は 500 行未満に保ち、詳細な参照資料は別ファイルへ分ける(progressive disclosure)。
+    quote: Keep `SKILL.md` under 500 lines. Move detailed reference material to separate files.
+    locator: Add supporting files
+    quant:
+      value: 500 lines
+      n: null
+      design: vendor recommendation
+      population: SKILL.md
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c6
+    text: 自動圧縮後に再添付されるスキルは各 5,000 トークン・合計 25,000 トークンまでで、多数のスキルを呼んだセッションでは古いスキルが丸ごと落ちうる。
+    quote: older skills can be dropped entirely after compaction if you have invoked many in one session.
+    locator: Skill content lifecycle(auto-compaction)
+    quant:
+      value: 5,000 tokens each / 25,000 tokens combined
+      n: null
+      design: product specification
+      population: re-attached skills after compaction
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c7
+    text: 副作用のある作業(commit、deploy、Slack 送信)は disable-model-invocation で人だけが起動できるようにする。作業単位で自律度を切り替える設計。
+    quote: Use this for workflows with side effects or that you want to control timing, like `/commit`, `/deploy`, or `/send-slack-message`.
+    locator: Control who invokes a skill
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c8
+    text: カスタムコマンドはスキルへ統合され、.claude/commands/ と .claude/skills/ は同じ /name を作る。
+    quote: Custom commands have been merged into skills.
+    locator: 冒頭 Note
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: context
+  - id: c9
+    text: スキル一覧は常に全スキル名を含むが、スキルが多いと説明文を文字予算(モデルのコンテキストの1%)に収めるため短縮し、照合に要るキーワードが失われうる。1件あたりの説明は1,536文字で打ち切られる。
+    quote: Claude Code shortens descriptions to fit the listing’s character budget, which can strip the keywords Claude needs to match your request. The budget scales at 1% of the model’s context window.
+    locator: Troubleshooting / skill listing budget
+    quant:
+      value: 1% of context window; 1,536 chars per entry cap
+      n: null
+      design: product specification
+      population: Claude Code skill listing
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c10
+    text: 一覧が溢れると、呼び出し頻度の低いスキルから説明文が落とされる。頻度の低い規則ほど選ばれにくくなる構造である。
+    quote: When the listing overflows, Claude Code drops descriptions starting with the skills you invoke least, so the skills you use most keep their full text.
+    locator: Troubleshooting / skill listing budget
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c11
+    text: 自動コンパクション後に再添付されるスキルは各5,000トークン・合計25,000トークンの予算内で、直近に呼んだものから埋めるため、多数を呼んだセッションでは古いスキルが丸ごと落ちうる。
+    quote: Re-attached skills share a combined budget of 25,000 tokens. Claude Code fills this budget starting from the most recently invoked skill, so older skills can be dropped entirely after compaction
+    locator: Skill content lifecycle
+    quant:
+      value: 5,000 tokens/skill, 25,000 tokens total after compaction
+      n: null
+      design: product specification
+      population: Claude Code auto-compaction
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4, TH03-Q3]
+    issues: [269, 274]
+    stance: supports
+  - id: c12
+    text: 強制したい挙動は、説明文の強化か hooks による決定的な強制で担保するよう公式が勧める。
+    quote: Strengthen the skill’s description and instructions so the model keeps preferring it, or use hooks to enforce behavior deterministically.
+    locator: Skill content lifecycle
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH03-Q4]
+    issues: []
+    stance: context
+  - id: c13
+    text: カスタムコマンドはスキルへ統合され、.claude/commands/ のファイルと SKILL.md はどちらも同じスラッシュコマンドを作る。
+    quote: Custom commands have been merged into skills. A file at .claude/commands/deploy.md and a skill at .claude/skills/deploy/SKILL.md both create /deploy and work the same way.
+    locator: Overview
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.779Z
+    httpStatus: 200
+    finalUrl: https://code.claude.com/docs/en/skills
+    contentType: text/html; charset=utf-8
+    titleFetched: Extend Claude with skills - Claude Code Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+      c9: found
+      c10: found
+      c11: found
+      c12: found
+      c13: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c6:
+        verdict: match
+        extractedValue: 各 5,000 tokens / 合計 25,000 tokens
+        extractedQuote: Claude Code re-attaches the most recent invocation of each skill after the summary, keeping the first 5,000 tokens of each. Re-attached skills share a combined budget of 25,000 tokens.
+        locator: Skill content lifecycle（Auto-compaction carries invoked skills forward within a token budget. の段落）
+        note: 原文は各スキルの『先頭 5,000 トークンを保持』（超過分は切り詰め）。予算は直近に呼んだスキルから埋めるため、古いスキルが丸ごと落ちうる、と明記。
+      c9:
+        verdict: match
+        extractedValue: 予算 = モデルのコンテキストウィンドウの 1% / 1件あたり 1,536 characters
+        extractedQuote: The budget scales at 1% of the model’s context window. … each entry’s combined text is capped at 1,536 characters regardless of budget. The cap is configurable with skillListingMaxDescChars.
+        locator: Troubleshooting > Skill descriptions are cut short（および frontmatter 表の description 行）
+        note: 1,536 文字の上限は description と when_to_use の合算に対するもので、予算とは無関係に常に掛かる（regardless of budget）。ask は予算超過時の短縮と同じ文脈に置いている。1% は既定値で skillListingBudgetFraction / SLASH_COMMAND_TOOL_CHAR_BUDGET で、1,536 は skillListingMaxDescChars で変更可能。予算超過時は使用頻度の低いスキルから説明を落とす（drops descriptions）とも書かれている。
+      c11:
+        verdict: match
+        extractedValue: 各 5,000 tokens / 合計 25,000 tokens
+        extractedQuote: keeping the first 5,000 tokens of each. Re-attached skills share a combined budget of 25,000 tokens. Claude Code fills this budget starting from the most recently invoked skill
+        locator: Skill content lifecycle（Auto-compaction の段落）
+        note: c6 と同一箇所。直近に呼んだものから埋める点・古いスキルが丸ごと落ちうる点は原文と一致。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH03
+    query: Claude Code skills documentation description budget context character limit skills listing

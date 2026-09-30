@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0245
+status: included
+excludeReason: null
+title: "\"Go Home Copilot, You're Drunk\": Understanding Developer Responses to Agent-Generated Code Review Comments"
+url: https://arxiv.org/abs/2607.21997
+canonicalUrl: arxiv:2607.21997
+ids:
+  arxiv: "2607.21997"
+  doi: null
+publisher: arXiv
+authors: [Shamse Tasnim Cynthia, Ratnadira Widyasari, Banani Roy, Ting Zhang, David Lo]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-07-24
+publishedBasis: arxiv-v1
+version: v2
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: arXiv 2026 AI code review bot comments resolution rate empirical study GitHub Copilot code review CodeRabbit
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: エージェントが生成したコードレビューコメント約5.5万件（341 Python リポジトリ）の解決状況を分析した研究。解決率はエージェントで差があり、インラインのコード提案の有無が解決の最強の予測因子。
+claims:
+  - id: c1
+    text: Copilot のレビューコメントは解決率 72.9% と最も高い（Copilot 45,668 件中 33,265 件）。Cursor 67.2%、Codex 54.8%。
+    quote: Copilot dominates and achieves the highest resolution rate (72.9%), indicating strong developer acceptance.
+    locator: RQ1 / Table III
+    quant:
+      value: 72.9% (Copilot) / 67.2% (Cursor) / 54.8% (Codex)
+      n: 54,713 comments, 341 Python repos
+      design: observational + logistic regression
+      population: GitHub Python repositories
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+  - id: c2
+    text: インラインのコード提案の有無が解決の最強の予測因子で、長く複雑なコメントは対応されにくい。指摘様式（実行可能な修正案・簡潔さ）が採否を左右する。
+    quote: the presence of an inline code suggestion is the strongest predictor of comment resolution, while lengthy and complex comments are less likely to be acted upon.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: supports
+  - id: c3
+    text: 未解決コメント470件のカード分類で10のパターンを特定し、誤った提案と意図的な設計判断が最も多い。
+    quote: with incorrect suggestions and intentional design decisions being the most prevalent.
+    locator: Abstract
+    quant:
+      value: 10 patterns
+      n: 470 unresolved discussions
+      design: open card sorting
+      population: unresolved agent-generated comments
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:16.240Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.21997
+    contentType: text/html; charset=utf-8
+    titleFetched: "\"Go Home Copilot, You're Drunk\": Understanding Developer Responses to Agent-Generated Code Review Comments"
+    titleMatch: true
+    dateMeta: 2026-07-24
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "\"Go Home Copilot, You're Drunk\": Understanding Developer Responses to Agent-Generated Code Review Comments"
+      authors: ["Cynthia, Shamse Tasnim", "Widyasari, Ratnadira", "Roy, Banani", "Zhang, Ting", "Lo, David"]
+      v1Date: 2026-07-24
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Copilot 72.9%(45,668件中 33,265件)/ Cursor 67.2% / Codex 54.8%
+        extractedQuote: Copilot dominates and achieves the highest resolution rate (72.9%) ... Copilot 45,668 33,265 72.9% Cursor 6,778 4,554 67.2% Codex 2,267 1,242 54.8%
+        locator: IV RQ1 / TABLE III
+        note: 原典の内部で表現が食い違う。Abstract は 72.9% を『Copilot accounting for the majority of resolved comments (72.9%)』(解決済みコメントに占める Copilot の割合)と書き、本文と Table III は Copilot の解決率としている。ask は Table III の読みと一致する。Table III には Devin と Claude の行が無い。
+      c3:
+        verdict: match
+        extractedValue: 470件 / 10パターン(ten)
+        extractedQuote: open card sorting of 470 unresolved comment discussions, we identify ten discussion patterns ... with incorrect suggestions and intentional design decisions being the most prevalent.
+        locator: Abstract
+        note: 原文で分類したのは未解決コメントの『議論(discussions)』470件。ask は『未解決コメント470件』としている。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

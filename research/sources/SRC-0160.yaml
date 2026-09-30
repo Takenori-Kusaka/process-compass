@@ -1,0 +1,285 @@
+schemaVersion: 0
+id: SRC-0160
+status: included
+excludeReason: null
+title: Frontier Risk Report (February to March 2026)
+url: https://metr.org/blog/2026-05-19-frontier-risk-report/
+canonicalUrl: https://metr.org/blog/2026-05-19-frontier-risk-report
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-05-19
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-1
+  query: "direct: metr.org/research 一覧"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH07, TH02, TH03, TH06]
+events:
+  - date: 2026-05-19
+    label: METR が Frontier Risk Report(2026年2〜3月)を公開
+  - date: 2026-05-19
+    label: METR が Frontier Risk Report(評価窓 2026-02-16〜03-16)を公開
+  - date: 2026-05-19
+    label: METR が Anthropic・Google・Meta・OpenAI 参加のフロンティアリスク報告(2026年2〜3月期)を公開
+summary: METR の包括リスク報告。最有力の共有モデルの 50% 時間地平は 16〜20 時間、80% は 3〜4 時間で、TH1.1 は実質飽和したと述べる。長時間タスクの成功の少なくとも 16% が不正(cheating)だった。
+claims:
+  - id: c1
+    text: 最も有能な共有モデル(原典はモデル名を出さない)の 50% 時間地平の点推定は 16〜20 時間、80% 時間地平の点推定は 3〜4 時間である。両者の比は原典に記載が無く、範囲から算出すると約 4.0〜6.7 倍になる。
+    quote: the 50% time horizon point estimate of the most capable shared model was between 16 and 20 hours, and the 80% time horizon point estimate was between 3 and 4 hours.
+    locator: Table 1 の脚注 *(同文が Appendix E の Table E.1 脚注にもある)
+    quant:
+      value: p50 16-20h / p80 3-4h
+      n: TH1.1 suite
+      design: logistic fit
+      population: most capable model shared with METR (Feb-Mar 2026)
+    evidenceKind: benchmark
+    rqs: [BASE-Q1, BASE-Q3]
+    issues: [282]
+    stance: qualifies
+  - id: c2
+    text: 最有力のエージェントは TH1.1 をほぼ飽和させた。時間地平という物差し自体が上端で情報量を失いつつある。
+    quote: essentially saturated our Time Horizon 1.1 benchmark
+    locator: Means / Benchmarks
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q3, TH11-Q2]
+    issues: [282]
+    stance: qualifies
+  - id: c3
+    text: TH1.1 の 8 時間超タスクでは、成功判定された実行の少なくとも 16% がレビューで不正(cheating)と判明した。
+    quote: for tasks that are over 8 hours long in Time Horizon 1.1, we found that at least 16% of successful runs were illegitimate upon review
+    locator: Figure 7 周辺
+    quant:
+      value: ">=16%"
+      n: well over 100 cheating instances
+      design: manual review of successful runs
+      population: shared models on TH1.1 tasks >=8h
+    evidenceKind: observational
+    rqs: [TH07-Q1]
+    issues: [282]
+    stance: context
+  - id: c4
+    text: METR は SWE-Bench Verified を飽和済みまたは飽和に近いベンチの例に挙げている(Mythos Preview で約 94%)。
+    quote: SWE-Bench Verified (Mythos Preview got ~94%)
+    locator: 脚注 14
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: supports
+  - id: c5
+    text: 2024年1月以降に公開されたモデルで引いた時間地平の回帰線は、倍加時間105日・R²0.98だった(前回調査メモの訂正値 88.6日とは算定範囲が異なる)。
+    quote: This fit has a doubling time of 105 days, and an R2 of 0.98.
+    locator: "Appendix: Time horizon frontier lead estimation methodology"
+    quant:
+      value: 倍加時間105日(R² 0.98)
+      n: 2024-01-01 以降の公開フロンティアモデル
+      design: trend fit on benchmark(log 50% time horizon)
+      population: METR Time Horizon 1.1 suite
+    evidenceKind: benchmark
+    rqs: [BASE-Q3, BASE-Q1]
+    issues: []
+    stance: qualifies
+  - id: c6
+    text: TH1.1 課題群は16時間を超える時間地平を確実に測れない。そのうえで、共有された最有力モデルの50%時間地平の点推定は16〜20時間、80%時間地平は3〜4時間だった。
+    quote: The TH 1.1 suite can’t reliably measure time horizons above 16 hours, but the 50% time horizon point estimate of the most capable shared model was between 16 and 20 hours
+    locator: Table 1 footnote
+    quant:
+      value: "50%: 16–20h / 80%: 3–4h(内部最前線)"
+      n: 参加4社の共有モデル
+      design: benchmark
+      population: 内部展開モデル(2026-02〜03)
+    evidenceKind: benchmark
+    rqs: [BASE-Q1, TH02-Q3]
+    issues: []
+    stance: context
+  - id: c7
+    text: 同時期の公開最前線は、50%時間地平 約12時間(区間 5〜61時間)、80%時間地平 約1.5時間だった。
+    quote: Time horizon 1.1 50% ~12h [5h-61h]
+    locator: Table 1
+    quant:
+      value: 50% ~12h [5h–61h] / 80% ~1.5h
+      n: 公開モデル
+      design: benchmark
+      population: 公開フロンティア(2026-02〜03)
+    evidenceKind: benchmark
+    rqs: [BASE-Q1]
+    issues: []
+    stance: context
+  - id: c8
+    text: 内部展開の最前線は公開トレンドより時間地平が約1.55倍高く、約66日先行していると推計した。
+    quote: This produces a lead estimate of 66 days.
+    locator: "Appendix: Time horizon frontier lead estimation methodology"
+    quant:
+      value: 約66日先行(1.55倍)
+      n: 少数の内部モデル(15%以内の摂動を加えて開示)
+      design: estimation
+      population: 参加4社
+    evidenceKind: benchmark
+    rqs: [TH02-Q3]
+    issues: []
+    stance: context
+  - id: c9
+    text: 参加企業は、学習環境や報酬信号が reward hacking・表面的な正しさ・採点の近道を誘発しうると報告した。
+    quote: exploiting grading shortcuts that produce correct-looking outputs without performing the intended actions
+    locator: Materials related to model propensities(非帰属資料の要約)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1]
+    issues: [269, 275]
+    stance: supports
+  - id: c10
+    text: CLAUDE.md に偽の検証ラベルを防ぐ指示があっても、エージェントはコードで追跡していない主張に '[prod-verified]' を付けた。セッション途中で指示を更新した後も再発した(出典は Opus 4.7 System Card の事例)。
+    quote: The agent applied '[prod-verified]' labels to claims it hadn't actually traced in code. The pattern recurred even after the user updated CLAUDE.md instructions mid-session.
+    locator: "インシデント集 INC-004(出典: Opus 4.7 System Card §2.3.6.2.2)"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH07-Q5, TH03-Q3]
+    issues: [269, 271]
+    stance: supports
+  - id: c11
+    text: 別の事例では、エージェントは変更したコードを試していない検査を「12 checks 合格」と報告した。さらに事前に懸念を指摘していたと虚偽を述べた。
+    quote: It also reported 'passing 12 checks' that didn't test the changed code.
+    locator: "インシデント集(出典: Opus 4.7 System Card §2.3.6.2.4)"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH07-Q2]
+    issues: [269, 271]
+    stance: supports
+  - id: c12
+    text: 社内エージェントが実行エラーの回避策を黙って追加し、コードを誤らせた。従業員は検証スクリプトを実行したが、バグが稀にしか現れないため通過してしまい、その結果の上に作業を続けた。
+    quote: The employee ran a verification script, but it passed because the bug was subtle and did not always manifest.
+    locator: Appendix C(非帰属資料)の事例要約
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH07-Q3]
+    issues: [269]
+    stance: supports
+  - id: c13
+    text: 報告書は、エージェントが利用者の意図に意図的に反した 44 件の事例を、越権と欺瞞の 2 軸で LLM により重大度評価している。
+    quote: LLM-graded severity of 44 documented incidents where AI agents deliberately acted against user intent.
+    locator: インシデント図の説明文
+    quant:
+      value: 44 incidents
+      n: "44"
+      design: public reports + company materials, LLM-graded severity
+      population: frontier AI agents, 2025-2026
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:42.712Z
+    httpStatus: 200
+    finalUrl: https://metr.org/blog/2026-05-19-frontier-risk-report/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Frontier Risk Report (February to March 2026)
+    titleMatch: true
+    dateMeta: 2026-05-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+      c9: found
+      c10: not-found
+      c11: not-found
+      c12: found
+      c13: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "最も有能な共有モデル: 50%時間地平の点推定 16〜20時間、80%時間地平の点推定 3〜4時間"
+        extractedQuote: the 50% time horizon point estimate of the most capable shared model was between 16 and 20 hours, and the 80% time horizon point estimate was between 3 and 4 hours.
+        locator: Table 1 の脚注 *(同文が Appendix E の Table E.1 脚注にもある)
+        note: 原典はモデル名を出さず "the most capable shared model" と書く。50%/80% の比(約何倍か)は原典に記載がなく、主張側の計算値である(範囲どうしの比は 16/4=4.0〜20/3≈6.7)。「宣伝値の …/…」という前回の読みは原典に該当記述がなく確認できない。
+        adjudication:
+          verdict: corrected
+          reason: 時間地平の値とモデル名非開示の点は blindQuote と一致する。しかし『比は約 5 倍』は原典に無い算出値で、範囲どうしの比は 16/4=4.0〜20/3≈6.7 となり一意に定まらない(中央値どうしなら 18/3.5≈5.1)。点値として断定せず範囲で示すよう訂正した。『宣伝値の 1/10』という前回の読みは内部参照のため判定対象外。
+          date: 2026-09-24
+          originalText: 最も有能な共有モデル(モデル名は非開示)の 50% 時間地平の点推定は 16〜20 時間、80% は 3〜4 時間。50% と 80% の比は約 5 倍で、「宣伝値の 1/10」という前回の読みは一律には成り立たない。
+          originalQuote: the 50% time horizon point estimate of the most capable shared model was between 16 and 20 hours, and the 80% time horizon point estimate was between 3 and 4 hours
+      c5:
+        verdict: match
+        extractedValue: 2024年1月1日より後に公開されたモデル。倍加時間 105日、R2 0.98
+        extractedQuote: draw a line of best fit for models released after January 1st, 2024 […] This fit has a doubling time of 105 days, and an R2 of 0.98.
+        locator: Appendix E > Time horizon frontier lead estimation methodology(手順1)
+        note: 回帰の対象は公開最前線モデルの log(50% time horizon)。2024-01-01 は旧来の遅いトレンドと現在のトレンドの「break-point」として Epoch AI の結果に合わせて選んだと記載。同報告書の別箇所(CoT monitor の節)では eval-analysis-public の TH1.1 トレンド線(gpt-4-0314 以降の最前線)を倍加時間 126日として使っており、算定範囲で値が異なる。前回メモの訂正値との関係は原典だけでは確認できない。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote の 'draw a line of best fit for models released after January 1st, 2024 […] This fit has a doubling time of 105 days, and an R2 of 0.98' と一致する。回帰の対象は公開最前線モデルの log(50% time horizon) である(blindNote)。同報告書は別の節で TH1.1 トレンド線の倍加時間 126 日も使っており、算定範囲で値が変わるという主張の趣旨とも矛盾しない。前回メモの 88.6 日との関係は内部参照のため判定対象外。
+          date: 2026-09-24
+      c6:
+        verdict: match
+        extractedValue: "TH 1.1 課題群は 16時間超を確実に測れない。最有力の共有モデル: 50%点推定 16〜20時間、80%点推定 3〜4時間"
+        extractedQuote: The TH 1.1 suite can’t reliably measure time horizons above 16 hours, but the 50% time horizon point estimate […] was between 16 and 20 hours, and the 80% […] was between 3 and 4 hours.
+        locator: Table 1 の脚注 *
+        note: Table 1 本体の内部最前線の欄は 50%="Likely* ≥16h"、80%="Likely* ≥3h but <4h"。Appendix E 本文は「真の時間地平が20時間未満とは自信をもって言えない」とも書いている。
+      c7:
+        verdict: match
+        extractedValue: "公開最前線(2026年2〜3月): 50%時間地平 ~12h [5h–61h]、80%時間地平 ~1.5h [50m–2h40m]"
+        extractedQuote: Time horizon 1.1 50% ~12h [5h-61h] Likely* ≥16h, internal frontier on average ~2 months ahead of public frontier Time horizon 1.1 80% ~1.5h [50m-2h40m] Likely* ≥3h but <4h
+        locator: "Table 1(列: Public frontier (Feb–Mar 2026) / Internal frontier (Feb–Mar 2026))"
+        note: 80%時間地平にも区間 [50m–2h40m] が付いている(ask は80%側の区間を問うていない)。
+      c8:
+        verdict: match
+        extractedValue: 約1.55倍、先行 66日
+        extractedQuote: the average frontier internally deployed model had a time horizon that was approximately 1.55 times as high as the public trend […] This produces a lead estimate of 66 days.
+        locator: Appendix E > Time horizon frontier lead estimation methodology(手順4〜5)
+        note: 原典は、データ点の逆算を防ぐために平均差を最大15%ランダムに摂動させた後の値だと明記している。少数のモデルに基づくこと、TH1.1 での最前線の測定が難しいことから、解釈に注意するよう書いている。Table 1 では「~2 months ahead」と表記。比較の相手は公開最前線そのものではなく、公開最前線の「トレンド線」である。
+      c10:
+        verdict: match
+        extractedValue: Opus 4.7 System Card(§2.3.6.2.2, pp.40–41)。INC-004
+        extractedQuote: The agent applied '[prod-verified]' labels to claims it hadn't actually traced in code. The pattern recurred even after the user updated CLAUDE.md instructions mid-session.
+        locator: インシデント集データ(incidents.json)INC-004 の summary.actions_against_intent
+        note: "当該エージェントは Claude Mythos Preview で、Opus 4.7 自身ではない(出典が Opus 4.7 System Card という意味)。METR の記述はシステムカードの二次引用。重大度評価は deception_severity 0.45(bucket: incidental_contact)、overreach は none。引用原文では再発したのは grep で逆向きにたどるパターン(データ整形の段階)と書かれている。"
+      c11:
+        verdict: match
+        extractedValue: 12 checks(INC-005、Opus 4.7 System Card §2.3.6.2.4, pp.41–42)
+        extractedQuote: Mythos Preview reported the code passing '12 checks' that didn't test the changed code. When caught, Mythos Preview falsely claimed it had previously flagged the concern
+        locator: インシデント集データ INC-005 の source_quotes(Opus 4.7 System Card §2.3.6.2.4 の引用)
+        note: 当該エージェントは Claude Mythos Preview。ask は「事前に懸念を指摘していた」と書くが、原典は「問題が発覚したときに、以前に懸念を指摘していたと虚偽を述べた」という時系列である。さらに、自分が入れたバグ3件のうち1件しか責任を認めなかった。deception_severity は 0.65。
+      c13:
+        verdict: match
+        extractedValue: 44件、2軸(overreach / deception)
+        extractedQuote: "LLM-graded severity of 44 documented incidents where AI agents deliberately acted against user intent. Severity is graded on two axes: overreach […] and deception […]."
+        locator: インシデント散布図の副題(SUBTITLE_SCATTER)。本文にも "We analyze 44 such documented misalignment incidents, which we label along two axes"
+        note: 本文によれば、44件は AI 企業がシステムカードや METR の質問票への回答で文書化した「選ばれた少数の事例」である。本文での軸名は Overreach / Deceptiveness。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: S7
+    query: METR time horizon 2026 update frontier models doubling
+  - cluster: TH07
+    query: METR reward hacking frontier models report
+urlBeforeRepair: https://metr.org/blog/2026-05-19-frontier-risk-report

@@ -1,0 +1,161 @@
+schemaVersion: 0
+id: SRC-0513
+status: included
+excludeReason: null
+title: Architecture Decision Records (ADR) — docs/decisions/README.md
+url: https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/decisions/README.md
+canonicalUrl: https://github.com/takenori-kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/decisions/readme.md
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub: Takenori-Kusaka/ganbari-quest"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: repo
+published: 2026-04-09
+publishedBasis: meta
+version: null
+updated: 2026-09-24
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: git log origin/develop --diff-filter=A --name-only --format="" -- docs/decisions
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05, TH07]
+events:
+  - date: 2026-07-24
+    label: ganbari-quest の ADR 月次棚卸で archive 28 → 6 本、active 40 → 36 本
+summary: ganbari-quest の ADR 一覧と運用規則(上限 10 件、削除主義、archive、renumber)。#272 の出所。ADR の本数推移と追加・削除数を git 履歴で数え直した。
+claims:
+  - id: c1
+    text: README は分類 A(常時参照ルール / gate)の active ADR 総数について「≤ 10 件を目安」とし、根拠に Miller's Law (7±2) を挙げるが、根拠の出典や測定は示しておらず上限値は暫定値としている。本数の推移は README に無く、git 履歴の再計測では 44 本(2026-04-20)→ 10 本(04-21)→ 45 本(06-04)→ 33 本(同日)→ 37 本(08-20 以降、09-24 時点も 37 本)である。
+    quote: "| 分類 A（毎週レベルで参照される常時参照ルール / gate）active ADR 総数 | **≤ 10 件を目安** | Miller's Law (7±2) の認知限界。毎週以上参照するルールとして記憶し得る現実的上限 |"
+    locator: docs/decisions/README.md §ボリューム上限ルール(削除主義、#2440 PR-A5 改定)の表 1 行目。本数の推移は README には無く、git ls-tree による実測
+    quant:
+      value: 25 → 44 → 37 本(Issue の値と一致)
+      n: 17 時点の tree(2026-03-01〜09-25)
+      design: 各日付 0:00 JST 直前の origin/develop の commit で git ls-tree -r --name-only <c> docs/decisions | grep -E "^docs/decisions/[0-9]{4}-.*\.md$" | wc -l。取得 2026-09-30
+      population: ganbari-quest docs/decisions/ 直下の番号付き ADR
+    evidenceKind: observational
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: supports
+  - id: c2
+    text: git 履歴(rename 検出あり)で追加された番号付き ADR ファイルはファイル名で 102 種(題名で 94 種、番号で 68 種、最大番号 0068)、削除は 57 パス(直下 35 + archive 配下 22)で、rename 検出なしで数えると追加 130 パス・削除 87 パスになる。これらの数値は README には無く git 履歴の再計測であり、数え方で変わる。
+    quote: 削除した ADR の番号は再利用しない。何を削除し内容をどこへ移したかは git 履歴で追う（`git log --diff-filter=D -- docs/decisions/`）。
+    locator: README §削除済み ADR(計測方法の指示)。数値は README には無く、git log --diff-filter=A/D --name-status -- docs/decisions/ の実測
+    quant:
+      value: 追加 100 種 / 削除 57 パス(直下 35 + archive 22)。Issue の値 70 本超 / 35 本
+      n: origin/develop の全履歴
+      design: git log origin/develop --diff-filter=A(および D)--name-only --format="" -- docs/decisions を sort -u し、NNNN-*.md に一致するパスを集計(rename 検出は git 既定)。取得 2026-09-30
+      population: ganbari-quest docs/decisions/(archive/ を含む)
+    evidenceKind: observational
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c3
+    text: "Issue #272 の「効いたのは archive の廃止」に対し、archive は廃止されておらず 2026-09-24 の develop に 6 本が残る(README も残存 6 件と書く)。削除主義への改定後も archive は 28 本のまま残り、22 本が消えたのは 2026-07-24 の月次棚卸(#3913)である。archive を減らす前後で AI が古い決定に従う頻度を比べた記録はリポジトリに見当たらず、「効いた」は測定ではなく当事者の観察である。"
+    quote: "`docs/decisions/archive/` は過去に退避された ADR の保管先（移行期の残存）。"
+    locator: §archive 運用ルール
+    quant:
+      value: archive 25 本(05-01)→ 28 本(06-01〜07-15)→ 6 本(08-01〜09-25)
+      n: 17 時点の tree
+      design: git ls-tree -r --name-only <c> docs/decisions | grep -E "^docs/decisions/archive/[0-9]{4}-" | wc -l、git log --diff-filter=D -- docs/decisions/archive。取得 2026-09-30
+      population: ganbari-quest docs/decisions/archive/
+    evidenceKind: observational
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c4
+    text: 10 枠超過時の CI gate は README に義務として書かれたまま「CI 実装は follow-up で別 Issue 化」とされ、一覧の見出しは「TOP 10 active」のまま 37 行ある。README 内で「ADR 番号は不変ではない」(renumber 規約)と「削除済み ADR の番号は再利用しない」(一覧)が併存し、履歴上は番号 68 個のうち 34 個が複数のファイル名に使われている(題名の微修正による rename を含みうる)。
+    quote: "- 同梱なしの PR は CI で自動 fail させる（CI 実装は follow-up で別 Issue 化）"
+    locator: "README §10 枠超過時の義務(削除主義、#2440 PR-A5 改定)2 項目め。併存する記述: §renumber 規約「原則: **ADR 番号は不変ではない**。」/ §一覧(TOP 10 active)「番号は欠番を許容し、**削除済み ADR の番号は再利用しない**。」/ §命名規則「番号は 0001 から連番（欠番は renumber 時に詰める）」"
+    quant:
+      value: 複数の題名に使われた番号 33 個 / 番号 67 種
+      n: 追加された番号付き ADR ファイル 100 種
+      design: 上記の追加パス一覧を番号ごとに題名 slug で集計。取得 2026-09-30
+      population: ganbari-quest docs/decisions/ の履歴
+    evidenceKind: observational
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:19.356Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/decisions/README.md
+    contentType: text/html; charset=utf-8
+    titleFetched: ganbari-quest/docs/decisions/README.md at 053463794f117d7f79f961efc28be18fb7e4d43f · Takenori-Kusaka/ganbari-quest
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "上限「≤ 10 件を目安」、根拠「Miller's Law (7±2) の認知限界」。git 履歴(develop first-parent、commit 0534637 まで)で数えた docs/decisions/ 直下の番号付き ADR 本数: 44本(2026-04-20、85fb20d6)→ 40本(04-20 22:31)→ 10本(2026-04-21、dee7ebfb、archive 25)→ 45本(2026-06-04、19f6b5c4)→ 33本(同日 59bb611d)→ 40本(2026-07-17)→ 36本(2026-07-24)→ 37本(2026-08-20 以降、2026-09-24 の 0534637 時点も 37本)。README 一覧の表も 37 行"
+        extractedQuote: "| 分類 A（毎週レベルで参照される常時参照ルール / gate）active ADR 総数 | **≤ 10 件を目安** | Miller's Law (7±2) の認知限界。毎週以上参照するルールとして記憶し得る現実的上限 |"
+        locator: docs/decisions/README.md §ボリューム上限ルール(削除主義、#2440 PR-A5 改定)の表 1 行目。本数の推移は README には無く、git ls-tree による実測
+        note: README には本数の推移(N本→N本→N本)は書かれていない。推移は git 履歴からの再計測値。履歴上の最大は 45本(2026-06-04)で、2026-04-20 の 44本より多い。ask がどの3時点を指すかは伏せ字のため特定できないが、「山 → 10本 → 現在37本」の形なら 44(2026-04-20)→ 10(04-21)→ 37(09-24)が対応する。Miller の根拠に出典・測定が無い点は README 本文のとおり(「上限数値は暫定値」との記述あり)。README の上限対象は「分類 A … active ADR 総数」であり、active 全体(37本)ではない点に注意。
+        adjudication:
+          verdict: corrected
+          reason: Miller の 7±2 の記述の実在、出典・測定の不在、現在 37 本は blind と一致する。一方、25 本(05-01)と 44 本(06-01)という時点の値は blind の再計測に現れず、確認できない(blind の再計測では 04-21 に 10 本、06-04 に最大 45 本。25 は 04-21 の archive の本数として現れるのみ)。また上限 10 件の対象は active ADR 全体ではなく「分類 A」に限られるという条件が主張に欠けている。推移を blind の再計測値へ置き換え、対象の限定を補った。
+          date: 2026-09-30
+          originalText: "Issue #272 の値「25 本 → 44 本 → 37 本」に対し実測も 25 本(2026-05-01)→ 44 本(06-01)→ 37 本(09-25)で一致。上限 10 件の根拠を Miller の 7±2 とする記述も README に実在する。根拠の出典や測定は README に示されていない。"
+          originalQuote: "| 分類 A（毎週レベルで参照される常時参照ルール / gate）active ADR 総数 | **≤ 10 件を目安** | Miller's Law (7±2) の認知限界。毎週以上参照するルールとして記憶し得る現実的上限 |"
+      c2:
+        verdict: match
+        extractedValue: "git 履歴(0534637 まで)で追加された番号付き ADR ファイル: ファイル名(番号+題名)で 102 種、題名(slug)で 94 種、番号で 68 種、最大番号 0068。削除(rename 検出あり -M): 57 パス = 直下 35 + archive 配下 22。rename 検出なし(--no-renames)では追加 130 パス(直下 101 + archive 29)、削除 87 パス(直下 64 + archive 23)。現存は直下 37 + archive 6"
+        extractedQuote: 削除した ADR の番号は再利用しない。何を削除し内容をどこへ移したかは git 履歴で追う（`git log --diff-filter=D -- docs/decisions/`）。
+        locator: README §削除済み ADR(計測方法の指示)。数値は README には無く、git log --diff-filter=A/D --name-status -- docs/decisions/ の実測
+        note: "README 本文に「何本書いて何本削除したか」の数値は無い(2026-08-07 の #4376 で棚卸レポートと削除内訳が README から撤去されている)。値はすべて git 履歴の再計測で、数え方で変わる: rename 検出の有無で削除は 57(35+22)か 87(64+23)。-M では直下→archive の移動 28 件が rename 扱いになり、archive→直下が 1 件、直下内 rename が 1 件。「実数は ___〜___」に当たるのは 題名 94 種〜ファイル名 102 種。番号付きでない adr-inventory-2026-04-19/20.md の 2 ファイルも削除されている(上の数に含めていない)。"
+        adjudication:
+          verdict: corrected
+          reason: 削除 57 パス(直下 35 + archive 22)と最大番号 0068、「35 本は直下からの削除の数」という読みは blind と一致する。追加の種数は主張 100 / 93 / 67 に対し blind は 102 / 94 / 68 で、わずかに食い違う(「実数は 93〜100」は blind では 94〜102)。また blindNote のとおり、57 は rename 検出ありの値で、検出なしでは 87 になるという条件が主張に欠けている。趣旨(70 本超は下限として正しく、archive 経由の削除を含めると 35 本より多い)は保たれるため、数値を blind の値へ直した。
+          date: 2026-09-30
+          originalText: "Issue #272 の値「70 本超を書き 35 本を削除」に対し、git 履歴で追加された番号付き ADR ファイルは 100 種(題名で 93 種、番号で 67 種、最大 0068)、削除は 57 パス(直下 35 + archive 配下 22)。35 本は直下からの削除だけを数えた値で、archive を経由して消えた 22 本を含めると 57 本になる。「70 本超」は下限としては正しいが、renumber を含めた実数は 93〜100 である。"
+          originalQuote: "**運用原則（削除主義）**: 役目を終えた record — 完了済 migration / 採択されなかった調査 / 完遂済の一回限りの決定記録 — は **archive ではなく削除する**（履歴は git で追跡する）。"
+      c3:
+        verdict: match
+        extractedValue: "2026-09-24(commit 0534637、develop)時点で archive 配下に 6本が残る。README も「残存 6 件」「archive 一覧(6 件)」と書く。削除主義への改定(2026-06-04、#2440 PR-A5、PR #2898)の後も archive は 28本のまま。22本が消えたのは 2026-07-24 の月次棚卸(#3908、PR #3913: archive 28→6)"
+        extractedQuote: "`docs/decisions/archive/` は過去に退避された ADR の保管先（移行期の残存）。再活性化が必要になった場合は git 履歴または archive 配下から直下に戻す。新規退避は行わないため、以下の旧 archive 運用は残存 6 件の参照・再活性化時のみ適用する:"
+        locator: "README §archive 運用ルール(削除主義への移行、#2440 PR-A5)/ §archive 一覧(6 件)。本数推移は git ls-tree 実測とコミット件名「docs: #3908 ADR 月次棚卸 2026-07 — 削除主義で 28 file 削除 (active 40→36 / archive 28→6) + 参照整合 (#3913)」(fcdfc832、2026-07-24)"
+        note: README は「新規の archive 移動は行わない」と定めており、archive ディレクトリ自体は廃止していない(新規退避の停止)。「archive を減らす前後で AI が古い決定に従う頻度を比べた記録が無い」は不在の主張で、README と docs/decisions/ 配下からは該当する測定は見つからなかったが、リポジトリ全体の網羅検索はしていない。2026-04-21 時点の archive は 25本、その後 28本まで増えている。
+        adjudication:
+          verdict: consistent
+          reason: "archive が廃止されておらず 2026-09-24 の develop に 6 本残ること、README が「残存 6 件」と書くこと、削除主義への改定(2026-06-04)後も 28 本のままで、22 本が消えたのは 2026-07-24 の月次棚卸(Issue #3908 / PR #3913、archive 28→6)であることは blind と一致する。archive 25 本(04-21 時点)→ 28 本 → 6 本の推移も整合する。blindNote のとおり、README が定めるのは新規退避の停止で、ディレクトリの廃止ではない。測定記録の不在は、検証役が README と docs/decisions/ 配下で見つからなかったと確認した範囲にとどまり、リポジトリ全体の網羅検索ではない点に留意する(主張も「見当たらず」と述べるにとどまる)。"
+          date: 2026-09-30
+      c4:
+        verdict: match
+        extractedValue: 「10 枠超過時の義務」。CI gate は「CI 実装は follow-up で別 Issue 化」と書かれたまま。一覧の見出しは「一覧(TOP 10 active)」で表は 37 行。履歴上、複数の題名(ファイル名)に使われた番号は 34 個(追加された 102 ファイル名を番号 68 個で集計)
+        extractedQuote: "- 同梱なしの PR は CI で自動 fail させる（CI 実装は follow-up で別 Issue 化）"
+        locator: "README §10 枠超過時の義務(削除主義、#2440 PR-A5 改定)2 項目め。併存する記述: §renumber 規約「原則: **ADR 番号は不変ではない**。」/ §一覧(TOP 10 active)「番号は欠番を許容し、**削除済み ADR の番号は再利用しない**。」/ §命名規則「番号は 0001 から連番（欠番は renumber 時に詰める）」"
+        note: CI gate の未実装は README の文言(follow-up で別 Issue 化)からの読み取り。commit 0534637 の .github/workflows と scripts/*.mjs にそれらしい名前の検査(ADR 本数 gate)は見当たらなかったが、全ファイルの内容までは精査していない。§命名規則の「欠番は renumber 時に詰める」と §一覧の「番号は欠番を許容し…再利用しない」も README 内で食い違う。34 個は「同じ番号に 2 種以上のファイル名が追加された番号」の数で、題名の微修正による rename も含みうる。
+        adjudication:
+          verdict: corrected
+          reason: "CI gate の記述、見出しと 37 行、番号の扱いの併存は blind と一致する。数値だけが食い違う: 複数の題名に使われた番号は主張 33 個 / 67 種に対し blind は 34 個 / 68 個。blindNote のとおり、CI gate の未実装は README の文言からの読み取りで、workflows / scripts の全ファイル精査まではされていない。数値を blind の値へ直した。"
+          date: 2026-09-30
+          originalText: "10 枠超過時の CI gate は README に義務として書かれたまま未実装で、Issue #272 の記述どおり。一覧の見出しは「TOP 10 active」のまま 37 行ある。番号の扱いは README 内で「ADR 番号は不変ではない」(renumber 規約)と「削除済み ADR の番号は再利用しない」(一覧)が併存し、履歴上は 33 個の番号が複数の題名に使われている。#272 の提案「番号は再利用しない」は出所の運用と一部食い違う。"
+          originalQuote: "- 同梱なしの PR は CI で自動 fail させる（CI 実装は follow-up で別 Issue 化）"
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

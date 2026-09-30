@@ -1,0 +1,122 @@
+schemaVersion: 0
+id: SRC-0334
+status: included
+excludeReason: null
+title: 4Mとは？変更管理と分析方法の基本を解説
+url: https://www.nec-solutioninnovators.co.jp/sp/contents/column/20220520_4m.html
+canonicalUrl: https://nec-solutioninnovators.co.jp/sp/contents/column/20220520_4m.html
+ids:
+  arxiv: null
+  doi: null
+publisher: NECソリューションイノベータ
+authors: []
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2022-05-20
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH02
+  query: 4M変化点管理 ソフトウェア開発 適用
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02]
+events: []
+summary: SIer による4M変更(変化点)管理の解説コラム。Man の変化点として担当者変更・増員・欠勤を挙げ、影響度・頻度・損失で優先順位を付けること、変化点を多発させない工程への改善、3H(初めて・変更・久しぶり)の併用を述べる。
+claims:
+  - id: c1
+    text: Man(人)の変化点として、担当者・検査員の変更、職制の変更、増員や残業、欠勤や事故を列挙する。人の増減そのものを変化点に数える。
+    quote: 作業担当者・検査員の変更、職制の変更、増員や残業、欠勤や事故など
+    locator: 4Mを用いた変更管理 > 具体的な変更管理の流れ
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 洗い出した変化点は、品質への影響度・発生頻度・推定損失で優先順位を付ける。すべての変化点を同じ強さで管理しない前提である。
+    quote: 優先順位を決める際は、品質および他プロセスに与える影響度合いや変化点の発生頻度、推定される損失の大きさなどから評価します。
+    locator: 同上
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 変化点は多岐にわたるため、変化点を多発させない工程へ改善することが大前提だとする。管理の追加より変化点の削減を先に置く考え方である。
+    quote: 変化点は多岐にわたるため、大前提として変化点を多発させない工程に改善していくことも肝要です。
+    locator: 同上
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 3H(初めて・変更・久しぶり)を4Mと組み合わせ、配置転換や現場復帰などを重点的に注意すべき時点として抽出する。
+    quote: 3Hとは、ヒューマンエラーが起こりやすい状況（変化点）である「初めて、変更、久しぶり」の３つのHを表す標語です。
+    locator: 4M管理の効果を高めるために > 4M×3H
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:44.296Z
+    httpStatus: 403
+    finalUrl: https://www.nec-solutioninnovators.co.jp/sp/contents/column/20220520_4m.html
+    contentType: text/html
+    titleFetched: Access Denied
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 作業担当者・検査員の変更、職制の変更、増員や残業、欠勤や事故など
+        extractedQuote: Man（人）： 作業担当者・検査員の変更、職制の変更、増員や残業、欠勤や事故など
+        locator: 4Mを用いた変更管理 > ●具体的な変更管理の流れ
+        note: 原文が列挙するのは『増員』だけで、『減員』の語は無い。ask 後段の『人の増減そのものを変化点に数える』は、原文の『増員』を増減へ広げた解釈
+      c2:
+        verdict: match
+        extractedValue: 品質および他プロセスに与える影響度合い・変化点の発生頻度・推定される損失の大きさ
+        extractedQuote: 上記のような変化点を、過去事例や他社事例なども参照して洗い出し、優先順位を付けます。優先順位を決める際は、品質および他プロセスに与える影響度合いや変化点の発生頻度、推定される損失の大きさなどから評価します。
+        locator: 4Mを用いた変更管理 > ●具体的な変更管理の流れ
+        note: 原文の影響度は『品質および他プロセスに与える』影響で、ask の『品質への影響度』より広い。後段の『すべての変化点を同じ強さで管理しない前提』は優先順位付けからの解釈で、原文に直接の記述は無い
+      c3:
+        verdict: match
+        extractedValue: 変化点を多発させない工程に改善していくことも肝要(大前提として)
+        extractedQuote: 変化点は多岐にわたるため、大前提として変化点を多発させない工程に改善していくことも肝要です。
+        locator: 4Mを用いた変更管理 > ●具体的な変更管理の流れ
+        note: 原文は『〜ことも肝要』で、優先順位付け・対処方法の策定と並べて書いている。ask 後段の『管理の追加より変化点の削減を先に置く考え方』という順序付けは解釈で、原文に『先に』に当たる明示は無い(『大前提として』の語はある)
+      c4:
+        verdict: match
+        extractedValue: 3H / 4M
+        extractedQuote: 3Hとは、ヒューマンエラーが起こりやすい状況（変化点）である「初めて、変更、久しぶり」の３つのHを表す標語です。3Hを4Mに組み合わせることで、“重点的に注意すべきタイミング”という軸を品質管理にもたらします。
+        locator: 4M管理の効果を高めるために > 4M×3H、4M×5Eで管理する
+        note: Man の例は『初めて＝新入社員、変更＝配置転換・人事異動、久しぶり＝現場復帰』。ask と整合する
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://nec-solutioninnovators.co.jp/sp/contents/column/20220520_4m.html

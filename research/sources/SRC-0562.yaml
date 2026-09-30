@@ -1,0 +1,147 @@
+schemaVersion: 0
+id: SRC-0562
+status: included
+excludeReason: null
+title: Goal Structuring Notation Community Standard Version 3 (SCSC-141C)
+url: https://scsc.uk/index.php/publications/download?stream=1
+canonicalUrl: https://scsc.uk/index.php/publications/download?stream=1
+ids:
+  arxiv: null
+  doi: null
+publisher: Safety-Critical Systems Club (SCSC) Assurance Case Working Group
+authors: [The Assurance Case Working Group (ACWG)]
+orgType: standards-body
+region: eu
+lang: en
+sourceType: standard
+published: 2021-05
+publishedBasis: pdf
+version: Version 3 (SCSC-141C)
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G05
+  query: GSN Community Standard Version 3 SCSC-141C pdf assumption justification undeveloped
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH12]
+events: []
+summary: 安全ケース記法 GSN の共同体標準 第3版(2021-05、案内ページは https://scsc.uk/r1386)。前提を『立証されていない言明』として正当化と別要素に置き、未展開(undeveloped)の標識と、第3版で加わった弁証法拡張(挑戦・defeated)を定める。前提要素そのものに検証状態の欄は無い。
+claims:
+  - id: c1
+    text: 前提(assumption)は立証されていない言明と定義され、goal に接続すると関連する議論全体に掛かるものとして扱われる。前提要素の中に『検証済み/想定』を分ける属性は定義されていない(読んだ第1部 1:2 の範囲)。
+    quote: An assumption is an unsubstantiated statement. Having connected an assumption to a goal G1, the assumption is taken to be connected to the entirety of the relevant argument.
+    locator: Part 1, 1:2.2.13
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: qualifies
+  - id: c2
+    text: 手引き部は、前提を『真であると主張され、それ以上の議論で支えられない命題』と説明する。検証された事項は前提ではなく、証拠(solution)で支える goal の側へ移る構造である。
+    quote: Note that an assumption is a proposition that is asserted as true and therefore is not supported by further argument.
+    locator: Part 2, 2:3.5.2
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c3
+    text: 主張や戦略が依存する前提は有効でなければならないとし、前提要素で明示的に文書化できるとする。
+    quote: These assumptions must be valid for the claim or the strategy to be valid. Assumptions can be documented explicitly in GSN using the assumption element.
+    locator: Part 0, 0:4.6
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c4
+    text: undeveloped の装飾(中空のひし形)は論証の線が展開されていないことを示し、goal と strategy に適用でき、assumption とは別の要素として定義されている。undeveloped goal は「意図的に未展開のまま残した主張」、assumption は「意図的に立証しない言明」で、どちらも意図的と書かれており、記法上の区別は「展開していない論証の線」対「立証しない言明」である。
+    quote: Undeveloped element decorator, rendered as a hollow diamond applied to the bottom centre of an element, indicates that a line of argument has not been developed.
+    locator: Part 1, Table 1:2-1 Core GSN Elements(Undeveloped goal の行)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c5
+    text: 第3版は弁証法拡張を加え、疑念の発見と残存する疑念の表示を記法で扱う(挑戦する goal / solution、defeated 標識)。
+    quote: provides a framework for creating, challenging and questioning Assurance Cases through the discovery and identification of doubt, which can be depicted and the residual doubt exposed.
+    locator: Part 1, 1:6.1.1 Dialectic Extension
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:40.969Z
+    httpStatus: 200
+    finalUrl: https://scsc.uk/index.php/publications/download?stream=1
+    contentType: text/html; charset=utf-8
+    titleFetched: Downloader
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Part 1, 1:2(Core GSN)。定義は「An assumption is an unsubstantiated statement」
+        extractedQuote: 1:2.2.13 An assumption is an unsubstantiated statement. Having connected an assumption to a goal G1, the assumption is taken to be connected to the entirety of the relevant argument.
+        locator: Part 1, 1:2.2.13(SCSC-141C Version 3, May 2021, p.22 付近)
+        note: Table 1:2-1 の定義は「presents an intentionally unsubstantiated statement」で、「意図的に」が付く。1:2(1:2.1〜1:2.3)の範囲で verif / validat / status / attribute の語は見当たらず、検証済み・想定を分ける属性の定義は確認できなかった(否定の主張なので、読んだ範囲に限る)。作業票の URL(download?stream=1)は PDF を返さず HTML の Downloader ページだけを返す。本文は https://scsc.uk/scsc-141c → download?ref=1386&stream=1 で取得した。なお https://scsc.uk/r141C:1 は ref=141 へ転送され、Version 1(2011年)の PDF が落ちてくるので取り違えに注意。
+      c2:
+        verdict: match
+        extractedValue: 「a proposition that is asserted as true and therefore is not supported by further argument」
+        extractedQuote: Note that an assumption is a proposition that is asserted as true and therefore is not supported by further argument.
+        locator: Part 2, 2:3.5.2
+        note: 前半の説明は原文どおり。後半の「検証された事項は前提ではなく、証拠(solution)で支える goal の側へ移る構造」は 2:3.5.2 には書かれておらず、主張側の推論。2:3.5.2 は戦略(strategy)の文脈的根拠として assumption と justification を説明する段落である。
+      c3:
+        verdict: match
+        extractedValue: 「These assumptions must be valid」「documented explicitly in GSN using the assumption element」
+        extractedQuote: These assumptions must be valid for the claim or the strategy to be valid. Assumptions can be documented explicitly in GSN using the assumption element.
+        locator: Part 0, 0:4.6
+        note: 原文は「主張や戦略が有効であるためには前提が有効でなければならない」という条件の形。食い違いは見当たらない。例は Figure 0:4-5(Strategy S1 に対する前提「all credible hazards have been identified」)。
+      c4:
+        verdict: match
+        extractedValue: Undeveloped element decorator(中空のひし形)。「a claim which is intentionally left undeveloped in the argument」
+        extractedQuote: Undeveloped element decorator, rendered as a hollow diamond applied to the bottom centre of an element, indicates that a line of argument has not been developed.
+        locator: Part 1, Table 1:2-1 Core GSN Elements(Undeveloped goal の行)
+        note: 同じ行の例示は「presents a claim which is intentionally left undeveloped in the argument」。assumption の行は「intentionally unsubstantiated statement」で、どちらも「intentionally」と書かれている。したがって原文上の区別は「論証の線を展開していない」対「立証しない言明」であり、「未着手」対「決めた」という意図の有無による対比は原文の語からは出てこない。undeveloped は goal と strategy に適用できる装飾で、assumption とは別の要素として定義されている点は原文どおり。
+        adjudication:
+          verdict: corrected
+          reason: undeveloped が assumption と別に定義されている点、および「intentionally left undeveloped」の文言は Table 1:2-1 の抜粋どおり(claimQuote の not-found は blindNote が同じ行の例示として実在を確認)。しかし「未着手の論証」対「立証しないと決めた前提」という意図の有無による対比は原文から出てこない。両方とも intentionally と書かれており、主張自身の前半(意図的に未展開)とも食い違う。
+          date: 2026-09-30
+          originalText: 『意図的に未展開のまま残した主張』を示す標識(undeveloped)が前提とは別に定義されている。未着手の論証と、立証しないと決めた前提とを記法上で区別できる。
+          originalQuote: presents a claim which is intentionally left undeveloped in the argument.
+      c5:
+        verdict: match
+        extractedValue: Version 3(第3版、May 2021)
+        extractedQuote: Version 3 has addressed substantial topics such as development of the notation for modular arguments [...], introduction of Argument Claim Points and provisions for dialectic arguments.
+        locator: Change History(前付け)/ Part 1, 1:6.1.1・1:6.2・Table 1:6-1
+        note: "1:6.1.1 の原文: 「...a framework for creating, challenging and questioning Assurance Cases through the discovery and identification of doubt, which can be depicted and the residual doubt exposed.」。1:6.2.2 で Goal と Solution の dialectic な用法、1:6.2.3 で Challenges 関係、1:6.2.4 で Defeated 状態(要素と関係に付与、× 印の装飾)を定義。食い違いは見当たらない。"
+        adjudication:
+          verdict: consistent
+          reason: Change History の「provisions for dialectic arguments」、1:6.1.1 の「discovery and identification of doubt, which can be depicted and the residual doubt exposed」、1:6.2.2(Goal と Solution の dialectic な用法)・1:6.2.3(Challenges 関係)・1:6.2.4(Defeated 状態)と一致する。blindNote も食い違いなしと確認している。claimQuote の not-found は blindNote が 1:6.1.1 の原文として実在を確認。
+          date: 2026-09-30
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0306
+status: included
+excludeReason: null
+title: Predicting Acceptance and Review Effort in Human and Agent Pull Requests
+url: https://arxiv.org/abs/2607.12057
+canonicalUrl: arxiv:2607.12057
+ids:
+  arxiv: "2607.12057"
+  doi: 10.48550/arXiv.2607.12057
+publisher: arXiv (cs.SE)
+authors: [Kartik Ghanshyambhai Pansuriya, Ehsan Ghorbani, Deepak Singh, Eman Abdullah AlOmar]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-07-13
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: S6
+  query: agent-authored pull requests GitHub maintainers acceptance review burden study (site:arxiv.org, 2026-04以降)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11, TH07]
+events: []
+summary: AIDev データセットで、人とエージェントの PR の受理とレビュー負荷を、提出時点の情報だけから予測できるかを調べた論文。受理は高精度で予測できるが、レビュー負荷は提出時点の特徴では説明しきれない。
+claims:
+  - id: c1
+    text: 提出時点の特徴だけで PR の受理を予測でき、木系モデルは F1 0.95 超を達成した。影響の大きい予測子は本文の明瞭さとメタデータだった。
+    quote: "Our results show that acceptance prediction is feasible from early signals: tree-based models achieve F1 scores above 0.95, with textual clarity and metadata among the most influential predictors."
+    locator: Abstract
+    quant:
+      value: F1 > 0.95
+      n: AIDev データセットの人・エージェント作成 PR(件数は要旨に無し)
+      design: observational(リーク対策をした予測パイプライン)
+      population: AIDev(OSS の PR)
+    evidenceKind: observational
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: qualifies
+  - id: c2
+    text: コメント数やマージまでの時間は提出時点の特徴では中程度しか説明できず、レビュアの空きやプロジェクトの流れが大きく効く。早期予測モデルは自動判定ではなく助言として使うべきだとする。
+    quote: These findings indicate that early PR models can support triage and reviewer prioritization, but should be used as advisory tools rather than automated decision-makers.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH07-Q2, TH10-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:25.497Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.12057
+    contentType: text/html; charset=utf-8
+    titleFetched: Predicting Acceptance and Review Effort in Human and Agent Pull Requests
+    titleMatch: true
+    dateMeta: 2026-07-13
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Predicting Acceptance and Review Effort in Human and Agent Pull Requests
+      authors: ["Pansuriya, Kartik Ghanshyambhai", "Ghorbani, Ehsan", "Singh, Deepak", "AlOmar, Eman Abdullah"]
+      v1Date: 2026-07-13
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

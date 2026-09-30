@@ -1,0 +1,195 @@
+schemaVersion: 0
+id: SRC-0028
+status: included
+excludeReason: null
+title: "Future of Work with AI Agents: Auditing Automation and Augmentation Potential across the U.S. Workforce"
+url: https://arxiv.org/abs/2506.06576
+canonicalUrl: arxiv:2506.06576
+ids:
+  arxiv: "2506.06576"
+  doi: null
+publisher: arXiv (Stanford SALT Lab)
+authors: [Yijia Shao, Humishka Zope, Yucheng Jiang, Jiaxin Pei, David Nguyen, Erik Brynjolfsson, Diyi Yang]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2025-06-06
+publishedBasis: arxiv-v1
+version: v3
+updated: 2026-02-01
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-3
+  query: research/phase3-gap-analysis/135-role-boundary-2026-08.md §3.3.3 の引用(原典確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: 104 職種・844 タスクについて労働者 1,500 人と AI 専門家の評価を集めた WORKBank と Human Agency Scale(H1〜H5)。135 メモの数値(1,500/104/844、45.2%、26.9%、47.5%、4 象限、スキル移行、改訂日)はすべて原典どおり。開発職は専門家評価で「Computer Programmers」が H1 支配的な 16 職種の例として挙がるが、労働者側の希望分布は Figure 10(画像)のみで本文テキストから抽出できない。
+claims:
+  - id: c1
+    text: 2025-01〜05 に Prolific・Upwork・LinkedIn で 1,678 人・7,016 件の評価を集め、職種あたり 10 人以上のフィルタ後に 104 職種・1,500 人の評価を得た。タスクは 844 件。
+    quote: After filtering for adequate representation (≥ 10 participants per occupation), we obtained assessments from 1,500 individuals across 104 occupations
+    locator: §2.5 Data Collection / Appendix D
+    quant:
+      value: 1,500 workers / 104 occupations / 844 tasks
+      n: 1,678 recruited → 1,500
+      design: survey + expert assessment
+      population: U.S. computer-using occupations (O*NET)
+    evidenceKind: survey
+    rqs: [TH01-Q1]
+    issues: [135]
+    stance: context
+  - id: c2
+    text: 職種の 45.2% で労働者が最も望む水準は H3(対等な協働)である(104 職種の 45.2% = 47 職種は換算値で、本文に 47 の明記はない)。
+    quote: 45.2% of occupations have H3 (equal partnership) as the dominant worker-desired level, underscoring the potential for human-agent collaboration.
+    locator: §1 Key findings / §3.3 Figure 6
+    quant:
+      value: 45.2%
+      n: 104 occupations
+      design: survey (majority vote per task)
+      population: worker-desired HAS
+    evidenceKind: survey
+    rqs: [TH01-Q1]
+    issues: [135]
+    stance: supports
+  - id: c3
+    text: 844 タスクのうち労働者と専門家の HAS 水準が一致したのは 26.9%。47.5% のタスクは行列の下三角(労働者が専門家の技術的必要水準より高い人間関与を望む側)に落ちる。
+    quote: workers generally prefer higher levels of human agency than what experts deem technologically necessary, with 47.5% of tasks fall into the lower triangle of the matrix.
+    locator: §3.3 (Figure 6a)
+    quant:
+      value: 26.9% match / 47.5% lower triangle
+      n: 844 tasks
+      design: survey vs expert rating
+      population: WORKBank
+    evidenceKind: survey
+    rqs: [TH01-Q1]
+    issues: [135]
+    stance: supports
+  - id: c4
+    text: 労働者の希望×技術的能力で 4 象限(自動化 Green Light / Red Light / R&D Opportunity / Low Priority)に分ける。
+    quote: "The worker desire and technological capability divide the landscape into four zones: Automation “Green Light” Zone (high desire and capability), Automation “Red Light” Zone"
+    locator: §3.2 (Figure 5)
+    quant: null
+    evidenceKind: survey
+    rqs: [TH01-Q1]
+    issues: [135]
+    stance: supports
+  - id: c5
+    text: 中核的な人間のスキルは情報処理から対人能力へ移行している。
+    quote: Key human skills are shifting from information processing to interpersonal competence
+    locator: §1 Key findings / §3.4 Figure 7
+    quant: null
+    evidenceKind: survey
+    rqs: []
+    issues: [135]
+    stance: supports
+  - id: c6
+    text: HAS の 5 段階定義(H1 単独処理〜H5 継続的関与なしには機能しない)。H3 は「対等な協働で、どちらか単独より優れる」。
+    quote: "H3: AI agent and human form equal partnership, outperforming either alone."
+    locator: §2.3 Human Agency Scale
+    quant: null
+    evidenceKind: survey
+    rqs: [TH01-Q1]
+    issues: [135]
+    stance: context
+  - id: c7
+    text: "開発職の HAS プロファイル: AI 専門家評価では 104 職種中 16 職種が H1 支配的で、その例に「Computer Programmers」が含まれる。同じ IT 分野でも「Information Technology Project Managers」は H4。労働者側の希望分布は Figure 10(画像)のみ。回答者数は Computer Programmers 28、Web Developers 27、Computer Systems Analysts 25。「Software Developers」という職種名は 104 職種表に見当たらない。"
+    quote: According to AI experts’ ratings, 16 out of 104 occupations are predominantly H1, even based on current capability estimates. These include roles such as “Computer Programmers”
+    locator: §3.3 / Appendix D (occupation table) / Figure 10
+    quant:
+      value: Computer Programmers = H1 (expert-dominant); N=28
+      n: 16/104 occupations H1-dominant
+      design: expert rating (majority vote)
+      population: AI experts
+    evidenceKind: survey
+    rqs: [TH01-Q1]
+    issues: [135]
+    stance: context
+  - id: c8
+    text: "限界: WORKBank は O*NET のコンピュータ使用職 287 のうち 104 職種のみを対象とする。"
+    quote: the current version of AI Agent WORKBank only covers 104 occupations, a subset of the 287 computer-using occupations identified with the O*NET database.
+    locator: §5 Limitations
+    quant: null
+    evidenceKind: survey
+    rqs: []
+    issues: [135]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:46.776Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2506.06576
+    contentType: text/html; charset=utf-8
+    titleFetched: "Future of Work with AI Agents: Auditing Automation and Augmentation Potential across the U.S. Workforce"
+    titleMatch: true
+    dateMeta: 2025-06-06
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+    arxiv:
+      status: 200
+      title: "Future of Work with AI Agents: Auditing Automation and Augmentation Potential across the U.S. Workforce"
+      authors: ["Shao, Yijia", "Zope, Humishka", "Jiang, Yucheng", "Pei, Jiaxin", "Nguyen, David", "Brynjolfsson, Erik"]
+      v1Date: 2025-06-06
+      latestVersion: 3
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2025-01〜05 / 1,678人 / 7,016件 / 職種あたり10人以上 / 104職種・1,500人 / タスク844件(調査前の候補は2,131件・287職種)
+        extractedQuote: Between January and May 2025, recruitment through Prolific, Upwork, and LinkedIn yielded 1,678 participants who provided 7,016 task ratings. After filtering for adequate representation
+        locator: §2.5 Instantiating the Audit Framework / Appendix D.4 Table 3(Prolific 1060・Upwork 184・Word of Mouth 434)
+        note: '『タスク___件』は2通りに読める: WORKBank 収録は844件(abstract "over 844 tasks spanning 104 occupations"、§3.3 "Among 844 tasks")、O*NET からの抽出後は2,131件(287職種)。続き原文: "we obtained assessments from 1,500 individuals across 104 occupations"。'
+      c2:
+        verdict: match
+        extractedValue: 45.2% / H3 / 104職種中47職種
+        extractedQuote: 45.2% of occupations have H3 (equal partnership) as the dominant worker-desired level, underscoring the potential for human-agent collaboration.
+        locator: §1 Key findings 3 / §3.3
+        note: '食い違い: askは『104職種の45.2%=47職種は換算値で本文に47の明記はない』趣旨だが、§3.3 に "H3 emerges as the dominant worker-desired level in 47 out of 104 occupations analyzed." と47が明記されている。'
+      c3:
+        verdict: match
+        extractedValue: 844タスク / 一致26.9% / 下三角47.5%
+        extractedQuote: Among 844 tasks, 26.9% receive matching levels from workers and AI experts. Figure 6 a shows workers generally prefer higher levels of human agency than what experts deem technologically necessary
+        locator: §3.3 Human Agency Scale (HAS) Spectrum / Figure 6a
+        note: '続き: "...with 47.5% of tasks fall into the lower triangle of the matrix." HAS 水準は各タスクで多数決により付与。askの向き(労働者がより高い人間関与を望む)は原文と一致。'
+      c4:
+        verdict: match
+        extractedValue: 4象限(Automation "Green Light" / Automation "Red Light" / R&D Opportunity / Low Priority)
+        extractedQuote: "technological capability divide the landscape into four zones: Automation “Green Light” Zone (high desire and capability), Automation “Red Light” Zone (high capability but low desire)"
+        locator: §1 Key findings 2 / §3.2 Desire-Capability Landscape(Figure 5a)
+        note: '続き: "R&D Opportunity Zone (high desire but currently low capability), and Low Priority Zone (low desire and low capability)"。軸は労働者の自動化希望 A_w(t) × 専門家評価の技術的能力 A_e(t)。'
+      c6:
+        verdict: match
+        extractedValue: 5段階(H1〜H5)/ H3 = equal partnership, outperforming either alone
+        extractedQuote: "H1: AI agent handles the task entirely on its own. ... H3: AI agent and human form equal partnership, outperforming either alone. ... H5: AI agent cannot function without continuous human involvement."
+        locator: §2.2 Emphasizing the Spectrum of Automation and Augmentation(Figure 2)
+        note: '引用は箇条書きの抜粋(…で中略)。HAS の定義は §2.3 ではなく §2.2 にある(§2.3 は "Constructing A Worker-Centric Auditing Framework")。導入文: "a five-level scale from H1 (no human involvement) to H5 (human involvement essential)"。'
+      c7:
+        verdict: match
+        extractedValue: "104職種中16職種がH1支配的(例: Computer Programmers)/ IT Project Managers は H4 / 労働者分布は Figure 10 / 回答者数 Computer Programmers 28・Web Developers 27・Computer Systems Analysts 25 / 104職種表(Table 2)に『Software Developers』なし"
+        extractedQuote: According to AI experts’ ratings, 16 out of 104 occupations are predominantly H1, even based on current capability estimates. These include roles such as “Computer Programmers”
+        locator: §3.3 / Appendix D.1 Table 2(occupation list with participant counts)/ Appendix E.4 Figure 10
+        note: '原文続き: "“Computer Programmers” and “Information Technology Project Managers” display markedly different distributions (H1 vs. H4) when assessed by AI experts." Table 2 抜粋: "Computer Programmers 28 ... Web Developers 27 ... Computer Systems Analysts 25"。『Software Developers』は本文では参考文献(OpenHands 論文名)にのみ出現。Figure 10 は HTML では画像+キャプションのみ。'
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

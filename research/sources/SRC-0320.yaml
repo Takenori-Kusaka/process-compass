@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0320
+status: included
+excludeReason: null
+title: "Human-AI Collaboration in Requirements Engineering: Evidence of the Negative Effect of LLMs on Requirements Inspection"
+url: https://arxiv.org/abs/2608.21298
+canonicalUrl: arxiv:2608.21298
+ids:
+  arxiv: "2608.21298"
+  doi: null
+publisher: arXiv (cs.SE) / CNR–ISTI, University of Florence ほか
+authors: [Giovanna Broccia, Julian Frattini, Chetan Arora, Maurice H. ter Beek, Alessandro Fantechi, Andreas Vogelsang, Alessio Ferrari]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-08-21
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: (abs:"requirements engineering" OR ti:requirements) AND (abs:agent OR abs:agentic OR abs:LLM) AND cat:cs.SE'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH06]
+events: []
+summary: 要求仕様のインスペクション(要求の臭いの検出と重大度分類)を、ChatGPT 支援あり/なしで行うクロスオーバー統制実験(34名)。LLM 支援は検出精度を下げ、所要時間は変わらなかった。
+claims:
+  - id: c1
+    text: LLM 支援は要求の臭いの検出精度を下げ、臭いの分類や所要時間には有意な効果がなかった。
+    quote: Results show that LLM support negatively affects smell detection accuracy but has no significant effect on smell classification or task duration.
+    locator: Abstract; Results
+    quant:
+      value: 検出精度が低下(Bayesian regression)
+      n: 34 participants
+      design: controlled crossover experiment
+      population: 初学者の検査者として振る舞う学生、ChatGPT(GPT-4o/GPT-4.1)
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4, TH08-Q4]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 最初から LLM 支援で要求インスペクションを学ぶと技能習得が遅れる可能性がある。
+    quote: learning RI with LLM-support from the beginning may slow down the skill acquisition process
+    locator: Abstract; Conclusions
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 参加者は初学者として振る舞う学生で、熟練者への一般化は限られる。
+    quote: students acting as novice inspectors performed RI tasks with and without ChatGPT (GPT-4o/GPT-4.1 models)
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:50.575Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2608.21298
+    contentType: text/html; charset=utf-8
+    titleFetched: "Human-AI Collaboration in Requirements Engineering: Evidence of the Negative Effect of LLMs on Requirements Inspection"
+    titleMatch: true
+    dateMeta: 2026-08-21
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Human-AI Collaboration in Requirements Engineering: Evidence of the Negative Effect of LLMs on Requirements Inspection"
+      authors: ["Broccia, Giovanna", "Frattini, Julian", "Arora, Chetan", "ter Beek, Maurice H.", "Fantechi, Alessandro", "Vogelsang, Andreas"]
+      v1Date: 2026-08-21
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

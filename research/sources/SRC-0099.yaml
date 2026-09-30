@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0099
+status: included
+excludeReason: null
+title: Prompt caching - Claude Platform Docs
+url: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+canonicalUrl: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude Platform Docs)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Anthropic prompt caching pricing cache read 5 minute 1 hour TTL cache write multiplier
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events: []
+summary: Anthropic 公式のプロンプトキャッシュ仕様。書き込み倍率(5分 1.25x / 1時間 2x)、読み取り倍率(0.1x、Fable 5.1 は 0.025x、Opus 5.5 は 0.05x)、TTL と失効条件を定める。2026-09-23 取得時点の版。
+claims:
+  - id: c1
+    text: 課金構造は「5分キャッシュ書き込み = 基本入力の 1.25 倍、1時間書き込み = 2 倍、読み取り = 0.1 倍」。#274 の換算前提(書き込み倍率・読み取り 0.1x)と一致する。
+    quote: 5-minute cache write tokens are 1.25 times the base input tokens price 1-hour cache write tokens are 2 times the base input tokens price Cache read tokens are 0.1 times the base input tokens price
+    locator: Pricing(表の脚注直後)
+    quant:
+      value: 1.25x / 2x / 0.1x
+      n: null
+      design: price list
+      population: Claude API 全モデル(例外あり)
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 2026-09 時点で読み取り倍率に例外が生じた。Fable 5.1 / Mythos 5.1 は 0.025x、Opus 5.5 は 0.05x。Opus 5・4.8 は 0.1x のまま。
+    quote: Cache hits and refreshes on Claude Fable 5.1 and Claude Mythos 5.1 are priced at 0.025x the base input price. 2 Cache hits and refreshes on Claude Opus 5.5 are priced at 0.05x the base input price.
+    locator: Pricing 表 脚注 1・2
+    quant:
+      value: 0.025x / 0.05x
+      n: null
+      design: price list
+      population: Fable 5.1, Mythos 5.1, Opus 5.5
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1, TH02-Q3]
+    issues: [274]
+    stance: qualifies
+  - id: c3
+    text: キャッシュは手動で消せず、最短 5 分の無操作で失効する。応答の生成時間も寿命に含まれる。
+    quote: Currently, there's no way to manually clear the cache. Cached prefixes automatically expire after a minimum of 5 minutes of inactivity.
+    locator: "FAQ: Can I manually clear the cache?"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:43.895Z
+    httpStatus: 200
+    finalUrl: https://platform.claude.com/docs/en/build-with-claude/prompt-caching
+    contentType: text/html; charset=utf-8
+    titleFetched: Prompt caching
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 5分書き込み=1.25倍、1時間書き込み=2倍、読み取り=0.1倍(表の脚注に機種別の例外あり)
+        extractedQuote: 5-minute cache write tokens are 1.25 times the base input tokens price; 1-hour cache write tokens are 2 times the base input tokens price; Cache read tokens are 0.1 times the base input tokens price
+        locator: "## Pricing 表の脚注の直後の Note"
+        note: 原文では読み取り 0.1 倍の直後に「(see the table footnote for per-model exceptions)」が付く。例外は Fable 5.1 と Mythos 5.1 が 0.025x、Opus 5.5 が 0.05x。「#___の換算前提と一致」は原典の外の話で、このページだけでは検証できない。
+      c2:
+        verdict: match
+        extractedValue: Fable 5.1 / Mythos 5.1 = 0.025x、Opus 5.5 = 0.05x、それ以外(Opus 5・4.8・4.7・4.6・4.5、Fable 5 等)= 0.1x。時点の日付は記載なし
+        extractedQuote: Cache hits and refreshes on Claude Fable 5.1 and Claude Mythos 5.1 are priced at 0.025x … on Claude Opus 5.5 are priced at 0.05x … All other models use the standard 0.1x multiplier.
+        locator: "## Pricing 表の脚注 1・2 と「All other models」の注記"
+        note: ask の「___-___時点」に当たる日付は、このページのどこにも無い。取得日は 2026-09-24。Opus 5.5 の発表日は Anthropic のニュースページ(SRC-0101)で September 22, 2026。表では Opus 5・4.8・4.7・4.6・4.5 の読み取り単価がいずれも $0.50(入力 $5 の 0.1x)。
+      c3:
+        verdict: match
+        extractedValue: 5分
+        extractedQuote: Currently, there's no way to manually clear the cache. Cached prefixes automatically expire after a minimum of 5 minutes of inactivity. … Time spent generating a response counts against the lifetime
+        locator: "FAQ「Can I manually clear the cache?」と FAQ「When does the cache lifetime start?」(同じ趣旨の記述が ## How prompt caching works にもある)"
+        note: 「生成時間が寿命に含まれる」は別の FAQ(When does the cache lifetime start?)にある記述。1時間 TTL を使う場合、最短寿命は1時間(Data retention 節)。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

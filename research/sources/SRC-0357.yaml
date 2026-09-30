@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0357
+status: included
+excludeReason: null
+title: Models got an order of magnitude better at following instructions in one year
+url: https://arize.com/blog/llm-instruction-following-benchmark-2026
+canonicalUrl: https://arize.com/blog/llm-instruction-following-benchmark-2026
+ids:
+  arxiv: null
+  doi: null
+publisher: Arize AI
+authors: [Voss Laurie]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-05-12
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: '"instruction density" OR "number of instructions" LLM agent rule adherence benchmark 2026'
+derivedFrom: [SRC-0356]
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: IFScale を2026年モデルで再実行した追試(正式論文化前)。劣化の始まりが200〜300個から約2,000個へ移ったと報告する。ただし測定は名詞の包含のみで、あらゆる指示が守られる証明ではないと自ら留保する。
+claims:
+  - id: c1
+    text: 記事によれば、1年前のフロンティアモデルは 200〜300 個の同時制約で指示を落とし始めたが、2026年のモデルではその上限が約 2,000 個に近づいた(桁違いの改善)。ただしこの値はモデル選択に依存し、指標は IFScale(名前付き項目の包含)で、一般の指示遵守ではないと著者自身が断っている。
+    quote: A year ago, frontier models started losing track of instructions somewhere around 200–300 simultaneous constraints. With 2026 models, that ceiling is closer to 2,000 — an order-of-magnitude jump.
+    locator: Lead(記事冒頭のリード文)
+    quant:
+      value: ~200–300 → ~2,000 constraints
+      n: not fully reported (5 runs per data point; formal paper pending)
+      design: replication of IFScale, extended N
+      population: GPT 5.5, Gemini 3.1 Pro, Claude, DeepSeek V4 Pro 等
+    evidenceKind: benchmark
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 劣化の変曲点はモデルによりおよそ750〜9,000個超と大きく異なる。
+    quote: The chart shows inflection points spanning roughly N750 to N9,000+.
+    locator: Some caveats
+    quant:
+      value: N750 to N9,000+
+      n: current frontier models
+      design: benchmark
+      population: keyword inclusion
+    evidenceKind: benchmark
+    rqs: [TH03-Q3]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 測定は名詞の包含であり、長いスキルファイルが成立しうる証拠にはなるが、そこに書いたあらゆる種類の指示が守られる証明ではないと著者自身が留保する。
+    quote: IFScale measures named-item inclusion. The capacity result is evidence that long skills files are viable, not proof that every kind of instruction in them is followed.
+    locator: Some caveats
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH03-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:29.281Z
+    httpStatus: 200
+    finalUrl: https://arize.com/blog/llm-instruction-following-benchmark-2026/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Models got an order of magnitude better at following instructions in one year
+    titleMatch: true
+    dateMeta: 2026-05-12
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: A year ago / 200–300 / 2026 / 2,000
+        extractedQuote: A year ago, frontier models started losing track of instructions somewhere around 200–300 simultaneous constraints. With 2026 models, that ceiling is closer to 2,000 — an order-of-magnitude jump.
+        locator: Lead(記事冒頭のリード文)
+        note: 本文の見出し部では 'Depending on what model you pick, that boundary is now closer to 2,000 instructions' とモデル依存の留保付き。メタ description は '2,000-5,000 simultaneous instructions'。冒頭には講演の伝聞として '150-200' も出る。指標は IFScale(名前付き項目の包含)で、一般の指示遵守ではない点は著者自身が caveats で断っている
+        adjudication:
+          verdict: corrected
+          reason: 数値(200〜300 → 約2,000、1年前/2026年)はリード文どおり。ただし本文では「Depending on what model you pick」とモデル依存の留保が付く。指標は IFScale で一般の指示遵守ではないと著者が caveats で断っており、その条件が欠けているため補った。「フロンティアモデル」という対象も補った。
+          date: 2026-09-24
+          originalText: 1年前は200〜300個の同時制約で指示を落とし始めたが、2026年のモデルでは上限が約2,000個に近づいた(桁違いの改善)。
+          originalQuote: A year ago, frontier models started losing track of instructions somewhere around 200–300 simultaneous constraints. With 2026 models, that ceiling is closer to 2,000 — an order-of-magnitude jump.
+      c2:
+        verdict: match
+        extractedValue: N=750 to N=9,000+
+        extractedQuote: Different models hit the wall at very different N. The chart shows inflection points spanning roughly N=750 to N=9,000+.
+        locator: Some caveats
+        note: 同節の先頭で 'IFScale measures named-item inclusion ... not proof that every kind of instruction in them is followed' と測定対象の限定を明記
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

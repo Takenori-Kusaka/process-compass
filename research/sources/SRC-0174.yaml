@@ -1,0 +1,110 @@
+schemaVersion: 0
+id: SRC-0174
+status: included
+excludeReason: null
+title: Why SWE-bench Verified no longer measures frontier coding capabilities
+url: https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/
+canonicalUrl: https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-02-23
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: SWE-bench Verified saturated contaminated no longer report frontier labs 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH07]
+events: []
+summary: SWE-bench Verified の作成元 OpenAI が汚染と欠陥テストを理由に報告を停止した一次資料(前回メモは未参照)。Verified の高得点は飽和ではなく汚染の反映でもあるという反証。
+claims:
+  - id: c1
+    text: OpenAI は SWE-bench Verified の報告を停止し、他社にも停止を勧めた(2026-02-23)。前回メモ(2026-08-04)はこの一次資料に触れていない。
+    quote: This is why we have stopped reporting SWE-bench Verified scores, and we recommend that other model developers do so too.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: qualifies
+  - id: c2
+    text: モデルがよく落とす 27.6% の問題を監査すると、少なくとも 59.4% に正しい解を落とす欠陥テストがあった。
+    quote: at least 59.4% of the audited problems have flawed test cases that reject functionally correct submissions
+    locator: 冒頭
+    quant:
+      value: ">=59.4% of audited problems flawed"
+      n: 27.6% subset (138 of 500)
+      design: expert audit
+      population: SWE-bench Verified
+    evidenceKind: observational
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: qualifies
+  - id: c3
+    text: 検査したフロンティアモデルはすべて一部の問題で正解パッチ(gold patch)を再現でき、学習時に問題と解を見ていた。
+    quote: all frontier models we tested were able to reproduce the original, human-written bug fix used as the ground-truth reference
+    locator: 冒頭 / Contamination
+    quant: null
+    evidenceKind: observational
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:42.888Z
+    httpStatus: 403
+    finalUrl: https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/
+    contentType: text/html; charset=UTF-8
+    titleFetched: ""
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-02-23("February 23, 2026")
+        extractedQuote: February 23, 2026 [...] This is why we have stopped reporting SWE-bench Verified scores, and we recommend that other model developers do so too.
+        locator: ページ見出しの日付/冒頭(Background の前)
+        note: curl の既定 UA では Cloudflare のチャレンジページが返り、ブラウザ相当のヘッダーで本文を取得(tavily_extract でも同一本文を確認)。後半「前回メモ(___)はこの一次資料に触れていない」は本資料では検証不能。原典は併せて "OpenAI recommends reporting results for SWE-bench Pro" と推奨先を明記
+      c2:
+        verdict: match
+        extractedValue: 27.6% の部分集合 / 少なくとも 59.4%
+        extractedQuote: We audited a 27.6% subset of the dataset that models often failed to solve and found that at least 59.4% of the audited problems have flawed test cases that reject functionally correct submissions
+        locator: 冒頭の箇条 "Tests reject correct solutions"
+        note: 本文(Too narrow and too wide tests)では母集団が具体化され、"138 SWE-bench Verified problems that OpenAI o3 did not consistently solve over 64 independent runs"(138/500=27.6%)。同節は "59.4% of the 138 problems contained material issues in test design and/or problem description" と書き、冒頭の「flawed test cases」より広い(問題文の欠陥も含む)。ask の「モデルがよく落とす」は冒頭の表現どおりだが、本文の定義は o3 単独
+      c3:
+        verdict: match
+        extractedValue: all frontier models we tested(gold patch または問題文の逐語的詳細を再現)
+        extractedQuote: all frontier models we tested were able to reproduce the original, human-written bug fix [...] known as the gold patch, or verbatim problem statement specifics for certain tasks
+        locator: 冒頭の箇条 "Training on solutions" / Contamination 節
+        note: 原典は「gold patch または問題文の逐語的な詳細」を再現と書いており、ask は後者の選択肢を落として gold patch 再現に限定している。「学習時に見ていた」は原典でも推論("indicating that all of them have seen at least some of the problems and solutions during training")。Contamination 節で検査対象は GPT‑5.2‑Chat / Claude Opus 4.5 / Gemini 3 Flash Preview の3モデルで、推論モデルを意図的に除外している("chosen to exclude reasoning models")。「検査したフロンティアモデルはすべて」の母集団はこの3モデル
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified

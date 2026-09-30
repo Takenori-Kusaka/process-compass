@@ -1,0 +1,106 @@
+schemaVersion: 0
+id: SRC-0095
+status: included
+excludeReason: null
+title: AI事業者ガイドラインの令和７年度更新内容(資料2)
+url: https://www.soumu.go.jp/main_content/001059300.pdf
+canonicalUrl: https://soumu.go.jp/main_content/001059300.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 総務省・経済産業省
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-03-12
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: AI事業者ガイドラインの令和７年度更新内容 資料２ 総務省 経済産業省 令和8年3月12日 AIエージェント フィジカルAI
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12]
+events: [{date: 2026-02-16, label: 更新内容(案)公表}, {date: 2026-03-12, label: 令和7年度更新内容を検討会資料として提示}]
+summary: AI事業者ガイドライン(第1.1版→更新)の令和7年度更新内容。AIエージェントを「特定の目標を達成するために、環境を感知し自律的に行動するAIシステム」と定義し、自律的に動作するため「人間の判断を介在させる仕組みの構築」「最小権限」「定期的な操作履歴確認」を留意事項として追記。主体区分(開発者/提供者/利用者)の役割も見直し。
+claims:
+  - id: c1
+    text: AIエージェント・フィジカルAIは自律的に動作するため、人間の判断を介在させる仕組みの構築が重要である旨を留意事項として追記。要求は「仕組み」であり役割を人が占めることではない。
+    quote: AIエージェントやフィジカルAIは自律的に動作するため、人間の判断 を介在させる仕組みの構築が重要である旨を追記
+    locator: 2. 令和７年度の更新内容 ④留意すべき事項の追加(AI利用者)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q2]
+    issues: [248, 249]
+    stance: supports
+  - id: c2
+    text: AIエージェントの定義を「特定の目標を達成するために、環境を感知し自律的に行動するAIシステム」としてガイドラインに追加する。
+    quote: 本ガイドラインにおけるAIエージェントとは、特定の目標を達成するために、環境を感知し自律的に行動するAIシステムとする。
+    locator: 2. 令和７年度の更新内容 ①定義の追加
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 自律性を持って行動する AI については定期的な操作履歴確認や報告が重要と追記。事後の監視(on-the-loop 型)を利用者に求める。
+    quote: AIエージェントやフィジカルAIは自律性を持って行動するため、 定期的な操作履歴確認や報告が重要である旨を追記
+    locator: 2. 令和７年度の更新内容 ④留意すべき事項の追加(AI利用者)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, TH12-Q2]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:42.656Z
+    httpStatus: 0
+    finalUrl: https://soumu.go.jp/main_content/001059300.pdf
+    contentType: ""
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: no-text
+      c2: no-text
+      c3: no-text
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: fetch failed
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 人間の判断を介在させる仕組みの構築が重要
+        extractedQuote: AIエージェントやフィジカルAIは自律的に動作するため、人間の判断を介在させる仕組みの構築が重要である旨を追記
+        locator: p.11「2-1 ④留意すべき事項の追加（AI提供者）」（別添4.AI提供者向け）
+        note: この文は AI利用者のページ(p.12)ではなく、AI提供者のページ(p.11)にある。locator(AI利用者)と主体が食い違う。AI利用者のページ(p.12)で対応する記述は「出力によって重大な影響又は被害が生じ得る場合、人間の判断を介在させる仕組みに基づいた判断が重要である旨を追記」で、条件付き(重大な影響・被害が生じ得る場合)。p.5 の総括には主体を分けずに「人間の判断を介在させる仕組みの構築や最小権限設定、ハードウェア残存データへの配慮等、留意すべき事項を追加」とある。後半の「要求は『仕組み』であり役割を人が占めることではない」は原文に無い解釈。
+      c2:
+        verdict: match
+        extractedValue: 特定の目標を達成するために、環境を感知し自律的に行動するAIシステム
+        extractedQuote: 本ガイドラインにおけるAIエージェントとは、特定の目標を達成するために、環境を感知し自律的に行動するAIシステムとする。
+        locator: p.5「2. 令和７年度の更新内容 ① AI事業者ガイドラインとしての定義の追加」✓ AIエージェントの定義（案）
+        note: 資料では「AIエージェントの定義（案）」と「案」の表記付き。p.6 にはエージェンティックAIは本年度は脚注補足に留め、定義は次年度以降とある。
+      c3:
+        verdict: match
+        extractedValue: 定期的な操作履歴確認や報告が重要
+        extractedQuote: AIエージェントやフィジカルAIは自律性を持って行動するため、定期的な操作履歴確認や報告が重要である旨を追記
+        locator: p.12「2-1 ④留意すべき事項の追加（AI利用者）」（別添5.AI利用者向け）
+        note: 主体(AI利用者)は locator と一致する。後半の「事後の監視(on-the-loop 型)を利用者に求める」は原文に無い解釈。原文は「重要である旨を追記」で、要求の強さは「重要」にとどまる。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://soumu.go.jp/main_content/001059300.pdf

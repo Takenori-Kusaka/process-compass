@@ -1,0 +1,127 @@
+schemaVersion: 0
+id: SRC-0394
+status: included
+excludeReason: null
+title: Measuring and Exploiting Contextual Bias in LLM-Assisted Security Code Review
+url: https://arxiv.org/abs/2603.18740
+canonicalUrl: arxiv:2603.18740
+ids:
+  arxiv: "2603.18740"
+  doi: null
+publisher: arXiv (University of Athens / Athens University of Economics and Business)
+authors: [Georgios Alexopoulos, Nikolaos Alexopoulos, Dimitris Mitropoulos, Diomidis Spinellis]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-03-19
+publishedBasis: arxiv-v1
+version: v3
+updated: 2026-09-12
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: controlled experiment developers review code with AI review suggestions automation bias miss vulnerabilities over-reliance 2026 arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10]
+events: []
+summary: PR の説明文・コミットメッセージの書き方(枠付け)が LLM のセキュリティレビューを左右することを 6 モデルで確認し、Claude Code と CodeRabbit のレビューパイプラインに脆弱性を再混入させる攻撃が 97% 成功、PR 説明文の除去で半数が回復すると示した。
+claims:
+  - id: c1
+    text: 6つの LLM・5つの枠付け条件にわたる大規模な探索的研究により、PR メタデータの枠付けが脆弱性判定を左右する枠付け効果は、LLM ベースの脆弱性検出における系統的かつ広範な現象であると示された。
+    quote: a large-scale exploratory study across 6 LLMs under five framing conditions, establishing the framing effect as a systematic and widespread phenomenon in LLM-based vulnerability detection.
+    locator: Abstract / §I contributions / §III
+    quant:
+      value: 6 LLM x 5 枠付け条件で一貫
+      n: 約 10,000 応答
+      design: controlled experiment
+      population: LLM による脆弱性検出
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4, TH10-Q4]
+    issues: [268, 271]
+    stance: supports
+  - id: c2
+    text: LLM で反復改良した PR メタデータによる脆弱性再混入攻撃は、実在の 2 レビューパイプラインに対して 33 件中 32 件(97%)成功した。
+    quote: Our refinement attack, on the other hand, is successful in 32/33 (97%) cases
+    locator: Abstract / §IV-C
+    quant:
+      value: 97%(32/33)
+      n: 33 CVE、20 実プロジェクト、Claude Code・CodeRabbit の 2 パイプライン
+      design: controlled experiment (isolated replay)
+      population: 自動コードレビュー(ACR)パイプライン
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: supports
+  - id: c3
+    text: レビュアへ渡す前に PR 説明文を除去すると、攻撃で見逃した 32 件中 16 件(50%)で検出が戻った。検証者の入力から作成者の主張を切り離すことが緩和策になる。
+    quote: Redacting the PR description before passing the PR to ACR (D-1) recovers detection in 16/32 affected cases (50%).
+    locator: §IV-C Defenses / Table III
+    quant:
+      value: 50%回復(16/32)
+      n: 攻撃が成功した 32 件
+      design: controlled experiment (debiasing ablation)
+      population: 同上
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4, TH06-Q6, TH10-Q4]
+    issues: [257, 271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:52.933Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2603.18740
+    contentType: text/html; charset=utf-8
+    titleFetched: Measuring and Exploiting Contextual Bias in LLM-Assisted Security Code Review
+    titleMatch: true
+    dateMeta: 2026-03-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: Measuring and Exploiting Contextual Bias in LLM-Assisted Security Code Review
+      authors: ["Mitropoulos, Dimitris", "Alexopoulos, Nikolaos", "Alexopoulos, Georgios", "Spinellis, Diomidis"]
+      v1Date: 2026-03-19
+      latestVersion: 3
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 6 LLMs / five framing conditions
+        extractedQuote: a large-scale exploratory study across 6 LLMs under five framing conditions, establishing the framing effect as a systematic and widespread phenomenon in LLM-based vulnerability detection.
+        locator: Abstract / §I contributions / §III
+        note: §I では 4 モデル系統(OpenAI, Anthropic, Google, DeepSeek)・計14,910クエリと補足している。後半の『作成者の説明を読んでからレビューする構成は、作成者の主張にレビュアを引き寄せる』は直接の文言ではなく外挿。§III は統制した枠付け条件(Bug-free/Bug-present)での実験であり、§IV ではテンプレート型の偏向メタデータは効かず逆効果もあった('direct biasing attempts raise suspicions')。効いたのは LLM で反復改良したメタデータだけ
+        adjudication:
+          verdict: corrected
+          reason: 前半は blindQuote と一致する。後半の『作成者の説明を読んでからレビューする構成は、作成者の主張にレビュアを引き寄せる』は原文に直接の文言が無い外挿である。さらに §IV ではテンプレート型の偏向メタデータは効かず逆効果もあった('direct biasing attempts raise suspicions')とされ、効いたのは LLM で反復改良したメタデータだけなので、一般化した後半は外した。
+          date: 2026-09-24
+          originalText: PR メタデータの枠付けが脆弱性判定を左右する『枠付け効果』は、6 モデル・5 条件で系統的かつ広範に生じる。作成者の説明を読んでからレビューする構成は、作成者の主張にレビュアを引き寄せる。
+          originalQuote: across 6 LLMs under five framing conditions, establishing the framing effect as a systematic and widespread phenomenon in LLM-based vulnerability detection.
+      c2:
+        verdict: match
+        extractedValue: two(Claude Code, CodeRabbit)/ 32/33 / 97%
+        extractedQuote: "Our refinement attack, on the other hand, is successful in 32/33 (97%) cases, exploiting a fundamental asymmetry: attackers can iteratively refine attacks against a local clone of the review pipeline"
+        locator: Abstract / §IV-C 2 RQ3(Table III)
+        note: 33件は2つのパイプラインに振り分けたもので、Claude Code 17件中17件(100%)、CodeRabbit 16件中15件(94%)。各 CVE は片方のパイプラインにしか当てていない。パイプラインは実在ツールだが隔離環境で動かしており、攻撃者は手元の複製に対して反復する想定。5回の再レビューで承認が保たれた割合は 76%(Claude Code)と 66%(CodeRabbit)。メタデータを伏せる防御で全件の検出が戻った
+        adjudication:
+          verdict: consistent
+          reason: 『Our refinement attack ... is successful in 32/33 (97%) cases』と一致し、パイプラインは Claude Code と CodeRabbit の2つ。32/33=97.0%。補足として、33件は2パイプラインへの振り分け(Claude Code 17/17、CodeRabbit 15/16)で、実在ツールを隔離環境で動かし攻撃者は手元の複製に対して反復する想定。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

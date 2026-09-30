@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0522
+status: included
+excludeReason: null
+title: NASA-STD-8739.8B Software Assurance and Software Safety Standard
+url: https://standards.nasa.gov/sites/default/files/standards/NASA/B/0/NASA-STD-87398-Revision-B.pdf
+canonicalUrl: https://standards.nasa.gov/sites/default/files/standards/nasa/b/0/nasa-std-87398-revision-b.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: National Aeronautics and Space Administration (NASA)
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2022-09-08
+publishedBasis: pdf
+version: Revision B
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G02
+  query: NASA-STD-8739.8B IV&V technical independence managerial independence financial independence definition pdf
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH08, TH12]
+events: []
+summary: NASA のソフトウェア保証・安全の必須標準(承認 2022-09-08)。§4.4 で IV&V の独立性を技術・管理・財務の 3 要素で定義し(IEEE の定義を出典に挙げる)、表 1 の SWE-052 で双方向トレーサビリティの実施・記録・維持と、その完了確認を保証側に課す。IEEE 1012 本文(有償)の代わりに読める無償の条文。
+claims:
+  - id: c1
+    text: IV&V は、開発組織から技術的・管理的・財務的に独立した組織が行う検証と妥当性確認と定義される(出典は IEEE の定義)。
+    quote: Verification and validation performed by an organization that is technically, managerially, and financially independent of the development organization.
+    locator: "§3.2 Definitions: Independent Verification and Validation"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: 技術的独立は、IV&V の分析を行う要員がそのシステムや要素の開発に関与していないことを要件とする。
+    quote: Technical independence requires that the personnel performing the IV&V analysis are not involved in the development of the system or its elements.
+    locator: §4.4.1.2 a
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [254]
+    stance: supports
+  - id: c3
+    text: 管理的独立は、IV&V の要員が開発チーム・プログラム管理チームと同じ組織に属さないことを要件とし、分析対象・手法・日程を IV&V 側が自ら決めることを含む。
+    quote: Managerial independence requires that the personnel performing the IV&V analysis are not in the same organization as the development and program management team.
+    locator: §4.4.1.2 b
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [254]
+    stance: context
+  - id: c4
+    text: 財務的独立は、IV&V の予算の統制が開発組織から独立した集団に置かれることを要件とする。
+    quote: Financial independence requires that the control of the IV&V budget be vested in a group independent of the software development organization.
+    locator: §4.4.1.2 c
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [254]
+    stance: supports
+  - id: c5
+    text: 双方向トレーサビリティは、2 つ以上の論理的実体の間の関連がどちらの向きからも識別できることと定義される。表 1 の SWE-052 は保証側に「双方向トレーサビリティが完了し、記録され、維持されていること」の確認を課す。
+    quote: Association among two or more logical entities that are discernible in either direction (to and from an entity).
+    locator: "§3.2 Definitions: Bi-directional Traceability / Table 1 SWE-052"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:24.388Z
+    httpStatus: 200
+    finalUrl: https://standards.nasa.gov/sites/default/files/standards/NASA/B/0/NASA-STD-87398-Revision-B.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c5:
+        verdict: match
+        extractedValue: two or more(2つ以上)/ Table 1 / SWE-052
+        extractedQuote: Association among two or more logical entities that are discernible in either direction (to and from an entity). / Confirm that bi-directional traceability has been completed, recorded, and maintained
+        locator: §3.2 Definitions「Bi-directional Traceability」/ Table 1. Software Assurance and Software Safety Requirements Mapping Matrix、4.1 Software Bi-Directional Traceability、SWE 052 の行
+        note: SWE-052 の保証側タスクは2件ある。2件目は "Confirm that the software traceability includes traceability to any hazard that includes software."。定義は IEEE の定義を出典として引いている。引用の " / " は別箇所(定義と Table 1)の区切り。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

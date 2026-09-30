@@ -1,0 +1,129 @@
+schemaVersion: 0
+id: SRC-0615
+status: included
+excludeReason: null
+title: Bugbot | Cursor Docs
+url: https://cursor.com/docs/bugbot
+canonicalUrl: https://cursor.com/docs/bugbot
+ids:
+  arxiv: null
+  doi: null
+publisher: Cursor (Anysphere)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: Cursor Bugbot docs review comment format rules "Bugbot" autofix severity docs.cursor.com
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH07, TH04, TH03]
+events: []
+summary: Cursor Bugbot の公式文書(日付表記なし、2026-09-30 取得)。指摘は説明と修正案を伴うコメントで、再現手順・実行結果の必須化は書かれていない。指摘があっても CI の結論は既定で neutral(マージを止めない)。レビュー規則は 1 本 30,000 字・合計 100,000 字で打ち切られ、学習規則はチームの活動に応じて自動で有効・無効が切り替わる。
+claims:
+  - id: c1
+    text: Bugbot は差分を解析し、説明と修正案を付けたコメントを残す(再現手順・実行結果を必須とする記述は無い)。
+    quote: Bugbot analyzes PR diffs and leaves comments with explanations and fix suggestions.
+    locator: How it works
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 指摘があっても既定の結論は neutral で、ステータスを必須にするだけではマージは止まらない。未解決の指摘で失敗させるのは別設定(AI レビューの指摘を既定では警告に留める先例)。
+    quote: Requiring the status alone does not block merges on findings because findings default to `neutral`.
+    locator: CI check statuses
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c3
+    text: レビューに渡す規則は 1 本 30,000 字で打ち切り、合計 100,000 字が上限で、超えた分は省かれうる。
+    quote: Each rule is truncated at 30,000 characters when included in a review. The combined rules Bugbot includes for a review are capped at 100,000 characters.
+    locator: Rules / Rule limits
+    quant:
+      value: 30,000 characters per rule; 100,000 characters combined
+      n: none (product limit)
+      design: product specification
+      population: Bugbot review rules
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 学習規則は、そのリポジトリでのチームの GitHub 上の活動から自動生成されるか、リポジトリの履歴からの手動バックフィルで作られ、Cursor がチームの活動を学ぶにつれて自動で有効化・無効化する。学習は組織・リポジトリ単位で有効にする設定が前提で、PR 上の `@cursor remember [fact]` による人手の追加経路もある。
+    quote: Rules are generated automatically from your team's activity on GitHub for that repository or by manually backfilling from the history of the repository.
+    locator: Rules > Repository rules > Learned rules
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q4]
+    issues: []
+    stance: context
+  - id: c5
+    text: 既定では前回の Bugbot レビュー以降の変更だけを見る(増分レビュー)。
+    quote: By default, Bugbot reviews only the changes since the previous Bugbot review.
+    locator: Incremental reviews
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:01.130Z
+    httpStatus: 200
+    finalUrl: https://cursor.com/docs/bugbot
+    contentType: text/html; charset=utf-8
+    titleFetched: Bugbot | Cursor Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: partial
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 1本(each rule)30,000字で打ち切り / 合計 100,000字
+        extractedQuote: Each rule is truncated at 30,000 characters when included in a review. The combined rules Bugbot includes for a review are capped at 100,000 characters.
+        locator: Rules > Rule limits
+        note: '原文の続き: "If you exceed that combined cap, some rules may be omitted." bugbot.md(markdown 版)で取得。続き: "Required team rules are prioritized over non-required rules." 単位は characters。'
+      c4:
+        verdict: match
+        extractedValue: GitHub 上のチーム活動から自動生成 / Cursor が自動で有効化・無効化
+        extractedQuote: Rules are generated automatically from your team's activity on GitHub for that repository or by manually backfilling from the history of the repository.
+        locator: Rules > Repository rules > Learned rules
+        note: "有効化・無効化: \"Cursor will automatically enable or disable rules as it learns more about your team's activity over time.\" 人手の経路も原文にある: 履歴からの手動バックフィル、PR 上の `@cursor remember [fact]` による追加、および学習は組織・リポジトリ単位で有効にする設定が前提(\"enable learning for your organizations and repositories\")。ask の「人手を介さず」は自動の有効化・無効化の部分に対応する。漂流・追認化の測定に当たる記述はこの節には無い(不在の確認)。"
+        adjudication:
+          verdict: corrected
+          reason: 自動生成と自動の有効化・無効化は原文どおり。ただし原文には人手の経路(履歴からの手動バックフィル、`@cursor remember`、学習を有効にする設定)もあり、「人手を介さず変わる仕組み」は自動の有効化・無効化の部分にしか当たらない。条件の欠落による過剰な一般化。漂流・追認化の測定が示されていない点は、当該節に該当記述が無いという不在確認と整合する。
+          date: 2026-09-30
+          originalText: 学習規則はチームの GitHub 上の活動から自動生成され、Cursor が活動に応じて自動で有効化・無効化する。レビュアの判定基準が運用中に人手を介さず変わる仕組みで、漂流・追認化の測定は示されていない。
+          originalQuote: Cursor will automatically enable or disable rules as it learns more about your team's activity over time.
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

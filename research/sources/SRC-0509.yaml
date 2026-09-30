@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0509
+status: included
+excludeReason: null
+title: 第Ⅶ部-3　機械が発行する統合プルリクエスト ― 含まれる変更を git から数え、署名して残す
+url: https://github.com/Takenori-Kusaka/zenn-content/blob/70ba49944733e2fd9f0891388b8dfdedcbcb9d72/books/ganbari-quest-design/stacked-pr-integration.md
+canonicalUrl: https://github.com/takenori-kusaka/zenn-content/blob/70ba49944733e2fd9f0891388b8dfdedcbcb9d72/books/ganbari-quest-design/stacked-pr-integration.md
+ids:
+  arxiv: null
+  doi: null
+publisher: "Zenn(GitHub 連携元: Takenori-Kusaka/zenn-content)"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: book
+published: 2026-09-16
+publishedBasis: meta
+version: null
+updated: 2026-09-21
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: gh api repos/Takenori-Kusaka/zenn-content/contents/books/ganbari-quest-design/stacked-pr-integration.md
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10, TH11, TH07]
+events: []
+summary: Zenn 本『生成AIに実装を任せて商用サービスを作る』の該当章(zenn.dev/takenori_kusaka/books/ganbari-quest-design/viewer/stacked-pr-integration、無料公開)。本文は GitHub 連携元の zenn-content から取得した。#273 の一次記録。
+claims:
+  - id: c1
+    text: 旧 runbook は未統合 PR 数(10 本で警告、20 本で危険)だけでなく、前回統合からの日数(3 日で警告、5 日で危険)も閾値に持っていた。リポジトリの 2026-08-13 時点(commit 2667a8d4 の docs/runbooks/integration-pr-operations.md §2)で同じ値と Discord への drift 通知の規定を確認した。経過日数の閾値は 29 日の空白の時点で既にあり、#273 の提案「本数から経過日数へ置き換える」だけでは同じ空白を防げなかったことになる。現行 runbook(2026-09-23 改定)は本数を閾値から外し、7 日超と main..develop 50 commit 超へ改めている。
+    quote: ずれの閾値は、前回の統合からの日数が 3 日で警告、5 日で危険。未統合のプルリクエストが 10 本で警告、20 本で危険。
+    locator: §手順書の閾値
+    quant:
+      value: 日数 3 / 5 日、本数 10 / 20 本(旧)→ 7 日超、50 commit 超(現行)。実測 28.8 日・181 本
+      n: 1 リポジトリの runbook 2 版
+      design: git show 2667a8d4:docs/runbooks/integration-pr-operations.md と origin/develop(a0cdd414、2026-09-23)の同ファイル §2 を比較。取得 2026-09-30
+      population: ganbari-quest の統合 PR 運用
+    evidenceKind: case-report
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+  - id: c2
+    text: main の統合 merge を git で数え直した概数では、2026-06-16〜09-13 の統合 15 回のうち 14 回が 20 本を超え(20 本以下は 08-01 の 18 本だけ)、07-03→07-16 の 13 日で 117 本(第15回)、08-06→08-12 の 6 日で 108〜109 本、08-13→09-11 の 29 日で 181 本だった。1 日あたりは 08-12 の回が約 18 本、09-11 の回(第22回)が約 6 本で、181 本は流量ではなく間隔の長さで生じているが、これらの値は本の本文には無く、数え方で動く再計測値である。
+    quote: 閾値は守られませんでした。20 本で危険と書いた手順書の下で、181 本が 1 度に入りました。理由は、8 月 13 日から 9 月 11 日の間、本番ブランチへは緊急修正が 2 本入っただけで、統合が 1 度も行われなかったことです。
+    locator: 本の §効いたか、足りなかったか(第2段落)/ 再計測は ganbari-quest の git log --first-parent --merges origin/main
+    quant:
+      value: 15 回中 14 回が 20 本超(17〜181 本、間隔 0.8〜28.8 日)
+      n: 統合 merge 15 回(2026-06-16〜09-13)
+      design: git log --first-parent --merges origin/main の 2 親 merge のうち題名が release / 統合のものを抽出し、直前の統合の develop 側 parent からの first-parent commit のうち PR 番号付き(back-merge 除く)を数えた(tmp/survey-2026-09/g01/integrations.py)。題名の申告値と ±4 本の差がある概数。取得 2026-09-30
+      population: ganbari-quest main(release ブランチ運用の期間)
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: "本の記述(181 本、1,368 ファイル、+246,316/−88,961 行、29 日、差し戻し 33 件)は Issue #273 と同値で、PR #4892 の API 値と git の実測に一致する。統合回数の番号の揺れも main の履歴で確認した(2026-08-05 が「第20回」、08-06 が「第21回」、08-12 が再び「第20回」、08-13 は無番、09-11 が「第22回」)。"
+    quote: 回数の番号も揺れています。8 月 6 日の統合は「第 21 回」、8 月 12 日の統合は「第 20 回」です。
+    locator: §実測
+    quant:
+      value: 第20回が 2 回(08-05、08-12)
+      n: main の統合 merge 5 件(2026-08-05〜09-11)
+      design: git log --first-parent --format="%h %ad %s" origin/main の題名を目視。取得 2026-09-30
+      population: ganbari-quest main
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:17.837Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/publishing-hub/blob/70ba49944733e2fd9f0891388b8dfdedcbcb9d72/books/ganbari-quest-design/stacked-pr-integration.md
+    contentType: text/html; charset=utf-8
+    titleFetched: publishing-hub/books/ganbari-quest-design/stacked-pr-integration.md at 70ba49944733e2fd9f0891388b8dfdedcbcb9d72 · Takenori-Kusaka/publishing-hub
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "本(Zenn): 日数 3 日で警告・5 日で危険、未統合 PR 10 本で警告・20 本で危険。リポジトリの runbook(commit 2667a8d4 = 2026-08-13 時点、および本が引く 3af6c2ed でも同文)§2: 乖離日数 3 日 / 5 日、未統合 PR 数 10 件 / 20 件、Discord への drift 通知の記述あり。現行 runbook(develop 053463794、改定 commit a0cdd414 = 2026-09-23、#4976 / PR #4995)§2: 「前回統合からの経過日数 7 日超」「main..develop の commit 数 50 超」、PR 本数・ファイル数は閾値にしない"
+        extractedQuote: ずれの閾値は、前回の統合からの日数が 3 日で警告、5 日で危険。未統合のプルリクエストが 10 本で警告、20 本で危険。「1 つの統合プルリクエストに 20 件超は、監査 1 回の認知限界の超過」。
+        locator: 本の §運用の数字(第2段落)/ ganbari-quest docs/runbooks/integration-pr-operations.md §2 drift アラート閾値(2667a8d4 の L28-34、現行 L28-36)
+        note: "ask の locator「§手順書の閾値」という見出しは本に無く、該当は「## 運用の数字」。旧 runbook の原文: 「| **乖離日数**（前回統合 merge からの経過日数） | 3 日 | 5 日 |」「| **未統合 PR 数** … | 10 件 | 20 件 |」「乖離日数の機械通知は `integration-pr.yml` / `hotfix-back-merge.yml` の drift 通知（Discord `vars.DISCORD_WEBHOOK_URL` + job summary）で degrade-safe に出る」。旧 runbook は同じ段落で「App 認証未設定環境では統合 PR が自動発行されない…この間は乖離日数を手動監視」とも書いており、通知が実際に出ていたかは本出典からは分からない。runbook の改定履歴は 2026-06-17 新設 → 06-18 → 09-23 の 3 commit のみ。ask の「#___の提案」は特定できず(改定 commit の題名は #4976)。"
+        adjudication:
+          verdict: consistent
+          reason: 旧 runbook の閾値(日数 3 / 5 日、未統合 PR 10 / 20 本)、commit 2667a8d4(2026-08-13)§2 の同値と Discord への drift 通知の規定、現行 runbook(2026-09-23 改定)の「7 日超」「main..develop 50 commit 超」と本数を閾値にしない点は、いずれも blindValue / blindQuote と一致する。経過日数の閾値が空白の起点(08-13)に既に存在したことも 2667a8d4 の記述から導ける。主張は通知の「規定」を確認したと述べるにとどまり、通知が実際に出ていたとは言っていないので、blindNote の留保(App 認証未設定時は手動監視、通知の実発報は不明)と矛盾しない。
+          date: 2026-09-30
+      c2:
+        verdict: match
+        extractedValue: "本には統合ごとの含有 PR 数の一覧は無い(記述は「20 本で危険と書いた手順書の下で、181 本が 1 度に入りました」のみ)。git での再計測(main の first-parent merge ごとに第1親..第2親の first-parent PR 番号を数えた概数、back-merge 込み): 06-16: 47 / 06-24: 77 / 06-28: 36 / 07-03: 100 / 07-16 第15回: 117 / 07-18 第16回: 66 / 07-24 第17回: 33 / 07-31 第18回: 66 / 08-01 第19回: 18 / 08-05「第20回」: 44 / 08-06「第21回」: 34 / 08-12「第20回」: 109(commit 本文は「含有 108 PR」)/ 08-13 無番: 31 / 09-11 第22回: 184(一覧 181)/ 09-13 第23回: 34(題名 26 PR)"
+        extractedQuote: 閾値は守られませんでした。20 本で危険と書いた手順書の下で、181 本が 1 度に入りました。理由は、8 月 13 日から 9 月 11 日の間、本番ブランチへは緊急修正が 2 本入っただけで、統合が 1 度も行われなかったことです。
+        locator: 本の §効いたか、足りなかったか(第2段落)/ 再計測は ganbari-quest の git log --first-parent --merges origin/main
+        note: "ask の数値(統合回数・範囲・間隔ごとの本数・1 日あたりの本数)は本の本文に無く、主張者側の再計測。こちらの概数では、2026-06-16〜09-13 の 15 回のうち 20 本以下は 1 回(08-01 の 18)だけで、14 回が 20 本を超える。間隔の例: 07-03→07-16 の 13 日で 117、08-06→08-12 の 6 日で 108〜109、06-28→07-03 の 5〜6 日で 100、08-13→09-11 の 29 日で 181。1 日あたりは 08-12 の回が約 18 本、09-11 の回が約 6 本。数え方(back-merge を除くか、どの merge を統合と数えるか、範囲の始点)で値が動くので、ask の伏せ字とは一致しない可能性がある。本の冒頭は「1 日に 10 本前後」と書く。"
+        adjudication:
+          verdict: corrected
+          reason: 「15 回中 14 回が 20 本超」「第22回は 1 日あたり約 6 本」「8/12 の回は約 6 日で 108 本」は blind の再計測と一致する。一方、第15回を「間隔 3.4 日で 113 本、1 日あたり約 33 本」とする部分は、blind の再計測(07-03→07-16 の 13 日で 117 本 = 約 9 本/日)と食い違う。範囲の下端 17 本も blind では 18 本。趣旨(20 本超は空白より前から常態、181 本は間隔の長さで生じた)は blind の値でも成り立つので、食い違う数値を blind の値へ置き換えた。
+          date: 2026-09-30
+          originalText: main の統合 merge を数え直すと、2026-06-16〜09-13 の統合 15 回の含有 PR 数は 17〜181 本(概数)で、14 回が 20 本を超えていた。間隔 3.4 日で 113 本(第15回)、6.2 日で 108 本(8/12)の回があり、20 本超は 29 日の空白より前から常態だった。1 日あたりでは第22回が約 6.3 本、第15回が約 33 本で、181 本は流量の増加ではなく間隔の長さで生じている。本数の閾値が効いていなかったという記述を支持する。
+          originalQuote: そして、プルリクエストの本数で置いた危険の閾値は、生成AIが駆動する開発では意味を持たないこと。
+      c3:
+        verdict: match
+        extractedValue: "本: 181 本、1,368 ファイル、追加 246,316 行・削除 88,961 行、前回の統合(8 月 13 日)から 29 日、差し戻し 33 件。回数の番号: 「8 月 6 日の統合は「第 21 回」、8 月 12 日の統合は「第 20 回」」。PR #4892 の API 値(changed_files 1368 / additions 246316 / deletions 88961)と git diff --shortstat は本の値と同じ。main の履歴: 2026-08-05 ebf44985「第20回統合 #4253」、08-06 f6564db7「第21回統合 #4304」、08-12 b3723cec「[第20回]」、08-13 2667a8d4 は番号なし(Merge pull request #4565)、09-11 d4d99dff「[第22回]」"
+        extractedQuote: 第 22 回の統合プルリクエストは、181 本のプルリクエスト、1,368 ファイル、追加 246,316 行と削除 88,961 行でした。前回の統合（8 月 13 日）から 29 日が空き、品質保証部の差し戻し 33 件を経て、切り直したうえでマージされました。
+        locator: 本の §運用の数字(第3段落「実測は、閾値の外にあります。」、第4段落「回数の番号も揺れています。」)
+        note: "ask の locator「§実測」という見出しは無く、「## 運用の数字」の中の段落。本は 08-06 と 08-12 の 2 回しか挙げておらず、08-05 の「第20回」と 08-13 の無番は git の履歴からの値。本は起点を「8 月 13 日」とするが、PR #4892 本文は起点を 2026-08-12(b3723cec)として 29 日と書く。08-13 15:22 JST から 09-11 11:03 JST は経過時間で 28.8 日、暦日差で 29。本は「品質保証部の差し戻し 33 件」と書くが、PR 本文では差し戻したのは監査で、品質保証部(QM)は閉じた側。本は「危険の閾値の 9 倍」とも書く(181 / 20)。ask の「Issue #___」側は本出典に無く照合していない。"
+        adjudication:
+          verdict: consistent
+          reason: "本の値(181 本、1,368 ファイル、+246,316 / −88,961 行、29 日、差し戻し 33 件)は blindQuote どおりで、PR #4892 の API 値(changed_files 1368 / additions 246316 / deletions 88961)と git diff --shortstat に一致すると blindValue が確認している。番号の揺れ(08-05 第20回、08-06 第21回、08-12 第20回、08-13 無番、09-11 第22回)も main の履歴と一致。blindNote の指摘(本は 08-06 と 08-12 の 2 回しか挙げない、起点は本が 08-13・PR 本文が 08-12、差し戻したのは監査で品質保証部ではない)は、主張が述べていない点か、主張が main の履歴からの確認と明示している点であり、主張の記述とは矛盾しない。"
+          date: 2026-09-30
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

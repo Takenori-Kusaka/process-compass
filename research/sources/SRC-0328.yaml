@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0328
+status: included
+excludeReason: null
+title: "Helpful but Fallible: Developer Experiences of AI Tools Under a Coordinated Industrial Roll-out"
+url: https://arxiv.org/abs/2609.20977
+canonicalUrl: arxiv:2609.20977
+ids:
+  arxiv: "2609.20977"
+  doi: null
+publisher: arXiv (cs.SE) / Lund University, Ericsson AB ほか
+authors: [Andreas Bexell, Rushali Gupta, Lo Gullstrand Heander, Emma Söderberg, Per Runeson, Sigrid Eldh, Wei Shi, Konstantin Malysh]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-09-17
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: arXiv cs.SE recent listing (https://arxiv.org/list/cs.SE/recent)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH01, TH02]
+events: []
+summary: スウェーデンの大手通信企業(著者所属に Ericsson AB)で組織的に進められた AI 開発ツール展開について、3拠点12名への半構造化インタビューを TAM2 で解釈した事例研究。経営と開発者の期待ギャップと、受容モデルにない「知覚リスク」を示す。
+claims:
+  - id: c1
+    text: 3拠点の12名のソフトウェア専門職に半構造化インタビューを行った。
+    quote: We conducted semi-structured interviews with 12 software professionals across three sites
+    locator: Abstract; §3
+    quant:
+      value: 12 interviews
+      n: 12 professionals / 3 sites
+      design: case study(process coding + thematic analysis, TAM2 as post-hoc lens)
+      population: 大手通信企業の開発者
+    evidenceKind: case-report
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: インタビューから、経営と開発者の間の期待ギャップが浮かび上がった(TAM2 の主観的規範・自発性に対応)。
+    quote: the interviews surface a management-developer expectation gap
+    locator: Abstract; §4
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q2, TH02-Q5]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 参加者は知覚リスクを重く見ており、これは TAM2 などの受容モデルが表現しない要因である。
+    quote: participants weigh perceived risk heavily, a factor that TAM2 and similar acceptance models do not represent
+    locator: Abstract; §5
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:08.575Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.20977
+    contentType: text/html; charset=utf-8
+    titleFetched: "Helpful but Fallible: Developer Experiences of AI Tools Under a Coordinated Industrial Roll-out"
+    titleMatch: true
+    dateMeta: 2026-09-17
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Helpful but Fallible: Developer Experiences of AI Tools Under a Coordinated Industrial Roll-out"
+      authors: ["Bexell, Andreas", "Gupta, Rushali", "Heander, Lo Gullstrand", "Söderberg, Emma", "Runeson, Per", "Eldh, Sigrid"]
+      v1Date: 2026-09-17
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3拠点(three sites) / 12名(12 software professionals)
+        extractedQuote: We conducted semi-structured interviews with 12 software professionals across three sites, analyzed with process coding and thematic analysis
+        locator: Abstract; §3.3 Data Collection('We interviewed 12 software professionals (Table 1) from three company sites.')
+        note: 対象はスウェーデンの大手通信企業1社のスウェーデン国内3拠点。ロールアウトはトップダウンの義務化(mandated)。調査時期は2025年末で、ロールアウト開始から約6か月後。12名は募集に応じた自発的回答者の全数
+      c2:
+        verdict: match
+        extractedValue: TAM2
+        extractedQuote: the interviews surface a management–developer expectation gap that maps onto the TAM2 constructs of subjective norm and voluntariness
+        locator: Abstract(対応付けの詳細は §5.1 Technology Acceptance と Figure 1)
+        note: TAM2 は事後的な分析レンズ(post-hoc analytical lens)で、テーマ構成の完了後に選ばれた。TAM2 構成概念への対応付けは §4 Results ではなく Abstract と §5.1/Figure 1 にある(locator の §4 とずれる)
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

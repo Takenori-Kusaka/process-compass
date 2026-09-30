@@ -1,0 +1,118 @@
+schemaVersion: 0
+id: SRC-0300
+status: included
+excludeReason: null
+title: Technology Radar Vol.34 (April 2026)
+url: https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2026/04/tr_technology_radar_vol_34_en.pdf
+canonicalUrl: https://thoughtworks.com/content/dam/thoughtworks/documents/radar/2026/04/tr_technology_radar_vol_34_en.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Thoughtworks
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-04
+publishedBasis: pdf
+version: Volume 34
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: Thoughtworks Technology Radar Volume 34 AI coding
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH11, TH01, TH08, TH05]
+events:
+  - date: 2026-04
+    label: Thoughtworks Technology Radar Vol.34 公開(Claude Code を Adopt、Agent instruction bloat などを Caution)
+summary: Thoughtworks の技術レーダー第34版(PDF 全文)。指示書の肥大、コードベースの認知負債、コーディング量による生産性測定、エージェントのチームとスウォームの区別、Spec Kit の運用報告を Caution/Assess として扱う。
+claims:
+  - id: c1
+    text: AGENTS.md・CLAUDE.md は追記で肥大し、指示が長く互いに矛盾する。長い文脈の中ほどは注意されにくく、指示が増えるほど重要なルールが無視される確率が上がる。必要な指示だけを出す progressive disclosure を推奨する(Caution)。
+    quote: As instructions grow, the likelihood increases that important rules are ignored.
+    locator: "Techniques #34 Agent instruction bloat (Caution), p.26"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH03-Q3, TH03-Q4, TH03-Q1]
+    issues: [269, 274]
+    stance: supports
+  - id: c2
+    text: AI に AGENTS.md を生成させるチームが多いが、研究によれば手書きの方が効果的なことが多い。
+    quote: research suggests hand-written versions are often more effective than LLM-generated ones
+    locator: "Techniques #34 Agent instruction bloat (Caution), p.26"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH03-Q4, TH05-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: コードベースの認知負債とは、実装とチームの共有理解の間に広がる溝である。AI で変更速度が上がるほど設計意図と隠れた結合を見失う。対策として、エージェント向けのフィードバックセンサー、チームの認知負荷の追跡、アーキテクチャ適合度関数を挙げる(Caution)。
+    quote: Codebase cognitive debt is the growing gap between a system's implementation and a team's shared understanding of how and why it works.
+    locator: "Techniques #36 Codebase cognitive debt (Caution), p.26"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3]
+    issues: []
+    stance: context
+  - id: c4
+    text: 生成行数や PR 本数で AI の成果を測ると、整合しないコードが溢れてレビューとスループットを悪化させる。代わりに AI 出力が最小の手戻りで使えた割合(first-pass acceptance rate)を先行指標とし、DORA 指標と結びつけることを勧める(Caution)。
+    quote: More meaningful leading indicators exist, such as first-pass acceptance rate
+    locator: "Techniques #38 Coding throughput as a measure of productivity (Caution), pp.26-27"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3, TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c5
+    text: エージェントのチーム(少数・役割別)は Claude Code の agent teams などで導入障壁が下がった(Assess)。一方、数十〜数百のスウォームは Caution とする。注目された実験は詳細な仕様と網羅的なテストに依存しており、要求が曖昧で検証が難しい通常のプロダクト開発を代表しない。
+    quote: Those conditions are not representative of typical product development, where requirements are less defined and verification is harder.
+    locator: "Techniques #30 Team of coding agents (Assess) / #37 Coding agent swarms (Caution), pp.24-26"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3]
+    issues: []
+    stance: qualifies
+  - id: c6
+    text: Spec Kit を試したチームは、プロジェクト文脈を足し続けて指示が肥大し、context rot に至った。あるチームは再利用可能な手引きを skills へ切り出し、指示を軽く保った(Assess)。
+    quote: Teams also encountered challenges such as instruction bloat, where continually adding project context led to a growing agent instruction set and eventually context rot.
+    locator: "Languages and Frameworks #112 GitHub Spec Kit (Assess), p.55"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH03-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:23.242Z
+    httpStatus: 200
+    finalUrl: https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2026/04/tr_technology_radar_vol_34_en.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://thoughtworks.com/content/dam/thoughtworks/documents/radar/2026/04/tr_technology_radar_vol_34_en.pdf

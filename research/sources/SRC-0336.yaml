@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0336
+status: included
+excludeReason: null
+title: DRBFMとは？FMEAとの違いと設計変更リスクを防ぐ進め方を解説
+url: https://oem-ems-partners.com/column/2928
+canonicalUrl: https://oem-ems-partners.com/column/2928
+ids:
+  arxiv: null
+  doi: null
+publisher: OEM・EMSパートナーズ.com(日東電気グループ)
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: DRBFM ソフトウェア 変更点 変化点 レビュー 事例
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07]
+events: []
+summary: 製造受託企業(日東電気グループ)のサイトによる DRBFM 解説(掲載日は取得できず)。変化点レビューが「ワークシート提出のための作業」へ形骸化する典型と対策、設計を変えなくても環境変化を変化点に数えることを述べる。
+claims:
+  - id: c1
+    text: DRBFM を導入した企業の多くが、ワークシートを提出するための作業に陥るという課題を抱えると述べる。変化点管理が帳票の充足へ縮退する現象の報告である(件数などの根拠は示されない)。
+    quote: DRBFMを導入する企業の多くが「ワークシートを提出するための作業」になってしまうという課題を抱えています。これは形骸化の典型パターンです。
+    locator: DRBFMが形骸化する3つのパターンと対策
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2, TH07-Q5]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 「問題ありませんか」と問うと設計者は「ありません」と答えがちで、変更の波及経路を一段ずつ問う形が必要だとする。確認の問い方が形式的だと検出力が落ちる、という指摘である。
+    quote: 逆に「問題ありませんか」という問い方では、設計者の答えは「ありません」になりがちです。
+    locator: Good Questionとは？
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: トヨタは部品を納めるサプライヤーに DRBFM の実施を義務付けていると述べる(一次資料は未確認)。
+    quote: トヨタ自動車はグループに部品を納めるサプライヤーに対してDRBFMの実施を義務付けており
+    locator: GD3との関係の前段
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: 仕向け地や使用環境が変わる場合は、設計図面に変更がなくても工程の変化点として管理する必要があるとする。自分が何も変えていなくても環境側の変化を変化点に数える考え方で、モデル側の更新を変化点として扱う発想と対応する。
+    quote: 設計図面に変更がなくても、工程の変化点として管理する必要があります。
+    locator: 変化点の具体例(仕向け地・使用環境の変更)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2, TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:14.719Z
+    httpStatus: 200
+    finalUrl: https://oem-ems-partners.com/column/2928/
+    contentType: text/html; charset=UTF-8
+    titleFetched: DRBFMとは？FMEAとの違いと設計変更リスクを防ぐ進め方を解説 | 基礎知識 | OEM・EMSパートナーズ.com
+    titleMatch: true
+    dateMeta: 2026-08-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

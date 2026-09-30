@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0528
+status: included
+excludeReason: null
+title: "oSIST prEN IEC 61508-3:2025 (IEC CDV 61508-3 ED3, 65A/1169/CDV) Functional safety of E/E/PE safety-related systems — Part 3: Software requirements (iTeh preview)"
+url: https://cdn.standards.iteh.ai/samples/76736/b4cc15dd4a0f47be8ec798aee192126b/oSIST-prEN-IEC-61508-3-2025.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/76736/b4cc15dd4a0f47be8ec798aee192126b/osist-pren-iec-61508-3-2025.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: International Electrotechnical Commission (IEC) SC 65A
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2025-02-21
+publishedBasis: pdf
+version: Committee Draft for Vote (Edition 3)
+updated: null
+accessed: 2026-09-30
+access: paywall
+readLevel: section
+foundBy:
+  cluster: G02
+  query: cdn.standards.iteh.ai samples IEC 61508-1 2010 OR "EN 61508-1" pdf "functional safety assessment" sample
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH12, TH06]
+events:
+  - date: 2025-02-21
+    label: IEC 61508-3 第 3 版の CDV を回付(投票締切 2025-05-16)
+summary: IEC 61508-3 第 3 版の投票用委員会原案(2025-02-21 回付)の公開プレビュー。目次とまえがきの変更点一覧が読める。トレーサビリティの要求を各フェーズからライフサイクル全体の管理活動の表へ集約し、オフライン支援ツールの信頼性を規範附属書 H に独立させた。原案であり発行版ではない。2026-09-30 時点の発行有無は確認できていない。
+claims:
+  - id: c1
+    text: 第 3 版原案は、ソフトウェアライフサイクル全体にわたる管理活動の要求を定める表を新設し、トレーサビリティの要求を個々のフェーズの要求から外してその表へ移した。
+    quote: traceability, which have been removed from individual phase requirements
+    locator: FOREWORD, 変更点 k)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+  - id: c2
+    text: オフライン支援ツールへの要求を見直し、ツール使用の信頼性を扱う規範附属書 H(使用計画、使用文脈での分類、利用者文書、構成管理、使用履歴による信頼など)を置いた。
+    quote: The requirements on software off-line support tools have been refined
+    locator: FOREWORD, 変更点 h) / 目次 Annex H (normative)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 既存の適合ツールへの影響を避けるため、附属書 A・B の手法・技法は元の参照 ID を保ち、削除した項目には Not Used と記す(ID を再利用しない)。
+    quote: have retained their original reference ID
+    locator: FOREWORD, NOTE
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:26.450Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/76736/b4cc15dd4a0f47be8ec798aee192126b/oSIST-prEN-IEC-61508-3-2025.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 第 3 版(third edition)
+        extractedQuote: k) An additional table has been added to define requirements on management activities which occur throughout the entire software lifecycle; this table includes requirements on traceability,
+        locator: 'FOREWORD, significant technical changes k)(行番号 298-300)。版の記述は行 265: "This third edition cancels and replaces the second edition published in 2010."'
+        note: 'quote の続き(原文そのまま): "which have been removed from individual phase requirements"。iTeh の無償プレビュー PDF を取得。文書は 65A/1169/CDV(IEC 61508-3 ED3 の投票用委員会原案)であり、確定版ではない。原文は「トレーサビリティの要求を含む表を追加し、その要求は個々のフェーズの要求から削除された」で ask と向きは一致。'
+        adjudication:
+          verdict: consistent
+          reason: blindQuote と blindNote の続き(An additional table has been added to define requirements on management activities which occur throughout the entire software lifecycle; this table includes requirements on traceability, which have been removed from individual phase requirements)と一致する。主張は「第 3 版原案」と書いており、文書が CDV(投票用委員会原案)で確定版でないという blindNote の指摘とも整合する。
+          date: 2026-09-30
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

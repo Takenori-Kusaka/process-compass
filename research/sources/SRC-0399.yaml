@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0399
+status: included
+excludeReason: null
+title: Automated Code Review In Practice
+url: https://arxiv.org/abs/2412.18531
+canonicalUrl: arxiv:2412.18531
+ids:
+  arxiv: "2412.18531"
+  doi: null
+publisher: ICSE 2025 SEIP (arXiv)
+authors: [Umut Cihan, Vahid Haratian, Arda İçöz, Mert Kaan Gül, Ömercan Devran, Emircan Furkan Bayendur, Baykal Mehmet Uçar, Eray Tüzün]
+orgType: academic
+region: other
+lang: en
+sourceType: paper-peer
+published: 2024-12-24
+publishedBasis: arxiv-v1
+version: v2
+updated: 2024-12-28
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH06
+  query: empirical study AI code review bot comments addressed resolution rate GitHub pull requests CodeRabbit Copilot MSR 2026 arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH11]
+events: []
+summary: Beko(家電メーカー)で Qodo PR Agent ベースの AI レビューを導入した産業事例。指摘の 73.8% が解決済みとされた一方、PR のクローズまでの平均時間は 5 時間 52 分から 8 時間 20 分に延びた。
+claims:
+  - id: c1
+    text: AI レビューの指摘の 73.8% が解決済みとラベル付けされた一方、PR クローズまでの平均時間は 5 時間 52 分から 8 時間 20 分へ延びた(プロジェクトにより傾向は異なる)。
+    quote: 73.8% of automated code review comments were labeled as resolved. However, the overall average pull request closure duration increased from five hours 52 minutes to eight hours 20 minutes
+    locator: Abstract (Results)
+    quant:
+      value: 解決 73.8%、クローズ時間 5h52m→8h20m
+      n: 3 プロジェクト 4,335 PR(うち AI レビュー 1,568 件)、利用可能者 238 人
+      design: industrial case study (PR data + surveys)
+      population: Beko の社内開発
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: qualifies
+  - id: c2
+    text: バグ検出や品質意識の向上に役立った一方、誤ったレビュー・不要な修正・無関係な指摘という欠点も生じた。
+    quote: it also led to longer pull request closure times and introduced drawbacks such as faulty reviews, unnecessary corrections, and irrelevant comments.
+    locator: Abstract (Conclusion)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:08.572Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2412.18531
+    contentType: text/html; charset=utf-8
+    titleFetched: Automated Code Review In Practice
+    titleMatch: true
+    dateMeta: 2024-12-24
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Automated Code Review In Practice
+      authors: ["Cihan, Umut", "Haratian, Vahid", "İçöz, Arda", "Gül, Mert Kaan", "Devran, Ömercan", "Bayendur, Emircan Furkan"]
+      v1Date: 2024-12-24
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 73.8% / 5時間52分 → 8時間20分
+        extractedQuote: 73.8% of automated code review comments were labeled as resolved. However, the overall average pull request closure duration increased from five hours 52 minutes to eight hours 20 minutes
+        locator: Abstract (Results)
+        note: 対象は1社(Beko)の3プロジェクト・4,335 PR(うち自動レビュー1,568件)。Qodo PR Agent ベースの道具。 原文は「with varying trends observed across different projects」と続く。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

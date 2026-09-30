@@ -1,0 +1,106 @@
+schemaVersion: 0
+id: SRC-0422
+status: included
+excludeReason: null
+title: Study shows introduction of surgical safety checklists in Ontario have not reduced post-operative mortality or complications
+url: https://www.ices.on.ca/news-releases/study-shows-introduction-of-surgical-safety-checklists-in-ontario-have-not-reduced-post-operative-mortality-or-complications
+canonicalUrl: doi:10.1056/nejmsa1308261
+ids:
+  arxiv: null
+  doi: 10.1056/NEJMsa1308261
+publisher: ICES
+authors: [ICES]
+orgType: nonprofit
+region: other
+lang: en
+sourceType: news
+published: 2014-03
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH07
+  query: Urbach 2014 NEJM introduction of surgical safety checklists in Ontario no significant reduction operative mortality
+derivedFrom: []
+derivedFromUrl: [https://pubmed.ncbi.nlm.nih.gov/24620866]
+selfReported: false
+themes: [TH07, TH11]
+events: []
+summary: オンタリオ州 101 病院で義務化された手術安全チェックリストの前後比較(Urbach ら NEJM 2014)を共著機関 ICES が報じたもの。自己申告の遵守率は 98% 以上だったが、死亡・合併症は改善しなかった。書式を課しただけでは中身が伴わない例である。
+claims:
+  - id: c1
+    text: 各病院の自己申告によるチェックリスト遵守率は高く、2010 年 7 月以降は一度も 98% を下回らなかった。
+    quote: "by all hospitals in the province is high: 92 per cent in April—June 2010, and never less than 98 per cent after July 2010."
+    locator: 本文(遵守率)
+    quant:
+      value: ">=98% self-reported compliance"
+      n: 101 hospitals
+      design: population-based before/after (3 months each)
+      population: Ontario hospitals
+    evidenceKind: observational
+    rqs: [TH07-Q5, TH11-Q3]
+    issues: [269, 270]
+    stance: supports
+  - id: c2
+    text: 調整後死亡率は導入前 0.71%、導入後 0.65% で有意差はなく、合併症・救急受診・再入院も改善しなかった。
+    quote: Adjusted mortality was 0.71 per cent before and 0.65 per cent after introduction.
+    locator: 本文(結果)
+    quant:
+      value: 0.71% -> 0.65% (n.s.)
+      n: 101 hospitals, 3 months before/after
+      design: population-based before/after
+      population: Ontario surgical procedures
+    evidenceKind: observational
+    rqs: [TH07-Q5, TH11-Q3]
+    issues: [270]
+    stance: supports
+  - id: c3
+    text: 著者は、現行の実施のしかたではチェックリストは転帰を改善しなかったと述べる。より集中的なチーム訓練や遵守監視があれば効果が出うるとも留保している。
+    quote: as currently implemented, surgical safety checklists did not result in improved patient outcomes
+    locator: 本文(Urbach のコメント)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q5]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:45.149Z
+    httpStatus: 200
+    finalUrl: https://www.ices.on.ca/news-releases/study-shows-introduction-of-surgical-safety-checklists-in-ontario-have-not-reduced-post-operative-mortality-or-complications/
+    contentType: text/html; charset=UTF-8
+    titleFetched: ICES | Study shows introduction of surgical safety checklists in Ontario have not reduced post-operative mortality or complications
+    titleMatch: true
+    dateMeta: 2014-03-12
+    quotes:
+      c1: partial
+      c2: found
+      c3: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: Introduction of Surgical Safety Checklists in Ontario, Canada
+      issued: 2014-3-13
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2010年7月以降 / 98%
+        extractedQuote: "Self-reported compliance... by all hospitals in the province is high: 92 per cent in April—June 2010, and never less than 98 per cent after July 2010."
+        locator: 本文(Self-reported compliance の段落)
+        note: curl は Cloudflare でブロックされたが tavily_extract で本文を取得。原文は「after July 2010」(ask の「以降」との境界の扱いは原文が after)。2010年4〜6月は 92%。遵守率は OR 看護師等による病院ごとの自己申告で、「チェックリストが使われた手術の割合」。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://ices.on.ca/news-releases/study-shows-introduction-of-surgical-safety-checklists-in-ontario-have-not-reduced-post-operative-mortality-or-complications

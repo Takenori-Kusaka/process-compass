@@ -1,0 +1,83 @@
+schemaVersion: 0
+id: SRC-0187
+status: included
+excludeReason: null
+title: "Introducing SWE-2: Pushing the Pareto Frontier"
+url: https://cognition.com/blog/swe-2
+canonicalUrl: https://cognition.com/blog/swe-2
+ids:
+  arxiv: null
+  doi: null
+publisher: Cognition
+authors: []
+orgType: startup
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-09-10
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: cognition.com/blog"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH04]
+events:
+  - date: 2026-09-10
+    label: Cognition が自社モデル SWE-2(Kimi K3 ベース)を発表
+summary: Cognition の自社コーディングモデル SWE-2 の発表。Kimi K3 からの事後学習で、FrontierCode 1.1 Main 50.0% と Fable 5.1 に 1 ポイント以内を 64% 安く出すと主張する。
+claims:
+  - id: c1
+    text: SWE-2 は FrontierCode 1.1 Main で 50.0% を出し、Fable 5.1(50.9%)に 1 ポイント以内で 64% 安いと主張する(自社比較)。
+    quote: within one point of Fable 5.1 while being 64% cheaper
+    locator: 冒頭
+    quant:
+      value: 50.0% vs 50.9% (FrontierCode 1.1 Main), -64% cost
+      n: 150 tasks
+      design: vendor-reported
+      population: SWE-2 vs Fable 5.1
+    evidenceKind: benchmark
+    rqs: [TH04-Q4]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.538Z
+    httpStatus: 200
+    finalUrl: https://cognition.com/blog/swe-2
+    contentType: text/html; charset=utf-8
+    titleFetched: "Introducing SWE-2: Pushing the Pareto Frontier"
+    titleMatch: true
+    dateMeta: 2026-09-10
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: SWE-2 / FrontierCode 1.1 Main 50.0% / Fable 5.1（表では 50.9%）/ within one point / 64% cheaper
+        extractedQuote: It pushes the Pareto frontier of capability and cost, achieving 50.0% on FrontierCode 1.1 Main, within one point of Fable 5.1 while being 64% cheaper.
+        locator: "冒頭段落（09.10.26）＋ Coding benchmark results 表（FrontierCode 1.1 Main 行: Fable 5.1 50.9 %）"
+        note: Fable 5.1 の値 50.9% は冒頭文ではなく直後の表から取った。'64% cheaper' のコスト算定基準（どの effort 設定・何の単価か）は冒頭では明示されない。自社比較である点は ask と一致。
+        adjudication:
+          verdict: consistent
+          reason: 冒頭文「achieving 50.0% on FrontierCode 1.1 Main, within one point of Fable 5.1 while being 64% cheaper」と表の Fable 5.1 50.9% に一致する(50.9-50.0=0.9 で1ポイント以内)。自社比較である点も blindNote と一致する。コスト算定基準が冒頭で明示されない点に主張は触れておらず、忠実性には影響しない。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

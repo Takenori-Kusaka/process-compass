@@ -1,0 +1,133 @@
+schemaVersion: 0
+id: SRC-0552
+status: included
+excludeReason: null
+title: "The Magical Number Seven, Plus or Minus Two: Some Limits on our Capacity for Processing Information"
+url: https://psychclassics.yorku.ca/Miller/
+canonicalUrl: doi:10.1037/h0043158
+ids:
+  arxiv: null
+  doi: 10.1037/h0043158
+publisher: Psychological Review 63(2), 81-97(Classics in the History of Psychology 収録の全文)
+authors: [George A. Miller]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: "1956"
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G04
+  query: Miller 1956 "The Magical Number Seven, Plus or Minus Two" full text psychclassics
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: 7±2 の原典。扱うのは一次元刺激の絶対判断と、提示直後に再生できる項目数(即時記憶のスパン)で、文書や規則を参照する本数は対象外。著者自身が「7」の一致を偶然ではないかと結んでいる。
+claims:
+  - id: c1
+    text: 7 が指すのは即時記憶のスパン、つまり提示直後に再生できる項目の数である。文書・ADR の参照数についての記述は本文に無い。
+    quote: Everybody knows that there is a finite span of immediate memory and that for a lot of different kinds of test materials this span is about seven items in length.
+    locator: The Span of Immediate Memory (p.91)
+    quant:
+      value: 約 7 項目
+      n: 原典は先行実験の総説(個別実験の標本は各引用元)
+      design: 先行実験の総説(招待講演)
+      population: 数字・文字・単語などの直後再生課題
+    evidenceKind: review
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c2
+    text: 絶対判断の限界(情報量)と即時記憶の限界(項目数)は別種の制約だと区別している。
+    quote: Absolute judgment is limited by the amount of information. Immediate memory is limited by the number of items.
+    locator: The Span of Immediate Memory (p.92)
+    quant: null
+    evidenceKind: review
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c3
+    text: 項目の単位であるチャンクが何であるかは定まっていないと著者が認めている。ADR 1本を1チャンクとみなす根拠は原典からは得られない。
+    quote: we are not very definite about what constitutes a chunk of information.
+    locator: The Span of Immediate Memory (p.93)
+    quant: null
+    evidenceKind: review
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c4
+    text: 著者は最終段落で、複数の場面に現れる「7」について「当面は判断を保留する」と述べ、背後に深いものがある可能性を「Perhaps」で残したうえで、有害なピタゴラス的偶然にすぎないのではないかと疑っている(I suspect)。
+    quote: Perhaps there is something deep and profound behind all these sevens, something just calling out for us to discover it. But I suspect that it is only a pernicious, Pythagorean coincidence.
+    locator: 本文の最終段落(Footnotes の直前、p.96 標識の後)
+    quant: null
+    evidenceKind: review
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:35.753Z
+    httpStatus: 200
+    finalUrl: https://psychclassics.yorku.ca/Miller/
+    contentType: text/html
+    titleFetched: Classics in the History of Psychology -- Miller (1956)
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: "The magical number seven, plus or minus two: Some limits on our capacity for processing information."
+      issued: 1956-3
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: about seven items(即時記憶のスパンは約7項目。「7±2」という表記はこの節には無く、題名にのみ現れる)
+        extractedQuote: Everybody knows that there is a finite span of immediate memory and that for a lot of different kinds of test materials this span is about seven items in length.
+        locator: The Span of Immediate Memory(p.91 の改頁標識の後、p.92 標識の前)
+        note: 同じ節で seven は即時記憶のスパンだけでなく absolute judgment のスパン(about seven categories)にも使われ、attention のスパンは about six objects とされる。著者は3つを単一の過程の別側面とみなすのは「a fundamental mistake」と述べる。本文中に document / ADR / architecture の語は出現しない(全文検索で0件)。即時記憶実験の手続きは「several stimuli in succession」を提示し「At the end of the sequence」で応答させるもの。
+      c3:
+        verdict: match
+        extractedValue: チャンクの定義は not very definite。ADR の本数とチャンクの対応に関する数値は原典に無い
+        extractedQuote: The contrast of the terms bit and chunk also serves to highlight the fact that we are not very definite about what constitutes a chunk of information.
+        locator: The Span of Immediate Memory(p.93 の改頁標識の直後)
+        note: 伏せ字の「ADR ___本を___チャンク」に対応する記述は原典に存在しない(1956年の論文で ADR・文書の語は0件)。直後の例は「a memory span of five words ... might just as appropriately have been called a memory span of 15 phonemes」。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「we are not very definite about what constitutes a chunk of information」と一致する。後半(ADR 1本を1チャンクとみなす根拠が無い)は、原典に ADR・文書の語が0件という blindNote の不在確認と整合する。ADR への当てはめ自体は主張側の評価で判定対象外。
+          date: 2026-09-30
+      c4:
+        verdict: match
+        extractedValue: seven(「all these sevens」)。結論は「only a pernicious, Pythagorean coincidence」ではないかという suspect
+        extractedQuote: Perhaps there is something deep and profound behind all these sevens, something just calling out for us to discover it. But I suspect that it is only a pernicious, Pythagorean coincidence.
+        locator: 本文の最終段落(Footnotes の直前、p.96 標識の後)
+        note: 引用の直前に「For the present I propose to withhold judgment.」がある。著者は断定しておらず「withhold judgment」と「I suspect」の併記。深い法則の可能性も「Perhaps」で残している。最終段落には「plus or minus two」の語は無く「seven」のみ。「7±2」に当たる表記は題名(The Magical Number Seven, Plus or Minus Two)にある。「一般的な上限の根拠にする読み方と合わない」は作業票側の評価で、原典の文言ではない。
+        adjudication:
+          verdict: corrected
+          reason: 「偶然ではないかと述べている」は blindQuote どおりだが、「深い法則とは見ず」は言い過ぎ。原文は直前に「For the present I propose to withhold judgment.」があり、深い法則の可能性も「Perhaps」で残す。断定ではなく保留と suspect の併記という条件が欠落している。「7±2 を一般的な上限の根拠にする読み方と合わない」は主張側の評価で原典の文言ではなく、最終段落に plus or minus two の語も無い。
+          date: 2026-09-30
+          originalText: 著者は結論で、複数の場面に現れる「7」の一致を深い法則とは見ず、偶然ではないかと述べている。7±2 を一般的な上限の根拠にする読み方は原典の結論と合わない。
+          originalQuote: But I suspect that it is only a pernicious, Pythagorean coincidence.
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

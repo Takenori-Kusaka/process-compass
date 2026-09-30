@@ -1,0 +1,217 @@
+schemaVersion: 0
+id: SRC-0021
+status: included
+excludeReason: null
+title: "On the risk of coding before testing: An empirical study on LLM-based test generation workflow"
+url: https://arxiv.org/abs/2607.05139
+canonicalUrl: arxiv:2607.05139
+ids:
+  arxiv: "2607.05139"
+  doi: null
+publisher: arXiv (SnT, University of Luxembourg)
+authors: [Michael Konstantinou, Florian Tambon, Mike Papadakis]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-07-06
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-3
+  query: research/phase4-standard/123-safety-verification.md §6.2 / §9.4 の引用(原典確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH08]
+events: []
+summary: LLM が生成した(誤りを含む)実装を見せてからテストを生成すると、仕様(タスク記述)だけから独立に生成した場合より欠陥検出率が有意に落ちる(14% 対 25%)ことを 5 モデル×3 ベンチマークで示した実証研究。123 メモの「ミューテーションテストで測定」「より高いミューテーションスコア」は原典に無く、指標は fault triggering / fault detection である。
+claims:
+  - id: c1
+    text: 誤りを含むコードの後にテストを生成すると、独立に生成した場合に比べ欠陥検出率が 14% 対 25% に低下する。
+    quote: generating tests after faulty code significantly reduces fault detection effectiveness compared to generating tests independently (14% vs. 25%)
+    locator: Abstract
+    quant:
+      value: 14% vs 25%
+      n: 5 LLMs × 3 benchmarks (HumanEval+ 164 / MBPP 974 / BigCodeBench 1,140 tasks); タスクごとに LLM 生成の欠陥実装 1 件
+      design: controlled experiment (Mann-Whitney U, p<0.05)
+      population: GPT-5-mini, GPT-4.1-mini, DeepSeek-V4-Flash, Claude Haiku 4.5, Llama 3.3 70B; LLM-Plain ワークフロー
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123, 135]
+    stance: supports
+  - id: c2
+    text: "RQ1: タスク記述に実装を添えると欠陥検出が平均 13.2% 低下し、実装のみでは 15.1% 低下する(モデル別 9.1〜18.2%)。全モデルで統計的に有意。"
+    quote: Providing both the task description and the implementation decreases fault detection by 13.2% on average compared to using the task description alone
+    locator: §VI-A Finding 1 / Table II
+    quant:
+      value: -13.2% (P+C) / -15.1% (C only)
+      n: 5 models × 3 benchmarks
+      design: controlled experiment
+      population: Claude Haiku 4.5 -9.1%, DeepSeek V4 -15.2%, GPT-4.1-mini -18.2%, GPT-5-mini -12.9%, Llama 3.3 -10.7%
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123, 135]
+    stance: supports
+  - id: c3
+    text: "RQ3: 会話履歴を保ったまま実装→テストを生成する Agentic Workflow に対し、テストを別セッションで仕様のみから生成する Test-Driven Workflow は欠陥検出を平均 11.7% 改善する(モデル別 7.9〜17.7%、全て p<0.05)。"
+    quote: the Test-Driven Workflow improves fault detection by 10.6% for Claude Haiku 4.5, 13.8% for DeepSeek V4, 17.7% for GPT-4.1-mini, 13.6% for GPT-5-mini, and 7.9% for Llama 3.3 (70B)
+    locator: §VI-C Finding 3 / Table IV
+    quant:
+      value: +11.7% avg
+      n: 5 models × 3 benchmarks
+      design: controlled experiment
+      population: Agentic vs Test-Driven workflow; 誤った実装を生成したケースのみ
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123, 135]
+    stance: supports
+  - id: c4
+    text: "RQ2: 要約・Chain-of-Thought・Chain-of-Verification のプロンプト技法は、実装を見せた状態の劣化を回復しない(要約 -15.5%、CoT/CoVe -13.4%)。"
+    quote: fault detection decreasing by 15.5% for summarization and 13.4% for both Chain-of-Thought and Chain-of-Verification.
+    locator: §VI-B Finding 2 / Table III
+    quant:
+      value: -15.5% / -13.4%
+      n: 5 models × 3 benchmarks
+      design: controlled experiment
+      population: Prompt-only を基準
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123]
+    stance: supports
+  - id: c5
+    text: 評価指標は fault triggering と fault detection(参照実装との挙動差と正しいオラクル)であり、ミューテーションテスト・ミューテーションスコアは使われていない(本文で mutation の語は関連研究の書誌 1 件のみ)。
+    quote: We evaluate the effectiveness of generated test suites using two complementary metrics. Fault triggering measures whether a generated test exercises faulty behavior in an implementation
+    locator: §IV-E Metrics
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123]
+    stance: qualifies
+  - id: c6
+    text: TDD の成功は仕様(テスト)と実装の独立性に帰され、確証バイアスを減らす、という命題は関連研究節で先行文献 [48] を引いて述べられている(本研究の実験結果ではない)。
+    quote: The success of TDD is largely attributed to the independence between specification (tests) and implementation, which reduces confirmation bias and encourages requirement clarification
+    locator: §VIII-C Test-First and Test-Driven Development
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [123]
+    stance: context
+  - id: c7
+    text: "結論: 事後生成テストだけを正しさのオラクルにすることに注意し、仕様・実装・検証の分離を保つワークフローを選ぶべきと勧告する。"
+    quote: should prefer workflows that preserve a degree of separation between specification, implementation, and validation.
+    locator: §X Conclusion
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [123, 135]
+    stance: supports
+  - id: c8
+    text: 著者らは、実験結果から次のことが示唆されると述べる。同一モデルでコードとテストの両方を生成しても意味のある検証は保証されず、かえって新しい種類の未検出欠陥を持ち込みうる。
+    quote: They suggest that generating both code and tests using the same model does not guarantee meaningful verification, and may instead introduce a new class of undetected faults.
+    locator: §I Introduction (paragraph starting 'These findings have important implications...')
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [135]
+    stance: supports
+  - id: c9
+    text: "実験設定: 5 モデル(GPT-5-mini、GPT-4.1-mini、DeepSeek-V4-Flash、Claude Haiku 4.5、Llama 3.3 70B)、3 ベンチマーク、温度 0.8 で 10 解を生成し参照テストで欠陥実装を抽出、失敗率 50% 超は除外。"
+    quote: "We employ 5 state-of-the-art language models from different providers: GPT-5-mini, GPT-4.1-mini, DeepSeek-V4-Flash, Claude Haiku 4.5, and Llama 3.3 Instruct (70B)."
+    locator: §IV-A〜IV-C, Table I
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:31.750Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.05139
+    contentType: text/html; charset=utf-8
+    titleFetched: "On the risk of coding before testing: An empirical study on LLM-based test generation workflow"
+    titleMatch: true
+    dateMeta: 2026-07-06
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+      c9: found
+    arxiv:
+      status: 200
+      title: "On the risk of coding before testing: An empirical study on LLM-based test generation workflow"
+      authors: ["Konstantinou, Michael", "Tambon, Florian", "Papadakis, Mike"]
+      v1Date: 2026-07-06
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: "RQ1; P+C: -13.2% (average); C only: -15.1% (average); per-model (P+C vs P): 9.1%, 15.2%, 18.2%, 12.9%, 10.7% (range 9.1-18.2%)"
+        extractedQuote: Providing both the task description and the implementation decreases fault detection by 13.2% on average compared to using the task description alone, while providing only the implementation results in an average decrease of 15.1%.
+        locator: "§VI-A RQ1: Implementation influence, Finding 1 / Table II (per-model values in the paragraph under Fig. 2)"
+        note: "The per-model range 9.1-18.2% is for P+C vs P only; the text gives no per-model breakdown for C-only. Table II: P vs P+C and P vs C are significant for all 5 models (Haiku p=0.009/0.002, Llama p=0.001/<0.001, others p<0.001). P+C vs C is not significant for any model (p=0.160-0.793). 'Significant for all models' holds only for comparisons against P."
+      c3:
+        verdict: match
+        extractedValue: RQ3; average 11.7%; per-model 10.6% (Haiku 4.5), 13.8% (DeepSeek V4), 17.7% (GPT-4.1-mini), 13.6% (GPT-5-mini), 7.9% (Llama 3.3 70B), range 7.9-17.7%; Table IV p=0.0019, 0.0001, <0.0001, <0.0001, 0.0177 (largest is 0.0177, all below the 0.05 threshold)
+        extractedQuote: "Finding 3: Test-Driven Workflow consistently generates test suites with higher fault detection effectiveness than the Agentic Workflow, detecting 11.7% more faults on average."
+        locator: "§VI-C RQ3: Workflows, Finding 3 / Table IV; workflow definitions in §V Research protocol"
+        note: §V defines the Test-Driven Workflow as 'a fresh interaction with the LLM that contains only the task description', which matches the ask. The paper does not say whether 11.7% means percentage points or a relative change. The significance threshold is p<0.05 (§IV-E). Llama's p=0.0177 means a stricter threshold such as p<0.01 would not cover every model.
+      c4:
+        verdict: match
+        extractedValue: RQ2; summarization -15.5%; Chain-of-Thought and Chain-of-Verification -13.4% (each)
+        extractedQuote: "Finding 2: Generating test suites directly from the task description is more effective than prompt engineering techniques, with fault detection decreasing by 15.5% for summarization and 13.4% for both Chain-of-Thought and Chain-of-Verification."
+        locator: "§VI-B RQ2: Prompting, Finding 2 / Table III"
+        note: "The paper does not frame this as 'recovery'. It compares Prompt-only (task description only) with each technique used while the code is exposed. Table III: all 15 comparisons are significant (p=0.0311 down to <0.0001). The finding does not include a direct comparison against P+C without any prompting technique."
+      c5:
+        verdict: match
+        extractedValue: "Metrics: Fault Triggering, Fault Detection (plus Fault Detectability, used only for dataset construction; Mann-Whitney U, p<0.05). Word 'mutation' appears 2 times in the HTML (once in §VIII-A body text, once in the title of reference [25]); 'mutated' once (§VII-B). Reference entries containing 'mutation': 1 ([25])"
+        extractedQuote: Fault triggering measures whether a generated test exercises faulty behavior in an implementation, whereas fault detection additionally requires that the observed failure is attributable to a correct test oracle.
+        locator: §IV-E Metrics; the 'mutation' occurrences are in §VIII-A, reference [25] (cited from §VII-A) and §VII-B
+        note: The ask says 'mutation' appears only in bibliographic entries, but the body text also uses it. §VIII-A Related Work says 'They observed that LLM-based method could outperform more traditional ones in terms of mutation score.' (about Abdullin et al. [33], whose title does not contain mutation). Reference [25] (Chekam et al. 2017, 'An empirical study on mutation, statement and branch coverage fault revelation...') is cited from §VII-A, not from the related-work section. §VII-B uses 'mutated prompts', meaning the under-specified prompt variants. §IV-E defines no mutation testing or mutation score metric, and §VII-A additionally measures statement coverage.
+      c6:
+        verdict: match
+        extractedValue: "[48] = K. Beck (2000), Extreme programming explained: embrace change"
+        extractedQuote: The success of TDD is largely attributed to the independence between specification (tests) and implementation, which reduces confirmation bias and encourages requirement clarification [48].
+        locator: §VIII-C Test-First and Test-Driven Development; reference [48]
+        note: The statement is in the related-work section and cites a prior source, so it is not an experimental result of this study. The ask matches the source here. The only source cited is Beck's XP book; it is not an empirical study.
+      c8:
+        verdict: match
+        extractedValue: (no numeric value in source; the blanks refer to an internal memo/section/condition not present in the paper)
+        extractedQuote: They suggest that generating both code and tests using the same model does not guarantee meaningful verification, and may instead introduce a new class of undetected faults.
+        locator: §I Introduction (paragraph starting 'These findings have important implications...')
+        note: The proposition is in the paper. The blanked parts of the ask ('___メモ §___条件 ___') refer to project-internal documents, so the paper cannot supply them. The source wording is hedged ('suggest', 'may'), so this is an interpretation of the results, not a directly demonstrated claim.
+        adjudication:
+          verdict: corrected
+          reason: 命題そのものは原典にある。ただし原文は 'They suggest that ...' で、著者が結果を解釈した示唆として書いている(blindNote)。主張は 'suggest' を落としており、直接実証された事実のように読める。訂正では示唆であることを残した。内部メモへの参照は判定対象外。
+          date: 2026-09-23
+          originalText: 同一モデルでコードとテストの両方を生成しても意味のある検証は保証されず、未検出欠陥の新しい種類を生みうる(135 メモ §2.5 条件 2 の根拠に相当)。
+          originalQuote: generating both code and tests using the same model does not guarantee meaningful verification, and may instead introduce a new class of undetected faults.
+      c9:
+        verdict: match
+        extractedValue: 5 models (GPT-5-mini, GPT-4.1-mini, DeepSeek-V4-Flash, Claude Haiku 4.5, Llama 3.3 Instruct 70B); 3 benchmarks (HumanEval+, MBPP, BigCodeBench); temperature 0.8; 10 solutions per task; exclude implementations with >50% of reference tests failing
+        extractedQuote: we generate ten solutions per task using a temperature of 0.8, which encourages variation in the models' outputs. / we exclude implementations for which more than 50% of the reference test cases fail.
+        locator: §IV-A Methodology (Data Collection, Fault filtering), §IV-B Benchmarks, §IV-C Models / Table I
+        note: "Additional conditions: only behavioral faults are kept, so implementations failing from runtime errors or exceptions are excluded; one faulty implementation per task, the hardest one. The paper names the Llama model 'Llama 3.3 Instruct (70B)'. Per Table I, reasoning was used for GPT-5-mini and Claude Haiku 4.5."
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

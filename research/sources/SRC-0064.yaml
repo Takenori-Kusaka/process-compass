@@ -1,0 +1,81 @@
+schemaVersion: 0
+id: SRC-0064
+status: included
+excludeReason: null
+title: "Separating Capability from Permission: A Governance Framework for Agentic AI Autonomy Levels"
+url: https://arxiv.org/abs/2607.23438
+canonicalUrl: arxiv:2607.23438
+ids:
+  arxiv: "2607.23438"
+  doi: null
+publisher: arXiv
+authors: [Zheng Haining, Dong Qian, Depena Rodolfo K., Bhatia Jonathan D., Xiao Feng, Xu Peng]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-07-26
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH01
+  query: '"levels of autonomy" AI agents paper 2026'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: 「できること(ACL)」と「許されること(AAL)」を分離した自律度統治枠組み。5段階(reactive execution〜delegated operational authority)を示し、リスク・可逆性・組織の準備度で許容自律度を下げる運用を企業のデータエンジニアリング用エージェントで例示。HTML 全文は未公開のため abstract のみ。
+claims:
+  - id: c1
+    text: 許容自律度(AAL)はリスク・監視・説明責任を踏まえて権限として与えるものであり、技術的能力(ACL)とは別に定める。
+    quote: explicitly separates Allowed Autonomy Levels (AAL), which define the degree of autonomy an AI agent is authorized to exercise given risk, oversight, and accountability considerations, from Autonomous Capability Levels (ACL)
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1, TH01-Q2]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 高い能力と評価されたシステムでも、リスク・可逆性・組織の準備度に基づき意図的に低い許容自律度に制約する事例を示す。自律度はシステム×リスク単位で定める。
+    quote: a system assessed at a high capability level can be deliberately constrained to a lower allowed autonomy based on risk, reversibility, and organizational readiness.
+    locator: Abstract
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:12.264Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.23438
+    contentType: text/html; charset=utf-8
+    titleFetched: "Separating Capability from Permission: A Governance Framework for Agentic AI Autonomy Levels"
+    titleMatch: true
+    dateMeta: 2026-07-26
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "Separating Capability from Permission: A Governance Framework for Agentic AI Autonomy Levels"
+      authors: ["Zheng, Haining", "Dong, Qian", "Depena, Rodolfo K.", "Bhatia, Jonathan D.", "Xiao, Feng", "Xu, Peng"]
+      v1Date: 2026-07-26
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-pdf
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

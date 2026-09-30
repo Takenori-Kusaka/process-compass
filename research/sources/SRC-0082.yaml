@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0082
+status: included
+excludeReason: null
+title: "Hedwig: Dynamic Autonomy for Coding Agents Under Local Oversight"
+url: https://arxiv.org/abs/2605.11495
+canonicalUrl: arxiv:2605.11495
+ids:
+  arxiv: "2605.11495"
+  doi: 10.1145/3786335.3813223
+publisher: arXiv / ACM CAIS 2026 demo track (University of Washington)
+authors: [Shukla Tanjal, Feng K. J. Kevin, Wang Leijie, Rostami Mohammad, Zhang Amy X.]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-05-12
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH01
+  query: 前回セッション取得分(abs_2605.11495)。coding agent dynamic autonomy oversight
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH02]
+events: []
+summary: ACM CAIS 2026 デモ採択(abstract 記載)。コーディングエージェント利用者21名への形成的調査で、自律度の調整に不満があり監視の好みが時間とタスクで変わることを確認。静的な権限設定や指示ファイルでは追従できないとして、対話履歴から自律度を動的に調整する CLI エージェント Hedwig を提案。
+claims:
+  - id: c1
+    text: コーディングエージェントを使う技術者21名は自律度の較正に不満を持ち、監視レベルの好みは変化し続ける。
+    quote: We conducted a formative survey with 21 software engineers who use coding agents and found that they experience frustration with calibrating autonomy and have evolving preferences for level of oversight.
+    locator: Abstract
+    quant:
+      value: n=21
+      n: 21 software engineers
+      design: formative survey
+      population: coding agent users
+    evidenceKind: survey
+    rqs: [TH01-Q1, TH01-Q4]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 静的な権限設定や指示ファイルによる自律度の設定は、タスク間・時間経過で変わる開発者の好みを反映できないと問題提起する。役割ごとに固定した自律度への反例となる主張。
+    quote: existing approaches for setting an agent's level of autonomy, such as static permission settings or instruction files, cannot account for how developers' preferences for agent autonomy can shift across tasks and over time.
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1, TH02-Q4]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:27.979Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.11495
+    contentType: text/html; charset=utf-8
+    titleFetched: "Hedwig: Dynamic Autonomy for Coding Agents Under Local Oversight"
+    titleMatch: true
+    dateMeta: 2026-05-12
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "Hedwig: Dynamic Autonomy for Coding Agents Under Local Oversight"
+      authors: ["Shukla, Tanjal", "Feng, K. J. Kevin", "Wang, Leijie", "Rostami, Mohammad", "Zhang, Amy X."]
+      v1Date: 2026-05-12
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 200
+      title: "Hedwig: Dynamic Autonomy for Coding Agents Under Local Oversight"
+      issued: 2026-5-26
+      titleMatch: true
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

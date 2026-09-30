@@ -1,0 +1,228 @@
+schemaVersion: 0
+id: SRC-0014
+status: included
+excludeReason: null
+title: "Prompting Science Report 4: Playing Pretend: Expert Personas Don't Improve Factual Accuracy"
+url: https://arxiv.org/abs/2512.05858
+canonicalUrl: arxiv:2512.05858
+ids:
+  arxiv: "2512.05858"
+  doi: null
+publisher: Generative AI Labs, The Wharton School(arXiv / SSRN 5879722)
+authors: [Basil Savir, Shapiro Ina, Shapiro Dan, Mollick Ethan, Mollick Lilach, Meincke Lennart]
+orgType: academic
+region: us
+lang: en
+sourceType: industry-report
+published: 2025-12-05
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: "tavily: \"Playing Pretend\" \"Expert Personas Don't Improve Factual Accuracy\" Prompting Science Report Wharton → GET https://arxiv.org/pdf/2512.05858"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06]
+events: []
+summary: 6 モデル(GPT-4o、GPT-4o-mini、o3-mini、o4-mini、Gemini 2.0/2.5 Flash)を GPQA Diamond と MMLU-Pro 部分集合で評価し、専門家 persona に一貫した精度改善はないと報告。発表は 2025-12(254 メモの 2026-03 は誤り)。254 メモが本報告に帰した「MMLU 71.6→68.0→66.3」は本報告に存在しない(別論文 arXiv:2603.18507 の値)。
+claims:
+  - id: c1
+    text: 254 メモが引く「MMLU 71.6% → 68.0% → 66.3%」は本報告のどこにも無い。本報告のベンチマークは GPQA Diamond と MMLU-Pro で、MMLU ではない。
+    quote: evaluating six models on GPQA Diamond (Rein et al. 2024) and MMLU-Pro (Wang et al. 2024), graduate-level questions spanning science, engineering, and law.
+    locator: Summary(全 40 頁を検索、71.6 / 68.0 / 66.3 の出現 0 件)
+    quant:
+      value: n/a(値なし)
+      n: n/a
+      design: n/a
+      population: n/a
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: contradicts
+  - id: c2
+    text: 評価モデルは GPT-4o、GPT-4o-mini、o3-mini、o4-mini、Gemini 2.0 Flash、Gemini 2.5 Flash の 6 つ。
+    quote: GPT-4o, GPT-4o-mini, o3-mini, o4-mini, Gemini 2.0 Flash, and Gemini 2.5 Flash.
+    locator: How We Benchmark the AI
+    quant:
+      value: 6 models
+      n: "6"
+      design: benchmark
+      population: OpenAI / Google models
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: context
+  - id: c3
+    text: GPQA Diamond 198 問 × 25 試行 = 4,950 実行、MMLU-Pro 300 問(工学・法・化学 各 100)× 25 = 7,500 実行をモデル×プロンプト条件ごとに実施。
+    quote: This design yields 4,950 runs per model-prompt pair for GPQA Diamond (198 questions) and 7,500 runs per model-prompt pair for the MMLU-Pro subset (300 questions).
+    locator: How We Benchmark the AI
+    quant:
+      value: 4,950 / 7,500 runs per model-prompt pair
+      n: 198 / 300 questions × 25 trials
+      design: benchmark
+      population: GPQA Diamond, MMLU-Pro subset
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: context
+  - id: c4
+    text: MMLU-Pro では 6 モデル中 5 モデルで専門家 persona による有意な正の改善がなく、有意な負の差が 9 件観測された。
+    quote: no expert persona showed a positive statistically significant improvement relative to the baseline, and we observed nine statistically significant negative differences.
+    locator: Results — MMLU-Pro
+    quant:
+      value: 0 significant positive (5/6 models); 9 significant negative
+      n: 7,500 runs per model-prompt pair
+      design: benchmark with CI
+      population: MMLU-Pro subset
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: supports
+  - id: c5
+    text: Gemini 2.0 Flash は例外で、5 つの専門家 persona がベースラインに対して小幅な正の差を示した。「効果がない」は全モデルに一般化できない。
+    quote: "Gemini 2.0 Flash is the main exception: for this model, the five expert personas yielded modest positive differences relative to the baseline"
+    locator: Results — MMLU-Pro
+    quant:
+      value: modest positive (Gemini 2.0 Flash)
+      n: 7,500
+      design: benchmark
+      population: Gemini 2.0 Flash
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: qualifies
+  - id: c6
+    text: 領域不一致の専門家 persona で Gemini 2.5 Flash は 25 試行中平均 10.56 回回答を拒否し、測定精度を押し下げた。役割指示が狭すぎると知識を使わなくなる。
+    quote: Under the Unrelated Expert condition on GPQA Diamond, the model refuses to answer an average of 10.56 out of the 25 trials per question
+    locator: Results — Refusals
+    quant:
+      value: 10.56 / 25 refusals
+      n: 198 questions
+      design: benchmark
+      population: Gemini 2.5 Flash
+    evidenceKind: benchmark
+    rqs: [TH01-Q5, TH01-Q4]
+    issues: [258]
+    stance: supports
+  - id: c7
+    text: 結論は「精度は改善しない。ただし persona は文体など他の目的には有用でありうる」。
+    quote: Across both benchmarks, persona prompts generally did not improve accuracy relative to a no-persona baseline. Expert personas showed no consistent benefit across models, with few exceptions.
+    locator: Summary
+    quant:
+      value: no consistent benefit
+      n: 6 models × 2 benchmarks
+      design: benchmark
+      population: expert + low-knowledge personas
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: supports
+  - id: c8
+    text: "MMLU-Pro では6モデル中5で専門家ペルソナに正の有意差がなく、負の有意差が9件観測された。Gemini 2.0 Flash は例外で、5つの専門家ペルソナが控えめな正の差(例: Engineering Expert RD=0.089)。「効果なし」と一般化はできない。"
+    quote: For five of the six models tested, no expert persona showed a positive statistically significant improvement relative to the baseline, and we observed nine statistically significant negative differences.
+    locator: Results, MMLU-Pro subset
+    quant:
+      value: "5/6 モデルで正の有意差なし、負の有意差 9件; Gemini 2.0 Flash: RD=0.089 [0.033, 0.148], p=0.002"
+      n: 300 MMLU-Pro questions × 25 trials
+      design: controlled experiment
+      population: 6 models
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:21.260Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2512.05858
+    contentType: text/html; charset=utf-8
+    titleFetched: "Prompting Science Report 4: Playing Pretend: Expert Personas Don't Improve Factual Accuracy"
+    titleMatch: true
+    dateMeta: 2025-12-05
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+    arxiv:
+      status: 200
+      title: "Prompting Science Report 4: Playing Pretend: Expert Personas Don't Improve Factual Accuracy"
+      authors: ["Basil, Savir", "Shapiro, Ina", "Shapiro, Dan", "Mollick, Ethan", "Mollick, Lilach", "Meincke, Lennart"]
+      v1Date: 2025-12-05
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 71.6 / 68.0 / 66.3 の出現 0 件(PDF 全40頁を pdftotext で全文検索)。『MMLU』の出現はすべて『MMLU-Pro』。ベンチマークは GPQA Diamond と MMLU-Pro
+        extractedQuote: evaluating six models on GPQA Diamond (Rein et al. 2024) and MMLU-Pro (Wang et al. 2024), graduate-level questions spanning science, engineering, and law.
+        locator: Summary(全40頁検索)
+        note: "検索で唯一ヒットした『0.663』は Table S3 の p 値(Gemini 2.0 Flash Young Child - Chemistry Expert, p = 0.663)で精度値ではない。参考: 71.6% / 68.0% / 66.3% は SRC-0015(arXiv 2603.18507)§3.1c・Figure 1(b) に MMLU の値として出現する(baseline 71.6%、minimum persona 68.0%、long persona 66.3%)。メモ側で出典を取り違えた可能性がある。ask 冒頭の『___メモ』の伏せ字は原典から埋められない。"
+        adjudication:
+          verdict: consistent
+          reason: blindValue によれば、PDF 全40頁の全文検索で 71.6 / 68.0 / 66.3 の出現は0件だった。「MMLU」の出現もすべて「MMLU-Pro」で、ベンチマークは GPQA Diamond と MMLU-Pro である(blindQuote)。主張の事実部分はどちらも支持される。blindNote によれば、この3値は SRC-0015(arXiv 2603.18507)に MMLU の値として出てくる。内部メモへの参照は判定対象外。
+          date: 2026-09-23
+      c2:
+        verdict: match
+        extractedValue: GPT-4o, GPT-4o-mini, o3-mini, o4-mini, Gemini 2.0 Flash, Gemini 2.5 Flash の 6 モデル
+        extractedQuote: "We specifically looked at a variety of models, including both reasoning and non-reasoning models: GPT-4o, GPT-4o-mini, o3-mini, o4-mini, Gemini 2.0 Flash, and Gemini 2.5 Flash."
+        locator: How We Benchmark the AI(第2段落)。6モデルは Summary の 'evaluating six models' でも確認
+        note: ""
+      c3:
+        verdict: match
+        extractedValue: GPQA Diamond 198問 × 25試行 = 4,950 実行; MMLU-Pro 300問(工学・法・化学 各100)× 25 = 7,500 実行(モデル×プロンプト条件ごと)
+        extractedQuote: This design yields 4,950 runs per model-prompt pair for GPQA Diamond (198 questions) and 7,500 runs per model-prompt pair for the MMLU-Pro subset (300 questions).
+        locator: How We Benchmark the AI
+        note: "内訳は同節 'a subset of 300 questions: 100 from the dataset's engineering category, 100 from its law category, and 100 from its chemistry category' と 'We collected 25 independent responses per question for each model-prompt condition'。"
+      c4:
+        verdict: match
+        extractedValue: 6モデル中5モデルで専門家ペルソナの有意な正の改善なし; 有意な負の差 9 件
+        extractedQuote: five of the six models tested, no expert persona showed a positive statistically significant improvement relative to the baseline, and we observed nine statistically significant negative differences
+        locator: Results — Prompt Analysis(MMLU-Pro subset の段落)
+        note: 原文は『9件の有意な負の差』が専門家ペルソナ由来か、低知識ペルソナ(Toddler/Layperson 等)を含むかを明示していない。ask は『専門家 persona による…有意な負の差』とも読めるが、原文の対象範囲は不明確。
+        adjudication:
+          verdict: consistent
+          reason: 「6モデル中5モデルで専門家ペルソナの有意な正の改善なし、有意な負の差9件」は blindQuote と一致する。留意点として、原文は9件の負の差が専門家ペルソナだけによるものか、低知識ペルソナを含むかを明示していない(blindNote)。主張は「専門家 persona による」が正の改善にかかる書き方で、原文と同程度にあいまいなので、忠実性は保たれている。引用時に負の差を専門家ペルソナへ帰属させないこと。
+          date: 2026-09-23
+      c5:
+        verdict: match
+        extractedValue: Gemini 2.0 Flash; 5つの専門家ペルソナが小幅な正の差
+        extractedQuote: "Gemini 2.0 Flash is the main exception: for this model, the five expert personas yielded modest positive differences relative to the baseline"
+        locator: Results — Prompt Analysis(MMLU-Pro subset の段落)
+        note: 例外は MMLU-Pro に限られる。GPQA Diamond では 'we did not find any expert or low-knowledge persona that reliably improved performance over the baseline for any model'。ドメイン別分析では GPT-4o の Law(in-domain expert)も改善(Table S6)。
+      c6:
+        verdict: match
+        extractedValue: Gemini 2.5 Flash; 25試行中平均 10.56 回拒否
+        extractedQuote: Under the Unrelated Expert condition on GPQA Diamond, the model refuses to answer an average of 10.56 out of the 25 trials per question
+        locator: Discussion and Conclusion 第3段落(報告に 'Results — Refusals' という節は無い)
+        note: 10.56 は『GPQA Diamond の Unrelated Expert 条件』の値。ask は『領域不一致の専門家 persona』と一般化しているが、原文は Adjacent Expert 条件や MMLU-Pro についてこの値を示していない。Gemini 2.0 Flash も一部の Physics/Chemistry 条件で同様だが程度は軽いと記述。後半は原文 'role instructions that are too narrow can cause models to under-utilize their actual knowledge' に対応。
+      c8:
+        verdict: match
+        extractedValue: 6モデル中5; 負の有意差 9 件; Gemini 2.0 Flash; 5つの専門家ペルソナ; Engineering Expert RD = 0.089 [0.033, 0.148], p = 0.002
+        extractedQuote: the five expert personas yielded modest positive differences relative to the baseline (e.g., Engineering Expert vs. baseline RD = 0.089 [0.033, 0.148], p = 0.002)
+        locator: Results — Prompt Analysis(MMLU-Pro subset の段落)/ Table S3
+        note: Table S3 の Gemini 2.0 Flash『Baseline - Engineering Expert』行も 0.089 [0.033, 0.148] p = 0.002(-layout 抽出では行が1つずれて 0.088 に見えるが、非 layout 抽出の並びで確認)。『9件』が専門家ペルソナ由来かどうかは原文で明示されない(c4 と同じ注意)。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH01
+    query: 前回セッション取得分(2512.05858.pdf)。TH01-Q5 原典確認

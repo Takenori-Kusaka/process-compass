@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0076
+status: included
+excludeReason: null
+title: Don’t Build Multi-Agents
+url: https://cognition.ai/blog/dont-build-multi-agents
+canonicalUrl: https://cognition.ai/blog/dont-build-multi-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: Cognition
+authors: [Yan Walden]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2025-06-12
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: "反証探索: Cognition dont-build-multi-agents (既知 URL を直接取得)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06]
+events: []
+summary: Cognition(Devin 開発元)の設計原則。2025年時点で複数エージェントの協調は判断が分散し文脈共有が不十分で脆弱だと主張し、単一スレッドのエージェントと文脈圧縮を推奨。AI をロール別チームとして編成する設計への反証。
+claims:
+  - id: c1
+    text: 2025年時点で、複数エージェントを協調させると判断が分散し文脈が十分に共有されず脆弱なシステムにしかならないと主張。
+    quote: it is evident that in 2025, running multiple agents in collaboration only results in fragile systems. The decision-making ends up being too dispersed and context isn’t able to be shared thoroughly enough between the agents.
+    locator: Multi-Agents
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3, TH06-Q3]
+    issues: [248, 258]
+    stance: contradicts
+  - id: c2
+    text: 原則2「行動は暗黙の決定を伴い、矛盾する決定は悪い結果を生む」。サブエージェント分割は相互に見えない前提で作業するため成果が不整合になる。
+    quote: Principle 2 Actions carry implicit decisions, and conflicting decisions carry bad results
+    locator: Principle 2
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:20.155Z
+    httpStatus: 200
+    finalUrl: https://cognition.com/blog/dont-build-multi-agents
+    contentType: text/html; charset=utf-8
+    titleFetched: Don’t Build Multi-Agents
+    titleMatch: true
+    dateMeta: 2025-06-12
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

@@ -1,0 +1,156 @@
+schemaVersion: 0
+id: SRC-0396
+status: included
+excludeReason: null
+title: "These Aren't the Reviews You're Looking For: How Humans Review AI-Generated Pull Requests"
+url: https://arxiv.org/abs/2605.02273
+canonicalUrl: arxiv:2605.02273
+ids:
+  arxiv: "2605.02273"
+  doi: null
+publisher: EASE 2026 (30th International Conference on Evaluation and Assessment in Software Engineering)
+authors: [Kacper Duma, Patryk Wróblewski, Jagoda Bobińska, Julia Winiarska, Piotr Przymus]
+orgType: academic
+region: eu
+lang: en
+sourceType: paper-peer
+published: 2026-05-04
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: habituation reviewers agent-generated pull requests approval rates increased inline comments decreased 22% arXiv 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH11, TH10]
+events: []
+summary: AIDev の AI エージェント PR と同一リポジトリの人間 PR のレビューを比較。エージェント PR の 6 割はレビュー記録がなく、レビューされてもエージェントが主で、人間の関与は『エージェントへの指示』の形をとると示した。
+claims:
+  - id: c1
+    text: 人気リポジトリのエージェント作成 PR 33,596 件のうち 61.38% にレビュー記録がなく、レビューされた PR の 58.77% はエージェントだけがレビューしていた。
+    quote: 61.38% (20,621) receive no recorded review activity, while 38.62% (12,975) receive at least one review.
+    locator: §5.1 / Table 1
+    quant:
+      value: レビュー記録なし 61.38%、エージェントのみ 58.77%(レビュー済みのうち)
+      n: エージェント作成 PR 33,596 件
+      design: observational (repository mining)
+      population: AIDev の人気リポジトリ
+    evidenceKind: observational
+    rqs: [TH06-Q4, TH11-Q3]
+    issues: [268]
+    stance: supports
+  - id: c2
+    text: AI 生成 PR のレビューは自動化を介したやり取りが多く、人間の関与は独立した評価ではなくエージェントへの指示として現れる。レビュー指標を人間による監督の指標として読むことに注意を促す。
+    quote: reviews of AI-generated PRs more often take the form of automation-mediated interaction, with human involvement frequently expressed through agent steering rather than standalone evaluation.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: supports
+  - id: c3
+    text: レビュー記録がないことは人間の監督がないことを意味しない(痕跡を残さず確認している可能性)と著者は留保している。
+    quote: We note that the absence of recorded review activity does not imply the absence of human oversight; maintainers may inspect pull requests without leaving traceable comments.
+    locator: §5.1
+    quant: null
+    evidenceKind: observational
+    rqs: [TH11-Q3]
+    issues: [268]
+    stance: qualifies
+  - id: c4
+    text: エージェント作成PRの 61.38% は記録上のレビュー活動がなく、22.6% はエージェントのみがレビューし、人の関与が観測できるのは 15.9% だった。
+    quote: 61.38% of agent-authored PRs receive no recorded review activity.
+    locator: RQ1 結果
+    quant:
+      value: レビュー記録なし 61.38% / エージェントのみ 22.6% / 人の関与 15.9%
+      n: 33,596 エージェントPR
+      design: observational(マイニング、規則ベースの分類)
+      population: AIDev-POP(100スター以上のリポジトリ)
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c5
+    text: 両方の種類のPRがあるリポジトリに限ると、人のPRも 69.2% が記録上レビューなしかエージェントのみのレビューで、エージェントPR(69.9%)とほぼ同じだった。レビューの薄さはエージェントPR固有ではない。
+    quote: For human-authored PRs in the same repositories, 69.2% (3856/5574) either receive no recorded review or are reviewed exclusively by agents
+    locator: RQ1(R∩ の比較)
+    quant:
+      value: 人のPR 69.2% 対 エージェントPR 69.9%
+      n: エージェントPR 9,616 / 人のPR 5,574
+      design: observational
+      population: 両方のPRを持つリポジトリ
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+  - id: c6
+    text: 著者らは、記録上のレビュー活動がないことは人の監督がないことを意味しないと留保している。
+    quote: the absence of recorded review activity does not imply the absence of human oversight; maintainers may inspect pull requests without leaving traceable comments.
+    locator: RQ1 結果の注記
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:59.589Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.02273
+    contentType: text/html; charset=utf-8
+    titleFetched: These Aren't the Reviews You're Looking For How Humans Review AI-Generated Pull Requests
+    titleMatch: true
+    dateMeta: 2026-05-04
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv:
+      status: 200
+      title: These Aren't the Reviews You're Looking For How Humans Review AI-Generated Pull Requests
+      authors: ["Duma, Kacper", "Wróblewski, Patryk", "Bobińska, Jagoda", "Winiarska, Julia", "Przymus, Piotr"]
+      v1Date: 2026-05-04
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 33,596件 / 61.38%(20,621)にレビュー記録なし / レビューされたPRの58.77%(7,625)がエージェントのみ
+        extractedQuote: 33,596 agent-authored PRs are included in this subset. ... 61.38% (20,621) receive no recorded review activity ... 58.77% (7,625) are reviewed exclusively by agents
+        locator: §5.1 Agentic Pull Requests in R_pop / Table 1
+        note: 母集団は AIDev の R_pop(エージェントPRを1件以上含む星100以上のリポジトリ)。58.77% の分母はレビューされたPR(12,975件)。論文本文は mixed を 40.34%(4,034) と書くが Table 1 では 31.09% で、論文内に不整合がある(4,034/12,975≈31.09%)。論文は「記録がないことは人の監督がないことを意味しない」と注記している。
+      c4:
+        verdict: match
+        extractedValue: 61.38%(記録上のレビューなし) / 22.6%(エージェントのみ、7625/33596) / 15.9%(人の関与あり、(1316+4034)/33596)
+        extractedQuote: In R_pop, 61.38% of agent-authored PRs receive no recorded review activity. Overall, 22.6% ( 7625 / 33596 ) are reviewed exclusively by agents and 15.9% ( 1316 + 4034 / 33596 )
+        locator: "§6.1 RQ1: What characterizes review activity for AI-generated PRs?"
+        note: 22.6% と 15.9% の分母は全エージェントPR(33,596件)。c1 の 58.77% は分母がレビュー済みPRで、別の数値である。母集団は R_pop。 引用の続きは「involve observable human participation.」。
+      c5:
+        verdict: match
+        extractedValue: 人のPR 69.2%(3856/5574) / エージェントPR 69.9%(6720/9616)
+        extractedQuote: For human-authored PRs in the same repositories, 69.2% ( 3856 / 5574 ) either receive no recorded review or are reviewed exclusively by agents
+        locator: §5.2 Agentic and Human Pull Requests in R∩(§6.2 RQ2 でも 30.12% vs 30.83% として言及)
+        note: エージェントPR側の原文は「69.9% ( 6720 / 9616 ) of agent-authored PRs in R∩ either receive no recorded review or are reviewed exclusively by agents」。locator は RQ1 となっているが、R∩ の比較は RQ2(§5.2/§6.2)に当たる。論文は人の参加率がほぼ同じだと述べる一方、構成(human-only 25.21% vs 8.08%、agent-steering など)は大きく異なると強調しており、「レビューの薄さはエージェントPR固有ではない」は主張側の解釈である。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH10
+    query: AI-generated pull requests review time empirical study arXiv 2026

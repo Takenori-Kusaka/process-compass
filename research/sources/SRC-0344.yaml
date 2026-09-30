@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0344
+status: included
+excludeReason: null
+title: Rule insights for organizations in public preview - GitHub Changelog
+url: https://github.blog/changelog/2026-08-12-rule-insights-for-organizations-in-public-preview
+canonicalUrl: https://github.blog/changelog/2026-08-12-rule-insights-for-organizations-in-public-preview
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-12
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH02
+  query: GitHub rulesets evaluate mode enforcement status insights
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH11]
+events:
+  - date: 2026-08-12
+    label: GitHub が組織単位の rule insights を public preview で提供
+summary: 規則の評価結果(許可・失敗・バイパス)を組織全体で集計する rule insights の提供告知。評価状態での絞り込み、バイパスの多いリポジトリの特定、CSV 出力ができる。
+claims:
+  - id: c1
+    text: 組織内の全リポジトリについて規則評価の集計を見られ、バイパスの多いリポジトリを特定できる。バイパスを通過と別に数える記録が製品側に用意された。
+    quote: Identify your top repositories by bypasses to focus your review where it matters most.
+    locator: At the organization level, you can
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4, TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 評価状態・ブランチ・ruleset・期間で結果を絞り込める。
+    quote: Filter results by evaluation status, branch, ruleset, and date range to focus on the activity you care about.
+    locator: At the organization level, you can
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 報告と記録保存のために CSV で出力できる。
+    quote: Export the data to CSV for reporting and record keeping.
+    locator: At the organization level, you can
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:19.230Z
+    httpStatus: 200
+    finalUrl: https://github.blog/changelog/2026-08-12-rule-insights-for-organizations-in-public-preview/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Rule insights for organizations in public preview - GitHub Changelog
+    titleMatch: true
+    dateMeta: 2026-08-12
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

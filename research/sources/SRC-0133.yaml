@@ -1,0 +1,104 @@
+schemaVersion: 0
+id: SRC-0133
+status: included
+excludeReason: null
+title: The AI Productivity Paradox
+url: https://www.svpg.com/the-ai-productivity-paradox/
+canonicalUrl: https://svpg.com/the-ai-productivity-paradox
+ids:
+  arxiv: null
+  doi: null
+publisher: Silicon Valley Product Group (SVPG)
+authors: [Marty Cagan]
+orgType: consultancy
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-07-23
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: Marty Cagan AI product discovery prototypes 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH11]
+events: []
+summary: AI で速く作れるのに成果が出ない「AI 生産性パラドックス」を、旧来のプロジェクトモデルを速めているだけと診断する記事。McKinsey と Atlassian の 2026 年調査を引く。速く作って市場に投げる「ready-fire-aim」を明確に否定する。
+claims:
+  - id: c1
+    text: Atlassian State of Teams 2026 では、経営層の 89% が AI で仕事が速くなったと答える一方、組織全体の AI ROI を具体的に示せると確信するのは 6% にとどまる(二次引用)。
+    quote: "From the Atlassian’s State of Teams 2026 Report : “89% of executives say AI has increased the speed of work, but only 6% feel confident they can point to specific organization-wide AI ROI.”"
+    locator: 本文 第4段落
+    quant:
+      value: 89% / 6%
+      n: not stated in this article
+      design: survey (secondary citation)
+      population: executives, Atlassian State of Teams 2026
+    evidenceKind: news-fact
+    rqs: [TH09-Q1, TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 多くの組織は AI を旧来のプロジェクトモデル(出力志向)を速めるためだけに使っており、それが成果に結びつかない原因である。
+    quote: We continue to see most people utilizing AI to simply speed up their old, project model way of working.
+    locator: 本文 第8段落
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 素早く生成して顧客に投げて様子を見ることは可能であり多くがそうしているが、問題は成果(outcome)が出ないことだと述べ、プロトタイプ先行の無検証リリースを否定する。
+    quote: You might wonder why a team can’t just generate something quickly and launch it to customers and see what happens? They absolutely can
+    locator: 本文 後半
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:54.763Z
+    httpStatus: 200
+    finalUrl: https://www.svpg.com/the-ai-productivity-paradox/
+    contentType: text/html; charset=UTF-8
+    titleFetched: The AI Productivity Paradox | Silicon Valley Product Group
+    titleMatch: true
+    dateMeta: 2026-07-23
+    quotes:
+      c1: partial
+      c2: found
+      c3: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: State of Teams 2026; 89%; 6%
+        extractedQuote: "From the Atlassian’s State of Teams 2026 Report : “89% of executives say AI has increased the speed of work, but only 6% feel confident they can point to specific organization-wide AI ROI.”"
+        locator: 本文 冒頭から3段落目(McKinsey Quarterly 引用の次)
+        note: SVPG(Marty Cagan)による Atlassian レポートの引用で、二次引用である点は ask と一致。段落位置は第3段落に見える。
+      c3:
+        verdict: match
+        extractedValue: They absolutely can ... The problem is the outcome.
+        extractedQuote: why a team can’t just generate something quickly and launch it to customers and see what happens? They absolutely can, and that’s precisely what so many are doing today. The problem is the outcome.
+        locator: 本文 後半(build to learn / build to earn の段落の後)
+        note: 原典は AI でプロトタイプを作り顧客・ユーザーで検証する build to learn(discovery)を推奨しており、その後に build to earn へ進むと述べる。否定しているのは証拠なしに素早く作って顧客へ出すこと。ask の「プロトタイプ先行の無検証リリースを否定」は、プロトタイプ先行そのものを否定すると読まれると向きが食い違う恐れがある。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://svpg.com/the-ai-productivity-paradox

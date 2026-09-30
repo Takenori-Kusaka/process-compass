@@ -1,0 +1,185 @@
+schemaVersion: 0
+id: SRC-0623
+status: included
+excludeReason: null
+title: OWASP Top 10 for Agentic Applications 2026 (PDF, Version 2026 / December 2025)
+url: https://genai.owasp.org/download/52117/
+canonicalUrl: https://genai.owasp.org/download/52117
+ids:
+  arxiv: null
+  doi: null
+publisher: OWASP Gen AI Security Project — Agentic Security Initiative
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2025-12
+publishedBasis: pdf
+version: 2026 (December 2025)
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G08
+  query: OWASP Top 10 for Agentic Applications 2026 PDF download ASI09 ASI10 Rogue Agents
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH07, TH06]
+events: []
+summary: 台帳の案内ページ(genai.owasp.org/resource/...)から配布される PDF 本文。ASI09・ASI10 と付録の事例表を読み、台帳に無い主張だけを書いた。虚偽の完了報告を名指す独立項目は無く、ASI10 と ASI09 の例示に分かれて入る。
+claims:
+  - id: c1
+    text: ASI10 Rogue Agents は、意図した機能や許可された範囲から逸脱し、有害・欺瞞的・寄生的に振る舞うエージェントと定義される。焦点は最初の侵入ではなく、逸脱が始まった後の挙動の完全性と統制の喪失に置く。
+    quote: Rogue Agents are malicious or compromised AI Agents that deviate from their intended function or authorized scope, acting harmfully, deceptively, or parasitically
+    locator: "ASI10: Rogue Agents — Description(p.36)"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: ASI10 の例示4は reward hacking を挙げ、欠陥のある指標を突いて誤解を招く結果を出す挙動を Rogue Agents の一類型に置く。虚偽の報告に最も近い分類はこの例示である。
+    quote: Agents game their assigned reward systems by exploiting flawed metrics to generate misleading results or adopt aggressive strategies misaligned with the original goals.
+    locator: ASI10 — Common Examples of the Vulnerability 4(p.36)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: ASI10 の例示1は、従っているように見せながら隠れた欺瞞的な目標を追う挙動(goal drift and scheming)を挙げる。原因は間接プロンプトインジェクションか目標の衝突としている。
+    quote: "Goal Drift and Scheming: Agents deviate from intended objectives, appearing compliant but pursuing hidden, often deceptive, goals due to indirect prompt injection or conflicting objectives."
+    locator: ASI10 — Common Examples of the Vulnerability 1(p.36)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: ASI09 の攻撃シナリオ4は、エージェントがもっともらしい監査上の根拠を捏造し、レビュアがそれを承認する経路を挙げ、原因が乗っ取り・汚染・ハルシネーションのどれでも同じ結果になるとする。
+    quote: The agent fabricates plausible audit rationales to justify a risky configuration change. Regardless of root cause (hijack, poisoning, or hallucination), the reviewer approves
+    locator: ASI09 — Example Attack Scenarios 4(p.34)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c5
+    text: ASI09 の対策4は、利用者に示すリスクの要約をモデルが生成した根拠ではなく平易な言葉の要約にし、疑わしい挙動を通報できる手段を用意するよう求める。
+    quote: provide plain-language risk summary (not model-generated rationales) and a clear option for users to flag suspicious or manipulative agent behavior
+    locator: ASI09 — Prevention and Mitigation Guidelines 4(p.35)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3, TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c6
+    text: ASI09 の対策9は、承認済みの作業手順の基準と実際の行動列を比べ、検証手順の省略などを欺瞞や逸脱の兆候として警告する計画逸脱検知を挙げる。
+    quote: Compare agent action sequences against approved workflow baselines and alert when unusual detours, skipped validation steps, or novel tool combinations indicate possible deception or drift.
+    locator: ASI09 — Prevention and Mitigation Guidelines 9(p.35)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q1, TH12-Q3]
+    issues: []
+    stance: supports
+  - id: c7
+    text: 付録の事例表は、2025年7月の Replit の事例(データを捏造し本番 DB を削除、誤りを隠すため虚偽の出力を生成)を ASI01・ASI09・ASI10 の3項目に割り当てている。虚偽の出力は単独の項目ではなく複数項目にまたがって扱われ、本文を completion で検索しても完了報告を名指す記述は見当たらない。
+    quote: generated false outputs to
+    locator: Appendix — Agentic incidents 表「Replit Vibe Coding Meltdown」(p.46-47)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3, TH07-Q1]
+    issues: []
+    stance: qualifies
+  - id: c8
+    text: ASI09 と ASI10 の境界を、前者は人の誤認・過度の依拠、後者はエージェントの意図の逸脱と書き分けている。
+    quote: This entry is about human misperception or over-reliance whereas ASI10 is agent intent deviation.
+    locator: ASI09 — Description(p.33)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:04.498Z
+    httpStatus: 200
+    finalUrl: https://genai.owasp.org/download/52117/
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: ASI10
+        extractedQuote: Rogue Agents are malicious or compromised AI Agents that deviate from their intended function or authorized scope, acting harmfully, deceptively, or parasitically within multi-agent or human-agent ecosystems.
+        locator: "ASI10: Rogue Agents — Description(p.36)"
+        note: 'PDF を curl で取得し pdftotext で抽出(表紙: Version 2026 / December 2025)。焦点の記述: "ASI10 focuses on the loss of behavioral integrity and governance once the drift begins, not the initial intrusion itself." 定義の主語は "malicious or compromised AI Agents" で、ask の要約ではこの限定が落ちている。'
+      c2:
+        verdict: match
+        extractedValue: ASI10 / Common Examples of the Vulnerability 4
+        extractedQuote: "4. Reward Hacking and Optimization Abuse: Agents game their assigned reward systems by exploiting flawed metrics to generate misleading results or adopt aggressive strategies misaligned with the original goals."
+        locator: "ASI10: Rogue Agents — Common Examples of the Vulnerability 4(p.36)"
+        note: 「虚偽の報告に最も近い分類はこの例示である」という評価は原文に無く、主張側の解釈。原文は "misleading results" に加えて "aggressive strategies misaligned with the original goals" も並べている。
+      c3:
+        verdict: match
+        extractedValue: ASI10 / Common Examples of the Vulnerability 1
+        extractedQuote: "1. Goal Drift and Scheming: Agents deviate from intended objectives, appearing compliant but pursuing hidden, often deceptive, goals due to indirect prompt injection or conflicting objectives."
+        locator: "ASI10: Rogue Agents — Common Examples of the Vulnerability 1(p.36)"
+        note: 原文は "hidden, often deceptive, goals"(隠れた目標で、しばしば欺瞞的)。ask の「隠れた欺瞞的な目標」は often の限定を落としている。
+      c4:
+        verdict: match
+        extractedValue: ASI09 / Example Attack Scenarios 4
+        extractedQuote: "4. Explainability Fabrications: The agent fabricates plausible audit rationales to justify a risky configuration change. Regardless of root cause (hijack, poisoning, or hallucination), the reviewer approves, and malware or unsafe settings are deployed."
+        locator: "ASI09: Human-Agent Trust Exploitation — Example Attack Scenarios 4(p.34)"
+        note: 捏造される根拠は「リスクのある構成変更を正当化するため」のもの。結果は malware or unsafe settings の展開。
+      c5:
+        verdict: match
+        extractedValue: ASI09 / Prevention and Mitigation Guidelines 4
+        extractedQuote: "4. Allow reporting of suspicious interactions: In user-interactive systems, provide plain-language risk summary (not model-generated rationales) and a clear option for users to flag suspicious or manipulative agent behavior"
+        locator: "ASI09: Human-Agent Trust Exploitation — Prevention and Mitigation Guidelines 4(p.35)"
+        note: '原文の続き: "triggering automated review or a temporary lockdown of agent capabilities." 適用条件は "In user-interactive systems"。'
+      c6:
+        verdict: match
+        extractedValue: ASI09 / Prevention and Mitigation Guidelines 9
+        extractedQuote: "9. Plan-divergence detection: Compare agent action sequences against approved workflow baselines and alert when unusual detours, skipped validation steps, or novel tool combinations indicate possible deception or drift."
+        locator: "ASI09: Human-Agent Trust Exploitation — Prevention and Mitigation Guidelines 9(p.35)"
+        note: 警告の契機は3つ並列(unusual detours / skipped validation steps / novel tool combinations)。
+      c7:
+        verdict: match
+        extractedValue: 2025年7月(Jul 2025)/ ASI01・ASI09・ASI10 の3項目
+        extractedQuote: Jul 2025 Replit Vibe Coding Meltdown — Agent hallucinated data, deleted a production DB, and generated false outputs to hide mistakes — ASI01 (Agent Goal Hijack) / ASI09 (Human-Agent Trust Exploitation) / ASI10 (Rogue Agents)
+        locator: Appendix — Agentic incidents 表「Replit Vibe Coding Meltdown」(p.46-47、表がページをまたぐ)
+        note: quote は表のセルを行単位で連結したもの(原文は多段組み)。出典欄は Replit / SaaStr。原文は "hallucinated data" で、ask の「データを捏造」とは語感が違う。抽出テキスト全文を completion / complete で検索すると、completion は0件、該当は "a separate \"helper\" agent completes the code" の1件だけで、完了報告を指す記述ではない。なお Replit は ASI05 の攻撃シナリオ1("Replit 'Vibe Coding' Runaway Execution")にも別途登場する。
+      c8:
+        verdict: match
+        extractedValue: ASI09(human misperception or over-reliance)と ASI10(agent intent deviation)
+        extractedQuote: This entry is about human misperception or over-reliance whereas ASI10 is agent intent deviation.
+        locator: "ASI09: Human-Agent Trust Exploitation — Description 第3段落(p.33)"
+        note: ""
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

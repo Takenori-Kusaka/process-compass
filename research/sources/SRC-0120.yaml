@@ -1,0 +1,100 @@
+schemaVersion: 0
+id: SRC-0120
+status: included
+excludeReason: null
+title: "Tokenomics: Managing AI Value in SaaS Model Token Costs"
+url: https://www.finops.org/wg/token-economics-saas
+canonicalUrl: https://finops.org/wg/token-economics-saas
+ids:
+  arxiv: null
+  doi: null
+publisher: FinOps Foundation (Working Group paper)
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-06-03
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: FinOps Foundation FinOps for AI token cost framework 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04, TH11]
+events:
+  - date: 2026-06-03
+    label: Linux Foundation が FinOps Foundation と共に Tokenomics Foundation の設立意向を発表
+summary: FinOps Foundation のワーキンググループ文書(最終更新 2026-06-03)。トークンを「請求単位であって価値単位ではない」と位置づけ、キャッシュ・バッチ等の削減レバーと、成功アウトカム当たり費用などの単位経済指標を推奨する。FinOps for AI の公的枠組み。
+claims:
+  - id: c1
+    text: 安定した長いシステムプロンプトを持つアプリでは、プロンプトキャッシュでキャッシュ部分の入力費用を 80〜90% 削減できる、と FinOps Foundation が削減レバーとして整理する。
+    quote: For applications with stable, lengthy system prompts, enabling prompt caching can reduce input token costs by 80 to 90% for the cached portion.
+    locator: "Optimization Levers: Prompt Caching"
+    quant:
+      value: -80〜90%(cached portion)
+      n: null
+      design: framework guidance
+      population: SaaS model provider APIs
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 推奨する単位費用指標は、呼び出し当たり・利用者月当たり・成功アウトカム当たり・業務トランザクション当たりの 4 つ。失敗・破棄された実行は完了ではなく費用として数える。ロール別の消費配分を成果に結び付ける指標設計の先例。
+    quote: "Cost per successful outcome: total cost of a multi-step process, counting only the runs whose output clears the quality floor for that workload. Failed and discarded runs are cost, not completions."
+    locator: Recommended Unit Cost Metrics
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3, TH04-Q1]
+    issues: [274]
+    stance: context
+  - id: c3
+    text: トークンは「請求単位であって価値単位ではない」。従来の予算ツールでは扱いにくく、開発者がクレジットカードで作った API アカウントから始まるため調達部門に見えない、と課題を整理する。
+    quote: The token is the billing unit, not the value unit.
+    locator: Executive Summary
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q3, TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:50.855Z
+    httpStatus: 200
+    finalUrl: https://www.finops.org/wg/token-economics-saas/
+    contentType: text/html; charset=UTF-8
+    titleFetched: "Tokenomics: Managing AI Value in SaaS Model Token Costs"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 4(Cost per query or API call / Cost per user per month / Cost per successful outcome / Cost per business transaction)
+        extractedQuote: "Cost per successful outcome: total cost of a multi-step process, counting only the runs whose output clears the quality floor for that workload. Failed and discarded runs are cost, not completions."
+        locator: Showback and Chargeback > Recommended Unit Cost Metrics
+        note: 節の見出し直下に4項目が列挙されている。ただし同ページ冒頭の要約では 'unit cost metrics (cost per query, cost per user, cost per workflow)' と3つで挙げており、原典内で表記が揺れる。「ロール別の消費配分を成果に結び付ける」は原典に無い主張者の位置づけ(原典は成果との接続を別文書 'Classifying and Measuring Realized Value from AI' に委ねている)。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://finops.org/wg/token-economics-saas

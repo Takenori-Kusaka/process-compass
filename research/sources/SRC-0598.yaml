@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0598
+status: included
+excludeReason: null
+title: The Rails Command Line — Ruby on Rails Guides
+url: https://guides.rubyonrails.org/command_line.html
+canonicalUrl: https://guides.rubyonrails.org/command_line.html
+ids:
+  arxiv: null
+  doi: null
+publisher: Ruby on Rails
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: vendor-official
+published: "2026"
+publishedBasis: unknown
+version: Rails Guides v8.1.4
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G06
+  query: Rails "Code to Test Ratio" bin/rails stats command line guide
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH07]
+events: []
+summary: Rails 公式ガイド(v8.1.4)の `bin/rails stats` の節。製品コードとテストコードの行数を集計し、「Code to Test Ratio」を標準コマンドの出力として示す。テスト/製品コード比を定義して収集する、フレームワーク標準の先例である。比の良否の基準や効果の測定は載っていない。
+claims:
+  - id: c1
+    text: "`bin/rails stats` は、アプリケーションの構成要素ごとの行数(LOC)とクラス数・メソッド数を集計する標準コマンドである。"
+    quote: The bin/rails stats command shows you things like lines of code (LOC) and the number of classes and methods for various components in your application.
+    locator: 6.5 bin/rails stats
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH11-Q3]
+    issues: [267, 270]
+    stance: supports
+  - id: c2
+    text: 出力の末尾に、製品コード行数・テストコード行数と、その比(Code to Test Ratio)が示される。検証用コードと製品コードの比を指標として収集する先例であり、公式の例では 1:0.1 となっている。
+    quote: "Code LOC: 1411 Test LOC: 130 Code to Test Ratio: 1:0.1"
+    locator: 6.5 bin/rails stats(出力例)
+    quant:
+      value: 1:0.1(出力例)
+      n: 例示 1 件
+      design: ツールの出力例(測定研究ではない)
+      population: ガイドのサンプルアプリケーション
+    evidenceKind: vendor-guidance
+    rqs: [TH11-Q3, TH07-Q3]
+    issues: [267, 270]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:55.740Z
+    httpStatus: 200
+    finalUrl: https://guides.rubyonrails.org/command_line.html
+    contentType: text/html
+    titleFetched: The Rails Command Line — Ruby on Rails Guides
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

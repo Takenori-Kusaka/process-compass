@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0268
+status: included
+excludeReason: null
+title: Claude Codeでトークンリミットが頻発したので、作業ごとにリミットを設定した
+url: https://www.m3tech.blog/entry/claude-budget-tags
+canonicalUrl: https://m3tech.blog/entry/claude-budget-tags
+ids:
+  arxiv: null
+  doi: null
+publisher: エムスリーテックブログ
+authors: [遠藤]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-09-01
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: "RSS走査: 国内Web系21社の技術ブログフィード(freee, マネーフォワード, SmartHR, サイバーエージェント, LINEヤフー, DeNA, Sansan, ZOZO, エムスリー, ANDPAD, メルカリ, GMO, ゆめみ, Ubie, ログラス, カケハシ, 10X, UPSIDER, Gaudiy, ヤプリ 等)を AI|Claude|Codex|エージェント|LLM|レビュー|ハーネス で抽出"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events: []
+summary: 定額プランの5時間枠・週次枠がバックグラウンドのエージェントに食われメインの作業が止まる問題に対し、セッションにタグを付けタグごとに使用率上限を設けるフックを作った報告。消費量の計算式は非公開と指摘。
+claims:
+  - id: c1
+    text: 自律ループでサブタスクを並行させるとトークンを急速に消費し、5時間枠を使い切ってメインタスクが止まる。社内では上限到達後も申請で従量課金へ移れるため業務自体は止まらない。
+    quote: 気づいた時には5時間枠を使い切っていて肝心のメインタスクが止まっている、という経験は皆さんにもあるのではないでしょうか。
+    locator: はじめに
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 定額プランの使用量は claude.ai・Claude Code・Desktop で共通の枠から引かれ、影響要因は公式に列挙されるが消費量の計算方法は公開されていない。
+    quote: 公式が挙げているのは「会話の長さと複雑さ・使う機能・モデル・effort level が影響する」という要因だけ( 使用量と長さの制限 )で、 消費量の計算方法は公開されていない
+    locator: 前提の整理(サブスクの枠の仕組み)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: タグ別の配分係数にはAPI料金表の比率(キャッシュ読み取りは基本入力の0.1倍、5分TTL書き込み1.25倍、1時間TTL書き込み2倍、出力は入力の5倍)を用いている。
+    quote: cache readが基本入力単価の0.1倍、5分TTLのcache writeが1.25倍、1時間TTLのcache writeが2倍というのは料金表そのままで、出力が入力の5倍という関係も全モデルで成立しています。
+    locator: タグごとの使用量の割り振り
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:44.094Z
+    httpStatus: 200
+    finalUrl: https://www.m3tech.blog/entry/claude-budget-tags
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Codeでトークンリミットが頻発したので、作業ごとにリミットを設定した - エムスリーテックブログ
+    titleMatch: true
+    dateMeta: 2026-09-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://m3tech.blog/entry/claude-budget-tags

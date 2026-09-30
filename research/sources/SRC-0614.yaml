@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0614
+status: included
+excludeReason: null
+title: Review comments - Graphite docs
+url: https://graphite.com/docs/ai-review-comments
+canonicalUrl: https://graphite.com/docs/ai-review-comments
+ids:
+  arxiv: null
+  doi: null
+publisher: Graphite
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G07
+  query: Graphite Agent AI review docs comment categories bugs "Graphite Agent" custom rules exclusions how comments work
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH11]
+events: []
+summary: Graphite Agent(AI レビュー)の指摘様式の公式文書(日付表記なし、2026-09-30 取得)。各コメントは問題の説明・重要な理由・具体的な修正案の 3 点を含むと定める。再現手順・実行結果・重大度の欄は記載が無い。運用側の指標として受け入れ率と低評価率を時系列で出す。
+claims:
+  - id: c1
+    text: 各コメントは「問題の明確な説明」「なぜ重要かの説明」「具体的な修正案」の 3 点を含むと明記する(修正案は様式上の必須要素)。
+    quote: "When Graphite Agent identifies an issue in a pull request, it adds a comment directly on the relevant lines of code. Each comment includes:"
+    locator: How Graphite Agent provides feedback
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 修正案は 3 番目の必須要素として列挙されている。
+    quote: A concrete suggestion for how to fix it
+    locator: How Graphite Agent provides feedback(番号付き一覧の 3)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c3
+    text: AI レビュアの健全性は、受け入れ率(時系列)と低評価率で利用者側が監視する設計で、レビュアの漂流を直接測る指標は文書に無い。
+    quote: Percentage of suggestions that were accepted over time
+    locator: Tracking AI review impact / Overview tab
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:00.799Z
+    httpStatus: 200
+    finalUrl: https://graphite.com/docs/ai-review-comments
+    contentType: text/html; charset=utf-8
+    titleFetched: Review comments - Graphite
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3点(番号付き一覧 1〜3)
+        extractedQuote: "Each comment includes: 1. A clear description of the problem 2. An explanation of why it matters 3. A concrete suggestion for how to fix it"
+        locator: How Graphite Agent provides feedback
+        note: ai-review-comments.md(markdown 版)で取得。原文は「three」という語を使わず、番号付き一覧が3項目。表現は "includes" であり、「必須」「様式上の要素」とは書いていない。
+      c2:
+        verdict: match
+        extractedValue: 3番目
+        extractedQuote: 3. A concrete suggestion for how to fix it
+        locator: How Graphite Agent provides feedback(番号付き一覧の 3)
+        note: 原文は "Each comment includes:" の列挙で、「必須」に当たる語(required / must)は無い。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

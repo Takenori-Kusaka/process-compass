@@ -1,0 +1,118 @@
+schemaVersion: 0
+id: SRC-0417
+status: included
+excludeReason: null
+title: Artifact attestations - GitHub Docs
+url: https://docs.github.com/en/actions/concepts/security/artifact-attestations
+canonicalUrl: https://docs.github.com/en/actions/concepts/security/artifact-attestations
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: [GitHub]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2024-06-25
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH07
+  query: GitHub artifact attestations "not a guarantee that an artifact is secure"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH10]
+events:
+  - date: 2024-06-25
+    label: GitHub Artifact Attestations 一般提供(GitHub Changelog)
+summary: GitHub の artifact attestation の概念説明。docs 本体は日付なしのため、published には GA の Changelog の日付を入れた。attestation は成果物と生成元を結び付けるだけで安全を保証しないこと、検証しなければ効果がないことを明記している。
+claims:
+  - id: c1
+    text: attestation は成果物が安全である保証ではなく、成果物を生成元のソースとビルド手順へ結び付けるものである。方針の定義と評価は利用者が行う。
+    quote: artifact attestations are not a guarantee that an artifact is secure. Instead, artifact attestations link you to the source code and the build instructions that produced them.
+    locator: Warning ボックス
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2]
+    issues: [269, 271]
+    stance: supports
+  - id: c2
+    text: attestation を生成するだけではセキュリティ上の利益はなく、検証されて初めて効果が生じる。
+    quote: Generating attestations alone doesn't provide any security benefit, the attestations must be verified for the benefit to be realized.
+    locator: When to generate attestations
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2]
+    issues: [271]
+    stance: supports
+  - id: c3
+    text: attestation はワークフロー、リポジトリ、コミット SHA、トリガーイベントなどを含む暗号署名付きの主張としてビルド来歴を確立し、それ単体で SLSA v1.0 Build Level 2 を与える。
+    quote: Artifact attestations by itself provides SLSA v1.0 Build Level 2.
+    locator: SLSA levels for artifact attestations
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2]
+    issues: [271]
+    stance: context
+  - id: c4
+    text: 署名すべきでないものとして、自動テストのためだけの頻繁なビルドと、ソースコード・文書・埋め込み画像などの個別ファイルを挙げる(attestation は配布物の来歴向けで、PR 単位の主張の検証用ではない)。
+    quote: Individual files like source code, documentation files, or embedded images.
+    locator: When to generate attestations(You should not sign)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH10-Q4]
+    issues: [271]
+    stance: qualifies
+  - id: c5
+    text: attestation は生成するだけでは安全上の利益がなく検証して初めて効き、成果物が安全であることの保証でもないと明記する。
+    quote: It is important to remember that artifact attestations are not a guarantee that an artifact is secure.
+    locator: Verifying artifact attestations
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2]
+    issues: [271]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:29.659Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/actions/concepts/security/artifact-attestations
+    contentType: text/html; charset=utf-8
+    titleFetched: Artifact attestations - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: attestation の生成だけではセキュリティ上の利益はなく、検証されて初めて実現する
+        extractedQuote: Generating attestations alone doesn't provide any security benefit, the attestations must be verified for the benefit to be realized.
+        locator: When to generate attestations
+        note: ""
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH10
+    query: GitHub artifact attestations Sigstore provenance AI agent commits signed 2026

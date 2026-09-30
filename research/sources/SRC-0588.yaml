@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0588
+status: included
+excludeReason: null
+title: Cloud Agents | Cursor Docs
+url: https://cursor.com/docs/cloud-agent
+canonicalUrl: https://cursor.com/docs/cloud-agent
+ids:
+  arxiv: null
+  doi: null
+publisher: Cursor (Anysphere)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: coding agent multiple repositories limitation docs "single repository" cloud agent cross-repo changes Codex Copilot Claude Code web Jules 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events: []
+summary: Cursor のクラウドエージェントの公式ドキュメント。1 つのタスクが複数リポジトリにまたがる場合の「multi-repo 環境」を明記し、変更した各リポジトリへ PR を開くと説明する。台帳の GitHub Docs(SRC-0178)が「1 回の実行で複数リポジトリは変更できない」と記すのと対照的。ページに日付は無い(取得 2026-09-30)。
+claims:
+  - id: c1
+    text: Cursor のクラウドエージェントは、フロントエンド・バックエンド・インフラ・共有ライブラリが別リポジトリに分かれたタスクを、複数リポジトリの環境で扱えると公式に説明している。
+    quote: Cloud agents can also run in multi-repo environments. Use one when a task spans separate frontend, backend, infrastructure, or shared-library repositories.
+    locator: Cloud Agents(冒頭)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: qualifies
+  - id: c2
+    text: Cursor の Cloud agents は複数リポジトリの環境でも動作し、ワークスペース全体を調べて協調した変更を行い、変更したリポジトリで PR を開く。1つの変更が複数の PR やレビュー手番に分かれることについての記述はページに無い。
+    quote: Cloud agents can also run in multi-repo environments. [...] The agent can inspect the full workspace, make coordinated changes, and open pull requests in the repos it changes.
+    locator: Cloud Agents 冒頭(How to access の直前の段落)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T09:00:15.513Z
+    httpStatus: 200
+    finalUrl: https://cursor.com/docs/cloud-agent
+    contentType: text/html; charset=utf-8
+    titleFetched: Cloud Agents | Cursor Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 数値の記載なし(「open pull requests in the repos it changes」= 変更したリポジトリごとに PR を開く、という記述のみ)
+        extractedQuote: Cloud agents can also run in multi-repo environments. [...] The agent can inspect the full workspace, make coordinated changes, and open pull requests in the repos it changes.
+        locator: Cloud Agents 冒頭(How to access の直前の段落)
+        note: 原文にあるのは「変更したリポジトリで PR を開く」まで。「1つの変更が複数の PR・複数のレビュー手番に分かれる」「製品仕様が前提にしている」に当たる文言はページ内に無い(each repo / per repo / review の語も該当なし)。伏せ字に入る数は原典から抜き出せない。後半は読み手の推論。 引用の [...] は中略(「Use one when a task spans separate frontend, backend, infrastructure, or shared-library repositories.」)。
+        adjudication:
+          verdict: corrected
+          reason: 前半(変更したリポジトリで PR を開く)は blindQuote と一致する。後半の「1つの変更が複数の PR・複数のレビュー手番に分かれることを製品仕様が前提にしている」に当たる文言はページ内に無く(each repo / per repo / review の語も該当なし)、読み手の推論を原典の記述として書いた過剰な一般化。
+          date: 2026-09-30
+          originalText: 複数リポジトリのタスクでも、成果は変更したリポジトリごとの PR になる。分割構成では1つの変更が複数の PR・複数のレビュー手番に分かれることを、製品仕様が前提にしている。
+          originalQuote: The agent can inspect the full workspace, make coordinated changes, and open pull requests in the repos it changes.
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

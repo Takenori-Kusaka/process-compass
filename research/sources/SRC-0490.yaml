@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0490
+status: included
+excludeReason: null
+title: ISO/IEC FDIS 42105 Information technology — Artificial intelligence — Guidance for human oversight of AI systems
+url: https://www.iso.org/standard/86902.html
+canonicalUrl: https://iso.org/standard/86902.html
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC JTC 1/SC 42
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2026-08-26
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH12
+  query: ISO/IEC 42105 guidance for human oversight of AI systems FDIS published
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01]
+events:
+  - date: 2026-06-11
+    label: ISO/IEC 42105 を FDIS として登録
+  - date: 2026-08-26
+    label: FDIS 投票(8週間)を開始(段階 50.20)
+summary: SC 42 が策定中の「AI システムの人間による監視の指針」。ISO の規格ページ(段階・概要)と OBP の DIS 版プレビュー(適用範囲・用語)を読んだ。2026-09-24 時点で未発行(FDIS 投票中)。日付は段階 50.20 の日付。
+claims:
+  - id: c1
+    text: ISO/IEC 42105 は AI システムの人間による制御と監視(human oversight)の指針で、ISO/IEC TS 8200(制御可能性)を拡張する。2026-08-26 に FDIS 投票が始まった段階で、まだ発行されていない。
+    quote: This document provides guidance on human control and monitoring of AI systems, which is referred to as human oversight. This document extends ISO/IEC TS 8200.
+    locator: Abstract / Life cycle(Stage 50.20, 2026-08-26)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1, TH01-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: DIS 版は「人間による監視の監督者」を「人間による監視の責任または権限を持つ人間」と定義する(複数の自然人でもよい)。同じ §3 は AI system operator を「AI システムを扱う自然人」、AI customer / AI user / AI developer / AI subject を「組織または実体」と定義している。
+    quote: human oversight supervisor designated person human with responsibility or authority for human oversight
+    locator: DIS 版プレビュー §3.2(https://www.iso.org/obp/ui#!iso:std:iso-iec:42105:dis:ed-1:v1:en)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, human-correction]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:12.234Z
+    httpStatus: 403
+    finalUrl: https://iso.org/standard/86902.html
+    contentType: text/html; charset=UTF-8
+    titleFetched: Just a moment...
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: ISO/IEC 42105/ISO/IEC TS 8200/2026-08-26(Stage 50.20)
+        extractedQuote: This document provides guidance on human control and monitoring of AI systems, which is referred to as human oversight. This document extends ISO/IEC TS 8200.
+        locator: "Abstract / Life cycle「50.20 2026-08-26 Proof sent to secretariat or FDIS ballot initiated: 8 weeks」"
+        note: "Status: Under development(This draft is in the approval phase)。50.20 の段階名は「Proof sent to secretariat or FDIS ballot initiated」の併記で、FDIS 投票開始はその一方の読み。curl は Cloudflare のチャレンジで拒否、tavily_extract(advanced)で取得。"
+      c2:
+        verdict: match
+        extractedValue: human with responsibility or authority for human oversight
+        extractedQuote: "human oversight supervisor designated person human with responsibility or authority for human oversight Note 1 to entry: Human is considered equivalent to natural person in an organizational context."
+        locator: ISO/IEC DIS 42105 OBP プレビュー §3.2
+        note: "Note 2 to entry は「Human oversight supervisor can be multiple natural persons.」。同じ §3 に「AI system operator: natural person handling an AI system」、AI customer/AI user/AI developer/AI subject を「organization or entity」とする定義があり、ask 後段の「他の役割を誰が占めるかは定義していない」とは食い違って見える。"
+        adjudication:
+          verdict: corrected
+          reason: 懐疑役の突合(2026-09-30)。検証役が原典から抜き出した値と注記に沿って、主張文を人手で訂正した
+          date: 2026-09-30
+          originalText: DIS 版は「人間による監視の監督者」を「人間による監視の責任または権限を持つ人間」と定義する。監視の責任・権限の保持者を人と定めるが、他の役割を誰が占めるかは定義していない。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://iso.org/standard/86902.html

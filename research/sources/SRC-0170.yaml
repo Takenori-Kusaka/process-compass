@@ -1,0 +1,102 @@
+schemaVersion: 0
+id: SRC-0170
+status: included
+excludeReason: null
+title: Newsroom \ Anthropic
+url: https://www.anthropic.com/news
+canonicalUrl: https://anthropic.com/news
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-1
+  query: "direct: anthropic.com/news"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02]
+events:
+  - date: 2026-08-07
+    label: Anthropic が Fable 5 の生物学関連の安全装置を改善
+  - date: 2026-09-01
+    label: Anthropic が Enterprise Frontier Safeguards を発表
+  - date: 2026-09-22
+    label: Anthropic が Claude Opus 5.5 を発表
+summary: Anthropic の newsroom 一覧(取得日 2026-09-23)。Fable 5.1 の発表日 2026-09-01 などの日付の根拠。
+claims:
+  - id: c1
+    text: Fable 5.1 / Mythos 5.1 の発表日は 2026-09-01(一覧の time 要素)。
+    quote: Announcements Sep 1, 2026 Introducing Claude Fable 5.1 and Claude Mythos 5.1
+    locator: Featured 一覧
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+  - id: c2
+    text: Claude Opus 5.5 の発表日は 2026-09-22 である。
+    quote: Introducing Claude Opus 5.5 Announcements Sep 22, 2026 Opus 5.5 performs at the level of Claude Fable 5.1 on most work and costs 40% less to run than Opus 5.
+    locator: Featured グリッド先頭(<a href="/claude-opus-5-5"> 内の <time>)
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.832Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/news
+    contentType: text/html; charset=utf-8
+    titleFetched: Newsroom
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-09-01(time 要素の表示は "Sep 1, 2026")
+        extractedQuote: Announcements Sep 1, 2026 Introducing Claude Fable 5.1 and Claude Mythos 5.1 Our most advanced models for coding and knowledge work.
+        locator: Featured グリッド(<a href="/claude-fable-and-mythos-5-1"> 内の <time>)
+        note: HTML 構造上、<time>Sep 1, 2026</time> は Fable 5.1 / Mythos 5.1 記事のカード(同一 <a> 要素)内にあり対応は確定。公開一覧(PublicationList)の Sep 1, 2026 は別記事(Developing Enterprise Frontier Safeguards)
+      c2:
+        verdict: match
+        extractedValue: Opus 5.5 の発表日 2026-09-22("Sep 22, 2026")
+        extractedQuote: Introducing Claude Opus 5.5 Announcements Sep 22, 2026 Opus 5.5 performs at the level of Claude Fable 5.1 on most work and costs 40% less to run than Opus 5.
+        locator: Featured グリッド先頭(<a href="/claude-opus-5-5"> 内の <time>)
+        note: 後半「Opus ___から ___か月で次の Opus が出た」は本ページでは検証できない。一覧(Featured / PublicationList とも)に前の Opus(Opus 5)の発表日は掲載されていない
+        adjudication:
+          verdict: corrected
+          reason: 発表日は blindQuote の 'Introducing Claude Opus 5.5 Announcements Sep 22, 2026' と一致する。後半の『Opus 5 から 2 か月で次の Opus が出た』は、blindNote のとおり本ページに Opus 5 の発表日が無く、支えも否定もできない外部事実の主張である。そのため前半に限って訂正した。
+          date: 2026-09-24
+          originalText: Opus 5.5 の発表日は 2026-09-22。Opus 5 から 2 か月で次の Opus が出た。
+          originalQuote: Introducing Claude Opus 5.5 Announcements Sep 22, 2026
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/news

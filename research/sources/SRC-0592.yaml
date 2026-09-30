@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0592
+status: included
+excludeReason: null
+title: action-semantic-pull-request (README)
+url: https://github.com/amannn/action-semantic-pull-request
+canonicalUrl: https://github.com/amannn/action-semantic-pull-request
+ids:
+  arxiv: null
+  doi: null
+publisher: amannn/action-semantic-pull-request
+authors: [Amann Jan]
+orgType: individual
+region: global
+lang: en
+sourceType: repo
+published: 2025-08-22
+publishedBasis: page
+version: v6.1.1
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G06
+  query: action-semantic-pull-request README PR title Conventional Commits ignoreLabels(リポジトリを直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events: []
+summary: PR の題名が Conventional Commits に合うかを検査する GitHub Action の README(main、最新 v6.1.1 は 2025-08-22)。検査するのは題名だけで本文は見ない。ラベルによる検査の免除と、`[WIP]` 接頭辞で検査を保留にする opt-in を持つ。
+claims:
+  - id: c1
+    text: この Action は PR の題名が Conventional Commits の仕様に合うことを検査する。squash マージで題名がコミットメッセージになり、リリース自動化の入力になる前提である。
+    quote: This is a GitHub Action that ensures that your pull request titles match the Conventional Commits spec.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c2
+    text: "指定したラベル(例: bot、ignore-semantic-pull-request)が PR に付いていれば検査を省く。免除をラベルで宣言させる opt-out の先例である。"
+    quote: If the PR contains one of these newline-delimited labels, the validation is skipped.
+    locator: Configuration / ignoreLabels
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c3
+    text: 題名に `[WIP]` を付けると検査は行われず、チェックは pending のまま残る。未実施を「通過」にしない扱いである。
+    quote: This will prevent the PR title from being validated, and pull request checks will remain pending.
+    locator: Work-in-progress pull requests
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4, TH02-Q4]
+    issues: [271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:54.709Z
+    httpStatus: 200
+    finalUrl: https://github.com/amannn/action-semantic-pull-request
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - amannn/action-semantic-pull-request: A GitHub Action that ensures that your PR title matches the Conventional Commits spec"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

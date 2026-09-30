@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0008
+status: included
+excludeReason: null
+title: "The Cost of Consensus: Isolated Self-Correction Prevails Over Unguided Homogeneous Multi-Agent Debate"
+url: https://arxiv.org/abs/2605.00914
+canonicalUrl: arxiv:2605.00914
+ids:
+  arxiv: "2605.00914"
+  doi: null
+publisher: arXiv (Jožef Stefan Institute)
+authors: [Blaž Bertalanič, Carolina Fortuna]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-04-29
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: abstract
+foundBy:
+  cluster: C00a-1
+  query: "tavily: homogeneous multi-agent debate same model improves accuracy over single model self-consistency 2026 arXiv"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 同質 10 体討論の追試側。Qwen2.5-7B / Llama-3.1-8B / Ministral-3-8B の同質 10 体 × 3 ラウンドで、多数派への迎合(最大 85.5%)、正答の不安定化(最大 70.0%)、投票による正答の棄却(最大 32.3pp)を分解。孤立した自己修正に 10 倍の出力予算を与える方が同等以上で、討論はトークンを 2.1〜3.4 倍使う。7〜8B 級に限定した結果。
+claims:
+  - id: c1
+    text: "同質討論の失敗を 3 経路に分解: 多数派答案の無批判な採用(最大 85.5%)、ピアの根拠が正しかった推論を壊す(脆弱率最大 70.0%)、生成プールに正答があっても投票で捨てる(oracle gap 最大 32.3pp)。"
+    quote: sycophantic conformity, where agents uncritically adopt majority answers (modal adoption up to 85.5%)
+    locator: "Abstract (same sentence continues: vulnerability rate up to 70.0%; oracle gap up to 32.3 percentage points)"
+    quant:
+      value: modal adoption ≤85.5%; vulnerability ≤70.0%; oracle gap ≤32.3pp
+      n: N=10 homogeneous agents × 3 models, R=3 rounds
+      design: controlled experiment vs isolated self-correction and noise control
+      population: Qwen2.5-7B, Llama-3.1-8B, Ministral-3-8B on GSM-Hard, MMLU-Hard
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c2
+    text: 孤立した単一エージェントに 10 倍の出力トークン予算を与えて自己検証させる方が、同質討論と同等以上の精度。討論は同等以下の精度に 2.1〜3.4 倍のトークンを使う。
+    quote: Across all configurations, debate consumes 2.1-3.4× more tokens (up to 28,631 tokens per problem) than self-correction for equal or lower accuracy.
+    locator: Abstract
+    quant:
+      value: 2.1–3.4× tokens for equal or lower accuracy
+      n: all configurations (K∈{2,4,9}, T∈{0.4,0.7})
+      design: controlled experiment
+      population: 7–8B class models
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c3
+    text: 結論の適用範囲は 7〜8B 級・構造化された役割なし・無誘導の同質討論に限ると著者が明記。大型モデルや役割付き討論への一般化は本論文では主張していない。
+    quote: Our results indicate that, within the 7-8B parameter class, homogeneous teams without structured roles do not benefit from unguided peer exchange
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:00.129Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.00914
+    contentType: text/html; charset=utf-8
+    titleFetched: "The Cost of Consensus: Isolated Self-Correction Prevails Over Unguided Homogeneous Multi-Agent Debate"
+    titleMatch: true
+    dateMeta: 2026-04-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "The Cost of Consensus: Isolated Self-Correction Prevails Over Unguided Homogeneous Multi-Agent Debate"
+      authors: ["Bertalanič, Blaž", "Fortuna, Carolina"]
+      v1Date: 2026-04-29
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3 経路; modal adoption 最大 85.5%; vulnerability rate 最大 70.0%; oracle gap 最大 32.3pp
+        extractedQuote: "We decompose debate failure into three model-dependent pathways: … (modal adoption up to 85.5%); … (vulnerability rate up to 70.0%); … (oracle gap up to 32.3 percentage points)."
+        locator: Abstract
+        note: 「model-dependent」とあり、最大値は特定モデル・条件での値。条件は N=10 の同質 7–8B エージェント(Qwen2.5-7B, Llama-3.1-8B, Ministral-3-8B)、R=3、GSM-Hard / MMLU-Hard。
+      c2:
+        verdict: match
+        extractedValue: 10 倍の出力トークン予算; 討論は 2.1–3.4 倍のトークン
+        extractedQuote: simply granting a single isolated agent a 10x output token budget to verify its own work achieves comparable or superior accuracy … debate consumes 2.1-3.4 × more tokens … than self-correction
+        locator: §4.3 The Asymmetry of the Communication Cost; Appendix F Table 11; Abstract(2.1–3.4×のみ)
+        note: "10 倍予算の記述は Abstract には無く、§4.3 と付録 F にある。Abstract の 2.1–3.4 倍は討論と「孤立自己訂正」条件(N=10 チームの Self R3)との比較で、10 倍予算の単一エージェントとの比較ではない。付録 F の注意書き: 拡張条件はプロンプト文言が異なり、全モデルが予算を使い切る前に自己終了している。Table 11 で Ministral の GSM-Hard は Extended 18.7% < Debate R3 20.7% で、「同等以上」が全条件では成り立たない。"
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

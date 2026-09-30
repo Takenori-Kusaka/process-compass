@@ -1,0 +1,98 @@
+schemaVersion: 0
+id: SRC-0473
+status: included
+excludeReason: null
+title: The AI Productivity Paradox Research Report
+url: https://www.faros.ai/blog/ai-software-engineering
+canonicalUrl: https://faros.ai/blog/ai-software-engineering
+ids:
+  arxiv: null
+  doi: null
+publisher: Faros AI
+authors: [Faros Research]
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2025-07-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH11
+  query: Faros AI "AI Productivity Paradox" report telemetry 10,000 developers PR review time
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH10, TH06]
+events: []
+summary: Faros 顧客1,255チーム・1万人超の最大2年分のテレメトリ(タスク管理・IDE・CI/CD・VCS・インシデント)を会社内で標準化し Spearman 相関で分析。AI採用の高いチームは PR を98%多くマージするがレビュー時間が91%増え、会社単位では改善との相関が消えた。
+claims:
+  - id: c1
+    text: AI採用の高いチームはタスクを21%多く完了し PR を98%多くマージする一方、PR レビュー時間は91%増えた。
+    quote: Developers on teams with high AI adoption complete 21% more tasks and merge 98% more pull requests, but PR review time increases 91%
+    locator: "#1 Individual throughput soars, review queues balloon"
+    quant:
+      value: +21% tasks, +98% PRs merged, +91% review time
+      n: 10,000+ developers, 1,255 teams
+      design: observational telemetry, within-company standardized, Spearman correlation (p<0.05, >=6 companies)
+      population: Faros customer organizations, up to 2 years
+    evidenceKind: observational
+    rqs: [TH11-Q2, TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: AI採用は開発者あたりバグ9%増、平均 PR サイズ154%増と一貫して結びついていた。
+    quote: AI adoption is consistently associated with a 9% increase in bugs per developer and a 154% increase in average PR size
+    locator: "#3 Code structure improves, but quality worsens"
+    quant:
+      value: +9% bugs/dev, +154% PR size
+      n: 10,000+ developers
+      design: observational telemetry
+      population: Faros customers
+    evidenceKind: observational
+    rqs: [TH11-Q3, TH10-Q3]
+    issues: [273]
+    stance: context
+  - id: c3
+    text: チーム単位の変化は会社単位に集計すると消え、スループット・DORA 指標・品質 KPI のいずれでもAI採用との有意な相関がなかった。
+    quote: we observed no significant correlation between AI adoption and improvements at the company level.
+    locator: "#4 No measurable organizational impact from AI"
+    quant:
+      value: no significant company-level correlation
+      n: 10,000+ developers
+      design: observational telemetry
+      population: Faros customers
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:07.138Z
+    httpStatus: 200
+    finalUrl: https://www.faros.ai/blog/ai-software-engineering
+    contentType: text/html; charset=utf-8
+    titleFetched: The AI Productivity Paradox Research Report
+    titleMatch: true
+    dateMeta: 2025-07-23
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://faros.ai/blog/ai-software-engineering

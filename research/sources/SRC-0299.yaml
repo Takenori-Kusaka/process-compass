@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0299
+status: included
+excludeReason: null
+title: Navigating the AI Act
+url: https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act
+canonicalUrl: https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act
+ids:
+  arxiv: null
+  doi: null
+publisher: European Commission (Shaping Europe's digital future)
+authors: []
+orgType: government
+region: eu
+lang: en
+sourceType: public-agency
+published: 2026-08-07
+publishedBasis: page
+version: Last update 7 August 2026
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: EU AI Act August 2 2026 obligations delay digital omnibus agreement
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01]
+events:
+  - date: 2025-11-19
+    label: 欧州委員会が Digital Omnibus を提案(高リスク規則の適用日を支援措置の整備と連動)
+  - date: 2026-07-27
+    label: Digital Omnibus が発効
+  - date: 2027-12-02
+    label: 高リスク AI システムの規則の適用日(延期後)
+summary: 欧州委員会の AI Act FAQ(2026-08-07 更新)。Digital Omnibus の発効で高リスク規則の適用が延期されたことと、導入者(deployer)に人による監視の担当者の指名を求めることを説明する。
+claims:
+  - id: c1
+    text: Digital Omnibus が2026-07-27に発効した。高リスク AI システムの規則は2027-12-02へ、製品組込みの AI は2028-08-02へ適用が延期された。
+    quote: The AI Omnibus therefore extends the timeline to 2 December 2027 for high-risk AI systems and 2 August 2028 for AI embedded in products
+    locator: Governance, enforcement, and implementation
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: 高リスク AI の導入者は、組織内の人に人による監視を割り当てなければならず、その人は監視を行えるだけの能力と権限を備える必要がある。監視という役割は人が占めることを求めているが、他の役割の占有までは述べていない。
+    quote: Deployers need to assign human oversight to a person in their organisation. That person or persons must be sufficiently equipped and enabled to exercise human oversight.
+    locator: deployer の義務に関する FAQ
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: [248, 249]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:23.002Z
+    httpStatus: 200
+    finalUrl: https://digital-strategy.ec.europa.eu/en/faqs/navigating-ai-act
+    contentType: text/html; charset=UTF-8
+    titleFetched: Navigating the AI Act
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Digital Omnibus 発効 2026-07-27; 高リスク AI システム 2027-12-02; 製品組込み AI 2028-08-02
+        extractedQuote: The rules for high-risk AI systems will apply starting 2 December 2027. Rules on AI embedded in physical products (medical devices, toys, lifts, etc.) will apply starting 2 August 2028.
+        locator: Governance, enforcement, and implementation — When will the AI Act be fully applicable?
+        note: "同節: 'The Digital Omnibus entered into force on 27 July 2026 allowing for the extension of these deadlines'。別節(標準化の説明)に 'The AI Omnibus therefore extends the timeline to 2 December 2027 for high-risk AI systems and 2 August 2028 for AI embedded in products' とあり、元の適用日は 2026-08-02。"
+        adjudication:
+          verdict: consistent
+          reason: 同節に「The Digital Omnibus entered into force on 27 July 2026 allowing for the extension of these deadlines」、高リスク AI は 2027-12-02、製品組込み AI は 2028-08-02 から適用とある。元の適用日は 2026-08-02 なので「延期」も正しい。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

@@ -1,0 +1,133 @@
+schemaVersion: 0
+id: SRC-0067
+status: included
+excludeReason: null
+title: Measuring AI agent autonomy in practice
+url: https://www.anthropic.com/research/measuring-agent-autonomy
+canonicalUrl: https://anthropic.com/research/measuring-agent-autonomy
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: [McCain Miles, Millar Thomas, Huang Saffron, Eaton Jake, Handa Kunal, Tamkin Alex, Ganguli Deep]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-02-18
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: '"levels of autonomy" AI agents paper 2026'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01]
+events: []
+summary: Claude Code と API の数百万件の対話から、人がエージェントに与える自律度と、エージェント自身が止まって確認する頻度を測定。経験で auto-approve が20%→40%超に増え、複雑なタスクでは Claude が人の割込みの2倍以上の頻度で確認質問する。
+claims:
+  - id: c1
+    text: 新規ユーザーではセッションの約20%が full auto-approve だが、経験を積む(約750セッション)と40%超に増える。与えられる自律度は能力より遅れて上がる。
+    quote: Among new users, roughly 20% of sessions use full auto-approve, which increases to over 40% as users gain experience.
+    locator: Findings 箇条書き / Figure 2
+    quant:
+      value: 20% → 40%超
+      n: Claude Code 対話セッション(数百万件、内訳非開示)
+      design: observational (privacy-preserving analysis)
+      population: Claude Code users, <50 sessions vs ~750 sessions
+    evidenceKind: observational
+    rqs: [TH01-Q1, TH01-Q3]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 最も複雑なタスクでは、Claude Code が確認のために止まる頻度は人が割り込む頻度の2倍以上。エージェント発の停止が監視の一形態になっている。
+    quote: On the most complex tasks, Claude Code stops to ask for clarification more than twice as often as humans interrupt it.
+    locator: Findings / Figure 4
+    quant:
+      value: 2倍以上
+      n: 500k interactive Claude Code sessions
+      design: observational
+      population: Claude Code interactive sessions, by goal complexity
+    evidenceKind: observational
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: supports
+  - id: c3
+    text: Anthropic 自身が、Claude が適切なタイミングで止まっているとは限らず不要な質問をしている可能性があり、Plan Mode 等の製品機能の影響も受けると留保している。
+    quote: "However, it’s important not to overstate this finding: Claude may not be stopping at the right moments, it may ask unnecessary questions, and its behavior might be affected by product features such as Plan Mode."
+    locator: Figure 4 直後の段落
+    quant: null
+    evidenceKind: observational
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: qualifies
+  - id: c4
+    text: Claude が自ら止まる理由の 1 位は「案の選択を提示」(35%)で、「実行前の承認・確認」は 11% で最下位。「不足する技術文脈や訂正の提供」(32%)は人が割り込む理由の 1 位であり、Claude が止まる理由ではない。50万件の人の割込みと50万件の完了ターンの標本で、理由の分類は Claude による判定。
+    quote: Table 1. Common reasons why Claude stops itself and why humans interrupt Claude, as determined by Claude, based on a sample of 500k human interruptions and 500k completed turns in interactive Claude Code sessions.
+    locator: Table 1
+    quant:
+      value: 35% / 11%(Claude が止まる理由の 1 位と最下位)、32%(人が割り込む理由の 1 位)
+      n: 500k completed turns
+      design: LLM-classified sample
+      population: interactive Claude Code sessions
+    evidenceKind: observational
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, human-correction]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:16.824Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/research/measuring-agent-autonomy
+    contentType: text/html; charset=utf-8
+    titleFetched: Measuring AI agent autonomy in practice
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 約20% / 750 sessions / 40%超
+        extractedQuote: Newer users (<50 sessions) employ full auto-approve roughly 20% of the time; by 750 sessions, this increases to over 40% of sessions.
+        locator: 節 "Experienced users in Claude Code auto-approve more frequently, but interrupt more often" / Figure 2(要旨箇条書きにも "roughly 20% ... over 40%")
+        note: 「新規ユーザー」は原典では <50 sessions と定義。Figure 2 は 2025-09-19 以降に登録したユーザーの対話利用が対象。原典は既定設定が手動承認のため変化の一部は製品設計を反映しうると留保。「能力より遅れる」は別節の "the latitude granted to models in practice lags behind what they can handle" に当たる。
+      c2:
+        verdict: match
+        extractedValue: more than twice(2倍超)
+        extractedQuote: On the most complex tasks, Claude Code stops to ask for clarification more than twice as often as humans interrupt it.
+        locator: 冒頭の要旨箇条書き "Claude Code pauses for clarification more often than humans interrupt it"(Figure 4 の節にも同趣旨)
+        note: '原典内で比較対象が揺れている: Figure 4 直下の本文は "On the most complex tasks, Claude Code asks for clarification more than twice as often as on minimal-complexity tasks" と、比較対象を『最小複雑度タスクでの Claude 自身』としている。ask は要旨箇条書き側(人の割込みとの比較)と一致。n = 500k interactive Claude Code sessions。原典は "it’s important not to overstate this finding" と留保。'
+      c4:
+        verdict: match
+        extractedValue: 35% / 32% / 11% / 500k(50万)件の人の割込み / 500k(50万)件の完了ターン
+        extractedQuote: To present the user with a choice between proposed approaches (35%) | To provide missing technical context or corrections (32%) | To get approval or confirmation before taking action (11%)
+        locator: Table 1 "What causes Claude Code to stop?" と図表キャプション
+        note: '食い違いの可能性: 表は2列構成で、32% の "To provide missing technical context or corrections" は右列『Why do humans interrupt Claude?(人が割り込む理由)』の1位であり、Claude が自ら止まる理由ではない。左列『Why does Claude stop itself?』は 35%(案の選択提示)・21%(診断情報/テスト結果の収集)・13%(曖昧な依頼の明確化)・12%(資格情報/アクセス要求)・11%(実行前の承認・確認)。11%は左列の最下位。キャプション: "as determined by Claude, based on a sample of 500k human interruptions and 500k completed turns in interactive Claude Code sessions"(理由分類は Claude による判定)。'
+        adjudication:
+          verdict: corrected
+          reason: 懐疑役の突合(2026-09-30)。検証役が原典から抜き出した値と注記に沿って、主張文を人手で訂正した
+          date: 2026-09-30
+          originalText: Claude が自ら止まる理由の上位は「案の選択を提示(35%)」「不足する技術文脈の提供(32%)」で、「実行前の承認・確認(11%)」は下位。50万件の割込みと50万件の完了ターンの標本。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/research/measuring-agent-autonomy

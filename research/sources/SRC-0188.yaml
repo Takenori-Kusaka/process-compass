@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0188
+status: included
+excludeReason: null
+title: Cursor is now a part of SpaceX
+url: https://cursor.com/blog/joining-spacex
+canonicalUrl: https://cursor.com/blog/joining-spacex
+ids:
+  arxiv: null
+  doi: null
+publisher: Cursor
+authors: []
+orgType: startup
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-08-14
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: cursor.com/blog"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02]
+events:
+  - date: 2026-08-14
+    label: Cursor が SpaceX による買収完了を発表
+summary: Cursor の SpaceX による買収完了の公式告知。Cursor は自社モデル(Grok 4.6 / 4.7)を出す体制に変わった。
+claims:
+  - id: c1
+    text: Cursor は SpaceX に正式に買収された(2026-04 に始まった手続きの完了)。
+    quote: Cursor has officially been acquired by SpaceX. This completes the acquisition process that started in April
+    locator: 本文
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.556Z
+    httpStatus: 200
+    finalUrl: https://cursor.com/blog/joining-spacex
+    contentType: text/html; charset=utf-8
+    titleFetched: Cursor is now a part of SpaceX · Cursor
+    titleMatch: true
+    dateMeta: 2026-08-14
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: April（年の明記なし。記事日付は Aug 14, 2026）
+        extractedQuote: Cursor has officially been acquired by SpaceX. This completes the acquisition process that started in April, when we announced our partnership with SpaceXAI to accelerate our model training efforts.
+        locator: 本文第1段落（Aug 14, 2026 · company）
+        note: 原文は 'started in April' のみで年を書いていない（記事日付から 2026 年と読める）。手続きの起点は『SpaceXAI との提携発表』とされており、買収発表そのものとは書かれていない。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

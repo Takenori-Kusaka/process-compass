@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0318
+status: included
+excludeReason: null
+title: 大規模プロダクトにおけるLLMを用いたコードレビュー実践と評価
+url: https://ipsj.ixsq.nii.ac.jp/records/2011757
+canonicalUrl: https://ipsj.ixsq.nii.ac.jp/records/2011757
+ids:
+  arxiv: null
+  doi: null
+publisher: 情報処理学会 ソフトウェアエンジニアリングシンポジウム2026(SES2026)論文集
+authors: [黒澤 慎治, 田中 優之]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: paper-peer
+published: 2026-09-03
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: paywall
+readLevel: abstract
+foundBy:
+  cluster: S7
+  query: ソフトウェアエンジニアリングシンポジウム 2026 SES2026 生成AI エージェント 論文 → IPSJ 電子図書館 API
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH11]
+events:
+  - date: 2026-09-12
+    label: SES2026 で発表(セッション「AI支援開発・品質保証・保守プロセス」)、最優秀論文賞を受賞
+summary: 出前館の実践論文(SES2026 最優秀論文賞)。LLM レビューを人のレビューの前工程に置く手法を12名規模の実開発チームに適用し、品質には補助的な効果、効率には明確な向上なしと報告した。本文 PDF は有償(2028-09-03 に公開予定)で、抄録のみ読んだ。
+claims:
+  - id: c1
+    text: LLM によるコードレビューを開発者レビューの前工程に置く「LLM 先行レビュー支援手法」を、12名規模の実開発チームに適用した。
+    quote: LLMを用いたコードレビューを開発者によるコードレビューの前工程に配置する「LLM先行レビュー支援手法」を提案し，12名規模の実開発チームに適用した実践を報告する
+    locator: 論文抄録
+    quant:
+      value: 12名規模のチーム
+      n: 1チーム(約12名)
+      design: case study(指摘の修正率による定量評価 + 開発者アンケート)
+      population: 出前館の大規模プロダクト開発
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+  - id: c2
+    text: 品質については補助として一定の効果が確認された。
+    quote: ソフトウェアの品質については補助として一定の効果が確認された
+    locator: 論文抄録
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c3
+    text: レビュー工程の効率は、レビュアーの負担軽減と実装者の精査コスト増加が相殺し、明確な向上は結論づけられなかった。AI レビュー導入で効率が上がるという期待への反証となる日本の一次事例。
+    quote: レビュー工程の効率についてはレビュアーの負担軽減と実装者の精査コスト増加が相殺され，明確な向上は結論づけられなかった
+    locator: 論文抄録
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q2, TH06-Q6]
+    issues: []
+    stance: contradicts
+  - id: c4
+    text: SES2026 の公式サイトで、本論文が最優秀論文賞を受けたことが確認できる。
+    quote: 最優秀論文賞 大規模プロダクトにおけるLLMを用いたコードレビュー実践と評価 黒澤 慎治，田中 優之（出前館）
+    locator: https://ses.sigse.jp/2026/ 受賞者
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:48.661Z
+    httpStatus: 200
+    finalUrl: https://ipsj.ixsq.nii.ac.jp/records/2011757
+    contentType: text/html; charset=utf-8
+    titleFetched: 情報学広場：情報処理学会電子図書館
+    titleMatch: false
+    dateMeta: 2026-09-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: 2026 (SES2026)
+        extractedQuote: 受賞者（敬称略） 最優秀論文賞 大規模プロダクトにおけるLLMを用いたコードレビュー実践と評価 黒澤 慎治，田中 優之（出前館）
+        locator: https://ses.sigse.jp/2026/ 受賞者 > 最優秀論文賞
+        note: SES2026 公式サイトの受賞者欄で確認できた。最優秀論文賞は2件あり、もう1件は『オープンソースC++プロジェクトにおける型推論autoの利用傾向に関する実証的調査』(京都工芸繊維大学)。単独受賞ではない。ipsj の論文 PDF は有償(2028年9月3日から無料ダウンロード可、非会員 ¥660)だが、書誌ページと抄録は取得できた。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

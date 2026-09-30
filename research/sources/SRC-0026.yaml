@@ -1,0 +1,153 @@
+schemaVersion: 0
+id: SRC-0026
+status: included
+excludeReason: null
+title: "The Productivity-Reliability Paradox: Specification-Driven Governance for AI-Augmented Software Development"
+url: https://arxiv.org/abs/2605.01160
+canonicalUrl: arxiv:2605.01160
+ids:
+  arxiv: "2605.01160"
+  doi: null
+publisher: arXiv
+authors: [Sabry E. Farrag]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-05-01
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-3
+  query: research/phase3-gap-analysis/135-role-boundary-2026-08.md §2.4 / 109-110 メモ §5.5 の引用(原典確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH11]
+events: []
+summary: 単著の多声的文献レビュー(67 出典)+理論構築。個人生産性の向上と組織指標の停滞・信頼性低下の乖離を「生産性-信頼性パラドックス」と名付け、仕様ガバナンスモデルと Spec Kit / TDAD の評価(3 チーム 4 か月の例示的パイロット)を提示。引用される数値(20〜56%、19% 減速、98%/91%、17%)はいずれも他研究からの二次引用。
+claims:
+  - id: c1
+    text: 方法は 67 出典(査読 29・プレプリント 18・業界レポート 12・灰色文献 8、2022-01〜2026-04)の多声的体系的文献レビューと理論統合であり、一次実証ではない。
+    quote: a multivocal systematic literature review encompassing 67 sources (29 peer-reviewed studies, 18 pre-prints, 12 structured industry reports, and 8 grey literature sources)
+    locator: Abstract / §3.1
+    quant:
+      value: 67 sources
+      n: "67"
+      design: multivocal literature review + theory synthesis
+      population: 2022-01〜2026-04 の文献
+    evidenceKind: review
+    rqs: [TH11-Q2]
+    issues: [135, 109, 110]
+    stance: context
+  - id: c2
+    text: 個人レベルでは 20〜56% の生産性向上が報告される一方、最も厳密な RCT は熟練開発者の 19% 減速を示す(METR 等の二次引用)。
+    quote: controlled studies report individual-level productivity gains of 20–56% on well-scoped tasks, while the most rigorous randomized controlled trial to date documents a 19% slowdown
+    locator: Abstract
+    quant:
+      value: +20〜56% / -19%
+      n: 二次引用(原典は各研究)
+      design: review
+      population: controlled studies / METR RCT
+    evidenceKind: review
+    rqs: [TH11-Q2]
+    issues: [135]
+    stance: context
+  - id: c3
+    text: 1 万人超のテレメトリでマージ PR 98% 増がレビュー時間 91% 増と組織配信指標の横ばいを伴う(二次引用)。
+    quote: a 98% increase in merged pull requests coincides with a 91% increase in review time and flat organizational delivery metrics
+    locator: Abstract
+    quant:
+      value: +98% PRs / +91% review time
+      n: 10,000+ developers (二次引用)
+      design: review
+      population: telemetry study
+    evidenceKind: review
+    rqs: [TH11-Q2]
+    issues: [135]
+    stance: context
+  - id: c4
+    text: "結論命題: AI 支援開発の信頼性を縛る制約はモデル能力ではなく仕様の規律である。"
+    quote: Specification discipline, not model capability, is the binding constraint on AI-assisted software dependability.
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: [135]
+    stance: supports
+  - id: c5
+    text: 本論文は Anthropic の 2026 年の研究(InfoQ 経由の報告)を二次引用し、AI を概念的な問いではなくコードの委任に使った場合に、理解度スコアが 17% 下がったと書く。AI 支援の利用者一般の値ではない。『77% の失敗率』に当たる記述は本論文に無い。
+    quote: Anthropic’s 2026 study found a 17% reduction in comprehension scores when AI was used for code delegation rather than conceptual inquiry
+    locator: "§4 Variable 3: Developer Experience / §8(skill pipeline problem)/ 参考文献[2]"
+    quant:
+      value: -17%
+      n: 不明(二次引用)
+      design: review
+      population: AI-assisted learners
+    evidenceKind: review
+    rqs: []
+    issues: [109, 110]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:42.232Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.01160
+    contentType: text/html; charset=utf-8
+    titleFetched: "The Productivity-Reliability Paradox: Specification-Driven Governance for AI-Augmented Software Development"
+    titleMatch: true
+    dateMeta: 2026-05-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: "The Productivity-Reliability Paradox: Specification-Driven Governance for AI-Augmented Software Development"
+      authors: ["Farrag, Sabry E."]
+      v1Date: 2026-05-01
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 67出典(査読29・プレプリント18・業界レポート12・灰色文献8)、2022-01〜2026-04
+        extractedQuote: review encompassing 67 sources (29 peer-reviewed studies, 18 pre-prints, 12 structured industry reports, and 8 grey literature sources), published between January 2022 and April 2026
+        locator: Abstract / §3.1 Research Design(MLR + theoretical synthesis)/ §3.4 選別フロー(312→128→67)
+        note: "「一次実証ではない」について: 本論文は MLR と理論統合が主だが、§7.4 に「three full-stack web development teams over a four-month」の illustrative pilot study(Table 4、統計的統制なしの概算値)を含む。完全に一次データ無しではない点に留意。単一研究チームで評価者間信頼性の検証なしとも明記。"
+      c3:
+        verdict: match
+        extractedValue: 10,000+(1万人超)/ マージPR 98%増 / レビュー時間 91%増 / 組織配信指標は横ばい
+        extractedQuote: large-scale telemetry across 10,000+ developers shows that a 98% increase in merged pull requests coincides with a 91% increase in review time and flat organizational delivery metrics.
+        locator: Abstract。出典は §4(code review bottleneck)で Faros AI (2025) と明示
+        note: 二次引用である点は本文で確認できる("Faros AI's 2025 telemetry study of over 10,000 developers across 1,255 teams ... teams with high AI adoption ... merged 98% more pull requests, but PR review time increased by 91%")。母集団は『AI高採用チーム』の比較。
+      c5:
+        verdict: match
+        extractedValue: 17%(Anthropic 2026年研究の二次引用)。パーセント付きの『失敗率』は本文に見当たらない
+        extractedQuote: Anthropic’s 2026 study found a 17% reduction in comprehension scores when AI was used for code delegation rather than conceptual inquiry
+        locator: "§4 Variable 3: Developer Experience / §8(skill pipeline problem)/ 参考文献[2]"
+        note: '条件の違い: 原文の17%は『コード委任(code delegation)としてAIを使った場合』で、概念的問いに使った群は65%超と対比される("AI-assisted learners score 17% lower on comprehension when using AI for code delegation")。AI支援利用者一般ではない。参考文献[2]は "Internal Research Study (reported via InfoQ, February 2026)"。『failure rate』は DORA の change failure rate としてのみ出現し、スキル劣化に紐づく割合は無い。askの『___-___メモ』は本論文からは検証不能。'
+        adjudication:
+          verdict: corrected
+          reason: 二次引用であることと 17% の値は blindQuote どおり。ただし原文の 17% には『AI をコードの委任(code delegation)に使った場合』という条件が付いており、主張が引く『AI 支援利用者は 17% 低い』はこの条件を落としている(blindNote)。『失敗率』は DORA の change failure rate としてしか出てこず、パーセント付きの失敗率は無い(blindValue / blindNote)。後半の主張は支えられる。
+          date: 2026-09-23
+          originalText: 109-110 メモの「AI 支援利用者は理解度テストで 17% 低い」は、本論文では Anthropic の 2026 年研究の二次引用として現れる。「77% の失敗率」は本論文に無い。
+          originalQuote: Anthropic’s 2026 study found a 17% reduction in comprehension scores
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0426
+status: included
+excludeReason: null
+title: Spec-driven development | Technology Radar
+url: https://www.thoughtworks.com/en-us/radar/techniques/spec-driven-development
+canonicalUrl: https://thoughtworks.com/en-us/radar/techniques/spec-driven-development
+ids:
+  arxiv: null
+  doi: null
+publisher: Thoughtworks Technology Radar (Vol.33)
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: industry-report
+published: 2025-11
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: Thoughtworks Technology Radar spec-driven development
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH03, TH05]
+events: []
+summary: Thoughtworks Technology Radar が SDD を Techniques の Assess に置いた blip。ワークフローが重いこと、長い仕様ファイルはレビューしにくいこと、AI 向けの詳細ルールの手作りはスケールしないことを警告している。
+claims:
+  - id: c1
+    text: SDD ツールはタスクの規模・種類で挙動が大きく異なり、レビューしにくい長大な仕様ファイルを生成するものがある。Radar は SDD を Assess(採用ではなく探索)に置いた。
+    quote: These tools behave very differently depending on task size and type; some generate lengthy spec files that are hard to review
+    locator: blip 本文(Assess, Nov 2025)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1, TH05-Q3]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: AI のために詳細なルールを手作りすることは結局スケールしない、という『苦い教訓』を再学習しているのかもしれないと警告している。
+    quote: We may be relearning a bitter lesson — that handcrafting detailed rules for AI ultimately doesn’t scale.
+    locator: blip 本文 末尾
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1, TH03-Q3]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:37.168Z
+    httpStatus: 200
+    finalUrl: https://www.thoughtworks.com/en-us/radar/techniques/spec-driven-development
+    contentType: text/html;charset=utf-8
+    titleFetched: Spec-driven development | Technology Radar | Thoughtworks United States
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://thoughtworks.com/en-us/radar/techniques/spec-driven-development

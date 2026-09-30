@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0303
+status: included
+excludeReason: null
+title: The Coming Loop
+url: https://lucumr.pocoo.org/2026/6/23/the-coming-loop
+canonicalUrl: https://lucumr.pocoo.org/2026/6/23/the-coming-loop
+ids:
+  arxiv: null
+  doi: null
+publisher: Armin Ronacher's Thoughts and Writings
+authors: [Armin Ronacher]
+orgType: individual
+region: eu
+lang: en
+sourceType: individual
+published: 2026-06-23
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: Armin Ronacher lucumr 2026 agentic coding blog post
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06, TH07]
+events: []
+summary: エージェントループの外側でハーネスがエージェントを回し続ける「ハーネスループ」が主流になることへの懸念。完了判定が機械へ移り、人の責任と判断が薄れると論じる。
+claims:
+  - id: c1
+    text: ハーネスループでは作業の完了をハーネスが決め、「完了」の合図は別の機械が判定するだけのものになる。人の役割は伝令に縮む。
+    quote: In the harness operated loop I’m not sure what my role even is.
+    locator: 本文中盤(harness loop の段落)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1, TH01-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 本番障害のログを機械が読んでパッチを出し、別の機械がレビューして人の監督なしに main へ入れる実務がすでにある。ループは責任を奪い、機械に委ねる方向へ人を促す。
+    quote: The resulting patch is then often picked up by another machine that reviews, sometimes even landing it on main without any human supervision.
+    locator: 本文後半
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q2, TH06-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:24.588Z
+    httpStatus: 200
+    finalUrl: https://lucumr.pocoo.org/2026/6/23/the-coming-loop/
+    contentType: text/html; charset=utf-8
+    titleFetched: The Coming Loop
+    titleMatch: true
+    dateMeta: 2026-06-23
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

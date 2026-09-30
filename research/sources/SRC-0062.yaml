@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0062
+status: included
+excludeReason: null
+title: A model for types and levels of human interaction with automation
+url: https://doi.org/10.1109/3468.844354
+canonicalUrl: doi:10.1109/3468.844354
+ids:
+  arxiv: null
+  doi: 10.1109/3468.844354
+publisher: IEEE Transactions on Systems, Man, and Cybernetics – Part A
+authors: [Parasuraman Raja, Sheridan Thomas B., Wickens Christopher D.]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: "2000"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: Semantic Scholar API DOI:10.1109/3468.844354 (原典確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: Sheridan 系の自動化レベル(10段階)を機能クラス別に適用する原典。自律度は役割ではなく「情報取得・分析・意思決定・実行」の機能ごとに低〜高の連続段階で定めると提案する。被引用 4,319(Semantic Scholar 2026-09-23 時点)。
+claims:
+  - id: c1
+    text: 自動化は「情報取得・情報分析・意思決定と行動選択・行動実行」の4つの機能クラスに分けて適用され、各クラス内で完全手動から完全自動までの連続段階を持つ。単一システムが4種類を異なるレベルで持ちうる。
+    quote: "We propose that automation can be applied to four broad classes of functions: 1) information acquisition; 2) information analysis; 3) decision and action selection; and 4) action implementation."
+    locator: Abstract
+    quant: null
+    evidenceKind: review
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: レベル6以上では人に拒否権の時間だけを与えて自動実行する。分類は「役割」ではなく「決定と行動選択」という機能の出力側に主として適用される。
+    quote: Under level 6 or higher, the system would automatically execute its own resolution advisory, unless the controller intervened.
+    locator: §II, Table I の説明
+    quant: null
+    evidenceKind: review
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:11.405Z
+    httpStatus: 202
+    finalUrl: https://ieeexplore.ieee.org/document/844354/
+    contentType: text/html; charset=UTF-8
+    titleFetched: ""
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+    arxiv: null
+    crossref:
+      status: 200
+      title: A model for types and levels of human interaction with automation
+      issued: 2000-5
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: four (4つの機能クラス / 4種類)
+        extractedQuote: "We propose that automation can be applied to four broad classes of functions: 1) information acquisition; 2) information analysis; 3) decision and action selection; and 4) action implementation. ... A particular system can involve automation of all four types at different levels."
+        locator: Abstract
+        note: IEEE Xplore の抄録ページ(公開)と、Semantic Scholar が示すオープンアクセス写し(cs.uml.edu)で同文を確認。
+      c2:
+        verdict: match
+        extractedValue: level 6
+        extractedQuote: At a higher level 6, the system gives the human only a limited time for a veto before carrying out the decision choice. ... The scale in Table I refers mainly to automation of decision and action selection, or output functions of a system.
+        locator: §III A Model for Types and Levels of Automation, Table I の説明文
+        note: locator は §II だが、該当箇所は §III。IEEE 本体は有償のため cs.uml.edu のオープンアクセス写し(http://www.cs.uml.edu/~holly/91.549/readings/sheridan-autonomy.pdf)で確認。原文で『限られた拒否権の時間』はレベル6の説明であり、レベル7以上の内容(Table I は画像で抽出できず)まで『拒否権の時間だけを与える』とは書かれていない。ただし同節に『Under level 6 or higher, the system would automatically execute its own resolution advisory, unless the controller intervened』とある。『「役割」ではなく』の対比は原文にはなく、原文は出力側(decision and action selection)に主として適用と述べるのみ。
+    date: 2026-09-23
+volatility: slow
+reviewBy: null

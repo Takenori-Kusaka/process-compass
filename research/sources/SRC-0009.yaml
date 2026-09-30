@@ -1,0 +1,231 @@
+schemaVersion: 0
+id: SRC-0009
+status: included
+excludeReason: null
+title: "Cross-Context Review: Improving LLM Output Quality by Separating Production and Review Sessions"
+url: https://arxiv.org/abs/2603.12123
+canonicalUrl: arxiv:2603.12123
+ids:
+  arxiv: "2603.12123"
+  doi: null
+publisher: "arXiv(著者所属: Daejeon Jungang Cheonggua Co., Ltd.)"
+authors: [Song Tae-Eun]
+orgType: enterprise
+region: other
+lang: en
+sourceType: preprint
+published: 2026-03-12
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: GET https://arxiv.org/html/2603.12123 / https://arxiv.org/abs/2603.12123
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 同一モデル(Claude Opus 4.6)で、生成セッションと切り離した新規セッションで再レビューする CCR を 4 条件で比較した統制実験。254 メモが引く数値(30/150/360、F1 24.6/21.7/23.8/28.6、p=0.008、d=0.52、SR2 p=0.11)はすべて原典どおり。単著・単一モデル・有意差検定は Run 1(N=30)のみという限定がある。
+claims:
+  - id: c1
+    text: 30 成果物(コード・技術文書・発表原稿)へ 150 件の欠陥を注入し、4 条件 × 3 回で 360 レビューを行った。
+    quote: "We ran a controlled experiment: 30 artifacts (code, technical documents, presentation scripts) with 150 injected errors, tested under four review conditions"
+    locator: Abstract / §4.1–4.2
+    quant:
+      value: 30 artifacts / 150 errors / 360 reviews
+      n: 4 conditions × 30 artifacts × 3 runs
+      design: controlled experiment
+      population: Claude Opus 4.6 generated artifacts
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [258]
+    stance: context
+  - id: c2
+    text: F1(3回平均、各条件 N=90)は CCR 28.6% / SR 24.6% / SA 23.8% / SR2 21.7%。CCR 対 SR の p=0.008、d=0.52 は、Run 1(N=30)だけを対象にした対応のある t 検定の値である。
+    quote: CCR reached an F1 of 28.6%, outperforming SR (24.6%, p =0.008, d =0.52), SR2 (21.7%, p <0.001, d =0.72), and SA (23.8%, p =0.004, d =0.57).
+    locator: Abstract; Table 2; Table 3
+    quant:
+      value: F1 28.6 vs 24.6 (+4.0pt), d=0.52
+      n: N=90 per condition (F1); N=30 (t-test, Run 1)
+      design: paired t-test on per-artifact F1
+      population: code/document/script artifacts
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [258]
+    stance: supports
+  - id: c3
+    text: 同一セッション 2 回目(SR2)は 1 回目(SR)に勝てない(p=0.11、Table 3 では 0.107、d=-0.30)。改善は反復ではなく文脈分離に由来すると切り分けている。
+    quote: reviewing twice in the same session did not beat reviewing once ( p =0.11), which rules out repetition as an explanation for CCR’s advantage.
+    locator: "Abstract / Table 3 (SR vs SR2: t=1.665, p=0.107, d=-0.30)"
+    quant:
+      value: p=0.107, d=-0.30
+      n: N=30 (Run 1)
+      design: paired t-test
+      population: same artifacts
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [258]
+    stance: supports
+  - id: c4
+    text: CCR の再現率は 27.1%(精度 31.5%)。注入欠陥の約 73% は最良条件でも見逃される。254 メモの「71% 見逃し」は F1 から逆算した値で、再現率ベースでは 72.9%。
+    quote: CCR| 4.5| 1.4| 3.1| 3.6| 31.5| 27.1| 28.6
+    locator: Table 2 (Finds/TP/FP/FN/Prec./Rec./F1)
+    quant:
+      value: Recall 27.1%, Precision 31.5%
+      n: N=90
+      design: controlled experiment
+      population: 150 injected errors
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [258]
+    stance: qualifies
+  - id: c5
+    text: 有意差検定は Run 1 の 30 成果物のみで行われ、F1 の平均値は 3 回分(N=90)。検定と報告値の母集団が異なる。
+    quote: Statistical significance comes from paired t -tests on per-artifact F1 scores (Run 1, N =30), with Cohen’s d for effect size.
+    locator: §4.3 Scoring
+    quant:
+      value: N=30 for tests
+      n: "30"
+      design: paired t-test
+      population: Run 1 only
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [258]
+    stance: qualifies
+  - id: c6
+    text: API クレジット不足のため、計画していた claude-sonnet-4-6 ではなくホストセッションのモデル(Opus 4.6)で全条件を実行した。生成器とレビュアが同一モデル・単一モデル系統。
+    quote: insufficient API credits forced a switch to the Agent tool, which uses the host session’s model (Opus 4.6). We report this deviation transparently.
+    locator: §4.2 Review Conditions
+    quant:
+      value: 1 model (Opus 4.6)
+      n: "1"
+      design: controlled experiment
+      population: all four conditions
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [258]
+    stance: qualifies
+  - id: c7
+    text: CCR は任意のモデルで動き、追加基盤を要せず、費用はセッション 1 回分。
+    quote: CCR works with any model, needs no infrastructure, and costs only one extra session.
+    locator: Abstract
+    quant:
+      value: +1 session
+      n: n/a
+      design: claim
+      population: n/a
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q5]
+    issues: [258, 259]
+    stance: context
+  - id: c8
+    text: 著者自身が絶対水準の低さ(最良でも F1 28.6%)を認めている。相対改善のみを主張。
+    quote: The absolute F1 numbers are moderate — 28.6% for the best condition. This reflects the difficulty of the error detection task, not a limitation specific to CCR.
+    locator: §7 Limitations
+    quant:
+      value: F1 28.6%
+      n: N=90
+      design: controlled experiment
+      population: best condition
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:07.761Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2603.12123
+    contentType: text/html; charset=utf-8
+    titleFetched: "Cross-Context Review: Improving LLM Output Quality by Separating Production and Review Sessions"
+    titleMatch: true
+    dateMeta: 2026-03-12
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: partial
+      c6: found
+      c7: found
+      c8: found
+    arxiv:
+      status: 200
+      title: "Cross-Context Review: Improving LLM Output Quality by Separating Production and Review Sessions"
+      authors: ["Song, Tae-Eun"]
+      v1Date: 2026-03-12
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 30 成果物(3 カテゴリ各 10); 150 件; 4 条件 × 3 回; 360 レビュー
+        extractedQuote: 30 artifacts (code, technical documents, presentation scripts) with 150 injected errors, tested under four review conditions … yielding 4 × 30 × 3 = 360 reviews.
+        locator: Abstract; §4.1; §4.3 Execution
+        note: 成果物は 30 件で、コード・文書・スクリプトは 3 つのカテゴリ(C1–C10, D1–D10, S1–S10)。1 成果物につき誤りの種類ごとに 1 件、計 5 件を注入。
+      c2:
+        verdict: match
+        extractedValue: "F1: CCR 28.6% / SR 24.6% / SA 23.8% / SR2 21.7%; CCR vs SR p=0.008, d=0.52"
+        extractedQuote: CCR reached an F1 of 28.6%, outperforming SR (24.6%, p =0.008, d =0.52), SR2 (21.7%, p <0.001, d =0.72), and SA (23.8%, p =0.004, d =0.57).
+        locator: Abstract; Table 2; Table 3
+        note: F1 は 3 回平均(N=90/条件)、p・d は Run 1 のみ(N=30)の対応のある t 検定(c5 参照)。
+        adjudication:
+          verdict: corrected
+          reason: 4条件の F1 と、CCR 対 SR の p=0.008・d=0.52 は blindQuote と一致する。ただし blindNote によれば、F1 は3回平均(N=90/条件)で、p と d は Run 1 だけ(N=30)の検定値である。主張は両者を同じ母集団の値のように並べているため、母集団の違いを補った。原典の Abstract も同じ並べ方をしているが、検定の強さを読むうえで欠かせない条件である。
+          date: 2026-09-23
+          originalText: F1 は CCR 28.6% / SR 24.6% / SA 23.8% / SR2 21.7%。CCR 対 SR は p=0.008、d=0.52。
+          originalQuote: Over 360 reviews, CCR reached an F1 of 28.6%, outperforming SR (24.6%, p =0.008, d =0.52), SR2 (21.7%, p <0.001, d =0.72), and SA (23.8%, p =0.004, d =0.57).
+      c3:
+        verdict: match
+        extractedValue: "2 回目 (SR2) vs 1 回目 (SR): p=0.11(Abstract/§5.2/§6.2)、Table 3 では p=0.107、t=1.665、d=−0.30"
+        extractedQuote: reviewing twice in the same session did not beat reviewing once ( p =0.11), which rules out repetition as an explanation for CCR’s advantage. … SR vs SR2 | 1.665 | 0.107 | - 0.30 | No
+        locator: Abstract; §5.2 Table 3; §6.2
+        note: Table 3 では t=+1.665(SR>SR2 の向き)なのに d=−0.30 で、t と d の符号の取り方が揃っていない。F1 は SR2 21.7% < SR 24.6% で、有意ではないが数値上は SR2 の方が低い。「改善は反復ではなく文脈分離に由来する」は著者の解釈(§6.2)。
+      c4:
+        verdict: match
+        extractedValue: CCR 再現率 27.1%(精度 31.5%, F1 28.6%)。見逃し ≈72.9%(100−27.1、導出値)。F1 から逆算すると 71.4%
+        extractedQuote: Cond. | Finds | TP | FP | FN | Prec. | Rec. | F1 | CCR | 4.5 | 1.4 | 3.1 | 3.6 | 31.5 | 27.1 | 28.6
+        locator: §5.1 Table 2 (N=90 per condition; Prec./Rec./F1 in %)
+        note: 見逃し率は原文に明記がなく、再現率からの導出値(FN 3.6/5 なら 72%)。ask の「___メモ」はプロジェクト内部の参照で原典に無い。TP 判定は行番号 ±5 行と語の Jaccard 類似度による自動スコア(閾値 2.0、§4.4)なので、再現率はこの照合関数に依存する。
+        adjudication:
+          verdict: consistent
+          reason: 再現率 27.1%、精度 31.5% は blindQuote(Table 2)と一致する。見逃し率は導出値で、再現率からは 100 − 27.1 = 72.9%、F1 からは 100 − 28.6 = 71.4% になり、主張の「約 73%」「F1 逆算で 71%」と合う。「最良条件」は F1 で最良の CCR を指すと読める。留意点として、TP の判定は行番号 ±5 行と語の Jaccard 類似度による自動照合(§4.4)なので、再現率はこの照合関数に依存する。内部メモへの参照は判定対象外。
+          date: 2026-09-23
+      c5:
+        verdict: match
+        extractedValue: 検定は Run 1・30 成果物 (N=30); F1 平均は 3 回分 (N=90)
+        extractedQuote: Statistical significance comes from paired t -tests on per-artifact F1 scores (Run 1, N =30), with Cohen’s d for effect size.
+        locator: §4.4 Evaluation Metrics; §5.1 (Table 2 averaged across all 90 reviews per condition); §5.2 Table 3
+        note: 作業票の locator「§4.3 Scoring」は取得した HTML (v1) に存在しない。§4.3 は Execution、検定の記述は §4.4 Evaluation Metrics にある。§5.1 に「Table 2 shows results averaged across all 90 reviews per condition (3 runs × 30 artifacts).」。
+      c6:
+        verdict: match
+        extractedValue: "計画: claude-sonnet-4-6; 実際: Opus 4.6 (claude-opus-4-6)"
+        extractedQuote: We had originally planned to use the Anthropic API directly with claude-sonnet-4-6 … but insufficient API credits forced a switch to the Agent tool, which uses the host session’s model (Opus 4.6).
+        locator: §4.3 Execution
+        note: 作業票の locator は §4.2 Review Conditions だが、該当記述は §4.3 Execution にある。成果物の生成も Claude Opus 4.6(§4.1)なので、生成器とレビュアは同一モデル。
+        adjudication:
+          verdict: consistent
+          reason: 計画は claude-sonnet-4-6 だったが、API クレジット不足でホストセッションのモデル(Opus 4.6)へ切り替えた、という点は blindQuote(§4.3)と一致する。blindNote によれば成果物の生成も Opus 4.6(§4.1)なので、「生成器とレビュアが同一モデル」も支持される。
+          date: 2026-09-23
+      c7:
+        verdict: match
+        extractedValue: 1 回分(one extra session)
+        extractedQuote: CCR works with any model, needs no infrastructure, and costs only one extra session.
+        locator: Abstract
+        note: 「works with any model」は著者の主張で、実験は Claude Opus 4.6 単一モデルのみ(§4.3)。複数モデルでの検証はない。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

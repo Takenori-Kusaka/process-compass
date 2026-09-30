@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0088
+status: included
+excludeReason: null
+title: "EU AI Act: Commission Draft Guidelines On Classification Of High-risk AI Systems"
+url: https://www.legal500.com/intelligence/ireland/media-telecoms-it-entertainment/eu-ai-act-commission-draft-guidelines-on-classification-of-high-risk-ai-systems
+canonicalUrl: https://legal500.com/intelligence/ireland/media-telecoms-it-entertainment/eu-ai-act-commission-draft-guidelines-on-classification-of-high-risk-ai-systems
+ids:
+  arxiv: null
+  doi: null
+publisher: Legal 500 / Arthur Cox
+authors: [Finn Róisín, Rooney Colin, Mullooly Olivia, Duffy Ian, Mac Ardle Aoife]
+orgType: consultancy
+region: eu
+lang: en
+sourceType: industry-report
+published: 2026-06-17
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: EU AI Act Article 14 human oversight guidelines 2026 Commission
+derivedFrom: []
+derivedFromUrl:
+  - https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+selfReported: false
+themes: [TH01, TH12]
+events:
+  - date: 2026-05-07
+    label: Digital Omnibus で高リスク義務の期限延期に政治合意
+summary: 欧州委員会の高リスク分類ドラフトガイドライン(2026年5〜6月)の法律事務所による解説(二次)。人の関与は高リスク分類を変えず、人間の監視は分類を免れる手段ではなく第14条遵守の前提だと整理。Annex III の適用は 2027-12-02、Annex I は 2028-08-02 に延期。
+claims:
+  - id: c1
+    text: ドラフトガイドラインは、人の関与はシステムの意図された目的・領域を変えないため高リスク分類に影響しないと明確化。「人を挟めば規制を外れる」構成は認められない。
+    quote: The Draft Guidelines clarify that since human involvement cannot change the purpose and area in which a system is intended to be used, it has no effect on high-risk classification.
+    locator: Human involvement does not remove high-risk status
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c2
+    text: 人間の監視は高リスク分類を回避する要素ではなく、第14条遵守の前提条件であり高リスク系の必須要件である。
+    quote: human oversight is a prerequisite for compliance with the rules for high-risk AI systems pursuant to Article 14 AI Act and a necessary requirement for systems classified as high-risk.
+    locator: Human involvement does not remove high-risk status
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:36.059Z
+    httpStatus: 200
+    finalUrl: https://www.legal500.com/intelligence/ireland/media-telecoms-it-entertainment/eu-ai-act-commission-draft-guidelines-on-classification-of-high-risk-ai-systems
+    contentType: text/html; charset=utf-8
+    titleFetched: "EU AI Act: Commission Draft Guidelines On Classification Of High-risk AI Systems"
+    titleMatch: true
+    dateMeta: 2026-06-17
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://legal500.com/intelligence/ireland/media-telecoms-it-entertainment/eu-ai-act-commission-draft-guidelines-on-classification-of-high-risk-ai-systems

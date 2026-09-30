@@ -1,0 +1,108 @@
+schemaVersion: 0
+id: SRC-0155
+status: included
+excludeReason: null
+title: AIは新規事業を開発できるのか？(大塚商会×フィラメント 実演セッション)
+url: https://project.nikkeibp.co.jp/onestep/feature/00048/081700005/
+canonicalUrl: https://project.nikkeibp.co.jp/onestep/feature/00048/081700005
+ids:
+  arxiv: null
+  doi: null
+publisher: 日経BP 一歩先への道しるべ ビズボヤージュ
+authors: []
+orgType: media
+region: jp
+lang: ja
+sourceType: news
+published: 2026-08-18
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: 新規事業 生成AI 企画プロセス PoC 日本企業 2026 (scratchpad)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09]
+events: []
+summary: 大塚商会の上席執行役員とフィラメント CEO が、生成 AI が人間へ段階的に質問して新規事業仮説を組み上げる「AI 起点」のプロンプトを実演。自社の強み分析→業界選定→課題→ソリューション→事業計画(3 年 100 施設・10 億円)と 13 枚の提案書を約 1 時間で生成。技術的実現性の検証や保守体制は AI にできない領域と登壇者が明言。
+claims:
+  - id: c1
+    text: 通常と逆に、生成 AI が人間へ段階的に質問し回答に応じて選択肢を動的に生成する設計で、質問に答えるだけで新規事業仮説が組み上がる(方針が定まらない局面の手順の一例)。
+    quote: 生成AIが人間に対して段階的に質問を投げかけ、人間からの回答に応じて次の選択肢を動的に生成していく。ユーザーは質問に答え続けるだけで、気づけば新規事業の仮説が組み上がっているというAI起点の設計だ。
+    locator: AIへの「問い方」が成否を分ける
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q1, TH09-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 3 年で累計 100 施設・売上 10 億円規模の事業計画と 13 枚の提案書スライドを約 1 時間で生成した(公開実演 1 件)。
+    quote: 3年で累計100施設、売上10億円規模のビジネスプランが提示された。さらに、13枚の提案書スライドが自動生成された。この一連の作業プロセスにかかった時間は約1時間である。
+    locator: 1時間で10億円のビジネスプラン企画書を作成
+    quant:
+      value: ~1 hour for plan + 13 slides
+      n: 1 live demo
+      design: demonstration
+      population: 大塚商会(介護施設向け新規事業)
+    evidenceKind: news-fact
+    rqs: [TH09-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 登壇者は、技術面の実現可能性の検証、マーケティング戦略、販売後の保守体制の整備など AI にはできない領域が厳然と存在すると強調した。後段の技術検証は人間側に残る。
+    quote: 同時に、技術面の実現可能性の検証、マーケティング戦略の構築、販売後の保守体制の整備など、AIにはできない領域が厳然として存在することも強調した。
+    locator: 1時間で10億円のビジネスプラン企画書を作成 末尾
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: qualifies
+  - id: c4
+    text: 新規事業失敗の最大原因は、要素のつながりが崩れた「取っ散らかったビジネス仮説」を作ること。5 段階(強み→市場→課題→解→事業計画)を精度高く回す難しさを AI が補う。
+    quote: 新規事業がうまくいかない最大の原因は、事業開発に必要な要素のつながりが崩れた「取っ散らかったビジネス仮説」を作ってしまうことにある
+    locator: 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:11.304Z
+    httpStatus: 200
+    finalUrl: https://project.nikkeibp.co.jp/onestep/feature/00048/081700005/
+    contentType: text/html; charset=UTF-8
+    titleFetched: AIは新規事業を開発できるのか？
+    titleMatch: true
+    dateMeta: 2026-08-18
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: 5段階
+        extractedQuote: 新規事業がうまくいかない最大の原因は、事業開発に必要な要素のつながりが崩れた「取っ散らかったビジネス仮説」を作ってしまうことにある / という5段階のプロセスをきちんと回すことである。問題は、このプロセスを精度高く回すことの難しさだ。
+        locator: 冒頭(セッション冒頭の角氏の指摘と続く段落)
+        note: 主張の主体はフィラメント代表の角勝氏(実演セッションでの発言)で、調査データではなく実務家の見解。5段階は 1)自社の強み 2)市場・業界 3)課題 4)ソリューション 5)ビジネスプラン。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://project.nikkeibp.co.jp/onestep/feature/00048/081700005

@@ -1,0 +1,88 @@
+schemaVersion: 0
+id: SRC-0041
+status: included
+excludeReason: null
+title: 5 key takeaways from the 2026 State of Software Delivery
+url: https://circleci.com/blog/five-takeaways-2026-software-delivery-report
+canonicalUrl: https://circleci.com/blog/five-takeaways-2026-software-delivery-report
+ids:
+  arxiv: null
+  doi: null
+publisher: CircleCI Blog
+authors: [Powell Ron, Schmitt Jacob]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-02-18
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: CircleCI 2026 State of Software Delivery report feature branch throughput 59%"
+derivedFrom: [SRC-0040]
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH10]
+events:
+  - date: 2026-02-18
+    label: CircleCI が 2026 State of Software Delivery を公開(ブログ告知)
+summary: 報告書の公開日(2026-02-18)を確定する CircleCI 自身のブログ。要点は報告書と同じ。「AI 生成コードは壊れやすく直しにくい」と自社の autonomous validation 製品への誘導を含む。
+claims:
+  - id: c1
+    text: 報告書は 2026-02-18 に公開され、Thoughtworks が後援。分析対象は 2,800 万超の CI/CD ワークフロー。
+    quote: Today we released the 2026 State of Software Delivery report, sponsored by Thoughtworks. In it, we analyzed more than 28 million CI/CD workflows across thousands of engineering teams.
+    locator: 冒頭
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: context
+  - id: c2
+    text: 中央値チームでは feature +15%、main -7%。
+    quote: For the median team, feature branch throughput increased 15%, but on the main branch, throughput fell by 7%.
+    locator: 2. Teams can write faster, but they can’t ship faster
+    quant:
+      value: feature +15%, main -7%
+      n: 28,738,317 workflows
+      design: observational
+      population: median team
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:40.245Z
+    httpStatus: 200
+    finalUrl: https://circleci.com/blog/five-takeaways-2026-software-delivery-report/
+    contentType: text/html; charset=UTF-8
+    titleFetched: "5 key takeaways from the 2026 State of Software Delivery: Why AI isn’t shipping faster - CircleCI"
+    titleMatch: true
+    dateMeta: 2026-02-18
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-02-18(ブログ日付 Feb 18, 2026 / datePublished 2026-02-18T06:00:00-08:00)/ Thoughtworks / 2,800万超(more than 28 million)
+        extractedQuote: Today we released the 2026 State of Software Delivery report, sponsored by Thoughtworks. In it, we analyzed more than 28 million CI/CD workflows across thousands of engineering teams.
+        locator: 冒頭第1段落
+        note: 公開日はブログ記事の日付と 'Today we released' から導いたもの。報告書 PDF 自体には発行日の記載が見当たらない
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

@@ -1,0 +1,130 @@
+schemaVersion: 0
+id: SRC-0403
+status: included
+excludeReason: null
+title: 60 million Copilot code reviews and counting
+url: https://github.blog/ai-and-ml/github-copilot/60-million-copilot-code-reviews-and-counting/
+canonicalUrl: https://github.blog/ai-and-ml/github-copilot/60-million-copilot-code-reviews-and-counting
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Blog
+authors: [Ria Gopu, David Apirian]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-03-05
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: 60 million Copilot code reviews and counting
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH11]
+events: []
+summary: GitHub が Copilot code review の設計方針と実績を述べた公式ブログ。GitHub 上のレビューの 5 件に 1 件超を占め、『雑音より沈黙』を方針に 29% のレビューでは何も言わない。評価は反応ボタンとマージ前の解決で測る。
+claims:
+  - id: c1
+    text: Copilot code review はリリース以来利用が 10 倍に伸び、GitHub 上のコードレビューの 5 件に 1 件超を占める。
+    quote: usage has grown 10X, now accounting for more than one in five code reviews on GitHub.
+    locator: 冒頭
+    quant:
+      value: レビューの 5 件に 1 件超
+      n: 不明(累計 6,000 万レビュー)
+      design: vendor telemetry
+      population: GitHub 上のコードレビュー
+    evidenceKind: news-fact
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+  - id: c2
+    text: 『雑音より沈黙』を方針とし、71% のレビューで対応可能な指摘を出し、残り 29% では何も言わない。1 レビューあたり平均約 5.1 件のコメント。
+    quote: Silence is better than noise. In 71% of the reviews, Copilot code review surfaces actionable feedback. In the remaining 29%, the agent says nothing at all.
+    locator: Signal
+    quant:
+      value: 指摘あり 71% / 沈黙 29%、平均 5.1 件/レビュー
+      n: 不明
+      design: vendor telemetry
+      population: 同上
+    evidenceKind: news-fact
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+  - id: c3
+    text: 本番では、コメントへの賛否の反応と、指摘された問題がマージ前に解決されたかで精度を追う。
+    quote: We measure whether flagged issues are resolved before merging.
+    locator: Accuracy
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH11-Q3]
+    issues: [257]
+    stance: context
+  - id: c4
+    text: より高度な推論モデルに替えると、待ち時間は 16% 延びたが好意的な反応率は 6% 上がり、GitHub は速度より信号を優先した。
+    quote: adopting a more advanced reasoning model improved positive feedback rates by 6%, even though review latency increased by 16%
+    locator: Speed
+    quant:
+      value: 好意的反応 +6%、待ち時間 +16%
+      n: 不明
+      design: vendor experiment (details undisclosed)
+      population: 同上
+    evidenceKind: news-fact
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:16.280Z
+    httpStatus: 200
+    finalUrl: https://github.blog/ai-and-ml/github-copilot/60-million-copilot-code-reviews-and-counting/
+    contentType: text/html; charset=UTF-8
+    titleFetched: 60 million Copilot code reviews and counting
+    titleMatch: true
+    dateMeta: 2026-03-05
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 10X; more than one in five
+        extractedQuote: Since our initial launch of Copilot code review (CCR) last April, usage has grown 10X, now accounting for more than one in five code reviews on GitHub.
+        locator: 冒頭段落(March 5, 2026 記事の第1段落)
+        note: 原文は『5件に1件超(more than one in five)』。起点は前年4月のローンチ。
+        adjudication:
+          verdict: consistent
+          reason: 『Since our initial launch ... last April, usage has grown 10X, now accounting for more than one in five code reviews on GitHub』と一致する。『リリース以来』は前年4月の初回ローンチを起点とする。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: 71%; 29%; about 5.1 comments per review
+        extractedQuote: In 71% of the reviews, Copilot code review surfaces actionable feedback. In the remaining 29%, the agent says nothing at all. ... now averaging about 5.1 comments per review
+        locator: 見出し「Signal」
+        note: 5.1件/レビューの分母が全レビューか指摘を出したレビューのみかは原文で明示されていない。
+        adjudication:
+          verdict: consistent
+          reason: 『Silence is better than noise』、71%で actionable feedback、残り29%で何も言わない、『averaging about 5.1 comments per review』はいずれも原文どおり。5.1件の分母(全レビューか指摘ありのレビューか)は原文でも明示されておらず、主張も原文と同じ書き方にとどめている。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://github.blog/ai-and-ml/github-copilot/60-million-copilot-code-reviews-and-counting

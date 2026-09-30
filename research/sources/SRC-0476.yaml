@@ -1,0 +1,92 @@
+schemaVersion: 0
+id: SRC-0476
+status: included
+excludeReason: null
+title: "The Maintainability Gap: AI Code Quality in 2026"
+url: https://www.gitclear.com/the_ai_code_quality_maintainability_gap
+canonicalUrl: https://gitclear.com/the_ai_code_quality_maintainability_gap
+ids:
+  arxiv: null
+  doi: null
+publisher: GitClear
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-06
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: login
+readLevel: section
+foundBy:
+  cluster: TH11
+  query: GitClear 2026 AI code quality research code churn duplication
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: 2023〜2026年の6.23億件の変更を8つの品質シグナルで追った GitClear の2026年報告(全文 PDF は登録制、公開要約を読んだ)。再利用・リファクタリングの減少と、重複・エラー隠蔽・短期チャーンの増加を示す。発行月は同社の研究一覧で2026年6月。
+claims:
+  - id: c1
+    text: ファイル横断の関数呼び出しは35%減、リファクタリングの移動は70%減、長期の保守は2022年比74%減だった。
+    quote: cross-file function calls (indicative of reuse) are down 35%. Refactoring line moves are down 70%, and long-term legacy maintenance is down 74% vs 2022 levels.
+    locator: 冒頭要約
+    quant:
+      value: reuse -35%, refactoring -70%, legacy maintenance -74%
+      n: 623M analyzed changes, 2023–2026
+      design: observational repository analysis
+      population: GitClear-analyzed repositories
+    evidenceKind: observational
+    rqs: [TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 同社の2026年1月の分析では、AIの多用者は非利用者の4〜10倍のコードを出すが差の大半はAI以前からあり、過去の自分との比較では速度増は25%にとどまった(選抜効果)。
+    quote: compared to their past selves, heavy AI users enjoyed a more modest 25% velocity gain.
+    locator: 背景の段落(Jan 2026 研究の要約)
+    quant:
+      value: +25% velocity vs past selves (4–10x cross-sectional gap mostly pre-dated AI)
+      n: null
+      design: observational, within-developer comparison
+      population: GitClear dataset
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:07.959Z
+    httpStatus: 200
+    finalUrl: https://www.gitclear.com/the_ai_code_quality_maintainability_gap
+    contentType: text/html; charset=utf-8
+    titleFetched: "The Maintainability Gap: 2026 AI Code Quality Research - GitClear"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 2026年1月/4–10倍/25%
+        extractedQuote: AI Coding Tools Attract Top Performers (Jan 2026) showed that heavy AI users out-produce non-users by 4–10x, but most of that gap pre-dated AI — compared to their past selves, heavy AI users enjoyed a more modest 25% velocity gain.
+        locator: Abstract(先行研究の要約段落)
+        note: Abstract はログインなしで読める(PDF本体はフォーム)。『選抜効果』という語は原文になく、見出し 'Attract Top Performers - But Do They Create Them?' と 'most of that gap pre-dated AI' からの解釈。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://gitclear.com/the_ai_code_quality_maintainability_gap

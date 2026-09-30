@@ -1,0 +1,119 @@
+schemaVersion: 0
+id: SRC-0234
+status: included
+excludeReason: null
+title: History — GitHub Spec Kit
+url: https://github.github.com/spec-kit/history.html
+canonicalUrl: https://github.github.com/spec-kit/history.html
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Spec Kit (github/spec-kit)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: repo
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: github spec-kit release 2026 spec-driven development
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH08, TH12]
+events:
+  - date: 2026-08-21
+    label: Spec Kit v1.0.0 リリース（初回コミットから1年）
+  - date: 2026-06-05
+    label: Spec Kit v0.9.5 で bug 拡張（assess → fix → test）を追加
+  - date: 2026-07-17
+    label: Spec Kit v0.13.0 で assess 拡張（アイデア評価）を追加
+summary: Spec Kit の沿革。Specify→Plan→Tasks→Implement から、拡張・プリセット・ワークフローで工程を組み替える harness へ移行し、1.0.0 に至った経緯と、コミュニティカタログが監査を意味しないことを記す。
+claims:
+  - id: c1
+    text: コミュニティカタログへの掲載はコンポーネントを見えるようにするだけで、そのコードが監査・推奨されたことを意味しない。スキル/拡張の供給網リスクに対する公式の立場。
+    quote: A catalog listing made a component visible, but did not mean its code had been audited or endorsed.
+    locator: "June–July 2026: Composing and applying the primitives"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q5]
+    issues: []
+    stance: context
+  - id: c2
+    text: bug 拡張の assess → fix → test は、診断・修正・検証を分けて記録する。成果物（工程）単位でコマンドを分ける設計の一例。
+    quote: Its assess → fix → test process keeps bug diagnosis, remediation, and verification separate and documented.
+    locator: June–July 2026
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 1.0.0 時点で 38 のエージェント統合、157 のコミュニティ拡張、33 のプリセット、270 名超の貢献者（プロジェクト自己報告）。
+    quote: The documentation then reported 38 coding-agent integrations, 157 community extensions, 33 presets, and 270+ contributors.
+    locator: "August 2026: First anniversary"
+    quant:
+      value: 38 integrations / 157 extensions / 33 presets / 270+ contributors
+      n: project count
+      design: self-reported
+      population: Spec Kit ecosystem as of 2026-08
+    evidenceKind: news-fact
+    rqs: [TH03-Q2, TH08-Q1]
+    issues: []
+    stance: context
+  - id: c4
+    text: エージェントが変更への追随を安くするため、版番号の価値は安定性から適応性へ移ったとし、1.0.0 を形の凍結とみなさない。改訂の速い分野の版運営の一つの立場。
+    quote: as agents make adapting to change less expensive, the value moves from stability to adaptability.
+    locator: "August 2026: First anniversary"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH12-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.607Z
+    httpStatus: 200
+    finalUrl: https://github.github.com/spec-kit/history.html
+    contentType: text/html; charset=utf-8
+    titleFetched: History | Spec Kit Documentation
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 1.0.0 (released August 21, 2026) / 38 coding-agent integrations / 157 community extensions / 33 presets / 270+ contributors
+        extractedQuote: Spec Kit turned one and released version 1.0.0 on August 21, 2026. ... The documentation then reported 38 coding-agent integrations, 157 community extensions, 33 presets, and 270+ contributors.
+        locator: "Milestones『August 2026: First anniversary』"
+        note: ask の『___.___時点』は2区切りだが、原文の版番号は3区切りの『1.0.0』。数値の出所は『The documentation then reported』(当時のドキュメント記載、プロジェクト自己報告)
+      c4:
+        verdict: match
+        extractedValue: 1.0.0
+        extractedQuote: "1.0.0 is now just a number : as agents make adapting to change less expensive, the value moves from stability to adaptability."
+        locator: "Milestones『August 2026: First anniversary』最終部"
+        note: 安定性から適応性へ、という文は履歴ページが lead maintainer 個人の記念投稿『Spec Kit Turns One — and Ships 1.0.0』を引いた箇所。ページ自身の記述は『Version 1.0.0 did not create or freeze that model』『rather than a promise that the project was finished or its shape frozen』。ask の『___.___』も原文では3区切りの 1.0.0
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

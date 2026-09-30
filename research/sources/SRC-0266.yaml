@@ -1,0 +1,110 @@
+schemaVersion: 0
+id: SRC-0266
+status: included
+excludeReason: null
+title: AIを「同僚」として組織に迎える ─ 果物の名を持つDeNAのAI社員たちと、その実装の裏側
+url: https://engineering.dena.com/blog/2026/08/ai-employee-introduction/
+canonicalUrl: https://engineering.dena.com/blog/2026/08/ai-employee-introduction
+ids:
+  arxiv: null
+  doi: null
+publisher: DeNA Engineering
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-08-04
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: "RSS走査: 国内Web系21社の技術ブログフィード(freee, マネーフォワード, SmartHR, サイバーエージェント, LINEヤフー, DeNA, Sansan, ZOZO, エムスリー, ANDPAD, メルカリ, GMO, ゆめみ, Ubie, ログラス, カケハシ, 10X, UPSIDER, Gaudiy, ヤプリ 等)を AI|Claude|Codex|エージェント|LLM|レビュー|ハーネス で抽出"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH02, TH11]
+events:
+  - date: 2026-03-06
+    label: DeNA × AI Day 2026 で AI 社員の初号機 Lemon を紹介
+summary: DeNAのIT本部が、名前・アカウント・配属先を持つ「AI社員」を部署に配置し、参照→書き込みの段階的な権限付与と先行検証役(Berry)経由の段階展開で運用している報告。
+claims:
+  - id: c1
+    text: AIエージェントを個人の道具ではなく部署に配属された新入社員として扱い、Google/Slackアカウントを与えて人間の新入社員と同じオンボーディング手順で一人立ちさせている。
+    quote: Lemonについて「人間の新入社員の育成と同じ手法を採用している」という考え方を採っていました。
+    locator: 初号機 Lemon
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3]
+    issues: []
+    stance: context
+  - id: c2
+    text: 影響が大きい変更(書き込み系、AIの動作設定、インフラ変更)は、dev検証→本番の1体に限定展開→観察→全体展開→周知の段階を踏む。
+    quote: 影響が大きいもの（書き込み系の操作、AIの動作設定そのもの、インフラ変更）：「dev環境で検証 → 本番のBerryだけに限定展開 → 一定期間の観察 → 問題なければ他のAI社員全体へ展開 → 利用者への周知」という段階を踏んで展開
+    locator: 運用の仕組み・工夫している点
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH02-Q4, TH02-Q3]
+    issues: [254]
+    stance: supports
+  - id: c3
+    text: 機能はまず社内システムの「参照」だけを与え、実力を見ながらJira起票やConfluence更新などの「書き込み」を段階的に追加している。共通ファイル(ペルソナ定義等)はAI社員が書き換えられない。
+    quote: まずはGoogle DriveやConfluenceといった社内システムを「参照」できる機能だけを持たせて実際の業務で使ってもらい、実力を見ながらJiraのチケット作成やConfluenceページの更新といった「書き込み」機能を段階的に追加していく
+    locator: 運用の仕組み・工夫している点
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH02-Q4, TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 最も稼働実績のあるAI社員の8営業日の削減時間は約52.6時間と報告されているが、この値はAI社員自身が集計する日報・週報によるもので、算定方法の検証は示されていない。
+    quote: もっとも稼働実績が積み上がっているBerryの例で言うと、ある週（2026年7月1日〜10日の8営業日）では、削減時間の合計が約52.6時間という結果が出ました。
+    locator: 成果
+    quant:
+      value: 約52.6時間/8営業日
+      n: AI社員1体(Berry)
+      design: AI社員自身による自己集計(算定方法非開示)
+      population: DeNA IT本部 会計システム開発・保守チーム
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T09:00:15.298Z
+    httpStatus: 200
+    finalUrl: https://engineering.dena.com/blog/2026/08/ai-employee-introduction/
+    contentType: text/html; charset=UTF-8
+    titleFetched: AIを「同僚」として組織に迎える ─ 果物の名を持つDeNAのAI社員たちと、その実装の裏側 | BLOG - DeNA Engineering
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 1体(本番のBerryだけ)
+        extractedQuote: 影響が大きいもの（書き込み系の操作、AIの動作設定そのもの、インフラ変更）：「dev環境で検証 → 本番のBerryだけに限定展開 → 一定期間の観察 → 問題なければ他のAI社員全体へ展開 → 利用者への周知」という段階を踏んで展開
+        locator: 運用の仕組み・工夫している点 > 機能追加のリリースフロー
+        note: 原典は数ではなく個体名「本番のBerryだけ」で書いている(=1体)。観察期間は「一定期間」で、直後に「数営業日問題なく動いた機能から他のAI社員へ広げる」とある。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://engineering.dena.com/blog/2026/08/ai-employee-introduction

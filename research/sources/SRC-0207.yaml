@@ -1,0 +1,137 @@
+schemaVersion: 0
+id: SRC-0207
+status: included
+excludeReason: null
+title: Code w/ Claude Tokyo 参加レポート ── AIに業務をどう任せ、どう資産に繋げるか
+url: https://developersblog.dmm.com/entry/2026/06/25/110000
+canonicalUrl: https://developersblog.dmm.com/entry/2026/06/25/110000
+ids:
+  arxiv: null
+  doi: null
+publisher: DMM Developers Blog(合同会社DMM.com)
+authors: [中尾]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-06-25
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Anthropic 日本 Claude Code 公式 発表 2026 東京
+derivedFrom: []
+derivedFromUrl:
+  - https://claude.com/code-with-claude/tokyo
+  - https://claude.com/code-with-claude/tokyo-extended
+selfReported: false
+themes: [TH05, TH01, TH03, TH02, TH11]
+events: []
+summary: Anthropic 主催 Code w/ Claude Tokyo(2026-06-10)の DMM エンジニアによる参加記(2026-06-25)。Anthropic の「AI-native engineering org」講演(設計文書先行の儀式を減らし検証の自動化へ倍賭け)と、メルカリ・サイバーエージェント・NRI・Canva の事例をスライド撮影付きで伝える二次情報。
+claims:
+  - id: c1
+    text: Anthropic の講演では、AI を本格導入すると計画・所有・レビュー等の旧来プロセスが壊れ、「コードの前にまず設計ドキュメント」という儀式を減らし、検証の自動化に倍賭けしたと紹介された(参加者による伝聞)。
+    quote: 減らしたのは「コードの前にまず設計ドキュメント」という儀式。逆に倍賭けしたのが検証の自動化でした。
+    locator: 任せた成果を「資産」として積み上げる発想(楽天・Anthropic)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3, TH05-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: 同講演のスライドとして「ドキュメントはもう信頼できる拠り所ではない。コードこそが拠り所だ」と紹介された(docs-as-code の正本観と対立する見解)。
+    quote: ドキュメントはもう信頼できる拠り所ではない。コードこそが拠り所だ。
+    locator: 任せた成果を「資産」として積み上げる発想(楽天・Anthropic)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1, TH05-Q4]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: 定着の判断基準として、6か月でオンボーディング高速化・PR 往復短縮・Claude 利用コミットの定着が見られなければ定着していないと見なす、と紹介された。
+    quote: 6 か月で、オンボーディングの高速化、PR 往復の短縮、Claude を使ったコミットの定着が見られなければ、定着していないと見なす。
+    locator: 任せた成果を「資産」として積み上げる発想(楽天・Anthropic)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3, TH11-Q1]
+    issues: []
+    stance: context
+  - id: c4
+    text: メルカリは自律できる業務を human-on-the-loop、判断が要る領域を human-in-the-loop に分ける線引きを示した(作業単位で自律度を切り替える日本企業の実務)。
+    quote: 自律できる業務は human-on-the-loop で任せ、判断が要る領域は human-in-the-loop で人と AI が協業する。
+    locator: 全自動化ではなく、人がどこで止めるかの設計だった(メルカリ・サイバーエージェント)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: メルカリは社内標準化した Agent Spec 駆動開発(ASDD)について、Plan Mode の実装後も内製投資を続ける意味があるかという陳腐化のジレンマを示した。
+    quote: Claude Code に Plan Mode が実装された今、内製で ASDD に投資し続ける意味はあるのか？
+    locator: 全自動化ではなく、人がどこで止めるかの設計だった(メルカリ・サイバーエージェント)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH02-Q3]
+    issues: []
+    stance: context
+  - id: c6
+    text: サイバーエージェントは常時読み込む前提を最小化し、個別知識を Skills・Subagent・MCP に切り出す運用を示し、文脈は有限資源で足すほど精度が落ちると割り切っていた。
+    quote: context は有限資源で、足すほどかえって精度が落ちる、という割り切りが明快でした。
+    locator: 全自動化ではなく、人がどこで止めるかの設計だった(メルカリ・サイバーエージェント)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q1, TH04-Q2]
+    issues: []
+    stance: supports
+  - id: c7
+    text: NRI は Claude が 1000 行を超える業務指示を一度に汲み取り最後まで破綻なくやり切る点を採用理由とした(大量指示でも破綻しないという反対方向の報告。ベンチマーク条件は非公開)。
+    quote: 1000 行を超えるような大量の業務指示を一度に汲み取り、最後まで破綻なくやり切る。
+    locator: いちばん刺さったのは「業務を評価している」という一言だった(NRI)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: []
+    stance: contradicts
+  - id: c8
+    text: Canva は「今日編み出された賢いハーネスは明日にはデッドコードになる」とし、制御は作り直し、評価資産に投資すると述べた。
+    quote: 今日編み出された賢いハーネスは、明日にはデッドコード（無用なコード）になる。
+    locator: 大規模 AI プロダクト運用で重要になるのは評価とコスト設計(Canva)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:13.810Z
+    httpStatus: 200
+    finalUrl: https://developersblog.dmm.com/entry/2026/06/25/110000
+    contentType: text/html; charset=utf-8
+    titleFetched: Code w/ Claude Tokyo 参加レポート ── AIに業務をどう任せ、どう資産に繋げるか - DMM Developers Blog
+    titleMatch: true
+    dateMeta: 2026-06-25
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

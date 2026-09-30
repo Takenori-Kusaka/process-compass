@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0068
+status: included
+excludeReason: null
+title: Measurements for understanding the pace of AI development inside frontier labs
+url: https://www.anthropic.com/institute/measuring-pace-of-ai-development
+canonicalUrl: https://anthropic.com/institute/measuring-pace-of-ai-development
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic Institute
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-17
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: Anthropic agent autonomy levels human oversight framework 2026
+derivedFrom: []
+derivedFromUrl:
+  - https://epochai.substack.com/p/toward-an-onet-for-ai-r-and-d
+selfReported: true
+themes: [TH01, TH11]
+events:
+  - date: 2026-09-17
+    label: Anthropic Institute が AI R&D 自動化指標と監視指標を公表
+summary: Anthropic 社内の AI R&D を Epoch AI の Automation Level(AL0〜AL5)で測り、2026-08 時点で Claude が「主導(AL4)」する作業は26%、完全自律(AL5)はゼロと報告。約3万エージェント同時稼働、10億超の判断のうち0.002%(1/47,000)を監視が遮断。自己申告値。
+claims:
+  - id: c1
+    text: 採用した自律度尺度は AL0(AI 関与なし)〜AL5(完全自律)の6段階で、AL3=協働、AL4=主導(高レベル指示から大半を完遂し人が監督)。作業(タスク)のバスケット単位で測る。
+    quote: "It runs from AL0 (no AI involvement) to AL5 (AI operates fully autonomously, with no human in the loop). In AL3, AI “collaborates”: it can do large chunks of work under close human direction. In AL4, AI “leads”"
+    locator: Automation of AI R&D, What we found
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 2026 年 8 月時点で、Claude は Anthropic 社内の AI R&D 作業のうち測定したどの部分でも完全自律では動いておらず、作業の 26% を「主導」し、「協働」以上に当たる割合は 90% を超える。
+    quote: Claude is not operating fully autonomously for any measured subset of AI R&D work. Claude “leads” 26% of Anthropic’s AI R&D work. The share of work at or above “AI collaborates” is above 90%.
+    locator: (1) Measuring AI-led AI R&D > What we found
+    quant:
+      value: 26% (AL4), >90% (≥AL3), 0% (AL5)
+      n: Anthropic 社内 AI R&D タスクバスケット(2026-07 基準)
+      design: self-assessed automation index
+      population: Anthropic internal AI R&D work, Aug 2026
+    evidenceKind: observational
+    rqs: [TH01-Q3, TH01-Q1]
+    issues: [248]
+    stance: supports
+  - id: c3
+    text: 監視指標として coverage・review latency・escalation rate を提案。2026-08 の10億超の判断のうち0.002%(約1/47,000)がオンライン監視で遮断され、千件に1〜2件が追加レビューに回った。
+    quote: We analyzed over a billion decisions from our research & engineering agents over August 2026 and found that 0.002% of them (about 1 in 47,000) were blocked by this monitor.
+    locator: Oversight of agents, Blocking / escalation rate
+    quant:
+      value: 0.002% (1/47,000)
+      n: ">1 billion decisions"
+      design: 自動監視ログ集計
+      population: Anthropic internal research & engineering agents, Aug 2026, 単一プラットフォーム
+    evidenceKind: observational
+    rqs: [TH01-Q4, TH11-Q3]
+    issues: [248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:17.393Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/institute/measuring-pace-of-ai-development
+    contentType: text/html; charset=utf-8
+    titleFetched: Measurements for understanding the pace of AI development inside frontier labs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: AL0〜AL5 / 6段階(six automation levels) / AL3=collaborates / AL4=leads
+        extractedQuote: "It runs from AL0 (no AI involvement) to AL5 (AI operates fully autonomously, with no human in the loop). In AL3, AI “collaborates”: it can do large chunks of work under close human direction."
+        locator: (1) Measuring AI-led AI R&D > What we found、および How we did it(six automation levels / basket of work)
+        note: '続く文 "In AL4, AI “leads”: it can complete most of the task end-to-end from a high-level prompt, while the human supervises."。6段階は方法節 "assigned one of six automation levels, adopting a scale proposed by Epoch AI"。バスケットは542ノード(葉378)の固定タスクツリー: "We freeze this tree so that every measurement we make happens against the same basket of work." 尺度は Epoch AI 提案のもの。'
+      c2:
+        verdict: match
+        extractedValue: 2026-08(As of August 2026) / 26% / 90%超
+        extractedQuote: Claude is not operating fully autonomously for any measured subset of AI R&D work. Claude “leads” 26% of Anthropic’s AI R&D work. The share of work at or above “AI collaborates” is above 90%.
+        locator: (1) Measuring AI-led AI R&D > What we found
+        note: 引用の直前に "As of August 2026," とあり、時点は2026年8月。「人の監督下にある」は AL4 の定義 "while the human supervises" と AL5 未到達(脚注 "a level we have not yet reached")に基づく解釈で、同段落に直接の文言は無い。評定は Claude の judge によるもので、原典は自社モデルで評価する限界を明記。
+        adjudication:
+          verdict: corrected
+          reason: 数値(26%、90% 超、完全自律ゼロ)と時点(As of August 2026)は blindQuote と一致する。ただし原文の母集団は「Anthropic's AI R&D work」で、主張ではこの限定が落ちているので補った。「役割を占めても人の監督下にある」は、AL4 の定義(while the human supervises)と AL5 未到達から導いた解釈で、同じ段落に直接の文言は無いため、訂正文からは外した。評定は Claude による judge で、自社モデルで評価する限界が原典に明記されている点も、引用時に添えるのが望ましい。
+          date: 2026-09-23
+          originalText: 2026-08 時点で Claude は測定対象のどの AI R&D 作業でも完全自律では動いておらず、26%を主導、90%超が協働以上。役割を占めても人の監督下にある。
+          originalQuote: Claude is not operating fully autonomously for any measured subset of AI R&D work. Claude “leads” 26% of Anthropic’s AI R&D work. The share of work at or above “AI collaborates” is above 90%.
+      c3:
+        verdict: match
+        extractedValue: 2026-08 / over a billion(10億超) / 0.002% / about 1 in 47,000 / 千件に1〜2件
+        extractedQuote: We analyzed over a billion decisions from our research & engineering agents over August 2026 and found that 0.002% of them (about 1 in 47,000) were blocked by this monitor.
+        locator: (2) Oversight of agents > What we found > 表の行 "Blocking / escalation rate"(Online monitors 列 / Offline monitors 列)
+        note: '千件に1〜2件はオフライン監視の列で、単位は判断(decision)ではなく transcript: "The monitor flags roughly one to two transcripts in every thousand for further review." ask の『10億超の判断のうち…千件に1〜2件』は母集団(判断 vs トランスクリプト)が混ざって読める。計測範囲は最も使われる社内プラットフォーム(同時稼働約30,000エージェント)のみ。3指標(coverage / review latency / escalation rate)は原文と一致。'
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/institute/measuring-pace-of-ai-development

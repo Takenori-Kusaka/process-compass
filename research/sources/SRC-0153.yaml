@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0153
+status: included
+excludeReason: null
+title: 生成AIで新規事業を、と言われたあなたへ　技術先行で失敗しないために最初にやるべき「3つの設計」
+url: https://goodpatch.com/blog/2025-05-ai-new-business
+canonicalUrl: https://goodpatch.com/blog/2025-05-ai-new-business
+ids:
+  arxiv: null
+  doi: null
+publisher: Goodpatch Blog
+authors: []
+orgType: consultancy
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2025-05-20
+publishedBasis: meta
+version: null
+updated: 2026-06-30
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: 新規事業 生成AI 企画プロセス PoC 日本企業 2026 (scratchpad)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09]
+events: []
+summary: Goodpatch による日本企業の生成 AI 新規事業の失敗パターン整理。チャットボットを作ったが使われない、それらしいプロトタイプはできたが売れる目処がない、技術的ハードルで検討が止まる、の 3 類型を示し、技術先行で「誰のどんな行動を変えるか」が抜ける共通点を指摘。PoC 成功で満足し収益化の道筋を描かず停滞する例も挙げる。
+claims:
+  - id: c1
+    text: 日本企業の生成 AI 新規事業でよくある壁として「それらしいプロトタイプを作ったが、売れる目処が立たない」を挙げる。プロトタイプ先行が価値検証を置き換えない例。
+    quote: それらしいプロトタイプを作ったが、売れる目処が立たない
+    locator: 冒頭 箇条書き
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3, TH09-Q1]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 失敗の共通点は「生成 AI で何ができるか」に引っ張られ「誰にどんな価値を届けるか」の顧客視点が抜けること。
+    quote: 「生成AIで何ができるか」に引っ張られすぎてしまい、「誰にどんな価値を届けるのか」というユーザー（顧客）視点の思考が抜け落ちてしまっているという共通点があります。
+    locator: 冒頭 第4段落
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1, TH09-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: PoC の成功や一部ユーザーの好評で満足し、収益化の道筋を描かなかったために停滞するケースが多い。PoC は事業性検証の代替にならない。
+    quote: PoCの成功や一部ユーザーでの好評に満足してしまい、収益化への道筋を描かなかったことでプロジェクトが停滞するケースも多く見られます。
+    locator: 「どのように儲けるか？」を事前に描く
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: qualifies
+  - id: c4
+    text: 技術的なハードルに阻まれて事業検討が止まるパターンも挙げられ、技術検証が企画停止の要因になりうる。
+    quote: 技術的なハードルに行く手を阻まれ、事業の検討が止まってしまう
+    locator: 冒頭 箇条書き
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:11.204Z
+    httpStatus: 200
+    finalUrl: https://goodpatch.com/blog/2025-05-ai-new-business
+    contentType: text/html; charset=utf-8
+    titleFetched: 生成AIで新規事業を、と言われたあなたへ　技術先行で失敗しないために最初にやるべき「3つの設計」｜Goodpatch Blog グッドパッチブログ
+    titleMatch: true
+    dateMeta: 2025-05-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

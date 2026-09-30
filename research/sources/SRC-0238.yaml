@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0238
+status: included
+excludeReason: null
+title: "Devin Review: AI to Stop Slop"
+url: https://cognition.ai/blog/devin-review
+canonicalUrl: https://cognition.ai/blog/devin-review
+ids:
+  arxiv: null
+  doi: null
+publisher: Cognition
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-01-21
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: Cognition Devin 2026 Devin Review swarm announcement
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH07, TH10]
+events:
+  - date: 2026-01-21
+    label: Cognition が Devin Review（PR レビュー支援）を公開
+summary: Cognition の PR レビュー製品の発表。生成ではなくレビューがボトルネックとし、差分の論理的並べ替え・対話・重大度3区分のバグ検出で人の理解を拡張する設計を示す。
+claims:
+  - id: c1
+    text: 顧客の声として、コード生成ではなくコードレビューが出荷のボトルネックになったとする（定量根拠の提示なし）。
+    quote: code review—not code generation—is now the bottleneck to shipping great products.
+    locator: 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q6, TH11-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 大きな PR では読解が破綻し、形式的な LGTM になる現象を『Lazy LGTM problem』と名付ける。
+    quote: when PRs are small, they're easy to read and argue about. But this breaks down quickly for large reviews. We call this the "Lazy LGTM problem".
+    locator: The Birth and Stagnation of Code Review
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q5, TH10-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: AI の指摘を重大度で3区分（赤=バグの可能性、黄=警告、灰=FYI）して出力する。指摘様式の一例。
+    quote: "Devin Review scans the diffs and generates a list of issues categorized by seriousness: red for probable bugs, and yellow for warnings, and gray for FYI/commentary."
+    locator: The Modern Code Review Workflow / Catching bugs and issues
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+  - id: c4
+    text: 製品の位置づけを、AI と UX で複雑化する差分に対する『人の理解』を拡張することと定義する（人の判断の代替ではない）。
+    quote: uses state-of-the-art AI + UX to scale human understanding of ever-more-complex code diffs
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:23.444Z
+    httpStatus: 200
+    finalUrl: https://cognition.com/blog/devin-review
+    contentType: text/html; charset=utf-8
+    titleFetched: "Devin Review: AI to Stop Slop"
+    titleMatch: true
+    dateMeta: 2026-01-21
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: Lazy LGTM problem
+        extractedQuote: when PRs are small, they're easy to read and argue about. But this breaks down quickly for large reviews. We call this the "Lazy LGTM problem".
+        locator: 節『The Birth and Stagnation of Code Review』
+        note: 原文は大きなレビューで破綻することに名前を付けただけで、『形式的な LGTM になる』という説明は明示していない(名称から読み取れる程度)
+      c3:
+        verdict: match
+        extractedValue: red / yellow / gray (3 categories, count derived from the enumeration)
+        extractedQuote: "Devin Review scans the diffs and generates a list of issues categorized by seriousness: red for probable bugs, and yellow for warnings, and gray for FYI/commentary."
+        locator: 節『The Modern Code Review Workflow』内『Catching bugs and issues』
+        note: 原文に『three』などの数詞はない。区分数3は列挙された色の数から数えたもの。記事は 01.21.26 付で early release 時点の記述
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

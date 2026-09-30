@@ -1,0 +1,83 @@
+schemaVersion: 0
+id: SRC-0084
+status: included
+excludeReason: null
+title: A practical guide to building agents
+url: https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf
+canonicalUrl: https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: "2025"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH01
+  query: OpenAI practical guide to building agents human intervention (既知 PDF を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: OpenAI のエージェント構築ガイド(PDF に発行日記載なし)。人の介入を呼ぶ主な引き金を「失敗閾値の超過」と「高リスク行為」の2つに整理し、信頼が得られるまで高リスク行為は人の監視に回すと助言。ask-vs-act の閾値設計のベンダー推奨。
+claims:
+  - id: c1
+    text: 人の介入を要する引き金は主に2つ、(1)再試行や行動回数の失敗閾値の超過、(2)機微・不可逆・高い賭けの行為。閾値は設計者が定める。
+    quote: "Two primary triggers typically warrant human intervention: Exceeding failure thresholds: Set limits on agent retries or actions."
+    locator: Plan for human intervention
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: supports
+  - id: c2
+    text: 高リスク行為(不可逆・機微)はエージェントの信頼性への確信が得られるまで人の監視を要するとし、段階的に自律を広げる前提を置く。
+    quote: "High-risk actions: Actions that are sensitive, irreversible, or have high stakes should trigger human oversight until confidence in the agent’s reliability grows."
+    locator: Plan for human intervention
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH01-Q4]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:31.002Z
+    httpStatus: 200
+    finalUrl: https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Two primary triggers:(1) Exceeding failure thresholds (2) High-risk actions
+        extractedQuote: "Two primary triggers typically warrant human intervention: Exceeding failure thresholds: Set limits on agent retries or actions. ... High-risk actions: … sensitive, irreversible, or have high stakes"
+        locator: Guardrails > Plan for human intervention(PDF p.31 付近)
+        note: 原典は2項目を番号なしの箇条書きで示す(『typically』付き)。高リスク行為の引き金には『until confidence in the agent's reliability grows』(信頼が育つまで)という時限の条件が付いているが、ask では落ちている。『閾値は設計者が定める』は原典の命令形『Set limits on agent retries or actions』に相当
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0404
+status: included
+excludeReason: null
+title: Auto-resolution and analysis updates in Copilot code review
+url: https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review
+canonicalUrl: https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Changelog
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-11
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: '"Copilot code review: Resolution reasons and expanded capabilities"'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events:
+  - date: 2026-09-11
+    label: Copilot code review がシェルツールでの検証とエージェント合議を導入
+summary: Copilot code review がビルド・テスト・スクリプト実行などのシェルツールで検証できるようになり、Lite 設定を単独エージェントから複数エージェントの合議へ変えた。対応済み指摘の自動解決も追加。
+claims:
+  - id: c1
+    text: レビューエージェントは Copilot SDK のシェルツール一式をファイアウォール内で使い、ビルド・テスト・スクリプト実行で検証できるようになった。指摘を実行結果で裏づける方向への設計変更である。
+    quote: (e.g., running build commands, running tests, executing targeted scripts, and retrieving information from available tools and APIs)
+    locator: Analysis updates
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+  - id: c2
+    text: 自社実験で Lite レビューに複数エージェントのアンサンブル方式を導入したところ、1レビューあたりの対応済みコメント数の平均が高重大度で47%、中で31%、低で11%増え、レビュー費用は約8%下がった。
+    quote: the ensemble approach increased the average number of addressed comments per review by 47% for high severity findings, 31% for medium, and 11% for low, while reducing review cost by about 8%.
+    locator: 見出し「Ensemble of agents in Lite reviews」(2026-09-11 changelog)
+    quant:
+      value: 対応済み +47%(高)/ +31%(中)/ +11%(低)、費用 -8%
+      n: 不明
+      design: vendor internal experiment (details undisclosed)
+      population: Copilot code review Lite
+    evidenceKind: news-fact
+    rqs: [TH06-Q6, TH06-Q3]
+    issues: [257, 258]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:16.911Z
+    httpStatus: 200
+    finalUrl: https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Auto-resolution and analysis updates in Copilot code review - GitHub Changelog
+    titleMatch: true
+    dateMeta: 2026-09-11
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 47% (high); 31% (medium); 11% (low); cost about -8%
+        extractedQuote: the ensemble approach increased the average number of addressed comments per review by 47% for high severity findings, 31% for medium, and 11% for low, while reducing review cost by about 8%.
+        locator: 見出し「Ensemble of agents in Lite reviews」(2026-09-11 changelog)
+        note: 原文は ensemble(各エージェントの所見を Copilot が一つのレビューへ統合)。『合議』は訳語の選択。数値は 'In our experimentation' の自社実験。
+        adjudication:
+          verdict: corrected
+          reason: 数値(+47%/+31%/+11%、費用約-8%)と自社実験である点は一致する。ただし原文は ensemble(各エージェントの所見を Copilot が一つのレビューへ統合する方式)であり、『合議』はエージェント同士が議論する討論型の仕組みと誤読されうる。本調査は討論・mixture-of-agents・自己整合を区別して扱っているため、方式名を原文に沿って直した。
+          date: 2026-09-24
+          originalText: Lite 設定を複数エージェントの合議に変えた結果、1 レビューあたりの対応済みコメントが高重大度で 47%、中で 31%、低で 11% 増え、費用は約 8% 下がった(自社実験)。
+          originalQuote: the ensemble approach increased the average number of addressed comments per review by 47% for high severity findings, 31% for medium, and 11% for low, while reducing review cost by about 8%.
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

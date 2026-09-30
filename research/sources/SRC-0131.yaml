@@ -1,0 +1,100 @@
+schemaVersion: 0
+id: SRC-0131
+status: included
+excludeReason: null
+title: Build to Learn vs Build to Earn
+url: https://www.svpg.com/build-to-learn-vs-build-to-earn/
+canonicalUrl: https://svpg.com/build-to-learn-vs-build-to-earn
+ids:
+  arxiv: null
+  doi: null
+publisher: Silicon Valley Product Group (SVPG)
+authors: [Marty Cagan]
+orgType: consultancy
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-04-16
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: Marty Cagan AI product discovery prototypes 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH08]
+events: []
+summary: Cagan が 2026-04 に出した、AI 時代のディスカバリー(build to learn)とデリバリー(build to earn)の区別。実装コスト低下でボトルネックは「作る価値がある解を見つけること」へ移り、プロトタイプは週 10-20 本、並列で複数案を試すのが普通になったと述べる。
+claims:
+  - id: c1
+    text: デリバリーのコストが劇的に下がったため、機能を実際に作ることはもはやボトルネックではなく、作る価値のある解を見つけること(ディスカバリー)が真のボトルネックになった。
+    quote: Today, because the cost of delivery has dropped so dramatically, actually building the feature or project is no longer the bottleneck.
+    locator: 本文 第6段落
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 今日では週 10-20 本のプロトタイプ(または反復)はほぼ誰でも容易に作れ、デザイナーやエンジニアの助けに依存しない。
+    quote: Today, 10-20 prototypes (or prototype iterations) per week is easy for just about anyone
+    locator: 本文「In product discovery we are building to learn」段落
+    quant:
+      value: 10-20 prototypes/week
+      n: not stated
+      design: practitioner claim
+      population: product teams coached by SVPG
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 生成 AI のプロトタイピングツールにより、従来は逐次だった探索が、複数のアプローチを同時に試す並列探索へ変わった。
+    quote: today it’s not unusual to quickly create several prototypes each exploring several different approaches to solving the problem, that we can then test simultaneously
+    locator: 本文「Second, thanks to the speed」段落
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1, TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: ディスカバリーとデリバリーはフェーズではなく、どちらも継続的であり、デリバリーからも学ぶ。フェーズ後退の概念を前提にしていない。
+    quote: It’s also important not to think of discovery and delivery as phases, as in practice these are both continuous, and of course we learn from delivery as well
+    locator: 脚注 3
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:53.569Z
+    httpStatus: 200
+    finalUrl: https://www.svpg.com/build-to-learn-vs-build-to-earn/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Build to Learn vs Build to Earn | Silicon Valley Product Group
+    titleMatch: true
+    dateMeta: 2026-04-16
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://svpg.com/build-to-learn-vs-build-to-earn

@@ -1,0 +1,207 @@
+schemaVersion: 0
+id: SRC-0206
+status: included
+excludeReason: null
+title: "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?"
+url: https://arxiv.org/abs/2602.11988
+canonicalUrl: arxiv:2602.11988
+ids:
+  arxiv: "2602.11988"
+  doi: 10.48550/arXiv.2602.11988
+publisher: arXiv (ETH Zurich / LogicStar.ai)
+authors: [Gloaguen Thibaud, Mündler Niels, Müller Mark, Raychev Veselin, Vechev Martin]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-02-12
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-06-23
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Evaluating AGENTS.md repository context files coding agents arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04, TH05]
+events: []
+summary: リポジトリの文脈ファイル(AGENTS.md / CLAUDE.md)の効果を SWE-bench Lite 300 件と新設 CTXbench 138 件、4エージェント(Claude Code+Sonnet 4.5 を含む)で測った査読前論文(v2 2026-06-23)。成功率は上がらず推論費用が平均20%超増え、ファイル長の影響も有意でないと報告。ベンダー推奨への反証。
+claims:
+  - id: c1
+    text: 文脈ファイルを与えても課題成功率は概して改善せず、推論費用が平均20%超増える。LLM 生成・開発者作成の両方、複数のモデルとエージェントで成り立つ。
+    quote: we find that providing context files does not generally improve task success rates, while increasing inference cost by over 20% on average.
+    locator: Abstract
+    quant:
+      value: 成功率の改善なし / 費用 +20%超
+      n: SWE-bench Lite 300 tasks + CTXbench 138 tasks; 4 agent-model pairs
+      design: controlled benchmark comparison (none / LLM-generated / developer-provided)
+      population: Python repositories
+    evidenceKind: benchmark
+    rqs: [TH03-Q4, TH04-Q2, TH05-Q3]
+    issues: [252, 269, 274]
+    stance: contradicts
+  - id: c2
+    text: 文脈ファイル内の指示自体はよく守られるが、モデル提供者が推奨するリポジトリ概要は役に立たない。
+    quote: repository overviews, although popular and recommended by model providers, are not helpful.
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH03-Q4, TH03-Q3]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: 指示は守られており、効果の弱さは無視ではなく追加された要件と探索にある(「守れず落ちる」とは別の機構)。
+    quote: while instructions in the context files are well followed by coding agents
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH03-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 文脈ファイルの長さは結果に有意な影響を与えなかった(長さと遵守劣化を結びつけるベンダー記述とは測定量が異なるが、長さ単独の効果を否定)。
+    quote: the length of context files has no significant impact on our results
+    locator: Appendix B(本文 §4.4 の要約)
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH03-Q4]
+    issues: []
+    stance: contradicts
+  - id: c5
+    text: 評価は Python に偏っており、学習データに少ない言語・ツールチェーンでは結果が異なりうると限界を述べる。
+    quote: The current evaluation is focused on Python.
+    locator: §5 Limitations and Future Work
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH03-Q4]
+    issues: []
+    stance: qualifies
+  - id: c6
+    text: 文脈ファイルを与えても成功率は概ね改善せず、推論費用は平均20%超増える。LLM・エージェント・作成者(LLM生成/開発者)を問わず成り立つ。
+    quote: Surprisingly, we find that providing context files does not generally improve task success rates, while increasing inference cost by over 20% on average.
+    locator: Abstract (v2)
+    quant:
+      value: success rate n.s.; cost +20%+
+      n: 4 coding agents x SWE-bench + CTXbench
+      design: controlled experiment
+      population: Claude Code (Sonnet-4.5), Codex (GPT-5.2/5.1 mini), Qwen Code
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4, TH03-Q3]
+    issues: []
+    stance: contradicts
+  - id: c7
+    text: 文脈ファイルの指示はよく守られる(それが費用増の理由)が、推奨されがちなリポジトリ概要は役に立たない。「守れないものは黙って落ちる」とは逆向きの観測である。
+    quote: while instructions in the context files are well followed by coding agents, repository overviews, although popular and recommended by model providers, are not helpful.
+    locator: Abstract (v2)
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4]
+    issues: [269, 274]
+    stance: contradicts
+  - id: c8
+    text: 開発者が書いた文脈ファイルは LLM 生成より平均7%上回る。
+    quote: developer-committed files outperform LLM-generated ones by a significant margin of 7% on average.
+    locator: §1 Introduction (v2)
+    quant:
+      value: +7% (developer vs LLM-generated)
+      n: CTXbench
+      design: controlled experiment
+      population: repos with developer-committed context files
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4]
+    issues: []
+    stance: qualifies
+  - id: c9
+    text: LLM 生成の context file は当面省くことを勧める(エージェント開発者の推奨に反して)。人が書くなら README に無い、エージェントに必要な指示だけに絞る。
+    quote: We therefore suggest omitting LLM-generated context files for the time being, contrary to agent developers’ recommendations, as they don’t help improve performance.
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: supports
+  - id: c10
+    text: LLM 生成の context file は既存文書と大部分が重複し、開発者作成のものは追加情報を持つという仮説を、文書を除去した追加実験で確かめた(AI 生成文書の冗長性)。
+    quote: Our hypothesis is that LLM-generated context files are mostly redundant with existing documentation, while developer-provided context files add additional information.
+    locator: Appendix B, Context files are redundant documentation
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: supports
+  - id: c11
+    text: CTXbench では、開発者作成の context file はエージェント性能を平均 2.4% 改善したが有意ではなく(p=21%)、LLM 生成のものよりは有意に良かった(p=3.8%)。ただし同じ段落で、開発者作成ファイルもステップ数(平均3.34)とコスト(最大19%)を増やし、Claude Code では改善しなかったと述べている。
+    quote: Developer-provided context files improve agent performance by 2.4% on average (p=21%), significantly outperforming LLM-generated ones (p=3.8%) (see Table 3).
+    locator: §4.2 Main Results / 小見出し「Developer-provided context files increase cost and outperform LLM-generated ones」、Table 3(CTXbench None vs Dev 0.21、LLM vs Dev 0.038)
+    quant:
+      value: +2.4% success (p=0.21); outperforms LLM-generated (p=0.038)
+      n: same benchmarks as above
+      design: controlled benchmark comparison
+      population: CTXbench / SWE-bench Lite
+    evidenceKind: benchmark
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:13.787Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2602.11988
+    contentType: text/html; charset=utf-8
+    titleFetched: "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?"
+    titleMatch: true
+    dateMeta: 2026-02-12
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+      c9: found
+      c10: found
+      c11: found
+    arxiv:
+      status: 200
+      title: "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents?"
+      authors: ["Gloaguen, Thibaud", "Mündler, Niels", "Müller, Mark", "Raychev, Veselin", "Vechev, Martin"]
+      v1Date: 2026-02-12
+      latestVersion: 2
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c11:
+        verdict: match
+        extractedValue: +2.4% (p=21%); LLM生成との比較 p=3.8%
+        extractedQuote: Developer-provided context files improve agent performance by 2.4% on average (p=21%), significantly outperforming LLM-generated ones (p=3.8%) (see Table 3).
+        locator: §4.2 Main Results / 小見出し「Developer-provided context files increase cost and outperform LLM-generated ones」、Table 3(CTXbench None vs Dev 0.21、LLM vs Dev 0.038)
+        note: 原典は同じ段落で、開発者作成ファイルもステップ数を平均3.34、コストを最大19%増やすと述べ、Claude Code では改善しなかったとしている。ask 後半の「人が書いた最小限の文書」の「最小限」は原典に無い語である。原典の対象は CTXbench の開発者作成 context file(12件)で、長さが最小限という条件は付いていない。比較は CTXbench のみ。
+        adjudication:
+          verdict: corrected
+          reason: 前半の数値(+2.4%、p=21%、LLM 生成との比較 p=3.8%)は blindQuote と一致する。後半の「人が書いた最小限の文書まで無益とは言えない」は原典に無い推論で、「最小限」という条件も原典に無い(対象は CTXbench の開発者作成ファイル12件で、長さの条件は付かない)。さらに原典は同じ段落でコスト増と Claude Code での非改善を述べており、主張は反対方向の情報を落としている。原典の記述だけで書き直した。
+          date: 2026-09-24
+          originalText: 開発者作成の context file は平均 +2.4%(p=21%、有意差なし)で、LLM 生成のものより有意に良い(p=3.8%)。人が書いた最小限の文書まで無益とは言えない。
+          originalQuote: Developer-provided context files increase cost and outperform LLM-generated ones
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH03
+    query: AGENTS.md context files evaluation coding agents performance harmful arXiv 2026
+  - cluster: TH05
+    query: Evaluating AGENTS.md repository-level context files helpful for coding agents arXiv

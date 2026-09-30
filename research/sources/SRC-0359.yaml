@@ -1,0 +1,91 @@
+schemaVersion: 0
+id: SRC-0359
+status: included
+excludeReason: null
+title: AGENTS.md outperforms skills in our agent evals
+url: https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals
+canonicalUrl: https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals
+ids:
+  arxiv: null
+  doi: null
+publisher: Vercel
+authors: [Gao Jude]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-01-27
+publishedBasis: meta
+version: null
+updated: 2026-06-25
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: Vercel blog AGENTS.md outperforms skills in our agent evals
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH04]
+events: []
+summary: Next.js 16 API の評価で、スキルは56%の場面で呼ばれず効果ゼロ、明示指示付きでも79%だった。8KB に圧縮した文書索引を AGENTS.md に常駐させると100%。progressive disclosure の失敗報告。
+claims:
+  - id: c1
+    text: 評価の56%でスキルは一度も呼ばれず、スキルを置いても基準線(53%)から改善しなかった。エージェント判断による読み込みが当てにならない例である。
+    quote: In 56% of eval cases, the skill was never invoked. The agent had access to the documentation but didn't use it.
+    locator: Skills weren't being triggered reliably
+    quant:
+      value: 56% not invoked; 53% → 53% (+0pp)
+      n: not reported (Next.js 16 API eval suite)
+      design: internal eval, single framework
+      population: coding agent on Next.js 16 tasks
+    evidenceKind: case-report
+    rqs: [TH03-Q1]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 8KB に圧縮した文書索引を AGENTS.md に常駐させると合格率100%、スキルは明示指示付きでも最大79%だった。
+    quote: A compressed 8KB docs index embedded directly in AGENTS.md achieved a 100% pass rate, while skills maxed out at 79% even with explicit instructions telling the agent to use them.
+    locator: Lead
+    quant:
+      value: 100% (AGENTS.md 8KB) vs 79% (skill + explicit instruction)
+      n: not reported
+      design: internal eval (Build/Lint/Test)
+      population: Next.js 16 API tasks
+    evidenceKind: case-report
+    rqs: [TH03-Q1, TH03-Q4]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:31.115Z
+    httpStatus: 200
+    finalUrl: https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals
+    contentType: text/html; charset=utf-8
+    titleFetched: AGENTS.md outperforms skills in our agent evals
+    titleMatch: true
+    dateMeta: 2026-01-27
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 56% / baseline 53%
+        extractedQuote: "In 56% of eval cases, the skill was never invoked. ... Adding the skill produced no improvement over baseline: ... Baseline (no docs) 53% — Skill (default behavior) 53% +0pp"
+        locator: Skills weren't being triggered reliably
+        note: 引用は本文と直後の表を省略記号でつないだもの。Build/Lint/Test の内訳では一部指標で基準線を下回った(tests 58% vs 63%)とも記載。対象は Vercel の Next.js 評価に限られる
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

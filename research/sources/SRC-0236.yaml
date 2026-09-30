@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0236
+status: included
+excludeReason: null
+title: Governance and security for AI agents across the organization
+url: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization
+canonicalUrl: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization
+ids:
+  arxiv: null
+  doi: null
+publisher: Microsoft Learn (Cloud Adoption Framework)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-04-09
+publishedBasis: meta
+version: null
+updated: 2026-06-26
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: Microsoft Learn Cloud Adoption Framework AI agents governance human in the loop single agent vs multi-agent
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12, TH02]
+events: []
+summary: 組織横断の AI エージェント統治の CAF 指針。統治責任を既存のクラウド統治者へ置き、エージェント台帳、最小権限、デプロイ承認に責任を持つ人の役割の指定を求める。
+claims:
+  - id: c1
+    text: デプロイの承認と倫理基準への継続的な適合の監視に責任を持つ人の役割を指定せよとする。
+    quote: Designate a human role accountable for approving deployments and monitoring ongoing compliance with ethical standards.
+    locator: Enforce fairness, inclusiveness, and accountability
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: [248, 249]
+    stance: supports
+  - id: c2
+    text: エージェントの監督を既存の Azure 統治構造に合わせ、並行する統治モデルを作るなとする。
+    quote: Align agent oversight with existing Azure governance structures. Avoid creating parallel governance models.
+    locator: Assign organizational accountability for agent governance
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH12-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: 利用が限定的なら既存の統治の場で足り、複数事業部に広がったら統治を見直し権限を定めた説明責任を正式化せよとする。規模に応じた段階的な統治の強化。
+    quote: If agents are used across multiple business units, revisit governance and formalize AI agent accountability with defined authority.
+    locator: Decision guidance
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4, TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: すべての AI エージェントを単一の組織台帳に登録し、所有者・目的・プラットフォーム・アクセス範囲を追跡せよとする。
+    quote: Require every AI agent to be recorded in a single organizational inventory. Track ownership, purpose, platform, and access scope.
+    locator: Maintain an agent registry
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH12-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.689Z
+    httpStatus: 200
+    finalUrl: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization
+    contentType: text/html
+    titleFetched: Govern and secure AI agents AI agents across the organization - Cloud Adoption Framework
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

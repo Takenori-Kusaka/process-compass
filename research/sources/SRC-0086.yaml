@@ -1,0 +1,81 @@
+schemaVersion: 0
+id: SRC-0086
+status: included
+excludeReason: null
+title: AI Agents Push Humans Out of the Loop
+url: https://arxiv.org/abs/2608.23642
+canonicalUrl: arxiv:2608.23642
+ids:
+  arxiv: "2608.23642"
+  doi: null
+publisher: arXiv (Hugging Face / Data & Society)
+authors: [Mitchell Margaret, Ghosh Avijit, Passi Samir]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2026-08-24
+publishedBasis: arxiv-v1
+version: v3
+updated: 2026-09-06
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH01
+  query: 前回セッション取得分(abs_2608.23642)。human in the loop degradation agents
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06]
+events: []
+summary: Hugging Face と Data & Society の position paper。現在のエージェント設計は人の監視を支えるどころか劣化させ、監視に必要な認知能力も長期利用で衰えると主張。HITL は「人が独立にループの中を見られる」場合にだけ意味を持つとし、設計と組織手続の両面の対策を提案。
+claims:
+  - id: c1
+    text: 現在の AI エージェントの開発・展開の方法は効果的な人の監視を支えておらず、むしろその劣化に寄与していると論じる。
+    quote: current approaches to the development and deployment of AI agent systems do not support effective human oversight -- they contribute to its degradation.
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c2
+    text: 「Human-in-the-loop」は、人がループの中を独立に見られる場合にのみ意味のある解決策である。責任者が理解を保つ設計要求に対応する主張。
+    quote: “Human-in-the-loop" is only a meaningful solution if the human can independently see into the loop.
+    locator: § Current AI agent design centers the agent 前段
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: [248]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:33.252Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2608.23642
+    contentType: text/html; charset=utf-8
+    titleFetched: AI Agents Push Humans Out of the Loop
+    titleMatch: true
+    dateMeta: 2026-08-24
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: AI Agents Push Humans Out of the Loop
+      authors: ["Mitchell, Margaret", "Ghosh, Avijit", "Passi, Samir"]
+      v1Date: 2026-08-24
+      latestVersion: 3
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

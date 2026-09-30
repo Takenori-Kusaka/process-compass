@@ -1,0 +1,104 @@
+schemaVersion: 0
+id: SRC-0427
+status: included
+excludeReason: null
+title: GitHub Spec Kit | Technology Radar
+url: https://www.thoughtworks.com/en-us/radar/languages-and-frameworks/github-spec-kit
+canonicalUrl: https://thoughtworks.com/en-us/radar/languages-and-frameworks/github-spec-kit
+ids:
+  arxiv: null
+  doi: null
+publisher: Thoughtworks Technology Radar (Vol.34)
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-04
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: Thoughtworks Technology Radar spec-driven development
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH03, TH05]
+events: []
+summary: Radar Vol.34 で GitHub Spec Kit を Assess に置いた blip。社内チームの brownfield 適用を観察し、constitution の中身、instruction bloat と context rot、冗長な Markdown による認知負荷を報告している。
+claims:
+  - id: c1
+    text: SDD をめぐって2つの陣営が生まれている。改善し続けるエージェント能力に頼り最小限の構造で進める陣営と、定義済みワークフローと詳細な仕様を好む陣営である。
+    quote: "Two broad camps are emerging: teams that rely on the continually improving capabilities of coding agents with minimal structure, and those that favor defined workflows and detailed specifications."
+    locator: blip 本文(Assess, Apr 2026)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: brownfield では手戻りの多くが、不明確な意図・隠れた前提・制約の遅い発見から生じる。spec→plan→tasks→coding→review の流れで問題を早く見つけられたチームがある。
+    quote: In brownfield systems, much rework stems from unclear intent, hidden assumptions and late discovery of constraints.
+    locator: blip 本文
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH08-Q3]
+    issues: [256]
+    stance: supports
+  - id: c3
+    text: プロジェクト文脈を足し続けた結果、指示が肥大化し context rot に至った。冗長な Markdown 出力と不要な防御的チェックが認知負荷を上げたとの報告もある。
+    quote: Teams also encountered challenges such as instruction bloat, where continually adding project context led to a growing agent instruction set and eventually context rot.
+    locator: blip 本文
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH03-Q3, TH05-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: SDD ワークフローから最も価値を引き出すのは、クリーンコードとアーキテクチャの実践に長けた経験者である傾向がある。
+    quote: Ultimately, experienced engineers, particularly those with strong clean coding and architectural practices, tend to extract the most value from spec-driven workflows.
+    locator: blip 本文 末尾
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:37.179Z
+    httpStatus: 200
+    finalUrl: https://www.thoughtworks.com/en-us/radar/languages-and-frameworks/github-spec-kit
+    contentType: text/html;charset=utf-8
+    titleFetched: GitHub Spec Kit | Technology Radar | Thoughtworks United States
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Two (2)
+        extractedQuote: "Two broad camps are emerging: teams that rely on the continually improving capabilities of coding agents with minimal structure, and those that favor defined workflows and detailed specifications."
+        locator: "GitHub Spec Kit blip 本文(Published: Apr 15, 2026 / Assess)"
+        note: 直前の文は 'Spec-driven development featured prominently in our discussion this cycle.' で、陣営は SDD をめぐる議論の文脈。Spec Kit を試しているチームは 'mostly in brownfield environments'。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://thoughtworks.com/en-us/radar/languages-and-frameworks/github-spec-kit

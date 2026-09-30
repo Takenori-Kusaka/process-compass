@@ -1,0 +1,108 @@
+schemaVersion: 0
+id: SRC-0477
+status: included
+excludeReason: null
+title: "Writing Code vs. Shipping Code: Productivity Effects Across Generations of AI Coding Tools"
+url: https://www.nber.org/papers/w35275
+canonicalUrl: doi:10.3386/w35275
+ids:
+  arxiv: null
+  doi: 10.3386/w35275
+publisher: National Bureau of Economic Research
+authors: [Mert Demirer, Leon Musolff, Liyuan Yang]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-05
+publishedBasis: page
+version: null
+updated: 2026-09
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH11
+  query: Demirer Musolff Yang "Writing Code vs. Shipping Code" AI coding tools productivity
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events:
+  - date: 2026-09
+    label: NBER w35275 改訂。対象50万人超・効果量を更新(5月版は10万人超・40/140/180%)
+summary: GitHub 開発者50万人超の AI 利用テレメトリを使ったマッチド・イベントスタディ(NBER ワーキングペーパー、査読前)。コミットは大きく増えるが、プロジェクト数・リリースへ上るにつれ効果が急減する。2026年9月改訂版の抄録を読んだ。著者2人は Microsoft の有償リサーチコンサルタントと開示されている。
+claims:
+  - id: c1
+    text: 補完・対話型エージェント・自律型エージェントはそれぞれコミットを累積30%・180%・240%増やした。
+    quote: autocomplete, interactive coding agents, and autonomous coding agents each significantly increase coding activity (“commits”), with respective cumulative effects of 30%, 180%, and 240%.
+    locator: Abstract(2026-09 revision)
+    quant:
+      value: +30% / +180% / +240% commits
+      n: 500,000+ GitHub developers
+      design: matched event study with AI usage telemetry
+      population: GitHub developers
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: コミットで240%の効果は、プロジェクト数では80%、実際のリリースでは30%に縮む。著者は人間側のボトルネック(弱い環仮説)で説明する。
+    quote: the 240% cumulative effect falls to 80% for the number of projects, and to 30% for actual releases.
+    locator: Abstract(2026-09 revision)
+    quant:
+      value: 240% commits -> 80% projects -> 30% releases
+      n: 500,000+ developers
+      design: matched event study
+      population: GitHub developers
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 4つのソフトウェアマーケットプレイスでも新規アプリ数は急増したが総利用は増えなかった。
+    quote: We further confirm these results across four major software marketplaces, finding a sharp increase in the number of new apps but no increase in total usage.
+    locator: Abstract(2026-09 revision)
+    quant: null
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:08.166Z
+    httpStatus: 200
+    finalUrl: https://www.nber.org/papers/w35275
+    contentType: text/html; charset=UTF-8
+    titleFetched: "Writing Code vs. Shipping Code: Productivity Effects Across Generations of AI Coding Tools"
+    titleMatch: true
+    dateMeta: 2026-06-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: "Writing Code vs. Shipping Code: Productivity Effects Across Generations of AI Coding Tools"
+      issued: 2026-5
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: four(4つ)
+        extractedQuote: We further confirm these results across four major software marketplaces, finding a sharp increase in the number of new apps but no increase in total usage.
+        locator: Abstract(Revision Date September 2026)
+        note: ""
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://nber.org/papers/w35275

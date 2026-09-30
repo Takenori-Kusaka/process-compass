@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0183
+status: included
+excludeReason: null
+title: Introducing Gemini 3.8 Flash and 3.8 Flash Cyber
+url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber
+canonicalUrl: https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber
+ids:
+  arxiv: null
+  doi: null
+publisher: Google
+authors: [Doshi Tulsee, Popa Raluca Ada]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-02
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: Gemini 3.8 Flash announcement Google blog
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02]
+events:
+  - date: 2026-09-02
+    label: Google が Gemini 3.8 Flash / 3.8 Flash Cyber を発表
+summary: Gemini 3.8 Flash の公式発表。6 週間で 3 回目の Flash リリースと明言しており、モデル世代交代の間隔が数週間単位に縮んでいる。
+claims:
+  - id: c1
+    text: Google は 3.8 Flash を 6 週間で 3 回目の Flash リリースと位置づけている(3.6 → 3.7 → 3.8)。
+    quote: marking our third Flash release in only six weeks
+    locator: 冒頭
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3, TH02-Q3]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.460Z
+    httpStatus: 200
+    finalUrl: https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/
+    contentType: text/html; charset=utf-8
+    titleFetched: Introducing Gemini 3.8 Flash and 3.8 Flash Cyber
+    titleMatch: true
+    dateMeta: 2026-09-02
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3.8 Flash / six weeks / third Flash release（直前は 3.7 Flash、three weeks ago）
+        extractedQuote: Building on the momentum of 3.7 Flash from three weeks ago and marking our third Flash release in only six weeks, today we’re introducing Gemini 3.8, our best reasoning and coding model yet
+        locator: 本文冒頭の第1段落（datePublished 2026-09-02）
+        note: "本記事は 3.7 Flash までしか名指ししない。ask の括弧内の系列（___→___→___）のうち最初の版（3.6 Flash）は本記事に記載がなく、3.7 Flash 記事（SRC-0184: 'just three weeks after Gemini 3.6 Flash'）から補う必要がある。"
+        adjudication:
+          verdict: consistent
+          reason: blindQuote の 'Building on the momentum of 3.7 Flash from three weeks ago and marking our third Flash release in only six weeks' と一致する。括弧内の系列のうち 3.6 Flash は本記事では名指しされていない。ただし blindNote が引く SRC-0184 の 'just three weeks after Gemini 3.6 Flash' から、3.6(0 週)→3.7(3 週)→3.8(6 週)が一意に導け、『6 週間で 3 回目』と整合する。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

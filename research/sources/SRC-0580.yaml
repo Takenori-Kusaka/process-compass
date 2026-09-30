@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0580
+status: included
+excludeReason: null
+title: Merge Queue Optimizations (Graphite Docs)
+url: https://graphite.com/docs/merge-queue-optimizations
+canonicalUrl: https://graphite.com/docs/merge-queue-optimizations
+ids:
+  arxiv: null
+  doi: null
+publisher: Graphite
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: Graphite stacked PRs merge queue CI optimization docs stack-aware merge queue 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10, TH11]
+events: []
+summary: Graphite のマージキューがスタックを原子的な単位として扱い、投機実行で CI を並列化する仕組みの公式説明。並列 CI 経由でマージした PR が GitHub 上は merged ではなく closed と記録される点を明記する。ページに日付は無い(取得 2026-09-30)。
+claims:
+  - id: c1
+    text: Graphite のマージキューは PR ではなくスタックを単位とし、スタック内の1本でも失敗するとスタック全体がマージされない。
+    quote: If any PR in the stack encounters a failure, the whole stack will fail to merge, allowing you to treat stack merges as atomic operations.
+    locator: Trading off speed vs. correctness
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: context
+  - id: c2
+    text: 並列 CI を使うと、キュー経由でマージした PR は GitHub 上で merged ではなく closed と記録される。PR の merged 状態を数える計測や連携は、そのままでは成立しなくなる。
+    quote: When an enqueued PR merges, it will be marked as closed in GitHub instead of merged.
+    locator: End-user experience when using parallel CI
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2, TH10-Q3, TH11-Q3]
+    issues: [273]
+    stance: qualifies
+  - id: c3
+    text: 並列 CI は「キュー内の CI は通る」前提の投機実行であり、flaky なテストがあると後続の CI をやり直すため CI 実行数が増える。
+    quote: However, because parallel CI assumes that your CI tests in the merge queue will pass, be careful with flaky tests.
+    locator: Example of running CI in parallel
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: qualifies
+  - id: c4
+    text: Graphite は並列 CI の導入企業でマージが 1.5 倍速くなった(p95 で 33%、p75 で 26% 短縮)と述べるが、対象社数と測定方法は示していない。
+    quote: Companies who have enabled Parallel CI on their Graphite Merge Queues have seen 1.5x faster merges, which includes time spent running CI (33% decrease for p95, 26% for p75).
+    locator: Running CI on multiple stacks in parallel
+    quant:
+      value: 1.5x(p95 -33%、p75 -26%)
+      n: 不明
+      design: ベンダーの自社顧客データ(測定方法の記載なし)
+      population: Graphite Merge Queue で Parallel CI を有効にした企業
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:49.641Z
+    httpStatus: 200
+    finalUrl: https://graphite.com/docs/merge-queue-optimizations
+    contentType: text/html; charset=utf-8
+    titleFetched: Merge Queue Optimizations - Graphite
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: any PR(1本でも)。原文は数値ではなく any
+        extractedQuote: If any PR in the stack encounters a failure, the whole stack will fail to merge, allowing you to treat stack merges as atomic operations.
+        locator: Trading off speed vs. correctness
+        note: "直前の文: 「Graphite’s merge queue operates on stacks as the primary unit rather than a PR (where single PR’s are equivalent to a stack of size 1), and this applies to parallel CI as well.」。この節は parallel CI の設定を説明する文脈に置かれている。"
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

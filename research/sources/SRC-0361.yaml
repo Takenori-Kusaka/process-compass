@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0361
+status: included
+excludeReason: null
+title: gotalab/cc-sdd (README)
+url: https://github.com/gotalab/cc-sdd
+canonicalUrl: https://github.com/gotalab/cc-sdd
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub (gotalab)
+authors: [gotalab]
+orgType: individual
+region: jp
+lang: en
+sourceType: repo
+published: 2026-09-23
+publishedBasis: page
+version: v3.1.0
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: (直接取得) raw.githubusercontent.com/gotalab/cc-sdd/main/README.md
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH08]
+events: [{date: 2026-09-23, label: cc-sdd v3.1.0 公開}]
+summary: 日本の個人開発者による Kiro 流の仕様駆動ワークフロー。v3 で旧 /kiro:* コマンド群を非推奨とし、17本の Agent Skills と入口ルーター(kiro-discovery)へ再編した。
+claims:
+  - id: c1
+    text: 発見・要求・設計・タスク・実装を17本のスキルとして8種のエージェントへ同一構成で配る。
+    quote: Works across 8 AI coding agents, with the same 17-skill set on each.
+    locator: README lead
+    quant:
+      value: 17 skills x 8 agents
+      n: null
+      design: tool design
+      population: cc-sdd v3
+    evidenceKind: case-report
+    rqs: [TH03-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 旧来の /kiro:* コマンド方式は残るが非推奨とされ、スキル方式へ移行した。
+    quote: Legacy `/kiro:*` command modes are still available (`--claude`, `--cursor`, etc.) but are deprecated.
+    locator: Common workflows
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 入口の kiro-discovery が依頼を振り分け、次に実行するコマンドを示すルーターとして働く(フェーズによる絞り込み)。
+    quote: Not sure where to start? Start with `kiro-discovery`. It routes your request and tells you what command to run next.
+    locator: Quick start
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2, TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 17本を導入しても、ホストが自律ループ全体を実行できることの検証にはならないと作者自身が明記する。
+    quote: Installing 17 skills does not verify that a host can run the full autonomous loop.
+    locator: Supported agents
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:31.648Z
+    httpStatus: 200
+    finalUrl: https://github.com/gotalab/cc-sdd
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - gotalab/cc-sdd: Turn approved specs into long-running autonomous implementation. A minimal, adaptable SDD harness with Agent Skills for Claude Code, Codex, Cursor, Copilot, Windsurf, OpenCode"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

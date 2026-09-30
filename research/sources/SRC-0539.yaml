@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0539
+status: included
+excludeReason: null
+title: Cybersecurity Recommendations for Securing AI Agents
+url: https://www.isaca.org/resources/white-papers/2026/cybersecurity-recommendations-for-securing-ai-agents
+canonicalUrl: https://isaca.org/resources/white-papers/2026/cybersecurity-recommendations-for-securing-ai-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: ISACA
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-09-15
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G03
+  query: segregation of duties AI agents non-human identity maker checker "agent" approve its own work ISACA 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH02, TH07, TH12]
+events: []
+summary: ISACA が 2026-09-15 に出した AI エージェント向け統制のホワイトペーパー(11 分類の統制と既定で安全にするチェックリスト)。エージェントごとの ID、人・実行基盤・運用者の ID 分離、破壊的・金銭的・不可逆な操作への人の承認、決定的な方針実施点を求める。AI 同士の承認で職務分離を満たせるかは扱っていない。
+claims:
+  - id: c1
+    text: 破壊的・金銭的・法的・規制対象・不可逆な操作には人の承認(HITL)を求める。人の占有を要求する範囲を操作のリスクで限定している。
+    quote: Require human in the loop (HITL) approval for destructive, financial, legal, regulated, or irreversible actions.
+    locator: Figure 3 – Policy Enforcement, Output Control, and Human Oversight
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c2
+    text: 人の利用者・機能と、エージェント実行基盤・ツール実行・管理者/運用者の ID を分けることを求める。非人間 ID を職務分離の単位として扱う記述である。
+    quote: Separate identities for human users and functions and the agent runtime, tool runner, and admin/operator.
+    locator: Figure 3 – Strong Identity, Authentication, and Authorization
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: supports
+  - id: c3
+    text: 配備の承認・ツールの利用範囲・監視・インシデント対応・リスク受容について統制の所有者を明確に割り当てることを求める。リスク受容にも所有者を置く。
+    quote: Assign clear control ownership for deployment approval, tool access scope, monitoring, incident response, and risk acceptance.
+    locator: Figure 3 – Governance, Asset Inventory, and Risk Ownership
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH07-Q4]
+    issues: [248, 249]
+    stance: supports
+  - id: c4
+    text: モデル・プロンプト・ツール・権限・メモリ挙動・検索元・提供者・配備環境・操作範囲が変わったときに、リスクの再評価と統制の再試験を求める。AI 構成要素の変更を変化点として列挙している。
+    quote: Reassess risk and retest controls when models, prompts, tools, permissions, memory behavior, retrieval sources, providers, deployment environments, or the action scope change.
+    locator: Figure 3 – Secure AI Development, Change Management, and Continuous Assurance
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q2, TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 重要な決定は決定的な統制で強制すべきとし、エージェントの出力と操作可能なシステムの間に決定的な方針実施点(PEP)を置くことを求める。
+    quote: Implement a deterministic policy enforcement point (PEP) between agent outputs and action-capable systems.
+    locator: Figure 3 – Policy Enforcement, Output Control, and Human Oversight
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:31.886Z
+    httpStatus: 200
+    finalUrl: https://www.isaca.org/resources/white-papers/2026/cybersecurity-recommendations-for-securing-ai-agents
+    contentType: text/html; charset=utf-8
+    titleFetched: White Papers 2026 Cybersecurity Recommendations for Securing AI Agents
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

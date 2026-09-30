@@ -1,0 +1,116 @@
+schemaVersion: 0
+id: SRC-0049
+status: included
+excludeReason: null
+title: "One year of Kiro: a look back, and a look ahead"
+url: https://kiro.dev/blog/one-year/
+canonicalUrl: https://kiro.dev/blog/one-year
+ids:
+  arxiv: null
+  doi: null
+publisher: Kiro(AWS)
+authors: [Singh Deepak]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-14
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: curl https://kiro.dev/blog/ (frontmatter title/date)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH08, TH01, TH04]
+events:
+  - date: 2025-07-14
+    label: Kiro IDE プレビュー公開(1 周年記事の逆算)
+  - date: 2025-11
+    label: Kiro 一般提供(GA)。Kiro CLI、property-based testing、checkpointing
+  - date: 2026-07-14
+    label: Kiro に GPT-5.6 Sol / Terra / Luna を追加
+summary: 前回メモで未取得だった Kiro の一次情報(AWS 公式)。プレビュー 2025-07、GA 2025-11、IDE/CLI/Web/Mobile の 4 面展開、GPT-5.6 3 階層の追加を記す。導入効果の数値(Siemens 2 週間等)はすべて自己申告で標本・測定法の記載がない。
+claims:
+  - id: c1
+    text: Kiro は 2025-07 に IDE プレビュー、2025-11 に一般提供へ到達した。「仕様駆動開発を AI コーディングツールに最初に持ち込んだ」と自称する。
+    quote: In November, we took Kiro to general availability with a set of capabilities we were proud of. We were the first to bring spec-driven development to AI coding tools
+    locator: From preview to production
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH08-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 2026-07-14 時点で OpenAI の GPT-5.6 Sol / Terra / Luna を IDE・CLI・Web で提供し、用途別(複雑作業 / 標準 / 高速低コスト)のモデル使い分けを推奨する。
+    quote: I am excited to share we’ve added OpenAI’s GPT-5.6 Sol, Terra, and Luna models live across the IDE, CLI and Web.
+    locator: From preview to production
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 導入効果の例として Siemens が「通常 3〜4 か月・複数開発者」の案件を「アーキテクト 1 名・2 週間」で完了したとする。ベンダー自己申告で測定法・比較条件の記載はない。
+    quote: Siemens completed a production-ready AWS serverless guardrail service featuring authentication, real-time dashboards, and complete infrastructure — a project traditionally requiring 3-4 months with multiple developers — in 2 weeks with a single architect.
+    locator: Our builders inspire us
+    quant:
+      value: 3-4 months → 2 weeks
+      n: 1 case
+      design: anecdote
+      population: Siemens
+    evidenceKind: case-report
+    rqs: [TH08-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T09:00:14.766Z
+    httpStatus: 200
+    finalUrl: https://kiro.dev/blog/one-year/
+    contentType: text/html
+    titleFetched: "One year of Kiro: a look back, and a look ahead"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: IDE プレビュー 2025-07(last July、記事日付 2026-07-14 の『A year ago today』から)/ 一般提供 2025-11(In November)
+        extractedQuote: When we launched Kiro IDE in preview last July, ... In November, we took Kiro to general availability ... We were the first to bring spec-driven development to AI coding tools
+        locator: From preview to production(記事日付 July 14, 2026)
+        note: 原典は年を明記せず『last July』『In November』と書く。年は記事日付(2026-07-14)と『A year ago today』からの推定で、GA の 2025 年も文脈推定。quote は中略(...)を含む。
+      c2:
+        verdict: match
+        extractedValue: 2026-07-14(記事日付)/ GPT-5.6 Sol, Terra, Luna
+        extractedQuote: we’ve added OpenAI’s GPT-5.6 Sol, Terra, and Luna models live across the IDE, CLI and Web. ... Sol for complex multi-step work, Terra for the standard fare, and Luna for fast and low-cost throughput.
+        locator: From preview to production 節の末尾段落(Our builders inspire us の直前)
+        note: 原典は用途別に『tuned for different performance-cost optimizations so you can get the most from your credits』と説明する記述で、明示的な『推奨』の語はない。日付は記事の掲載日で、本文中に『時点』の日付表記はない。quote は中略(...)を含む。
+      c3:
+        verdict: match
+        extractedValue: 通常 3〜4 か月・複数開発者 → アーキテクト1名・2週間
+        extractedQuote: a project traditionally requiring 3-4 months with multiple developers — in 2 weeks with a single architect.
+        locator: Our builders inspire us(enterprises の段落)
+        note: 対象は『production-ready AWS serverless guardrail service featuring authentication, real-time dashboards, and complete infrastructure』。測定法・比較条件の記載は確かに無い。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://kiro.dev/blog/one-year

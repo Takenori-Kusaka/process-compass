@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0025
+status: included
+excludeReason: null
+title: "When LLMs Benchmark Themselves: Deconstructing Self-Bias in Automated Evaluation"
+url: https://arxiv.org/abs/2509.26600
+canonicalUrl: arxiv:2509.26600
+ids:
+  arxiv: "2509.26600"
+  doi: null
+publisher: arXiv
+authors: [Wenda Xu, Sweta Agrawal, Vilém Zouhar, Markus Freitag, Daniel Deutsch]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2025-09-30
+publishedBasis: arxiv-v1
+version: v3
+updated: 2026-08-30
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-3
+  query: research/phase4-standard/123-safety-verification.md §6.2 の引用(原典確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: LLM がテストセットと評価者を兼ねる LLM-as-a-benchmark では、作成モデル自身が系統的に有利になる自己バイアスを機械翻訳(Gemini 2.5 Pro / GPT-4.1 / Claude Opus 4)で定量化。123 メモの引用文は原典どおりだが、検証領域はコードやテスト生成ではなく機械翻訳と Chatbot Arena。
+claims:
+  - id: c1
+    text: LLM が生成したベンチマークは、それを作成したモデルを系統的に優遇する。
+    quote: "We show that this paradigm has a fundamental problem: LLM-generated benchmarks systematically favor the model that created them ."
+    locator: Abstract(arXiv HTML v3)
+    quant:
+      value: 各モデルが自分を 1 位に順位付け
+      n: 3 models (Gemini 2.5 Pro, GPT-4.1, Claude Opus 4) × 複数言語対
+      design: controlled experiment (estimator-bias framework)
+      population: 機械翻訳(WMT25 系)+ Chatbot Arena
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123]
+    stance: supports
+  - id: c2
+    text: 明示的な多様性制御の下で生成しても、各モデルの暗黙のスタイル傾向が均質でモデル固有の出力を生み、自身のスコアを押し上げる。
+    quote: even when test data is generated with explicit diversity controls, each model’s implicit stylistic tendencies produce homogeneous, model-specific outputs that inflate its own scores.
+    locator: Abstract / §5.2
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123]
+    stance: supports
+  - id: c3
+    text: 自己バイアスは各モデルが自分を 1 位に置くほど強く、ピア合意の順位を覆す。
+    quote: Self-bias is strong enough to cause each model to rank itself first, overriding the peer-consensus ordering.
+    locator: Abstract / §4 Table 2
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123]
+    stance: supports
+  - id: c4
+    text: 検証対象は機械翻訳を主とし、モデルは Gemini 2.5 Pro・GPT-4.1・Claude Opus 4 の 3 つ。ソフトウェアテスト生成への転用はメモ側の推論。
+    quote: We select Gemini 2.5 Pro, GPT-4.1, and Claude Opus 4 for two reasons.
+    locator: §3 Experimental Setup (Model selection)
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:40.755Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2509.26600
+    contentType: text/html; charset=utf-8
+    titleFetched: "When LLMs Benchmark Themselves: Deconstructing Self-Bias in Automated Evaluation"
+    titleMatch: true
+    dateMeta: 2025-09-30
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "When LLMs Benchmark Themselves: Deconstructing Self-Bias in Automated Evaluation"
+      authors: ["Xu, Wenda", "Agrawal, Sweta", "Zouhar, Vilém", "Freitag, Markus", "Deutsch, Daniel"]
+      v1Date: 2025-09-30
+      latestVersion: 3
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: systematically favor the model that created them
+        extractedQuote: "We show that this paradigm has a fundamental problem: LLM-generated benchmarks systematically favor the model that created them ."
+        locator: Abstract(arXiv HTML v3)
+        note: askに伏せ字なし。原文は機械翻訳を主な検証場(primary testbed)とし、Chatbot Arena タスクでも確認と明記。
+        adjudication:
+          verdict: corrected
+          reason: claimText は abstract の 'LLM-generated benchmarks systematically favor the model that created them' どおり。ただし claimQuant の『各モデルが自分を 1 位に順位付け』は blindQuote にも blindValue にも無く、抜粋からは支えられないので訂正で外した。blindNote によると、原典は機械翻訳を主な検証の場とし、Chatbot Arena のタスクでも確かめたと書いている。一般化の範囲を示すときはこの条件を添えるのが望ましい。
+          date: 2026-09-23
+          originalText: LLM が生成したベンチマークは、それを作成したモデルを系統的に優遇する。
+          originalQuote: LLM-generated benchmarks systematically favor the model that created them
+      c3:
+        verdict: match
+        extractedValue: first(各モデルが自分を1位に置く)
+        extractedQuote: Self-bias is strong enough to cause each model to rank itself first, overriding the peer-consensus ordering.
+        locator: Abstract / §4 "Self-bias causes ranking flips" / Table 2
+        note: "Table 2(4方向XX→Enの平均順位、低いほど良い): Gemini列 Gemini 1.222* / GPT列 GPT 1.222* / Claude列 Claude 1.123* が各列最小。例: Bemba→En で Claude-as-benchmark が Claude を1位(-0.617)。ピア合意は残り2モデルによる代理指標であり真の品質ではないと著者が明記。"
+      c4:
+        verdict: match
+        extractedValue: Gemini 2.5 Pro / GPT-4.1 / Claude Opus 4 の3モデル
+        extractedQuote: Model selection. We select Gemini 2.5 Pro, GPT-4.1, and Claude Opus 4 for two reasons. First, they are the top-performing systems at WMT25
+        locator: §3 Experimental Setup, Model selection
+        note: Limitations にも "three frontier closed-source LLMs and two tasks (machine translation and Chatbot Arena)"。ソフトウェアテスト生成への言及は本文になく、転用がメモ側の推論という点と矛盾しない。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0398
+status: included
+excludeReason: null
+title: Does AI Code Review Lead to Code Changes? A Case Study of GitHub Actions
+url: https://arxiv.org/abs/2508.18771
+canonicalUrl: arxiv:2508.18771
+ids:
+  arxiv: "2508.18771"
+  doi: null
+publisher: arXiv (Nanjing University ほか)
+authors: [Kexin Sun, Hongyu Kuang, Sebastian Baltes, Xin Zhou, He Zhang, Xiaoxing Ma, Guoping Rong, Dong Shao, Christoph Treude]
+orgType: academic
+region: cn
+lang: en
+sourceType: preprint
+published: 2025-08-26
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-04-25
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: empirical study AI code review bot comments addressed resolution rate GitHub pull requests CodeRabbit Copilot MSR 2026 arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: GitHub Actions 上の AI レビュー 16 種・2.2 万件超のコメントで、指摘がコード変更につながったかを測定。簡潔でコード片(修正案)を含む指摘ほど対応されやすく、道具間の差が大きいと示した。
+claims:
+  - id: c1
+    text: 簡潔で、コード片を含み、手動で起動されたコメント、特に hunk 単位のレビュー道具によるものほど、コード変更につながりやすい。これは解釈可能な機械学習による関連の分析結果である。
+    quote: Comments that are concise, contain code snippets, and are manually triggered, particularly those from hunk-level review tools, are more likely to result in code changes.
+    locator: Abstract(§IV-C Answer to RQ3、§V-A でも同旨)
+    quant:
+      value: コード比率と対応率 ρ=0.89
+      n: 22,000 超のレビューコメント、16 種の AI レビュー Action、178 リポジトリ
+      design: observational + interpretable ML
+      population: GitHub Actions 上の AI コードレビュー
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: supports
+  - id: c2
+    text: 有効な指摘が対応された率は道具によって 19.2% から 0.9% まで大きく異なり、設計が効果を決める。
+    quote: coderabbitai/ai-pr-reviewer achieved a 19.2% rate of valid comments addressed, outperforming other tools by a large margin.
+    locator: §V-A Design Matters
+    quant:
+      value: 19.2%(最良)〜0.9%(最低)
+      n: 詳細分析した 4 Action
+      design: observational (LLM-assisted addressed-classification)
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:07.087Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2508.18771
+    contentType: text/html; charset=utf-8
+    titleFetched: Does AI Code Review Lead to Code Changes? A Case Study of GitHub Actions
+    titleMatch: true
+    dateMeta: 2025-08-26
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Does AI Code Review Lead to Code Changes? A Case Study of GitHub Actions
+      authors: ["Sun, Kexin", "Kuang, Hongyu", "Baltes, Sebastian", "Zhou, Xin", "Zhang, He", "Ma, Xiaoxing"]
+      v1Date: 2025-08-26
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: concise / contain code snippets / manually triggered / hunk-level review tools
+        extractedQuote: Comments that are concise, contain code snippets, and are manually triggered, particularly those from hunk-level review tools, are more likely to result in code changes.
+        locator: Abstract(§IV-C Answer to RQ3、§V-A でも同旨)
+        note: ask に伏せ字はない。原典の RQ3 は「strongly associated with ... conciseness and code-richness」という関連の記述で(解釈可能な機械学習による)、ask の「採択率を左右する」は因果寄りの表現。§V-A には「concrete code suggestions are more likely to be adopted」とあり、code-to-text ratio が半分を超えると addressing rate が明確に上がるとの記述もある。
+        adjudication:
+          verdict: corrected
+          reason: 前半は Abstract の文と一致する。後半の『具体的な修正コードを含める様式が採択率を左右する』は因果を示唆する言い方で、原典の RQ3 は『strongly associated with ... conciseness and code-richness』という関連の記述。§V-A の『concrete code suggestions are more likely to be adopted』も『採択されやすい』にとどまる。claimQuant の『ρ=0.89』は抜粋からは確認できない。
+          date: 2026-09-24
+          originalText: 簡潔で、コード片を含み、手動で起動され、hunk 単位でレビューする道具の指摘ほどコード変更につながる。指摘に具体的な修正コードを含める様式が採択率を左右する。
+          originalQuote: Comments that are concise, contain code snippets, and are manually triggered, particularly those from hunk-level review tools, are more likely to result in code changes.
+      c2:
+        verdict: match
+        extractedValue: 0.9% ~ 19.2%
+        extractedQuote: coderabbitai/ai-pr-reviewer achieved a 19.2% rate of valid comments addressed, outperforming other tools by a large margin. ... mattzcarey/code-review-gpt had only 0.9% of valid comments addressed.
+        locator: §V-A Design Matters(§V 冒頭および Table IX)
+        note: 範囲は詳細分析した4つのアクションの間のもの(対象全体は16アクション)。比較として、有効な人のコメントは60%がコード変更につながったとある。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

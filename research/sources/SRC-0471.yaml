@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0471
+status: included
+excludeReason: null
+title: Task Substitution and Uplift
+url: https://metr.org/blog/2026-05-08-task-substitution-and-uplift/
+canonicalUrl: https://metr.org/blog/2026-05-08-task-substitution-and-uplift
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-05-08
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH11
+  query: (direct) metr.org/research listing
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: AIの生産性効果(uplift)を「旧タスクでの時間短縮」「新タスクでの時間短縮」「価値の増分」の3つに分け、仕事の組み替え(タスク代替)でこれらが大きく乖離すると示す理論ノート。時間短縮の数字を価値の増分と読み替える誤りを指摘する。
+claims:
+  - id: c1
+    text: 旧タスクでの時間短縮は、AIで効率化したタスクへ時間を振り替える利得を含まないため、価値の増分より小さく出る。
+    quote: Uplift on old tasks is less than uplift in value because it only accounts for the time savings on your existing tasks
+    locator: Ranking the Three Types of Uplift
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2, TH11-Q3]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 新タスクには AI 以前なら手を付けなかった仕事が含まれるため、新タスクで測った時間短縮は価値の増分より大きく出る。
+    quote: The new tasks can include tasks that you would never have attempted pre-AI, and so the pre-AI time required can be large, meaning the uplift in time will be bigger than the uplift in value.
+    locator: Ranking the Three Types of Uplift
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2, TH11-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:05.702Z
+    httpStatus: 200
+    finalUrl: https://metr.org/blog/2026-05-08-task-substitution-and-uplift/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Task Substitution and Uplift
+    titleMatch: true
+    dateMeta: 2026-05-08
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://metr.org/blog/2026-05-08-task-substitution-and-uplift

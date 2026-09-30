@@ -1,0 +1,124 @@
+schemaVersion: 0
+id: SRC-0022
+status: included
+excludeReason: null
+title: Do Coverage and Mutation Scores of LLM-Generated Test Suites Correlate with Their Effectiveness? (Replicability Study)
+url: https://arxiv.org/abs/2607.22880
+canonicalUrl: arxiv:2607.22880
+ids:
+  arxiv: "2607.22880"
+  doi: 10.1145/3832093
+publisher: arXiv / ISSTA 2026 (PACMSE Vol. 3)
+authors: [Junda Zhao, Shurui Zhou, Eldan Cohen]
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: 2026-07-24
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-3
+  query: research/phase4-standard/123-safety-verification.md §5.2 の引用(原典確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH07, TH11]
+events: []
+summary: Inozemtseva ら・Papadakis らの追試。11 LLM が Defects4J の 318 欠陥メソッドに生成した 8,268 スイート(101,123 テスト)で、カバレッジ・ミューテーション・実欠陥検出の相関を再検証。コードが無欠陥と仮定できる回帰設定では両指標は有用だが、対象コードが欠陥を含みうる設定では信頼できず、ミューテーション解析は適用不能と結論。123 メモの「22,374 件」はこの論文の数値ではない。
+claims:
+  - id: c1
+    text: "規模: 各 LLM×各焦点メソッドで 8,268 テストスイート・101,123 テストケースを生成。対象は Defects4J 17 プロジェクトの 318 欠陥焦点メソッド、11 LLM(6 開発元)。"
+    quote: We apply this pipeline to each focal method for each LLM, resulting in 8,268 generated test suites comprising 101,123 individual test cases.
+    locator: §3 Study Design (test generation pipeline)
+    quant:
+      value: 8,268 suites / 101,123 tests
+      n: 318 buggy focal methods × 11 LLMs
+      design: replication study (correlation analysis)
+      population: Defects4J 17 projects (Java)
+    evidenceKind: observational
+    rqs: []
+    issues: [123]
+    stance: context
+  - id: c2
+    text: 対象コードが既に欠陥を含みうる設定(そのコードの欠陥を暴くことが目的)では、カバレッジとミューテーションスコアは有効性の信頼できる指標ではなくなる。
+    quote: in another common scenario where the code-under-test may already be buggy and the goal is to expose the bug within the code-under-test, they no longer serve as reliable indicators.
+    locator: Abstract / §1
+    quant: null
+    evidenceKind: observational
+    rqs: []
+    issues: [123]
+    stance: supports
+  - id: c3
+    text: 一方、対象コードを無欠陥と仮定できる回帰テスト設定では、テストスイートサイズを統制してもカバレッジとミューテーションスコアはモデル間比較の有用な信号になる(メモの「カバレッジは機能しない」は条件付き)。
+    quote: we find that these metrics can be informative when the code-under-test can be reasonably assumed bug-free, and the goal is regression testing
+    locator: §1 Introduction (main takeaways)
+    quant: null
+    evidenceKind: observational
+    rqs: []
+    issues: [123]
+    stance: qualifies
+  - id: c4
+    text: 先行研究と異なり、LLM 生成テストではスイートサイズが相関の支配的な交絡因子である証拠は乏しい。
+    quote: We also find little evidence that test suite size is a dominant confounder for correlations among coverage, mutation, and real-bug detection for LLM-generated tests.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: []
+    issues: [123]
+    stance: context
+  - id: c5
+    text: 欠陥を含むコードからの生成ではカバレッジは欠陥検出の指標として信頼できず、ミューテーション解析はそもそも適用できない。
+    quote: coverage becomes unreliable as an indicator of bug detection effectiveness, and mutation analysis is not applicable.
+    locator: §1 Introduction (main takeaways)
+    quant: null
+    evidenceKind: observational
+    rqs: []
+    issues: [123]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:37.748Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.22880
+    contentType: text/html; charset=utf-8
+    titleFetched: Do Coverage and Mutation Scores of LLM-Generated Test Suites Correlate with Their Effectiveness? (Replicability Study)
+    titleMatch: true
+    dateMeta: 2026-07-24
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: Do Coverage and Mutation Scores of LLM-Generated Test Suites Correlate with Their Effectiveness? (Replicability Study)
+      authors: ["Zhao, Junda", "Zhou, Shurui", "Cohen, Eldan"]
+      v1Date: 2026-07-24
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 8,268 test suites; 101,123 test cases (totals over all focal methods and LLM settings); Defects4J v3.0, 17 projects; 318 buggy focal methods; 11 LLMs from 6 developers (13 model settings)
+        extractedQuote: We apply this pipeline to each focal method for each LLM, resulting in 8,268 generated test suites comprising 101,123 individual test cases.
+        locator: §3.4 Test Generation Workflow (counts); §3.2 Benchmark (Defects4J, 17 projects, 318 focal methods); §3.3 Models / Table 2 (11 LLMs, six developers, 13 settings)
+        note: 8,268 and 101,123 are totals, not counts per LLM x focal-method pair, so the wording '各 LLM×各焦点メソッドで' could be misread as a per-pair count. 8,268 = 318 focal methods x 13 model settings x 2 versions (buggy and fixed). §3.3 says 11 LLMs yield 13 model settings, and suites were generated for both the buggy and fixed version of each focal method. Defects4J v3.0 has 854 defects across 17 projects, and the curated set is 318 buggy focal methods spanning all 17.
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0264
+status: included
+excludeReason: null
+title: AIで実装速度を高めながら、人間の理解を保つ — 認証基盤SDKのRust化で見直した開発フロー
+url: https://buildersbox.corp-sansan.com/entry/2026/09/11/150000
+canonicalUrl: https://buildersbox.corp-sansan.com/entry/2026/09/11/150000
+ids:
+  arxiv: null
+  doi: null
+publisher: Sansan Tech Blog
+authors: [細田]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-09-11
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: "RSS走査: 国内Web系21社の技術ブログフィード(freee, マネーフォワード, SmartHR, サイバーエージェント, LINEヤフー, DeNA, Sansan, ZOZO, エムスリー, ANDPAD, メルカリ, GMO, ゆめみ, Ubie, ログラス, カケハシ, 10X, UPSIDER, Gaudiy, ヤプリ 等)を AI|Claude|Codex|エージェント|LLM|レビュー|ハーネス で抽出"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH05, TH06]
+events: []
+summary: 認証SDKのRust移行で、実装(AI)・学習(人)・レビュー(観点別AI→人)に役割を分け、人の理解とレビューのボトルネックを解消した報告。ADRを前提変更に合わせて更新し続けた。
+claims:
+  - id: c1
+    text: 後から参加する人や実装を担うAIが意図を推測で補わないよう設計判断をADRに残し、前提が変わったら内容と変更理由を更新して「最新の判断を示す基準」として保った。
+    quote: ADRは一度書いて終わりにはせず、実装を進める上で前提が変わったら、内容を更新し、変更理由も残していきました。
+    locator: 共通化する範囲の設計とADR
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q1]
+    issues: [251, 253]
+    stance: qualifies
+  - id: c2
+    text: 当初はAI実装→人の理解とレビュー→AI修正のループを同じ人が全観点で回し、人の理解とレビューがボトルネックになって速度が落ちた。
+    quote: 結果として、人間による理解とレビューがボトルネックとなり、開発速度が低下していました。
+    locator: 最初の進め方と課題
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: レビュー役のAIはコードを変更せず指摘だけを返し、重要な指摘は別のAIに誤りでないかを再確認させ、妥当とされた指摘だけを修正し、結論が出ないものを人がレビューした。
+    quote: レビュー役のAIはコードを変更せず、指摘だけを返すようにし、重要な指摘については、別のAIにその指摘が誤りではないかをコードと根拠に基づいて再確認させました。
+    locator: 観点別のAIレビュー
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3, TH06-Q6]
+    issues: [257, 258]
+    stance: context
+  - id: c4
+    text: 役割分担の見直し後、約2カ月でRust移行(統合テスト実装と旧実装の削除)を完了した。
+    quote: その結果、約2カ月で両OSからRustを呼び出す統合テストの実装と、以前のiOS／Android側の認証処理の削除まで完了し、Rustへの移行を終えることができました。
+    locator: おわりに
+    quant:
+      value: 約2カ月
+      n: 1プロジェクト
+      design: 事例報告(比較対象なし)
+      population: Sansan 認証基盤SDK
+    evidenceKind: case-report
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.318Z
+    httpStatus: 200
+    finalUrl: https://buildersbox.corp-sansan.com/entry/2026/09/11/150000
+    contentType: text/html; charset=utf-8
+    titleFetched: AIで実装速度を高めながら、人間の理解を保つ — 認証基盤SDKのRust化で見直した開発フロー - Sansan Tech Blog
+    titleMatch: true
+    dateMeta: 2026-09-11
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

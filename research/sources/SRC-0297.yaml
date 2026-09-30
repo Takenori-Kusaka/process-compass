@@ -1,0 +1,101 @@
+schemaVersion: 0
+id: SRC-0297
+status: included
+excludeReason: null
+title: Monday.com is the latest tech company to blame AI for layoffs — here are 20 others
+url: https://techcrunch.com/2026/07/25/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai
+canonicalUrl: https://techcrunch.com/2026/07/25/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai
+ids:
+  arxiv: null
+  doi: null
+publisher: TechCrunch
+authors: []
+orgType: media
+region: us
+lang: en
+sourceType: news
+published: 2026-07-25
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: layoffs cite AI engineers replaced company restructuring August 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH01]
+events:
+  - date: 2026-05-05
+    label: Coinbase が約700人(14%)を削減、階層を圧縮し one-person teams を試行
+  - date: 2026-07-25
+    label: TechCrunch が AI を理由に挙げた2026年の主要テック企業の人員削減一覧を更新(Monday.com を追加)
+summary: 2026年に AI を理由に人員削減・組織再編を行ったテック企業の一覧記事。エンジニア・デザイン・プロダクトを一人に束ねる one-person teams や、管理職の削減といった体制変更が並ぶ。
+claims:
+  - id: c1
+    text: Coinbase は2026-05-05に約700人(14%)を削減し、CEO/COO 以下を5階層に圧縮した。エンジニアリング・デザイン・プロダクトを一人が兼ねる one-person teams を試すと表明した。
+    quote: said it would experiment with “one-person teams” combining engineering, design, and product roles.
+    locator: Coinbase — May 5, 2026
+    quant:
+      value: 約700人(14%)
+      n: Coinbase 1社
+      design: 企業発表の報道
+      population: Coinbase
+    evidenceKind: news-fact
+    rqs: [TH02-Q5]
+    issues: [267]
+    stance: context
+  - id: c2
+    text: Google は過去1年で小規模チームを束ねる管理職の3分の1超を削減し、管理職は35%減った。全体の削減数は公表していない。
+    quote: Over the past year, Google has cut more than a third of the managers overseeing small teams — 35% fewer managers with fewer direct reports.
+    locator: Google — ongoing through May
+    quant:
+      value: 管理職 35%減
+      n: Google 1社
+      design: 報道(会社は総数を公表せず)
+      population: Google
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:22.860Z
+    httpStatus: 200
+    finalUrl: https://techcrunch.com/2026/07/25/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Monday.com is the latest tech company to blame AI for layoffs — here are 20 others | TechCrunch
+    titleMatch: true
+    dateMeta: 2026-07-26
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-05-05; 約700人; 14%; CEO/COO 以下5階層
+        extractedQuote: Coinbase — May 5, 2026. The crypto exchange said it was cutting about 700 employees, or 14% of its staff, as part of a restructuring aimed at addressing market volatility and increasing AI efficiency.
+        locator: Coinbase — May 5, 2026
+        note: "続く文: 'The company flattened its organizational structure to five layers below the CEO and COO, and said it would experiment with \"one-person teams\" combining engineering, design, and product roles.' 原文は 5/5 に削減を『発表した(said it was cutting)』であり、同日に実施完了とは書いていない。削減理由には市場変動への対応も併記。"
+      c2:
+        verdict: match
+        extractedValue: 過去1年(Over the past year); 3分の1超(more than a third); 35%
+        extractedQuote: Over the past year, Google has cut more than a third of the managers overseeing small teams — 35% fewer managers with fewer direct reports. … Google has never announced a single overall number
+        locator: Google — ongoing through May
+        note: 原文の 35% は '35% fewer managers with fewer direct reports' であり、『部下の少ない管理職』についての減少率と読める。ask の『管理職は35%減った』は管理職全体の減少と読める書き方で、母集団が広がっている可能性がある。外部推計では2026年の総数は1,500〜3,000人超のエンジニアとの記載あり。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,77 @@
+schemaVersion: 0
+id: SRC-0295
+status: included
+excludeReason: null
+title: Popular npm packages in the keyv and cacheable namespaces compromised in active supply chain attack
+url: https://socket.dev/blog/popular-npm-packages-in-the-keyv-and-cacheable-namespaces-compromised-in-active-supply-chain
+canonicalUrl: https://socket.dev/blog/popular-npm-packages-in-the-keyv-and-cacheable-namespaces-compromised-in-active-supply-chain
+ids:
+  arxiv: null
+  doi: null
+publisher: Socket (Threat Research Team)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-08-04
+publishedBasis: meta
+version: null
+updated: 2026-08-04
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: npm supply chain attack AI coding agent malicious package August 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH12, TH10]
+events:
+  - date: 2026-08-04
+    label: npm の keyv / cacheable 名前空間のパッケージが乗っ取られ、Shai-Hulud 系ワームが拡散
+summary: npm の keyv・cacheable 系パッケージの乗っ取り事案の技術分析。マルウェアが Claude Code の設定ファイル(.claude/settings.json)に SessionStart フックを仕込み、AI コーディングエージェント経由で実行されるよう設計されていた。
+claims:
+  - id: c1
+    text: このマルウェアは .claude と .vscode に自動起動フックを仕込み、ソースを clone した開発者と AI コーディングエージェントに届くよう設計されていた。従来の Shai-Hulud 報告には無かった手口である。
+    quote: plants autostart hooks in `.claude` and `.vscode` to reach developers and AI coding agents who clone the source.
+    locator: 分析本文(従来報告との差分の段落)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q5]
+    issues: []
+    stance: supports
+  - id: c2
+    text: .claude/settings.json の SessionStart フックは、開発者または AI エージェントがリポジトリを開くだけでローダーを実行する。npm install は不要である。エージェント設定そのものが攻撃面になっている。
+    quote: both of which execute the same loader when a developer or an AI coding agent opens the cloned repository, with no `npm install` required.
+    locator: Exfiltration and persistence の段落
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q5, TH12-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:22.061Z
+    httpStatus: 200
+    finalUrl: https://socket.dev/blog/popular-npm-packages-in-the-keyv-and-cacheable-namespaces-compromised-in-active-supply-chain
+    contentType: text/html; charset=utf-8
+    titleFetched: Popular npm Packages in the keyv and Cacheable Namespaces Compromised in Active Supply Chain Attack
+    titleMatch: true
+    dateMeta: 2026-08-04
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

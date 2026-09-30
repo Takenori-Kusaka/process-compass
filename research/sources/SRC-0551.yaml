@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0551
+status: included
+excludeReason: null
+title: When Should I Write an Architecture Decision Record
+url: https://engineering.atspotify.com/2020/04/when-should-i-write-an-architecture-decision-record
+canonicalUrl: https://engineering.atspotify.com/2020/04/when-should-i-write-an-architecture-decision-record
+ids:
+  arxiv: null
+  doi: null
+publisher: Spotify Engineering
+authors: [Josef Blake]
+orgType: enterprise
+region: global
+lang: en
+sourceType: corp-techblog
+published: 2020-04-14
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G04
+  query: Spotify Engineering When Should I Write an Architecture Decision Record (指定 URL を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05]
+events: []
+summary: Spotify の一部チームの ADR 運用記事(2020-04-14)。合意は RFC・設計レビューで取り、ADR はその結論を残す記録と位置づける。小さな決定も含め「ほぼ常に書く」とし、効果は観察の記述で数値は無い。
+claims:
+  - id: c1
+    text: 合意形成の場は設計レビュー・アーキテクチャレビュー・RFC で、ADR はそれらが終わった後に決定を残す手段として置かれている(ADR 自体は審査の対象ではない)。
+    quote: We have system design reviews, architecture reviews, and RFCs to facilitate agreements on an approach or implementation.
+    locator: Proposing large changes
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+  - id: c2
+    text: 大きな変更の手順は「RFC を書く → RFC が結論に達する → ADR を書く」である。
+    quote: Did my RFC conclude with a solution?
+    locator: Proposing large changes (手順 5〜7)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+  - id: c3
+    text: 書く基準は「ほぼ常に」で、小さな決定も対象にする。本数を抑える方針は示していない。
+    quote: When should I write an Architecture Decision Record? Almost always!
+    locator: Let’s roll it up into a diagram!
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q5, TH05-Q3]
+    issues: [272, 252]
+    stance: qualifies
+  - id: c4
+    text: 全社の運用ではなく、一部のチームの事例である。
+    quote: At Spotify, a handful of teams use ADRs to document their decisions.
+    locator: 冒頭
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q2]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: 所有権の引き継ぎで文脈が失われる問題が ADR 導入後に軽くなったと述べるが、件数・期間などの数値は無い。
+    quote: This problem has become less severe with the introduction of ADRs.
+    locator: Ownership Handover
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:35.118Z
+    httpStatus: 200
+    finalUrl: https://engineering.atspotify.com/2020/04/when-should-i-write-an-architecture-decision-record
+    contentType: text/html; charset=utf-8
+    titleFetched: When Should I Write an Architecture Decision Record | Spotify Engineering
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

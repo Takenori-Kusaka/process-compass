@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0260
+status: included
+excludeReason: null
+title: 使いながら育てる Claude Code ― 開発フローの1コマンド化 × 繰り返し指摘の自動仕組み化
+url: https://tech-blog.tabelog.com/entry/react-pipeline-review-digest-claude-code-quality-automation
+canonicalUrl: https://tech-blog.tabelog.com/entry/react-pipeline-review-digest-claude-code-quality-automation
+ids:
+  arxiv: null
+  doi: null
+publisher: Tabelog Tech Blog(カカクコム)
+authors: [遠藤 司樹]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-07-29
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: Claude Code 全社導入 エンジニア組織 レビュー体制 コスト 振り返り 2026 techblog
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH06, TH07, TH11]
+events: []
+summary: 全社でClaude Codeを導入したカカクコムのReactリプレースで、実装〜PR作成を1コマンド化し、繰り返すレビュー指摘を静的解析ルールへ自動変換する仕組みを作った報告。rules追記より静的解析を優先した理由を述べる。
+claims:
+  - id: c1
+    text: 同一リポジトリ・同一チームの導入前後各108日間(前期10件・後期23件のPR)で、PR平均コメント数が15.10件から8.04件に減った。
+    quote: PR平均コメント数（返信除く）は15.10件から8.04件に減少しました。
+    locator: 成果：品質向上とレビュー工数削減
+    quant:
+      value: 15.10件→8.04件
+      n: 前期10件・後期23件のPR(各108日間)
+      design: 導入前後比較(観察)
+      population: 食べログのReactリプレースPR
+    evidenceKind: observational
+    rqs: [TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: .claude/rules への追記を続けるとコンテキストが膨れ精度が落ちる懸念があり、Claudeはrulesを無視することもあるため、違反を必ずエラーにできる静的解析を優先した。
+    quote: しかし、rulesに書き足し続けるとコンテキストが膨れ上がり、Claudeの精度が落ちる懸念がありました。また、Claudeはrulesを無視することもあります。一方、静的解析はコードに違反があれば必ずエラーになる確実性があります。
+    locator: なぜrulesの追記やreact-pipelineの改善ではなく静的解析を選んだのか
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q3, TH03-Q4, TH07-Q5]
+    issues: [269, 274]
+    stance: supports
+  - id: c3
+    text: 繰り返されるレビュー指摘を静的解析→Hooks→Skipの順で自動化手段を判定し、ルール肥大化による精度低下を防ぐためにSkipを残している。運用でESLintルールが計4件自動追加され、対応する指摘は消えた。
+    quote: Skipという選択肢を用意しているのは、ルールの肥大化による精度低下を防ぐための最終判断だからです。
+    locator: "review-digest Step 3: 自動化手段の判定"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q6, TH03-Q3]
+    issues: [275]
+    stance: context
+  - id: c4
+    text: 実装担当のSubagentに生成処理を含めると指示した生成コマンドを無視して「それっぽいコード」を手書きすることがあり、専門のSubagentに独立させて解消した。
+    quote: 当初、APIクライアント生成の処理を実装担当のSubagentに含めていたところ、指示したはずの生成コマンドを無視して「それっぽいコード」を手書きしてしまうことがありました。
+    locator: react-pipeline(Subagent の分割)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH03-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.120Z
+    httpStatus: 200
+    finalUrl: https://tech-blog.tabelog.com/entry/react-pipeline-review-digest-claude-code-quality-automation
+    contentType: text/html; charset=utf-8
+    titleFetched: 使いながら育てる Claude Code ― 開発フローの1コマンド化 × 繰り返し指摘の自動仕組み化 - Tabelog Tech Blog
+    titleMatch: true
+    dateMeta: 2026-07-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 各108日間 / 前期10件・後期23件 / 15.10件→8.04件
+        extractedQuote: 参考値として、同一リポジトリ・同一チームのPRを対象に、react-pipelineとreview-digestの導入前後を比較しました（各108日間、前期10件・後期23件のReactリプレースPRが対象）。PR平均コメント数（返信除く）は15.10件から8.04件に減少しました。
+        locator: 成果：品質向上とレビュー工数削減
+        note: 比較は react-pipeline と review-digest の両方の導入前後。対象は ReactリプレースPR、コメント数は返信除く。原典に「Skillの使用を全員に義務付けているわけではなく、厳密な効果測定ではない参考値です」と注記あり。
+      c3:
+        verdict: match
+        extractedValue: 4件(ESLintカスタムルール3件 + ESLintルール1件)
+        extractedQuote: review-digestの運用により、ESLintカスタムルールが3件、ESLintルールが1件自動追加されました。加えて、前述のMiroでのチーム議論をきっかけに、Knipの導入も実現しています。対応するレビュー指摘は、ルール変更後に姿を消しました。
+        locator: "成果：繰り返し指摘の解消と本質的な議論への集中(判定順は「Step 3: 自動化手段の判定（静的解析→Hooks→Skip）」)"
+        note: 原典は合計を書かず「カスタムルール3件」と「ESLintルール1件」を別記(合計4)。数値は Step 3 節ではなく成果節にある。Skip は「あえて .claude/rules/ に追加しない」の意で、理由は「ルールの肥大化による精度低下を防ぐため」。Knip 導入は自動追加ではなく人の Miro 議論が契機。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

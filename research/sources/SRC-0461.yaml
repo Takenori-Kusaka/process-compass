@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0461
+status: included
+excludeReason: null
+title: AI Agents Don't Need a Monorepo. They Need a Readable Codebase
+url: https://dev.to/gyu07/ai-agents-dont-need-a-monorepo-they-need-a-readable-codebase-4c6f
+canonicalUrl: https://dev.to/gyu07/ai-agents-dont-need-a-monorepo-they-need-a-readable-codebase-4c6f
+ids:
+  arxiv: null
+  doi: null
+publisher: DEV Community
+authors: [Takafumi Endo]
+orgType: individual
+region: jp
+lang: en
+sourceType: individual
+published: 2026-07-02
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH10
+  query: split repositories created bottleneck human review AI agents multiple repos coordination
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH02, TH04]
+events: []
+summary: 日本企業(ROUTE06)所属の筆者の個人的考察。リポジトリ境界より調整の境界が重要で、チームでは人の調整がエージェント並列度の上限を決めると整理し、大規模モノレポで全部見えることは逆効果になりうると述べる。
+claims:
+  - id: c1
+    text: チームでは人の調整(レビューと合意)がボトルネックで、1人が実際に動かせるエージェント数の上限を決める。10体動かせても合意が3件分しか通らなければ実効並列度は3とする。
+    quote: If you can drive ten agents but review-and-consensus only clears three, your effective parallelism is three.
+    locator: The bottleneck is coordination, not the repo
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: supports
+  - id: c2
+    text: 直感に反して、大きなモノレポで全部が見えることはしばしば害になるとし、Anthropic の大規模コードベース手引きがディレクトリ別 CLAUDE.md や sparse worktree を勧めることを挙げる。
+    quote: Counterintuitively, seeing everything in a big monorepo often hurts.
+    locator: At scale, "sees everything" backfires
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: contradicts
+  - id: c3
+    text: マルチレポを1つの作業空間として扱う場合、契約(API スキーマ等)がコードから乖離すると成り立たないため、契約は人の記憶ではなく CI で強制すべきとする。
+    quote: So contracts have to be enforced in CI, not kept as a promise humans remember.
+    locator: Objections I'd raise myself
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:04.084Z
+    httpStatus: 200
+    finalUrl: https://dev.to/gyu07/ai-agents-dont-need-a-monorepo-they-need-a-readable-codebase-4c6f
+    contentType: text/html; charset=utf-8
+    titleFetched: AI Agents Don't Need a Monorepo. They Need a Readable Codebase
+    titleMatch: true
+    dateMeta: 2026-07-02
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1人 / 10体 / 3件 / 3
+        extractedQuote: But it also caps how many agents one developer can run. If you can drive ten agents but review-and-consensus only clears three, your effective parallelism is three.
+        locator: The bottleneck is coordination, not the repo
+        note: 数値は仮定の例示で実測ではない。著者は本稿を個人の覚え書き(Not advice)とし、対象を solo-or-small-team に置く。
+      c3:
+        verdict: match
+        extractedValue: 1つ(one meaningful workspace)
+        extractedQuote: The moment a contract drifts from the code, the synthetic workspace is a fiction. So contracts have to be enforced in CI, not kept as a promise humans remember.
+        locator: Objections I'd raise myself("contracts rot.")。「1つ」は前節 The repo is physical. The workspace is operational. の「the agent sees one meaningful workspace」
+        note: Objections 節自体は「synthetic workspace」と書き、「1つ」の語は前節にある。API スキーマの例は前節の表の Contracts 行(API schema, event schema, migrations)。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

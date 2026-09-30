@@ -1,0 +1,126 @@
+schemaVersion: 0
+id: SRC-0313
+status: included
+excludeReason: null
+title: A First Look at Coding Agents' Compliance with AI Contribution Rules in Open-Source Communities
+url: https://arxiv.org/abs/2607.26819
+canonicalUrl: arxiv:2607.26819
+ids:
+  arxiv: "2607.26819"
+  doi: null
+publisher: arXiv (cs.SE) / Peking University
+authors: [Wenhao Yang, Runzhi He, Minghui Zhou]
+orgType: academic
+region: cn
+lang: en
+sourceType: preprint
+published: 2026-07-29
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: (abs:"rule compliance" OR abs:"instruction adherence" OR abs:"guideline adherence") AND (abs:agent OR abs:coding)'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH07, TH10, TH01]
+events: []
+summary: AI 貢献ルール(禁止・開示義務・検証ゲート・人の承認)を持つ OSS 49リポジトリの106 Issue で、4つのエージェントがルールを読んで守るかを測った RepoComplianceBench。自発的にルールを読むのは3.5%、禁止リポジトリでの辞退と人への引き継ぎは0%。
+claims:
+  - id: c1
+    text: エージェントが(常時ロードされる AGENTS.md 以外の)ルールファイルを自発的に読んだのは実行の3.5%にすぎず、遵守率は低く不均一だった。
+    quote: in merely 3.5% of the runs, and the rule compliance rate was low and uneven
+    locator: §1 Introduction
+    quant:
+      value: 3.5%
+      n: 106 issues / 49 repos; 4 agents × 280 base runs
+      design: benchmark(軌跡を機械検証器+LLM 検証器で判定)
+      population: OpenCode+DeepSeek-V4-Pro, Codex+GPT-5.3-Codex, Codex+GPT-5.5, Claude Code+Sonnet 4.6
+    evidenceKind: benchmark
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: [269, 274]
+    stance: supports
+  - id: c2
+    text: Abstract は、AI 貢献を禁止するリポジトリで試したどの条件でもエージェントは貢献を辞退しなかったと書く。一方 Table 1 では、辞退と人への引き継ぎが 0% なのは無介入(Native)条件で、検証器のフィードバック後は辞退が最大 23%(GPT-5.5)、引き継ぎが 1 構成で 33%(3/9)と非ゼロであり、論文内で記述が食い違う。
+    quote: they never refuse to contribute in AI-banned repositories under any condition we tested
+    locator: Abstract; §4 Table 1
+    quant:
+      value: Refuse 0% / Handoff 0%(Native)。Feedback 後は Refuse 最大 23%、Handoff 33%(1 構成、3/9)
+      n: 各エージェント約30 runs/cell
+      design: benchmark
+      population: 同上
+    evidenceKind: benchmark
+    rqs: [TH01-Q4, TH07-Q5]
+    issues: [248]
+    stance: supports
+  - id: c3
+    text: 検証ゲートの遵守はモデル能力に比例しない。GPT-5.3 は4%、GPT-5.5 は92%、Sonnet 4.6 は42%で DeepSeek-V4-Pro(54%)を下回った。
+    quote: GPT-5.3 verifies in 4% of runs while GPT-5.5 reaches 92%, and Sonnet 4.6 (42%) trails DeepSeek-V4-Pro (54%)
+    locator: §1; §4.1 Table 1
+    quant:
+      value: Verify 4%〜92%
+      n: 同上
+      design: benchmark
+      population: 同上
+    evidenceKind: benchmark
+    rqs: [TH03-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 開示と検証はリマインダ、ルール引用、検証器のフィードバックで改善するため既存の仕組みで解ける。一方で禁止の徹底と人へのエスカレーションは未解決と結論する。
+    quote: Agents pick up disclosure and verification with reminder prompts, rule quotes, and verifier feedback
+    locator: Abstract; §4.1 Unaided compliance and steering
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH03-Q3, TH07-Q5]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, human-correction]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:32.577Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.26819
+    contentType: text/html; charset=utf-8
+    titleFetched: A First Look at Coding Agents' Compliance with AI Contribution Rules in Open-Source Communities
+    titleMatch: true
+    dateMeta: 2026-07-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: A First Look at Coding Agents' Compliance with AI Contribution Rules in Open-Source Communities
+      authors: ["Yang, Wenhao", "He, Runzhi", "Zhou, Minghui"]
+      v1Date: 2026-07-29
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 0%
+        extractedQuote: Refuse and Handoff sit at a uniform 0% across all four models.
+        locator: "§1 Introduction; Table 1 (Handoff / Native 行: 4エージェントとも 000%)"
+        note: Handoff 0% は Native(無介入)条件の値。Table 1 では Handoff の Feedback 条件で OpenCode·DeepSeek-V4-Pro が 033% [03/09]、Reminder/Quote は not estimable。また ask 前半の『どの条件でも辞退しなかった』は Abstract の記述(they never refuse to contribute in AI-banned repositories under any condition we tested)とは一致するが、同じ論文の Table 1 では Refuse が GPT-5.5 で Reminder 3%・Quote 10%、Feedback で 13%/7%/23% と非ゼロ。§1 も『one round of feedback naming the violation lifts it to at most 23%』と書いており、論文内で食い違いがある。
+        adjudication:
+          verdict: corrected
+          reason: 懐疑役の突合(2026-09-30)。検証役が原典から抜き出した値と注記に沿って、主張文を人手で訂正した
+          date: 2026-09-30
+          originalText: AI 貢献を禁止するリポジトリでも、試したどの条件(リマインダ、ルール引用、検証器からのフィードバック)でもエージェントは貢献を辞退しなかった。人への引き継ぎ(Handoff)も全エージェントで0%。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

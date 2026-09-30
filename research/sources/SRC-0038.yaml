@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0038
+status: included
+excludeReason: null
+title: Linux Foundation Announces the Formation of the Agentic AI Foundation (AAIF), Anchored by New Project Contributions Including Model Context Protocol (MCP), goose and AGENTS.md
+url: https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation
+canonicalUrl: https://linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation
+ids:
+  arxiv: null
+  doi: null
+publisher: The Linux Foundation
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: vendor-official
+published: 2025-12-09
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: Linux Foundation announces formation Agentic AI Foundation AAIF press release December 2025 founding members"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH03]
+events:
+  - date: 2025-12-09
+    label: AAIF 設立。創設寄贈は Anthropic の MCP、Block の goose、OpenAI の AGENTS.md
+summary: AAIF 設立の一次プレスリリース。設立日 2025-12-09、創設寄贈 3 プロジェクト(MCP / goose / AGENTS.md)、Platinum 会員 8 社。前回メモの「6 社を共同創設者」は不正確(Bloomberg・Cloudflare も Platinum、寄贈者は 3 社)。
+claims:
+  - id: c1
+    text: AAIF は 2025-12-09 に設立され、創設寄贈は Anthropic(MCP)、Block(goose)、OpenAI(AGENTS.md)の 3 プロジェクト。
+    quote: SAN FRANCISCO, Dec. 9, 2025 – The Linux Foundation, the nonprofit organization enabling mass innovation through open source, today announced the formation of the Agentic AI Foundation (AAIF), and founding contributions of three leading projects
+    locator: 本文冒頭
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: Platinum 会員は AWS・Anthropic・Block・Bloomberg・Cloudflare・Google・Microsoft・OpenAI の 8 社。
+    quote: Platinum members of the AAIF include Amazon Web Services, Anthropic, Block, Bloomberg, Cloudflare, Google, Microsoft and OpenAI.
+    locator: Summary / 本文
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: AGENTS.md(2025-08 に OpenAI が公開)は 6 万超の OSS プロジェクトと主要エージェント(Codex, Cursor, Devin, Gemini CLI, GitHub Copilot, Jules, VS Code 等)に採用されたとする。数値は LF/OpenAI の自己申告。
+    quote: AGENTS.md has already been adopted by more than 60,000 open source projects and agent frameworks including Amp, Codex, Cursor, Devin, Factory, Gemini CLI, GitHub Copilot, Jules and VS Code among others.
+    locator: AGENTS.md 節
+    quant:
+      value: 60,000+ projects
+      n: null
+      design: self-count
+      population: OSS repos with AGENTS.md
+    evidenceKind: news-fact
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:35.190Z
+    httpStatus: 200
+    finalUrl: https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation
+    contentType: text/html; charset=UTF-8
+    titleFetched: Linux Foundation Announces the Formation of the Agentic AI Foundation (AAIF), Anchored by New Project Contributions Including Model Context Protocol (MCP), goose and AGENTS.md
+    titleMatch: true
+    dateMeta: 2025-12-09
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2025-12-09; 3
+        extractedQuote: SAN FRANCISCO, Dec. 9, 2025 – The Linux Foundation ... announced the formation of the Agentic AI Foundation (AAIF), and founding contributions of three leading projects
+        locator: 本文冒頭
+        note: ""
+      c2:
+        verdict: match
+        extractedValue: 8(列挙された社名の数)
+        extractedQuote: Platinum members include Amazon Web Services, Anthropic, Block, Bloomberg, Cloudflare, Google, Microsoft and OpenAI.
+        locator: Summary
+        note: 原文は社名を列挙するだけで『8社』という数は書かれていない。数は列挙を数えて得た値
+      c3:
+        verdict: match
+        extractedValue: 2025-08; 60,000(6万)
+        extractedQuote: Released by OpenAI in August 2025, AGENTS.md ... has already been adopted by more than 60,000 open source projects and agent frameworks including Amp, Codex, Cursor, Devin, Factory
+        locator: AGENTS.md 節
+        note: 原文の母集団は 'open source projects and agent frameworks' を合わせた 60,000 超。ask の『___万超の OSS プロジェクトと主要エージェントに採用』の読み方によっては、OSS プロジェクトだけで 6万超と誤読されるおそれがある。列挙には Amp と Factory も含まれる(ask は『等』で省略)
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation

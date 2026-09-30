@@ -1,0 +1,159 @@
+schemaVersion: 0
+id: SRC-0182
+status: included
+excludeReason: null
+title: Introducing GPT-6 Sol and Luna
+url: https://openai.com/index/introducing-gpt-6-sol-and-luna/
+canonicalUrl: https://openai.com/index/introducing-gpt-6-sol-and-luna
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-22
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: OpenAI introducing GPT-6 Astra announcement
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH04, TH07]
+events:
+  - date: 2026-09-22
+    label: OpenAI が GPT-6 Sol / GPT-6 Luna を発表
+  - date: 2026-09-22
+    label: GPT-6 Sol / Luna を Codex と ChatGPT Work に展開(Codex changelog の 2026-09-22 項)
+summary: GPT-6 系の中位・軽量モデルの発表。GPT-5.6 と同じ 3 層構成(上位 Astra / 中位 Sol / 軽量 Luna)が GPT-6 でも続く。
+claims:
+  - id: c1
+    text: GPT-6 Sol と Luna は発表日から ChatGPT Work と Codex で提供された。
+    quote: GPT‑6 Sol and GPT‑6 Luna are available in ChatGPT Work and Codex starting today for all Plus, Pro, Business, Enterprise, and Edu users.
+    locator: Availability
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3, TH04-Q4]
+    issues: [282]
+    stance: context
+  - id: c2
+    text: OpenAI は Astra を同月前半に出したと述べ、Sol / Luna を費用効率の階層として位置づける。前回 §6-2 の「性能・コストの階層」は GPT-6 でも継続。
+    quote: Earlier this month, we introduced GPT‑6 Astra , the most intelligent and aligned model in the world.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q3, TH04-Q4]
+    issues: [282]
+    stance: supports
+  - id: c3
+    text: GPT-6 Sol / Luna の API 単価を GPT-5.6 の販促価格から 50% 下げた(Sol 入力 $4→$2、出力 $20→$10 / 百万トークン)。
+    quote: reducing API prices for Sol and Luna by 50% compared with their GPT‑5.6 promotional pricing.
+    locator: A step up across the model family / GPT‑6 API pricing
+    quant:
+      value: -50%
+      n: 該当なし(価格表)
+      design: price list
+      population: OpenAI API
+    evidenceKind: news-fact
+    rqs: [TH04-Q1, TH04-Q4, TH02-Q3]
+    issues: []
+    stance: context
+  - id: c4
+    text: DeepSWE v1.1 で GPT-6 Sol(max)は 68.8%、Claude Fable 5(xhigh)の 69.9% に 1.1pt 差で、1 タスク当たり費用は約 80% 低いとする(自己申告)。
+    quote: GPT‑6 Sol at max effort scores 68.8%, within 1.1 percentage points of Claude Fable 5’s highest score in the evaluation—69.9% at xhigh effort—at approximately 80% lower cost per task.
+    locator: Coding
+    quant:
+      value: 68.8% vs 69.9%、費用約-80%
+      n: DeepSWE v1.1(件数記載なし)
+      design: vendor benchmark
+      population: GPT-6 Sol max / Claude Fable 5 xhigh
+    evidenceKind: benchmark
+    rqs: [TH04-Q4, BASE-Q3]
+    issues: []
+    stance: context
+  - id: c5
+    text: 整合性評価で、両モデルは GPT-5.6 より「自分のコーディング作業についての誤解を招く主張」の率が低いとする。評価項目に Coding deception・Reviewer bypass・Warning circumvention が並ぶ。虚偽の完了報告がベンダーの評価軸になっている。
+    quote: In our alignment evaluations, both Sol and Luna show improvements over their GPT‑5.6 counterparts, including lower rates of misleading claims about their coding work.
+    locator: Continuing to improve alignment
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH07-Q1]
+    issues: [269, 271, 275]
+    stance: supports
+  - id: c6
+    text: これらの評価は意図的に困難な状況を試すもので、通常利用での失敗率を測るものではないと但し書きする。
+    quote: The evaluations below deliberately test challenging situations and do not measure failure rates in typical use.
+    locator: Continuing to improve alignment
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH07-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:21.679Z
+    httpStatus: 200
+    finalUrl: https://openai.com/index/introducing-gpt-6-sol-and-luna/
+    contentType: text/html; charset=utf-8
+    titleFetched: Introducing GPT-6 Sol and Luna
+    titleMatch: true
+    dateMeta: 2026-09-22
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: GPT-6
+        extractedQuote: The GPT‑6 models lead across the cost–intelligence curve, combining exceptional capabilities at every tier with infrastructure that delivers them efficiently at scale.
+        locator: 冒頭(第1〜3段落)
+        note: Astra については冒頭 "Earlier this month, we introduced GPT‑6 Astra" と記載。費用効率は "advancing the frontier on cost efficiency"。伏せ字の § 番号は本調査側の前回報告の節番号で、出典には存在しない(検証不能)
+        adjudication:
+          verdict: consistent
+          reason: 『Astra を同月前半に出した』は claimQuote(照合済み)および blindNote の 'Earlier this month, we introduced GPT‑6 Astra' と一致する。『Sol / Luna を費用効率の階層として位置づける』は、blindQuote の 'lead across the cost–intelligence curve, combining exceptional capabilities at every tier' と blindNote の 'advancing the frontier on cost efficiency' で支えられる。machineVerdict の mismatch は blindValue が 'GPT-6' という非数値だったための機械比較上の不一致で、内容の矛盾ではない。§参照は判定対象外。
+          date: 2026-09-24
+      c3:
+        verdict: match
+        extractedValue: GPT-6 / GPT-5.6 / 50% / Sol 入力 $4→$2、出力 $20→$10(per 1M tokens)
+        extractedQuote: reducing API prices for Sol and Luna by 50% compared with their GPT‑5.6 promotional pricing
+        locator: 冒頭第3段落 および GPT‑6 API pricing 表("Prices are per 1 million tokens.")
+        note: '表: "GPT‑5.6 Sol → GPT‑6 Sol $4 → $2 $20 → $10 50% cheaper"。参考: Luna は入力 $0.20→$0.10、出力 $1.20→$0.50 で、出力は計算上約58%減だが表は "50% cheaper" と表記'
+      c4:
+        verdict: match
+        extractedValue: v1.1 / GPT-6 Sol(max)68.8% / Claude Fable 5(xhigh)69.9% / 1.1pt / 約80%低い(per task)
+        extractedQuote: GPT‑6 Sol at max effort scores 68.8%, within 1.1 percentage points of Claude Fable 5’s highest score in the evaluation—69.9% at xhigh effort—at approximately 80% lower cost per task.
+        locator: Coding(DeepSWE v1.1 の段落)
+        note: 比較相手は Claude Fable 5(5.1 ではない)。ページ末注に "Scores for Claude Fable 5 were reported when scores for Claude Fable 5.1 were unavailable." とある。一方 SRC-0181(Astra)の Coding 表は DeepSWE v1.1 で Fable 5.1 67.4%・Fable 5 69.9% を載せている。「___タスク当たり」の伏せ字に対応する数は原文に無く "per task" のみ
+        adjudication:
+          verdict: consistent
+          reason: blindQuote の 'GPT‑6 Sol at max effort scores 68.8%, within 1.1 percentage points of Claude Fable 5's highest score ... 69.9% at xhigh effort—at approximately 80% lower cost per task' と一致する(69.9−68.8=1.1pt)。比較相手は Fable 5 で主張も Fable 5 と書いており、取り違えは無い。『自己申告』の注記も適切である。補足として、原典は Fable 5.1 のスコアが得られない場合に Fable 5 の値を載せたと注記している。SRC-0181 の同ベンチ表では Fable 5.1 が 67.4% である。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: S2
+    query: (直接取得) developers.openai.com の Codex docs ナビゲーションと changelog からのリンク追跡
+urlBeforeRepair: https://openai.com/index/introducing-gpt-6-sol-and-luna

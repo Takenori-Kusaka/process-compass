@@ -1,0 +1,125 @@
+schemaVersion: 0
+id: SRC-0626
+status: included
+excludeReason: null
+title: 東京海上日動システムズ株式会社様の AWS 生成 AI 事例：金融業界初 AI-DLC Unicorn Gym による開発変革への挑戦
+url: https://aws.amazon.com/jp/blogs/news/tokio-marine-ai-dlc/
+canonicalUrl: https://aws.amazon.com/jp/blogs/news/tokio-marine-ai-dlc
+ids:
+  arxiv: null
+  doi: null
+publisher: Amazon Web Services ブログ
+authors: []
+orgType: vendor
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2025-09-26
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G08
+  query: AWS Summit Japan 2026 東京海上日動システムズ AI駆動開発による開発者体験の変革 資料 pages.awscloud.com
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH12, TH09, TH11]
+events:
+  - date: 2025-08-26
+    label: 東京海上日動システムズが金融業界初の AI-DLC Unicorn Gym を実施(〜08-27)
+summary: 損保系 IT 子会社が2025年8月に行った AI-DLC ワークショップの報告(AWS 執筆)。4チームが1.5日で初期版を作り、段階的な承認より現場判断が有効という所見を得たが、既存改修と大規模開発は未検証と本人が述べる。
+claims:
+  - id: c1
+    text: ワークショップの所見として、段階的な承認プロセスではなく現場判断による開発サイクルの有効性が確認されたとする。稟議・決裁の制度を改めた報告ではなく、1.5日の試行での所見である。
+    quote: 従来のような段階的な承認プロセスではなく、現場判断による迅速な開発サイクルの有効性が確認されました。
+    locator: AI-DLC Unicorn Gym からの学び
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH12-Q2, BASE-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 4チームが1.5日で動作する初期版を完成させ、1チームがテスト環境へのデプロイまで終えた。従来の開発期間は数週間〜3か月と併記されるが、比較の測定方法は示されていない。
+    quote: 1日半という短期間での開発にも関わらず、4つのチームが実際に動作するシステムの初期版を完成させ、1つのチームはテスト環境へのデプロイまで完了しました。
+    locator: AI-DLC Unicorn Gym の実施と成果
+    quant:
+      value: 1.5日で初期版(従来開発期間は数週間〜2-3ヶ月と併記)
+      n: 4チーム(計24名)
+      design: ワークショップでの試行(従来期間は自己申告の比較値)
+      population: 基幹系周辺 Web、社内検索、VBA 移行、社内生成 AI アプリ
+    evidenceKind: case-report
+    rqs: [BASE-Q2, TH09-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: 同社は設計書からコードを生成する基盤を本番で稼働させており、プログラミング工程で約30%の外部委託費削減と述べる。既存の取り組みによる生産性向上は10〜20%程度とも書かれている。
+    quote: この基盤は2年間の開発期間を経て本番環境で稼働しており、プログラミング工程において約 30% の外部委託費削減を実現しています。
+    locator: 開発生産性向上への課題とこれまでの取り組み
+    quant:
+      value: 約30%(外部委託費)
+      n: null
+      design: 自社報告(測定方法は不記載)
+      population: プログラミング工程
+    evidenceKind: case-report
+    rqs: [BASE-Q2, TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 同社の担当者は、小規模な新規システムでは良好だったが、既存システムの改修と大規模システムへの適用は検証が要ると述べている。
+    quote: 既存システムの改修や大規模なシステムへの適用については、トークン数の制約などの技術的な検討事項があり、さらなる検証と最適化のアプローチを模索していく必要がある
+    locator: 今後の展望と組織変革への取り組み — 山下氏コメント
+    quant: null
+    evidenceKind: case-report
+    rqs: [BASE-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:05.095Z
+    httpStatus: 200
+    finalUrl: https://aws.amazon.com/jp/blogs/news/tokio-marine-ai-dlc/
+    contentType: text/html;charset=UTF-8
+    titleFetched: 東京海上日動システムズ株式会社様の AWS 生成 AI 事例：金融業界初 AI-DLC Unicorn Gym による開発変革への挑戦 | Amazon Web Services
+    titleMatch: true
+    dateMeta: 2025-09-26
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1日半(表では 1.5日)
+        extractedQuote: 微調整や要件修正が驚くほど早くできる AI-DLC の特性により、従来のような段階的な承認プロセスではなく、現場判断による迅速な開発サイクルの有効性が確認されました。
+        locator: 「AI-DLC Unicorn Gym からの学び」第2段落(期間は「AI-DLC Unicorn Gym の実施と成果」の「1日半という短期間での開発」および表の期間欄「1.5日」)
+        note: この一文は、ビジネス部門参加者の声(開発途中から現場社員に確認でき、迅速な判断が可能になる)を受けた AWS 側筆者のまとめとして書かれている。稟議・決裁制度の変更についての記述は本文に無い。「今後の展望」では組織全体への展開は「具体的な検討を開始」の段階とされる。
+      c2:
+        verdict: match
+        extractedValue: "4つのチーム / 1日半(1.5日) / 1つのチーム / 数週間から数ヶ月(表: 2-3ヶ月、1ヶ月、1ヶ月、数週間)"
+        extractedQuote: 1日半という短期間での開発にも関わらず、4つのチームが実際に動作するシステムの初期版を完成させ、1つのチームはテスト環境へのデプロイまで完了しました。従来であれば数週間から数ヶ月を要する開発作業が、AI-DLC により劇的に短縮されたことが確認されました。
+        locator: "「AI-DLC Unicorn Gym の実施と成果」第2段落および直後の表(列: チーム名/対象システム/取り組み内容/参加者構成/期間/従来開発期間)"
+        note: 本文は「数週間から数ヶ月」で上限の月数を明示しない。表の「従来開発期間」欄はチーム別に 2-3ヶ月 / 1ヶ月 / 1ヶ月 / 数週間 で、最大値は 3ヶ月。従来期間の算出方法・比較方法の説明は本文に無い。
+      c3:
+        verdict: match
+        extractedValue: 約 30% / 10～20% 程度
+        extractedQuote: この基盤は2年間の開発期間を経て本番環境で稼働しており、プログラミング工程において約 30% の外部委託費削減を実現しています。 / コード生成基盤などの既存の取り組みによる生産性向上は 10～20% 程度となっていますが、
+        locator: 「開発生産性向上への課題とこれまでの取り組み」第1・第2段落
+        note: 記述の主体は AWS ブログの筆者で、同社の取り組みを紹介する形。基盤は「設計書からソースコードを生成する『コード生成基盤』」。続けて「10倍、20倍といった抜本的な生産性向上が求められています」とある。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

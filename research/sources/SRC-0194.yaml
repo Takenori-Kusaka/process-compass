@@ -1,0 +1,130 @@
+schemaVersion: 0
+id: SRC-0194
+status: included
+excludeReason: null
+title: Agent Skills Specification
+url: https://agentskills.io/specification
+canonicalUrl: https://agentskills.io/specification
+ids:
+  arxiv: null
+  doi: null
+publisher: Agent Skills (agentskills.io)
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: standard
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Agent Skills specification progressive disclosure(Claude Code skills ドキュメントの参照先)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: 複数のエージェント製品が採用するスキル形式の公開仕様(日付表記なし、2026-09-24 取得版)。メタデータ約100トークン/本文5000トークン未満/資源は必要時という3段の progressive disclosure と各欄の上限を定める。
+claims:
+  - id: c1
+    text: "progressive disclosure の3段階: 名前と説明(約100トークン)は起動時に全スキル分を読み込み、本文(5000トークン未満推奨)は起動時のみ、参照資源は必要時のみ読み込む。"
+    quote: The `name` and `description` fields are loaded at startup for all skills
+    locator: Progressive disclosure
+    quant:
+      value: ~100 tokens metadata / <5000 tokens instructions
+      n: null
+      design: specification
+      population: Agent Skills
+    evidenceKind: normative
+    rqs: [TH03-Q1, TH04-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: description は最大 1024 文字で、何をするかといつ使うかを書く。name は最大 64 文字。
+    quote: Max 1024 characters. Non-empty. Describes what the skill does and when to use it.
+    locator: Frontmatter > description
+    quant:
+      value: 1024 characters
+      n: null
+      design: specification
+      population: description field
+    evidenceKind: normative
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: SKILL.md 本体は 500 行未満に保ち、詳細は別ファイルへ移す。
+    quote: Keep your main `SKILL.md` under 500 lines. Move detailed reference material to separate files.
+    locator: Progressive disclosure
+    quant: null
+    evidenceKind: normative
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 起動時に全スキルの name と description(約100トークン)を読み、本文(推奨5,000トークン未満)はスキル起動時に読む3段の読み込みを仕様として定める。
+    quote: "Metadata (~100 tokens): The name and description fields are loaded at startup for all skills Instructions (< 5000 tokens recommended): The full SKILL.md body is loaded when the skill is activated"
+    locator: §Progressive disclosure
+    quant:
+      value: ~100 tokens/skill (metadata), <5000 tokens (body)
+      n: null
+      design: specification
+      population: Agent Skills 準拠のエージェント
+    evidenceKind: normative
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.783Z
+    httpStatus: 200
+    finalUrl: https://agentskills.io/specification
+    contentType: text/html; charset=utf-8
+    titleFetched: Specification - Agent Skills
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3項目(Metadata / Instructions / Resources の番号付きリスト)/ ~100 tokens / < 5000 tokens recommended
+        extractedQuote: "Metadata (~100 tokens): The name and description fields are loaded at startup for all skills Instructions (< 5000 tokens recommended): The full SKILL.md body is loaded when the skill is activated"
+        locator: Progressive disclosure 節(番号付きリスト 1〜3)
+        note: "段階数は数詞では書かれておらず、3項目の番号付きリストから読み取った値。ask は本文の読み込みを「起動時のみ」と書くが、原文は本文を 'loaded when the skill is activated'(スキル発動時)、メタデータを 'loaded at startup'(起動時)と区別している。ask はメタデータと本文の両方を「起動時」と書いており、向きの取り違えに見える可能性がある。第3項は 'Resources (as needed): ... loaded only when required'。同節には 'Keep your main SKILL.md under 500 lines.' もある"
+      c2:
+        verdict: match
+        extractedValue: "description: Max 1024 characters(1-1024 characters)/ name: Max 64 characters"
+        extractedQuote: description Yes Max 1024 characters. Non-empty. Describes what the skill does and when to use it.
+        locator: SKILL.md format > Frontmatter 表、description field 節
+        note: "name の原文: 'name Yes Max 64 characters. Lowercase letters, numbers, and hyphens only. Must not start or end with a hyphen.' description field 節には 'Must be 1-1024 characters' と 'Should describe both what the skill does and when to use it' がある。'when to use it' は表では記述(Describes)、節では推奨(Should)"
+      c4:
+        verdict: match
+        extractedValue: ~100 tokens / < 5000 tokens recommended / 3項目
+        extractedQuote: "Agents load skills progressively , pulling in more detail only as a task calls for it. Skills should be structured to take advantage of this: Metadata (~100 tokens):"
+        locator: Progressive disclosure 節
+        note: 値の原文は c1 と同じ箇所(Metadata (~100 tokens) / Instructions (< 5000 tokens recommended) / Resources (as needed))。段数は数詞ではなく3項目のリストから読み取ったもの。ask は「仕様として定める」と書くが、原文は読み込みを 'Agents load skills progressively' という挙動の説明として書き、スキル側への要求は 'should be structured'、5000 は 'recommended' である。MUST 相当の規定ではない
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH03
+    query: Agent Skills specification progressive disclosure agentskills.io

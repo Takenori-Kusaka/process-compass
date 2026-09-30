@@ -1,0 +1,92 @@
+schemaVersion: 0
+id: SRC-0042
+status: included
+excludeReason: null
+title: More code, less delivery but does the CircleCI 2026 Report really show 1 in 20 teams are benefiting?
+url: https://blog.robbowley.net/2026/04/02/more-code-less-delivery-but-does-the-circleci-2026-report-really-show-1-in-20-teams-are-benefiting
+canonicalUrl: https://blog.robbowley.net/2026/04/02/more-code-less-delivery-but-does-the-circleci-2026-report-really-show-1-in-20-teams-are-benefiting
+ids:
+  arxiv: null
+  doi: null
+publisher: Rob Bowley(個人ブログ)
+authors: [Bowley Rob]
+orgType: individual
+region: eu
+lang: en
+sourceType: individual
+published: 2026-04-02
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: CircleCI 2026 State of Software Delivery report feature branch throughput 59%"
+derivedFrom: [SRC-0040]
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH07]
+events: []
+summary: CircleCI 報告書への批評(反証・限定)。スループット=パイプライン実行回数であり出荷や本番デプロイではないこと、上位 5% の平均パイプライン 6 秒や 1 チーム 13 万件/日の外れ値が集計を歪めうることを指摘。統合ボトルネック自体は信用できるとする。
+claims:
+  - id: c1
+    text: 報告書の主指標「スループット」は CI パイプラインの実行回数であり、本番デプロイ数や出荷機能数ではない。
+    quote: The report’s primary metric is “throughput” – the number of times a CI pipeline runs per day. A CI pipeline is the automated process teams use to build, test and progress code toward production.
+    locator: What the report is measuring
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q1]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 「上位 5% が AI で出荷を増やした」という結論は、その群の平均パイプライン時間が 6 秒という不自然なデータに支えられており、確信を持って教訓を引き出せない。
+    quote: But the summary data for that group is odd. Their average CI pipeline duration is 6 seconds.
+    locator: The 1 in 20 claim
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: 一方で「生成速度がレビュー・統合能力を上回る」という統合ボトルネックの所見はデータと整合し信用できる、と評価する。
+    quote: The integration bottleneck finding is credible. If you’re generating code faster than your team can review and integrate it (safely), that’s a genuine problem this data is consistent with.
+    locator: What to take from it
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:41.645Z
+    httpStatus: 200
+    finalUrl: https://blog.robbowley.net/2026/04/02/more-code-less-delivery-but-does-the-circleci-2026-report-really-show-1-in-20-teams-are-benefiting/
+    contentType: text/html; charset=UTF-8
+    titleFetched: More code, less delivery but does the CircleCI 2026 Report really show 1 in 20 teams are benefiting?
+    titleMatch: true
+    dateMeta: 2026-04-02
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 上位 5%(1 in 20)/ 平均 CI パイプライン時間 6 秒
+        extractedQuote: But the summary data for that group is odd. Their average CI pipeline duration is 6 seconds.
+        locator: The 1 in 20 claim
+        note: 結論部(What to take from it)に 'the data here for the teams making that case doesn't add up clearly enough to draw confident lessons from' とある。著者は 'Perhaps it is an error in the report' と誤記の可能性を挙げ、また 'Not to say that some aren't getting benefit I believe there are' として効果自体は否定していない。ask の『AI で出荷を増やした』は原典では main ブランチ throughput +26% を指す(throughput はパイプライン実行数で出荷数ではない、と著者自身が指摘)。6 秒の値は報告書の要約表(印刷ページ 24、テキスト抽出不可)由来と思われるが未確認
+    date: 2026-09-23
+volatility: slow
+reviewBy: null

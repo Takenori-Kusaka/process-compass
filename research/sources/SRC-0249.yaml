@@ -1,0 +1,143 @@
+schemaVersion: 0
+id: SRC-0249
+status: included
+excludeReason: null
+title: ガバメントクラウドでの AI 駆動開発の設計と実践(AWS Summit Japan 2026 AIM203)
+url: https://pages.awscloud.com/rs/112-TZM-766/images/R11_0625_3_AIM203_v1.pdf
+canonicalUrl: https://pages.awscloud.com/rs/112-tzm-766/images/r11_0625_3_aim203_v1.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: デジタル庁(AWS Summit Japan 2026 講演資料)
+authors: [佐藤 智樹]
+orgType: government
+region: jp
+lang: ja
+sourceType: talk
+published: 2026-06-25
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: デジタル庁 AI駆動開発 ガイドライン 政府情報システム 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH02, TH03, TH07, TH11, TH12]
+events:
+  - date: 2026-06-25
+    label: デジタル庁が AWS Summit Japan 2026 でガバメントクラウド上の AI 駆動開発の検証結果を発表
+summary: デジタル庁クラウドエンジニアの講演資料。PO兼エンジニア1名+AIエージェントで小規模機能を実装した検証(見積720H→実績約120H)と、ボトルネックが実装から判断・承認へ移ることを示す。
+claims:
+  - id: c1
+    text: エンジニア出身のPOがAIコーディングエージェントで小規模機能を実装した検証で、従来見積り720H前後(576〜864H)に対し実績は120H前後+LLM利用料約20万円だった。見積り比較であり単一事例。
+    quote: 従来見積り(PO +エンジニア)：720 H 前後(576 〜864 H) → 実験結果：120 H 前後＋LLM 利用料約20 万
+    locator: p.10 AI コーディングエージェント導入による効果検証
+    quant:
+      value: 720H→120H(+LLM利用料約20万円)
+      n: 1機能(小規模・限定ドメイン)
+      design: 既存チーム見積りとの比較(単一事例)
+      population: エンジニア出身のPO兼エンジニア1名+AIコーディングエージェント
+    evidenceKind: case-report
+    rqs: [TH02-Q5, TH11-Q2]
+    issues: [267]
+    stance: supports
+  - id: c2
+    text: 同検証の知見として、AIエージェントの導入で見積りがより困難になったと報告し、再現条件として自分で仕様調整やコード修正ができるエンジニアの存在を挙げている。
+    quote: AI コーディングエージェントで見積りはより困難になっている
+    locator: p.10 わかったこと
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q3, TH02-Q5]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: コード作成は開発サイクルの一工程にすぎず、承認・テスト・リリースを含むプロセス全体が最適化されなければ機能がユーザーに届く速度は変わらない、としてDevSecOpsの実現を前提条件に置いている。
+    quote: 開発サイクル全体のうち、コード作成はあくまで一工程に過ぎない。承認・テスト・リリースを含むプロセス全体が最適化されなければ、機能がユーザーに届く速度は変わらない
+    locator: p.24 DevSecOps の普及
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 開発のボトルネックが実装から判断へ移り、受発注・ユーザー企業とSIer・POと開発者という体制全般の変革が必要になるとしている。
+    quote: 開発速度は劇的に向上している、開発のボトルネックは実装から判断へ
+    locator: p.6 開発生産性の向上とボトルネックの移動
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1, TH02-Q5]
+    issues: []
+    stance: context
+  - id: c5
+    text: AIエージェント任せにすると不要なテストが増大するため、テストの効果やシンプル化を並行して検討するとし、プロジェクトごとのスキル・MCPの利用制御は別途管理が必要で検証中としている。
+    quote: AI エージェント任せの場合不要なテストが増大するので、効果的なテストなのか、シンプル化などを並行して検討
+    locator: p.28 品質強化のための静的解析、セキュリティテスト
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q3, TH03-Q1]
+    issues: [270]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:23.607Z
+    httpStatus: 200
+    finalUrl: https://pages.awscloud.com/rs/112-TZM-766/images/R11_0625_3_AIM203_v1.pdf
+    contentType: application/pdf; charset=utf-8
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 720H前後(576〜864H)→ 120H前後+LLM利用料約20万
+        extractedQuote: 従来見積り(PO +エンジニア)：720 H 前後(576 〜864 H) → 実験結果：120 H 前後＋LLM 利用料約20 万
+        locator: p.10 AI コーディングエージェント導入による効果検証
+        note: 原文は『約20 万』で単位『円』は無い。条件は『エンジニア出身の PO、小規模・限定されたドメインで既存チームとの見積り比較』。
+      c2:
+        verdict: match
+        extractedValue: 見積りはより困難 / 自身で仕様調整やコード修正ができるエンジニアがいる場合再現可能
+        extractedQuote: AI コーディングエージェントで見積りはより困難になっている 再現に必要な条件：自身で仕様調整やコード修正ができるエンジニアがいる場合再現可能
+        locator: p.10 わかったこと
+        note: 同じ欄に『仕様調整と実装への反映が早くなることで生産性は大きく向上する』もある。
+      c3:
+        verdict: match
+        extractedValue: DevSecOps の実現が不可欠
+        extractedQuote: 開発サイクル全体のうち、コード作成はあくまで一工程に過ぎない。承認・テスト・リリースを含むプロセス全体が最適化されなければ、機能がユーザーに届く速度は変わらない AI エージェントによる素早い開発サイクルを生かすには DevSecOps の実現が不可欠
+        locator: p.24 DevSecOps の普及
+        note: 同じページに『DevSecOps の実現は、公共分野では未だ先進事例として扱われている』とある。
+      c4:
+        verdict: match
+        extractedValue: ボトルネックは実装から判断へ / 体制全般の変革が必要
+        extractedQuote: 開発速度は劇的に向上している、開発のボトルネックは実装から判断へ ... 実装がボトルネックとならないことで、体制全般の変革が必要 従来の受発注、ユーザー企業とSIer、PO と開発者という体制も大きく変化
+        locator: p.6 開発生産性の向上とボトルネックの移動
+        note: ""
+      c5:
+        verdict: match
+        extractedValue: 不要なテストが増大 / スキルや MCP の制御は管理が別途必要なため検証中
+        extractedQuote: (p.28) AI エージェント任せの場合不要なテストが増大するので、効果的なテストなのか、シンプル化などを並行して検討 / (p.30) 利用可能なスキルやMCP の制御は管理が別途必要なため検証中
+        locator: p.28 品質強化のための静的解析、セキュリティテスト(テスト部分)/ p.30 プロジェクトごとの Memory / Skills / MCP(スキル・MCP 部分)
+        note: ask は2つのページを1文に合成している。スキル・MCP の利用制御の記述は p.28 ではなく p.30 にある。p.30 の原文は『プロジェクトごとに必要なものは異なる可能性が高いので、プロジェクトに委ねる』に続けて『利用可能なスキルやMCP の制御は管理が別途必要なため検証中』。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

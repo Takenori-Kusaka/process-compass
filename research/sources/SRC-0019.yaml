@@ -1,0 +1,82 @@
+schemaVersion: 0
+id: SRC-0019
+status: included
+excludeReason: null
+title: Training Language Models to Self-Correct via Reinforcement Learning
+url: https://arxiv.org/abs/2409.12917
+canonicalUrl: arxiv:2409.12917
+ids:
+  arxiv: "2409.12917"
+  doi: null
+publisher: arXiv(Google DeepMind)
+authors: [Kumar Aviral, Zhuang Vincent, Agarwal Rishabh, Su Yi, Co-Reyes John D, Singh Avi, Baumli Kate, Iqbal Shariq, Bishop Colton, Roelofs Rebecca, Zhang Lei M, McKinney Kay, Shrivastava Disha, Paduraru Cosmin, Tucker George, Precup Doina, Behbahani Feryal, Faust Aleksandra]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2024-09-19
+publishedBasis: arxiv-v1
+version: v2
+updated: 2024-10-04
+accessed: 2026-09-23
+access: open
+readLevel: abstract
+foundBy:
+  cluster: C00a-2
+  query: "反証探索: GET https://arxiv.org/abs/2409.12917(Huang 2310.01798 への反証候補)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: 反証側。Huang らの「自己修正は効かない」はプロンプトのみの設定であり、多段 RL で訓練すれば自己生成データだけで内在的自己修正が改善する(MATH +15.6%、HumanEval +9.1%)と報告。ベンダー自社モデル(Gemini)での自己申告。
+claims:
+  - id: c1
+    text: 多段オンライン RL(SCoRe)で Gemini 1.0 Pro / 1.5 Flash の自己修正性能が MATH で +15.6%、HumanEval で +9.1% 改善。「内在的自己修正は効かない」は訓練なしの設定に限られる。
+    quote: SCoRe achieves state-of-the-art self-correction performance, improving the base models' self-correction by 15.6% and 9.1% respectively on MATH and HumanEval
+    locator: Abstract
+    quant:
+      value: +15.6% (MATH) / +9.1% (HumanEval)
+      n: 未確認(abstract のみ)
+      design: RL training + benchmark
+      population: Gemini 1.0 Pro, 1.5 Flash
+    evidenceKind: benchmark
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:34:51.500Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2409.12917
+    contentType: text/html; charset=utf-8
+    titleFetched: Training Language Models to Self-Correct via Reinforcement Learning
+    titleMatch: true
+    dateMeta: 2024-09-19
+    quotes:
+      c1: found
+    arxiv:
+      status: 200
+      title: Training Language Models to Self-Correct via Reinforcement Learning
+      authors: ["Kumar, Aviral", "Zhuang, Vincent", "Agarwal, Rishabh", "Su, Yi", "Co-Reyes, John D", "Singh, Avi"]
+      v1Date: 2024-09-19
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Gemini 1.0 Pro / 1.5 Flash; 15.6% と 9.1%(respectively on MATH and HumanEval)
+        extractedQuote: With Gemini 1.0 Pro and 1.5 Flash models, we find that SCoRe achieves state-of-the-art self-correction performance, improving the base models' self-correction by 15.6% and 9.1% respectively on MATH and HumanEval.
+        locator: Abstract(v1, 2024-09-19)
+        note: 原文は 'respectively' で2モデルと2ベンチマークを対にしており、両モデルが両ベンチマークで改善したとは書いていない(モデルとベンチの対応は abstract だけでは明示されない)。主張後半の『内在的自己修正は効かないは訓練なしの設定に限られる』は abstract には無い解釈。abstract は 'it has consistently been found to be largely ineffective in modern LLMs' と記す。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

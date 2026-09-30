@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0233
+status: included
+excludeReason: null
+title: Responsible use of GitHub Copilot agents (application card)
+url: https://docs.github.com/en/copilot/responsible-use/agents
+canonicalUrl: https://docs.github.com/en/copilot/responsible-use/agents
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Docs
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: "docs.github.com cloud agent page -> Application card: GitHub Copilot Agents"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH06, TH01, TH12]
+events: []
+summary: Copilot code review・cloud agent・CLI・SDK・app の責任ある利用を記すアプリケーションカード。新モデル投入時の段階評価と go/no-go 判定、人のレビューの補完としての AI レビュー、レビューのモデル固定を記す。
+claims:
+  - id: c1
+    text: 新モデルは面ごとのベンチマークで基準線と比較し、解決率・トークン効率・遅延で基準以上でなければ次段階へ進めず、部門横断のレビュー委員会が正式な go/no-go を決める。モデル更新を変更管理として扱うベンダー側の手順。
+    quote: A cross-functional review board makes a formal go/no-go decision before any model is approved for user-facing deployment.
+    locator: 8. Evaluations / Performance and quality evaluation methods
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: Copilot code review は人のレビューを補うものであって置き換えるものではないと明記する（同時期に承認機能が追加されており、両者の関係は利用組織側の設定に委ねられる）。
+    quote: Use Copilot code review to supplement human reviews, not to replace them
+    locator: Best practices (Copilot code review)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH01-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: Copilot code review はモデル切り替えを許さない（信頼性・品質を損なうため）。利用者がレビュアーのモデル系統を作成側と変えることはこの製品内では選べない。
+    quote: Model switching is not supported, as changing the model is likely to compromise reliability, user experience, and the quality of review comments.
+    locator: Copilot code review（モデル）
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.528Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/copilot/responsible-use/agents
+    contentType: text/html; charset=utf-8
+    titleFetched: "Application card: GitHub Copilot Agents - GitHub Docs"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

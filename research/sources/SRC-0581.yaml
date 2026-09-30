@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0581
+status: included
+excludeReason: null
+title: Changelog - git-spice
+url: https://abhinav.github.io/git-spice/changelog/
+canonicalUrl: https://abhinav.github.io/git-spice/changelog
+ids:
+  arxiv: null
+  doi: null
+publisher: git-spice (abhinav/git-spice)
+authors: [Gupta Abhinav]
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: 2026-07-21
+publishedBasis: page
+version: v0.31.2
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: git-spice changelog 2026 release stacked branches GitHub GitLab
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events:
+  - date: 2026-06-29
+    label: git-spice v0.30.0 がスタックを一括マージする実験的コマンド(ローカルのマージキュー)を追加
+  - date: 2026-07-21
+    label: git-spice v0.31.2(2026-09-30 取得時点の最新リリース)
+summary: OSS のスタック管理 CLI である git-spice の変更履歴。2026 年は対応フォージを広げ、v0.30.0 でスタックの一括マージ、v0.31.1 で GitHub の CI 二重起動の修正を入れた。最新は v0.31.2(2026-07-21)で、GitHub 標準スタック(2026-07-30)への言及は履歴に無い。
+claims:
+  - id: c1
+    text: git-spice は v0.31.1(2026-07-20)で、PR の base を変えずにブランチを push し直したときに GitHub の CI が二重に起動する不具合を修正した。スタック管理ツール側の操作が CI 発火数に影響していた実例である。
+    quote: "github: Duplicate CI runs are no longer triggered when an updated branch is pushed without changing its pull request base."
+    locator: v0.31.1 - 2026-07-20 / Fixed
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: v0.30.0(2026-06-29)は、スタックを1回の自動操作でマージする実験的コマンドを追加し、git-spice を手元のマージキューとして使えるようにした。
+    quote: These turn git-spice into a local merge queue, allowing you to merge stacks of branches in a single automated operation.
+    locator: v0.30.0 - 2026-06-29
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: context
+  - id: c3
+    text: v0.29.0(2026-05-25)は、下段がマージされたあとに上段 PR の base を付け替える処理を足した。フォージが base を自動で付け替えない場合があることへの対処である。
+    quote: "repo sync: Upstack PRs are now retargeted after their base branch is merged. This handles cases when the forge doesn't automatically retarget their bases."
+    locator: v0.29.0 - 2026-05-25 / Fixed
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:49.952Z
+    httpStatus: 200
+    finalUrl: https://abhinav.github.io/git-spice/changelog/
+    contentType: text/html; charset=utf-8
+    titleFetched: Changelog - git-spice
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: v0.31.1(2026-07-20)
+        extractedQuote: "github: Duplicate CI runs are no longer triggered when an updated branch is pushed without changing its pull request base."
+        locator: v0.31.1 - 2026-07-20 / Fixed
+        note: 「スタック管理ツール側の操作が CI 発火数に影響していた実例」という位置づけは原文に無く、主張側の解釈。原文は修正内容の1行のみ。
+      c2:
+        verdict: match
+        extractedValue: v0.30.0(2026-06-29)、「a single automated operation」(1回)
+        extractedQuote: These turn git-spice into a local merge queue, allowing you to merge stacks of branches in a single automated operation. Enable the experiment with git config spice.experiment.merge true
+        locator: v0.30.0 - 2026-06-29 / リリース冒頭文および Added
+        note: "追加されたコマンドは1つではなく3つ。Added 欄: 「Add 'gs branch merge', 'gs stack merge', and 'gs downstack merge' commands to merge stacks of branches.」。実験扱いは冒頭文「the merge experiment enabling the following commands」と spice.experiment.merge から読める。"
+      c3:
+        verdict: match
+        extractedValue: v0.29.0(2026-05-25)
+        extractedQuote: "repo sync: Upstack PRs are now retargeted after their base branch is merged. This handles cases when the forge doesn't automatically retarget their bases."
+        locator: v0.29.0 - 2026-05-25 / Fixed
+        note: 対象コマンドは repo sync。Fixed 欄の項目であり、Added(新機能)としては掲載されていない。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

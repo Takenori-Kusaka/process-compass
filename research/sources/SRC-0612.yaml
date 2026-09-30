@@ -1,0 +1,153 @@
+schemaVersion: 0
+id: SRC-0612
+status: included
+excludeReason: null
+title: "AI Coding Costs (2026): Claude vs Codex vs Gemini, Real Monthly Spend From Token Math ($20 to $1,000+)"
+url: https://www.morphllm.com/ai-coding-costs
+canonicalUrl: https://morphllm.com/ai-coding-costs
+ids:
+  arxiv: null
+  doi: null
+publisher: Morph (AutoInfra, Inc.)
+authors: []
+orgType: startup
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-07
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G07
+  query: AI coding assistant flat-rate subscription vs usage-based pricing break-even enterprise analysis September 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: モデル提供ベンダー Morph の解説記事(発表日の表記なし。本文は 2026-06-18 時点の単価と 2026-07-01 の出来事に触れる)。定額と従量の損益分岐を、仮定した課題プロファイルと公開単価から計算する。著者自身が「測定したセッションではなくトークン計算の推計」と断っており、上限枯渇の頻度は扱わない。Microsoft の件は Windows Central の報道の孫引きで一次未確認。
+claims:
+  - id: c1
+    text: Max 5x($100)は、Opus 4.8 の API 単価換算で月に約 111 件のバグ修正、または約 26 件の機能実装(稼働日あたり約 5 件)で損益分岐する、という計算値。
+    quote: Max 5x ($100) breaks even against Opus 4.8 API rates at ~111 bug-fix tasks or ~26 features per month, about 5 tasks per working day.
+    locator: "FAQ: Is Claude Max worth it compared to API billing?"
+    quant:
+      value: ~111 bug-fix tasks or ~26 features per month (break-even for Max 5x $100)
+      n: none (no measured sessions)
+      design: token-math projection on an assumed task profile ($0.90 per bug fix, $3.80 per feature on Opus 4.8)
+      population: hypothetical interactive developer
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 対話利用では、稼働日あたり約 1 件を超えるエージェント課題を回すと定額が従量を下回る、と計算する(従量が勝つ条件として散発的な利用・安価なモデル系・上限を超える自動実行量を同じ節で挙げる)。
+    quote: If you run more than ~1 agent task per working day, a subscription beats API billing for interactive use.
+    locator: "Subscription vs API: The Breakeven Math"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 数値は測定ではなく公開単価からの推計であると著者が明記している(根拠水準は低い)。
+    quote: These are token-math projections at published rates, not measured sessions.
+    locator: What One Coding Task Costs
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 定額で 36 倍の補助を引き出すには月 4,000 件(1 日 130 件)相当が要り、それは人の対話作業ではなく cron・CI・Agent SDK の群れだと論じる。
+    quote: "A 36x subsidy means extracting $3,600 of API-equivalent usage from a $100 plan: 4,000 bug-fix-sized tasks per month, or 130 per day."
+    locator: "Subscription vs API: The Breakeven Math"
+    quant:
+      value: 36x = $3,600 API-equivalent from a $100 plan = 4,000 tasks/month
+      n: none
+      design: arithmetic on assumed task cost
+      population: hypothetical
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q3]
+    issues: []
+    stance: context
+  - id: c5
+    text: 従量課金が組織の予算を枯らした事例として、Microsoft の一部門が 2026-06-30 までに Claude Code の利用停止を指示したという報道を引く(Windows Central の孫引き、本調査では一次未確認)。
+    quote: Microsoft's Experiences + Devices division ordered engineers off Claude Code by June 30, 2026, citing token billing that reportedly hit ~$2,000 per engineer per month
+    locator: "FAQ: Did Microsoft really terminate Claude Code licenses over costs?"
+    quant:
+      value: ~$2,000 per engineer per month
+      n: none (secondary report)
+      design: news report cited second-hand
+      population: Microsoft Experiences + Devices division
+    evidenceKind: news-fact
+    rqs: [TH04-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:00.058Z
+    httpStatus: 429
+    finalUrl: https://www.morphllm.com/ai-coding-costs
+    contentType: text/html; charset=utf-8
+    titleFetched: Vercel Security Checkpoint
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Max 5x ($100) / Opus 4.8 / 約111件のバグ修正 / 約26件の機能実装 / 稼働日あたり約5件
+        extractedQuote: Max 5x ($100) breaks even against Opus 4.8 API rates at ~111 bug-fix tasks or ~26 features per month, about 5 tasks per working day.
+        locator: Frequently Asked Questions > Is Claude Max worth it compared to API billing?
+        note: curl は 429(Vercel Security Checkpoint)。tavily_extract(advanced)で本文を取得。原文の「about 5 tasks per working day」は単に tasks と書かれ、機能実装に掛かるとは明示されていない(ask は機能実装の括弧内に置いている。算術上は 111 件のバグ修正 ÷ 稼働日に近い)。
+      c2:
+        verdict: match
+        extractedValue: 稼働日あたり約1件(~1 agent task per working day)
+        extractedQuote: If you run more than ~1 agent task per working day, a subscription beats API billing for interactive use.
+        locator: "Subscription vs API: The Breakeven Math(最終段落)"
+        note: "原文の続き: \"If you run more than ~5 per day, Max 5x beats Pro. API billing only wins when usage is sporadic, when you need a cheaper model family (DeepSeek V4 at $0.21/feature has no subscription to beat), \" 従量が勝つ条件の続き: \"...or when automation volume would blow through the plan's usage limits.\" 同じ段落に「~5 per day を超えると Max 5x が Pro を上回る」という別の閾値もある。tavily の抽出では節冒頭の計算内訳(箇条書き)が落ちている可能性がある。"
+      c3:
+        verdict: match
+        extractedValue: token-math projections at published rates, not measured sessions
+        extractedQuote: These are token-math projections at published rates, not measured sessions.
+        locator: What One Coding Task Costs(表の直前)
+        note: '原文の続き: "Your profile shifts with codebase size and prompt discipline, but the model-to-model ratios hold because they come from the price sheet." 別節 Claude Token Cost by Usage Profile にも "The numbers below are token-math projections, not a live meter." とある。「根拠水準は低い」は ask 側の評価で、原文にその語は無い。'
+      c4:
+        verdict: match
+        extractedValue: 36倍 / 月 4,000件 / 1日 130件
+        extractedQuote: "A 36x subsidy means extracting $3,600 of API-equivalent usage from a $100 plan: 4,000 bug-fix-sized tasks per month, or 130 per day. No human does that interactively."
+        locator: "Subscription vs API: The Breakeven Math(第2段落)"
+        note: '原文の続き: "That volume is cron jobs, CI pipelines, and Agent SDK fleets running under a flat-rate login." 前提は $100 プラン、バグ修正規模の課題(Opus 4.8 で 1 件 $0.90)。節冒頭では Reddit 上の主張として 25-36x と幅で紹介している。'
+      c5:
+        verdict: match
+        extractedValue: 2026-06-30(by June 30, 2026)
+        extractedQuote: Windows Central reported in June 2026 that Microsoft's Experiences + Devices division ordered engineers off Claude Code by June 30, 2026
+        locator: Frequently Asked Questions > Did Microsoft really terminate Claude Code licenses over costs?
+        note: '原文の続き: "citing token billing that reportedly hit ~$2,000 per engineer per month and exhausted the annual AI budget early." 本文節 Why Microsoft Canceled Claude Code Licenses にも同じ日付("told thousands of engineers to stop using Claude Code by June 30, 2026 and move to GitHub Copilot CLI")。出典は Windows Central の 2026 年 6 月の報道と明記。Windows Central の原記事は本作業では取得していない。'
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「Windows Central reported in June 2026 that Microsoft's Experiences + Devices division ordered engineers off Claude Code by June 30, 2026」と、続きの「citing token billing that reportedly hit ~$2,000 per engineer per month and exhausted the annual AI budget early」に一致する。孫引きである点と一次未確認の断りも、Windows Central の原記事を取得していないという blindNote と整合。claimQuote の not-found は、引用が文の途中から始まるためとみられ、内容は原文どおり。
+          date: 2026-09-30
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

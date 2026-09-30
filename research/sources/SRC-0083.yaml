@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0083
+status: included
+excludeReason: null
+title: Manage Fin AI Agent's escalation guidance and rules
+url: https://fin.ai/help/en/articles/13976161-manage-fin-ai-agent-s-escalation-guidance-and-rules
+canonicalUrl: https://fin.ai/help/en/articles/13976161-manage-fin-ai-agent-s-escalation-guidance-and-rules
+ids:
+  arxiv: null
+  doi: null
+publisher: Intercom (Fin Help Center)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-08
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: AI agent asks too many questions over-escalation clarification when to ask vs act study
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01]
+events: []
+summary: Intercom の Fin(サポート AI エージェント)公式ヘルプ(「Updated over 3 weeks ago」表示、2026-09-23 取得)。エスカレーション指針を足すほどエスカレーションが増え解決率が下がると明記し、「人が本当に要る最も狭い状況」だけに書くよう指示。過剰エスカレーションを製品運用の問題として扱う一次資料。
+claims:
+  - id: c1
+    text: エスカレーション指針を追加するほど Fin はより頻繁にエスカレーションし、広い指針は解決率低下と人の対応量増を招く。ベンダー自身が過剰エスカレーションを認めた記述。
+    quote: The more escalation guidance you add, the more often Fin escalates. Broader guidance leads to more escalations, fewer resolutions, and higher human support volume.
+    locator: How to reduce unnecessary escalations
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: supports
+  - id: c2
+    text: 対処は「人の支援が本当に必要な最も狭い状況」に限定して指針を書くこと。「顧客が怒っていたらエスカレーション」のような汎用指示を避け、まず確認質問や切り分けを優先する。
+    quote: Write escalation guidance for the narrowest possible situations where human support is truly required.
+    locator: For best results 箇条書き
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: supports
+  - id: c3
+    text: エスカレーションの申し出は、Fin が解決できた場合でも大半の顧客が受け入れるため、申し出自体が人への引き渡しを誘発する。
+    quote: Most customers accept escalation offers when presented, even if Fin could have resolved the issue.
+    locator: How to reduce unnecessary escalations
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:29.468Z
+    httpStatus: 200
+    finalUrl: https://fin.ai/help/en/articles/13976161-manage-fin-ai-agent-s-escalation-guidance-and-rules
+    contentType: text/html; charset=utf-8
+    titleFetched: "Manage Fin AI Agent&#x27;s escalation guidance and rules | Fin: Help Center"
+    titleMatch: false
+    dateMeta: 2026-08-31
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

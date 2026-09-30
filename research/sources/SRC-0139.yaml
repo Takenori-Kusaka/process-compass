@@ -1,0 +1,114 @@
+schemaVersion: 0
+id: SRC-0139
+status: included
+excludeReason: null
+title: 5th Generation Stage-Gate Model — Eight Game-Changing Updates
+url: https://www.stage-gate.com/about/5th-generation-stage-gate-model/
+canonicalUrl: https://stage-gate.com/about/5th-generation-stage-gate-model
+ids:
+  arxiv: null
+  doi: null
+publisher: Stage-Gate International
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: vendor-official
+published: "2026"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: Stage-Gate early gates technical feasibility "Gate 2" "Gate 3" Cooper
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH09, TH07]
+events: []
+summary: Cooper の Stage-Gate 公式サイトによる第 5 世代の 8 更新。Iterative Stage-Gate では開発段階開始時に製品定義が 50% 未満でもよく、開発中に定義が進化する。AI Agentic Stage-Gate では AI エージェントが Stage 2(事業計画)を自律実行しゲート判定を半自動化する構想を示す。AI 導入案件向けに PoC を Stage 2 に置く 4 段階も提示する。ページは無日付だが 2025 年データを引用。
+claims:
+  - id: c1
+    text: Iterative Stage-Gate では、開発ステージ開始時に製品定義が 50% 未満でもよく、build-test-feedback-revise の反復で定義を固めていく。後段での技術検証と定義変更を制度内に組み込んでいる。
+    quote: The product may be less than 50% defined as the Development Stage begins, but its definition evolves and solidifies over the course of Development.
+    locator: 1. Iterative Stage-Gate
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+  - id: c2
+    text: AI Agentic Stage-Gate では、AI エージェントが市場分析・VOC 統合・技術的実現性・競合評価・財務モデルの各 AI ツールを束ねて Stage 2(事業計画)を自律実行し、ゲート判定を半自動化する構想。
+    quote: an AI agent can autonomously execute Stage 2 in Stage-Gate ® , for example – it acts as an orchestra leader to integrate the various AI tools that do a market analysis, VOC synthesis, technical feasibility
+    locator: 4. AI Agentic Stage-Gate
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH09-Q1, TH09-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: NPD での AI 利用は 2024 年初頭で米欧企業の 23%、2025 年で 28% にとどまる(二次引用)。AI 導入の失敗率は約 80% と述べる。
+    quote: Only 23% of US and EU firms were using AI for any task in NPD by early 2024
+    locator: 3. AI Powered Stage-Gate 末尾
+    quant:
+      value: 23% (early 2024) → 28% (2025)
+      n: not stated
+      design: survey (secondary citation)
+      population: US and EU firms doing NPD
+    evidenceKind: news-fact
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: AI 導入案件向けのテーラード Stage-Gate では、PoC と技術的実現性の検証を Stage 2(調達・アルファテスト)に置き、事業計画(Stage 1)の後、ユーザーパイロット(Stage 3)の前に位置づける。
+    quote: "Stage 2 – Acquisition and Alpha Testing: Select vendors and tools, run proof-of-concept trials and alpha tests, and validate technical feasibility and initial business impact."
+    locator: 5. Use Stage-Gate to Deploy Artificial Intelligence
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:03.258Z
+    httpStatus: 200
+    finalUrl: https://www.stage-gate.com/about/5th-generation-stage-gate-model/
+    contentType: text/html; charset=UTF-8
+    titleFetched: 5th Generation Stage-Gate Model | Stage-Gate International
+    titleMatch: false
+    dateMeta: 2025-12-10
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: "early 2024: 23% / 2025: 28% / 失敗率 about 80%"
+        extractedQuote: Only 23% of US and EU firms were using AI for any task in NPD by early 2024, [12] which had risen modestly to 28% by 2025. [13] … the AI failure rate for business in general is about 80% .
+        locator: 節「3. AI Powered Stage-Gate」末尾段落(脚注12・13・14)
+        note: 23% は脚注12(Cooper & Brem, US/EU 企業)、28% は脚注13(McKinsey "The State of AI" 2025、全世界調査)で出典が異なり、母集団が同一とは限らない。原文は両者を連続した推移として書いている。80% は "for business in general" の AI 失敗率で、NPD 限定ではない。節5では AI 導入・展開案件の失敗率を "as high as 80, even 95%"(Rand、MIT、S&P Global)とも書く。
+      c4:
+        verdict: match
+        extractedValue: Stage 2(Acquisition and Alpha Testing)/ Stage 1(Build the Business Case)/ Stage 3(Pilots with Users)
+        extractedQuote: "Stage 2 – Acquisition and Alpha Testing: Select vendors and tools, run proof-of-concept trials and alpha tests, and validate technical feasibility and initial business impact. Stage 3 – Pilots…"
+        locator: 節「5. Use Stage-Gate to Deploy Artificial Intelligence」のステージ列挙(脚注17)
+        note: 全4ステージ構成(Stage 4 – Scale to Production)。Stage 2 は技術的実現性に加え "initial business impact" の検証も含む。出典は脚注17(Cooper 2025, RTM)。
+    date: 2026-09-23
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://stage-gate.com/about/5th-generation-stage-gate-model

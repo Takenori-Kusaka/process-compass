@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0606
+status: included
+excludeReason: null
+title: Rules | Google Antigravity Docs
+url: https://antigravity.google/docs/rules
+canonicalUrl: https://antigravity.google/docs/rules
+ids:
+  arxiv: null
+  doi: null
+publisher: Google (Antigravity)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G07
+  query: Antigravity docs rules workflows "12,000 characters" rules file limit always on glob model decision
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH04]
+events: []
+summary: "Google Antigravity の規則(Rules)公式文書(日付表記なし、2026-09-30 取得)。常時ロード規則に数値の上限を置く: 1 ファイル 24,000 バイトで打ち切り、常時有効な規則の合計 20,000 トークンを超えると大きいファイルから自動でポインタ(パスと説明)に降格する。上限値の根拠となる測定は示されない。"
+claims:
+  - id: c1
+    text: 規則ファイルは 1 本 24,000 バイトで打ち切られる。
+    quote: Antigravity truncates any single rule file that exceeds 24,000 bytes
+    locator: Size limits and token budgets
+    quant:
+      value: 24,000 bytes per rule file
+      n: none (product limit)
+      design: product specification
+      population: Antigravity rule files
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q1, TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 常時有効(global と always_on)の規則は合計 20,000 トークンの予算を共有し、スキルや MCP の予算とは別枠である。
+    quote: share a 20,000-token budget separate from the customization budget (plugins such as skills and MCP)
+    locator: Size limits and token budgets
+    quant:
+      value: 20,000 tokens aggregate for always-on rules
+      n: none (product limit)
+      design: product specification
+      population: Antigravity global + always_on rules
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 合計が 20,000 トークンを超えると、大きい規則ファイルから自動で本文の注入をやめ、パスと説明だけのポインタに降格する(必要時に読む)。常時ロードから外れた規則が読まれる保証は書かれていない。
+    quote: If the total exceeds 20,000 tokens, Antigravity automatically demotes the largest rule files from inline text to lightweight pointers
+    locator: Size limits and token budgets
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q4, TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: model_decision の規則は、パスと説明だけを先に入れ、課題が説明に合うときにエージェントが本文を読む(progressive disclosure と明記)。
+    quote: Antigravity injects only the rule’s path and description upfront (progressive disclosure).
+    locator: Activation modes
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: rules/ 配下の規則は frontmatter が欠けるか trigger の値が不正だと、警告なく破棄される(守られない規則が黙って落ちる機構の 1 つ)。
+    quote: Antigravity silently discards the rule
+    locator: YAML frontmatter and activation modes / Caution
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:57.115Z
+    httpStatus: 200
+    finalUrl: https://antigravity.google/docs/rules
+    contentType: text/html
+    titleFetched: Rules | Google Antigravity Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1 本(per-file)24,000 バイト(24 KB)
+        extractedQuote: "24 KB (24,000 bytes) per-file limit: Antigravity truncates any single rule file that exceeds 24,000 bytes (after expanding @[label](path) includes)."
+        locator: Size limits and token budgets(1 項目め)
+        note: "上限は @[label](path) の include を展開した後の大きさに掛かる。同じ節に 2 つ目の上限がある: 有効な global と always_on の規則の合計 20,000 トークンで、超えると最も大きい規則ファイルから inline ではなくポインタへ降格する(打ち切りではない)。"
+      c5:
+        verdict: match
+        extractedValue: silently discards the rule(警告なく破棄)
+        extractedQuote: If a file in .agents/rules/*.md omits frontmatter or specifies an unrecognized trigger value (such as camelCase alwaysOn or modelDecision), Antigravity silently discards the rule.
+        locator: YAML frontmatter and activation modes / Caution
+        note: "tavily_extract の結果には Caution の囲みが含まれなかった。curl で取得した HTML から確認した。「機構の 1 つ」という数え方は原文に無い。同じページに別の Caution(Flat directory scanning: .agents/rules/ の直下だけを走査し、サブディレクトリ内のファイルは rules.json へ登録しない限り無視する)がある。AGENTS.md と GEMINI.md は frontmatter を使わないので、この破棄の対象は rules/ 配下の .md に限られる。"
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「If a file in .agents/rules/*.md omits frontmatter or specifies an unrecognized trigger value ..., Antigravity silently discards the rule.」と一致する。対象を rules/ 配下に限っている点も blindNote(AGENTS.md と GEMINI.md は対象外)と整合。「機構の 1 つ」は主張側の数え方で原文には無いが、同ページに別の Caution(サブディレクトリの無視)があり矛盾しない。
+          date: 2026-09-30
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

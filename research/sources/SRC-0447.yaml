@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0447
+status: included
+excludeReason: null
+title: Stacked pull requests (GitHub Docs reference)
+url: https://docs.github.com/en/enterprise-cloud@latest/pull-requests/reference/stacked-pull-requests
+canonicalUrl: https://docs.github.com/en/enterprise-cloud@latest/pull-requests/reference/stacked-pull-requests
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Docs
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-30
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH10
+  query: GitHub stacked PRs pull_request workflow trigger base branch CI checks run on stacked branch
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH07]
+events: []
+summary: スタック型PRの規則リファレンス(public preview)。公開日は github/docs リポジトリの初回コミット日(2026-07-30)による。ブランチ保護・必須チェック・CODEOWNERS をスタックの基底に対して評価する仕様、merge queue、線形履歴要件を定める。
+claims:
+  - id: c1
+    text: スタック内の各PRは、直接の base ブランチではなくスタックの基底(通常 main)に対する規則で評価され、中間のPRも最下段と同じ基準に掛かる。
+    quote: Every pull request in a stack is evaluated against rules for the base of the stack — typically main — regardless of which branch it directly targets.
+    locator: 冒頭 / Branch protections and required checks
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: contradicts
+  - id: c2
+    text: merge queue はスタックを完全にサポートし、スタックをまとめるためにマージグループの上限を最大50%超過でき、それでも収まらなければ連続するグループへ分割する。
+    quote: To keep a stack together, the merge queue allows the merge group to exceed its configured maximum size by up to 50 percent.
+    locator: Merging through a merge queue
+    quant:
+      value: 上限の最大50%超過
+      n: null
+      design: 製品仕様
+      population: GitHub merge queue
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: context
+  - id: c3
+    text: スタック内の全ブランチ間で完全な線形履歴がマージの厳格な要件であり、下位への push や trunk の進行で失われたら cascading rebase で回復する必要がある。
+    quote: A fully linear history between every branch in the stack is a strict requirement for merging.
+    locator: Linear history
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:55.586Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/enterprise-cloud@latest/pull-requests/reference/stacked-pull-requests
+    contentType: text/html; charset=utf-8
+    titleFetched: Stacked pull requests - GitHub Enterprise Cloud Docs
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

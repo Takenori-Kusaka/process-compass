@@ -1,0 +1,106 @@
+schemaVersion: 0
+id: SRC-0254
+status: included
+excludeReason: null
+title: AI時代のシステム開発に必要な説明責任
+url: https://www.nttdata.com/jp/ja/trends/data-insight/2026/0423
+canonicalUrl: https://nttdata.com/jp/ja/trends/data-insight/2026/0423
+ids:
+  arxiv: null
+  doi: null
+publisher: NTTデータ DATA INSIGHT
+authors: [正木 俊伍, 竹之内 啓太]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-04-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: NTTデータ 生成AI 開発 標準 AIエージェント システム開発 2026 生産性
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH05, TH06, TH12]
+events:
+  - date: 2026-03-26
+    label: NTTデータがホワイトペーパー「アカウンタビリティを軸としたAI-Native開発のデザイン戦略」を公開(記事中のリンク先ニュース日付)
+summary: NTTデータのホワイトペーパーの要約記事。スリーラインモデルで生成・品質担保・説明責任を切り分け、AI-Generated/AI-Verified/AI-Explainableの3段階で責務がAIへ移っても最終的なアカウンタビリティは人に残るとする。
+claims:
+  - id: c1
+    text: AIが担う範囲は拡大するが、最終的なアカウンタビリティは人に残るとし、責務の担い手を明示的に設計する必要があるとする。
+    quote: 問題は、これらの責務を誰が担うかです。AIが担う範囲は拡大していきますが、最終的なアカウンタビリティは依然として人に残ります。
+    locator: 3．商用システム開発における4つの責務
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: supports
+  - id: c2
+    text: 開発への適用に内部統制のスリーラインモデル(執行・監督・監査)を用い、成果物の生成、品質の担保、最終的な説明責任を切り分けている。
+    quote: ホワイトペーパーでは、執行（第一ライン）、監督（第二ライン）、監査（第三ライン）という三層で役割分担を捉えるスリーラインモデルを用いています。
+    locator: 3．商用システム開発における4つの責務 図3
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2, TH06-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: 自律度を役割単位の二値ではなく、どの責務をAIが担うかで3段階(AI-Generated/AI-Verified/AI-Explainable)に分ける。第2段階では人は個々の成果物レビューの比重を下げ品質基準とプロセス設計へ移る。
+    quote: 第2段階の「AI-Verified」は、AIが検証や品質判定にも関与する段階です。AIが品質基準に基づいて成果物をチェックするため、人は個々の成果物のレビューにかける比重を下げ、品質基準やプロセス全体の設計・管理にシフトします。
+    locator: 4．責務分担の段階的な変化 図4 AI-Native ソフトウェア開発成熟度レベル
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+  - id: c4
+    text: アカウンタビリティを支えるために、判断理由と変更履歴(どの指示で、どのファイルを、なぜ変更したか)を証跡として残すことを設計ポイントに挙げる。
+    quote: 最後に、アカウンタビリティを支えるために、判断理由と変更履歴を証跡として残すことが重要です。
+    locator: 5．責務分担を踏まえた設計のポイント
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH05-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:17.507Z
+    httpStatus: 200
+    finalUrl: https://www.nttdata.com/jp/ja/trends/data-insight/2026/0423/
+    contentType: text/html; charset=utf-8
+    titleFetched: AI時代のシステム開発に必要な説明責任
+    titleMatch: true
+    dateMeta: 2026-04-23
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 3段階 / 第2段階(AI-Verified)
+        extractedQuote: ホワイトペーパーでは、この変化を3つの段階で整理しています（図4）。重要なのは各段階を「どの責務をAIが担うか」という観点で捉えることです。
+        locator: 4．責務分担の段階的な変化 図4 AI-Native ソフトウェア開発成熟度レベル
+        note: 第2段階の原文:「第2段階の「AI-Verified」は、AIが検証や品質判定にも関与する段階です。AIが品質基準に基づいて成果物をチェックするため、人は個々の成果物のレビューにかける比重を下げ、品質基準やプロセス全体の設計・管理にシフトします。」 原典は「成熟度レベル」で「各段階を『どの責務をAIが担うか』という観点で捉える」と述べるのみ。askの「自律度」「役割単位の二値ではなく」に相当する対比の記述は原典に無い(askの解釈による枠付け)。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://nttdata.com/jp/ja/trends/data-insight/2026/0423

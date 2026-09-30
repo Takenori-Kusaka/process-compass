@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0402
+status: included
+excludeReason: null
+title: Code Review for Claude Code
+url: https://claude.com/blog/code-review
+canonicalUrl: https://claude.com/blog/code-review
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (claude.com blog)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-03-09
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: Anthropic Claude Code "Code Review" launch multi-agent review findings marked incorrect percent 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH01]
+events:
+  - date: 2026-03-09
+    label: Anthropic が Claude Code の Code Review(研究プレビュー)を発表
+summary: Anthropic が Claude Code のマルチエージェント PR レビューを発表した公式ブログ。並列で探し、検証して誤検知を落とし、重大度順に並べる。PR は承認せず、承認は人間の判断と明記。社内値は自己測定。
+claims:
+  - id: c1
+    text: PR が開かれると複数のエージェントが並列でバグを探し、バグを検証して誤検知を除き、重大度で順位付けする。
+    quote: The agents look for bugs in parallel, verify bugs to filter out false positives, and rank bugs by severity.
+    locator: How it works
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+  - id: c2
+    text: 実質的なレビューコメントが付く PR は16%から54%に増えた。エンジニアは指摘におおむね同意しており、誤りと付けられた指摘は1%未満だった(自社測定。誰が誤りと付けたかは原文に明記されていない)。
+    quote: "Before, 16% of PRs got substantive review comments. Now 54% do. ... Engineers largely agree with what it surfaces: less than 1% of findings are marked incorrect."
+    locator: Managing the review bottleneck(16%→54%)/ Code Review in action(1%未満)
+    quant:
+      value: 誤り判定 1%未満、実質コメント付き PR 16%→54%、1,000 行超の PR で 84% に指摘(平均 7.5 件)
+      n: 不明(社内のほぼ全 PR、数か月)
+      design: vendor internal observation
+      population: Anthropic 社内 PR
+    evidenceKind: news-fact
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: contradicts
+  - id: c3
+    text: Code Review は PR を承認しない。承認は引き続き人間の判断とする設計である。
+    quote: It won't approve PRs — that's still a human call — but it closes the gap so reviewers can actually cover what's shipping.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH01-Q2]
+    issues: [257, 248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:16.188Z
+    httpStatus: 200
+    finalUrl: https://claude.com/blog/code-review
+    contentType: text/html; charset=utf-8
+    titleFetched: Code Review for Claude Code | Claude by Anthropic
+    titleMatch: true
+    dateMeta: Mar 09, 20
+    quotes:
+      c1: found
+      c2: found
+      c3: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 16% → 54% / 1%未満
+        extractedQuote: "Before, 16% of PRs got substantive review comments. Now 54% do. ... Engineers largely agree with what it surfaces: less than 1% of findings are marked incorrect."
+        locator: Managing the review bottleneck(16%→54%)/ Code Review in action(1%未満)
+        note: 16%→54% は locator の「Code Review in action」ではなく前の節「Managing the review bottleneck」にある。「判定者は自社エンジニア」は文脈(Engineers largely agree)からの推定で、誰が incorrect と付けたかは明記されていない。
+        adjudication:
+          verdict: corrected
+          reason: "16%→54%、1%未満の数値は一致する。ただし『判定者は自社エンジニア』は原文『Engineers largely agree with what it surfaces: less than 1% of findings are marked incorrect』の文脈から推定したもので、誰が incorrect と付けたかは明記されていない。推定を事実として括弧書きしている点だけ直した。claimQuant の『1,000行超の PR で84%・平均7.5件』は抜粋に無く判定対象外。"
+          date: 2026-09-24
+          originalText: 社内では実質的なレビューコメントが付く PR が 16% から 54% に増え、誤りと判定された指摘は 1% 未満だった(自社測定、判定者は自社エンジニア)。
+          originalQuote: "Engineers largely agree with what it surfaces: less than 1% of findings are marked incorrect."
+      c3:
+        verdict: match
+        extractedValue: It won't approve PRs — that's still a human call
+        extractedQuote: It won't approve PRs — that's still a human call — but it closes the gap so reviewers can actually cover what's shipping.
+        locator: Managing the review bottleneck(冒頭直後の節)
+        note: 原文は承認しないことを述べているが、「設計である」と明示してはいない。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

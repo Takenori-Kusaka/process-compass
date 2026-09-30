@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0381
+status: included
+excludeReason: null
+title: ADRはAI駆動開発の武器になるが、負債にもなるかもしれない
+url: https://zenn.dev/ncdc/articles/ad8bdc27c199b6
+canonicalUrl: https://zenn.dev/ncdc/articles/ad8bdc27c199b6
+ids:
+  arxiv: null
+  doi: null
+publisher: NCDC テックブログ(Zenn)
+authors: [いばらき]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-08-15
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH05
+  query: ADR 運用 Zenn 2026 アーキテクチャ決定記録 AI エージェント
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH03]
+events: []
+summary: NCDC の考察記事(2026-08-15)。AI エージェントは ADR 形式の決定を他の文書より強く守るため、陳腐化した ADR にも従い続け、ADR は増える一方で減らない。削除ではなく、確信度・再検証日・MUST/SHOULD・前提を文書内に書く方向を提案する。著者自身が検証データは無いと明記している。
+claims:
+  - id: c1
+    text: ADR 形式で記録すると AI エージェントはよく守り、CLAUDE.md や AGENTS.md に書くより守られるように見える(著者の体感で検証データは無い)。
+    quote: ADRという形式で記録を残すとAIエージェントはその内容を守ってくれる事が多いです。不思議なことに、他の汎用ドキュメントどころかCLAUDE.mdやAGENT.mdに残すよりもよく守ってくれるように思います。
+    locator: はじめに
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q1, TH03-Q3]
+    issues: [272]
+    stance: context
+  - id: c2
+    text: 人は古い ADR を暗黙に無効化できるが、AI は Accepted と書かれていれば陳腐化していても額面どおり従い続ける。AI 駆動開発では古い ADR ほど実害になる。
+    quote: AIエージェントには、この暗黙の無効化ができません。ADRに Accepted と書いてあれば、陳腐化していても前提が崩れていようと額面通りに従い続けます。
+    locator: 古くなったADRや陳腐化したADRも守られ続ける
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: supports
+  - id: c3
+    text: ADR は決定のたびに1枚増え、減る仕組みが基本的に無い。supersede の作法は信頼性を守るが本数は減らさない。
+    quote: ADRは「決定のたびに1枚増える」文書であり、減る仕組みが基本的にありません。
+    locator: 古くなったADRや陳腐化したADRも守られ続ける
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q5, TH05-Q3]
+    issues: [272]
+    stance: supports
+  - id: c4
+    text: 具体的な決定は現実とぶつかって supersede されるが、抽象的な原則は反証できないまま積み上がる(原則を ADR に混ぜると増殖する)。
+    quote: 具体的な決定は淘汰されるのに、抽象的な原則は反証不可能なまま積み上がり続ける
+    locator: 抽象的なADRは、反証不可能なまま積み上がる
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1]
+    issues: [251, 272]
+    stance: supports
+  - id: c5
+    text: 解決は読み手側のツールではなく、古さと抽象度を文書自身に平文で自己記述させること(確信度・再検証日・MUST/SHOULD・前提)とする。削除主義とは別の解。
+    quote: 古さと抽象度を文書自身に平文で自己記述させる方が、ポータブルで筋が良いと考えています。
+    locator: まとめ
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:40.412Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/ncdc/articles/ad8bdc27c199b6
+    contentType: text/html; charset=utf-8
+    titleFetched: ADRはAI駆動開発の武器になるが、負債にもなるかもしれない
+    titleMatch: true
+    dateMeta: 2026-08-15
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

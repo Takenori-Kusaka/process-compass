@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0358
+status: included
+excludeReason: null
+title: "AGENTIF: Benchmarking Large Language Models Instruction Following Ability in Agentic Scenarios"
+url: https://arxiv.org/abs/2505.16944
+canonicalUrl: arxiv:2505.16944
+ids:
+  arxiv: "2505.16944"
+  doi: 10.52202/085713-1892
+publisher: NeurIPS 2025 Datasets and Benchmarks Track
+authors: [Qi Yunjia, Peng Hao, Wang Xiaozhi, Xin Amy, Liu Youfeng, Xu Bin, Hou Lei, Li Juanzi]
+orgType: academic
+region: cn
+lang: en
+sourceType: paper-peer
+published: 2025-12
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: AgentIF benchmarking instruction following agentic scenarios constraints per instruction NeurIPS
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03]
+events: []
+summary: 実運用エージェント50件のシステムプロンプト由来の指示(平均1,723語・11.9制約)で遵守を測った査読済みベンチマーク。最良モデルでも完全遵守は30%未満で、指示が長いほど悪化する。
+claims:
+  - id: c1
+    text: 全モデルの成績が低く、最良モデルでも指示を完全に守れたのは30%未満である。
+    quote: all LLMs perform poorly and even the best-performing model only follows fewer than 30% of the instructions perfectly.
+    locator: §1 Introduction
+    quant:
+      value: <30% instruction success rate (best model)
+      n: 707 instructions from 50 agentic applications
+      design: benchmark
+      population: thinking / non-thinking LLMs (2025)
+    evidenceKind: benchmark
+    rqs: [TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 指示長や制約数が増えるほど成績は下がり、指示が6,000語を超えると全モデルの完全遵守率はほぼ0になる。著者は短い指示への分割を推奨する。
+    quote: Notably, when instruction length exceeds 6,000 words, the ISR scores of all models are nearly 0.
+    locator: §4.4 Analysis of Instruction Length and Constraint Quantity
+    quant:
+      value: ISR ≈ 0 above 6,000 words
+      n: 707 instructions
+      design: bucketed analysis
+      population: agentic system prompts
+    evidenceKind: benchmark
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: [274]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:29.591Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2505.16944
+    contentType: text/html; charset=utf-8
+    titleFetched: "AGENTIF: Benchmarking Instruction Following of Large Language Models in Agentic Scenarios"
+    titleMatch: false
+    dateMeta: 2025-05-22
+    quotes:
+      c1: partial
+      c2: partial
+    arxiv:
+      status: 200
+      title: "AGENTIF: Benchmarking Instruction Following of Large Language Models in Agentic Scenarios"
+      authors: ["Qi, Yunjia", "Peng, Hao", "Wang, Xiaozhi", "Xin, Amy", "Liu, Youfeng", "Xu, Bin"]
+      v1Date: 2025-05-22
+      latestVersion: 1
+      titleMatch: false
+    crossref:
+      status: 200
+      title: "AGENTIF: Benchmarking Large Language Models Instruction Following Ability in Agentic Scenarios"
+      issued: "2025"
+      titleMatch: true
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 30%(fewer than 30%)
+        extractedQuote: all LLMs perform poorly and even the best-performing model only follows fewer than 30% of the instructions perfectly.
+        locator: §1 Introduction(Figure 1(b) への言及)
+        note: §4.2 では最良の ISR は 27.2 と記載。取得は arxiv.org/html/2505.16944
+      c2:
+        verdict: match
+        extractedValue: 6,000 words / nearly 0
+        extractedQuote: Notably, when instruction length exceeds 6,000 words, the ISR scores of all models are nearly 0. This indicates that overly long instructions ... should be avoided in practice.
+        locator: §4.4 Analysis of Instruction Length and Constraint Quantity
+        note: 分割については 'one can explore decomposing tasks into several sub-tasks with several shorter instructions' という表現で、ask の「推奨する」より弱い(検討の提示)。「避けるべき」は長い指示について明言している
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

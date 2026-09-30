@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0267
+status: included
+excludeReason: null
+title: チームの人数が減っても仕事を回す ── AIとGitHub Actionsによる開発ワークフロー改善
+url: https://techblog.zozo.com/entry/wear-web-fe-adjust-workflow
+canonicalUrl: https://techblog.zozo.com/entry/wear-web-fe-adjust-workflow
+ids:
+  arxiv: null
+  doi: null
+publisher: ZOZO TECH BLOG
+authors: [吉田]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-09-01
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: "RSS走査: 国内Web系21社の技術ブログフィード(freee, マネーフォワード, SmartHR, サイバーエージェント, LINEヤフー, DeNA, Sansan, ZOZO, エムスリー, ANDPAD, メルカリ, GMO, ゆめみ, Ubie, ログラス, カケハシ, 10X, UPSIDER, Gaudiy, ヤプリ 等)を AI|Claude|Codex|エージェント|LLM|レビュー|ハーネス で抽出"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH06, TH07, TH10]
+events: []
+summary: 異動で人数が減ったWEAR Webチームが、リスクに応じて必要Approve数を1/2件に動的判定し、低リスクPRはAIレビューで自動Approveする仕組みを入れた報告。AIのレビュー基準の変更には人間2名の承認を必須にした。
+claims:
+  - id: c1
+    text: 体制の変化点(異動によるメンバー減)が起点で、少人数で全PRをレビューする負荷とApprove待ちが問題になった。
+    quote: Webブロックでは、異動によりメンバーが減ったことで、開発ワークフローのさまざまな工程で効率化が求められていました。
+    locator: はじめに
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH02-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 必要Approve数をパスルール・AI判定・人のラベルで1件か2件に決める。AIは引き上げのみ可能で、判定に失敗した場合は2件を必須にする(fail-closed)。
+    quote: AIによる判定：パスルールだけでは判定できない意味的なリスクをAIが評価する。必要なApprove数の引き上げのみを許可し、判定に失敗した場合は2件のApproveを必須にする。
+    locator: レビュー負荷の分散(必要なApprove数の動的な判定)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH02-Q4, TH01-Q1]
+    issues: [254]
+    stance: supports
+  - id: c3
+    text: AIのマルチエージェントレビューで重要度の高い指摘がなければ自動Approveするが、.claude/配下などレビュー基準を変えるPRは人間2名の承認を必須にし、AIが自身の基準変更を承認できないようにした。
+    quote: .claude/ 配下などレビュー基準を変更するプルリクエストには、人間2名のApproveを必須にしています。これにより、AIレビューの基準を変更するプルリクエストをAIのApproveだけでマージできないようにしています。
+    locator: AIコードレビュー
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q1, TH07-Q1]
+    issues: []
+    stance: context
+  - id: c4
+    text: 施策後、遅いときに30時間以上かかっていたマージまでのリードタイムが20時間以内に収まったと図で示している(期間・件数は非開示)。
+    quote: 濃い青の実線がリードタイム。遅い時はマージまで30時間以上かかっていたのが、20時間以内に収まっている。
+    locator: 結果
+    quant:
+      value: 30時間以上→20時間以内
+      n: 非開示
+      design: リードタイム推移グラフの目視(自己報告)
+      population: WEAR Web チームのPR
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.614Z
+    httpStatus: 200
+    finalUrl: https://techblog.zozo.com/entry/wear-web-fe-adjust-workflow
+    contentType: text/html; charset=utf-8
+    titleFetched: チームの人数が減っても仕事を回す ── AIとGitHub Actionsによる開発ワークフロー改善 - ZOZO TECH BLOG
+    titleMatch: true
+    dateMeta: 2026-09-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 1件または2件 / 判定失敗時は2件
+        extractedQuote: プルリクエストのリスクに応じて、マージに必要なApprove数を1件または2件に設定します。…AIによる判定：…必要なApprove数の引き上げのみを許可し、判定に失敗した場合は2件のApproveを必須にする。
+        locator: "必要なApprove数の動的判定とRenovateの自動マージでレビュー負荷を下げる(1つ目: 必要なApprove数の動的な判定)"
+        note: 「fail-closed」は原典にない語(要約側の言い換え)。人のラベルは2件への引き上げのみで「1件へ引き下げる操作は用意していない」。同節ではAIコードレビューが重要指摘なしなら自動Approveすると別記。.claude/ 配下などレビュー基準を変えるPRは人間2名のApprove必須。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

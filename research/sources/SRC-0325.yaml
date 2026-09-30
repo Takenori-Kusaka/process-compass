@@ -1,0 +1,149 @@
+schemaVersion: 0
+id: SRC-0325
+status: included
+excludeReason: null
+title: "Prompt Design at Scale: How Format, Instruction Count, and Context Length Shape Instruction Adherence and Hallucination in Large Language Models"
+url: https://arxiv.org/abs/2607.19257
+canonicalUrl: arxiv:2607.19257
+ids:
+  arxiv: "2607.19257"
+  doi: null
+publisher: arXiv (cs.CL) / Machine Human Intelligence Lab (MHIL)
+authors: [Netanel Eliav]
+orgType: individual
+region: global
+lang: en
+sourceType: preprint
+published: 2026-07-21
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: (abs:"instruction density" OR abs:"simultaneous instructions" OR abs:"instruction count" OR abs:"context rot" OR abs:"system prompt length")'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: 指示の形式(markdown・平文・散文・表)、同時に課すルール数(10〜160)、文脈長(2k〜512k)を交差させ、5モデルで指示遵守と幻覚を測った統制実験(VeyraBench)。ルール数80で全ルール遵守は全条件ゼロ。
+claims:
+  - id: c1
+    text: 5モデル(Claude Sonnet 5、Claude Haiku、Gemini Flash、Qwen 27B/35B)でルール数を 10 から 160 へ増やすと、全ルールを満たす完全応答率は N=80 までに全形式・両配置で実質ゼロ(effectively at zero)へ落ちた。ただし Table 4 では N=80 でも Gemini Flash 0.019、Qwen 27B 0.006 が残り、全モデルが 0.000 になるのは N=120 からである。
+    quote: Perfect-response rate collapses to zero by N=80 for every model, every format, and both placements, a floor effect essentially independent of format.
+    locator: Abstract (Experiment 1); §4 Table 4
+    quant:
+      value: 完全応答率 0%(N=80)
+      n: 5 models × 960 calls/model(ルール数×4形式×2配置)
+      design: controlled experiment
+      population: Claude Sonnet 5, Claude Haiku, Gemini Flash, Qwen 2サイズ; 合成コーパス Book of Veyra
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: [269, 274]
+    stance: supports
+  - id: c2
+    text: markdown に信頼できる優位を示したモデルはなく、35B のオープンウェイトモデルは平文を好んだ。
+    quote: No model shows a reliable markdown advantage; one 35B model favors plain text instead.
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: 想起精度は64〜128k トークンまではほぼ天井で、その先で急激かつ形式依存的に低下した(128k で形式間の差が最大48pt)。
+    quote: Recall stays near ceiling through 64-128k tokens, then degrades sharply and format-dependently
+    locator: Abstract; Experiment 2
+    quant:
+      value: 64–128k まで天井、以降低下(最大48pt差)
+      n: 5 models × 5,520 calls/model(2k–512k)
+      design: controlled experiment
+      population: 同上
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q2, TH03-Q3]
+    issues: [274]
+    stance: supports
+  - id: c4
+    text: 捏造は一度も起きず(0/5,760)、迎合も無視できる水準(≤8.3%)だった。文脈上限付近で急増したのは回答拒否(0%→79〜90%)だった。長い文脈で「嘘をつく」より「答えない」が増える。
+    quote: Fabrication never occurs (0/5,760 probes), and sycophancy stays negligible (<=8.3%).
+    locator: Abstract; §5.4–5.5
+    quant:
+      value: fabrication 0/5,760; sycophancy ≤8.3%; refusal 0→79–90%
+      n: 同上
+      design: controlled experiment
+      population: 同上
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4, TH04-Q2]
+    issues: [268]
+    stance: contradicts
+  - id: c5
+    text: コーパスは単一の架空領域で、ソースコードや法文書などへの一般化は未検証と著者が限界を述べる。
+    quote: The corpus is a single fictional domain
+    locator: §9 Limitations
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:01.084Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.19257
+    contentType: text/html; charset=utf-8
+    titleFetched: "Prompt Design at Scale: How Format, Instruction Count, and Context Length Shape Instruction Adherence and Hallucination in Large Language Models"
+    titleMatch: true
+    dateMeta: 2026-07-21
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: "Prompt Design at Scale: How Format, Instruction Count, and Context Length Shape Instruction Adherence and Hallucination in Large Language Models"
+      authors: ["Eliav, Netanel"]
+      v1Date: 2026-07-21
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "N: 10 → 160; zero by N=80"
+        extractedQuote: Perfect-response rate collapses to zero by N=80 for every model, every format, and both placements, a floor effect essentially independent of format.
+        locator: Abstract (Experiment 1); §4 Table 4
+        note: "Abstract: rule count N grows from 10 to 160。Table 4(形式と配置をまとめた値)では、N=80 で Gemini Flash が 0.019、Qwen 27B が 0.006 と厳密には 0 ではなく、全モデルが 0.000 になるのは N=120 から。本文は『effectively at zero perfect-response rate by N=80』と書いている。対象は5モデル(Claude Sonnet 5, Claude Haiku, Gemini Flash, Qwen 27B/35B)。"
+        adjudication:
+          verdict: corrected
+          reason: Abstract の文(「collapses to zero by N=80 for every model」)とは一致する。ただし blindNote によれば Table 4 では N=80 で厳密なゼロではなく、本文も「effectively at zero」と書いている。「ゼロに落ちた」を厳密値として使うと誤るため、実質ゼロと表の値を併記した。
+          date: 2026-09-24
+          originalText: ルール数を10から160へ増やすと、全ルールを満たす完全応答率は N=80 までに全モデル・全形式・全配置でゼロに落ちた。
+          originalQuote: Perfect-response rate collapses to zero by N=80 for every model, format, and placement.
+      c3:
+        verdict: match
+        extractedValue: 64–128k tokens; 128k; 48 percentage points (本文 48.4pt)
+        extractedQuote: "Recall stays near ceiling through roughly 64–128k tokens, then degrades sharply and format-dependently: one model’s accuracy spread across formats reaches 48 percentage points at 128k tokens"
+        locator: Abstract (Experiment 2); §5.2
+        note: "48pt は1モデル(Claude Haiku)の1セル(128k/plain)の値。§5.2: plain collapses to 38.3% recall accuracy while the other three formats sit at 82–87%, a 48.4-percentage-point gap driven by one format alone。ask の『形式間の差が最大48pt』はデータセット全体の最大値としては原典と合うが、全モデルに共通する差ではない。"
+      c4:
+        verdict: match
+        extractedValue: 0/5,760; ≤8.3%; refusal 0% → 79–90%
+        extractedQuote: Fabrication never occurs (0/5,760 absent-fact probes across all models, rungs, and formats), and sycophancy stays negligible (≤8.3%) throughout.
+        locator: Abstract; §5.4; §5.5 Table 8
+        note: "Abstract の続き: What actually rises sharply near each model’s own ceiling is outright refusal to answer (0% to 79–90%)。Table 8(false-premise probe の拒否率)で 79–90% に当たるのは Claude Haiku(2k 0%→128k 89.6%)と Sonnet 5(512k 78.8%。ただし 2k で既に 15.4%)の2モデルだけ。Gemini Flash は最大35%、Qwen 27B は36%、Qwen 35B は15%。脚注4によれば、捏造ゼロの結果だけでは不在の確認と反射的な回答拒否を区別できない。迎合の最大 8.3% は Qwen 35B 128k/markdown の 5/60 件。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

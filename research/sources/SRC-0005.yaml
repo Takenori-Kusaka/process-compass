@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0005
+status: included
+excludeReason: null
+title: Teaching Language Models to Critique via Reinforcement Learning
+url: https://arxiv.org/abs/2502.03492
+canonicalUrl: arxiv:2502.03492
+ids:
+  arxiv: "2502.03492"
+  doi: null
+publisher: arXiv
+authors: [Zhihui Xie, Jie Chen, Liyu Chen, Weichao Mao, Jingjing Xu, Lingpeng Kong]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2025-02-05
+publishedBasis: arxiv-v1
+version: v2
+updated: 2025-11-29
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00a-1
+  query: GET https://arxiv.org/html/2502.03492 / https://arxiv.org/html/2502.03492v1
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: CTRL(強化学習で批評モデルを訓練)の論文。#257 が引く 7.88→8.36 / 8.97 / 11.76 は本論文 Table 1(CodeContests Pass@1、生成器 Qwen2.5-Coder)に実在し、v1(2025-02-05)と v2(2025-11-29)で同値。ただし実行フィードバック条件(EF)はユニットテストを用いる(†)点が引用側に落ちている。
+claims:
+  - id: c1
+    text: 追加フィードバックなしの自己批判は Pass@1 7.88%→8.36%(+0.48pp)にとどまり、誤答→正答 2.30%、正答→誤答 1.82%。値は本論文 Table 1 のもので、v1 にも同値が載る。
+    quote: Self-critique without additional feedback yields minimal gains (7.88% → 8.36%) and rarely converts incorrect solutions to correct ones
+    locator: §3.2 Stage I (Reasoning over Execution 直前); Table 1 (Self-critique 8.36 / Δ↑ 2.30 / Δ↓ 1.82)
+    quant:
+      value: 7.88% → 8.36% (+0.48pp Pass@1)
+      n: CodeContests test set; results averaged over 5 random seeds (Table 3 note)
+      design: controlled comparison of feedback mechanisms, generator fixed
+      population: Qwen2.5-Coder as generator and critic, single-turn critique-revision
+    evidenceKind: benchmark
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+  - id: c2
+    text: 生の実行フィードバックをそのまま修正に使うと 8.97%、実行フィードバックの上で批判を書かせる(Self-critique w/ EF)と 11.76%。両条件ともユニットテストを用いた実行結果を使う(†)。
+    quote: Self-critique w/ Execution Feedback), they achieve substantial improvements, as compared to directly using raw execution feedback for revisions (11.76% vs. 8.97%).
+    locator: §3.2 Reasoning over Execution; Table 1 (Execution Feedback (EF)† 8.97 / Self-critique w/ EF† 11.76; †using unit tests for generation.)
+    quant:
+      value: 8.97% (raw EF) vs 11.76% (critique over EF)
+      n: CodeContests, 5 seeds
+      design: controlled comparison
+      population: Qwen2.5-Coder generator; feedback from unit-test execution
+    evidenceKind: benchmark
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+  - id: c3
+    text: 訓練した CTRL 批評器は実行フィードバックなしの単発批判で 11.76%(Self-critique w/ EF と同値)、3 回反復で 15.15%、退行率 0.85%。#257 の表には無い文脈値。
+    quote: Table 1 shows that our RL-trained critic significantly outperforms baseline approaches, achieving a 11.76% pass@1 rate compared to 7.88% with zero-shot generation.
+    locator: §4.2 RL Significantly Boosts Critiquing Ability; Table 1 (Critique ×3 w/ CTRL 15.15 / Δ↓ 0.85)
+    quant:
+      value: 11.76% (×1), 14.18% (×2), 15.15% (×3)
+      n: CodeContests
+      design: benchmark of trained critic
+      population: Qwen2.5-Coder generator + CTRL critic
+    evidenceKind: benchmark
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:00.122Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2502.03492
+    contentType: text/html; charset=utf-8
+    titleFetched: Teaching Language Models to Critique via Reinforcement Learning
+    titleMatch: true
+    dateMeta: 2025-02-05
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: Teaching Language Models to Critique via Reinforcement Learning
+      authors: ["Xie, Zhihui", "Chen, Jie", "Chen, Liyu", "Mao, Weichao", "Xu, Jingjing", "Kong, Lingpeng"]
+      v1Date: 2025-02-05
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Pass@1 7.88% → 8.36%(差 0.48pp は導出値); Δ↑ 2.30 / Δ↓ 1.82; Table 1; v1 にも同値
+        extractedQuote: Self-critique without additional feedback yields minimal gains (7.88% → 8.36%) and rarely converts incorrect solutions to correct ones … Self-critique | 8.36 | 2.30 | 1.82
+        locator: v2 §3.2 Stage I 第1段落; Table 1 (Self-critique 行)。v1 (2502.03492v1) の §3.2・Table 1 も同一値
+        note: 「+___pp」に当たる差分(0.48pp)は原文に明記がなく 8.36−7.88 からの導出値。Δ↑ は「初期誤答が修正後に正答になる割合」、Δ↓ は「初期正答が誤答になる割合」(§4.2 冒頭の定義)。条件は CodeContests、生成器 Qwen2.5-Coder 固定。現行は v2 (2025-11-29)、v1 (2025-02-05) も Table 1 は同値。
+      c3:
+        verdict: match
+        extractedValue: 単発 11.76%(Self-critique w/ EF も 11.76); 3回反復 (Critique ×3 w/ CTRL) 15.15%; 退行率 Δ↓ 0.85%
+        extractedQuote: By increasing the number of iterations from one to three (Critique ×3 w/ CTRL), we further improve the Pass@1 rate from 11.76% to 15.15% while maintaining a low regression rate Δ↓ of 0.85%.
+        locator: §4.2 “RL Significantly Boosts Critiquing Ability” / “CTRL Enables Test-time Scaling”; Table 1 (Critique w/ CTRL 11.76/4.73/0.85, Critique ×3 w/ CTRL 15.15/8.12/0.85)
+        note: Self-critique w/ EF(11.76)は単体テスト実行結果を使う条件(†)で、CTRL 行は † なし(§3.1「the sandbox does not assist critique generation at test time」)。退行率 0.85% は単発・3回反復の両方で同値。ask 末尾の「#___」はプロジェクト内部の参照番号で、原典からは抽出できない。
+        adjudication:
+          verdict: consistent
+          reason: 単発 11.76%、3回反復 15.15%、退行率 Δ↓ 0.85% は blindQuote・blindValue(Table 1)と一致する。Self-critique w/ EF も 11.76 で同じ値である。CTRL 行が実行フィードバックを使わない条件であること(† なし、§3.1)も、主張の「実行フィードバックなし」と合う。退行率 0.85% は単発でも3回反復でも同じ値。Issue 番号は判定対象外。claimQuant の ×2(14.18%)は claimText に含まれないため判定していない。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: slow
+reviewBy: null

@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0434
+status: included
+excludeReason: null
+title: "LiSSA: Toward Generic Traceability Link Recovery through Retrieval-Augmented Generation"
+url: https://publikationen.bibliothek.kit.edu/1000178348/156555617
+canonicalUrl: doi:10.1109/icse55347.2025.00186
+ids:
+  arxiv: null
+  doi: 10.1109/ICSE55347.2025.00186
+publisher: ICSE 2025 / KIT
+authors: [Fuchß Dominik, Hey Tobias, Keim Jan, Liu Haoyu, Ewald Niklas, Thirolf Tobias, Koziolek Anne]
+orgType: academic
+region: eu
+lang: en
+sourceType: paper-peer
+published: 2025-04
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: LLM traceability link recovery requirements to code 2026 arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08]
+events: []
+summary: RAG と LLM(GPT-4o 等)で要求→コード等のトレースリンクを回復する LiSSA を ICSE 2025 で評価した論文。コード関連では既存手法を上回るが、実務の完全自動化には不十分と著者自身が結論している。
+claims:
+  - id: c1
+    text: 要求→コードの TLR(Table IV)で、GPT-4o を用いた LLM+RAG の平均 F1 は最良で .322 で、プロジェクトごとに最適化したベースライン FTLR_OPT の .303 を上回る。ただし著者によれば、有意差が出なかったのはこのプロジェクト別最適化ベースラインとの比較だけで、他の既存手法には平均で有意に優る。
+    quote: TABLE IV COMPARISON OF THE AVERAGE AND WEIGHTED AVERAGE F-SCORES USING GPT-4O AND GPT-4O MINI FOR REQUIREMENT-TO-CODE TLR ... P2 .322 .368 .295 .356 ... FTLROPT .303 .327 .294 .329
+    locator: Table IV(要求→コード TLR、Top-20 retrieval)
+    quant:
+      value: avg F1 .322 (best, GPT-4o) vs FTLR_OPT .303
+      n: 5 projects (SMOS, eTour, iTrust ほか)
+      design: benchmark with Wilcoxon tests
+      population: public req-to-code TLR datasets
+    evidenceKind: benchmark
+    rqs: [TH08-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 著者は、提案手法の F1/F2 は実務で完全自動の TLR を可能にする水準に達しておらず、半自動(F2)でも実務には不十分と結論している。
+    quote: the performance in F1-score and F2-score of the proposed RAG-based TLR does not yet enable fully automated TLR in practical applications
+    locator: §VIII Conclusion
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:47.932Z
+    httpStatus: 200
+    finalUrl: https://publikationen.bibliothek.kit.edu/1000178348/156555617
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: "LiSSA: Toward Generic Traceability Link Recovery Through Retrieval-Augmented Generation"
+      issued: 2025-4-26
+      titleMatch: true
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: F1 / .322(GPT-4o、前処理なし+Prompt 2、Avg.)/ FTLR_OPT .303(Avg. F1)
+        extractedQuote: TABLE IV COMPARISON OF THE AVERAGE AND WEIGHTED AVERAGE F-SCORES USING GPT-4O AND GPT-4O MINI FOR REQUIREMENT-TO-CODE TLR ... P2 .322 .368 .295 .356 ... FTLROPT .303 .327 .294 .329
+        locator: Table IV(要求→コード TLR、Top-20 retrieval)
+        note: "向きの食い違いの可能性: 論文本文は 'The larger model outperforms both the smaller model and the state-of-the-art approach on average and on weighted average F1-scores' および 'On average, our approach is significantly better than all state-of-the-art approaches'(Table V、Wilcoxon)と主張し、『同程度にとどまる』とは述べていない。ただし 'The only non-significant differences occur for per-project optimized baseline configurations' とあり、FTLR_OPT はプロジェクトごとに最適化したベースライン。重み付き平均 F1 は .299 対 .294。GPT-4o mini については 'comparable to the state-of-the-art' と記載。"
+        adjudication:
+          verdict: corrected
+          reason: 数値(.322 対 .303)は Table IV と一致する。しかし『同程度にとどまる』という向きづけは、論文の『The larger model outperforms both the smaller model and the state-of-the-art approach on average』『The only non-significant differences occur for per-project optimized baseline configurations』(blindNote 引用)と食い違う。FTLR_OPT との差が非有意である点は支持されるため、条件を明示して訂正した。『IR 系』というベースラインの性格づけは抜粋から確認できないため訂正文から外した。
+          date: 2026-09-24
+          originalText: 要求→コードの TLR で、LLM+RAG の平均 F1 は最良でも約0.32(GPT-4o)で、最適化した IR 系ベースライン FTLR_OPT の約0.30と同程度にとどまる。
+          originalQuote: COMPARISON OF THE AVERAGE AND WEIGHTED AVERAGE F -SCORES USING GPT-4O AND GPT-4O MINI FOR REQUIREMENT-TO-CODE TLR
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

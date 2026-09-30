@@ -1,0 +1,129 @@
+schemaVersion: 0
+id: SRC-0209
+status: included
+excludeReason: null
+title: "An open-source spec for Codex orchestration: Symphony."
+url: https://openai.com/index/open-source-codex-orchestration-symphony
+canonicalUrl: https://openai.com/index/open-source-codex-orchestration-symphony
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: [Alex Kotliarskyi]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-04-27
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: OpenAI harness engineering Codex agents article
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH02, TH10, TH11]
+events:
+  - date: 2026-04-27
+    label: OpenAI が Codex のオーケストレーション仕様 Symphony を公開
+summary: セッション単位でエージェントを監督する方式が人の注意で頭打ちになったため、課題トラッカーを制御面にして課題ごとにエージェントを走らせる仕様 Symphony を公開した記事。人が同時に扱えるセッション数の限界と、方式を変えて失ったものも記す。
+claims:
+  - id: c1
+    text: 多くの人が快適に扱えるのは同時 3〜5 セッションまでで、それを超えると文脈切り替えで生産性が落ちた。律速は人の注意だった。
+    quote: In practice, most people could comfortably manage three to five sessions at a time before context switching became painful. Beyond that, productivity dropped.
+    locator: 冒頭(As the scale of agentic work increased at OpenAI)
+    quant:
+      value: 3〜5 セッション
+      n: 不明(社内の観察)
+      design: anecdotal observation
+      population: OpenAI 社内エンジニア
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3, TH01-Q3, TH02-Q5]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 複数タブでセッションを管理する代わりに、課題トラッカー(Linear)を制御面とし、未完了の課題ごとに専用のエージェント作業領域を割り当てた。
+    quote: Instead of managing Codex sessions in multiple tabs, we made our issue tracker the control plane.
+    locator: Turning our issue tracker into an agent orchestrator
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q1, TH01-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: 社内の一部チームで、導入後 3 週間にマージされた PR 数が 500% 増えたとする(自己申告、比較条件の記載なし)。
+    quote: Among some teams at OpenAI, we saw the number of landed PRs increase by 500% in the first three weeks.
+    locator: An increase in exploration from working this way
+    quant:
+      value: +500%
+      n: 不明(some teams)
+      design: before-after, self-reported
+      population: OpenAI 社内の一部チーム
+    evidenceKind: news-fact
+    rqs: [TH11-Q2, TH10-Q3]
+    issues: [273]
+    stance: context
+  - id: c4
+    text: 課題単位の割り当てに移ったことで、途中で軌道修正する手段を失い、的外れの成果物が出ることがあった。すべての作業が向くわけではなく、曖昧な問題や強い判断を要する仕事は対話型セッションに残る。
+    quote: Some problems still require engineers working directly with interactive Codex sessions, especially ambiguous problems or work that requires strong judgment and expertise.
+    locator: Progress comes with new, different problems
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q1, TH01-Q3]
+    issues: [248]
+    stance: qualifies
+  - id: c5
+    text: エージェントを状態機械の固定ノードとして扱う方式はうまくいかず、厳密な遷移ではなく目的を与える方式へ移った。
+    quote: We also learned that treating agents as rigid nodes in a state machine doesn’t work well.
+    locator: Progress comes with new, different problems
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q1, TH03-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:22.345Z
+    httpStatus: 200
+    finalUrl: https://openai.com/index/open-source-codex-orchestration-symphony/
+    contentType: text/html; charset=utf-8
+    titleFetched: "An open-source spec for Codex orchestration: Symphony."
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3〜5セッション
+        extractedQuote: In practice, most people could comfortably manage three to five sessions at a time before context switching became painful. Beyond that, productivity dropped.
+        locator: The ceiling of interactive coding agents 節冒頭(As the scale of agentic work increased at OpenAI)
+        note: 母集団は OpenAI 社内のエンジニアで、自己観察の記述である。測定の方法は書かれていない。
+      c3:
+        verdict: match
+        extractedValue: 3週間、500%
+        extractedQuote: When observing the effects of working with Symphony, the most obvious change was output. Among some teams at OpenAI, we saw the number of landed PRs increase by 500% in the first three weeks.
+        locator: An increase in exploration from working this way 節 第1段落
+        note: 原典の語は「landed PRs」で、マージ済み PR に当たる。比較の基準期間は書かれておらず、ask の「比較条件の記載なし」と合っている。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0423
+status: included
+excludeReason: null
+title: チェックリストの形骸化を防ぐ｜デキるPMの再構築術と7つの改善策
+url: https://developer.mamezou-tech.com/blogs/2025/07/10/pm_checklist_rebuild_and_improve
+canonicalUrl: https://developer.mamezou-tech.com/blogs/2025/07/10/pm_checklist_rebuild_and_improve
+ids:
+  arxiv: null
+  doi: null
+publisher: 豆蔵デベロッパーサイト(株式会社豆蔵)
+authors: [makoto-takahashi]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2025-07-10
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH07
+  query: 品質ゲート 形骸化 品質保証部門 レビュー チェックリスト 形骸化 SQiP JaSST
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07]
+events: []
+summary: 日本の SIer の PM が、チェックリストの形骸化と肥大化の原因と対策を実務経験から整理した記事。「改善＝項目追加」という誤解が肥大化を招くこと、意味の分からない項目にチェックだけ付ける実例を挙げる。
+claims:
+  - id: c1
+    text: 肥大化の原因の一つは「改善＝項目追加」という誤解で、項目を減らすことを手抜きとみなす職場ではリストが際限なく増える。
+    quote: 改善＝項目追加という誤解 「チェック項目を減らす＝手抜き」と誤解される職場文化では、どんどん肥大化してしまう。
+    locator: チェックリスト肥大化の3つの原因
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q3, TH07-Q5]
+    issues: [267, 270]
+    stance: supports
+  - id: c2
+    text: 設計者が意味の分からない項目にチェックだけ付けて提出した実例を、形骸化の瞬間として紹介している。
+    quote: 設計者：「すみません、意味が分からなかったのですが、チェックだけしておきました。」
+    locator: 現場で本当にあった“チェック形骸化”の瞬間
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q5]
+    issues: [269]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:36.469Z
+    httpStatus: 200
+    finalUrl: https://developer.mamezou-tech.com/blogs/2025/07/10/pm_checklist_rebuild_and_improve/
+    contentType: text/html; charset=UTF-8
+    titleFetched: チェックリストの形骸化を防ぐ｜デキるPMの再構築術と7つの改善策 | 豆蔵デベロッパーサイト
+    titleMatch: true
+    dateMeta: 2025-07-10
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0560
+status: included
+excludeReason: null
+title: NPR 7150.2D NASA Software Engineering Requirements — Chapter 2. Roles, Responsibilities, and Principles Related to Tailoring of the Requirements
+url: https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7150_002D_&page_name=Chapter2
+canonicalUrl: https://nodis3.gsfc.nasa.gov/displaydir.cfm?internal_id=n_pr_7150_002d_&page_name=chapter2
+ids:
+  arxiv: null
+  doi: null
+publisher: NASA Office of the Chief Engineer (NODIS)
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2022-03-08
+publishedBasis: page
+version: NPR 7150.2D
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G04
+  query: NASA NPR 7150.2D tailoring definition "requirements mapping matrix" "not applicable" rationale approval software engineering requirements tailoring
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH12, TH02]
+events: []
+summary: NASA のソフトウェア工学要求(発効 2022-03-08)の §2.2。要求を満たさない・作らないと決めるテーラリングを、根拠とリスク評価を添えた免除申請として扱い、要求対応表に記録して権限者が承認する。12207 附属書 A の本文が読めなかったための代替として採った。
+claims:
+  - id: c1
+    text: テーラリングを、目的・許容リスク・制約に沿って要求からの免除を求める手続きと定義する。
+    quote: Software requirements tailoring is the process used to seek relief from NPR requirements consistent with program or project objectives, acceptable risk, and constraints.
+    locator: §2.2.1
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q4]
+    issues: []
+    stance: context
+  - id: c2
+    text: 免除の申請には、根拠・リスク評価・受け入れを正当化する資料への参照を含める。「やらない」判断は理由付きで記録される。
+    quote: The request for relief from a requirement includes the rationale, a risk evaluation, and reference to all material that justifies supporting acceptance.
+    locator: §2.2.5 Note
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 免除は要求対応表(Requirements Mapping Matrix)の形でまとめて申請でき、署名を得れば申請要件を満たす。
+    quote: may be submitted in the streamlined form of a Requirements Mapping Matrix.
+    locator: §2.2.6
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q4]
+    issues: []
+    stance: context
+  - id: c4
+    text: 既定の適用はソフトウェア分類ごとの表で定め、空欄は「任意・この指令では課さない」を意味する。課さないことが表の上で読める。
+    quote: Optional/Not invoked by this directive.
+    locator: §2.2.4 b
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:40.185Z
+    httpStatus: 200
+    finalUrl: https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7150_002D_&page_name=Chapter2
+    contentType: text/html;charset=UTF-8
+    titleFetched: NPR 7150.2D - Chapter2
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

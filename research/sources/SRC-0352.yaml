@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0352
+status: included
+excludeReason: null
+title: Custom instructions with AGENTS.md - Codex (OpenAI Developers)
+url: https://developers.openai.com/codex/agent-configuration/agents-md
+canonicalUrl: https://developers.openai.com/codex/agent-configuration/agents-md
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: Codex skills AGENTS.md hierarchy override nested directories project_doc_max_bytes
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: Codex の AGENTS.md 公式文書。ルートから現在ディレクトリまでを連結して近い方を優先し、合計32KiBで読み込みを打ち切る。
+claims:
+  - id: c1
+    text: AGENTS.md は合計サイズが project_doc_max_bytes(既定32KiB)に達した時点で以降のファイルを読まない。上限超過分は黙って落ちる構造で、分割か上限引き上げを求める。
+    quote: Codex skips empty files and stops adding files once the combined size reaches the limit defined by project_doc_max_bytes (32 KiB by default).
+    locator: Discovery / size limit
+    quant:
+      value: 32 KiB default
+      n: null
+      design: product specification
+      population: Codex AGENTS.md chain
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4, TH03-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: ルートから下へ連結し、現在ディレクトリに近いファイルが後に置かれて先行指示を上書きする階層を採る。
+    quote: Files closer to your current directory override earlier guidance because they appear later in the combined prompt.
+    locator: Discovery / merge order
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:22.100Z
+    httpStatus: 200
+    finalUrl: https://learn.chatgpt.com/docs/agent-configuration/agents-md
+    contentType: text/html; charset=utf-8
+    titleFetched: Custom instructions with AGENTS.md | ChatGPT Learn
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

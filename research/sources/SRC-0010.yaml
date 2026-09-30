@@ -1,0 +1,155 @@
+schemaVersion: 0
+id: SRC-0010
+status: included
+excludeReason: null
+title: Dynamic Role Assignment for Multi-Agent Debate
+url: https://arxiv.org/abs/2601.17152
+canonicalUrl: arxiv:2601.17152
+ids:
+  arxiv: "2601.17152"
+  doi: null
+publisher: arXiv
+authors: [Zhang Miao, Kim Junsik, Xiang Siyuan, Gao Jian, Cao Cheng]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-01-23
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: GET https://arxiv.org/html/2601.17152 / https://arxiv.org/pdf/2601.17152
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: Claude 3.5 / Nova Premier / Pixtral-Large を MAD・DMAD の役割へ動的に割り当てる Meta-Debate の提案。「最大 74.8% 改善」は Abstract の文言どおりだが、本文の Table 1・2 からは導けない。254 メモの「GPQA 66.29% 対 54.24%」は DMAD の提案手法と MAD の一様割当を跨いだ比較で、同一枠組み内の差は +4.9〜+7.4pt。
+claims:
+  - id: c1
+    text: 動的割当は一様割当(全役割を同一モデル)を最大 74.8%、無作為割当を最大 29.7% 上回ると Abstract で述べる。ただし 74.8% を導ける表は本文・付録に無い(GPQA の Table 2 からは最大 +32.5% 相対)。
+    quote: our approach consistently outperforms uniform assignments (filling all roles with the same model) by up to 74.8%
+    locator: Abstract(本文の表には対応値なし)
+    quant:
+      value: up to 74.8% (relative)
+      n: GPQA 448 / MathVision 190 / RealWorldQA 437
+      design: benchmark
+      population: MAD, DMAD frameworks
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: context
+  - id: c2
+    text: "GPQA(Table 2): 一様割当 Claude は MAD 54.24% / DMAD 58.93%、提案手法は MAD 59.15% / DMAD 66.29%。同一枠組み内の改善は +4.91pt(MAD)/ +7.36pt(DMAD)。254 メモの「66.29% 対 54.24%(約 12pt)」は枠組みを跨いだ組合せ。"
+    quote: Claude for all roles| 54.24%| 58.93%| ... Capability-aware assignment (Ours)| 59.15%| 66.29%
+    locator: Table 2 (GPQA)
+    quant:
+      value: +4.91pt (MAD) / +7.36pt (DMAD)
+      n: 448 questions
+      design: benchmark
+      population: GPQA, Claude 3.5 / Nova Premier / Pixtral-Large, temperature 0
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+  - id: c3
+    text: MathVision で Pixtral を全役割に割り当てた MAD は 31.05% で、単体 Pixtral 32.10% を下回る。RealWorldQA でも 62.24% 対 70.25% で下回る。
+    quote: "Single agent (Pixtral)| NA| 43.08%| 32.10%| 70.25% ... Multi-agent: MAD| Pixtral for all roles| 44.64%| 31.05%| 62.24%"
+    locator: Table 1
+    quant:
+      value: 31.05% vs 32.10% (MathVision); 62.24% vs 70.25% (RealWorldQA)
+      n: 190 / 437 items
+      design: benchmark
+      population: Pixtral-Large-Instruct-2411
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c4
+    text: 著者は同一モデル一様割当の劣化を「特定の役割を負うと推論の一貫性を保てない」と解釈している。
+    quote: suggesting that Pixtral struggles to maintain reasoning consistency when taking on specific roles in the MAD framework (Affirmative, Negative, and Moderator Judge).
+    locator: §4.3.1
+    quant:
+      value: n/a
+      n: n/a
+      design: interpretation
+      population: Pixtral
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c5
+    text: 無作為割当は一様割当に対して改善も劣化もあり、標準偏差は最大 3.5%。
+    quote: The results also exhibit high variance across random configurations, with standard deviation up to 3.5%.
+    locator: §4.3.2
+    quant:
+      value: SD up to 3.5%
+      n: 3 random configurations
+      design: benchmark
+      population: GPQA
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:13.755Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2601.17152
+    contentType: text/html; charset=utf-8
+    titleFetched: Dynamic Role Assignment for Multi-Agent Debate
+    titleMatch: true
+    dateMeta: 2026-01-23
+    quotes:
+      c1: found
+      c2: partial
+      c3: partial
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: Dynamic Role Assignment for Multi-Agent Debate
+      authors: ["Zhang, Miao", "Kim, Junsik", "Xiang, Siyuan", "Gao, Jian", "Cao, Cheng"]
+      v1Date: 2026-01-23
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Abstract: 一様割当比 最大74.8%、無作為割当比 最大29.7%。本文の表は Table 1・Table 2 のみで、提案手法の値は GPQA の Table 2 にだけある。Table 2 から計算した相対改善の最大は +32.5%(MAD、Pixtral 一様 44.64%→59.15%)。DMAD では Pixtral 一様比 +31.4%(50.45%→66.29%)。無作為割当比の最大は +23.7%(DMAD 53.57%→66.29%)"
+        extractedQuote: our approach consistently outperforms uniform assignments (filling all roles with the same model) by up to 74.8% and random assignments (...) by up to 29.7%, depending on the task
+        locator: Abstract; Table 2 (GPQA)
+        note: 74.8%・29.7% を再現できる表は、本文にも付録にも見当たらない(付録はプロンプト例だけ)。MathVision・RealWorldQA は Table 1 に一様割当と単体の値しかなく、提案手法の値は載っていない。相対改善の +32.5% などはこちらで計算した値で、原文には書かれていない。
+      c2:
+        verdict: match
+        extractedValue: "Table 2: Claude 一様 MAD 54.24% / DMAD 58.93%、Capability-aware assignment (Ours) MAD 59.15% / DMAD 66.29%。差は +4.91pt(MAD)、+7.36pt(DMAD)"
+        extractedQuote: "Claude for all roles | 54.24% | 58.93% | ... Capability-aware assignment (Ours) | 59.15% | 66.29% | Table 2: Performance comparison of different role assignment strategies on GPQA dataset."
+        locator: Table 2 (GPQA)
+        note: "差の pt はこちらで計算した値。「___メモ」の枠組みをまたぐ組合せ(例: DMAD 提案 66.29% 対 MAD Claude 54.24% で 12.05pt)は原典の本文に比較としては出てこない。原典は同じ枠組みの中での比較として書いている。"
+        adjudication:
+          verdict: consistent
+          reason: Table 2(GPQA)の4値は blindQuote と一致する。差は導出値で、MAD は 59.15 − 54.24 = 4.91pt、DMAD は 66.29 − 58.93 = 7.36pt。原典が同じ枠組みの中で比較しており、枠組みをまたぐ 66.29 対 54.24 の比較は原典に出てこない(blindNote)。この点も主張と合う。内部メモへの参照は判定対象外。
+          date: 2026-09-23
+      c3:
+        verdict: match
+        extractedValue: "MathVision: MAD(Pixtral を全役割)31.05% 対 単体 Pixtral 32.10%。RealWorldQA: 62.24% 対 70.25%"
+        extractedQuote: when all roles in MAD are assigned to Pixtral, performance drops below that of the single-agent Pixtral on both MathVision and RealWorldQA (Table 1)
+        locator: Table 1; §4.3.1
+        note: 数値は Table 1 の行「Single agent (Pixtral) 43.08% | 32.10% | 70.25%」と「MAD Pixtral for all roles 44.64% | 31.05% | 62.24%」から読んだ。GPQA では逆に、MAD の 44.64% が単体の 43.08% を上回っている。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

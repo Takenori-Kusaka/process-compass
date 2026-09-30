@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0096
+status: included
+excludeReason: null
+title: 【QAエンジニアの開発貢献を考える】Claude Codeに「PM/SE/PG/QA」を分業させたら開発が安定した話 〜QAエンジニアが行き着いたエージェント責務分離〜
+url: https://tech.sompo.io/entry/2026/05/19/144219
+canonicalUrl: https://tech.sompo.io/entry/2026/05/19/144219
+ids:
+  arxiv: null
+  doi: null
+publisher: SOMPO Digital Lab 開発チームブログ
+authors: [提箸 (dsagehashi)]
+orgType: user-it
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-05-19
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: 前回セッション取得分(sompo)。Claude Code PM SE PG QA 分業 エージェント責務分離
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06, TH03]
+events: []
+summary: SOMPO Digital Lab の QA エンジニアが、Claude Code を PM/SE/PG/QA のエージェントに分業させ、人は PM エージェントにだけ指示する構成にしたら開発が安定したと報告。工程間で会話履歴を渡さず、QA から Edit/Write 権限を外して独立性を仕組みで担保。効果は KPI 比較前の自己評価。
+claims:
+  - id: c1
+    text: 人が指示するのは PM エージェントのみで、PM が SE(変更概要書)/PG(実装+テスト)/QA(独立レビュー)へファイル経由で必要最小限の情報だけを渡す構成。AI が開発チームの各ロールを占め、人は PM への指示者になる。
+    quote: ユーザーが指示を出すのは PMエージェント （メイン会話）のみ PMが SE（変更概要書作成） ／ PG（実装＋テスト） ／ QA（独立レビュー） へ、ファイル経由で必要最小限の情報のみを引き継ぐ
+    locator: 解決策：開発チームと同じ「責務分離」をエージェントにも
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: supports
+  - id: c2
+    text: QA エージェントから Edit/Write 権限を構造的に外し「修正は必ず PG」を仕組みで担保したところ開発が一気に安定した(自己評価、KPI 比較は今後)。
+    quote: QA からは Edit / Write 権限を構造的に外し、「修正は必ずPGが行う」を仕組みで担保 この構成にしたところ、開発が一気に安定しました。
+    locator: 解決策 箇条書き直後
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH06-Q1]
+    issues: [248, 258]
+    stance: supports
+  - id: c3
+    text: 工程間で会話履歴を渡さないことで追認バイアスを排除し、独立した視点を保つ。渡すのは TICKET-ID・概要書パス・ブランチ名のみ。
+    quote: 工程間で会話履歴を渡さないことで、追認バイアスを排除
+    locator: 解決策 箇条書き
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3, TH01-Q3]
+    issues: [258]
+    stance: context
+  - id: c4
+    text: v1.0 と v2.0(BA・Designer 追加、QA を Unit/E2E/Sec に3分割)の KPI(指摘件数・所要時間・トークン消費)比較はこれからで、有効性はまだ確認されていない。
+    quote: 今後は v1.0 と v2.0 の KPI（指摘件数・所要時間・トークン消費）を継続比較し、有効性が確認できた構成を本運用へ統合していく予定です。
+    locator: まとめ
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH11-Q3]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:42.688Z
+    httpStatus: 200
+    finalUrl: https://tech.sompo.io/entry/2026/05/19/144219
+    contentType: text/html; charset=utf-8
+    titleFetched: 【QAエンジニアの開発貢献を考える】Claude Codeに「PM/SE/PG/QA」を分業させたら開発が安定した話 〜QAエンジニアが行き着いたエージェント責務分離〜 - SOMPO Digital Lab 開発チームブログ
+    titleMatch: true
+    dateMeta: 2026-05-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: v1.0 と v2.0／QA-Unit・QA-E2E・QA-Sec の3分割
+        extractedQuote: 今後は v1.0 と v2.0 の KPI（指摘件数・所要時間・トークン消費）を継続比較し、有効性が確認できた構成を本運用へ統合していく予定です。
+        locator: 最終節「QAエンジニアとして得た学び」の末尾段落(本文に「まとめ」という見出しは無い)。分割の内容は見出し「現在地：BA・Designerの追加と、QAの3分割（v2.0）」
+        note: 「有効性はまだ確認されていない」は「有効性が確認できた構成を本運用へ統合していく予定」からの推論。v2.0 は「試験運用」中と書かれている。一方で同じ節に「Security観点を独立させた効果が大きいと感じています」という筆者の主観的な効果の記述がある。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

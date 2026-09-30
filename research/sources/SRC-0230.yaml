@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0230
+status: included
+excludeReason: null
+title: About rationale, confidence, and approvals for issues
+url: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automation-rationale-and-approvals
+canonicalUrl: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automation-rationale-and-approvals
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Docs
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: docs.github.com cloud agent navigation (Rationale, confidence, and approvals)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH07, TH02]
+events: []
+summary: Issue トリアージを行う automations の変更に理由・確信度（高中低）を記録し、閾値未満を人の承認待ちにする仕組み（public preview）。承認は利便機能で統制ではないと明記。
+claims:
+  - id: c1
+    text: 承認はワークフロー上の利便機能であってセキュリティ統制ではない。サーバ側の境界を強制しないため、権限を持つエージェントは提案を経ず直接変更できる。統制は権限で行うよう指示する。
+    quote: Approvals are a workflow convenience, not a security control. They don't enforce a server-side boundary
+    locator: Approvals (Note)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH01-Q2]
+    issues: [269, 271]
+    stance: qualifies
+  - id: c2
+    text: リポジトリの自動化水準（Full control / Cautious / Balanced / Full automation）が確信度の閾値を決める。既定の Cautious は高確信度の変更のみ自動適用し、残りを人のレビューへ回す。作業単位・確信度単位で自律度を切り替える先例。
+    quote: "Cautious (default): Only high-confidence changes are applied automatically. Everything else is held for your review."
+    locator: Confidence
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH01-Q4]
+    issues: [248]
+    stance: supports
+  - id: c3
+    text: 自動適用か提案かに関わらず、対応するすべての操作に理由を記録し、変更と理由の監査証跡とする。
+    quote: Every supported action records the reason behind it, whether the automation applied the change automatically or proposed it as a suggestion.
+    locator: Rationale
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:23.162Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-automation-rationale-and-approvals
+    contentType: text/html; charset=utf-8
+    titleFetched: About rationale, confidence, and approvals for issues - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: partial
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Approvals are a workflow convenience, not a security control / Use repository and agent permissions, not approvals
+        extractedQuote: Approvals are a workflow convenience, not a security control. They don't enforce a server-side boundary, so an agent with permission to change issues can apply changes directly
+        locator: 節『Approvals』末尾の Note
+        note: 原文の範囲は automations が issue に加える変更(labels, fields, issue type, closing, assignees)に限る。『権限を持つエージェント』は原文では『an agent with permission to change issues』。PR 作成や push には適用しないと本文冒頭で明記されている。統制の指示は続く一文『Use repository and agent permissions, not approvals, to control what an automation is allowed to do.』
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

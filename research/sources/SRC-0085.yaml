@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0085
+status: included
+excludeReason: null
+title: Intelligent AI Delegation
+url: https://arxiv.org/abs/2602.11865
+canonicalUrl: arxiv:2602.11865
+ids:
+  arxiv: "2602.11865"
+  doi: null
+publisher: arXiv (Google DeepMind)
+authors: [Tomašev Nenad, Franklin Matija, Osindero Simon]
+orgType: vendor
+region: global
+lang: en
+sourceType: preprint
+published: 2026-02-12
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH01
+  query: '"accountability gap" AI agents human responsibility delegation arxiv'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: Google DeepMind による委任の枠組み。委任はタスク分割ではなく、権限・責任・説明責任の移転と役割・境界の明示・意図の明確化・信頼形成を含む決定列と定義。長い委任連鎖では意図と実行の距離が「説明責任の空白」を生むと警告。
+claims:
+  - id: c1
+    text: 知的委任は、タスク配分に加えて権限・責任・説明責任の移転、役割と境界の明確な指定、意図の明確化、信頼形成の仕組みを含む決定列と定義される。
+    quote: We define intelligent delegation as a sequence of decisions involving task allocation, that also incorporates transfer of authority, responsibility, accountability, clear specifications regarding roles and boundaries,
+    locator: §2.1 Definition
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2, TH01-Q3]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c2
+    text: 長い委任連鎖(X→A→B→C…)では元の意図と最終実行の距離が広がり、説明責任の空白(accountability vacuum)を生みうる。人が n 次の委任先を監査することは現実的でない。
+    quote: the increased distance between the original intent (X) and the ultimate execution (Y) may result in an accountability vacuum
+    locator: §5.2 Accountability in Long Delegation Chains
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:32.490Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2602.11865
+    contentType: text/html; charset=utf-8
+    titleFetched: Intelligent AI Delegation
+    titleMatch: true
+    dateMeta: 2026-02-12
+    quotes:
+      c1: found
+      c2: not-found
+    arxiv:
+      status: 200
+      title: Intelligent AI Delegation
+      authors: ["Tomašev, Nenad", "Franklin, Matija", "Osindero, Simon"]
+      v1Date: 2026-02-12
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: accountability vacuum / n-th degree sub-delegatee
+        extractedQuote: the original intent ( X ) and the ultimate execution ( Y ) may result in an accountability vacuum … not be feasible (or reasonable) to audit the n -th degree sub-delegatee
+        locator: §5.2 Accountability in Long Delegation Chains
+        note: 原典は『may not be feasible (or reasonable)』とヘッジしている。続けて対策として liability firebreaks(下流の責任を全面的に引き受ける、または実行を止めて人へ権限移譲を再要求する)を提案している
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

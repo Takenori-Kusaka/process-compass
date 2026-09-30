@@ -1,0 +1,127 @@
+schemaVersion: 0
+id: SRC-0103
+status: included
+excludeReason: null
+title: Maximizing the value of your Claude Code sessions
+url: https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions
+canonicalUrl: https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (claude.com blog)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-14
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code cost per pull request tokens measured cache read share
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events: []
+summary: Anthropic 公式の Claude Code 費用構造の解説(2026-08-14)。1 ターンの請求 = 履歴のキャッシュ読み取り + 新規分のフル入力 + 出力、と分解し、入力が出力の桁違いに多いことを明示する。
+claims:
+  - id: c1
+    text: 典型的なターンでは入力が数万トークン、出力が数百トークンと偏っており、フル価格でプリフィルされるのはそのターンで新しく加わった分だけで、履歴はキャッシュ読み取りとして課金される。
+    quote: "A typical turn is lopsided: tens of thousands of tokens going in, a few hundred coming out. But only what's new in that turn gets prefilled at full price."
+    locator: Prompt caching 節直前の 5 リクエスト例の直後(What decides the price of a token 内)
+    quant:
+      value: 入力 10^4 対 出力 10^2 per turn
+      n: null
+      design: vendor explanation
+      population: Claude Code sessions
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: キャッシュ読み取りは入力の 0.1 倍、書き込みは最大 2 倍。書き込みは 1 トークンにつき一度、読み取りは以後毎ターン発生する。
+    quote: Reading from the cache costs 0.1x the input price, because the server loads the state instead of computing it. Writing tokens into the cache costs a bit more than normal input, up to 2x
+    locator: Prompt caching 節
+    quant:
+      value: 0.1x read / up to 2x write
+      n: null
+      design: price explanation
+      population: Claude API
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c3
+    text: サブスク経由の Claude Code ではプロンプトキャッシュは 1 時間で失効する。離席前に /compact、新規セッションで /context を実行して CLAUDE.md や MCP 定義の常時ロード量を確認するよう促す。
+    quote: /compact before you take a break from your keyboard. The prompt cache expires after an hour, and summarizing a conversation is much cheaper while it's still cached.
+    locator: Maximizing value 節
+    quant:
+      value: 1 hour TTL(サブスク)
+      n: null
+      design: vendor statement
+      population: Claude Code subscription users
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1, TH04-Q2]
+    issues: [274]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:44.560Z
+    httpStatus: 200
+    finalUrl: https://claude.com/blog/maximizing-the-value-of-your-claude-code-sessions
+    contentType: text/html; charset=utf-8
+    titleFetched: Maximizing the value of your Claude Code sessions | Claude by Anthropic
+    titleMatch: true
+    dateMeta: Aug 14, 20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: A typical turn(典型的なターン) / tens of thousands of tokens in / a few hundred out
+        extractedQuote: "A typical turn is lopsided: tens of thousands of tokens going in, a few hundred coming out. But only what's new in that turn gets prefilled at full price."
+        locator: Prompt caching 節直前の 5 リクエスト例の直後(What decides the price of a token 内)
+        note: "冒頭の ___ は原文では数値ではなく 'A typical'(典型的な)。後半の『#___ の入出力比(出力 ___万 対 キャッシュ読み取り ___億)』に当たる値は本出典に無い(内部資料との比較と思われる)。履歴はキャッシュ読み取り・新規分のみフル価格という構造は原文と一致: \"cache reads on the history, full input price on whatever's new\"。"
+        adjudication:
+          verdict: corrected
+          reason: 入出力の偏りと、新規分だけがフル価格・履歴はキャッシュ読み取りという構造は、原文("cache reads on the history, full input price on whatever's new")と一致する。ただし原文は「A typical turn」で、主張の「1 ターンは」では「典型的な」という限定が落ち、どのターンにも当てはまるように読めるので補った。#274 の入出力比との比較は内部参照なので、判定対象から外した。
+          date: 2026-09-23
+          originalText: 1 ターンは「数万トークン入力・数百トークン出力」と偏っており、新規分だけがフル価格、履歴はキャッシュ読み取り。#274 の入出力比(出力 4,281 万 対 キャッシュ読み取り 264 億)と同じ構造。
+          originalQuote: "A typical turn is lopsided: tens of thousands of tokens going in, a few hundred coming out. But only what's new in that turn gets prefilled at full price."
+      c2:
+        verdict: match
+        extractedValue: 読み取り 0.1x(入力価格比)/ 書き込み up to 2x / 書き込みは once per token
+        extractedQuote: Reading from the cache costs 0.1x the input price, ... Writing tokens into the cache costs ... up to 2x, ... But the write happens once per token, and the 0.1x reads happen on every turn after it.
+        locator: Prompt caching 節
+        note: 『書き込みは ___トークンにつき一度』の原文は 'once per token'(各トークンにつき一度=数値としては 1)。倍率は通常入力価格に対する比。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote どおりである。キャッシュ読み取りは入力価格の 0.1 倍、書き込みは最大 2 倍で、書き込みはトークンごとに一度(once per token)、0.1 倍の読み取りはその後の毎ターンに発生する。
+          date: 2026-09-23
+      c3:
+        verdict: match
+        extractedValue: an hour(1時間、サブスクリプション時)/ API キーでは five minutes
+        extractedQuote: the cache expires after an hour on a subscription or five minutes on an API key ( ENABLE_PROMPT_CACHING_1H=1 makes it an hour).
+        locator: Prompt caching 節(Time の項)。冒頭の Tips 一覧にも 'Run /context once in a fresh session... /compact before you take a break from your keyboard. The prompt cache expires after an hour'
+        note: locator の 'Maximizing value 節' 付近の Tips 一覧では 'The prompt cache expires after an hour' とだけあり、サブスク限定の条件は Prompt caching 節側に書かれている。/context は CLAUDE.md と MCP tool definitions の読み込み状況を確認する用途として記載されており、ask と整合。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

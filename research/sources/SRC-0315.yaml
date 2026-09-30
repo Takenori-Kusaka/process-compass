@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0315
+status: included
+excludeReason: null
+title: Why Are Agentic Pull Requests Merged or Rejected? An Empirical Study
+url: https://arxiv.org/abs/2605.22534
+canonicalUrl: arxiv:2605.22534
+ids:
+  arxiv: "2605.22534"
+  doi: 10.1145/3793302.3793575
+publisher: MSR '26 (ACM) / Waseda University, The University of Osaka, Ritsumeikan University ほか
+authors: [Sien Reeve O. Peralta, Fumika Hoshi, Hironori Washizaki, Naoyasu Ubayashi, Inase Kondo, Yoshiki Higo, Hiroki Mukai, Norihiro Yoshida, Kazuki Kusama, Hidetake Tanaka, Youmei Fan]
+orgType: academic
+region: jp
+lang: en
+sourceType: paper-peer
+published: 2026-04-13
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: AIDev dataset agentic pull requests empirical study 2026 arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11]
+events:
+  - date: 2026-04-13
+    label: MSR 2026(Rio de Janeiro、4/13–14)で発表
+  - date: 2026-05-21
+    label: arXiv v1 公開
+summary: 日本の大学群による MSR 2026 論文。AIDev の閉じたエージェント PR 11,048件(人のレビュー付き9,799件)から717件を手で読み、マージ/却下の理由を復元した。却下はエージェントの失敗を大きく過大評価する。
+claims:
+  - id: c1
+    text: 却下されたエージェント PR のうち、エージェントの明確な失敗によるものは35.7%にすぎず、31.2%はワークフロー上の制約、33.1%は判断理由が観察できなかった。
+    quote: only 35.7% of rejected PRs reflected clear agentic failures, while 31.2% were driven by workflow constraints and 33.1% lacked observable decision rationale
+    locator: Abstract; Results
+    quant:
+      value: 35.7% / 31.2% / 33.1%
+      n: 11,048 closed agentic PRs → 9,799 human-reviewed → 717 manually inspected
+      design: observational(mining + manual qualitative coding)
+      population: AIDev(100 stars 以上のリポジトリ)
+    evidenceKind: observational
+    rqs: [TH11-Q3, TH10-Q3]
+    issues: [273]
+    stance: qualifies
+  - id: c2
+    text: マージされた PR の15.4%はフィードバックや直接コミットによる明示的なレビュアー関与を要し、5.5%は目に見える相互作用の痕跡がなかった。
+    quote: Among merged PRs, 15.4% required explicit reviewer involvement through feedback or direct commits, and 5.5% showed no visible interaction trace.
+    locator: Abstract
+    quant:
+      value: 15.4% / 5.5%
+      n: 同上
+      design: observational
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH11-Q3, TH06-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: マージ/却下の結果だけではエージェントの性能を捉えられず、レビュー行動に基づく相互作用を見た評価が必要と結論する。マージ率を AI の品質指標に使う運用への反証。
+    quote: These results reject the assumption that PR outcomes alone capture agent performance
+    locator: Abstract; Conclusion
+    quant: null
+    evidenceKind: observational
+    rqs: [TH11-Q3, TH11-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:38.593Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.22534
+    contentType: text/html; charset=utf-8
+    titleFetched: Why Are Agentic Pull Requests Merged or Rejected? An Empirical Study
+    titleMatch: true
+    dateMeta: 2026-05-21
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: Why Are Agentic Pull Requests Merged or Rejected? An Empirical Study
+      authors: ["Peralta, Sien Reeve O.", "Hoshi, Fumika", "Washizaki, Hironori", "Ubayashi, Naoyasu", "Kondo, Inase", "Higo, Yoshiki"]
+      v1Date: 2026-05-21
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 200
+      title: Why Are Agentic Pull Requests Merged or Rejected? An Empirical Study
+      issued: 2026-4-13
+      titleMatch: true
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

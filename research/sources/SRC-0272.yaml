@@ -1,0 +1,153 @@
+schemaVersion: 0
+id: SRC-0272
+status: included
+excludeReason: null
+title: 常駐コンテキストを削りClaude Codeのコストを抑えてみた
+url: https://qiita.com/ya-mizobuchi/items/6ae906dd28bf61b32329
+canonicalUrl: https://qiita.com/ya-mizobuchi/items/6ae906dd28bf61b32329
+ids:
+  arxiv: null
+  doi: null
+publisher: Qiita
+authors: [溝渕]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-09-17
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: CLAUDE.md 肥大化 トークン 削減 計測 qiita 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04, TH05]
+events: []
+summary: 個人開発(著者はKDDIアジャイル開発センター所属、個人アカウントでの投稿)で、常駐コンテキスト(CLAUDE.md・メモリ索引・Skills説明文)を索引化して削った前後を36日・238セッションで計測した記録。キャッシュ読み出しがコストの65.5%を占めた実測値を含む。
+claims:
+  - id: c1
+    text: 2026-08の usage 実測で、月34,125リクエスト、コンテキストに入れた1トークンは平均50.8回読み直され、キャッシュ読み出しがコスト全体の65.5%を占めた(単価比で重み付けしたトークン量で比較)。
+    quote: 私のプロジェクトの実測では、1 か月のリクエストが 34,125 回、コンテキストに入れた 1 トークンは平均 50.8 回読み直され、キャッシュからの読み直しがコスト全体の 65.5% を占めていました。
+    locator: §1 何に困っていたのか / §0 前提情報
+    quant:
+      value: キャッシュ読み出し=コストの65.5%、再読倍率50.8倍
+      n: 34,125リクエスト(2026-08の1か月)
+      design: Claude Code の usage 値の実測。input/キャッシュ書き込み/キャッシュ読み出し/output を単価比で重み付け
+      population: 個人開発1プロジェクト、定額プラン、プロンプトキャッシュ1時間TTL
+    evidenceKind: observational
+    rqs: [TH04-Q1, TH04-Q2]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: CLAUDE.md をトリガー表に分けたことで常駐コンテキストは 15.0K トークンとなり、本文を CLAUDE.md に書いていた場合の推計 36.4K(15.0K+ルール本文21.4K の反実仮想)より小さくなった。公式単価(2026-06-24時点、$1=¥155)での参考試算では、改善しなかった場合の月額 $703.7 に対して $290.0(約41%)の節約で、/clear を 1M の 50% で行う点は仮定である。
+    quote: CLAUDE.md をトリガー表に分けたことで、常駐コンテキストは 36.4K → 15.0K トークンに減りました。…改善しなかった場合の月額 $703.7（¥109,075）に対して、約 41% の削減です。(表の合計「$290.0（¥44,948）」)
+    locator: 2. 節約できた料金の概算（参考値）と「前提条件」
+    quant:
+      value: 常駐 36.4K→15.0K tokens; 試算 月$413.7(約41%)削減
+      n: 月31,554ターン・166セッション(2026-08実測)
+      design: 実測ターン数×差分トークン×公式単価(2026-06-24時点)の試算。/clear を1Mの50%で行う点は仮定
+      population: 同上。Opus 81.0%/Fable 14.8%/Sonnet 4.2%の使用比率
+    evidenceKind: observational
+    rqs: [TH04-Q2, TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 置いてある知識2.03Mトークンのうち36日で読まれたのは1.12Mで、約半分は一度も読まれなかった。ルール本文は238セッション中42回しか読まれず、progressive disclosure で未読分のコストを払わずに済んだ。
+    quote: 約半分は一度も読まれていませんが、その分のコストは掛かっていません。
+    locator: §2 改善後、1 か月の計測でわかったこと / §4 表
+    quant:
+      value: 2.03M中1.12M読まれた; ルール本文 42/238セッション
+      n: 36日・238セッション
+      design: ファイル文字量からのトークン換算(1字≒0.5トークン)による推定
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH03-Q1, TH05-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 外したつもりの外部フレームワークの残骸1,061トークンが常駐に残り、36日で33.5Mトークンの読み直しを生んでいた。常駐の内訳を数える仕組みが無かったことが原因とし、以後の棚卸しは『減らす方向の判定だけ』を持たせた。
+    quote: 外し方が完全ではなかったため、1,061 トークンの残骸として常駐コンテキストに残り続け、36 日で 33.5M トークンの読み直しを生んでいました。
+    locator: §4.1 前後で比べられた1例 / §3.5
+    quant:
+      value: 1,061 tokens × 36日 → 33.5M tokens 再読
+      n: 1件
+      design: 常駐内訳の事後集計
+      population: 同上
+    evidenceKind: case-report
+    rqs: [TH04-Q2, TH07-Q4]
+    issues: []
+    stance: context
+  - id: c5
+    text: 指示・ルール・索引・Skills は放置すると日常作業で増え続けるため、棚卸しは『削る/必要時読み込みへ移す/残す』の3択とし、増やす判定を入れていない。
+    quote: 上の 4 か所は、放っておくと指示やルールは増え、索引内容は伸び、Skills は増えます。
+    locator: §3.5 増え続けないようにどう見張るのか
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3, TH03-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.893Z
+    httpStatus: 200
+    finalUrl: https://qiita.com/ya-mizobuchi/items/6ae906dd28bf61b32329
+    contentType: text/html; charset=utf-8
+    titleFetched: 常駐コンテキストを削りClaude Codeのコストを抑えてみた - Qiita
+    titleMatch: true
+    dateMeta: 2026-09-17
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-08 / 34,125リクエスト / 1トークン / 平均50.8回 / 65.5%
+        extractedQuote: 私のプロジェクトの実測では、1 か月のリクエストが 34,125 回、コンテキストに入れた 1 トークンは平均 50.8 回読み直され、キャッシュからの読み直しがコスト全体の 65.5% を占めていました。
+        locator: 1. 何に困っていたのか / 0. 前提情報(「実測値は8月の usage 値」) / §4 注記「usage 値の実測（2026-08）」
+        note: 個人開発1プロジェクト、定額プラン、プロンプトキャッシュ1時間TTLの条件。重み付けの対象は input・キャッシュ書き込み・キャッシュ読み出し・output。
+      c2:
+        verdict: match
+        extractedValue: 36.4K→15.0Kトークン / $703.7→$290.0 / 約41%減
+        extractedQuote: CLAUDE.md をトリガー表に分けたことで、常駐コンテキストは 36.4K → 15.0K トークンに減りました。…改善しなかった場合の月額 $703.7（¥109,075）に対して、約 41% の削減です。(表の合計「$290.0（¥44,948）」)
+        locator: 2. 節約できた料金の概算（参考値）と「前提条件」
+        note: 36.4K は実測した改善前の値ではない。§4 表の「本文を CLAUDE.md に書いていたら、常駐コンテキストは 15.0K → 36.4K トークン（2.4 倍）」とする反実仮想(15.0K + ルール本文21.4K)。15.0K には CLAUDE.md 以外(メモリ索引・Skills 説明文等)も含む。節見出しは「(参考値)」。/clear を 1M の 50% で行う点は仮定と明記。単価は Anthropic 公式価格表(2026-06-24時点)、$1=¥155。CLAUDE.md 分割分だけの試算。
+        adjudication:
+          verdict: corrected
+          reason: "主張には2つの誤りがある。(1) 金額の向き: $290.0 は表の節約額の合計であり、改善後の月額ではない。$290.0/$703.7≈41.2% が原文の「約41%の削減」に一致する。主張の「$703.7→$290.0」なら削減率は (703.7-290.0)/703.7≈58.8% となり、約41%と矛盾する。claimQuant の「$413.7(約41%)削減」も同じ取り違えである(¥44,948/155≈$290.0 も節約額側)。(2) 36.4K は実測した改善前の値ではなく、本文を CLAUDE.md に書いていた場合の反実仮想である(blindNote)。15.0K には CLAUDE.md 以外も含まれる。原文の記述どおりに訂正した。"
+          date: 2026-09-24
+          originalText: CLAUDE.md をトリガー表と基本ルールだけにし詳細を必要時読み込みへ移したことで、常駐コンテキストは36.4K→15.0Kトークンに減った。公式単価での試算は月$703.7→$290.0(約41%減)だが、/clear のタイミングは仮定を含む。
+          originalQuote: CLAUDE.md をトリガー表に分けたことで、常駐コンテキストは 36.4K → 15.0K トークンに減りました。
+      c3:
+        verdict: match
+        extractedValue: 2.03M / 36日 / 1.12M / 238セッション中42回
+        extractedQuote: 置いてある知識（文書 + メモリの中身 + Skills の中身） 2.03M トークン … 36 日で実際に読まれた量 1.12M トークン 読まれなかった 0.91M にはコストが掛かっていない … ルール本文が読み込まれた回数 238 セッション中 42 回
+        locator: 4. 常駐コンテキストの増加をどれだけ抑えられたか(表) / 「改善後、1 か月の計測でわかったこと」
+        note: 表の値は著者が「推定値（2026-08-27 のトークン集計。36 日・238 セッション。文字量からの換算）」と明記しており、実測トークンではない。未読は0.91M(約45%)で、原文は「約半分は一度も読まれていません」。
+      c5:
+        verdict: match
+        extractedValue: 3択
+        extractedQuote: 判定は「削る / 必要な時だけ読む側へ移す / 残す」の 3 択で、 増やす判定は入れていません 。これは日常の作業で勝手に増えるので、棚卸しは減らす方向だけにしています。
+        locator: 3.5 増え続けないようにどう見張るのか
+        note: §6 では読者向けに「増やす判定は都度判断か、棚卸しに入れるなら次のような材料が考えられます」として、常駐へ戻す候補などを挙げている。著者の運用には入れていないが、増やす判定そのものを否定してはいない。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

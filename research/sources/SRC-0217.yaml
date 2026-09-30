@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0217
+status: included
+excludeReason: null
+title: How to unlock true ROI in software development – a deep dive into the latest DORA research
+url: https://cloud.google.com/blog/products/ai-machine-learning/how-to-measure-the-business-value-of-generative-ai
+canonicalUrl: https://cloud.google.com/blog/products/ai-machine-learning/how-to-measure-the-business-value-of-generative-ai
+ids:
+  arxiv: null
+  doi: null
+publisher: Google Cloud Blog
+authors: [Ursula Löbbert-Passing, Eva Dong]
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-06-09
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: DORA "ROI of AI-assisted software development" report Google Cloud blog
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH11]
+events: []
+summary: DORA『ROI of AI-assisted Software Development』報告書(dora.dev の最終更新 2026-04-22、本体は登録制)の要点を Google Cloud が解説した記事。導入初期の生産性低下(J カーブ)と、その原因として学習曲線・検証税・パイプラインの適応を挙げる。報告書本体は登録フォーム越しのため未読。
+claims:
+  - id: c1
+    text: 多くの組織は AI 導入初期に一時的な生産性低下と不安定化(J カーブ)を経験し、それは戦略失敗ではなく通常の過程だとする。
+    quote: "Most organizations will instead encounter a J-curve : a temporary productivity dip and period of instability associated with early adoption."
+    locator: "Insight #1"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q1, TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: AI でコード量が大幅に増えるため、生成物の信頼性確保に追加のレビュー時間を払う「検証税」が生じる。
+    quote: "The verification tax: Because AI dramatically increases the sheer volume of code produced, developers must invest extra time rigorously reviewing generated outputs"
+    locator: "Insight #1"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2, TH06-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 個人の生成速度が上がると、テストや変更承認などの下流工程がボトルネックになり、増えた処理量に合わせて拡張する必要がある。
+    quote: downstream processes like testing and change approvals often become bottlenecks and must be actively scaled to handle the increased throughput.
+    locator: "Insight #1(Pipeline adaptation)"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q4, TH11-Q2, TH10-Q3]
+    issues: [273]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:13.999Z
+    httpStatus: 200
+    finalUrl: https://cloud.google.com/blog/products/ai-machine-learning/how-to-measure-the-business-value-of-generative-ai
+    contentType: text/html; charset=utf-8
+    titleFetched: How to measure the business value of generative AI | Google Cloud Blog
+    titleMatch: false
+    dateMeta: 2026-06-09
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

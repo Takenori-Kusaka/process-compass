@@ -1,0 +1,129 @@
+schemaVersion: 0
+id: SRC-0232
+status: included
+excludeReason: null
+title: Automate repository tasks with GitHub Agentic Workflows
+url: https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows
+canonicalUrl: https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows
+ids:
+  arxiv: null
+  doi: null
+publisher: The GitHub Blog
+authors: [Don Syme, Peli de Halleux]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-02-13
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: GitHub Agentic Workflows safe outputs read-only permissions human approval
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH10, TH01, TH02, TH04]
+events:
+  - date: 2026-02-13
+    label: GitHub Agentic Workflows（gh-aw）を technical preview で公開（GitHub Next / Microsoft Research）
+summary: Markdown で書いた意図を Actions 上のコーディングエージェントで実行する gh-aw の紹介。既定は読み取り専用、書き込みは事前宣言した safe outputs 経由、PR は自動マージしないと定める。
+claims:
+  - id: c1
+    text: Agentic Workflows では PR は決して自動マージされず、人が必ずレビューし承認する。
+    quote: With GitHub Agentic Workflows, pull requests are never merged automatically, and humans must always review and approve.
+    locator: Practical guidance for teams
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2, BASE-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: ワークフローは既定で読み取り専用権限で動き、書き込みは safe outputs（PR 作成・コメント追加など事前承認済みでレビュー可能な操作）経由の明示承認を要する。
+    quote: Workflows run with read-only permissions by default. Write operations require explicit approval through safe outputs, which map to pre-approved, reviewable GitHub operations
+    locator: Let’s talk guardrails and control
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH07-Q5]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 導入はコメント・下書き・レポートなど低リスクの出力から始め、PR 作成はその後に有効化するよう勧める。
+    quote: Start with low-risk outputs such as comments, drafts, or reports before enabling pull request creation.
+    locator: Practical guidance for teams
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c4
+    text: Copilot 既定設定では1回の実行で premium request が通常2件（エージェント作業1件＋safe outputs のガードレール検査1件）消費される。
+    quote: "each workflow run typically incurs two premium requests: one for the agentic work and one for a guardrail check through safe outputs."
+    locator: Practical guidance for teams
+    quant:
+      value: 2 premium requests per run
+      n: not stated
+      design: vendor pricing description
+      population: gh-aw runs with Copilot default settings
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2]
+    issues: []
+    stance: context
+  - id: c5
+    text: Agentic Workflows を CI/CD の YAML ワークフローの代替に使うなと明記し、決定的な CI/CD と主観的・反復的な作業を分ける。
+    quote: Don’t use agentic workflows as a replacement for GitHub Actions YAML workflows for CI/CD.
+    locator: Practical guidance for teams
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:23.176Z
+    httpStatus: 200
+    finalUrl: https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Automate repository tasks with GitHub Agentic Workflows
+    titleMatch: true
+    dateMeta: 2026-02-13
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: each workflow run / two premium requests / one for the agentic work / one for a guardrail check through safe outputs
+        extractedQuote: "When using Copilot with default settings, each workflow run typically incurs two premium requests : one for the agentic work and one for a guardrail check through safe outputs."
+        locator: 節『Practical guidance for teams』第4段落
+        note: 『___回の実行』に当たる原文は数字ではなく『each workflow run』(実行1回ごと)。使用モデルは設定で変えられるとも記す
+        adjudication:
+          verdict: consistent
+          reason: "blindQuote「When using Copilot with default settings, each workflow run typically incurs two premium requests: one for the agentic work and one for a guardrail check through safe outputs.」と一致する。「1回の実行で」は「each workflow run」の訳で、既定設定・通常(typically)・内訳もすべて原文どおりである。"
+          date: 2026-09-24
+      c5:
+        verdict: match
+        extractedValue: Don’t use agentic workflows as a replacement for GitHub Actions YAML workflows for CI/CD
+        extractedQuote: Continuous AI works best if you use it in conjunction with CI/CD. Don’t use agentic workflows as a replacement for GitHub Actions YAML workflows for CI/CD.
+        locator: 節『Practical guidance for teams』の箇条書き末尾
+        note: 原文は CI/CD と併用すること、および『more subjective, repetitive tasks that traditional CI/CD struggle to express』へ適用を広げると述べる。『決定的な CI/CD』という語そのものは原文にない
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

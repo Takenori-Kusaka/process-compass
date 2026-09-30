@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0309
+status: included
+excludeReason: null
+title: Trust Factory
+url: https://newsletter.kentbeck.com/p/trust-factory
+canonicalUrl: https://newsletter.kentbeck.com/p/trust-factory
+ids:
+  arxiv: null
+  doi: null
+publisher: "Software Design: Tidy First? (Kent Beck)"
+authors: [Kent Beck]
+orgType: individual
+region: us
+lang: en
+sourceType: individual
+published: 2026-06-02
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: Kent Beck augmented coding 2026 tidyfirst substack genie
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07, TH01]
+events: []
+summary: Kent Beck が、個人が単独で AI(genie)と開発する「single player」形態は信頼を損なうと論じ、XP のプラクティスが信頼を製造していた仕組みから対策を考える記事。
+claims:
+  - id: c1
+    text: genie はプロンプトを満たすことを「気にかける」が、目的は気にかけない。生成されたソフトウェアはごく普通の状況でも正しく動かないことがあり、「動いた」の後の「動かない」が信頼を削る。
+    quote: Genies “care” about satisfying prompts, not purposes.
+    locator: Vibe Coding Versus Trust
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q5]
+    issues: [269]
+    stance: supports
+  - id: c2
+    text: single player 開発を奨励すると、信頼を積み上げる小さな機会の大半が失われる。
+    quote: Encouraging single player development eliminates most of the little chances to build trust.
+    locator: Vibe Coding Versus Trust
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q5]
+    issues: [267]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:25.181Z
+    httpStatus: 200
+    finalUrl: https://newsletter.kentbeck.com/p/trust-factory
+    contentType: text/html; charset=utf-8
+    titleFetched: Trust Factory
+    titleMatch: true
+    dateMeta: 2026-06-02
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

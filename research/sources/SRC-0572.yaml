@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0572
+status: included
+excludeReason: null
+title: Status Checks — Codecov Documentation
+url: https://docs.codecov.com/docs/commit-status
+canonicalUrl: https://docs.codecov.com/docs/commit-status
+ids:
+  arxiv: null
+  doi: null
+publisher: Codecov (Sentry)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2025-11-11
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: "直接取得: 指示(c)で名指しされた公式文書(docs.codecov.com/docs/commit-status)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07]
+events: []
+summary: Codecov のステータスチェック設定の公式文書(dateModified 2025-11-11)。head に報告が無いときの既定は success(通過)で、未アップロードのフラグの扱いは include / exclude / pass から選ぶ。未測定を通過として記録する既定を持つ製品の例で、『未判定を区別して残す』側への反証になる。
+claims:
+  - id: c1
+    text: head コミットにカバレッジ報告が無い場合の設定 if_not_found は既定が success で、報告が無くてもステータスは通過になる。『測定しなかった』と『通過した』が既定では同じ記録になる。
+    quote: "Settings are 'success' and 'failure' the default is 'success'. failure: the status will fail if there is no report for the head success: the status will pass if there is no report for the head."
+    locator: Advanced Configuration — if_not_found
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: contradicts
+  - id: c2
+    text: カバレッジが新規にアップロードされなかったフラグのチェックは、通常どおり送る(include、既定)・送らない(exclude)・自動で通過させる(pass)から選ぶ。未測定を『送らない』として通過と区別する選択肢は用意されている。
+    quote: "exclude: Status checks that haven't newly uploaded any flag coverage will not be sent. pass: Status checks that haven't newly uploaded any flag coverage will be passed automatically."
+    locator: flag_coverage_not_uploaded_behavior
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: qualifies
+  - id: c3
+    text: informational を true にすると、カバレッジの値や他の設定にかかわらずステータスは通過する。強制せず情報提示だけを行う状態を運用者が設定で切り替える方式である。
+    quote: If true is specified the resulting status will pass no matter what the coverage is or what other settings are specified.
+    locator: Advanced Configuration — informational
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:44.984Z
+    httpStatus: 200
+    finalUrl: https://docs.codecov.com/docs/commit-status
+    contentType: text/html; charset=utf-8
+    titleFetched: Status Checks
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: partial
+      c2: partial
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 既定 = success
+        extractedQuote: "Settings are 'success' and 'failure' the default is 'success'. failure: the status will fail if there is no report for the head success: the status will pass if there is no report for the head."
+        locator: Advanced Configuration > if_not_found
+        note: 『測定しなかったと通過したが同じ記録になる』という記述は原文に無い。原文は success を、カバレッジを上げないコミット/PR でもステータスを通したい場合に使うと説明する。
+      c2:
+        verdict: match
+        extractedValue: include(既定)/ exclude / pass
+        extractedQuote: "include: (default) All the status checks defined in the YAML file will be processed and sent as normal. exclude: Status checks that haven't newly uploaded any flag coverage will not be sent. pass: Status checks that haven't newly uploaded any flag coverage will be passed automatically."
+        locator: Advanced Configuration > flag_coverage_not_uploaded_behavior
+        note: 対象は『フラグを指定したステータスチェック』に限られる(“Note that this only applies to status checks that specify flags”)。carryforward されたフラグも『新規アップロード無し』に含む。『未測定を通過と区別する』という趣旨の説明は原文に無く、用途はモノレポで無関係なプロジェクトのチェックを見せないこととされる。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

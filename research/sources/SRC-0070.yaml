@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0070
+status: included
+excludeReason: null
+title: Humans and Agents in Software Engineering Loops
+url: https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html
+canonicalUrl: https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html
+ids:
+  arxiv: null
+  doi: null
+publisher: martinfowler.com (Thoughtworks, Exploring Gen AI)
+authors: [Morris Kief]
+orgType: consultancy
+region: global
+lang: en
+sourceType: individual
+published: 2026-03-04
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: Kief Morris "Humans and Agents in Software Engineering Loops" martinfowler.com on the loop
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH03]
+events: []
+summary: 人の位置を in the loop(各成果物を直す)/on the loop(成果物を生むハーネスを直す)/out of the loop(放任)で整理。人は「なぜループ」を持ち、「どうループ」ではハーネスを管理する側に立つべきだと論じる。ループ階層単位の切り方で、役割単位ではない。
+claims:
+  - id: c1
+    text: in the loop と on the loop の差は不満な出力への対処に現れる。前者は成果物を直し、後者は成果物を生んだハーネス(仕様・テスト・品質チェック・ワークフロー規則)を直す。
+    quote: The “on the loop” way is to change the harness that produced the artefact so it produces the results we want.
+    locator: Humans on the loop
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 最内ループで各行を検査する in the loop は人をボトルネックにし、AI 生産性報告が割れる一因かもしれないとする。
+    quote: The challenge when we insist on being too closely involved in the process is that we become a bottleneck. Agents can generate code faster than humans can manually inspect it.
+    locator: Humans in the loop
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q4, TH11-Q2]
+    issues: [248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:18.162Z
+    httpStatus: 200
+    finalUrl: https://martinfowler.com/articles/exploring-gen-ai/humans-and-agents.html
+    contentType: text/html
+    titleFetched: Humans and Agents in Software Engineering Loops
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

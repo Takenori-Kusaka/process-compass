@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0323
+status: included
+excludeReason: null
+title: Probe-and-Refine Tuning of Repository Guidance for Coding Agents
+url: https://arxiv.org/abs/2606.20512
+canonicalUrl: arxiv:2606.20512
+ids:
+  arxiv: "2606.20512"
+  doi: null
+publisher: arXiv (cs.SE) / Williams College
+authors: [Asa Shepard, Jeannie Albrecht]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-06-18
+publishedBasis: arxiv-v1
+version: v2
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: '反証探索 arXiv API: (abs:"AGENTS.md" OR abs:"context file" OR abs:"CLAUDE.md") AND (abs:improve OR abs:reduces OR abs:efficiency)'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03]
+events: []
+summary: AGENTS.md の効果が研究間で割れる理由を「ガイダンスの作り方」に求め、合成バグ修正プローブで指示書を反復修正する手法を SWE-bench Verified で評価した。作り方次第で解決率が上がるという、文脈ファイル無効論への反証。
+claims:
+  - id: c1
+    text: ガイダンスの効果の有無を決めるのは、それがどう作られたかだと主張する。
+    quote: In this paper we show that how the guidance is produced is the decisive variable
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4]
+    issues: [269, 274]
+    stance: contradicts
+  - id: c2
+    text: プローブで反復修正した指示書は平均解決率33.0%で、初期化に使った静的知識ベース(28.3%)と指示なし(25.5%)を上回った(いずれも p<0.001)。
+    quote: probe-and-refine achieves 33.0% mean resolve rate vs. 28.3% for the static knowledge base used to initialize it and 25.5% for an unguided baseline
+    locator: Abstract; §7
+    quant:
+      value: 33.0% vs 28.3% vs 25.5%
+      n: SWE-bench Verified × 4 independent trials, 200 steps
+      design: controlled experiment
+      population: Qwen3.5-35B-A3B(16k effective context)
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4, TH03-Q3]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: 改善は精度ではなく到達範囲から来ており、パッチ1件あたりの精度は約59%で変わらない。よい指示書は正しいファイルへ辿り着かせるが、変更の質は上げない。
+    quote: The improvement comes from coverage rather than precision
+    locator: Abstract; §7.4 Analysis
+    quant:
+      value: 評価可能パッチ +14.5pp、精度 ~59%(p=0.119)
+      n: 同上
+      design: controlled experiment
+      population: 同上
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 十分に診断的な出力を生成できないモデルでは修正ループが劣化し、実証も単一モデル・Django に偏った単一ベンチマークに限られる。
+    quote: the tuning loop degrades when the model cannot generate sufficiently diagnostic output
+    locator: Abstract; §9 Limitations
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:58.079Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2606.20512
+    contentType: text/html; charset=utf-8
+    titleFetched: Probe-and-Refine Tuning of Repository Guidance for Coding Agents
+    titleMatch: true
+    dateMeta: 2026-06-18
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: Probe-and-Refine Tuning of Repository Guidance for Coding Agents
+      authors: ["Shepard, Asa", "Albrecht, Jeannie"]
+      v1Date: 2026-06-18
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 33.0% / 28.3% / 25.5% / p<0.001
+        extractedQuote: probe-and-refine achieves 33.0 % mean resolve rate vs. 28.3 % for the static knowledge base used to initialize it and 25.5 % for an unguided baseline ( p<0.001 for both probe-and-refine contrasts)
+        locator: "Abstract; §4 Table 4 (4試行平均: 33.0±1.8 / 28.3±1.4 / 25.5±2.2)"
+        note: 条件は SWE-bench Verified、Qwen3.5-35B-A3B、200 steps、4 回の独立試行。p<0.001 は probe-and-refine と他2条件それぞれとの比較。ask の locator にある §7 はモデル間の比較(Nemotron)で、この数値は Abstract と §4 にある。Nemotron ではチューニングのループが劣化し、Qwen 用の指示書を Nemotron へ移すと性能が崩れる。
+      c3:
+        verdict: match
+        extractedValue: per-patch (パッチ1件あたり) precision ~59% (p=0.119)
+        extractedQuote: refined guidance produces evaluable patches for 14.5 percentage points (pp) more instances while per-patch precision remains statistically constant (∼59 %, p=0.119)
+        locator: Abstract; §1 Contributions; §4 Table 4
+        note: Table 4 の precision 平均は no_context 61.0%、static_kb 56.0%、probe_refined 58.6%。『正しいファイルへ辿り着かせる』は論文自身が解釈だとしており、それを直接確かめる file-structure ablation は実施していない(we have not run the file-structure ablation that would directly test it)。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

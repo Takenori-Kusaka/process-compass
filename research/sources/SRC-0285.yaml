@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0285
+status: included
+excludeReason: null
+title: ADRは経緯より「決まったこと」だけでいい
+url: https://zenn.dev/yamitake/articles/adr-decision-over-context
+canonicalUrl: https://zenn.dev/yamitake/articles/adr-decision-over-context
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [JJ yamitake]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-09-04
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "zenn search API: ADR AI 膨張"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: Rails 開発者が、ADR で丁寧に書いた経緯はほとんど読み返されず、前提が古くなると判断を誤らせることさえあると述べ、『決定・現状(SSoT)・経緯一行』の軽い様式を提案する論考。
+claims:
+  - id: c1
+    text: 丁寧に書いた経緯は驚くほど読み返されない。経緯が効くのはその判断を疑うときだけで、普段知りたいのは今どうなっているかだと著者の実感として述べる。
+    quote: 実感ベースで言います。丁寧に書いた経緯は、驚くほど読み返されません。
+    locator: 「でも、経緯はそんなに読み返されない」節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3, TH05-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 前提(ライブラリ版・制約・規模)が変わると当時の経緯は意味のない記録になり、読み返すとむしろ判断を誤らせることがある。
+    quote: 当時は正しかった経緯も、前提が変われば「今となっては意味のない議論の記録」になります。読み返しても、むしろ判断を誤らせることすらある。
+    locator: 同上
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: supports
+  - id: c3
+    text: 経緯が古いのは無害だが決定が古いのは有害なので、労力は『今の決定』と現状(Single Source of Truth)を最新に保つことへ寄せ、経緯は一行でよいとする。
+    quote: 経緯が古いのは無害ですが、決定が古いのは有害です。
+    locator: 「本当に効くのは「決まったこと」を最新に保つこと」節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1]
+    issues: [251, 272]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.597Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/yamitake/articles/adr-decision-over-context
+    contentType: text/html; charset=utf-8
+    titleFetched: ADRは経緯より「決まったこと」だけでいい
+    titleMatch: true
+    dateMeta: 2026-09-04
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

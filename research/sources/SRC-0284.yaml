@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0284
+status: included
+excludeReason: null
+title: CodexとClaudeCodeのサブエージェントは多いほど強いのか？
+url: https://note.com/gtminami/n/n112bdc18083c
+canonicalUrl: https://note.com/gtminami/n/n112bdc18083c
+ids:
+  arxiv: null
+  doi: null
+publisher: note
+authors: [南翔伍]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-08-01
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: Claude Code サブエージェント 失敗 実測 zenn
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH04, TH06]
+events: []
+summary: サブエージェントを大量に動かしても品質は保証されないとし、通常は単体エージェントを標準にして必要性を説明できる場合だけ調査役・レビュー役を足すべきと主張する個人開発者の論考(公式文書・公開事例の読解に基づく)。
+claims:
+  - id: c1
+    text: 通常の開発では単体の Codex または Claude Code を標準とし、必要性を説明できる場合だけ調査役やレビュー役を追加すべきで、大量のサブエージェントは品質向上の標準手段ではないと主張する。
+    quote: 私の結論は明確です。通常の開発では、単体のCodexまたはClaude Codeを標準にする。必要性を説明できる場合だけ、調査役やレビュー役を追加する。
+    locator: 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3, TH04-Q4]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 同じモデルを複数回動かしても異なる専門家集団にはならず、同じ誤解・盲点・過剰設計を複製しうる。並列化で浮いた時間が親エージェントの統合作業へ移るだけのこともある。
+    quote: さらに、同じモデルを複数回動かしても、必ずしも異なる専門家集団にはなりません。同じ誤解、同じ盲点、同じ過剰設計を複製する可能性があります。
+    locator: 「大量のサブエージェントは作業量を増やしても品質を保証しない」節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: "固定した多数の観点を全工程で反復する構造(例: 45役割×4段階=180回の実行)は、重複探索・類似提案・統合負荷・設計の不整合を増やしているだけかもしれないと指摘する。"
+    quote: たとえば四十五の役割を四段階で動かすと、百八十回分の実行が生まれます。
+    locator: 同上
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH03-Q2, TH01-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.492Z
+    httpStatus: 200
+    finalUrl: https://note.com/gtminami/n/n112bdc18083c
+    contentType: text/html; charset=utf-8
+    titleFetched: CodexとClaudeCodeのサブエージェントは多いほど強いのか？｜南翔伍 / AIコンパニオンとSNSの間くらいの「Jams」開発中
+    titleMatch: true
+    dateMeta: 2026-08-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 四十五(45)の役割 × 四(4)段階 = 百八十(180)回分の実行
+        extractedQuote: 私が特に問題だと考えるのは、固定した多数の観点を全工程で反復する構造です。たとえば四十五の役割を四段階で動かすと、百八十回分の実行が生まれます。
+        locator: 本文(統合負荷の段落の直後。見出し「品質を決めるのは人数ではなく仕事の境界である」の直前)
+        note: 原文の数値は漢数字表記。直後の文は「これは念入りな開発にも見えますが、実際には重複探索、類似提案、統合負荷、設計の不整合を増やしているだけかもしれません。」で、ask と一致。「たとえば」とあり仮定の例示で、実測値ではない。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

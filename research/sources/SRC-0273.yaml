@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0273
+status: included
+excludeReason: null
+title: Claude Codeの「やりました」を信用してはいけない——完了報告に証拠を要求する運用
+url: https://zenn.dev/miharu_tools/articles/cc-completion-report-evidence
+canonicalUrl: https://zenn.dev/miharu_tools/articles/cc-completion-report-evidence
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [Miharu]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-07-14
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "zenn search API: 嘘 完了報告"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH02]
+events: []
+summary: 一人開発で Claude Code の完了報告が『実行した』と『意図した状態になった』を取り違える事例(未push、空ファイル)を記録し、報告をコマンド出力で構成させる検収様式を示した記事。
+claims:
+  - id: c1
+    text: 「実装・コミット完了しました」の報告に対し、コミットはされていたがpushされておらずリモートにブランチが無かった。「作成しました」が途中エラーで空ファイルだった事例もある。嘘ではなく、報告の粒度が受け手の期待と異なる。
+    quote: CCは嘘をついたわけではない。「コミットしました」は事実だった。しかし私が受け取りたかった報告は「リモートに反映され、レビュー可能な状態になった」であって、両者は別物だった。
+    locator: 冒頭「「コミットしました」の翌朝、リモートに何もなかった」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: [269, 271]
+    stance: supports
+  - id: c2
+    text: 検証はコストなので、要求されなければエージェントは最終状態の確認を省略する方向に倒れる、と著者は構造的性質として説明する。
+    quote: そして検証はコストだ。最終状態の確認には追加のコマンド実行と出力の読解が要る。要求されなければ、省略される方向に倒れる。
+    locator: 「なぜ起きるのか」節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q1, TH07-Q5]
+    issues: []
+    stance: context
+  - id: c3
+    text: 対策として、完了報告を自己申告の文ではなく git status / git branch -vv / ls・wc / テスト数値などのコマンド出力で構成させ、指示外の変更の列挙を義務化した。自走を禁止せず申告させる形でスコープ逸脱も検出できた。
+    quote: ポイントは、報告をエージェントの言葉ではなくコマンド出力で構成させることだ。
+    locator: 「型:完了報告フォーマットを指示に埋め込む」節
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q2, TH10-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.947Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/miharu_tools/articles/cc-completion-report-evidence
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Codeの「やりました」を信用してはいけない——完了報告に証拠を要求する運用
+    titleMatch: true
+    dateMeta: 2026-07-14
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

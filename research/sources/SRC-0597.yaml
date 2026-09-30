@@ -1,0 +1,115 @@
+schemaVersion: 0
+id: SRC-0597
+status: included
+excludeReason: null
+title: How Much Code Do Developers Really Let Agents Write?
+url: https://blog.jetbrains.com/research/2026/08/how-much-code-do-developers-really-let-agents-write/
+canonicalUrl: https://blog.jetbrains.com/research/2026/08/how-much-code-do-developers-really-let-agents-write
+ids:
+  arxiv: null
+  doi: null
+publisher: JetBrains Research
+authors: [Bogdanov Mikhail]
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-08-26
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: JetBrains State of Developer Ecosystem 2026 AI results
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events:
+  - date: 2026-08-26
+    label: JetBrains が Developer Ecosystem Survey 2026(2026-05〜07 実施、1.5 万人超)のエージェント生成コード比率を公表
+summary: JetBrains Developer Ecosystem Survey 2026(2026-05〜07、職業開発者 1.5 万人超、地域等で再重み付け)の先行公表。先月の仕事のコードのうち、エージェントが全部書いた割合は平均約 47%、手書きは約 27%。値は区間選択の自己申告で合計が 100% を超える。調査本体のレポートは未公開で、ブログ記事を読んだ。
+claims:
+  - id: c1
+    text: 職業開発者の自己申告では、先月の仕事のコードのうちエージェントが全部書いたものが平均約 47%、AI 支援つきの手書きが約 38%、AI なしの手書きが約 27% だった。
+    quote: ~47% of their code is fully written by agents
+    locator: Here is what we found
+    quant:
+      value: 約 47% / 約 38% / 約 27%
+      n: 職業開発者 15,000 人超
+      design: 質問紙調査(区間選択の中点で平均、地域・言語等で再重み付け)
+      population: 世界の職業開発者、2026-05〜07
+    evidenceKind: survey
+    rqs: [TH11-Q2, TH11-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: コードの 80% 超をエージェントで生成する開発者は約 22% にとどまる。「100% エージェントで書いている」という主張は多数派の実態ではない。
+    quote: the group that relies almost entirely on coding agents (over 80% agent-generated code) remains a minority of around 22%
+    locator: Here is what we found
+    quant:
+      value: 約 22%
+      n: 職業開発者 15,000 人超
+      design: 質問紙調査
+      population: 世界の職業開発者、2026-05〜07
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: JetBrains は、3区分の平均の合計が 100% を超えうること、自己申告が正確とは限らないことを方法上の注意として明記している。AI 生成コード比率を自己申告で測る指標の限界を示す。
+    quote: could exceed 100% because of the bucketed nature of the answers, and respondents’ self-reports may not always be fully accurate.
+    locator: Methodology notes
+    quant: null
+    evidenceKind: survey
+    rqs: [TH11-Q3, TH11-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:55.720Z
+    httpStatus: 200
+    finalUrl: https://blog.jetbrains.com/research/2026/08/how-much-code-do-developers-really-let-agents-write/
+    contentType: text/html; charset=UTF-8
+    titleFetched: How Much Code Do Developers Really Let Agents Write? - The JetBrains Blog
+    titleMatch: true
+    dateMeta: 2026-08-26
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: エージェントが全部書いた ~47% / AI 支援つき ~38% / 完全な手書き ~27%
+        extractedQuote: "On average, professional developers report that: ~47% of their code is fully written by agents . ~38% is written with some AI assistance. ~27% is written fully manually."
+        locator: Here is what we found
+        note: 設問は「What percentage of the code that you produced last month for work was …?」。対象は 2026年5〜7月、15,000 人超の職業開発者(Developer Ecosystem Survey 2026)。3値の合計は 112% で 100% を超える(方法注記に説明あり)。
+      c2:
+        verdict: match
+        extractedValue: 80% 超 / 約 22% / 冒頭の主張は「100%」
+        extractedQuote: At the same time, the group that relies almost entirely on coding agents (over 80% agent-generated code) remains a minority of around 22% . Most developers are sitting somewhere in the middle.
+        locator: Here is what we found
+        note: 3つ目の伏せ字に当たるのは記事冒頭の「"100% of my code is written by [insert whichever AI coding agent is popular right now]!" You've probably heard this claim many times this year.」。「多数派の実態ではない」は原文の「remains a minority」「Most developers are sitting somewhere in the middle」に対応。
+      c3:
+        verdict: match
+        extractedValue: 3区分(three categories)/ 100%
+        extractedQuote: The averages across the three categories of how code is written within the same group (e.g. seniors) could exceed 100% because of the bucketed nature of the answers [...]
+        locator: Methodology notes
+        note: 引用の続きは「, and respondents' self-reports may not always be fully accurate.」(自己申告の不正確さも同じ文で明記)。同注記に、下限合計が 150% 超または上限合計が 80% 未満の回答は除外、平均は各バケットの中点(0%, 10.5%, 30.5%, 50.5%, 70.5%, 90%, 100%)で計算、とある。「指標の限界を示す」は読み手の解釈で、原文は注意書きにとどまる。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

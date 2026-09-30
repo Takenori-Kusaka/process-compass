@@ -1,0 +1,108 @@
+schemaVersion: 0
+id: SRC-0157
+status: included
+excludeReason: null
+title: "Vibe Coding vs Spec-Driven Development (2026): When to Use Each"
+url: https://www.augmentcode.com/guides/vibe-coding-vs-spec-driven-development
+canonicalUrl: https://augmentcode.com/guides/vibe-coding-vs-spec-driven-development
+ids:
+  arxiv: null
+  doi: null
+publisher: Augment Code
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-03-12
+publishedBasis: meta
+version: null
+updated: 2026-06-18
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: prototype-first development lowered requirements quality vibe coding prototypes rework study 2026 (scratchpad)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH08]
+events: []
+summary: コーディングエージェントベンダーのガイド。vibe coding は速いが「3 か月の壁」で技術的負債が膨らむとし、実務的な統合案として「vibe coding で要求を発見し、本番前にバージョン管理された仕様へ形式化する」を提示する。数値は GitClear や YC の二次引用。自社製品への誘導を含む。
+claims:
+  - id: c1
+    text: vibe coding はプロトタイプを速く出すが、3 か月ほどで技術的負債が複利的に膨らむ「three-month wall」に当たるとベンダーは主張する(根拠は二次引用)。
+    quote: Vibe coding (prompt, generate, iterate) ships prototypes fast but hits a documented three-month wall where technical debt compounds into significant maintenance overhead.
+    locator: TL;DR
+    quant:
+      value: ~3 months
+      n: not stated
+      design: vendor synthesis of secondary sources
+      population: AI-assisted teams
+    evidenceKind: vendor-guidance
+    rqs: [TH09-Q3]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: "実務的な統合: 探索は vibe coding で要求を発見し、その後バージョン管理された仕様に形式化してから本番へ出す(プロトタイプ先行と仕様駆動の接続)。"
+    quote: "The practical synthesis: structured exploration with living specs, where teams vibe-code to discover requirements, then formalize them into version-controlled specifications before production deployment."
+    locator: TL;DR
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH09-Q3, TH08-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: YC W25 バッチの 25% がコードベースの 95% を AI 生成で出荷したと引用する(二次)。
+    quote: Twenty-five percent of Y Combinator's W25 batch shipped codebases that are 95% AI-generated.
+    locator: Why Engineering Teams Face a Methodology Decision
+    quant:
+      value: 25% of batch; 95% AI-generated
+      n: YC W25 batch
+      design: secondary citation
+      population: YC startups
+    evidenceKind: news-fact
+    rqs: [TH09-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:11.715Z
+    httpStatus: 200
+    finalUrl: https://www.augmentcode.com/guides/vibe-coding-vs-spec-driven-development
+    contentType: text/html; charset=utf-8
+    titleFetched: "Vibe Coding vs Spec-Driven Development (2026): When to Use Each"
+    titleMatch: true
+    dateMeta: 2026-03-12
+    quotes:
+      c1: found
+      c2: found
+      c3: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: three-month(3か月)
+        extractedQuote: Vibe coding (prompt, generate, iterate) ships prototypes fast but hits a documented three-month wall where technical debt compounds into significant maintenance overhead.
+        locator: TL;DR
+        note: 本文「The Three-Month Wall」節は Codebridge の記事を典拠とし、Euphoria(1–3か月)→Plateau(4–9)→Decline(10–15)→Stall(16–18)の段階表を示す。3か月は減速の始まり(Euphoria の終わり)であり、停止は16–18か月とされる。記事はベンダー(Augment Code)のガイドで、自社製品 Cosmos の宣伝を含む。
+      c3:
+        verdict: match
+        extractedValue: W25 / 25%(Twenty-five percent) / 95%
+        extractedQuote: Twenty-five percent of Y Combinator's W25 batch shipped codebases that are 95% AI-generated.
+        locator: Why Engineering Teams Face a Methodology Decision
+        note: 同記事「The YC W25 Context」節では、Garry Tan の CNBC への発言として『for about a quarter of the current YC startups, 95% of the code was written by AI』を引用している。元発言は『コードの95%がAIで書かれた』で、『shipped』は Augment 側の言い換え。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://augmentcode.com/guides/vibe-coding-vs-spec-driven-development

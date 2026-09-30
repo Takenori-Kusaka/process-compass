@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0525
+status: included
+excludeReason: null
+title: IEC 62304:2006/AMD1:2015 Medical device software — Software life cycle processes — Amendment 1 (iTeh preview)
+url: https://cdn.standards.iteh.ai/samples/21252/f7905e39d6514a4da0bb6592596afd44/IEC-62304-2006-AMD1-2015.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/21252/f7905e39d6514a4da0bb6592596afd44/iec-62304-2006-amd1-2015.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: International Electrotechnical Commission (IEC)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2015-06
+publishedBasis: pdf
+version: Edition 1.0 Amendment 1
+updated: null
+accessed: 2026-09-30
+access: paywall
+readLevel: section
+foundBy:
+  cluster: G02
+  query: IEC 62304:2006 sample pdf iteh "software development plan" "TRACEABILITY" "5.1.1" medical device software life cycle processes preview
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH12, TH06]
+events: []
+summary: IEC 62304 の修正票 1(2015-06)の公開プレビュー。修正文の形で §3〜§5.8 の差分が読める。§5.7.4 は全安全クラスに対し「全要求が試験または他の方法で検証済みであること」と「要求と試験の間のトレーサビリティが記録されていること」の確認を課す。本体 2006 年版のプレビューは用語 3.6 までで §5.1.1 の原文は読めない。プレビュー範囲に検証者の独立性を課す文言は無い(不在の確認ではない)。
+claims:
+  - id: c1
+    text: §5.7.4(修正後)は製造業者に、(a) すべてのソフトウェア要求が試験または他の方法で検証されたこと、(b) 要求と試験・他の検証の間のトレーサビリティが記録されたこと、(c) 試験結果が合否基準を満たすこと、の確認を課す(クラス A・B・C)。(a) は対応の有無の網羅確認、(c) は内容の合否で、別項として書き分けられている。
+    quote: the TRACEABILITY between software requirements and tests or other VERIFICATION is
+    locator: §5.7.4 EVALUATE SOFTWARE SYSTEM testing, b)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+  - id: c2
+    text: 同じ §5.7.4 の (a) は、すべてのソフトウェア要求が試験済みまたは他の方法で検証済みであることの確認を求める。
+    quote: all software requirements have been tested or otherwise VERIFIED
+    locator: §5.7.4 a)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+  - id: c3
+    text: §5.3.6 の注記は、アーキテクチャからソフトウェア要求へのトレーサビリティ分析を、アーキテクチャ検証の要求 a) を満たす手段として認める。
+    quote: A TRACEABILITY analysis of ARCHITECTURE to software requirements can be used to satisfy requirement a).
+    locator: §5.3.6 Verify software ARCHITECTURE, NOTE
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+  - id: c4
+    text: §5.7.1 に追加された b) は、検証戦略と試験手順の適切さを製造業者が評価することを求める。
+    quote: The MANUFACTURER shall EVALUATE the adequacy of VERIFICATION strategies and test
+    locator: §5.7.1 b)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:25.258Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/21252/f7905e39d6514a4da0bb6592596afd44/IEC-62304-2006-AMD1-2015.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "§5.7.4(修正後の表題: EVALUATE SOFTWARE SYSTEM testing)、a)〜c) の3項目、[Class A, B, C]"
+        extractedQuote: b) the TRACEABILITY between software requirements and tests or other VERIFICATION is recorded; and c) test results meet the required pass/fail criteria. [Class A, B, C]
+        locator: §5.7.4 EVALUATE SOFTWARE SYSTEM testing(Amendment 1 の pp.12-13)
+        note: 引用は b) c) とクラス表示。a) は "a) all software requirements have been tested or otherwise VERIFIED;"、柱書きは "The MANUFACTURER shall verify that:"。iTeh のプレビュー PDF(15 ページ)は無償で取得でき、該当箇所を含んでいた。修正後の 5.7.4 は a)〜c) の前に "The MANUFACTURER shall EVALUATE the appropriateness of VERIFICATION strategies and test procedures." の一文を持つ。「(a) は網羅確認、(c) は内容の合否」という読み分けは主張側の解釈で、原文は3項目を並べるだけ。
+      c2:
+        verdict: match
+        extractedValue: §5.7.4 a)
+        extractedQuote: a) all software requirements have been tested or otherwise VERIFIED;
+        locator: §5.7.4 EVALUATE SOFTWARE SYSTEM testing, a)(Amendment 1 の p.13)
+        note: 主語は "The MANUFACTURER shall verify that:"。クラスは [Class A, B, C]。
+      c3:
+        verdict: match
+        extractedValue: §5.3.6 の新設 NOTE
+        extractedQuote: NOTE A TRACEABILITY analysis of ARCHITECTURE to software requirements can be used to satisfy requirement a).
+        locator: §5.3.6 Verify software ARCHITECTURE("Add the following new note:")
+        note: 改正票は注記の追加だけを示す。requirement a) の本文は 2006 年版側にあり、このプレビューには載っていない。
+      c4:
+        verdict: match
+        extractedValue: §5.7.1 に新設された b)
+        extractedQuote: b) The MANUFACTURER shall EVALUATE the adequacy of VERIFICATION strategies and test procedures.
+        locator: §5.7.1 Establish tests for software requirements("Add the following new list item:")
+        note: 5.7.1 b) の語は "adequacy"。"appropriateness" を使うのは 5.7.4 の冒頭文のほうで、ask の「適切さ」がどちらの語に当たるかは要確認。5.7.1 は同じ改正でクラスが [Class B, C] から [Class A, B, C] に変わっている。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

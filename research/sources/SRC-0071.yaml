@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0071
+status: included
+excludeReason: null
+title: Orchestrate teams of Claude Code sessions (Agent teams)
+url: https://code.claude.com/docs/en/agent-teams
+canonicalUrl: https://code.claude.com/docs/en/agent-teams
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude Code Docs)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: "2026"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: Claude Code agent teams subagents documentation 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH03, TH06]
+events: []
+summary: Claude Code の agent teams 公式ドキュメント(2026-09-23 取得版、日付記載なし)。実験的機能で既定は無効。リード1セッション+独立文脈のチームメイトが共有タスクリストとメッセージで協調する。並列探索に向き、逐次作業や同一ファイル編集には不向きと明記。
+claims:
+  - id: c1
+    text: agent teams は実験的機能で既定では無効。環境変数で明示的に有効化しない限りチームメイトは生成・提案されない。セッション再開・タスク調整・終了に既知の制限がある。
+    quote: Agent teams are experimental and disabled by default. Enable them by setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 in your settings.json or environment.
+    locator: ページ冒頭の注意書き
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 構成は、リードが作業を調整・割当・統合し、チームメイトは各自の文脈窓で独立に動き相互に直接通信する。人はどのチームメイトにも直接話せる。役割は「並列の作業者」であってロール保持者ではない。
+    quote: One session acts as the team lead, coordinating work, assigning tasks, and synthesizing results. Teammates work independently, each in its own context window, and communicate directly with each other.
+    locator: 冒頭 / How agent teams work
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: qualifies
+  - id: c3
+    text: チームは調整オーバーヘッドと大幅なトークン増を伴い、独立に動ける場合のみ有効。逐次タスク・同一ファイル編集・依存の多い作業は単一セッションかサブエージェントが良い。
+    quote: Agent teams add coordination overhead and use significantly more tokens than a single session. They work best when teammates can operate independently.
+    locator: When to use agent teams
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3, TH04-Q4]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:18.697Z
+    httpStatus: 200
+    finalUrl: https://code.claude.com/docs/en/agent-teams
+    contentType: text/html; charset=utf-8
+    titleFetched: Orchestrate teams of Claude Code sessions - Claude Code Docs
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

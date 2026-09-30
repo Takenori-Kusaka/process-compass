@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0485
+status: included
+excludeReason: null
+title: Claude Code導入による開発効率化と全社展開までの段階的アプローチ
+url: https://findy-tools.io/products/claudecode/1065/825
+canonicalUrl: https://findy-tools.io/products/claudecode/1065/825
+ids:
+  arxiv: null
+  doi: null
+publisher: Findy Tools(株式会社Rehab for JAPAN によるレビュー)
+authors: [久保田 将規]
+orgType: startup
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-01-21
+publishedBasis: page
+version: null
+updated: 2026-01-16
+accessed: 2026-09-24
+access: login
+readLevel: section
+foundBy:
+  cluster: TH11
+  query: テックブログ AIコーディング 導入 効果検証 エンジニア 名 対象 PR数 サイクルタイム 前後比較 結果 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11, TH01, TH06]
+events: []
+summary: Rehab for JAPAN(エンジニア11〜50名)の EM による Claude Code 導入事例。約3名のパイロットで自作ツールにより GitHub 活動量とトークン量を追跡し導入前後を比較した。PR 数は全体で64.5%増、メンバー層のマージ時間は33%短縮したが、マネージャー層のマージ時間は93.5%悪化し、レビュー負荷がマネージャーへ集中した。
+claims:
+  - id: c1
+    text: マネージャー層では PR マージまでの時間が93.5%増加(悪化)した。PR 数の急増に伴うレビュー対応と動作検証が原因と推定している。
+    quote: マネージャー層に関しては、PRマージまでの時間が93.5%増加（悪化）した
+    locator: パイロットプロジェクトを含めた1ヶ月の生産性指標
+    quant:
+      value: +93.5% time-to-merge (manager tier); member tier -33%
+      n: pilot ~3 members; org 11–50 engineers
+      design: before/after comparison with in-house GitHub activity tracking
+      population: Rehab for JAPAN development team, 2025
+    evidenceKind: case-report
+    rqs: [TH11-Q3, BASE-Q2]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 全体の PR 数は64.5%増え、マネージャー層では月16件から56件に増えた。
+    quote: 全体の平均としては、PR数が64.5%増加した
+    locator: パイロットプロジェクトを含めた1ヶ月の生産性指標
+    quant:
+      value: +64.5% PRs; manager 16 -> 56/month
+      n: pilot ~3 members
+      design: before/after
+      population: same
+    evidenceKind: case-report
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 費用対効果の説明のため、導入前後の PR 数とマージ時間を、AIを使わない業務委託1名の過去の生産性と比べて ROI を導出した。
+    quote: 解決策として、導入前後のPR数、マージまでの時間と、AIを活用していない状態の業務委託1名の過去の生産性を比較し、ROIを導出した
+    locator: "導入時の苦労・悩み: 費用対効果の説明の難しさ"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:10.194Z
+    httpStatus: 200
+    finalUrl: https://findy-tools.io/products/claudecode/1065/825
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Code導入による開発効率化と全社展開までの段階的アプローチ
+    titleMatch: true
+    dateMeta: 2026-01-16
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 93.5%
+        extractedQuote: マネージャー層に関しては、PRマージまでの時間が93.5%増加（悪化）した PR数自体の著しい増加に伴い、増加したPRに対するレビュー対応や動作検証に時間がかかり、PRマージまでの時間が増加したと考えている
+        locator: 導入の成果 > パイロットプロジェクトを含めた1ヶ月の生産性指標 > PRのマージまでの時間
+        note: 作業票の access は login だったが、curl でログインなしに本文を取得できた。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote『マネージャー層に関しては、PRマージまでの時間が93.5%増加（悪化）した PR数自体の著しい増加に伴い、増加したPRに対するレビュー対応や動作検証に時間がかかり...と考えている』どおり。『推定している』は原文の『考えている』に対応する。claimQuant のメンバー層 -33% は抜粋に無く未確認だが、claimText には含まれていない。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: 64.5% / 16 → 56
+        extractedQuote: 全体の平均としては、PR数が64.5%増加した 特にマネージャー層では、1ヶ月間のPR数が導入前は16であったが、導入後は56と著しく増加した
+        locator: 導入の成果 > パイロットプロジェクトを含めた1ヶ月の生産性指標 > PR数について
+        note: 原典は「全体の平均としては」64.5%増加(平均の取り方は不明)。ask の「全体の PR 数は64.5%増え」は総数の増加率と読める表現で、平均値である点がやや異なる可能性。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

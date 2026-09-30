@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0098
+status: included
+excludeReason: null
+title: AI活用率100％のQA組織をつくるまで
+url: https://techblog.lycorp.co.jp/ja/20260826b
+canonicalUrl: https://techblog.lycorp.co.jp/ja/20260826b
+ids:
+  arxiv: null
+  doi: null
+publisher: LINEヤフー Tech Blog
+authors: [上田 洋平, 福永 誠]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-08-26
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: LINEヤフー Tech Blog AI活用率100％のQA組織をつくるまで QA Agent Platform Tech-Verse 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH03, TH07]
+events:
+  - date: 2026-06-29
+    label: Tech-Verse 2026 で講演(記事はその内容)
+summary: LINEヤフー プロダクト QA ユニットの報告。OpenAI Codex と組み合わせる組織共通テンプレートリポジトリ QA Agent Platform(QAAP)を整備し、QA 組織の AI 活用率を100%に。「人の注意力に頼らず、仕組みで止める」を設計思想とし、AI は QA 担当者の道具として位置づけ、QA ロール自体は人が保持。
+claims:
+  - id: c1
+    text: QAAP の一貫した設計思想は「人の注意力に頼らず、仕組みで止める」。自動ブレーキを標準搭載し利用者はアクセルに集中する役割分担で、人と AI の責任を切り分けた。
+    quote: 人の注意力に頼らず、仕組みで止める。 これがQAAPの一貫した設計思想です。
+    locator: 壁1の結論
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH07-Q5]
+    issues: [248, 269]
+    stance: qualifies
+  - id: c2
+    text: QAAP は Codex(CLI/App)と組み合わせる組織共通のテンプレートリポジトリで、QA 専門スキルとセキュリティのガードレールを組み込み、各メンバーが Fork して使う。AI は QA 担当者が使う基盤で、QA ロールを AI が占める構成ではない。
+    quote: QAAPは、OpenAIのコーディングエージェントである Codex（CLI / App）と組み合わせて使う、組織共通のテンプレートリポジトリです。
+    locator: QA Agent Platform とは
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH03-Q2]
+    issues: [248]
+    stance: qualifies
+  - id: c3
+    text: 取り消せない削除コマンドは実行させず復元可能な操作に限定するなど、エージェント固有の操作リスクを仕組みで封じる。
+    quote: rm のような取り消せない削除コマンドは実行させず、ゴミ箱への移動など復元可能な操作に限定しています。
+    locator: 壁1 ガードレール
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:43.880Z
+    httpStatus: 200
+    finalUrl: https://techblog.lycorp.co.jp/ja/20260826b
+    contentType: text/html
+    titleFetched: AI活用率100％のQA組織をつくるまで
+    titleMatch: true
+    dateMeta: 2026-08-26
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

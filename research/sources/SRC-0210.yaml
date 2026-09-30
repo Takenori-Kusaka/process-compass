@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0210
+status: included
+excludeReason: null
+title: Auto-review (Codex docs)
+url: https://developers.openai.com/codex/sandboxing/auto-review
+canonicalUrl: https://developers.openai.com/codex/sandboxing/auto-review
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: Codex approvals sandbox security agent approval modes
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06, TH07]
+events: []
+summary: Codex で、サンドボックス境界を越える操作の承認を人ではなく別のレビュア用エージェントに回す機能の公式文書(ページに日付なし、2026-09-24 取得)。権限は広げず承認者だけを替える設計、拒否の回路遮断、上書き経路、企業ポリシーでの固定を定める。
+claims:
+  - id: c1
+    text: Auto-review はサンドボックス境界での人の手動承認を、別のレビュア用エージェントに置き換える。主エージェントのサンドボックス・ネットワーク・ファイル制限は変わらない。
+    quote: Auto-review replaces manual approval at the sandbox boundary with a separate reviewer agent.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH01-Q4]
+    issues: [248]
+    stance: context
+  - id: c2
+    text: レビュアの差し替えは権限付与ではない。書き込み可能範囲の拡大やネットワーク有効化はせず、承認が必要だった操作の扱いだけを変える。
+    quote: Auto-review is a reviewer swap, not a permission grant.
+    locator: How auto-review works
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: 拒否が 1 ターン内で 3 回連続、または直近 50 件中 10 件に達すると、エージェントが回避策を試し続けないようターンを中断する回路遮断を持つ。
+    quote: Auto-review interrupts the turn after 3 consecutive denials or 10 denials within a rolling window of the last 50 reviews in the same turn.
+    locator: Denials and failure behavior
+    quant:
+      value: 3 連続 / 50 件中 10 件
+      n: 該当なし(仕様値)
+      design: product specification
+      population: Codex オープンソース実装
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, TH02-Q4]
+    issues: []
+    stance: context
+  - id: c4
+    text: レビュアへの指示は境界の代わりにならず、対象の制限はファイルシステムとネットワークの規則で独立に強制せよとする。レビュアは隠れた推論を見ず、保持された発話とツールの証跡だけを見る。
+    quote: Enforce target restrictions with independent filesystem and network rules; reviewer instructions don’t replace those boundaries.
+    locator: Configure an authorized cybersecurity engagement
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, TH07-Q2, TH06-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:13.840Z
+    httpStatus: 200
+    finalUrl: https://learn.chatgpt.com/docs/sandboxing/auto-review
+    contentType: text/html; charset=utf-8
+    titleFetched: Auto-review | ChatGPT Learn
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 同一ターン(1ターン)内で3回連続、または直近50件のレビュー中10件
+        extractedQuote: Auto-review interrupts the turn after 3 consecutive denials or 10 denials within a rolling window of the last 50 reviews in the same turn.
+        locator: Denials and failure behavior 節 第2段落
+        note: 原典はこの閾値を「current open-source implementation」の値として限定している。拒否以外の結果が1件あると連続カウンタは戻る。回路遮断が働くと警告を出し、割り込みで現在のターンを中断する。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

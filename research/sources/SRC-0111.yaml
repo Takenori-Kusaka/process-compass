@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0111
+status: included
+excludeReason: null
+title: Prompt caching | OpenAI API
+url: https://platform.openai.com/docs/guides/prompt-caching
+canonicalUrl: https://platform.openai.com/docs/guides/prompt-caching
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: OpenAI prompt caching cached input pricing discount Codex 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events: []
+summary: OpenAI 公式のプロンプトキャッシュ仕様(2026-09-23 取得)。GPT-5.6 以降は書き込み 1.25x・読み取り 0.1x で Anthropic と同型に収束。TTL は 30 分(旧モデルは in_memory / 24h)。損益分岐の算式と「cache-cost trap」を公式に示す。
+claims:
+  - id: c1
+    text: GPT-5.6 以降は書き込み 1.25 倍・読み取り 0.1 倍。1 回書いて 1 回再利用で 1.35 倍(非キャッシュ 2 倍)、10 リクエストで 2.15 倍(非キャッシュ 10 倍)。Anthropic の倍率と一致する。
+    quote: "Writing a prefix once and fully reusing it once costs 1.35× its ordinary input cost, compared with 2× for processing it twice without caching. The savings grow with each additional cache read: across ten requests, one write and nine full reads cost 2.15×"
+    locator: GPT-5.6 and later
+    quant:
+      value: 1.25x write / 0.1x read; 1.35x for 1 reuse; 2.15x for 10 requests
+      n: null
+      design: price arithmetic
+      population: GPT-5.6 and later
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: OpenAI は「最小キャッシュ長未満の短い接頭辞は、キャッシュ可能長まで伸ばした方が安い」という cache-cost trap と、再利用回数 N に依存する損益分岐を公式に示す。キャッシュが得になる条件は再利用頻度に依存する。
+    quote: There is no universal maximum-cost prompt length; the crossover depends on reuse and pricing.
+    locator: Mathematical details(Minimum cacheable length cost trap)
+    quant:
+      value: "break-even 220.16 tokens(例: M=1,024, r=0.1, w=1.25)"
+      n: null
+      design: price arithmetic
+      population: OpenAI prompt cache
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: qualifies
+  - id: c3
+    text: TTL は GPT-5.6 以降で 30 分、旧モデルは in_memory(5〜10 分、最長 1 時間)か 24h。Anthropic の 5 分 / 1 時間と異なり、書き込み追加料金の有無もモデル世代で異なる。
+    quote: "in_memory : Entries typically remain active for around 5 to 10 minutes of inactivity, up to one hour. 24h : Extended retention typically keeps entries available for around 30 minutes and can retain them for up to 24 hours."
+    locator: Earlier models / prompt_cache_retention
+    quant:
+      value: 30m / in_memory / 24h
+      n: null
+      design: spec
+      population: OpenAI models
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:46.747Z
+    httpStatus: 200
+    finalUrl: https://developers.openai.com/api/docs/guides/prompt-caching
+    contentType: text/html; charset=utf-8
+    titleFetched: Prompt caching | OpenAI API
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "GPT-5.6 以降: 書き込み 1.25×、読み取り 0.1×。1回書いて1回再利用 = 1.35×(非キャッシュ 2×)。10リクエスト(1書き込み+9読み取り) = 2.15×(非キャッシュ 10×)"
+        extractedQuote: cache writes cost 1.25× the standard, uncached input-token rate. It is worth incurring this charge when you know a prefix will be reused, because subsequent reads cost only 0.1× that rate.
+        locator: Explicit/implicit caching > GPT-5.6 and later(冒頭の料金説明)
+        note: '続く原文: "Writing a prefix once and fully reusing it once costs 1.35× its ordinary input cost, compared with 2× for processing it twice without caching." / "across ten requests, one write and nine full reads cost 2.15×, compared with 10× without caching." 原典ページには Anthropic への言及が無い(本文検索で0件)。「Anthropic の倍率と一致する」は ask 側の外部比較であり、この出典からは確認できない。platform.openai.com は developers.openai.com の同内容ページへ転送される。'
+      c2:
+        verdict: match
+        extractedValue: "cost trap と N 依存の損益分岐式 L_break-even = M(r + (w−r)/N)。例: M=1,024, r=0.1, w=1.25 で交点 102.4 + 1,177.6/N トークン。10リクエストなら 221 トークン以上で拡張が安い(図の Break-even 220.16)。102 トークン以下は拡張しても得にならない"
+        extractedQuote: The chart highlights the minimum cacheable length cost trap where short prefix lengths can cost more uncached than expanding to the minimum cacheable token length
+        locator: How to optimize prompt caching > Escape the minimum cacheable length cost trap / Mathematical details
+        note: 原典は「最小長未満なら伸ばした方が安い」と一律には言っていない。拡張が安いのは L > L_break-even のときだけで、"keeping the shorter prefix costs less when L < L_break-even"、"a prefix of 102 tokens or fewer never does under these assumptions" とある。また "consider shortening it or expanding it" と短縮も選択肢に挙げ、"Measure whether cache reuse offsets the additional input tokens" と計測を求めている。ask の鉤括弧内の要約は条件(L が損益分岐長を超えること)を落としている。
+      c3:
+        verdict: match
+        extractedValue: "GPT-5.6 以降: prompt_cache_options.ttl、唯一の値 30m(既定)。旧モデル: in_memory は非活動 5〜10分程度・最長1時間、または 24h。書き込み追加料金は GPT-5.6 以降 1.25×、旧モデルは No additional cache-write charge"
+        extractedQuote: "in_memory : Entries typically remain active for around 5 to 10 minutes of inactivity, up to one hour. 24h : Extended retention typically keeps entries available for around 30 minutes"
+        locator: Cache lifetime > GPT-5.6 and later / Earlier models(prompt_cache_retention)
+        note: '24h の原文続き: "... and can retain them for up to 24 hours." GPT-5.6 以降の原文: "Use prompt_cache_options.ttl to control the minimum cache lifetime. The only supported value, 30m , is also the default. A cached prefix remains eligible for reuse for 30 minutes after its most recent write or reuse, though OpenAI may retain it longer." 30分は最短保証であり上限ではない。24h は対応モデル限定(gpt-5.5, gpt-5.4, gpt-5.2, gpt-5.1 系, gpt-5, gpt-4.1 等)。既定値は ZDR 有無で異なる(ZDR 無し=24h、有り=in_memory)。Anthropic の 5分/1時間 は本出典に記載が無く、ask 側の外部比較。'
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0412
+status: included
+excludeReason: null
+title: Monitoring and Discovering Reward Hacking with Internal Representations during LLM Evaluations
+url: https://arxiv.org/abs/2609.19101
+canonicalUrl: arxiv:2609.19101
+ids:
+  arxiv: "2609.19101"
+  doi: null
+publisher: arXiv(謝辞から Goodfire の研究者による)
+authors: [Leon Bergen, Usha Bhalla, Andrew Lee, Jack Merullo]
+orgType: startup
+region: us
+lang: en
+sourceType: preprint
+published: 2026-09-16
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH07
+  query: reward hacking coding agents benchmark test modification arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH06]
+events: []
+summary: オープンウェイトのフロンティアモデルが SWE-bench 等で大量に reward hack することを測り、内部表現(差分平均ベクトル)で安価に検出する手法を示す。モデル自身に hack を自己申告させると大幅な過少申告になった。
+claims:
+  - id: c1
+    text: GLM 5.2 は DeepSWE で 57.2%、SWE-bench で 73% のロールアウトで reward hack した。
+    quote: GLM 5.2 hacks in 57.2% of rollouts on DeepSWE and in 73% of rollouts on SWE-bench
+    locator: Abstract
+    quant:
+      value: 57.2% / 73%
+      n: rollouts on DeepSWE and SWE-bench
+      design: LLM judge ground truth
+      population: GLM 5.2
+    evidenceKind: benchmark
+    rqs: [TH07-Q1]
+    issues: [269]
+    stance: supports
+  - id: c2
+    text: 毎ターン後に自分の hack を自己申告させると、3 モデルとも汎用監視より大幅に過少申告した。自己申告は検査の代わりにならない。
+    quote: Notably, all 3 models substantially under-report their hacking compared to the generic monitor with a similar prompt.
+    locator: §2.2 Monitoring Procedure, Self-reporting
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH07-Q2]
+    issues: [269, 271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:21.124Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.19101
+    contentType: text/html; charset=utf-8
+    titleFetched: Monitoring and Discovering Reward Hacking with Internal Representations during LLM Evaluations
+    titleMatch: true
+    dateMeta: 2026-09-16
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: Monitoring and Discovering Reward Hacking with Internal Representations during LLM Evaluations
+      authors: ["Bergen, Leon", "Bhalla, Usha", "Lee, Andrew", "Widawsky, Barak", "Nasvytis, Linas", "Watts, Connor"]
+      v1Date: 2026-09-16
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

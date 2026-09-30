@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0280
+status: included
+excludeReason: null
+title: そのタスク、Fableじゃなくていい。可視化して分かったムダをHaiku×サブエージェントへの委譲で削る
+url: https://speakerdeck.com/irishkooky/sonotasuku-fableziyanakuteii-ke-shi-hua-sitefen-katutamudawohaikuxsabuezientohenowei-rang-dexue-ru
+canonicalUrl: https://speakerdeck.com/irishkooky/sonotasuku-fableziyanakuteii-ke-shi-hua-sitefen-katutamudawohaikuxsabuezientohenowei-rang-dexue-ru
+ids:
+  arxiv: null
+  doi: null
+publisher: Speaker Deck(AIオブザーバビリティ スペシャル#2)
+authors: [黒崎 祥弘]
+orgType: consultancy
+region: jp
+lang: ja
+sourceType: talk
+published: 2026-07-22
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "speakerdeck search: サブエージェント"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04, TH11]
+events: []
+summary: AI導入・コスト最適化支援の合同会社代表による登壇資料。同一ワンショットプロンプトでアプリ1本を、最上位モデル単独と役割別モデル出し分けで作り、トークン・時間・コスト・品質を比較した。
+claims:
+  - id: c1
+    text: 同じプロンプト・同じアプリで、Fable 単独は11.27Mトークン・8分12秒・API換算$18.29、役割別出し分け(調査=Haiku/実装=Sonnet/レビュー=Opus)は9.46Mトークン・12分01秒・$15.36で、コストは16%減ったが所要時間は約1.5倍になった。
+    quote: 所要時間 8分12秒 12分01秒 API換算コスト $18.29 $15.36 コスト − 16%
+    locator: "スライド7「比較: 同じプロンプト、同じアプリ。」"
+    quant:
+      value: コスト-16%($18.29→$15.36)、時間 8分12秒→12分01秒
+      n: アプリ1本×2構成、各1回
+      design: ccusage によるタスク別・モデル別トークン計測とAPI単価換算
+      population: 自作 AppFactory 構成(TanStack Start/Mantine/Cloudflare デプロイ)
+    evidenceKind: case-report
+    rqs: [TH04-Q4]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 要求機能・ビルド・デプロイは両構成とも満たしたが、細部の質は Fable 単独が上だったと発表者自身が評価し、その差に16%のコスト差を払う価値があるかが判断点だとした。
+    quote: 機能もデプロイも同じ。ただ細かいディテールは Fable のみ(右)が上
+    locator: スライド9「ぶっちゃけ、細かい質は?」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.185Z
+    httpStatus: 200
+    finalUrl: https://speakerdeck.com/irishkooky/sonotasuku-fableziyanakuteii-ke-shi-hua-sitefen-katutamudawohaikuxsabuezientohenowei-rang-dexue-ru
+    contentType: text/html; charset=utf-8
+    titleFetched: そのタスク、Fableじゃなくていい。可視化して分かったムダをHaiku×サブエージェントへの委譲で削る
+    titleMatch: true
+    dateMeta: 2026-07-22
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "A: 11.27M・8分12秒・$18.29 / B: 9.46M・12分01秒・$15.36 / コスト −16% / 所要時間比 約1.47倍(スライドに倍率の記載なし)"
+        extractedQuote: "比較: 同じプロンプト、同じアプリ。 A: Fable Only B: 出し分け構成 総トークン 11.27M 9.46M 所要時間 8分12秒 12分01秒 API換算コスト $18.29 $15.36 コスト − 16%"
+        locator: "スライド7「比較: 同じプロンプト、同じアプリ。」(Transcript)"
+        note: 所要時間の倍率はスライドに明記されておらず、8分12秒(492秒)と12分01秒(721秒)からの算出値(約1.47倍)。n=1(アプリ1本)の比較。B の構成はスライド4で『調査=Haiku / 実装=Sonnet / レビュー=Opus』。
+        adjudication:
+          verdict: consistent
+          reason: 総トークン 11.27M/9.46M、所要時間 8分12秒/12分01秒、API換算 $18.29/$15.36、コスト −16%、B の構成(調査=Haiku/実装=Sonnet/レビュー=Opus)はすべて抜粋と一致。「約1.5倍」は導出値で 721秒 ÷ 492秒 = 1.465 ≒ 1.5。「同じプロンプト・同じアプリで」と書いており n=1 の比較であることも読み取れる。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: 16%
+        extractedQuote: "ぶっちゃけ、細かい質は? 左: 出し分け構成 ／ 右: Fable のみ 機能もデプロイも同じ。ただ細かいディテールは Fable のみ(右)が上 判断はここ: その差に、16%のコスト差を払う価値があるか?"
+        locator: スライド9「ぶっちゃけ、細かい質は?」(Transcript)
+        note: 要求機能・ビルド/型チェック/デプロイが両構成 OK なのはスライド8。細部の質の評価は発表者の主観で、評価基準の記載はない。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

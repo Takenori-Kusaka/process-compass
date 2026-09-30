@@ -1,0 +1,100 @@
+schemaVersion: 0
+id: SRC-0492
+status: included
+excludeReason: null
+title: ISO/IEC Directives, Part 1 – Consolidated ISO Supplement
+url: https://www.iso.org/sites/directives/current/consolidated/index.html
+canonicalUrl: https://iso.org/sites/directives/current/consolidated/index.html
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH12
+  query: ISO systematic review five years standards confirm revise withdraw fast-track procedure PAS
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: ISO の規格策定手続き(現行版)。定期見直し(systematic review)の最大間隔を文書種別ごとに定める。現行版の発行年はページから取得できなかった(curl は遮断、tavily で本文の一部を取得)。
+claims:
+  - id: c1
+    text: ISO の定期見直しの間隔は、国際規格(IS)が5年、技術仕様書(TS)が3年である。TS は確認(confirmation)1回・寿命6年が推奨で、PAS は間隔3年・確認1回・寿命6年と定められている。
+    quote: International Standard | 5 years | Not limited | Not limited Technical Specification | 3 years | Once recommended | 6 years recommended | Publicly Available Specification | 3 years | Once | 6 years
+    locator: Table S1 — Timing of systematic reviews
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 最大期間の経過を待たずに見直してよく、各国の国家機関や CEO の要請でも見直しを始められる。
+    quote: However, it is not necessary to wait for the maximum period to elapse before a document is reviewed.
+    locator: 2.9(systematic review の開始条件)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:14.641Z
+    httpStatus: 403
+    finalUrl: https://iso.org/sites/directives/current/consolidated/index.html
+    contentType: text/html; charset=UTF-8
+    titleFetched: Just a moment...
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "IS: 5 years / TS: 3 years・確認 Once recommended・寿命 6 years recommended / PAS: 3 years・確認 Once・寿命 6 years"
+        extractedQuote: International Standard | 5 years | Not limited | Not limited Technical Specification | 3 years | Once recommended | 6 years recommended | Publicly Available Specification | 3 years | Once | 6 years
+        locator: Table S1 — Timing of systematic reviews
+        note: curl は Cloudflare のチャレンジで遮断されたが、tavily_extract(advanced)で本文を取得できた。Technical Report は 'Not specified | Not specified | Not limited'。
+        adjudication:
+          verdict: corrected
+          reason: Table S1(blindQuote『International Standard | 5 years | Not limited | Not limited  Technical Specification | 3 years | Once recommended | 6 years recommended | Publicly Available Specification | 3 years | Once | 6 years』)は間隔・確認回数・寿命の各値を支持する。IS の5年が上限である点は同文書 2.9.1 の『not necessary to wait for the maximum period』から導ける。一方、末尾の『変換されなければ廃止が提案される』は抜粋に記述が無く確認できないため、訂正文から外した。claimQuote は表の書式差で not-found だが、値は一致する。
+          date: 2026-09-24
+          originalText: 国際規格(IS)は最大5年ごと、技術仕様書(TS)は3年ごとに定期見直しを行う。TS の確認は1回まで・寿命6年が推奨、PAS は3年・確認1回・寿命6年で、変換されなければ廃止が提案される。
+          originalQuote: Technical Specification (see 3.1.4) | 3 years | Once recommended | 6 years recommended
+      c2:
+        verdict: match
+        extractedValue: at the request of one or more National Bodies / at the request of the CEO / not necessary to wait for the maximum period
+        extractedQuote: (all documents) at the request of one or more National Bodies, or (all documents) at the request of the CEO. ... it is not necessary to wait for the maximum period to elapse before a document
+        locator: 2.9.1(2.9.2 Review の直前の段落。systematic review の開始条件)
+        note: 節番号は抽出本文で 2.9.2 の直前にあることから 2.9.1 と判断した(見出し 2.9.1 自体は抽出結果に現れていない)。'National Bodies' は ISO の会員国家機関を指す。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote『(all documents) at the request of one or more National Bodies, or (all documents) at the request of the CEO. ... it is not necessary to wait for the maximum period to elapse before a document』どおり。『各国の国家機関』は ISO の会員国家機関(National Bodies)を指す。claimQuote の not-found は抽出本文の途切れによるもので、内容は一致する。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://iso.org/sites/directives/current/consolidated/index.html

@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0395
+status: included
+excludeReason: null
+title: "Habituation at the Gate: Rising Approval and Declining Scrutiny in Human Review of AI Agent Code"
+url: https://arxiv.org/abs/2606.22721
+canonicalUrl: arxiv:2606.22721
+ids:
+  arxiv: "2606.22721"
+  doi: null
+publisher: KDD 2026 Workshop on Agentic Software Engineering (SE 3.0) (arXiv)
+authors: [Haoran Yu, Lifei Liu, Xiaochong Jiang, Yuwen Jia, Su Wang, Pin Qian, Yihang Chen]
+orgType: individual
+region: us
+lang: en
+sourceType: preprint
+published: 2026-06-21
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: habituation reviewers agent-generated pull requests approval rates increased inline comments decreased 22% arXiv 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH07, TH11]
+events: []
+summary: AIDev データで同じ人間レビュアを追跡し、AI エージェントの PR を見慣れるほど承認率が上がり、インラインコメントが 22% 減ることを示した。著者は因果を主張せず、慣れ(habituation)と整合的とする。
+claims:
+  - id: c1
+    text: 400 人の反復レビュアの 11,429 件のレビューで、エージェント PR の経験が増えるほど承認率が有意に上がり(経験十分位で +14.5pt)、変更要求率が下がった。インラインコメント量は 22% 減り、待ち時間は 3.5 倍に延びた。
+    quote: we observe a statistically significant increase in approval rates (+14.5 pp across experience deciles) and a corresponding decline in change-request rates.
+    locator: Abstract
+    quant:
+      value: 承認率 +14.5pt、インラインコメント -22%(ρ=-0.556)、待ち時間 3.5倍
+      n: 反復レビュア 400 人 / 11,429 レビュー(207 日)
+      design: longitudinal within-reviewer observational
+      population: AIDev の AI エージェント PR(Copilot、Devin、Codex CLI、Cursor、Claude Code)
+    evidenceKind: observational
+    rqs: [TH06-Q4, TH11-Q3]
+    issues: [268]
+    stance: supports
+  - id: c2
+    text: この変化は暦ではなく経験に連動し、エージェント PR に固有である。同じリポジトリ・同じ期間の人間 PR では承認率が下がっている。
+    quote: agent-specific (human PR approval rates decline over the same period in the same repositories)
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: supports
+  - id: c3
+    text: 観察期間中にエージェント自体が更新されており、合理的な信頼の再較正と区別できないため、因果は確定できないと著者自身が留保している。
+    quote: "We cannot establish causality: agent code may genuinely improve over the observation window"
+    locator: §1 Contributions
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:58.087Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2606.22721
+    contentType: text/html; charset=utf-8
+    titleFetched: "Habituation at the Gate: Rising Approval and Declining Scrutiny in Human Review of AI Agent Code"
+    titleMatch: true
+    dateMeta: 2026-06-21
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Habituation at the Gate: Rising Approval and Declining Scrutiny in Human Review of AI Agent Code"
+      authors: ["Yu, Haoran", "Liu, Lifei", "Jiang, Xiaochong", "Jia, Yuwen", "Wang, Su", "Qian, Pin"]
+      v1Date: 2026-06-21
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 400 / 11,429 / +14.5 pp / -22% / +3.5x
+        extractedQuote: studying 400 repeat reviewers who collectively submitted 11,429 reviews ... review latency increases rather than decreases (+3.5x), while inline comment volume decreases (-22%, p=0.0014)
+        locator: Abstract / §3.1 Table 1 / §3.2
+        note: 有意性の検定(Wilcoxon p<10^-6)は各レビュアの前期/後期の比較(承認率 30.1%→36.8%, +6.7pp)に対するもの。+14.5pp は経験十分位でプールした値(27.9%→42.4%)。変更要求率は 11.2%→5.6%。待ち時間は『PR 作成からレビュー提出までの時間』の中央値で 3.9h→13.5h。コメント減少は1レビューあたりのインラインコメント数(1.01→0.79)。観察期間は7か月。著者は因果関係を確立できないと明記している
+        adjudication:
+          verdict: consistent
+          reason: 400人・11,429件・承認率 +14.5pp(経験十分位)・変更要求率の低下・インラインコメント -22%・待ち時間 +3.5倍 はいずれも抜粋・Abstract の記述どおり。『有意に上がり(経験十分位で +14.5pt)』は Abstract の書き方をそのまま踏襲している。ただし blindNote によれば、有意性検定(Wilcoxon)はレビュア内の前期/後期比較(+6.7pp)に対するもので、+14.5pp はプール値。待ち時間は PR 作成からレビュー提出までの中央値(3.9h→13.5h)、コメント減は1レビューあたりの件数。著者は因果関係を確立できないと明記している。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

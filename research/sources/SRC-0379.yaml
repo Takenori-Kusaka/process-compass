@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0379
+status: included
+excludeReason: null
+title: "From Empty Values to Working Principles: A Leader’s Guide"
+url: https://aws.amazon.com/blogs/enterprise-strategy/from-empty-values-to-working-principles-a-leaders-guide
+canonicalUrl: https://aws.amazon.com/blogs/enterprise-strategy/from-empty-values-to-working-principles-a-leaders-guide
+ids:
+  arxiv: null
+  doi: null
+publisher: AWS Executive in Residence Blog
+authors: [Stephen Brozovich]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2025-03-11
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH05
+  query: Amazon tenets "unless you know better ones" how to write tenets decision making
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: AWS の Executive in Residence による原則の作り方(2025-03-11)。価値観の標語ではなく判断を変える原則を書き、行き詰まったときに立ち戻る先とし、効かない原則は定期的に見直して改める。
+claims:
+  - id: c1
+    text: チームが行き詰まったとき、見落としている観点を得るために原則を見返すよう促す(困ったときに立ち戻る先としての原則)。
+    quote: When your teams are stuck, encourage them to look at the principles for perspectives they might be missing.
+    locator: 3. Make Each Principle Come Alive Through Your Actions
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1]
+    issues: [251]
+    stance: supports
+  - id: c2
+    text: 原則は判断を変える明確で大胆な言明であるべきで、実際の意思決定と切り離された価値観の標語とは区別する。
+    quote: "Principles: Clear, bold statements that challenge our instincts and help us make better decisions."
+    locator: 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: 原則の効き目を定期的に評価し、有用性に応じて改める。一貫して無視される原則は、組織の仕組みが逆らっていないかを調べる(原則にも見直しと削除がある)。
+    quote: Regularly assess your principle’s impact and be willing to adjust based on utility.
+    locator: Pro Tips 2. Test Principles Against Reality
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1, TH05-Q5]
+    issues: [272]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:39.686Z
+    httpStatus: 200
+    finalUrl: https://aws.amazon.com/blogs/enterprise-strategy/from-empty-values-to-working-principles-a-leaders-guide/
+    contentType: text/html;charset=UTF-8
+    titleFetched: "From Empty Values to Working Principles: A Leader’s Guide | Amazon Web Services"
+    titleMatch: true
+    dateMeta: 2025-03-11
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

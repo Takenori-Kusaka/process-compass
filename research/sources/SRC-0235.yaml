@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0235
+status: included
+excludeReason: null
+title: Single agent or multiple agents (Choosing Between Building a Single-Agent System or Multi-Agent System)
+url: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents
+canonicalUrl: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: Microsoft Learn (Cloud Adoption Framework)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2025-12-01
+publishedBasis: meta
+version: null
+updated: 2026-02-27
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: Microsoft Learn Cloud Adoption Framework AI agents governance human in the loop single agent vs multi-agent
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH04, TH06]
+events: []
+summary: Microsoft CAF の単一/マルチエージェント選択指針。境界・チーム・将来拡張が要請する場合のみマルチから始め、それ以外は単一エージェントで検証してから移行するよう求め、役割の分離がマルチエージェントを正当化しないと述べる。
+claims:
+  - id: c1
+    text: 計画者・レビュアー・実行者などの役割の違いは、それだけではマルチエージェント構成を正当化しない。単一エージェントのペルソナ切替・ツール権限・文脈制御で役割を満たせるか先に検証せよとする。
+    quote: Distinct roles (such as planner, reviewer, executor) might suggest multiple agents, but they don't automatically justify a multi‑agent architecture.
+    locator: When to test a single agent system first / Clear roles involved
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3, TH06-Q3]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 金融では取引を準備するエージェントと検証するエージェントを分け、職務分離をアーキテクチャで強制する例を挙げる（規制・ポリシーがデータ分離を要求する場合のマルチエージェント開始条件）。
+    quote: Financial services often require one agent to prepare transactions while another validates them, enforcing separation of duties through architecture.
+    locator: When to start with a multi-agent system / Crossing security and compliance boundaries
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: マルチエージェントは冗長な文脈処理と通信のため費用が増え、エージェント数に比例して通信オーバーヘッドが増える。
+    quote: Cost structures increase because each agent processes redundant context and communication overhead multiplies with agent count.
+    locator: Multi-agent system trade-offs
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: マルチエージェントは複雑さや性能についての未検証の前提で選ばれがちだと警告する。
+    quote: While multi-agent architectures are sometimes necessary, they are often chosen based on untested assumptions about complexity or performance.
+    locator: When to test a single agent system first
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 3〜5を超える機能を持つソリューションはモジュール型マルチエージェントの恩恵を受けるとする（根拠の提示なし）。
+    quote: Solutions spanning more than three to five distinct functions benefit from this architecture.
+    locator: Future growth planned
+    quant:
+      value: more than 3–5 distinct functions
+      n: not stated
+      design: guidance without cited evidence
+      population: agent solutions
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.611Z
+    httpStatus: 200
+    finalUrl: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/single-agent-multiple-agents
+    contentType: text/html
+    titleFetched: Choosing Between Building a Single-Agent System or Multi-Agent System - Cloud Adoption Framework
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c5:
+        verdict: match
+        extractedValue: more than three to five distinct functions
+        extractedQuote: Solutions spanning more than three to five distinct functions benefit from this architecture.
+        locator: 節『When to start with a multi-agent system』の箇条『Future growth planned.』
+        note: 該当の箇条に出典や根拠の引用は付いていない(本文で確認)。前提は『solution roadmap includes diverse features, data sources, or business units』の場合の modular multi-agent design
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「Solutions spanning more than three to five distinct functions benefit from this architecture.」と一致する。blindNote によれば該当箇条に出典や根拠の引用は無く、「根拠の提示なし」も正しい。箇条の前提(将来の成長が計画され、ロードマップに多様な機能・データソース・事業部門を含む場合)は主張に無い。しかし引用文そのものは一般論として書かれており、趣旨は変わらない。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

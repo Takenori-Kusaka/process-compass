@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0237
+status: included
+excludeReason: null
+title: Cloud Agents and Cursor Harness Improvements (Cursor changelog)
+url: https://cursor.com/changelog/08-19-26
+canonicalUrl: https://cursor.com/changelog/08-19-26
+ids:
+  arxiv: null
+  doi: null
+publisher: Cursor (Anysphere)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-19
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: Cursor 3 announcement agents
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH10, TH06]
+events:
+  - date: 2026-08-19
+    label: Cursor が cloud agents の subscriptions・/goal・独立VM上のサブエージェントを追加
+summary: Cursor の 2026-08 リリース。常時稼働エージェントが各ループで人の介入なしに構築・出荷することを目標に掲げ、PR 追従、長期目標、サブエージェントのスウォームを加えた。
+claims:
+  - id: c1
+    text: 常時稼働のエージェントがシステムとして動き、各ループで人の介入を要さずにソフトウェアを構築・出荷できるようにすることを開発目標として明言する。『制約された協調＋人の統制』への収束とは逆方向の製品方針。
+    quote: always-on agents can operate as a system, building and shipping software on their own without the need for intervention at each loop.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q2, TH01-Q1]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: cloud agents は自ら作った PR を購読し、CI の修正とボットのコメント対応を行って完了まで進める。作成エージェントがレビューボットの指摘に自動追従する構成。
+    quote: Cloud agents automatically subscribe to PRs they create and drive them to completion, fixing CI and addressing bot comments.
+    locator: Subscriptions
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q3, TH10-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: サブエージェントを独立 VM で動かし、親エージェントの変更を新しい環境で検証させたり、独立した修正をスウォームで並行させたりする使い方を推奨する。
+    quote: Have subagents test the parent agent's changes in fresh environments or swarm independent fixes without collisions.
+    locator: Subagents on their own machines
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:23.288Z
+    httpStatus: 200
+    finalUrl: https://cursor.com/changelog/08-19-26
+    contentType: text/html; charset=utf-8
+    titleFetched: Cloud Agents and Cursor Harness Improvements · Cursor
+    titleMatch: false
+    dateMeta: 2026-08-19
+    quotes:
+      c1: found
+      c2: found
+      c3: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: run on their own virtual machines / test the parent agent's changes in fresh environments / swarm independent fixes without collisions
+        extractedQuote: Subagents can now run on their own virtual machines. Each gets an isolated copy of the project with clean context in its own cloud environment. Have subagents test the parent agent's changes in fresh
+        locator: 見出し『Subagents on their own machines』
+        note: 原文は changelog の機能紹介で、使い方の提示は命令形『Have subagents test ... or swarm independent fixes without collisions.』と『Try run a swarm of subagents ...』。『推奨する』はこれより強い表現
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

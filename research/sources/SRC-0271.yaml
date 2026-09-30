@@ -1,0 +1,125 @@
+schemaVersion: 0
+id: SRC-0271
+status: included
+excludeReason: null
+title: AIエージェント運用、巡回120回で「異常なし」は9回
+url: https://zenn.dev/selftailor/articles/a3897eac7d4603
+canonicalUrl: https://zenn.dev/selftailor/articles/a3897eac7d4603
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [selftAilor]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-09-13
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: AIエージェント運用 巡回120回 異常なし 9回 zenn
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH02, TH07, TH11]
+events: []
+summary: Claude Code の15並行セッションを役割分担で77日運用した個人が、ルールベース巡回の120回分を実測した記録。異常のほぼ全てが例外を出さない『沈黙』で、人の目もエージェントの自己申告も取りこぼすと報告している。
+claims:
+  - id: c1
+    text: 77日・15並行セッション・コミット2,431件の運用で、巡回120回のうち「異常なし」は9回(7.5%)、手を打つ必要ありは60回(50.0%)。検出311件のうち例外を投げたのは1件(巡回スクリプト自身の通信エラー)だけで、組織側の異常は沈黙として現れた。
+    quote: 巡回120回のうち、「異常なし」で終わったのは9回（7.5%）
+    locator: 冒頭の要約 / 「1件ではなく、310件がそうだった」節
+    quant:
+      value: 9/120 (7.5%) 異常なし; 例外を伴う検出 1/311
+      n: 巡回120回(計装後24日)・検出311件
+      design: ルールベース巡回スクリプトによる計数(git ログと巡回 JSONL からの実測)
+      population: 個人1名の Claude Code 運用(15並行セッション、77日、2,431コミット、連絡ファイル662件)
+    evidenceKind: observational
+    rqs: [TH11-Q3, TH02-Q5]
+    issues: []
+    stance: supports
+  - id: c2
+    text: エージェントの自己申告は当てにならず、「修正を適用した」と報告されたが実際にはファイルが変わっていなかった事故が記録に残る。記録と実物を突き合わせるコミットが80件(3.3%)常時発生している。
+    quote: 「修正を適用した」と報告されたが実際にはファイルが変わっていなかった事故、直前に起きていた別の異常を原因だと誤診した事故が、それぞれ記録に残っている。
+    locator: 「人間の側も取りこぼす（n=1）」節
+    quant:
+      value: 検算・突合コミット 80件(3.3%)
+      n: コミット2,431件
+      design: コミットメッセージの語(検算/突合)による粗い計数
+      population: 同上
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: [269, 271]
+    stance: supports
+  - id: c3
+    text: 機械の巡回が検出した4件の異常のうち、運用者本人が同じ状況を読んで拾えたのは1件だった(1回の比較、n=1)。
+    quote: ある日、機械の巡回が4件の異常を検出した。同じ状況を私自身が読んで拾えていたのは1件だった。
+    locator: 「人間の側も取りこぼす（n=1）」節
+    quant:
+      value: 1/4
+      n: 1回の比較
+      design: 同一状況での機械検出と人の読解の突き合わせ(情報の同一性は未保証と著者が明記)
+      population: 個人1名
+    evidenceKind: case-report
+    rqs: [TH02-Q5, TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 巡回を起動する定期ジョブをエージェントのセッション内に置いたため繰り返し消え、37日で21回作り直した(初回設置等を含む)。OS 側(launchd)へ出して止まったが、黙って止まったときに気づく仕組みは未解決。
+    quote: 巡回そのものを起動する定期ジョブが、繰り返し消えた。 37日間で再作成が21回。
+    locator: 「定期実行は、37日間で21回作り直した」節
+    quant:
+      value: 37日で再作成21回
+      n: コミット履歴
+      design: 「再作成」コミットの件数(純粋な消失回数ではないと著者が注記)
+      population: 同上
+    evidenceKind: case-report
+    rqs: [TH07-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.809Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/selftailor/articles/a3897eac7d4603
+    contentType: text/html; charset=utf-8
+    titleFetched: AIエージェント運用、巡回120回で「異常なし」は9回
+    titleMatch: true
+    dateMeta: 2026-09-13
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 77日 / 15並行セッション / コミット2,431件 / 巡回120回 / 異常なし9回(7.5%) / 手を打つ必要あり60回(50.0%) / 検出311件 / 例外1件
+        extractedQuote: 巡回120回のうち、「異常なし」で終わったのは9回 （7.5%） 検出はあったが対応不要だったのが51回、 実際に手を打つ必要があると判定されたのが60回 （50.0%） … 検出311件のうち、エラーや例外の語を含むものは1件だけ
+        locator: 冒頭の要約 / 「測ったもの」表 / 「1件ではなく、310件がそうだった」節
+        note: 巡回120回は77日全体ではなく「計装後24日ぶん」(運用期間77日・コミット2,431件とは期間が違う)。ask は77日の運用の中の120回と読める。「例外を投げた」の判定は「エラーや例外の語を含む」検出を数えたもの。節見出しは「310件」、本文は「組織側の異常311件は、1つも例外を投げていない」で、原典内に310/311の揺れがある。
+      c2:
+        verdict: match
+        extractedValue: 80件(3.3%)
+        extractedQuote: 77日のコミットのうち、メッセージに「検算」か「突合」を含むものが80件（3.3%）ある。数え方次第で動く粗い指標だが、
+        locator: 人間の側も取りこぼす（n=1）
+        note: 80件はコミットメッセージに「検算」「突合」を含む件数というキーワード集計。著者は「数え方次第で動く粗い指標」と断っている。「常時発生」は著者の「感覚には合っている」という表現による。「修正を適用した」と報告されたがファイルが変わっていなかった事故の記述は原典にある。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

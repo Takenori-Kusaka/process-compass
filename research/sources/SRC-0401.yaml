@@ -1,0 +1,115 @@
+schemaVersion: 0
+id: SRC-0401
+status: included
+excludeReason: null
+title: Building a better Bugbot
+url: https://cursor.com/blog/building-bugbot
+canonicalUrl: https://cursor.com/blog/building-bugbot
+ids:
+  arxiv: null
+  doi: null
+publisher: Cursor (Anysphere)
+authors: [Jon Kaplan]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-01-15
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: Cursor Bugbot resolution rate percent bugs resolved before merge 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH07, TH11]
+events:
+  - date: 2026-01-15
+    label: Cursor が Bugbot の設計と解決率の推移を公開
+summary: Cursor が AI レビュア Bugbot の設計変遷を説明した公式ブログ。初期は差分順序を変えた 8 並列パス+多数決+検証モデルで誤検知を抑え、のちにエージェント型へ移行。『解決率』を AI で判定して最適化指標にした。
+claims:
+  - id: c1
+    text: 初期の設計は、差分の順序を変えた 8 本の並列パスを走らせ、1 パスでしか見つからなかったバグを多数決で落とし、検証モデルで誤検知を除く構成だった。
+    quote: Run eight parallel passes with randomized diff order Combine similar bugs into one bucket Majority voting to filter out bugs found during only one pass
+    locator: Humble beginnings
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH06-Q3]
+    issues: [257, 258]
+    stance: context
+  - id: c2
+    text: 40 の主要な実験で、解決率は 52% から 70% 超へ、1 回あたりの指摘数は 0.4 から 0.7 へ上がった(自社測定)。
+    quote: increased Bugbot's resolution rate from 52% to over 70%, while lifting the average number of bugs flagged per run from 0.4 to 0.7.
+    locator: 冒頭
+    quant:
+      value: 解決率 52%→70%超、指摘数 0.4→0.7/回
+      n: 不明(本番 PR、Version 1〜11)
+      design: vendor internal online metric
+      population: Bugbot 利用リポジトリ
+    evidenceKind: news-fact
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: contradicts
+  - id: c3
+    text: 解決率は、マージ時点で作成者が実際に直したかを AI が判定する指標である。検証の成果指標そのものを AI が判定している点に注意が要る。
+    quote: It uses AI to determine, at PR merge time, which bugs were actually resolved by the author in the final code.
+    locator: Measuring what matters
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH11-Q3]
+    issues: [257]
+    stance: context
+  - id: c4
+    text: エージェント型へ移行すると、以前とは逆にモデルが慎重すぎる問題が出たため、疑わしい箇所を積極的に指摘させるプロンプトへ切り替えた。
+    quote: "With earlier versions of Bugbot we needed to restrain the models to minimize false positives. But with the agentic approach we encountered the opposite problem: it was too cautious."
+    locator: Agentic architecture
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: [257]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:16.079Z
+    httpStatus: 200
+    finalUrl: https://cursor.com/blog/building-bugbot
+    contentType: text/html; charset=utf-8
+    titleFetched: Building a better Bugbot · Cursor
+    titleMatch: true
+    dateMeta: 2026-01-15
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 8本の並列パス / 1パスでしか見つからなかったバグを多数決で除外
+        extractedQuote: Run eight parallel passes with randomized diff order ... Majority voting to filter out bugs found during only one pass ... Run results through a validator model to catch false positives
+        locator: Humble beginnings
+        note: 原文は差分の順序を「randomized」とする。これはローンチ時の構成で、その後完全なエージェント型設計へ移行した。
+      c2:
+        verdict: match
+        extractedValue: 40の主要な実験 / 52% → 70%超 / 1回(run)あたり 0.4 → 0.7
+        extractedQuote: Since launch, we have run 40 major experiments that have increased Bugbot's resolution rate from 52% to over 70%, while lifting the average number of bugs flagged per run from 0.4 to 0.7.
+        locator: 冒頭(本文第2段落)
+        note: 解決率は AI が PR マージ時に判定する自社指標。原文は PR あたりの解決バグ数が約0.2から約0.5へ倍増以上したとも書く。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

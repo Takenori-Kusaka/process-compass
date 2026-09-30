@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0069
+status: included
+excludeReason: null
+title: Five levels of AI coding agent autonomy, and why higher isn’t always better
+url: https://www.swarmia.com/blog/five-levels-ai-agent-autonomy/
+canonicalUrl: https://swarmia.com/blog/five-levels-ai-agent-autonomy
+ids:
+  arxiv: null
+  doi: null
+publisher: Swarmia
+authors: [Holkeri Miikka]
+orgType: vendor
+region: eu
+lang: en
+sourceType: corp-techblog
+published: 2026-03-19
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: '"levels of autonomy" AI agents paper 2026'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH11]
+events: []
+summary: コーディングエージェント向けの5段階(Assistive/Conversational/Delegated/Autonomous teammate/…)。Level 4「自律的チームメイト」を「人が個々のタスクを起動せず、バックログから自分で仕事を取る」状態と定義し、用途に応じてレベルを選ぶべきで高いほど良いわけではないと論じる。
+claims:
+  - id: c1
+    text: 「自律的チームメイト」レベルは、人が各タスクを起動せず、エージェントがバックログや目標から継続的に作業項目を選ぶ状態と定義される。信頼できる初期事例は狭い保守目的に限られる。
+    quote: "Level 4: Autonomous teammate The fourth level is where the agent stops waiting for you to assign it work. The agent has a backlog or objective. It picks work items on its own, continuously, without a human initiating each task."
+    locator: "Level 4: Autonomous teammate"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3, TH01-Q1]
+    issues: [248]
+    stance: qualifies
+  - id: c2
+    text: 自律度の選択は配員判断に例えられ、タスクに合わないレベルは能力の浪費か事故になる。レベルはタスクごとに選ぶ。
+    quote: "Think of it like a staffing decision: making an industry expert work as an intern is wasted potential; putting a middle-schooler in the CEO chair is a disaster."
+    locator: 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:17.769Z
+    httpStatus: 200
+    finalUrl: https://www.swarmia.com/blog/five-levels-ai-agent-autonomy/
+    contentType: text/html; charset=utf-8
+    titleFetched: Five levels of AI coding agent autonomy, and why higher isn’t always better
+    titleMatch: true
+    dateMeta: 2026-03-19
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://swarmia.com/blog/five-levels-ai-agent-autonomy

@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0603
+status: included
+excludeReason: null
+title: Analyze Requirements - Specs - Kiro Docs
+url: https://kiro.dev/docs/specs/analyze-requirements/
+canonicalUrl: https://kiro.dev/docs/specs/analyze-requirements
+ids:
+  arxiv: null
+  doi: null
+publisher: Kiro (Amazon Web Services)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-02
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G07
+  query: kiro.dev/docs/specs (公式 docs を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH08, TH06]
+events: []
+summary: Kiro の要求分析機能の公式文書(dateModified 2026-09-02)。requirements.md に対してだけ、設計へ進む前の任意のレビュー工程(矛盾・曖昧さ・欠落の検出)を用意する。spec は requirements / design / tasks の 3 ファイルだが、design と tasks に対応するレビュー機能は同じ docs 索引(specs ページ、2026-08-27 更新)に載っていない。
+claims:
+  - id: c1
+    text: 成果物別のレビューは要求(requirements.md)にだけ用意されている。設計へ進む前に、論理矛盾・曖昧さ・欠落の分析を利用者が任意で起動する。
+    quote: Before moving from requirements to design, you can ask Kiro to analyze your requirements for logical inconsistencies, ambiguities, and gaps.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: CLI では成果物名を含む専用コマンドとして提供される(/spec analyze_requirements)。Web では未提供。
+    quote: Run `/spec analyze_requirements` in a chat session.
+    locator: How to invoke it / CLI
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 指摘は「関係する要求・平易な説明・選べる修正案」の 3 点で出され、曖昧さが意図的なら棄却できる。再現手順や実行結果は様式に含まれない(対象が文書のため)。
+    quote: Each question includes the requirements involved, a plain-language explanation of the issue, and suggested fixes you can select.
+    locator: What to expect
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+  - id: c4
+    text: 小さい、またはよく分かっている spec では分析を飛ばして設計へ進んでよいと明記する(レビュー工程は必須ゲートではない)。
+    quote: For small or well-understood specs, you can skip the analysis and proceed directly to design.
+    locator: When to use it
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2, TH02-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:56.684Z
+    httpStatus: 200
+    finalUrl: https://kiro.dev/docs/specs/analyze-requirements/
+    contentType: text/html
+    titleFetched: Analyze Requirements - Specs - Features - Docs - Kiro
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: not-found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: /spec analyze_requirements(CLI)/ Kiro Web では not currently available
+        extractedQuote: Run `/spec analyze_requirements` in a chat session. With no arguments, a searchable picker lists every spec that has a `requirements.md` / Analyze Requirements is not currently available in Kiro Web.
+        locator: How to invoke it(IDE / CLI / Web のタブ。CLI タブと Web タブ)
+        note: tavily_extract の結果は IDE タブの本文しか含まなかった。CLI / Web タブの本文は https://kiro.dev/docs/specs/analyze-requirements.md(公式の Markdown 版)と HTML の埋め込みデータで確認した。IDE ではコマンドではなく、チャットと Continue ドロップダウンの選択肢として出る。/spec のサブコマンドで、引数に feature 名を渡せる。
+      c3:
+        verdict: match
+        extractedValue: 3 点(the requirements involved / a plain-language explanation of the issue / suggested fixes you can select)
+        extractedQuote: Each question includes the requirements involved, a plain-language explanation of the issue, and suggested fixes you can select. You can also type a custom answer or dismiss a question
+        locator: What to expect
+        note: 「3」という数字は原文に無く、列挙の個数。原文は指摘を finding ではなく「clarifying questions」と呼ぶ。選べる修正案のほかに自由記述の回答もできる。再現手順や実行結果が様式に含まれないこと、およびその理由(対象が文書のため)は原文に書かれていない。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

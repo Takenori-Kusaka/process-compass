@@ -1,0 +1,91 @@
+schemaVersion: 0
+id: SRC-0481
+status: included
+excludeReason: null
+title: 2025 Stack Overflow Developer Survey — AI
+url: https://survey.stackoverflow.co/2025/ai
+canonicalUrl: https://survey.stackoverflow.co/2025/ai
+ids:
+  arxiv: null
+  doi: null
+publisher: Stack Overflow
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: industry-report
+published: 2025-07-29
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH11
+  query: Stack Overflow Developer Survey 2026 AI results trust
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11, TH06]
+events: []
+summary: Stack Overflow 2025年調査の AI 章(信頼度の設問は回答33,244件)。AIを信頼しない開発者(46%)が信頼する開発者(33%)を上回り、最大の不満は「ほぼ正しいが完全ではない解」(66%)。2026年版の結果は 2026-09-24 時点で未公開(survey.stackoverflow.co/2026 は404)。公表日はプレスリリースの 2025-07-29 を用いた。
+claims:
+  - id: c1
+    text: AIツールの正確さを信頼しない開発者(46%)が信頼する開発者(33%)を上回り、強く信頼するのは3%のみ。
+    quote: More developers actively distrust the accuracy of AI tools (46%) than trust it (33%), and only a fraction (3%) report "highly trusting" the output.
+    locator: "3.2 Developer tools: Accuracy of AI tools"
+    quant:
+      value: distrust 46% / trust 33% / highly trust 3%
+      n: 33,244 responses
+      design: self-selected online survey
+      population: developers worldwide, 2025
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 最大の不満は「ほぼ正しいが完全ではない」AIの解(66%)で、次が「AI生成コードのデバッグに時間がかかる」(45%)。
+    quote: The biggest single frustration, cited by 66% of developers, is dealing with "AI solutions that are almost right, but not quite,"
+    locator: AI tool frustrations
+    quant:
+      value: 66% / 45%
+      n: ~25,000+ responses (question-level)
+      design: self-selected online survey
+      population: developers worldwide, 2025
+    evidenceKind: survey
+    rqs: [TH11-Q2, TH11-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:09.805Z
+    httpStatus: 200
+    finalUrl: https://survey.stackoverflow.co/2025/ai
+    contentType: text/html; charset=UTF-8
+    titleFetched: AI | 2025 Stack Overflow Developer Survey
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 66% / 45%(図表値は 45.2%)
+        extractedQuote: 'cited by 66% of developers, is dealing with "AI solutions that are almost right, but not quite," ... the second-biggest frustration: "Debugging AI-generated code is more time-consuming" (45%)'
+        locator: "AI tool frustrations(図表: All Respondents、Responses: 31,476 (64.2%))"
+        note: 本文は 45%、図表は 45.2%。母集団は設問回答者 31,476人(複数選択)で、「I don’t use AI tools regularly」23.5% を含む全回答者ベース。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

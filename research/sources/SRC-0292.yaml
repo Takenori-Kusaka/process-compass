@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0292
+status: included
+excludeReason: null
+title: GitHub Copilot is moving to usage-based billing
+url: https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing
+canonicalUrl: https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Blog
+authors: [Mario Rodriguez]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-04-27
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: github.blog changelog "Upcoming changes to GitHub Copilot policies and billing"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events:
+  - date: 2026-04-27
+    label: GitHub が Copilot の全プランを使用量課金(AI Credits)へ移すと発表
+  - date: 2026-06-01
+    label: Copilot の premium request を AI Credits に置き換え(トークン従量)
+summary: GitHub Copilot が premium request の回数課金から、入力・出力・キャッシュのトークン量に基づく AI Credits へ移行する発表。上限到達時の低価格モデルへのフォールバックを廃止する。
+claims:
+  - id: c1
+    text: 2026-06-01 から Copilot の使用量は、入力・出力・キャッシュのトークン消費を各モデルの公開 API 単価で換算して計算する。
+    quote: Usage will be calculated based on token consumption, including input, output, and cached tokens, using the listed API rates for each model.
+    locator: TL;DR / What's changing
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1, TH04-Q3]
+    issues: [274]
+    stance: context
+  - id: c2
+    text: 上限到達後に低価格モデルへ落として作業を続けるフォールバックは廃止され、以後はクレジット残高と管理者の予算設定で利用が止まる。定額枠の枯渇が稼働停止に直結する構造になった。
+    quote: Fallback experiences will no longer be available. Today, users who exhaust PRUs may fall back to a lower-cost model and continue working.
+    locator: What's changing / A few important details
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.944Z
+    httpStatus: 200
+    finalUrl: https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/
+    contentType: text/html; charset=UTF-8
+    titleFetched: GitHub Copilot is moving to usage-based billing
+    titleMatch: true
+    dateMeta: 2026-04-27
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-06-01 (June 1, 2026)
+        extractedQuote: usage-based billing on June 1, 2026 . … Usage will be calculated based on token consumption, including input, output, and cached tokens, using the listed API rates for each model.
+        locator: TL;DR
+        note: "What's changing 節も 'Starting June 1 , premium request units (PRUs) will be replaced by GitHub AI Credits' と記載。例外: 年額 Pro/Pro+ 契約者は満了まで従来の premium request 課金に留まる。コード補完と Next Edit suggestions は AI Credits を消費しない。発表日は 2026-04-27。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0550
+status: included
+excludeReason: null
+title: Architecture decision record (ADR) examples for software planning, IT leadership, and template documentation
+url: https://github.com/joelparkerhenderson/architecture-decision-record
+canonicalUrl: https://github.com/joelparkerhenderson/architecture-decision-record
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub (joelparkerhenderson/architecture-decision-record)
+authors: [Joel Parker Henderson]
+orgType: individual
+region: global
+lang: en
+sourceType: repo
+published: 2016-10-18
+publishedBasis: meta
+version: null
+updated: 2026-09-25
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G04
+  query: Joel Parker Henderson architecture decision record repository (指定リポジトリを直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05]
+events: []
+summary: ADR のテンプレート集と運用助言(最終 push 2026-09-25)。原則は不変+supersede としつつ、著者のチームでは日付付きで追記する可変運用のほうが機能したと述べる。不変方式への反証として採った。
+claims:
+  - id: c1
+    text: 良い ADR の特性として不変を挙げ、既存の記述は変えずに追記するか、新しい ADR で置き換えるとする。
+    quote: "Immutable: Don't alter existing information in an ADR. Instead, amend the ADR by adding new information, or supersede the ADR by creating a new ADR."
+    locator: What is an architecture decision record? (good ADR の特性)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1]
+    issues: [272]
+    stance: context
+  - id: c2
+    text: 一方で、著者のチームでは不変より可変(既存 ADR へ日付と注記を付けて追記)のほうがうまくいったと述べる。比較の測定は無く、自己報告である。
+    quote: In theory, immutability is ideal. In practice, mutability has worked better for our teams.
+    locator: Teamwork advice for ADRs
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1, TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c3
+    text: 後付けの義務的な書類として課す ADR には価値が無いと助言している。
+    quote: decision records are not valuable if they're just an after-the-fact forced paperwork requirement.
+    locator: Teamwork advice for ADRs
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: qualifies
+  - id: c4
+    text: 運用例として、各 ADR に担当者を置き、年1回以上の定期見直しと最終的な廃止(sunsetting)までを責務に含める案を示す。
+    quote: periodic review at least once per year, and eventual sunsetting as needed.
+    locator: Teamwork questions for ADRs / What roles and responsibilities interact with an ADR?
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:34.687Z
+    httpStatus: 200
+    finalUrl: https://github.com/architecture-decision-record/architecture-decision-record
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - architecture-decision-record/architecture-decision-record: Architecture decision record (ADR) examples for software planning, IT leadership, and template documentation"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: at least once per year(年1回以上)
+        extractedQuote: each ADR to always have a primary contact person, secondary contact person, and accountable team; these are responsible for [...] periodic review at least once per year, and eventual sunsetting
+        locator: README.md > Teamwork questions for ADRs > What roles and responsibilities interact with an ADR? (Example answer)
+        note: raw.githubusercontent.com の main/README.md で取得。原文は「Example answer」として示す運用例。担当は単独の担当者ではなく primary contact person・secondary contact person・accountable team の3者。引用の [...] は「communications, publications, maintenance,」の省略。廃止は「as needed」の条件付き。 引用末尾の直後に「as needed.」が続く。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

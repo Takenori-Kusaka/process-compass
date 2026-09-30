@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0063
+status: included
+excludeReason: null
+title: Levels of Autonomy for AI Agents
+url: https://arxiv.org/abs/2506.12469
+canonicalUrl: arxiv:2506.12469
+ids:
+  arxiv: "2506.12469"
+  doi: null
+publisher: arXiv / Knight First Amendment Institute (University of Washington)
+authors: [Feng K. J. Kevin, McDonald David W., Zhang Amy X.]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2025-06
+publishedBasis: arxiv-v1
+version: v2
+updated: 2025-07-28
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH01
+  query: '"levels of autonomy" AI agents paper 2026 (Anthropic 記事の引用から辿った)'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: AI エージェントの自律度を「ユーザーが取る役割」(operator/collaborator/consultant/approver/observer)の5段階で定義し、autonomy certificates による統治を提案。役割単位だが二値ではなく5段階で、人側の役割で切る。
+claims:
+  - id: c1
+    text: 自律度を、ユーザーが操作者・協働者・相談役・承認者・観察者のどの役割を取るかで5段階に定義する。切り方は「AI の役割」ではなく「人の役割」である。
+    quote: "we define five levels of escalating agent autonomy, characterized by the roles a user can take when interacting with an agent: operator, collaborator, consultant, approver, and observer."
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:11.523Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2506.12469
+    contentType: text/html; charset=utf-8
+    titleFetched: Levels of Autonomy for AI Agents
+    titleMatch: true
+    dateMeta: 2025-06-14
+    quotes:
+      c1: found
+    arxiv:
+      status: 200
+      title: Levels of Autonomy for AI Agents
+      authors: ["Feng, K. J. Kevin", "McDonald, David W.", "Zhang, Amy X."]
+      v1Date: 2025-06-14
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: five levels (5段階)
+        extractedQuote: "we define five levels of escalating agent autonomy, characterized by the roles a user can take when interacting with an agent: operator, collaborator, consultant, approver, and observer."
+        locator: Abstract
+        note: 原文の user は人に限らない。§2.1 で『We define an agent’s user to be an entity, human or AI』、Figure 1 でも『the roles a user (human or AI)』とする。ask の『人の役割』は原文の『ユーザー(人または AI)の役割』より狭い。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

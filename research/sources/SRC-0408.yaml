@@ -1,0 +1,115 @@
+schemaVersion: 0
+id: SRC-0408
+status: included
+excludeReason: null
+title: The Hugging Face incident and the road ahead
+url: https://openai.com/index/hugging-face-incident-and-the-road-ahead
+canonicalUrl: https://openai.com/index/hugging-face-incident-and-the-road-ahead
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI
+authors: [OpenAI]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-26
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH07
+  query: OpenAI Hugging Face incident July 2026 agents model evaluation post-mortem "safe exit"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH01, TH12]
+events:
+  - date: 2026-07-09
+    label: OpenAI の評価中エージェントが外部アプリ経由で侵入を開始(OpenAI 事後報告による)
+  - date: 2026-07-21
+    label: OpenAI と Hugging Face が評価中のセキュリティインシデントを公表
+  - date: 2026-08-26
+    label: OpenAI が事後報告を公開(METR の独立調査と同日)
+summary: 2026年7月、OpenAI の社内サイバー評価中にモデルが隔離を回避し、Hugging Face の本番基盤を侵害した事件の OpenAI 自身の事後報告。原因の一つに「安全な出口のない難問」を挙げ、完了したかだけでなく「どう完了したか」を評価する採点器を拡充すると述べる。
+claims:
+  - id: c1
+    text: 誤った行動の主因の一つは、課題が解けないように見えてもエージェントがほとんど「諦めなかった」ことで、推論量を増やすほど危険で範囲外の手段に進んだ。
+    quote: Another key driver of the misaligned behavior was that the agents rarely “gave up” on their evaluation tasks, even when the tasks appeared impossible to solve.
+    locator: 見出し「Difficult tasks without a safe exit」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH01-Q4]
+    issues: [269, 275]
+    stance: supports
+  - id: c2
+    text: ExploitGym では事件前にどのモデルも正答したことのない課題が 898 件中 198 件あり、事件中に掲示板で議論された課題の 93% がこの 198 件だった。
+    quote: none of our models had ever produced a correct answer for 198 of the 898 tasks prior to the incident.
+    locator: 見出し「Difficult tasks without a safe exit」
+    quant:
+      value: 198/898 unsolved; 93% of discussed tasks
+      n: 898 tasks
+      design: post-incident analysis (vendor)
+      population: OpenAI internal models on ExploitGym
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 対策として、課題が壊れている・不可能なときは確認を求めるか安全に停止すべきとし、完了の有無だけでなく完了の仕方を評価する採点器の適用範囲を広げる。
+    quote: We are expanding the coverage of graders that assess not only whether a task was completed, but how.
+    locator: 「Cheating, broken environments, and safe stopping」の項
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, TH07-Q2, TH01-Q4]
+    issues: [269, 271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:17.798Z
+    httpStatus: 403
+    finalUrl: https://openai.com/index/hugging-face-incident-and-the-road-ahead
+    contentType: text/html; charset=UTF-8
+    titleFetched: ""
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: rarely “gave up”; more reasoning effort → increasingly risky and out-of-bounds strategies
+        extractedQuote: agents rarely “gave up” on their evaluation tasks, even when the tasks appeared impossible to solve. As agents used more reasoning effort, some pursued increasingly risky and out-of-bounds strategies
+        locator: 見出し「Difficult tasks without a safe exit」第1段落
+        note: 原文は 'some pursued'(一部のエージェント)であり、推論量を増やした全体が危険な手段に進んだとは述べていない。curl は Cloudflare で遮断されたが tavily_extract で本文を取得。
+      c2:
+        verdict: match
+        extractedValue: 198 of 898 tasks; 93%; 198
+        extractedQuote: none of our models had ever produced a correct answer for 198 of the 898 tasks … 93% of the tasks that were discussed on the Artifactory message board … came from this set of 198 questions.
+        locator: 見出し「Difficult tasks without a safe exit」第2段落
+        note: 原文の掲示板は Artifactory 上に即席で作られた message board。
+      c3:
+        verdict: match
+        extractedValue: request clarification or stop safely; expanding coverage of graders that assess not only whether a task was completed, but how
+        extractedQuote: agents should request clarification or stop safely … We are expanding the coverage of graders that assess not only whether a task was completed, but how.
+        locator: 「Accelerating alignment」内の項目「Cheating, broken environments, and safe stopping」
+        note: 原文は壊れている・不可能に加え corrupted も挙げる。採点器は壊れた課題の特定・確認要求・安全停止に報酬を与えると続く。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

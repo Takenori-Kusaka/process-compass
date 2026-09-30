@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0195
+status: included
+excludeReason: null
+title: Discover and install prebuilt plugins through marketplaces
+url: https://code.claude.com/docs/en/discover-plugins
+canonicalUrl: https://code.claude.com/docs/en/discover-plugins
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Claude Code plugins marketplace security trust(.md 版を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH12]
+events: []
+summary: Claude Code 公式のプラグイン導入ページ(2026-09-24 取得)。プラグインとマーケットプレイスは利用者権限で任意コードを実行できる高信頼部品で、Anthropic は中身を管理・検証できないと明記する。
+claims:
+  - id: c1
+    text: プラグインとマーケットプレイスは利用者権限で任意のコードを実行できる高信頼部品であり、信頼できる提供元からのみ導入する。
+    quote: Plugins and marketplaces are highly trusted components that can execute arbitrary code on your machine with your user privileges.
+    locator: Security
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q5]
+    issues: []
+    stance: supports
+  - id: c2
+    text: Anthropic はプラグインに含まれる MCP サーバー・ファイル・ソフトウェアを管理せず、意図どおり動くか検証できない(供給網の検証責任は利用者側)。
+    quote: Anthropic doesn't control what MCP servers, files, or other software are included in plugins and can't verify that they work as intended.
+    locator: Install plugins(Warning)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q5]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 組織は管理設定でユーザーが追加できるマーケットプレイスを制限できる。
+    quote: Organizations can restrict which marketplaces users are allowed to add
+    locator: Security
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q5, TH12-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:08.421Z
+    httpStatus: 200
+    finalUrl: https://code.claude.com/docs/en/discover-plugins
+    contentType: text/html; charset=utf-8
+    titleFetched: Discover and install prebuilt plugins through marketplaces - Claude Code Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

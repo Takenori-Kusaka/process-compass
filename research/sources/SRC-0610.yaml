@@ -1,0 +1,137 @@
+schemaVersion: 0
+id: SRC-0610
+status: included
+excludeReason: null
+title: Use the Claude Agent SDK with your Claude plan | Claude Help Center
+url: https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan
+canonicalUrl: https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude Help Center)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-06-16
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G07
+  query: Anthropic "June 15" 2026 Claude subscription Agent SDK headless usage "credit" change paused official help center
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH02]
+events:
+  - date: 2026-06-15
+    label: Anthropic が Agent SDK / claude -p の利用を定額枠から分離する改定を発効当日に一時停止
+summary: 2026-06-15 改定案とその一時停止の Anthropic 一次資料(ページ日付 2026-06-16)。Agent SDK・claude -p・第三者アプリの利用を定額プランの上限から切り離し、月額クレジット(Pro $20、Max 5x $100、Max 20x $200 ほか)へ移す案を、発効当日に停止した。停止後も自動実行は対話利用と同じ上限を消費する。
+claims:
+  - id: c1
+    text: Anthropic は 2026-06-15 付で、Agent SDK の利用に関する改定を一時停止したと告知した。
+    quote: We're pausing the changes to Claude Agent SDK usage described below.
+    locator: 冒頭 Update June 15
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 停止の結果、Agent SDK・claude -p・第三者アプリの利用は引き続き定額プランの利用上限を消費する(自動実行が対話作業の枠を食う構造は変わっていない)。
+    quote: third-party app usage still draw from your subscription's usage limits
+    locator: 冒頭 Update June 15
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 停止された案は、定額の利用上限を対話利用(Claude Code、Cowork、Claude)専用に取り置き、自動実行を別枠の月額クレジットへ移すものだった。
+    quote: Your subscription usage limits stay the same and stay reserved for interactive use of Claude Code, Claude Cowork, and Claude.
+    locator: What's changing(停止前の本文)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: []
+    stance: context
+  - id: c4
+    text: 別枠クレジットは Agent SDK の利用だけに充てられ請求周期ごとに更新、額はプラン別(Pro $20、Max 5x $100、Max 20x $200、Team 標準席 $20、Team プレミアム席 $100)で、利用者間で共有できない案だった。
+    quote: The credit applies only to Agent SDK usage and refreshes with your billing cycle.
+    locator: What's changing / Monthly credit by plan(停止前の本文)
+    quant:
+      value: Pro $20 / Max 5x $100 / Max 20x $200 / Team Standard $20 / Team Premium $100 per month
+      n: none (announced plan, paused)
+      design: vendor announcement
+      population: Claude subscription plans
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: []
+    stance: context
+  - id: c5
+    text: Anthropic は改定案を見直し中で、発効前に告知するとしている(定額での自動実行の扱いは未確定)。
+    quote: When we have an update, we'll share it before anything takes effect.
+    locator: 冒頭 Update June 15
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T09:00:15.622Z
+    httpStatus: 200
+    finalUrl: https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan
+    contentType: text/html; charset=utf-8
+    titleFetched: Use the Claude Agent SDK with your Claude plan | Claude Help Center
+    titleMatch: true
+    dateMeta: 2026-06-16
+    quotes:
+      c1: partial
+      c2: partial
+      c3: found
+      c4: found
+      c5: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: June 15(更新注記に年の記載なし。記事の日付表示は June 16, 2026、ページ内メタデータ lastUpdatedDate は 2026-06-16T00:51:37Z)
+        extractedQuote: "Update June 15: We're pausing the changes to Claude Agent SDK usage described below."
+        locator: 記事冒頭の更新注記 "Update June 15"
+        note: 更新注記そのものは「June 15」とだけ書き、年を書かない。年 2026 は、保存された旧本文の発効日「June 15, 2026」と記事の日付表示「June 16, 2026」から読める。記事に表示される日付は June 16, 2026 で、更新注記の June 15 と1日ずれる(lastUpdatedDate は UTC で 06-16 00:51)。
+      c2:
+        verdict: match
+        extractedValue: still draw from your subscription's usage limits
+        extractedQuote: "For now, nothing has changed: Claude Agent SDK, claude -p , and third-party app usage still draw from your subscription's usage limits."
+        locator: 記事冒頭の更新注記 "Update June 15"
+        note: 括弧内の「自動実行が対話作業の枠を食う構造は変わっていない」という言い回しは原典に無い。原典は「nothing has changed」と「still draw from your subscription's usage limits」を述べるだけ。「For now」という時間の限定が付く。
+      c4:
+        verdict: match
+        extractedValue: Pro $20 / Max 5x $100 / Max 20x $200 / Team (Standard seats) $20 / Team (Premium seats) $100
+        extractedQuote: Monthly credit by plan Plan Monthly credit Pro $20 Max 5x $100 Max 20x $200 Team (Standard seats) $20 Team (Premium seats) $100 Enterprise (usage-based) $20 Enterprise (seat-based Premium seats*) $200
+        locator: What's changing / Monthly credit by plan / How the credit works(いずれも「June 15 より前の内容」として保存された旧本文)
+        note: "ask に無い行が原典にある: Enterprise (usage-based) $20、Enterprise (seat-based Premium seats) $200。用途と更新: \"The credit applies only to Agent SDK usage and refreshes with your billing cycle.\" 共有不可: \"Per-user, not pooled. Credits belong to individual accounts. They can’t be shared or pooled across teammates.\" 冒頭の更新注記は \"The previously announced monthly credit ... isn't available.\" と述べ、旧本文は \"no longer taking effect on June 15\" と明記されている。クレジットは請求による取得(claim、1回の opt-in)が前提。"
+      c5:
+        verdict: match
+        extractedValue: We're working to update the plan / we'll share it before anything takes effect
+        extractedQuote: We’re working to update the plan to better support how users build with Claude subscriptions. When we have an update, we'll share it before anything takes effect.
+        locator: 記事冒頭の更新注記 "Update June 15"
+        note: 括弧内の「定額での自動実行の扱いは未確定」という表現は原典に無い。原典は計画を更新する作業中であることと、発効前に共有することを述べるだけで、時期は示さない。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

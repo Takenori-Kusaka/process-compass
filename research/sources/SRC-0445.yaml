@@ -1,0 +1,67 @@
+schemaVersion: 0
+id: SRC-0445
+status: included
+excludeReason: null
+title: 【Kiro】仕様駆動開発って実際どんな感じ？
+url: https://persol-serverworks.co.jp/blog/kiro/kiro-4.html
+canonicalUrl: https://persol-serverworks.co.jp/blog/kiro/kiro-4.html
+ids:
+  arxiv: null
+  doi: null
+publisher: パーソル＆サーバーワークス株式会社
+authors: [榎本 将希]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-05
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: 仕様駆動開発 Kiro 導入 事例 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08]
+events:
+  - date: 2026-04-16
+    label: 社内企画で約100名規模の Kiro ワークショップを開催
+summary: 日本の SIer 社員が、社内の約100名規模の Kiro ワークショップ(2026-04-16)に参加した所感。文書に立ち返れる安心感を利点とする一方、仕様駆動はバイブコーディングより完成に時間がかかり、所定時間内に完成しなかったと報告している。
+claims:
+  - id: c1
+    text: ワークショップでは、仕様駆動開発を試した参加者の方がバイブコーディングの参加者より完成に時間がかかった印象があった。筆者自身も所定時間内に完成できなかった。
+    quote: 実際に今回参加させていただいたワークショップでも、仕様駆動開発を試した方はバイブコーディングで進めた方よりも成果物完成までに時間がかかっていた印象があります。
+    locator: 一方でバイブコーディングよりも成果物完成までに時間がかかるケースが多い
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:55.125Z
+    httpStatus: 200
+    finalUrl: https://persol-serverworks.co.jp/blog/kiro/kiro-4.html
+    contentType: text/html; charset=UTF-8
+    titleFetched: 【Kiro】仕様駆動開発って実際どんな感じ？｜エンジニアブログ｜パーソル＆サーバーワークス株式会社
+    titleMatch: true
+    dateMeta: 2026-05-12
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

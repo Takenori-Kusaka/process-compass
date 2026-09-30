@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0613
+status: included
+excludeReason: null
+title: Understand findings - CodeRabbit Documentation
+url: https://docs.coderabbit.ai/change-stack/findings
+canonicalUrl: https://docs.coderabbit.ai/change-stack/findings
+ids:
+  arxiv: null
+  doi: null
+publisher: CodeRabbit
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: docs.coderabbit.ai/llms.txt から findings / review 関連ページを特定
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH07]
+events: []
+summary: CodeRabbit の指摘(finding)の読み方の公式文書(Change Stack はプレビュー、日付表記なし、2026-09-30 取得)。指摘のラベルは種別・重大度・分類・労力の 4 つの閉じた語彙で、再現手順・実行結果・証跡を指摘の欄として定める記述は本ページに無い(reproduc / evidence で検索、該当は下記の 1 文のみ)。
+claims:
+  - id: c1
+    text: "指摘には 4 つの独立した閉じた語彙からラベルが付く(種別: Nitpick / Potential issue / Refactor suggestion、重大度: critical / major / minor / trivial ほか、分類 6 種、労力対効果)。再現手順や実行結果の欄は定義されていない。"
+    quote: A finding carries labels drawn from four independent closed vocabularies.
+    locator: How a finding is labeled
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 「懸念」型に当たる種別は「Potential issue(注意を要する可能性のある欠陥)」として独立の種別に置かれ、任意の磨き込み(Nitpick)と区別される。
+    quote: A possible defect requiring attention.
+    locator: How a finding is labeled / Type
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+  - id: c3
+    text: マージ可否の評価には確信度(高・中・低)が付く。低確信の「Ready」は「十分に見えなかった」を意味し、証拠の不在として扱い自分で差分を読むよう求める(通過と未判定を区別する表示の先例)。
+    quote: Treat the second as an absence of evidence and lean on your own reading of the diff.
+    locator: Merge readiness / Why confidence sits beside the score
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4, TH06-Q6, TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 注意項目はマージを止めるもの(Blockers)から任意のもの(Advisory)まで 4 区分に並び、Advisory を残したまま出荷できる。
+    quote: Advisory items are optional, and a change can ship with them outstanding.
+    locator: The Overview and Needs your attention
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH06-Q6]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:00.366Z
+    httpStatus: 200
+    finalUrl: https://docs.coderabbit.ai/change-stack/findings
+    contentType: text/html; charset=utf-8
+    titleFetched: CodeRabbit Documentation - AI code reviews on pull requests, IDE, and CLI
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 4つ(four independent closed vocabularies)/ 分類 6種(Six areas)
+        extractedQuote: A finding carries labels drawn from four independent closed vocabularies. They are four separate axes, not one severity ladder
+        locator: How a finding is labeled(Type / Severity / Category / Effort)
+        note: 'findings.md(Mintlify の markdown 版)で取得。Category: "Six areas: functional correctness, security and privacy, data integrity and integration, performance and scalability, stability and availability, and maintainability and code quality." Severity は順位付き4水準(critical/major/minor/trivial)に加えて順位外の info と none。Type は Nitpick / Potential issue / Refactor suggestion の3種。Effort は労力×効果の4組。この節に再現手順・実行結果に当たる欄の記述は無い(不在の確認であり、原文が「無い」と述べているわけではない)。'
+      c4:
+        verdict: match
+        extractedValue: "4区分(four sections: Blockers / High priority / Pending / Advisory)"
+        extractedQuote: Needs your attention splits what the review produced into four sections, ordered by what stops you from merging
+        locator: The Overview and Needs your attention > Needs your attention
+        note: 'Advisory について: "Advisory items are optional, and a change can ship with them outstanding." 並びは「トリアージ順であって重大度順ではない」と原文が明記("The ordering is a triage order, not a severity order.")。Pending は自分の制御外の待ちで、Advisory より前に置かれる。'
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

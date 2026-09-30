@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0583
+status: included
+excludeReason: null
+title: "[RFC] Enabling Graphite Merge Queue to resolve infinite loops while merging stacked PRs"
+url: https://discourse.llvm.org/t/rfc-enabling-graphite-merge-queue-to-resolve-infinite-loops-while-merging-stacked-prs/88769
+canonicalUrl: https://discourse.llvm.org/t/rfc-enabling-graphite-merge-queue-to-resolve-infinite-loops-while-merging-stacked-prs/88769
+ids:
+  arxiv: null
+  doi: null
+publisher: LLVM Discussion Forums
+authors: [evelez, boomanaiden154-1, rnk, jh7370]
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2025-11-03
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: Graphite stacked PRs merge queue CI optimization docs stack-aware merge queue 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10]
+events: []
+summary: LLVM で Graphite のスタック一括マージが、trunk の更新のたびに rebase と CI 再実行を繰り返して終わらなくなった問題の議論(2025-11、6 投稿)。マージキューは「全変更に緑の CI を必須にする」方針変更を伴うため採れず、スタック一括マージの無効化が現実解とされた。
+claims:
+  - id: c1
+    text: LLVM では、Graphite でスタックのマージを要求すると、rebase と CI の再実行が繰り返されて終わらなくなる問題が報告された。
+    quote: The issue seems to be that Graphite constantly rebases and reruns CI after requesting a merge.
+    locator: 投稿 1(evelez、2025-11-03)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: この状態が約 12 時間続いた例があり、CI 資源を浪費したと報告されている(単一プロジェクトの自己報告、件数の集計は無い)。
+    quote: The problem can be pretty severe, as seen here where Graphite can be stuck for almost 12 hours. That’s not good for CI resources.
+    locator: 投稿 1(evelez、2025-11-03)
+    quant:
+      value: 約 12 時間
+      n: 1 件の PR スタック
+      design: 事例報告
+      population: llvm/llvm-project
+    evidenceKind: case-report
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: 保守者は、現行のマージキューはどれも「マージ前に緑の CI を必須にする」のと同じで、LLVM にとっては大きな方針変更になると述べ、採用に反対した。
+    quote: With the current merge queue solutions, enabling any of them essentially equates to requiring green CI before merging a change, which would be a huge policy change
+    locator: 投稿 4(boomanaiden154-1、2025-11-04)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: qualifies
+  - id: c4
+    text: 起票者は、当面の緩和策としてスタックの一括マージを無効にする(1本ずつマージする)のが最善だと結論した。
+    quote: It seems like disabling stack merges (if even possible) is the best thing to do to mitigate the current problem ASAP.
+    locator: 投稿 5(evelez、2025-11-04)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:50.440Z
+    httpStatus: 200
+    finalUrl: https://discourse.llvm.org/t/rfc-enabling-graphite-merge-queue-to-resolve-infinite-loops-while-merging-stacked-prs/88769
+    contentType: text/html; charset=utf-8
+    titleFetched: "[RFC] Enabling Graphite Merge Queue to resolve infinite loops while merging stacked PRs"
+    titleMatch: true
+    dateMeta: 2025-11-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: 「one merge at a time」(1本ずつ)。ただしこの語句は投稿 1 にあり、投稿 5 には数の記述が無い
+        extractedQuote: It seems like disabling stack merges (if even possible) is the best thing to do to mitigate the current problem ASAP. And maybe putting a warning in the LLVM documentation for Graphite merging.
+        locator: 投稿 5(evelez、2025-11-04)。「1本ずつ」の語句は投稿 1(evelez、2025-11-03)
+        note: 投稿 5 は「It seems like」「(if even possible)」と留保つきで、無効化が可能かは未確認の言い方。「1本ずつ」に当たる原文は投稿 1「we might have to disable stack merges (only allowing one merge at a time) if possible」。Discourse の JSON(/t/88769.json)から取得。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

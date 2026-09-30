@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0618
+status: included
+excludeReason: null
+title: "Add AI Change Review predicate (community contribution) (in-toto/attestation PR #603)"
+url: https://github.com/in-toto/attestation/pull/603
+canonicalUrl: https://github.com/in-toto/attestation/pull/603
+ids:
+  arxiv: null
+  doi: null
+publisher: in-toto Attestation Framework (GitHub pull request)
+authors: [bipthelin]
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2026-09-29
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: "GitHub search: repo:in-toto/attestation code review predicate"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH06, TH10, TH01]
+events:
+  - date: 2026-09-29
+    label: in-toto/attestation に AI Change Review predicate の追加 PR(#603)が提出された(未マージ)
+summary: レビューの attestation を in-toto の predicate として追加する PR(2026-09-29 提出、2026-09-30 時点で open・コメント 0、未審査の提案)。PR 本文のみ読んだ。レビュアが人かエージェントかを predicate 内に記し、エージェントの承認を 2 人目の目として数える条件(運用者・提供元・署名者・指示の独立)を定める。採用実績・効果測定は無い。
+claims:
+  - id: c1
+    text: レビュー用 predicate は、誰が変更の head コミットをレビューし何を決めたかを、レビュア側のツールが述べる形式として提案されている。
+    quote: A reviewer's tooling states who reviewed a change's head commit and what they decided.
+    locator: PR 本文 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: この predicate は単独では承認を作らない。フォージが既に記録したレビューを補強するだけで、プラットフォームが承認済みと示さなかった変更を署名ファイルが承認してはならないとする。
+    quote: A signed file must not approve a change the platform never showed as approved.
+    locator: PR 本文 Why it exists
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: エージェントの承認を 2 人目の目として数えるには、明示的に署名されたオプトイン方針が要り、既定の方針ではエージェントの承認は独立とは数えない。
+    quote: Under the default policy, an agent's approval never counts as independent at all.
+    locator: PR 本文 What reviewers will probably ask / Trust
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q3, TH01-Q2, TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 独立性の次元は、運用者(指示した人が作成者側の人と別)、提供元(作成エージェントと別ベンダー)、署名者、指示の所有者(任意)の 4 つ。
+    quote: "The agent must be independent of the change's author on the dimensions the policy requires:"
+    locator: PR 本文 Why it exists
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q3, TH01-Q2]
+    issues: []
+    stance: context
+  - id: c5
+    text: 提案者自身が、運用者と指示の所有者はレビュア側ツールの自己申告にすぎないと限界を書いている。
+    quote: The operator and the instructions owner are claims by the reviewer's tooling.
+    locator: PR 本文 What reviewers will probably ask / Trust
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:02.658Z
+    httpStatus: 200
+    finalUrl: https://github.com/in-toto/attestation/pull/603
+    contentType: text/html; charset=utf-8
+    titleFetched: "Add AI Change Review predicate (community contribution) by bipthelin · Pull Request #603 · in-toto/attestation"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: second(the second pair of eyes = 2人目の目)
+        extractedQuote: An organization may let a reviewing agent's approval count as the second pair of eyes, but only under an explicit, signed, opt-in policy.
+        locator: PR 本文 Why it exists 第3段落(second pair of eyes)/ What reviewers will probably ask > Trust 第4項(default policy)
+        note: 既定方針の原文(Trust 第4項):「Under the default policy, an agent's approval never counts as independent at all.」。gh api repos/in-toto/attestation/pulls/603 で本文を取得(2026-09-30、updated_at 2026-09-30T03:55:52Z)。「second pair of eyes」の文は作業票の locator(Trust)ではなく Why it exists 節にあり、既定方針の文だけが Trust 節にある。PR は state=open・未マージで、community contribution の提案段階。
+      c4:
+        verdict: match
+        extractedValue: 4(列挙は operator / provider / identity / instructions (optional)。本文に個数を述べる語は無く、箇条書きの数え上げ)
+        extractedQuote: "The agent must be independent of the change's author on the dimensions the policy requires: - **operator**: … - **provider**: … - **identity**: … - **instructions** (optional): …"
+        locator: PR 本文 Why it exists 第3段落の箇条書き
+        note: 個数は原文に明記されておらず、箇条書き4項目を数えた値(必須扱い3+任意1)。原文の次元名は「identity」で、説明が「a different verified signer from the authorship claim, the one dimension that rests on a verified fact」。operator は「the human directing the reviewing agent is not the author's human」、provider は「a different vendor from the authoring agent's」、instructions は「the instructions are not owned by the author」。どの次元を要するかは「the dimensions the policy requires」と方針依存。Testing 項にも「operator, provider and identity dimensions」+「opt-in instructions dimension」とある。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

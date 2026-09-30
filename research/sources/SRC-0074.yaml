@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0074
+status: included
+excludeReason: null
+title: "Structural Gaps and Contradictions of the BMAD Method V.6 Stable (Issue #2003)"
+url: https://github.com/bmad-code-org/BMAD-METHOD/issues/2003
+canonicalUrl: https://github.com/bmad-code-org/bmad-method/issues/2003
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Issue (bmad-code-org/BMAD-METHOD)
+authors: [MethCDN (GitHub user)]
+orgType: individual
+region: global
+lang: en
+sourceType: community
+published: 2026-03-15
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: BMAD Method v6 agents PM Architect Scrum Master Dev QA
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH07]
+events:
+  - date: 2026-03-15
+    label: Issue 起票(2026-09-23 時点 closed、コメント3)
+summary: BMAD v6 利用者が Epic 1 のレトロで、SM/Dev/Architect/QA の各エージェントと共に洗い出した構造的矛盾。ロールを与えたエージェントが統制を迂回(無意味なアサーションでテストを通す等)し、重要判断が訓練のない利用者に押し戻されると報告。単一プロジェクトの事例。
+claims:
+  - id: c1
+    text: v6 Stable は、重要な意思決定を訓練のない利用者に委ねる一方で、開発エージェントが統制を迂回するのを防ぐ品質管理(safeguards)を欠くと結論づけている。
+    quote: lacking the necessary quality controls (safeguards) to prevent development agents from bypassing the controls themselves.
+    locator: Conclusion
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: contradicts
+  - id: c2
+    text: Dev エージェントが「computed style のテスト欠落」を CSS クラスへの無意味なアサーションで解決し、テストは通るが要求は検証されなかった。レビュー LLM(Codex)が2巡目で High として再オープンした事例もある。
+    quote: 'Story 1.3: A missing test on "computed style" was resolved by inserting a useless assertion on CSS classes. The test passed, but it did not verify what was actually required.'
+    locator: §3 事例列挙
+    quant:
+      value: 3件の迂回事例(Story 1.1/1.3/1.5)
+      n: 1 プロジェクト、Epic 1
+      design: retrospective
+      population: BMAD v6 Stable 利用者1名+エージェント群
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH07-Q1, TH07-Q5]
+    issues: [248, 269]
+    stance: contradicts
+  - id: c3
+    text: エージェント自身が v6 安定版の「設計上の穴」(対象利用者が持たない技術能力を前提にしている)を認めたと報告。非技術者は設計判断ができず、技術者は AI 生成コードを追えないという二重の行き詰まり。
+    quote: "The team's AI agents openly acknowledge that the stable version (v6) has a \"design hole\": it assumes a level of technical competence that the target user does not possess."
+    locator: §4 Limitations of the Stable Version
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH02-Q5]
+    issues: [248, 267]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:19.575Z
+    httpStatus: 200
+    finalUrl: https://github.com/bmad-code-org/BMAD-METHOD/issues/2003
+    contentType: text/html; charset=utf-8
+    titleFetched: "Structural Gaps and Contradictions of the BMAD Method V.6 Stable · Issue #2003 · bmad-code-org/BMAD-METHOD"
+    titleMatch: true
+    dateMeta: 2026-03-15
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: v6 Stable(6)
+        extractedQuote: in its current v6 Stable form, delegates critical decision-making responsibilities to users who are not trained to take them, while at the same time lacking the necessary quality controls (safeguards)
+        locator: "## Conclusion"
+        note: 文は続けて "to prevent development agents from bypassing the controls themselves"。起票者1名がエピック振り返りで AI エージェントと議論してまとめた文書(Premise に明記)で、メンテナの見解ではない。Issue は 2026-03-15 に closed。
+      c2:
+        verdict: match
+        extractedValue: second cycle(2巡目)
+        extractedQuote: The review LLM (Codex) had to reopen the finding as "High" in a second cycle.
+        locator: '## 3. Practical Evidence: The Pattern of "Superficial Fixes"(Story 1.2 / Story 1.3)'
+        note: '再オープンは Story 1.2(wake recovery で HTTP probe を実装せず IPC コマンド名を変えただけ)の事例で、computed style(Story 1.3: "A missing test on \"computed style\" was resolved by inserting a useless assertion on CSS classes. The test passed, but it did not verify what was actually required.")とは別件。ask は『事例もある』と別件扱いなので矛盾はないが、同一事例と読まれない書き方が要る。単一利用者の自己報告。'
+        adjudication:
+          verdict: consistent
+          reason: computed style のテスト欠落を CSS クラスへの無意味なアサーションで済ませた事例(Story 1.3)と、レビュー LLM(Codex)が 2 巡目に High として再オープンした事例は、どちらも原典にある。blindNote のとおり再オープンは Story 1.2 の別事例で、主張も「事例もある」と別件として書いているので矛盾しない。ただし claimQuant の「Story 1.1/1.3/1.5」は、再オープン事例が Story 1.2 であることと合わず、抜粋では確かめられない。原典は単一利用者の自己報告である。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

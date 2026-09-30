@@ -1,0 +1,77 @@
+schemaVersion: 0
+id: SRC-0296
+status: included
+excludeReason: null
+title: '"AI contributions are demoralizing": Godot bans coding agents to save its mentoring model'
+url: https://thenewstack.io/godot-bans-ai-coding-agents
+canonicalUrl: https://thenewstack.io/godot-bans-ai-coding-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: The New Stack
+authors: [Paul Sawers]
+orgType: media
+region: us
+lang: en
+sourceType: news
+published: 2026-07-02
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: open source maintainers AI slop pull requests ban policy 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH01, TH12]
+events:
+  - date: 2026-07-02
+    label: Godot Engine が AI 生成コードの大半を禁じる貢献ポリシー改定を発表(報道日)
+summary: OSS のゲームエンジン Godot が、AI 生成コードとコーディングエージェントによる PR の大半を禁じる方針を報じた記事。理由は品質だけでなく、新人を将来のメンテナへ育てる経路の保護にある。
+claims:
+  - id: c1
+    text: Godot は貢献ポリシーを書き換え、AI 生成コードの大半をリポジトリから締め出す。AI 生成 PR の急増がボランティアのレビュー負荷を押し上げたことへの対応である。
+    quote: Godot Engine, the open-source alternative to game engines such as Unity, is rewriting its contribution policy to bar most AI-generated code from its repositories.
+    locator: リード段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 財団はメンテナの負荷軽減と、新しい貢献者を将来のメンテナへ育てる経路の維持を目的に挙げる。方針は「保守的」とし、AI ツールの変化に応じて見直し続けるとしている。
+    quote: The Godot Foundation said it expects to keep revisiting the policy as AI tools change, describing its current approach as “conservative”.
+    locator: 記事末尾
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH12-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:22.412Z
+    httpStatus: 200
+    finalUrl: https://thenewstack.io/godot-bans-ai-coding-agents/
+    contentType: text/html; charset=UTF-8
+    titleFetched: '"AI contributions are demoralizing": Godot bans coding agents to save its mentoring model'
+    titleMatch: true
+    dateMeta: 2026-07-02
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

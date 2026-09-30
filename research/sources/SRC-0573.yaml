@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0573
+status: included
+excludeReason: null
+title: Troubleshooting required status checks - GitHub Docs
+url: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks
+canonicalUrl: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: "直接取得: 指示(c)で名指しされた公式文書(docs.github.com の必須チェックのトラブルシュート)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07, TH10]
+events: []
+summary: GitHub 公式の必須ステータスチェックのトラブルシュート(掲載日不明、2026-09-30 取得)。必須チェックを満たす状態は success / skipped / neutral の 3 つで、条件でスキップされたジョブは Success と報告され、ワークフローごとスキップされると Pending のまま結合を止める。実行しなかった検査が通過として扱われる経路を示す。
+claims:
+  - id: c1
+    text: 必須チェックを満たす『成功』の状態は success・skipped・neutral の 3 つ。記録上は 3 つが別の値として残るが、結合の可否の判定では同じ『成功』として扱われる。
+    quote: Successful check statuses are success, skipped, and neutral.
+    locator: Required check needs to succeed against the latest commit SHA
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: qualifies
+  - id: c2
+    text: 条件(if)でスキップされたジョブは Success と報告される。実施しなかった検査が通過として必須チェックを満たす経路であり、未実施と通過の区別は判定では失われる。
+    quote: The job reports "Success"
+    locator: "Handling skipped but required checks(表: A job is skipped by a conditional の行)"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: contradicts
+  - id: c3
+    text: パスやブランチの絞り込み・コミットメッセージでワークフロー自体がスキップされた場合、関連するチェックは Pending のまま残り結合を止める。この経路では未実施は通過にならない(fail-closed)。
+    quote: Associated checks stay in a "Pending" state and block merging
+    locator: "Handling skipped but required checks(表: A workflow is skipped の行)"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:45.147Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks
+    contentType: text/html; charset=utf-8
+    titleFetched: Troubleshooting required status checks - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3(success, skipped, neutral)
+        extractedQuote: Required checks must pass on the latest commit SHA. Checks from earlier commits don't satisfy the requirement. Successful check statuses are success, skipped, and neutral.
+        locator: Required check needs to succeed against the latest commit SHA
+        note: 個数は原文に数字では書かれておらず、列挙が 3 つ。『記録上は別の値として残るが判定では同じ成功として扱われる』という後半の記述は、この節には無い。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

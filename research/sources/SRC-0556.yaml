@@ -1,0 +1,127 @@
+schemaVersion: 0
+id: SRC-0556
+status: included
+excludeReason: null
+title: An insider look at Amazon's culture and processes
+url: https://www.aboutamazon.com/news/workplace/an-insider-look-at-amazons-culture-and-processes
+canonicalUrl: https://aboutamazon.com/news/workplace/an-insider-look-at-amazons-culture-and-processes
+ids:
+  arxiv: null
+  doi: null
+publisher: About Amazon(Bryar & Carr『Working Backwards』の抜粋を Amazon が公式サイトに掲載)
+authors: [Colin Bryar, Bill Carr]
+orgType: enterprise
+region: us
+lang: en
+sourceType: vendor-official
+published: 2021-02-09
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G04
+  query: Amazon Working Backwards PR/FAQ official explanation aboutamazon "press release" "frequently asked questions" narrative
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05, TH09]
+events: []
+summary: Amazon 公式サイトが掲載した PR/FAQ の説明(元社員の著書の抜粋、2021-02-09)。PR は1ページ未満・FAQ は5ページ以下と長さを様式で縛り、会議では全員が黙読する。承認後も書き換える文書とされ、他の文書から派生させて一致を保つ仕組みの記述は無い。
+claims:
+  - id: c1
+    text: 説得用の文書の長さを様式で上限づけている(PR は1ページ未満、FAQ は5ページ以下)。文書量に上限を置く先例である。
+    quote: The press release (PR) portion is a few paragraphs, always less than one page. The frequently asked questions (FAQ) should be five pages or less.
+    locator: The Features and Benefits of the PR/FAQ
+    quant:
+      value: PR 1ページ未満 / FAQ 5ページ以下
+      n: 該当なし
+      design: 社内様式の規定(元社員の記述)
+      population: Amazon の新製品・施策の提案文書
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4, TH05-Q3]
+    issues: [252]
+    stance: supports
+  - id: c2
+    text: 長さの制限は、何が重要かの判断を書き手に強いる仕掛け(forcing function)だと説明する。効果は著者らの観察で測定値は無い。
+    quote: restricting the length of the document is, to use a term that came up when describing the narratives, a forcing function
+    locator: The Features and Benefits of the PR/FAQ
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: supports
+  - id: c3
+    text: 読み手への渡し方も様式に含まれる。会議で配り、全員がその場で黙読してから議論する。
+    quote: At the meeting, they distribute the PR/FAQ in either soft or hard copy, and everyone reads it to themselves.
+    locator: The Features and Benefits of the PR/FAQ
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4]
+    issues: []
+    stance: context
+  - id: c4
+    text: 短い文書でも安くはない。10 稿以上を書き、上位者との会議を 5 回以上重ねることが珍しくないと述べる。
+    quote: it's not unusual for an Amazon team to write ten drafts of the PR/FAQ or more, and to meet with their senior leaders five times or more
+    locator: The Features and Benefits of the PR/FAQ
+    quant:
+      value: 10 稿以上、会議 5 回以上
+      n: 記載なし
+      design: 元社員 2 名の回想(測定ではない)
+      population: Amazon 社内の PR/FAQ
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q4]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: 承認後も編集され続ける文書(living document)と位置づけ、変更は経営層の指示またはレビューを伴うとする。
+    quote: Once it is approved by the leadership team, it will almost certainly still be edited and changed
+    locator: Go Ahead?
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q4, TH05-Q2]
+    issues: [253]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:37.682Z
+    httpStatus: 200
+    finalUrl: https://www.aboutamazon.com/news/workplace/an-insider-look-at-amazons-culture-and-processes
+    contentType: text/html; charset=utf-8
+    titleFetched: An insider look at Amazon&#x27;s culture and processes
+    titleMatch: false
+    dateMeta: 2021-02-09
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: partial
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "PR: always less than one page(1ページ未満) / FAQ: five pages or less(5ページ以下)"
+        extractedQuote: The press release (PR) portion is a few paragraphs, always less than one page. The frequently asked questions (FAQ) should be five pages or less. There are no awards for extra pages or more words.
+        locator: The Features and Benefits of the PR/FAQ(第3段落)
+        note: 同じ節に「restricting the length of the document is ... a forcing function」とあり、長さの制限が意図的であることは原文で確認できる。「説得用の文書」という性格づけは原文の語ではない(原文は PR/FAQ を製品・施策の案を吟味する narrative として説明)。
+      c4:
+        verdict: match
+        extractedValue: ten drafts ... or more(10稿以上) / five times or more(5回以上)
+        extractedQuote: That's why it's not unusual for an Amazon team to write ten drafts of the PR/FAQ or more, and to meet with their senior leaders five times or more to iterate, debate, and refine the idea.
+        locator: The Features and Benefits of the PR/FAQ(第1段落)
+        note: 「not unusual」= 珍しくない、で向きは一致。会議の相手は「their senior leaders」。「短い文書でも安くはない」という評価語は原文に無い(主張側の要約)。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

@@ -1,0 +1,84 @@
+schemaVersion: 0
+id: SRC-0089
+status: included
+excludeReason: null
+title: Human oversight for high‑risk AI systems
+url: https://www.vde.com/topics-en/artificial-intelligence/blog/human-oversight
+canonicalUrl: https://vde.com/topics-en/artificial-intelligence/blog/human-oversight
+ids:
+  arxiv: null
+  doi: null
+publisher: VDE (Verband der Elektrotechnik Elektronik Informationstechnik)
+authors: []
+orgType: standards-body
+region: eu
+lang: en
+sourceType: corp-techblog
+published: 2026-09-02
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: EU AI Act Article 14 human oversight guidelines 2026 Commission
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12]
+events: []
+summary: ドイツの標準化団体 VDE の専門家寄稿(2026-09-02)。第14条の監視の要求水準は「固有リスク・自律度・利用文脈」に依存すると整理し、EU AI Act の整合規格として策定中の EN 18229-3(ログ・透明性・人間の監視)を紹介。自律度に応じて監視を変える規範側の位置づけ。
+claims:
+  - id: c1
+    text: 要求される人間の監視の水準は、高リスク AI システムの固有リスク・自律度・具体的な利用文脈に依存する。監視は一律ではなく自律度に応じて変わる。
+    quote: The required level of human oversight depends on the inherent risks, the degree of autonomy and the specific use context of the high-risk AI system.
+    locator: Scope of human oversight
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH01-Q1]
+    issues: [248, 249]
+    stance: supports
+  - id: c2
+    text: 第14条の法的義務を工学・統治の措置へ翻訳する欧州規格 EN 18229-3 が策定中で、EU AI Act の整合規格になる予定。
+    quote: "The standard EN 18229-3 “AI Trustworthiness Framework - Part 1: Logging, transparency and human oversight” is currently under development and is planned to be harmonized under the EU AI Act."
+    locator: How a new standard helps you to comply
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1, TH01-Q2]
+    issues: [248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:37.165Z
+    httpStatus: 200
+    finalUrl: https://www.vde.com/topics-en/artificial-intelligence/blog/human-oversight
+    contentType: text/html;charset=UTF-8
+    titleFetched: Human oversight for high‑risk AI systems
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: Art. 14 / EN 18229-3
+        extractedQuote: EN 18229‑3 will provide … methods to translate these legal duties into engineering and governance measures. / is currently under development and is planned to be harmonized under the EU AI Act
+        locator: 冒頭リード(翻訳の記述)/ How a new standard helps you to comply with human oversight requirements(策定中・整合規格予定)
+        note: "条番号は冒頭『Human oversight is a mandatory risk control for all high-risk AI systems according to Art. 14 EU AI Act』から。同ページは規格番号を EN 18229-3 としつつ、題名を『AI Trustworthiness Framework - Part 1: Logging, transparency and human oversight』と書いており、Part 番号がページ内で食い違っている"
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://vde.com/topics-en/artificial-intelligence/blog/human-oversight

@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0110
+status: included
+excludeReason: null
+title: Claude Code Is Way More Token-Hungry Than OpenCode. We Measured Exactly How Much
+url: https://systima.ai/blog/claude-code-vs-opencode-token-overhead
+canonicalUrl: https://systima.ai/blog/claude-code-vs-opencode-token-overhead
+ids:
+  arxiv: null
+  doi: null
+publisher: Systima
+authors: []
+orgType: startup
+region: global
+lang: en
+sourceType: corp-techblog
+published: 2026-07-12
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: systima Claude Code sends 33k tokens before reading the prompt OpenCode 7k
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04, TH03]
+events: []
+summary: 同一モデル(Sonnet 4.5)・同一タスクで Claude Code と OpenCode の API 境界の全リクエストをログした計測(2026-07-12、HN 706 points)。Claude Code はプロンプト前に約 33k トークン(うち約 24k がツール定義)を送り、接頭辞が不安定でキャッシュ再書き込みが最大 54 倍。
+claims:
+  - id: c1
+    text: Claude Code は利用者のプロンプトが届く前に約 33,000 トークン(システムプロンプト・ツールスキーマ・足場)を送る。OpenCode は約 7,000。ハーネス自体の常時ロード量の実測。
+    quote: When we asked both harnesses for a one-line reply, Claude Code used roughly 33,000 tokens of system prompt, tool schemas, and injected scaffolding before the prompt even arrived. OpenCode used about 7,000.
+    locator: 冒頭の要約
+    quant:
+      value: ~33,000 vs ~7,000 tokens
+      n: 同一タスク群、Sonnet 4.5、ゲートウェイ経由の全リクエスト
+      design: controlled measurement at API boundary
+      population: Claude Code vs OpenCode
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q2, TH03-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 指示書(CLAUDE.md)を置かない最小構成で、一行で返答するタスクの初回リクエストを測ると、Claude Code の約 33,000 トークンのうち約 24,000 がツール定義だった(OpenCode は約 6,900 のうち約 4,800)。この条件では両者ともツールスキーマが支配項である。
+    quote: Tool schemas are the dominant term for both. Roughly 24,000 of Claude Code's ~33,000 tokens are tool definitions, versus roughly 4,800 of OpenCode's ~6,900.
+    locator: Part I. The floor > The fixed overhead of saying OK(ページに 'Where the tokens go' という見出しは無い)
+    quant:
+      value: ~24,000 / ~33,000 (73%)
+      n: null
+      design: measurement
+      population: Claude Code baseline request
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q2, TH03-Q1]
+    issues: [274]
+    stance: qualifies
+  - id: c3
+    text: Claude Code はセッション中に数万トークンのキャッシュを再書き込みし、同一タスクで OpenCode の最大 54 倍のキャッシュ書き込みトークンを発生させた。キャッシュ前提の費用構造は接頭辞の安定性に依存する。
+    quote: Claude Code on the other hand re-wrote tens of thousands of prompt-cache tokens mid-session, run after run, and on the same task wrote up to 54x more cache tokens than OpenCode.
+    locator: 冒頭の要約(cache inefficient)
+    quant:
+      value: up to 54x cache write tokens
+      n: null
+      design: measurement
+      population: Claude Code vs OpenCode, same task
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:46.049Z
+    httpStatus: 200
+    finalUrl: https://systima.ai/blog/claude-code-vs-opencode-token-overhead
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Code Sends 4.7x More Tokens Than OpenCode Before Reading Your Prompt
+    titleMatch: false
+    dateMeta: 2026-07-12
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: ~33,000 tokens のうち roughly 24,000 が tool definitions(OpenCode は ~6,900 のうち ~4,800)
+        extractedQuote: Tool schemas are the dominant term for both. Roughly 24,000 of Claude Code's ~33,000 tokens are tool definitions, versus roughly 4,800 of OpenCode's ~6,900.
+        locator: Part I. The floor > The fixed overhead of saying OK(ページに 'Where the tokens go' という見出しは無い)
+        note: "条件: 22 文字の一行返答タスクの初回リクエスト、Claude Code 2.1.207 + claude-sonnet-4-5(2026-07)、指示書(CLAUDE.md)無しのフロア計測。同記事は 72KB の CLAUDE.md/AGENTS.md が平均 20,000 tokens を毎リクエストに追加するとも述べており、『支配項は指示書ではなくツールスキーマ』はフロア条件下の記述を一般化している。表では First-turn payload ~32,800 tokens。Fable 5 ではツールスキーマが 99,778→82,283 chars に縮小。"
+        adjudication:
+          verdict: corrected
+          reason: 数値は blindQuote と一致し、比率は 24,000/33,000 ≈ 0.727 で約 73% になる。ただしこれはフロア計測(指示書なし、22 文字の一行返答タスクの初回、Claude Code 2.1.207 + claude-sonnet-4-5、2026-07)の値である。同じ記事は、72KB の CLAUDE.md/AGENTS.md が毎リクエストに平均 20,000 トークンを足すとも述べている。「支配項は指示書ではなくツールスキーマ」は、フロア条件を一般化しすぎている。
+          date: 2026-09-23
+          originalText: 約 33,000 のうち約 24,000 がツール定義。文脈の支配項は指示書ではなくツールスキーマである。
+          originalQuote: Tool schemas are the dominant term for both. Roughly 24,000 of Claude Code's ~33,000 tokens are tool definitions, versus roughly 4,800 of OpenCode's ~6,900.
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

@@ -1,0 +1,165 @@
+schemaVersion: 0
+id: SRC-0510
+status: included
+excludeReason: null
+title: "[EPIC] E5: 検証装置を 8 本に絞る — 証跡の真正性だけ機械で守り、書式 gate は撤去する"
+url: https://github.com/Takenori-Kusaka/ganbari-quest/issues/4121
+canonicalUrl: https://github.com/takenori-kusaka/ganbari-quest/issues/4121
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub: Takenori-Kusaka/ganbari-quest"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: repo
+published: 2026-07-30
+publishedBasis: page
+version: null
+updated: 2026-08-02
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: gh search issues --repo Takenori-Kusaka/ganbari-quest "51,607"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH11]
+events:
+  - date: 2026-08-02
+    label: "ganbari-quest #4121 で装置行数 51,607 を「再現不能」として 58,720 / 60,146 へ訂正"
+summary: "#270 / #267 が引く「装置 51,607 行・製品 67,687 行・検査 63 本・20 PR 中 12 本」の出所の Issue。2026-08-02 の再計測で 51,607 行と未参照 10 本を自ら訂正しており、baseline を同じ方法で数え直した。"
+claims:
+  - id: c1
+    text: "Issue #270 の値「装置 51,607 行」に対し実測 58,720 行(2026-07-30 の baseline 313ad39。scripts/ の実行コード 50,499 行 + .github/workflows 8,221 行)。出所の Issue 自身が 2026-08-02 に「51,607 行はどの数え方でも再現できない」と訂正し、58,720 行(08-02 HEAD は 60,146 行)へ置き換えている。ADR-0061(develop 2026-09-24)、Zenn 本、#270 は訂正前の値を引いたままである。"
+    quote: "> 本文が当初書いていた `51,607 行` は**どの数え方でも再現できず**、増減の根拠に使えないため上記に置き換えた。"
+    locator: §行数の数え方(SSOT)
+    quant:
+      value: 58,720 行(Issue の値 51,607 行)
+      n: scripts/ 233 ファイル + workflows 39 ファイル(commit 313ad39)
+      design: git worktree(sparse)で 313ad39 を展開し、scripts/ の .mjs/.js/.cjs/.ts と .github/workflows/ 全ファイルの改行数を合計(Issue が SSOT とした数え方と同じ。tmp/survey-2026-09/g01/count_gq.py)。取得 2026-09-30
+      population: ganbari-quest、2026-07-30 21:05 JST 時点
+    evidenceKind: observational
+    rqs: [TH07-Q3]
+    issues: [270, 267]
+    stance: contradicts
+  - id: c2
+    text: "Issue #270 の値「製品コード 67,687 行、装置/製品 = 0.76」は再現できなかった。数え方の記録が無く、同じ commit の src/ は .ts と .svelte で 975 ファイル・167,968 行(コメント行と空行を除く概算でも約 125,700 行)。装置 = scripts 実行コード + workflows、製品 = src の .ts + .svelte と定義すると 58,720 / 167,968 = 0.35。tests/(793 ファイル・169,011 行)を装置へ含めると 1.36 になり、比は定義次第で 0.35〜1.36 に動く。"
+    quote: "| 製品コード | 67,687 行 |"
+    locator: §背景 (実測、2026-07-30)
+    quant:
+      value: 0.35(定義により 0.35〜1.36。Issue の値 0.76)
+      n: src/ 975 ファイル、tests/ 793 ファイル(commit 313ad39)
+      design: 同 worktree で src/ の .ts/.svelte、tests/ の .ts/.js/.mjs/.svelte の改行数を合計(count_gq.py、count_prod.py)。装置と製品の定義は本文のとおり。取得 2026-09-30
+      population: ganbari-quest、2026-07-30 時点
+    evidenceKind: observational
+    rqs: [TH07-Q3]
+    issues: [270, 267]
+    stance: contradicts
+  - id: c3
+    text: "baseline(07-30)の scripts/ 直下の check-* は実行コードの拡張子に限ると 63 本(限らなければ 64 本)で Issue の「63 本」と一致し、名前で引かれない check-* は文字列一致の近似で 1 本だった。当初の「未参照 10 本」は check-* だけの数ではなく(列挙は 9 個、うち check-* は 7 個)、出所の Issue は 2026-08-02 に全 61 本を照合して「参照ゼロは 0 本」と訂正しており、本数は 07-30: 64(同 63)→ 08-05: 61(同 60)→ 08-12: 46 → 09-24(develop): 47 と推移した。"
+    quote: "> **2026-08-02 訂正（PO 決裁 3）**: 当初の「未参照 10 本」リストは **stale**。全 `check-*` 61 本を workflows / `pre-ready` / `package.json` / `.husky` に照合した結果、**参照ゼロ（類型 4）は 0 本**。"
+    locator: Issue 本文 §撤去する の訂正注記 / §背景 (実測、2026-07-30) の表「| check script | 63 本 |」
+    quant:
+      value: 63 本(07-30)→ 61 本(08-05)→ 47 本(09-24)。未参照は 07-30 に 2 本(Issue の値 10 本)、08-02 に 0 本(出所の訂正)
+      n: 9 時点の tree
+      design: git ls-tree --name-only <ref> scripts/ | grep -c "^scripts/check-" を 313ad39、ebf44985、2667a8d4、origin/develop ほかで実行。未参照は 313ad39 の worktree で、check-* のファイル名(拡張子なし)が .github/workflows、package.json、.husky、.claude のコード、scripts/ の他ファイルに現れるかを照合。取得 2026-09-30
+      population: ganbari-quest scripts/ 直下
+    evidenceKind: observational
+    rqs: [TH07-Q3]
+    issues: [270, 267]
+    stance: qualifies
+  - id: c4
+    text: "Issue #270 の値「直近 20 PR のうち 12 本(60%)が装置修理」に対し、Issue 起票(2026-07-30T07:20Z)直前に merge された 20 PR を変更パスで分類すると、製品パス(src/ site/ drizzle/ infra/ static/)を 1 行も触らない PR が 11 本、装置パスの変更行が過半の PR を含めると 13 本(55〜65%)。Issue の値はこの範囲に入る。"
+    quote: "| 直近 merged 20 PR のうち装置自身の修理 | **12 本 (60%)** |"
+    locator: §背景 (実測、2026-07-30)
+    quant:
+      value: 11〜13 / 20 本(55〜65%。Issue の値 12 本 = 60%)
+      n: 20 PR(2026-07-29T08:45Z〜07-30T06:11Z に merge)
+      design: gh pr list --state merged --search "merged:2026-07-28T00:00:00Z..2026-07-30T07:21:00Z" --json files で取得し、mergedAt 降順の 20 本を変更パスの行数で分類(装置パス = scripts/ .github/ .claude/ .husky/ tests/unit/scripts/ docs/sessions/ docs/decisions/ docs/runbooks/ と設定ファイル)。取得 2026-09-30
+      population: ganbari-quest develop 向け PR
+    evidenceKind: observational
+    rqs: [TH07-Q3]
+    issues: [270, 267]
+    stance: supports
+  - id: c5
+    text: "Issue #267 の「手戻りの実測値が無い」に対し、同 Issue は 2026-08-02 に baseline を 1 度記録している(QM の差し戻し 11 / 60 PR = 18.3%、すべて 1 往復。pre-ready の落ち回数は測定不能と明記)。「測っていない」は再計測が無いという意味でしか成り立たない。この baseline は当事者の計測で、数え直していない。"
+    quote: "| **QM の差し戻し件数** | **11 / 60 PR = 18.3%**（2 往復以上は 0 件） |"
+    locator: §手戻り 3 指標のベースライン(2026-08-02 実測)
+    quant:
+      value: 11 / 60 PR = 18.3%
+      n: 60 PR(2026-07-29〜08-01 に merge)
+      design: 当事者による label イベント(state:qm-blocked)の全件走査。筆者は再計測していない。Issue 本文を 2026-09-30 に取得
+      population: ganbari-quest の merged PR
+    evidenceKind: case-report
+    rqs: [TH11-Q3]
+    issues: [267]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:17.838Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/ganbari-quest/issues/4121
+    contentType: text/html; charset=utf-8
+    titleFetched: "[EPIC] E5: 検証装置を 8 本に絞る — 証跡の真正性だけ機械で守り、書式 gate は撤去する · Issue #4121 · Takenori-Kusaka/ganbari-quest"
+    titleMatch: true
+    dateMeta: 2026-07-30
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "当初の本文(2026-07-30 起票時の版): 装置コード 51,607 行(scripts 43,522 + workflows 8,085)。現行本文(2026-08-02 改訂): baseline `313ad39`(2026-07-30 21:05)= scripts/ 50,499 + .github/workflows/ 8,221 = 58,720 行、HEAD(2026-08-02)= 51,679 + 8,467 = 60,146 行(ratchet 上限)。「51,607 行」は「どの数え方でも再現できず」と訂正。こちらの再計測(313ad39 の checkout、scripts の .mjs/.js/.cjs/.ts 233 ファイル + workflows 39 ファイル): 50,499 + 8,221 = 58,720 行で Issue の訂正後の値と一致"
+        extractedQuote: "> 本文が当初書いていた `51,607 行` は**どの数え方でも再現できず**、増減の根拠に使えないため上記に置き換えた。"
+        locator: Issue 本文 §行数の数え方(SSOT。script 化しない)の表と直後の注記 / 当初値は GraphQL userContentEdits の最初の版(2026-07-30T07:20:42Z)の §背景
+        note: "現行の Issue 本文の §背景 の表からは「装置コード」行と「装置 / 製品 比」行が削除されており、51,607 は訂正注記の中にだけ残る。編集履歴は 5 版(2026-07-30 起票、08-01 19:40Z、08-02 03:02Z ×2、08-02 08:34Z)。訂正の日付は本文の「2026-08-02 改訂」による(UTC の編集時刻では 08-01 19:40Z = JST 08-02 04:40 の版が最初の改訂)。訂正前の値を引いたままの文書: ganbari-quest の develop(053463794、2026-09-24)の docs/decisions/0061-band-aid-breaking-shift-left-mechanization.md L34 に「装置コード 51,607 行 / 製品コード 67,687 行 = 0.76 倍、check script 63 本 (うち 10 本が未参照)」が残るのを確認。Zenn 本と ask の「#___」は確認していない。"
+      c2:
+        verdict: match
+        extractedValue: "Issue 現行本文: 製品コード 67,687 行。当初の版: 装置 / 製品 比 0.76(= 51,607 / 67,687)。数え方の記載は無い。こちらの再計測(313ad39): src/ の .ts + .svelte = 975 ファイル・167,968 行(空行とコメント行らしき行を除く概算で約 125,700 行)。装置 58,720 / 製品 167,968 = 0.35。tests/ は全 818 ファイル(コード拡張子 793 ファイル・169,011 行、画像等を除く全テキストで 170,673 行)で、装置に含めると (58,720 + 169,011) / 167,968 = 1.36"
+        extractedQuote: "| 製品コード | 67,687 行 |"
+        locator: Issue 本文 §背景 (実測、2026-07-30) の表 / 「装置 / 製品 比 | **0.76**」は当初の版(userContentEdits 最初の版)の同表
+        note: 現行本文には「装置/製品」の比の行が無い(2026-08-02 の改訂で削除)。比 0.76 は当初の版と ADR-0061 にだけ残る。製品コード 67,687 行は改訂後も本文に残っており、Issue 自身はこの値を訂正していない。Issue 本文に製品コードの数え方は書かれていない。こちらの tests/ の行数は「どの拡張子を数えるか」で 169,011〜170,673 と動くので、ask の伏せ字の値と細部が一致しない可能性がある。src/ 内に .test.ts / .spec.ts は 0 件。
+      c3:
+        verdict: match
+        extractedValue: "Issue 現行本文 §背景: check script 63 本。当初の版: 「63 本 (うち 10 本が workflows / pre-ready のどちらからも未参照)」。2026-08-02 訂正: 「未参照 10 本」リストは stale、全 check-* 61 本を照合して参照ゼロ(類型 4)は 0 本。こちらの再計測(scripts/ 直下の check-*): 07-30 baseline 313ad39 = 64(実行コードの拡張子に限ると 63)→ 08-05 main ebf44985 = 61(同 60)→ 08-12 b3723cec = 46 → 09-24 develop 053463794 = 47。baseline で workflows / package.json / .husky / .claude のコード / 他の script から名前で引かれない check-* は 1 本(check-import-service-duplication.mjs)"
+        extractedQuote: "> **2026-08-02 訂正（PO 決裁 3）**: 当初の「未参照 10 本」リストは **stale**。全 `check-*` 61 本を workflows / `pre-ready` / `package.json` / `.husky` に照合した結果、**参照ゼロ（類型 4）は 0 本**。"
+        locator: Issue 本文 §撤去する の訂正注記 / §背景 (実測、2026-07-30) の表「| check script | 63 本 |」
+        note: baseline の 63 本は、拡張子を .mjs/.js/.cjs/.ts に限ったときに一致する。拡張子を限らないと 64(check-internal-terms-baseline.json を含む)。当初の版の「撤去する (即削除、未参照 10 本)」に列挙された script 名は 9 個で、うち check-* は 7 個、verify-* が 2 個。つまり「10 本」は check-* だけの数ではない。Issue の訂正は 08-02 時点の 61 本に対する照合で、baseline(07-30 の 63 本)に対する照合ではない。08-12 と 09-11 の main は 46、09-13 の main は 47。未参照の判定は「名前(拡張子抜き)の文字列一致」によるこちらの近似。
+        adjudication:
+          verdict: corrected
+          reason: 63 本の一致、08-02 の訂正(61 本照合・参照ゼロ 0 本)、61(60)→ 46 → 47 の推移は blind と一致する。ただし (1) 未参照は主張 2 本に対し blind の再計測は 1 本(check-import-service-duplication.mjs)、(2) 07-30 の 63 本は拡張子を限った値で、08-05 の 61 本(限らない値)と定義が混ざっている(限らなければ 64 → 61、限れば 63 → 60)、(3) 「未参照 10 本」は check-* 以外(verify-* 2 個)を含む列挙で check-* の数と直接比べられない、(4) Issue の訂正は 08-02 時点の 61 本に対する照合で baseline の 63 本に対するものではない。これらの条件を補って訂正した。
+          date: 2026-09-30
+          originalText: "Issue #270 の値「検査スクリプト 63 本、うち 10 本は未参照」に対し、baseline の scripts/ 直下の check-* は 63 本で一致する。未参照 10 本は再現せず、baseline で workflows / package.json / .husky / .claude のコード / 他の script から名前で引かれない check-* は 2 本だった。出所の Issue も 2026-08-02 に全 61 本を照合して「参照ゼロは 0 本」と訂正している。本数は 07-30: 63 → 08-05(main): 61(実行コードの拡張子に限ると 60)→ 08-13: 46 → 09-24(develop): 47 と推移した。"
+          originalQuote: 全 `check-*` 61 本を workflows / `pre-ready` / `package.json` / `.husky` に照合した結果、**参照ゼロ（類型 4）は 0 本**。
+      c4:
+        verdict: match
+        extractedValue: "Issue 本文: 直近 merged 20 PR のうち装置自身の修理 12 本(60%)。Issue 起票は 2026-07-30T07:20:42Z。こちらの再計測(起票直前の develop first-parent 20 commit = #4061〜#4044 を変更パスで分類): 製品パス(src/ site/ drizzle/ infra/ static/)を 1 行も触らない PR が 11 本(#4035 #4103 #4092 #4067 #4045 #4063 #4065 #4058 #4042 #4060 #4044)、製品パスの変更が少数(16 行・5 行)で装置パスが大半の #4105 #4066 を足すと 13 本。11〜13 本 = 55〜65%"
+        extractedQuote: "| 直近 merged 20 PR のうち装置自身の修理 | **12 本 (60%)** |"
+        locator: Issue 本文 §背景 (実測、2026-07-30) の表 / 末尾 §Pre-PMF 判断「装置が開発容量の 60% を消費している状態」
+        note: Issue にはどの 20 PR か、何を「装置自身の修理」と数えたかの記載が無い。こちらの 11 本には docs だけの PR が 2 本(#4035 runbook 追加、#4092 OSS 調査記録)含まれ、これらを「装置修理」と呼べるかは定義次第。20 本の取り方も develop の first-parent か GitHub の merged 時刻かで 1 本入れ替わりうる(#3989 は検索 API では拾えず git log で入る)。Issue は 60% を PR 本数の比として示すが、末尾では「開発容量の 60% を消費」と容量の比に言い換えている。
+      c5:
+        verdict: match
+        extractedValue: "2026-08-02 実測のベースライン 1 回: 直近 merged 60 PR(2026-07-29 〜 08-01)。QM の差し戻し 11 / 60 PR = 18.3%(2 往復以上は 0 件)、差し戻された 11 件すべて 1 往復で解消、pre-ready の落ち回数は「測定不能」。代替 proxy: CI workflow 実行数 約 400 runs / 日(2026-08-01 実測)"
+        extractedQuote: "| **QM の差し戻し件数** | **11 / 60 PR = 18.3%**（2 往復以上は 0 件） | `gh api repos/:owner/:repo/issues/<n>/events` の `labeled` から `state:qm-blocked` を計数 |"
+        locator: Issue 本文 §手戻り 3 指標のベースライン（2026-08-02 実測）の表(L106-118)
+        note: "「手戻りの実測値が無い」という文は本 Issue ではなく憲章(docs/sessions/README.md §6)の記述。本 Issue は逆に baseline を記録している。Issue の close 注記は「完了定義である「手戻り 3 指標の改善」の検証は別途 Platform が再計測する」と書いており、再計測の結果は本文に無い。11 件の内訳(#4190 #4182 #4178 #4173 #4168 #4159 #4154 #4153 #4149 #4148 #4134)は列挙されているが、label イベントからの数え直しはこちらでも行っていない。"
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

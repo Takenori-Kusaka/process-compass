@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0366
+status: included
+excludeReason: null
+title: Maintain an architecture decision record (ADR)
+url: https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record
+canonicalUrl: https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record
+ids:
+  arxiv: null
+  doi: null
+publisher: Microsoft Learn (Azure Well-Architected Framework)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-04-13
+publishedBasis: page
+version: null
+updated: 2026-04-13
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH05
+  query: Azure Well-Architected Framework architecture decision record
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: Azure WAF の ADR 指針(2026-04-13 更新、初出日はページに無い)。ADR を追記専用のログとし、承認済み記録は編集せず supersede でつなぐ。対象を構造・品質特性・不可逆な選択に限り、設計ガイド化を禁じ、確信度の記録を求める。
+claims:
+  - id: c1
+    text: ADR は追記専用のログであり、承認済みの記録は編集しない。決定が変わったら元の記録を supersede する新しい記録を書き、両者をリンクする。
+    quote: The ADR serves as an append-only log. Don't go back and edit accepted records. If a decision changes, write a new record that supersedes the original and link the two together.
+    locator: Implement an ADR
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q1]
+    issues: [272]
+    stance: context
+  - id: c2
+    text: ADR に載せるのは、システムの構造・主要な品質特性に影響する選択、または覆しにくい選択だけに限る。
+    quote: Only include choices that affect the system's structure, key quality attributes, or are difficult to reverse.
+    locator: 冒頭第2段落
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q1, TH05-Q3]
+    issues: [252, 272]
+    stance: supports
+  - id: c3
+    text: ADR を設計ガイドにしない。補足の正当化や設計検討は別文書へリンクし、決定は単独で読めるようにする(記録と指針の分離)。
+    quote: Avoid making decision records design guides. If more justification or design ideation is available, provide a link to a document as supplemental material
+    locator: Suggested characteristics of an individual record
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q1]
+    issues: [251, 272]
+    stance: supports
+  - id: c4
+    text: 決定の確信度を記録する。低い確信度で下した決定であることを残すと、将来の再検討に役立つ。
+    quote: Record the confidence level of the decision. Sometimes an architecturally significant decision is made with relatively low confidence.
+    locator: Suggested characteristics of an individual record / Decision outcome
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q1, TH05-Q5]
+    issues: [272]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:32.754Z
+    httpStatus: 200
+    finalUrl: https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record
+    contentType: text/html
+    titleFetched: Maintain an architecture decision record (ADR) - Microsoft Azure Well-Architected Framework
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

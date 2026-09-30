@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0386
+status: included
+excludeReason: null
+title: "知識マップ: 受託開発の仕様書、Excelのままでいいのか ── 納品物としての形式の選び方"
+url: https://comcomponent.com/blog/deliverable-spec-documents-format-excel-word/knowledge
+canonicalUrl: https://comcomponent.com/blog/deliverable-spec-documents-format-excel-word/knowledge
+ids:
+  arxiv: null
+  doi: null
+publisher: 合同会社小村ソフト
+authors: []
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-08-01
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH05
+  query: 設計書 Markdown 移行 Excel Word 納品 SIer docs as code 変換 pandoc 顧客提出 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH12]
+events: []
+summary: 受託開発の仕様書の納品形式を整理した記事の知識マップ(最終確認 2026-08-01)。開発側の原本は Markdown+Git とし Pandoc で顧客向け Word/PDF を生成する。合意版は PDF で凍結し、納入物は IPA モデル契約に沿って個別契約で特定する。
+claims:
+  - id: c1
+    text: 開発側の原本は Markdown+Git で管理し、Pandoc で顧客向けの Word や PDF に変換して納品する構成を勧める(docs-as-code の正本から納品形式を派生)。
+    quote: 本記事が示す構成では、Markdown+Gitで管理する原本は、Pandocによって顧客向けのWordやPDFへ変換されて納品される
+    locator: 概念間の関係(Markdown+Gitによる原本管理 → Pandoc)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: IPA のモデル取引・契約書は、どの文書を成果物とするかを個別契約で特定する構成を持つ(成果物の範囲は契約で決まる)。
+    quote: IPAのモデル取引・契約書は、どの文書を成果物とするかを個別契約で特定する構成を持ち
+    locator: 概念間の関係(IPA情報システム・モデル取引・契約書)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: Excel 方眼紙の仕様書は差分が見えず検収が形骸化し、更新コストの高さから納品後に実装と乖離しやすい。
+    quote: Excel方眼紙は更新コストが高いため、納品後の改修で更新されなくなり実装との乖離が進む原因になることがある
+    locator: 概念間の関係(Excel方眼紙 → 仕様書と実装の乖離)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:40.897Z
+    httpStatus: 200
+    finalUrl: https://comcomponent.com/blog/deliverable-spec-documents-format-excel-word/knowledge/
+    contentType: text/html
+    titleFetched: "知識マップ: 受託開発の仕様書、Excelのままでいいのか ── 納品物としての形式の選び方 | 合同会社小村ソフト"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

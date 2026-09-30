@@ -1,0 +1,145 @@
+schemaVersion: 0
+id: SRC-0622
+status: included
+excludeReason: null
+title: AIセーフティに関する評価観点ガイド(第1.20版)
+url: https://aisi.go.jp/assets/pdf/ai_safety_eval_v1.20_ja.pdf
+canonicalUrl: https://aisi.go.jp/assets/pdf/ai_safety_eval_v1.20_ja.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: AIセーフティ・インスティテュート(AISI)
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-07-07
+publishedBasis: page
+version: 第1.20版
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G08
+  query: AISI AIセーフティに関する評価観点ガイド 第1.20版 本文 PDF ai_safety_eval_v1.20_ja.pdf
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH07]
+events:
+  - date: 2026-07-07
+    label: J-AISI が評価観点ガイド第1.20版を公表(AI エージェント向けに「観測と制御」を追加)
+summary: J-AISI の評価観点ガイド改訂版の本文(概要版は台帳に既にある)。読んだのは 3.6、3.11 と巻末の AI エージェントシステムの分類・リスク表。自律性を3段階に分け、評価項目例に人の介入・停止を挙げる。
+claims:
+  - id: c1
+    text: AI エージェントシステムを自律性レベル(補助型・半自律型・全自律型)と外部連携レベルの2軸で分類する。半自律型は、リスクが高い判断と重要な外部システムの操作に人間の承認を前提とする。承認の要否を役割ではなく判断・操作のリスクで切っている。
+    quote: 通常のタスクでは自ら判断し複数のアクションを実行するが、リスクが高い判断や重要な外部システムに対する操作は人間の承認を前提とするレベルである。
+    locator: AI エージェントシステムの分類 (1) 自律性レベル — 半自律型(p.55)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 全自律型も無制限の自律ではなく、事前に定義された目的・制約・監督メカニズムの下での運用を前提とすると定義している。
+    quote: 人間の継続的な監督や指示を必要とせず、自律的に知覚、判断、及び実行するレベルである。ただし、事前に定義された目的、制約、監督メカニズムのもとで運用されることを前提とする。
+    locator: AI エージェントシステムの分類 (1) 自律性レベル — 全自律型(p.55)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, BASE-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 「自律的な挙動」の評価項目例として、リスクの高いタスクで異常や当初目標からの乖離を検知した場合の人間による介入・停止ができるかを挙げる。リスクの高いタスクの例はファイルの書き込み・削除、権限の昇格、高負荷な計算である。
+    quote: リスクの高いタスクの実行時に異常を検知した場合における人間による介入・停止。
+    locator: 3.11.1 自律的な挙動 — 評価項目例(p.36)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2, TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 「3.11.1 自律的な挙動(AI エージェントシステム)」の想定され得るリスクの例として、AI エージェントシステムがタスク遂行を優先するあまり、説得力のある応答等を通じてエンドユーザーの信頼を操作し、保護対策の回避や権限の奪取につながる行動を起こす可能性を挙げる。当該リスクを OWASP の特定の ASI 項目に対応づける記述は原典に無い。
+    quote: 加えて、AI エージェントシステムがタスク遂行を優先するあまり、説得力のある応答等を通じてエンドユーザーの信頼を操作し、保護対策の回避や権限の奪取につながる行動を起こす可能性がある。
+    locator: 3.11.1 自律的な挙動(AI エージェントシステム)— 想定され得るリスクの例(p.35)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: リスク表は「監視能力の飽和」を挙げ、人間の承認を要する動作を設定しても、エージェントの過剰な動作でアラートが多発し人の監視が追いつかなくなる可能性を記す。
+    quote: AI エージェントシステムの過剰な動作によりアラートやイベントが多発し、人間の監視が追いつかなくなる可能性がある。
+    locator: 付録 リスク表 — セキュリティ確保/監視能力の飽和(p.63)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q4, TH12-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:03.856Z
+    httpStatus: 200
+    finalUrl: https://aisi.go.jp/assets/pdf/ai_safety_eval_v1.20_ja.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2軸(「自律性レベル」と「外部連携レベル」)
+        extractedQuote: 以下では、この観点から「自律性レベル」と「外部連携レベル」という２軸で分類（図7）し … 半自律型 通常のタスクでは自ら判断し複数のアクションを実行するが、リスクが高い判断や重要な外部システムに対する操作は人間の承認を前提とするレベルである。
+        locator: 付録「■ AI エージェントシステムの分類」冒頭および (1) 自律性レベル — 半自律型(p.55)
+        note: PDF を curl で取得し pdftotext で抽出(表紙に「第 1.20 版」)。自律性レベルは補助型・半自律型・全自律型の3区分、外部連携レベルは限定的な情報連携・デジタル世界操作・物理世界操作の3区分。「承認の要否を役割ではなく判断・操作のリスクで切っている」という対比は原文に明示されておらず、主張側の解釈。
+      c2:
+        verdict: match
+        extractedValue: 事前に定義された目的、制約、監督メカニズムのもとで運用されることを前提とする
+        extractedQuote: 全自律型 人間の継続的な監督や指示を必要とせず、自律的に知覚、判断、及び実行するレベルである。ただし、事前に定義された目的、制約、監督メカニズムのもとで運用されることを前提とする。
+        locator: 付録「■ AI エージェントシステムの分類」(1) 自律性レベル — 全自律型(p.55)
+        note: 「無制限の自律ではなく」という語句そのものは原文に無い(ただし書きの言い換え)。
+      c3:
+        verdict: match
+        extractedValue: "人間による介入・停止 / リスクの高いタスクの一例: ファイルへの書き込み・削除、権限の昇格、高負荷な計算の実行"
+        extractedQuote: "リスクの高いタスクの実行時に異常を検知した場合における人間による介入・停止。 … ※1: リスクの高いタスクの一例として、ファイルへの書き込み・削除、権限の昇格、高負荷な計算の実行がある。"
+        locator: 3.11.1 自律的な挙動(AI エージェントシステム)— 評価項目例「以下のような制御が行えるようになっているか」(p.36)
+        note: 制御の項目は2つに分かれている(異常検知時の介入・停止/当初の目標とエンドユーザーの意図からの乖離を検知した際の介入・停止)。注 ※1 は制御の項目ではなく、観測の項目「あらかじめ定義したリスクの高いタスク※1 の実行の検知」に付されている。
+      c4:
+        verdict: match
+        extractedValue: 原典に OWASP ASI の項目番号の記載なし(リスク記述のみ存在)
+        extractedQuote: 加えて、AI エージェントシステムがタスク遂行を優先するあまり、説得力のある応答等を通じてエンドユーザーの信頼を操作し、保護対策の回避や権限の奪取につながる行動を起こす可能性がある。
+        locator: 3.11.1 自律的な挙動(AI エージェントシステム)— 想定され得るリスクの例(p.35)
+        note: リスク記述は原文どおり存在する。一方、伏せ字の ASI 番号は本文に無い。本文を OWASP / ASI で検索すると、LLM Top 10 の出典注(3章)と参考文献一覧(Agentic AI - Threats and Mitigations Ver 1.1、Securing Agentic Applications Guide Ver 1.0、OWASP Top 10 For Agentic Applications 2026)だけが該当し、当該リスクを特定の ASI 項目に対応づける記述は無い。括弧内は主張側の付記とみられる。
+        adjudication:
+          verdict: corrected
+          reason: リスク記述は blindQuote と逐語的に一致する(claimQuote の not-found は文頭の「加えて、」等の差とみられる)。一方、「OWASP ASI09 と同じ向き」という対応づけは原典に無く、OWASP / ASI は出典注と参考文献一覧に現れるだけで、主張側の付記。原典の記述と読める形で書かれているため切り分ける。「観測と制御が不十分な場合」という前置きも抜粋からは確認できない。
+          date: 2026-09-30
+          originalText: 観測と制御が不十分な場合のリスクとして、エージェントがタスク遂行を優先し、説得力のある応答で利用者の信頼を操作して保護対策の回避や権限の奪取に至る可能性を挙げる(OWASP ASI09 と同じ向きのリスク)。
+          originalQuote: AI エージェントシステムがタスク遂行を優先するあまり、説得力のある応答等を通じてエンドユーザーの信頼を操作し、保護対策の回避や権限の奪取につながる行動を起こす可能性がある。
+      c5:
+        verdict: match
+        extractedValue: 監視能力の飽和(セキュリティ確保の行)
+        extractedQuote: AI エージェントシステムは安全性のため、人間の承認を必要とする動作を設定する場合があるが、AI エージェントシステムの過剰な動作によりアラートやイベントが多発し、人間の監視が追いつかなくなる可能性がある。
+        locator: 付録 リスク表 — セキュリティ確保/監視能力の飽和(p.63)
+        note: pdftotext の抽出では表の行がずれ、リスク名3つ(情報漏洩・システムへの攻撃・監視能力の飽和)と説明3つが別々に並ぶ。説明の3番目を「監視能力の飽和」に対応づけたのは並び順による。原文は「アラートやイベントが多発」。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

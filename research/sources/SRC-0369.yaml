@@ -1,0 +1,96 @@
+schemaVersion: 0
+id: SRC-0369
+status: included
+excludeReason: null
+title: Architectural Decision Record Framework
+url: https://www.gov.uk/government/publications/architectural-decision-record-framework/architectural-decision-record-framework
+canonicalUrl: https://gov.uk/government/publications/architectural-decision-record-framework/architectural-decision-record-framework
+ids:
+  arxiv: null
+  doi: null
+publisher: UK Department for Science, Innovation & Technology / Government Digital Service (GOV.UK)
+authors: []
+orgType: government
+region: other
+lang: en
+sourceType: public-agency
+published: 2025-11-04
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH05
+  query: Azure Well-Architected Framework architecture decision record
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH12]
+events: []
+summary: 英国政府(DSIT/GDS)の ADR フレームワーク(2025-11-04)。決定の影響範囲で4段階の決定主体を定め、ADR を該当主体の審査・承認にかける。ただし義務化は省庁横断の決定だけで、チーム内は不要な承認なしに自ら決めることを推す。
+claims:
+  - id: c1
+    text: ADR は適切な決定主体(チーム長/プログラムのアーキテクチャフォーラム/省のアーキテクチャ委員会/Technical Design Council)の審査・承認にかける。ADR を承認対象とする公的な先例。
+    quote: Submit the ADR for review and approval by the appropriate decision-making body. Ensure that the decision is aligned with the strategic goals and policies.
+    locator: How to use this ADR framework, step 4
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: supports
+  - id: c2
+    text: 全階層での採用を推奨しつつ、義務化は省庁横断・公共部門横断の決定に限る。
+    quote: However, the ADR framework will only be mandated for cross-government and cross-public sector decisions.
+    locator: Who should use it?
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: qualifies
+  - id: c3
+    text: チームや組織が不要な承認負荷なしに自ら決定できるようにすることが狙いで、影響が広い決定だけをエスカレーションする。
+    quote: empower teams and organisations to make architectural decisions themselves by following agile service delivery governance principles, without unnecessary overhead approval.
+    locator: Introduction
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: qualifies
+  - id: c4
+    text: ADR は文脈や帰結の変化に合わせて定期的に見直し更新する(不変・supersede 方式と異なる)。
+    quote: Regularly review and update the ADR to reflect any changes in the context or consequences of the decision.
+    locator: How to use this ADR framework, step 6
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: [272]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:33.285Z
+    httpStatus: 200
+    finalUrl: https://www.gov.uk/government/publications/architectural-decision-record-framework/architectural-decision-record-framework
+    contentType: text/html; charset=utf-8
+    titleFetched: Architectural Decision Record Framework
+    titleMatch: true
+    dateMeta: 2025-11-04
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://gov.uk/government/publications/architectural-decision-record-framework/architectural-decision-record-framework

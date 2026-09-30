@@ -1,0 +1,119 @@
+schemaVersion: 0
+id: SRC-0362
+status: included
+excludeReason: null
+title: github/spec-kit (README)
+url: https://github.com/github/spec-kit
+canonicalUrl: https://github.com/github/spec-kit
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: repo
+published: 2026-09-22
+publishedBasis: page
+version: v1.0.10
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: github spec-kit commands /speckit.specify /speckit.plan /speckit.tasks /speckit.analyze /speckit.checklist
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH08]
+events: [{date: 2026-09-22, label: Spec Kit v1.0.10 公開}]
+summary: GitHub の仕様駆動ツール Spec Kit(v1.0 系)。成果物ごとのコマンドはエージェントのスキルとして提供され、SDD・バグ修正・アイデア評価の3つの独立した入口と、implement→converge の反復を持つ。
+claims:
+  - id: c1
+    text: 3つのプロセスは必須の3フェーズではなく独立した入口であり、SDD を中核、バグ修正と評価を必要時に入れる拡張として分けている。
+    quote: These are independent entry points, not three mandatory phases. SDD ships in core; bug fixing and assessment are bundled extensions you install when needed.
+    locator: Choose your process
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: constitution はプロジェクトに1回作り、specify → plan → tasks → implement → converge を機能ごとに回す。converge が Converged を報告するまで implement → converge を繰り返す。
+    quote: Constitution once per project; specify → plan → tasks → implement → converge per feature.
+    locator: Spec-Driven Development
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2, TH08-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: /speckit-* は端末コマンドではなくエージェントのスキルで、1つずつ呼んで結果を確認してから進めることを求める。
+    quote: Invoke each `/speckit-*` skill in your agent's chat, one at a time, and review the result before continuing. These are agent skills, not terminal commands.
+    locator: Get started
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:31.820Z
+    httpStatus: 200
+    finalUrl: https://github.com/github/spec-kit
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - github/spec-kit: 💫 Toolkit to help you get started with Spec-Driven Development"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: three processes / three mandatory phases
+        extractedQuote: These are **independent entry points**, not three mandatory phases. SDD ships in core; bug fixing and assessment are bundled extensions you install when needed.
+        locator: Choose your process
+        note: 「SDD を中核」は原文では 'ships in core'(コア同梱)で、配布形態の区別。概念上の中心という意味までは述べていない。取得は raw README.md(main)
+        adjudication:
+          verdict: consistent
+          reason: 「independent entry points, not three mandatory phases. SDD ships in core; bug fixing and assessment are bundled extensions you install when needed」と一致。「中核」は ships in core の訳で、「拡張」との対比から配布形態(コア同梱)の区別として読める。概念上の中心とまで言う読み方はしないこと。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: once per project
+        extractedQuote: Constitution once per project; specify → plan → tasks → implement → converge per feature.
+        locator: Spec-Driven Development
+        note: "'Repeat implement → converge until convergence reports Converged' と反復も規定。「成果物単位でコマンドを分けた設計」は原文に直接の記述はなく解釈"
+        adjudication:
+          verdict: corrected
+          reason: 第1文は抜粋どおり。第2文「成果物単位でコマンドを分けた設計である」は原文に直接の記述がない解釈なので削除した。代わりに、原文にある反復の規定(Repeat implement → converge until convergence reports Converged)を補った。
+          date: 2026-09-24
+          originalText: constitution はプロジェクトに1回、specify→plan→tasks→implement→converge を機能ごとに回す。成果物単位でコマンドを分けた設計である。
+          originalQuote: Constitution once per project; specify → plan → tasks → implement → converge per feature.
+      c3:
+        verdict: match
+        extractedValue: one at a time
+        extractedQuote: Invoke each `/speckit-*` **skill in your agent's chat**, one at a time, and review the result before continuing. These are agent skills, not terminal commands.
+        locator: Get started
+        note: ""
+        adjudication:
+          verdict: consistent
+          reason: 「Invoke each /speckit-* skill in your agent's chat, one at a time, and review the result before continuing. These are agent skills, not terminal commands.」と一致する。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

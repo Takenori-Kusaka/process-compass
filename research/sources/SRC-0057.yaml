@@ -1,0 +1,124 @@
+schemaVersion: 0
+id: SRC-0057
+status: included
+excludeReason: null
+title: "More Code, Less Reuse: Investigating Code Quality and Reviewer Sentiment towards AI-generated Pull Requests"
+url: https://arxiv.org/abs/2601.21276
+canonicalUrl: arxiv:2601.21276
+ids:
+  arxiv: "2601.21276"
+  doi: 10.48550/arXiv.2601.21276
+publisher: arXiv / MSR '26(23rd International Conference on Mining Software Repositories, Mining Challenge)
+authors: [Huang Haoming, Jaisri Pongchai, Shimizu Shota, Chen Lingfeng, Nakashima Sota, Rodríguez-Pérez Gema]
+orgType: academic
+region: jp
+lang: en
+sourceType: paper-peer
+published: 2026-01-29
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: curl https://arxiv.org/html/2601.21276
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10]
+events: []
+summary: 前回メモが「レビュアー感情の逆転」として最重要視した MSR '26 論文の本文。AMR(意味的冗長性)は AI 0.2867 対人間 0.1532(1.87 倍、p<0.001)。感情はエージェント PR で neutral / joy / sadness の比率が高く、人間 PR で disgust / anger / fear / surprise が高い。感情差の効果量は箱ひげ図のみで数値表記なし。Python・500 スター超の 3,858 PR に限定。
+claims:
+  - id: c1
+    text: 平均最大冗長度(AMR)は AI エージェント 0.2867、人間 0.1532 で約 1.87 倍。Mann-Whitney 検定で有意(p<0.001)。
+    quote: the Average Max Redundancy (AMR) for AI agents is 0.2867, compared to only 0.1532 for humans, representing a nearly 1.87x increase . Mann-Whitney test confirms that this difference is statistically significant
+    locator: §3.1 Redundancy
+    quant:
+      value: 0.2867 vs 0.1532 (1.87x), p<0.001
+      n: 617 PRs (crewAI, Dataset B) for redundancy; 3,858 PRs (Dataset A) for metrics/sentiment
+      design: observational (repository mining)
+      population: AIDev Python repos >500 stars
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c2
+    text: レビュアーは AI 生成 PR に対して人間の PR より中立〜肯定的な感情を示す(RQ2 の回答)。ただし内訳では sadness もエージェント PR 側で高い。
+    quote: Our analysis shows that reviewers tend to express more neutral or positive emotions towards AI-generated contributions than human ones.
+    locator: §3.2 Answer to RQ2
+    quant:
+      value: 方向のみ(箱ひげ図)、効果量の数値表記なし
+      n: 3,858 PRs
+      design: observational; Emotion English DistilRoBERTa-base
+      population: AIDev Python repos >500 stars, bot comments excluded
+    evidenceKind: observational
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: "著者の機序仮説: 出力が表層的にもっともらしいためレビュアーの警戒が下がり、動くか(通過率)には注意を向けるが既存ロジックとの重複は確認しない。"
+    quote: They focus on whether the code works (pass rate), but they fail to check if the code duplicates existing logic in the repository.
+    locator: §4.1 Disconnect between Quality and Sentiment
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q4, TH07-Q5]
+    issues: []
+    stance: supports
+  - id: c4
+    text: "著者自身の限界: 感情モデルは一般英語で学習されており、技術的議論を中立や否定として誤分類しうる。対象は Python のみ。"
+    quote: our sentiment analysis model is trained on general English text. It may misinterpret technical discussions in code reviews as neutral or negative emotions.
+    locator: §6 Threats to Validity
+    quant: null
+    evidenceKind: observational
+    rqs: []
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:07.031Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2601.21276
+    contentType: text/html; charset=utf-8
+    titleFetched: "More Code, Less Reuse: Investigating Code Quality and Reviewer Sentiment towards AI-generated Pull Requests"
+    titleMatch: true
+    dateMeta: 2026-01-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "More Code, Less Reuse: Investigating Code Quality and Reviewer Sentiment towards AI-generated Pull Requests"
+      authors: ["Huang, Haoming", "Jaisri, Pongchai", "Shimizu, Shota", "Chen, Lingfeng", "Nakashima, Sota", "Rodríguez-Pérez, Gema"]
+      v1Date: 2026-01-29
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: AI エージェント 0.2867、人間 0.1532、約 1.87 倍、p < 0.001(Mann-Whitney)
+        extractedQuote: (AMR) for AI agents is 0.2867, compared to only 0.1532 for humans, representing a nearly 1.87x increase . Mann-Whitney test confirms that this difference is statistically significant ( p < 0.001 )
+        locator: §3.1 Results of RQ1 — Redundancy 段落
+        note: 節番号は §3.1(Results of RQ1)の中の "Redundancy:" 小見出し。Discussion §4.1 では "AMR for Agentic-PRs is nearly double that of Human-PRs" と言い換えている。
+      c2:
+        verdict: match
+        extractedValue: RQ2。Agentic-PR 側で neutral・joy・sadness の割合が高く、Human-PR 側で disgust・anger・fear・surprise が高い
+        extractedQuote: "Answer to RQ2: Our analysis shows that reviewers tend to express more neutral or positive emotions towards AI-generated contributions than human ones."
+        locator: §3.2 Results of RQ2 — Answer to RQ2
+        note: sadness がエージェント PR 側で高いことは本文 "Agentic-PRs had a higher proportion of neutral, joy, and sadness, while Human-PRs had a higher proportion of disgust, anger, fear, and surprise." で確認した。RQ2 の比較は箱ひげ図(Figure 3)だけで、統計的検定の記述は無い。感情は Emotion English DistilRoBERTa-base で自動分類しており、bot のコメントは除外している(§2.3)。
+    date: 2026-09-23
+volatility: slow
+reviewBy: null

@@ -1,0 +1,104 @@
+schemaVersion: 0
+id: SRC-0108
+status: included
+excludeReason: null
+title: Anthropic is cutting Claude Code's current weekly limits by 17%
+url: https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-is-cutting-claude-codes-current-weekly-limits-by-17-percent
+canonicalUrl: https://bleepingcomputer.com/news/artificial-intelligence/anthropic-is-cutting-claude-codes-current-weekly-limits-by-17-percent
+ids:
+  arxiv: null
+  doi: null
+publisher: BleepingComputer
+authors: [Mayank Parmar]
+orgType: media
+region: us
+lang: en
+sourceType: news
+published: 2026-08-29
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Max plan weekly usage limits 2026 change
+derivedFrom: []
+derivedFromUrl: [https://x.com/claudedevs]
+selfReported: false
+themes: [TH04, TH02]
+events:
+  - date: 2026-09-14
+    label: Claude Code の週次上限を基準比 +25% で恒久化(暫定 +50% は終了)
+summary: 2026-08-29 の報道。Anthropic は 9月14日から週次上限を基準比 25% 引き上げて恒久化するが、5月からの暫定 50% 増しと比べると 17% の減少になる。上限が数か月単位で上下する実例。
+claims:
+  - id: c1
+    text: Anthropic は 2026-09-14 から Claude Code の週次上限を Pro/Max/Team/seat 型 Enterprise で基準比 25% 引き上げると発表。それまでは暫定の 50% 増しが継続。
+    quote: "\"Starting September 14, we're permanently raising standard weekly limits in Claude Code by 25% for Pro, Max, Team, and seat-based Enterprise plans,\" Anthropic wrote on X."
+    locator: 本文 3 段落目
+    quant:
+      value: +25%(基準比)
+      n: null
+      design: vendor announcement via news
+      population: Pro, Max, Team, seat-based Enterprise
+    evidenceKind: news-fact
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 暫定 +50% 中の水準と比べると 9月14日以降は約 17% の減少。基準 100 → 暫定 150 → 恒久 125。
+    quote: If Claude Code's original weekly allowance was 100, the temporary boost gives you 150 today. On September 14, that drops to 125.
+    locator: 本文 中盤
+    quant:
+      value: -17%(暫定比)
+      n: null
+      design: arithmetic from announcement
+      population: Claude Code weekly limits
+    evidenceKind: news-fact
+    rqs: [TH04-Q3, TH02-Q3]
+    issues: [274]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:44.932Z
+    httpStatus: 200
+    finalUrl: https://www.bleepingcomputer.com/news/artificial-intelligence/anthropic-is-cutting-claude-codes-current-weekly-limits-by-17-percent/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Anthropic is cutting Claude Code's current weekly limits by 17%
+    titleMatch: true
+    dateMeta: 2026-08-29
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: September 14(記事日付 2026-08-29 から 2026-09-14)/ 25% / 暫定 50%
+        extractedQuote: "\"Starting September 14, we're permanently raising standard weekly limits in Claude Code by 25% for Pro, Max, Team, and seat-based Enterprise plans,\" ... \"Until then, the current 50% increase\""
+        locator: 本文 冒頭〜3 段落目(Anthropic の X 投稿の引用)
+        note: 原文に年の記載は無く 'September 14' のみ。年 2026 は記事公開日(2026-08-29)からの推定。暫定増量は 'through September 13' まで継続と記載。
+      c2:
+        verdict: match
+        extractedValue: 暫定 +50% / September 14 以降 about 17% 減 / 100 → 150 → 125
+        extractedQuote: If Claude Code's original weekly allowance was 100, the temporary boost gives you 150 today. On September 14, that drops to 125. ... but about 17% less than you have right now.
+        locator: 本文 中盤
+        note: '100→150→125 は記事筆者による仮の例示(If ... was 100)。17% 減は Anthropic 自身も訂正投稿で認めたと記載: "Compared to today, this works out to a 17% reduction in weekly limits on Claude Code"。'
+        adjudication:
+          verdict: consistent
+          reason: blindQuote どおりである。導出は 125/150 = 0.833 で、約 16.7% の減少となり、原文の「about 17% less」と一致する。blindNote によれば、Anthropic も訂正投稿で 17% 減を認めている。ただし 100→150→125 は記事筆者の仮の例示(If ... was 100)である。主張の「恒久 125」の「恒久」という語は抜粋では確かめられない。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://bleepingcomputer.com/news/artificial-intelligence/anthropic-is-cutting-claude-codes-current-weekly-limits-by-17-percent

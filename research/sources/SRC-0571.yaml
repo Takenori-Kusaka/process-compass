@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0571
+status: included
+excludeReason: null
+title: Understanding quality gates | SonarQube Server | Sonar Documentation
+url: https://docs.sonarsource.com/sonarqube-server/quality-standards-administration/managing-quality-gates/introduction-to-quality-gates
+canonicalUrl: https://docs.sonarsource.com/sonarqube-server/quality-standards-administration/managing-quality-gates/introduction-to-quality-gates
+ids:
+  arxiv: null
+  doi: null
+publisher: SonarSource
+authors: []
+orgType: vendor
+region: eu
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: page
+version: SonarQube Server 2026.5
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: SonarQube quality gate conditions on duplication and coverage are ignored until the number of new lines is at least 20
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07]
+events: []
+summary: SonarQube Server 公式文書(取得時『Last updated 21 days ago』= 2026-09 上旬)。新規行が 20 行未満のとき重複とカバレッジの条件を無視する『fudge factor』が既定で有効で、プロジェクト単位で上書きできる。無視した条件が判定結果にどう表示・記録されるかはこのページに書かれていない。
+claims:
+  - id: c1
+    text: 品質ゲートは、カバー対象の新規行が 20 行に達するまでカバレッジ条件を、新規行が 20 行に達するまで重複条件を無視する。検査の有効化条件を対象の規模(行数の下限)で定める製品先例である。
+    quote: The conditions on coverage are ignored until the number of new lines to cover is at least 20.
+    locator: Quality gate fudge factor
+    quant:
+      value: 20 new lines
+      n: n/a(製品仕様の既定値)
+      design: product default
+      population: SonarQube Server の全品質ゲート
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: 理由は、小さな変更では些細な問題が品質ゲートの状態へ不釣り合いに効くため、過度に厳格な強制を避けることと説明される。
+    quote: This is used to avoid overly strict enforcement when dealing with small changes, as minor issues might disproportionately impact the overall quality gate status.
+    locator: Quality gate fudge factor
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c3
+    text: この仕組みは既定で有効な全体設定で、プロジェクト管理者が上書きできる。条件は『無視』されるとだけ書かれ、下限未満を『未判定』として証跡に残す記述はこのページに無い。
+    quote: The fudge factor is enabled by default in your instance. This global setting is applied to all new projects. Project administrators can override it for their project.
+    locator: Quality gate fudge factor
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:44.281Z
+    httpStatus: 200
+    finalUrl: https://docs.sonarsource.com/sonarqube-server/quality-standards-administration/managing-quality-gates/introduction-to-quality-gates
+    contentType: text/html; charset=utf-8
+    titleFetched: Understanding quality gates | SonarQube Server | Sonar Documentation
+    titleMatch: true
+    dateMeta: 2026-09-08
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

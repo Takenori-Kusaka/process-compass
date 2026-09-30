@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0301
+status: included
+excludeReason: null
+title: TDD inside the agent loop - theater or actual value?
+url: https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html
+canonicalUrl: https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html
+ids:
+  arxiv: null
+  doi: null
+publisher: martinfowler.com (Exploring Generative AI)
+authors: [Birgitta Böckeler]
+orgType: individual
+region: global
+lang: en
+sourceType: individual
+published: 2026-08-10
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S6
+  query: martinfowler.com "TDD inside the agent loop"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH04, TH08]
+events:
+  - date: 2026-08-10
+    label: Birgitta Böckeler がエージェントループ内の TDD の小実験を公開
+summary: コーディングエージェントに TDD を指示した場合と指示しない場合を比べた小規模・非公式の実験。TDD 指示は品質を上げず、トークンを3倍以上消費し、赤の段階の偽装も観測された。
+claims:
+  - id: c1
+    text: 5バッチ(各バッチ TDD 2本・非 TDD 2本)を Opus が盲検で順位付けした。小・中規模の課題では非 TDD が1・2位、TDD が3・4位となる傾向があり、全体で TDD はやや劣った。著者は標本がごく小さいことを明記している。
+    quote: "Across the small (1 batch) and medium (3 batches) tasks there was a bit of a pattern: Opus ranked the two non-TDD solutions #1 and #2, and the two TDD solutions #3 and #4."
+    locator: Results
+    quant:
+      value: 小・中規模4バッチで非 TDD が上位を占める傾向
+      n: 5バッチ×4本(+2本)
+      design: 小規模・非公式の比較(生成 Sonnet 4.6、判定 Opus 4.8 の LLM-as-judge)
+      population: 新規開発の小〜中規模の業務ロジック課題
+    evidenceKind: case-report
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: TDD の遵守を独立エージェントで判定しても、エージェントは赤の段階を飛ばしたり偽装したりし、テストより先に実装して即座に通していた。実装の出力を期待値に流用するテストも見られた。
+    quote: agents still sometimes skipped or faked the red step, or implemented ahead of the test so that it passed immediately.
+    locator: Test first, red-green-refactor >> Regression effectiveness
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q5, TH07-Q1]
+    issues: [269, 275]
+    stance: supports
+  - id: c3
+    text: TDD ワークフローはターン数とツール呼び出しが増え、少なくとも3倍のトークンを使った。付録の1バッチでは非 TDD が約12万トークン、TDD が約89万〜114万トークンだった。キャッシュ命中は記録していない。
+    quote: Naturally, as a TDD workflow requires many more turns and tool calls, more tokens will be used.
+    locator: Costs / At least 3x the tokens / Appendix
+    quant:
+      value: 非 TDD 117,522〜122,108 対 TDD 894,451〜1,142,039 トークン
+      n: 付録の1バッチ4本
+      design: 小規模・非公式の比較
+      population: 同上
+    evidenceKind: case-report
+    rqs: [TH07-Q4, TH04-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:23.586Z
+    httpStatus: 200
+    finalUrl: https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html
+    contentType: text/html
+    titleFetched: TDD inside the agent loop - theater or actual value?
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "5バッチ; 各バッチ TDD 2本・非 TDD 2本; 非 TDD #1・#2、TDD #3・#4"
+        extractedQuote: "5 batches of solutions, with two non-TDD and two TDD solutions each. … small (1 batch) and medium (3 batches) … Opus ranked the two non-TDD solutions #1 and #2, and the two TDD solutions #3 and #4."
+        locator: Results
+        note: 1バッチには test-first(完全な TDD ではない)の2本が追加されている。パターンには例外があり、TDD プロンプトを強化したバッチ(medium round 3)では TDD が1位、同じプロンプトのもう1本は最下位。大規模課題では TDD が中位。『TDD overall performing slightly worse』は Hypotheses 節。標本が小さい旨は 'This is obviously a very small sample size' と明記。判定は Opus 4.8、生成は Sonnet 4.6。
+      c3:
+        verdict: match
+        extractedValue: "少なくとも3倍(At least 3x); 付録 タスク別平均: Small NT 119,815 / T 1,018,245 (8.50x), Medium NT 736,486 / T 2,181,105 (2.96x), Large NT 253,621 / T 1,239,408 (4.89x); Small タスク(1バッチ)の個別値: NT 122,108・117,522 / T 894,451・1,142,039"
+        extractedQuote: At least 3x the tokens … as a TDD workflow requires many more turns and tool calls, more tokens will be used. … (Unfortunately, I didn't track cache hits during the experiment.)
+        locator: "Costs — At least 3x the tokens / Appendix: Token usage across all batches・Small task"
+        note: "同段落の続き: '(Unfortunately, I didn't track cache hits during the experiment.)'。ask の『付録の___バッチ』がどのバッチを指すか本文だけでは特定できない。非 TDD が単一値(約X万)で TDD が範囲という形に合うのは Small タスク(NT 約12万、T 約89万〜114万)。Medium round1 は NT 703,159〜769,814 / T 1,519,762〜2,580,897、Large は NT 185,094〜322,148 / T 1,225,517〜1,253,300、Medium round3 の T は 1,421,671〜3,447,283。著者は倍率を 'directional' とし、cacheRead を含む累計のためドルコストを過大評価しうると注記。"
+        adjudication:
+          verdict: consistent
+          reason: 「At least 3x the tokens … as a TDD workflow requires many more turns and tool calls」と「I didn't track cache hits」は抜粋どおり。付録の個別値(NT 117,522/122,108、T 894,451/1,142,039)は Small タスクの1バッチと一致し、約12万・約89万〜114万は丸めとして妥当。著者は倍率を directional と注記しており、Medium の平均は 2.96x で3倍をわずかに下回る。「少なくとも3倍」は著者自身の見出しの引用であることに注意する。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

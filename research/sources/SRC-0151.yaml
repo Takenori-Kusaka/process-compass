@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0151
+status: included
+excludeReason: null
+title: Claude Codeで"AI仮想チーム"を作って個人開発を回してみた
+url: https://zenn.dev/dinekt/articles/ai-virtual-team-with-claude-code
+canonicalUrl: https://zenn.dev/dinekt/articles/ai-virtual-team-with-claude-code
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [dinekt]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-03-14
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: 一人開発 企画 生成AI 2026 Zenn (scratchpad)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH09, TH06, TH01, TH02]
+events: []
+summary: 個人開発者が CLAUDE.md に秘書・CEO・商品企画・批判者・リサーチ・マーケの役割を定義して企画を回した一次記録。AI が同調しがちで批判が足りないため、内部データを使わず独自に一次情報を集める「批判者ロール」を追加し判断の質が変わったと報告する。
+claims:
+  - id: c1
+    text: 一人開発では「それ本当に売れるの？」と冷静に判断してくれる人がおらず、壁打ち相手も不在という企画フェーズの構造的欠落を述べる。
+    quote: アイデアを思いついても「それ本当に売れるの？」と冷静に判断してくれる人がいない
+    locator: はじめに
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q4, TH02-Q5]
+    issues: [267]
+    stance: supports
+  - id: c2
+    text: AI は全体的に自分に同調しがちで批判的視点が足りないという課題が運用中に出たため、独立した批判者ロールを追加し情報ソースを分離した。
+    quote: 運用していくうちに「AIが全体的に自分に同調しがちで、批判的な視点が足りない」という課題が出てきました。そこで批判者ロールを追加して、情報ソースを独立させるという工夫を入れてみたら、判断の質がかなり変わった
+    locator: はじめに
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q4, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 批判者は組織内部のデータを情報ソースに使わず、独自の Web 調査で一次ソースを集める規則を置く(内部レポートは方針前提で書かれ確証バイアスを招くため)。
+    quote: 批判者は組織内部のデータを情報ソースとして使用しない。
+    locator: 批判者ロール設定(情報ソースの独立性)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3]
+    issues: []
+    stance: context
+  - id: c4
+    text: "商品企画ロールの評価軸に「技術的実現性: 個人開発で 2-4 週間以内に MVP が作れるか」を置き、企画段階で技術検証の閾値を数値化している。"
+    quote: 技術的実現性 | 個人開発で2-4週間以内にMVPが作れるか
+    locator: 商品企画ロールの設定例(評価軸)
+    quant:
+      value: MVP within 2-4 weeks
+      n: 1 developer
+      design: self-defined rule
+      population: solo developer
+    evidenceKind: case-report
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:11.024Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/dinekt/articles/ai-virtual-team-with-claude-code
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Codeで"AI仮想チーム"を作って個人開発を回してみた
+    titleMatch: true
+    dateMeta: 2026-03-14
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0484
+status: included
+excludeReason: null
+title: 【AI投資の実態調査】AI投資は8割超の企業で増加も、最大費目は「AI利用・稼働させるためのコスト」に偏重──事業成果につながる投資は道半ば
+url: https://findy.co.jp/4513
+canonicalUrl: https://findy.co.jp/4513
+ids:
+  arxiv: null
+  doi: null
+publisher: ファインディ株式会社
+authors: []
+orgType: vendor
+region: jp
+lang: ja
+sourceType: industry-report
+published: 2026-09-16
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH11
+  query: ファインディ AI投資の実態調査 81.3% 指標の不一致 経営と現場 ズレ
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11, TH04]
+events: []
+summary: ファインディがインテージに委託したインターネット調査(従業員300名以上の企業でAI予算に関与する課長級以上、n=435、2026年8月6〜10日、自社ユーザー調査ではない)。開発組織の35.9%がAI生成コード起因の不具合を人のコードと比較できるデータを持たず、経営側の40.7%は「データはあるが経営と現場で指標が異なる」と答えた。
+claims:
+  - id: c1
+    text: AI生成コードに起因する不具合について「比較できる実績・データがない」開発組織は35.9%で、非開発部門(16.8%)の2倍以上。
+    quote: AIが生成したコードに起因する不具合について、「比較できる実績・データがない」と答えた開発組織は35.9%で、非開発部門の16.8%の2倍以上。
+    locator: ◆調査結果のハイライト
+    quant:
+      value: 35.9% vs 16.8%
+      n: "435"
+      design: internet survey (random draw from panel), 2026-08-06〜08-10
+      population: 従業員300名以上の企業でAI関連予算に関与する方
+    evidenceKind: survey
+    rqs: [TH11-Q3, TH02-Q5]
+    issues: [267]
+    stance: supports
+  - id: c2
+    text: 測れていない理由は技術やツールの不足ではなく、経営から効果説明を求められていないこと(38.3%、他の層は4.8%)だった。
+    quote: その理由は技術やツールの不足ではなく、経営から効果説明を求められていないこと（38.3%。それ以外の層は4.8%）にあった。
+    locator: ◆調査結果のハイライト
+    quant:
+      value: 38.3% vs 4.8%
+      n: 435 (subset)
+      design: internet survey
+      population: 同上
+    evidenceKind: survey
+    rqs: [TH11-Q3]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 経営側で「判断できる材料がない」は5.8%にすぎず、「データはあるが経営と開発現場で見ている指標が異なる」が40.7%を占めた。
+    quote: 「データはあるが経営と開発現場で見ている指標が異なる」が40.7%を占めている。
+    locator: ◆調査結果のハイライト
+    quant:
+      value: 40.7% (metric mismatch) vs 5.8% (no data)
+      n: 435 (subset)
+      design: internet survey
+      population: 同上
+    evidenceKind: survey
+    rqs: [TH11-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:10.058Z
+    httpStatus: 200
+    finalUrl: https://findy.co.jp/4513/
+    contentType: text/html; charset=UTF-8
+    titleFetched: 【AI投資の実態調査】AI投資は8割超の企業で増加も、最大費目は「AI利用・稼働させるためのコスト」に偏重──事業成果につながる投資は道半ば | ニュース | ファインディ株式会社(Findy Inc)
+    titleMatch: true
+    dateMeta: 2026-09-16
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 5.8% / 40.7%
+        extractedQuote: 一方で経営側では、「判断できる材料がない」がは5.8%にすぎず、「データはあるが経営と開発現場で見ている指標が異なる」が40.7%を占めている。
+        locator: ◆調査結果のハイライト(開発領域では、効果を測る材料が欠けている。)/本文「開発AI投資の課題は「データがない」より「経営と現場で見る指標が異なる」」
+        note: 本文詳細では設問は「開発領域のAI投資の効果について、経営としてどの程度把握できているか」で、最多は「経営と開発現場が共通の指標・データで議論できている」44.2%。回答者は AI 投資の予算に関与する n=435(次長・課長クラス以上を含む)で、「経営側」が回答者の限定か設問の視点かは本文からは明確でない。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

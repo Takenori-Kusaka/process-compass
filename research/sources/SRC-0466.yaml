@@ -1,0 +1,92 @@
+schemaVersion: 0
+id: SRC-0466
+status: included
+excludeReason: null
+title: Finding balance in the era of tokenmaxxing
+url: https://dora.dev/insights/finding-balance-in-the-era-of-tokenmaxxing/
+canonicalUrl: https://dora.dev/insights/finding-balance-in-the-era-of-tokenmaxxing
+ids:
+  arxiv: null
+  doi: null
+publisher: DORA (Google Cloud)
+authors: [Evan Conaway]
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-06-02
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH11
+  query: DORA 2026 State of AI-assisted Software Development report
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH07, TH04]
+events:
+  - date: 2026-06-02
+    label: DORA がトークン消費量のリーダーボード(tokenmaxxing)を Goodhart の法則の事例として警告
+summary: 2026年初頭に広がった「トークン消費量を社内リーダーボードで競わせる」慣行(tokenmaxxing)を、DORA が虚栄指標・Goodhart の法則の典型として論じた解説。無意味なエージェント実行による水増しの報告にも触れる。
+claims:
+  - id: c1
+    text: トークン消費量は入力の尺度にすぎず容易に操作できるため、虚栄指標(vanity metric)である。
+    quote: Because raw token count is purely a measure of input, it is incredibly easy to game, making it a vanity metric that is essentially just for show.
+    locator: The (potential) pros and the (very real) cons
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 開発者が平均を上回るために無意味なプロジェクトで自律エージェントを走らせるという、AI利用指標が操作された報告を DORA が紹介している(一次の件数は示されない)。
+    quote: We have seen reports of developers running autonomous agents on nonsense projects simply to calibrate their spend and stay above the company average
+    locator: The (potential) pros and the (very real) cons
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 予算が最大のチームは10倍の費用でスループットがわずかに増えるだけ、という Masood の主張に DORA が同意している(出典側の標本は本文に無い)。
+    quote: The teams with the highest budgets often achieve only a marginal increase in software delivery throughput at a 10x increase in cost
+    locator: The (potential) pros and the (very real) cons
+    quant:
+      value: 10x cost for marginal throughput gain
+      n: null
+      design: expert assertion (cited)
+      population: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:04.997Z
+    httpStatus: 200
+    finalUrl: https://dora.dev/insights/finding-balance-in-the-era-of-tokenmaxxing/
+    contentType: text/html; charset=utf-8
+    titleFetched: DORA | Finding balance in the era of tokenmaxxing
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://dora.dev/insights/finding-balance-in-the-era-of-tokenmaxxing

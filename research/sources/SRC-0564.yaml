@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0564
+status: included
+excludeReason: null
+title: Don't make an ass out of you and me--using assumptions effectively
+url: https://www.pmi.org/learning/library/assumptions-based-planning-analyze-techniques-6582
+canonicalUrl: https://pmi.org/learning/library/assumptions-based-planning-analyze-techniques-6582
+ids:
+  arxiv: null
+  doi: null
+publisher: Project Management Institute (PMI Global Congress 2010—North America)
+authors: ["Kinser, John"]
+orgType: individual
+region: us
+lang: en
+sourceType: talk
+published: 2010-10-12
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: PMI assumption log PMBOK "assumption log" validate assumptions status project "assumptions analysis" pmi.org
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08]
+events: []
+summary: PMI 大会論文(2010)。PMBOK 第4版の前提の定義(証明なしに真とみなす要素)を引いたうえで、PMBOK も関連文献も前提を一覧にして定期的に見直せと言うだけで手引きが乏しいと批判し、RAND の Assumption-Based Planning をプロジェクトへ適用する。PMBOK 本体(assumption log の様式)は未読。
+claims:
+  - id: c1
+    text: PMBOK 第4版は前提を『計画のために、証明や実証なしに真・現実・確実とみなす要素』と定義する。定義上、前提は未検証のものとして扱われる。
+    quote: Assumptions are “factors that, for planning purposes, are considered to be true, real, or certain without proof or demonstration” (PMI, 2008, p 148).
+    locator: 本文 PMBOK の定義を引く段落
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: context
+  - id: c2
+    text: 著者は、PMBOK の Assumptions Analysis には用語の説明も技法の詳述もなく、文献は前提を冒頭で一覧にし定期的に見直せと言うにとどまると指摘する。前提の検証状態を区別する様式が実務に定着していないという側の証言である。
+    quote: Some authors will then say that they should be reviewed periodically during the project, but rarely offer any more guidance.
+    locator: Shortcomings in Practice
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: contradicts
+  - id: c3
+    text: ABP の分類を引き、崩れると計画の大きな変更が要る前提(load-bearing)と、期間中に崩れうる前提(vulnerable)を区別する。区別の軸は検証済みか否かではなく、計画への影響と脆弱さである。
+    quote: A load-bearing assumption is one whose failure would necessitate significant changes to the plan. Vulnerable assumptions are those that could fail or be proven invalid during the project.
+    locator: Taxonomy of Assumptions (Exhibit 3 の説明)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q3]
+    issues: [256]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:41.308Z
+    httpStatus: 403
+    finalUrl: https://www.pmi.org/learning/library/assumptions-based-planning-analyze-techniques-6582
+    contentType: text/html; charset=UTF-8
+    titleFetched: Error | PMI
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Fourth edition(第4版、PMI 2008, p.148)
+        extractedQuote: Assumptions are “factors that, for planning purposes, are considered to be true, real, or certain without proof or demonstration” (PMI, 2008, p 148).
+        locator: "本文冒頭(Introduction 相当)および Relationship between Assumptions and Risks。版は References: “Project Management Institute (PMI). (2008). A guide to the project management body of knowledge (PMBOK® Guide)—Fourth edition.”"
+        note: 版数は定義を引く段落には書かれておらず、本文は (PMI, 2008, p148) と引用し、参考文献欄が『Fourth edition』と示す。『前提は未検証のものとして扱われる』という言い回しは原文に無く、原文は続けて “Since an assumption is treated as an absolute” と述べる。
+      c2:
+        verdict: match
+        extractedValue: (数値なし)
+        extractedQuote: No further explanation of these terms or elaboration of the technique is given. … make a list of assumptions at the beginning of the project … Some authors will then say that they should be reviewed periodically during the project, but rarely offer any more guidance.
+        locator: Relationship between Assumptions and Risks の末尾文 + Shortcomings in Practice
+        note: 『用語の説明も技法の詳述もない』の文は Shortcomings in Practice の直前節(Relationship between Assumptions and Risks)の末尾にあり、Shortcomings in Practice 内ではない。『検証状態を区別する様式が実務に定着していない』に当たる記述は原文に無い(原文は、文献が指針をほとんど与えないと述べるにとどまる)。
+      c3:
+        verdict: match
+        extractedValue: load-bearing / vulnerable
+        extractedQuote: A load-bearing assumption is one whose failure would necessitate significant changes to the plan. Vulnerable assumptions are those that could fail or be proven invalid during the project.
+        locator: Assumption-Based Planning > Taxonomy of Assumptions(Exhibit 3 の説明)
+        note: 『区別の軸は検証済みか否かではない』という対比は原文に明記されていない。原文は続けて、invulnerable な前提はプロジェクト管理上は制約に当たり『All assumptions in projects are therefore vulnerable to some degree』と述べる。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

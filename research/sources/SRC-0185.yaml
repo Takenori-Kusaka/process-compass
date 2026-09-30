@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0185
+status: included
+excludeReason: null
+title: Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber
+url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber
+canonicalUrl: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber
+ids:
+  arxiv: null
+  doi: null
+publisher: Google
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-21
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-1
+  query: Gemini 3.8 Flash announcement Google blog
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02]
+events:
+  - date: 2026-07-21
+    label: Google が Gemini 3.6 Flash / 3.5 Flash-Lite / 3.5 Flash Cyber を発表
+summary: Gemini 3.6 Flash 等の公式発表(発表日の根拠として取得)。
+claims:
+  - id: c1
+    text: Gemini 3.6 Flash の発表日は 2026-07-21。
+    quote: Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber Jul 21, 2026
+    locator: 見出し
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.515Z
+    httpStatus: 200
+    finalUrl: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/
+    contentType: text/html; charset=utf-8
+    titleFetched: Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber
+    titleMatch: true
+    dateMeta: 2026-07-21
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-07-21（Gemini 3.6 Flash 発表記事の公開日）
+        extractedQuote: '"headline": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber", "datePublished": "2026-07-21T15:00:00+00:00" / 表示日付: Jul 21, 2026'
+        locator: 記事ヘッダーの日付表示（uni-article-hero__date）および JSON-LD の datePublished
+        note: 3.7 Flash は 2026-08-13、3.8 Flash は 2026-09-02 公開（各記事の datePublished）。07-21→09-02 はちょうど6週間で、3.8 記事の 'third Flash release in only six weeks' と整合。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

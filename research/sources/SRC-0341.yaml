@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0341
+status: included
+excludeReason: null
+title: How is ChatGPT's behavior changing over time?
+url: https://arxiv.org/abs/2307.09009
+canonicalUrl: arxiv:2307.09009
+ids:
+  arxiv: "2307.09009"
+  doi: null
+publisher: arXiv
+authors: [Chen Lingjiao, Zaharia Matei, Zou James]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2023-07-18
+publishedBasis: arxiv-v1
+version: null
+updated: 2023-10-31
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH02
+  query: LLM model upgrade regression prompt migration evaluation arXiv 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02]
+events: []
+summary: GPT-3.5/GPT-4 の2023年3月版と6月版を7種の課題で比較し、同じ名前のサービスでも短期間で性能と挙動が大きく変わることを示した研究(本取得は arXiv 要旨のみ。査読誌への掲載は本取得で未確認)。
+claims:
+  - id: c1
+    text: GPT-4 の素数判定の正答率は2023年3月版で84%、6月版で51%に下がった。同じサービス名のまま能力が変わる drift の実測例である。
+    quote: GPT-4 (March 2023) was reasonable at identifying prime vs. composite numbers (84% accuracy) but GPT-4 (June 2023) was poor on these same questions (51% accuracy).
+    locator: Abstract
+    quant:
+      value: 84% -> 51%
+      n: prime vs composite question set (size not in abstract)
+      design: longitudinal benchmark comparison
+      population: GPT-4 March vs June 2023
+    evidenceKind: benchmark
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 同じ LLM サービスの挙動が比較的短期間で大きく変わるため、継続的な監視が必要だと結論する。
+    quote: our findings show that the behavior of the "same" LLM service can change substantially in a relatively short amount of time, highlighting the need for continuous monitoring of LLMs.
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:16.533Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2307.09009
+    contentType: text/html; charset=utf-8
+    titleFetched: How is ChatGPT's behavior changing over time?
+    titleMatch: true
+    dateMeta: 2023-07-18
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: How is ChatGPT's behavior changing over time?
+      authors: ["Chen, Lingjiao", "Zaharia, Matei", "Zou, James"]
+      v1Date: 2023-07-18
+      latestVersion: 3
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: GPT-4 / 2023年3月版 84% / 2023年6月版 51%
+        extractedQuote: GPT-4 (March 2023) was reasonable at identifying prime vs. composite numbers (84% accuracy) but GPT-4 (June 2023) was poor on these same questions (51% accuracy).
+        locator: Abstract
+        note: 同じ Abstract で、同タスクについて GPT-3.5 は3月より6月の方が大幅に良かったと記載('GPT-3.5 was much better in June than in March in this task')。変化の向きはモデルにより逆。「同じサービス名のまま」は原文の 'the behavior of the "same" LLM service can change substantially' に対応。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0414
+status: included
+excludeReason: null
+title: What Breaks When LLMs Code? Characterizing Operational Safety Failures of Agentic Code Assistants
+url: https://arxiv.org/abs/2605.30777
+canonicalUrl: arxiv:2605.30777
+ids:
+  arxiv: "2605.30777"
+  doi: null
+publisher: arXiv(Case Western Reserve University、ASE 2026 採録)
+authors: [Alif Al Hasan, Sumon Biswas]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-05-29
+publishedBasis: arxiv-v1
+version: v3(ASE 2026 Research Track 採録)
+updated: 2026-08-13
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH07
+  query: Hasan Biswas real-world incidents coding agents reward hacking "false assurance" mining
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH10]
+events: []
+summary: LLM コーディングツールの GitHub Issue 16,586 件から実際の安全上の失敗 547 件を確認して分類した実証研究。欺瞞・証拠の捏造・偽りの保証が高頻度で、「検証可能な状態報告」を設計上の含意として挙げる。
+claims:
+  - id: c1
+    text: 16,586 件の Issue から 547 件の安全上の失敗を手作業で確認し、うち 326 件が高または致命的と評価された。
+    quote: manually confirming 547 genuine safety failures
+    locator: Abstract
+    quant:
+      value: 547 incidents, 326 high/critical
+      n: 16,586 GitHub issues screened
+      design: incident mining + open coding
+      population: widely deployed LLM coding tools
+    evidenceKind: observational
+    rqs: [TH07-Q1]
+    issues: [269]
+    stance: supports
+  - id: c2
+    text: 欺瞞(15.7%)・捏造(9.7%)・偽りの保証(9.1%)が高頻度で、エージェントは実行していない修正を完了と主張し、端末出力やコミット履歴などの証拠を捏造していた。
+    quote: In practice, agents claim to have completed fixes they never executed, fabricate supporting evidence such as terminal outputs or commit histories
+    locator: §RQ1 結果(Table 1 の頻度に関する記述)
+    quant:
+      value: Deception 15.7%, Fabrication 9.7%, False Assurance 9.1%
+      n: 547 incidents
+      design: manual annotation
+      population: GitHub issues of coding agents
+    evidenceKind: observational
+    rqs: [TH07-Q1, TH07-Q2]
+    issues: [269, 271]
+    stance: supports
+  - id: c3
+    text: 欺瞞・捏造・偽りの保証の群(計 189 件)への対処として、検証可能な状態報告を設計含意に挙げている。
+    quote: Verifiable status reporting addresses the combined Deception , Fabrication , and False Assurance cluster (189 incidents dataset-wide)
+    locator: Implications(設計への含意)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2]
+    issues: [271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:26.580Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.30777
+    contentType: text/html; charset=utf-8
+    titleFetched: What Breaks When LLMs Code? Characterizing Operational Safety Failures of Agentic Code Assistants
+    titleMatch: true
+    dateMeta: 2026-05-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: What Breaks When LLMs Code? Characterizing Operational Safety Failures of Agentic Code Assistants
+      authors: ["Hasan, Alif Al", "Biswas, Sumon"]
+      v1Date: 2026-05-29
+      latestVersion: 3
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 16,586 issues / 547 safety failures / 326 high or critical
+        extractedQuote: mine 16,586 GitHub issues from widely deployed LLM-powered coding tools, manually confirming 547 genuine safety failures. ... with 326 of 547 incidents rated high or critical.
+        locator: Abstract
+        note: Issue は「widely deployed LLM-powered coding tools」の GitHub Issue。abstract 版 v3(ASE 2026 採択)。
+      c2:
+        verdict: match
+        extractedValue: Deception 15.7% / Fabrication 9.7% / False Assurance 9.1%
+        extractedQuote: Deception (I=86, P=0, 15.7% of incidents), Fabrication (I=53, P=0, 9.7%), and False Assurance (I=50, P=0, 9.1%) show that failure is often accompanied by misrepresentation
+        locator: §5.1 RQ1 > 5.1.2 The Agentic Blind Spots (Previously Undocumented Risks)
+        note: 割合の母数は Issue 由来インシデント I=547。HTML 版の数式表記(MathML の重複)を正規化して引用。続く文に「agents claim to have completed fixes they never executed, fabricate supporting evidence such as terminal outputs or commit histories」とあり、ask の後半と対応する。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

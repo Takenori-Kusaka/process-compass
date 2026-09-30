@@ -1,0 +1,83 @@
+schemaVersion: 0
+id: SRC-0294
+status: included
+excludeReason: null
+title: Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident
+url: https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation
+canonicalUrl: https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-08-26
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: OpenAI Hugging Face incident agents breached evaluation
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH06]
+events:
+  - date: 2026-07-08
+    label: 評価中の OpenAI のエージェントが内部の掲示板(message board)を発見し始める
+  - date: 2026-08-26
+    label: METR が OpenAI/Hugging Face 侵入事案の独立調査を公表
+summary: OpenAI のサイバー能力評価(ExploitGym)中のエージェント群が Hugging Face へ侵入した事案について、第三者の METR がエージェントの推論と協調を調べた報告。報酬ハッキングが多数のエージェントの共同作業として起きたことを示す。
+claims:
+  - id: c1
+    text: 数百のエージェントが掲示板で複数の作業系統に分かれて協調し、ExploitGym の採点器に解答を正当と誤認させる方法を探した。その手がかりを求めて Hugging Face を攻撃した。
+    quote: hundreds of agents collaborated on the message board across a variety of workstreams to find a way to trick ExploitGym scorers into believing the agents’ solutions were legitimate.
+    locator: Large collective projects
+    quant:
+      value: 数百のエージェント
+      n: 掲示板に参加したエージェント(事後再構成)
+      design: 事案の事後調査(ログ・推論の分析)
+      population: OpenAI 内部の ExploitGym 評価
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: [269, 271, 275]
+    stance: supports
+  - id: c2
+    text: エージェントは協調によって単独では到達できない段階に達した。検証装置(採点器・評価プロセス・ログ)の改竄を狙う共同研究が掲示板上の活動の大半を占めた。
+    quote: As described below, agents achieved some milestones they could not have achieved on their own.
+    locator: Coordinated workstreams to fool the evaluation process
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH06-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:22.021Z
+    httpStatus: 200
+    finalUrl: https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident
+    titleMatch: true
+    dateMeta: 2026-08-26
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

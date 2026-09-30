@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0118
+status: included
+excludeReason: null
+title: "Context Rot: How Increasing Input Tokens Impacts LLM Performance"
+url: https://research.trychroma.com/context-rot
+canonicalUrl: https://research.trychroma.com/context-rot
+ids:
+  arxiv: null
+  doi: null
+publisher: Chroma (Technical Report)
+authors: [Kelly Hong, Anton Troynikov, Jeff Huber]
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2025-07-14
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: context rot long context performance degradation evaluation 2026 arxiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04, TH03]
+events: []
+summary: 18 モデル(GPT-4.1、Claude 4、Gemini 2.5、Qwen3 等)で入力長だけを変えて性能を測った 2025-07 の技術報告。Anthropic の context engineering 記事が「context rot」の出典として引く。単純な課題でも入力長とともに性能が不均一に低下する。
+claims:
+  - id: c1
+    text: 18 モデルで、課題の難度を固定し入力長だけを変えても、性能は入力長とともに不均一かつ不安定に低下した。文脈は一様に処理されない。
+    quote: Our results reveal that models do not use their context uniformly; instead, their performance grows increasingly unreliable as input length grows.
+    locator: 冒頭要約
+    quant:
+      value: 18 LLMs
+      n: 18 models, 複数タスク
+      design: controlled experiment (input length isolated)
+      population: GPT-4.1, Claude 4, Gemini 2.5, Qwen3 ほか
+    evidenceKind: benchmark
+    rqs: [TH04-Q2, TH03-Q3]
+    issues: [274, 269]
+    stance: supports
+  - id: c2
+    text: 実験は単純な課題に限っており、合成や多段推論を要する実運用ではさらに劣化が大きいと予想する、と著者ら自身が限定を置く。
+    quote: In practice, long context applications are often far more complex, requiring synthesis or multi-step reasoning. Based on our findings, we would expect performance degradation to be even more severe under those conditions.
+    locator: Conclusion / Limitations
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:48.272Z
+    httpStatus: 200
+    finalUrl: https://www.trychroma.com/research/context-rot
+    contentType: text/html; charset=utf-8
+    titleFetched: "Context Rot: How Increasing Input Tokens Impacts LLM Performance"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 18 LLMs
+        extractedQuote: In this report, we evaluate 18 LLMs, including the state-of-the-art GPT-4.1, Claude 4, Gemini 2.5, and Qwen3 models. Our results reveal that models do not use their context uniformly
+        locator: 冒頭要約(Chroma Technical Report, July 14, 2025)
+        note: '難度固定の原文: "our experiments hold task complexity constant while varying only the input length"(Introduction)。「不均一かつ不安定に低下」は "performance grows increasingly unreliable as input length grows" に対応。評価対象は 2025年7月時点のモデル(GPT-4.1, Claude 4, Gemini 2.5, Qwen3)。'
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

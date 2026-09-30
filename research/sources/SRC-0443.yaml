@@ -1,0 +1,106 @@
+schemaVersion: 0
+id: SRC-0443
+status: included
+excludeReason: null
+title: Software-Defined Societyに関する情報収集・分析等業務 調査報告書
+url: https://www.ipa.go.jp/digital/kaihatsu/rcu1hd0000007vaz-att/sds-research-report-20260227.pdf
+canonicalUrl: https://ipa.go.jp/digital/kaihatsu/rcu1hd0000007vaz-att/sds-research-report-20260227.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 情報処理推進機構(IPA)委託調査
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-02-27
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: IPA 生成AI 要件定義 上流工程 調査報告 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH12]
+events: []
+summary: IPA の依頼で実施された要件定義・モデリングの普及戦略調査(15頁)。自然言語ベースの要件定義にトレーサビリティ管理の課題があるとし、生成AIへの入力と成果物の妥当性検証の手段として、モデルベース要件定義への段階的移行を提案する。
+claims:
+  - id: c1
+    text: 一部の業界では自然言語ベースの要件定義が多く、共通認識の醸成やトレーサビリティ管理に課題があるとする。
+    quote: 一部の業界では、自然言語ベースの要件定義が多く行われており、共通認識の醸成やトレーサビリティ管理に課題が存在
+    locator: p.14 普及展開の方向性(案) 補足③
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q2, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 網羅的な要件の洗い出しや、要件変更時のトレーサビリティ管理に課題がある傾向を示す。変更漏れを防ぐ手段として、モデルで管理された要件定義を描いている。
+    quote: 網羅的な要件の洗い出しや要件変更時のトレーサビリティ管理等に課題がある傾向
+    locator: p.14 図
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 生成AIへの正確な入力と成果物の妥当性検証を実現する手段として、モデリングを活用する方向を示す(2030年の到達目標)。
+    quote: 生成AIへの正確な入力や、成果物の妥当性の検証を実現する手段としてモデリングを活用
+    locator: p.14 図
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1, TH08-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:46.009Z
+    httpStatus: 200
+    finalUrl: https://www.ipa.go.jp/digital/kaihatsu/rcu1hd0000007vaz-att/sds-research-report-20260227.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 自然言語ベースの要件定義/共通認識の醸成やトレーサビリティ管理に課題
+        extractedQuote: 一部の業界では、自然言語ベースの要件定義が多く行われており、共通認識の醸成やトレーサビリティ管理に課題が存在
+        locator: PDF 14枚目(印刷ページ番号は 13)「普及展開の方向性（案） 補足：③システムレベルのモデリングを通じたAI活用開発環境の整備」現状課題欄
+        note: locator の p.14 は PDF の物理ページ。印刷されたページ番号は 13。
+      c2:
+        verdict: match
+        extractedValue: 網羅的な要件の洗い出しや要件変更時のトレーサビリティ管理等に課題/図中ラベル『変更漏れ』『モデルベースで管理された要件定義』
+        extractedQuote: 網羅的な要件の洗い出しや要件変更時のトレーサビリティ管理等に課題がある傾向
+        locator: PDF 14枚目(印刷ページ番号 13) 補足③ 目指す状態の図(現状課題列と中間列)
+        note: 図では『変更漏れ』が現状課題列(要件→変更→関連する設計書)に、『モデルベースで管理された要件定義』が中間列(モデルベース要件定義の定着)に置かれている。『変更漏れを防ぐ手段として』という因果の文言は本文に無く、図の配置からの読み取り。原文の語は『モデルで管理された』ではなく『モデルベースで管理された』。
+      c3:
+        verdict: match
+        extractedValue: "2030"
+        extractedQuote: 2030年の到達目標 AI活用を前提としたモデルベース開発が進展し、迅速な仮説検証型プロセスが実現 / 生成AIへの正確な入力や、成果物の妥当性の検証を実現する手段としてモデリングを活用
+        locator: PDF 14枚目(印刷ページ番号 13) 補足③ 見出しの『2030年の到達目標』と、目指す状態の第3列(モデリングによるAIドリブンな設計・開発の高度化)
+        note: 引用は同ページの2箇所を ' / ' でつないだもの。『生成AIへの正確な入力…』は最終段階の列に書かれ、2030年はページ全体の到達目標として見出しに書かれている。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://ipa.go.jp/digital/kaihatsu/rcu1hd0000007vaz-att/sds-research-report-20260227.pdf

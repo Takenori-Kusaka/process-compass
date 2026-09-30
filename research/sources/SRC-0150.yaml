@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0150
+status: included
+excludeReason: null
+title: AI の不時着 ~ コードの国を追われ、要求の国へ ~
+url: https://zenn.dev/layerx/articles/947ce6d31701cf
+canonicalUrl: https://zenn.dev/layerx/articles/947ce6d31701cf
+ids:
+  arxiv: null
+  doi: null
+publisher: LayerX (Zenn Publication)
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-06-16
+publishedBasis: meta
+version: null
+updated: 2026-06-17
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: 一人開発 企画 生成AI 2026 Zenn
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH08, TH01]
+events:
+  - date: 2025-12
+    label: Opus 4.5 / GPT-5.2 / Gemini 3 が相次ぎ公開されコーディングが熟練者と見分けがつかなくなった(記事の時点認識)
+summary: LayerX のエンジニアによる長編エッセイ。2025 年末以降、実装力がコモディティ化し価値が「何を作るべきかを決めること」「ちゃんと動くかを確かめること」へ移ったと構造的に論じ、Michael Jackson の World/Machine を引いて要求(optative)は人間からしか生まれないとする。第 4 幕以降は未読。
+claims:
+  - id: c1
+    text: 最も希少だった「実装する力」がコモディティ化し、価値は「何を作るべきかを決めること」と「ちゃんと動くかを確かめること」へ移った。企画と検証の重みが増した。
+    quote: 長らくソフトウェアづくりでいちばん希少だった「実装する力」が、ありふれた汎用品（commodity）に成り下がり、値打ちは、それを取り巻く希少なもの、すなわち「何を作るべきかを決めること」や「ちゃんと動くかを確かめること」のほうへ、どっさりと移っていったのです。
+    locator: 第2幕 竜巻の正体
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 要求(世界の側の「であってほしい」= optative)は機械がいくら賢くなっても人間からしか湧かない。AI を仮説の検証相手にしても要求の源にはならない。
+    quote: どれほど機械が賢くなろうと、「であってほしい」だけは、世界の住人、つまり人間からしか、湧いてこないのです。
+    locator: 第3幕 要求工学という名の隣国
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q4, TH08-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 要求工学の見取り図(World/Machine/Specification)自体は AI 前後で変わらず、変わったのはどちらの国が栄えるかである。
+    quote: この見取り図を描くレンズそのものは、AIの前も後も、変わりません。
+    locator: 第3幕 末尾
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:10.772Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/layerx/articles/947ce6d31701cf
+    contentType: text/html; charset=utf-8
+    titleFetched: AI の不時着 ~ コードの国を追われ、要求の国へ ~
+    titleMatch: true
+    dateMeta: 2026-06-16
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

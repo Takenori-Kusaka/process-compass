@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0532
+status: included
+excludeReason: null
+title: SIST EN ISO 19011:2026 Guidelines for auditing management systems (ISO 19011:2026, fourth edition; iTeh preview)
+url: https://cdn.standards.iteh.ai/samples/sist/sist-en-iso-19011-2026/5c88b3bef9f3490ca8b696d37bdefc20/sist-en-iso-19011-2026.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/sist/sist-en-iso-19011-2026/5c88b3bef9f3490ca8b696d37bdefc20/sist-en-iso-19011-2026.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: International Organization for Standardization (ISO) / CEN
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2026-05
+publishedBasis: pdf
+version: Fourth edition
+updated: null
+accessed: 2026-09-30
+access: paywall
+readLevel: section
+foundBy:
+  cluster: G02
+  query: ISO 19011:2026 iteh sample pdf guidelines for auditing management systems fourth edition
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH06, TH12]
+events:
+  - date: 2026-05
+    label: ISO 19011:2026(第 4 版)発行。2018 年版を置き換え
+summary: ISO 19011 第 4 版(2026-05)の公開プレビュー。まえがき・序文・適用範囲・用語 3.2 までが読める。主な変更は遠隔監査の手引きの拡充で、独立性は 4.6 として独立の細分箇条になったが本文はプレビュー範囲外。ISO 直系の赤入れ版プレビュー(redline-iso-19011-2026.pdf)も 4.5 までで切れ、2018 年版の小規模組織の一文が残ったかは原文で確かめられなかった。
+claims:
+  - id: c1
+    text: 第 4 版は第 3 版(2018)を技術的に改訂して置き換える。まえがきが挙げる主な変更は、ISO/IEC TS 17012 の内容を取り込んだ遠隔監査手法の手引きの拡充と、附属書 A の拡充の 2 点で、独立性の変更は挙げられていない。
+    quote: This fourth edition cancels and replaces the third edition (ISO 19011:2018), which has been technically
+    locator: Foreword
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: 適用範囲は、大規模な監査チームによる監査に加え、組織の大小を問わず 1 名の監査員による監査を明示的に含め、監査プログラムの範囲と複雑さに応じて手引きを適応させるとする。
+    quote: single auditors, whether in large or small organizations
+    locator: 1 Scope
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [249, 267]
+    stance: supports
+  - id: c3
+    text: 監査は「体系的で、独立し、文書化されたプロセス」と定義され、客観的証拠を得てそれを客観的に評価し監査基準の充足度を判定する。独立性は監査の定義の一部として残る。
+    quote: systematic, independent and documented process (3.25) for obtaining objective evidence (3.9) and evaluating
+    locator: 3.1 audit
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: []
+    stance: context
+  - id: c4
+    text: 独立性の原則は 4.6 として独立の細分箇条に置かれている(目次)。本文はプレビュー範囲外で、小規模組織に関する文言の有無は未確認。
+    quote: 4.6 Independence
+    locator: Contents
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:29.045Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/sist/sist-en-iso-19011-2026/5c88b3bef9f3490ca8b696d37bdefc20/sist-en-iso-19011-2026.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 第 4 版 / 第 3 版(ISO 19011:2018)/ ISO/IEC TS 17012 / 主な変更 2 点
+        extractedQuote: This fourth edition cancels and replaces the third edition (ISO 19011:2018), which has been technically revised.
+        locator: Foreword(The main changes are as follows)
+        note: '変更点の原文(The main changes are as follows): "— expansion of guidance on remote auditing methods through the introduction of guidance contained in ISO/IEC TS 17012; — expansion of Annex A to provide guidance on remote auditing methods and virtual locations." 附属書 A の拡充は「遠隔監査手法と仮想の場所に関する手引きを与えるため」と目的が限定されている。列挙は 2 項目のみで independence への言及は無い。点数は列挙を数えた値。iTeh プレビューで取得。'
+      c2:
+        verdict: match
+        extractedValue: single auditors(単独の監査員 = 1 名)
+        extractedQuote: This includes those conducted by large audit teams, typically of larger organizations, and those by single auditors, whether in large or small organizations.
+        locator: 1 Scope(最終段落)
+        note: 'quote の直後の文(原文そのまま): "This guidance should be adapted as appropriate to the scope and complexity of the audit programme." 原文は数字ではなく "single auditors"。大規模な監査チームには "typically of larger organizations" の限定が付く。'
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

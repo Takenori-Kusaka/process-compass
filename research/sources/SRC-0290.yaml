@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0290
+status: included
+excludeReason: null
+title: Auto mode is now the default in Claude Code for Pro, Max, and Team plans
+url: https://claude.com/blog/auto-mode-default-in-claude-code
+canonicalUrl: https://claude.com/blog/auto-mode-default-in-claude-code
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude blog)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-07
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: Anthropic Claude Code auto mode default permission prompts classifier announcement 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06, TH07, TH11]
+events:
+  - date: 2026-08-07
+    label: Anthropic が Claude Code の auto mode を Pro/Max/Team の既定にすると発表(8/14 からの既定化は TechCrunch 2026-08-09 の報道)
+summary: Claude Code の許可プロンプトを分類器による自動判定(auto mode)へ既定で切り替える発表。人の許可操作が形骸化している実測(承認率97%)と、人と分類器の比較実験の数値を根拠に挙げる。
+claims:
+  - id: c1
+    text: Claude Code の利用者は許可プロンプトの97%を承認しており、個々の許可要求の却下率は3%にとどまる。一方、計画(plan)の承認要求では39%を却下している。ベンダーは人の許可操作が習慣化していると解釈している。
+    quote: "Data suggests that manual review can become habitual: users approve 97% of permission prompts in Claude Code."
+    locator: 本文冒頭(manual review が習慣化する根拠の段落)
+    quant:
+      value: 承認率97% / 許可要求の却下率3% / 計画の却下率39%
+      n: 未記載(Claude Code 利用者のテレメトリ)
+      design: ベンダー内部の利用データ
+      population: Claude Code 利用者
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q4, TH11-Q3]
+    issues: [248]
+    stance: supports
+  - id: c2
+    text: 有償の専門テスター1,053名の対照実験で、危険なコマンドを人のレビューが止めたのは13.6%(143件)、auto mode は89%(937件)。auto mode が止め人が承認したものは800件、逆は6件。
+    quote: In a controlled experiment with 1,053 paid professional testers, human review caught just 13.6% of dangerous commands, while auto mode caught 89%.
+    locator: Auto mode outperforms manual permissions on safety
+    quant:
+      value: 人 13.6% 対 auto mode 89%
+      n: 1,053名(有償の専門テスター)
+      design: controlled experiment(ベンダー実施、セッション途中の1件を危険コマンドへ差し替え)
+      population: Claude Code の許可プロンプト
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q4, TH07-Q4]
+    issues: [248]
+    stance: supports
+  - id: c3
+    text: セッションが長くなるほど人の阻止率は下がり、序盤の約17%から、50回以上のプロンプトを経た後は約5%へ落ちた。auto mode の阻止率はセッション長に依らず一定だった。
+    quote: "As sessions got longer, humans did worse: they blocked about 17% of dangerous commands early in a session, dropping to about 5% after 50 or more prior prompts"
+    locator: Auto mode outperforms manual permissions on safety
+    quant:
+      value: 約17% → 約5%(50回以上のプロンプト後)
+      n: 1,053名(同上の実験)
+      design: controlled experiment の事後分析
+      population: Claude Code の許可プロンプト
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q4, TH11-Q3]
+    issues: [268]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.871Z
+    httpStatus: 200
+    finalUrl: https://claude.com/blog/auto-mode-default-in-claude-code
+    contentType: text/html; charset=utf-8
+    titleFetched: Auto mode is now the default in Claude Code for Pro, Max, and Team plans | Claude by Anthropic
+    titleMatch: true
+    dateMeta: Aug 07, 20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 承認 97%; 個々の許可要求の却下率 3%; 計画(plan)の却下 39%
+        extractedQuote: users approve 97% of permission prompts in Claude Code. … when Claude presents a plan for approval, users reject 39% of them. But for individual permissions requests, the rejection rate is only 3%.
+        locator: Comparing manual review to auto mode(第1〜2段落)
+        note: 引用は2文の間を … で省略。原文は 'Data suggests that manual review can become habitual' と述べ、97% について 'suggests many users are clicking through reflexively' と解釈している。
+      c2:
+        verdict: match
+        extractedValue: 1,053名; 人 13.6%(143件); auto mode 89%(937件); auto mode が止め人が承認 800件; 逆 6件
+        extractedQuote: just 13.6% of the time (143 of 1,053), while auto mode blocked 89% of the same commands (937 of 1,053). Head to head, auto mode blocked 800 commands that a human approved, while humans blocked only 6
+        locator: Auto mode outperforms manual permissions on safety
+        note: "見出し直下に 'In a controlled experiment with 1,053 paid professional testers, human review caught just 13.6% of dangerous commands, while auto mode caught 89%.'。条件: 研究ベンダー経由で雇用、研究用のテスト環境(自分のコードベースではない)、各セッションで許可プロンプト1件だけを危険なコマンドに差し替え。セッションが長くなると人の阻止率は約17%から約5%(50件以上の後)に低下との記述もある。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

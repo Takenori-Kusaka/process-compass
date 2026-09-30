@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0574
+status: included
+excludeReason: null
+title: OpenSSF Scorecard — Check Documentation (docs/checks.md)
+url: https://github.com/ossf/scorecard/blob/main/docs/checks.md
+canonicalUrl: https://github.com/ossf/scorecard/blob/main/docs/checks.md
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenSSF Scorecard
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: repo
+published: 2026-04-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G05
+  query: "直接取得: 指示(c)で名指しされたリポジトリ文書(ossf/scorecard docs/checks.md)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07]
+events: []
+summary: OpenSSF Scorecard の検査仕様(docs/checks.md、最終コミット 2026-04-23。raw 版を取得)。Code-Review 検査は、直近の変更が bot のものだけで判定材料が無いとき『結論なし(inconclusive)』を返す。判定できない場合を合格・不合格と別の結果として返す先例。他の検査の inconclusive 条件は未確認。
+claims:
+  - id: c1
+    text: Code-Review 検査は、直近の変更が bot の活動だけである場合、点数ではなく『結論なし』を返す。判定材料が下限に満たないときに通過とも失敗とも記録しない先例である。
+    quote: If recent changes are solely bot activity (e.g. Dependabot, Renovate bot, or custom bots), the check returns inconclusively.
+    locator: Code-Review
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:45.848Z
+    httpStatus: 200
+    finalUrl: https://github.com/ossf/scorecard/blob/main/docs/checks.md
+    contentType: text/html; charset=utf-8
+    titleFetched: scorecard/docs/checks.md at main · ossf/scorecard
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

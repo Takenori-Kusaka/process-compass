@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0367
+status: included
+excludeReason: null
+title: Architectural decision record process (Using architectural decision records to streamline decision-making during development)
+url: https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html
+canonicalUrl: https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html
+ids:
+  arxiv: null
+  doi: null
+publisher: AWS Prescriptive Guidance
+authors: [Darius Kunce, Dominik Goby]
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2022-03-16
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH05
+  query: AWS Prescriptive Guidance architectural decision records process
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH10]
+events: []
+summary: AWS の ADR 手順(初版 2022-03-16、文書履歴で確認)。ADR はチームのレビューで Accepted/Rejected を決め、承認後は不変で supersede により置き換える。承認済み ADR はコードレビューで違反を指摘する根拠として使う。
+claims:
+  - id: c1
+    text: チームが承認した ADR は不変になる。新しい知見で別の決定が要るときは新しい ADR を提案し、承認されたら旧 ADR を supersede する。
+    quote: When the team accepts an ADR, it becomes immutable. If new insights require a different decision, the team proposes a new ADR. When the team accepts the new ADR, it supersedes the previous ADR.
+    locator: Architectural decision record process 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q1]
+    issues: [272]
+    stance: context
+  - id: c2
+    text: ADR レビューの目的は、チームがその ADR を承認するか、手直しを求めるか、却下するかを決めることである(判定はチーム内で行い、外部のゲートではない)。
+    quote: The goal of the ADR review process is to decide whether the team accepts the ADR, determines that it needs rework, or rejects the ADR.
+    locator: ADR adoption process
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+  - id: c3
+    text: レビュー会ではまず ADR を読む時間を取り、1本あたり平均10〜15分で足りるとする(測定根拠は示されていない)。
+    quote: The review meeting should start with a dedicated time slot to read the ADR. On average, 10 to 15 minutes should be enough.
+    locator: ADR adoption process
+    quant:
+      value: 10-15 minutes per ADR
+      n: not stated
+      design: practitioner guidance
+      population: project team ADR review meetings
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: context
+  - id: c4
+    text: 承認済み ADR はコードレビューの判定根拠になる。ADR に違反する変更を見つけたレビュアは、ADR へのリンクを示して修正を求める(ADR 自体ではなくコード変更の判定に ADR を使う)。
+    quote: During the code review, a code reviewer might find changes that violate one or more ADRs.
+    locator: ADR adoption process(コードレビューでの適用)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: qualifies
+  - id: c5
+    text: 却下した ADR にも却下理由を書き、同じ議論の蒸し返しを防ぐ(採らないと決めたことの記録)。
+    quote: In this case, the ADR owner adds a reason for the rejection to prevent future discussions on the same topic.
+    locator: ADR adoption process
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q1]
+    issues: [251]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:33.184Z
+    httpStatus: 200
+    finalUrl: https://docs.aws.amazon.com/prescriptive-guidance/latest/architectural-decision-records/adr-process.html
+    contentType: text/html
+    titleFetched: Architectural decision record process - AWS Prescriptive Guidance
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: ADR 1本(the ADR)あたり平均 10〜15分
+        extractedQuote: The review meeting should start with a dedicated time slot to read the ADR. On average, 10 to 15 minutes should be enough.
+        locator: ADR adoption process 節
+        note: 原文は単数形『the ADR』を読む時間として10〜15分と述べており、『1本あたり』という数値は明示されていない(単数形からの読み取り)。測定根拠は本文に示されていない点は ask と一致。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null

@@ -1,0 +1,192 @@
+schemaVersion: 0
+id: SRC-0134
+status: included
+excludeReason: null
+title: "AI and Its Impact on Creativity and Diversity: An Empirical Study of LLM-Generated Product Ideas"
+url: https://arxiv.org/abs/2607.27553
+canonicalUrl: arxiv:2607.27553
+ids:
+  arxiv: "2607.27553"
+  doi: 10.48550/arXiv.2607.27553
+publisher: arXiv / Production and Operations Management (accepted July 2026)
+authors: [Christian Terwiesch, Lennart Meincke, Karan Girotra, Ethan Mollick, Gideon Nave, Karl T. Ulrich]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2026-07-30
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-07-31
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: arXiv LLM homogenization creativity ideas study 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH06]
+events: []
+summary: "Wharton らによる新製品アイデア生成の 8 研究。GPT-4 の案は購買意向で人間(MBA 学生 50 名の案から 200 件)より高く上位 10% に 7 倍入りやすいが、集合としての多様性は有意に低く、5 データセットの再分析でも再現。人間が課題を選び AI が解を出す分業やベンダー横断プールで多様性がほぼ回復する。PDF 本文に「Received: January 2026; accepted: July 2026」(POM) の記載あり。"
+claims:
+  - id: c1
+    text: LLM 生成の製品アイデアは購買意向で人間より平均品質が高く、上位 10% に入る確率が 7 倍である(人間 200 件対 GPT-4 200 件、Prolific の大学生年代が 1 案あたり平均 20 名評価)。
+    quote: Our first study shows that LLM-generated product ideas have higher average quality than human ideas, based on purchase intent, and are 7 times more likely to rank in the top 10%.
+    locator: Abstract; §2.2 Study 1a
+    quant:
+      value: "7x (top 10%: humans 5 / zero-shot 15 / few-shot 20 of 40); mean purchase intent 40.4% vs 46.4% / 49.3%"
+      n: 200 human ideas (50 MBA students, 2021) vs 100+100 GPT-4 (gpt-4-0314, May 2023); ~20 raters per idea, 200 respondents
+      design: controlled experiment, linear mixed-effects, quantile regression
+      population: physical product ideas for US college students under $50
+    evidenceKind: controlled-experiment
+    rqs: [TH09-Q1, TH09-Q4]
+    issues: []
+    stance: context
+  - id: c2
+    text: GPT-4 の案は互いの類似度が人間の案より有意に高い(ペア余弦類似度 人間 0.221 対 zero-shot 0.414 / few-shot 0.428)。スタイル標準化後も差の 80-90% が残り、話題の均質化が実体。
+    quote: GPT-4 zero-shot ideas were significantly more similar to each other than human outputs (B = 0.193; 95% CI [0.182, 0.204]; t(298) = 33.89, p < .001
+    locator: §3.1 Study 2a Results; E-Companion E
+    quant:
+      value: cosine similarity 0.221 (human) vs 0.414 / 0.428 (GPT-4)
+      n: 400 ideas (200 human, 200 AI)
+      design: controlled experiment, embedding similarity (USE 512-dim)
+      population: same as Study 1
+    evidenceKind: controlled-experiment
+    rqs: [TH09-Q1, TH09-Q4]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: 著者自身のデータを含む 4 研究 5 データセット(著者データ、Boussioux et al. 2024 の 2 データセット、Hubert et al. 2024、Stevenson et al. 2022)の再分析では、AI(GPT-3、GPT-4)の生成案は人間より類似度が高く多様性が低かった。効果量は d=0.380(小)から d=5.538(非常に大)。著者は、多様性の低下は LLM の一般的な性質かもしれないと推量している。
+    quote: AI systems (GPT-3, GPT-4) produced ideas with higher similarity scores, indicating reduced diversity, with effect sizes ranging from small (Cohen's d = 0.380) to very large (d = 5.538).
+    locator: §3.2 Study 2b Results; Table 1; Discussion
+    quant:
+      value: Cohen's d 0.380–5.538; 32/32 comparisons significant
+      n: 5 datasets (own; Boussioux 2024 x2; Hubert 2024 N=1,781 vs 1,710; Stevenson 2022 774 vs 781)
+      design: meta-analysis with 3 diversity metrics, mixed-effects pooling
+      population: creative ideation tasks
+    evidenceKind: review
+    rqs: [TH09-Q1]
+    issues: []
+    stance: contradicts
+  - id: c4
+    text: 単一モデルは人間の多様性に届かないが、4 ベンダー(GPT-4 Turbo、Gemini Pro 2.0、DeepSeek R1、Claude Sonnet 3.5)の案を混ぜた複合プールは人間と統計的に区別できない多様性に達した。
+    quote: Notably, no single model came close to human diversity. However, the composite approach was as good as humans (B = -0.010; 95% CI [-0.022, 0.002]; t(198) = -1.69, p = .092).
+    locator: §4.1 Study 3a Results; Table 2
+    quant:
+      value: diversity 0.773 (human) vs 0.763 (composite) vs 0.756 (best single, GPT-4 Turbo)
+      n: 100 ideas per condition sampled from 2,000
+      design: controlled experiment
+      population: same task, 9 models
+    evidenceKind: controlled-experiment
+    rqs: [TH09-Q4, TH06-Q3]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: 人間が課題(ペインポイント)を選び AI が解を生成する分業(Agent 2)は全戦略中 2 位の多様性を示し、AI に反復して「大胆に」磨かせる Agent 1 は逆に多様性を大きく下げた。無監督のアイデア精緻化への警告。
+    quote: Against our expectations, the "Bold Ideas" agent, which iteratively refined ideas to make them bolder, greatly reduced diversity.
+    locator: §4.2 Study 3b Results; Table 3
+    quant:
+      value: "diversity: Agent 2 0.739, Agent 1 0.575, GPT-4o zero-shot 0.679, humans 0.773"
+      n: 100 ideas per condition
+      design: controlled experiment
+      population: GPT-4o (2024-08)
+    evidenceKind: controlled-experiment
+    rqs: [TH09-Q4]
+    issues: []
+    stance: qualifies
+  - id: c6
+    text: 著者自身が限界として、主分析が大学生向け製品の単一トーナメントに基づき、人間と AI の相互作用過程は未検証で、アイデアは文章表現のみと明記する。
+    quote: First, our main analysis is based on a single tournament seeking new product ideas for the college market.
+    locator: §5 Conclusion (limitations)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:54.856Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.27553
+    contentType: text/html; charset=utf-8
+    titleFetched: "AI and Its Impact on Creativity and Diversity: An Empirical Study of LLM-Generated Product Ideas"
+    titleMatch: true
+    dateMeta: 2026-07-30
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv:
+      status: 200
+      title: "AI and Its Impact on Creativity and Diversity: An Empirical Study of LLM-Generated Product Ideas"
+      authors: ["Terwiesch, Christian", "Meincke, Lennart", "Girotra, Karan", "Mollick, Ethan", "Nave, Gideon", "Ulrich, Karl T."]
+      v1Date: 2026-07-30
+      latestVersion: 2
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 上位10%; 7倍; 人間 200件 対 GPT-4 200件(zero-shot 100 + few-shot 100); 1案あたり平均20名が評価(各回答者は平均40案を評価)
+        extractedQuote: are 7 times more likely to rank in the top 10%. / Each respondent evaluated an average of 40 ideas with randomized source and order. Each idea was evaluated by 20 participants on average.
+        locator: Abstract; §2.1 Research Setting; §2.2 Study 1a Method
+        note: arXiv HTML 版は無く PDF(v2)から抽出。上位10%(40/400件)の内訳は人間5件、zero-shot 15件、few-shot 20件。評価者は Prolific で募集した米国の college-age individuals。GPT-4 は gpt-4-0314。
+        adjudication:
+          verdict: consistent
+          reason: 「購買意向で平均品質が高く、上位 10% に入る確率が 7 倍」は原文どおり。上位 10%(40/400 件)の内訳は人間 5 件、zero-shot 15 件、few-shot 20 件で、(15+20)/200 ÷ 5/200 = 7 と一意に導ける。人間 200 件対 GPT-4 200 件(zero-shot 100+few-shot 100)、1 案あたり平均 20 名評価、Prolific で募集した米国の college-age 評価者も blindNote と整合する。claimQuant の平均購買意向(40.4%/46.4%/49.3%)は抜粋に無いため、この判定では確認していない。
+          date: 2026-09-23
+      c2:
+        verdict: match
+        extractedValue: GPT-4; 人間 0.221 対 zero-shot 0.414 / few-shot 0.428; 標準化後も差の80%(zero-shot)〜90%(few-shot)が残存
+        extractedQuote: GPT-4 zero-shot 0.221 0.414*** GPT-4 few-shot 0.221 0.428*** / Results were robust even after rephrasing all ideas, with 80% (zero-shot) and 90% (few-shot) of the diversity gap persisting.
+        locator: "§3.1 Study 2a Results; Table 1(Present work - Study 1 行: 0.221 / 0.414*** / 0.428***); E-Companion E"
+        note: 類似度の絶対値 0.221/0.414/0.428 は §3.2 の Table 1 にある。§3.1 本文は差として B=0.193(zero-shot)、B=0.207(few-shot)を報告しており、両者は整合する。E-Companion E では残存率を 'retaining 80% of the original gap'/'retaining 90%' と記す。
+      c3:
+        verdict: match
+        extractedValue: 4研究 5データセット(うち1研究は著者自身のデータ); d=0.380 〜 d=5.538
+        extractedQuote: AI systems (GPT-3, GPT-4) produced ideas with higher similarity scores, indicating reduced diversity, with effect sizes ranging from small (Cohen's d = 0.380) to very large (d = 5.538).
+        locator: §3.2 Study 2b Results; Table 1; Discussion
+        note: 原典の4研究は (a) 著者自身のデータ、(b) Boussioux et al. 2024(2データセット)、(c) Hubert et al. 2024、(d) Stevenson et al. 2022。ask の「先行4研究」なら自分のデータを先行研究に含めた数になる(先行研究は3件)。また著者の表現は 'reduced idea diversity may be a general property of LLMs' と推量で、ask の「一般的性質とみなす」はやや強い。
+        adjudication:
+          verdict: corrected
+          reason: 効果量の範囲 d=0.380〜5.538 は抜粋と一致する。誤りは 2 点ある。(1) 4 研究のうち 1 つは著者自身のデータで、先行研究は 3 件しかないため「先行 4 研究」は誤り。(2) 著者の表現は 'may be a general property of LLMs' という推量で、「一般的性質とみなす」は言い過ぎである(blindNote)。claimQuant の「32/32 comparisons significant」は抜粋に無く、確認していない。
+          date: 2026-09-23
+          originalText: 先行 4 研究 5 データセットの再分析でも AI 生成案は一貫して多様性が低く、効果量は d=0.380 から d=5.538 まで。著者は多様性低下を LLM の一般的性質とみなす。
+          originalQuote: AI systems (GPT-3, GPT-4) produced ideas with higher similarity scores, indicating reduced diversity, with effect sizes ranging from small (Cohen’s d = 0.380) to very large (d = 5.538).
+      c4:
+        verdict: match
+        extractedValue: "4ベンダー: GPT-4 Turbo, Gemini Pro 2.0, DeepSeek R1, Claude Sonnet 3.5; 複合プール 0.763 vs 人間 0.773 (B=-0.010, p=.092)"
+        extractedQuote: Notably, no single model came close to human diversity. However, the composite approach was as good as humans (B = -0.010; 95% CI [-0.022, 0.002]; t(198) = -1.69, p = .092).
+        locator: §4.1 Study 3a Method/Results; Table 2
+        note: 「統計的に区別できない」は p=.092 の非有意に基づく。同節 Discussion では 'almost reaches human-level diversity' とも書いており、同等性を検定したわけではない。複合プールは各モデル2,000案×4=8,000案から25案ずつ計100案の無作為抽出。
+        adjudication:
+          verdict: consistent
+          reason: 4 ベンダー(GPT-4 Turbo、Gemini Pro 2.0、DeepSeek R1、Claude Sonnet 3.5)、単一モデルは人間の多様性に届かない、複合プールは人間と差が有意でない(B=-0.010、95% CI [-0.022, 0.002]、p=.092)は抜粋どおり。0.763-0.773=-0.010 で B と一致する。「統計的に区別できない」は非有意の言い換えとして正確。ただし同等性を検定したわけではなく、著者も Discussion で 'almost reaches human-level diversity' と書いているため、引用時に「同等」と言い換えないこと。最良単一モデル 0.756 は抜粋に無く、確認していない。
+          date: 2026-09-23
+      c5:
+        verdict: match
+        extractedValue: Agent 2(human-picked problem)= 本文では全戦略中2位(Table 3 では人間を含めて3位, 0.739); Agent 1(Bold Ideas)は 0.575 に低下
+        extractedQuote: achieved the second strongest performance out of all strategies / the "Bold Ideas" agent, which iteratively refined ideas to make them bolder, greatly reduced diversity.
+        locator: §4.2 Study 3b Results; Table 3
+        note: 順位は数え方で変わる。本文 'second strongest' は人間ベースラインを除いた順位で、Table 3 の Rank は Humans 1位、Random Personas 2位、Agent 2 3位。Random Personas(0.757)が Agent 2(0.739)を上回り、著者は 'obtaining the heterogeneity from random personas is an equally effective strategy' と述べる。Agent 1 は大胆化を2回反復。基準モデルは GPT-4o。
+        adjudication:
+          verdict: consistent
+          reason: Agent 2(人間が課題を選ぶ)の「全戦略中 2 位」は本文の 'second strongest performance out of all strategies' どおり。これは人間ベースラインを除いた順位で、Table 3 では人間 1 位、Random Personas(0.757)2 位、Agent 2(0.739)3 位になる。Bold Ideas エージェント(Agent 1)が反復的な大胆化で多様性を大きく下げた(0.575)点も抜粋と一致する。Random Personas が Agent 2 を上回ることと、末尾の「無監督の精緻化への警告」が主張者の解釈であることは、引用時に添えるのが望ましい。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

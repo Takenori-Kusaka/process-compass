@@ -1,0 +1,78 @@
+schemaVersion: 0
+id: SRC-0376
+status: included
+excludeReason: null
+title: Design Docs at Google
+url: https://www.industrialempathy.com/posts/design-docs-at-google/
+canonicalUrl: https://industrialempathy.com/posts/design-docs-at-google
+ids:
+  arxiv: null
+  doi: null
+publisher: Industrial Empathy (Malte Ubl 個人ブログ)
+authors: [Malte Ubl]
+orgType: individual
+region: us
+lang: en
+sourceType: individual
+published: 2020-07-06
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: Google design docs at Google industrial empathy design doc length
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: 元 Google エンジニアによる Google の design doc 文化の解説(2020-07-06)。設計判断とトレードオフを中心に書く非形式な文書で、大規模案件で10〜20ページ、小さな改善は1〜3ページの mini design doc を勧める。
+claims:
+  - id: c1
+    text: design doc は多忙な人が実際に読める短さが要り、大規模案件の適量は10〜20ページ程度。大きく超えるなら問題を分割する。小さな改善には1〜3ページの mini design doc もありうる(社内実務の経験則で、測定根拠は無い)。
+    quote: Design docs should be sufficiently detailed but short enough to actually be read by busy people. The sweet spot for a larger project seems to be around 10-20ish pages.
+    locator: The length of a design doc
+    quant:
+      value: 10-20 pages (larger project); 1-3 pages (mini design doc)
+      n: not stated
+      design: practitioner account
+      population: Google engineering
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3, TH05-Q4]
+    issues: [252]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:37.980Z
+    httpStatus: 200
+    finalUrl: https://www.industrialempathy.com/posts/design-docs-at-google
+    contentType: text/html; charset=utf-8
+    titleFetched: Design Docs at Google
+    titleMatch: true
+    dateMeta: 2020-07-06
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 10-20ish pages / 1-3 page mini design doc
+        extractedQuote: The sweet spot for a larger project seems to be around 10-20ish pages. ... it is absolutely possible to write a 1-3 page “mini design doc”.
+        locator: The length of a design doc
+        note: 原文は 'seems to be' と経験則の書き方。分割の助言(split up the problem into more manageable sub problems)と、mini design doc は incremental improvements or sub tasks に有用という記述もある。食い違いは見当たらない
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://industrialempathy.com/posts/design-docs-at-google

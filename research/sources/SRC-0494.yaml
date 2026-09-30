@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0494
+status: included
+excludeReason: null
+title: SLSA • Specification Stages and Versioning
+url: https://slsa.dev/spec-stages
+canonicalUrl: https://slsa.dev/spec-stages
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenSSF SLSA project
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: standard
+published: 2026-03-05
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: SLSA specification v1.2 versioning policy tracks draft approved
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH02]
+events: []
+summary: 供給網セキュリティ仕様 SLSA の段階(Draft/Candidate/Approved/Retired)と版番号の規則。既存レベルへの要求追加は MAJOR 版とし、レベルの大意は変えない。現行は v1.2(Source Track を追加)。日付は slsa-framework/slsa の spec-stages.md 最終コミット日。
+claims:
+  - id: c1
+    text: 各仕様ページは、どの段階(Draft/Candidate/Approved/Retired)にあるかを定義へのリンク付きで目立つ位置に表示しなければならない。
+    quote: Every specification page should prominently display a Status section stating which stage the specification is in with a link to its definition.
+    locator: Specification Stages
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 既存レベルへ新しい要求を加える変更は MAJOR 版に当たる。後方互換の追加(新トラック・新レベル・意味を変えない修正)は MINOR 版とする。
+    quote: MAJOR version when making backwards incompatible changes to an Attestation Format or adding new requirements to an existing level in the Core Specification.
+    locator: Versioning
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4, TH02-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: "公開後にレベルの大意は変えない。精密に参照するときは版番号を付ける(例: SLSA Build L3 (v1.0))。"
+    quote: Although we can revise the contents of level, we will never change a level’s high-level meaning after publication
+    locator: Versioning
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:15.697Z
+    httpStatus: 200
+    finalUrl: https://slsa.dev/spec-stages
+    contentType: text/html; charset=UTF-8
+    titleFetched: Specification Stages and Versioning
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: SLSA Build L3 (v1.0)
+        extractedQuote: we will never change a level’s high-level meaning after publication ... include their version number using the syntax SLSA [Track] [Level] ([Version]) (e.g. SLSA Build L3 (v1.0) ).
+        locator: Versioning
+        note: 原文は大意不変の例として 'SLSA Build Level 2 will retain its general meaning between major versions' も挙げている。版番号付き参照の例は L3 (v1.0)。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

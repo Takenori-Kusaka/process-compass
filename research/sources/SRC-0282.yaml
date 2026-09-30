@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0282
+status: included
+excludeReason: null
+title: AIレビューの指摘に、真正面から却下できるものはめったにない
+url: https://zenn.dev/cotoha5108/articles/adversarial-review-triage
+canonicalUrl: https://zenn.dev/cotoha5108/articles/adversarial-review-triage
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [yykt5108]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-07-27
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "zenn search API: AIレビュー 独立"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH05]
+events: []
+summary: AIに批判役を与える敵対的レビューで返った指摘9件の採否を実ログで仕分けた記録。却下はゼロで、難所は『どの水準で受けるか』の選択にあり、選ばなかった水準を文書に残す運用を示す。
+claims:
+  - id: c1
+    text: 架空の提案書の改訂版に文脈を持たない新セッションで敵対的レビューをかけると9件(重大6・中2・軽1)が返り、要求どおり受けた5件、受ける水準を選んだ2件、文書外の事実確認が要る2件で、却下は0件だった。
+    quote: 今回の9件の内訳は、要求どおり受けた5件、受ける水準を選んだ2件、文書の外の事実を確かめないと決められない2件。却下はゼロだった
+    locator: 「3行まとめ」
+    quant:
+      value: 受諾5・水準選択2・要事実確認2・却下0
+      n: 指摘9件(1文書、2巡目)
+      design: 実ログの採否仕分け
+      population: 生成AIコーディング支援ツール導入提案(架空)の経営会議向け提案書
+    evidenceKind: case-report
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+  - id: c2
+    text: 1巡目の指摘のうち1〜2割は採用しておらず、その中身は検証すると事実が違ったもの、文脈を知らない誤爆、正しいが一部だけ受けたものの混在だった。
+    quote: 1巡目の指摘のうち1〜2割は採用していない、とも書いた。
+    locator: 「レビューさせるところまでは、誰でも同じ」節
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 正しい指摘を全部言われたとおりに受けると提案が別物になるため、選ばなかった水準を隠さず文書に書き、それを経営会議の想定問答として使う。
+    quote: 選ばなかった水準は隠さず文書に書き、その記録が経営会議の想定問答になる
+    locator: 「3行まとめ」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q4, TH05-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.299Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/cotoha5108/articles/adversarial-review-triage
+    contentType: text/html; charset=utf-8
+    titleFetched: AIレビューの指摘に、真正面から却下できるものはめったにない
+    titleMatch: true
+    dateMeta: 2026-07-27
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 9件(重大6件・中程度2件・軽微1件) / 要求どおり受けた5件 / 受ける水準を選んだ2件 / 文書の外の事実を確かめないと決められない2件 / 却下ゼロ(0件)
+        extractedQuote: 今回の9件の内訳は、要求どおり受けた5件、受ける水準を選んだ2件、文書の外の事実を確かめないと決められない2件。却下はゼロだった
+        locator: 「3行まとめ」第2項 / 本文「改訂版に2巡目をかけたら、9件返ってきた」節
+        note: 重大・中・軽の内訳は「3行まとめ」ではなく本文の節にある。原文「返ってきたのは9件。重大6件、中程度2件、軽微1件だった。」条件は原文「今回はその改訂版を、前回と同じプロンプトで、文脈を持たない新しいセッションのレビューにかけた。」「お題は架空だが、ログは実際にAIが返したものだ。」で、ask と一致。レビューは2巡目。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

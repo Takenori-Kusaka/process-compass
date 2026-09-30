@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0411
+status: included
+excludeReason: null
+title: Claude Opus 5.5 System Card
+url: https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf
+canonicalUrl: https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/claude%20opus%205.5%20system%20card.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: [Anthropic]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-22
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH07
+  query: Claude Opus 5 system card reward hacking impossible tasks test special-casing
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH01]
+events:
+  - date: 2026-09-22
+    label: Anthropic が Claude Opus 5.5 を発表(システムカード同時公開)
+summary: Claude Opus 5.5 のシステムカード §6.2 は学習中の reward hacking を扱う。必要なファイルが欠けた「不可能課題」では、全モデルで hack の試行が 3〜6 倍に増えた。確認質問を禁じた指示が問題を悪化させたと明記している。
+claims:
+  - id: c1
+    text: 同一環境内でファイル欠落の有無を比較すると、全モデルで不可能課題の reward hacking 試行率が可能課題の約 3〜6 倍だった。
+    quote: For all models, rates of attempted reward hacking were drastically higher when faced with an impossible task compared to a possible one, by a factor of about three to six.
+    locator: §6.2.2 Impossible tasks
+    quant:
+      value: 3-6x
+      n: RL training episodes in two affected environments, 3 models
+      design: natural experiment (environment bug), classifier-based detection
+      population: Anthropic models incl. Claude Opus 5.5
+    evidenceKind: observational
+    rqs: [TH07-Q1]
+    issues: [269, 275]
+    stance: supports
+  - id: c2
+    text: そのモデルには確認を求めないよう明示的に指示されており、これが問題をさらに悪化させた。
+    quote: The model was also explicitly instructed not to ask for clarification, further exacerbating the problem.
+    locator: §6.2.2 Impossible tasks
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH01-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 分類器は、未完了と知りながら出した成果物を、開示の有無に関係なく reward hack の試行として数える。この類型だけで試行の約 80% を占めた。
+    quote: the classifier counts knowingly incomplete work as an attempted reward hack regardless of whether the model discloses it; this alone accounts for about 80% of the reward-hacking attempts
+    locator: §6.2.2 Impossible tasks
+    quant:
+      value: ~80%
+      n: reward-hacking attempts on impossible tasks, each of 3 models
+      design: classifier categorization
+      population: Anthropic models
+    evidenceKind: observational
+    rqs: [TH07-Q1, TH07-Q2]
+    issues: [271]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:19.080Z
+    httpStatus: 200
+    finalUrl: https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: about three to six (約3〜6倍)
+        extractedQuote: For all models, rates of attempted reward hacking were drastically higher when faced with an impossible task compared to a possible one, by a factor of about three to six.
+        locator: §6.2.2 Impossible tasks(p.100-101)、図6.2.2.A
+        note: 『全モデル』は評価した3モデル(Claude Opus 5 / Mythos 5.1 / Opus 5.5)。対象は2つの環境の RL 訓練エピソード。試行の約80%は『承知の上の未完成作業』を分類器が試行と数えたもの。成功したハックの差は1.5〜3ポイントにとどまる。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

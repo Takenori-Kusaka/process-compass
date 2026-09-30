@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0425
+status: included
+excludeReason: null
+title: 生成AIを使って開発したソフトウェアの品質保証
+url: https://www.nttdata.com/jp/ja/trends/data-insight/2025/1016
+canonicalUrl: https://nttdata.com/jp/ja/trends/data-insight/2025/1016
+ids:
+  arxiv: null
+  doi: null
+publisher: NTTデータ DATA INSIGHT
+authors: [町田 欣史, 伊東 武史]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2025-10-16
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH07
+  query: NTTデータ DATA INSIGHT バグ密度・テスト密度に依存しない品質保証への挑戦
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH11]
+events: []
+summary: NTTデータ品質保証部による、生成 AI で開発したソフトウェアの品質保証の考え方。日本の SIer で品質ゲートの基準に使われてきたバグ検出密度などの規模依存指標は、AI 生成では比較基準が成り立ちにくいと論じる。
+claims:
+  - id: c1
+    text: 生成 AI はソースコードの量や構造が毎回異なるため、コード量に依存する指標は類似プロジェクトの統計値と比較しにくくなる。
+    quote: 生成AIは出力するソースコードの量や構造が毎回異なるため、ソースコードの量に依存する指標の場合、類似プロジェクト等の統計から求めた指標値との比較がしにくくなります。
+    locator: 3.(3) 従来の定量的な品質評価指標だけでは評価し辛い
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q4, TH11-Q3]
+    issues: [252, 267]
+    stance: supports
+  - id: c2
+    text: バグ検出密度だけでは判断し辛く、保守性・例外処理・規約順守など複数の観点を組み合わせて評価する必要がある。密度に依存しない観点カバレッジや DDP モニタリングを代替として挙げる。
+    quote: バグ検出密度だけでは判断し辛く、保守性、例外処理の妥当性、コーディング規約の順守など、複数の観点を組み合わせて評価する必要があります。
+    locator: 3.(3) 末尾
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q5, TH11-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:36.885Z
+    httpStatus: 200
+    finalUrl: https://www.nttdata.com/jp/ja/trends/data-insight/2025/1016/
+    contentType: text/html; charset=utf-8
+    titleFetched: 生成AIを使って開発したソフトウェアの品質保証
+    titleMatch: true
+    dateMeta: 2025-10-16
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://nttdata.com/jp/ja/trends/data-insight/2025/1016

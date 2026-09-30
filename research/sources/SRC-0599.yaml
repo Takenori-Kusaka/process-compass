@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0599
+status: included
+excludeReason: null
+title: Amazon shuts down AI leaderboard after 'tokenmaxxing'
+url: https://www.hcamag.com/us/specialization/hr-technology/amazon-shuts-down-ai-leaderboard-after-tokenmaxxing/577189
+canonicalUrl: https://hcamag.com/us/specialization/hr-technology/amazon-shuts-down-ai-leaderboard-after-tokenmaxxing/577189
+ids:
+  arxiv: null
+  doi: null
+publisher: Human Resources Director America (HRD)
+authors: []
+orgType: media
+region: us
+lang: en
+sourceType: news
+published: 2026-06-01
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: secondary
+foundBy:
+  cluster: G06
+  query: '"tokenmaxxing" leaderboard employees gaming token usage Meta Amazon report wasteful prompts inflate'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH07, TH04]
+events:
+  - date: 2026-05
+    label: Amazon が AI 利用量の社内ランキング Kirorank を停止(Financial Times の報道を HRD が引用)
+summary: Amazon が、開発者向け AI 基盤 Kiro の利用量で社員を順位づける社内ランキング「Kirorank」を、トークン消費の水増しが費用を押し上げたとして停止したと伝える報道。Financial Times の記事(有料、未取得)を引く二次情報で、水増しの規模の数値は無い。
+claims:
+  - id: c1
+    text: Amazon の上級副社長は、ランキングが社員のトークン消費の水増しを招き、費用を押し上げたと社員に説明したと報じられている(FT の伝聞を引く二次情報)。
+    quote: Even so, the leaderboard had pushed up costs as workers padded their token consumption, the data units that AI models process, the senior vice-president said.
+    locator: 本文第 3 段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH11-Q3, TH07-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 一部の社員は、順位を上げるために自律エージェントへ不要な作業を割り当てていたと報じられている。トークン量を指標にすると量そのものが操作される事例である。
+    quote: some staff started assigning autonomous AI agents to carry out needless actions on a user's behalf to climb Kirorank
+    locator: "'Tokenmaxxing' at Amazon"
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH11-Q3, TH07-Q1]
+    issues: [274]
+    stance: supports
+  - id: c3
+    text: Amazon は代わりに、トークン総量ではなく「AI で有用なコードを継続的に書いている技術者」を追う「normalised deployments」という指標を採ったと報じられている。定義の詳細は記事に無い。
+    quote: which tracks engineers regularly using AI to write useful code rather than counting raw token totals.
+    locator: "'Tokenmaxxing' at Amazon"
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH11-Q3, TH11-Q1]
+    issues: [274]
+    stance: context
+  - id: c4
+    text: Amazon は声明で、このダッシュボードは公式に承認されたツールではなく、すでに廃止したと述べた。会社が制度として課した指標ではないという反論に当たる。
+    quote: the beta dashboard was not a formal or approved tool
+    locator: "'Tokenmaxxing' at Amazon"
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH11-Q3]
+    issues: [274]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:55.779Z
+    httpStatus: 200
+    finalUrl: https://www.hcamag.com/us/specialization/hr-technology/amazon-shuts-down-ai-leaderboard-after-tokenmaxxing/577189
+    contentType: text/html; charset=utf-8
+    titleFetched: Amazon shuts down AI leaderboard after &#x27;tokenmaxxing&#x27;
+    titleMatch: false
+    dateMeta: 2026-06-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

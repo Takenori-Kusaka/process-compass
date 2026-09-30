@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0130
+status: included
+excludeReason: null
+title: 3 Simple Techniques to Reduce Token Consumption in Claude Code and Codex
+url: https://tech.autoscout24.com/blog/posts/3-techniques-to-reduce-token-consumption-claude-code-codex
+canonicalUrl: https://tech.autoscout24.com/blog/posts/3-techniques-to-reduce-token-consumption-claude-code-codex
+ids:
+  arxiv: null
+  doi: null
+publisher: AutoScout24 TechBlog
+authors: [Slavik Shynkarenko]
+orgType: enterprise
+region: eu
+lang: en
+sourceType: corp-techblog
+published: 2026-06-22
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code 週次上限 到達 作業止まった Max 使い切った 対策 Codex 併用 Zenn 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: 欧州の自動車マーケットプレイス企業の技術ブログ(2026-06-22)。オーケストレータに上位モデル、限定した作業を安価な専門サブエージェント(Haiku の triage、review-diff)へ委譲し、Codex では cheap/frontier のプロファイルで手動ルーティングする運用を記す。効果の数値は示さない。
+claims:
+  - id: c1
+    text: 記事は推奨パターンとして、有能なモデルをオーケストレータに置き、失敗の分類のような範囲の限られた作業を Haiku 固定のトリアージ用サブエージェントへ委譲する構成を示す。Codex では cheap(gpt-5.4-mini、reasoning effort low)と frontier(gpt-5.5、reasoning effort high)のプロファイルをタスク境界で選ぶ設定例を挙げている。
+    quote: 'cheap.config.toml : model = "gpt-5.4-mini" model_reasoning_effort = "low" ... frontier.config.toml : model = "gpt-5.5" model_reasoning_effort = "high" ... choose the profile at the task boundary'
+    locator: "# Use subagents and profiles deliberately"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:53.475Z
+    httpStatus: 200
+    finalUrl: https://tech.autoscout24.com/blog/posts/3-techniques-to-reduce-token-consumption-claude-code-codex/
+    contentType: text/html
+    titleFetched: 3 Simple Techniques to Reduce Token Consumption in Claude Code and Codex
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "cheap: gpt-5.4-mini (model_reasoning_effort low); frontier: gpt-5.5 (model_reasoning_effort high)"
+        extractedQuote: 'cheap.config.toml : model = "gpt-5.4-mini" model_reasoning_effort = "low" ... frontier.config.toml : model = "gpt-5.5" model_reasoning_effort = "high" ... choose the profile at the task boundary'
+        locator: "# Use subagents and profiles deliberately"
+        note: Haiku 固定のサブエージェントは 'A triage subagent pinned to Haiku can classify a failure and hand back the next step.' と、設定例を伴う推奨パターンとして書かれている。導入部に 'At AutoScout24 Group, Codex and Claude Code are now part of everyday engineering work' とはあるが、この構成を同社で運用している実績・計測値の記述は本節には無い。ask の「企業の実務として」はやや強い可能性。
+        adjudication:
+          verdict: corrected
+          reason: モデル名・effort 設定・タスク境界での切り替え・Haiku 固定のサブエージェントは抜粋と一致する。ただし原典はこれを設定例付きの推奨として書いている。導入部に AutoScout24 Group で Codex と Claude Code が日常業務に使われているとはあるものの、この構成を同社で運用している実績や計測値の記述は無い(blindNote)。主張の「企業の実務として」は根拠を超えた言い方である。
+          date: 2026-09-23
+          originalText: 企業の実務として、上位モデルをオーケストレータに置き、失敗分類などの限定作業を Haiku 固定のサブエージェントへ委譲する。Codex では cheap(gpt-5.4-mini, effort low)と frontier(gpt-5.5, effort high)のプロファイルをタスク境界で切り替える。
+          originalQuote: "Claude Code has a mature subagent workflow: keep a capable model as the orchestrator, then delegate bounded work to cheaper specialists. A triage subagent pinned to Haiku can classify a failure and hand back the next step."
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

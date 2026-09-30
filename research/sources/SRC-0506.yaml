@@ -1,0 +1,94 @@
+schemaVersion: 0
+id: SRC-0506
+status: included
+excludeReason: null
+title: "What We Know about Responsible AI Practices in Industry: A Half Decade of Empirical Research"
+url: https://arxiv.org/abs/2608.10431
+canonicalUrl: arxiv:2608.10431
+ids:
+  arxiv: "2608.10431"
+  doi: 10.48550/arXiv.2608.10431
+publisher: arXiv
+authors: [Deng Wesley Hanwen, Balayn Agathe, Selbst Andrew, Hong Jason I., Eslami Motahhare, Holstein Kenneth, Wallach Hanna, Vaughan Jennifer Wortman, Barocas Solon]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-08-11
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH12
+  query: interview study practitioners responsible AI frameworks not operationalized development process "principles to practice" gap 2025 2026 arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: 産業界の責任ある AI(RAI)実務に関する実証研究 161 件(6年分)の文献レビュー。認識の向上と指針・ツールの普及は進んだが、訓練不足・組織支援のむら・日常業務に合う介入の欠如が障壁として残ると整理する(反証側に近い資料)。
+claims:
+  - id: c1
+    text: 161 件の実証研究を統合した結果、実務者は訓練の不足、組織的支援のむら、日常の作業実践に合わせた介入の欠如という大きな障壁に直面し続けている。指針が開発の日常作業まで届いていないことを示す。
+    quote: practitioners continue to face substantial barriers, including limited training, uneven organizational support, and a lack of interventions tailored to day-to-day work practices.
+    locator: Abstract
+    quant:
+      value: 161 studies
+      n: 161 件の実証研究(6年分)
+      design: literature review(インタビュー・調査・ワークショップ・エスノグラフィ等の統合)
+      population: 産業界の RAI 実務者
+    evidenceKind: review
+    rqs: [TH12-Q1, TH12-Q2]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 一方で、実務者の認識は高まり、RAI 活動は専門職化し、ツールキットや指針の採用は広がったとも述べる。
+    quote: Practitioner awareness has increased, RAI activities have become more professionalized, and interventions such as toolkits and guidelines are more widely adopted.
+    locator: Abstract
+    quant: null
+    evidenceKind: review
+    rqs: [TH12-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:18.344Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2608.10431
+    contentType: text/html; charset=utf-8
+    titleFetched: "What We Know about Responsible AI Practices in Industry: A Half Decade of Empirical Research"
+    titleMatch: true
+    dateMeta: 2026-08-11
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "What We Know about Responsible AI Practices in Industry: A Half Decade of Empirical Research"
+      authors: ["Deng, Wesley Hanwen", "Balayn, Agathe", "Selbst, Andrew", "Hong, Jason I.", "Eslami, Motahhare", "Holstein, Kenneth"]
+      v1Date: 2026-08-11
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "161"
+        extractedQuote: This work synthesizes current knowledge through a literature review of 161 empirical studies spanning six years, each engaging industry practitioners via interviews, surveys, workshops, ethnographies, and other methods.
+        locator: Abstract
+        note: 障壁の記述は原文 'practitioners continue to face substantial barriers, including limited training, uneven organizational support, and a lack of interventions tailored to day-to-day work practices.' と一致。ask 後半の「指針が開発の日常作業まで届いていないことを示す」は抄録に直接の文言はなく、ask 側の解釈。抄録は同時に『認識の向上・専門化・ツールキットや指針の普及』という進展も述べている。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

@@ -1,0 +1,91 @@
+schemaVersion: 0
+id: SRC-0136
+status: included
+excludeReason: null
+title: Interrogating Design Homogenization in Web Vibe Coding
+url: https://arxiv.org/abs/2603.13036
+canonicalUrl: arxiv:2603.13036
+ids:
+  arxiv: "2603.13036"
+  doi: null
+publisher: arXiv (University of Washington / Microsoft Research)
+authors: [Donghoon Shin, Alice Gao, Rock Yuren Pang, Jaewook Lee, Katharina Reinecke, Emily Tseng]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-03-13
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: arXiv LLM homogenization creativity ideas study 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH01]
+events: []
+summary: vibe coding のライフサイクルを整理し、摩擦のない生成が設計の均質化とその害を悪化させると社会技術的リスク分析で論じる HCI 系プレプリント。対策としてモデルが前提を問い返し代替案を提示する「productive friction」を提案する。実測ではなく概念分析とケーススタディ。
+claims:
+  - id: c1
+    text: 摩擦なく即座に生成できることを推す設計は、Web デザインの均質化とその害を悪化させる。
+    quote: We identify that the push for frictionless generation can exacerbate homogenization and its harms.
+    locator: Abstract
+    quant: null
+    evidenceKind: review
+    rqs: [TH09-Q3]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 認知負荷と生成物への過信により、素人の作り手は多様な設計を反復するよりモデルの既定出力を受け入れる誘因が働く。
+    quote: Risks, such as cognitive overload and overreliance on the vibe-coded design outputs, incentivize lay creators to accept the model’s default output rather than iterating on a diverse and creative design.
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: review
+    rqs: [TH09-Q3, TH09-Q4]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: 対策として、モデルが自動実行するのではなく、出力確定前に設計上の前提を明示的に問い、代替案を提示する仲介者として振る舞う枠組みを提案する。
+    quote: we propose frameworks where the model acts as a mediator, explicitly querying design assumptions and presenting alternatives before finalizing output.
+    locator: §1 Introduction (contributions)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3, TH01-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:55.623Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2603.13036
+    contentType: text/html; charset=utf-8
+    titleFetched: Interrogating Design Homogenization in Web Vibe Coding
+    titleMatch: true
+    dateMeta: 2026-03-13
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: Interrogating Design Homogenization in Web Vibe Coding
+      authors: ["Shin, Donghoon", "Gao, Alice", "Pang, Rock Yuren", "Lee, Jaewook", "Reinecke, Katharina", "Tseng, Emily"]
+      v1Date: 2026-03-13
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

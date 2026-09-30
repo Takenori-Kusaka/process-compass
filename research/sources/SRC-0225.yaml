@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0225
+status: included
+excludeReason: null
+title: Migrating from Amazon Q Developer (Kiro docs)
+url: https://kiro.dev/docs/upgrade-guides/migrating-from-q-developer/
+canonicalUrl: https://kiro.dev/docs/upgrade-guides/migrating-from-q-developer
+ids:
+  arxiv: null
+  doi: null
+publisher: Kiro (AWS)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-04
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: (直接取得) kiro.dev/docs のサイドバーからのリンク追跡
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02]
+events: []
+summary: Amazon Q Developer の IDE 拡張利用者に Kiro への移行を案内する公式文書(ページ記載は更新日 2026-08-04)。Q Developer の機能は Kiro で使えるとする一方、Visual Studio と Eclipse 向けのネイティブ拡張は Kiro に無いと明記する。開発ツールの供給者都合による移行の一次記録。
+claims:
+  - id: c1
+    text: Q Developer の IDE で使っていた機能(インライン補完、チャット、コード生成)はすべて Kiro で使えるとし、Kiro 側への移行を案内する。
+    quote: If you've been using Amazon Q Developer in your IDE, everything you rely on today (inline suggestions, chat, and code generation) is available in Kiro.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3, BASE-Q4]
+    issues: []
+    stance: context
+  - id: c2
+    text: Q Developer は Visual Studio と Eclipse の拡張を提供していたが、Kiro には両者のネイティブプラグインがない。移行で利用環境が失われる利用者がいる。
+    quote: Amazon Q Developer offered extensions for Visual Studio and Eclipse, but Kiro does not have native plugins for either.
+    locator: Visual Studio and Eclipse
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:14.599Z
+    httpStatus: 200
+    finalUrl: https://kiro.dev/docs/upgrade-guides/migrating-from-q-developer/
+    contentType: text/html
+    titleFetched: Migrating from Q Developer - Migration - Docs - Kiro
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://kiro.dev/docs/upgrade-guides/migrating-from-q-developer

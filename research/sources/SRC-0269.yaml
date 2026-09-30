@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0269
+status: included
+excludeReason: null
+title: 【AIが生んだ「期待のズレ」】約半数が非エンジニア職から「AIがあるならもっと早くできるだろう」と言われた経験あり 約4割が「AIツール普及後、ストレスはむしろ増えた」と回答
+url: https://prtimes.jp/main/html/rd/p/000000060.000068613.html
+canonicalUrl: https://prtimes.jp/main/html/rd/p/000000060.000068613.html
+ids:
+  arxiv: null
+  doi: null
+publisher: 株式会社キッカケクリエイション(KIKKAKE ITREND)/PR TIMES
+authors: []
+orgType: media
+region: jp
+lang: ja
+sourceType: industry-report
+published: 2026-08-31
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: 生成AI 開発 生産性 上がらない 効果が出ない 手戻り 増えた 調査 2026 日本 エンジニア
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH11]
+events: []
+summary: システム開発に携わるITエンジニア321名へのインターネット調査(2026年5月)。AIツール普及後にストレスが増えたとする回答が36.1%で、非エンジニア職からの「もっと早くできるだろう」という期待が主因に挙がる。
+claims:
+  - id: c1
+    text: 2025年以降のAIツールの業務利用拡大でストレスが増えたかとの問いに、「非常にそう思う」7.8%、「ややそう思う」28.3%(計36.1%)が肯定した。
+    quote: 「非常にそう思う」が7.8%、「ややそう思う」が28.3% という回答となりました。
+    locator: Q5
+    quant:
+      value: 36.1%
+      n: "321"
+      design: インターネット調査(リサピー、2026-05-13〜05-20)
+      population: システム開発に携わる日本のITエンジニア
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: ストレス増と答えた人が挙げた新しいストレスは「非エンジニア職からのAIがあるならもっと早くできるだろうという期待やプレッシャー」が53.4%で最多。
+    quote: ・非エンジニア職から「AIがあるならもっと早くできるだろう」という期待やプレッシャーを受けること：53.4%
+    locator: Q6
+    quant:
+      value: 53.4%
+      n: "116"
+      design: インターネット調査(複数回答)
+      population: Q5で肯定したITエンジニア
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 最もストレスの高い開発フェーズは要件定義・仕様策定(23.4%)で、要因の最多は「事前に決まっていたはずのことが途中で変わること」(37.8%)。
+    quote: ・事前に決まっていたはずのことが途中で変わること：37.8%
+    locator: Q1〜Q2
+    quant:
+      value: 要件定義 23.4% / 途中変更 37.8%
+      n: 321 / 291
+      design: インターネット調査
+      population: システム開発に携わる日本のITエンジニア
+    evidenceKind: survey
+    rqs: [TH08-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.736Z
+    httpStatus: 200
+    finalUrl: https://prtimes.jp/main/html/rd/p/000000060.000068613.html
+    contentType: text/html; charset=utf-8
+    titleFetched: 【AIが生んだ「期待のズレ」】約半数が非エンジニア職から「AIがあるならもっと早くできるだろう」と言われた経験あり　約4割が「AIツール普及後、ストレスはむしろ増えた」と回答
+    titleMatch: true
+    dateMeta: 2026-08-31
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2025年以降 / 非常にそう思う7.8% / ややそう思う28.3% / 計36.1%
+        extractedQuote: 「Q5. AIツール（ChatGPT、GitHub Copilotなど）の業務利用が広がった2025年以降、あなた自身が感じるストレスは増えたと思いますか。」 （n=321）と質問したところ、 「非常にそう思う」が7.8%、「ややそう思う」が28.3% という回答となりました。
+        locator: Q5 / リード「02｜AIツール普及後にストレスが「増えた」と感じるエンジニアは36.1%にのぼる」
+        note: n=321(システム開発に携わるITエンジニア、IDEATECH「リサピー」によるインターネット調査、2026-05-13〜05-20)。タイトルは「約4割」と丸めているが、実数は36.1%。
+      c3:
+        verdict: match
+        extractedValue: 要件定義・仕様策定 23.4% / 「事前に決まっていたはずのことが途中で変わること」37.8%
+        extractedQuote: （n=321）と質問したところ、 「要件定義・仕様策定」が23.4%、「テスト（単体・結合・総合）」が15.0% という回答となりました。 … （n=291）と質問したところ、 「事前に決まっていたはずのことが途中で変わること」が37.8%
+        locator: Q1(n=321) / Q2(n=291)
+        note: Q2 は、Q1 で各自が選んだ「そのフェーズ」の要因を全フェーズの回答者(n=291、上位3つまで回答可)で集計したもの。要件定義フェーズに限った要因ではない。ask の並べ方では要件定義の要因と読まれうる。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

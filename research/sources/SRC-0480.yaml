@@ -1,0 +1,106 @@
+schemaVersion: 0
+id: SRC-0480
+status: included
+excludeReason: null
+title: "The AI-native SDLC is paying off: 19% more PRs and 2–3 hours saved per developer per week"
+url: https://www.atlassian.com/blog/ai-at-work/ai-native-sdlc-paying-off-per-developer-per-week
+canonicalUrl: https://atlassian.com/blog/ai-at-work/ai-native-sdlc-paying-off-per-developer-per-week
+ids:
+  arxiv: null
+  doi: null
+publisher: Atlassian
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-05-31
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH11
+  query: Atlassian State of Developer Experience 2026 report AI time saved
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11]
+events: []
+summary: Atlassian が自社製品 Rovo Dev の効果を、顧客2,500社の3,400リポジトリで傾向スコアマッチング付きの準実験(差の差)により測った報告。採用リポジトリは月あたりマージ PR が19%多い。時間短縮は社内6,200人超の自己申告を20パーセンタイル値で保守的に集計した。品質(変更失敗率)と満足度は未公表。
+claims:
+  - id: c1
+    text: 無作為化できないため、採用リポジトリの導入前後の変化を傾向スコアで対応付けた非採用リポジトリと比べる準実験を用いた。
+    quote: Because we could not randomly assign some teams to use Rovo Dev and others not to, we used a quasi-experiment methodology.
+    locator: "Speed: teams merge 19% more PRs"
+    quant: null
+    evidenceKind: observational
+    rqs: [TH11-Q3]
+    issues: []
+    stance: context
+  - id: c2
+    text: Rovo Dev 採用リポジトリは類似の非採用リポジトリより月あたりマージ PR が19%多かった(自社製品の自社測定)。
+    quote: We found that Rovo Dev drives a 19% increase in merged PRs per repo.
+    locator: "Speed: teams merge 19% more PRs"
+    quant:
+      value: +19% merged PRs per repo per month
+      n: 3,400 repos from 2,500 customers
+      design: quasi-experiment, difference-in-differences with propensity score matching
+      population: Atlassian customer repos
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: 自己申告は効果を過大に見せるため、平均でなく20パーセンタイルの申告値を保守的な推定として使った。
+    quote: Self-reported data can overstate impact, so we used the time saved reported at the 20th percentile rather than the average as a conservative estimate.
+    locator: "Efficiency: developers save 2-3 hours per week"
+    quant:
+      value: 2–3 hours/week saved (20th percentile)
+      n: 6,200+ Atlassian developers
+      design: self-reported survey
+      population: Atlassian internal developers
+    evidenceKind: survey
+    rqs: [TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:09.422Z
+    httpStatus: 200
+    finalUrl: https://www.atlassian.com/blog/ai-at-work/ai-native-sdlc-paying-off-per-developer-per-week
+    contentType: text/html; charset=UTF-8
+    titleFetched: "The AI-native SDLC is paying off: 19% more PRs and 2–3 hours saved per developer per week - Inside Atlassian"
+    titleMatch: true
+    dateMeta: 2026-06-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 20th percentile
+        extractedQuote: Self-reported data can overstate impact, so we used the time saved reported at the 20th percentile rather than the average as a conservative estimate.
+        locator: "Efficiency: developers save 2-3 hours per week(本文第2段落)"
+        note: 同節の表では Rovo Dev Users(6,093人)の20th Percentile Time Saving が「2-4 hours」、本文では「reported saving 2-4 hours」と「on average 2-3 hours」が並存し、見出しの 2–3 hours との関係が原典内で揺れている。ask 自体(20パーセンタイルを保守的推定に用いた)とは整合。
+        adjudication:
+          verdict: consistent
+          reason: claimText は blindQuote『Self-reported data can overstate impact, so we used the time saved reported at the 20th percentile rather than the average as a conservative estimate.』の忠実な訳。ただし claimQuant の『2–3 hours/week saved (20th percentile)』は、原典の表では Rovo Dev Users(6,093人)の20パーセンタイルが『2-4 hours』とされ、本文でも 2-4 と 2-3 が並存している(blindNote)。数値を20パーセンタイルと結び付けて引用しないこと。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://atlassian.com/blog/ai-at-work/ai-native-sdlc-paying-off-per-developer-per-week

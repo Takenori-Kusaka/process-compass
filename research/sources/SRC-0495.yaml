@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0495
+status: included
+excludeReason: null
+title: OWASP Top 10 for Agentic Applications for 2026
+url: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026
+canonicalUrl: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026
+ids:
+  arxiv: null
+  doi: null
+publisher: OWASP Gen AI Security Project — Agentic Security Initiative
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2025-12-09
+publishedBasis: page
+version: 2026 (December 2025)
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: OWASP Top 10 for Agentic Applications 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH06, TH07, TH01]
+events:
+  - date: 2025-12-09
+    label: OWASP Top 10 for Agentic Applications 2026 を公開
+summary: エージェント型アプリ固有の10リスク(ASI01 目標乗っ取り〜ASI10 暴走エージェント)。PDF 本文を読んだ。Least-Agency(不要な自律を与えない)を原則に掲げ、ASI09 で人が独立検証なしに承認する過信を独立したリスクとして扱う。
+claims:
+  - id: c1
+    text: 最小権限と Excessive Agency を拡張して Least-Agency を掲げ、必要のない所にエージェント的振る舞いを置かないよう勧める。分類は ASI01 Goal Hijack、ASI02 Tool Misuse、ASI03 Identity & Privilege Abuse、ASI04 Agentic Supply Chain、ASI05 Unexpected Code Execution、ASI06 Memory & Context Poisoning、ASI07 Insecure Inter-Agent Communication、ASI08 Cascading Failures、ASI09 Human-Agent Trust Exploitation、ASI10 Rogue Agents。
+    quote: We expand on the concepts of Least-Privilege and Excessive Agency by citing Least-Agency. This captures our advice to organizations to avoid unnecessary autonomy
+    locator: Letter from The Agentic Top 10 Leaders(p.6-7)/ Agentic Top 10 At A Glance
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3, TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: ASI09 は、人が自律的な推奨や検証できない根拠に過度に依拠し、独立した検証なしに承認することでリスクが増幅するとし、自動化バイアスと権威バイアスを悪用経路に挙げる。
+    quote: In agentic systems, this risk is amplified when humans over-rely on autonomous recommendations or unverifiable rationales, approving actions without independent validation.
+    locator: "ASI09: Human-Agent Trust Exploitation — Description(p.33)"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3, TH06-Q4, TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 機微な操作に最終確認の段がないと、利用者の信頼がそのまま即時実行に変わり、不可逆な送金・削除・権限昇格につながるとする。
+    quote: "Missing Confirmation for Sensitive Actions: Lack of a final verification step converts user trust into immediate execution."
+    locator: ASI09 — Common Examples of the Vulnerability 2(p.33)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q3, TH07-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:15.707Z
+    httpStatus: 200
+    finalUrl: https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/
+    contentType: text/html; charset=UTF-8
+    titleFetched: OWASP Top 10 for Agentic Applications for 2026
+    titleMatch: true
+    dateMeta: 2025-12-10
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: ASI01 Agent Goal Hijack / ASI02 Tool Misuse & Exploitation / ASI03 Identity & Privilege Abuse / ASI04 Agentic Supply Chain Vulnerabilities / ASI05 Unexpected Code Execution (RCE) / ASI06 Memory & Context Poisoning / ASI07 Insecure Inter-Agent Communication / ASI08 Cascading Failures / ASI09 Human-Agent Trust Exploitation / ASI10 Rogue Agents
+        extractedQuote: We expand on the concepts of Least-Privilege and Excessive Agency by citing Least-Agency. ... deploying agentic behavior where it is not needed expands the attack surface without adding value.
+        locator: Letter from The Agentic Top 10 Leaders (p.7) / Agentic Top 10 At A Glance (p.8)
+        note: PDF は resource ページの download リンク(download/52117)から取得した(Version 2026, December 2025)。PDF のページ番号では Letter の該当段落は p.7、At A Glance は p.8 にあり、locator の p.6-7 とは1ページずれる(Letter 自体は p.6 から始まる)。分類名はおおむね一致するが、原文は 'Tool Misuse & Exploitation'、'Agentic Supply Chain Vulnerabilities'、'Unexpected Code Execution (RCE)'、'Agent Goal Hijack' であり、ask は一部を短縮している。
+      c2:
+        verdict: match
+        extractedValue: ASI09
+        extractedQuote: this risk is amplified when humans over-rely on autonomous recommendations or unverifiable rationales, approving actions without independent validation. By leveraging authority bias
+        locator: "ASI09: Human-Agent Trust Exploitation — Description (p.33)"
+        note: "自動化バイアスは続く段落にある: 'Automation bias, perceived authority, and anthropomorphic cues make abuse look legitimate and hard to spot.' 原文は authority bias を 'persuasive explainability' と並べて攻撃手段とし、automation bias は '悪用を正当に見せる要因' として書かれている。両者を同列の '悪用経路' とまとめる ask の表現は、原文の書き分けをやや平らにしている。"
+      c3:
+        verdict: match
+        extractedValue: Missing Confirmation for Sensitive Actions
+        extractedQuote: "Missing Confirmation for Sensitive Actions: Lack of a final verification step converts user trust into immediate execution. Social engineering can turn a single prompt into irreversible financial"
+        locator: ASI09 — Common Examples of the Vulnerability 2 (p.33)
+        note: 原文では不可逆な結果に至る経路として 'Social engineering can turn a single prompt into...' と社会工学を条件にしている。ask はこの条件を省き、列挙から 'configuration changes' も落としている。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

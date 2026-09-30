@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0229
+status: included
+excludeReason: null
+title: About GitHub Copilot code review
+url: https://docs.github.com/en/copilot/concepts/agents/code-review
+canonicalUrl: https://docs.github.com/en/copilot/concepts/agents/code-review
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Docs
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: Copilot code review comment review does not count toward required approvals
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH04, TH07, TH03]
+events: []
+summary: Copilot code review の概念文書。レビュー努力水準（Lite/Balanced）とその費用目安、Copilot 承認、指示・スキルの読み込み元（head ブランチ）、人のレビューで補うべきことを定める。
+claims:
+  - id: c1
+    text: レビューの努力水準を変更の重要度で選ぶよう推奨する。セキュリティ上重要なコードや複数サービスにまたがる PR には Balanced、定型変更には Lite。
+    quote: Use Balanced for security-sensitive code, multi-service pull requests, or repositories with strict quality standards.
+    locator: Review effort level
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH04-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 1回のレビューの費用目安は Lite で約 $0.05〜$1、Balanced で約 $0.25〜$5 の AI credits（ベンダーの推定値、標本・測定方法の記載なし）。
+    quote: A review typically consumes an estimated $0.05 USD to $1 USD worth of AI credits with "Lite" effort, and $0.25 USD to $5 USD worth of AI credits with "Balanced" effort.
+    locator: Estimated consumption
+    quant:
+      value: $0.05–$1 (Lite) / $0.25–$5 (Balanced) per review
+      n: not stated
+      design: vendor estimate
+      population: Copilot code review runs
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: Copilot code review はカスタム指示・エージェント指示・スキルを base ではなく head ブランチ（レビュー対象の変更側）から読む。レビュー対象の PR 自身がレビュアーの規則を書き換えられる構成であり、検証の独立性の観点で注意を要する。
+    quote: When reviewing a pull request, Copilot reads repository custom instructions, agent instructions, and agent skills from the head branch (the branch with your changes), not the base branch.
+    locator: Agent skills
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q3, TH07-Q2]
+    issues: [258]
+    stance: context
+  - id: c4
+    text: Copilot はすべての問題を見つける保証がなく誤りもあるため、指摘を検証し人のレビューで補うよう明記する（承認機能の追加後も同じ文書に併記）。
+    quote: Always validate Copilot's feedback carefully. Supplement Copilot's feedback with a human review.
+    locator: 末尾（Further reading の直前）
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:23.106Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/copilot/concepts/agents/code-review
+    contentType: text/html; charset=utf-8
+    titleFetched: About GitHub Copilot code review - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: not guaranteed to spot all problems or issues / Always validate Copilot's feedback / Supplement ... with a human review
+        extractedQuote: Copilot is not guaranteed to spot all problems or issues in a pull request. ... Always validate Copilot's feedback carefully. Supplement Copilot's feedback with a human review.
+        locator: 節『Validating Copilot code reviews』(末尾、『Next steps』の直前)
+        note: locator の『Further reading の直前』は実際には『Next steps』の直前。同一文書に『Copilot approvals』節(public preview)があり、有効化すると Copilot の承認レビューが required-approval rule を満たすと記載されている。併記の事実は本文で確認できる
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

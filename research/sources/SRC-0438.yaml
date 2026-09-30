@@ -1,0 +1,94 @@
+schemaVersion: 0
+id: SRC-0438
+status: included
+excludeReason: null
+title: Content of Premarket Submissions for Device Software Functions
+url: https://www.fda.gov/media/153781/download
+canonicalUrl: https://fda.gov/media/153781/download
+ids:
+  arxiv: null
+  doi: null
+publisher: U.S. Food and Drug Administration
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2023-06-14
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH08
+  query: IEC 62304 traceability requirement 5.1.1 system requirements software requirements verification traceability FDA
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH12]
+events: []
+summary: FDA の医療機器ソフトウェア申請文書ガイダンス(2023-06-14 発行、非拘束)。検証の客観的証拠としてレビューとトレーサビリティ分析を挙げ、IEC 62304 への適合宣言で文書要素を代替できるとする。curl は拒否され、tavily_extract で該当節のみ取得した。
+claims:
+  - id: c1
+    text: ソフトウェア検証では、SDS(出力)が SRS(入力)の全要求を正しく完全に実装していることを、レビューやトレーサビリティ分析という客観的証拠で確認する。
+    quote: confirming by objective evidence (e.g., reviews, traceability analysis) that the software design as documented in the SDS (i.e., output) correctly and completely implements all the requirements
+    locator: Software verification の説明節
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+  - id: c2
+    text: トレーサビリティ分析の例として、SRS→SDS とその逆、ソースコード→SDS とその逆など、双方向の対応を挙げている。
+    quote: software requirements specification to software design specification (and vice versa), source code to software design specification (and vice versa)
+    locator: 同上
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 開発実務の文書要素は、FDA 認定版 IEC 62304 への適合宣言(5.1.1 ソフトウェア開発計画ほか)で代替できる。
+    quote: a sponsor may provide a Declaration of Conformity to the FDA-recognized version of ANSI/AAMI/IEC 62304
+    locator: Software Development, Configuration Management, and Maintenance Practices
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2, TH12-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:45.189Z
+    httpStatus: 200
+    finalUrl: https://www.fda.gov/media/153781/download
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: IEC 62304 / subclause 5.1.1 (“Software development plan”)
+        extractedQuote: A Declaration of Conformity36 to the FDA-recognized version of IEC 62304, including subclauses 5.1.1-5.1.3, 5.1.6-5.1.9, clause 6 (Software maintenance process), and clause 8
+        locator: Section VI.G Software Development, Configuration Management, and Maintenance Practices(文書要素の表、および本文 'Alternatively, ... including subclauses 5.1.1 (“Software development plan”), 5.1.2 ...')
+        note: curl は FDA の abuse-detection で 404 に転送されたため tavily_extract で本文の該当チャンクを取得(全文ではない)。原文は『要約(life cycle development plan の要約と構成管理・保守活動の要約)OR 適合宣言』の二者択一で、適合宣言の対象は ANSI/AAMI/IEC 62304 の 5.1.1-5.1.3, 5.1.6-5.1.9, clause 6, clause 8 'among others as applicable'。規格全体への適合宣言は不要と明記。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://fda.gov/media/153781/download

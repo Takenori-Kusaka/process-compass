@@ -1,0 +1,100 @@
+schemaVersion: 0
+id: SRC-0227
+status: included
+excludeReason: null
+title: "AWS Summit Japan 2026 Physical AI デモの裏側 Part 1: 企画からステージ制作、アプリケーション開発まで"
+url: https://aws.amazon.com/jp/blogs/news/physical-ai-autonomous-agent-demo-backstage-part1/
+canonicalUrl: https://aws.amazon.com/jp/blogs/news/physical-ai-autonomous-agent-demo-backstage-part1
+ids:
+  arxiv: null
+  doi: null
+publisher: Amazon Web Services ブログ(アマゾン ウェブ サービス ジャパン)
+authors: [西田 光彦, 水野 貴博]
+orgType: vendor
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-09-01
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: Kiro 仕様駆動開発 AWS ジャパン ブログ 2026年
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH08, TH10, TH02]
+events: []
+summary: AWS ジャパンの SA が、少人数・兼務・実質統合 1 か月で AWS Summit Japan 2026 のデモを Kiro で作った開発記録。要件・設計・タスクを形式的に分けず Design Doc を唯一の正として Issue 単位で実装し、Steering で規約を集約、統合期は Mob Construction で回したと記す。
+claims:
+  - id: c1
+    text: Kiro の要件・設計・タスクを形式的に分けて管理せず、チームで共有していた Design Doc を唯一の正とし、Design Doc に沿った実装計画を GitLab の Issue に書き出して Issue 単位で実装した。
+    quote: 要件・設計・タスクを形式的に分けて管理するのではなく、 チームで共有していた Design Doc を唯一の「正」とする 運用にしました。
+    locator: Design Doc を正とした Issue 駆動開発
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH03-Q2, TH05-Q1]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 複数人が同じコードベースで AI に書かせると流儀が混ざるが、Steering に規約を集約して誰が書かせても同じ流儀のコードが出る状態を保てた。
+    quote: Steering に規約を集約したことで、「誰が Kiro に書かせても同じ流儀のコードが出てくる」状態を維持できました。
+    locator: Steering — プロジェクトの「暗黙知」を明文化してブレを防ぐ
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 統合期はホワイトボードで仕様を合意しその場で Kiro に実装させる Mob Construction で、3 日間に 109 コミットを積み上げた。
+    quote: この高速ループで 3 日間 109 コミット （コードの変更履歴 109 件）を積み上げています。
+    locator: Mob Construction — 3 日間 109 コミットの裏側
+    quant:
+      value: 3日間で109コミット
+      n: 1 プロジェクト
+      design: self-report
+      population: AWS ジャパン SA チームのデモ開発
+    evidenceKind: case-report
+    rqs: [TH10-Q3, TH11-Q3]
+    issues: []
+    stance: context
+  - id: c4
+    text: エージェントの判断が不安定な時期に、指示文の曖昧な表現(「適切に」「必要に応じて」)を AI 自身に洗い出させて具体的な条件に書き換え、判断のブレを抑えた。
+    quote: AI への指示文の中の曖昧な表現（「適切に」「必要に応じて」など）を AI 自身に洗い出させて具体的な条件に書き換え、判断のブレを抑えました。
+    locator: Mob Construction 節(デバッグ)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q3, TH08-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:14.671Z
+    httpStatus: 200
+    finalUrl: https://aws.amazon.com/jp/blogs/news/physical-ai-autonomous-agent-demo-backstage-part1/
+    contentType: text/html;charset=UTF-8
+    titleFetched: "AWS Summit Japan 2026 Physical AI デモの裏側 Part 1: 企画からステージ制作、アプリケーション開発まで | Amazon Web Services"
+    titleMatch: true
+    dateMeta: 2026-09-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://aws.amazon.com/jp/blogs/news/physical-ai-autonomous-agent-demo-backstage-part1

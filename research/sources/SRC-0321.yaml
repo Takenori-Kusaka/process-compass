@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0321
+status: included
+excludeReason: null
+title: "Requirements After the First Edit: Mining Late Requirement Emergence and Rework in Real-World Coding-Agent Sessions"
+url: https://arxiv.org/abs/2609.03028
+canonicalUrl: arxiv:2609.03028
+ids:
+  arxiv: "2609.03028"
+  doi: null
+publisher: arXiv (cs.SE) / Karlsruhe Institute of Technology ほか
+authors: [Bowen Jiang, Haowei Cheng, Yuhong Fu, Anne Koziolek, Jialong Li, Weixing Zhang]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-09-02
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: (abs:"requirements engineering" OR ti:requirements) AND (abs:agent OR abs:agentic OR abs:LLM) AND cat:cs.SE'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH09]
+events: []
+summary: 実際のコーディングエージェント会話(SWE-chat の3,553セッション)で、実装が始まった後に現れる要求と、それが引き起こすエージェント作成コードの削除・置換(手戻り)を結びつけた観察研究と統制実験。
+claims:
+  - id: c1
+    text: SWE-chat の再生可能なセッションで、実装開始後に要求が現れた 452 件では、その後の無効化行数(再生したリポジトリ状態から作った代理指標)が平均 57.5 行と、対応する非要求の編集(29.4 行)の約2倍(比 1.96、95% CI [1.31, 2.82])だった。ただし事後の再マッチングでは比 1.66 [0.97, 2.71] と区間が 1 をまたぎ、関連は時間的なものにとどまり因果とは示されていない。
+    quote: A requirement’s arrival is followed by roughly twice as much invalidation as matched non-requirement edits
+    locator: Abstract; §5 Results RQ2a
+    quant:
+      value: 約2倍の invalidation
+      n: 3,553 eligible SWE-chat sessions(再生可能な部分集合で行単位の連結)
+      design: observational(replay-derived proxy)+ controlled experiment
+      population: 実環境のコーディングエージェント・セッション
+    evidenceKind: observational
+    rqs: [TH08-Q1, TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: この負担はセッション内で減衰せず、事前の警告は上書きを減らさなかった(開示を遅らせると実装が開示後へ移るだけ)。
+    quote: A controlled experiment shows delayed disclosure relocates implementation post-reveal, while advance warning produces no detected effect on overwriting.
+    locator: Abstract; controlled experiment
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH08-Q1, TH09-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: 関連は時間的なものであり、因果や意味的な結びつきは示されていないと著者が限定する。
+    quote: though not demonstrated as causal
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH09-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:52.029Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.03028
+    contentType: text/html; charset=utf-8
+    titleFetched: "Requirements After the First Edit: Mining Late Requirement Emergence and Rework in Real-World Coding-Agent Sessions"
+    titleMatch: true
+    dateMeta: 2026-09-02
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Requirements After the First Edit: Mining Late Requirement Emergence and Rework in Real-World Coding-Agent Sessions"
+      authors: ["Jiang, Bowen", "Cheng, Haowei", "Fu, Yuhong", "Koziolek, Anne", "Li, Jialong", "Zhang, Weixing"]
+      v1Date: 2026-09-02
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: roughly twice (ratio 1.96, 95% repository-bootstrap CI [1.31, 2.82])
+        extractedQuote: A requirement’s arrival is followed by roughly twice as much invalidation as matched non-requirement edits
+        locator: Abstract; §5 Results RQ2a
+        note: "RQ2a: 452 real events average 57.5 invalidated lines versus 29.4 for their set-weighted controls, a ratio of 1.96。無効化の尺度は再生できたリポジトリ状態から作った代理指標で、対象は SWE-chat の 3,553 セッションのうち再生可能な部分集合。事後の再マッチングでは比が 1.66 [0.97, 2.71] で、区間が 1 をまたぐ。論文は関連が時間的なものにとどまり、因果とも意味的な結びつきとも示されていないと明記している。"
+        adjudication:
+          verdict: corrected
+          reason: 「約2倍」「因果とは示されていない」は抜粋どおり。一方で、事後の再マッチングでは比が 1.66 に下がり、信頼区間が 1 をまたぐという頑健性の留保が抜けている(blindNote)。無効化の尺度が代理指標であること、対象が再生可能な部分集合であることも欠けている。括弧内の定義「既存のエージェント作成行の削除・置換」は抜粋では確認できないため、訂正文から外した。
+          date: 2026-09-24
+          originalText: 実装開始後に要求が現れると、対応する非要求の編集に比べて約2倍のコード無効化(既存のエージェント作成行の削除・置換)が続いた。ただし因果とは示されていない。
+          originalQuote: A requirement's arrival is followed by roughly twice as much invalidation as matched non-requirement edits
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

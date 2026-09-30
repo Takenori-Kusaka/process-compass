@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0397
+status: included
+excludeReason: null
+title: "From Human-Centric to Agentic Code Review: The Impact of Different Generations of Generative AI Technology on Review Quality"
+url: https://arxiv.org/abs/2607.13196
+canonicalUrl: arxiv:2607.13196
+ids:
+  arxiv: "2607.13196"
+  doi: null
+publisher: arXiv (Queen's University)
+authors: [Suzhen Zhong, Shayan Noei, Bram Adams, Ying Zou]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-07-14
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH06
+  query: habituation reviewers agent-generated pull requests approval rates increased inline comments decreased 22% arXiv 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH11]
+events: []
+summary: 207 プロジェクト・102 万 PR を人間中心・LLM 支援・エージェントの 3 時代で比較。AI エージェントが関わるレビューは判定が速くなるが品質は上がらず、同じレビュア(同一 AI)への偏り『Review Buddies』が大きく増えた。
+claims:
+  - id: c1
+    text: AI エージェントが起点・複数関与するレビューは判定を速めるが、その効率化はレビュー品質の向上につながっていない。
+    quote: However, these efficiency gains do not translate into better review quality.
+    locator: Abstract
+    quant:
+      value: 効率は向上、品質は改善せず
+      n: 1.02M PR / 207 GitHub プロジェクト(2022-05〜2026-02)
+      design: observational (interaction-sequence modeling, regression)
+      population: AI レビュアを導入した OSS プロジェクト
+    evidenceKind: observational
+    rqs: [TH06-Q4, TH11-Q3]
+    issues: [268]
+    stance: supports
+  - id: c2
+    text: 同じレビュアへの反復依存(Review Buddies)は、人間のみのレビューの 16% から LLM 関与で 60%、エージェント関与で 53% に増えた。同一 AI の反復利用がレビュアの多様性を狭めると著者は解釈する。
+    quote: Review Buddies, which rises from 16% for human-only reviews to 60% for LLM-involved patterns and 53% for agent-involved patterns on average
+    locator: §V Discussion
+    quant:
+      value: 16% → 60%(LLM)/ 53%(エージェント)
+      n: 同上
+      design: observational
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:01.084Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.13196
+    contentType: text/html; charset=utf-8
+    titleFetched: "From Human-Centric to Agentic Code Review: The Impact of Different Generations of Generative AI Technology on Review Quality"
+    titleMatch: true
+    dateMeta: 2026-07-14
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "From Human-Centric to Agentic Code Review: The Impact of Different Generations of Generative AI Technology on Review Quality"
+      authors: ["Zhong, Suzhen", "Noei, Shayan", "Adams, Bram", "Zou, Ying"]
+      v1Date: 2026-07-14
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

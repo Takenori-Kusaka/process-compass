@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0433
+status: included
+excludeReason: null
+title: How Requirements Quality Makes (or Breaks) Traceability Link Recovery
+url: https://arxiv.org/abs/2606.11834
+canonicalUrl: arxiv:2606.11834
+ids:
+  arxiv: "2606.11834"
+  doi: null
+publisher: arXiv(IEEE RE 2026 採録予定)
+authors: [Hey Tobias, Frattini Julian]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-06-10
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH08
+  query: LLM traceability link recovery requirements to code 2026 arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08]
+events: []
+summary: 189件のユースケース記述に28種の品質欠陥を注釈し、5種の自動トレースリンク回復(TLR)手法の性能への影響を統計的に検定した実証研究(RE 2026 採録予定)。
+claims:
+  - id: c1
+    text: 要求の品質欠陥には TLR 性能を損なうもの(名詞句で始まらない文など)と、逆に性能を上げるもの(実装詳細を含むユースケースなど)がある。手法の種類によって反応も異なる。
+    quote: some quality defects harm TLR performance, e.g., sentences that do not start with noun phrases, while others actually benefit performance, e.g., use cases that include implementation details
+    locator: Abstract
+    quant:
+      value: 28 defect types; 5 TLR approaches
+      n: 189 use case descriptions, 2 datasets
+      design: annotation + statistical tests
+      population: public TLR datasets
+    evidenceKind: observational
+    rqs: [TH08-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: TLR 性能を最適化する手法の選択は、データセット(要求記述)の品質に依存する。自動トレース回復の結果は要求の書き方に左右される。
+    quote: the performance-optimizing choice of a TLR approach depends on the quality of the dataset
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH08-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:45.384Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2606.11834
+    contentType: text/html; charset=utf-8
+    titleFetched: How Requirements Quality Makes (or Breaks) Traceability Link Recovery
+    titleMatch: true
+    dateMeta: 2026-06-10
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: How Requirements Quality Makes (or Breaks) Traceability Link Recovery
+      authors: ["Hey, Tobias", "Frattini, Julian"]
+      v1Date: 2026-06-10
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "harm: sentences that do not start with noun phrases / benefit: use cases that include implementation details(規模: 28 types of defect, 189 use case descriptions, 2 datasets, 5 TLR approaches)"
+        extractedQuote: some quality defects harm TLR performance, e.g., sentences that do not start with noun phrases, while others actually benefit performance, e.g., use cases that include implementation details.
+        locator: Abstract
+        note: "ask には伏せ字がない(hasQuant=true だが数値欄なし)。Abstract の数値は 'we annotated 28 types of quality defect in 189 use case descriptions from two datasets. Then, we executed five distinct TLR approaches'。 引用の次文: 'Moreover, different types of approaches respond differently to these defects.'"
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

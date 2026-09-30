@@ -1,0 +1,94 @@
+schemaVersion: 0
+id: SRC-0487
+status: included
+excludeReason: null
+title: Regulation (EU) 2024/1689 (Artificial Intelligence Act) — Article 14 Human oversight / Article 26 Obligations of deployers
+url: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401689
+canonicalUrl: https://eur-lex.europa.eu/legal-content/en/txt/html?uri=oj:l_202401689
+ids:
+  arxiv: null
+  doi: null
+publisher: European Parliament and Council of the European Union (EUR-Lex)
+authors: []
+orgType: government
+region: eu
+lang: en
+sourceType: regulation
+published: 2024-07-12
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH12
+  query: AI Act Article 14 human oversight guidelines Commission
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH06]
+events: []
+summary: AI Act 原文の第14条(人間による監視)と第26条(導入者の義務)。監視は「自然人が効果的に監督できる」設計を提供者に課し、導入者に権限と能力を持つ自然人への割当てを課す。Annex III の高リスクへの適用は Digital Omnibus により 2027-12-02 からに延びた。
+claims:
+  - id: c1
+    text: 高リスク AI は、適切なヒューマンマシンインタフェースを含め、使用期間中に自然人が効果的に監督できるよう設計・開発されなければならない(提供者側の設計義務)。
+    quote: High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons
+    locator: Article 14(1)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: 導入者は、必要な能力・訓練・権限と支援を備えた自然人に人間による監視を割り当てなければならない。監視という役割そのものは自然人が担うことを明示している(他の役割を人が占めることまでは述べていない)。
+    quote: Deployers shall assign human oversight to natural persons who have the necessary competence, training and authority, as well as the necessary support.
+    locator: Article 26(2)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 遠隔生体識別(Annex III 1(a))では、識別結果に基づく行動・決定の前に、能力・訓練・権限を持つ2人以上の自然人による個別の確認を要求する(二者確認の規定)。
+    quote: unless that identification has been separately verified and confirmed by at least two natural persons with the necessary competence, training and authority
+    locator: Article 14(5)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:47.071Z
+    httpStatus: 200
+    finalUrl: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202401689
+    contentType: text/html; charset=UTF-8
+    titleFetched: L_202401689EN.000101.fmx.xml
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: Annex III point 1(a) / at least two natural persons(2人以上)
+        extractedQuote: For high-risk AI systems referred to in point 1(a) of Annex III, ... unless that identification has been separately verified and confirmed by at least two natural persons with the necessary competence
+        locator: Article 14(5)(Annex III 1(a) = remote biometric identification systems)
+        note: 同項後段に、法執行・移民・国境管理・庇護の目的で、EU法または国内法が過剰と判断する場合は二者確認を適用しないという例外がある(ask には言及なし)。取得した HTML は 2024 年官報の原文で、Omnibus(2026/1744)による第14条の改正有無は確認していない。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML?uri=OJ:L_202401689

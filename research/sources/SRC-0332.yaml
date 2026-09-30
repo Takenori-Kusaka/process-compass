@@ -1,0 +1,104 @@
+schemaVersion: 0
+id: SRC-0332
+status: included
+excludeReason: null
+title: Management of Organizational Change (OSHA standard interpretation memorandum, 29 CFR 1910.119(l))
+url: https://www.osha.gov/laws-regs/standardinterpretations/2009-03-31-0
+canonicalUrl: https://osha.gov/laws-regs/standardinterpretations/2009-03-31-0
+ids:
+  arxiv: null
+  doi: null
+publisher: U.S. Department of Labor, Occupational Safety and Health Administration
+authors: [Fairfax Richard E.]
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2009-03-31
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH02
+  query: CCPS management of organizational change staffing reductions MOC guidelines
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02]
+events: []
+summary: 化学プロセス安全管理(PSM)の変更管理(MOC)条項を、組織・人員・予算の変更に適用する際の OSHA の解釈。人員削減や予算削減が手順・設備に波及するなら MOC が必要、波及しないなら不要という判定フローを示す。
+claims:
+  - id: c1
+    text: 合併・再編・人員変更・予算改定といった組織変更は、プラント水準の PSM に影響しうるため MOC 手続を起動しうる。体制の変化を変更管理の起点として扱う公的解釈である。
+    quote: Some organizational changes, such as changes resulting from mergers, acquisitions, reorganizations, staffing changes, or budget revisions, may affect PSM at the plant level
+    locator: paragraph 2
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 運転要員を減らす場合、既存の運転手順を維持できない可能性があるため、MOC を実施して手順を新しい人員水準に合わせて改めることを求める。
+    quote: when the number of employees operating a process is to be reduced due to an organizational change, operators may not be able to continue implementation of existing operating procedures.
+    locator: paragraph 4 (staffing example)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 5要素(化学物質・技術・設備・手順・施設)に影響しない組織変更は MOC を起動しない。起動条件を「体制変更そのもの」ではなく「手順・設備への波及」で限定している。
+    quote: Other organizational changes may not impact any of the five elements listed in 29 CFR 1910.119 (l)(1) and therefore would not trigger PSM MOC.
+    locator: paragraph 6 / flowchart
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q2]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 本メモは MOC の対象となる変更の種類を追加・変更するものではなく、既存条項の適用を明確にする位置づけである。
+    quote: It does not add to or modify the types of changes subject to MOC
+    locator: paragraph 1
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:13.211Z
+    httpStatus: 200
+    finalUrl: https://www.osha.gov/laws-regs/standardinterpretations/2009-03-31-0
+    contentType: text/html; charset=UTF-8
+    titleFetched: Management of Organizational Change | Occupational Safety and Health Administration
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: "five elements(5 elements: Process Chemicals, Technology, Equipment, Procedures, Facilities)"
+        extractedQuote: Other organizational changes may not impact any of the five elements listed in 29 CFR 1910.119 (l)(1) and therefore would not trigger PSM MOC.
+        locator: 本文の Budgetary changes 例の次の段落; Organizational Change flowchart
+        note: curl では CloudFront 403 だったが tavily_extract で本文を取得できた。原文は起動条件を『5要素への変更を必要とする(necessitate)か』で限定しており、ask の趣旨と整合する。ただし同じメモは、組織変更で運転員数を減らす場合は既存の運転手順を続けられない可能性があるため『An MOC procedure must be implemented』と例示している。人員削減は手順への波及を通じて MOC を起動しうる。フローチャートでは Replacement In Kind も MOC 不要とされる
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://osha.gov/laws-regs/standardinterpretations/2009-03-31-0

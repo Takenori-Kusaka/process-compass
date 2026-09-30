@@ -1,0 +1,137 @@
+schemaVersion: 0
+id: SRC-0608
+status: included
+excludeReason: null
+title: "Guardrails Beat Guidance: A Large-Scale Study of Rules, Skills, and Persistent Configuration for Coding Agents"
+url: https://arxiv.org/abs/2604.11088
+canonicalUrl: arxiv:2604.11088
+ids:
+  arxiv: "2604.11088"
+  doi: null
+publisher: arXiv
+authors: [Zhang Xing, Wang Guanghui, Cui Yanwei, Qiu Wei, Li Ziyuan, Zhu Bing, He Peiyang]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-04-13
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-05-28
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: 'arXiv API: all:"AGENTS.md" OR all:"CLAUDE.md"'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04, TH07]
+events: []
+summary: 反証として取得。GitHub の規則ファイル 679 本(25,532 規則)を集め、Claude Code+Claude Opus 4.6 で SWE-bench Verified を 5,000 回超実行した統制実験(査読前)。規則数 0〜50 で合格率は落ちず、効果は内容にほぼ依存せず、有益な規則はすべて禁止形だった。測ったのは課題の合格率で規則の遵守率ではなく、50 規則は数万トークン規模に届かない。
+claims:
+  - id: c1
+    text: 規則数を 0 から 50 まで増やしても合格率は安定していた(相転移なし)。「規則を増やすと劣化する」への反証だが、指標は課題合格率で遵守率ではない。
+    quote: pass rates remain stable across rule counts from 0 to 50
+    locator: Abstract
+    quant:
+      value: pass rate 59-67% band across 0/1/3/5/10/20/50 rules; 50 rules 66.7% vs 0 rules 60.3%
+      n: 7 rule counts x 3 random seeds (19 conditions); >5,000 agent runs overall
+      design: controlled experiment, paired design
+      population: Claude Code + Claude Opus 4.6, discriminative subset of SWE-bench Verified
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1, TH04-Q2, TH03-Q3]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 50 規則は 0 規則をわずかに上回った(66.7% 対 60.3%)。分散の主因は規則の本数ではなくどの規則を引いたか。
+    quote: with 50 rules slightly outperforming zero rules (66.7% vs. 60.3%)
+    locator: "§6.2 Experiment 2: Does Rule Count Matter?"
+    quant:
+      value: 66.7% vs 60.3%
+      n: 3 seeds per rule count
+      design: controlled experiment
+      population: Claude Code + Claude Opus 4.6, SWE-bench Verified subset
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q3, TH04-Q2]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: 性能向上は内容にほぼ依存しない。無作為・並べ替え・分野違いの規則ファイルも精選した規則と同等で、著者は文脈のプライミングと解釈する。
+    quote: random, shuffled, mismatched-domain, and unconverted-format rule files all match curated rules, pointing to a context priming mechanism
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 個別に有益だった規則はすべて禁止形(〜するな)で、個別に有害だった規則はすべて指示形(〜に従え)だった。
+    quote: every individually beneficial rule is a negative constraint
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q5, TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 著者は外的妥当性を単一ベンダー・単一モデル・単一ベンチマークに限定している。
+    quote: All experiments use Claude Code with Claude Opus 4.6 on SWE-bench Verified (Python bug fixes only).
+    locator: §7 Limitations
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1, TH04-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:57.371Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2604.11088
+    contentType: text/html; charset=utf-8
+    titleFetched: "Guardrails Beat Guidance: A Large-Scale Study of Rules, Skills, and Persistent Configuration for Coding Agents"
+    titleMatch: true
+    dateMeta: 2026-04-13
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: "Guardrails Beat Guidance: A Large-Scale Study of Rules, Skills, and Persistent Configuration for Coding Agents"
+      authors: ["Zhang, Xing", "Wang, Guanghui", "Cui, Yanwei", "Qiu, Wei", "Li, Ziyuan", "Zhu, Bing"]
+      v1Date: 2026-04-13
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 0 から 50
+        extractedQuote: "(iii) Individual rules often appear harmful in isolation yet do not visibly accumulate damage in ensemble: pass rates remain stable across rule counts from 0 to 50."
+        locator: Abstract (arXiv:2604.11088 abs ページ)
+        note: 指標は pass rate(SWE-bench Verified の課題合格率)で、規則の遵守率は測っていない点は原典と整合。「相転移なし」の語は Abstract には無く、§6.2 の Finding 2「No phase transition; ensemble resilience」にある。条件は Claude Code + Claude Opus 4.6、各条件 n=58 タスク、規則数は 0/1/3/5/10/20/50 の7水準 × 3 seed。§6.2 は「within the range we tested」と範囲を限定している。
+        adjudication:
+          verdict: consistent
+          reason: "Abstract の「pass rates remain stable across rule counts from 0 to 50」と一致。「相転移なし」は §6.2 Finding 2「No phase transition; ensemble resilience」にあり、指標が課題合格率で遵守率ではない点も blindNote と整合する。留意点: 条件は Claude Code + Claude Opus 4.6、n=58 タスク、7水準 × 3 seed で、§6.2 は「within the range we tested」と範囲を限定している。claimQuant の具体値(59〜67% の帯、66.7% 対 60.3%)は抜粋からは確認できない。「反証」という位置づけは主張側の評価。"
+          date: 2026-09-30
+      c2:
+        verdict: match
+        extractedValue: 50 規則 対 0 規則(66.7% 対 60.3%)
+        extractedQuote: Pass rates stay in the 59–67% band regardless of rule count ( Figure 3 a), with 50 rules slightly outperforming zero rules (66.7% vs. 60.3%).
+        locator: "§6.2 Experiment 2: Does Rule Count Matter? / Finding 2"
+        note: "分散の主因の記述も同段落にある: \"The dominant source of variance is which rules are sampled (seed variance up to 17pp at count =1), not how many.\" 差は有意でない(Cochran's Q=22.12, p=0.227、19 条件)。n=58 タスク/条件。"
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

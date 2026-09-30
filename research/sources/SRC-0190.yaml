@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0190
+status: included
+excludeReason: null
+title: What's New in Cursor — Latest Updates & Release Notes
+url: https://cursor.com/changelog
+canonicalUrl: https://cursor.com/changelog
+ids:
+  arxiv: null
+  doi: null
+publisher: Cursor
+authors: []
+orgType: startup
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-1
+  query: "direct: cursor.com/changelog"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH10]
+events:
+  - date: 2026-09-02
+    label: Cursor が self-hosted machines を提供
+  - date: 2026-09-23
+    label: Cursor が Rollouts と Security Review ボットを提供
+summary: Cursor の changelog(取得日 2026-09-23)。Rollouts は自らマージ・ロールバックしない、Security Review は重大度・攻撃経路・修正案を付けて指摘する、と明記する。
+claims:
+  - id: c1
+    text: デプロイ監視ボット Rollouts は現時点で自らマージもロールバックもしない(差し戻し PR の作成までに留める)。
+    quote: Rollouts does not merge or roll back on its own today.
+    locator: Regressions
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q2]
+    issues: [282]
+    stance: supports
+  - id: c2
+    text: Security Review の指摘は重大度・攻撃経路・修正案を必ず伴う様式である。
+    quote: Each finding carries a severity, the attack path, and a proposed fix.
+    locator: Findings
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.689Z
+    httpStatus: 200
+    finalUrl: https://cursor.com/changelog
+    contentType: text/html; charset=utf-8
+    titleFetched: What&#x27;s New in Cursor — Latest Updates & Release Notes
+    titleMatch: false
+    dateMeta: 2026-09-23
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

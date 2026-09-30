@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0448
+status: included
+excludeReason: null
+title: Optimizing CI for stacked pull requests
+url: https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests
+canonicalUrl: https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub Docs
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-30
+publishedBasis: meta
+version: null
+updated: 2026-08-07
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH10
+  query: GitHub stacked PRs pull_request workflow trigger base branch CI checks run on stacked branch
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH04]
+events: []
+summary: スタック型PRでの GitHub Actions の発火規則。pull_request トリガーは各PRがスタック基底を向いているものとして発火し、CI 回数がスタック段数倍になるため、stack メタデータで絞る方法を示す。日付は github/docs のコミット履歴による。
+claims:
+  - id: c1
+    text: main を対象とする pull_request ワークフローは、ネイティブのスタックでは最下段だけでなく全段で発火し、ワークフローの変更は不要とされる(手動スタックで上段にCIが掛からない base 制約を解消)。
+    quote: A workflow configured to run on pull_request events targeting main runs for every pull request in the stack, not just the bottom one
+    locator: How workflows run for a stack
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: contradicts
+  - id: c2
+    text: ワークフローはPRごとに1回走るため、大きなスタックは CI 使用量を段数倍に増やす。公式は最下段(未マージの最下位)と最上段(全変更を含む)に重い処理を限る条件式を示す。
+    quote: Because a workflow runs once per pull request, a large stack multiplies your CI usage. However, you can use stack metadata to run expensive jobs only where they are needed.
+    locator: How workflows run for a stack / Reducing CI usage
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: qualifies
+  - id: c3
+    text: stack の位置・段数・基底ブランチは github.event.pull_request.stack として式から参照でき、スタックに属する場合にのみ存在する。
+    quote: Stack metadata is available in workflow expressions via github.event.pull_request.stack. This property is present only when the pull request belongs to a stack
+    locator: Accessing stack metadata
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:55.912Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests
+    contentType: text/html; charset=utf-8
+    titleFetched: Optimizing CI for stacked pull requests - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: once(PR ごとに 1 回)
+        extractedQuote: Because a workflow runs once per pull request, a large stack multiplies your CI usage. However, you can use stack metadata to run expensive jobs only where they are needed.
+        locator: How workflows run for a stack / Reducing CI usage
+        note: "Reducing CI usage は2条件を示す: 'Lowest unmerged pull request'(stack.base.ref == base.ref)と 'Top pull request — the last pull request in the stack, containing the full set of changes'(position == size)。原文は『段数倍』とは書かず 'multiplies'。position == 1 や任意の position で絞る方法も併記。機能は public preview。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

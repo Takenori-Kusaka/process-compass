@@ -1,0 +1,101 @@
+schemaVersion: 0
+id: SRC-0454
+status: included
+excludeReason: null
+title: "DevOps in 2026: the benchmarks for elite delivery"
+url: https://linearb.io/library/devops
+canonicalUrl: https://linearb.io/library/devops
+ids:
+  arxiv: null
+  doi: null
+publisher: LinearB
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: "2026"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: DORA 2026 State of AI-assisted Software Development report released batch size
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11]
+events: []
+summary: LinearB の 2026 Software Engineering Benchmarks Report を引く解説ページ(日付・著者の表示なし)。エージェント作成PRのレビュー開始待ちが人のPRの約5倍と報告する。データはベンダー保有で外部から再現できない。
+claims:
+  - id: c1
+    text: AIエージェントが作成したPRは、75パーセンタイルでレビュー開始まで17.6時間待ち、AI 非支援のPRの3.4時間を大きく上回る。
+    quote: Pull requests created by AI agents wait 17.6 hours before review at the 75th percentile against 3.4 hours for unassisted pull requests.
+    locator: 冒頭節 / How does AI change DevOps?
+    quant:
+      value: P75 で 17.6時間 対 3.4時間(レビュー開始待ち)
+      n: 報告全体 810万PR・4,800チーム・42か国(エージェントPRの部分集合の件数は記載なし)
+      design: observational(ベンダー基盤の蓄積データ)
+      population: LinearB 利用チーム
+    evidenceKind: observational
+    rqs: [TH10-Q3, TH11-Q2]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: 報告の標本は 810万超のPR、4,800チーム、42か国と明記されている。
+    quote: according to LinearB's 2026 Software Engineering Benchmarks Report, built from more than 8.1 million pull requests from 4,800 teams across 42 countries.
+    locator: 冒頭段落
+    quant:
+      value: 8.1M PRs / 4,800 teams / 42 countries
+      n: 8.1M PRs
+      design: observational
+      population: LinearB 利用チーム
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: AI はパイプラインへ入るコード量を増やすがレビュー・リリース能力は増やさないため、制約は下流(レビュー)へ移るという解釈を示す。
+    quote: AI increases the volume of code entering the pipeline without increasing review or release capacity, so the constraint moves downstream.
+    locator: How does AI change DevOps?
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:57.061Z
+    httpStatus: 200
+    finalUrl: https://linearb.io/library/devops
+    contentType: text/html; charset=utf-8
+    titleFetched: "DevOps in 2026: the benchmarks for elite delivery"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: more than 8.1 million PRs(810万超) / 4,800 teams / 42 countries
+        extractedQuote: according to LinearB's 2026 Software Engineering Benchmarks Report, built from more than 8.1 million pull requests from 4,800 teams across 42 countries.
+        locator: 冒頭節「DevOps and the four measures that show whether it works」第1段落
+        note: ベンダー(LinearB)自社ページが自社の 2026 Benchmarks Report を引用する形。値は ask と整合する形で抽出可能。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

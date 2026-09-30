@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0221
+status: included
+excludeReason: null
+title: "Bringing Antigravity to Gemini Enterprise: Agentic workflows for every developer"
+url: https://antigravity.google/blog/antigravity-enterprise
+canonicalUrl: https://antigravity.google/blog/antigravity-enterprise
+ids:
+  arxiv: null
+  doi: null
+publisher: Google Antigravity Blog
+authors: [The Antigravity Team]
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-08-20
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: antigravity.google docs review policy artifact "request review" terminal command auto execution
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04, TH07, TH12]
+events:
+  - date: 2026-08-20
+    label: Google Antigravity を Gemini Enterprise の対象ライセンスに同梱
+summary: Antigravity を Gemini Enterprise に同梱した発表。管理者向けに、サンドボックス・MCP 権限の制限、予算上限と共有トークンプール、上限付き超過利用、プロンプト・ツール実行・生成物を記録する監査ログを提供すると述べる。
+claims:
+  - id: c1
+    text: ワンクリックで全面的な監査ログを有効にし、プロンプト・エージェントのツール実行・生成物を記録できる。
+    quote: "Central audit logging & data privacy: Enable full audit logging with one toggle to capture prompts, agent tool executions, and generated artifacts."
+    locator: High-autonomy execution inside enterprise boundaries
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH12-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: プロジェクト・チーム・個人単位で月次予算の閾値を設定でき、共有トークンプールで割当の遊休を防ぐ。
+    quote: "Granular budget caps & pooled quotas: Set monthly budget thresholds in Google Cloud Billing across projects, teams, and individuals."
+    locator: High-autonomy execution inside enterprise boundaries
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: context
+  - id: c3
+    text: 上限付きの超過利用を選べ、作業中のワークフローが途中で切断されないようにする。定額上限による稼働停止をベンダーが設計課題として扱っている。
+    quote: "Overage controls: Opt into overages with strict caps so active workflows aren’t cut off mid-task."
+    locator: High-autonomy execution inside enterprise boundaries
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:22.661Z
+    httpStatus: 200
+    finalUrl: https://antigravity.google/blog/antigravity-enterprise
+    contentType: text/html
+    titleFetched: "Bringing Antigravity to Gemini Enterprise: Agentic workflows for every developer | Google Antigravity Blog"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 月次予算の閾値(projects, teams, individuals)、共有トークンプール
+        extractedQuote: Set monthly budget thresholds in Google Cloud Billing across projects, teams, and individuals. Shared token pools prevent purchased quota from sitting idle
+        locator: High-autonomy execution inside enterprise boundaries 節の箇条書き
+        note: 設定場所は Google Cloud Billing。共有プールの目的は遊休の防止に加えて、需要の多いチームへの資源確保も挙げられている。初回の curl 取得は圧縮本文だったため、--compressed で取り直した。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

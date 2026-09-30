@@ -1,0 +1,94 @@
+schemaVersion: 0
+id: SRC-0171
+status: included
+excludeReason: null
+title: "System Card: Claude Opus 5.5"
+url: https://www.anthropic.com/claude-opus-5-5-system-card
+canonicalUrl: https://anthropic.com/claude-opus-5-5-system-card
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-22
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: Opus 5.5 発表ページの System Card リンク(PDF)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11]
+events: []
+summary: Opus 5.5 のシステムカード(PDF)。SWE-bench は Pro / Multilingual / Multimodal の 3 種のみを報告し、Verified を報告対象から外した。
+claims:
+  - id: c1
+    text: Opus 5.5 のシステムカードは SWE-bench を 3 種(Pro / Multilingual / Multimodal)だけ報告し、Opus 5 のシステムカードにあった Verified を外した。
+    quote: "SWE-bench tests AI models on real-world software engineering tasks. We report three variants, where each score is an average over five trials:"
+    locator: §8.2 SWE-bench Pro, Multilingual, and Multimodal
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: supports
+  - id: c2
+    text: Opus 5.5 の SWE-bench Pro は 89.9%(自社測定)。表では Opus 5 が 79.2%、Fable 5.1 が 81.2%。
+    quote: Claude Opus 5.5 achieved 89.9%.
+    locator: §8.2 / Table 8.1.A
+    quant:
+      value: 89.9%
+      n: SWE-bench Pro x 5 trials
+      design: vendor-run benchmark
+      population: Claude Opus 5.5
+    evidenceKind: benchmark
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.845Z
+    httpStatus: 200
+    finalUrl: https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3 種(SWE-bench Pro / Multilingual / Multimodal)
+        extractedQuote: "SWE-bench tests AI models on real-world software engineering tasks. We report three variants, where each score is an average over five trials:"
+        locator: §8.2 SWE-bench Pro, Multilingual, and Multimodal(PDF p.175)
+        note: 本システムカード(PDF 全文を pdftotext で抽出)には "SWE-bench Verified" への言及が一切ない。「Opus 5 のシステムカードにあった Verified を外した」は本資料からは検証不能で、除外理由の説明もない(比較には Opus 5 システムカード側の確認が要る)
+      c2:
+        verdict: match
+        extractedValue: "Opus 5.5: 89.9% / Opus 5: 79.2 / Fable 5.1: 81.2(GPT-6 Astra は –)"
+        extractedQuote: SWE-bench Pro16 is composed of problems drawn from actively maintained repositories with large, multi-file diffs. Claude Opus 5.5 achieved 89.9%.
+        locator: §8.2 本文 および Table 8.1.A(PDF p.174)行 "SWE-bench Pro 89.9 79.2 81.2 –"
+        note: '表の列対応は PDF の座標で確認(81.2 は x=432 で見出し "Claude Fable 5.1" 列 x=414 の下)。条件: adaptive thinking at max effort、5 試行平均。表注に "See the Claude Opus 5 System Card for evaluation details of earlier Claude models"。「自社測定」の語は原典に無いが、表注は競合値のみ他社公表値から引いたと記す'
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/claude-opus-5-5-system-card

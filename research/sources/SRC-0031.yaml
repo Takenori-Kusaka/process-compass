@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0031
+status: included
+excludeReason: null
+title: How effective are traditional test criteria at detecting bugs in large language models generated code?
+url: https://arxiv.org/abs/2609.09315
+canonicalUrl: arxiv:2609.09315
+ids:
+  arxiv: "2609.09315"
+  doi: null
+publisher: arXiv (University of Luxembourg)
+authors: [Asma Hamidi, Michael Konstantinou, Renzo Degiovanni, Mike Papadakis]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2026-09-08
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00a-3
+  query: 'tavily: "On the risk of coding before testing" critique OR replication (反証探索で発見)'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH07]
+events: []
+summary: 2607.05139 と同グループの後続研究。5 LLM×4 ベンチマークで 6,000 件超の欠陥プログラムを集め、カバレッジ・ミューテーションの充足基準が LLM 由来の欠陥検出を保証しないこと、仕様誘導のオラクル生成の改善が平均約 6.6% にとどまることを報告。05139 の効果量と「ミューテーションスコアは信頼できる尺度」を限定する材料。
+claims:
+  - id: c1
+    text: 実欠陥検出率はしばしばゼロ近傍にとどまる。生成テストは欠陥経路を実行しても、オラクルが誤った挙動を捉えないため。
+    quote: Third, actual fault detection rates remain extremely low, often near zero, because test oracles fail to capture faulty behavior triggered by the generated test prefixes
+    locator: Abstract / Finding 2
+    quant:
+      value: near zero
+      n: 6,000+ faulty program instances; 5 LLMs × 4 benchmarks
+      design: controlled experiment
+      population: LLM 生成コードと LLM 生成テストの end-to-end ワークフロー
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123, 135]
+    stance: qualifies
+  - id: c2
+    text: 実装を隠し、タスク記述(NL 仕様)からオラクルを生成させる prompt-aware 方式は欠陥検出を改善するが、平均約 6.6% にとどまり、テストアサーションの人手検証が依然として必要。
+    quote: While this approach shows some potential, the overall effectiveness remains limited (we observe a fault detection improvement of around 6.6% on average).
+    locator: §1 Introduction / Finding 4
+    quant:
+      value: +6.6% avg
+      n: 5 LLMs × 4 benchmarks
+      design: controlled experiment
+      population: prompt-aware oracle generation vs code-aware
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123, 135]
+    stance: qualifies
+  - id: c3
+    text: ミューテーションテストは、欠陥のトリガ・検出の双方で従来のカバレッジ基準を僅差でしか上回らず、その高い適用コストが正当化されるか疑問を呈する。
+    quote: We further observe that mutation testing only marginally outperforms traditional coverage criteria in both triggering and detecting faults
+    locator: Abstract / Finding 1
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [123]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:02.875Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.09315
+    contentType: text/html; charset=utf-8
+    titleFetched: How effective are traditional test criteria at detecting bugs in large language models generated code?
+    titleMatch: true
+    dateMeta: 2026-09-08
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: How effective are traditional test criteria at detecting bugs in large language models generated code?
+      authors: ["Hamidi, Asma", "Konstantinou, Michael", "Degiovanni, Renzo", "Papadakis, Mike"]
+      v1Date: 2026-09-08
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

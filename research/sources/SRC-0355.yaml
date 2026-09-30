@@ -1,0 +1,139 @@
+schemaVersion: 0
+id: SRC-0355
+status: included
+excludeReason: null
+title: When Single-Agent with Skills Replace Multi-Agent Systems and When They Fail
+url: https://arxiv.org/abs/2601.04748
+canonicalUrl: arxiv:2601.04748
+ids:
+  arxiv: "2601.04748"
+  doi: null
+publisher: arXiv
+authors: [Li Xiaoxiao]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-01-08
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-01-14
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: skill selection accuracy degrades number of skills agent benchmark 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03]
+events: []
+summary: 5〜200本の統制されたスキル群で選択精度を測り、ある本数を超えると急落する相転移、意味の紛らわしさが主因であること、階層的ルーティングで回復することを示した予備研究。
+claims:
+  - id: c1
+    text: スキル選択精度は緩やかに低下するのではなく、臨界的なライブラリ規模までは安定し、それを超えると急落する相転移を示す。ただし著者は、この劣化ではライブラリ規模だけでなく、類似スキル間の意味的な紛らわしさが中心的な役割を果たすとしている。
+    quote: Rather than degrading gradually, selection accuracy remains stable up to a critical library size, then drops sharply, indicating a phase transition reminiscent of capacity limits in human cognition.
+    locator: Abstract
+    quant:
+      value: library 5–200 skills
+      n: controlled skill libraries, GPT-4o / GPT-4o-mini
+      design: controlled experiment
+      population: synthetic skill libraries on reasoning benchmarks
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 精度が最大値の半分に落ちる本数(容量パラメータ κ)は GPT-4o-mini で91.8、GPT-4o で83.5と推定された。検証モデルは GPT-4o 系のみ。
+    quote: The fitted capacity parameter κ is 91.8 for GPT-4o-mini and 83.5 for GPT-4o, representing the library size at which accuracy drops to half its maximum
+    locator: §5 scaling results
+    quant:
+      value: κ=91.8 (GPT-4o-mini), 83.5 (GPT-4o)
+      n: 2 models
+      design: curve fitting on controlled experiment
+      population: GPT-4o family only
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 劣化の主因は本数そのものより、似たスキル同士の意味の紛らわしさである。
+    quote: semantic confusability among similar skills, rather than library size alone, plays a central role in this degradation.
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 粗→細の階層的ルーティング(第1段10〜40群、第2段は群内3本)で選択精度が回復し、GPT-4o-mini で+37〜40pt 改善した。
+    quote: hierarchical routing restores reliable selection by organizing skills into structured categories.
+    locator: Figure 1 caption / §6
+    quant:
+      value: +37–40% absolute (GPT-4o-mini)
+      n: GPT-4o family
+      design: controlled experiment
+      population: large skill libraries beyond κ
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1, TH03-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:22.280Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2601.04748
+    contentType: text/html; charset=utf-8
+    titleFetched: When Single-Agent with Skills Replace Multi-Agent Systems and When They Fail
+    titleMatch: true
+    dateMeta: 2026-01-08
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: When Single-Agent with Skills Replace Multi-Agent Systems and When They Fail
+      authors: ["Li, Xiaoxiao"]
+      v1Date: 2026-01-08
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: critical library size(Abstract に数値なし)
+        extractedQuote: Rather than degrading gradually, selection accuracy remains stable up to a critical library size, then drops sharply, indicating a phase transition reminiscent of capacity limits in human cognition.
+        locator: Abstract
+        note: ask に伏せ字はなく、Abstract にも臨界本数の具体値はない(数値は §5.2 の κ)。Abstract は続けて 'semantic confusability among similar skills, rather than library size alone, plays a central role in this degradation' と述べ、本数だけが原因ではないとしている。
+        adjudication:
+          verdict: corrected
+          reason: 相転移の記述は Abstract どおり。ただし Abstract は続けて「semantic confusability among similar skills, rather than library size alone, plays a central role」と述べる。主張は本数だけが劣化を決めるように読めるため、この条件を補った。claimQuant の 5–200 skills は抜粋では確認できない(Abstract に数値なし)。
+          date: 2026-09-24
+          originalText: スキル選択精度は緩やかにではなく、臨界本数までは安定し、それを超えると急落する相転移を示す。
+          originalQuote: Rather than degrading gradually, selection accuracy remains stable up to a critical library size, then drops sharply, indicating a phase transition reminiscent of capacity limits in human cognition.
+      c2:
+        verdict: match
+        extractedValue: "κ: GPT-4o-mini 91.8 / GPT-4o 83.5"
+        extractedQuote: The fitted capacity parameter κ is 91.8 for GPT-4o-mini and 83.5 for GPT-4o, representing the library size at which accuracy drops to half its maximum
+        locator: "§5.2 H1: Non-linear Phase Transition / Results(arXiv v2)"
+        note: 評価モデルは 'We evaluate skill selection performance on GPT-4o-mini and GPT-4o' の2モデルのみ。GPT-4o の κ が mini より低い点について、著者は 'fitting variance given limited data points' の可能性を挙げる。§5.6 の指針では 'κ≈50–100 for the tested GPT models' と幅で表記。
+      c4:
+        verdict: match
+        extractedValue: "第1段: 4〜40群(n_groups∈{4,6,8,10,20,30,40})/ 第2段: 群内3本 / GPT-4o-mini +37〜40%(絶対値)"
+        extractedQuote: For GPT-4o-mini, hierarchy improves accuracy by +37–40% absolute (from ∼ 45% to ∼ 83–85%). For GPT-4o, the improvement is +9–10% (from ∼ 63% to ∼ 72%).
+        locator: "§5.5 H4: Hierarchy Mitigation(Experimental Design / Results)"
+        note: 4〜40群・各3本は実験条件の範囲(ライブラリ総数 12〜120)であり、推奨設計値ではない。改善幅は |S|≥60 の大規模ライブラリでの値。原文は Naive Domain Hierarchy と Confusability-Aware Hierarchy の2方式を比較しており、+37–40% がどちらを指すかは本文で明示されていない('hierarchy improves')。Figure 1 caption と §6 に数値はない。§5.6 Limitations で著者は階層方式が 'relatively simple' と述べる。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

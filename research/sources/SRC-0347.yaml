@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0347
+status: included
+excludeReason: null
+title: Open Source Project Security Baseline (OSPS Baseline) v2026.02.19
+url: https://baseline.openssf.org/versions/2026-02-19.html
+canonicalUrl: https://baseline.openssf.org/versions/2026-02-19.html
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenSSF Security Baseline SIG (Linux Foundation)
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: standard
+published: 2026-02-19
+publishedBasis: page
+version: v2026.02.19 (current)
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: OpenSSF OSPS Baseline maturity levels Level 1 Level 2 Level 3 controls projects
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH06, TH12]
+events:
+  - date: 2026-02-19
+    label: OSPS Baseline v2026.02.19 を公開(現行版)
+summary: OSS プロジェクト向けのセキュリティ統制カタログ。統制を成熟度 Level 1〜3 に割り付け、保守者数と利用者数で段階を定義する。作者以外の人による承認の必須化は Level 3 にだけ課される。
+claims:
+  - id: c1
+    text: 成熟度を、Level 1 = 保守者・利用者数を問わない全プロジェクト、Level 2 = 保守者2名以上かつ継続利用者が少数、Level 3 = 継続利用者が多数、と定義する。統制の有効化条件を体制(人数)と利用規模で定めている。
+    quote: "Level 2: for any code project that has at least 2 maintainers and a small number of consistent users"
+    locator: Controls Overview
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q4, TH02-Q1]
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: 主ブランチへのマージ前に作者以外の人間による承認を1件以上必須とする統制(OSPS-QA-07.01)は Level 3 にだけ適用される。保守者1名の段階では独立レビューを課さない設計である。
+    quote: "Requirement: When a commit is made to the primary branch, the project's version control system MUST require at least one non-author human approval of the changes before merging."
+    locator: "OSPS-QA-07.01 (Control applies to: Maturity Level 3)"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1, TH02-Q4]
+    issues: [249, 267]
+    stance: supports
+  - id: c3
+    text: 自動ステータスチェックの合格(または手動の承認)をマージ条件にする統制は Level 2 以上で、任意のチェックを合否条件にしないよう勧める。承認者が迂回したくなる検査を作らない配慮である。
+    quote: It is recommended that any optional status checks are NOT configured as a pass or fail requirement that approvers may be tempted to bypass.
+    locator: "Status checks control (Control applies to: Maturity Level 2, 3)"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q4, TH07-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:21.663Z
+    httpStatus: 200
+    finalUrl: https://baseline.openssf.org/versions/2026-02-19.html
+    contentType: text/html; charset=utf-8
+    titleFetched: Open Source Project Security Baseline
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Level 1 = 保守者・利用者数を問わない / Level 2 = 保守者2名以上かつ継続利用者少数 / Level 3 = 継続利用者多数
+        extractedQuote: "Level 1 : for any code or non-code project with any number of maintainers or users Level 2 : for any code project that has at least 2 maintainers and a small number of consistent users"
+        locator: Controls Overview
+        note: "Level 3 の原文: 'for any code project that has a large number of consistent users'(保守者数の条件なし)。Level 1 は code / non-code 双方、Level 2・3 は 'code project' に限定される点が ask では省かれている。「統制の有効化条件を体制と利用規模で定めている」は解釈。"
+      c2:
+        verdict: match
+        extractedValue: 作者以外の人間による承認 1件以上(at least one non-author human approval)/ OSPS-QA-07.01 / Maturity Level 3 のみ
+        extractedQuote: "OSPS-QA-07.01 Requirement: When a commit is made to the primary branch , the project 's version control system MUST require at least one non-author human approval of the changes before merging."
+        locator: "OSPS-QA-07 - Require Merge Approvals / OSPS-QA-07.01(Control applies to: Maturity Level 3)"
+        note: "'Control applies to: Maturity Level 3' を確認。ask 後半の「保守者___名の段階では独立レビューを課さない設計」は原文に書かれた意図ではなく、適用レベルからの推論。Level 2 の定義は『保守者2名以上かつ継続利用者少数』で、『保守者2名の段階』とは同値でない。Level 3 の定義は利用者数のみで保守者数を問わない。"
+      c3:
+        verdict: match
+        extractedValue: OSPS-QA-03.01 / Maturity Level 2, 3(Level 2 以上)
+        extractedQuote: "It is recommended that any optional status checks are NOT configured as a pass or fail requirement that approvers may be tempted to bypass. Control applies to: Maturity Level 2 Maturity Level 3"
+        locator: OSPS-QA-03 - Address Pass/Fail Checks Before Accepting Changes / OSPS-QA-03.01 Recommendation
+        note: 要件本文は 'any automated status checks for commits MUST pass or be manually bypassed'(手動の迂回)。ask の「手動の承認」は Recommendation の 'require manual acknowledgement' に対応する。統制の目的文は 'Ensure that the project's approvers do not become accustomed to tolerating failing status checks'。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

@@ -1,0 +1,206 @@
+schemaVersion: 0
+id: SRC-0051
+status: included
+excludeReason: null
+title: "awslabs/aidlc-workflows: AI-Driven Life Cycle (AI-DLC) adaptive workflow steering rules for AI coding agents"
+url: https://github.com/awslabs/aidlc-workflows
+canonicalUrl: https://github.com/awslabs/aidlc-workflows
+ids:
+  arxiv: null
+  doi: null
+publisher: AWS Labs(GitHub)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: repo
+published: 2025-11-13
+publishedBasis: page
+version: v2.9.0(2026-09-15)/ Workflows 2.0 GA on main
+updated: 2026-09-23
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: GET https://api.github.com/repos/awslabs/aidlc-workflows / tavily_extract README
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH07, TH08, TH01, TH02]
+events:
+  - date: 2025-11-13
+    label: リポジトリ作成
+  - date: 2026-09-15
+    label: v2.9.0 リリース(AI-DLC Workflows 2.0 GA on main)
+  - date: 2026-09-23
+    label: 最終 push(取得日と同日、活発に更新中)
+summary: 前回メモで「突き合わせ未了」だった AWS の AI-DLC 実装。2026-09 時点で 2.0 が GA、5 フェーズ 33 ステージ、14 エージェント、7 つのハーネス(Claude Code / Kiro IDE / Kiro CLI / Codex CLI / Cursor / opencode / GitHub Copilot)へ単一 core から生成。全ステージに承認ゲート、91 種のイベント監査ログ。README 自身が「弱いモデルでは承認ゲートを急ぐ」と注記する。
+claims:
+  - id: c1
+    text: 現行 README によれば、AI-DLC は初期化から運用までの 5 フェーズ・33 ステージで構成され、14 エージェント(専門 11・レビュー 2・適応型コンポーザー 1)と人による承認ゲートを備える。
+    quote: "- 5 phases and 33 stages from initialization through operation - 14 agents: 11 domain experts, 2 reviewers, and an adaptive composer ... - Human approval gates and source-bound review evidence"
+    locator: README「Why AI-DLC」節(現行 main。README の最終変更は 2026-09-22 commit 353e112)
+    quant:
+      value: 5 phases / 33 stages / 14 agents / 7 harnesses
+      n: null
+      design: self-description
+      population: aidlc-workflows 2.0
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2, TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 現行 README は、AI-DLC が初期化(initialization)から運用(operation)までの 5 フェーズ・33 ステージから成ると記している。
+    quote: 5 phases and 33 stages from initialization through operation
+    locator: README「Why AI-DLC」節(現行)。「Key Features」節は現行 README に存在しない
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2, TH08-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: README 自身が、弱いモデルではコンダクターがレビューパスや学習儀式を飛ばし承認ゲートを急ぐと注記する。ゲートの遵守がモデル能力に依存するというベンダー側の自認。
+    quote: AI-DLC on Kiro (IDE or CLI) works best with Claude Opus 4.8, which requires a paid Kiro plan. On weaker models the conductor may skip optional stage steps (reviewer pass, learnings ritual) or rush approval gates.
+    locator: Pick your harness 直下の Note
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, TH02-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 人の修正を永続的な行動規則に変える学習ループと、91 種のイベントからなる監査証跡を備える。
+    quote: 91-event audit trail - structured logging for enterprise traceability
+    locator: Key Features
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2]
+    issues: []
+    stance: context
+  - id: c5
+    text: GitHub API によると、リポジトリは 2025-11-13 に作成され、2026-09-23 に push がある。スター数とフォーク数は取得時刻で変わり、2026-09-24 取得時点ではスター 4,791・フォーク 871 である。
+    quote: '"created_at":"2025-11-13T22:05:08Z","updated_at":"2026-09-23T22:28:50Z","pushed_at":"2026-09-23T22:33:08Z" ... "stargazers_count":4791 ... "forks_count":871'
+    locator: GitHub API /repos/awslabs/aidlc-workflows
+    quant:
+      value: 4,781 stars / 869 forks
+      n: null
+      design: platform count
+      population: GitHub
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: context
+  - id: c6
+    text: 機能・バグ修正・インフラ・セキュリティ・PoC・エンタープライズ等の11のプロファイルで適用ステージを絞り込む(ツリー状の絞り込み)。
+    quote: 11 workflow profiles for features, bug fixes, infrastructure, security, proofs of concept, enterprise delivery, and other common work
+    locator: Why AI-DLC
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2]
+    issues: []
+    stance: supports
+  - id: c7
+    text: 11名の領域専門エージェント、2名のレビュア、適応的な構成役の14エージェント編成を採る。
+    quote: "14 agents: 11 domain experts, 2 reviewers, and an adaptive composer"
+    locator: Why AI-DLC
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2, TH01-Q3]
+    issues: []
+    stance: context
+verification:
+  status: partial
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:06.089Z
+    httpStatus: 200
+    finalUrl: https://github.com/awslabs/aidlc-workflows
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - awslabs/aidlc-workflows: AI-Driven Life Cycle (AI-DLC) adaptive workflow steering rules for AI coding agents"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "現行 README: 14 agents(11 domain experts / 2 reviewers / adaptive composer 1)、33 stages、Human approval gates、version バッジ 2.9.0。「main で GA」の記述は現行 README に無い"
+        extractedQuote: "- 5 phases and 33 stages from initialization through operation - 14 agents: 11 domain experts, 2 reviewers, and an adaptive composer ... - Human approval gates and source-bound review evidence"
+        locator: README「Why AI-DLC」節(現行 main。README の最終変更は 2026-09-22 commit 353e112)
+        note: "現行 README 冒頭は \"AI-DLC - one core, many harnesses\" で GA 表記も版番号入りの GA 宣言も無い。ask の文言(GA on main / review-only agents / approving every gate)は旧 README(2026-09-01 commit 96b11d3 〜 2026-09-08 commit 1c64d9a)の冒頭と一致: \"AI-DLC Workflows 2.0 is **GA** on this repository's default `main` branch.\" / \"a 14-agent roster — 11 domain experts, 2 review-only agents, and the adaptive-workflows composer — working through a 33-stage workflow, with you approving every gate.\" 2026-09-08 commit 78a6879(docs: simplify installation and quick start)で削除。locator の pushed_at(2026-09-23)時点でも README は現行と同じなので、主張は取得日表示より古い版の README に基づく可能性がある。現行の版数は 2.9.0(旧版バッジは 2.8.0)。"
+        adjudication:
+          verdict: corrected
+          reason: エージェント数の内訳(11/2/1)・33 ステージ・人の承認ゲートは blindQuote と一致する。一方、「AI-DLC Workflows 2.0 は main ブランチで GA」は現行 README に無い。blindNote によれば、この文言は 2026-09-01〜09-08 版の README にだけあり、commit 78a6879 で削除された(claimQuote も現行本文では not-found)。GA に触れるなら、該当 commit を出典として別に示す必要がある。claimQuant の「7 harnesses」は抜粋では確かめられない。
+          date: 2026-09-23
+          originalText: AI-DLC Workflows 2.0 は main ブランチで GA。14 エージェント(専門 11・レビュー専用 2・コンポーザー 1)が 33 ステージを進み、各ゲートは人が承認する。
+          originalQuote: Run a full software-development lifecycle with a 14-agent roster — 11 domain experts, 2 review-only agents, and the adaptive-workflows composer — working through a 33-stage workflow, with you approving every gate.
+      c2:
+        verdict: match
+        extractedValue: 5(phases)。現行 README にはフェーズ名の列挙も前版の記述も無い
+        extractedQuote: 5 phases and 33 stages from initialization through operation
+        locator: README「Why AI-DLC」節(現行)。「Key Features」節は現行 README に存在しない
+        note: 'フェーズ名は旧 README(2026-09-01〜09-08 版)の Key Features にある: "5 phases, 33 stages — Initialization, Ideation, Inception, Construction, Operation"。「前版(___-___)の___フェーズ(Inception / Construction / Operations)」は現行・旧 2.x README のどちらにも無い。v1 系 README(例: commit e2ed0cf、2026-05-19)に "Three-Phase Adaptive Workflow" と "three-phase workflow (Inception → Construction → Operations)" がある。前版の期間・版番号(___-___)はこの URL からは取れない。AWS ブログ(SRC-0052, 2025-11-29)にも "Each AI-DLC phase (Inception, Construction, Operations)" とある。'
+        adjudication:
+          verdict: corrected
+          reason: "5 フェーズ・33 ステージは blindQuote で確かめられる。フェーズ名 5 つの列挙は現行 README に無く、2026-09-01〜09-08 版の Key Features にだけある。「前版(2025-11)の 3 フェーズ(Inception / Construction / Operations)」も現行 README に無い。3 フェーズ構成は v1 系 README(例: commit e2ed0cf、2026-05-19)と AWS ブログ(SRC-0052、2025-11-29)に見られるが、この URL から前版の時期や版番号は特定できない。3 フェーズからの拡張を述べるなら、旧版 commit や SRC-0052 を出典として別に示す必要がある。"
+          date: 2026-09-23
+          originalText: 5 フェーズは Initialization / Ideation / Inception / Construction / Operation。前版(2025-11)の 3 フェーズ(Inception / Construction / Operations)から拡張された。
+          originalQuote: 5 phases, 33 stages — Initialization, Ideation, Inception, Construction, Operation
+      c3:
+        verdict: not-found-in-source
+        extractedValue: ""
+        extractedQuote: ""
+        locator: Pick your harness 節(現行)。直下は Recommended Model 節で、弱いモデルに関する Note は無い
+        note: '現行 README の該当箇所は "AI-DLC works best with capable reasoning models. The current recommended model is Claude Opus 4.8." のみ。旧 README(2026-09-01〜09-08 版, commit 1c64d9a)では Pick your harness 直下の Note に "AI-DLC on Kiro (IDE or CLI) works best with Claude Opus 4.8, which requires a paid Kiro plan. On weaker models the conductor may skip optional stage steps (reviewer pass, learnings ritual) or rush approval gates." があった。食い違い: 原文は Kiro(IDE/CLI)に限った注記で、飛ばされるのは "optional stage steps" と明記している。ask は Kiro 限定と「任意(optional)」を落として一般化している。「ゲートの遵守がモデル能力に依存するというベンダー側の自認」は主張者の解釈で、原文には無い。旧版には "This release works better with Claude Opus 4.8. We are sharpening it for previous model versions." もあった。'
+        adjudication:
+          verdict: unsupported
+          reason: blindQuote が空で、現行 README には弱いモデルについての注記が無い(Recommended Model 節は「capable reasoning models で最もよく動く」だけ)。blindNote によれば、旧 README(commit 1c64d9a、2026-09-01〜09-08 版)に近い注記があった。ただしその注記は Kiro(IDE/CLI)に限った話で、飛ばされるのは「optional stage steps」と書かれている。主張はこの 2 つの条件を落として一般化している。「ゲートの遵守がモデル能力に依存するというベンダー側の自認」も主張者の解釈で、原文には無い。現行の出典からは支持も否定もできない。旧版を出典にする場合は、Kiro 限定と任意ステップという条件を付けて書き直す必要がある。
+          date: 2026-09-23
+      c4:
+        verdict: match
+        extractedValue: "102(現行: 102-event audit trail)。旧版の値は 91 → 96 → 99 → 102 と変わってきた"
+        extractedQuote: 102-event audit trail plus persistent state, team knowledge, and learned rules
+        locator: README「Why AI-DLC」節(現行)
+        note: '現行 README は "learned rules" と書くだけで、「人の修正を永続的な行動規則に変える」に当たる文言は無い。旧 Key Features(2026-09-01〜09-08)には "Rules and a learning loop — human corrections become persistent behavioral rules" と "91-event audit trail" がある。イベント数は版ごとに違う: 91(〜09-08 の 78a6879)、96(89e1f44, 09-11)、99(a8c477c, 09-15)、102(261083c, 09-19 以降〜現行)。'
+      c5:
+        verdict: match
+        extractedValue: created_at 2025-11-13T22:05:08Z、pushed_at 2026-09-23T22:33:08Z、stargazers_count 4791、forks_count 871(2026-09-24 取得時点)
+        extractedQuote: '"created_at":"2025-11-13T22:05:08Z","updated_at":"2026-09-23T22:28:50Z","pushed_at":"2026-09-23T22:33:08Z" ... "stargazers_count":4791 ... "forks_count":871'
+        locator: GitHub API /repos/awslabs/aidlc-workflows
+        note: 値は取得時刻によって変わる。locator に書かれた値(pushed_at 2026-09-23T09:32:21Z、stars 4781、forks 869)は数時間前の取得とみられ、同日にその後の push とスター・フォークの増加があった。作成日と push 日の日付部分(2025-11-13 / 2026-09-23)は一致している。
+        adjudication:
+          verdict: corrected
+          reason: 作成日と push 日の日付部分は blindQuote と一致する。スター 4,781・フォーク 869 は、blindNote によれば数時間前(pushed_at 2026-09-23T09:32:21Z の時点)の取得値で、捏造ではない。ただし時刻で変わる値に取得時点が付いていないので、条件の欠落として取得日時を補った。
+          date: 2026-09-23
+          originalText: リポジトリは 2025-11-13 作成、2026-09-23 に push があり、スター 4,781・フォーク 869(GitHub API)。
+          originalQuote: '"created_at":"2025-11-13T22:05:08Z"'
+      c6:
+        verdict: match
+        extractedValue: "11"
+        extractedQuote: 11 workflow profiles for features, bug fixes, infrastructure, security, proofs of concept, enterprise delivery, and other common work
+        locator: README.md > Why AI-DLC(箇条書き3項目目)
+        note: "README に「ツリー状の絞り込み」の記述は無い。docs/guide/workflow-profiles.md では各プロファイルが33ステージ中の固定ルート(例: PoC 8/33、Bugfix 9/33、Feature 33/33)を持つ並列の選択肢として書かれており、木構造ではない。security は guide 上は 'Security patch'。"
+      c7:
+        verdict: match
+        extractedValue: 11(領域専門)/ 2(レビュア)/ 14(合計、構成役1を含む)
+        extractedQuote: "14 agents: 11 domain experts, 2 reviewers, and an adaptive composer"
+        locator: README.md > Why AI-DLC(箇条書き2項目目)
+        note: README の版は v2.9.0 バッジ(2026-09-24取得時点)。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH03
+    query: awslabs aidlc-workflows AI-DLC steering rules inception construction operations

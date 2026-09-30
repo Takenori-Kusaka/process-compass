@@ -1,0 +1,100 @@
+schemaVersion: 0
+id: SRC-0437
+status: included
+excludeReason: null
+title: DO-178B/C Differences Tool (Revision 010)
+url: https://www.faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/air_software/differences_tool.pdf
+canonicalUrl: https://faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/air_software/differences_tool.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: FAA/AVS
+authors: [Anderson Livanna, DeWalt Mike, Ferrell Tom, Ferrell Uma, Lingberg Barbara]
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2014-03-15
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH08
+  query: DO-178C section 6.5 "software verification process traceability" "trace data" requirements-based coverage analysis
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH12]
+events: []
+summary: FAA が DO-178B と DO-178C の差分と認証担当者(ASE)への影響を節ごとに整理した資料。DO-178C で追加された §5.5・§6.5 のトレーサビリティ節と、独立した成果物『Trace Data』(§11.21)を説明する。DO-178C 本文は有償で未読。
+claims:
+  - id: c1
+    text: DO-178C は §6.5 を新設し、テスト結果・テスト手順・テストケースから要求までのトレーサビリティが必要であることを明示した。
+    quote: This has made explicit that traceability is required for test results, test procedures, and test cases through to requirements.
+    locator: "Table: 6.5 Software Verification Process Traceability"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+  - id: c2
+    text: 双方向トレーサビリティは DO-178B から存在したが不明瞭で、実務では常に両方向で評価されていた。DO-178C での主な変化は、トレースデータを独立したライフサイクル成果物として捕捉させる点にある。
+    quote: Bidirectional traceability was already part of DO-178B but obscured and in practice was always evaluated in both directions.
+    locator: "Table: 5.5 / 6.5 / 11.21 ASE impact 欄"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: §5.5 はトレーサビリティが双方向であることを明確化し、トレースデータを新しいライフサイクルデータ項目として導入した。
+    quote: introduced trace data as a new life cycle data item.
+    locator: "Table: 5.5 Software Development Process Traceability"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:49.441Z
+    httpStatus: 200
+    finalUrl: https://www.faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/air_software/differences_tool.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: DO-178C / §6.5(Software Verification Process Traceability、DO-178B 側は N/A)
+        extractedQuote: "Added: Entire Section >> New section. ... This has made explicit that traceability is required for test results, test procedures, and test cases through to requirements."
+        locator: 差分表 6.5 Software Verification Process Traceability 行(p.38 付近ほか複数の表)
+        note: 同じ行の ASE Impact 欄は 'The actual impact on the ASE activities is quite small and limited to ensuring that trace data is captured as a separate lifecycle data item.' としており、新設だが審査実務への影響は小さいという評価。
+      c3:
+        verdict: match
+        extractedValue: §5.5(Software Development Process Traceability、DO-178B では 5.5 Traceability)
+        extractedQuote: Extensively revised Entire Section >> ... clarifying that traceability is bidirectional; introduced trace data as a new life cycle data item.
+        locator: 差分表 5.5 Software Development Process Traceability 行
+        note: 同じ出典の ASE Impact 欄は 'Bidirectional traceability was already part of DO-178B but obscured and in practice was always evaluated in both directions.' とし、双方向性は DO-178C で新たに課されたものではなく明確化である旨を述べている(ask の『明確化』とは整合。新規要求と読ませる文脈なら食い違う)。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://faa.gov/sites/faa.gov/files/aircraft/air_cert/design_approvals/air_software/differences_tool.pdf

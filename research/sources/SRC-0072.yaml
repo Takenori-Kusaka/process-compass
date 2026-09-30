@@ -1,0 +1,90 @@
+schemaVersion: 0
+id: SRC-0072
+status: included
+excludeReason: null
+title: "How we built Claude Code auto mode: a safer way to skip permissions"
+url: https://www.anthropic.com/engineering/claude-code-auto-mode
+canonicalUrl: https://anthropic.com/engineering/claude-code-auto-mode
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Engineering at Anthropic)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-03-25
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: 前回セッションで取得済み(cc_auto_mode)。Claude Code permission prompts approval fatigue
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH07]
+events:
+  - date: 2026-03-25
+    label: Claude Code auto mode を公開
+summary: Claude Code の許可プロンプトはユーザーの93%が承認しており、承認疲れで注意が落ちるとして、分類器で一部の判断を自動化する auto mode を導入した経緯。過剰な確認が人の監視を形骸化させるという問題認識。
+claims:
+  - id: c1
+    text: Claude Code ユーザーは許可プロンプトの93%を承認しており、時間とともに承認疲れで内容を見なくなる。過剰な確認は監視を形骸化させる。
+    quote: Claude Code users approve 93% of permission prompts. We built classifiers to automate some decisions, increasing safety while reducing approval fatigue.
+    locator: リード文
+    quant:
+      value: 93%
+      n: 非開示(Claude Code 利用ログ)
+      design: observational
+      population: Claude Code users
+    evidenceKind: observational
+    rqs: [TH01-Q4]
+    issues: [248, 268]
+    stance: supports
+  - id: c2
+    text: 承認疲れは「承認している内容に注意を払わなくなる」状態として定義され、その回避策がサンドボックスか全許可スキップしかなかったことが auto mode の動機。
+    quote: Over time that leads to approval fatigue, where people stop paying close attention to what they're approving.
+    locator: 本文冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4, TH07-Q5]
+    issues: [248]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:18.805Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/engineering/claude-code-auto-mode
+    contentType: text/html; charset=utf-8
+    titleFetched: "How we built Claude Code auto mode: a safer way to skip permissions"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: approval fatigue, where people stop paying close attention to what they’re approving
+        extractedQuote: "Over time that leads to approval fatigue, where people stop paying close attention to what they’re approving. Users have two solutions for avoiding this fatigue: a built-in sandbox"
+        locator: 本文冒頭(リード直後の第1段落)
+        note: 原文は "stop paying close attention"(十分な注意を払わなくなる)で、注意を全く払わなくなるとまでは言っていない。二つの回避策のもう一方は "the --dangerously-skip-permissions flag that disables all permission prompts"。リードに "Claude Code users approve 93% of permission prompts"。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/engineering/claude-code-auto-mode

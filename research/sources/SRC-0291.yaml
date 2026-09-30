@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0291
+status: included
+excludeReason: null
+title: Breaking Claude Code Opus 5 Auto Mode
+url: https://simonwillison.net/2026/Aug/27/breaking-claude-code-opus-5-auto-mode
+canonicalUrl: https://simonwillison.net/2026/aug/27/breaking-claude-code-opus-5-auto-mode
+ids:
+  arxiv: null
+  doi: null
+publisher: Simon Willison's Weblog
+authors: [Simon Willison]
+orgType: individual
+region: us
+lang: en
+sourceType: individual
+published: 2026-08-27
+publishedBasis: byline
+version: null
+updated: 2026-08-30
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S6
+  query: simonwillison.net "Breaking Claude Code Opus 5 Auto Mode"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH03, TH12]
+events:
+  - date: 2026-08-27
+    label: Johann Rehberger による Claude Code Opus 5 auto mode の突破手法を Simon Willison が紹介
+summary: ベンダーが既定化した auto mode(分類器による許可判定)を、zip 展開と Python の import 乗っ取りで突破する手法の紹介。分類器は sandbox の代わりにならないと結論づける。
+claims:
+  - id: c1
+    text: Rehberger の攻撃は約80%で成立すると主張されている。zip を展開させ、base64 の import に紛れて同梱の struct.py を実行させる。auto mode がマルウェアの停止コマンドを逆に拒否した例もあった。
+    quote: He found an attack against auto mode which he claims works 80% of the time, by tricking Claude Code into downloading and uncompressing a zip archive
+    locator: 本文第2段落
+    quant:
+      value: 約80%(攻撃者側の主張)
+      n: 未記載
+      design: 研究者によるデモ
+      population: Claude Code Opus 5 auto mode
+    evidenceKind: expert-opinion
+    rqs: [TH03-Q5, TH12-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 敵対的な攻撃を受けうる状況で安全にエージェントを動かす方法は sandbox だけであり、無人のエージェントはコンテナ・VM・OS の sandbox で動かし、ネットワークの出口を絞り、認証情報を晒さないこと。
+    quote: the only safe way to run agents if there's any risk of attracting the attention of an adversarial attack is with a sandbox
+    locator: 本文後半(Johann の結論への同意)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q1]
+    issues: [269, 271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.931Z
+    httpStatus: 200
+    finalUrl: https://simonwillison.net/2026/Aug/27/breaking-claude-code-opus-5-auto-mode/
+    contentType: text/html; charset=utf-8
+    titleFetched: Breaking Claude Code Opus 5 Auto Mode
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 80%; base64
+        extractedQuote: He found an attack against auto mode which he claims works 80% of the time, by tricking Claude Code into downloading and uncompressing a zip archive, then executing code that imports base64
+        locator: 本文第2段落
+        note: 続く段落に 'In a few runs Claude tried to terminate the malware process once it noticed the compromise, but Auto Mode denied the cleanup command.' とあり、停止コマンド拒否は『数回の実行で』起きた事例。2026-08-30 の追記で、これは古典的なプロンプトインジェクションではなく 'confused environment attack' だという指摘を著者が認めている。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,145 @@
+schemaVersion: 0
+id: SRC-0601
+status: included
+excludeReason: null
+title: Skills and Agents | BMad Method
+url: https://docs.bmad-method.org/reference/skills-and-agents/
+canonicalUrl: https://docs.bmad-method.org/reference/skills-and-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: BMad Code, LLC
+authors: []
+orgType: community
+region: us
+lang: en
+sourceType: repo
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G07
+  query: BMAD Method v6 workflow map create-prd validate-prd code-review check-implementation-readiness docs
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH06, TH01]
+events: []
+summary: BMAD 公式ドキュメントのスキル・エージェント一覧(日付表記なし、2026-09-30 取得)。エージェント 5、core スキル 8、BMad Method モジュールのワークフロースキル 15(表の行数を数えた値)。作成・更新・検証は同一スキルの intent、レビューは横断スキルのレンズ、テストは実装後の 1 スキルで、成果物ごとの作成/レビュー/テストの三つ組は置いていない。
+claims:
+  - id: c1
+    text: core モジュールは 8 スキルで、どのプロジェクト・モジュール・フェーズでも使える。BMad Method モジュールはこれに 5 エージェントとワークフロースキルを加えるが、その本数は本文に数字で書かれておらず、検証役が一覧表を数えた値は 16 行である。
+    quote: "Every installation includes the core module: eight skills that work in any project, any module, any phase. / The BMad Method module adds the five agents above and these workflow skills."
+    locator: Core Skills 冒頭 / BMad Method Skills 冒頭と表(行数は取得本文の表を数えた値)
+    quant:
+      value: 5 agents / 8 core skills / 15 method skills
+      n: counted from the reference tables
+      design: product documentation
+      population: BMAD core + BMad Method module
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2, TH03-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: PRD とプロダクトブリーフは、作成・更新・検証を 1 本のスキルの intent として持つ(成果物 1 つにスキル 1 本で、作成とレビューを別コマンドに分けない)。
+    quote: Create, update, or validate a PRD
+    locator: BMad Method Skills (table, bmad-prd)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 文書系スキル(ブリーフ・PRD・UX・アーキテクチャ)は仕上げ段で共通レビュースキルの校閲レンズを呼ぶ。レビューは成果物別のコマンドではなく横断スキルに置かれる。
+    quote: The product brief, PRD, UX, and architecture skills run the editorial lenses at their finalize step.
+    locator: Core Skills / bmad-review / Who runs it
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 絞り込みは入口スキル bmad が担い、導入済みモジュールから答えて次に使うスキルを薦める(固定の工程列ではなく入口ルーター)。
+    quote: Ask it a question and it answers from the installed modules and recommends the next skill
+    locator: Core Skills / bmad
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2, TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 共通レビューは、指摘ゼロを正当な結果と明記し、体裁のための水増しを禁じる。
+    quote: Zero findings is a valid outcome; it never pads to look thorough.
+    locator: Core Skills / bmad-review
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c6
+    text: テスト側は実装済み機能に対する API / E2E テスト生成の 1 スキルで、成果物ごとのテストコマンドは無い(本格的な Test Architect は別モジュール)。
+    quote: Generate automated API and end-to-end tests for implemented features
+    locator: BMad Method Skills (table, bmad-qa-generate-e2e-tests)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:56.455Z
+    httpStatus: 200
+    finalUrl: https://docs.bmad-method.org/reference/skills-and-agents/
+    contentType: text/html; charset=utf-8
+    titleFetched: Skills and Agents
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: core = eight skills(8) / five named agents(5) / ワークフロースキル一覧表 = 16 行(16)
+        extractedQuote: "Every installation includes the core module: eight skills that work in any project, any module, any phase. / The BMad Method module adds the five agents above and these workflow skills."
+        locator: Core Skills 冒頭 / BMad Method Skills 冒頭と表(行数は取得本文の表を数えた値)
+        note: ワークフロースキルの本数は本文に数字で書かれていない。表の行を数えると 16 行(bmad-product-brief 〜 bmad-retrospective)。Core Skills の小見出しも 8 個(help, advanced-elicitation, review, customize, brainstorming, deep-recon, forge-idea, party-mode)で本文の eight と一致。原文は「any project, any module, any phase」で、エージェントセッション不要とも書く。
+        adjudication:
+          verdict: corrected
+          reason: core 8 スキル(eight skills)と 5 エージェント(five agents)は blindQuote と一致する。ワークフロースキルの本数は本文に数字が無く、主張は表の行数を 15 とするが、検証役の数えた行数は 16(bmad-product-brief 〜 bmad-retrospective)で食い違う。数え間違いの型。原文は「any project, any module, any phase」で「どの工程でも」より範囲が広い。
+          date: 2026-09-30
+          originalText: core モジュールは 8 スキルで、どの工程でも使える。これに 5 エージェントと 15 のワークフロースキルが加わる(15 は一覧表の行数)。
+          originalQuote: "Every installation includes the core module: eight skills that work in any project, any module, any phase."
+      c2:
+        verdict: match
+        extractedValue: 1 本(bmad-prd が Create, update, or validate を1スキルで持つ。bmad-product-brief も同じ)/ 成果物 1 つにスキル 1 本
+        extractedQuote: "| `bmad-product-brief` | Create, update, or validate a product brief | ... | `bmad-prd` | Create, update, or validate a PRD |"
+        locator: BMad Method Skills 表(bmad-product-brief 行、bmad-prd 行)/ Agents 表 Product Manager 行 / Deprecated Names
+        note: 数字としての「1本」は原文に無く、表の1行=1スキルから読み取った値。「intent」という語はこのページに出てこない。Deprecated Names に、旧 ID の bmad-create-prd / bmad-edit-prd が現行スキルへの forwarder として残ると書かれている(かつては別コマンドだったことを示す)。「作成とレビューを別コマンドに分けない」という否定形の記述そのものは原文に無い。
+      c6:
+        verdict: match
+        extractedValue: E2E(end-to-end)/ 1 スキル(bmad-qa-generate-e2e-tests)
+        extractedQuote: Generate automated API and end-to-end tests for implemented features / The Developer’s `QA` code runs `bmad-qa-generate-e2e-tests`; the full Test Architect is a separate module.
+        locator: BMad Method Skills 表(bmad-qa-generate-e2e-tests 行)/ Agents 表直下の段落
+        note: 「1スキル」は表にテスト生成のスキルが1行しか無いことからの読み取りで、数字の記述は無い。「成果物ごとのテストコマンドは無い」という否定の記述も原文には無い(表に該当行が無いという不在の観察)。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

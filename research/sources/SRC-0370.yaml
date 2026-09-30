@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0370
+status: included
+excludeReason: null
+title: "Context Matters: Evaluating Context Strategies for Automated ADR Generation Using LLMs"
+url: https://arxiv.org/abs/2604.03826
+canonicalUrl: arxiv:2604.03826
+ids:
+  arxiv: "2604.03826"
+  doi: 10.48550/arXiv.2604.03826
+publisher: arXiv (EASE 2026 Research Track 採択)
+authors: [Aviral Gupta, Rudra Dhar, Daniel Feitosa, Karthik Vaidhyanathan]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-04-04
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-04-15
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH05
+  query: architectural knowledge vaporization undocumented design decisions consequences empirical study
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH04]
+events: []
+summary: 750 OSS リポジトリの連続した ADR を使い、過去 ADR を文脈として与える5戦略(なし/全履歴/First-K/Last-K/RAFG)を比べた研究。直近3〜5本の窓が品質と効率の釣り合いで最良で、全履歴を与えるより少数の直近がよい。
+claims:
+  - id: c1
+    text: 過去 ADR を文脈に与えると生成の忠実度が大きく上がり、直近3〜5本の小さな窓が品質と効率の釣り合いで最良だった(全履歴より少数の直近がよい)。ADR 生成課題の結果で、コード変更課題への一般化は未検証。
+    quote: context-aware prompting substantially improves ADR generation fidelity, with a small recency window (typically 3-5 prior records) providing the best balance between quality and efficiency.
+    locator: Abstract
+    quant:
+      value: "best window: 3-5 prior ADRs"
+      n: sequential ADRs from 750 open-source repositories; 5 context strategies; multiple model families
+      design: benchmark comparison of context-selection strategies
+      population: ADR generation task (not agent code-change task)
+    evidenceKind: benchmark
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c2
+    text: 検索ベースの文脈選択は、非連続・横断的な決定でわずかに効くだけで、通常の線形な ADR の流れでは有意な利点がない。
+    quote: yields marginal gains primarily in non-sequential or cross-cutting decision scenarios, while offering no statistically significant advantage in typical linear ADR workflows.
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:33.618Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2604.03826
+    contentType: text/html; charset=utf-8
+    titleFetched: "Context Matters: Evaluating Context Strategies for Automated ADR Generation Using LLMs"
+    titleMatch: true
+    dateMeta: 2026-04-04
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "Context Matters: Evaluating Context Strategies for Automated ADR Generation Using LLMs"
+      authors: ["Gupta, Aviral", "Dhar, Rudra", "Feitosa, Daniel", "Vaidhyanathan, Karthik"]
+      v1Date: 2026-04-04
+      latestVersion: 2
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

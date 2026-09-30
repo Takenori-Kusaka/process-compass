@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0176
+status: included
+excludeReason: null
+title: Approving a pull request with required reviews
+url: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews
+canonicalUrl: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: docs.github.com 該当ページ(リダイレクト先 /pull-requests/how-tos/review-pull-requests/approving-a-pull-request-with-required-reviews)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10]
+events: []
+summary: GitHub Docs の必須レビュー承認ページ本文(取得日 2026-09-23)。PR 作成者の自己承認不可と、Copilot に Issue を割り当てた本人は Copilot の PR を承認できない旨を一次で確認した。
+claims:
+  - id: c1
+    text: PR の作成者は自分の PR を承認できない(現行文言)。
+    quote: Pull request authors cannot approve their own pull requests.
+    locator: 本文末尾
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: supports
+  - id: c2
+    text: Copilot が作った PR は、その Issue を Copilot に割り当てた本人には承認できない。
+    quote: You will also not be able to approve a pull request that was raised by GitHub Copilot if it was you who assigned Copilot to the issue to which the pull request relates.
+    locator: 本文末尾
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: supports
+  - id: c3
+    text: 同ページは「Copilot のレビューはマージ要件に数えられない」とも書く。ただし 2026-09-01 の changelog は、管理者が有効化すれば Copilot の承認を必須承認に数えられるとしており、Docs と食い違う。
+    quote: Approvals by GitHub Copilot also appear in this section even though GitHub Copilot reviews do not count toward those requirements.
+    locator: reviewers sidebar の段落
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q1, TH06-Q6]
+    issues: [282]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.998Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/approving-a-pull-request-with-required-reviews
+    contentType: text/html; charset=utf-8
+    titleFetched: Approving a pull request with required reviews - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: GitHub Copilot reviews do not count toward those requirements
+        extractedQuote: Approvals by GitHub Copilot also appear in this section even though GitHub Copilot reviews do not count toward those requirements.
+        locator: reviewers sidebar の段落(top section の説明)
+        note: "伏せ字の日付は changelog 側の日付で、本ページには無い(本ページでは検証不能)。参考: 同バッチで取得した SRC-0179 changelog の掲載日は September 1, 2026。本ページには管理者が Copilot 承認を必須承認へ数えられる設定への言及は無い"
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

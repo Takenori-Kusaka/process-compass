@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0488
+status: included
+excludeReason: null
+title: "A Frozen Clock and a Frozen Problem: The Digital Omnibus Missed an Opportunity to Fix the AI Act"
+url: https://verfassungsblog.de/a-frozen-clock-and-a-frozen-problem
+canonicalUrl: doi:10.59704/ef53235ea928b312
+ids:
+  arxiv: null
+  doi: 10.59704/ef53235ea928b312
+publisher: Verfassungsblog
+authors: [Raposo Vera Lúcia]
+orgType: academic
+region: eu
+lang: en
+sourceType: individual
+published: 2026-09-01
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: Digital Omnibus AI Act high-risk delay agreement 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: 法学者による Digital Omnibus 批判。期限の延期は、整合規格の未完・分野横断規格の無意味化・所轄の不明確さといった設計上の問題を何も解かず、不確実な期間を延ばしただけだと論じる(反証側の資料)。
+claims:
+  - id: c1
+    text: 整合規格が無いために適合できなかった提供者は、17か月後もその規格を待っている可能性があり、延期は不確実なまま過ごす時間を延ばしただけだとする。
+    quote: A provider who could not comply because a harmonised standard did not yet exist will, seventeen months from now, possibly still be waiting for that standard.
+    locator: Why Moving the Deadline is not the Same as Solving the Problem
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH12-Q1, TH12-Q4]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 整合規格は医療・法執行・教育などを横断して「水平に」適用される設計のため、ある分野で使える規格が別の分野ではほぼ無意味になると指摘する。
+    quote: with the practical result that a standard workable for one is close to meaningless for another
+    locator: Why Moving the Deadline is not the Same as Solving the Problem(Article 40 の段落)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH12-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:11.884Z
+    httpStatus: 200
+    finalUrl: https://verfassungsblog.de/a-frozen-clock-and-a-frozen-problem/
+    contentType: text/html; charset=UTF-8
+    titleFetched: A Frozen Clock and a Frozen Problem
+    titleMatch: true
+    dateMeta: 2026-09-01
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: A Frozen Clock and a Frozen Problem
+      issued: 2026-9-1
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: seventeen months(17か月)
+        extractedQuote: A provider who could not comply because a harmonised standard did not yet exist will, seventeen months from now, possibly still be waiting for that standard.
+        locator: Why Moving the Deadline is not the Same as Solving the Problem(節末尾)
+        note: 続く文は「The Omnibus gives everyone more time to remain uncertain.」。17か月は Annex III の延期幅(2026-08 → 2027-12)に対応し、Annex I の延期幅は12か月と同記事冒頭にある。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0566
+status: included
+excludeReason: null
+title: "Spiral Development: Experience, Principles, and Refinements (CMU/SEI-2000-SR-008)"
+url: https://resources.sei.cmu.edu/asset_files/SpecialReport/2000_003_001_13655.pdf
+canonicalUrl: https://resources.sei.cmu.edu/asset_files/specialreport/2000_003_001_13655.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Software Engineering Institute, Carnegie Mellon University
+authors: ["Boehm, Barry", "Hansen, Wilfred J. (ed.)"]
+orgType: academic
+region: us
+lang: en
+sourceType: industry-report
+published: 2000-07
+publishedBasis: pdf
+version: CMU/SEI-2000-SR-008
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G05
+  query: Boehm Incremental Commitment Spiral Model anchor point milestones commitment review risk "adjust scope" re-baseline
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH07]
+events: []
+summary: Boehm によるスパイラルモデルの再定義(2000)。6 つの不変条件と 3 つのアンカーポイント(LCO / LCA / IOC)を示し、『以前の決定へ戻れない』という理解を誤解と明記する。アンカーポイントでは実現可能性の根拠が合否を決め、満たさなければ成果物一式を作り直す。第1〜2章と 2.5 節を読んだ。
+claims:
+  - id: c1
+    text: スパイラルモデルについて『図の要素を順番どおりに辿る』『以前の決定を見直すための後戻りはできない』という理解は、避けるべき重大な誤解と明記されている。後段で生じた検証結果による上位決定の再訪は、モデルの側で許容されている。
+    quote: that every element in the diagram needs to be visited in the order indicated; and that there can be no backtracking to revisit previous decisions.
+    locator: 1 Introduction(The most significant misconceptions to avoid)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+  - id: c2
+    text: アンカーポイント(LCO / LCA)では、この構成と工程で作れば運用概念・試作結果・要求・予算・工期を満たすかという合否の問いに実現可能性の根拠で答え、満たさない場合は成果物一式を作り直す。
+    quote: finish within the budgets and schedules in the plan?" If not, the package should be reworked.
+    locator: "2.5 Spiral Invariant 5: Use of Anchor Point Milestones"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+  - id: c3
+    text: LCA を通過するには、重大なリスクをすべて除去したか、受け入れ可能なリスク管理計画を置いたかのいずれかを満たす必要がある。未解決の技術リスクはゲートで計画つきの扱いに変える。
+    quote: The project must have either eliminated all significant risks or put in place an acceptable risk-management plan.
+    locator: 2.5 Spiral Invariant 5
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+  - id: c4
+    text: 資金の投入は段階的で、各回に、勝ち目について追加の情報を買うか降りるかをその時点の情報で決める(スタッドポーカーの類比)。続行と撤退は書かれているが、前のアンカーポイントの判定を取り消して戻る手順そのものは規定されていない。
+    quote: you can decide during each round whether it's worth putting more chips in the pot to buy more information about your prospects for a win or whether it's better not to pursue this particular deal
+    locator: "2.5 Spiral Model and Incremental Commitment: Stud Poker Analogy"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:42.738Z
+    httpStatus: 200
+    finalUrl: https://www.sei.cmu.edu/documents/5439/2000_003_001_13655.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

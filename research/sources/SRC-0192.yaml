@@ -1,0 +1,149 @@
+schemaVersion: 0
+id: SRC-0192
+status: included
+excludeReason: null
+title: Claude があなたのプロジェクトを記憶する方法
+url: https://code.claude.com/docs/ja/memory
+canonicalUrl: https://code.claude.com/docs/ja/memory
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: jp
+lang: ja
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: docs.claude.com 日本語版 CLAUDE.md メモリ(code.claude.com/docs/ja/memory.md を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04, TH07]
+events: []
+summary: Claude Code 公式ドキュメント「メモリ/CLAUDE.md」の日本語版(英語原文の公式翻訳、2026-09-24 取得)。CLAUDE.md は強制ではなく文脈であり、200 行以下を目標とし、長いほど遵守が下がると明記する。
+claims:
+  - id: c1
+    text: CLAUDE.md は1ファイル 200 行以下を目標とし、長いファイルは文脈を多く消費して遵守を下げる、とベンダー自身が上限の目安と劣化を明示する。
+    quote: CLAUDE.md ファイルあたり 200 行以下を目標にしてください。より長いファイルはより多くのコンテキストを消費し、遵守を減らします。
+    locator: CLAUDE.md の書き方 > サイズ
+    quant:
+      value: 200 行以下/ファイル
+      n: null
+      design: vendor recommendation(根拠データの提示なし)
+      population: Claude Code の CLAUDE.md
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4, TH04-Q2]
+    issues: [269, 274]
+    stance: supports
+  - id: c2
+    text: CLAUDE.md と自動メモリは文脈として扱われ、強制的な設定ではない。確実に止めたい動作は PreToolUse hook で行う。
+    quote: Claude はこれらをコンテキストとして扱い、強制的な設定ではありません。
+    locator: CLAUDE.md と自動メモリ
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q5, TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: CLAUDE.md はシステムプロンプトではなくユーザーメッセージとして渡され、特に曖昧・矛盾した指示では厳密な準拠を保証できない。
+    quote: Claude はそれを読んで従おうとしますが、特に曖昧または矛盾した指示の場合、厳密な準拠を保証することはできません。
+    locator: トラブルシューティング(CLAUDE.md の配信方法)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 矛盾する2つのルールがあると Claude はどちらかを任意に選ぶ可能性があるため、古い指示・矛盾する指示を定期的に削除する。
+    quote: 2 つのルールが矛盾している場合、Claude は 1 つを任意に選択する可能性があります。
+    locator: CLAUDE.md の書き方 > 一貫性
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q3, TH05-Q5]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 自動メモリの MEMORY.md は先頭 200 行または 25KB までしか読み込まれず、超過分はセッション開始時に読み込まれない(黙って落ちる仕様)。
+    quote: "`MEMORY.md` の最初の 200 行、または最初の 25KB のいずれか先に来る方が、すべての会話の開始時に読み込まれます。そのしきい値を超えるコンテンツはセッション開始時に読み込まれません。"
+    locator: 自動メモリ > 読み込みの上限
+    quant:
+      value: 200 行または 25KB
+      n: null
+      design: product specification
+      population: Claude Code auto memory
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4, TH04-Q2]
+    issues: [269]
+    stance: supports
+  - id: c6
+    text: CLAUDE.md は最大 4 MiB まで全文を読み込み、それ以上はスキップする。短いファイルほど遵守が良い。
+    quote: Claude Code は最大 4 MiB の CLAUDE.md ファイルを完全に読み込み、より大きいファイルはスキップします。より短いファイルはより良い遵守を生成します。
+    locator: 自動メモリ > 読み込みの上限
+    quant:
+      value: 4 MiB
+      n: null
+      design: product specification
+      population: Claude Code CLAUDE.md
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c7
+    text: 技術的な強制は管理設定(permissions.deny、sandbox)で行い、CLAUDE.md は動作ガイダンスに使い分ける。
+    quote: 設定ルールは、Claude が何をするかに関係なく、クライアントによって強制されます。CLAUDE.md 指示は Claude の動作を形作りますが、ハード強制レイヤーではありません。
+    locator: 管理された CLAUDE.md と管理設定
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH07-Q5]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.755Z
+    httpStatus: 200
+    finalUrl: https://code.claude.com/docs/ja/memory
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude があなたのプロジェクトを記憶する方法 - Claude Code Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: CLAUDE.md ファイルあたり 200 行以下
+        extractedQuote: "サイズ : CLAUDE.md ファイルあたり 200 行以下を目標にしてください。より長いファイルはより多くのコンテキストを消費し、遵守を減らします。"
+        locator: 効果的な指示を書く > サイズ
+        note: 見出しは『CLAUDE.md の書き方』ではなく『効果的な指示を書く』。原文は『目標にしてください』であり、厳密な上限ではなく目標値の表現。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「CLAUDE.md ファイルあたり 200 行以下を目標にしてください。より長いファイルはより多くのコンテキストを消費し、遵守を減らします。」と一致する。主張は「目標とし」「上限の目安」と書いており、厳密な上限ではなく目標値だという blindNote の指摘とも両立する。見出し名の違いは主張に含まれない。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

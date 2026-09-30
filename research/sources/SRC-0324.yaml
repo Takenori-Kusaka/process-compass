@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0324
+status: included
+excludeReason: null
+title: Why Does CLAUDE.md Keep Growing? Catastrophic Remembering in Agentic Coding
+url: https://arxiv.org/abs/2608.11095
+canonicalUrl: arxiv:2608.11095
+ids:
+  arxiv: "2608.11095"
+  doi: null
+publisher: arXiv / South Park Commons
+authors: [Kushal Chakrabarti]
+orgType: individual
+region: us
+lang: en
+sourceType: preprint
+published: 2026-08-11
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: (abs:"AGENTS.md" OR abs:"CLAUDE.md" OR abs:"instruction files" OR abs:"context files"), submittedDate 2026-05..09'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH05]
+events: []
+summary: CLAUDE.md などエージェント向け指示書が際限なく膨らむ現象を、1,867リポジトリ・247,694本の指示の寿命で測定した。理由が失われた指示は消せなくなる(catastrophic remembering)と名づけ、理由をコメントで残すと膨張が止まることを示す。
+claims:
+  - id: c1
+    text: エージェント向け指示書は際限なく育ち、生涯で3倍超(+226%)になり、コミットごとに正味+4.9本の指示が増える。
+    quote: agentic prompts grow without bound, more than tripling over their lifetime (+226%), gaining +4.9 net instructions every commit
+    locator: Abstract; Figure 1(b)
+    quant:
+      value: +226% / +4.9 instructions per commit
+      n: 247,694 instruction lifetimes / 1,867 GitHub repos
+      design: observational(repository mining, survival analysis)
+      population: CLAUDE.md などエージェント向け README
+    evidenceKind: observational
+    rqs: [TH03-Q4, TH05-Q3]
+    issues: [269, 274, 272]
+    stance: supports
+  - id: c2
+    text: 指示は古くなるほど削除されにくい(対数ハザード −0.032/コミット)。追加は安いが、理由を失った指示の削除は回帰の危険を伴う。
+    quote: the older an instruction gets, the less likely it is to be deleted (log-hazard -0.032/commit)
+    locator: Abstract
+    quant:
+      value: log-hazard −0.032/commit
+      n: 同上
+      design: observational
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH05-Q5, TH03-Q4]
+    issues: [272]
+    stance: supports
+  - id: c3
+    text: 検証可能な環境(IFEval の逆問題)では、潜在的な理由を記したコメントが余剰指示の99.3%を除き(+211.3%→+1.4%)、実世界の指示遵守を最大23.1%改善した。
+    quote: comments encoding latent reasoning remove 99.3% of excess instructions (+211.3% to +1.4%)
+    locator: Abstract; experiments on inverted IFEval / WildIFEval
+    quant:
+      value: 余剰の99.3%除去、遵守 最大+23.1%
+      n: 184 IFEval worlds ほか
+      design: controlled experiment(synthetic verifiable worlds)
+      population: IFEval / WildIFEval
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q3, TH05-Q5]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 指示の同定器は手作業注釈50件でしか検証しておらず、コーパス側の唯一の非自動値だと著者が限界を述べる。
+    quote: We validated it once, on 50 hand-annotated transitions, reaching 1.000 precision and 0.933 recall
+    locator: Limitations; Table 3
+    quant:
+      value: precision 1.000 / recall 0.933
+      n: 50 transitions(vs 299,440 tracked)
+      design: validation
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH03-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:59.575Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2608.11095
+    contentType: text/html; charset=utf-8
+    titleFetched: Why Does CLAUDE.md Keep Growing? Catastrophic Remembering in Agentic Coding
+    titleMatch: true
+    dateMeta: 2026-08-11
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: Why Does CLAUDE.md Keep Growing? Catastrophic Remembering in Agentic Coding
+      authors: ["Chakrabarti, Kushal"]
+      v1Date: 2026-08-11
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: more than tripling (3倍超) / +226% / +4.9 net instructions per commit
+        extractedQuote: agentic prompts grow without bound, more than tripling over their lifetime (+226%), gaining +4.9 net instructions every commit
+        locator: Abstract; Figure 1(b); §3 本文
+        note: 本文では『each commit adds a net +4.9 instructions across 19,267 commits』に『excluding mass rewrites』という条件が付き、+226% も『the mean trajectory gains up to +226%』(ファイル寿命で正規化した平均軌跡の最大値)。複数版のあるリポジトリ 1,576 件のうち 26.6% は指示数が減っている(増加は 64.3%)。Figure 4 の『4.9% per commit』は書き直し後の再成長率で、別の指標。
+      c3:
+        verdict: match
+        extractedValue: 99.3% / +211.3% → +1.4% / up to 23.1%
+        extractedQuote: comments encoding latent reasoning remove 99.3% of excess instructions (+211.3% to +1.4%).
+        locator: Abstract; §1; §4.2 Table 2; §4.3
+        note: "23.1% は IFEval ではなく WildIFEval を反転した実験の値で、相対値(§4.3: Comments lift satisfaction from 50.4% to 62.0% over 3 maintenance rounds (11.6pp, 95% CI: [5.1, 18.3]pp), a 23.1% relative gain)。採点は arm-blind の LLM 判定器、対象は 64 worlds。ask は『検証可能な環境では…実世界の指示遵守を最大23.1%改善』と1文につないでいるが、原典では99.3%(IFEval、184 worlds、51 steps)と23.1%は別の実験。+211.3% はコメントなしの control arm の値。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

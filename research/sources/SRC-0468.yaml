@@ -1,0 +1,81 @@
+schemaVersion: 0
+id: SRC-0468
+status: included
+excludeReason: null
+title: New DORA Report Claims Strong Engineering Foundations Drive AI Return on Investment
+url: https://www.infoq.com/news/2026/05/dora-roi-ai-assisted-dev-report
+canonicalUrl: https://infoq.com/news/2026/05/dora-roi-ai-assisted-dev-report
+ids:
+  arxiv: null
+  doi: null
+publisher: InfoQ
+authors: []
+orgType: media
+region: global
+lang: en
+sourceType: news
+published: 2026-05-11
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: secondary
+foundBy:
+  cluster: TH11
+  query: DORA 2026 State of AI-assisted Software Development report
+derivedFrom: []
+derivedFromUrl:
+  - https://cloud.google.com/resources/content/dora-roi-of-ai-assisted-software-development
+selfReported: false
+themes: [TH11, TH04]
+events: []
+summary: DORA の2026年刊行物「ROI of AI-assisted Software Development(2026.01)」の報道。一次の報告書は登録フォームの奥にあり未取得。J カーブ(導入初期の生産性低下)、検証税、試算上の変更失敗率上昇を費用として扱う点を伝える。
+claims:
+  - id: c1
+    text: DORA の ROI 報告書は、AI導入で多くの組織が一時的な生産性低下(J カーブ)を経てから長期の利得に至ると主張する。
+    quote: The authors argue that most organisations will experience a temporary productivity dip before achieving long-term gains from AI adoption.
+    locator: J-Curve の段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH11-Q1, TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 報告書の試算例は、AI導入後に変更失敗率が5%から6%へ上がると仮定し、その停止損失を費用として計上している(仮定値であり実測ではない)。
+    quote: the sample calculator actually shows a negative downtime impact of $344,000 because the assumed change failure rate rises from 5% to 6% after AI adoption.
+    locator: instability の段落
+    quant:
+      value: CFR 5% -> 6% (assumed)
+      n: null
+      design: illustrative ROI model
+      population: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:05.127Z
+    httpStatus: 200
+    finalUrl: https://www.infoq.com/news/2026/05/dora-roi-ai-assisted-dev-report/
+    contentType: text/html;charset=utf-8
+    titleFetched: New DORA Report Claims Strong Engineering Foundations Drive AI Return on Investment
+    titleMatch: true
+    dateMeta: 2026-05-11
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://infoq.com/news/2026/05/dora-roi-ai-assisted-dev-report

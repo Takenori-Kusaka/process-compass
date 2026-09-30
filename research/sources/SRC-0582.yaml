@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0582
+status: included
+excludeReason: null
+title: Using Sapling with GitHub
+url: https://sapling-scm.com/docs/git/github/
+canonicalUrl: https://sapling-scm.com/docs/git/github
+ids:
+  arxiv: null
+  doi: null
+publisher: Meta Platforms (Sapling SCM)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: "2026"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: Sapling sl pr GitHub stack docs(公式サイトを直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events: []
+summary: Meta の Sapling を GitHub で使うときの公式手引き。スタックを PR 化する sl pr は「重なり合う PR」を作り GitHub の PR 画面では読みにくいため、専用ビューア ReviewStack でのレビューを勧める。ページに日付は無く、最新リリースは 2026-08-11(GitHub API)。
+claims:
+  - id: c1
+    text: Sapling のスタック提出(sl pr)は、各 PR が下位のコミットも含む「重なり合う PR」を作るため、GitHub の PR 画面を使うレビュアには分かりにくいと公式が認めている。
+    quote: Creates "overlapping" pull requests that may be confusing to reviewers using the GitHub pull request UI.
+    locator: Pull requests / sl pr (aka "Sapling stack") / Cons
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: qualifies
+  - id: c2
+    text: 公式は、レビューを GitHub ではなく ReviewStack で行うよう強く勧めている。スタックの読み方が標準の PR 画面の外に出る設計である。
+    quote: Reviewers are strongly encouraged to use ReviewStack for code review instead of GitHub.
+    locator: Pull requests / sl pr (aka "Sapling stack") / Cons
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: qualifies
+  - id: c3
+    text: ワークフロー定義(.github/workflows/)に触れる PR は、OAuth トークンに workflow スコープが無いと GitHub が作成・更新を拒否し、sl pr submit が途中で中断する。
+    quote: GitHub refuses to create or update those files through an OAuth token without the workflow scope
+    locator: 冒頭の note
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:50.200Z
+    httpStatus: 200
+    finalUrl: https://sapling-scm.com/docs/git/github/
+    contentType: text/html; charset=utf-8
+    titleFetched: Using Sapling with GitHub | Sapling
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

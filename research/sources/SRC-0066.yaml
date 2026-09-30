@@ -1,0 +1,110 @@
+schemaVersion: 0
+id: SRC-0066
+status: included
+excludeReason: null
+title: Gartner Says Applying Uniform Governance Across AI Agents Will Lead to Enterprise AI Agent Failure
+url: https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure
+canonicalUrl: https://gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure
+ids:
+  arxiv: null
+  doi: null
+publisher: Gartner
+authors: [Varma Shiva]
+orgType: consultancy
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-05-26
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: '"levels of autonomy" AI agents paper 2026'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH07]
+events: []
+summary: Gartner の報道発表。エージェント統治を「全面禁止か全面信頼か」の二値で扱うことが失敗の根本原因とし、Observe/Advise/Act with Approval/Act Autonomously の4段階に比例した統制を推奨。2027年までに40%の企業が自律エージェントを降格・廃止すると予測(根拠は非公開)。
+claims:
+  - id: c1
+    text: エージェント統治を二値(ロックダウンか全面信頼か)で扱うことが失敗の根本原因であり、自律度と信頼境界ごとに統制を変えるべきだとする。
+    quote: Enterprises are treating AI agent governance as binary, either locked down or fully trusted, and that is the root cause of failure,
+    locator: 本文 Shiva Varma の発言
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1]
+    issues: [248]
+    stance: contradicts
+  - id: c2
+    text: 2027年までに企業の40%が、本番インシデント後に判明した統治の欠陥を理由に自律エージェントを降格・廃止すると予測。標本・手法は示されていない。
+    quote: by 2027, 40% of enterprises will demote or decommission autonomous AI agents due to governance gaps identified only after production incidents occur.
+    locator: 副題・本文冒頭
+    quant:
+      value: 40%
+      n: 非開示
+      design: analyst prediction
+      population: enterprises (global)
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1, TH01-Q3]
+    issues: [248]
+    stance: context
+  - id: c3
+    text: Level 3(承認付き実行)では、承認が時間圧力や承認疲れで劣化し、攻撃面を広げながら安全の錯覚を生むと警告する。
+    quote: approvals can degrade under time pressure or approval fatigue, creating a false sense of safety while expanding the attack surface
+    locator: "Level 3: Act with Approval"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q4]
+    issues: [248, 268]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:15.859Z
+    httpStatus: 403
+    finalUrl: https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure
+    contentType: text/html; charset=UTF-8
+    titleFetched: Just a moment... | Gartner
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: binary, either locked down or fully trusted / root cause of failure / different autonomy levels and trust boundaries
+        extractedQuote: “Enterprises are treating AI agent governance as binary, either locked down or fully trusted, and that is the root cause of failure,” said Shiva Varma
+        locator: 本文第3段落(Shiva Varma, Senior Director Analyst の発言)
+        note: 発言は続けて "Agents operate at different autonomy levels and across different trust boundaries." と述べる。「自律度ごとに統制を変えるべき」は Varma の直接発言ではなく、直後の地の文 "Gartner recommends applying a proportional governance approach that classifies AI agents across distinct autonomy levels" に当たる(発言者の帰属がやや異なる)。
+      c2:
+        verdict: match
+        extractedValue: 2027 / 40%
+        extractedQuote: Gartner predicts that by 2027, 40% of enterprises will demote or decommission autonomous AI agents due to governance gaps identified only after production incidents occur.
+        locator: 副題 "By 2027, 40% of Enterprises Will Demote or Decommission Autonomous AI Agents Due to Governance Failures" および本文第2段落
+        note: 副題は "Due to Governance Failures"、本文は "governance gaps identified only after production incidents occur" と表現が異なる。本文中に survey / respondent / methodology 等の記述は無く、標本・手法の非開示は取得本文と整合。
+      c3:
+        verdict: match
+        extractedValue: "3"
+        extractedQuote: approvals can degrade under time pressure or approval fatigue, creating a false sense of safety while expanding the attack surface.
+        locator: '見出し "Level 3: Act with Approval" 直下の Varma の発言'
+        note: '原文は条件付き: 直前に "Without strong security testing, clear approval workflows with audit trails, and agent‑specific incident response procedures," とあり、これらを欠く場合に劣化するという主張。ask は条件を落としている。Level 3 の定義は "only after explicit human approval for every action"。'
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure

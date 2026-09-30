@@ -1,0 +1,129 @@
+schemaVersion: 0
+id: SRC-0275
+status: included
+excludeReason: null
+title: Claude Code の harness を4ヶ月育てた記録
+url: https://zenn.dev/hinapupil/articles/claude-code-harness-engineering-in-practice
+canonicalUrl: https://zenn.dev/hinapupil/articles/claude-code-harness-engineering-in-practice
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [ヒナーシャ]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-06-26
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: Claude Code サブエージェント 失敗 実測 zenn
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04, TH07]
+events:
+  - date: 2026-06-01
+    label: Ultracode の並列エージェントが親の Opus/xhigh を継承し、5時間枠と Extra Usage $200 を一晩で消費
+summary: 個人開発者が4か月、失敗ログ→ルール化→hook 強制で Claude Code 環境を育てた記録。CLAUDE.md のルールは別セッションで忘れられ、hook へ移すと守られたこと、並列ワークフローで利用枠と$200を一晩で使い切った事故を含む。
+claims:
+  - id: c1
+    text: CLAUDE.md に「推測で断言しない」と書いても別セッションでは守られず、ルールを具体化しても忘れられた。忘れられるルールを PreToolUse/PostToolUse hook に移したところ守られるようになった(CLAUDE.md は4か月で280行、スキル40超)。
+    quote: CLAUDE.md に書いたルールは忘れられる。hooks は忘れられない。
+    locator: 「hooks — 書いても忘れるなら強制する」節
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: [269, 274]
+    stance: supports
+  - id: c2
+    text: 失敗ログを4か月で30件超記録し、同じパターンが3回以上再発したら CLAUDE.md のルールへ昇格させる運用で、うち15件がルールになった。
+    quote: 同じパターンが3回以上再発したら CLAUDE.md のルールに昇格させるというルールにした。
+    locator: 「failure-log — 失敗を記録して環境を直す」節
+    quant:
+      value: 失敗ログ30件超のうち15件をルール化、昇格閾値=再発3回
+      n: 4か月・個人1名
+      design: 運用記録(失敗ログ表の再発カラム)
+      population: 個人開発者の Claude Code 環境
+    evidenceKind: case-report
+    rqs: [TH07-Q6]
+    issues: [275]
+    stance: qualifies
+  - id: c3
+    text: 2026-06-01、並列で走る全エージェントが親セッションのモデル(Opus)と effort(xhigh)を継承し、5時間の利用枠と組織の Extra Usage($200)を一晩で使い切った。以後ステージごとにモデルを振り分けるルールを作った。
+    quote: 2026年6月1日、Ultracode でセキュリティ調査を走らせたところ、5時間の利用枠リミットと組織の Extra Usage（$200）を一晩で使い切った。
+    locator: 「Dynamic Workflows — $200 溶かして学んだコスト制御」節
+    quant:
+      value: 一晩で5時間枠+$200を消費、並列10体超
+      n: 1事例
+      design: 事後の原因分析
+      population: 同上
+    evidenceKind: case-report
+    rqs: [TH04-Q3, TH04-Q4]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 280行の CLAUDE.md ではルール同士の矛盾が生じたため、全ルールに Why 行を付け、エッジケースでエージェントが目的から判断できるようにした。著者は完全な解決ではないとしている。
+    quote: 280行の CLAUDE.md でルール間の矛盾が起きたとき、Why がなければもっとひどいことになっていた。
+    locator: 「Why 行 — ルールが矛盾したときの判断基準」節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH03-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:20.982Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/hinapupil/articles/claude-code-harness-engineering-in-practice
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Code の harness を4ヶ月育てた記録
+    titleMatch: true
+    dateMeta: 2026-06-26
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 4ヶ月 / 280行 / カスタムスキル40個を超えていた
+        extractedQuote: それでも忘れられるルールは hooks で強制するようにした。そうやっていたら4ヶ月が経っていて、CLAUDE.md は280行になり、ナレッジ用の Git リポジトリ（VS Code と Zed で開いている、普通のリポジトリだ、Obsidian は使っていない）にファイルが100以上、カスタムスキルは40個を超えていた。
+        locator: 冒頭(導入第2段落)。hooks 節は『CLAUDE.md に書いたルールは忘れられる。hooks は忘れられない。』
+        note: 数値は locator の hooks 節ではなく記事冒頭にある。hooks 節の効果記述は『これで質問の質が劇的に変わった。hook は bypass できない。』(ask-question-gate.sh の例)で、『守られるようになった』は一般化した言い換え。冒頭の忘却例(CodeCommit・Terraform untaint)は別セッションでの事例として原文に存在。
+      c2:
+        verdict: match
+        extractedValue: 4ヶ月 / 30件を超え / 3回以上 / 15件
+        extractedQuote: 同じパターンが3回以上再発したら CLAUDE.md のルールに昇格させるというルールにした。 4ヶ月で failure-log は30件を超えて、そのうち15件が CLAUDE.md のルールになっている。
+        locator: 「failure-log — 失敗を記録して環境を直す」節
+        note: 「再発」カラムは後から追加したと原文にある。表の例では再発1・2回の項目も『採用』で CLAUDE.md に配置されており、15件全てが3回再発ルール経由とは原文から読み取れない。
+      c3:
+        verdict: match
+        extractedValue: 2026-06-01 / 5時間 / $200
+        extractedQuote: 2026年6月1日、Ultracode でセキュリティ調査を走らせたところ、5時間の利用枠リミットと組織の Extra Usage（$200）を一晩で使い切った。原因は並列で走る全エージェントが親セッションのモデル（Opus）と effort（xhigh）を継承していたこと。
+        locator: 「Dynamic Workflows — $200 溶かして学んだコスト制御」節
+        note: 原文では日付は『2026年6月1日』表記。並列数は『10個以上』。対策は『stage ごとにモデルを振り分けるルールを作った』で ask と一致。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote のとおり、2026年6月1日に Ultracode のセキュリティ調査で5時間の利用枠と組織の Extra Usage($200)を一晩で使い切った。原因は並列で走る全エージェントが親セッションのモデル(Opus)と effort(xhigh)を継承していたことである。stage ごとにモデルを振り分けるルールを作った点も、blindNote で原文と一致する。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

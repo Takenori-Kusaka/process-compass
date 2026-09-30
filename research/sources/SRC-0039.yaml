@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0039
+status: included
+excludeReason: null
+title: Agentic AI Foundation Welcomes 97 New Members As Demand for Open, Collaborative Agent Standardization Increases
+url: https://www.linuxfoundation.org/press/agentic-ai-foundation-welcomes-97-new-members
+canonicalUrl: https://linuxfoundation.org/press/agentic-ai-foundation-welcomes-97-new-members
+ids:
+  arxiv: null
+  doi: null
+publisher: The Linux Foundation
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-02-24
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: snippet
+foundBy:
+  cluster: C00b-2
+  query: "tavily: Linux Foundation announces formation Agentic AI Foundation AAIF press release December 2025 founding members"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2026-02-24
+    label: AAIF 会員 146 に到達、理事会議長に AWS の David Nalley
+summary: AAIF 設立後 2.5 か月で会員が 146 になったことを示す LF プレスリリース。curl で冒頭段落のみ確認。
+claims:
+  - id: c1
+    text: 2026-02-24 時点で AAIF は Gold 18・Silver 79 を新規に迎え、会員 146 の共同体になった。
+    quote: today announced the addition of 18 new Gold Members and 79 new Silver Members. The AAIF now represents a community of 146 members collaborating to advance open protocols, tooling and best practices for agent-based AI systems.
+    locator: 本文冒頭
+    quant:
+      value: 146 members
+      n: null
+      design: self-count
+      population: AAIF
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:36.666Z
+    httpStatus: 200
+    finalUrl: https://www.linuxfoundation.org/press/agentic-ai-foundation-welcomes-97-new-members
+    contentType: text/html; charset=UTF-8
+    titleFetched: Agentic AI Foundation Welcomes 97 New Members As Demand for Open, Collaborative Agent Standardization Increases
+    titleMatch: true
+    dateMeta: 2026-02-24
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-02-24(記事日付 24 February 2026 / 発表地の日付 Feb. 24, 2026)/ Gold 18 / Silver 79 / 会員 146
+        extractedQuote: today announced the addition of 18 new Gold Members and 79 new Silver Members. The AAIF now represents a community of 146 members
+        locator: 本文冒頭(NAPA, Calif. – The Linux Foundation Member Summit – Feb. 24, 2026 の段落)
+        note: 要約欄にも 'welcomes 18 new Gold Members and 79 new Silver Members' とある。Jim Zemlin の引用では 'Nearly 150 organizations' と概数表記。18+79=97 が見出しの新規会員数、146 は発表時点の総会員数
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://linuxfoundation.org/press/agentic-ai-foundation-welcomes-97-new-members

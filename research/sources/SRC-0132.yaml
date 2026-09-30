@@ -1,0 +1,96 @@
+schemaVersion: 0
+id: SRC-0132
+status: included
+excludeReason: null
+title: Build To Learn FAQ
+url: https://www.svpg.com/build-to-learn-faq/
+canonicalUrl: https://svpg.com/build-to-learn-faq
+ids:
+  arxiv: null
+  doi: null
+publisher: Silicon Valley Product Group (SVPG)
+authors: [Marty Cagan]
+orgType: consultancy
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-04-27
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: Marty Cagan AI product discovery prototypes 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH08, TH05]
+events: []
+summary: 前記事への質問に答える FAQ。PRD の役割を「プロトタイプが仕様(prototype as spec)で、PRD はそれを補う」と定義し、実現性リスクはエンジニアと、価値・使いやすさはユーザーと、事業性はステークホルダーと検証すると整理する。
+claims:
+  - id: c1
+    text: プロダクトモデルでは、エンジニアへ伝える主手段はディスカバリーで作ったプロトタイプであり、これを「prototype as spec」と呼ぶ。PRD はプロトタイプで伝わらないユースケース列挙や非機能要件を補う。
+    quote: The primary way we communicate what needs to be built by the engineers is via the prototype we created in product discovery. This is referred to as “prototype as spec.”
+    locator: 「What is the role of the PRD?」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1, TH09-Q3, TH08-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: PRD はディスカバリーの代替ではなく補完である。プロジェクトモデルではディスカバリーの代わりに PRD が書かれる。
+    quote: In the product model, a good PRD supplements product discovery. In the project model, the PRD is done in lieu of product discovery.
+    locator: 「What is the role of the PRD?」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 技術的実現性リスクは自チームおよび依存先チームのエンジニアと検証する。リスクの種類ごとに検証相手が異なり、全プロトタイプで全リスクを検証する必要はない。
+    quote: We are testing feasibility risk with our engineers (engineers on our product team, and also engineers on product teams we depend on).
+    locator: 「Who exactly are we testing the prototype with?」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: context
+  - id: c4
+    text: デリバリーでは生成 AI は自動化・コード生成の役割、ディスカバリーではプロトタイピングと意思決定支援の役割を担う。
+    quote: The main difference is that in delivery, generative AI plays very much an automation / code generation role. In discovery, AI plays more of a prototyping and decision support role.
+    locator: 「Can AI accelerate discovery like it has accelerated delivery?」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:53.817Z
+    httpStatus: 200
+    finalUrl: https://www.svpg.com/build-to-learn-faq/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Build To Learn FAQ | Silicon Valley Product Group
+    titleMatch: true
+    dateMeta: 2026-04-27
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://svpg.com/build-to-learn-faq

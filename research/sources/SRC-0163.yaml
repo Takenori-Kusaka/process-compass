@@ -1,0 +1,106 @@
+schemaVersion: 0
+id: SRC-0163
+status: included
+excludeReason: null
+title: Summary of METR's predeployment evaluation of GPT-5.6 Sol
+url: https://metr.org/blog/2026-06-26-gpt-5-6-sol/
+canonicalUrl: https://metr.org/blog/2026-06-26-gpt-5-6-sol
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-06-26
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: metr.org/blog 一覧"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH07]
+events:
+  - date: 2026-06-26
+    label: METR が GPT-5.6 Sol の事前評価要約を公開
+summary: METR による GPT-5.6 Sol の事前評価。不正の扱い方で 50% 時間地平が 11.3 時間から 270 時間超まで変わり、METR は頑健な測定と見なさないと明言した。
+claims:
+  - id: c1
+    text: 不正を失敗として扱う標準手法では GPT-5.6 Sol の 50% 時間地平は約 11.3 時間(95%CI 5〜40 時間)。不正を成功と数えると 270 時間超に跳ねる。
+    quote: "we arrive at a 50%-Time Horizon point estimate of around 11.3hrs (95% CI: 5hrs - 40hrs)"
+    locator: Summary
+    quant:
+      value: ~11.3h (CI 5-40h); >270h if cheating counted
+      n: TH1.1 suite
+      design: logistic fit with cheating treatment variants
+      population: GPT-5.6 Sol, ReAct harness
+    evidenceKind: benchmark
+    rqs: [BASE-Q1, TH07-Q1]
+    issues: [282]
+    stance: qualifies
+  - id: c2
+    text: METR 自身がいずれの数値も GPT-5.6 Sol の能力の頑健な測定ではないと述べている。2026 年半ば以降の時間地平は単一値で引用できない。
+    quote: we do not consider any of these numbers to represent a robust measurement of GPT-5.6 Sol’s capabilities
+    locator: Summary
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: qualifies
+  - id: c3
+    text: GPT-5.6 Sol の検出された不正率は、METR が ReAct ハーネスで評価した公開モデルの中で最も高い。
+    quote: GPT-5.6 Sol’s detected cheating rate was higher than any public model we have evaluated on our ReAct agent harness
+    locator: Summary
+    quant: null
+    evidenceKind: observational
+    rqs: [TH07-Q1]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.191Z
+    httpStatus: 200
+    finalUrl: https://metr.org/blog/2026-06-26-gpt-5-6-sol/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Summary of METR's predeployment evaluation of GPT-5.6 Sol
+    titleMatch: true
+    dateMeta: 2026-06-26
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "GPT-5.6 Sol / 50%-Time Horizon / around 11.3hrs / 95% CI: 5hrs - 40hrs / 不正を成功と数えると beyond 270hrs"
+        extractedQuote: "we arrive at a 50%-Time Horizon point estimate of around 11.3hrs (95% CI: 5hrs - 40hrs), but if we count the cheating attempts as legitimate successes, the point estimate jumps beyond 270hrs"
+        locator: Summary 第4段落(Time Horizon 1.1 suite)
+        note: '原典は3通りの推定を示す。ask は2通りだけを挙げている。3つ目は不正試行を破棄した場合で、原文は "results in a highly uncertain point estimate of 71hrs (95% CI: 13hrs - 11400hrs)"。270hrs 超については原典が "well beyond the range where we consider our task suite to give reliable measurements" と但し書きしている。'
+      c2:
+        verdict: match
+        extractedValue: GPT-5.6 Sol(年の値は原典に無い)
+        extractedQuote: we do not consider any of these numbers to represent a robust measurement of GPT-5.6 Sol’s capabilities
+        locator: Summary 第5段落
+        note: 前半(いずれの数値も頑健な測定ではない)は原文で確認した。後半の「___年半ば以降の時間地平は単一値で引用できない」は原典に書かれていない。GPT-5.6 Sol 1モデルについての METR の但し書きを、ある時期以降の時間地平全般へ広げた主張者側の推論である。なお METR は直後に "other benchmark scores ... lead us to believe that GPT-5.6 Sol’s capabilities on software and R&D tasks are not significantly beyond the state-of-the-art" とも述べている。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://metr.org/blog/2026-06-26-gpt-5-6-sol

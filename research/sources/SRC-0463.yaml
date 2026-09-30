@@ -1,0 +1,108 @@
+schemaVersion: 0
+id: SRC-0463
+status: included
+excludeReason: null
+title: How We Built a System for AI Agents to Ship Real Code Across 75+ Repos [Part 1 of 2]
+url: https://www.mabl.com/blog/how-we-built-a-system-for-ai-agents-to-ship-real-code-across-75-repos
+canonicalUrl: https://mabl.com/blog/how-we-built-a-system-for-ai-agents-to-ship-real-code-across-75-repos
+ids:
+  arxiv: null
+  doi: null
+publisher: mabl
+authors: [Geoff Cooney]
+orgType: enterprise
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-04-08
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: split repositories created bottleneck human review AI agents multiple repos coordination
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events: []
+summary: 75以上のリポジトリを持つ企業が、リポジトリを統合せず上位に疑似モノレポ層を置き、PR 増加による衝突と人のレビューのボトルネックに対処した報告。数値は自社報告。
+claims:
+  - id: c1
+    text: 個々のリポジトリの上に疑似モノレポ(規約・依存グラフ)を置き、エージェントに開発者と同じ文脈を与えた。
+    quote: Cross Repo Base (Rules + Dependency Graphs) — A pseudo mono-repo that sits above all our individual repos.
+    locator: The Architecture
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: qualifies
+  - id: c2
+    text: AI でコーディングのスループットが3〜5倍になり、人のレビューをボトルネックにせず品質強制を拡大する必要が生じた。PR が増えると衝突も増え、ビルド修正やマージ衝突の解消に費やす時間が増えた。
+    quote: With AI increasing our coding throughput by 3-5x, we needed to scale quality enforcement without making human review the bottleneck. More PRs also means more conflicts
+    locator: "Layer 3: Operations and Governance"
+    quant:
+      value: スループット 3〜5倍
+      n: null
+      design: 自社報告(測定方法の記載なし)
+      population: mabl のエンジニアリング組織
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q1, TH10-Q3]
+    issues: [272, 273]
+    stance: supports
+  - id: c3
+    text: 2026年2月時点で、アプリケーションリポジトリだけで月370件超のペースで PR が作成されており、2025年8月の月230件から増えている(2月の値は確定実績ではなくペース)。
+    quote: In February 2026, we're pacing at 370+ PRs/month in application repos alone (up from 230/month in August 2025).
+    locator: "Layer 3: Operations and Governance > What this solved"
+    quant:
+      value: 230 → 370+ PR/月
+      n: 1社のアプリケーションリポジトリ
+      design: 自社報告
+      population: mabl
+    evidenceKind: case-report
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:04.424Z
+    httpStatus: 200
+    finalUrl: https://www.mabl.com/blog/how-we-built-a-system-for-ai-agents-to-ship-real-code-across-75-repos
+    contentType: text/html; charset=UTF-8
+    titleFetched: How We Built a System for AI Agents to Ship Real Code Across 75+ Repos [Part 1 of 2]
+    titleMatch: true
+    dateMeta: 2026-04-08
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 230/month (August 2025) -> 370+ PRs/month (February 2026)
+        extractedQuote: In February 2026, we're pacing at 370+ PRs/month in application repos alone (up from 230/month in August 2025).
+        locator: "Layer 3: Operations and Governance > What this solved"
+        note: 原文は 'pacing at'(2026年2月時点のペース見込み)であり、月の確定実績ではない。
+        adjudication:
+          verdict: corrected
+          reason: 数値と期間は blindQuote と一致する。ただし原文は『we're pacing at 370+ PRs/month』で、2026年2月の月間確定実績ではなくペースの見込み(blindNote)。主張の『月370件超に増えた』は確定値のように読めるため条件を補った。
+          date: 2026-09-24
+          originalText: アプリケーションリポジトリだけで PR が月230件(2025年8月)から月370件超(2026年2月)に増えた。
+          originalQuote: In February 2026, we're pacing at 370+ PRs/month in application repos alone (up from 230/month in August 2025).
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://mabl.com/blog/how-we-built-a-system-for-ai-agents-to-ship-real-code-across-75-repos

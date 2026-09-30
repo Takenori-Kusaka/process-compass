@@ -1,0 +1,81 @@
+schemaVersion: 0
+id: SRC-0127
+status: included
+excludeReason: null
+title: "Cached Input Token Pricing: Anthropic Cut the Multiplier, OpenAI Held It"
+url: https://imisofts.com/blog/cached-input-token-pricing
+canonicalUrl: https://imisofts.com/blog/cached-input-token-pricing
+ids:
+  arxiv: null
+  doi: null
+publisher: imisofts (blog)
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: individual
+published: 2026-09-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Anthropic Claude Fable 5.1 announcement September 2026 cache read price cost reduction agentic workloads
+derivedFrom: [SRC-0100, SRC-0101]
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: Opus 5.5 発表翌日の解説記事(2026-09-23)。同じ価格表でも呼び出し頻度でキャッシュの損益が逆転する試算を示す。1 時間に 200 回呼ぶエージェントは 94% 節約、1 回しか呼ばないエージェントは 1 時間キャッシュの書き込み代で請求が倍になる。反証カード。
+claims:
+  - id: c1
+    text: 1 時間キャッシュに 30K トークンを書いて 1 時間に 1 回しか呼ばない「静かな」エージェントでは、書き込み 24 セント + 読み取り 0.6 セント ≒ 24.6 セントに対し非キャッシュ 12 セントで、キャッシュが請求を倍にする。キャッシュ依存の費用構造は呼び出し頻度が低いと不利。
+    quote: A quiet agent making one call an hour pays 24 cents for the write plus 0.6 of a cent for the read, so about 24.6 cents against 12 cents uncached. Caching doubled the bill. Same model, same price list, same week.
+    locator: Run it two ways(試算)
+    quant:
+      value: 24.6¢ vs 12¢ (2x worse) at 1 call/hour; 94% saving at 200 calls/hour
+      n: null
+      design: price arithmetic (Opus 5.5 list prices)
+      population: hypothetical agent with 30K-token 1h cache
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:52.892Z
+    httpStatus: 200
+    finalUrl: https://imisofts.com/blog/cached-input-token-pricing/
+    contentType: text/html; charset=utf-8
+    titleFetched: "Cached Input Token Pricing: Anthropic Cut the Multiplier, OpenAI Held It"
+    titleMatch: true
+    dateMeta: 2026-09-23
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1時間キャッシュ、30,000 トークン、1時間に1回。書き込み 24セント + 読み取り 0.6セント ≒ 24.6セント、非キャッシュ 12セント
+        extractedQuote: A quiet agent making one call an hour pays 24 cents for the write plus 0.6 of a cent for the read, so about 24.6 cents against 12 cents uncached. Caching doubled the bill.
+        locator: A worked example on a 30,000 token standing context > Now run it two ways
+        note: "前提は Opus 5.5 の価格(fresh $4/M → 12セント/回、cache read $0.20/M → 0.6セント/回、1時間キャッシュ書き込み $8/M → 24セント)。原文 'Writing that context into a one hour cache, at 8 dollars per million: 24 cents, once.' 対比として 'A busy agent making 200 calls in an hour' は 94% 削減。"
+        adjudication:
+          verdict: consistent
+          reason: 30K トークン・1時間キャッシュ・1時間に1回の条件で、書き込み 24セント+読み取り 0.6セント≒24.6セント対非キャッシュ 12セント、キャッシュで請求が倍になる、は抜粋どおり。「呼び出し頻度が低いと不利」という一般化は、原典が対比として示す 200 回/時で 94% 削減(blindNote)に支えられる。金額は Opus 5.5 の価格(fresh $4/M、1時間書き込み $8/M、read $0.20/M)を前提とする点を引用時に添えるのが望ましい。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

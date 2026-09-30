@@ -1,0 +1,119 @@
+schemaVersion: 0
+id: SRC-0430
+status: included
+excludeReason: null
+title: "One Developer Is All You Need: A Case Study of an AI-Augmented One-Person Squad in a Brownfield Enterprise"
+url: https://arxiv.org/abs/2605.18461
+canonicalUrl: arxiv:2605.18461
+ids:
+  arxiv: "2605.18461"
+  doi: null
+publisher: arXiv
+authors: [Boas Marcelo Vilas, Pinto Gustavo, Monteiro Edward Roberto, Carida Vinicius Fernandes, Ribeiro Danilo]
+orgType: enterprise
+region: other
+lang: en
+sourceType: preprint
+published: 2026-05-18
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH08
+  query: arXiv spec-driven development empirical study coding agents specification detail success rate 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH08, TH02]
+events: []
+summary: Itaú Unibanco の単一事例研究。SDD ワークフロー下で1名+AI エージェント4体が、4人分の brownfield 案件を計画の半分の期間で完了した。成功の制約要因は仕様の質と組織知だとするが、観察者=被験者の限界を自ら明記している。
+claims:
+  - id: c1
+    text: 1名のスタッフエンジニアが SDD ワークフローと AI エージェント4体で、4人分と見積もられた brownfield 案件を計画の半分の期間で完了した。AI 生成コードの初回レビュー受入率は90%だった。
+    quote: delivered a brownfield product initiative scoped for a four-person squad in half the planned time, with 90% AI-generated code acceptance
+    locator: Abstract / Index 前段
+    quant:
+      value: 50% of planned time; 90% first-review acceptance; >85% staffing cost reduction
+      n: 1 project, 1 engineer, 9 weeks
+      design: single-case study, historical baseline
+      population: Brazilian bank brownfield initiative
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH02-Q5]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 著者らは、1人スクワッドが成功するうえでの律速となる制約(binding constraints)は、モデル能力ではなく仕様の質と組織知であると述べている。
+    quote: making specification quality and institutional knowledge, not model capability, the binding constraints on one-person squad success.
+    locator: Abstract
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 限界として、単一事例であること、著者の一人が被験者兼観察者であること、比較基準が同一チームの過去速度で対照群がないことを明記している。
+    quote: the single-case design bounds what can be claimed
+    locator: §VIII Limitations and Threats to Validity
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:38.075Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.18461
+    contentType: text/html; charset=utf-8
+    titleFetched: "One Developer Is All You Need: A Case Study of an AI-Augmented One-Person Squad in a Brownfield Enterprise"
+    titleMatch: true
+    dateMeta: 2026-05-18
+    quotes:
+      c1: found
+      c2: not-found
+      c3: found
+    arxiv:
+      status: 200
+      title: "One Developer Is All You Need: A Case Study of an AI-Augmented One-Person Squad in a Brownfield Enterprise"
+      authors: ["Boas, Marcelo Vilas", "Pinto, Gustavo", "Monteiro, Edward Roberto", "Carida, Vinicius Fernandes", "Ribeiro, Danilo"]
+      v1Date: 2026-05-18
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "single(1名)/ four AI agents(4体)/ four-person squad(4人)/ 90%(同文の続き: with 90% acceptance of AI-generated code on first review)"
+        extractedQuote: a single staff engineer, supported by four AI agents under a Spec-Driven Development workflow, delivered a brownfield product initiative scoped for a four-person squad in half the planned time
+        locator: Abstract
+        note: 原文は 'scoped for a four-person squad'(4人体制として計画された)。単一事例のケーススタディ(regulated enterprise setting)。同じ文に 'full integration test pass rates, and an above-85% reduction in direct staffing cost' も含まれる。 引用は ≤200字に切り詰め、'90% acceptance of AI-generated code on first review' が続く。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote『a single staff engineer, supported by four AI agents under a Spec-Driven Development workflow, delivered a brownfield product initiative scoped for a four-person squad in half the planned time』と、続く『90% acceptance of AI-generated code on first review』(blindValue/blindNote)どおり。『4人分と見積もられた』は scoped for a four-person squad の訳として許容範囲。claimQuant の >85% 人件費削減も blindNote で同文内に確認できる。単一事例のケーススタディである点は主張外だが、主張は一般化していない。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: specification quality and institutional knowledge, not model capability, the binding constraints
+        extractedQuote: making specification quality and institutional knowledge, not model capability, the binding constraints on one-person squad success.
+        locator: Abstract
+        note: 原文は『1人スクワッド成功の制約条件(binding constraints)』という表現で、『結果を左右したもの』より限定的(成功の律速要因としての解釈)。
+        adjudication:
+          verdict: corrected
+          reason: claimQuote は原文に見つからない(not-found)。原文は『making specification quality and institutional knowledge, not model capability, the binding constraints on one-person squad success』で、『結果を左右した要因』ではなく『成功を制約する条件』という表現。また原文に『エンジニアの』の限定はない。趣旨は近いので原文の表現に沿って直した。
+          date: 2026-09-24
+          originalText: 結果を左右したのはモデル能力ではなく、仕様の質とエンジニアの組織知だと解釈している。
+          originalQuote: outcomes driven not by AI capability but by specification quality and the engineer’s institutional knowledge
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

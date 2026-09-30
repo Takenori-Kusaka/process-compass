@@ -1,0 +1,148 @@
+schemaVersion: 0
+id: SRC-0202
+status: included
+excludeReason: null
+title: Patterns and problems in emerging multiagent systems
+url: https://www.anthropic.com/research/multiagent-systems
+canonicalUrl: https://anthropic.com/research/multiagent-systems
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-08-13
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S1
+  query: Anthropic research multiagent systems 2026(Newsroom 一覧から)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06, TH10]
+events: []
+summary: Anthropic Frontier Red Team のマルチエージェント実験報告(2026-08-13)。役割指定や CEO 階層のプロンプトは結果をほとんど変えず、同一モデルのエージェント群は同じ判断に収束する(共通原因の失敗)と報告。
+claims:
+  - id: c1
+    text: 12時間のゲーム制作スウォームで、役割指定のプロンプトや1体を CEO とする階層プロンプトは結果をほとんど変えなかった。
+    quote: a “CEO hierarchy” prompt, which designated one agent as the CEO, and told all subsequent agents to take assignments from it. But these prompts did not make much difference.
+    locator: Measuring coordination
+    quant:
+      value: 差はほぼ無し
+      n: 3 prompt types x 5 models x varying swarm sizes, 12h each
+      design: multi-agent simulation
+      population: text-based game build swarms
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q3, TH01-Q5]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 成果物のゲームは一貫して低品質で、モデルはこの領域でセンスが乏しく、現状は人の大きな方向付けを要する。
+    quote: Models have poor taste in this arena and currently require significant human direction.
+    locator: Measuring coordination
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3, TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 同一モデルのエージェントは分散が小さく、1体が誤れば多数が同じ誤りをする。個別の問題が系統的な失敗になる。
+    quote: when one agent makes a bad decision, it is likely that many agents will make that same bad decision.
+    locator: Failures from conformity
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c4
+    text: 同時に起動した30体のうち18体が全く同じ名前の git ブランチ「mvp-game-loop」を作った。
+    quote: 18 out of 30 agents decided to create a git branch with the exact same branch name, “mvp-game-loop.”
+    locator: Failures from conformity
+    quant:
+      value: 18/30
+      n: 30 agents
+      design: observation in multi-agent experiment
+      population: same-model agents started simultaneously
+    evidenceKind: case-report
+    rqs: [TH06-Q3, TH10-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 新しい世代(Opus 4.8、Mythos Preview)は PR の衝突を「解決」したが、それはほとんど協働しない(各自がファイルを専有する)ことによってだった。
+    quote: More recent models (in particular, Opus 4.8 and Mythos Preview) have “solved” this problem, but only by hardly working together at all
+    locator: Measuring coordination
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q1, TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c6
+    text: 脆弱性探索では独立並列エージェントが 650 万トークンで 21 件、協調スウォームが 2700 万トークンで 266 件を見つけたが、重なりは 12 件で、中核ディレクトリに限ればトークン当たり効率は同程度だった。
+    quote: the coordinating agent swarm found 266 vulnerabilities over a 27 million token run
+    locator: Measuring coordination
+    quant:
+      value: 21 vulns / 6.5M tokens vs 266 vulns / 27M tokens
+      n: 45 agents, 15 OSS projects
+      design: comparison of coordination modes
+      population: Mythos Preview
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q4, TH01-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:08.548Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/research/multiagent-systems
+    contentType: text/html; charset=utf-8
+    titleFetched: Patterns and problems in multiagent systems
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 12 hours / one agent as the CEO(1体)
+        extractedQuote: a “CEO hierarchy” prompt, which designated one agent as the CEO, and told all subsequent agents to take assignments from it. But these prompts did not make much difference.
+        locator: Measuring coordination(fantasy game 実験)
+        note: '時間の原文: "We varied the model generation and the number of agents in each swarm, and let each swarm run for 12 hours." 役割指定は原典で "a prompt with prescriptive roles"。3種いずれでもゲームは bad だったと記述'
+      c3:
+        verdict: match
+        extractedValue: one agent(1体)
+        extractedQuote: And, by implication, this means that when one agent makes a bad decision, it is likely that many agents will make that same bad decision.
+        locator: Failures from conformity
+        note: '原典の条件は「context, scaffolding, model がすべて同じ(または類似)のとき」("When these factors are all the same (or similar)")で、ask の「同一モデル」より条件が広い(文脈・足場も同じであること)。続く文: "What would have been isolated problems can quickly become systemic failures."'
+      c6:
+        verdict: match
+        extractedValue: "独立並列: 6.5 million tokens(650万)で 21件 / スウォーム: 27 million tokens(2700万)で 266件 / 共通 12件"
+        extractedQuote: For Mythos Preview, the simple independent parallelized method produces 21 vulnerabilities over a 6.5 million token run, while the coordinating agent swarm found 266 vulnerabilities
+        locator: Measuring coordination(脆弱性探索実験・図の説明直後)
+        note: "数値は Claude Mythos Preview の場合に限る(ask はモデル条件を落としている)。重なり: \"there were only 12 vulnerabilities in common between them\"。効率: \"If we limit the swarm's outputs to only the vulnerabilities in the core directories, the two methods seem comparable in terms of tokens per vulnerability found.\" スウォームの約半数は中核ディレクトリ外で発見"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/research/multiagent-systems

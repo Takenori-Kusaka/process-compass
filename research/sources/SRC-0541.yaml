@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0541
+status: included
+excludeReason: null
+title: Segregation of duties for AI agents
+url: https://www.makerchecker.ai/insights/segregation-of-duties-for-ai-agents
+canonicalUrl: https://makerchecker.ai/insights/segregation-of-duties-for-ai-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: MakerChecker
+authors: []
+orgType: startup
+region: global
+lang: en
+sourceType: corp-techblog
+published: 2026-06-13
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G03
+  query: segregation of duties AI agents non-human identity maker checker "agent" approve its own work ISACA 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06, TH07]
+events: []
+summary: エージェント制御基盤ベンダーの解説記事(反証として採取)。職務分離の規則は担い手が人であることを求めておらず、準備者と承認者が別の主体であればよいと主張し、自社製品が同一 ID の自己承認を実行時に拒否すると述べる。引用する規則(21 CFR 211.22 等)の原文は本調査では未確認で、同記事自身がその規則の承認者を「独立した人」と説明している。
+claims:
+  - id: c1
+    text: 職務分離の規則は担い手が人であることを求めておらず、準備する主体と承認する主体が別であることを求めているだけだと主張する(ベンダーの解釈。規制当局・監査基準の引用ではない)。
+    quote: The rules never said the actor had to be human, they said the actor who prepares must not be the actor who approves.
+    locator: The same control, two industries
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: contradicts
+  - id: c2
+    text: 同じ記事が、医薬品安全性監視の規則では作成者と別の独立した「人」がレビューし署名すると説明している。人の占有を要さないという主張と、引用元の規則の説明が食い違う。
+    quote: One actor prepares the case; a second, independent person reviews and signs the call.
+    locator: What the rule actually requires
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c3
+    text: 「自分の作業を承認するな、別のエージェントへ回せ」とプロンプトに書くのは指示であって制約ではなく、再プロンプトや更新で無視され、分離が保たれた記録も残らないとする。
+    quote: "There is a second failure mode that looks more sophisticated and is just as weak: putting the rule in the prompt."
+    locator: Flagging is not enforcing
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2, TH07-Q5]
+    issues: [248, 249]
+    stance: supports
+  - id: c4
+    text: 自社製品は、承認を提案する主体の ID と作業を準備した主体の ID が同じなら承認を拒否し、その拒否を記録すると述べる(自社製品についての自己申告、検証データなし)。
+    quote: If they are the same actor, the approval is refused, not flagged, refused, and the refusal is recorded.
+    locator: Enforcing it structurally, at runtime
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:32.435Z
+    httpStatus: 200
+    finalUrl: https://www.makerchecker.ai/insights/segregation-of-duties-for-ai-agents/
+    contentType: text/html; charset=utf-8
+    titleFetched: Segregation of duties for AI agents · MakerChecker
+    titleMatch: true
+    dateMeta: 2026-06-13
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

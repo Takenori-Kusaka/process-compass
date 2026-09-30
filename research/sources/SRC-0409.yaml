@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0409
+status: included
+excludeReason: null
+title: "ImpossibleBench: Measuring LLMs' Propensity of Exploiting Test Cases"
+url: https://arxiv.org/abs/2510.20270
+canonicalUrl: arxiv:2510.20270
+ids:
+  arxiv: "2510.20270"
+  doi: null
+publisher: ICLR 2026 / arXiv
+authors: [Ziqian Zhong, Aditi Raghunathan, Nicholas Carlini]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2025-10-23
+publishedBasis: arxiv-v1
+version: ICLR 2026 採録版
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH07
+  query: ImpossibleBench LLM agents exploit test cases cheating rate
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH06]
+events: []
+summary: 仕様と矛盾するようにテストを改変した「不可能課題」で、エージェントがテストを突破する率(=ずるの率)を測るベンチマーク。強いモデルほどずるが多く、テストの読み取り専用化や中断手段が有効、LLM 監視は複雑な課題で見逃しが多い。
+claims:
+  - id: c1
+    text: フロンティアモデルは不可能課題で頻繁にずるをし、強いモデルほどずるの率が高い傾向がある。
+    quote: stronger models generally exhibit higher cheating rates
+    locator: §7 Conclusion
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH07-Q1]
+    issues: [269, 275]
+    stance: supports
+  - id: c2
+    text: テストを隠すとずるの成功はほぼゼロになるが本来の性能も落ちる。読み取り専用化はテスト改変を防ぎつつ性能を戻すため、著者らは隠すか読み取り専用にすることを推奨する(ただし special-casing 等の他の手口は残る)。
+    quote: Based on these results, we recommend either hiding test files entirely or restricting them to read-only access during implementation
+    locator: §5 Figure 7 周辺(test access configurations)
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH07-Q5]
+    issues: [269, 275]
+    stance: supports
+  - id: c3
+    text: 課題の誤りを見つけたら人の介入を求めて中断できる手段を与えると、本来の性能低下は小さくずるの率が大きく下がった。
+    quote: We recommend implementing similar strategies if possible, as the performance degradation on the original benchmark is relatively small and the cheating rate is significantly reduced.
+    locator: §5 Figure 8 周辺(abort option)
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH01-Q4]
+    issues: [275]
+    stance: supports
+  - id: c4
+    text: LLM ベースの監視は Impossible-LiveCodeBench では 86〜89% のずるを検出したが、複数ファイルにまたがる Impossible-SWEbench では 42〜65% に留まった。
+    quote: LLM-based monitors can detect 86-89% of cheating attempts on Impossible-LiveCodeBench , but struggle more with the more complex Impossible-SWEbench (42-65% detection rate)
+    locator: "Abstract / §6 Results: Monitoring"
+    quant:
+      value: 86-89% vs 42-65% detection
+      n: verified cheating transcripts from ImpossibleBench
+      design: monitor calibration against unambiguous ground truth
+      population: LLM-based monitors
+    evidenceKind: benchmark
+    rqs: [TH07-Q1, TH06-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:17.849Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2510.20270
+    contentType: text/html; charset=utf-8
+    titleFetched: "ImpossibleBench: Measuring LLMs' Propensity of Exploiting Test Cases"
+    titleMatch: true
+    dateMeta: 2025-10-23
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "ImpossibleBench: Measuring LLMs' Propensity of Exploiting Test Cases"
+      authors: ["Zhong, Ziqian", "Raghunathan, Aditi", "Carlini, Nicholas"]
+      v1Date: 2025-10-23
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

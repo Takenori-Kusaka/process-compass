@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0349
+status: included
+excludeReason: null
+title: Agentic Code Review
+url: https://addyosmani.com/blog/agentic-code-review
+canonicalUrl: https://addyosmani.com/blog/agentic-code-review
+ids:
+  arxiv: null
+  doi: null
+publisher: AddyOsmani.com
+authors: [Osmani Addy]
+orgType: individual
+region: us
+lang: en
+sourceType: individual
+published: 2026-06-15
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: solo developer AI coding agents no second reviewer self-review risk experience report
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH06]
+events: []
+summary: コーディングエージェント時代のコードレビューについての論考。人のレビューの量は利用者のいない一人開発から多数の利用者を抱える保守まで、影響範囲(blast radius)に応じて調整するダイヤルだと論じる。
+claims:
+  - id: c1
+    text: 利用者のいない一人開発なら、レビューのほとんどを AI に任せるのは2026年時点で擁護できる立場だと述べる。体制と利用規模で統制の強さを変える主張である。
+    quote: "Solo with no users: letting AI review almost all of it is a defensible 2026 position, and you should not feel guilty about it."
+    locator: 本文(What to actually do 節の直前)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q5]
+    issues: [267]
+    stance: supports
+  - id: c2
+    text: 人をどれだけ残すかはダイヤルで、罪悪感ではなく影響範囲で設定すべきだとする。
+    quote: How much human you keep is a dial, and you set it by blast radius, not by guilt.
+    locator: 本文(What to actually do 節の直前)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q5, TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 一人開発ではテストに頼り、重要な箇所をレビューし、先送りした作業が負債として残ることに正直であるよう勧める。統制を外す場合も未実施を記録し続ける立場である。
+    quote: lean on your tests, review what matters, and stay honest that the deferred work is still owed.
+    locator: Writing got cheap, understanding didn’t
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q5]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 紹介した結果はいずれも特定のコードベースに固有で、自分のコードで測るよう注意する。一般化の限界を著者自身が述べている。
+    quote: every one of these results was specific to a particular codebase, and yours will be too.
+    locator: 本文(Should we just let AI review more of it? 節の直前)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q5]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:21.949Z
+    httpStatus: 200
+    finalUrl: https://addyosmani.com/blog/agentic-code-review/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Agentic Code Review | AddyOsmani.com
+    titleMatch: true
+    dateMeta: 2026-06-15
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

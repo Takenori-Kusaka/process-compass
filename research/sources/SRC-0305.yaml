@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0305
+status: included
+excludeReason: null
+title: On AI Coding and Its Discontents
+url: https://calnewport.com/on-ai-coding-and-its-discontents
+canonicalUrl: https://calnewport.com/on-ai-coding-and-its-discontents
+ids:
+  arxiv: null
+  doi: null
+publisher: Cal Newport (blog)
+authors: [Cal Newport]
+orgType: individual
+region: us
+lang: en
+sourceType: individual
+published: 2026-08-10
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: AI coding agents overhyped senior engineer critique 2026 productivity skeptic
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH06]
+events: []
+summary: 反証側の資料。1月に Claude Code へ転向し「1週間の作業が2日になった」と語った上級エンジニアが、見落としやすいバグとレビューの省略を理由に、ほぼ手書きへ戻った経緯を紹介する。
+claims:
+  - id: c1
+    text: エージェントの出力はもっともらしく見えても見つけにくいバグを含む。自分で書いていないコードの理解は難しいため、レビューは飛ばされがちで、やがてシステムが壊れ始める。当該エンジニアはほぼ手書きへ戻った。
+    quote: “The coding harnesses are useful and make life as a developer easier,” he summarized, “but they also encourage laziness.”
+    locator: 本文中盤(senior engineer の追記)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q4, TH11-Q2]
+    issues: [268]
+    stance: contradicts
+  - id: c2
+    text: 著者が冬に行った300人超の開発者調査では、多数が自分でコードを書く仕事から AI エージェントへの指示へ移ったと答えた。
+    quote: when I surveyed more than 300 software developers to learn how AI was transforming their jobs, the majority told a similar tale of shifting from writing their own code to instructing AI agents
+    locator: 本文冒頭付近
+    quant:
+      value: 多数(比率は未記載)
+      n: 300人超
+      design: 著者による調査(抽出方法は未記載)
+      population: ソフトウェア開発者
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:24.620Z
+    httpStatus: 200
+    finalUrl: https://calnewport.com/on-ai-coding-and-its-discontents/
+    contentType: text/html; charset=UTF-8
+    titleFetched: On AI Coding and Its Discontents - Cal Newport
+    titleMatch: true
+    dateMeta: 2026-08-10
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

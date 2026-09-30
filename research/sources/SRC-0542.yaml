@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0542
+status: included
+excludeReason: null
+title: 6.3 Planning of changes — ISO 9001:2026 | Qlause
+url: https://qlause.app/clauses/2026-6-3
+canonicalUrl: https://qlause.app/clauses/2026-6-3
+ids:
+  arxiv: null
+  doi: null
+publisher: Qlause
+authors: []
+orgType: consultancy
+region: other
+lang: en
+sourceType: corp-techblog
+published: 2026-09-27
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: secondary
+foundBy:
+  cluster: G03
+  query: '"ISO 9001:2026" clause 6.3 "shall" "how the effectiveness of the changes" OR "effectiveness of the change" "communicat" exact wording planning of changes'
+derivedFrom: []
+derivedFromUrl: [https://iso.org/standard/9001]
+selfReported: false
+themes: [TH02, TH12]
+events:
+  - date: 2026-09-16
+    label: ISO 9001:2026(第6版)発行、ISO 9001:2015 は廃止
+summary: 2026-09-16 発行の ISO 9001:2026 箇条 6.3(変更の計画)の解説(二次情報。「発行された本文と 2026-09-27 に照合」と明記)。規格本文は有償で未読。2015 年版の 4 考慮事項(目的と結果、QMS の完全性、資源、責任・権限の割当て)を維持し、変更の伝達・有効性の監視評価・結果のレビューを計画時に決めることが加わったと説明する。対象は QMS の変更で、案件の目的・納期の変更を直接扱う条文ではない。
+claims:
+  - id: c1
+    text: 2026 年版 6.3 は 2015 年版の 4 つの考慮事項を維持し、変更の伝達、有効性の監視・評価の方法、結果のレビュー方法の 3 つを計画時に決める事項として加えたと解説する。
+    quote: "Same four considerations, plus three planned up front: communication of the change, how its effectiveness will be monitored and evaluated, and how the results will be reviewed"
+    locator: 冒頭 Changed in ISO 9001:2026
+    quant: null
+    evidenceKind: review
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 2015 年版の時点で、QMS の変更は目的と結果、システムの完全性、資源、責任の 4 点を考慮して計画することが要求されていたと説明する。資源と責任の再割当て(体制)は変更計画の考慮事項に含まれる。
+    quote: "2015 already required QMS changes to be planned: purpose and consequences, system integrity, resources, responsibilities."
+    locator: Plain-language summary
+    quant: null
+    evidenceKind: review
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 証跡の例として、変更記録に伝達(誰にどう伝えたか)、有効性確認(実施前に定めた成功の尺度)、日付入りの結果レビューの 3 欄を足した様式を挙げる。変更後の観測と見直しを記録欄として持つ先例(解説者の推奨様式で、規格の要求様式ではない)。
+    quote: communication (who was told, how), effectiveness check (the success measure defined before implementation), and a dated review of results.
+    locator: Typical evidence
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2, TH07-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:32.607Z
+    httpStatus: 200
+    finalUrl: https://qlause.app/clauses/2026-6-3
+    contentType: text/html; charset=utf-8
+    titleFetched: 6.3 Planning of changes — ISO 9001:2026
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026年版 6.3 / 2015年版 / 4つ(four considerations)/ 3つ(three planned up front)
+        extractedQuote: "Same four considerations, plus three planned up front: communication of the change, how its effectiveness will be monitored and evaluated, and how the results will be reviewed — the loop closes."
+        locator: 冒頭 'Changed in ISO 9001:2026' 囲み
+        note: 囲み自体には '2015' の語が無く、'Same four considerations' が 2015年版を指すことは直後の Plain-language summary('2015 already required...')から読み取れる。ページは 'Checked against the published text on 27 September 2026'、サイト上部に 'ISO 9001:2026 published 16 Sept 2026' と表示。二次解説であり規格原文ではない。
+      c2:
+        verdict: match
+        extractedValue: 2015年版 / 4点(purpose and consequences, system integrity, resources, responsibilities。原文は数を語で書かず4項目を列挙)
+        extractedQuote: "The clause is not new — 2015 already required QMS changes to be planned: purpose and consequences, system integrity, resources, responsibilities."
+        locator: Plain-language summary
+        note: 原文の語は 'resources, responsibilities' だけで、「再割当て」「体制」にあたる語はこのページの当該箇所に無い(ask 側の補足)。'four' という数詞は冒頭囲みの 'Same four considerations' に出る。
+      c3:
+        verdict: match
+        extractedValue: 3欄(three added fields)
+        extractedQuote: "three added fields with real content: communication (who was told, how), effectiveness check (the success measure defined before implementation), and a dated review of results."
+        locator: Typical evidence
+        note: 見出しは 'Typical evidence' で、解説サイトが挙げる証跡例。規格が要求する様式だとはページ上も述べていない。'FM-002-style' は同サイトのテンプレート番号とみられる。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

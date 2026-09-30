@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0604
+status: included
+excludeReason: null
+title: OpenSpec docs/commands.md (slash command reference)
+url: https://github.com/Fission-AI/OpenSpec/blob/main/docs/commands.md
+canonicalUrl: https://github.com/fission-ai/openspec/blob/main/docs/commands.md
+ids:
+  arxiv: null
+  doi: null
+publisher: Fission AI (OpenSpec)
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: 2026-09-23
+publishedBasis: meta
+version: v1.13.2
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: OpenSpec Fission-AI commands propose apply archive verify opsx 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH08, TH07]
+events:
+  - date: 2026-09-23
+    label: OpenSpec v1.13.2 公開(/opsx:verify が未実施の検査を合格と報告しなくなった)
+summary: OpenSpec のスラッシュコマンド一覧(最終コミット 2026-09-23、直近リリース v1.13.2)。既定の core プロファイル 6 本+拡張 6 本の 2 段で、計画成果物(proposal / specs / design / tasks)は propose が一括生成する。検証は成果物ごとではなく実装後の verify 1 本で、問題を出すが archive は止めない。
+claims:
+  - id: c1
+    text: コマンドはプロファイルで絞り込む。既定の core は 6 本(propose / explore / apply / update / sync / archive)、拡張で 6 本(new / continue / ff / verify / bulk-archive / onboard)が加わる。
+    quote: The default global profile is `core`. To enable expanded workflow commands, run `openspec config profile`, select workflows, then run `openspec update` in your project.
+    locator: Quick Reference
+    quant:
+      value: core 6 + expanded 6 commands
+      n: counted from the reference tables
+      design: product documentation
+      population: OpenSpec v1.13.x
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2, TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 既定の経路では作成は成果物単位に分かれていない。propose が実装前に要る成果物(spec-driven では proposal・specs・design・tasks)をまとめて生成する。成果物を 1 つずつ作る continue は拡張側。
+    quote: "Generates artifacts needed before implementation (for `spec-driven`: proposal, specs, design, tasks)"
+    locator: /opsx:propose / What it does
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 検証は成果物ごとのレビューではなく、実装が成果物群と一致するかを完全性・正しさ・一貫性の 3 次元で見る verify 1 本で、拡張プロファイルにある。
+    quote: Validate that implementation matches your change artifacts. Checks completeness, correctness, and coherence.
+    locator: /opsx:verify
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: verify は問題を CRITICAL / WARNING / SUGGESTION に分けて報告するが、archive を止めない(網羅性・一貫性の検査を警告に留める設計の先例)。
+    quote: Does not block archive, but surfaces issues
+    locator: /opsx:verify / What it does
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH02-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:56.913Z
+    httpStatus: 200
+    finalUrl: https://github.com/Fission-AI/OpenSpec/blob/main/docs/commands.md
+    contentType: text/html; charset=utf-8
+    titleFetched: OpenSpec/docs/commands.md at main · Fission-AI/OpenSpec
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: core = 6 本(propose / explore / apply / update / sync / archive)/ 拡張 = 6 本(new / continue / ff / verify / bulk-archive / onboard)
+        extractedQuote: The default global profile is `core`. To enable expanded workflow commands, run `openspec config profile`, select workflows, then run `openspec update` in your project.
+        locator: Quick Reference(Default Quick Path (`core` profile) 表、Expanded Workflow Commands (custom workflow selection) 表)
+        note: 本数は数字では書かれておらず、2つの表の行数を数えた値(各 6 行)。拡張側の見出しは「Expanded Workflow Commands (custom workflow selection)」で、名前の付いた拡張プロファイルがあるとは書かれていない(openspec config profile でワークフローを選ぶ)。取得元は raw.githubusercontent.com の main ブランチ(取得日 2026-09-30)。
+      c2:
+        verdict: match
+        extractedValue: 1 つずつ(one artifact at a time)
+        extractedQuote: "Generates artifacts needed before implementation (for `spec-driven`: proposal, specs, design, tasks) / Creates one artifact at a time for incremental progress."
+        locator: /opsx:propose / What it does、/opsx:continue 冒頭
+        note: propose は「Create a new change and generate planning artifacts in one step. This is the default start command in the `core` profile.」。continue は Quick Reference の Expanded 側の表にある。拡張側には全成果物を一度に作る /opsx:ff もある。
+      c3:
+        verdict: match
+        extractedValue: "3 次元(three dimensions: Completeness / Correctness / Coherence)/ verify 1 本"
+        extractedQuote: Validate that implementation matches your change artifacts. Checks completeness, correctness, and coherence. / Checks three dimensions of implementation quality
+        locator: /opsx:verify(冒頭、What it does、Verification dimensions 表)
+        note: 3つ目の次元は原文では Coherence(設計判断がコードに反映されているか、パターンが一貫しているか)。「1本」は数字の記述ではなく、検証用コマンドが /opsx:verify のみという観察。verify は Expanded Workflow Commands 側の表にある。原文は「Does not block archive, but surfaces issues」で、アーカイブを止めない。指摘は CRITICAL / WARNING / SUGGESTION に分類される。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

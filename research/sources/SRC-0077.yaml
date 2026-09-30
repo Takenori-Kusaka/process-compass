@@ -1,0 +1,81 @@
+schemaVersion: 0
+id: SRC-0077
+status: included
+excludeReason: null
+title: "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework"
+url: https://arxiv.org/abs/2308.00352
+canonicalUrl: arxiv:2308.00352
+ids:
+  arxiv: "2308.00352"
+  doi: null
+publisher: arXiv
+authors: [Hong Sirui, Zheng Xiawu, Chen Jonathan, Wu Chenglin, Schmidhuber Jürgen]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2023-08
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH01
+  query: arXiv abs 2308.00352 (課題指定の MetaGPT SOP を原典で確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: 人間の SOP をプロンプト列に符号化し、組立ライン方式でロール(PM/Architect/Engineer 等)を各エージェントに割り当てる枠組みの原典。ロール別 AI 編成の起点だが、ロール保持者に人間の役割を含める設計ではない。
+claims:
+  - id: c1
+    text: MetaGPT は SOP をプロンプト列として符号化し、人間らしい領域専門性を持つエージェントに中間成果物を検証させて誤りを減らす設計。
+    quote: MetaGPT encodes Standardized Operating Procedures (SOPs) into prompt sequences for more streamlined workflows, thus allowing agents with human-like domain expertise to verify intermediate results and reduce errors.
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: context
+  - id: c2
+    text: 組立ライン方式で多様なロールを各エージェントに割り当て、複雑タスクをサブタスクへ分解する。
+    quote: MetaGPT utilizes an assembly line paradigm to assign diverse roles to various agents
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH01-Q3]
+    issues: [248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:20.224Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2308.00352
+    contentType: text/html; charset=utf-8
+    titleFetched: "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework"
+    titleMatch: true
+    dateMeta: 2023-08-01
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework"
+      authors: ["Hong, Sirui", "Zhuge, Mingchen", "Chen, Jiaqi", "Zheng, Xiawu", "Cheng, Yuheng", "Zhang, Ceyao"]
+      v1Date: 2023-08-01
+      latestVersion: 7
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

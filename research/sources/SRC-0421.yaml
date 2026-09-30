@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0421
+status: included
+excludeReason: null
+title: An Empirical Study of the Impact of Modern Code Review Practices on Software Quality
+url: https://rebels.cs.uwaterloo.ca/papers/emse2016_mcintosh.pdf
+canonicalUrl: doi:10.1007/s10664-015-9381-9
+ids:
+  arxiv: null
+  doi: 10.1007/s10664-015-9381-9
+publisher: Empirical Software Engineering (Springer)
+authors: [Shane McIntosh, Yasutaka Kamei, Bram Adams, Ahmed E. Hassan]
+orgType: academic
+region: other
+lang: en
+sourceType: paper-peer
+published: "2016"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH07
+  query: McIntosh impact of code review coverage and participation on software quality post-release defects empirical
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH06, TH11]
+events: []
+summary: Qt・VTK・ITK でコードレビューのカバレッジ・参加度・専門性とリリース後欠陥の関係を調べた実証研究(反証探索で採用)。レビューという関門は品質と有意に結び付く。ただしカバレッジ(通したかどうか)だけでは欠陥の少なさを保証しない。
+claims:
+  - id: c1
+    text: レビューのカバレッジ・参加度・専門性はいずれもソフトウェア品質と有意に結び付いており、レビューが不十分なコードは品質に悪影響を与える。関門を増やして品質が上がる側の実証である。
+    quote: we find that code review coverage, participation, and expertise share a significant link with software quality.
+    locator: Abstract
+    quant:
+      value: significant link
+      n: Qt, VTK, ITK (4 releases)
+      design: defect models (MSR)
+      population: OSS projects using Gerrit
+    evidenceKind: observational
+    rqs: [TH07-Q4, TH11-Q3]
+    issues: [267, 268]
+    stance: contradicts
+  - id: c2
+    text: ただし、レビューのカバレッジは 4 リリース中 2 リリースでしか有意な説明力を持たず、カバレッジだけでは欠陥の少なさを保証しない。
+    quote: review coverage alone does not guarantee a low incidence rate of post-release defects
+    locator: RQ1 結果
+    quant:
+      value: significant in 2 of 4 releases
+      n: 4 releases
+      design: regression defect models
+      population: Qt, VTK, ITK
+    evidenceKind: observational
+    rqs: [TH07-Q5, TH11-Q3]
+    issues: [268]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:32.577Z
+    httpStatus: 200
+    finalUrl: https://rebels.cs.uwaterloo.ca/papers/emse2016_mcintosh.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: An empirical study of the impact of modern code review practices on software quality
+      issued: 2015-4-25
+      titleMatch: true
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: four releases / two releases
+        extractedQuote: it only provides a significant amount of explanatory power to two of the four studied releases, suggesting that review coverage alone does not guarantee a low incidence rate of post-release defects.
+        locator: §1 Introduction の RQ1 要約(§4 RQ1 と結論部の「(RQ1) Since review coverage metrics are only significant contributors to two of the four studied releases」も同旨)
+        note: 同じ段落の前文では「review coverage is negatively associated with the incidence of post-release defects in three of the four studied releases」。欠陥は post-release defects(リリース後欠陥)。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote『only provides a significant amount of explanatory power to two of the four studied releases, suggesting that review coverage alone does not guarantee a low incidence rate of post-release defects』どおり。主張の『欠陥』は原文ではリリース後欠陥(post-release defects)を指す。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: slow
+reviewBy: null

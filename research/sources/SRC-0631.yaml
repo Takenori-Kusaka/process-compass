@@ -1,0 +1,144 @@
+schemaVersion: 0
+id: SRC-0631
+status: included
+excludeReason: null
+title: AIセキュリティ短信 2026年8月号
+url: https://www.ipa.go.jp/digital/ai/security/rcu1hd0000007gji-att/2026-2_0907.pdf
+canonicalUrl: https://ipa.go.jp/digital/ai/security/rcu1hd0000007gji-att/2026-2_0907.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 独立行政法人情報処理推進機構(IPA)セキュリティセンター
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-09-07
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G08
+  query: IPA 生成AI ソフトウェア開発 指針 報告書 2026 AI駆動開発 ガイド
+derivedFrom: []
+derivedFromUrl:
+  - https://wiz.io/blog/ghostapproval-a-trust-boundary-gap-in-ai-coding-assistants
+selfReported: false
+themes: [TH12, TH07, TH06]
+events:
+  - date: 2026-07-09
+    label: Wiz が AI コーディング支援6製品に共通する承認迂回の欠陥パターン GhostApproval を公表
+summary: IPA が 2026-06-08〜08-10 の AI セキュリティ事例を一次情報源から要約した定期刊行物(要約作成に AI を使用と明記)。読んだのはエグゼクティブサマリー(p.5-11)と 1.14。コーディングエージェントで人の確認が機能しなかった事例を動向として挙げる。
+claims:
+  - id: c1
+    text: 動向の一つに、コーディングエージェントで開発者の通常操作に紛れて不正動作が起動し、判断に必要な情報が示されないため Human-in-the-Loop が機能しなかったという指摘を挙げる。
+    quote: 開発者の通常操作に紛れて不正動作が起動する事例が報告されており、判断に必要な情報が提示されない中で Human-in-the-Loop が機能しなかったとの指摘がある。
+    locator: エグゼクティブサマリー ② AI コーディングエージェントの浸透と開発工程全般のアタックサーフェス化(p.7)
+    quant: null
+    evidenceKind: review
+    rqs: [TH12-Q3, TH07-Q1, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: Wiz の報告の要約として、6製品に共通する欠陥では、AI が内部推論で危険な書き込み先を認識しながら確認ダイアログに元のファイル名しか示さない例があり、人の同意が形だけになるとする。ベンダー間で脆弱性として扱うかの判断が分かれた。
+    quote: AI の内部推論では危険な解決先を認識しながら、確認ダイアログには元のファイル名しか示さない例があり、同意が形だけになる（CWE-451）。
+    locator: 1.14 [2026-07-09] AI コーディング支援 6 製品に共通の承認迂回欠陥(p.22)
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH07-Q1, TH12-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 評価環境から逸脱して外部組織へ無許可の行動に及んだ AI エージェントの事例群を、OWASP の枠組みでは ASI10(Rogue Agents)に当たると整理している。
+    quote: なお逸脱したエージェントは、前掲の OWASP の枠組みでも ASI10（Rogue Agents）として整理されている。
+    locator: エグゼクティブサマリー ⑥ 逸脱した AI エージェントという新たな脅威アクター類型(p.11)
+    quant: null
+    evidenceKind: review
+    rqs: [TH12-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: AI が生成した脆弱性修正パッチの完全解消率は限定的という検証結果(6,080件のうち平均26.0%、残存または新規混入が53.9%)を引き、専門家による最終レビューが依然必要とまとめる。値はベンダー調査の二次引用である。
+    quote: 他方、AI が生成したパッチが脆弱性を完全に解消できる割合は限定的だとする検証結果があり、専門家による最終レビューは依然必要とされる。
+    locator: エグゼクティブサマリー ④ 防御側 AI の可能性・限界と「Human-in-the-Loop」の必要性(p.9)
+    quant:
+      value: 完全解消 平均26.0%、脆弱性の残存または新規混入 53.9%
+      n: AI パッチ 6,080件
+      design: ベンダー調査(Off-by-1 Labs)の二次引用。測定方法は本稿に記載なし
+      population: 複雑な修正を要する CVE
+    evidenceKind: review
+    rqs: [TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 本稿は各トピックの要約を AI を用いて作成しており、内容の正確性・妥当性を IPA は保証しないと冒頭で断っている。
+    quote: 各トピックの一次情報源を特定したうえで AI を用いつつ要約を作成しています。
+    locator: ※注意※(p.1)
+    quant: null
+    evidenceKind: review
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:05.723Z
+    httpStatus: 200
+    finalUrl: https://www.ipa.go.jp/digital/ai/security/rcu1hd0000007gji-att/2026-2_0907.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 開発者の通常操作に紛れて不正動作が起動する事例 / 判断に必要な情報が提示されない中で Human-in-the-Loop が機能しなかったとの指摘
+        extractedQuote: 開発者の通常操作に紛れて不正動作が起動する事例が報告されており、判断に必要な情報が提示されない中で Human-in-the-Loop が機能しなかったとの指摘がある。
+        locator: エグゼクティブサマリー ②「AI コーディングエージェントの浸透と開発工程全般のアタックサーフェス化」2番目の要点(p.7 / 58)
+        note: 同節は3要点で、他に「AI コーディングエージェントや AI システムの開発基盤が、攻撃の対象としても侵入経路としても用いられている」「脅威モデルの置き方はベンダー間で異なっており、事案情報を共有する枠組みの検討が始まっている」。
+      c2:
+        verdict: match
+        extractedValue: 6 製品(Amazon Q Developer、Anthropic Claude Code、Augment、Cursor、Google Antigravity、Windsurf)
+        extractedQuote: Wiz によれば、AI の内部推論では危険な解決先を認識しながら、確認ダイアログには元のファイル名しか示さない例があり、同意が形だけになる（CWE-451）。
+        locator: 1.14. [2026-07-09] AI コーディング支援 6 製品に共通の承認迂回欠陥(p.22 / 58)
+        note: "原文は「危険な解決先」(シンボリックリンクの解決先)で、「書き込み先」という語ではない。ベンダー対応: AWS は CVE-2026-12958、Cursor は CVE-2026-50549 を採番して修正、Google も 1.19.6 で修正。Anthropic は「現行の脅威モデルには含まれないため、脆弱性としては扱わない」としつつ、警告は v2.1.32 で出荷済みと回答。欠陥パターン名は GhostApproval。"
+      c3:
+        verdict: match
+        extractedValue: ASI10(Rogue Agents)
+        extractedQuote: "なお逸脱したエージェントは、前掲の OWASP の枠組みでも ASI10（Rogue Agents）として整理されている。（CSA「When Red-Team Sandboxes Leak: Agentic AI Containment Failures」2026 年 8 月 8 日）"
+        locator: エグゼクティブサマリー ⑥「逸脱した AI エージェントという新たな脅威アクター類型」参考事例の最終項(◇【業界団体公表】)(p.11 / 58)
+        note: この一文は CSA の AI Safety Initiative の分析を紹介する項目の末尾に置かれている。ASI10 に当たるとする主体が IPA 自身か CSA 資料かは文面からは一意でない(「前掲の OWASP の枠組みでも…整理されている」)。同節の要点は「評価環境からの逸脱であり、攻撃能力の実証とも環境の統制の失敗とも読める」。
+      c4:
+        verdict: match
+        extractedValue: 6,080 件 / 平均 26.0% / 53.9%
+        extractedQuote: 【ベンダー調査】Off-by-1 Labs（1Password）は、複雑な修正を要する CVE に対する 6,080 件の AI パッチのうち、挙動を変えずに脆弱性を完全に解消したものは平均 26.0%で、脆弱性の残存または新規混入が 53.9%を占めたとする調査結果を報告した。（2.14）
+        locator: エグゼクティブサマリー ④「防御側 AI の可能性・限界と『Human-in-the-Loop』の必要性」3番目の要点と参考事例5項目め(p.9 / 58)
+        note: 母集団は「複雑な修正を要する CVE に対する」AI パッチ 6,080 件で、AI パッチ一般ではない。26.0% は「挙動を変えずに脆弱性を完全に解消したもの」の平均。要点の文は「AI が生成したパッチが脆弱性を完全に解消できる割合は限定的だとする検証結果があり、専門家による最終レビューは依然必要とされる」。出所区分は【ベンダー調査】。PDF 抽出文字では社名が合字(Oﬀ-by-1)になっている。
+      c5:
+        verdict: match
+        extractedValue: AI を用いつつ要約を作成 / 内容の正確性・妥当性等を IPA において保証するものではない
+        extractedQuote: 個々の事例の記載内容は参照している情報源の記載に準じたものであり、その内容の正確性・妥当性等を IPA において保証するものではなく、 / 各トピックの一次情報源を特定したうえで AI を用いつつ要約を作成しています。
+        locator: ※注意※(p.1 / 58)
+        note: 保証しないとする対象は「個々の事例の記載内容」で、理由は「参照している情報源の記載に準じたもの」であること。AI 利用の記述は別段落にあり、「一次情報源を特定したうえで AI を用いつつ要約を作成」。両者を因果で結ぶ文言(AI で作ったから保証しない)は無い。対象期間は 2026年6月8日〜8月10日。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

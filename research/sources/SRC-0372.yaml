@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0372
+status: included
+excludeReason: null
+title: Repositories Are Human/Agent Knowledge Factories
+url: https://blog.sigplan.org/2026/04/21/repositories-are-human-agent-knowledge-factories
+canonicalUrl: https://blog.sigplan.org/2026/04/21/repositories-are-human-agent-knowledge-factories
+ids:
+  arxiv: null
+  doi: null
+publisher: ACM SIGPLAN Blog (PL Perspectives)
+authors: [Peli de Halleux, Don Syme, Ben Zorn]
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2026-04-21
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: agent-authored pull requests documentation files markdown proliferation empirical study coding agents repositories
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH03, TH04]
+events: []
+summary: エージェント駆動開発でリポジトリの文書を4階層(AGENTS.md/参照文書/仕様/コード)に分ける実務報告。常時注入される第0層は薄くし、各事実は1文書にだけ置いて他はリンクとする。重複が陳腐化の最大要因とする。
+claims:
+  - id: c1
+    text: 第0層(AGENTS.md)は全セッションに注入されるので、ビルド・lint コマンド、深い文書への参照、共通規約だけの薄い振り分け役に保つ。
+    quote: Level 0 is the thin dispatcher — build commands, lint commands, pointers to deeper documents, and universal conventions. It must be concise because it is injected into every context window.
+    locator: A Documentation Hierarchy for Agents
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q4, TH03-Q1]
+    issues: [269, 274]
+    stance: supports
+  - id: c2
+    text: 各事実はちょうど1つの文書にだけ置き、他の参照はすべてリンクにする。同じ表が複数階層にあると陳腐化した重複が生まれ、エージェントは古い情報で動く。
+    quote: "The most important rule governing this hierarchy: each fact lives in exactly one document. All other references are links."
+    locator: A Documentation Hierarchy for Agents
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: supports
+  - id: c3
+    text: エージェントは文書を予測可能な順で読み、階層化すると初回成功率が上がったと報告する(数値・標本は示されていない)。
+    quote: We found that agents consume documentation in a predictable order and structuring it as a hierarchy improves first-attempt success rates.
+    locator: A Documentation Hierarchy for Agents
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:35.131Z
+    httpStatus: 403
+    finalUrl: https://blog.sigplan.org/2026/04/21/repositories-are-human-agent-knowledge-factories
+    contentType: text/html
+    titleFetched: 403 - Forbidden
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 0(Level 0)
+        extractedQuote: Level 0 is the thin dispatcher — build commands, lint commands, pointers to deeper documents, and universal conventions. It must be concise because it is injected into every context window.
+        locator: A Documentation Hierarchy for Agents(階層表 Level 0 = AGENTS.md)
+        note: 表では Level 0 = AGENTS.md『Injected into every agent session automatically』。
+      c2:
+        verdict: match
+        extractedValue: exactly one(ちょうど1つ)
+        extractedQuote: each fact lives in exactly one document. All other references are links. The moment the same table appears in both Level 0 and Level 1, you’ve introduced a stale duplicate
+        locator: A Documentation Hierarchy for Agents
+        note: 原文は続けて『the agent will read whichever one fits in its context window, and it will act on outdated information』と述べる。
+      c3:
+        verdict: match
+        extractedValue: 数値なし(predictable order / improves first-attempt success rates)
+        extractedQuote: We found that agents consume documentation in a predictable order and structuring it as a hierarchy improves first-attempt success rates.
+        locator: A Documentation Hierarchy for Agents(節冒頭)
+        note: 当該節に数値・標本は示されていない(ask の注記と一致)。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

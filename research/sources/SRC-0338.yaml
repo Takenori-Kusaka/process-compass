@@ -1,0 +1,89 @@
+schemaVersion: 0
+id: SRC-0338
+status: included
+excludeReason: null
+title: Models | Gemini API - Google AI for Developers
+url: https://ai.google.dev/gemini-api/docs/models
+canonicalUrl: https://ai.google.dev/gemini-api/docs/models
+ids:
+  arxiv: null
+  doi: null
+publisher: Google
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-17
+publishedBasis: page
+version: null
+updated: 2026-09-17
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: Gemini API model versions lifecycle stable preview latest alias deprecation notice
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02]
+events: []
+summary: Gemini API のモデル版の種別(stable / preview / latest / experimental)の定義。latest 別名は新版ごとに差し替わり、破壊的変更でも2週間前のメール通知にとどまる。本番は特定の stable 版を使うよう勧める。
+claims:
+  - id: c1
+    text: 本番アプリは特定の stable 版を使うべきとし、stable 版は通常変わらないと説明する。版を固定すること自体を変化点管理の前提に置く推奨である。
+    quote: Stable models usually don't change. Most production apps should use a specific stable model.
+    locator: Model version name patterns > Stable
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: latest 別名は各モデル系列の新リリースのたびに差し替わる。別名を使うと、利用者が何も変えなくてもモデルが入れ替わる。
+    quote: This alias will get hot-swapped with every new release of a specific model variation.
+    locator: Model version name patterns > Latest
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: latest の中身が破壊的に変わる場合の通知は2週間前のメールで、preview 版の廃止も最低2週間前の通知である。
+    quote: For breaking changes, a 2-week notice will be provided through email before the version behind latest is changed.
+    locator: Model version name patterns > Latest
+    quant:
+      value: 2 weeks
+      n: null
+      design: vendor policy
+      population: latest aliases / preview models
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:15.602Z
+    httpStatus: 200
+    finalUrl: https://ai.google.dev/gemini-api/docs/models
+    contentType: text/html; charset=utf-8
+    titleFetched: Models  |  Gemini API  |  Google AI for Developers
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

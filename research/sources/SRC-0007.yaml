@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0007
+status: included
+excludeReason: null
+title: "Adversarial Review: Structured Disagreement for Grounded Agentic Code Review"
+url: https://arxiv.org/abs/2608.18167
+canonicalUrl: arxiv:2608.18167
+ids:
+  arxiv: "2608.18167"
+  doi: null
+publisher: arXiv
+authors: [Eric S. Qiu, Joyce Gill]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-08-16
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00a-1
+  query: 'tavily: "Specification Grounding Drives Test Effectiveness" OR ... critique replication → arxiv.org/html/2608.18167'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10]
+events: []
+summary: 反証候補。主エージェント＋レビュア R＋批評者 C の往復ループ(AR)が LiveCodeBench 87%(ゼロショット 77%、MARS 82%)、SWE-bench Verified 75.2%(71.6%)で最良。#258 の「往復させると正味で悪化」に対する反例。ただし SWE-PRBench では naive AR が証拠なしの偽合意で最下位(F1 0.457)となり、反対意見と証拠を明示的に要求する版で最高(0.533)。R と C が同一モデルかは本読解では未確認。
+claims:
+  - id: c1
+    text: LiveCodeBench(105 題)で往復ループ AR は 87% と 6 手法中最高。ゼロショット 77%、Self-Refine 77%、単一レビュア 77%、レビュア 2 体(非対話)75%、MARS(5 体)82%。対話する 2 体が非対話の 4 体に勝った。
+    quote: On LCB, AR has the highest pass-rate of all six methods we test (pass-rate is 87%. Pass-on-hard is 43/57). In particular, AR scores +5pp over MARS while using fewer reviewing roles
+    locator: §3.5; Table 1 (Zero-shot 77% / Self-Refine 77% / Single-reviewer 77% / Two-reviewers 75% / MARS 82% / AR 87%)
+    quant:
+      value: 87% vs 77% zero-shot (+10pp), +5pp vs MARS
+      n: 105 tasks (57 hard)
+      design: benchmark comparison of agent protocols
+      population: Claude Code scaffold (per §5), LiveCodeBench
+    evidenceKind: benchmark
+    rqs: [TH06-Q3, TH06-Q6]
+    issues: [258]
+    stance: contradicts
+  - id: c2
+    text: SWE-bench Verified(N=500)で AR 75.2%、ゼロショット 71.6%、MARS 72.6%。ただし AR はゼロショットの約 4.5 倍のトークンを使う。
+    quote: As shown in Table 3, AR reaches 75.2% pass-rate on N=500. Zero-shot on the same Claude Code scaffold reaches 71.6%. MARS reaches 72.6%.
+    locator: §5.2; Table 3
+    quant:
+      value: 75.2% vs 71.6% (+3.6pp); ~4.5× tokens
+      n: 500 tasks
+      design: benchmark comparison
+      population: Claude Code scaffold, SWE-bench Verified
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: contradicts
+  - id: c3
+    text: "レビュー品質(SWE-PRBench)では naive な往復が最下位 F1 0.457: R が曖昧な懸念を並べ、C がそれを追認して薄い指摘が増える(偽合意)。反対意見と根拠の明示を課した版は 0.533 で最高。#257 の「懸念があるだけの指摘を不成立にする」と整合。"
+    quote: naive AR exposes a false-consensus failure mode, where agents converge on agreement without sufficient evidence
+    locator: Abstract; §4.2; Table 2 (AR with text constraint 0.533 / Two-reviewers 0.503 / MARS 0.501 / Single-reviewer 0.495 / AR 0.457, N=100); §4.3 Case A
+    quant:
+      value: F1 0.457 (naive) → 0.533 (with text constraint)
+      n: 100 review-relevant items
+      design: benchmark with LLM-judge F1
+      population: SWE-PRBench subset
+    evidenceKind: benchmark
+    rqs: [TH06-Q4, TH06-Q6]
+    issues: [257, 258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:00.127Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2608.18167
+    contentType: text/html; charset=utf-8
+    titleFetched: "Adversarial Review: Structured Disagreement for Grounded Agentic Code Review"
+    titleMatch: true
+    dateMeta: 2026-08-16
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Adversarial Review: Structured Disagreement for Grounded Agentic Code Review"
+      authors: ["Qiu, Eric S.", "Gill, Joyce"]
+      v1Date: 2026-08-16
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 105 題; AR 87%; 6 手法; Zero-shot 77% / Self-Refine 77% / Single-reviewer 77% / Two-reviewers 75% (#agents 3) / MARS 82% (#agents 5); 対話する 2 レビュー役 vs 非対話の 4 レビュー役
+        extractedQuote: On LCB, AR has the highest pass-rate of all six methods we test (pass-rate is 87%. … two interacting reviewing agents can perform better than four non-interacting reviewing agents
+        locator: §3 冒頭 (105 stdin-style tasks); §3.1–3.5; Table 1
+        note: "論文内部で食い違いがある: Table 1 は MARS 82%(39/57)だが、§3.4 本文は「MARS gains +5pp on pass/105 (85%) … and +3 hard tasks (43/57)」と書く。§3.5 の「AR scores +5pp over MARS」は Table 1 の 82% と整合。Table 1 の # agents は main agent を含む数(Two-reviewers 3、MARS 5、AR 3)。「2 体 vs 4 体」はレビュー役(R+C vs レビュア 3+メタレビュア 1)の数。全手法 Claude Sonnet 4.5 単一モデル、単回実行で有意差検定なし。"
+        adjudication:
+          verdict: consistent
+          reason: "105 題、AR 87%(6手法中最高)、Zero-shot / Self-Refine / Single-reviewer 各 77%、Two-reviewers 75%、MARS 82%、「対話する2レビュー役が非対話の4レビュー役に勝つ」は、blindValue・blindQuote(Table 1)と一致する。「MARS(5体)」は Table 1 の #agents(main agent を含む)で、「4体」はレビュー役の数である。数え方は違うが、どちらも原典どおり。留意点は3つある。論文内に食い違いがある(§3.4 本文は MARS 85%)。全手法が Claude Sonnet 4.5 の単一モデルである。単回実行で有意差検定がない。"
+          date: 2026-09-23
+      c2:
+        verdict: match
+        extractedValue: N=500; AR 75.2%; Zero-shot 71.6%; MARS 72.6%; 約 4.5 倍のトークン
+        extractedQuote: AR reaches 75.2% pass-rate on N=500. Zero-shot on the same Claude Code scaffold reaches 71.6%. MARS reaches 72.6%. Though notably, AR uses about 4.5 × the tokens of Zero-shot
+        locator: §5.2 Result; Table 3
+        note: SWE-bench Verified は Claude Code 上の SKILL.md 形式で実行しており、§3・§4 の Python オーケストレーションとは実行形態が異なる。有意差検定・複数回実行の記載なし。
+        adjudication:
+          verdict: consistent
+          reason: N=500、AR 75.2%、Zero-shot 71.6%、MARS 72.6%、約 4.5 倍のトークンは、blindQuote(§5.2、Table 3)と一致する。+3.6pp は導出値で 75.2 − 71.6 = 3.6。留意点として、SWE-bench Verified は Claude Code 上の SKILL.md 形式で実行されている。また有意差検定・複数回実行の記載はない。
+          date: 2026-09-23
+      c3:
+        verdict: match
+        extractedValue: naive AR F1=0.457(4 手法中最下位); AR with text constraint F1=0.533(最高); N=100
+        extractedQuote: The naive AR protocol gives F1 = 0.457 on SWE-PRBench. This is the lowest of the four methods in the subset. … AR with text constraint and reaches F1 = 0.533, the highest in the subset.
+        locator: Abstract; §4.2; Table 2; §4.3 Case A / Case B; §4.4
+        note: 原文の §4.3 Case A の見出しは「Over-decomposition」(R が hedged concerns を並べ C が追認し、薄いコメントが fabricated と判定される)。「false agreement」という語は Case B(C が R の根拠薄い反論に屈する)の説明で使われ、Abstract はこれらを「false-consensus failure mode」とまとめている。ask は偽合意を Case A の機構に帰しており、原文の対応とずれる。text constraint 版は同じ 100 件上での 1 回のプロンプト改訂後の値(別の保留データでの検証なし)。ask 末尾の「#___」はプロジェクト内部参照で原典に無い。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

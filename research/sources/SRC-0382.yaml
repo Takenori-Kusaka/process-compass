@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0382
+status: included
+excludeReason: null
+title: ADR（Architecture Decision Record）、2026年 夏
+url: https://zenn.dev/maman/articles/30717ac1c7d2b7
+canonicalUrl: https://zenn.dev/maman/articles/30717ac1c7d2b7
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [採用とかやってるシバヤマさん (maman)]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-07-19
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH05
+  query: ADR 運用 Zenn 2026 アーキテクチャ決定記録 AI エージェント
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH09]
+events: []
+summary: 30名規模の B2G GovTech スタートアップの EM による2年後の振り返り(2026-07-19)。ADR は事前レビューの関所ではなく継続検証される仮説の記録になり、最初の読者は AI になった。可逆/不可逆で決定の重さと決定者を変える。
+claims:
+  - id: c1
+    text: ADR を設計工程で一発承認する関所とする見方をやめ、継続的に検証される仮説の記録として扱うようになった。
+    quote: アーキテクチャは「事前に確定するもの」ではなく「継続的に検証される仮説」であり、ADRはその仮説の記録である
+    locator: 変わったこと①:ADRは「事前レビューの器」ではなくなった
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: qualifies
+  - id: c2
+    text: 全ての決定を同じ重さで扱うとレビューが渋滞し ADR が開発を遅くする。可逆な決定は速く、不可逆な決定は慎重に、決定者の階層も変える。
+    quote: すべての決定を同じ重さで扱うと、レビューが渋滞して「ADRが開発を遅くする」という本末転倒が起きます。
+    locator: 可逆と不可逆を区別する
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: supports
+  - id: c3
+    text: 実装後に体裁を整える後出し ADR は記録ではなくアリバイであり、形骸化を招く。
+    quote: 実装が終わってから体裁を整えるための「後出しADR」は、記録ではなくアリバイです。
+    locator: 変わらなかったこと ② 後出しNG
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+  - id: c4
+    text: AI は口頭の補足から文脈を補えないため、書かれていない決定の理由は AI にとって存在しないのと同じである。
+    quote: 書かれていない「決定の理由」は、AIにとって存在しないのと同じ
+    locator: 変わったこと②:ADRの最初の読者が、AIになった
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:40.629Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/maman/articles/30717ac1c7d2b7
+    contentType: text/html; charset=utf-8
+    titleFetched: ADR（Architecture Decision Record）、2026年 夏
+    titleMatch: true
+    dateMeta: 2026-07-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

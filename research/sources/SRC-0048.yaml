@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0048
+status: included
+excludeReason: null
+title: Jules Changelog
+url: https://jules.google/docs/changelog/
+canonicalUrl: https://jules.google/docs/changelog
+ids:
+  arxiv: null
+  doi: null
+publisher: Google(Jules docs)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-03-09
+publishedBasis: page
+version: null
+updated: 2026-03-09
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-2
+  query: curl https://jules.google/docs/changelog/
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06]
+events:
+  - date: 2026-01-30
+    label: Jules の基盤モデルが全ティアで Gemini 3 Flash に
+  - date: 2026-02-19
+    label: Jules が自作 PR の CI 失敗を自動修正(CI Fixer)
+  - date: 2026-03-09
+    label: Jules に Gemini 3.1 Pro(Pro プラン)— 取得時点の最新エントリ
+summary: Jules 公式チェンジログ。取得時点(2026-09-23)の最新エントリは 2026-03-09 で、以後半年更新がない。前回メモの「無償ユーザーの基盤は Gemini 3 Flash(2026-01-30)」は一致。人の介入を要しない計画を別エージェント(Planning Critic)が批評する設計が記録されている。
+claims:
+  - id: c1
+    text: 2026-01-30 に Gemini 3 Flash が全ユーザー・全ティアの基盤モデルになった(前回メモと一致)。
+    quote: Today we’re launching Gemini 3 Flash in Jules for all users on all tiers.
+    locator: Gemini 3 Flash is now the base model in Jules, January 30, 2026
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: 人の介入を要しない(自動承認)計画をすべて別エージェント Planning Critic が批評してから実行する。人の承認を外した経路に機械の批評を置く設計。
+    quote: We’ve introduced a secondary agent—the Planning Critic—to review all plans that do not require human intervention.
+    locator: Introducing the Planning Critic for Auto-Approved Plans, January 26, 2026
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH01-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: Jules は自作 PR の CI 失敗を検知して自動修正し再提出する。CI をゲートではなくフィードバックとして扱う。
+    quote: Jules now automatically detects and fixes CI failures on pull requests it creates.
+    locator: Auto-Fixing CI Failures, February 19, 2026
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:51.739Z
+    httpStatus: 200
+    finalUrl: https://jules.google/docs/changelog
+    contentType: text/html
+    titleFetched: Changelog
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-01-30 / Gemini 3 Flash
+        extractedQuote: Gemini 3 Flash is now the base model in Jules January 30, 2026 Today we’re launching Gemini 3 Flash in Jules for all users on all tiers. It’s our new base model
+        locator: Gemini 3 Flash is now the base model in Jules, January 30, 2026
+        note: curl の素の取得は圧縮応答で文字化けしたため --compressed で再取得。前の基盤モデルは Gemini 2.5 Pro と記載。「前回メモと一致」部分は本資料では検証対象外。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://jules.google/docs/changelog

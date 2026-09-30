@@ -1,0 +1,159 @@
+schemaVersion: 0
+id: SRC-0006
+status: included
+excludeReason: null
+title: Great Models Think Alike and this Undermines AI Oversight
+url: https://arxiv.org/abs/2502.04313
+canonicalUrl: arxiv:2502.04313
+ids:
+  arxiv: "2502.04313"
+  doi: null
+publisher: arXiv (ELLIS Institute Tübingen / MPI-IS / Tübingen AI Center ほか)
+authors: [Shashwat Goel, Joschka Struber, Ilze Amanda Auzina, Karuna K Chandra, Ponnurangam Kumaraguru, Douwe Kiela, Ameya Prabhu, Matthias Bethge, Jonas Geiping]
+orgType: academic
+region: eu
+lang: en
+sourceType: preprint
+published: 2025-02-06
+publishedBasis: arxiv-v1
+version: v2
+updated: 2025-06-12
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00a-1
+  query: GET https://arxiv.org/html/2502.04313 / https://arxiv.org/html/2502.04313v1
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 誤りの重なりに基づく類似度 CAPA を提案し、(1) LLM 判定者は自分に似たモデルへ高得点(平均 Pearson r=0.84)、(2) 弱→強汎化の利得は相補性と逆相関(r=−0.35)、(3) 能力が上がるほど誤りが似る(130 モデル)を示す。254 メモ §4.2 の 4 主張は全て原典に一致(v1 にも同主張あり)。
+claims:
+  - id: c1
+    text: 誤りの重なりに基づく類似度指標 CAPA(Chance Adjusted Probabilistic Agreement / 本文では Alignment とも表記)を導入。精度による偶然一致を補正し、確率出力を使う。
+    quote: "We study how model similarity affects both aspects of AI oversight by proposing Chance Adjusted Probabilistic Agreement (CAPA): a metric for LM similarity based on overlap in model mistakes."
+    locator: Abstract; §2.2; §1 (Chance Adjusted Probabilistic Alignment)
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: context
+  - id: c2
+    text: "LLM-as-a-judge の採点は判定者と機能的に似たモデルほど高い: 全判定者で判定スコアと CAPA の間に有意(p<0.01)な正の相関、平均 Pearson r=0.84。精度を統制した偏相関でも r=0.35〜0.65 で全判定者が有意。"
+    quote: We find a significant (p<0.01) positive correlation (average Pearson r=0.84) between LLM-as-a-judge scores and model similarity (κp) for all judges.
+    locator: §3.2 Results & Discussion (Q1); Figure 3; App. B.6.1 (partial r=0.35 Llama-3.3-70B 〜 0.65 Llama-3.1-8B)
+    quant:
+      value: mean Pearson r=0.84; partial r 0.35–0.65 controlling accuracy
+      n: 9 judges × 39 evaluated models; filtered MMLU-Pro 8,707 questions
+      design: observational correlation with regression / partial-correlation controls
+      population: open-weight instruct models as judges and candidates
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c3
+    text: "能力が上がるほどモデルの誤りは似てくる: OpenLLM Leaderboard 2 の 130 モデルを精度で 5 分位に分け、別開発元同士の平均 CAPA が精度と強い正相関(Figure 6、MMLU-Pro と BBH)。指示調整モデルは基盤モデルより傾きが急。"
+    quote: However, we observe a concerning trend – model mistakes are becoming more similar with increasing capabilities, pointing to risks from correlated failures.
+    locator: Abstract; §5.2 Q1 (Figure 6 shows a strong positive correlation between model capabilities and κp); App. D.2.1
+    quant:
+      value: strong positive correlation (figure-based; no single coefficient in main text)
+      n: 130 models, 5 accuracy buckets, MMLU-Pro & BBH
+      design: observational (leaderboard sample-wise predictions)
+      population: official models on OpenLLM Leaderboard 2, cross-developer pairs only
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c4
+    text: 12モデル対×15課題で、弱監督者と初期の強生徒の類似度は、弱→強訓練で得られる改善と逆相関する(単純相関 r=−0.85。弱監督者と強生徒の精度差を統制した偏相関は r=−0.35, p<0.01)。相補性を考慮すると、上限推定は従来の +11.2(Ground-truth Elicitation)から +14.1(Elicitation ∪ Complementary)へ上がる(Table 3)。
+    quote: similarity between the weak supervisor and initial strong student inversely correlates with the improvement obtained from weak-to-strong training ( r=-0.85) . … partial correlation … ( r=-0.35 )
+    locator: §4.1; §4.2 Q1 (Figure 4); §4.2 Q3; Table 3 (15 datasets × 12 model pairs = 180 training runs)
+    quant:
+      value: r=−0.35 (similarity vs w2s gain)
+      n: 12 model pairs × 15 binary NLP tasks (180 runs)
+      design: controlled fine-tuning experiment following Burns et al. 2024
+      population: weak 1–3B, strong 7–9B open-weight models
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c5
+    text: AlpacaEval の自由生成でも同じ 9 判定者の二者選好 Elo が MMLU-Pro 上の類似度と強く相関し、親和バイアスは QA 以外にも及ぶ。
+    quote: the Elo obtained by using the same judges as before to obtain binary preferences still strongly correlates with model similarity on MMLU-Pro.
+    locator: §3.2 Q3; App. B.4
+    quant:
+      value: strong correlation (Elo vs CAPA)
+      n: 23 instruction-tuned models, 253 model pairs, AlpacaFarm prompts
+      design: observational
+      population: same 9 judges
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:00.125Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2502.04313
+    contentType: text/html; charset=utf-8
+    titleFetched: Great Models Think Alike and this Undermines AI Oversight
+    titleMatch: true
+    dateMeta: 2025-02-06
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: Great Models Think Alike and this Undermines AI Oversight
+      authors: ["Goel, Shashwat", "Struber, Joschka", "Auzina, Ilze Amanda", "Chandra, Karuna K", "Kumaraguru, Ponnurangam", "Kiela, Douwe"]
+      v1Date: 2025-02-06
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: p<0.01; 平均 Pearson r=0.84; 偏相関 r=0.35 (Llama-3.3-70B, p<0.05) 〜 0.65 (Llama-3.1-8B ほか)
+        extractedQuote: We find a significant ( p < 0.01 ) positive correlation (average Pearson r= 0.84 ) between LLM-as-a-judge scores and model similarity … for all judges. … r=0.35 ( Llama-3.3-70B-Instruct ) to r=0.65
+        locator: §3.2 Q1 (Figure 3); Table 2; App. B.6.1
+        note: Figure 3 の r=0.84 は「across family pairs のみ」を描いた図。App. B.3 (Figure 10) では同じ CAPA と判定スコアの関係を「mean Pearson r of 0.9」と別値で報告している。偏相関は Llama-3.3-70B のみ有意水準 p<0.05(*)、他は p<0.01(**)。判定者 9、被評価モデル 39。
+      c3:
+        verdict: match
+        extractedValue: OpenLLM Leaderboard 2; 130 モデル; 5 バケット(精度パーセンタイル); Figure 6; MMLU-Pro と BBH
+        extractedQuote: We collect sample-wise evaluation files for 130 official models from the OpenLLM Leaderboard 2 released by HuggingFace … We split 130 LMs into 5 buckets based on their accuracy percentile.
+        locator: §5.1 Experimental Setup; Figure 6 caption; §5.2 Q1; App. D.2.1 (Figure 18)
+        note: Figure 6 の相関は「strong positive correlation」と定性的に書かれ、相関係数の数値は本文に無い。指示調整モデルの傾きは App. D.2.1「instruction-tuned model pairs exhibit a stronger similarity trend with a steeper slope compared to base models」。D.2.1 は base-base / instruct-instruct の同種ペアに限定して計算している。
+      c4:
+        verdict: match
+        extractedValue: "12 モデル対 × 15 課題; r=−0.85(精度差を統制した偏相関は r=−0.35, p<0.01); Table 3: 初期 75.1%、弱監督 +4.1、弱→強訓練 +7.4(上限推定: 従来 +11.2 → 本論文 +14.1)"
+        extractedQuote: similarity between the weak supervisor and initial strong student inversely correlates with the improvement obtained from weak-to-strong training ( r=-0.85) . … partial correlation … ( r=-0.35 )
+        locator: §4.1; §4.2 Q1 (Figure 4); §4.2 Q3; Table 3 (15 datasets × 12 model pairs = 180 training runs)
+        note: 作業票の locator は「Figure 4 (r=−0.35)」だが、原文では Figure 4 の単純相関が r=−0.85、−0.35 は弱監督者と強生徒の精度差を統制した偏相関。ask の「r=−___」がどちらを指すかで値が変わる。「上限が従来推定より高い」を支える値は Table 3 の Ceiling Estimate(Ground-truth Elicitation +11.2 / Elicitation ∪ Complementary +14.1)で、ask に並ぶ 75.1% / +4.1 / +7.4 は上限ではなく初期精度・弱監督者・弱→強訓練後の値。
+        adjudication:
+          verdict: corrected
+          reason: blindQuote によれば、類似度と弱→強利得の単純相関は r=−0.85 で、−0.35 は精度差を統制した偏相関である。主張は −0.35 を単純相関のように書いている。さらに「上限が従来推定より高い」の根拠として挙げた Table 3 の値(初期 75.1%、弱監督 +4.1、弱→強訓練 +7.4)は、上限ではなく初期精度・弱監督者・訓練後の値である。上限を支える値は Ceiling Estimate の +11.2 → +14.1(blindValue)。この2点を直した。「利得は相補性が握る」という断定も、原典の相関の記述に合わせて弱めた。
+          date: 2026-09-23
+          originalText: "弱→強汎化の利得は監督者と生徒の相補性が握る: 12 モデル対 × 15 課題で、類似度と利得は逆相関(r=−0.35)。相補性を使えば上限が従来推定より高い(Table 3: 初期 75.1%、弱監督 +4.1、弱→強訓練 +7.4)。"
+          originalQuote: Across 12 model pairs, the strong student gains more from weak-to-strong training on tasks where it is more different from the weak supervisor
+      c5:
+        verdict: match
+        extractedValue: 9(nine)判定者
+        extractedQuote: we used the same nine LMs as judges as before to determine their preferences on all response pairs between the 253 model combinations.
+        locator: §3.2 Q3; App. B.4 (Figure 13)
+        note: §3.2 Q3 は「still strongly correlates with model similarity on MMLU-Pro」と書くが、App. B.4 は「a clear positive correlation」とするだけで r や p を報告していない。対象は指示調整モデル 23 個、類似度は AlpacaEval ではなく MMLU-Pro 上の CAPA を流用している(著者も domain gap を認めている)。
+    date: 2026-09-23
+volatility: slow
+reviewBy: null

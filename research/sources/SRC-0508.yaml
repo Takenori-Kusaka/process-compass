@@ -1,0 +1,119 @@
+schemaVersion: 0
+id: SRC-0508
+status: included
+excludeReason: null
+title: "[統合] 第22回 (再cut) release/2026-09-11 → main (181 PR / QM が差し戻し 33 件 + severity 3 を閉じた develop f70faf1c0)"
+url: https://github.com/Takenori-Kusaka/ganbari-quest/pull/4892
+canonicalUrl: https://github.com/takenori-kusaka/ganbari-quest/pull/4892
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub: Takenori-Kusaka/ganbari-quest"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: repo
+published: 2026-09-11
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: gh api repos/Takenori-Kusaka/ganbari-quest/commits/d4d99dff/pulls
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10, TH11, TH07]
+events:
+  - date: 2026-09-11
+    label: "ganbari-quest 第22回統合 PR #4892(181 PR)を main へ merge"
+summary: "実証案件 ganbari-quest の第22回統合 PR(develop→main)。Issue #273 が引く 181 本・1,368 ファイル・+246,316/−88,961 行・29 日・差し戻し 33 件の出所で、API と git で数え直した。"
+claims:
+  - id: c1
+    text: "Issue #273 の値「181 本・1,368 ファイル・+246,316/−88,961 行」に対し、実測も 181 本・1,368 ファイル・+246,316/−88,961 行で一致した。PR 本文の含有 PR 一覧は 181 行で、develop の first-parent 履歴から取った PR 番号 184 件から back-merge 3 件(#4573、#4637、#4816)を除いた集合と完全に一致する。なお merge commit 題名の「fix 155 件」は一覧の type:fix 147 行と合わない。"
+    quote: "[統合] 第22回 (再cut) release/2026-09-11 → main (181 PR / QM が差し戻し 33 件 + severity 3 を閉じた develop f70faf1c0)"
+    locator: PR 題名 / §含有 PR 一覧
+    quant:
+      value: 181 PR / 1,368 files / +246,316 / −88,961 行(Issue の値と一致)
+      n: 統合 PR 1 本(#4892)
+      design: gh api repos/Takenori-Kusaka/ganbari-quest/pulls/4892(changed_files, additions, deletions)、git diff --shortstat 0354c655 d4d99dff、git log --first-parent c368333f..cbf69a44 の PR 番号集合と PR 本文の表の行を突合。取得 2026-09-30
+      population: ganbari-quest main、2026-08-13〜09-11 に develop へ入った PR
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: "Issue #273 の値「前回統合から 29 日」に対し実測 28.8 日(前回の統合 merge 2667a8d4 = 2026-08-13 15:22 JST、第22回 d4d99dff = 2026-09-11 11:03 JST)。その間 main の first-parent に入ったのは hotfix 2 本(#4635、#4639)だけで、Issue の記述どおり。起点の表記は揺れており、PR 本文は 2026-08-12、1 回目の cut(#4887)の題名は「前回リリース 2026-08-26 以降」と書く。"
+    quote: "- 統合対象期間: `2026-08-12` 〜 `2026-09-11`"
+    locator: §統合サマリ
+    quant:
+      value: 28.8 日(Issue の値 29 日)
+      n: 統合 merge 2 点の commit 時刻
+      design: git log --first-parent --format="%h %ad %s" origin/main で統合 merge の commit 時刻を比較。取得 2026-09-30
+      population: ganbari-quest main の first-parent 履歴
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: "Issue #273 の「QM の差し戻し 33 件を経て」に対し、PR 本文では 33 件は監査が 1 回目の cut(#4887、NO-GO)で出した差し戻しで、QM は受けて #4888 / #4891 で閉じた側である。内訳は #4888 の題名で製品欠陥 8 + テスト 25(本文では実測 32 spec)+ severity 3。33 件は #4887 のコメントを当事者が集計した値で、独立に数え直してはいない。"
+    quote: "1 回目（#4887 / `release/2026-09-10`）は NO-GO で QM へ差し戻し、QM が #4888 / #4891 で 33 件 + severity 3 を閉じました（develop `f70faf1c0`）。"
+    locator: §エビデンス表の前置き
+    quant:
+      value: 33 件(製品欠陥 8 + テスト 25。数え直し無し)
+      n: "統合 PR 1 回(1 回目の cut #4887)"
+      design: gh pr view 4887 / 4888 / 4892 の題名と本文を照合(件数は自己申告)。取得 2026-09-30
+      population: 第22回統合の監査 run
+    evidenceKind: case-report
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:17.793Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/ganbari-quest/pull/4892
+    contentType: text/html; charset=utf-8
+    titleFetched: "[統合] 第22回 (再cut) release/2026-09-11 → main (181 PR / QM が差し戻し 33 件 + severity 3 を閉じた develop f70faf1c0) by Takenori-Kusaka · Pull Request #4892 · Takenori-Kusaka/ganbari-quest"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "PR #4892 の API 値: 含有 181 PR(題名)/ commits 207 / changed_files 1,368 / +246,316 / −88,961。git 再計測(merge d4d99dff の第1親 0354c655 との diff --shortstat): 1368 files changed, 246316 insertions(+), 88961 deletions(-)。本文「含有 PR 一覧」のデータ行 = 181 行(重複なし、#4516〜#4891)。develop の first-parent(d4d99dff^1..^2)= 185 commit、PR 番号 184 件、一覧に無いのは 3 件(#4573、#4637、#4816)で 184 − 3 = 181、一覧にあって履歴に無いものは 0 件。merge commit 題名は「181 PR / fix 155 件」、一覧の `type:fix` 行は 147 行(ほか type:docs 7 / type:test 3 / type:infra 6 / ラベル無し「—」18)"
+        extractedQuote: "[統合] 第22回 (再cut) release/2026-09-11 → main (181 PR / QM が差し戻し 33 件 + severity 3 を閉じた develop f70faf1c0)"
+        locator: "PR 題名 / GitHub API pulls/4892(changed_files, additions, deletions)/ 本文 §含有 PR 一覧(L141-332)/ merge commit d4d99dff の題名「release: [第22回] develop→main 統合 (2026-09-11) — 181 PR / fix 155 件 (ページガイド / 認可 / 課金 / 法務)」"
+        note: "ask の「Issue #___の値」側(比較元の Issue)は本出典に無く、照合していない。ファイル数・行数は PR 本文には書かれておらず API のメタデータと git diff からの値。一覧に無い 3 件のうち #4573(back-merge/release-2026-08-13)と #4637(back-merge/fix-4633-…)はブランチ名が back-merge だが、#4816 は題名が「fix(dx): #4638 … (#4639) (#4816)」で、題名からは back-merge と読み取れない(hotfix #4639 の取込 PR と推定されるが未確認)。本文 §back-merge/drift は「今回は 181 PR / 206 commit」と書くが、API の commits は 207(1回目 cut #4887 が 206)。"
+      c2:
+        verdict: match
+        extractedValue: "PR 本文: drift `29` 日、起点は「前回統合 merge `b3723cec` = 第 20 回 2026-08-12」、統合対象期間 `2026-08-12` 〜 `2026-09-11`。git: b3723cec = 2026-08-12 17:02 JST(第20回)、その後の統合 merge 2667a8d4 = 2026-08-13 15:22 JST(PR #4565、回数の番号なし)、第22回 d4d99dff = 2026-09-11 11:03 JST。2667a8d4 起点なら経過 28.8 日(暦日差 29)、b3723cec 起点なら 29.75 日。2667a8d4 以後 d4d99dff までに main の first-parent に入ったのは 2 本: #4635(b70781b0、2026-08-16)と #4639(0354c655、2026-08-26)。1 回目の cut #4887 の題名は「前回リリース 2026-08-26 以降」"
+        extractedQuote: "- develop⇔main drift: `29` 日（前回統合 merge `b3723cec` = 第 20 回 2026-08-12 からの経過）"
+        locator: "本文 §統合サマリ(L30-32「統合対象期間: `2026-08-12` 〜 `2026-09-11`」)/ §back-merge / drift 状態(L416)/ PR #4887 題名「[統合] 第22回 release/2026-09-10 → main (179 PR / 前回リリース 2026-08-26 以降)」/ git log --first-parent main"
+        note: "起点の表記は 3 通りある: PR 本文は 2026-08-12(b3723cec)、#4887 題名は 2026-08-26(hotfix #4639 の日付)、git 上の直前の統合 merge は 2026-08-13 の 2667a8d4(#4565)。PR 本文が起点とする b3723cec は直前の統合ではなく、その 1 つ前。b3723cec 起点で数えると間の main first-parent には hotfix 2 本のほかに 7218f7ae(chore(deploy) #4320、08-12)と 2667a8d4(統合 #4565)も入る。ask の「Issue #___」側は本出典に無く照合していない。JST 時刻は commit の committer date から。"
+      c3:
+        verdict: match
+        extractedValue: "33 件 + severity 3。1 回目の cut = #4887(release/2026-09-10、NO-GO、未 merge で close)。QM が #4888 / #4891 で閉じた。#4888 題名の内訳: 製品欠陥 8 / テスト 25 / severity 3。#4888 本文: 「25 件 → 実測 32 spec」。PR #4892 本文のエビデンス表も「テスト 32 spec」「製品欠陥 8 件」"
+        extractedQuote: "1 回目（#4887 / `release/2026-09-10`）は NO-GO で QM へ差し戻し、QM が #4888 / #4891 で 33 件 + severity 3 を閉じました（develop `f70faf1c0`）。"
+        locator: "本文 §マージ判定エビデンス表 の前置き(L336)/ 同表 L343-346 / PR #4888 題名「fix: #4887 監査差し戻し 33 件 — release blocker (製品欠陥 8 / テスト 25 / severity 3) を develop で閉じる」/ #4888 本文 L36「### B. テスト側の追随（監査 §3、25 件 → 実測 32 spec）」"
+        note: "差し戻しの向き: 本文は「(監査が)NO-GO で QM へ差し戻し、QM が…閉じました」で、差し戻したのは監査、QM は閉じた側。PR 題名の「QM が差し戻し 33 件 + severity 3 を閉じた」も「QM が(差し戻しを)閉じた」と読める。33 = 8 + 25 で、severity 3 は別建て。#4888 本文冒頭は「NO-GO(監査、残 NG 13 件)となった原因のうち develop レーンに属する 33 件」と書き、#4892 本文 §NG 0 件 も「1 回目の cut で発露した 13 件」と別の数え方を併記する。33 件を #4887 のコメントから独立に数え直す作業は、こちらでも行っていない(コメント本文は未取得)。"
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

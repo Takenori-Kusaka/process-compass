@@ -1,0 +1,127 @@
+schemaVersion: 0
+id: SRC-0100
+status: included
+excludeReason: null
+title: Pricing - Claude Platform Docs
+url: https://platform.claude.com/docs/en/about-claude/pricing
+canonicalUrl: https://platform.claude.com/docs/en/about-claude/pricing
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude Platform Docs)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Anthropic prompt caching pricing cache read 5 minute 1 hour TTL cache write multiplier
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH02]
+events:
+  - date: 2026-09-01
+    label: Sonnet 5 の $2/$10 導入価格を恒久化(9月1日の値上げを撤回)
+  - date: 2026-09-22
+    label: Opus 5.5 を $4/$20、キャッシュ読み取り $0.20 で追加
+summary: "Anthropic 公式の全モデル単価表(2026-09-23 取得)。Opus 5 / 4.8 = 入力 $5・出力 $25・キャッシュ読み取り $0.50 で #274 の換算単価と一致。Opus 5.5・Fable 5.1・Sonnet 5 の値も載る。"
+claims:
+  - id: c1
+    text: Opus 5 は入力 $5 / 5分書込 $6.25 / 1時間書込 $10 / 読み取り $0.50 / 出力 $25 per MTok。#274 が用いた単価(入力 $5・出力 $25・読み取り $0.50)は公式値と一致する。
+    quote: Claude Opus 5 $5 / MTok $6.25 / MTok $10 / MTok $0.50 / MTok $25 / MTok Claude Opus 4.8 $5 / MTok $6.25 / MTok $10 / MTok $0.50 / MTok $25 / MTok
+    locator: Model pricing 表
+    quant:
+      value: $5 / $6.25 / $10 / $0.50 / $25 per MTok
+      n: null
+      design: price list
+      population: Claude Opus 5, Opus 4.8
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: 2026-09-22 追加の Opus 5.5 は入力 $4 / 出力 $20 / 読み取り $0.20(0.05x)。同じ作業でもモデル世代でキャッシュ読み取りの費用比率が変わる。
+    quote: Claude Opus 5.5 $4 / MTok $5 / MTok $8 / MTok $0.20 / MTok 2 $20 / MTok
+    locator: Model pricing 表
+    quant:
+      value: $4 / $5 / $8 / $0.20 / $20 per MTok
+      n: null
+      design: price list
+      population: Claude Opus 5.5
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1, TH02-Q3]
+    issues: [274]
+    stance: qualifies
+  - id: c3
+    text: Sonnet 5 の入力/出力 100 万トークンあたり $2/$10 は、発売時に 2026-08-31 までの導入価格と告知されていたが、現在は標準価格になった。2026-09-01 に予定されていた $3/$15 への値上げは行われない。表の値では Opus 5.5($4/$20)のちょうど半分である。
+    quote: $2/$10 per million input/output token pricing for Claude Sonnet 5, announced at launch as introductory pricing through August 31, 2026, is now the standard price. … September 1, 2026 will not occur.
+    locator: "## Model pricing 表の脚注 3(Sonnet 5 行に付く)"
+    quant:
+      value: $2 / $10 per MTok
+      n: null
+      design: price list
+      population: Claude Sonnet 5
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4, TH02-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:43.904Z
+    httpStatus: 200
+    finalUrl: https://platform.claude.com/docs/en/about-claude/pricing
+    contentType: text/html; charset=utf-8
+    titleFetched: Pricing
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Opus 5・4.8・4.7・4.6・4.5: 入力 $5 / 5分書き込み $6.25 / 1時間書き込み $10 / 読み取り $0.50 / 出力 $25(参考: Opus 5.5 は $4 / $5 / $8 / $0.20 / $20、Opus 4.1・4 は $15 / $18.75 / $30 / $1.50 / $75)"
+        extractedQuote: "| Claude Opus 5 | $5 / MTok | $6.25 / MTok | $10 / MTok | $0.50 / MTok | $25 / MTok |"
+        locator: "## Model pricing 表(列: Base input / 5m cache writes / 1h cache writes / Cache hits and refreshes / Output)"
+        note: ask の Opus の版番号が伏せ字なので、表の Opus 行をすべて抽出した。Opus 4.5〜5 の5行は同じ単価。「#___が用いた単価と一致」は原典の外の話で、このページだけでは検証できない。
+      c2:
+        verdict: match
+        extractedValue: "Opus 5.5: 入力 $4 / 出力 $20 / 読み取り $0.20(0.05x)。追加日は価格ページに記載なし"
+        extractedQuote: "| Claude Opus 5.5 | $4 / MTok | $5 / MTok | $8 / MTok | $0.20 / MTok<sup>2</sup> | $20 / MTok | … 2 Cache hits and refreshes on Claude Opus 5.5 are priced at 0.05x the base input price."
+        locator: "## Model pricing 表の Opus 5.5 行と脚注 2"
+        note: 価格ページには追加日(___-___-___)の記載が無い。Anthropic のニュース「Introducing Claude Opus 5.5」(SRC-0101)の日付は September 22, 2026。後半の「同じ作業でもモデル世代でキャッシュ読み取りの費用比率が変わる」は原文に無い推論。
+      c3:
+        verdict: match
+        extractedValue: Sonnet 5 は $2/$10、導入価格の期限は 2026-08-31(August 31, 2026)、2026年9月1日に予定していた $3/$15 への値上げは行わない
+        extractedQuote: $2/$10 per million input/output token pricing for Claude Sonnet 5, announced at launch as introductory pricing through August 31, 2026, is now the standard price. … September 1, 2026 will not occur.
+        locator: "## Model pricing 表の脚注 3(Sonnet 5 行に付く)"
+        note: 省略部の原文は「The previously scheduled increase to $3/$15 per million input/output tokens」。「中位モデルは上位(Opus ___)の半分」は原典に無い計算。表の値では、Opus 5.5 ($4/$20) と比べれば Sonnet 5 はちょうど半分だが、Opus 5 ($5/$25) と比べれば 40% で半分にならない。
+        adjudication:
+          verdict: corrected
+          reason: 価格・期限・値上げの中止は blindQuote(Model pricing 表の脚注 3)と一致する。claimQuote の not-found は書式の違いによるもので、文面は脚注とほぼ同じである。ただし原文は「is now the standard price」で、「恒久化」(将来も変えないという含意)までは言っていないので、「標準価格」に直した。「半分」は表の値からの導出で、2/4 = 0.5、10/20 = 0.5 と成り立つ。比較相手を Opus 5($5/$25)にすると 40% になるので、比較相手の明記は必須である。
+          date: 2026-09-23
+          originalText: Sonnet 5 の $2/$10 は 2026-08-31 までの導入価格とされていたが恒久化され、9月1日の $3/$15 への値上げは行われなかった。中位モデルの単価は上位(Opus 5.5 $4/$20)の半分。
+          originalQuote: The $2/$10 per million input/output token pricing for Claude Sonnet 5, announced at launch as introductory pricing through August 31, 2026, is now the standard price.
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

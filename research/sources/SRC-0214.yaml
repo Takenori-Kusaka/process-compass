@@ -1,0 +1,115 @@
+schemaVersion: 0
+id: SRC-0214
+status: included
+excludeReason: null
+title: Rethinking skills and prompts for GPT-6 Astra
+url: https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra
+canonicalUrl: https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI Developers
+authors: [Eric Provencher]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-11
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: (直接取得) developers.openai.com の Codex docs ナビゲーションと changelog からのリンク追跡
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH02, TH03, TH04]
+events: []
+summary: GPT-6 Astra への移行に合わせ、スキルの説明文・AGENTS.md・作業プロンプトを見直すよう促す OpenAI 公式ブログ。スキル過多による説明文の短縮、旧モデル向けの強い境界指示が新モデルで過剰に効いて作業が止まる現象、完了条件を先に定義する必要を述べる。
+claims:
+  - id: c1
+    text: スキルの説明文が長すぎ、スキルを増やしすぎると Codex は収まるよう説明文を短縮し、モデルがどのスキルを選ぶべきか判断しにくくなる。説明文同士の矛盾や過度な強調も不要な読み込みを招く。
+    quote: But many descriptions are far too long, and when you add too many skills, Codex starts shortening their descriptions to fit.
+    locator: Better skills
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 複数の手順を持つスキルは、ルート文書を最小のルーターにして補助文書やスクリプトを指す段階的開示にせよと推奨する。
+    quote: For skills with multiple workflows, make the root document a minimal router that points to supporting docs and scripts.
+    locator: Better skills
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1, TH03-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 旧モデル(Sol・Luna)に効いた指示が GPT-6 Astra を過度に縛ることがあり、リポジトリのスキルは他の貢献者の別モデルにも効くため、どのモデルが読むかを考えよとする。モデル世代交代が指示の再調整を要する変化点であることをベンダーが明言している。
+    quote: Guidance that helps Sol or Luna may overconstrain GPT-6 Astra, so consider which models will use the instructions you leave behind.
+    locator: Better skills
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3, TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 旧モデルには検証を促す指示が必要だったが、GPT-6 Astra は自ら検証するため、同じ指示が不要なテスト実行を招く。
+    quote: Previous models needed encouragement to run tests and check their work. GPT-6 Astra does that on its own, so the same instructions can lead to unnecessary testing.
+    locator: Up-to-date AGENTS.md
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3, TH04-Q2]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 旧モデルの暴走を防ぐために書いた強い境界の文言を Astra は重く受け取りすぎ、続けてほしい場面でも止まることがある。確認を求めすぎる側の失敗をベンダーが認めている。
+    quote: Astra could take it too seriously and may stop work where you’d actually be happy for it to continue.
+    locator: Decision boundaries
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: supports
+  - id: c6
+    text: Astra は最初の実装で止まってレビューを求めることがあるため、作業開始前に完了条件を定義せよとする。「最初の実装後に止まってレビュー」という要件自体が早期停止を招くので、本当に必要な判断か確かめよとも述べる。
+    quote: It may reach a first implementation and come back for your review while there’s still work to do. This is where it helps to define completion before starting.
+    locator: Persistence
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q4, TH08-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:13.882Z
+    httpStatus: 200
+    finalUrl: https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra
+    contentType: text/html; charset=utf-8
+    titleFetched: Rethinking skills and prompts for GPT-6 Astra | OpenAI Developers
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

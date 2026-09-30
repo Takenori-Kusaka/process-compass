@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0504
+status: included
+excludeReason: null
+title: "Automation Bias in the AI Act: On the Legal Implications of Attempting to De-Bias Human Oversight of AI"
+url: https://arxiv.org/abs/2502.10036
+canonicalUrl: arxiv:2502.10036
+ids:
+  arxiv: "2502.10036"
+  doi: 10.1017/err.2025.10033
+publisher: European Journal of Risk Regulation (Cambridge University Press)
+authors: [Laux Johann, Ruschemeier Hannah]
+orgType: academic
+region: eu
+lang: en
+sourceType: paper-peer
+published: 2025-02-14
+publishedBasis: arxiv-v1
+version: null
+updated: 2025-06-20
+accessed: 2026-09-24
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH12
+  query: arXiv 2026 human oversight Article 14 AI Act empirical study automation bias effectiveness
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH06]
+events: []
+summary: AI Act 第14条が自動化バイアスへの「認識」を提供者に求める規定の法的分析(Eur. j. risk regul. 16 (2025) 1519-1534)。提供者偏重では設計・文脈による自動化バイアスを扱えないとし、整合規格に行動科学の最新知見を参照させるよう提案する。
+claims:
+  - id: c1
+    text: AI Act が提供者に焦点を当てる構造では、自動化バイアスの原因としての設計と利用文脈を十分に扱えず、「認識させる」義務では足りない可能性を指摘する。
+    quote: The analysis shows that the AIA's focus on providers does not adequately address design and context as causes of AB
+    locator: Abstract
+    quant: null
+    evidenceKind: review
+    rqs: [TH01-Q2, TH06-Q4, TH12-Q1]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 整合規格が自動化バイアスと人と AI の相互作用の研究の現状を参照し、提供者と導入者の双方に責任を負わせるべきだと提案する(規格を研究の進展に追随させる設計)。
+    quote: the paper proposes that harmonised standards should reference the state of research on AB and human-AI interaction, holding both providers and deployers accountable.
+    locator: Abstract
+    quant: null
+    evidenceKind: review
+    rqs: [TH12-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:16.982Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2502.10036
+    contentType: text/html; charset=utf-8
+    titleFetched: "Automation Bias in the AI Act: On the Legal Implications of Attempting to De-Bias Human Oversight of AI"
+    titleMatch: true
+    dateMeta: 2025-02-14
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "Automation Bias in the AI Act: On the Legal Implications of Attempting to De-Bias Human Oversight of AI"
+      authors: ["Laux, Johann", "Ruschemeier, Hannah"]
+      v1Date: 2025-02-14
+      latestVersion: 2
+      titleMatch: true
+    crossref:
+      status: 200
+      title: "Automation Bias in the AI Act: On the Legal Implications of Attempting to De-Bias Human Oversight of AI"
+      issued: 2025-7-28
+      titleMatch: true
+    fullText: arxiv-pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

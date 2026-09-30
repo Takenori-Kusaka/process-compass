@@ -1,0 +1,122 @@
+schemaVersion: 0
+id: SRC-0228
+status: included
+excludeReason: null
+title: "Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl"
+url: https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
+canonicalUrl: https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
+ids:
+  arxiv: null
+  doi: null
+publisher: martinfowler.com (Thoughtworks)
+authors: [Birgitta Böckeler]
+orgType: consultancy
+region: global
+lang: en
+sourceType: corp-techblog
+published: 2025-10-15
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: spec-driven development Kiro criticism overhead too much documentation review burden
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH08, TH03]
+events: []
+summary: 反証として取得。Thoughtworks の Böckeler が Kiro・spec-kit・Tessl を試した評価。小さなバグに対して Kiro の仕様が過大になること、大量の markdown のレビュー負荷、指示を積んでもエージェントが従わない「偽りの統制感」を指摘する。2026-08 の Kiro Quick Spec 追加はこの批判と同じ問題への供給側の応答と読める(推測)。
+claims:
+  - id: c1
+    text: Kiro に小さなバグの修正を頼むと、要件文書が 4 つのユーザーストーリーと計 16 の受入基準に膨らみ、大槌でクルミを割るようだった。
+    quote: The requirements document turned this small bug into 4 “user stories” with a total of 16 acceptance criteria
+    locator: One workflow to fit all sizes?
+    quant:
+      value: 4 ストーリー / 16 受入基準
+      n: 1 件の小バグ
+      design: single practitioner trial
+      population: Kiro(2025-10 時点)
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH05-Q3]
+    issues: [252, 272]
+    stance: contradicts
+  - id: c2
+    text: 仕様ツールが生む markdown は冗長でレビューが苦痛で、著者はそれよりコードをレビューしたいと述べる。
+    quote: To be honest, I’d rather review code than all these markdown files.
+    locator: Reviewing markdown over reviewing code?
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3, TH08-Q1]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: ファイル・テンプレート・チェックリストを積んでも、エージェントが最終的にすべての指示に従わない場面を頻繁に見た。文脈窓が大きいことは内容を正しく拾うことを意味しない。
+    quote: Even with all of these files and templates and prompts and workflows and checklists, I frequently saw the agent ultimately not follow all the instructions.
+    locator: False sense of control?
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q3, TH07-Q5]
+    issues: [269]
+    stance: contradicts
+  - id: c4
+    text: 調べた SDD の手法・定義はすべて spec-first だが、spec-anchored(仕様を保守し続ける)や spec-as-source を目指すものは一部にとどまる。仕様の保守戦略は曖昧なまま残されることが多い。
+    quote: All SDD approaches and definitions I’ve found are spec-first, but not all strive to be spec-anchored or spec-as-source.
+    locator: Definition
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: [275]
+    stance: context
+  - id: c5
+    text: ファイル・テンプレート・チェックリストを揃えても、エージェントが指示のすべてに従わない事例を頻繁に見た。既存クラスの説明を新規仕様と取り違えて重複生成した例もある。
+    quote: I frequently saw the agent ultimately not follow all the instructions.
+    locator: Observations and questions / False sense of control?
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH03-Q3]
+    issues: []
+    stance: contradicts
+  - id: c6
+    text: Kiro のタスク一覧は要求番号へ遡れる形で生成される(AC→タスクの対応付けがツールに組み込まれている)。一方、spec-kit のチェックリストは AI が解釈するため遵守の保証はない。
+    quote: "Tasks: A list of tasks that trace back to the requirement numbers"
+    locator: Kiro
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:14.866Z
+    httpStatus: 200
+    finalUrl: https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
+    contentType: text/html
+    titleFetched: "Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH08
+    query: Böckeler spec-driven development Kiro spec-kit Tessl martinfowler.com

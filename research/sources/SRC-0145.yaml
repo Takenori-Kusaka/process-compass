@@ -1,0 +1,90 @@
+schemaVersion: 0
+id: SRC-0145
+status: included
+excludeReason: null
+title: 2016 Letter to Shareholders (Jeff Bezos)
+url: https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders
+canonicalUrl: https://aboutamazon.com/news/company-news/2016-letter-to-shareholders
+ids:
+  arxiv: null
+  doi: null
+publisher: Amazon
+authors: [Jeff Bezos]
+orgType: enterprise
+region: us
+lang: en
+sourceType: vendor-official
+published: 2017-04
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: one-way/two-way door decision (fetched directly from aboutamazon.com)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH09, TH07]
+events: []
+summary: one-way/two-way door と「情報 70% で決める」の原典。可逆な決定には軽量なプロセスを使い、待ちすぎるより誤りを素早く訂正する方が安いとする。「プロセスが結果の代理になる」Day 2 の兆候も記す。ページに発表日の記載なし(2016 年度書簡)。
+claims:
+  - id: c1
+    text: 画一的な意思決定プロセスを使わない。多くの決定は可逆な two-way door であり、軽量プロセスで済ませる。
+    quote: First, never use a one-size-fits-all decision-making process. Many decisions are reversible, two-way doors. Those decisions can use a light-weight process.
+    locator: High-Velocity Decision Making
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: ほとんどの決定は欲しい情報の 70% 程度で下すべきで、90% を待つと遅い。誤りの訂正が速ければ、誤りより遅さの方が高くつく。
+    quote: Second, most decisions should probably be made with somewhere around 70% of the information you wish you had. If you wait for 90%, in most cases, you’re probably being slow.
+    locator: High-Velocity Decision Making
+    quant:
+      value: ~70% of desired information
+      n: n/a
+      design: executive heuristic
+      population: Amazon
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: プロセスが望む結果の代理(proxy)になると、成果を見ずにプロセスを正しく回すことだけを確認するようになる。ゲート形骸化の原型的記述。
+    quote: The process becomes the proxy for the result you want. You stop looking at outcomes and just make sure you’re doing the process right.
+    locator: Resist Proxies
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q5]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:09.242Z
+    httpStatus: 200
+    finalUrl: https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders
+    contentType: text/html; charset=utf-8
+    titleFetched: 2016 Letter to Shareholders
+    titleMatch: true
+    dateMeta: 2017-04-17
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://aboutamazon.com/news/company-news/2016-letter-to-shareholders

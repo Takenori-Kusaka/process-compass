@@ -1,0 +1,137 @@
+schemaVersion: 0
+id: SRC-0515
+status: included
+excludeReason: null
+title: Filetto(commit 8e64146、2026-08-14 時点のリポジトリ)
+url: https://github.com/Takenori-Kusaka/Filetto/tree/8e641465ad465fd2cd1243e2036c0e53f991e5a0
+canonicalUrl: https://github.com/takenori-kusaka/filetto/tree/8e641465ad465fd2cd1243e2036c0e53f991e5a0
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub: Takenori-Kusaka/Filetto"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: repo
+published: 2026-08-14
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: git clone https://github.com/Takenori-Kusaka/Filetto.git && count_filetto.py
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11, TH05, TH07]
+events:
+  - date: 2026-08-14
+    label: Filetto が ADR ディレクトリと docs/tech-advisor を廃止(文書 21,116 → 14,484 行)
+summary: "本標準の実証案件 Filetto の、Issue #252 起票 23 分前の tree。実装 10 行・文書 21,116 行・ADR 20 本 3,618 行を数え直し、定義を変えた値と同日中の削減後の値を併記する。"
+claims:
+  - id: c1
+    text: "commit 8e64146 の実測は、実装 1 ファイル 10 行に対し文書(docs/ + context/ + specs/ の *.md)95 ファイル 21,116 行(1 : 約 2,112)である。内訳は docs/spikes 21 / 5,266、context/decisions 20 ファイル / 3,618 行(番号付き ADR 19 本 + README)、docs/tech-advisor 5 / 3,520、docs/gates 15 / 3,124、docs/platform 13 / 1,770、specs 6 / 957。"
+    quote: 実装コードはまだありません。
+    locator: README.md には該当する数値の記述は無い(§セットアップ はテンプレートの導入手順)。値は commit 8e641465 の tree を git ls-tree -r と git show | wc -l で数えた実測
+    quant:
+      value: "実装 10 行 : 文書 21,116 行(95 ファイル)。ADR 20 本 3,618 行(Issue の値と一致)"
+      n: 1 リポジトリ、commit 8e64146(265 ファイル)
+      design: git ls-tree -r --name-only 8e64146 と git cat-file -p の改行数。実装 = src/、文書 = docs/ context/ specs/ 配下の *.md(tmp/survey-2026-09/g01/count_filetto.py)。取得 2026-09-30
+      population: Filetto、2026-08-14 18:27 JST
+    evidenceKind: observational
+    rqs: [TH11-Q4]
+    issues: [252, 249]
+    stance: supports
+  - id: c2
+    text: 同じ commit で文書を全 *.md に広げると 127 ファイル 23,951 行になる。src/ 以外の装置のコードは md を除いて scripts/ 4,705 + tests/ 1,706 + .github/ 921 + adapters/ 68 + .claude の非 md 352 = 7,752 行(md 込みでは 7,852 行)で、src/ の 10 行を加えたコードの 99.9% が装置である(json を数えるかで値は動く)。
+    quote: "**準備中です。** `docker-compose.yml` が未作成のため、まだ起動できません([#113](https://github.com/Takenori-Kusaka/Filetto/issues/113))。"
+    locator: README.md には該当する数値の記述は無い。値は commit 8e641465 の tree を git ls-tree -r と git show | wc -l で数えた実測
+    quant:
+      value: 全 *.md 23,951 行(127 ファイル)、装置のコード 7,635 行、実装 10 行
+      n: 1 リポジトリ、commit 8e64146
+      design: 同スクリプト。装置 = scripts/ tests/ adapters/ .github/ と .claude/hooks の *.md 以外。取得 2026-09-30
+      population: Filetto、2026-08-14 18:27 JST
+    evidenceKind: observational
+    rqs: [TH11-Q4, TH07-Q3]
+    issues: [252, 254]
+    stance: qualifies
+  - id: c3
+    text: "削減は同日(2026-08-14)中に行われ、context/decisions/(番号付き ADR 19 本、README 込み 20 ファイル)が PR #152 で、docs/tech-advisor/ が PR #154 で廃止された。HEAD(71a2cde、2026-08-14 23:14 JST、2026-09-30 の取得時点まで push 無し)では文書 72 ファイル 14,484 行で 21,116 行から 31.4% 減(ファイル数は 95 → 72)、src/ は 10 行のままである。"
+    quote: "docs: 判断記録(ADR)のディレクトリを廃し、決定の実体を仕様へ移す (#152)"
+    locator: "README には記述なし。git log 8e641465..71a2cde のコミット件名(03dd9c8 = #152、ce0256a「docs: docs/tech-advisor/ を廃し、未確定のリスク区分を台帳へ移す (#154)」)と、HEAD 71a2cde34f38 の tree 実測。pushed_at は GitHub API(repos/Takenori-Kusaka/Filetto)"
+    quant:
+      value: 文書 21,116 → 14,484 行(−31%)、95 → 72 ファイル
+      n: 2 時点の tree(8e64146、71a2cde)
+      design: 同スクリプトを 2 commit に適用。取得 2026-09-30
+      population: Filetto、2026-08-14
+    evidenceKind: observational
+    rqs: [TH11-Q4, TH05-Q5]
+    issues: [252, 272]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:20.025Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/Filetto/tree/8e641465ad465fd2cd1243e2036c0e53f991e5a0
+    contentType: text/html; charset=utf-8
+    titleFetched: GitHub - Takenori-Kusaka/Filetto at 8e641465ad465fd2cd1243e2036c0e53f991e5a0
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: not-found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "commit 8e64146 の tree 実測(git ls-tree + 行数): 実装 src/ = 1 ファイル 10 行(src/filetto/__init__.py)。文書(docs/ + context/ + specs/ の *.md)= 95 ファイル 21,116 行(比 1 : 約2,112)。内訳: docs/spikes の md 21 / 5,266(全ファイルでは 88 / 81,057)、context/decisions 20 ファイル / 3,618 行(番号付き ADR 19 本 + README)、docs/tech-advisor 5 / 3,520、docs/gates 15 / 3,124、docs/platform 13 / 1,770、specs 6 / 957"
+        extractedQuote: ""
+        locator: README.md には該当する数値の記述は無い(§セットアップ はテンプレートの導入手順)。値は commit 8e641465 の tree を git ls-tree -r と git show | wc -l で数えた実測
+        note: locator の「README.md §セットアップ」にはファイル数・行数の記述が無く、原文引用はできない。値はリポジトリの tree からの再計測。「文書」の定義は ask からは分からないため docs/ + context/ + specs/ 配下の *.md と仮定した(95 / 21,116)。context/decisions は README を含めて 20 ファイル、番号付き ADR は 0001〜0019 の 19 本。docs/spikes は md 以外(検証データ等)を含めると 88 ファイル 81,057 行で、md だけの値と大きく違う。
+        adjudication:
+          verdict: corrected
+          reason: "総数(1 ファイル 10 行、95 ファイル 21,116 行、比 1 : 2,112)と内訳の行数はすべて blind の tree 実測と一致する。食い違いは 2 点: context/decisions は「ADR 20 本」ではなく番号付き ADR 19 本 + README の 20 ファイル、docs/gates は 14 ではなく 15 ファイル(行数 3,124 は一致)。blindNote のとおり README には該当数値が無く、値は tree の再計測で、「文書」の定義(docs/ + context/ + specs/ の md)は仮定である。"
+          date: 2026-09-30
+          originalText: "Issue #252 の値「実装 1 ファイル 10 行、文書 95 ファイル 21,116 行(1 : 2,112)」に対し実測は同値。内訳も docs/spikes 21 / 5,266、context/decisions(ADR)20 本 / 3,618 行、docs/tech-advisor 5 / 3,520、docs/gates 14 / 3,124、docs/platform 13 / 1,770、specs 6 / 957 まで一致した。"
+          originalQuote: 実装コードはまだありません。
+      c2:
+        verdict: match
+        extractedValue: "同 commit の全 *.md = 127 ファイル 23,951 行(.claude の md 13 / 1,329、templates/ 12 / 827、CLAUDE.md、README.md、AGENTS.md、PROCESS-PROFILE.md ほかを含む)。src/ = 10 行。装置のコード: scripts/ 4,734 + tests/ 1,706 + .github/ 992 + adapters/ 68 + .claude の非 md 352 = 7,852 行。リポジトリのコードは約 7,862 行で、その 99.9% が装置。md を除いて数えると scripts 4,705 + tests 1,706 + .github 921 + adapters 68 + .claude 非 md 352 = 7,752 行(src 込み 7,762、装置 99.9%)"
+        extractedQuote: ""
+        locator: README.md には該当する数値の記述は無い。値は commit 8e641465 の tree を git ls-tree -r と git show | wc -l で数えた実測
+        note: "原文引用なし(tree の再計測)。数え方で scripts/ と .github/ の値が変わる: scripts/ には vendor/VENDOR.md(29 行)、.github/ には PULL_REQUEST_TEMPLATE.md と rulesets/README.md(計 71 行)が含まれ、これらは「全 *.md」側にも入るため二重計上になりうる。.claude の非 md 5 ファイルは json / mjs。scripts・adapters・.claude 非 md の内訳は mjs 20 + json 14 で、json(設定・rulesets)を「コード」に数えるかで値が動く。uv.lock・pyproject.toml・process.config.json はどちらにも入れていない。"
+        adjudication:
+          verdict: corrected
+          reason: 全 *.md 127 ファイル 23,951 行、scripts 4,705・tests 1,706・.github 921・adapters 68(md 除外の数え方)、装置 99.9% は blind と一致する。食い違いは .claude の非 md の行数で、主張 235 行に対し blind は 352 行。このため合計は 7,635 行ではなく 7,752 行(約 7,600 行ではなく約 7,750 行)になる。趣旨(比は定義に依存し、コードのほぼ全部が装置)は変わらない。claimQuote は原文照合で not-found だが、数値は README に無く tree の再計測による。
+          date: 2026-09-30
+          originalText: 比は定義に依存する。同じ commit で文書を全 *.md に広げると 127 ファイル 23,951 行(.claude/ の skills と agents、templates/、CLAUDE.md、README を含む)。「実装 10 行」は src/ だけで、検査の装置のコード(scripts/ 4,705 + tests/ 1,706 + .github/ 921 + adapters/ 68 + .claude の非 md 235 = 7,635 行)はどちらにも入っていない。リポジトリのコードは約 7,600 行あり、その 99.9% が装置である。
+          originalQuote: "**準備中です。** `docker-compose.yml` が未作成のため、まだ起動できません([#113](https://github.com/Takenori-Kusaka/Filetto/issues/113))。"
+      c3:
+        verdict: match
+        extractedValue: "同日(2026-08-14)中に context/decisions/(番号付き ADR 19 本、README 込み 20 ファイル)を PR #152(19:40 JST)で、docs/tech-advisor/ を PR #154(22:48 JST)で廃止。HEAD = 71a2cde(2026-08-14 23:14 JST)。リポジトリの pushed_at は 2026-08-14T14:29:48Z で、2026-09-30 の取得時点まで push 無し。HEAD の文書(docs/ + context/ + specs/ の md)= 72 ファイル 14,484 行で、21,116 行から 31.4% 減(ファイル数は 95→72 で 24.2% 減)。src/ は 10 行のまま。全 *.md では 127 / 23,951 → 104 / 17,333(27.6% 減)"
+        extractedQuote: "docs: 判断記録(ADR)のディレクトリを廃し、決定の実体を仕様へ移す (#152)"
+        locator: "README には記述なし。git log 8e641465..71a2cde のコミット件名(03dd9c8 = #152、ce0256a「docs: docs/tech-advisor/ を廃し、未確定のリスク区分を台帳へ移す (#154)」)と、HEAD 71a2cde34f38 の tree 実測。pushed_at は GitHub API(repos/Takenori-Kusaka/Filetto)"
+        note: 原文引用はコミット件名(README には該当記述なし)。「文書」の定義は c1 と同じ仮定(docs/ + context/ + specs/ の md)。HEAD では context/ の md は 8 ファイル 739 行が残る(decisions 以外)。同じ期間に docs/gates は 15→16、docs/platform は 13→14、specs は 957→1,051 行と増えており、減少は ADR と tech-advisor の廃止分が主。scripts/ は 4,734→5,154 行、tests/ は 1,706→1,989 行に増えている(装置のコードは増)。pushed_at(23:29 JST)は HEAD の commit 時刻(23:14 JST)より後で、最後の push は main 以外の branch の可能性がある。
+        adjudication:
+          verdict: corrected
+          reason: "PR #152 / #154 による廃止、HEAD 71a2cde の時刻、以後 push 無し、72 ファイル 14,484 行・31% 減、src/ 10 行は blind と一致する。誤りは「ADR 20 本」の 1 点で、blind では番号付き ADR は 19 本、README を含めて 20 ファイル。blindNote のとおり、同期間に docs/gates・docs/platform・specs と装置のコード(scripts/ 4,734→5,154 行、tests/ 1,706→1,989 行)は増えており、減少は ADR と tech-advisor の廃止分が主である。"
+          date: 2026-09-30
+          originalText: "Issue #252 が予告した削減は同日中に行われ、context/decisions/(ADR 20 本)と docs/tech-advisor/ が廃止された(PR #152、#154)。HEAD(71a2cde、2026-08-14 23:14 JST。以後 2026-09-30 まで push 無し)では文書 72 ファイル 14,484 行で 31% 減、src/ は 10 行のまま。Issue #252 への「削減の実測」の追記に当たる値である。"
+          originalQuote: "**現在の状態**: 受入基準(`specs/F-001` 〜 `F-003`)と技術判断(`context/decisions/`)が確定し、実装計画の判定(G-4)を待っています。"
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0345
+status: included
+excludeReason: null
+title: GitHub code coverage merge protection for pull requests - GitHub Changelog
+url: https://github.blog/changelog/2026-06-30-github-code-coverage-merge-protection-for-pull-requests
+canonicalUrl: https://github.blog/changelog/2026-06-30-github-code-coverage-merge-protection-for-pull-requests
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-06-30
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH02
+  query: GitHub changelog block pull requests with exposed secrets from merging
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07, TH10]
+events:
+  - date: 2026-06-30
+    label: GitHub がカバレッジによるマージ保護を public preview で提供
+summary: ブランチ規則でテストカバレッジの下限や既定ブランチからの低下幅を条件にマージを止める機能の告知。評価モードで影響を見てから強制へ切り替える手順を明示している。
+claims:
+  - id: c1
+    text: カバレッジの最低値、既定ブランチからの最大許容低下幅、またはその両方を条件に設定できる。低下幅の条件は現状値を基準にするラチェット型の閾値に当たる。
+    quote: You can set a minimum coverage percentage, a maximum allowed drop from the default branch, or both.
+    locator: 本文
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: まず評価モードで影響を把握し、準備ができたら強制モードへ切り替える手順を示す。検査を段階的に有効化する手順が製品の推奨として書かれている。
+    quote: You can start in evaluate mode to understand impact first, then switch to active mode when you’re ready to enforce merge protection.
+    locator: 本文
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:20.390Z
+    httpStatus: 200
+    finalUrl: https://github.blog/changelog/2026-06-30-github-code-coverage-merge-protection-for-pull-requests/
+    contentType: text/html; charset=UTF-8
+    titleFetched: GitHub code coverage merge protection for pull requests - GitHub Changelog
+    titleMatch: true
+    dateMeta: 2026-06-30
+    quotes:
+      c1: found
+      c2: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: evaluate mode → active mode
+        extractedQuote: You can start in evaluate mode to understand impact first, then switch to active mode when you’re ready to enforce merge protection.
+        locator: 本文(2026-06-30 Changelog)
+        note: 原文は 'You can start ...' と選択肢として書かれており、「推奨」とは明言していない。切替先のモード名は 'active mode'(強制を有効にするモード)。対象はカバレッジ閾値によるマージ保護で、機能は GitHub Code Quality 利用者向けの public preview。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

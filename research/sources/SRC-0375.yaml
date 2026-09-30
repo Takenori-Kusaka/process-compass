@@ -1,0 +1,90 @@
+schemaVersion: 0
+id: SRC-0375
+status: included
+excludeReason: null
+title: 2017 Letter to Shareholders
+url: https://www.aboutamazon.com/news/company-news/2017-letter-to-shareholders
+canonicalUrl: https://aboutamazon.com/news/company-news/2017-letter-to-shareholders
+ids:
+  arxiv: null
+  doi: null
+publisher: Amazon (About Amazon)
+authors: [Jeffrey P. Bezos]
+orgType: enterprise
+region: us
+lang: en
+sourceType: vendor-official
+published: 2018-04-18
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: Bezos 2017 letter to shareholders "six-page" "narratively structured" memos high standards
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: Amazon 2017年度株主書簡(2018-04-18 公開)の一次資料。スライドを使わず物語構造の6ページメモを会議冒頭で黙読する運用と、良いメモは書き直しと同僚の改善を経て1週間以上かかるという書く側の費用を述べる。
+claims:
+  - id: c1
+    text: Amazon は PowerPoint 等のスライド形式の発表をせず、物語構造の6ページメモを書き、会議冒頭で黙読する。
+    quote: We don’t do PowerPoint (or any other slide-oriented) presentations at Amazon. Instead, we write narratively structured six-page memos. We silently read one at the beginning of each meeting
+    locator: Six-Page Narratives
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q4]
+    issues: []
+    stance: context
+  - id: c2
+    text: 良いメモは書き直し、同僚に改善を頼み、数日寝かせて再編集するもので、1〜2日では書けない(外部向け説得形式は作成費用が大きい)。
+    quote: The great memos are written and re-written, shared with colleagues who are asked to improve the work, set aside for a couple of days, and then edited again with a fresh mind.
+    locator: Six-Page Narratives
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q4, TH05-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:36.871Z
+    httpStatus: 200
+    finalUrl: https://www.aboutamazon.com/news/company-news/2017-letter-to-shareholders
+    contentType: text/html; charset=utf-8
+    titleFetched: 2017 Letter to Shareholders
+    titleMatch: true
+    dateMeta: 2018-04-18
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: six-page(6ページ)
+        extractedQuote: We don’t do PowerPoint (or any other slide-oriented) presentations at Amazon. Instead, we write narratively structured six-page memos. We silently read one at the beginning of each meeting
+        locator: Six-Page Narratives
+        note: ""
+      c2:
+        verdict: match
+        extractedValue: a day or two(1〜2日)
+        extractedQuote: written and re-written, shared with colleagues who are asked to improve the work, set aside for a couple of days, and then edited again with a fresh mind. They simply can’t be done in a day or two.
+        locator: Six-Page Narratives
+        note: 原文は社内会議で黙読するメモの話で、『外部向け説得形式』という位置づけは原文に無い。原文は『a great memo probably should take a week or more』とも述べる。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://aboutamazon.com/news/company-news/2017-letter-to-shareholders

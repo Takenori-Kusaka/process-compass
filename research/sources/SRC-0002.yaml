@@ -1,0 +1,183 @@
+schemaVersion: 0
+id: SRC-0002
+status: included
+excludeReason: null
+title: Structured Feedback Improves Repair in an LLM Agent Loop
+url: https://arxiv.org/abs/2607.14167
+canonicalUrl: arxiv:2607.14167
+ids:
+  arxiv: "2607.14167"
+  doi: null
+publisher: arXiv
+authors: [Jaideep Ray, Ankit Goyal]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-07-15
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-1
+  query: GET https://arxiv.org/html/2607.14167
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH07]
+events: []
+summary: 外部検証器が候補を棄却した後に何を返すべきかを、TextWorld 50 課題・4 呼び出し上限で比較。位置・観測値・許容代替案を返すと成功が Qwen で +44pp、Llama で +42pp。利得の大半は代替案にあり、散文と JSON の差は 0〜2pt。#257 の引用は全て原典と一致。
+claims:
+  - id: c1
+    text: 失敗位置・観測値・許容代替案の3要素を返すと、生の診断メッセージのみに対し Qwen2.5-Coder-14B の終了成功が 14/50→36/50(+44pp、95%CI 28〜60)。
+    quote: feedback containing all three fields improves terminal success by 44 percentage points for Qwen2.5-Coder-14B (95% paired-bootstrap interval 28–60)
+    locator: Abstract; §4.1 Table 2 (RawDiag 14 (28%) / TypedFields 36 (72%)); §7
+    quant:
+      value: +44pp (14/50 → 36/50)
+      n: 50 paired games, budget 4
+      design: controlled experiment (paired, McNemar + Holm)
+      population: Qwen2.5-Coder-14B-Instruct-AWQ, TextWorld 3-room games, greedy decoding
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+  - id: c2
+    text: 同条件で Llama-3.1-8B は 8/50→29/50(+42pp、95%CI 28〜56)。
+    quote: and by 42 percentage points for Llama-3.1-8B (95% interval 28–56)
+    locator: Abstract; Table 2 (RawDiag 8 (16%) / TypedFields 29 (58%)); §7 (from 8/50 to 29/50 for Llama)
+    quant:
+      value: +42pp (8/50 → 29/50)
+      n: 50 paired games, budget 4
+      design: controlled experiment (paired)
+      population: Meta-Llama-3.1-8B-Instruct-AWQ-INT4
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+  - id: c3
+    text: 同じ3つの値を散文で返す SameNL と鍵付き JSON の TypedFields の差は Qwen +2pt、Llama 0pt で、区間は 0 を含み補正後 p=1.0。書式ではなく値が効く。
+    quote: TypedFields differs from the repair-value-matched SameNL by only +2 points for Qwen and 0 for Llama; both intervals include zero and both adjusted p-values are 1.
+    locator: "§4.2; Table 3 (Typed vs. SameNL: +2 [−8,12] / 0 [−12,12])"
+    quant:
+      value: +2pt / 0pt (prose vs JSON)
+      n: 50 paired games per model
+      design: controlled experiment (repair-value-matched contrast)
+      population: same two models
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+  - id: c4
+    text: 代替案を落とした LocObs(位置・観測値のみ)は生診断に近い(Qwen 18/50、Llama 9/50 対 14/50、8/50)。代替案を足すと +36(Qwen)/+40(Llama)。
+    quote: LocObs omits admissible alternatives and performs close to RawDiag. Adding those alternatives increases success by 36 points for Qwen and 40 for Llama.
+    locator: §4.2; Table 2 (LocObs 18 (36%) / 9 (18%)); Table 3 (Typed vs. LocObs +36 [20,52] / +40 [26,54])
+    quant:
+      value: LocObs ≈ baseline; alternatives +36/+40pt
+      n: 50 paired games per model
+      design: ablation (field removal)
+      population: same two models
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+  - id: c5
+    text: 生診断のまま呼び出し回数を 4→8 に増やしても追加の課題は解けない(15 課題サブセット)。回数より情報が効く。
+    quote: On the 15-game budget subset, increasing RawDiag from four to eight calls does not solve additional games.
+    locator: §7 Conclusion; §5 Call budgets
+    quant:
+      value: 0 additional games solved (RawDiag, budget 4→8)
+      n: 15 games × 2 models
+      design: budget sweep
+      population: same
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+  - id: c6
+    text: "限界: 検証器が失敗を露出できなければ修復方針は効かない(HumanEval 15 課題の範囲確認)。主実験は生成した TextWorld 50 課題と量子化 2 モデルに限る小規模研究。"
+    quote: "The HumanEval check shows an important condition: a repair policy cannot act on a failure that its visible validator does not expose."
+    locator: §7 Conclusion; §6 Limitations (This is a focused study. The main experiment uses 50 generated TextWorld games and two quantized models served with vLLM.)
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:00.114Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.14167
+    contentType: text/html; charset=utf-8
+    titleFetched: Structured Feedback Improves Repair in an LLM Agent Loop
+    titleMatch: true
+    dateMeta: 2026-07-15
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv:
+      status: 200
+      title: Structured Feedback Improves Repair in an LLM Agent Loop
+      authors: ["Ray, Jaideep", "Goyal, Ankit"]
+      v1Date: 2026-07-15
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3 fields (location, observed value, admissible alternatives); Qwen2.5-Coder-14B; 14/50 -> 36/50; +44 pp; 95% CI 28-60
+        extractedQuote: feedback containing all three fields improves terminal success by 44 percentage points for Qwen2.5-Coder-14B (95% paired-bootstrap interval 28–60)
+        locator: Abstract; §4.1 Table 2 (RawDiag 14 (28%) / TypedFields 36 (72%)); §7 Conclusion (from 14/50 to 36/50 for Qwen)
+        note: 条件は TextWorld の対応付き50ゲーム、4回の呼び出し上限、AWQ 量子化モデル(Qwen2.5-Coder-14B-Instruct-AWQ)、greedy 復号。Holm 補正後 p=3.15×10^-5。
+      c2:
+        verdict: match
+        extractedValue: Llama-3.1-8B; 8/50 -> 29/50; +42 pp; 95% CI 28-56
+        extractedQuote: and by 42 percentage points for Llama-3.1-8B (95% interval 28–56).
+        locator: Abstract; Table 2 (RawDiag 8 (16%) / TypedFields 29 (58%)); §7 (from 8/50 to 29/50 for Llama)
+        note: モデルは Meta-Llama-3.1-8B-Instruct-AWQ-INT4(量子化)を T4 上の vLLM で提供。Holm 補正後 p=3.81×10^-6。
+      c3:
+        verdict: match
+        extractedValue: "3 values; Typed vs SameNL: Qwen +2 [−8,12], Llama 0 [−12,12]; intervals include zero; Holm-adjusted p = 1 (1.0)"
+        extractedQuote: TypedFields differs from the repair-value-matched SameNL by only +2 points for Qwen and 0 for Llama; both intervals include zero and both adjusted p -values are 1.
+        locator: "§4.2; Table 3 (Typed vs. SameNL: +2 [−8,12] / 0 [−12,12], p_H 1.0)"
+        note: 原典の結論は『keyed record に成功率上の優位は見られない』『JSON 構文自体が修復を改善する証拠は無い』という証拠不在の言い方。§6 は TypedFields が安定した失敗ラベルと異なる枠組み文も含むので純粋な書式対照ではないと明記している。TypedFields は SameNL より呼び出しが少ない(Qwen 17回減、Llama 12回減)。『書式ではなく値が効く』は §7 の 'the large gain comes from the repair values rather than an observed advantage for the keyed representation' に対応する。
+      c4:
+        verdict: match
+        extractedValue: LocObs Qwen 18/50, Llama 9/50 vs RawDiag Qwen 14/50, Llama 8/50; adding alternatives +36 (Qwen) / +40 (Llama)
+        extractedQuote: LocObs omits admissible alternatives and performs close to RawDiag. Adding those alternatives increases success by 36 points for Qwen and 40 for Llama.
+        locator: §4.2; Table 2 (LocObs 18 (36%) / 9 (18%); RawDiag 14 (28%) / 8 (16%)); Table 3 (Typed vs. LocObs +36 [20,52] / +40 [26,54])
+        note: +36/+40 は TypedFields と LocObs の差(同じ鍵付き書式で expected 欄の有無のみが違う)。
+      c5:
+        verdict: match
+        extractedValue: 4 -> 8 calls; 15-game subset
+        extractedQuote: On the 15-game budget subset, increasing RawDiag from four to eight calls does not solve additional games.
+        locator: §7 Conclusion; §5 Call budgets ('RawDiag is flat from four through eight calls'); §4.3 Table 4 (RawDiag Qwen 4/15, Llama 2/15 at B=4,6,8)
+        note: 『課題』は TextWorld のゲーム。RawDiag は B=4〜8 で Qwen 4/15、Llama 2/15 のまま。ただし Qwen の RawDiag は B=2 で 5/15 と、B=4 より多い(単調でない)。原典は予算サブセットの標本が小さいため p 値を決定的に扱わないと明記している(§3)。
+        adjudication:
+          verdict: consistent
+          reason: "「15 課題(ゲーム)サブセットで RawDiag を 4→8 回に増やしても追加で解けない」は blindQuote と一致する(Table 4: Qwen 4/15、Llama 2/15 のまま)。「回数より情報が効く」は §7 Conclusion の趣旨をまとめた要約で、抜粋と矛盾しない。留意点として、Qwen の RawDiag は B=2 で 5/15 と B=4 より多く、単調ではない。また原典は、予算サブセットの標本が小さいので p 値を決定的に扱わないと明記している(§3)。"
+          date: 2026-09-23
+      c6:
+        verdict: match
+        extractedValue: HumanEval 15 tasks; 50 generated TextWorld games; 2 quantized models
+        extractedQuote: This is a focused study. The main experiment uses 50 generated TextWorld games and two quantized models served with vLLM.
+        locator: §6 Limitations; §4.4 When the Validator Cannot Expose the Hidden Failure; §7 Conclusion
+        note: "§6 原文の続き: 'The HumanEval check has 15 tasks. ... feedback cannot help when the visible validator does not detect the hidden failure.' HumanEval では Qwen の初回答が15課題すべてで可視テストを通過し、修復機会が一度も生じなかった(全方針 14/15)。"
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

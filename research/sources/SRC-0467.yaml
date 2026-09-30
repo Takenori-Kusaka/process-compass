@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0467
+status: included
+excludeReason: null
+title: DORA's software delivery performance metrics
+url: https://dora.dev/guides/dora-metrics/
+canonicalUrl: https://dora.dev/guides/dora-metrics
+ids:
+  arxiv: null
+  doi: null
+publisher: DORA (Google Cloud)
+authors: [Nathen Harvey]
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-01-05
+publishedBasis: page
+version: null
+updated: 2026-01-05
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH11
+  query: (direct) dora.dev guides linked from DORA Insights
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: DORA の5指標(スループット3+不安定性2)の現行定義。不安定性を変更失敗率とデプロイ手戻り率(deployment rework rate)で測ると定め、単一指標化・チーム間競争などの落とし穴を列挙する。手戻り率を外部で比較するときの定義の基準になる。
+claims:
+  - id: c1
+    text: DORA は手戻りを「本番インシデントの結果として生じた計画外デプロイの比率」(deployment rework rate)として定義し、変更失敗率と並ぶ不安定性の指標にしている。
+    quote: The ratio of deployments that are unplanned but happen as a result of an incident in production.
+    locator: Deployment rework rate の定義
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 単一指標に頼らず、互いに緊張関係にある複数の指標を組み合わせるべきだとする。
+    quote: Teams should identify multiple metrics, including some with a healthy amount of tension between them.
+    locator: "Common pitfalls: Having one metric to rule them all"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:05.089Z
+    httpStatus: 200
+    finalUrl: https://dora.dev/guides/dora-metrics/
+    contentType: text/html; charset=utf-8
+    titleFetched: DORA | DORA’s software delivery performance metrics
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://dora.dev/guides/dora-metrics

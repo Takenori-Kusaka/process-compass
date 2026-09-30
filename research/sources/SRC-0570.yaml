@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0570
+status: included
+excludeReason: null
+title: Guide to Technology Readiness Levels for the NDA Estate and its Supply Chain
+url: https://assets.publishing.service.gov.uk/media/5a7f96f7e5274a2e8ab4d194/Guide-to-Technology-Readiness-Levels-for-the-NDA-Estate-and-its-Supply-Chain.pdf
+canonicalUrl: https://assets.publishing.service.gov.uk/media/5a7f96f7e5274a2e8ab4d194/guide-to-technology-readiness-levels-for-the-nda-estate-and-its-supply-chain.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Nuclear Decommissioning Authority (UK) / Cogentus Consulting
+authors: []
+orgType: government
+region: eu
+lang: en
+sourceType: public-agency
+published: 2014-11-06
+publishedBasis: pdf
+version: Issue 2 (505/02)
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G05
+  query: technology readiness assessment TRL "reassess" OR "re-assessed" when design changes "TRL" lowered heritage new environment NASA best practices guide
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09]
+events: []
+summary: 英国原子力廃止措置機関(NDA)の TRL 手引き(2014-11-06、受託者 Cogentus の見解と断り書きあり)。TRL は環境や機能仕様の変化で下がりうること、但し書き付きの TRL を受け入れないこと、手順より低い TRL でゲートを通すなら承認機関の責任であることを述べる。要旨と第6章を読んだ。
+claims:
+  - id: c1
+    text: TRL は、プロジェクトの環境が変われば上がるだけでなく下がりうる。技術成熟度の判定は一度達成すれば固定される値ではない。
+    quote: It is also possible that TRLs can go down as well as up if the environment of the project changes.
+    locator: Summary(key messages)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+  - id: c2
+    text: 運転環境に関する情報は早期には仮定で置かれ、プロジェクトの進行で得た知見が環境の前提を変えると、TRL は停滞または低下しうる。後段の知見が先行の成熟度判定を下方へ改める理由として明記されている。
+    quote: Emerging knowledge as the project progresses can mean changes to the environmental context, which may be a reason why the TRL for a technology can stagnate or go down.
+    locator: 6.1 c) Environment
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2, TH08-Q3]
+    issues: [250, 256]
+    stance: supports
+  - id: c3
+    text: 但し書き付きの TRL を受け入れず正しい TRL を使うこと、手順が定めるより低い TRL でゲートを通すならそれは承認機関の責任であることを述べる。未達を条件付きで丸めず、例外は判定者の責任として残す。
+    quote: Do not accept a TRL with caveats. Use the correct TRL. It is the responsibility of the sanctioning body if they choose to accept a lower TRL at a gate than procedures state.
+    locator: 6.4 b)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2, TH02-Q4]
+    issues: [250, 254]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:44.001Z
+    httpStatus: 200
+    finalUrl: https://assets.publishing.service.gov.uk/media/5a7f96f7e5274a2e8ab4d194/Guide-to-Technology-Readiness-Levels-for-the-NDA-Estate-and-its-Supply-Chain.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

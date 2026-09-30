@@ -1,0 +1,187 @@
+schemaVersion: 0
+id: SRC-0023
+status: included
+excludeReason: null
+title: Mutation-Guided Unit Test Generation with a Large Language Model
+url: https://arxiv.org/abs/2506.02954
+canonicalUrl: arxiv:2506.02954
+ids:
+  arxiv: "2506.02954"
+  doi: 10.1109/TSE.2026.3682975
+publisher: arXiv / IEEE Transactions on Software Engineering
+authors: [Guancheng Wang, Qinghua Xu, Lionel Briand, Kui Liu]
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: 2025-06-03
+publishedBasis: arxiv-v1
+version: v8
+updated: 2026-04-15
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-3
+  query: research/phase4-standard/123-safety-verification.md §5.2 の引用(原典確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH11]
+events: []
+summary: ミューテーションフィードバックをプロンプトへ入れる MutGen を提案。Llama-3.3 70B 単独で HumanEval-Java 104 件・LeetCode-Java 100 件を評価し、ミューテーションスコア 89.5%/89.1%(素のプロンプト 77.9%/69.9%、EvoSuite 69.5%/58.9%)。123 メモの「素のプロンプトで 53%」は動機付け例 1 件の値で、データセット平均ではない。「llama3-70b +8.44% / GPT-4o +10.67% / GPT-3.5 +5.14%」は本論文のどの版にも無い。
+claims:
+  - id: c1
+    text: HumanEval-Java の課題 id_81 では、LLM が生成したテストが行・分岐カバレッジ 100% に達したのに、ミューテーションスコアは 4% にとどまった(abstract はこれを『一部のテストスイート』と書く)。著者らは、この結果からミューテーションスコアのほうが信頼でき厳格な尺度だとする。
+    quote: In contrast, mutation score offers a more reliable and stringent measure, as demonstrated in our findings where some test suites achieve 100% coverage but only 4% mutation score.
+    locator: Abstract (v8; identical wording in v1, v4, v5, v6)
+    quant:
+      value: 100% coverage / 4% mutation score
+      n: 個別スイートの事例(件数不明)
+      design: benchmark
+      population: HumanEval-Java / LeetCode-Java, Llama-3.3 70B
+    evidenceKind: benchmark
+    rqs: []
+    issues: [123]
+    stance: supports
+  - id: c2
+    text: 53% は HumanEval-Java の 1 課題(動機付け例)で素のプロンプトが到達したミューテーションスコアであり、4 回反復しても変わらなかった、という単一事例の値。
+    quote: for this subject in HumanEval-Java, using the vanilla prompt introduced at the beginning of this section, the LLM produces a test suite with a 53% mutation score
+    locator: §II-A Motivating Example and Intuition
+    quant:
+      value: 53%
+      n: 1 subject
+      design: case example
+      population: HumanEval-Java の 1 課題
+    evidenceKind: case-report
+    rqs: []
+    issues: [123]
+    stance: qualifies
+  - id: c3
+    text: データセット平均では素のプロンプト(Gen vanilla)のミューテーションスコアは HumanEval-Java 77.9%、LeetCode-Java 69.9%。
+    quote: Gen vanilla|  HumanEval-Java|  96.2%|  92.8%|  77.9%|  11|  0.650
+    locator: Table I (Summary of Results)
+    quant:
+      value: 77.9% / 69.9%
+      n: 104 + 100 subjects; 1,144 + 1,900 mutants
+      design: benchmark
+      population: Llama-3.3 70B vanilla prompt
+    evidenceKind: benchmark
+    rqs: []
+    issues: [123]
+    stance: qualifies
+  - id: c4
+    text: MutGen は 89.5%/89.1% を達成し、EvoSuite 比で相対 +28.8%/+51.3%(約 20/30 ポイント)。素のプロンプト比でも有意に改善(A12 0.650/0.734、Wilcoxon 有意)だが幅は小さい(+11.6/+19.2 ポイント)。
+    quote: MutGen achieves mutation scores of 89.5% and 89.1% on the two datasets. Compared to EvoSuite , this represents large improvements of 28.8% and 51.3%, respectively
+    locator: §IV RQ1 / Table I
+    quant:
+      value: 89.5% / 89.1%
+      n: 204 subjects; 3,044 mutants
+      design: benchmark (Wilcoxon signed-rank, A12)
+      population: HumanEval-Java, LeetCode-Java
+    evidenceKind: benchmark
+    rqs: []
+    issues: [123]
+    stance: supports
+  - id: c5
+    text: 使用 LLM は Llama-3.3 70B(Ollama、温度 0.0)のみ。GPT-4o・GPT-3.5・llama3-70b の比較や「+8.44% / +10.67% / +5.14%」という値は本論文(v1・v5・v8)に存在しない。
+    quote: We use Ollama [ 54 ] to locally deploy the Llama-3.3 70B model [ 39 ] with the default configuration, setting the temperature to 0.0 for more deterministic outputs.
+    locator: §IV Experimental Setup (Implementation)
+    quant: null
+    evidenceKind: benchmark
+    rqs: []
+    issues: [123]
+    stance: contradicts
+  - id: c6
+    text: LLM 生成テストは元コードを見せると代表的な無効入力と境界から遠い有効値に偏り、境界ミュータントを殺すアサーションを欠く(動機付け例に基づく定性的観察)。
+    quote: LLM-generated test cases, when prompted with the original code, tend to focus on representative invalid inputs (e.g., day = 0) and on valid values far from the boundary
+    locator: §II-A Motivating Example and Intuition
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [123]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:39.247Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2506.02954
+    contentType: text/html; charset=utf-8
+    titleFetched: Mutation-Guided Unit Test Generation with a Large Language Model
+    titleMatch: true
+    dateMeta: 2025-06-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv:
+      status: 200
+      title: Mutation-Guided Unit Test Generation with a Large Language Model
+      authors: ["Wang, Guancheng", "Xu, Qinghua", "Briand, Lionel", "Liu, Kui"]
+      v1Date: 2025-06-03
+      latestVersion: 8
+      titleMatch: true
+    crossref:
+      status: 200
+      title: Mutation-Guided Unit Test Generation With a Large Language Model
+      issued: 2026-5
+      titleMatch: true
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 100% coverage; 4% mutation score
+        extractedQuote: In contrast, mutation score offers a more reliable and stringent measure, as demonstrated in our findings where some test suites achieve 100% coverage but only 4% mutation score.
+        locator: Abstract (v8; identical wording in v1, v4, v5, v6)
+        note: "§II-A identifies the case as a single subject: 'LLMs generate tests for the subject id_81 from HumanEval-Java with 100% line and branch coverage, yet the corresponding mutation score is only 4%.' The abstract's 'some test suites' generalizes from this one example. The '___メモ' part of the ask refers to a project-internal document."
+        adjudication:
+          verdict: corrected
+          reason: 数値(100% / 4%)と、ミューテーションスコアのほうが信頼できるという主張は abstract どおり。一方 blindNote によると、§II-A はこれを単一の課題 id_81 の事例として書いており、abstract の 'some test suites' は 1 例からの一般化である。母集団が過剰に一般化されているので、単一事例であることを明記して訂正した。
+          date: 2026-09-23
+          originalText: 一部のテストスイートはカバレッジ 100% でもミューテーションスコアが 4% に留まり、ミューテーションスコアのほうが信頼でき厳格な尺度である(123 メモの「100% / 4%」の出所)。
+          originalQuote: mutation score offers a more reliable and stringent measure, as demonstrated in our findings where some test suites achieve 100% coverage but only 4% mutation score.
+      c2:
+        verdict: match
+        extractedValue: 53% (vanilla prompt, running example in HumanEval-Java, unchanged after four iterations); separately 4% for subject id_81 (100% line/branch coverage)
+        extractedQuote: for this subject in HumanEval-Java, using the vanilla prompt introduced at the beginning of this section, the LLM produces a test suite with a 53% mutation score, which remains unchanged after four iterations.
+        locator: §II-A Motivating Example and Intuition, and end of §II (iterative generation) (v8); in v1-v5 the same sentence says 'standard prompt' and 'even after four iterations'
+        note: The source attaches different numbers to 'reached by the vanilla prompt and unchanged after N iterations' and to the 4% value. The 'unchanged after four iterations' statement goes with 53%. The 4% comes from the separate sentence about subject id_81 at 100% line/branch coverage, which says nothing about iterations. The paper does not say whether id_81 is the running example in Figure 1 (ValidDate). If the ask means 4%, it combines these two statements.
+        adjudication:
+          verdict: consistent
+          reason: blindQuote のとおり。HumanEval-Java の動機付け例で、素のプロンプト(vanilla prompt)が到達したミューテーションスコアが 53% で、4 回反復しても変わらなかった。単一事例の値という性格づけも正しい。blindNote が触れる 4%(id_81)は別の文の値だが、本主張は 4% に触れていないので食い違いはない。
+          date: 2026-09-23
+      c3:
+        verdict: match
+        extractedValue: "Gen vanilla mutation score: HumanEval-Java 77.9%; LeetCode-Java 69.9%"
+        extractedQuote: Genvanilla | HumanEval-Java | 96.2% | 92.8% | 77.9% | 11 | 0.650 | 74.1 | 846 | Leetcode-Java | 96.3% | 92.7% | 69.9% | 19 | 0.734 | 76.3 | 1232
+        locator: Table I (Summary of Results), Mutation Score column (same values in v5 and v8)
+        note: These are averages per subject (the caption says 'average per-subject ... mutation score'). The dataset sizes are 104 subjects for HumanEval-Java and 100 for LeetCode-Java.
+      c4:
+        verdict: match
+        extractedValue: MutGen 89.5% / 89.1%; vs EvoSuite relative +28.8% / +51.3% (around 20 / 30 percentage points); vs Gen vanilla A12 = 0.650 / 0.734, Wilcoxon significant at alpha=0.05; Table I difference vs Gen vanilla = +11.6 / +19.2 points (computed from 89.5-77.9 and 89.1-69.9; not stated in text)
+        extractedQuote: MutGen achieves mutation scores of 89.5% and 89.1% on the two datasets. Compared to EvoSuite, this represents large improvements of 28.8% and 51.3%, respectively, corresponding to around 20 and 30 percentage points.
+        locator: §III Evaluation, RQ1 results / Table I (v8); this was §IV in v1-v5
+        note: "The text says only 'though to a lesser extent' for the gain over Gen vanilla and gives no point values, so +11.6/+19.2 are my calculation from Table I. Section numbering changed across versions: evaluation is §III in v8 and §IV in v1-v5, so the ask's locator '§IV' matches the older versions. The Wilcoxon test shows significance for mutation score only; coverage differences were not significant."
+      c5:
+        verdict: match
+        extractedValue: Llama-3.3 70B via Ollama, default configuration, temperature 0.0 (only LLM used). No GPT-4o / llama3-* model names appear in v1-v8; 'GPT' appears only in related work ('OpenAI's GPT series') and reference titles (GPT-4 technical report, ChatGPT papers)
+        extractedQuote: We use Ollama [54] to locally deploy the Llama-3.3 70B model [39] with the default configuration, setting the temperature to 0.0 for more deterministic outputs.
+        locator: §III Evaluation, Implementation (v8); cross-referenced as 'Section IV.A (Implementation)' in Threats to Validity; checked HTML of v1-v8
+        note: arXiv has 8 versions (v1 2025-06-03 to v8 2026-04-15), and all of them use Llama-3.3 70B via Ollama as the only LLM. v1-v4 do not state the temperature; v5 and later say 0.0. None of the 8 versions contains 'gpt-4o' or 'llama3-'. I cannot tell which three versions the ask means by 'v___・v___・v___'. The ask's '+___% / +___% / +___%' values are hidden, so I could not check them directly. The only relative improvements in the paper are MutGen vs EvoSuite, +28.8% / +51.3%.
+        adjudication:
+          verdict: consistent
+          reason: "blindQuote(v8)と blindNote によると、v1〜v8 のどの版でも LLM は Ollama でローカル配備した Llama-3.3 70B だけ。'gpt-4o' や 'llama3-' はどの版にも現れず、GPT は関連研究と参考文献の題名にしか出てこない。相対改善値は MutGen 対 EvoSuite の +28.8% / +51.3% だけで、+8.44% などの値が無いという主張とも合う。補足: 温度 0.0 を明記するのは v5 以降で、v1〜v4 は温度を書いていない。主張は温度 0.0 を v1 の記述とは言っていないので矛盾ではない。"
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

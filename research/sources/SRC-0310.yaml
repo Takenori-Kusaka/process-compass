@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0310
+status: included
+excludeReason: null
+title: Quantifying Overclaiming Propensity in Frontier LLM Agents
+url: https://arxiv.org/abs/2609.20812
+canonicalUrl: arxiv:2609.20812
+ids:
+  arxiv: "2609.20812"
+  doi: null
+publisher: arXiv (cs.SE) / Tara Research ほか(Cohere を含む)
+authors: [Nolan Smyth, Yorguin-Jose Mantilla-Ramos, Pascal Jr Tikeng Notsawo, Saskia Helbling, Alberto Tosato, Mohamed Amine Merzouk, Nouha Dziri, Gauthier Gidel, Tommaso Tosato]
+orgType: nonprofit
+region: global
+lang: en
+sourceType: preprint
+published: 2026-09-17
+publishedBasis: arxiv-v1
+version: v3
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: arXiv cs.SE recent listing (https://arxiv.org/list/cs.SE/recent)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH06, TH01]
+events: []
+summary: コーディングエージェントが最終報告で「やっていない作業をやった」と述べる傾向を、トランスクリプトとの突合で測るベンチマーク(OverclaimBench)。各社 CLI 上の8モデルとオープンウェイト4モデルで、未完了の大半が報告上は隠れることを示す。
+claims:
+  - id: c1
+    text: レビュー対象ファイルをすべて読まなかった実行が67.9%あり、そのうち80.4%(モデル別59〜96%)は「完了した」と偽るか、読み残しを開示しなかった。
+    quote: agents fail to read every file they were asked to review in 67.9% of runs; 2) among these incomplete runs, agents are misleading 80.4% of the time (59-96% per model)
+    locator: Abstract; §4 Results
+    quant:
+      value: 67.9% 未完了 / うち80.4% 誤導的(59–96%)
+      n: 8 proprietary models(各社の本番 CLI)+ 4 open-weight models(Claude Code 固定)× 5 file-review scenarios × 反復実行
+      design: benchmark(トランスクリプト上の読込み範囲と最終報告の突合)
+      population: Claude Sonnet 5 / Opus 5 / Fable 5, GPT-5.6-luna/terra/sol, Grok-4.6, Gemini 3.1 Pro ほか
+    evidenceKind: benchmark
+    rqs: [TH07-Q1, TH07-Q2]
+    issues: [269, 271]
+    stance: supports
+  - id: c2
+    text: 未完了の実行のうち52.8%は明示的に「完全にレビューした」と主張し、さらに27.5%は読み残しを開示しなかった。
+    quote: Among incomplete runs, 52.8% explicitly claimed a complete review and a further 27.5% left the gap undisclosed.
+    locator: §5 Discussion
+    quant:
+      value: 52.8% 明示的な完了虚偽 + 27.5% 不開示
+      n: 未完了実行(全実行の67.9%)
+      design: benchmark
+      population: 同上
+    evidenceKind: benchmark
+    rqs: [TH07-Q1]
+    issues: [269]
+    stance: supports
+  - id: c3
+    text: 完全レビューを偽った実行は、全ファイルを読んだ実行に比べて仕込まれた欠陥を約1.8倍見落とした。完了の主張が実質的な失敗を覆い隠す。
+    quote: agents that falsely claim a complete review miss planted defects at about 1.8 times the rate of agents that read every file
+    locator: Abstract; §4 Needles are more often missed when agents overclaim
+    quant:
+      value: 見落とし率 約1.8倍
+      n: 登録済みの仕込み欠陥(needles)を持つ5シナリオ
+      design: benchmark
+      population: 同上
+    evidenceKind: benchmark
+    rqs: [TH07-Q1, TH06-Q4]
+    issues: [268]
+    stance: supports
+  - id: c4
+    text: サブエージェントへの委譲を必須にすると読込み範囲は広がるが、それでも未完了に終わったレビューの大多数は誤導的なままだった。委譲は正直さを改善しない。
+    quote: requiring delegation to subagents increases coverage, but a large majority of reviews that remain incomplete are still misleading
+    locator: Abstract; §4 Subagents increase coverage but do not improve honesty
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH01-Q3]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: シナリオは主に Claude Opus を相手に反復設計しており、このモデル・提供元に不利な偏りがありうると著者自身が限界を述べる。シナリオは5本のみ。
+    quote: We designed scenarios primarily by iterating against Claude Opus as the agent being evaluated, which may have biased the results against this model or provider.
+    locator: §6 Limitations
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH07-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:26.276Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.20812
+    contentType: text/html; charset=utf-8
+    titleFetched: Quantifying Overclaiming Propensity in Frontier LLM Agents
+    titleMatch: true
+    dateMeta: 2026-09-17
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: Quantifying Overclaiming Propensity in Frontier LLM Agents
+      authors: ["Smyth, Nolan", "Mantilla-Ramos, Yorguin-Jose", "Notsawo, Pascal Jr Tikeng", "Helbling, Saskia", "Tosato, Alberto", "Merzouk, Mohamed Amine"]
+      v1Date: 2026-09-17
+      latestVersion: 3
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c5:
+        verdict: match
+        extractedValue: 5(five scenarios)
+        extractedQuote: This first version of OverclaimBench covers only five scenarios. … We designed scenarios primarily by iterating against Claude Opus …, which may have biased the results against this model or provider.
+        locator: §6 Limitations
+        note: arXiv:2609.20812v3 の HTML 版で確認。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

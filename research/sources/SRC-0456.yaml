@@ -1,0 +1,137 @@
+schemaVersion: 0
+id: SRC-0456
+status: included
+excludeReason: null
+title: Analyzing Message-Code Inconsistency in AI Coding Agent-Authored Pull Requests
+url: https://arxiv.org/abs/2601.04886
+canonicalUrl: arxiv:2601.04886
+ids:
+  arxiv: "2601.04886"
+  doi: null
+publisher: MSR 2026 Mining Challenge Track(arXiv)
+authors: [Jingzhi Gong, Giovanni Pinna, Yixin Bian, Jie M. Zhang]
+orgType: academic
+region: eu
+lang: en
+sourceType: paper-peer
+published: 2026-01-08
+publishedBasis: arxiv-v1
+version: v2
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: agent-authored pull request description inconsistency misaligned description merge arXiv Gong 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH07]
+events: []
+summary: AIエージェント作成PRの説明文と実際の差分の不一致(PR-MCI)を 23,247 件で測った MSR'26 採択論文。最頻の型は『実装していない変更を説明が主張する』で、不一致の大きいPRは採択率が大きく下がる。
+claims:
+  - id: c1
+    text: 5種のエージェントの 23,247 PR を分析し、974 件を人手で注釈した結果、406 件(1.7%)が説明と差分の不一致が大きかった。エージェント間で20倍の差がある。
+    quote: we analyzed 23,247 agentic PRs across five agents using PR message-code inconsistency (PR-MCI). We contributed 974 manually annotated PRs, found 406 PRs (1.7%) exhibited high PR-MCI
+    locator: Abstract
+    quant:
+      value: 1.7%(406/23,247)
+      n: 23,247 PRs(注釈 974)
+      design: observational(マイニング+人手注釈)
+      population: AIDev データセット、5エージェント
+    evidenceKind: observational
+    rqs: [TH10-Q4, TH07-Q1]
+    issues: [271]
+    stance: supports
+  - id: c2
+    text: 不一致の型で最も多いのは Phantom Changes(実装していない変更を説明が主張する)で 45.4%、次いで範囲の過小記載 22.0%、定型文・未完成 18.8%。
+    quote: the most common PR-MCI type was Phantom Changes (45.4%), where PR descriptions claim unimplemented changes. This was followed by Scope Understated (22.0%)
+    locator: "§4.2 RQ2: PR-MCI Taxonomy"
+    quant:
+      value: Phantom Changes 45.4% / Scope Understated 22.0%
+      n: 不一致の大きいPR 406 件
+      design: observational
+      population: AIDev エージェントPR
+    evidenceKind: observational
+    rqs: [TH10-Q4, TH07-Q2]
+    issues: [271]
+    stance: supports
+  - id: c3
+    text: 不一致の大きいPRは採択率が 28.3% 対 80.0% と 51.7% 低く、マージまで 55.8 対 16.0 時間と 3.5 倍かかった。
+    quote: high-MCI PRs had 51.7% lower acceptance rates (28.3% vs. 80.0%) and took 3.5× longer to merge (55.8 vs. 16.0 hours).
+    locator: Abstract
+    quant:
+      value: 採択率 28.3% vs 80.0%、マージ時間 55.8h vs 16.0h
+      n: 23,247 PRs
+      design: observational(統計検定)
+      population: AIDev エージェントPR
+    evidenceKind: observational
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c4
+    text: エージェントごとに不一致の型が異なり、GitHub Copilot は Phantom Changes が 74.0% を占めた。
+    quote: GitHub Copilot was dominated by Phantom Changes (74.0%), while Scope Understated was the primary issue for Cursor (52.8%) and Devin (41.0%).
+    locator: §4.2
+    quant:
+      value: Copilot 74.0% / Cursor 52.8% / Devin 41.0%
+      n: エージェント別の不一致PR
+      design: observational
+      population: AIDev エージェントPR
+    evidenceKind: observational
+    rqs: [TH10-Q4, TH07-Q1]
+    issues: [271]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:58.105Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2601.04886
+    contentType: text/html; charset=utf-8
+    titleFetched: Analyzing Message-Code Inconsistency in AI Coding Agent-Authored Pull Requests
+    titleMatch: true
+    dateMeta: 2026-01-08
+    quotes:
+      c1: found
+      c2: found
+      c3: partial
+      c4: found
+    arxiv:
+      status: 200
+      title: Analyzing Message-Code Inconsistency in AI Coding Agent-Authored Pull Requests
+      authors: ["Gong, Jingzhi", "Pinna, Giovanni", "Bian, Yixin", "Zhang, Jie M."]
+      v1Date: 2026-01-08
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 5種 / 23,247 PR / 974件注釈 / 406件(1.7%) / 20倍
+        extractedQuote: we analyzed 23,247 agentic PRs across five agents using PR message-code inconsistency (PR-MCI). We contributed 974 manually annotated PRs, found 406 PRs (1.7%) exhibited high PR-MCI
+        locator: Abstract。20倍は §4.1 RQ1「The prevalence revealed a 20-fold difference across agents」(GitHub Copilot 8.7% 対 Devin 0.4%)
+        note: ask の「974件を人手で注釈した結果、406件」は因果の向きが原典と食い違う可能性。§4.1 では 406件は全 23,247件に対するヒューリスティック自動採点(類似度<0.61)の結果(406/23,247=1.7%)で、人手注釈974件の内数ではない。自動判定の検証値は Precision 0.742 / Recall 0.548。
+      c2:
+        verdict: match
+        extractedValue: Phantom Changes 45.4% / Scope Understated 22.0% / Placeholder/Incomplete 18.8%
+        extractedQuote: "RQ2: Phantom Changes was the dominant PR-MCI type (45.4%), followed by Scope Understated (22.0%) and Placeholder/Incomplete (18.8%)"
+        locator: "§4.2 RQ2: PR-MCI Taxonomy(Figure 3)"
+        note: "原典の定義: Phantom Changes = PR descriptions claim unimplemented changes、Scope Understated = descriptions omit significant changes、Placeholder/Incomplete = generic or boilerplate text。ask と整合。"
+      c3:
+        verdict: match
+        extractedValue: 28.3% 対 80.0% / 51.7 / 55.8 対 16.0時間 / 3.5×
+        extractedQuote: high-MCI PRs had 51.7% lower acceptance rates (28.3% vs. 80.0%) and took 3.5 × longer to merge (55.8 vs. 16.0 hours).
+        locator: Abstract。§4.3 RQ3 Table 2 にも同値(Low 80.0 / High 28.3、Mean Time to Merge 16.0 / 55.8)
+        note: 51.7 は 80.0−28.3 のポイント差(§4.3 は「a difference of 51.7%」)。相対的な低下率なら約65%になる。ask の「___% 低く」は原典の書き方どおりだが、読み手は相対比と誤読しうる。マージ時間は平均値でマージ済みPRのみ(High 115件)。効果量はいずれも small。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

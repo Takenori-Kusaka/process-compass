@@ -1,0 +1,81 @@
+schemaVersion: 0
+id: SRC-0627
+status: included
+excludeReason: null
+title: 東京海上日動火災保険がAI駆動開発を導入、10件以上の本番案件で検証
+url: https://xtech.nikkei.com/atcl/nxt/column/18/03664/062900006/
+canonicalUrl: https://xtech.nikkei.com/atcl/nxt/column/18/03664/062900006
+ids:
+  arxiv: null
+  doi: null
+publisher: 日経クロステック(xTECH)
+authors: [市川 大地]
+orgType: media
+region: jp
+lang: ja
+sourceType: news
+published: 2026-06-30
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: paywall
+readLevel: section
+foundBy:
+  cluster: G08
+  query: 金融 銀行 システム開発 AIエージェント 本番導入 品質保証部門 開発標準 改定 生成AI コーディング 2026 事例
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH02]
+events:
+  - date: 2026-06-25
+    label: 東京海上日動が AWS Summit Japan で AI 駆動開発の導入方針を公表(2026年度に基幹系を含む10件以上の本番案件で検証)
+summary: AWS Summit Japan 2026 の基調講演を報じた記名記事。無料で読める1ページ目だけを読んだ(2ページ目以降は有料会員限定)。損保大手が基幹系を含む本番案件で AI 駆動開発を検証する方針を示した。
+claims:
+  - id: c1
+    text: 東京海上日動は2026年度に、基幹系システムを含む10件以上の本番案件で AI 駆動開発を検証する。要件定義書・設計書・ソースコード・テストケースを AI で生成する。結果はまだ報じられていない。
+    quote: 2026年度に、基幹系システムを含む10件以上の本番案件で検証する。
+    locator: リード文
+    quant:
+      value: 10件以上の本番案件
+      n: null
+      design: 企業の公表方針(計画値)
+      population: 東京海上日動の2026年度の開発案件
+    evidenceKind: news-fact
+    rqs: [BASE-Q2, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 背景の課題として、800以上のシステムの複雑化、IT 人材不足と並んで、品質確保のための確認作業を挙げている。
+    quote: 現在、800以上のシステムが同社の保険事業を支える一方で、システムの複雑化やIT人材不足、品質確保のための確認作業などが課題になっている。
+    locator: 開発によって経営を変革
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:05.260Z
+    httpStatus: 200
+    finalUrl: https://xtech.nikkei.com/atcl/nxt/column/18/03664/062900006/
+    contentType: text/html; charset=UTF-8
+    titleFetched: 東京海上日動火災保険がAI駆動開発を導入、10件以上の本番案件で検証
+    titleMatch: true
+    dateMeta: 2026-06-30
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

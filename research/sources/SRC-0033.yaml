@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0033
+status: included
+excludeReason: null
+title: "Introducing GPT-5.6 series: Sol, Terra and Luna. Coming July 9 10am PT"
+url: https://community.openai.com/t/introducing-gpt-5-6-series-sol-terra-and-luna/1384931
+canonicalUrl: https://community.openai.com/t/introducing-gpt-5-6-series-sol-terra-and-luna/1384931
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI Developer Community(Announcements)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: community
+published: 2026-07
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: OpenAI GPT-5.6 Sol Terra Luna announcement"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH02]
+events:
+  - date: 2026-07-09
+    label: GPT-5.6 の限定プレビューから一般提供へ(告知スレッド)
+summary: OpenAI 開発者フォーラムの告知スレッド。GA(7 月 9 日)に先立つ限定プレビューが API と Codex 経由で「信頼できるパートナー」に限定されていたことを示す。スレッド作成日はページから取れず月までの記録。
+claims:
+  - id: c1
+    text: GA 前のプレビュー期間、GPT-5.6 は API と Codex を通じて限られたパートナー組織にのみ提供された。モデルの可用性が段階的・選別的である事例。
+    quote: During the preview, GPT‑5.6 models will initially be available through the API and Codex to a select group of trusted partners and organizations.
+    locator: 本文冒頭の告知
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:25.795Z
+    httpStatus: 200
+    finalUrl: https://community.openai.com/t/introducing-gpt-5-6-series-sol-terra-and-luna-coming-july-9-10am-pt/1384931
+    contentType: text/html; charset=utf-8
+    titleFetched: "Introducing GPT-5.6 series: Sol, Terra and Luna. Coming July 9 10am PT"
+    titleMatch: true
+    dateMeta: 2026-06-26
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

@@ -1,0 +1,135 @@
+schemaVersion: 0
+id: SRC-0511
+status: included
+excludeReason: null
+title: チーム憲章 — 誰が何を決め、誰に渡すか(docs/sessions/README.md)
+url: https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/sessions/README.md
+canonicalUrl: https://github.com/takenori-kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/sessions/readme.md
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub: Takenori-Kusaka/ganbari-quest"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: repo
+published: 2026-08-01
+publishedBasis: meta
+version: null
+updated: 2026-08-07
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: git grep -n "80 点" origin/develop -- docs .claude CLAUDE.md
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH02, TH11]
+events:
+  - date: 2026-08-05
+    label: ganbari-quest の憲章 §0 で装置の追加を凍結(80 点で止める)
+summary: ganbari-quest のロール憲章。§0(2026-08-05 追加)が装置の追加凍結と「80 点で止める」、その根拠の実測(56%、61 本、3.5 時間)を、§6 が未解決 4 点を記す。#267 の出所。
+claims:
+  - id: c1
+    text: "#267 が引用する「80 点を目標値とし、残り 20 点を詰めるための装置は持ちません」は憲章 §0 に実在する(2026-08-05、commit 5887ade3 で追加)。処置は A 削減・B 統合レーンへの移管・C 維持の 3 区分で、新規追加は「顧客の金かデータに現に届いている装置不具合」だけを例外とする。"
+    quote: "**80 点を目標値とし、残り 20 点を詰めるための装置は持ちません。**"
+    locator: §0 ルール 1 の判定基準
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q3, TH07-Q4]
+    issues: [267, 270]
+    stance: supports
+  - id: c2
+    text: "Issue #267 の値「直近 14 日の Issue の 56% が装置・プロセス起因」に対し実測 57.5%(115 / 200)。2026-08-05T15:00Z 以前に作られた直近 200 Issue(2026-07-24〜08-05 の 12 日間)を題名の type / scope で機械分類した近似で、題名が規約外の 30 件は非装置に入れた。「顧客に届く変更 24%」は数え直していない。"
+    quote: "| 直近 200 Issue の構成比（14 日） | **装置・プロセス 56% / 顧客に届く変更 24%** |"
+    locator: §0 なぜこうしたか(実測、2026-08-05)
+    quant:
+      value: 57.5%(115 / 200。Issue の値 56%)
+      n: 200 Issue(2026-07-24〜08-05)
+      design: gh issue list --state all --search "created:<2026-08-05T15:00:00Z sort:created-desc" --limit 200 を取得し、題名の type が process/ci/infra/chore/test/docs/build/ops、または scope が ci/process/dx/infra/test/hooks/concurrency/deploy などのものを装置・プロセスと分類。取得 2026-09-30
+      population: ganbari-quest の Issue
+    evidenceKind: observational
+    rqs: [TH07-Q3]
+    issues: [267]
+    stance: supports
+  - id: c3
+    text: "Issue #267 の値「検査スクリプト 61 本」に対し、2026-08-05 の main(ebf44985)の scripts/ 直下 check-* は 61 本で一致(実行コードの拡張子に限ると 60 本)。ただし 07-30 の 63 本からは減っており、憲章の「1 本も減っていない」は 07-30 起点では成り立たない。現在値は憲章 §1 の表が 45 本、2026-09-24 の develop の実測が 47 本。"
+    quote: "| `scripts/check-*`（`origin/main`） | **61 本**（E5「8 本に絞る」は CLOSED だが 1 本も減っていない） |"
+    locator: §0 なぜこうしたか(実測、2026-08-05)
+    quant:
+      value: 61 本(Issue の値 61 本)
+      n: main の tree 1 時点(ebf44985)
+      design: git ls-tree --name-only ebf44985 scripts/ | grep -c "^scripts/check-"。取得 2026-09-30
+      population: ganbari-quest scripts/ 直下
+    evidenceKind: observational
+    rqs: [TH07-Q3]
+    issues: [267, 270]
+    stance: supports
+  - id: c4
+    text: "#267 の「解けていない 4 点」(Scrum Master 相当の不在、Product Backlog の未整理、Definition of Done の散在、手戻りの実測値が無い)は憲章 §6 の表に同じ 4 行で実在する。憲章の最終更新は 2026-08-07 で以後の改訂は無く、「7 か月の終わりでも解けていない」ことは、この文書が更新されていないという形でしか確認できない。"
+    quote: "| **Scrum Master 相当の人的部分が不在** | 装置面の阻害要因は §3.4 が引き取るが、**ロール間の中継と判断の橋渡しはオーナーのまま**。"
+    locator: §6 未解決の課題
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH02-Q5]
+    issues: [267]
+    stance: supports
+verification:
+  status: partial
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:18.723Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/sessions/README.md
+    contentType: text/html; charset=utf-8
+    titleFetched: ganbari-quest/docs/sessions/README.md at 053463794f117d7f79f961efc28be18fb7e4d43f · Takenori-Kusaka/ganbari-quest
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 「80 点を目標値とし、残り 20 点を詰めるための装置は持ちません。」は憲章 §0(ルール 1 の判定基準)に実在。追加は commit 5887ade3(2026-08-05 20:59 JST)。処置は A. 削減 / B. 移管(`release/* → main` の統合レーンへ)/ C. 維持 の 3 区分。新規追加は禁止で、例外は「顧客の金かデータに現に届いている装置不具合のみ」
+        extractedQuote: "**80 点を目標値とし、残り 20 点を詰めるための装置は持ちません。**"
+        locator: "§0 現在の運用モード(2026-08-05〜、オーナー決定)> ### ルール 1 の判定基準 — 目標は 100 点ではなく 80 点(L25-39)"
+        note: "例外の原文: 「**凍結の例外**（= 増やしてよい唯一のケース）: 顧客の金かデータに**現に**届いている装置不具合のみ。判定は QM が行う（PO 決裁は要らない）。」。C. 維持の対象は「顧客の金・データ・法務に直結し、かつ PR 単位でしか判定できない」もの。追加 commit は git log -S で当該文を検索して特定(題名「docs(process): 運用モードを顧客価値集中へ切り替える — 装置凍結 / QM 自己処理 / PO 決裁の縮小 / AC の目安化」)。ask の「#___が引用する」側は本出典に無く照合していない。"
+      c2:
+        verdict: not-found-in-source
+        extractedValue: "憲章: 直近 200 Issue の構成比(14 日)= 装置・プロセス 56% / 顧客に届く変更 24%。こちらの確認(2026-08-05T11:59:50Z = 追加 commit 5887ade3 の時刻以前に作られた直近 200 Issue): #3921(2026-07-24T01:54Z)〜 #4291(2026-08-05T11:46Z)、期間は約 12.4 日(暦日で 07-24〜08-05 の 13 日)。題名が「type(scope):」の規約に合わないものは 28 件"
+        extractedQuote: "| 直近 200 Issue の構成比（14 日） | **装置・プロセス 56% / 顧客に届く変更 24%** |"
+        locator: "§0 > ### なぜこうしたか（実測、2026-08-05）の表(L83)"
+        note: 装置・プロセスの比率の数え直しは、分類規則(どの type / scope を装置とするか)が ask からも出典からも分からないため、こちらでは値を出していない。参考までに題名の接頭辞の上位は fix(ci) 22 / fix(billing) 20 / process 10 / infra(dx) 10 / fix(infra) 9 / 接頭辞なし 9 / fix 8 / fix(process) 6。基準時刻は ask で伏せられているので、追加 commit の時刻を仮定した。その仮定では期間は 14 日ではなく 12〜13 日になる。憲章の 56% + 24% = 80% で、残り 20% の内訳は書かれていない。
+        adjudication:
+          verdict: unsupported
+          reason: 憲章の「装置・プロセス 56% / 顧客に届く変更 24%」という記述と、直近 200 Issue の期間が 14 日ではなく約 12〜13 日であることは blind で確認できる。しかし主張の中心である数え直しの値 57.5%(115 / 200)は、分類規則(どの type / scope を装置とするか)が不明なため検証役が値を出しておらず、抜粋からは支えることも否定することもできない。規約外の題名の件数も主張 30 件に対し blind は 28 件だが、基準時刻が異なる(主張 15:00Z、blind 11:59Z)ため矛盾とも一致とも言えない。
+          date: 2026-09-30
+      c3:
+        verdict: match
+        extractedValue: "憲章 §0: `scripts/check-*`(`origin/main`)61 本、「1 本も減っていない」。憲章 §1 の表: `scripts/check-*` 検査スクリプト 45。こちらの再計測(scripts/ 直下の check-*): 2026-08-05 の main ebf44985 = 61(実行コードの拡張子に限ると 60)、07-30 の 313ad39 = 64(同 63)、2026-09-24 の develop 053463794 = 47"
+        extractedQuote: "| `scripts/check-*`（`origin/main`） | **61 本**（E5「8 本に絞る」は CLOSED だが 1 本も減っていない） |"
+        locator: "§0 > ### なぜこうしたか（実測、2026-08-05）の表(L84)/ §1 設計背景「装置の現在数」の表(L103)"
+        note: "07-30 の baseline(Issue #4121 が 63 本と書く時点)から 08-05 の 61 本へは減っており、「1 本も減っていない」は 07-30 起点では成り立たない(E5 の訂正時点 08-02 の 61 本を起点にすれば成り立つ)。憲章 §1 の表は 45、同じ commit の実ファイルは 47 で 2 本ずれる。憲章 §3.4 の職掌表は「`scripts/`(58 の検査を含む)」と別の値も書いている。同じファイル内で 61 / 45 / 58 が併存する。"
+      c4:
+        verdict: match
+        extractedValue: "§6 未解決の課題 の表は 4 行: 「Scrum Master 相当の人的部分が不在」「Product Backlog が整理されていない」「Definition of Done がロールごとに散っている」「手戻りの実測値が無い」。このファイルの最終変更は commit 7238d7d7(2026-08-07 19:39 JST、#4405)で、2026-09-24 の develop(053463794)まで以後の変更は無い"
+        extractedQuote: "| **手戻りの実測値が無い** | §3.4 の成功指標（差し戻し件数 / `pre-ready` の落ち回数 / PR 往復回数）を**まだ測っていない** | 改善したかを事実で言えない。**最初にやるのは計測** |"
+        locator: §6 未解決の課題(L356-367)/ 最終更新日は git log origin/develop -- docs/sessions/README.md
+        note: "ファイル本文に「最終更新」の日付表記は無く、日付は git の履歴からの値。履歴は 2026-08-01 新設(9d88b85a)から 08-07 まで 11 commit。§6 は「これらを解くのは本ファイルの改訂ではなく、個別の Issue」と書いており、この文書が更新されていないことは「解けていない」ことの直接の証拠にならない。実際に 4 行目については、Issue #4121 が 2026-08-02 に差し戻し件数と PR 往復回数の baseline を記録している(pre-ready の落ち回数は測定不能)ので、「まだ測っていない」は 08-02 以後は一部が成り立たない。ask の「#___」と「___か月の終わり」は本出典に無く照合していない。"
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

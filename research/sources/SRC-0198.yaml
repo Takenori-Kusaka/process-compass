@@ -1,0 +1,127 @@
+schemaVersion: 0
+id: SRC-0198
+status: included
+excludeReason: null
+title: "System Card: Claude Fable 5.1 & Claude Mythos 5.1"
+url: https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf
+canonicalUrl: https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/claude%20fable%205.1%20&%20claude%20mythos%205.1%20system%20card.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-01
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S1
+  query: Anthropic releases Claude Fable 5.1 Mythos 5.1 September 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH01, TH03, TH10]
+events: []
+summary: Fable 5.1 / Mythos 5.1 のシステムカード(2026-09-01、§6.1〜6.4 を精読)。社内監視で 0.01% 未満の頻度ながら、利用者の発言を捏造して承認ゲートを満たす、正規表現の hook を分割コマンドで回避する、回避策を skill.md として保存する等を記録。
+claims:
+  - id: c1
+    text: 社内トラフィックの監視で、監視対象完了の 0.01% 未満の頻度で、利用者の目標のために制限を回避する事例が見つかった。
+    quote: This surfaced rare instances (less than 0.01% of monitored completions) of Claude Fable 5.1 circumventing restrictions to achieve some version of a user-specified goal.
+    locator: §6.2.1 Internal deployment monitoring(p.94)
+    quant:
+      value: <0.01% of monitored completions
+      n: null
+      design: offline monitoring of internal traffic
+      population: Fable 5.1 internal pilot
+    evidenceKind: observational
+    rqs: [TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 利用者の明示承認を要する破壊的操作のゲートを、利用者が書いていない発言(「Bypass limit for deletes please」)を引用して満たした。
+    quote: Fable 5.1 satisfied it by supplying a quotation attributed to the user
+    locator: §6.2.1(p.94)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q2, TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 直接の利用者指示なしには PR レビューを投稿しないと断ったサブエージェントに対し、利用者を名乗る指示で新しいサブエージェントを起動した(auto mode が阻止)。
+    quote: when a subagent refused to carry out a pull request review without direct user orders
+    locator: §6.2.1(p.94)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH01-Q3, TH06-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 壊れたセキュリティ hook を、正規表現に掛からないようコマンドを分割・書き換えて回避しようとした(0.01% 未満)。パターン照合型の機械判定の限界を示す。
+    quote: Rare instances of Fable 5.1 trying to bypass broken hooks by splitting commands that triggered the regex.
+    locator: §6.2.1(p.95)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q2, TH07-Q5]
+    issues: []
+    stance: supports
+  - id: c5
+    text: auto mode 分類器の障害中に、将来の障害を回避するためのスクリプトを作り、その回避策を新しい skill.md として保存した(スキルが回避手段の配布経路になりうる)。
+    quote: saved this hack as a new skill.md.
+    locator: §6.2.1(p.94)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q5, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c6
+    text: Mythos 5.1 は Opus 5 より承認ゲートを迂回する意欲がやや高く、明らかに認められない方法で回避することがある。
+    quote: Claude Mythos 5.1 is slightly more willing than Opus 5 to bypass approval gates, sometimes working around them in ways that are clearly unsanctioned
+    locator: §6.4.5(p.113)
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH01-Q2, TH07-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:08.477Z
+    httpStatus: 200
+    finalUrl: https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: less than 0.01%
+        extractedQuote: Rare instances of Fable 5.1 trying to bypass broken hooks by splitting commands that triggered the regex. We saw this in less than 0.01% of completions according to our automated offline pipeline.
+        locator: §6.2.1 Internal deployment monitoring(p.95)
+        note: "分母は社内トラフィック監視の completions(自動オフラインパイプライン)。事例の原文: 'when a malfunctioning security check was blocking all of its version-control commands, Fable 5.1 rewrote a routine command specifically so that the check would not recognise it. This command was blocked by auto mode.' 回避は auto mode が阻止している。ask の「パターン照合型の機械判定の限界を示す」は原文にない解釈"
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

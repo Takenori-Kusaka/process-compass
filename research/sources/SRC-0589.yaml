@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0589
+status: included
+excludeReason: null
+title: Danger JS
+url: https://danger.systems/js/
+canonicalUrl: https://danger.systems/js
+ids:
+  arxiv: null
+  doi: null
+publisher: Danger (orta therox and the Danger org contributors)
+authors: [Therox Orta]
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: 2026-08-27
+publishedBasis: unknown
+version: danger-js 14.0.6(GitHub Releases の最新、2026-08-27)
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: "Danger JS dangerfile PR body check changelog #trivial(公式サイトを直接取得)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10, TH07]
+events: []
+summary: PR の作法を CI 上の規則(Dangerfile)で検査する OSS の公式サイト。出力を message / warn / fail の3水準に分け、PR 本文・題名に `#trivial` と書けば CHANGELOG の検査を外せる例を載せる。published はサイトに日付が無いため最新リリース日を記した。
+claims:
+  - id: c1
+    text: Danger のコード例は message・warn・fail・markdown の4関数を示す。message と warn は PR 上の表へ追加され、fail は blocking を宣言し、markdown は表の下に表示される。
+    quote: import { message , warn , fail , markdown } from "danger" // Add a message to the table message (...) // Adds a warning to the table warn (...) // Declares a blocking fail (...)
+    locator: How does it work?(コード例)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4, TH07-Q2]
+    issues: [271]
+    stance: supports
+  - id: c2
+    text: 公式の例は、PR 本文か題名に `#trivial` の文字列があれば CHANGELOG 必須の検査を免除する。本文中の決まった文言による opt-out を機械判定する先例である。
+    quote: const isTrivial = (danger.github.pr.body + danger.github.pr.title).includes("#trivial")
+    locator: What does this Look like? / Enforce changelogs
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c3
+    text: 同じ例で、CHANGELOG の欠落は fail ではなく warn で返している。体裁に当たる検査を警告に留める書き方が公式の既定例になっている。
+    quote: warn("Please add a changelog entry for your changes.")
+    locator: What does this Look like? / Enforce changelogs
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4, TH07-Q2]
+    issues: [271]
+    stance: supports
+  - id: c4
+    text: Danger の目的は、チームの決まりごとを規則として書き、人がより難しい問題を考えられるようにすることだと説明されている。
+    quote: You can use Danger to codify your teams norms. Leaving humans to think about harder problems.
+    locator: What is Danger JS?
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:53.576Z
+    httpStatus: 200
+    finalUrl: https://danger.systems/js/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Danger JS
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 数の明記なし。コード例の import は message, warn, fail, markdown の4関数(うち表に載るのは message と warn、fail は blocking、markdown は表の下)
+        extractedQuote: import { message , warn , fail , markdown } from "danger" // Add a message to the table message (...) // Adds a warning to the table warn (...) // Declares a blocking fail (...)
+        locator: How does it work?(コード例)
+        note: "原文は「水準」の数を数えていない。列挙上は message / warn / fail の3つに加え markdown の計4関数。「fail だけがビルドを止める」の直接の文言は無く、コメントは「Declares a blocking」のみ。warn は「Adds a warning to the table」で一致。 引用の (...) は引数の省略。続きに「// Show markdown under the table: markdown (...)」。"
+        adjudication:
+          verdict: corrected
+          reason: warn が表に警告として載る点は「Adds a warning to the table」と一致する。しかし原文は水準の数を数えておらず、import されるのは markdown を含む4関数。「fail だけがビルドを止める」の直接の文言は無く、コメントは「Declares a blocking」のみ。「3水準」「だけ」は抜粋を超えた整理。
+          date: 2026-09-30
+          originalText: Danger は検査結果を message・warn・fail の3水準で返す。fail だけがビルドを止め、warn は PR 上の表に警告として残る。
+          originalQuote: import { message, warn, fail, markdown } from "danger"
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

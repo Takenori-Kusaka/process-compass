@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0360
+status: included
+excludeReason: null
+title: CLAUDE.md の肥大化を 3 層構造で 83% 軽くした — 実測と試行錯誤の記録
+url: https://zenn.dev/pepabo/articles/claude-code-rules-skills-split
+canonicalUrl: https://zenn.dev/pepabo/articles/claude-code-rules-skills-split
+ids:
+  arxiv: null
+  doi: null
+publisher: GMOペパボ株式会社(Zenn Publication)
+authors: [あたに]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-04-21
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: Claude Code スキル 設計 コマンド 使い分け CLAUDE.md 肥大化 2026 Zenn
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH04]
+events: []
+summary: 日本の Web 系事業会社の技術者が、2,000行近くに育った CLAUDE.md を CLAUDE.md / rules / skills の3層へ分け、起動時ロードを約83%削減した2か月の記録(個人の開発環境の実測)。
+claims:
+  - id: c1
+    text: CLAUDE.md は2,000行近くまで育ち、小さな作業でも毎セッション全文を読み込んでいた。
+    quote: 気づいたら 2000 行近くまで育ち、どんな小さな作業でも毎セッションで全文を読み込ませていました。
+    locator: はじめに
+    quant:
+      value: ~2,000 lines
+      n: 1 environment
+      design: case report
+      population: 個人の Claude Code 環境(dotfiles)
+    evidenceKind: case-report
+    rqs: [TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 全ファイルを起動時に読むと114,847トークン、分割後の起動時ロードは19,232トークンで約83%削減。スキルは呼び出し時のみ数千トークン乗る。遵守率ではなくトークン量の実測である。
+    quote: 通常セッション起動時で約 83% の削減
+    locator: 実測値
+    quant:
+      value: 114,847 → 19,232 tokens (-83%)
+      n: 1 environment
+      design: before/after measurement (tiktoken)
+      population: 個人の Claude Code 環境
+    evidenceKind: case-report
+    rqs: [TH03-Q1, TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 目的の重なるスキルを統合し、24個から16個へ減らした(記事系3→1、レビュー系3→1)。
+    quote: 24 個 → 16 個。目的が重なるスキルを統合（記事系 3→1、レビュー系 3→1 など）
+    locator: 段階的に削った記録
+    quant:
+      value: 24 → 16 skills
+      n: 1 environment
+      design: case report
+      population: 個人の Claude Code 環境
+    evidenceKind: case-report
+    rqs: [TH03-Q1, TH03-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:31.476Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/pepabo/articles/claude-code-rules-skills-split
+    contentType: text/html; charset=utf-8
+    titleFetched: CLAUDE.md の肥大化を 3 層構造で 83% 軽くした — 実測と試行錯誤の記録
+    titleMatch: true
+    dateMeta: 2026-04-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 114,847 tokens / 19,232 tokens / 約83%
+        extractedQuote: "仮に skills/ も含めて全ファイルを起動時に読み込んだ場合、毎セッション起動で 114,847 tokens が消費されます。 分割後は以下になりました。 起動時ロード: 19,232 tokens"
+        locator: 効果（実測）節(ask の locator「実測値」は冒頭の「実測値は後半」を指すとみられる)
+        note: 114,847 は「仮に全ファイルを読んだ場合」の試算で、実際の分割前状態(2000行近い CLAUDE.md、@import 12個、スキル24個)を測った値ではない。現在のファイル群を全ロードした場合との比較。計測は tiktoken(cl100k_base)で、Claude のトークナイザとは誤差があると著者が明記。スキル1件は例として 5,806 / 5,713 tokens
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

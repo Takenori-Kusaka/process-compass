@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0258
+status: included
+excludeReason: null
+title: 決済プラットフォームに常駐する自律AIエージェントの設計と運用
+url: https://engineering.mercari.com/blog/entry/20260630-28a5eee688
+canonicalUrl: https://engineering.mercari.com/blog/entry/20260630-28a5eee688
+ids:
+  arxiv: null
+  doi: null
+publisher: メルカリエンジニアリング
+authors: [Fujishiro Kengo]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-06-30
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: メルカリ AI-Native 開発 Claude Code 全社 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH02, TH03, TH07, TH11]
+events: []
+summary: メルペイ決済基盤チームに常駐する Claude Code ベースの自律エージェント(半年運用)の設計。CLAUDE.md は誘導、強制は決定的なフック・ACL・コンテナ隔離に置き、DX Core 4 で利用を計測する。
+claims:
+  - id: c1
+    text: 書き込み可能なリポジトリをCLAUDE.mdに明示して振る舞いを誘導するが、強制は短命トークン・ACLなどLLMの外側の決定的な層で行う。
+    quote: CLAUDE.md には writable repo を明示してエージェントの振る舞いを誘導しますが、強制するのは上記の決定的な層です。
+    locator: アーキテクチャ(権限管理)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q3, TH07-Q2]
+    issues: [269]
+    stance: supports
+  - id: c2
+    text: LLMには「何をやりたいか」を任せ、「やってよいか」「どう繋ぐか」はコードと基盤で固める責務分離を設計の要点とする。
+    quote: LLM には「何をやりたいか」を任せ、「やってよいか」「どう繋ぐか」はコードと基盤で固める、という責務分離です。
+    locator: Claude Code を核に remote-claude で包む
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q5, TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: セキュリティのPreToolUseフックは想定外の終了コードでブロックを返すfail-closed、計測フックはエージェントを妨げないfail-openとし、層ごとに設計思想を逆にしている。
+    quote: このフックは想定外の終了コードで落ちた場合に「黙って許可」ではなく「ブロック」を返す fail-closed 設計にしてあります。
+    locator: 多層防御(PreToolUse hook)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH02-Q4, TH07-Q2]
+    issues: [254]
+    stance: context
+  - id: c4
+    text: エージェントの価値を能力ではなく採用(どのスキルが誰にどれだけ使われたか)で測り、DXプラットフォームのCore 4指標も参照する。
+    quote: エージェントの価値を「何ができるか（能力）」ではなく「何に使われているか（採用）」で測るのが狙いです。
+    locator: 効果計測
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q1, TH11-Q3]
+    issues: []
+    stance: context
+  - id: c5
+    text: 半年運用の課題として、まだ人間がトリガーしている場面が多く、真にAIを軸にしたフローにはなっていないと認めている。
+    quote: まだ人間がトリガーしている場面が多く、真に AI を軸に置いたフローになっているとは言えません。
+    locator: おわりに(半年運用の振り返り)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c6
+    text: Codexは独自のシェル実行エンジンでClaude Codeのdeny ruleを迂回するため、human-in-the-loopのないbotでは受け入れ不可としてフックでブロックしている(ADRとして明文化)。
+    quote: Codex は独自のシェル実行エンジンを持ち Claude Code の deny rule を迂回するため、human-in-the-loop のない Slack bot では受け入れ不可と判断し、フックでブロックしています。
+    locator: 設計判断(ADR)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q5, TH12-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:17.891Z
+    httpStatus: 200
+    finalUrl: https://engineering.mercari.com/blog/entry/20260630-28a5eee688/
+    contentType: text/html
+    titleFetched: 決済プラットフォームに常駐する自律AIエージェントの設計と運用 | メルカリエンジニアリング
+    titleMatch: true
+    dateMeta: 2026-06-30
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: Core4(Effectiveness / Impact / Quality / Speed)
+        extractedQuote: 興味深いのは、送信するだけでなくエージェント自身が DX のメトリクスを読むことです。チームスコアは MCP 経由で直接クエリし、Core4（Effectiveness / Impact / Quality / Speed）や sentiment を参照します。
+        locator: ユースケース節末尾 / 計測：PostToolUse hook × DX で効果を測る
+        note: 採用で測る旨の原文(ユースケース節末尾):「エージェントの価値を「何ができるか（能力）」ではなく「何に使われているか（採用）」で測るのが狙いです。」 Core4を参照する主体は「エージェント自身」(「興味深いのは、送信するだけでなくエージェント自身が DX のメトリクスを読むことです」)で、チームの開発者体験データを踏まえて振る舞うため。エージェントの価値(効果)測定の指標としてCore4を参照するとは書かれておらず、askと主語・目的が食い違って見える。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

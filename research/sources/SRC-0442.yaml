@@ -1,0 +1,90 @@
+schemaVersion: 0
+id: SRC-0442
+status: included
+excludeReason: null
+title: "EARS: Easy Approach to Requirements Syntax | Official Guide"
+url: https://alistairmavin.com/ears/
+canonicalUrl: https://alistairmavin.com/ears
+ids:
+  arxiv: null
+  doi: null
+publisher: Alistair Mavin
+authors: [Mavin Alistair]
+orgType: individual
+region: eu
+lang: en
+sourceType: individual
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: EARS requirements syntax Mavin guidance unwanted behaviour acceptance criteria loophole
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08]
+events: []
+summary: EARS 考案者 Mavin の公式解説ページ(掲載日不明、2026-09 取得。EARS の初出は2009年とページに記載)。節の順序・規則と5パターン(unwanted behaviour を含む)を示す。反例の併記や禁止節についての記述はページ内に見当たらない。
+claims:
+  - id: c1
+    text: EARS の規則は、要求が0個以上の事前条件、0か1個のトリガ、1つのシステム名、1つ以上のシステム応答を持つことを定める。
+    quote: "The EARS ruleset states that a requirement must have: Zero or many preconditions; Zero or one trigger; One system name; One or many system responses."
+    locator: The EARS Patterns / Generic EARS syntax
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q4]
+    issues: [269]
+    stance: context
+  - id: c2
+    text: 望まれない状況への応答は If-Then の unwanted behaviour パターンで書く。公式ガイドが扱うのは構文であり、反例の併記や『この基準を満たしても未完成とみなす』類の禁止節には触れていない(ページ全文を確認)。
+    quote: Unwanted behaviour requirements are used to specify the required system response to undesired situations and are denoted by the keywords If and Then.
+    locator: Unwanted behaviour requirements
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:45.654Z
+    httpStatus: 0
+    finalUrl: https://alistairmavin.com/ears/
+    contentType: ""
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: no-text
+      c2: no-text
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: fetch failed
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Zero or many preconditions / Zero or one trigger / One system name / One or many system responses(0以上・0か1・1・1以上)
+        extractedQuote: "The EARS ruleset states that a requirement must have: Zero or many preconditions; Zero or one trigger; One system name; One or many system responses."
+        locator: The EARS Patterns > Generic EARS syntax
+        note: ""
+      c2:
+        verdict: match
+        extractedValue: If / Then(Unwanted behaviour requirements)
+        extractedQuote: Unwanted behaviour requirements are used to specify the required system response to undesired situations and are denoted by the keywords If and Then.
+        locator: The EARS Patterns > Unwanted behaviour requirements
+        note: ページ全文(What is EARS? から Complex requirements まで)を取得して確認。反例の併記や『基準を満たしても未完成とみなす』類の禁止節に当たる記述は本文に存在しない。ページが扱うのは構文(パターンとキーワード)と経緯・利用例のみ。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://alistairmavin.com/ears

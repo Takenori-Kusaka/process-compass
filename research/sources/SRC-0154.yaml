@@ -1,0 +1,100 @@
+schemaVersion: 0
+id: SRC-0154
+status: included
+excludeReason: null
+title: プレス発表 国内企業のDX動向・AI活用動向のポイントを公表(DX動向2026調査のポイント)
+url: https://www.ipa.go.jp/pressrelease/2026/press20260716.html
+canonicalUrl: https://ipa.go.jp/pressrelease/2026/press20260716.html
+ids:
+  arxiv: null
+  doi: null
+publisher: 独立行政法人情報処理推進機構(IPA)
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-07-16
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: IPA DX 企画 生成AI 白書 2026 新規事業 (scratchpad)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH12]
+events:
+  - date: 2026-07-16
+    label: IPA が DX動向2026調査のポイントを公表(報告書は 2026-07 下旬公開予定)
+summary: IPA の年次 DX 動向調査(2026-04-17〜06-12、国内 1,799 社)の速報。AI 導入は大企業中心に広がるが効果は業務効率化・迅速化が中心で、期待どおり以上の効果は限定的。企業価値創出につながる DX 成果は低いまま変化なし。企画・新規事業への AI 活用が主流でないことを示す公的データ。
+claims:
+  - id: c1
+    text: AI 導入は広がるが、期待どおり・期待以上の効果の割合は限定的で、利用用途・効果は業務効率化・迅速化が中心。新価値創出(企画・新規事業)への展開は限定的。
+    quote: AI導入は大企業を中心に広がり、多くの企業で効果が実感されているものの、期待どおりや期待以上の効果の割合は限定的です。またAIの利用用途や効果の具体的な内容は業務効率化・迅速化が中心となっています。
+    locator: 概要
+    quant:
+      value: 割合は速報本文に未記載(報告書側)
+      n: 1,799社
+      design: survey (2026-04-17〜06-12)
+      population: 国内企業の経営層・情報システム部門・DX推進部門
+    evidenceKind: survey
+    rqs: [TH09-Q1, TH12-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: DX の成果は業務効率化などで高く、企業価値創出につながる内容では低い状況が前回から変化していない。
+    quote: DXの取組内容別の成果の割合については、データのデジタル化や業務の効率化などが高く、企業価値創出につながる内容では低い状況であり変化がありません。
+    locator: 概要
+    quant:
+      value: n/a (qualitative in press release)
+      n: 1,799社
+      design: survey, year-over-year
+      population: 国内企業
+    evidenceKind: survey
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:11.295Z
+    httpStatus: 0
+    finalUrl: https://ipa.go.jp/pressrelease/2026/press20260716.html
+    contentType: ""
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: no-text
+      c2: no-text
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: fetch failed
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 期待どおりや期待以上の効果の割合は限定的 / 業務効率化・迅速化が中心 / 企業価値創出への展開は限定的
+        extractedQuote: AI導入は大企業を中心に広がり、多くの企業で効果が実感されているものの、期待どおりや期待以上の効果の割合は限定的です。またAIの利用用途や効果の具体的な内容は業務効率化・迅速化が中心となっています。
+        locator: 概要(プレスリリース本文、および添付 PDF p.1–2)
+        note: 原文は『企業価値創出への展開は限定的』。ask の括弧書き『(企画・新規事業)』はプレス本文に無い。添付 PDF(DX動向2026調査のポイント)ではAI効果の2位が『企画提案等の品質や速さが向上した』48.9%で、限定的とされるのは顧客満足度4.5%・顧客拡大2.7%・売上利益3.9%など。『企画』を価値創出の限定側に置く ask は原典の区分と食い違う可能性。原文は『大企業を中心に』の限定付き。期待どおり+期待以上の合計は31.8%(PDF 5節)。回収数1,799社、実施 2026-04-17〜06-12。
+      c2:
+        verdict: match
+        extractedValue: 変化がありません(前回調査と同様)
+        extractedQuote: DXの取組内容別の成果の割合については、データのデジタル化や業務の効率化などが高く、企業価値創出につながる内容では低い状況であり変化がありません。
+        locator: 概要
+        note: 添付 PDF では、DX 段階の項目(組織横断のデジタル化、顧客起点の価値創出によるビジネスモデル変革等)が『前回調査よりもわずかに伸びています』との記述もある。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://ipa.go.jp/pressrelease/2026/press20260716.html

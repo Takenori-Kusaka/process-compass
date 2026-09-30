@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0450
+status: included
+excludeReason: null
+title: スタックプルリクエスト入門 — gh stackの使い方と、AIエージェントの並列実装での活用
+url: https://tech.findy.co.jp/entry/2026/08/05/070000
+canonicalUrl: https://tech.findy.co.jp/entry/2026/08/05/070000
+ids:
+  arxiv: null
+  doi: null
+publisher: Findy Tech Blog(ファインディ株式会社)
+authors: [戸田]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-08-05
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH10
+  query: AIエージェント プルリクエスト レビュー待ち 小さく分割 ブランチ運用 企業 テックブログ
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10]
+events: []
+summary: 日本の事業会社が、Sub-issue をAIエージェントが並列実装する仕組みに GitHub のスタック型PRを組み込み、人のマージ待ちで生じていた同期待機を解消した運用報告。
+claims:
+  - id: c1
+    text: ファインディでは、自作していた同期の仕組みをスタック型PRへ置き換えて削除した。記事の例(4つの Sub-issue を Layer 0〜2 の3層に分けた場合)では、レイヤーの間にあった2回の待機がなくなり、レビューとマージを人間の都合で進められるようになった。
+    quote: レイヤーの間にあった2回の待機はなくなり、レビューとマージは人間の都合で進められるようになりました。自作していた同期の仕組みは削除しています。
+    locator: ファインディでの活用
+    quant:
+      value: 人のマージ待ち 2回→0回
+      n: 1社・1運用
+      design: case report
+      population: 親Issue配下の Sub-issue をAIエージェントが並列実装する仕組み
+    evidenceKind: case-report
+    rqs: [TH10-Q2, TH10-Q1]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: エージェントは依存順に作業すること自体は得意で、待ち時間を作っていたのは人のレビューとマージのタイミングだったと総括している。
+    quote: エージェントは依存の順に手を動かすこと自体は得意で、待ち時間を作っていたのは人間のレビューとマージのタイミングでした。
+    locator: まとめ
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q1, TH10-Q2]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: 互いに依存しない作業は並列で実装し、後から依存の順に直列化して1本のスタックにするという、実装順とPRの積み方を分ける運用をとる。
+    quote: "#202と#203は互いに依存していないので並列で同時に実装し、あとから依存の順に直列化して1本のStackにします。"
+    locator: ファインディでの活用
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:56.706Z
+    httpStatus: 200
+    finalUrl: https://tech.findy.co.jp/entry/2026/08/05/070000
+    contentType: text/html; charset=utf-8
+    titleFetched: スタックプルリクエスト入門 — gh stackの使い方と、AIエージェントの並列実装での活用 - Findy Tech Blog
+    titleMatch: true
+    dateMeta: 2026-08-04
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2(回の待機)
+        extractedQuote: レイヤーの間にあった2回の待機はなくなり、レビューとマージは人間の都合で進められるようになりました。自作していた同期の仕組みは削除しています。
+        locator: ファインディでの活用
+        note: "『2回』は記事の例(4つの Sub-issue #201〜#204 を Layer 0〜2 の3層に分けた場合)での待機回数。一般的な回数として述べたものではない。"
+        adjudication:
+          verdict: corrected
+          reason: blindQuote は主張の核心(2回の待機の解消、自作同期機構の削除)を支持する。ただし blindNote のとおり『2回』は3層に分けた記事中の例での回数で、claimQuant『人のマージ待ち 2回→0回』のような一般的な値ではない。条件を補って訂正した。『下位PRの全マージを待ってから次へ進む』という旧方式の詳細は抜粋で確認できないため訂正文から外した。
+          date: 2026-09-24
+          originalText: 以前は依存をレイヤーに分け下位PRの全マージを待ってから次へ進む同期の仕組みを自作していたが、スタック型PRへ置き換えてレイヤー間の2回の待機をなくし、自作の同期機構を削除した。
+          originalQuote: レイヤーの間にあった2回の待機はなくなり、レビューとマージは人間の都合で進められるようになりました。自作していた同期の仕組みは削除しています。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

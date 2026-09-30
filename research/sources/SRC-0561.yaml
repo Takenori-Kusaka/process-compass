@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0561
+status: included
+excludeReason: null
+title: "ADR in Code: Architecture Compliance with AI Code Reviews"
+url: https://shinglyu.com/blog/2026/03/01/ai-adr-code-review.html
+canonicalUrl: https://shinglyu.com/blog/2026/03/01/ai-adr-code-review.html
+ids:
+  arxiv: null
+  doi: null
+publisher: Shing's Blog
+authors: [Shing Lyu]
+orgType: individual
+region: global
+lang: en
+sourceType: individual
+published: 2026-03-01
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G04
+  query: '"superseded" ADR coding agent still follows old decision experiment measured "architecture decision" LLM context stale decision conflict benchmark 2026'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05, TH06, TH03]
+events: []
+summary: リポジトリ内の ADR を GitHub Copilot のレビュー指示に結び付けたデモの記録(2026-03-01、ADR 3本・PR 2件)。エージェントは利用者の指示より ADR を優先し、変えるなら先に ADR を supersede せよと返した。古い ADR を与えた場合の挙動は試していない。
+claims:
+  - id: c1
+    text: copilot-instructions.md で ADR の参照を指示した単一のデモリポジトリの事例で、コーディングエージェントは依頼された機能自体は実装しつつ、ADR-0003 に反する部分(ロジックを controllers に置く指示)には従わず、置き換えるなら先に ADR を更新するよう求めた。著者はこの挙動を「権威は ADR であり、チャットに打ち込む人ではない」と肯定的に評価している。
+    quote: I'll keep the current structure to stay compliant. If you'd like to supersede ADR-0003, please update docs/adr/0003-service-layer.md first and I'll refactor accordingly.
+    locator: "The really interesting one: PR #10"
+    quant:
+      value: PR 2件(#6 で指摘 7 箇所、#10 で指示を 2 回拒否)
+      n: デモ用リポジトリ 1 件、ADR 3 本
+      design: 著者自身のデモ(対照なし、陳腐化した ADR の条件なし)
+      population: GitHub Copilot coding agent と Copilot Code Review
+    evidenceKind: case-report
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: supports
+  - id: c2
+    text: 著者は、リポジトリに置いた ADR が、指示を出す人よりも優先される権威になると解釈している。
+    quote: The ADR is the authority, not the person typing into the chat.
+    locator: "The really interesting one: PR #10"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q5, TH05-Q2]
+    issues: [272, 253]
+    stance: supports
+  - id: c3
+    text: AI レビュアは ADR 違反を 7 箇所指摘した。ADR を機械のレビュー基準(判定の根拠)として使う先例である。
+    quote: Copilot caught it. Seven times.
+    locator: "Seeing it in action: PR #6"
+    quant:
+      value: 7 箇所
+      n: PR 1件
+      design: 著者自身のデモ
+      population: ADR-0001(数値 ID)への違反を意図的に混ぜた PR
+    evidenceKind: case-report
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+  - id: c4
+    text: ADR をリポジトリに置くと、コードと同じ PR の手続きでレビュー・承認されると述べる。
+    quote: They get reviewed and approved through the same PR process as code
+    locator: Why ADRs in the repository matter
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:40.726Z
+    httpStatus: 200
+    finalUrl: https://shinglyu.com/blog/2026/03/01/ai-adr-code-review.html
+    contentType: text/html; charset=utf-8
+    titleFetched: "ADR in Code: Architecture Compliance with AI Code Reviews | Shing"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "数値なし(伏せ字なし)。エージェントの返答: 「If you'd like to supersede ADR-0003, please update docs/adr/0003-service-layer.md first and I'll refactor accordingly.」"
+        extractedQuote: I'll keep the current structure to stay compliant. If you'd like to supersede ADR-0003, please update docs/adr/0003-service-layer.md first and I'll refactor accordingly.
+        locator: "The really interesting one: PR #10"
+        note: エージェントは機能自体は実装しており、実行しなかったのは「ロジックを controllers に置く」という ADR-0003 に反する部分だけ(「It implemented the feature correctly, explained why it deviated from my request」)。著者の評価は「The ADR is the authority, not the person typing into the chat」。「陳腐化した ADR にも従い続ける懸念」は記事に無く、主張側の解釈。著者はこの挙動を肯定的に扱っている。エージェントは copilot-instructions.md で ADR 参照を指示された構成であり、単一のデモリポジトリでの事例。
+        adjudication:
+          verdict: corrected
+          reason: ADR に反する指示に従わず先に ADR の更新を求めた点は blindQuote と一致する。ただし (1) 機能自体は実装しており、実行しなかったのは ADR-0003 に反する部分だけ、(2) ADR 参照を指示された構成の単一デモリポジトリでの事例、という条件が欠落している。「陳腐化した ADR にも従い続ける懸念の機序と整合」は記事に無い主張側の解釈で、著者の評価は肯定的。claimQuant の件数(#6 で指摘 7 箇所、#10 で 2 回拒否)は抜粋からは確認できない。
+          date: 2026-09-30
+          originalText: コーディングエージェントは、ADR に反する利用者の指示を実行せず、先に ADR を更新・置き換えるよう求めた。ADR を強い規範として扱う挙動の実例で、陳腐化した ADR にも従い続けるという懸念の機序と整合する。
+          originalQuote: If you’d like to supersede ADR-0003, please update `docs/adr/0003-service-layer.md` first and I’ll refactor accordingly.
+      c3:
+        verdict: match
+        extractedValue: Seven times(7回)
+        extractedQuote: "Copilot caught it. Seven times. Here's one of the inline comments on src/models/Author.ts: 🚫 Architecture Violation: ADR-0001"
+        locator: "Seeing it in action: PR #6"
+        note: 原文は「Seven times」(7回指摘)で、「7箇所」とは書いていない。違反は ADR-0001(数値 ID)への1種類で、インラインコメントが7件という読みになる。レビュアは GitHub Copilot Code Review で、.github/copilot-instructions.md から docs/adr/ を照合するよう指示された構成。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

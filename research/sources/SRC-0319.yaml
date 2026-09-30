@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0319
+status: included
+excludeReason: null
+title: LLM支援仕様駆動開発における裁定負荷の実践的分析
+url: https://ipsj.ixsq.nii.ac.jp/records/2011758
+canonicalUrl: https://ipsj.ixsq.nii.ac.jp/records/2011758
+ids:
+  arxiv: null
+  doi: null
+publisher: 情報処理学会 ソフトウェアエンジニアリングシンポジウム2026(SES2026)論文集 pp.160–169
+authors: [小野 謙二]
+orgType: academic
+region: jp
+lang: ja
+sourceType: paper-peer
+published: 2026-09-03
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: paywall
+readLevel: abstract
+foundBy:
+  cluster: S7
+  query: "IPSJ 電子図書館 API: q=裁定負荷(SES2026 プログラムから)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH06, TH01]
+events:
+  - date: 2026-09-12
+    label: SES2026 で発表(シンポジウム論文・実践・ショート)
+summary: 九州大学の単著の実践論文。LLM 支援の仕様駆動開発で、生成物やレビュー所見をどの仕様階層・責務・承認状態へ帰属させるかという判断を「裁定負荷」と定義した。三役レビュー(主役・敵対役・判定役)の所見122論点を、7つの LLM 判定者と人間で裁定比較した。本文は有償で、抄録のみ読んだ。
+claims:
+  - id: c1
+    text: 仕様駆動開発を入れると、開発者の主な負担は実装から、所見や生成物を仕様階層・責務境界・承認状態へ帰属させる管理的判断(裁定負荷)へ移ると定義する。
+    quote: 生成物やレビュー所見を仕様階層，責務境界，承認状態へ帰属させる管理的判断を「裁定負荷」と定義し
+    locator: 論文抄録
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q1]
+    issues: [255]
+    stance: context
+  - id: c2
+    text: 7機能・5段階(意図・要件・設計・作業分解・実装)の仕様駆動開発で、各段階に主役・敵対役・判定役の三役レビューを適用し、作業分解段階の対処対象所見127件を122の裁定論点に整理した。
+    quote: 作業分解段階で得られた127件の対処対象所見を122件の裁定論点へ整理した
+    locator: 論文抄録
+    quant:
+      value: 127所見 → 122論点
+      n: 7機能・5段階、判定者 = 7 LLM + 人間
+      design: self-applied case study(ReviewCompass)
+      population: 著者自身の開発
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH06-Q3]
+    issues: [254]
+    stance: context
+  - id: c3
+    text: 裁定比較で観察されたのは次の現象である。重大度では説明できない裁定難度、不一致時にも高い自己申告の確信度、モデル間の判断分岐、起草に関与したモデルが起草時の方針を支持しやすい傾向、別案生成、質問返し。
+    quote: 重大度だけでは説明できない裁定難度，不一致時にも高い確信度を示す自己申告，モデル間の判断分岐，起草に関与したモデルが起草時の方針を支持しやすい傾向，別案生成，質問返しなどが観察された
+    locator: 論文抄録
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3, TH06-Q4]
+    issues: [256, 258]
+    stance: supports
+  - id: c4
+    text: 裁定を重大度だけで LLM に委譲するのは難しく、モデル間の分岐・別案生成・質問返しを人間承認へ戻すエスカレーション信号として使うのが有効だと結論する。
+    quote: 裁定を重大度のみで委譲することは難しく，モデル間分岐，別案生成，質問返しなどを人間承認へ戻すエスカレーション信号として利用することが有効であることを示した
+    locator: 論文抄録
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q4, TH06-Q3]
+    issues: [248]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:45.900Z
+    httpStatus: 200
+    finalUrl: https://ipsj.ixsq.nii.ac.jp/records/2011758
+    contentType: text/html; charset=utf-8
+    titleFetched: 情報学広場：情報処理学会電子図書館
+    titleMatch: false
+    dateMeta: 2026-09-03
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 7機能・5段階・127件・122件
+        extractedQuote: 7機能・5段階（意図，要件，設計，作業分解，実装）からなる仕様駆動開発を実施し，要件，設計，作業分解の各段階に三役レビュー（主役・敵対役・判定役）を適用して，作業分解段階で得られた127件の対処対象所見を122件の裁定論点へ整理した
+        locator: 論文抄録(ipsj 書誌ページ)
+        note: 三役レビューを適用したのは5段階すべてではなく、要件・設計・作業分解の3段階だけ。ask の『各段階に…適用し』は5段階すべてと読めるので、原典の範囲と食い違う。研究は ReviewCompass の自己適用ケーススタディ(著者1名)。本文 PDF は有償(2028年9月3日から無料ダウンロード可)なので、抄録で確認した。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

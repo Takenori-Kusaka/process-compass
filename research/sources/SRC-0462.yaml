@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0462
+status: included
+excludeReason: null
+title: Set up Claude Code in a monorepo or large codebase
+url: https://code.claude.com/docs/en/large-codebases
+canonicalUrl: https://code.claude.com/docs/en/large-codebases
+ids:
+  arxiv: null
+  doi: null
+publisher: Claude Code Docs(Anthropic)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: "2026"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: Claude Code large codebase guidance sparse worktree per-directory CLAUDE.md
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH04, TH03]
+events: []
+summary: Claude Code をモノレポ・大規模コードベースで使うための公式手引き(ページに日付なし、2026-09-24 取得)。--worktree による隔離と、sparsePaths でサブエージェントの worktree を軽量化する設定を示す。
+claims:
+  - id: c1
+    text: --worktree フラグは新しい git worktree でセッションを始め、変更をメインのチェックアウトから隔離する。既定ではリポジトリ全体をチェックアウトする。
+    quote: The --worktree flag starts a session in a new git worktree so changes stay isolated from your main checkout. By default it checks out the entire repository.
+    locator: Scope worktrees and file access / Check out only the directories you need
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: context
+  - id: c2
+    text: worktree.sparsePaths は git sparse-checkout で指定ディレクトリだけを書き出し、並列に起動したサブエージェントが worktree で動くときに全体ではなく軽量なチェックアウトを得られる。
+    quote: Subagents are parallel Claude instances spawned for subtasks, and each one that runs in a worktree gets a lightweight checkout instead of the full tree.
+    locator: Check out only the directories you need
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q1]
+    issues: [272]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:04.235Z
+    httpStatus: 200
+    finalUrl: https://code.claude.com/docs/en/large-codebases
+    contentType: text/html; charset=utf-8
+    titleFetched: Set up Claude Code in a monorepo or large codebase - Claude Code Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

@@ -1,0 +1,87 @@
+schemaVersion: 0
+id: SRC-0507
+status: included
+excludeReason: null
+title: Does ACM's Code of Ethics Change Ethical Decision Making in Software Development?
+url: https://jssmith1.github.io/assets/pdf/FSE18_NIER.pdf
+canonicalUrl: https://jssmith1.github.io/assets/pdf/fse18_nier.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ESEC/FSE 2018 (ACM) New Ideas and Emerging Results
+authors: [McNamara Andrew, Smith Justin, Murphy-Hill Emerson]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2018-11
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: "\"Does ACM's code of ethics change ethical decision making in software development\""
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: 倫理綱領を参照するよう指示しても、ソフトウェア開発者の倫理的判断に効果が観測されなかったという統制実験(学生 63・実務者 105、11 の事例)。規範文書を読ませるだけでは実務が変わらないことを示す反証側の古典。
+claims:
+  - id: c1
+    text: 学生 63 名と実務者 105 名に 11 の倫理的事例を判断させ、ACM 倫理綱領の考慮を明示的に指示した群と対照群の間に効果は観測されなかった。
+    quote: We found that explicitly instructing participants to consider the ACM code of ethics in their decision making had no observed effect when compared with a control group.
+    locator: Abstract
+    quant:
+      value: 効果なし(対照群と差が観測されず)
+      n: 168(学生 63、実務者 105)
+      design: controlled experiment(ビネット 11 件、指示群と対照群)
+      population: ソフトウェア工学の学生と米国の経験5年以上の開発者
+    evidenceKind: controlled-experiment
+    rqs: [TH12-Q1]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 述べられた目的に反し、ACM 倫理綱領が倫理的意思決定に影響する証拠は見つからなかったと結論した。
+    quote: Despite its stated goal, we found no evidence that the ACM code of ethics influences ethical decision making.
+    locator: 6 Conclusion
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH12-Q1]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:21.086Z
+    httpStatus: 200
+    finalUrl: https://jssmith1.github.io/assets/pdf/FSE18_NIER.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 学生 63名 / 実務者 105名 / 倫理的事例(vignette) 11件
+        extractedQuote: we replicated a prior behavioral ethics study with 63 software engineering students and 105 professional software developers, measuring their responses to 11 ethical vignettes. We found that explicitly instructing participants to consider the ACM code of ethics in their decision making had no observed effect when compared with a control group.
+        locator: Abstract (群の内訳は 3.1.3、参加者は 3.1.4)
+        note: 対照群は『倫理綱領なし』ではなく『会社文化の柱は強い倫理基準である』とだけ告げられた群(n=34 students, 56 professionals)。処置群は ACM 2018 倫理綱領の要約版を提示(n=29 students, 49 professionals)。実務者は Qualtrics 経由で募集した米国の経験5年以上の開発者。先行研究(Cleek and Leonard)の追試である。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null

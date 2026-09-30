@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0346
+status: included
+excludeReason: null
+title: Block pull requests with exposed secrets from merging - GitHub Changelog
+url: https://github.blog/changelog/2026-09-09-block-pull-requests-with-exposed-secrets-from-merging
+canonicalUrl: https://github.blog/changelog/2026-09-09-block-pull-requests-with-exposed-secrets-from-merging
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-09
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH02
+  query: GitHub changelog block pull requests with exposed secrets from merging
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07, TH10]
+events:
+  - date: 2026-09-09
+    label: GitHub が秘匿情報アラート未解決の PR をマージ不可にする規則を public preview で提供
+summary: PR が持ち込んだ秘匿情報アラートが未解決ならマージを止める ruleset 規則の告知。「head コミットの走査が完了していること」と「アラートが残っていないこと」の両方を条件にし、走査未実施を通過と扱わない(fail-closed)。
+claims:
+  - id: c1
+    text: マージ前に、head コミットに対する秘匿情報の走査が完了していることを確認する。検査が走っていない状態を「問題なし」と扱わない設計である。
+    quote: A secret scan has completed for the head commit
+    locator: What's new (rule checks)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: あわせて、PR のコミットが持ち込んだ秘匿情報のアラートが未解決で残っていないことを確認する。
+    quote: No alerts are open for secrets introduced by the pull request’s commits
+    locator: What's new (rule checks)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: プッシュ時の push protection に加えて PR 層で別の関門を置き、push protection が捕まえない・設定されていない場合を拾う。多層の検査を段階ごとに分けて有効化できる。
+    quote: This rule adds an additional layer of protection at the pull request layer, catching cases that push protection isn’t able to or configured to catch.
+    locator: How this rule differs from push protection
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 本規則は GitHub Secret Protection または Advanced Security の顧客向けの public preview である。
+    quote: This rule is available today in public preview for customers with GitHub Secret Protection or GitHub Advanced Security.
+    locator: What's new
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:21.397Z
+    httpStatus: 200
+    finalUrl: https://github.blog/changelog/2026-09-09-block-pull-requests-with-exposed-secrets-from-merging/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Block pull requests with exposed secrets from merging - GitHub Changelog
+    titleMatch: true
+    dateMeta: 2026-09-09
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

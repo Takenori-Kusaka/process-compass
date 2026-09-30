@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0538
+status: included
+excludeReason: null
+title: "TSP Section 100: 2017 Trust Services Criteria for Security, Availability, Processing Integrity, Confidentiality, and Privacy (includes March 2020 updates)"
+url: https://arpio.io/wp-content/uploads/2020/08/trust-services-criteria.pdf
+canonicalUrl: https://arpio.io/wp-content/uploads/2020/08/trust-services-criteria.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: AICPA Assurance Services Executive Committee (ASEC)
+authors: []
+orgType: standards-body
+region: us
+lang: en
+sourceType: standard
+published: "2017"
+publishedBasis: pdf
+version: 2017 TSC (March 2020 updates)
+updated: 2020-03
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G03
+  query: AICPA 2017 Trust Services Criteria revised points of focus 2022 PDF CC5.1 "segregation of duties" CC8.1 change management
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH02, TH12]
+events: []
+summary: SOC 2 の判定規準(Trust Services Criteria)。第三者サイトに置かれた 2020 年 3 月更新版の複製を読んだ(AICPA 公式配布の 2022 年改訂 points of focus 版はログインが必要で未読)。CC5.1 は両立しない職務の分離と、分離が実際的でない場合の代替統制を定め、CC8.1 は変更の承認を要求するが、承認者が人であることは条文上の要件になっていない。
+claims:
+  - id: c1
+    text: CC5.1 の着眼点は、経営者が両立しない職務を分離し、分離が実際的でない場合は代替の統制活動を選ぶことを求める。分離の担い手の属性(人か自動か)は規定しない。
+    quote: Management segregates incompatible duties and, where such segregation is not practical, management selects and develops alternative control activities.
+    locator: "CC5.1 (COSO Principle 10) point of focus: Addresses Segregation of Duties"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH02-Q1]
+    issues: [248, 249]
+    stance: context
+  - id: c2
+    text: CC8.1 は基盤・データ・ソフトウェア・手続への変更について承認・設計・文書化・試験・実装を組織(entity)に求める。主語は組織で、承認する者の属性は書かれていない。
+    quote: The entity authorizes, designs, develops or acquires, configures, documents, tests, approves, and implements changes to infrastructure, data, software, and procedures to meet its objectives.
+    locator: CC8.1 Change Management
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: context
+  - id: c3
+    text: CC5.1 の着眼点は統制活動の種類の組合せとして、手作業と自動、予防と発見の統制の均衡を考慮することを挙げる。自動化された統制を統制活動として数えること自体は認めている。
+    quote: Control activities include a range and variety of controls and may include a balance of approaches to mitigate risks, considering both manual and automated controls
+    locator: "CC5.1 point of focus: Evaluates a Mix of Control Activity Types"
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:31.802Z
+    httpStatus: 200
+    finalUrl: https://arpio.io/wp-content/uploads/2020/08/trust-services-criteria.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: CC5.1(COSO Principle 10)の point of focus 'Addresses Segregation of Duties'
+        extractedQuote: Addresses Segregation of Duties — Management segregates incompatible duties and, where such segregation is not practical, management selects and develops alternative control activities.
+        locator: CC5.1 (COSO Principle 10) points of focus(文書内ページ表記 Page 27)
+        note: 主語は Management。当該着眼点の文中に、分離の担い手が人か自動かを述べる語は無い(不在の確認は当該着眼点の1文の範囲)。取得元は arpio.io に置かれた AICPA 文書の複製。
+      c2:
+        verdict: match
+        extractedValue: CC8.1(Change Management)
+        extractedQuote: CC8.1 The entity authorizes, designs, develops or acquires, configures, documents, tests, approves, and implements changes to infrastructure, data, software, and procedures to meet its objectives.
+        locator: CC8.1 Change Management(文書内ページ表記 Page 37)
+        note: 原文の動詞は8つ(authorizes / designs / develops or acquires / configures / documents / tests / approves / implements)。ask の列挙(承認・設計・文書化・試験・実装)は 'develops or acquires' と 'configures' を省いており、'authorizes' と 'approves' の2語を区別していない。主語が the entity である点は一致。着眼点 'Authorizes Changes' は 'A process is in place to authorize system changes prior to development' 、'Approves System Changes' は 'A process is in place to approve system changes prior to implementation' で、着眼点の主語は 'A process' であり承認者の属性は書かれていない(Page 38 までの着眼点を通読。Page 39 以降の追加着眼点は未読)。
+      c3:
+        verdict: match
+        extractedValue: CC5.1 の point of focus 'Evaluates a Mix of Control Activity Types'
+        extractedQuote: may include a balance of approaches to mitigate risks, considering both manual and automated controls, and preventive and detective controls.
+        locator: CC5.1 (COSO Principle 10) points of focus(文書内ページ表記 Page 27)
+        note: 原文は 'may include a balance of approaches' で、均衡は「含み得る」という書き方。ask の「均衡を考慮することを挙げる」とおおむね対応するが、義務の強さは may。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

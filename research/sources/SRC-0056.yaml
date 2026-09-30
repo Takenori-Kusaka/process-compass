@@ -1,0 +1,134 @@
+schemaVersion: 0
+id: SRC-0056
+status: included
+excludeReason: null
+title: "Governance Gaps in Agent Interoperability Protocols: What MCP, A2A, and ACP Cannot Express"
+url: https://arxiv.org/abs/2606.31498
+canonicalUrl: arxiv:2606.31498
+ids:
+  arxiv: "2606.31498"
+  doi: 10.48550/arXiv.2606.31498
+publisher: "arXiv(著者所属: DoiT International)"
+authors: [Kang Richard, Diponegoro Yudho]
+orgType: consultancy
+region: global
+lang: en
+sourceType: preprint
+published: 2026-06-30
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: GET https://arxiv.org/abs/2606.31498 / https://arxiv.org/html/2606.31498
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01]
+events: []
+summary: 前回「責任・権限を表現する語彙が不足」と要約した論文の本文確認。実際の分析軸は 6 次元(membership / deliberation / voting / dissent / human escalation / audit)で、投票・異論保持・人へのエスカレーションは 5 プロトコル全てで Absent。著者はコンサル(DoiT)所属で査読情報なし。ギャップは 6〜12 か月で縮まりうるとも述べる。
+claims:
+  - id: c1
+    text: 分析は組織論・MAS 文献・企業統治規格から導いた 6 次元(構成員資格、審議、投票、異論保持、人へのエスカレーション、監査/再生)の要件分類を 5 プロトコル(MCP, A2A, ACP, ANP, ERC-8004)の仕様に当てる。
+    quote: We present a systematic gap analysis applying a six-dimension governance requirements taxonomy (membership, deliberation, voting, dissent preservation, human escalation, and audit/replay)
+    locator: Abstract
+    quant: null
+    evidenceKind: review
+    rqs: [TH01-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 投票・異論保持・人へのエスカレーションは 5 プロトコル全てで欠落し、審議も欠落か部分的。前回メモの「責任・権限」という要約より具体的で、「人へのエスカレーション」の欠落が本標準に最も関係する。
+    quote: Voting, dissent preservation, and human escalation are absent across all five protocols.
+    locator: §V-A Universal absence (G3, G4, G5)
+    quant:
+      value: G3/G4/G5 absent in 5/5 protocols; MCP v1.1 coverage 1/12
+      n: 5 protocols
+      design: specification review
+      population: MCP v1.1, A2A v1.0.1, ACP, ANP, ERC-8004
+    evidenceKind: review
+    rqs: [TH01-Q2, TH01-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: エージェント共同体の統治は既存の相互運用標準の「内側の欠けた機能」ではなく「上位の欠けたアーキテクチャ層」だと結論する。
+    quote: agent community governance constitutes a missing architectural layer above current interoperability standards, not a missing feature within them.
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c4
+    text: 著者自身が、A2A の拡張機構などにより統治ギャップは 6〜12 か月で大きく縮まりうると見積もる。前回メモの「技術層は決着、未解決はガバナンス層」は時限付きの観察として読むべき。
+    quote: At the observed evolution velocity, we estimate the governance gap could narrow significantly within 6–12 months through protocol extensions, particularly via A2A’s extension mechanism.
+    locator: §V-B Time-Sensitivity
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: 第一著者の所属はクラウドコンサルティング企業 DoiT International。学術機関ではなく、査読採択の記載もない。
+    quote: "Dr. Richard Kang  Affiliation:  DoiT International"
+    locator: 著者情報
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:06.545Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2606.31498
+    contentType: text/html; charset=utf-8
+    titleFetched: "Governance Gaps in Agent Interoperability Protocols: What MCP, A2A, and ACP Cannot Express"
+    titleMatch: true
+    dateMeta: 2026-06-30
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: "Governance Gaps in Agent Interoperability Protocols: What MCP, A2A, and ACP Cannot Express"
+      authors: ["Kang, Richard", "Diponegoro, Yudho"]
+      v1Date: 2026-06-30
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "six-dimension(6次元)、five protocols(5プロトコル: MCP, A2A, ACP, ANP, ERC-8004)"
+        extractedQuote: protocols—MCP, A2A, ACP, ANP, and ERC-8004— ... a six-dimension governance requirements taxonomy—membership, deliberation, voting, dissent preservation, human escalation, and audit/replay
+        locator: Abstract
+        note: 要件の由来は抄録の "derived from organizational theory, multi-agent systems literature, and enterprise governance standards" と一致。本文では版も書かれている(MCP v1.1、A2A v1.0.1)。arXiv:2606.31498v1、2026-06-30。
+      c2:
+        verdict: match
+        extractedValue: five(全5プロトコルで G3 投票・G4 異論保持・G5 人へのエスカレーションが Absent)。審議(G2)は Absent か Partial(ACP のみ Partial)
+        extractedQuote: Universal absence (G3, G4, G5). Voting, dissent preservation, and human escalation are absent across all five protocols.
+        locator: §IV-G Cross-Protocol Findings(Table III Gap Matrix の直後)
+        note: locator の節番号が違う。「Universal absence (G3, G4, G5)」は §IV-G にあり、§V-A の見出しは "Extensible vs. Structural Gaps"。審議が「欠落か部分的」なのは抄録の "deliberation is absent or at most partial" と Table III で確認した。抄録が "universally absent" と書いているのは投票と異論保持だけで、人へのエスカレーションが全プロトコルで欠けていることは §IV-G と Table III で示されている。「前回メモの『責任・権限』という要約より具体的」「本標準に最も関係する」は主張者の評価で、原典には無い。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote(§IV-G)と一致する。投票(G3)・異論保持(G4)・人へのエスカレーション(G5)は全 5 プロトコルで Absent で、審議(G2)は Absent か Partial(Partial は ACP のみ)。「前回メモの要約より具体的」「本標準に最も関係する」は内部参照と主張者の評価なので、判定対象から外した。claimQuant の「MCP v1.1 coverage 1/12」は抜粋では確かめられない。locator の節番号は §V-A ではなく §IV-G が正しい。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

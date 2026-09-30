@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0544
+status: included
+excludeReason: null
+title: Control Baselines for Information Systems and Organizations (NIST SP 800-53B)
+url: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53B.pdf
+canonicalUrl: doi:10.6028/nist.sp.800-53b
+ids:
+  arxiv: null
+  doi: 10.6028/NIST.SP.800-53B
+publisher: National Institute of Standards and Technology (NIST), Joint Task Force
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2020-10
+publishedBasis: pdf
+version: null
+updated: 2020-12-10
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G03
+  query: GET https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53B.pdf(ISO/IEC 27001:2022 6.1.3 d の除外理由の記録を探す過程で取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH02, TH12]
+events: []
+summary: 米連邦の情報システム向け統制ベースラインと、その調整(テーラリング)手順。ベースラインの統制を外すときは理由を計画書へ記録し、全統制について扱いを説明できる状態を保つことを求める。費用対効果を理由にした代替統制を認め、小規模組織では職務分離の代わりに監査頻度の増加などを置けると注記する。対象は情報セキュリティ統制で、ソフトウェア開発のゲートではない。
+claims:
+  - id: c1
+    text: 選んだベースラインの統制はすべて扱いを説明できる状態にし、外した統制はその理由をシステムのセキュリティ・プライバシー計画へ記録することを求める。外した統制の記録先と記録内容(理由)を定めた先例である。
+    quote: Every control from the selected control baseline is accounted for by the organization. If certain controls are tailored out, the rationale is recorded in the system security and privacy plans
+    locator: §2.4 Tailoring Control Baselines
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: contradicts
+  - id: c2
+    text: 統制を恣意的に外すことは認めず、調整の判断は任務・事業上の必要、妥当な理由、明示的なリスクに基づく決定で弁護できることを求める。
+    quote: Tailoring decisions are expected to be defensible based on mission and business needs, a sound rationale, and explicit risk-based determinations.
+    locator: §2.4 Tailoring Control Baselines
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: supports
+  - id: c3
+    text: 代替統制は、ベースラインの統制が技術的に実現不能、費用対効果に合わない、任務・事業機能を損なう場合に選ばれることが多いとする。費用対効果を統制の置換理由として認めている(統制の無条件の省略ではなく代替)。
+    quote: Compensating controls are often chosen when implementing a baseline control is technically infeasible, not cost effective, or the control implementation negatively affects organizational mission
+    locator: §2.4 Selecting Compensating Controls
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: qualifies
+  - id: c4
+    text: 小規模組織では、職務分離の代わりに、監査頻度の増加、役割別の訓練、人員審査の強化を置けると注記する。独立性を確保できない体制への代償措置の例示である。
+    quote: In a small organization, more frequent auditing, targeted role-based training, or stronger personnel screening may be implemented in lieu of separation of duties.
+    locator: §2.4 脚注 33
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1, TH01-Q2]
+    issues: [249, 267]
+    stance: supports
+  - id: c5
+    text: 代替統制を使う組織は、代替統制が要求をどう満たすかと、ベースラインの統制をなぜ実装できなかったかの理由を示すことを求められる。
+    quote: Provide a rationale for how compensating controls satisfy security or privacy requirements and why the baseline controls could not be implemented.
+    locator: §2.4 Selecting Compensating Controls
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, crossref]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:32.902Z
+    httpStatus: 200
+    finalUrl: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53B.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: Control Baselines for Information Systems and Organizations
+      issued: 2020-10-28
+      titleMatch: true
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

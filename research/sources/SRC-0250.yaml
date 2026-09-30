@@ -1,0 +1,181 @@
+schemaVersion: 0
+id: SRC-0250
+status: included
+excludeReason: null
+title: デジタル社会推進標準ガイドライン DS-920 行政の進化と革新のための生成AIの調達・利活用に係るガイドライン(2026年6月12日改定)
+url: https://www.digital.go.jp/assets/contents/node/information/field_ref_resources/decb64eb-f26e-41cb-8d37-f3dd173108b8/59054b35/20260612_resources_standard_guidelines_guideline_01.pdf
+canonicalUrl: https://digital.go.jp/assets/contents/node/information/field_ref_resources/decb64eb-f26e-41cb-8d37-f3dd173108b8/59054b35/20260612_resources_standard_guidelines_guideline_01.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: デジタル庁(デジタル社会推進会議幹事会決定)
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-06-12
+publishedBasis: pdf
+version: 2026年6月12日改定(初版 2025-05-27)
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S4
+  query: デジタル庁 AI駆動開発 ガイドライン 政府情報システム 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12]
+events:
+  - date: 2026-06-12
+    label: デジタル庁 DS-920(生成AIの調達・利活用ガイドライン)を改定。CAIO のリスク判断、AIエージェント定義の脚注を追加
+  - date: 2025-05-27
+    label: DS-920 初版を策定
+  - date: 2026-06-12
+    label: DS-920 第2.0版を決定(対象生成 AI の拡大、高リスク判定の見直し)
+  - date: 2026-07-01
+    label: AI ガバナンスの枠組みの対象拡大を適用
+summary: 政府情報システムで遵守すべき Normative 文書。CAIO がユースケースのリスクレベルを判断し、出力結果の適切さを職員が判断せず利活用する設計を高リスク側に置く。
+claims:
+  - id: c1
+    text: 各府省庁のCAIOが企画者と連携してユースケースごとにリスク評価を行い、リスクレベルを判断する。判断の責任主体を役職として明示している。
+    quote: 各府省庁のAI 統括責任者（CAIO）は、企画者と連携しつつ、ユースケースにあわせたリスク評価を行い、そのリスクレベル（高リスクの可能性が高いか否か）を適切に判断する。
+    locator: 3.2 高リスクな生成AI 利活用の考え方
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2, TH01-Q2]
+    issues: [248]
+    stance: supports
+  - id: c2
+    text: リスク軸Cとして、生成AIの出力結果を職員等が判断せずにそのまま利活用する業務設計をリスクが高いものと位置づける(作業単位の人の判断の有無で自律度を区別)。
+    quote: 生成AI システムの出力結果に対して政府職員等が判断せずそのまま利活用するような業務設計をする場合、リスクが高くなると考えられる。
+    locator: 表4 リスク軸とその考え方 C.出力結果の政府職員等による判断を経た利活用
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, TH12-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 利用者がAIエージェント等を作成できる生成AIシステムで、出力結果の適切さを判断せずにタスクを実行するものは作成を制限するか、利用開始前に提供者またはCAIOへの報告を求めるルールを整備する。
+    quote: 出力結果の適切さの判断を行わずにタスクを実行するもの（リスク判定ロジックのＣ①に相当）の作成を制限するか、又は利用者がこれを作成したときには利用開始前に提供者又はAI 統括責任者（CAIO）に報告を求める旨の利活用ルールを整備し、周知する。
+    locator: 6章 利活用時のリスク管理(p.31)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, TH01-Q2, TH12-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: AIエージェントの定義はAI事業者ガイドラインを引き、「自律」は高度な自律状態だけでなくある程度の自律性を持つものも含むと脚注で明記している。
+    quote: 「自律」の語について脚注において、「高度な自律状態だけを指しているのではなく、ある程度の自律性を持つものも含む。」と記載されている。
+    locator: 2.2.2 脚注14
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1]
+    issues: []
+    stance: context
+  - id: c5
+    text: 文書の位置付けは Normative で、政府情報システムの整備・管理のルールとして遵守する内容を定める。
+    quote: Normative 政府情報システムの整備及び管理に関するルールとして遵守する内容を定めたドキュメント
+    locator: 表紙〔ドキュメントの位置付け〕
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+  - id: c6
+    text: 利用者が AI エージェント等を作成できる生成 AI システムでは、出力結果の適切さの判断を行わずにタスクを実行するもの(リスク判定ロジックの C①)の作成を制限するか、作成時に利用開始前の報告を提供者または CAIO に求める利活用ルールを整備する。人が出力を判断するか否かを、リスク判定の軸にしている。
+    quote: 出力結果の適切さの判断を行わずにタスクを実行するもの（リスク判定ロジックのＣ①に相当）の作成を制限するか、又は利用者がこれを作成したときには利用開始前に提供者又は AI 統括責任者（CAIO）に報告を求める
+    locator: 生成 AI システムの利活用ルール整備(AI エージェント作成機能を持つ場合の記載)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, TH01-Q2, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c7
+    text: 対象生成 AI の拡大に伴う AI ガバナンスの枠組みは 2026-07-01 から適用するとした。
+    quote: AI ガバナンスの枠組みの対象については、2026 年（令和８年）７月１日から適用するものとする。
+    locator: 附則
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:43.435Z
+    httpStatus: 200
+    finalUrl: https://www.digital.go.jp/assets/contents/node/information/field_ref_resources/decb64eb-f26e-41cb-8d37-f3dd173108b8/59054b35/20260612_resources_standard_guidelines_guideline_01.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+      c6: not-found
+      c7: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: AI 統括責任者（CAIO）が企画者と連携しつつリスク評価を行い、リスクレベルを判断する
+        extractedQuote: 各府省庁のAI 統括責任者（CAIO）は、企画者と連携しつつ、ユースケースにあわせたリスク評価を行い、そのリスクレベル（高リスクの可能性が高いか否か）を適切に判断する。
+        locator: 3.2 高リスクな生成AI 利活用の考え方(本文 p.10 / PDF 15 頁)
+        note: 同節末尾にも「AI 相談窓口や先進的AI 利活用アドバイザリーボードへの相談等を踏まえ、AI 統括責任者（CAIO）はユースケースのリスクレベルを判断する。」とある。「責任主体」という語は原文に無く、ask 後半は要約者の解釈。
+      c2:
+        verdict: match
+        extractedValue: C① 生成AI システムの出力結果の適切さを政府職員等が判断せずに利活用する → リスクが高くなる
+        extractedQuote: 生成AI の出力結果は必ずしも正しいものとは限らない。そのため、生成AI システムの出力結果に対して政府職員等が判断せずそのまま利活用するような業務設計をする場合、リスクが高くなると考えられる。
+        locator: 表４ リスク軸とその考え方 C.出力結果の政府職員等による判断を経た利活用(本文 p.11 / PDF 16 頁)
+        note: ask 括弧内の「作業単位の人の判断の有無で自律度を区別」は原文に無い解釈。原文は『業務設計』として出力を判断せずに利活用する場合を扱い、「自律度」「作業単位」の語は使っていない。
+      c3:
+        verdict: match
+        extractedValue: C①相当のAIエージェント等の作成を制限するか、作成時に利用開始前に提供者又はCAIOへ報告を求める利活用ルールを整備・周知
+        extractedQuote: 利用者が高度なタスクを実行できるAI エージェント等を作成できる生成AI システムの場合には、出力結果の適切さの判断を行わずにタスクを実行するもの（リスク判定ロジックのＣ①に相当）の作成を制限するか、又は利用者がこれを作成したときには利用開始前に提供者又はAI 統括責任者（CAIO）に報告を求める旨の利活用ルールを整備し、周知する。
+        locator: 6.3.3 生成AI システムの構築・リリース前の準備時の対応事項(6.3 企画者の対応事項、本文 p.31 / PDF 36 頁)
+        note: locator の『6章 利活用時のリスク管理』という節名は原典に無い。該当は 6章「政府における生成AIの調達・利活用に係るルール」の 6.3.3(企画者の対応事項)。ask は原文の『高度なタスクを実行できる』を省いている。6.5 提供者の対応事項(p.33-34)にも、C①相当を作成した場合に提供者又はCAIOへ報告させる旨の並行規定がある。
+      c4:
+        verdict: match
+        extractedValue: AI事業者ガイドラインの定義を引用し、「自律」は「高度な自律状態だけを指しているのではなく、ある程度の自律性を持つものも含む」
+        extractedQuote: AI 事業者ガイドラインにおいては、AI エージェントは次のように定義されている。…また、「自律」の語について脚注において、「高度な自律状態だけを指しているのではなく、ある程度の自律性を持つものも含む。」と記載されている。
+        locator: 2.2.2 本ガイドラインが対象とする生成AI 脚注14(本文 p.6 / PDF 11 頁)
+        note: 『ある程度の自律性』の記述は AI事業者ガイドラインの脚注の内容を DS-920 の脚注14 が紹介する形(DS-920 自身の定義ではなく引用)。定義本文は「特定の目標を達成するために、環境を感知し自律的に行動するAI システム」。なお本文では AIエージェント等は『具体的対応事項は定めない』が AIガバナンスの枠組み(4.1・4.2・6.7)の対象とされる。
+      c5:
+        verdict: match
+        extractedValue: Normative
+        extractedQuote: 〔ドキュメントの位置付け〕 Normative 政府情報システムの整備及び管理に関するルールとして遵守する内容を定めたドキュメント
+        locator: 表紙〔ドキュメントの位置付け〕(PDF 1 頁)
+        note: ""
+      c6:
+        verdict: match
+        extractedValue: ①(リスク判定ロジックのＣ①に相当)
+        extractedQuote: 出力結果の適切さの判断を行わずにタスクを実行するもの（リスク判定ロジックのＣ①に相当）の作成を制限するか、又は利用者がこれを作成したときには利用開始前に提供者又はAI 統括責任者（CAIO）に報告を求める旨の利活用ルールを整備し、周知する。
+        locator: 6.3.3 生成AI システムの構築・リリース前の準備時の対応事項(本文 p.31 / PDF 36 頁)。6.5 提供者の対応事項(本文 p.33-34)にも同じ『Ｃ①に相当』の記載
+        note: 原文は『利用者が高度なタスクを実行できるAI エージェント等を作成できる生成AI システムの場合には』で始まる。表４のリスク軸C(出力結果の政府職員等による判断を経た利活用)の①が『判断せずに利活用する』。
+      c7:
+        verdict: match
+        extractedValue: 2026-07-01(2026 年（令和８年）７月１日)
+        extractedQuote: 「2.2.2 本ガイドラインが対象とする生成AI」のAI ガバナンスの枠組みの対象については、2026 年（令和８年）７月１日から適用するものとする。
+        locator: 附則(本文 p.38 / PDF 43 頁)
+        note: 同じ附則で、決定全体の施行日は「2026 年（令和８年）９月１日から施行する」、6.2(CAIOの対応事項)は「2026 年（令和８年）６月30 日までに必要な措置を定める」。7/1 は 2.2.2 の AIガバナンスの枠組みの対象についての適用日で、決定全体の施行日ではない。原文は『対象生成AIの拡大に伴う』とは書いておらず、改定履歴 2.2.2 に『対象生成AI拡大に伴う記載修正』とある。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH12
+    query: デジタル庁 生成AIの調達・利活用に係るガイドライン 改定 2026
+urlBeforeRepair: https://digital.go.jp/assets/contents/node/information/field_ref_resources/decb64eb-f26e-41cb-8d37-f3dd173108b8/59054b35/20260612_resources_standard_guidelines_guideline_01.pdf

@@ -1,0 +1,101 @@
+schemaVersion: 0
+id: SRC-0586
+status: included
+excludeReason: null
+title: "Indicators for Merge Conflicts in the Wild: Survey and Empirical Study"
+url: https://www.cs.cmu.edu/~ckaestne/pdf/jase17.pdf
+canonicalUrl: doi:10.1007/s10515-017-0227-0
+ids:
+  arxiv: null
+  doi: 10.1007/s10515-017-0227-0
+publisher: Automated Software Engineering 25 (Springer)
+authors: [Leßenich Olaf, Siegmund Janet, Apel Sven, Kästner Christian, Hunsen Claus]
+orgType: academic
+region: eu
+lang: en
+sourceType: paper-peer
+published: 2017-09-09
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: Leßenich "Indicators for merge conflicts in the wild" survey and empirical study none of the indicators predict
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11]
+events: []
+summary: 開発者 41 名の調査から導いた 7 つの指標(コミット数、変更行数、変更の散らばり等)が、マージ衝突の件数を予測するかを OSS で検証した査読論文。結果は否定的で、どの指標も強くは相関しなかった。読んだのは著者版(163 プロジェクト・21,488 シナリオ)で、研究室ページは 155 プロジェクトと記す。
+claims:
+  - id: c1
+    text: 開発者が挙げた 7 つの指標(ブランチのコミット数、短期間の集中コミット、両ブランチで変更されたファイル数、変更行数、変更の断片化・散らばり等)は、どれもマージ衝突の頻度を予測しなかった。
+    quote: A notable (negative) result is that none of the 7 indicators suggested by the participants of the developer survey has a predictive power concerning the frequency of merge conflicts.
+    locator: Abstract
+    quant:
+      value: 7 指標すべて予測力なし
+      n: 163 OSS プロジェクト、21,488 マージシナリオ(著者版)。開発者調査は 41 名
+      design: 開発者調査+リポジトリ・マイニング(相関・段階的回帰)
+      population: Java の OSS プロジェクト
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: contradicts
+  - id: c2
+    text: 検証した仮説には「変更行数が多い変更ほど衝突しやすい」(H4)が含まれており、バッチサイズが衝突件数の予測子になるという直観はこの標本では支持されなかった。
+    quote: Larger changes that modify more lines of code are more likely to cause conflicts than smaller changes.
+    locator: §2.2 H4
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: contradicts
+  - id: c3
+    text: 著者は、この結果をマージと衝突についての前提を置くときの警告として読むよう、実務家と研究者に求めている。
+    quote: The results of our study can be understood as a warning to practitioners and researchers when making assumptions about merging and merge conflicts.
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:51.676Z
+    httpStatus: 200
+    finalUrl: https://www.cs.cmu.edu/~ckaestne/pdf/jase17.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: "Indicators for merge conflicts in the wild: survey and empirical study"
+      issued: 2017-9-9
+      titleMatch: true
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: H4
+        extractedQuote: H4 Larger changes that modify more lines of code are more likely to cause conflicts than smaller changes.
+        locator: §2.2 Hypotheses(H4 の定義)。結果は §5 の H4(Fig. 7)
+        note: "結果の原文: 「Our assumption that large changes correlate with the number of conflicts is again only reflected with a medium correlation (cor =0.43, p<0.05, see Figure 7). Therefore, we reject the hypothesis.」「H4: Rejected. Large changes do not correlate strongly with the number of conflicts.」。棄却の意味は「強い相関が無い」であり、中程度の相関(0.43)は観測されている。AST ノード数で測る変種では cor =0.25。H1〜H7 はすべて Rejected。"
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

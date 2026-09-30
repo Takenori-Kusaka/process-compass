@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0216
+status: included
+excludeReason: null
+title: Sundar Pichai shares news from Google Cloud Next 2026
+url: https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai
+canonicalUrl: https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai
+ids:
+  arxiv: null
+  doi: null
+publisher: Google (The Keyword)
+authors: [Sundar Pichai]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-04-22
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: Sundar Pichai Cloud Next 2026 blog "75% of all new code at Google"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH11]
+events:
+  - date: 2026-04-22
+    label: Google CEO が新規コードの 75% が AI 生成・技術者承認と公表(前年秋 50%)
+summary: Google Cloud Next '26 の CEO 発言。社内の新規コードの 75% が AI 生成かつ技術者承認済みで、前年秋の 50% から増えたと公表した一次資料。測定方法・母集団・「AI 生成」の定義は示されていない。
+claims:
+  - id: c1
+    text: Google の新規コードの 75% は AI 生成で技術者が承認したもので、前年秋の 50% から増えたとする。算出方法と定義は開示されていない。
+    quote: Today, 75% of all new code at Google is now AI-generated and approved by engineers, up from 50% last fall.
+    locator: First, ... (engineering の段落)
+    quant:
+      value: 75%(前年秋 50%)
+      n: 不明
+      design: undisclosed internal metric
+      population: Google 社内の新規コード
+    evidenceKind: news-fact
+    rqs: [TH11-Q1, TH11-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: エージェントと技術者の協働による複雑なコード移行が、1 年前の技術者のみの場合より 6 倍速く完了したとする(比較条件の記載なし)。
+    quote: Recently, a particularly complex code migration done by agents and engineers working together was completed six times faster than was possible a year ago with engineers alone.
+    locator: 同段落
+    quant:
+      value: 6 倍
+      n: 1 件の移行
+      design: anecdotal before-after
+      population: Google 社内のコード移行
+    evidenceKind: news-fact
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 技術者は完全自律のデジタルタスクフォースを編成する「真にエージェント的なワークフロー」へ移行中だと述べる。
+    quote: Our engineers are orchestrating fully autonomous digital task forces, firing off agents and accomplishing incredible things.
+    locator: 同段落
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3, BASE-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:13.923Z
+    httpStatus: 200
+    finalUrl: https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/
+    contentType: text/html; charset=utf-8
+    titleFetched: "Cloud Next ‘26: Momentum and innovation at Google scale"
+    titleMatch: false
+    dateMeta: 2026-04-22
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 1年前(a year ago)、6倍(six times)
+        extractedQuote: Recently, a particularly complex code migration done by agents and engineers working together was completed six times faster than was possible a year ago with engineers alone.
+        locator: First, coding 段落
+        note: 原典は「a particularly complex code migration」という単一の移行事例で、Google 社内の話である。比較条件は書かれておらず、ask の注記と合っている。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

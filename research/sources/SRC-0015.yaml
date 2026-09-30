@@ -1,0 +1,185 @@
+schemaVersion: 0
+id: SRC-0015
+status: included
+excludeReason: null
+title: "Expert Personas Improve LLM Alignment but Damage Accuracy: Bootstrapping Intent-Based Persona Routing with PRISM"
+url: https://arxiv.org/abs/2603.18507
+canonicalUrl: arxiv:2603.18507
+ids:
+  arxiv: "2603.18507"
+  doi: null
+publisher: arXiv(University of Southern California)
+authors: [Hu Zizhao, Rostami Mohammad, Thomason Jesse]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-03-19
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: SEJ 記事(2026-03-24)の一次出典リンク → GET https://arxiv.org/html/2603.18507
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06]
+events: []
+summary: 254 メモが Wharton 報告に帰した「MMLU 71.6% → 68.0% → 66.3%」の実際の出典。USC の 3 名による 6 オープンモデル(Qwen2.5-7B ほか)・12 persona の調査で、専門家 persona は MMLU 等の事前学習依存課題で精度を下げ、文体・安全性などの整合課題では改善すると報告。
+claims:
+  - id: c1
+    text: MMLU でベースライン 71.6% に対し、最短の persona で 68.0%(-3.6pt)、長い persona で 66.3%(-5.3pt)。図 1(b) のキャプションは、全ての専門家 persona 変種が精度を下げたとする。図 1(b) の対象モデルは原文に明記が無い(キャプションは across models。Table 1 の Qwen2.5-7B の MMLU 平均は 71.7 で 71.6 と一致しない)。
+    quote: on MMLU, the minimum persona achieves 68.0% vs. 66.3% for the long persona (both below the 71.6% baseline)
+    locator: §3.1c / Figure 1(b)
+    quant:
+      value: 71.6 → 68.0 (-3.6pt) → 66.3 (-5.3pt)
+      n: MMLU 4 subject categories(問題数は Appendix D.2)
+      design: benchmark
+      population: Figure 1(b)。対象モデルは原文に明記なし。12 expert personas
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: supports
+  - id: c2
+    text: "著者の説明: persona 接頭辞が指示追従モードを起動し、事実想起に充てられるべき能力を奪う。"
+    quote: A possible explanation is that persona prefixes activate the model’s instruction-following mode that would otherwise be devoted to factual recall.
+    locator: §3.1a
+    quant:
+      value: n/a
+      n: n/a
+      design: interpretation
+      population: n/a
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: context
+  - id: c3
+    text: 一方、MT-Bench では長い専門家 persona が 8 カテゴリ中 5 つで改善(Extraction +0.65、STEM +0.60)、安全性ベンチマークでは拒否率が最大 +17.7%。persona の効果は課題種別に依存する。
+    quote: On MT-Bench, long expert personas help in 5/8 categories (Writing, Roleplay, Reasoning, Extraction, STEM), with the strongest gains in Extraction (+0.65) and STEM (+0.60).
+    locator: Figure 1(a),(c) / §3.2
+    quant:
+      value: 5/8 categories improved; +17.7% refusal on JailbreakBench
+      n: MT-Bench 8 categories
+      design: benchmark (LLM-judge)
+      population: Qwen2.5-7B-Instruct
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: qualifies
+  - id: c4
+    text: 対象は 6 モデル(Qwen2.5-7B、Llama-3.1-8B、Mistral-7B-v0.3、MoE 1、推論蒸留 2)と 12 persona。7〜8B 級のオープンモデルであり、フロンティア API モデルの結果ではない。
+    quote: We study the effect of persona prompts on 6 LLMs spanning instruction-tuned and reasoning-distilled families (Appendix A).
+    locator: §3 Investigation methods / Table 2
+    quant:
+      value: 6 models / 12 personas
+      n: "6"
+      design: benchmark
+      population: open-weight 7–8B class
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: qualifies
+  - id: c5
+    text: MMLU では全ての専門家ペルソナ変種が精度を下げ、最も短い minimum ペルソナでも全体68.0%対ベースライン71.6%(-3.6pt)だった。
+    quote: "(b) On MMLU, all expert persona variants damage accuracy, with the minimum persona suffering the least (overall: 68.0% vs. 71.6% baseline)."
+    locator: Figure 1 caption (b)
+    quant:
+      value: 68.0% vs 71.6%(-3.6pt、minimum persona)
+      n: 6 LLMs × 12 persona prompts
+      design: controlled experiment(ペルソナの有無・長さ・配置を変えた比較)
+      population: MMLU、MT-Bench、HarmBench/JailbreakBench/PKU-SafeRLHF; instruction-tuned と reasoning-distilled
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: supports
+  - id: c6
+    text: 効果はタスク依存で、ペルソナは文章・ロールプレイ・安全などの整合依存タスクを一貫して改善し、MMLU・数学・コーディングなど事前学習依存タスクを劣化させる。『役割付与は無効』とも『有効』とも一般化できない。
+    quote: personas consistently improve alignment-dependent tasks (writing, roleplay, safety) while degrading pretraining-dependent tasks (MMLU, math, coding)
+    locator: §6 Conclusion
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: qualifies
+  - id: c7
+    text: 推論蒸留モデルでは専門家ペルソナがランダムなペルソナより有害な場合があり、推論蒸留モデルは専門家ペルソナ付与の恩恵を受けないと示唆している。
+    quote: This discovery suggests that reasoning-distilled models do not benefit from expert persona prompting
+    locator: §3.4(Figure 2 の考察)
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH01-Q5]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, human-correction]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T09:00:14.725Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2603.18507
+    contentType: text/html; charset=utf-8
+    titleFetched: "Expert Personas Improve LLM Alignment but Damage Accuracy: Bootstrapping Intent-Based Persona Routing with PRISM"
+    titleMatch: true
+    dateMeta: 2026-03-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv:
+      status: 200
+      title: "Expert Personas Improve LLM Alignment but Damage Accuracy: Bootstrapping Intent-Based Persona Routing with PRISM"
+      authors: ["Hu, Zizhao", "Rostami, Mohammad", "Thomason, Jesse"]
+      v1Date: 2026-03-19
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "MMLU: baseline 71.6%; minimum persona 68.0%(差 -3.6pt は計算値); long persona 66.3%(差 -5.3pt は計算値); 図番号 Figure 1(b); 対象モデルは原文に明記なし"
+        extractedQuote: on MMLU, the minimum persona achieves 68.0% vs. 66.3% for the long persona (both below the 71.6% baseline)
+        locator: §3.1c / Figure 1(b) キャプション
+        note: "『全ての専門家 persona 変種が精度を下げた』はキャプション '(b) On MMLU, all expert persona variants damage accuracy' と一致。ただし Figure 1(a)〜(c) の対象モデルは本文・キャプションとも明記されていない(キャプションは 'across models'、(d) のみモデル別)。Qwen2.5-7B-Instruct と明記されるのは Figure 2(a–c) と Figure 4。Table 1 の Qwen2.5-7B Base Model の MMLU Avg は 71.7 で 71.6 と一致しない。§3.1a は 68.0% を minimum と断らず 'the expert persona … (overall accuracy: 68.0% vs. 71.6% base model)' と書いており、原典内で表現が揺れる。"
+        adjudication:
+          verdict: corrected
+          reason: 懐疑役の突合(2026-09-30)。検証役が原典から抜き出した値と注記に沿って、主張文を人手で訂正した
+          date: 2026-09-30
+          originalText: MMLU でベースライン 71.6% に対し、最短の persona でも 68.0%(-3.6pt)、長い persona では 66.3%(-5.3pt)。全ての専門家 persona 変種が精度を下げた。図 1b の対象は Qwen2.5-7B-Instruct。
+      c3:
+        verdict: match
+        extractedValue: "MT-Bench: 8カテゴリ中5つで改善(Extraction +0.65、STEM +0.60); 安全性: 拒否率の最大増 +17.7%(JailbreakBench, 53.2%→70.9%)"
+        extractedQuote: (a) On MT-Bench, long expert personas help in 5/8 categories (Writing, Roleplay, Reasoning, Extraction, STEM), with the strongest gains in Extraction (+0.65) and STEM (+0.60).
+        locator: Figure 1(a),(c) キャプション / §3.2b・§3.2c
+        note: "+17.7% は領域専門家ではなく『Safety Monitor』persona(§3 で 4つの behavioral personas の一つとされる。キャプションは 'expert persona' と呼ぶ)の long 版による JailbreakBench の値で、単位はポイント差(53.2%→70.9%)。原文: 'with the largest gain on JailbreakBench (+17.7%, from 53.2% to 70.9%)'。ask の『安全性ベンチマークでは拒否率が最大 +17.7%』は Safety Monitor に限った最大値。"
+      c4:
+        verdict: match
+        extractedValue: "6モデル: Qwen2.5-7B-Inst., Llama-3.1-8B-Inst., Mistral-7B-Inst.-v0.3, MoE 1(Mixtral-8x7B-Inst.-v0.1), 推論蒸留 2(R1-Distill-Qwen-7B, R1-Distill-Llama-8B); 12 persona(8 task experts + 4 behavioral); Params 7B / 8B(Mixtral は 8×7B)"
+        extractedQuote: "We investigate persona effects on 6 LLMs spanning three families: 3 instruction-tuned models, 1 Mixture-of-Experts model, and 2 reasoning-distilled models."
+        locator: Appendix A Model Details / Table 2; persona 数は §3 Investigation methods
+        note: "原典内の不一致: Table 2 の MoE は Mixtral-8x7B-Inst.-v0.1 だが、Figure 1(d) の軸ラベルは『Qwen1.5-MoE』。『7〜8B 級』とすると Mixtral 8×7B(総パラメータは 7B/8B より大)は外れる。§3 本文は '6 LLMs spanning instruction-tuned and reasoning-distilled families' と MoE に触れない。PRISM の評価(§4.2)は MoE を除く5モデル。全モデルがオープンウェイトである点は原文と矛盾しない(明示的な『フロンティア API モデルではない』の記述は無い)。"
+      c5:
+        verdict: match
+        extractedValue: minimum ペルソナ 68.0% 対 ベースライン 71.6%(差 3.6pt は原文に明記なし・算出値)
+        extractedQuote: "(b) On MMLU, all expert persona variants damage accuracy, with the minimum persona suffering the least (overall: 68.0% vs. 71.6% baseline)."
+        locator: Figure 1 caption (b)(§3 Investigation methods 直後)。§3.1a・§3.1c にも同値(long persona 66.3%)
+        note: 差分の pt 値は原文に無く 71.6-68.0 からの算出値。粒度は full/short/minimum の3段階で、minimum が最短である点は ask と整合。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: S5
+    query: ロールプロンプト 意味ない ペルソナ 精度 上がらない LLM 検証 あなたは〇〇です(note.com/super_human の紹介記事から原典へ)

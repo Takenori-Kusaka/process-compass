@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0281
+status: included
+excludeReason: null
+title: エージェントを増やしても賢くならない — graph engineering を Claude Code の Dynamic Workflow だけで実装して分かったこと
+url: https://qiita.com/banquet_kuma/items/f43a22ab24f219ed0569
+canonicalUrl: https://qiita.com/banquet_kuma/items/f43a22ab24f219ed0569
+ids:
+  arxiv: null
+  doi: null
+publisher: Qiita
+authors: [マルチンゲール]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-09-20
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "qiita API: Claude Code created:>=2026-06-01 サブエージェント"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH01, TH04]
+events: []
+summary: 観点別並列レビュー+検証段のワークフローを Claude Code の Dynamic Workflow で実装し、同一モデル・同一文脈の検証段が全指摘を追認した失敗と、外部証拠・反証フレーミング・モデル分散による改善を3回の実行で比べた記録。
+claims:
+  - id: c1
+    text: バグを1つ仕込んだ12関数・52行の変更に対し、初版(再現フレーミング)の検証段は9件の指摘を9件とも「再現できた」と判定し棄却0件だった。反証フレーミング導入後は採用6・棄却1・未検証2になり、総トークンも736K→420Kに減った。
+    quote: 100%通過するフィルタはフィルタではありません。
+    locator: "TL;DR / §6 実測: 3回の実行で何が変わったか"
+    quant:
+      value: 棄却 0/9 → 1/9(採用6・未検証2)、736K→420K tokens
+      n: 3回の実行(各1回)
+      design: 同一対象への設定違いの逐次比較(小規模、単発)
+      population: 意図的にバグを仕込んだユーティリティ集(12関数、変更52行)、Claude Code Dynamic Workflow
+    evidenceKind: case-report
+    rqs: [TH06-Q3, TH06-Q5]
+    issues: [258]
+    stance: supports
+  - id: c2
+    text: 同じモデルが同じ文脈を読むエージェントは何体並べても互いを承認し合うだけで、3体が同じモデル・同じ入力なら実質1票だ、と著者は整理している。
+    quote: 同じモデルの同じコンテキストを読むエージェントは、何体並べても互いを承認し合うだけだからです。
+    locator: TL;DR / §2 最大の落とし穴 organized nonsense
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q3, TH06-Q2]
+    issues: [256, 258]
+    stance: supports
+  - id: c3
+    text: 2回目と3回目で件数は同じでも、判定の根拠が推測から事実へ変わった。マルチエージェントの評価は件数だけ見ると改善を見落とすとしている。
+    quote: マルチエージェントの評価では、件数だけを見ていると改善を見落とします。
+    locator: §6.2 2回目 → 3回目
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q6, TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.194Z
+    httpStatus: 200
+    finalUrl: https://qiita.com/banquet_kuma/items/f43a22ab24f219ed0569
+    contentType: text/html; charset=utf-8
+    titleFetched: エージェントを増やしても賢くならない — graph engineering を Claude Code の Dynamic Workflow だけで実装して分かったこと - Qiita
+    titleMatch: true
+    dateMeta: 2026-09-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "仕込んだバグ 1つ / 12関数 / 変更行数 52行 / 1回目(初版・再現フレーミング): confirmed 9・discarded 0・unverified 0 / 2回目(反証フレーミング導入): confirmed 6・discarded 1・unverified 2(3回目も同じ 6/1/2) / 総トークン(表示値) 736K → 420K(2回目) → 411K(3回目)"
+        extractedQuote: "| 1 | 初版（再現フレーミング） | 9 | **0** | 0 | 736K |"
+        locator: "§6 実測: 3回の実行で何が変わったか(冒頭段落と表)、TL;DR 第3項"
+        note: "原文: 「検証には、意図的にバグを1つ仕込んだ小さなユーティリティ集（`clamp` / `sum` / `avg` / `chunk` / `median` / `buildQuery` など12関数、変更行数52行）を使いました。」表2行目「| 2 | 反証フレーミング導入 | 6 | 1 | 2 | 420K |」、3行目「| 3 | 反証基準3を「到達可能性」で再定義 | 6 | 1 | 2 | 411K |」。TL;DR「初版の検証段は **9件の指摘を9件とも「再現できた」と判定し、棄却ゼロ**でした。」ask の「___K→___K」は 736K→420K(1→2回目)とも 736K→411K(1→3回目)とも読める。原典はトークン表示値について「この表示値の内訳定義は確認していません」と注記している。"
+      c2:
+        verdict: match
+        extractedValue: 3体 / 実質1票
+        extractedQuote: 同じモデルが同じコンテキストを読めば、判断はほぼ同じ方向に倒れます。**3体が同じモデル・同じ入力なら、それは実質1票です。** 票数を増やしても独立性は増えません。
+        locator: §2 最大の落とし穴 organized nonsense
+        note: 「3体→1票」は著者自身の地の文。直前に引用している Bouchard の原文は「Twenty agents on the same model」(20体)で、数値は別。
+      c3:
+        verdict: match
+        extractedValue: 2回目と3回目
+        extractedQuote: マルチエージェントの改善は**件数では測れません**。3回目は件数が2回目と同一でしたが、判定理由が推測から事実へ変わっていました
+        locator: "§6.2 見出し「2回目 → 3回目: 件数が同じでも中身が変わった」、§8 まとめ"
+        note: §6.2 末尾にも「件数は変わっていません。変わったのは、**推測に基づく判定が事実に基づく判定になった**ことです。マルチエージェントの評価では、件数だけを見ていると改善を見落とします。」とある。ask と原典の向きは一致。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

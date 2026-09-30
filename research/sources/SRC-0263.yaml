@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0263
+status: included
+excludeReason: null
+title: AI活用で生まれた別のコスト
+url: https://tech.smarthr.jp/entry/2026/09/02/120000
+canonicalUrl: https://tech.smarthr.jp/entry/2026/09/02/120000
+ids:
+  arxiv: null
+  doi: null
+publisher: SmartHR Tech Blog
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-09-02
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: "RSS走査: 国内Web系21社の技術ブログフィード(freee, マネーフォワード, SmartHR, サイバーエージェント, LINEヤフー, DeNA, Sansan, ZOZO, エムスリー, ANDPAD, メルカリ, GMO, ゆめみ, Ubie, ログラス, カケハシ, 10X, UPSIDER, Gaudiy, ヤプリ 等)を AI|Claude|Codex|エージェント|LLM|レビュー|ハーネス で抽出"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH10, TH11]
+events: []
+summary: SmartHR社員の論考。PRD・PR説明・仕様書などAI生成文書の乱立で、作成者の時間短縮がレビュワー・読み手のコストに移っているのではないかと問題提起する。
+claims:
+  - id: c1
+    text: AIで作業者の生産性は上がって見えても、レビューや確認のコストが別の人に移っているだけではないかと指摘する。
+    quote: 作業者の生産性は上がったように見えても、レビューや確認のコストが別の人に移っているだけではないか？ということです。
+    locator: はじめに
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2, TH05-Q3]
+    issues: [252]
+    stance: supports
+  - id: c2
+    text: AI生成のPR説明は変更の羅列で詳細すぎ、本質的な変更を読み解くのに時間がかかる。完成度が高く見える文書にも未検証の仮説や未合意の内容が混ざる。
+    quote: PRの説明、仕様書、設計メモなどには、ぱっと見では完成度が高そうに見えても、実際には未検証の仮説、AIが補完したそれっぽい説明、人間がまだ合意していない内容が混ざっていることがあります。
+    locator: 読む側の負担
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3, TH10-Q4, TH08-Q3]
+    issues: [272]
+    stance: supports
+  - id: c3
+    text: 対策として、生成物には必ず自分で目を通し「AIが書いたから」を確認省略の理由にしないことを挙げる。
+    quote: 生成した成果物には必ず自分ですべて目を通す。「AIが書いたから」は確認の省略理由にならない
+    locator: まとめ
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.290Z
+    httpStatus: 200
+    finalUrl: https://tech.smarthr.jp/entry/2026/09/02/120000
+    contentType: text/html; charset=utf-8
+    titleFetched: AI活用で生まれた別のコスト - SmartHR Tech Blog
+    titleMatch: true
+    dateMeta: 2026-09-02
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

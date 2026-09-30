@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0081
+status: included
+excludeReason: null
+title: "HiL-Bench (Human-in-Loop Benchmark): Do Agents Know When to Ask for Help?"
+url: https://arxiv.org/abs/2604.09408
+canonicalUrl: arxiv:2604.09408
+ids:
+  arxiv: "2604.09408"
+  doi: null
+publisher: arXiv (Scale AI)
+authors: [Trinh Tu, Elfeki Mohamed, Luo Guangze, Luu Kelvin, Hunt Nathan, Liu Bing]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2026-04
+publishedBasis: arxiv-v1
+version: v4
+updated: 2026-05-04
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH01
+  query: AI agent asks too many questions over-escalation clarification when to ask vs act study
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH08]
+events: []
+summary: Scale AI によるベンチマーク。タスクに3〜5個の「聞かないと解けない」欠落を埋め込み、聞く判断(Ask-F1=質問精度と欠落再現率の調和平均)を測る。フロンティアモデルは完全情報で75〜89%解けるのに、聞く判断が要ると4〜24%に落ち、支配的な失敗は「聞かずに自信を持って誤る」側。過剰質問は精度項で罰する。
+claims:
+  - id: c1
+    text: フロンティアエージェントの多くが占める危険な象限は「聞かずに誤った信念を形成し、もっともらしいが誤った出力を出す」confident failure であり、過剰質問ではない。
+    quote: "The dangerous quadrant, and the one most frontier agents occupy, is confident failure: the agent never asks, forms wrong beliefs, and delivers plausible but incorrect output."
+    locator: §5 Conclusion
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: contradicts
+  - id: c2
+    text: 完全情報では pass@3 が75〜89%だが、ask_human() を使えるにもかかわらず聞くべきかを判断させると4〜24%に落ちる。ボトルネックは能力ではなく判断。
+    quote: Models achieve 75–89% pass@3 with complete information but only 4–24% when they must judge when to ask, despite access to ask_human().
+    locator: Figure 1 caption
+    quant:
+      value: 75–89% → 4–24% (pass@3)
+      n: SWE と text-to-SQL の2領域、GPT-5.3-Codex / GPT-5.4 / Gemini 3.1 Pro / Claude Opus 4.6
+      design: benchmark with injected blockers (3–5 per task)
+      population: frontier coding agents
+    evidenceKind: benchmark
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: contradicts
+  - id: c3
+    text: Ask-F1 は質問精度と欠落再現率の調和平均で、過剰質問(over-asking)と黙って推測することの両方を罰する。質問を乱発して再現率を稼ぐ抜け道を構造的に塞ぐ。
+    quote: Ask-F1, the harmonic mean of question precision and blocker recall, captures the tension between over-asking and silent guessing; its structure architecturally prevents gaming through question spam.
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH01-Q4]
+    issues: [248]
+    stance: qualifies
+  - id: c4
+    text: Claude Code の AskUserQuestion、Codex/Cursor の対話モードなど確認手段は既に製品にあるが、適切なタイミングで呼ばれることは稀だと指摘。
+    quote: "Frontier agents today already ship with clarification mechanisms: Claude Code exposes an AskUserQuestion tool, while Codex and Cursor provide interactive modes. Yet these agents rarely invoke them at the right time."
+    locator: §1 Introduction, The judgment gap
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH01-Q4, TH08-Q1]
+    issues: [248]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:26.507Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2604.09408
+    contentType: text/html; charset=utf-8
+    titleFetched: "HiL-Bench (Human-in-Loop Benchmark): Do Agents Know When to Ask for Help?"
+    titleMatch: true
+    dateMeta: 2026-04-10
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "HiL-Bench (Human-in-Loop Benchmark): Do Agents Know When to Ask for Help?"
+      authors: ["Trinh, Tu", "Elfeki, Mohamed", "Luo, Guangze", "Luu, Kelvin", "Hunt, Nathan", "Hernandez, Ernesto"]
+      v1Date: 2026-04-10
+      latestVersion: 4
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

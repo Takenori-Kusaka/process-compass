@@ -1,0 +1,106 @@
+schemaVersion: 0
+id: SRC-0333
+status: included
+excludeReason: null
+title: 4M変更管理（変化点管理）で不良発生を未然に防止
+url: https://www.monodukuri.com/gihou/article/814
+canonicalUrl: https://monodukuri.com/gihou/article/814
+ids:
+  arxiv: null
+  doi: null
+publisher: "ものづくりドットコム(技法コラム。著者所属: 合同会社高崎ものづくり技術研究所)"
+authors: [濱田 金男]
+orgType: consultancy
+region: jp
+lang: ja
+sourceType: industry-report
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: 4M変化点管理 ソフトウェア開発 適用
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02]
+events: []
+summary: 製造業に50年従事したコンサルタントによる4M変化点管理の解説(掲載日は取得できず。後半は会員限定)。人員交替直後などを管理対象に含め、管理範囲をモデル工程から段階的に広げ、半年〜1年周期で管理項目自体を見直す運用を述べる。
+claims:
+  - id: c1
+    text: 4M変化点管理の目的は不良の前兆を捉えて対策することで、顧客要求の QCD 確保につながると位置づける。
+    quote: まず4M変化点管理の目的は、「不良の前兆を捉え、対策する」です。
+    locator: 冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 変更管理の対象に、技能を要する工程の人員交替直後の製品や設備修復直後の製品を含める。人の入れ替わりを品質リスクの変化点として明示的に扱う。
+    quote: スキルを要する工程にかかわる人員の交替直後の製品、設備など修復直後の製品、突発トラブル発生時の製品など
+    locator: 2.2 (1) 4M変更管理対象の定義
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 変化点の洗い出しは、まず管理範囲を限定してモデル工程で試行し、順次広げる方法も取られる。統制の段階的な有効化に当たる運用である。
+    quote: まずは管理する範囲を限定し、モデル工程として試行、順次その範囲を広げていく方法も取られます。
+    locator: 2.2 (2) 変化点の洗い出し
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2, TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c4
+    text: 迅速さが求められる4M変更管理では、判断・実行する部署の責任と権限を事前に明確にしておく必要があるとする。
+    quote: スピーディーな対応が求められる4M変更管理では、責任と権限を明確にしておかなければなりません。
+    locator: 2.1 4M変更管理のマネジメント・フロー
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: context
+  - id: c5
+    text: 管理の仕組み自体を、関係部門が半年か1年の周期で記録を持ち寄ってレビューし改善する。ほとんど異常値を示さない管理項目も分析・分類の対象にしており、効かない統制を見直す手順を含む。
+    quote: 関係部門を集め、半年か1年の周期で記録・データーを持ち寄ってレビューを行い、レビューの評価結果に基づき、4M変動管理全体の改善を実施します。
+    locator: 2.3 評価とフィードバック
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2, TH07-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:14.329Z
+    httpStatus: 200
+    finalUrl: https://www.monodukuri.com/gihou/article/814
+    contentType: text/html; charset=UTF-8
+    titleFetched: 4M変更管理（変化点管理）で不良発生を未然に防止 - ものづくりドットコム
+    titleMatch: true
+    dateMeta: 2016-02-02
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://monodukuri.com/gihou/article/814

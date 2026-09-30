@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0446
+status: included
+excludeReason: null
+title: Spec Driven Development isn't Waterfall
+url: https://brooker.co.za/blog/2026/04/09/waterfall-vs-spec.html
+canonicalUrl: https://brooker.co.za/blog/2026/04/09/waterfall-vs-spec.html
+ids:
+  arxiv: null
+  doi: null
+publisher: Marc's Blog
+authors: [Brooker Marc]
+orgType: individual
+region: us
+lang: en
+sourceType: individual
+published: 2026-04-09
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: Böckeler spec-driven development Kiro spec-kit Tessl martinfowler.com
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH09]
+events: []
+summary: AWS のエンジニア(Kiro の発信にも関与)による個人ブログ。SDD はウォーターフォールへの回帰ではなく、仕様を反復の対象として上流に置く実践だと反論する擁護側の資料。実測データはない。
+claims:
+  - id: c1
+    text: 仕様駆動開発は設計を前倒しで作り込むことではなく、設計を上位の抽象へ引き上げ、明示的で版管理された生きた成果物にすることだと主張する。
+    quote: Specification driven development (in Kiro, for example) isn’t about pulling designs up-front, it’s about pulling designs up.
+    locator: 本文冒頭
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 仕様は大半の変更で実装の上流にあることで、実装と同期を保つ。要求の内部矛盾やトレードオフを引き受けるのは人間だとする。
+    quote: Specs stay in sync with implementation by being upstream of implementation for most changes.
+    locator: 本文中盤
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:55.325Z
+    httpStatus: 200
+    finalUrl: https://brooker.co.za/blog/2026/04/09/waterfall-vs-spec.html
+    contentType: text/html
+    titleFetched: Spec Driven Development isn't Waterfall - Marc's Blog
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

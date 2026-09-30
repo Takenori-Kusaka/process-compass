@@ -1,0 +1,125 @@
+schemaVersion: 0
+id: SRC-0469
+status: included
+excludeReason: null
+title: DX releases Q2 2026 State of AI Impact in Engineering Report
+url: https://getdx.com/news/dx-releases-q2-2026-state-of-ai-impact-in-engineering-report
+canonicalUrl: https://getdx.com/news/dx-releases-q2-2026-state-of-ai-impact-in-engineering-report
+ids:
+  arxiv: null
+  doi: null
+publisher: DX (Atlassian)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-07-22
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH11
+  query: DX Core 4 AI measurement framework utilization impact cost getdx 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH04]
+events: []
+summary: DX の四半期報告(500超の組織、2026年4〜6月、テレメトリ+調査、DX Core 4 と AI Measurement Framework で集計)の発表。AI支出が約28倍に増えた一方でイノベーション比率は横ばい、スループット+37%に対し DXI と変更への確信は低下した。全文は顧客向け資料で、発表記事を読んだ。
+claims:
+  - id: c1
+    text: テック業界の四半期AI支出の中央値は1年で約1.5千ドルから4.4万ドルへ約28倍になったが、新機能に使う時間の比率(innovation ratio)は約57〜58%のまま動かなかった。
+    quote: Median quarterly AI spend grew from roughly $1.5K to $44K in a year, a nearly 28x increase in the Tech sector alone.
+    locator: Key findings
+    quant:
+      value: ~28x spend; innovation ratio 57–58% flat
+      n: 500+ engineering organizations
+      design: telemetry + survey, quarterly trend (Q3 2025–Q2 2026)
+      population: DX customer organizations
+    evidenceKind: observational
+    rqs: [TH11-Q1, TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: エンジニア1人週あたりの PR スループットは4四半期で37%増えたが、開発者体験指数(DXI)は67から65へ下がった。
+    quote: Median weekly TrueThroughput rose 37% over four quarters, from 1.42 to 1.94 PRs per engineer per week. But the Developer Experience Index (DXI) fell from 67 to 65
+    locator: Key findings
+    quant:
+      value: +37% PR throughput; DXI 67 -> 65
+      n: 500+ organizations
+      design: telemetry + survey
+      population: DX customer organizations
+    evidenceKind: observational
+    rqs: [TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 変更が何かを壊さないという開発者の確信(change confidence)は同期間に6.1%低下し、変更失敗率の組織間のばらつきも広がった。
+    quote: But change confidence, developers’ trust that their changes won’t break something, fell 6.1% in the same period.
+    locator: Key findings
+    quant:
+      value: -6.1% change confidence
+      n: 500+ organizations
+      design: survey component
+      population: DX customer organizations
+    evidenceKind: observational
+    rqs: [TH11-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: DX は、速度と支出の指標には必ず品質と体験の対になる指標を組にしてから成功を判断すべきだと提言する。
+    quote: pairing every speed and spend metric with a quality and experience counterweight before declaring AI investments a success.
+    locator: Key findings 末尾
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH11-Q1, TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:05.164Z
+    httpStatus: 200
+    finalUrl: https://getdx.com/news/dx-releases-q2-2026-state-of-ai-impact-in-engineering-report/
+    contentType: text/html; charset=utf-8
+    titleFetched: DX releases Q2 2026 State of AI Impact in Engineering Report
+    titleMatch: true
+    dateMeta: " 26-07-22t"
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1年で約$1.5K→$44K、約28倍(Tech sector)/innovation ratio 約57–58%
+        extractedQuote: Median quarterly AI spend grew from roughly $1.5K to $44K in a year, a nearly 28x increase in the Tech sector alone. Over that same period, the innovation ratio (time spent on new feature work versus maintenance) barely moved, holding at roughly 57–58%.
+        locator: Key findings from the report(第1項)
+        note: $44K は 4.4万ドル。28倍は Tech sector に限った値。innovation ratio が Tech sector 限定か全体かは原文では明示されない。出典はベンダー(DX)のプレスリリース。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote『Median quarterly AI spend grew from roughly $1.5K to $44K in a year, a nearly 28x increase in the Tech sector alone. ... the innovation ratio (time spent on new feature work versus maintenance) barely moved, holding at roughly 57–58%.』どおり。$44K=4.4万ドル。主張は innovation ratio をテック業界に限定して書いておらず、原文の範囲の曖昧さと矛盾しない。出典はベンダー(DX)のプレスリリース。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: 1人週あたり、4四半期で37%増(1.42→1.94 PRs)/DXI 67→65
+        extractedQuote: Median weekly TrueThroughput rose 37% over four quarters, from 1.42 to 1.94 PRs per engineer per week. But the Developer Experience Index (DXI) fell from 67 to 65 over the same window
+        locator: Key findings from the report(第3項)
+        note: 指標は中央値の TrueThroughput(DX独自指標)。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

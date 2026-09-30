@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0265
+status: included
+excludeReason: null
+title: AI agentを活用した開発プロセスと人間の認知限界
+url: https://developers.freee.co.jp/entry/ai-dev-and-cogsci
+canonicalUrl: https://developers.freee.co.jp/entry/ai-dev-and-cogsci
+ids:
+  arxiv: null
+  doi: null
+publisher: freee Developers Hub
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-08-13
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: "RSS走査: 国内Web系21社の技術ブログフィード(freee, マネーフォワード, SmartHR, サイバーエージェント, LINEヤフー, DeNA, Sansan, ZOZO, エムスリー, ANDPAD, メルカリ, GMO, ゆめみ, Ubie, ログラス, カケハシ, 10X, UPSIDER, Gaudiy, ヤプリ 等)を AI|Claude|Codex|エージェント|LLM|レビュー|ハーネス で抽出"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH05]
+events: []
+summary: freee社員による認知科学(ワーキングメモリ4±1、分散認知、限定合理性)に基づく論考。AIエージェントはチームの理解を蓄積し判断の整合性を保てず、開発プロセス設計は人間集団の認知資源の最適化問題になると主張する。
+claims:
+  - id: c1
+    text: AIエージェントは与えられた情報から成果物を生成する能力には優れるが、チームとしての理解を蓄積し判断の整合性を維持することは現時点ではできないため、その領域の判断は人が担う必要があると論じる。
+    quote: このため、AI agentは「今この瞬間に与えられた情報から成果物を生成する」能力には優れるが、「チームとしての理解を蓄積し、それに基づいて判断の整合性を維持する」ことは現時点ではできない、と考えざるを得ません。
+    locator: AI agentを活用した開発で何が変わるか
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 人が担っていた領域を単純にAIへ置き換えると、その部分で人が担っていた分散認知が欠落し、キャッチアップのコスト(認知負債・意図負債)が蓄積すると論じる。
+    quote: そうすると、元々人間が行っていた領域を単純にAI agentに置き換えた場合、置き換えた部分で人間が行っていた分散認知の領域は単純に欠落する形になります。
+    locator: AI agentを活用した開発で何が変わるか
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3, TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: AI時代の開発プロセス設計は、人間(集団)の意思決定速度を上げること、すなわち人間の認知資源の最適化問題として考えるべきだと主張する。
+    quote: すなわち、AI時代の開発プロセスの設計は、人間の認知リソース、あるいは開発者集団としての分散認知のリソースの最適化問題として考えるべき、ということになります。
+    locator: 開発プロセス設計への示唆
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q4, TH05-Q5]
+    issues: []
+    stance: context
+  - id: c4
+    text: ワーキングメモリ/短期記憶の容量を4±1項目として参照しており、7±2ではなくCowan系の値を前提にしている。
+    quote: ワーキングメモリ／短期記憶は、4±1項目という非常に少ない容量の記憶しか行うことができません。
+    locator: 認知科学の一般的な知見(ワーキングメモリ)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.403Z
+    httpStatus: 200
+    finalUrl: https://developers.freee.co.jp/entry/ai-dev-and-cogsci
+    contentType: text/html; charset=utf-8
+    titleFetched: AI agentを活用した開発プロセスと人間の認知限界 - freee Developers Hub
+    titleMatch: true
+    dateMeta: 2026-08-13
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: 4±1(Miller の 7±2 ではなく Cowan (2001) 以降の値)
+        extractedQuote: 古くは Miller (1956) による7±2個程度の項目を記憶できるという説が広く知られていたが、 Cowan (2001) 以降はもっと少ない（4程度）とされることが多い … ワーキングメモリ／短期記憶は、4±1項目という非常に少ない容量の記憶しか行うことができません。
+        locator: 人の認知の特性 > 記憶 > 短期記憶 / チャンキング
+        note: 「4±1」の表記はチャンキング節。短期記憶節では Cowan 以降「4程度」と記述。参考文献に Cowan (2001) と Miller (1956) の両方あり。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

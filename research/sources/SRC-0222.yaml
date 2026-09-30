@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0222
+status: included
+excludeReason: null
+title: Artifact Review (Google Antigravity Docs)
+url: https://antigravity.google/docs/artifact-review
+canonicalUrl: https://antigravity.google/docs/artifact-review
+ids:
+  arxiv: null
+  doi: null
+publisher: Google Antigravity Docs
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: antigravity.google docs review policy artifact "request review" terminal command auto execution
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH08]
+events: []
+summary: Antigravity 2.0 の計画(Artifact)承認方針の公式文書(ページに日付なし、2026-09-24 取得)。Planning / Fast の 2 モードと、Request Review(推奨)/ Always Proceed の 2 方針を定める。
+claims:
+  - id: c1
+    text: 推奨の Request Review では、実装計画やコード差分を生成するたびにエージェントが停止し、明示の承認を待つ。
+    quote: The agent always halts and requests your explicit approval before proceeding with proposed changes.
+    locator: 1. Request Review (Recommended)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH08-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: Always Proceed ではエージェントがレビューを求めると判断した場合でも停止せず実装を続ける。人の承認点を利用者の選択で完全に外せる。
+    quote: When the agent decides to request a review, it will immediately bypass the pause and continue with the implementation.
+    locator: 2. Always Proceed
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH01-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: Fast モードは計画段階なしで直接実行し、変数名変更や小さなリファクタなど局所的な作業向けとされる。作業の大きさで計画・承認の有無を切り替える設計。
+    quote: Use this for simple, highly localized tasks that can be completed quickly, such as variable renaming, running a specific bash command, or small refactors.
+    locator: Artifact Review(冒頭)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH02-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:14.333Z
+    httpStatus: 200
+    finalUrl: https://antigravity.google/docs/artifact-review
+    contentType: text/html
+    titleFetched: Artifact Review
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

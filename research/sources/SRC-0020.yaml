@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0020
+status: included
+excludeReason: null
+title: Better Zero-Shot Reasoning with Role-Play Prompting
+url: https://arxiv.org/abs/2308.07702
+canonicalUrl: arxiv:2308.07702
+ids:
+  arxiv: "2308.07702"
+  doi: null
+publisher: arXiv(NAACL 2024 Main)
+authors: [Kong Aobo, Zhao Shiwan, Chen Hao, Li Qicheng, Qin Yong, Sun Ruiqi, Zhou Xin, Wang Enzhi, Dong Xiaohang]
+orgType: academic
+region: cn
+lang: en
+sourceType: paper-peer
+published: 2023-08-15
+publishedBasis: arxiv-v1
+version: v2
+updated: 2024-03-14
+accessed: 2026-09-23
+access: open
+readLevel: abstract
+foundBy:
+  cluster: C00a-2
+  query: "反証探索: Wharton 報告が「改善を示した研究」として引く Kong et al. 2024 → GET https://arxiv.org/abs/2308.07702"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: 反証側。設計した役割演技プロンプトが 12 の推論ベンチマークの大半でゼロショット標準を上回る(ChatGPT で AQuA 53.5→63.8%、Last Letter 23.8→84.2%)。Wharton・Zheng の「persona は精度を改善しない」に対する正の報告だが、2023 年の ChatGPT と 2 段階の対話設計に依存する。
+claims:
+  - id: c1
+    text: ChatGPT で役割演技プロンプトにより AQuA 53.5%→63.8%、Last Letter 23.8%→84.2%。persona が推論を改善したとする報告。
+    quote: Notably, in experiments conducted using ChatGPT, accuracy on AQuA rises from 53.5% to 63.8%, and on Last Letter from 23.8% to 84.2%.
+    locator: Abstract
+    quant:
+      value: +10.3pt (AQuA) / +60.4pt (Last Letter)
+      n: 12 benchmarks(abstract のみ)
+      design: benchmark
+      population: ChatGPT (2023)
+    evidenceKind: benchmark
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:34:53.868Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2308.07702
+    contentType: text/html; charset=utf-8
+    titleFetched: Better Zero-Shot Reasoning with Role-Play Prompting
+    titleMatch: true
+    dateMeta: 2023-08-15
+    quotes:
+      c1: found
+    arxiv:
+      status: 200
+      title: Better Zero-Shot Reasoning with Role-Play Prompting
+      authors: ["Kong, Aobo", "Zhao, Shiwan", "Chen, Hao", "Li, Qicheng", "Qin, Yong", "Sun, Ruiqi"]
+      v1Date: 2023-08-15
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: AQuA 53.5% → 63.8%; Last Letter 23.8% → 84.2%(ChatGPT)
+        extractedQuote: Notably, in experiments conducted using ChatGPT, accuracy on AQuA rises from 53.5% to 63.8%, and on Last Letter from 23.8% to 84.2%.
+        locator: Abstract(v1, 2023-08-15)
+        note: 比較対象は標準 zero-shot。abstract は 'consistently surpasses the standard zero-shot approach across most datasets'(12 ベンチマーク中の大半)と記す。
+        adjudication:
+          verdict: consistent
+          reason: ChatGPT での AQuA 53.5%→63.8%、Last Letter 23.8%→84.2% は blindQuote どおり。差分は 63.8−53.5=10.3pt、84.2−23.8=60.4pt で、claimQuant と一致する。比較の相手は標準の zero-shot で、原典は大半のデータセットで上回ったと書く(blindNote)。『改善したとする報告』という書き方と矛盾しない。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

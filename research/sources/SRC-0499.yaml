@@ -1,0 +1,125 @@
+schemaVersion: 0
+id: SRC-0499
+status: included
+excludeReason: null
+title: 人工知能基本計画(令和8年7月14日閣議決定)
+url: https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_20260714.pdf
+canonicalUrl: https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_20260714.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 内閣府(人工知能戦略本部)
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-07-14
+publishedBasis: pdf
+version: 第2期
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: AI基本計画 閣議決定 人工知能基本計画
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01]
+events:
+  - date: 2025-12-23
+    label: 第1期 人工知能基本計画を閣議決定
+  - date: 2026-07-14
+    label: 人工知能基本計画を改定(第2期)し閣議決定
+summary: AI 法(令和7年法律第53号)第18条に基づく法定計画の第2期。策定から約半年で改定し、当面は毎年変更すると明記した。人の責任の在り方として Human in the loop / on the loop / in the lead を脚注で紹介する。
+claims:
+  - id: c1
+    text: 技術の発達と活用の拡大が極めて急速であることを理由に、必要に応じて見直し、当面は毎年変更すると定めた。行政計画として異例の短い改訂周期である。
+    quote: 必要に応じて本計画を見直し、変更を行うこととし、当面は毎年変更を行うこととする。
+    locator: 第2節 基本計画の変更(p.21)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 人の責任の在り方として現在議論されている考え方に、Human in the loop(人がタスク実行の流れに直接関与)、Human on the loop(実行は AI、全体設計と監視は人)、Human in the lead(人が意思決定と価値創出の主導権を握る)の3つを挙げる。規定ではなく議論の紹介である。
+    quote: Human on the loop：タスク実行自体はＡＩに任せつつ、その流れの全体設計や監視は人が担う仕組み
+    locator: 脚注9
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, TH01-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: エージェント型 AI の登場を踏まえ、人と AI の役割分担と、判断責任を始め人が担うべき価値を探究するとした。
+    quote: 人とＡＩがどういった役割分担の下信頼を構築するのか、判断責任を始め人が創造すべき価値は何かを探究する
+    locator: 第1章(我が国が目指す姿)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: AISI を強化し、エージェント型 AI を含む利活用・開発時の安全性とセキュリティを担保するガイドラインを策定するとした。
+    quote: エージェント型ＡＩを含むＡＩの利活用及び開発時における安全性やセキュリティを担保するためのガイドラインの策定
+    locator: 第2章 3.(AI の信頼性を高める)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:16.282Z
+    httpStatus: 200
+    finalUrl: https://www8.cao.go.jp/cstp/ai/ai_plan/aiplan_20260714.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 当面は毎年変更
+        extractedQuote: 技術の発達と活用の拡大が極めて急速であるというＡＩに関する技術の特性、動向、社会情勢等を踏まえ、必要に応じて本計画を見直し、変更を行うこととし、当面は毎年変更を行うこととする。
+        locator: 第4章 第2節 基本計画の変更(p.21)
+        note: ask 後半の「行政計画として異例の短い改訂周期である」は原典に無い記述(主張者側の評価)。原典は毎年変更を定めるのみ。
+      c2:
+        verdict: match
+        extractedValue: 3(Human in the loop / Human on the loop / Human in the lead の3項目を列挙)
+        extractedQuote: 9 人の責任の在り方には、以下のような考え方が現在議論されている。Human in the loop：人がＡＩのタスク実行の流れに直接関与する仕組み Human on the loop：タスク実行自体はＡＩに任せつつ、その流れの全体設計や監視は人が担う仕組み Human in the lead：…
+        locator: 脚注9(p.18、第3章 第4節 ＡＩ社会に向けた継続的変革)
+        note: 原典は数詞を書かず3項目を列挙している(「3つ」という語は無い)。「現在議論されている」考え方の紹介であり、規定ではない点は原典と一致。
+      c3:
+        verdict: match
+        extractedValue: 人とＡＩがどういった役割分担の下信頼を構築するのか、判断責任を始め人が創造すべき価値は何かを探究
+        extractedQuote: 「人とＡＩが協働する社会」の実現に向け、エージェント型ＡＩの登場で高まるリスク…にも向き合う。人と社会との関係を再定義し、人とＡＩがどういった役割分担の下信頼を構築するのか、判断責任を始め人が創造すべき価値は何かを探究する
+        locator: 第1章 基本構想(社会全体での日本ＡＸに向けて ～「信頼できるＡＩ」で日本を駆動～)p.3付近
+        note: 原典の語は「人が創造すべき価値」で、ask の「人が担うべき価値」とは語が異なる。また原典の文脈は「エージェント型ＡＩの登場で高まるリスク…にも向き合う」であり、ask の「登場を踏まえ」より限定的。見出し名は「我が国が目指す姿」ではなく「基本構想」。
+      c4:
+        verdict: match
+        extractedValue: ＡＩＳＩも更なる強化が必要／エージェント型ＡＩを含む…安全性やセキュリティを担保するためのガイドラインの策定
+        extractedQuote: ＡＩＳＩも更なる強化が必要である。エージェント型ＡＩを含むＡＩの利活用及び開発時における安全性やセキュリティを担保するためのガイドラインの策定、国家の安全を脅かす事象を抑止する観点からの高性能ＡＩの積極的な評価…等を一体的に進める。
+        locator: 第3章 第3節 ＡＩガバナンスの主導 前文(p.14)
+        note: "locator の食い違い: 該当文は第2章 3.(「ＡＩの信頼性を高める」=基本方針)ではなく、第3章 第3節の前文にある。第2章 3.は方針の見出しのみで AISI に触れない。内容は ask と一致。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

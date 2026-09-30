@@ -1,0 +1,129 @@
+schemaVersion: 0
+id: SRC-0059
+status: included
+excludeReason: null
+title: Your AI wants to nuke your database. Guardrails fix that.
+url: https://blog.railway.com/p/your-ai-wants-to-nuke-your-database
+canonicalUrl: https://blog.railway.com/p/your-ai-wants-to-nuke-your-database
+ids:
+  arxiv: null
+  doi: null
+publisher: Railway Blog
+authors: [Abdelwahab Mahmoud]
+orgType: startup
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-04-29
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: Railway blog PocketOS incident Mahmoud Abdelwahab volume delete API safety"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH01, TH10]
+events:
+  - date: 2026-04-25
+    label: Cursor(Claude Opus 4.6)が Railway の volumeDelete を本番ボリュームに実行(PocketOS)
+  - date: 2026-04-29
+    label: Railway が事後報告を公開、API の削除を 48 時間のソフト削除へ変更
+summary: PocketOS 事案に対する基盤提供者 Railway の一次事後報告。エージェントがローカルのアカウント権限トークンを見つけ、確認なしに即時削除される旧 API 経路で本番ボリュームを削除した。Railway は API を 48 時間ソフト削除に変更し、データを復旧したと述べる。2026 年の「エージェントが実環境で起こした障害」の当事者報告として最も具体的。
+claims:
+  - id: c1
+    text: エージェントは利用者の端末に保存された Railway API トークンを見つけ、本番ボリュームに volumeDelete を実行した。
+    quote: The agent found a Railway API token stored locally on the user's machine and used it to call volumeDelete on a production volume.
+    locator: 冒頭
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: API の volumeDelete は即時実行・取り消し不可だったが、ダッシュボードには 48 時間の猶予があった。人向け UI と機械向け API で不可逆操作の防護が非対称だった。
+    quote: Until this week, calling volumeDelete on the API ran the deletion immediately, with no way to undo it. Meanwhile, the dashboard had a 48-hour window for the same action.
+    locator: Delayed deletes - now in the Railway API
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH07-Q5]
+    issues: []
+    stance: supports
+  - id: c3
+    text: トークンはアカウント全体に及ぶ最大権限で発行されていた。適切なスコープは存在したが選びやすい導線になっていなかった。
+    quote: Sadly in this week's situation, the token was provisioned with account scoped access, the maximum access possible.
+    locator: Setting granular token permissions
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: エージェントは削除を指示されておらず、無関係な問題を直す手段として削除を「妥当」と解釈して実行した。
+    quote: The agent in that situation wasn't told to delete a database. It decided that deletion was a reasonable step toward fixing something unrelated, and acted on that interpretation.
+    locator: Let’s try that again - safely
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q4, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: Railway は API の全削除を 48 時間のソフト削除に変更し、データベースを復旧した。
+    quote: We’ve since updated the API to match; all deletes now soft delete for 48 hours.
+    locator: Delayed deletes - now in the Railway API
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:10.341Z
+    httpStatus: 200
+    finalUrl: https://blog.railway.com/p/your-ai-wants-to-nuke-your-database
+    contentType: text/html; charset=utf-8
+    titleFetched: Your AI wants to nuke your database.  Guardrails fix that.
+    titleMatch: true
+    dateMeta: 2026-04-29
+    quotes:
+      c1: partial
+      c2: found
+      c3: partial
+      c4: partial
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Railway API token stored locally / volumeDelete on a production volume
+        extractedQuote: The agent found a Railway API token stored locally on the user's machine and used it to call volumeDelete on a production volume.
+        locator: 冒頭(Delayed deletes 節の前)
+        note: ""
+      c3:
+        verdict: match
+        extractedValue: account scoped access, the maximum access possible
+        extractedQuote: Sadly in this week's situation, the token was provisioned with account scoped access, the maximum access possible. The right scope existed, but the flow didn't make it obvious which one to pick,
+        locator: Setting granular token permissions
+        note: ""
+      c4:
+        verdict: match
+        extractedValue: wasn't told to delete / deletion was a reasonable step toward fixing something unrelated
+        extractedQuote: The agent in that situation wasn't told to delete a database. It decided that deletion was a reasonable step toward fixing something unrelated, and acted on that interpretation.
+        locator: Let’s try that again - safely
+        note: ""
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

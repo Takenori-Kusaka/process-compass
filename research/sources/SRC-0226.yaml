@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0226
+status: included
+excludeReason: null
+title: "Evolving software delivery for agentic AI (AWS Prescriptive Guidance: Operationalizing agentic AI on AWS)"
+url: https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-operationalizing-agentic-ai/software-delivery.html
+canonicalUrl: https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-operationalizing-agentic-ai/software-delivery.html
+ids:
+  arxiv: null
+  doi: null
+publisher: AWS Prescriptive Guidance
+authors: [Aaron Sempf, Brad Ryan, Bhargs Srivathsan]
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2025-08-12
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: AWS prescriptive guidance agentic AI human oversight software development
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH08]
+events: []
+summary: AWS の規範的ガイダンスのうち、エージェント型システムを「届ける」ための SDLC の変更を述べる節(ガイド初版 2025-08-12、文書履歴に改訂なし)。固定段階の代わりに zones of intent を置き、受入基準を振る舞いのガードレールへ移すと主張する。エージェントで開発する側ではなく、エージェントを製品とする側の指針である点に注意。
+claims:
+  - id: c1
+    text: エージェント型システムは確率的で文脈依存のため、ストーリー完了に基づくベロシティ、厳密な受入基準、決定論的なスプリント計画は有用性が下がるとする。
+    quote: That means some Agile practices become less useful, such as velocity tracking based on story completion, strict acceptance criteria, or deterministic sprint planning.
+    locator: Evolving the delivery lifecycle for agentic AI
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1, TH08-Q4]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 受入基準から振る舞いのガードレールへ移行し、完了の定義に観測可能性・説明可能性・フィードバック機構を含めよとする。
+    quote: Shift from acceptance criteria to behavioral guardrails.
+    locator: Evolving the delivery lifecycle for agentic AI
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH08-Q1]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 望む結果(what)・意図(why)・ガードレール(制約・方針・信頼境界)を人が定め、方法(how)はエージェントに任せる。自律を認めつつ説明責任は手放さない。
+    quote: They help you operationalize autonomy without surrendering accountability.
+    locator: Preparing teams for agentic AI
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH01-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:14.617Z
+    httpStatus: 200
+    finalUrl: https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-operationalizing-agentic-ai/software-delivery.html
+    contentType: text/html
+    titleFetched: Evolving software delivery for agentic AI - AWS Prescriptive Guidance
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

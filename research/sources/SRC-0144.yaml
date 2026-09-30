@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0144
+status: included
+excludeReason: null
+title: "Eric Ries on AI: Replace Speed With Validated Learning for Growth"
+url: https://www.netguru.com/blog/eric-ries-ai-validated-learning
+canonicalUrl: https://netguru.com/blog/eric-ries-ai-validated-learning
+ids:
+  arxiv: null
+  doi: null
+publisher: Netguru
+authors: []
+orgType: consultancy
+region: eu
+lang: en
+sourceType: corp-techblog
+published: 2026-07-27
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: secondary
+foundBy:
+  cluster: TH09
+  query: Eric Ries Lean Startup AI 2026 pivot validated learning coding agents (fetched from scratchpad; WebSearch budget exhausted)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09]
+events: []
+summary: Eric Ries の Next in Commerce セッションを Netguru が要約した二次資料。AI で成果物の生成が容易になっても進捗の単位は validated learning のままであり、内部で見栄えのする AI 生成物に酔う「LLM psychosis」を警告する。一次動画は未取得。
+claims:
+  - id: c1
+    text: スタートアップの進捗の単位は validated learning であり、AI 時代も変わらない(Ries の直接引用)。
+    quote: '"We say the unit of progress for a startup is validated learning."'
+    locator: 「The AI-era MVP trap」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: Ries は「LLM psychosis」を警告する。チームが AI 生成物の内部での見栄えに酔い、実地では的外れになる。解毒剤は実顧客への出荷と行動変化の計測。
+    quote: Ries warns of "LLM psychosis" — teams become enamored with AI-made artifacts that look impressive internally, yet miss the mark in the wild.
+    locator: "「Deep dive: real-world feedback as antidote」"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q4, TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: AI は作る速度を変えたが進捗の定義は変えていない、と要約される。
+    quote: AI has changed the speed of building, but not the definition of progress.
+    locator: Conclusion
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:09.179Z
+    httpStatus: 200
+    finalUrl: https://www.netguru.com/blog/eric-ries-ai-validated-learning
+    contentType: text/html; charset=UTF-8
+    titleFetched: "Eric Ries on AI: Replace Speed With Validated Learning for Growth"
+    titleMatch: true
+    dateMeta: 2026-07-27
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://netguru.com/blog/eric-ries-ai-validated-learning

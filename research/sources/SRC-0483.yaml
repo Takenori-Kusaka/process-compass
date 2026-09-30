@@ -1,0 +1,83 @@
+schemaVersion: 0
+id: SRC-0483
+status: included
+excludeReason: null
+title: ～「企業IT動向調査2026」速報～ 3社に1社が生成AIを「導入済み」、「検討中」を含むと5割超に、売上高1兆円以上の大企業では8割超が「導入済み」
+url: https://prtimes.jp/main/html/rd/p/000000013.000160762.html
+canonicalUrl: https://prtimes.jp/main/html/rd/p/000000013.000160762.html
+ids:
+  arxiv: null
+  doi: null
+publisher: 一般社団法人日本情報システム・ユーザー協会(JUAS)
+authors: []
+orgType: nonprofit
+region: jp
+lang: ja
+sourceType: industry-report
+published: 2026-03-12
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH11
+  query: JUAS 企業IT動向調査 2026 生成AI システム開発
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11, TH12]
+events: []
+summary: JUAS「企業IT動向調査2026」(経産省監修、東証上場企業等4,500社の IT 部門長に依頼し957社が回答、2025年9〜10月)の AI 活用速報。言語系生成AIの導入済みは33.9%、コード系生成AIの導入・試験導入は32.6%。導入率の統計であり、効果の測定値は含まない。
+claims:
+  - id: c1
+    text: 言語系生成AIを「導入済み」は回答企業の33.9%、試験導入・準備中を含めると53.4%だった。
+    quote: 「言語系生成AI」を「導入済み」の割合は回答企業の33.9％、「試験導入中・導入準備中」を含むと全体の53.4％に達しました。
+    locator: ■生成AIは「実証」から「定着」へ
+    quant:
+      value: 33.9% / 53.4%
+      n: 957 companies (of 4,500 invited)
+      design: web questionnaire to IT department heads, 2025-09-05〜10-24
+      population: TSE-listed and equivalent companies
+    evidenceKind: survey
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: コード系生成AIの導入・試験導入は32.6%で、前年度から10ポイント以上伸びた。
+    quote: 「画像および動画系生成AI」の導入・試験導入が34.2％、「コード系生成AI」が32.6％と、それぞれ前年度から10ポイント以上の大きな伸びを示しました。
+    locator: ■生成AIは「実証」から「定着」へ
+    quant:
+      value: 32.6% (code-gen AI adopted or trial)
+      n: 957 companies
+      design: web questionnaire
+      population: TSE-listed and equivalent companies
+    evidenceKind: survey
+    rqs: [TH11-Q2, TH12-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:10.011Z
+    httpStatus: 200
+    finalUrl: https://prtimes.jp/main/html/rd/p/000000013.000160762.html
+    contentType: text/html; charset=utf-8
+    titleFetched: ～「企業IT動向調査2026」速報～　3社に1社が生成AIを「導入済み」、「検討中」を含むと5割超に、売上高1兆円以上の大企業では8割超が「導入済み」
+    titleMatch: true
+    dateMeta: 2026-03-12
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

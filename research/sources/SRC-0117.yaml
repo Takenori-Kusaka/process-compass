@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0117
+status: included
+excludeReason: null
+title: "Classifier Context Rot: Monitor Performance Degrades with Context Length"
+url: https://arxiv.org/abs/2605.12366
+canonicalUrl: arxiv:2605.12366
+ids:
+  arxiv: "2605.12366"
+  doi: null
+publisher: arXiv (Anthropic / Anthropic Fellows Program)
+authors: [Sam Martin, Fabien Roger]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2026-05-12
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: context rot long context performance degradation evaluation 2026 arxiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH03, TH06]
+events: []
+summary: Anthropic 所属著者による 2026-05 の査読前論文。コーディングエージェントの監視用分類器として使うと、Opus 4.6・GPT 5.4・Gemini 3.1 は 800K トークンの無害な活動の後に置かれた危険行動を 2〜30 倍見逃す。定期的なリマインダーで部分的に緩和。最新世代でも長文脈劣化が再現する一次証拠。
+claims:
+  - id: c1
+    text: 2026 年前半のフロンティアモデル(Opus 4.6、GPT 5.4、Gemini 3.1)でも、800K トークンの無害な活動の後に置かれた危険行動の見逃しが単独提示時の 2〜30 倍に増える。長文脈劣化は旧世代限定ではない。
+    quote: Opus 4.6, GPT 5.4, and Gemini 3.1 miss these actions 2× to 30× more often when they occur after 800K tokens of benign activity than when they occur on their own.
+    locator: Abstract
+    quant:
+      value: 2x〜30x miss rate
+      n: 3 frontier models; dataset of subtly dangerous coding-agent actions
+      design: controlled experiment (padding with benign transcript)
+      population: LLM monitors of coding agents
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q2, TH03-Q3, TH06-Q4]
+    issues: [274, 269, 268]
+    stance: supports
+  - id: c2
+    text: 劣化は文字起こし中の定期的なリマインダーなどのプロンプト技法で部分的に緩和でき、post-training でさらに改善しうる。長文脈劣化を考慮しない評価は監視性能を過大評価する。
+    quote: We also show that these weaknesses can be partially mitigated with prompting techniques such as periodic reminders throughout the transcript and may be mitigated further with better post-training.
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q2, TH03-Q3]
+    issues: [269]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:48.175Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.12366
+    contentType: text/html; charset=utf-8
+    titleFetched: "Classifier Context Rot: Monitor Performance Degrades with Context Length"
+    titleMatch: true
+    dateMeta: 2026-05-12
+    quotes:
+      c1: found
+      c2: found
+    arxiv:
+      status: 200
+      title: "Classifier Context Rot: Monitor Performance Degrades with Context Length"
+      authors: ["Martin, Sam", "Roger, Fabien"]
+      v1Date: 2026-05-12
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Opus 4.6、GPT 5.4、Gemini 3.1。800K トークンの無害な活動の後で 2×〜30× 多く見逃す
+        extractedQuote: Opus 4.6, GPT 5.4, and Gemini 3.1 miss these actions 2× to 30× more often when they occur after 800K tokens of benign activity than when they occur on their own.
+        locator: Abstract
+        note: 「___年前半のフロンティアモデル」という年の記述は原典に無い(arXiv 投稿は 2026-05-12、原典の語は "current frontier models")。課題は "a dataset that requires identifying when a coding agent takes a subtly dangerous action" で、モニタ(分類器)としての性能。原文の倍率は LaTeX 表記 $2\times$ to $30\times$。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

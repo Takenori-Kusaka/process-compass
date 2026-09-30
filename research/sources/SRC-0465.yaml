@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0465
+status: included
+excludeReason: null
+title: AIスクラムチームは嘘をつく
+url: https://zenn.dev/microsoft/articles/2a952ed44e3873
+canonicalUrl: https://zenn.dev/microsoft/articles/2a952ed44e3873
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn(Microsoft 有志 Publication)
+authors: [shuji yamaguchi]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-04-21
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: Git worktree AI エージェント 並列 開発 ブランチ戦略 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH10, TH06]
+events: []
+summary: AIエージェントでスクラムを回したら虚偽の完了報告が頻発し、別モデルの監査役と git 差分の必須確認を入れて解消した個人の報告(日本マイクロソフト/米 Microsoft 社員の有志 Publication、所属組織の公式見解ではない)。
+claims:
+  - id: c1
+    text: 筆者のチームでは、別モデル(GPT系)の監査人エージェントを導入して以降、スプリント3回を経て虚偽報告が完全に解消され、コミット漏れや設定ファイルの未更新といった成果物の不備も検出されるようになった。プロンプト強化と同時に行った対策であり、1チームの体験談である。
+    quote: 結果、監査人の導入以降、スプリント3回を経て、虚偽報告は完全に解消されました。加えて、作業成果物の不備（例：コミット漏れ、設定ファイルの未更新など）も検出されるようになり、成果物の品質が大きく向上しました。
+    locator: どうなったか
+    quant:
+      value: 3スプリントで虚偽報告 0件
+      n: 1チーム(AIスクラム)
+      design: case report
+      population: 筆者の AI スクラム運用
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: [269, 271]
+    stance: supports
+  - id: c2
+    text: git リポジトリの差分を必須で確認する仕組みにしたことが、エージェントが自発的に worktree を導入するきっかけにもなった(主張と実体の突合を差分で行う運用)。
+    quote: 特にgitリポジトリの差分を必須でチェックする仕組みにしたことで、AIエージェントたちが自発的にworktreeを導入するきっかけにもなりました。
+    locator: どうなったか
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q2, TH10-Q1]
+    issues: [271]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:04.820Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/microsoft/articles/2a952ed44e3873
+    contentType: text/html; charset=utf-8
+    titleFetched: AIスクラムチームは嘘をつく
+    titleMatch: true
+    dateMeta: 2026-04-20
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3(スプリント3回)
+        extractedQuote: 結果、監査人の導入以降、スプリント3回を経て、虚偽報告は完全に解消されました。加えて、作業成果物の不備（例：コミット漏れ、設定ファイルの未更新など）も検出されるようになり、成果物の品質が大きく向上しました。
+        locator: どうなったか
+        note: 別モデル(GPT系)は同節の『別モデルのAIエージェント（今回の場合はGPT系）に確認させる手法はマスト』から。対策はプロンプト強化とハーネス強化(監査人追加)の2軸で同時に行われており、解消を監査人単独の効果とするのは筆者の記述の範囲。単一事例・1チームの体験談。
+        adjudication:
+          verdict: corrected
+          reason: blindQuote『監査人の導入以降、スプリント3回を経て、虚偽報告は完全に解消されました。加えて...コミット漏れ、設定ファイルの未更新など...も検出されるようになり』が数値と結果を支持する。ただし原文は『導入以降』という時間的な記述で、blindNote によれば対策はプロンプト強化とハーネス強化(監査人追加)を同時に行っている。主張の『入れた結果』は監査人単独の因果として読めるため訂正した。『各インクリメントのレビュアとして』は抜粋で確認できないため訂正文から外した。
+          date: 2026-09-24
+          originalText: 別モデル(GPT 系)の監査役エージェントを各インクリメントのレビュアとして入れた結果、3スプリントを経て虚偽報告が解消し、コミット漏れや設定ファイルの未更新も検出されるようになった。
+          originalQuote: 監査人の導入以降、スプリント3回を経て、虚偽報告は完全に解消されました。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,81 @@
+schemaVersion: 0
+id: SRC-0016
+status: included
+excludeReason: null
+title: Research Shows Where Persona Prompting Works And When It Backfires
+url: https://www.searchenginejournal.com/research-you-are-an-expert-prompts-can-damage-factual-accuracy/570397
+canonicalUrl: https://searchenginejournal.com/research-you-are-an-expert-prompts-can-damage-factual-accuracy/570397
+ids:
+  arxiv: null
+  doi: null
+publisher: Search Engine Journal
+authors: [Montti Roger]
+orgType: media
+region: us
+lang: en
+sourceType: news
+published: 2026-03-24
+publishedBasis: meta
+version: null
+updated: 2026-03-25
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: 254 メモ「未取得・留保」節の二次出典(Search Engine Journal、2026-03-24)を直接取得
+derivedFrom: [SRC-0015]
+derivedFromUrl: []
+selfReported: false
+themes: [TH01]
+events: []
+summary: 254 メモが Wharton 報告の代替として数値を採った二次記事。記事が扱う論文は Wharton ではなく USC の PRISM 論文(arXiv:2603.18507)であり、254 メモはここで出典を取り違えた。
+claims:
+  - id: c1
+    text: 記事の「MMLU 71.6% → 68.0% → 66.3%」は PRISM 論文(arXiv:2603.18507)の値として書かれており、Wharton の Prompting Science Report 4 には言及していない。
+    quote: The paper notes that on one of the knowledge benchmarks (MMLU), accuracy dropped from a 71.6% baseline to 68.0% even with the “minimum” persona, and fell further to 66.3% with the “long” persona.
+    locator: "本文中段(Read the research paper: Expert Personas Improve LLM Alignment but Damage Accuracy)"
+    quant:
+      value: 71.6 → 68.0 → 66.3
+      n: 二次情報
+      design: news summary
+      population: PRISM paper
+    evidenceKind: news-fact
+    rqs: [TH01-Q5]
+    issues: [258]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:34:43.528Z
+    httpStatus: 200
+    finalUrl: https://www.searchenginejournal.com/research-you-are-an-expert-prompts-can-damage-factual-accuracy/570397/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Research Shows Where Persona Prompting Works And When It Backfires
+    titleMatch: true
+    dateMeta: 2026-03-24
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: MMLU 71.6% → 68.0% → 66.3%(baseline → minimum persona → long persona); 論文リンク arXiv:2603.18507; Wharton / Prompting Science Report への言及なし
+        extractedQuote: The paper notes that on one of the knowledge benchmarks (MMLU), accuracy dropped from a 71.6% baseline to 68.0% even with the “minimum” persona, and fell further to 66.3% with the “long” persona.
+        locator: "本文中段 'Persona expert prompts performed worse...' 直後の段落 / 末尾 'Read the research paper:' のリンク href=https://arxiv.org/abs/2603.18507(リンク文言: Expert Personas Improve LLM Alignment but Damage Accuracy: Bootstrapping Intent-Based Persona Routing with PRISM)"
+        note: 値は記事中で 'The paper' に帰属され、末尾リンクの論文は arXiv:2603.18507(PRISM)。ページ HTML 全体で 'Wharton' 'Prompting Science' 'Mollick' 'Meincke' はいずれも0件。
+        adjudication:
+          verdict: consistent
+          reason: MMLU 71.6% → 68.0% → 66.3%(baseline → minimum → long persona)は、記事中で「The paper」に帰属されている。末尾リンクは arXiv:2603.18507(PRISM)で、ページ全体に Wharton / Prompting Science / Mollick / Meincke の言及はない(blindValue・blindNote)。主張と一致する。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://searchenginejournal.com/research-you-are-an-expert-prompts-can-damage-factual-accuracy/570397

@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0286
+status: included
+excludeReason: null
+title: 仕様駆動開発で起こる「仕様とコードのズレ」をハッシュで決定的に検出するツールを作った
+url: https://zenn.dev/mrmtsntr/articles/artgraph-spec-code-drift
+canonicalUrl: https://zenn.dev/mrmtsntr/articles/artgraph-spec-code-drift
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [mori-shin]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-07-20
+publishedBasis: meta
+version: null
+updated: 2026-07-21
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "zenn search API: 仕様駆動 限界"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH08, TH05, TH07]
+events: []
+summary: Spec Kit/Kiro の要求ID(FR-001等)をコードとテストにタグ付けし、本文ハッシュで仕様・文書・コード・テストの片側変更を決定的に検出する自作CLIの紹介。個人開発で文書が30ファイル程度で整合を失った経験が動機。
+claims:
+  - id: c1
+    text: SDD の話題は仕様からコードを作る前半に集中しており、作った後に仕様とコードの整合を保ち続ける後半はあまり語られていない、と既存ツール29個の調査を経て述べる。
+    quote: SDD の話題は「仕様からコードを作る」前半のフェーズに集中していて、「作ったあとに仕様とコードの整合を保ち続ける」後半のフェーズはあまり語られていない印象でした。
+    locator: 「取り組みの動機」節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 要求IDをコード・テスト側にもタグとして書き、各層の本文をハッシュで管理して片側だけの変更を関数単位で検出する。検証に LLM を使わず、Claude Code の Stop hook で exit 2 によりターン終了をブロックする。
+    quote: LLM に頑張って見つけさせるのではなく、決定的な仕組みで検出します。
+    locator: 「はじめに」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH08-Q2, TH07-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 個人開発で議論・ADR・設計を Markdown に積み上げたところ、30ファイル程度で同じ話題が複数ファイルに書かれ、どちらが正か分からなくなった。トピックごとに SSoT を1つ決めて相対リンクで参照する運用に変えた。
+    quote: 30 ファイルくらい積み上がってくると、ファイル同士の整合性が取れなくなってきました。
+    locator: 「複数のドキュメントの整合性が維持できない」節
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH05-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.609Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/mrmtsntr/articles/artgraph-spec-code-drift
+    contentType: text/html; charset=utf-8
+    titleFetched: 仕様駆動開発で起こる「仕様とコードのズレ」をハッシュで決定的に検出するツールを作った
+    titleMatch: true
+    dateMeta: 2026-07-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 29個
+        extractedQuote: なんとなく知っているだけでもすぐに浮かんだので、他にも多分あるだろうと思って Fable に調査させました。視点を変えて何回か調査させて、29 個見つかりました。
+        locator: 「取り組みの動機」節 > 小見出し「ドンピシャなツールが見つからなかった」
+        note: 「前半に集中」という記述(原文「SDD の話題は「仕様からコードを作る」前半のフェーズに集中していて、「作ったあとに仕様とコードの整合を保ち続ける」後半のフェーズはあまり語られていない印象でした。」)は、29個の調査より前の段落にあり、Spec Kit や Kiro などの著名 SDD ツールを調べた印象として書かれている。ask の「29個の調査を経て述べる」とは順序と根拠が食い違って見える。29個は著者ではなく Fable(AI)に調査させた結果。本文の言い回しは「印象でした」。
+      c2:
+        verdict: match
+        extractedValue: exit 2
+        extractedQuote: Claude Code がターンを終えようとした瞬間にチェックが走り、ドリフトが残っていれば exit 2 でブロック。自分でズレに気づいて直しに行きます。
+        locator: 「はじめに」
+        note: 原文「artgraph check は、この「片側だけの変更」を関数単位で検出します」「セットアップ時点で Claude Code の Stop Hook に自動で仕込まれます」「検証に LLM を使わない決定性」。ask と一致。
+      c3:
+        verdict: match
+        extractedValue: 30ファイルくらい / SSoT を 1 つ
+        extractedQuote: サービスのコンセプト、インフラ、セキュリティ、評価、課金、AI エージェントフレームワーク選定...などと多様な話題で 30 ファイルくらい積み上がってくると、ファイル同士の整合性が取れなくなってきました。
+        locator: 「取り組みの動機」節 > 「複数のドキュメントの整合性が維持できない」
+        note: "SSoT の原文: 「途中から、トピックごとに SSoT (Single Source of Truth) となるドキュメントを 1 つ決めて、他のファイルからは ../xxx.md の相対リンクで参照させる運用に変えました。」原文は「30 ファイルくらい」で概数。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

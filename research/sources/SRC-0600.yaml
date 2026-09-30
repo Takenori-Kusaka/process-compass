@@ -1,0 +1,151 @@
+schemaVersion: 0
+id: SRC-0600
+status: included
+excludeReason: null
+title: BMAD-METHOD CHANGELOG (v6.7.0 - v6.12.0)
+url: https://github.com/bmad-code-org/BMAD-METHOD/blob/main/CHANGELOG.md
+canonicalUrl: https://github.com/bmad-code-org/bmad-method/blob/main/changelog.md
+ids:
+  arxiv: null
+  doi: null
+publisher: BMad Code, LLC (bmad-code-org)
+authors: []
+orgType: community
+region: us
+lang: en
+sourceType: repo
+published: 2026-09-03
+publishedBasis: page
+version: v6.12.0
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: BMAD Method v6 workflow map create-prd validate-prd code-review check-implementation-readiness docs
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH03, TH06, TH01]
+events:
+  - date: 2026-05-17
+    label: "BMAD v6.7.0: PRD の作成・編集・検証スキルを単一スキル bmad-prd(3 intent)へ統合"
+  - date: 2026-08-09
+    label: "BMAD v6.11.0: core スキルを 14 本から 8 本へ削減、レビュー系 5 スキルを bmad-review のレンズへ統合"
+  - date: 2026-09-03
+    label: "BMAD v6.12.0: レビューのトリアージが全指摘に判定と証拠を記録"
+summary: BMAD v6 系の変更履歴(2026-09-30 取得、v6.7.0〜v6.12.0 と Unreleased を読んだ)。成果物ごとの create / edit / validate の対を一度は持ち、2026-05〜08 に単一スキル+intent と横断レビュー(レンズ)へ統合した経過が記録されている。
+claims:
+  - id: c1
+    text: v6.7.0(2026-05-17)で、PRD の create / edit / validate の 3 スキルは残すが内部では単一の prd スキルへ intent 付きで転送する形に変えた。成果物単位の「作成・検証の対」を別スキルとして持つ設計をやめた先例である。
+    quote: The existing create, edit and validate prd skills still exist but internally will route to the single prd skill with the proper intent.
+    locator: v6.7.0 - 2026-05-17 / Headline
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: v6.11.0(2026-08-09)で core スキルは 14 本から 8 本に減り、レビュー 3 本と校閲 2 本は 1 本の bmad-review のレンズになった。
+    quote: "Core drops from fourteen skills to eight: three review skills and two editorial skills become lenses on one `bmad-review`"
+    locator: v6.11.0 - 2026-08-09 / Headline
+    quant:
+      value: 14 -> 8 core skills
+      n: 1 product release
+      design: changelog statement
+      population: BMAD core module
+    evidenceKind: news-fact
+    rqs: [TH03-Q2, TH03-Q1]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 実装前の準備確認スキル(check-implementation-readiness)は独立スキルとしては削除され、sprint-planning 冒頭の準備ゲート(PASS/CONCERNS/FAIL)へ畳まれた。
+    quote: Folded into `bmad-sprint-planning`, which opens with a readiness gate (PASS/CONCERNS/FAIL)
+    locator: v6.11.0 / Breaking Changes (#2659)
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 統合には副作用があった。出荷経路のレビュアを共通レンズ経由にすると意味と出力保証が変わったため、code-review / build は自前のレビュープロンプトへ戻した。
+    quote: Routing the ship-path reviewers through `bmad-review` lenses had changed their semantics and output guarantees
+    locator: "v6.11.0 / Fixes (#2638, #2642)"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH03-Q2]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: 敵対的レビュアの「冷笑的なレビュア」というペルソナ指定は残存バグの検出率に差を生まず、10 件以上の具体的指摘の要求と「何が欠けているか」を問うことが効いた、と Claude と Codex の A/B 試行として記す(標本数は非開示)。
+    quote: showed the "cynical, jaded reviewer" framing made no difference to residual-bug hit rate, while requiring at least ten concrete findings and asking what is missing did
+    locator: v6.11.0 / Fixes (#2675)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q5, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c6
+    text: v6.12.0(2026-09-03)で、レビューのトリアージはすべての指摘について判定と証拠を記録し、黙って落とさない仕様になった。
+    quote: Review triage logs a verdict and evidence for every finding
+    locator: v6.12.0 - 2026-09-03 / Headline
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:56.074Z
+    httpStatus: 200
+    finalUrl: https://github.com/bmad-code-org/BMAD-METHOD/blob/main/CHANGELOG.md
+    contentType: text/html; charset=utf-8
+    titleFetched: BMAD-METHOD/CHANGELOG.md at main · bmad-code-org/BMAD-METHOD
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: v6.7.0(2026-05-17)/ create, edit, validate の prd スキル(列挙上3つ。数の明記なし)
+        extractedQuote: The existing create, edit and validate prd skills still exist but internally will route to the single prd skill with the proper intent.
+        locator: v6.7.0 - 2026-05-17 / Headline(第3段落)
+        note: 原文は「3」と数えておらず、列挙から 3。同 Headline は「three first-class intents (Create / Update / Validate)」と書き、intent 名は Update(旧スキル名は edit)。旧スキルは shim で、7.0.0 で削除予定と明記。「作成・検証の対を別スキルとして持つ設計をやめた先例」という位置づけの文言は原文に無い。
+      c2:
+        verdict: match
+        extractedValue: v6.11.0(2026-08-09)/ core 14本 → 8本 / レビュー3本 + 校閲(editorial)2本 → 1本の bmad-review
+        extractedQuote: "Core drops from fourteen skills to eight: three review skills and two editorial skills become lenses on one `bmad-review`, three research skills become `bmad-deep-recon`"
+        locator: v6.11.0 - 2026-08-09 / Headline(第2段落)
+        note: "同じ版の Breaking Changes (#2603, #2608) は shim 化するスキルを6本挙げる(bmad-review-adversarial-general, -edge-case-hunter, -verification-gap, bmad-editorial-review, -prose, -structure = レビュー3 + editorial 3)。Headline の「two editorial skills」と本数が合わない。出荷されたレンズの code は5つ(adversarial, edge-case-hunter, verification-gap, structure, prose)。"
+      c5:
+        verdict: match
+        extractedValue: 10件以上(at least ten concrete findings)
+        extractedQuote: A/B piloting on Claude and Codex showed the "cynical, jaded reviewer" framing made no difference to residual-bug hit rate, while requiring at least ten concrete findings and asking what is missing did
+        locator: v6.11.0 / Fixes (#2675)「The adversarial reviewer drops its persona for a method」
+        note: 標本数・試行回数の記載は同項目に無い。原文のペルソナ表現は「cynical, jaded reviewer」。
+      c6:
+        verdict: match
+        extractedValue: v6.12.0(2026-09-03)
+        extractedQuote: "**Review triage logs a verdict and evidence for every finding**, so nothing gets dropped silently."
+        locator: v6.12.0 - 2026-09-03 / 冒頭の第2段落(この版には「Headline」見出しが無く、版見出し直下の太字段落)
+        note: v6.12.0 には「### Headline」の見出しが無い。内容は一致する位置にある。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0180
+status: included
+excludeReason: null
+title: Stacked pull requests are now in public preview
+url: https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview/
+canonicalUrl: https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-30
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: github.blog/changelog/2026/07"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10]
+events:
+  - date: 2026-07-30
+    label: GitHub がスタック型 PR をパブリックプレビュー化
+  - date: 2026-07-30
+    label: GitHub がスタック型プルリクエストを public preview として全リポジトリへ順次展開開始(merge queue 対応は数週間かけて段階展開)
+summary: GitHub 標準のスタック型 PR の告知。大きな変更を小さな PR の連なりに分けて各層を独立にレビューし、一括マージできる。
+claims:
+  - id: c1
+    text: スタック型 PR は大きな変更を小さなレビュー可能な PR に分ける。既存のレビュー・チェック・マージ要件はそのまま働く。
+    quote: Stacked pull requests break large changes into small, reviewable pull requests.
+    locator: 冒頭
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q2]
+    issues: [282]
+    stance: context
+  - id: c2
+    text: 2026-07-30 時点で、スタック型PRは全リポジトリへ public preview として数日かけて展開され、merge queue 対応は数週間かけて段階展開とされた。
+    quote: Stacked pull requests are rolling out in public preview to all repositories over the coming days. Merge queue support for stacked pull requests is rolling out progressively over the coming weeks.
+    locator: Find out more and share your feedback
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: context
+  - id: c3
+    text: 顧客(TED の CTO)は、AI で開発者が生産的になった結果 PR が大きくなりレビュアが追いつかない新たなボトルネックが生じ、スタック型PRがそれを解くと証言している(ベンダーが掲載した顧客証言)。
+    quote: "AI has made TED’s developers dramatically more productive, but that created a new bottleneck: PRs were growing large enough that reviewers were struggling. Stacked PRs help to solve that."
+    locator: Review each layer independently(引用ブロック)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q2, TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c4
+    text: スタックの一部だけをマージすると上位のPRは自動で rebase・retarget され、main へ入るものは既存のブランチ保護と必須チェックが統制するとしている。
+    quote: the pull requests above it stay open and automatically rebase and retarget. Your existing branch protections and required checks still govern what reaches `main`.
+    locator: Merge everything in a single click
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:43.022Z
+    httpStatus: 200
+    finalUrl: https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Stacked pull requests are now in public preview - GitHub Changelog
+    titleMatch: true
+    dateMeta: 2026-07-30
+    quotes:
+      c1: found
+      c2: found
+      c3: partial
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 2026-07-30(July 30, 2026)
+        extractedQuote: Stacked pull requests are rolling out in public preview to all repositories over the coming days. Merge queue support for stacked pull requests is rolling out progressively over the coming weeks.
+        locator: Find out more and share your feedback(日付は記事ヘッダの掲載日)
+        note: 日付は本文ではなく記事の掲載日 "July 30, 2026"
+      c3:
+        verdict: match
+        extractedValue: Andy Merryman, CTO, TED
+        extractedQuote: "AI has made TED’s developers dramatically more productive, but that created a new bottleneck: PRs were growing large enough that reviewers were struggling. Stacked PRs help to solve that."
+        locator: Review each layer independently(引用ブロック)
+        note: 原文は "help to solve that"(解決を助ける)で、ask の「それを解く」はやや強い言い方
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH10
+    query: GitHub changelog stacked pull requests public preview July 2026
+urlBeforeRepair: https://github.blog/changelog/2026-07-30-stacked-pull-requests-are-now-in-public-preview

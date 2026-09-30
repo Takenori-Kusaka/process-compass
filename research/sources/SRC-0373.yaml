@@ -1,0 +1,101 @@
+schemaVersion: 0
+id: SRC-0373
+status: included
+excludeReason: null
+title: "We Analyzed 137K Sites: 97% of llms.txt Files Never Get Read"
+url: https://ahrefs.com/blog/llmstxt-study
+canonicalUrl: https://ahrefs.com/blog/llmstxt-study
+ids:
+  arxiv: null
+  doi: null
+publisher: Ahrefs
+authors: [Louise Linehan]
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-06-15
+publishedBasis: meta
+version: null
+updated: 2026-08-27
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: Ahrefs llms.txt study request logs 97% zero requests
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: Ahrefs Web Analytics を使う13.7万ドメインのサーバログ(2026-05)で llms.txt の取得を測った調査。28%が llms.txt を公開し、その97%は1か月間リクエストゼロ。取得した AI ツールでは GPTBot に次いで Claude-Code が多い。
+claims:
+  - id: c1
+    text: llms.txt を公開した約3.8万ドメインの97%は、2026年5月の1か月間に1件も取得されなかった(AI 向けに作った文書の大半が読まれていない)。
+    quote: 97% of those files received zero traffic in May 2026. Nothing fetched them at all.
+    locator: Top findings
+    quant:
+      value: 97% zero requests; 28% adoption
+      n: 137K domains (~38,000 with valid llms.txt)
+      design: observational server-log analysis, 1 month
+      population: sites using Ahrefs Web Analytics
+    evidenceKind: observational
+    rqs: [TH05-Q3, TH05-Q4]
+    issues: [252]
+    stance: supports
+  - id: c2
+    text: 取得のあった3%のうち名前の分かる AI ツールは19.5%で、GPTBot が最多、Claude-Code が2位。AI 向け文書を実際に読むのは検索ボットよりコーディングエージェント側である。
+    quote: GPTBot is top and Claude-Code is second, ahead of every AI search and assistant bot.
+    locator: Top findings
+    quant:
+      value: named AI tools 19.5% of fetches
+      n: fetches to the ~3% (1.1K domains) of files that received traffic
+      design: observational server-log analysis
+      population: sites using Ahrefs Web Analytics
+    evidenceKind: observational
+    rqs: [TH05-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:35.842Z
+    httpStatus: 200
+    finalUrl: https://ahrefs.com/blog/llmstxt-study/
+    contentType: text/html; charset=UTF-8
+    titleFetched: "We Analyzed 137K Sites: 97% of llms.txt Files Never Get Read"
+    titleMatch: true
+    dateMeta: 2026-06-15
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 約3.8万(~38,000)ドメイン / 97% / 2026年5月 / 1か月間 / 0件
+        extractedQuote: 97% of those files received zero traffic in May 2026. Nothing fetched them at all. … Of the ~38,000 domains with a valid file, 97% saw no requests for it whatsoever in May.
+        locator: Top findings / 「97% of llms.txt files receive zero requests」節
+        note: 母集団は Ahrefs Web Analytics で2026年5月にトラフィックのあった137,210ドメイン(うち28%≒38,000が llms.txt を公開)。原文は顧客層が技術寄りで28%は上限と断っている。原文の期間は『May』(1か月)で、『___か月間』は明示語ではない。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote『Of the ~38,000 domains with a valid file, 97% saw no requests for it whatsoever in May』と一致する。期間は原文の『May』(2026年5月)で、主張の『1か月間』はその言い換え。括弧内の『大半が読まれていない』は97%ゼロ取得からの要約として導ける。なお母集団は Ahrefs Web Analytics 利用の137,210ドメイン(うち有効な llms.txt が約28%)で、原文は28%を上限と断っている。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: 3% / 19.5% / 2位(Claude-Code is second)
+        extractedQuote: 19.5% of fetches came from named AI tools (of the 3% of files that weren't ignored). GPTBot is top and Claude-Code is second, ahead of every AI search and assistant bot.
+        locator: Top findings
+        note: 19.5% はファイル数ではなくリクエスト(fetch)に占める割合。原文 Sidenote は『"fetched" doesn't mean "read"』で数値は消費の上限と断っており、ask の『実際に読む』は原文の留保より強い。最多の GPTBot は学習クローラ。本文では『Aside from statespace-indexer and GPTBot, Claude-Code … out-fetched every AI retrieval bot…』とあり、statespace-indexer(運営者未確認)も Claude-Code より上位に見える。エージェント系カテゴリ(10.5%)が AI カテゴリ中最大という記述はある。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

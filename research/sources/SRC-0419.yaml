@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0419
+status: included
+excludeReason: null
+title: Standards for Internal Control in the Federal Government (Green Book), 2025 revision — Section 4 Additional Considerations
+url: https://guides.gaoinnovations.gov/greenbook/2025/section-4-additional-considerations
+canonicalUrl: https://guides.gaoinnovations.gov/greenbook/2025/section-4-additional-considerations
+ids:
+  arxiv: null
+  doi: null
+publisher: U.S. Government Accountability Office (GAO)
+authors: [GAO]
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: "2025"
+publishedBasis: page
+version: 2025 revision(FY2026 から適用、GAO-25-107721)
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH07
+  query: GAO Green Book standards for internal control cost benefit "benefits" "costs" of internal control management judgment
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH02, TH12]
+events: []
+summary: COSO を翻案した米連邦の内部統制基準(2025 改訂)の追加考慮事項。統制は費用と便益を比べて設計するが、費用だけを理由に統制を省いてはならないと定める。小規模組織の職務分離の代償措置も示している。
+claims:
+  - id: c1
+    text: 経営者は統制の設計・実施で、費用要因を期待便益と比べて考慮する。統制が業務に組み込まれている場合、便益・費用の切り分けは難しい。
+    quote: Management considers a variety of cost factors in relation to expected benefits when designing and implementing internal controls.
+    locator: OV4.15
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: supports
+  - id: c2
+    text: ただし、費用だけでは統制を実施しない理由として認められない。
+    quote: However, cost alone is not an acceptable reason to avoid implementing internal controls.
+    locator: OV4.17
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267]
+    stance: qualifies
+  - id: c3
+    text: 小規模組織は権限が集中して職務分離が難しい。追加のレビュー段階や無作為抽出した取引の確認などで対応できる。
+    quote: Management can respond to this increased risk through the design of the internal control system, for example, by adding additional levels of review for key processes
+    locator: OV4.14
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1, TH07-Q4]
+    issues: [249, 267]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:30.187Z
+    httpStatus: 200
+    finalUrl: https://guides.gaoinnovations.gov/greenbook/2025/section-4-additional-considerations/
+    contentType: text/html
+    titleFetched: Section 4 - Additional Considerations | Green Book
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

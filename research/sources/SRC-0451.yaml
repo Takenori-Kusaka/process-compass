@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0451
+status: included
+excludeReason: null
+title: Why we got rid of our small-PR rule
+url: https://rootly.com/blog/why-we-got-rid-of-our-small-pr-rule
+canonicalUrl: https://rootly.com/blog/why-we-got-rid-of-our-small-pr-rule
+ids:
+  arxiv: null
+  doi: null
+publisher: Rootly
+authors: [Quentin Rousseau]
+orgType: startup
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-05-20
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH10
+  query: rootly.com blog small PR rule AI writes most of our code pull request size
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10, TH07]
+events: []
+summary: 2年間運用した小PR・スタック型PRの規則を、AIがコードの大半を書くようになって廃止した企業の報告。差分の大きさの代わりにリスクラベル・feature flag・ロールバック計画を関門にする。
+claims:
+  - id: c1
+    text: エージェントにスタック型PRを作らせたところ『技術的には正しいが文脈的には悪い』結果になり、各PRが base に未存在のコードを参照し、PR#2 への指摘が PR#4 の判断に依存するなど、レビュアの負担はむしろ増えた。
+    quote: We asked agents to produce stacked PRs. The results were technically correct but contextually worse. Each PR referenced code that didn’t exist yet in the base branch.
+    locator: What broke
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: contradicts
+  - id: c2
+    text: 変更行数ではなく影響範囲(blast radius)を有用な信号とし、全PRに risk:low/medium/high のラベルを付けて行数の代理指標を置き換えた。
+    quote: The size of the diff stopped being the useful signal. The blast radius is.
+    locator: Feature flags as the real review gate / Risk labels over line counts
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+  - id: c3
+    text: PRテンプレートの Why/What 節は、AI作成のPRでもエージェントに指示した人が書き、AIには生成させないと明示的に指示している(PR本文の役割を人の文脈情報に限る設計)。
+    quote: For AI-authored PRs, the human who prompted the agent fills these in. We explicitly instruct AI assistants not to generate these sections
+    locator: The PR template that replaced line counts
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: supports
+  - id: c4
+    text: ロールバック/取り消し計画をPRテンプレートの必須欄とし、データ修正を含む安全な取り消し方を全PRに書かせている。
+    quote: Rollback/Revert Plan is a required field. Every PR needs to describe how to safely undo itself, including any data fixes.
+    locator: The PR template that replaced line counts
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: context
+  - id: c5
+    text: 件数ベースでPRの80%超がAI作成となった状況では、レビューへの投資は収穫逓減になり、ロールバック基盤への投資が複利で効くと主張する(母数・測定方法の記載なし)。
+    quote: at Rootly, when 80%+ of PRs by count are AI-authored, your investment in review has diminishing returns. Your investment in rollback infrastructure has compounding ones.
+    locator: What we learned
+    quant:
+      value: PRの80%超がAI作成(件数ベース)
+      n: null
+      design: 自社報告(測定方法の記載なし)
+      population: Rootly のエンジニアリング組織
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:56.716Z
+    httpStatus: 200
+    finalUrl: https://rootly.com/blog/why-we-got-rid-of-our-small-pr-rule
+    contentType: text/html; charset=utf-8
+    titleFetched: Why we got rid of our small-PR rule | Rootly
+    titleMatch: true
+    dateMeta: 2026-05-20
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "PR #2 / PR #4"
+        extractedQuote: "The results were technically correct but contextually worse. Each PR referenced code that didn’t exist yet in the base branch. Review comments on PR #2 often depended on decisions made in PR #4."
+        locator: What broke
+        note: 原文は 'often depended'(しばしば)。負担増の原文は 'Reviewers were doing more mental gymnastics, not less.'
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

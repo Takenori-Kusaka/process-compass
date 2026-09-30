@@ -1,0 +1,108 @@
+schemaVersion: 0
+id: SRC-0577
+status: included
+excludeReason: null
+title: Do Synthetic Personas Predict Real Audience Response? A Sim-to-Real Study Where a No-Persona Baseline Beats Persona-Based Copy Simulation
+url: https://arxiv.org/abs/2609.25010
+canonicalUrl: arxiv:2609.25010
+ids:
+  arxiv: "2609.25010"
+  doi: 10.48550/arXiv.2609.25010
+publisher: arXiv
+authors: ["Maiorano, Alexandre Cristovão"]
+orgType: individual
+region: other
+lang: en
+sourceType: preprint
+published: 2026-07-27
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: arXiv 2026 LLM synthetic users personas vs real user interviews validity study "synthetic participants"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH01]
+events: []
+summary: Upworthy の見出し A/B テスト(実測クリック率)を正解として、読者層に合わせた 10 体のペルソナ群と、ペルソナなしのゼロショットを比べた査読前論文。信頼できる部分集合 n=399 で、ペルソナなしが順位付けで上回った。abs ページの投稿日は 2026-07-27(ID は 2609 で、公開月と投稿日がずれている)。対象は見出しのクリック予測で、顧客面接の代替ではない。
+claims:
+  - id: c1
+    text: 実測クリック率を正解にした順位付けで、ペルソナなしのベースライン(Kendall τ=0.361、top-1 正答 49.2%)が 10 体のペルソナ群(τ=0.084、top-1 34.6%)を上回り、信頼区間は重ならなかった。ペルソナ条件付けは予測妥当性を下げた。
+    quote: "persona conditioning degrades predictive validity: the no-persona baseline ranks variants markedly better (Kendall {\\tau} = 0.361, a medium effect; top-1 accuracy 49.2%)"
+    locator: Abstract
+    quant:
+      value: Kendall τ 0.361 vs 0.084; top-1 49.2% vs 34.6%
+      n: 399 A/B tests (reliable subset)
+      design: sim-to-real comparison against held-out A/B ground truth; 3 Upworthy splits, Gemini 3 tiers + gpt-4.1
+      population: Upworthy Research Archive headline tests
+    evidenceKind: controlled-experiment
+    rqs: [TH09-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 大半の A/B テストには統計的に区別できる勝者が無く、妥当性を測れるのは信頼できる部分集合(n=399)に限られた。合成ユーザーの妥当性検証そのものが、正解データの信頼性に律速される。
+    quote: most A/B tests have no statistically distinguishable winner, so validity can only be measured on the reliable subset (n = 399)
+    locator: Abstract
+    quant:
+      value: n = 399
+      n: "399"
+      design: reliability filtering of A/B tests
+      population: Upworthy Research Archive
+    evidenceKind: controlled-experiment
+    rqs: [TH09-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 著者は、集計的な反応の予測ではペルソナは『使わないより悪い』と結論する。対象は見出しのクリック順位であり、異質性が効く用途(セグメント分け、定性的な反論探し)は本文の結論で留保されている。
+    quote: synthetic personas are not merely a weak predictor, they are worse than not using them.
+    locator: Abstract(留保は §8 Conclusion)
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH09-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:49.023Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.25010
+    contentType: text/html; charset=utf-8
+    titleFetched: Do Synthetic Personas Predict Real Audience Response? A Sim-to-Real Study Where a No-Persona Baseline Beats Persona-Based Copy Simulation
+    titleMatch: true
+    dateMeta: 2026-07-27
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: Do Synthetic Personas Predict Real Audience Response? A Sim-to-Real Study Where a No-Persona Baseline Beats Persona-Based Copy Simulation
+      authors: ["Maiorano, Alexandre Cristovão"]
+      v1Date: 2026-07-27
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "ペルソナなし: Kendall τ=0.361、top-1 正答 49.2% / ペルソナ群: ten-persona(10体)、τ=0.084、top-1 34.6% / 信頼区間は non-overlapping"
+        extractedQuote: baseline ranks variants markedly better (Kendall {\tau} = 0.361, a medium effect; top-1 accuracy 49.2%) than the persona panel ({\tau} = 0.084; top-1 34.6%), with non-overlapping confidence intervals.
+        locator: Abstract (arxiv.org/abs/2609.25010)
+        note: quote は 200 字に収めるため文頭の「the no-persona 」を切った(主語は the no-persona baseline)。ペルソナ数は同 Abstract の別文「We compare a ten-persona panel, grounded in the real audience's demographics, against a no-persona zero-shot baseline」から。値は信頼できる部分集合(n = 399)に限った評価である(「validity can only be measured on the reliable subset (n = 399)」)。「persona conditioning degrades predictive validity」も Abstract に明記。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

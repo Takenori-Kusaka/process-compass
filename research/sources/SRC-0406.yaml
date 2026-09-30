@@ -1,0 +1,91 @@
+schemaVersion: 0
+id: SRC-0406
+status: included
+excludeReason: null
+title: あなたのAIコードレビュー、本当にバグを見つけていますか？ — 30件の実バグで3ツールを実測した
+url: https://qiita.com/kenimo49/items/7699e4d2289e48521e0f
+canonicalUrl: https://qiita.com/kenimo49/items/7699e4d2289e48521e0f
+ids:
+  arxiv: null
+  doi: null
+publisher: Qiita
+authors: [kenimo49]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-06-01
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: コードレビュー AIレビュー導入 レビュー時間 短縮 計測結果 社内 事例 techblog 2026 CodeRabbit Copilot Claude
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: OWASP Top 10 / CWE Top 25 から選んだ実バグ 30 件を CodeRabbit・Claude Code Review・GitHub Copilot Review に投げた個人の実測。真のバグ指摘率は平均 42%、3 ツールすべてが見逃したバグが 12 件あった。
+claims:
+  - id: c1
+    text: 30 件の実バグ × 3 ツールで、真のバグ指摘率は平均 42% にとどまり、3 ツールすべてが LGTM を返したバグが 12 件(40%)あった。競合状態と N+1 問題が大半を占める。
+    quote: 3ツール全部に投げてもLGTMが返るバグが12件あった
+    locator: LGTMが返ってきても安心するな
+    quant:
+      value: 平均指摘率 42%、全ツール見逃し 12/30
+      n: 実バグ 30 件 x 3 ツール(判定は AI 1 人+シニア 2 人の多数決)
+      design: small benchmark (individual)
+      population: 筆者作成の PR 形式テストセット(2026-05 時点のツール)
+    evidenceKind: benchmark
+    rqs: [TH06-Q3, TH06-Q6]
+    issues: [258, 257]
+    stance: supports
+  - id: c2
+    text: 3 ツールを併用しどれかが指摘すれば発見とみなすと、見逃しは 47% から 30% へ下がったが、処理するコメント数は 3 倍になり誤検知の絶対数も増えた。系統混合は見逃しを減らすが、検証側の負荷を増やす。
+    quote: 確かに見逃しは47%→30%まで下がります。ただし、レビュアーが処理するコメント数は単純に3倍。
+    locator: ツール併用
+    quant:
+      value: 見逃し 47%→30%、コメント数 3 倍
+      n: 同上
+      design: small benchmark (individual)
+      population: 同上
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:17.502Z
+    httpStatus: 200
+    finalUrl: https://qiita.com/kenimo49/items/7699e4d2289e48521e0f
+    contentType: text/html; charset=utf-8
+    titleFetched: あなたのAIコードレビュー、本当にバグを見つけていますか？ — 30件の実バグで3ツールを実測した - Qiita
+    titleMatch: true
+    dateMeta: 2026-05-18
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 30件 × 3ツール; 真のバグ指摘率 平均42%; 3ツール全部が見逃したバグ 12件(40%); 競合状態とN+1問題で9件
+        extractedQuote: "30件のうち、3ツール全部に見逃されたバグ: 12件 (40%) 3ツールに見逃された12件の内訳を見ると、競合状態とN+1問題で9件を占めました。"
+        locator: "見出し「LGTMが返ってきても安心するな」(42%は冒頭と「結果: 真のバグ指摘率」表)"
+        note: "原典の内部不整合: カテゴリ別表では競合状態・N+1とも Claude CCR が1/3を検出しており、3ツール全員が見逃せるのは各2件・計最大4件のはずで『9件』と両立しない。まとめの『3ツール全滅』も表と食い違う。42%(38/90)は表と整合。単一著者の自社実験。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

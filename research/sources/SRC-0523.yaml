@@ -1,0 +1,153 @@
+schemaVersion: 0
+id: SRC-0523
+status: included
+excludeReason: null
+title: "Regulatory Guide 1.168, Revision 2: Verification, Validation, Reviews, and Audits for Digital Computer Software Used in Safety Systems of Nuclear Power Plants"
+url: https://www.nrc.gov/docs/ML1307/ML13073A210.pdf
+canonicalUrl: https://nrc.gov/docs/ml1307/ml13073a210.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: U.S. Nuclear Regulatory Commission (NRC)
+authors: [Sturzebecher Karl]
+orgType: government
+region: us
+lang: en
+sourceType: regulation
+published: 2013-07
+publishedBasis: pdf
+version: Revision 2
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G02
+  query: NRC Regulatory Guide 1.168 Revision 2 IEEE Std 1012 independence software verification validation "technical independence" "managerial independence" "financial independence" pdf
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH12, TH08, TH01]
+events: []
+summary: 米 NRC が IEEE 1012-2004(V&V)と IEEE 1028-2008(レビュー・監査)を例外付きで是認した規制指針(遵守は任意)。V&V の独立性について、IEEE の「条件付き独立」を認めない一方、別会社であることまでは求めないと明記する。規制当局が規格の独立性の緩和規定を退けた反例として読める。curl は 403 で、tavily_extract で全文を取得した。
+claims:
+  - id: c1
+    text: NRC は、IEEE 1012-2004 附属書 C 表 C.1 が新設した「条件付き独立」の選択肢を受け入れない。規格が用意した独立性の緩和を規制当局が退けた例である。
+    quote: The new IEEE concept of conditional independence in Annex C, Table C.1 is not acceptable to the NRC staff.
+    locator: B. Discussion, Description of Change
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [254]
+    stance: qualifies
+  - id: c2
+    text: V&V の責任が開発組織と別の組織に置かれるという IEEE 1012 の文言について、NRC は独立 V&V を別会社が行うことまでは意味しないと解釈する。
+    quote: The NRC staff position is that this does not mean that a separate company should perform independent V&V.
+    locator: C. Staff Regulatory Guidance 3
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [254]
+    stance: qualifies
+  - id: c3
+    text: 設計の妥当性の検証・点検は、設計者以外の者が行うことが要件である(10 CFR 50 附属書 B 基準 III)。
+    quote: requiring that those who perform the verification and checking be persons other than the designers
+    locator: C. Staff Regulatory Guidance 3
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [254]
+    stance: context
+  - id: c4
+    text: V&V を外部組織が実施した場合でも、V&V の十分性とソフトウェア品質の最終責任は申請者・事業者に残る。作業の担い手と結果責任を分けて書いている。
+    quote: The applicant or licensee has ultimate responsibility for the adequacy of V&V and the quality of subsequent safety system software.
+    locator: C. Staff Regulatory Guidance 3
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 開発ツールそのものへの V&V 作業(立会い・レビュー・試験)は、ツールで作られたソフトウェアがツール由来の欠陥を検出できる V&V を受けるなら不要とする。示せない場合はツール開発に本指針を適用する。
+    quote: not required for software tools, provided the software that is produced using the tools is subject to V&V activities that will detect flaws introduced by the tools
+    locator: C. Staff Regulatory Guidance 6
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c6
+    text: IEEE 1028 の 2008 年版は 1997 年版との主な差として、アノマリー(指摘)の順位付けと報告の規定(6.8.3)を追加した。レビュー指摘の様式を規格が定めている例である。
+    quote: One of the main differences between the 2008 and 1997 versions of IEEE Std. 1028 is the addition of an anomaly ranking and reporting found in Clause 6.8.3.
+    locator: B. Discussion, Reason for Revision
+    quant: null
+    evidenceKind: normative
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:24.863Z
+    httpStatus: 403
+    finalUrl: https://www.nrc.gov/docs/ML1307/ML13073A210.pdf
+    contentType: text/html
+    titleFetched: Access Denied
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+      c6: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: IEEE Std. 1012-2004、Annex C、Table C.1。conditional independence は "not acceptable to the NRC staff"
+        extractedQuote: The new IEEE concept of conditional independence in Annex C, Table C.1 is not acceptable to the NRC staff.
+        locator: B. Discussion, Description of Change(p.4)。同旨が C. Staff Regulatory Guidance 8 Annexes の Annex C の項(pp.10-11)にもある
+        note: curl は nrc.gov で Access Denied(Akamai)。本文は tavily_extract(advanced)で全文取得した。p.10-11 には "In Table C.1 the new form of independence provides a conditional option which is not acceptable to the NRC." とあり、Annex C 自体も不採用("does not endorse this annex, because it provides inadequate guidance")。「独立性の緩和」という評価語は原文にない。
+      c2:
+        verdict: match
+        extractedValue: IEEE Std. 1012-2004 の Clause C.4.1
+        extractedQuote: '"is vested in an organization that is separate from the development organization." The NRC staff position is that this does not mean that a separate company should perform independent V&V.'
+        locator: C. Staff Regulatory Guidance 3. Independence of Software Verification and Validation(p.8)
+        note: 直後に "However, the requirements specified in Criteria I and III of Appendix B described above must be met." が続く。該当の文言は附属書 C(C.4.1)にあり、附属書 C は本指針で不採用とされている。
+      c3:
+        verdict: match
+        extractedValue: 10 CFR Part 50 Appendix B、Criterion III
+        extractedQuote: an independence requirement for the verification and checking of the adequacy of the design, requiring that those who perform the verification and checking be persons other than the designers.
+        locator: C. Staff Regulatory Guidance 3. Independence of Software Verification and Validation(p.7)
+        note: 引用の主語は "Criterion III imposes"(字数の都合で省いた)。C 節冒頭に "the cited criteria refer to Appendix B to 10 CFR Part 50 unless otherwise noted" とある。同じ位置 3 の後段には "performed by individuals or groups other than those who prepared the original design" という言い回しもある。
+      c4:
+        verdict: match
+        extractedValue: applicant or licensee has ultimate responsibility(V&V の十分性と、その後の安全系ソフトウェアの品質)
+        extractedQuote: The applicant or licensee has ultimate responsibility for the adequacy of V&V and the quality of subsequent safety system software.
+        locator: C. Staff Regulatory Guidance 3. Independence of Software Verification and Validation(p.7)
+        note: 引用の直後に "This is particularly important when an external organization has performed the V&V tasks" が続く。続く文は "In these cases, the applicant or licensee is not relieved of the responsibility for ensuring that the V&V and subsequent software quality satisfy NRC requirements for reliability."。外部組織の例として挙がるのは、NRC 承認済みの商用グレード製品の取得。「担い手と結果責任を分けて書いている」は主張側の解釈で、原文にその言い回しはない。
+      c5:
+        verdict: match
+        extractedValue: "witnessing, reviewing, and testing は不要(条件: ツールで作ったソフトウェアが、ツール由来の欠陥を検出する V&V を受けること)。示せなければ本 RG の規定をツール開発に適用"
+        extractedQuote: not required for software tools, provided the software that is produced using the tools is subject to V&V activities that will detect flaws introduced by the tools.
+        locator: C. Staff Regulatory Guidance 6. Tools for Software Development(p.9)
+        note: 引用の主語は "However the V&V tasks of witnessing, reviewing, and testing are"。引用の直後に "If this cannot be demonstrated, the provisions of this RG are applicable to the development of tools." が続く。直前に "Tools used in the development of safety system software should be handled according to IEEE Std. 7-4.3.2-2003, as endorsed by RG 1.152." があり、ツールの扱い全体はそちらに従う前提になっている。
+      c6:
+        verdict: match
+        extractedValue: IEEE Std. 1028 の 2008 年版と 1997 年版、Clause 6.8.3
+        extractedQuote: One of the main differences between the 2008 and 1997 versions of IEEE Std. 1028 is the addition of an anomaly ranking and reporting found in Clause 6.8.3.
+        locator: B. Discussion, Reason for Revision(p.3)
+        note: 続く文は、この報告の仕組みが IEEE Std. 829-2008 の anomaly 報告文書の要求に対応する際に有益と述べる。「様式を定めている」という表現は原文になく、原文は "anomaly ranking and reporting" の追加と述べるのみ。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

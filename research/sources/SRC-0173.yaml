@@ -1,0 +1,105 @@
+schemaVersion: 0
+id: SRC-0173
+status: included
+excludeReason: null
+title: SWE-Bench Pro Leaderboard
+url: https://labs.scale.com/leaderboard/swe_bench_pro_public
+canonicalUrl: https://labs.scale.com/leaderboard/swe_bench_pro_public
+ids:
+  arxiv: null
+  doi: null
+publisher: Scale AI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-09-23
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: labs.scale.com/leaderboard/swe_bench_pro_public"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: Scale の SWE-Bench Pro 公開セット標準化リーダーボード(dateModified 2026-09-23)。最上位は Muse Spark 1.1 の 61.50%。ベンダー自己申告の 79〜90% 帯は掲載されていない。
+claims:
+  - id: c1
+    text: SWE-Bench Pro 公開セットのリーダーボードで点推定の最高値は Muse Spark 1.1 の 61.50 ± 3.10、次いで gpt-5.4 (xHigh) の 59.10 ± 3.56 である。ただし両者の Rank (UB) はともに 1 で、統計的には同順位である。
+    quote: Performance Comparison 1 Muse Spark 1.1* NEW 61.50 ± 3.10 1 gpt-5.4 (xHigh)* 59.10 ± 3.56 3 Muse Spark* 55.00 ± 3.60
+    locator: SWE-Bench Pro (Public Dataset) > Performance Comparison
+    quant:
+      value: top 61.50% (Muse Spark 1.1)
+      n: 731 public tasks
+      design: Scale-run, turn limit 250, uncapped cost
+      population: listed models as of 2026-09-23
+    evidenceKind: benchmark
+    rqs: [BASE-Q1, BASE-Q3]
+    issues: [282]
+    stance: qualifies
+  - id: c2
+    text: SWE-Bench Pro リーダーボードで * 印の付いた上位 5 件は mini-swe-agent ハーネスでの実行値である。それ以外のモデルはコスト上限なし・ターン上限 250 で実行されており、ベンダー自社ハーネスの値とは実行条件が異なる。
+    quote: All other Models on this page were run with an uncapped cost and with a turn limit of 250. *Run with mini-swe-agent harness
+    locator: Legend
+    quant: null
+    evidenceKind: normative
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.901Z
+    httpStatus: 200
+    finalUrl: https://labs.scale.com/leaderboard/swe_bench_pro
+    contentType: text/html; charset=utf-8
+    titleFetched: SWE-Bench Pro
+    titleMatch: true
+    dateMeta: 2026-09-23
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Muse Spark 1.1: 61.50 ± 3.10(Rank UB 1)/ gpt-5.4 (xHigh): 59.10 ± 3.56(Rank UB 1)"
+        extractedQuote: Performance Comparison 1 Muse Spark 1.1* NEW 61.50 ± 3.10 1 gpt-5.4 (xHigh)* 59.10 ± 3.56 3 Muse Spark* 55.00 ± 3.60
+        locator: SWE-Bench Pro (Public Dataset) > Performance Comparison
+        note: '両者とも Rank (UB) は 1 で統計的には同順位(Legend: "1 + the number of models whose lower CI bound exceeds this model’s upper CI bound")。「次点」は点推定での順序にすぎない。ask の「gpt-___xHigh」の表記は原典では "gpt-5.4 (xHigh)"。前回メモの値は本ページで検証不能。ページに更新日の表示なし'
+        adjudication:
+          verdict: corrected
+          reason: 数値は blindQuote と一致する。しかし blindNote のとおり両者とも Rank (UB)=1 で、凡例上は統計的に区別されない。『最上位/次点』や『首位が入れ替わった』は点推定の順序を過大に読んでいる。同順位の条件を補って訂正した。前回メモとの比較は内部参照のため判定対象外。
+          date: 2026-09-24
+          originalText: 標準化された SWE-Bench Pro 公開セットの最上位は Muse Spark 1.1(61.50 ± 3.10)、次点 gpt-5.4 xHigh(59.10)。前回メモの「Scale 標準化リーダーは GPT-5.4 59.1%」は首位が入れ替わった。
+          originalQuote: 1 Muse Spark 1.1* NEW 61.50 ± 3.10 1 gpt-5.4 (xHigh)* 59.10 ± 3.56
+      c2:
+        verdict: match
+        extractedValue: "*Run with mini-swe-agent harness(上位5件に * 付き)"
+        extractedQuote: All other Models on this page were run with an uncapped cost and with a turn limit of 250. *Run with mini-swe-agent harness
+        locator: Legend
+        note: '* 付きは Muse Spark 1.1 / gpt-5.4 (xHigh) / Muse Spark / claude-opus-4-6 (thinking) / gemini-3.1-pro (thinking) の上位5件。6位以下(claude-opus-4-5-20251101 等)は * 無しで、本文は "We ran frontier models on Pro using the SWE-Agent scaffold" と記す。Opus 5.5 は本リーダーボードに掲載されておらず、ask 中の Opus ___の ___% は本ページに無い(システムカード側の値)'
+        adjudication:
+          verdict: corrected
+          reason: 『上位は mini-swe-agent ハーネスでの実行値』は blindQuote の凡例と、上位 5 件に * が付く事実(blindNote)で支えられる。一方、例示の『Opus 5 の 79.2%』は本ページに無い。blindNote の指摘どおりシステムカード側の値で、本出典では検証できない(公式 SWE-bench Verified の最高値 79.2% との混同の疑いもある)。検証できない例示を除いて訂正した。
+          date: 2026-09-24
+          originalText: 上位は mini-swe-agent ハーネスでの実行値で、ベンダー自社ハーネスの値(Opus 5 の 79.2% など)とは条件が異なる。
+          originalQuote: "*Run with mini-swe-agent harness"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

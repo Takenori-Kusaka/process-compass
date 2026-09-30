@@ -1,0 +1,135 @@
+schemaVersion: 0
+id: SRC-0530
+status: included
+excludeReason: null
+title: Certification of Safety-Critical Software Under DO-178C and DO-278A
+url: https://ntrs.nasa.gov/api/citations/20120016835/downloads/20120016835.pdf
+canonicalUrl: https://ntrs.nasa.gov/api/citations/20120016835/downloads/20120016835.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: NASA Ames Research Center (NASA Technical Reports Server 20120016835)
+authors: [Jacklin Stephen A.]
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: "2012"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: secondary
+foundBy:
+  cluster: G02
+  query: DO-178C "independence" verification "person(s) other than the developer of the item being verified" objectives "with independence" Level A (faa.gov / nasa.gov / easa.europa.eu に限定)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH06, TH12]
+events: []
+summary: NASA Ames の技術者が DO-178C・DO-278A・DO-330 ほか補足文書の内容を解説した論文(全文を読んだ)。DO-178C 本文は有償で未読のため、規格の要求は本論文の記述を介した二次情報である。双方向トレーサビリティの 6 組、検証工程の確認項目、ツール認定水準(TQL)と独立性の関係を述べる。
+claims:
+  - id: c1
+    text: DO-178C は 6 組(システム要求と上位要求、上位要求と下位要求、下位要求とソースコード、要求とテストケース、テストケースと手順、手順と結果)の双方向トレーサビリティを求め、両方向で検証可能なトレースデータの存在を要求する。
+    quote: traceability needs to be verifiable in both directions and that verifiable trace data between these entities must exist.
+    locator: §III.C Bi-directional Software Traceability
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+  - id: c2
+    text: 双方向トレーサビリティの目的は、孤立したソースコードやデッドコードが意図せず作られないことを保証する点にあると説明される。
+    quote: This assures that orphan source code and dead source code are not inadvertently produced.
+    locator: §III.C
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+  - id: c3
+    text: DO-178C §6 の検証項目は、「コードが下位要求を正しく満たすこと」と「全コードが 1 つ以上の下位要求へ追跡できること」を別の項目として挙げる。内容の判定と対応の判定が並置されている。
+    quote: 6) the software code correctly satisfies all low-level requirements, 7) all code is traceable to one or more low-level requirements
+    locator: §II.D Software Verification Process
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+  - id: c4
+    text: DO-178C は、ソフトウェアを生成するツールと検証するツールの双方について、ツール自体の正しさの検証(認定)を求め、あるプロジェクトで認定されたツールが別のプロジェクトで認定済みとは限らないとする。
+    quote: DO-178C states that the tools used to generate software or to verify software must themselves be verified to be
+    locator: §III.E Tool Qualification Levels
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c5
+    text: DO-330 は、コードを生成するツールに、コードを検証するツールより厳しい検証要求を課す。
+    quote: DO-330 places more stringent verification
+    locator: §VI.A Tool Qualification Levels
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c6
+    text: DO-330 附属書 A では、独立性をもって満たすべき目標が TQL-1 で最も多く、TQL-3 は品質保証活動を除き検証の独立性を要求しない。ツールにも水準別の独立性が課される。
+    quote: also has the most objectives requiring satisfaction by independence.
+    locator: §VI.B Tool Verification Activities
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [254]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:27.031Z
+    httpStatus: 200
+    finalUrl: https://ntrs.nasa.gov/api/citations/20120016835/downloads/20120016835.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: DO-178C / 6 組(原文は 1)〜6) の列挙で、"six" という語は無い)
+        extractedQuote: DO-178C makes it clear that traceability needs to be verifiable in both directions and that verifiable trace data between these entities must exist.
+        locator: §III.C Bi-directional Software Traceability
+        note: '列挙の原文: "between 1) system requirements (allocated to software) and high-level requirements, 2) high-level requirements and low-level requirements, 3) low-level requirements and source code, 4) software requirements and test cases, 5) test cases and procedures, and 6) test procedures and test results"。組数は列挙を数えた値で、原文が数を明言しているわけではない。本資料は DO-178C の二次解説(NASA の会議論文)。'
+      c3:
+        verdict: match
+        extractedValue: DO-178C / section 6 / one or more(1 つ以上)
+        extractedQuote: 6) the software code correctly satisfies all low-level requirements, 7) all code is traceable to one or more low-level requirements
+        locator: §II.D Software Verification Process
+        note: '原文は "DO-178C (section 6) requires that: 1) ... 8) ..." と 8 項目を列挙し、その 6) と 7) が該当。節番号は小節(6.3.4 等)までは示されず "section 6" のみ。「内容の判定と対応の判定が並置されている」は原文に無い解釈文。'
+      c6:
+        verdict: match
+        extractedValue: DO-330 / TQL-1(独立性を要する目標が最多)/ TQL-3(品質保証活動を除き検証の独立性を要求しない)
+        extractedQuote: TQL-1 also has the most objectives requiring satisfaction by independence. [...] TQL-3 [...] does not require independence of verification except for the quality assurance activities.
+        locator: §VI.B Tool Verification Activities
+        note: 'quote は途中を [...] で省略した。原文の全体: "TQL-1 also has the most objectives requiring satisfaction by independence. TQL-2 has less objectives requiring independent satisfaction than TQL-1, but requires almost the same activities. TQL-3 has fewer activities than TQL-2 and does not require independence of verification except for the quality assurance activities." 冒頭は "Annex A of DO-330 presents the Tool Qualification Objective Tables"。TQL-4、TQL-5 の独立性については本節に明示の記述が無い。「ツールにも水準別の独立性が課される」は原文に無いまとめ文。'
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

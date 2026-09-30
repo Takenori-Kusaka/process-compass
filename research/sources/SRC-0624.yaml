@@ -1,0 +1,147 @@
+schemaVersion: 0
+id: SRC-0624
+status: included
+excludeReason: null
+title: 企業のAX (AI変革) 動向とNRIの戦略・取り組み(中期経営計画フォローアップ説明会)
+url: https://ir.nri.com/jp/ir/library/businessplan/main/011111110/teaserItems2/01119/linkList/01/link/260515pre_1.pdf
+canonicalUrl: https://ir.nri.com/jp/ir/library/businessplan/main/011111110/teaseritems2/01119/linklist/01/link/260515pre_1.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 野村総合研究所
+authors: [稲葉 貴彦]
+orgType: sier
+region: jp
+lang: ja
+sourceType: talk
+published: 2026-05-15
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G08
+  query: NRI 野村総合研究所 AI駆動開発 開発標準 品質管理 レビュー AIエージェント 生産性 本番 プロジェクト 適用 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH12, TH01, TH11, TH02]
+events:
+  - date: 2026-05-15
+    label: NRI が「エンタープライズAI駆動開発」の段階計画(28年度・30年度に適用率100%)を投資家向けに説明
+summary: NRI の AI 担当役員による投資家向け説明資料。「NRI自身のAI変革」の部(p.14-19)を読んだ。AI 駆動開発を開発プロセスモデルへ段階的に組み込む計画と適用率目標を示すが、値は目標と試算で実績ではない。
+claims:
+  - id: c1
+    text: 自社の主戦場である大規模・ミッションクリティカルなシステム開発を、AI による自動化が難しい領域と位置づけている。公開されている AI 活用事例の多くは小規模・ノンクリティカルの領域だとする。
+    quote: NRIが主に取り組む大規模・ミッションクリティカルなシステム開発は、AIによる自動化が難しい領域
+    locator: NRIのシステム開発領域の特徴(p.15)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q2, TH12-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 非機能要件の整備・実装と複雑な合意形成は汎用 AI だけでは実現が困難とし、プロジェクト管理・アーキテクチャ管理・品質管理をその例に挙げる。
+    quote: 大規模・ミッションクリティカルなシステム開発に重要な非機能要件の整備・実装や複雑な合意形成は汎用AIのみでは実現が困難
+    locator: NRIのシステム開発領域の特徴(p.16)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q2, TH01-Q3]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 開発プロセスモデルは、AI エージェントが母体コードを一括開発した後に、人と AI による確認と整備の工程を置く。冒頭には AI 活用開発の標準化・環境整備という AI 特有の準備工程を置く。
+    quote: AIによるプログラム一括生成後に人とAIによる確認と整備
+    locator: NRI エンタープライズAI駆動開発(イメージ) Point②(p.17)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3, BASE-Q2, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 変革ステップは3段階で、最終段(STEP3-②)は工程を「要件定義＆仕様作成」「AIエージェントによる開発～テスト」「受け入れ確認＆テスト」に統合する。工数削減率は図の配置から STEP1・2 が15%、STEP3-① が30%、STEP3-② が50%と読めるが、FY30 に向けた最大値の試算である。
+    quote: ＊プロジェクト全体の工数に対する削減率（FY30にむけた最大値（試算値））
+    locator: エンタープライズAI駆動開発の変革ステップ(イメージ)(p.18)
+    quant:
+      value: 工数削減 15% / 30% / 50%(段階別)
+      n: null
+      design: 自社の試算(FY30 に向けた最大値。実績値ではない)
+      population: NRI のシステム開発プロジェクト全体の工数
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q2, TH11-Q2]
+    issues: []
+    stance: context
+  - id: c5
+    text: 展開計画は、汎用 AI ツール活用を2028年度に適用率100%、AI 最適化工程ベースの AI エージェント型開発を2030年度に適用率100%とする。先に金融 ASP で実績を作り、SI 向けモデルへ広げる順序である。
+    quote: （30年度適用率100%）
+    locator: エンタープライズAI駆動開発の展開(p.19)
+    quant:
+      value: "適用率100%(汎用AIツール: 28年度、AIエージェント型開発: 30年度)"
+      n: null
+      design: 自社の目標値
+      population: NRI のシステム開発
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q2, TH02-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:04.774Z
+    httpStatus: 200
+    finalUrl: https://ir.nri.com/jp/ir/library/businessplan/main/011111110/teaserItems2/01119/linkList/01/link/260515pre_1.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 大規模・ミッションクリティカル=「AIによる自動化が難しい領域」/ 小規模・シンプル×ノンクリティカル=「世の中で多く発信されているAI活用事例はこの領域」
+        extractedQuote: NRIが主に取り組む大規模・ミッションクリティカルなシステム開発は、AIによる自動化が難しい領域 / AIで開発を自動化 ノウハウは世の中に溢れ、AIが学習している領域 世の中で多く発信されているAI活用事例はこの領域
+        locator: 「NRIのシステム開発領域の特徴」PDF 15枚目(スライド印字番号 14)
+        note: 図は2軸(小規模・シンプル⇔大規模・複雑 / ミッションクリティカル⇔ノンクリティカル)の象限図。大規模側には「AIで開発を効率化」「ノウハウは世の中に少なく、AIが学習できていない領域」「NRI自身もAI活用によるシステム開発のAXに挑戦」とも書かれている。原文は「公開されている」ではなく「世の中で多く発信されている」。locator の p.15 は PDF 通し番号で、スライド印字は 14。
+      c2:
+        verdict: match
+        extractedValue: "汎用AIのみでは実現が困難 / 例: 大規模開発におけるプロジェクト管理やアーキテクチャ管理、品質管理"
+        extractedQuote: 大規模・ミッションクリティカルなシステム開発に重要な非機能要件の整備・実装や複雑な合意形成は汎用AIのみでは実現が困難 / 汎用AIのみで解くことが困難 … 大規模開発におけるプロジェクト管理やアーキテクチャ管理、品質管理
+        locator: 「NRIのシステム開発領域の特徴」PDF 16枚目(スライド印字番号 15)
+        note: 「汎用AIのみで解くことが困難」の枠内には3項目が並ぶ:「一意に定まる『正解』がない中で合意を図る」「組織・業務・法規制・既存資産等との整合をとる」「大規模開発におけるプロジェクト管理やアーキテクチャ管理、品質管理」。機能(動く)は「AIが一定程度実現」とされる。
+      c3:
+        verdict: match
+        extractedValue: Point②「AIによるプログラム一括生成後に人とAIによる確認と整備」/ Point①「AI活用特有の準備工程」=「AI活用開発の標準化・環境整備」
+        extractedQuote: Point ② AIによるプログラム一括生成後に人とAIによる確認と整備 / Point ① AI活用特有の準備工程 / 概要設計 AI支援型外部設計 AI活用開発の標準化・環境整備 内部設計 詳細設計（省略） AIエージェントによる母体コード一括開発 AI支援型開発（最終化） AI支援型テスト リリース
+        locator: 「NRI エンタープライズAI駆動開発(イメージ)」開発プロセスモデル Point①・Point② PDF 17枚目(スライド印字番号 16)
+        note: 図の並びは 概要設計 →(AI支援型外部設計 / AI活用開発の標準化・環境整備)→ 内部設計・詳細設計(省略)→ AIエージェントによる母体コード一括開発 → AI支援型開発(最終化)→ AI支援型テスト → リリース → AIエージェント中心のエンハンス。準備工程は「概要設計」の後、AI支援型外部設計と並ぶ位置に描かれており、工程列の最先頭ではない。Point② の点線囲みは「母体コード一括開発」と「AI支援型開発(最終化)」の2箱に掛かる。原文は「母体コード一括開発」と「プログラム一括生成」の両表記。
+      c4:
+        verdict: match
+        extractedValue: ラベルは STEP1 / STEP2 / STEP3-① / STEP3-②(段階数の明記なし。図の行は3行)。最終段 STEP3-②。STEP1・STEP2 行 15%削減、STEP3-① 行 30%削減、STEP3-② 行 50%削減。注記 FY30
+        extractedQuote: STEP3-② AI最適化工程ベース AIエージェント型開発 要件定義＆仕様作成 AIエージェントによる開発～テスト 受け入れ確認＆テスト 50%削減* / 15%削減* / 30%削減* / ＊プロジェクト全体の工数に対する削減率（FY30にむけた最大値（試算値））
+        locator: 「エンタープライズAI駆動開発の変革ステップ(イメージ)」PDF 18枚目(スライド印字番号 17)
+        note: 段階の総数を述べた文言はスライドに無い。ラベルは STEP1・STEP2(1行にまとめて「汎用AIツール活用」)、STEP3-①(従来工程ベース AIエージェント型開発)、STEP3-②(AI最適化工程ベース AIエージェント型開発)で、数え方により 3 段階とも 4 段階とも読める。削減率は各行の右端に置かれており、画像で確認した配置は STEP1・STEP2 行=15%、STEP3-① 行=30%、STEP3-② 行=50%。削減率は「プロジェクト全体の工数に対する削減率」。
+      c5:
+        verdict: match
+        extractedValue: "汎用AIツール活用: 28年度 適用率100% / 独自モデル(本格普及・拡大): 30年度 適用率100%"
+        extractedQuote: AI開発ツールの本格普及・拡大（28年度 適用率100%） / 『NRIエンタープライズAI駆動開発モデル』への統合・展開 / 本格普及・拡大（30年度適用率100%） / 独自手法のR&D 金融ASPでの実績づくり SI (産業含) 向けモデル開発
+        locator: 「エンタープライズAI駆動開発の展開により、収益力の向上を図る」PDF 19枚目(スライド印字番号 18)
+        note: 「30年度適用率100%」の箱は STEP3-① と STEP3-② の両行にまたがる「独自モデルの確立」全体(『NRIエンタープライズAI駆動開発モデル』への統合・展開の後の本格普及・拡大)に掛かっており、STEP3-②(AI最適化工程ベース)単独の適用率として書かれてはいない。「金融ASPでの実績づくり」と「SI(産業含)向けモデル開発」は「独自手法のR&D」の下に上下2本の矢印で並び、SI 側がわずかに右へずれて描かれるが、先後関係を述べる文言は無い。年度表記は「28年度」「30年度」(時間軸は 2025〜2030)。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

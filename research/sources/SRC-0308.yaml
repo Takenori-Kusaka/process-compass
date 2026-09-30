@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0308
+status: included
+excludeReason: null
+title: 【AI DevEx 2026 スポンサー参加レポート】コーディングがボトルネックではなくなった時代の、開発現場の新たな課題
+url: https://tech-blog.tabelog.com/entry/ai-devex-conference-2026-report
+canonicalUrl: https://tech-blog.tabelog.com/entry/ai-devex-conference-2026-report
+ids:
+  arxiv: null
+  doi: null
+publisher: Tabelog Tech Blog(株式会社カカクコム)
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-07-31
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S6
+  query: コーディングエージェント レビュー ボトルネック 開発プロセス 変化 テックブログ 2026年8月
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH06, TH09]
+events:
+  - date: 2026-07-31
+    label: カカクコムが AI DevEx Conference 2026(ファインディ主催)のブース調査結果を公開
+summary: AI DevEx Conference 2026 のブースで来場者約260名にシール投票で聞いた調査の報告。最も時間がかかる工程にコーディングを挙げた人はゼロで、要件定義・設計とコードレビューが上位を占め、リードタイムが変わらない層も約4分の1いた。
+claims:
+  - id: c1
+    text: AI 導入後も最も時間がかかる工程にコーディングを挙げた人はゼロだった。最多は要件定義・設計(41%)、2位はコードレビューで、2工程で72%を占めた。
+    quote: 代わって最多となったのは「要件定義・設計」で全体の41%を占め、「コードレビュー」も2位で続き、この2工程だけで全体の72%に達しました。
+    locator: Q3. AIが入っても、まだ一番時間がかかっている工程はどこですか？
+    quant:
+      value: 要件定義・設計 41% / 上位2工程 72% / コーディング 0
+      n: 約260名(2日間)
+      design: 来場者のシール投票(便宜標本)
+      population: AI DevEx Conference 2026 のブース来場者
+    evidenceKind: survey
+    rqs: [TH11-Q2, TH09-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: リリースまでのリードタイムの変化は「変わらない」約26%、「1.5倍くらい」約26%、「2倍くらい」約22%、「3倍以上」約25%に分かれた。コーディングで AI を使いこなしていてもリードタイム全体は変わらない層が相当数いる。
+    quote: 「変わらない（約26%）」「1.5倍くらい（約26%）」「2倍くらい（約22%）」「3倍以上（約25%）」
+    locator: Q2
+    quant:
+      value: 変わらない 約26% / 1.5倍 約26% / 2倍 約22% / 3倍以上 約25%
+      n: 約260名
+      design: 来場者のシール投票(便宜標本)
+      population: 同上
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: その工程でさらに AI を使い込む際の最大の壁は「組織のルール・承認プロセス」で約40%。精度・信頼性やツール未整備といった技術面の壁を大きく上回った。
+    quote: 「組織のルール・承認プロセス」が約40%でダントツの1位でした。
+    locator: Q4. その工程にAIをさらに使い込む上で、最大の壁は何ですか？
+    quant:
+      value: 約40%
+      n: 約260名
+      design: 来場者のシール投票(便宜標本)
+      population: 同上
+    evidenceKind: survey
+    rqs: [TH07-Q4]
+    issues: []
+    stance: context
+  - id: c4
+    text: ブースでは、コードレビューを AI に完全に任せて人手のレビューを廃止した組織の声も聞かれた(少数派の実践)。
+    quote: コードレビューを AI に完全に任せ、人手でのコードレビューを廃止している組織の方がいらっしゃいました。
+    locator: ブースで聞いた声 / コードレビューの次の一手
+    quant: null
+    evidenceKind: case-report
+    rqs: [BASE-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:25.073Z
+    httpStatus: 200
+    finalUrl: https://tech-blog.tabelog.com/entry/ai-devex-conference-2026-report
+    contentType: text/html; charset=utf-8
+    titleFetched: 【AI DevEx 2026 スポンサー参加レポート】コーディングがボトルネックではなくなった時代の、開発現場の新たな課題 - Tabelog Tech Blog
+    titleMatch: true
+    dateMeta: 2026-07-31
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: コーディング=ゼロ、要件定義・設計 41%、2位 コードレビュー、2工程で72%
+        extractedQuote: 「コーディング」の欄は、ゼロでした。…代わって最多となったのは「要件定義・設計」で全体の41%を占め、「コードレビュー」も2位で続き、この2工程だけで全体の72%に達しました。
+        locator: Q3. AIが入っても、まだ一番時間がかかっている工程はどこですか？
+        note: 母集団は AI DevEx Conference 2026 のカカクコムブースでのシール貼り形式アンケート(2日間で約260名)。無作為標本ではない。
+        adjudication:
+          verdict: consistent
+          reason: コーディング=ゼロ、要件定義・設計 41%、2位コードレビュー、2工程で72% はすべて抜粋と一致。ただし母集団は AI DevEx Conference 2026 のカカクコムブースでのシール貼りアンケート(2日間で約260名)で、無作為標本ではない。主張は母集団を広げる書き方はしていないが、引用時はこの母集団を併記するべきである。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

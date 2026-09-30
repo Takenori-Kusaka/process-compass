@@ -1,0 +1,165 @@
+schemaVersion: 0
+id: SRC-0013
+status: included
+excludeReason: null
+title: "CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing"
+url: https://arxiv.org/abs/2305.11738
+canonicalUrl: arxiv:2305.11738
+ids:
+  arxiv: "2305.11738"
+  doi: null
+publisher: arXiv(ICLR 2024)
+authors: [Gou Zhibin, Shao Zhihong, Gong Yeyun, Shen Yelong, Yang Yujiu, Duan Nan, Chen Weizhu]
+orgType: academic
+region: cn
+lang: en
+sourceType: paper-peer
+published: 2023-05-19
+publishedBasis: arxiv-v1
+version: v4
+updated: 2024-02-21
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: GET https://arxiv.org/html/2305.11738 / https://arxiv.org/abs/2305.11738
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 検索 API・Python インタプリタ・毒性分類器と対話して検証・修正する CRITIC。ツール除去(w/o Tool)で QA の改善は text-davinci-003 で -0.03 F1、ChatGPT で +2.33 F1 に縮む(CRITIC 本体は +5.6 / +7.7)。254 メモの「ほぼゼロ」は text-davinci-003 では正確、ChatGPT では約 3 割残る。
+claims:
+  - id: c1
+    text: QA 3 課題でツールを外すと、モデル自身の批判による改善は text-davinci-003 で -0.03 F1、ChatGPT で +2.33 F1 にとどまる(CRITIC 本体は +5.6 / +7.7 F1)。「ほぼゼロ」は text-davinci-003 について正確。
+    quote: Tool-interaction plays a critical role in CRITIC, as the model’s own critiques contribute marginally to the improvement (-0.03 and +2.33 F1 with the two LLMs)
+    locator: §4.1 Results (4) / Table 1
+    quant:
+      value: -0.03 F1 (text-davinci-003) / +2.33 F1 (ChatGPT) vs +5.6 / +7.7 for CRITIC
+      n: 500 samples × 3 datasets (AmbigNQ, TriviaQA, HotpotQA)
+      design: ablation
+      population: text-davinci-003, gpt-3.5-turbo
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257, 258]
+    stance: supports
+  - id: c2
+    text: "ChatGPT の F1: CoT 64.3 / 79.2 / 42.8、CRITIC 74.9 / 81.7 / 52.9、CRITIC w/o Tool 67.3 / 79.9 / 46.1(AmbigNQ / TriviaQA / HotpotQA)。"
+    quote: CoT| 51.8| 64.3| 72.9| 79.2| 32.7| 42.8 ... CRITIC| 62.0| 74.9| 75.1| 81.7| 40.3| 52.9 ... CRITIC w/o Tool| 55.2| 67.3| 73.5| 79.9| 33.1| 46.1
+    locator: Table 1 (ChatGPT 区画)
+    quant:
+      value: "w/o Tool: +3.0 / +0.7 / +3.3 F1 over CoT"
+      n: 500 per dataset
+      design: ablation
+      population: gpt-3.5-turbo
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: qualifies
+  - id: c3
+    text: "text-davinci-003 の F1: CoT 58.6 / 74.5 / 46.1、CRITIC 64.9 / 80.6 / 50.5、w/o Tool 58.3 / 74.7 / 46.1。ツール無しでは初期出力と同水準か下回る。"
+    quote: CoT| 44.2| 58.6| 67.4| 74.5| 33.7| 46.1 ... CRITIC| 50.0| 64.9| 72.7| 80.6| 38.7| 50.5 ... CRITIC w/o Tool| 42.0| 58.3| 67.3| 74.7| 34.9| 46.1
+    locator: Table 1 (Text-Davinci-003 区画)
+    quant:
+      value: "w/o Tool: -0.3 / +0.2 / 0.0 F1 over CoT"
+      n: 500 per dataset
+      design: ablation
+      population: text-davinci-003
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+  - id: c4
+    text: w/o Tool は検索 API を外し、プロンプトは変えずに LLM に証拠を生成させる条件。
+    quote: CRITIC w/o Tool removes the search API and uses the LLMs to generate evidence without changing the prompt of CRITIC.
+    locator: §4.1 Baselines (6)
+    quant:
+      value: n/a
+      n: n/a
+      design: ablation definition
+      population: n/a
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: context
+  - id: c5
+    text: 数学プログラム合成でもインタプリタ無しの修正は不安定で、text-davinci-003 の GSM8k では -1.8pt と悪化する。
+    quote: This can result in surprising performance deterioration, such as the 1.8-point decrease observed on text-davinci-003
+    locator: §4.2 Results (3) / Table 2
+    quant:
+      value: -1.8pt (GSM8k, text-davinci-003, w/o Tool)
+      n: GSM8k test split
+      design: ablation
+      population: text-davinci-003, ChatGPT
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:18.261Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2305.11738
+    contentType: text/html; charset=utf-8
+    titleFetched: "CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing"
+    titleMatch: true
+    dateMeta: 2023-05-19
+    quotes:
+      c1: found
+      c2: partial
+      c3: partial
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: "CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing"
+      authors: ["Gou, Zhibin", "Shao, Zhihong", "Gong, Yeyun", "Shen, Yelong", "Yang, Yujiu", "Duan, Nan"]
+      v1Date: 2023-05-19
+      latestVersion: 4
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "QA 3課題(AmbigNQ/TriviaQA/HotpotQA); ツール無し: text-davinci-003 -0.03 F1, ChatGPT +2.33 F1; CRITIC本体: +5.6 (text-davinci-003) / +7.7 (ChatGPT) F1"
+        extractedQuote: Tool-interaction plays a critical role in CRITIC, as the model’s own critiques contribute marginally to the improvement (-0.03 and +2.33 F1 with the two LLMs)
+        locator: §4.1 Results 4)(CRITIC本体の値は同 2))/ Table 1
+        note: CRITIC本体の値は Results 2) 『CRITIC and CRITIC∗ improve F1 for 5.6 and 10.3 respectively upon text-davinci-003, and 7.7 and 12.4 upon ChatGPT』。-0.03/+2.33 は 3データセット平均F1の CoT 比で、Table 1 から再計算すると一致(davinci 59.70 vs 59.73、ChatGPT 64.43 vs 62.10)。原文の『even fall short compared to the initial output』は ChatGPT(+2.33)には当てはまらない。LLaMA-2 の結果は Table 8 に分かれており、ask の2モデルは Table 1 の2モデルに対応。
+      c2:
+        verdict: match
+        extractedValue: "ChatGPT F1(AmbigNQ/TriviaQA/HotpotQA): CoT 64.3/79.2/42.8; CRITIC 74.9/81.7/52.9; CRITIC w/o Tool 67.3/79.9/46.1"
+        extractedQuote: ChatGPT (gpt-3.5-turbo) | CoT | 51.8 | 64.3 | 72.9 | 79.2 | 32.7 | 42.8 | … | CRITIC | 62.0 | 74.9 | 75.1 | 81.7 | 40.3 | 52.9 | CRITIC w/o Tool | 55.2 | 67.3 | 73.5 | 79.9 | 33.1 | 46.1
+        locator: Table 1(ChatGPT (gpt-3.5-turbo) 区画)
+        note: 表の列は各データセットで EM, F1 の順(F1 は偶数番目の値)。
+        adjudication:
+          verdict: consistent
+          reason: ChatGPT(gpt-3.5-turbo)区画の F1(各データセットの偶数列)は、CoT 64.3/79.2/42.8、CRITIC 74.9/81.7/52.9、w/o Tool 67.3/79.9/46.1 で、blindQuote と一致する。claimQuant の差は導出値で、67.3 − 64.3 = 3.0、79.9 − 79.2 = 0.7、46.1 − 42.8 = 3.3。
+          date: 2026-09-23
+      c3:
+        verdict: match
+        extractedValue: "text-davinci-003 F1(AmbigNQ/TriviaQA/HotpotQA): CoT 58.6/74.5/46.1; CRITIC 64.9/80.6/50.5; CRITIC w/o Tool 58.3/74.7/46.1"
+        extractedQuote: Text-Davinci-003 | … | CoT | 44.2 | 58.6 | 67.4 | 74.5 | 33.7 | 46.1 | … | CRITIC | 50.0 | 64.9 | 72.7 | 80.6 | 38.7 | 50.5 | CRITIC w/o Tool | 42.0 | 58.3 | 67.3 | 74.7 | 34.9 | 46.1
+        locator: Table 1(Text-Davinci-003 区画)
+        note: w/o Tool と CoT の差は AmbigNQ -0.3、TriviaQA +0.2、HotpotQA ±0。TriviaQA は初期出力をわずかに上回るため、『同水準か下回る』は“同水準”の範囲で成り立つ(全課題で下回るわけではない)。表の列は EM, F1 の順。
+        adjudication:
+          verdict: consistent
+          reason: Text-Davinci-003 区画の F1 は、CoT 58.6/74.5/46.1、CRITIC 64.9/80.6/50.5、w/o Tool 58.3/74.7/46.1 で、blindQuote と一致する。w/o Tool と CoT の差は 58.3 − 58.6 = −0.3、74.7 − 74.5 = +0.2、46.1 − 46.1 = 0.0。「同水準か下回る」は、TriviaQA の +0.2 を同水準とみなす範囲で成り立つ(全課題で下回るわけではない)。
+          date: 2026-09-23
+      c5:
+        verdict: match
+        extractedValue: "text-davinci-003, GSM8k: w/o Tool 68.3 (-1.8)(PoT 70.1 比)"
+        extractedQuote: the ability of LLMs to correct programs becomes limited and unstable. This can result in surprising performance deterioration, such as the 1.8-point decrease observed on text-davinci-003
+        locator: "§4.2 Results の2つ目の『3)』(番号が重複)/ Table 2(Text-Davinci-003 区画 w/o Tool 行: 68.3 (-1.8))"
+        note: 比較基準は初期の PoT(70.1)。同じ w/o Tool でも ChatGPT は GSM8k +4.5、davinci の TabMWP は +20.3 と改善しており、悪化は davinci の GSM8k(と SVAMP -3.3。ただし SVAMP は CRITIC 本体も -3.3)に限られる。ask の『不安定』は原文の 'limited and unstable' と一致。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0239
+status: included
+excludeReason: null
+title: "Closing the Agent Loop: Devin Autofixes Review Comments"
+url: https://cognition.ai/blog/closing-the-agent-loop-devin-autofixes-review-comments
+canonicalUrl: https://cognition.ai/blog/closing-the-agent-loop-devin-autofixes-review-comments
+ids:
+  arxiv: null
+  doi: null
+publisher: Cognition
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-02-10
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: Cognition Devin 2026 Devin Review swarm announcement (blog listing)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06, TH04]
+events:
+  - date: 2026-02-10
+    label: Devin がレビューボット・lint・CI のコメントを自動修正する機能を公開
+summary: Devin が Devin Review 等のボットのコメントを自動修正するループの発表。機械的修正から人を外し、人の役割を判断を要する決定へ絞る方針を示す。
+claims:
+  - id: c1
+    text: 機械的な修正には人を介在させない（No human in the loop for mechanical fixes）と明言する。自律度を作業の種類で切り分ける方針。
+    quote: No human in the loop for mechanical fixes.
+    locator: What we shipped
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 人の仕事は判断を要する決定（アーキテクチャ、製品方針、ドメイン知識を要する境界条件）に狭まるとする。
+    quote: "The human's job narrows to the decisions that require judgment: architecture, product direction, edge cases that need domain knowledge."
+    locator: Write, catch, fix, merge
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2, TH01-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: 一方が書き他方が圧力試験をするループを推奨する（書き手とレビュアーはいずれも同一ベンダーのエージェント）。
+    quote: One agent writes, the other pressure-tests, and this continues in a loop.
+    locator: What we shipped
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: context
+  - id: c4
+    text: 社内のトークン消費は大きく増えたが PR のバグが大きく減り戻れないとする（定量値なし、自己報告）。
+    quote: We built a feature that massively increased our internal token spend on Devin. But our PRs are now much more free of bugs and we can't go back.
+    locator: 冒頭
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.892Z
+    httpStatus: 200
+    finalUrl: https://cognition.com/blog/closing-the-agent-loop-devin-autofixes-review-comments
+    contentType: text/html; charset=utf-8
+    titleFetched: "Closing the Agent Loop: Devin Autofixes Review Comments"
+    titleMatch: true
+    dateMeta: 2026-02-10
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

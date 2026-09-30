@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0240
+status: included
+excludeReason: null
+title: "Devin Fusion: Frontier Performance at 60% Lower Cost"
+url: https://cognition.ai/blog/devin-fusion
+canonicalUrl: https://cognition.ai/blog/devin-fusion
+ids:
+  arxiv: null
+  doi: null
+publisher: Cognition
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-06-29
+publishedBasis: byline
+version: null
+updated: 2026-08-07
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: Cognition Devin 2026 Devin Review swarm announcement
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH01, TH02]
+events:
+  - date: 2026-06-29
+    label: Cognition が多モデル harness の Devin Fusion を発表（当初 35% 減、2026-08-07 の更新データで最大 60% 減と改訂）
+  - date: 2026-06-12
+    label: Fable 5 へのアクセスが米政府指令により停止（Cognition の記載による。一次は Anthropic の告知）
+summary: 上位モデルの主エージェントと安価な sidekick を並走させる多モデル harness の発表。主エージェントに計画・曖昧さの解釈・最終レビューを残す設計と、自社ベンチでの費用削減（自己報告、後に数値改訂）を示す。
+claims:
+  - id: c1
+    text: 主エージェントは委任と監視を既定とし、重要な決定（計画、曖昧さの解釈、最終レビュー）は自ら行うべきとする。判断点を上位モデルに残すモデル階層の設計。
+    quote: "By default it should delegate and monitor, while making the significant decisions: the plan, the interpretation of ambiguity, the final review."
+    locator: "The Trick: Sidekick"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4, TH01-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 自社ベンチ FrontierCode で上位モデル同等の性能を低費用で維持するとし、公開時は 35% 減と報告、2026-08-07 の更新データで最大 60% 減へ改訂した（自己報告・自社ベンチ）。
+    quote: We initially reported a 35% cost reduction at publication. On the latest FrontierCode 1.1 Extended data (updated 8/7/2026), Fusion is up to 60% cheaper
+    locator: 冒頭 脚注 †
+    quant:
+      value: 35% → up to 60% lower cost
+      n: FrontierCode tasks (count not stated)
+      design: vendor benchmark
+      population: FrontierCode / FrontierCode 1.1 Extended
+    evidenceKind: benchmark
+    rqs: [TH04-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: 社内の一部利用者ではマージされた PR の 88% が自動ルーターのみで駆動されたとする（人数・件数の記載なし）。
+    quote: we found that 88% of their merged PRs were driven entirely by the automated Fusion router.
+    locator: The Sanity Check
+    quant:
+      value: 88%
+      n: not stated (internal Cognition users)
+      design: internal usage observation
+      population: merged PRs of internal users
+    evidenceKind: case-report
+    rqs: [TH04-Q4]
+    issues: []
+    stance: context
+  - id: c4
+    text: 2026-06-12 に Fable 5 へのアクセスが米政府指令により停止され、公開時点で回復していないと記す。モデルの可用性の断続が第三者製品の評価・設計に直接影響した例（Anthropic の告知を根拠とする二次的記述）。
+    quote: On June 12, 2026, access to Fable 5 was suspended in accordance with a US government directive
+    locator: Results 脚注 ‡
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3, TH02-Q3]
+    issues: []
+    stance: context
+  - id: c5
+    text: 単一モデルですべての作業を行う時代は終わりつつあるとする。
+    quote: The age of using one model for all of your work is coming to an end.
+    locator: The rising importance of hybrid-model harnesses
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.945Z
+    httpStatus: 200
+    finalUrl: https://cognition.com/blog/devin-fusion
+    contentType: text/html; charset=utf-8
+    titleFetched: Devin Fusion
+    titleMatch: true
+    dateMeta: 2026-06-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 35% (at publication) / 8/7/2026 / up to 60%
+        extractedQuote: † We initially reported a 35% cost reduction at publication. On the latest FrontierCode 1.1 Extended data (updated 8/7/2026), Fusion is up to 60% cheaper, as shown in the updated charts.
+        locator: 冒頭のグラフ直下の脚注 †
+        note: 原文の性能主張は『maintains frontier and Fable 5-level performance』。60% は Fable 5 を含まない構成の数値で、Fable 5 を使う構成は 41% 減と別記されている。記事の日付は 06.29.26
+      c4:
+        verdict: match
+        extractedValue: June 12, 2026 / Fable 5
+        extractedQuote: ‡ On June 12, 2026, access to Fable 5 was suspended in accordance with a US government directive ( anthropic.com/news/fable-mythos-access ). As of this blogpost, access has not been restored.
+        locator: 節『Results』の脚注 ‡(グラフ直下)
+        note: 根拠として anthropic.com/news/fable-mythos-access を括弧で示す。『As of this blogpost』の時点は、06.29.26 公開の記事か 8/7/2026 のデータ更新時かを原文は区別していない。Fable 5 の結果は停止前の測定に基づくとも記す
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0514
+status: included
+excludeReason: null
+title: 0056. QM Orchestrator role drift の構造的対処 (Adversarial Reviewer + PreToolUse Hook + JSON Schema 強制)
+url: https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/decisions/0056-qm-drift-prevention-by-structural-agent-constraint.md
+canonicalUrl: https://github.com/takenori-kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/decisions/0056-qm-drift-prevention-by-structural-agent-constraint.md
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub: Takenori-Kusaka/ganbari-quest"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: repo
+published: 2026-05-28
+publishedBasis: page
+version: null
+updated: 2026-08-20
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: grep -n "42 回" docs/decisions/0056-*.md docs/decisions/0068-*.md
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH07]
+events:
+  - date: 2026-08-13
+    label: ganbari-quest ADR-0068 で承認の物理遮断 hook(gate-approve)を外す
+summary: "#268 の「33 日で 42 回の drift」の出所の ADR(2026-08-13 に ADR-0068 で置き換え)。42 回の数え方と、構造化スキーマ導入後の観測を原文と git 履歴で確かめた。"
+claims:
+  - id: c1
+    text: "「33 日で 42 回」は ADR-0056 と調査メモ(観察期間 2026-04-25〜05-28)に同じ値で記録されている。Issue #2597 は memory ファイル feedback_quality_manager_is_not_ci_gate.md を「42 回 update 済」と並記するが、42 が更新回数だと明示する文は無く(並記からの読み取り)、計画した遡及 scan の成果物(scripts/measure-drift-baseline.mjs、docs/research/drift-baseline-2026-05-28.md、drift-canary.yml)は git 履歴に 1 度も現れず、#2597 は起票の約 1.4 時間後にコメント 0 件で close された。"
+    quote: QM Orchestrator (Claude Code session) が「顧客品質最終ゲート」役割から「BLOCK 列挙 / CI proxy」役割に drift する事象を **33 日で 42 回観測**。memory / ADR / checklist の追加 (5 回試行) は再発率を変えなかった。
+    locator: "ADR-0056 §コンテキスト 1 段落目。調査メモ docs/research/qm-drift-prevention-2026-05-28.md の表「観察期間 | 33 日 (2026-04-25 〜 2026-05-28)」「drift 再発回数 | 42 回」。Issue #2597 §関連 Issue / PR「memory: `feedback_quality_manager_is_not_ci_gate.md` (42 回 update 済)」"
+    quant:
+      value: 42 回 / 33 日(数え直し不能。計数の元はローカル memory の更新回数)
+      n: 1 リポジトリの QM セッション
+      design: gh issue view 2597、git log --all --oneline -- scripts/measure-drift-baseline.mjs docs/research/drift-baseline-2026-05-28.md .github/workflows/drift-canary.yml(出力なし)。取得 2026-09-30
+      population: ganbari-quest の QM(承認側)セッション、2026-04-25〜05-28
+    evidenceKind: case-report
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: qualifies
+  - id: c2
+    text: "Issue #268 の「構造化スキーマの強制が効いた」に対し、ADR-0056 §E は導入翌日(2026-05-29)に、subagent の起動が成功した環境でも drift が 4 PR 連続で起きたと記録する(うち 1 件は反対理由 3 件の schema を満たしたまま証跡の置き場がずれた)。導入前後で drift の回数を比べた測定はリポジトリに無く、効果は未測定である。"
+    quote: 42 回再発の延長線上で、**subagent dispatch を成功させても evidence 流通 / action 接続点で drift する**ことが判明。
+    locator: §E. Persona Drift §C fallback 経路自動化(2026-05-29 追記)
+    quant:
+      value: 導入翌日に 4 PR 連続で drift(#2613、#2625、#2629、#2630)
+      n: 4 PR
+      design: ADR 本文の表を読み取り(当事者の観察)。前後比較の測定は git 履歴に無いことを確認。取得 2026-09-30
+      population: ganbari-quest の QM セッション、2026-05-29
+    evidenceKind: case-report
+    rqs: [TH06-Q4]
+    issues: [268]
+    stance: qualifies
+  - id: c3
+    text: "承認コマンドを物理的に止める hook は 2026-08-13 に ADR-0068 で呼び出しを外された。外す根拠は費用と段階で、42 回の観測は否定しないという Issue #268 の記述は原文どおり。ADR-0068 は 30 分の有効期限が「重い指摘ほど罰する」構造だったことを理由に挙げる。"
+    quote: 置き換えの根拠は費用と段階であり、**本 ADR が観測した 42 回の drift は否定されていない**。
+    locator: 冒頭の置き換え注記
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q4, TH07-Q4]
+    issues: [268]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:19.791Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/decisions/0056-qm-drift-prevention-by-structural-agent-constraint.md
+    contentType: text/html; charset=utf-8
+    titleFetched: ganbari-quest/docs/decisions/0056-qm-drift-prevention-by-structural-agent-constraint.md at 053463794f117d7f79f961efc28be18fb7e4d43f · Takenori-Kusaka/ganbari-quest
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "「33 日で 42 回観測」(ADR-0056 §コンテキスト)。調査メモの観察期間は 33 日(2026-04-25 〜 2026-05-28)、drift 再発回数 42 回。Issue #2597 では 42 は memory `feedback_quality_manager_is_not_ci_gate.md` の「42 回 update 済」。#2597 は 2026-05-28T08:18:12Z 起票 → 09:43:57Z close(約 1.4 時間後、コメント 0 件)。計画成果物 scripts/measure-drift-baseline.mjs / docs/research/drift-baseline-2026-05-28.md / .github/workflows/drift-canary.yml は git 履歴(全 ref)に 1 度も現れない"
+        extractedQuote: QM Orchestrator (Claude Code session) が「顧客品質最終ゲート」役割から「BLOCK 列挙 / CI proxy」役割に drift する事象を **33 日で 42 回観測**。memory / ADR / checklist の追加 (5 回試行) は再発率を変えなかった。
+        locator: "ADR-0056 §コンテキスト 1 段落目。調査メモ docs/research/qm-drift-prevention-2026-05-28.md の表「観察期間 | 33 日 (2026-04-25 〜 2026-05-28)」「drift 再発回数 | 42 回」。Issue #2597 §関連 Issue / PR「memory: `feedback_quality_manager_is_not_ci_gate.md` (42 回 update 済)」"
+        note: "Issue #2597 は state_reason=completed で close されているが、AC-1〜AC-5 の成果物は git log --all でヒットしない。Issue 本文は「33 日で 42 回 drift」を「観察事実」と呼びつつ、memory ファイルを「42 回 update 済」と並記するのみで、42 = 更新回数と明示的に等置する文は無い(並記からの読み取り)。ADR-0056 は TTL 30 分の調整を「Issue #2597 baseline scan の D1 / D2 結果で」判断すると書くが、その scan 結果は存在しない。"
+        adjudication:
+          verdict: corrected
+          reason: "ADR-0056 と調査メモの値、成果物が git 履歴(全 ref)に現れないこと、コメント無しの close は blind と一致する。ただし「Issue #2597 によれば 42 は memory ファイルの更新回数」という断定は過剰である。blindNote のとおり、Issue は「33 日で 42 回 drift」を観察事実と呼びつつ memory を「42 回 update 済」と並記するだけで、両者を等置する文は無い。close までの時間も 08:18:12Z → 09:43:57Z で約 1.4 時間(主張は 1.5 時間)。断定を読み取りへ弱め、時間を直した。"
+          date: 2026-09-30
+          originalText: "Issue #268 の値「33 日で 42 回」は ADR-0056 と調査メモ(観察期間 2026-04-25〜05-28)に同じ値で記録されている。ただし公開リポジトリから数え直す手段は無い。Issue #2597 によれば 42 はエージェントのローカル memory ファイル(feedback_quality_manager_is_not_ci_gate.md)の更新回数で、#2597 が計画した遡及 scan の成果物(scripts/measure-drift-baseline.mjs、docs/research/drift-baseline-2026-05-28.md、drift-canary.yml)は git 履歴に 1 度も現れない(#2597 は起票 1.5 時間後にコメント無しで close)。"
+          originalQuote: QM Orchestrator (Claude Code session) が「顧客品質最終ゲート」役割から「BLOCK 列挙 / CI proxy」役割に drift する事象を **33 日で 42 回観測**。
+      c2:
+        verdict: match
+        extractedValue: "§E(2026-05-29 追記)は subagent dispatch 可能環境でも Persona Drift が「4 連続」(PR #2613 RR #4 / #2625 / #2629 / #2630)で起きたと記録。うち 1 件(#2630)は `must_object_count: 3` の schema を満たしたまま evidence file が subagent worktree 配下に置かれた。ADR の日付は 2026-05-28"
+        extractedQuote: "ADR-0056 §C (Persona Drift 対策 fallback) は Task subagent dispatch tool 不可環境での QM 自筆 fallback を許可する設計だが、本日 (2026-05-29) 観察で **subagent dispatch 可能環境でも Persona Drift 発生** が 4 連続で実証された:"
+        locator: "ADR-0056 §E. Persona Drift §C fallback 経路自動化 (#2632、2026-05-29 追記)冒頭と表。#2630 の行:「同上 + subagent が `must_object_count: 3` schema を満たすが evidence file が `tmp/adversarial-evidence/` 直下でなく subagent worktree 配下」"
+        note: "証跡の置き場がずれた事例は表では 2 件ある(#2613 RR #4 は worktree 内のみに生成、#2630 は schema を満たしつつ worktree 配下)。schema 充足が明記されているのは #2630 の 1 件。§E 追補(2026-06-04)は hook/§E 配備(5/28)後も「approve に進みますと宣言して tool call せず exit する drift が 2 件再発 (#2748 / #2754)」と記録しており、ask に無い追加の再発記録がある。ADR は schema 強制の効果を arXiv:2511.09710 の「echoing 30-40% → <10%」で根拠づけており、自リポジトリでの前後比較値は ADR 内に無い(escalate trigger の閾値だけがある)。"
+      c3:
+        verdict: match
+        extractedValue: 置き換え日 2026-08-13、ADR-0068(#4571)。「本 ADR が観測した 42 回の drift は否定されていない」「置き換えの根拠は費用と段階」。ADR-0068 は「30 分 TTL が『重い指摘ほど罰する』構造」(#4292)を挙げる
+        extractedQuote: PreToolUse hook `gate-approve.mjs` の**呼び出しは外れている**（hook 本体・test は再導入のため残置）。置き換えの根拠は費用と段階であり、**本 ADR が観測した 42 回の drift は否定されていない**。
+        locator: ADR-0056 冒頭の置き換え注記(ステータス表の直後)。ADR-0068 §コンテキスト「#4292「30 分 TTL が『重い指摘ほど罰する』構造になっている」(第 20 回統合で 2 回抵触) — 2026-08-05 に `wontfix` で close。」/ §決定「**外す根拠は「drift が起きない」ではない。** … 根拠は**費用と段階**である」
+        note: "2026-08-13 は ADR-0068 の日付かつ PR #4575 の作成日。hook の呼び出しを外す変更が develop に merge されたのは 2026-08-20T08:47:39Z(commit 7d6f0d41)で、実際に外れた日は 08-13 ではなく 08-20。「重い指摘ほど罰する」は ADR-0068 自身の文言ではなく、wontfix で close された Issue #4292 の題の引用。ADR-0068 自身の言い方は「防ぎたい行動 (雑な approve) より防ぎたくない行動 (丁寧なレビュー) を強く罰していた」。hook 本体と test は残置されている。"
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

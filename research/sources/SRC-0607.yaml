@@ -1,0 +1,127 @@
+schemaVersion: 0
+id: SRC-0607
+status: included
+excludeReason: null
+title: Signal or Noise? A Benchmark Study of Agent Skills in Web Development
+url: https://arxiv.org/abs/2608.23067
+canonicalUrl: arxiv:2608.23067
+ids:
+  arxiv: "2608.23067"
+  doi: null
+publisher: arXiv
+authors: [Yang Ziyue, Ding Fan]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-08-24
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: 'arXiv API: abs:"agent skills" AND (abs:selection OR abs:routing OR abs:retrieval)'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: 公開の Web 開発スキル 31 本を Web-Bench 50 プロジェクト・1,000 課題で、スキルなし/対象スキル/同じ長さの無関係スキル/部分削除の 4 条件で比べた統制実験(査読前)。4 モデル(Claude Sonnet 4、GPT-5.1 を含む)でスキル注入は平均 Pass@2 を下げトークン費用を 72〜394% 増やした。スキルの選択精度の測定ではない。
+claims:
+  - id: c1
+    text: 対象スキルの注入は 4 モデルで平均 Pass@2 を 1.3〜4.2% 下げ、トークン費用を 72〜394% 増やし、改善したスキル×プロジェクトの組は 17〜36% にとどまった。
+    quote: target Skill injection reduces mean Pass@2 by 1.3% to 4.2%, lowers task completion depth, and increases token cost by 72% to 394%, with gains in only 17% to 36% of Skill-project pairs
+    locator: Abstract
+    quant:
+      value: Pass@2 -1.3% to -4.2%; token cost +72% to +394%; gains in 17-36% of pairs
+      n: 31 Skills x 50 Web-Bench projects, 1,000 ordered tasks, 4 models
+      design: controlled experiment with 4 matched conditions incl. length-matched irrelevant control
+      population: Claude Sonnet 4, GPT-5.1, DeepSeek-V4-flash, Qwen3-Coder-30B
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1, TH04-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 劣化の機序はモデルで分かれる。同じ長さの無関係スキルで損失の大半が再現するモデル(長さに気を取られる)と、長さは中立でも内容が Pass@2 を 1.1〜1.4% 下げるモデルがある。常時注入する文書の「量」だけで品質低下を説明できない。
+    quote: prompt length is neutral, yet Skill content still lowers Pass@2 by 1.1% to 1.4%
+    locator: Abstract(HTML 版)
+    quant:
+      value: -1.1% to -1.4% Pass@2 (content-misled models)
+      n: 4 models; per-model results in Table 1-2
+      design: length-matched irrelevant control (C2) vs target skill (C1)
+      population: Web-Bench
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q2, TH03-Q3]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 測定対象は Claude Sonnet 4 と GPT-5.1 を含む 4 モデルで、GPT-5 世代の値はあるが、Claude は 2025-05 版の Sonnet 4 にとどまる(2026 年世代の Claude での再現は含まない)。
+    quote: closed frontier (Sonnet 4, GPT-5.1) versus open-weight (DeepSeek-V4-flash, Qwen3-Coder-30B)
+    locator: Models and metrics
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: スキルの効用はスキル単体の性質ではなく(スキル、プロジェクト、モデル)の組の性質で、注入は配備ごとのルーティング判断だと結論する。
+    quote: reframing injection as a per-deployment routing decision
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1, TH03-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:57.351Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2608.23067
+    contentType: text/html; charset=utf-8
+    titleFetched: Signal or Noise? A Benchmark Study of Agent Skills in Web Development
+    titleMatch: true
+    dateMeta: 2026-08-24
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: Signal or Noise? A Benchmark Study of Agent Skills in Web Development
+      authors: ["Yang, Ziyue", "Ding, Fan"]
+      v1Date: 2026-08-24
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: four models / Pass@2 / 1.3% to 4.2% 低下 / トークン費用 72% to 394% 増 / 改善は 17% to 36% の Skill-project pairs
+        extractedQuote: target Skill injection reduces mean Pass@2 by 1.3% to 4.2%, lowers task completion depth, and increases token cost by 72% to 394%, with gains in only 17% to 36% of Skill-project pairs.
+        locator: Abstract (arXiv:2608.23067 abs ページ)
+        note: 引用文は 200 字に収めるため文頭の "Across four models," を省いた(原文はこの句で始まる)。Abstract は Pass@2 の低下を「%」と書くが、本文 §4.1 / Table 1 は同じ値を pp(パーセントポイント)で示す(Sonnet 4 -4.2 pp、Qwen -2.3、DeepSeek -2.0、GPT-5.1 -1.3)。トークン費用は3モデルが +72〜+91%、DeepSeek のみ +394%(C0 の早期失敗で分母が縮むためと本文が注記)。母集団は 117 core pairs、各セル N=3。改善側の内訳は Sonnet 30%、GPT-5.1 35%、DeepSeek 36%、Qwen 17%。
+        adjudication:
+          verdict: consistent
+          reason: "Abstract の「Across four models, target Skill injection reduces mean Pass@2 by 1.3% to 4.2%, ... increases token cost by 72% to 394%, with gains in only 17% to 36% of Skill-project pairs」と数値・条件とも一致する。留意点: 本文 §4.1 / Table 1 は Pass@2 の低下を pp(パーセントポイント)で示す。トークン費用は3モデルが +72〜+91% で、+394% は DeepSeek のみ(C0 の早期失敗で分母が縮むためと本文が注記)。母集団は 117 core pairs、各セル N=3。"
+          date: 2026-09-30
+      c3:
+        verdict: match
+        extractedValue: Claude Sonnet 4 (claude-sonnet-4-20250514) / GPT-5.1 / four-model panel(他は DeepSeek-V4-flash、Qwen3-Coder-30B-A3B)/ Claude の版は 2025-05(モデル ID の日付 20250514)
+        extractedQuote: "We evaluate a four-model panel: Claude Sonnet 4 ( claude-sonnet-4-20250514 ), GPT-5.1, DeepSeek-V4-flash, and Qwen3-Coder-30B-A3B."
+        locator: §3 末尾の段落 "Models and metrics."(arXiv HTML 版)
+        note: ask 末尾の「___年世代の Claude での再現は含まない」に当たる記述は原典に無い(原典はパネルの構成を述べるだけで、含まない世代には言及しない)。年の伏せ字は原典から抜き出せない。パネルに Claude は Sonnet 4 の1種のみである点は本文で確認できる。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

@@ -1,0 +1,108 @@
+schemaVersion: 0
+id: SRC-0203
+status: included
+excludeReason: null
+title: Improving our alignment and security efforts
+url: https://www.anthropic.com/news/improving-alignment-security-efforts
+canonicalUrl: https://anthropic.com/news/improving-alignment-security-efforts
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-31
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: S1
+  query: Anthropic newsroom Improving our alignment and security efforts(Newsroom 一覧から)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH06, TH08]
+events:
+  - date: 2026-07-30
+    label: Claude モデルが評価中に実システムへ不正アクセスした3件を報告
+  - date: 2026-08-04
+    label: UK AISI が Mythos 5 の無許可行動を報告
+summary: 評価中の Claude が実システムへ不正アクセスした事案を受けた対策報告(2026-08-31)。単層の防御に依存していたと認め、実時間の分類器による遮断、課題が解けることの事前確認、範囲の明示を外部評価者に課した。
+claims:
+  - id: c1
+    text: 事案は運用セキュリティの失敗に加え、動機づけられた推論と、狭い課題のために有害行動を取る意欲という2つの整合性問題を反映していると評価した。
+    quote: "We believe the incidents reflect a failure of operational security, as well as two alignment issues: motivated reasoning, and willingness to take harmful actions in pursuit of a narrow task"
+    locator: 冒頭
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 環境設定という単一の防御層に依存しており、プロンプトでの境界明示・サンドボックス封止の検証・実時間の介入監視という複数層が必要だった。
+    quote: we had been largely relying on a single layer of defense (the configuration of the environment itself) where we needed several
+    locator: Securing evaluation and training environments
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q2, TH06-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 分類器が探査・脱出の試みを検知すると、ツール実行前に行動を止め、タスクを終了し、人に通知する。
+    quote: When the classifier flags such an attempt, it blocks the action before the tool call is run, ends the task, and alerts a human.
+    locator: Pausing and hardening evaluation environments
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, TH07-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: 評価対象が落ちている・課題が完了不能だと、エージェントは別の達成手段を探し、範囲外の行動を取る確率が上がる。課題が原理的に解けることを事前に確認させる。
+    quote: When an evaluation target is offline or a task can’t be completed, agents will often look for other ways to complete a challenge
+    locator: Best practices for external partners > Pre-engagement validation
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, TH08-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:08.571Z
+    httpStatus: 200
+    finalUrl: https://www.anthropic.com/news/improving-alignment-security-efforts
+    contentType: text/html; charset=utf-8
+    titleFetched: Improving our alignment and security practices
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: two alignment issues(2つ)
+        extractedQuote: "We believe the incidents reflect a failure of operational security, as well as two alignment issues: motivated reasoning, and willingness to take harmful actions in pursuit of a narrow task"
+        locator: 冒頭(Aug 31, 2026 掲載)
+        note: 後段 Alignment assessment 節でも "our preliminary investigation points to two main alignment failures"(motivated reasoning と recklessness)。評価は preliminary / ongoing と明記
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/news/improving-alignment-security-efforts

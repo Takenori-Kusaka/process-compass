@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0568
+status: included
+excludeReason: null
+title: Life Cycle Stages - SEBoK
+url: https://sebokwiki.org/wiki/Life_Cycle_Stages
+canonicalUrl: https://sebokwiki.org/wiki/life_cycle_stages
+ids:
+  arxiv: null
+  doi: null
+publisher: SEBoK (INCOSE / IEEE Systems Council / Stevens SERC)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: community
+published: 2026-05-18
+publishedBasis: page
+version: SEBoK v. 2.14
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G05
+  query: SEBoK decision gates "unacceptable" "return to a preceding stage" OR "go back" life cycle model ISO/IEC/IEEE 15288 decision options
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH12]
+events: []
+summary: SEBoK v2.14(2026-05-18 公開)のライフサイクルステージ解説。ISO/IEC/IEEE 15288・24748-1 と INCOSE ハンドブック第5版に基づき、決定ゲートの選択肢として『別のステージへ行く・やり直す』を挙げる。規格本文ではなく知識体系の解説で、15288 / 24748-1 本文は未読。
+claims:
+  - id: c1
+    text: 各ステージの決定の選択肢は、別ステージの開始・現ステージの継続・別のステージへ行くかやり直す・活動の一時停止・終了の 5 つ。前のステージへ戻ることは決定ゲートの正規の選択肢として挙げられている。
+    quote: Go to or restart another stage
+    locator: Decision Options for each stage(箇条書き 3 番目)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+  - id: c2
+    text: 対象システムのすべての部分が同時に同じ成熟度・決定ゲートへ達するわけではないため、中間の成熟度レビューが必須とされる。部分ごとに判定時点がずれることを前提にしている。
+    quote: It is important to note that not all parts of an SOI will reach the same maturity and therefore decision gate at the same time.
+    locator: 本文 第2段落
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2]
+    issues: [250]
+    stance: supports
+  - id: c3
+    text: ゲートの入口・出口基準はテーラリングする必要があり、画一の基準は合わないと明記する。
+    quote: Also, it is necessary to be clear about tailoring the entry/exit criteria - one size does not fit all.
+    locator: 本文 第2段落
+    quant: null
+    evidenceKind: normative
+    rqs: [TH09-Q2, TH02-Q4]
+    issues: [250]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:42.958Z
+    httpStatus: 200
+    finalUrl: https://sebokwiki.org/wiki/Life_Cycle_Stages
+    contentType: text/html; charset=UTF-8
+    titleFetched: Life Cycle Stages
+    titleMatch: true
+    dateMeta: 2026-09-30
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 5(箇条書き 5 項目)
+        extractedQuote: "Decision Options for each stage: Begin another stage or stages Continue this stage Go to or restart another stage Pause activity Terminate"
+        locator: Decision Gates 節末尾の Decision Options for each stage(箇条書き)
+        note: 個数は原文に数字では書かれておらず、箇条書きの項目数が 5。3 番目は “Go to or restart another stage” で、『前の(previous)ステージへ戻る』とは明記されていない。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

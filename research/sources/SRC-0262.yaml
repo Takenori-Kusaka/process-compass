@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0262
+status: included
+excludeReason: null
+title: AIを入れても、なぜ業務量は思ったほど減らないのか
+url: https://techblog.lycorp.co.jp/ja/20260819a
+canonicalUrl: https://techblog.lycorp.co.jp/ja/20260819a
+ids:
+  arxiv: null
+  doi: null
+publisher: LINEヤフー Tech Blog
+authors: [西村 知紘, 大西 可奈子]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-08-19
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: "RSS走査: 国内Web系21社の技術ブログフィード(freee, マネーフォワード, SmartHR, サイバーエージェント, LINEヤフー, DeNA, Sansan, ZOZO, エムスリー, ANDPAD, メルカリ, GMO, ゆめみ, Ubie, ログラス, カケハシ, 10X, UPSIDER, Gaudiy, ヤプリ 等)を AI|Claude|Codex|エージェント|LLM|レビュー|ハーネス で抽出"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH11]
+events: []
+summary: Yahoo!オークション・フリマの商品パトロールへのAI導入で、審査効率は約26〜50倍になったが人の業務時間は同様には減らなかった報告。人が最後に全件確認する構造(HITL)が制約と結論し、AIだけで完結する領域を設計する方針に転じた。
+claims:
+  - id: c1
+    text: 審査効率(審査した商品のうち措置につながった割合)は、クエリ時代を1とする指数でAIフィルター全体で約26倍、AIプレ審査導入カテゴリで約50倍に向上した(母数は非開示)。
+    quote: 審査した商品のうち、実際に削除などの措置につながった割合を「審査効率」とすると、クエリ時代を1とする指数で、AIフィルターの対象全体では約26倍、AIプレ審査を導入したカテゴリでは約50倍まで向上しました。
+    locator: AI導入の成果
+    quant:
+      value: 約26倍 / 約50倍(指数)
+      n: 非開示
+      design: 社内指標の前後比較(定義は開示・母数は非開示)
+      population: Yahoo!オークション・Yahoo!フリマの商品パトロール
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: しかし業務時間は審査効率ほど減らず、判断の難しい商品の比率が上がって1件あたりの判断負荷が増え、人が最後にすべてを確認する構造そのものは変わらなかった。
+    quote: つまり、AIによる支援が進んでも、人が最後にすべてを確認する業務構造そのものは変わりませんでした。
+    locator: Human-in-the-loopの限界
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q2, TH01-Q1]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: AIに判断を委ねる領域の設計では、精度だけでなく判断権限と責任の分担、誤り時のリカバリーまで前後のフローを含めて設計する必要があるとする。影響の大きい領域は人の判断として残す。
+    quote: AIの精度を確認するだけでなく、そもそもどの領域をAIの判断に委ねるのか、判断権限と責任をどう分担するのか、誤りが生じた場合にリカバリーできるのかなど、パトロール業務だけでなくその前後のフローも含めて設計する必要があります。
+    locator: AI-Readyな業務設計への転換
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q1, TH01-Q2]
+    issues: [248]
+    stance: supports
+  - id: c4
+    text: 人とAIの判断が食い違ったケースを基準に照らして検証したところ、AIの誤りではなく人の見落としだったケースもあった。
+    quote: その結果、AIの誤りではなく、人の見落としだったケースもありました。
+    locator: 関係部門の合意形成
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.227Z
+    httpStatus: 200
+    finalUrl: https://techblog.lycorp.co.jp/ja/20260819a
+    contentType: text/html
+    titleFetched: AIを入れても、なぜ業務量は思ったほど減らないのか
+    titleMatch: true
+    dateMeta: 2026-08-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 1(1件あたり)
+        extractedQuote: 違反の可能性が高く、判断の難しい商品の割合が高まり、見る件数が減っても、1件あたりの判断負荷は高くなりました。…つまり、AIによる支援が進んでも、人が最後にすべてを確認する業務構造そのものは変わりませんでした。
+        locator: 2. AIは効いた。それでも業務量は減らなかった(節末「ここに、Human-in-the-loopの限界がありました」)
+        note: 対象は Yahoo!オークション・Yahoo!フリマの商品パトロール業務。審査効率はクエリ時代=1の指数で AIフィルター全体約26倍、AIプレ審査導入カテゴリ約50倍。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

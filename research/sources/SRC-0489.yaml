@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0489
+status: included
+excludeReason: null
+title: Significant milestone for European AI standardization
+url: https://jtc21.eu/significant-milestone-for-european-ai-standardization
+canonicalUrl: https://jtc21.eu/significant-milestone-for-european-ai-standardization
+ids:
+  arxiv: null
+  doi: null
+publisher: CEN-CENELEC JTC 21 secretariat
+authors: []
+orgType: standards-body
+region: eu
+lang: en
+sourceType: public-agency
+published: 2026-07-09
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: CEN-CENELEC JTC 21 harmonised standards AI Act delay 2026 status prEN
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2026-07
+    label: EN 18286(AI Act 向け品質マネジメントシステム)の発行見込み
+  - date: 2026-08-20
+    label: "prEN 18229-1(信頼性枠組み Part 1: ログ)の公開意見照会の締切"
+summary: AI Act の整合規格を作る CEN-CENELEC JTC 21 の告知。QMS 規格 EN 18286 が 2026-07 に発行見込み、リスク管理・サイバーセキュリティ・ログの各 prEN が意見照会中であることを示す。人間による監視を扱う部の状況はこの告知に無い。
+claims:
+  - id: c1
+    text: AI Act 第17条向けの品質マネジメントシステム規格 EN 18286 は 2026-07 に発行見込みとされた。規格の官報引用(適合推定)の有無はこの告知では述べていない。
+    quote: July marks an important milestone with the expected publication of EN 18286 “Quality Management System for EU AI Act Regulatory”.
+    locator: 本文冒頭
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH12-Q1, TH12-Q4]
+    issues: []
+    stance: context
+  - id: c2
+    text: 2026-07 時点で、リスク管理(prEN 18228)・サイバーセキュリティ(prEN 18282)は 07-30 まで、ログ(prEN 18229-1)は 08-20 まで公開意見照会の段階にあった。高リスク義務の当初適用日(2026-08-02)に規格群が揃っていなかった。
+    quote: "prEN 18229-1 – AI Trustworthiness Framework – Part 1: Logging (Public Hearing until 20 August 2026)"
+    locator: Public Hearing (Enquiry) の一覧
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH12-Q1, TH12-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:11.984Z
+    httpStatus: 200
+    finalUrl: https://jtc21.eu/significant-milestone-for-european-ai-standardization/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Significant milestone for European AI standardization |
+    titleMatch: true
+    dateMeta: 2026-07-09
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "条番号: 記載なし/EN 18286/2026-07(July、投稿日 2026-07-09)"
+        extractedQuote: July marks an important milestone with the expected publication of EN 18286 “Quality Management System for EU AI Act Regulatory”.
+        locator: 本文冒頭(投稿日 July 9, 2026)
+        note: 原典に AI Act の条番号(第17条等)の記載はない(「demonstrating conformity with the requirements of the EU AI Act」のみ)。官報引用・適合推定への言及がない点は ask の後段と整合。curl は Mod_Security により 406 で拒否されたが tavily_extract で本文を取得。
+      c2:
+        verdict: match
+        extractedValue: "2026-07(投稿日 2026-07-09)/prEN 18228・prEN 18282: 2026-07-30 まで/prEN 18229-1: 2026-08-20 まで/当初適用日: 記載なし"
+        extractedQuote: prEN 18228 – AI Risk Management (Public Hearing until 30 July 2026) ... prEN 18282 – ... (Public Hearing until 30 July 2026) ... prEN 18229-1 – ... Logging (Public Hearing until 20 August 2026)
+        locator: Public Hearing (Enquiry) phase の一覧
+        note: 一覧には prEN 18288(Computer Vision タクソノミ、2026-07-16 まで)もある。ask 末尾の「高リスク義務の当初適用日(___)に規格群が揃っていなかった」は本告知には書かれておらず、日付も記載なし(他出典からの推論)。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

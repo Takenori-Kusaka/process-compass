@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0054
+status: included
+excludeReason: null
+title: Early-Stage Prediction of Review Effort in AI-Generated Pull Requests
+url: https://arxiv.org/abs/2601.00753
+canonicalUrl: arxiv:2601.00753
+ids:
+  arxiv: "2601.00753"
+  doi: 10.1145/3793302.3793609
+publisher: arXiv / MSR '26(23rd International Conference on Mining Software Repositories)
+authors: [Dao Sy Duy Minh, Huynh Trung Kiet, Nguyen Lam Phu Quy, Pham Phu Hoa, Tran Chi Nguyen, Nguyen Dinh Ha Duong, Truong Bao Tran]
+orgType: academic
+region: other
+lang: en
+sourceType: paper-peer
+published: 2026-01-02
+publishedBasis: arxiv-v1
+version: v2(2026-01-27)
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-2
+  query: GET https://arxiv.org/abs/2601.00753 / https://arxiv.org/html/2601.00753
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11, TH06]
+events: []
+summary: 前回「タイトルのみ確認」だった MSR '26 論文。AIDev の 33,707 件のエージェント PR を分析。28.3% は即時マージされる一方、反復的な修正要求で放棄(ghosting)が起きる二極構造。作成時の静的特徴だけで高コスト PR を AUC 0.96 で予測し、レビュー予算 20% で高負荷 PR の 69% を捕捉できると報告。
+claims:
+  - id: c1
+    text: 33,707 件のエージェント PR は「狭い自動化には強い(28.3% が即時マージ)」が「反復的な修正には弱く放棄(ghosting)に至る」二極構造を示す。
+    quote: "Analyzing 33,707 agent-authored PRs, we uncover a stark two-regime reality: agents excel at narrow automation (28.3% of PRs merge instantly), but frequently fail at iterative refinement"
+    locator: Abstract
+    quant:
+      value: 28.3% instant merge
+      n: 33,707 PRs / 2,807 repos (>100 stars)
+      design: observational (repository mining)
+      population: AIDev v1.0 agent-authored PRs
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: ファイル種別やパッチサイズなどの静的特徴だけで高負荷 PR を AUC 0.96 で予測でき、レビュー予算 20% で高負荷 PR の 69% を捕捉する「サーキットブレーカ」型トリアージを提案する。
+    quote: our model identifies the “expensive tail” of contributions with AUC 0.96, enabling a gated triage process. At a 20% review budget, this approach captures 69% of the high-effort PRs
+    locator: Abstract
+    quant:
+      value: AUC 0.96; 69% captured at 20% budget
+      n: 33,707 PRs
+      design: predictive model (observational data)
+      population: AIDev v1.0
+    evidenceKind: observational
+    rqs: [TH10-Q1, TH06-Q6]
+    issues: []
+    stance: supports
+  - id: c3
+    text: データは AIDev v1.0、スター 100 超の 2,807 リポジトリから、決定的ボットを除いた生成エージェント(Codex, Claude, Devin, Copilot)の PR。
+    quote: "We use the AIDev dataset v1.0 (Li et al., 2025a): 33,707 agent-authored PRs from 2,807 repositories (>100 stars)"
+    locator: §2 Methodology
+    quant: null
+    evidenceKind: observational
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:06.247Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2601.00753
+    contentType: text/html; charset=utf-8
+    titleFetched: Early-Stage Prediction of Review Effort in AI-Generated Pull Requests
+    titleMatch: true
+    dateMeta: 2026-01-02
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: Early-Stage Prediction of Review Effort in AI-Generated Pull Requests
+      authors: ["Minh, Dao Sy Duy", "Kiet, Huynh Trung", "Quy, Nguyen Lam Phu", "Hoa, Pham Phu", "Nguyen, Tran Chi", "Duong, Nguyen Dinh Ha"]
+      v1Date: 2026-01-02
+      latestVersion: 2
+      titleMatch: true
+    crossref:
+      status: 200
+      title: Early-Stage Prediction of Review Effort in AI-Generated Pull Requests
+      issued: 2026-4-13
+      titleMatch: true
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

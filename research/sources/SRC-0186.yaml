@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0186
+status: included
+excludeReason: null
+title: Blog | Cognition
+url: https://cognition.com/blog
+canonicalUrl: https://cognition.com/blog
+ids:
+  arxiv: null
+  doi: null
+publisher: Cognition
+authors: []
+orgType: startup
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-09-22
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-1
+  query: "direct: cognition.com/blog"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH04]
+events:
+  - date: 2026-06-29
+    label: Cognition が Devin Fusion を発表
+  - date: 2026-07-13
+    label: Cognition が「Making Fable Cheaper Than Opus」を公開(Fusion で Fable 5 が Opus 4.8 より安く高得点)
+  - date: 2026-07-20
+    label: Cognition が TierZero を買収
+  - date: 2026-09-08
+    label: Cognition が Series E(20 億ドル超、評価額 480 億ドル)を発表
+  - date: 2026-09-10
+    label: Cognition が SWE-2 を発表
+  - date: 2026-09-11
+    label: Cognition が Fusion を Devin Desktop と CLI に提供
+summary: Cognition のブログ一覧(取得日 2026-09-23)。前回メモが 2026-07-13 とした Devin Fusion の発表は 2026-06-29 で、07-13 は Fable 対 Opus の費用比較記事の日付である。
+claims:
+  - id: c1
+    text: Devin Fusion の発表日は 2026-06-29。前回 §1-2 の「(発表日 2026-07-13)」は別記事「Making Fable Cheaper Than Opus」(07-13)の日付である。
+    quote: "Devin Fusion: Frontier Performance at 60% Lower Cost 06.29.26"
+    locator: 一覧
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: qualifies
+  - id: c2
+    text: Cognition は Fusion を Fable と Astra 向けの最も効率的なハーネスとし、他ハーネス比で最大 39% 効率的だと主張する(自社比較)。
+    quote: Fusion is the most efficient frontier harness for Fable and Astra, up to 39% more efficient compared to other model harnesses across major coding benchmarks.
+    locator: 一覧
+    quant:
+      value: up to 39% more efficient
+      n: n/a
+      design: vendor claim
+      population: major coding benchmarks
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q3, TH04-Q4]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:06.526Z
+    httpStatus: 200
+    finalUrl: https://cognition.com/blog
+    contentType: text/html; charset=utf-8
+    titleFetched: Blog | Cognition
+    titleMatch: true
+    dateMeta: 2026-09-22
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Devin Fusion: 06.29.26（2026-06-29）/ Making Fable Cheaper Than Opus: 07.13.26（2026-07-13）"
+        extractedQuote: "Making Fable Cheaper Than Opus 07.13.26 Fable 5 costs twice as much per token as Opus 4.8. … Devin Fusion: Frontier Performance at 60% Lower Cost 06.29.26 Introducing Devin Fusion: a hybrid-model"
+        locator: ブログ一覧（タイトル→日付 MM.DD.YY→要約の順に並ぶ）
+        note: 一覧には別記事『Introducing Fusion in Devin Desktop & CLI』（09.11.26、Fusion を Devin Desktop/CLI で提供開始）もある。『Devin Fusion の発表日』を初出（06-29）と取るか提供拡大（09-11）と取るかで値が変わる。ask 中の『前回 §___-___』は内部参照で原典からは検証不可。
+        adjudication:
+          verdict: consistent
+          reason: "blindQuote の一覧で「Devin Fusion: Frontier Performance at 60% Lower Cost」は 06.29.26、「Making Fable Cheaper Than Opus」は 07.13.26 であり、主張の両日付と一致する。blindNote が挙げる 09.11.26「Introducing Fusion in Devin Desktop & CLI」は Desktop/CLI への提供拡大の記事である。「Introducing Devin Fusion」を掲げた初出記事は 06.29 なので、発表日を 06-29 とする主張と矛盾しない。「前回 §1-2」は内部参照のため判定対象外。"
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0090
+status: included
+excludeReason: null
+title: ISO/IEC 42001:2023 Information technology — Artificial intelligence — Management system (iTeh 公開プレビュー)
+url: https://cdn.standards.iteh.ai/samples/81230/4c1911ebc9a641fcb6ee21aa09c28ad3/ISO-IEC-42001-2023.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/81230/4c1911ebc9a641fcb6ee21aa09c28ad3/iso-iec-42001-2023.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC JTC 1/SC 42
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2023-12
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-23
+access: paywall
+readLevel: section
+foundBy:
+  cluster: TH01
+  query: ISO/IEC 42001:2023 sample preview pdf iteh "A.3.2" "AI roles and responsibilities"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH12]
+events: []
+summary: "ISO/IEC 42001 の公開プレビュー(14頁: 序文・0 Introduction・1 Scope・目次)。組織は AI システムに対する自らの役割(provider / producer / customer 等)について責任と説明責任の証拠を生成できるとし、役割は組織単位で宣言する。附属書 A.3.2「AI の役割と責任」は本文有償部分でプレビュー外。"
+claims:
+  - id: c1
+    text: 本規格に適合する組織は、AI システムに対する自らの「役割」に関する責任と説明責任の証拠を生成できる。責任の単位は組織の役割であり、個々の作業を人と AI のどちらが行うかは規定しない。
+    quote: An organization conforming with the requirements in this document can generate evidence of its responsibility and accountability regarding its role with respect to AI systems.
+    locator: 0 Introduction, 0.1 General
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c2
+    text: 組織の役割は AI provider / producer(developer, operator, tester, deployer 等を含む)/ customer などで、一組織が複数を兼ねうる。
+    quote: "These roles can include, but are not limited to, one or more of the following: — AI providers, including AI platform providers, AI product or service providers;"
+    locator: 4.1 Understanding the organization and its context, NOTE 1
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:39.845Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/81230/4c1911ebc9a641fcb6ee21aa09c28ad3/ISO-IEC-42001-2023.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

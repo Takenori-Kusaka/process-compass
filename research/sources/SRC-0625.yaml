@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0625
+status: included
+excludeReason: null
+title: 日立グループ合同「AI-DLC Unicorn Gym」開催レポート ── 日立 AI駆動開発のキーマンに聞く、グループ展開への道筋
+url: https://aws.amazon.com/jp/blogs/news/ai-dlc-unicorn-gym-htachi-group-2026/
+canonicalUrl: https://aws.amazon.com/jp/blogs/news/ai-dlc-unicorn-gym-htachi-group-2026
+ids:
+  arxiv: null
+  doi: null
+publisher: Amazon Web Services ブログ
+authors: [早川 康平]
+orgType: vendor
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-06-18
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G08
+  query: AI駆動開発 開発標準 組み込み 品質保証部門 検収 日立 OR NEC OR TIS OR NRI OR SCSK 2026 AIエージェント 本番適用
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH12, TH01, TH11, TH02]
+events:
+  - date: 2026-05-18
+    label: 日立グループ3社・8チーム・52名が AI-DLC Unicorn Gym を実施(〜05-20)
+summary: 日立グループ3社が参加した AI-DLC ワークショップの報告と、日立の推進担当者への対談(AWS 執筆)。工数削減の値は参加者の体感で、品質保証工程を織り込んだ「日立版 AI-DLC」はこれから作る段階と述べている。
+claims:
+  - id: c1
+    text: 工数削減の数値は参加者アンケートの体感で、測定ではない。回答者数は書かれていない。
+    quote: 開発工数の削減について、回答者の 90% が「70% 以上の削減」を、72% が「85% 以上の削減」を体感
+    locator: 1. 開催レポート — 開催後のアンケート
+    quant:
+      value: 90% が「70%以上の削減」、72% が「85%以上の削減」を体感
+      n: 3社・8チーム・52名が参加(回答者数は不記載)
+      design: 3日間のワークショップ後のアンケート(体感)
+      population: 日立製作所・日立ハイテク・日立産業制御ソリューションズの参加者
+    evidenceKind: survey
+    rqs: [BASE-Q2, TH11-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: AWS の担当者自身が、ワークショップの数字は動くものをデプロイするまでの速さで、本番リリースまでの工数とは別だと述べる。本番に出すにはテスト・承認・レビューなどの品質保証工程を通す必要があるとする。
+    quote: つまり「動くものをデプロイするまでの速さ」と「本番リリースまでの工数」は別物で、今回の数字は前者にあたります。
+    locator: 2. 推進キーマンインタビュー — 想像を超えた、社内の反響
+    quant: null
+    evidenceKind: case-report
+    rqs: [BASE-Q2, TH11-Q2, TH12-Q2]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 日立の担当者は、既存の品質保証プロセスを AI-DLC の進め方に織り込んで初めて本番に使えると述べる。QA 部門との折り合いは達成済みの事例ではなく、これからの課題として語られている。
+    quote: AI に任せきりにするのではなく、その品質保証のプロセスを AI-DLC の進め方そのものに織り込んでいく。そこができて初めて、日立として安心して本番に使える、と言えるのだと思います。
+    locator: AI-DLC は「品質を犠牲にスピードを出す」手法ではない — 早川 裕志(日立)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH12-Q2, BASE-Q2]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: AI-DLC は工程ごとに人間の承認ゲートを設け、AI が作るものを草案と位置づける。判断と承認を人に残す自己規定である。
+    quote: AI-DLC では開発ステップを明確化し、工程ごとに人間の承認ゲートを設けます。AI が作るのはあくまで草案で、承認を経て初めて人間の成果物になる。
+    locator: AI-DLC は「品質を犠牲にスピードを出す」手法ではない — 早川 康平(AWS)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q3, BASE-Q2]
+    issues: []
+    stance: supports
+  - id: c5
+    text: 標準への組み込みは、全社で最低限守る「汎用版」のワークフローを1つ作り、事業部・グループ会社が複製して調整する方式を想定する。金融・公共・鉄道で品質基準が異なることを理由に挙げる。
+    quote: まずは日立として最低限守るべきものを 1 つの「汎用版」として整える。それを各事業部・グループ会社が Fork（複製）して、それぞれに合わせてカスタマイズしていく
+    locator: 「日立版 AI-DLC ワークフロー」を、各現場で育てる
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH12-Q2, BASE-Q2]
+    issues: []
+    stance: context
+  - id: c6
+    text: 参加者からは本番適用に向けた要望として「品質保証との両立」と「大規模開発のプラクティス」が挙がった。
+    quote: 「Coding Agent の社内払い出しの簡素化」「大規模開発のプラクティス」「品質保証との両立」といった、本番適用に向けた改善の要望もいただきました。
+    locator: 1. 開催レポート
+    quant: null
+    evidenceKind: case-report
+    rqs: [BASE-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:04.895Z
+    httpStatus: 200
+    finalUrl: https://aws.amazon.com/jp/blogs/news/ai-dlc-unicorn-gym-htachi-group-2026/
+    contentType: text/html;charset=UTF-8
+    titleFetched: 日立グループ合同「AI-DLC Unicorn Gym」開催レポート ── 日立 AI駆動開発のキーマンに聞く、グループ展開への道筋 | Amazon Web Services
+    titleMatch: true
+    dateMeta: 2026-06-18
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

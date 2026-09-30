@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0231
+status: included
+excludeReason: null
+title: "GitHub Copilot app: The agent-native desktop experience"
+url: https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience
+canonicalUrl: https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience
+ids:
+  arxiv: null
+  doi: null
+publisher: The GitHub Blog
+authors: [Mario Rodriguez]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-06-02
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: GitHub Copilot app agent merge
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06, TH10, TH02, TH11]
+events:
+  - date: 2026-06-02
+    label: Microsoft Build 2026 で GitHub Copilot app（technical preview）、Agent Merge、canvases、cloud/local sandbox を発表
+summary: Build 2026 での GitHub の発表。並列エージェントを管理する Copilot app、PR をマージまで運ぶ Agent Merge、既定で書き込みごとに許可を求める cloud automations、複数モデル系統で批評する /rubberduck を示す。
+claims:
+  - id: c1
+    text: cloud automations は既定で書き込み操作のたびに許可を求め、信頼が確立してから autopilot に切り替える運用を案内する。信頼に応じた段階的な自律度の引き上げ。
+    quote: By default, the cloud agent asks permission before each write action. Switch to autopilot once you have established trust.
+    locator: One runtime for apps, tools, and agents
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: Agent Merge は CI を監視し必須レビュアーを追跡し、失敗したチェックに対処し、全条件が満たされるまで待つ。どこまで任せるかは利用者が選ぶ（既存のレビュー・マージ要件は維持）。
+    quote: It monitors CI, tracks required reviewers, addresses failing checks, and waits for all conditions to be satisfied. You choose how far Copilot should go
+    locator: "Copilot app: A control center for agent-native development"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q4, TH01-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: /rubberduck スキルを GA とし、複数のモデル系統で実装を批評させて新たな問題を見つける用途を案内する。ベンダー自身が系統の異なるモデルによる批評を製品化した例。
+    quote: The `/rubberduck` skill is now generally available to use multiple model families to critique your implementation and find novel issues.
+    locator: Code review that scales with agentic output
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c4
+    text: エージェントがより多くの作業を担いつつ、品質・ポリシー・デリバリーの統制は開発者が保つという位置づけを明言する。
+    quote: agents can do more of the work, while developers keep control of quality, policy, and delivery.
+    locator: What we’re building toward
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2, BASE-Q2]
+    issues: []
+    stance: supports
+  - id: c5
+    text: GitHub 上のコミットは前年比でほぼ倍増し月14億件超、Actions は週20億分超（ベンダー自己報告）。
+    quote: commits nearly doubled year over year, crossing 1.4 billion per month, plus over 2 billion GitHub Actions minutes a week.
+    locator: 冒頭
+    quant:
+      value: 1.4B commits/month (~2x YoY); 2B+ Actions minutes/week
+      n: platform-wide telemetry (method not stated)
+      design: vendor telemetry
+      population: GitHub.com
+    evidenceKind: news-fact
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.098Z
+    httpStatus: 200
+    finalUrl: https://github.blog/news-insights/product-news/github-copilot-app-the-agent-native-desktop-experience/
+    contentType: text/html; charset=UTF-8
+    titleFetched: "GitHub Copilot app: The agent-native desktop experience"
+    titleMatch: true
+    dateMeta: 2026-06-02
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c5:
+        verdict: match
+        extractedValue: 1.4 billion per month (commits) / over 2 billion GitHub Actions minutes a week
+        extractedQuote: On GitHub alone, commits nearly doubled year over year, crossing 1.4 billion per month, plus over 2 billion GitHub Actions minutes a week.
+        locator: "冒頭の導入段落(見出し『Copilot app: A control...』の直前)"
+        note: 原文の単位は billion。1.4 billion は14億、2 billion は20億に当たる。Microsoft Build での発表文脈(ベンダー自身の数値)
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「commits nearly doubled year over year, crossing 1.4 billion per month, plus over 2 billion GitHub Actions minutes a week」と一致する。単位換算は 1.4 billion=14億、2 billion=20億で、「crossing」を「超」と訳している。ベンダー自己報告である点も blindNote の文脈(Microsoft Build での発表)と一致する。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

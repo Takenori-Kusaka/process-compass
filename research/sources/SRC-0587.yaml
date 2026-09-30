@@ -1,0 +1,127 @@
+schemaVersion: 0
+id: SRC-0587
+status: included
+excludeReason: null
+title: "AgenticFlict: A Large-Scale Dataset of Merge Conflicts in AI Coding Agent Pull Requests on GitHub"
+url: https://arxiv.org/abs/2604.03551
+canonicalUrl: arxiv:2604.03551
+ids:
+  arxiv: "2604.03551"
+  doi: 10.1145/3805760.3814923
+publisher: arXiv / AIware 2026 (Benchmark & Dataset Track)
+authors: [Ogenrwot Daniel, Businge John]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2026-04-04
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-05-12
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: arXiv 2026 empirical study merge conflicts AI coding agent pull requests branch age stale conflict rate
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11]
+events: []
+summary: AIDev 由来のエージェント作成 PR 142,652 件のうち 107,026 件でマージを再現し、テキスト衝突を 27.67% に観測したデータセット論文(AIware 2026 採択)。対象は open または未マージで close された PR に限られる。PR が小さいほど衝突率は低い。
+claims:
+  - id: c1
+    text: エージェント作成 PR 107,026 件のマージ再現で、29,609 件(27.67%)にテキスト衝突が起きた。対象はマージされていない(open または未マージで close)PR である点に注意が要る。
+    quote: Our pipeline identifies 29,609 PRs exhibiting merge conflicts, yielding a conflict rate of 27.67%, and extracts 336,380 fine-grained conflict regions across these instances.
+    locator: §1 Introduction / Table 1
+    quant:
+      value: 27.67%(29,609 / 107,026)
+      n: 142,652 PR・59,412 リポジトリ(再現成功 107,026)
+      design: リポジトリ・マイニング(決定的なマージ再現)
+      population: AIDev データセットのエージェント作成 PR のうち open または未マージで close されたもの(5 エージェント)
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: 変更行数の中央値が 2 行の PR 群の衝突率は約 9.9%、25 行の群ではほぼ 30% で、バッチが小さいほど衝突率は低い。
+    quote: PRs with a median churn of 2 lines have a conflict rate of approximately 9.9%, whereas PRs with a median churn of 25 lines exhibit a conflict rate of nearly 30%.
+    locator: §4 Exploratory Empirical Analysis
+    quant:
+      value: 9.9%(中央値 2 行)対 約 30%(中央値 25 行)
+      n: 107,026 PR
+      design: サイズ区分別の衝突率(記述統計)
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: 衝突率は中規模(中央値 46〜185 行)で 32〜33% に達して頭打ちになり、さらに大きい PR ではわずかに下がる。サイズと衝突率の関係は単調ではない。
+    quote: For larger PRs, the conflict rate slightly decreases but remains substantially higher than that of small PRs
+    locator: §4 Exploratory Empirical Analysis
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+  - id: c4
+    text: 検出したのは git のテキスト衝突だけで、意味上の衝突は数えていないと著者が限界として明記している。
+    quote: we capture merge conflicts using textual conflict markers produced by Git during merge simulation
+    locator: §6 Threats to Validity
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:51.804Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2604.03551
+    contentType: text/html; charset=utf-8
+    titleFetched: "AgenticFlict: A Large-Scale Dataset of Merge Conflicts in AI Coding Agent Pull Requests on GitHub"
+    titleMatch: true
+    dateMeta: 2026-04-04
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "AgenticFlict: A Large-Scale Dataset of Merge Conflicts in AI Coding Agent Pull Requests on GitHub"
+      authors: ["Ogenrwot, Daniel", "Businge, John"]
+      v1Date: 2026-04-04
+      latestVersion: 2
+      titleMatch: true
+    crossref:
+      status: 200
+      title: "AgenticFlict: A Large-Scale Dataset of Merge Conflicts in AI Coding Agent Pull Requests on GitHub"
+      issued: 2026-7-5
+      titleMatch: true
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: マージ再現に成功した PR 107,026件 / 衝突 29,609件 / 衝突率 27.67%(収集した候補は 142,652件)
+        extractedQuote: 107,026 are successfully processed through deterministic merge simulation of open and/or closed (unmerged) PRs. Our pipeline identifies 29,609 PRs exhibiting merge conflicts
+        locator: Abstract / §3.2 Dataset Overview・Table 1(arxiv.org/html/2604.03551 v2)
+        note: quote の続きは「, yielding a conflict rate of 27.67%」。§3.2 にも「In particular, 27.67% of PRs result in textual conflicts」とある。伏せ字の「PR ___件」が 142,652(収集数)か 107,026(再現成功数)かで意味が変わる。27.67% は 29,609/107,026 に一致する。Table 1 は Conflicting PRs 29,609、Clean PRs 75,924 とするが、合計は 105,533 で再現成功数 107,026 と合わない(差 1,493 の説明は本文に見当たらない)。未マージ限定は §2 Step 1「we retain PRs that are either open or closed without evidence of having been merged」と §6 に明記。ask の locator は §1 / Table 1 だが、Table 1 は §3.2 にある。
+      c3:
+        verdict: match
+        extractedValue: 中央値 46〜185行で 32〜33%
+        extractedQuote: The conflict rate continues to increase and stabilizes around 32–33% for medium-sized PRs (median churn between 46 and 185 lines). For larger PRs, the conflict rate slightly decreases
+        locator: §4 Exploratory Empirical Analysis(PR サイズと衝突率、Figure 5)
+        note: サイズは code churn(追加行+削除行)で、十分位ビンごとの中央値。同段落に「PRs with a median churn of 2 lines have a conflict rate of approximately 9.9%, whereas PRs with a median churn of 25 lines exhibit a conflict rate of nearly 30%」。続きは「but remains substantially higher than that of small PRs」。著者の総括は「smaller PRs are significantly less likely to exhibit merge conflicts」「integration difficulty is associated with the size of AI-generated changes」で、サイズとの正の関連を強調する。「単調ではない」という表現は原文に無い。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

@@ -1,0 +1,141 @@
+schemaVersion: 0
+id: SRC-0179
+status: included
+excludeReason: null
+title: Copilot code review can now approve pull requests
+url: https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/
+canonicalUrl: https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-01
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: github.blog/changelog(2026-09 一覧)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH01, TH10, TH07]
+events:
+  - date: 2026-09-01
+    label: GitHub が Copilot code review による PR 承認(必須承認に算入可)をパブリックプレビュー化
+  - date: 2026-09-01
+    label: Copilot code review の承認機能（required approvals に算入可）を public preview で提供
+  - date: 2026-09-01
+    label: GitHub が Copilot code review による PR 承認(必須承認に算入)を公開プレビューで提供
+summary: AI レビュアの承認を必須承認に数えられるようにする機能の公式告知。既定は無効だが、前回 §6-3 の「プラットフォームが人間の承認を強制する」を条件付きにする反証資料。
+claims:
+  - id: c1
+    text: 既定では Copilot は承認しないが、有効化すると Copilot の承認がリポジトリの必須承認ルールに算入される。
+    quote: By default, Copilot will not approve pull requests. When enabled, Copilot can submit an approval that counts toward the repository’s required-approvals rule.
+    locator: Turning on approvals
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q2, TH06-Q6, TH01-Q2]
+    issues: [282, 258, 257, 248]
+    stance: contradicts
+  - id: c2
+    text: パブリックプレビューで、Enterprise・Organization・Repository の 3 段で管理者が制御する(ファイルパス単位の限定も可能)。
+    quote: This feature is available in public preview to GitHub Copilot Pro, Pro+, Max, Business, and Enterprise plans.
+    locator: 冒頭
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q2]
+    issues: [282]
+    stance: context
+  - id: c3
+    text: 全レビューに『承認可否の判定』が付くが、判定そのものはマージ要件に数えず、人がどう扱うかを決める材料として表示される。
+    quote: An approval assessment alone does not count toward merge requirements. Copilot’s determination is surfaced so you can decide how to act on it.
+    locator: Approval assessments
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6]
+    issues: []
+    stance: context
+  - id: c4
+    text: リポジトリ管理者は承認のオン/オフに加え、Copilot が承認してよいファイルパスを指定できる。AI 承認の適用範囲を変更対象（リスク）単位で絞る設計。
+    quote: Admins can turn approvals on or off, and choose which file paths Copilot is allowed to approve.
+    locator: Turning on approvals
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1]
+    issues: []
+    stance: supports
+  - id: c5
+    text: Copilot 承認後に新しいコミットが push されると、人間のレビュアーと同様に承認は取り消される。
+    quote: If new commits are pushed after Copilot approves, its approval is dismissed just like a human reviewer’s
+    locator: Turning on approvals
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH06-Q6]
+    issues: [257]
+    stance: context
+  - id: c6
+    text: リポジトリ管理者は承認の可否に加え、Copilot が承認してよいファイルパスを選べる。承認を変更の範囲で限定する仕組み。
+    quote: "Repository: Admins can turn approvals on or off, and choose which file paths Copilot is allowed to approve."
+    locator: Turning on approvals
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q2, TH06-Q6]
+    issues: [248]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:42.959Z
+    httpStatus: 200
+    finalUrl: https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Copilot code review can now approve pull requests - GitHub Changelog
+    titleMatch: true
+    dateMeta: 2026-09-01
+    quotes:
+      c1: found
+      c2: found
+      c3: partial
+      c4: found
+      c5: found
+      c6: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: three levels(3段)
+        extractedQuote: "Admins control this behavior at three levels:"
+        locator: Turning on approvals(Enterprise / Organization / Repository の箇条)
+        note: ファイルパス単位は Repository 段の "choose which file paths Copilot is allowed to approve"。制御対象は Copilot が承認する機能(既定で off)。public preview の対象は Copilot Pro, Pro+, Max, Business, Enterprise プラン
+      c3:
+        verdict: match
+        extractedValue: An approval assessment alone does not count toward merge requirements
+        extractedQuote: An approval assessment alone does not count toward merge requirements. Copilot’s determination is surfaced so you can decide how to act on it.
+        locator: Approval assessments
+        note: 「全レビューに付く」は原文 "Every Copilot code review now includes an approval assessment in the overview comment" と一致
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+alsoFoundBy:
+  - cluster: S3
+    query: Copilot code review comment review does not count toward required approvals
+  - cluster: TH06
+    query: Copilot approvals public preview required approval rule Copilot code review changelog
+urlBeforeRepair: https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests

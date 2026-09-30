@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0128
+status: included
+excludeReason: null
+title: "[AINews] Claude Opus 5.5, the new default model for AINews — and everybody cuts prices 40-50%"
+url: https://www.latent.space/p/ainews-claude-opus-55-the-new-default
+canonicalUrl: https://latent.space/p/ainews-claude-opus-55-the-new-default
+ids:
+  arxiv: null
+  doi: null
+publisher: Latent Space (AINews)
+authors: []
+orgType: media
+region: us
+lang: en
+sourceType: news
+published: 2026-09-22
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH04
+  query: Opus vs Sonnet Claude Code measured cost quality comparison tasks 2026 blog experiment per-task cost success rate
+derivedFrom: []
+derivedFromUrl:
+  - https://x.com/artificialanlys/status/2102541956014657615
+selfReported: false
+themes: [TH04]
+events: []
+summary: Opus 5.5 発表日のニュースレター。Artificial Analysis の計測を引き、max effort では Opus 5.5 の 1 タスク費用 $5.98 が Opus 5 の $5.86 と変わらないと報じる(トークン使用量が約 80% 増え、単価引き下げとキャッシュ値下げで相殺)。「40% 安い」は既定設定に限る、という限定。
+claims:
+  - id: c1
+    text: AINews が要約した Artificial Analysis の分解によると、max effort では Opus 5.5 は Intelligence Index 1 タスク当たり $5.98、Opus 5(max)は $5.86 だった。トークン増(約 80%)だけなら $10.51、基本単価 20% 引き下げで $8.41、安いキャッシュ読み取り($0.20)で $5.98 となり、max effort では単価値下げによる 1 タスク当たりの節約が消費増で打ち消される。
+    quote: Opus 5.5 costs $5.98 per Intelligence Index task versus $5.86 for Opus 5 (max). ... about 80%, to $10.51. The 20% base-price cut brings that to $8.41. Cheaper cache reads ($0.20) bring it to $5.98.
+    locator: "AI Twitter Recap > Top Story: Claude Opus 5.5 > 'Artificial Analysis cost breakdown.'"
+    quant:
+      value: $5.98 vs $5.86 per task (max effort); tokens +80%
+      n: Artificial Analysis Intelligence Index
+      design: third-party benchmark cost measurement
+      population: Opus 5.5 vs Opus 5 at max effort
+    evidenceKind: benchmark
+    rqs: [TH04-Q4, TH04-Q1, TH02-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:53.190Z
+    httpStatus: 200
+    finalUrl: https://www.latent.space/p/ainews-claude-opus-55-the-new-default
+    contentType: text/html; charset=utf-8
+    titleFetched: "[AINews] Claude Opus 5.5, the new default model for AINews — and everybody cuts prices 40-50%"
+    titleMatch: true
+    dateMeta: 2026-09-23
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Opus 5.5 (max) $5.98 / Intelligence Index task vs Opus 5 (max) $5.86; token増のみ ~80% → $10.51; base-price cut 20% → $8.41; cache reads $0.20 → $5.98
+        extractedQuote: Opus 5.5 costs $5.98 per Intelligence Index task versus $5.86 for Opus 5 (max). ... about 80%, to $10.51. The 20% base-price cut brings that to $8.41. Cheaper cache reads ($0.20) bring it to $5.98.
+        locator: "AI Twitter Recap > Top Story: Claude Opus 5.5 > 'Artificial Analysis cost breakdown.'"
+        note: 数値は AINews による Artificial Analysis(@ArtificialAnlys)投稿の要約(二次)。原文は続けて 'At max effort, the per-task saving over Opus 5 disappears. The "40% cheaper" claim applies to default (medium) settings.' と述べ、相殺は max effort 条件に限られる。
+        adjudication:
+          verdict: corrected
+          reason: 数値($5.98/$5.86/+80%→$10.51/-20%→$8.41/$0.20→$5.98)は抜粋と一致する。一方、末尾の「単価の値下げが消費増で相殺される実例」は条件なしの一般化になっている。原典は続けて、節約が消えるのは max effort 時であり、「40% cheaper」は default(medium)設定に当てはまると限定している(blindNote)。また数値は AINews による二次要約である。
+          date: 2026-09-23
+          originalText: Artificial Analysis の分解では、Opus 5.5(max)は 1 タスク $5.98 対 Opus 5(max) $5.86。トークン増だけなら +80% で $10.51、基本単価 -20% で $8.41、キャッシュ読み取り $0.20 で $5.98。単価の値下げが消費増で相殺される実例。
+          originalQuote: At max effort, Opus 5.5 costs $5.98 per Intelligence Index task versus $5.86 for Opus 5 (max).
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://latent.space/p/ainews-claude-opus-55-the-new-default

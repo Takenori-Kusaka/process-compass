@@ -1,0 +1,77 @@
+schemaVersion: 0
+id: SRC-0452
+status: included
+excludeReason: null
+title: Is there any stacked-PR methodology consensus?
+url: https://discourse.llvm.org/t/is-there-any-stacked-pr-methodology-consensus/91558
+canonicalUrl: https://discourse.llvm.org/t/is-there-any-stacked-pr-methodology-consensus/91558
+ids:
+  arxiv: null
+  doi: null
+publisher: LLVM Discussion Forums
+authors: [slinder1]
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2026-08-12
+publishedBasis: page
+version: null
+updated: 2026-09-17
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH10
+  query: LLVM discourse "stacked-PR methodology consensus" GitHub stacked PRs problems
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10]
+events:
+  - date: 2026-07-29
+    label: LLVM の全リポジトリで GitHub ネイティブのスタック型PRが有効化(関連スレッド『Native Stacked PRs in GitHub』の活動日)
+summary: LLVM コミュニティで、GitHub ネイティブのスタック型PRが force push とレビュー差分の問題を改善しないという懐疑と、レビューの記録を分散させることへの反対が交わされたスレッド。
+claims:
+  - id: c1
+    text: LLVM は force push を抑制する方針をとっており、新しいスタック機能は force push がレビュアに与える問題(前回レビューとの差分、range-diff)を大きく改善しないと指摘されている。
+    quote: AFAICT the new stack support doesn’t come with significant improvements to the problems that force pushing can cause for reviewers
+    locator: 冒頭投稿
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: contradicts
+  - id: c2
+    text: レビューコメントは使い捨てではなく、過去のレビューを掘り起こして設計理由を理解するため、回避策としてレビュー場所を分散させることに反対する意見がある(PRの記録としての役割)。
+    quote: Review comments aren’t throwaway content. I regularly dig up old Phabricator reviews to understand why things are the way they are
+    locator: 返信(レビュー場所の分散への反対)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q4, TH10-Q2]
+    issues: [271]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:56.898Z
+    httpStatus: 200
+    finalUrl: https://discourse.llvm.org/t/is-there-any-stacked-pr-methodology-consensus/91558
+    contentType: text/html; charset=utf-8
+    titleFetched: Is there any stacked-PR methodology consensus?
+    titleMatch: true
+    dateMeta: 2026-08-12
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0383
+status: included
+excludeReason: null
+title: ADR（Architecture Decision Records）完全ガイド — フォーマット選定から現場についた傷の話まで
+url: https://zenn.dev/miyan/articles/adr-format-guide-for-and-against
+canonicalUrl: https://zenn.dev/miyan/articles/adr-format-guide-for-and-against
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [dtakamiya (miyan)]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-03-02
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: ADR 運用 Zenn 2026 アーキテクチャ決定記録 AI エージェント
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH02]
+events: []
+summary: ADR の形式選定と運用の国内ガイド(2026-03-02)。ADR を導入しない方が合理的な場合として、1〜2人の個人プロジェクト・廃棄前提の PoC・文書化文化ゼロのチームを挙げる。対象はアーキテクチャに影響する決定に限る。
+claims:
+  - id: c1
+    text: 1〜2人の個人プロジェクトでは意思決定の伝達相手がおらず、ADR ではなくコミットメッセージで十分とする(ADR を課さない判断)。
+    quote: "1〜2人の個人プロジェクト: 意思決定の伝達相手がいない。Git のコミットメッセージで十分"
+    locator: やらない判断
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1, TH05-Q3]
+    issues: [249, 272]
+    stance: contradicts
+  - id: c2
+    text: ADR に書くのはアーキテクチャに影響する意思決定だけで、ライブラリのマイナー更新や CSS の命名規則は対象外とする。
+    quote: ADR に書くべきなのは「アーキテクチャに影響する意思決定」であり、ライブラリのマイナーバージョンアップや CSS のクラス名の命名規則は対象外だ。
+    locator: 「全部 ADR に書くべき？」問題
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:40.750Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/miyan/articles/adr-format-guide-for-and-against
+    contentType: text/html; charset=utf-8
+    titleFetched: ADR（Architecture Decision Records）完全ガイド — フォーマット選定から現場についた傷の話まで
+    titleMatch: true
+    dateMeta: 2026-03-02
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

@@ -1,0 +1,135 @@
+schemaVersion: 0
+id: SRC-0248
+status: included
+excludeReason: null
+title: "Review is the bottleneck now: How we let AI approve pull requests (safely)"
+url: https://rewind.com/blog/ai-approve-pull-requests-safely
+canonicalUrl: https://rewind.com/blog/ai-approve-pull-requests-safely
+ids:
+  arxiv: null
+  doi: null
+publisher: Rewind
+authors: [Dave North]
+orgType: enterprise
+region: other
+lang: en
+sourceType: corp-techblog
+published: 2026-06-01
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: criticism AI reviewer approving AI-generated pull requests separation of duties bypass 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH01, TH07, TH12, TH02]
+events: []
+summary: SaaS 企業が低リスク PR に限り AI レビュアー単独の承認を許した事例。判断（AI の専門家評議会）と門（決定的な判定エンジン・CODEOWNERS 保護のポリシー）を分離し、非人間作成 PR は人がマージ、SOC 2/ISO 27001/ISO 42001 への対応表を作成。
+claims:
+  - id: c1
+    text: 非人間（エージェント・ボット）が作成した PR は AI レビュアーがレビューできても、人がボタンを押さない限りマージできない。書き手と出荷者を AI が兼ねない職務分離をツールで強制し、SOC 2 CC8.1.2 に対応づける。
+    quote: a PR authored by a non-human (an agent, a bot) can be reviewed by Diff Vader but can never be merged without a human clicking the button.
+    locator: "The part nobody talks about: compliance"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q2, TH12-Q1]
+    issues: [248, 249]
+    stance: supports
+  - id: c2
+    text: AI は指摘を出すだけで、決定は単体テスト済みの決定的なコード（verdict engine）が行う。認証・認可・秘密情報・暗号・承認者を変える変更は常に人を要する。
+    quote: The AI produces findings. A small, unit-tested, boringly deterministic piece of code turns those findings into the decision.
+    locator: We didn’t invent this
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q2, TH07-Q5]
+    issues: [269, 271]
+    stance: supports
+  - id: c3
+    text: 第二ベンダー（GitHub Copilot）のレビューは助言のみとした。必須の相互確認にしたところ『レビューできなかった』定型文で良い自動承認を止めてしまい、安全上の利益なく較正負担だけが増えたとする。
+    quote: We tried making it a required cross-check and found it was soft-blocking good auto-approvals on “I couldn’t review this PR” boilerplate
+    locator: "The council: many specialists, one question"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+  - id: c4
+    text: シャドー週と有効化後の最初の1週間を合わせた期間で、約40%の PR がボットの判定で auto-approve となった(何もゲートしていないシャドー期間の判定を含む)。ボットが承認し人もレビューした PR では人の判断と約99%一致し、ボット承認の PR に紐づく revert・障害はゼロだった(著者は小標本で暫定的な方向性を示す数値と明記)。
+    quote: Around 40% of PRs come back as auto-approve ... humans have agreed with the bot’s call about 99% of the time. ... Zero reverts and zero incidents have been linked to a bot-approved PR.
+    locator: The numbers, honestly
+    quant:
+      value: ~40% auto-approve; ~99% human agreement; 0 reverts/incidents
+      n: shadow week + first enabled week across 400+ repos (PR count not stated)
+      design: shadow-mode then live rollout, self-reported
+      population: Rewind GitHub orgs
+    evidenceKind: case-report
+    rqs: [TH06-Q6, TH02-Q4]
+    issues: []
+    stance: context
+  - id: c5
+    text: PR の審査強度をサイズでなくリスクで決める。12行の移行でも危険で、3千行の生成コードは安全でありうる。
+    quote: a PR’s risk has almost nothing to do with its line count.
+    locator: "The reframe that makes the whole thing work: risk is not size"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q3, TH01-Q1]
+    issues: [273]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:16.570Z
+    httpStatus: 200
+    finalUrl: https://rewind.com/blog/ai-approve-pull-requests-safely/
+    contentType: text/html; charset=UTF-8
+    titleFetched: "Review is the bottleneck now: How we let AI approve pull requests (safely)"
+    titleMatch: true
+    dateMeta: 2026-06-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: SOC 2 CC8.1.2
+        extractedQuote: a PR authored by a non-human (an agent, a bot) can be reviewed by Diff Vader but can never be merged without a human clicking the button. ... The bot never both writes and ships alone. (SOC 2 CC8.1.2)
+        locator: "The part nobody talks about: compliance"
+        note: curl では Cloudflare にブロックされたが、tavily_extract(advanced)で本文を取得できた。原文の対応づけは Rewind 自社の controls mapping での割り当てである。
+      c4:
+        verdict: match
+        extractedValue: 1週間(first week)/ 約40% / 約99% / revert・障害ゼロ
+        extractedQuote: Around 40% of PRs come back as auto-approve ... humans have agreed with the bot’s call about 99% of the time. ... Zero reverts and zero incidents have been linked to a bot-approved PR.
+        locator: The numbers, honestly
+        note: 原文では、数値の期間はシャドー週と有効化後の最初の1週間を合わせたもの(『The numbers below span the shadow week and the first week of enabled-mode data』)。つまり約40%には何もゲートしていなかったシャドー期間の判定も含まれる。著者の但し書きは『directional (small sample, still expanding), not a final verdict』。40%が高めに出ている理由として gem bump の偏りも挙げている。
+        adjudication:
+          verdict: corrected
+          reason: 約40%・約99%・revert と障害ゼロ・小標本の但し書きは原文と一致する。ただし blindNote によれば、数値の期間はシャドー週と有効化後の最初の1週間を合わせたもので、約40%にはシャドー期間の判定も含まれる。主張の「1週間のシャドーモード後に有効化。約40%の PR が自動承認となり」は、有効化後に実際に40%が自動承認されたと読め、集計期間の条件を誤っている。期間と「判定」である点を明示して訂正した。
+          date: 2026-09-24
+          originalText: 1週間のシャドーモード後に有効化。約40%の PR が自動承認となり、人も併せてレビューした分では人の判断と約99%一致、revert・障害ゼロ（小標本・初期値と著者が明記）。
+          originalQuote: On the PRs the bot approves that also get a human review, humans have agreed with the bot’s call about 99% of the time.
+      c5:
+        verdict: match
+        extractedValue: 12行(twelve-line)/ 3千行(three-thousand-line)
+        extractedQuote: A twelve-line database migration ... is one of the most dangerous things you can ship ... A three-thousand-line PR that regenerates an API client from an updated schema is, in risk terms, nothing.
+        locator: "The reframe that makes the whole thing work: risk is not size"
+        note: 原文でサイズが効くのは1箇所だけ。約1万行を超える差分は AI にレビューさせない上限がある。著者はこれをリスクの指標ではなく人の注意力の限界と説明している。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0545
+status: included
+excludeReason: null
+title: Certified Tester Foundation Level Syllabus v4.0
+url: https://www.gasq.org/files/content/gasq/downloads/certification/ISTQB/Foundation%20Level/ISTQB_CTFL_Syllabus-v4.0%20.pdf
+canonicalUrl: https://gasq.org/files/content/gasq/downloads/certification/istqb/foundation%20level/istqb_ctfl_syllabus-v4.0%20.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: International Software Testing Qualifications Board (ISTQB)
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: industry-report
+published: 2023-04-21
+publishedBasis: pdf
+version: v4.0
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G03
+  query: ISTQB CTFL syllabus v4.0.1 pdf "risk-based testing" "product risk" "exhaustive testing is impossible" istqb.org download
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH06, TH12]
+events: []
+summary: ISTQB の基礎レベルシラバス v4.0(2023-04-21。現行は v4.0.1 で、読んだのは試験機関サイトに置かれた v4.0)。全数テストは不可能で、リスクに基づいてテスト活動を選び優先づけるリスクベースドテストを定義する。リスクへの対応の選択肢にリスク受容を挙げるが、受容の記録様式は定めていない。ISO/IEC/IEEE 29119-1 本文は未読。
+claims:
+  - id: c1
+    text: 全数テストは不可能であり、網羅を目指す代わりにテスト技法・優先づけ・リスクベースドテストで労力を集中させるべきとする(テストの 7 原則の 2)。検証を全件に課さないことを原則として置いている。
+    quote: Exhaustive testing is impossible. Testing everything is not feasible except in trivial cases (Manna 1978).
+    locator: §1.3 Testing Principles 2
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: supports
+  - id: c2
+    text: リスク分析とリスクコントロールに基づいてテスト活動を選択・優先づけ・管理するテストアプローチをリスクベースドテストと定義する。
+    quote: The test approach, in which test activities are selected, prioritized, and managed based on risk analysis and risk control, is called risk-based testing.
+    locator: §5.2 Risk Management
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: supports
+  - id: c3
+    text: 分析済みのプロダクトリスクへの対応の選択肢に、テストによる軽減と並べてリスク受容・リスク移転・コンティンジェンシー計画を挙げる。受容を正規の選択肢とするが、記録の様式は示さない。
+    quote: several response options to risk are possible, e.g., risk mitigation by testing, risk acceptance, risk transfer, or contingency plan (Veenendaal 2012).
+    locator: §5.2.4 Product Risk Control
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: qualifies
+  - id: c4
+    text: テストでリスクを軽減する手段の 1 つに、適切な水準のテストの独立性を適用することを挙げる。独立性の水準は一律ではなくリスクに応じて選ぶ位置づけである。
+    quote: Apply an appropriate level of independence of testing
+    locator: §5.2.4 Product Risk Control
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4, TH02-Q1]
+    issues: [267, 268]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:33.231Z
+    httpStatus: 0
+    finalUrl: https://www.gasq.org/files/content/gasq/downloads/certification/ISTQB/Foundation%20Level/ISTQB_CTFL_Syllabus-v4.0%20.pdf
+    contentType: ""
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: no-text
+      c2: no-text
+      c3: no-text
+      c4: no-text
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: fetch failed
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: seven principles(7原則)の 2 番目
+        extractedQuote: 2. Exhaustive testing is impossible. Testing everything is not feasible except in trivial cases (Manna 1978). Rather than attempting to test exhaustively, test techniques (see chapter 4), ...
+        locator: §1.3 Testing Principles, principle 2 (p.17 of 74)
+        note: 原則の総数は同節冒頭 'This syllabus describes seven such principles.' による。引用の続きは '(see section 5.1.5), and risk-based testing (see section 5.2), should be used to focus test efforts.'。原文は 'except in trivial cases' の限定つき。「検証を全件に課さないことを原則として置く」は ask 側の言い換えで、原文はテストの網羅についての記述。
+      c2:
+        verdict: match
+        extractedValue: risk-based testing
+        extractedQuote: The test approach, in which test activities are selected, prioritized, and managed based on risk analysis and risk control, is called risk-based testing.
+        locator: §5.2 Risk Management(節の導入部の最終段落, p.50 of 74)
+        note: ""
+      c3:
+        verdict: match
+        extractedValue: risk mitigation by testing, risk acceptance, risk transfer, or contingency plan
+        extractedQuote: once a risk has been analyzed, several response options to risk are possible, e.g., risk mitigation by testing, risk acceptance, risk transfer, or contingency plan (Veenendaal 2012).
+        locator: §5.2.4 Product Risk Control 第2段落 (p.52 of 74)
+        note: 原文は 'e.g.' つきの例示列挙。受容の記録様式については §5.2.4 に記述が無いことを本文で確認した(節全体は2段落と箇条書き6項目のみ)。
+      c4:
+        verdict: match
+        extractedValue: "箇条書き6項目のうちの1つ(2番目): Apply an appropriate level of independence of testing"
+        extractedQuote: "Actions that can be taken to mitigate the product risks by testing are as follows: ... Apply an appropriate level of independence of testing"
+        locator: §5.2.4 Product Risk Control 箇条書き第2項目 (p.52 of 74)
+        note: 箇条書きは6項目(testers の選定 / independence / reviews・static analysis / test techniques・coverage / test types / dynamic testing)。原文は 'an appropriate level' と書くのみで、「リスクに応じて水準を選ぶ」という明文は同節に無い(リスク軽減策の一覧に置かれていることからの読み)。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

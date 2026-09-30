@@ -1,0 +1,120 @@
+schemaVersion: 0
+id: SRC-0061
+status: included
+excludeReason: null
+title: How we built a software factory with Kiro Crew to merge 1000 PRs in a week
+url: https://kiro.dev/blog/software-factory-1000-prs/
+canonicalUrl: https://kiro.dev/blog/software-factory-1000-prs
+ids:
+  arxiv: null
+  doi: null
+publisher: Kiro(AWS)
+authors: [Guo Zejiang, Chen Bolin, Xu Zezhen]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-09-18
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: curl https://kiro.dev/blog/ (frontmatter title/date)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10, TH01, TH07, TH04]
+events:
+  - date: 2026-09-18
+    label: Kiro Crew チームが「1 週間で 1,000 PR マージ」を公表
+summary: 反証候補(ベンダー自己申告)。3 名のフルタイムエンジニアが約 500 名の貢献者とともに 7 日で 1,000 PR をマージし全件 CI とレビューを通したと主張。一方で「1 人が管理できるのは約 20 セッションで、50 に近づくと人の入力が限界になる」と述べ、統制・監査・費用の 4 課題を認める。
+claims:
+  - id: c1
+    text: Kiro Crew を専任で作る 3 名が 7 日で 1,000 PR(1 日 120 超)をマージし、全件が CI とレビューを通過したと主張する。レビューの独立性や誰がレビューしたかは記載がない。
+    quote: Last week, the three of us building Kiro Crew full time merged 1,000 pull requests in seven days. Over 120 a day, every one went through CI and review.
+    locator: 冒頭
+    quant:
+      value: 1,000 PRs / 7 days
+      n: 1 repository (Kiro Crew)
+      design: anecdote
+      population: 3 FTE + ~500 contributors
+    evidenceKind: case-report
+    rqs: [TH10-Q1]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 同じ記事が、1 人が同時に管理できるのは約 20 セッションで、50 に近づくと人の入力が律速になると述べる。人の帯域が限界であることを供給側も認めている。
+    quote: Everything above lets one person manage about 20 concurrent sessions. Push toward 50, and human input becomes the limit.
+    locator: Stage 5
+    quant:
+      value: ~20 sessions/person
+      n: 1 team
+      design: anecdote
+      population: Kiro Crew team
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q3, TH10-Q1]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: エージェントの行動記録はエージェントが編集できない場所に残し、許可はプロンプトではなくホスト側で強制せよと勧める。
+    quote: Record whatever your agents do somewhere they cannot edit, and decide what they may do at the host level rather than in a prompt.
+    locator: What you can do with this today
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q2, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 「企業が制御・監査・負担できない能力はデモであって製品ではない」と、統制と費用が前提条件だと自認する。
+    quote: A capability an enterprise cannot control, audit, or afford is a demo, not a product.
+    locator: Where this goes
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:10.759Z
+    httpStatus: 200
+    finalUrl: https://kiro.dev/blog/software-factory-1000-prs/
+    contentType: text/html
+    titleFetched: How we built a software factory with Kiro Crew to merge 1000 PRs in a week
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: three (3名) / seven days (7日) / 1,000 pull requests / Over 120 a day (1日120超)
+        extractedQuote: Last week, the three of us building Kiro Crew full time merged 1,000 pull requests in seven days. Over 120 a day, every one went through CI and review. Kiro Crew is mainly built by those three full-time engineers, with nearly 500 enthusiastic community contributors.
+        locator: 冒頭第1段落
+        note: 原文は専任3名に加え『nearly 500 enthusiastic community contributors』がいると同じ段落で述べる(ask は3名だけで1000PRをマージした印象を与えうる)。また『誰がレビューしたかは記載がない』について、Stage 4 は triage/implement/review/merge を各々独自のエージェントセッションが担う段とし、『Last week’s numbers came from the pipeline working together with an early version of Crew Mode』とあるため、レビュー段がエージェントのパイプラインであることは示唆されている(人による独立レビューの有無は明記なし)。
+      c2:
+        verdict: match
+        extractedValue: one person (1人) / about 20 concurrent sessions / toward 50
+        extractedQuote: "Stage 5: operate sessions the agentic way. Everything above lets one person manage about 20 concurrent sessions. Push toward 50, and human input becomes the limit."
+        locator: Stage 5
+        note: Stage 3 では『roughly 10–20 active sessions』とも書かれている。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://kiro.dev/blog/software-factory-1000-prs

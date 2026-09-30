@@ -1,0 +1,139 @@
+schemaVersion: 0
+id: SRC-0609
+status: included
+excludeReason: null
+title: "Report: Progressive Disclosure of Agent Skills"
+url: https://arxiv.org/abs/2609.35692
+canonicalUrl: arxiv:2609.35692
+ids:
+  arxiv: "2609.35692"
+  doi: null
+publisher: arXiv (Workday)
+authors: [Zhang Guilin, Zhao Kai, Mudgal Priyanka, Ammar Waleed, Cui Xiquan, Chu Xu, Blanken Alet]
+orgType: enterprise
+region: us
+lang: en
+sourceType: preprint
+published: 2026-09-28
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G07
+  query: 'arXiv API: abs:"agent skills" AND (abs:selection OR abs:routing OR abs:retrieval)'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH04]
+events: []
+summary: Workday の技術報告(査読前)。スキル全文を常時ロードする方式と、frontmatter だけ先に入れて必要なスキル本文を後から読む段階的開示を、ライブラリ 5/20/50/100 本で比較。段階的開示はトークンを最大 8 割減らし選択成功率も平均で上回るが、対象は Qwen の小型 3 モデルだけで、Claude・GPT-5 以降での再現ではない。
+claims:
+  - id: c1
+    text: 段階的開示はスキル選択の質を平均で改善するが、全体の遅延はわずかに悪化する。
+    quote: progressive disclosure improves skill-retrieval quality but marginally degrades overall latency
+    locator: Abstract
+    quant:
+      value: "Qwen3-14B, 50 skills: success 0.13 (eager) vs 0.72 (progressive); prompt tokens 14,875 -> 2,719 (-81.7%)"
+      n: library sizes 5/20/50/100, 3 seeds per task, 3 LLM cores
+      design: controlled experiment (synthetic skill-retrieval task with activation codes)
+      population: Qwen2.5-7B-Instruct, Qwen3-8B, Qwen3-14B
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 全文の常時ロードはライブラリが増えると文脈を占有し、品質・信頼性・費用に響くと述べる(100 本では 3 モデルとも文脈超過で失敗)。
+    quote: eager loading substantially increases the number of tokens needed to disclose skills in the LLM context, which impacts the agent’s quality, reliability and cost
+    locator: Two regimes for operating a skills library
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1, TH04-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: どちらの方式も一貫して優位ではない。Qwen3-8B の 20 本では段階的開示(0.38)が常時ロード(0.68)を下回った。
+    quote: neither regime consistently outperforms the other
+    locator: Key Findings 3 / Table 1
+    quant:
+      value: "Qwen3-8B, 20 skills: success 0.68 (eager) vs 0.38 (progressive)"
+      n: 3 seeds
+      design: controlled experiment
+      population: Qwen3-8B
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 測定対象は小型のオープンモデル 3 種で、Claude・GPT-5 以降の世代は含まない(相転移の再現測定という不足は埋まらない)。
+    quote: "We experiment with three LLM cores: Qwen2.5-7B-Instruct"
+    locator: Experimental Setup / LLM cores
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH03-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:57.931Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.35692
+    contentType: text/html; charset=utf-8
+    titleFetched: "Report: Progressive Disclosure of Agent Skills"
+    titleMatch: true
+    dateMeta: 2026-09-28
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "Report: Progressive Disclosure of Agent Skills"
+      authors: ["Zhang, Guilin", "Zhao, Kai", "Mudgal, Priyanka", "Ammar, Waleed", "Cui, Xiquan", "Chu, Xu"]
+      v1Date: 2026-09-28
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: improves skill-retrieval quality but marginally degrades overall latency(Abstract に数値なし)
+        extractedQuote: In this report, we investigate the impact empirically and find that progressive disclosure improves skill-retrieval quality but marginally degrades overall latency.
+        locator: Abstract (arXiv:2609.35692 abs ページ)
+        note: "ask に伏せ字は無い(hasQuant は true だが Abstract 内に数値は無い)。「平均で」の限定は Abstract には無く、Key Findings 3 の見出し「Progressive disclosure improves skill-retrieval quality, on average.」にある。遅延の具体値は Key Findings 2: Qwen3-8B・N=50 で 15% 増(1.75 秒 → 2.01 秒)。Key Findings 2 の見出しは「may increase」で、脚注は N が増えると差が縮み逆転しうると述べる。"
+        adjudication:
+          verdict: consistent
+          reason: "Abstract の「progressive disclosure improves skill-retrieval quality but marginally degrades overall latency」と一致。「平均で」の限定は Key Findings 3 の見出し「..., on average.」にある。留意点: 遅延は Key Findings 2 の見出しが「may increase」で、N が増えると差が縮み逆転しうるとの脚注がある。claimQuant の具体値(Qwen3-14B・50 スキルの成功率 0.13 対 0.72、プロンプトトークン 14,875 → 2,719)は抜粋からは確認できない(抜粋にあるのは Qwen3-8B・N=50 の遅延 15% 増のみ)。"
+          date: 2026-09-30
+      c2:
+        verdict: match
+        extractedValue: N=100 本 / 3 モデル(Qwen2.5-7B、Qwen3-8B、Qwen3-14B)すべて EL crash = 1.00
+        extractedQuote: As the number of skills increase, eager loading substantially increases the number of tokens needed to disclose skills in the LLM context, which impacts the agent’s quality, reliability and cost.
+        locator: Agent Skills Management in The Harness > "Two regimes for operating a skills library."(数値は Key Findings 1 / Table 1)
+        note: '文脈超過の記述は指定 locator ではなく Key Findings 1 にある: "eventually breaking the agent’s reliability due to exceeding the maximum allowed prompt size, indicated by crash in all rollouts with N=100 in Table 1"。Table 1 で3モデルとも N=100 の EL tok が crash、EL crash 1.00、PD crash 0.00。条件は 32k context window。'
+      c3:
+        verdict: match
+        extractedValue: Qwen3-8B / N=20 本 / 段階的開示 PD succ 0.38 / 常時ロード EL succ 0.68
+        extractedQuote: While progressive disclosure is the undisputed winner on average skill retrieval quality, neither regime consistently outperforms the other, as shown in Figure 2 (b).
+        locator: "Key Findings 3 / Table 1(Qwen3-8B, N=20 の行: EL succ 0.68, PD succ 0.38)"
+        note: 原典は「neither regime consistently outperforms」と同時に、PD が EL に並ぶか上回らないのは「all but one experimental setup」の1条件だけと述べる(その1条件が Qwen3-8B・N=20)。ask の「どちらも一貫して優位ではない」は原文の一節と一致するが、原典全体の結論は PD 優位。表の値は 72 rollout の平均。
+      c4:
+        verdict: match
+        extractedValue: 3 種(Qwen2.5-7B-Instruct、Qwen3-8B、Qwen3-14B)
+        extractedQuote: "We experiment with three LLM cores: Qwen2.5-7B-Instruct ( Qwen Team 2024 ) , Qwen3-8B and Qwen3-14B ( Qwen Team 2025 ) , with greedy decoding and a 32 k context window."
+        locator: Experimental Setup > "LLM cores."
+        note: 「Claude・GPT-___以降の世代は含まない」に当たる記述は原典に無い。GPT の語は本文に現れず、伏せ字の値は原典から抜き出せない。Claude はスキル作成ツールの例(Claude Code)として1度出るだけで、測定対象ではない。「小型」「オープンモデル」という形容も原典には無い(原典は3つの Qwen モデル名と、vLLM・NVIDIA L40S 1枚での提供を記すのみ)。「相転移の再現測定」への言及も無い。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

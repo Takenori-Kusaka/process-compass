@@ -1,0 +1,159 @@
+schemaVersion: 0
+id: SRC-0034
+status: included
+excludeReason: null
+title: ChatGPT & Codex changelog
+url: https://developers.openai.com/codex/changelog
+canonicalUrl: https://developers.openai.com/codex/changelog
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenAI Developers
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09-04
+publishedBasis: page
+version: null
+updated: 2026-09-04
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: C00b-2
+  query: tavily_extract https://developers.openai.com/codex/changelog
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH03, TH04, TH07]
+events:
+  - date: 2026-07-09
+    label: Codex が ChatGPT デスクトップアプリに統合
+  - date: 2026-07-31
+    label: GPT-5.4 / 5.4 mini の Codex 提供終了(2026-08-31)を予告、置き換え先は 5.6 Terra / Luna
+  - date: 2026-08-07
+    label: "Codex CLI 0.147.0: --approve-for-me、MCP 2026-07-28 プロトコル対応"
+  - date: 2026-09-03
+    label: Codex CLI 0.153.x で GPT-6-Astra 関連の修正が記録される(発表ページは 403 で未確認)
+summary: Codex の公式変更履歴。2026-07 以降の主要な変更(デスクトップアプリ統合、旧モデル退役予告、自動承認フラグ、GPT-6 Astra への言及)を日付付きで確認できる。取得時点の最新見出しは 2026-09-04。
+claims:
+  - id: c1
+    text: 2026-07-09、Codex は独立アプリから ChatGPT デスクトップアプリ(macOS / Windows)の一部になった。
+    quote: Codex is now part of the ChatGPT desktop app on macOS and Windows. Existing Codex app users can update as usual and keep their projects, settings, and workflows.
+    locator: 2026-07-09 Codex joins the ChatGPT desktop app 26.707
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH01-Q3]
+    issues: []
+    stance: context
+  - id: c2
+    text: GPT-5.4 / 5.4 mini は 2026-08-31 に Codex(ChatGPT サインイン)から退役し、置き換え先として 5.6 Terra / Luna が指定された。モデル世代交代が約 1 か月の予告で実施される例。
+    quote: On August 31, 2026, GPT-5.4 and GPT-5.4 mini will no longer be available in Codex for users signed in with ChatGPT.
+    locator: 2026-07-31 GPT-5.4 and GPT-5.4 mini retire from Codex on August 31
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: Codex CLI 0.147.0 は「自動的にレビューされた承認」を有効化する --approve-for-me フラグを追加した。承認ゲートを機械に委ねる方向の機能。
+    quote: Enable automatically reviewed approvals with the new --approve-for-me CLI flag. (#36373)
+    locator: 2026-08-07 Codex CLI 0.147.0 New Features
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q1, TH01-Q4]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 同リリースで、未知のローカルプロジェクトには明示的な信頼(trust)を要求し、資格情報の使用前に管理された認証制約を適用する変更が入った。
+    quote: "Require explicit trust for unfamiliar local projects and enforce managed authentication restrictions before credentials are used. (#36960, #37132)"
+    locator: 2026-08-07 Codex CLI 0.147.0 Bug Fixes
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q5]
+    issues: []
+    stance: context
+  - id: c5
+    text: Codex CLI 0.153.x の 2026-09-03・09-04 のリリースに GPT-6-Astra の記載がある。ただし『[0.153 hotfix]』と明記されるのは 2026-09-04 の 0.153.3・0.153.4(Amazon Bedrock のモデル選択肢へ GPT-6-Astra を追加)だけで、09-03 の 0.153.1・0.153.2 にはホットフィックスの表記がない。
+    quote: "2026-09-04 Codex CLI 0.153.3 ... Added GPT-6-Astra to the Amazon Bedrock model picker for Mantle and Runtime global/US routes. ( #42805 ) ... [0.153 hotfix] Add GPT-6-Astra to Amazon Bedrock catalogs"
+    locator: 2026-09-04 Codex CLI 0.153.3 / 0.153.4; 2026-09-03 Codex CLI 0.153.1 / 0.153.2
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3]
+    issues: []
+    stance: context
+verification:
+  status: partial
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:04.046Z
+    httpStatus: 200
+    finalUrl: https://learn.chatgpt.com/docs/changelog
+    contentType: text/html; charset=utf-8
+    titleFetched: ChatGPT & Codex changelog | ChatGPT Learn
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: not-found
+      c4: not-found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-07-09
+        extractedQuote: 2026-07-09 Codex joins the ChatGPT desktop app 26.707 Codex is now part of the ChatGPT desktop app on macOS and Windows.
+        locator: 2026-07-09 Codex joins the ChatGPT desktop app 26.707
+        note: ""
+      c2:
+        verdict: match
+        extractedValue: GPT-5.4 / GPT-5.4 mini; 2026-08-31; GPT-5.6 Terra / GPT-5.6 Luna; 告知日 2026-07-31(告知から退役まで約1か月)
+        extractedQuote: 2026-07-31 GPT-5.4 and GPT-5.4 mini retire from Codex on August 31 On August 31, 2026, GPT-5.4 and GPT-5.4 mini will no longer be available in Codex for users signed in with ChatGPT.
+        locator: 2026-07-31 GPT-5.4 and GPT-5.4 mini retire from Codex on August 31
+        note: "置き換え先の原文: 'Replace gpt-5.4 with gpt-5.6-terra (GPT-5.6 Terra). Replace gpt-5.4-mini with gpt-5.6-luna (GPT-5.6 Luna).'。『約___か月』は原文に数値として無く、告知日(2026-07-31)と退役日(2026-08-31)の差から導いた値。原文は API と API キー認証の Codex セッションでは引き続き利用可能と明記しており、退役は ChatGPT サインインに限られる。ask の条件と整合する"
+      c3:
+        verdict: not-found-in-source
+        extractedValue: ""
+        extractedQuote: ""
+        locator: (該当エントリなし) 2026-09-24 取得時点の changelog は CLI リリースを 0.151.0(2026-08-29)までしか掲載していない
+        note: "指定 URL(?type=codex-cli と rss.xml も確認)に 0.147.0 のエントリが存在しない。古い CLI リリースは掲載から外れたと見られる。参考として GitHub の https://github.com/openai/codex/releases/tag/rust-v0.147.0(公開 2026-08-07T01:41:49Z)には 'Enable automatically reviewed approvals with the new --approve-for-me CLI flag. ( #36373 )' があり、値は 0.147.0。ただし出典カードの URL とは別の文書"
+        adjudication:
+          verdict: unsupported
+          reason: 出典カードの URL(changelog)は取得時点で CLI リリースを 0.151.0 以降しか載せておらず、0.147.0 のエントリが無い。blindQuote も空である。blindNote によると、同じ文言は別の文書である GitHub の rust-v0.147.0 リリース(2026-08-07 公開)にある。出典を差し替えれば支えられる見込みだが、本出典からは支えることも否定することもできない。後半の『承認ゲートを機械に委ねる方向』は解釈である。
+          date: 2026-09-23
+      c4:
+        verdict: not-found-in-source
+        extractedValue: ""
+        extractedQuote: ""
+        locator: (該当エントリなし) 2026-09-24 取得時点の changelog は CLI リリースを 0.151.0(2026-08-29)までしか掲載していない
+        note: "c3 と同じく指定 URL に 0.147.0 が無い。参考として GitHub rust-v0.147.0 の Bug Fixes には 'Require explicit trust for unfamiliar local projects and enforce managed authentication restrictions before credentials are used. ( #36960 , #37132 )' がある。出典 URL の差し替え(GitHub リリースへ)を要検討"
+        adjudication:
+          verdict: unsupported
+          reason: c3 と同じ理由。出典 URL に 0.147.0 のエントリが無く、blindQuote も空。blindNote によると、同じ文言('Require explicit trust for unfamiliar local projects and enforce managed authentication restrictions before credentials are used.')は GitHub の rust-v0.147.0 の Bug Fixes にある。出典を GitHub リリースへ差し替える必要がある。
+          date: 2026-09-23
+      c5:
+        verdict: match
+        extractedValue: 2026-09-03/04; 0.153.x; GPT-6-Astra; HTTP ステータス値は本出典に記載なし
+        extractedQuote: "2026-09-04 Codex CLI 0.153.3 ... Added GPT-6-Astra to the Amazon Bedrock model picker for Mantle and Runtime global/US routes. ( #42805 ) ... [0.153 hotfix] Add GPT-6-Astra to Amazon Bedrock catalogs"
+        locator: 2026-09-04 Codex CLI 0.153.3 / 0.153.4; 2026-09-03 Codex CLI 0.153.1 / 0.153.2
+        note: "'[0.153 hotfix]' と明記されているのは 2026-09-04 の 0.153.3 と 0.153.4 だけ。2026-09-03 の 0.153.1 は 'Backport GPT-6-Astra model catalog to 0.153'、0.153.2 は GPT-6-Astra の Fast tier 表記の修正で、どちらも hotfix の表記はない。『GPT-___発表ページが HTTP ___』は筆者自身がアクセスした記録で、本出典からは検証できない。なお 2026-09-09 の 0.154.0 には 'GPT-6-Astra is now available in the model picker' とある"
+        adjudication:
+          verdict: corrected
+          reason: "GPT-6-Astra が 2026-09-03/04 の 0.153.x に出てくることは blindQuote・blindLocator どおり。ただし blindNote によると、hotfix の表記は 09-04 の 2 件だけで、09-03 の 0.153.1 はモデルカタログのバックポート、0.153.2 は Fast tier 表記の修正である。『すべてホットフィックス』とは言えないので条件を補った。後半の『GPT-6 発表ページが HTTP 403』は筆者のアクセス記録で、本出典からは検証できない(判定対象外として訂正文から外した)。参考: 2026-09-09 の 0.154.0 に 'GPT-6-Astra is now available in the model picker' とある。"
+          date: 2026-09-23
+          originalText: 2026-09-03/04 の Codex CLI 0.153.x ホットフィックスに GPT-6-Astra の記載がある。OpenAI の GPT-6 発表ページは HTTP 403 で本文未確認のため、正確な発表日は本カードでは確定しない。
+          originalQuote: Added GPT-6-Astra to the Amazon Bedrock model picker for Mantle and Runtime global/US routes. (#42805)
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

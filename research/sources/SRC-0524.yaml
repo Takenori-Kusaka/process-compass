@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0524
+status: included
+excludeReason: null
+title: General Principles of Software Validation; Final Guidance for Industry and FDA Staff
+url: https://www.fda.gov/media/73141/download
+canonicalUrl: https://fda.gov/media/73141/download
+ids:
+  arxiv: null
+  doi: null
+publisher: U.S. Food and Drug Administration (FDA), CDRH / CBER
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: regulation
+published: 2002-01-11
+publishedBasis: pdf
+version: Version 2.0
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G02
+  query: FDA "General Principles of Software Validation" "independence of review" "self-validation is extremely difficult" small firms
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH06, TH08, TH12]
+events:
+  - date: 2026-02-02
+    label: 改正 21 CFR Part 820(QMSR、ISO 13485:2016 を引用)が発効(文書冒頭の告知による)
+summary: FDA の医療機器ソフトウェア妥当性確認の一般原則(2002-01-11、非拘束)。§4.9 で「レビューの独立性」を品質保証の基本原則とし、第三者 IV&V が常に可能ではないことを認めたうえで、小規模企業には内部の独立性を保つ工夫を求める。小規模組織に対して独立性を免除せず代替を示す型。tavily_extract で §4.9 と要求のトレーサビリティ分析の段落を取得した(全文は未通読)。
+claims:
+  - id: c1
+    text: 自己による妥当性確認は極めて難しく、可能なら独立した評価のほうが常によい(リスクの高い用途では特に)と述べる。
+    quote: Self-validation is extremely difficult. When possible, an independent evaluation is always better, especially for higher risk applications.
+    locator: §4.9 Independence of Review
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: 第三者 IV&V の外注が常に可能とは限らないと認め、代替として、当該の設計・実装に関与していないが評価できるだけの知識を持つ内部要員を割り当てる方法を示す。
+    quote: Another approach is to assign internal staff members that are not involved in a particular design or its implementation
+    locator: §4.9 Independence of Review
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [254, 249]
+    stance: supports
+  - id: c3
+    text: 小規模企業に対しては独立性を免除せず、内部のレビュー独立性を保つために作業の編成と割当てを工夫する必要があり得ると述べる。具体的な代償措置(外部レビュー・記録強化など)は列挙していない。
+    quote: Smaller firms may need to be creative in how tasks are organized and assigned in order to maintain internal independence of review.
+    locator: §4.9 Independence of Review
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [249, 267]
+    stance: qualifies
+  - id: c4
+    text: ソフトウェア要求のトレーサビリティ分析は、システム要求およびリスク分析結果との間で双方向(to and from)に行うべきとする。
+    quote: A software requirements traceability analysis should be conducted to trace software requirements to (and from) system requirements and to risk analysis results.
+    locator: ソフトウェア要求の節(節番号は取得した断片では未確認)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: [255]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:24.995Z
+    httpStatus: 200
+    finalUrl: https://www.fda.gov/media/73141/download
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

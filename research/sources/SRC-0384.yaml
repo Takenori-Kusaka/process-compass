@@ -1,0 +1,102 @@
+schemaVersion: 0
+id: SRC-0384
+status: included
+excludeReason: null
+title: The Ship's Computer Has a Memory Problem — Designing Memory for AI Agent Squads
+url: https://www.tamirdresher.com/blog/2026/05/06/scaling-ai-part13-agent-memory
+canonicalUrl: https://tamirdresher.com/blog/2026/05/06/scaling-ai-part13-agent-memory
+ids:
+  arxiv: null
+  doi: null
+publisher: Tamir Dresher 個人ブログ
+authors: [Tamir Dresher]
+orgType: individual
+region: global
+lang: en
+sourceType: individual
+published: 2026-05-06
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH05
+  query: ADR AI coding agents outdated superseded decisions context 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH04, TH01]
+events: []
+summary: エージェント群(Squad)の記憶設計の運用報告(2026-05-06)。decisions-archive.md が数十万トークンに膨れ、新しいエージェントの文脈を食い潰した。記憶を観察・作業・決定・方針に分け、supersede の連鎖は追跡可能に残す。
+claims:
+  - id: c1
+    text: 数週間の運用で decisions-archive.md が数十万トークンに育ち、新しいエージェントは作業より記憶の読み込みに文脈の大半を使った(1事例の観察)。
+    quote: "`decisions-archive.md` grows into hundreds of thousands of tokens."
+    locator: state bloat の節
+    quant:
+      value: hundreds of thousands of tokens
+      n: 1 project (Squad), a few weeks of heavy use
+      design: case report
+      population: multi-agent squad repository
+    evidenceKind: case-report
+    rqs: [TH05-Q5, TH04-Q2]
+    issues: [272, 274]
+    stance: supports
+  - id: c2
+    text: 置き換えられた記憶は追跡可能に残し、古い前提が装いを変えて戻らないようにする。supersede の連鎖が陳腐化した事実の再来を防ぐ(archive を持たない削除主義とは逆の設計)。
+    quote: Superseded memory stays traceable so old assumptions do not come back wearing a fake mustache.
+    locator: What I Think Now の前の方針リスト
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: contradicts
+  - id: c3
+    text: 決定の記憶は決定記録を要し、方針の記憶は CI で強制し気軽な編集から守る(決定と方針を別の層として扱う)。
+    quote: Policy memory must be enforced by CI and protected from casual edits.
+    locator: My current mental model
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q1]
+    issues: [251]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:44.917Z
+    httpStatus: 200
+    finalUrl: https://www.tamirdresher.com/blog/2026/05/06/scaling-ai-part13-agent-memory
+    contentType: text/html; charset=utf-8
+    titleFetched: The Ship’s Computer Has a Memory Problem — Designing Memory for AI Agent Squads
+    titleMatch: true
+    dateMeta: 2026-05-06
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 件数の明記なし(著者自身が Squad で起票した state bloat issue についての一人称の報告)
+        extractedQuote: After a few weeks of heavy use, ... decisions-archive.md grows into hundreds of thousands of tokens. ... A new agent spawn burns most of its context window loading memory instead of doing work.
+        locator: The Wiki Model Clicked 節(state bloat issue への言及)
+        note: 伏せ字の『___事例』に対応する数値は原文に無い。原文は著者が自分のプロジェクト(Squad, github.com/bradygaster/squad/issues/1037)で観察した内容を一人称で書いたもの。また原文は一回の出来事ではなく『数週間の重い利用で .squad/ がこうなる』という一般化した言い方をしている
+        adjudication:
+          verdict: consistent
+          reason: 『After a few weeks of heavy use ... decisions-archive.md grows into hundreds of thousands of tokens ... A new agent spawn burns most of its context window loading memory instead of doing work』と一致する。『1事例の観察』は、著者が自身のプロジェクト(Squad)で観察した一人称の報告であるという blindNote と整合する(原文は一般化した言い方をしているが、根拠は単一プロジェクト)。『数週間の運用』は原文では『重い利用(heavy use)』の条件付き。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://tamirdresher.com/blog/2026/05/06/scaling-ai-part13-agent-memory

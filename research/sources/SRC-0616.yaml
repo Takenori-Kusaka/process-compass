@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0616
+status: included
+excludeReason: null
+title: gittuf Design Document
+url: https://github.com/gittuf/gittuf/blob/main/docs/design-document.md
+canonicalUrl: https://github.com/gittuf/gittuf/blob/main/docs/design-document.md
+ids:
+  arxiv: null
+  doi: null
+publisher: gittuf (OpenSSF project)
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: 2026-09-10
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G07
+  query: gittuf code review attestation approval policy "attestations" pull request approval threshold docs
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH10]
+events: []
+summary: Git リポジトリの方針と活動記録をリポジトリ内で検証可能にする gittuf の設計文書(最終コミット 2026-09-10)。コードレビューの承認を、署名付き in-toto attestation(reference authorization)として専用の Git 参照に残す。記録されるのは「誰がどの状態変化を承認したか」で、レビュアが何を読み何を確かめたかは含まない。
+claims:
+  - id: c1
+    text: 人の承認を署名で残す先例がある。gittuf は複数人の承認を「detached authorizations」として署名付き in-toto attestation で実装し、現行設計ではコードレビュー承認を表す reference authorization 型を持つ。
+    quote: currently supports the "reference authorization" type to represent code review approvals
+    locator: Attestations for Authorization Records
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 承認は対象の参照と変更前後の Git ハッシュに結び付く。ブランチ変更では承認対象のマージ結果のツリーを事前計算して記録するため、承認後に中身が変われば検証で一致しない。
+    quote: For a change to a branch, `ToTargetID` pre-computes the Git merge tree resulting from the change being approved.
+    locator: Attestations for Authorization Records
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: attestation はリポジトリ内の専用参照 refs/gittuf/attestations で追跡され、標準の Git クライアントと互換を保つ。
+    quote: Attestations are tracked in the custom Git reference `refs/gittuf/attestations`.
+    locator: Attestations for Authorization Records
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 記録の内容は「参照への変更を認可する署名」であり、レビュアが確認した証跡(何を読んだか、何を実行したか)は構造に含まれない。
+    quote: allowing additional developers to issue signatures authorizing the change to the Git reference in question
+    locator: Attestations for Authorization Records
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:53:01.201Z
+    httpStatus: 200
+    finalUrl: https://github.com/gittuf/gittuf/blob/main/docs/design-document.md
+    contentType: text/html; charset=utf-8
+    titleFetched: gittuf/docs/design-document.md at main · gittuf/gittuf
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

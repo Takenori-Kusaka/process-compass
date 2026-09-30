@@ -1,0 +1,143 @@
+schemaVersion: 0
+id: SRC-0115
+status: included
+excludeReason: null
+title: How Do AI Agents Spend Your Money? Analyzing and Predicting Token Consumption in Agentic Coding Tasks
+url: https://arxiv.org/abs/2604.22750
+canonicalUrl: arxiv:2604.22750
+ids:
+  arxiv: "2604.22750"
+  doi: null
+publisher: arXiv
+authors: [Longju Bai, Zhemin Huang, Xingyao Wang, Jiao Sun, Rada Mihalcea, Erik Brynjolfsson, Alex Pentland, Jiaxin Pei]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-04-24
+publishedBasis: arxiv-v1
+version: v2
+updated: 2026-04-29
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: arxiv 2026 cost per task coding agent tokens dollars efficiency SWE-bench "cost" analysis agentic
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04, TH11]
+events: []
+summary: OpenHands + SWE-bench Verified で 8 つのフロンティアモデルの軌跡を分析した査読前論文。エージェント型コーディングはチャットの 1000 倍のトークンを使い、キャッシュ有効でも入力が費用を支配。同一タスクでも 30 倍のばらつき、モデルは自分の消費量を過小予測する。
+claims:
+  - id: c1
+    text: エージェント型コーディングはコード推論・チャットの 1000 倍のトークンを消費し、キャッシュを有効にしても出力ではなく入力トークンが費用を支配する。#274 の「キャッシュ読み取りが費用の過半」と同じ構造を独立に確認。
+    quote: Strikingly, input tokens, not output tokens, dominate the overall cost in agentic coding, even when token caching is enabled
+    locator: §1 Introduction(Finding 1)
+    quant:
+      value: 1000x tokens vs chat; input-dominated cost
+      n: 8 frontier LLMs, SWE-bench Verified trajectories
+      design: observational analysis of trajectories
+      population: OpenHands agent on SWE-bench Verified
+    evidenceKind: observational
+    rqs: [TH04-Q1, TH04-Q2]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: SWE-bench Verified のタスクでは、同じタスクを再実行しても総トークンが最大 30 倍異なる。トークン使用量が多いほど精度が上がるわけではなく、精度はしばしば中間的な費用で最も高くなり、それ以上の費用では頭打ちになる(本文 §1 では最高費用帯で低下すると記述)。
+    quote: runs on the same task can differ by up to 30 × in total tokens, and higher token usage does not translate into higher accuracy; instead, accuracy often peaks at intermediate cost
+    locator: Abstract (2)
+    quant:
+      value: up to 30x variance per task
+      n: 8 models
+      design: observational
+      population: SWE-bench Verified
+    evidenceKind: observational
+    rqs: [TH04-Q1, TH04-Q4, TH11-Q3]
+    issues: [274]
+    stance: qualifies
+  - id: c3
+    text: モデル間のトークン効率差は大きく、同じタスクで Kimi-K2 と Claude Sonnet 4.5 は GPT-5 より平均 150 万トークン以上多く消費した。単価だけでなく消費量で階層の費用差が決まる。
+    quote: "models vary substantially in token efficiency: on the same tasks, Kimi-K2 and Claude-Sonnet-4.5, on average, consume over 1.5 million more tokens than GPT-5"
+    locator: Abstract(Finding 3)
+    quant:
+      value: +1.5M tokens avg
+      n: 8 models
+      design: observational
+      population: SWE-bench Verified
+    evidenceKind: observational
+    rqs: [TH04-Q4]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: モデルは自分のトークン消費を事前に予測できず(相関は最大 0.39)、系統的に過小に見積もる。事前の費用見積りに AI の自己申告を使うのは危うい。
+    quote: frontier models fail to accurately predict their own token usage (with weak-to-moderate correlations, up to 0.39) and systematically underestimate real token costs
+    locator: Abstract(Finding 5)
+    quant:
+      value: correlation ≤ 0.39
+      n: 8 models
+      design: prediction experiment
+      population: SWE-bench Verified
+    evidenceKind: controlled-experiment
+    rqs: [TH04-Q3, TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:47.868Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2604.22750
+    contentType: text/html; charset=utf-8
+    titleFetched: How Do AI Agents Spend Your Money? Analyzing and Predicting Token Consumption in Agentic Coding Tasks
+    titleMatch: true
+    dateMeta: 2026-04-24
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: How Do AI Agents Spend Your Money? Analyzing and Predicting Token Consumption in Agentic Coding Tasks
+      authors: ["Bai, Longju", "Huang, Zhemin", "Wang, Xingyao", "Sun, Jiao", "Mihalcea, Rada", "Brynjolfsson, Erik"]
+      v1Date: 2026-04-24
+      latestVersion: 2
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1000×(Abstract)。§1 Introduction では "orders of magnitude more tokens"。キャッシュ有効時でも入力トークンが費用を支配
+        extractedQuote: Strikingly, input tokens, not output tokens, dominate the overall cost in agentic coding, even when token caching is enabled
+        locator: §1 Introduction(First finding)/ Abstract(1)
+        note: 「1000倍」は Abstract の "consuming 1000 × more tokens than code reasoning and code chat"。§1 Introduction の Finding 1 本文は "orders of magnitude more tokens than chat ... and reasoning ... tasks" で具体倍率は書いていない。「キャッシュ読み取りが費用の過半」に対応する記述は §5.2("cache reads dominate both raw token volume and dollar cost")にあるが、Claude Sonnet-4.5 のみの分析。対象は SWE-bench Verified 上の8モデル(OpenHands)。
+      c2:
+        verdict: match
+        extractedValue: 最大 30×(同一タスクの実行間で総トークン)
+        extractedQuote: runs on the same task can differ by up to 30 × in total tokens, and higher token usage does not translate into higher accuracy; instead, accuracy often peaks at intermediate cost
+        locator: Abstract (2)
+        note: §1 では "accuracy often peaks at intermediate cost and degrades at the highest cost levels" と、頭打ちではなく最高費用帯で低下すると書いている(Abstract は saturates)。「PR あたり費用の単一値は代表性を欠く」は原典に無い ask 側の推論。原典の単位は SWE-bench Verified のタスク(Issue 解決)であり PR ではない。
+        adjudication:
+          verdict: corrected
+          reason: 30 倍と精度の傾向は blindQuote(Abstract)と一致する。ただし原文は「often」(しばしば)と限定しており、§1 では頭打ちではなく「degrades at the highest cost levels」と書いているので、両方を示した。「1 PR あたり費用の単一値は代表性を欠く」は原典に無い主張者の推論で、原典の単位も PR ではなく SWE-bench Verified のタスク(Issue 解決)なので、訂正文から外した。
+          date: 2026-09-23
+          originalText: 同一タスクの再実行でも総トークンは最大 30 倍異なり、トークンを多く使っても精度は上がらず中間的な費用で頭打ちになる。1 PR あたり費用の単一値は代表性を欠く。
+          originalQuote: runs on the same task can differ by up to 30 × \times in total tokens, and higher token usage does not translate into higher accuracy; instead, accuracy often peaks at intermediate cost and saturates at higher costs
+      c3:
+        verdict: match
+        extractedValue: Kimi-K2 と Claude Sonnet-4.5 が GPT-5 より平均 150万(1.5 million)トークン以上多い
+        extractedQuote: "models vary substantially in token efficiency: on the same tasks, Kimi-K2 and Claude-Sonnet-4.5, on average, consume over 1.5 million more tokens than GPT-5"
+        locator: Abstract (3)
+        note: §1 では "This gap holds even when restricting to the easy subset that all models solve successfully" と補足。「単価だけでなく消費量で階層の費用差が決まる」は ask 側の推論(原典はモデル間比較で、階層=tier の議論はしていない)。
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

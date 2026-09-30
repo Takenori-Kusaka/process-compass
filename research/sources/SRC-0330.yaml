@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0330
+status: included
+excludeReason: null
+title: The Implementation of ISO/IEC 29110 Software Engineering Standards and Guides in Very Small Entities
+url: https://espace2.etsmtl.ca/id/eprint/12525/1/The-Implementation-of-ISO-IEC-29110-Software-Engineering-Standards-and-Guides-in-Very-Small-Entities.pdf
+canonicalUrl: https://espace2.etsmtl.ca/id/eprint/12525/1/the-implementation-of-iso-iec-29110-software-engineering-standards-and-guides-in-very-small-entities.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Communications in Computer and Information Science (Springer) / ETS espace2 pre-publication version
+authors: [Laporte Claude Y., O'Connor Rory V., García Paucar Luis Hernán]
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: "2016"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH02
+  query: ISO/IEC 29110 basic profile very small entities software review independent verification
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH12]
+events: []
+summary: 29110 の策定者(WG24)による7件の試行事例の報告。Entry〜Advanced の4段階プロファイルの位置づけと、基本プロファイルの PM/SI 目標(顧客による計画の受入れ、定義済み基準による検証・妥当性確認)を要約している。
+claims:
+  - id: c1
+    text: "ISO/IEC 29110 の Generic Profile Group(critical software を開発しない VSE に適用)は Entry・Basic・Intermediate・Advanced の4プロファイルから成り、世界の VSE の大多数を満たすためのロードマップを示す。Entry は小規模案件(例: 6人月以下)に取り組む VSE と創業期の VSE を、Basic は VSE の単一プロジェクトチームによる単一アプリケーション開発を対象とする。"
+    quote: This Profile Group is a collection of four profiles (Entry, Basic, Intermediate, Advanced) providing a roadmap to satisfying a vast majority of VSEs worldwide. VSEs targeted by the Entry Profile are VSEs working on small projects (e.g. at most six person-months effort) and for start-up VSEs.
+    locator: §2 THE ISO/IEC 29110 STANDARD FOR VSEs(2.1 の直前の段落)
+    quant:
+      value: 6 person-months
+      n: null
+      design: standard definition
+      population: Entry profile target
+    evidenceKind: normative
+    rqs: [TH02-Q1, TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 基本プロファイルの PM 目標は、計画を顧客がレビュー・受入れすること、作業チームと顧客によるレビュー会議を開くことを定める。確認の担い手として社内の独立レビュアではなく顧客を置いている。
+    quote: The Project Plan for the execution of the project is developed according to the Statement of Work and reviewed and accepted by the Customer.
+    locator: §2.1 PM objectives 1
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [249, 267]
+    stance: qualifies
+  - id: c3
+    text: SI 目標の検証・妥当性確認は「定義済み基準で行う」と規定され、実施者の独立性には触れていない(本論文の要約範囲)。
+    quote: Verification and Validation Tasks of all required work products are performed using the defined criteria to achieve consistency among output and input products in each activity.
+    locator: §2.1 SI objectives 7
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 試行企業では、基本プロファイルにない作業は価値がある場合に限り追加し、文書様式も付加価値のない節を載せない方針を取った。
+    quote: Regarding processes, the guideline was to add tasks not described in the Basic profile only if they add value to the context and projects of the company
+    locator: §3 case study (CSiT)
+    quant:
+      value: null
+      n: 7 case studies
+      design: multiple case study
+      population: VSEs piloting ISO/IEC 29110
+    evidenceKind: case-report
+    rqs: [TH02-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:10.364Z
+    httpStatus: 200
+    finalUrl: https://espace2.etsmtl.ca/id/eprint/12525/1/The-Implementation-of-ISO-IEC-29110-Software-Engineering-Standards-and-Guides-in-Very-Small-Entities.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: ISO/IEC 29110(Generic Profile Group) / four profiles / at most six person-months
+        extractedQuote: This Profile Group is a collection of four profiles (Entry, Basic, Intermediate, Advanced) providing a roadmap to satisfying a vast majority of VSEs worldwide. VSEs targeted by the Entry Profile are VSEs working on small projects (e.g. at most six person-months effort) and for start-up VSEs.
+        locator: §2 THE ISO/IEC 29110 STANDARD FOR VSEs(2.1 の直前の段落)
+        note: (1) 『6人月以下』は原文で 'e.g.'(例示)であり、Entry の定義要件ではない。(2) Generic Profile Group は『critical software を開発しない VSE』に適用されると明記されている(ask に無い条件)。(3) Basic は原文どおり 'a single application by a single project team of a VSE'。(4) 『組織の規模・段階に応じてプロファイルを選ぶ設計』は原文の 'roadmap' 表現からの要約・解釈で、同趣旨の直接の一文は無い(Intermediate=複数プロジェクト・複数チーム、Advanced=事業として持続・成長したい VSE)
+        adjudication:
+          verdict: corrected
+          reason: 4段階と Entry・Basic の対象は抜粋どおり。ただし「6人月以下」は原文では e.g.(例示)で、Entry の定義要件ではない。critical software を開発しない VSE という適用条件も欠けている。「組織の規模・段階に応じてプロファイルを選ぶ設計」は roadmap という表現からの解釈で、同趣旨の直接の記述はないため、roadmap の語に置き換えた。
+          date: 2026-09-24
+          originalText: 29110 の汎用プロファイル群は Entry・Basic・Intermediate・Advanced の4段階で、Entry は6人月以下の小規模案件と創業期の VSE、Basic は単一チームによる単一アプリケーション開発を対象とする。組織の規模・段階に応じてプロファイルを選ぶ設計である。
+          originalQuote: VSEs targeted by the Entry Profile are VSEs working on small projects (e.g. at most six person-months effort) and for start-up VSEs.
+    date: 2026-09-24
+volatility: slow
+reviewBy: null

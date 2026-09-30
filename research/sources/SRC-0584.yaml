@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0584
+status: included
+excludeReason: null
+title: "Capabilities: Trunk-based development"
+url: https://dora.dev/capabilities/trunk-based-development/
+canonicalUrl: https://dora.dev/capabilities/trunk-based-development
+ids:
+  arxiv: null
+  doi: null
+publisher: DORA (Google Cloud)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G06
+  query: DORA trunk-based development capability active branches merge daily(dora.dev を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11]
+events: []
+summary: DORA のケイパビリティ解説。2016・2017 年調査の分析として、アクティブなブランチ 3 本以下・1 日 1 回以上の trunk へのマージ・コードフリーズなしを高成績の条件に挙げ、測り方(ブランチ数、毎日マージされる割合、承認までの時間)を表で示す。ページに日付は無い(取得 2026-09-30)。
+claims:
+  - id: c1
+    text: DORA は 2016・2017 年の調査データの分析として、デリバリーと運用の成績が高いチームの実践を、アクティブなブランチ 3 本以下、1 日 1 回以上の trunk へのマージ、コードフリーズと統合フェーズを持たないこと、の3点にまとめている。
+    quote: Have three or fewer active branches in the application’s code repository. Merge branches to trunk at least once a day. Don’t have code freezes and don’t have integration phases.
+    locator: How to implement trunk-based development
+    quant:
+      value: ブランチ 3 本以下、1 日 1 回以上マージ
+      n: 本ページには記載なし(2016・2017 年 State of DevOps 調査)
+      design: 横断的な質問紙調査の分析
+      population: DORA 調査回答者
+    evidenceKind: normative
+    rqs: [TH10-Q3, TH11-Q3]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: DORA は、マージが遅れるほどマージ衝突と付随する問題が起きやすくなると述べ、非同期レビューを落とし穴に挙げる。統合までの経過時間を統合リスクと結び付ける記述だが、この一文自体に測定値は付いていない。
+    quote: The longer a merge is delayed, the more likely it is to create merge conflicts and associated issues.
+    locator: Common pitfalls / Performing code reviews asynchronously
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: 測り方として、マージされたブランチごとの二値、または毎日マージされるブランチ・フォークの割合を挙げ、目標を「1 日 1 回以上のマージ」に置く。統合頻度をブランチ単位で収集する指標定義の先例である。
+    quote: Measure either a binary (yes/no) value for each branch that's merged, or measure a percentage of branches and forks that are merged every day.
+    locator: Ways to measure trunk-based development(表)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH11-Q3, TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c4
+    text: レビューを非同期で行う場合は、変更要求の承認までの平均時間を測り、平均より大幅に長いものに注目するよう求めている。PR 本数ではなく経過時間で見る測り方である。
+    quote: If you perform code review asynchronously, measure the average time it takes to approve change requests, and pay particular attention to requests that take substantially longer than the average.
+    locator: Ways to measure trunk-based development(表)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH11-Q3, TH10-Q3]
+    issues: [273]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:51.602Z
+    httpStatus: 200
+    finalUrl: https://dora.dev/capabilities/trunk-based-development/
+    contentType: text/html; charset=utf-8
+    titleFetched: "DORA | Capabilities: Trunk-based development"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: partial
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2016・2017年 / three or fewer(3本以下) / at least once a day(1日1回以上) / 箇条書き3項目
+        extractedQuote: Analysis of DORA data from 2016 (PDF) and 2017 (PDF) shows that teams achieve higher levels of software delivery and operational performance (delivery speed, stability, and availability) if they
+        locator: How to implement trunk-based development(末尾の箇条書き)
+        note: "quote は 200 字で切った(続きは「follow these practices:」)。箇条書きの原文: 「Have three or fewer active branches in the application’s code repository.」「Merge branches to trunk at least once a day.」「Don’t have code freezes and don’t have integration phases.」。原文に「3点」という数詞は無く、箇条書きが3項目。"
+      c3:
+        verdict: match
+        extractedValue: Merging at least once per day(1日1回以上)
+        extractedQuote: Measure either a binary (yes/no) value for each branch that's merged, or measure a percentage of branches and forks that are merged every day. Merging at least once per day.
+        locator: Ways to measure trunk-based development(表の3行目「Frequency of merging branches and forks to trunk.」、列は Factor to test / What to measure / Goal)
+        note: 「統合頻度をブランチ単位で収集する指標定義の先例」という位置づけは原文に無く、主張側の解釈。表は4行(active branches / code freeze periods / frequency of merging / time to approve code changes)。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

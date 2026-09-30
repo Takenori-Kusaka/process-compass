@@ -1,0 +1,79 @@
+schemaVersion: 0
+id: SRC-0339
+status: included
+excludeReason: null
+title: AI Model Deprecation and Lifecycle Calendar - Anthropic, OpenAI, Google, Amazon Bedrock
+url: https://hidekazu-konishi.com/entry/ai_model_deprecation_and_lifecycle_calendar.html
+canonicalUrl: https://hidekazu-konishi.com/entry/ai_model_deprecation_and_lifecycle_calendar.html
+ids:
+  arxiv: null
+  doi: null
+publisher: hidekazu-konishi.com
+authors: [Konishi Hidekazu]
+orgType: individual
+region: jp
+lang: en
+sourceType: individual
+published: 2026-09
+publishedBasis: unknown
+version: 取得時点(2026-09-24)の版。初出日・更新日の値は抽出できず
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: Anthropic model deprecations policy retirement commitments
+derivedFrom: [SRC-0205, SRC-0337, SRC-0338]
+derivedFromUrl: []
+selfReported: false
+themes: [TH02]
+events: []
+summary: 日本の個人技術者による、4基盤のモデル廃止・退役日程と用語の横断カレンダー(二次情報)。ベンダーごとに通知期間と用語が異なることを整理している。
+claims:
+  - id: c1
+    text: 通知期間はベンダーで異なり、OpenAI は GA モデルに6か月以上、特化派生に3か月以上、preview は2週間程度と整理される(OpenAI 一次ページの表は本調査の抽出で欠落したため、この値は二次情報)。
+    quote: OpenAI gives at least 6 months for generally available models, at least 3 months for specialized variants, and as little as about 2 weeks for preview models.
+    locator: "FAQ: How do vendors announce model deprecations?"
+    quant:
+      value: 6 months / 3 months / ~2 weeks
+      n: null
+      design: secondary compilation of vendor policy
+      population: OpenAI models
+    evidenceKind: news-fact
+    rqs: [TH02-Q3]
+    issues: []
+    stance: context
+  - id: c2
+    text: モデルの退役はすべての AI チームに繰り返し起きる運用上の事象でありながら、ベンダーごとに公開場所も用語の定義も異なると指摘する。
+    quote: Model end-of-life is a recurring operational event for every AI team, yet each vendor publishes its schedule on a different page and defines the terms differently.
+    locator: Introduction
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:16.083Z
+    httpStatus: 200
+    finalUrl: https://hidekazu-konishi.com/entry/ai_model_deprecation_and_lifecycle_calendar.html
+    contentType: text/html
+    titleFetched: AI Model Deprecation and Lifecycle Calendar - Anthropic, OpenAI, Google, and Amazon Bedrock | hidekazu-konishi.com
+    titleMatch: true
+    dateMeta: 2026-07-05
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

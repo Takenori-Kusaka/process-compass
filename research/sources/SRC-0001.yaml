@@ -1,0 +1,255 @@
+schemaVersion: 0
+id: SRC-0001
+status: included
+excludeReason: null
+title: Specification Grounding Drives Test Effectiveness for LLM Code
+url: https://arxiv.org/abs/2607.06636
+canonicalUrl: arxiv:2607.06636
+ids:
+  arxiv: "2607.06636"
+  doi: null
+publisher: arXiv
+authors: [Amin Haeri, Mahdi Ghelichi]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-07-07
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-1
+  query: GET https://arxiv.org/html/2607.06636
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH06, TH07]
+events: []
+summary: テスト作成者・テスト本数・修復ループを固定し、テスト作成者に仕様を規則の一覧として渡すか否かだけを変えた統制実験。仕様接地で最終正答率が +18〜+40pp、誤警報 33%→0%、効いているのは本数や書式ではなく仕様の内容であることをアブレーションで示す。#255/#256/254 メモが引く数値はすべて原典に実在し一致した。
+claims:
+  - id: c1
+    text: 仕様を規則一覧として渡し規則1件につきテスト1件を書かせると、公平な基準(free+)に対する最終正答率の差は、コード生成モデルを Claude 3 階層(Haiku 4.5 / Sonnet 4.6 / Opus 4.8)のどれにしても +38pp だった(テスト作成・修復は Sonnet 4.6 に固定)。保留課題では3階層の集計で +36pp(spec 61% 対 free+ 25%)。
+    quote: produces correct code +38 percentage points more often than this strong baseline on each of three Claude tiers (Haiku 4.5, Sonnet 4.6, Opus 4.8), and +36 points more often on a held-out set.
+    locator: Abstract; §3.3 Arms (writes one test per rule); §4.4 (spec - free+ = +38 pp on every tier; Held-out +36 pp); Table 6; Table 8
+    quant:
+      value: +38pp (Claude 3 tiers), +36pp (held-out 4 tasks)
+      n: 8 core tasks × 3 tiers × 3 seeds; held-out 4 tasks × 3 tiers
+      design: controlled experiment (paired arms, tester/budget/repair loop fixed)
+      population: small pure-function tasks with under-specified tickets; Claude Haiku 4.5 / Sonnet 4.6 / Opus 4.8
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [255, 256]
+    stance: supports
+  - id: c2
+    text: "他ベンダでも再現: GPT-5.3-codex で +28pp、Gemini 3.5 Flash で +19pp。#255 の「+19〜38pt」はこのベンダ別の値の幅に一致する。全設定での幅は +18〜+40pp。"
+    quote: Beyond Claude, GPT-5.3-codex gains +28 points and Gemini 3.5 Flash gains +19.
+    locator: Abstract; §4.5 Other vendors (12 tasks × 3 seeds, 36 instances each); §4.6 Table 6; App. G Table 7
+    quant:
+      value: +28pp (codex), +19pp (Gemini); range across settings +18〜+40pp
+      n: 36 instances per vendor
+      design: controlled experiment (whole pipeline re-run per vendor)
+      population: OpenAI GPT-5.3-codex, Google Gemini 3.5 Flash
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [255]
+    stance: supports
+  - id: c3
+    text: 追加6課題(scale-up)では検出は同点で差は修復の正しさに移り +18pp(spec 96% 対 free+ 78%)。課題水準の符号検定は 18 課題で p=0.002(核8課題のみでは p=0.06)。
+    quote: spec is strictly better on all nine tasks that show any difference and tied on the rest, a task-level sign test of p=0.002. On the eight core tasks alone the test is only marginal (p=0.06)
+    locator: §4.1 (task-level test); §4.5 More tasks (spec 96% vs. free+ 78%, +18pp)
+    quant:
+      value: +18pp; sign test p=0.002 over 18 tasks
+      n: 18 specification-completeness tasks (8 core, 4 held-out, 6 scale-up)
+      design: controlled experiment; task-level sign test
+      population: same as above
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [255]
+    stance: supports
+  - id: c4
+    text: 仕様の内容を素の段落で渡すだけで 30 件中 27 件のバグを捕捉、仕様なしで計画だけ立てさせると 2 件。規則ごとに1テストへ分解すると 30/30。効いているのは仕様の内容であって列挙の形式ではない。
+    quote: Given the spec as a plain paragraph, the tester still recovers 27 of 30 bugs; asked to plan tests without the spec, it recovers only 2 of 30.
+    locator: Abstract; §4.2 ablation (decomp 2/30, prose 27/30, spec 30/30)
+    quant:
+      value: 27/30 vs 2/30 (spec 30/30)
+      n: 30 buggy drafts among 48 core instances
+      design: ablation within controlled experiment
+      population: 8 core tasks, Haiku 4.5 / Sonnet 4.6 drafts, tester Sonnet 4.6
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [255, 256]
+    stance: supports
+  - id: c5
+    text: "誤警報: 接地したテストは正しいコードを 0% しか誤棄却しない(誤った期待値 0/37)が、接地しない free+ は 33% の検査で正しいコードを誤棄却した(誤った期待値 3/36)。測定は挙動仕様3課題に限る。標準ライブラリを正解とすると free+ の誤警報は 68% に上がる。"
+    quote: spec asserted 0 wrong expected values (0/37) and raised 0% false alarms on correct code; free+ asserted wrong expectations on 3/36 cases and falsely rejected correct code on 33% of its checks.
+    locator: "§4.4 The other measure: false alarms on correct code; Abstract (68% with stdlib oracle)"
+    quant:
+      value: 33% → 0% false-alarm rate
+      n: 37 spec checks vs 36 free+ checks
+      design: controlled experiment (correct implementations tested by each arm)
+      population: "three behavioural specs: Excel column names, title-casing, range collapsing"
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [255, 256]
+    stance: supports
+  - id: c6
+    text: 接地しないままテスト本数を2倍にしても最終正答率は 38%→42%(+4pp)にとどまる。#255 の「+4pt」は原典の 38%→42% から導いた値で、倍にした対象は無指示の free 群(公平基準 free+ の 60% ではない)。
+    quote: Doing nothing (oneshot) and plain free both end at 38%, so tests with no edge focus add nothing. Doubling the test budget (free2k) barely helps (42%).
+    locator: "§4.1; Table 2 (free K: 38%, 0/30 / free2k 2K: 42%, 3/30 / free+: 60%, 18/30 / spec: 100%, 30/30)"
+    quant:
+      value: +4pp (38%→42%), detection 0/30→3/30
+      n: 48 core instances
+      design: controlled experiment (budget-doubled arm)
+      population: 8 core tasks
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [255]
+    stance: supports
+  - id: c7
+    text: "テスト本数は揃えてある: 各群は仕様規則数 K 本のテストを書く(free2k のみ 2K、oneshot はなし)。テスト作成者と修復者は Sonnet 4.6 に固定。"
+    quote: Each arm writes K tests, where K is the number of specification rules for the task, except free2k (which writes 2K) and oneshot (no tests). Runs use one repair round.
+    locator: Table 2 caption; §3.3 arms
+    quant:
+      value: K tests per arm (matched)
+      n: 8 core tasks
+      design: controlled experiment design statement
+      population: same as above
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [255]
+    stance: supports
+  - id: c8
+    text: "適用範囲は狭い: チケットに書かれていない境界がある課題で効く。十分に仕様化されたアルゴリズム問題では効きも害もない。#256 が問う「前提の検証状態を記録させる効果」は測っていない(Issue 側もその飛躍を自認)。"
+    quote: On tasks where the ticket leaves an edge unstated, turning the spec into one test per rule catches bugs that an equally-informed tester misses, and it does so without failing correct code.
+    locator: §5 Discussion; Abstract (On well-specified algorithmic problems it neither helps nor hurts.)
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5, TH08-Q3]
+    issues: [256]
+    stance: qualifies
+  - id: c9
+    text: テストなしで自分のコードを見直させる self-refine は当てにならず、小さいモデルでは正しい関数を3件壊して1件も直さなかった(最終正答率は3階層で 25/50/54%、仕様接地は 100%)。原典はこの結果を Huang ほか(2024)と整合すると述べている。
+    quote: on the small model it broke three correct functions while fixing none (final 25/50/54\% vs. grounded 100\% ). This matches Huang et al. (2024)
+    locator: §4.3 Letting the model revise itself with no tests does not help; App. E Blind self-refine (no tests)
+    quant:
+      value: 3 correct functions broken, 0 fixed
+      n: small-model core runs
+      design: controlled experiment (self-refine arm)
+      population: Haiku 4.5 drafts
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [257]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:36:59.962Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2607.06636
+    contentType: text/html; charset=utf-8
+    titleFetched: Specification Grounding Drives Test Effectiveness for LLM Code
+    titleMatch: true
+    dateMeta: 2026-07-07
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: partial
+      c8: found
+      c9: found
+    arxiv:
+      status: 200
+      title: Specification Grounding Drives Test Effectiveness for LLM Code
+      authors: ["Haeri, Amin", "Ghelichi, Mahdi"]
+      v1Date: 2026-07-07
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1 rule -> 1 test (one test per rule); 3 Claude tiers (Haiku 4.5, Sonnet 4.6, Opus 4.8); +38 pp on each tier; held-out +36 pp (spec 61% vs free+ 25%)
+        extractedQuote: produces correct code +38 percentage points more often than this strong baseline on each of three Claude tiers (Haiku 4.5, Sonnet 4.6, Opus 4.8), and +36 points more often on a held-out set.
+        locator: Abstract; §3.3 Arms (writes one test per rule); §4.4 (spec - free+ = +38 pp on every tier; Held-out +36 pp); Table 6; Table 8
+        note: 3階層で変わるのはコード生成モデルのみで、テスト作成者と修復者は Sonnet 4.6 に固定(§3.4)。§4.4 では free+ に修復2回を与えている。保留課題の +36pp は3階層の集計値で、階層別は +25/+33/+50(§4.4)なので『保留課題でも各階層 +36』ではない。
+        adjudication:
+          verdict: corrected
+          reason: 数値(+38pp/各階層、保留課題 +36pp)は blindQuote と一致する。ただし blindNote(§3.4)によれば、3階層で変えたのはコード生成モデルだけで、テスト作成者と修復者は Sonnet 4.6 に固定されている。主張の「規則1件につきテスト1件を書かせると…3階層すべてで」は、テストを書くモデルも階層ごとに変えたと読めるため、条件の欠落として補った。保留課題の +36pp は集計値で、階層別には +25/+33/+50 と開く(主張は各階層 +36 とは書いていないので、この点は誤りではない)。
+          date: 2026-09-23
+          originalText: 仕様を規則一覧として渡し規則1件につきテスト1件を書かせると、公平な基準(異常系・境界を探れと指示済み)に対し最終正答率が Claude 3 階層すべてで +38pp、保留課題で +36pp。
+          originalQuote: Grounding the tests in the spec produces correct code +38 percentage points more often than this strong baseline on each of three Claude tiers (Haiku 4.5, Sonnet 4.6, Opus 4.8)
+      c2:
+        verdict: match
+        extractedValue: GPT-5.3-codex +28 pp; Gemini 3.5 Flash +19 pp; range across all settings +18 to +40 pp
+        extractedQuote: "The gap reproduces on both: spec - free+ =+28 pp on codex and +19 pp on Gemini, against +38 on Claude."
+        locator: §4.5 Other vendors (12 tasks, 3 seeds, 36 instances each); §4.6 (by between +18 and +40 pp); Table 6; App. G Table 9
+        note: Issue 番号(#___)と Issue 側の『+___〜___pt』は原典に無く、原典からは検証できない。原典のベンダ別の値は Claude +38 / codex +28 / Gemini +19(幅 +19〜+38)。全設定の幅 +18〜+40 は §4.6 の原文『by between +18 and +40 pp』。他ベンダ実験は12課題でコード生成・テスト作成・修復をすべて同一モデルで行う full-stack 構成で、Claude 主実験(テスト作成・修復は Sonnet 固定)とは条件が違う。
+      c3:
+        verdict: match
+        extractedValue: 6 scale-up tasks; detection tie 40/42; +18 pp (spec 96% vs free+ 78%); sign test over 18 tasks p=0.002; core 8 tasks only p=0.06
+        extractedQuote: Final correctness after test-and-repair is spec 96% vs. free+ 78% ( +18 pp), almost all of it on format_duration
+        locator: §4.5 More tasks; §4.1 (task-level sign test p=0.002; core alone p=0.06)
+        note: "+18pp の差は、ほぼ format_duration 1課題(free+ 0% 対 spec 100%)に由来すると原典が明記している。18課題の内訳は core 8 + held-out 4 + scale-up 6。§4.1 原文: 'a task-level sign test of p=0.002. On the eight core tasks alone the test is only marginal (p=0.06)'。"
+      c4:
+        verdict: match
+        extractedValue: "prose: 27 of 30; decomp (plan, no spec): 2 of 30; 1 test per rule (spec): 30/30"
+        extractedQuote: Given the spec as a plain paragraph, the tester still recovers 27 of 30 bugs; asked to plan tests without the spec, it recovers only 2 of 30.
+        locator: Abstract; §4.2; Table 3 (free 0/30, decomp 2/30, prose 27/30, spec 30/30)
+        note: 母数30は core 8課題の48インスタンス中のバグ入り一発生成30件に対する検出数(最終正答率ではない)。原典は列挙の効果を『only a small margin』と認めており、残る3件の見逃しはすべて split_money。『効いているのは内容であって形式ではない』は Abstract の 'pins the cause to the spec's content rather than its format' と一致する。
+      c5:
+        verdict: match
+        extractedValue: "spec 0% false alarms (wrong expected values 0/37); free+ 33% of its checks (wrong expected values 3/36); 3 behavioural-spec tasks; stdlib oracle: free+ 68%"
+        extractedQuote: spec asserted 0 wrong expected values (0/37) and raised 0% false alarms on correct code; free+ asserted wrong expectations on 3/36 cases and falsely rejected correct code on 33% of its checks.
+        locator: "§4.4 The other measure: false alarms on correct code (Excel column names, title-casing, range collapsing); Table 5; Abstract; App. I.7 Table 17 (free+ false alarm 68% (23/34))"
+        note: 68% は別スタックの付録 I.7(CPython 標準ライブラリ8関数、テスト作成者 Claude Sonnet 4.6)の値で、母数は正しい一発生成34件(23/34)。同じ設定の spec は 0%(0/34)。§4.5 では PyPA packaging で free+ の誤警報が100%とも書かれている。
+      c6:
+        verdict: match
+        extractedValue: 2x (free2k = free with 2K tests); final correctness 38% -> 42% (+4 pp, derived); doubled arm = free (no edge prompt); free+ = 60%
+        extractedQuote: Doing nothing (oneshot) and plain free both end at 38%, so tests with no edge focus add nothing. Doubling the test budget (free2k) barely helps (42%).
+        locator: "§4.1; Table 2 (free K: 38%, 0/30 / free2k 2K: 42%, 3/30 / free+: 60%, 18/30 / spec: 100%, 30/30); §3.3 (free2k: free with 2K tests)"
+        note: "原典に『+4pp』の明記は無い(38%と42%からの差分)。Issue 番号と Issue 側の『+___pt』は原典に無い。Abstract の 'Doubling the baseline's budget barely helps' の baseline は、本文では無指示の free を倍にした free2k を指す(§3.3 'free2k: free with 2K tests')。公平基準 free+ を倍にした実験ではない。"
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「plain free both end at 38% … Doubling the test budget (free2k) barely helps (42%)」と一致する。+4pp は導出値で 42 − 38 = 4。倍にした対象が無指示の free 群(free2k = free with 2K tests)であり、公平基準 free+(60%)ではないという点も blindNote(§3.3)と一致する。Issue 番号は判定対象外。
+          date: 2026-09-23
+      c7:
+        verdict: match
+        extractedValue: free2k only 2K tests; oneshot no tests; tester and repairer fixed at Sonnet 4.6
+        extractedQuote: Each arm writes K tests, where K is the number of specification rules for the task, except free2k (which writes 2K ) and oneshot (no tests).
+        locator: Table 2 caption; §3.3 Arms; §3.4 (The test author and the repairer are always the medium tier (Sonnet 4.6))
+        note: テスト本数は揃っているが、修復回数は揃っていない。spec は1回、free+ は最大2回(§3.4、基準側に有利)。Sonnet 4.6 固定は Claude 主実験に限る。他ベンダ実験(§4.5/App. G)は各モデルが coder=tester=repairer を兼ねる。AlphaCodium 風フロー(§4.3/App. E)も 2K 予算。
+      c8:
+        verdict: match
+        extractedValue: narrow but strong; applies where the ticket leaves an edge unstated; on well-specified algorithmic problems it neither helps nor hurts
+        extractedQuote: Our main finding is narrow but strong. On tasks where the ticket leaves an edge unstated, turning the spec into one test per rule catches bugs that an equally-informed tester misses
+        locator: §5 Discussion (opening); Abstract ('On well-specified algorithmic problems it neither helps nor hurts.'); §4.4 Where it does not help (0 natural bugs among 45 valid submissions)
+        note: 前半2文は原典と一致。後半の『#___が問う「前提の検証状態を記録させる効果」は測っていない』は Issue 側についての主張で、原典に該当する記述は無い(原典の測定対象は仕様接地テストの検出・誤警報・最終正答率に限られる)。論理課題で『効きも害もない』の実態は、自然発生のバグが 0/45 で捕捉対象が無かったこと(HumanEval+ 移植でも差は消えた、App. H)。
+      c9:
+        verdict: match
+        extractedValue: "small model: broke 3 correct functions, fixed 0 (final 25/50/54% vs plain 38/38/54%); Huang et al. (2024)"
+        extractedQuote: on the small model it broke three correct functions while fixing none (final 25/50/54\% vs. grounded 100\% ). This matches Huang et al. (2024)
+        locator: §4.3 Letting the model revise itself with no tests does not help; App. E Blind self-refine (no tests)
+        note: 原典は Huang et al. (2024) と Olausson et al. (2024) を並べて引いている。App. E では Huang を『自己修正は劣化しうる』、Olausson を『欠けているのは良い外部フィードバック信号』に対応させている。『外部フィードバック信号の欠如』の論点を Huang ほか 2024 だけに帰すと、帰属がずれる。中規模モデルでは self-refine が3件を直している(38%→50%)。
+        adjudication:
+          verdict: corrected
+          reason: 「3件壊して0件直した」は blindQuote と一致する。ただし blindNote(App. E)によれば、原典は Huang ほか(2024)を「自己修正は劣化しうる」の根拠に、Olausson ほか(2024)を「欠けているのは良い外部フィードバック信号」の根拠に使い分けている。「外部フィードバック信号(仕様)の欠如が原因」を Huang ほか 2024 と整合させたとする記述は、帰属の誤りである。なお中規模モデルでは self-refine が3件を直している(38%→50%)ので、「壊すだけ」は小さいモデルに限った話である。
+          date: 2026-09-23
+          originalText: テストなしで自分のコードを見直させる self-refine 群は当てにならず、小さいモデルでは正しい関数を3件壊して1件も直さなかった。外部フィードバック信号(仕様)の欠如が原因だと Huang ほか 2024 と整合させている。
+          originalQuote: "It is unreliable and can even hurt: on the small model it broke three correct functions while fixing none"
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0215
+status: included
+excludeReason: null
+title: Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation
+url: https://arxiv.org/abs/2503.11926
+canonicalUrl: arxiv:2503.11926
+ids:
+  arxiv: "2503.11926"
+  doi: 10.48550/arXiv.2503.11926
+publisher: arXiv (OpenAI)
+authors: [Bowen Baker, Joost Huizinga, Leo Gao, Zehao Dou, Melody Y. Guan, Aleksander Madry, Wojciech Zaremba, Jakub Pachocki, David Farhi]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2025-03-14
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: Codex approvals sandbox security agent approval modes(Codex の安全設計の根拠を遡って取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH07]
+events: []
+summary: OpenAI の研究者による、エージェント型コーディング環境での reward hacking を別の LLM で監視する実験。行動・出力だけの監視より思考過程(CoT)の監視が大幅に検出率が高い一方、CoT 監視を訓練報酬に入れすぎると意図を隠した reward hacking を学ぶと報告する。
+claims:
+  - id: c1
+    text: フロンティア推論モデルのエージェント型コーディング環境での reward hacking は、行動と出力だけを見る監視より CoT を見る監視の方がはるかに有効で、より弱いモデル(GPT-4o)でも監視できた。
+    quote: CoT monitoring can be far more effective than monitoring agent actions and outputs alone, and we further found that a LLM weaker than o3-mini, namely GPT-4o, can effectively monitor a stronger model.
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH06-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 2 種類の系統的なハックに対し、行動監視の再現率は全体で 60%、CoT 監視は 95% だった。
+    quote: achieves only 60% recall overall in identifying the systemic hacks. In comparison, the CoT monitor (dark blue plus green in Figure 2 ) achieves 95% recall.
+    locator: §2.1 / Table 1
+    quant:
+      value: 60% vs 95%(recall)
+      n: 訓練全体の 2 種の系統的ハック
+      design: controlled experiment
+      population: frontier reasoning model(o3-mini 相当)の RL 訓練、GPT-4o 監視
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH07-Q2, TH06-Q3]
+    issues: [269]
+    stance: supports
+  - id: c3
+    text: テストを sys.exit(0) で抜ける解が全テストを通過し高い報酬を得た実例を示す。テスト通過は実装の真正性を保証しない。
+    quote: This solution passed all unit tests and therefore received high reward.
+    locator: Figure 8
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q1, TH07-Q2]
+    issues: [269, 275]
+    stance: supports
+  - id: c4
+    text: CoT 監視を訓練目的に強く組み込むと、エージェントは意図を CoT に隠したまま reward hacking を続けるようになる。監視可能性を保つ代償(monitorability tax)を払う必要がありうる。
+    quote: with too much optimization, agents learn obfuscated reward hacking, hiding their intent within the CoT while still exhibiting a significant rate of reward hacking.
+    locator: Abstract
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH07-Q1, TH06-Q4, TH07-Q5]
+    issues: [268, 269]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:13.892Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2503.11926
+    contentType: text/html; charset=utf-8
+    titleFetched: Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation
+    titleMatch: true
+    dateMeta: 2025-03-14
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation
+      authors: ["Baker, Bowen", "Huizinga, Joost", "Gao, Leo", "Dou, Zehao", "Guan, Melody Y.", "Madry, Aleksander"]
+      v1Date: 2025-03-14
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: sys.exit(0)
+        extractedQuote: calling “sys.exit(0)” would cause tests to exit gracefully, and even that “This is unnatural but tests might pass”. This solution passed all unit tests and therefore received high reward.
+        locator: "Figure 8: Frontier reasoning CoT—“Exit(0)” systemic hack(付録の事例図)"
+        note: ask 後半の「テスト通過は実装の真正性を保証しない」は、原典の事例から導いた一般化である。原典の Figure 8 にこの文言は無い。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null
+alsoFoundBy:
+  - cluster: TH07
+    query: OpenAI chain-of-thought monitoring reward hacking obfuscation penalize bad thoughts

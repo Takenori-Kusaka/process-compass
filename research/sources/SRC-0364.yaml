@@ -1,0 +1,96 @@
+schemaVersion: 0
+id: SRC-0364
+status: included
+excludeReason: null
+title: Snyk Finds Prompt Injection in 36%, 1467 Malicious Payloads in a ToxicSkills Study of Agent Skills Supply Chain Compromise
+url: https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/
+canonicalUrl: https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub
+ids:
+  arxiv: null
+  doi: null
+publisher: Snyk
+authors: [Beurer-Kellner Luca, Kudrinskii Aleksei, Milanta Marco, Nielsen Kristian Bonde, Sarkar Hemang, Tal Liran]
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: 2026-02-05
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: agent skills supply chain malicious skills prompt injection study ClawHub ToxicSkills 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH12]
+events: []
+summary: ClawHub と skills.sh の3,984スキルを走査したセキュリティ監査。13.4%に重大な問題、36.82%に何らかの欠陥、人手確認で76件の悪性ペイロードを確認した。
+claims:
+  - id: c1
+    text: 3,984スキルのうち13.4%(534件)に少なくとも1件の重大な問題(マルウェア配布、プロンプトインジェクション、秘密情報の露出)がある。何らかの欠陥は36.82%(1,467件)。
+    quote: 13.4% of all skills, or 534 in total, all contain at least one critical-level security issue
+    locator: Findings
+    quant:
+      value: 13.4% (534/3,984) critical; 36.82% any flaw
+      n: 3,984 skills
+      design: automated scan + multi-model analysis + HITL review
+      population: ClawHub and skills.sh as of 2026-02-05
+    evidenceKind: observational
+    rqs: [TH03-Q5]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 人手確認で、資格情報窃取・バックドア設置・データ持ち出しを狙う悪性ペイロード76件を確認した。
+    quote: 76 malicious payloads designed for credential theft, backdoor installation, and data exfiltration.
+    locator: Findings
+    quant:
+      value: 76 confirmed malicious payloads
+      n: 3,984 skills
+      design: human-in-the-loop confirmation
+      population: ClawHub / skills.sh
+    evidenceKind: observational
+    rqs: [TH03-Q5]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:32.366Z
+    httpStatus: 200
+    finalUrl: https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/
+    contentType: text/html; charset=utf-8
+    titleFetched: Snyk Finds Prompt Injection in 36%, 1467 Malicious Payloads in a ToxicSkills Study of Agent Skills Supply Chain Compromise | Snyk
+    titleMatch: true
+    dateMeta: 2026-02-05
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3,984 skills / 13.4% / 534 / at least one critical / 36.82% / 1,467
+        extractedQuote: scanning 3,984 skills ... 13.4% of all skills, or 534 in total, all contain at least one critical-level security issue ... 36.82% (1,467 skills) have at least one security flaw
+        locator: "冒頭の要約段落および 'The findings: 534 of Agent Skills with critical security issues' 節の表"
+        note: 記事タイトル(作業票の title も同じ)は 'Prompt Injection in 36%, 1467 Malicious Payloads' だが、本文では 36.82%/1,467 は「何らかのセキュリティ上の問題」の件数で、確認済みの悪意あるペイロードは 76 件。タイトルは本文と食い違う。ask は本文側と整合。母集団は ClawHub と skills.sh の 2026-02-05 時点(表の節では 'from ClawHub' とのみ記載)
+        adjudication:
+          verdict: consistent
+          reason: 3,984 スキル、13.4%(534件)が critical 以上の問題を少なくとも1件、36.82%(1,467件)が何らかのセキュリティ上の欠陥、は本文と一致。記事タイトルの「1467 Malicious Payloads」は本文と食い違い(確認済みの悪意あるペイロードは 76 件)、主張は本文側に沿っている。母集団は ClawHub と skills.sh の 2026-02-05 時点。
+          date: 2026-09-24
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub

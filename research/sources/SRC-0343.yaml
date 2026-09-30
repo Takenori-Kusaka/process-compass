@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0343
+status: included
+excludeReason: null
+title: About rulesets - GitHub Enterprise Cloud Docs
+url: https://docs.github.com/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets
+canonicalUrl: https://docs.github.com/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: 取得時点(2026-09-24)の版
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: GitHub rulesets evaluate mode enforcement status insights
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH10]
+events: []
+summary: GitHub のリポジトリ規則(rulesets)の公式説明。Active / Evaluate / Disabled の3状態を持ち、Evaluate では強制せずに違反の有無を Rule Insights で観測できる。バイパス権限の付与と、重なった規則は最も厳しいものが適用されることも定める。
+claims:
+  - id: c1
+    text: Evaluate 状態の規則は強制されないが、どの操作が違反したか・しなかったかを Rule Insights で観測できる。警告から強制へ移す段階を製品機能として持つ。
+    quote: 'Evaluate: your ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page.'
+    locator: Using ruleset enforcement statuses
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: Evaluate は規則を強制せずに試すための選択肢として位置づけられる。
+    quote: Using "Evaluate" mode is a great option for testing your ruleset without enforcing it.
+    locator: Using ruleset enforcement statuses
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 規則の作成時に、特定の役割・チーム・App へバイパスを許可できる。未強制・通過・バイパスが別の状態として存在する。
+    quote: When you create a ruleset, you can allow certain users to bypass the rules in the ruleset.
+    locator: About rulesets
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: context
+  - id: c4
+    text: 同じ規則が複数の ruleset で異なって定義されるときは、最も厳しい版が適用される。
+    quote: If the same rule is defined in different ways across the aggregated rulesets, the most restrictive version of the rule applies.
+    locator: About rule layering
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:17.222Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets
+    contentType: text/html; charset=utf-8
+    titleFetched: About rulesets - GitHub Enterprise Cloud Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

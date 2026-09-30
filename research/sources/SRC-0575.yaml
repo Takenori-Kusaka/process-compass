@@ -1,0 +1,121 @@
+schemaVersion: 0
+id: SRC-0575
+status: included
+excludeReason: null
+title: INCOSE Guide to Writing Requirements (INCOSE-TP-2010-006-04, V3.1)
+url: https://moodle.insa-toulouse.fr/pluginfile.php/121422/mod_folder/content/0/INCOSE_RWG_Guide_to_Writing_Requirements_V3.1_041822.pdf
+canonicalUrl: https://moodle.insa-toulouse.fr/pluginfile.php/121422/mod_folder/content/0/incose_rwg_guide_to_writing_requirements_v3.1_041822.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: International Council on Systems Engineering (INCOSE) Requirements Working Group
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2022-05
+publishedBasis: pdf
+version: V3.1 (May 2022)
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G05
+  query: INCOSE Guide to Writing Requirements summary sheet R16 "Avoid the use of" "not" rule pdf
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08]
+events: []
+summary: INCOSE 要求記述ガイド V3.1(2022-05)。大学の教材置き場に公開されている全文 PDF を読んだ(正規の配布は INCOSE ストア。現行は V4、2023 年。V4 の公式要約シートにも R16『Avoid the use of “not.”』が残ることを確認)。R8 は逃げ道の句を、R9 は開いた句を、R16 は not を避けよと定める。第4章 R8・R9・R16 を読んだ。
+claims:
+  - id: c1
+    text: R8 は『可能な限り』『必要に応じて』などの逃げ道の句を禁じ、その理由を、下位の開発者に要求を実装しない言い訳を与えるからと明記する。要求の書式が未達の正当化に使われる問題を、要求工学の指針が規則として扱っている。
+    quote: Escape clauses give an excuse to the developer of the system at lower levels not to implement a need or requirement.
+    locator: 4.1.8 R8 - /Accuracy/NoEscapeClauses, Elaboration
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q4]
+    issues: [269]
+    stance: supports
+  - id: c2
+    text: R16 は要求文で not を避けよと定める。not は『決して〜ない』を含意し有限時間では検証できないため、その要求は正しくない(C8)とし、測れる肯定形へ書き換えさせる。禁止節を併記する方向とは逆の指針である。
+    quote: The presence of "not" in a need or requirement statement implies "not ever", which is impossible to verify in a finite time.
+    locator: 4.3.5 R16 - /NonAmbiguity/AvoidNot, Elaboration
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q4]
+    issues: [269]
+    stance: contradicts
+  - id: c3
+    text: "R16 の例外として、範囲を定めれば検証できる制約(例: 赤色であってはならない。赤の範囲を規定する場合)は not を含んでよいとする。否定形の要求は、検証可能な範囲を添える条件で認められる。"
+    quote: Which is stating a constraint and is verifiable, as long as the range of shades of red is stated
+    locator: 4.3.5 R16, Exceptions and relationships
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q4]
+    issues: [269]
+    stance: qualifies
+  - id: c4
+    text: R9 は『〜を含むがこれに限らない』『等』のような開いた句を禁じる。何が要るかを述べずに追加があることだけを含意し、検証できない要求を生むためである。
+    quote: Open-ended clauses imply there is more required without stating exactly what.
+    locator: 4.1.9 R9 - /Accuracy/NoOpenEnded, Elaboration
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q4]
+    issues: [269]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:46.262Z
+    httpStatus: 200
+    finalUrl: https://moodle.insa-toulouse.fr/pluginfile.php/121422/mod_folder/content/0/INCOSE_RWG_Guide_to_Writing_Requirements_V3.1_041822.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: R8
+        extractedQuote: Escape clauses give an excuse to the developer of the system at lower levels not to implement a need or requirement. … phrases such as "so far as is possible", … "if necessary", … "as appropriate", "as required"
+        locator: 4.1.8 R8 - /Accuracy/NoEscapeClauses, Elaboration(p.66)
+        note: "規則文は “Avoid escape clauses.”(『禁じる』ではなく『避けよ』)。取得した PDF は表紙が “VERS/REV: 4 | 1 April 2022”、各ページのフッタと扉が “VERS/REV: 3.1 | May 2022 / Rev 3.1” で、版表記が文書内で揺れている。"
+      c2:
+        verdict: match
+        extractedValue: R16 / C8(Correct)
+        extractedQuote: The presence of "not" in a need or requirement statement implies "not ever", which is impossible to verify in a finite time. In cases like this, the need or requirement statement is not correct (C8).
+        locator: 4.3.5 R16 - /NonAmbiguity/AvoidNot, Elaboration(p.74)
+        note: 規則文は “Avoid the use of "not."”。書き換えの例は Availability ≥95% や MTBF など。『禁止節を併記する方向とは逆の指針』という評価は原文に無い。
+      c3:
+        verdict: match
+        extractedValue: R16
+        extractedQuote: There may be other cases such as "The <system> shall not be red in color." Which is stating a constraint and is verifiable, as long as the range of shades of red is stated (RBG rr,bb,gg range or a "name" of red in some standard).
+        locator: 4.3.5 R16, Exceptions and relationships(p.74)
+        note: 原文の例外は 2 つ。ask が挙げる赤色の例のほかに、論理 NOT(not [X or Y])を含意する場合があり、その場合は Rule 15 に従い大文字の NOT とするのがよいとする。
+      c4:
+        verdict: match
+        extractedValue: R9
+        extractedQuote: Open-ended clauses imply there is more required without stating exactly what. Avoid non-specific phrases such as "including but not limited to", "etc." and "and so on." Open-ended clauses can lead to ambiguous, unverifiable needs and requirements
+        locator: 4.1.9 R9 - /Accuracy/NoOpenEnded, Elaboration(p.67)
+        note: 規則文は “Avoid open-ended clauses.”。原文は理由として検証不能のほか、R18(一要求一事項)違反、Complete (C4) でなくなること、契約範囲の解釈問題も挙げる。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

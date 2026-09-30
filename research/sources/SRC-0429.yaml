@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0429
+status: included
+excludeReason: null
+title: "Introducing Consort: A Spec-First Agent Framework for Enforced, Test-Driven Development on Live Database Branches"
+url: https://arxiv.org/abs/2609.09671
+canonicalUrl: arxiv:2609.09671
+ids:
+  arxiv: "2609.09671"
+  doi: null
+publisher: arXiv
+authors: [Hartman Kevin]
+orgType: individual
+region: global
+lang: en
+sourceType: preprint
+published: 2026-09-09
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: spec-driven development 2026 Spec Kit Kiro limitations
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH08, TH07, TH03]
+events: []
+summary: spec-first 型エージェント枠組み(Spec Kit、superpowers、BMAD、GSD)を強制の方式(説得/前置きの構造/エージェントが編集できない統制)で分類し、自作の Consort を提案する preprint。効果は事前登録の仮説として示され、未検証。
+claims:
+  - id: c1
+    text: Spec Kit の強制は軽い。TDD は任意でゲートがなく、constitution は機械的に検査されず散文として尊重されるだけで、決定的なオーケストレータも持たない。
+    quote: "Its enforcement, however, is light: test-driven development is optional and ungated"
+    locator: §2 related frameworks(Spec Kit)
+    quant: null
+    evidenceKind: review
+    rqs: [TH08-Q1, TH03-Q2, TH07-Q1]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: spec-first の枠組みは意図の捕捉では収束しており、差は仕様ができた後にどう強制するかにある。エージェントは作者の意図しない形で仕様を満たし、達成していない成功を報告しうる。
+    quote: the agent is free to satisfy a specification in ways its author never intended, and to report success it did not achieve.
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q4, TH07-Q1]
+    issues: [269]
+    stance: supports
+  - id: c3
+    text: 著者自身、SDD の実践は定着していないと留保している。誕生から1年程度で、エージェント主導の利用は依然少数派だという。
+    quote: We do not claim the practice is settled or universally adopted; it is barely a year old, agent-driven use specifically remains a minority practice
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:37.822Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.09671
+    contentType: text/html; charset=utf-8
+    titleFetched: "Introducing Consort: A Spec-First Agent Framework for Enforced, Test-Driven Development on Live Database Branches"
+    titleMatch: true
+    dateMeta: 2026-09-09
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Introducing Consort: A Spec-First Agent Framework for Enforced, Test-Driven Development on Live Database Branches"
+      authors: ["Hartman, Kevin"]
+      v1Date: 2026-09-09
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: barely a year old(約1年)
+        extractedQuote: We do not claim the practice is settled or universally adopted; it is barely a year old, agent-driven use specifically remains a minority practice
+        locator: I Introduction
+        note: arXiv HTML 版(2609.09671)から取得。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0270
+status: included
+excludeReason: null
+title: "On the Use of Agentic Coding Manifests: An Empirical Study of Claude Code"
+url: https://arxiv.org/abs/2509.14744
+canonicalUrl: arxiv:2509.14744
+ids:
+  arxiv: "2509.14744"
+  doi: null
+publisher: arXiv / PROFES 2025
+authors: [Worawalan Chatlatanagulchai, Kundjanasith Thonglek, Brittany Reid, Yutaro Kashiwa, Pattara Leelaprute, Arnon Rungsawang, Bundit Manaskasemsak, Hajimu Iida]
+orgType: academic
+region: jp
+lang: en
+sourceType: paper-peer
+published: 2025-09-18
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S4
+  query: arXiv 2026 Kula Matsumoto NAIST agentic coding Claude Code empirical study pull requests
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH03]
+events: []
+summary: 奈良先端科学技術大学院大学(NAIST)らによる242リポジトリ・253件のClaude.mdの構造と内容の分析(PROFES 2025 採録)。浅い見出し構造で、ビルド・実行手順と実装詳細・アーキテクチャが中心、非機能要件は少ない。
+claims:
+  - id: c1
+    text: 253件のClaude.mdで最も多い内容はBuild and Run(77.1%)で、Implementation Details(71.9%)、Architecture(64.8%)が続く。
+    quote: The most prevalent was Build and Run (77.1%), containing command-line instructions, scripts, and procedures for compiling and running code.
+    locator: Results, Table 1
+    quant:
+      value: 77.1% / 71.9% / 64.8%
+      n: 253 files / 242 repositories
+      design: リポジトリマイニング+2名の手作業ラベリング
+      population: GitHub上のClaude Code利用リポジトリ
+    evidenceKind: observational
+    rqs: [TH03-Q4]
+    issues: [269, 274]
+    stance: context
+  - id: c2
+    text: Performance(12.7%)、Security(8.7%)、UI/UX(8.3%)などの非機能・メタレベルの指示は少ない。
+    quote: meta-level or non-functional categories like Performance (12.7%), Security (8.7%), and UI/UX (8.3%) appear far less frequently
+    locator: Results, Table 1
+    quant:
+      value: 12.7% / 8.7% / 8.3%
+      n: 253 files
+      design: リポジトリマイニング
+      population: GitHub上のClaude Code利用リポジトリ
+    evidenceKind: observational
+    rqs: [TH03-Q4]
+    issues: []
+    stance: context
+  - id: c3
+    text: "15.4%のマニフェストがエージェントの役割(例: レビュアー)と責務を明示的に定義している。"
+    quote: 15.4% of manifests ( i.e., AI Integration label) explicitly define the agent’s role and describe its responsibilities within the project ( e.g., reviewers).
+    locator: Results
+    quant:
+      value: 15.4%
+      n: 253 files
+      design: リポジトリマイニング
+      population: GitHub上のClaude Code利用リポジトリ
+    evidenceKind: observational
+    rqs: [TH01-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:18.748Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2509.14744
+    contentType: text/html; charset=utf-8
+    titleFetched: "On the Use of Agentic Coding Manifests: An Empirical Study of Claude Code"
+    titleMatch: true
+    dateMeta: 2025-09-18
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "On the Use of Agentic Coding Manifests: An Empirical Study of Claude Code"
+      authors: ["Chatlatanagulchai, Worawalan", "Thonglek, Kundjanasith", "Reid, Brittany", "Kashiwa, Yutaro", "Leelaprute, Pattara", "Rungsawang, Arnon"]
+      v1Date: 2025-09-18
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 253件 / Build and Run 77.1% / Implementation Details 71.9% / Architecture 64.8%
+        extractedQuote: The most prevalent was Build and Run (77.1%), ... This was followed by Implementation Details (71.9%) ... and Architecture (64.8%) describing high-level system design
+        locator: 4 Results, Table 1 (Categories, descriptions, and their prevalence) / Abstract「We analyzed 253 Claude.md files from 242 repositories」
+        note: 253件は242リポジトリから集めた Claude.md。% は各カテゴリを含むファイルの割合で、1ファイルに複数ラベルが付く。Table 1 の値も 77.1 / 71.9 / 64.8 で本文と一致。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

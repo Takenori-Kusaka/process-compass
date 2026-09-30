@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0536
+status: included
+excludeReason: null
+title: AIエージェントが切り開く会計・監査の未来 後編
+url: https://www.ey.com/ja_jp/insights/digital/info-sensor-2026-02-06-digital-and-innovation
+canonicalUrl: https://ey.com/ja_jp/insights/digital/info-sensor-2026-02-06-digital-and-innovation
+ids:
+  arxiv: null
+  doi: null
+publisher: EY Japan(EY新日本有限責任監査法人)情報センサー 2026年2月号
+authors: [加藤 信彦, 市原 直通, 成行 浩史]
+orgType: consultancy
+region: jp
+lang: ja
+sourceType: industry-report
+published: 2026-01-28
+publishedBasis: meta
+version: null
+updated: 2026-02-24
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G03
+  query: 財務報告に係る内部統制 実施基準 職務分掌 AI エージェント 生成AI 内部統制 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH07, TH12]
+events: []
+summary: 監査法人(Big4)の公認会計士による、財務・会計領域の AI エージェント利用と監査への影響の論考。人は目標設定・結果レビュー・承認へ移ると述べ、Human in the Loop の厚さはリスクアペタイトで決めるとする。職務分掌を AI 同士で満たせるかには触れていない。
+claims:
+  - id: c1
+    text: AI エージェント導入後のファイナンス人材の役割を、AI エージェントへの目標設定・結果レビュー・承認と位置づける。承認は人側に置く見解である。
+    quote: AIエージェントの導入に伴い、ファイナンス人材は仕訳入力や決算資料作成といったオペレーション業務から、AIエージェントへの目標設定、結果レビュー、承認を担う役割へとシフトしていきます。
+    locator: Ⅱ 2.(表の直後の段落)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: supports
+  - id: c2
+    text: Human in the Loop を厚くすると安全性は上がるが速度と自律性を失うため、経営が許容できるリスク(リスクアペタイト)に照らして均衡を決めるべきとする。統制の厚さを費用対効果で決める立場。
+    quote: もちろん「Human in the Loop」を厚くすれば安全性は高まりますが、その分スピードと自律性は失われます。経営が許容できるリスク（リスクアペタイト）に照らし、「安全性と統制」及び「スピードと自律性」のバランスを決定することが重要となります。
+    locator: Ⅲ 1. AI活用リスクに必要な対応とは(ガバナンスの強化)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q4, TH01-Q2]
+    issues: [267, 268]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:30.583Z
+    httpStatus: 200
+    finalUrl: https://www.ey.com/ja_jp/insights/digital/info-sensor-2026-02-06-digital-and-innovation
+    contentType: text/html;charset=utf-8
+    titleFetched: AIエージェントが切り開く会計・監査の未来　後編
+    titleMatch: true
+    dateMeta: 2026-01-28
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

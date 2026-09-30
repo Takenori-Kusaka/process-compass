@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0329
+status: included
+excludeReason: null
+title: "ISO/IEC 29110-4-1:2018 Systems and software engineering — Lifecycle profiles for Very Small Entities (VSEs) — Part 4-1: Software engineering — Profile specifications: Generic profile group (iTeh preview)"
+url: https://cdn.standards.iteh.ai/samples/67223/21df0b1144634f71a5b5492ea714ce01/ISO-IEC-29110-4-1-2018.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/67223/21df0b1144634f71a5b5492ea714ce01/iso-iec-29110-4-1-2018.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC JTC 1/SC 7 (preview via iTeh Standards)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2018-04
+publishedBasis: pdf
+version: Second edition 2018-04
+updated: null
+accessed: 2026-09-24
+access: paywall
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: iteh ISO/IEC 29110-5-1-2 sample pdf Basic profile management and engineering guide
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH12]
+events: []
+summary: 極小組織(VSE、25名以下)向けソフトウェア工程プロファイルの規格本体の公開プレビュー(序文〜7.2.2 まで)。基本プロファイルは単一プロジェクト視点で、計画を顧客が合意することを要求する。プレビューは SI 工程の要求事項に届かず、独立レビューの要否は本取得では確認できない。
+claims:
+  - id: c1
+    text: ISO/IEC 29110 の対象(VSE)は25名以下の企業・組織・部門・プロジェクトと定義され、より大きな組織の利用も妨げない。
+    quote: VSEs are enterprises, organizations, departments or projects having up to 25 people.
+    locator: 1 Scope
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [249, 267]
+    stance: context
+  - id: c2
+    text: 基本プロファイルのプロジェクト管理要求では、実行計画の合意者を顧客としており、組織外の当事者による確認を工程に組み込んでいる(独立した内部レビュアの規定はプレビュー範囲に現れない)。
+    quote: The execution plan shall be agreed by the Customer.
+    locator: 7.2.2 Project Management requirements g)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [249]
+    stance: qualifies
+  - id: c3
+    text: 12207/15288 のテーラリング能力を持つ VSE には、29110 ではなくそれらの規格を使うよう勧めている。規模や力量に応じて準拠先を切り替える前提を規格自身が置いている。
+    quote: VSEs that have expertise in adapting/tailoring ISO/IEC/IEEE 12207 or ISO/IEC/IEEE 15288 are encouraged to use those International Standards instead of the ISO/IEC 29110 series.
+    locator: Introduction
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1, TH02-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:10.079Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/67223/21df0b1144634f71a5b5492ea714ce01/ISO-IEC-29110-4-1-2018.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: ISO/IEC 29110 series / up to 25 people
+        extractedQuote: The ISO/IEC 29110 series is applicable to Very Small Entities (VSEs). VSEs are enterprises, organizations, departments or projects having up to 25 people. The lifecycle processes described in the ISO/IEC 29110 series are not intended to preclude or discourage their use by larger organizations than VSEs.
+        locator: 1 Scope(Introduction にも 'a VSE is an enterprise, an organization, a department or a project having up to 25 people')
+        note: iTeh の公開プレビューPDF(11ページ)で 1 Scope まで読めた。作業票の access は paywall だが、該当節は無償プレビューに含まれる。定義の主語は 29110-4-1 単体ではなく『ISO/IEC 29110 series』
+    date: 2026-09-24
+volatility: slow
+reviewBy: null

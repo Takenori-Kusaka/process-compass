@@ -1,0 +1,99 @@
+schemaVersion: 0
+id: SRC-0365
+status: included
+excludeReason: null
+title: OWASP Agentic Skills Top 10 (AST10)
+url: https://github.com/OWASP/www-project-agentic-skills-top-10
+canonicalUrl: https://github.com/owasp/www-project-agentic-skills-top-10
+ids:
+  arxiv: null
+  doi: null
+publisher: OWASP Foundation
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: community
+published: 2026-08
+publishedBasis: unknown
+version: 1.0 (2026 Edition)
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH03
+  query: OWASP Agentic Skills Top 10 2026 AST01
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03, TH12]
+events: []
+summary: エージェントのスキル層に特化した OWASP のリスク分類 v1.0。悪性スキル・供給網・過剰権限・更新ドリフト・統治不在などを AST01〜AST10 として整理し、署名・固定・目録を対策に挙げる。
+claims:
+  - id: c1
+    text: AI エージェントのスキルに特化した初の包括的なセキュリティ枠組みを名乗る。
+    quote: The OWASP Agentic Skills Top 10 (AST10) is the first comprehensive security framework for AI agent skills.
+    locator: Overview
+    quant: null
+    evidenceKind: normative
+    rqs: [TH03-Q5, TH12-Q3]
+    issues: []
+    stance: context
+  - id: c2
+    text: 更新ドリフト(AST07)の対策に不変の固定とハッシュ検証を挙げる。ほかに悪性スキル(AST01)へ暗号署名、統治不在(AST09)へスキル目録と監査ログを挙げる。
+    quote: Update Drift | Medium | Immutable pinning, hash verification
+    locator: Top 10 table (AST07)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH03-Q5]
+    issues: []
+    stance: supports
+  - id: c3
+    text: Claude Code の脆弱性(CVE-2025-59536 ほか)を例に、リポジトリの設定ファイルが実行層の一部になったと指摘する。
+    quote: repository-level configuration files now function as part of the execution layer
+    locator: Why this matters
+    quant: null
+    evidenceKind: normative
+    rqs: [TH03-Q5]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:32.651Z
+    httpStatus: 200
+    finalUrl: https://github.com/OWASP/www-project-agentic-skills-top-10
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - OWASP/www-project-agentic-skills-top-10: OWASP Foundation web repository"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: "AST07(Update Drift: Immutable pinning, hash verification)/ AST01(Malicious Skills: Cryptographic signing)/ AST09(No Governance: Skill inventories, audit logging)"
+        extractedQuote: Update Drift | Medium | Immutable pinning, hash verification … Malicious Skills | Critical | Cryptographic signing, behavioral scanning … No Governance | Medium | Skill inventories, audit logging
+        locator: README.md「Risk Summary」表
+        note: リポジトリ内に表が2版ある。README冒頭の「Risk Summary」表は AST01=Cryptographic signing, behavioral scanning / AST09=Skill inventories, audit logging。一方 index.md の Summary Table と README 後半の「The 10 Risks — Summary Table」は AST01=Merkle root signing, registry scanning / AST09=Skill inventories, agentic identity controls(監査ログは Getting Started の AST09 ガバナンス枠組み『inventory, approval workflow, audit logging, and agentic identity controls』に登場)。AST07 はどの版も Immutable pinning, hash verification。
+      c3:
+        verdict: match
+        extractedValue: CVE-2025-59536(ほかに CVE-2026-21852)
+        extractedQuote: vulnerabilities in Claude Code (CVE-2025-59536, CVSS 8.7; CVE-2026-21852, CVSS 5.3) demonstrating that repository-level configuration files now function as part of the execution layer
+        locator: "README.md / index.md「The Problem: A Crisis Already in Progress」節"
+        note: "locator の『Why this matters』に該当する見出しは README の「Why Agent Skills Matter」だが、そこには統計の箇条書きしかない。該当記述は「The Problem: A Crisis Already in Progress」節にある(Incident Timeline の Feb 25 項にも同旨)。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

@@ -1,0 +1,189 @@
+schemaVersion: 0
+id: SRC-0003
+status: included
+excludeReason: null
+title: "Heterogeneous LLM Debate Under Adversarial Peers: Honest Gains, Replacement Costs, and Resilience"
+url: https://arxiv.org/abs/2606.19826
+canonicalUrl: arxiv:2606.19826
+ids:
+  arxiv: "2606.19826"
+  doi: null
+publisher: arXiv
+authors: [Prashanti Nilayam, Kiran Kumar Ramanna, Prashil Tumbade, Sankalp Nayak]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-06-18
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-1
+  query: GET https://arxiv.org/html/2606.19826
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 3 体パネルの討論で、誠実な異質ピアが有害改訂を下げ、敵対的ピアが戻すことを 4 系統 × 3 ベンチマークで測定。#258 が引く 89% / 35% / 90% / 31%→6% は原典に一致するが、89% は「改訂した場合に有害だった割合」(改訂率自体は 12.3%)であり、「正しかった答えが壊れる方が多数派」という読みは条件付き確率の取り違え。31%→6% は敵対者が既にいる汚染パネルの値で、35% とは別設計。
+claims:
+  - id: c1
+    text: Llama-3.1-70B 防御側・MATH-hard で、誠実枠の有害改訂率は同質パネル 89%(89.1±2.5)、誠実な異質ピア(gpt-oss-120b)1 体で 35%(35.2±2.9)、敵対的ピアで 90%(90.0±1.5)。
+    quote: For Llama-3.1-70B defenders on MATH-hard, the honest-slot harmful-revision rate falls from 89% in the homogeneous panel to 35% with an honest peer, and an adversarial peer returns it to 90%.
+    locator: Abstract; §4.1 The Matched Tradeoff; App. Table 4 (89.1% ± 2.5 / 35.2% ± 2.9 / 90.0% ± 1.5)
+    quant:
+      value: 89% → 35% → 90% (P(DM|D=1))
+      n: pooled n(D=1) = 175 / 589 / 589 transitions; n_valid ≈ 1,420 / 1,397 / 1,333
+      design: "controlled experiment (matched 3-agent panels: [ll,ll,ll], [ll,ll,gpt-oss], [ll,ll,gpt-oss-adv])"
+      population: Llama-3.1-70B defenders, MATH-hard (MATH-500 levels 4–5)
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q1]
+    issues: [258]
+    stance: supports
+  - id: c2
+    text: 同質パネルで誠実な防御側が改訂するのはまれ(matched 分析で P(D=1)=12.3%±0.6)だが、改訂するとほぼ常に有害である(P(DM|D=1)=89.1%±2.5)。初回に全誠実枠が正答だった項目のうち、最終ラウンドまでに少なくとも1枠が誤答になった割合(flip)は 13.6% だが、これは項目集合と条件付けが異なる汚染対照の clean 同質パネル(同じ分析での P(D=1)=21.8%)の値である。
+    quote: In the homogeneous panel, honest defenders revise rarely (P(D=1)=12.3%±0.6) and almost always harmfully (pbase=89.1%±2.5).
+    locator: §2.1 Measurement(定義); §4.1; App. C.1 Table 4; App. C.2 Table 8; Table 2
+    quant:
+      value: P(D=1)=12.3%; flip 13.6%
+      n: same cohort
+      design: controlled experiment
+      population: Llama-3.1-70B / MATH-hard homogeneous panel
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q1]
+    issues: [258]
+    stance: qualifies
+  - id: c3
+    text: 同族の敵対者が既にいる汚染パネルで、誠実な同族防御側 1 体を誠実な異質ピアに置き換えると、初回正答項目の反転率が 31%(30.8%)→6%(6.1%)、有害改訂率 87.2%→43.7%。35% の値(整合パネル)とは別設計。
+    quote: On the same Llama-3.1-70B setting, the added honest peer cuts the flip rate on initially-correct items from 31% under a same-family adversary to 6%.
+    locator: Abstract; §4.2; Table 2 (same-family [ll,ll,ll-adv] flip 30.8% [26.1,35.9] → contaminated [ll,ll-adv,gpt-oss] 6.1% [4.0,9.3])
+    quant:
+      value: flip 30.8% → 6.1%; harmful revision 87.2% → 43.7%
+      n: items with all honest slots correct at R0 (Wilson 95% CI reported)
+      design: controlled experiment (contamination control)
+      population: Llama-3.1-70B / MATH-hard
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q1]
+    issues: [258]
+    stance: supports
+  - id: c4
+    text: 著者は、有害改訂率への効果の符号が4モデル系統・3ベンチマークにわたり保たれ、大きさは防御側とベンチマークの体制で変わると述べる。ただし3パネル比較(matched)は Llama-3.1-70B/MATH-hard、gpt-4.1/MATH-hard、llama-1b/GSM8K の3設定だけで、有害改訂率(baseline→honest-mixed→adversarial-mixed)は gpt-4.1/MATH-hard で 73.6%→58.8%→75.7%、llama-1b/GSM8K で 84.0%→74.9%→86.8% である(89% は Llama-3.1-70B/MATH-hard の値)。
+    quote: "The gpt-4.1 trio on MATH-hard shows the same sign at smaller magnitude: harmful revision moves 73.6%→58.8%→75.7% across baseline, honest-mixed, and adversarial-mixed (bonus 14.8, penalty 2.1)."
+    locator: Abstract; §1 Introduction; §4.1; App. C.1 Table 4
+    quant:
+      value: sign consistent; magnitude 89→35 (Llama-70B) vs 73.6→58.8 (gpt-4.1) vs 84.0→74.9 (llama-1b)
+      n: 3 matched trios + contamination controls on MATH-hard / SciBench / GSM8K
+      design: controlled experiment
+      population: Llama-3.1-70B, gpt-4.1, llama-1b/gemma-2b, gpt-oss-120b
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q1, TH06-Q3]
+    issues: [258]
+    stance: qualifies
+  - id: c5
+    text: 適用範囲は客観的に採点できる推論ベンチマークに限る。開放的生成や主観課題(コードレビュー・仕様レビューを含む)へ持ち越せるかは未解決と著者自身が述べる。
+    quote: We do not study open-ended generation or subjective tasks, where “correct revision” is not crisply defined. Whether the same revision dynamics carry over remains open.
+    locator: §7 Limitations
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q1, TH06-Q3]
+    issues: [258]
+    stance: qualifies
+  - id: c6
+    text: 誠実な異質ピアの純益(honest bonus)は 53.9pt、敵対ペナルティ 0.9pt、置換コスト 54.8pt。損益分岐は追加ピアが敵対的である事前確率 98.4% 以上のときのみ(Llama-70B/MATH-hard)。
+    quote: "The break-even prior is high throughout: heterogeneity lowers expected harmful revision unless an added peer is adversarial with probability above"
+    locator: "§4.1; App. Table 5 (Llama-70B / MATH-hard: bonus 53.9, penalty 0.9, repl. cost 54.8, break-even 98.4%)"
+    quant:
+      value: bonus 53.9pt / penalty 0.9pt / break-even prior 98.4%
+      n: matched cohorts
+      design: derived decision quantities from controlled experiment
+      population: Llama-3.1-70B / MATH-hard
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:00.117Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2606.19826
+    contentType: text/html; charset=utf-8
+    titleFetched: "Heterogeneous LLM Debate Under Adversarial Peers: Honest Gains, Replacement Costs, and Resilience"
+    titleMatch: true
+    dateMeta: 2026-06-18
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+    arxiv:
+      status: 200
+      title: "Heterogeneous LLM Debate Under Adversarial Peers: Honest Gains, Replacement Costs, and Resilience"
+      authors: ["Nilayam, Prashanti", "Ramanna, Kiran Kumar", "Tumbade, Prashil", "Nayak, Sankalp"]
+      v1Date: 2026-06-18
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Llama-3.1-70B / MATH-hard; 同質 89%(Table 4: 89.1% ± 2.5); 誠実な異質ピア gpt-oss-120b 1体で 35%(35.2% ± 2.9); 敵対的ピア 90%(90.0% ± 1.5)。± は K=3 反復の SD"
+        extractedQuote: For Llama-3.1-70B defenders on MATH-hard, the honest-slot harmful-revision rate falls from 89% in the homogeneous panel to 35% with an honest peer, and an adversarial peer returns it to 90%.
+        locator: Abstract; §4.1 The Matched Tradeoff; App. C.1 Table 4
+        note: 値は R0→R1(初回改訂ステップ)の P(DM|D=1)。± は平均±SD(K=3 反復)であり信頼区間ではない。honest-mixed は [ll, ll, gpt-oss-120b] で異質ピアは1枠のみ。
+      c2:
+        verdict: match
+        extractedValue: 89.1% = P(DM|D=1); 同質パネルの P(D=1) は 12.3% ± 0.6(§4.1/Table 4, matched)、Table 8(contamination の clean [ll,ll,ll])では 21.8% [19.6,24.2]; flip 13.6% [10.4,17.6]
+        extractedQuote: In the homogeneous panel, honest defenders revise rarely (P(D=1)=12.3%±0.6) and almost always harmfully (pbase=89.1%±2.5).
+        locator: §2.1 Measurement(定義); §4.1; App. C.1 Table 4; App. C.2 Table 8; Table 2
+        note: 「改訂自体がまれ」と本文が書く P(D=1) は matched 分析の 12.3%±0.6。locator が示す 21.8% は Table 8(汚染対照の clean パネル)の値で、原典は『contamination summaries use different honest-slot conditioning and item pools than the matched-tradeoff summaries, identical panel names can legitimately have different marginal revision rates』と断っている。89.1% は両表で同値。flip は『初回に全誠実枠が正答だった項目のうち、最終ラウンドまでに少なくとも1枠が誤答になった割合』(Table 2/8 由来、Wilson 95% CI)。ask 中の Issue 番号(#___)と『多数派とは読めない』の解釈は原典にない(主張側の読み)。
+        adjudication:
+          verdict: corrected
+          reason: 89.1% = P(DM|D=1) と P(D=1)=12.3% は blindQuote と一致する。ただし blindValue・blindNote によれば、flip 13.6% は Table 2/8(汚染対照の clean [ll,ll,ll] パネル)の値である。このパネルでは P(D=1) が 21.8% で、原典は matched 分析とは条件付けと項目集合が違うと断っている。主張は「同質パネルでは」の下に 12.3% と 13.6% を同じ条件の値として並べているため、母集団の違いを補った。「多数派とは読めない」は flip 13.6% から導ける読みだが、原典にはない主張側の解釈である。Issue 番号は判定対象外。
+          date: 2026-09-23
+          originalText: 89% は改訂を行った遷移のうち有害だった割合(P(DM|D=1))。同質パネルでは改訂自体がまれ(P(D=1)=12.3%)で、初回正答項目の終了時反転率(flip)は 13.6%。「正しかった答えが議論で壊れる方が多数派」(#258)とは読めない。
+          originalQuote: In the homogeneous panel, honest defenders revise rarely ( P(D=1)=12.3%±0.6 ) and almost always harmfully ( p_base=89.1%±2.5 ).
+      c3:
+        verdict: match
+        extractedValue: 置換は1体; flip 31%(30.8% [26.1,35.9]) → 6%(6.1% [4.0,9.3]); 有害改訂率 P(DM|D=1) 87.2% → 43.7%
+        extractedQuote: On the same Llama-3.1-70B setting, the added honest peer cuts the flip rate on initially-correct items from 31% under a same-family adversary to 6%.
+        locator: Abstract; §4.2; Table 2 (same-family [ll,ll,ll-adv] vs contaminated [ll,ll-adv,gpt-oss])
+        note: 汚染混合パネル [ll, ll-adv, gpt-oss-120b] では『the honest pool is then one same-family defender and the honest heterogeneous peer』(§3.3)。つまり反転率・有害改訂率の集計対象に置き換えた異質ピア自身の枠が含まれ、『残った同族防御側だけの改善』を測った値ではない。ask の『___% の値(整合パネル)とは別設計』に当たる明示の記述は原典にない(matched と contamination の設計差は §3 と Table 8 注に記載)。
+        adjudication:
+          verdict: consistent
+          reason: 置換は1体で、flip 30.8%→6.1%(丸めて 31%→6%)、有害改訂率 87.2%→43.7% と、いずれも blindValue・blindQuote と一致する。比較は [ll,ll,ll-adv] 対 [ll,ll-adv,gpt-oss] で、主張の「同族敵対者がいる状態から誠実な同族防御側1体を異質ピアへ置き換える」という記述と合う。「整合パネルとは別設計」は原典に明示の一文はないが、matched と contamination の設計差は §3 と Table 8 注に書かれており、矛盾しない。留意点として、置換後の誠実枠の集計には置き換えた異質ピア自身が含まれる(§3.3)。この値は、残った同族防御側だけの改善を測ったものではない。
+          date: 2026-09-23
+      c4:
+        verdict: match
+        extractedValue: 4系統 × 3ベンチマーク; 89%(Llama-3.1-70B/MATH-hard); gpt-4.1/MATH-hard 73.6%→58.8%→75.7%; llama-1b/GSM8K 84.0%→74.9%→86.8%
+        extractedQuote: "The gpt-4.1 trio on MATH-hard shows the same sign at smaller magnitude: harmful revision moves 73.6%→58.8%→75.7% across baseline, honest-mixed, and adversarial-mixed (bonus 14.8, penalty 2.1)."
+        locator: Abstract; §1 Introduction; §4.1; App. C.1 Table 4
+        note: "『four model families and three benchmarks』で符号が保たれるという記述は著者自身のもの(Abstract/§1)。ただし matched(3パネル比較)は Llama-70B/MATH-hard、gpt-4.1/MATH-hard、llama-1b/GSM8K の3設定のみで、4系統×3ベンチの全組合せではない。SciBench は汚染対照(gpt-4.1 防御側)だけに現れる。GSM8K 側の原文: 'On GSM8K the small-model trio holds the sign with the smallest separation: 84.0%→74.9%→86.8% (bonus 9.1, penalty 2.8).' 小型側の異質ピアは gemma-2b。"
+        adjudication:
+          verdict: corrected
+          reason: 個々の数値は blindQuote・blindValue と一致する。一方、主張の「4 系統 × 3 ベンチマークで一貫」は全組合せ(12通り)で確かめたように読める。blindNote によれば、原典の記述は「across four model families and three benchmarks」という著者の総括にとどまる。matched 比較は3設定だけで、SciBench は汚染対照(gpt-4.1 防御側)にしか出てこない。「×」による過剰な一般化を直し、3つの値の並びが baseline→honest-mixed→adversarial-mixed の有害改訂率であることも補った。
+          date: 2026-09-23
+          originalText: 符号は 4 系統 × 3 ベンチマークで一貫するが大きさは体制で変わる。89% は Llama-70B/MATH-hard のみの値で、gpt-4.1/MATH-hard は 73.6%→58.8%→75.7%、小型 llama-1b/GSM8K は 84.0%→74.9%→86.8%。
+          originalQuote: Both effects keep the same sign across four model families and three benchmarks while their magnitude varies with the defender–benchmark regime.
+      c6:
+        verdict: match
+        extractedValue: honest bonus 53.9pt; adversarial penalty 0.9pt; replacement cost 54.8pt; break-even prior q* 98.4%(Llama-70B / MATH-hard)
+        extractedQuote: The honest bonus is 53.9 points and the adversarial penalty 0.9; the replacement cost of 54.8 shows that the adversary’s damage here is the destruction of a large honest gain.
+        locator: §2.2(q* の定義); §4.1; App. C.1 Table 5
+        note: "単位は P(DM|D=1) のパーセントポイント。q* の向き: 原典は『heterogeneity still lowers expected harmful revision whenever q falls below the break-even prior q*』。つまり追加ピアが敵対的である確率が 98.4% 未満なら異質ピア追加が期待値で有利で、不利になるのは q が q* を超えるときだけ。ask の『損益分岐は…98.4% 以上のときのみ』は、何が『のみ』なのか(不利になる条件)が読み取りにくい。Table 5 注に『q* assumes symmetric utility…under risk-averse deployment…the operational threshold is strictly lower than q*』の留保があり、Limitations も q* はこの攻撃クラスと初回改訂ステップに校正された値だと述べる。"
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

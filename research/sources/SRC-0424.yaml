@@ -1,0 +1,122 @@
+schemaVersion: 0
+id: SRC-0424
+status: included
+excludeReason: null
+title: ソフトウェア品質シンポジウム 2026 本会議1日目 講演テーマ・講演者紹介
+url: https://www.juse.jp/sqip/symposium/detail/day1
+canonicalUrl: https://juse.jp/sqip/symposium/detail/day1
+ids:
+  arxiv: null
+  doi: null
+publisher: 一般財団法人日本科学技術連盟(SQiP)
+authors: [熊川 一平, 伊藤 史貴, 脇 俊行]
+orgType: nonprofit
+region: jp
+lang: ja
+sourceType: talk
+published: 2026-09
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH07
+  query: 品質ゲート 形骸化 品質保証部門 レビュー チェックリスト 形骸化 SQiP JaSST
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07, TH02, TH01]
+events:
+  - date: 2026-09-15
+    label: SQiP 2026 終了報告を掲載(同サイトのお知らせ)
+summary: SQiP 2026 の講演概要。単独開発者＋AI ペアの実践でテスト失敗のノイズが品質ゲートを壊す危険と、RCA・ポカ除けによる対策を報告する講演がある。大規模自治体案件で生成 AI を QA へ組み込み、判断責任の曖昧化を新リスクとした講演も含む。
+claims:
+  - id: c1
+    text: AI の生成速度と人のレビュー速度の非対称で CI/E2E の品質ゲートが安全網になるが、「環境差で稀に落ちる」ノイズが混じるとアラート疲れと対症療法の蓄積を招き、開発体制が崩壊しかねない(熊川、単独開発者＋AI の実践報告)。
+    quote: 「環境差で稀に落ちる」等のノイズが混入すると、アラート疲れや対症療法の蓄積を招き、開発体制そのものが崩壊しかねない。
+    locator: A2-4 経験発表 概要
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q3, TH02-Q5]
+    issues: [267, 270]
+    stance: supports
+  - id: c2
+    text: 予期しない E2E 失敗を 6 パターンに分類し、RCA に基づく改善を行った。手段は、AI が新規セッションで必読する教訓集、伝統的なポカ除けとしての自動チェック、対症療法の禁忌化の 3 つで、約 4 週間で CI 失敗率が大きく下がった(自己報告)。
+    quote: 伝統的な「ポカ除け」としての自動チェックへの組み込み
+    locator: A2-4 経験発表 概要
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q5, TH07-Q6]
+    issues: [270, 275]
+    stance: supports
+  - id: c3
+    text: AI はセッションごとに文脈をリセットするため、改善の適用ポイントを教訓集とポカ除けへ移す必要がある、と発表者は結論している。
+    quote: 改善の「適用ポイント」を教訓集とポカ除けへ移す必要がある
+    locator: A2-4 経験発表 概要
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q5, TH03-Q3]
+    issues: [269, 275]
+    stance: supports
+  - id: c4
+    text: 日立システムズは生成 AI エージェントを QA に組み込み、69 名で 6 か月に約 5,920 時間の効果を報告した。一方で、判断責任の所在が曖昧になり、AI 任せによる確認不足という新たな品質リスクが顕在化した(自己報告)。
+    quote: 判断責任の所在が曖昧になりやすく、AI任せによる確認不足など「人の判断品質」に起因する新たな品質リスクが顕在化した。
+    locator: 講演概要(日立システムズ 伊藤・脇)
+    quant:
+      value: 約5,920時間/6か月
+      n: 作業員69名
+      design: 社内適用の自己報告
+      population: 日立システムズ 自治体業務システム開発の品質保証部門
+    evidenceKind: case-report
+    rqs: [TH07-Q5, TH01-Q2]
+    issues: [248]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:36.673Z
+    httpStatus: 200
+    finalUrl: https://www.juse.jp/sqip/symposium/detail/day1/
+    contentType: text/html; charset=UTF-8
+    titleFetched: 本会議１日目 | ソフトウェア品質シンポジウム 2026
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: E2E(CI/E2Eテスト)
+        extractedQuote: 生成速度と人間のレビュー速度の非対称が生じ、CI/E2Eテストによる自動化された品質ゲートが安全網として重要になる。…「環境差で稀に落ちる」等のノイズが混入すると、アラート疲れや対症療法の蓄積を招き、開発体制そのものが崩壊しかねない。
+        locator: A2-4 経験発表(熊川 一平 氏)概要
+        note: 原文では安全網は「テスト失敗が本物の不具合を示す信頼できるシグナルである場合にのみ機能し」という条件付き。
+      c2:
+        verdict: match
+        extractedValue: E2E / 6パターン / 三つ / 約4週間
+        extractedQuote: 予期しないE2Eテスト失敗を観察して6パターンに分類し、古典的な根本原因分析（RCA）に基づくプロセス改善を適用した。手段は、(1)AIが新規セッション開始時に必読する教訓集の整備、(2)伝統的な「ポカ除け」としての自動チェックへの組み込み、(3)対症療法の禁忌化、の三つに集約した。 結果として、約4週間でCI失敗率を大きく低減した。
+        locator: A2-4 経験発表(熊川 一平 氏)概要
+        note: CI 失敗率の具体的な数値は概要に記載なし(「大きく低減」のみ)。
+      c4:
+        verdict: match
+        extractedValue: 69名 / 6か月 / 約5,920時間
+        extractedQuote: 適用の結果、作業員69名に対し6か月で約5，920時間（1人あたり月約14.3時間）の効果を確認した。…判断責任の所在が曖昧になりやすく、AI任せによる確認不足など「人の判断品質」に起因する新たな品質リスクが顕在化した。
+        locator: A2-2 経験発表(伊藤 史貴 氏・脇 俊行 氏、日立システムズ)概要
+        note: 作業票の locator には講演番号がないが、該当は A2-2。原文は「曖昧になりやすく」(傾向の表現)で、ask の「曖昧になり」より弱い。対象は大規模自治体案件の品質保証プロセスで、AIエージェントは Microsoft 365 Copilot のエージェント機能。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://juse.jp/sqip/symposium/detail/day1

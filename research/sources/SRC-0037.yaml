@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0037
+status: included
+excludeReason: null
+title: A2A joins AAIF’s open agentic stack
+url: https://aaif.io/blog/a2a-joins-aaif
+canonicalUrl: https://aaif.io/blog/a2a-joins-aaif
+ids:
+  arxiv: null
+  doi: null
+publisher: Agentic AI Foundation(Linux Foundation)
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-08-17
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: A2A protocol v1.0 release Agentic AI Foundation Linux Foundation announcement"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2026-08-17
+    label: A2A が AAIF のホストプロジェクトに加入
+  - date: 2026-03
+    label: A2A v1.0(最初の安定仕様)出荷(AAIF の記述)
+summary: AAIF 公式ブログ。A2A が AAIF 傘下に入ったのは 2026-08-17 であり、前回メモ(2026-08-04 時点)の「MCP と A2A はいずれも AAIF の下にある」は時点として早すぎた。v1.0 は 2026-03 出荷と明記。
+claims:
+  - id: c1
+    text: A2A v1.0(最初の安定仕様)は 2026 年 3 月に出荷された。
+    quote: A2A v1.0, the first stable specification, shipped in March 2026. It added multi-protocol bindings and version negotiation, multi-tenancy, and signed agent cards for cryptographic identity verification.
+    locator: How A2A works in practice
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: A2A が AAIF のホストプロジェクトとして加入する旨が、2026-08-17 掲載の記事で告知された(加入日そのものの明記は無い)。記事は、Google が 2025-04 に A2A を立ち上げ Linux Foundation へ寄贈したと述べる。
+    quote: Agent2Agent (A2A), the open standard for inter-agent communication, is joining the Agentic AI Foundation (AAIF) as a hosted project.
+    locator: TL;DR
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: A2A は 2025-04 に Google が公開し LF へ寄贈、2025-08 に IBM の ACP が A2A へ統合された。
+    quote: Google launched A2A in April 2025 and donated it to the Linux Foundation with founding organizations like AWS, Cisco, Google, Microsoft, Salesforce, SAP, and ServiceNow. In August 2025, IBM's Agent Communication Protocol merged into A2A
+    locator: How A2A works in practice
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, human-correction]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:31.693Z
+    httpStatus: 200
+    finalUrl: https://aaif.io/blog/a2a-joins-aaif
+    contentType: text/html; charset=utf-8
+    titleFetched: A2A joins AAIF’s open agentic stack - Agentic AI Foundation (AAIF)
+    titleMatch: true
+    dateMeta: 2026-08-14
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: A2A v1.0; 2026年3月
+        extractedQuote: A2A v1.0, the first stable specification, shipped in March 2026.
+        locator: How A2A works in practice
+        note: ""
+      c2:
+        verdict: match
+        extractedValue: 2026-08-17(記事の掲載日)
+        extractedQuote: Agentic AI Foundation August 17, 2026 ... Agent2Agent (A2A), the open standard for inter-agent communication, is joining the Agentic AI Foundation (AAIF) as a hosted project.
+        locator: 見出し直下の日付 / TL;DR
+        note: "加入日として明記された日付はなく、記事の掲載日(August 17, 2026)と 'is joining' の記述だけ。ページに埋め込まれた JSON-LD は別記事('A2A at AAIF: Launch Plan'、datePublished 2026-08-14)のもので、日付が一致しない。『それ以前は Linux Foundation 直下』は明言されていない。本文にあるのは 'Google launched A2A in April 2025 and donated it to the Linux Foundation' だけ"
+        adjudication:
+          verdict: corrected
+          reason: 懐疑役の突合(2026-09-30)。検証役が原典から抜き出した値と注記に沿って、主張文を人手で訂正した
+          date: 2026-09-30
+          originalText: A2A は 2026-08-17 に AAIF のホストプロジェクトとして加入した。それ以前は Linux Foundation 直下のプロジェクトだった。
+      c3:
+        verdict: match
+        extractedValue: A2A; 2025-04; 2025-08
+        extractedQuote: Google launched A2A in April 2025 and donated it to the Linux Foundation ... In August 2025, IBM's Agent Communication Protocol merged into A2A
+        locator: How A2A works in practice
+        note: 原文は公開と LF への寄贈を1文で並べており、寄贈の時期を別に示していない
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

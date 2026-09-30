@@ -1,0 +1,98 @@
+schemaVersion: 0
+id: SRC-0512
+status: included
+excludeReason: null
+title: "fix(infra): 2026-08-05 のリリースが本番 NUC に届いていない — deploy-nuc.yml の env 生成 step が PowerShell parse error で失敗 (AWS 側は成功)"
+url: https://github.com/Takenori-Kusaka/ganbari-quest/issues/4275
+canonicalUrl: https://github.com/takenori-kusaka/ganbari-quest/issues/4275
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub: Takenori-Kusaka/ganbari-quest"
+authors: [Takenori Kusaka]
+orgType: individual
+region: jp
+lang: ja
+sourceType: repo
+published: 2026-08-05
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G01
+  query: git grep -n "3.5 時間" origin/develop -- docs .claude
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH07]
+events:
+  - date: 2026-08-05
+    label: ganbari-quest のセルフホスト本番が deploy 失敗で約 3.5 時間停止(#4275)
+summary: "#267 / #270 が「装置が本番を 3.5 時間止めた」と引く事象の Issue。バックアップの沈黙を防ぐために足した検査 step が deploy を失敗させ、セルフホスト本番のコンテナが停止したままになった。"
+claims:
+  - id: c1
+    text: "Issue #267 / #270 の値「本番 3.5 時間停止」に対し、コメントの時刻で数えると 3.8〜4.0 時間(停止 06:03:32Z、09:52Z の実測コメント時点で停止中、10:05Z のコメントで手動起動を報告)。deploy-nuc.yml の実行履歴でも 2026-08-05T06:03Z の run が failure、次の success は 2026-08-06T02:03Z。起動し直したのは旧 build で、リリース内容の反映は翌日になった。"
+    quote: "**ダウンタイムは 06:03:32Z 〜 復旧まで、約 3.5 時間。** 通知は 0 通でした。"
+    locator: コメント 2026-08-05T10:05:54Z(issuecomment-5190402122)
+    quant:
+      value: 3.8〜4.0 時間(コメント時刻から。当事者の記録は約 3.5 時間)
+      n: 1 件の停止
+      design: gh api repos/Takenori-Kusaka/ganbari-quest/issues/4275/comments の created_at と本文、gh api actions/workflows/deploy-nuc.yml/runs?created=2026-08-04..2026-08-07 の conclusion を照合。取得 2026-09-30
+      population: ganbari-quest のセルフホスト本番(NUC)
+    evidenceKind: case-report
+    rqs: [TH07-Q3]
+    issues: [267, 270]
+    stance: supports
+  - id: c2
+    text: "停止の原因は、日次バックアップが黙って止まるのを防ぐために PR #4168 で足した env 検証 step で、エラーメッセージの文言が PowerShell の parse error を起こし、deploy がコンテナを落としたまま終了した。この step は self-hosted runner でしか走らず PR の CI では 1 度も実行されていなかった。止まったのはセルフホスト本番で、AWS 本番の deploy は成功している。"
+    quote: "**この step は #4167 / PR #4168（NUC deploy が `CRON_SECRET` を配らず日次バックアップを静かに殺すのを塞ぐ）で追加されたものです。**"
+    locator: Issue 本文 §根本原因
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH07-Q3]
+    issues: [267, 270]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:18.976Z
+    httpStatus: 200
+    finalUrl: https://github.com/Takenori-Kusaka/ganbari-quest/issues/4275
+    contentType: text/html; charset=utf-8
+    titleFetched: "fix(infra): 2026-08-05 のリリースが本番 NUC に届いていない — deploy-nuc.yml の env 生成 step が PowerShell parse error で失敗 (AWS 側は成功) · Issue #4275 · Takenori-Kusaka/ganbari-quest"
+    titleMatch: true
+    dateMeta: 2026-08-05
+    quotes:
+      c1: not-found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Issue 内の自己申告値=「約 3.5 時間」。時刻からの計算: 停止 06:03:32Z → 09:52:16Z の実測コメント(停止中)まで 3時間48分44秒(約3.8時間)、→ 10:05:54Z の復旧報告コメントまで 4時間02分22秒(約4.0時間)。deploy-nuc.yml の run: 2026-08-05T06:03:26Z = failure(run 30980065617)、次の success = 2026-08-06T02:03:11Z(run 31064501287)。その前の success は 2026-08-01T04:42:39Z。復旧は「8/1 の build に戻った状態」で、最新 build での稼働確認は 2026-08-06T02:10Z のコメント"
+        extractedQuote: |-
+          **停止していたコンテナをそのまま起動しただけ**で、`.env` も image も触っていません。**8/1 の build に戻った状態**であり、本日のリリース内容（#4207 の TZ 修正等）は依然として届いていません。
+
+          **ダウンタイムは 06:03:32Z 〜 復旧まで、約 3.5 時間。** 通知は 0 通でした。
+        locator: issuecomment-5190402122(2026-08-05T10:05:54Z)。停止時刻は issuecomment-5190271916(2026-08-05T09:52:16Z)の docker inspect 出力「Finished=2026-08-05T06:03:32Z」。run 履歴は gh run list --workflow deploy-nuc.yml(API 実測)
+        note: "コメント本文は「約 3.5 時間」と書くが、同じコメントの投稿時刻(10:05:54Z)と停止時刻(06:03:32Z)の差は約4.0時間。09:52Z のコメントも「約 3.5 時間前」「3.5 時間超」と書いており、投稿時刻から数えると約3.8時間。docker start の実行時刻そのものはコメントに書かれていない(投稿時刻が上限)。close コメント(2026-08-06T02:10:09Z)は「8/1 build のまま 2 日間止まっていた本番 NUC」「本番が 3.5 時間止まる」と両方の表現を使う。ask の「Issue #___/ #___」の番号は原典側からは特定できない(process-compass 側の Issue と推定)。"
+      c2:
+        verdict: match
+        extractedValue: "step を追加したのは #4167 / PR #4168。PR の CI では「1 度も」走らない。AWS 本番 deploy は success、Deploy to NUC (Local) は failure"
+        extractedQuote: "**この step は #4167 / PR #4168（NUC deploy が `CRON_SECRET` を配らず日次バックアップを静かに殺すのを塞ぐ）で追加されたものです。** 「静かに死ぬのを止める」ために足したエラーメッセージが、**deploy 全体を止める**形になりました。"
+        locator: "Issue 本文 §根本原因(PR #4168 の記述)/ §同 class(「`deploy-nuc.yml` は self-hosted runner でしか実行されず、**PR の CI では 1 度も走りません**」)/ §顧客影響(「**AWS 本番 deploy は success** でしたが、**同じ push で起動した `Deploy to NUC (Local)` は failure**」)"
+        note: parse error の原因は本文では2つ(`<hex>` の `<` が PowerShell の予約演算子 / 日本語エラー文言の mojibake で括弧対応が壊れる)。どちらも「エラーメッセージ自身」が壊したと書かれており ask と整合。「deploy がコンテナを落としたまま終了」は Issue 本文ではなくコメント 5190271916(09:52Z)の記述(「deploy が `docker compose down` 相当でコンテナを落としたあと、`.env` 生成で parse error になり、**起動し直さないまま終了**」)。Issue 本文時点では「リリースが届いていない」だけを報告している。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

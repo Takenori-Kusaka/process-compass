@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0428
+status: included
+excludeReason: null
+title: "Putting Spec Kit Through Its Paces: Radical Idea or Reinvented Waterfall?"
+url: https://blog.scottlogic.com/2025/11/26/putting-spec-kit-through-its-paces-radical-idea-or-reinvented-waterfall.html
+canonicalUrl: https://blog.scottlogic.com/2025/11/26/putting-spec-kit-through-its-paces-radical-idea-or-reinvented-waterfall.html
+ids:
+  arxiv: null
+  doi: null
+publisher: Scott Logic
+authors: [Eberhardt Colin]
+orgType: consultancy
+region: eu
+lang: en
+sourceType: corp-techblog
+published: 2025-11-26
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: Scott Logic Colin Eberhardt spec kit review slower
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH05]
+events: []
+summary: Scott Logic の CTO が同じ小規模アプリ機能を Spec Kit と反復的プロンプトで実装して比べた体験報告。Spec Kit は Markdown 2,577 行・レビュー3.5時間を要し、反復型の方が約10倍速かったとする反証側の資料。
+claims:
+  - id: c1
+    text: Spec Kit での最初の機能実装の合計は、エージェント実行33分30秒、コード689行、Markdown 2,577行、レビュー3.5時間だった(仕様がコードの約3.7倍)。
+    quote: 33m30 - of agent execution time 689 loc 2,577 lines of markdown 3.5 hrs review time
+    locator: Implementation 節末尾 grand totals
+    quant:
+      value: 689 LOC / 2,577 lines markdown / 3.5 h review
+      n: 1 developer, 1 feature
+      design: single-author comparative trial (no control)
+      population: Spec Kit (2025-11), Svelte web app
+    evidenceKind: case-report
+    rqs: [TH08-Q1, TH05-Q3]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 著者は SDD なしの反復的な進め方の方が約10倍生産的だったと結論し、SDD で良いコードや少ないバグは得られなかったとする。
+    quote: The simple fact is I am a lot more productive without SDD, around ten times faster.
+    locator: A Critique of SDD
+    quant:
+      value: ~10x
+      n: 1 developer
+      design: self-comparison, not controlled
+      population: Scott Logic CTO
+    evidenceKind: case-report
+    rqs: [TH08-Q1]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: Spec Kit の生成物には重複した内容や『偽の背景文脈』が多い。詳細はあるが価値の深さを欠くと批判している。
+    quote: Much of the content within the various Spec Kit steps is duplicative, and faux context.
+    locator: Code is the law
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1, TH05-Q3]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:37.812Z
+    httpStatus: 200
+    finalUrl: https://blog.scottlogic.com/2025/11/26/putting-spec-kit-through-its-paces-radical-idea-or-reinvented-waterfall.html
+    contentType: text/html; charset=utf-8
+    titleFetched: "Putting Spec Kit Through Its Paces: Radical Idea or Reinvented Waterfall?"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 33m30 / 689 loc / 2,577 lines of markdown / 3.5 hrs(倍率は原文に明記なし。2,577/689≈3.7 は計算値)
+        extractedQuote: "And the grand totals were: 33m30 - of agent execution time 689 loc 2,577 lines of markdown 3.5 hrs review time"
+        locator: Implementation 節末尾(Next increment の直前)
+        note: 「仕様がコードの約___倍」に当たる倍率は原文に記述がなく、2,577÷689≈3.74 の派生値。また 2,577 行の Markdown は spec だけでなく constitution・plan(module contract 444行、data model 395行、plan 285行、quick start 500行)・tasks を含む合計で、『仕様』と呼ぶと母集団がずれる。実装時の本文では '~700 lines of code' とも書かれている。
+      c2:
+        verdict: match
+        extractedValue: around ten times faster(約10倍)
+        extractedQuote: The simple fact is I am a lot more productive without SDD, around ten times faster. ... It didn’t result in better code or fewer bugs
+        locator: A Critique of SDD 冒頭 / 小見出し 'It didn’t result in better code or fewer bugs'
+        note: "原文は 'productive ... around ten times faster' で速度の比較として述べ、直後に 'speed isn’t everything' と留保している。比較対象は著者の通常手法(小さな増分+簡単なプロンプト: 8m、1,000 loc、15分レビュー、9分機能テスト)で、単一著者の趣味アプリ(KartLog)1件での体験。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

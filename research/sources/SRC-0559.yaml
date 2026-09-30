@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0559
+status: included
+excludeReason: null
+title: "STALE: Can LLM Agents Know When Their Memories Are No Longer Valid?"
+url: https://arxiv.org/abs/2605.06527
+canonicalUrl: arxiv:2605.06527
+ids:
+  arxiv: "2605.06527"
+  doi: null
+publisher: arXiv
+authors: [Hanxiang Chao, Yihan Bai, Rui Sheng, Tianle Li, Yushi Sun]
+orgType: academic
+region: cn
+lang: en
+sourceType: preprint
+published: 2026-05-07
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G04
+  query: stale documentation memory coding agent benchmark outdated superseded decisions delete vs keep retrieval conflict measurement 2026 arXiv
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05, TH04]
+events: []
+summary: 古い記憶を新しい観察が暗黙に無効化する場面を測るベンチマーク(400 シナリオ、2026-05-07)。最良モデルでも全体正答 55.2%。著者の対処は削除ではなく、古い状態を STALE と印を付けて保管する方式で 68.0%。対象は個人アシスタントの記憶で、ADR やコーディングは対象外。
+claims:
+  - id: c1
+    text: 古い情報と新しい情報が文脈に併存すると、最良のモデルでも全体正答率は 55.2% にとどまる。古い記述を残すと誤って従う機序を支持するが、対象は対話の記憶で ADR ではない。
+    quote: with even the best evaluated model achieving only 55.2% overall accuracy.
+    locator: Abstract / §4.2 Table 2
+    quant:
+      value: 55.2%
+      n: 400 シナリオ・1,200 クエリ
+      design: ベンチマーク(LLM-as-judge、人手との一致 95.8%)
+      population: Gemini-3.1-pro(評価した中で最良)。文脈は最大 150K トークン
+    evidenceKind: benchmark
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: supports
+  - id: c2
+    text: 失敗の中心は、更新された証拠を取り出せても行動に反映できない点にある。
+    quote: reveals a pervasive gap between retrieving updated evidence and acting on it
+    locator: Abstract
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c3
+    text: 著者らの試作(CUPMem)は古い状態を削除せず、STALE の状態を付けて保管し、現在の根拠から外す。この方式で全体 68.0%(最良の素のモデル 55.2%)。削除方式との比較条件は無い。
+    quote: Stale states are not deleted; they are archived as STALE.
+    locator: Appendix F.1 Memory Representation / §4.2 Table 2
+    quant:
+      value: 68.0% 対 55.2%
+      n: 400 シナリオ・1,200 クエリ
+      design: 同一ベンチマーク上の著者試作と素のモデルの比較(基盤モデルが異なり統制比較ではない)
+      population: CUPMem 対 Gemini-3.1-pro
+    evidenceKind: benchmark
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: contradicts
+  - id: c4
+    text: 著者は限界として、1回の暗黙の状態遷移に絞った統制された診断設定であると明記している。
+    quote: STALE is a controlled diagnostic setting focused on one-shot implicit state transitions.
+    locator: Appendix A Limitations and Future Work
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:39.139Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2605.06527
+    contentType: text/html; charset=utf-8
+    titleFetched: "STALE: Can LLM Agents Know When Their Memories Are No Longer Valid?"
+    titleMatch: true
+    dateMeta: 2026-05-07
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "STALE: Can LLM Agents Know When Their Memories Are No Longer Valid?"
+      authors: ["Chao, Hanxiang", "Bai, Yihan", "Sheng, Rui", "Li, Tianle", "Sun, Yushi"]
+      v1Date: 2026-05-07
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: CUPMem Overall 68.0% / 最良の素のモデル Gemini-3.1-pro 55.2%
+        extractedQuote: Stale states are not deleted; they are archived as STALE. / CUPMem (Ours) [...] 68.0% / Even the strongest model, Gemini-3.1-pro, achieves only 55.2% overall accuracy.
+        locator: Appendix F.1 Memory Representation / §4.1 Table 2 / §4.2 Overall Performance(arXiv HTML 版 2605.06527)
+        note: §5 本文が示す比較は「under the same backbone model (GPT-4o-mini), this explicit adjudication paradigm improves overall accuracy from 8.7% to 68.0%」で、同一バックボーンの素のモデル(GPT-4o-mini 8.7%)との対比。55.2% は別モデル(Gemini-3.1-pro)の値で、バックボーンが異なる。「現在の根拠から外す」は §5 の「stale items are treated as historical context」に対応。HTML 全文で delet の語は F.1 の1か所だけで、削除方式を比較条件にした記述は見当たらなかった。Overall は6設定の平均 accuracy。
+      c4:
+        verdict: match
+        extractedValue: one-shot(1回)。各インスタンスは a single conflict pair
+        extractedQuote: STALE is a controlled diagnostic setting focused on one-shot implicit state transitions. Each instance contains a single conflict pair (m_o, m_n); real-world interactions may involve repeated updates
+        locator: Appendix A Limitations and Future Work — Benchmark scope
+        note: 原文は数字ではなく「one-shot」と表記。続けて、実世界では繰り返しの更新・複数属性への波及・緩やかな状態ドリフトがあり得ると述べている。
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

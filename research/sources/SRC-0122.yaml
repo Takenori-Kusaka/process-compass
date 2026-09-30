@@ -1,0 +1,111 @@
+schemaVersion: 0
+id: SRC-0122
+status: included
+excludeReason: null
+title: Claude Code のトークン削減を実測した — semble 93%・cacheRead 1800倍の内訳
+url: https://zenn.dev/pepabo/articles/claude-code-token-reduction-measured
+canonicalUrl: https://zenn.dev/pepabo/articles/claude-code-token-reduction-measured
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn(GMOペパボ株式会社 Publication)
+authors: [あたに]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-06-09
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code トークン 実測 コスト キャッシュ ccusage
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: GMOペパボの技術者による ccusage 実測(2026-06-09)。累計 cacheRead 136 億トークン、API 従量換算 約 $10,168(Max プランのため仮想額)。ある 1 日は入力 45 万に対し cacheRead 8 億(約 1800 倍)。モデルルーティング(Opus/Sonnet)とサブエージェント分離も運用に組み込んでいる。
+claims:
+  - id: c1
+    text: 個人の Claude Code 利用で累計 cacheRead 136 億トークン、API 従量換算で約 $10,168(Max プランのため実払いではない)。#274 の 21 日で 264 億のキャッシュ読み取りと同じ桁の日本の公開実測。
+    quote: "累計 cacheRead: 136億トークン プロンプトキャッシュによるコスト節約（換算）: 約122億トークン分 API 従量換算コスト: 約 $10,168"
+    locator: 実測してみた > Claude Code 全体（ccusage 実測）
+    quant:
+      value: cacheRead 1.36e10 tokens; ≈$10,168 API-equivalent
+      n: 1 user, 累計
+      design: log aggregation (ccusage)
+      population: GMOペパボ社員 1 名の Claude Code 利用(Max プラン)
+    evidenceKind: observational
+    rqs: [TH04-Q1, TH04-Q3]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: ある 1 日は新規入力 45 万トークンに対し cacheRead 8 億トークンで、キャッシュ読み込みが入力の約 1800 倍。
+    quote: ある1日を取り出すと、入力45万トークンに対して cacheRead が8億トークンでした。キャッシュ読み込みが入力の約1800倍という比率で、プロンプトキャッシュの効果が数字で確認できます。
+    locator: 同上
+    quant:
+      value: ≈1800x (cacheRead / fresh input)
+      n: 1 day, 1 user
+      design: log aggregation
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH04-Q1]
+    issues: [274]
+    stance: supports
+  - id: c3
+    text: 運用として「プロンプトキャッシング(設定変更後はセッションを切り直しキャッシュ破棄を 1 回に集約)」「モデルルーティング(タスク種別ごとに Opus/Sonnet)」「サブエージェント分離(調査結果を要約だけ返す)」を実装済み。
+    quote: モデルルーティング 重いタスクにだけ高性能モデルを使う タスク種別ごとに Opus / Sonnet を使い分け サブエージェント分離 調査結果を要約だけ返す レビューや探索をサブエージェントに分離
+    locator: 定番手法、どれを実装していたか(表)
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH04-Q4, TH04-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:52.029Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/pepabo/articles/claude-code-token-reduction-measured
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Code のトークン削減を実測した — semble 93%・cacheRead 1800倍の内訳
+    titleMatch: true
+    dateMeta: 2026-06-08
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 累計 cacheRead 136億トークン、API 従量換算コスト 約 $10,168
+        extractedQuote: "累計 cacheRead: 136億トークン プロンプトキャッシュによるコスト節約（換算）: 約122億トークン分 API 従量換算コスト: 約 $10,168"
+        locator: 実測してみた（cacheRead が入力の1800倍 / semble 93%削減） > Claude Code 全体（ccusage 実測）
+        note: Max プランについては原文「この $10,168 は「従量課金だったら払っていた額」の換算です。実際の支払いではありません。」で一致。ask 後半の「#___の ___日で ___億のキャッシュ読み取り」は本プロジェクト側の参照で原典には無い。原典自身の1日値は「ある1日を取り出すと、入力45万トークンに対して cacheRead が8億トークン」。
+        adjudication:
+          verdict: consistent
+          reason: "累計 cacheRead 136億トークン、API 従量換算 約 $10,168 は claimQuote・blindQuote と一致する。実払いではない点も blindNote が引く原文「従量課金だったら払っていた額の換算です。実際の支払いではありません」と整合する。後半の #274 との桁比較はプロジェクト内部の参照のため判定対象外とした。"
+          date: 2026-09-23
+      c3:
+        verdict: match
+        extractedValue: 1回(キャッシュ破棄を1回に集約)
+        extractedQuote: プロンプトキャッシング 入力キャッシュで約90%割引 設定変更後はセッションを切り直し、キャッシュ破棄を1回に集約 モデルルーティング 重いタスクにだけ高性能モデルを使う タスク種別ごとに Opus / Sonnet を使い分け
+        locator: "定番手法、どれを実装していたか(表: 定番手法 / ねらい / 私の実装)"
+        note: 表の「サブエージェント分離」行では「調査結果を要約だけ返す」は『ねらい』列で、『私の実装』列は「レビューや探索をサブエージェントに分離」。ask は『ねらい』列の文言を実装内容として括弧書きしている。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

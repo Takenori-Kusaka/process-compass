@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0109
+status: included
+excludeReason: null
+title: Claude Code May–August 2026 weekly limits promotion | Hacker News
+url: https://news.ycombinator.com/item?id=49348751
+canonicalUrl: https://news.ycombinator.com/item?id=49348751
+ids:
+  arxiv: null
+  doi: null
+publisher: Hacker News
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2026-08-19
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code weekly limit hit locked out days developer report cancelled subscription 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH04]
+events: []
+summary: 暫定 50% 増しの終了告知(2026-08-19、取得時「35 days ago」)に対する HN スレッド(295 points / 267 comments)。サブエージェントの並列起動で週次枠を数十分で使い切った報告、Max の解約、Codex への移行が複数ある。反証側の一次証言。
+claims:
+  - id: c1
+    text: 20x Max の解約直前、残っていた週次枠約 15% を使い切ろうとしていた利用者の事例である。別プロジェクト用に設定したまま忘れていた max agents 32 のせいで研究エージェント 5 体が計 26 のサブエージェントを起動し、気づいて止めるまでの 20 分で残りの週次枠を使い切った。
+    quote: set the max agents 32 for another project and forgot, the five research agents ended up spinning up a total of 26 subagents and burned through the remainder of my weekly in the span of 20 minutes
+    locator: throwup238 のコメント
+    quant:
+      value: 26 subagents / 20 min / ~15% weekly
+      n: 1 user
+      design: anecdote
+      population: Max 20x subscriber
+    evidenceKind: case-report
+    rqs: [TH04-Q3, TH04-Q4]
+    issues: [274]
+    stance: contradicts
+  - id: c2
+    text: 5 時間枠を使い切った後に付与クレジット $100 が並列エージェントで短時間に消え、全エージェントが失敗して何も得られなかった、という報告。
+    quote: I ran out of my 5 hr limit, and it went into my $100 credit they had given me. Multiple parallel agents. It ate it in no time flat. When I checked, all that credit was gone
+    locator: wccrawford のコメント
+    quant:
+      value: $100 credit
+      n: 1 user
+      design: anecdote
+      population: Claude subscriber
+    evidenceKind: case-report
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: contradicts
+  - id: c3
+    text: 上限悪化の告知を受けて Max 5x を解約した、Codex の $200 プランでは上限をほぼ使い切らない、と移行を述べる声がある。定額上限が競合比較の判断軸になっている。
+    quote: I made the full switch to 5.6 sol and Codex about a month ago. It's the better experience. The limits are way higher (I almost never burn through my $200/m plan)
+    locator: ryanSrich のコメント
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:46.034Z
+    httpStatus: 200
+    finalUrl: https://news.ycombinator.com/item?id=49348751
+    contentType: text/html; charset=utf-8
+    titleFetched: Claude Code May–August 2026 weekly limits promotion | Hacker News
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: partial
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Max 20x / max agents 32 / five research agents / 26 subagents / ~15% / 20 minutes
+        extractedQuote: set the max agents 32 for another project and forgot, the five research agents ended up spinning up a total of 26 subagents and burned through the remainder of my weekly in the span of 20 minutes
+        locator: throwup238 のコメント
+        note: "原文の状況は『解約直前に残っていた週次枠を使い切ろうとしていた日』(I was trying to burn)で、意図せぬ枯渇ではあるが枠を消費する意図自体はあった。max agents 32 は別プロジェクト用に設定していたもの。'ultracode' 設定で実行。引用は 200 字を超えるため省略記号で短縮。 20x Max の記述は同コメント冒頭: \"Just before I canceled my 20x Max sub\"。 残量 ~15% は同コメント冒頭: \"I had ~15% of my weekly I was trying to burn\"。"
+        adjudication:
+          verdict: corrected
+          reason: 数値(20x Max、max agents 32、5 体、26 サブエージェント、約 15%、20 分)は原文と一致する。ただし原文の状況は、解約直前に残りの枠を使い切ろうとしていた(I was trying to burn)日で、枠を消費する意図自体はあった。主張はこの条件を落とし、意図しない枯渇の実例のように読める。速さが想定外だった点は原文からも読み取れるので、条件を補ったうえで事例として残せる。HN コメント 1 件の自己報告である。
+          date: 2026-09-23
+          originalText: Max 20x 利用者が、設定し忘れた max agents 32 により研究エージェント 5 体が計 26 サブエージェントを起動し、残り約 15% の週次枠を 20 分で使い切った。定額上限が並列エージェントで一気に枯渇する実例。
+          originalQuote: the five research agents ended up spinning up a total of 26 subagents and burned through the remainder of my weekly in the span of 20 minutes before I noticed and shut it down.
+      c3:
+        verdict: match
+        extractedValue: "ryanSrich: $200/m plan(Codex)。Max 5x の解約は別ユーザー brazukadev のコメント"
+        extractedQuote: 'ryanSrich: "I made the full switch to 5.6 sol and Codex about a month ago. ... The limits are way higher (I almost never burn through my $200/m plan)" / brazukadev: "I just cancelled my Max 5x plan."'
+        locator: ryanSrich のコメント(トップレベル)および brazukadev のコメント
+        note: '食い違いあり: ryanSrich のコメントには Max プランの倍率も『告知を受けて解約した』旨も無い(移行は約1か月前で、告知との因果は述べていない)。『Max 5x を解約、Anthropic が悪化させると言うなら要らない』は別ユーザー brazukadev の発言("I just cancelled my Max 5x plan. I was already mad at the limits, now Anthropic says it will get worse ? Nah, thanks.")。ask は2人の発言を1人に合成している可能性。なお throwup238 も 20x Max を解約したと述べている。'
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

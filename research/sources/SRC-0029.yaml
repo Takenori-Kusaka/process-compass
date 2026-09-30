@@ -1,0 +1,129 @@
+schemaVersion: 0
+id: SRC-0029
+status: included
+excludeReason: null
+title: One Size Fits All? An Empirical Comparison of ADR Templates regarding Comprehension, Usability, and Ease of Adoption
+url: https://arxiv.org/abs/2604.27333
+canonicalUrl: arxiv:2604.27333
+ids:
+  arxiv: "2604.27333"
+  doi: null
+publisher: arXiv
+authors: [Fernando Nogueira, Nabson Silva, Tayana Conte]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-04-30
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-3
+  query: research/phase2/139-assumption-monitoring.md §3.5 の引用(原典確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: DESMET 特徴分析で 5 テンプレート(Tyree/Akerman・Nygard・arc42・Y-statements・MADR)を専門家 2 名が絞り込み、Nygard と MADR を学部生 33 名のクロスオーバー制御実験で比較。Overall Score は Nygard が有意に高い(W=84.0, p=0.002)。139 メモが同論文に帰した「生きた決定ログ・決定の健全性の監視」はこの論文には無く(ReflectRally 由来)、「AK は設計判断・前提・文脈・根拠を含む」は背景節の Kruchten (2006) 孫引き。
+claims:
+  - id: c1
+    text: 比較対象は Tyree/Akerman・Nygard・arc42・Y-statements・MADR の 5 テンプレート。理解・使いやすさ・採用しやすさの 3 次元で評価。
+    quote: "this paper aims to identify which ADR template best supports comprehension, usability, and ease of adoption: Tyree/Akerman’s template, Nygard’s ADR, arc42, Y-statements, and MADR."
+    locator: Abstract (Goal)
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH05-Q1]
+    issues: [139]
+    stance: context
+  - id: c2
+    text: 学部生 33 名のクロスオーバー実験で、Nygard テンプレートの Overall Score が MADR より有意に高かった(Wilcoxon 符号順位 W=84.0、p=0.002)。
+    quote: The Wilcoxon signed-rank test revealed a statistically significant difference between the Nygard and MADR templates in terms of Overall Score ( W=84.0 , p=0.002 )
+    locator: §5 Results (Quantitative)
+    quant:
+      value: W=84.0, p=0.002
+      n: 33 undergraduate students (crossover)
+      design: controlled experiment (DESMET FA)
+      population: software architecture 講義受講の学部生
+    evidenceKind: controlled-experiment
+    rqs: [TH05-Q1]
+    issues: [139]
+    stance: context
+  - id: c3
+    text: "定性: MADR の粒度は根拠の深さを支え、Nygard は軽量で時間制約下で適用しやすいと受け止められた。"
+    quote: MADR’s granularity better supports rationale depth, whereas Nygard’s was perceived as more lightweight and easier to apply under time constraints.
+    locator: §7 Conclusion
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: [TH05-Q1]
+    issues: [139]
+    stance: context
+  - id: c4
+    text: 背景節で、アーキテクチャ知識は設計判断・前提・文脈・根拠を含む(Kruchten et al. 2006 の引用)。139 メモ §3.5 の同趣旨の記述はこの背景記述の孫引きに相当し、本論文の実験結果ではない。
+    quote: Architectural Knowledge (AK) constitutes the comprehensive representation of the design logic, extending beyond static artifacts to include the design decisions, assumptions, context, and rationale
+    locator: §2.1 Background
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q3]
+    issues: [139]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:49.412Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2604.27333
+    contentType: text/html; charset=utf-8
+    titleFetched: One Size Fits All? An Empirical Comparison of ADR Templates regarding Comprehension, Usability, and Ease of Adoption
+    titleMatch: true
+    dateMeta: 2026-04-30
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: One Size Fits All? An Empirical Comparison of ADR Templates regarding Comprehension, Usability, and Ease of Adoption
+      authors: ["Nogueira, Fernando", "Silva, Nabson", "Conte, Tayana"]
+      v1Date: 2026-04-30
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: arc42 / 5テンプレート / 3次元(comprehension, usability, ease of adoption)
+        extractedQuote: "this paper aims to identify which ADR template best supports comprehension, usability, and ease of adoption: Tyree/Akerman’s template, Nygard’s ADR, arc42, Y-statements, and MADR."
+        locator: Abstract (Goal)
+        note: テンプレート数『five templates』は同 Abstract の Method に明記。原典と整合して見える。
+      c2:
+        verdict: match
+        extractedValue: 33名 / W=84.0 / p=0.002
+        extractedQuote: The Wilcoxon signed-rank test revealed a statistically significant difference between the Nygard and MADR templates in terms of Overall Score ( W = 84.0 , p = 0.002 )
+        locator: "§4.1.2 Controlled Experiment(参加者数は §3.4 Execution: 'A total of 33 students participated (17 in Group A and 16 in Group B)')"
+        note: "locator のずれ: 数値は §5 ではなく §4 Results の §4.1.2 にある(§5 は Discussion)。効果量 Cliff's δ=0.6364、P̂=0.8182 も併記。Wilcoxon 検定は差の有無を示す両群比較で、向き(Nygard が高い)は中央値約0.8 対 約0.7 と効果量の記述から読める。"
+      c4:
+        verdict: match
+        extractedValue: Kruchten et al., 2006
+        extractedQuote: Architectural Knowledge (AK) constitutes the comprehensive representation of the design logic, extending beyond static artifacts to include the design decisions, assumptions, context, and rationale
+        locator: "§2.1 Architectural Knowledge(引用: Kruchten, Lago, Van Vliet 2006, QoSA)"
+        note: 背景節の記述で Kruchten et al. (2006) の引用であることを確認。ask 後半の『___メモ §___』はメモ側の情報なので原典からは確認できない。
+        adjudication:
+          verdict: consistent
+          reason: §2.1 の背景節の記述で、Kruchten et al. (2006) の引用であることを blindQuote・blindLocator が確かめている。アーキテクチャ知識が設計判断・前提・文脈・根拠を含むという内容も一致する。実験結果ではなく背景の記述だという性格づけも正しい。内部メモへの参照は判定対象外。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: slow
+reviewBy: null

@@ -1,0 +1,139 @@
+schemaVersion: 0
+id: SRC-0553
+status: included
+excludeReason: null
+title: "The Magical Mystery Four: How is Working Memory Capacity Limited, and Why?"
+url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/
+canonicalUrl: doi:10.1177/0963721409359277
+ids:
+  arxiv: null
+  doi: 10.1177/0963721409359277
+publisher: Current Directions in Psychological Science 19(1), 51-57(PMC 著者最終稿)
+authors: [Nelson Cowan]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2010-02-01
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G04
+  query: Cowan 2001 "The magical number 4 in short-term memory" reconsideration of mental storage capacity abstract
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: Cowan 自身による査読付きレビュー(2010)。リハーサルやまとめ直しを抑えた条件では、同時に保持できるのは 3〜5 項目で、Miller の 7 は復唱課題の値だと整理する。2001 年の原論文は PubMed がボット対策で取得できず、本レビューで代替した。
+claims:
+  - id: c1
+    text: 対象は「同時に心に留めておける量」で、限界は約 3〜5 項目とする。
+    quote: There are severe limits in how much can be kept in mind at once (~3–5 items).
+    locator: 冒頭
+    quant:
+      value: 3〜5 項目
+      n: レビュー(個別実験の標本は各引用元)
+      design: 査読付きレビュー
+      population: 若年成人、リハーサル・チャンク化を抑えた課題
+    evidenceKind: review
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c2
+    text: 中心的な保持容量は若年成人で意味のある項目 3〜5 個に限られる。
+    quote: a central memory store limited to 3 to 5 meaningful items in young adults.
+    locator: Abstract
+    quant: null
+    evidenceKind: review
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+  - id: c3
+    text: Miller の値は、無作為な順に並べた有意味な項目やチャンク(文字・数字・単語)を復唱できるのは約7個までというものである。慣用句や短文のような長い言語チャンクでは、若年成人が再生できるのは 3 個か 4 個にとどまる(Gilchrist, Cowan, & Naveh-Benjamin, 2008)。
+    quote: one can repeat back a list of no more than about seven randomly ordered, meaningful items or chunks (which could be letters, digits, or words).
+    locator: 本文冒頭の第1段落
+    quant:
+      value: 3〜4 個
+      n: Gilchrist, Cowan, & Naveh-Benjamin (2008) を引用(標本は引用元)
+      design: 査読付きレビューが引用する実験
+      population: 若年成人、慣用句・短文の再生
+    evidenceKind: review
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: contradicts
+  - id: c4
+    text: 3〜5 という値は、処理方略を妨げるか統制して保持だけを測ったときに観察される。
+    quote: That is how one can observe a capacity limit of 3 to 5 separate items
+    locator: Understanding Central Capacity Limits
+    quant: null
+    evidenceKind: review
+    rqs: [TH05-Q5]
+    issues: [272]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:36.742Z
+    httpStatus: 200
+    finalUrl: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/
+    contentType: text/html; charset=utf-8
+    titleFetched: Checking your browser - reCAPTCHA
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+    arxiv: null
+    crossref:
+      status: 200
+      title: The Magical Mystery Four
+      issued: 2010-2
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: ~3–5 items
+        extractedQuote: There are severe limits in how much can be kept in mind at once (~3–5 items).
+        locator: 本文冒頭の第1段落(Abstract・Keywords の直後)
+        note: ""
+      c2:
+        verdict: match
+        extractedValue: 3 to 5 meaningful items in young adults
+        extractedQuote: a central memory store limited to 3 to 5 meaningful items in young adults
+        locator: Abstract
+        note: ""
+      c3:
+        verdict: match
+        extractedValue: "Miller: about seven(題は seven plus or minus two)/ 長い単位: 3 or 4"
+        extractedQuote: one can repeat back a list of no more than about seven randomly ordered, meaningful items or chunks (which could be letters, digits, or words).
+        locator: 本文冒頭の第1段落
+        note: 長い単位の原文は「Young adults can recall only 3 or 4 longer verbal chunks, such as idioms or short sentences (Gilchrist, Cowan, & Naveh-Benjamin, 2008).」で、表記は範囲(〜)ではなく「3 or 4」、対象は young adults。Miller 側は「randomly ordered, meaningful items or chunks」。「長文である ADR に当てる根拠にならない」は作業票側の推論で、原典に ADR・文書長への言及は無い。
+        adjudication:
+          verdict: corrected
+          reason: 数値(約7、3 or 4)は抜粋どおりで、「3〜4 個」は「3 or 4」の言い換えとして許容できる。ただし (1) 原文は「randomly ordered, meaningful items」で、無作為なのは項目ではなく並び順、(2) 長い単位の値は young adults に限った記述で対象の条件が欠落している。claimQuote は機械照合で not-found だが、blindNote が同一の原文を確認している。「長文である ADR に 7±2 を当てる根拠にならない」は主張側の推論で原典に ADR・文書長への言及は無い。
+          date: 2026-09-30
+          originalText: Miller の 7 は無作為な項目を復唱する課題の値で、慣用句や短文のような長い単位では 3〜4 個しか再生できない。長文である ADR に 7±2 を当てる根拠にはならない。
+          originalQuote: Young adults can recall only 3 or 4 longer verbal chunks, such as idioms or short sentences
+      c4:
+        verdict: match
+        extractedValue: 3 to 5 separate items
+        extractedQuote: we can measure storage-specific capacity by preventing or controlling processing strategies. That is how one can observe a capacity limit of 3 to 5 separate items
+        locator: UNDERSTANDING CENTRAL CAPACITY LIMITS 第2段落
+        note: 引用は (Cowan, 2001) への参照付き。直後に rehearsal と grouping を抑えた4つの提示条件(同時空間配列、非注意の聴覚チャネル、構音抑制、running span)が列挙される。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0105
+status: included
+excludeReason: null
+title: Create custom subagents - Claude Code Docs
+url: https://code.claude.com/docs/en/sub-agents
+canonicalUrl: https://code.claude.com/docs/en/sub-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude Code Docs)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH04
+  query: Claude Code cost per pull request tokens measured cache read share
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH03]
+events: []
+summary: Claude Code 公式のサブエージェント仕様。費用制御として Haiku 等の安価なモデルへの振り分けを挙げる一方、v2.1.198 以降 Explore は常に Haiku ではなく主会話のモデルを継承するよう変更された。
+claims:
+  - id: c1
+    text: サブエージェントの効用に「探索と実装を主会話から切り離して文脈を保つ」「Haiku など速く安いモデルへ振って費用を制御する」を公式に列挙する。説明文自体が文脈を消費するので短く書けとも言う。
+    quote: Control costs by routing tasks to faster, cheaper models like Haiku Claude uses each subagent's description to decide when to delegate tasks. When you create a subagent, write a clear description so Claude knows when to use it. Those descriptions take up context, so keep them short.
+    locator: ページ冒頭の効用一覧
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4, TH03-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: "v2.1.198 以降、組み込みの Explore は常に Haiku ではなく主会話のモデルを継承する(Claude API では Opus が上限)。安価モデルへの委譲を保つには model: haiku の Explore を自分で定義する必要がある。既定の挙動がモデル世代で変わる例。"
+    quote: As of v2.1.198, Explore inherits the main conversation's model instead of always running on Haiku.
+    locator: "Built-in subagents: Explore"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4, TH02-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:44.752Z
+    httpStatus: 200
+    finalUrl: https://code.claude.com/docs/en/sub-agents
+    contentType: text/html; charset=utf-8
+    titleFetched: Create custom subagents - Claude Code Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

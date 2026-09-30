@@ -1,0 +1,85 @@
+schemaVersion: 0
+id: SRC-0444
+status: included
+excludeReason: null
+title: 仕様駆動開発（SDD）の再注目と、文書がコードになる時代｜AIネイティブ新規事業開発③
+url: https://timewell.jp/columns/ai-spec-driven-development
+canonicalUrl: https://timewell.jp/columns/ai-spec-driven-development
+ids:
+  arxiv: null
+  doi: null
+publisher: 株式会社TIMEWELL
+authors: [濱本 隆太]
+orgType: startup
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-03-25
+publishedBasis: meta
+version: null
+updated: 2026-09-12
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH08
+  query: 仕様駆動開発 Kiro 導入 事例 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH05, TH09]
+events: []
+summary: 日本のスタートアップによる新規事業部門向けコラム。2026-03 版を 2026-09 に全面改稿し、SDD は『標準になった』と主張しつつ、厚い文書の罠と仕様の放置による逆戻りを警告する。実測データはない。
+claims:
+  - id: c1
+    text: 著者は、半年で SDD の状況が『広まり始めた』から『標準になった』に変わったと述べる(根拠は主要ツールの普及で、採用率の実測はない)。
+    quote: 半年経って、状況は「広まり始めた」から「標準になった」に変わりました。
+    locator: 当時（2026年3月）から現在（2026年9月）へ
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1]
+    issues: []
+    stance: context
+  - id: c2
+    text: コードだけ直して仕様を放置すると、次のエージェントが古い仕様を読んで逆戻りの修正をする。仕様を唯一の情報源に保つ最低条件は、変更を仕様から始めることだとする。
+    quote: コードだけ直して仕様を放置すると、次にエージェントが古い仕様を読んで、逆戻りの修正をします。
+    locator: 「厚い文書」の罠と、大企業でありがちな誤解
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1, TH05-Q5]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 情報システム部門の数百ページの様式で要件定義書を書く誤解を挙げ、様式の厚さは精度ではなく承認プロセスの厚さを反映するにすぎないと述べる。
+    quote: 様式の厚さは、精度ではなく、承認プロセスの厚さを反映しているにすぎません。
+    locator: 同上
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH08-Q1, TH05-Q3]
+    issues: []
+    stance: contradicts
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:55.026Z
+    httpStatus: 200
+    finalUrl: https://timewell.jp/columns/ai-spec-driven-development
+    contentType: text/html; charset=utf-8
+    titleFetched: AI仕様駆動開発（AI-SDD）2026｜SDDが再注目される理由と文書がコードになる時代 | TIMEWELL
+    titleMatch: false
+    dateMeta: 2026-03-25
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

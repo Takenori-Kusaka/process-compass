@@ -1,0 +1,92 @@
+schemaVersion: 0
+id: SRC-0472
+status: included
+excludeReason: null
+title: Measuring the Self-Reported Impact of Early-2026 AI on Technical Worker Productivity
+url: https://metr.org/blog/2026-05-11-ai-usage-survey/
+canonicalUrl: https://metr.org/blog/2026-05-11-ai-usage-survey
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: [Joel Becker]
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-05-11
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH11
+  query: METR developer productivity study 2026 follow-up AI tools experienced open-source developers
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11]
+events: []
+summary: 2026年2〜4月に技術職349人(うちソフトウェアエンジニア87人)へ行った自己申告調査。仕事の価値の変化は中央値1.4〜2倍、速度は3倍と自己申告されたが、METR 自身が便宜標本であり過大評価の可能性が高いと注記する。
+claims:
+  - id: c1
+    text: 自己申告では、AIによる仕事の価値の変化は中央値1.4〜2倍、速度の変化は中央値3倍だった。
+    quote: Participants self-reported a median 1.4–2x change in the value in their work due to AI tools. The median self-reported speed change (which we expect to be higher than value change) is 3x.
+    locator: Summary
+    quant:
+      value: value 1.4–2x; speed 3x (median, self-reported)
+      n: 349 technical workers (87 software engineers)
+      design: convenience-sample survey, Feb–Apr 2026
+      population: technical workers sourced from GitHub, academia, METR networks, X
+    evidenceKind: survey
+    rqs: [TH11-Q2]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: METR は2025年の実験で、人々がAIの時間短縮効果を平均40ポイント過大評価したことを根拠に、この自己申告値に懐疑的であるよう注意を促している。
+    quote: found that people overestimated AI’s effect on their time spent on tasks by 40 percentage points on average.
+    locator: Summary(本文の注意書き)
+    quant:
+      value: 40pp overestimate
+      n: 16 developers (2025 RCT)
+      design: RCT vs self-estimate
+      population: experienced OSS developers
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:06.989Z
+    httpStatus: 200
+    finalUrl: https://metr.org/blog/2026-05-11-ai-usage-survey/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Measuring the Self-Reported Impact of Early-2026 AI on Technical Worker Productivity
+    titleMatch: true
+    dateMeta: 2026-05-11
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: early 2025/平均40パーセントポイント
+        extractedQuote: our study in early 2025 found that people overestimated AI's effect on their time spent on tasks by 40 percentage points on average.
+        locator: Summary 末尾の注意書き(Importantly, survey results are not necessarily grounded in reality.)
+        note: 脚注では 'over 40 percentage points' とも書かれている。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://metr.org/blog/2026-05-11-ai-usage-survey

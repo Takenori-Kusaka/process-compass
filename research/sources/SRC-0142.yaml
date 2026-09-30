@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0142
+status: included
+excludeReason: null
+title: The PRD Isn’t Dead. It Just Changed Jobs.
+url: https://productcareeracademy.substack.com/p/the-prd-isnt-dead-it-just-changed
+canonicalUrl: https://productcareeracademy.substack.com/p/the-prd-isnt-dead-it-just-changed
+ids:
+  arxiv: null
+  doi: null
+publisher: Product Career Academy (Substack)
+authors: [Sachin Sharma]
+orgType: individual
+region: other
+lang: en
+sourceType: individual
+published: 2026-09-01
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH09
+  query: '"vibe PM" OR "vibe product management" prototype instead of PRD'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09, TH05, TH08]
+events: []
+summary: インド市場向け PM 転職指南の記事だが、PRD の位置づけ変化を明確に定式化する。PRD は「作る許可証」から、5 案のプロトタイプで 4 案を殺した後に書く「決定記録(なぜ勝ったか・どう測るか・いつ止めるか)」へ移動した。AI 機能は「決定」なのでスクリーンショットできず、評価(evals)が必要と論じる。
+claims:
+  - id: c1
+    text: 新しい流れは「アイデア→荒いプロトタイプを 5 本→見る→4 本殺す→生き残った 1 本の PRD を書く→出荷」で、PRD は末尾へ移動した。
+    quote: Idea → Build 5 rough prototypes → Look at them → Kill 4 → Then write the PRD for the one that survived → Ship
+    locator: 「Then building got 100x cheaper」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1, TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 末尾に移った PRD は決定記録になる。何を作ったか、なぜこの版が他の 4 案に勝ったか、成功をどう測るか、いつ止めるかを書く。
+    quote: At the back, it becomes a decision record. “Here’s what we built. Here’s why this version beat the other four. Here’s how we’ll know it’s working. And here’s when we’ll pull the plug.”
+    locator: 「So the PRD didn’t die. It changed jobs.」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1, TH05-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: AI 機能は同じ質問に二度違う答えを返す「決定」であり、スクリーンショットできない。プロトタイプでは AI の挙動仕様を伝えられないため、別の記述(評価)が要る。
+    quote: You cannot screenshot a decision.
+    locator: 「The part almost nobody is telling you」
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q3, TH08-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:08.434Z
+    httpStatus: 200
+    finalUrl: https://productcareeracademy.substack.com/p/the-prd-isnt-dead-it-just-changed
+    contentType: text/html; charset=utf-8
+    titleFetched: The PRD Isn’t Dead. It Just Changed Jobs.
+    titleMatch: true
+    dateMeta: 2026-09-01
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 5(rough prototypes)/ 4(kill)/ 1(the one that survived)
+        extractedQuote: "The new flow, fast because building is nearly free: Idea → Build 5 rough prototypes → Look at them → Kill 4 → Then write the PRD for the one that survived → Ship"
+        locator: 節「Then building got 100x cheaper」後半
+        note: 原文の生存数は数字ではなく "the one that survived"(1本)。直後に "The PRD moved to the end." とある。
+      c2:
+        verdict: match
+        extractedValue: four("the other four")
+        extractedQuote: At the back, it becomes a decision record. “Here’s what we built. Here’s why this version beat the other four. Here’s how we’ll know it’s working. And here’s when we’ll pull the plug.”
+        locator: 段落「So the PRD didn’t die. It changed jobs.」の直後
+        note: ""
+        adjudication:
+          verdict: consistent
+          reason: 「At the back, it becomes a decision record」以下の 4 項目(何を作ったか、なぜこの版が他の 4 案に勝ったか、機能していると分かる方法、いつ止めるか)は抜粋と一致する。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

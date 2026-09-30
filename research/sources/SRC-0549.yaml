@@ -1,0 +1,92 @@
+schemaVersion: 0
+id: SRC-0549
+status: included
+excludeReason: null
+title: ADR Tools (npryce/adr-tools) README
+url: https://github.com/npryce/adr-tools
+canonicalUrl: https://github.com/npryce/adr-tools
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub (npryce/adr-tools)
+authors: [Nat Pryce]
+orgType: individual
+region: global
+lang: en
+sourceType: repo
+published: 2016-02-04
+publishedBasis: meta
+version: null
+updated: 2024-04-25
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G04
+  query: adr-tools generate toc supersede (指定リポジトリを直接取得、GitHub API で作成日・最終 push を確認)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: Nygard 形式の ADR を扱う CLI。supersede は新 ADR の作成と同時に旧 ADR の状態を書き換える操作として実装され、旧 ADR は残る。目次は adr generate toc で機械生成する。最終 push は 2024-04-25。
+claims:
+  - id: c1
+    text: supersede は1コマンドで、新 ADR に印を付け、旧 ADR の状態を「新 ADR に置き換えられた」へ書き換える。旧 ADR のファイルは削除しない。
+    quote: This will create a new ADR file that is flagged as superceding ADR 9, and changes the status of ADR 9 to indicate that it is superceded by the new ADR.
+    locator: README / Quick Start
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q1, TH05-Q5]
+    issues: [272]
+    stance: context
+  - id: c2
+    text: 索引(目次)は手書きせず、ADR ディレクトリから Markdown の目次を生成する機能として提供される。
+    quote: Generates a table of contents in Markdown format to stdout.
+    locator: src/_adr_generate_toc (usage コメント)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH05-Q1]
+    issues: [272]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:34.630Z
+    httpStatus: 200
+    finalUrl: https://github.com/npryce/adr-tools
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub - npryce/adr-tools: Command-line tools for working with Architecture Decision Records"
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1コマンド(adr new -s 9 <title>、-s オプション)
+        extractedQuote: This will create a new ADR file that is flagged as superceding ADR 9, and changes the status of ADR 9 to indicate that it is superceded by the new ADR.
+        locator: README / Quick Start 手順2(raw.githubusercontent.com/npryce/adr-tools/master/README.md)
+        note: README は 'adr new -s 9 Use Rust for performance-critical functionality' の1行を示す。「1コマンド」という語そのものは原文に無く、例示が1行であることからの読み。旧 ADR のファイルを削除しない旨の明文は README に無い(状態を書き換えると書くのみ)。原文の綴りは 'superceding / superceded'。
+      c2:
+        verdict: match
+        extractedValue: adr generate toc(Markdown 形式の目次を stdout へ生成)
+        extractedQuote: |-
+          ## usage: adr generate toc [-i INTRO] [-o OUTRO] [-p LINK_PREFIX]
+          ##
+          ## Generates a table of contents in Markdown format to stdout.
+        locator: src/_adr_generate_toc 冒頭の usage コメント(master ブランチ)
+        note: README 本体には目次生成の記述は無く、根拠は src/_adr_generate_toc のコメントとスクリプト本体(adr-list の各ファイルを '* [title](link)' で出力)。「手書きしない」という規範の文言は原文に無く、生成機能が提供されているという事実のみ。出力先は stdout で、ファイルへの書き込みは利用者側。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

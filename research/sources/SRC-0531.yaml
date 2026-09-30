@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0531
+status: included
+excludeReason: null
+title: Formal Methods Tool Qualification (NASA/CR-2017-219371)
+url: https://shemesh.larc.nasa.gov/fm/FMinCert/NASA-CR-2017-219371.pdf
+canonicalUrl: https://shemesh.larc.nasa.gov/fm/fmincert/nasa-cr-2017-219371.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: NASA Langley Research Center (contractor report; Rockwell Collins / University of Iowa)
+authors: [Wagner Lucas G., Cofer Darren, Slind Konrad, Tinelli Cesare, Mebsout Alain]
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2017-02
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G02
+  query: DO-178C "independence" verification "person(s) other than the developer of the item being verified" objectives "with independence" Level A (faa.gov / nasa.gov / easa.europa.eu に限定)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH08, TH06, TH07]
+events: []
+summary: NASA の委託報告書。DO-178C の目標をツールで満たすときの扱い(出力を人がレビューするか、ツールを DO-330 で認定するか)を §1・§3.3 で整理している。規格本文ではなく、規格の適用を説明した二次的な記述。出力を人が確実にレビューできないツールは認定が必須になるという線引きが読める。
+claims:
+  - id: c1
+    text: ツールを使って目標を満たすとき、ツールの出力が独立に検証されないなら、そのツールは認定されなければならない。
+    quote: If the output of the tool is not independently verified, then the tool must
+    locator: §1 Introduction
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: DO-178C の認証目標を満たすためにツールを使う場合、出力を人手でレビューするか、主張する目標を満たすのに適することを確立する工程(認定)をツール自体が経るかのいずれかが要る。
+    quote: its outputs must either be
+    locator: §3.3 The Role of Tools and Qualification
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 形式手法ツールの多くは、レビュー可能な出力を出さないか、人が確実にはレビューできない複雑な出力を出すため、ツールの認定が必要になる。
+    quote: provide complicated output that cannot be reliably reviewed by
+    locator: §3.3
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+  - id: c4
+    text: ツール認定は、ツールが自動化・削減・除去する DO-178C の目標を特定し、依拠するツール機能を明示し、ツールが正しく動くことを示すテストや分析を作ることから成る。
+    quote: Identify which DO-178C objectives the tool is being used to automate, reduce, or eliminate
+    locator: §3.3
+    quant: null
+    evidenceKind: normative
+    rqs: [TH08-Q2]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:28.133Z
+    httpStatus: 200
+    finalUrl: https://shemesh.larc.nasa.gov/fm/FMinCert/NASA-CR-2017-219371.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: DO-178C
+        extractedQuote: When a tool is used to satisfy DO-178C certification objectives its outputs must either be manually reviewed or the tool itself must undergo a process to establish its suitability
+        locator: §3.3 The Role of Tools and Qualification(第 1 段落)
+        note: 'quote の続き(原文そのまま): "for meeting the claimed objectives. This process is known as qualification." ask と原文は一致して見える。同段落は続けて、形式手法ツールは出力がレビュー不能なことが多いため認定が必要になると述べる。'
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

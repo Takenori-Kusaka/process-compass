@@ -1,0 +1,120 @@
+schemaVersion: 0
+id: SRC-0220
+status: included
+excludeReason: null
+title: How is Google using AI for internal code migrations?
+url: https://arxiv.org/abs/2501.06972
+canonicalUrl: arxiv:2501.06972
+ids:
+  arxiv: "2501.06972"
+  doi: 10.48550/arXiv.2501.06972
+publisher: arXiv (Google)
+authors: [Stoyan Nikolov, Daniele Codecasa, Anna Sjovall, Maxim Tabachnyk, Satish Chandra, Siddharth Taneja, Celal Ziftci]
+orgType: vendor
+region: us
+lang: en
+sourceType: preprint
+published: 2025-01-12
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S2
+  query: Google engineers agents code migration paper 2026 arXiv LLM-driven migrations at Google
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH07, TH11]
+events: []
+summary: Google の社内コード移行に LLM を使った経験報告(著者自身が研究ではないと明記)。移行 CL の変更の 80% が完全に AI 作成、所要時間は技術者の見積もりで約 50% 減。一方でレビューと段階的展開は人の工程のままで、レビュー側を溢れさせないため移行を意図的に減速したと記す。
+claims:
+  - id: c1
+    text: 本論文は研究ではなく経験報告で、他手法との比較や仮説の検証は行っていないと著者自身が明記する。
+    quote: It is not a research study, in the sense that we do not carry out comparisons against other approaches or evaluate research questions/hypotheses.
+    locator: Abstract
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: マージされた CL の変更の 80% が完全に AI 作成で、残りは人が書くか AI 提案を編集したものだった。CL の状態遷移を追跡して算出した。
+    quote: We found that 80% of the code modifications in the landed CLs were fully AI-authored, and the rest were human-authored or edited from the AI suggestions.
+    locator: §IV(Ads の 32→64bit ID 移行)
+    quant:
+      value: 80%
+      n: 移行で landed した CL 群(件数は本文の該当節)
+      design: changelist state tracking
+      population: Google Ads の ID 移行
+    evidenceKind: case-report
+    rqs: [TH11-Q1, TH11-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 移行の総所要時間は、移行担当技術者の見積もりで LLM 支援なしの類似作業より約 50% 減った。
+    quote: The total time spent on the migration was reduced by an estimated 50% as reported by the engineers doing the migration, when compared to a similar exercise carried out without LLM assistance.
+    locator: §V 以降(移行事例)
+    quant:
+      value: 約-50%
+      n: 1 移行事例
+      design: engineer self-estimate
+      population: Google 社内のコード移行
+    evidenceKind: case-report
+    rqs: [TH11-Q2]
+    issues: []
+    stance: context
+  - id: c4
+    text: レビューと展開は依然として人が担い、ボトルネックになった。レビューするチームを溢れさせず段階的に展開するため、移行作業を意図的に減速した。
+    quote: We needed to slow down some of the migration work to avoid overwhelming the teams that had to do the reviews and to make sure that the rollouts happened in a gradual and responsible way.
+    locator: "§VIII-D Landing the changes: a human process"
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH11-Q2, TH07-Q4, BASE-Q2]
+    issues: [273]
+    stance: supports
+  - id: c5
+    text: モデル単体の評価が良くても事業成果は保証されないため、事業レベルの成果で測っているとする。
+    quote: good model-level performance does not guarantee good business-level outcomes
+    locator: §VIII-E Metrics and evaluation
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH11-Q3, TH07-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:14.236Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2501.06972
+    contentType: text/html; charset=utf-8
+    titleFetched: How is Google using AI for internal code migrations?
+    titleMatch: true
+    dateMeta: 2025-01-12
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv:
+      status: 200
+      title: How is Google using AI for internal code migrations?
+      authors: ["Nikolov, Stoyan", "Codecasa, Daniele", "Sjovall, Anna", "Tabachnyk, Maxim", "Chandra, Satish", "Taneja, Siddharth"]
+      v1Date: 2025-01-12
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

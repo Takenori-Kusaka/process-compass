@@ -1,0 +1,119 @@
+schemaVersion: 0
+id: SRC-0146
+status: included
+excludeReason: null
+title: Building a complete SaaS product with only Claude Code
+url: https://world.hey.com/cpinto/building-a-complete-saas-product-with-only-claude-code-cca13895
+canonicalUrl: https://world.hey.com/cpinto/building-a-complete-saas-product-with-only-claude-code-cca13895
+ids:
+  arxiv: null
+  doi: null
+publisher: world.hey.com (個人ブログ)
+authors: [C. Pinto]
+orgType: individual
+region: global
+lang: en
+sourceType: individual
+published: 2026-02-08
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: solo founder AI coding agents 2026 build product alone lessons learned (scratchpad)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH09, TH02, TH06, TH11]
+events: []
+summary: 一人の product-minded founder が Claude Code だけでマルチテナント SaaS を約 8 週間で構築した一次記録。Replit で作った動くプロトタイプから仕様とアーキテクチャ文書を逆算し、Rails で作り直した。人間工数は Claude 推定 25-45 時間、本人補正で約 2 週間分。Claude が commit 履歴から存在しない「本番障害」を語った点も記録。
+claims:
+  - id: c1
+    text: OnboardingHub は Replit で作った既存アプリの Rails 書き直しであり、アーキテクチャ文書は動く製品から逆算(リバースエンジニアリング)された。プロトタイプ先行→仕様化→再構築の順序。
+    quote: OnboardingHub is a Rails rewrite of an existing application, likely a Node/React app built on Replit. The architecture document was reverse-engineered from a working product
+    locator: 「A Rebuild, Not a Greenfield」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q3, TH08-Q1]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 著者が引用した Claude の生成回答では、727 コミット・ソースコード 38,632 行(657 ファイル。テスト・コンテンツ込みでは約 89,600 行)・約 8 週間の開発に対し、人間の実作業は 25〜45 時間と推定された。著者はこれを過小評価とみなし、1 週間ではなく 2 週間のフルタイム相当だったと補正している。
+    quote: Total commits (rails repo) | 727 / built in ~8 weeks with roughly 25–45 hours of actual human effort / I'd say more likely an equivalent to 2 weeks of full-time effort on my part, rather than one.
+    locator: Claude の回答表「The data」と「The punchline」節、その後の著者コメント
+    quant:
+      value: ~25–45h (Claude estimate) → ~80h (author); 727 commits; 38,632 LOC; 36 active days
+      n: 1 project
+      design: self-reported case report (AI-estimated)
+      population: solo founder, part-time evenings
+    evidenceKind: case-report
+    rqs: [TH02-Q5, TH11-Q2]
+    issues: [267]
+    stance: context
+  - id: c3
+    text: 人間の役割は初期仕様と設計指針の執筆(Replit)、Claude のワークフロー設定、Linear チケット起票、マージ承認に集中した。1 名+AI で企画〜実装が回った一次事例。
+    quote: "The human’s role was mostly : Writing the initial functional spec and design guidelines (in Replit, pre-dating this repo)"
+    locator: 「What the human actually did vs. what Claude did」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q4, TH02-Q5]
+    issues: [267]
+    stance: context
+  - id: c4
+    text: Claude が git 履歴から「本番障害が全てを焼き尽くしかけた」と物語を生成したが、著者は本番障害は無かったと注記。AI の要約が記録から存在しない事象を作る例。
+    quote: "[Editor note: why Claude clinged into \"One production fire that nearly burned it all down.\" I don't know. There wasn't any production fire at all, but then it's reading tea leaves in the commit messages.]"
+    locator: 「713 commits. 55 days.」直後の編集注
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH06-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:09.877Z
+    httpStatus: 200
+    finalUrl: https://world.hey.com/cpinto/building-a-complete-saas-product-with-only-claude-code-cca13895
+    contentType: text/html; charset=utf-8
+    titleFetched: Building a complete SaaS product with only Claude Code
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 727 commits / 38,632 lines of code(約38,600行) / ~8 weeks / 25–45 hours / 2 weeks of full-time effort
+        extractedQuote: Total commits (rails repo) | 727 / built in ~8 weeks with roughly 25–45 hours of actual human effort / I'd say more likely an equivalent to 2 weeks of full-time effort on my part, rather than one.
+        locator: Claude の回答表「The data」と「The punchline」節、その後の著者コメント
+        note: quote は3箇所の抜粋を / で連結。727コミット・約38,600行・約8週間・25–45時間はいずれも著者が引用した Claude の生成回答(著者の実測ではない)。行数 38,632 は source 657 ファイル分で、テスト・コンテンツ込みは約89,600行。著者の補正は『1週間ではなく2週間のフルタイム相当』(Claude の約35時間≒1週間を上方修正)。同記事後半の Claude によるgit史叙述は『713 commits』『55 days』で、記事内で 727 と 713 が併存する。
+        adjudication:
+          verdict: corrected
+          reason: 727 コミット、約 38,600 行、約 8 週間、25〜45 時間、2 週間のフルタイム相当は抜粋と一致する。ただし blindNote のとおり、工数だけでなくコミット数・行数・期間もすべて Claude の生成回答で、著者の実測ではない。38,632 行はソースのみの数で、テスト・コンテンツ込みは約 89,600 行である。主張は数値の出どころと行数の範囲を落としている。記事内では 713 commits/55 days という別の値も併存する。claimQuant の約 80 時間は 2 週間×40 時間の導出値で、原文には無い。
+          date: 2026-09-23
+          originalText: 727 コミット・約 38,600 行・8 週間に対し、Claude 推定の人間工数は 25-45 時間。著者は過小評価とし「フルタイム 2 週間相当」に補正。
+          originalQuote: That said, Claude is underestimating the time spent, I'd say more likely an equivalent to 2 weeks of full-time effort on my part, rather than one.
+      c3:
+        verdict: match
+        extractedValue: 1(a single person / One developer)
+        extractedQuote: the sheer amount of outcomes a single person, a generalist if you will, can deliver / Writing the initial functional spec and design guidelines (in Replit, pre-dating this repo)
+        locator: 冒頭の著者コメント、および「What the human actually did vs. what Claude did」
+        note: 人間の役割リスト(仕様・設計指針/ワークフロー設定/Linear 起票/マージ承認/時折の手修正)は著者自身の記述ではなく、著者が Claude に尋ねた推定回答の一部。また同記事内の節「A Rebuild, Not a Greenfield」は、本製品が既存 Replit アプリの Rails 書き直しで、ドメインモデルと UI 参照実装が事前にあったと述べる。ask の『企画〜実装が回った』は、企画・仕様がリポジトリ以前の Replit 段階で済んでいた点と条件が異なる可能性。ask は『Occasional manual tweaks』を省略。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

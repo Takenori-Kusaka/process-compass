@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0243
+status: included
+excludeReason: null
+title: "JetBrains Air: Building a System of Products for Agentic Software Development"
+url: https://blog.jetbrains.com/blog/2026/09/22/introducing-jetbrains-air
+canonicalUrl: https://blog.jetbrains.com/blog/2026/09/22/introducing-jetbrains-air
+ids:
+  arxiv: null
+  doi: null
+publisher: The JetBrains Blog
+authors: [Kirill Skrygan]
+orgType: vendor
+region: eu
+lang: en
+sourceType: vendor-official
+published: 2026-09-22
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: JetBrains Air agentic development environment 2026 Junie multiple agents review
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH06, TH10, TH12]
+events:
+  - date: 2026-09-22
+    label: JetBrains が Junie・Air Teams・Air Governance を含む製品体系 JetBrains Air を発表
+summary: JetBrains による製品体系 Air の発表。作業は委任できても説明責任は委任できないとし、検証・来歴・承認者の記録と多ベンダー前提の統治を掲げる。
+claims:
+  - id: c1
+    text: 作業は委任できても説明責任は委任できない。深夜に障害が起きても電話を受けるのはエージェントではない、とする。
+    quote: And while the work can be delegated, accountability cannot. An agent will not get the call at 3:00 am when something breaks.
+    locator: The bottleneck is shifting with the work
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: supports
+  - id: c2
+    text: コードは生成が安くなる一方で検証が高くなる、と述べる。
+    quote: Code becomes cheaper to generate but more expensive to verify.
+    locator: The bottleneck is shifting with the work
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH06-Q6, TH11-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 組織が答えるべき問いとして、どの出力に人のレビューが要るか、誰が承認しどう検証したかを挙げる。
+    quote: Which output requires human review? What happened while an agent was working remotely? Who approved the resulting change, and how was it verified?
+    locator: Individual adoption has moved faster than organizational infrastructure
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q2, TH10-Q4]
+    issues: []
+    stance: context
+  - id: c4
+    text: エージェント開発は多ベンダーになり、単一のモデル・エージェント・サービスがすべての開発者・チーム・作業に適することはないとする。
+    quote: the future of agentic development will be multi-vendor. No single model, agent, or service will be right for every developer, team, or task.
+    locator: From one product to an open system of products の直前
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH04-Q4, TH06-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.981Z
+    httpStatus: 200
+    finalUrl: https://blog.jetbrains.com/blog/2026/09/22/introducing-jetbrains-air/
+    contentType: text/html; charset=UTF-8
+    titleFetched: "JetBrains Air: Building a System of Products for Agentic Software Development - The JetBrains Blog"
+    titleMatch: true
+    dateMeta: 2026-09-22
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null

@@ -1,0 +1,139 @@
+schemaVersion: 0
+id: SRC-0259
+status: included
+excludeReason: null
+title: メルカリが明かす「Claude Code全社展開」「シャドーAI対策」を支える仕組み：メルカリのAIエージェント活用＆AIガバナンス大解剖（2）
+url: https://atmarkit.itmedia.co.jp/ait/articles/2608/04/news002.html
+canonicalUrl: https://atmarkit.itmedia.co.jp/ait/articles/2608/04/news002.html
+ids:
+  arxiv: null
+  doi: null
+publisher: ＠IT(アイティメディア)
+authors: []
+orgType: media
+region: jp
+lang: ja
+sourceType: news
+published: 2026-08-13
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-24
+access: login
+readLevel: full
+foundBy:
+  cluster: S4
+  query: メルカリ AI-Native 開発 Claude Code 全社 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH01, TH04, TH12]
+events:
+  - date: 2026-05
+    label: メルカリが Claude Code / Claude Cowork の全社展開を開始
+summary: メルカリのセキュリティ・AI基盤担当へのインタビュー(会員限定記事だが本文を取得)。2026年5月からClaude Code/Coworkを全社展開し、MDMで職種別に設定を出し分け、PMが自らコードを実装する事例が出ている。
+claims:
+  - id: c1
+    text: メルカリは2026年5月からClaude CodeとClaude Coworkの全社展開を開始した。
+    quote: 2026年5月からClaude CodeとClaude Coworkの全社展開をスタートしました。
+    locator: 「エンジニア」と「非エンジニア」でどう分ける？
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 非エンジニアには原則Notion AIとClaude Cowork(VM内実行・ネットワーク制御可)を提供し、リテラシーの高い人にはClaude Codeも使わせる。MDMとIdPを同期して属性別に設定を出し分けている。
+    quote: 非エンジニア向けには「Notion AI」とClaude Coworkの2つを原則として提供しています。
+    locator: 「エンジニア」と「非エンジニア」でどう分ける？
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 小規模チーム「AI Pods」の検証で、PMがエンジニアに依頼せず自分で新機能のコードを実装しデリバリーまで行う事例が出ている(職種の越境)。
+    quote: これまでエンジニアに依頼して待つしかなかったPM（プロダクトマネジャー）が、自分で新機能のコードを実装してデリバリーまでする事例がすでに出てきています。
+    locator: PMがコードを実装してリリース「職種の越境」が始まった
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH01-Q3, TH02-Q5]
+    issues: []
+    stance: context
+  - id: c4
+    text: リモートで自律動作するエージェントへの移行を掲げ、Human-on-the-loopの領域はまだどの企業も未踏だと述べている。
+    quote: 「人の介在をなくす、あるいはループの一部に人が関わるのみ」（Human-on-the-loop）という領域は、まだグローバルでもどの企業も未踏のフロンティアであり
+    locator: 今後の展望
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH01-Q1, BASE-Q2]
+    issues: []
+    stance: context
+  - id: c5
+    text: LiteLLMを共通基盤にしてAI利用の予算を中央で可視化・管理し、チーム単位のFinOps提案に使っている。
+    quote: 管理側のメリットとしては、バジェット（予算）を中央集権的に可視化・管理できる点があります。
+    locator: シャドーAI対策(LiteLLM 共通基盤)
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH04-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:25.287Z
+    httpStatus: 200
+    finalUrl: https://atmarkit.itmedia.co.jp/ait/articles/2608/04/news002.html
+    contentType: text/html
+    titleFetched: �����J�����������uClaude Code�S�ГW�J�v�u�V���h�[AI�΍�v���x����d�g��
+    titleMatch: false
+    dateMeta: 2026-08-13
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+      c5: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026年5月
+        extractedQuote: 「Claudeのエコシステムに乗っていこう」という大きな方針があり、2026年5月からClaude CodeとClaude Coworkの全社展開をスタートしました。
+        locator: 「エンジニア」と「非エンジニア」でどう分ける？ Claude Codeの全社展開(赤松氏発言)
+        note: "@IT本文は「この記事は会員限定です」と表示されるが、HTML応答に本文全文が含まれており取得できた(作業票のaccess=loginと異なる)。"
+      c2:
+        verdict: match
+        extractedValue: (定量値なし)
+        extractedQuote: そのため、非エンジニア向けには「Notion AI」とClaude Coworkの2つを原則として提供しています。特にClaude Coworkは、最初からVM（仮想環境）内で実行される点や、ネットワーク通信の制御、強力なセキュリティ設定・ガードレールによる制御が可能なため、安全に利用できる強みがあります。
+        locator: 「エンジニア」と「非エンジニア」でどう分ける？
+        note: "@IT本文は「この記事は会員限定です」と表示されるが、HTML応答に本文全文が含まれており取得できた(作業票のaccess=loginと異なる)。 Claude CoworkはVM内実行・ネットワーク通信の制御が可能と記載。リテラシーの高い非エンジニアにはClaude Codeも活用してもらっていると記載。MDM=Jamf、IdP=Okta。 MDM/IdPの原文:「JamfとOktaを同期させることで、端末の利用者が開発者なのか非開発者なのか、どういう属性の従業員なのかが完全に同期された状態で把握できます。」"
+      c3:
+        verdict: match
+        extractedValue: (定量値なし)
+        extractedQuote: 社内で「AI Pods」という小規模チームでの検証に取り組んでいますが、これまでエンジニアに依頼して待つしかなかったPM（プロダクトマネジャー）が、自分で新機能のコードを実装してデリバリーまでする事例がすでに出てきています。
+        locator: PMがコードを実装してリリース 「職種の越境」が始まった(青木氏発言)
+        note: "@IT本文は「この記事は会員限定です」と表示されるが、HTML応答に本文全文が含まれており取得できた(作業票のaccess=loginと異なる)。"
+      c4:
+        verdict: match
+        extractedValue: (定量値なし)
+        extractedQuote: 「人の介在をなくす、あるいはループの一部に人が関わるのみ」（Human-on-the-loop）という領域は、まだグローバルでもどの企業も未踏のフロンティアであり、メルカリも今まさに最先端で探索・実装を進めています。
+        locator: PMがコードを実装してリリース 「職種の越境」が始まった 節内の今後の展望(青木氏発言)
+        note: 移行の原文:「われわれが次に見据えているのが「リモートエージェント」への移行です。」 @IT本文は「この記事は会員限定です」と表示されるが、HTML応答に本文全文が含まれており取得できた(作業票のaccess=loginと異なる)。 原典は続けて「メルカリも今まさに最先端で探索・実装を進めています」と述べる。原典はHuman-on-the-loopを「人の介在をなくす、あるいはループの一部に人が関わるのみ」と定義している。
+      c5:
+        verdict: match
+        extractedValue: (定量値なし)
+        extractedQuote: 管理側のメリットとしては、バジェット（予算）を中央集権的に可視化・管理できる点があります。これにより「このチームはAIにコストを使い過ぎているので最適化しよう」といった、建設的なFinOps（コスト最適化）の提案がしやすくなりました。
+        locator: シャドーAI対策(LiteLLM 共通基盤)(青木氏発言)
+        note: "@IT本文は「この記事は会員限定です」と表示されるが、HTML応答に本文全文が含まれており取得できた(作業票のaccess=loginと異なる)。 LiteLLMは当初APIキーの失効(短命キー)を目的に導入されたと記載。現在はClaude Enterpriseでの直接利用も進むが、LiteLLM基盤は社内エージェント・PoC用途で稼働中と記載。"
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

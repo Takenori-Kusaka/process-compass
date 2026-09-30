@@ -1,0 +1,117 @@
+schemaVersion: 0
+id: SRC-0555
+status: included
+excludeReason: null
+title: Using Architecture Decision Records in Open Source Projects - An MSR Study on GitHub
+url: https://research.jku.at/en/publications/using-architecture-decision-records-in-open-source-projects-an-ms
+canonicalUrl: doi:10.1109/access.2023.3287654
+ids:
+  arxiv: null
+  doi: 10.1109/ACCESS.2023.3287654
+publisher: IEEE Access 11, 63725-63740(JKU Research Portal の書誌・要旨)
+authors: [Georg Buchgeher, Stefan Schöberl, Verena Geist, Bernhard Dorninger, Philipp Haindl, Rainer Weinreich]
+orgType: academic
+region: eu
+lang: en
+sourceType: paper-peer
+published: 2023-06
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: abstract
+foundBy:
+  cluster: G04
+  query: Buchgeher "Using Architecture Decision Records in Open Source Projects" MSR study GitHub IEEE Access number of ADRs per repository results
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH05]
+events: []
+summary: GitHub 上の OSS リポジトリでの ADR 利用を採掘した査読付き研究(要旨のみ読了)。ADR を持つリポジトリの約半数は 1〜5 本にとどまり、体系的に使うリポジトリでは複数人が長期にわたって記録していた。本文の標本数・分布は未読。
+claims:
+  - id: c1
+    text: ADR を持つリポジトリの約 50% は 1〜5 本しか持たず、著者らはこれを、概念が試されたがまだ決定的には採用されていないことを示すと解釈している(抄録の記述)。
+    quote: About 50% of all repositories with ADRs contain just one to five ADRs suggesting that the concept has been tried but not yet definitively adopted.
+    locator: Abstract(JKU 研究ポータルの書誌ページ)
+    quant:
+      value: 約 50% が 1〜5 本
+      n: 要旨に記載なし(本文未読)
+      design: GitHub 公開リポジトリのリポジトリ採掘(MSR)
+      population: ADR を含む OSS リポジトリ
+    evidenceKind: observational
+    rqs: [TH05-Q5, TH05-Q2]
+    issues: [272, 253]
+    stance: context
+  - id: c2
+    text: 体系的に使うリポジトリでは、決定の記録は 2 名以上が長期間かけて行うチーム活動だった。
+    quote: recording decisions is a team activity conducted by two or more users over a longer period of time.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH05-Q2]
+    issues: []
+    stance: context
+  - id: c3
+    text: 最も多く使われていたのは Nygard のテンプレートである(原文の綴りは Nygrad)。
+    quote: In most repositories the template proposed by Michael Nygrad is used.
+    locator: Abstract
+    quant: null
+    evidenceKind: observational
+    rqs: [TH05-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:37.154Z
+    httpStatus: 200
+    finalUrl: https://research.jku.at/en/publications/using-architecture-decision-records-in-open-source-projects-an-ms/
+    contentType: text/html;charset=UTF-8
+    titleFetched: Using Architecture Decision Records in Open Source Projects - An MSR Study on GitHub
+    titleMatch: true
+    dateMeta: 2023-06
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref:
+      status: 200
+      title: Using Architecture Decision Records in Open Source Projects—An MSR Study on GitHub
+      issued: "2023"
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: About 50% / one to five ADRs
+        extractedQuote: About 50% of all repositories with ADRs contain just one to five ADRs suggesting that the concept has been tried but not yet definitively adopted.
+        locator: Abstract(JKU 研究ポータルの書誌ページ)
+        note: 取得できたのは抄録のみ(本文は IEEE Access, vol.11, pp.63725–63740, DOI 10.1109/ACCESS.2023.3287654)。原文は「tried but not yet definitively adopted」。「本数の実態は少数側に偏る」は抄録の文言ではない。
+        adjudication:
+          verdict: corrected
+          reason: 「約 50% が 1〜5 本」と著者の解釈(tried but not yet definitively adopted)は blindQuote と一致する。「本数の実態は少数側に偏る」は抄録の文言ではなく、約半数が 1〜5 本という記述だけから分布の偏りは一意に導けないため、過剰な一般化として削る。確認できたのは抄録のみ。
+          date: 2026-09-30
+          originalText: ADR を持つリポジトリの約 50% は 1〜5 本しか持たず、著者らは「試したが定着していない」と解釈している。本数の実態は少数側に偏る。
+          originalQuote: About 50% of all repositories with ADRs contain just one to five ADRs suggesting that the concept has been tried but not yet definitively adopted.
+      c2:
+        verdict: match
+        extractedValue: two or more users
+        extractedQuote: In repositories that use ADRs more systematically, we observed that recording decisions is a team activity conducted by two or more users over a longer period of time.
+        locator: Abstract(JKU 研究ポータルの書誌ページ)
+        note: 抄録のみで確認。原文の単位は「users」(GitHub 上の利用者)。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote「In repositories that use ADRs more systematically, ... recording decisions is a team activity conducted by two or more users over a longer period of time.」と一致する。原文の単位は GitHub 上の users で、「2 名以上」はその言い換え。確認は抄録のみ。
+          date: 2026-09-30
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

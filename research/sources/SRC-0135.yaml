@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0135
+status: included
+excludeReason: null
+title: Are LLMs becoming similarly creative? Evidence from three years of models
+url: https://arxiv.org/abs/2608.19437
+canonicalUrl: arxiv:2608.19437
+ids:
+  arxiv: "2608.19437"
+  doi: null
+publisher: arXiv (Duke University)
+authors: [Nirav Patel, Josiah Crossman, Eva Aggarwal, Emily Wenger]
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2026-08-19
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: arXiv LLM homogenization creativity ideas study 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH09]
+events: []
+summary: 2023-03 から 2026-07 に公開された 12 プロバイダ 68 モデルに Alternate Uses Task と Infinity-Chat100 を与え、文埋め込み類似度で出力多様性の経年変化を測った予備的分析。多様性は統計的に有意に低下しており、モデル間で創造的内容が収束していると示唆する。
+claims:
+  - id: c1
+    text: 3 年分のモデルで LLM の創造的出力の多様性は統計的に有意に低下しており、モデル間で内容が収束している可能性がある。
+    quote: Our findings show a statistically significant decrease in model output diversity over time, suggesting that LLM outputs may be converging in creative substance across models.
+    locator: Abstract
+    quant:
+      value: statistically significant decrease (effect size not in abstract)
+      n: 68 models, 12 providers, Mar 2023–Jul 2026; AUT + 100 Infinity-Chat prompts
+      design: observational longitudinal, sentence-embedding similarity, temperature/top-p = 1
+      population: LLMs via OpenRouter
+    evidenceKind: observational
+    rqs: [TH09-Q1, TH09-Q4]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 対象は 2023 年 3 月から 2026 年 7 月に公開された主要 12 プロバイダの 68 モデル。
+    quote: we evaluate these prompts against 68 models released between March 2023 and July 2026, representing 12 major model providers.
+    locator: §3 Methods
+    quant:
+      value: 68 models / 12 providers
+      n: "68"
+      design: observational
+      population: LLMs
+    evidenceKind: observational
+    rqs: [TH09-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: 著者は本研究を予備的分析と位置づけ、繰り返し生成の分布比較やユーザー側の関与を扱っていないと限定する。
+    quote: This paper presents a preliminary analysis of LLM creative outputs spanning three years of model releases
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH09-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:54.991Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2608.19437
+    contentType: text/html; charset=utf-8
+    titleFetched: Are LLMs becoming similarly creative? Evidence from three years of models
+    titleMatch: true
+    dateMeta: 2026-08-19
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: Are LLMs becoming similarly creative? Evidence from three years of models
+      authors: ["Patel, Nirav", "Crossman, Josiah", "Aggarwal, Eva", "Wenger, Emily"]
+      v1Date: 2026-08-19
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: three years(3年)
+        extractedQuote: a preliminary analysis of LLM creative outputs spanning three years of model releases ... Our findings show a statistically significant decrease in model output diversity over time
+        locator: Abstract
+        note: 著者自身が 'preliminary analysis' と位置づけている。実際の対象期間は 2023年3月〜2026年7月(約3年4か月)。Table 1 の減少傾向の傾きは AUT −0.01385、Infinity-Chat −0.00167(bin あたり)で、課題によって大きさが異なる。
+      c2:
+        verdict: match
+        extractedValue: 2023年3月〜2026年7月; 12プロバイダ; 68モデル
+        extractedQuote: we evaluate these prompts against 68 models released between March 2023 and July 2026, representing 12 major model providers. This covers 33 closed weight models and 34 open weight models
+        locator: §3 Methodology > Evaluating prompts against model lineages
+        note: "原典内でモデル数が一致しない: 本文 68、内訳 33+34=67、付録 A の Data coverage と Table A1 は 'Across 69 models' / 'All 69 models'、Table 1 は AUT 68・Infinity-Chat 67。"
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

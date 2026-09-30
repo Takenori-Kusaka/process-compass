@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0331
+status: included
+excludeReason: null
+title: ISO 19011:2018 Guidelines for auditing management systems (iTeh preview)
+url: https://cdn.standards.iteh.ai/samples/70017/23bad3a8d7dd4d83ad507fe9a62fdcfa/ISO-19011-2018.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/70017/23bad3a8d7dd4d83ad507fe9a62fdcfa/iso-19011-2018.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO (preview via iTeh Standards)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2018-07
+publishedBasis: pdf
+version: Third edition 2018-07
+updated: null
+accessed: 2026-09-24
+access: paywall
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: '"ISO 19011" 2018 "small organizations" internal auditors "fully independent" every effort remove bias'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH06, TH12]
+events: []
+summary: ISO 9001 等の内部監査の指針。独立性の原則で、小規模組織では内部監査員の完全な独立が不可能な場合があることを認め、偏りの除去と客観性の確保を求める。ISO のページでは本版は ISO 19011:2026 に改訂済みと表示される(2026 年版の文言は未確認)。
+claims:
+  - id: c1
+    text: 小規模組織では内部監査員が監査対象から完全に独立できない場合があることを明示的に認め、その場合でも偏りの除去と客観性の促進に努めるよう求める。独立性を絶対要件とせず、努力義務と代償の方向を示す形である。
+    quote: For small organizations, it may not be possible for internal auditors to be fully independent of the activity being audited, but every effort should be made to remove bias and encourage objectivity.
+    locator: 4 Principles of auditing e) Independence
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [249, 267]
+    stance: qualifies
+  - id: c2
+    text: 内部監査の独立性は「実行可能であれば」被監査機能から独立することとされ、条件付きの要求である。
+    quote: For internal audits, auditors should be independent from the function being audited if practicable.
+    locator: 4 Principles of auditing e) Independence
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:12.899Z
+    httpStatus: 200
+    finalUrl: https://cdn.standards.iteh.ai/samples/70017/23bad3a8d7dd4d83ad507fe9a62fdcfa/ISO-19011-2018.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

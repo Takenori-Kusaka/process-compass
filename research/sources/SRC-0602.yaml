@@ -1,0 +1,125 @@
+schemaVersion: 0
+id: SRC-0602
+status: included
+excludeReason: null
+title: Review a Change | BMad Method
+url: https://docs.bmad-method.org/build/review-a-change/
+canonicalUrl: https://docs.bmad-method.org/build/review-a-change
+ids:
+  arxiv: null
+  doi: null
+publisher: BMad Code, LLC
+authors: []
+orgType: community
+region: us
+lang: en
+sourceType: repo
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G07
+  query: BMAD Method v6 workflow map create-prd validate-prd code-review check-implementation-readiness docs
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06, TH04, TH07]
+events: []
+summary: BMAD のコードレビュー手順(日付表記なし、2026-09-30 取得)。複数レビュアが同じ差分を並列に読み、トリアージが主張された帰結を現物で確かめ、根拠のない指摘は理由を記録して棄却する。3 巡目でも非自明な指摘が出るなら上流の問題と読む、常時読む指示が多すぎるとレビューが遅くなる、とも書く。効果の測定値は無い。
+claims:
+  - id: c1
+    text: トリアージは、各指摘が主張する帰結を指定箇所で実際に起きるかまで読んで確かめ、雑音・反駁された主張・根拠のない主張は理由を記録して棄却する(黙って落とさない)。
+    quote: Dismiss noise, refuted claims, and unsubstantiated claims, with a recorded reason — never silently
+    locator: What a Run Does
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q6, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c2
+    text: レビューの質は意図(仕様・要求)の入力に依存する。意図が無いとレビュアは差分を差分自身に照らして判断するしかない。
+    quote: without intent, the reviewers can only judge the diff against itself
+    locator: Run bmad-code-review
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q5, TH06-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: エージェントによるレビューの 3 巡目でも非自明な指摘が出るなら、その変更の上流(内部設計の弱さ、矛盾、規則の曖昧さ)に問題があると読み、巡回を増やさず上流を直す。
+    quote: Non-trivial findings on a third pass of agentic review usually mean something is wrong upstream of this change
+    locator: 冒頭(bmad-build の再レビュー)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH07-Q4, TH06-Q4]
+    issues: []
+    stance: context
+  - id: c4
+    text: レビューが長引く原因の 1 つに、AGENTS.md など毎回読まれる指示ファイルの規則が多すぎることを挙げる(文脈窓を圧迫する)。測定値は示さない。
+    quote: There are too many rules in AGENTS.md and the other instruction files the agent reads every run.
+    locator: Why Does Review Take Forever? / Too many rules, or huge files
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q4]
+    issues: []
+    stance: supports
+  - id: c5
+    text: レビュー深度は quick(1 レビュア)と thorough(複数レビュア)の 2 段で、build 内は quick、独立の code-review は thorough が既定。
+    quote: "Out of the box, you get two review depths to choose from: quick and thorough ."
+    locator: Choose the Depth
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4, TH07-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:56.675Z
+    httpStatus: 200
+    finalUrl: https://docs.bmad-method.org/build/review-a-change/
+    contentType: text/html; charset=utf-8
+    titleFetched: Review a Change
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: third pass(3 巡目)
+        extractedQuote: "Non-trivial findings on a third pass of agentic review usually mean something is wrong upstream of this change: weak internal design, a contradiction, or ambiguity in the rules. Fix that instead"
+        locator: 冒頭(# Review a Change の第4段落、bmad-build の再実行の説明)
+        note: 原文は「usually mean」で、常にそうだとは言っていない。直前に「findings が低価値な指摘ばかりになったら止める」という停止条件も書かれている。
+      c4:
+        verdict: match
+        extractedValue: "3 つの説明のうちの 1 つ(Three explanations: Exhaustive on purpose / Too many rules, or huge files / Your platform)"
+        extractedQuote: There are too many rules in `AGENTS.md` and the other instruction files the agent reads every run. Or the codebase is shaped so a reviewing agent has to read huge files.
+        locator: Why Does Review Take Forever? / Too many rules, or huge files
+        note: この節に測定値は無い(規則数・バイト数・トークン数の記載なし)。原文で「blow the context window」の主語は Those files で、直前の huge files を指すとも、指示ファイルを含むとも読める。規則過多と巨大ファイルは同じ見出しの下に並置されている。
+      c5:
+        verdict: match
+        extractedValue: quick = one reviewer(1 レビュア)/ thorough = several reviewers / two review depths(2 段)
+        extractedQuote: "`bmad-build` and `bmad-build-auto` default to **quick**: one reviewer, several times cheaper and somewhat faster than thorough. `bmad-code-review` defaults to **thorough**: several reviewers"
+        locator: Choose the Depth
+        note: "原文は「Out of the box, you get two review depths to choose from: quick and thorough.」。quick が既定なのは bmad-build と bmad-build-auto の両方。1回の実行ごとに上書きでき、既定は bmad-customize で恒久的に変えられる。"
+    date: 2026-09-30
+volatility: fast
+reviewBy: null

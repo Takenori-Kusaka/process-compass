@@ -1,0 +1,77 @@
+schemaVersion: 0
+id: SRC-0113
+status: included
+excludeReason: null
+title: Context caching | Gemini API
+url: https://ai.google.dev/gemini-api/docs/caching
+canonicalUrl: https://ai.google.dev/gemini-api/docs/caching
+ids:
+  arxiv: null
+  doi: null
+publisher: Google (Gemini API docs)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: section
+foundBy:
+  cluster: TH04
+  query: Gemini API context caching pricing implicit caching 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04]
+events: []
+summary: Google 公式のキャッシュ仕様。Gemini 2.5 以降は暗黙キャッシュが既定で有効、最小トークン数は 3.x 系で 4,096。明示キャッシュは generateContent API のみ。
+claims:
+  - id: c1
+    text: Gemini 2.5 以降は暗黙キャッシュが既定で有効で、ヒット時の節約は自動で反映される。最小入力トークンは Gemini 3.x で 4,096、2.5 系で 2,048。
+    quote: Implicit caching is enabled by default for all Gemini 2.5 and newer models. It is supported for both stateful (using previous_interaction_id ) and stateless conversation modes. We automatically pass on cost savings if your request hits caches.
+    locator: Implicit caching
+    quant:
+      value: min 4,096 tokens (Gemini 3.x)
+      n: null
+      design: spec
+      population: Gemini API
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q1]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:46.985Z
+    httpStatus: 200
+    finalUrl: https://ai.google.dev/gemini-api/docs/caching
+    contentType: text/html; charset=utf-8
+    titleFetched: Context caching  |  Gemini API  |  Google AI for Developers
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "暗黙キャッシュは Gemini 2.5 以降で既定有効。最小入力トークン: Gemini 3.x 系(3.8/3.7/3.6/3.5 Flash、3.1 Pro Preview)で 4,096、2.5 系(2.5 Flash / 2.5 Pro)で 2,048"
+        extractedQuote: Implicit caching is enabled by default for all Gemini 2.5 and newer models. ... We automatically pass on cost savings if your request hits caches.
+        locator: Implicit caching(最小トークン表)
+        note: 'quote 中の ... は間の1文(stateful/stateless 対応の記述)を省略。表の原文: "Model Min token limit Gemini 3.8 Flash 4,096 Gemini 3.7 Flash 4,096 Gemini 3.6 Flash 4,096 Gemini 3.5 Flash 4,096 Gemini 3.1 Pro Preview 4,096 Gemini 2.5 Flash 2,048 Gemini 2.5 Pro 2,048"。表に載るのは個別モデルのみで、3.x の全モデル(例: 3.1 Flash、Flash-Lite)が載るわけではない。表は "minimum input token count for context caching" と書かれており、暗黙キャッシュに限った値とは明記されていない。Last updated 2026-09-02。'
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

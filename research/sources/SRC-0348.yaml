@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0348
+status: included
+excludeReason: null
+title: "Capabilities: Streamlining change approval"
+url: https://dora.dev/capabilities/streamlining-change-approval
+canonicalUrl: https://dora.dev/capabilities/streamlining-change-approval
+ids:
+  arxiv: null
+  doi: null
+publisher: DORA (Google Cloud)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: 2025-10-30
+publishedBasis: page
+version: null
+updated: 2025-10-30
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH02
+  query: DORA streamlining change approval heavyweight change approval CAB research
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07, TH11]
+events: []
+summary: DORA の研究(2019 State of DevOps Report)に基づく変更承認の指針。外部の変更諮問委員会(CAB)による重い承認は性能を下げ、変更失敗率の低下とも結びつかないとする。変化点管理をソフトウェアへ重い承認手続として持ち込む案への反証。
+claims:
+  - id: c1
+    text: より形式的な外部レビューが変更失敗率を下げるという仮説を支持する証拠は見つからなかった。重い承認手続としての変更管理への反証である。
+    quote: no evidence was found to support the hypothesis that a more formal, external review process was associated with lower change fail rates.
+    locator: How to implement a change approval process
+    quant: null
+    evidenceKind: survey
+    rqs: [TH02-Q2, TH07-Q4]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 本番の安定性の問題に対してプロセスと承認を足すと、リードタイムとバッチサイズを増やして悪循環を生み、事態を悪くすると分析する。
+    quote: Analysis suggests this approach will make things worse because this drives up lead times and batch sizes, creating a vicious cycle.
+    locator: "Common pitfalls: Responding to problems by adding more process"
+    quant: null
+    evidenceKind: survey
+    rqs: [TH02-Q2, TH07-Q4]
+    issues: []
+    stance: contradicts
+  - id: c3
+    text: すべての変更を同じ承認手続にかけることを落とし穴として挙げる。リスクの違いに応じて扱いを変えるべきという立場である。
+    quote: Treating all changes equally. When all changes are subject to the same approval process, change review is inefficient
+    locator: Common pitfalls
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 一方で、高リスクの変更を早期に検出して追加の精査にかける継続的な分析は推奨している。変化点で統制を強める考え方自体は否定していない。
+    quote: Performing ongoing analysis to detect and flag high risk changes early on so that they can be subjected to additional scrutiny.
+    locator: Ways to improve your change approval process 3
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:21.897Z
+    httpStatus: 200
+    finalUrl: https://dora.dev/capabilities/streamlining-change-approval/
+    contentType: text/html; charset=utf-8
+    titleFetched: "DORA | Capabilities: Streamlining change approval"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

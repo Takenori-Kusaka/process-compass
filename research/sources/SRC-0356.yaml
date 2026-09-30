@@ -1,0 +1,108 @@
+schemaVersion: 0
+id: SRC-0356
+status: included
+excludeReason: null
+title: How Many Instructions Can LLMs Follow at Once?
+url: https://arxiv.org/abs/2507.11538
+canonicalUrl: arxiv:2507.11538
+ids:
+  arxiv: "2507.11538"
+  doi: 10.48550/arXiv.2507.11538
+publisher: arXiv (Distyl AI)
+authors: [Jaroslawicz Daniel, Whiting Brendan, Shah Parth, Maamari Karime]
+orgType: startup
+region: us
+lang: en
+sourceType: preprint
+published: 2025-07-15
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH03
+  query: how many instructions can LLMs follow at once IFScale benchmark
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH03]
+events: []
+summary: キーワード包含指示を10〜500個に増やして遵守率の劣化を測る IFScale。最良モデルでも500個で68%。推論モデルは100〜250個までほぼ完全、その後劣化し、誤りは脱落(omission)へ偏る。
+claims:
+  - id: c1
+    text: 20モデルを評価し、最良のフロンティアモデルでも指示500個で正答率68%にとどまる。
+    quote: even the best frontier models only achieve 68% accuracy at the max density of 500 instructions.
+    locator: Abstract
+    quant:
+      value: 68% at 500 instructions
+      n: 20 models x densities 10–500 x 5 seeds
+      design: benchmark
+      population: keyword-inclusion in business report (2025 models)
+    evidenceKind: benchmark
+    rqs: [TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 推論モデルは100〜250個程度まではほぼ完全に守り、その後劣化する(閾値型)。
+    quote: They maintain near-perfect performance through moderate densities (100-250 instructions) before degradation
+    locator: §4 Results
+    quant:
+      value: near-perfect up to 100–250 instructions
+      n: reasoning models (o3, gemini-2.5-pro 等)
+      design: benchmark
+      population: 2025 models
+    evidenceKind: benchmark
+    rqs: [TH03-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 指示密度が上がると誤りは改変ではなく脱落(書かれた指示を黙って落とす)へ圧倒的に偏る。
+    quote: Models overwhelmingly err toward omission errors as instruction density increases.
+    locator: §4 Error analysis
+    quant: null
+    evidenceKind: benchmark
+    rqs: [TH03-Q3, TH03-Q4]
+    issues: [269, 274]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:22.580Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2507.11538
+    contentType: text/html; charset=utf-8
+    titleFetched: How Many Instructions Can LLMs Follow at Once?
+    titleMatch: true
+    dateMeta: 2025-07-15
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: How Many Instructions Can LLMs Follow at Once?
+      authors: ["Jaroslawicz, Daniel", "Whiting, Brendan", "Shah, Parth", "Maamari, Karime"]
+      v1Date: 2025-07-15
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 404
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 20 models / 500 instructions / 68%
+        extractedQuote: We evaluate 20 state-of-the-art models across seven major providers and find that even the best frontier models only achieve 68% accuracy at the max density of 500 instructions.
+        locator: Abstract
+        note: 500 は IFScale の最大密度(キーワード包含指示)。取得は arxiv.org/abs/2507.11538
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

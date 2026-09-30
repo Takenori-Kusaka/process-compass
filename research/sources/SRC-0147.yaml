@@ -1,0 +1,138 @@
+schemaVersion: 0
+id: SRC-0147
+status: included
+excludeReason: null
+title: How Gusto Built a New Product Line in 10 Weeks with Claude Code, No Jira, and No Docs
+url: https://www.chatprd.ai/how-i-ai/how-gusto-built-a-new-product-line-in-10-weeks-with-claude-code-no-jira-and-no-docs
+canonicalUrl: https://chatprd.ai/how-i-ai/how-gusto-built-a-new-product-line-in-10-weeks-with-claude-code-no-jira-and-no-docs
+ids:
+  arxiv: null
+  doi: null
+publisher: How I AI (ChatPRD) — Claire Vo
+authors: [Claire Vo, Eddie Kim]
+orgType: vendor
+region: us
+lang: en
+sourceType: talk
+published: 2026-06-29
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: Lenny's Newsletter PRD AI prototype-first product management 2026 (ChatPRD blog index)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH09, TH02, TH05, TH01]
+events: []
+summary: Gusto CTO Eddie Kim が、1,000 名規模の R&D 組織内の 5 名チームが Jira・Figma・仕様書・スタンドアップ無しで新製品「Gusto Co-founder」を 10 週間で出荷した経緯を語る。PR そのものが提案書になり、却下なら削除する「trash can method」。本人が「焦点を絞った実験であり、全案件に計画ツール放棄を勧めるものではない」と限定。
+claims:
+  - id: c1
+    text: 1,000 名規模の R&D 組織の中で、5 名のチームが新製品ラインを 10 週間で出荷した(ホストによる CTO へのインタビュー要約)。記事は、この 10 週間の立ち上げには夜間と週末の作業が必要で、5 名はシニアで関与度の高いメンバーだったとも述べている。
+    quote: A five-person team inside a thousand-person R&D organization shipped a new product line in ten weeks.
+    locator: Episode outline 直後の導入段落
+    quant:
+      value: 5 people / 10 weeks
+      n: 1 project
+      design: self-reported case
+      population: Gusto R&D
+    evidenceKind: case-report
+    rqs: [TH09-Q1, TH02-Q5]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 会議・テキスト仕様・Figma・Jira・スタンドアップ・レトロを全廃し、常設 Zoom と Claude Code だけで運営した。
+    quote: '"We had no meetings. We had no text specs. We had no Figma. We had no Jira board where we tracked stories or tracked work. We had no standups, no retros. We had nothing."'
+    locator: 「No Jira, Figma, or written specs」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q3, TH05-Q3]
+    issues: []
+    stance: supports
+  - id: c3
+    text: コード生成が安いため、提案書の代わりにエンジニアが機能を丸ごと作り、PR 自体が提案となり、不採用なら削除する。CTO 自身の初期プロトタイプも捨てられた。
+    quote: The pull request itself became the proposal, and the team was perfectly fine with deleting it if they decided against the idea.
+    locator: 「The trash can method」
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 本人がこれを焦点を絞った実験と位置づけ、すべての案件が計画ツールを捨てるべきという主張ではないと明記する。PM 不在で製品判断をした点も述べる。
+    quote: This was a focused experiment, not a claim that every project should abandon its planning tools.
+    locator: Episode outline 第3段落
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q3, TH01-Q3]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: 10 週間の唯一の永続的な計画成果物はホワイトボードの写真 1 枚だった。
+    quote: A single photo of their whiteboard session was the only durable planning artifact from the entire ten-week build.
+    locator: 「Building a new product with (almost) no process」
+    quant:
+      value: 1 planning artifact
+      n: 1 project
+      design: self-reported
+      population: Gusto Co-founder team
+    evidenceKind: case-report
+    rqs: [TH05-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:10.228Z
+    httpStatus: 200
+    finalUrl: https://www.chatprd.ai/how-i-ai/how-gusto-built-a-new-product-line-in-10-weeks-with-claude-code-no-jira-and-no-docs
+    contentType: text/html; charset=utf-8
+    titleFetched: How Gusto Built a New Product Line in 10 Weeks with Claude Code, No Jira, and No Docs
+    titleMatch: true
+    dateMeta: 2026-06-29
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: thousand-person R&D organization / five-person team / ten weeks
+        extractedQuote: A five-person team inside a thousand-person R&D organization shipped a new product line in ten weeks.
+        locator: Episode outline 直後の導入段落
+        note: 記事はホスト Claire Vo による CTO Eddie Kim へのインタビュー要約(CTO の談話ベースという点で ask の『自己申告』と整合)。同記事は『the ten-week launch required nights and weekends』とも述べ、5名はシニアで高関与のメンバーだったと条件を付けている。
+        adjudication:
+          verdict: corrected
+          reason: 5 名・1,000 名規模・10 週間は抜粋と一致し、CTO の談話に基づく点も「自己申告」と整合する。ただし同記事は、10 週間の達成に夜間・週末の作業が必要だったこと、メンバーがシニアで関与度が高かったことを条件として挙げている(blindNote)。生産性の根拠として引く際に結果を左右する条件のため、訂正とした。
+          date: 2026-09-23
+          originalText: 1,000 名規模の R&D 組織の中で 5 名のチームが 10 週間で新製品ラインを出荷した(CTO の自己申告)。
+          originalQuote: A five-person team inside a thousand-person R&D organization shipped a new product line in ten weeks.
+      c5:
+        verdict: match
+        extractedValue: ten-week / a single photo(1枚)
+        extractedQuote: A single photo of their whiteboard session was the only durable planning artifact from the entire ten-week build.
+        locator: Building a new product with (almost) no process
+        note: ""
+        adjudication:
+          verdict: consistent
+          reason: 「A single photo of their whiteboard session was the only durable planning artifact from the entire ten-week build.」と一致する。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://chatprd.ai/how-i-ai/how-gusto-built-a-new-product-line-in-10-weeks-with-claude-code-no-jira-and-no-docs

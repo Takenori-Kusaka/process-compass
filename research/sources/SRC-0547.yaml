@@ -1,0 +1,143 @@
+schemaVersion: 0
+id: SRC-0547
+status: included
+excludeReason: null
+title: Documenting Architecture Decisions
+url: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+canonicalUrl: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+ids:
+  arxiv: null
+  doi: null
+publisher: Cognitect Blog
+authors: [Michael Nygard]
+orgType: consultancy
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2011-11-15
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: full
+foundBy:
+  cluster: G04
+  query: Michael Nygard Documenting Architecture Decisions 2011 (指定 URL を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH05]
+events: []
+summary: ADR の原典。1決定1ファイル・連番・状態(proposed/accepted/deprecated/superseded)を定め、覆した決定は消さず superseded と印を付けて残すとする。索引と、原則・ポリシーとの分離の規定は本文に無い。
+claims:
+  - id: c1
+    text: 覆した決定は削除せず、superseded と印を付けて残すと定めている。archive を持たず削除する方式は原典の規定と逆向きである。
+    quote: If a decision is reversed, we will keep the old one around, but mark it as superseded.
+    locator: Decision
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q5, TH05-Q1]
+    issues: [272]
+    stance: contradicts
+  - id: c2
+    text: 状態欄は、後の ADR が決定を変更・逆転したとき deprecated または superseded とし、置き換え先への参照を付けるとする。
+    quote: If a later ADR changes or reverses a decision, it may be marked as "deprecated" or "superseded" with a reference to its replacement.
+    locator: Decision / Status
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: [251, 272]
+    stance: context
+  - id: c3
+    text: 番号は連番で再利用しない。一覧・索引の作り方は本文に規定が無い(全文を読んだ範囲)。
+    quote: ADRs will be numbered sequentially and monotonically. Numbers will not be reused.
+    locator: Decision
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: [272]
+    stance: context
+  - id: c4
+    text: ADR の対象は「アーキテクチャ上重要な」決定に限られ、原則・ポリシーを別の層に置くかどうかには触れていない。
+    quote: 'We will keep a collection of records for "architecturally significant" decisions: those that affect the structure, non-functional characteristics, dependencies, interfaces, or construction techniques.'
+    locator: Decision
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q1]
+    issues: [251]
+    stance: context
+  - id: c5
+    text: proposed / accepted は関係者の合意の有無を表す状態で、承認者・ゲート判定の手続きは定めていない。
+    quote: A decision may be "proposed" if the project stakeholders haven't agreed with it yet, or "accepted" once it is agreed.
+    locator: Decision / Status
+    quant: null
+    evidenceKind: normative
+    rqs: [TH05-Q2]
+    issues: [253]
+    stance: context
+  - id: c6
+    text: 大きな文書は読まれず更新もされないという動機を述べ、仕様書がソースコードよりバイト数で大きかった案件を例に挙げる。測定ではなく経験に基づく記述である。
+    quote: Most developers have been on at least one project where the specification document was larger (in bytes) than the total source code size.
+    locator: Context
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH05-Q3]
+    issues: [252]
+    stance: context
+  - id: c7
+    text: 根拠は自社の数案件での 8 月初旬からの試用(記事日付 2011-11-15 から換算して約 3 か月半、原文に月数の明記は無い)で、その間に ADR を使う案件を経験した開発者は 6〜10 名である。評価は顧客と開発者の双方からの初期の好意的な感想にとどまる。
+    quote: We've been using this format on a few of our projects since early August. ... In that time, we've had six to ten developers rotate through projects using ADRs.
+    locator: Experience Report
+    quant:
+      value: 開発者 6〜10 名
+      n: 数案件(件数の記載なし)、2011-08 上旬から約3か月
+      design: 著者の所属組織による体験報告(測定なし)
+      population: Relevance/Cognitect の受託案件
+    evidenceKind: case-report
+    rqs: [TH05-Q1]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:34.356Z
+    httpStatus: 200
+    finalUrl: https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions
+    contentType: text/html
+    titleFetched: Documenting Architecture Decisions
+    titleMatch: true
+    dateMeta: 2011-11-15
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c7:
+        verdict: match
+        extractedValue: "期間: since early August(記事日付 November 15, 2011 から数えて約3か月半、月数の明記なし)/ 開発者: six to ten"
+        extractedQuote: We've been using this format on a few of our projects since early August. ... In that time, we've had six to ten developers rotate through projects using ADRs.
+        locator: Experience Report
+        note: "引用の中略部: 'That's not a very long time in the global sense, but early feedback from both clients and developers has been quite positive.' 原文は月数を数字で書いていない('since early August' のみ)。約何か月かは記事日付(November 15, 2011)からの換算。フィードバックは 'both clients and developers' からとあり、開発者だけではなく顧客も含む。開発者 6〜10名は 'rotate through projects' した人数。"
+        adjudication:
+          verdict: corrected
+          reason: "開発者 6〜10 名(six to ten developers rotate through projects)と数案件での試用は blindQuote どおり。「約 3 か月」は since early August と記事日付からの換算で、blind では約 3 か月半(換算式: 8 月初旬 → 11 月 15 日)。また blindNote のとおり、フィードバックは both clients and developers からで、「開発者 6〜10 名の感想」に限定する書き方は条件を落としている。6〜10 名は感想を述べた人数ではなく、案件を回った開発者の人数である。"
+          date: 2026-09-30
+          originalText: 根拠は自社の数案件での約3か月の試用で、開発者6〜10名の感想にとどまる。
+          originalQuote: In that time, we've had six to ten developers rotate through projects using ADRs.
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

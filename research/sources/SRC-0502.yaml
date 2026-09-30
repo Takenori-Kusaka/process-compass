@@ -1,0 +1,107 @@
+schemaVersion: 0
+id: SRC-0502
+status: included
+excludeReason: null
+title: AIセーフティに関する評価観点ガイド(第1.20版)概要
+url: https://aisi.go.jp/assets/pdf/ai_safety_eval_summary_v1.20_ja.pdf
+canonicalUrl: https://aisi.go.jp/assets/pdf/ai_safety_eval_summary_v1.20_ja.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: AIセーフティ・インスティテュート(J-AISI)
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-07-07
+publishedBasis: page
+version: 第1.20版
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH12
+  query: AISI Japan AIエージェント 安全性評価 ガイド 2026 公開
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01]
+events:
+  - date: 2026-07-07
+    label: AISI が評価観点ガイド第1.20版を公表(AI エージェント特有の観点「観測と制御」を追加)
+summary: J-AISI の AI セーフティ評価観点ガイド改訂版の概要。AI エージェント特有の観点として「観測と制御」を新設し、評価観点は網羅的でなく将来更新される前提と明記した。
+claims:
+  - id: c1
+    text: AI エージェントシステムは外部連携と自律性のためリスクが従来の観点に収まらず、外部環境を含むシステム全体の観測と制御が重要として、新しい評価観点に加えた。
+    quote: そのようなリスクの対策には連携する外部環境を含めたシステム全体の観測と制御が重要となるため、新しい観点として追加した。
+    locator: 6. AIセーフティ評価の観点(AI エージェントシステム特有の評価観点)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+  - id: c2
+    text: 評価の検討状況は急速に変化しているため、示す評価観点は網羅的ではなく将来更新されることを想定すると明記した(根拠の暫定性の開示)。
+    quote: 本書で示す各評価観点は網羅的なものではなく、将来的に内容が更新されることが想定される。
+    locator: 6. AIセーフティ評価の観点(注記)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: AI セーフティ評価の主な実施者は開発・提供管理者で、評価は一度きりでなく開発・提供・利用の各段階で繰り返し行う。
+    quote: AIセーフティ評価は一度のみでなく、繰り返し実施する。
+    locator: 7. 評価実施者及び評価実施時期
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:16.787Z
+    httpStatus: 200
+    finalUrl: https://aisi.go.jp/assets/pdf/ai_safety_eval_summary_v1.20_ja.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 外部連携や自律性などの特徴により、リスクや影響が従来の観点には収まらない／システム全体の観測と制御が重要／新しい観点として追加
+        extractedQuote: ※AIエージェントシステムでは、外部連携や自律性などの特徴により、リスクや影響が従来の観点には収まらない。そのようなリスクの対策には連携する外部環境を含めたシステム全体の観測と制御が重要となるため、新しい観点として追加した。
+        locator: 6. AIセーフティ評価の観点 — AIエージェントシステム特有の評価観点の表の注記(p.11)
+        note: ask と一致。なお p.8 には「AIエージェント特有の評価を新たに2観点を追加した」(観測と制御 / 自律的な挙動・外部環境との相互作用)とある。
+      c2:
+        verdict: match
+        extractedValue: 本書で示す各評価観点は網羅的なものではなく、将来的に内容が更新されることが想定される
+        extractedQuote: ※AIセーフティ評価に関する各種の検討は国内外で、産官学の多様な領域で継続されており、それらの検討状況は急速に変化している。そのため、本書で示す各評価観点は網羅的なものではなく、将来的に内容が更新されることが想定される。
+        locator: 6. AIセーフティ評価の観点(p.8 注記)
+        note: ask の括弧書き「(根拠の暫定性の開示)」は主張者側の解釈で、原典の語ではない。
+      c3:
+        verdict: match
+        extractedValue: 主な実施者は開発・提供管理者／一度のみでなく、繰り返し実施する
+        extractedQuote: AIセーフティ評価の主な実施者は、AI開発及びAI提供における開発・提供管理者である。… AIセーフティ評価の実施時期は、AIシステムの開発・提供・利用フェーズにおいて、合理的な範囲、適切なタイミングとする。AIセーフティ評価は一度のみでなく、繰り返し実施する。
+        locator: 7. 評価実施者及び評価実施時期(p.12)
+        note: 原典は「合理的な範囲、適切なタイミングで」繰り返すとし、ask の「各段階で繰り返し行う」より条件付き(各段階ごとの実施を義務づける書き方ではない)。また独立性のため、開発・提供に直接携わらない自組織/他組織の専門家やサードパーティの評価も有効と付記している。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

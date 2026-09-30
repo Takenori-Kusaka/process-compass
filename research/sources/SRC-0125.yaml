@@ -1,0 +1,93 @@
+schemaVersion: 0
+id: SRC-0125
+status: included
+excludeReason: null
+title: 2026/06/15以降に料金体系が変更されたClaudeをどう使うか考えてみた
+url: https://dev.classmethod.jp/articles/claude-2026-pricing-reform-bucket-system
+canonicalUrl: https://dev.classmethod.jp/articles/claude-2026-pricing-reform-bucket-system
+ids:
+  arxiv: null
+  doi: null
+publisher: DevelopersIO(クラスメソッド株式会社)
+authors: [せーの]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-06-15
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code 導入 コスト 企業 月額 公開 2026
+derivedFrom: []
+derivedFromUrl: [https://support.claude.com/]
+selfReported: false
+themes: [TH04]
+events:
+  - date: 2026-06-15
+    label: Agent SDK / claude -p / GitHub Actions を月次クレジットへ分離する料金改定(同日に一時停止)
+summary: Anthropic リセラーのクラスメソッドによる 2026-06-15 料金改定の整理。対話利用はサブスク枠、自動化(Agent SDK・claude -p・GitHub Actions)は月次クレジット(Pro $20 / Max 5x $100 / Max 20x $200)へ分離。Agent Team は約 7 倍の消費。改定自体は同日に一時停止された(別カード参照)。
+claims:
+  - id: c1
+    text: 2026-06-15 の改定では自動化経路が月次クレジット(Pro $20、Max 5x $100、Max 20x $200、ユーザー単位・共有不可、既定は枯渇で停止)に分離される予定だった。定額の中で「止まる」経路が制度化された。
+    quote: プラン 月次クレジット Pro $20 Max 5x $100 Max 20x $200 クレジットはユーザー単位で、チーム間共有はできません。枯渇後の挙動は overflow toggle で選べます（デフォルト OFF = 停止）。
+    locator: 「おさいふ2つ」になった Claude Code（6/15〜）
+    quant:
+      value: $20 / $100 / $200 monthly credits
+      n: null
+      design: vendor policy via reseller
+      population: Claude Pro / Max
+    evidenceKind: news-fact
+    rqs: [TH04-Q3]
+    issues: [274]
+    stance: supports
+  - id: c2
+    text: Agent Team は各 teammate が独立したコンテキストを持つためトークン消費が約 7 倍になり得る。teammate は Sonnet、チームは小さく、作業後は clean up が定石、と公式値を引く。
+    quote: Agent Team（多エージェント）を使う場合は、各 teammate が独立したコンテキストを持つため トークン消費が約7倍 になり得ます。teammate には Sonnet、チームは小さく、作業後はすぐ clean up、がコスト面の定石です。
+    locator: Agent SDK 月次クレジットを使う価値があるもの
+    quant:
+      value: ≈7x
+      n: null
+      design: secondary of vendor docs
+      population: Claude Code agent teams
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:52.644Z
+    httpStatus: 200
+    finalUrl: https://dev.classmethod.jp/articles/claude-2026-pricing-reform-bucket-system/
+    contentType: text/html; charset=utf-8
+    titleFetched: 2026/06/15以降に料金体系が変更されたClaudeをどう使うか考えてみた | DevelopersIO
+    titleMatch: true
+    dateMeta: 2026-09-29
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-06-15、Pro $20 / Max 5x $100 / Max 20x $200、ユーザー単位・チーム間共有不可、既定 OFF=停止
+        extractedQuote: プラン 月次クレジット Pro $20 Max 5x $100 Max 20x $200 クレジットはユーザー単位で、チーム間共有はできません。枯渇後の挙動は overflow toggle で選べます（デフォルト OFF = 停止）。
+        locator: 「おさいふ2つ」になった Claude Code（6/15〜）
+        note: ask は「分離される予定だった」と過去の予定(未実施を含意)として書くが、原典(2026.06.15 公開)は「2026年6月15日から…改定します」「2つのおさいふに分かれた」と実施されるものとして記述し、取得した本文に延期・撤回の記載は無い。対象は Agent SDK、claude -p、GitHub Actions(OAuth 認証)、Agent SDK 経由のサードパーティで、Routines(/schedule)はおさいふ1(サブスク枠)と明記。クレジットは API 標準レートで消費。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

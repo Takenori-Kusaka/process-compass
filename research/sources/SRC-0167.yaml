@@ -1,0 +1,96 @@
+schemaVersion: 0
+id: SRC-0167
+status: included
+excludeReason: null
+title: "System Card: Claude Opus 5"
+url: https://www.anthropic.com/claude-opus-5-system-card
+canonicalUrl: https://anthropic.com/claude-opus-5-system-card
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-24
+publishedBasis: pdf
+version: null
+updated: 2026-08-19
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: Opus 5 発表ページの System Card リンク(PDF)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH11, TH02]
+events:
+  - date: 2026-08-19
+    label: Anthropic が Opus 5 システムカードを改訂(プロンプト注入の報奨金結果追加・Cowork 評価のハーネス不一致を訂正)
+summary: Opus 5 のシステムカード(PDF、2026-07-24、改訂 2026-08-19)。§8.2 に SWE-bench Verified 96.0%、Pro 79.2% を明記し、前回 §9 の未確認項目を一次で解消する。ただし自社測定の値である。
+claims:
+  - id: c1
+    text: Anthropic は Opus 5 の SWE-bench Verified を 96.0%(5 試行平均)と報告している。前回メモの二次情報の値は一次と一致する。
+    quote: each verified by human engineers as solvable. Claude Opus 5 achieved 96.0%.
+    locator: §8.2 SWE-bench Verified, Pro, Multilingual, and Multimodal
+    quant:
+      value: 96.0%
+      n: 500 problems x 5 trials
+      design: vendor-run benchmark, adaptive thinking max effort
+      population: Claude Opus 5
+    evidenceKind: benchmark
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: supports
+  - id: c2
+    text: 同じく SWE-bench Pro は 79.2%(自社測定)。
+    quote: ground-truth leakage. Claude Opus 5 achieved 79.2%.
+    locator: §8.2
+    quant:
+      value: 79.2%
+      n: SWE-bench Pro x 5 trials
+      design: vendor-run benchmark
+      population: Claude Opus 5
+    evidenceKind: benchmark
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: supports
+  - id: c3
+    text: Anthropic は Opus 5 を一般提供モデルで最上位の Fable 5 より総合能力が高くないと評価している。
+    quote: Claude Opus 5 is not more capable overall than our most capable general-access model, Claude Fable 5.
+    locator: Executive Summary
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.197Z
+    httpStatus: 200
+    finalUrl: https://www-cdn.anthropic.com/ceaf5c7ff2783855203fde8208ec311252dced5b/Claude%20Opus%205%20System%20Card.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://anthropic.com/claude-opus-5-system-card

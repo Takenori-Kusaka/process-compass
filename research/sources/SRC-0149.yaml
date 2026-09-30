@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0149
+status: included
+excludeReason: null
+title: ITコンサル3人でAI駆動開発を2日間やってみた
+url: https://zenn.dev/ncdc/articles/e15a2bc6020b9c
+canonicalUrl: https://zenn.dev/ncdc/articles/e15a2bc6020b9c
+ids:
+  arxiv: null
+  doi: null
+publisher: NCDC テックブログ (Zenn)
+authors: [いしかわ]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-01-17
+publishedBasis: meta
+version: null
+updated: 2026-01-21
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH09
+  query: 一人開発 企画 生成AI 2026 Zenn
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH09]
+events: []
+summary: NCDC の非エンジニア IT コンサル 3 名が Gemini・NotebookLM・Figma Make・Firebase Studio で 2 日間 MVP リリースを試みた一次記録。企画〜設計のリードタイムは劇的に短縮したが、実装はエラー修正ループに陥り、無料枠ではデプロイできず、リリースに到達しなかった。
+claims:
+  - id: c1
+    text: NCDC の IT コンサルタント 3 名が、非エンジニアの立場で無料範囲のツール(Firebase Studio 等)を使い、実際の顧客向けクローズドコミュニティアプリを 2 日間で開発する AI 駆動開発を試みた。それらしいアプリは生成できたが、リリースまでは辿り着けなかった(自己報告)。
+    quote: NCDCのITコンサルタント3名がAIを駆使して2日間で実際のお客様向けのクローズドコミュニティアプリを開発するAI駆動開発を実施しました / それっぽいアプリの生成はできたものの、リリースまでは辿り着くことができないという何とも残念な結果に終わっています
+    locator: はじめに
+    quant:
+      value: 0 releases in 2 days
+      n: 3 consultants, 2 days
+      design: case report
+      population: non-engineer IT consultants
+    evidenceKind: case-report
+    rqs: [TH09-Q3]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: AI は企画から設計までのリードタイムを劇的に短縮し、人間は「何をすべきか」「どんなプロダクトを目指すか」の議論に集中できた。
+    quote: AI駆動開発は、人間がアプリを作成することに集中させてくれる存在であり、企画から設計までのリードタイムを劇的に短縮してくれました。
+    locator: まとめ
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: Figma Make の生成画面はプロトタイプとしては十分だが、デザインの方向性やコンセプトはほぼ意思疎通できなかった。
+    quote: ※デザインの方向性やコンセプトに関してはほぼ意思疎通が取れなかったので、あまり期待しないほうが良いです
+    locator: AI駆動開発の良いところ
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 設計書を与えて一気に作らせると「エラー→修正指示→別エラー」の無限ループになり、段階的に進めても同様の反復が続いた。
+    quote: 「エラー→FIXをするように指示→FIXせず別のエラーが発生→FIXをするように指示」を延々とループする流れになり、このままでは2日間でリリースまで辿り着けないだろうと感じる状況でした。
+    locator: 1. 逐次の指示が煩雑
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q3]
+    issues: []
+    stance: contradicts
+  - id: c5
+    text: 簡易的な PoC は非エンジニアでも現実的になりつつあるが、商用レベルには専門家の支援が必要という状況は変わらない。
+    quote: 簡易的なPoCアプリであれば、非エンジニアでも作成することが現実的な選択肢になりつつありますが、商用レベルのアプリを作成するには、専門的なプロフェッショナルからのサポートが必要な状況は依然変わりません。
+    locator: まとめ
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH09-Q2, TH09-Q3]
+    issues: [250]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:39:10.736Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/ncdc/articles/e15a2bc6020b9c
+    contentType: text/html; charset=utf-8
+    titleFetched: ITコンサル3人でAI駆動開発を2日間やってみた
+    titleMatch: true
+    dateMeta: 2026-01-17
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2日間 / 3名 / 2日
+        extractedQuote: NCDCのITコンサルタント3名がAIを駆使して2日間で実際のお客様向けのクローズドコミュニティアプリを開発するAI駆動開発を実施しました / それっぽいアプリの生成はできたものの、リリースまでは辿り着くことができないという何とも残念な結果に終わっています
+        locator: はじめに
+        note: quote は同節の2文を / で連結。記事は参加者を『非エンジニア』の立場として実験を位置づけ、無料範囲のツール(Firebase Studio 等)でデプロイまで到達できなかったことを課題2に挙げる。リリース不達の条件として『無料レベル』『非エンジニア』が付く点を ask は明示していない。
+        adjudication:
+          verdict: corrected
+          reason: 3 名・2 日間・アプリは生成できたがリリースに至らなかった点は抜粋と一致する。ただし記事は、参加者を非エンジニアの立場に置いた実験であること、無料範囲のツールではデプロイまで到達できなかったことを課題に挙げている(blindNote)。リリース不達の条件であるこの 2 点が主張から落ちている。
+          date: 2026-09-23
+          originalText: それっぽいアプリは生成できたが、2 日間でリリースまで辿り着けなかった(n=3 名・2 日の自己報告)。
+          originalQuote: 今回の我々のオチとしては、それっぽいアプリの生成はできたものの、リリースまでは辿り着くことができないという何とも残念な結果に終わっています
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

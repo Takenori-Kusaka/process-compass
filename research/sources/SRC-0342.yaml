@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0342
+status: included
+excludeReason: null
+title: Quality standards and new code | SonarQube Server 9.8 | Sonar Documentation
+url: https://docs.sonarsource.com/sonarqube-server/9.8/user-guide/clean-as-you-code
+canonicalUrl: https://docs.sonarsource.com/sonarqube-server/9.8/user-guide/clean-as-you-code
+ids:
+  arxiv: null
+  doi: null
+publisher: SonarSource
+authors: []
+orgType: vendor
+region: eu
+lang: en
+sourceType: vendor-official
+published: 2022-12
+publishedBasis: unknown
+version: SonarQube Server 9.8 docs
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: SonarQube Clean as You Code new code quality gate documentation
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH07]
+events: []
+summary: SonarQube の「新規コードに焦点を当てた品質ゲート」(Clean as You Code)の公式説明。既存コード全体の条件を足さないよう勧め、条件の追加がボトルネックとゲート無視を招くと注意する。最新版の文書でも標準ゲート Sonar way は新規コードのみに条件を置く(別ページ)。
+claims:
+  - id: c1
+    text: 新規コードに焦点を当てた品質ゲートには、既存コード全体の条件を足すことを推奨しない。既存資産を免除し、変更分だけに基準を課す段階的な有効化の方式である。
+    quote: When your quality gate is focused on new code, we do not recommend adding conditions for overall code.
+    locator: Quality gate conditions
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: [254]
+    stance: supports
+  - id: c2
+    text: 触れた部分に高い基準を課し古いコードも触れたときに直すことで、全体の品質が時間とともに上がると説明する(実測は示されない)。
+    quote: By applying high standards to the code you add or change, and by improving older code when you touch it, you raise overall code quality over time.
+    locator: "FAQ: How does focusing on new code improve overall code quality?"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 条件を増やすと開発速度のボトルネックになる一方で利益は小さく、頻繁な失敗がゲートの無視を招く危険があるとベンダー自身が注意する。
+    quote: You also run the risk of an ignored quality gate because frequent failures may cause a debate on which conditions to prioritize.
+    locator: Potential drawbacks of stricter quality gates
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4, TH07-Q4]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 新規コードへの集中だけでは足りず、全体品質の確保やリファクタリングには追加の措置が要る場合があると認める。
+    quote: In some cases, you would need additional measures, e.g. to ensure the quality of the overall code base or to perform refactoring.
+    locator: "FAQ: Is focusing on new code enough in all scenarios?"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q4]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:16.698Z
+    httpStatus: 200
+    finalUrl: https://docs.sonarsource.com/sonarqube-server/9.8/user-guide/clean-as-you-code
+    contentType: text/html; charset=utf-8
+    titleFetched: Quality standards and new code | SonarQube Server 9.8 | Sonar Documentation
+    titleMatch: true
+    dateMeta: 2026-09-14
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: null

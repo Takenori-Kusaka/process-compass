@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0418
+status: included
+excludeReason: null
+title: "Site Reliability Engineering, Chapter 3: Embracing Risk"
+url: https://sre.google/sre-book/embracing-risk/
+canonicalUrl: https://sre.google/sre-book/embracing-risk
+ids:
+  arxiv: null
+  doi: null
+publisher: Google / O'Reilly Media
+authors: [Marc Alvidrez]
+orgType: enterprise
+region: us
+lang: en
+sourceType: book
+published: "2017"
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH07
+  query: Google SRE book embracing risk error budget(既知 URL を直接取得)
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH07, TH11]
+events: []
+summary: Google SRE 本の第3章。信頼性 100% を目標にしないこと、許容する不信頼の量を四半期ごとの error budget として客観的に定めることを説く。統制に意図的な上限を置く運用上の先例である。
+claims:
+  - id: c1
+    text: 100% はほぼ決して正しい信頼性目標ではない。達成不能なうえ、利用者が求めも気づきもしない水準だからである。
+    quote: "100% is probably never the right reliability target: not only is it impossible to achieve, it’s typically more reliability than a service’s users want or notice."
+    locator: Key Insights
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: supports
+  - id: c2
+    text: error budget は、四半期内にサービスがどれだけ不信頼であってよいかを決める客観的な指標で、リスクの許容量をめぐる交渉から政治を取り除く。
+    quote: The error budget provides a clear, objective metric that determines how unreliable the service is allowed to be within a single quarter.
+    locator: Forming Your Error Budget
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH07-Q4, TH11-Q3]
+    issues: [267]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:29.984Z
+    httpStatus: 200
+    finalUrl: https://sre.google/sre-book/embracing-risk/
+    contentType: text/html
+    titleFetched: Google SRE - Embracing risk and reliability engineering book
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null
+urlBeforeRepair: https://sre.google/sre-book/embracing-risk

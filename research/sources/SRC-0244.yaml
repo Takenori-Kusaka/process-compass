@@ -1,0 +1,133 @@
+schemaVersion: 0
+id: SRC-0244
+status: included
+excludeReason: null
+title: AI-to-AI Code Reviews of GitHub Pull Requests
+url: https://arxiv.org/abs/2608.21311
+canonicalUrl: arxiv:2608.21311
+ids:
+  arxiv: "2608.21311"
+  doi: null
+publisher: "arXiv (accepted: ESEM 2026 Emerging Results track)"
+authors: [Niruthiha Selvanayagam, Taher A. Ghaleb]
+orgType: academic
+region: other
+lang: en
+sourceType: preprint
+published: 2026-08-21
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: arXiv 2026 AI code review bot comments resolution rate empirical study GitHub Copilot code review CodeRabbit
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10]
+events: []
+summary: AI が作った PR を AI がレビューする閉ループを GitHub イベントデータ（CodAGE）から構成し規模と挙動を記述した研究。同一製品によるレビューが異製品より大幅に多いことを示す。観察研究で因果は主張しない。
+claims:
+  - id: c1
+    text: AI レビューを1件以上受けた AI 作成 PR 248,641 件のうち、同一製品レビューが 208,145 件、異製品レビューが 45,269 件（両方 4,773 件）。作成と同じ製品によるレビューが主流である。
+    quote: Among these, 45,269 received cross-product review and 208,145 received same-product review; 4,773 PRs received both.
+    locator: Abstract
+    quant:
+      value: same-product 208,145 vs cross-product 45,269
+      n: 248,641 AI-attributed PRs with ≥1 AI review
+      design: observational mining of GitHub events (signature-based attribution)
+      population: public GitHub, CodAGE dataset
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: context
+  - id: c2
+    text: 異製品間の AI-to-AI レビューは識別できたエージェント作成 PR の約 1.6% にとどまるが、2025-Q1 から Q3 に2桁以上増えた。
+    quote: cross-product AI-to-AI code review occurs in only about 1.6% of identified agent-authored PRs but is substantial in absolute terms
+    locator: Abstract
+    quant:
+      value: ≈1.6% of agent-authored PRs
+      n: agent-authored PRs in CodAGE
+      design: observational
+      population: public GitHub 2025
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: 4つの二役レビュアーのうち3つで、同一製品グループの PR あたり平均コメント数が 58〜65% 多かったが、効果量は小〜無視できる程度で上位の裾に集中していた。同一製品レビューが甘いという単純な仮説は支持されない。
+    quote: For three of four dual-role reviewers, mean comments per PR were 58–65% higher in the same-product group, though effect sizes were small or negligible
+    locator: Abstract
+    quant:
+      value: +58–65% mean comments/PR (same-product)
+      n: 4 dual-role reviewers
+      design: observational, Cliff's delta small/negligible
+      population: AI-to-AI reviewed PRs
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: []
+    stance: qualifies
+  - id: c4
+    text: 製品の境界はモデルの境界と一致しない（異なる製品が同じ基盤モデルを共有しうる）ため、製品の違いを系統の独立性とみなせない。
+    quote: Product boundaries also need not match model boundaries, since different products may share a foundation model and one product may run several.
+    locator: 6 Discussion
+    quant: null
+    evidenceKind: observational
+    rqs: [TH06-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:23.510Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2608.21311
+    contentType: text/html; charset=utf-8
+    titleFetched: AI-to-AI Code Reviews of GitHub Pull Requests
+    titleMatch: true
+    dateMeta: 2026-08-21
+    quotes:
+      c1: partial
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: AI-to-AI Code Reviews of GitHub Pull Requests
+      authors: ["Selvanayagam, Niruthiha", "Ghaleb, Taher A."]
+      v1Date: 2026-08-21
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 1件以上 / 248,641件 / 同一製品 208,145件 / 異製品 45,269件 / 両方 4,773件
+        extractedQuote: 248,641 unique AI-attributed PRs that received at least one AI-attributed review. Of these, 45,269 received cross-product review and 208,145 received same-product review; 4,773 PRs received both.
+        locator: Abstract
+        note: 「主流」という評価語は原文に無いが、件数上は同一製品レビューが多数(208,145 vs 45,269)。両群は重複を含み合計は 248,641 に一致しない(本文 3 節で著者が明記)。
+      c2:
+        verdict: match
+        extractedValue: 約1.6% / 2025-Q1 から 2025-Q3 / 2桁以上(more than two orders of magnitude)
+        extractedQuote: Cross-product AI-to-AI review occurred in approximately 1.6% of identified agent-authored PRs ... its volume increased by more than two orders of magnitude from 2025-Q1 to 2025-Q3.
+        locator: Abstract
+        note: 増加は件数(volume)の増加であり、比率の増加ではない。
+      c3:
+        verdict: match
+        extractedValue: 4つ中3つ / 58〜65%
+        extractedQuote: three of four dual-role reviewers, mean comments per PR were 58-65% higher in the same-product group, though effect sizes were small or negligible and the difference was concentrated in the upper tail
+        locator: Abstract; 5.2 Same- vs. cross-product review volume
+        note: 数値部分は一致する。ただし「同一製品レビューが甘いという単純な仮説は支持されない」という文は原文に無い。近い記述は、6 Discussion の『observed gaps need not reflect review strictness or reviewer preference』と、5.3 のレイテンシについて『the opposite of a "product rubber-stamps its own" reading』。後者はコメント数ではなくレイテンシの結果。著者は観察的相関であり構成差の可能性があるとも述べている。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

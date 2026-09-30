@@ -1,0 +1,109 @@
+schemaVersion: 0
+id: SRC-0453
+status: included
+excludeReason: null
+title: "Capabilities: Working in small batches"
+url: https://dora.dev/capabilities/working-in-small-batches
+canonicalUrl: https://dora.dev/capabilities/working-in-small-batches
+ids:
+  arxiv: null
+  doi: null
+publisher: DORA(Google Cloud)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: 2025-12-08
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH10
+  query: DORA 2025 report AI small batches working in small batches AI amplifies instability
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH11]
+events: []
+summary: DORA の能力定義『小さなバッチで働く』(ページの最終更新日 2025-12-08)。AI 採用の効果を増幅し不安定化への安全網になるとし、AI による巨大PRの誘惑と、小さく作って下流で束ね直す落とし穴を明記する。
+claims:
+  - id: c1
+    text: DORA の研究は、小さなバッチで働くことが AI 採用のプロダクト性能への正の影響を増幅し、組織の摩擦への中立的な影響を正味の改善に変えるとする(本ページに標本数の記載はなく、2025 DORA 報告の調査に基づく)。
+    quote: DORA research shows that working in small batches amplifies the positive impact of AI adoption on product performance and helps turn AI’s neutral effect on organizational friction into a net positive.
+    locator: 冒頭の引用ブロック
+    quant: null
+    evidenceKind: survey
+    rqs: [TH10-Q3, TH11-Q1]
+    issues: [273]
+    stance: supports
+  - id: c2
+    text: AI ツールは完成した大きな機能を生成しがちで、巨大PRの誘惑を避けるべきとし、機械生成コードは小さな塊でも行あたりのレビュー認知負荷が人のコードより高い可能性があると注記する。
+    quote: Avoid the temptation to generate massive pull requests; the cognitive load required to review a small chunk of machine-generated code may be higher per line than reviewing human-written code.
+    locator: Common pitfalls with working in small batches(AI Note)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c3
+    text: 小さく作っても下流のテスト・リリースの前に束ね直すと欠陥や妥当性のフィードバックが遅れる、という落とし穴を挙げる。バッチの大きさは作成単位(PR)ではなく下流へ送る単位で効く、という読みを支える。
+    quote: Working in small batches but then regrouping the batches before sending them downstream for testing or release.
+    locator: Common pitfalls with working in small batches
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+  - id: c4
+    text: 理想として、開発者は小さなリリース可能な変更を少なくとも1日1回 trunk へ複数回入れるべきとする。
+    quote: Ideally, your developers should be checking multiple small releasable changes into trunk at least once per day.
+    locator: How to work in small batches
+    quant: null
+    evidenceKind: normative
+    rqs: [TH10-Q3]
+    issues: [273]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:56.951Z
+    httpStatus: 200
+    finalUrl: https://dora.dev/capabilities/working-in-small-batches/
+    contentType: text/html; charset=utf-8
+    titleFetched: "DORA | Capabilities: Working in small batches"
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 引用ブロック内に報告の年の明示なし('DORA research shows')。ページ末 More from DORA に 'DORA AI Capabilities Model report' と '2025 State of AI-assisted Software Development' が並ぶ
+        extractedQuote: DORA research shows that working in small batches amplifies the positive impact of AI adoption on product performance and helps turn AI’s neutral effect on organizational friction into a net positive.
+        locator: 冒頭の <blockquote>(In the era of generative AI, ...)
+        note: 主張本体は引用ブロックにある。ただし引用ブロックは根拠の報告名・年を挙げていない。年を示すのは末尾の関連文献一覧だけで、どの報告がこの主張の根拠かは本文で結び付けられていない。ページ全体に標本数・回答者数の記載はない(survey/respondent の語も無い)。
+      c4:
+        verdict: match
+        extractedValue: at least once per day(1日1回)
+        extractedQuote: Ideally, your developers should be checking multiple small releasable changes into trunk at least once per day.
+        locator: How to work in small batches
+        note: ""
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

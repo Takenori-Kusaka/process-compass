@@ -1,0 +1,123 @@
+schemaVersion: 0
+id: SRC-0316
+status: included
+excludeReason: null
+title: "Beyond Lexical Metrics: Sentence-Embedding Detection of Reviewer Habituation in AI Code Review"
+url: https://arxiv.org/abs/2609.06213
+canonicalUrl: arxiv:2609.06213
+ids:
+  arxiv: "2609.06213"
+  doi: null
+publisher: arXiv (cs.SE) / Nanchang Hangkong University ほか
+authors: [Haoran Yu, Lifei Liu, Danping Zhang]
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-09-05
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S7
+  query: 'arXiv API: ti:"code review" AND (abs:LLM OR abs:agent), submittedDate 2026-05..09'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH07, TH11]
+events: []
+summary: AI エージェントの PR を繰り返しレビューする人間レビュアーが慣れて審査を緩めるか(habituation)を、AIDev の400人・207日・11,429レビューで追った縦断研究。承認率は上がるが、語彙指標では検出できない。
+claims:
+  - id: c1
+    text: 繰り返しレビュアーの承認率は初期30.5%から後期36.6%へ上がった(Wilcoxon p=8.6×10^-8、Cohen's d=0.25)。
+    quote: Approval rates rise from 30.5% in reviewers' early periods to 36.6% in late periods (Wilcoxon p = 8.6 x 10^-8; Cohen's d = 0.25)
+    locator: Abstract; §4.1 RQ1
+    quant:
+      value: 30.5% → 36.6%(d=0.25)
+      n: 11,429 reviews / 400 repeat reviewers / 207 days; 10,104 inline comments
+      design: observational longitudinal(within-reviewer)
+      population: AIDev のエージェント PR
+    evidenceKind: observational
+    rqs: [TH06-Q4, TH11-Q3]
+    issues: [268]
+    stance: supports
+  - id: c2
+    text: AIDev の人間が書いたインラインコメント 10,104 件では、4つの手作り言語指標(MTLD、Shannon エントロピー、技術的具体性、建設的実行可能性)は曝露の十分位に沿った単調な低下を示さず(全 |ρ|≤0.53、p≥0.11)、長さを揃えた部分集合でも母集団レベルでほぼ平坦だった。古典的な語彙指標だけでは審査の緩み(慣れ)を検出できない。
+    quote: All four hand-crafted metrics are essentially flat at the population level, even on length-controlled subsets.
+    locator: §1 Introduction ('What does not.'); Abstract; §4.2 RQ2
+    quant:
+      value: all |ρ| ≤ 0.53, p ≥ 0.11
+      n: 同上
+      design: observational
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH06-Q4, TH07-Q5]
+    issues: [268]
+    stance: qualifies
+  - id: c3
+    text: 文埋め込みの分布には変化が現れ(MLP で F1=0.74)、言語の変化は承認行動の変化の後に続く(Granger 分析)。
+    quote: language shifts follow rather than precede changes in approval behavior
+    locator: Abstract; §4.3–4.4
+    quant:
+      value: F1 0.74(5-fold reviewer-stratified)
+      n: 同上
+      design: observational
+      population: 同上
+    evidenceKind: observational
+    rqs: [TH06-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:46:41.605Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2609.06213
+    contentType: text/html; charset=utf-8
+    titleFetched: "Beyond Lexical Metrics: Sentence-Embedding Detection of Reviewer Habituation in AI Code Review"
+    titleMatch: true
+    dateMeta: 2026-09-05
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv:
+      status: 200
+      title: "Beyond Lexical Metrics: Sentence-Embedding Detection of Reviewer Habituation in AI Code Review"
+      authors: ["Yu, Haoran", "Liu, Lifei", "Zhang, Danping"]
+      v1Date: 2026-09-05
+      latestVersion: 1
+      titleMatch: true
+    crossref: null
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 4 (four)
+        extractedQuote: All four hand-crafted metrics are essentially flat at the population level, even on length-controlled subsets.
+        locator: §1 Introduction ('What does not.'); Abstract; §4.2 RQ2
+        note: "Abstract: four widely cited manually designed linguistic features (MTLD, Shannon entropy, technical specificity, constructive actionability) show no monotonic decline (all Spearman |ρ|≤0.53, p≥0.11; Bonferroni-corrected Mann–Whitney p≥0.36)。対象は AIDev の人間が書いたインラインコメント 10,104 件。これらの特徴で作ったロジスティック回帰は F1=0.485 で多数派ベースラインを下回る。ask 後半『字面を見るだけでは審査の緩みは検出できない』は、古典的な語彙指標についての論文の結論を一般化した言い方。"
+        adjudication:
+          verdict: corrected
+          reason: "第1文は抜粋どおり。第2文「コメントの字面を見るだけでは検出できない」は過剰な一般化。論文の題名は Beyond Lexical Metrics: Sentence-Embedding Detection で、コメント本文の文埋め込みなら慣れを検出できるという主張である。検出できないのは古典的な手作りの語彙指標に限られる(ロジスティック回帰 F1=0.485 で多数派ベースライン未満)。"
+          date: 2026-09-24
+          originalText: 語彙多様性・エントロピー・技術的具体性・建設的実行可能性の4つの手作り言語指標は、慣れの度合いに沿った単調な低下を示さなかった。コメントの字面を見るだけでは審査の緩みは検出できない。
+          originalQuote: four hand-crafted linguistic features - lexical diversity, Shannon entropy, technical specificity, and constructive actionability - show no monotonic decline across exposure deciles
+      c3:
+        verdict: match
+        extractedValue: "F1=0.74 (Table: Embedding stats 3 dim – MLP F1 0.741)"
+        extractedQuote: a small MLP over three embedding statistics reaches F1=0.74 (5-fold reviewer-stratified CV).
+        locator: Abstract; §4.4 RQ4 table
+        note: Granger について Abstract は『approval-rate change robustly Granger-predicts subsequent shifts in technical specificity (p<10^-3 at all lags), while the reverse direction is significant at only one of four lags』『the linguistic shift trails the approval behavior shift rather than leading it』と書いている。Granger の結果は技術的具体性という1指標についてのもの(逆方向も lag 2 で p=0.036)。同じ表では多数派クラス(常に陽性)ベースラインの F1 が 0.71 なので、MLP の 0.741 との差は小さい。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

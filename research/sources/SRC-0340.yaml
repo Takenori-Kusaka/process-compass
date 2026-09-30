@@ -1,0 +1,119 @@
+schemaVersion: 0
+id: SRC-0340
+status: included
+excludeReason: null
+title: "Test Before You Deploy: Governing Updates in the LLM Supply Chain"
+url: https://arxiv.org/abs/2604.27789
+canonicalUrl: arxiv:2604.27789
+ids:
+  arxiv: "2604.27789"
+  doi: 10.1145/3803437.3805535
+publisher: LLMSC 2026 (co-located with FSE 2026) / arXiv
+authors: [Chishti Mohd Sameen, Oyinloye Damilare Peter, Li Jingyue]
+orgType: academic
+region: eu
+lang: en
+sourceType: paper-peer
+published: 2026-04-30
+publishedBasis: arxiv-v1
+version: v1
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: section
+foundBy:
+  cluster: TH02
+  query: LLM model upgrade regression prompt migration evaluation arXiv 2026
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH07]
+events:
+  - date: 2026-04-30
+    label: arXiv 2604.27789 v1 公開(LLMSC2026 採択)
+summary: ホスト型 LLM が版番号を変えずに更新される「静かな更新」を供給網の統治問題として扱い、本番契約・リスク区分別の回帰スイート・互換性ゲートの3点からなる利用者側の枠組みを提案する4頁の workshop 論文。検証は探索的。
+claims:
+  - id: c1
+    text: ホスト型 LLM は明示的な版の変更なしにプロバイダ側で継続的に更新され、機能・書式・安全制約の回帰を起こしうる。利用者が何も変えていなくても変化点が生じる。
+    quote: However, the hosted LLM services evolve continuously through provider-side updates without explicit version changes.
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 定めた安全・性能基準を満たさない限り更新を通さないリリース関門(互換性ゲート)を、モデル更新の統治手段として提案する。
+    quote: release checkpoints that block updates unless they meet defined safety and performance standards (compatibility gates)
+    locator: Abstract
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q3, TH02-Q4]
+    issues: []
+    stance: supports
+  - id: c3
+    text: 3領域25プロンプトによる探索的検証で、リスク区分ごとの分析は集計指標に隠れた回帰を見つけられ、正式な版の移行がなくても drift が起こりうることを示したとする。
+    quote: risk category-level analysis can reveal regressions masked by aggregate metrics and that silent drift may occur even without formal model version transitions
+    locator: Conclusion
+    quant:
+      value: null
+      n: 25 prompts x 3 task domains, multiple LLM versions
+      design: exploratory validation
+      population: authentication, data validation, structured output tasks
+    evidenceKind: case-report
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 回帰スイートは実行ごとにモデル識別子と実行時刻のスナップショットを記録し、再現性と drift の帰属を可能にする設計である。
+    quote: The suite also logs LLM snapshots, each with a model identifier and execution timestamp, to enable reproducibility and drift attribution.
+    locator: §3 Risk-Category-Based Regression Suite
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH02-Q3, TH02-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, arxiv-abs, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:47:16.167Z
+    httpStatus: 200
+    finalUrl: https://arxiv.org/abs/2604.27789
+    contentType: text/html; charset=utf-8
+    titleFetched: "Test Before You Deploy: Governing Updates in the LLM Supply Chain"
+    titleMatch: true
+    dateMeta: 2026-04-30
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+    arxiv:
+      status: 200
+      title: "Test Before You Deploy: Governing Updates in the LLM Supply Chain"
+      authors: ["Chishti, Mohd Sameen", "Oyinloye, Damilare Peter", "Li, Jingyue"]
+      v1Date: 2026-04-30
+      latestVersion: 1
+      titleMatch: true
+    crossref:
+      status: 200
+      title: "Test Before You Deploy: Governing Updates in the LLM Supply Chain"
+      issued: 2026-7-5
+      titleMatch: true
+    fullText: arxiv-html
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: 3 task domains / 25 prompts
+        extractedQuote: We designed 25 prompts across three task domains ( Chishti et al., 2026 ) , which we treated as distinct categories aligned with deployment risks
+        locator: §4.1 Experimental Setup(数値)/ §6 Conclusion(結論文)
+        note: "数値(3領域・25プロンプト)は Conclusion ではなく §4.1 にある。Conclusion の原文: 'Our exploratory validation illustrates that risk category-level analysis can reveal regressions masked by aggregate metrics and that silent drift may occur even without formal model version transitions.' 検証は Claude の Web UI 経由で7モデル(Haiku 3.5〜Opus 4.6)を手作業で比較したもので、著者自身が 'limited in scale and manual' と限定している。スナップショット追跡は近似。"
+    date: 2026-09-24
+volatility: medium
+reviewBy: null

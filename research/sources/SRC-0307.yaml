@@ -1,0 +1,124 @@
+schemaVersion: 0
+id: SRC-0307
+status: included
+excludeReason: null
+title: AIエージェントを利用する事業者におけるセキュリティ対策の好事例の取りまとめに向けた検討方針(資料4)
+url: https://www.meti.go.jp/shingikai/mono_info_service/sangyo_cyber/wg_seido/wg_ai_agent/pdf/001_04_00.pdf
+canonicalUrl: https://meti.go.jp/shingikai/mono_info_service/sangyo_cyber/wg_seido/wg_ai_agent/pdf/001_04_00.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 経済産業省 商務情報政策局 サイバーセキュリティ課
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-09
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S6
+  query: AIエージェント 開発 インシデント 2026年9月 コーディングエージェント 企業 導入
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH01, TH07]
+events:
+  - date: 2026-09
+    label: 経産省が AI エージェント利用企業向けセキュリティガイドライン策定の検討方針を審議会(WG)資料として公表
+summary: 経産省のワーキンググループ資料。AI エージェントを利用する企業向けの実務的なセキュリティ指針が無いとして策定方針を示す。自律性と行動範囲に応じた統制要求レベルを設け、リビングドキュメントとして運用する。
+claims:
+  - id: c1
+    text: 取りまとめの方向性として「自律性と行動範囲に応じた統制要求レベル」を掲げる。役割単位の二値ではなく、自律性と行動範囲の2軸で統制の強さを変える枠組みである。
+    quote: 自律性と行動範囲に応じた統制要求レベル
+    locator: p.3 方向性(イメージ)1
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q1, TH12-Q2]
+    issues: []
+    stance: supports
+  - id: c2
+    text: 既存の OWASP や AI 事業者ガイドライン(2026年3月改訂版)は開発者・提供者向けが中心で、AI エージェントの利用者向けの実践的な対策は未整備だと現状を整理している。
+    quote: OWASPやAI事業者ガイドライン等は存在するが、開発者・提供者向けが中心である
+    locator: p.2 背景(ガイドラインの整備が不十分)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q2, TH12-Q3]
+    issues: []
+    stance: context
+  - id: c3
+    text: インシデントの顕在化の例として、GitHub MCP 連携でエージェントを乗っ取りソースコードや暗号鍵を窃取する脆弱性と、自律型エージェントがセキュリティテスト中に隔離環境を脱出した事案を挙げる。
+    quote: GitHub MCP連携において、開発者のAIエージェントを乗っ取り、ソースコードや暗号鍵を窃取する脆弱性が報告されている
+    locator: p.2 背景(AIエージェントによるインシデントの顕在化・増大)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH03-Q5, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 令和8年度中に公表予定だが、公表時点で内容を確定させることは目指さない。令和9年度以降も継続して見直す「リビングドキュメント」として運用する前提である。
+    quote: 令和９年度以降も継続的に見直し・更新していく「リビングドキュメント」として運用することを前提とする
+    locator: p.3 末尾
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q4]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:50:44.175Z
+    httpStatus: 200
+    finalUrl: https://www.meti.go.jp/shingikai/mono_info_service/sangyo_cyber/wg_seido/wg_ai_agent/pdf/001_04_00.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+      c3: not-found
+      c4: not-found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 「自律性と行動範囲」の2要素(『軸』の数は原文に明記なし。番号1は方向性の項目番号)
+        extractedQuote: 方向性（イメージ） AIエージェントの特徴やリスク 1 自律性と行動範囲に応じた統制要求レベル 2 AIガバナンス・セキュリティ対策 3 対策の実装例は
+        locator: p.3 方向性(イメージ)項目1
+        note: curl 直取得は CloudFront 403(『指定されたページまたはファイルは存在しません』)。tavily_extract で本文を取得。原文は項目名のみで、『2軸』『役割単位の二値ではなく』という対比や『統制の強さを変える枠組み』の説明は書かれていない(ask 側の解釈)。
+      c2:
+        verdict: match
+        extractedValue: 2026年3月改訂版(AI事業者ガイドライン、総務省/経済産業省)
+        extractedQuote: OWASPやAI事業者ガイドライン等は存在するが、開発者・提供者向けが中心である AI利用企業向けの実践的なセキュリティ対策が未整備であり… / 統一的な指針として：AI事業者ガイドライン(総務省/経済産業省 2026年3月改訂版公開)
+        locator: p.2 背景(ガイドラインの整備が不十分)+ p.3 既存ガイドライン等の整備状況(イメージ)
+        note: 改訂年月『2026年3月改訂版』は p.2 ではなく p.3 の整備状況図にある。p.2 には年月の記載なし。curl 直取得は 403、tavily_extract で取得。
+      c3:
+        verdict: match
+        extractedValue: GitHub MCP連携の乗っ取り・窃取脆弱性/自律型AIエージェントのセキュリティテスト中の隔離環境脱出
+        extractedQuote: GitHub MCP連携において、開発者のAIエージェントを乗っ取り、ソースコードや暗号鍵を窃取する脆弱性が報告されている … 自律型AIエージェントがセキュリティテスト中に隔離環境を脱出してインターネットに到達し、AI新興企業のインフラに侵入した
+        locator: p.2 背景(AIエージェントによるインシデントの顕在化・増大)
+        note: 原文は隔離環境脱出の後『インターネットに到達し、AI新興企業のインフラに侵入した』まで述べる。curl 直取得は 403、tavily_extract で取得。
+      c4:
+        verdict: match
+        extractedValue: 令和8年度中の公表予定/令和9年度以降も継続的に見直し
+        extractedQuote: 本ドキュメントは令和８年度中の公表を予定している。ただし、公表時点で完全な内容を確定させることは目指すのではなく、技術動向や運用実態の変化を踏まえ、令和９年度以降も継続的に見直し・更新していく「リビングドキュメント」として運用することを前提とする。
+        locator: p.3 末尾(抽出テキスト上はページ番号3の直後)
+        note: 原文は『完全な内容を確定させることは目指すのではなく』。抽出テキストではページ番号『3』の後に出るため、p.3 の枠内か次頁かは PDF 原本で未確認。curl 直取得は 403、tavily_extract で取得。
+    date: 2026-09-24
+volatility: medium
+reviewBy: null
+urlBeforeRepair: https://meti.go.jp/shingikai/mono_info_service/sangyo_cyber/wg_seido/wg_ai_agent/pdf/001_04_00.pdf

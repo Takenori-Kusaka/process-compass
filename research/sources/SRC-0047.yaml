@@ -1,0 +1,103 @@
+schemaVersion: 0
+id: SRC-0047
+status: included
+excludeReason: null
+title: "An important update: Transitioning Gemini CLI to Antigravity CLI"
+url: https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli
+canonicalUrl: https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli
+ids:
+  arxiv: null
+  doi: null
+publisher: Google for Developers Blog
+authors: [Lyalin Dmitry, Mullen Taylor]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-05-19
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: Google Jules generally available announcement 2026 Gemini CLI Antigravity"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH02, TH03, TH04]
+events:
+  - date: 2026-05-19
+    label: Antigravity CLI を全員に提供開始、Gemini CLI からの移行を告知
+  - date: 2026-06-18
+    label: 消費者向け(AI Pro / Ultra / 無償)の Gemini CLI と Gemini Code Assist IDE 拡張がリクエスト受付を停止
+summary: Gemini CLI(GitHub スター 10 万超)を約 1 か月の予告で消費者向けに停止し、Antigravity CLI へ統合する告知。企業ライセンスは継続。開発ツールの供給者側都合による断続を示す一次事例で、TH02 の「モデル・ツール世代交代を変化点として扱う」問いに直結する。
+claims:
+  - id: c1
+    text: 2026-06-18 に Gemini CLI と Gemini Code Assist IDE 拡張は Google AI Pro / Ultra および無償利用者へのリクエスト受付を停止した(告知から約 30 日)。
+    quote: On June 18, 2026, Gemini CLI and Gemini Code Assist IDE extensions will stop serving requests for Google AI Pro and Ultra, as well as those using it free of charge using Gemini Code Assist for individuals.
+    locator: Important timeline for Consumers
+    quant: null
+    evidenceKind: news-fact
+    rqs: [TH02-Q3]
+    issues: []
+    stance: supports
+  - id: c2
+    text: Antigravity CLI は当初 1:1 の機能同等性を持たないが、Agent Skills / Hooks / Subagents / Extensions(プラグイン化)は維持するとする。
+    quote: "While there won’t be 1:1 feature parity right out of the gate, we made sure Antigravity CLI keeps the most critical features of Gemini CLI: Agent Skills, Hooks, Subagents, and Extensions (now as Antigravity plugins)."
+    locator: 本文
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH03-Q1]
+    issues: []
+    stance: context
+  - id: c3
+    text: 企業向け(Gemini Code Assist Standard/Enterprise、API キー経由)は継続。可用性の断続が契約形態で分かれる。
+    quote: Gemini CLI will remain accessible via paid Gemini and Gemini Enterprise Agent Platform API keys.
+    locator: For enterprise customers
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH02-Q3]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:05.110Z
+    httpStatus: 200
+    finalUrl: https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/
+    contentType: text/html; charset=utf-8
+    titleFetched: "An important update: Transitioning Gemini CLI to Antigravity CLI- Google Developers Blog"
+    titleMatch: true
+    dateMeta: 2026-05-19
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 2026-06-18(告知 2026-05-19 から30日後)
+        extractedQuote: On June 18, 2026, Gemini CLI and Gemini Code Assist IDE extensions will stop serving requests for Google AI Pro and Ultra, as well as those using it free of charge
+        locator: Important timeline for Consumers(掲載日 MAY 19, 2026)
+        note: 原典は告知時点の予定(will stop serving)であり、実際に停止した事実の記述ではない。ask は過去形「停止した」。無償利用者は原典では『Gemini Code Assist for individuals で無償利用する者』に限定。日数『約 ___日』は原典に記載なく、5/19→6/18 で30日と計算。Standard / Enterprise ライセンス等の企業利用は継続とも明記。
+      c2:
+        verdict: match
+        extractedValue: 1:1(1:1 feature parity)
+        extractedQuote: "While there won't be 1:1 feature parity right out of the gate, we made sure Antigravity CLI keeps the most critical features of Gemini CLI: Agent Skills, Hooks, Subagents, and Extensions"
+        locator: 本文(Antigravity CLI 紹介段落)
+        note: 原文は続けて『(now as Antigravity plugins)』とあり、Extensions がプラグイン化される旨。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

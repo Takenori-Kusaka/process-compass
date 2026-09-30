@@ -1,0 +1,210 @@
+schemaVersion: 0
+id: SRC-0017
+status: included
+excludeReason: null
+title: Multi-LLM-Agents Debate - Performance, Efficiency, and Scaling Challenges
+url: https://d2jud02ci9yv69.cloudfront.net/2025-04-28-mad-159/blog/mad/
+canonicalUrl: https://d2jud02ci9yv69.cloudfront.net/2025-04-28-mad-159/blog/mad
+ids:
+  arxiv: null
+  doi: null
+publisher: ICLR 2025 Blogposts Track
+authors: [Zhang Hangfan, Cui Zhiyao, Zhang Qiaosheng, Hu Shuyue]
+orgType: academic
+region: global
+lang: en
+sourceType: community
+published: 2025-04-28
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00a-2
+  query: 'tavily: ICLR 2025 blogpost "Multi-LLM-Agents Debate" Performance Efficiency Scaling Challenges → GET cloudfront blog page'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06]
+events: []
+summary: 5 つの MAD 枠組みを 9 ベンチマークで CoT・自己整合と比較(GPT-4o-mini、Llama3.1-8b、各 500 問上限)。254 メモの MMLU・HumanEval の値は原典どおりだが、GSM8K の「MAD 63.87〜94.93%」は下限 63.87 が Llama3.1-8b 行の値で、GPT-4o-mini 行の範囲は 90.87〜94.93%。異種モデル混合で改善する表もある。
+claims:
+  - id: c1
+    text: "GPT-4o-mini / MMLU: CoT 80.73%、MAD 系は MAD 74.73 / MP 75.47 / EoT 67.87 / ChatEval 79.13 / AgentVerse 80.40 で全て CoT 未満。範囲 67.87〜80.40 は原典どおり。"
+    quote: CoT | 80.73 ± 0.34 | ... EoT | 67.87 ± 0.41 | ... AgentVerse | 80.40 ± 0.00
+    locator: Results 表(GPT-4o-mini, MMLU 列)
+    quant:
+      value: CoT 80.73 vs MAD 67.87–80.40
+      n: ≤500 samples per benchmark
+      design: benchmark
+      population: GPT-4o-mini, T=1, top-p=1
+    evidenceKind: benchmark
+    rqs: [TH06-Q1]
+    issues: [258]
+    stance: supports
+  - id: c2
+    text: "GPT-4o-mini / GSM8K: 自己整合 95.67% に対し MAD 系は MAD 94.93 / MP 90.87 / EoT 94.40 / ChatEval 93.60 / AgentVerse 92.73(範囲 90.87〜94.93)。254 メモの下限 63.87 は Llama3.1-8b 行の MAD の値であり、GPT-4o-mini の値ではない。"
+    quote: SC | 82.13 ± 0.66 | 66.27 ± 1.39 | 83.80 ± 0.28 | 93.93 ± 0.25 | 67.07 ± 0.84 | 95.67 ± 0.19
+    locator: Results 表(GPT-4o-mini, GSM8K 列)/ Llama3.1-8b 行 MAD 63.87 ± 0.93
+    quant:
+      value: SC 95.67 vs MAD 90.87–94.93 (GPT-4o-mini); 63.87 = Llama3.1-8b MAD
+      n: ≤500
+      design: benchmark
+      population: GPT-4o-mini / Llama3.1-8b
+    evidenceKind: benchmark
+    rqs: [TH06-Q1]
+    issues: [258]
+    stance: qualifies
+  - id: c3
+    text: HumanEval では AgentVerse 85.37% が CoT 78.05% を +7.32pt 上回る(例外)。
+    quote: CoT | ... | 78.05 ± 1.49 | ... AgentVerse | ... | 85.37 ± 0.00 |
+    locator: Results 表(GPT-4o-mini, HumanEval 列)
+    quant:
+      value: 85.37 vs 78.05 (+7.32pt)
+      n: 164 problems
+      design: benchmark
+      population: GPT-4o-mini
+    evidenceKind: benchmark
+    rqs: [TH06-Q1]
+    issues: [258]
+    stance: qualifies
+  - id: c4
+    text: Llama3.1-8b でも MMLU は全 MAD が自己整合 64.96 未満だが、GSM8K の ChatEval 81.13 > SC 79.53、MATH の MAD 40.20 > SC 30.04、AGIEval の ChatEval 57.87 > SC 42.47 など例外がある。「大半」は妥当だが全てではない。
+    quote: SC | 64.96 ± 1.08 | 47.49 ± 0.08 | 74.43 ± 0.30 | 86.60 ± 1.13 | 42.47 ± 1.58 | 79.53 ± 0.68 | 30.04 ± 1.53 | – | – |
+    locator: Results 表(Llama3.1-8b 行)
+    quant:
+      value: most MAD < SC; exceptions on GSM8K/MATH/AGIEval
+      n: ≤500
+      design: benchmark
+      population: Llama3.1-8b
+    evidenceKind: benchmark
+    rqs: [TH06-Q1]
+    issues: [258]
+    stance: qualifies
+  - id: c5
+    text: "結論: 現行の MAD 枠組みは単純な単一エージェントの推論時計算戦略を一貫して上回らない。"
+    quote: current MAD frameworks fail to consistently outperform simple single-agent test-time computation strategies
+    locator: Introduction
+    quant:
+      value: 5 frameworks × 9 benchmarks
+      n: ≤500 per benchmark
+      design: benchmark
+      population: GPT-4o-mini, Llama3.1-8b
+    evidenceKind: benchmark
+    rqs: [TH06-Q1]
+    issues: [258]
+    stance: supports
+  - id: c6
+    text: MAD は正答を誤答へ反転させる件数が CoT・自己整合より多い(過剰に攻撃的で誤答を識別できない)。
+    quote: This suggests that MAD methods can be overly aggressive, lacking the ability to reliably identify incorrect answers.
+    locator: Results / Figure 3
+    quant:
+      value: 図のみ(数値未記載)
+      n: ≤500
+      design: benchmark
+      population: GPT-4o-mini
+    evidenceKind: benchmark
+    rqs: [TH06-Q1, TH06-Q3]
+    issues: [258]
+    stance: supports
+  - id: c7
+    text: 異種モデル(GPT-4o-mini + Llama3.1-70b)を混ぜると MAD の精度が上がる例がある(GSM8k GGL 95.00、MMLU GLL 88.20 対 GGG 75.00)。同質構成の劣後を異質性が部分的に埋める。
+    quote: As observed in the table above, we can achieve better accuracy when combining GPT-4o-mini and Llama3.1-70b together.
+    locator: Results 最終表(CCC…LLL)
+    quant:
+      value: MMLU GGG 75.00 → GLL 88.20
+      n: ≤500
+      design: benchmark
+      population: GPT-4o-mini(G)/Llama3.1-70b(L)/Claude-haiku(C) 組合せ
+    evidenceKind: benchmark
+    rqs: [TH06-Q3]
+    issues: [258]
+    stance: qualifies
+  - id: c8
+    text: 評価費用のため各ベンチマークは最大 500 問に制限。
+    quote: To save evaluation expenses, we limit the number of testing samples to 500 if there are more than 500 samples in the testing set.
+    locator: Experimental setup — Datasets
+    quant:
+      value: ≤500
+      n: "500"
+      design: benchmark
+      population: 9 benchmarks
+    evidenceKind: benchmark
+    rqs: [TH06-Q1]
+    issues: [258]
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:37:24.266Z
+    httpStatus: 200
+    finalUrl: https://d2jud02ci9yv69.cloudfront.net/2025-04-28-mad-159/blog/mad/
+    contentType: text/html
+    titleFetched: Multi-LLM-Agents Debate - Performance, Efficiency, and Scaling Challenges | ICLR Blogposts 2025
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: found
+      c3: not-found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+      c8: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "GPT-4o-mini / MMLU: CoT 80.73; MAD 74.73, MP 75.47, EoT 67.87, ChatEval 79.13, AgentVerse 80.40(範囲 67.87〜80.40、全て CoT 未満)"
+        extractedQuote: CoT | 80.73 ± 0.34 | ... MAD | 74.73 ± 0.52 | MP | 75.47 ± 0.84 | EoT | 67.87 ± 0.41 | ChatEval | 79.13 ± 0.90 | AgentVerse | 80.40 ± 0.00 |(各行の MMLU 列)
+        locator: Results 表 GPT-4o-mini(第1表)MMLU 列
+        note: AgentVerse 80.40 ± 0.00 と CoT 80.73 ± 0.34 の差は 0.33pt と僅少。SC は 82.13。
+      c2:
+        verdict: match
+        extractedValue: "GPT-4o-mini / GSM8K: SC 95.67; MAD 94.93, MP 90.87, EoT 94.40, ChatEval 93.60, AgentVerse 92.73(範囲 90.87〜94.93)。63.87 は Llama3.1-8b 行 MAD の GSM8K 値"
+        extractedQuote: "GPT-4o-mini: SC | ... | 95.67 ± 0.19 |; MAD 94.93 ± 0.34; MP 90.87 ± 0.19; EoT 94.40 ± 0.57; ChatEval 93.60 ± 0.00; AgentVerse 92.73 ± 0.50 / Llama3.1-8b: MAD | ... | 63.87 ± 0.93 |(GSM8K 列)"
+        locator: Results 表 GPT-4o-mini GSM8K 列 / Llama3.1-8b 表 MAD 行 GSM8K 列
+        note: 63.87 という値は GPT-4o-mini 表にも現れる(SA の AGIEval 63.87 ± 1.05、AgentVerse の AGIEval 63.87 ± 1.23)が、いずれも GSM8K 列ではない。GSM8K 列の 63.87 は Llama3.1-8b の MAD のみ。GPT-4o-mini の CoT GSM8K は 93.60。
+        adjudication:
+          verdict: consistent
+          reason: GPT-4o-mini の GSM8K 列の値(SC 95.67、MAD 94.93、MP 90.87、EoT 94.40、ChatEval 93.60、AgentVerse 92.73、範囲 90.87〜94.93)が blindQuote と一致する。GSM8K 列の 63.87 は Llama3.1-8b の MAD 行だけ、という指摘も blindNote が確かめている(GPT-4o-mini 表の 63.87 は AGIEval 列の SA と AgentVerse の値で、GSM8K 列ではない)。内部メモへの参照は判定対象外。
+          date: 2026-09-23
+      c3:
+        verdict: match
+        extractedValue: AgentVerse 85.37 vs CoT 78.05(差 +7.32pt)
+        extractedQuote: CoT | ... | 78.05 ± 1.49 | ... AgentVerse | ... | 85.37 ± 0.00 |(GPT-4o-mini 表 HumanEval 列)
+        locator: Results 表 GPT-4o-mini HumanEval 列
+        note: HumanEval では SC は '–'(未報告)。GPT-4o-mini の他 MAD は MAD 68.09 / MP 63.01 / EoT 73.78 / ChatEval 71.75 で CoT 未満。
+      c4:
+        verdict: match
+        extractedValue: "Llama3.1-8b: MMLU SC 64.96 に対し MAD 53.40 / MP 53.33 / EoT 48.97 / ChatEval 61.81 / AgentVerse 13.27(全て未満); GSM8K ChatEval 81.13 > SC 79.53; MATH MAD 40.20 > SC 30.04; AGIEval ChatEval 57.87 > SC 42.47"
+        extractedQuote: SC | 64.96 ± 1.08 | ... | 42.47 ± 1.58 | 79.53 ± 0.68 | 30.04 ± 1.53 |; MAD ... MATH 40.20 ± 0.85; ChatEval | 61.81 ± 0.88 | ... | 57.87 ± 1.25 | 81.13 ± 0.81 |
+        locator: Results 表 Llama3.1-8b(第2表)
+        note: "主張に挙がった以外にも SC 超えの例外がある: AGIEval で MP 44.50・AgentVerse 50.33 > SC 42.47、MATH で ChatEval 39.77 > SC 30.04。HumanEval / MBPP は SC が '–'(未報告)で比較不能。本文は 'most MAD frameworks fail to surpass SC' と記述。"
+      c5:
+        verdict: match
+        extractedValue: current MAD frameworks fail to consistently outperform simple single-agent test-time computation strategies(5 フレームワーク × 9 ベンチマーク)
+        extractedQuote: Our evaluation of 5 typical MAD frameworks on 9 benchmarks led us to a surprising conclusion—\emph{current MAD frameworks fail to consistently outperform simple single-agent test-time computation strategies}.
+        locator: Introduction 末尾段落(冒頭要約にも同旨)
+        note: 比較対象は CoT と Self-Consistency。対象モデルは GPT-4o-mini と Llama3.1(-8b)、テストは最大500件に制限。
+      c7:
+        verdict: match
+        extractedValue: GSM8k GGL 95.00(GGG 94.80); MMLU GLL 88.20 対 GGG 75.00(LLL 84.20)。組合せ対象は GPT-4o-mini・Llama3.1-70b・Claude-haiku
+        extractedQuote: We enumerate different combinations of GPT-4o-mini, Llama3.1-70b, Claude-haiku ... we can achieve better accuracy when combining GPT-4o-mini and Llama3.1-70b together.
+        locator: Results 最終表(CCC〜LLL)と直後段落
+        note: 原典の異種構成の Llama は Llama3.1-70b であり、主結果表の Llama3.1-8b ではない(主張が 8b なら食い違い)。表には凡例がなく C/G/L の対応は本文の列挙からの推定。GSM8k の GGL 95.00 と GGG 94.80 の差は 0.2pt のみ。MMLU では同質 LLL 84.20 も GGG 75.00 を上回る。原典は 'combination does not always has positive influence' とも述べる。
+    date: 2026-09-23
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://d2jud02ci9yv69.cloudfront.net/2025-04-28-mad-159/blog/mad

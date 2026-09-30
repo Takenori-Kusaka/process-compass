@@ -1,0 +1,141 @@
+schemaVersion: 0
+id: SRC-0104
+status: included
+excludeReason: null
+title: Manage costs effectively - Claude Code Docs
+url: https://code.claude.com/docs/en/costs
+canonicalUrl: https://code.claude.com/docs/en/costs
+ids:
+  arxiv: null
+  doi: null
+publisher: Anthropic (Claude Code Docs)
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: TH04
+  query: Claude Code cost per pull request tokens measured cache read share
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH04, TH03, TH11]
+events: []
+summary: Claude Code 公式の費用管理ページ(2026-09-23 取得)。企業展開の平均費用、CLAUDE.md の推奨行数(200 行以下)、Skills への移動、モデル選択、Agent teams の約 7 倍消費などを規定する。
+claims:
+  - id: c1
+    text: 企業展開の平均は 1 開発者あたり稼働日 $13、月 $150〜250、90% の利用者は稼働日 $30 未満。#274 の 21 日分の従量換算と比較する基準になる。
+    quote: Across enterprise deployments, the average cost is around $13 per developer per active day and $150-250 per developer per month, with costs remaining below $30 per active day for 90% of users.
+    locator: ページ冒頭
+    quant:
+      value: $13/dev/active day; $150-250/dev/month; p90 < $30/day
+      n: enterprise deployments(件数非公開)
+      design: vendor observational aggregate
+      population: Claude Code enterprise deployments
+    evidenceKind: observational
+    rqs: [TH04-Q1, TH04-Q3, TH11-Q3]
+    issues: [274]
+    stance: context
+  - id: c2
+    text: CLAUDE.md はセッション開始時に文脈へ読み込まれる。スキルは呼び出されたときだけ読み込まれるので、専用の手順をスキルへ移すと基本の文脈が小さくなる。公式は、要点だけに絞って CLAUDE.md を 200 行未満に収めることを目安として勧めている。
+    quote: Your CLAUDE.md file is loaded into context at session start. ... Skills load on-demand only when invoked, ... Aim to keep CLAUDE.md under 200 lines by including only essentials.
+    locator: Move instructions from CLAUDE.md to skills
+    quant:
+      value: ≤200 lines
+      n: null
+      design: vendor recommendation
+      population: CLAUDE.md
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q1, TH03-Q4]
+    issues: [269, 274]
+    stance: supports
+  - id: c3
+    text: Agent teams は各 teammate が独立したコンテキストを持つため、標準セッションの約 7 倍のトークンを使う(plan mode 時)。teammate は Sonnet、チームは小さく、終わったら停止せよ、と定める。
+    quote: Agent teams use approximately 7x more tokens than standard sessions when teammates run in plan mode, because each teammate maintains its own context window and runs as a separate Claude instance.
+    locator: Manage agent team costs
+    quant:
+      value: ≈7x
+      n: null
+      design: vendor estimate
+      population: Claude Code agent teams in plan mode
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4, TH04-Q2]
+    issues: [274]
+    stance: supports
+  - id: c4
+    text: "モデル階層の公式推奨: Sonnet が既定で Opus は複雑な設計判断や多段推論に限る。単純なサブエージェントは model: haiku を指定する。"
+    quote: Sonnet handles most coding tasks well and costs less than Opus. Reserve Opus for complex architectural decisions or multi-step reasoning.
+    locator: Choose the right model
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q4]
+    issues: []
+    stance: supports
+  - id: c5
+    text: MCP ツール定義は既定で遅延ロードされ、使うまで名前とサーバー指示だけが文脈に入る。gh/aws などの CLI の方が MCP より文脈効率がよい、と公式が述べる。
+    quote: MCP tool definitions are deferred by default , so only tool names and server instructions enter context until Claude uses a specific tool. Run /context to see what's consuming space.
+    locator: Reduce MCP server overhead
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH04-Q2, TH03-Q1]
+    issues: [274]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:38:44.728Z
+    httpStatus: 200
+    finalUrl: https://code.claude.com/docs/en/costs
+    contentType: text/html; charset=utf-8
+    titleFetched: Manage costs effectively - Claude Code Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: $13 per developer per active day / $150-250 per developer per month / 90% of users below $30 per active day
+        extractedQuote: Across enterprise deployments, the average cost is around $13 per developer per active day and $150-250 per developer per month, with costs remaining below $30 per active day for 90% of users.
+        locator: ページ冒頭(Track your costs の前)
+        note: 『___開発者あたり』は原文 'per developer'(1開発者あたり)。平均は 'around $13'(約)。月額は平均ではなく範囲 $150-250。『#___ の ___日分の従量換算と比較』に当たる値は本出典に無い。
+        adjudication:
+          verdict: consistent
+          reason: blindQuote どおりである。原文も「the average cost is around $13 per developer per active day and $150-250 per developer per month」と、平均という語を月額の範囲にまでかけて書いているので、主張の読み方は原文に忠実である。90% の利用者が稼働日あたり $30 未満という点も一致する。$13 は原文では「around」(約)。#274 の 21 日分との比較は内部参照なので、判定対象から外した。
+          date: 2026-09-23
+      c2:
+        verdict: match
+        extractedValue: 200 lines(CLAUDE.md を 200 行未満に)
+        extractedQuote: Your CLAUDE.md file is loaded into context at session start. ... Skills load on-demand only when invoked, ... Aim to keep CLAUDE.md under 200 lines by including only essentials.
+        locator: Move instructions from CLAUDE.md to skills
+        note: 原文は 'under 200 lines'(200 行未満)で、ask の『___行以下』とは境界がわずかに異なる(未満/以下)。'Aim to'(目安)であり強制上限ではない。『常時ロード ___万バイト』は本出典に無い(内部計測との比較)。原文の単位は行数でありバイト数ではない点に注意。
+        adjudication:
+          verdict: corrected
+          reason: 趣旨は blindQuote と一致する。ただし原文は「Aim to keep CLAUDE.md under 200 lines」で、強制の上限ではなく目安(Aim to)であり、境界は「未満」である。主張の「上限を示す」「200 行以下」を直した。「無関係な作業でも消費される」は blindQuote の省略部分にあたり、抜粋では確かめられないので訂正文から外した。#269/#274 の「16 万バイト」との比較は内部参照なので判定対象から外したが、原文の単位は行数でバイト数ではない。比べるなら単位の換算が必要である。
+          date: 2026-09-23
+          originalText: CLAUDE.md はセッション開始時に文脈へ載り無関係な作業でも消費される。専用手順は Skills に移し、CLAUDE.md は 200 行以下を目安にせよ、と公式が上限を示す。#269/#274 の「常時ロード 16 万バイト」は公式目安を大きく超える。
+          originalQuote: Skills load on-demand only when invoked, so moving specialized instructions into skills keeps your base context smaller. Aim to keep CLAUDE.md under 200 lines by including only essentials.
+    date: 2026-09-23
+volatility: fast
+reviewBy: null

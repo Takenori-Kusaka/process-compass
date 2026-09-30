@@ -1,0 +1,92 @@
+schemaVersion: 0
+id: SRC-0164
+status: included
+excludeReason: null
+title: Summary of METR's predeployment evaluation of Claude Opus 5.5
+url: https://metr.org/blog/2026-09-22-claude-opus-5-5/
+canonicalUrl: https://metr.org/blog/2026-09-22-claude-opus-5-5
+ids:
+  arxiv: null
+  doi: null
+publisher: METR
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-09-22
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-1
+  query: "direct: metr.org/blog 一覧"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH02]
+events:
+  - date: 2026-09-22
+    label: METR が Claude Opus 5.5 の事前評価要約を公開
+summary: METR による Opus 5.5 の事前評価。5 タスクによる AI R&D 能力の評価で、時間地平の値は出していない。Opus 5.5 は Fable 5.1 からの漸進的改善と結論する。
+claims:
+  - id: c1
+    text: METR の定量評価では Opus 5.5 は Fable 5.1 に対する漸進的改善で、不連続な跳躍ではない。
+    quote: Claude Opus 5.5 is an incremental improvement above Fable 5.1 on our quantitative evaluations, rather than a discontinuous jump.
+    locator: Conclusions (A)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [BASE-Q3]
+    issues: [282]
+    stance: context
+  - id: c2
+    text: METR による Claude Opus 5.5 の事前評価(能力試験)は、10 営業日にわたる API アクセスで 5 つのタスクを用いて行われた。本文に時間地平の値は報告されていない。
+    quote: Capability testing, conducted via API access granted over a period of 10 business days. We used five tasks for this testing
+    locator: Summary of evidence
+    quant: null
+    evidenceKind: news-fact
+    rqs: [BASE-Q1]
+    issues: [282]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:04.192Z
+    httpStatus: 200
+    finalUrl: https://metr.org/blog/2026-09-22-claude-opus-5-5/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Summary of METR's predeployment evaluation of Claude Opus 5.5
+    titleMatch: true
+    dateMeta: 2026-09-22
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c2:
+        verdict: match
+        extractedValue: 10 business days / five tasks(時間地平の値は本文に無い)
+        extractedQuote: Capability testing, conducted via API access granted over a period of 10 business days. We used five tasks for this testing
+        locator: Summary of evidence
+        note: 営業日数とタスク数は原文で確認した。5タスクは Budget NanoGPT Speedrun、LMCA、Train a Program、Gaming Bot、Sunlight で、Time Horizon スイートではない。本文には time horizon の語も数値も出てこないため、「TH の時間地平は報告されていない」は不在として整合する。ただし TH の版番号(TH___)は本文で確認できない。「___年モデルの時間地平の一次値は依然として Mythos Preview (early) が最新」は本ページに記述が無い。本ページの比較対象は Fable 5.1 で、"Mythos Preview" は "continues the AECI trend from Mythos Preview onward" の文脈でしか出てこない。
+        adjudication:
+          verdict: corrected
+          reason: 10 営業日・5 タスクは blindQuote と一致する。時間地平の不在も blindNote が確認(ただし 5 タスクは Time Horizon スイートではなく、TH1.1 という版は本文で確認できない)。括弧内の『2026 年モデルの時間地平の一次値は依然として Mythos Preview (early) が最新』は本ページに記述が無い外部事実の主張である。SRC-0158 の抽出でも確認できるのは Mythos Preview (early) が『最大』であることだけで、『最新』ではない。そのため括弧内を除いて訂正した。
+          date: 2026-09-24
+          originalText: 評価は 10 営業日の API アクセスで 5 タスクを用いた。TH1.1 の時間地平は報告されていない(2026 年モデルの時間地平の一次値は依然として Mythos Preview (early) が最新)。
+          originalQuote: Capability testing, conducted via API access granted over a period of 10 business days. We used five tasks for this testing
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://metr.org/blog/2026-09-22-claude-opus-5-5

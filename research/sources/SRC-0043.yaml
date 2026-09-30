@@ -1,0 +1,180 @@
+schemaVersion: 0
+id: SRC-0043
+status: included
+excludeReason: null
+title: 8 million pull requests reveal where engineering productivity breaks down
+url: https://linearb.io/blog/8-million-prs-engineering-productivity
+canonicalUrl: https://linearb.io/blog/8-million-prs-engineering-productivity
+ids:
+  arxiv: null
+  doi: null
+publisher: LinearB Blog
+authors: [Lloyd Pearson Ben]
+orgType: vendor
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2026-05-04
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-23
+access: open
+readLevel: full
+foundBy:
+  cluster: C00b-2
+  query: "tavily: LinearB 2026 Software Engineering Benchmarks Report 8 million pull requests"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH10, TH06]
+events:
+  - date: 2026-05-04
+    label: LinearB が 2026 Engineering Benchmarks の AI 分析結果をブログで公開
+summary: 前回メモが引いた LinearB の一次ブログ。810 万 PR、32.7% 対 84.5%、着手待ち 16 時間超対約 200 分などは記載どおり。ただし 32.7% は「30 日以内にマージされた PR の割合(acceptance rate)」であり、前回メモの「無修正マージ率」という定義は誤り。
+claims:
+  - id: c1
+    text: 32.7% / 84.5% の指標は「PR 受入率 = 30 日以内にマージされた PR の割合」である。前回メモの「無修正マージ率」という表現は原典の定義と異なる。
+    quote: "the benchmark report introduces a more meaningful measure: pull request acceptance rate. This measures the percentage of pull requests that get merged within 30 days."
+    locator: Why most AI-generated pull requests never reach production
+    quant: null
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: qualifies
+  - id: c2
+    text: 人手のみの PR は約 84.5% がマージされるのに対し、AI 生成 PR は 32.7%。
+    quote: AI-generated pull requests, by contrast, merge at just 32.7%, less than half the rate of human-authored code.
+    locator: Why most AI-generated pull requests never reach production
+    quant:
+      value: 32.7% vs 84.5%
+      n: 8.1M PRs / 4,800 teams / 42 countries
+      design: observational (platform data)
+      population: LinearB customer repositories
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: AI 生成 PR のレビュー着手待ちは平均 16 時間超、人手のみは約 200 分で 5 倍超の遅延。
+    quote: AI-generated pull requests wait more than 16 hours on average before a reviewer picks them up, compared to approximately 200 minutes for unassisted work, a delay more than five times longer.
+    locator: Code review delays erase AI productivity gains
+    quant:
+      value: ">16h vs ~200min (>5x)"
+      n: 8.1M PRs
+      design: observational
+      population: LinearB customer repositories
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+  - id: c4
+    text: 着手後のレビュー所要時間は AI 生成 PR の方が短い(約 194 分対 252 分)。LinearB 自身はこれを「表層的な検証」の兆候と解釈する。
+    quote: once review begins, AI-generated pull requests move through the review cycle faster, approximately 194 minutes compared to 252 minutes for manual work.
+    locator: Code review delays erase AI productivity gains
+    quant:
+      value: 194 vs 252 min
+      n: 8.1M PRs
+      design: observational
+      population: LinearB customer repositories
+    evidenceKind: observational
+    rqs: [TH06-Q6]
+    issues: []
+    stance: qualifies
+  - id: c5
+    text: PR サイズ(p75)は AI 支援 400 行超、人手 157 行、エージェント型約 290 行。
+    quote: Looking at the 75th percentile, AI-assisted pull requests contain over 400 lines of code compared to 157 lines for unassisted work. Agentic pull requests fall in the middle at approximately 290 lines.
+    locator: AI-generated pull requests create larger changes and more new code
+    quant:
+      value: 400+ / 157 / ~290 lines (p75)
+      n: 8.1M PRs
+      design: observational
+      population: LinearB customer repositories
+    evidenceKind: observational
+    rqs: [TH10-Q1]
+    issues: []
+    stance: supports
+  - id: c6
+    text: リファクタ率(p75)は人手 PR 約 37% に対し AI 支援 PR はほぼゼロ。
+    quote: unassisted PRs show approximately 37% refactoring at the 75th percentile. AI-assisted pull requests show nearly zero.
+    locator: AI-generated pull requests create larger changes and more new code
+    quant:
+      value: ~37% vs ~0% (p75)
+      n: 8.1M PRs
+      design: observational
+      population: LinearB customer repositories
+    evidenceKind: observational
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c7
+    text: AI を日常的に使う開発者は 88.3%(2024 年初頭は 72% 弱)。
+    quote: 88.3% of developers now use AI regularly, up from just under 72% in early 2024.
+    locator: 冒頭
+    quant:
+      value: 88.3%
+      n: 2026 AI in Engineering Leadership Survey(回答数はブログに記載なし)
+      design: survey
+      population: engineering leaders
+    evidenceKind: survey
+    rqs: []
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T22:35:44.733Z
+    httpStatus: 200
+    finalUrl: https://linearb.io/blog/8-million-prs-engineering-productivity
+    contentType: text/html; charset=utf-8
+    titleFetched: 8 million pull requests reveal where engineering productivity breaks down | LinearB Blog
+    titleMatch: true
+    dateMeta: 2026-05-04
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv: null
+    crossref: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 84.5% / 32.7% / 30 日以内にマージされた PR の割合
+        extractedQuote: "the benchmark report introduces a more meaningful measure: pull request acceptance rate. This measures the percentage of pull requests that get merged within 30 days."
+        locator: Why most AI-generated pull requests never reach production
+        note: 定義は『マージの有無(30日以内)』のみで、無修正かどうかは条件に含まれない。ask の『無修正マージ率とは異なる』という指摘と整合する記述
+      c2:
+        verdict: match
+        extractedValue: 人手のみ(unassisted)約 84.5% / AI 生成 32.7%
+        extractedQuote: Manual, unassisted pull requests merge at approximately 84.5% ... AI-generated pull requests, by contrast, merge at just 32.7%, less than half the rate of human-authored code.
+        locator: Why most AI-generated pull requests never reach production
+        note: 記事は PR を unassisted / AI-assisted / fully agentic の3区分で定義しているが、この箇所の 'AI-generated' がどの区分(agentic のみか、assisted を含むか)を指すかは明記されていない
+      c3:
+        verdict: match
+        extractedValue: 平均 16 時間超 / 約 200 分 / 5 倍超
+        extractedQuote: AI-generated pull requests wait more than 16 hours on average before a reviewer picks them up, compared to approximately 200 minutes for unassisted work, a delay more than five times longer.
+        locator: Code review delays erase AI productivity gains
+        note: 16時間=960分、960/200=4.8 で、原文の 'more than five times' は丸め方次第(16時間『超』なら5倍超になり得る)。'AI-generated' の区分(agentic/assisted)は不明記。同節に、レビュー開始後は AI 生成 PR が約 194 分、人手が 252 分と逆に速いとの記述あり
+      c6:
+        verdict: match
+        extractedValue: p75 / 人手(unassisted)約 37% / AI-assisted ほぼゼロ
+        extractedQuote: unassisted PRs show approximately 37% refactoring at the 75th percentile. AI-assisted pull requests show nearly zero.
+        locator: AI-generated pull requests create larger changes and more new code
+        note: リファクタ率の定義は 'the percentage of code in a pull request that modifies existing code rather than creating new paths'。比較対象は AI-assisted で、agentic PR の値は示されていない
+        adjudication:
+          verdict: consistent
+          reason: blindQuote の 'unassisted PRs show approximately 37% refactoring at the 75th percentile. AI-assisted pull requests show nearly zero.' どおり。リファクタ率の定義は『PR のうち、新しい経路を作らず既存コードを変更する割合』。比較の相手は AI-assisted で、agentic の値は示されていない(blindNote)。主張は AI 支援 PR と書いているので条件もずれていない。
+          date: 2026-09-23
+    date: 2026-09-23
+volatility: medium
+reviewBy: null

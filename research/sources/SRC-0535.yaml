@@ -1,0 +1,135 @@
+schemaVersion: 0
+id: SRC-0535
+status: included
+excludeReason: null
+title: Achieving Effective Internal Control Over Generative AI (GenAI)
+url: https://www.coso.org/_files/ugd/719ba0_ef4dbc255331406e95faf46e7a9e3a1c.pdf
+canonicalUrl: https://coso.org/_files/ugd/719ba0_ef4dbc255331406e95faf46e7a9e3a1c.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Committee of Sponsoring Organizations of the Treadway Commission (COSO)
+authors: [Scott Emett, Marc Eulerich, Jason Pikoos, David A. Wood]
+orgType: standards-body
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-02-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: section
+foundBy:
+  cluster: G03
+  query: COSO generative AI internal control guidance 2026 segregation of duties AI agents
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH07, TH12, TH06, TH02]
+events:
+  - date: 2026-02-23
+    label: COSO が生成AI向け内部統制ガイダンスを公表
+summary: COSO 内部統制フレームワーク(2013)の 17 原則を生成AIへ当てはめた補足ガイダンス。職務分離は「AI 設定を構成する権限」と「出力を承認・レビューする権限」の分離として書かれ、AI を承認者に数えてよいかは明言しない。独立した検証は「人または自動」とする箇所がある。発行日は同梱のプレスリリースで確認。原則 10〜12 と附属の能力別統制表を読んだ。
+claims:
+  - id: c1
+    text: 共通の統制活動として挙げる職務分離は、AI の設定を構成する権限と、出力を承認・レビューする権限の分離である。担い手が人か AI かは書かれていない。
+    quote: "SoD: Separate the ability to configure AI settings from the authority to approve or review outputs."
+    locator: p.14 Common control activities across AI capabilities
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c2
+    text: 統制活動は、対処するリスクに比例した水準の人による裏付け(human-in-the-loop)を求め、生成AIの出力を事実ではなく証拠を要する主張として扱うべきとする。人の関与は一律ではなくリスク比例である。
+    quote: They should require a level of human corroboration (i.e., human-in-the-loop) proportionate to the risk being addressed, treating GenAI outputs as assertions requiring evidence rather than facts.
+    locator: p.13 Principle 10 – Selects and develops control activities
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2, TH07-Q4]
+    issues: [248, 249]
+    stance: qualifies
+  - id: c3
+    text: AI 関連の変更に対する CI/CD の独立した検証手順は「人または自動」でよいと書く。独立検証の担い手を人に限定していない(反証側の記述)。
+    quote: practices should include independent validation steps (human or automated) for AI-related changes.
+    locator: p.13 Principle 11 – Selects and develops general controls over technology
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: contradicts
+  - id: c4
+    text: COSO 原則を運用へ落とす主要な手法 5 つの 1 つに、独立した複数の AI モデル間または決定的な基準アルゴリズムとの出力比較(Multi-Model validation)を挙げる。人によるレビュー(HITL)と並列の選択肢である。
+    quote: "Multi-Model validation: comparison of outputs across independent AI models or deterministic benchmark algorithms"
+    locator: p.14 囲み(leading approaches 1〜5)
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: contradicts
+  - id: c5
+    text: AI エージェントが多段の作業を調整する能力類型では、AI の判断が持ち込む職務分離の衝突を評価することをリスク評価の項目に置き、指標例に SoD 衝突の発生件数を挙げる。
+    quote: Assess SoD conflicts introduced by AI decision-making.
+    locator: p.25 Workflow orchestration and dynamic process management – Risk Assessment
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: supports
+  - id: c6
+    text: 文書化は重要度と規制上の露出に比例させ、生成AIが減らすはずの負担を作り直さない範囲にとどめるとする。統制の証跡量に上限の考え方を置いている。
+    quote: "The goal is traceability, not paperwork: to enable validation, learning, and continuous improvement without recreating the burden GenAI is meant to reduce."
+    locator: p.13 Principle 10
+    quant: null
+    evidenceKind: normative
+    rqs: [TH07-Q4]
+    issues: [267, 268]
+    stance: supports
+  - id: c7
+    text: 本書は生成AIに固有または増幅されるリスクだけを扱い、ERP の職務分離など従来の IT 全般統制の指針は繰り返さないが引き続き必要とする。AI 以外の SoD 規定を置き換えるものではない。
+    quote: We do not repeat established guidance on traditional IT general controls (e.g., network security, non‑AI change management, segregation of duties (SoD) in ERP systems), though those remain necessary.
+    locator: p.6 Scope and boundaries
+    quant: null
+    evidenceKind: normative
+    rqs: [TH01-Q2]
+    issues: [248, 249]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:30.313Z
+    httpStatus: 200
+    finalUrl: https://ab5bd07f-8066-4a33-869e-6f82d80ee59a.filesusr.com/ugd/719ba0_ef4dbc255331406e95faf46e7a9e3a1c.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+      c4: found
+      c5: found
+      c6: found
+      c7: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c4:
+        verdict: match
+        extractedValue: 5つ(番号 1〜5 の列挙)のうちの 1つ(3番目が Multi-Model validation)。本文の語は 'several leading approaches' で、総数を語では述べていない
+        extractedQuote: "3 Multi-Model validation: comparison of outputs across independent AI models or deterministic benchmark algorithms"
+        locator: p.14(Control Activities 節末尾、'Recent discussions across the assurance and risk management community have identified several leading approaches...' に続く番号付き列挙 1〜5)
+        note: 列挙は 1 Human-in-the-loop (HITL) review / 2 Performance testing / 3 Multi-Model validation / 4 Data analytics monitoring / 5 Third-party validation。導入文は 'several leading approaches that can be used to operationalize COSO principles and achieve reliable, auditable AI control performance. The combination of approaches depends on the risks identified...' で、手法は組み合わせて使う前提。「HITL と並列の選択肢」は列挙上の並びとしては合うが、原文は択一ではなく組合せを述べる。
+    date: 2026-09-30
+volatility: medium
+reviewBy: null

@@ -1,0 +1,104 @@
+schemaVersion: 0
+id: SRC-0475
+status: included
+excludeReason: null
+title: "The Speed Trap: 8 takeaways from Faros's latest AI engineering research"
+url: https://www.faros.ai/blog/ai-speed-trap-takeaways
+canonicalUrl: https://faros.ai/blog/ai-speed-trap-takeaways
+ids:
+  arxiv: null
+  doi: null
+publisher: Faros AI
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: industry-report
+published: 2026-09-18
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH11
+  query: Faros "Acceleration Whiplash" merged without review incidents per PR deployments telemetry findings
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH06, TH07]
+events:
+  - date: 2026-09-18
+    label: Faros が高AI採用の深化期を扱う新版を公表。レビューなしマージの増加率が31.3%から76.3%へ
+summary: Faros の最新版(直近12か月、2万2千人・4千チーム)の要点。高AI採用が深まる段階で、レビューを経ずにマージされる PR の増加率が半年前の31.3%から76.3%へ拡大した。AIレビューを多用するチームで初回レビューの速さと変更失敗率の改善が見られるが相関にとどまる。
+claims:
+  - id: c1
+    text: レビューなしでマージされる PR の増加率は、半年前の31.3%から76.3%へ拡大した。レビュー能力が AI の出力量に追いつかず、ゲートが開いたままになっている。
+    quote: Six months ago, we flagged a 31.3% rise in PRs merged without review as one of the most alarming findings in the report. That figure has increased to 76.3%.
+    locator: 5. A growing share of PRs are being merged without any review
+    quant:
+      value: +31.3% -> +76.3% PRs merged without review
+      n: 22,000 developers, 4,000 teams (most recent 12 months)
+      design: observational telemetry
+      population: Faros customer organizations with high AI adoption
+    evidenceKind: observational
+    rqs: [TH11-Q3]
+    issues: [268]
+    stance: supports
+  - id: c2
+    text: AIレビューを多用するチームでは初回レビューが速く変更失敗率が低いが、相関にすぎず、レビューなしマージは採用の高い組織でも増え続けている。
+    quote: Those teams see faster first reviews and lower change failure rates. The findings are correlational, and unreviewed merges continue to rise even where adoption is high.
+    locator: 8. Agentic review is the first promising countermeasure
+    quant: null
+    evidenceKind: observational
+    rqs: [TH11-Q3]
+    issues: []
+    stance: qualifies
+  - id: c3
+    text: 多くの企業で PR の50〜80%にAIレビューがかかり、先行組織では PR の13〜14%をエージェントが開いている。
+    quote: Agentic review has moved quickly into mainstream workflows, with many companies running AI review on 50–80% of PRs.
+    locator: Work has moved to agents
+    quant:
+      value: AI review on 50–80% of PRs; agents open 13–14% of PRs at leading edge
+      n: 22,000 developers
+      design: observational telemetry
+      population: Faros customers
+    evidenceKind: observational
+    rqs: [TH11-Q3]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:07.895Z
+    httpStatus: 200
+    finalUrl: https://www.faros.ai/blog/ai-speed-trap-takeaways
+    contentType: text/html; charset=utf-8
+    titleFetched: "The Speed Trap: 8 takeaways from Faros&#x27;s latest AI engineering research"
+    titleMatch: false
+    dateMeta: 2026-09-18
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c3:
+        verdict: match
+        extractedValue: AIレビュー 50–80%/エージェント作成 13–14%
+        extractedQuote: Agentic review has moved quickly into mainstream workflows, with many companies running AI review on 50–80% of PRs. Autonomous authorship is still much earlier, but a small group of organizations has begun to pull ahead, with agents opening 13–14% of PRs at the leading edge.
+        locator: 1. AI adoption is deepening, and the frontier has moved to agents
+        note: 見出しは locator の 'Work has moved to agents' とは文言が異なるが同じ節。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null
+urlBeforeRepair: https://faros.ai/blog/ai-speed-trap-takeaways

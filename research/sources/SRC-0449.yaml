@@ -1,0 +1,113 @@
+schemaVersion: 0
+id: SRC-0449
+status: included
+excludeReason: null
+title: Turn one giant AI-generated pull request to a reviewable stack
+url: https://github.blog/engineering/turn-one-giant-ai-generated-pull-request-to-a-reviewable-stack
+canonicalUrl: https://github.blog/engineering/turn-one-giant-ai-generated-pull-request-to-a-reviewable-stack
+ids:
+  arxiv: null
+  doi: null
+publisher: The GitHub Blog
+authors: [Julia Muiruri]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-04
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: TH10
+  query: GitHub stacked PRs pull_request workflow trigger base branch CI checks run on stacked branch
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH10, TH07]
+events: []
+summary: コーディングエージェントに作業を層別のスタックへ分解させる GitHub 公式の手引き。Web UI の rebase ボタンが committer を書き換え署名を失わせる落とし穴も明記する。
+claims:
+  - id: c1
+    text: 既存のコードの書かれ方で学習したエージェントにとって、データ・API・UI を1本の巨大PRにまとめるのが既定の出し方だとベンダー自身が述べている。
+    quote: For agents largely trained on how code has traditionally been written over the years, this pattern is their default way of shipping.
+    locator: "A closer look: Adding product search to a shopping assistant"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q2, TH10-Q3]
+    issues: [273]
+    stance: context
+  - id: c2
+    text: GitHub の Web 上の Rebase stack ボタンはサーバー側で rebase するため committer がボタンを押した人に変わり、コミットは署名されず、署名付きコミットを要求するブランチ保護を黙って破る。公式はローカルの gh stack rebase を推奨する。
+    quote: it resets the committer to whoever clicked the button, the resulting commits aren’t signed, and if branch protection expects signed commits, that one click quietly breaks.
+    locator: Reviewing and updating the stack
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2, TH07-Q2]
+    issues: [273, 271]
+    stance: qualifies
+  - id: c3
+    text: 巨大PRに付くAI生成の説明文を『長いが浅い』と表現し、レビュアが後回しにして十分にレビューされないまま入る流れを典型として描く。
+    quote: push and open a pull request with its long-yet-shallow AI generated description, ensure CI checks are green, and self-review diff then request reviewers.
+    locator: A closer look(本文)
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: [TH10-Q4]
+    issues: [271]
+    stance: context
+  - id: c4
+    text: 層を関心事(データ・API・配線・UX)で切ると、層ごとに別のレビュア(データ所有者、UI 所有者)を割り当てられるとする。
+    quote: "Now the independent concerns are clear: data, API, wiring, UX, making it possible to allocate different reviewer audiences for each."
+    locator: The stack structure
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH10-Q2]
+    issues: [273]
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:48:56.195Z
+    httpStatus: 200
+    finalUrl: https://github.blog/engineering/turn-one-giant-ai-generated-pull-request-to-a-reviewable-stack/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Turn one giant AI-generated pull request to a reviewable stack
+    titleMatch: true
+    dateMeta: 2026-08-04
+    quotes:
+      c1: found
+      c2: partial
+      c3: found
+      c4: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: one / single(one ginormous 1,000+ line diff)
+        extractedQuote: …all of this and more in one ginormous 1,000+ line diff. For agents largely trained on how code has traditionally been written over the years, this pattern is their default way of shipping.
+        locator: "A closer look: Adding product search to a shopping assistant"
+        note: "直前に 'what tends to land in that single pull request: A new data model and its seed data / An API route and its validation / The client wiring and the UI ...' とある。筆者は GitHub の Developer Experiences 所属(2026-08-04 の GitHub Blog)。"
+        adjudication:
+          verdict: consistent
+          reason: blindQuote『...all of this and more in one ginormous 1,000+ line diff. For agents largely trained on how code has traditionally been written over the years, this pattern is their default way of shipping.』と、直前の列挙(data model / API route / client wiring and the UI)どおり。筆者は GitHub(gh stack の提供元)所属で GitHub Blog 掲載のため『ベンダー自身』も妥当。原文の『largely trained』の限定は主張でやや落ちているが趣旨は変わらない。
+          date: 2026-09-24
+      c2:
+        verdict: match
+        extractedValue: committer がボタン押下者にリセット/コミットは未署名/署名必須のブランチ保護が quietly breaks/代替は gh stack rebase
+        extractedQuote: it resets the committer to whoever clicked the button, the resulting commits aren’t signed, and if branch protection expects signed commits, that one click quietly breaks.
+        locator: Reviewing and updating the stack(Rebase stack ボタンの注意書き)
+        note: 原文の代替手段の書き方は 'The safer, equivalent move from the terminal would be gh stack rebase ... then gh stack push'。『推奨』は 'safer' の言い換え。出典は GitHub Blog の記事で、Docs(公式手順書)ではない。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

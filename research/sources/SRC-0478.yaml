@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0478
+status: included
+excludeReason: null
+title: "The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers"
+url: https://pubsonline.informs.org/doi/10.1287/mnsc.2025.00535
+canonicalUrl: doi:10.1287/mnsc.2025.00535
+ids:
+  arxiv: null
+  doi: 10.1287/mnsc.2025.00535
+publisher: Management Science (INFORMS)
+authors: [Kevin Zheyuan Cui, Mert Demirer, Sonia Jaffe, Leon Musolff, Sida Peng, Tobias Salz]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2026-02-27
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-09-24
+access: paywall
+readLevel: abstract
+foundBy:
+  cluster: TH11
+  query: randomized controlled trial 2026 AI coding agent productivity field experiment software developers causal effect
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: Microsoft・Accenture・匿名 Fortune 100 社で業務として行われた3つの無作為化フィールド実験(計4,867人、GitHub Copilot の補完機能)の統合分析。査読済み(2026-02-27 オンライン公開)。完了タスクが26.08%増え、経験の浅い開発者ほど効果が大きい。共著者に Microsoft Research 所属者を含む。反証側の質の高い研究。
+claims:
+  - id: c1
+    text: 3実験4,867人を統合すると、AIコーディング補助を使える開発者の完了タスクは26.08%(標準誤差10.3%)増えた。
+    quote: "when data are combined across three experiments and 4,867 developers, our analysis reveals a 26.08% increase (standard error: 10.3%) in completed tasks among developers using the AI tool."
+    locator: Abstract
+    quant:
+      value: +26.08% completed tasks (SE 10.3%)
+      n: 4,867 developers, 3 experiments
+      design: randomized field experiments (access randomization)
+      population: developers at Microsoft, Accenture, anonymous Fortune 100; code-completion assistant
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: contradicts
+  - id: c2
+    text: 各実験単体はノイズが大きく結果もばらつく。経験の浅い開発者ほど採用率と効果が高い。
+    quote: Notably, less experienced developers had higher adoption rates and greater productivity gains.
+    locator: Abstract
+    quant: null
+    evidenceKind: rct
+    rqs: [TH11-Q2]
+    issues: []
+    stance: qualifies
+verification:
+  status: verified
+  method: [mech-fetch, crossref, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:49:08.286Z
+    httpStatus: 403
+    finalUrl: https://pubsonline.informs.org/doi/10.1287/mnsc.2025.00535
+    contentType: text/html; charset=UTF-8
+    titleFetched: Just a moment...
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+    arxiv: null
+    crossref:
+      status: 200
+      title: "The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers"
+      issued: 2026-2-27
+      titleMatch: true
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 3実験/4,867人/26.08%(標準誤差10.3%)
+        extractedQuote: "when data are combined across three experiments and 4,867 developers, our analysis reveals a 26.08% increase (standard error: 10.3%) in completed tasks among developers using the AI tool."
+        locator: Abstract
+        note: Abstract は無料で読める。設計は『ランダムな部分集合にアクセスを付与』であり、ask の『使える開発者』はこれに対応するが、原文の表現は 'among developers using the AI tool'。
+      c2:
+        verdict: match
+        extractedValue: each experiment is noisy and results vary/less experienced developers had higher adoption rates and greater productivity gains
+        extractedQuote: Although each experiment is noisy and results vary across experiments, ... Notably, less experienced developers had higher adoption rates and greater productivity gains.
+        locator: Abstract
+        note: 数値なしの定性主張。原文と向きは一致。
+    date: 2026-09-24
+volatility: slow
+reviewBy: null

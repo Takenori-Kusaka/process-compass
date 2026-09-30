@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0289
+status: included
+excludeReason: null
+title: "GitHub Copilot CLIに7つのペルソナを演じさせる——仮想プロジェクトチームによるMCP開発の顛末（オトナの自由研究 #12）"
+url: https://zenn.dev/nnakapa/articles/lab-12-copilot-cli-day3
+canonicalUrl: https://zenn.dev/nnakapa/articles/lab-12-copilot-cli-day3
+ids:
+  arxiv: null
+  doi: null
+publisher: Zenn
+authors: [Nori]
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: 2026-04-07
+publishedBasis: meta
+version: null
+updated: 2026-04-19
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S5
+  query: "zenn search API: ペルソナ 精度 低下"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06, TH07]
+events: []
+summary: GitHub Copilot CLI 内に PM を含む7つのペルソナを作り、それぞれ別モデルを割り当てて会議室予約 MCP を自走させた実験の記録。テストは全通過したが第三者レビューで設計レベルの致命欠陥が露呈した。
+claims:
+  - id: c1
+    text: 7つのペルソナに Opus 4.6 / GPT-5.4 / Sonnet 4.6 / Haiku 4.5 を割り当てて自走させた結果、約10,250行・テスト62件全通過・簡易動作確認OKと表面上は成功した。
+    quote: 成果物は約10,250行、テストは62件全通過、簡易動作確認もOK——表面上は成功したように見えました。
+    locator: まとめ節
+    quant:
+      value: 約10,250行、テスト62/62通過
+      n: 1プロジェクト
+      design: 自走結果の事後確認
+      population: 社内向け会議室予約API+MCPツール(実験)
+    evidenceKind: case-report
+    rqs: [TH01-Q3]
+    issues: []
+    stance: context
+  - id: c2
+    text: 第三者レビューで、並行実行下でダブルブッキング防止が効かない、楽観ロックが実質機能していない、タイムゾーンが暗黙に東京固定、といった設計レベルの致命欠陥が次々に露呈した。
+    quote: ところが第三者レビューで、ダブルブッキング防止が並行実行下で効かない、楽観ロックが実質機能していない、MCPのタイムゾーン扱いが暗黙に東京固定、といった設計レベルの致命欠陥が次々に露呈しました。
+    locator: まとめ節
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q3, TH07-Q1]
+    issues: []
+    stance: supports
+  - id: c3
+    text: ペルソナ×モデル分担の運用自体は機能するが、人のチェックポイントを置かずに任せ切ると、表面のテストは通るのに中身の設計品質が抜け落ちる、と著者は総括する。
+    quote: ペルソナ×モデル分担の運用自体は機能するものの、人のチェックポイントを置かずに任せ切ると、表面のテストは通るのに中身の設計品質が抜け落ちる、という事実です。
+    locator: まとめ節
+    quant: null
+    evidenceKind: case-report
+    rqs: [TH01-Q1, TH01-Q3]
+    issues: []
+    stance: supports
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-24
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:21.796Z
+    httpStatus: 200
+    finalUrl: https://zenn.dev/nnakapa/articles/lab-12-copilot-cli-day3
+    contentType: text/html; charset=utf-8
+    titleFetched: "GitHub Copilot CLIに7つのペルソナを演じさせる——仮想プロジェクトチームによるMCP開発の顛末（オトナの自由研究 #12）"
+    titleMatch: true
+    dateMeta: 2026-04-07
+    quotes:
+      c1: found
+      c2: found
+      c3: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 7人分のペルソナ; Opus 4.6／GPT-5.4／Sonnet 4.6／Haiku 4.5; 約10,250行; テスト62件全通過; 簡易動作確認OK
+        extractedQuote: 3日目は、7人分の仮想ペルソナを生成し、それぞれに別モデル（Opus 4.6／GPT-5.4／Sonnet 4.6／Haiku 4.5）を割り当て、会議室予約MCPを自走して実装してもらいました。成果物は約10,250行、テストは62件全通過、簡易動作確認もOK——表面上は成功したように見えました。
+        locator: GitHub Copilot CLIを使った3日間のまとめ(第1段落)
+        note: 本文の「チーム編成」表では7名に割り当てたのは claude-opus-4.6 / gpt-5.4 / claude-sonnet-4.6 の3種のみで、claude-haiku-4.5 は後続の第三者レビュー対応時の使用量内訳にだけ現れる。また第三者レビュー(GPT-5.4 Extra High)の実行では『9 passed / 53 errors』(greenlet 不足)と報告されており、『62件全通過』は著者側環境での値。成果物一覧表の合計『~10,250行』はドキュメント行を含む。
+    date: 2026-09-24
+volatility: fast
+reviewBy: null

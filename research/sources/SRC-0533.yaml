@@ -1,0 +1,91 @@
+schemaVersion: 0
+id: SRC-0533
+status: included
+excludeReason: null
+title: "ISO/IEC 29110-5-1-2:2025 Systems and software engineering — Life cycle profiles for very small entities (VSEs) — Part 5-1-2: Software engineering guidelines for the generic Basic profile"
+url: https://www.iso.org/standard/82669.html
+canonicalUrl: https://iso.org/standard/82669.html
+ids:
+  arxiv: null
+  doi: null
+publisher: International Organization for Standardization (ISO) / IEC JTC 1/SC 7
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2025-02
+publishedBasis: page
+version: Edition 1 (ISO/IEC TR 29110-5-1-2:2011 を置き換え)
+updated: null
+accessed: 2026-09-30
+access: paywall
+readLevel: abstract
+foundBy:
+  cluster: G02
+  query: ISO/IEC 29110-5-1-2:2025 OR "29110-5-1-2" international standard published replaces TR 2011 "Software engineering guidelines for the generic Basic profile"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH02, TH12]
+events:
+  - date: 2025-02-18
+    label: ISO/IEC 29110-5-1-2:2025 発行(TR 29110-5-1-2:2011 を置き換え)
+summary: VSE 基本プロファイルの手引きが 2025-02 に技術報告書(TR、2011)から国際規格へ置き換わった。ISO のカタログ頁の抄録だけを読んだ(93 頁、本文は有償)。安全重要ソフトウェアを開発しない VSE、単一の作業チームを対象とする。SI 工程の検証・妥当性確認の担い手と独立性の条文は読めていない。無償公開だった 2011 年版 TR は ISO の公開規格サイトで使用許諾への同意が要り、取得しなかった。
+claims:
+  - id: c1
+    text: 本規格は、安全重要ソフトウェアを開発しない VSE に適用される。安全重要分野の独立性要求(ISO 26262、IEC 61508 など)とは適用範囲が重ならない。
+    quote: This document applies to VSEs that do not develop safety-critical software.
+    locator: Abstract
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [249, 267]
+    stance: qualifies
+  - id: c2
+    text: 本規格は、単一の作業チームで単一の製品を開発する VSE を対象とする。
+    quote: This document is applicable to VSEs developing a single product by a single work team.
+    locator: Abstract
+    quant: null
+    evidenceKind: normative
+    rqs: [TH02-Q1]
+    issues: [267]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch, agent-blind]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T07:52:29.407Z
+    httpStatus: 403
+    finalUrl: https://www.iso.org/standard/82669.html
+    contentType: text/html; charset=UTF-8
+    titleFetched: Just a moment...
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: not-found
+      c2: not-found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 伏せ字の規格番号(ISO ___、IEC ___)は抄録に存在しない。抄録にあるのは "do not develop safety-critical software" のみ
+        extractedQuote: This document applies to VSEs that do not develop safety-critical software.
+        locator: Abstract(第 2 文)
+        note: 第 1 文(安全重要ソフトウェアを開発しない VSE に適用)は抄録で確認できた。第 2 文(安全重要分野の独立性要求と適用範囲が重ならない、ISO/IEC の具体的な規格番号)は抄録に記載が無く、独立性という語も出てこない。伏せ字の値は原典から抽出できない。curl は Cloudflare の確認画面で止まり、tavily_extract で本文を取得した。読めたのは抄録のみで、規格本文は有償。
+      c2:
+        verdict: match
+        extractedValue: a single product by a single work team
+        extractedQuote: This document is applicable to VSEs developing a single product by a single work team.
+        locator: Abstract(第 4 文)
+        note: ask と原文は一致して見える。tavily_extract で抄録を取得(curl は Cloudflare の確認画面で止まった)。
+    date: 2026-09-30
+volatility: slow
+reviewBy: null

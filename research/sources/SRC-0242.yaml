@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0242
+status: included
+excludeReason: null
+title: Security (OpenHands Software Agent SDK architecture)
+url: https://docs.openhands.dev/sdk/arch/security
+canonicalUrl: https://docs.openhands.dev/sdk/arch/security
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenHands (All Hands AI)
+authors: []
+orgType: community
+region: us
+lang: en
+sourceType: repo
+published: 2026-01-26
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-09-24
+access: open
+readLevel: full
+foundBy:
+  cluster: S3
+  query: OpenHands confirmation mode security analyzer risk level LOW MEDIUM HIGH
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH01, TH06, TH07]
+events: []
+summary: OSS エージェント OpenHands の SDK のセキュリティ設計。操作ごとに LOW/MEDIUM/HIGH/UNKNOWN のリスクを付け、確認ポリシー（AlwaysConfirm/NeverConfirm/ConfirmRisky）で人の確認要否を決める。既定のリスク評価は行為者の LLM 自身が付与する。
+claims:
+  - id: c1
+    text: 既定の LLMSecurityAnalyzer は、操作を生成する LLM 自身がツール呼び出しの引数としてリスク水準を付け、別の分析呼び出しを行わない。行為者による自己申告のリスク評価で確認要否が決まる構成であり、評価の独立性はない。
+    quote: The LLM reasons about risk in context when generating the action, eliminating the need for a separate security analysis call.
+    locator: LLMSecurityAnalyzer
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH06-Q3, TH01-Q1]
+    issues: [258]
+    stance: context
+  - id: c2
+    text: 既定ポリシー ConfirmRisky の閾値は HIGH で、HIGH（および既定では UNKNOWN）のみ人の確認を要し、LOW・MEDIUM（ファイル編集・API 呼び出しを含む）は確認なしで実行される。
+    quote: "threshold (default: HIGH ) - Risk level at or above which confirmation is required"
+    locator: ConfirmRisky (Default Policy)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: [TH01-Q1, TH01-Q4]
+    issues: []
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-23
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-23T23:23:15.977Z
+    httpStatus: 200
+    finalUrl: https://docs.openhands.dev/sdk/arch/security
+    contentType: text/html; charset=utf-8
+    titleFetched: Security - OpenHands Docs
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: fast
+reviewBy: null
