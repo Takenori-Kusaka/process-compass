@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0632
+status: included
+excludeReason: null
+title: Quality assurance
+url: https://en.wikipedia.org/wiki/Quality_assurance
+canonicalUrl: https://en.wikipedia.org/wiki/quality_assurance
+ids:
+  arxiv: null
+  doi: null
+publisher: Wikipedia
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: 2026-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-09-30
+access: open
+readLevel: secondary
+foundBy:
+  cluster: H01
+  query: ISO 9000:2015 3.3.6 quality assurance definition
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: 品質保証の語の定義の確認。ISO 9000 の定義を引用する二次情報(規格本文は未読)。
+claims:
+  - id: c1
+    text: ISO 9000 は品質保証を「品質要求事項が満たされるという確信を与えることに焦点を合わせた、品質マネジメントの一部」と定義する(二次情報による確認)。
+    quote: what ISO 9000 defines as that "part of quality management focused on providing confidence that quality requirements will be fulfilled"
+    locator: 冒頭の段落
+    quant: null
+    evidenceKind: normative
+    rqs: [TH12-Q1]
+    issues: [285]
+    stance: context
+verification:
+  status: verified
+  method: [mech-fetch]
+  date: 2026-09-30
+  humanChecked: false
+  note: ""
+  mech:
+    checkedAt: 2026-09-30T11:41:54.991Z
+    httpStatus: 200
+    finalUrl: https://en.wikipedia.org/wiki/Quality_assurance
+    contentType: text/html; charset=UTF-8
+    titleFetched: Quality assurance - Wikipedia
+    titleMatch: true
+    dateMeta: 2003-08-26
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: slow
+reviewBy: null

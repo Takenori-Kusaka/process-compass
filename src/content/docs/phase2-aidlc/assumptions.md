@@ -102,7 +102,7 @@ graph TD
 
 | 前提 | フェーズ4での対処 |
 | --- | --- |
-| A-T3 AIの自己検証 | [第5章 5.8.4](/process-compass/phase4-process-design/human-ai-boundary/) テスト生成の独立性。実装とテストを同一のAIに同一の文脈で書かせない |
+| A-T3 AIの自己検証 | [第5章 5.8.4](/process-compass/phase4-process-design/human-ai-boundary/) テスト生成における分離の段階。実装とテストを同一のAIに同一の文脈で書かせない |
 | A-P3 検証能力 | [第5章 5.6.2](/process-compass/phase4-process-design/human-ai-boundary/) 欠陥注入による検出能力の測定 |
 | A-O1 意思決定の権限 | [第3章 3.8.2](/process-compass/phase4-process-design/roles-responsibilities/) 決裁権限マトリクス、[第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/) D-0 |
 | A-O2 説明責任の一意性 | 結果責任は1名。AIを結果責任に割り当てない(テーラリングの禁止事項) |

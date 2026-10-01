@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 631(included 631、excluded 0)。生成日 2026-09-30。
+件数: 632(included 632、excluded 0)。生成日 2026-09-30。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -639,4 +639,5 @@
 | SRC-0629 | 2026-07-09 | corp-techblog | jp/ja | verified | TH01 TH06 TH10 | コードレビューの判断を「AI管轄」と「人間管轄」に分け、人は diff ではなく AI の作るレポートで承認を判断する運用の開始報告。実績は本番影響のない PR | [「人間がdiffを読まないコードレビュー」をやってみた](https://jmty-tech.hatenablog.com/entry/2026/07/09/183949) |
 | SRC-0630 | 2025-12-17 | corp-techblog | jp/ja | verified | TH01 TH06 TH07 TH11 | サイバーエージェントの1チームが、AI 導入でコミット数が約2倍になった後に組み直したレビューフローの報告。人の承認の後に AI の最終チェックを置き「最終ゲー | [コミット数2倍でもレビュー品質を維持！AI時代のコードレビューフロー再設計](https://developers.cyberagent.co.jp/blog/archives/60882/) |
 | SRC-0631 | 2026-09-07 | public-agency | jp/ja | verified | TH12 TH07 TH06 | IPA が 2026-06-08〜08-10 の AI セキュリティ事例を一次情報源から要約した定期刊行物(要約作成に AI を使用と明記)。読んだのはエグゼク | [AIセキュリティ短信 2026年8月号](https://www.ipa.go.jp/digital/ai/security/rcu1hd0000007gji-att/2026-2_0907.pdf) |
+| SRC-0632 | 2026-09 | community | global/en | verified | TH12 | 品質保証の語の定義の確認。ISO 9000 の定義を引用する二次情報(規格本文は未読)。 | [Quality assurance](https://en.wikipedia.org/wiki/Quality_assurance) |
 

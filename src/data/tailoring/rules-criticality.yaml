@@ -71,7 +71,7 @@ rules:
         note: 出荷判定に、適用しなかった強く推奨される手法の理由の記載を求める
       - target: { type: practice, id: ai-usage }
         action: note
-        note: 実装とテストを同一のAIに同一の文脈で書かせない。テスト生成の独立性は最強(組織的独立)を適用する
+        note: 実装とテストを同一のAIに同一の文脈で書かせない。テスト生成の分離の段階は最強(組織的な独立)を適用する
     reason: 死亡または重篤な傷害が起こりうる場合、機能安全の枠組みが要求する独立性と検証の網を満たす必要がある
     source: /process-compass/phase4-process-design/safety-verification/
     priority: 50

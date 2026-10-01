@@ -73,8 +73,8 @@ questions:
 
   - id: q-external-reviewer
     axis: supplement
-    text: レビューを頼める相手はチームの外にいる?
-    help: 他チーム・別部門・社外コミュニティなど、コードや仕様を見てもらえる相手
+    text: 作成を指示した本人以外に、確認できる人はいる?
+    help: 2名体制の相手、他チーム・別部門・社外コミュニティなど、コードや仕様を見てもらえる相手。AI の確認は数えない
     appliesWhen:
       q-team-size: [size-1-2]
     options:

@@ -11,7 +11,7 @@ sidebar:
 
 ```mermaid
 graph TD
-  IN["組織の条件<br>規模・事業ステージ・品質要求<br>開発形態・安全重要度"] --> P4["フェーズ4<br>プロセス標準<br>(本文8章＋附属書A〜F)"]
+  IN["組織の条件<br>規模・事業ステージ・品質要求<br>開発形態・安全重要度"] --> P4["フェーズ4<br>プロセス標準<br>(本文8章＋附属書A〜H)"]
   P4 --> P5A["フェーズ5<br>実装リファレンス<br>(Git・CI・AI実行環境)"]
   P4 --> P5B["フェーズ5<br>社会実装計画<br>(T-0〜T-4)"]
   P5A --> P6["フェーズ6<br>運用・測定・改善"]
@@ -53,11 +53,13 @@ graph TD
 | [第1章 総則](/process-compass/phase4-process-design/overview/) | 用語の定義、引用規格、構成 | 全章 |
 | [第2章 ライフサイクル](/process-compass/phase4-process-design/lifecycle/) | 事業ステージ、移行ゲート、立ち上げ手順、移管ゲート、スコープ3層と進捗の観測 | 第4章、フェーズ5、フェーズ6 |
 | [第3章 体制・会議体](/process-compass/phase4-process-design/roles-responsibilities/) | ロール、決裁権限、会議体、事前レビュー期間 | 第4章、[事前レビュー期間の自動化](/process-compass/phase5-implementation/pre-review-automation/) |
-| [第4章 ゲートと判定基準](/process-compass/phase4-process-design/gate-criteria/) | 判定基準、SLA、欠陥トリアージ基準 | [CI/CD ゲート](/process-compass/phase5-implementation/ci-gates/)、[メトリクス](/process-compass/phase6-operation/metrics/) |
+| [第4章 ゲートと判定基準](/process-compass/phase4-process-design/gate-criteria/) | 判定基準、SLA、欠陥トリアージ基準、保証の開示 | [CI/CD ゲート](/process-compass/phase5-implementation/ci-gates/)、[メトリクス](/process-compass/phase6-operation/metrics/)、附属書H |
 | [第5章 役割境界](/process-compass/phase4-process-design/human-ai-boundary/) | AI自律レベル、生成物の統制、形骸化の防止 | [AI 実行環境](/process-compass/phase5-implementation/ai-environment/)、附属書E・F |
-| [第6章 成果物](/process-compass/phase4-process-design/deliverable-templates/) | テンプレ0〜9、安全リスクアセスメント | フェーズ5全般、附属書F |
+| [第6章 成果物](/process-compass/phase4-process-design/deliverable-templates/) | テンプレ0〜10、安全リスクアセスメント | フェーズ5全般、附属書F |
 | [第7章 例外](/process-compass/phase4-process-design/exception-escalation/) | 例外承認、エスカレーション、中止判断 | [改善サイクル](/process-compass/phase6-operation/improvement-cycle/) |
 | [第8章 テーラリング](/process-compass/phase4-process-design/tailoring-guide/) | 調整軸と調整規則 | テーラリング知識ベース |
+| [附属書G 決裁制度への提示](/process-compass/phase4-process-design/executive-projection/) | 経営層へ提示する1枚(既存成果物からの投影) | 組織の稟議・決裁 |
+| [附属書H 品質保証の論証](/process-compass/phase4-process-design/assurance-case/) | 主張・条項・証跡・主張の崩れを示す観測の対応、保証の開示の読み方と定型の文、対外的に使う表現 | [附属書D](/process-compass/phase4-process-design/proposal-template/)、[プロセス内部監査](/process-compass/phase6-operation/process-audit/)、[QMS 文書管理との対応](/process-compass/phase5-implementation/qms-document-control/) |
 | [ピットイン方式参照モデル](/process-compass/phase4-process-design/process-model/) | 構造の機械可読表現(フェーズ・ゲート・ロール・成果物の識別子と関係) | 全章、テーラリング知識ベース、プロセス提案ツール |
 | [社会実装計画](/process-compass/phase5-implementation/enablement/) | 移行段階、判定ゲート、支援体制、教育計画 | フェーズ6 |
 | [メトリクス](/process-compass/phase6-operation/metrics/) | 三識メトリクス、ゲートの健全性 | 第5章の見直し、第8章の調整 |
@@ -90,7 +92,8 @@ graph TD
 | A-T1 〜 A-K3 | 理想モデルの前提条件(技術・個人・組織・知識) | [前提条件一覧](/process-compass/phase2-aidlc/assumptions/) |
 | AC-0 / AC-1 / AC-2 | 前提の充足状態(充足 / 劣化 / 不成立) | [第7章 7.10](/process-compass/phase4-process-design/exception-escalation/) |
 | テンプレ0 〜 テンプレ10 | 成果物の様式 | [第6章](/process-compass/phase4-process-design/deliverable-templates/) |
-| 附属書A 〜 附属書F | 背景・記法・手引き・様式 | [第1章 1.5](/process-compass/phase4-process-design/overview/) |
+| 附属書A 〜 附属書H | 背景・記法・手引き・様式・投影 | [第1章 1.5](/process-compass/phase4-process-design/overview/) |
+| C1 〜 C11 | 品質保証の論証を構成する下位の主張 | [附属書H](/process-compass/phase4-process-design/assurance-case/) H.3 |
 
 ### 混同しやすい対
 
@@ -105,6 +108,7 @@ graph TD
 | A-T1〜A-T4(技術の前提) と T-0〜T-4(移行段階) | 別の体系。**ハイフンの有無だけで区別する構成は成立しない**ため、前提側へ `A-` を冠した |
 | AC(前提の充足状態) と CL(安全重要度) | AC は前提が成立しているか、CL は危害の深刻度 |
 | AC(前提の充足状態) と CR(受入基準) | 別の体系。AC は前提が成立しているか、CR は個別の機能が満たすべき条件 |
+| C(論証の主張) と CR(受入基準)・CL(安全重要度) | 別の体系。C1〜C11 は附属書H の中だけで使う主張の識別子であり、区分ではない |
 | SC(スコープ3層) と R(リスク区分) | SC は範囲の確約度、R は決定の取り消し可能性。**R1 の変更が調整枠(SC-B)に属することもある** |
 
 **新しい区分を追加する場合、必ず本表を更新してください**。記号が重複すると、別の概念が同じ記号で書かれ、後から改称が必要になります。改称は参照するすべての箇所へ波及します。
@@ -137,6 +141,9 @@ graph LR
 | 安全状態への遷移に関する規格要求 | 調査が不十分。[附属書F](/process-compass/phase4-process-design/safety-verification/) F.5 は最小限の集合 |
 | 経営層の関与と現場の関与の相対的な重み | 実証的な優劣を示す資料を確認できていない |
 | 日本企業の品質保証部門の権限構造 | 一次調査を確認できていない |
+| 稟議・検収・品質保証部門との折り合いを記した国内の一次事例 | 見つかっていない(2026-09 時点)。[附属書H](/process-compass/phase4-process-design/assurance-case/)の問いの一覧は、会議体での想定に基づく |
+| ISO 9001 の 2026 年版(2026-09 発行)の本文 | 未確認。附属書H H.10 は、2015 年版の公開されている目次から箇条の番号と題を引用している(箇条 7.2、7.5、8.3.4、8.3.6、8.4、8.5.1、8.5.2、8.5.6、8.6、8.7、9.2、9.3、10.2)。確かめたのは箇条の題までであり、要求事項の本文とは照合していない。対応を示さない箇条は H.10 に列挙している。[QMS 文書管理との対応](/process-compass/phase5-implementation/qms-document-control/)は、箇条番号を引用せず、H.10 を参照する |
+| IEEE 1012 の本文(第三者検証の独立性の形態) | 未読。附属書H の記述は、公開されている航空宇宙分野の標準(2022 年)による |
 | 確約範囲の上限 60% の実証的裏づけ | 存在しない。DSDM の推奨値を初期値として採った |
 | IPA「情報システム・モデル取引・契約書」の検収・契約の不適合責任・第三者の権利侵害の各条項 | 原本の逐語確認は未了。**条項番号を引用してはならない** |
 | ライセンス検出の精度、および複製検知の検出率を測った独立の評価 | 特定できていない。本標準はどちらの数値も引用していない |

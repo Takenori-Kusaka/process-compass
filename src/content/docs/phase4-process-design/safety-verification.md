@@ -93,7 +93,7 @@ graph TD
 | 1 | AI自律レベルは L1 に固定する。引き上げの判定の対象としない |
 | 2 | 生成に用いたモデルの版と指示を構成管理下に置き、成果物から参照できるようにする |
 | 3 | 生成された各行が、要求へ追跡でき、コーディング規約に適合し、独立した担当者のレビューを受け、決定論的な試験で検証されている |
-| 4 | テスト生成の独立性は[5.8.4](/process-compass/phase4-process-design/human-ai-boundary/)の段階「最強」を適用する |
+| 4 | テスト生成における分離の段階は[5.8.4](/process-compass/phase4-process-design/human-ai-boundary/)の段階「最強」を適用する |
 | 5 | 安全度の評価を、実装の責任者から組織的に独立した担当者が行う |
 | 6 | 自己修正ループ([附属書E E.7](/process-compass/phase4-process-design/developer-guide/))の反復で自動検証が合格へ転じた場合、その合格をもって修正の完了としない |
 
@@ -219,14 +219,14 @@ AI が生成した試験は、**条件の境界をずらす変更を検出する
 | 適用規格と安全度水準 | 特定した規格、要求される水準、特定の根拠 |
 | 適用した手法 | F.4 の表のうち適用したもの。適用しなかった HR の項目は理由を記載する |
 | 故障挿入の結果 | 試験項目ごとの挙動と、期待との一致 |
-| AI の利用 | 用いたモデルの版、指示の保存場所、独立性の段階 |
+| AI の利用 | 用いたモデルの版、指示の保存場所、テスト生成の分離の段階(第5章 5.8.4) |
 | 独立した評価 | 評価者、実装の責任者からの独立の関係、評価の結論 |
 
 **適用しなかった HR の項目について理由を書かない記録は、不完全な記録として差し戻します**。強く推奨される手法を採らない判断そのものは認められますが、判断の根拠が残らない構成では後から妥当性を検証できません。
 
 ## F.8 関連する章
 
-- AI が生成した成果物の統制と、テスト生成の独立性は[第5章 5.8](/process-compass/phase4-process-design/human-ai-boundary/)に規定する
+- AI が生成した成果物の統制と、テスト生成の分離の段階は[第5章 5.8](/process-compass/phase4-process-design/human-ai-boundary/)に規定する
 - 危険源の同定とリスクの低減は[第6章](/process-compass/phase4-process-design/deliverable-templates/)に規定する
 - 独立レビュー(G-6)の実施手順は[附属書C](/process-compass/phase4-process-design/review-guide/)に示す
 - 検証の自動化と CI の構成は[フェーズ5](/process-compass/phase5-implementation/ci-gates/)に規定する

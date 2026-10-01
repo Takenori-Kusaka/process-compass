@@ -150,7 +150,7 @@ const questionSchema = z.object({
   axis: z.enum(['A', 'B', 'C', 'D', 'E', 'supplement']),
   text: z.string(), // 画面上の質問文(専門用語で聞かない)
   help: z.string().optional(),
-  // 条件付き表示: 指定した質問が指定の回答のときだけ表示する(例: 1〜2名のときだけ外部レビュア質問)
+  // 条件付き表示: 指定した質問が指定の回答のときだけ表示する(例: 1〜2名のときだけ、作成を指示した本人以外の確認者の質問)
   appliesWhen: z.record(z.string(), z.string().array()).optional(),
   options: z
     .object({ id: z.string(), label: z.string(), note: z.string().optional() })

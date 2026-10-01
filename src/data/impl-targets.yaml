@@ -38,6 +38,27 @@ targets:
     check: verify-gate-contract
     description: 実施するが標準の要求する属性を欠くゲート(ADR-0029)
 
+  - id: config-seats
+    name: process.config.json の seats[]
+    kind: config-key
+    keyPath: seats
+    check: verify-gate-contract
+    description: 席ごとの責任者・担い手の識別・運用形態(上限の宣言)・適合性確認・AI が使えないときの扱い(ADR-0054)
+
+  - id: config-delegation
+    name: process.config.json の delegation
+    kind: config-key
+    keyPath: delegation
+    check: verify-gate-contract
+    description: 委任を適用できる案件かどうかと、委任の範囲を定める機械の規則(ADR-0054 決定4)
+
+  - id: config-change-log
+    name: process.config.json の changeLog[]
+    kind: config-key
+    keyPath: changeLog
+    check: verify-gate-contract
+    description: 体制の変化点の記録。統制を緩める向きの変更は、決定した者の記名と理由を要する(ADR-0055)
+
   - id: claude-md
     name: CLAUDE.md の構成依存部分
     kind: template-file
@@ -65,6 +86,20 @@ targets:
     path: .claude/skills/gate-record/SKILL.md
     check: aggregate-evidence
     description: 実行主体が判定記録を作る手順。判定の範囲と、判定を人が行う境界
+
+  - id: process-change-skill
+    name: 体制の変化点を反映するスキル
+    kind: template-file
+    path: .claude/skills/process-change/SKILL.md
+    check: verify-gate-contract
+    description: 変化点の種別を入力に取り、構成の差分・失効と発生の一覧・残作業を出力する手順(ADR-0055 決定8)
+
+  - id: evidence-aggregation
+    name: 出荷判定の証跡の集約(保証の開示)
+    kind: template-file
+    path: scripts/gate/aggregate-evidence.mjs
+    check: aggregate-evidence
+    description: G-7 の突合対象と、保証の開示の7項目を、構成と既存の記録から導出する(ADR-0056 決定6)
 
   - id: d0-template
     name: 成果物テンプレート D-0(体制図)

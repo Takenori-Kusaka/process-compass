@@ -57,7 +57,8 @@
 ## コマンド
 
 - `npm run dev` — ローカルプレビュー
-- `npm run check` — textlint + トーン + 根拠水準 + エンジンテスト + 複製の検査 + ビルド(push 前に必ず通ること。PR では CI (`ci.yml`) が同じチェックを実行)
+- `npm run check` — textlint + トーン + 根拠水準 + 節番号の参照 + エンジンテスト + 複製の検査 + ビルド(push 前に必ず通ること。PR では CI (`ci.yml`) が同じチェックを実行)
+- `npm run lint:refs` — 附属書H・附属書D・プロセス内部監査が引く節番号・ゲート・基準・様式・ADR 番号の実在を検査する
 - `npm run template:kb` — テンプレートへ複製する知識ベースを再生成する
 
 ## Claude Code 設定(.claude/)

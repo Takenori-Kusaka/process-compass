@@ -44,7 +44,7 @@ for (const rule of rules) {
     }
   }
 }
-assert(constraints.length === 6, '禁止事項は6件のはず');
+assert(constraints.length === 9, '禁止事項は9件のはず(第8章「テーラリングの禁止事項」と同数)');
 console.log(`参照整合性 OK(規則 ${rules.length} 件・質問 ${questions.length} 問)`);
 
 const kb = { questions, rules };

@@ -33,3 +33,18 @@ constraints:
     description: 標準から外した項目を、理由と承認者とともに提案書へ記載せずに運用しない
     rationale: 規格の世界でも、テーラリングは適合の放棄ではなく「差分の宣言」を条件に認められる。宣言のない省略は追跡できない
     source: /process-compass/phase4-process-design/tailoring-guide/
+  - id: c-risk-class-not-waived-per-project
+    name: リスク区分依存の条項は案件単位で外さない
+    description: リスク区分に依存する条項を、案件単位で適用外にしない
+    rationale: リスク区分は変更ごとに判定する。案件の安全重要度から、変更ごとの判定の適用外は導けない(ADR-0039)
+    source: /process-compass/phase4-process-design/tailoring-guide/
+  - id: c-mode-cap-not-raised
+    name: 運用形態の上限は引き上げない
+    description: 担い手の運用形態(人確定・協働・委任)の上限を、案件単位で引き上げない
+    rationale: 上限は変更ごとのリスク区分で決まる。席ごとの宣言は上限であり、R1を協働や委任へ、R2を委任へ引き上げる経路はない(ADR-0054)
+    source: /process-compass/phase4-process-design/human-ai-boundary/
+  - id: c-expired-performer-not-counted
+    name: 失効した担い手を検出の層に数えない
+    description: 適合性確認が失効した担い手の確認を、検出の層に数えない
+    rationale: 担い手の識別(モデルの版・指示資産の版・権限の組)が変わった時点で確認は失効する。測り直すまで、その担い手の確認を検出能力の根拠にできない(ADR-0056)
+    source: /process-compass/phase4-process-design/assurance-case/
