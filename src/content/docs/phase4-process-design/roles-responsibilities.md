@@ -333,7 +333,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 | AI維持管理者 | Platform | `state:needs-platform` |
 | 事業決裁者 | PO(決裁のみ) | `state:needs-owner` |
 
-<!-- impl IMPL-0013 target=claude-md state=delivered note="ロールとレーンの写像および受信箱のラベル" -->
+<!-- impl IMPL-0013 target=next-role state=delivered note="ロールとレーンの写像および受信箱のラベル" -->
 
 写像は次の2条件を満たさなければなりません。
 
@@ -394,7 +394,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 参照先が D-0 の改訂に追随しているかは、機械的に検査できなければなりません。**形式と配置は準拠テンプレートが定めます**。本標準は宣言の内容と検査可能性のみを規定します。
 
-<!-- impl IMPL-0003 target=claude-md state=delivered note="実行主体が起動時に参照する内容(判定するゲート・担ってはならない工程・引き渡し先)" -->
+<!-- impl IMPL-0003 target=next-role state=delivered note="実行主体が起動時に参照する内容(判定するゲート・担ってはならない工程・引き渡し先)" -->
 
 ### 3.5.4 独立と分離の語の定義
 

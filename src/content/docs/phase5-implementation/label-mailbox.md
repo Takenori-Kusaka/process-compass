@@ -208,7 +208,7 @@ gh pr list --label "state:needs-tech" --state open
 
 エスカレーションレポートの様式（5項目）は第7章 7.6 による。ラベルの付与だけで報告を済ませてはならない。
 
-<!-- impl IMPL-0005 target=claude-md state=delivered note="エスカレーションの発火条件と段階に対応するラベル" -->
+<!-- impl IMPL-0005 target=next-role state=delivered note="エスカレーションの発火条件と段階に対応するラベル" -->
 
 ---
 

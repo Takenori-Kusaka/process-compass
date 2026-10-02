@@ -66,6 +66,12 @@ targets:
     check: check-process-rules
     description: エージェントが起動時に読む文書。構成から導出した権限・禁止工程・受信箱
 
+  - id: next-role
+    name: 次の一手のスクリプト(ロールの詳細)
+    kind: template-file
+    path: scripts/gate/next.mjs
+    description: 構成から導出するロールの詳細(判定するゲート・判定してはならないゲート・受信箱と引き渡しのラベル・エスカレーションの段階とラベル)。CLAUDE.md へ常駐させず、next.mjs --role で必要な時点に出す(#286)。構成から毎回導出するため、構成と乖離しない
+
   - id: gate-record-template
     name: 成果物テンプレート テンプレ4(ゲート判定記録)
     kind: template-file
@@ -85,7 +91,27 @@ targets:
     kind: template-file
     path: .claude/skills/gate-record/SKILL.md
     check: aggregate-evidence
-    description: 実行主体が判定記録を作る手順。判定の範囲と、判定を人が行う境界
+    description: /gate の旧名(互換の入口)。中身は /gate への案内だけ(#286)。判定記録の手順は gate-skill
+
+  - id: gate-skill
+    name: ゲート判定記録の入口のスキル(/gate)
+    kind: template-file
+    path: .claude/skills/gate/SKILL.md
+    check: aggregate-evidence
+    description: 実行主体が判定記録を作る入口。判定の範囲(当該ゲートの判定基準と全ゲート共通の通過条件だけ)と、判定を人が行う境界。ゲートごとの補助ファイル(gates/)を1枚だけ読ませる(#286)
+
+  - id: gate-skill-g6
+    name: ゲート判定記録のスキルの G-6 の補助ファイル
+    kind: template-file
+    path: .claude/skills/gate/gates/G-6.md
+    check: aggregate-evidence
+    description: G-6 の判定記録の書き方。G-6 を事後へ移した委任の変更を通過として記録しないこと、開発者の席だけの委任の変更の事前の承認、独立した人の確認の条件(#286)
+
+  - id: pr-checks
+    name: G-5 の PR 単位の検査(pr-rules)
+    kind: template-file
+    path: scripts/gate/check-pr.mjs
+    description: トレーラ Spec、変更規模の上限(基底ブランチの構成と台帳の例外承認)、閾値・除外設定と製品のコードの同時変更、既存のテストの変更の一覧(G-6 の材料)を、PR ごとに検査する(#286)。gate-g5.yml の pr-rules ジョブが呼び、test-check-pr.mjs がフィクスチャで試験する
 
   - id: process-change-skill
     name: 体制の変化点を反映するスキル
