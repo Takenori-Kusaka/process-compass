@@ -459,6 +459,11 @@ S0 では、**実装スタックが未確定のままプロセス構成の初期
 
 <!-- impl IMPL-0079 target=gate-record-template state=delivered note="規制業の監査対応書式(構成 review.recordFormat: audit)。テンプレ4 に「監査対応書式」の表(2人目の判定者・2人目の挙動要約)を置き、出荷の証跡の集約が、変更ごとの G-6 の判定記録の有無と表の記入を確かめる。PR の承認だけでは記録にしない(#288 第5巡)" -->
 
+「高」の「コア機能は2名」は、構成の `gates.g6.params.coreReviewerCount`(値 2)として降ります。コア機能の変更かどうかは、構成に既にある2つの宣言だけで機械が判定します。確約範囲・コア指定のパス(`delegation.protectedPaths`。委任を適用しない案件でも宣言できる)と、区分の下限の規則のパス(`riskFloor.rules[].paths`)です。新しい欄は設けません。どちらも未宣言の構成では、G-5 と出荷の証跡の集約が「コア機能のパスが未宣言のため確かめられない」と出し、黙って全変更の数で通しません。コア機能の変更に要する承認者の数は、`review.reviewerCount`(規制業の2名)と `coreReviewerCount` の大きいほうです。要求に満たない変更は、G-5(`pr-rules`)が「承認者 N 名 / 要求 M 名(コア機能)」と警告し、出荷判定の証跡の集約が独立した人の確認を経ていない変更に数えます。
+
+<!-- impl IMPL-0091 target=evidence-aggregation state=delivered note="軸C「高」のコア機能の独立レビュー2名(構成 gates.g6.params.coreReviewerCount)。コア機能の変更(delegation.protectedPaths と riskFloor.rules[].paths に当たる変更)の独立した人の承認者の数を、reviewerCount と coreReviewerCount の大きいほうで数え、満たない変更を「G-6 の承認者 N 名 / 要求 M 名(コア機能)」として独立した人の確認を経ていない変更に数える。パスが未宣言なら項目1 に「確かめられない」と出す。CLAUDE.md の構成依存部分と next.mjs にも常駐させる(#288 第8巡 Z7)" -->
+<!-- impl IMPL-0092 target=pr-checks state=delivered note="G-5 の PR 単位の検査で、変更したファイルがコア機能のパスに当たる PR の承認者の数を coreReviewerCount で数え、満たなければ「承認者 N 名 / 要求 M 名(コア機能)」と警告する(合否にしない)。パスが未宣言なら、その旨を出す(#288 第8巡 Z7)" -->
+
 ## 軸D: 開発形態による調整
 
 | 項目 | 内製 | 受託(発注側) | 受託(受注側) |

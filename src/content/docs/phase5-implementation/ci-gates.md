@@ -606,7 +606,7 @@ PR を経ていないコミットの扱いは次のとおりです。
 
 | ファイル | 対象外にする条件 |
 | --- | --- |
-| 判定記録(`docs/gates/`)、証跡(`evidence/`)、導入前の検証の記録(`docs/adoption-trial/`。附属書I I.11)、演習の報告(`docs/drills/`)、退出の予行の記録(`docs/exit-rehearsal.json`)、技術負債台帳、D-0 体制図、構成書(`PROCESS-PROFILE.md`) | 無条件。評価用の基準集合は評価の入力であり記録ではないため、PR で入れる |
+| 判定記録(`docs/gates/`)、証跡(`evidence/`)、導入前の検証の記録(`docs/adoption-trial/`。附属書I I.11)、演習の報告(`docs/drills/`)、退出の予行の記録(`docs/exit-rehearsal.json`)、技術負債台帳、D-0 体制図、層1(`docs/quality-assurance-policy.md`)、構成書(`PROCESS-PROFILE.md`) | 無条件。評価用の基準集合は評価の入力であり記録ではないため、PR で入れる |
 | `CLAUDE.md` | 生成区間の外(手書き部分)が、前後で同じである |
 | `process.config.json` | 変化点の記録(`changeLog[]`)が追記され、既存の記録が先頭部分として保たれている |
 | ファイルの変更を持たないコミット | 無条件 |

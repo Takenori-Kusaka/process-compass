@@ -15,7 +15,7 @@ rules:
         action: set
         param: coreReviewerCount
         value: 2
-        note: コア機能の独立レビューは2名で実施する
+        note: コア機能の独立レビューは2名で実施する(コア機能は確約範囲・コア指定のパスと区分の下限の規則のパス。G-5 と出荷の証跡の集約が承認者の数を数える。パスが未宣言なら「確かめられない」と出る)
       - target: { type: gate, id: g-ship }
         action: strengthen
         note: 出荷判定に限定的な抜き取り確認を追加する
