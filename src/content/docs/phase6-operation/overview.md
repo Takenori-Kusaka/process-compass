@@ -29,7 +29,7 @@ graph LR
 | [リスクカタログ](/process-compass/phase6-operation/risk-catalog/) | 内部・外部・生成AI起因のリスクと本標準の受け止め | 運用フェーズ全体 |
 | [こんなときどうする](/process-compass/phase6-operation/what-to-do-when/) | 症状から規定を引く逆引き表 | 運用フェーズ全体 |
 | [インシデント対応](/process-compass/phase6-operation/incident-response/) | Sev 判定・エスカレーション・ポストモーテム様式 | 監視・インシデント対応 |
-| [開発避難訓練](/process-compass/phase6-operation/incident-drill/) | 演習の4類型・inject 設計・評価・改善の追跡 | 監視・インシデント対応 |
+| [開発避難訓練](/process-compass/phase6-operation/incident-drill/) | 演習の6類型・inject 設計・評価・改善の追跡 | 監視・インシデント対応 |
 | [負債返却サイクル](/process-compass/phase6-operation/debt-payback/) | トリアージ基準と返却枠の運用 | 負債返却サイクル |
 | [改善サイクル](/process-compass/phase6-operation/improvement-cycle/) | プロセス自体の検査と適応の回し方 | プロセスの振り返り |
 | [運用メトリクス](/process-compass/phase6-operation/metrics/) | 19指標の算出方法と警戒サイン | プロセスの振り返りの入力 |

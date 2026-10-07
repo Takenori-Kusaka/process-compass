@@ -91,6 +91,23 @@ const TEMPLATE_FILES = {
   8: '08-ai-sla.md',
   9: '09-safety-risk-assessment.md',
   10: '10-assumption-ledger.md',
+  11: '11-quality-assurance-policy.md',
+};
+
+// 標準本体で新設したが、配布テンプレートがまだ無い様式。テンプレ番号 → 実装マークの番号。
+// 降りていない規定は消さずに表示し続ける(#222)。ここへ載せた様式は失敗にせず「降りていない」と
+// 表示する。ただし、対応する実装マークが state=undelivered で実在する場合に限る。マークが無い・
+// delivered になった様式をここへ残すと失敗にする。配布テンプレートを置いたら TEMPLATE_FILES へ移す。
+// テンプレ11(IMPL-0058)は配布済み(#288)。現在、配布待ちの様式は無い
+const PENDING_TEMPLATES = {};
+
+// 標準の様式番号を持たない補助の様式(#288 第2巡)。標準の本文が記録を要求し、様式そのものは準拠テンプレートが持つ。
+// 配布ファイル名 → 要求の所在(src/content/docs からの相対パス)と、本文に実在すべき語句
+const AUX_TEMPLATES = {
+  // 第4章 G-7「基準1・2 の記録」: 欠陥の台帳(重大度・優先度・状態)。台帳が無い出荷は記載の欠落
+  'defect-ledger.md': { doc: 'phase4-process-design/gate-criteria.md', phrase: '欠陥の台帳が無い出荷は、基準2 を確かめられない' },
+  // 附属書I I.11: 導入前の検証の合否の基準(実行の前に採用者が記入する)
+  'adoption-trial-criteria.md': { doc: 'phase4-process-design/adoption-guide.md', phrase: '## 1. 合否の基準(実行の前に記入する。採用者が書き、コマンドが写す)' },
 };
 
 // 標準本体と配布テンプレートの双方に現れなければならない項目名。
@@ -148,6 +165,15 @@ if (!fs.existsSync(TEMPLATE_DIR)) {
   const known = new Set(Object.values(TEMPLATE_FILES));
   for (const f of fs.readdirSync(TEMPLATE_DIR).filter((f) => f.endsWith('.md') && f !== 'README.md')) {
     if (known.has(f)) continue;
+    // 標準の様式番号を持たない補助の様式(#288)。標準の本文が、その記録を要求していることを確かめる
+    const aux = AUX_TEMPLATES[f];
+    if (aux) {
+      const text = fs.readFileSync(path.join(ROOT, 'src/content/docs', aux.doc), 'utf8');
+      if (!text.includes(aux.phrase)) {
+        problems.push(`template/templates/${f} は補助の様式ですが、標準(${aux.doc})に「${aux.phrase}」がありません`);
+      }
+      continue;
+    }
     // 記入見本(`*-sample-*.md`)は様式ではありません。標準の第6章に対応する規定を持たず、
     // 必須欄の検査(check-template-fields.mjs)の対象にもしません。ただし対応する様式が
     // 存在しない見本は、様式なしの記入例になるため許しません。
@@ -165,9 +191,39 @@ if (!fs.existsSync(TEMPLATE_DIR)) {
         `TEMPLATE_FILES へ追加し、記入見本なら <ゲート>-sample-<様式名>.md の名前にしてください`,
     );
   }
+  const docsText = () => {
+    const out = [];
+    const walk = (dir) => {
+      for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, e.name);
+        if (e.isDirectory()) walk(full);
+        else if (/\.mdx?$/.test(e.name)) out.push(fs.readFileSync(full, 'utf8'));
+      }
+    };
+    walk(path.join(ROOT, 'src/content/docs'));
+    return out.join('\n');
+  };
+  let docs = null;
   for (const num of headings) {
-    if (!(num in TEMPLATE_FILES)) {
+    if (num in TEMPLATE_FILES) continue;
+    const impl = PENDING_TEMPLATES[num];
+    if (!impl) {
       problems.push(`標準本体のテンプレ${num} に対応する配布テンプレートがありません`);
+      continue;
+    }
+    docs ??= docsText();
+    const mark = new RegExp(`<!--\\s*impl\\s+${impl}\\b[^>]*state=undelivered`);
+    if (!mark.test(docs)) {
+      problems.push(
+        `標準本体のテンプレ${num} は配布待ち(${impl})として登録されていますが、${impl} の state=undelivered の実装マークがありません`,
+      );
+      continue;
+    }
+    console.log(`降りていない: 標準本体のテンプレ${num} の配布テンプレートはまだありません(${impl})`);
+  }
+  for (const num of Object.keys(PENDING_TEMPLATES).map(Number)) {
+    if (num in TEMPLATE_FILES) {
+      problems.push(`テンプレ${num} は TEMPLATE_FILES と PENDING_TEMPLATES の両方にあります。PENDING_TEMPLATES から外してください`);
     }
   }
 

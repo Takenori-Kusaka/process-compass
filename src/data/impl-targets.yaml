@@ -133,3 +133,33 @@ targets:
     path: templates/00-d0-governance.md
     check: check-d0
     description: 案件の体制・兼務・エスカレーションの経路を案件ごとに定める成果物
+
+  - id: project-brief-template
+    name: 成果物テンプレート テンプレ6(企画書)
+    kind: template-file
+    path: templates/06-project-brief.md
+    description: G-1 の判定対象。品質の約束と保証範囲(層2)と、AI の利用の評価の3行を持つ欄の置き場(ADR-0057)
+
+  - id: templates-index
+    name: 成果物テンプレートの一覧
+    kind: template-file
+    path: templates/README.md
+    description: 様式の一覧。新しい様式(テンプレ11 品質保証の方針と受容の基準など)は、ここへ載せてから templates/ に置く(ADR-0057)
+
+  - id: qa-policy-template
+    name: 成果物テンプレート テンプレ11(品質保証の方針と受容の基準)
+    kind: template-file
+    path: templates/11-quality-assurance-policy.md
+    description: 層1 の様式。適用範囲の組織単位・記名者の権限・必須行・確認の周期と後継の欄の置き場(ADR-0057、#288 第2巡)
+
+  - id: handover-template
+    name: 成果物テンプレート テンプレ5(運用引き継ぎ文書)
+    kind: template-file
+    path: templates/05-handover.md
+    description: コア機能の理解保持者と、本人以外の確認者・確認日の欄の置き場(第3章 3.4.3、#288 第2巡)
+
+  - id: adoption-trial
+    name: 導入前の検証のコマンド
+    kind: template-file
+    path: scripts/gate/adoption-trial.mjs
+    description: 附属書I I.11 の導入前の検証を、採用者のリポジトリで準備・実行・集計し、様式の記録を出す1コマンド(init / seal / tally / run)。合否の基準の記入が実行の前であることを確かめてから実行する。next.mjs が記録の無い間に案内する(#288 第2巡)

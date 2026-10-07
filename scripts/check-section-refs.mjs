@@ -42,9 +42,10 @@ const DOCS_ROOT = 'src/content/docs';
 const BASE_PATH = '/process-compass';
 const P4 = 'phase4-process-design';
 
-/** 検査の対象。附属書H と、附属書H を番号で引くページ */
+/** 検査の対象。附属書H と、附属書H を番号で引くページ。附属書I(採用判断の手引き)は回答の根拠を条項で引く */
 const SOURCES = [
   `${P4}/assurance-case.md`,
+  `${P4}/adoption-guide.md`,
   `${P4}/proposal-template.md`,
   'phase6-operation/process-audit.md',
 ];
@@ -67,6 +68,7 @@ const ANNEX = {
   F: `${P4}/safety-verification`,
   G: `${P4}/executive-projection`,
   H: `${P4}/assurance-case`,
+  I: `${P4}/adoption-guide`,
 };
 
 const AUDIT_PAGE = 'phase6-operation/process-audit';
