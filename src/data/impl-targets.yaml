@@ -111,7 +111,7 @@ targets:
     name: G-5 の PR 単位の検査(pr-rules)
     kind: template-file
     path: scripts/gate/check-pr.mjs
-    description: トレーラ Spec、変更規模の上限(基底ブランチの構成と台帳の例外承認)、閾値・除外設定と製品のコードの同時変更、既存のテストの変更の一覧(G-6 の材料)を、PR ごとに検査する(#286)。gate-g5.yml の pr-rules ジョブが呼び、test-check-pr.mjs がフィクスチャで試験する
+    description: トレーラ Spec、変更規模の基準値(基底ブランチの構成。超過は規模の確認と区分の下限 R2 で扱い、既存の台帳の例外承認の行は有効)、閾値・除外設定と製品のコードの同時変更、既存のテストの変更の一覧(G-6 の材料)を、PR ごとに検査する(#286)。gate-g5.yml の pr-rules ジョブが呼び、test-check-pr.mjs がフィクスチャで試験する
 
   - id: process-change-skill
     name: 体制の変化点を反映するスキル
