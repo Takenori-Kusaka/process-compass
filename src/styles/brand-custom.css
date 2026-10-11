@@ -1,0 +1,50 @@
+/*
+ * Starlight の色と書体を、個人ブランド(kusaka-brand)のトークンへ結ぶ。
+ * トークンの正本は kusaka-brand/tokens/tokens.json。brand.css はその複製(scripts/brand-sync.mjs)。
+ * Starlight は html[data-theme] でテーマを切り替えるので、brand.css のダークの上書きがそのまま効く。
+ */
+@import './brand/brand.css';
+
+:root,
+:root[data-theme='light'],
+:root[data-theme='dark'] {
+  --sl-font: var(--kb-font-family-body);
+  --sl-font-system-mono: var(--kb-font-family-code);
+  --sl-color-accent: var(--kb-color-brand-primary);
+  --sl-color-accent-high: var(--kb-color-text-link);
+  --sl-color-accent-low: var(--kb-color-ai-100);
+  --sl-color-text: var(--kb-color-text-primary);
+  --sl-color-text-accent: var(--kb-color-text-link);
+  --sl-color-bg: var(--kb-color-surface-page);
+  --sl-color-bg-nav: var(--kb-color-surface-card);
+  --sl-color-bg-sidebar: var(--kb-color-surface-card);
+  --sl-color-bg-inline-code: var(--kb-color-surface-code);
+  --sl-color-hairline: var(--kb-color-border-line);
+  --sl-color-hairline-light: var(--kb-color-border-line);
+  --sl-color-hairline-shade: var(--kb-color-border-strong);
+}
+
+:root[data-theme='dark'] {
+  --sl-color-accent-low: var(--kb-color-ai-900);
+}
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4,
+.site-title,
+.hero h1 {
+  font-family: var(--kb-font-family-heading);
+  letter-spacing: var(--kb-font-letterSpacing-heading);
+}
+
+.sl-markdown-content {
+  line-height: var(--kb-font-lineHeight-body);
+}
+
+/* 図(キービジュアル・節図)は本文幅いっぱいに。自然幅より大きく拡大しない */
+.sl-markdown-content img[src*='/figures/'] {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

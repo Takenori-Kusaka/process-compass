@@ -9,6 +9,8 @@ sidebar:
 
 ゲートの識別子・順序・成果物との関係は、[ピットイン方式参照モデル](/process-compass/phase4-process-design/process-model/)(本標準の構造の機械可読表現)が保持します。本章はその判定基準の正本です([ADR-0010](/process-compass/adr/0010-data-doc-interface/))。
 
+![8つの工程ゲート G-1〜G-8 を縦の列に並べ、各ゲートに判定者を添えた図。G-4 機能仕様承認と G-5 自動検証だけが、省略できないゲートとして塗られている。詳細は本章の各節](../../../assets/figures/pit-in/fig-gates.png)
+
 ## ゲートの2系統
 
 本標準のゲートは2系統に分かれます。本章が規定するのは工程ゲート(G-1〜G-8)です。

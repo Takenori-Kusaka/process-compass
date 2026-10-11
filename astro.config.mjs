@@ -47,7 +47,18 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/Takenori-Kusaka/process-compass/edit/main/',
       },
+      // 個人ブランド(kusaka-brand)の色と書体。正本は kusaka-brand、複製は scripts/brand-sync.mjs
+      customCss: ['./src/styles/brand-custom.css'],
       head: [
+        { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
+        { tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap',
+          },
+        },
         {
           tag: 'meta',
           attrs: {
