@@ -35,15 +35,15 @@
     "brand:check": "node scripts/brand-sync.mjs --check"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
-    "@astrojs/starlight": "^0.41.6",
+    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/starlight": "^0.42.6",
     "astro": "^7.2.0",
     "astro-mermaid": "^2.1.0",
-    "mermaid": "^11.16.1",
+    "mermaid": "^12.1.0",
     "sharp": "^0.35.3"
   },
   "devDependencies": {
-    "starlight-links-validator": "^0.25.2",
+    "starlight-links-validator": "^0.26.0",
     "textlint": "^15.8.0",
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
     "yaml": "^2.9.0"
