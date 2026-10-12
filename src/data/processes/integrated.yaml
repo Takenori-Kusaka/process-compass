@@ -60,8 +60,8 @@ roles:
     href: /process-compass/phase4-process-design/roles-responsibilities/
   - id: ai-ops
     name: AI運用担当者(AIOps)
-    responsibility: 全社のAI実行基盤(モデル接続・実行予算・セキュリティ統制)の可用性と適合性に責任を持つ。開発ラインへは規程ではなく実行環境として統制を届ける
-    jpNote: 開発ラインの外側に置く。AI維持管理者との兼務は禁止(案件の都合で全社統制が緩むため)
+    responsibility: 全社のAI実行基盤(モデル接続・実行予算・セキュリティ統制)の可用性と適合性に責任を持つ。開発組織へは規程ではなく実行環境として統制を届ける
+    jpNote: 案件の外側に置く。AI維持管理者との兼務は禁止(案件の都合で全社統制が緩むため)
     href: /process-compass/phase4-process-design/roles-responsibilities/
 # 兼務を禁止する組み合わせ(第3章 3.5)。人と実行主体の文脈の両方で判定する(ADR-0035)。
 # 「担ってはならない工程」はここから導出する。手で書かせない
@@ -85,6 +85,15 @@ separations:
     roles: [dev-verifier, qa-gatekeeper]
     scope: same-project
     reason: 開発ラインの外の人による判定が成立しなくなる
+    exception: 3名未満に限り、代償措置つきで兼務を認める(第3章 3.5.2 / ADR-0029)
+    gate: g-ship
+  # 出荷判定者の席は、独立レビュアの席とも兼ねない(第3章 3.5、ADR-0066 決定1)。
+  # 開発者・独立レビュア・出荷判定者の3席が互いに兼ねられないことから、最小体制の3名が導かれる
+  # (scripts/test-tailoring-engine.mjs が総当たりで確かめる)
+  - id: sep-reviewer-shipping
+    roles: [independent-reviewer, qa-gatekeeper]
+    scope: same-project
+    reason: 出荷判定(G-7)は独立レビュー(G-6)の通過記録と独立の成立状況を突合する。同じ人が兼ねると、自分の記録を自分で突合することになる
     exception: 3名未満に限り、代償措置つきで兼務を認める(第3章 3.5.2 / ADR-0029)
     gate: g-ship
   - id: sep-shipping-business

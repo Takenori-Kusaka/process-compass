@@ -218,7 +218,7 @@ graph TD
 | 行動 | 本標準の受け止め |
 | --- | --- |
 | 逸脱の規範化 | [ゲート判定基準](/process-compass/phase4-process-design/gate-criteria/)の4値判定、[未達と省略の区別](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/) |
-| コミットメントの拡大 | [7.7.6 第三者による棚卸し](/process-compass/phase4-process-design/exception-escalation/)、[7.7.4 自動的な上程](/process-compass/phase4-process-design/exception-escalation/) |
+| コミットメントの拡大 | [7.7.6 案件に関与していない者による棚卸し](/process-compass/phase4-process-design/exception-escalation/)、[7.7.4 自動的な上程](/process-compass/phase4-process-design/exception-escalation/) |
 | クランチ | [スコープの三層](/process-compass/adr/0019-scope-commitment-three-layers/)、[レビュー負荷の測定](/process-compass/phase5-implementation/review-burden-measurement/) |
 | 非難文化 | 責めを問わないポストモーテム、[欠陥注入の測定を個人にしない](/process-compass/phase5-implementation/seeded-error-safety/) |
 | 帰属の誤り | [改善サイクル](/process-compass/phase6-operation/improvement-cycle/)の3区分(システム起因・リスク認識の不足・意図的な逸脱) |

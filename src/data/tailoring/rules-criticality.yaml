@@ -17,7 +17,14 @@ rules:
       - target: { type: practice, id: ai-usage }
         action: note
         note: 個人の権利・利益に影響する判定の設計は、AI単独で確定しない
-    reason: 回復可能であっても個人の権利に影響が及ぶ場合、判断の経路を後から再構成できる必要がある
+      # 事業ステージ(軸B)による独立レビューの省略を、CL1 以上では適用しない(ADR-0065 決定3)。
+      # 優先度の高い set が、優先度の低い omit を取り消して対象を復活させる(エンジンの安全側の規則)
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: appliesInAllStages
+        value: true
+        note: 独立レビューは、事業ステージによる省略の対象にしない(S0 でも適用する)。危害の深刻度は、ステージの都合で下がらない
+    reason: 回復可能であっても個人の権利に影響が及ぶ場合、判断の経路を後から再構成できる必要がある。独立した人の確認を、事業ステージを理由に外さない
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 50
 
@@ -72,6 +79,6 @@ rules:
       - target: { type: practice, id: ai-usage }
         action: note
         note: 実装とテストを同一のAIに同一の文脈で書かせない。テスト生成の分離の段階は最強(組織的な独立)を適用する
-    reason: 死亡または重篤な傷害が起こりうる場合、機能安全の枠組みが要求する独立性と検証の網を満たす必要がある
+    reason: 死亡または重篤な傷害が起こりうる場合、自律レベルを固定し、機械の検証と出荷判定の記録を厚くする。独立レビューを2名とするのは、1名の承認者の確認だけでは変更を取り込めない状態を作り、その記録を残すためである(第4章 G-6)。機能安全の規格が確認者の人数を求めるという主張ではない
     source: /process-compass/phase4-process-design/safety-verification/
     priority: 50

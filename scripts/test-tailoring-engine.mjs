@@ -281,4 +281,65 @@ console.log('S0 の G-3・G-4・G-5・G-8 は適用 OK');
   console.log('安全重要度2(CL2 は入れ子で加算・CL0 は無加算) OK');
 }
 
+// S0 の独立レビュー(G-6): 標準品質・CL0 は省略、CL1 以上は S0 でも適用(#302 / ADR-0065 決定1・3)。
+// 規則 r-e-cl1 の set(優先度 50)が、r-b-poc の omit(優先度 10)を取り消して対象を復活させる
+for (const size of ['size-3-9', 'size-10plus']) {
+  const base = {
+    'q-team-size': size,
+    'q-biz-phase': 'poc',
+    'q-quality': 'quality-standard',
+    'q-dev-form': 'inhouse',
+    'q-existing-gates': 'gates-none',
+    'q-ai-constraint': 'ai-free',
+  };
+  const cl0 = evaluate(kb, { ...base, 'q-criticality': 'cl0' });
+  assert.equal(cl0.profile['gate:g-indep-review'].state, 'omit', `S0・標準品質・CL0(${size})は独立レビューを省略`);
+  assert.equal(cl0.profile['gate:g-ship'].state, 'omit', `S0・標準品質・CL0(${size})は出荷判定を省略`);
+  for (const cl of ['cl1', 'cl2', 'cl3']) {
+    const r = evaluate(kb, { ...base, 'q-criticality': cl });
+    const state = r.profile['gate:g-indep-review']?.state;
+    assert.equal(state, 'standard', `S0・${cl.toUpperCase()}(${size})は独立レビューを適用する(軸B の省略を適用しない)。実際: ${state}`);
+    assert(
+      r.warnings.some((w) => w.target === 'gate:g-indep-review' && w.winner === 'r-e-cl1'),
+      `S0・${cl.toUpperCase()}(${size}): 省略の取り消しが警告として残る`
+    );
+  }
+}
+console.log('S0 の G-6(CL0 は省略、CL1 以上は適用) OK');
+
+// 最小体制は3名(#304 / ADR-0066 決定4)。本文(第3章 3.5)の「最小体制は3名」を、兼務禁止の組から総当たりで導く。
+// 席を n 名へ割り当てる全通りを調べ、人の単位の兼務禁止(unit: context を除く)をすべて満たす最小の n を求める
+{
+  const seats = integrated.roles.map((r) => r.id).filter((id) => integrated.separations.some((s) => (s.roles ?? []).includes(id)));
+  const pairs = integrated.separations.filter((s) => s.unit !== 'context' && Array.isArray(s.roles) && s.roles.length === 2).map((s) => s.roles);
+  const minimum = (ps) => {
+    for (let n = 1; n <= seats.length; n++) {
+      const total = n ** seats.length;
+      for (let k = 0; k < total; k++) {
+        const who = {};
+        let x = k;
+        for (const s of seats) {
+          who[s] = x % n;
+          x = Math.floor(x / n);
+        }
+        if (ps.every(([p, q]) => who[p] !== who[q])) return n;
+      }
+    }
+    return null;
+  };
+  assert.equal(minimum(pairs), 3, '兼務禁止の組をすべて満たす最小の人数は3名のはず(第3章 3.5)');
+  // 3名を導くのは、開発者・独立レビュア・出荷判定者の3席が互いに兼ねられないことである
+  const trio = ['dev-verifier', 'independent-reviewer', 'qa-gatekeeper'];
+  for (const [a, b] of [[0, 1], [0, 2], [1, 2]]) {
+    assert(
+      pairs.some((p) => p.includes(trio[a]) && p.includes(trio[b])),
+      `${trio[a]} × ${trio[b]} の兼務禁止が規則データにあるはず`
+    );
+  }
+  // 独立レビュア × 出荷判定者を欠くと、2名で満たせてしまう(本文の「3名」が規則から導けなくなる)
+  const without = pairs.filter((p) => !(p.includes('independent-reviewer') && p.includes('qa-gatekeeper')));
+  assert.equal(minimum(without), 2, '独立レビュア × 出荷判定者を欠くと最小は2名になる(この組が3名の根拠である)');
+  console.log('最小体制は3名(兼務禁止の組から導出) OK');
+}
+
 console.log('\nすべてのシナリオ検証に合格しました');

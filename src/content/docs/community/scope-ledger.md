@@ -31,10 +31,12 @@ sidebar:
 | 5.5.4 委任の条件 | CL0・R3 の変更 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#554-委任の条件適用-cl0r3-の変更) |
 | 5.7.3 選択肢の比較 | R1 の決定・例外承認 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#573-選択肢の比較適用-r1-の決定例外承認) |
 | 委任を適用した変更 | CL0・R3 の変更 | 変更ごと | [phase4-process-design/review-guide](/process-compass/phase4-process-design/review-guide/#委任を適用した変更適用-cl0r3-の変更) |
+| 席の責任者でない確認者の力量 | 承認を独立した人の確認に数える人 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#席の責任者でない確認者の力量適用-承認を独立した人の確認に数える人) |
 | 入力の分離 | 確認側の担い手に AI を置く場合 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#入力の分離適用-確認側の担い手に-ai-を置く場合) |
 | B-3 設計審査会 | S2 スケール、または安全・法規制の対象となる機能 | 機能ごと | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#b-3-設計審査会適用-s2-スケールまたは安全法規制の対象となる機能) |
 | 外部の確認者を高リスクの変更へ集中させる | チーム規模 1〜2名 | その他 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#外部の確認者を高リスクの変更へ集中させる適用-チーム規模-12名) |
 | 事後監査の手続 | 委任を適用した R3 の変更。体制の規模によらない | 変更ごと | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#事後監査の手続適用-委任を適用した-r3-の変更体制の規模によらない) |
+| S0 の省略が成立する前提 | 事業ステージ S0 で、標準品質かつ CL0 の構成 | ステージごと | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#s0-の省略が成立する前提適用-事業ステージ-s0-で標準品質かつ-cl0-の構成) |
 | 規模の基準値 | 規模の基準値を超えた PR | その他 | [phase5-implementation/pr-workflow](/process-compass/phase5-implementation/pr-workflow/#規模の基準値適用-規模の基準値を超えた-pr) |
 | 能力依存の定数の登録簿 | 能力依存として登録した定数 | その他 | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/#能力依存の定数の登録簿適用-能力依存として登録した定数) |
 

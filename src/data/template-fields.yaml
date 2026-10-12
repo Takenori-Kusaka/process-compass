@@ -154,8 +154,9 @@ forms:
       - standard: '## 挙動要約(G-6 独立レビューのみ必須)'
         template: 挙動要約
       # --- #288 第5巡: 監査対応書式(規制業 review.recordFormat: audit)と独立した安全性の評価(CL2 以上) ---
-      - standard: '| 2人目の判定者 |'
-        template: '| 2人目の判定者 |'
+      # 行の題は「2人目の承認者」(#305 / ADR-0067 決定4。旧称は 2人目の判定者)
+      - standard: '| 2人目の承認者 |'
+        template: '| 2人目の承認者 |'
       - standard: '| 2人目の挙動要約 |'
         template: '| 2人目の挙動要約 |'
       - standard: '| 安全性の評価者 |'
