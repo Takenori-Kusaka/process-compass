@@ -1,17 +1,17 @@
 # Graph Report - process-compass  (2026-10-12)
 
 ## Corpus Check
-- 366 files · ~774,702 words
+- 366 files · ~774,731 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 11 file(s) not represented in the graph (top: (none) 9, .css 2)
 
 ## Summary
-- 6569 nodes · 6504 edges · 510 communities (494 shown, 16 thin omitted)
+- 6570 nodes · 6505 edges · 511 communities (495 shown, 16 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c7ed3a4b`
+- Built from commit: `685c9d2d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -511,7 +511,7 @@
 - U1
 - Issue #300 調査C: 受入基準の草案への自問(M5)、1人 + AI の実態表(M6)、外部の確認者の調達(M7)
 - 3.3 外部の規格・実務(出典つき)
-- 1. 稟議制度(りんぎ)
+- 2. 主要手法:コンテキストの層としての整理
 - N2
 - U2
 - 1.2 標準側の既存の記述(逐語、所在)
@@ -524,6 +524,7 @@
 - M5
 - N13
 - N7
+- 1. 自律コーディングエージェントの主要実装例
 
 ## God Nodes (most connected - your core abstractions)
 1. `付録: 公式出典の一覧(生成)` - 65 edges
@@ -544,15 +545,15 @@
   research/phase4-standard/118-119-stack-pr.md → scripts/generate-image.mjs
 - `段階1の手順(標準機能のみ)` --references--> `main()`  [INFERRED]
   src/content/docs/phase5-implementation/stacked-pr.md → scripts/generate-image.mjs
+- `突合の結果(2026-10-08)` --references--> `verify()`  [INFERRED]
+  research/phase4-standard/issue-triage-2026-10-08.md → scripts/research-ledger.mjs
 - `導入前の検証` --references--> `verify()`  [INFERRED]
   src/content/docs/phase5-implementation/template-repository.md → scripts/research-ledger.mjs
-- `判定の一覧` --references--> `check()`  [INFERRED]
-  research/phase4-standard/issue-triage-2026-10-08.md → scripts/check-section-refs.mjs
 
 ## Import Cycles
 - None detected.
 
-## Communities (510 total, 16 thin omitted)
+## Communities (511 total, 16 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -571,12 +572,12 @@ Cohesion: 0.07
 Nodes (27): scripts, astro, brand:check, brand:sync, build, check, criteria:write, dev (+19 more)
 
 ### Community 4 - "日本企業のガバナンス・決裁ゲートの実態 調査メモ"
-Cohesion: 0.07
-Nodes (28): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 2.1 定義と機能, 2.2 「意思決定は遅いが実行は速い」の両面性, 2. 根回し・合議(ネマワシ), 3.1 定義と構造(建前), 3.2 金額・重要度による決裁階層(図解の中核) (+20 more)
+Cohesion: 0.06
+Nodes (33): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ) (+25 more)
 
 ### Community 5 - "エージェント型開発(自律・マルチエージェント)の現在地 調査メモ"
-Cohesion: 0.06
-Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
+Cohesion: 0.08
+Nodes (25): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 2-1. Anthropic による協調パターンの分類(設計語彙の基準点), 2-2. 主要フレームワーク, 2. マルチエージェント・オーケストレーションのパターンとフレームワーク, 3-1. SWE-bench とその派生, 3-2. 到達点の推移(SWE-bench Verified、公式発表値) (+17 more)
 
 ### Community 6 - "0007-schema-driven-process-data.md"
 Cohesion: 0.15
@@ -587,8 +588,8 @@ Cohesion: 0.06
 Nodes (29): 0. プロセスの概要 — DDD は「ライフサイクル」ではなく「設計手法/思想」である, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+21 more)
 
 ### Community 8 - "コンテキストエンジニアリング手法 調査メモ"
-Cohesion: 0.07
-Nodes (30): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 2.1 システムプロンプト・指示の設計, 2.2 Few-shot 例示(手本による誘導), 2.3 RAG(検索拡張生成)による外部知識の注入, 2.4 ステアリングファイル / ルール(プロジェクト文脈の永続化) (+22 more)
+Cohesion: 0.10
+Nodes (21): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 3.1 ポランニー:暗黙知の原典, 3.2 野中の SECI モデル:暗黙知⇄形式知の変換サイクル, 3.3 CE 手法と SECI プロセスの対応(本メモの統合。→ 考察扱い), 3. 暗黙知の形式知化という観点(SECI / ポランニー) (+13 more)
 
 ### Community 9 - "プロセス記述に関する国際標準の調査メモ"
 Cohesion: 0.07
@@ -839,8 +840,8 @@ Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
 ### Community 71 - "research-ledger.mjs"
-Cohesion: 0.07
-Nodes (60): 288 採用判断シートでの3回目の判定(2026-10-07)— 指摘(主担当が受信メッセージから転記), 2回目の「直すべき箇所」10件: すべて解消(実走で確認), 新しく見つけた穴(採用者が自分で直せないもの), 総合の判定(3回目), 突合の結果(2026-10-08), adjudicationTasks(), args, arxivWait() (+52 more)
+Cohesion: 0.08
+Nodes (59): 288 採用判断シートでの3回目の判定(2026-10-07)— 指摘(主担当が受信メッセージから転記), 2回目の「直すべき箇所」10件: すべて解消(実走で確認), 新しく見つけた穴(採用者が自分で直せないもの), 総合の判定(3回目), adjudicationTasks(), args, arxivWait(), blindTasks() (+51 more)
 
 ### Community 72 - "phase2-aidlc/summary.md"
 Cohesion: 0.33
@@ -2236,7 +2237,7 @@ Nodes (8): ステータス, 品質保証の側, 帰結, 採らなかった案, �
 
 ### Community 432 - "open Issue 全件の突合(2026-10-08)"
 Cohesion: 0.04
-Nodes (54): #248 5.5「人間が担う判断の4種類」が、AI を主体に置く体制を構造的に禁じている, #249 軸A(チーム規模)が、人数の減少を「兼務」でしか吸収していない, #250 S1 以降に生じた「設計方針を変えうる技術検証」の置き場が無い — 技術検証が S0 探索ステージに閉じている, #251 「困ったときに立ち戻る先」の成果物が無く、ADR がその役割を代替させられている — 実装0行で ADR 18本・3,348行, #252 実装10行に対して文書 21,116行 — 標準が要求する成果物の量に上限も比率の観測も無い, #253 G-3 が ADR を判定対象にしているため、設計判断ごとに ADR が1本生まれる — 判定しているのは欄の充足であって設計の妥当性ではない, #254 S1 段階で G-5 が検証しているのは実装ではなく記録である — 実装向けの検査を「いつから」有効にするかを規定できない, #255 G-4 に、受入基準の側から対応するタスクを数え上げる検査を置く — G-2 基準1 と同じ形が1段だけ存在し、次の段で落ちている (+46 more)
+Nodes (55): #248 5.5「人間が担う判断の4種類」が、AI を主体に置く体制を構造的に禁じている, #249 軸A(チーム規模)が、人数の減少を「兼務」でしか吸収していない, #250 S1 以降に生じた「設計方針を変えうる技術検証」の置き場が無い — 技術検証が S0 探索ステージに閉じている, #251 「困ったときに立ち戻る先」の成果物が無く、ADR がその役割を代替させられている — 実装0行で ADR 18本・3,348行, #252 実装10行に対して文書 21,116行 — 標準が要求する成果物の量に上限も比率の観測も無い, #253 G-3 が ADR を判定対象にしているため、設計判断ごとに ADR が1本生まれる — 判定しているのは欄の充足であって設計の妥当性ではない, #254 S1 段階で G-5 が検証しているのは実装ではなく記録である — 実装向けの検査を「いつから」有効にするかを規定できない, #255 G-4 に、受入基準の側から対応するタスクを数え上げる検査を置く — G-2 基準1 と同じ形が1段だけ存在し、次の段で落ちている (+47 more)
 
 ### Community 433 - "C. 調査で新たに見つかった標準側の論点"
 Cohesion: 0.04
@@ -2471,8 +2472,8 @@ Cohesion: 0.40
 Nodes (4): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 項目ごとの判定, Issue #300 会議体 意見書 01 — 起草者
 
 ### Community 492 - "Issue #300 決定の記録"
-Cohesion: 0.40
-Nodes (4): 1. 結論の一覧, 2. 採らないと決めたもの(課さないと決めたこと), 3. 別の Issue へ送るもの, Issue #300 決定の記録
+Cohesion: 0.33
+Nodes (5): 1. 結論の一覧, 2. 採らないと決めたもの(課さないと決めたこと), 3. 別の Issue へ送るもの, 4. 反映の記録, Issue #300 決定の記録
 
 ### Community 493 - "N3"
 Cohesion: 0.40
@@ -2490,9 +2491,9 @@ Nodes (4): 0. 先に結論(項目ごとの要点), 4. 3 項目に共通する事
 Cohesion: 0.40
 Nodes (5): 3.3 外部の規格・実務(出典つき), 公開すればレビューが来るか, 守秘義務のあるコードで社外の確認者を使うときの論点, 有償のコードレビュー, 相互レビューの取り決め
 
-### Community 497 - "1. 稟議制度(りんぎ)"
-Cohesion: 0.40
-Nodes (5): 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ)
+### Community 497 - "2. 主要手法:コンテキストの層としての整理"
+Cohesion: 0.22
+Nodes (9): 2.1 システムプロンプト・指示の設計, 2.2 Few-shot 例示(手本による誘導), 2.3 RAG(検索拡張生成)による外部知識の注入, 2.4 ステアリングファイル / ルール(プロジェクト文脈の永続化), 2.5 MCP(Model Context Protocol)によるツール・データ接続, 2.6 コンテキストの圧縮・要約・選択(ウィンドウ管理), 2.7 メモリ(短期/長期、エージェントメモリ), 2.8 サブエージェントへのコンテキスト分離 (+1 more)
 
 ### Community 498 - "N2"
 Cohesion: 0.50
@@ -2530,9 +2531,13 @@ Nodes (3): N6, `src/content/docs/phase4-process-design/roles-responsibilities.md
 Cohesion: 0.67
 Nodes (3): N8, `src/content/docs/phase4-process-design/roles-responsibilities.md` — 第3章 3.5 確認者の表(1名体制の行), `src/content/docs/phase4-process-design/roles-responsibilities.md` — 第3章 3.5 確認者の表(2名体制で相手も関与した変更の行)。第8章 軸A の体制の表の列挙へ揃えた
 
+### Community 510 - "1. 自律コーディングエージェントの主要実装例"
+Cohesion: 0.25
+Nodes (8): 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules, 1-6. Claude Code / Claude Agent SDK(Anthropic), 1-7. 一覧(建前 vs 現実の要約), 1. 自律コーディングエージェントの主要実装例
+
 ## Knowledge Gaps
 - **28 isolated node(s):** `ADR-0006`, `ADR-0017`, `ADR-0020`, `mermaid`, `sharp` (+23 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 5223 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 5224 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -2545,10 +2550,10 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Why does `main()` connect `main` to `118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA`, `stacked-pr.md`, `Process Compass 🧭`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Why does `@astrojs/starlight` connect `comparison.astro` to `package.json`, `process-diagrams.ts`, `content.config.ts`?**
-  _High betweenness centrality (0.003) - this node is a cross-community bridge._
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
