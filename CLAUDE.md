@@ -50,7 +50,7 @@
 
 - `zenn/` = [zenn-content](https://github.com/Takenori-Kusaka/zenn-content)。Zenn の GitHub 連携先
 - **Zenn へ連携できるリポジトリは最大2つ**。記事も本もこのリポジトリへ集約する
-- 本: `zenn/books/pit-in-process/`(全10章)
+- 本『ピットイン方式』は 2026-10 に廃止(非公開 → 削除)。**正本はこのリポジトリの GitHub Pages**。Zenn・Qiita・note・SNS は publishing-hub で管理し、正本を参照する概要・派生物だけを置く(概要記事: `articles/pit-in-process-overview.md`)
 - `config.yaml` の `chapters` に書かれていない章は zenn.dev 上から削除される。増減したら必ず更新する
 - 画像は `zenn/images/` へ置き、`/images/...` の**絶対パス**で参照する(相対パスは動かない)
 

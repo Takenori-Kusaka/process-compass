@@ -47,9 +47,9 @@ git submodule update --init --recursive
 
 ### 要点だけ読む
 
-📖 **[AIが実装する時代の開発プロセス — ピットイン方式](https://zenn.dev/takenori_kusaka/books/pit-in-process)**(Zenn / 無料 / 全10章)
+📖 **[ピットイン方式とは — AI が実装する時代の開発プロセスを、一枚の図で理解する](https://zenn.dev/takenori_kusaka/articles/pit-in-process-overview)**(Zenn)
 
-「AIDLC は理想論」と感じている人、パラダイムシフトで何が変わるのかもやもやしている人へ向けて、要点を10章にまとめました。**第1章だけで全体が伝わる構成**です。
+全体像を一枚の図と表でまとめた概要です。正本は [標準本文](https://takenori-kusaka.github.io/process-compass/phase4-process-design/overview/)(GitHub Pages)です。
 
 原稿は [zenn-content](https://github.com/Takenori-Kusaka/zenn-content) にあり、このリポジトリからは `zenn/` としてサブモジュール参照しています。
 
