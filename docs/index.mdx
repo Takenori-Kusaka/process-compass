@@ -1,0 +1,83 @@
+---
+title: Process Compass（プロセスコンパス）
+description: 生成AI時代の開発プロセス「ピットイン方式」「ピットイン開発」を体系化し、チームに最適なプロセスへ導く羅針盤
+template: splash
+hero:
+  tagline: 生成AIを組み込んだ開発プロセス（通称：ピットイン方式/ピットイン開発）を、理想論ではなく「組織で運用できる形」に落とし込む。チーム体制・期待品質・事業フェーズから、あなたのチームに最適な開発プロセスへ導く羅針盤を目指すプロジェクトです。
+  image:
+    file: ../../assets/hero-compass.png
+    alt: 羅針盤と開発プロセスのアイコンが軌道状に並ぶイラスト
+  actions:
+    - text: プロジェクトの目的を知る
+      link: /process-compass/vision/01-goal/
+      icon: right-arrow
+    - text: GitHub で見る
+      link: https://github.com/Takenori-Kusaka/process-compass
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## このプロジェクトがやること
+
+<CardGrid stagger>
+  <Card title="既存プロセスの体系化" icon="open-book">
+    ウォーターフォール、アジャイル/スクラム、TDD、DDD、イベント駆動、仕様駆動(SDD)——
+    ロールモデル・決裁ゲート・レビュープロセス・成果物まで踏み込んで、現行の開発プロセスを体系的に整理します。
+  </Card>
+  <Card title="AIDLC の現実的な導入設計" icon="rocket">
+    「プロダクトオーナーだけのチームで自律開発」という理想論と、
+    組織的な責任・品質保証の現実とのギャップを分析し、実際に導入できるプロセスへ落とし込みます。
+  </Card>
+  <Card title="図解ファースト" icon="puzzle">
+    新しい概念を未経験の人にも理解してもらうため、シーケンス図・ロール図・階層構造図など、
+    Mermaid / UML / 生成画像を駆使した図解中心のドキュメントを作ります。
+  </Card>
+  <Card title="プロセス提案ツールへ" icon="setting">
+    最終的には、アサイン可能なメンバー・稼働時間・体制・期待品質・事業フェーズを入力すると、
+    最適な開発プロセスとその運用方法を提案するインタラクティブなツールとして確立します。
+  </Card>
+</CardGrid>
+
+## ピットイン方式
+
+本プロジェクトが策定した開発プロセスの通称です。正式名称は「AI協調型ソフトウェア開発プロセス標準」といいます。
+
+![ピットイン方式の全体像。速く回る AI 協調ループの決められた場所に、人が触るピット(仕様承認・独立レビュー)を置く。その外側を、事業判断の節目(企画承認・ステージ移行・リリース決裁)が低頻度で囲む](../../assets/figures/pit-in/kv-overview.png)
+
+- マシンは人間より速い。それでも、決められた場所では必ず人間が触る
+
+F1 のピット作業は、18〜20名が2秒以下で終わります。レースそのものは止まりません。決められた場所でだけ人の手が入ります。AI が実装を主導する開発でも、この形は変わりません。
+
+[ピットイン方式を読む](/process-compass/phase4-process-design/overview/)
+
+### 知りたいことから読む
+
+読む先だけを示す表です。規定の内容は、リンク先の本文が正本です。
+
+| 知りたいこと | 読む場所 |
+| --- | --- |
+| 開発者の作業が、何から何へ変わるか | [附属書E E.1・E.2](/process-compass/phase4-process-design/developer-guide/) |
+| 既存の稟議・出荷判定の、何を変えて何を変えないか | [附属書A A.5](/process-compass/phase4-process-design/integrated-process/)、[附属書D](/process-compass/phase4-process-design/proposal-template/) |
+| 判定基準と様式の実物 | [第4章](/process-compass/phase4-process-design/gate-criteria/)、[第6章](/process-compass/phase4-process-design/deliverable-templates/) |
+| ルールが形だけになることを、どの条項が扱うか | [第5章 5.6](/process-compass/phase4-process-design/human-ai-boundary/) |
+| 1〜2名の体制ではどうなるか | [第8章 軸A](/process-compass/phase4-process-design/tailoring-guide/)、[準拠テンプレート「達成できないゲートの扱い」](/process-compass/phase5-implementation/template-repository/) |
+| 既にコードがあるリポジトリへ入れたい | [フェーズ5 概要「設定作業の順序」](/process-compass/phase5-implementation/overview/) |
+| 採用してよいかを判断したい | [附属書I](/process-compass/phase4-process-design/adoption-guide/) |
+| 品質保証部門へ提案したい | [附属書D](/process-compass/phase4-process-design/proposal-template/) |
+| 何を主張し、何を主張しないか。限界はどこに書いてあるか | [第1章 1.9](/process-compass/phase4-process-design/overview/)、[附属書A A.6](/process-compass/phase4-process-design/integrated-process/) |
+| 運用中に困っている | [フェーズ6「こんなときどうする」](/process-compass/phase6-operation/what-to-do-when/) |
+| 規定の前提が、どの調査から来たか | [フェーズ1](/process-compass/phase1-current-state/overview/)・[フェーズ2](/process-compass/phase2-aidlc/overview/)・[フェーズ3](/process-compass/phase3-gap-analysis/overview/)。調査の記録であり、規定ではない。規定は第1章以降の標準本文 |
+
+### まず要点だけ知りたい方へ
+
+全体像を一枚の図と表でまとめた概要を、Zenn に公開しています。正本はこのサイトの標準本文です。
+
+[ピットイン方式とは — AI が実装する時代の開発プロセスを、一枚の図で理解する](https://zenn.dev/takenori_kusaka/articles/pit-in-process-overview)
+
+## フィードバック歓迎
+
+このプロジェクトは多くの人からの意見・アイデア・フィードバックを得ることを大切にしています。
+[GitHub Issues](https://github.com/Takenori-Kusaka/process-compass/issues) からお気軽にどうぞ。
+ドキュメントは CC-BY-4.0、コードは MIT ライセンスで公開しています。
