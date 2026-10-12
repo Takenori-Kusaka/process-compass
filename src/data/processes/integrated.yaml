@@ -66,10 +66,13 @@ roles:
 # 兼務を禁止する組み合わせ(第3章 3.5)。人と実行主体の文脈の両方で判定する(ADR-0035)。
 # 「担ってはならない工程」はここから導出する。手で書かせない
 separations:
+  # 実行主体の文脈の単位でだけ課す。人の単位では課さない(第3章 3.5.3、ADR-0060)。
+  # 成果物の結果責任者が G-2・G-3・G-4・G-7 の判定者を兼ねることは、禁止に当たらない
   - id: sep-self-approval
     roles: null
+    unit: context
     scope: same-work-product
-    reason: 起案した主体が判定すれば、判定は自己申告になる。役割の組み合わせによらず成立しない
+    reason: 成果物を起案した実行主体の文脈が判定の草案を作れば、判定の案は作成側の主張になる。体制の人数によらない。人の単位では課さない
     exception: none
     gate: null
   - id: sep-author-reviewer

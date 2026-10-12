@@ -1,0 +1,106 @@
+schemaVersion: 0
+id: SRC-0633
+status: included
+excludeReason: null
+title: ISO/IEC Directives, Part 2 — Principles and rules for the structure and drafting of ISO and IEC documents (Ninth edition, 2021)
+url: https://www.iso.org/sites/directives/current/part2/index.xhtml
+canonicalUrl: https://iso.org/sites/directives/current/part2/index.xhtml
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2021
+publishedBasis: page
+version: Ninth edition
+updated: null
+accessed: 2026-10-12
+access: open
+readLevel: section
+foundBy:
+  cluster: I310
+  query: ISO/IEC Directives Part 2 verbal forms for expressions of provisions normative informative annex
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: ISO と IEC の規格の構成と起草の規則(第9版)。規定の種類ごとの表現形式(箇条7)、検証できる要求だけを置くこと(5.5)、同じ要求を繰り返さず引用で書くこと(5.7)、附属書の種別の示し方(20.2)を定める。Issue #310 の調査が全文を取得し(tmp/302-310/s310-dl/dir2.txt)、反映の担当が箇条7 と 20.2 を読んだ。
+claims:
+  - id: c1
+    text: 適合を主張するために満たす要求事項を、利用者が識別できなければならない。要求事項を、推奨・許容・可能性と能力から区別できなければならない。
+    quote: The user of the document shall be able to identify the requirements he/she is obliged to satisfy in order to claim conformance to a document. The user shall also be able to distinguish these requirements from other types of provision (recommendations, permissions, possibilities and capabilities).
+    locator: 7.1 General
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [310]
+    stance: supports
+  - id: c2
+    text: 表3〜表7 に定義されていない表現形式を、規定の表現に使ってはならない。
+    quote: To avoid risk of misinterpretation, verbal forms that are not defined in Table 3 to Table 7 shall not be used for the expression of provisions.
+    locator: 7.1 General
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [310]
+    stance: supports
+  - id: c3
+    text: 許容は規格が与える許可を表し、可能性・能力は利用者の能力または開かれた可能性を表す。許容の文脈で can を使わない。
+    quote: “May” signifies a permission expressed by the document, whereas “can” refers to the ability of a user of the document or to a possibility open to him/her.
+    locator: 7.4 Permission(Table 5 の注)
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [310]
+    stance: supports
+  - id: c4
+    text: 外部の制約は、規格の要求事項ではない。利用者への情報として与える。
+    quote: External constraints are not requirements of the document. They are given for the information of the user.
+    locator: 7.6 External constraint
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [310, 309]
+    stance: supports
+  - id: c5
+    text: 附属書の種別(参考か規定か)は、本文からの引き方で明らかにし、附属書の見出しの下に示さなければならない。
+    quote: The status of the annex (informative or normative) shall be made clear by the way in which it is referred to in the text and shall be stated under the heading of the annex.
+    locator: 20.2 Normative or informative?
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [310]
+    stance: supports
+  - id: c6
+    text: 検証できる要求だけを含める。
+    quote: Requirements shall be objectively verifiable. Only those requirements that can be verified shall be included.
+    locator: 5.5
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [310, 303, 308]
+    stance: supports
+  - id: c7
+    text: ほかの場所にある要求を引く必要がある場合は、繰り返しではなく引用で行う。
+    quote: If it is necessary to invoke a requirement that appears elsewhere, this should be done by reference, not by repetition
+    locator: 5.7
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [310]
+    stance: supports
+verification:
+  status: verified
+  method: [agent-read]
+  date: 2026-10-13
+  humanChecked: false
+  note: 原典の全文の写し(tmp/302-310/s310-dl/dir2.txt。2026-10-12 に調査担当が curl で取得)で、c1〜c7 の逐語を確かめた。写しは作業用で、リポジトリには置いていない。これより新しい版の有無は確かめていない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: null

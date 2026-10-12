@@ -71,6 +71,31 @@ const kb = { questions, rules };
   console.log('ペルソナ1(2名・PoC) OK');
 }
 
+// S0(PoC)で、G-3・G-4・G-5・G-8 に事業ステージの調整が掛からないこと(= 適用)を固定する。
+// 第8章 軸B の表は全ゲートの行を持ち、この4つを S0 でも「適用」と定める(第2章 2.5 は軸B を引く)。
+// 規則が無いことの結果ではなく、決定として固定する(#310 / ADR-0063)。
+for (const size of ['size-1-2', 'size-3-9', 'size-10plus']) {
+  const r = evaluate(kb, {
+    'q-team-size': size,
+    'q-biz-phase': 'poc',
+    'q-quality': 'quality-standard',
+    'q-criticality': 'cl0',
+    'q-dev-form': 'inhouse',
+    'q-external-reviewer': 'reviewer-yes',
+    'q-existing-gates': 'gates-none',
+    'q-ai-constraint': 'ai-free',
+  });
+  for (const gate of ['g-tech-design', 'g-spec-cycle', 'g-ci', 'g-release']) {
+    const state = r.profile[`gate:${gate}`]?.state;
+    assert(
+      state === undefined || state === 'require',
+      `S0(${size})で ${gate} は適用のはず(第8章 軸B)。実際: ${state}`
+    );
+    assert(!['omit', 'simplify'].includes(state) && !String(state ?? '').startsWith('merged-into'), `S0(${size})で ${gate} を省略・簡略・統合にしない`);
+  }
+}
+console.log('S0 の G-3・G-4・G-5・G-8 は適用 OK');
+
 // ペルソナ2: 事業会社 8名・グロース・高品質(要件定義シナリオ2)
 {
   const r = evaluate(kb, {

@@ -1,0 +1,99 @@
+# 規定の表現形式の検査の登録簿(#310 / ADR-0063)
+#
+# 第1章 1.5(附属書の種別)と 1.7(規定の表現形式・表の升の語・同じ事項は1か所)を、
+# scripts/check-provisions.mjs が検査するための登録簿。書式と運用は community/provision-forms.md による。
+schemaVersion: 0
+
+# --- 文書の種別(第1章 1.5) ---
+# kind: normative   — 本文8章と規定の附属書。依頼の形・「すべき」・廃した升の語を検出する
+# kind: informative — 参考の附属書。要求・禁止の文末と、実装マークを検出する
+# 附属書は annex に記号を書く。表題と第1章 1.5 の表の「種別」が一致することを検査する
+documents:
+  - { page: phase4-process-design/overview, kind: normative, chapter: 1 }
+  - { page: phase4-process-design/lifecycle, kind: normative, chapter: 2 }
+  - { page: phase4-process-design/roles-responsibilities, kind: normative, chapter: 3 }
+  - { page: phase4-process-design/gate-criteria, kind: normative, chapter: 4 }
+  - { page: phase4-process-design/human-ai-boundary, kind: normative, chapter: 5 }
+  - { page: phase4-process-design/deliverable-templates, kind: normative, chapter: 6 }
+  - { page: phase4-process-design/exception-escalation, kind: normative, chapter: 7 }
+  - { page: phase4-process-design/tailoring-guide, kind: normative, chapter: 8 }
+  - { page: phase4-process-design/integrated-process, kind: informative, annex: A }
+  - { page: phase4-process-design/ears-guide, kind: normative, annex: B }
+  - { page: phase4-process-design/review-guide, kind: informative, annex: C }
+  - { page: phase4-process-design/proposal-template, kind: normative, annex: D }
+  - { page: phase4-process-design/developer-guide, kind: informative, annex: E }
+  - { page: phase4-process-design/safety-verification, kind: normative, annex: F }
+  - { page: phase4-process-design/executive-projection, kind: informative, annex: G }
+  - { page: phase4-process-design/assurance-case, kind: normative, annex: H }
+  - { page: phase4-process-design/adoption-guide, kind: informative, annex: I }
+
+# --- 廃した升の語(第1章 1.7.3) ---
+# 規定の文書の表の升が、この語だけ、またはこの語+括弧書きである場合に検出する
+retiredCellWords:
+  - 省略可
+  - 任意
+  - どちらでもよい
+# 規定の文書の地の文でも検出する語
+retiredWordsAnywhere:
+  - 省略可
+
+# --- 廃した言い回し(第1章 1.7「同じ事項の規定は1か所に書く」) ---
+# 条項を改めて古い言い回しを廃したとき、その特徴的な句を登録する。句が残っていれば検査が失敗する。
+#   phrase  — そのままの文字列で探す句
+#   retired — 廃した日
+#   by      — 廃した決定(ADR または Issue)
+#   instead — 代わりに書くこと、または正本の所在
+retiredPhrases:
+  - phrase: 自動承認の比率
+    retired: 2026-10-13
+    by: ADR-0059
+    instead: 量の名前として廃した。承認の比率を引き下げの検知条件に置かない(第5章 5.4.6)
+  - phrase: 自動承認率
+    retired: 2026-10-13
+    by: ADR-0059
+    instead: 同上
+  - phrase: 自動承認の割合
+    retired: 2026-10-13
+    by: ADR-0059
+    instead: 同上
+  - phrase: 委譲・機械化・分割
+    retired: 2026-10-13
+    by: ADR-0063
+    instead: 帯域の不足に対する手段は、第4章「帯域を理由に判定を省略しない」の順による
+  - phrase: 曖昧語の禁止リスト
+    retired: 2026-10-13
+    by: ADR-0062
+    instead: 規範は類。検出語の正本は第4章 G-2「曖昧語(基準2)」の表
+  - phrase: 語の一覧の正本は
+    retired: 2026-10-13
+    by: ADR-0062
+    instead: 検出語の正本は第4章 G-2 の表。準拠テンプレートのスクリプトを正本と書かない
+  - phrase: 起案した主体は、その成果物の判定者
+    retired: 2026-10-13
+    by: ADR-0060
+    instead: 成果物を起案した実行主体の文脈は、その成果物の判定の草案を作らない(第3章 3.5.3)。人の単位では課さない
+  - phrase: 書いていない前提はあるか
+    retired: 2026-10-13
+    by: "#300(N4)、ADR-0064"
+    instead: 暗黙の前提は第4章 G-2 基準3 による。草案を受け取ったときの問いは附属書B の1問だけ
+  - phrase: スコープ外に入れるべきものはあるか
+    retired: 2026-10-13
+    by: "#300(N4)、ADR-0064"
+    instead: スコープ外の事項は第4章 G-2 基準4 による。草案を受け取ったときの問いは附属書B の1問だけ
+
+# --- 廃した言い回しを探す範囲 ---
+# 決定の記録(adr/)は、廃した言い回しを経緯として引くので探さない。自動生成の台帳も探さない。
+# zenn/ は派生物の置き場であり、publishing-hub の査読の経路で改めるため、ここでは探さない。
+retiredScan:
+  roots:
+    - src/content/docs
+    - src/data
+    - template
+  extensions: [.md, .mdx, .yaml, .yml, .mjs, .json]
+  exclude:
+    - src/content/docs/adr
+    - src/content/docs/community/evidence-ledger.md
+    - src/content/docs/community/implementation-ledger.md
+    - src/content/docs/community/scope-ledger.md
+    - src/content/docs/community/provision-forms.md
+    - src/data/provision-forms.yaml

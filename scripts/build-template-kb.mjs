@@ -122,6 +122,35 @@ function clauseScopes() {
   return out;
 }
 
+/**
+ * 曖昧語の検出語を、第4章 G-2 の「| 検出語 | 類 |」の表から抜き出す(ADR-0062)。
+ *
+ * 正本は本文の表である。準拠テンプレートの spec-lint は、ここで複製した語を読む。
+ * 語をスクリプトへ書き写すと、本文と機械が別の一覧を持つ(#308)。表が見つからない場合は失敗させる。
+ */
+function ambiguousTerms() {
+  const file = path.join(ROOT, 'src/content/docs/phase4-process-design/gate-criteria.md');
+  const out = [];
+  let inTable = false;
+  for (const line of fs.readFileSync(file, 'utf8').split(/\r?\n/)) {
+    const cells = line.trim().startsWith('|')
+      ? line.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim())
+      : null;
+    if (!cells) {
+      if (inTable) break;
+      continue;
+    }
+    if (!inTable) {
+      if (cells[0] === '検出語' && cells[1] === '類') inTable = true;
+      continue;
+    }
+    if (cells.every((c) => /^-+$/.test(c))) continue;
+    if (cells[0]) out.push({ term: cells[0], kind: cells[1] ?? '' });
+  }
+  if (!out.length) throw new Error('第4章 G-2 の検出語の表(| 検出語 | 類 |)が見つかりません');
+  return out;
+}
+
 export function buildKb() {
   const questions = loadYaml(path.join(TAILORING_DIR, 'questions.yaml')).questions;
   const constraints = loadYaml(path.join(TAILORING_DIR, 'constraints.yaml')).constraints;
@@ -161,6 +190,8 @@ export function buildKb() {
   const separations = (model.separations ?? []).map((s) => ({
     id: s.id,
     roles: s.roles ?? null,
+    // 判定の単位。context は実行主体の文脈の単位でだけ課す規則(第3章 3.5.3、ADR-0060)。無ければ人と文脈の両方
+    unit: s.unit ?? null,
     scope: s.scope,
     reason: s.reason,
     exception: s.exception ?? 'none',
@@ -181,6 +212,9 @@ export function buildKb() {
     gates,
     roles,
     separations,
+    // 曖昧語の検出語(第4章 G-2 の表の複製)。spec-lint が読む(ADR-0062)
+    ambiguousTerms: ambiguousTerms(),
+    ambiguousTermsSource: `${SITE}${BASE_PATH}/phase4-process-design/gate-criteria/`,
     clauseScopes: clauseScopes(),
   };
 }

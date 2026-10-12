@@ -99,7 +99,7 @@ E.5 は「確認の範囲が有界であること」を要件としています�
 
 - 要約は**評価を含む**。「想定内の操作でした」という記述は、確認の結論を先に与える
 - 監査の対象が監査の記録を書く構造になる
-- [附属書E E.9 禁止事項5](/process-compass/phase4-process-design/developer-guide/)および[レビューパッケージ](/process-compass/phase5-implementation/review-package/)の原則(生成を機械的な導出に限り、要約と評価を含めない)と同じ理由による
+- [第5章 5.8.5 の禁止事項5](/process-compass/phase4-process-design/human-ai-boundary/)および[レビューパッケージ](/process-compass/phase5-implementation/review-package/)の原則(生成を機械的な導出に限り、要約と評価を含めない)と同じ理由による
 
 機械的な導出は許容します。実行したコマンドの分類、変更したパスの一覧、通信先の一覧は、いずれも集計であり評価を含みません。
 

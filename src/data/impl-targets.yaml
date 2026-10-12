@@ -66,6 +66,12 @@ targets:
     check: check-process-rules
     description: エージェントが起動時に読む文書。構成から導出した権限・禁止工程・受信箱
 
+  - id: process-profile
+    name: PROCESS-PROFILE.md(構成から生成するプロセスの要約)
+    kind: template-file
+    path: PROCESS-PROFILE.md
+    description: 構成から生成する、人とエージェントが読む案件のプロセスの要約。ロールごとの判定ゲート・兼務の禁止・文脈の単位の規定の文を出す
+
   - id: next-role
     name: 次の一手のスクリプト(ロールの詳細)
     kind: template-file
@@ -112,6 +118,12 @@ targets:
     kind: template-file
     path: scripts/gate/check-pr.mjs
     description: トレーラ Spec、変更規模の基準値(基底ブランチの構成。超過は規模の確認と区分の下限 R2 で扱い、既存の台帳の例外承認の行は有効)、閾値・除外設定と製品のコードの同時変更、既存のテストの変更の一覧(G-6 の材料)を、PR ごとに検査する(#286)。gate-g5.yml の pr-rules ジョブが呼び、test-check-pr.mjs がフィクスチャで試験する
+
+  - id: spec-lint
+    name: 受入基準の曖昧語の検査(spec-lint)
+    kind: template-file
+    path: scripts/gate/spec-lint.mjs
+    description: G-5 基準4。第4章 G-2 の検出語の表(知識ベース ambiguousTerms)の語を、機能仕様の受入基準の節から検出する。gate-g5.yml の spec-lint ジョブが呼び、test-init-g5.mjs が試験する
 
   - id: process-change-skill
     name: 体制の変化点を反映するスキル

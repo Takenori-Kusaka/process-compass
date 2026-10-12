@@ -1,5 +1,5 @@
 ---
-title: 附属書D 導入提案書の様式
+title: 附属書D(規定) 導入提案書の様式
 description: 本プロセス標準を社内の品質保証部門・プロセス部門へ提案し承認を得るための提案書様式と、提案の進め方
 sidebar:
   order: 23
@@ -7,9 +7,11 @@ sidebar:
 
 本プロジェクトの成果は、最終的に**各企業の品質管理部門・プロセス部門に提案し、承認を得て運用してもらう**ことを想定しています。このページは、そのための提案書テンプレートと進め方です。
 
+**本附属書は規定です**(第1章 1.5)。[第8章](/process-compass/phase4-process-design/tailoring-guide/)と[第4章 G-7](/process-compass/phase4-process-design/gate-criteria/)が、本附属書の様式と変更点の一覧を引きます。提案の進め方と説得の順序の記述は、説明です。
+
 品質統制に関する記述(提案書の5節と想定問答)は、[附属書H 品質保証の論証](/process-compass/phase4-process-design/assurance-case/)からの投影です。**本ページで回答を独自に書きません**。問答を単独で増やすと、条項の改訂に追随せず、互いに食い違うためです([ADR-0056](/process-compass/adr/0056-assurance-argument/)決定9)。
 
-提案書は、**組織として品質を保証すると言える形**で書きます。品質を保証するのは本標準ではなく、本標準を適用する組織です([ADR-0057](/process-compass/adr/0057-organizational-quality-assurance/))。採用を判断する者が問う18の問い(品質保証と組織継続)への本標準の回答は、[附属書I 採用判断の手引き](/process-compass/phase4-process-design/adoption-guide/)にあります。提案書の §5 と想定問答から、附属書I を引いてください。
+提案書は、**組織として品質を保証すると言える形**で書きます。品質を保証するのは本標準ではなく、本標準を適用する組織です([ADR-0057](/process-compass/adr/0057-organizational-quality-assurance/))。採用を判断する者が問う18の問い(品質保証と組織継続)への本標準の回答は、[附属書I 採用判断の手引き](/process-compass/phase4-process-design/adoption-guide/)にあります。提案書の §5 と想定問答から、附属書I を引きます。
 
 ## 提案の戦略: 「変えない」から入る
 

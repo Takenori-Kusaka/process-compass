@@ -8,7 +8,11 @@
 //
 // マークの書式(規約: community/implementation-marking.md):
 //
-//   <!-- impl IMPL-0001 target=config-roles state=delivered note="兼務の禁止" -->
+//   <!-- impl IMPL-0001 target=config-roles state=delivered check=machine note="兼務の禁止" -->
+//
+// state(降りているか)と check(規定の中身を何が確かめるか)は別の事実である(ADR-0061)。
+// 降ろし先の実在は本スクリプトが確かめる。規定の中身が検査されているかは check が示す。
+// check を欠くマークは「未分類」として数え、台帳に件数を出す(落とさない)。
 //
 // オプション:
 //   --write   台帳ページ(community/implementation-ledger.md)を再生成する
@@ -26,6 +30,14 @@ const BASE_PATH = '/process-compass';
 const TEMPLATE_ROOT = path.join(ROOT, 'template');
 
 const STATES = { delivered: '降りている', undelivered: '**降りていない**' };
+
+/** 検査の手段(ADR-0061)。属性を欠くマークは UNCLASSIFIED として扱う */
+const CHECKS = {
+  machine: '機械が確かめる',
+  presence: '実在だけ確かめる',
+  manual: '人が確かめる',
+};
+const UNCLASSIFIED = '未分類';
 
 const MARK_RE = /<!--\s*impl\s+(IMPL-\d{4})\s+([^>]*?)-->/;
 const MARK_LOOSE_RE = /<!--\s*impl\s/;
@@ -93,6 +105,9 @@ function collect(file) {
     if (attrs.state && !STATES[attrs.state]) {
       errors.push(`${file}:${i + 1} ${id} の state が不正です: ${attrs.state}(delivered / undelivered)`);
     }
+    if (attrs.check && !CHECKS[attrs.check]) {
+      errors.push(`${file}:${i + 1} ${id} の check が不正です: ${attrs.check}(machine / presence / manual)`);
+    }
     if (attrs.target && !TARGETS[attrs.target]) {
       errors.push(
         `${file}:${i + 1} ${id} の target が登録簿にありません: ${attrs.target}` +
@@ -107,6 +122,7 @@ function collect(file) {
       url: toUrl(file),
       target: attrs.target ?? '',
       state: attrs.state ?? '',
+      check: attrs.check ?? '',
       note: attrs.note ?? '',
     });
   }
@@ -164,9 +180,31 @@ async function verifyTargets(used) {
   }
 }
 
+/** 検査の手段ごとの件数。未分類を含む */
+function countChecks(rows) {
+  const counts = Object.fromEntries([...Object.keys(CHECKS), ''].map((k) => [k, 0]));
+  for (const m of rows) counts[CHECKS[m.check] ? m.check : ''] += 1;
+  return counts;
+}
+
 function renderLedger(rows) {
   const out = [];
   const undelivered = rows.filter((m) => m.state === 'undelivered');
+  const counts = countChecks(rows);
+
+  out.push('### 検査の手段ごとの件数');
+  out.push('');
+  out.push('「降りている」は、降ろし先が実在することを示します。規定の中身が検査されていることを示しません。規定の中身を何が確かめるかは、次の区分で示します。');
+  out.push('');
+  out.push('| 検査の手段 | 意味 | 件数 |');
+  out.push('| --- | --- | --- |');
+  out.push(`| ${CHECKS.machine} | 機械が規定の中身を検査し、違反を止めるか件数で出す | ${counts.machine} |`);
+  out.push(`| ${CHECKS.presence} | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | ${counts.presence} |`);
+  out.push(`| ${CHECKS.manual} | 機械は確かめない。確かめる者と時点は注記に書く | ${counts.manual} |`);
+  out.push(`| **${UNCLASSIFIED}** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **${counts['']}** |`);
+  out.push('');
+  out.push(`${UNCLASSIFIED}の${counts['']}件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**${UNCLASSIFIED}の規定を、検査されている規定として読まないでください**。`);
+  out.push('');
 
   if (undelivered.length) {
     out.push('### 降りていない規定');
@@ -184,14 +222,14 @@ function renderLedger(rows) {
 
   out.push('### 全件');
   out.push('');
-  out.push('| 識別子 | 規定 | 降ろし先 | 検査 | 状態 | 記載箇所 |');
-  out.push('| --- | --- | --- | --- | --- | --- |');
+  out.push('| 識別子 | 規定 | 降ろし先 | 検査のスクリプト | 状態 | 検査の手段 | 記載箇所 |');
+  out.push('| --- | --- | --- | --- | --- | --- | --- |');
   for (const m of rows) {
     const t = TARGETS[m.target];
     const page = m.file.replace(/\\/g, '/').replace(`${DOCS_ROOT}/`, '').replace(/\.mdx?$/, '');
     out.push(
       `| ${m.id} | ${m.note} | ${t?.name ?? m.target} | ${t?.check ? `\`${t.check}\`` : '—'} | ` +
-        `${STATES[m.state] ?? m.state} | [${page}](${m.url}) |`
+        `${STATES[m.state] ?? m.state} | ${CHECKS[m.check] ?? UNCLASSIFIED} | [${page}](${m.url}) |`
     );
   }
   return out.join('\n');
@@ -253,5 +291,10 @@ if (errors.length > 0) {
 }
 
 const undelivered = marks.filter((m) => m.state === 'undelivered');
+const checkCounts = countChecks(marks);
 console.log(`実装マーク: ${marks.length}件(降りていない規定: ${undelivered.length}件)`);
+console.log(
+  `検査の手段: ${CHECKS.machine} ${checkCounts.machine}件 / ${CHECKS.presence} ${checkCounts.presence}件 / ` +
+    `${CHECKS.manual} ${checkCounts.manual}件 / ${UNCLASSIFIED} ${checkCounts['']}件`
+);
 for (const m of undelivered) console.log(`  降りていない ${m.id} ${m.file}:${m.line} — ${m.note}`);
