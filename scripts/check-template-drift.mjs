@@ -47,7 +47,9 @@ if (!fs.existsSync(kbDst)) {
 } else {
   const expected = JSON.stringify(buildKb(), null, 2) + '\n';
   const actual = fs.readFileSync(kbDst, 'utf8');
-  if (norm(expected) !== norm(actual)) {
+  // source.commit は比較から外す。標準側でコミットを積むたびに HEAD が進み、規則データが同じでも一致しなくなるため(#301)
+  const sansCommit = (s) => norm(s).replace(/("commit": )"[^"]*"/, '$1""');
+  if (sansCommit(expected) !== sansCommit(actual)) {
     problems.push(
       '知識ベースが複製元の YAML と一致しません。node scripts/build-template-kb.mjs を実行してください'
     );
