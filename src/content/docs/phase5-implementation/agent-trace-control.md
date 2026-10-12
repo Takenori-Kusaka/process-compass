@@ -5,7 +5,7 @@ sidebar:
   order: 17
 ---
 
-[附属書E E.6](/process-compass/phase4-process-design/developer-guide/)は、エージェントが読んだ範囲と実行した操作に想定外のものがないかの確認を求めています。
+[附属書E E.5](/process-compass/phase4-process-design/developer-guide/)は、検証の順序の4番目に実行トレースの確認を置いています。
 
 **この確認を目視で行う設計は成立しません**。1回のタスクで数十から数百の操作が実行される環境では、痕跡を遡って探す作業は時間の制約のもとで確認済みの印を付ける操作へ縮退します。これは[第5章 5.6](/process-compass/phase4-process-design/human-ai-boundary/)が防止すべきとする形骸化そのものです。
 

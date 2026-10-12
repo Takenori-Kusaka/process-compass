@@ -15,7 +15,7 @@ sidebar:
 | --- | --- |
 | [GitHub Issues](https://github.com/Takenori-Kusaka/process-compass/issues) | 内容への指摘、機能の要望、誤りの報告 |
 | GitHub Discussions | 質問、雑談、まとまる前の意見 |
-| Zenn のコメント | 本の読者からの反応 |
+| Zenn のコメント | 概要記事の読者からの反応 |
 | 外部の媒体(SNS など) | 感想、反論、事例 |
 
 **外部の媒体で受けた意見は、Issue へ転記してから扱います。**転記しないものは、後から辿れません。転記の際、発言者を特定できる情報は含めません。意見の内容だけを扱います。

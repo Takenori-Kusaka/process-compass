@@ -88,3 +88,5 @@ T-0 と T-1 で行う設定作業の順序です。**この順序は移行の順
 2. [CI ゲート](/process-compass/phase5-implementation/ci-gates/)へ既存のテスト・静的解析を gate-g5 として束ねる
 3. [コンテキスト基盤](/process-compass/phase5-implementation/context-base/)の恒久層を書き始め、[AI 実行環境](/process-compass/phase5-implementation/ai-environment/)を E1 から開始する
 4. 運用が回り始めたら実行形態を引き上げ、[統合検証](/process-compass/phase5-implementation/nonfunctional-verify/)とエビデンス集約をリリースフローへ組み込む
+
+既にコードと履歴があるリポジトリへ、本標準のゲートを後から入れる順序は、本標準は定めていません。上の順序は設定作業の順序であり、既存のリポジトリでゲートをどの順で有効にするかを定めるものではありません。

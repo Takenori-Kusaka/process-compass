@@ -40,11 +40,13 @@ sidebar:
 
 ## A.4 人間の検証帯域を守る設計
 
-フェーズ2で確認したとおり、AI協調の最大の律速は**人間の検証帯域**です。このモデルは帯域を3つの方法で守ります。
+フェーズ2で確認したとおり、AI協調の最大の律速は**人間の検証帯域**です。このモデルは、次の設計で帯域を守ります。
 
 1. **機械化できる検査はすべて CI へ**(g-ci)。合意済みルールは自動検証に載せ、人の目を通さない
 2. **人の判断を種類で分ける**。価値判断(価値責任者)・技術判断(技術判断者)・理解の確認(独立レビュア)・記録の確認(出荷判定)に分業し、1人に集中させない
 3. **判定に期限を付ける**。要件合意・技術設計・リリース決裁は目安48時間以内。出荷判定は「記録の確認」に限定し再テストを始めない
+
+運用の中で帯域が不足したときの手段は、[第4章「帯域を理由に判定を省略しない」](/process-compass/phase4-process-design/gate-criteria/)によります。
 
 ## A.5 変えるもの・変えないもの
 
@@ -64,5 +66,13 @@ sidebar:
 参照モデルには[前提条件](/process-compass/phase4-process-design/process-model/)があります(決定権の実質委譲、CI基盤、3者の兼務禁止が成立する体制規模、明文化コストの予算化)。前提を満たさない組織への調整方法は、[テーラリングガイド](/process-compass/phase4-process-design/tailoring-guide/)で扱います。
 
 :::note
-このモデルは v0(参照モデル)です。実際の組織へ適用するにはチーム体制・事業フェーズによる調整が必要で、その調整ロジック自体が最終ゴールのプロセス提案ツールの中身になります。フィードバックは [GitHub Issues](https://github.com/Takenori-Kusaka/process-compass/issues) へお願いします。
+このモデルは参照モデルです。実際の組織へ適用するには、チーム体制・事業ステージによる調整が必要です。調整の規則は[第8章](/process-compass/phase4-process-design/tailoring-guide/)によります。フィードバックは [GitHub Issues](https://github.com/Takenori-Kusaka/process-compass/issues) へお願いします。
 :::
+
+本標準の限界は、次の箇所に書いています。
+
+- 本標準を適用する組織が主張しないこと: [第1章 1.9](/process-compass/phase4-process-design/overview/)
+- 統制を置いても残るリスク: [附属書H H.11](/process-compass/phase4-process-design/assurance-case/)
+- 実証に基づかない値と未検証の前提の一覧: [根拠水準の台帳](/process-compass/community/evidence-ledger/)
+
+本節は所在だけを示します。限界の内容は、上の各箇所が正本です。

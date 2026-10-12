@@ -108,15 +108,17 @@ graph LR
     A["SWE-bench Verified<br>95〜96%<br>(2026-08-02)"]
   end
   subgraph 現場の指標
-    B["AI生成PRの無修正マージ率<br>32.7%(人間は84.5%)<br>(LinearB 810万PR, 2026-05-04)"]
+    B["AI生成PRが30日以内に<br>マージされた割合<br>32.7%(人間は84.5%)<br>(LinearB 810万PR, 2026-05-04)"]
   end
   A -.同じ技術の二重帳簿.- B
 ```
 
-- **LinearB の810万PR分析(2026-05-04 発表)**: AI 生成 PR はレビュー着手待ちが**約5倍**(16時間超 対 約200分)。無修正マージ率は **32.7%**(人間の PR は 84.5%)。AI は PR を約2.5倍に肥大化させ、リファクタリング率はほぼゼロ(「足すが、片づけない」)
-- **スループットの逆説(CircleCI 2026 データ、二次確認)**: フィーチャーブランチの処理量は前年比 +59%。しかし**中央値チームの main ブランチは横ばい**。増えた分はレビュー待ち行列に溜まっている
+- **LinearB の810万PR分析(2026-05-04 発表)**: AI 生成 PR はレビュー着手待ちが**約5倍**(16時間超 対 約200分)。30日以内にマージされた PR の割合(受入率)は **32.7%**(人間の PR は 84.5%。同社のベンチマークの要約ページは 84.4% と表記)。マージまでに修正があったかどうかは、この指標に含まれない。AI は PR を約2.5倍に肥大化させ、リファクタリング率はほぼゼロ(「足すが、片づけない」)
+- **スループットの逆説(CircleCI 2026 データ、2026-02-18 公表)**: 全プロジェクトの平均スループット(日次のワークフロー実行数)は前年比 +59%。しかし**中央値チームでは、フィーチャーブランチが +15.2%、main ブランチは −6.8%**。フィーチャーブランチで増えた実行は、main ブランチの増加に結びついていない。スループットは CI の実行回数であり、本番への出荷の数ではない。AI が生成したコードかどうかのラベルは無く、AI の影響は推論である
 - **レビュアーの注意が構造的に歪む(MSR '26、2026-04)**: AI 生成コードは冗長性が約1.87倍高い(既存コードを再利用せず意味的な複製を量産)にもかかわらず、**レビュアーの感情は人間作より肯定的**だった。AI 生成物は「レビューを通しやすい見た目」を持つため、注意配分が歪み「静かな技術的負債」が積もる
 - **GitHub の観測(2026-05-07)**: GitHub 上のコードレビューの5件に1件超がエージェント関与。GitHub 自身が「エージェント PR の5つの危険信号」(CI ゲーミング・再利用の盲点・ハルシネートされた正しさ・巨大 PR の放置・非信頼入力)を公開
+
+LinearB と CircleCI の値の定義は、一次資料と突き合わせて訂正しました(2026-10-12)。訂正前は「無修正マージ率」「フィーチャーブランチの処理量は前年比 +59%」と書いていました。
 
 ここから導かれる対策は「もっと真剣にレビューせよ」という精神論ではありません。**冗長性・再利用漏れ・テスト改変を機械的に検出する層を必須ゲートに置き、人間には文脈判断だけを残す**二段構えです(GitHub も同方向を推奨)。
 
@@ -133,7 +135,7 @@ graph LR
 
 ただし、方向性としての「**制約された協調+人間の統制**」は、実測データによってむしろ**強化されました**。争点は「AI がどこまで書けるか」ではなく、次の2点に移っています。
 
-1. **人間の検証帯域をどう設計するか** — 無修正マージ率 32.7% が示すとおり、生成物の大半は人手の修正を要する。機械検査ゲートと人間の文脈判断の二段構えが必須
+1. **人間の検証帯域をどう設計するか** — AI 生成 PR が30日以内にマージされた割合(32.7%)は、人間の PR の半分に届かない。マージされなかった理由(修正の要否、放置)は、この値からは分からない。機械検査ゲートと人間の文脈判断の二段構えが必須
 2. **責任と権限をどう表現するか** — MCP / A2A はエージェントを「つなぐ」ことを解決したが、「誰が責任を負うか」を表現できない(arXiv 2606.31498)。**プロトコルが埋めないガバナンス層こそ、開発プロセス設計の守備範囲**
 
 ## 参考文献(主要な一次情報)
@@ -143,6 +145,7 @@ graph LR
 - [Cognition「SWE-1.7」](https://cognition.com/blog/swe-1-7)(2026-07-08)/ [Devin Security Swarm](https://cognition.com/blog/introducing-devin-security-swarm)(2026-07-01)
 - [GitHub「Agent pull requests are everywhere. Here's how to review them.」](https://github.blog/ai-and-ml/generative-ai/agent-pull-requests-are-everywhere-heres-how-to-review-them/)(2026-05-07)
 - [LinearB「8 million pull requests reveal where engineering productivity breaks down」](https://linearb.io/blog/8-million-prs-engineering-productivity)(2026-05-04)
+- [CircleCI「The 2026 State of Software Delivery」](https://circleci.com/landing-pages/assets/2026-state-of-software-delivery-report.pdf)(2026-02-18)
 - [METR「Time Horizon 1.1」](https://metr.org/blog/2026-1-29-time-horizon-1-1/)(2026-01-29)/ [Claude Code / Codex での測定](https://metr.org/notes/2026-02-13-measuring-time-horizon-using-claude-code-and-codex/)(2026-02-13)
 - [More Code, Less Reuse(arXiv 2601.21276, MSR '26)](https://arxiv.org/html/2601.21276)(2026-04)
 - 全出典・検証できなかった項目の一覧: リポジトリの `research/phase2/20260804-agentic-development-update.md`(調査日 2026-08-04)
