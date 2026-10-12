@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0635
+status: included
+excludeReason: null
+title: 「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集
+url: https://www.mhlw.go.jp/content/001328443.pdf
+canonicalUrl: https://mhlw.go.jp/content/001328443.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 厚生労働省
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2024-11
+publishedBasis: pdf
+version: 第1集(PDF の作成日 2024-11-06)
+updated: null
+accessed: '2026-10-12'
+access: open
+readLevel: full
+foundBy:
+  cluster: I309
+  query: 労働者派遣 請負 区分 37号告示 疑義応答集 モデル契約 検収 準委任
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '37号告示の運用についての厚生労働省の疑義応答集(第1集、全 15 問)。発注者から請負事業主への要求と、請負労働者への直接の指示を区別する。Issue #309 の調査が全問を読んだ。'
+claims:
+- id: c1
+  text: 発注者が請負事業主に対して、発注に関わる要求や注文を行うことは、請負労働者への直接の指揮命令ではなく、偽装請負に当たらないとされている。
+  quote: 発注者から請負事業主に対して、作業工程の見直しや欠陥商品を製作し直すことなど発注に関わる要求や注文を行うことは、業務請負契約の当事者間で行われるものであり、発注者から請負労働者への直接の指揮命令ではないので労働者派遣には該当せず偽装請負にはあたりません。
+  locator: 2. 発注者からの注文(クレーム対応)の A
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+- id: c2
+  text: 発注者が直接、請負労働者に作業工程の変更や再製作を指示した場合は、直接の指揮命令に当たり、偽装請負と判断されるとされている。
+  quote: ただし、発注者が直接、請負労働者に作業工程の変更を指示したり、欠陥商品の再製作を指示したりした場合は、直接の指揮命令に該当することから偽装請負と判断されることになります。
+  locator: 同上
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+verification:
+  status: verified
+  method:
+  - agent-read
+  date: '2026-10-13'
+  humanChecked: false
+  note: 原典の写し(tmp/302-310/s309-src/gigi1-cur.txt。2026-10-12 に調査担当が取得)で、c1・c2 の逐語を確かめた。写しは PDF のテキスト化で、行の折り返しを連結した。法律の助言ではない
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: null

@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0634
+status: included
+excludeReason: null
+title: 労働者派遣事業と請負により行われる事業との区分に関する基準(昭和61年労働省告示第37号。最終改正 平成24年厚生労働省告示第518号)
+url: https://www.mhlw.go.jp/content/000780136.pdf
+canonicalUrl: https://mhlw.go.jp/content/000780136.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 厚生労働省
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: regulation
+published: '1986'
+publishedBasis: pdf
+version: 最終改正 平成24年厚生労働省告示第518号
+updated: null
+accessed: '2026-10-12'
+access: open
+readLevel: full
+foundBy:
+  cluster: I309
+  query: 労働者派遣 請負 区分 37号告示 疑義応答集 モデル契約 検収 準委任
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '請負の形式による契約で行う業務が、労働者派遣事業に当たるかどうかを区分する基準を定める告示。業務の遂行に関する指示その他の管理、労働時間等に関する指示その他の管理を、事業主が自ら行うことなどを要件にする。Issue #309 の調査が全 2 ページを取得して読んだ。'
+claims:
+- id: c1
+  text: 請負の形式による契約で業務を行う事業主でも、告示の各号のいずれにも該当する場合を除き、労働者派遣事業を行う事業主とする。
+  quote: 請負の形式による契約により行う業務に自己の雇用する労働者を従事させることを業として行う事業主であつても、当該事業主が当該業務の処理に関し次の各号のいずれにも該当する場合を除き、労働者派遣事業を行う事業主とする。
+  locator: 第二条 柱書
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+verification:
+  status: verified
+  method:
+  - agent-read
+  date: '2026-10-13'
+  humanChecked: false
+  note: 原典の写し(tmp/302-310/s309-src/kokuji37.txt。2026-10-12 に調査担当が取得し、テキスト化したもの)で、c1 の逐語を確かめた。写しは作業用で、リポジトリには置いていない。法律の助言ではない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: null

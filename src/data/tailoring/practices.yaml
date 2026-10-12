@@ -20,8 +20,8 @@ practices:
     description: どこをAIが生成し誰が承認したかの記録(監査対応)
     source: /process-compass/phase5-implementation/git-strategy/
   - id: acceptance
-    name: 検収の基準
-    description: 受託開発における検収対象の定義(受入基準への適合に限定し生成手段を問わない)
+    name: 成果物の適否の確認の基準
+    description: 受託開発で、契約が成果物の適否を確認する行為を定める場合の確認の基準(受入基準への適合に限定し生成手段を問わない)
     source: /process-compass/phase4-process-design/tailoring-guide/
   - id: outer-gates
     name: 外殻ゲートの対応づけ

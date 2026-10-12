@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0636
+status: included
+excludeReason: null
+title: 「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集(第3集)
+url: https://www.mhlw.go.jp/content/001704257.pdf
+canonicalUrl: https://mhlw.go.jp/content/001704257.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 厚生労働省
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2021-09
+publishedBasis: unknown
+version: 第3集(現行の掲載版。PDF に日付の記載が無い)
+updated: null
+accessed: '2026-10-12'
+access: open
+readLevel: full
+foundBy:
+  cluster: I309
+  query: 労働者派遣 請負 区分 37号告示 疑義応答集 モデル契約 検収 準委任
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'アジャイル型開発についての疑義応答集(第3集、全 8 問)。準委任契約でも、実態として指揮命令関係があれば、契約の形式を問わず労働者派遣事業に当たるとする。Issue #309 の調査が現行の掲載版の全問を読んだ。初版(2021-09-21 公表)は読めていない。'
+claims:
+- id: c1
+  text: 準委任契約を締結して行う場合でも、実態として発注者と受注者側の労働者との間に指揮命令関係があるときは、契約の形式を問わず、労働者派遣事業に当たるとされている。
+  quote: 実態として、発注者と受注者側の労働者との間に指揮命令関係がある場合には、その契約の形式を問わず、労働者派遣事業に該当し、労働者派遣法の適用を受けます。
+  locator: Q1 の A1
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+verification:
+  status: verified
+  method:
+  - agent-read
+  date: '2026-10-13'
+  humanChecked: false
+  note: 原典の写し(tmp/302-310/s309-src/gigi3.txt。2026-10-12 に調査担当が取得)で、c1 の逐語を確かめた。公表日は IPA の解説の記載による。初版の URL(000834503.pdf)は 404 で、初版からの文言の変更は確かめていない。法律の助言ではない
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: null

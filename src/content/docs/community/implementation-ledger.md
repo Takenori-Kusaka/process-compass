@@ -21,9 +21,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 8 |
-| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 1 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 7 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 10 |
+| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 3 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 8 |
 | **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **101** |
 
 未分類の101件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
@@ -49,6 +49,7 @@ sidebar:
 | IMPL-0116 | 外部の確認者を独立レビュアの席の責任者に置く条件のうち、力量の確認(3.4.1)と、席の規定に従うことの書面による合意。構成に記録の欄が無く、機械は確かめない。任免の決定者の記名だけを機械が要求する。採用者は、任免の決定の時点で2つを確かめる手順と、記録の置き場を、社内の手順で定める(#307) | process.config.json の seats[] | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0117 | 承認を独立した人の確認に数える人(席の責任者でない確認者、外部の確認者を含む)の力量の確認。構成に、席の責任者でない人の確認の記録の欄が無く、出荷の証跡の集約は「力量の確認の記録が無い確認者による確認」の件数と「依頼した本人による確認」の区別を出さない。席の責任者本人の力量(3.4.3)の未確認は、従来どおり項目7 に出る。採用者は、確認者ごとの確認の記録の置き場と、件数と区別を保証の開示へ添える手順を、社内の手順で定める(#307) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0118 | 検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0120 | 適用の表明に併記する未達のゲートの件数と記録の欠落の件数を、表明の様式として出力する仕組みは無い。件数そのものは、構成(unmet[])と出荷の証跡の集約の出力から読める。表明する者が、表明の時点で転記して確かめる(#306) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 
 ### 全件
 
@@ -171,5 +172,10 @@ sidebar:
 | IMPL-0116 | 外部の確認者を独立レビュアの席の責任者に置く条件のうち、力量の確認(3.4.1)と、席の規定に従うことの書面による合意。構成に記録の欄が無く、機械は確かめない。任免の決定者の記名だけを機械が要求する。採用者は、任免の決定の時点で2つを確かめる手順と、記録の置き場を、社内の手順で定める(#307) | process.config.json の seats[] | `verify-gate-contract` | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0117 | 承認を独立した人の確認に数える人(席の責任者でない確認者、外部の確認者を含む)の力量の確認。構成に、席の責任者でない人の確認の記録の欄が無く、出荷の証跡の集約は「力量の確認の記録が無い確認者による確認」の件数と「依頼した本人による確認」の区別を出さない。席の責任者本人の力量(3.4.3)の未確認は、従来どおり項目7 に出る。採用者は、確認者ごとの確認の記録の置き場と、件数と区別を保証の開示へ添える手順を、社内の手順で定める(#307) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0118 | 検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0119 | 適用の開始(構成の初期化の記録)より前の変更を変更の件数に数えず欠落にもせず、後の変更は導いた要求事項のすべての対象にする。途中の段階を表す値を持たない。初期化の直後の出荷で、記録の無い変更が欠落として出ることを実行して確かめた(#306) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0120 | 適用の表明に併記する未達のゲートの件数と記録の欠落の件数を、表明の様式として出力する仕組みは無い。件数そのものは、構成(unmet[])と出荷の証跡の集約の出力から読める。表明する者が、表明の時点で転記して確かめる(#306) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0121 | 判定を別の組織へ置く場合の、判定の結果を受け取る者(組織ごと)を締結時に決めて記録する欄を AI-SLA 合意確認書の様式に置く。必須欄の検査が欄の存在を確かめる。記入の有無と中身は確かめない(#309) | 成果物テンプレート テンプレ8(AI-SLA 合意確認書) | — | 降りている | 実在だけ確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0122 | G-2・G-8 を契約上の確認行為に対応づけるかどうかと対応づける先を、締結時に決めて記録する欄を AI-SLA 合意確認書の様式に置く。必須欄の検査が欄の存在を確かめる。記入の有無と中身は確かめない(#309) | 成果物テンプレート テンプレ8(AI-SLA 合意確認書) | — | 降りている | 実在だけ確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0123 | CLAUDE.md に、テンプレートの常駐の規則の節(見出しと本文)があることを check-process-rules が確かめる。区間の目印だけを足した既存の CLAUDE.md は落ちる(test-init-g5 で実行して確認)。節の中の個々の行の有無、.github/CODEOWNERS と .gitignore の行は確かめない(#306) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 機械が確かめる | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
 
 <!-- implementation-ledger:end -->

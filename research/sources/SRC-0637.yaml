@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0637
+status: included
+excludeReason: null
+title: 情報システム・モデル取引・契約書(受託開発(一部企画を含む)、保守運用)〈第二版〉
+url: https://www.ipa.go.jp/digital/model/model20201222.html
+canonicalUrl: https://ipa.go.jp/digital/model/model20201222.html
+ids:
+  arxiv: null
+  doi: null
+publisher: 独立行政法人情報処理推進機構(IPA)・経済産業省
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2020-12
+publishedBasis: page
+version: 第二版 R1(2025-04-08 更新)
+updated: null
+accessed: '2026-10-12'
+access: open
+readLevel: section
+foundBy:
+  cluster: I309
+  query: 労働者派遣 請負 区分 37号告示 疑義応答集 モデル契約 検収 準委任
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '受託開発の公的なモデル契約と逐条の解説。連絡の窓口(主任担当者)、準委任の工程の終了の確認(業務終了確認書)、請負の工程の検収を、別の条で定める。Issue #309 の調査が本体の条文と解説を読んだ。ADR-0021 が「取得できなかった」と記録した検収の条項は、この版で確かめた。'
+claims:
+- id: c1
+  text: 相手方との日常の連絡・確認・依頼は、原則として主任担当者を通じて行うと定める。
+  quote: 甲及び乙は、本契約に定めた事項のほか、本件業務遂行に関する相手方からの要請、指示等の受理及び相手方への依頼、その他日常的な相手方との連絡、確認等は原則として主任担当者を通じて行うものとする。
+  locator: ソフトウェア開発委託基本モデル契約書 第10条 3項
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+- id: c2
+  text: 要件定義作成支援業務(準委任)の終了は、発注側が業務終了確認書に記名押印して確認すると定める。「検収」の語を使わない。
+  quote: 甲は、当該業務終了報告書の内容に疑義がない場合、業務終了確認書に記名押印の上、乙に交付し、要件定義作成支援業務の終了を確認するものとする。
+  locator: 同 第18条 3項
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+- id: c3
+  text: 本件ソフトウェアの検査の合格をもって検収の完了とすると定める(請負の工程)。
+  quote: 本条所定の検査合格をもって、本件ソフトウェアの検収完了とする。
+  locator: 同 第28条 4項
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+verification:
+  status: verified
+  method:
+  - agent-read
+  date: '2026-10-13'
+  humanChecked: false
+  note: 原典の写し(tmp/302-310/s309-src/m2-000087884.txt。IPA の配布する Word ファイル 000087884.docx を、2026-10-12 に調査担当が取得してテキスト化したもの)で、c1〜c3 の逐語と条番号を確かめた。参考文書(ドキュメントモデル)と追補版は通読していない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: null

@@ -170,6 +170,19 @@ targets:
     path: templates/05-handover.md
     description: コア機能の理解保持者と、本人以外の確認者・確認日の欄の置き場(第3章 3.4.3、#288 第2巡)
 
+  - id: ai-sla-template
+    name: 成果物テンプレート テンプレ8(AI-SLA 合意確認書)
+    kind: template-file
+    path: templates/08-ai-sla.md
+    description: 委託契約へ添付する確認書の様式。判定の置き先、判定の結果を受け取る者、G-2・G-8 と契約上の確認行為の対応づけ、保証の開示と委任の適用の欄の置き場(第8章 軸D、ADR-0069)。欄の存在は必須欄の検査(test:fields)が確かめる。記入の中身を検査する仕組みは無い
+
+  - id: claude-md-resident
+    name: CLAUDE.md の常駐の規則(構成依存部分の外)
+    kind: template-file
+    path: scripts/gate/claude-md-resident.json
+    check: check-process-rules
+    description: 準拠テンプレートの CLAUDE.md が常駐させる規則の節の一覧。check-process-rules が、案件の CLAUDE.md に各節の見出しと本文があることを確かめる。既存のリポジトリへ持ち込んだときに、常駐の規則を欠いたまま検査が通る経路を塞ぐ(#306、ADR-0068)。節の中の個々の行の有無は確かめない
+
   - id: adoption-trial
     name: 導入前の検証のコマンド
     kind: template-file

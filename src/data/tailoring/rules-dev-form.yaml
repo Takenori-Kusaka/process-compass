@@ -16,15 +16,15 @@ rules:
         action: set
         param: contractual
         value: true
-        note: 要件合意を契約・検収の節目に対応づける
+        note: 要件合意(G-2)を契約上の確認行為に対応づけるかどうかと、対応づける先を、締結時に決めて記録する(テンプレ8 第9項)
       - target: { type: gate, id: g-release }
         action: set
         param: contractual
         value: true
-        note: リリース判定を検収に対応づける
+        note: リリース決裁(G-8)を契約上の確認行為に対応づけるかどうかと、対応づける先を、締結時に決めて記録する(テンプレ8 第9項)
       - target: { type: practice, id: acceptance }
         action: note
-        note: 検収対象を受入基準への適合に限定し、生成手段(人・AIの別)を問わないと契約に明記する
+        note: 契約が成果物の適否を確認する行為を定める場合、確認の基準を受入基準への適合に限定し、生成手段(人・AIの別)を問わないと契約に明記する
       - target: { type: practice, id: core-understanding }
         action: note
         note: 発注側にも理解保持者を置く(丸投げにしない)
@@ -43,18 +43,18 @@ rules:
         action: set
         param: contractual
         value: true
-        note: 要件合意を多段階契約の節目に対応づける
+        note: 要件合意(G-2)を契約上の確認行為に対応づけるかどうかと、対応づける先を、締結時に決めて記録する(テンプレ8 第9項)
       - target: { type: gate, id: g-release }
         action: set
         param: contractual
         value: true
-        note: リリース判定を検収に対応づける
+        note: リリース決裁(G-8)を契約上の確認行為に対応づけるかどうかと、対応づける先を、締結時に決めて記録する(テンプレ8 第9項)
       - target: { type: practice, id: acceptance }
         action: note
-        note: 検収基準を受入基準への適合に限定する構成を発注側へ提案する(生成手段を問わない)
+        note: 契約が成果物の適否を確認する行為を定める場合、確認の基準を受入基準への適合に限定する構成を発注側へ提案する(生成手段を問わない)
       - target: { type: practice, id: handover }
         action: note
         note: 引き継ぎ文書の粒度を契約で規定する(委託解消時の理解の空白を防ぐ)
-    reason: AI生成コードの瑕疵担保責任は未整備の論点。検収を仕様適合に限定すれば既存の検収実務に載せられる
+    reason: AI生成コードの契約不適合責任は未整備の論点。成果物の適否の確認の基準を受入基準への適合に限定すれば、既存の確認の実務に載せられる
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 20

@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0638
+status: included
+excludeReason: null
+title: アジャイル開発外部委託モデル契約(情報システム・モデル取引・契約書〈アジャイル開発版〉。解説付き)
+url: https://www.ipa.go.jp/digital/model/agile20200331.html
+canonicalUrl: https://ipa.go.jp/digital/model/agile20200331.html
+ids:
+  arxiv: null
+  doi: null
+publisher: 独立行政法人情報処理推進機構(IPA)・経済産業省
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2020-03
+publishedBasis: pdf
+version: 2020年3月(2025年4月 R1)
+updated: null
+accessed: '2026-10-12'
+access: open
+readLevel: full
+foundBy:
+  cluster: I309
+  query: 労働者派遣 請負 区分 37号告示 疑義応答集 モデル契約 検収 準委任
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'アジャイル開発を準委任で外部へ委託する場合の公的なモデル契約と解説。月ごとの実施業務の確認を定め、成果物についての契約不適合責任は追及できないと解説する。Issue #309 の調査が解説付きの全文を読んだ。'
+claims:
+- id: c1
+  text: 月ごとの実施業務の確認は、受注側が善管注意義務に基づき業務を適切に行ったかを確かめる手続である(成果物の適否を確認する手続ではない)。
+  quote: 本条は月ごとの実施業務の確認についての規定である。本条では、準委任としてベンダ企業が善管注意義務に基づき業務を適切に行ったかどうかの確認を行う手続を定める。
+  locator: 第10条(実施業務の確認)の解説
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+- id: c2
+  text: 準委任契約の帰結として、発注側は受注側に対して、成果物に関する契約不適合責任を追及できない。
+  quote: 準委任契約であることの帰結として、開発対象プロダクトに不具合があったり、セキュリティ等の非機能要件の不備があったりしたとしても、ユーザ企業はベンダ企業に対して、成果物に関する契約不適合責任を追及することはできない。
+  locator: 解説(善管注意義務の箇所)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+verification:
+  status: verified
+  method:
+  - agent-read
+  date: '2026-10-13'
+  humanChecked: false
+  note: 原典の写し(tmp/302-310/s309-src/agile-kaisetsu.txt。IPA の配布する PDF 000081484.pdf を、2026-10-12 に調査担当が取得してテキスト化したもの)で、c1・c2 の逐語を確かめた。付属資料(契約前チェックリスト、進め方の指針)は読んでいない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: null

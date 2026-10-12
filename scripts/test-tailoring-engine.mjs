@@ -124,8 +124,18 @@ console.log('S0 の G-3・G-4・G-5・G-8 は適用 OK');
     'q-existing-gates': 'gates-exist',
     'q-ai-constraint': 'ai-approved-only',
   });
-  assert.equal(r.profile['gate:g-req-agree'].params.contractual, true, '要件合意は検収対応');
+  assert.equal(r.profile['gate:g-req-agree'].params.contractual, true, '要件合意は契約上の確認行為との対応づけの対象');
   assert.equal(r.profile['gate:g-release'].params.contractual, true);
+  // 対応づける先を「検収」に固定しない。対応づけるかどうかと先は、締結時に決めて記録する(第8章 軸D、ADR-0069)
+  for (const key of ['gate:g-req-agree', 'gate:g-release']) {
+    const notes = r.profile[key].notes.join(' / ');
+    assert.ok(notes.includes('契約上の確認行為に対応づけるかどうか'), `${key} の注記が、対応づけを締結時に決めると述べる`);
+    assert.ok(!notes.includes('検収'), `${key} の注記に「検収」が残っていない`);
+  }
+  assert.ok(
+    r.profile['practice:acceptance'].notes.some((n) => n.includes('契約が成果物の適否を確認する行為を定める場合')),
+    '確認の基準の限定は、契約が成果物の適否を確認する行為を定める場合に限る'
+  );
   assert.equal(r.profile['gate:g-indep-review'].params.reviewerCount, 2);
   assert.equal(r.profile['gate:g-indep-review'].params.recordFormat, 'audit');
   assert.equal(r.profile['practice:traceability'].params.required, true);

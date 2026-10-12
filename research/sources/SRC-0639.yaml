@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0639
+status: included
+excludeReason: null
+title: 民法(明治二十九年法律第八十九号)
+url: https://laws.e-gov.go.jp/api/1/lawdata/129AC0000000089
+canonicalUrl: https://laws.e-gov.go.jp/api/1/lawdata/129AC0000000089
+ids:
+  arxiv: null
+  doi: null
+publisher: デジタル庁 e-Gov 法令検索
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: regulation
+published: '1896'
+publishedBasis: page
+version: 2026-10-12 に取得した版
+updated: null
+accessed: '2026-10-12'
+access: open
+readLevel: section
+foundBy:
+  cluster: I309
+  query: 労働者派遣 請負 区分 37号告示 疑義応答集 モデル契約 検収 準委任
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '民法の全文(e-Gov 法令検索の API で取得)。請負(第632条)、請負人の担保責任の制限(第636条)、期間の制限(第637条)、準委任(第656条)を、Issue #309 の調査が読んだ。全文に「検収」の語は 0 件である。'
+claims:
+- id: c1
+  text: 請負は、仕事の完成と、その結果に対する報酬の支払いを約する契約である。
+  quote: 請負は、当事者の一方がある仕事を完成することを約し、相手方がその仕事の結果に対してその報酬を支払うことを約することによって、その効力を生ずる。
+  locator: 第六百三十二条
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 309
+  stance: context
+- id: c2
+  text: 民法の全文に「検収」の語は現れない(取得した全文の XML で 0 件)。検収は法律の語ではなく、契約が定める行為である。
+  quote: null
+  locator: 全文の検索
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 309
+  stance: context
+verification:
+  status: verified
+  method:
+  - agent-read
+  date: '2026-10-13'
+  humanChecked: false
+  note: 原典の写し(tmp/302-310/s309-src/minpo.xml。e-Gov 法令検索の API https://laws.e-gov.go.jp/api/1/lawdata/129AC0000000089 から、2026-10-12 に調査担当が取得)で、c1 の逐語と、c2 の件数(0 件)を確かめた。c2 は語の件数であり、引用文は無い
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: null

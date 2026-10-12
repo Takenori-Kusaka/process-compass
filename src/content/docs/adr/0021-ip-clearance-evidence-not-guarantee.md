@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-08-06)
+採用(2026-08-06)。一部を置き換え(2026-10-13): 決定2 のうち「検収」の語に関わる部分は、[ADR-0069](/process-compass/adr/0069-handing-over-judgements-and-contractual-confirmation/)が置き換えました。「影響」が取得できなかったと記録したモデル契約の条項は、同 ADR の調査が原典で読みました。
 
 ## コンテキスト
 
