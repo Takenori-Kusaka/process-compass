@@ -169,5 +169,5 @@ D5〜D7 を両立させる置き場の形(既定ブランチの外の記録用�
 | --- | --- | --- |
 | `record-copy.yml`(署名なしの経路)がマージを契機に写しを `records` ブランチへ置く | **置かれた**。`records/reviews/pr-55.json` に `head_sha`・`merge_commit_sha`・`author{id,login}`・`title`・`head_ref`・`reviews[].user.type`・本文が入る。監査ログは「取れない」と写しに書かれる | run(record-copy)、`records` ブランチ |
 | 作成者本人の COMMENTED レビューの宣言行 `G-4: 通過` を `records.mjs` が判定として読み、`commit_id == head_sha` が成り立つ | **成り立つ**(`judgementsFromCopy` → G-4 通過、`headMatches.match=true`) | ローカルで `records.mjs` を実物の写しに適用 |
-| 署名を要する構成(`records-signed.json` + `RECORDS_SIGNED=true`)での `createCommitOnBranch` | **未検証**。ルールセットの適用と変数の設定は、このセッションの権限では行えなかった(アカウント設定の変更に当たる) | — |
+| 署名を要する構成(`records-signed.json` + `RECORDS_SIGNED=true`)での `createCommitOnBranch` | **通った**(PR #56)。`required_signatures` の下で、`record-copy.yml` の GraphQL 経路が `records/reviews/pr-56.json` を置き、コミット `6a61811` は `verified: true`(reason: valid)。ルールセットと変数の適用は人が行った | run 39962869726、`records` の `6a61811` |
 | `ship-evidence.yml` の通し実行(出荷の PR を開き、PR 上で再実行して一致を検査) | **集約まで実行**。手動起動で `records` を fetch し集約が動き、写しの有無を PR ごとに判定した(PR #5・#11・#17・#52 に写しが無いことを欠落に出す)。テンプレートのリポジトリ自体は構成が未設定で記録の欠落 172 件のため集約が失敗し、出荷の PR を開く経路と PR 上の再検査は未検証 | run 39960637580 |
