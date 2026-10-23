@@ -111,7 +111,7 @@
 ## Git 戦略
 
 - 現在はソロ期のため `main` へ直接 push でよい。コントリビューターが現れたら PR フローへ移行する
-- `main` への push で `.github/workflows/deploy.yml` が GitHub Pages へ自動デプロイ
+- `main` への push で CI(`.github/workflows/ci.yml`)が `npm run check` を実行し、通過した場合に限ってジョブ `deploy` が GitHub Pages へ公開する(`dist/standard` への配布はジョブ `publish`)
 
 ## 既知の TODO
 

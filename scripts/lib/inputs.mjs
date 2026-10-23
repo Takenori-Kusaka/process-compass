@@ -42,6 +42,15 @@ export function describeMissing(label, missing) {
   ].join('\n');
 }
 
+/** 書き出し先の欠けの説明文。検査ではなく生成器が使う */
+export function describeMissingTarget(label, missing) {
+  return [
+    `${label}: 書き出し先が無いため、書き出しません。`,
+    ...missing.map((m) => `  - ${m.rel} が${m.why}`),
+    `  取得: ${INIT_HINT}(別の場所へ書き出す場合は --out <path> を明示する)`,
+  ].join('\n');
+}
+
 /** 入力が欠けていれば、理由と取得の命令を出して終了コード 1 で終える */
 export function requireInputs(root, rels, label) {
   const missing = missingInputs(root, rels);

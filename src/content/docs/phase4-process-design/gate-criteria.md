@@ -567,12 +567,6 @@ G-4 で受入基準の側から対応を見る理由は、2つです。基準2 �
 
 検査の対象が存在しない基準は、「対象なし」として証跡へ記録したうえで通過させます。**通過の根拠は、検査の結果が0件であったことではなく、対象が存在しない事実を記録したことです**。0件の合格として残すと、実施していない検査を実施したという記録が残ります。
 
-実行環境が検査器の読む入力(検査の対象を取得するための依存・サブモジュール・生成物など)を欠くため実施できなかった検査は、「対象なし」に当たりません。対象は存在しており、検査が実施されていないためです。**G-5 の判定では、実施しなかった検査として失敗に数えなければなりません**。「対象なし」として記録してはなりません([ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/)。[ADR-0033](/process-compass/adr/0033-no-target-as-recorded-state/) 決定2 の範囲の明確化)。
-
-<!-- impl IMPL-0233 target=spec-lint state=delivered check=machine note="曖昧語の検査(spec-lint)は、検出語の知識ベース(scripts/vendor/tailoring-kb.json)が無ければ読み込みで失敗し、検出語が空なら失敗する。検査の対象(機能仕様)が無いときだけ、対象なしとして通知する" -->
-
-<!-- impl IMPL-0234 target=g5-adapter state=undelivered check=manual note="アダプタを使う G-5 のジョブ(test・coverage・lint・audit・licenses・secretScan)は、構成とアダプタが無ければ失敗する。依存の取得に失敗して検査器の入力が欠けたときに、各スタックの検査器が失敗で終わるかは確かめていない。任意の検査(lint・audit・licenses・coverage)のコマンドが空のときは、通知を出して通す" -->
-
 | 基準 | 「対象なし」による通過 | 理由 |
 | --- | --- | --- |
 | 1 全テストが GREEN | 認める | 実装が存在しない段階では、実行するテストを持たない |
@@ -605,6 +599,12 @@ G-4 で受入基準の側から対応を見る理由は、2つです。基準2 �
 | 対象なし | 適用しているが、現時点で対象が存在しない状態 |
 
 未達と省略の区別は[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)に規定します。「対象なし」をこの2区分へ加えません。G-5 の証跡が持つ属性として扱います。
+
+実行環境が検査器の読む入力(依存・サブモジュール・生成物など)を欠くため実施できなかった検査は、「対象なし」に当たりません。入力が無いため、対象の有無を確かめていないからです。**G-5 の判定では、未実施の検査として失敗に数えなければなりません**。「対象なし」として記録してはなりません。未実施と通過の区別は、保証の開示の項目4 と同じです([ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/)。[ADR-0033](/process-compass/adr/0033-no-target-as-recorded-state/) 決定2 の範囲の明確化)。
+
+<!-- impl IMPL-0233 target=spec-lint state=delivered check=machine note="曖昧語の検査(spec-lint)は、検出語の知識ベース(scripts/vendor/tailoring-kb.json)が無ければ読み込みで失敗し、検出語が空なら失敗する。検査の対象(機能仕様)が無いときだけ、対象なしとして通知する" -->
+
+<!-- impl IMPL-0234 target=g5-adapter state=undelivered check=manual note="アダプタを使う G-5 のジョブ(test・coverage・lint・audit・licenses・secretScan)は、構成とアダプタが無ければ失敗する。依存の取得に失敗して検査器の入力が欠けたときに、各スタックの検査器が失敗で終わるかは確かめていない。任意の検査(lint・audit・licenses・coverage)のコマンドが空のときは、通知を出して通す" -->
 
 #### 知財潔白性の検査
 

@@ -1700,8 +1700,10 @@ sections:
     status: pending
   - key: phase5-implementation/ci-gates#デプロイゲート
     status: none
-    category: explanation
-    reason: リリース決裁(G-8)の実装手段の例示と、必須レビュアが使えない場合の扱いの説明。統制と資格情報の置き場の規定は子の節にある
+    category: elsewhere
+    reason: G-8 の実装手段は例示(必須レビュアが使えない場合の成立の条件は定めていない)。ロールバック手順の記載は運用引き継ぎ文書(テンプレ5)の様式の切り戻しの欄で追う。統制と資格情報の置き場の規定は子の節にある
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ5: 運用引き継ぎ文書"
     issue: 293
   - key: phase5-implementation/ci-gates#デプロイゲート > 統制と資格情報の置き場
     status: marked

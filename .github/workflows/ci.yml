@@ -4,7 +4,7 @@ name: CI
 #
 #   check   PR・main への push・手動で、npm run check を実行する。検査の一覧の正本は package.json の check
 #   deploy  main への push のときだけ、check が作ったサイト(dist/)を GitHub Pages へ配る。2 回目のビルドはしない
-#   publish main への push で配布の対象が変わったときだけ、標準の本文と知識ベースを dist/standard へ積む
+#   publish main への push で、標準の本文と知識ベースを dist/standard へ積む。配布済みの中身と差が無ければ配らない
 #
 # deploy と publish は needs: check で繋ぐ。check が落ちれば、公開も配布もしない。
 # 結線は scripts/check-ci-wiring.mjs(npm run check に含む)が確かめる。
@@ -25,8 +25,6 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    outputs:
-      dist_changed: ${{ steps.changed.outputs.dist }}
     steps:
       # npm run check は準拠テンプレート(submodule template/)の複製・スキルの文・様式の欄を検査する。
       # template が無ければ検査は失敗する(Issue #293 裁定 J-3)。
@@ -57,27 +55,6 @@ jobs:
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist
-      # 配布の対象(本文・規則データ・生成器・ライセンス)が push の前後で変わったか。
-      # 前のコミットが無い・比べられない場合は、変わったものとして扱う
-      - name: 配布の対象が変わったか
-        id: changed
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        env:
-          BEFORE: ${{ github.event.before }}
-        run: |
-          set -u
-          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ] \
-            || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
-            echo "dist=true" >> "$GITHUB_OUTPUT"
-            echo "比べる前のコミットが無いため、配布の対象が変わったものとして扱います"
-            exit 0
-          fi
-          if git diff --quiet "$BEFORE" "$GITHUB_SHA" -- \
-            src/content/docs src/data scripts/build-template-kb.mjs scripts/check-gate-criteria.mjs scripts/lib/inputs.mjs LICENSE; then
-            echo "dist=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "dist=true" >> "$GITHUB_OUTPUT"
-          fi
 
   deploy:
     needs: check
@@ -127,7 +104,7 @@ jobs:
   # GITHUB_TOKEN は読み取りだけで、dist/standard へ書かない。
   publish:
     needs: check
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.check.outputs.dist_changed == 'true'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -256,8 +233,18 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          if git diff --cached --quiet; then
-            echo "配布物に変化がありません。配りません"
+          # 配るかどうかは、配布済みの中身との差で決める。VERSION.md と知識ベースの生成元の版(source)は
+          # 毎回変わるので比べない。前の配布が失敗していても、次の main への push で取り戻す
+          OTHERS=$(git diff --cached --name-only -- . ':(exclude)VERSION.md' ':(exclude)tailoring-kb.json' | wc -l)
+          if git cat-file -e HEAD:tailoring-kb.json 2>/dev/null; then
+            export PREV_KB="${RUNNER_TEMP:-/tmp}/prev-kb.json"
+            git show HEAD:tailoring-kb.json > "$PREV_KB"
+            KB_SAME=$(node -e "const f=(p)=>{const k=JSON.parse(require('fs').readFileSync(p,'utf8'));delete k.source;return JSON.stringify(k)};process.stdout.write(String(f(process.env.PREV_KB)===f('tailoring-kb.json')))")
+          else
+            KB_SAME=false
+          fi
+          if [ "$OTHERS" -eq 0 ] && [ "$KB_SAME" = "true" ]; then
+            echo "配布済みの中身と差がありません(VERSION.md と生成元の版を除く)。配りません"
             exit 0
           fi
           git commit -q -m "標準の本文を配布する (${GITHUB_SHA})"

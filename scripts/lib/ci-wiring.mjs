@@ -18,10 +18,15 @@ export function deploysPages(job) {
   return steps(job).some((s) => /^actions\/deploy-pages@/.test(usesOf(s)));
 }
 
-/** dist/standard へ書くジョブか */
+/** dist/standard へ書くジョブか(いずれかの手順が dist/standard を含み、いずれかの手順が git push を含む) */
 export function writesDistStandard(job) {
-  return steps(job).some((s) => /dist\/standard/.test(runOf(s)) && /git\s+push/.test(runOf(s)));
+  const ss = steps(job);
+  return ss.some((s) => /dist\/standard/.test(runOf(s))) && ss.some((s) => /git\s+push/.test(runOf(s)));
 }
+
+/** 配布の秘密情報の名前。ci.yml の publish ジョブの外に現れてはならない */
+export const DIST_SECRET = 'DIST_STANDARD_DEPLOY_KEY';
+const PUBLISH_JOB = 'publish';
 
 /** 契機に、main への push があるか */
 function pushesMain(on) {
@@ -37,6 +42,15 @@ function pushesMain(on) {
 function gatedOnPushToMain(job) {
   const cond = typeof job?.if === 'string' ? job.if : '';
   return /github\.event_name\s*==\s*'push'/.test(cond) && /github\.ref\s*==\s*'refs\/heads\/main'/.test(cond);
+}
+
+/**
+ * ジョブの if が、検査の通過を待たない形か。状態の関数(always・failure・cancelled。否定を含む)は
+ * needs の失敗の後にもジョブを走らせる。|| は main への push の限定を外す
+ */
+function bypassesGate(job) {
+  const cond = typeof job?.if === 'string' ? job.if : '';
+  return /\b(always|failure|cancelled)\s*\(/.test(cond) || /\|\|/.test(cond) || /!\s*success\s*\(/.test(cond);
 }
 
 const WRITE = /write/;
@@ -98,7 +112,7 @@ export function checkWiring(workflows) {
     // 3. template のサブモジュールを取得する
     const fetchesTemplate = steps(job).some(
       (s) =>
-        /git\s+submodule\s+update\s+--init/.test(runOf(s)) && /(^|\s)template(\s|$)|--recursive/.test(runOf(s)),
+        /git\s+submodule\s+update\s+--init/.test(runOf(s)) && /(^|\s)template(\s|$)/.test(runOf(s)),
     ) || steps(job).some((s) => /^actions\/checkout@/.test(usesOf(s)) && ['true', 'recursive'].includes(String(s.with?.submodules)));
     if (!fetchesTemplate) {
       problems.push(`${CI_FILE}: ジョブ ${CHECK_JOB} が template のサブモジュールを取得していません。検査の入力が無く失敗します(条件3)`);
@@ -123,8 +137,30 @@ export function checkWiring(workflows) {
       if (!gatedOnPushToMain(j)) {
         problems.push(`${CI_FILE}: ${what} ${name} の if が、main への push に限っていません(条件4)`);
       }
+      if (bypassesGate(j)) {
+        problems.push(
+          `${CI_FILE}: ${what} ${name} の if に、状態の関数(always・failure・cancelled)か || があります。検査の失敗の後にも走るか、main への push の限定が外れます(条件4)`,
+        );
+      }
       if (dist && !j.environment) {
         problems.push(`${CI_FILE}: ${what} ${name} に environment がありません。資格情報を、配備のブランチを main に限った実行環境に置きます(条件6)`);
+      }
+    }
+  }
+
+  // 8. dist/standard の文字列と配布の秘密情報の名前は、ci.yml の publish ジョブの外に現れない
+  //    (コメントは YAML の読み込みで落ちるため数えない)
+  for (const w of workflows) {
+    const { jobs, ...rest } = w.doc ?? {};
+    const parts = [[`${w.file} の最上位`, rest]];
+    for (const [name, j] of Object.entries(jobs ?? {})) {
+      if (w.file === CI_FILE && name === PUBLISH_JOB) continue;
+      parts.push([`${w.file} のジョブ ${name}`, j]);
+    }
+    for (const [where, part] of parts) {
+      const text = JSON.stringify(part ?? {});
+      if (text.includes('dist/standard') || text.includes(DIST_SECRET)) {
+        problems.push(`${where}: dist/standard か配布の秘密情報(${DIST_SECRET})が、${CI_FILE} のジョブ ${PUBLISH_JOB} の外に現れます(条件8)`);
       }
     }
   }

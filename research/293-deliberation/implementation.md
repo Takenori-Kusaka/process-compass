@@ -9,11 +9,11 @@
 
 ### 0.1 番号
 
-この担当が使った番号: ADR-0077、EV-0137・EV-0138、IMPL-0232〜IMPL-0239。**次に使える番号は、ADR-0078、EV-0139、IMPL-0240**。使う前に、既存の最大を自分で確かめること。
+この担当が使った番号: ADR-0077、EV-0137・EV-0138、IMPL-0232〜IMPL-0239(突合の後の修正で新しい番号は使っていない)。**次に使える番号は、ADR-0078、EV-0139、IMPL-0240**。使う前に、既存の最大を自分で確かめること。
 
 ### 0.2 マージの前提(利用者へ伝えること)
 
-`template/` のサブモジュールは pit-in-template の作業ブランチ `claude/process-compass-293`(8a7fc40)を指す。#291〜#293 の積み重ねで、template の main には無い。**本リポジトリの変更を main へ入れる前に、テンプレート側を main へマージし、サブモジュールの指す先を template の main の上のコミットにする**。CI(`ci.yml`)は template を取得できなければ失敗する(J-3)。
+`template/` のサブモジュールは pit-in-template の作業ブランチ `claude/process-compass-293`(9fc6132。突合の後の修正を含む)を指す。#291〜#293 の積み重ねで、template の main には無い。**本リポジトリの変更を main へ入れる前に、テンプレート側を main へマージし、サブモジュールの指す先を template の main の上のコミットにする**。CI(`ci.yml`)は template を取得できなければ失敗する(J-3)。
 
 ### 0.3 管理者の設定(利用者が設定画面で行う。AI は行わない)
 
@@ -184,7 +184,7 @@
 
 - `npm run check` が全体で通る(2026-10-23。終了コード 0。306 頁のビルド)
 - `actionlint` 1.7.12(`pip install actionlint-py`)で、本リポジトリの 4 ワークフローと template の全ワークフローに指摘 0 件。shellcheck は環境に無く、`run:` のシェルの静的検査はしていない
-- `template/` を空のディレクトリにした複製と、`template/` の無い複製で、`lint:impl`・`lint:provisions`・`lint:skills`・`lint:registry`・`test:template`・`test:fields`・`test:criteria` と `build-template-kb.mjs` の既定の出力が、取得の命令を出して終了コード 1 で終わる
+- `template/` を空のディレクトリにした複製と、`template/` の無い複製で、`lint:impl`・`lint:provisions`・`lint:skills`・`lint:registry`・`test:template`・`test:fields`・`test:criteria` が、取得の命令を出して終了コード 1 で終わる。`build-template-kb.mjs` の既定の出力は、この時点では空のディレクトリの場合だけ失敗し、`template/` の無い場合は兄弟のリポジトリへ書き出していた(突合 X-13 で偽と指摘。7 章で直し、両方で失敗することを確かめ直した)
 - `check-gate-criteria.mjs --kb` が、`GITHUB_SHA` と食い違う版で失敗し、一致する版で通る
 - `publish` の「配布用ブランチへ積む」の手順を、送り先を手元の bare リポジトリへ差し替えて実行した: 1 回目でブランチを作り、2 回目で前のコミットの上へ積む。中身は `docs/`・`tailoring-kb.json`・`VERSION.md`・`LICENSE` だけ。配布済みの版より古いコミットからの実行は配らずに終わる
 - テンプレートの試験(`verify-gate-contract`・`test-check-delegation`(39 場面)・`test-check-pr`・`test-recalibration`・`test-roster-rules`・`test-g5-aggregate`・`test-plan-trace`・`test-init-g5`)がすべて通る
@@ -216,3 +216,38 @@
 8. **裁定に無い実装マーク**: 変えた節を登録簿で区分するため、IMPL-0235(委任の要求事項1〜6。実機で未確認のため `undelivered`)、IMPL-0238(1名の行)、IMPL-0239(既存の「対象なし」の規定。`undelivered`)を足した。裁定の別 Issue 3(「対象なし」を記録の 3 項目で残しているか)の論点は、IMPL-0239 の `undelivered` で開示した
 9. **テンプレートの `g5-local.mjs`**: 裁定は IMPL-0232 を `g5-local` へ `delivered` で接続するとした。既存の出力は「マージを止めるのは CI」までで、「証跡にならない」は無かった。出力に 1 行足してから `delivered` にした
 10. **CLAUDE.md**: 「コマンド」の `npm run check` の行だけを改めた。了承は PR で得る(0.4)
+
+## 7. 突合の後の修正(`crosscheck.md` X-1〜X-15、`decision.md` 8 章の裁定に従う)
+
+| ID | 裁定 | 直したこと |
+| --- | --- | --- |
+| X-1 | 裁定 J-6 の文を改める | `ci-gates.md`「統制と資格情報の置き場」の手段の文を「配備を許す参照(既定ブランチ、またはリリースのタグ)に限った実行環境の秘密情報に置きます」へ改めた。プランにより手段を使えない場合は規定を満たせず、満たしたものとして扱わず保証の開示に未達として記録する旨の段落を置いた(ADR-0028 を引く)。タグからの配備を許す場合にタグの作成を限らないと同じ穴を持つことを足した。対応の表の行を「配備の参照の限定(Selected branches and tags。規則は `GITHUB_REF` に照らす。タグの作成をルールセットで限る)」に改め、「プランの制限」の行(Free の非公開のリポジトリでは Environment の秘密情報と配備の参照の限定を使えない。必須レビュアは Free・Pro・Team の非公開で使えない)を足した。管理者の迂回の設定が Free・Pro・Team では公開のリポジトリに限ることを足した。EV-0137 の対象の文、IMPL-0237 の note、ADR-0077 決定6(標準)を同じく改めた。本リポジトリの `dist-standard`(main への push だけで配る)は変えていない |
+| X-2 | 採る | テンプレート `delegation.yml` を、判定のジョブ `delegation-check`(Environment もトークンも参照しない。`--status` だけ)と、マージのジョブ `delegation-merge`(`needs: eligibility`、`if: vars.DELEGATED_MERGE_ENABLED == 'true' && needs.eligibility.outputs.eligible == 'true'`、`environment: delegated-merge`、判定し直してから `--merge`)に分けた。`check-delegation.mjs` が判定の結果 `eligible` を `GITHUB_OUTPUT` へ出す。`test-check-delegation.mjs` の 1 件を 2 件に改めた(判定のジョブが Environment とトークンを参照しないこと、マージのジョブだけが参照し有効化の変数で動くこと)。README に、マージのジョブだけが参照すること・既定ブランチ以外へ向けた PR ではマージのジョブが拒まれること・以前の手順のリポジトリの秘密情報を削除することを足した。`ci-gates.md` の委任の実装の表と IMPL-0236 の note を合わせた。修正したので IMPL-0236 は `delivered` のまま。テンプレートのコミット 9fc6132(push 済み)、サブモジュールの指す先を更新 |
+| X-3 | 採る | デプロイゲートの第1項の G-8 の代替の文を削り、「使えない場合の G-8 の成立の条件は、本標準では現時点で定めていない(QMS 文書管理の承認権限の対応の扱いとして、別に検討する)」へ替えた。ADR-0077 にも同旨を足した。別 Issue 1 の起票に、この文の要否を含めること |
+| X-4 | 採る | `checkWiring`: 公開・配布のジョブの `if` に `always(`・`failure(`・`cancelled(`(否定を含む)・`!success(`・`\|\|` があれば失敗。`dist/standard` へ書くジョブの認識を「いずれかの手順が `dist/standard` を含み、いずれかの手順が `git push` を含む」へ広げた。条件3 は取得の命令に `template` の語を必須にした(`--recursive` だけでは通さない)。条件8 を足した: `dist/standard` の文字列と `DIST_STANDARD_DEPLOY_KEY` が、`ci.yml` の `publish` ジョブの外(全ワークフローの最上位と他のジョブ)に現れれば失敗。陽性対照を 4 件足した。変数や別の手順で隠した push と、`npm pkg set` などで `check` を書き換える形は拾わないことを、`check-ci-wiring.mjs` の冒頭と `project-management.md`「止まらない経路」に書いた(止めるのはルールセット) |
+| X-5 | 採る | `check` の「配布の対象が変わったか」の手順と、`publish` の `if` の `dist_changed` を外した。`publish` は main への push ごとに走り、生成した中身と、現在の `dist/standard` の中身を比べる。`VERSION.md` を除いたファイルの差と、知識ベースの `source` を除いた JSON の差がどちらも無ければ配らない。前の配布が失敗しても、次の push で取り戻す。手元の bare リポジトリで、1 回目は作成、同じ中身の 2 回目は配らない、本文を変えた 3 回目は積む、を確かめた。比べるための前回の知識ベースは `RUNNER_TEMP` に置く |
+| X-6 | 採る | CLAUDE.md「Git 戦略」の `deploy.yml` の行を `ci.yml` のジョブ `deploy`・`publish` へ、README のバッジを `ci.yml` へ改めた。CLAUDE.md の変更は、J-1 の行と合わせて PR で利用者の了承を得る |
+| X-7 | 採る | `project-management.md`「止まらない経路」に、上書きの防止は新しい実行の成功に依り、後のコミットの検査が落ちる・`[skip ci]` を付けた push では前の通過した版も公開されないことを足した。表の行にも注記した |
+| X-8 | 採る | G-5 の段落の理由を「入力が無いため、対象の有無を確かめていないからです」へ、例示を「(依存・サブモジュール・生成物など)」へ、「実施しなかった検査」を「未実施の検査」へ改め、保証の開示の項目4 と同じ区別であることを書いた。段落と IMPL-0233・0234 を、未達・省略・対象なしの表の後(節の末尾)へ移した |
+| X-9 | 採る | ADR-0077「既存の決定との関係」: ADR-0033 決定7 を「『対象なし』と未達・省略の区別」に直し、入力の欠如は未実施として項目4 で通過と区別すると書いた。ADR-0052 の行の「決定6」を「本 ADR 決定6」に直した。3 つの条件の出所を ADR-0073 決定2 の行に分け、ADR-0074 の行は決定2(集約の機械の確認)の型とした |
+| X-10 | 採る | 委任の実装の表の「次行の Environment」を「後掲の行『マージの実行の有効化』の Environment」へ |
+| X-11 | 採る | `compute-strategy.md`: 集約は基底を取り込んだ版(PR ではマージのコミット、PR を経ない体制では push の後の版)に対して判定し、strict はルールセットを置く体制で求め、基底から読むのは基準値と例外承認の行、と改めた。EV-0138 の本文の「最新の基底」を「基底を取り込んだ版」に合わせた |
+| X-12 | 採る | 登録簿の `ci-gates#デプロイゲート` を `none` / `elsewhere`(所在: 第6章 テンプレ5 運用引き継ぎ文書。ロールバック手順は様式の切り戻しの欄で追う)に改めた |
+| X-13 | 採る | `build-template-kb.mjs` は、`--out` の指定が無く `template/` が無い・空なら失敗する(兄弟のリポジトリへの退避をやめた)。書き出し用の文言 `describeMissingTarget`(「書き出し先が無いため、書き出しません」と `--out` の案内)を分け、陽性対照を 1 件足した。4 章の記録を事実に合わせた。`template/` が空・無いの両方の複製で、検査 7 本と書き出しが終了コード 1 で終わることを確かめ直した |
+| X-14 | 採る | `git-strategy.md` の 1名の行を「CI(G-5相当)は最初から必須。既定ブランチへの push を契機に、契約検査を含めて実行する。push そのものは止めない」へまとめた |
+| X-15 | 別 Issue 2 へ含める | 本変更では直していない。別 Issue 2(未実施の長期化)の起票に、アダプタの任意の検査(`audit`・`licenses`・`coverage`)の空のコマンドが通知を出して通ることを含めること |
+
+### 7.1 6 章の記録の訂正
+
+- 6 章 4 の「配布の対象の変化の判定を `check` のジョブに置いた」「配布物に変化が無ければコミットしない」は、X-5 で置き換えた(後者は `VERSION.md` が毎回変わるため動いていなかった)
+- 6 章 5 の理由の 1 文「対象は存在しており」は、X-8 で「対象の有無を確かめていない」へ改めた
+- 6 章 6 の「使えない場合は、G-8 の決断の記録を判定記録で残し…」は、X-3 で削った
+
+### 7.2 検査と試験(突合の後)
+
+- `npm run check`: 終了コード 0(突合の後の修正のコミットの直前)
+- `actionlint`: 本リポジトリの全ワークフローとテンプレートの `delegation.yml` に指摘 0 件
+- テンプレート: `verify-gate-contract`・`test-check-delegation`(39 場面と付随の確認)・`test-init-g5` が通る
+- 結線と入力の試験(`test:ci-wiring`): 26 件
+- 台帳: `evidence:write`・`impl:write`・`scope:write` を再実行した
+

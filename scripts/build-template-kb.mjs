@@ -8,8 +8,8 @@
 //   node scripts/build-template-kb.mjs --out <path>
 //
 // 出力先の既定は template/scripts/vendor/tailoring-kb.json。
-// template/ が無い場合は ../pit-in-template/ を試す。template/ が空のディレクトリ
-// (初期化していないサブモジュール)の場合は、書き出さずに失敗する(Issue #293 / ADR-0077)。
+// template/ が無い、または空のディレクトリ(初期化していないサブモジュール)の場合は、書き出さずに失敗する。
+// 別の場所(兄弟のリポジトリ ../pit-in-template/ など)へ書き出すときは --out を明示する(Issue #293 突合 X-13)。
 
 import fs from 'node:fs';
 import { execSync } from 'node:child_process';
@@ -17,7 +17,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import GithubSlugger from 'github-slugger';
-import { missingInputs, describeMissing } from './lib/inputs.mjs';
+import { missingInputs, describeMissingTarget } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -244,16 +244,12 @@ function sourceVersion() {
 }
 
 function defaultOut() {
-  const inSubmodule = path.join(ROOT, 'template/scripts/vendor/tailoring-kb.json');
-  if (fs.existsSync(path.join(ROOT, 'template'))) {
-    const missing = missingInputs(ROOT, ['template']);
-    if (missing.length) {
-      console.error(describeMissing('知識ベースの書き出し', missing));
-      process.exit(1);
-    }
-    return inSubmodule;
+  const missing = missingInputs(ROOT, ['template']);
+  if (missing.length) {
+    console.error(describeMissingTarget('知識ベースの書き出し', missing));
+    process.exit(1);
   }
-  return path.resolve(ROOT, '../pit-in-template/scripts/vendor/tailoring-kb.json');
+  return path.join(ROOT, 'template/scripts/vendor/tailoring-kb.json');
 }
 
 const args = process.argv.slice(2);

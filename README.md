@@ -1,6 +1,6 @@
 # Process Compass 🧭
 
-[![Deploy to GitHub Pages](https://github.com/Takenori-Kusaka/process-compass/actions/workflows/deploy.yml/badge.svg)](https://github.com/Takenori-Kusaka/process-compass/actions/workflows/deploy.yml)
+[![CI](https://github.com/Takenori-Kusaka/process-compass/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Takenori-Kusaka/process-compass/actions/workflows/ci.yml)
 [![Docs License: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey.svg)](./LICENSE-docs)
 [![Code License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](./LICENSE)
 

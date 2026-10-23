@@ -12,7 +12,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { checkWiring, renderProblems } from './lib/ci-wiring.mjs';
-import { missingInputs, commitProblems, describeMissing, INIT_HINT } from './lib/inputs.mjs';
+import { missingInputs, commitProblems, describeMissing, describeMissingTarget, INIT_HINT } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -133,6 +133,36 @@ test('条件4: 公開のジョブが ci.yml の外にある', () => {
   const other = wf({ permissions: { contents: 'read' }, jobs: { build: { steps: [{ uses: 'actions/deploy-pages@v5' }] } } }, 'deploy.yml');
   expectProblem(d, /deploy\.yml: Pages へ配備するジョブ build が ci\.yml の外/, [other]);
 });
+test('条件4: 公開・配布のジョブの if に always()・!cancelled()・failure()・|| がある', () => {
+  for (const cond of [
+    "always() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+    "!cancelled() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+    "failure() && github.event_name == 'push' && github.ref == 'refs/heads/main'",
+    "github.event_name == 'push' || github.ref == 'refs/heads/main'",
+  ]) {
+    const d = goodCi();
+    d.jobs.deploy.if = cond;
+    expectProblem(d, /状態の関数/);
+  }
+});
+test('条件4・6: dist/standard を変数に置き、push を別の手順に分けても配布のジョブと認識する', () => {
+  const d = goodCi();
+  d.jobs.publish.steps = [{ run: 'BR=dist/standard; echo "BR=$BR" >> "$GITHUB_ENV"' }, { run: 'git push -q "$REMOTE" "HEAD:refs/heads/$BR"' }];
+  delete d.jobs.publish.environment;
+  expectProblem(d, /environment がありません/);
+});
+test('条件3: --recursive だけで template の語の無い取得は通さない', () => {
+  const d = goodCi();
+  d.jobs.check.steps[1].run = 'git submodule update --init --recursive zenn';
+  expectProblem(d, /template のサブモジュールを取得していません/);
+});
+test('条件8: dist/standard・配布の秘密情報が publish の外に現れる', () => {
+  const d = goodCi();
+  d.jobs.check.steps.push({ run: 'echo ${{ secrets.DIST_STANDARD_DEPLOY_KEY }}' });
+  expectProblem(d, /ジョブ check: dist\/standard か配布の秘密情報/);
+  const other = wf({ permissions: { contents: 'read' }, jobs: { x: { steps: [{ run: 'git fetch origin dist/standard' }] } } }, 'other.yml');
+  expectProblem(goodCi(), /other\.yml のジョブ x/, [other]);
+});
 test('条件5: 最上位の permissions が無い・書き込みを与える', () => {
   const d = goodCi();
   delete d.permissions;
@@ -167,6 +197,12 @@ test('入力: 欠けの説明は失敗に数えることと取得の命令を出
   const s = describeMissing('検査', [{ rel: 'template', why: 'ありません' }]);
   assert.match(s, /失敗に数えます/);
   assert.ok(s.includes(INIT_HINT));
+});
+test('入力: 書き出し先の欠けは、検査でなく書き出しの文言で出し、--out の明示を案内する', () => {
+  const s = describeMissingTarget('書き出し', [{ rel: 'template', why: 'ありません' }]);
+  assert.match(s, /書き出しません/);
+  assert.doesNotMatch(s, /検査を実施できません/);
+  assert.match(s, /--out/);
 });
 fs.rmSync(tmp, { recursive: true, force: true });
 

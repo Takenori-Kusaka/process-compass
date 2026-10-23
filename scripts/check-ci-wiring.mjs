@@ -6,10 +6,16 @@
 // 次を確かめます。条件の本体と試験は scripts/lib/ci-wiring.mjs・scripts/test-check-ci-wiring.mjs にあります。
 //   1. ci.yml の契機に pull_request と、main への push がある
 //   2. ジョブ check に、run がちょうど npm run check の手順がある。その手順にもジョブにも if・continue-on-error が無い
-//   3. ジョブ check が template のサブモジュールを取得する
+//   3. ジョブ check が template のサブモジュールを取得する(取得の命令に template の語がある)
 //   4. Pages へ配備するジョブと dist/standard へ書くジョブは ci.yml にあり、needs に check を含み、main への push に限る
 //   5. 全ワークフローが最上位に permissions を明示し、最上位で書き込みを与えない
 //   6. dist/standard へ書くジョブが environment を持つ
+//   4 の補足: 公開・配布のジョブの if に、状態の関数(always・failure・cancelled)と || を置かない
+//   8. dist/standard の文字列と配布の秘密情報の名前が、ci.yml の publish ジョブの外に現れない
+//
+// 限界(構造の検査では拾えないもの): 変数や別の手順で隠した dist/standard への push、
+// npm run check の前の手順で package.json の check を書き換える形(npm pkg set など)。
+// dist/standard への書き込みを止めるのはルールセット(deploy key だけがバイパス)である。
 //
 // 確かめないこと: 説明の文書(CLAUDE.md・README など)の散文の列挙(課さないと決めた)、
 // GitHub 側の設定(Environment の保護・ルールセット・deploy key)。後者は管理者が行い、
