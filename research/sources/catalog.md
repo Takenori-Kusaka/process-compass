@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 632(included 632、excluded 0)。生成日 2026-09-30。
+件数: 640(included 640、excluded 0)。生成日 2026-10-23。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -640,4 +640,12 @@
 | SRC-0630 | 2025-12-17 | corp-techblog | jp/ja | verified | TH01 TH06 TH07 TH11 | サイバーエージェントの1チームが、AI 導入でコミット数が約2倍になった後に組み直したレビューフローの報告。人の承認の後に AI の最終チェックを置き「最終ゲー | [コミット数2倍でもレビュー品質を維持！AI時代のコードレビューフロー再設計](https://developers.cyberagent.co.jp/blog/archives/60882/) |
 | SRC-0631 | 2026-09-07 | public-agency | jp/ja | verified | TH12 TH07 TH06 | IPA が 2026-06-08〜08-10 の AI セキュリティ事例を一次情報源から要約した定期刊行物(要約作成に AI を使用と明記)。読んだのはエグゼク | [AIセキュリティ短信 2026年8月号](https://www.ipa.go.jp/digital/ai/security/rcu1hd0000007gji-att/2026-2_0907.pdf) |
 | SRC-0632 | 2026-09 | community | global/en | verified | TH12 | 品質保証の語の定義の確認。ISO 9000 の定義を引用する二次情報(規格本文は未読)。 | [Quality assurance](https://en.wikipedia.org/wiki/Quality_assurance) |
+| SRC-0633 | 2021 | standard | global/en | verified | TH12 | ISO と IEC の規格の構成と起草の規則(第9版)。規定の種類ごとの表現形式(箇条7)、検証できる要求だけを置くこと(5.5)、同じ要求を繰り返さず引用で書 | [ISO/IEC Directives, Part 2 — Principles and rules for the structure and drafting of ISO an](https://www.iso.org/sites/directives/current/part2/index.xhtml) |
+| SRC-0634 | 1986 | regulation | jp/ja | verified | TH12 | 請負の形式による契約で行う業務が、労働者派遣事業に当たるかどうかを区分する基準を定める告示。業務の遂行に関する指示その他の管理、労働時間等に関する指示その他の管 | [労働者派遣事業と請負により行われる事業との区分に関する基準(昭和61年労働省告示第37号。最終改正 平成24年厚生労働省告示第518号)](https://www.mhlw.go.jp/content/000780136.pdf) |
+| SRC-0635 | 2024-11 | public-agency | jp/ja | verified | TH12 | 37号告示の運用についての厚生労働省の疑義応答集(第1集、全 15 問)。発注者から請負事業主への要求と、請負労働者への直接の指示を区別する。Issue #30 | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集](https://www.mhlw.go.jp/content/001328443.pdf) |
+| SRC-0636 | 2021-09 | public-agency | jp/ja | verified | TH12 | アジャイル型開発についての疑義応答集(第3集、全 8 問)。準委任契約でも、実態として指揮命令関係があれば、契約の形式を問わず労働者派遣事業に当たるとする。Is | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集(第3集)](https://www.mhlw.go.jp/content/001704257.pdf) |
+| SRC-0637 | 2020-12 | public-agency | jp/ja | verified | TH12 | 受託開発の公的なモデル契約と逐条の解説。連絡の窓口(主任担当者)、準委任の工程の終了の確認(業務終了確認書)、請負の工程の検収を、別の条で定める。Issue # | [情報システム・モデル取引・契約書(受託開発(一部企画を含む)、保守運用)〈第二版〉](https://www.ipa.go.jp/digital/model/model20201222.html) |
+| SRC-0638 | 2020-03 | public-agency | jp/ja | verified | TH12 | アジャイル開発を準委任で外部へ委託する場合の公的なモデル契約と解説。月ごとの実施業務の確認を定め、成果物についての契約不適合責任は追及できないと解説する。Iss | [アジャイル開発外部委託モデル契約(情報システム・モデル取引・契約書〈アジャイル開発版〉。解説付き)](https://www.ipa.go.jp/digital/model/agile20200331.html) |
+| SRC-0639 | 1896 | regulation | jp/ja | verified | TH12 | 民法の全文(e-Gov 法令検索の API で取得)。請負(第632条)、請負人の担保責任の制限(第636条)、期間の制限(第637条)、準委任(第656条)を | [民法(明治二十九年法律第八十九号)](https://laws.e-gov.go.jp/api/1/lawdata/129AC0000000089) |
+| SRC-0640 | 2020-11 | community | global/en | partial | TH12 | スクラムガイドの現行版(2020年11月版)。Issue #298 で、附属書A A.7 とフェーズ6 の改善サイクルが引く文を、2026-10-23 に原文で | [The Scrum Guide(2020年11月版)](https://scrumguides.org/scrum-guide.html) |
 

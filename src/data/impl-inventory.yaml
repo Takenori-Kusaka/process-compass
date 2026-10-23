@@ -96,7 +96,10 @@ sections:
   - key: phase4-process-design/assurance-case#H.7 形骸化していないことの示し方
     status: pending
   - key: phase4-process-design/assurance-case#H.8 対外的に使う表現
-    status: pending
+    status: none
+    category: org-design
+    reason: 組織が対外の文書で使う表現の手引き。記名の自然人が書き署名する文書であり、AI の担い手の挙動を制約しない。手法の名との名乗りの行を足した
+    issue: 298
   - key: phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答
     status: pending
   - key: phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答 > 体制と責任に関する問い
@@ -1107,7 +1110,10 @@ sections:
   - key: phase4-process-design/lifecycle#2.1 本章が達成すべき成果
     status: pending
   - key: phase4-process-design/lifecycle#2.2 二層構造
-    status: pending
+    status: none
+    category: explanation
+    reason: 二層構造の説明。AI協調ループについて反復の周期・チームの会合・作業の一覧の運用を規定しないことの表明(主語が本標準)
+    issue: 298
   - key: phase4-process-design/lifecycle#2.3 事業ステージ
     status: pending
   - key: phase4-process-design/lifecycle#2.3 事業ステージ > 実装スタックの確定時期
@@ -1126,7 +1132,7 @@ sections:
     status: marked
     ids:
       - IMPL-0252
-    note: SG-0 の確認した事項に探索の記録を挙げ到達できることは IMPL-0252(降りていない)。ステージごとの表は説明。探索の記録の量・置き場・様式と技術検証の種別を課さないことは課さない明記
+    note: SG-0 の確認した事項に探索の記録を挙げ到達できることは IMPL-0252(降りていない)。ステージごとの表は説明。想定する反復周期は要求事項ではなく EV-0149(#298)。探索の記録の量・置き場・様式と技術検証の種別を課さないことは課さない明記
     issue: 294
   - key: phase4-process-design/lifecycle#2.7 部門間移管
     status: pending
@@ -1165,13 +1171,25 @@ sections:
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制
     status: pending
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.1 スコープの3層
-    status: pending
+    status: none
+    category: org-design
+    reason: スコープの3層と容量の配分は、価値責任者とステージ移行ゲートの判定者(人)が合意し調整する。AI の担い手の挙動を制約しない。60%・20% は EV-0150
+    issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.2 規模の合意
-    status: pending
+    status: none
+    category: org-design
+    reason: 規模の合意は価値責任者(人)が行う。精度を装った見積り手法の禁止の適用範囲を見出しへ併記した。AI の担い手の挙動を制約しない
+    issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.3 スコープを確定する時期
-    status: pending
+    status: none
+    category: org-design
+    reason: スコープの確定は SG の判定と G-1 で人が行う。場を別に設けないことは本標準の表明
+    issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.4 進捗の観測
-    status: pending
+    status: none
+    category: org-design
+    reason: 進捗と滞留の観測と非同期の通知の手段は採用組織が選ぶ。準拠テンプレートに滞留の通知の実装は無く、AI の担い手の挙動を制約する規定でもない。測定の実装はフェーズ6 運用メトリクス
+    issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.5 棚卸しとスコープの調整
     status: pending
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.6 期日に間に合わない見込みが立った場合
@@ -1189,13 +1207,22 @@ sections:
   - key: phase4-process-design/overview#1.1 目的
     status: pending
   - key: phase4-process-design/overview#1.2 適用範囲
-    status: pending
+    status: none
+    category: org-design
+    reason: 適用範囲の表と、本標準が開発の方式・手法の名で適用の対象を限定せず既存の開発手法との関係を主張しないことの表明(主語が本標準)。除外理由の記録は第8章のテーラリングの宣言による。AI の担い手の挙動を制約しない
+    issue: 298
   - key: phase4-process-design/overview#1.3 引用規格および参照文書
     status: pending
   - key: phase4-process-design/overview#1.4 用語の定義
-    status: pending
+    status: none
+    category: explanation
+    reason: 用語の定義の表。会議体の範囲(チームが自ら開く会合は会議体に当たらない)を定義で閉じた。要求事項を持たない
+    issue: 298
   - key: phase4-process-design/overview#1.5 本標準の構成
-    status: pending
+    status: none
+    category: explanation
+    reason: 本標準の章と附属書の構成の表。附属書A の内容欄を中身に合わせた
+    issue: 298
   - key: phase4-process-design/overview#1.6 各章の入力・処理・出力(IPO)
     status: pending
   - key: phase4-process-design/overview#1.7 記述の原則
@@ -2774,23 +2801,41 @@ sections:
     status: pending
   - key: phase6-operation/improvement-cycle#四半期振り返りの進め方
     status: pending
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと)
-    status: pending
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 手順
-    status: pending
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 犯人探しへの変質を防ぐ
-    status: pending
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 3区分の仕分け
-    status: pending
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 自己申告を促す設計
-    status: pending
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > コンテキスト基盤への還元
+  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り
+    status: none
+    category: org-design
+    reason: 振り返りは参加者(人)が行う。周期は採用組織が定める(本標準は定めない。第1章 1.2)。AI の担い手の挙動を制約しない
+    issue: 298
+  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 手順
+    status: none
+    category: org-design
+    reason: 振り返りの手順。Try の登録は参加者(人)が行う。スクラムガイドの引用は由来の引用として書き分けた
+    issue: 298
+  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 犯人探しへの変質を防ぐ
+    status: none
+    category: org-design
+    reason: 振り返りの場の運営の規律。参加者と進行役(人)が守る
+    issue: 298
+  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 3区分の仕分け
+    status: none
+    category: org-design
+    reason: 仕分けの判別は品質保証の機能(人)が行う(第5章 5.6.3)
+    issue: 298
+  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 自己申告を促す設計
+    status: none
+    category: org-design
+    reason: 自己申告の制度の設計。制度を定め運用するのは組織
+    issue: 298
+  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > コンテキスト基盤への還元
     status: none
     category: org-design
     reason: 振り返りで見つけた問題と、還元先の層の対応の表。還元を判断するのは振り返りの参加者(人)で、AI の担い手の挙動を制約しない。手戻り率の名を運用メトリクスの量へ揃えた
     issue: 296
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 振り返りの形骸化を検知する
-    status: pending
+  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 振り返りの形骸化を検知する
+    status: none
+    category: org-design
+    reason: 振り返りの形骸化の指標。指標を見て判断するのは人
+    issue: 298
   - key: phase6-operation/improvement-cycle#モデル更新への追従(随時)
     status: pending
   - key: phase6-operation/improvement-cycle#プロセス定義の版管理

@@ -42,9 +42,9 @@ graph TD
 
 本標準は、振り返りのたびに規定や判断記録を一定の件数以上削ることを課しません。件数の義務は、削るものが無い回に形式的な削除を生み、件数の根拠もありません([ADR-0072](/process-compass/adr/0072-document-volume-is-not-a-metric/))。
 
-## 三識データを用いた振り返り(スプリントごと)
+## 三識データを用いた振り返り
 
-内側ループに、[三識メトリクス](/process-compass/phase6-operation/metrics/)の確認を組み込みます。四半期の振り返りを待たず、スプリントごとに回します。
+内側ループに、[三識メトリクス](/process-compass/phase6-operation/metrics/)の確認を組み込みます。四半期の振り返りを待たず、採用組織が定めた周期で回します。周期を、本標準は定めません([第1章 1.2](/process-compass/phase4-process-design/overview/))。
 
 ### 手順
 
@@ -55,7 +55,11 @@ graph TD
 | 3 | Try を3件以内に絞る | 責任者と期限を必ず付ける |
 | 4 | **Try を作業バックログへ登録する** | 振り返りの記録に留めない |
 
-手順4が最も重要です。**バックログに載らない改善は実施されません**。スクラムの公式定義でも「最も影響の大きい改善は可能なかぎり早く対処され、次スプリントのバックログに追加されることもある」と記されています。
+手順4が最も重要です。**バックログに載らない改善は実施されません**。この手順は、スクラムガイド(2020年11月版)の記述を由来としています。ガイドは、振り返りで見つけた改善について次のように書いています(2026-10-23 に原文を確かめました)。
+
+> The most impactful improvements are addressed as soon as possible. They may even be added to the Sprint Backlog for the next Sprint.
+
+由来の引用であり、本標準とスクラムの関係を示すものではありません([附属書A](/process-compass/phase4-process-design/integrated-process/) A.7)。
 
 ### 犯人探しへの変質を防ぐ
 

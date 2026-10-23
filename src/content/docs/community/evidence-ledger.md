@@ -150,6 +150,11 @@ sidebar:
 | EV-0146 | 独立レビューの差し戻し率が0%のまま推移した期間の初期値(2か月継続)。能力依存の定数の登録簿の RC-12(能力に依らない) | E0(なし) | 未記載 | 2027-10 | 採用組織で、差し戻し率0%が2か月続いて引き下げた範囲のうち、後の点検で形骸化を確かめた件数と、確かめられなかった件数の観測 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | EV-0147 | 条件1 の連続運用期間の初期値(3か月以上)。能力依存の定数の登録簿の RC-09(能力に依らない) | E0(なし) | 未記載 | 2027-10 | 引き上げを判定した採用組織で、引き上げの後に 5.4.6 の引き下げが発火するまでの期間の分布の観測 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | EV-0148 | 10名の境界(10名以上の列の規則) | E0(なし) | 未記載 | 2027-10 | 採用組織の人数と、10名以上の列の規則(コア機能の別チームのレビュー、QA 部門・専任の出荷判定)を適用した範囲・しなかった範囲での、レビューの所要時間・出荷後の欠陥の観測 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| EV-0149 | 「ステージによるループの回し方の変化」の表の、想定する反復周期の値(S0 数時間〜1日、S1 1〜3日、S2 2〜5日) | E0(なし) | 未記載 | 2027-10 | 採用組織の案件で、機能仕様承認(G-4)から独立レビュー(G-6)の判定までの所要時間を、事業ステージごとに集めた分布 | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
+| EV-0150 | 確約範囲(SC-M)の上限 60% と、調整枠(SC-B)の 20% の初期値 | E1(間接) | 未記載 | 2027-10 | 採用組織の案件の、ステージごとの確約範囲の容量の比率と、SC-M の増減(第7章 7.6 のエスカレーションを含む)の件数 | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
+| EV-0151 | 境界を明示的に設計した二層の混成(意図的ハイブリッド)が有効に働く、という設計の前提 | E0(なし) | 未記載 | 2027-10 | 採用組織の案件の、出荷判定(G-7)・リリース決裁(G-8)の判定の間隔と AI協調ループの反復の間隔の比と、反復で得た学習が受入基準とスコープの変更へ戻った件数 | [phase4-process-design/integrated-process](/process-compass/phase4-process-design/integrated-process/) |
+| EV-0152 | 下表の要素を組み合わせた構成が、組み合わせとして機能するという前提 | E0(なし) | 未記載 | 2027-10 | 本標準を適用した案件の、ゲートごとの差し戻しの件数と、出荷の後に見つかった欠陥の原因となったゲートの記録 | [phase4-process-design/integrated-process](/process-compass/phase4-process-design/integrated-process/) |
+| EV-0153 | 附属書A A.7 の、スクラムガイド(2020年11月版)の文言と本標準の規定との接点の読み | E1(間接) | 未記載 | 2027-10 | スクラムガイドの改訂と、スクラムを用いる採用組織の案件で本節の読みと食い違う運用が要った記録 | [phase4-process-design/integrated-process](/process-compass/phase4-process-design/integrated-process/) |
 
 <!-- evidence-ledger:end -->
 

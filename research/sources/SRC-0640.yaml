@@ -1,0 +1,97 @@
+schemaVersion: 0
+id: SRC-0640
+status: included
+excludeReason: null
+title: The Scrum Guide(2020年11月版)
+url: https://scrumguides.org/scrum-guide.html
+canonicalUrl: https://scrumguides.org/scrum-guide.html
+ids:
+  arxiv: null
+  doi: null
+publisher: scrumguides.org(Ken Schwaber、Jeff Sutherland)
+authors:
+- Ken Schwaber
+- Jeff Sutherland
+orgType: individual
+region: global
+lang: en
+sourceType: community
+published: 2020-11
+publishedBasis: page
+version: 2020年11月版(HTML 版。ページは November 2020 版の移植と書く)
+updated: null
+accessed: '2026-10-23'
+access: open
+readLevel: section
+foundBy:
+  cluster: I298
+  query: scrum guide definition of done organization standard sprint review gate immutable
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'スクラムガイドの現行版(2020年11月版)。Issue #298 で、附属書A A.7 とフェーズ6 の改善サイクルが引く文を、2026-10-23 に原文で確かめた。'
+claims:
+- id: c1
+  text: 完成の定義が組織の標準の一部であれば、すべてのスクラムチームは最低限としてそれに従う。
+  quote: If the Definition of Done for an increment is part of the standards of the organization, all Scrum Teams must follow it as a minimum.
+  locator: Commitment - Definition of Done
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 298
+  stance: context
+- id: c2
+  text: スプリントレビューは、価値のリリースの関門とみなされない。
+  quote: The Sprint Review should never be considered a gate to releasing value.
+  locator: Increment
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 298
+  stance: context
+- id: c3
+  text: スクラムの枠組みは不変であり、一部だけを実装したものはスクラムではない。
+  quote: The Scrum framework, as outlined herein, is immutable. While implementing only parts of Scrum is possible, the result is not Scrum.
+  locator: End Note
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 298
+  stance: context
+- id: c4
+  text: 最も影響の大きい改善は可能なかぎり早く対処され、次のスプリントのスプリントバックログに加えられることもある。
+  quote: The most impactful improvements are addressed as soon as possible. They may even be added to the Sprint Backlog for the next Sprint.
+  locator: Sprint Retrospective
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 298
+  stance: context
+- id: c5
+  text: スプリントを中止する権限を持つのはプロダクトオーナーだけである。
+  quote: Only the Product Owner has the authority to cancel the Sprint.
+  locator: The Sprint
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 298
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-23'
+  humanChecked: false
+  note: WebFetch(取得結果を要約モデルが返す方式)で、原文の該当の文を逐語で抜き出させて照合した。プロキシの制約で curl による全文の取得はできなかったため、全文の通読ではない。c3 の後半は、要約モデルが125文字ずつに区切って返した断片をつないだもの
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-09-30): verified 629 / partial 3
+集計(生成日 2026-10-23): verified 636 / partial 4
 
 ### 要確認(verified 以外)
 
@@ -26,6 +26,7 @@
 | SRC-0034 | partial | mech-fetch,agent-blind,agent-adjudication |  | [ChatGPT & Codex changelog](https://developers.openai.com/codex/changelog) |
 | SRC-0051 | partial | mech-fetch,agent-blind,agent-adjudication |  | [awslabs/aidlc-workflows: AI-Driven Life Cycle (AI-DLC) adaptive workflow steering rules fo](https://github.com/awslabs/aidlc-workflows) |
 | SRC-0511 | partial | mech-fetch,agent-blind,agent-adjudication |  | [チーム憲章 — 誰が何を決め、誰に渡すか(docs/sessions/README.md)](https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/sessions/README.md) |
+| SRC-0640 | partial | agent-read | WebFetch(取得結果を要約モデルが返す方式)で、原文の該当の文を逐語で抜き出させて照合した。プロキシの制約で curl による全文の取得はできなかったため、全文の通読ではない。c3 の後半は、要約モデルが125文字ずつに区切って返した断片をつないだもの | [The Scrum Guide(2020年11月版)](https://scrumguides.org/scrum-guide.html) |
 
 ### 除外した出典(却下は成果)
 
