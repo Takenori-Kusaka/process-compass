@@ -123,7 +123,7 @@ graph LR
 
 ワークフローの外にある設定です。AI のセッションは行いません。
 
-deploy key・SSH 鍵・秘密情報は作りません。配布の書き込みは、`ci.yml` がジョブ `publish` に付けた `contents: write` の `GITHUB_TOKEN` で行います(保守者の決定、2026-10-23。[ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/) 決定6)。
+deploy key・SSH 鍵・秘密情報は作りません。配布の書き込みは、`ci.yml` がジョブ `publish` に付けた `contents: write` の権限で行います。手順の中でトークンを扱いません(保守者の決定、2026-10-23。[ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/) 決定6)。
 
 1. **配布のジョブが走る前に**、Environment `dist-standard` を作る(Settings → Environments)。配備のブランチは「Selected branches」で `main` だけに限る。必須レビュアは置かない。秘密情報は置かない
 2. `dist/standard` にルールセットを置く(Settings → Rules → Rulesets)。対象は `dist/standard`。削除の禁止(Restrict deletions)と強制 push の禁止(Block force pushes)を有効にする。更新の制限(Restrict updates)は有効にしない(配布のジョブの `GITHUB_TOKEN` をバイパスに入れられず、配布も止まるため。前掲「止まらない経路」)。バイパスの一覧は空にする

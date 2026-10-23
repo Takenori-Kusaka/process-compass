@@ -100,7 +100,7 @@ jobs:
   # 「どの版の標準に従って開発したか」が案件の記録に残る。
   #
   # 強制 push はしない。前回の dist/standard の上へ配布のコミットを積み、案件が固定した旧版を取り直せるようにする
-  # (ADR-0052 決定2・ADR-0077)。書き込みは、このジョブにだけ contents: write を付けた GITHUB_TOKEN で行う。
+  # (ADR-0052 決定2・ADR-0077)。書き込みの権限は、このジョブにだけ付けた permissions(contents: write)で与え、トークンを手順の中で扱わない。
   # deploy key・SSH 鍵・秘密情報は作らない(保守者の決定 2026-10-23)。トークンはジョブの終了で失効する。
   publish:
     needs: check
@@ -123,11 +123,11 @@ jobs:
             exit 1
           fi
 
-      # 作業ツリーへトークンを残さない。書き込みに使うのは「配布用ブランチへ積む」の手順だけ
+      # 書き込みの権限は、このジョブの permissions(contents: write)だけで与える。
+      # トークンをワークフローの中で扱わない。push は actions/checkout が設定した認証のまま行う
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          persist-credentials: false
 
       - uses: actions/setup-node@v7
         with:
@@ -145,26 +145,20 @@ jobs:
       - name: 配る知識ベースを検査する
         run: node scripts/check-gate-criteria.mjs --kb dist-standard/tailoring-kb.json
 
-      # 資格情報は、このジョブの GITHUB_TOKEN(contents: write)だけ。この手順の環境変数に限って git へ渡し、
-      # ファイル(.git/config・$GITHUB_ENV)へ書かない。actions/checkout と同じ Authorization ヘッダの形を使う
+      # 配布用ブランチを同じリポジトリの作業ツリー(git worktree)として取り出す。
+      # 認証は actions/checkout が設定したものをそのまま使い、トークンを手順へ渡さない
       - name: 配布用ブランチへ積む
-        env:
-          TOKEN: ${{ github.token }}
         run: |
           set -eu
-          REMOTE="https://github.com/${GITHUB_REPOSITORY}.git"
-          AUTH=$(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)
-          echo "::add-mask::${AUTH}"
-          export GIT_CONFIG_COUNT=1
-          export GIT_CONFIG_KEY_0="http.https://github.com/.extraheader"
-          export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${AUTH}"
           rm -rf dist-repo
+          git worktree prune
           set +e
-          git ls-remote --exit-code --heads "$REMOTE" dist/standard > /dev/null
+          git ls-remote --exit-code --heads origin dist/standard > /dev/null
           status=$?
           set -e
           if [ "$status" -eq 0 ]; then
-            git clone -q --single-branch --branch dist/standard "$REMOTE" dist-repo
+            git fetch -q origin dist/standard
+            git worktree add -q -B dist/standard dist-repo FETCH_HEAD
             # 新しい版を古い版で上書きしない。配布済みの版がこの実行のコミットの子孫なら、配らない
             PREV=$(node -e "try{const k=require('./dist-repo/tailoring-kb.json');process.stdout.write(String(k.source?.commit??''))}catch{}")
             if [ -n "$PREV" ] && [ "$PREV" != "$GITHUB_SHA" ] && git merge-base --is-ancestor "$GITHUB_SHA" "$PREV" 2>/dev/null; then
@@ -173,8 +167,7 @@ jobs:
             fi
           elif [ "$status" -eq 2 ]; then
             echo "dist/standard がまだ無いため、最初の配布として作ります"
-            git init -q dist-repo
-            git -C dist-repo checkout -q -b dist/standard
+            git worktree add -q --orphan -b dist/standard dist-repo
           else
             echo "::error::dist/standard を確かめられませんでした(git ls-remote の終了コード ${status})"
             exit 1
@@ -239,4 +232,4 @@ jobs:
           fi
           git commit -q -m "標準の本文を配布する (${GITHUB_SHA})"
           # 強制 push はしない。dist/standard が先へ進んでいれば失敗する
-          git push -q "$REMOTE" HEAD:refs/heads/dist/standard
+          git push -q origin HEAD:refs/heads/dist/standard

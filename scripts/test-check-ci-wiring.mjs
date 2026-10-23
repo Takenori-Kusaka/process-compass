@@ -50,8 +50,8 @@ function goodCi() {
         permissions: { contents: 'write' },
         environment: 'dist-standard',
         steps: [
-          { uses: 'actions/checkout@v7', with: { 'persist-credentials': false } },
-          { env: { TOKEN: '${{ github.token }}' }, run: 'git push -q "$REMOTE" HEAD:refs/heads/dist/standard' },
+          { uses: 'actions/checkout@v7', with: { 'fetch-depth': 0 } },
+          { run: 'git push -q origin HEAD:refs/heads/dist/standard' },
         ],
       },
     },
