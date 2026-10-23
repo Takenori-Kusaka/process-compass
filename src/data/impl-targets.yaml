@@ -381,8 +381,8 @@ targets:
     description: 出荷の範囲の PR の規模の分布・超過の理由の内訳・別集計の倍率の分布を、同じ入力から同じ出力で出す。出荷の証跡の集約が呼ぶ(Issue #296)
 
   - id: g1-check
-    name: G-1・G-5 の様式の検査(check-g1.mjs)
+    name: G-1 の企画書の様式の検査(check-g1.mjs)
     kind: template-file
     path: scripts/gate/check-g1.mjs
-    description: 企画書(docs/project-brief.md)の必須の欄の有無を確かめる。カバレッジの測る範囲の行を含む(Issue #296)
+    description: 企画書(docs/project-brief.md)の必須の欄の有無を確かめる。G-5 基準3 のカバレッジの測る範囲の行を含む(Issue #296)
 

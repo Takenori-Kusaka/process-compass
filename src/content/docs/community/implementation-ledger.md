@@ -34,10 +34,10 @@ sidebar:
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
 | 附属書H | 43 | 2 | 0 | 2 | **39** |
 | フェーズ5 | 302 | 31 | 0 | 45 | **226** |
-| フェーズ6 | 133 | 2 | 0 | 7 | **124** |
-| **計** | 957 | 84 | 2 | 85 | **786** |
+| フェーズ6 | 133 | 2 | 0 | 9 | **122** |
+| **計** | 957 | 84 | 2 | 87 | **784** |
 
-未棚卸しの786節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
+未棚卸しの784節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
 **台帳の件数は網羅の証明ではありません**。降りていない規定が0件であることも、未棚卸しの節が0件であることも、規定がすべて降りたことを示しません。機械が確かめるのは、節が区分つきで登録されていること、登録の鍵と識別子が実在すること、「対象にしない」の節にマークが無いことまでです。節の中の規定がすべてマークされているかは、区分を登録した者の判断です。
 
@@ -47,16 +47,16 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 35 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 36 |
 | 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 48 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 94 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 96 |
 | **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **101** |
 
 未分類の101件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
 
 ### 降りていない規定
 
-降りていない規定: **89件**
+降りていない規定: **91件**
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
@@ -153,6 +153,8 @@ sidebar:
 | IMPL-0269 | G-5 基準6 の文脈ファイルの形式検査(参照切れ 0 件、1ファイルの分量の上限超過 0 件)を実装するジョブ。準拠テンプレートの gate-g5.yml に基準6 のジョブは無く、契約検査は注意として出す(IMPL-0142)。上限そのものの規定(3.11.4 要求事項1)も降りていない(IMPL-0222) | G-5 のワークフロー(gate-g5.yml) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0277 | 単一タスクの累積消費(トークン量・金額)。準拠テンプレートは消費量を測らない。採用者が接続経路・エージェント実行基盤の上で上限を強制する | 自己修正ループの停止(self-heal.mjs) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0278 | 軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは人数を設問の回答(q-team-size)で受け、名簿から数えない。回答と名簿の人数の食い違いを検出しない | プロセス構成の初期化(強制層の生成) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0279 | 要求事項1(AI の確認側と作成側の往復)。準拠テンプレートは、AI のレビューの指摘と修正の往復を実行の単位として数えず、停止条件を強制しない(self-heal.mjs はテストの失敗の反復だけを止める)。採用者が接続経路・エージェント実行基盤の上で往復の停止条件を強制する | AI レビューのワークフロー(差し込み口) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0280 | 要求事項4 のうち企画承認(G-1)の時点で記録すること。準拠テンプレートの企画書の様式に停止条件の値の行が無く、G-1 の検査(check-g1.mjs)も記録を確かめない。採用者が企画書に停止条件の値を書き、G-1 の判定で確かめる | 成果物テンプレート テンプレ6(企画書) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 
 ### 全件
 
@@ -402,7 +404,7 @@ sidebar:
 | IMPL-0242 | /gate の補助ファイル gates/G-2.md・G-4.md に、判定者が前提を引き受けない場合は判定の結果として基準3 で差し戻し、その前提の案件層の ID を差し戻しの記録に書く手順を置く。前提条件1 では扱わない。引き受けるかどうかは判定者が決め、機械では確かめない | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0243 | 出荷の証跡を、組織が定める保管期間のあいだ到達できる置き場に残す。準拠テンプレートの ship-evidence.yml は証跡を CI の成果物(upload-artifact)にだけ置き、retention-days を指定しない(既定の保持に依る)。保管の設計は別 Issue。内部監査で、判定記録と証跡の指す先に到達できるかを抜き取る | 出荷の証跡のワークフロー(ship-evidence.yml) | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0244 | 出荷の証跡の集約は、CI 基盤の保持期間を過ぎて結果を読めない PR の G-5 を、gate-g5 の結果の記録が無い(必須チェックを経ずにマージされた可能性)として出す。保持切れと、必須チェックを経ていないことを区別しない。保管の設計は別 Issue | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0245 | 基準3 の測る範囲を構成(ci.coverageScope)で選び、割合・範囲・分母・測っていない製品のファイルの数を結果に残す。node のアダプタは、変更で加えた行(git の差分)と行単位の被覆(coverage-final.json)から変更の範囲の割合を測る。変更した製品のファイルが計測されていなければ失敗させる。範囲の既定は、行単位の被覆を持つアダプタでは変更の範囲。test-coverage-scope.mjs が試験する | G-5 基準3 のカバレッジの判定(coverage-check.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0245 | 基準3 の測る範囲を構成(ci.coverageScope)で選び、割合・範囲・分母・測っていない製品のファイルの数を結果に残す。node のアダプタは、変更で加えた行(git の差分)と行単位の被覆(coverage-final.json)から変更の範囲の割合を測る。変更した製品のファイルが計測されていなければ失敗させる。差分は core.quotePath=false で取り、引用符で囲まれる ASCII 以外のパスも戻して読む。行単位の被覆を測れない拡張子の製品のファイルを、測っていない製品のファイルの数に入れる。複数行の文の継続行が分母に入らない近似を結果に出す。新しく生成する構成は、行単位の被覆を持つアダプタでは変更の範囲を書く。範囲の無い既存の構成は従来どおり全体で測り、既定から補った旨を結果と保証の開示に出す。test-coverage-scope.mjs が試験する | G-5 基準3 のカバレッジの判定(coverage-check.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0246 | 保証の開示に、カバレッジの割合・測った範囲・分母・測っていない製品のファイルの数と、全体で判定した場合の薄まりを出す。出荷の証跡の集約は evidence/coverage-result.json があればこれらを出すが、出荷のワークフロー(ship-evidence.yml)は G-5 の成果物 coverage-result を取り込まない。出荷の集約ではカバレッジは未測定と出る | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0247 | gate-g5.yml の pull_request の契機は、基底のブランチ(branches)で絞らない。絞り込みを足す変更を、機械は止めない(統制の設定の陰性の確認で人が確かめる) | G-5 のワークフロー(gate-g5.yml) | — | 降りている | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0248 | 手動のスタックで、既定ブランチ以外へ取り込むマージを拒否する設定。準拠テンプレートのルールセット(.github/rulesets/*.json)の対象は ~DEFAULT_BRANCH だけで、中間の層へのマージを止めない。AI の担い手のマージは .claude/settings.json の ask(gh pr merge)で人へ戻るが、人による中間の層へのマージは止まらない | ルールセット(ブランチ保護)の定義 | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -418,23 +420,26 @@ sidebar:
 | IMPL-0258 | G-2 の判定基準1〜5。/gate の補助ファイル gates/G-2.md が、基準ごとに判定の材料を並べさせる(基準1 は受入基準の形式と企画書の価値との対応の有無、基準2 は spec-lint の結果、基準3 は案件層の ID の対応と引き受けない前提の差し戻し、基準4 はやらないことの欄、基準5 はスコープ3層への割り当て)。判定は判定者(人)が行う。材料の手順があることまでを確かめる | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0259 | node 以外のアダプタ(python・go・none など)で、変更で加えた・変えたコードの範囲を測ること。準拠テンプレートの node 以外のアダプタは行単位の被覆(coverageDetail)を持たない。範囲を変更にした構成は失敗させ、全体で判定するよう求める | G-5 基準3 のカバレッジの判定(coverage-check.mjs) | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0260 | 全体で判定した結果に、変更の未被覆が全体の被覆で薄まる旨(dilution)・分母・測っていない製品のファイルの数を書く | G-5 基準3 のカバレッジの判定(coverage-check.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0261 | 契約検査が、企画書の「カバレッジの測る範囲(G-5 基準3)」の記録と構成の範囲(ci.coverageScope。無ければアダプタの既定)を比べ、食い違えば失敗させる。範囲を変更にしたのにアダプタが変更の範囲を測れない構成も失敗させる。企画書が無い段階は注意に留める | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0262 | 企画書の様式に「カバレッジの測る範囲(G-5 基準3)」の行を置き、G-1 の様式の検査(check-g1.mjs)が行の有無を確かめる | 成果物テンプレート テンプレ6(企画書) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0263 | 承認は承認した差分に対して数える。出荷の証跡の集約は、承認したコミット(レビューの commit)と取り込んだ PR の先頭のコミット(headRefOid)を比べ、異なる承認(承認の後の更新)と承認の版を確かめられない承認を数えず、件数を保証の開示に出す。gh が返すレビューの commit の項目を実機で確かめていない。approvalBinding を test-roster-rules.mjs が試験する | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0261 | 契約検査が、企画書の「カバレッジの測る範囲(G-5 基準3)」の記録と構成の範囲(ci.coverageScope。無ければ全体)を比べ、食い違えば失敗させる。範囲を変更にしたのにアダプタが変更の範囲を測れない構成も失敗させる。企画書が無い段階は注意に留める | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0262 | 企画書の様式に「カバレッジの測る範囲(G-5 基準3)」の行を置き、G-1 の様式の検査(check-g1.mjs)が行の有無を確かめる。G-1 を通過する前の企画書では必須。G-1 を通過済みの企画書に行が無い場合は遡って失敗させず、記載の欠落として /pit と出荷の証跡の集約に出す | 成果物テンプレート テンプレ6(企画書) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0263 | 承認は承認した差分に対して数える。出荷の証跡の集約は、承認したコミット(レビューの commit)と取り込んだ PR の先頭のコミット(headRefOid)を比べ、異なる承認(承認の後の更新)と承認の版を確かめられない承認を数えず、件数を保証の開示に出す。gh はレビューの commit.oid を v2.30.0 以降で返す(cli/cli の prReviews の問い合わせ。2026-10-23 に確かめた)。それより前の gh ではすべての承認が確かめられないとして数えられないため、集約は確かめられない承認があるとき gh の版と原因を出し、env-check は gh の版を記録する。実機の gh での端から端までの確認はしていない。approvalBinding を test-roster-rules.mjs が試験する | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0264 | 契約検査が、適用するルールセット(team・regulated・safety)の dismiss_stale_reviews_on_push が true であることを確かめ、外れていれば失敗させる。test-init-g5.mjs が固定する | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0265 | 実環境の統制の確認(env-check)が、team を含むすべてのルールセットで、適用されたブランチ保護の dismiss_stale_reviews_on_push と require_last_push_approval を確かめる。実環境の gh で採用者が実行する | 導入前の検証のコマンド | — | 降りている | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0266 | AI を示す語を含むアカウント名の人の確認(accountsConfirmed)は、本人以外が記名した名簿の変更(changeLog の accountConfirmations と decidedBy)がある場合だけ効く。本人・AI の名義の記名と記録の無い確認は契約検査が落とす。[bot] とホスティングの bot は上書きしない。出荷の証跡の集約が、確認によって数えた承認の件数を出す。test-roster-rules.mjs が固定する | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0266 | AI を示す語を含むアカウント名の人の確認(accountsConfirmed)は、本人以外が記名した名簿の変更(changeLog の accountConfirmations と decidedBy)がある場合だけ効く。本人・AI の名義の記名と記録の無い確認は契約検査が落とす。[bot] とホスティングの bot は上書きしない。出荷の証跡の集約が、確認によって数えた承認の件数を出す。氏名の確認(nameConfirmed)も同じく、本人以外が記名した名簿の変更(changeLog の nameConfirmations と decidedBy)がある場合だけ効き、記録の無い確認は契約検査が落とす。test-roster-rules.mjs が固定する | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0267 | コア機能・確約範囲のパス(delegation.protectedPaths と riskFloor.rules のパス)のうち、追跡中のファイルに1件も当たらないパスを宣言として数えない。当たるパスが無ければ未宣言として扱い、規模の基準なし(null)を効かせない。当たらないパスを結果と保証の開示に出す。test-check-pr.mjs が固定する | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0268 | 比率の判断に、観測の窓と窓の中の最小標本数を掛ける。準拠テンプレートは差し戻し率・重複率・手戻り率・一発承認率・AI 生成行の短期書き換え率のいずれも期間で集計しない(IMPL-0104 と同じ)。採用者が集計の手段に窓と最小標本数を備える | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0269 | G-5 基準6 の文脈ファイルの形式検査(参照切れ 0 件、1ファイルの分量の上限超過 0 件)を実装するジョブ。準拠テンプレートの gate-g5.yml に基準6 のジョブは無く、契約検査は注意として出す(IMPL-0142)。上限そのものの規定(3.11.4 要求事項1)も降りていない(IMPL-0222) | G-5 のワークフロー(gate-g5.yml) | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0270 | 出荷の集約の規模の観測に、超過の理由の内訳(行・ファイル・別集計・ファイル数だけ・理由不明)と、別集計の基準行数に対する倍率の分布(1倍・2倍・5倍を超えた件数)を出す。同じ入力からは同じ出力を返し、前回との比較を出さない。test-size-observation.mjs が固定する | 規模の観測の集計(size-observation.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0271 | 文書の置き場では、文書・データの拡張子のファイルだけを製品のコードから外し、それ以外を製品として数える。拡張子の無いファイルは変更後の版の先頭の行が #! なら製品として数える。test-check-pr.mjs が固定する | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0272 | 要求事項1。自己修正のループの単位(機能・タスク)ごとに、停止条件を self-heal.mjs の iterate で強制する。iterate はスクリプト自身がテストを実行して結果を判定し、担い手の申告を使わない。start を呼ばない自己修正(ロックの外の反復)は検知しない(別 Issue)。test-self-heal.mjs が固定する | 自己修正ループの停止(self-heal.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0273 | 要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場(docs/self-heal-log.tsv)に残す | 自己修正ループの停止(self-heal.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0274 | 要求事項4。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点で記録したかは確かめない | プロセス構成の初期化(強制層の生成) | — | 降りている | 実在だけ確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0272 | 要求事項1(自己修正のループ)。自己修正のループの単位(機能・タスク)ごとに、停止条件を self-heal.mjs の iterate で強制する。iterate はスクリプト自身がテストを実行して結果を判定し、担い手の申告を使わない。start を呼ばない自己修正(ロックの外の反復)は検知しない(別 Issue)。AI のレビューの往復は IMPL-0279。test-self-heal.mjs が固定する | 自己修正ループの停止(self-heal.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0273 | 要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場のタスクごとのファイル(docs/self-heal/F-NNN-Task-N.tsv の形)に残し、同じ PR でコミットする手順を implement の SKILL.md に置く。書き込みに失敗したら警告を出す。コミットしたかは機械で確かめない | 自己修正ループの停止(self-heal.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0274 | 要求事項4 のうち値を定めること。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点の記録は IMPL-0280 | プロセス構成の初期化(強制層の生成) | — | 降りている | 実在だけ確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0275 | 連続失敗回数。iterate が失敗の反復の回数を数え、task.selfHealMaxIterations(既定3回)に達したら保留にする。失敗の内容が毎回変わる振動でも止まる | 自己修正ループの停止(self-heal.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0276 | 無進捗。iterate が失敗したテストの識別(node --test・pytest・go test・jest の出力から読む)を記録し、同じ集合が task.selfHealNoProgressLimit(既定2回)続いたら保留にする。識別を読めない失敗は無進捗に数えない(同一と確かめられない)。理由(失敗の内容)の同一までは見ず、テストの識別の同一で判定する | 自己修正ループの停止(self-heal.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0276 | 無進捗。iterate が失敗したテストの識別と失敗の理由の要約(node --test の TAP の error、pytest の FAILED の後ろ、go の file.go:N: の行、jest の Expected・Received などを正規化したもの)の組を記録し、同じ組の集合が task.selfHealNoProgressLimit(既定2回)続いたら保留にする。理由が変われば進捗とみなす。jest の ● Console は失敗のテストとして読まない。理由を読めないテストは識別だけで比べ、その旨を出力と記録に出す(3.12.10 の定義より多く止まる向き)。識別を読めない失敗は無進捗に数えない(同一と確かめられない) | 自己修正ループの停止(self-heal.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0277 | 単一タスクの累積消費(トークン量・金額)。準拠テンプレートは消費量を測らない。採用者が接続経路・エージェント実行基盤の上で上限を強制する | 自己修正ループの停止(self-heal.mjs) | — | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0278 | 軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは人数を設問の回答(q-team-size)で受け、名簿から数えない。回答と名簿の人数の食い違いを検出しない | プロセス構成の初期化(強制層の生成) | — | **降りていない** | 人が確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0279 | 要求事項1(AI の確認側と作成側の往復)。準拠テンプレートは、AI のレビューの指摘と修正の往復を実行の単位として数えず、停止条件を強制しない(self-heal.mjs はテストの失敗の反復だけを止める)。採用者が接続経路・エージェント実行基盤の上で往復の停止条件を強制する | AI レビューのワークフロー(差し込み口) | — | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0280 | 要求事項4 のうち企画承認(G-1)の時点で記録すること。準拠テンプレートの企画書の様式に停止条件の値の行が無く、G-1 の検査(check-g1.mjs)も記録を確かめない。採用者が企画書に停止条件の値を書き、G-1 の判定で確かめる | 成果物テンプレート テンプレ6(企画書) | — | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0281 | 要求事項7。規模の基準なし(null)は、確約範囲・コア指定のパスが追跡中のファイルに1件以上当たる場合だけ効く。当たらないパスは宣言として数えず、当たるパスが無ければ未宣言として既定値で判定する(G-6 の IMPL-0267 と同じ関数 corePathsOf。突合 X-13)。test-check-pr.mjs が固定する | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- implementation-ledger:end -->

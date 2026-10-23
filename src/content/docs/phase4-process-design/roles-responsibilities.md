@@ -1451,11 +1451,13 @@ graph LR
 
 要求5は[第5章](/process-compass/phase4-process-design/human-ai-boundary/)の自律水準および[フェーズ5の実行環境](/process-compass/phase5-implementation/ai-environment/)の段階導入と対応します。**遮断の手段を持たないまま自律水準を上げる構成を認めません**。
 
-本節は、自己修正のループ(テストの失敗を AI が直し続ける反復)の停止条件の正本です。[附属書E](/process-compass/phase4-process-design/developer-guide/) E.7 と[附属書H](/process-compass/phase4-process-design/assurance-case/)は本節を引きます。
+本節は、AI の実行の単位の停止条件の正本です。実行の単位には、自己修正のループ(テストの失敗を AI が直し続ける反復)と、AI の確認側と作成側の往復(レビューの指摘と修正の反復)を含みます。[附属書E](/process-compass/phase4-process-design/developer-guide/) E.7 と[附属書H](/process-compass/phase4-process-design/assurance-case/)は本節を引きます。
 
-<!-- impl IMPL-0272 target=self-heal state=delivered check=machine note="要求事項1。自己修正のループの単位(機能・タスク)ごとに、停止条件を self-heal.mjs の iterate で強制する。iterate はスクリプト自身がテストを実行して結果を判定し、担い手の申告を使わない。start を呼ばない自己修正(ロックの外の反復)は検知しない(別 Issue)。test-self-heal.mjs が固定する" -->
-<!-- impl IMPL-0273 target=self-heal state=delivered check=machine note="要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場(docs/self-heal-log.tsv)に残す" -->
-<!-- impl IMPL-0274 target=profile-generator state=delivered check=presence note="要求事項4。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点で記録したかは確かめない" -->
+<!-- impl IMPL-0272 target=self-heal state=delivered check=machine note="要求事項1(自己修正のループ)。自己修正のループの単位(機能・タスク)ごとに、停止条件を self-heal.mjs の iterate で強制する。iterate はスクリプト自身がテストを実行して結果を判定し、担い手の申告を使わない。start を呼ばない自己修正(ロックの外の反復)は検知しない(別 Issue)。AI のレビューの往復は IMPL-0279。test-self-heal.mjs が固定する" -->
+<!-- impl IMPL-0279 target=ai-review-workflow state=undelivered check=manual note="要求事項1(AI の確認側と作成側の往復)。準拠テンプレートは、AI のレビューの指摘と修正の往復を実行の単位として数えず、停止条件を強制しない(self-heal.mjs はテストの失敗の反復だけを止める)。採用者が接続経路・エージェント実行基盤の上で往復の停止条件を強制する" -->
+<!-- impl IMPL-0273 target=self-heal state=delivered check=machine note="要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場のタスクごとのファイル(docs/self-heal/F-NNN-Task-N.tsv の形)に残し、同じ PR でコミットする手順を implement の SKILL.md に置く。書き込みに失敗したら警告を出す。コミットしたかは機械で確かめない" -->
+<!-- impl IMPL-0274 target=profile-generator state=delivered check=presence note="要求事項4 のうち値を定めること。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点の記録は IMPL-0280" -->
+<!-- impl IMPL-0280 target=project-brief-template state=undelivered check=manual note="要求事項4 のうち企画承認(G-1)の時点で記録すること。準拠テンプレートの企画書の様式に停止条件の値の行が無く、G-1 の検査(check-g1.mjs)も記録を確かめない。採用者が企画書に停止条件の値を書き、G-1 の判定で確かめる" -->
 
 #### 停止条件の3種
 
@@ -1467,10 +1469,10 @@ graph LR
 
 **回数だけの遮断を採用してはなりません**。正当な実行を頻繁に止める仕組みは、開発者の信頼を失います。信頼を失った閾値は引き上げられ続け、やがて統制として機能しなくなります。無進捗の判定を併せて持つことが、閾値を現実的な水準に保つ条件です。
 
-逆に、無進捗の判定を持つことを理由に、連続失敗回数の上限を外してはなりません。失敗の内容が毎回変わる振動は、無進捗の判定では止まりません。連続失敗回数の上限を外すと、この振動は累積消費の上限まで続きます。**連続失敗回数の上限を廃する形は、本標準は採りません**([ADR-0079](/process-compass/adr/0079-coverage-scope-approval-binding-self-heal/) 決定3)。
+逆に、無進捗の判定を持つことを理由に、連続失敗回数の上限を外してはなりません。失敗の内容が毎回変わる振動は、無進捗の判定では止まりません。連続失敗回数の上限を外すと、この振動は累積消費の上限まで続きます。**連続失敗回数の上限を廃する形は、本標準は採りません**([ADR-0079](/process-compass/adr/0079-coverage-scope-approval-binding-self-heal/)「課さないと決めたこと」)。
 
 <!-- impl IMPL-0275 target=self-heal state=delivered check=machine note="連続失敗回数。iterate が失敗の反復の回数を数え、task.selfHealMaxIterations(既定3回)に達したら保留にする。失敗の内容が毎回変わる振動でも止まる" -->
-<!-- impl IMPL-0276 target=self-heal state=delivered check=machine note="無進捗。iterate が失敗したテストの識別(node --test・pytest・go test・jest の出力から読む)を記録し、同じ集合が task.selfHealNoProgressLimit(既定2回)続いたら保留にする。識別を読めない失敗は無進捗に数えない(同一と確かめられない)。理由(失敗の内容)の同一までは見ず、テストの識別の同一で判定する" -->
+<!-- impl IMPL-0276 target=self-heal state=delivered check=machine note="無進捗。iterate が失敗したテストの識別と失敗の理由の要約(node --test の TAP の error、pytest の FAILED の後ろ、go の file.go:N: の行、jest の Expected・Received などを正規化したもの)の組を記録し、同じ組の集合が task.selfHealNoProgressLimit(既定2回)続いたら保留にする。理由が変われば進捗とみなす。jest の ● Console は失敗のテストとして読まない。理由を読めないテストは識別だけで比べ、その旨を出力と記録に出す(3.12.10 の定義より多く止まる向き)。識別を読めない失敗は無進捗に数えない(同一と確かめられない)" -->
 <!-- impl IMPL-0277 target=self-heal state=undelivered check=manual note="単一タスクの累積消費(トークン量・金額)。準拠テンプレートは消費量を測らない。採用者が接続経路・エージェント実行基盤の上で上限を強制する" -->
 
 #### 停止したときの扱い

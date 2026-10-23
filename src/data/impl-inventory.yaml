@@ -63,7 +63,7 @@ sections:
       - IMPL-0155
     location:
       - "phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)"
-    note: 往復の中の指摘の中身は IMPL-0155。往復の回数の上限は置かず、3.12.10 の停止条件(IMPL-0272〜0277)による。往復を禁止しないことは課さない明記
+    note: 往復の中の指摘の中身は IMPL-0155。往復の回数の上限は置かず、3.12.10 の停止条件による。往復への降ろし先は 3.12.10 の IMPL-0279(undelivered)。往復を禁止しないことは課さない明記
     issue: 296
   - key: phase4-process-design/assurance-case#H.5 署名の意味
     status: pending
@@ -674,8 +674,7 @@ sections:
         status: marked
         ids:
           - IMPL-0099
-        location:
-          - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)"
+          - IMPL-0281
       要求事項8:
         status: marked
         ids:
@@ -1554,14 +1553,17 @@ sections:
     status: marked
     ids:
       - IMPL-0272
+      - IMPL-0279
       - IMPL-0273
       - IMPL-0274
-    note: 自己修正のループの停止の正本。附属書E E.7 と附属書H は本節を引く
+      - IMPL-0280
+    note: 実行の単位(自己修正のループと AI のレビューの往復)の停止の正本。附属書E E.7 と附属書H は本節を引く。往復への降ろし先は IMPL-0279(undelivered)、G-1 の時点の記録は IMPL-0280(undelivered)
     rows:
       要求事項1:
         status: marked
         ids:
           - IMPL-0272
+          - IMPL-0279
       要求事項2:
         status: none
         category: elsewhere
@@ -1576,6 +1578,7 @@ sections:
         status: marked
         ids:
           - IMPL-0274
+          - IMPL-0280
       要求事項5:
         status: none
         category: org-design
@@ -2782,7 +2785,10 @@ sections:
   - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 自己申告を促す設計
     status: pending
   - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > コンテキスト基盤への還元
-    status: pending
+    status: none
+    category: org-design
+    reason: 振り返りで見つけた問題と、還元先の層の対応の表。還元を判断するのは振り返りの参加者(人)で、AI の担い手の挙動を制約しない。手戻り率の名を運用メトリクスの量へ揃えた
+    issue: 296
   - key: phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 振り返りの形骸化を検知する
     status: pending
   - key: phase6-operation/improvement-cycle#モデル更新への追従(随時)
@@ -2974,7 +2980,10 @@ sections:
     reason: 2段の抽出と段ごとの記録は、監査の担い手(人)が行う手続。抽出数を母集団に比例させないことは課さない明記
     issue: 296
   - key: phase6-operation/process-audit#監査の観点
-    status: pending
+    status: none
+    category: org-design
+    reason: 監査の観点と、機械で検出できるもの・監査だけが確かめるものの対応の表。監査は監査の実施者(人)が行い、AI の担い手の挙動を制約しない。観点6 にアカウント名・氏名の確認の上書きを足した(機械の側は G-6 の IMPL-0266)
+    issue: 296
   - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証
     status: pending
   - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順1 網羅性の照合
