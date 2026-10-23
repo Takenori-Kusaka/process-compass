@@ -94,8 +94,9 @@ graph LR
 | --- | --- |
 | 検査に落ちた版の公開・配布 | `needs: check`。結線は `check-ci-wiring.mjs` が確かめる(公開・配布のジョブの `if` に `always()` などの状態の関数と `\|\|` を置かない) |
 | 検査したものと別の生成物の公開 | `check` が作った `dist/` をそのまま配る。2回目のビルドをしない |
-| `main` 以外からの配布 | Environment `dist-standard` の配備のブランチの限定(`main` だけ)。配布の資格情報(deploy key)がその Environment の秘密情報にだけあること。ジョブ先頭の起動元の確認(事故の歯止め) |
-| `dist/standard` の書き換え・強制 push・削除 | `dist/standard` のルールセット。更新は deploy key のバイパスだけに限る |
+| `main` 以外からの配布 | Environment `dist-standard` の配備のブランチの限定(`main` だけ)。ジョブ `publish` を `main` 以外で走らせない。ジョブ先頭の起動元の確認(事故の歯止め)。**別のブランチに置いたワークフローは止めない**(後掲「止まらない経路」) |
+| 配布の資格情報の漏えい・使い回し | 長期の鍵を作らない。書き込みは、ジョブ `publish` にだけ `contents: write` を付けた `GITHUB_TOKEN` で行い、トークンはジョブの終了で失効する。`ci.yml` の他のジョブと最上位は読み取りだけ(`check-ci-wiring.mjs` が確かめる) |
+| `dist/standard` の強制 push・削除 | `dist/standard` のルールセット(削除の禁止・強制 push の禁止)。早送りの push は止めない |
 | 配る知識ベースの誤り | push の前に `check-gate-criteria.mjs --kb` が、判定基準の件数と生成元の版(40桁の16進で、起動したコミットと一致)を確かめる |
 | 古い版での上書き | 配布は、配布済みの版がこの実行のコミットの子孫なら配らない。公開は、`main` がサイトに入るファイルの変更で先へ進んでいれば配らない(新しいコミットの実行が成功することに依る。後掲「止まらない経路」) |
 
@@ -106,10 +107,12 @@ graph LR
 ### 止まらない経路
 
 - 管理者は、Environment の保護とルールセットを設定画面で外せる。外した場合、残るのはワークフローの中の確認だけで、起動元のブランチでファイルを書き換えれば外れる
-- 保護の規則(配備のブランチの限定)だけを外した場合、ワークフローは検出しない。秘密情報が無い場合だけ、配布が失敗する
-- 管理者の設定(後掲の手順)が済むまでの間は、保護の無い Environment `dist-standard` が自動で作られる。秘密情報が無いため、配布は失敗する(配布が止まる側に倒れる)
+- 保護の規則(配備のブランチの限定)だけを外した場合、ワークフローは検出しない。配布は失敗せずに続く
+- 管理者の設定(後掲の手順)が済むまでの間は、保護の無い Environment `dist-standard` が自動で作られ、配布はそのまま成功する(止まる側には倒れない)
+- **書き込みの権限を持つ者は、`dist/standard` へ早送りの push ができる**。直接の push でも、自分のブランチへ置いたワークフローに `contents: write` を付けて `GITHUB_TOKEN` で push する形でもできる。Environment の限定は、そのワークフローが `dist-standard` を参照しなければ掛からない。ルールセットで更新を制限すれば止まるが、2026-10-23 時点の GitHub Docs は、バイパスの主体としてロール・チーム・GitHub App・Dependabot を挙げ、`GITHUB_TOKEN`(GitHub Actions)を挙げていない。更新を制限すると配布のジョブの push も止まるため、置いていない。この経路を限るのは次の3つだけである。履歴は積み上がるだけで、削除と強制 push はルールセットが止める。配布のコミットの `VERSION.md` は ref・コミット・実行の番号を持ち、Actions の実行の記録と突き合わせられる(`VERSION.md` は書き込んだ者が自由に書けるため、突き合わせが要る)。ソロ期に書き込みの権限を持つのは保守者1名である
+- `graphify-update.yml` のジョブは `contents: write` を持つ。結線の検査は、そのジョブの定義に `dist/standard` が現れないことを確かめるが、変数で隠した push は拾わない
 - `main` へ push できる者は、`ci.yml` を書き換えて検査を外したうえで公開できる。結線の検査も、同じ push の中で書き換えられる。ソロ期に `main` へ push できるのは保守者1名である
-- 結線の検査は、ワークフローの構造と文字列を読むだけである。変数や別の手順で隠した `dist/standard` への push、`npm run check` の中身を手順の中で書き換える形は拾わない。`dist/standard` への書き込みを止めるのは、ルールセット(deploy key だけがバイパス)である
+- 結線の検査は、ワークフローの構造と文字列を読むだけである。変数や別の手順で隠した `dist/standard` への push、`npm run check` の中身を手順の中で書き換える形は拾わない。ルールセットが止めるのは、`dist/standard` の削除と強制 push だけである
 - `graphify-update.yml` の `[skip ci]` のコミットは、CI・公開・配布を起動しない。対象(`graphify-out/`)はサイトと配布物に入らない
 - 古い版での上書きの防止は、新しいコミットの実行が成功することに依る。後のコミットの検査が落ちる、または人が `[skip ci]` を付けて push すると、その前に通過した版も公開されず、サイトは最後に公開した版のまま残る。公開し直すには、検査を通る版を push する
 - 検査が通るまで公開と配布は遅れる。textlint の違反1件でサイトの更新が止まる。完了の定義の「サイトに公開されている」の遅れは、信頼性の代償として受け入れた
@@ -120,8 +123,9 @@ graph LR
 
 ワークフローの外にある設定です。AI のセッションは行いません。
 
-1. 配布専用の SSH 鍵を作る(`ssh-keygen -t ed25519 -N "" -f dist-standard-key`)。公開鍵をリポジトリの deploy key として登録し、書き込みを許す(Settings → Deploy keys → Allow write access)。この鍵を他の用途に使わない
-2. **配布のジョブが走る前に**、Environment `dist-standard` を作る(Settings → Environments)。配備のブランチは「Selected branches」で `main` だけに限る。必須レビュアは置かない。Environment の秘密情報 `DIST_STANDARD_DEPLOY_KEY` へ秘密鍵を置く。リポジトリの秘密情報には置かない
-3. `dist/standard` にルールセットを置く(Settings → Rules → Rulesets)。対象は `dist/standard`。削除の禁止・強制 push の禁止・更新の制限を有効にし、バイパスの一覧には deploy key だけを入れる。GitHub Actions(`GITHUB_TOKEN`)と管理者のロールはバイパスに入れない
-4. 設定した日付と、`main` 以外のブランチから配布できないことを確かめた結果を Issue #293 に記録する
+deploy key・SSH 鍵・秘密情報は作りません。配布の書き込みは、`ci.yml` がジョブ `publish` に付けた `contents: write` の `GITHUB_TOKEN` で行います(保守者の決定、2026-10-23。[ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/) 決定6)。
+
+1. **配布のジョブが走る前に**、Environment `dist-standard` を作る(Settings → Environments)。配備のブランチは「Selected branches」で `main` だけに限る。必須レビュアは置かない。秘密情報は置かない
+2. `dist/standard` にルールセットを置く(Settings → Rules → Rulesets)。対象は `dist/standard`。削除の禁止(Restrict deletions)と強制 push の禁止(Block force pushes)を有効にする。更新の制限(Restrict updates)は有効にしない(配布のジョブの `GITHUB_TOKEN` をバイパスに入れられず、配布も止まるため。前掲「止まらない経路」)。バイパスの一覧は空にする
+3. 設定した日付と、`main` 以外のブランチからジョブ `publish` が走らないことを確かめた結果を Issue #293 に記録する
 

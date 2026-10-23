@@ -11,14 +11,19 @@
 //   5. 全ワークフローが最上位に permissions を明示し、最上位で書き込みを与えない
 //   6. dist/standard へ書くジョブが environment を持つ
 //   4 の補足: 公開・配布のジョブの if に、状態の関数(always・failure・cancelled)と || を置かない
-//   8. dist/standard の文字列と配布の秘密情報の名前が、ci.yml の publish ジョブの外に現れない
+//   8. dist/standard の文字列が、ci.yml の publish ジョブの外に現れない
+//   9. ci.yml で contents の書き込みを持つのはジョブ publish だけ。publish は contents: write をジョブ単位で持ち、
+//      environment dist-standard を参照し、needs に check を含む(最上位の書き込みは 5 が止める)
+//   10. 配布のジョブが秘密情報(secrets.)を参照せず、SSH の鍵・接続を使わない(deploy key を作らないと決めた)
 //
 // 限界(構造の検査では拾えないもの): 変数や別の手順で隠した dist/standard への push、
 // npm run check の前の手順で package.json の check を書き換える形(npm pkg set など)。
-// dist/standard への書き込みを止めるのはルールセット(deploy key だけがバイパス)である。
+// 書き込みの権限(contents: write)を持つジョブは、ワークフローのファイルの中で dist/standard へ push できる。
+// ルールセットが止めるのは dist/standard の削除と強制 push だけで、早送りの push は止めない
+// (community/project-management.md「止まらない経路」)。
 //
 // 確かめないこと: 説明の文書(CLAUDE.md・README など)の散文の列挙(課さないと決めた)、
-// GitHub 側の設定(Environment の保護・ルールセット・deploy key)。後者は管理者が行い、
+// GitHub 側の設定(Environment の配備のブランチの限定・ルールセット)。後者は管理者が行い、
 // community/project-management.md「公開と配布の経路」に手順と止まらない経路を書く。
 
 import fs from 'node:fs';

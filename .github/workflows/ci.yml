@@ -8,7 +8,7 @@ name: CI
 #
 # deploy と publish は needs: check で繋ぐ。check が落ちれば、公開も配布もしない。
 # 結線は scripts/check-ci-wiring.mjs(npm run check に含む)が確かめる。
-# GitHub 側の設定(Environment dist-standard・deploy key・ルールセット)と、止まらない経路は
+# GitHub 側の設定(Environment dist-standard・ルールセット)と、止まらない経路は
 # src/content/docs/community/project-management.md「公開と配布の経路」に書く。
 
 on:
@@ -100,21 +100,22 @@ jobs:
   # 「どの版の標準に従って開発したか」が案件の記録に残る。
   #
   # 強制 push はしない。前回の dist/standard の上へ配布のコミットを積み、案件が固定した旧版を取り直せるようにする
-  # (ADR-0052 決定2・ADR-0077)。書き込みは、Environment dist-standard の秘密情報に置いた配布専用の deploy key で行う。
-  # GITHUB_TOKEN は読み取りだけで、dist/standard へ書かない。
+  # (ADR-0052 決定2・ADR-0077)。書き込みは、このジョブにだけ contents: write を付けた GITHUB_TOKEN で行う。
+  # deploy key・SSH 鍵・秘密情報は作らない(保守者の決定 2026-10-23)。トークンはジョブの終了で失効する。
   publish:
     needs: check
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     environment: dist-standard
     concurrency:
       group: publish-standard
       cancel-in-progress: false
     steps:
       # ファイルの中の確認は、起動元のブランチでファイルを書き換えれば外れる。事故の歯止めであり、
-      # 意図した迂回は Environment の配備のブランチの限定・deploy key・ルールセットが止める
+      # 迂回の一部は、Environment の配備のブランチの限定(このジョブを main 以外で走らせない)と、
+      # ルールセット(dist/standard の削除・強制 push の禁止)が止める。止まらない経路は project-management.md に書く
       - name: 起動元を確かめる
         run: |
           if [ "$GITHUB_EVENT_NAME" != "push" ] || [ "$GITHUB_REF" != "refs/heads/main" ]; then
@@ -122,15 +123,7 @@ jobs:
             exit 1
           fi
 
-      - name: 配布の資格情報を確かめる
-        env:
-          DEPLOY_KEY: ${{ secrets.DIST_STANDARD_DEPLOY_KEY }}
-        run: |
-          if [ -z "$DEPLOY_KEY" ]; then
-            echo "::error::配布の資格情報がありません。管理者が Environment dist-standard(配備のブランチを main に限る)を作り、秘密情報 DIST_STANDARD_DEPLOY_KEY に配布専用の deploy key(書き込み可)の秘密鍵を置いてください。手順: community/project-management.md「公開と配布の経路」"
-            exit 1
-          fi
-
+      # 作業ツリーへトークンを残さない。書き込みに使うのは「配布用ブランチへ積む」の手順だけ
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
@@ -152,22 +145,19 @@ jobs:
       - name: 配る知識ベースを検査する
         run: node scripts/check-gate-criteria.mjs --kb dist-standard/tailoring-kb.json
 
-      - name: 配布用ブランチを取得する
-        env:
-          DEPLOY_KEY: ${{ secrets.DIST_STANDARD_DEPLOY_KEY }}
-        run: |
-          set -eu
-          mkdir -p "$HOME/.ssh"
-          printf '%s\n' "$DEPLOY_KEY" > "$HOME/.ssh/dist_standard"
-          chmod 600 "$HOME/.ssh/dist_standard"
-          # GitHub が公開しているホスト鍵に固定する(初回接続の鍵を信用しない)
-          echo "github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl" > "$HOME/.ssh/known_hosts_github"
-          echo "GIT_SSH_COMMAND=ssh -i $HOME/.ssh/dist_standard -o IdentitiesOnly=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts_github -o StrictHostKeyChecking=yes" >> "$GITHUB_ENV"
-
+      # 資格情報は、このジョブの GITHUB_TOKEN(contents: write)だけ。この手順の環境変数に限って git へ渡し、
+      # ファイル(.git/config・$GITHUB_ENV)へ書かない。actions/checkout と同じ Authorization ヘッダの形を使う
       - name: 配布用ブランチへ積む
+        env:
+          TOKEN: ${{ github.token }}
         run: |
           set -eu
-          REMOTE="git@github.com:${GITHUB_REPOSITORY}.git"
+          REMOTE="https://github.com/${GITHUB_REPOSITORY}.git"
+          AUTH=$(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)
+          echo "::add-mask::${AUTH}"
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0="http.https://github.com/.extraheader"
+          export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${AUTH}"
           rm -rf dist-repo
           set +e
           git ls-remote --exit-code --heads "$REMOTE" dist/standard > /dev/null

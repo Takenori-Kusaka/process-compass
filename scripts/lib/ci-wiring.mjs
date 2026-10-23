@@ -24,9 +24,31 @@ export function writesDistStandard(job) {
   return ss.some((s) => /dist\/standard/.test(runOf(s))) && ss.some((s) => /git\s+push/.test(runOf(s)));
 }
 
-/** 配布の秘密情報の名前。ci.yml の publish ジョブの外に現れてはならない */
-export const DIST_SECRET = 'DIST_STANDARD_DEPLOY_KEY';
 const PUBLISH_JOB = 'publish';
+/** 配布のジョブが参照する実行環境。配備のブランチを main に限る(設定は GitHub 側) */
+export const DIST_ENVIRONMENT = 'dist-standard';
+
+/**
+ * 配布の書き込みは、ジョブに付けた GITHUB_TOKEN の権限だけで行う(保守者の決定 2026-10-23 / ADR-0077 決定6)。
+ * deploy key・SSH 鍵・秘密情報を使う形を見つける。秘密情報の参照と、SSH での接続の痕跡を読む
+ */
+const SECRET_REF = /\bsecrets\s*\./;
+const SSH_TRACE = /GIT_SSH_COMMAND|ssh-keygen|ssh-agent|\.ssh\/|git@github\.com:|ssh:\/\//;
+
+/** ジョブの permissions が contents の書き込みを与えるか(write-all を含む) */
+function grantsContentsWrite(perms) {
+  if (typeof perms === 'string') return perms === 'write-all';
+  if (!perms || typeof perms !== 'object') return false;
+  return String(perms.contents ?? '') === 'write';
+}
+
+/** ジョブが参照する実行環境の名前 */
+function environmentName(job) {
+  const env = job?.environment;
+  if (typeof env === 'string') return env;
+  if (env && typeof env === 'object' && typeof env.name === 'string') return env.name;
+  return '';
+}
 
 /** 契機に、main への push があるか */
 function pushesMain(on) {
@@ -143,12 +165,49 @@ export function checkWiring(workflows) {
         );
       }
       if (dist && !j.environment) {
-        problems.push(`${CI_FILE}: ${what} ${name} に environment がありません。資格情報を、配備のブランチを main に限った実行環境に置きます(条件6)`);
+        problems.push(`${CI_FILE}: ${what} ${name} に environment がありません。配備のブランチを main に限った実行環境から走らせます(条件6)`);
       }
     }
   }
 
-  // 8. dist/standard の文字列と配布の秘密情報の名前は、ci.yml の publish ジョブの外に現れない
+  // 9. ci.yml で contents の書き込みを持つのは、ジョブ publish だけ。publish は environment dist-standard を
+  //    参照し、needs に check を含み、contents: write をジョブ単位で持つ(GITHUB_TOKEN で積むため)
+  for (const [name, j] of Object.entries(ci.doc?.jobs ?? {})) {
+    if (name !== PUBLISH_JOB && grantsContentsWrite(j?.permissions)) {
+      problems.push(`${CI_FILE}: ジョブ ${name} が contents の書き込みを持ちます。書き込みを持つのはジョブ ${PUBLISH_JOB} だけです(条件9)`);
+    }
+  }
+  const publish = ci.doc?.jobs?.[PUBLISH_JOB];
+  if (publish) {
+    if (typeof publish.permissions === 'string') {
+      problems.push(`${CI_FILE}: ジョブ ${PUBLISH_JOB} の permissions が「${publish.permissions}」です。権限は contents: write だけを付けます(条件9)`);
+    } else if (!grantsContentsWrite(publish.permissions)) {
+      problems.push(`${CI_FILE}: ジョブ ${PUBLISH_JOB} の permissions に contents: write がありません。配布は GITHUB_TOKEN で積みます(条件9)`);
+    }
+    if (environmentName(publish) !== DIST_ENVIRONMENT) {
+      problems.push(`${CI_FILE}: ジョブ ${PUBLISH_JOB} が environment ${DIST_ENVIRONMENT} を参照していません(条件9)`);
+    }
+    if (!asArray(publish.needs).includes(CHECK_JOB)) {
+      problems.push(`${CI_FILE}: ジョブ ${PUBLISH_JOB} の needs に ${CHECK_JOB} がありません(条件9)`);
+    }
+  }
+
+  // 10. dist/standard へ書くジョブと ci.yml の publish は、秘密情報を参照せず、SSH の鍵を使わない
+  //     (deploy key・秘密情報を作らないと決めた。コメントは YAML の読み込みで落ちるため数えない)
+  for (const w of workflows) {
+    for (const [name, j] of Object.entries(w.doc?.jobs ?? {})) {
+      if (!writesDistStandard(j) && !(w.file === CI_FILE && name === PUBLISH_JOB)) continue;
+      const text = JSON.stringify(j ?? {});
+      if (SECRET_REF.test(text)) {
+        problems.push(`${w.file}: 配布のジョブ ${name} が秘密情報(secrets.)を参照します。配布はジョブの GITHUB_TOKEN だけで行います(条件10)`);
+      }
+      if (SSH_TRACE.test(text)) {
+        problems.push(`${w.file}: 配布のジョブ ${name} が SSH の鍵・接続を使います。deploy key は作りません(条件10)`);
+      }
+    }
+  }
+
+  // 8. dist/standard の文字列は、ci.yml の publish ジョブの外に現れない
   //    (コメントは YAML の読み込みで落ちるため数えない)
   for (const w of workflows) {
     const { jobs, ...rest } = w.doc ?? {};
@@ -159,8 +218,8 @@ export function checkWiring(workflows) {
     }
     for (const [where, part] of parts) {
       const text = JSON.stringify(part ?? {});
-      if (text.includes('dist/standard') || text.includes(DIST_SECRET)) {
-        problems.push(`${where}: dist/standard か配布の秘密情報(${DIST_SECRET})が、${CI_FILE} のジョブ ${PUBLISH_JOB} の外に現れます(条件8)`);
+      if (text.includes('dist/standard')) {
+        problems.push(`${where}: dist/standard が、${CI_FILE} のジョブ ${PUBLISH_JOB} の外に現れます(条件8)`);
       }
     }
   }

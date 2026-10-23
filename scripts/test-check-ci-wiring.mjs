@@ -47,8 +47,12 @@ function goodCi() {
       publish: {
         needs: 'check',
         if: "github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.check.outputs.dist_changed == 'true'",
+        permissions: { contents: 'write' },
         environment: 'dist-standard',
-        steps: [{ run: 'git push -q "$REMOTE" HEAD:refs/heads/dist/standard' }],
+        steps: [
+          { uses: 'actions/checkout@v7', with: { 'persist-credentials': false } },
+          { env: { TOKEN: '${{ github.token }}' }, run: 'git push -q "$REMOTE" HEAD:refs/heads/dist/standard' },
+        ],
       },
     },
   };
@@ -156,10 +160,10 @@ test('条件3: --recursive だけで template の語の無い取得は通さな�
   d.jobs.check.steps[1].run = 'git submodule update --init --recursive zenn';
   expectProblem(d, /template のサブモジュールを取得していません/);
 });
-test('条件8: dist/standard・配布の秘密情報が publish の外に現れる', () => {
+test('条件8: dist/standard が publish の外に現れる', () => {
   const d = goodCi();
-  d.jobs.check.steps.push({ run: 'echo ${{ secrets.DIST_STANDARD_DEPLOY_KEY }}' });
-  expectProblem(d, /ジョブ check: dist\/standard か配布の秘密情報/);
+  d.jobs.check.steps.push({ run: 'git fetch origin dist/standard' });
+  expectProblem(d, /ジョブ check: dist\/standard が/);
   const other = wf({ permissions: { contents: 'read' }, jobs: { x: { steps: [{ run: 'git fetch origin dist/standard' }] } } }, 'other.yml');
   expectProblem(goodCi(), /other\.yml のジョブ x/, [other]);
 });
@@ -173,6 +177,55 @@ test('条件5: 最上位の permissions が無い・書き込みを与える', (
   const f = goodCi();
   f.permissions = 'write-all';
   expectProblem(f, /最上位の permissions が書き込み/);
+});
+test('条件9: check のジョブに contents: write を付けると失敗する', () => {
+  const d = goodCi();
+  d.jobs.check.permissions = { contents: 'write' };
+  expectProblem(d, /ジョブ check が contents の書き込みを持ちます/);
+  const e = goodCi();
+  e.jobs.deploy.permissions = 'write-all';
+  expectProblem(e, /ジョブ deploy が contents の書き込みを持ちます/);
+});
+test('条件5・9: 最上位の contents: write は失敗する(publish の権限をそこから継ぐ形も通さない)', () => {
+  const d = goodCi();
+  d.permissions = { contents: 'write' };
+  delete d.jobs.publish.permissions;
+  expectProblem(d, /最上位の permissions が書き込み/);
+  expectProblem(d, /publish の permissions に contents: write がありません/);
+});
+test('条件9: publish に contents: write が無い・write-all・environment が別・needs が無い', () => {
+  const a = goodCi();
+  a.jobs.publish.permissions = { contents: 'read' };
+  expectProblem(a, /publish の permissions に contents: write がありません/);
+  const b = goodCi();
+  b.jobs.publish.permissions = 'write-all';
+  expectProblem(b, /publish の permissions が「write-all」/);
+  const c = goodCi();
+  c.jobs.publish.environment = { name: 'github-pages' };
+  expectProblem(c, /environment dist-standard を参照していません/);
+  const e = goodCi();
+  e.jobs.publish.environment = { name: 'dist-standard' };
+  assert.deepEqual(checkWiring([wf(e)]), []);
+  const f = goodCi();
+  delete f.jobs.publish.needs;
+  expectProblem(f, /ジョブ publish の needs に check がありません/);
+});
+test('条件10: 配布のジョブが秘密情報・SSH の鍵を使うと失敗する', () => {
+  const a = goodCi();
+  a.jobs.publish.steps.unshift({ env: { DEPLOY_KEY: '${{ secrets.DIST_STANDARD_DEPLOY_KEY }}' }, run: 'test -n "$DEPLOY_KEY"' });
+  expectProblem(a, /秘密情報\(secrets\.\)を参照します/);
+  const b = goodCi();
+  b.jobs.publish.steps.unshift({ run: 'echo "GIT_SSH_COMMAND=ssh -i $HOME/.ssh/k" >> "$GITHUB_ENV"' });
+  expectProblem(b, /SSH の鍵・接続を使います/);
+  const c = goodCi();
+  c.jobs.publish.steps[0].with.token = '${{ secrets.PAT }}';
+  expectProblem(c, /秘密情報\(secrets\.\)を参照します/);
+  const d = goodCi();
+  d.jobs.publish.steps[1].run = 'git push -q git@github.com:o/r.git HEAD:refs/heads/dist/standard';
+  expectProblem(d, /SSH の鍵・接続を使います/);
+  // ci.yml の外で dist/standard へ書くジョブも同じく見る(条件4・8 と重ねて出る)
+  const other = wf({ permissions: { contents: 'read' }, jobs: { x: { steps: [{ run: 'echo ${{ secrets.K }}; git push o HEAD:dist/standard' }] } } }, 'other.yml');
+  expectProblem(goodCi(), /other\.yml: 配布のジョブ x が秘密情報/, [other]);
 });
 test('条件6: 配布のジョブに environment が無い', () => {
   const d = goodCi();
