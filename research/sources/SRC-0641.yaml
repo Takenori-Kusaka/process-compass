@@ -1,0 +1,71 @@
+schemaVersion: 0
+id: SRC-0641
+status: included
+excludeReason: null
+title: Agile–Stage-Gate for Manufacturers
+url: https://www.five-is.com/download/agile-stage-gate-for-manufacturers
+canonicalUrl: doi:10.1080/08956308.2018.1421380
+ids:
+  arxiv: null
+  doi: 10.1080/08956308.2018.1421380
+publisher: Research-Technology Management 61(2), 17-26(Taylor & Francis)
+authors:
+- Robert G. Cooper
+- Anita Friis Sommer
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: '2018-03-07'
+publishedBasis: pdf
+version: 出版社の PDF の写し(Taylor & Francis の表紙つき。Published online 07 Mar 2018)
+updated: null
+accessed: '2026-10-23'
+access: open
+readLevel: section
+foundBy:
+  cluster: I298
+  query: agile stage-gate hybrid manufacturers case studies time to market
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '製造業 6 社の事例研究。アジャイルとステージゲートの混成の効果を、聞き取りの推定で約 30% の市場投入期間の短縮・生産性の向上と報告する。客観的な指標を置いていたのは 1 社だけ。Issue #298 で附属書A A.1 の EV-0151 の補足の根拠として確かめた。'
+claims:
+- id: c1
+  text: 6 社の聞き取りで、市場投入期間の約 30% の短縮と生産性の約 30% の向上が推定された。測定ではなく推定である。
+  quote: They estimated approximately a 30 percent reduction in time to market and a 30 percent improvement in productivity.
+  locator: 本文(事例の結果)
+  quant:
+    value: 30%
+    n: 6
+    design: case-study
+    population: 製造業の大企業 6 社
+  evidenceKind: case-report
+  rqs: []
+  issues:
+  - 298
+  stance: qualifies
+- id: c2
+  text: 改善の定量化は難しく、混成のモデルに客観的な指標を置いていたのは 6 社のうち 1 社だけだった。
+  quote: only one of the six firms had installed objective performance measures for the Agile–Stage-Gate model.
+  locator: 本文(結果の限界)
+  quant: null
+  evidenceKind: case-report
+  rqs: []
+  issues:
+  - 298
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-23'
+  humanChecked: false
+  note: 著者の所属先のサイトが置く出版社の PDF の写し(Taylor & Francis の表紙と引用の書誌の行つき)を WebFetch(要約モデル経由)で読み、c1・c2 の逐語を抜き出させて照合した。出版社のサイト(DOI の解決先)は取得できなかった。全文の通読ではない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: null

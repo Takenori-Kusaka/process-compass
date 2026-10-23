@@ -98,7 +98,7 @@ sections:
   - key: phase4-process-design/assurance-case#H.8 対外的に使う表現
     status: none
     category: org-design
-    reason: 組織が対外の文書で使う表現の手引き。記名の自然人が書き署名する文書であり、AI の担い手の挙動を制約しない。手法の名との名乗りの行を足した
+    reason: 組織が対外の文書で使う表現の手引き。#298 で、手法の名との併用・互換・準拠の名乗りを禁じる行(規定の附属書の禁止)を足した。禁止は採用者の対外の表明を縛るもので、記名の自然人が書き署名する文書に掛かり、AI の担い手の挙動を制約しないため実装マークを付けない(突合 X-4)
     issue: 298
   - key: phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答
     status: pending
@@ -1112,7 +1112,7 @@ sections:
   - key: phase4-process-design/lifecycle#2.2 二層構造
     status: none
     category: explanation
-    reason: 二層構造の説明。AI協調ループについて反復の周期・チームの会合・作業の一覧の運用を規定しないことの表明(主語が本標準)
+    reason: 二層構造の説明。AI協調ループについて反復の周期・チームの会合の持ち方・ステージより短い計画の方法を規定しないことの表明(主語が本標準)と、この層に掛かる規定の所在
     issue: 298
   - key: phase4-process-design/lifecycle#2.3 事業ステージ
     status: pending
@@ -1186,9 +1186,11 @@ sections:
     reason: スコープの確定は SG の判定と G-1 で人が行う。場を別に設けないことは本標準の表明
     issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.4 進捗の観測
-    status: none
-    category: org-design
-    reason: 進捗と滞留の観測と非同期の通知の手段は採用組織が選ぶ。準拠テンプレートに滞留の通知の実装は無く、AI の担い手の挙動を制約する規定でもない。測定の実装はフェーズ6 運用メトリクス
+    status: marked
+    ids:
+      - IMPL-0282
+      - IMPL-0283
+    note: 完了率の申告で測らないことは AI の担い手が担当者の場合にも掛かる(IMPL-0282、降りていない)。滞留の観測と非同期の通知は実行層の仕組みが担う(IMPL-0283、降りていない)。ゲート滞留時間と混ぜない旨の注記は説明(突合 X-11)
     issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.5 棚卸しとスコープの調整
     status: pending

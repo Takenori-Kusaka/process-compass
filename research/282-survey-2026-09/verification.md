@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-10-23): verified 636 / partial 4
+集計(生成日 2026-10-23): verified 636 / partial 5
 
 ### 要確認(verified 以外)
 
@@ -27,6 +27,7 @@
 | SRC-0051 | partial | mech-fetch,agent-blind,agent-adjudication |  | [awslabs/aidlc-workflows: AI-Driven Life Cycle (AI-DLC) adaptive workflow steering rules fo](https://github.com/awslabs/aidlc-workflows) |
 | SRC-0511 | partial | mech-fetch,agent-blind,agent-adjudication |  | [チーム憲章 — 誰が何を決め、誰に渡すか(docs/sessions/README.md)](https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/sessions/README.md) |
 | SRC-0640 | partial | agent-read | WebFetch(取得結果を要約モデルが返す方式)で、原文の該当の文を逐語で抜き出させて照合した。プロキシの制約で curl による全文の取得はできなかったため、全文の通読ではない。c3 の後半は、要約モデルが125文字ずつに区切って返した断片をつないだもの | [The Scrum Guide(2020年11月版)](https://scrumguides.org/scrum-guide.html) |
+| SRC-0641 | partial | agent-read | 著者の所属先のサイトが置く出版社の PDF の写し(Taylor & Francis の表紙と引用の書誌の行つき)を WebFetch(要約モデル経由)で読み、c1・c2 の逐語を抜き出させて照合した。出版社のサイト(DOI の解決先)は取得できなかった。全文の通読ではない | [Agile–Stage-Gate for Manufacturers](https://www.five-is.com/download/agile-stage-gate-for-manufacturers) |
 
 ### 除外した出典(却下は成果)
 

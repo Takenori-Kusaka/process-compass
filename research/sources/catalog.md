@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 640(included 640、excluded 0)。生成日 2026-10-23。
+件数: 641(included 641、excluded 0)。生成日 2026-10-23。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -648,4 +648,5 @@
 | SRC-0638 | 2020-03 | public-agency | jp/ja | verified | TH12 | アジャイル開発を準委任で外部へ委託する場合の公的なモデル契約と解説。月ごとの実施業務の確認を定め、成果物についての契約不適合責任は追及できないと解説する。Iss | [アジャイル開発外部委託モデル契約(情報システム・モデル取引・契約書〈アジャイル開発版〉。解説付き)](https://www.ipa.go.jp/digital/model/agile20200331.html) |
 | SRC-0639 | 1896 | regulation | jp/ja | verified | TH12 | 民法の全文(e-Gov 法令検索の API で取得)。請負(第632条)、請負人の担保責任の制限(第636条)、期間の制限(第637条)、準委任(第656条)を | [民法(明治二十九年法律第八十九号)](https://laws.e-gov.go.jp/api/1/lawdata/129AC0000000089) |
 | SRC-0640 | 2020-11 | community | global/en | partial | TH12 | スクラムガイドの現行版(2020年11月版)。Issue #298 で、附属書A A.7 とフェーズ6 の改善サイクルが引く文を、2026-10-23 に原文で | [The Scrum Guide(2020年11月版)](https://scrumguides.org/scrum-guide.html) |
+| SRC-0641 | 2018-03-07 | paper-peer | global/en | partial | TH12 | 製造業 6 社の事例研究。アジャイルとステージゲートの混成の効果を、聞き取りの推定で約 30% の市場投入期間の短縮・生産性の向上と報告する。客観的な指標を置い | [Agile–Stage-Gate for Manufacturers](https://www.five-is.com/download/agile-stage-gate-for-manufacturers) |
 
