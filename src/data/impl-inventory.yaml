@@ -312,7 +312,10 @@ sections:
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.3 中止の判断基準
     status: pending
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.4 自動的な上程
-    status: pending
+    status: none
+    category: org-design
+    reason: 予算の閾値の超過を B-2・B-1 へ上程する組織の予算統制の制度。準拠テンプレートの範囲の外。定額の契約で組織が定めた上限を配賦額として読むことを含む
+    issue: 294
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.5 継続と判定する場合の要求事項
     status: pending
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.6 案件に関与していない者による棚卸し
@@ -398,26 +401,61 @@ sections:
     ids:
       - IMPL-0240
       - IMPL-0241
-    note: 受け直すゲートの表と、契機で戻り幅を変えないことは /gate の補助ファイル(IMPL-0240)。確定の後の変更の機械の検出は出荷の証跡の集約(IMPL-0241。降りていない)。技術検証の種別を設けないことは課さない明記
+    note: 判定を受けるゲートの表(機能仕様は G-4 と第2章 2.10.8、判断記録は置き換えて G-3)と、契機で判定を受けるゲートを変えないことは /gate の補助ファイル(IMPL-0240)。確定の後の変更の機械の検出は出荷の証跡の集約(IMPL-0241。降りていない)。技術検証の種別を設けないことは課さない明記
     issue: 294
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程どおり)
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程どおり) > 品質の約束と保証範囲(層2)
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0107
+      - IMPL-0258
+    note: 判定記録の対象の版は IMPL-0107、判定基準1〜5 の材料の手順は IMPL-0258。基準3 の確認方法(引き受けない前提が残る場合の差し戻し)は前提の欄(基準3)の節の IMPL-0242 も追う
+    rows:
+      前提条件1:
+        status: none
+        category: elsewhere
+        reason: 未確定事項(前提条件1)の節の IMPL-0148(機械の件数の検査)と IMPL-0149 で追う
+        location:
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 未確定事項(前提条件1)
+      判定基準1:
+        status: marked
+        ids:
+          - IMPL-0258
+      判定基準2:
+        status: marked
+        ids:
+          - IMPL-0258
+      判定基準3:
+        status: marked
+        ids:
+          - IMPL-0258
+      判定基準4:
+        status: marked
+        ids:
+          - IMPL-0258
+      判定基準5:
+        status: marked
+        ids:
+          - IMPL-0258
+    issue: 294
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 曖昧語(基準2)
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 前提の欄(基準3)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0242
+    note: 判定者が前提を引き受けない場合の基準3 による差し戻しは IMPL-0242。前提の各行の案件層の ID の確認と、前提の欄の外の推測の扱いは、未確定事項(前提条件1)の節の IMPL-0149 が追う。観測と想定を区別しないことは課さない明記
+    issue: 294
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 未確定事項(前提条件1)
     status: marked
     ids:
       - IMPL-0148
       - IMPL-0149
       - IMPL-0150
-      - IMPL-0242
-    note: 未確定事項の件数の検査は IMPL-0148、判定者の手順は IMPL-0149、様式は IMPL-0150、前提を引き受けない場合の差し戻しは IMPL-0242
+    note: 未確定事項の件数の検査は IMPL-0148、判定者の手順は IMPL-0149、様式は IMPL-0150。前提を引き受けない場合の差し戻しは基準3 で扱い、前提の欄(基準3)の節の IMPL-0242 が追う
     issue: 294
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間)
     status: pending
@@ -579,7 +617,7 @@ sections:
       - IMPL-0248
       - IMPL-0249
       - IMPL-0250
-    note: G-5 の起動を絞らないことは IMPL-0247、既定ブランチ以外を基底とする PR をマージしないことは IMPL-0248(降りていない)、既定ブランチから読むことは IMPL-0249、合わさった承認を層ごとに数えないことは IMPL-0250(降りていない)
+    note: G-5 の起動を絞らないことは IMPL-0247、既定ブランチ以外へ取り込むマージをしないことは IMPL-0248(降りていない)、既定ブランチの先端から読むことは IMPL-0249、層ごとの承認が無い合わさった差分への承認を層ごとに数えないことは IMPL-0250(降りていない)。手動のスタックと GitHub 標準のスタックの機構の別は説明(EV-0139)
     issue: 294
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > この基準の見直し
     status: pending
@@ -667,7 +705,11 @@ sections:
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
     status: pending
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0035
+    note: 登録の根拠は IMPL-0035。既定ブランチへの取り込みが本番環境への反映を直接起動する構成で委任の取り込みをこの行の経路に限ることは、5.5.1 の IMPL-0251 が追う
+    issue: 294
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.5 運用形態にかかわらず人が確定する判断
     status: pending
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.6 席ごとの上限
@@ -1370,9 +1412,9 @@ sections:
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.6 モデルの廃止への追随
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.7 実行予算の配給
-    status: none
-    category: org-design
-    reason: 実行予算の上限と到達時の扱いを G-1 で決める組織の統制。提供者の利用上限の扱いと、待つことの費用を承認を急がせる理由にしないことを含む
+    status: marked
+    ids:
+      - IMPL-0257
     issue: 294
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.8 セキュリティとデータ保護
     status: pending
@@ -1989,13 +2031,19 @@ sections:
   - key: phase5-implementation/label-mailbox#4.2 設計原則
     status: none
     category: elsewhere
-    reason: 原則4 の取り消せない操作の定義と人へ戻すことは第5章 5.5.1(IMPL-0024・IMPL-0251)で追う。原則1〜3・5 はラベル運用の設計の説明で、ラベルの付与と遷移は 4.5.3(IMPL-0012)で追う
+    reason: 原則4 の取り消せない操作の定義と人へ戻すことは第5章 5.5.1(IMPL-0024・IMPL-0251)で追う。ガード・検証ゲート・重要テストの削除を統制の弱化として停止することは 4.7(IMPL-0014)で追う。原則1〜3・5 はラベル運用の設計の説明で、ラベルの付与と遷移は 4.5.3(IMPL-0012)で追う
     location:
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
       - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
     issue: 294
   - key: phase5-implementation/label-mailbox#4.3 label 語彙（標準8種）
-    status: pending
+    status: none
+    category: elsewhere
+    reason: ラベルの語彙と担当の定義。ラベルの付与と遷移は 4.5.3(IMPL-0012)で追う。state:needs-po と state:needs-owner の切り分けにいう取り消せない操作の定義は第5章 5.5.1(IMPL-0251)で追う
+    location:
+      - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
+      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
+    issue: 294
   - key: phase5-implementation/label-mailbox#4.3.1 状態遷移表（復路の完全定義）
     status: pending
   - key: phase5-implementation/label-mailbox#4.4 孤児（orphan）検出の義務化
@@ -2009,7 +2057,10 @@ sections:
   - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ② 出荷判定者（QM）の Mailbox
     status: pending
   - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ③ 価値責任者（PO）の Mailbox
-    status: pending
+    status: none
+    category: explanation
+    reason: 受信箱を読むコマンドの例。実行主体の挙動を制約する規定を持たない
+    issue: 294
   - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ④ 監査担当（Audit）の Mailbox
     status: pending
   - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ⑤ AI維持管理（Platform）の Mailbox
@@ -2037,7 +2088,7 @@ sections:
   - key: phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.3 引き渡し先
     status: none
     category: elsewhere
-    reason: 統制の弱化の引き渡しは 4.7.1 の IMPL-0014、取り消せない操作に当たる場合の人へ戻すことは第5章 5.5.1 の IMPL-0251 で追う
+    reason: 統制の弱化の引き渡しは 4.7.1 の IMPL-0014、取り消せない操作に当たる場合の人へ戻すことは第5章 5.5.1 の IMPL-0251 で追う。ガード・検証ゲート・重要テストの削除に state:needs-owner を併記することは、準拠テンプレートの /pit の handoff.md の表にも置いた
     location:
       - phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.1 何を統制の弱化として扱うか
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
@@ -2358,7 +2409,7 @@ sections:
   - key: phase5-implementation/stacked-pr#段階的な導入
     status: none
     category: elsewhere
-    reason: 段階1 の前提条件(G-5 の起動を絞らない・既定ブランチ以外を基底とする PR をマージしない)は第4章「積み重ねた変更とゲート」のマーク(IMPL-0247・IMPL-0248)で追う。段階の構成は手引き
+    reason: 段階1 の前提条件(G-5 の起動を絞らない・既定ブランチ以外へ取り込むマージをしない)は第4章「積み重ねた変更とゲート」のマーク(IMPL-0247・IMPL-0248)で追う。段階の構成は手引き
     location:
       - phase4-process-design/gate-criteria#タスクの分割基準 > 積み重ねた変更とゲート
     issue: 294
@@ -2370,12 +2421,12 @@ sections:
     status: marked
     ids:
       - IMPL-0254
-    note: 中間層の先行マージの拒否は IMPL-0254(降りていない)。強制プッシュの拒否などの他の行は、ホスティングと実行環境の設定の手引き
+    note: 手動のスタックの中間層の先行マージの拒否は IMPL-0254(降りていない)。強制プッシュの拒否などの他の行は、ホスティングと実行環境の設定の手引き
     issue: 294
   - key: phase5-implementation/stacked-pr#段階1の手順(標準機能のみ)
     status: none
     category: elsewhere
-    reason: 既定ブランチ以外を基底とする PR をマージしないこと、合わさった承認を層ごとに数えないことは第4章「積み重ねた変更とゲート」のマーク(IMPL-0248・IMPL-0250)で追う。コマンドは手順の例
+    reason: 既定ブランチ以外へ取り込むマージをしないこと、層ごとの承認が無い合わさった差分への承認を層ごとに数えないことは第4章「積み重ねた変更とゲート」のマーク(IMPL-0248・IMPL-0250)で追う。コマンドは手順の例
     location:
       - phase4-process-design/gate-criteria#タスクの分割基準 > 積み重ねた変更とゲート
     issue: 294

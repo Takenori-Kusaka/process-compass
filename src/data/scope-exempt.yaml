@@ -76,9 +76,3 @@ exempt:
   - page: phase4-process-design/gate-criteria
     heading: 受入基準とタスクの対応(基準6)
     reason: 「事業ステージ S0 では G-7 を省略する」は、G-4 に基準6 を置く理由の説明であり、基準6 の適用範囲を限定しない。G-4 はどのステージでも省略しない
-
-  # --- 確定した版を変える場合の受け直し(#294 / ADR-0078) ---
-
-  - page: phase4-process-design/gate-criteria
-    heading: 確定した版を変える場合
-    reason: 事業ステージ(S0)の限定は表の行の中に書いてあり、検出されたのは実装マークの注記がその行を言い直した箇所。規範の適用範囲を地の文で狭めていない

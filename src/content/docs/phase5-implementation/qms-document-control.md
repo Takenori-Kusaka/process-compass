@@ -148,7 +148,7 @@ frontmatter の値は、この分離が正しく行われたかを CI で検査�
 | 内部監査 | [プロセス内部監査](/process-compass/phase6-operation/process-audit/)。実施者の要件、抽出、観点、是正の追跡 |
 | 是正処置 | [第4章 G-5「是正の起動」](/process-compass/phase4-process-design/gate-criteria/)(是正を起動する条件と記録の正本。出荷後の Sev1・Sev2 はポストモーテムが記録)、[改善サイクル](/process-compass/phase6-operation/improvement-cycle/)の3区分の仕分けと反映、[インシデント対応](/process-compass/phase6-operation/incident-response/)、[技術負債の返済](/process-compass/phase6-operation/debt-payback/) |
 | マネジメントレビュー | [第3章 3.7](/process-compass/phase4-process-design/roles-responsibilities/)の会議体(B-1 IT投資委員会、B-2 ステアリングコミッティ)、および[指標](/process-compass/phase6-operation/metrics/)とゲートの健全性 |
-| 設計・開発の管理と、設計・開発の変更 | [第4章](/process-compass/phase4-process-design/gate-criteria/) G-2〜G-4(要件合意・技術設計判断・機能仕様承認の判定記録)、同章「確定した版を変える場合」(確定した受入基準・前提・スコープ外・判断記録を変えたときの判定の受け直し)、判断記録(ADR)、[第3章 3.8.1](/process-compass/phase4-process-design/roles-responsibilities/)(変更ごとのリスク区分と、区分を確定した者の記名) |
+| 設計・開発の管理と、設計・開発の変更 | [第4章](/process-compass/phase4-process-design/gate-criteria/) G-2〜G-4(要件合意・技術設計判断・機能仕様承認の判定記録)、同章「確定した版を変える場合」(確定した受入基準・前提・スコープ外を変えたときの G-4 の判定と、判断記録を置き換えたときの G-3 の判定)、判断記録(ADR)、[第3章 3.8.1](/process-compass/phase4-process-design/roles-responsibilities/)(変更ごとのリスク区分と、区分を確定した者の記名) |
 | 製品の検証 | 第4章 G-5(機械検査)・G-6(人の確認)、[第5章 5.8](/process-compass/phase4-process-design/human-ai-boundary/)(AI の出力を未検証の入力として扱う)。実施しなかった検証は、出荷ごとの保証の開示に出る |
 | リリースの許可と、許可した人の記録 | 第4章 G-7(出荷判定者の記名)・G-8(事業決裁者の記名)。署名の意味は同章「出荷判定者の署名の意味」による |
 | 基準を満たさないものの識別と、受け入れの許可 | 第4章の欠陥トリアージ基準と既知の不具合、[第7章 7.3](/process-compass/phase4-process-design/exception-escalation/)の例外承認、未達と逸脱の表示 |

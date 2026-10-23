@@ -33,13 +33,15 @@ sidebar:
    自身のレーンから次のレーンへ成果物を引き渡す際、**引き渡す側が次のロール用のラベルを付与**する。自分のレーンに仕事を残したまま、相手を指すラベルを設定してはならない。
 4. **取り消せない操作はオーナー（事業決裁者）へエスカレーションする**:
    **取り消せない操作の定義は[第5章 5.5.1](/process-compass/phase4-process-design/human-ai-boundary/)による**。取り消せない効果を、他の者の操作を介さずに生じさせる操作である。効果の判定の基準は「取り消せない時間帯が存在すること」である（[第8章 設計で下げられない危害](/process-compass/phase4-process-design/tailoring-guide/)）。取り消し操作を用意したことをもって、対象から外してはならない。反映・発行を後段で人が行う上流の編集は当たらない。後段に人だけが通せる門が残ることを理由に、エスカレーションを省いてはならない。
-   - 削除（検証ゲート、ガード, 重要テストの削除を含む）
+   - 削除
    - 本番環境へのデプロイ
    - 課金（クラウドや外部API）が発生する書き込み
    - データベース・スキーマ変更
    - **組織の管理外への発行**（公開ホストへの掲載、第三者への送信。発行を削除しても、発行されていた時間帯は消えない）
 
    **この一覧は基準を満たす操作の例示であり、網羅ではない**（[ADR-0041](/process-compass/adr/0041-scope-is-not-exhaustive/)）。基準に当たる操作を見つけた場合、一覧に無いことを理由に自律実行してはならない。自律実行を停止し、オーナーへのエスカレーションラベル（`state:needs-owner`）を付与する。
+
+   **ガード・検証ゲート・重要テストの削除は、統制の弱化として、取り消せない操作とは別の停止の事由に当たる**（4.7）。ブランチの上の削除は、取り消せない操作の定義に当たらない場合がある。定義に当たらなくても、自律実行を停止し、4.7.3 の引き渡し先へ渡す。`state:needs-owner` の併記は、取り消せない操作の定義によらず行う。
 5. **語彙を必要最小限に抑える**:
    伝達する経路（チャンネル）が明確である限りラベルを増やさない。ただし、伝える経路そのものが存在しない「伝達の欠落」がある場合は、速やかに公式語彙を追加する（4.6節参照）。
 
@@ -57,13 +59,13 @@ sidebar:
 | `state:ready-to-merge`| QMが独立レビューを完了し、マージを承認した状態 | QM | **QM**（マージ実行担当） |
 | `state:needs-audit` | 統合監査またはリリースカットの検証を監査チームに依頼した状態 | PO | **監査**（Auditor） |
 | `state:needs-platform`| テスト装置・リント・CI/CD等の追加・削減・自動生成・統合、および**エージェント指示資産（強制層。`.claude/**` 等）の追加・統合・削除**を依頼した状態 | PO / Dev / QM | **Platform**（AI維持管理） |
-| `state:needs-po` | 不可逆な操作に当たらないが、仕様・優先度・語彙の改訂等のPO判断を要する状態 | 誰でも | **PO**（価値責任者） |
+| `state:needs-po` | 取り消せない操作に当たらないが、仕様・優先度・語彙の改訂等のPO判断を要する状態 | 誰でも | **PO**（価値責任者） |
 | `state:needs-tech` | 技術設計の判断（G-3）を要する状態。ADRの起草・採否、技術的トレードオフの評価 | 誰でも | **技術判断者** |
 | `state:needs-owner` | 事業決裁者の決裁または追認を要する状態 | 誰でも | **オーナー**（事業決裁者） |
 
 - `state:needs-po` / `state:needs-tech` / `state:needs-owner` は、誰が気付いても付与してよい。Devの実装中に判断が必要になった場合もこれらを付与する。
-- **`state:needs-owner` が指す範囲は、不可逆な操作に限らない。** 4.2 原則4 の不可逆な操作、[第7章 7.6](/process-compass/phase4-process-design/exception-escalation/)の段階2および段階3、[第3章 3.9](/process-compass/phase4-process-design/roles-responsibilities/)の決裁マトリクスが事業決裁者を指す事項を含む。案件がテーラリングで追認を要する事項を追加した場合も、同じラベルを用いる（[ADR-0037](/process-compass/adr/0037-label-points-to-lane-not-role/)）。
-- **エージェント指示資産の統合・削除の権限は AI維持管理者へ集約する**（[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)）。強制層の検査の追加も、組み込みの承認は AI維持管理者が行う。追加の要否は技術判断者が決める（`state:needs-tech`）。強制層の変更が必要になった場合は `state:needs-owner` ではなく `state:needs-platform` を付与する。不可逆な操作に該当する場合のみ、あわせて `state:needs-owner` を付与する。
+- **`state:needs-owner` が指す範囲は、取り消せない操作に限らない。** 4.2 原則4 の取り消せない操作、[第7章 7.6](/process-compass/phase4-process-design/exception-escalation/)の段階2および段階3、[第3章 3.9](/process-compass/phase4-process-design/roles-responsibilities/)の決裁マトリクスが事業決裁者を指す事項を含む。案件がテーラリングで追認を要する事項を追加した場合も、同じラベルを用いる（[ADR-0037](/process-compass/adr/0037-label-points-to-lane-not-role/)）。
+- **エージェント指示資産の統合・削除の権限は AI維持管理者へ集約する**（[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)）。強制層の検査の追加も、組み込みの承認は AI維持管理者が行う。追加の要否は技術判断者が決める（`state:needs-tech`）。強制層の変更が必要になった場合は `state:needs-owner` ではなく `state:needs-platform` を付与する。取り消せない操作に該当する場合のみ、あわせて `state:needs-owner` を付与する。
 - **相手を指すラベルがない口頭やメンションでの判断依頼を禁止する。** 伝達経路に現れないため、エージェントや人間の双方で見落とすこととなる。
 
 ---
@@ -146,7 +148,7 @@ gh pr list --label "state:ready-to-merge" --state open
 gh issue list --label "state:needs-po" --state open
 gh pr list --label "state:needs-po" --state open
 
-# 2. 不可逆な操作などのオーナー・決裁者承認待ち
+# 2. 取り消せない操作などのオーナー・決裁者承認待ち
 gh issue list --label "state:needs-owner" --state open
 gh pr list --label "state:needs-owner" --state open
 ```
@@ -292,7 +294,8 @@ done
 | 対象 | 付与するラベル |
 | --- | --- |
 | 強制層(`.claude/**` 等)の縮小 | `state:needs-platform` |
-| 取り消せない操作（4.2 原則4）に該当する（ガード・検証ゲート・重要テストの削除を含む） | 上に加えて `state:needs-owner` |
+| 取り消せない操作（4.2 原則4）に該当する | 上に加えて `state:needs-owner` |
+| ガード・検証ゲート・重要テストの削除（統制の弱化。取り消せない操作の定義によらず併記する） | 上に加えて `state:needs-owner` |
 | 弱化の範囲そのものの適否 | `state:needs-po` |
 
 **監査担当を引き渡し先にしない。** 監査は、プロセスが標準に適合しているかを事後に検証する職務を負う。個別の変更の許容可否を決める場にすると、監査が実行の当事者となり、次の監査で自らの判断を監査することになる。
