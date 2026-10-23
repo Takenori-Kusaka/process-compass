@@ -180,7 +180,13 @@ AI協調ループは、機能単位で次の4工程を反復します。
 
 独立レビュー(G-6)のステージごとの状態は、第8章 軸B によります。
 
-本標準は、探索(S0)の記録の量に上限を課しません。量を掛ける対象である探索の記録を、本標準は成果物として定義していないためです。探索の記録の置き場と、ステージ移行ゲート(SG-0)へ渡す出力は、本標準は現時点で定めていません([ADR-0072](/process-compass/adr/0072-document-volume-is-not-a-metric/))。
+本標準は、探索(S0)の記録の量に上限を課しません。量を掛ける対象である探索の記録を、本標準は成果物として定義していないためです([ADR-0072](/process-compass/adr/0072-document-volume-is-not-a-metric/))。
+
+**探索の記録の置き場と様式も、本標準は課しません**。ステージ移行ゲート(SG-0)へ渡すのは、SG-0 の決断の記録([第5章 5.7.2](/process-compass/phase4-process-design/human-ai-boundary/))の「確認した事項」と「確認していない事項」です。基準「技術的実現性が確認されている」について、確認した事項には依った探索の記録を挙げ、その記録へ到達できなければなりません。到達できる期間は、[第4章「判定が指す記録の保管」](/process-compass/phase4-process-design/gate-criteria/)と同じく、組織が定める保管期間です。確認していない事項に書いた技術的な問いは、S1 の機能仕様の前提か、実装計画の検証のタスクへ移します([ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/))。
+
+<!-- impl IMPL-0252 target=gate-record-template state=undelivered check=manual note="SG-0 の決断の記録の「確認した事項」に、依った探索の記録を挙げ、到達できるようにする。様式は決断の記録の欄(IMPL-0171)を持つが、探索の記録を挙げる注記と、確認していない技術的な問いを S1 の前提・検証のタスクへ移す注記は無い。会議体の決定者が確かめる" -->
+
+事業ステージ S1 以降の技術的な検証も、作業の種別として設けません。検証の結果が確定した成果物を変える場合の扱いは、[第4章「確定した版を変える場合」](/process-compass/phase4-process-design/gate-criteria/)によります。
 
 ## 2.7 部門間移管
 

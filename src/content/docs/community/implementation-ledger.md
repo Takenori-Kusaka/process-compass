@@ -22,22 +22,22 @@ sidebar:
 | 対象 | 節 | マーク済み | 判定基準の表 | 対象にしない | **未棚卸し** |
 | --- | --- | --- | --- | --- | --- |
 | 第1章 | 20 | 0 | 0 | 0 | **20** |
-| 第2章 | 38 | 0 | 0 | 0 | **38** |
-| 第3章 | 87 | 10 | 0 | 12 | **65** |
-| 第4章 | 87 | 5 | 0 | 0 | **82** |
-| 第5章 | 48 | 17 | 0 | 7 | **24** |
+| 第2章 | 38 | 1 | 0 | 0 | **37** |
+| 第3章 | 87 | 10 | 0 | 14 | **63** |
+| 第4章 | 91 | 10 | 0 | 1 | **80** |
+| 第5章 | 48 | 18 | 0 | 7 | **23** |
 | 第6章 | 70 | 0 | 0 | 0 | **70** |
-| 第7章 | 42 | 0 | 0 | 0 | **42** |
+| 第7章 | 42 | 0 | 0 | 1 | **41** |
 | 第8章 | 47 | 0 | 0 | 0 | **47** |
 | 附属書B | 8 | 0 | 0 | 0 | **8** |
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
-| 附属書H | 42 | 0 | 0 | 0 | **42** |
-| フェーズ5 | 301 | 27 | 0 | 23 | **251** |
-| フェーズ6 | 132 | 0 | 0 | 0 | **132** |
-| **計** | 950 | 59 | 0 | 42 | **849** |
+| 附属書H | 43 | 1 | 0 | 2 | **40** |
+| フェーズ5 | 302 | 31 | 0 | 35 | **236** |
+| フェーズ6 | 132 | 0 | 0 | 1 | **131** |
+| **計** | 956 | 71 | 0 | 61 | **824** |
 
-未棚卸しの849節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
+未棚卸しの824節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
 **台帳の件数は網羅の証明ではありません**。降りていない規定が0件であることも、未棚卸しの節が0件であることも、規定がすべて降りたことを示しません。機械が確かめるのは、節が区分つきで登録されていること、登録の鍵と識別子が実在すること、「対象にしない」の節にマークが無いことまでです。節の中の規定がすべてマークされているかは、区分を登録した者の判断です。
 
@@ -47,16 +47,16 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 22 |
-| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 42 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 74 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 23 |
+| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 45 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 87 |
 | **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **101** |
 
 未分類の101件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
 
 ### 降りていない規定
 
-降りていない規定: **72件**
+降りていない規定: **84件**
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
@@ -80,7 +80,7 @@ sidebar:
 | IMPL-0117 | 承認を独立した人の確認に数える人(席の責任者でない確認者、外部の確認者を含む)の力量の確認。構成に、席の責任者でない人の確認の記録の欄が無く、出荷の証跡の集約は「力量の確認の記録が無い確認者による確認」の件数と「依頼した本人による確認」の区別を出さない。席の責任者本人の力量(3.4.3)の未確認は、従来どおり項目7 に出る。採用者は、確認者ごとの確認の記録の置き場と、件数と区別を保証の開示へ添える手順を、社内の手順で定める(#307) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0118 | 検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0120 | 適用の表明に併記する未達のゲートの件数と記録の欠落の件数を、表明の様式として出力する仕組みは無い。件数そのものは、構成(unmet[])と出荷の証跡の集約の出力から読める。表明する者が、表明の時点で転記して確かめる(#306) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
-| IMPL-0124 | 判定記録だけのコミットを基底ブランチへ入れる操作に、記名者以外の承認を課さない。GitHub のルールセットはパス単位の免除を持たないため、記録だけの PR にも承認 1 件が残る。承認者を記名者本人に限る手順は /gate と CODEOWNERS(誘導層。遮断に数えない)で降ろす。降りていない事実は rulesets/README に表示し、内部監査が確かめる(#321) | ブランチ保護のルールセット | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0124 | 判定記録だけのコミットを基底ブランチへ入れる操作に、記名者以外の承認を課さない。GitHub のルールセットはパス単位の免除を持たないため、記録だけの PR にも承認 1 件が残る。承認者を記名者本人に限る手順は /gate と CODEOWNERS(誘導層。遮断に数えない)で降ろす。降りていない事実は rulesets/README に表示し、内部監査が確かめる(#321) | ルールセット(ブランチ保護)の定義 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0132 | 判断記録の欄が空であること、「回復に要する時間」が単一の値であること、「顕在化が分かる兆候」が「なし」であること、前の判断記録と記述が一致していることの機械の検査。準拠テンプレートに実装が無い。判定者が判定のときに読んで確かめる | 判断記録の状態と参照の検査 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0135 | 欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(再発の可能性・類似・再発防止の形と理由・効いたことの確認)の様式。準拠テンプレートに様式が無い。品質保証の担当が記録の有無を確かめる。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う | 欠陥の台帳の様式 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0136 | 算定から除いた文書だけの変更を、判定完了時間の SLA で判定すること。出荷の集約は、文書だけの変更の判定完了時間を出していない。判定の滞留はゲート滞留時間(運用メトリクス)で人が見る | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -136,6 +136,18 @@ sidebar:
 | IMPL-0235 | 要求事項1〜6 を delegation.yml と check-delegation.mjs が実装する。基底ブランチの定義で起動して既定ブランチを checkout し、判定を必須でないステータスで出し、承認を付けずに記録し、有効化の変数と Environment delegated-merge の秘密情報が揃った場合に限り、判定した時点のコミットに固定してマージする。test-check-delegation.mjs がワークフローの定義と模擬の入力で確かめる。実際の GitHub 上で実行していない(本節の開示) | 委任した変更のマージの経路(delegation.yml) | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | IMPL-0237 | 案件のデプロイ(G-8 の後の配備)のワークフローで、配備の資格情報を、配備を許す参照(既定ブランチ、またはリリースのタグ)に限った実行環境の秘密情報に置き、参照する実行環境を参照の前に作る。プランにより手段が無い場合に保証の開示へ未達として記録する。準拠テンプレートにデプロイのワークフローは無い | 案件のデプロイのワークフローの置き場(予定) | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | IMPL-0239 | 対象なしによる通過(基準1・2・3・5・8)。アダプタはプロジェクトの対象が無いとき実施しない旨を通知して通し、カバレッジは製品のコードが無いとき対象なしとして通す。対象なしを記録の3項目(基準・理由・時刻)で証跡へ残すこと、実装の開始後に用いないことは確かめていない | G-5 のアダプタの実行(adapter.mjs) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0241 | G-2(S0 では G-4)で確定した版から受入基準・前提・スコープ外が変わったのに変更後の版を対象とする判定記録が無い機能と、G-3 で判定した版から判断記録が変わったのに新しい G-3 の判定記録が無い判断記録を、出荷の証跡の集約で検出する。準拠テンプレートに実装は無い(IMPL-0107 が確定の後の受入基準の変更を確かめないと開示している残り)。出荷判定者が判定記録の版と現行の版を突合する | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0243 | 出荷の証跡を、組織が定める保管期間のあいだ到達できる置き場に残す。準拠テンプレートの ship-evidence.yml は証跡を CI の成果物(upload-artifact)にだけ置き、retention-days を指定しない(既定の保持に依る)。保管の設計は別 Issue。内部監査で、判定記録と証跡の指す先に到達できるかを抜き取る | 出荷の証跡のワークフロー(ship-evidence.yml) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0244 | 出荷の証跡の集約は、CI 基盤の保持期間を過ぎて結果を読めない PR の G-5 を、gate-g5 の結果の記録が無い(必須チェックを経ずにマージされた可能性)として出す。保持切れと、必須チェックを経ていないことを区別しない。保管の設計は別 Issue | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0245 | 基準3 の測る範囲を構成で選び、割合・範囲・分母を結果に残す。準拠テンプレートの coverage-check.mjs は全体の行の割合(total.lines.pct)だけを基準値と比べ、範囲を選べず、分母を記録しない。変更で加えたコードの割合は実装していない。標準の目安(新規コード)と食い違う | G-5 基準3 のカバレッジの判定(coverage-check.mjs) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0246 | 保証の開示に、カバレッジの割合・測った範囲・分母を出す。準拠テンプレートの出荷の証跡の集約は、カバレッジの結果を取り込まない | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0248 | 既定ブランチ以外を基底とする PR のマージを拒否する設定。準拠テンプレートのルールセット(.github/rulesets/*.json)の対象は ~DEFAULT_BRANCH だけで、中間の層へのマージを止めない。AI の担い手のマージは .claude/settings.json の ask(gh pr merge)で人へ戻るが、人による中間の層へのマージは止まらない | ルールセット(ブランチ保護)の定義 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0250 | 合わさった差分(スタックの複数の層)への承認を、層ごとの G-6 の確認に数えない。/gate の G-6 の補助ファイルに無い。出荷の証跡の集約は既定ブランチへ取り込んだ PR ごとに承認を数え、層の合わさりを見ない | ゲート判定記録のスキルの G-6 の補助ファイル | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0252 | SG-0 の決断の記録の「確認した事項」に、依った探索の記録を挙げ、到達できるようにする。様式は決断の記録の欄(IMPL-0171)を持つが、探索の記録を挙げる注記と、確認していない技術的な問いを S1 の前提・検証のタスクへ移す注記は無い。会議体の決定者が確かめる | 成果物テンプレート テンプレ4(ゲート判定記録) | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
+| IMPL-0253 | AI の確認の実行ごとに、確認側へ渡した入力(起動の指示・自動で読み込まれる指示ファイル・道具の定義・渡した成果物)を実行の記録から書き出す。準拠テンプレートの ai-review.yml は差し込み口と注記だけで、入力の記録を出さない。AI維持管理者が四半期の抜き取りで、文脈を渡していない確認として記録したものに入力の列挙があるかを確かめる | AI レビューのワークフロー(差し込み口) | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
+| IMPL-0254 | 中間層の先行マージ(既定ブランチ以外を基底とする PR のマージ)を拒否する設定。準拠テンプレートのルールセットの対象は ~DEFAULT_BRANCH だけで、必須チェックは中間のマージを止めない。人による中間のマージは、手順の遵守に依っている | ルールセット(ブランチ保護)の定義 | [phase5-implementation/stacked-pr](/process-compass/phase5-implementation/stacked-pr/) |
+| IMPL-0255 | AI への指示の表の「既定ブランチ以外を基底とする PR をマージしない」の強制層。準拠テンプレートのルールセットは中間のマージを拒否しない。AI の担い手による gh pr merge は .claude/settings.json の ask で人へ戻るため、AI 単独では中間のマージに至らない | ルールセット(ブランチ保護)の定義 | [phase5-implementation/stacked-pr](/process-compass/phase5-implementation/stacked-pr/) |
+| IMPL-0256 | human-verify の3要素(手順・結果・判断)。PR の様式の「検証方法と結果」の注記は、人が書く欄であることと、実行したことと観測したことの例を置くが、判断(受入基準を満たすと考えた理由を自分の言葉で1文)の例と欄の指示が無い。添付と所在は求めていない。記入の中身は機械で確かめない(出荷判定者と独立レビュアが読む) | PR の本文の様式 | [phase5-implementation/pr-workflow](/process-compass/phase5-implementation/pr-workflow/) |
 
 ### 全件
 
@@ -264,7 +276,7 @@ sidebar:
 | IMPL-0121 | 判定を別の組織へ置く場合の、判定の結果を受け取る者(組織ごと)を締結時に決めて記録する欄を AI-SLA 合意確認書の様式に置く。必須欄の検査が欄の存在を確かめる。記入の有無と中身は確かめない(#309) | 成果物テンプレート テンプレ8(AI-SLA 合意確認書) | — | 降りている | 実在だけ確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0122 | G-2・G-8 を契約上の確認行為に対応づけるかどうかと対応づける先を、締結時に決めて記録する欄を AI-SLA 合意確認書の様式に置く。必須欄の検査が欄の存在を確かめる。記入の有無と中身は確かめない(#309) | 成果物テンプレート テンプレ8(AI-SLA 合意確認書) | — | 降りている | 実在だけ確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0123 | CLAUDE.md に、テンプレートの常駐の規則の節(見出しと本文)があることを check-process-rules が確かめる。区間の目印だけを足した既存の CLAUDE.md は落ちる(test-init-g5 で実行して確認)。節の中の個々の行の有無、.github/CODEOWNERS と .gitignore の行は確かめない(#306) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 機械が確かめる | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
-| IMPL-0124 | 判定記録だけのコミットを基底ブランチへ入れる操作に、記名者以外の承認を課さない。GitHub のルールセットはパス単位の免除を持たないため、記録だけの PR にも承認 1 件が残る。承認者を記名者本人に限る手順は /gate と CODEOWNERS(誘導層。遮断に数えない)で降ろす。降りていない事実は rulesets/README に表示し、内部監査が確かめる(#321) | ブランチ保護のルールセット | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0124 | 判定記録だけのコミットを基底ブランチへ入れる操作に、記名者以外の承認を課さない。GitHub のルールセットはパス単位の免除を持たないため、記録だけの PR にも承認 1 件が残る。承認者を記名者本人に限る手順は /gate と CODEOWNERS(誘導層。遮断に数えない)で降ろす。降りていない事実は rulesets/README に表示し、内部監査が確かめる(#321) | ルールセット(ブランチ保護)の定義 | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0125 | 機械が出す欄(判定者の数値の識別子と席、提出日時、判定日時、対象の PR 番号・コミットの識別子・承認レビューの識別子、結果、D-0 の版、承認の数、作成を指示した者との別)を、承認レビュー・PR の記録・基底ブランチの構成から推定を含まない写しとして出し、欄ごとに出所を併記する。人が書く欄(挙動要約・確認した項目・確認していない事項・差し戻し理由・決断の記録)は出さない(#321) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0126 | 承認レビューの写しの取り出し。承認と同じ時期に、承認レビューの識別子・状態・commit_id・提出日時・アカウントの数値の識別子とログイン名・本文・PR 番号・マージのコミット、および同じ期間の bypass と保護の変更の記録を、記名者と判定される側が書き換えられない置き場へ出す。取れないプランでは取れない旨を書く。置き場の形はテンプレートが定める(#321) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0127 | 変更要求(CHANGES_REQUESTED)の本文に、満たさない基準の項目番号と再提出の期限があることを、G-5 の PR 単位の検査で確かめる。欠く変更要求を「理由の無い差し戻し」として出す。中身は確かめない(#321) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -380,5 +392,22 @@ sidebar:
 | IMPL-0237 | 案件のデプロイ(G-8 の後の配備)のワークフローで、配備の資格情報を、配備を許す参照(既定ブランチ、またはリリースのタグ)に限った実行環境の秘密情報に置き、参照する実行環境を参照の前に作る。プランにより手段が無い場合に保証の開示へ未達として記録する。準拠テンプレートにデプロイのワークフローは無い | 案件のデプロイのワークフローの置き場(予定) | — | **降りていない** | 人が確かめる | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | IMPL-0238 | 1名の体制の行。gate-g5.yml が、PR に加えて既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行する。push そのものは止めない。トレーラ Risk・Verification の欠落は、出荷の証跡の集約が記録の欠落として数える | G-5 のワークフロー(gate-g5.yml) | — | 降りている | 実在だけ確かめる | [phase5-implementation/git-strategy](/process-compass/phase5-implementation/git-strategy/) |
 | IMPL-0239 | 対象なしによる通過(基準1・2・3・5・8)。アダプタはプロジェクトの対象が無いとき実施しない旨を通知して通し、カバレッジは製品のコードが無いとき対象なしとして通す。対象なしを記録の3項目(基準・理由・時刻)で証跡へ残すこと、実装の開始後に用いないことは確かめていない | G-5 のアダプタの実行(adapter.mjs) | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0240 | /gate の補助ファイル gates/G-2.md・G-3.md・G-4.md に、確定した版から受入基準・前提・スコープ外・判断記録を変えた場合に、変更後の版でそのゲートの判定を受け直すこと、変更の契機で受け直すゲートを変えないこと、元の判定記録を残すことを置く。受け直すべき変更を見落としていないかは機械では確かめない | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0241 | G-2(S0 では G-4)で確定した版から受入基準・前提・スコープ外が変わったのに変更後の版を対象とする判定記録が無い機能と、G-3 で判定した版から判断記録が変わったのに新しい G-3 の判定記録が無い判断記録を、出荷の証跡の集約で検出する。準拠テンプレートに実装は無い(IMPL-0107 が確定の後の受入基準の変更を確かめないと開示している残り)。出荷判定者が判定記録の版と現行の版を突合する | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0242 | /gate の補助ファイル gates/G-2.md・G-4.md に、判定者が前提を引き受けない場合を閉じていない未確定事項として前提条件1 で差し戻し、その前提の案件層の ID を差し戻しの記録に書く手順を置く。引き受けるかどうかは判定者が決め、機械では確かめない | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0243 | 出荷の証跡を、組織が定める保管期間のあいだ到達できる置き場に残す。準拠テンプレートの ship-evidence.yml は証跡を CI の成果物(upload-artifact)にだけ置き、retention-days を指定しない(既定の保持に依る)。保管の設計は別 Issue。内部監査で、判定記録と証跡の指す先に到達できるかを抜き取る | 出荷の証跡のワークフロー(ship-evidence.yml) | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0244 | 出荷の証跡の集約は、CI 基盤の保持期間を過ぎて結果を読めない PR の G-5 を、gate-g5 の結果の記録が無い(必須チェックを経ずにマージされた可能性)として出す。保持切れと、必須チェックを経ていないことを区別しない。保管の設計は別 Issue | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0245 | 基準3 の測る範囲を構成で選び、割合・範囲・分母を結果に残す。準拠テンプレートの coverage-check.mjs は全体の行の割合(total.lines.pct)だけを基準値と比べ、範囲を選べず、分母を記録しない。変更で加えたコードの割合は実装していない。標準の目安(新規コード)と食い違う | G-5 基準3 のカバレッジの判定(coverage-check.mjs) | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0246 | 保証の開示に、カバレッジの割合・測った範囲・分母を出す。準拠テンプレートの出荷の証跡の集約は、カバレッジの結果を取り込まない | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0247 | gate-g5.yml の pull_request の契機は、基底のブランチ(branches)で絞らない。絞り込みを足す変更を、機械は止めない(統制の設定の陰性の確認で人が確かめる) | G-5 のワークフロー(gate-g5.yml) | — | 降りている | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0248 | 既定ブランチ以外を基底とする PR のマージを拒否する設定。準拠テンプレートのルールセット(.github/rulesets/*.json)の対象は ~DEFAULT_BRANCH だけで、中間の層へのマージを止めない。AI の担い手のマージは .claude/settings.json の ask(gh pr merge)で人へ戻るが、人による中間の層へのマージは止まらない | ルールセット(ブランチ保護)の定義 | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0249 | pr-rules(check-pr.mjs)は、差分を PR の基底から取り、基準値・名簿・区分の下限の規則・除外設定・台帳の例外承認・停止の申し立ての解除の記録を、既定ブランチ(--policy-base。gate-g5.yml が github.event.repository.default_branch を渡す)から読む。既定ブランチを解決できなければ失敗する。test-check-pr.mjs が、スタックの上の層で下の層の基準値と台帳を読まないことを試験する | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0250 | 合わさった差分(スタックの複数の層)への承認を、層ごとの G-6 の確認に数えない。/gate の G-6 の補助ファイルに無い。出荷の証跡の集約は既定ブランチへ取り込んだ PR ごとに承認を数え、層の合わさりを見ない | ゲート判定記録のスキルの G-6 の補助ファイル | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0251 | 取り消せない操作を、取り消せない効果を他の者の操作を介さずに生じさせる操作と定義する。反映・発行を後段で人が行う上流の編集は当たらない。push・マージが配備・公開を直接起動する構成では、その push・マージが当たる。後段に人の門が残ることを理由に止めずに行わない。CLAUDE.md「人へ戻す3つの場合」の (c) と、/pit の handoff.md に置く。どの操作が当たるかは機械では判定しない | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 実在だけ確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0252 | SG-0 の決断の記録の「確認した事項」に、依った探索の記録を挙げ、到達できるようにする。様式は決断の記録の欄(IMPL-0171)を持つが、探索の記録を挙げる注記と、確認していない技術的な問いを S1 の前提・検証のタスクへ移す注記は無い。会議体の決定者が確かめる | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
+| IMPL-0253 | AI の確認の実行ごとに、確認側へ渡した入力(起動の指示・自動で読み込まれる指示ファイル・道具の定義・渡した成果物)を実行の記録から書き出す。準拠テンプレートの ai-review.yml は差し込み口と注記だけで、入力の記録を出さない。AI維持管理者が四半期の抜き取りで、文脈を渡していない確認として記録したものに入力の列挙があるかを確かめる | AI レビューのワークフロー(差し込み口) | — | **降りていない** | 人が確かめる | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
+| IMPL-0254 | 中間層の先行マージ(既定ブランチ以外を基底とする PR のマージ)を拒否する設定。準拠テンプレートのルールセットの対象は ~DEFAULT_BRANCH だけで、必須チェックは中間のマージを止めない。人による中間のマージは、手順の遵守に依っている | ルールセット(ブランチ保護)の定義 | — | **降りていない** | 人が確かめる | [phase5-implementation/stacked-pr](/process-compass/phase5-implementation/stacked-pr/) |
+| IMPL-0255 | AI への指示の表の「既定ブランチ以外を基底とする PR をマージしない」の強制層。準拠テンプレートのルールセットは中間のマージを拒否しない。AI の担い手による gh pr merge は .claude/settings.json の ask で人へ戻るため、AI 単独では中間のマージに至らない | ルールセット(ブランチ保護)の定義 | — | **降りていない** | 人が確かめる | [phase5-implementation/stacked-pr](/process-compass/phase5-implementation/stacked-pr/) |
+| IMPL-0256 | human-verify の3要素(手順・結果・判断)。PR の様式の「検証方法と結果」の注記は、人が書く欄であることと、実行したことと観測したことの例を置くが、判断(受入基準を満たすと考えた理由を自分の言葉で1文)の例と欄の指示が無い。添付と所在は求めていない。記入の中身は機械で確かめない(出荷判定者と独立レビュアが読む) | PR の本文の様式 | — | **降りていない** | 人が確かめる | [phase5-implementation/pr-workflow](/process-compass/phase5-implementation/pr-workflow/) |
 
 <!-- implementation-ledger:end -->

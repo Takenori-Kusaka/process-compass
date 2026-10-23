@@ -101,6 +101,8 @@ sidebar:
 | EV-0117 | リスクに基づく抽出の条件に、承認までの時間が差分の量に比して短い承認と、コメントと変更要求のどちらも無い承認を加える判断 | E1(間接) | 未記載 | 2027-04 | 2期分の監査記録から得た、この条件で抽出した対象の所見率と無作為抽出の所見率の比較。差が無ければ、この条件を抽出の条件から外す | [phase6-operation/process-audit](/process-compass/phase6-operation/process-audit/) |
 | EV-0118 | レビューの写しに含める最小の組と、写しの保持の要求(保管期間の値は定めない) | E1(間接) | 未記載 | 2027-04 | 監査で提示を求められた記録のうち提示できなかった件数。査察で不足を指摘された項目 | [phase5-implementation/qms-document-control](/process-compass/phase5-implementation/qms-document-control/) |
 | EV-0119 | 帰属の裏づけの無い記録を自己申告として開示する形と、G-7 の PR に写しを同梱して CI が一致を検査する形 | E0(なし) | 未記載 | 2027-04 | 採用組織での、裏づけの無い記録の比率と、写しの不一致の検出件数 | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
+| EV-0139 | ネイティブのスタック型 PR の挙動(基底の保護規則での評価、一括の取り込み、`github.base_ref` が直接の親を指すこと、CI の回数)の記述 | E1(間接) | 未記載 | 2027-04 | ネイティブのスタックで、必須の検査・承認・署名必須の保護がスタックのどの実行で判定されるかを、実機で確かめた結果 | [phase5-implementation/stacked-pr](/process-compass/phase5-implementation/stacked-pr/) |
+| EV-0140 | 常駐の文脈の読み直しが費用の多くを占めうること、保持時間を超える待ちでキャッシュの書き込みの割増が再び掛かること | E1(間接) | 未記載 | 2027-04 | 採用組織の消費実績の内訳(入力・キャッシュの読み出し・キャッシュの書き込み・出力)と、承認の待ちの時間との関係。提供者の単価・保持時間の改定のたびに読み直す | [phase5-implementation/compute-strategy](/process-compass/phase5-implementation/compute-strategy/) |
 | EV-0002 | 同一論点の応酬3往復というエスカレーションの閾値 | E0(なし) | 未記載 | 2027-08 | 自組織における、往復回数と合意到達率の記録 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0003 | 締切の2営業日前・前営業日という督促の時点 | E0(なし) | 未記載 | 2027-08 | 自組織における、督促の時点別の応答率 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0004 | 抜き取り数(当月の全件と5件のいずれか少ないほう)と、切替を停止する条件(逸脱が2期連続) | E0(なし) | 未記載 | 2027-08 | 自組織における、抜き取り数別の逸脱検出率 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
@@ -140,6 +142,8 @@ sidebar:
 | EV-0136 | 降りていない規定の件数を、合否にも警戒の条件にも使わないこと。0件を異常の兆候として扱わないこと | E0(なし) | 未記載 | 2027-10 | `undelivered` が0件の期間に、案件から「規定が無い」と申し立てられた規定の件数 | [community/implementation-marking](/process-compass/community/implementation-marking/) |
 | EV-0137 | デプロイ・配布の統制と資格情報を、配備を許す参照(既定ブランチ、またはリリースのタグ)に限った実行環境の秘密情報に置くことを要求事項にし、手段が無い場合を未達として記録させること | E1(間接) | 未記載 | 2027-10 | 起動元のブランチの書き換えで統制を迂回した事例の件数と、実行環境の保護で止まった事例の件数 | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | EV-0138 | 基底ブランチで検査の定義が更新されたことを理由に、手元の検査の実行を止めることを求めないこと | E1(間接) | 未記載 | 2027-10 | 手元で古い検査の定義のまま通り、CI でも検出されずに既定ブランチへ入った欠陥の件数 | [phase5-implementation/compute-strategy](/process-compass/phase5-implementation/compute-strategy/) |
+| EV-0141 | 取り消せない操作を、取り消せない効果を他の者の操作を介さずに生じさせる操作と定義し、後段を人が行う上流の編集を数えないこと。後段に人の門が残ることを、停止を省く理由にしないこと | E2(単一事例) | 未記載 | 2027-10 | 上流の編集で止めなかった変更のうち、後段で操作した人が、取り消せない効果を知らずに操作した件数。後段に人の門があったのに、迂回されて取り消せない効果が生じた件数 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| EV-0142 | カバレッジの判定に、測定の対象の規模の下限を置かないこと | E1(間接) | 未記載 | 2027-10 | 実装の行数が少ない段階で基準3 を通過した機能のうち、後に十分性の不足(変異試験・G-6・出荷後の欠陥)で見つかった件数 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- evidence-ledger:end -->
 

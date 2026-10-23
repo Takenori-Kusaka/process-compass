@@ -121,7 +121,7 @@ targets:
     name: G-5 の PR 単位の検査(pr-rules)
     kind: template-file
     path: scripts/gate/check-pr.mjs
-    description: トレーラ Spec、変更規模の基準値(基底ブランチの構成。超過は規模の確認と区分の下限 R2 で扱い、既存の台帳の例外承認の行は有効)、閾値・除外設定と製品のコードの同時変更、既存のテストの変更の一覧(G-6 の材料)を、PR ごとに検査する(#286)。gate-g5.yml の pr-rules ジョブが呼び、test-check-pr.mjs がフィクスチャで試験する
+    description: トレーラ Spec、変更規模の基準値(既定ブランチの構成。差分は PR の基底から取り、基準値・名簿・規則・台帳・停止の申し立ての解除は --policy-base の既定ブランチから読む。Issue #294。超過は規模の確認と区分の下限 R2 で扱い、既存の台帳の例外承認の行は有効)、閾値・除外設定と製品のコードの同時変更、既存のテストの変更の一覧(G-6 の材料)を、PR ごとに検査する(#286)。gate-g5.yml の pr-rules ジョブが呼び、test-check-pr.mjs がフィクスチャで試験する
 
   - id: spec-lint
     name: 受入基準の曖昧語の検査(spec-lint)
@@ -349,3 +349,21 @@ targets:
     kind: template-file
     path: .github/workflows/gate-g5.yml
     description: PR と既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行するワークフロー。必須ステータスチェックの名前は gate-g5(Issue #293)
+
+  - id: rulesets
+    name: ルールセット(ブランチ保護)の定義
+    kind: template-file
+    path: .github/rulesets/team.json
+    description: 既定ブランチ(~DEFAULT_BRANCH)へのマージに掛ける必須チェック・承認・最後の push の承認。既定ブランチ以外を基底とする PR のマージは対象の外(Issue #294)
+
+  - id: ship-evidence-workflow
+    name: 出荷の証跡のワークフロー(ship-evidence.yml)
+    kind: template-file
+    path: .github/workflows/ship-evidence.yml
+    description: 出荷の範囲の証跡を集約して残すワークフロー。2026-10-23 時点では証跡を CI の成果物にだけ置き、保持期間を指定しない(Issue #294)
+
+  - id: coverage-check
+    name: G-5 基準3 のカバレッジの判定(coverage-check.mjs)
+    kind: template-file
+    path: scripts/gate/coverage-check.mjs
+    description: アダプタの集計ファイルから割合を読み、構成の coverageThreshold と比べる。2026-10-23 時点では全体の行の割合だけを比べ、測る範囲と分母を記録しない(Issue #294)

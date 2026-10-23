@@ -148,7 +148,7 @@ frontmatter の値は、この分離が正しく行われたかを CI で検査�
 | 内部監査 | [プロセス内部監査](/process-compass/phase6-operation/process-audit/)。実施者の要件、抽出、観点、是正の追跡 |
 | 是正処置 | [第4章 G-5「是正の起動」](/process-compass/phase4-process-design/gate-criteria/)(是正を起動する条件と記録の正本。出荷後の Sev1・Sev2 はポストモーテムが記録)、[改善サイクル](/process-compass/phase6-operation/improvement-cycle/)の3区分の仕分けと反映、[インシデント対応](/process-compass/phase6-operation/incident-response/)、[技術負債の返済](/process-compass/phase6-operation/debt-payback/) |
 | マネジメントレビュー | [第3章 3.7](/process-compass/phase4-process-design/roles-responsibilities/)の会議体(B-1 IT投資委員会、B-2 ステアリングコミッティ)、および[指標](/process-compass/phase6-operation/metrics/)とゲートの健全性 |
-| 設計・開発の管理と、設計・開発の変更 | [第4章](/process-compass/phase4-process-design/gate-criteria/) G-2〜G-4(要件合意・技術設計判断・機能仕様承認の判定記録)、判断記録(ADR)、[第3章 3.8.1](/process-compass/phase4-process-design/roles-responsibilities/)(変更ごとのリスク区分と、区分を確定した者の記名) |
+| 設計・開発の管理と、設計・開発の変更 | [第4章](/process-compass/phase4-process-design/gate-criteria/) G-2〜G-4(要件合意・技術設計判断・機能仕様承認の判定記録)、同章「確定した版を変える場合」(確定した受入基準・前提・スコープ外・判断記録を変えたときの判定の受け直し)、判断記録(ADR)、[第3章 3.8.1](/process-compass/phase4-process-design/roles-responsibilities/)(変更ごとのリスク区分と、区分を確定した者の記名) |
 | 製品の検証 | 第4章 G-5(機械検査)・G-6(人の確認)、[第5章 5.8](/process-compass/phase4-process-design/human-ai-boundary/)(AI の出力を未検証の入力として扱う)。実施しなかった検証は、出荷ごとの保証の開示に出る |
 | リリースの許可と、許可した人の記録 | 第4章 G-7(出荷判定者の記名)・G-8(事業決裁者の記名)。署名の意味は同章「出荷判定者の署名の意味」による |
 | 基準を満たさないものの識別と、受け入れの許可 | 第4章の欠陥トリアージ基準と既知の不具合、[第7章 7.3](/process-compass/phase4-process-design/exception-escalation/)の例外承認、未達と逸脱の表示 |
@@ -159,7 +159,8 @@ frontmatter の値は、この分離が正しく行われたかを CI で検査�
 
 - 委任([第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/))を適用した変更のうち、G-6 の判定を事後へ移した変更は、G-6 の承認の記録として扱わない。人の事前確認を経ていない変更として識別し、件数を保証の開示へ載せる。開発者の席だけが委任の変更は、独立レビュアが事前に承認し、その承認を G-6 の記録として扱う
 - 組織の外へ渡す保証の開示には、氏名と自由記述を出さない。席の名前と件数で出す([附属書H](/process-compass/phase4-process-design/assurance-case/) H.6「組織の外へ渡すとき」)
-- 記録の保管期間は、本標準が定めていない。自組織の文書管理規程による。規程の対象に、様式の判定記録と、レビューの写しを含める
+- 記録の保管期間の値は、本標準が定めていない。自組織の文書管理規程による。規程の対象に、様式の判定記録と、レビューの写しを含める。判定記録と出荷の証跡が指す記録は、その期間のあいだ到達できなければならない。CI 基盤の既定の保持を、保管とみなさない([第4章「判定が指す記録の保管」](/process-compass/phase4-process-design/gate-criteria/))。GitHub では、成果物の既定の保持は 90 日で、2026-10-01 以降はチェックの履歴も設定の保持期間に従って消える([CI/CD ゲート構成「証跡の保管と CI 基盤の保持期間」](/process-compass/phase5-implementation/ci-gates/))
+
 
 対応づけは**この表の側で保守します**。個別のページに QMS の条項番号を書き込むと、規格の版が変わったときに全ページの改訂が必要になります。
 
