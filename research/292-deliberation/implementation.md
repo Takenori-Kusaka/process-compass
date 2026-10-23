@@ -1,0 +1,222 @@
+# 反映の記録(Issue #292 実装マークを足すべき条項の特定。裁定 I-1〜I-14)
+
+- 日付: 2026-10-23
+- 正とした文書: `research/292-deliberation/decision.md`(I-1〜I-14、6 章の暫定マークの表)
+- 迷ったときに引いた材料: `council-01-drafter.md`(文の案)、`council-03-qa-audit.md`(0 件で台帳の節が消える件、IMPL-0047 の位置)、`survey-292-1-inventory.md`(節の数・重複見出し)、`survey-292-2-named-provisions.md`(名指しの条項の現状)
+- 様式の手本: `research/291-deliberation/implementation.md`、`src/content/docs/adr/0075-*.md`
+
+## 0. 次の担当へ引き継ぐこと
+
+### 0.1 番号
+
+この担当が使った番号は「2. 番号の割り当て」にある。**次に使える番号は、ADR-0077、EV-0137、IMPL-0231**。使う前に、既存の最大を自分で確かめること。
+
+### 0.2 機械の決まり(今回足したもの)
+
+| 決まり | 実装 | 試験 |
+| --- | --- | --- |
+| 対象の頁(本文8章・規定の附属書・フェーズ5・6)の全節に、登録簿の区分がある | `scripts/lib/impl-inventory.mjs` の `parseSections`・`checkInventory`。`scripts/check-impl.mjs` が読み書きする | `scripts/test-check-impl.mjs`(`npm run test:impl`。`check` に含めた) |
+| 未棚卸し(`pending`)は基準線 `src/data/impl-inventory-baseline.yaml` にある節だけ。基準線は 943 件を超えない(`check-impl.mjs` の `BASELINE_SIZE`) | 同上 | 同上 |
+| コードブロックの中の `impl` マークは失敗(`community/implementation-marking.md` を除く) | `marksInFences` | 同上 |
+| 降ろし先の種別 `planned` は存在を確かめず、`state=undelivered` だけが使える | `plannedProblem`、`verifyTargets` | 同上 |
+| 台帳の「降りていない規定」は 0 件でも節と件数の行を出す。冒頭に章ごとの未棚卸しの件数と、件数を網羅の証明として読まない定型文を出す | `renderUndelivered`、`renderInventory` | 同上 |
+
+### 0.3 見出しを改める・節を足すとき
+
+`npm run check` が「登録の無い節」「鍵に当たる節がありません」で落ちる。`src/data/impl-inventory.yaml` の鍵を直し、区分を判断して書く。**新しい節を `pending` で登録することはできない**(基準線の外)。基準線の鍵が消えた場合は、基準線からも外す。
+
+## 1. 裁定ごとの記録
+
+### I-1 母集団
+
+- `check-impl.mjs` の `inventoryPages()` が、`provision-forms` の規範の頁(本文8章・規定の附属書)とフェーズ5・6 の頁を対象にする。参考の附属書・ADR・community は対象外
+- 節の単位と番号つきの表の行(2列目の見出しが「要求事項」「追加の要求事項」「要求」「要件」「禁止事項」)を `parseSections` が読む
+- 文末による機械の列挙は実装していない(補助の一覧に限る、の裁定どおり合否に使っていない)
+- 単位の解釈は 5.1 を参照
+
+### I-2 区分
+
+- `marked` / `kb` / `none`(`explanation`・`org-design`・`elsewhere`・`not-imposed`)/ `pending`。`elsewhere` は `location` に実在の鍵を必須にした
+- 規約の「何を追跡するか」の表に「ゲートの判定者・ロールの席が守るべき手続のうち、様式・スキル・通知へ降ろすもの」を足し、1.4 の担い手の定義を引く1段落を足した
+- 書式の節に「マークは規定ごとに付ける。1つのマークで節の規定がすべて済んだと扱わない」を足した
+
+### I-3 登録簿
+
+- `src/data/impl-inventory.yaml` を新設(943 件)。鍵は `頁#H2 > H3 > …`。見出しの「(適用: …)」を外す。第6章の重複見出しは経路で区別される(試験あり)
+- 失敗: 登録の無い節、消えた鍵、鍵の重複、台帳に無い識別子、登録に挙がっていない節の中のマーク、`none` の節のマーク、閉じた語彙の外、空の理由、`elsewhere` の所在の欠落・不在、番号つきの表の行の区分の欠落・余り、`kb` の節に判定基準の表が無い
+- **課さないと明記**: 規約「検査が失敗にするもの」の後に「本標準は、節の本文の指紋(ハッシュ)で登録を無効にする仕組みを課しません」を置き、限界の表の右列に「登録の後に節の中身が変わり、新しい規定が入ったこと」を置いた
+
+### I-4 未棚卸し
+
+- 2026-10-23 時点の全 943 節を基準線にした。分類した 86 節には `issue: 292` を付けた
+- 台帳の冒頭「棚卸しの状況」に章ごとの件数を出す(4 章を参照)
+- EV-0135(E1、見直し 2027-10)を規約「対象の棚卸し」に置いた
+
+### I-5 0 件(課さないと明記)
+
+- 規約「降りていない規定の扱い」に「**降りていない規定の件数を、合否にも警戒の条件にも使いません**」と理由を置いた。EV-0136(E0、見直し 2027-10)
+- `renderUndelivered` が 0 件でも節を出す。陽性対照の試験を `scripts/test-check-impl.mjs` に置いた(26 件)
+
+### I-6 限界
+
+- 規約の「限界」を書き直した。冒頭に「台帳の件数は、網羅の証明ではありません」。機械が確かめること・確かめないことを6行の表で並べた。旧 L94「網羅性を機械的に確かめる手段は現時点でありません」を削った
+- 台帳の生成部に同じ定型文を置き、台帳の手書きの前文(生成の範囲の外)を「付け忘れは棚卸しで追う。棚卸し済みでも節の中の網羅は機械で確かめない」へ改めた
+- 「逆流を検出できない」の小節はそのまま残した
+
+### I-7 5.6.2・欠陥注入の隔離設計
+
+- 5.6 と 5.6.2 に規定ごとのマーク(IMPL-0159〜0169)。目的の限定・AI の層・記録は `adoption-trial`(`delivered`、導入前の 1 回に限ると note に書いた)。周知・隔離・除去型の禁止・反映の経路・継続の測定は `undelivered`
+- `seeded-error-safety.md` の層1・2 に IMPL-0190・0191、層3 に **IMPL-0047 を移した**(番号と意味=残存の確認を保ち、降ろし先を `seeded-error-scan`(`planned`)、`check=manual` に改めた)、層4 に IMPL-0192、残りの節に IMPL-0193〜0197
+- `ci-gates.md` から IMPL-0047 の行を除き、「注入の残存」の行の最後の列を層3・層4 の参照に改めた
+- `impl-targets.yaml` に `planned` 種別と、予定の降ろし先 5 件を足した
+
+### I-8 5.8.1・5.8.2
+
+- 5.8.1 は `none`(`elsewhere`、所在 5.8.5)で登録
+- 5.8.2 は 3 項目それぞれ(IMPL-0176〜0179)。モデルの識別は `claude-md`(`manual`)と `evidence-aggregation`(`presence`。トレーラの欠落と版の欠落を検出しないと note に書いた)に分けた
+- テンプレートの `implement/reference/commit.md`: `Co-Authored-By` を「AI が関与した場合は必須。モデルの名称と版を書く。標準 第5章 5.8.2 の要求である」へ改めた
+
+### I-9 5.8.4
+
+- テンプレートの `implement/SKILL.md` 手順2 を、受入基準だけを渡したサブエージェントか別のセッションでテストを生成する形へ改め、`<!-- 根拠: 標準 第5章 5.8.4 -->` を付けた。「テンプレート独自。厳しい側」の主張を削り、段階と手順の対応の表を置いた。description も改めた
+- `implement-skill` を降ろし先に登録し、IMPL-0181〜0183 を `delivered`・`manual`、最強の段階は IMPL-0184(`config-seats`、`undelivered`)
+- 本文 5.8.4 に「段階「中」以上は、段階「弱」の文脈の分離を含みます」を足した
+- **課さないと明記**: 5.8.4 に「本標準は、構成の兼務禁止表(`separations`)に、この段階もセッションの単位も持たせることを課しません」を置いた
+
+### I-10 参考の附属書(課さないと明記)
+
+- 規約の「対象にしない」の列に「参考の附属書の記述。対応する規範には、本文の所在で付ける」を足し、理由の段落を足した
+- 附属書E は対象の頁に入らない(参考の附属書)。E.5 順1 が G-7 基準1・G-4 基準6 で追跡されることは ADR-0076 決定7 に書いた。登録簿は参考の附属書の節を持たないため、登録簿には書いていない(5.3)
+
+### I-11 3.11.4 要求事項6
+
+- IMPL-0225(`agent-settings`、`undelivered`、`manual`)。note に「読み込みの記録が無い状態では、0 回を「読まれていない」と読まない」
+- 3.11.4 の記録の単位を「ファイル」に改め、常駐の指示ファイルの 1 項を足した。`context-base.md` の「記述の単位」も「ファイルの単位」に改め、常駐のファイルと 0 回の読み方の段落を足した
+
+### I-12 事前レビュー期間の自動化・ADR-0075
+
+- `pre-review-automation.md`: 検査の名前を「意見の様式の欄の空欄を示す」に改めた。「未成立として差し戻す」を削り、「機械の出力で、意見を `pre-review-closed` の応答の対象から外してはならない」と、起案者が応答に記録し判定者が確かめる段落を置いた。テンプレートに検査・集計のどれも無いこと(2026-10-23 に確認)を書いた。規範に IMPL-0210〜0216(`pre-review-automation`、`planned`、`undelivered`、`manual`)
+- ADR-0075 決定9 の「準拠テンプレートの集計の実装は Issue #292 で扱い」を、テンプレートには `pre-review-closed`・`lint-comments.mjs`・応答率の集計のいずれも無い事実へ改めた(未公開の新 ADR のため本文を直した)
+
+### I-13 棚卸しの範囲と IMPL-0095
+
+- 範囲: 第5章 5.6〜5.8 の全節(24 節)、第3章 3.10・3.11 の全節(22 節)、フェーズ5 の 3 頁(40 節)。計 86 節
+- 5.8.3 は IMPL-0180(`claude-md`、`delivered`)。5.8.5 の禁止事項1〜5 は IMPL-0185〜0189(禁止事項3 は `guard-write-hook`、`presence`)
+- IMPL-0095 を `deliverable-templates.md` のコードブロックの外(閉じの直後)へ移した。コードブロックの中のマークは検査で失敗にした
+
+### I-14 本 Issue で直す 5 件
+
+1. 0 件で節が消える → I-5
+2. `planned` → I-7
+3. 附属書I I.10 の様式の手写しの 10 件 → 「記入の時点の台帳の全件を、識別子と規定の列のまま写す」の 1 行の型へ改め、I.9 の箇条を実情に合わせた
+4. テンプレートの `implement` と `commit.md` → I-8・I-9
+5. 第6章の重複見出し → 鍵を見出しの経路にして吸収した(見出しは改めていない)
+
+## 2. 番号の割り当て(この担当が使ったもの)
+
+| 種類 | 番号 | 所在 |
+| --- | --- | --- |
+| ADR | ADR-0076 | `src/content/docs/adr/0076-inventory-of-implementation-marking-targets.md` |
+| EV | EV-0135 | `community/implementation-marking.md`「対象の棚卸し」 |
+| EV | EV-0136 | `community/implementation-marking.md`「降りていない規定の扱い」 |
+| IMPL | IMPL-0159〜0169 | 第5章 5.6・5.6.2 |
+| IMPL | IMPL-0170〜0175 | 第5章 5.7.1〜5.7.5 |
+| IMPL | IMPL-0176〜0179 | 第5章 5.8.2 |
+| IMPL | IMPL-0180 | 第5章 5.8.3 |
+| IMPL | IMPL-0181〜0184 | 第5章 5.8.4 |
+| IMPL | IMPL-0185〜0189 | 第5章 5.8.5 |
+| IMPL | IMPL-0190〜0197 | `seeded-error-safety.md`(IMPL-0047 も層3 へ移した) |
+| IMPL | IMPL-0198〜0209 | `agent-trace-control.md` |
+| IMPL | IMPL-0210〜0216 | `pre-review-automation.md` |
+| IMPL | IMPL-0217〜0230 | 第3章 3.10.9〜3.10.12、3.11.3〜3.11.7 |
+
+新しいマーク 72 件と移した IMPL-0047 の内訳: `delivered` 28 件(`machine` 1・`presence` 14・`manual` 13)、`undelivered` 45 件(すべて `manual`)。
+
+降ろし先の追加(`src/data/impl-targets.yaml`): `template-file` 3 件(`implement-skill`・`guard-write-hook`・`context-drift-workflow`)、`planned` 5 件(`pre-review-automation`・`seeded-error-isolation`・`seeded-error-scan`・`seeded-error-drill`・`agent-run-record`)。
+
+## 3. 変更したファイル
+
+本体(`work/292`):
+
+- `scripts/lib/impl-inventory.mjs`(新設)、`scripts/check-impl.mjs`、`scripts/test-check-impl.mjs`(新設)、`package.json`(`test:impl` を足し `check` に含めた)
+- `src/data/impl-inventory.yaml`・`src/data/impl-inventory-baseline.yaml`(新設)、`src/data/impl-targets.yaml`
+- `community/implementation-marking.md`、`community/implementation-ledger.md`(生成。前文の 1 行は手書きの範囲)、`community/evidence-ledger.md`(生成)
+- `phase4-process-design/human-ai-boundary.md`・`roles-responsibilities.md`・`deliverable-templates.md`・`adoption-guide.md`
+- `phase5-implementation/seeded-error-safety.md`・`ci-gates.md`・`agent-trace-control.md`・`pre-review-automation.md`・`context-base.md`
+- `adr/0075-*.md`(決定9 の事実の誤り)、`adr/0076-*.md`(新設)
+- `research/292-deliberation/`(本記録を含む)
+
+準拠テンプレート(`claude/process-compass-292`): `.claude/skills/implement/SKILL.md`、`.claude/skills/implement/reference/commit.md`。
+
+規則データ(`src/data/tailoring/`)は変えていないため、`npm run template:kb` は不要だった(`npm run check` の複製の検査が通っている)。
+
+## 4. 棚卸しの件数(2026-10-23、台帳の冒頭と同じ)
+
+| 対象 | 節 | マーク済み | 判定基準の表 | 対象にしない | 未棚卸し |
+| --- | --- | --- | --- | --- | --- |
+| 第1章 | 20 | 0 | 0 | 0 | 20 |
+| 第2章 | 38 | 0 | 0 | 0 | 38 |
+| 第3章 | 87 | 10 | 0 | 12 | 65 |
+| 第4章 | 84 | 0 | 0 | 0 | 84 |
+| 第5章 | 48 | 17 | 0 | 7 | 24 |
+| 第6章 | 70 | 0 | 0 | 0 | 70 |
+| 第7章 | 42 | 0 | 0 | 0 | 42 |
+| 第8章 | 47 | 0 | 0 | 0 | 47 |
+| 附属書B | 8 | 0 | 0 | 0 | 8 |
+| 附属書D | 8 | 0 | 0 | 0 | 8 |
+| 附属書F | 20 | 0 | 0 | 0 | 20 |
+| 附属書H | 42 | 0 | 0 | 0 | 42 |
+| フェーズ5 | 297 | 24 | 0 | 16 | 257 |
+| フェーズ6 | 132 | 0 | 0 | 0 | 132 |
+| 計 | 943 | 51 | 0 | 35 | 857 |
+
+台帳: マーク 224 件。降りていない 65 件(着手の時点は 21 件)。検査の手段は `machine` 20・`presence` 31・`manual` 72・未分類 101(未分類の件数は ADR-0061 決定3 のとおり変えていない)。
+
+## 5. 決定どおりにできなかった箇所、決定に明記が無く帰結として書いたもの
+
+### 5.1 節の単位を「最下位の節」より広く取った
+
+I-1 は「各頁の最下位の節」と書く。実装は「見出しと、次の見出し(どの階層でも)までの本文。本文の無い見出しは数えない」とした。下位の見出しを持つ親の見出しでも、直下に本文があれば節に数える。最初の見出しより前の本文は「(冒頭)」の節にした。親の見出しの直下の導入文にも規範が置かれており(例: 5.6、5.8.4 の直上の文)、最下位の節だけを数えると、これらが母集団から漏れるため。母集団は裁定より広い側にずれる(狭める向きの逸脱は無い)。規約の「母集団と単位」はこの定義で書いた。
+
+### 5.2 基準線のラチェットの機械の範囲
+
+基準線は「件数が凍結時の 943 を超えない」と「基準線の鍵が実在する」で守る。基準線の中で鍵を入れ替えること(消えた節の鍵を外し、別の節の鍵を足す)は、件数が増えないかぎり機械では止まらない。差分のレビューで見る事項として、規約の「限界」の表の右列に書いた。
+
+### 5.3 E.5 順1 の追跡を登録簿に書いていない
+
+I-10 は「G-7 基準1・G-4 基準6 で追跡されると登録簿に書く」とする。附属書E は参考の附属書で、登録簿の対象の頁に入らない(I-1 のとおり)。登録簿に行を置くと、存在しない節の鍵として検査が落ちる。ADR-0076 決定7 に書いて代えた。
+
+### 5.4 附属書I の様式から IMPL-0047 の番号の引用が消えた
+
+I-7 は IMPL-0047 の番号を保つ理由に「附属書I の様式が番号で引いている」を挙げる。一方 I-14 の 3 で、その様式の手写しの一覧を台帳への参照に改めた。結果として様式の本文は IMPL-0047 を名指ししなくなった。採用者がすでに写した記録は番号で引いているため、番号と意味を保つ理由は残る。IMPL-0047 の note もこの理由に改めた。
+
+### 5.5 決定が前提にした事実との違い
+
+- I-13 の「5.8.5 の禁止事項3 は試験が無いので `presence`」: 禁止事項3 の降ろし先は `claude-md` でなく `guard-write-hook`(テストへの書き込みを遮断するフック)とし、`presence` とした。フックに試験が無い点は裁定の前提どおり
+- IMPL-0202(`agent-trace-control`)は `pr-checks`、`machine`(`test-check-pr` が試験する)。本 Issue の新しいマークで `machine` はこの 1 件だけ
+
+## 6. 送る先(別 Issue)
+
+decision.md 5 章の「別 Issue へ送る」6 件:
+
+1. `scope-exempt.yaml` の理由を検査が読まず、消えた見出しの残骸を検出しない
+2. `check-provisions` の `provision-ok` の早期 return
+3. 出荷の集約の、`Co-Authored-By` のトレーラ欠落・版の欠落の検出(部分一致で版の無い「Claude」が通る)。G-5 の 3 条件の確認が要る
+4. 準拠テンプレートへの事前レビューの検査(`pre-review-closed`・意見の様式の空欄・応答率、AI の担い手のコメントの除外)と、読み込みのログ(3.11.4 要求事項6、IMPL-0225)の実装。`planned` の降ろし先 5 件の実装もここに入る
+5. フェーズ5・6 の種別(第1章 1.8)と本文の引き方の食い違い
+6. 残りの章の棚卸し(未棚卸し 857 節)。章ごとに起票する: 第1章(20)、第2章(38)、第3章(65)、第4章(84。判定基準の表は `kb`)、第5章(24)、第6章(70)、第7章(42)、第8章(47)、附属書B・D・F・H(78)、フェーズ5(257)、フェーズ6(132)
+
+この担当が見つけたもの:
+
+7. 事前レビュー期間の自動化の頁のリマインドの時点(締切の 3 営業日前・当日)が、第3章 3.10.11(2 営業日前・前営業日)と食い違う。どちらが正かは本 Issue の裁定の外。マーク(IMPL-0213・IMPL-0219)はそれぞれの頁の文のまま付けた
+
+記録のみ(decision.md 5 章):
+
+- `perFinder`(個人別の率): ADR-0067 決定6 で決定済み
+- #259 の突合が書いた「`CLAUDE.md` に技術判断者の受信箱の 1 行」は、テンプレートの現版で見つからない
+
+## 7. 検査と試験の結果
+
+- `npm run check`: 終了コード 0。ログは `/tmp/claude-0/-home-claude-process-compass/e43836ec-c999-5cc7-926b-e9d20f117969/scratchpad/check292.log`(textlint・トーン・根拠水準 114 件・実装マーク・適用範囲・節番号の参照・スキルの文 41 件・`test:impl` 26 件・エンジン・複製・様式の欄・判定基準・ビルド 305 頁・内部リンク)
+- 準拠テンプレートの試験(`gate-g5.yml` が実行するもの): `test-check-delegation`(39 場面)・`test-check-pr`(100 場面)・`test-recalibration`(14)・`test-roster-rules`(69)・`check-decisions`・`test-decisions`(22)・`test-g5-aggregate`(23)・`test-plan-trace`(30/30)・`test-init-g5`(100)・`verify-gate-contract`。すべて終了コード 0
+- 突合した ADR(0041・0048・0057・0061・0064): 矛盾なし。状態の行は変えていない(ADR-0076「既存の決定との関係」)

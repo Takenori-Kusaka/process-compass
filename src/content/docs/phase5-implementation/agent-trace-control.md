@@ -40,6 +40,10 @@ sidebar:
 - 許可範囲の変更を、エージェントに実行させない。範囲の変更は人間の操作による
 - 秘匿情報は実行環境から参照できない位置へ置く。読み取りの制限だけに頼らない
 
+<!-- impl IMPL-0198 target=guard-write-hook state=delivered check=presence note="拒否した操作を記録へ残し(.claude/denied.log)、強制層(権限設定・guard.json・フック・ワークフロー・ゲートのスクリプト)への書き込みを遮断して、許可範囲の変更をエージェントに実行させない。Claude Code の Edit・Write だけを遮断する。試験は無い" -->
+<!-- impl IMPL-0199 target=agent-settings state=delivered check=presence note="権限設定で、秘匿情報の経路(.env・鍵・認証情報の置き場)の読み取りと強制層の編集を確認つき(ask)に置き、実行を許すコマンドを許可リストに置く" -->
+<!-- impl IMPL-0200 target=agent-settings state=undelivered check=manual note="書き込みの既定を拒否にして許可を実装計画のタスクの対象パスに限ること、ネットワークの既定を拒否にして必要な宛先だけを許すこと、秘匿情報を実行環境から参照できない位置へ置くこと。準拠テンプレートの権限設定は、書き込みの範囲とネットワークを限らない" -->
+
 ### 遮断を指示ではなく設定で行う
 
 **許可範囲を指示ファイルにのみ書いてはなりません**。指示ファイルの遵守は保証されません([第3章 3.11.3](/process-compass/phase4-process-design/roles-responsibilities/))。同じ区別を[スタック型 PR の運用](/process-compass/phase5-implementation/stacked-pr/)でも用いています。
@@ -66,6 +70,8 @@ sidebar:
 
 要求4を満たさない基盤では、遮断は成立しません。範囲を広げる操作が実行の一部として行えるためです。
 
+<!-- impl IMPL-0201 target=agent-settings state=delivered check=presence note="権限設定(.claude/settings.json)を版管理下に置き、構成の初期化が案件ごとに生成する(要求2)" -->
+
 ## 差分から機械判定する
 
 残る2事象は、実行の痕跡ではなく**差分の性質**から判定できます。痕跡を読む必要はありません。
@@ -81,6 +87,10 @@ sidebar:
 
 検証の弱体化をラベルにとどめる理由は、正当な削除(仕様変更に伴うテストの削除)と区別できないためです。**区別できない検査を合否条件に置くと、正当な変更まで止まり、検査の除外が常態化します**。
 
+<!-- impl IMPL-0202 target=pr-checks state=delivered check=machine note="基準値の引き下げと検査の除外設定の変更(閾値・除外設定のファイル、構成の ci)を、製品のコードと同じ PR で変えると G-5(pr-rules)を失敗させる。test-check-pr.mjs が試験する。分離した変更の承認の記録は、統制の設定の陰性の確認(IMPL-0134)で扱う" -->
+<!-- impl IMPL-0203 target=pr-checks state=delivered check=presence note="検証の弱体化のうち、既存のテストの変更を G-5(pr-rules)が PR へ一覧で出す(G-6 の材料。合否に使わない)" -->
+<!-- impl IMPL-0204 target=pr-checks state=undelivered check=manual note="検証の弱体化(アサーションの削除・skip 相当の付与)と、テストのみの変更で失敗が解消した変更に、ラベルを付けて独立レビューの必須確認事項にすること。準拠テンプレートに検出もラベルの付与も無い" -->
+
 ## 人が見るもの
 
 以上により、開発者が確認するのは次の3つだけになります。
@@ -93,6 +103,8 @@ sidebar:
 
 E.5 は「確認の範囲が有界であること」を要件としています。範囲の定まらない確認は、時間の制約のもとで省略されるためです。本ページの3項目は、いずれも数え上げられます。
 
+<!-- impl IMPL-0205 target=pr-checks state=undelivered check=manual note="実装計画の対象パスと、実際に変更されたパスの差を機械的に突き合わせて出す。準拠テンプレートに突合が無い" -->
+
 ## 操作の要約を AI に作らせません
 
 エージェントの操作の要約を、エージェント自身または別の AI に生成させてはなりません。
@@ -102,6 +114,8 @@ E.5 は「確認の範囲が有界であること」を要件としています�
 - [第5章 5.8.5 の禁止事項5](/process-compass/phase4-process-design/human-ai-boundary/)および[レビューパッケージ](/process-compass/phase5-implementation/review-package/)の原則(生成を機械的な導出に限り、要約と評価を含めない)と同じ理由による
 
 機械的な導出は許容します。実行したコマンドの分類、変更したパスの一覧、通信先の一覧は、いずれも集計であり評価を含みません。
+
+<!-- impl IMPL-0206 target=claude-md state=undelivered check=manual note="エージェントの操作の要約を、エージェント自身または別の AI に生成させない(機械的な導出は許容する)。準拠テンプレートの CLAUDE.md とスキルに規則が無い" -->
 
 ## 生成の条件を記録する
 
@@ -114,6 +128,8 @@ E.5 は「確認の範囲が有界であること」を要件としています�
 | 実行の識別子 | 当該の実行を後から引き当てる鍵 | エージェントの実行記録 |
 
 いずれも観測できる事実であり、判断を含みません。[PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)の「AI 関与範囲」欄と同じく、**自動で埋めます**。人へ転記させた場合、記録の欠落を目視で検査する構成になります。
+
+<!-- impl IMPL-0207 target=agent-run-record state=undelivered check=manual note="生成の条件のうち、実行の識別子と指示資産の版を変更単位で自動で記録する(成果物から生成時の指示資産の版を参照できる状態。第5章 5.8.2 の指示の保存)。準拠テンプレートに実装は無い。モデルの識別は Co-Authored-By(IMPL-0176・IMPL-0177)による" -->
 
 ### 指示の全文を保存しません
 
@@ -136,11 +152,15 @@ E.5 は「確認の範囲が有界であること」を要件としています�
 
 **「生成時の条件を記録しているため再現できる」と外部へ説明してはなりません**。説明できるのは条件の特定までです。成果物が正しいことの根拠は、生成の条件ではなく検証の記録によります([ADR-0012](/process-compass/adr/0012-ai-output-as-unverified-input/))。
 
+<!-- impl IMPL-0208 target=claude-md state=undelivered check=manual note="「生成時の条件を記録しているため再現できる」と外部へ説明しない。準拠テンプレートの CLAUDE.md・スキル・保証の開示の注記に規則が無い" -->
+
 ## この設計の限界
 
 - 遮断が働くのは**設定した範囲についてのみ**であり、想定していない経路は遮断できない。記録を残す要求(要求3)の目的は、この限界を埋めることではなく、後から経路を特定できるようにすること
 - 遮断が0件であっても、想定外の操作がなかったことにはならない。**「拒否が0件だから安全である」と記録してはならない**
 - 差分からの機械判定は、正当な変更と区別できない範囲ではラベルにとどまる。ラベルの確認を省く運用では、この層は働かない
+
+<!-- impl IMPL-0209 target=claude-md state=undelivered check=manual note="「拒否が 0 件だから安全である」と記録しない。書き込みの遮断のフックの冒頭の注記にはあるが、記録を書く者が読む CLAUDE.md とスキルに無い" -->
 
 ## 関連するページ
 

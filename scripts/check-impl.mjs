@@ -14,6 +14,13 @@
 // 降ろし先の実在は本スクリプトが確かめる。規定の中身が検査されているかは check が示す。
 // check を欠くマークは「未分類」として数え、台帳に件数を出す(落とさない)。
 //
+// 対象の棚卸し(Issue #292 / ADR-0076): 対象のページ(本文8章・規定の附属書・フェーズ5・6)の
+// 節ごとに、区分(マーク済み / 判定基準の表 / 対象にしない / 未棚卸し)が登録簿
+// src/data/impl-inventory.yaml にあることを確かめる。登録の無い節、消えた鍵、台帳に無い識別子、
+// 「対象にしない」の節のマーク、基準線(src/data/impl-inventory-baseline.yaml)に無い未棚卸しは失敗。
+// 節の中の規定の網羅と、区分の判断の正しさは確かめない。
+// コードブロックの中のマークは失敗(台帳に載らず、読者には文字列のまま表示されるため)。
+//
 // オプション:
 //   --write   台帳ページ(community/implementation-ledger.md)を再生成する
 
@@ -22,6 +29,18 @@ import { glob } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import YAML from 'yaml';
+import {
+  MARK_RE,
+  MARK_LOOSE_RE,
+  maskFences,
+  marksInFences,
+  parseSections,
+  checkInventory,
+  summarize,
+  STATUSES,
+  plannedProblem,
+  renderUndelivered,
+} from './lib/impl-inventory.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS_ROOT = 'src/content/docs';
@@ -39,8 +58,12 @@ const CHECKS = {
 };
 const UNCLASSIFIED = '未分類';
 
-const MARK_RE = /<!--\s*impl\s+(IMPL-\d{4})\s+([^>]*?)-->/;
-const MARK_LOOSE_RE = /<!--\s*impl\s/;
+const INVENTORY_PATH = 'src/data/impl-inventory.yaml';
+const BASELINE_PATH = 'src/data/impl-inventory-baseline.yaml';
+/** 基準線の凍結時(2026-10-23)の件数。基準線はこれを超えて増えない(減る向きにだけ動く) */
+const BASELINE_SIZE = 943;
+/** 基準線の外で節の区分を判定した件数を見るための、対象のフェーズのディレクトリ */
+const PHASE_DIRS = { 'phase5-implementation': 'フェーズ5', 'phase6-operation': 'フェーズ6' };
 
 const args = new Set(process.argv.slice(2));
 const errors = [];
@@ -56,25 +79,6 @@ function toUrl(file) {
   return slug ? `${BASE_PATH}/${slug}/` : `${BASE_PATH}/`;
 }
 
-/** コードブロックの中身を空行へ置換し、行番号を保ったまま対象外にする */
-function maskFences(lines) {
-  const masked = [...lines];
-  let fence = null;
-  for (let i = 0; i < masked.length; i++) {
-    const m = /^\s*(`{3,})/.exec(masked[i]);
-    if (fence === null && m) {
-      fence = m[1];
-      masked[i] = '';
-      continue;
-    }
-    if (fence !== null) {
-      if (m && m[1].length >= fence.length) fence = null;
-      masked[i] = '';
-    }
-  }
-  return masked;
-}
-
 /** key=value / key="value を含む文字列" の並びを読む */
 function parseAttrs(text) {
   const attrs = {};
@@ -85,7 +89,14 @@ function parseAttrs(text) {
 }
 
 function collect(file) {
-  const lines = maskFences(readFileSync(file, 'utf8').split(/\r?\n/));
+  const raw = readFileSync(file, 'utf8').split(/\r?\n/);
+  for (const line of marksInFences(raw)) {
+    errors.push(
+      `${file}:${line} 実装マークがコードブロックの中にあります。検査が読まず、台帳に載りません。読者には文字列のまま表示されます。` +
+        'コードブロックの外(直後)へ移してください'
+    );
+  }
+  const lines = maskFences(raw).masked;
   for (let i = 0; i < lines.length; i++) {
     if (!MARK_LOOSE_RE.test(lines[i])) continue;
 
@@ -114,6 +125,8 @@ function collect(file) {
           `(src/data/impl-targets.yaml へ追加してください)`
       );
     }
+    const planned = plannedProblem(TARGETS[attrs.target], attrs.state);
+    if (planned) errors.push(`${file}:${i + 1} ${id} の ${planned}`);
 
     marks.push({
       id,
@@ -172,6 +185,10 @@ async function verifyTargets(used) {
       if (!existsSync(path.join(TEMPLATE_ROOT, t.path))) {
         errors.push(`降ろし先 ${id}: template/${t.path} がありません`);
       }
+    } else if (t.kind === 'planned') {
+      // 予定の置き場。実在は求めない(state=undelivered に限ることは collect が確かめる)
+    } else {
+      errors.push(`降ろし先 ${id}: 種別が不正です: ${t.kind}(config-key / template-file / planned)`);
     }
 
     if (t.check && !existsSync(path.join(TEMPLATE_ROOT, `scripts/gate/${t.check}.mjs`))) {
@@ -187,8 +204,56 @@ function countChecks(rows) {
   return counts;
 }
 
-function renderLedger(rows) {
+/** 頁 → 台帳に出すまとまり(章・附属書・フェーズ) */
+function groupOf(page) {
+  const d = DOCUMENTS.find((x) => x.page === page);
+  if (d?.chapter) return `第${d.chapter}章`;
+  if (d?.annex) return `附属書${d.annex}`;
+  return PHASE_DIRS[page.split('/')[0]] ?? page;
+}
+
+/** まとまりの並び: 本文の章 → 規定の附属書 → フェーズ5 → フェーズ6 */
+function groupRank(g) {
+  let m = /^第(\d+)章$/.exec(g);
+  if (m) return Number(m[1]);
+  m = /^附属書([A-Z])$/.exec(g);
+  if (m) return 100 + m[1].charCodeAt(0);
+  return g === 'フェーズ5' ? 500 : g === 'フェーズ6' ? 600 : 900;
+}
+
+function renderInventory(sections, entries) {
   const out = [];
+  const groups = summarize(sections, entries, groupOf);
+  const total = { total: 0, marked: 0, kb: 0, none: 0, pending: 0 };
+  out.push('### 棚卸しの状況');
+  out.push('');
+  out.push(
+    '対象のページ(本文8章・規定の附属書・フェーズ5・6)の節ごとの区分です。区分の登録簿は `src/data/impl-inventory.yaml`、手続は[規約](/process-compass/community/implementation-marking/)の「対象の棚卸し」によります。'
+  );
+  out.push('');
+  out.push(
+    `| 対象 | 節 | ${STATUSES.marked} | ${STATUSES.kb} | ${STATUSES.none} | **${STATUSES.pending}** |`
+  );
+  out.push('| --- | --- | --- | --- | --- | --- |');
+  for (const [g, c] of [...groups].sort(([a], [b]) => groupRank(a) - groupRank(b))) {
+    out.push(`| ${g} | ${c.total} | ${c.marked} | ${c.kb} | ${c.none} | **${c.pending}** |`);
+    for (const k of Object.keys(total)) total[k] += c[k];
+  }
+  out.push(`| **計** | ${total.total} | ${total.marked} | ${total.kb} | ${total.none} | **${total.pending}** |`);
+  out.push('');
+  out.push(
+    `${STATUSES.pending}の${total.pending}節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。`
+  );
+  out.push('');
+  out.push(
+    '**台帳の件数は網羅の証明ではありません**。降りていない規定が0件であることも、未棚卸しの節が0件であることも、規定がすべて降りたことを示しません。機械が確かめるのは、節が区分つきで登録されていること、登録の鍵と識別子が実在すること、「対象にしない」の節にマークが無いことまでです。節の中の規定がすべてマークされているかは、区分を登録した者の判断です。'
+  );
+  out.push('');
+  return out;
+}
+
+function renderLedger(rows, sections, entries) {
+  const out = [...renderInventory(sections, entries)];
   const undelivered = rows.filter((m) => m.state === 'undelivered');
   const counts = countChecks(rows);
 
@@ -206,19 +271,13 @@ function renderLedger(rows) {
   out.push(`${UNCLASSIFIED}の${counts['']}件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**${UNCLASSIFIED}の規定を、検査されている規定として読まないでください**。`);
   out.push('');
 
-  if (undelivered.length) {
-    out.push('### 降りていない規定');
-    out.push('');
-    out.push('次の規定は、実行層に対応する記述がありません。**案件からは「規定がない」ものとして扱われます**。');
-    out.push('');
-    out.push('| 識別子 | 規定 | 降ろし先(予定) | 記載箇所 |');
-    out.push('| --- | --- | --- | --- |');
-    for (const m of undelivered) {
-      const page = m.file.replace(/\\/g, '/').replace(`${DOCS_ROOT}/`, '').replace(/\.mdx?$/, '');
-      out.push(`| ${m.id} | ${m.note} | ${TARGETS[m.target]?.name ?? m.target} | [${page}](${m.url}) |`);
-    }
-    out.push('');
-  }
+  out.push(
+    ...renderUndelivered(
+      undelivered,
+      (t) => TARGETS[t]?.name ?? t,
+      (m) => `[${m.file.replace(/\\/g, '/').replace(`${DOCS_ROOT}/`, '').replace(/\.mdx?$/, '')}](${m.url})`
+    )
+  );
 
   out.push('### 全件');
   out.push('');
@@ -246,6 +305,27 @@ function replaceBlock(text, body) {
 
 // --- 実行 ---
 
+const DOCUMENTS = YAML.parse(readFileSync(path.join(ROOT, 'src/data/provision-forms.yaml'), 'utf8')).documents;
+
+/** 棚卸しの対象のページ: 本文8章・規定の附属書・フェーズ5・6 の各頁。参考の附属書・ADR・community は対象外 */
+async function inventoryPages() {
+  const pages = DOCUMENTS.filter((d) => d.kind === 'normative').map((d) => d.page);
+  for (const dir of Object.keys(PHASE_DIRS)) {
+    for await (const f of glob(`${DOCS_ROOT}/${dir}/*.{md,mdx}`)) {
+      pages.push(f.replace(/\\/g, '/').replace(`${DOCS_ROOT}/`, '').replace(/\.mdx?$/, ''));
+    }
+  }
+  return pages.sort();
+}
+
+function pageFile(page) {
+  for (const ext of ['md', 'mdx']) {
+    const f = `${DOCS_ROOT}/${page}.${ext}`;
+    if (existsSync(f)) return f;
+  }
+  return null;
+}
+
 const files = [];
 for await (const f of glob(`${DOCS_ROOT}/**/*.{md,mdx}`)) {
   const norm = f.replace(/\\/g, '/');
@@ -269,8 +349,31 @@ marks.sort((a, b) => a.id.localeCompare(b.id));
 
 await verifyTargets(new Set(marks.map((m) => m.target).filter((t) => TARGETS[t])));
 
+// 対象の棚卸し
+const sections = [];
+for (const page of await inventoryPages()) {
+  const f = pageFile(page);
+  if (!f) {
+    errors.push(`棚卸しの対象のページがありません: ${page}`);
+    continue;
+  }
+  sections.push(...parseSections(page, readFileSync(f, 'utf8')));
+}
+const inventory = YAML.parse(readFileSync(INVENTORY_PATH, 'utf8'));
+const baseline = YAML.parse(readFileSync(BASELINE_PATH, 'utf8'));
+const entries = inventory.sections ?? [];
+for (const e of checkInventory({
+  sections,
+  entries,
+  baseline: baseline.sections ?? [],
+  baselineSize: BASELINE_SIZE,
+  ledgerIds: new Set(marks.map((m) => m.id)),
+})) {
+  errors.push(`${INVENTORY_PATH}: ${e}`);
+}
+
 const ledgerText = readFileSync(LEDGER_PATH, 'utf8');
-const nextText = replaceBlock(ledgerText, renderLedger(marks));
+const nextText = replaceBlock(ledgerText, renderLedger(marks, sections, entries));
 
 if (args.has('--write')) {
   if (nextText !== ledgerText) {
@@ -292,6 +395,13 @@ if (errors.length > 0) {
 
 const undelivered = marks.filter((m) => m.state === 'undelivered');
 const checkCounts = countChecks(marks);
+const pendingByGroup = summarize(sections, entries, groupOf);
+const pendingTotal = [...pendingByGroup.values()].reduce((a, c) => a + c.pending, 0);
+console.log(
+  `棚卸し: ${sections.length}節(未棚卸し ${pendingTotal}節: ` +
+    [...pendingByGroup].sort(([a], [b]) => groupRank(a) - groupRank(b)).filter(([, c]) => c.pending).map(([g, c]) => `${g} ${c.pending}`).join(' / ') +
+    ')'
+);
 console.log(`実装マーク: ${marks.length}件(降りていない規定: ${undelivered.length}件)`);
 console.log(
   `検査の手段: ${CHECKS.machine} ${checkCounts.machine}件 / ${CHECKS.presence} ${checkCounts.presence}件 / ` +

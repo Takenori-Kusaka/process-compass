@@ -380,7 +380,7 @@ PR の記録は `gh` で引きます。リポジトリは、`--repo <owner/name>
 | 8 知財潔白性の検査記録 | 一部 | 依存関係のライセンス検査の実施記録の有無(`ipClearance.scanRun`)。類似の検知の実施記録、判定できなかった項目の台帳記録、期限を超過した指摘は確かめない | 類似の検知の記録、台帳の記録、指摘ごとの措置と期限 |
 | 9 保証の開示の完備 | あり | 7項目と保証の主張の成立判定の出力、導出元の記録の欠落(後掲「記載の欠落と、値として受け入れるもの」)、層1 の受容しない条件のうち印を付けたものに当たる事実 | 印の無い受容しない条件に当たる事実が開示に無いこと(G-7「保証の主張の成立判定」(b))。機械が確かめていない事項(後掲「実装の制約」) |
 | (前提)作成側の検証の記載 | あり | PR 本文の「検証方法と結果」の有無(`prs[].authorVerificationPresent`)。PR を経ていないコミットは、トレーラ `Verification`。G-6 の状態に依らない | 記載の内容 |
-| (欠陥注入を運用する場合)注入の残存 | **なし** | 確かめない。集約が読むのは、検出率の記録だけである | [欠陥注入の隔離設計](/process-compass/phase5-implementation/seeded-error-safety/)による回収の記録 |
+| (欠陥注入を運用する場合)注入の残存 | **なし** | 確かめない。集約が読むのは、検出率の記録だけである | [欠陥注入の隔離設計](/process-compass/phase5-implementation/seeded-error-safety/)の第3層(リリース候補の走査)と第4層(走査の実施記録)、回収の記録 |
 
 <!-- impl IMPL-0040 target=evidence-aggregation state=delivered note="G-7 基準1。受入基準(specs/F-NNN/spec.md の受入基準の表)を参照するテストのファイルの数(計画数)、G-5 の test ジョブが書くテストの実行の記録(evidence/test-results.json。test-results.mjs が書き、ship-evidence が gate-g5 の成果物から取り込む)で通過した数、対応するテストの無い受入基準の数を criteria[1] へ出す(第4章 G-7「基準1・2 の記録」)。件数の十分性は判定しない。実行の記録が無い出荷は消化数を数えない" -->
 <!-- impl IMPL-0041 target=evidence-aggregation state=delivered note="G-7 基準2。欠陥の台帳(docs/defect-ledger.md。重大度・優先度・状態・コア機能)を取り込み、事業ステージ別の欠陥トリアージ基準の区分ごとの未解決の件数を criteria[2] と項目5 へ出す。台帳が無い出荷と読めない台帳を記載の欠落にする(第4章 G-7「基準1・2 の記録」)。出荷の可否は判定しない" -->
@@ -389,7 +389,6 @@ PR の記録は `gh` で引きます。リポジトリは、`--repo <owner/name>
 <!-- impl IMPL-0044 target=evidence-aggregation state=undelivered note="G-7 基準6。AI 品質指標の確認の記録を集約へ取り込む" -->
 <!-- impl IMPL-0045 target=evidence-aggregation state=undelivered note="G-7 基準7。安全適合性の検証記録の欠落を集約で確かめる" -->
 <!-- impl IMPL-0046 target=evidence-aggregation state=undelivered note="G-7 基準8。類似の検知の実施記録と、期限を超過した未処理の指摘を集約で確かめる。ライセンス検査の実施記録の有無だけを確かめている" -->
-<!-- impl IMPL-0047 target=evidence-aggregation state=undelivered note="欠陥注入の残存を、出荷の証跡の集約で確かめる" -->
 
 基準5 のうち、機械で導ける範囲は次のとおりです。出荷に対応する判定記録の数を機械で決められないゲートは、件数を表示し、人が突合する範囲として出します。
 
