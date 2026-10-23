@@ -834,7 +834,7 @@ AI が追加した依存と人間が追加した依存を、扱いの上で区�
 - 記録が無い変更は、変更の作成者と、開発者の席の責任者を、作成を指示した者とみなす。みなした旨を保証の開示へ表示する
 - AI と bot の名義による承認は数えない(第3章 3.5.4)
 - AI を示す語を含むアカウント名の人(実在の人のアカウントが、AI の担い手の名と同じ語を含む場合)は、機械では AI と区別できない。この人の承認を人の承認に数えるのは、そのアカウントを人のものと確認した名簿の変更を、**アカウントの本人以外の人が記名した場合に限る**。本人の記名・AI の名義の記名・記録の無い確認では数えない。ホスティングが bot と返す名義は、確認があっても数えない。確認によって数えた承認の件数を、保証の開示の項目1 に出す。名簿の記載が正しいかは、[プロセス内部監査](/process-compass/phase6-operation/process-audit/)の観点6 で確かめる
-- 表5 の人の氏名が AI を示す語を含む場合は、人がその人の実在を確かめたうえで、名簿の変更として確認の旨(構成の `nameConfirmed`)を記録する。確認は、**その本人以外の人が記名した場合に限り**効く。本人の記名・AI の名義の記名・記録の無い確認では効かない。AI の担い手の判断で確認の旨を書いてはならない。確認した氏名は、判定の出力と保証の開示に、確認によって通した旨とともに出る
+- 表5 の人の氏名が AI を示す語を含む場合は、人がその人の実在を確かめたうえで、名簿の変更として確認の旨(構成の `nameConfirmed`)を記録する。確認は、**その本人以外の人が記名した場合に限り**効く。本人の記名・AI の名義の記名・記録の無い確認では効かない。ただし、表5 の体制の内の人が1名の名簿では、本人の記名を受け付ける(本人以外の記名者がいないため)。この確認は自己申告の氏名として、保証の開示と判定の出力に区別して出す。記録の無い確認も、1名の名簿では効かせたまま未記録として出し、記録を求めるAI の担い手の判断で確認の旨を書いてはならない。確認した氏名は、判定の出力と保証の開示に、確認によって通した旨とともに出る
 - AI の担い手の名の語彙を、AI の担い手に特有の形(接尾辞など)に限って、人のアカウントとの衝突を減らすことはしない。検出を危険側へ緩めるためである
 - 独立した人の確認を経ていない変更が1件でもあれば、保証の開示へ定型の文を出す(後掲 G-7「保証の開示」)
 - 独立した人の確認を経ていない変更の扱いは、体制によって分かれる。このゲートを適用する体制では、記録の欠落として差し戻す。このゲートが未達の体制では、件数として開示する(後掲 G-7 の基準5 の表)
@@ -867,7 +867,7 @@ AI が追加した依存と人間が追加した依存を、扱いの上で区�
 <!-- impl IMPL-0263 target=evidence-aggregation state=delivered check=manual note="承認は承認した差分に対して数える。出荷の証跡の集約は、承認したコミット(レビューの commit)と取り込んだ PR の先頭のコミット(headRefOid)を比べ、異なる承認(承認の後の更新)と承認の版を確かめられない承認を数えず、件数を保証の開示に出す。gh はレビューの commit.oid を v2.30.0 以降で返す(cli/cli の prReviews の問い合わせ。2026-10-23 に確かめた)。それより前の gh ではすべての承認が確かめられないとして数えられないため、集約は確かめられない承認があるとき gh の版と原因を出し、env-check は gh の版を記録する。実機の gh での端から端までの確認はしていない。approvalBinding を test-roster-rules.mjs が試験する" -->
 <!-- impl IMPL-0264 target=gate-contract state=delivered check=machine note="契約検査が、適用するルールセット(team・regulated・safety)の dismiss_stale_reviews_on_push が true であることを確かめ、外れていれば失敗させる。test-init-g5.mjs が固定する" -->
 <!-- impl IMPL-0265 target=adoption-trial state=delivered check=manual note="実環境の統制の確認(env-check)が、team を含むすべてのルールセットで、適用されたブランチ保護の dismiss_stale_reviews_on_push と require_last_push_approval を確かめる。実環境の gh で採用者が実行する" -->
-<!-- impl IMPL-0266 target=config-change-log state=delivered check=machine note="AI を示す語を含むアカウント名の人の確認(accountsConfirmed)は、本人以外が記名した名簿の変更(changeLog の accountConfirmations と decidedBy)がある場合だけ効く。本人・AI の名義の記名と記録の無い確認は契約検査が落とす。[bot] とホスティングの bot は上書きしない。出荷の証跡の集約が、確認によって数えた承認の件数を出す。氏名の確認(nameConfirmed)も同じく、本人以外が記名した名簿の変更(changeLog の nameConfirmations と decidedBy)がある場合だけ効き、記録の無い確認は契約検査が落とす。test-roster-rules.mjs が固定する" -->
+<!-- impl IMPL-0266 target=config-change-log state=delivered check=machine note="AI を示す語を含むアカウント名の人の確認(accountsConfirmed)は、本人以外が記名した名簿の変更(changeLog の accountConfirmations と decidedBy)がある場合だけ効く。本人・AI の名義の記名と記録の無い確認は契約検査が落とす。[bot] とホスティングの bot は上書きしない。出荷の証跡の集約が、確認によって数えた承認の件数を出す。氏名の確認(nameConfirmed)も同じく、本人以外が記名した名簿の変更(changeLog の nameConfirmations と decidedBy)がある場合だけ効き、記録の無い確認は契約検査が落とす。体制の内の人が1名の名簿では本人の記名を受け付け(自己申告の氏名)、記録の無い確認も効かせて未記録として /pit と契約検査の注記に出し、保証の開示に区別して出す。2人目が加わると、本人の記名だけの確認は本人以外の記名を要する。test-roster-rules.mjs が固定する" -->
 <!-- impl IMPL-0267 target=pr-checks state=delivered check=machine note="コア機能・確約範囲のパス(delegation.protectedPaths と riskFloor.rules のパス)のうち、追跡中のファイルに1件も当たらないパスを宣言として数えない。当たるパスが無ければ未宣言として扱い、規模の基準なし(null)を効かせない。当たらないパスを結果と保証の開示に出す。test-check-pr.mjs が固定する" -->
 <!-- impl IMPL-0078 target=pr-checks state=delivered note="G-5 の PR 単位の検査で、PR のレビューを読めるとき、独立した人の承認者の数を同じ条件で数えて「G-6 の承認者 N 名 / 要求 M 名」を出す。読めないときはその旨を出す。合否にはしない(レビューの前に走るため)。合否は出荷の証跡の集約が担う(#288 第5巡)" -->
 
