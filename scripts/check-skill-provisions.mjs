@@ -28,16 +28,14 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
+import { requireInputs } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = path.join(ROOT, 'src/content/docs');
 const SKILLS = path.join(ROOT, 'template/.claude/skills');
 
-if (!existsSync(SKILLS)) {
-  console.log('template/ が未初期化のため、スキルの文の検査を飛ばします');
-  console.log('  初期化: git submodule update --init --recursive');
-  process.exit(0);
-}
+// 入力(template/)が無ければ失敗させる。飛ばさない(Issue #293 / ADR-0077)
+requireInputs(ROOT, ['template', 'template/.claude/skills'], 'スキルの文の検査');
 
 const reg = YAML.parse(readFileSync(path.join(ROOT, 'src/data/provision-forms.yaml'), 'utf8'));
 const chapterPage = Object.fromEntries(reg.documents.filter((d) => d.chapter).map((d) => [String(d.chapter), d.page]));

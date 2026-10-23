@@ -1,0 +1,187 @@
+// CI の結線の検査(check-ci-wiring.mjs)と、検査器の入力の扱い(lib/inputs.mjs)の陽性対照
+// (Issue #293 / ADR-0077)
+//
+// 検査が既知の違反で落ちることを確かめる。検査が黙って通る故障(何も見ていない状態)を、
+// 通過の出力からは見分けられないためである。
+//
+//   node scripts/test-check-ci-wiring.mjs   (npm run test:ci-wiring)
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import YAML from 'yaml';
+import { checkWiring, renderProblems } from './lib/ci-wiring.mjs';
+import { missingInputs, commitProblems, describeMissing, INIT_HINT } from './lib/inputs.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+let passed = 0;
+function test(name, fn) {
+  fn();
+  passed += 1;
+  console.log(`  ok ${name}`);
+}
+
+/** 結線が揃った最小の ci.yml */
+function goodCi() {
+  return {
+    on: { pull_request: null, push: { branches: ['main'] }, workflow_dispatch: null },
+    permissions: { contents: 'read' },
+    jobs: {
+      check: {
+        'runs-on': 'ubuntu-latest',
+        steps: [
+          { uses: 'actions/checkout@v7' },
+          { run: 'git submodule update --init --recursive template' },
+          { run: 'npm ci' },
+          { name: 'check', run: 'npm run check' },
+        ],
+      },
+      deploy: {
+        needs: 'check',
+        if: "github.event_name == 'push' && github.ref == 'refs/heads/main'",
+        permissions: { pages: 'write', 'id-token': 'write' },
+        steps: [{ uses: 'actions/deploy-pages@v5' }],
+      },
+      publish: {
+        needs: 'check',
+        if: "github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.check.outputs.dist_changed == 'true'",
+        environment: 'dist-standard',
+        steps: [{ run: 'git push -q "$REMOTE" HEAD:refs/heads/dist/standard' }],
+      },
+    },
+  };
+}
+const wf = (doc, file = 'ci.yml') => ({ file, doc });
+const expectProblem = (doc, re, others = []) => {
+  const problems = checkWiring([wf(doc), ...others]);
+  assert.ok(problems.some((p) => re.test(p)), `期待した問題が出ない: ${re}\n${problems.join('\n')}`);
+};
+
+test('結線が揃った ci.yml は通る', () => {
+  assert.deepEqual(checkWiring([wf(goodCi())]), []);
+});
+test('リポジトリの実際のワークフローは通る', () => {
+  const dir = path.join(ROOT, '.github/workflows');
+  const all = fs
+    .readdirSync(dir)
+    .filter((f) => /\.ya?ml$/.test(f))
+    .map((f) => wf(YAML.parse(fs.readFileSync(path.join(dir, f), 'utf8')), f));
+  assert.deepEqual(checkWiring(all), []);
+});
+test('ci.yml が無ければ失敗する', () => {
+  const problems = checkWiring([wf({ permissions: { contents: 'read' } }, 'other.yml')]);
+  assert.ok(problems.some((p) => /ci\.yml がありません/.test(p)));
+});
+test('条件1: pull_request が無い', () => {
+  const d = goodCi();
+  delete d.on.pull_request;
+  expectProblem(d, /pull_request がありません/);
+});
+test('条件1: main への push が無い', () => {
+  const d = goodCi();
+  d.on.push = { branches: ['develop'] };
+  expectProblem(d, /main への push がありません/);
+});
+test('条件2: npm run check の手順が無い', () => {
+  const d = goodCi();
+  d.jobs.check.steps[3].run = 'npm run build';
+  expectProblem(d, /ちょうど「npm run check」/);
+});
+test('条件2: npm run check の手順に if がある', () => {
+  const d = goodCi();
+  d.jobs.check.steps[3].if = "github.event_name == 'push'";
+  expectProblem(d, /npm run check の手順に if/);
+});
+test('条件2: npm run check の手順に continue-on-error がある', () => {
+  const d = goodCi();
+  d.jobs.check.steps[3]['continue-on-error'] = true;
+  expectProblem(d, /npm run check の手順に continue-on-error/);
+});
+test('条件2: ジョブ check に continue-on-error・if がある', () => {
+  const d = goodCi();
+  d.jobs.check['continue-on-error'] = true;
+  d.jobs.check.if = 'false';
+  expectProblem(d, /ジョブ check に continue-on-error/);
+  expectProblem(d, /ジョブ check に if/);
+});
+test('条件3: template のサブモジュールを取得しない', () => {
+  const d = goodCi();
+  d.jobs.check.steps.splice(1, 1);
+  expectProblem(d, /template のサブモジュールを取得していません/);
+});
+test('条件3: checkout の submodules で取得する形は通る', () => {
+  const d = goodCi();
+  d.jobs.check.steps.splice(1, 1);
+  d.jobs.check.steps[0].with = { submodules: 'recursive' };
+  assert.deepEqual(checkWiring([wf(d)]), []);
+});
+test('条件4: 公開のジョブが needs に check を持たない', () => {
+  const d = goodCi();
+  delete d.jobs.deploy.needs;
+  expectProblem(d, /Pages へ配備するジョブ deploy の needs/);
+});
+test('条件4: 配布のジョブが main への push に限っていない', () => {
+  const d = goodCi();
+  d.jobs.publish.if = "github.ref == 'refs/heads/main'";
+  expectProblem(d, /dist\/standard へ書くジョブ publish の if/);
+});
+test('条件4: 公開のジョブが ci.yml の外にある', () => {
+  const d = goodCi();
+  delete d.jobs.deploy;
+  const other = wf({ permissions: { contents: 'read' }, jobs: { build: { steps: [{ uses: 'actions/deploy-pages@v5' }] } } }, 'deploy.yml');
+  expectProblem(d, /deploy\.yml: Pages へ配備するジョブ build が ci\.yml の外/, [other]);
+});
+test('条件5: 最上位の permissions が無い・書き込みを与える', () => {
+  const d = goodCi();
+  delete d.permissions;
+  expectProblem(d, /最上位に permissions がありません/);
+  const e = goodCi();
+  e.permissions = { contents: 'write' };
+  expectProblem(e, /最上位の permissions が書き込み/);
+  const f = goodCi();
+  f.permissions = 'write-all';
+  expectProblem(f, /最上位の permissions が書き込み/);
+});
+test('条件6: 配布のジョブに environment が無い', () => {
+  const d = goodCi();
+  delete d.jobs.publish.environment;
+  expectProblem(d, /environment がありません/);
+});
+test('条件7: 失敗の文言は検査の一覧の正本を示す', () => {
+  assert.match(renderProblems(['x']), /正本は package\.json の check/);
+});
+
+// --- 検査器の入力(Issue #293 裁定 J-3) ---
+const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'inputs-'));
+fs.mkdirSync(path.join(tmp, 'empty'));
+fs.mkdirSync(path.join(tmp, 'full'));
+fs.writeFileSync(path.join(tmp, 'full/a.txt'), 'x');
+test('入力: 無いファイル・空のディレクトリを欠けとして返す', () => {
+  const m = missingInputs(tmp, ['empty', 'full', 'full/a.txt', 'nothing.json']);
+  assert.deepEqual(m.map((x) => x.rel), ['empty', 'nothing.json']);
+  assert.match(m[0].why, /空のディレクトリ/);
+});
+test('入力: 欠けの説明は失敗に数えることと取得の命令を出す', () => {
+  const s = describeMissing('検査', [{ rel: 'template', why: 'ありません' }]);
+  assert.match(s, /失敗に数えます/);
+  assert.ok(s.includes(INIT_HINT));
+});
+fs.rmSync(tmp, { recursive: true, force: true });
+
+test('生成元の版: unknown・短い識別子・空を通さない', () => {
+  assert.equal(commitProblems('unknown').length, 1);
+  assert.equal(commitProblems('bce0c25').length, 1);
+  assert.equal(commitProblems('').length, 1);
+  assert.equal(commitProblems(undefined).length, 1);
+  assert.equal(commitProblems(`${'a'.repeat(40)}-dirty`).length, 1);
+});
+test('生成元の版: 40 桁の16進は通り、期待と違えば失敗する', () => {
+  const sha = '0123456789abcdef0123456789abcdef01234567';
+  assert.deepEqual(commitProblems(sha), []);
+  assert.deepEqual(commitProblems(sha, sha), []);
+  assert.match(commitProblems(sha, 'f'.repeat(40))[0], /一致しません/);
+});
+
+console.log(`\nCI の結線と検査器の入力の試験: ${passed}件 合格`);

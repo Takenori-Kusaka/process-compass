@@ -30,6 +30,7 @@ import { glob } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import YAML from 'yaml';
+import { missingInputs, describeMissing, INIT_HINT } from './lib/inputs.mjs';
 import {
   MARK_RE,
   MARK_LOOSE_RE,
@@ -157,13 +158,19 @@ function collect(file) {
  * config-key はサンプル回答から実際に構成を生成して確認する。
  */
 async function verifyTargets(used) {
+  // 入力(template/)が無い・空なら、降ろし先を確かめられない。失敗に数える(Issue #293 / ADR-0077)
+  const missing = missingInputs(ROOT, ['template']);
+  if (missing.length) {
+    errors.push(describeMissing('降ろし先の実在の確認', missing));
+    return;
+  }
   const needConfig = [...used].some((id) => TARGETS[id]?.kind === 'config-key');
   let config = null;
 
   if (needConfig) {
     const gen = path.join(TEMPLATE_ROOT, 'scripts/init/generate-profile.mjs');
     if (!existsSync(gen)) {
-      errors.push('template/ が初期化されていないため、降ろし先を確認できません(git submodule update --init)');
+      errors.push(`template/ が初期化されていないため、降ろし先を確認できません。実施しなかった検査として失敗に数えます(取得: ${INIT_HINT})`);
       return;
     }
     const m = await import(pathToFileURL(gen).href);

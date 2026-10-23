@@ -9,13 +9,16 @@ on:
     - cron: '0 0 1 * *' # 毎月1日 00:00 UTC
   workflow_dispatch:
 
+# 最上位は読み取りだけ。書き込みはジョブ単位で付ける(Issue #293 裁定 J-6 f)
 permissions:
   contents: read
-  issues: write
 
 jobs:
   review:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - uses: actions/checkout@v7
 

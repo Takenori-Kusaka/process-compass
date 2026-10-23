@@ -4,20 +4,18 @@
 //
 // 標準 第6章 metrics.md の登録簿の表と、準拠テンプレートの機械可読版(template/scripts/gate/recalibration-registry.json)が、
 // ID・定数の名称・依拠する前提・「能力に依るか」で一致することを確かめる。担っている保証は、表の側が説明を足せるため、
-// JSON の文が表のセルに含まれることだけを見る。template/ が未初期化なら飛ばす。
+// JSON の文が表のセルに含まれることだけを見る。template/ が未初期化なら失敗させる(Issue #293 / ADR-0077)。
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { requireInputs } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JSON_FILE = path.join(ROOT, 'template/scripts/gate/recalibration-registry.json');
 const DOC = path.join(ROOT, 'src/content/docs/phase6-operation/metrics.md');
 
-if (!fs.existsSync(JSON_FILE)) {
-  console.log('template/ が未初期化のため、登録簿の整合の検査を飛ばします');
-  process.exit(0);
-}
+requireInputs(ROOT, ['template', 'template/scripts/gate/recalibration-registry.json'], '登録簿の整合の検査');
 
 const registry = JSON.parse(fs.readFileSync(JSON_FILE, 'utf8'));
 const text = fs.readFileSync(DOC, 'utf8').replace(/\r\n/g, '\n');

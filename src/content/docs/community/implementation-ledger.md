@@ -24,7 +24,7 @@ sidebar:
 | 第1章 | 20 | 0 | 0 | 0 | **20** |
 | 第2章 | 38 | 0 | 0 | 0 | **38** |
 | 第3章 | 87 | 10 | 0 | 12 | **65** |
-| 第4章 | 87 | 3 | 0 | 0 | **84** |
+| 第4章 | 87 | 5 | 0 | 0 | **82** |
 | 第5章 | 48 | 17 | 0 | 7 | **24** |
 | 第6章 | 70 | 0 | 0 | 0 | **70** |
 | 第7章 | 42 | 0 | 0 | 0 | **42** |
@@ -33,11 +33,11 @@ sidebar:
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
 | 附属書H | 42 | 0 | 0 | 0 | **42** |
-| フェーズ5 | 299 | 24 | 0 | 18 | **257** |
+| フェーズ5 | 301 | 27 | 0 | 23 | **251** |
 | フェーズ6 | 132 | 0 | 0 | 0 | **132** |
-| **計** | 948 | 54 | 0 | 37 | **857** |
+| **計** | 950 | 59 | 0 | 42 | **849** |
 
-未棚卸しの857節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
+未棚卸しの849節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
 **台帳の件数は網羅の証明ではありません**。降りていない規定が0件であることも、未棚卸しの節が0件であることも、規定がすべて降りたことを示しません。機械が確かめるのは、節が区分つきで登録されていること、登録の鍵と識別子が実在すること、「対象にしない」の節にマークが無いことまでです。節の中の規定がすべてマークされているかは、区分を登録した者の判断です。
 
@@ -47,16 +47,16 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 21 |
-| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 39 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 70 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 22 |
+| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 42 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 74 |
 | **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **101** |
 
 未分類の101件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
 
 ### 降りていない規定
 
-降りていない規定: **68件**
+降りていない規定: **72件**
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
@@ -132,6 +132,10 @@ sidebar:
 | IMPL-0229 | 要求事項2・4・5。外部ツールの採用時に提供元を確認し、説明文を信頼できない入力として扱い、追加と変更に AI維持管理者の承認を要する。準拠テンプレートに採用の手順と記録の置き場が無い | CLAUDE.md の構成依存部分 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0230 | 生成物の劣化の4指標(重複した記述・移動された行・短期間で書き換えられた行の比率、定義の相互参照の密度)の継続の計測と、個人の指標との対での確認。準拠テンプレートに計測の手段が無い。AI維持管理者が手で集める | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0231 | 理由のない反対を意見として扱わないかは、起案者が応答に理由を添えて記録し、決定者が判定記録で確かめる。機械は欄の空欄を示すだけで決めない。準拠テンプレートに応答の記録の欄と、判定記録で確かめる欄が無い | 事前レビュー期間の検査と集計(予定) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0234 | アダプタを使う G-5 のジョブ(test・coverage・lint・audit・licenses・secretScan)は、構成とアダプタが無ければ失敗する。依存の取得に失敗して検査器の入力が欠けたときに、各スタックの検査器が失敗で終わるかは確かめていない。任意の検査(lint・audit・licenses・coverage)のコマンドが空のときは、通知を出して通す | G-5 のアダプタの実行(adapter.mjs) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0235 | 要求事項1〜6 を delegation.yml と check-delegation.mjs が実装する。基底ブランチの定義で起動して既定ブランチを checkout し、判定を必須でないステータスで出し、承認を付けずに記録し、有効化の変数と Environment delegated-merge の秘密情報が揃った場合に限り、判定した時点のコミットに固定してマージする。test-check-delegation.mjs がワークフローの定義と模擬の入力で確かめる。実際の GitHub 上で実行していない(本節の開示) | 委任した変更のマージの経路(delegation.yml) | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
+| IMPL-0237 | 案件のデプロイ(G-8 の後の配備)のワークフローで、配備の資格情報を、配備のブランチを既定ブランチに限った実行環境の秘密情報に置き、参照する実行環境を参照の前に作る。準拠テンプレートにデプロイのワークフローは無い | 案件のデプロイのワークフローの置き場(予定) | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
+| IMPL-0239 | 対象なしによる通過(基準1・2・3・5・8)。アダプタはプロジェクトの対象が無いとき実施しない旨を通知して通し、カバレッジは製品のコードが無いとき対象なしとして通す。対象なしを記録の3項目(基準・理由・時刻)で証跡へ残すこと、実装の開始後に用いないことは確かめていない | G-5 のアダプタの実行(adapter.mjs) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 ### 全件
 
@@ -368,5 +372,13 @@ sidebar:
 | IMPL-0229 | 要求事項2・4・5。外部ツールの採用時に提供元を確認し、説明文を信頼できない入力として扱い、追加と変更に AI維持管理者の承認を要する。準拠テンプレートに採用の手順と記録の置き場が無い | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0230 | 生成物の劣化の4指標(重複した記述・移動された行・短期間で書き換えられた行の比率、定義の相互参照の密度)の継続の計測と、個人の指標との対での確認。準拠テンプレートに計測の手段が無い。AI維持管理者が手で集める | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0231 | 理由のない反対を意見として扱わないかは、起案者が応答に理由を添えて記録し、決定者が判定記録で確かめる。機械は欄の空欄を示すだけで決めない。準拠テンプレートに応答の記録の欄と、判定記録で確かめる欄が無い | 事前レビュー期間の検査と集計(予定) | — | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0232 | 手元の G-5 の検査(g5-local.mjs)は、CI と同じ範囲を実行し、結果を証跡の置き場へ書かない。出力に、結果が G-5 の判定の証跡にならないことと、マージを止めるのは CI の必須チェック gate-g5 であることを出す。手元の結果を判定記録へ貼る運用を機械では止めない(判定者が確かめる) | G-5 の手元の検査(g5-local) | — | 降りている | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0233 | 曖昧語の検査(spec-lint)は、検出語の知識ベース(scripts/vendor/tailoring-kb.json)が無ければ読み込みで失敗し、検出語が空なら失敗する。検査の対象(機能仕様)が無いときだけ、対象なしとして通知する | 受入基準の曖昧語の検査(spec-lint) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0234 | アダプタを使う G-5 のジョブ(test・coverage・lint・audit・licenses・secretScan)は、構成とアダプタが無ければ失敗する。依存の取得に失敗して検査器の入力が欠けたときに、各スタックの検査器が失敗で終わるかは確かめていない。任意の検査(lint・audit・licenses・coverage)のコマンドが空のときは、通知を出して通す | G-5 のアダプタの実行(adapter.mjs) | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0235 | 要求事項1〜6 を delegation.yml と check-delegation.mjs が実装する。基底ブランチの定義で起動して既定ブランチを checkout し、判定を必須でないステータスで出し、承認を付けずに記録し、有効化の変数と Environment delegated-merge の秘密情報が揃った場合に限り、判定した時点のコミットに固定してマージする。test-check-delegation.mjs がワークフローの定義と模擬の入力で確かめる。実際の GitHub 上で実行していない(本節の開示) | 委任した変更のマージの経路(delegation.yml) | — | **降りていない** | 実在だけ確かめる | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
+| IMPL-0236 | 委任のマージのトークン DELEGATED_MERGE_TOKEN を、Environment delegated-merge の秘密情報に置く手順(README)と、ジョブの environment: delegated-merge を置く。test-check-delegation.mjs がジョブの environment を確かめる。Environment を参照の前に作ること・配備のブランチを既定ブランチに限ることは組織の設定で、機械では確かめない。実際の GitHub 上で実行していない | 委任した変更のマージの経路(delegation.yml) | — | 降りている | 実在だけ確かめる | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
+| IMPL-0237 | 案件のデプロイ(G-8 の後の配備)のワークフローで、配備の資格情報を、配備のブランチを既定ブランチに限った実行環境の秘密情報に置き、参照する実行環境を参照の前に作る。準拠テンプレートにデプロイのワークフローは無い | 案件のデプロイのワークフローの置き場(予定) | — | **降りていない** | 人が確かめる | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
+| IMPL-0238 | 1名の体制の行。gate-g5.yml が、PR に加えて既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行する。push そのものは止めない。トレーラ Risk・Verification の欠落は、出荷の証跡の集約が記録の欠落として数える | G-5 のワークフロー(gate-g5.yml) | — | 降りている | 実在だけ確かめる | [phase5-implementation/git-strategy](/process-compass/phase5-implementation/git-strategy/) |
+| IMPL-0239 | 対象なしによる通過(基準1・2・3・5・8)。アダプタはプロジェクトの対象が無いとき実施しない旨を通知して通し、カバレッジは製品のコードが無いとき対象なしとして通す。対象なしを記録の3項目(基準・理由・時刻)で証跡へ残すこと、実装の開始後に用いないことは確かめていない | G-5 のアダプタの実行(adapter.mjs) | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- implementation-ledger:end -->

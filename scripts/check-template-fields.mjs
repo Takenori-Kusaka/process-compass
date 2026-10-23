@@ -13,13 +13,15 @@
 // 1 を欠くと、対応表が古い欄名を保持したまま通ります。標準で欄名を変えたときに
 // 対応表の更新を強制するのが 1 の役目です。
 //
-// submodule(template/)を初期化していない環境では、2 を飛ばします。
-// クローン直後に npm run check が失敗する構成にしないためです。
+// submodule(template/)を初期化していない環境では、1 を実施したうえで、検査を失敗させます。
+// 入力が無いために 2 を実施できないことを、通過として扱わないためです(Issue #293 / ADR-0077)。
+// 取得: git submodule update --init --recursive
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
+import { missingInputs, describeMissing } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TEMPLATE = path.join(ROOT, 'template');
@@ -27,7 +29,8 @@ const STANDARD = path.join(ROOT, 'src/content/docs/phase4-process-design/deliver
 
 const spec = YAML.parse(fs.readFileSync(path.join(ROOT, 'src/data/template-fields.yaml'), 'utf8'));
 const standardText = fs.readFileSync(STANDARD, 'utf8');
-const templateReady = fs.existsSync(path.join(TEMPLATE, 'process.config.json'));
+const missing = missingInputs(ROOT, ['template', 'template/process.config.json']);
+const templateReady = missing.length === 0;
 
 const problems = [];
 let checked = 0;
@@ -71,8 +74,7 @@ for (const form of spec.forms ?? []) {
 }
 
 if (!templateReady) {
-  console.log('template/ が未初期化のため、テンプレート側の検査を飛ばします');
-  console.log('  初期化: git submodule update --init --recursive');
+  problems.push(describeMissing('対応表 → テンプレートの方向', missing));
 }
 
 if (problems.length > 0) {

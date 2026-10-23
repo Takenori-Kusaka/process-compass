@@ -138,6 +138,8 @@ sidebar:
 | EV-0134 | AI の指摘の書式を定めず、含める値だけを定めること | E2(単一事例) | 未記載 | 2027-10 | レビューの指摘で書式を変えた場合(散文と構造化)の、採用率と注入欠陥の検出率の差 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | EV-0135 | マークの対象を節と番号つきの表の行の単位で棚卸しし、区分を本文の外の登録簿に記録し、未棚卸しの節を凍結した基準線の中に限ること | E1(間接) | 未記載 | 2027-10 | 棚卸し済みの節で、後から未マークの規範が見つかった件数 | [community/implementation-marking](/process-compass/community/implementation-marking/) |
 | EV-0136 | 降りていない規定の件数を、合否にも警戒の条件にも使わないこと。0件を異常の兆候として扱わないこと | E0(なし) | 未記載 | 2027-10 | `undelivered` が0件の期間に、案件から「規定が無い」と申し立てられた規定の件数 | [community/implementation-marking](/process-compass/community/implementation-marking/) |
+| EV-0137 | デプロイ・配布の統制と資格情報を、配備のブランチを既定ブランチに限った実行環境の秘密情報に置くことを要求事項にすること | E1(間接) | 未記載 | 2027-10 | 起動元のブランチの書き換えで統制を迂回した事例の件数と、実行環境の保護で止まった事例の件数 | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
+| EV-0138 | 基底ブランチで検査の定義が更新されたことを理由に、手元の検査の実行を止めることを求めないこと | E1(間接) | 未記載 | 2027-10 | 手元で古い検査の定義のまま通り、CI でも検出されずに既定ブランチへ入った欠陥の件数 | [phase5-implementation/compute-strategy](/process-compass/phase5-implementation/compute-strategy/) |
 
 <!-- evidence-ledger:end -->
 

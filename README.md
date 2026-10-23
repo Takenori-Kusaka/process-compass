@@ -60,16 +60,17 @@ git submodule update --init --recursive
 ## 開発
 
 ```bash
+git submodule update --init --recursive   # 準拠テンプレート(template/)。無いと npm run check が失敗する
 npm install
 npm run dev      # ローカルプレビュー (http://localhost:4321/process-compass)
 npm run build    # 本番ビルド
-npm run check    # textlint(日本語校正) + ビルド検証
+npm run check    # 全検査(一覧の正本は package.json の check)
 ```
 
 - サイト基盤: [Astro](https://astro.build/) + [Starlight](https://starlight.astro.build/)
 - 公開ドキュメント: `src/content/docs/`
 - 調査メモ(非公開扱いの作業領域): `research/`
-- `main` への push で GitHub Actions が自動デプロイ
+- `main` への push で CI(`.github/workflows/ci.yml`)が `npm run check` を実行し、通過した場合に限ってサイトを公開し、標準の本文を `dist/standard` へ配布する
 
 ## コントリビュート
 

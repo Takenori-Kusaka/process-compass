@@ -400,7 +400,12 @@ sections:
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時)
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 判定基準を実装する検査と集約
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0142
+      - IMPL-0232
+    note: 集約に含めること・集約から外さないこと・集約の確認で代えないことは IMPL-0142、手元の結果を証跡にしないことは IMPL-0232
+    issue: 293
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 是正の起動
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 基準値と除外設定の変更
@@ -412,7 +417,13 @@ sections:
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > リスク区分の下限の照合
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 検査対象が存在しない場合の扱い
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0233
+      - IMPL-0234
+      - IMPL-0239
+    note: 対象なしの通過・記録の項目・実装の開始後に用いないことは IMPL-0239(降りていない)。入力の欠如を対象なしにしないことは IMPL-0233(spec-lint)と IMPL-0234(アダプタを使うジョブ。降りていない)
+    issue: 293
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 知財潔白性の検査
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 類似が検知された場合の措置
@@ -1608,7 +1619,10 @@ sections:
   - key: phase5-implementation/ci-gates#「人が毎回指摘すること」を CI へ移す運用
     status: pending
   - key: phase5-implementation/ci-gates#様式・データの検証もゲートに載せる
-    status: pending
+    status: none
+    category: explanation
+    reason: 様式・データを CI で検査できる対象と方法の例示と、本サイトの実例の説明。実行主体の挙動を制約する規定を持たない
+    issue: 293
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約
     status: pending
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 集約スクリプトの入出力仕様
@@ -1646,15 +1660,70 @@ sections:
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 出荷判定者が突合するもの
     status: pending
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 委任の該当の判定とマージの経路
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0235
+    location:
+      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0235
+        location:
+          - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0235
+        location:
+          - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0235
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0235
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0235
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0235
+    note: 委任の該当の判定そのものは第5章 5.5.4 の IMPL-0026 でも追う。トークンの置き場はデプロイゲートの IMPL-0236
+    issue: 293
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 実装の制約
     status: pending
   - key: phase5-implementation/ci-gates#デプロイゲート
-    status: pending
+    status: none
+    category: explanation
+    reason: リリース決裁(G-8)の実装手段の例示と、必須レビュアが使えない場合の扱いの説明。統制と資格情報の置き場の規定は子の節にある
+    issue: 293
+  - key: phase5-implementation/ci-gates#デプロイゲート > 統制と資格情報の置き場
+    status: marked
+    ids:
+      - IMPL-0236
+      - IMPL-0237
+    note: 準拠テンプレートの委任のマージの経路へは IMPL-0236(届いている)。案件のデプロイのワークフローへは IMPL-0237(準拠テンプレートに無い)
+    issue: 293
+  - key: phase5-implementation/ci-gates#デプロイゲート > 配布用のブランチの保護を独立の要求事項にしない
+    status: none
+    category: not-imposed
+    reason: 配布用のブランチの保護を独立の要求事項にしない(Issue #293 裁定 J-6)
+    issue: 293
   - key: phase5-implementation/compute-strategy#(冒頭)
     status: pending
   - key: phase5-implementation/compute-strategy#ローカルファーストの多段検査
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 段の構成は手引き。公式の判定を必須の検査の集約で行い、手元の結果を証跡にしない規定は第4章 G-5 のマーク(IMPL-0232)で追う。段の中の順序は課さない
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 判定基準を実装する検査と集約
+    issue: 293
   - key: phase5-implementation/compute-strategy#クラウド CI のコスト最適化
     status: pending
   - key: phase5-implementation/compute-strategy#AI トークン予算の管理
@@ -1670,7 +1739,10 @@ sections:
   - key: phase5-implementation/compute-strategy#実行の強制停止の実装 > 誤検知への対処
     status: pending
   - key: phase5-implementation/compute-strategy#ローカル実行環境の整備
-    status: pending
+    status: none
+    category: not-imposed
+    reason: 環境の均質化は手引き。手元の検査の定義が基底より古いことを理由に手元の実行を止めることは課さない(EV-0138)
+    issue: 293
   - key: phase5-implementation/compute-strategy#規模別の目安
     status: pending
   - key: phase5-implementation/context-base#(冒頭)
@@ -1806,7 +1878,13 @@ sections:
   - key: phase5-implementation/git-strategy#マージ後の扱い
     status: pending
   - key: phase5-implementation/git-strategy#段階導入(テーラリング)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0238
+    location:
+      - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整"
+    note: 1名の行は IMPL-0238。2名・3名以上・規制業の行のルールセットの承認の数は第8章 軸E の IMPL-0110 で追う
+    issue: 293
   - key: phase5-implementation/label-mailbox#(冒頭)
     status: pending
   - key: "phase5-implementation/label-mailbox#4.1 設計背景: 割り込み崩壊（外部割込競合）の防止"

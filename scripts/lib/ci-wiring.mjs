@@ -1,0 +1,144 @@
+// CI の結線の検査の本体(Issue #293 裁定 J-1・J-2・J-6 / ADR-0077)。純粋な関数だけを置く。
+//
+// 検査の一覧の正本は package.json の check である。説明の側(CLAUDE.md・README・CONTRIBUTING・
+// PR テンプレート・プロジェクト運営の頁)は列挙しない。ここで確かめるのは、ワークフローがその
+// npm run check を合否に使い、公開と配布がその通過の後にだけ走ることである。
+// YAML の構造だけを読む。散文の列挙は検査しない(偽陽性を生むため、課さないと決めた)。
+
+const CI_FILE = 'ci.yml';
+const CHECK_JOB = 'check';
+
+const asArray = (v) => (v === undefined || v === null ? [] : Array.isArray(v) ? v : [v]);
+const steps = (job) => asArray(job?.steps).filter((s) => s && typeof s === 'object');
+const runOf = (step) => (typeof step.run === 'string' ? step.run : '');
+const usesOf = (step) => (typeof step.uses === 'string' ? step.uses : '');
+
+/** Pages へ配備するジョブか */
+export function deploysPages(job) {
+  return steps(job).some((s) => /^actions\/deploy-pages@/.test(usesOf(s)));
+}
+
+/** dist/standard へ書くジョブか */
+export function writesDistStandard(job) {
+  return steps(job).some((s) => /dist\/standard/.test(runOf(s)) && /git\s+push/.test(runOf(s)));
+}
+
+/** 契機に、main への push があるか */
+function pushesMain(on) {
+  if (!on || typeof on !== 'object') return false;
+  if (!('push' in on)) return false;
+  const push = on.push;
+  if (push === null || push === undefined) return true; // 全ブランチの push(main を含む)
+  const branches = asArray(push.branches);
+  return branches.length === 0 || branches.includes('main');
+}
+
+/** ジョブの if が、main への push に限っているか(式の文字列を読む) */
+function gatedOnPushToMain(job) {
+  const cond = typeof job?.if === 'string' ? job.if : '';
+  return /github\.event_name\s*==\s*'push'/.test(cond) && /github\.ref\s*==\s*'refs\/heads\/main'/.test(cond);
+}
+
+const WRITE = /write/;
+
+/**
+ * ワークフローの結線を検査する。
+ * @param {{ file: string, doc: any }[]} workflows .github/workflows/ の YAML を読んだもの
+ * @returns {string[]} 欠けた条件の一覧(空なら問題なし)
+ */
+export function checkWiring(workflows) {
+  const problems = [];
+  const ci = workflows.find((w) => w.file === CI_FILE);
+
+  // 5. 全ワークフローが最上位に permissions を明示し、最上位で書き込みを与えない
+  for (const w of workflows) {
+    const perms = w.doc?.permissions;
+    if (perms === undefined || perms === null) {
+      problems.push(`${w.file}: 最上位に permissions がありません。最上位は contents: read にし、書き込みはジョブ単位で付けます(条件5)`);
+      continue;
+    }
+    const values = typeof perms === 'string' ? [perms] : Object.values(perms);
+    if (values.some((v) => WRITE.test(String(v)))) {
+      problems.push(`${w.file}: 最上位の permissions が書き込みを与えています。書き込みはジョブ単位で付けます(条件5)`);
+    }
+  }
+
+  if (!ci) {
+    problems.push(`.github/workflows/${CI_FILE} がありません(条件1)`);
+    return problems;
+  }
+
+  // 1. 契機に pull_request と main への push がある
+  const on = ci.doc?.on;
+  if (!on || typeof on !== 'object' || !('pull_request' in on)) {
+    problems.push(`${CI_FILE}: 契機に pull_request がありません(条件1)`);
+  }
+  if (!pushesMain(on)) {
+    problems.push(`${CI_FILE}: 契機に main への push がありません(条件1)`);
+  }
+
+  // 2. ジョブ check に、run がちょうど npm run check の手順がある。手順にもジョブにも if・continue-on-error が無い
+  const job = ci.doc?.jobs?.[CHECK_JOB];
+  if (!job) {
+    problems.push(`${CI_FILE}: ジョブ ${CHECK_JOB} がありません(条件2)`);
+  } else {
+    if ('if' in job) problems.push(`${CI_FILE}: ジョブ ${CHECK_JOB} に if があります。条件によって検査が飛ばされます(条件2)`);
+    if ('continue-on-error' in job) {
+      problems.push(`${CI_FILE}: ジョブ ${CHECK_JOB} に continue-on-error があります。失敗が合否に使われません(条件2)`);
+    }
+    const runs = steps(job).filter((s) => runOf(s).trim() === 'npm run check');
+    if (runs.length === 0) {
+      problems.push(`${CI_FILE}: ジョブ ${CHECK_JOB} に、run がちょうど「npm run check」の手順がありません(条件2)`);
+    }
+    for (const s of runs) {
+      if ('if' in s) problems.push(`${CI_FILE}: npm run check の手順に if があります(条件2)`);
+      if ('continue-on-error' in s) problems.push(`${CI_FILE}: npm run check の手順に continue-on-error があります(条件2)`);
+    }
+
+    // 3. template のサブモジュールを取得する
+    const fetchesTemplate = steps(job).some(
+      (s) =>
+        /git\s+submodule\s+update\s+--init/.test(runOf(s)) && /(^|\s)template(\s|$)|--recursive/.test(runOf(s)),
+    ) || steps(job).some((s) => /^actions\/checkout@/.test(usesOf(s)) && ['true', 'recursive'].includes(String(s.with?.submodules)));
+    if (!fetchesTemplate) {
+      problems.push(`${CI_FILE}: ジョブ ${CHECK_JOB} が template のサブモジュールを取得していません。検査の入力が無く失敗します(条件3)`);
+    }
+  }
+
+  // 4・6. Pages へ配備するジョブと dist/standard へ書くジョブは、ci.yml にあり、needs に check を含み、
+  // main への push に限る。dist/standard へ書くジョブは environment を持つ
+  for (const w of workflows) {
+    for (const [name, j] of Object.entries(w.doc?.jobs ?? {})) {
+      const pages = deploysPages(j);
+      const dist = writesDistStandard(j);
+      if (!pages && !dist) continue;
+      const what = pages ? 'Pages へ配備するジョブ' : 'dist/standard へ書くジョブ';
+      if (w.file !== CI_FILE) {
+        problems.push(`${w.file}: ${what} ${name} が ${CI_FILE} の外にあります。検査の通過を待ちません(条件4)`);
+        continue;
+      }
+      if (!asArray(j.needs).includes(CHECK_JOB)) {
+        problems.push(`${CI_FILE}: ${what} ${name} の needs に ${CHECK_JOB} がありません(条件4)`);
+      }
+      if (!gatedOnPushToMain(j)) {
+        problems.push(`${CI_FILE}: ${what} ${name} の if が、main への push に限っていません(条件4)`);
+      }
+      if (dist && !j.environment) {
+        problems.push(`${CI_FILE}: ${what} ${name} に environment がありません。資格情報を、配備のブランチを main に限った実行環境に置きます(条件6)`);
+      }
+    }
+  }
+
+  return problems;
+}
+
+/** 失敗の文言。欠けた条件と、検査の一覧の正本を出す */
+export function renderProblems(problems) {
+  return [
+    `CI の結線の検査: ${problems.length} 件の条件が欠けています。`,
+    ...problems.map((p) => `  - ${p}`),
+    '',
+    '検査の一覧の正本は package.json の check です。CI はその npm run check を合否に使い、公開と配布はその通過の後にだけ走ります。',
+    '規約: src/content/docs/adr/0077-repository-ci-wiring-and-distribution.md',
+  ].join('\n');
+}

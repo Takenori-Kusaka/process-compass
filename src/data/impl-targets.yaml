@@ -319,3 +319,33 @@ targets:
     kind: planned
     path: scripts/gate/agent-run-record.mjs
     description: フェーズ5「エージェントの操作の統制」の生成の条件(実行の識別子・指示資産の版)を、変更単位で自動で記録する仕組みの置き場。準拠テンプレートに実装は無い。モデルの識別はトレーラ Co-Authored-By による(Issue #292)
+
+  - id: g5-local
+    name: G-5 の手元の検査(g5-local)
+    kind: template-file
+    path: scripts/gate/g5-local.mjs
+    description: G-5 の検査を、CI(gate-g5.yml)と同じ範囲で手元で実行する。結果を証跡の置き場へ書かず、結果が G-5 の判定の証跡にならないことと、マージを止めるのは CI の必須チェック gate-g5 であることを出力する(第4章 G-5「判定基準を実装する検査と集約」。Issue #293)
+
+  - id: g5-adapter
+    name: G-5 のアダプタの実行(adapter.mjs)
+    kind: template-file
+    path: scripts/gate/adapter.mjs
+    description: gate-g5.yml の test・coverage・static-analysis・ip-clearance・secret-scan のジョブが、スタックごとのアダプタ(adapters/<stack>.json)のコマンドを実行する入口。構成・アダプタが無ければ失敗し、必須の検査のコマンドが空なら失敗する(Issue #293)
+
+  - id: delegation-workflow
+    name: 委任した変更のマージの経路(delegation.yml)
+    kind: template-file
+    path: .github/workflows/delegation.yml
+    description: 委任の範囲への該当を基底ブランチの定義で判定し、組織が有効化した場合に限ってマージする。マージのトークンは、配備のブランチを既定ブランチに限った Environment delegated-merge の秘密情報から読む(ジョブの environment)。test-check-delegation.mjs がワークフローの定義を確かめる(フェーズ5「CI/CD ゲート構成」。Issue #293)
+
+  - id: deploy-workflow
+    name: 案件のデプロイのワークフローの置き場(予定)
+    kind: planned
+    path: .github/workflows/deploy.yml
+    description: リリース決裁(G-8)の後の配備のワークフローの置き場。配備の資格情報を、配備のブランチを既定ブランチに限った実行環境の秘密情報に置く。準拠テンプレートに実装は無い(2026-10-23 確認。Issue #293)
+
+  - id: gate-g5-workflow
+    name: G-5 のワークフロー(gate-g5.yml)
+    kind: template-file
+    path: .github/workflows/gate-g5.yml
+    description: PR と既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行するワークフロー。必須ステータスチェックの名前は gate-g5(Issue #293)

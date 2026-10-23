@@ -57,7 +57,7 @@
 ## コマンド
 
 - `npm run dev` — ローカルプレビュー
-- `npm run check` — textlint + トーン + 根拠水準 + 節番号の参照 + エンジンテスト + 複製の検査 + ビルド(push 前に必ず通ること。PR では CI (`ci.yml`) が同じチェックを実行)
+- `npm run check` — 全検査(push 前に必ず通すこと)。**検査の一覧の正本は `package.json` の `check`**(ここには列挙しない)。CI(`ci.yml`)は PR と main への push で同じ `npm run check` を実行し、サイトの公開と `dist/standard` への配布はその通過の後にだけ走る(`scripts/check-ci-wiring.mjs` が結線を確かめる)。`template/` を初期化していないと失敗する(`git submodule update --init --recursive`)
 - `npm run lint:refs` — 附属書H・附属書D・プロセス内部監査が引く節番号・ゲート・基準・様式・ADR 番号の実在を検査する
 - `npm run template:kb` — テンプレートへ複製する知識ベースを再生成する
 

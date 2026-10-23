@@ -30,6 +30,7 @@ import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
+import { missingInputs, INIT_HINT } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = 'src/content/docs';
@@ -176,13 +177,15 @@ function walk(rel, out) {
   }
 }
 
+// 置き場が無い・空のディレクトリ(初期化していないサブモジュール)なら失敗させる。
+// 検査できなかった置き場を、違反なしとして通さない(Issue #293 裁定 J-3 / ADR-0077)
 const targets = [];
-let skippedRoots = 0;
+const missingRoots = missingInputs(ROOT, scan.roots ?? []);
+for (const m of missingRoots) {
+  report(REGISTRY, 0, '検査の入力が無い', m.rel, `廃した言い回しの置き場 ${m.rel} が${m.why}。検査を実施できないため失敗に数えます。取得: ${INIT_HINT}`);
+}
 for (const r of scan.roots ?? []) {
-  if (!existsSync(path.join(ROOT, r))) {
-    skippedRoots++;
-    continue;
-  }
+  if (missingRoots.some((m) => m.rel === r)) continue;
   walk(r, targets);
 }
 for (const rel of targets) {
@@ -202,8 +205,7 @@ const normative = docs.filter((d) => d.kind === 'normative').length;
 const informative = docs.filter((d) => d.kind === 'informative').length;
 if (violations.length === 0) {
   console.log(
-    `規定の表現形式: 違反なし(規定の文書 ${normative}・参考の附属書 ${informative}・廃した言い回し ${phrases.length} 句を ${targets.length} ファイルで検査)` +
-      (skippedRoots ? `。検査できなかった置き場 ${skippedRoots} 件(未初期化)` : '')
+    `規定の表現形式: 違反なし(規定の文書 ${normative}・参考の附属書 ${informative}・廃した言い回し ${phrases.length} 句を ${targets.length} ファイルで検査)`
   );
   process.exit(0);
 }

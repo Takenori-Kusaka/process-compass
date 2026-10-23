@@ -2,6 +2,10 @@
 //
 //   node scripts/check-gate-criteria.mjs           検査のみ
 //   node scripts/check-gate-criteria.mjs --write   src/data/processes/integrated.yaml を書き戻す
+//   node scripts/check-gate-criteria.mjs --kb <path>
+//                                                  配布する知識ベースそのものを検査する(既定は
+//                                                  template/scripts/vendor/tailoring-kb.json)。
+//                                                  環境変数 GITHUB_SHA があれば、生成元の版との一致も求める
 //
 // 正本は src/content/docs/phase4-process-design/gate-criteria.md の判定基準表です。
 // integrated.yaml の gates[].criteria は生成物であり、手で編集しません(ADR-0048)。
@@ -12,6 +16,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { missingInputs, describeMissing, commitProblems } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE = path.join(ROOT, 'src/content/docs/phase4-process-design/gate-criteria.md');
@@ -137,8 +142,21 @@ if (process.argv.includes('--write')) {
 // 3方向目: 配布した KB が判定基準を実際に運んでいるか。
 // 生成器が criteria を出さなくなっても、KB と YAML の突合だけでは検出できない。
 // 「配る仕組みがあること」と「配っていること」は別である。
-const KB = path.join(ROOT, 'template/scripts/vendor/tailoring-kb.json');
-if (fs.existsSync(KB)) {
+//
+// 対象の KB は、既定ではテンプレートへ複製したもの。配布のジョブ(ci.yml の publish)は、
+// dist/standard へ push する直前に、生成した KB を --kb で渡す(ADR-0052 決定1・ADR-0077)。
+// KB が無いときは失敗させる。入力が無いことを「一致」として扱わない(Issue #293 裁定 J-3)。
+const kbAt = process.argv.indexOf('--kb');
+const kbArg = kbAt >= 0 ? process.argv[kbAt + 1] : null;
+if (kbAt >= 0 && (!kbArg || kbArg.startsWith('--'))) {
+  problems.push('--kb には検査する知識ベースのパスを渡してください');
+}
+const KB = kbArg ? path.resolve(kbArg) : path.join(ROOT, 'template/scripts/vendor/tailoring-kb.json');
+const kbRel = path.relative(ROOT, KB) || KB;
+const kbMissing = kbArg ? missingInputs(ROOT, [kbRel]) : missingInputs(ROOT, ['template', kbRel]);
+if (kbMissing.length) {
+  problems.push(describeMissing('配布した知識ベースの検査', kbMissing));
+} else {
   const kb = JSON.parse(fs.readFileSync(KB, 'utf8'));
   const kbTotal = (kb.gates ?? []).reduce((n, g) => n + (g.criteria?.length ?? 0), 0);
   if (kbTotal !== checked) {
@@ -147,9 +165,9 @@ if (fs.existsSync(KB)) {
         `  'npm run template:kb' を実行してください。件数が合わない場合、生成器が criteria を出していません`,
     );
   }
-  if (!kb.source?.commit) {
-    problems.push('配布した知識ベースに生成元の版(source.commit)がありません');
-  }
+  // 生成元の版は 40 桁の16進に限る('unknown' を通さない)。配布のジョブでは、起動したコミットとの一致も求める
+  const expected = kbArg ? process.env.GITHUB_SHA : undefined;
+  problems.push(...commitProblems(kb.source?.commit, expected));
   for (const g of kb.gates ?? []) {
     if (g.criteriaComplete !== false) {
       problems.push(
@@ -171,4 +189,6 @@ if (problems.length > 0) {
   process.exit(1);
 }
 
-console.log(`判定基準の複製: ${Object.keys(GATE_IDS).length}ゲート / ${checked}件(一致)`);
+console.log(
+  `判定基準の複製: ${Object.keys(GATE_IDS).length}ゲート / ${checked}件(一致。配布した知識ベース ${kbRel} を含む)`,
+);
