@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-09-30)。[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)・[ADR-0029](/process-compass/adr/0029-shipping-approver-merge-exception/)・[ADR-0035](/process-compass/adr/0035-separation-by-execution-context/)・[ADR-0036](/process-compass/adr/0036-gate-closure-by-record/)・[ADR-0039](/process-compass/adr/0039-scope-in-heading-and-unit-of-judgement/)は維持します。本 ADR はこれらを置き換えず、第5章 5.5 の書き方を改めます。
+採用(2026-09-30)。一部置き換え(→ ADR-0059 の決定1・決定5): 決定4 のうち、「5.4.6 の検知条件」として4つの比率を数える部分と、登録の根拠の1点目を、[ADR-0059](/process-compass/adr/0059-no-approval-ratio-trigger/)が置き換えました(2026-10-13)。[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)・[ADR-0029](/process-compass/adr/0029-shipping-approver-merge-exception/)・[ADR-0035](/process-compass/adr/0035-separation-by-execution-context/)・[ADR-0036](/process-compass/adr/0036-gate-closure-by-record/)・[ADR-0039](/process-compass/adr/0039-scope-in-heading-and-unit-of-judgement/)は維持します。本 ADR はこれらを置き換えず、第5章 5.5 の書き方を改めます。
 
 次の3点は、既存の決定と規定への補足です。採用済みの ADR の本文は書き換えません。
 

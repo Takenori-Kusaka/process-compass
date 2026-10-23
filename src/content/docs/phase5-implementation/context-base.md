@@ -225,6 +225,8 @@ context/
 - 保管の記録に次を残す。**外した日 / 外した理由(上表の基準) / 外した者 / 復帰の条件**
 - 復帰の条件の例: 同じ問いが再び出た、保管した記述に該当する誤りが再発した
 
+判断記録(`context/decisions/`)にも保管の手続が及びます。ただし、移す契機は上表の基準ではなく、判断記録の状態です。全部を置き換えた判断記録と廃止した判断記録を、その状態にした変更で `context/_archive/decisions/` へ移します。一部を置き換えた判断記録は移しません。この移動は、置き換える判断記録を判定した G-3 の帰結の事務であり、次の「誰が外すか」が扱う、読み込み実績に基づいて外す判断ではありません。外した者は、その G-3 の判定者です。手続の正本は[第6章 テンプレ2](/process-compass/phase4-process-design/deliverable-templates/)「置き換えと廃止」と[第3章 3.11.4](/process-compass/phase4-process-design/roles-responsibilities/)です。
+
 ### 誰が外すか
 
 **外す判断を AI に行わせてはなりません**。[3.11.4](/process-compass/phase4-process-design/roles-responsibilities/)要求事項3 のとおり、削除と統合の権限は AI維持管理者1名に集約します。

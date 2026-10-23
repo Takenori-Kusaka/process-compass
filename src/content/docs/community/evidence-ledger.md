@@ -122,6 +122,11 @@ sidebar:
 | EV-0032 | 決定1(後置という状態を設ければ、条件が失われずに次回へ渡るという判断) | E0(なし) | 2026-08-14 の会議体1回分 | 2027-08 | 本 ADR の4件について、条件が満たされた時点で採否が再検討された件数。**条件が満たされたにもかかわらず再検討されなかった件数が1件でも生じた場合、後置は記録として機能していないことになります** | [adr/0046-deferred-with-conditions](/process-compass/adr/0046-deferred-with-conditions/) |
 | EV-0036 | 決定3(立ち上げ期の過剰な統制を、3つの原因へ切り分ければ扱えるという判断) | E2(単一事例) | 案件 P-001 の3事象。**うち2件はテンプレートから作った直後の一度きりの期間に生じており、2件目以降の案件では再現しません** | 2027-08 | 2件目以降の案件で、立ち上げ期に強制層が実務を止めた件数と、その原因の内訳。**3つのいずれにも当てはまらない事象が生じた場合、ステージによる緩和の必要性を再検討します** | [adr/0050-enforcement-layer-is-not-staged](/process-compass/adr/0050-enforcement-layer-is-not-staged/) |
 | EV-0037 | 決定2(価値と受入基準の対応を見れば、価値の取りこぼしを検出できるという判断) | E2(単一事例) | 案件 P-001。企画書に価値として書いた項目のうち、受入基準へ対応しないものが存在した1件の観測に基づきます | 2027-08 | G-2 の確認で「対応する受入基準が無い価値」が指摘された件数と、そのうち後工程で価値の位置づけを見直した件数。**指摘が0件のまま、後工程で価値の位置づけの見直しが生じた場合、この確認は取りこぼしを検出していないことになります** | [adr/0051-usability-out-of-scope](/process-compass/adr/0051-usability-out-of-scope/) |
+| EV-0121 | プロダクトの原則を置くことを義務にしないこと | E1(間接) | 未記載 | 2027-10 | 原則を置いた案件と置かない案件での、G-3 基準2 の「突合先なし」の件数と、判断記録の置き換えの件数の比較 | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
+| EV-0122 | 判断記録の索引を課さず、置き換え・廃止の判断記録の保管と読み込みからの除外で、現に効いている判断記録の集合を示すこと | E1(間接) | 未記載 | 2027-10 | 保管の後も、置き換え済みの判断記録に従った変更が観測された件数と、その変更が読んだ判断記録の所在 | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
+| EV-0123 | 文書の量(総量・文書と実装の比率・増加の速度)と、判断記録の本数・行数・参照の回数を、指標にしないこと | E1(間接) | 未記載 | 2027-10 | ゲート滞留時間とレビュー所要時間が悪化しているのに、既存の指標で原因を特定できなかった事例の記録 | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/) |
+| EV-0124 | 同種の指摘をルール化の候補に挙げる目安の「3回」(フェーズ5・6、準拠テンプレートの観点表) | E0(なし) | 未記載 | 2027-10 | 是正の起動の記録のうち、件数の目安で拾えて、影響の起点で拾えなかった事例の件数 | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
+| EV-0125 | 統制の設定を変える変更ごとに、陰性の確認の記録を求めること | E1(間接) | 未記載 | 2027-10 | 陰性の確認で検出した、効いていない設定の件数と、別の経路で見つかった効いていない設定の件数 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- evidence-ledger:end -->
 

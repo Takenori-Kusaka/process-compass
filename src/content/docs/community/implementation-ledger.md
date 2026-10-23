@@ -21,9 +21,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 11 |
-| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 7 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 9 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 14 |
+| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 13 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 12 |
 | **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **101** |
 
 未分類の101件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
@@ -51,6 +51,9 @@ sidebar:
 | IMPL-0118 | 検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0120 | 適用の表明に併記する未達のゲートの件数と記録の欠落の件数を、表明の様式として出力する仕組みは無い。件数そのものは、構成(unmet[])と出荷の証跡の集約の出力から読める。表明する者が、表明の時点で転記して確かめる(#306) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0124 | 判定記録だけのコミットを基底ブランチへ入れる操作に、記名者以外の承認を課さない。GitHub のルールセットはパス単位の免除を持たないため、記録だけの PR にも承認 1 件が残る。承認者を記名者本人に限る手順は /gate と CODEOWNERS(誘導層。遮断に数えない)で降ろす。降りていない事実は rulesets/README に表示し、内部監査が確かめる(#321) | ブランチ保護のルールセット | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0132 | 判断記録の欄が空であること、「回復に要する時間」が単一の値であること、「顕在化が分かる兆候」が「なし」であること、前の判断記録と記述が一致していることの機械の検査。準拠テンプレートに実装が無い。判定者が判定のときに読んで確かめる | 判断記録の状態と参照の検査 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0135 | 欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(再発の可能性・類似・再発防止の形と理由・効いたことの確認)の様式。準拠テンプレートに様式が無い。品質保証の担当が記録の有無を確かめる。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う | 欠陥の台帳の様式 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0136 | 算定から除いた文書だけの変更を、判定完了時間の SLA で判定すること。出荷の集約は、文書だけの変更の判定完了時間を出していない。判定の滞留はゲート滞留時間(運用メトリクス)で人が見る | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 ### 全件
 
@@ -104,7 +107,7 @@ sidebar:
 | IMPL-0046 | G-7 基準8。類似の検知の実施記録と、期限を超過した未処理の指摘を集約で確かめる。ライセンス検査の実施記録の有無だけを確かめている | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 未分類 | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | IMPL-0047 | 欠陥注入の残存を、出荷の証跡の集約で確かめる | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 未分類 | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | IMPL-0048 | 委任の期間ごとの保証の開示を、期間を指定して出力し、期間の受容と異議の記録を確かめる。定期の実行は、実際の GitHub 上で確かめていない | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 未分類 | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
-| IMPL-0049 | 基準値を超える変更を失敗にせず、size:over を出して区分の下限を R2 へ引き上げる。算定はファイルごとの max(追加, 削除)で、テスト・fixture・snapshot は別に数える。ロックファイル・印のある自動生成ファイル・空白だけの一括整形と、判断記録・機能仕様・設計文書を算定から除く。基底ブランチの台帳の既存の例外承認の行は有効のまま。印の無い生成物と機械的な変換は機械で識別しない | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 未分類 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0049 | 基準値を超える変更を失敗にせず、size:over を出して区分の下限を R2 へ引き上げる。算定はファイルごとの max(追加, 削除)で、テスト・fixture・snapshot は別に数える。ロックファイル・印のある自動生成ファイル・空白だけの一括整形と、文書の置き場(docs・context・specs・templates・evidence・profiles とリポジトリの直下)の *.md を算定から除く。置き場の外の *.md は数える。基底ブランチの台帳の既存の例外承認の行は有効のまま。印の無い生成物と機械的な変換は機械で識別しない | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 未分類 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0050 | 保証の主張の6つの成立条件を、層1(docs/quality-assurance-policy.md)・層2(企画書の4欄と G-1 の判定記録)・保証の開示の値から機械で判定し、成立・不成立の件数、条件ごとの不成立の件数、照らした層1 の版、受容しない条件に当たる事実と出所を出力する(内側・外側の開示とも)。不成立の範囲に『品質保証の対象外として出荷した』の定型の文を出す。受容しない条件の照合は層1 の項目2 の印を付けた条件に限り、印の無い条件は出荷判定者の突合へ回す。範囲の変更はすべて保証範囲に入るものとして数える。条件4 は判定記録が無い間は席の構成で判定する(org-assurance.mjs) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | IMPL-0051 | 組織継続の側の状態(代替の無い依存先、退出を試していない依存先、縮退を確かめていない業務と止める席、後継不在の席、コア理解の保持者が1名以下のコア機能、自組織に無い資産)を項目5 に受容の状態つきで、依存先の一覧・退出の予行・縮退・後継・有事の決定者の空欄・停止の申し立ての解除を項目7 に出す。D-0 節15 の期限つきの受容を照合し、状態が解消していない期限切れの受容を記載の欠落にする | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | IMPL-0052 | テンプレ4 の G-8 の決断の記録に、照らした層1 の版・上申(届けた先と日付)・品質保証の対象外として出荷することの受容の3行を持たせ、/gate の G-8 の補助ファイルに照合と上申の手順を置く。証跡の集約が、3行の欠落、「異議あり」を退けた受容に上申の日付が無い記録、不成立がある出荷での対象外の受容の記名の欠落と権限者の不一致を記載の欠落にする。段階を超える受容かどうかは判定しない | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -184,5 +187,17 @@ sidebar:
 | IMPL-0127 | 変更要求(CHANGES_REQUESTED)の本文に、満たさない基準の項目番号と再提出の期限があることを、G-5 の PR 単位の検査で確かめる。欠く変更要求を「理由の無い差し戻し」として出す。中身は確かめない(#321) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0128 | 記録だけの PR の承認者と、判定記録の記名者の照合。記名者本人の署名コミット、または記名者の承認レビューが無い記録を、記名が自己申告の記録として保証の開示の項目1 に件数で出す。欠落には数えない。記名者以外の承認が付いた記録の PR は、取り込みの事務として開示する(#321) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0129 | G-2・G-4 を判定者本人のレビューで記録した変更で、対象の「機能の ID + PR 番号」にマージ後のコミットの識別子を併記し、レビューの commit_id がマージ時の head と一致することを検査する。ずれた変更を「確定していない版を取り込んだ」として欠落に数える。宣言行の無いレビューは G-2・G-4 に数えない。IMPL-0107(様式の対象の欄)は変えず、機械の検査を補う(#321) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0130 | 保管領域(context/_archive/)をエージェントの読み込みから除外する。権限設定の deny に Read(./context/_archive/**) を置き、構成の生成はステージに依らずこの行を残す | エージェントの権限設定 | — | 降りている | 実在だけ確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0131 | 判断記録の置き換えの両側の参照(置き換える側の「置き換える決定」欄と、置き換えられた側の状態の行)の一致と、状態が置き換え・廃止の判断記録が保管領域(context/_archive/decisions/)にあること、状態が採用・一部置き換えの判断記録が保管領域に無いことを検査し、不一致で失敗させる | 判断記録の状態と参照の検査 | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0132 | 判断記録の欄が空であること、「回復に要する時間」が単一の値であること、「顕在化が分かる兆候」が「なし」であること、前の判断記録と記述が一致していることの機械の検査。準拠テンプレートに実装が無い。判定者が判定のときに読んで確かめる | 判断記録の状態と参照の検査 | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0133 | G-3 の判定記録に、判定した判断記録の番号と、判定した版のコミットを書く欄を置く。判定記録は判断記録の内容を再掲しない | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0134 | 閾値・除外設定・ルールセット・フック・権限・ワークフローの設定を変える PR に、本文の「統制の設定の陰性の確認」の記録(通した違反の場面・結果・確かめた者)を求め、欠けていれば失敗させる。結果が「止まらなかった」なら失敗させる。場面が実際に止まるかは確かめない | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0135 | 欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(再発の可能性・類似・再発防止の形と理由・効いたことの確認)の様式。準拠テンプレートに様式が無い。品質保証の担当が記録の有無を確かめる。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う | 欠陥の台帳の様式 | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0136 | 算定から除いた文書だけの変更を、判定完了時間の SLA で判定すること。出荷の集約は、文書だけの変更の判定完了時間を出していない。判定の滞留はゲート滞留時間(運用メトリクス)で人が見る | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0137 | 判断記録の様式に、状態の4つの語彙(採用 / 一部置き換え(→ ADR-MMM の決定 n)/ 置き換え(→ ADR-MMM)/ 廃止)、置き換える決定の欄、可逆性の欄(戻せる選択か: はい / いいえ)、期限つきの実験の期限の欄を置く | 成果物テンプレート テンプレ2(判断記録) | — | 降りている | 実在だけ確かめる | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
+| IMPL-0138 | プロダクトの原則の様式(名前・文・理由・含意(反する選択の例)の4欄、技術判断者の記名、改廃の判断記録の番号)を置く。置くことは義務にしない。案を書かない | 成果物テンプレート テンプレ12(プロダクトの原則) | — | 降りている | 実在だけ確かめる | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
+| IMPL-0139 | 出荷判定の証跡の集約は、判断記録の件数を出さず、状態ごとの件数(採用・一部置き換え・置き換え・廃止。保管領域を含む)と、置き換えの両側の参照の不一致の件数を出す。README を数えない | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/) |
+| IMPL-0140 | 期限つきの実験の判断記録のうち、期限を過ぎて、状態の行に継続・置き換え・廃止のいずれも反映されていないものを一覧に出す(check-decisions.mjs --overdue)。失敗にはしない。扱いは技術判断者が決める | 判断記録の状態と参照の検査 | — | 降りている | 機械が確かめる | [phase6-operation/improvement-cycle](/process-compass/phase6-operation/improvement-cycle/) |
+| IMPL-0141 | ポストモーテムの手順に、是正の起動の4項目(再び起こりうるか・類似・仕組みで置くか置かない理由・効いたことの確認)を書くことを置く。Sev1・Sev2 の是正の記録をポストモーテムで行い、別の記録を作らない。内容の妥当性は確かめない | 障害時に使う記録の補助ファイル | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- implementation-ledger:end -->
