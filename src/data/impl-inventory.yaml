@@ -229,7 +229,7 @@ sections:
   - key: "phase4-process-design/deliverable-templates#テンプレ7: 実装計画(plan)"
     status: none
     category: elsewhere
-    reason: 実装計画の様式と運用ルール。状態「やり直し」は手戻り率の分子であり、集計と発火は 5.4.6 の IMPL-0291(降りていない)で追う。準拠テンプレートの実装計画の様式は状態の列を持たない(様式の欄は必須欄の対応表で検査する)。見積の目安は EV-0087
+    reason: 実装計画の様式と運用ルール。状態「やり直し」は手戻り率の分子であり、集計と発火は 5.4.6 の IMPL-0291(降りていない)で追う。準拠テンプレートの実装計画の様式は状態の列(「やり直し」を含む)を持ち、必須欄の対応表で検査する(#311 突合 X-17)。見積の目安は EV-0087
     location:
       - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
     issue: 311
@@ -843,17 +843,22 @@ sections:
     status: pending
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.5 レベルの引き上げ
     status: none
-    category: org-design
-    reason: 引き上げは技術判断者の申請と B-2 の判定(人の判断)。準拠テンプレートは L2 を支えず、登録した変更種別の L3 は 5.5.4 の登録の判定が兼ねる(上限と登録の拒否は 5.4.6 の IMPL-0289 で追う)。条件1 の値は EV-0147、条件4 の値は EV-0154。条件2 は組織が G-1 で定めた範囲
+    category: elsewhere
+    reason: 引き上げは技術判断者の申請と B-2 の判定(人の判断)。準拠テンプレートは L2 を支えず、登録した変更種別の L3 は 5.5.4 の登録の判定が兼ねる。上限と登録の拒否は 5.4.6 の IMPL-0289、登録の判定で戻る停止は IMPL-0284〜0286 で追う(#311 突合 X-12)。条件1 の値は EV-0147、条件4 の値は EV-0154(5.4.5 から参照する)。条件2 は組織が G-1 で定めた範囲
+    location:
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合"
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ
     status: marked
     ids:
       - IMPL-0290
+      - IMPL-0294
+      - IMPL-0295
     location:
       - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合"
       - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
-    note: AI 起因の欄は IMPL-0290(欠陥の台帳)。停止の導出と表示は「登録した変更種別での停止」の IMPL-0284〜0288・0291、上限と L2 を支えない宣言は計測できない検知条件の節の IMPL-0289。重複率を課さないことと、意図の禁止を課さないことは課さない明記(ADR-0081)。1件・0件は EV-0154、2か月は EV-0146
+    note: AI 起因の欄は IMPL-0290(欠陥の台帳)。L1 の範囲での数え直しの記録は IMPL-0294、誤発火の記録は IMPL-0295(欠陥の台帳の「引き下げの点検の記録」。#311 突合 X-11)。停止の導出と表示は「登録した変更種別での停止」の IMPL-0284〜0288・0291、上限と L2 を支えない宣言は計測できない検知条件の節の IMPL-0289。重複率を課さないことと、意図の禁止を課さないことは課さない明記(ADR-0081)。1件・0件は EV-0154、2か月は EV-0146、毎月の評価は EV-0155。30件は EV-0145
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合
     status: marked
@@ -861,7 +866,7 @@ sections:
       - IMPL-0289
     location:
       - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
-    note: 準拠テンプレートが支えるレベル(登録した変更種別の L3、それ以外の L1)と上限は IMPL-0289。判定不能の停止と表示は「登録した変更種別での停止」の IMPL-0286〜0288。観測の窓と最小標本数は第4章「閾値の設定と較正」の IMPL-0268。IMPL-0104 は IMPL-0284〜0293 へ分けた(再利用しない)
+    note: 準拠テンプレートが支えるレベル(登録した変更種別の L3、それ以外の L1)と上限は IMPL-0289。判定不能の停止と表示は「登録した変更種別での停止」の IMPL-0286〜0288。観測の窓と最小標本数は第4章「閾値の設定と較正」の IMPL-0268。IMPL-0104 は IMPL-0284〜0289・0291 へ分けた(再利用しない)。IMPL-0290・0292・0293 は新しい規定の実装マーク
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     status: marked
@@ -872,7 +877,7 @@ sections:
       - IMPL-0287
       - IMPL-0288
       - IMPL-0291
-    note: 第1区分の停止 IMPL-0284、差し戻し率の集計と発火 IMPL-0285、判定不能 IMPL-0286、表示 IMPL-0287・0288、手戻り率 IMPL-0291(降りていない)。理解保持者数の停止が保持者の回復で解ける点は IMPL-0284 の注記に開示した
+    note: 第1区分の停止 IMPL-0284、差し戻し率の集計と発火 IMPL-0285、判定不能 IMPL-0286、表示 IMPL-0287・0288、手戻り率 IMPL-0291(降りていない)。理解保持者数の停止は、運用引き継ぎ文書の履歴から1名以下だった時点を導き、回復の後の登録の判定まで解かない(#311 突合 X-2)。原因を特定できない事象の停止は、原因の特定まで解かない(突合 X-3)
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.7 能力維持措置
     status: pending
