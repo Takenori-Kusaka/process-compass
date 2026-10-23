@@ -155,6 +155,7 @@ sidebar:
 | EV-0151 | 境界を明示的に設計した二層の混成(意図的ハイブリッド)が有効に働く、という設計の前提 | E0(なし) | 未記載 | 2027-10 | 採用組織の案件の、出荷判定(G-7)・リリース決裁(G-8)の判定の間隔と AI協調ループの反復の間隔の比と、反復で得た学習が受入基準とスコープの変更へ戻った件数 | [phase4-process-design/integrated-process](/process-compass/phase4-process-design/integrated-process/) |
 | EV-0152 | 下表の要素を組み合わせた構成が、組み合わせとして機能するという前提 | E0(なし) | 未記載 | 2027-10 | 本標準を適用した案件の、ゲートごとの差し戻しの件数と、出荷の後に見つかった欠陥の原因となったゲートの記録 | [phase4-process-design/integrated-process](/process-compass/phase4-process-design/integrated-process/) |
 | EV-0153 | 附属書A A.7 の、スクラムガイド(2020年11月版)の文言と本標準の規定との接点の読み | E1(間接) | 未記載 | 2027-10 | スクラムガイドの改訂と、スクラムを用いる採用組織の案件で本節の読みと食い違う運用が要った記録 | [phase4-process-design/integrated-process](/process-compass/phase4-process-design/integrated-process/) |
+| EV-0154 | AI が起因となった Sev1・Sev2 の初期値(1件)と、5.4.5 の条件4 の初期値(期間内に0件) | E0(なし) | 未記載 | 2027-10 | 採用組織で、この行によって引き下げた範囲のうち後の点検で引き下げが不要だったと分かった件数(誤発火)と、引き下げなかった範囲で同種の事象が続いた件数(見逃し)の観測 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 
 <!-- evidence-ledger:end -->
 

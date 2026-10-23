@@ -32,6 +32,7 @@ sidebar:
 | 基準値を超えた変更の扱い | 規模の基準値を超えた PR | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#基準値を超えた変更の扱い適用-規模の基準値を超えた-pr) |
 | AI 品質指標の扱い | AI が関与した成果物の品質を比率で扱う場合。傾向の確認と第5章 5.4.6 の検知条件を含む | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#ai-品質指標の扱い適用-ai-が関与した成果物の品質を比率で扱う場合傾向の確認と第5章-546-の検知条件を含む) |
 | 新規に変更した範囲へ限定する | G-5 基準3 以外の定量条件 | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#新規に変更した範囲へ限定する適用-g-5-基準3-以外の定量条件) |
+| 登録した変更種別での停止 | 5.5.4 で登録した変更種別 | その他 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#登録した変更種別での停止適用-554-で登録した変更種別) |
 | 5.5.4 委任の条件 | CL0・R3 の変更 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#554-委任の条件適用-cl0r3-の変更) |
 | 5.7.3 選択肢の比較 | R1 の決定・例外承認 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#573-選択肢の比較適用-r1-の決定例外承認) |
 | 2.10.2 規模の合意 | 事業ステージのスコープ3層の規模の合意 | ステージごと | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/#2102-規模の合意適用-事業ステージのスコープ3層の規模の合意) |

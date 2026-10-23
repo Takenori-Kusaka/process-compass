@@ -386,3 +386,8 @@ targets:
     path: scripts/gate/check-g1.mjs
     description: 企画書(docs/project-brief.md)の必須の欄の有無を確かめる。G-5 基準3 のカバレッジの測る範囲の行を含む(Issue #296)
 
+  - id: autonomy-derivation
+    name: AI自律レベルの導出と停止(登録した変更種別)
+    kind: template-file
+    path: scripts/gate/autonomy.mjs
+    description: 委任の登録から、範囲ごとの現在の AI自律レベル(登録した変更種別は L3、それ以外は L1)を導き、第5章 5.4.6 の第1区分(AI 起因・原因を特定できない Sev1・Sev2、コア機能の理解保持者数1名以下)と第2区分の差し戻し率(毎月、直近2か月の窓、最小標本数30件、判定不能)で、登録した変更種別を止める。委任の判定(delegation.mjs)・次の一手・保証の開示が同じ導出を使う(#311)

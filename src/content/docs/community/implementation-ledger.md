@@ -23,21 +23,21 @@ sidebar:
 | --- | --- | --- | --- | --- | --- |
 | 第1章 | 20 | 0 | 0 | 3 | **17** |
 | 第2章 | 38 | 2 | 0 | 4 | **32** |
-| 第3章 | 87 | 13 | 0 | 14 | **60** |
+| 第3章 | 87 | 13 | 0 | 15 | **59** |
 | 第4章 | 91 | 14 | 2 | 5 | **70** |
-| 第5章 | 48 | 20 | 0 | 9 | **19** |
-| 第6章 | 70 | 0 | 0 | 0 | **70** |
+| 第5章 | 49 | 22 | 0 | 8 | **19** |
+| 第6章 | 70 | 1 | 0 | 3 | **66** |
 | 第7章 | 42 | 0 | 0 | 2 | **40** |
-| 第8章 | 47 | 1 | 0 | 1 | **45** |
+| 第8章 | 47 | 1 | 0 | 2 | **44** |
 | 附属書B | 8 | 0 | 0 | 0 | **8** |
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
-| 附属書H | 43 | 2 | 0 | 3 | **38** |
-| フェーズ5 | 302 | 31 | 0 | 45 | **226** |
-| フェーズ6 | 133 | 2 | 0 | 15 | **116** |
-| **計** | 957 | 85 | 2 | 101 | **769** |
+| 附属書H | 43 | 3 | 0 | 7 | **33** |
+| フェーズ5 | 303 | 31 | 0 | 47 | **225** |
+| フェーズ6 | 133 | 3 | 0 | 15 | **115** |
+| **計** | 959 | 90 | 2 | 111 | **756** |
 
-未棚卸しの769節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
+未棚卸しの756節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
 **台帳の件数は網羅の証明ではありません**。降りていない規定が0件であることも、未棚卸しの節が0件であることも、規定がすべて降りたことを示しません。機械が確かめるのは、節が区分つきで登録されていること、登録の鍵と識別子が実在すること、「対象にしない」の節にマークが無いことまでです。節の中の規定がすべてマークされているかは、区分を登録した者の判断です。
 
@@ -47,9 +47,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 36 |
-| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 48 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 98 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 43 |
+| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 49 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 99 |
 | **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **101** |
 
 未分類の101件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
@@ -75,7 +75,6 @@ sidebar:
 | IMPL-0048 | 委任の期間ごとの保証の開示を、期間を指定して出力し、期間の受容と異議の記録を確かめる。定期の実行は、実際の GitHub 上で確かめていない | 出荷判定の証跡の集約(保証の開示) | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | IMPL-0086 | 10名以上の規則「機能責任者へ仕様承認を委譲することを推奨する」。機能責任者の席も委譲の記録も構成に無く、G-4 の判定者は価値責任者の席のまま。機械では確かめない。採用者は委譲の有無と判定者を社内の手順で定め、附属書I I.10 の様式に手で代える手順を書く(#288 第6巡) | process.config.json の roles[] | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0102 | L2 の「リスクを機械的に採点し閾値で審査深度を変える運用が稼働している」ことの機械の検証。採点の稼働は自己申告を超えて検査できる条件が定まっていないため、テンプレートへ降ろしていない。宣言は記録として受け、緩和は根拠の実在と区分の条件の範囲に限る | G-5 の PR 単位の検査(pr-rules) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0104 | 5.4.6 の第2区分の検知条件(差し戻し率・重複率・手戻り率)の期間ごとの集計と、検知した時点の自動の引き下げ。準拠テンプレートは3つの比率を算出せず、AI自律レベルを構成に持たない。採用者が集計の手段を備えるまで、引き下げは発火しない。備えるまでは L1 で運用する。備えたかどうかは、D-0 と登録の根拠(5.5.4)を内部監査で確かめる | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0116 | 外部の確認者を独立レビュアの席の責任者に置く条件のうち、力量の確認(3.4.1)と、席の規定に従うことの書面による合意。構成に記録の欄が無く、機械は確かめない。任免の決定者の記名だけを機械が要求する。採用者は、任免の決定の時点で2つを確かめる手順と、記録の置き場を、社内の手順で定める(#307) | process.config.json の seats[] | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0117 | 承認を独立した人の確認に数える人(席の責任者でない確認者、外部の確認者を含む)の力量の確認。構成に、席の責任者でない人の確認の記録の欄が無く、出荷の証跡の集約は「力量の確認の記録が無い確認者による確認」の件数と「依頼した本人による確認」の区別を出さない。席の責任者本人の力量(3.4.3)の未確認は、従来どおり項目7 に出る。採用者は、確認者ごとの確認の記録の置き場と、件数と区別を保証の開示へ添える手順を、社内の手順で定める(#307) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0118 | 検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305) | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
@@ -149,7 +148,7 @@ sidebar:
 | IMPL-0256 | human-verify の3要素(手順・結果・判断)。PR の様式の「検証方法と結果」の注記は、人が書く欄であることと、実行したことと観測したことの例を置くが、判断(受入基準を満たすと考えた理由を自分の言葉で1文)の例と欄の指示が無い。添付と所在は求めていない。記入の中身は機械で確かめない(出荷判定者と独立レビュアが読む) | PR の本文の様式 | [phase5-implementation/pr-workflow](/process-compass/phase5-implementation/pr-workflow/) |
 | IMPL-0257 | 待つことで費用が増えること(キャッシュの保持時間の失効など)を、ゲートの判定や人の承認を急がせる理由にしない。AI の担い手が承認を催促する挙動を制約する規定で、準拠テンプレートの CLAUDE.md と /pit の指示資産に置ける。現状は置いていない。AI維持管理者が、承認の催促に費用を理由として挙げた記録が無いかを抜き取りで確かめる | CLAUDE.md の構成依存部分 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0259 | node 以外のアダプタ(python・go・none など)で、変更で加えた・変えたコードの範囲を測ること。準拠テンプレートの node 以外のアダプタは行単位の被覆(coverageDetail)を持たない。範囲を変更にした構成は失敗させ、全体で判定するよう求める | G-5 基準3 のカバレッジの判定(coverage-check.mjs) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0268 | 比率の判断に、観測の窓と窓の中の最小標本数を掛ける。準拠テンプレートは差し戻し率・重複率・手戻り率・一発承認率・AI 生成行の短期書き換え率のいずれも期間で集計しない(IMPL-0104 と同じ)。採用者が集計の手段に窓と最小標本数を備える | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0268 | 比率の判断に、観測の窓と窓の中の最小標本数を掛ける。準拠テンプレートが窓と最小標本数で集計するのは、登録した変更種別の差し戻し率だけである(第5章 5.4.6 の IMPL-0285。窓は直近2か月、最小標本数は30件で固定し、組織の値を構成に持たない)。手戻り率・一発承認率・AI 生成行の短期書き換え率は期間で集計しない。採用者が集計の手段に窓と最小標本数を備える | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0269 | G-5 基準6 の文脈ファイルの形式検査(参照切れ 0 件、1ファイルの分量の上限超過 0 件)を実装するジョブ。準拠テンプレートの gate-g5.yml に基準6 のジョブは無く、契約検査は注意として出す(IMPL-0142)。上限そのものの規定(3.11.4 要求事項1)も降りていない(IMPL-0222) | G-5 のワークフロー(gate-g5.yml) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0277 | 単一タスクの累積消費(トークン量・金額)。準拠テンプレートは消費量を測らない。採用者が接続経路・エージェント実行基盤の上で上限を強制する | 自己修正ループの停止(self-heal.mjs) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0278 | 軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは人数を設問の回答(q-team-size)で受け、名簿から数えない。回答と名簿の人数の食い違いを検出しない | プロセス構成の初期化(強制層の生成) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
@@ -157,6 +156,7 @@ sidebar:
 | IMPL-0280 | 要求事項4 のうち企画承認(G-1)の時点で記録すること。準拠テンプレートの企画書の様式に停止条件の値の行が無く、G-1 の検査(check-g1.mjs)も記録を確かめない。採用者が企画書に停止条件の値を書き、G-1 の判定で確かめる | 成果物テンプレート テンプレ6(企画書) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0282 | 進捗を担当者の完了率の申告で測らないこと。AI の担い手が作業単位の担当者である場合も、進捗は完了した受入基準の数で数え、担い手の申告する完了率を進捗の値にしない。準拠テンプレートの CLAUDE.md にこの規則は無い。価値責任者が進捗の値の出所を確かめる | CLAUDE.md の構成依存部分 | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
 | IMPL-0283 | 未完了の作業単位の滞留期間を継続して観測し、実測サイクルタイムの85パーセンタイルまたは G-1 で合意した値を超えた項目を、担当者と価値責任者へ非同期で通知すること。準拠テンプレートの /pit(next.mjs)は受信箱の状態を出すが、作業単位の滞留期間を観測せず、通知もしない。採用者が Issue の着手の時刻から観測し、通知の手段を置く | 次の一手のスクリプト(ロールの詳細) | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
+| IMPL-0291 | 手戻り率の期間ごとの集計と、基準を超えたときの自動の引き下げ。準拠テンプレートは手戻り率を集計しない。組織が G-1 で定める基準値を構成に持たず、不採用となった変更(マージされなかった PR)を既定ブランチの履歴から読めないため。採用者は登録の根拠の reworkRate に書いた手段で集計し、発火の有無は内部監査(観点23)で確かめる | AI自律レベルの導出と停止(登録した変更種別) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 
 ### 全件
 
@@ -196,7 +196,7 @@ sidebar:
 | IMPL-0032 | 保証の開示を既存の記録からの投影として出力し、未達と未測定を値として表示する。承認は、名簿の人へ対応づき、作成を指示した者でない場合にだけ、独立した人の確認に数える | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | IMPL-0033 | 即時に知らせる事象では、通知する者が通知先と通知日を変化点の記録へ書く。未記入の即時通知は記録の欠落として扱う | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 未分類 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0034 | 変化点の手続を経ない構成の書き換えを検出する。変更記録は要約値の連鎖を持ち、契約検査が現在の構成との一致と、取り込む先の版の変更記録が保たれていることを確かめる | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 未分類 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0035 | 変更種別の登録に、登録の根拠(5.4.6 の第2区分の検知条件ごとの算出の所在、取り消しの実績の所在、既存のテストで検出できることの根拠)を持たせ、未記入の種別は登録を受け付けない。機械が確かめるのは、検知条件ごとの記入の有無まで。記入の内容(算出が実在するか)は確かめない | process.config.json の delegation | `verify-gate-contract` | 降りている | 実在だけ確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0035 | 変更種別の登録に、登録の根拠(5.4.6 の第2区分の検知条件(差し戻し率・手戻り率)ごとの算出の所在、取り消しの実績の所在、既存のテストで検出できることの根拠)を持たせ、未記入の種別は登録を受け付けない。機械が確かめるのは、検知条件ごとの記入の有無まで。記入の内容(算出が実在するか)は確かめない | process.config.json の delegation | `verify-gate-contract` | 降りている | 実在だけ確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0036 | 席の責任者の任命と交代は D-0 表1 の決定者の記名と理由を要する。決定者の交代は前任の決定者または組織上の任命権者の記名を要する。離脱は発生として記名を待たない。テンプレート担当の実装後に主担当が改める | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 未分類 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0037 | 即時通知の事象5・6(G-6 が未達へ変わる変化、出荷判定者の席の責任者の交代)、前任者と品質保証部門の通知先、通知する者と通知先が同一の場合の記録。テンプレート担当の実装後に主担当が改める | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 未分類 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0038 | 例外承認の記録が、対象・状態・承認した者・理由・期限を持つ。承認した者の欄を記録者の欄と分ける。テンプレート担当の実装後に主担当が改める | 成果物テンプレート テンプレ3(技術負債台帳) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
@@ -265,7 +265,6 @@ sidebar:
 | IMPL-0101 | 構成 task.assurance(水準・根拠・宣言者・宣言日・見直し日)を種別 settings で変える。L0 から L1・L2 へ上げるのは緩める向き(記名と理由)。根拠の実在と見直し日だけを検査し、過ぎれば L0 として扱う | 体制の変化点を反映するスキル | `verify-gate-contract` | 降りている | 未分類 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0102 | L2 の「リスクを機械的に採点し閾値で審査深度を変える運用が稼働している」ことの機械の検証。採点の稼働は自己申告を超えて検査できる条件が定まっていないため、テンプレートへ降ろしていない。宣言は記録として受け、緩和は根拠の実在と区分の条件の範囲に限る | G-5 の PR 単位の検査(pr-rules) | — | **降りていない** | 未分類 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0103 | 再評価待ちの能力依存の定数の件数を /process-change の出力と /pit の注記に出す。契機は performer の変化点の記録と暦だけで、値を自動で変えない。再評価の記録(残す・外す・移す)は docs/calibration-register.md に記名で置き、AI の名義は数えない | 体制の変化点を反映するスキル | `verify-gate-contract` | 降りている | 未分類 | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/) |
-| IMPL-0104 | 5.4.6 の第2区分の検知条件(差し戻し率・重複率・手戻り率)の期間ごとの集計と、検知した時点の自動の引き下げ。準拠テンプレートは3つの比率を算出せず、AI自律レベルを構成に持たない。採用者が集計の手段を備えるまで、引き下げは発火しない。備えるまでは L1 で運用する。備えたかどうかは、D-0 と登録の根拠(5.5.4)を内部監査で確かめる | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0105 | 成果物を起案した実行主体の文脈は、その成果物の判定の草案を作らない(3.5.3)。人の単位では課さない。文は PROCESS-PROFILE.md に出る。担い手の識別を突き合わせる機械の検査は無い。内部監査で、判定記録の確定の形態と D-0 の担い手の宣言から確かめる | PROCESS-PROFILE.md(構成から生成するプロセスの要約) | — | 降りている | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0106 | G-2 基準2・G-5 基準4。検出語の表を知識ベースへ複製し、spec-lint が機能仕様の受入基準の節から語の部分一致で検出する。1件でも検出すれば G-5 を失敗させる。理由の無い除外の印は無効。除外した行の件数と所在を出す。類に当たるかの判定(表に無い語)は機械では確かめない | 受入基準の曖昧語の検査(spec-lint) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0107 | G-2・G-4 の判定記録の「対象」に、機能の ID と、確定した受入基準の版のコミットの識別子を書く。様式の注記と /gate の補助ファイルに降りている。機械は、対象に機能の ID があることまでを読み、版の識別子の有無と、確定の後の受入基準の変更を確かめない。内部監査で確かめる | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -429,7 +428,7 @@ sidebar:
 | IMPL-0265 | 実環境の統制の確認(env-check)が、team を含むすべてのルールセットで、適用されたブランチ保護の dismiss_stale_reviews_on_push と require_last_push_approval を確かめる。実環境の gh で採用者が実行する | 導入前の検証のコマンド | — | 降りている | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0266 | AI を示す語を含むアカウント名の人の確認(accountsConfirmed)は、本人以外が記名した名簿の変更(changeLog の accountConfirmations と decidedBy)がある場合だけ効く。本人・AI の名義の記名と記録の無い確認は契約検査が落とす。[bot] とホスティングの bot は上書きしない。出荷の証跡の集約が、確認によって数えた承認の件数を出す。氏名の確認(nameConfirmed)も同じく、本人以外が記名した名簿の変更(changeLog の nameConfirmations と decidedBy)がある場合だけ効き、記録の無い確認は契約検査が落とす。体制の内の人が1名の名簿では本人の記名を受け付け(自己申告の氏名)、記録の無い確認も効かせて未記録として /pit と契約検査の注記に出し、保証の開示に区別して出す。2人目が加わると、本人の記名だけの確認は本人以外の記名を要する。test-roster-rules.mjs が固定する | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0267 | コア機能・確約範囲のパス(delegation.protectedPaths と riskFloor.rules のパス)のうち、追跡中のファイルに1件も当たらないパスを宣言として数えない。当たるパスが無ければ未宣言として扱い、規模の基準なし(null)を効かせない。当たらないパスを結果と保証の開示に出す。test-check-pr.mjs が固定する | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0268 | 比率の判断に、観測の窓と窓の中の最小標本数を掛ける。準拠テンプレートは差し戻し率・重複率・手戻り率・一発承認率・AI 生成行の短期書き換え率のいずれも期間で集計しない(IMPL-0104 と同じ)。採用者が集計の手段に窓と最小標本数を備える | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0268 | 比率の判断に、観測の窓と窓の中の最小標本数を掛ける。準拠テンプレートが窓と最小標本数で集計するのは、登録した変更種別の差し戻し率だけである(第5章 5.4.6 の IMPL-0285。窓は直近2か月、最小標本数は30件で固定し、組織の値を構成に持たない)。手戻り率・一発承認率・AI 生成行の短期書き換え率は期間で集計しない。採用者が集計の手段に窓と最小標本数を備える | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0269 | G-5 基準6 の文脈ファイルの形式検査(参照切れ 0 件、1ファイルの分量の上限超過 0 件)を実装するジョブ。準拠テンプレートの gate-g5.yml に基準6 のジョブは無く、契約検査は注意として出す(IMPL-0142)。上限そのものの規定(3.11.4 要求事項1)も降りていない(IMPL-0222) | G-5 のワークフロー(gate-g5.yml) | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0270 | 出荷の集約の規模の観測に、超過の理由の内訳(行・ファイル・別集計・ファイル数だけ・理由不明)と、別集計の基準行数に対する倍率の分布(1倍・2倍・5倍を超えた件数)を出す。同じ入力からは同じ出力を返し、前回との比較を出さない。test-size-observation.mjs が固定する | 規模の観測の集計(size-observation.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0271 | 文書の置き場では、文書・データの拡張子のファイルだけを製品のコードから外し、それ以外を製品として数える。拡張子の無いファイルは変更後の版の先頭の行が #! なら製品として数える。test-check-pr.mjs が固定する | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -445,5 +444,15 @@ sidebar:
 | IMPL-0281 | 要求事項7。規模の基準なし(null)は、確約範囲・コア指定のパスが追跡中のファイルに1件以上当たる場合だけ効く。当たらないパスは宣言として数えず、当たるパスが無ければ未宣言として既定値で判定する(G-6 の IMPL-0267 と同じ関数 corePathsOf。突合 X-13)。test-check-pr.mjs が固定する | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0282 | 進捗を担当者の完了率の申告で測らないこと。AI の担い手が作業単位の担当者である場合も、進捗は完了した受入基準の数で数え、担い手の申告する完了率を進捗の値にしない。準拠テンプレートの CLAUDE.md にこの規則は無い。価値責任者が進捗の値の出所を確かめる | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
 | IMPL-0283 | 未完了の作業単位の滞留期間を継続して観測し、実測サイクルタイムの85パーセンタイルまたは G-1 で合意した値を超えた項目を、担当者と価値責任者へ非同期で通知すること。準拠テンプレートの /pit(next.mjs)は受信箱の状態を出すが、作業単位の滞留期間を観測せず、通知もしない。採用者が Issue の着手の時刻から観測し、通知の手段を置く | 次の一手のスクリプト(ロールの詳細) | — | **降りていない** | 人が確かめる | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
+| IMPL-0284 | 登録した変更種別の停止(第1区分)を、委任を判定するたびに記録から導く。AI 起因の Sev1・Sev2 と原因を特定できない Sev1・Sev2(欠陥の台帳)、コア機能の理解保持者数1名以下(運用引き継ぎ文書の節2)で、該当する種別を委任に該当しないものとし、協働へ落とす。引き下げの停止は事象の日より後の登録日で戻る。理解保持者数による停止は、保持者が2名以上へ戻った時点で解ける(減少の日付を記録から読めないため。登録の判定を経て戻すことは人が確かめる)。台帳・引き継ぎ文書が無い場合は判定できないものとして止める | AI自律レベルの導出と停止(登録した変更種別) | — | 降りている | 機械が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0285 | 登録した変更種別の差し戻し率を、毎月、直近2か月の窓で集計する。母数は既定ブランチの履歴のうち種別の規則の範囲に入る変更、分子は判定基準の番号を引いた G-6 の差し戻しの判定記録。最小標本数(30件)以上で差し戻しが0件の評価は、評価の日より後の登録日まで種別を止める。判定記録の無い差し戻し(PR のレビューだけ)は数えない | AI自律レベルの導出と停止(登録した変更種別) | — | 降りている | 機械が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0286 | 差し戻し率の窓が最小標本数に満たない場合を判定不能とし、判定可能な窓が得られるまで登録した変更種別を止める(判定を待たずに戻る)。履歴を読めない場合(浅い取得を含む)も判定できないものとして止める | AI自律レベルの導出と停止(登録した変更種別) | — | 降りている | 機械が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0287 | 登録した変更種別ごとの現在のレベル・停止の原因・窓の件数と判定不能を、次の一手(/pit)の注記に出す。判定不能を「異常なし」と出さない | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 機械が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0288 | 登録した変更種別ごとの現在のレベル・停止の原因・窓の件数と判定不能を、保証の開示の項目3 に出す(組織の外へ渡す形にも出す)。判定不能を「異常なし」と出さない | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0289 | 準拠テンプレートが支える AI自律レベルを、登録した変更種別の L3 と、それ以外の L1 に限る。L2 を支えない。レベルを書く欄を構成に持たず、委任の登録から導いて D-0 節12 と PROCESS-PROFILE.md に出す。テーラリングの上限(maxAutonomyLevel)を構成の autonomy.maxLevel へ落とし、上限が L3 未満の構成では変更種別の登録を拒否する。上限の欄の無い旧い構成は、回答からテーラリングの規則で導く | プロセス構成の初期化(強制層の生成) | — | 降りている | 機械が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0290 | Sev1・Sev2 を記録する様式に、AI 起因(あり / なし / 特定できない)と、原因の変更・該当する登録した変更種別の欄を持つ。準拠テンプレートでは欠陥の台帳(運用の障害の Sev1・Sev2 の行を含む)に置く。原因の変更に AI の関与の記録があるかの判断は、事後検証を書く人が行い、機械は確かめない | 欠陥の台帳の様式 | — | 降りている | 実在だけ確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0291 | 手戻り率の期間ごとの集計と、基準を超えたときの自動の引き下げ。準拠テンプレートは手戻り率を集計しない。組織が G-1 で定める基準値を構成に持たず、不採用となった変更(マージされなかった PR)を既定ブランチの履歴から読めないため。採用者は登録の根拠の reworkRate に書いた手段で集計し、発火の有無は内部監査(観点23)で確かめる | AI自律レベルの導出と停止(登録した変更種別) | — | **降りていない** | 人が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0292 | 障害時の補助ファイルのポストモーテムの書き方に、AI 起因(あり / なし / 特定できない)・原因の変更・該当する登録した変更種別を、欠陥の台帳の同じ行へ写すことを書く。写したかどうかは機械が確かめない | 障害時に使う記録の補助ファイル | — | 降りている | 人が確かめる | [phase6-operation/incident-response](/process-compass/phase6-operation/incident-response/) |
+| IMPL-0293 | D-0 の節12 の生成区間に、AI自律レベルの適用の表(範囲・現在のレベル・第2区分の計測の所在)を、構成の委任の登録と上限から生成して出す。レベルを書く欄は構成に持たない。停止の原因と直近の評価は、生成区間を構成だけから決めるため表に書かず、所在(次の一手の注記と保証の開示の項目3)を書く | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 機械が確かめる | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 
 <!-- implementation-ledger:end -->

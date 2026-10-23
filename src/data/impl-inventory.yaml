@@ -32,10 +32,19 @@ sections:
     status: pending
   - key: "phase4-process-design/assurance-case#H.3 論証 > 論証の構造: 3層と外枠"
     status: pending
-  - key: phase4-process-design/assurance-case#H.3 論証 > 検証の主張と条項の対応
-    status: pending
-  - key: phase4-process-design/assurance-case#H.3 論証 > 主張の崩れを、誰がいつ観測するか
-    status: pending
+  - key: "phase4-process-design/assurance-case#H.3 論証 > 検証の主張と条項の対応"
+    status: none
+    category: explanation
+    reason: 検証の主張と、主張を支える条項・反証の兆候の対応の表(論証の構造)。規定の実装は各条項の節のマークで追う。C6 の根拠から 5.4.6 を外し、C9 に 5.4.6 の観測を足した(ADR-0081)
+    issue: 311
+  - key: "phase4-process-design/assurance-case#H.3 論証 > 主張の崩れを、誰がいつ観測するか"
+    status: marked
+    ids:
+      - IMPL-0087
+    location:
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+    note: 変化点の後の状態の次の一手は IMPL-0087。C9 の観測(登録した変更種別の停止と判定不能)の表示は 5.4.6 の IMPL-0287・0288
+    issue: 311
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方
     status: pending
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 確認側へ渡した入力の記録
@@ -89,12 +98,20 @@ sections:
     status: pending
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 独立性の表示の例(項目1)
     status: pending
-  - key: phase4-process-design/assurance-case#H.6 保証の開示 > 件数の表示の例(項目1・3・6。1名体制・数値は例示)
-    status: pending
+  - key: "phase4-process-design/assurance-case#H.6 保証の開示 > 件数の表示の例(項目1・3・6。1名体制・数値は例示)"
+    status: none
+    category: explanation
+    reason: 保証の開示の件数の表示の例示
+    issue: 311
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 定型の文
     status: pending
-  - key: phase4-process-design/assurance-case#H.7 形骸化していないことの示し方
-    status: pending
+  - key: "phase4-process-design/assurance-case#H.7 形骸化していないことの示し方"
+    status: none
+    category: elsewhere
+    reason: 形骸化していないことを示す4つの出所の説明。開示の項目3 に載る登録した変更種別の停止と判定不能は 5.4.6 の IMPL-0288。少件数の値を載せないことは第4章「閾値の設定と較正」
+    location:
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+    issue: 311
   - key: phase4-process-design/assurance-case#H.8 対外的に使う表現
     status: none
     category: org-design
@@ -117,8 +134,11 @@ sections:
     status: pending
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 語の対応
     status: pending
-  - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 時点ごとに行うこと
-    status: pending
+  - key: "phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 時点ごとに行うこと"
+    status: none
+    category: org-design
+    reason: 品質保証部門を置く組織の活動の対応。本標準は部門の設置を要求しない(H.12「語の対応」)
+    issue: 311
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 行わないこと
     status: pending
   - key: phase4-process-design/deliverable-templates#(冒頭)
@@ -136,7 +156,13 @@ sections:
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 個人名を1か所へ隔離する"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 席ごとに責任者と担い手を書く"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0293
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
+    note: AI自律レベルの適用の表の生成は IMPL-0293。表5・表7 の席・責任者・担い手・縮退の3列は「判断を担う席の後継を表5 に書く」の IMPL-0029・IMPL-0056
+    issue: 311
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 有事の決定者を決めておく"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
@@ -146,9 +172,22 @@ sections:
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 体制と委任の登録を誰が決めるかを決めておく"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 構成から導ける欄は生成してよい"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 構成から生成してよい欄の規定。生成の実装は D-0 の IMPL-0029(表5・表7・表8)と IMPL-0293(AI自律レベルの適用の表)
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 席ごとに責任者と担い手を書く"
+    issue: 311
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 市場・顧客の仮説を誰が検証するかを決めておく"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 表1 の「市場・顧客仮説の検証の実施」の行の説明と、D-0 の様式(符号ブロック)。様式の欄は必須欄の対応表(template-fields.yaml)で検査し、実装は D-0 の IMPL-0029・IMPL-0056・IMPL-0067・IMPL-0293 で追う
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 席ごとに責任者と担い手を書く"
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 有事の決定者を決めておく"
+    issue: 311
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 記録としての要求事項"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ1: 機能仕様書(spec)"
@@ -188,7 +227,12 @@ sections:
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 決裁制度への提示"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ7: 実装計画(plan)"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 実装計画の様式と運用ルール。状態「やり直し」は手戻り率の分子であり、集計と発火は 5.4.6 の IMPL-0291(降りていない)で追う。準拠テンプレートの実装計画の様式は状態の列を持たない(様式の欄は必須欄の対応表で検査する)。見積の目安は EV-0087
+    location:
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+    issue: 311
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付)"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 契約への組み込み方の3類型"
@@ -800,21 +844,36 @@ sections:
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.5 レベルの引き上げ
     status: none
     category: org-design
-    reason: 引き上げは技術判断者の申請と B-2 の判定(人の判断)。準拠テンプレートは AI自律レベルを構成に持たない。条件1 の値は EV-0147
-    issue: 296
+    reason: 引き上げは技術判断者の申請と B-2 の判定(人の判断)。準拠テンプレートは L2 を支えず、登録した変更種別の L3 は 5.5.4 の登録の判定が兼ねる(上限と登録の拒否は 5.4.6 の IMPL-0289 で追う)。条件1 の値は EV-0147、条件4 の値は EV-0154。条件2 は組織が G-1 で定めた範囲
+    issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ
-    status: none
-    category: elsewhere
-    reason: 第2区分の集計と自動の引き下げは、計測できない検知条件の節の IMPL-0104(降りていない)で追う。差し戻し率0%の2か月は EV-0146(RC-12)
+    status: marked
+    ids:
+      - IMPL-0290
     location:
       - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合"
-    issue: 296
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+    note: AI 起因の欄は IMPL-0290(欠陥の台帳)。停止の導出と表示は「登録した変更種別での停止」の IMPL-0284〜0288・0291、上限と L2 を支えない宣言は計測できない検知条件の節の IMPL-0289。重複率を課さないことと、意図の禁止を課さないことは課さない明記(ADR-0081)。1件・0件は EV-0154、2か月は EV-0146
+    issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合
     status: marked
     ids:
-      - IMPL-0104
-    note: 第2区分の集計と自動の引き下げ(降りていない)。観測の窓と最小標本数は第4章「閾値の設定と較正」の IMPL-0268
-    issue: 296
+      - IMPL-0289
+    location:
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+    note: 準拠テンプレートが支えるレベル(登録した変更種別の L3、それ以外の L1)と上限は IMPL-0289。判定不能の停止と表示は「登録した変更種別での停止」の IMPL-0286〜0288。観測の窓と最小標本数は第4章「閾値の設定と較正」の IMPL-0268。IMPL-0104 は IMPL-0284〜0293 へ分けた(再利用しない)
+    issue: 311
+  - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
+    status: marked
+    ids:
+      - IMPL-0284
+      - IMPL-0285
+      - IMPL-0286
+      - IMPL-0287
+      - IMPL-0288
+      - IMPL-0291
+    note: 第1区分の停止 IMPL-0284、差し戻し率の集計と発火 IMPL-0285、判定不能 IMPL-0286、表示 IMPL-0287・0288、手戻り率 IMPL-0291(降りていない)。理解保持者数の停止が保持者の回復で解ける点は IMPL-0284 の注記に開示した
+    issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.7 能力維持措置
     status: pending
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.8 見直しの頻度
@@ -1564,7 +1623,13 @@ sections:
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.4 可用性と品質を分けて監視する
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.5 障害と切り替え
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 要求事項1・2・4・5 は AI運用担当者の切り替えの手順。要求事項6(委任を協働へ下げる)と要求事項3(1段階の引き下げ)は、準拠テンプレートでは担い手の識別の変更で適合性確認が失効し協働を上限とする経路(D-0 の IMPL-0029)で起きる。L1 の下限の読みは 5.4.6 による。基盤が使えない期間の記録は D-0 表8(IMPL-0056)
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ"
+    issue: 311
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.5 障害と切り替え > 縮退の能力を量で示す
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.6 モデルの廃止への追随
@@ -1723,7 +1788,13 @@ sections:
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 委任・標準変更・L3 は同じ変更種別を指す"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 委任・標準変更・L3 を同じ登録として扱う説明。登録の根拠は第5章 5.5.4 の IMPL-0035、登録した変更種別の停止は 5.4.6 の IMPL-0284〜0291
+    location:
+      - "phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路"
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+    issue: 311
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 切替が成立する条件"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 登録した種別の変更が通るゲート"
@@ -2716,7 +2787,20 @@ sections:
   - key: phase5-implementation/template-repository#席と運用形態、体制の変化点
     status: pending
   - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 標準変更カタログへの登録と、登録の根拠
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 準拠テンプレートの登録の根拠の欄の説明。規定と実装マークは第5章 5.5.4 の IMPL-0035。重複率の欄を外したことは ADR-0081
+    location:
+      - "phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路"
+    issue: 311
+  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > AI自律レベルの導出と停止
+    status: none
+    category: elsewhere
+    reason: 準拠テンプレートの AI自律レベルの導出と停止の説明。規定と実装マークは第5章 5.4.6 の IMPL-0284〜0291
+    location:
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合"
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+    issue: 311
   - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 日付と時刻
     status: pending
   - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 向きの扱い
@@ -2891,7 +2975,11 @@ sections:
   - key: phase6-operation/incident-response#生成の条件から影響範囲を絞る
     status: pending
   - key: phase6-operation/incident-response#ポストモーテム(Sev1・Sev2 は必須)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0292
+    note: AI 起因の欄の書き方は IMPL-0292(障害時の補助ファイル)。欄そのものと停止は 5.4.6 の IMPL-0290・IMPL-0284
+    issue: 311
   - key: phase6-operation/incident-response#運用への組み込み
     status: pending
   - key: phase6-operation/metrics#(冒頭)
@@ -3029,8 +3117,8 @@ sections:
   - key: phase6-operation/process-audit#監査の観点
     status: none
     category: org-design
-    reason: 監査の観点と、機械で検出できるもの・監査だけが確かめるものの対応の表。監査は監査の実施者(人)が行い、AI の担い手の挙動を制約しない。観点6 にアカウント名・氏名の確認の上書きを足した(機械の側は G-6 の IMPL-0266)
-    issue: 296
+    reason: 監査の観点と、機械で検出できるもの・監査だけが確かめるものの対応の表。監査は監査の実施者(人)が行い、AI の担い手の挙動を制約しない。観点6 にアカウント名・氏名の確認の上書きを足した(機械の側は G-6 の IMPL-0266)。観点23(AI自律レベルの適用と引き下げ)を足した(機械の側は 5.4.6 の IMPL-0284〜0288。手戻り率は IMPL-0291 で降りていない)
+    issue: 311
   - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証
     status: pending
   - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順1 網羅性の照合
