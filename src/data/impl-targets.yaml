@@ -249,3 +249,21 @@ targets:
     kind: template-file
     path: scripts/init/generate-profile.mjs
     description: 回答から process.config.json・.claude/guard.json・.claude/settings.json を生成する。フックの保護と権限設定の遮断を、事業ステージに依らず有効にする(第8章 軸B、ADR-0050 決定1、ADR-0074)。外すのは構成の guard の上書き(期限と理由。契約検査が期限を確かめる)だけ。test-init-g5.mjs が S0 と S1 で確かめる
+
+  - id: task-breakdown-skill
+    name: 実装計画へ分解するスキル(/task-breakdown)
+    kind: template-file
+    path: .claude/skills/task-breakdown/SKILL.md
+    description: 機能仕様を実装計画へ分解する手順。各受入基準をいずれかのタスクの「対応する受入基準」に書き、spec-lint --gate G-4 が出す、どのタスクにも現れない受入基準の一覧を確かめてから G-4 へ渡す(第4章 G-4 基準6、ADR-0075)
+
+  - id: feature-spec-template
+    name: 成果物テンプレート テンプレ1(機能仕様書)
+    kind: template-file
+    path: templates/01-feature-spec.md
+    description: 機能仕様の様式。受入基準の識別子(機能の中で一意)、前提の表(前提 / 案件層の ID / 崩れたときの影響。前提の欄に書いたものは確かめていないものとして読む)、未確定事項の3つの閉じ方の置き場(第4章 G-2 基準3・6、G-4 基準6・7、ADR-0075)。欄の存在は必須欄の検査(test:fields)が確かめる
+
+  - id: ai-review-workflow
+    name: AI レビューのワークフロー(差し込み口)
+    kind: template-file
+    path: .github/workflows/ai-review.yml
+    description: AI レビューを差し込む口と、検出の層としての位置づけを PR へ明記するワークフロー。差し込む AI のレビューの実装は採用者が置く。指摘の中身(所在と根拠、実行の結果の記録の所在)の注記を差し込み口に置くまでで、出力は確かめない(附属書H H.4、ADR-0075)

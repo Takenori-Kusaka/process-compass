@@ -102,6 +102,15 @@ forms:
         template: 未確定事項
       - standard: NEEDS CLARIFICATION
         template: NEEDS CLARIFICATION
+      # --- #291 / ADR-0075: 前提の表(前提 / 案件層の ID / 崩れたときの影響)と、受入基準の識別子 ---
+      - standard: '## 前提・依存'
+        template: 前提
+      - standard: '| 前提 | 案件層の ID | 崩れたときの影響 |'
+        template: '| 前提 | 案件層の ID | 崩れたときの影響 |'
+      - standard: すべて確かめていないものとして読む
+        template: すべて確かめていないものとして
+      - standard: '受入基準の識別子(例: CR-1)は、機能の中で一意とする'
+        template: 機能の中で一意
 
   - id: t2
     name: テンプレ2 判断記録(ADR)
