@@ -56,14 +56,14 @@ sidebar:
 | `state:qm-blocked` | QMが検証で、BLOCK 3類型（実害/証跡の不真正/不可逆）を検出し、Devへ差し戻した状態 | QM | **Dev**（開発者） |
 | `state:ready-to-merge`| QMが独立レビューを完了し、マージを承認した状態 | QM | **QM**（マージ実行担当） |
 | `state:needs-audit` | 統合監査またはリリースカットの検証を監査チームに依頼した状態 | PO | **監査**（Auditor） |
-| `state:needs-platform`| テスト装置・リント・CI/CD等の削減・自動生成・統合、および**エージェント指示資産（強制層。`.claude/**` 等）の統合・削除**を依頼した状態 | PO / Dev / QM | **Platform**（AI維持管理） |
+| `state:needs-platform`| テスト装置・リント・CI/CD等の追加・削減・自動生成・統合、および**エージェント指示資産（強制層。`.claude/**` 等）の追加・統合・削除**を依頼した状態 | PO / Dev / QM | **Platform**（AI維持管理） |
 | `state:needs-po` | 不可逆な操作に当たらないが、仕様・優先度・語彙の改訂等のPO判断を要する状態 | 誰でも | **PO**（価値責任者） |
 | `state:needs-tech` | 技術設計の判断（G-3）を要する状態。ADRの起草・採否、技術的トレードオフの評価 | 誰でも | **技術判断者** |
 | `state:needs-owner` | 事業決裁者の決裁または追認を要する状態 | 誰でも | **オーナー**（事業決裁者） |
 
 - `state:needs-po` / `state:needs-tech` / `state:needs-owner` は、誰が気付いても付与してよい。Devの実装中に判断が必要になった場合もこれらを付与する。
 - **`state:needs-owner` が指す範囲は、不可逆な操作に限らない。** 4.2 原則4 の不可逆な操作、[第7章 7.6](/process-compass/phase4-process-design/exception-escalation/)の段階2および段階3、[第3章 3.9](/process-compass/phase4-process-design/roles-responsibilities/)の決裁マトリクスが事業決裁者を指す事項を含む。案件がテーラリングで追認を要する事項を追加した場合も、同じラベルを用いる（[ADR-0037](/process-compass/adr/0037-label-points-to-lane-not-role/)）。
-- **エージェント指示資産の統合・削除の権限は AI維持管理者へ集約する**（[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)）。強制層の変更が必要になった場合は `state:needs-owner` ではなく `state:needs-platform` を付与する。不可逆な操作に該当する場合のみ、あわせて `state:needs-owner` を付与する。
+- **エージェント指示資産の統合・削除の権限は AI維持管理者へ集約する**（[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)）。強制層の検査の追加も、組み込みの承認は AI維持管理者が行う。追加の要否は技術判断者が決める（`state:needs-tech`）。強制層の変更が必要になった場合は `state:needs-owner` ではなく `state:needs-platform` を付与する。不可逆な操作に該当する場合のみ、あわせて `state:needs-owner` を付与する。
 - **相手を指すラベルがない口頭やメンションでの判断依頼を禁止する。** 伝達経路に現れないため、エージェントや人間の双方で見落とすこととなる。
 
 ---

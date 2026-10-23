@@ -236,3 +236,16 @@ targets:
     kind: template-file
     path: .github/PULL_REQUEST_TEMPLATE.md
     description: PR の本文の節(変更の概要・作成を指示した者・リスク区分・規模の確認・統制の設定の陰性の確認・トレーラ)。G-5 の PR 単位の検査(check-pr.mjs)が節を読む
+
+  - id: gate-contract
+    name: 契約検査と、G-5 の集約が合否に使う検査の読み方
+    kind: template-file
+    path: scripts/gate/g5-aggregate.mjs
+    check: verify-gate-contract
+    description: G-5 の集約ジョブ(gate-g5)の needs に、判定基準を実装するジョブ(基準1〜5・7)と PR 単位の検査・契約検査のジョブがあり、集約がその結果を合否に使っているかを、ワークフローの定義から読む。契約検査(verify-gate-contract.mjs)が不備を失敗にし、出荷判定の証跡の集約が保証の開示 項目4 の「実施」をここから導く。test-g5-aggregate.mjs と test-init-g5.mjs が試験する(第4章 G-5「判定基準を実装する検査と集約」、ADR-0074)
+
+  - id: profile-generator
+    name: プロセス構成の初期化(強制層の生成)
+    kind: template-file
+    path: scripts/init/generate-profile.mjs
+    description: 回答から process.config.json・.claude/guard.json・.claude/settings.json を生成する。フックの保護と権限設定の遮断を、事業ステージに依らず有効にする(第8章 軸B、ADR-0050 決定1、ADR-0074)。外すのは構成の guard の上書き(期限と理由。契約検査が期限を確かめる)だけ。test-init-g5.mjs が S0 と S1 で確かめる

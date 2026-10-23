@@ -21,9 +21,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 14 |
-| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 13 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 12 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 17 |
+| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 15 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 13 |
 | **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **101** |
 
 未分類の101件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
@@ -43,7 +43,7 @@ sidebar:
 | IMPL-0046 | G-7 基準8。類似の検知の実施記録と、期限を超過した未処理の指摘を集約で確かめる。ライセンス検査の実施記録の有無だけを確かめている | 出荷判定の証跡の集約(保証の開示) | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | IMPL-0047 | 欠陥注入の残存を、出荷の証跡の集約で確かめる | 出荷判定の証跡の集約(保証の開示) | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | IMPL-0048 | 委任の期間ごとの保証の開示を、期間を指定して出力し、期間の受容と異議の記録を確かめる。定期の実行は、実際の GitHub 上で確かめていない | 出荷判定の証跡の集約(保証の開示) | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
-| IMPL-0086 | 10名以上の規則「機能責任者へ仕様承認を積極委譲する」。機能責任者の席も委譲の記録も構成に無く、G-4 の判定者は価値責任者の席のまま。機械では確かめない。採用者は委譲の有無と判定者を社内の手順で定め、附属書I I.10 の様式に手で代える手順を書く(#288 第6巡) | process.config.json の roles[] | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0086 | 10名以上の規則「機能責任者へ仕様承認を委譲することを推奨する」。機能責任者の席も委譲の記録も構成に無く、G-4 の判定者は価値責任者の席のまま。機械では確かめない。採用者は委譲の有無と判定者を社内の手順で定め、附属書I I.10 の様式に手で代える手順を書く(#288 第6巡) | process.config.json の roles[] | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0102 | L2 の「リスクを機械的に採点し閾値で審査深度を変える運用が稼働している」ことの機械の検証。採点の稼働は自己申告を超えて検査できる条件が定まっていないため、テンプレートへ降ろしていない。宣言は記録として受け、緩和は根拠の実在と区分の条件の範囲に限る | G-5 の PR 単位の検査(pr-rules) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0104 | 5.4.6 の第2区分の検知条件(差し戻し率・重複率・手戻り率)の期間ごとの集計と、検知した時点の自動の引き下げ。準拠テンプレートは3つの比率を算出せず、AI自律レベルを構成に持たない。採用者が集計の手段を備えるまで、引き下げは発火しない。備えるまでは L1 で運用する。備えたかどうかは、D-0 と登録の根拠(5.5.4)を内部監査で確かめる | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0116 | 外部の確認者を独立レビュアの席の責任者に置く条件のうち、力量の確認(3.4.1)と、席の規定に従うことの書面による合意。構成に記録の欄が無く、機械は確かめない。任免の決定者の記名だけを機械が要求する。採用者は、任免の決定の時点で2つを確かめる手順と、記録の置き場を、社内の手順で定める(#307) | process.config.json の seats[] | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
@@ -54,6 +54,7 @@ sidebar:
 | IMPL-0132 | 判断記録の欄が空であること、「回復に要する時間」が単一の値であること、「顕在化が分かる兆候」が「なし」であること、前の判断記録と記述が一致していることの機械の検査。準拠テンプレートに実装が無い。判定者が判定のときに読んで確かめる | 判断記録の状態と参照の検査 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0135 | 欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(再発の可能性・類似・再発防止の形と理由・効いたことの確認)の様式。準拠テンプレートに様式が無い。品質保証の担当が記録の有無を確かめる。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う | 欠陥の台帳の様式 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0136 | 算定から除いた文書だけの変更を、判定完了時間の SLA で判定すること。出荷の集約は、文書だけの変更の判定完了時間を出していない。判定の滞留はゲート滞留時間(運用メトリクス)で人が見る | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0145 | 強制層の検査の棚卸しの入力(検査装置を起点とする是正の記録、検査ごとの失敗の履歴)を一覧に出す。準拠テンプレートに一覧を出す手段が無い。AI維持管理者が四半期の棚卸しで、CI の実行の記録と是正の記録を手で集める | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 
 ### 全件
 
@@ -144,7 +145,7 @@ sidebar:
 | IMPL-0083 | 項目6 の人の層に、測定した見つける者(記録の finders[])と現在の独立レビュアの席の責任者・名簿の対応を出す。全員が体制から離れた層、層1 の「人の層の再測定の契機」に当たる層は失効(未測定)。一部が離れた層は残る者の指摘(記録の perFinder[].hits)の和集合で読み直す。席の責任者が測定に含まれないときは注記。next.mjs も同じ注記を出す(#288 第6巡 O) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | IMPL-0084 | 10名以上の規則「コア機能は別チームがレビューする」(構成 review.mode: internal-plus-core-external)。コア機能のパス(delegation.protectedPaths)に触れ独立した人の確認に数えた変更ごとに、数えた承認者に作成を指示した者と別の所属(名簿の team)の人を含むかを保証の開示の項目1 に件数で出す。パス未宣言・所属の欄なしは「判定できない」。欠落にはしない(#288 第6巡) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0085 | 10名以上の規則「出荷判定は QA 部門・専任」(構成 gates.g7.params.approverMode: dedicated-qa)。CLAUDE.md の構成依存部分と next.mjs に規則を常駐させ、出荷の集約が出荷判定者の席の責任者の所属(名簿の team)が開発者の席の責任者と別かを項目1 に出す。所属の欄が無ければ「確かめられない」(#288 第6巡) | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 未分類 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
-| IMPL-0086 | 10名以上の規則「機能責任者へ仕様承認を積極委譲する」。機能責任者の席も委譲の記録も構成に無く、G-4 の判定者は価値責任者の席のまま。機械では確かめない。採用者は委譲の有無と判定者を社内の手順で定め、附属書I I.10 の様式に手で代える手順を書く(#288 第6巡) | process.config.json の roles[] | `check-process-rules` | **降りていない** | 未分類 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0086 | 10名以上の規則「機能責任者へ仕様承認を委譲することを推奨する」。機能責任者の席も委譲の記録も構成に無く、G-4 の判定者は価値責任者の席のまま。機械では確かめない。採用者は委譲の有無と判定者を社内の手順で定め、附属書I I.10 の様式に手で代える手順を書く(#288 第6巡) | process.config.json の roles[] | `check-process-rules` | **降りていない** | 未分類 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0087 | 変化点の後に生じた状態(AI の層・人の層の検出率の失効、受容の無い単一障害点と期限切れの受容、席の責任者本人の力量の未確認・失効と確認した者が名簿の外の記録、実環境の統制の未確認、10名以上の規則(直近の出荷の集約の出力が手元にあれば、項目1 の件数を集約と同じ文で添える))を、next.mjs が出荷の集約と同じ関数(org-assurance.mjs)で読み、担当の席と次の一手を添えた注記として出す。段階は止めない。要約・評価は足さない(#288 第6巡 N、第7巡 T・U) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 未分類 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | IMPL-0088 | 層1 項目2 の印 [未測定] は、項目1 の「検出能力の未測定を許容する期間」に依らず、未測定の最初の出荷から当たる(成立条件6)。期間は成立条件5 だけが見る。集約は、当たる事実に「許容期間に依らず当たる」と出す。条件の文に量を伴う期間の表現があり「依らず」「即時」とも書かれていなければ「人が確かめる」の注記を出す(出荷は止めない)。印は層を限れる([未測定:人] / [未測定:AI])(#288 第7巡 S・第8巡 W7・X7) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | IMPL-0089 | 席の責任者本人の力量の確認の確認した者(seats[].competence.confirmedBy)が人の名簿の外でも受け付ける(拒否しない)。受け付けたうえで、構成の差分・残作業・D-0 節9 の生成区間・出荷の集約の項目7・next.mjs に「(名簿の外)」と注記し、確認の記録に所属・役職を書くこととプロセス内部監査の観点6 での突合を案内する。注記の無い旧い D-0 の区間は失敗させない(#288 第7巡 T) | process.config.json の seats[] | `verify-gate-contract` | 降りている | 未分類 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
@@ -191,7 +192,7 @@ sidebar:
 | IMPL-0131 | 判断記録の置き換えの両側の参照(置き換える側の「置き換える決定」欄と、置き換えられた側の状態の行)の一致と、状態が置き換え・廃止の判断記録が保管領域(context/_archive/decisions/)にあること、状態が採用・一部置き換えの判断記録が保管領域に無いことを検査し、不一致で失敗させる | 判断記録の状態と参照の検査 | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0132 | 判断記録の欄が空であること、「回復に要する時間」が単一の値であること、「顕在化が分かる兆候」が「なし」であること、前の判断記録と記述が一致していることの機械の検査。準拠テンプレートに実装が無い。判定者が判定のときに読んで確かめる | 判断記録の状態と参照の検査 | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0133 | G-3 の判定記録に、判定した判断記録の番号と、判定した版のコミットを書く欄を置く。判定記録は判断記録の内容を再掲しない | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0134 | 閾値・除外設定・ルールセット・フック・権限・ワークフローの設定を変える PR に、本文の「統制の設定の陰性の確認」の記録(通した違反の場面・結果・確かめた者)を求め、欠けていれば失敗させる。結果が「止まらなかった」なら失敗させる。場面が実際に止まるかは確かめない | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0134 | 閾値・除外設定・ルールセット・フック・権限・ワークフローの設定と、検査装置(scripts/gate・scripts/vendor・adapters)を変える PR に、本文の「統制の設定の陰性の確認」の記録(通した違反の場面・結果・確かめた者)を求め、欠けていれば失敗させる。結果が「止まらなかった」なら失敗させる。場面が実際に止まるかは確かめない | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0135 | 欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(再発の可能性・類似・再発防止の形と理由・効いたことの確認)の様式。準拠テンプレートに様式が無い。品質保証の担当が記録の有無を確かめる。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う | 欠陥の台帳の様式 | — | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0136 | 算定から除いた文書だけの変更を、判定完了時間の SLA で判定すること。出荷の集約は、文書だけの変更の判定完了時間を出していない。判定の滞留はゲート滞留時間(運用メトリクス)で人が見る | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0137 | 判断記録の様式に、状態の4つの語彙(採用 / 一部置き換え(→ ADR-MMM の決定 n)/ 置き換え(→ ADR-MMM)/ 廃止)、置き換える決定の欄、可逆性の欄(戻せる選択か: はい / いいえ)、期限つきの実験の期限の欄を置く | 成果物テンプレート テンプレ2(判断記録) | — | 降りている | 実在だけ確かめる | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
@@ -199,5 +200,11 @@ sidebar:
 | IMPL-0139 | 出荷判定の証跡の集約は、判断記録の件数を出さず、状態ごとの件数(採用・一部置き換え・置き換え・廃止。保管領域を含む)と、置き換えの両側の参照の不一致の件数を出す。README を数えない | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/) |
 | IMPL-0140 | 期限つきの実験の判断記録のうち、期限を過ぎて、状態の行に継続・置き換え・廃止のいずれも反映されていないものを一覧に出す(check-decisions.mjs --overdue)。失敗にはしない。扱いは技術判断者が決める | 判断記録の状態と参照の検査 | — | 降りている | 機械が確かめる | [phase6-operation/improvement-cycle](/process-compass/phase6-operation/improvement-cycle/) |
 | IMPL-0141 | ポストモーテムの手順に、是正の起動の4項目(再び起こりうるか・類似・仕組みで置くか置かない理由・効いたことの確認)を書くことを置く。Sev1・Sev2 の是正の記録をポストモーテムで行い、別の記録を作らない。内容の妥当性は確かめない | 障害時に使う記録の補助ファイル | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0142 | 契約検査が、G-5 の集約(gate-g5)の needs に、基準1〜5・7 を実装するジョブと PR 単位の検査・契約検査のジョブがあり、集約がその結果を合否に使い、ジョブの単位の continue-on-error が無いことを確かめ、欠ければ失敗させる。基準6 はテンプレートの CI に無く、注意として出す。ジョブの中の手順が検査を実行しているかは確かめない(手順の書き換えは陰性の確認で人が確かめる)。基準ごとの調整の宣言は読まない(第8章に基準を個別に外す規則が無い) | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0143 | 陰性の確認の結果に「外した」を受け付け、外した検査・止めていた場面・外した後に止めるもの(または止めない理由)・受け入れた者を求め、欠ければ失敗させる。受け入れた者が AI の名義なら失敗させ、構成に AI維持管理者の席の責任者があれば、その人でなければ失敗させる。外した後に止めると書いた検査が実際に止めるかは確かめない | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0144 | 初期化は、フックの保護(guard.enabled)と権限設定の遮断(ワークフロー・検査のスクリプト・アダプタ・権限設定の編集、強制のマージ)を、事業ステージ(S0 の PoC を含む)に依らず有効にする。外すのは構成の guard の上書き(期限と理由)だけ。test-init-g5.mjs が S0 と S1 で確かめる | プロセス構成の初期化(強制層の生成) | — | 降りている | 機械が確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0145 | 強制層の検査の棚卸しの入力(検査装置を起点とする是正の記録、検査ごとの失敗の履歴)を一覧に出す。準拠テンプレートに一覧を出す手段が無い。AI維持管理者が四半期の棚卸しで、CI の実行の記録と是正の記録を手で集める | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0146 | 準拠テンプレートの CLAUDE.md に、指示資産と CI の検査(ワークフロー・検査のスクリプト・アダプタ)の統合・削除を AI維持管理者へ集約し、AI は候補の提示までとする規則を置く。外す PR の記録は pr-rules、基準を実装する検査の集約からの除外は契約検査が止める | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 実在だけ確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0147 | 保証の開示 項目4 の機械検査の「実施」を、集約(gate-g5)が needs に持ち結果を合否に使うジョブの検査に限って出す。アダプタにコマンドがあっても集約が使わない検査は「未実施」と出し、集約の不備を項目4 の行に出す。集約の定義は出荷の時点のワークフローから読み、過去の PR の時点の定義は読まない | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 
 <!-- implementation-ledger:end -->

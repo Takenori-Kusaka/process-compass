@@ -71,6 +71,10 @@ AI が起案した受入基準は、形式が整っていても、作りたか�
 - [ ] 各基準がテスト名に変換できる(AI で試行済み)
 ```
 
+このチェックリストに「該当なし」の欄を置きません。当てはまらない項目を、作成者や判定者の判断で外せる形にしないためです([ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)、[ADR-0036](/process-compass/adr/0036-gate-closure-by-record/))。外すのは、[第8章](/process-compass/phase4-process-design/tailoring-guide/)の規則と、事実の記録に限ります。異常条件が見つからない機能は、手順3 の例外として扱いません。正常系に対応する異常系の基準を書けない場合は、その事実と理由を受入基準の節に書きます。G-2 の判定者は、基準1(検証可能な形式への準拠)の確認で、異常系の基準か、異常条件が見つからない事実の記載のいずれかがあることを確かめます。**記載の当否(異常条件が本当に無いか)は判定しません**。受入基準の内容そのものを G-2 で判定しないためです([第4章 G-2](/process-compass/phase4-process-design/gate-criteria/)、[ADR-0051](/process-compass/adr/0051-usability-out-of-scope/)の決定2)。
+
+本附属書は、受入基準が言い訳に読み替えられる場合の列挙を、受入基準を書く者に求めません([第1章 1.7.5](/process-compass/phase4-process-design/overview/))。事業ステージ(たとえば「まだ PMF の前だから」)を理由に未完成を許す読み替えは、受入基準の問題ではありません。第8章 軸B(ステージは未達の表示と強制層を動かさない)と [ADR-0050](/process-compass/adr/0050-enforcement-layer-is-not-staged/) が既に塞いでいます。
+
 ## 出典
 
 - Alistair Mavin ほか「[Easy Approach to Requirements Syntax (EARS)](https://ieeexplore.ieee.org/document/5328509)」(RE 2009)。航空エンジン(Rolls-Royce)の要求仕様の曖昧さ削減のために考案された記法
