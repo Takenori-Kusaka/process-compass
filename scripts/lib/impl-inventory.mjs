@@ -5,8 +5,10 @@
 // 対象にしない / 未棚卸し」のどれかが登録簿(src/data/impl-inventory.yaml)にあることを
 // 確かめる。節の中の規定の網羅は確かめない(区分の判断は人が行い、登録簿に記録する)。
 //
-// 純粋な関数だけを置く。ファイルの読み書きは scripts/check-impl.mjs が行い、
+// 純粋な関数だけを置く(node:crypto の要約関数を除き、副作用を持たない)。ファイルの読み書きは scripts/check-impl.mjs が行い、
 // scripts/test-check-impl.mjs が既知の違反で落ちることを確かめる(陽性対照)。
+
+import { createHash } from 'node:crypto';
 
 /** 見出しの適用範囲の注記(community/scope-marking.md)。鍵からは外す */
 export const SCOPE_RE = /\s*[((]適用:\s*[^))]+[))]/;
@@ -30,9 +32,10 @@ export const NONE_CATEGORIES = {
   'not-imposed': '課さない',
 };
 
-/** 番号つきの要求事項・禁止事項の表(行を単位にする表)の見出しの2列目 */
-export const NUMBERED_TABLE_RE = /^(追加の)?(要求事項|要求|要件|禁止事項)$/;
-
+/**
+ * 番号つきの表の判別は構造による(突合 X-6)。1列目の見出しが「#」で、本文の行の1列目が番号の表の行を、
+ * 単位にする。2列目の見出しの語(要求事項・手続・記載事項 …)で絞らない。語の一覧は閉じないためである
+ */
 /** 節の見出しを持たない、頁の冒頭の本文の名前 */
 export const LEAD = '(冒頭)';
 
@@ -70,14 +73,29 @@ export function maskFences(lines) {
   return { masked, fenced };
 }
 
-/** コードブロックの中にある実装マークの行(1 始まり)。台帳に載らず、読者には文字列のまま表示される */
+/** 4字以上の字下げで始まる行(CommonMark の字下げのコードブロック)。読者には文字列のまま表示される */
+const INDENTED_MARK_RE = /^( {4,}|\t)\s*<!--\s*impl\s/;
+/** 行内のバッククォートの中のマーク */
+const INLINE_CODE_MARK_RE = /`[^`]*<!--\s*impl\s/;
+
+/**
+ * コードの中にある実装マークの行(1 始まり)。台帳に載らず、読者には文字列のまま表示される。
+ * 対象は、囲みのコードブロック・字下げのコードブロック(4字以上の字下げ)・行内のバッククォート(突合 X-10)
+ */
 export function marksInFences(lines) {
   const { fenced } = maskFences(lines);
   const out = [];
   for (let i = 0; i < lines.length; i++) {
-    if (fenced[i] && MARK_LOOSE_RE.test(lines[i])) out.push(i + 1);
+    const l = lines[i];
+    if (!MARK_LOOSE_RE.test(l)) continue;
+    if (fenced[i] || INDENTED_MARK_RE.test(l) || INLINE_CODE_MARK_RE.test(l)) out.push(i + 1);
   }
   return out;
+}
+
+/** 基準線の要約(鍵を整列し、改行で連ねた文字列の SHA-256)。基準線の凍結を検査が確かめる */
+export function baselineDigest(keys) {
+  return createHash('sha256').update([...keys].sort().join('\n')).digest('hex');
 }
 
 function splitCells(line) {
@@ -86,7 +104,11 @@ function splitCells(line) {
   return t.replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
 }
 
-/** 節の本文から、番号つきの要求事項・禁止事項の表の行の鍵を読む(例: 要求事項6) */
+/**
+ * 節の本文から、番号つきの表の行の鍵を読む(例: 要求事項6、手続3)。
+ * 表は構造で判別する: 1列目の見出しが「#」で、行の1列目が番号。鍵の語は2列目の見出し。
+ * 同じ語の表が節に2つ以上あれば、2つ目から「(表N)」を付ける
+ */
 export function numberedRows(bodyLines) {
   const rows = [];
   const labels = new Map();
@@ -98,7 +120,7 @@ export function numberedRows(bodyLines) {
       continue;
     }
     if (label === null) {
-      if (cells[0] === '#' && NUMBERED_TABLE_RE.test(cells[1] ?? '')) {
+      if (cells[0] === '#' && (cells[1] ?? '') !== '') {
         const n = (labels.get(cells[1]) ?? 0) + 1;
         labels.set(cells[1], n);
         label = n === 1 ? cells[1] : `${cells[1]}(表${n})`;
@@ -173,11 +195,12 @@ export function parseSections(page, text) {
  * @param {object} p
  * @param {Array} p.sections   parseSections の結果を全頁ぶん連ねたもの
  * @param {Array} p.entries    登録簿の sections
- * @param {Array<string>} p.baseline 基準線(未棚卸しで登録してよい鍵)
- * @param {number} p.baselineSize   基準線の凍結時の件数。基準線はこれを超えて増えない
+ * @param {Array<string>} p.baseline 基準線(未棚卸しで登録してよい鍵。凍結の時点の未棚卸しの節だけ)
+ * @param {string} p.baselineDigest  凍結の時点の基準線の要約(baselineDigest)。食い違えば失敗
  * @param {Set<string>} p.ledgerIds 台帳にある実装マークの識別子
+ * @param {Array|null} [p.baseEntries] 比較の基点(既定ブランチ)の登録簿。null なら比べない
  */
-export function checkInventory({ sections, entries, baseline, baselineSize, ledgerIds }) {
+export function checkInventory({ sections, entries, baseline, baselineDigest: expected, ledgerIds, baseEntries = null }) {
   const errors = [];
   const byKey = new Map();
   for (const s of sections) {
@@ -188,16 +211,18 @@ export function checkInventory({ sections, entries, baseline, baselineSize, ledg
     byKey.set(s.key, s);
   }
 
+  // 基準線は凍結する(突合 X-1)。鍵の追加・削除・入れ替えのどれでも要約が変わる。
+  // 節が消えた基準線の鍵は失敗にせず、無視する(改名した節の新しい鍵は基準線に無いので、区分の判断が要る)
   const baseSet = new Set(baseline);
-  if (baseline.length > baselineSize) {
+  if (baselineDigest(baseline) !== expected) {
     errors.push(
-      `基準線(未棚卸しで登録してよい節)が凍結時の ${baselineSize} 件を超えています: ${baseline.length} 件。基準線へ節を足してはなりません`
+      '基準線(未棚卸しで登録してよい節)が凍結の時点から変わっています。基準線は編集しません。見出しを改めた節・新しい節は、未棚卸しでなく区分を判断して登録してください'
     );
   }
   if (baseSet.size !== baseline.length) errors.push('基準線に重複した鍵があります');
-  for (const k of baseline) {
-    if (!byKey.has(k)) errors.push(`基準線の鍵に当たる節がありません(基準線から外してください): ${k}`);
-  }
+
+  // 棚卸し済みの節を未棚卸しへ戻さない(突合 X-2)。比較の基点が読めるときだけ確かめる
+  const baseStatus = new Map((baseEntries ?? []).map((e) => [e.key, e.status]));
 
   const seen = new Set();
   for (const e of entries) {
@@ -224,7 +249,11 @@ export function checkInventory({ sections, entries, baseline, baselineSize, ledg
 
     if (e.status === 'pending') {
       if (!baseSet.has(e.key)) {
-        errors.push(`${where}: 基準線に無い節を「未棚卸し」で登録しています。区分を判定してください`);
+        errors.push(`${where}: 基準線に無い節を「未棚卸し」で登録しています。区分を判断して登録してください`);
+      }
+      const before = baseStatus.get(e.key);
+      if (before && before !== 'pending') {
+        errors.push(`${where}: 比較の基点で「${STATUSES[before] ?? before}」だった節を「未棚卸し」へ戻しています`);
       }
       continue;
     }
@@ -247,8 +276,21 @@ export function checkInventory({ sections, entries, baseline, baselineSize, ledg
       continue;
     }
 
-    // marked
+    // marked: 節の中のマークを1件以上挙げ、挙げた識別子はすべて節の中にある(突合 X-11)。
+    // 他の節のマークで追う節は「対象にしない(所在は他節)」で登録する
     if (!listed.size) errors.push(`${where}: 「マーク済み」の登録に識別子がありません`);
+    if (!s.marks.length) {
+      errors.push(`${where}: 節の中に実装マークがありません。他の節で追う節は「対象にしない」(elsewhere)で登録してください`);
+    }
+    // 節の規定の一部を他の節のマークで追う場合は、その節を location に挙げる(識別子は挙げない)
+    for (const l of [e.location ?? []].flat()) {
+      if (!byKey.has(l)) errors.push(`${where}: 所在 ${l} に当たる節がありません`);
+    }
+    for (const id of listed) {
+      if (!s.marks.includes(id)) {
+        errors.push(`${where}: 挙げた識別子 ${id} が節の中にありません。他の節で追う規定は所在(elsewhere)で示してください`);
+      }
+    }
     if (s.rows.length) {
       const rows = e.rows ?? {};
       for (const r of s.rows) {
@@ -259,6 +301,9 @@ export function checkInventory({ sections, entries, baseline, baselineSize, ledg
         const row = rows[r];
         if (row.status === 'marked') {
           if (!row.ids?.length) errors.push(`${where}: 行 ${r} を「マーク済み」にしていますが、識別子がありません`);
+          for (const l of [row.location ?? []].flat()) {
+            if (!byKey.has(l)) errors.push(`${where}: 行 ${r} の所在 ${l} に当たる節がありません`);
+          }
         } else if (row.status === 'none') {
           checkNone(row, `${where} 行 ${r}`, errors, byKey);
         } else {

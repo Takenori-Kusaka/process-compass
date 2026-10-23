@@ -1,10 +1,11 @@
 # 実装マークの対象の棚卸しの基準線(Issue #292 / ADR-0076)
 #
-# 2026-10-23 時点の対象のページ(本文8章・規定の附属書・フェーズ5・6)の全節。
-# 棚卸しの登録簿(impl-inventory.yaml)で「未棚卸し(pending)」と登録してよいのは、この一覧にある節だけである。
-# この一覧へ節を足してはならない。減らす向きにだけ動かす(見出しを改めて鍵が消えた節は、ここから外す)。
-# 件数の上限は scripts/check-impl.mjs の BASELINE_SIZE。規約は community/implementation-marking.md「対象の棚卸し」
-schemaVersion: 0
+# 2026-10-23 の凍結の時点で「未棚卸し(pending)」だった節(857 件)。Issue #292 で区分を判断した 86 節は含めない。
+# 棚卸しの登録簿(impl-inventory.yaml)で「未棚卸し」と登録してよいのは、この一覧にある節だけである。
+# **このファイルは編集しない**。scripts/check-impl.mjs が鍵の要約(SHA-256)を定数で持ち、食い違えば失敗する。
+# 節が消えた鍵は残したままでよい(検査は無視する)。改名した節・新しい節は、区分を判断して登録する。
+# 規約は community/implementation-marking.md「対象の棚卸し」
+schemaVersion: 1
 frozenAt: 2026-10-23
 sections:
   - phase4-process-design/assurance-case#(冒頭)
@@ -275,30 +276,6 @@ sections:
   - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.5 運用形態にかかわらず人が確定する判断
   - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.6 席ごとの上限
   - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.7 運用形態の引き上げと引き下げ
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.1 形骸化が生じる条件
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 目的の限定
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 事前の周知
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 注入する欠陥の要件
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 頻度と集計の単位
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > AIによるレビュー層も対象とする
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 結果の反映
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 実装上の要求
-  - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.3 見逃しが生じた場合の区分
-  - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項
-  - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.1 ゲートごとに求める水準
-  - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.2 決断の記録の構造
-  - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.3 選択肢の比較
-  - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.4 記述の質を機械的に判定しない
-  - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.5 形骸化を遅らせる提示の設計
-  - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.6 承認設計の評価指標
-  - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制
-  - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.1 未検証の入力として扱う
-  - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.2 記録の要求事項
-  - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.3 AI に担わせない領域
-  - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.4 テスト生成における分離の段階
-  - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.5 AI 協調の作業で行ってはならないこと
   - phase4-process-design/human-ai-boundary#5.9 役割境界の見直し
   - phase4-process-design/human-ai-boundary#5.10 関連する章
   - phase4-process-design/lifecycle#(冒頭)
@@ -409,28 +386,6 @@ sections:
   - phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.2 定例を待てない場合の措置
   - phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.3 期限を超過した場合
   - phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.4 会議体の健全性指標
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.1 適用範囲
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.2 期間の構成
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.3 判定資料の要求事項
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.4 意見の様式
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.5 期限までに意見がない場合の扱い
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.6 意見を出さなかった者の責任
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.7 判定当日の進め方
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.8 形骸化の検知
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.9 必須応答ロール
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.10 同期の場へのエスカレーション
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.11 応答を引き出す手段
-  - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.12 重点箇所の提示
-  - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール
-  - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.1 2つのロールを分ける
-  - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.2 AI維持管理者の職掌
-  - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.3 指示資産の3層
-  - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.4 指示資産の保守要求
-  - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.5 競合の防止
-  - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.6 エージェントが用いる外部ツールの統治
-  - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.7 生成物の劣化の検知
-  - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.8 AI基盤に関する作業の RACI
   - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.1 位置づけ
   - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.2 インタフェース
   - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.3 モデルの適合性評価
@@ -521,19 +476,6 @@ sections:
   - "phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 例2: 事業会社のグロース期プロダクト(8名・S2・高品質・内製・CL1)"
   - "phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 例3: SIer の受託開発(15名・S2・規制業・受託受注側・CL2)"
   - phase4-process-design/tailoring-guide#テーラリングの禁止事項
-  - phase5-implementation/agent-trace-control#(冒頭)
-  - phase5-implementation/agent-trace-control#事象ごとの担い手
-  - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
-  - phase5-implementation/agent-trace-control#事前に遮断する > 遮断を指示ではなく設定で行う
-  - phase5-implementation/agent-trace-control#事前に遮断する > 実装の手段を指定しません
-  - phase5-implementation/agent-trace-control#差分から機械判定する
-  - phase5-implementation/agent-trace-control#人が見るもの
-  - phase5-implementation/agent-trace-control#操作の要約を AI に作らせません
-  - phase5-implementation/agent-trace-control#生成の条件を記録する
-  - phase5-implementation/agent-trace-control#生成の条件を記録する > 指示の全文を保存しません
-  - phase5-implementation/agent-trace-control#生成の条件を記録する > 再現できることを記録の目的に置きません
-  - phase5-implementation/agent-trace-control#この設計の限界
-  - phase5-implementation/agent-trace-control#関連するページ
   - phase5-implementation/ai-environment#(冒頭)
   - phase5-implementation/ai-environment#実行形態の3層
   - phase5-implementation/ai-environment#権限設計(最小権限+強制層)
@@ -695,17 +637,6 @@ sections:
   - phase5-implementation/pr-workflow#Draft PR の扱い
   - phase5-implementation/pr-workflow#レビュー対応とマージ
   - phase5-implementation/pr-workflow#アンチパターン
-  - phase5-implementation/pre-review-automation#(冒頭)
-  - phase5-implementation/pre-review-automation#何を機械に担わせるか
-  - phase5-implementation/pre-review-automation#全体の流れ
-  - phase5-implementation/pre-review-automation#判定資料の自動起票
-  - phase5-implementation/pre-review-automation#レビュアの自動指名
-  - phase5-implementation/pre-review-automation#高リスク事項の自動ラベル付与
-  - phase5-implementation/pre-review-automation#締切の通知と未応答の記録
-  - phase5-implementation/pre-review-automation#沈黙の扱いの機械化
-  - phase5-implementation/pre-review-automation#意見の様式の機械検査
-  - phase5-implementation/pre-review-automation#指標の自動集計
-  - phase5-implementation/pre-review-automation#導入の順序
   - phase5-implementation/qms-document-control#(冒頭)
   - phase5-implementation/qms-document-control#要求と機構の対応
   - phase5-implementation/qms-document-control#承認権限のマッピング
@@ -744,22 +675,6 @@ sections:
   - phase5-implementation/review-package#誰が妥当性を保証するか
   - phase5-implementation/review-package#効果の検証
   - phase5-implementation/review-package#このパッケージが埋められない穴
-  - phase5-implementation/seeded-error-safety#(冒頭)
-  - phase5-implementation/seeded-error-safety#除去の成功に依存させません
-  - phase5-implementation/seeded-error-safety#遮断の4層
-  - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
-  - phase5-implementation/seeded-error-safety#遮断の4層 > 第2層 トレーラによる拒否
-  - phase5-implementation/seeded-error-safety#遮断の4層 > 第3層 リリース候補の走査
-  - phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
-  - phase5-implementation/seeded-error-safety#演習を停止する条件
-  - phase5-implementation/seeded-error-safety#演習を停止する条件 > 任意の停止を現場の裁量に置かない
-  - phase5-implementation/seeded-error-safety#注入に気づいたときの手続
-  - phase5-implementation/seeded-error-safety#注入に気づいたときの手続 > 報奨を設けない
-  - phase5-implementation/seeded-error-safety#注入に気づいたときの手続 > 事前周知に含める事項
-  - phase5-implementation/seeded-error-safety#注入の設計に対する制約
-  - phase5-implementation/seeded-error-safety#隔離が破れる唯一の経路
-  - phase5-implementation/seeded-error-safety#測定の対象を個人にしない
-  - phase5-implementation/seeded-error-safety#関連するページ
   - phase5-implementation/stacked-pr#(冒頭)
   - phase5-implementation/stacked-pr#前提の確認(2026-08-05 時点)
   - phase5-implementation/stacked-pr#前提の確認(2026-08-05 時点) > 自動リターゲットの正確な挙動

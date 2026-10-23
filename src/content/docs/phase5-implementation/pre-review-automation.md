@@ -145,7 +145,7 @@ jobs:
       pull-requests: read
     steps:
       - uses: actions/checkout@v4
-      - name: 締切3営業日前・当日の通知と未応答の記録
+      - name: 締切の2営業日前・前営業日の通知と未応答の記録(第3章 3.10.11)
         run: node scripts/pre-review/remind.mjs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -153,7 +153,7 @@ jobs:
 
 通知は督促のためだけに送るのではありません。**誰がいつ通知を受け、応答したかを記録に残すこと**が目的です。記録がなければ、[第3章 3.10.6](/process-compass/phase4-process-design/roles-responsibilities/)の「意見を出さなかった者の責任」を運用できません。
 
-<!-- impl IMPL-0213 target=pre-review-automation state=undelivered check=manual note="締切の通知と、誰がいつ通知を受けて応答したかの記録。準拠テンプレートに通知と記録の仕組みは無い" -->
+<!-- impl IMPL-0213 target=pre-review-automation state=undelivered check=manual note="締切の通知(時点は第3章 3.10.11 の2営業日前と前営業日)と、誰がいつ通知を受けて応答したかの記録。準拠テンプレートに通知と記録の仕組みは無い" -->
 
 ## 沈黙の扱いの機械化
 
@@ -186,9 +186,9 @@ R1 に限って全員の応答を必須にするのは、取り消せない決�
 - 1つのコメントに複数の論点が含まれる場合、分割を促す。注意の喚起に限る(5.7.4 要求事項2)
 - 機械の出力で、意見を `pre-review-closed` の応答の対象から外してはならない
 
-理由のない反対を意見として扱わないかは、起案者が応答に理由を添えて記録し、判定者が判定記録で確かめます。起案者だけに決めさせません。起案者は意見の採否に利害を持つためです。自由記述から「理由が無い」を機械が判定して必須の状態検査に効かせると、記述の実質性を機械で判定して進行を決める形になります(5.7.4 要求事項1)。AI の指摘の欠落について[附属書H](/process-compass/phase4-process-design/assurance-case/) H.4 が置く扱い(機械は欠落を示すだけで、指摘を消さない)と同じです。
+理由のない反対を意見として扱わないかは、[第3章 3.10.4](/process-compass/phase4-process-design/roles-responsibilities/) のとおり、起案者が応答に記録し、決定者が判定記録で確かめます。機械は決めません。自由記述から「理由が無い」を機械が判定して必須の状態検査に効かせると、記述の実質性を機械で判定して進行を決める形になります(5.7.4 要求事項1)。AI の指摘の欠落について[附属書H](/process-compass/phase4-process-design/assurance-case/) H.4 が置く扱い(機械は欠落を示すだけで、指摘を消さない)と同じです。
 
-<!-- impl IMPL-0215 target=pre-review-automation state=undelivered check=manual note="意見の様式の欄(賛否・理由・反対の代替案または充足条件)の空欄を示し、複数の論点の分割を促す(注意の喚起に限る)。機械の出力で意見を pre-review-closed の応答の対象から外さない。意見として扱わないかは起案者が応答に記録し、判定者が判定記録で確かめる。準拠テンプレートに検査は無い" -->
+<!-- impl IMPL-0215 target=pre-review-automation state=undelivered check=manual note="意見の様式の欄(賛否・理由・反対の代替案または充足条件)の空欄を示し、複数の論点の分割を促す(注意の喚起に限る)。機械の出力で意見を pre-review-closed の応答の対象から外さない。意見として扱わないかを機械は決めない(起案者と決定者の手続は第3章 3.10.4 の IMPL-0231)。準拠テンプレートに検査は無い" -->
 
 理由のない反対を無効とする規則は、反対する側にも説明の責任を課します。この規則がない場合、反対の表明だけで進行を止められるため、判定の遅延に対する責任が不在になります。
 

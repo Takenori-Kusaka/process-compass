@@ -24,6 +24,7 @@
 // オプション:
 //   --write   台帳ページ(community/implementation-ledger.md)を再生成する
 
+import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { glob } from 'node:fs/promises';
 import path from 'node:path';
@@ -60,8 +61,16 @@ const UNCLASSIFIED = '未分類';
 
 const INVENTORY_PATH = 'src/data/impl-inventory.yaml';
 const BASELINE_PATH = 'src/data/impl-inventory-baseline.yaml';
-/** 基準線の凍結時(2026-10-23)の件数。基準線はこれを超えて増えない(減る向きにだけ動く) */
-const BASELINE_SIZE = 943;
+/**
+ * 基準線の凍結時(2026-10-23)の要約。鍵(857 件)を整列し、改行で連ねた文字列の SHA-256(baselineDigest)。
+ * 基準線のファイルは編集しない。鍵の追加・削除・入れ替えのどれでも食い違い、検査が失敗する(突合 X-1)
+ */
+const BASELINE_DIGEST = '59c751b0d0dcf2bc01857405fd30d97fcdeb9aa9dc22c6584853e10b03e896e5';
+/**
+ * 棚卸し済みの節を未棚卸しへ戻していないかを比べる基点(突合 X-2)。既定は origin/main。
+ * CI は IMPL_BASE_REF で基点を渡す。基点の登録簿が読めない環境では比べず、比べなかったことを出力する
+ */
+const BASE_REF = process.env.IMPL_BASE_REF || 'origin/main';
 /** 基準線の外で節の区分を判定した件数を見るための、対象のフェーズのディレクトリ */
 const PHASE_DIRS = { 'phase5-implementation': 'フェーズ5', 'phase6-operation': 'フェーズ6' };
 
@@ -362,14 +371,32 @@ for (const page of await inventoryPages()) {
 const inventory = YAML.parse(readFileSync(INVENTORY_PATH, 'utf8'));
 const baseline = YAML.parse(readFileSync(BASELINE_PATH, 'utf8'));
 const entries = inventory.sections ?? [];
+const base = readBaseInventory(BASE_REF);
 for (const e of checkInventory({
   sections,
   entries,
   baseline: baseline.sections ?? [],
-  baselineSize: BASELINE_SIZE,
+  baselineDigest: BASELINE_DIGEST,
   ledgerIds: new Set(marks.map((m) => m.id)),
+  baseEntries: base.entries,
 })) {
   errors.push(`${INVENTORY_PATH}: ${e}`);
+}
+
+/** 比較の基点の登録簿を読む。読めなければ entries: null と理由を返す(浅い取得・基点に登録簿が無い など) */
+function readBaseInventory(ref) {
+  try {
+    const text = execFileSync('git', ['show', `${ref}:${INVENTORY_PATH}`], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    return { entries: YAML.parse(text)?.sections ?? [], note: `比較の基点 ${ref} の登録簿と比べました` };
+  } catch {
+    return {
+      entries: null,
+      note: `比較の基点 ${ref} の登録簿を読めないため、棚卸し済みの節を未棚卸しへ戻すことを確かめていません(限界: 規約「対象の棚卸し」)`,
+    };
+  }
 }
 
 const ledgerText = readFileSync(LEDGER_PATH, 'utf8');
@@ -386,6 +413,7 @@ if (args.has('--write')) {
   errors.push(`${LEDGER_PATH} が最新ではありません。'npm run impl:write' を実行してください`);
 }
 
+console.log(base.note);
 if (errors.length > 0) {
   console.error('実装マークの検査で問題が見つかりました:\n');
   for (const e of errors) console.error(`  ${e}`);

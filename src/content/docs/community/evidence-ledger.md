@@ -136,7 +136,7 @@ sidebar:
 | EV-0132 | 条件5 の「指摘の内容」を所在と根拠と定めること。実行・観測値・代替案を求めないこと。所在か根拠を欠く指摘を、採否の記録で不採用とし、欠陥注入の検出に数えないこと | E1(間接) | 未記載 | 2027-10 | 所在・根拠を持つ指摘と持たない指摘の、採用率と注入欠陥の検出率の差 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | EV-0133 | 分けた AI の担い手どうしの往復を禁止しないこと。往復の回数に新たな上限を置かないこと | E2(単一事例) | 未記載 | 2027-10 | 往復させた構成と往復させない構成で、G-6 で見つかった欠陥の件数の差 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | EV-0134 | AI の指摘の書式を定めず、含める値だけを定めること | E2(単一事例) | 未記載 | 2027-10 | レビューの指摘で書式を変えた場合(散文と構造化)の、採用率と注入欠陥の検出率の差 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
-| EV-0135 | マークの対象を節と番号つきの表の行の単位で棚卸しし、区分を本文の外の登録簿に記録し、未棚卸しの節を基準線から減る向きにだけ動かすこと | E1(間接) | 未記載 | 2027-10 | 棚卸し済みの節で、後から未マークの規範が見つかった件数 | [community/implementation-marking](/process-compass/community/implementation-marking/) |
+| EV-0135 | マークの対象を節と番号つきの表の行の単位で棚卸しし、区分を本文の外の登録簿に記録し、未棚卸しの節を凍結した基準線の中に限ること | E1(間接) | 未記載 | 2027-10 | 棚卸し済みの節で、後から未マークの規範が見つかった件数 | [community/implementation-marking](/process-compass/community/implementation-marking/) |
 | EV-0136 | 降りていない規定の件数を、合否にも警戒の条件にも使わないこと。0件を異常の兆候として扱わないこと | E0(なし) | 未記載 | 2027-10 | `undelivered` が0件の期間に、案件から「規定が無い」と申し立てられた規定の件数 | [community/implementation-marking](/process-compass/community/implementation-marking/) |
 
 <!-- evidence-ledger:end -->

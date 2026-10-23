@@ -2,14 +2,23 @@ name: CI
 
 on:
   pull_request:
+  # ソロ期は main へ直接 push する(CLAUDE.md「Git 戦略」)。push でも同じ検査を回す
+  push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
+      # npm run check は準拠テンプレート(submodule template/)の複製・スキルの文・様式の欄を検査する。
+      # zenn/ は検査が読まないため取得しない(Issue #292 突合 X-7)
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Checkout template submodule
+        run: git submodule update --init --recursive template
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
@@ -17,7 +26,10 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: textlint (日本語校正)
-        run: npm run lint:text
-      - name: Build
-        run: npm run build
+      # 実装マークの検査は、棚卸し済みの節を未棚卸しへ戻していないかを、基点の登録簿と比べる(ADR-0076)。
+      # PR では基点のブランチ、main への push では push の直前のコミット、手動の実行では origin/main と比べる。
+      # 基点の登録簿が読めなければ(ブランチの作成・基点に登録簿が無い など)、比べなかったことを出力する
+      - name: npm run check(push 前と同じ検査)
+        run: npm run check
+        env:
+          IMPL_BASE_REF: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event_name == 'push' && github.event.before || 'origin/main' }}

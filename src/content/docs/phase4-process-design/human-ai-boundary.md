@@ -517,7 +517,7 @@ AI が席の担い手として判断を引き受け続けた運用報告は、20
 
 委託による開発では、**受注側の評価および契約上のペナルティの根拠にも用いません**。禁止の理由は個人の場合と同じで、測定の対象が工程であることによります。評価へ接続した時点で、注入の告知は不利益の予告になります。受注側は検出しやすい対象へ最適化し、実務で問題になる欠陥は測定から外れます。委託時の役割分担は[第8章 軸D](/process-compass/phase4-process-design/tailoring-guide/)によります。
 
-<!-- impl IMPL-0160 target=adoption-trial state=delivered check=manual note="欠陥注入の結果を、レビュー工程の検出能力の測定と見逃しやすい類型の特定に限って用い、個人の評価・人事・残存欠陥数の推定・受注側の評価に用いない。導入前の検証のコマンドは層ごとの検出率と見逃した類型だけを出し、人ごとの率と残存数の推定を出さない。用途は記録の外にあり、機械は確かめない。準拠テンプレートにあるのは附属書I I.11 の導入前の検証の 1 回の測定だけで、運用中の継続の注入は無い" -->
+<!-- impl IMPL-0160 target=adoption-trial state=undelivered check=manual note="欠陥注入の結果を、レビュー工程の検出能力の測定と見逃しやすい類型の特定に限って用い、個人の評価・人事・残存欠陥数の推定・受注側の評価に用いない。導入前の検証のコマンドは層ごとの検出率と見逃した類型だけを出し、人ごとの率と残存数の推定を出さない。用途の限定を採用者と担い手へ伝える文は、準拠テンプレートの様式・スキル・CLAUDE.md に無い(コードの注記だけ。突合 X-12)。用途は記録の外にあり、機械は確かめない" -->
 
 #### 事前の周知
 
@@ -771,7 +771,7 @@ AI の支援を受けて作成した成果物には、次を記録します。
 - 形式的な検証活動そのものの代替
 - 挙動の非決定性を隠す目的の実装
 
-<!-- impl IMPL-0180 target=claude-md state=delivered check=manual note="AI に担わせない4領域を、CLAUDE.md の「一律で AI に委譲できない領域」の節に置く。check-process-rules は節の見出しと本文の有無を確かめ、行は確かめない" -->
+<!-- impl IMPL-0180 target=claude-md-resident state=delivered check=presence note="AI に担わせない4領域を、CLAUDE.md の「一律で AI に委譲できない領域」の節に置く。check-process-rules は節の見出しと本文の有無を確かめ、行は確かめない" -->
 
 ### 5.8.4 テスト生成における分離の段階
 
@@ -788,9 +788,9 @@ AI の支援を受けて作成した成果物には、次を記録します。
 
 段階「中」以上は、段階「弱」の文脈の分離を含みます。呼び分けの「分離(文脈と入力)」のとおりです。
 
-本標準は、構成の兼務禁止表(`separations`)に、この段階もセッションの単位も持たせることを課しません。構成のキーにしても、文脈と入力を分けたことを機械で確かめられないためです。分離は、実装のスキルの手順と、開発者の席の責任者による PR の確認で担保します。
+本標準は、構成の兼務禁止表(`separations`)に、この段階もセッションの単位も持たせることを課しません。構成のキーにしても、文脈と入力を分けたことを機械で確かめられないためです。
 
-<!-- impl IMPL-0181 target=implement-skill state=delivered check=manual note="実装とテストの両方を同一の AI が同一の文脈で書かない(見出しの禁止と段階「弱」)。実装のスキルは、テストを受入基準だけを渡した別の文脈(サブエージェントか別のセッション)で生成させる。文脈を分けたことを機械は確かめない。開発者の席の責任者が PR の確認で確かめる" -->
+<!-- impl IMPL-0181 target=implement-skill state=delivered check=manual note="実装とテストの両方を同一の AI が同一の文脈で書かない(見出しの禁止と段階「弱」)。実装のスキルは、テストを受入基準だけを渡した別の文脈(サブエージェントか別のセッション)で生成させる。文脈を分けたことを機械は確かめず、確かめる者も本標準は定めていない(突合 X-3)" -->
 <!-- impl IMPL-0182 target=implement-skill state=delivered check=manual note="段階「中」。テストを実装より先に生成し、テスト生成に実装コードを渡さない。実装のスキルは区分によらず全変更に当てる。渡していないことを機械は確かめない" -->
 <!-- impl IMPL-0183 target=implement-skill state=delivered check=manual note="段階「強」(R1)。人が受入基準を事前に定義し、生成されたテストの十分性を人が判定する。実装のスキルは R1 の変更と CL2 以上の構成でこれを求める。判定したことを機械は確かめない" -->
 <!-- impl IMPL-0184 target=config-seats state=undelivered check=manual note="段階「最強」(安全関連ソフトウェア)。検証の担当者を実装の責任者から組織的に独立させる。構成の席は担当者の組織上の所属を持たず、確かめない。CL2 以上の独立した安全性の評価(IMPL-0080)とは別の規定" -->
@@ -816,10 +816,10 @@ AI の支援を受けて作成した成果物には、次を記録します。
 | 5 | 独立レビューの挙動要約を、AI に生成させる | 要約は理解の証拠であり、生成物は証拠にならない | 5.7.1、第4章 G-6 基準2 |
 
 <!-- impl IMPL-0185 target=claude-md state=delivered check=presence note="禁止事項1(受入基準を確定せずに実装を依頼する)。CLAUDE.md の行ってはならない作業の表と実装のスキルの前提に置く。PR では G-5(pr-rules)がトレーラ Spec の指す仕様とタスクの実在を確かめる。着手そのものは機械で確かめない" -->
-<!-- impl IMPL-0186 target=claude-md state=delivered check=manual note="禁止事項2(AI が生成した受入基準を、人の G-2・G-4 の判定を経ずに確定とする)。CLAUDE.md の行ってはならない作業の表に置く。指示文だけである" -->
+<!-- impl IMPL-0186 target=claude-md-resident state=delivered check=presence note="禁止事項2(AI が生成した受入基準を、人の G-2・G-4 の判定を経ずに確定とする)。CLAUDE.md の行ってはならない作業の表に置く。check-process-rules は「行ってはならない作業」の節の見出しと本文の有無を確かめ、行は確かめない" -->
 <!-- impl IMPL-0187 target=guard-write-hook state=delivered check=presence note="禁止事項3(テストの失敗を、テスト側の変更で解消する)。自己修正のロック中は、フックがテストへの書き込みを遮断し、拒否を記録する。ロックの外の既存のテストの変更は、G-5(pr-rules)が PR へ一覧を出す(合否に使わない)。フックに試験は無い。Claude Code の Edit・Write だけを遮断する" -->
-<!-- impl IMPL-0188 target=claude-md state=delivered check=manual note="禁止事項4(差分を確認せずに承認する)。CLAUDE.md の行ってはならない作業の表に置く。指示文だけである" -->
-<!-- impl IMPL-0189 target=claude-md state=delivered check=manual note="禁止事項5(独立レビューの挙動要約を AI に生成させる)。CLAUDE.md の行ってはならない作業の表に置く。挙動要約を誰が書いたかを機械は確かめない(集約が確かめるのは最低限の形と同一の文)" -->
+<!-- impl IMPL-0188 target=claude-md-resident state=delivered check=presence note="禁止事項4(差分を確認せずに承認する)。CLAUDE.md の行ってはならない作業の表に置く。check-process-rules は「行ってはならない作業」の節の見出しと本文の有無を確かめ、行は確かめない" -->
+<!-- impl IMPL-0189 target=claude-md-resident state=delivered check=presence note="禁止事項5(独立レビューの挙動要約を AI に生成させる)。CLAUDE.md の行ってはならない作業の表に置く。挙動要約を誰が書いたかを機械は確かめない(集約が確かめるのは最低限の形と同一の文)。check-process-rules は「行ってはならない作業」の節の見出しと本文の有無を確かめ、行は確かめない" -->
 
 - 禁止事項2 は、旧版では「AI が生成した受入基準をそのまま承認する」だった。読んだうえで変えなかった承認と、読まずにした承認を、記録から区別できない。記録で判定できる形へ改めた。読まずに承認しないことは、禁止ではなく推奨とする(附属書E E.3 参照)
 - 禁止事項3 のため、自己修正ループの書き込み範囲にテストを含めない。テストの修正を要すると判明した場合は、ループを終了して人が受入基準へ戻る。除外の解除は人の操作による

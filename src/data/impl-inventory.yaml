@@ -5,9 +5,11 @@
 # status — marked(節の、実行主体の挙動を制約する規定のすべてに、ids のマークがあると登録者が判断した)
 #          kb(工程ゲートの判定基準の表。知識ベースへ降りる。ADR-0048)
 #          none(対象にしない。category と reason が必須)
-#          pending(未棚卸し。基準線 impl-inventory-baseline.yaml にある節だけ)
-# ids    — marked の節が持つマークの識別子。節の外に置いたマークで追跡する規定は、その識別子を挙げる
-# rows   — 番号つきの要求事項・禁止事項の表の行ごとの区分(marked の節で必須)。marked(ids)か none(category・reason)
+#          pending(未棚卸し。凍結した基準線 impl-inventory-baseline.yaml にある節だけ。棚卸し済みの節を pending へ戻さない)
+# ids    — marked の節の中にあるマークの識別子(1件以上。節の外のマークは挙げない。突合 X-11)
+# location — 節の外のマークで追う規定があるときの、その所在の節の鍵(marked・行の marked では任意、elsewhere では必須)
+#          節の中にマークが無く、他の節のマークで追う節は none / elsewhere で登録する
+# rows   — 番号つきの表(1列目の見出しが「#」で、行が番号の表)の行ごとの区分(marked の節で必須)。marked(ids)か none(category・reason)
 # category — none の理由の区分: explanation(説明)/ org-design(制度設計)/ elsewhere(所在は他節。location が必須)/ not-imposed(課さない)
 # note   — 登録者の判断の補足(検査は読まない)
 schemaVersion: 0
@@ -551,11 +553,12 @@ sections:
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項
     status: marked
     ids:
-      - IMPL-0039
-      - IMPL-0093
       - IMPL-0159
     note: 挙動要約を必須とし、要約を伴わない承認を独立した人の確認に数えない規定は、第4章 G-6 の IMPL-0039・IMPL-0093 が追跡する。3水準の表は説明
     issue: 292
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.1 形骸化が生じる条件
     status: none
     category: explanation
@@ -590,12 +593,14 @@ sections:
         ids:
           - IMPL-0161
       要求事項4:
-        status: marked
-        ids: &a1
-          - IMPL-0190
-          - IMPL-0191
-          - IMPL-0047
-          - IMPL-0192
+        status: none
+        category: elsewhere
+        reason: 所在の節のマーク(IMPL-0190・IMPL-0191・IMPL-0047・IMPL-0192)で追う
+        location:
+          - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
+          - phase5-implementation/seeded-error-safety#遮断の4層 > 第2層 トレーラによる拒否
+          - phase5-implementation/seeded-error-safety#遮断の4層 > 第3層 リリース候補の走査
+          - phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
     issue: 292
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 注入する欠陥の要件
     status: marked
@@ -603,12 +608,20 @@ sections:
       - IMPL-0163
     rows:
       要件1:
-        status: marked
-        ids: *a1
+        status: none
+        category: elsewhere
+        reason: 所在の節のマーク(IMPL-0190・IMPL-0191・IMPL-0047・IMPL-0192)で追う
+        location:
+          - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
+          - phase5-implementation/seeded-error-safety#遮断の4層 > 第2層 トレーラによる拒否
+          - phase5-implementation/seeded-error-safety#遮断の4層 > 第3層 リリース候補の走査
+          - phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
       要件2:
-        status: marked
-        ids:
-          - IMPL-0190
+        status: none
+        category: elsewhere
+        reason: 所在の節のマーク(IMPL-0190)で追う
+        location:
+          - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
       要件3:
         status: marked
         ids:
@@ -637,8 +650,9 @@ sections:
     status: marked
     ids:
       - IMPL-0166
-      - IMPL-0157
     issue: 292
+    location:
+      - phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > 所在か根拠を欠く指摘
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 結果の反映
     status: marked
     ids:
@@ -649,12 +663,13 @@ sections:
     status: marked
     ids:
       - IMPL-0169
-      - IMPL-0190
-      - IMPL-0191
-      - IMPL-0047
-      - IMPL-0192
     note: 要件1・2 の実装は、フェーズ5 欠陥注入の隔離設計の4層のマークで追跡する
     issue: 292
+    location:
+      - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
+      - phase5-implementation/seeded-error-safety#遮断の4層 > 第2層 トレーラによる拒否
+      - phase5-implementation/seeded-error-safety#遮断の4層 > 第3層 リリース候補の走査
+      - phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.3 見逃しが生じた場合の区分
     status: none
     category: org-design
@@ -669,12 +684,13 @@ sections:
     status: marked
     ids:
       - IMPL-0170
-      - IMPL-0027
-      - IMPL-0026
-      - IMPL-0032
-      - IMPL-0189
     note: 協働でも挙動要約を AI に起案させない規定は 5.8.5 禁止事項5(IMPL-0189)、G-6 を事後へ移す変更の識別は IMPL-0027・IMPL-0026、件数の集約は IMPL-0032 が追跡する
     issue: 292
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 委任の変更は判定の時点を事後へ移す
+      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
+      - phase4-process-design/assurance-case#H.6 保証の開示
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.5 AI 協調の作業で行ってはならないこと
   - key: phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.2 決断の記録の構造
     status: marked
     ids:
@@ -737,9 +753,10 @@ sections:
       - IMPL-0177
       - IMPL-0178
       - IMPL-0179
-      - IMPL-0207
     note: 成果物から生成時の指示資産の版を参照できる状態は、フェーズ5 エージェントの操作の統制の IMPL-0207(降りていない)が追跡する
     issue: 292
+    location:
+      - phase5-implementation/agent-trace-control#生成の条件を記録する
   - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.3 AI に担わせない領域
     status: marked
     ids:
@@ -752,9 +769,10 @@ sections:
       - IMPL-0182
       - IMPL-0183
       - IMPL-0184
-      - IMPL-0021
     note: エージェントを分けたことを独立とみなさない規定は、独立・分離の語の使い分けの IMPL-0021 が追跡する
     issue: 292
+    location:
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義
   - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.5 AI 協調の作業で行ってはならないこと
     status: marked
     ids:
@@ -1034,9 +1052,10 @@ sections:
       - phase5-implementation/pre-review-automation#判定資料の自動起票
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.4 意見の様式
-    status: none
-    category: elsewhere
-    reason: 意見の様式と全ての意見への応答は、事前レビュー期間の自動化の意見の様式の検査と pre-review-closed のマークで追跡する
+    status: marked
+    ids:
+      - IMPL-0231
+    note: 意見として扱わないかの手続(起案者の記録と決定者の確認)は節の中の IMPL-0231。意見の様式の欄の検査と全ての意見への応答は、事前レビュー期間の自動化の検査と pre-review-closed のマークで追う(突合 X-4)
     location:
       - phase5-implementation/pre-review-automation#意見の様式の機械検査
       - phase5-implementation/pre-review-automation#沈黙の扱いの機械化
@@ -1050,8 +1069,11 @@ sections:
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.6 意見を出さなかった者の責任
     status: none
-    category: org-design
-    reason: 差し戻しの請求の制限と指名の見直しは、組織の会議体の運営規則。応答率の記録は事前レビュー期間の自動化の通知と記録・指標の集計のマーク(IMPL-0213・IMPL-0216)が追跡する
+    category: elsewhere
+    reason: 実行層へ降ろす規定は応答率の記録だけで、事前レビュー期間の自動化の通知と記録・指標の集計のマーク(IMPL-0213・IMPL-0216)で追う。差し戻しの請求の制限と指名の見直しは、組織の会議体の運営規則で、降ろし先を持たない
+    location:
+      - phase5-implementation/pre-review-automation#締切の通知と未応答の記録
+      - phase5-implementation/pre-review-automation#指標の自動集計
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.7 判定当日の進め方
     status: none
@@ -1098,13 +1120,14 @@ sections:
     reason: AI維持管理者と AI運用担当者のロールの分け方。組織の体制の設計
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.2 AI維持管理者の職掌
-    status: marked
-    ids:
-      - IMPL-0146
-      - IMPL-0225
-      - IMPL-0229
-    note: 承認権限は IMPL-0146(指示資産と検査)と IMPL-0229(外部ツール)、読み込み実績の監査は IMPL-0225 が追跡する。任命基準は組織の制度設計
+    status: none
     issue: 292
+    category: elsewhere
+    reason: 承認権限は IMPL-0146(指示資産と検査)と IMPL-0229(外部ツール)、読み込み実績の監査は IMPL-0225 が追跡する。任命基準は組織の制度設計
+    location:
+      - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.5 競合の防止
+      - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.4 指示資産の保守要求
+      - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.6 エージェントが用いる外部ツールの統治
   - key: phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.3 指示資産の3層
     status: marked
     ids:
@@ -1115,7 +1138,6 @@ sections:
     ids:
       - IMPL-0130
       - IMPL-0145
-      - IMPL-0146
       - IMPL-0222
       - IMPL-0223
       - IMPL-0224
@@ -1131,10 +1153,11 @@ sections:
         ids:
           - IMPL-0223
       要求事項3:
-        status: marked
-        ids:
-          - IMPL-0004
-          - IMPL-0146
+        status: none
+        category: elsewhere
+        reason: 所在の節のマーク(IMPL-0004・IMPL-0146)で追う
+        location:
+          - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.5 競合の防止
       要求事項4:
         status: marked
         ids:
@@ -1153,6 +1176,8 @@ sections:
           - IMPL-0130
     note: 外す判断を AI に行わせない規定は IMPL-0146(AI は候補の提示まで)が追跡する。判断記録の保管の手続は第6章 テンプレ2 と IMPL-0131 による
     issue: 292
+    location:
+      - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.5 競合の防止
   - key: phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.5 競合の防止
     status: marked
     ids:
@@ -1191,8 +1216,9 @@ sections:
     status: marked
     ids:
       - IMPL-0230
-      - IMPL-0104
     issue: 292
+    location:
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合
   - key: phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.8 AI基盤に関する作業の RACI
     status: none
     category: org-design
@@ -1410,7 +1436,6 @@ sections:
     status: marked
     ids:
       - IMPL-0201
-      - IMPL-0198
     rows:
       要求1:
         status: none
@@ -1421,31 +1446,55 @@ sections:
         ids:
           - IMPL-0201
       要求3:
-        status: marked
-        ids:
-          - IMPL-0198
+        status: none
+        category: elsewhere
+        reason: 所在の節のマーク(IMPL-0198)で追う
+        location:
+          - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
       要求4:
-        status: marked
-        ids:
-          - IMPL-0198
-          - IMPL-0199
+        status: none
+        category: elsewhere
+        reason: 所在の節のマーク(IMPL-0198・IMPL-0199)で追う
+        location:
+          - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
     note: 特定の製品を指定しないことは、本標準が課さないと決めた表明
     issue: 292
+    location:
+      - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
   - key: phase5-implementation/agent-trace-control#差分から機械判定する
     status: marked
     ids:
       - IMPL-0202
       - IMPL-0203
       - IMPL-0204
-      - IMPL-0134
     issue: 292
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 統制の設定の陰性の確認
   - key: phase5-implementation/agent-trace-control#人が見るもの
     status: marked
     ids:
       - IMPL-0205
-      - IMPL-0198
-      - IMPL-0204
     issue: 292
+    location:
+      - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
+      - phase5-implementation/agent-trace-control#差分から機械判定する
+    rows:
+      見るもの1:
+        status: none
+        category: elsewhere
+        reason: 遮断の記録は所在の節のマーク(IMPL-0198)で追う
+        location:
+          - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
+      見るもの2:
+        status: none
+        category: elsewhere
+        reason: 機械判定のラベルは所在の節のマーク(IMPL-0204)で追う
+        location:
+          - phase5-implementation/agent-trace-control#差分から機械判定する
+      見るもの3:
+        status: marked
+        ids:
+          - IMPL-0205
   - key: phase5-implementation/agent-trace-control#操作の要約を AI に作らせません
     status: marked
     ids:
@@ -1455,9 +1504,9 @@ sections:
     status: marked
     ids:
       - IMPL-0207
-      - IMPL-0176
-      - IMPL-0177
     issue: 292
+    location:
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.2 記録の要求事項
   - key: phase5-implementation/agent-trace-control#生成の条件を記録する > 指示の全文を保存しません
     status: none
     category: not-imposed
@@ -1988,6 +2037,19 @@ sections:
     ids:
       - IMPL-0195
     issue: 292
+    rows:
+      手続1:
+        status: marked
+        ids:
+          - IMPL-0195
+      手続2:
+        status: marked
+        ids:
+          - IMPL-0195
+      手続3:
+        status: marked
+        ids:
+          - IMPL-0195
   - key: phase5-implementation/seeded-error-safety#注入に気づいたときの手続 > 報奨を設けない
     status: none
     category: org-design
@@ -2014,8 +2076,9 @@ sections:
     status: marked
     ids:
       - IMPL-0197
-      - IMPL-0165
     issue: 292
+    location:
+      - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 頻度と集計の単位
   - key: phase5-implementation/seeded-error-safety#関連するページ
     status: none
     category: explanation

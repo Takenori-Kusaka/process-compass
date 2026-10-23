@@ -12,6 +12,7 @@ import {
   numberedRows,
   plannedProblem,
   renderUndelivered,
+  baselineDigest,
 } from './lib/impl-inventory.mjs';
 
 let passed = 0;
@@ -44,6 +45,8 @@ const DOC = [
   '| 1 | 一つ目 |',
   '| 2 | 二つ目 |',
   '',
+  '<!-- impl IMPL-0002 target=claude-md state=delivered check=manual note="見本の表" -->',
+  '',
   '## 1.2 節B',
   '',
   '### 様式',
@@ -58,6 +61,12 @@ const DOC = [
   '### 様式',
   '',
   '別の親の下の同じ見出し。',
+  '',
+  '### 手続の表',
+  '',
+  '| # | 手続 |',
+  '| --- | --- |',
+  '| 1 | 報告する |',
   '',
   '### G-9 見本のゲート',
   '',
@@ -74,6 +83,7 @@ const K = {
   table: key('1.1 節A > 1.1.2 要求の表'),
   formB: key('1.2 節B > 様式'),
   formC: key('1.3 節C > 様式'),
+  proc: key('1.3 節C > 手続の表'),
   gate: key('1.3 節C > G-9 見本のゲート'),
 };
 const ALL = Object.values(K);
@@ -95,16 +105,20 @@ function goodEntries() {
     },
     { key: K.formB, status: 'pending' },
     { key: K.formC, status: 'none', category: 'elsewhere', reason: '所在は別の節', location: K.child },
+    { key: K.proc, status: 'pending' },
     { key: K.gate, status: 'kb' },
   ];
 }
+/** 基準線は凍結の時点で未棚卸しだった節だけ(突合 X-2) */
+const BASE = [K.formB, K.proc];
 const run = (entries, opts = {}) =>
   checkInventory({
     sections: opts.sections ?? sections,
     entries,
-    baseline: opts.baseline ?? ALL,
-    baselineSize: opts.baselineSize ?? ALL.length,
+    baseline: opts.baseline ?? BASE,
+    baselineDigest: opts.digest ?? baselineDigest(BASE),
     ledgerIds: opts.ledgerIds ?? ledgerIds,
+    baseEntries: opts.baseEntries ?? null,
   });
 const fails = (errors, re) => assert(errors.some((e) => re.test(e)), `期待した失敗 ${re} が出ない: ${JSON.stringify(errors)}`);
 
@@ -122,9 +136,11 @@ test('コードブロックの中の見出しとマークを読まない', () =>
   assert(!sections.some((s) => s.key.includes('コードブロックの中')));
   assert.deepEqual(sections.find((s) => s.key === K.formB).marks, []);
 });
-test('番号つきの要求事項の表の行を読む', () => {
+test('番号つきの表の行を、見出しの語でなく構造(1列目が「#」・行が番号)で読む', () => {
   assert.deepEqual(sections.find((s) => s.key === K.table).rows, ['要求事項1', '要求事項2']);
-  assert.deepEqual(numberedRows(['| # | 判定基準 |', '| --- | --- |', '| 1 | x |']), []);
+  assert.deepEqual(sections.find((s) => s.key === K.proc).rows, ['手続1']);
+  assert.deepEqual(numberedRows(['| # | 行わないこと |', '| --- | --- |', '| 1 | x |', '| 2 | y |']), ['行わないこと1', '行わないこと2']);
+  assert.deepEqual(numberedRows(['| 項目 | 内容 |', '| --- | --- |', '| 1 | x |']), []);
 });
 
 console.log('陰性(正しい登録簿は通る)');
@@ -203,19 +219,76 @@ test('「判定基準の表」の節に判定基準の表が無い', () => {
 test('基準線に無い節を「未棚卸し」で登録する(変えた節を登録し直す経路)', () => {
   const e = goodEntries();
   e[0] = { key: K.lead, status: 'pending' };
-  fails(run(e, { baseline: ALL.filter((k) => k !== K.lead) }), /基準線に無い節を「未棚卸し」で登録しています/);
+  fails(run(e), /基準線に無い節を「未棚卸し」で登録しています/);
 });
-test('基準線が凍結時の件数を超えて増える', () => {
-  fails(run(goodEntries(), { baselineSize: ALL.length - 1 }), /凍結時の .* 件を超えています/);
+test('棚卸し済みの節は基準線に入らず、未棚卸しへ戻すと落ちる(基準線の側)', () => {
+  const e = goodEntries();
+  e[1] = { key: K.child, status: 'pending' };
+  fails(run(e), /基準線に無い節を「未棚卸し」で登録しています/);
 });
-test('基準線に消えた鍵が残る', () => {
-  fails(run(goodEntries(), { baseline: [...ALL, key('9.9 無い節')], baselineSize: 99 }), /基準線の鍵に当たる節がありません/);
+test('基準線へ鍵を足すと、凍結の要約と食い違って落ちる', () => {
+  const grown = [...BASE, K.lead];
+  const e = goodEntries();
+  e[0] = { key: K.lead, status: 'pending' };
+  fails(run(e, { baseline: grown }), /凍結の時点から変わっています/);
+});
+test('基準線の鍵を入れ替える(改名した節の鍵へ置換する)と落ちる', () => {
+  fails(run(goodEntries(), { baseline: [K.formB, key('1.3 節C > 改名した節')] }), /凍結の時点から変わっています/);
+});
+test('基準線から鍵を外すと落ちる', () => {
+  fails(run(goodEntries(), { baseline: [K.formB] }), /凍結の時点から変わっています/);
+});
+test('節が消えた基準線の鍵は無視する(失敗にしない)', () => {
+  const gone = [...BASE, key('9.9 消えた節')];
+  assert.deepEqual(run(goodEntries(), { baseline: gone, digest: baselineDigest(gone) }), []);
+});
+test('比較の基点で棚卸し済みだった節を、未棚卸しへ戻すと落ちる', () => {
+  const baseEntries = goodEntries().map((x) => (x.key === K.formB ? { key: K.formB, status: 'none' } : x));
+  fails(run(goodEntries(), { baseEntries }), /「未棚卸し」へ戻しています/);
+});
+test('比較の基点が無ければ、戻したことを確かめない(基点の無い環境の限界)', () => {
+  assert.deepEqual(run(goodEntries(), { baseEntries: null }), []);
+});
+test('「マーク済み」の節の中にマークが無い', () => {
+  const e = goodEntries();
+  e[4] = { key: K.formC, status: 'marked', ids: ['IMPL-0001'] };
+  const errors = run(e);
+  fails(errors, /節の中に実装マークがありません/);
+  fails(errors, /挙げた識別子 IMPL-0001 が節の中にありません/);
+});
+test('「マーク済み」に他の節の識別子を挙げる', () => {
+  const e = goodEntries();
+  e[1].ids = ['IMPL-0001', 'IMPL-0002'];
+  fails(run(e), /挙げた識別子 IMPL-0002 が節の中にありません/);
+});
+test('「マーク済み」の所在・行の所在に当たる節が無い', () => {
+  const e = goodEntries();
+  e[1].location = [key('9.9 無い節')];
+  fails(run(e), /所在 .*9\.9 無い節 に当たる節がありません/);
+  const f = goodEntries();
+  f[2].rows['要求事項1'].location = [key('9.8 無い節')];
+  fails(run(f), /行 要求事項1 の所在 .* に当たる節がありません/);
+});
+test('「マーク済み」の所在は、実在する節なら通る', () => {
+  const e = goodEntries();
+  e[1].location = [K.formC];
+  assert.deepEqual(run(e), []);
+});
+test('「未棚卸し」の節では、番号つきの表の行の区分を求めない', () => {
+  assert(!run(goodEntries()).some((x) => x.includes('手続1')));
 });
 
 console.log('マークの書式と台帳');
 test('コードブロックの中のマークを見つける(外のマークは見つけない)', () => {
-  assert.deepEqual(marksInFences(DOC.split('\n')), [28]);
+  assert.deepEqual(marksInFences(DOC.split('\n')), [30]);
   assert.deepEqual(marksInFences(['<!-- impl IMPL-0001 target=x state=delivered note="y" -->']), []);
+});
+test('字下げのコードブロック(4字以上の字下げ)のマークを見つける', () => {
+  assert.deepEqual(marksInFences(['本文', '', '    <!-- impl IMPL-0001 target=x state=delivered note="y" -->']), [3]);
+  assert.deepEqual(marksInFences(['\t<!-- impl IMPL-0001 target=x state=delivered note="y" -->']), [1]);
+});
+test('行内のバッククォートの中のマークを見つける', () => {
+  assert.deepEqual(marksInFences(['書式は `<!-- impl IMPL-0001 target=x state=delivered note="y" -->` です']), [1]);
 });
 test('予定の降ろし先は state=undelivered だけが使える', () => {
   const planned = { id: 'p', kind: 'planned' };
