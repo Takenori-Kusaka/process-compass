@@ -15,7 +15,7 @@ graph TD
   B["エージェント型開発<br>(自律の到達点と限界)"]
   C["PO中心のチーム編成<br>(役割の集約)"]
   D["コンテキストエンジニアリング<br>(明文化の技術)"]
-  A --> E["理想モデルの前提条件一覧"]
+  A --> E["理想モデルの前提一覧"]
   B --> E
   C --> E
   D --> E
@@ -26,7 +26,7 @@ graph TD
 - [エージェント型開発の現在地](/process-compass/phase2-aidlc/agentic-development/) — 自律の到達点と限界
 - [プロダクトオーナー中心のチーム編成論](/process-compass/phase2-aidlc/po-centric-team/) — 役割の判断への集約
 - [コンテキストエンジニアリング](/process-compass/phase2-aidlc/context-engineering/) — 暗黙知をAIに渡す技術
-- [理想モデルの前提条件一覧](/process-compass/phase2-aidlc/assumptions/) — 上記を貫く前提の統合
+- [理想モデルの前提一覧](/process-compass/phase2-aidlc/assumptions/) — 上記を貫く前提の統合
 
 ## 一貫して見えた発見: 前提の非対称性
 
@@ -45,7 +45,7 @@ graph TD
 
 ## フェーズ3への橋渡し
 
-フェーズ2で作った[前提条件一覧](/process-compass/phase2-aidlc/assumptions/)を、フェーズ1で整理した[日本企業のガバナンス](/process-compass/phase1-current-state/jp-governance/)と突き合わせると、崩れる前提が系統的に見えます。
+フェーズ2で作った[前提一覧](/process-compass/phase2-aidlc/assumptions/)を、フェーズ1で整理した[日本企業のガバナンス](/process-compass/phase1-current-state/jp-governance/)と突き合わせると、崩れる前提が系統的に見えます。
 
 ```mermaid
 graph LR

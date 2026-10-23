@@ -103,7 +103,7 @@ forms:
       - standard: NEEDS CLARIFICATION
         template: NEEDS CLARIFICATION
       # --- #291 / ADR-0075: 前提の表(前提 / 案件層の ID / 崩れたときの影響)と、受入基準の識別子 ---
-      - standard: '## 前提・依存'
+      - standard: '## 前提'
         template: 前提
       - standard: '| 前提 | 案件層の ID | 崩れたときの影響 |'
         template: '| 前提 | 案件層の ID | 崩れたときの影響 |'
@@ -178,6 +178,9 @@ forms:
       # G-3 の判定記録は、判定した判断記録の番号と版を書く(第4章 G-3、ADR-0071)
       - standard: 判定した判断記録(G-3 のみ)
         template: 判定した判断記録(G-3 のみ)
+      # 前提として引き受けた未確定事項の受容者の記録(第4章 G-2「未確定事項(前提条件1)」、ADR-0075。突合 X-9)
+      - standard: 引き受けた前提(G-2・G-4 のみ)
+        template: 引き受けた前提(G-2・G-4 のみ)
       # リスク区分を確定した者の記名(第3章 3.8.1)。自己記載のままなら保証の開示へ出る(ADR-0056 決定6)
       - standard: 変更のリスク区分(変更を対象とする判定のみ)
         template: 変更のリスク区分
@@ -300,6 +303,11 @@ forms:
         template: スタック構成(依存する変更を積み上げる場合のみ)
       - standard: '## AIエージェントへ与える分割の指示'
         template: エージェントへ与える分割の指示
+      # G-4 基準6 と前提条件の自己点検(#291 / ADR-0075。突合 X-1)
+      - standard: いずれかのタスクの対応CR に現れる(G-4 基準6
+        template: いずれかのタスクの「対応する受入基準」に現れます
+      - standard: 対応仕様に未確定事項が残っていない(G-4 の前提条件
+        template: '未確定事項(`[NEEDS CLARIFICATION]`)が残っていないことも確かめます'
 
   - id: t8
     name: テンプレ8 AI-SLA 合意確認書

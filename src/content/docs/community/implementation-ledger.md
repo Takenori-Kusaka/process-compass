@@ -21,8 +21,8 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 19 |
-| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 19 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 20 |
+| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 21 |
 | 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 15 |
 | **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **101** |
 
@@ -55,7 +55,7 @@ sidebar:
 | IMPL-0135 | 欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(再発の可能性・類似・再発防止の形と理由・効いたことの確認)の様式。準拠テンプレートに様式が無い。品質保証の担当が記録の有無を確かめる。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う | 欠陥の台帳の様式 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0136 | 算定から除いた文書だけの変更を、判定完了時間の SLA で判定すること。出荷の集約は、文書だけの変更の判定完了時間を出していない。判定の滞留はゲート滞留時間(運用メトリクス)で人が見る | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0145 | 強制層の検査の棚卸しの入力(検査装置を起点とする是正の記録、検査ごとの失敗の履歴)を一覧に出す。準拠テンプレートに一覧を出す手段が無い。AI維持管理者が四半期の棚卸しで、CI の実行の記録と是正の記録を手で集める | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0155 | AI レビューの出力に所在と根拠を含め、実行の結果に記録の所在を添えること。ai-review.yml の差し込み口に注記を置いたまでで、差し込む AI のレビューの出力を確かめていない(ADR-0048 決定3)。AI維持管理者が四半期の抜き取りで確かめる | AI レビューのワークフロー(差し込み口) | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
+| IMPL-0155 | AI レビューの出力に所在と根拠を含め、実行の結果を述べる指摘に実行の記録の所在を含めること(所在を示せない場合は、実行で確かめたと記録しない)。ai-review.yml の差し込み口に注記を置いたまでで、差し込む AI のレビューの出力を確かめていない(ADR-0048 決定3)。AI維持管理者が四半期の抜き取りで確かめる | AI レビューのワークフロー(差し込み口) | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 
 ### 全件
 
@@ -207,13 +207,16 @@ sidebar:
 | IMPL-0145 | 強制層の検査の棚卸しの入力(検査装置を起点とする是正の記録、検査ごとの失敗の履歴)を一覧に出す。準拠テンプレートに一覧を出す手段が無い。AI維持管理者が四半期の棚卸しで、CI の実行の記録と是正の記録を手で集める | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0146 | 準拠テンプレートの CLAUDE.md に、指示資産と CI の検査(ワークフロー・検査のスクリプト・アダプタ)の統合・削除を AI維持管理者へ集約し、AI は候補の提示までとする規則を置く。外す PR の記録は pr-rules、基準を実装する検査の集約からの除外は契約検査が止める | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 実在だけ確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0147 | 保証の開示 項目4 の機械検査の「実施」を、集約(gate-g5)が needs に持ち結果を合否に使うジョブの検査に限って出す。アダプタにコマンドがあっても集約が使わない検査は「未実施」と出し、集約の不備を項目4 の行に出す。集約の定義は出荷の時点のワークフローから読み、過去の PR の時点の定義は読まない | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
-| IMPL-0148 | G-2 基準6・G-4 基準7。spec-lint --gate G-2|G-4 が機能仕様の未確定事項の印([NEEDS CLARIFICATION]。コードブロック・HTML コメント・インラインコードの中を除く)を数え、1件でも残れば失敗する(判定を開始しない)。next.mjs は印が残る機能を G-2・G-4 の判定待ちへ進めず、閉じる一手を出す。test-plan-trace.mjs が試験する。閉じ方が3つのどれに当たるかは判定しない | 受入基準の曖昧語の検査(spec-lint) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0149 | G-2 基準3・6、G-4 基準6・7。/gate の補助ファイル gates/G-2.md・G-4.md に、前提の各行の案件層の ID の確認(内容は判定しない)、spec-lint --gate による未確定事項の件数、どのタスクにも現れない受入基準の一覧を材料として並べる手順を置く。判定は判定者が行う | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0148 | G-2・G-4 の前提条件1。spec-lint --gate G-2|G-4 が機能仕様の未確定事項の印([NEEDS CLARIFICATION]。コードブロック・HTML コメント・インラインコードの中を除く)を数え、1件でも残れば失敗する(判定を開始しない)。next.mjs は印が残る機能を G-2・G-4 の判定待ちへ進めず、閉じる一手を出す。test-plan-trace.mjs が試験する。閉じ方が3つのどれに当たるかは判定しない | 受入基準の曖昧語の検査(spec-lint) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0149 | G-2 基準3・前提条件1、G-4 前提条件1。/gate の補助ファイル gates/G-2.md・G-4.md に、前提の各行の案件層の ID の確認(内容は判定しない)、前提の欄の外に事実として書かれた推測を基準3 で扱うこと、spec-lint --gate による未確定事項の件数の確認、引き受けた前提の案件層の ID を判定記録に残す手順を置く。判定は判定者が行う | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0150 | テンプレ1 の前提の欄を「前提 / 案件層の ID / 崩れたときの影響」の表にし、前提の欄に書いたものを確かめていないものとして読む注記、受入基準の識別子の注記、未確定事項の3つの閉じ方を置く。欄の存在は test:fields(template-fields.yaml の t1)が確かめる。記入の中身は確かめない | 成果物テンプレート テンプレ1(機能仕様書) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0151 | G-4 基準6。/task-breakdown の手順と完了の条件に、各受入基準をいずれかのタスクの「対応する受入基準」に書くことと、spec-lint --gate G-4 が出す、どのタスクにも現れない受入基準の一覧を確かめることを置く。一覧は verification-trace.mjs の unmappedCriteria が、機能仕様の受入基準の表と実装計画のタスクの表を突き合わせて出す(test-plan-trace.mjs が試験する)。next.mjs は G-4 の判定待ちに一覧を添える。合否は出さない。対応の内容と束ね方は判定しない | 実装計画へ分解するスキル(/task-breakdown) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0151 | G-4 基準6。/task-breakdown の手順と完了の条件に、各受入基準をいずれかのタスクの「対応する受入基準」に書くことと、spec-lint --gate G-4 が出す、どのタスクにも現れない受入基準の一覧を確かめることを置く。手順があることまでを確かめる | 実装計画へ分解するスキル(/task-breakdown) | — | 降りている | 実在だけ確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0152 | G-4 基準6。/gate の補助ファイル gates/G-4.md が、基準6 の材料として、どのタスクにも現れない受入基準の一覧(spec-lint --gate G-4)を並べさせる。除外の欄を置かない。判定は判定者が行う | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 人が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0153 | 複数の AI の合議や多数決の一致、外部の観測を持たない自己修正、AI どうしの往復の収束を、検出の層にも独立した確認にも数えない。往復の中で作成側の反論・説明を確認側へ渡した確認は、入力の分離(条件2)を満たさない。CLAUDE.md の判断の確定と委任の節に置く。AI の確認の実行構成そのものは確かめない(準拠テンプレートに確認側の AI を起動する定義が無い) | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 実在だけ確かめる | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
-| IMPL-0154 | AI の指摘の中身は所在と根拠(照らした基準と見た事実)。実行の結果を述べる指摘は、実行したコマンドと観測した結果か記録の所在を添え、記録の所在の無い実行の結果を実行で確かめたと書かない。系統の違いを確認の強さの根拠として書かない。CLAUDE.md の判断の確定と委任の節に置く。指摘の中身は機械で確かめない(AI維持管理者が四半期に抜き取る) | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 実在だけ確かめる | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
-| IMPL-0155 | AI レビューの出力に所在と根拠を含め、実行の結果に記録の所在を添えること。ai-review.yml の差し込み口に注記を置いたまでで、差し込む AI のレビューの出力を確かめていない(ADR-0048 決定3)。AI維持管理者が四半期の抜き取りで確かめる | AI レビューのワークフロー(差し込み口) | — | **降りていない** | 人が確かめる | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
+| IMPL-0154 | AI の指摘の中身は所在と根拠(照らした基準と見た事実)。実行の結果を述べる指摘は実行の記録の所在を含め、所在を示せない場合はコマンドと観測した結果を書いてよいが、実行で確かめたとは記録しない。CLAUDE.md の判断の確定と委任の節に置く。指摘の中身は機械で確かめない(AI維持管理者が四半期に抜き取る) | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 実在だけ確かめる | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
+| IMPL-0155 | AI レビューの出力に所在と根拠を含め、実行の結果を述べる指摘に実行の記録の所在を含めること(所在を示せない場合は、実行で確かめたと記録しない)。ai-review.yml の差し込み口に注記を置いたまでで、差し込む AI のレビューの出力を確かめていない(ADR-0048 決定3)。AI維持管理者が四半期の抜き取りで確かめる | AI レビューのワークフロー(差し込み口) | — | **降りていない** | 人が確かめる | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
+| IMPL-0156 | G-4 基準6。spec-lint --gate G-4 が、verification-trace.mjs の unmappedCriteria で機能仕様の受入基準の表と実装計画のタスクの表を突き合わせ、どのタスクにも現れない受入基準の一覧を出す。識別子の形の語だけを対応として読み、範囲の表記・タスクの ID・文中の数は読まない(読めない書き方の受入基準は一覧に出る)。next.mjs は G-4 の判定待ちに一覧を添える。test-plan-trace.mjs が試験する。合否は出さない。対応の内容と束ね方は判定しない | 受入基準の曖昧語の検査(spec-lint) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0157 | 欠陥注入の検出の数え方。adoption-trial.mjs tally が、指摘のファイルと行を注入した箇所のファイルと行へ許容幅つきで突き合わせて検出を数える。所在の無い指摘は検出に数えない。指摘の根拠の有無と、所在が指す箇所の指摘の内容が正しいかは確かめない | 導入前の検証のコマンド | — | 降りている | 機械が確かめる | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
+| IMPL-0158 | 系統の違いを、保証の開示・判定記録・対外の表示で、確認の強さの根拠として書かない(「独立」の語を使わない主張を含む)。CLAUDE.md の判断の確定と委任の節に置く。対外の表現の正本は附属書H H.8 の使ってはならない表現の表。書いた文の中身は機械で確かめない | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 実在だけ確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 
 <!-- implementation-ledger:end -->

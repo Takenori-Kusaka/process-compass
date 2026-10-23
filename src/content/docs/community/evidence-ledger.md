@@ -132,9 +132,10 @@ sidebar:
 | EV-0128 | 組織が書く基準に、緩める理由への読み替えの列挙を求めないこと | E1(間接) | 未記載 | 2027-10 | 附属書H H.11 の表に載らない読み替えが、案件の流出の原因として観測された件数 | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | EV-0129 | G-4 基準6(各受入基準が、実装計画のいずれかのタスクの対応に現れること)を判定基準に置くこと。除外の欄を置かないこと | E1(間接) | 未記載 | 2027-10 | G-7 で見つかった「対応するテストの無い受入基準」のうち、G-4 の時点で計画のどのタスクにも現れていなかった件数 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | EV-0130 | 機能仕様の前提の欄で、観測で確かめたか否かを区別しないこと。前提の欄に書かれたものを、すべて確かめていないものとして読むこと | E1(間接) | 未記載 | 2027-10 | G-2 を通過した後に崩れた前提のうち、書き手が確かめたと信じていたもの(前提の欄の外に事実として書かれていたもの)の件数 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| EV-0131 | 未確定事項が残っていないことを G-2 基準6・G-4 基準7 の判定基準にし、閉じ方を3つに限ること。責任者と期限を付けた持ち越しを置かないこと | E1(間接) | 未記載 | 2027-10 | 未確定事項を前提の欄へ移して通過した件数と、そのうち崩れた件数 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| EV-0131 | 未確定事項が残っていないことを G-2・G-4 の前提条件にし、閉じ方を3つに限ること。責任者と期限を付けた持ち越しを置かないこと | E1(間接) | 未記載 | 2027-10 | 未確定事項を前提の欄へ移して通過した件数と、そのうち崩れた件数 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | EV-0132 | 条件5 の「指摘の内容」を所在と根拠と定めること。実行・観測値・代替案を求めないこと。所在か根拠を欠く指摘を、採否の記録で不採用とし、欠陥注入の検出に数えないこと | E1(間接) | 未記載 | 2027-10 | 所在・根拠を持つ指摘と持たない指摘の、採用率と注入欠陥の検出率の差 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | EV-0133 | 分けた AI の担い手どうしの往復を禁止しないこと。往復の回数に新たな上限を置かないこと | E2(単一事例) | 未記載 | 2027-10 | 往復させた構成と往復させない構成で、G-6 で見つかった欠陥の件数の差 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
+| EV-0134 | AI の指摘の書式を定めず、含める値だけを定めること | E2(単一事例) | 未記載 | 2027-10 | レビューの指摘で書式を変えた場合(散文と構造化)の、採用率と注入欠陥の検出率の差 | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 
 <!-- evidence-ledger:end -->
 
