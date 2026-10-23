@@ -188,3 +188,9 @@ targets:
     kind: template-file
     path: scripts/gate/adoption-trial.mjs
     description: 附属書I I.11 の導入前の検証を、採用者のリポジトリで準備・実行・集計し、様式の記録を出す1コマンド(init / seal / tally / run)。合否の基準の記入が実行の前であることを確かめてから実行する。next.mjs が記録の無い間に案内する(#288 第2巡)
+
+  - id: rulesets
+    name: ブランチ保護のルールセット
+    kind: template-file
+    path: .github/rulesets/README.md
+    description: 既定ブランチと記録の置き場に掛ける強制層の構成(team / regulated / safety / checks-only)と、その説明。GitHub のルールセットはパス単位の免除を持たない(#321)ため、判定記録だけの PR にも承認 1 件が残る。降りていない規定は README に表示し続ける

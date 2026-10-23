@@ -214,7 +214,7 @@ gh pr list --label "state:needs-tech" --state open
 
 ## 4.5.3 ゲート判定の成立とラベルの遷移
 
-**ラベルの遷移は、ゲート判定の成立要件ではない。** 判定は判定記録の作成をもって成立する（[第4章 判定の成立](/process-compass/phase4-process-design/gate-criteria/)）。ラベルは成立に伴う事務であり、次に動くロールへ経路を渡す操作にすぎない。
+**ラベルの遷移は、ゲート判定の成立要件ではない。** 判定は判定記録の作成をもって成立する（[第4章 判定の成立](/process-compass/phase4-process-design/gate-criteria/)）。ラベルは成立に伴う事務であり、次に動くロールへ経路を渡す操作にすぎない。判定記録の媒体と置き場は、第4章と準拠テンプレートが定める。本仕様は定めない。
 
 <!-- impl IMPL-0012 target=claude-md state=delivered note="ラベルの遷移は判定の成立要件ではなく順序は記録が先" -->
 
@@ -222,7 +222,7 @@ gh pr list --label "state:needs-tech" --state open
 
 ```mermaid
 graph LR
-  A["判定基準との突合"] --> B["判定記録の作成<br>docs/gates/"]
+  A["判定基準との突合"] --> B["判定記録の作成"]
   B --> C["ラベルの遷移<br>state:*"]
   C --> D["Issue / PR の事務<br>クローズ・マージ"]
 ```
