@@ -162,3 +162,12 @@ D5〜D7 を両立させる置き場の形(既定ブランチの外の記録用�
 | `workflow_dispatch` は既定ブランチに無いワークフローを起動できない | 既定ブランチに置く必要がある(`push` 起動は当該ブランチで動く) | 404 の応答 |
 
 決定の記録 5 章の E0 のうち「判定者本人の COMMENTED レビュー」と「`GITHUB_TOKEN` の別ブランチ push」は E2(単一事例の実測)へ上げる。`createCommitOnBranch` と `required_signatures` の組は未確認のまま(E0)。
+
+## 7. 段階2 の実機確認(2026-10-23、pit-in-template PR #55。一時ファイルは削除済み)
+
+| 対象 | 結果 | 証跡 |
+| --- | --- | --- |
+| `record-copy.yml`(署名なしの経路)がマージを契機に写しを `records` ブランチへ置く | **置かれた**。`records/reviews/pr-55.json` に `head_sha`・`merge_commit_sha`・`author{id,login}`・`title`・`head_ref`・`reviews[].user.type`・本文が入る。監査ログは「取れない」と写しに書かれる | run(record-copy)、`records` ブランチ |
+| 作成者本人の COMMENTED レビューの宣言行 `G-4: 通過` を `records.mjs` が判定として読み、`commit_id == head_sha` が成り立つ | **成り立つ**(`judgementsFromCopy` → G-4 通過、`headMatches.match=true`) | ローカルで `records.mjs` を実物の写しに適用 |
+| 署名を要する構成(`records-signed.json` + `RECORDS_SIGNED=true`)での `createCommitOnBranch` | **未検証**。ルールセットの適用と変数の設定は、このセッションの権限では行えなかった(アカウント設定の変更に当たる) | — |
+| `ship-evidence.yml` の通し実行(出荷の PR を開き、PR 上で再実行して一致を検査) | **集約まで実行**。手動起動で `records` を fetch し集約が動き、写しの有無を PR ごとに判定した(PR #5・#11・#17・#52 に写しが無いことを欠落に出す)。テンプレートのリポジトリ自体は構成が未設定で記録の欠落 172 件のため集約が失敗し、出荷の PR を開く経路と PR 上の再検査は未検証 | run 39960637580 |
