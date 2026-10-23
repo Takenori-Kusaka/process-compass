@@ -11,7 +11,7 @@ sidebar:
 
 ## 4.1 設計背景: 割り込み崩壊（外部割込競合）の防止
 
-ピットイン方式では、作成指示者（PO/Dev）と独立レビュア（QM/Audit）などの兼務禁止統制を徹底するため、ディレクトリ（クローン）を物理的に分割（[第3章 3.5.1](/process-compass/phase4-process-design/roles-responsibilities/)）して稼働させる。
+ピットイン方式では、作成指示者（PO/Dev）と独立レビュア（Review）などの兼務禁止統制を徹底するため、ディレクトリ（クローン）を物理的に分割（[第3章 3.5.1](/process-compass/phase4-process-design/roles-responsibilities/)）して稼働させる。
 
 このとき、ロール間で直接通信をしたり、相手のセッションに直接リクエストを割り込ませたりすると、次の重大なシステム不具合（**割り込み崩壊**）が構造的に発生する。
 
@@ -53,12 +53,12 @@ sidebar:
 
 | ラベル（label） | 意味 | 付与するロール | 次に動くロール |
 |---|---|---|---|
-| `state:needs-dev` | POまたはQMが、開発者（Dev）に着手を引き渡した状態 | PO / QM | **Dev**（開発者） |
-| `state:dev-done` | 開発者が実装・単体テスト（CI緑）を完了し、Ready化した状態 | Dev | **QM**（出荷判定者） |
-| `state:qm-blocked` | QMが検証で、BLOCK 3類型（実害/証跡の不真正/不可逆）を検出し、Devへ差し戻した状態 | QM | **Dev**（開発者） |
-| `state:ready-to-merge`| QMが独立レビューを完了し、マージを承認した状態 | QM | **QM**（マージ実行担当） |
+| `state:needs-dev` | POまたは独立レビュアが、開発者（Dev）に着手を引き渡した状態 | PO / Review | **Dev**（開発者） |
+| `state:dev-done` | 開発者が実装・単体テスト（CI緑）を完了し、Ready化した状態 | Dev | **Review**（独立レビュア。G-6） |
+| `state:qm-blocked` | 独立レビュアが独立レビュー（G-6）で、または出荷判定者が記録の突合で、BLOCK 3類型（実害/証跡の不真正/不可逆）を検出し、Devへ差し戻した状態 | Review / Ship | **Dev**（開発者） |
+| `state:ready-to-merge`| 独立レビュアが G-6 の判定記録を作成し、マージを待つ状態 | Review | **Ship**（出荷判定者。マージの実行） |
 | `state:needs-audit` | 統合監査またはリリースカットの検証を監査チームに依頼した状態 | PO | **監査**（Auditor） |
-| `state:needs-platform`| テスト装置・リント・CI/CD等の追加・削減・自動生成・統合、および**エージェント指示資産（強制層。`.claude/**` 等）の追加・統合・削除**を依頼した状態 | PO / Dev / QM | **Platform**（AI維持管理） |
+| `state:needs-platform`| テスト装置・リント・CI/CD等の追加・削減・自動生成・統合、および**エージェント指示資産（強制層。`.claude/**` 等）の追加・統合・削除**を依頼した状態 | PO / Dev / Review / Ship | **Platform**（AI維持管理） |
 | `state:needs-po` | 取り消せない操作に当たらないが、仕様・優先度・語彙の改訂等のPO判断を要する状態 | 誰でも | **PO**（価値責任者） |
 | `state:needs-tech` | 技術設計の判断（G-3）を要する状態。ADRの起草・採否、技術的トレードオフの評価 | 誰でも | **技術判断者** |
 | `state:needs-owner` | 事業決裁者の決裁または追認を要する状態 | 誰でも | **オーナー**（事業決裁者） |
@@ -66,7 +66,13 @@ sidebar:
 - `state:needs-po` / `state:needs-tech` / `state:needs-owner` は、誰が気付いても付与してよい。Devの実装中に判断が必要になった場合もこれらを付与する。
 - **`state:needs-owner` が指す範囲は、取り消せない操作に限らない。** 4.2 原則4 の取り消せない操作、[第7章 7.6](/process-compass/phase4-process-design/exception-escalation/)の段階2および段階3、[第3章 3.9](/process-compass/phase4-process-design/roles-responsibilities/)の決裁マトリクスが事業決裁者を指す事項を含む。案件がテーラリングで追認を要する事項を追加した場合も、同じラベルを用いる（[ADR-0037](/process-compass/adr/0037-label-points-to-lane-not-role/)）。
 - **エージェント指示資産の統合・削除の権限は AI維持管理者へ集約する**（[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)）。強制層の検査の追加も、組み込みの承認は AI維持管理者が行う。追加の要否は技術判断者が決める（`state:needs-tech`）。強制層の変更が必要になった場合は `state:needs-owner` ではなく `state:needs-platform` を付与する。取り消せない操作に該当する場合のみ、あわせて `state:needs-owner` を付与する。
+- **`state:dev-done` の受け手は独立レビュアだけとする。** 出荷判定者の受信箱に `state:dev-done` を入れない。同じラベルを2つの席の受信箱に入れると、どちらが拾ったかを記録から決められない。独立レビュアと出荷判定者のレーンは分ける（[第3章 3.5.1](/process-compass/phase4-process-design/roles-responsibilities/)）。
+- **`state:ready-to-merge` は、独立レビュアが G-6 の判定記録を作成した後に付ける。** 出荷判定者はこのラベルを付けない。
+- **出荷判定（G-7）は、このラベルでは起動しない。** G-7 は PR ごとではなく、出荷の範囲ごとの判定である（[第4章 G-7](/process-compass/phase4-process-design/gate-criteria/)）。既定ブランチへの取り込みが出荷を起動する構成では、出荷判定者は G-7 の判定記録を作成した後にマージする。その取り込みは取り消せない操作にも当たる（[第5章 5.5.1](/process-compass/phase4-process-design/human-ai-boundary/)）。取り込みが出荷を起動しない構成では、マージは G-7 を待たない。
 - **相手を指すラベルがない口頭やメンションでの判断依頼を禁止する。** 伝達経路に現れないため、エージェントや人間の双方で見落とすこととなる。
+
+<!-- impl IMPL-0302 target=next-role state=delivered check=machine note="state:dev-done の受け手は独立レビュアだけ。state:ready-to-merge を付けるのは独立レビュアだけで、出荷判定者の受信箱に入る(準拠テンプレートの MAILBOX と next.mjs --role)。出荷判定者は dev-done を受け取らない。G-7 は next.mjs の出荷の段が出荷の範囲ごとに出し、ラベルでは起動しない。test-roster-rules.mjs が固定する(#312)" -->
+<!-- impl IMPL-0303 target=deploy-workflow state=undelivered check=manual note="既定ブランチへの取り込みが出荷を起動する構成で、出荷判定者が G-7 の判定記録を作成した後にマージすること。準拠テンプレートは配備のワークフローを持たず、マージの前に G-7 の判定記録の有無を確かめない。その取り込みは取り消せない操作として人へ戻す経路(IMPL-0251)に限る。採用者は、配備を起動する取り込みの前に G-7 の判定記録を確かめる手順を社内で定める(#312)" -->
 
 ---
 
@@ -78,10 +84,10 @@ sidebar:
 |---|---|---|---|
 | `state:needs-dev` | Dev | 実装完了・単体テストCI全緑・PRのReady化 | **`state:dev-done`** |
 | `state:needs-dev` | Dev | 実装中に仕様や技術のPO判断が必要と判明 | `state:needs-po` または `state:needs-owner` |
-| `state:dev-done` | QM | レビューにおいてBLOCK 3類型を検出（差し戻し） | **`state:qm-blocked`** |
-| `state:dev-done` | QM | 独立レビュー承認（Approve） | **`state:ready-to-merge`** |
+| `state:dev-done` | Review（独立レビュア） | 独立レビュー（G-6）においてBLOCK 3類型を検出し、差し戻しを判定記録へ書く | **`state:qm-blocked`** |
+| `state:dev-done` | Review（独立レビュア） | G-6 の判定記録を作成し、承認（Approve）する | **`state:ready-to-merge`** |
 | **`state:qm-blocked`**| **Dev** | **差し戻し対応が完了し、CIが全緑（復路）** | **`state:dev-done`** （※ここをDevに戻すのが極めて重要） |
-| `state:ready-to-merge`| QM | マージを実行（Squash & Merge） | （PR close。ラベルは剥がさず残してよい） |
+| `state:ready-to-merge`| Ship（出荷判定者） | マージを実行（Squash & Merge）。取り込みが出荷を起動する構成では、G-7 の判定記録の作成の後に限る | （PR close。ラベルは剥がさず残してよい） |
 | `state:needs-po` | PO | 意思決定を下し、内容をコメントとして永続化 | **次の担当者の状態** （`needs-dev` や `dev-done` 等） |
 | `state:needs-tech` | 技術判断者 | G-3の判定記録を作成し、採否と却下理由をADRへ永続化 | **次の担当者の状態**（`needs-dev` 等）。差し戻しは `state:needs-po` |
 | `state:needs-owner`| Owner | 決裁を下し、内容をコメントとして永続化 | 同上 |
@@ -133,14 +139,19 @@ gh pr list --label "state:qm-blocked" --state open
 gh pr list --search "review-requested:@me is:open"
 ```
 
-### ② 出荷判定者（QM）の Mailbox
+### ② 独立レビュア（Review）の Mailbox
 ```bash
-# 1. 開発者から実装完了で引き渡されたレビュー対象
+# 1. 開発者から実装完了で引き渡されたレビュー対象（G-6）
 gh pr list --label "state:dev-done" --state open
+```
 
-# 2. 独立レビュー完了、マージ可能な状態
+### ②-2 出荷判定者（Ship）の Mailbox
+```bash
+# 1. 独立レビュー（G-6）の判定記録が作成され、マージを待つ状態
 gh pr list --label "state:ready-to-merge" --state open
 ```
+
+出荷判定（G-7）は、出荷の範囲ごとに行う。上のポーリングでは起動しない。
 
 ### ③ 価値責任者（PO）の Mailbox
 ```bash

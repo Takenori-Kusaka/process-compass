@@ -37,7 +37,10 @@ rules:
     adjustments:
       - target: { type: role, id: value-owner }
         action: note
-        note: 価値責任者と技術判断者の分離を推奨する(兼務は避けたい)
+        note: 価値責任者と技術判断者の兼務は非推奨(拒否しない)。兼務する場合は、兼務の事実と理由を D-0 体制図へ記録する(第3章 3.5)。代替の統制は課さない
+      - target: { type: role, id: biz-approver }
+        action: note
+        note: 事業決裁者と価値責任者の兼務は非推奨(拒否しない)。兼務する場合は、兼務の事実と理由を D-0 体制図へ記録する(第3章 3.5)
       - target: { type: gate, id: g-indep-review }
         action: set
         param: reviewMode
@@ -63,7 +66,10 @@ rules:
         action: set
         param: mustSplitFrom
         value: tech-lead
-        note: 価値責任者と技術判断者は分離必須(兼務にしない)
+        note: 価値責任者と技術判断者の兼務は禁止(根拠の水準は第3章 3.5 の EV-0156。E0)
+      - target: { type: role, id: biz-approver }
+        action: note
+        note: 事業決裁者と価値責任者の兼務は非推奨(10名以上でも禁止しない。第3章 3.5)。兼務する場合は、兼務の事実と理由を D-0 体制図へ記録する
       - target: { type: gate, id: g-indep-review }
         action: set
         param: reviewMode

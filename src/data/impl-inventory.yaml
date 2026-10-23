@@ -154,7 +154,21 @@ sections:
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 平常時と障害時を分ける"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 個人名を1か所へ隔離する"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 個人名を表5(人の名簿と席)と表8 に限る規定。名簿と席の生成は「人の名簿を表5 に置く」の IMPL-0301 と、「判断を担う席の後継を表5 に書く」の IMPL-0029 で追う
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 人の名簿を表5 に置く"
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
+    issue: 312
+  - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 人の名簿を表5 に置く"
+    status: marked
+    ids:
+      - IMPL-0301
+    location:
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止)
+    note: 名簿と兼務の列・非推奨の兼務の記録の表の様式は IMPL-0301。記録の無い非推奨の兼務の欠落は第3章 3.5 の IMPL-0298
+    issue: 312
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 席ごとに責任者と担い手を書く"
     status: marked
     ids:
@@ -338,7 +352,10 @@ sections:
   - key: phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 適用できる期日
     status: pending
   - key: phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 後回しにできる対象
-    status: pending
+    status: none
+    category: org-design
+    reason: ファストトラックで後回しにできるゲートの限定列挙。申請と承認は人が行う例外の手続の範囲の定め。#312 で升の語を 1.7.3 の語(許容・禁止)へ改めた。強さは変えていない
+    issue: 312
   - key: phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 申請書の必須項目
     status: pending
   - key: phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 乱用を防ぐ制約
@@ -1340,7 +1357,10 @@ sections:
   - key: phase4-process-design/roles-responsibilities#3.3 RACI マトリクス(作業 × ロール)
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準
-    status: pending
+    status: none
+    category: org-design
+    reason: 席ごとの任命基準と職位要件の表、監査担当の任命基準の所在(フェーズ6 の実施者の要件)。任命は組織の制度設計で、実行主体の挙動を制約する規定を持たない。任命の記名と力量の確認は 3.4.1・3.13.3 で扱う
+    issue: 312
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 確認に用いるもの
@@ -1358,15 +1378,44 @@ sections:
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.3 判断を担う席の力量の維持と後継
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0296
+      - IMPL-0297
+      - IMPL-0298
+      - IMPL-0114
+      - IMPL-0115
+      - IMPL-0116
+      - IMPL-0001
+    note: 10名以上の価値責任者 × 技術判断者の拒否は IMPL-0296、非推奨の兼務の注記は IMPL-0297、記録の無い非推奨の兼務の欠落は IMPL-0298。代替の統制を課さないこと、5名の境界を置かないこと、事業決裁者 × 価値責任者を禁止しないことは課さない明記(EV-0156・EV-0157)
+    issue: 312
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.2 出荷判定者の兼務に限った例外(代償措置つき)
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 推奨構成の図(7レーン)と、ロール別に作業領域と認証情報を分ける理由の説明。写像と受信箱のラベルは「ロールとレーンの写像」の IMPL-0013・IMPL-0299 で追う
+    location:
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > ロールとレーンの写像
+    issue: 312
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > 同じロールの中で並行して実行する場合
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > ロールとレーンの写像
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0013
+      - IMPL-0299
+    rows:
+      条件1:
+        status: marked
+        ids:
+          - IMPL-0013
+      条件2:
+        status: marked
+        ids:
+          - IMPL-0013
+    note: 既定の写像の受信箱のラベルは IMPL-0013(MAILBOX)。レーンを構成の roles[] へ出力することは降りていない(IMPL-0299)
+    issue: 312
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈)
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 文脈の分離が成立する条件
@@ -1783,9 +1832,10 @@ sections:
       - IMPL-0085
       - IMPL-0090
       - IMPL-0086
+      - IMPL-0300
       - IMPL-0278
-    note: 人数を表5 の人で数えることは降りていない(IMPL-0278)。10名の境界は EV-0148。組織が境界を定める形と登録簿への登録は課さない明記
-    issue: 296
+    note: 回答と人数の食い違いの検出は IMPL-0300。規模の規則を名簿の人数から直接導くことは降りていない(IMPL-0278)。10名の境界は EV-0148、10名以上の価値責任者 × 技術判断者の禁止は第3章 3.5 の EV-0156。組織が境界を定める形と登録簿への登録は課さない明記
+    issue: 312
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 外部の確認者を高リスクの変更へ集中させる"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 市場・顧客仮説の検証が成立しない場合"
@@ -2332,7 +2382,10 @@ sections:
   - key: phase5-implementation/label-mailbox#(冒頭)
     status: pending
   - key: "phase5-implementation/label-mailbox#4.1 設計背景: 割り込み崩壊（外部割込競合）の防止"
-    status: pending
+    status: none
+    category: explanation
+    reason: ラベルを非同期の受信箱として使う設計の背景。実行主体の挙動を制約する規定を持たない(#312 でレーンの語を Review に改めた)
+    issue: 312
   - key: phase5-implementation/label-mailbox#4.2 設計原則
     status: none
     category: elsewhere
@@ -2342,15 +2395,23 @@ sections:
       - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
     issue: 294
   - key: phase5-implementation/label-mailbox#4.3 label 語彙（標準8種）
-    status: none
-    category: elsewhere
-    reason: ラベルの語彙と担当の定義。ラベルの付与と遷移は 4.5.3(IMPL-0012)で追う。state:needs-po と state:needs-owner の切り分けにいう取り消せない操作の定義は第5章 5.5.1(IMPL-0251)で追う
+    status: marked
+    ids:
+      - IMPL-0302
+      - IMPL-0303
     location:
       - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
-    issue: 294
+    note: dev-done と ready-to-merge の受け手と付与者は IMPL-0302。取り込みが出荷を起動する構成で G-7 をマージの前に置くことは降りていない(IMPL-0303)。ラベルの付与と遷移は 4.5.3(IMPL-0012)、取り消せない操作の定義は第5章 5.5.1(IMPL-0251)で追う
+    issue: 312
   - key: phase5-implementation/label-mailbox#4.3.1 状態遷移表（復路の完全定義）
-    status: pending
+    status: none
+    category: elsewhere
+    reason: ラベルの遷移の正本の表。受け手と付与者は 4.3 の IMPL-0302、記録の後にラベルを動かす順序と遷移は 4.5.3 の IMPL-0012 で追う
+    location:
+      - phase5-implementation/label-mailbox#4.3 label 語彙（標準8種）
+      - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
+    issue: 312
   - key: phase5-implementation/label-mailbox#4.4 孤児（orphan）検出の義務化
     status: pending
   - key: phase5-implementation/label-mailbox#4.4 孤児（orphan）検出の義務化 > orphan の定義
@@ -2359,8 +2420,16 @@ sections:
     status: pending
   - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ① 開発者（Dev）の Mailbox
     status: pending
-  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ② 出荷判定者（QM）の Mailbox
-    status: pending
+  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ② 独立レビュア（Review）の Mailbox
+    status: none
+    category: explanation
+    reason: 受信箱を読むコマンドの例。受け手の定めは 4.3 の IMPL-0302 で追う
+    issue: 312
+  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ②-2 出荷判定者（Ship）の Mailbox
+    status: none
+    category: explanation
+    reason: 受信箱を読むコマンドの例。G-7 をポーリングで起動しないことは 4.3 の IMPL-0302 で追う
+    issue: 312
   - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ③ 価値責任者（PO）の Mailbox
     status: none
     category: explanation
@@ -2431,7 +2500,13 @@ sections:
   - key: phase5-implementation/pr-workflow#PR のライフサイクル
     status: pending
   - key: phase5-implementation/pr-workflow#ロール間非同期メッセージング（Label Mailbox 連携）
-    status: pending
+    status: none
+    category: elsewhere
+    reason: PR の段階とラベルの付け替えの説明。dev-done と ready-to-merge の受け手と付与者は Label Mailbox 4.3 の IMPL-0302、遷移の順序は 4.5.3 の IMPL-0012 で追う
+    location:
+      - phase5-implementation/label-mailbox#4.3 label 語彙（標準8種）
+      - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
+    issue: 312
   - key: phase5-implementation/pr-workflow#規模の基準値
     status: pending
   - key: phase5-implementation/pr-workflow#本文の必須欄(PR テンプレート)

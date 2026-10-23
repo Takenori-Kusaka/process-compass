@@ -23,21 +23,21 @@ sidebar:
 | --- | --- | --- | --- | --- | --- |
 | 第1章 | 20 | 0 | 0 | 3 | **17** |
 | 第2章 | 38 | 2 | 0 | 4 | **32** |
-| 第3章 | 87 | 13 | 0 | 15 | **59** |
+| 第3章 | 87 | 15 | 0 | 17 | **55** |
 | 第4章 | 91 | 14 | 2 | 5 | **70** |
 | 第5章 | 49 | 22 | 0 | 8 | **19** |
-| 第6章 | 70 | 1 | 0 | 3 | **66** |
-| 第7章 | 42 | 0 | 0 | 2 | **40** |
+| 第6章 | 71 | 2 | 0 | 4 | **65** |
+| 第7章 | 42 | 0 | 0 | 3 | **39** |
 | 第8章 | 47 | 1 | 0 | 2 | **44** |
 | 附属書B | 8 | 0 | 0 | 0 | **8** |
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
 | 附属書H | 43 | 3 | 0 | 7 | **33** |
-| フェーズ5 | 303 | 31 | 0 | 47 | **225** |
+| フェーズ5 | 304 | 32 | 0 | 51 | **221** |
 | フェーズ6 | 133 | 3 | 0 | 15 | **115** |
-| **計** | 959 | 90 | 2 | 111 | **756** |
+| **計** | 961 | 94 | 2 | 119 | **746** |
 
-未棚卸しの756節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
+未棚卸しの746節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
 **台帳の件数は網羅の証明ではありません**。降りていない規定が0件であることも、未棚卸しの節が0件であることも、規定がすべて降りたことを示しません。機械が確かめるのは、節が区分つきで登録されていること、登録の鍵と識別子が実在すること、「対象にしない」の節にマークが無いことまでです。節の中の規定がすべてマークされているかは、区分を登録した者の判断です。
 
@@ -47,16 +47,16 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 43 |
-| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 49 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 101 |
-| **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **101** |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 49 |
+| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 50 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 103 |
+| **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **100** |
 
-未分類の101件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
+未分類の100件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
 
 ### 降りていない規定
 
-降りていない規定: **93件**
+降りていない規定: **95件**
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
@@ -151,12 +151,14 @@ sidebar:
 | IMPL-0268 | 比率の判断に、観測の窓と窓の中の最小標本数を掛ける。準拠テンプレートが窓と最小標本数で集計するのは、登録した変更種別の差し戻し率だけである(第5章 5.4.6 の IMPL-0285。窓は直近2か月、最小標本数は30件で固定し、組織の値を構成に持たない)。手戻り率・一発承認率・AI 生成行の短期書き換え率は期間で集計しない。採用者が集計の手段に窓と最小標本数を備える | 出荷判定の証跡の集約(保証の開示) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0269 | G-5 基準6 の文脈ファイルの形式検査(参照切れ 0 件、1ファイルの分量の上限超過 0 件)を実装するジョブ。準拠テンプレートの gate-g5.yml に基準6 のジョブは無く、契約検査は注意として出す(IMPL-0142)。上限そのものの規定(3.11.4 要求事項1)も降りていない(IMPL-0222) | G-5 のワークフロー(gate-g5.yml) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0277 | 単一タスクの累積消費(トークン量・金額)。準拠テンプレートは消費量を測らない。採用者が接続経路・エージェント実行基盤の上で上限を強制する | 自己修正ループの停止(self-heal.mjs) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0278 | 軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは人数を設問の回答(q-team-size)で受け、名簿から数えない。回答と名簿の人数の食い違いを検出しない | プロセス構成の初期化(強制層の生成) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0278 | 軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは規模の規則を設問の回答(q-team-size)から導き、名簿の人数から直接は導かない。回答と人数の食い違いの検出(IMPL-0300)は、3名以上の回答で名簿が空の場合を検出しない。数え方は向きで異なる(回答より多い向きは席の責任者と名簿の多い側、少ない向きは名簿だけで数える)。採用者は、名簿へ全員を記入したことを D-0 の改訂の時点で確かめる(#312 で注記を実装に合わせた) | プロセス構成の初期化(強制層の生成) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0279 | 要求事項1(AI の確認側と作成側の往復)。準拠テンプレートは、AI のレビューの指摘と修正の往復を実行の単位として数えず、停止条件を強制しない(self-heal.mjs はテストの失敗の反復だけを止める)。採用者が接続経路・エージェント実行基盤の上で往復の停止条件を強制する | AI レビューのワークフロー(差し込み口) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0280 | 要求事項4 のうち企画承認(G-1)の時点で記録すること。準拠テンプレートの企画書の様式に停止条件の値の行が無く、G-1 の検査(check-g1.mjs)も記録を確かめない。採用者が企画書に停止条件の値を書き、G-1 の判定で確かめる | 成果物テンプレート テンプレ6(企画書) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0282 | 進捗を担当者の完了率の申告で測らないこと。AI の担い手が作業単位の担当者である場合も、進捗は完了した受入基準の数で数え、担い手の申告する完了率を進捗の値にしない。準拠テンプレートの CLAUDE.md にこの規則は無い。価値責任者が進捗の値の出所を確かめる | CLAUDE.md の構成依存部分 | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
 | IMPL-0283 | 未完了の作業単位の滞留期間を継続して観測し、実測サイクルタイムの85パーセンタイルまたは G-1 で合意した値を超えた項目を、担当者と価値責任者へ非同期で通知すること。準拠テンプレートの /pit(next.mjs)は受信箱の状態を出すが、作業単位の滞留期間を観測せず、通知もしない。採用者が Issue の着手の時刻から観測し、通知の手段を置く | 次の一手のスクリプト(ロールの詳細) | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
 | IMPL-0291 | 手戻り率の期間ごとの集計と、基準を超えたときの自動の引き下げ。準拠テンプレートは手戻り率を集計しない。組織が G-1 で定める基準値を構成に持たず、不採用となった変更(マージされなかった PR)を既定ブランチの履歴から読めないため。採用者は登録の根拠の reworkRate に書いた手段で集計し、発火の有無は内部監査(観点23)で確かめる | AI自律レベルの導出と停止(登録した変更種別) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0299 | ロールとレーンの写像を、D-0 体制図へ記載し構成の roles[] へ出力すること。準拠テンプレートの構成はレーンの概念を持たず、ロールと受信箱のラベルの固定の表(MAILBOX)だけを持つ。レーン(作業領域・セッション・認証情報の組)の分け方は、採用者が実行環境の設定で定め、D-0 体制図へ手で書く(#312) | process.config.json の roles[] | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0303 | 既定ブランチへの取り込みが出荷を起動する構成で、出荷判定者が G-7 の判定記録を作成した後にマージすること。準拠テンプレートは配備のワークフローを持たず、マージの前に G-7 の判定記録の有無を確かめない。その取り込みは取り消せない操作として人へ戻す経路(IMPL-0251)に限る。採用者は、配備を起動する取り込みの前に G-7 の判定記録を確かめる手順を社内で定める(#312) | 案件のデプロイのワークフローの置き場(予定) | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 
 ### 全件
 
@@ -174,7 +176,7 @@ sidebar:
 | IMPL-0010 | 判定は当該ゲートの判定基準のみで行い次工程の材料の未完成を理由にしない | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0011 | 条件を付して先へ進める場合は例外承認の5要求事項を満たす | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0012 | ラベルの遷移は判定の成立要件ではなく順序は記録が先 | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 未分類 | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
-| IMPL-0013 | ロールとレーンの写像および受信箱のラベル | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 未分類 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0013 | ロールと受信箱のラベルの既定の写像(MAILBOX)。state:dev-done の受け手は独立レビュアだけ。state:ready-to-merge は独立レビュアが付け、出荷判定者の受信箱に入る。出荷判定者は dev-done を受け取らず、ready-to-merge を付けない。事業決裁者の受信箱は needs-owner。test-roster-rules.mjs が固定する(#312) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0014 | 統制の弱化を性質で定義し検知の対象とする | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 未分類 | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 | IMPL-0015 | 検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 未分類 | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 | IMPL-0016 | 選択肢の比較を求める範囲を R1 と例外承認に限る | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 未分類 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
@@ -438,7 +440,7 @@ sidebar:
 | IMPL-0275 | 連続失敗回数。iterate が失敗の反復の回数を数え、task.selfHealMaxIterations(既定3回)に達したら保留にする。失敗の内容が毎回変わる振動でも止まる | 自己修正ループの停止(self-heal.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0276 | 無進捗。iterate が失敗したテストの識別と失敗の理由の要約(node --test の TAP の error、pytest の FAILED の後ろ、go の file.go:N: の行、jest の Expected・Received などを正規化したもの)の組を記録し、同じ組の集合が task.selfHealNoProgressLimit(既定2回)続いたら保留にする。理由が変われば進捗とみなす。jest の ● Console は失敗のテストとして読まない。理由を読めないテストは識別だけで比べ、その旨を出力と記録に出す(3.12.10 の定義より多く止まる向き)。識別を読めない失敗は無進捗に数えない(同一と確かめられない) | 自己修正ループの停止(self-heal.mjs) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0277 | 単一タスクの累積消費(トークン量・金額)。準拠テンプレートは消費量を測らない。採用者が接続経路・エージェント実行基盤の上で上限を強制する | 自己修正ループの停止(self-heal.mjs) | — | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0278 | 軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは人数を設問の回答(q-team-size)で受け、名簿から数えない。回答と名簿の人数の食い違いを検出しない | プロセス構成の初期化(強制層の生成) | — | **降りていない** | 人が確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0278 | 軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは規模の規則を設問の回答(q-team-size)から導き、名簿の人数から直接は導かない。回答と人数の食い違いの検出(IMPL-0300)は、3名以上の回答で名簿が空の場合を検出しない。数え方は向きで異なる(回答より多い向きは席の責任者と名簿の多い側、少ない向きは名簿だけで数える)。採用者は、名簿へ全員を記入したことを D-0 の改訂の時点で確かめる(#312 で注記を実装に合わせた) | プロセス構成の初期化(強制層の生成) | — | **降りていない** | 人が確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0279 | 要求事項1(AI の確認側と作成側の往復)。準拠テンプレートは、AI のレビューの指摘と修正の往復を実行の単位として数えず、停止条件を強制しない(self-heal.mjs はテストの失敗の反復だけを止める)。採用者が接続経路・エージェント実行基盤の上で往復の停止条件を強制する | AI レビューのワークフロー(差し込み口) | — | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0280 | 要求事項4 のうち企画承認(G-1)の時点で記録すること。準拠テンプレートの企画書の様式に停止条件の値の行が無く、G-1 の検査(check-g1.mjs)も記録を確かめない。採用者が企画書に停止条件の値を書き、G-1 の判定で確かめる | 成果物テンプレート テンプレ6(企画書) | — | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0281 | 要求事項7。規模の基準なし(null)は、確約範囲・コア指定のパスが追跡中のファイルに1件以上当たる場合だけ効く。当たらないパスは宣言として数えず、当たるパスが無ければ未宣言として既定値で判定する(G-6 の IMPL-0267 と同じ関数 corePathsOf。突合 X-13)。test-check-pr.mjs が固定する | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -456,5 +458,13 @@ sidebar:
 | IMPL-0293 | D-0 の節12 の生成区間に、AI自律レベルの適用の表(範囲・現在のレベル・第2区分の計測の所在)を、構成の委任の登録と上限から生成して出す。レベルを書く欄は構成に持たない。停止の原因と直近の評価は、生成区間を構成だけから決めるため表に書かず、所在(次の一手の注記と保証の開示の項目3)を書く | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 機械が確かめる | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0294 | L1 の範囲で検知したときの、検知と数え直しの記録の置き場。準拠テンプレートでは欠陥の台帳の「引き下げの点検の記録」の表(扱い: L1 で数え直し)に置く。記録を書いたかは機械で確かめず、内部監査(観点23)で確かめる | 欠陥の台帳の様式 | — | 降りている | 人が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0295 | 誤発火の記録の置き場。準拠テンプレートでは欠陥の台帳の「引き下げの点検の記録」の表(扱い: 誤発火)に置く。誤発火と記録しても停止は解かない。記録を書いたかは機械で確かめず、内部監査(観点23)で確かめる | 欠陥の台帳の様式 | — | 降りている | 人が確かめる | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0296 | 10名以上の体制で、価値責任者の席と技術判断者の席の責任者を同一人物にする構成を拒否する(規模の規則 r-a-large の mustSplitFrom から、構成の生成が兼務禁止の組 sep-size-value-owner-tech-lead を足す)。構成の変更と契約検査が拒否する。3〜9名では拒否しない。test-roster-rules.mjs が固定する(#312) | process.config.json の roles[] | `check-process-rules` | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0297 | 非推奨の兼務(3〜9名の価値責任者 × 技術判断者、3名以上の事業決裁者 × 価値責任者)の席の責任者が同一人物の構成を拒否せず、次の一手(/pit)と構成の生成の出力の注記に、兼務の事実と D-0 節2 への記録の要否を出す。test-roster-rules.mjs が固定する(#312) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0298 | 非推奨の兼務があり、D-0 節2「非推奨の兼務の記録」に、その組の担当者と理由を書いた行が無い場合、出荷の証跡の集約が記載の欠落として扱う。理由の中身の妥当性は確かめない(プロセス内部監査で確かめる)。test-roster-rules.mjs が固定する(#312) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0299 | ロールとレーンの写像を、D-0 体制図へ記載し構成の roles[] へ出力すること。準拠テンプレートの構成はレーンの概念を持たず、ロールと受信箱のラベルの固定の表(MAILBOX)だけを持つ。レーン(作業領域・セッション・認証情報の組)の分け方は、採用者が実行環境の設定で定め、D-0 体制図へ手で書く(#312) | process.config.json の roles[] | `check-process-rules` | **降りていない** | 人が確かめる | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0300 | 設問の回答(q-team-size)と、席の責任者と人の名簿(外部の確認者を除く)から数えた人数の食い違いを、3名と10名の境界で検出し、構成の生成と契約検査が拒否する(config.mjs の headcountProblems)。test-roster-rules.mjs が固定する(#312) | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0301 | D-0 の節1 に、人の名簿(識別子・氏名・区分・アカウント。所属と氏名の確認は記入があるときに列を出す)と、席ごとの兼務の列を生成し、節2 に非推奨の兼務の記録の表を置く。名簿の記載の正しさは機械で確かめない(#312) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
+| IMPL-0302 | state:dev-done の受け手は独立レビュアだけ。state:ready-to-merge を付けるのは独立レビュアだけで、出荷判定者の受信箱に入る(準拠テンプレートの MAILBOX と next.mjs --role)。出荷判定者は dev-done を受け取らない。G-7 は next.mjs の出荷の段が出荷の範囲ごとに出し、ラベルでは起動しない。test-roster-rules.mjs が固定する(#312) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 機械が確かめる | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
+| IMPL-0303 | 既定ブランチへの取り込みが出荷を起動する構成で、出荷判定者が G-7 の判定記録を作成した後にマージすること。準拠テンプレートは配備のワークフローを持たず、マージの前に G-7 の判定記録の有無を確かめない。その取り込みは取り消せない操作として人へ戻す経路(IMPL-0251)に限る。採用者は、配備を起動する取り込みの前に G-7 の判定記録を確かめる手順を社内で定める(#312) | 案件のデプロイのワークフローの置き場(予定) | — | **降りていない** | 人が確かめる | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 
 <!-- implementation-ledger:end -->

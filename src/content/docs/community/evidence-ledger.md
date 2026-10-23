@@ -157,6 +157,8 @@ sidebar:
 | EV-0153 | 附属書A A.7 の、スクラムガイド(2020年11月版)の文言と本標準の規定との接点の読み | E1(間接) | 未記載 | 2027-10 | スクラムガイドの改訂と、スクラムを用いる採用組織の案件で本節の読みと食い違う運用が要った記録 | [phase4-process-design/integrated-process](/process-compass/phase4-process-design/integrated-process/) |
 | EV-0154 | AI が起因となった Sev1・Sev2 の初期値(1件)と、5.4.5 の条件4 の初期値(期間内に0件) | E0(なし) | 未記載 | 2027-10 | 採用組織で、この行によって引き下げた範囲のうち後の点検で引き下げが不要だったと分かった件数(誤発火)と、引き下げなかった範囲で同種の事象が続いた件数(見逃し)の観測 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | EV-0155 | 差し戻し率0%の継続を毎月評価する周期(評価の日を毎月の初日に置き、直近2か月の窓で評価すること) | E0(なし) | 未記載 | 2027-10 | 採用組織で、毎月の評価で発火した引き下げのうち、評価の周期を四半期に置いた場合には発火しなかった件数と、後の点検で形骸化を確かめた件数の観測 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| EV-0156 | 10名以上の体制で価値責任者 × 技術判断者の兼務を禁止し、3〜9名では非推奨にとどめる判断 | E0(なし) | 未記載 | 2027-10 | 10名以上で兼務した採用者と分けた採用者での、価値判断と技術判断の対立の記録の件数と、G-2・G-3・G-4 の判定の後に受入基準または判断記録へ戻った件数(手戻り)の観測 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| EV-0157 | 事業決裁者 × 価値責任者の兼務を3名以上で非推奨とし、どの規模でも禁止しない判断 | E0(なし) | 未記載 | 2027-10 | 3名以上で兼務した採用者と分けた採用者での、企画承認(G-1)・リリース決裁(G-8)の後に価値判断の前提の誤りが見つかった件数の観測 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 
 <!-- evidence-ledger:end -->
 

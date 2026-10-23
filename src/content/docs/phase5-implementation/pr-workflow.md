@@ -27,11 +27,11 @@ graph LR
 
 ## ロール間非同期メッセージング（Label Mailbox 連携）
 
-物理分割された各ロール（PO, Dev, QM, Audit, Platform）は、直接の同期通信や割り込みをせず、GitHubラベルをメッセージバスとしたポーリングベースの **[非割込型メッセージボックス（Label Mailbox）](/process-compass/phase5-implementation/label-mailbox/)** を使用して仕事を引き渡す。
+物理分割された各ロール（[第3章 3.5.1](/process-compass/phase4-process-design/roles-responsibilities/)の7レーン）は、直接の同期通信や割り込みをせず、GitHubラベルをメッセージバスとしたポーリングベースの **[非割込型メッセージボックス（Label Mailbox）](/process-compass/phase5-implementation/label-mailbox/)** を使用して仕事を引き渡す。
 
 - 開発に着手した際、Draft PR の状態では **`state:needs-dev`** ラベルを維持する。
-- 実装・単体テスト（CI緑）が完了し、`human-verify` を記録して Ready にする際、開発者（Dev）は `state:needs-dev` を剥がし、**`state:dev-done`** ラベルを付与して出荷判定者（QM）へ引き渡す。
-- 独立レビューにおいて差し戻し（BLOCK）が発生した場合、QMは **`state:qm-blocked`** を付与する。開発者は対応を終えて再 Ready 化する際、必ずこのラベルを剥がして再度 **`state:dev-done`** に戻す（復路の厳守）。
+- 実装・単体テスト（CI緑）が完了し、`human-verify` を記録して Ready にする際、開発者（Dev）は `state:needs-dev` を剥がし、**`state:dev-done`** ラベルを付与して独立レビュア（Review）へ引き渡す。出荷判定者の受信箱には入れない（[Label Mailbox 4.3](/process-compass/phase5-implementation/label-mailbox/)）。
+- 独立レビューにおいて差し戻し（BLOCK）が発生した場合、独立レビュアは **`state:qm-blocked`** を付与する。G-6 の判定記録を作成して通過とした場合は、独立レビュアが **`state:ready-to-merge`** を付与して出荷判定者（Ship）へ渡す。開発者は対応を終えて再 Ready 化する際、必ずこのラベルを剥がして再度 **`state:dev-done`** に戻す（復路の厳守）。
 
 各ロールのエージェントセッションは、直接の指示を待つのではなく、Label Mailbox で規定された polling コマンドにより自律的に仕事を処理する。
 

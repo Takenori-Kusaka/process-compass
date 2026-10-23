@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-10-13)。[ADR-0029](/process-compass/adr/0029-shipping-approver-merge-exception/)を置き換えません。同 ADR が定めなかった兼務禁止の範囲を足します。[ADR-0057](/process-compass/adr/0057-organizational-quality-assurance/)の成立条件4 は書き換えず、出荷ごとの条件を足します。[ADR-0056](/process-compass/adr/0056-assurance-argument/)の決定8(使わない表現)が前提にした「第三者レビュー」の語を定義します。
 
+影響の節が後継へ送った2つの論点(価値責任者と技術判断者の兼務の境界、第3章 3.5.1 の既定の写像)は、[ADR-0082](/process-compass/adr/0082-seat-combination-boundaries-and-lane-mapping/)が決めました(2026-10-23)。本 ADR の決定は維持されます。
+
 ## コンテキスト
 
 [#304](https://github.com/Takenori-Kusaka/process-compass/issues/304) は、「開発ライン」の語に定義が無いこと、出荷判定者が兼ねてはならない席の範囲が本文と機械で食い違うことを指摘しました。指摘をそのまま条項にせず、調査・会議体・突合の順で扱いました。記録は `research/302-310-deliberation/`(`survey-304.md`、`council-A-01`〜`05`、`decision.md` の A-4〜A-7)にあります。
