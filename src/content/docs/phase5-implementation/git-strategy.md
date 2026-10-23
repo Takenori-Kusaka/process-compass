@@ -81,8 +81,9 @@ gh api repos/OWNER/REPO/rulesets -X POST --input - <<'EOF'
 EOF
 ```
 
-- `require_last_push_approval: true` が要点 — **最後に push した本人の承認を無効化**し、AIに指示して push した本人が自己承認する抜け道を塞ぐ
-- **この設定が止めるのは、最後に push したアカウント本人の承認だけである**。AI・bot のアカウントが push して PR を作る構成では、作成を指示した人の承認を止めない。作成を指示した者の承認を独立した確認に数えない検査は、出荷の証跡の集約が担う([CI/CD ゲート構成](/process-compass/phase5-implementation/ci-gates/)「独立した人の確認の数え方」)。集約は出荷の時点で働くため、マージの時点では止まらない
+- `require_last_push_approval: true` は、**最後に push したアカウント本人の承認を、マージの承認に数えない**設定である。自分で push した本人が、自分の push を自分で承認して取り込む形を塞ぐ
+- `dismiss_stale_reviews_on_push: true` は、承認の後の push で古い承認を無効にする。承認は承認した差分に対して数え、差分を変える更新の後の承認を数えない([第4章 G-6](/process-compass/phase4-process-design/gate-criteria/))。この規定を、マージの時点で満たす設定である。`team` のルールセットにも置き、契約検査が外れていないことを確かめる
+- **`require_last_push_approval` が止めるのは、最後に push したアカウント本人の承認だけである**。AI・bot のアカウントが push して PR を作る構成では、作成を指示した人の承認を止めない。作成を指示した者の承認を独立した確認に数えない検査は、出荷の証跡の集約が担う([CI/CD ゲート構成](/process-compass/phase5-implementation/ci-gates/)「独立した人の確認の数え方」)。集約は出荷の時点で働くため、マージの時点では止まらない
 - `gate-g5` は[CI/CD ゲート構成](/process-compass/phase5-implementation/ci-gates/)で定義する必須チェックの名前
 - ルールセットは read 権限者にも公開されるため、貢献者・監査がルールを事前に確認できる(ブランチ保護より透明)
 

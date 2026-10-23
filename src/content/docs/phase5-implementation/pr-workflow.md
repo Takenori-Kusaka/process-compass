@@ -193,7 +193,7 @@ gh pr create --draft --title "feat: <タスクの要約> (F-012/Task-3)" --body-
 ## レビュー対応とマージ
 
 - レビュー指摘は**スレッド解決を必須**にする(ルールセットの `required_review_thread_resolution`)。「見たが直さない」判断も、理由をスレッドに書いてから解決する
-- 指摘の修正は AI に任せてよい。ただし修正 push で承認は自動的に無効化されるため(`dismiss_stale_reviews_on_push`)、再承認を依頼する。修正が挙動に触れる場合は human-verify も更新する
+- 指摘の修正は AI に任せてよい。承認の後の push は、修正に限らず、承認を自動で無効にする(`dismiss_stale_reviews_on_push`)。基底ブランチの取り込み(Update branch)で差分の基準が変わった場合も無効になる。再承認を依頼する。承認は承認した差分に対して数え、差分を変える更新の後の承認を数えないため([第4章 G-6](/process-compass/phase4-process-design/gate-criteria/))、「些末な修正」として承認を持ち越す運用はしない。修正が挙動に触れる場合は human-verify も更新する
 - レビューは、レビュアごとの最後の状態で数える。承認の後に同じ人が変更要求を出した場合、先の承認は取り下げられたものとして扱う。出荷の証跡の集約も、独立した人の確認に数えない
 - マージは **squash を既定**とし、squash 後のコミットメッセージにもトレーラを残す(履歴の集計可能性を保つ)。残すのは `Spec`・`Co-Authored-By` と、該当する場合の `Delegated`・`Risk`・`Verification` である。`Delegated` を落とすと、委任で先へ進めた変更を変更単位で識別できなくなる
 - コミットが PR を経たかどうかは、PR のマージコミットとの一致で判定する。件名の `(#N)` では判定しない([Git 戦略リファレンス](/process-compass/phase5-implementation/git-strategy/)「マージ後の扱い」)

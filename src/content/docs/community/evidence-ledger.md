@@ -111,7 +111,7 @@ sidebar:
 | EV-0007 | 母数の下限(各群30件・2四半期)と、判別の目標(中央値2倍差) | E0(なし) | 未記載 | 2027-08 | 自組織で得た審査時間の分散と、そこから算出した必要標本数 | [phase5-implementation/review-burden-measurement](/process-compass/phase5-implementation/review-burden-measurement/) |
 | EV-0008 | 教育の階層構成と、任命基準の確認手続の設計全体 | E0(なし) | 未記載 | 2027-08 | 確認を通過した者と通過しなかった者の、実務での判定品質の差の記録 | [phase5-implementation/enablement](/process-compass/phase5-implementation/enablement/) |
 | EV-0009 | 初期の合格水準を分布の下位四分位に置くという手続 | E0(なし) | 未記載 | 2027-08 | 3期分の較正記録と、水準の変更がテストの検出力へ与えた影響の観測 | [phase5-implementation/test-effectiveness](/process-compass/phase5-implementation/test-effectiveness/) |
-| EV-0010 | 監査の頻度(四半期)、抽出数(1回あたり5件以上)、無作為とリスクに基づく抽出の半々という配分 | E0(なし) | 未記載 | 2027-08 | 2期分の監査記録から得た、抽出方法別の所見検出率 | [phase6-operation/process-audit](/process-compass/phase6-operation/process-audit/) |
+| EV-0010 | 監査の頻度(四半期)、1段目の抽出数(1回あたり案件5件以上)と全件にする境界(母集団5件未満)、無作為とリスクに基づく抽出の半々という配分 | E0(なし) | 未記載 | 2027-08 | 2期分の監査記録から得た、抽出方法別の所見検出率 | [phase6-operation/process-audit](/process-compass/phase6-operation/process-audit/) |
 | EV-0011 | レビュアあたりの同時保有数の上限を置くという制御と、その初期値(1人あたり3件) | E0(なし) | 未記載 | 2027-08 | 自組織で測った、同時保有数と審査時間・差し戻し率の関係 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | EV-0012 | 指標の総数に上限を置くという規定と、その初期値(正式指標20件) | E0(なし) | 未記載 | 2027-08 | 2期分の運用記録から得た、指標ごとの参照回数と打ち手への接続率 | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/) |
 | EV-0014 | 本カタログの網羅性、およびカテゴリを内部5・外部5とした分割 | E1(間接) | 未記載 | 2027-08 | 自組織で1年分の事象記録を分類した結果と、どのカテゴリにも収まらなかった件数 | [phase6-operation/risk-catalog](/process-compass/phase6-operation/risk-catalog/) |
@@ -144,6 +144,12 @@ sidebar:
 | EV-0138 | 基底ブランチで検査の定義が更新されたことを理由に、手元の検査の実行を止めることを求めないこと | E1(間接) | 未記載 | 2027-10 | 手元で古い検査の定義のまま通り、CI でも検出されずに既定ブランチへ入った欠陥の件数 | [phase5-implementation/compute-strategy](/process-compass/phase5-implementation/compute-strategy/) |
 | EV-0141 | 取り消せない操作を、取り消せない効果を他の者の操作を介さずに生じさせる操作と定義し、後段を人が行う上流の編集を数えないこと。後段に人の門が残ることを、停止を省く理由にしないこと | E2(単一事例) | 未記載 | 2027-10 | 上流の編集で止めなかった変更のうち、後段で操作した人が、取り消せない効果を知らずに操作した件数。後段に人の門があったのに、迂回されて取り消せない効果が生じた件数 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | EV-0142 | カバレッジの判定に、測定の対象の規模の下限を置かないこと | E1(間接) | 未記載 | 2027-10 | 実装の行数が少ない段階で基準3 を通過した機能のうち、後に十分性の不足(変異試験・G-6・出荷後の欠陥)で見つかった件数 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| EV-0143 | カバレッジの基準値の目安(80%)と、G-5 を強める構成の目安(90%) | E0(なし) | 未記載 | 2027-10 | 採用組織が記録した基準値と、出荷後に見つかった欠陥の流出の関係の観測 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| EV-0144 | AI 生成行の短期書き換え率の観測の期間(作成から14日) | E0(なし) | 未記載 | 2027-10 | 採用組織の変更履歴で、書き換えまでの日数の分布を観測する。14日を過ぎてからの書き換えの集中を複数の組織で観測したら、期間を見直す | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| EV-0145 | 観測の窓の初期値(四半期)と、窓の中の最小標本数の初期値(30件) | E0(なし) | 未記載 | 2027-10 | 採用組織で、窓の中の件数が30件未満のため判断に用いなかった期間の割合と、30件以上の窓で比率が閾値をまたいで振れた回数の観測 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| EV-0146 | 独立レビューの差し戻し率が0%のまま推移した期間の初期値(2か月継続)。能力依存の定数の登録簿の RC-12(能力に依らない) | E0(なし) | 未記載 | 2027-10 | 採用組織で、差し戻し率0%が2か月続いて引き下げた範囲のうち、後の点検で形骸化を確かめた件数と、確かめられなかった件数の観測 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| EV-0147 | 条件1 の連続運用期間の初期値(3か月以上)。能力依存の定数の登録簿の RC-09(能力に依らない) | E0(なし) | 未記載 | 2027-10 | 引き上げを判定した採用組織で、引き上げの後に 5.4.6 の引き下げが発火するまでの期間の分布の観測 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| EV-0148 | 10名の境界(10名以上の列の規則) | E0(なし) | 未記載 | 2027-10 | 採用組織の人数と、10名以上の列の規則(コア機能の別チームのレビュー、QA 部門・専任の出荷判定)を適用した範囲・しなかった範囲での、レビューの所要時間・出荷後の欠陥の観測 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 
 <!-- evidence-ledger:end -->
 

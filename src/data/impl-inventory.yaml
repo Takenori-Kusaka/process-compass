@@ -58,7 +58,13 @@ sections:
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > 意見と指摘
     status: pending
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > AI どうしの往復
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0155
+    location:
+      - "phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)"
+    note: 往復の中の指摘の中身は IMPL-0155。往復の回数の上限は置かず、3.12.10 の停止条件(IMPL-0272〜0277)による。往復を禁止しないことは課さない明記
+    issue: 296
   - key: phase4-process-design/assurance-case#H.5 署名の意味
     status: pending
   - key: phase4-process-design/assurance-case#H.5 署名の意味 > 出荷判定者の異議
@@ -475,7 +481,11 @@ sections:
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間) > 範囲外と判定した場合
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時)
-    status: pending
+    status: kb
+    ids:
+      - IMPL-0269
+    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。基準3 の測る範囲は基準3 の節(IMPL-0245・0259〜0262・0246)。基準6 の分量の上限の検査は降りていない(IMPL-0269。上限の規定は 3.11.4 の IMPL-0222)
+    issue: 296
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 判定基準を実装する検査と集約
     status: marked
     ids:
@@ -511,9 +521,13 @@ sections:
     status: marked
     ids:
       - IMPL-0245
+      - IMPL-0259
+      - IMPL-0260
+      - IMPL-0261
+      - IMPL-0262
       - IMPL-0246
-    note: 測る範囲・分母の判定と記録は coverage-check(IMPL-0245)、保証の開示への出力は集約(IMPL-0246)。どちらも降りていない。規模の下限を置かないことは課さない明記(EV-0142)
-    issue: 294
+    note: 変更の範囲の測定は node だけ(IMPL-0245)、他のアダプタは降りていない(IMPL-0259)。薄まりの開示は IMPL-0260、記録した範囲と構成の一致は契約検査(IMPL-0261)、企画書の行は IMPL-0262、保証の開示は出荷のワークフローが結果を取り込まず降りていない(IMPL-0246)。規模の下限と ratchet は課さない明記(EV-0142・EV-0143)
+    issue: 296
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 知財潔白性の検査
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 類似が検知された場合の措置
@@ -527,7 +541,22 @@ sections:
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 許可リストが判定を妨げた場合の救済
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
-    status: pending
+    status: kb
+    ids:
+      - IMPL-0077
+      - IMPL-0111
+      - IMPL-0112
+      - IMPL-0093
+      - IMPL-0094
+      - IMPL-0263
+      - IMPL-0264
+      - IMPL-0265
+      - IMPL-0266
+      - IMPL-0267
+      - IMPL-0078
+      - IMPL-0096
+    note: 判定基準の表は知識ベースへ降りる。承認を承認した差分に束ねる規定は集約(IMPL-0263)・契約検査(IMPL-0264)・実環境の確認(IMPL-0265)。アカウント名の確認は IMPL-0266、コア機能のパスの追跡中のファイルとの照合は IMPL-0267。申告による承認の持ち越し、AI 名の語彙の限定は課さない明記
+    issue: 296
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
     status: marked
     ids:
@@ -559,6 +588,7 @@ sections:
         ids:
           - IMPL-0126
     note: #321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
+
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 委任の変更は判定の時点を事後へ移す
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 未達のまま出荷する場合の例外承認
@@ -604,7 +634,61 @@ sections:
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > L0 の既定値
     status: pending
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 基準値を超えた変更の扱い
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0270
+      - IMPL-0271
+      - IMPL-0099
+      - IMPL-0100
+      - IMPL-0101
+      - IMPL-0102
+    note: 規模の観測の内訳と倍率は IMPL-0270、文書の置き場の反転は IMPL-0271。ファイル数だけの超過の軽減と /pit の注記は課さない明記
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0099
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0099
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0099
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0099
+          - IMPL-0101
+          - IMPL-0102
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0099
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0099
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0099
+        location:
+          - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)"
+      要求事項8:
+        status: marked
+        ids:
+          - IMPL-0099
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0099
+      要求事項10:
+        status: marked
+        ids:
+          - IMPL-0271
+    issue: 296
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 上限を緩和できる手段と、できない手段
     status: pending
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 上限を自組織の実測で較正する
@@ -651,15 +735,48 @@ sections:
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い
     status: pending
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い > 指標の定義
-    status: pending
+    status: none
+    category: explanation
+    reason: 2指標の定義と名称の併記。名称の扱いは文書を書く者への規定で、実行主体の挙動を制約しない
+    issue: 296
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い > 閾値の設定と較正
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0268
+    note: 観測の窓と最小標本数は IMPL-0268(降りていない)
+    rows:
+      要求事項1:
+        status: none
+        category: org-design
+        reason: 閾値は組織が G-1 で定め、企画書に記録する(人の判断)
+      要求事項2:
+        status: none
+        category: org-design
+        reason: 初期値の置き換えは組織の較正(人の判断。運用メトリクス「実績を基準へ機械的に変換しない」)
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0268
+    issue: 296
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い > 合否条件にしてよい指標、してはならない指標
-    status: pending
+    status: none
+    category: not-imposed
+    reason: AI 生成行の短期書き換え率と一発承認率を合否条件にしない(課さない明記)。G-5 の機械判定は G-5 の節と基準3 の節のマークで追う
+    issue: 296
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い > 新規に変更した範囲へ限定する
-    status: pending
+    status: none
+    category: elsewhere
+    reason: G-5 基準3 は基準3 の節のマークで追う。AI 品質指標の定量条件を合否に使う実装は無い
+    location:
+      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > カバレッジの測る範囲と規模(基準3)"
+    issue: 296
   - key: phase4-process-design/gate-criteria#ゲートの健全性を計測する
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 指標の定義・算出・警戒サインの正本は運用メトリクス
+    location:
+      - "phase6-operation/metrics#分類別の指標と警戒サイン > 流れ(速度と滞留)"
+    issue: 296
   - key: phase4-process-design/gate-criteria#判定の滞留および基準の逸脱
     status: pending
   - key: phase4-process-design/human-ai-boundary#(冒頭)
@@ -679,11 +796,23 @@ sections:
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.4 リスク区分による上限
     status: pending
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.5 レベルの引き上げ
-    status: pending
+    status: none
+    category: org-design
+    reason: 引き上げは技術判断者の申請と B-2 の判定(人の判断)。準拠テンプレートは AI自律レベルを構成に持たない。条件1 の値は EV-0147
+    issue: 296
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 第2区分の集計と自動の引き下げは、計測できない検知条件の節の IMPL-0104(降りていない)で追う。差し戻し率0%の2か月は EV-0146(RC-12)
+    location:
+      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合"
+    issue: 296
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0104
+    note: 第2区分の集計と自動の引き下げ(降りていない)。観測の窓と最小標本数は第4章「閾値の設定と較正」の IMPL-0268
+    issue: 296
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.7 能力維持措置
     status: pending
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.8 見直しの頻度
@@ -1422,11 +1551,51 @@ sections:
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.9 統制と CI 検査の同期
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0272
+      - IMPL-0273
+      - IMPL-0274
+    note: 自己修正のループの停止の正本。附属書E E.7 と附属書H は本節を引く
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0272
+      要求事項2:
+        status: none
+        category: elsewhere
+        reason: 停止条件の3種の節の IMPL-0275〜0277 で追う
+        location:
+          - "phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 停止条件の3種"
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0273
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0274
+      要求事項5:
+        status: none
+        category: org-design
+        reason: 自律実行の解禁は人の判断(第5章 5.4.5)。準拠テンプレートは自律水準を構成に持たない
+    issue: 296
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 停止条件の3種
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0275
+      - IMPL-0276
+      - IMPL-0277
+    note: 連続失敗と無進捗は self-heal.mjs、累積消費は降りていない(IMPL-0277)。連続失敗回数の上限の廃止は課さない明記
+    issue: 296
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 停止したときの扱い
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 停止の記録の置き場と人による解除は 3.12.10 の IMPL-0273 で追う。同一タスクの停止の繰り返しを実装計画へ差し戻すこと、停止条件の緩和を例外手続によることは人の判断
+    location:
+      - "phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)"
+    issue: 296
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 閾値の定め方
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.11 依存先の一覧と単一障害点
@@ -1506,7 +1675,15 @@ sections:
   - key: "phase4-process-design/tailoring-guide#入力: 5つの調整軸 > 軸B と事業ステージの対応"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0084
+      - IMPL-0085
+      - IMPL-0090
+      - IMPL-0086
+      - IMPL-0278
+    note: 人数を表5 の人で数えることは降りていない(IMPL-0278)。10名の境界は EV-0148。組織が境界を定める形と登録簿への登録は課さない明記
+    issue: 296
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 外部の確認者を高リスクの変更へ集中させる"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 市場・顧客仮説の検証が成立しない場合"
@@ -1522,7 +1699,10 @@ sections:
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 対象にできる変更の境界"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 事後監査の手続"
-    status: pending
+    status: none
+    category: org-design
+    reason: 事後監査は独立レビュアの席の責任者(人)が行う手続。抜き取り数は変更の件数で数える(EV-0004)
+    issue: 296
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > AI の確認を独立した人の確認に数えません"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 指示資産の監査証跡"
@@ -1721,7 +1901,10 @@ sections:
   - key: phase5-implementation/ci-gates#(冒頭)
     status: pending
   - key: phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成
-    status: pending
+    status: none
+    category: explanation
+    reason: G-5 のパイプラインの構成の例。規定の正本は第4章 G-5
+    issue: 296
   - key: phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 知財潔白性の2つのジョブを分ける
     status: pending
   - key: phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 秘匿情報の検査は履歴の全体を対象にする
@@ -1754,7 +1937,10 @@ sections:
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約
     status: pending
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 集約スクリプトの入出力仕様
-    status: pending
+    status: none
+    category: explanation
+    reason: 集約の入出力の例。規定の正本は第4章 G-7・G-5 基準3
+    issue: 296
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 判定基準との対応(機械が確かめる範囲と、人が突合する範囲)
     status: pending
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 証跡の保管と CI 基盤の保持期間
@@ -1898,7 +2084,12 @@ sections:
   - key: phase5-implementation/context-base#オーナーシップの実装(R5)
     status: pending
   - key: phase5-implementation/context-base#陳腐化の検知
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 参照切れと分量の上限は G-5 基準6 の IMPL-0269(降りていない)と 3.11.4 の IMPL-0222。乖離・停滞は記録と人の判定
+    location:
+      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時)"
+    issue: 296
   - key: phase5-implementation/context-base#陳腐化の検知 > 落とすものと記録するものを分ける理由
     status: pending
   - key: phase5-implementation/context-base#乖離の監査 > 対応関係を文脈ファイル自身に書く
@@ -2012,7 +2203,12 @@ sections:
   - key: "phase5-implementation/git-strategy#ブランチモデル: トランクベース+タスク単位ブランチ > main への追従とコンフリクト解消"
     status: pending
   - key: "phase5-implementation/git-strategy#ブランチ保護: ゲートの機械的強制"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: ルールセットの承認の失効と最後の push の承認は G-6 の IMPL-0264・0265。本節は設定の例と説明
+    location:
+      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)"
+    issue: 296
   - key: phase5-implementation/git-strategy#AI 生成コミットの扱い
     status: pending
   - key: phase5-implementation/git-strategy#マージ後の扱い
@@ -2147,7 +2343,12 @@ sections:
   - key: phase5-implementation/pr-workflow#Draft PR の扱い
     status: pending
   - key: phase5-implementation/pr-workflow#レビュー対応とマージ
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 承認の失効は G-6 の IMPL-0263・0264。スレッド解決・squash・トレーラの残し方は手順の説明で、規定の正本は第4章 G-6 と Git 戦略の頁
+    location:
+      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)"
+    issue: 296
   - key: phase5-implementation/pr-workflow#アンチパターン
     status: pending
   - key: phase5-implementation/pre-review-automation#(冒頭)
@@ -2476,7 +2677,10 @@ sections:
   - key: phase5-implementation/template-repository#組織として品質を保証する主張と、組織継続の側の状態
     status: pending
   - key: phase5-implementation/template-repository#組織として品質を保証する主張と、組織継続の側の状態 > 導入前の検証
-    status: pending
+    status: none
+    category: explanation
+    reason: 準拠テンプレートの導入前の検証のコマンドの説明。規定の正本は附属書I I.11
+    issue: 296
   - key: phase5-implementation/template-repository#席と運用形態、体制の変化点
     status: pending
   - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 標準変更カタログへの登録と、登録の根拠
@@ -2510,11 +2714,17 @@ sections:
   - key: phase5-implementation/template-repository#AI レビューの位置づけ
     status: pending
   - key: phase5-implementation/template-repository#強制層
-    status: pending
+    status: none
+    category: explanation
+    reason: 準拠テンプレートの強制層と自己修正のロックの説明。停止条件の規定の正本は第3章 3.12.10(IMPL-0272〜0277)
+    issue: 296
   - key: phase5-implementation/template-repository#契約検査
     status: pending
   - key: phase5-implementation/template-repository#実装の制約
-    status: pending
+    status: none
+    category: explanation
+    reason: 準拠テンプレートの実装の限界の開示
+    issue: 296
   - key: phase5-implementation/template-repository#関連するページ
     status: pending
   - key: phase5-implementation/test-effectiveness#(冒頭)
@@ -2642,24 +2852,59 @@ sections:
   - key: phase6-operation/metrics#測定の副作用への歯止め > 参考値として測ることはできない
     status: pending
   - key: phase6-operation/metrics#測定の副作用への歯止め > 指標を増やして対処しない
-    status: pending
+    status: none
+    category: org-design
+    reason: 正式指標の上限と廃止は採用組織の指標の運用(人の判断)。表は候補の一覧で、上限は正式指標に掛かる
+    issue: 296
   - key: phase6-operation/metrics#測定の副作用への歯止め > 採用しない指標
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0139
+    note: 判断記録の件数を出さないことは IMPL-0139。他の量(バックログの純増を含む)は課さない明記
+    issue: 296
   - key: phase6-operation/metrics#測定の副作用への歯止め > 閾値を目標にしない
     status: pending
   - key: phase6-operation/metrics#測定の副作用への歯止め > 実績を基準へ機械的に変換しない
     status: pending
   - key: phase6-operation/metrics#測定の副作用への歯止め > 能力依存の定数の登録簿
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0103
+    note: 再評価待ちの注記と記名の記録は IMPL-0103。表と JSON の整合(要求事項4 の区分・configKey)は本リポジトリの検査(check-recalibration-registry.mjs と変異試験)。起草者による再評価は課さない明記
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0103
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0103
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0103
+      要求事項4:
+        status: none
+        category: org-design
+        reason: 短縮・緩和をしない判断は人が行う。能力に依らない定数は再評価待ちに数えない(IMPL-0103 の範囲)
+      要求事項5:
+        status: none
+        category: org-design
+        reason: 外すときの保証の移し先は人が記録する
+    issue: 296
   - key: phase6-operation/metrics#分類別の指標と警戒サイン > 流れ(速度と滞留)
-    status: pending
+    status: none
+    category: org-design
+    reason: 指標の定義と算出元。採るかは採用組織が手続1〜4 で決める。進捗を完了率の申告で測らないことは組織の運用
+    issue: 296
   - key: phase6-operation/metrics#分類別の指標と警戒サイン > 品質(欠陥と負債)
     status: pending
   - key: phase6-operation/metrics#分類別の指標と警戒サイン > AI協調(委譲の効き)
     status: none
     category: explanation
-    reason: AI 協調の指標の定義と算出元。トークン効率を評価の入力にしない規定の所在は第7章 7.7.8
-    issue: 294
+    reason: AI 協調の指標の定義と算出元。手戻り率はタスクの単位の量で差し戻し率を含めない。トークン効率を評価の入力にしない規定の所在は第7章 7.7.8
+    issue: 296
   - key: phase6-operation/metrics#分類別の指標と警戒サイン > 統制(ゲートの実効性)
     status: pending
   - key: phase6-operation/metrics#分類別の指標と警戒サイン > 事業継続性(理解の維持)
@@ -2669,7 +2914,10 @@ sections:
   - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 設計の原則
     status: pending
   - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 指標の定義
-    status: pending
+    status: none
+    category: org-design
+    reason: 三識の指標の定義と対の指標。採るかは採用組織が決める
+    issue: 296
   - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 対話の質を機械が採点しない
     status: pending
   - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 歪みの検知
@@ -2677,7 +2925,10 @@ sections:
   - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 心理的安全性を対で測る
     status: pending
   - key: phase6-operation/metrics#収集の実装(3つのデータソース)
-    status: pending
+    status: none
+    category: org-design
+    reason: 集計の手段は採用組織が備える。手で数える候補を正式指標に採るには手続3 を要する
+    issue: 296
   - key: phase6-operation/metrics#ダッシュボード化
     status: pending
   - key: phase6-operation/metrics#指標が示す「次の一手」の早見表
@@ -2713,7 +2964,15 @@ sections:
   - key: phase6-operation/process-audit#実施者の要件
     status: pending
   - key: phase6-operation/process-audit#対象の抽出 > 全件を見ません
-    status: pending
+    status: none
+    category: org-design
+    reason: 監査の抽出は、案件に関与していない担い手(人)が行う手続
+    issue: 296
+  - key: "phase6-operation/process-audit#対象の抽出 > 2段の抽出"
+    status: none
+    category: org-design
+    reason: 2段の抽出と段ごとの記録は、監査の担い手(人)が行う手続。抽出数を母集団に比例させないことは課さない明記
+    issue: 296
   - key: phase6-operation/process-audit#監査の観点
     status: pending
   - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証

@@ -1451,6 +1451,12 @@ graph LR
 
 要求5は[第5章](/process-compass/phase4-process-design/human-ai-boundary/)の自律水準および[フェーズ5の実行環境](/process-compass/phase5-implementation/ai-environment/)の段階導入と対応します。**遮断の手段を持たないまま自律水準を上げる構成を認めません**。
 
+本節は、自己修正のループ(テストの失敗を AI が直し続ける反復)の停止条件の正本です。[附属書E](/process-compass/phase4-process-design/developer-guide/) E.7 と[附属書H](/process-compass/phase4-process-design/assurance-case/)は本節を引きます。
+
+<!-- impl IMPL-0272 target=self-heal state=delivered check=machine note="要求事項1。自己修正のループの単位(機能・タスク)ごとに、停止条件を self-heal.mjs の iterate で強制する。iterate はスクリプト自身がテストを実行して結果を判定し、担い手の申告を使わない。start を呼ばない自己修正(ロックの外の反復)は検知しない(別 Issue)。test-self-heal.mjs が固定する" -->
+<!-- impl IMPL-0273 target=self-heal state=delivered check=machine note="要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場(docs/self-heal-log.tsv)に残す" -->
+<!-- impl IMPL-0274 target=profile-generator state=delivered check=presence note="要求事項4。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点で記録したかは確かめない" -->
+
 #### 停止条件の3種
 
 | 条件 | 検知するもの | 単独では不十分な理由 |
@@ -1461,10 +1467,18 @@ graph LR
 
 **回数だけの遮断を採用してはなりません**。正当な実行を頻繁に止める仕組みは、開発者の信頼を失います。信頼を失った閾値は引き上げられ続け、やがて統制として機能しなくなります。無進捗の判定を併せて持つことが、閾値を現実的な水準に保つ条件です。
 
+逆に、無進捗の判定を持つことを理由に、連続失敗回数の上限を外してはなりません。失敗の内容が毎回変わる振動は、無進捗の判定では止まりません。連続失敗回数の上限を外すと、この振動は累積消費の上限まで続きます。**連続失敗回数の上限を廃する形は、本標準は採りません**([ADR-0079](/process-compass/adr/0079-coverage-scope-approval-binding-self-heal/) 決定3)。
+
+<!-- impl IMPL-0275 target=self-heal state=delivered check=machine note="連続失敗回数。iterate が失敗の反復の回数を数え、task.selfHealMaxIterations(既定3回)に達したら保留にする。失敗の内容が毎回変わる振動でも止まる" -->
+<!-- impl IMPL-0276 target=self-heal state=delivered check=machine note="無進捗。iterate が失敗したテストの識別(node --test・pytest・go test・jest の出力から読む)を記録し、同じ集合が task.selfHealNoProgressLimit(既定2回)続いたら保留にする。識別を読めない失敗は無進捗に数えない(同一と確かめられない)。理由(失敗の内容)の同一までは見ず、テストの識別の同一で判定する" -->
+<!-- impl IMPL-0277 target=self-heal state=undelivered check=manual note="単一タスクの累積消費(トークン量・金額)。準拠テンプレートは消費量を測らない。採用者が接続経路・エージェント実行基盤の上で上限を強制する" -->
+
 #### 停止したときの扱い
 
 - 停止を「中断」として扱わない。**中断として扱うと、再開が既定の動作になる**
 - 停止の記録に、消費量・最後の失敗内容・発火した条件を残す。この記録が閾値の較正の入力になる
+- 停止の記録は、記録を消しても残る置き場(版管理で追跡する置き場など)に置く。実行の作業領域の一時ファイルだけに残す形は、較正の入力にならない
+- 停止を解いて再開する判断は人が記名で行う。AI の名義で解除してはならない
 - 同一のタスクで停止が繰り返される場合、原因は閾値ではなくタスクの分解にある。実装計画へ差し戻す
 - 停止条件の緩和を、その場の判断で行わない。[第7章 7.4](/process-compass/phase4-process-design/exception-escalation/)の例外手続による
 

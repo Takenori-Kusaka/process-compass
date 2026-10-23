@@ -35,8 +35,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm ci && npm test -- --coverage
-      - name: カバレッジ判定(新規コード80%目安・組織で調整)
-        run: npx coverage-check --threshold 80
+      - name: カバレッジ判定(企画時に記録した範囲。既定は変更で加えた・変えたコード。80%は目安・組織で調整)
+        run: npx coverage-check --threshold 80 --base origin/main  # 測る範囲は構成(ci.coverageScope)が持つ
   static-analysis:
     runs-on: ubuntu-latest
     steps:
@@ -353,7 +353,7 @@ PR の記録は `gh` で引きます。リポジトリは、`--repo <owner/name>
                  "result": "受入基準 3 件、計画したテスト 1 件。実行して通過 1 / 失敗 0 / 実行の記録に無い 0。対応するテストの無い受入基準 1 件(F-001/AC-2)",
                  "humanReconcile": "計画したテストの十分性と、未消化のテストの理由(G-7 の判定記録の「未消化のテスト」)" }],
   "g8Objection": { "matters": [], "notJudged": [], "records": [] },
-  "tests": { "coverage": { "measured": true, "pct": 87, "threshold": 80 } },
+  "tests": { "coverage": { "measured": true, "pct": 87, "threshold": 80, "scope": "changed", "denominator": 142, "unmeasuredProductFiles": 0 } },
   "debt": { "ledgerPresent": true },
   "handover": { "updated": true },
   "ipClearance": { "scanRun": true, "result": "passed" },

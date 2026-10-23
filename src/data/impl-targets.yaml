@@ -366,4 +366,23 @@ targets:
     name: G-5 基準3 のカバレッジの判定(coverage-check.mjs)
     kind: template-file
     path: scripts/gate/coverage-check.mjs
-    description: アダプタの集計ファイルから割合を読み、構成の coverageThreshold と比べる。2026-10-23 時点では全体の行の割合だけを比べ、測る範囲と分母を記録しない(Issue #294)
+    description: アダプタの集計ファイルから割合を読み、構成の coverageThreshold と比べる。測る範囲(構成 ci.coverageScope。変更で加えた・変えたコード / 全体)を読み、結果に範囲・分母・測っていない製品のファイルの数を書く。変更の範囲は行単位の被覆(coverageDetail)を持つアダプタ(node)だけが測れる(Issue #294・#296)
+
+  - id: self-heal
+    name: 自己修正ループの停止(self-heal.mjs)
+    kind: template-file
+    path: scripts/gate/self-heal.mjs
+    description: 自己修正のロックの開始・反復・保留・解除。iterate が自らテストを実行し、失敗したテストの識別を記録し、連続失敗(反復の上限)と無進捗(同じ失敗の集合の連続)で保留にする。記録は docs/self-heal-log.tsv。解除は名簿の人の名義に限る。単一タスクの累積消費は測らない(Issue #296)
+
+  - id: size-observation
+    name: 規模の観測の集計(size-observation.mjs)
+    kind: template-file
+    path: scripts/gate/size-observation.mjs
+    description: 出荷の範囲の PR の規模の分布・超過の理由の内訳・別集計の倍率の分布を、同じ入力から同じ出力で出す。出荷の証跡の集約が呼ぶ(Issue #296)
+
+  - id: g1-check
+    name: G-1・G-5 の様式の検査(check-g1.mjs)
+    kind: template-file
+    path: scripts/gate/check-g1.mjs
+    description: 企画書(docs/project-brief.md)の必須の欄の有無を確かめる。カバレッジの測る範囲の行を含む(Issue #296)
+

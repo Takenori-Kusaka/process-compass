@@ -30,6 +30,7 @@ sidebar:
 | 委任の変更は判定の時点を事後へ移す | CL0・R3 の変更 | 変更ごと | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#委任の変更は判定の時点を事後へ移す適用-cl0r3-の変更) |
 | 未達のまま出荷する場合の例外承認 | R1 の変更 | 変更ごと | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#未達のまま出荷する場合の例外承認適用-r1-の変更) |
 | 基準値を超えた変更の扱い | 規模の基準値を超えた PR | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#基準値を超えた変更の扱い適用-規模の基準値を超えた-pr) |
+| 新規に変更した範囲へ限定する | G-5 基準3 以外の定量条件 | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#新規に変更した範囲へ限定する適用-g-5-基準3-以外の定量条件) |
 | 5.5.4 委任の条件 | CL0・R3 の変更 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#554-委任の条件適用-cl0r3-の変更) |
 | 5.7.3 選択肢の比較 | R1 の決定・例外承認 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#573-選択肢の比較適用-r1-の決定例外承認) |
 | 委任を適用した変更 | CL0・R3 の変更 | 変更ごと | [phase4-process-design/review-guide](/process-compass/phase4-process-design/review-guide/#委任を適用した変更適用-cl0r3-の変更) |
