@@ -30,7 +30,7 @@
 # 恒久的な除外を作りません。期限が来たら、解除できるかを確認します。
 #
 # ------------------------------------------------------------------
-# 現在の見送り: なし
+# 現在の見送り: mermaid 12 系(npm)
 # ------------------------------------------------------------------
 #
 # astro 7.1.6 のビルド失敗は 7.2.0 へ上げて解消したため、ignore は不要です。
@@ -45,7 +45,12 @@ updates:
       all-npm:
         patterns: ["*"]
     # 見送りが必要になったら、上の規則に従ってここへ書く
-    ignore: []
+    ignore:
+      # mermaid 12.1.0 へ上げると npm ci が ERESOLVE で落ちる。astro-mermaid@2.1.0 の
+      # peer 範囲が mermaid@"^10.0.0 || ^11.0.0" で、12 系を受け付けないため(#287)。
+      # 見直し 2027-01。astro-mermaid が mermaid 12 を peer に含めた版を出したら解除する。
+      - dependency-name: "mermaid"
+        versions: [">= 12.0.0"]
 
   - package-ecosystem: github-actions
     directory: /
