@@ -38,7 +38,7 @@ graph TD
 6. **期限を過ぎても状態が変わらない判断記録を、四半期の振り返りの入力に出す**。期限の記録から機械で拾う。扱いは技術判断者が決める
 7. **強制層の検査の棚卸しの結果を、振り返りに持ち込む**。棚卸しは AI維持管理者が[第3章 3.11.4](/process-compass/phase4-process-design/roles-responsibilities/) 要求事項4 として行い、廃止の候補を判定する。振り返りは外すかを決める場ではない
 
-<!-- impl IMPL-0140 target=decisions-check state=delivered check=machine note="期限つきの実験の判断記録のうち、期限を過ぎて、状態の行に継続・置き換え・廃止のいずれも反映されていないものを一覧に出す(check-decisions.mjs --overdue)。失敗にはしない。扱いは技術判断者が決める" -->
+<!-- impl IMPL-0140 target=decisions-check state=delivered check=machine test=template/scripts/gate/test-decisions.mjs note="期限つきの実験の判断記録のうち、期限を過ぎて、状態の行に継続・置き換え・廃止のいずれも反映されていないものを一覧に出す(check-decisions.mjs --overdue)。失敗にはしない。扱いは技術判断者が決める" -->
 
 本標準は、振り返りのたびに規定や判断記録を一定の件数以上削ることを課しません。件数の義務は、削るものが無い回に形式的な削除を生み、件数の根拠もありません([ADR-0072](/process-compass/adr/0072-document-volume-is-not-a-metric/))。
 

@@ -106,7 +106,7 @@ graph TD
 
 出荷判定の証跡の集約は、判断記録の件数を出しません。状態ごとの件数(採用・一部置き換え・置き換え・廃止)と、置き換えの両側の参照の不一致の件数を出します。置き場の説明の文書(`README.md`)は数えません。件数の表示は、参考として測る形そのものだからです。
 
-<!-- impl IMPL-0139 target=evidence-aggregation state=delivered check=machine note="出荷判定の証跡の集約は、判断記録の件数を出さず、状態ごとの件数(採用・一部置き換え・置き換え・廃止。保管領域を含む)と、置き換えの両側の参照の不一致の件数を出す。README を数えない" -->
+<!-- impl IMPL-0139 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-decisions.mjs note="出荷判定の証跡の集約は、判断記録の件数を出さず、状態ごとの件数(採用・一部置き換え・置き換え・廃止。保管領域を含む)と、置き換えの両側の参照の不一致の件数を出す。README を数えない" -->
 
 ### 閾値を目標にしない
 
@@ -178,7 +178,7 @@ graph TD
 
 組織の構造に由来する境界(第8章 軸A の10名の境界など)は、登録簿に載せません。担い手の能力に依らないうえ、観測の周期の性質も持たないためです。値の根拠は、各所の根拠水準のマークで開示します。
 
-<!-- impl IMPL-0103 target=process-change-skill state=delivered note="再評価待ちの能力依存の定数の件数を /process-change の出力と /pit の注記に出す。契機は performer の変化点の記録と暦だけで、値を自動で変えない。再評価の記録(残す・外す・移す)は docs/calibration-register.md に記名で置き、AI の名義は数えない" -->
+<!-- impl IMPL-0103 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-recalibration.mjs note="再評価待ちの能力依存の定数の件数を /process-change の出力と /pit の注記に出す。契機は performer の変化点の記録と暦だけで、値を自動で変えない。再評価の記録(残す・外す・移す)は docs/calibration-register.md に記名で置き、AI の名義は数えない" -->
 
 :::caution[暫定 EV-0089 / 見直し 2027-04]
 **対象**: 能力依存の定数の登録簿と、再評価の契機(performer の変化点の記録と暦)、能力に依らない周期・窓の区分。

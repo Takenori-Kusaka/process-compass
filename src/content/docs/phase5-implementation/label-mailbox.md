@@ -73,8 +73,8 @@ sidebar:
 - **出荷判定（G-7）は、このラベルでは起動しない。** G-7 は PR ごとではなく、出荷の範囲ごとの判定である（[第4章 G-7](/process-compass/phase4-process-design/gate-criteria/)）。既定ブランチへの取り込みが出荷を起動する構成では、出荷判定者は G-7 の判定記録を作成した後にマージする。その取り込みは取り消せない操作にも当たる（[第5章 5.5.1](/process-compass/phase4-process-design/human-ai-boundary/)）。取り込みが出荷を起動しない構成では、マージは G-7 を待たない。
 - **相手を指すラベルがない口頭やメンションでの判断依頼を禁止する。** 伝達経路に現れないため、エージェントや人間の双方で見落とすこととなる。
 
-<!-- impl IMPL-0302 target=next-role state=delivered check=machine note="state:dev-done の受け手は、G-6 が有効なら独立レビュアだけ、G-6 が省略・未達の構成では出荷判定者(準拠テンプレートの mailboxFor と next.mjs --role・/pit)。state:ready-to-merge を付けるのは独立レビュアだけで、出荷判定者の受信箱に入る。G-6 が省略・未達の構成では誰も付けず、開発者も付けない。needs-dev を独立レビュア・出荷判定者は付けず、needs-platform は付けられる。G-7 は next.mjs の出荷の段が出荷の範囲ごとに出し、ラベルでは起動しない。test-roster-rules.mjs が構成ごとに固定する(#312。突合 X-1・X-4)" -->
-<!-- impl IMPL-0303 target=deploy-workflow state=undelivered check=manual note="既定ブランチへの取り込みが出荷を起動する構成で、出荷判定者が G-7 の判定記録を作成した後にマージすること。準拠テンプレートは配備のワークフローを持たず、マージの前に G-7 の判定記録の有無を確かめない。その取り込みは取り消せない操作として人へ戻す経路(IMPL-0251)に限る。採用者は、配備を起動する取り込みの前に G-7 の判定記録を確かめる手順を社内で定める(#312)" -->
+<!-- impl IMPL-0302 target=next-role state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="state:dev-done の受け手は、G-6 が有効なら独立レビュアだけ、G-6 が省略・未達の構成では出荷判定者(準拠テンプレートの mailboxFor と next.mjs --role・/pit)。state:ready-to-merge を付けるのは独立レビュアだけで、出荷判定者の受信箱に入る。G-6 が省略・未達の構成では誰も付けず、開発者も付けない。needs-dev を独立レビュア・出荷判定者は付けず、needs-platform は付けられる。G-7 は next.mjs の出荷の段が出荷の範囲ごとに出し、ラベルでは起動しない。test-roster-rules.mjs が構成ごとに固定する(#312。突合 X-1・X-4)" -->
+<!-- impl IMPL-0303 target=deploy-workflow state=undelivered check=manual plan=scheduled issue=329 review=2027-04 note="既定ブランチへの取り込みが出荷を起動する構成で、出荷判定者が G-7 の判定記録を作成した後にマージすること。準拠テンプレートは配備のワークフローを持たず、マージの前に G-7 の判定記録の有無を確かめない。その取り込みは取り消せない操作として人へ戻す経路(IMPL-0251)に限る。採用者は、配備を起動する取り込みの前に G-7 の判定記録を確かめる手順を社内で定める(#312)" -->
 
 ---
 
@@ -208,7 +208,7 @@ gh pr list --label "state:needs-tech" --state open
 
 孤児（orphan）の再配分（4.4 / 4.6）だけを例外として扱う。**再配分の権限と、仕事を拾う権限を区別する**。価値責任者は状態ラベルの付いていない Issues/PRs を検出して再配分するが、再配分した仕事を自ら拾ってはならない。
 
-<!-- impl IMPL-0007 target=claude-md state=delivered note="ポーリングの対象を自ロールの受信箱に限る" -->
+<!-- impl IMPL-0007 target=claude-md-resident state=delivered check=presence note="ポーリングの対象を自ロールの受信箱に限る(単位: 行)" -->
 
 ---
 
@@ -229,7 +229,7 @@ gh pr list --label "state:needs-tech" --state open
 
 エスカレーションレポートの様式（5項目）は第7章 7.6 による。ラベルの付与だけで報告を済ませてはならない。
 
-<!-- impl IMPL-0005 target=next-role state=delivered note="エスカレーションの発火条件と段階に対応するラベル" -->
+<!-- impl IMPL-0005 target=next-role state=delivered check=manual note="エスカレーションの発火条件と段階に対応するラベル" -->
 
 ---
 
@@ -237,7 +237,7 @@ gh pr list --label "state:needs-tech" --state open
 
 **ラベルの遷移は、ゲート判定の成立要件ではない。** 判定は判定記録の作成をもって成立する（[第4章 判定の成立](/process-compass/phase4-process-design/gate-criteria/)）。ラベルは成立に伴う事務であり、次に動くロールへ経路を渡す操作にすぎない。判定記録の媒体と置き場は、第4章と準拠テンプレートが定める。本仕様は定めない。
 
-<!-- impl IMPL-0012 target=claude-md state=delivered note="ラベルの遷移は判定の成立要件ではなく順序は記録が先" -->
+<!-- impl IMPL-0012 target=claude-md-resident state=delivered check=presence note="ラベルの遷移は判定の成立要件ではなく順序は記録が先(単位: 行)" -->
 
 順序を次のとおり固定する。**逆にしてはならない。**
 
@@ -300,7 +300,7 @@ done
 
 **パスの列挙で定義しない。** パスは変更のたびに規定の改訂を要し、列挙の漏れがそのまま検知の漏れになる。
 
-<!-- impl IMPL-0014 target=claude-md state=delivered note="統制の弱化を性質で定義し検知の対象とする" -->
+<!-- impl IMPL-0014 target=claude-md-resident state=delivered check=presence note="統制の弱化を性質で定義し検知の対象とする(単位: 行)" -->
 
 ### 4.7.2 検知者は許容可否を判断しない
 
@@ -331,7 +331,7 @@ D-0 で兼務を記録している案件では、検知者と承認者が同一�
 
 同一人物であっても、どの職務で判断したかが記録に残る。判断の帰属は記録によってしか追えない([ADR-0038](/process-compass/adr/0038-detection-handoff-of-control-weakening/))。
 
-<!-- impl IMPL-0015 target=claude-md state=delivered note="検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す" -->
+<!-- impl IMPL-0015 target=claude-md-resident state=delivered check=presence note="検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す(単位: 行)" -->
 
 ---
 

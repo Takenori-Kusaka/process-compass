@@ -62,9 +62,9 @@ sidebar:
 | 2 | 名前が重なる 5 ファイルは、既存の内容を残したうえで、テンプレートの側の内容を含める。`CLAUDE.md` は、テンプレートの常駐の規則の節をすべて含める。`.github/CODEOWNERS` と `.gitignore` は、テンプレートの行を含める | この3つは統制に効く。`CLAUDE.md` は常駐の規則、`.github/CODEOWNERS` は強制層と構成の持ち主、`.gitignore` は証跡と秘匿情報の除外を持つ(事実1・3) |
 | 3 | 既存の `package.json` に、カバレッジの要約(`coverage/coverage-summary.json`)を出す `coverage` のスクリプトを、初期化の前に用意する | 初期化は既存の `package.json` を書き換えない。無いと G-5 が通らない(事実4) |
 
-<!-- impl IMPL-0123 target=claude-md-resident state=delivered check=machine note="CLAUDE.md に、テンプレートの常駐の規則の節(見出しと本文)があることを check-process-rules が確かめる。区間の目印だけを足した既存の CLAUDE.md は落ちる(test-init-g5 で実行して確認)。節の中の個々の行の有無、.github/CODEOWNERS と .gitignore の行は確かめない(#306)" -->
+<!-- impl IMPL-0123 target=claude-md-resident state=delivered check=machine test=template/scripts/gate/test-init-g5.mjs note="CLAUDE.md に、テンプレートの常駐の規則の節(見出しと本文)と規則(規則ごとの核の文言を、同じ節の行と正規化して照合)があることを check-process-rules が確かめる。区間の目印だけを足した既存の CLAUDE.md は落ちる(test-init-g5 で実行して確認)。行の削除・節の置き換え・否定の除去で落ちることを test-claude-md-resident が確かめる。.github/CODEOWNERS と .gitignore の行は確かめない(#306・#314)" -->
 
-定め2 のうち機械が確かめるのは、`CLAUDE.md` の常駐の規則の節があることまでです。`check-process-rules` が、節の一覧(`scripts/gate/claude-md-resident.json`)の見出しと、その下に本文があることを確かめます。節の中の個々の行と、`.github/CODEOWNERS`・`.gitignore` の行は、機械では確かめません。採用者が節を足すことと、節の中へ行を足すことは妨げません。
+定め2 のうち機械が確かめるのは、`CLAUDE.md` の常駐の規則の節と規則があることまでです。`check-process-rules` が、一覧(`scripts/gate/claude-md-resident.json`)の節の見出しと、その下に本文があることを確かめます。あわせて、規則ごとの核の文言が同じ節のいずれかの行に含まれることを、太字・逆引用符・リンクの記法・空白の違いを除いて照合します([ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/))。採用者が行の前後へ書き足すこと、節の中で並べ替えること、節や行を足すことは妨げません。核の文言を変えると、照合は落ちます。規則の文言を変えることは標準の規定の書き換えだからです。一覧から規則を除くことは強制層の縮小であり、AI維持管理者へ引き渡します(`state:needs-platform`)。`.github/CODEOWNERS`・`.gitignore` の行は、機械では確かめません。
 
 持ち込みのコミットは、構成の初期化より前に置きます。適用の開始より前の準備に当たるためです(第1章 1.10)。持ち込みから初期化までの変更は、本標準の要求事項の対象でなく、製品のコードを変えた件数だけが保証の開示に出ます。初期化の直後から、導いた要求事項のすべてが掛かります。満たしていないものは、未達・記録の欠落・逸脱・列挙に無い離脱のいずれかとして表示されます。
 
@@ -383,9 +383,9 @@ node scripts/gate/adoption-trial.mjs verify <記録>   # 記録の末尾の要�
 
 差分と通知の表示は、名簿の識別子ではなく氏名で出します。
 
-<!-- impl IMPL-0076 target=adoption-trial state=delivered note="導入前の検証の1コマンド(例 node scripts/gate/adoption-trial.mjs)を置き、next.mjs から案内する。合否の基準の記入(実行前の日時つき)を求めてから、(1) 目隠しの欠陥注入の準備と人の層・AI の層の集計 (2) 場面集11件の採用者の構成での実行 (3) 類型E・F の演習の記録の取り込み (4) 層1 と D-0 の全行記入での成立判定、を行い、附属書I の様式の記録を出す。基準の記入が実行より後の記録は、採用の証拠に数えないと出す" -->
+<!-- impl IMPL-0076 target=adoption-trial state=delivered check=presence note="導入前の検証の1コマンド(例 node scripts/gate/adoption-trial.mjs)を置き、next.mjs から案内する。合否の基準の記入(実行前の日時つき)を求めてから、(1) 目隠しの欠陥注入の準備と人の層・AI の層の集計 (2) 場面集11件の採用者の構成での実行 (3) 類型E・F の演習の記録の取り込み (4) 層1 と D-0 の全行記入での成立判定、を行い、附属書I の様式の記録を出す。基準の記入が実行より後の記録は、採用の証拠に数えないと出す(単位: ファイル)" -->
 
-<!-- impl IMPL-0081 target=adoption-trial state=delivered note="要件⑦ 実環境の統制の確認。env-check が採用者のリポジトリの実環境の gh で、既定ブランチに効いているルールセット(承認の数が review.reviewerCount 以上。regulated では最後の push の後の承認・コードオーナー・push で古い承認を無効にする設定。必須チェック gate-g5)、マージ済みの PR のレビュー、gate-g5 の成功した実行の成果物(license-scan・test-results)を読み、確認した者の記名つきで docs/adoption-trial/env-check.json へ書く。読めない環境では各項目を未確認に倒す(黙って通さない)。run が記録の節3 と節6・節9 へ写し、出荷の集約が項目4 へ、next.mjs が注記へ出す。確認済みの記録も構成の承認者の数・ルールセットが変われば未確認へ戻る(#288 第6巡)。記録の各項目に API の応答の識別(evidence: ルールセットの id、レビューの id と最後の提出時刻、実行の id と URL と成果物の id、取得時刻)を書き、識別の無い応答は確認済みにしない。読む側も識別の無い確認済みを未確認に倒す(#288 第7巡 V)" -->
+<!-- impl IMPL-0081 target=adoption-trial state=delivered check=manual note="要件⑦ 実環境の統制の確認。env-check が採用者のリポジトリの実環境の gh で、既定ブランチに効いているルールセット(承認の数が review.reviewerCount 以上。regulated では最後の push の後の承認・コードオーナー・push で古い承認を無効にする設定。必須チェック gate-g5)、マージ済みの PR のレビュー、gate-g5 の成功した実行の成果物(license-scan・test-results)を読み、確認した者の記名つきで docs/adoption-trial/env-check.json へ書く。読めない環境では各項目を未確認に倒す(黙って通さない)。run が記録の節3 と節6・節9 へ写し、出荷の集約が項目4 へ、next.mjs が注記へ出す。確認済みの記録も構成の承認者の数・ルールセットが変われば未確認へ戻る(#288 第6巡)。記録の各項目に API の応答の識別(evidence: ルールセットの id、レビューの id と最後の提出時刻、実行の id と URL と成果物の id、取得時刻)を書き、識別の無い応答は確認済みにしない。読む側も識別の無い確認済みを未確認に倒す(#288 第7巡 V)" -->
 
 ### 標準変更カタログへの登録と、登録の根拠
 

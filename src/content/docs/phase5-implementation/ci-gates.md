@@ -51,6 +51,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: 機能仕様の曖昧語検査(禁止語リスト)
         run: npx textlint "specs/**/*.md"
+  context-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 文脈ファイルの形式検査(G-5 基準6。リポジトリ内の参照切れ。分量の上限は組織が値を定めて足す)
+        run: node scripts/check-context-refs.mjs
   ip-clearance:
     runs-on: ubuntu-latest
     steps:
@@ -83,7 +89,7 @@ jobs:
       - name: 依存の追加・更新を PR へ機械出力(G-5 基準8)
         run: node scripts/dependency-diff.mjs --base origin/main --comment
   gate-g5:
-    needs: [test, static-analysis, spec-lint, ip-clearance, secret-scan, dependency-diff]
+    needs: [test, static-analysis, spec-lint, context-format, ip-clearance, secret-scan, dependency-diff]
     runs-on: ubuntu-latest
     steps:
       - run: echo "G-5 all green"
@@ -383,13 +389,13 @@ PR の記録は `gh` で引きます。リポジトリは、`--repo <owner/name>
 | (前提)作成側の検証の記載 | あり | PR 本文の「検証方法と結果」の有無(`prs[].authorVerificationPresent`)。PR を経ていないコミットは、トレーラ `Verification`。G-6 の状態に依らない | 記載の内容 |
 | (欠陥注入を運用する場合)注入の残存 | **なし** | 確かめない。集約が読むのは、検出率の記録だけである | [欠陥注入の隔離設計](/process-compass/phase5-implementation/seeded-error-safety/)の第3層(リリース候補の走査)と第4層(走査の実施記録)、回収の記録 |
 
-<!-- impl IMPL-0040 target=evidence-aggregation state=delivered note="G-7 基準1。受入基準(specs/F-NNN/spec.md の受入基準の表)を参照するテストのファイルの数(計画数)、G-5 の test ジョブが書くテストの実行の記録(evidence/test-results.json。test-results.mjs が書き、ship-evidence が gate-g5 の成果物から取り込む)で通過した数、対応するテストの無い受入基準の数を criteria[1] へ出す(第4章 G-7「基準1・2 の記録」)。件数の十分性は判定しない。実行の記録が無い出荷は消化数を数えない" -->
-<!-- impl IMPL-0041 target=evidence-aggregation state=delivered note="G-7 基準2。欠陥の台帳(docs/defect-ledger.md。重大度・優先度・状態・コア機能)を取り込み、事業ステージ別の欠陥トリアージ基準の区分ごとの未解決の件数を criteria[2] と項目5 へ出す。台帳が無い出荷と読めない台帳を記載の欠落にする(第4章 G-7「基準1・2 の記録」)。出荷の可否は判定しない" -->
-<!-- impl IMPL-0042 target=evidence-aggregation state=undelivered note="G-7 基準3。受容した負債の記録漏れの検出。台帳の有無だけを確かめており、変更との突合が降りていない" -->
-<!-- impl IMPL-0043 target=evidence-aggregation state=undelivered note="G-7 基準4。運用引き継ぎ文書の3項目の記載の確認。文書の有無だけを確かめている" -->
-<!-- impl IMPL-0044 target=evidence-aggregation state=undelivered note="G-7 基準6。AI 品質指標の確認の記録を集約へ取り込む" -->
-<!-- impl IMPL-0045 target=evidence-aggregation state=undelivered note="G-7 基準7。安全適合性の検証記録の欠落を集約で確かめる" -->
-<!-- impl IMPL-0046 target=evidence-aggregation state=undelivered note="G-7 基準8。類似の検知の実施記録と、期限を超過した未処理の指摘を集約で確かめる。ライセンス検査の実施記録の有無だけを確かめている" -->
+<!-- impl IMPL-0040 target=evidence-aggregation state=delivered check=manual note="G-7 基準1。受入基準(specs/F-NNN/spec.md の受入基準の表)を参照するテストのファイルの数(計画数)、G-5 の test ジョブが書くテストの実行の記録(evidence/test-results.json。test-results.mjs が書き、ship-evidence が gate-g5 の成果物から取り込む)で通過した数、対応するテストの無い受入基準の数を criteria[1] へ出す(第4章 G-7「基準1・2 の記録」)。件数の十分性は判定しない。実行の記録が無い出荷は消化数を数えない" -->
+<!-- impl IMPL-0041 target=evidence-aggregation state=delivered check=manual note="G-7 基準2。欠陥の台帳(docs/defect-ledger.md。重大度・優先度・状態・コア機能)を取り込み、事業ステージ別の欠陥トリアージ基準の区分ごとの未解決の件数を criteria[2] と項目5 へ出す。台帳が無い出荷と読めない台帳を記載の欠落にする(第4章 G-7「基準1・2 の記録」)。出荷の可否は判定しない" -->
+<!-- impl IMPL-0042 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="G-7 基準3。受容した負債の記録漏れの検出。台帳の有無だけを確かめており、変更との突合が降りていない" -->
+<!-- impl IMPL-0043 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="G-7 基準4。運用引き継ぎ文書の3項目の記載の確認。文書の有無だけを確かめている" -->
+<!-- impl IMPL-0044 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="G-7 基準6。AI 品質指標の確認の記録を集約へ取り込む" -->
+<!-- impl IMPL-0045 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="G-7 基準7。安全適合性の検証記録の欠落を集約で確かめる" -->
+<!-- impl IMPL-0046 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="G-7 基準8。類似の検知の実施記録と、期限を超過した未処理の指摘を集約で確かめる。ライセンス検査の実施記録の有無だけを確かめている" -->
 
 基準5 のうち、機械で導ける範囲は次のとおりです。出荷に対応する判定記録の数を機械で決められないゲートは、件数を表示し、人が突合する範囲として出します。
 
@@ -774,7 +780,7 @@ G-6 の判定を事後へ移すのは、次の3つをすべて満たす変更に
 | 受容と異議の記録 | 判定記録(テンプレ4)の「対象」へ期間を書いた G-8 の決断の記録に残す。新しい様式を足さない |
 | 検査 | 期間の開示に対応する記録の有無と、出荷判定者の異議の欄を確かめる。対応づけるのは、「対象」に書かれた日付が起点と終点の2つだけで、その間が期間の区切り(〜、~、-、から)である記録に限る。対応づいた記録の判定者の記名(名簿の人。AI の名義でない)と判定の結果(通過 / 差し戻し)を確かめる。結果が差し戻しの記録は、期間の開示を受容していないものとして扱う。いずれも欠ければ `gaps` に記録する |
 
-<!-- impl IMPL-0048 target=evidence-aggregation state=undelivered note="委任の期間ごとの保証の開示を、期間を指定して出力し、期間の受容と異議の記録を確かめる。定期の実行は、実際の GitHub 上で確かめていない" -->
+<!-- impl IMPL-0048 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="委任の期間ごとの保証の開示を、期間を指定して出力し、期間の受容と異議の記録を確かめる。定期の実行は、実際の GitHub 上で確かめていない" -->
 
 #### 出荷判定者が突合するもの
 
@@ -853,7 +859,7 @@ G-6 の判定を事後へ移すのは、次の3つをすべて満たす変更に
 - **判定とマージの経路は、実際の GitHub 上で実行して確かめていない**。確かめたのは、模擬の入力による判定と、模擬の手順に留まる。第5章 5.5.4 の実装マーク(IMPL-0026)は、実環境での確認が取れるまで、降りていない規定として表示し続ける
 - 有効化する組織は、試験用のリポジトリで、該当する変更と該当しない変更を流して確かめてから使う
 
-<!-- impl IMPL-0235 target=delegation-workflow state=undelivered check=presence note="要求事項1〜6 を delegation.yml と check-delegation.mjs が実装する。基底ブランチの定義で起動して既定ブランチを checkout し、判定を必須でないステータスで出し、承認を付けずに記録し、有効化の変数と Environment delegated-merge の秘密情報が揃った場合に限り、判定した時点のコミットに固定してマージする。test-check-delegation.mjs がワークフローの定義と模擬の入力で確かめる。実際の GitHub 上で実行していない(本節の開示)" -->
+<!-- impl IMPL-0235 target=delegation-workflow state=undelivered check=presence plan=scheduled issue=339 review=2027-04 note="要求事項1〜6 を delegation.yml と check-delegation.mjs が実装する。基底ブランチの定義で起動して既定ブランチを checkout し、判定を必須でないステータスで出し、承認を付けずに記録し、有効化の変数と Environment delegated-merge の秘密情報が揃った場合に限り、判定した時点のコミットに固定してマージする。test-check-delegation.mjs がワークフローの定義と模擬の入力で確かめる。実際の GitHub 上で実行していない(本節の開示)(単位: ファイル)" -->
 
 ### 実装の制約
 
@@ -948,9 +954,9 @@ GitHub での対応は次のとおりです(2026-10-23 時点の GitHub Docs に
 
 準拠テンプレートの委任のマージの経路(前掲「委任の該当の判定とマージの経路」)は、マージのトークンを、既定ブランチに限った Environment `delegated-merge` の秘密情報に置きます。Environment を参照するのは、組織が有効化した場合だけ動くマージのジョブです。準拠テンプレートは、デプロイのワークフローを持ちません。
 
-<!-- impl IMPL-0236 target=delegation-workflow state=delivered check=presence note="委任のマージのトークン DELEGATED_MERGE_TOKEN を、Environment delegated-merge の秘密情報に置く手順(README)。Environment を参照するのは、変数 DELEGATED_MERGE_ENABLED が true で判定が該当したときだけ動くマージのジョブ(delegation-merge)で、判定のジョブは参照しない。test-check-delegation.mjs がこの分け方を確かめる。Environment を参照の前に作ること・配備のブランチを既定ブランチに限ることは組織の設定で、機械では確かめない。実際の GitHub 上で実行していない" -->
+<!-- impl IMPL-0236 target=delegation-workflow state=delivered check=manual note="委任のマージのトークン DELEGATED_MERGE_TOKEN を、Environment delegated-merge の秘密情報に置く手順(README)。Environment を参照するのは、変数 DELEGATED_MERGE_ENABLED が true で判定が該当したときだけ動くマージのジョブ(delegation-merge)で、判定のジョブは参照しない。test-check-delegation.mjs がこの分け方を確かめる。Environment を参照の前に作ること・配備のブランチを既定ブランチに限ることは組織の設定で、機械では確かめない。実際の GitHub 上で実行していない(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
 
-<!-- impl IMPL-0237 target=deploy-workflow state=undelivered check=manual note="案件のデプロイ(G-8 の後の配備)のワークフローで、配備の資格情報を、配備を許す参照(既定ブランチ、またはリリースのタグ)に限った実行環境の秘密情報に置き、参照する実行環境を参照の前に作る。プランにより手段が無い場合に保証の開示へ未達として記録する。準拠テンプレートにデプロイのワークフローは無い" -->
+<!-- impl IMPL-0237 target=deploy-workflow state=undelivered check=manual plan=scheduled issue=346 review=2027-04 note="案件のデプロイ(G-8 の後の配備)のワークフローで、配備の資格情報を、配備を許す参照(既定ブランチ、またはリリースのタグ)に限った実行環境の秘密情報に置き、参照する実行環境を参照の前に作る。プランにより手段が無い場合に保証の開示へ未達として記録する。準拠テンプレートにデプロイのワークフローは無い" -->
 
 :::caution[暫定 EV-0137 / 見直し 2027-10]
 **対象**: デプロイ・配布の統制と資格情報を、配備を許す参照(既定ブランチ、またはリリースのタグ)に限った実行環境の秘密情報に置くことを要求事項にし、手段が無い場合を未達として記録させること。

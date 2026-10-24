@@ -39,7 +39,7 @@ sidebar:
 
 **本節が、条件を付して先へ進める手続です**。上表の2が条件の内容、4が条件の解消期限と責任者、5が解消までの追跡にあたります。工程ゲートの判定へ「条件付き通過」という値を設けていないのは、これらの要求を伴わない通過の経路を作らないためです([第4章 工程ゲートの判定の語彙](/process-compass/phase4-process-design/gate-criteria/) / [ADR-0036](/process-compass/adr/0036-gate-closure-by-record/))。
 
-<!-- impl IMPL-0011 target=gate-record-template state=delivered note="条件を付して先へ進める場合は例外承認の5要求事項を満たす" -->
+<!-- impl IMPL-0011 target=gate-record-template state=delivered check=manual note="条件を付して先へ進める場合は例外承認の5要求事項を満たす" -->
 
 例外承認の記録は、技術負債台帳([第6章 テンプレ3](/process-compass/phase4-process-design/deliverable-templates/))へ区分「例外」として置きます。記録は、次の5つの事項を持ちます。要求事項を足すものではなく、上表の要求事項が記録のどの欄に現れるかを定めるものです。
 
@@ -57,7 +57,7 @@ sidebar:
 - 承認した者の欄を記録した者の欄と分けるのは、台帳へ書き込んだ者と、承認の権限を持つ者が別でありうるためである
 - **規模の基準値の超過には、本節の例外承認を要さない**。超過は、PR の本文の「規模の確認」と区分の下限 R2 で扱う([第4章 タスクの分割基準](/process-compass/phase4-process-design/gate-criteria/) / [ADR-0058](/process-compass/adr/0058-size-over-is-confirmed-not-blocked/))。本節の例外承認は、R2 以上の規範の逸脱のために残る。基底ブランチの台帳に既にある、規模の超過を対象とした例外承認の行は、有効のまま受け付ける(過去の記録を壊さない)
 
-<!-- impl IMPL-0038 target=debt-ledger-template state=delivered note="例外承認の記録が、対象・状態・承認した者・理由・期限を持つ。承認した者の欄を記録者の欄と分ける。テンプレート担当の実装後に主担当が改める" -->
+<!-- impl IMPL-0038 target=debt-ledger-template state=delivered check=presence note="例外承認の記録が、対象・状態・承認した者・理由・期限を持つ。承認した者の欄を記録者の欄と分ける。テンプレート担当の実装後に主担当が改める(単位: 欄)" -->
 
 判定基準を満たしている成果物について、次工程の材料が未完成であることを理由に本節を用いてはなりません。それは例外ではなく、判定の範囲の誤りです([第4章 判定の範囲](/process-compass/phase4-process-design/gate-criteria/))。
 
@@ -93,7 +93,7 @@ sidebar:
 
 **この経路が無い場合、判定基準に含まれない事項は判定へ持ち込まれます**。判定の範囲の規定([第4章](/process-compass/phase4-process-design/gate-criteria/))は「持ち込むな」と定めるにとどまり、**持ち込まなかった事項の行き先を定めていませんでした**。
 
-<!-- impl IMPL-0018 target=debt-ledger-template state=delivered note="未解決事項を技術負債台帳の区分欄で 7.3 由来と区別する" -->
+<!-- impl IMPL-0018 target=debt-ledger-template state=delivered check=presence note="未解決事項を技術負債台帳の区分欄で 7.3 由来と区別する(単位: 欄)" -->
 
 :::caution[暫定 EV-0030 / 見直し 2027-02]
 **対象**: 7.3.2(判定の外に置き場を設ければ、判定へ持ち込まれなくなるという判断)。
@@ -452,7 +452,7 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 
 独立レビュアを2名とする目的は、検出能力の低下を検知された者の承認を、該当する範囲で、単独では数えないことです。行の題が「単独での承認権限」であるのは、このためです。本標準は、2名にすることを、検出能力を回復させる措置として置きません。回復は 7.9.3 によります。承認者の人数を増やしても、判断の対象を小さくする効果は代替できません([第3章 3.10.4](/process-compass/phase4-process-design/roles-responsibilities/))。この読みは、[ADR-0067](/process-compass/adr/0067-purpose-of-two-approvers/) 決定2 によります。
 
-<!-- impl IMPL-0118 target=evidence-aggregation state=undelivered check=manual note="検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305)" -->
+<!-- impl IMPL-0118 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305)" -->
 
 ### 7.9.3 回復の条件
 
@@ -628,9 +628,9 @@ AC-1 または AC-2 の前提を抱えたまま進む場合、7.3 の5項目に�
 製造現場で作業者が工程を止める仕組みと、心理的安全性の現場研究、品質不正の第三者委員会の報告(2023 年)に依ります。上位への報告と評価の切り離しで隠蔽が減ることを測った研究は、今回は確認していません。
 :::
 
-<!-- impl IMPL-0059 target=pr-checks state=delivered note="受信箱のラベル state:stop-requested が付いた PR(付けた履歴のある PR を含む)を、G-5(pr-rules)の失敗で保留する。解除は、基底ブランチに入れた解除の記録(テンプレ4 のゲート欄「停止の申し立ての解除」)で、層1 の項目4 の権限者(層1 が無ければ事業決裁者)の記名と理由を要し、AI の名義を受け付けない。見解を退けた解除は上申先と日付を要する。ラベルの履歴を渡せない場合、外したラベルの申し立ては検出できない" -->
+<!-- impl IMPL-0059 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="受信箱のラベル state:stop-requested が付いた PR(付けた履歴のある PR を含む)を、G-5(pr-rules)の失敗で保留する。解除は、基底ブランチに入れた解除の記録(テンプレ4 のゲート欄「停止の申し立ての解除」)で、層1 の項目4 の権限者(層1 が無ければ事業決裁者)の記名と理由を要し、AI の名義を受け付けない。見解を退けた解除は上申先と日付を要する。ラベルの履歴を渡せない場合、外したラベルの申し立ては検出できない" -->
 
-<!-- impl IMPL-0074 target=claude-md state=delivered note="自律実行の保留: 停止の申し立て(state:stop-requested)を受けたら、AI の担い手は対象の実行の単位を続けず停止し、AI運用担当者へ返す。申し立てから停止までの時刻を申し立ての記録へ残す。自ら解除しない" -->
+<!-- impl IMPL-0074 target=claude-md-resident state=delivered check=presence note="自律実行の保留: 停止の申し立て(state:stop-requested)を受けたら、AI の担い手は対象の実行の単位を続けず停止し、AI運用担当者へ返す。申し立てから停止までの時刻を申し立ての記録へ残す。自ら解除しない(単位: 行)" -->
 
 ## 7.12 関連する章
 

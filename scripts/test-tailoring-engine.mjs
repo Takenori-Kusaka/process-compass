@@ -302,9 +302,11 @@ for (const size of ['size-3-9', 'size-10plus']) {
     'q-existing-gates': 'gates-none',
     'q-ai-constraint': 'ai-free',
   };
+  // IMPL-0109:ok 標準品質・CL0 の S0 は、独立レビューの省略がそのまま効く(対照)
   const cl0 = evaluate(kb, { ...base, 'q-criticality': 'cl0' });
   assert.equal(cl0.profile['gate:g-indep-review'].state, 'omit', `S0・標準品質・CL0(${size})は独立レビューを省略`);
   assert.equal(cl0.profile['gate:g-ship'].state, 'omit', `S0・標準品質・CL0(${size})は出荷判定を省略`);
+  // IMPL-0109:ng CL1 以上の S0 で独立レビューを省略する入力は、r-e-cl1 が省略を取り消す(省略のままなら落ちる)
   for (const cl of ['cl1', 'cl2', 'cl3']) {
     const r = evaluate(kb, { ...base, 'q-criticality': cl });
     const state = r.profile['gate:g-indep-review']?.state;

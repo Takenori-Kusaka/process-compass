@@ -548,7 +548,8 @@ sections:
     status: kb
     ids:
       - IMPL-0269
-    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。基準3 の測る範囲は基準3 の節(IMPL-0245・0259〜0262・0246)。基準6 の分量の上限の検査は降りていない(IMPL-0269。上限の規定は 3.11.4 の IMPL-0222)
+      - IMPL-0312
+    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。基準3 の測る範囲は基準3 の節(IMPL-0245・0259〜0262・0246)。基準6 の参照切れは IMPL-0269(相対リンクと取り込みだけが降りた。#314)、分量の上限の検査は降りていない(IMPL-0312。上限の規定は 3.11.4 の IMPL-0222)
     issue: 296
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 判定基準を実装する検査と集約
     status: marked
@@ -2309,7 +2310,7 @@ sections:
   - key: phase5-implementation/context-base#陳腐化の検知
     status: none
     category: elsewhere
-    reason: 参照切れと分量の上限は G-5 基準6 の IMPL-0269(降りていない)と 3.11.4 の IMPL-0222。乖離・停滞は記録と人の判定
+    reason: 参照切れは G-5 基準6 の IMPL-0269(相対リンクと取り込みだけが降りた)、分量の上限は IMPL-0312 と 3.11.4 の IMPL-0222(降りていない)。乖離・停滞は記録と人の判定
     location:
       - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時)"
     issue: 296

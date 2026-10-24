@@ -1,0 +1,21 @@
+# 「採用者が実装する」(plan=adopter)にできない規定の登録簿(Issue #314 / ADR-0084 決定4)
+#
+# 降りていない規定(state=undelivered)のうち、準拠テンプレートが実装せず採用者に委ねることを認めない規定の節。
+# この節(と下位の節)に置いたマークは plan=adopter を書けない。plan=scheduled で降ろす計画を書く。
+# 一律で AI に委譲できない領域、人が確定する判断、停止の申し立て、統制の弱化の検出は、採用者の実装の有無で
+# 統制が消える型の規定であるため(CMMC の POA&M に載せられない要求の型。research/314-deliberation/)。
+#
+# key — 実装マークの棚卸しの鍵(src/data/impl-inventory.yaml と同じ書式)。下位の節(「 > 」で続く鍵)を含む
+# why — この節を挙げる理由
+schemaVersion: 0
+sections:
+  - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.3 レベルによらない不変条件
+    why: AI 自律レベルによらず AI に担わせない不変条件。採用者の実装に委ねると、実装しない案件で不変条件が消える
+  - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.5 運用形態にかかわらず人が確定する判断
+    why: 人が確定する判断。委ねる先が無い
+  - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.3 AI に担わせない領域
+    why: 一律で AI に委譲できない領域
+  - key: phase4-process-design/exception-escalation#7.11 停止の申し立て
+    why: 品質・安全・法令上の異常で誰でも止められること。止める経路が採用者の実装の有無で消えてはならない
+  - key: phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し
+    why: 統制の弱化の検出と引き渡し。検出の経路そのものを縮めることになる

@@ -12,7 +12,15 @@
 //
 // state(降りているか)と check(規定の中身を何が確かめるか)は別の事実である(ADR-0061)。
 // 降ろし先の実在は本スクリプトが確かめる。規定の中身が検査されているかは check が示す。
-// check を欠くマークは「未分類」として数え、台帳に件数を出す(落とさない)。
+// #314 / ADR-0084 で次を足した:
+//   - check を欠くマークを落とす。check=machine は test= で試験を名指し、試験が IMPL-NNNN:ng と IMPL-NNNN:ok の
+//     目印を持ち、必須の集約(テンプレートは gate-g5.yml の集約が使うジョブの run:、親は package.json の check)から
+//     実行されることを確かめる。この確かめは、試験の中身が規定を正しく確かめていることを示さない
+//   - check=presence の注記に、規則を運ぶ単位(単位: 欄 / キー / 行 / ファイル)を求める
+//   - state=undelivered に plan(scheduled: issue・review / adopter: decision)を求める。
+//     採用者が実装するにできない節(src/data/impl-no-adopter.yaml)では adopter を落とす
+//   - 逆向きの追跡: テンプレートのゲートのスクリプト・フック・ワークフローが、登録簿か除外の一覧(src/data/impl-untraced.yaml)にあること
+//   - テンプレートのコード・スキルに書かれた IMPL 番号が標準に実在すること
 //
 // 対象の棚卸し(Issue #292 / ADR-0076): 対象のページ(本文8章・規定の附属書・フェーズ5・6)の
 // 節ごとに、区分(マーク済み / 判定基準の表 / 対象にしない / 未棚卸し)が登録簿
@@ -42,23 +50,33 @@ import {
   STATUSES,
   plannedProblem,
   renderUndelivered,
+  markAttrProblems,
+  machineTestProblems,
+  parentTestWired,
+  templateTestWired,
+  undeliveredRank,
+  overdueCount,
+  untracedProblems,
+  PLANS,
+  OVERDUE_PREFIX,
 } from './lib/impl-inventory.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS_ROOT = 'src/content/docs';
 const LEDGER_PATH = `${DOCS_ROOT}/community/implementation-ledger.md`;
 const BASE_PATH = '/process-compass';
+/** 見直しの年月を過ぎた計画を数える基準の月(生成した時点。台帳の鮮度の比較では、この件数の行を除く) */
+const MONTH = new Date().toISOString().slice(0, 7);
 const TEMPLATE_ROOT = path.join(ROOT, 'template');
 
 const STATES = { delivered: '降りている', undelivered: '**降りていない**' };
 
-/** 検査の手段(ADR-0061)。属性を欠くマークは UNCLASSIFIED として扱う */
+/** 検査の手段(ADR-0061)。#314 以後、属性を欠くマークは検査が落とす(ADR-0084 決定1) */
 const CHECKS = {
   machine: '機械が確かめる',
   presence: '実在だけ確かめる',
   manual: '人が確かめる',
 };
-const UNCLASSIFIED = '未分類';
 
 const INVENTORY_PATH = 'src/data/impl-inventory.yaml';
 const BASELINE_PATH = 'src/data/impl-inventory-baseline.yaml';
@@ -126,9 +144,6 @@ function collect(file) {
     if (attrs.state && !STATES[attrs.state]) {
       errors.push(`${file}:${i + 1} ${id} の state が不正です: ${attrs.state}(delivered / undelivered)`);
     }
-    if (attrs.check && !CHECKS[attrs.check]) {
-      errors.push(`${file}:${i + 1} ${id} の check が不正です: ${attrs.check}(machine / presence / manual)`);
-    }
     if (attrs.target && !TARGETS[attrs.target]) {
       errors.push(
         `${file}:${i + 1} ${id} の target が登録簿にありません: ${attrs.target}` +
@@ -147,6 +162,12 @@ function collect(file) {
       state: attrs.state ?? '',
       check: attrs.check ?? '',
       note: attrs.note ?? '',
+      attrs,
+      test: attrs.test ?? '',
+      plan: attrs.plan ?? '',
+      issue: attrs.issue ?? '',
+      review: attrs.review ?? '',
+      decision: attrs.decision ?? '',
     });
   }
 }
@@ -207,16 +228,16 @@ async function verifyTargets(used) {
       errors.push(`降ろし先 ${id}: 種別が不正です: ${t.kind}(config-key / template-file / planned)`);
     }
 
-    if (t.check && !existsSync(path.join(TEMPLATE_ROOT, `scripts/gate/${t.check}.mjs`))) {
-      errors.push(`降ろし先 ${id}: 検査 ${t.check} が template/scripts/gate/ にありません`);
+    if (t.checker && !existsSync(path.join(TEMPLATE_ROOT, `scripts/gate/${t.checker}.mjs`))) {
+      errors.push(`降ろし先 ${id}: 検査 ${t.checker} が template/scripts/gate/ にありません`);
     }
   }
 }
 
-/** 検査の手段ごとの件数。未分類を含む */
+/** 検査の手段ごとの件数 */
 function countChecks(rows) {
-  const counts = Object.fromEntries([...Object.keys(CHECKS), ''].map((k) => [k, 0]));
-  for (const m of rows) counts[CHECKS[m.check] ? m.check : ''] += 1;
+  const counts = Object.fromEntries(Object.keys(CHECKS).map((k) => [k, 0]));
+  for (const m of rows) if (CHECKS[m.check]) counts[m.check] += 1;
   return counts;
 }
 
@@ -270,7 +291,11 @@ function renderInventory(sections, entries) {
 
 function renderLedger(rows, sections, entries) {
   const out = [...renderInventory(sections, entries)];
-  const undelivered = rows.filter((m) => m.state === 'undelivered');
+  const undelivered = rows
+    .filter((m) => m.state === 'undelivered')
+    .map((m) => ({ m, r: undeliveredRank(m, noAdopterOf) }))
+    .sort((a, b) => a.r - b.r || a.m.id.localeCompare(b.m.id))
+    .map((x) => x.m);
   const counts = countChecks(rows);
 
   out.push('### 検査の手段ごとの件数');
@@ -282,29 +307,43 @@ function renderLedger(rows, sections, entries) {
   out.push(`| ${CHECKS.machine} | 機械が規定の中身を検査し、違反を止めるか件数で出す | ${counts.machine} |`);
   out.push(`| ${CHECKS.presence} | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | ${counts.presence} |`);
   out.push(`| ${CHECKS.manual} | 機械は確かめない。確かめる者と時点は注記に書く | ${counts.manual} |`);
-  out.push(`| **${UNCLASSIFIED}** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **${counts['']}** |`);
   out.push('');
-  out.push(`${UNCLASSIFIED}の${counts['']}件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**${UNCLASSIFIED}の規定を、検査されている規定として読まないでください**。`);
+  out.push(
+    `「${CHECKS.machine}」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で落ちる場面と適合の入力で通る場面の対を持つこと、必須の集約から実行されることまでです。` +
+      '試験の中身が規定を正しく確かめていることは示しません。' +
+      `「${CHECKS.presence}」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「${CHECKS.manual}」です。`
+  );
   out.push('');
 
   out.push(
     ...renderUndelivered(
       undelivered,
       (t) => TARGETS[t]?.name ?? t,
-      (m) => `[${m.file.replace(/\\/g, '/').replace(`${DOCS_ROOT}/`, '').replace(/\.mdx?$/, '')}](${m.url})`
+      (m) => `[${m.file.replace(/\\/g, '/').replace(`${DOCS_ROOT}/`, '').replace(/\.mdx?$/, '')}](${m.url})`,
+      {
+        kindOf: (t) => TARGETS[t]?.kind ?? 'planned',
+        planOf: (m) =>
+          m.plan === 'scheduled'
+            ? `${PLANS.scheduled} [#${m.issue}](https://github.com/Takenori-Kusaka/process-compass/issues/${m.issue})(見直し ${m.review})`
+            : m.plan === 'adopter'
+              ? `${PLANS.adopter}(${m.decision})`
+              : '—',
+        overdue: overdueCount(undelivered, MONTH),
+        month: MONTH,
+      }
     )
   );
 
   out.push('### 全件');
   out.push('');
-  out.push('| 識別子 | 規定 | 降ろし先 | 検査のスクリプト | 状態 | 検査の手段 | 記載箇所 |');
-  out.push('| --- | --- | --- | --- | --- | --- | --- |');
+  out.push('| 識別子 | 規定 | 降ろし先 | 検査のスクリプト | 状態 | 検査の手段 | 試験 | 記載箇所 |');
+  out.push('| --- | --- | --- | --- | --- | --- | --- | --- |');
   for (const m of rows) {
     const t = TARGETS[m.target];
     const page = m.file.replace(/\\/g, '/').replace(`${DOCS_ROOT}/`, '').replace(/\.mdx?$/, '');
     out.push(
-      `| ${m.id} | ${m.note} | ${t?.name ?? m.target} | ${t?.check ? `\`${t.check}\`` : '—'} | ` +
-        `${STATES[m.state] ?? m.state} | ${CHECKS[m.check] ?? UNCLASSIFIED} | [${page}](${m.url}) |`
+      `| ${m.id} | ${m.note} | ${t?.name ?? m.target} | ${t?.checker ? `\`${t.checker}\`` : '—'} | ` +
+        `${STATES[m.state] ?? m.state} | ${CHECKS[m.check] ?? m.check} | ${m.test ? `\`${m.test}\`` : '—'} | [${page}](${m.url}) |`
     );
   }
   return out.join('\n');
@@ -390,6 +429,92 @@ for (const e of checkInventory({
   errors.push(`${INVENTORY_PATH}: ${e}`);
 }
 
+// --- 検査の手段・計画・逆向きの追跡(#314 / ADR-0084) ---
+
+/** マーク → 置かれた節の鍵 */
+const markSection = new Map();
+for (const sec of sections) for (const id of sec.marks) markSection.set(id, sec.key);
+const NO_ADOPTER = (YAML.parse(readFileSync(path.join(ROOT, 'src/data/impl-no-adopter.yaml'), 'utf8')).sections ?? []).map((x) => x.key);
+for (const k of NO_ADOPTER) {
+  if (!sections.some((sec) => sec.key === k)) errors.push(`src/data/impl-no-adopter.yaml: 節 ${k} がありません(見出しを改めたら鍵を直します)`);
+}
+function noAdopterOf(m) {
+  const key = markSection.get(m.id) ?? '';
+  return NO_ADOPTER.some((k) => key === k || key.startsWith(`${k} > `));
+}
+
+const PKG_SCRIPTS = JSON.parse(readFileSync(path.join(ROOT, 'package.json'), 'utf8')).scripts ?? {};
+let g5 = null;
+async function g5Jobs() {
+  if (g5) return g5;
+  const lib = path.join(TEMPLATE_ROOT, 'scripts/gate/g5-aggregate.mjs');
+  const wf = path.join(TEMPLATE_ROOT, '.github/workflows/gate-g5.yml');
+  if (!existsSync(lib) || !existsSync(wf)) {
+    g5 = { jobs: new Map(), effective: new Set(), missing: true };
+    return g5;
+  }
+  const m = await import(pathToFileURL(lib).href);
+  const text = readFileSync(wf, 'utf8');
+  g5 = { jobs: m.jobsOf(text), effective: m.aggregateFindings(text).effective, missing: false };
+  return g5;
+}
+
+for (const m of marks) {
+  for (const p of markAttrProblems(m.attrs, { noAdopter: noAdopterOf(m) })) errors.push(`${m.file}:${m.line} ${m.id} の ${p}`);
+  if (m.check === 'machine' && m.test) {
+    const { jobs, effective, missing } = await g5Jobs();
+    const isTemplate = m.test.startsWith('template/');
+    if (isTemplate && missing) {
+      errors.push(`${m.file}:${m.line} ${m.id}: template/ が初期化されていないため、試験の結線を確かめられません(取得: ${INIT_HINT})`);
+      continue;
+    }
+    for (const p of machineTestProblems(m.id, m.test, {
+      exists: (f) => existsSync(path.join(ROOT, f)),
+      read: (f) => readFileSync(path.join(ROOT, f), 'utf8'),
+      wired: (f) => (isTemplate ? templateTestWired(jobs, effective, f) : parentTestWired(PKG_SCRIPTS, f)),
+    })) {
+      errors.push(`${m.file}:${m.line} ${m.id}: ${p}`);
+    }
+  }
+}
+
+// 逆向きの追跡: テンプレートのゲートのスクリプト・フック・ワークフロー(試験を除く)が、登録簿か除外の一覧にあること
+if (existsSync(path.join(TEMPLATE_ROOT, 'scripts/gate'))) {
+  const { jobs } = await g5Jobs();
+  const contractRuns = new Set([...(jobs.get('contract') ?? '').matchAll(/run:\s*node\s+(scripts\/gate\/test-[\w-]+\.mjs)/g)].map((x) => x[1]));
+  const scoped = [];
+  for (const dir of ['scripts/gate', 'scripts/init', '.claude/hooks', '.github/workflows']) {
+    for await (const f of glob(`${dir}/*`, { cwd: TEMPLATE_ROOT })) {
+      const rel = f.replace(/\\/g, '/');
+      if (!/\.(mjs|js|json|yml|yaml|template)$/.test(rel)) continue;
+      if (/\/test-[\w-]+\.mjs$/.test(rel) && contractRuns.has(rel)) continue;
+      scoped.push(rel);
+    }
+  }
+  scoped.sort();
+  const traced = new Set();
+  for (const t of registry.targets) {
+    if (t.path) traced.add(t.path.replace(/\/$/, ''));
+    if (t.checker) traced.add(`scripts/gate/${t.checker}.mjs`);
+    if (t.kind === 'config-key') traced.add('scripts/init/generate-profile.mjs');
+  }
+  const untraced = YAML.parse(readFileSync(path.join(ROOT, 'src/data/impl-untraced.yaml'), 'utf8')).files ?? [];
+  for (const p of untracedProblems(scoped, traced, untraced)) errors.push(`逆向きの追跡: ${p}`);
+
+  // テンプレートのコード・スキル・様式に書かれた IMPL 番号が、標準に実在すること
+  const ids = new Set(marks.map((x) => x.id));
+  for (const pattern of ['scripts/**/*.{mjs,json}', '.claude/**/*.{md,mjs,json}', 'templates/**/*.md', '.github/**/*.{yml,md}', 'CLAUDE.md', 'README.md']) {
+    for await (const f of glob(pattern, { cwd: TEMPLATE_ROOT })) {
+      const rel = f.replace(/\\/g, '/');
+      if (rel.startsWith('scripts/vendor/')) continue;
+      const text = readFileSync(path.join(TEMPLATE_ROOT, rel), 'utf8');
+      for (const x of new Set(text.match(/IMPL-\d{4}/g) ?? [])) {
+        if (!ids.has(x)) errors.push(`template/${rel}: ${x} が標準本文の実装マークにありません(番号の誤り、または消えたマーク)`);
+      }
+    }
+  }
+}
+
 /** 比較の基点の登録簿を読む。読めなければ entries: null と理由を返す(浅い取得・基点に登録簿が無い など) */
 function readBaseInventory(ref) {
   try {
@@ -408,6 +533,8 @@ function readBaseInventory(ref) {
 
 const ledgerText = readFileSync(LEDGER_PATH, 'utf8');
 const nextText = replaceBlock(ledgerText, renderLedger(marks, sections, entries));
+/** 鮮度の比較から、生成した月で変わる行(見直しの年月を過ぎた件数)を除く */
+const stable = (t) => t.split('\n').filter((l) => !l.startsWith(OVERDUE_PREFIX)).join('\n');
 
 if (args.has('--write')) {
   if (nextText !== ledgerText) {
@@ -416,7 +543,7 @@ if (args.has('--write')) {
   } else {
     console.log(`変更なし: ${LEDGER_PATH}`);
   }
-} else if (nextText !== ledgerText) {
+} else if (stable(nextText) !== stable(ledgerText)) {
   errors.push(`${LEDGER_PATH} が最新ではありません。'npm run impl:write' を実行してください`);
 }
 
@@ -440,6 +567,7 @@ console.log(
 console.log(`実装マーク: ${marks.length}件(降りていない規定: ${undelivered.length}件)`);
 console.log(
   `検査の手段: ${CHECKS.machine} ${checkCounts.machine}件 / ${CHECKS.presence} ${checkCounts.presence}件 / ` +
-    `${CHECKS.manual} ${checkCounts.manual}件 / ${UNCLASSIFIED} ${checkCounts['']}件`
+    `${CHECKS.manual} ${checkCounts.manual}件`
 );
-for (const m of undelivered) console.log(`  降りていない ${m.id} ${m.file}:${m.line} — ${m.note}`);
+console.log(`見直しの年月(${MONTH} の時点)を過ぎた計画: ${overdueCount(undelivered, MONTH)}件(合否に使わない)`);
+for (const m of undelivered) console.log(`  降りていない ${m.id} [${m.plan}] ${m.file}:${m.line} — ${m.note}`);

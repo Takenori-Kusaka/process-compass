@@ -365,23 +365,176 @@ export function plannedProblem(target, state) {
  * 台帳の「降りていない規定」の節。0 件でも節と件数の行を出す。
  * 0 件と「節が無い版の台帳」を読み手が区別できるようにするため(#292)
  */
-export function renderUndelivered(rows, nameOf, locate) {
+export function renderUndelivered(rows, nameOf, locate, { kindOf = () => 'planned', planOf = () => '—', overdue = null, month = null } = {}) {
   const out = [];
   out.push('### 降りていない規定');
   out.push('');
   out.push(`降りていない規定: **${rows.length}件**`);
   out.push('');
+  if (overdue !== null) {
+    // 見直しの年月を過ぎた件数は、生成した月で変わる。鮮度の比較はこの行を除いて行う(合否に使わない)
+    out.push(`${OVERDUE_PREFIX}**${overdue}件**(${month} の時点。合否に使わない)`);
+    out.push('');
+  }
   out.push(
     '件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。'
   );
   out.push('');
   if (rows.length) {
-    out.push('次の規定は、実行層に対応する記述がありません。**案件からは「規定がない」ものとして扱われます**。');
+    const planned = rows.filter((m) => kindOf(m.target) === 'planned').length;
+    out.push(
+      `降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の ${planned} 件は、準拠テンプレートに置き場がまだありません。` +
+        `降ろし先が実在する ${rows.length - planned} 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。` +
+        'どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。'
+    );
     out.push('');
-    out.push('| 識別子 | 規定 | 降ろし先(予定) | 記載箇所 |');
-    out.push('| --- | --- | --- | --- |');
-    for (const m of rows) out.push(`| ${m.id} | ${m.note} | ${nameOf(m.target)} | ${locate(m)} |`);
+    out.push(
+      '計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。' +
+        '並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。'
+    );
     out.push('');
+    out.push('| 識別子 | 規定 | 降ろし先 | 計画 | 記載箇所 |');
+    out.push('| --- | --- | --- | --- | --- |');
+    for (const m of rows) {
+      const where = kindOf(m.target) === 'planned' ? `${nameOf(m.target)}(予定の置き場)` : nameOf(m.target);
+      out.push(`| ${m.id} | ${m.note} | ${where} | ${planOf(m)} | ${locate(m)} |`);
+    }
+    out.push('');
+  }
+  return out;
+}
+
+/** 台帳の、見直しの年月を過ぎた件数の行の書き出し。鮮度の比較で除く */
+export const OVERDUE_PREFIX = '見直しの年月を過ぎた計画(予定): ';
+
+// ---------------------------------------------------------------- 検査の手段と計画(Issue #314 / ADR-0084)
+
+/** 検査の手段(ADR-0061)。#314 以後、属性を欠くマークは検査が落とす */
+export const CHECK_VALUES = ['machine', 'presence', 'manual'];
+/** presence の注記に書く、規則を運ぶ単位(ADR-0084 決定1)。より粗い単位(節の見出し)の確認は manual とする */
+export const PRESENCE_UNIT_RE = /単位:\s*(欄|キー|行|ファイル)/;
+/** 降りていない規定の計画(ADR-0084 決定4)。state は 2 値のまま、別の属性で持つ */
+export const PLANS = { scheduled: '予定', adopter: '採用者が実装する' };
+
+/**
+ * マークの属性 check・test・plan の問題を返す(ファイルを読まない部分)。
+ * attrs はマークの属性、noAdopter は「採用者が実装する」にできない節に置かれたか
+ */
+export function markAttrProblems(attrs, { noAdopter = false } = {}) {
+  const out = [];
+  if (!attrs.check) out.push('check がありません(machine / presence / manual。#314 以後は必須)');
+  else if (!CHECK_VALUES.includes(attrs.check)) out.push(`check が不正です: ${attrs.check}(machine / presence / manual)`);
+  if (attrs.check === 'machine' && !attrs.test) {
+    out.push('check=machine に test= がありません。違反と適合の対を持つ試験のファイルを名指してください。試験が無ければ presence か manual へ下げます');
+  }
+  if (attrs.test && attrs.check !== 'machine') out.push(`test= は check=machine のマークだけに書きます(check=${attrs.check ?? 'なし'})`);
+  if (attrs.check === 'presence' && !PRESENCE_UNIT_RE.test(attrs.note ?? '')) {
+    out.push('check=presence の注記に、規則を運ぶ単位(単位: 欄 / キー / 行 / ファイル)がありません。より粗い単位の確認は manual です');
+  }
+  if (attrs.state === 'undelivered') {
+    if (!attrs.plan) out.push('state=undelivered に plan がありません(scheduled / adopter)');
+    else if (!PLANS[attrs.plan]) out.push(`plan が不正です: ${attrs.plan}(scheduled / adopter)`);
+    if (attrs.plan === 'scheduled') {
+      if (!/^\d+$/.test(attrs.issue ?? '')) out.push('plan=scheduled に issue=(Issue 番号)がありません');
+      if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(attrs.review ?? '')) out.push('plan=scheduled に review=YYYY-MM(見直しの年月)がありません');
+    }
+    if (attrs.plan === 'adopter') {
+      if (!attrs.decision) out.push('plan=adopter に decision=(ADR または記録の所在)がありません');
+      if (noAdopter) out.push('この節の規定は「採用者が実装する」にできません(src/data/impl-no-adopter.yaml)。plan=scheduled で降ろす計画を書きます');
+    }
+  } else {
+    for (const k of ['plan', 'issue', 'review', 'decision']) {
+      if (attrs[k]) out.push(`${k}= は state=undelivered のマークだけに書きます`);
+    }
+  }
+  return out;
+}
+
+/**
+ * check=machine の試験の問題を返す。試験は違反の入力(IMPL-NNNN:ng)と適合の入力(IMPL-NNNN:ok)の対を持ち、
+ * 必須の集約から実行される。この確かめは、試験の中身が規定を正しく確かめていることを示さない
+ */
+export function machineTestProblems(id, test, { exists, read, wired }) {
+  if (!exists(test)) return [`test= の試験 ${test} がありません`];
+  const out = [];
+  const text = read(test);
+  for (const k of ['ng', 'ok']) {
+    if (!new RegExp(`${id}:${k}\\b`).test(text)) {
+      out.push(`試験 ${test} に ${id}:${k}(${k === 'ng' ? '違反の入力で落ちる' : '適合の入力で通る'}場面の目印)がありません`);
+    }
+  }
+  const w = wired(test);
+  if (w) out.push(w);
+  return out;
+}
+
+/** package.json の script から、npm run で辿れるコマンドの文字列をすべて集める */
+export function reachableCommands(scripts, entry = 'check') {
+  const seen = new Set();
+  const out = [];
+  const visit = (name) => {
+    if (seen.has(name) || scripts[name] === undefined) return;
+    seen.add(name);
+    const cmd = scripts[name];
+    out.push(cmd);
+    for (const m of cmd.matchAll(/npm run ([\w:-]+)/g)) visit(m[1]);
+  };
+  visit(entry);
+  return out;
+}
+
+/** 親の試験が package.json の check から実行されるか。問題があれば文字列 */
+export function parentTestWired(scripts, test) {
+  const re = new RegExp(`node\\s+${test.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(\\s|$)`);
+  return reachableCommands(scripts).some((c) => re.test(c)) ? null : `試験 ${test} が package.json の check から実行されていません`;
+}
+
+/**
+ * テンプレートの試験が、集約 gate-g5 の合否に使われるジョブの run: から実行されるか。
+ * jobs はジョブ名 → 本文、effective は集約が合否に使うジョブの集合
+ */
+export function templateTestWired(jobs, effective, test) {
+  const rel = test.replace(/^template\//, '');
+  const re = new RegExp(`run:\\s*node\\s+${rel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(\\s|$)`, 'm');
+  const hit = [...jobs].filter(([, body]) => re.test(body)).map(([name]) => name);
+  if (!hit.length) return `試験 ${test} が gate-g5.yml の run: から実行されていません`;
+  if (!hit.some((j) => effective.has(j))) return `試験 ${test} を実行するジョブ(${hit.join(', ')})が、集約 gate-g5 の合否に使われていません`;
+  return null;
+}
+
+/**
+ * 降りていない規定の順序(ADR-0084 決定4。根拠水準 E0): 表示の誤り → 採用者が実装するにできない規定 →
+ * G-7・G-8・R1 の決定に関わる規定 → その他。表示の誤りは見つけたその場で直すため、台帳の順序は残りの 3 段で並べる
+ */
+export function undeliveredRank(m, noAdopterKey) {
+  if (noAdopterKey(m)) return 1;
+  if (/G-7|G-8|R1/.test(m.note ?? '')) return 2;
+  return 3;
+}
+
+/** 見直しの年月を過ぎた plan=scheduled の件数。month は YYYY-MM。合否に使わない */
+export function overdueCount(rows, month) {
+  return rows.filter((m) => m.plan === 'scheduled' && m.review && m.review < month).length;
+}
+
+/**
+ * 逆向きの追跡(ADR-0084 決定6)。files は対象のファイル(テンプレートの直下からの相対)、traced は登録簿に現れるパスの集合、
+ * exempt は除外の一覧({ path, reason, why })。どちらにも無いファイルと、除外の不備を返す
+ */
+export const UNTRACED_REASONS = { library: '他の検査が使う部品', infra: '検査の実行の足回り' };
+export function untracedProblems(files, traced, exempt) {
+  const out = [];
+  const ex = new Map((exempt ?? []).map((e) => [e.path, e]));
+  for (const e of exempt ?? []) {
+    if (!UNTRACED_REASONS[e.reason]) out.push(`除外の一覧の ${e.path}: 理由の区分が不正です: ${e.reason}(library / infra)`);
+    if (!String(e.why ?? '').trim()) out.push(`除外の一覧の ${e.path}: 理由(why)が空です`);
+    if (!files.includes(e.path)) out.push(`除外の一覧の ${e.path}: テンプレートにありません(消えたファイルは一覧から除きます)`);
+    if (traced.has(e.path)) out.push(`除外の一覧の ${e.path}: 降ろし先の登録簿にもあります(除外の一覧から除きます)`);
+  }
+  for (const f of files) {
+    if (!traced.has(f) && !ex.has(f)) {
+      out.push(`テンプレートの ${f} が、降ろし先の登録簿(src/data/impl-targets.yaml)にも除外の一覧(src/data/impl-untraced.yaml)にもありません。実行層にしか無い規定かを確かめ、標準の規定へマークするか、理由(library / infra)つきで除外します`);
+    }
   }
   return out;
 }

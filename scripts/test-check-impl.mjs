@@ -13,6 +13,14 @@ import {
   plannedProblem,
   renderUndelivered,
   baselineDigest,
+  markAttrProblems,
+  machineTestProblems,
+  parentTestWired,
+  templateTestWired,
+  undeliveredRank,
+  overdueCount,
+  untracedProblems,
+  OVERDUE_PREFIX,
 } from './lib/impl-inventory.mjs';
 
 let passed = 0;
@@ -301,6 +309,109 @@ test('降りていない規定が 0 件でも、台帳に節と件数の行を�
   assert.match(out, /### 降りていない規定/);
   assert.match(out, /降りていない規定: \*\*0件\*\*/);
   assert.match(out, /合否にも警戒の条件にも使いません/);
+});
+
+console.log('検査の手段・計画・逆向きの追跡(#314 / ADR-0084)');
+const ok = (a) => markAttrProblems({ target: 't', state: 'delivered', note: 'n', ...a });
+test('check を欠くマークを落とす', () => {
+  assert(ok({}).some((x) => /check がありません/.test(x)));
+});
+test('不正な check の値を落とす(陽性の対照)', () => {
+  assert(ok({ check: 'auto' }).some((x) => /check が不正です: auto/.test(x)));
+  assert(ok({ check: 'Machine' }).some((x) => /check が不正です/.test(x)));
+  assert.deepEqual(ok({ check: 'manual' }), []);
+});
+test('check=machine は test= を要する。test= は machine だけに書く', () => {
+  assert(ok({ check: 'machine' }).some((x) => /test= がありません/.test(x)));
+  assert.deepEqual(ok({ check: 'machine', test: 'x.mjs' }), []);
+  assert(ok({ check: 'manual', test: 'x.mjs' }).some((x) => /machine のマークだけ/.test(x)));
+});
+test('check=presence は注記に規則を運ぶ単位を要する', () => {
+  assert(ok({ check: 'presence', note: '節の見出しを確かめる' }).some((x) => /単位/.test(x)));
+  assert(ok({ check: 'presence', note: '単位: 節' }).some((x) => /単位/.test(x)));
+  for (const u of ['欄', 'キー', '行', 'ファイル']) assert.deepEqual(ok({ check: 'presence', note: `x(単位: ${u})` }), []);
+});
+test('state=undelivered は plan を要し、scheduled は issue と review、adopter は decision を要する', () => {
+  const u = (a) => markAttrProblems({ target: 't', state: 'undelivered', check: 'manual', note: 'n', ...a });
+  assert(u({}).some((x) => /plan がありません/.test(x)));
+  assert(u({ plan: 'later' }).some((x) => /plan が不正です/.test(x)));
+  assert(u({ plan: 'scheduled', review: '2027-04' }).some((x) => /issue=/.test(x)));
+  assert(u({ plan: 'scheduled', issue: '314', review: '2027-13' }).some((x) => /review=YYYY-MM/.test(x)));
+  assert.deepEqual(u({ plan: 'scheduled', issue: '314', review: '2027-04' }), []);
+  assert(u({ plan: 'adopter' }).some((x) => /decision=/.test(x)));
+  assert.deepEqual(u({ plan: 'adopter', decision: 'ADR-0084' }), []);
+});
+test('採用者が実装するにできない節では plan=adopter を落とす', () => {
+  const a = { target: 't', state: 'undelivered', check: 'manual', note: 'n', plan: 'adopter', decision: 'ADR-0084' };
+  assert(markAttrProblems(a, { noAdopter: true }).some((x) => /採用者が実装する」にできません/.test(x)));
+  assert.deepEqual(markAttrProblems({ ...a, plan: 'scheduled', issue: '1', review: '2027-01', decision: undefined }, { noAdopter: true }), []);
+});
+test('plan などは state=delivered に書けない', () => {
+  assert(ok({ check: 'manual', plan: 'scheduled' }).some((x) => /state=undelivered のマークだけ/.test(x)));
+});
+test('machine の試験は ng と ok の目印を要し、集約から実行される', () => {
+  const files = { 'a.mjs': '// IMPL-0001:ng x\n// IMPL-0001:ok y\n', 'b.mjs': '// IMPL-0001:ng だけ\n', 'c.mjs': '// IMPL-00011:ng IMPL-00011:ok\n' };
+  const env = (wired = null) => ({ exists: (f) => f in files, read: (f) => files[f], wired: () => wired });
+  assert.deepEqual(machineTestProblems('IMPL-0001', 'a.mjs', env()), []);
+  assert(machineTestProblems('IMPL-0001', 'b.mjs', env()).some((x) => /IMPL-0001:ok/.test(x)));
+  assert(machineTestProblems('IMPL-0001', 'c.mjs', env()).length === 2, '番号の前方一致で目印に数えない');
+  assert(machineTestProblems('IMPL-0001', 'z.mjs', env()).some((x) => /ありません/.test(x)));
+  assert(machineTestProblems('IMPL-0001', 'a.mjs', env('結線なし')).includes('結線なし'));
+});
+test('親の試験は package.json の check から npm run で辿れる', () => {
+  const scripts = { check: 'npm run a && npm run b', a: 'node x.mjs', b: 'npm run c', c: 'node scripts/t.mjs --flag', d: 'node scripts/u.mjs' };
+  assert.equal(parentTestWired(scripts, 'scripts/t.mjs'), null);
+  assert.match(parentTestWired(scripts, 'scripts/u.mjs'), /check から実行されていません/);
+  assert.match(parentTestWired(scripts, 'scripts/t'), /check から実行されていません/);
+});
+test('テンプレートの試験は、集約が合否に使うジョブの run: から実行される', () => {
+  const jobs = new Map([['contract', '    steps:\n      - run: node scripts/gate/test-a.mjs\n'], ['loose', '      - run: node scripts/gate/test-b.mjs\n']]);
+  const eff = new Set(['contract']);
+  assert.equal(templateTestWired(jobs, eff, 'template/scripts/gate/test-a.mjs'), null);
+  assert.match(templateTestWired(jobs, eff, 'template/scripts/gate/test-b.mjs'), /合否に使われていません/);
+  assert.match(templateTestWired(jobs, eff, 'template/scripts/gate/test-c.mjs'), /run: から実行されていません/);
+});
+test('降りていない規定の順序: 採用者が実装するにできない → G-7・G-8・R1 → その他', () => {
+  const rank = (m, na = false) => undeliveredRank(m, () => na);
+  assert.equal(rank({ note: 'G-7 の記録' }, true), 1);
+  assert.equal(rank({ note: 'G-8 の成立' }), 2);
+  assert.equal(rank({ note: 'R1 の決定' }), 2);
+  assert.equal(rank({ note: 'その他' }), 3);
+});
+test('見直しの年月を過ぎた件数は scheduled だけを数える', () => {
+  const rows = [
+    { plan: 'scheduled', review: '2026-09' },
+    { plan: 'scheduled', review: '2026-10' },
+    { plan: 'adopter', decision: 'ADR-0084' },
+  ];
+  assert.equal(overdueCount(rows, '2026-10'), 1);
+  assert.equal(overdueCount(rows, '2026-11'), 2);
+});
+test('台帳: 降ろし先の種別で書き分け、列の見出しに「(予定)」を書かない', () => {
+  const rows = [
+    { id: 'IMPL-0001', note: 'a', target: 'p', plan: 'scheduled' },
+    { id: 'IMPL-0002', note: 'b', target: 'f', plan: 'adopter' },
+  ];
+  const out = renderUndelivered(rows, (t) => t, () => 'x', { kindOf: (t) => (t === 'p' ? 'planned' : 'template-file'), planOf: (m) => m.plan, overdue: 1, month: '2026-10' }).join('\n');
+  assert.match(out, /\| 識別子 \| 規定 \| 降ろし先 \| 計画 \| 記載箇所 \|/);
+  assert.doesNotMatch(out, /降ろし先\(予定\) \|/);
+  assert.match(out, /\| p\(予定の置き場\) \| scheduled \|/);
+  assert.match(out, /\| f \| adopter \|/);
+  assert.match(out, /「予定」の 1 件/);
+  assert.match(out, /実在する 1 件/);
+  assert(out.split('\n').some((l) => l.startsWith(OVERDUE_PREFIX) && /1件/.test(l)));
+});
+test('逆向きの追跡: 登録簿にも除外の一覧にも無いファイルを落とす', () => {
+  const files = ['scripts/gate/a.mjs', 'scripts/gate/b.mjs', 'scripts/gate/c.mjs'];
+  const traced = new Set(['scripts/gate/a.mjs']);
+  const exempt = [{ path: 'scripts/gate/b.mjs', reason: 'library', why: '部品' }];
+  const p = untracedProblems(files, traced, exempt);
+  assert.equal(p.length, 1);
+  assert.match(p[0], /scripts\/gate\/c\.mjs/);
+  assert.deepEqual(untracedProblems(files.slice(0, 2), traced, exempt), []);
+  assert(untracedProblems(files.slice(0, 2), traced, [{ path: 'scripts/gate/b.mjs', reason: 'other', why: 'x' }]).some((x) => /理由の区分が不正/.test(x)));
+  assert(untracedProblems(files.slice(0, 2), traced, [{ path: 'scripts/gate/b.mjs', reason: 'infra', why: '' }]).some((x) => /理由\(why\)が空/.test(x)));
+  assert(untracedProblems(files.slice(0, 2), traced, [...exempt, { path: 'scripts/gate/gone.mjs', reason: 'infra', why: 'x' }]).some((x) => /テンプレートにありません/.test(x)));
 });
 
 console.log(`\n実装マークの検査の試験: ${passed}件 合格`);

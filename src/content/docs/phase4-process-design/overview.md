@@ -384,9 +384,9 @@ flowchart LR
 - 準拠テンプレートでは、適用の開始のコミットに、構成の変更の記録の初期化の記録(`changeLog` の `init`)を同じコミットで書く。無ければ記録の欠落として表示し、適用の開始は動かさない。適用の開始のコミットが検査の範囲(初期化の PR など)にある間は、契約の検査を失敗にする。この記録の欠落は、適用の表明の件数(開始から表明の時点まで)に常に1件として数える
 - 再テーラリング(構成の変更)、版の切り替え(1.10.3)、構成の再初期化は、適用の開始を動かさない
 
-<!-- impl IMPL-0119 target=evidence-aggregation state=delivered check=machine note="適用の開始(構成の初期化の記録)より前の変更を変更の件数に数えず欠落にもせず、後の変更は導いた要求事項のすべての対象にする。途中の段階を表す値を持たない。初期化の直後の出荷で、記録の無い変更が欠落として出ることを実行して確かめた(#306)" -->
+<!-- impl IMPL-0119 target=evidence-aggregation state=delivered check=manual note="適用の開始(構成の初期化の記録)より前の変更を変更の件数に数えず欠落にもせず、後の変更は導いた要求事項のすべての対象にする。途中の段階を表す値を持たない。初期化の直後の出荷で、記録の無い変更が欠落として出ることを実行して確かめた(#306)(#314: 違反の入力で落ち適合の入力で通る試験の対が無いため、machine から manual へ下げた)" -->
 
-<!-- impl IMPL-0304 target=evidence-aggregation state=delivered check=machine note="適用の開始の境を、構成が configured: true になった最初のコミットとする(findInitCommit)。そのコミットに changeLog の init の記録が無い場合、集約の範囲にそのコミットがあれば記録の欠落として出し、境は動かさない。契約の検査(verify-gate-contract)は、そのコミットが検査の範囲(PR の基底の祖先でない、または手元の HEAD)にあれば失敗にし、範囲の外であれば注記として出す。test-edition-end.mjs が、init の記録を欠いた履歴で欠落が出ること、境が動かないこと、HEAD が初期化のコミットのとき契約の検査が失敗することを実行して確かめる(#313)" -->
+<!-- impl IMPL-0304 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-edition-end.mjs note="適用の開始の境を、構成が configured: true になった最初のコミットとする(findInitCommit)。そのコミットに changeLog の init の記録が無い場合、集約の範囲にそのコミットがあれば記録の欠落として出し、境は動かさない。契約の検査(verify-gate-contract)は、そのコミットが検査の範囲(PR の基底の祖先でない、または手元の HEAD)にあれば失敗にし、範囲の外であれば注記として出す。test-edition-end.mjs が、init の記録を欠いた履歴で欠落が出ること、境が動かないこと、HEAD が初期化のコミットのとき契約の検査が失敗することを実行して確かめる(#313)" -->
 
 **導入の途中を表す状態を、本標準は設けません**。「導入中」「準備中」「一部適用」に当たる状態と、その呼び名を定めません。意図的な決定です。途中であることは、未達のゲートと記録の欠落の件数で表示します。段階の呼び名は、満たしたという主張として読まれるためです。
 
@@ -414,9 +414,9 @@ flowchart LR
 - 適用の表明と適合の主張は、品質保証の主張ではない。保証の主張の成立条件は 1.9 と第4章 G-7 による
 - 対外の文書での文の型は、附属書H H.8 による。H.8 は文の型だけを持ち、述べる条件と併記する事項は本節による
 
-<!-- impl IMPL-0120 target=evidence-aggregation state=undelivered check=manual note="適用の表明に併記する未達のゲートの件数と記録の欠落の件数を、表明の様式として出力する仕組みは無い。件数そのものは、構成(unmet[])と出荷の証跡の集約の出力から読める。表明する者が、表明の時点で転記して確かめる(#306)" -->
+<!-- impl IMPL-0120 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=354 review=2027-04 note="第1章 1.10.2 の適用の表明に併記する事項(従う版と、作業中の版のときの配布物のコミットの識別、未達のゲートの件数と記録の欠落の件数、逸脱と列挙に無い離脱の一覧)を、表明の様式として出力する仕組みは無い。出荷の証跡の集約は、範囲について述べられる名と版と逸脱を出す(IMPL-0308)が、未達と記録の欠落の件数を表明の文と組にして出さない。表明する者が、表明の時点で転記して確かめる(#306・#313)" -->
 
-<!-- impl IMPL-0308 target=evidence-aggregation state=delivered check=machine note="集約の範囲について述べられる名(適合の主張・逸脱を伴う適合の主張・適用の表明だけ・述べられない)を、範囲の終点のコミットの構成の版・未達・閉じた列挙の逸脱・列挙に無い離脱と、範囲の記録の欠落から導いて出力する(claim)。範囲の中で従う版が変われば名を出さず、範囲を分けるよう出す。終了の記録は、終了を含む範囲の名を消さず、過去の範囲として述べる旨を出す。PROCESS-PROFILE.md と CLAUDE.md の生成区間も構成について同じ名を出す。作業中の版では適用の表明までとし、列挙に無い離脱があれば適用の表明までとすることを、版をまたぐ範囲と終了を含む範囲とあわせて test-edition-end.mjs が実行して確かめる。範囲の時点の未達と兼務は範囲の終点の構成で読み、範囲の途中の構成の変化は版のほかは見ない(#313)" -->
+<!-- impl IMPL-0308 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-edition-end.mjs note="集約の範囲について述べられる名(適合の主張・逸脱を伴う適合の主張・適用の表明だけ・述べられない)を、範囲の終点のコミットの構成の版・未達・閉じた列挙の逸脱・列挙に無い離脱と、範囲の記録の欠落から導いて出力する(claim)。範囲の中で従う版が変われば名を出さず、範囲を分けるよう出す。終了の記録は、終了を含む範囲の名を消さず、過去の範囲として述べる旨を出す。PROCESS-PROFILE.md と CLAUDE.md の生成区間も構成について同じ名を出す。作業中の版では適用の表明までとし、列挙に無い離脱があれば適用の表明までとすることを、版をまたぐ範囲と終了を含む範囲とあわせて test-edition-end.mjs が実行して確かめる。範囲の時点の未達と兼務は範囲の終点の構成で読み、範囲の途中の構成の変化は版のほかは見ない(#313)" -->
 
 #### 逸脱の閉じた列挙
 
@@ -505,11 +505,11 @@ flowchart LR
 - 第8章「調整は宣言を伴う」の要求事項4(従う版の宣言)を足す前に書いた宣言と D-0 体制図には、版の記載が無い。版の記載を足すまでは、宣言の記載の欠けとして記録の欠落に数える。準拠テンプレートでは、`/pit` がこの欠けを注記する。旧い構成と D-0 の移行は、別の Issue(#315)で扱う
 - 配布物のコミット(機械の識別)は、版と併記する。コミットを版の代わりにしない
 
-<!-- impl IMPL-0311 target=next-role state=delivered check=machine note="D-0 体制図の冒頭に「従う本標準の版」の欄が無い、または空欄のとき、/pit(next.mjs)が、宣言の要求事項4 の欠けとして注記する。段階は止めない。D-0 の欄と構成の standard.edition の一致は検査しない。test-edition-end.mjs が、欄の無い D-0 で注記が出ることを実行して確かめる(#313)" -->
+<!-- impl IMPL-0311 target=next-role state=delivered check=manual note="D-0 体制図の冒頭に「従う本標準の版」の欄が無い、または空欄のとき、/pit(next.mjs)が、宣言の要求事項4 の欠けとして注記する。段階は止めない。D-0 の欄と構成の standard.edition の一致は検査しない。test-edition-end.mjs が、欄の無い D-0 で注記が出ることを実行して確かめる(#313)(#314: 違反の入力で落ち適合の入力で通る試験の対が無いため、machine から manual へ下げた)" -->
 
-<!-- impl IMPL-0305 target=config-standard state=delivered check=machine note="構成の standard.edition に従う版を持つ。null は作業中の版を表し、述べられる名を適用の表明までとする。作業中の版の表示には、複製した知識ベースの生成元のコミットと、最後に発行した版(basedOn)を添える。欄の無い旧い構成は、作業中の版として読み、再生成でも欄を足さない(構成の要約値を変えない)。契約の検査が版の書式を確かめ、test-edition-end.mjs が実行して確かめる(#313)" -->
+<!-- impl IMPL-0305 target=config-standard state=delivered check=machine test=template/scripts/gate/test-edition-end.mjs note="構成の standard.edition に従う版を持つ。null は作業中の版を表し、述べられる名を適用の表明までとする。作業中の版の表示には、複製した知識ベースの生成元のコミットと、最後に発行した版(basedOn)を添える。欄の無い旧い構成は、作業中の版として読み、再生成でも欄を足さない(構成の要約値を変えない)。契約の検査が版の書式を確かめ、test-edition-end.mjs が実行して確かめる(#313)" -->
 
-<!-- impl IMPL-0306 target=process-change-skill state=delivered check=machine note="版の切り替えを /process-change の edition の種別で行う。切り替え先は知識ベースの source.edition と一致する発行した版に限り、作業中の版を拒み、決定した者と理由を要する。changeLog に edition の記録(from・to)を残す。test-edition-end.mjs が拒否と記録を実行して確かめる(#313)" -->
+<!-- impl IMPL-0306 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-edition-end.mjs note="版の切り替えを /process-change の edition の種別で行う。切り替え先は知識ベースの source.edition と一致する発行した版に限り、作業中の版を拒み、決定した者と理由を要する。changeLog に edition の記録(from・to)を残す。test-edition-end.mjs が拒否と記録を実行して確かめる(#313)" -->
 
 版の番号 N を上げる改訂は、要求事項・禁止・適用範囲・判定基準・テーラリングの規則データ・テンプレートの必須欄のいずれかを変える改訂です。どちらに当たるか迷う改訂は、N を上げます。
 
@@ -539,9 +539,9 @@ flowchart LR
 - 適用の終了の前の範囲についての主張は、その範囲の記録を保管している間に限り有効とする
 - 同じ案件で適用を再開した場合、件数は最初の適用の開始から数える。終了から再開までの空白の期間は、記録の欠落として表示する
 
-<!-- impl IMPL-0307 target=config-change-log state=delivered check=machine note="適用の終了を changeLog の end の種別で記録する(理由の区分 closed・operation-ended・withdrawn、決定した者、理由)。終了の後の構成の変更は notice だけを受け付ける。終了の後は述べられる名を出さず、現在形の表明をしない旨を PROCESS-PROFILE.md に出す。契約の検査が理由の区分と記名を確かめ、test-edition-end.mjs が実行して確かめる(#313)" -->
+<!-- impl IMPL-0307 target=config-change-log state=delivered check=machine test=template/scripts/gate/test-edition-end.mjs note="適用の終了を changeLog の end の種別で記録する(理由の区分 closed・operation-ended・withdrawn、決定した者、理由)。終了の後の構成の変更は notice だけを受け付ける。終了の後は述べられる名を出さず、現在形の表明をしない旨を PROCESS-PROFILE.md に出す。契約の検査が理由の区分と記名を確かめ、test-edition-end.mjs が実行して確かめる(#313)" -->
 
-<!-- impl IMPL-0309 target=config-change-log state=undelivered check=manual note="同じ案件で適用を再開する経路は無い。準拠テンプレートは終了の後の構成の変更を notice のほかは拒む。再開する場合は、終了と再開の間を記録の欠落として表示し、件数を最初の適用の開始から数えることを、表明する者が手で確かめる(#313)" -->
+<!-- impl IMPL-0309 target=config-change-log state=undelivered check=manual plan=scheduled issue=354 review=2027-04 note="同じ案件で適用を再開する経路は無い。準拠テンプレートは終了の後の構成の変更を notice のほかは拒む。再開する場合は、終了と再開の間を記録の欠落として表示し、件数を最初の適用の開始から数えることを、表明する者が手で確かめる(#313)" -->
 
 **本標準は、適用の一時停止、期日による適用の失効、適用の範囲の縮小を設けません**。意図的な決定です。いずれも、適用の途中を表す状態(1.10.1)と同じく、未達を隠す経路になるためです。適用をやめるときは終了を記録し、再び適用するときは再開として扱います。
 

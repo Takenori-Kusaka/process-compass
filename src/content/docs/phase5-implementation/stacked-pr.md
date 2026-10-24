@@ -108,7 +108,7 @@ Git の公式ドキュメントは「自分のリポジトリの外に存在し�
 
 手動のスタックの中間層の先行マージは、CI の必須チェックでは止まりません。必須チェックは、ルールセット(ブランチ保護)の対象のブランチへのマージにしか効かず、準拠テンプレートのルールセットの対象は既定ブランチだけです。中間の層へのマージは G-5・G-6 を経ません。既定ブランチへ取り込む時点で G-5・G-6 は改めて掛かりますが、層ごとの確認の粒度が失われます。ルールセットの対象を機能ブランチへ広げる案は、直接の push の扱いを実機で確かめていないため採っていません。拒否の手段は、準拠テンプレートに実装がありません。
 
-<!-- impl IMPL-0254 target=rulesets state=undelivered check=manual note="手動のスタックの中間層の先行マージ(既定ブランチ以外へ取り込むマージ)を拒否する設定。準拠テンプレートのルールセットの対象は ~DEFAULT_BRANCH だけで、必須チェックは中間のマージを止めない。人による中間のマージは、手順の遵守に依っている" -->
+<!-- impl IMPL-0254 target=rulesets state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="手動のスタックの中間層の先行マージ(既定ブランチ以外へ取り込むマージ)を拒否する設定。準拠テンプレートのルールセットの対象は ~DEFAULT_BRANCH だけで、必須チェックは中間のマージを止めない。人による中間のマージは、手順の遵守に依っている" -->
 
 **ローカルのフックを配布しても、実行は保証できません**。担当者が無効化でき、新しい作業環境では未導入の状態から始まります。強制が必要な項目は、必ずホスティングの設定または CI へ置きます。ローカルのフックは、事故を早く知らせる補助として扱います。
 
@@ -193,7 +193,7 @@ git push --force-with-lease
 
 強制層へ降ろす項目を指示ファイルにのみ書いてはなりません。指示ファイルの遵守は保証されません([第3章 3.11.3](/process-compass/phase4-process-design/roles-responsibilities/))。
 
-<!-- impl IMPL-0255 target=rulesets state=undelivered check=manual note="AI への指示の表の「既定ブランチ以外へ取り込むマージをしない」の強制層。準拠テンプレートのルールセットは中間のマージを拒否しない。AI の担い手による gh pr merge は .claude/settings.json の ask で人へ戻るため、AI 単独では中間のマージに至らない" -->
+<!-- impl IMPL-0255 target=rulesets state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="AI への指示の表の「既定ブランチ以外へ取り込むマージをしない」の強制層。準拠テンプレートのルールセットは中間のマージを拒否しない。AI の担い手による gh pr merge は .claude/settings.json の ask で人へ戻るため、AI 単独では中間のマージに至らない" -->
 
 ## 導入しない判断
 

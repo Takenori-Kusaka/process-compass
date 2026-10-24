@@ -92,7 +92,7 @@ jobs:
 
 資料の生成主体は AI エージェントですが、公開前に起案者が内容を確定させます。生成された資料をそのまま公開してはなりません。項目4(求める判断)は起案者が記入します。
 
-<!-- impl IMPL-0210 target=pre-review-automation state=undelivered check=manual note="判定資料を判定予定日の5営業日前(R1 は10営業日前)に自動で起票し、第3章 3.10.3 の5項目と対応させる。生成された資料を起案者が確定してから公開し、項目4(求める判断)を起案者が記入する。準拠テンプレートに起票の仕組みは無い" -->
+<!-- impl IMPL-0210 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="判定資料を判定予定日の5営業日前(R1 は10営業日前)に自動で起票し、第3章 3.10.3 の5項目と対応させる。生成された資料を起案者が確定してから公開し、項目4(求める判断)を起案者が記入する。準拠テンプレートに起票の仕組みは無い" -->
 
 ## レビュアの自動指名
 
@@ -110,7 +110,7 @@ jobs:
 - 対象領域に所有者が定義されていない状態を検出し、CI で失敗させる
 - 指名は記名で行い、部署名やグループ名のみの指名を認めない
 
-<!-- impl IMPL-0211 target=pre-review-automation state=undelivered check=manual note="所有者定義からレビュアを記名で指名し、所有者が定義されていない対象領域を CI で失敗させる。部署名・グループ名だけの指名を認めない。準拠テンプレートの CODEOWNERS は例の行を置くだけで、検査は無い" -->
+<!-- impl IMPL-0211 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="所有者定義からレビュアを記名で指名し、所有者が定義されていない対象領域を CI で失敗させる。部署名・グループ名だけの指名を認めない。準拠テンプレートの CODEOWNERS は例の行を置くだけで、検査は無い" -->
 
 ## 高リスク事項の自動ラベル付与
 
@@ -127,7 +127,7 @@ jobs:
 
 機械の判定は一次判定です。**引き上げは誰でもできますが、引き下げは技術判断者の記名を要します**。自動判定を弱める方向の操作にのみ承認を課すことで、判定の緩和が記録されずに起きる事態を防ぎます。
 
-<!-- impl IMPL-0212 target=pre-review-automation state=undelivered check=manual note="リスク区分の一次判定のラベル(risk/R1〜R3)を自動で付与し、引き下げに技術判断者の記名を要する。区分の下限の照合(G-5 の pr-rules)はあるが、ラベルの自動付与と引き下げの記名の検査は無い" -->
+<!-- impl IMPL-0212 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="リスク区分の一次判定のラベル(risk/R1〜R3)を自動で付与し、引き下げに技術判断者の記名を要する。区分の下限の照合(G-5 の pr-rules)はあるが、ラベルの自動付与と引き下げの記名の検査は無い" -->
 
 ## 締切の通知と未応答の記録
 
@@ -153,7 +153,7 @@ jobs:
 
 通知は督促のためだけに送るのではありません。**誰がいつ通知を受け、応答したかを記録に残すこと**が目的です。記録がなければ、[第3章 3.10.6](/process-compass/phase4-process-design/roles-responsibilities/)の「意見を出さなかった者の責任」を運用できません。
 
-<!-- impl IMPL-0213 target=pre-review-automation state=undelivered check=manual note="締切の通知(時点は第3章 3.10.11 の2営業日前と前営業日)と、誰がいつ通知を受けて応答したかの記録。準拠テンプレートに通知と記録の仕組みは無い" -->
+<!-- impl IMPL-0213 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="締切の通知(時点は第3章 3.10.11 の2営業日前と前営業日)と、誰がいつ通知を受けて応答したかの記録。準拠テンプレートに通知と記録の仕組みは無い" -->
 
 ## 沈黙の扱いの機械化
 
@@ -170,7 +170,7 @@ jobs:
 
 R1 に限って全員の応答を必須にするのは、取り消せない決定に対して沈黙を同意と読み替えないためです。R3 まで同じ強度を課すと、待ち時間が増えるだけで検出できる欠陥は増えません。
 
-<!-- impl IMPL-0214 target=pre-review-automation state=undelivered check=manual note="リスク区分ごとの必須ステータスチェック(R2 は pre-review-closed、R1 は pre-review-all-responded を加える)。pre-review-closed は、受付期間が終わり全ての意見に起案者の応答が付いた状態で合格とし、AI の担い手のコメントを意見に数えない。準拠テンプレートにどちらの検査も無い" -->
+<!-- impl IMPL-0214 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="リスク区分ごとの必須ステータスチェック(R2 は pre-review-closed、R1 は pre-review-all-responded を加える)。pre-review-closed は、受付期間が終わり全ての意見に起案者の応答が付いた状態で合格とし、AI の担い手のコメントを意見に数えない。準拠テンプレートにどちらの検査も無い" -->
 
 ## 意見の様式の機械検査
 
@@ -188,7 +188,7 @@ R1 に限って全員の応答を必須にするのは、取り消せない決�
 
 理由のない反対を意見として扱わないかは、[第3章 3.10.4](/process-compass/phase4-process-design/roles-responsibilities/) のとおり、起案者が応答に記録し、決定者が判定記録で確かめます。機械は決めません。自由記述から「理由が無い」を機械が判定して必須の状態検査に効かせると、記述の実質性を機械で判定して進行を決める形になります(5.7.4 要求事項1)。AI の指摘の欠落について[附属書H](/process-compass/phase4-process-design/assurance-case/) H.4 が置く扱い(機械は欠落を示すだけで、指摘を消さない)と同じです。
 
-<!-- impl IMPL-0215 target=pre-review-automation state=undelivered check=manual note="意見の様式の欄(賛否・理由・反対の代替案または充足条件)の空欄を示し、複数の論点の分割を促す(注意の喚起に限る)。機械の出力で意見を pre-review-closed の応答の対象から外さない。意見として扱わないかを機械は決めない(起案者と決定者の手続は第3章 3.10.4 の IMPL-0231)。準拠テンプレートに検査は無い" -->
+<!-- impl IMPL-0215 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="意見の様式の欄(賛否・理由・反対の代替案または充足条件)の空欄を示し、複数の論点の分割を促す(注意の喚起に限る)。機械の出力で意見を pre-review-closed の応答の対象から外さない。意見として扱わないかを機械は決めない(起案者と決定者の手続は第3章 3.10.4 の IMPL-0231)。準拠テンプレートに検査は無い" -->
 
 理由のない反対を無効とする規則は、反対する側にも説明の責任を課します。この規則がない場合、反対の表明だけで進行を止められるため、判定の遅延に対する責任が不在になります。
 
@@ -208,7 +208,7 @@ AI の担い手のコメントは、意見の集計に含めません([第3章 3
 
 **準拠テンプレートは、本頁の事前レビュー期間の検査(`pre-review-closed`・`pre-review-all-responded`)、意見の様式の検査、指標の集計のいずれも実装していません**(2026-10-23 に確かめました)。本頁の規範は、[実装の台帳](/process-compass/community/implementation-ledger/)に降りていない規定として表示します。
 
-<!-- impl IMPL-0216 target=pre-review-automation state=undelivered check=manual note="第3章 3.10.8 の形骸化の指標の月次の集計。応答が付いていない意見の比率は、AI の担い手のコメントを分子にも分母にも含めない。準拠テンプレートに集計は無い" -->
+<!-- impl IMPL-0216 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="第3章 3.10.8 の形骸化の指標の月次の集計。応答が付いていない意見の比率は、AI の担い手のコメントを分子にも分母にも含めない。準拠テンプレートに集計は無い" -->
 
 集計は月次で実行し、[フェーズ6(メトリクス)](/process-compass/phase6-operation/metrics/)のダッシュボードへ送ります。
 

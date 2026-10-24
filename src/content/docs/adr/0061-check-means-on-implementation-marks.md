@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-10-13)
+採用(2026-10-13)。決定2・決定3 を、[ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/)が補います(2026-10-24)。未分類のマークの棚卸しを終え、以後 `check` を欠くマークを検査で落とします。`check=machine` は試験を名指し、`check=presence` は規則を運ぶ単位を注記に書きます。降りていない規定には計画の属性 `plan` が加わります。決定1 の表(`state` を2値に保つこと)は維持します。
 
 ## コンテキスト
 
