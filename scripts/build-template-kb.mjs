@@ -12,6 +12,7 @@
 // 別の場所(兄弟のリポジトリ ../pit-in-template/ など)へ書き出すときは --out を明示する(Issue #293 突合 X-13)。
 
 import fs from 'node:fs';
+import { readEdition } from './lib/edition.mjs';
 import { execSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -234,9 +235,14 @@ function sourceVersion() {
       return null;
     }
   };
+  const ed = readEdition();
   return {
     repository: 'https://github.com/Takenori-Kusaka/process-compass',
     commit: run('git rev-parse HEAD') ?? 'unknown',
+    // 本標準の版(第1章 1.10.3。Issue #313 / ADR-0083)。発行していなければ null(作業中の版)。
+    // 作業中の版は、適用の表明と適合の主張に名指せない。commit は機械の識別で、版の代わりにならない
+    edition: ed.edition,
+    editionIssuedAt: ed.issuedAt,
     // 生成の日時と作業ツリーの汚れは入れない。
     // どちらも生成のたびに変わり、複製の検査が本文の編集で落ちるようになる。
     // 版の識別にはコミットで足りる。

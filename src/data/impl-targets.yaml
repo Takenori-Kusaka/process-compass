@@ -63,6 +63,13 @@ targets:
     check: verify-gate-contract
     description: 体制の変化点の記録。統制を緩める向きの変更は、決定した者の記名と理由を要する(ADR-0055)
 
+  - id: config-standard
+    name: process.config.json の standard
+    kind: config-key
+    keyPath: standard
+    check: verify-gate-contract
+    description: 案件が従う本標準の版(第N版、または作業中の版を表す null)。切り替えは /process-change の edition の種別を経る(ADR-0083 決定1)
+
   - id: claude-md
     name: CLAUDE.md の構成依存部分
     kind: template-file

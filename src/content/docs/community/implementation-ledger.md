@@ -21,23 +21,23 @@ sidebar:
 
 | 対象 | 節 | マーク済み | 判定基準の表 | 対象にしない | **未棚卸し** |
 | --- | --- | --- | --- | --- | --- |
-| 第1章 | 20 | 0 | 0 | 3 | **17** |
+| 第1章 | 24 | 4 | 0 | 6 | **14** |
 | 第2章 | 38 | 2 | 0 | 4 | **32** |
 | 第3章 | 87 | 15 | 0 | 17 | **55** |
 | 第4章 | 91 | 14 | 2 | 5 | **70** |
 | 第5章 | 49 | 22 | 0 | 8 | **19** |
 | 第6章 | 71 | 2 | 0 | 4 | **65** |
 | 第7章 | 42 | 0 | 0 | 3 | **39** |
-| 第8章 | 47 | 1 | 0 | 2 | **44** |
+| 第8章 | 47 | 2 | 0 | 2 | **43** |
 | 附属書B | 8 | 0 | 0 | 0 | **8** |
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
 | 附属書H | 43 | 3 | 0 | 7 | **33** |
 | フェーズ5 | 304 | 32 | 0 | 51 | **221** |
 | フェーズ6 | 133 | 3 | 0 | 15 | **115** |
-| **計** | 961 | 94 | 2 | 119 | **746** |
+| **計** | 965 | 99 | 2 | 122 | **742** |
 
-未棚卸しの746節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
+未棚卸しの742節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
 **台帳の件数は網羅の証明ではありません**。降りていない規定が0件であることも、未棚卸しの節が0件であることも、規定がすべて降りたことを示しません。機械が確かめるのは、節が区分つきで登録されていること、登録の鍵と識別子が実在すること、「対象にしない」の節にマークが無いことまでです。節の中の規定がすべてマークされているかは、区分を登録した者の判断です。
 
@@ -47,16 +47,16 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 49 |
-| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 50 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 103 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 54 |
+| 実在だけ確かめる | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | 51 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 104 |
 | **未分類** | 検査の手段を棚卸ししていない。降ろし先の実在だけが確かめられている | **100** |
 
 未分類の100件は、機械が確かめているのが降ろし先の実在か、規定の中身かを確かめていません。**未分類の規定を、検査されている規定として読まないでください**。
 
 ### 降りていない規定
 
-降りていない規定: **95件**
+降りていない規定: **96件**
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
@@ -159,6 +159,7 @@ sidebar:
 | IMPL-0291 | 手戻り率の期間ごとの集計と、基準を超えたときの自動の引き下げ。準拠テンプレートは手戻り率を集計しない。組織が G-1 で定める基準値を構成に持たず、不採用となった変更(マージされなかった PR)を既定ブランチの履歴から読めないため。採用者は登録の根拠の reworkRate に書いた手段で集計し、発火の有無は内部監査(観点23)で確かめる | AI自律レベルの導出と停止(登録した変更種別) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0299 | ロールとレーンの写像を、D-0 体制図へ記載し構成の roles[] へ出力すること。準拠テンプレートの構成はレーンの概念を持たず、ロールと受信箱のラベルの固定の表(MAILBOX)だけを持つ。レーン(作業領域・セッション・認証情報の組)の分け方は、採用者が実行環境の設定で定め、D-0 体制図へ手で書く(#312) | process.config.json の roles[] | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0303 | 既定ブランチへの取り込みが出荷を起動する構成で、出荷判定者が G-7 の判定記録を作成した後にマージすること。準拠テンプレートは配備のワークフローを持たず、マージの前に G-7 の判定記録の有無を確かめない。その取り込みは取り消せない操作として人へ戻す経路(IMPL-0251)に限る。採用者は、配備を起動する取り込みの前に G-7 の判定記録を確かめる手順を社内で定める(#312) | 案件のデプロイのワークフローの置き場(予定) | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
+| IMPL-0309 | 同じ案件で適用を再開する経路は無い。準拠テンプレートは終了の後の構成の変更を notice のほかは拒む。再開する場合は、終了と再開の間を記録の欠落として表示し、件数を最初の適用の開始から数えることを、表明する者が手で確かめる(#313) | プロセス構成の初期化(強制層の生成) | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 
 ### 全件
 
@@ -466,5 +467,12 @@ sidebar:
 | IMPL-0301 | D-0 の節1 に、人の名簿(識別子・氏名・区分・アカウント。所属と氏名の確認は記入があるときに列を出す)と、席ごとの兼務の列を生成し、節2 に非推奨の兼務の記録の表を置く。名簿の記載の正しさは機械で確かめない(#312) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0302 | state:dev-done の受け手は、G-6 が有効なら独立レビュアだけ、G-6 が省略・未達の構成では出荷判定者(準拠テンプレートの mailboxFor と next.mjs --role・/pit)。state:ready-to-merge を付けるのは独立レビュアだけで、出荷判定者の受信箱に入る。G-6 が省略・未達の構成では誰も付けず、開発者も付けない。needs-dev を独立レビュア・出荷判定者は付けず、needs-platform は付けられる。G-7 は next.mjs の出荷の段が出荷の範囲ごとに出し、ラベルでは起動しない。test-roster-rules.mjs が構成ごとに固定する(#312。突合 X-1・X-4) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 機械が確かめる | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
 | IMPL-0303 | 既定ブランチへの取り込みが出荷を起動する構成で、出荷判定者が G-7 の判定記録を作成した後にマージすること。準拠テンプレートは配備のワークフローを持たず、マージの前に G-7 の判定記録の有無を確かめない。その取り込みは取り消せない操作として人へ戻す経路(IMPL-0251)に限る。採用者は、配備を起動する取り込みの前に G-7 の判定記録を確かめる手順を社内で定める(#312) | 案件のデプロイのワークフローの置き場(予定) | — | **降りていない** | 人が確かめる | [phase5-implementation/label-mailbox](/process-compass/phase5-implementation/label-mailbox/) |
+| IMPL-0304 | 適用の開始の境を、構成が configured: true になった最初のコミットとする(findInitCommit)。そのコミットに changeLog の init の記録が無い場合、集約の範囲にそのコミットがあれば記録の欠落として出し、境は動かさない。契約の検査(verify-gate-contract)は注記として出す。test-edition-end.mjs が、init の記録を欠いた履歴で欠落が出ること、境が動かないことを実行して確かめる(#313) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0305 | 構成の standard.edition に従う版を持つ。null は作業中の版を表し、述べられる名を出さない。欄の無い旧い構成は、作業中の版として読み、再生成でも欄を足さない(構成の要約値を変えない)。契約の検査が版の書式を確かめ、test-edition-end.mjs が実行して確かめる(#313) | process.config.json の standard | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0306 | 版の切り替えを /process-change の edition の種別で行う。切り替え先は知識ベースの source.edition と一致する発行した版に限り、作業中の版を拒み、決定した者と理由を要する。changeLog に edition の記録(from・to)を残す。test-edition-end.mjs が拒否と記録を実行して確かめる(#313) | 体制の変化点を反映するスキル | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0307 | 適用の終了を changeLog の end の種別で記録する(理由の区分 closed・operation-ended・withdrawn、決定した者、理由)。終了の後の構成の変更は notice だけを受け付ける。終了の後は述べられる名を出さず、現在形の表明をしない旨を PROCESS-PROFILE.md に出す。契約の検査が理由の区分と記名を確かめ、test-edition-end.mjs が実行して確かめる(#313) | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 機械が確かめる | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0308 | 集約の範囲について述べられる名(適合の主張・逸脱を伴う適合の主張・適用の表明だけ・述べられない)を、版・未達・記録の欠落・閉じた列挙の逸脱・列挙に無い離脱から導いて出力する(claim)。PROCESS-PROFILE.md も構成について同じ名を出す。作業中の版では名を出さず、列挙に無い離脱があれば適用の表明だけとすることを test-edition-end.mjs が実行して確かめる(#313) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0309 | 同じ案件で適用を再開する経路は無い。準拠テンプレートは終了の後の構成の変更を notice のほかは拒む。再開する場合は、終了と再開の間を記録の欠落として表示し、件数を最初の適用の開始から数えることを、表明する者が手で確かめる(#313) | プロセス構成の初期化(強制層の生成) | — | **降りていない** | 人が確かめる | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0310 | 従う本標準の版の欄を D-0 体制図の冒頭に置く。構成の standard.edition と一致させる旨を書く。欄の存在は check-template-fields が確かめる。宣言に加える規格の発行年は、機械で確かめない(#313) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 
 <!-- implementation-ledger:end -->

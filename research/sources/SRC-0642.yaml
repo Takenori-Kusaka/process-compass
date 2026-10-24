@@ -1,0 +1,69 @@
+schemaVersion: 0
+id: SRC-0642
+status: included
+excludeReason: null
+title: ISO/IEC/IEEE 12207:2017 Systems and software engineering — Software life cycle processes (First edition 2017-11) — BSI preview
+url: https://webstore.ansi.org/preview-pages/BSI/preview_30295695.pdf
+canonicalUrl: https://webstore.ansi.org/preview-pages/bsi/preview_30295695.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC JTC 1/SC 7 and IEEE Computer Society (BSI adoption, preview via ANSI Webstore)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: '2017-11'
+publishedBasis: page
+version: 1st edition
+updated: null
+accessed: '2026-10-24'
+access: paywall
+readLevel: section
+foundBy:
+  cluster: I313
+  query: ISO/IEC/IEEE 12207:2017 preview table of contents conformance
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: 
+- date: 2017-11
+  label: ISO/IEC/IEEE 12207 第1版を発行
+- date: 2026-04
+  label: 第2版(SRC-0491)が第1版を置き換え
+summary: '第1章 1.3 が引く ISO/IEC/IEEE 12207 の第1版(2017-11)。BSI の採用版のプレビュー(目次・まえがき)だけを読んだ。箇条4(適合)の見出しは確かめたが、本文は読んでいない。2026-04 に第2版(SRC-0491)で置き換えられた。Issue #313 で、1.3 の引用の版に台帳のカードを置くために登録した。'
+claims:
+- id: c1
+  text: 2017 年版は第1版で、2017-11 付である。
+  quote: First edition 2017-11
+  locator: 表紙
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 313
+  stance: context
+- id: c2
+  text: 箇条4 は適合を定め、4.1 意図する用途、4.2 完全適合(成果への完全適合・タスクへの完全適合)、4.3 修整適合からなる。本文はプレビューで読めない。
+  quote: 4.3 Tailored conformance
+  locator: 目次(箇条4)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 313
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: BSI の採用版(BS ISO/IEC/IEEE 12207:2017)のプレビューの PDF を WebFetch(要約モデル経由)で読み、版・日付・箇条4 の見出しを逐語で抜き出させた。箇条2・箇条4 の本文はプレビューに無い。全文の通読ではない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-10'

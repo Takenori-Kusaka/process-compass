@@ -47,7 +47,8 @@ if (!fs.existsSync(kbDst)) {
 } else {
   const expected = JSON.stringify(buildKb(), null, 2) + '\n';
   const actual = fs.readFileSync(kbDst, 'utf8');
-  // source.commit は比較から外す。標準側でコミットを積むたびに HEAD が進み、規則データが同じでも一致しなくなるため(#301)
+  // source.commit は比較から外す。標準側でコミットを積むたびに HEAD が進み、規則データが同じでも一致しなくなるため(#301)。
+  // source.edition(本標準の版。作業中の版は null)は比較に含める。版を発行したら複製も同じ版になる(#313)
   const sansCommit = (s) => norm(s).replace(/("commit": )"[^"]*"/, '$1""');
   if (sansCommit(expected) !== sansCommit(actual)) {
     problems.push(

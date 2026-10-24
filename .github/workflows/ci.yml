@@ -179,14 +179,20 @@ jobs:
           cp dist-standard/tailoring-kb.json dist-repo/tailoring-kb.json
           cp LICENSE dist-repo/LICENSE
 
-          # 出所と版を書く。受け取り側が「いつの版か」を知る唯一の手段(ADR-0052 決定2)
+          # 出所と版を書く。受け取り側が「いつの版か」を知る唯一の手段(ADR-0052 決定2)。
+          # 版は本標準の版(第1章 1.10.3。src/data/edition.yaml)。発行していなければ作業中の版と書く(#313 / ADR-0083)
+          EDITION_LABEL=$(node scripts/lib/edition.mjs --label)
           cat > dist-repo/VERSION.md <<EOF
           # 配布した標準の版
 
+          - 版: ${EDITION_LABEL}
           - 出所: https://github.com/${GITHUB_REPOSITORY}
-          - コミット: \`${GITHUB_SHA}\`
+          - コミット: \`${GITHUB_SHA}\`(機械の識別。版の代わりにならない)
           - 起動: \`${GITHUB_EVENT_NAME}\` / \`${GITHUB_REF}\`
           - 生成: ${GITHUB_WORKFLOW} / run ${GITHUB_RUN_NUMBER}(試行 ${GITHUB_RUN_ATTEMPT})
+
+          版が「作業中の版(未発行)」のとき、この内容は発行した版ではありません。
+          作業中の版は、適用の表明と適合の主張に名指せません(標準 第1章 1.10.3)。
 
           **本ブランチは配布物です。正本は上記リポジトリの \`main\` です。**
           ここを編集しても標準は変わりません。変更は正本へ提起してください。
@@ -216,18 +222,18 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          # 配るかどうかは、配布済みの中身との差で決める。VERSION.md と知識ベースの生成元の版(source)は
-          # 毎回変わるので比べない。前の配布が失敗していても、次の main への push で取り戻す
+          # 配るかどうかは、配布済みの中身との差で決める。VERSION.md と知識ベースの生成元のコミット(source.commit)は
+          # 毎回変わるので比べない。本標準の版(source.edition)は比べる。前の配布が失敗していても、次の main への push で取り戻す
           OTHERS=$(git diff --cached --name-only -- . ':(exclude)VERSION.md' ':(exclude)tailoring-kb.json' | wc -l)
           if git cat-file -e HEAD:tailoring-kb.json 2>/dev/null; then
             export PREV_KB="${RUNNER_TEMP:-/tmp}/prev-kb.json"
             git show HEAD:tailoring-kb.json > "$PREV_KB"
-            KB_SAME=$(node -e "const f=(p)=>{const k=JSON.parse(require('fs').readFileSync(p,'utf8'));delete k.source;return JSON.stringify(k)};process.stdout.write(String(f(process.env.PREV_KB)===f('tailoring-kb.json')))")
+            KB_SAME=$(node -e "const f=(p)=>{const k=JSON.parse(require('fs').readFileSync(p,'utf8'));k.source={...(k.source||{}),commit:null};return JSON.stringify(k)};process.stdout.write(String(f(process.env.PREV_KB)===f('tailoring-kb.json')))")
           else
             KB_SAME=false
           fi
           if [ "$OTHERS" -eq 0 ] && [ "$KB_SAME" = "true" ]; then
-            echo "配布済みの中身と差がありません(VERSION.md と生成元の版を除く)。配りません"
+            echo "配布済みの中身と差がありません(VERSION.md と生成元のコミットを除く)。配りません"
             exit 0
           fi
           git commit -q -m "標準の本文を配布する (${GITHUB_SHA})"

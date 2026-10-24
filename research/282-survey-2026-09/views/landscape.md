@@ -6,6 +6,9 @@
 
 | 日付 | 出来事 | 発表元 | 根拠 |
 |---|---|---|---|
+| 2013-05-25 | JIS B 9700:2013 を制定(ISO 12100:2010 に一致) | 日本産業標準調査会・日本規格協会(ISO/TC 199 の ISO 12100:2010 に一致) | [SRC-0645] |
+| 2015-09 | ISO 9001:2015 を承認・発行 | ISO/TC 176 (catalogue record via Bahrain Standards and Metrology Directorate store) | [SRC-0643] |
+| 2017-11 | ISO/IEC/IEEE 12207 第1版を発行 | ISO/IEC JTC 1/SC 7 and IEEE Computer Society (BSI adoption, preview via ANSI Webstore) | [SRC-0642] |
 | 2023-01-26 | NIST が AI RMF 1.0 を公開 | National Institute of Standards and Technology (NIST) | [SRC-0518] |
 | 2023-11-29 | Automotive SPICE PAM/PRM 4.0 を公開 | VDA Quality Management Center (VDA Working Group 13) | [SRC-0554] |
 | 2024-06-25 | GitHub Artifact Attestations 一般提供(GitHub Changelog) | GitHub | [SRC-0417] |
@@ -72,6 +75,7 @@
 | 2026-03-31 | AI事業者ガイドライン第1.2版を公表(AI エージェント・フィジカル AI の定義を追加) | 総務省・経済産業省 | [SRC-0500] |
 | 2026-04 | Thoughtworks Technology Radar Vol.34 公開(Claude Code を Adopt、Agent instruction bloat などを Caution) | Thoughtworks | [SRC-0300] |
 | 2026-04 | ISO/IEC/IEEE 12207 第2版を発行(2017 年版を置き換え) | ISO/IEC JTC 1/SC 7 and IEEE Computer Society (preview via VDE Verlag) | [SRC-0491] |
+| 2026-04 | 第2版(SRC-0491)が第1版を置き換え | ISO/IEC JTC 1/SC 7 and IEEE Computer Society (BSI adoption, preview via ANSI Webstore) | [SRC-0642] |
 | 2026-04-07 | NIST が重要インフラ向け AI RMF プロファイルの構想文書を公開 | National Institute of Standards and Technology (NIST) | [SRC-0519] |
 | 2026-04-09 | A2A 1 周年プレスリリース: 支持組織 150 超、v1.0 安定版、主要クラウドへ統合 | The Linux Foundation | [SRC-0035] |
 | 2026-04-09 | 経産省が AI 利活用の民事責任の手引き(第1.0版)を公表 | 経済産業省(AI利活用における民事責任の在り方に関する研究会) | [SRC-0621] |
@@ -243,8 +247,10 @@
 | 2026-09-14 | Claude Code の週次上限を基準比 +25% で恒久化(暫定 +50% は終了) | BleepingComputer | [SRC-0108] |
 | 2026-09-15 | v2.9.0 リリース(AI-DLC Workflows 2.0 GA on main) | AWS Labs(GitHub) | [SRC-0051] |
 | 2026-09-15 | SQiP 2026 終了報告を掲載(同サイトのお知らせ) | 一般財団法人日本科学技術連盟(SQiP) | [SRC-0424] |
+| 2026-09-15 | ISO/DIS 12100.3(第2版)の投票の締め切り。ISO 12100:2010 を置き換える予定 | 日本産業標準調査会・日本規格協会(ISO/TC 199 の ISO 12100:2010 に一致) | [SRC-0645] |
 | 2026-09-16 | Anthropic が Claude Docs / Claude Slides をベータ公開し、Cowork をチャットへ統合 | Anthropic (Claude blog) | [SRC-0374] |
 | 2026-09-16 | ISO 9001:2026(第6版)発行、ISO 9001:2015 は廃止 | Qlause | [SRC-0542] |
+| 2026-09-16 | ISO 9001:2026 の発行により 2015 年版は旧版(Historical) | ISO/TC 176 (catalogue record via Bahrain Standards and Metrology Directorate store) | [SRC-0643] |
 | 2026-09-17 | Anthropic Institute が AI R&D 自動化指標と監視指標を公表 | Anthropic Institute | [SRC-0068] |
 | 2026-09-18 | Kiro Crew チームが「1 週間で 1,000 PR マージ」を公表 | Kiro(AWS) | [SRC-0061] |
 | 2026-09-18 | Faros が高AI採用の深化期を扱う新版を公表。レビューなしマージの増加率が31.3%から76.3%へ | Faros AI | [SRC-0475] |

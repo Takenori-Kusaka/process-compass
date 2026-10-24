@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-10-23): verified 636 / partial 5
+集計(生成日 2026-10-24): verified 636 / partial 10 / unreachable 1
 
 ### 要確認(verified 以外)
 
@@ -28,6 +28,12 @@
 | SRC-0511 | partial | mech-fetch,agent-blind,agent-adjudication |  | [チーム憲章 — 誰が何を決め、誰に渡すか(docs/sessions/README.md)](https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/sessions/README.md) |
 | SRC-0640 | partial | agent-read | WebFetch(取得結果を要約モデルが返す方式)で、原文の該当の文を逐語で抜き出させて照合した。プロキシの制約で curl による全文の取得はできなかったため、全文の通読ではない。c3 の後半は、要約モデルが125文字ずつに区切って返した断片をつないだもの | [The Scrum Guide(2020年11月版)](https://scrumguides.org/scrum-guide.html) |
 | SRC-0641 | partial | agent-read | 著者の所属先のサイトが置く出版社の PDF の写し(Taylor & Francis の表紙と引用の書誌の行つき)を WebFetch(要約モデル経由)で読み、c1・c2 の逐語を抜き出させて照合した。出版社のサイト(DOI の解決先)は取得できなかった。全文の通読ではない | [Agile–Stage-Gate for Manufacturers](https://www.five-is.com/download/agile-stage-gate-for-manufacturers) |
+| SRC-0642 | partial | agent-read | BSI の採用版(BS ISO/IEC/IEEE 12207:2017)のプレビューの PDF を WebFetch(要約モデル経由)で読み、版・日付・箇条4 の見出しを逐語で抜き出させた。箇条2・箇条4 の本文はプレビューに無い。全文の通読ではない | [ISO/IEC/IEEE 12207:2017 Systems and software engineering — Software life cycle processes (](https://webstore.ansi.org/preview-pages/BSI/preview_30295695.pdf) |
+| SRC-0643 | partial | agent-read | バーレーンの規格の販売の頁(ISO の目録の写し)を WebFetch(要約モデル経由)で読み、名称・承認日・状態を抜き出させた。iso.org の頁はこの環境の代理が拒否した(403)。本文は読んでいない | [ISO 9001:2015 Quality management systems — Requirements (catalogue record)](https://bsmd.moic.gov.bh/store/standards/iso:pub:std:IS:62085/ISO%209001:2015?lang=en) |
+| SRC-0644 | partial | agent-read | カナダ規格協議会の規格の目録の頁を WebFetch(要約モデル経由)で読み、名称・発行日・状態を抜き出させた。本文は読んでいない。名称が ISO/IEC/IEEE であることも、この頁で確かめた | [ISO/IEC/IEEE 90003:2018 Software engineering — Guidelines for the application of ISO 9001:](https://scc-ccn.ca/standardsdb/standards/2043769) |
+| SRC-0645 | partial | agent-read | 日本規格協会のプレビューの PDF を WebFetch(要約モデル経由)で読み、名称・制定日・対応国際規格を逐語で抜き出させた。ISO の第2版の状態は iso.org の頁(ISO/DIS 12100.3)を WebFetch で読んで確かめた。本文は読んでいない | [JIS B 9700:2013 機械類の安全性―設計のための一般原則―リスクアセスメント及びリスク低減(ISO 12100:2010 IDT)— プレビュー](https://webdesk.jsa.or.jp/preview/pre_jis_b_09700_000_000_2013_j_ed10_ch.pdf) |
+| SRC-0646 | partial | agent-read | iso.org の目録の頁を WebFetch(要約モデル経由)で読み、名称・版・発行日・状態を抜き出させた。本文は読んでいない | [ISO/IEC TR 5469:2024 Artificial intelligence — Functional safety and AI systems (catalogue](https://www.iso.org/standard/81283.html) |
+| SRC-0647 | unreachable | agent-read | 日本規格協会のプレビューの PDF を WebFetch で取得したが、保守の告知の頁が返った(2026-10-22 から終了日時未定)。規格の中身を確かめていない。実在しないという意味ではない | [JIS Q 42001:2025 情報技術―人工知能―マネジメントシステム — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_42001_000_000_2025_j_ed10_ch.pdf) |
 
 ### 除外した出典(却下は成果)
 

@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-10-13)。[ADR-0027](/process-compass/adr/0027-process-name-pit-in/)の「影響」の文(適合の主張は、ゲート判定の記録とテーラリングの宣言による)を、条項として具体化します。[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)・[ADR-0050](/process-compass/adr/0050-enforcement-layer-is-not-staged/)・[ADR-0057](/process-compass/adr/0057-organizational-quality-assurance/)を置き換えません。
+採用(2026-10-13)。[ADR-0027](/process-compass/adr/0027-process-name-pit-in/)の「影響」の文(適合の主張は、ゲート判定の記録とテーラリングの宣言による)を、条項として具体化します。[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)・[ADR-0050](/process-compass/adr/0050-enforcement-layer-is-not-staged/)・[ADR-0057](/process-compass/adr/0057-organizational-quality-assurance/)を置き換えません。決定1 と決定4 を、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)が補います(2026-10-24)。決定1 の境は構成が設定済みになった最初のコミットと読み、決定4 の表には、従う本標準の版・逸脱・列挙に無い離脱と、逸脱を伴う適合の主張が加わります。適用の終了は同 ADR の決定2 によります。
 
 ## コンテキスト
 

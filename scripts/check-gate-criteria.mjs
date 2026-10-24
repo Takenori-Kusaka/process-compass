@@ -14,6 +14,7 @@
 // 定量化しない」など)は降りません。降りていないことを KB 側で明示します。
 
 import fs from 'node:fs';
+import { readEdition, editionProblems } from './lib/edition.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { missingInputs, describeMissing, commitProblems } from './lib/inputs.mjs';
@@ -168,6 +169,15 @@ if (kbMissing.length) {
   // 生成元の版は 40 桁の16進に限る('unknown' を通さない)。配布のジョブでは、起動したコミットとの一致も求める
   const expected = kbArg ? process.env.GITHUB_SHA : undefined;
   problems.push(...commitProblems(kb.source?.commit, expected));
+  // 本標準の版(第1章 1.10.3。#313)。知識ベースは、正本(src/data/edition.yaml)と同じ版を持つ。作業中の版は null
+  {
+    const ed = readEdition();
+    for (const p of editionProblems(ed)) problems.push(`src/data/edition.yaml: ${p}`);
+    if (!kb.source || !('edition' in kb.source)) problems.push('知識ベースに source.edition(本標準の版。作業中の版は null)がありません');
+    else if ((kb.source.edition ?? null) !== ed.edition || (kb.source.editionIssuedAt ?? null) !== ed.issuedAt) {
+      problems.push(`知識ベースの版(${kb.source.edition ?? '作業中の版'})が、正本の版(${ed.edition ?? '作業中の版'})と一致しません。'npm run template:kb' を実行してください`);
+    }
+  }
   for (const g of kb.gates ?? []) {
     if (g.criteriaComplete !== false) {
       problems.push(

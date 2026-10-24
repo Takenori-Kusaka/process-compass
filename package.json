@@ -28,7 +28,7 @@
     "test:ci-wiring": "node scripts/test-check-ci-wiring.mjs",
     "lint:sources": "node scripts/research-ledger.mjs lint",
     "sources:index": "node scripts/research-ledger.mjs index",
-    "check": "npm run lint:ci && npm run lint:text && npm run lint:tone && npm run lint:evidence && npm run lint:impl && npm run lint:scope && npm run lint:refs && npm run lint:provisions && npm run lint:skills && npm run lint:figures && npm run brand:check && npm run lint:sources && npm run lint:registry && npm run test:registry && npm run test:engine && npm run test:impl && npm run test:ci-wiring && npm run test:template && npm run test:fields && npm run test:criteria && npm run build",
+    "check": "npm run lint:ci && npm run lint:text && npm run lint:tone && npm run lint:evidence && npm run lint:impl && npm run lint:scope && npm run lint:refs && npm run lint:provisions && npm run lint:skills && npm run lint:figures && npm run brand:check && npm run lint:sources && npm run lint:citations && npm run test:citations && npm run lint:registry && npm run test:registry && npm run test:engine && npm run test:impl && npm run test:ci-wiring && npm run test:template && npm run test:fields && npm run test:criteria && npm run build",
     "lint:registry": "node scripts/check-recalibration-registry.mjs",
     "test:registry": "node scripts/test-check-recalibration-registry.mjs",
     "template:kb": "node scripts/build-template-kb.mjs",
@@ -38,7 +38,9 @@
     "criteria:write": "node scripts/check-gate-criteria.mjs --write",
     "lint:figures": "node scripts/check-figures-svg.mjs",
     "brand:sync": "node scripts/brand-sync.mjs",
-    "brand:check": "node scripts/brand-sync.mjs --check"
+    "brand:check": "node scripts/brand-sync.mjs --check",
+    "lint:citations": "node scripts/check-citations.mjs",
+    "test:citations": "node scripts/check-citations.mjs --self-test"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

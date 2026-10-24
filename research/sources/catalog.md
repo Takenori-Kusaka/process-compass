@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 641(included 641、excluded 0)。生成日 2026-10-23。
+件数: 647(included 647、excluded 0)。生成日 2026-10-24。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -649,4 +649,10 @@
 | SRC-0639 | 1896 | regulation | jp/ja | verified | TH12 | 民法の全文(e-Gov 法令検索の API で取得)。請負(第632条)、請負人の担保責任の制限(第636条)、期間の制限(第637条)、準委任(第656条)を | [民法(明治二十九年法律第八十九号)](https://laws.e-gov.go.jp/api/1/lawdata/129AC0000000089) |
 | SRC-0640 | 2020-11 | community | global/en | partial | TH12 | スクラムガイドの現行版(2020年11月版)。Issue #298 で、附属書A A.7 とフェーズ6 の改善サイクルが引く文を、2026-10-23 に原文で | [The Scrum Guide(2020年11月版)](https://scrumguides.org/scrum-guide.html) |
 | SRC-0641 | 2018-03-07 | paper-peer | global/en | partial | TH12 | 製造業 6 社の事例研究。アジャイルとステージゲートの混成の効果を、聞き取りの推定で約 30% の市場投入期間の短縮・生産性の向上と報告する。客観的な指標を置い | [Agile–Stage-Gate for Manufacturers](https://www.five-is.com/download/agile-stage-gate-for-manufacturers) |
+| SRC-0642 | 2017-11 | standard | global/en | partial | TH12 | 第1章 1.3 が引く ISO/IEC/IEEE 12207 の第1版(2017-11)。BSI の採用版のプレビュー(目次・まえがき)だけを読んだ。箇条4(適 | [ISO/IEC/IEEE 12207:2017 Systems and software engineering — Software life cycle processes (](https://webstore.ansi.org/preview-pages/BSI/preview_30295695.pdf) |
+| SRC-0643 | 2015-09-22 | standard | global/en | partial | TH12 | 第1章 1.3 と附属書H H.10 が依る ISO 9001 の 2015 年版。規格の販売の頁で、版の識別と状態(Historical)だけを確かめた。本文 | [ISO 9001:2015 Quality management systems — Requirements (catalogue record)](https://bsmd.moic.gov.bh/store/standards/iso:pub:std:IS:62085/ISO%209001:2015?lang=en) |
+| SRC-0644 | 2018-11-28 | standard | global/en | partial | TH12 | 第1章 1.3 が引く、ISO 9001 をソフトウェアへ適用する手引き。現行の版は ISO/IEC/IEEE 90003:2018(2018-11-28)。目 | [ISO/IEC/IEEE 90003:2018 Software engineering — Guidelines for the application of ISO 9001:](https://scc-ccn.ca/standardsdb/standards/2043769) |
+| SRC-0645 | 2013-05-25 | standard | jp/ja | partial | TH12 | 第1章 1.3 と第6章が引く機械安全の規格。JIS B 9700:2013 は ISO 12100:2010(第1版)に一致(IDT)する。日本規格協会のプレ | [JIS B 9700:2013 機械類の安全性―設計のための一般原則―リスクアセスメント及びリスク低減(ISO 12100:2010 IDT)— プレビュー](https://webdesk.jsa.or.jp/preview/pre_jis_b_09700_000_000_2013_j_ed10_ch.pdf) |
+| SRC-0646 | 2024-01-08 | standard | global/en | partial | TH12 | 第1章 1.3 と第6章が引く技術報告書。ISO/IEC TR 5469:2024(第1版、2024-01-08)。iso.org の目録で名称・版・発行日・状 | [ISO/IEC TR 5469:2024 Artificial intelligence — Functional safety and AI systems (catalogue](https://www.iso.org/standard/81283.html) |
+| SRC-0647 | 2025 | standard | jp/ja | unreachable | TH12 | 第1章 1.3 が引く JIS Q 42001:2025(ISO/IEC 42001:2023 に対応)。日本規格協会のプレビューの所在は検索で見つけたが、取得 | [JIS Q 42001:2025 情報技術―人工知能―マネジメントシステム — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_42001_000_000_2025_j_ed10_ch.pdf) |
 

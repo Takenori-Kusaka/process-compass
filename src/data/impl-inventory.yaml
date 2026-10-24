@@ -1327,11 +1327,53 @@ sections:
   - key: phase4-process-design/overview#1.9 本標準を適用する組織が主張できること、主張しないこと
     status: pending
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張
-    status: pending
+    status: none
+    category: explanation
+    reason: 節の構成(適用の期間・版・主張の範囲)の説明と図。規定は 1.10.1〜1.10.4 の節のマークで追う
+    issue: 313
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0119
+      - IMPL-0304
+    note: 境は構成が設定済みになった最初のコミット(IMPL-0304)。宣言が欠けても、再テーラリング・版の切り替え・再初期化でも開始は動かない
+    issue: 313
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0120
+      - IMPL-0308
+    note: 述べられる名の導出は IMPL-0308。表明の様式の出力は undelivered(IMPL-0120)
+    issue: 313
+  - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張 > 逸脱の閉じた列挙
+    status: none
+    category: elsewhere
+    reason: 列挙の唯一の項目 D-1 の条件と代償措置は第3章 3.5.2 の IMPL-0002 で、主張の名への反映は 1.10.2 の IMPL-0308 で追う
+    location:
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.2 出荷判定者の兼務に限った例外(代償措置つき)
+      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張
+    issue: 313
+  - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張 > 列挙に無い離脱
+    status: none
+    category: elsewhere
+    reason: 一覧は各条項の記録と表示の規定の所在を示す。主張を妨げることは 1.10.2 の IMPL-0308 で追う
+    location:
+      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張
+    issue: 313
+  - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.3 本標準の版
+    status: marked
+    ids:
+      - IMPL-0305
+      - IMPL-0306
+    note: 版の発行・付番・棚卸しは標準の保守の手続(community/standard-editions)であり、実行主体の挙動ではないため降ろさない
+    issue: 313
+  - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.4 適用の終了
+    status: marked
+    ids:
+      - IMPL-0307
+      - IMPL-0309
+    note: 再開の経路は undelivered(IMPL-0309)
+    issue: 313
   - key: phase4-process-design/proposal-template#(冒頭)
     status: pending
   - key: "phase4-process-design/proposal-template#提案の戦略: 「変えない」から入る"
@@ -1811,7 +1853,28 @@ sections:
   - key: phase4-process-design/tailoring-guide#(冒頭)
     status: pending
   - key: phase4-process-design/tailoring-guide#調整は宣言を伴う
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0310
+    note: 要求事項4(従う本標準の版の宣言)を Issue #313 で足した。要求事項1〜3 は棚卸しの前の状態のまま、行の区分だけを付けた
+    issue: 313
+    rows:
+      要求事項1:
+        status: none
+        category: org-design
+        reason: 調整を本章の調整軸で行うことの定め。準拠テンプレートでは /process-init の導出がこれに当たり、個別の挙動の制約ではない
+      要求事項2:
+        status: none
+        category: org-design
+        reason: 外した項目と簡略化した項目の宣言。提案書(附属書D)と構成の unmet[]・deviations[] に現れる。宣言の様式は附属書D の定め
+      要求事項3:
+        status: none
+        category: org-design
+        reason: 調整後の構成でゲートの目的が達成されることを示す、宣言の内容の定め。機械では判定しない
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0310
   - key: phase4-process-design/tailoring-guide#再テーラリングの契機
     status: pending
   - key: phase4-process-design/tailoring-guide#再テーラリングの契機 > 契機に数えるもの
