@@ -1,17 +1,17 @@
-# Graph Report - process-compass  (2026-10-23)
+# Graph Report - process-compass  (2026-10-24)
 
 ## Corpus Check
-- 424 files · ~901,822 words
+- 1098 files · ~838,509 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 11 file(s) not represented in the graph (top: (none) 9, .css 2)
 
 ## Summary
-- 8107 nodes · 8026 edges · 604 communities (590 shown, 14 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 48 edges (avg confidence: 0.95)
+- 63185 nodes · 62646 edges · 6315 communities (6302 shown, 13 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 48 edges (avg confidence: 0.95)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1a1aa5d3`
+- Built from commit: `e2ab1e2b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -87,7 +87,7 @@
 - 0006-representation-policy.md
 - 決定
 - 0008-tailoring-rules-as-data.md
-- research-ledger.mjs
+- verifyCard
 - phase2-aidlc/summary.md
 - insourcing-bcp.md
 - role-mapping.md
@@ -178,7 +178,7 @@
 - test-effectiveness.md
 - 陳腐化しない基準(criteria)の設計手法 — 一次調査メモ
 - stacked-pr.md
-- check-template-drift.mjs
+- waterfall.yaml
 - template-repository.md
 - review-burden-measurement.md
 - 0011-safety-risk-assessment-positioning.md
@@ -212,7 +212,7 @@
 - 調査メモ: 理想モデルの前提条件の崩れを検出し決裁ブロッカーにする仕組み（Issue #139）
 - 7. 本標準への提言
 - 0018-assumption-ledger.md
-- 1. 自律コーディングエージェントの主要実装例
+- scrum.yaml
 - 2.1 T 区分（技術）
 - 6. 考察（事実と分離）
 - 0. 本メモの読み方
@@ -236,7 +236,7 @@
 - TH09 企画・探索・技術検証
 - 133 一次調査: コンテキストの鮮度監査と忘却
 - build-template-kb.mjs
-- comparison.astro
+- SRC-0001.yaml
 - 0025-context-forgetting-over-detection.md
 - feedback-workflow.md
 - 0031-market-hypothesis-by-structure-not-fields.md
@@ -271,7 +271,7 @@
 - 決定
 - TH01 ロールとAIの位置づけ
 - TH02 体制・ステージの変化点と段階的有効化
-- ref_astro_content
+- process-diagrams.ts
 - TH08 仕様・要求・前提・トレーサビリティ
 - TH03 ルールの配送(スキル・コマンドの階層化)
 - TH05 成果物の目的・読み手・形式・量
@@ -285,14 +285,14 @@
 - 修正の決定
 - 286 準拠テンプレートの運用性 — 現状の評価(2026-10-01)
 - memo.txt ↔ Issue 突合表
-- dependencies
+- SRC-0016.yaml
 - 決定
 - what-to-do-when.md
 - 調査要旨(digest)— 大規模改訂に先立つ外部調査(Issue #282)
 - 284・285 会議体 意見書05: 弁護役(現行の標準の弁護)
 - テンプレ6: 企画書(intent-brief)
 - 288 会議体 意見書03 — 規格・法務の立場(製造物責任、規制、適合性評価)
-- 282-survey-2026-09/README.md
+- SRC-0017.yaml
 - 網羅性
 - AI ベンダー推奨方針の比較
 - 288 採用判断シートでの8回目の判定(2026-10-08、最終版・医療機器 8名 規制業 CL2)— 指摘(検証担当の報告を主担当が転記)
@@ -322,7 +322,7 @@
 - 決定
 - #288 調査2: 品質保証とリスクの受容を、国際規格と規制は誰の責任としてどう定めているか
 - 284・285 会議体の論点整理(2026-09-30)
-- check-gate-criteria.mjs
+- SRC-0065.yaml
 - 284・285 4巡目の検証を受けた修正の決定(第4巡、2026-10-01)
 - 288 追加調査03: AI を使う開発組織の継続性
 - 288 会議体 意見書01: 標準策定者(起案)
@@ -468,12 +468,12 @@
 - 1. M3 形骸化のパターン・条件・手段の横断表
 - 3. 項目ごとの判定
 - 2. 章別の対応表
-- check-recalibration-registry.mjs
+- SRC-0066.yaml
 - #295 会議体の議題(2026-10-11)
 - 3. 選択肢
 - LICENSE.md
-- check-template-fields.mjs
-- proposal-logic.md
+- SRC-0067.yaml
+- SRC-0069.yaml
 - ゲート記録 調査03: 業界実務と docs-as-code の記録方式
 - Issue #300 決定の反映の記録
 - C. 調査で新たに見つかった論点
@@ -553,34 +553,35 @@
 - 決定
 - 決定
 - 決定
-- 3. 論点ごとの判定
+- SRC-0089.yaml
+- SRC-0092.yaml
 - 決定
 - 4. 争点と反論
 - lint
-- 3. 論点ごとの判定
-- 1. 主要エージェント製品の現況
-- 0. 後の担当(組A・組B)が従う決まり
+- 4. 争点と反論
+- SRC-0093.yaml
+- SRC-0102.yaml
 - 4.1 論点 1: 指示の経路にどこまで触れるか
-- loadCards
-- findingsIngest
+- research-ledger.mjs
+- SRC-0121.yaml
 - 5. 議題に無い論点
 - 1. 標準の現状(突合)
 - 席と運用形態、体制の変化点
 - 決定
 - #321 会議体 05 — 弁護役 第2巡(反証)
 - 4. 争点と反論
-- 1.1 第8章 軸D の全文(逐語)
+- SRC-0128.yaml
 - 決定
 - 会議体の議題(Issue #302〜#310)
 - 4. 争点と反論
 - #321 会議体 02 — 現場(1〜3 名 + AI エージェント体制の実務者)の意見書
 - 288 採用判断シートでの3回目の判定(2026-10-07)— 指摘(主担当が受信メッセージから転記)
-- 0061-check-means-on-implementation-marks.md
+- SRC-0131.yaml
 - 0064-skill-provisions-trace-to-standard.md
 - 決定
 - #321 会議体 04 — 規格整合・突合担当(標準の編集者)の意見書
-- Issue #309 調査: 受発注での指示の経路(発注側の判定者と受注側の担い手。37 号告示との関係)
-- 2.3 疑義応答集(第1集〜第3集)
+- SRC-0132.yaml
+- SRC-0133.yaml
 - provision-forms.md
 - 1. 決定
 - #321 会議体 03 — QA・内部監査・規制対応の意見書
@@ -589,7 +590,7 @@
 - 3. 論点ごとの判定
 - B-3 準拠テンプレートを既存のリポジトリへ持ち込む手順
 - 2. Q1〜Q7 への回答
-- tailoring-engine.mjs
+- SRC-0137.yaml
 - 3. 論点ごとの判定
 - B-1 導入の途中という状態を設けるか。適合の主張の条件
 - B-3 準拠テンプレートを既存のリポジトリへ持ち込む手順
@@ -606,18 +607,5728 @@
 - #321 会議体 04 — 規格整合・突合担当 第2巡(5 名の意見書の突合と、決定の記録の候補文)
 - B-2 位置が決まっているものの一覧を置くか
 - 会議体 組B 意見書05 — 現行の規定の擁護者(Issue #306・#309、論点 B-1〜B-7)
-- 2.5 IPA・経済産業省「アジャイル開発外部委託モデル契約」(情報システム・モデル取引・契約書〈アジャイル開発版〉)
+- SRC-0139.yaml
 - 1. ADR
+- SRC-0141.yaml
 - G-8 リリース決裁(事業決裁者・48時間)
-- ProcessPhase.astro
+- SRC-0144.yaml
+- SRC-0145.yaml
 - 6. 過去の調査・会議体のメモ
 - 2. 標準本文
 - 4. テンプレート側の実装
 - #321 会議体 00 — 問いの整理(brief)
+- SRC-0147.yaml
+- SRC-0148.yaml
 - ゲート判定記録の成立要件 — 本標準の内部の棚卸し(#321)
 - 3. 実装マーク
+- SRC-0155.yaml
+- SRC-0157.yaml
 - 7. 過去の Issue
 - G-3 技術設計判断(技術判断者・48時間)
+- SRC-0161.yaml
+- SRC-0162.yaml
+- SRC-0165.yaml
+- SRC-0171.yaml
+- SRC-0172.yaml
+- SRC-0174.yaml
+- SRC-0199.yaml
+- SRC-0201.yaml
+- SRC-0202.yaml
+- SRC-0225.yaml
+- SRC-0227.yaml
+- SRC-0268.yaml
+- SRC-0332.yaml
+- SRC-0333.yaml
+- SRC-0334.yaml
+- SRC-0335.yaml
+- SRC-0364.yaml
+- SRC-0369.yaml
+- SRC-0375.yaml
+- SRC-0376.yaml
+- SRC-0378.yaml
+- SRC-0380.yaml
+- SRC-0384.yaml
+- SRC-0403.yaml
+- SRC-0418.yaml
+- SRC-0420.yaml
+- SRC-0422.yaml
+- SRC-0425.yaml
+- SRC-0426.yaml
+- SRC-0427.yaml
+- SRC-0436.yaml
+- SRC-0437.yaml
+- SRC-0438.yaml
+- SRC-0440.yaml
+- SRC-0442.yaml
+- SRC-0443.yaml
+- SRC-0463.yaml
+- SRC-0467.yaml
+- SRC-0468.yaml
+- SRC-0471.yaml
+- SRC-0472.yaml
+- SRC-0473.yaml
+- SRC-0474.yaml
+- SRC-0476.yaml
+- SRC-0480.yaml
+- SRC-0487.yaml
+- SRC-0492.yaml
+- SRC-0501.yaml
+- deploy.yml
+- SRC-0002.yaml
+- SRC-0003.yaml
+- SRC-0004.yaml
+- SRC-0005.yaml
+- SRC-0006.yaml
+- SRC-0007.yaml
+- SRC-0008.yaml
+- SRC-0009.yaml
+- SRC-0010.yaml
+- SRC-0011.yaml
+- SRC-0012.yaml
+- SRC-0013.yaml
+- SRC-0014.yaml
+- SRC-0015.yaml
+- SRC-0018.yaml
+- SRC-0019.yaml
+- SRC-0020.yaml
+- SRC-0021.yaml
+- SRC-0022.yaml
+- SRC-0023.yaml
+- SRC-0024.yaml
+- SRC-0025.yaml
+- SRC-0026.yaml
+- SRC-0027.yaml
+- SRC-0028.yaml
+- SRC-0029.yaml
+- SRC-0030.yaml
+- SRC-0031.yaml
+- SRC-0032.yaml
+- SRC-0035.yaml
+- SRC-0038.yaml
+- SRC-0039.yaml
+- SRC-0042.yaml
+- SRC-0044.yaml
+- SRC-0048.yaml
+- SRC-0049.yaml
+- SRC-0050.yaml
+- SRC-0053.yaml
+- SRC-0054.yaml
+- SRC-0055.yaml
+- SRC-0056.yaml
+- SRC-0057.yaml
+- SRC-0058.yaml
+- SRC-0061.yaml
+- SRC-0062.yaml
+- SRC-0063.yaml
+- SRC-0064.yaml
+- SRC-0068.yaml
+- SRC-0070.yaml
+- SRC-0071.yaml
+- SRC-0072.yaml
+- SRC-0076.yaml
+- SRC-0077.yaml
+- SRC-0078.yaml
+- SRC-0079.yaml
+- SRC-0080.yaml
+- SRC-0081.yaml
+- SRC-0082.yaml
+- SRC-0083.yaml
+- SRC-0084.yaml
+- SRC-0085.yaml
+- SRC-0086.yaml
+- SRC-0087.yaml
+- SRC-0088.yaml
+- SRC-0090.yaml
+- SRC-0091.yaml
+- SRC-0094.yaml
+- SRC-0095.yaml
+- SRC-0096.yaml
+- SRC-0097.yaml
+- SRC-0099.yaml
+- SRC-0101.yaml
+- SRC-0103.yaml
+- SRC-0104.yaml
+- SRC-0105.yaml
+- SRC-0106.yaml
+- SRC-0107.yaml
+- SRC-0108.yaml
+- SRC-0109.yaml
+- SRC-0110.yaml
+- SRC-0111.yaml
+- SRC-0112.yaml
+- SRC-0113.yaml
+- SRC-0114.yaml
+- SRC-0115.yaml
+- SRC-0116.yaml
+- SRC-0117.yaml
+- SRC-0118.yaml
+- SRC-0119.yaml
+- SRC-0120.yaml
+- SRC-0122.yaml
+- SRC-0123.yaml
+- SRC-0124.yaml
+- SRC-0126.yaml
+- SRC-0127.yaml
+- SRC-0129.yaml
+- SRC-0130.yaml
+- SRC-0134.yaml
+- SRC-0135.yaml
+- SRC-0136.yaml
+- SRC-0138.yaml
+- SRC-0140.yaml
+- SRC-0142.yaml
+- SRC-0146.yaml
+- SRC-0149.yaml
+- SRC-0151.yaml
+- SRC-0152.yaml
+- SRC-0153.yaml
+- SRC-0154.yaml
+- SRC-0156.yaml
+- SRC-0158.yaml
+- SRC-0159.yaml
+- SRC-0160.yaml
+- SRC-0163.yaml
+- SRC-0164.yaml
+- SRC-0166.yaml
+- SRC-0167.yaml
+- SRC-0168.yaml
+- SRC-0169.yaml
+- SRC-0170.yaml
+- SRC-0173.yaml
+- SRC-0175.yaml
+- SRC-0176.yaml
+- SRC-0177.yaml
+- SRC-0178.yaml
+- SRC-0179.yaml
+- SRC-0180.yaml
+- SRC-0181.yaml
+- SRC-0182.yaml
+- SRC-0191.yaml
+- SRC-0192.yaml
+- SRC-0193.yaml
+- SRC-0194.yaml
+- SRC-0195.yaml
+- SRC-0196.yaml
+- SRC-0197.yaml
+- SRC-0198.yaml
+- SRC-0200.yaml
+- SRC-0203.yaml
+- SRC-0204.yaml
+- SRC-0206.yaml
+- SRC-0207.yaml
+- SRC-0210.yaml
+- SRC-0211.yaml
+- SRC-0212.yaml
+- SRC-0213.yaml
+- SRC-0214.yaml
+- SRC-0215.yaml
+- SRC-0217.yaml
+- SRC-0219.yaml
+- SRC-0220.yaml
+- SRC-0222.yaml
+- SRC-0223.yaml
+- SRC-0224.yaml
+- SRC-0226.yaml
+- SRC-0228.yaml
+- SRC-0229.yaml
+- SRC-0230.yaml
+- SRC-0233.yaml
+- SRC-0235.yaml
+- SRC-0236.yaml
+- SRC-0241.yaml
+- SRC-0242.yaml
+- SRC-0244.yaml
+- SRC-0245.yaml
+- SRC-0246.yaml
+- SRC-0247.yaml
+- SRC-0248.yaml
+- SRC-0250.yaml
+- SRC-0251.yaml
+- SRC-0252.yaml
+- SRC-0254.yaml
+- SRC-0255.yaml
+- SRC-0256.yaml
+- SRC-0258.yaml
+- SRC-0260.yaml
+- SRC-0261.yaml
+- SRC-0262.yaml
+- SRC-0263.yaml
+- SRC-0264.yaml
+- SRC-0265.yaml
+- SRC-0266.yaml
+- SRC-0267.yaml
+- SRC-0269.yaml
+- SRC-0270.yaml
+- SRC-0271.yaml
+- SRC-0272.yaml
+- SRC-0273.yaml
+- SRC-0274.yaml
+- SRC-0277.yaml
+- SRC-0279.yaml
+- SRC-0280.yaml
+- SRC-0281.yaml
+- SRC-0282.yaml
+- SRC-0283.yaml
+- SRC-0284.yaml
+- SRC-0285.yaml
+- SRC-0286.yaml
+- SRC-0288.yaml
+- SRC-0289.yaml
+- SRC-0300.yaml
+- SRC-0302.yaml
+- SRC-0303.yaml
+- SRC-0304.yaml
+- SRC-0305.yaml
+- SRC-0306.yaml
+- SRC-0307.yaml
+- SRC-0309.yaml
+- SRC-0310.yaml
+- SRC-0311.yaml
+- SRC-0312.yaml
+- SRC-0313.yaml
+- SRC-0314.yaml
+- SRC-0316.yaml
+- SRC-0317.yaml
+- SRC-0320.yaml
+- SRC-0321.yaml
+- SRC-0322.yaml
+- SRC-0323.yaml
+- SRC-0324.yaml
+- SRC-0325.yaml
+- SRC-0327.yaml
+- SRC-0328.yaml
+- SRC-0329.yaml
+- SRC-0330.yaml
+- SRC-0331.yaml
+- SRC-0336.yaml
+- SRC-0338.yaml
+- SRC-0339.yaml
+- SRC-0341.yaml
+- SRC-0342.yaml
+- SRC-0343.yaml
+- SRC-0348.yaml
+- SRC-0349.yaml
+- SRC-0350.yaml
+- SRC-0351.yaml
+- SRC-0352.yaml
+- SRC-0353.yaml
+- SRC-0354.yaml
+- SRC-0355.yaml
+- SRC-0356.yaml
+- SRC-0357.yaml
+- SRC-0358.yaml
+- SRC-0359.yaml
+- SRC-0360.yaml
+- SRC-0363.yaml
+- SRC-0365.yaml
+- SRC-0366.yaml
+- SRC-0367.yaml
+- SRC-0368.yaml
+- SRC-0370.yaml
+- SRC-0371.yaml
+- SRC-0372.yaml
+- SRC-0373.yaml
+- SRC-0377.yaml
+- SRC-0379.yaml
+- SRC-0381.yaml
+- SRC-0382.yaml
+- SRC-0383.yaml
+- SRC-0385.yaml
+- SRC-0386.yaml
+- SRC-0387.yaml
+- SRC-0388.yaml
+- SRC-0389.yaml
+- SRC-0390.yaml
+- SRC-0391.yaml
+- SRC-0392.yaml
+- SRC-0393.yaml
+- SRC-0394.yaml
+- SRC-0395.yaml
+- SRC-0396.yaml
+- SRC-0397.yaml
+- SRC-0398.yaml
+- SRC-0399.yaml
+- SRC-0400.yaml
+- SRC-0405.yaml
+- SRC-0406.yaml
+- SRC-0407.yaml
+- SRC-0409.yaml
+- SRC-0410.yaml
+- SRC-0412.yaml
+- SRC-0413.yaml
+- SRC-0414.yaml
+- SRC-0416.yaml
+- SRC-0419.yaml
+- SRC-0421.yaml
+- SRC-0423.yaml
+- SRC-0424.yaml
+- SRC-0428.yaml
+- SRC-0429.yaml
+- SRC-0430.yaml
+- SRC-0431.yaml
+- SRC-0432.yaml
+- SRC-0433.yaml
+- SRC-0434.yaml
+- SRC-0435.yaml
+- SRC-0439.yaml
+- SRC-0441.yaml
+- SRC-0444.yaml
+- SRC-0446.yaml
+- SRC-0447.yaml
+- SRC-0448.yaml
+- SRC-0449.yaml
+- SRC-0450.yaml
+- SRC-0451.yaml
+- SRC-0453.yaml
+- SRC-0454.yaml
+- SRC-0455.yaml
+- SRC-0456.yaml
+- SRC-0457.yaml
+- SRC-0458.yaml
+- SRC-0460.yaml
+- SRC-0461.yaml
+- SRC-0462.yaml
+- SRC-0464.yaml
+- SRC-0465.yaml
+- SRC-0466.yaml
+- SRC-0469.yaml
+- SRC-0470.yaml
+- SRC-0475.yaml
+- SRC-0477.yaml
+- SRC-0478.yaml
+- SRC-0479.yaml
+- SRC-0481.yaml
+- SRC-0482.yaml
+- SRC-0483.yaml
+- SRC-0484.yaml
+- SRC-0485.yaml
+- SRC-0486.yaml
+- SRC-0488.yaml
+- SRC-0490.yaml
+- SRC-0493.yaml
+- SRC-0494.yaml
+- SRC-0497.yaml
+- SRC-0498.yaml
+- SRC-0500.yaml
+- SRC-0503.yaml
+- SRC-0504.yaml
+- SRC-0505.yaml
+- SRC-0506.yaml
+- SRC-0507.yaml
+- SRC-0509.yaml
+- SRC-0516.yaml
+- SRC-0517.yaml
+- SRC-0521.yaml
+- SRC-0522.yaml
+- SRC-0523.yaml
+- SRC-0525.yaml
+- SRC-0526.yaml
+- SRC-0527.yaml
+- SRC-0529.yaml
+- SRC-0530.yaml
+- SRC-0531.yaml
+- SRC-0534.yaml
+- SRC-0536.yaml
+- SRC-0537.yaml
+- SRC-0538.yaml
+- SRC-0539.yaml
+- SRC-0540.yaml
+- SRC-0541.yaml
+- SRC-0543.yaml
+- SRC-0544.yaml
+- SRC-0545.yaml
+- SRC-0546.yaml
+- SRC-0547.yaml
+- SRC-0549.yaml
+- SRC-0550.yaml
+- SRC-0551.yaml
+- SRC-0552.yaml
+- SRC-0553.yaml
+- SRC-0555.yaml
+- SRC-0556.yaml
+- SRC-0557.yaml
+- SRC-0558.yaml
+- SRC-0559.yaml
+- SRC-0560.yaml
+- SRC-0561.yaml
+- SRC-0562.yaml
+- SRC-0563.yaml
+- SRC-0564.yaml
+- SRC-0565.yaml
+- SRC-0566.yaml
+- SRC-0567.yaml
+- SRC-0568.yaml
+- SRC-0569.yaml
+- SRC-0570.yaml
+- SRC-0571.yaml
+- SRC-0572.yaml
+- SRC-0573.yaml
+- SRC-0574.yaml
+- SRC-0575.yaml
+- SRC-0576.yaml
+- SRC-0577.yaml
+- SRC-0578.yaml
+- SRC-0579.yaml
+- SRC-0580.yaml
+- SRC-0582.yaml
+- SRC-0583.yaml
+- SRC-0584.yaml
+- SRC-0585.yaml
+- SRC-0586.yaml
+- SRC-0587.yaml
+- SRC-0588.yaml
+- SRC-0589.yaml
+- SRC-0590.yaml
+- SRC-0591.yaml
+- SRC-0592.yaml
+- SRC-0593.yaml
+- SRC-0594.yaml
+- SRC-0595.yaml
+- SRC-0598.yaml
+- SRC-0601.yaml
+- SRC-0602.yaml
+- SRC-0603.yaml
+- SRC-0605.yaml
+- SRC-0606.yaml
+- SRC-0607.yaml
+- SRC-0608.yaml
+- SRC-0609.yaml
+- SRC-0611.yaml
+- SRC-0612.yaml
+- SRC-0613.yaml
+- SRC-0614.yaml
+- SRC-0615.yaml
+- SRC-0616.yaml
+- SRC-0617.yaml
+- SRC-0623.yaml
+- SRC-0628.yaml
+- SRC-0629.yaml
+- SRC-0630.yaml
+- SRC-0632.yaml
+- SRC-0633.yaml
+- SRC-0634.yaml
+- SRC-0635.yaml
+- SRC-0636.yaml
+- SRC-0637.yaml
+- SRC-0638.yaml
+- SRC-0639.yaml
+- SRC-0033.yaml
+- SRC-0034.yaml
+- SRC-0036.yaml
+- SRC-0037.yaml
+- SRC-0040.yaml
+- SRC-0041.yaml
+- SRC-0043.yaml
+- SRC-0045.yaml
+- SRC-0046.yaml
+- SRC-0047.yaml
+- SRC-0051.yaml
+- SRC-0052.yaml
+- SRC-0059.yaml
+- SRC-0060.yaml
+- SRC-0073.yaml
+- SRC-0074.yaml
+- SRC-0075.yaml
+- SRC-0098.yaml
+- SRC-0100.yaml
+- SRC-0125.yaml
+- SRC-0150.yaml
+- SRC-0183.yaml
+- SRC-0184.yaml
+- SRC-0185.yaml
+- SRC-0186.yaml
+- SRC-0187.yaml
+- SRC-0188.yaml
+- SRC-0189.yaml
+- SRC-0190.yaml
+- SRC-0205.yaml
+- SRC-0208.yaml
+- SRC-0209.yaml
+- SRC-0216.yaml
+- SRC-0218.yaml
+- SRC-0221.yaml
+- SRC-0231.yaml
+- SRC-0232.yaml
+- SRC-0234.yaml
+- SRC-0237.yaml
+- SRC-0238.yaml
+- SRC-0239.yaml
+- SRC-0240.yaml
+- SRC-0243.yaml
+- SRC-0249.yaml
+- SRC-0253.yaml
+- SRC-0257.yaml
+- SRC-0259.yaml
+- SRC-0275.yaml
+- SRC-0276.yaml
+- SRC-0278.yaml
+- SRC-0287.yaml
+- SRC-0290.yaml
+- SRC-0291.yaml
+- SRC-0292.yaml
+- SRC-0293.yaml
+- SRC-0294.yaml
+- SRC-0295.yaml
+- SRC-0296.yaml
+- SRC-0297.yaml
+- SRC-0298.yaml
+- SRC-0299.yaml
+- SRC-0301.yaml
+- SRC-0308.yaml
+- SRC-0315.yaml
+- SRC-0318.yaml
+- SRC-0319.yaml
+- SRC-0326.yaml
+- SRC-0337.yaml
+- SRC-0340.yaml
+- SRC-0344.yaml
+- SRC-0345.yaml
+- SRC-0346.yaml
+- SRC-0347.yaml
+- SRC-0361.yaml
+- SRC-0362.yaml
+- SRC-0374.yaml
+- SRC-0401.yaml
+- SRC-0402.yaml
+- SRC-0404.yaml
+- SRC-0408.yaml
+- SRC-0411.yaml
+- SRC-0415.yaml
+- SRC-0417.yaml
+- SRC-0445.yaml
+- SRC-0452.yaml
+- SRC-0459.yaml
+- SRC-0489.yaml
+- SRC-0491.yaml
+- SRC-0495.yaml
+- SRC-0496.yaml
+- SRC-0499.yaml
+- SRC-0502.yaml
+- SRC-0508.yaml
+- SRC-0510.yaml
+- SRC-0511.yaml
+- SRC-0512.yaml
+- SRC-0513.yaml
+- SRC-0514.yaml
+- SRC-0515.yaml
+- SRC-0518.yaml
+- SRC-0519.yaml
+- SRC-0520.yaml
+- SRC-0524.yaml
+- SRC-0528.yaml
+- SRC-0532.yaml
+- SRC-0533.yaml
+- SRC-0535.yaml
+- SRC-0542.yaml
+- SRC-0548.yaml
+- SRC-0554.yaml
+- SRC-0581.yaml
+- SRC-0596.yaml
+- SRC-0597.yaml
+- SRC-0599.yaml
+- SRC-0600.yaml
+- SRC-0604.yaml
+- SRC-0610.yaml
+- SRC-0618.yaml
+- SRC-0619.yaml
+- SRC-0620.yaml
+- SRC-0621.yaml
+- SRC-0622.yaml
+- SRC-0624.yaml
+- SRC-0625.yaml
+- SRC-0626.yaml
+- SRC-0627.yaml
+- SRC-0631.yaml
+- steps
+- steps
+- steps
+- with
+- findings
+- rules
+- mech
+- mech
+- provision-forms.yaml
+- rules
+- rules
+- rules
+- rules
+- rules
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- steps
+- claims
+- claims
+- claims
+- claims
+- mech
+- c2
+- mech
+- mech
+- claims
+- claims
+- c1
+- claims
+- c3
+- c5
+- mech
+- claims
+- c5
+- mech
+- c1
+- claims
+- claims
+- mech
+- mech
+- mech
+- claims
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c3
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c5
+- mech
+- mech
+- claims
+- mech
+- claims
+- mech
+- mech
+- claims
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- claims
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c3
+- mech
+- mech
+- c3
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- mech
+- mech
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- mech
+- claims
+- claims
+- mech
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- mech
+- claims
+- claims
+- claims
+- mech
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- mech
+- claims
+- mech
+- claims
+- mech
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- quotes
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- mech
+- claims
+- mech
+- mech
+- claims
+- claims
+- mech
+- mech
+- claims
+- claims
+- claims
+- claims
+- quotes
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- mech
+- mech
+- claims
+- claims
+- claims
+- mech
+- claims
+- mech
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- mech
+- claims
+- mech
+- claims
+- mech
+- mech
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- mech
+- claims
+- mech
+- claims
+- mech
+- mech
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- activities
+- updates
+- questions
+- c1
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c1
+- c1
+- mech
+- mech
+- c5
+- gates
+- questions
+- body
+- body
+- c4
+- mech
+- mech
+- mech
+- c8
+- mech
+- c1
+- c5
+- c5
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- c3
+- mech
+- mech
+- c1
+- c2
+- mech
+- c1
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c1
+- mech
+- mech
+- c3
+- mech
+- mech
+- c2
+- c1
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c11
+- mech
+- quotes
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c4
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- mech
+- c1
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c4
+- mech
+- c1
+- mech
+- c1
+- mech
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c1
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c1
+- c4
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c3
+- mech
+- mech
+- c1
+- c3
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c1
+- mech
+- mech
+- mech
+- mech
+- mech
+- c3
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- c1
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c1
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c4
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c4
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- aidlc.yaml
+- mech
+- mech
+- mech
+- mech
+- c1
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- c4
+- mech
+- c1
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- c4
+- mech
+- c4
+- c2
+- mech
+- c3
+- c2
+- quotes
+- mech
+- mech
+- mech
+- mech
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- c1
+- mech
+- c2
+- mech
+- c3
+- mech
+- c2
+- mech
+- mech
+- mech
+- mech
+- mech
+- mech
+- agile.yaml
+- ddd.yaml
+- event-driven.yaml
+- activities
+- hybrid.yaml
+- bodies
+- sdd.yaml
+- tdd.yaml
+- Process Compass 🧭
+- quotes
+- c5
+- quotes
+- c3
+- c2
+- quotes
+- c1
+- c2
+- c2
+- c1
+- quotes
+- c4
+- adjudication
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c6
+- claims
+- claims
+- claims
+- claims
+- c2
+- claims
+- claims
+- c3
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c2
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c2
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c2
+- c1
+- c1
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- c2
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- c1
+- claims
+- quotes
+- claims
+- c2
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- c1
+- claims
+- c1
+- c1
+- claims
+- claims
+- c3
+- c1
+- claims
+- claims
+- quotes
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c5
+- c4
+- claims
+- c5
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c6
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c3
+- c1
+- c1
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- c3
+- claims
+- claims
+- claims
+- c1
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- c2
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- c1
+- c1
+- c1
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- c2
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- c3
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c2
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c4
+- claims
+- claims
+- claims
+- claims
+- claims
+- c1
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- mech
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- c5
+- c1
+- c1
+- c1
+- claims
+- c5
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- targets
+- activities
+- gates
+- activities
+- gates
+- integrated.yaml
+- activities
+- forms
+- 1. 標準の現状(突合)
+- c1
+- c3
+- c1
+- quotes
+- c1
+- c1
+- quotes
+- verification
+- claims
+- claims
+- quotes
+- c1
+- verification
+- c1
+- c1
+- mech
+- c3
+- c2
+- claims
+- quotes
+- c2
+- quotes
+- claims
+- claims
+- c1
+- claims
+- c1
+- c1
+- c2
+- c1
+- claims
+- claims
+- c1
+- claims
+- c2
+- c1
+- c1
+- c1
+- c3
+- c1
+- c1
+- c3
+- c1
+- claims
+- adjudication
+- c3
+- c2
+- claims
+- claims
+- c1
+- c2
+- c2
+- c1
+- verification
+- c1
+- c1
+- c1
+- c1
+- c1
+- c1
+- c1
+- c2
+- claims
+- c1
+- claims
+- c1
+- c2
+- c1
+- claims
+- claims
+- c1
+- c2
+- c2
+- verification
+- c1
+- c1
+- c4
+- verification
+- c1
+- c1
+- c3
+- c2
+- c2
+- claims
+- c2
+- c1
+- c3
+- c2
+- c1
+- c1
+- c1
+- claims
+- c1
+- c1
+- c1
+- c1
+- c1
+- claims
+- c1
+- c2
+- c2
+- claims
+- c3
+- c1
+- c2
+- c1
+- claims
+- verification
+- claims
+- c1
+- c1
+- verification
+- claims
+- c3
+- adjudication
+- c1
+- c3
+- c3
+- verification
+- c3
+- c1
+- claims
+- c3
+- c1
+- claims
+- c1
+- claims
+- c1
+- c4
+- claims
+- c2
+- c3
+- c2
+- c3
+- claims
+- verification
+- c1
+- c2
+- c2
+- c1
+- claims
+- c1
+- c1
+- c1
+- c2
+- c2
+- c1
+- c1
+- c3
+- c2
+- c2
+- c2
+- c2
+- c3
+- verification
+- verification
+- c1
+- verification
+- verification
+- c1
+- c2
+- c10
+- verification
+- c11
+- c1
+- c2
+- c3
+- c4
+- c5
+- c3
+- c4
+- claims
+- c3
+- c1
+- c2
+- c1
+- verification
+- quotes
+- c1
+- c1
+- c3
+- claims
+- claims
+- c3
+- c2
+- claims
+- c3
+- claims
+- c2
+- c7
+- claims
+- claims
+- c4
+- claims
+- c1
+- verification
+- c5
+- c3
+- verification
+- c3
+- c2
+- c2
+- c1
+- c1
+- c3
+- c1
+- claims
+- claims
+- c1
+- c1
+- c3
+- claims
+- c1
+- c1
+- c4
+- claims
+- c3
+- c2
+- claims
+- claims
+- c4
+- c2
+- c2
+- claims
+- c1
+- c1
+- c2
+- c1
+- c2
+- c1
+- c3
+- verification
+- claims
+- c1
+- c2
+- c1
+- c1
+- claims
+- c3
+- c2
+- c2
+- c1
+- c1
+- claims
+- c1
+- c1
+- claims
+- c1
+- c1
+- claims
+- c1
+- c2
+- verification
+- c1
+- c1
+- claims
+- claims
+- claims
+- c1
+- verification
+- c5
+- c2
+- verification
+- claims
+- c3
+- claims
+- c4
+- c2
+- claims
+- c1
+- claims
+- c2
+- c1
+- c2
+- c2
+- c1
+- c1
+- c1
+- c3
+- c3
+- c3
+- claims
+- claims
+- c3
+- c1
+- c2
+- c1
+- c1
+- claims
+- claims
+- claims
+- c2
+- c2
+- c1
+- c2
+- c1
+- c1
+- claims
+- c2
+- claims
+- claims
+- c2
+- verification
+- verification
+- c3
+- c3
+- claims
+- claims
+- c1
+- c2
+- c2
+- c2
+- c2
+- c1
+- claims
+- verification
+- c2
+- verification
+- claims
+- verification
+- c2
+- claims
+- verification
+- c1
+- claims
+- claims
+- c1
+- verification
+- c1
+- claims
+- c2
+- c1
+- c1
+- c1
+- c3
+- c1
+- c2
+- c1
+- claims
+- c1
+- claims
+- c1
+- claims
+- c2
+- claims
+- c2
+- c1
+- claims
+- claims
+- c2
+- c1
+- c1
+- c2
+- claims
+- verification
+- c1
+- c2
+- c1
+- c1
+- c3
+- c1
+- claims
+- c1
+- verification
+- c2
+- c1
+- c3
+- c2
+- c3
+- claims
+- c2
+- c2
+- c1
+- c1
+- claims
+- c1
+- c2
+- claims
+- c1
+- c1
+- c2
+- c2
+- c1
+- c3
+- c3
+- c1
+- claims
+- claims
+- c2
+- c2
+- c2
+- claims
+- claims
+- c2
+- claims
+- c3
+- c2
+- claims
+- c3
+- c1
+- claims
+- verification
+- c2
+- claims
+- claims
+- claims
+- c3
+- claims
+- c2
+- c1
+- c3
+- c1
+- c1
+- c1
+- c1
+- c1
+- c3
+- c1
+- c2
+- c1
+- c1
+- c1
+- c1
+- c1
+- c1
+- claims
+- c2
+- c1
+- claims
+- c1
+- c1
+- adjudication
+- c2
+- c2
+- c2
+- c1
+- c1
+- c4
+- c1
+- claims
+- c2
+- c5
+- claims
+- c1
+- c2
+- verification
+- c1
+- c6
+- c2
+- c1
+- c1
+- c3
+- c4
+- claims
+- c2
+- c1
+- c1
+- c1
+- c2
+- c7
+- verification
+- c2
+- c4
+- c1
+- c1
+- c1
+- c1
+- c1
+- c3
+- verification
+- c3
+- c3
+- claims
+- c2
+- c1
+- c1
+- claims
+- c2
+- c1
+- c1
+- c1
+- c1
+- c1
+- claims
+- c1
+- claims
+- c1
+- c4
+- claims
+- c3
+- claims
+- c2
+- c3
+- verification
+- c1
+- c3
+- claims
+- c1
+- c2
+- c2
+- c2
+- claims
+- c2
+- c2
+- c3
+- c2
+- c3
+- claims
+- c1
+- c3
+- c2
+- c2
+- c1
+- claims
+- c1
+- c2
+- c3
+- c2
+- c3
+- c1
+- claims
+- c1
+- claims
+- claims
+- quotes
+- claims
+- claims
+- c3
+- claims
+- c4
+- claims
+- c4
+- claims
+- claims
+- gates
+- activities
+- activities
+- gates
+- gates
+- activities
+- gates
+- gates
+- 2. 実行順序（8 Wave / 30 Issue）
+- adjudication
+- adjudication
+- adjudication
+- quotes
+- quotes
+- adjudication
+- adjudication
+- quotes
+- quotes
+- adjudication
+- quotes
+- quotes
+- quotes
+- adjudication
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- adjudication
+- adjudication
+- adjudication
+- quotes
+- quotes
+- quotes
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- separations
+- stages
+- constraints
+- Process Compass 改修 実行計画（Issue #97〜#126 / 全30件）
+- 4. 既知の重複・要調整ポイント（着手時に必ず確認）
+- arxiv
+- quotes
+- arxiv
+- quotes
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- quotes
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- verification
+- quotes
+- verification
+- quotes
+- arxiv
+- arxiv
+- verification
+- arxiv
+- verification
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- verification
+- arxiv
+- arxiv
+- arxiv
+- verification
+- arxiv
+- verification
+- verification
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- adjudication
+- adjudication
+- verification
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- arxiv
+- quotes
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- adjudication
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- adjudication
+- quotes
+- verification
+- quotes
+- quotes
+- quotes
+- verification
+- verification
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- quotes
+- verification
+- arxiv
+- verification
+- verification
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- quotes
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- arxiv
+- arxiv
+- verification
+- quotes
+- verification
+- quotes
+- quotes
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- verification
+- verification
+- adjudication
+- verification
+- verification
+- verification
+- verification
+- verification
+- quotes
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- verification
+- verification
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- verification
+- arxiv
+- verification
+- arxiv
+- arxiv
+- verification
+- arxiv
+- verification
+- arxiv
+- arxiv
+- verification
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- verification
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- arxiv
+- arxiv
+- verification
+- arxiv
+- arxiv
+- verification
+- arxiv
+- verification
+- adjudication
+- arxiv
+- arxiv
+- arxiv
+- quotes
+- arxiv
+- verification
+- arxiv
+- arxiv
+- arxiv
+- arxiv
+- verification
+- adjudication
+- arxiv
+- arxiv
+- verification
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- adjudication
+- arxiv
+- arxiv
+- verification
+- arxiv
+- verification
+- arxiv
+- verification
+- verification
+- verification
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- verification
+- verification
+- arxiv
+- verification
+- verification
+- verification
+- adjudication
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- verification
+- arxiv
+- verification
+- arxiv
+- quotes
+- quotes
+- verification
+- verification
+- quotes
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- adjudication
+- adjudication
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- arxiv
+- arxiv
+- verification
+- verification
+- verification
+- arxiv
+- verification
+- verification
+- verification
+- verification
+- verification
+- quotes
+- quotes
+- verification
+- arxiv
+- arxiv
+- arxiv
+- verification
+- verification
+- quotes
+- verification
+- verification
+- verification
+- verification
+- practices
+- contact_links
+- セキュリティポリシー
+- 3. PR サイズとレビュー品質の実証(数値の原典)
+- c1
+- c3
+- c4
+- c6
+- c7
+- c8
+- c9
+- verification
+- c1
+- c2
+- c3
+- verification
+- c2
+- c3
+- c4
+- verification
+- c2
+- c3
+- c4
+- c5
+- c6
+- c9
+- verification
+- verification
+- c5
+- quotes
+- verification
+- c2
+- verification
+- c2
+- verification
+- c1
+- c2
+- c5
+- c6
+- c7
+- verification
+- c3
+- quotes
+- verification
+- c2
+- c7
+- c9
+- verification
+- c2
+- c4
+- quotes
+- verification
+- c3
+- quotes
+- verification
+- c3
+- c5
+- c6
+- c8
+- verification
+- c5
+- verification
+- c3
+- c4
+- c5
+- c7
+- verification
+- verification
+- verification
+- c4
+- c5
+- c6
+- c9
+- verification
+- quotes
+- verification
+- c1
+- c2
+- c4
+- verification
+- verification
+- c4
+- verification
+- quotes
+- verification
+- c1
+- c3
+- c4
+- verification
+- c1
+- c2
+- c3
+- c6
+- c7
+- verification
+- c1
+- verification
+- c1
+- c3
+- c6
+- c7
+- c8
+- verification
+- c2
+- c3
+- c4
+- c6
+- verification
+- c3
+- c4
+- c5
+- quotes
+- verification
+- verification
+- verification
+- c3
+- verification
+- c1
+- c3
+- verification
+- verification
+- c3
+- c4
+- c6
+- c7
+- verification
+- verification
+- verification
+- c2
+- c3
+- verification
+- c3
+- verification
+- c2
+- verification
+- verification
+- c2
+- verification
+- verification
+- c1
+- c2
+- verification
+- verification
+- c1
+- c2
+- c3
+- c5
+- c6
+- verification
+- verification
+- c4
+- c5
+- verification
+- quotes
+- verification
+- c1
+- verification
+- c4
+- verification
+- c3
+- c4
+- quotes
+- verification
+- c2
+- verification
+- c2
+- verification
+- verification
+- verification
+- c2
+- c3
+- verification
+- c2
+- verification
+- c3
+- verification
+- verification
+- verification
+- c2
+- verification
+- c1
+- c3
+- verification
+- verification
+- verification
+- verification
+- verification
+- c2
+- c3
+- c4
+- verification
+- c2
+- c3
+- verification
+- verification
+- c2
+- c3
+- verification
+- c2
+- verification
+- c1
+- verification
+- c1
+- c2
+- verification
+- c1
+- quotes
+- verification
+- verification
+- verification
+- verification
+- verification
+- adjudication
+- verification
+- c2
+- c3
+- verification
+- adjudication
+- verification
+- verification
+- verification
+- c3
+- verification
+- verification
+- verification
+- verification
+- adjudication
+- verification
+- verification
+- verification
+- verification
+- verification
+- c3
+- verification
+- verification
+- adjudication
+- verification
+- adjudication
+- verification
+- c1
+- verification
+- c1
+- c3
+- c4
+- verification
+- c2
+- verification
+- c4
+- c5
+- quotes
+- verification
+- c4
+- verification
+- c1
+- c2
+- verification
+- verification
+- verification
+- c5
+- quotes
+- verification
+- adjudication
+- quotes
+- verification
+- c2
+- verification
+- verification
+- c1
+- verification
+- c1
+- verification
+- c1
+- c2
+- c3
+- quotes
+- verification
+- verification
+- c10
+- c11
+- c13
+- c6
+- c7
+- verification
+- verification
+- c2
+- verification
+- adjudication
+- verification
+- verification
+- c4
+- verification
+- c1
+- c6
+- verification
+- c2
+- c3
+- verification
+- verification
+- c2
+- verification
+- verification
+- c1
+- verification
+- c2
+- c3
+- verification
+- c3
+- verification
+- verification
+- verification
+- c3
+- verification
+- c3
+- verification
+- verification
+- c4
+- verification
+- verification
+- verification
+- adjudication
+- verification
+- verification
+- c6
+- c9
+- verification
+- c2
+- c4
+- verification
+- c3
+- verification
+- c2
+- c4
+- quotes
+- verification
+- verification
+- c1
+- c6
+- verification
+- c1
+- c5
+- verification
+- verification
+- c1
+- c6
+- verification
+- verification
+- c1
+- c3
+- verification
+- c4
+- verification
+- c2
+- verification
+- c3
+- quotes
+- verification
+- verification
+- quotes
+- verification
+- verification
+- verification
+- quotes
+- verification
+- c4
+- verification
+- verification
+- verification
+- quotes
+- quotes
+- verification
+- c4
+- verification
+- quotes
+- verification
+- c3
+- verification
+- c4
+- quotes
+- verification
+- quotes
+- c2
+- c3
+- verification
+- c3
+- verification
+- c1
+- quotes
+- verification
+- c5
+- quotes
+- verification
+- c2
+- c3
+- c4
+- c5
+- quotes
+- verification
+- c1
+- c2
+- c3
+- c5
+- c6
+- c7
+- verification
+- c2
+- verification
+- c1
+- c3
+- c4
+- verification
+- c2
+- c3
+- c4
+- verification
+- verification
+- c6
+- verification
+- c2
+- verification
+- verification
+- c1
+- c3
+- c4
+- c5
+- quotes
+- verification
+- c1
+- verification
+- verification
+- verification
+- verification
+- verification
+- c3
+- verification
+- verification
+- c1
+- verification
+- c3
+- c5
+- quotes
+- verification
+- c3
+- verification
+- c2
+- verification
+- c4
+- verification
+- c3
+- verification
+- verification
+- c2
+- c3
+- verification
+- verification
+- verification
+- c1
+- c3
+- verification
+- c1
+- c3
+- verification
+- c2
+- c3
+- verification
+- verification
+- c2
+- verification
+- verification
+- verification
+- verification
+- c2
+- verification
+- verification
+- verification
+- verification
+- c2
+- c3
+- c4
+- verification
+- quotes
+- verification
+- c3
+- verification
+- verification
+- verification
+- verification
+- verification
+- adjudication
+- verification
+- c3
+- verification
+- c3
+- verification
+- quotes
+- verification
+- verification
+- verification
+- c2
+- verification
+- verification
+- adjudication
+- verification
+- verification
+- quotes
+- c1
+- c2
+- c4
+- verification
+- verification
+- verification
+- verification
+- verification
+- c2
+- c3
+- verification
+- verification
+- verification
+- c4
+- verification
+- verification
+- verification
+- c2
+- verification
+- verification
+- verification
+- c1
+- c3
+- verification
+- c2
+- verification
+- quotes
+- verification
+- verification
+- c1
+- c3
+- verification
+- verification
+- verification
+- c1
+- verification
+- verification
+- verification
+- quotes
+- adjudication
+- verification
+- adjudication
+- verification
+- c2
+- verification
+- c4
+- c5
+- verification
+- verification
+- verification
+- c2
+- verification
+- c2
+- verification
+- verification
+- verification
+- adjudication
+- verification
+- verification
+- verification
+- verification
+- c1
+- c3
+- verification
+- c1
+- verification
+- verification
+- verification
+- c2
+- verification
+- verification
+- quotes
+- verification
+- verification
+- c1
+- c4
+- verification
+- verification
+- c2
+- verification
+- verification
+- c2
+- verification
+- verification
+- verification
+- c3
+- verification
+- verification
+- c1
+- verification
+- c1
+- c2
+- verification
+- verification
+- verification
+- adjudication
+- verification
+- quotes
+- verification
+- c4
+- verification
+- verification
+- c2
+- verification
+- c2
+- c3
+- verification
+- verification
+- verification
+- c3
+- verification
+- c1
+- verification
+- adjudication
+- verification
+- adjudication
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- c2
+- verification
+- verification
+- verification
+- verification
+- c3
+- verification
+- verification
+- verification
+- c2
+- verification
+- verification
+- c2
+- verification
+- c2
+- verification
+- verification
+- c2
+- c3
+- verification
+- c3
+- c4
+- verification
+- c2
+- c3
+- c4
+- verification
+- c2
+- c3
+- verification
+- c2
+- c3
+- verification
+- c2
+- c3
+- verification
+- verification
+- verification
+- c1
+- c3
+- verification
+- c2
+- c3
+- verification
+- c2
+- c4
+- c5
+- quotes
+- verification
+- c3
+- c4
+- verification
+- c2
+- verification
+- c1
+- c3
+- c4
+- verification
+- c3
+- verification
+- c1
+- c3
+- verification
+- adjudication
+- verification
+- c2
+- verification
+- verification
+- c2
+- verification
+- c2
+- c3
+- c5
+- c7
+- verification
+- c3
+- verification
+- quotes
+- verification
+- c1
+- c3
+- c4
+- c5
+- c6
+- verification
+- c2
+- c3
+- c4
+- verification
+- verification
+- c2
+- verification
+- c1
+- c3
+- verification
+- verification
+- c2
+- verification
+- c2
+- verification
+- verification
+- verification
+- c2
+- c3
+- c4
+- c5
+- quotes
+- verification
+- c1
+- c3
+- verification
+- quotes
+- c2
+- c3
+- verification
+- verification
+- quotes
+- c2
+- c3
+- c4
+- verification
+- c4
+- quotes
+- verification
+- adjudication
+- verification
+- quotes
+- c1
+- verification
+- verification
+- quotes
+- c3
+- c4
+- verification
+- c2
+- c4
+- verification
+- verification
+- c2
+- verification
+- c4
+- quotes
+- verification
+- verification
+- c4
+- verification
+- verification
+- c2
+- c3
+- c4
+- quotes
+- verification
+- c1
+- c3
+- verification
+- c2
+- c3
+- verification
+- verification
+- c1
+- verification
+- verification
+- c2
+- c3
+- c4
+- verification
+- verification
+- verification
+- verification
+- verification
+- c2
+- c3
+- verification
+- verification
+- c1
+- verification
+- quotes
+- verification
+- c1
+- verification
+- adjudication
+- verification
+- quotes
+- verification
+- c3
+- quotes
+- verification
+- quotes
+- verification
+- verification
+- c1
+- c3
+- verification
+- c1
+- c5
+- c6
+- verification
+- c6
+- verification
+- c4
+- c5
+- quotes
+- verification
+- c3
+- verification
+- c1
+- c2
+- verification
+- quotes
+- verification
+- verification
+- quotes
+- verification
+- c3
+- c4
+- verification
+- c2
+- c4
+- c5
+- quotes
+- verification
+- c1
+- c3
+- c4
+- quotes
+- verification
+- c4
+- verification
+- c1
+- verification
+- quotes
+- verification
+- c1
+- verification
+- c4
+- quotes
+- verification
+- c2
+- c3
+- c4
+- verification
+- c1
+- c3
+- c4
+- c5
+- quotes
+- verification
+- c2
+- c3
+- c4
+- verification
+- c2
+- c3
+- c5
+- quotes
+- verification
+- c1
+- c2
+- c3
+- c5
+- c6
+- c7
+- c8
+- verification
+- c2
+- c3
+- c4
+- c5
+- quotes
+- verification
+- c1
+- c2
+- verification
+- quotes
+- verification
+- quotes
+- verification
+- c2
+- c3
+- c4
+- c5
+- quotes
+- verification
+- project-management.md
+- antiPatterns
+- antiPatterns
+- antiPatterns
+- antiPatterns
+- antiPatterns
+- roles
+- workProducts
+- antiPatterns
+- antiPatterns
+- exempt
+- 0. 本計画の前提（毎セッション必読）
+- quant
+- crossref
+- quotes
+- quotes
+- quant
+- quant
+- quant
+- quant
+- quant
+- quant
+- crossref
+- quant
+- quotes
+- quotes
+- quotes
+- crossref
+- quotes
+- quant
+- quant
+- crossref
+- quant
+- quotes
+- quant
+- crossref
+- quotes
+- quotes
+- quant
+- quant
+- quant
+- quant
+- quant
+- quant
+- quant
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quant
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quant
+- quant
+- quotes
+- quant
+- quant
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quant
+- quant
+- quant
+- quant
+- quant
+- quant
+- quotes
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- crossref
+- quant
+- quotes
+- quotes
+- quotes
+- quant
+- quant
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quant
+- quant
+- crossref
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quant
+- quotes
+- crossref
+- quant
+- quant
+- quant
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quant
+- quotes
+- quant
+- quant
+- quant
+- quant
+- quant
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quant
+- quant
+- quotes
+- quant
+- quant
+- quant
+- crossref
+- crossref
+- crossref
+- quotes
+- quotes
+- quant
+- crossref
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quotes
+- quant
+- quant
+- quotes
+- quant
+- quant
+- quant
+- quant
+- crossref
+- crossref
+- quant
+- quant
+- quant
+- quant
+- quant
+- quotes
+- crossref
+- quotes
+- quotes
+- crossref
+- quant
+- quotes
+- crossref
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- crossref
+- quotes
+- quotes
+- crossref
+- quotes
+- quotes
+- crossref
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- crossref
+- quotes
+- quant
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quotes
+- quant
+- crossref
+- crossref
+- crossref
+- quotes
+- quotes
+- quotes
+- quant
+- quant
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quant
+- quotes
+- quant
+- quotes
+- quant
+- quant
+- phases
+- roles
+- workProducts
+- phases
+- roles
+- workProducts
+- phases
+- roles
+- workProducts
+- phases
+- roles
+- workProducts
+- phases
+- roles
+- phases
+- phases
+- roles
+- workProducts
+- phases
+- roles
+- workProducts
+- 5.5 次セッションへの引き継ぎ（2026-08-05 時点・Wave 5 完了。履歴）
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- quotes
+- workProducts
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- alsoFoundBy
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- references
+- references
+- references
+- references
+- references
+- references
+- references
 
 ## God Nodes (most connected - your core abstractions)
 1. `付録: 公式出典の一覧(生成)` - 65 edges
@@ -628,33 +6339,33 @@
 6. `check()` - 24 edges
 7. `Issue #300 決定の反映の記録` - 20 edges
 8. `Process Compass` - 19 edges
-9. `1. ADR` - 17 edges
-10. `3. 論点ごとの判定` - 15 edges
+9. `findings` - 17 edges
+10. `1. ADR` - 17 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `2. 判定の一覧表` --references--> `check()`  [INFERRED]
-  research/302-310-deliberation/council-C-02-field.md → scripts/check-section-refs.mjs
-- `C-3 しきい値・窓。計測の実装と自己申告の経路` --references--> `check()`  [INFERRED]
-  research/302-310-deliberation/council-C-02-field.md → scripts/check-section-refs.mjs
-- `C-5 検査していないことを実装マークで表示するか` --references--> `check()`  [INFERRED]
-  research/302-310-deliberation/council-C-02-field.md → scripts/check-section-refs.mjs
-- `C-8 推奨・許容の文末の規則。平叙文の扱い` --references--> `check()`  [INFERRED]
-  research/302-310-deliberation/council-C-02-field.md → scripts/check-section-refs.mjs
 - `C-5 検査していないことを実装マークで表示するか` --references--> `check()`  [INFERRED]
   research/302-310-deliberation/council-C-03-qa-audit.md → scripts/check-section-refs.mjs
+- `2. 判定の一覧表` --references--> `check()`  [INFERRED]
+  research/302-310-deliberation/council-C-04-standards.md → scripts/check-section-refs.mjs
+- `C-5 検査していないことを実装マークで表示するか` --references--> `check()`  [INFERRED]
+  research/302-310-deliberation/council-C-04-standards.md → scripts/check-section-refs.mjs
+- `0.6 実装マークの属性(C-5)` --references--> `check()`  [INFERRED]
+  research/302-310-deliberation/implementation-C.md → scripts/check-section-refs.mjs
+- `C-5 実装マークの検査の手段の属性` --references--> `check()`  [INFERRED]
+  research/302-310-deliberation/implementation-C.md → scripts/check-section-refs.mjs
 
 ## Import Cycles
 - None detected.
 
-## Communities (604 total, 14 thin omitted)
+## Communities (6315 total, 13 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
 Nodes (16): 0. プロセスの概要, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+8 more)
 
 ### Community 1 - "エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)"
-Cohesion: 0.08
-Nodes (25): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出典一覧, 2-1. SWE-bench Verified — 飽和局面へ, 2-2. 後続ベンチマーク(SWE-bench Verified の代替として台頭), 2-3. 図解用の整理, 2. ベンチマークの最新値, 3. METR の時間地平 — 「倍加 7 か月」は更新された, 4-1. フレームワーク: AutoGen の三分岐と MAF の GA (+17 more)
+Cohesion: 0.06
+Nodes (32): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出典一覧, 1-1. Anthropic — Mythos クラスの登場と Opus 5, 1-2. Cognition(Devin)— 自社モデル路線と「群」への転換, 1-3. OpenAI — Codex の世代交代と GPT-5.6 ファミリー, 1-4. GitHub Copilot coding agent — 統制設計は維持、範囲は拡大, 1-5. Google — Jules の GA と Gemini 3 系, 1-6. 新興・その他 (+24 more)
 
 ### Community 2 - "プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査"
 Cohesion: 0.06
@@ -669,8 +6380,8 @@ Cohesion: 0.06
 Nodes (33): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ) (+25 more)
 
 ### Community 5 - "エージェント型開発(自律・マルチエージェント)の現在地 調査メモ"
-Cohesion: 0.08
-Nodes (25): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 2-1. Anthropic による協調パターンの分類(設計語彙の基準点), 2-2. 主要フレームワーク, 2. マルチエージェント・オーケストレーションのパターンとフレームワーク, 3-1. SWE-bench とその派生, 3-2. 到達点の推移(SWE-bench Verified、公式発表値) (+17 more)
+Cohesion: 0.06
+Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
 
 ### Community 6 - "0007-schema-driven-process-data.md"
 Cohesion: 0.15
@@ -693,12 +6404,12 @@ Cohesion: 0.08
 Nodes (26): 0. このメモの位置づけと全体像, 1.1 AWS AI-DLC(AI-Driven Development Life Cycle), 1.2 Sean Grove(OpenAI)「The New Code」— 仕様を書く人が最も価値ある programmer, 1.3 「Product Engineer」への収束論(everyone becomes a product owner の実像), 1. 理想像の出所(建前=そう語られる), 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義) (+18 more)
 
 ### Community 11 - "test-tailoring-engine.mjs"
-Cohesion: 0.18
-Nodes (10): ADR-0065, ADR-0066, ADR-0069, integrated, kb, knownIds, load(), ADR-0063 (+2 more)
+Cohesion: 0.09
+Nodes (23): ADR-0065, ADR-0066, ADR-0069, integrated, kb, knownIds, load(), ADR-0063 (+15 more)
 
 ### Community 12 - "コントリビューションガイド"
-Cohesion: 0.09
-Nodes (21): 報告と執行, 帰属, 私たちの基準, 私たちの誓い, 行動規範(Code of Conduct), Pull Request のルール, コントリビューションガイド, ライセンスへの同意 (+13 more)
+Cohesion: 0.15
+Nodes (11): 報告と執行, 帰属, 私たちの基準, 私たちの誓い, 行動規範(Code of Conduct), Pull Request のルール, コントリビューションガイド, ライセンスへの同意 (+3 more)
 
 ### Community 13 - "テスト駆動開発(TDD)調査メモ"
 Cohesion: 0.10
@@ -889,8 +6600,8 @@ Cohesion: 0.33
 Nodes (5): Mermaid 作図規約, スタイル規約, 書き方, 記法の選択ガイド, 階層構造の表現(本プロジェクトの核)
 
 ### Community 60 - "main"
-Cohesion: 0.11
-Nodes (17): Git 戦略, セキュリティポリシー, 対象, 脆弱性の報告方法, サポート, 突合の結果(2026-10-08), 突合の結果(2026-10-08), loadEnv() (+9 more)
+Cohesion: 0.13
+Nodes (17): Git 戦略, 4.1 要求仕様の曖昧語の一覧, 4.2 規格の本文と検査ツールの一致を保つ実務, 4.3 自己承認の禁止の機械検査, 4. 世の中がどうなっているか, 1.1 概念, 1.2 ベース自動リターゲット(#118 の前提の検証), 1.3 主要ツールの現況(2026-08-05 時点) (+9 more)
 
 ### Community 61 - "作図規約の検討メモ(2026-07-08)"
 Cohesion: 0.33
@@ -932,9 +6643,9 @@ Nodes (14): 10. G-7 の署名の意味は変えず、G-8 を層1 へ照らす, 1
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 71 - "research-ledger.mjs"
-Cohesion: 0.14
-Nodes (24): args, arxivWait(), decodeEntities(), fetchPdfText(), fetchText(), FINDINGS_PATH, flags, hashCode() (+16 more)
+### Community 71 - "verifyCard"
+Cohesion: 0.25
+Nodes (11): arxivWait(), decodeEntities(), fetchText(), htmlDate(), htmlTitle(), norm(), quoteMatch(), sleep() (+3 more)
 
 ### Community 72 - "phase2-aidlc/summary.md"
 Cohesion: 0.33
@@ -997,12 +6708,12 @@ Cohesion: 0.50
 Nodes (3): チェックリスト, 変更内容, 概要
 
 ### Community 87 - "research/ — 調査メモ置き場"
-Cohesion: 0.40
+Cohesion: 0.33
 Nodes (5): research/ — 調査メモ置き場, 出典台帳(2026-09 開始), 最新の外部調査を引くとき, 構成, 運用ルール(実運用で確定済み)
 
 ### Community 88 - "Issue 別の根拠索引"
-Cohesion: 0.07
-Nodes (30): #109, #110, #123, #135, #139, #222, #240, #248 (+22 more)
+Cohesion: 0.06
+Nodes (31): #109, #110, #123, #135, #139, #222, #240, #248 (+23 more)
 
 ### Community 89 - "index.md"
 Cohesion: 0.50
@@ -1030,7 +6741,7 @@ Nodes (5): 実装とは組織移行である, 実装リファレンス一覧, �
 
 ### Community 97 - "package.json"
 Cohesion: 0.09
-Nodes (22): ADR-0006, ADR-0020, ADR-0017, devDependencies, starlight-links-validator, textlint, textlint-rule-preset-ja-technical-writing, yaml (+14 more)
+Nodes (29): ADR-0006, ADR-0020, ADR-0017, dependencies, astro@^7.2.0, astro-mermaid@^2.1.0, @astrojs/sitemap@^3.7.3, mermaid@^11.16.1 (+21 more)
 
 ### Community 99 - "調査メモ: 4大会議体と決裁権限マトリクス／デジタル根回し（Issue #102・#103）"
 Cohesion: 0.05
@@ -1113,8 +6824,8 @@ Cohesion: 0.14
 Nodes (13): 1.1 適用条件, 1.2 承認と事後レビュー, 1.3 一般的な失敗パターン, 1.4 監視すべき指標, 1. 調査結果: 緊急変更(Emergency Change)の運用, 2.1 ファストトラックの適用条件を「期日の性質」で限定する, 2.2 何を後回しにできるか・できないかを明示する, 2.3 乱用防止の制約（Issue の問いへの回答） (+5 more)
 
 ### Community 120 - "118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA"
-Cohesion: 0.06
-Nodes (35): 10. Git 初心者にとってのスタック運用の難度, 118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA, 11.1 ロールモデル(スタック運用で必要な役割), 11.2 ゲート・意思決定, 11.3 成果物(インプット/アウトプット), 11.4 階層構造(3 階層で図解する素材), 11. 調査フレームワーク観点での整理(#118 の運用標準向け素材), 12. 考察(事実からの解釈。一次情報ではない) (+27 more)
+Cohesion: 0.08
+Nodes (24): 10. Git 初心者にとってのスタック運用の難度, 118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA, 11.1 ロールモデル(スタック運用で必要な役割), 11.2 ゲート・意思決定, 11.3 成果物(インプット/アウトプット), 11.4 階層構造(3 階層で図解する素材), 11. 調査フレームワーク観点での整理(#118 の運用標準向け素材), 12. 考察(事実からの解釈。一次情報ではない) (+16 more)
 
 ### Community 121 - "調査メモ: Seeded Errors による自動化バイアス検知と、承認権限の一時制限・例外決裁（Issue #113 / #114）"
 Cohesion: 0.05
@@ -1284,9 +6995,9 @@ Nodes (24): 1.1 ISO/IEC/IEEE 12207・15288 の tailoring(仕立て), 1.2 ISO 262
 Cohesion: 0.15
 Nodes (12): AIエージェントへ与える指示, コンフリクトの解消, ツールを選ぶ基準, レビューの割り当て, 前提の確認(2026-08-05 時点), 各層が満たすべき条件, 導入しない判断, 操作事故へのフェイルセーフ (+4 more)
 
-### Community 164 - "check-template-drift.mjs"
-Cohesion: 0.10
-Nodes (16): ADR-0031, AUX_TEMPLATES, cfg, engineDst, engineSrc, kb, kbDst, keys (+8 more)
+### Community 164 - "waterfall.yaml"
+Cohesion: 0.04
+Nodes (48): id, inputs, name, outputs, roles, summary, tasks, category (+40 more)
 
 ### Community 165 - "template-repository.md"
 Cohesion: 0.11
@@ -1420,9 +7131,9 @@ Nodes (6): 7. 本標準への提言, 提言 1: 前提ごとの崩れやすさの
 Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 198 - "1. 自律コーディングエージェントの主要実装例"
-Cohesion: 0.25
-Nodes (8): 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules, 1-6. Claude Code / Claude Agent SDK(Anthropic), 1-7. 一覧(建前 vs 現実の要約), 1. 自律コーディングエージェントの主要実装例
+### Community 198 - "scrum.yaml"
+Cohesion: 0.04
+Nodes (47): id, inputs, name, outputs, roles, summary, tasks, category (+39 more)
 
 ### Community 199 - "2.1 T 区分（技術）"
 Cohesion: 0.40
@@ -1513,12 +7224,12 @@ Cohesion: 0.15
 Nodes (12): 0. 調査の問い, 133 一次調査: コンテキストの鮮度監査と忘却, 1.1 一次情報, 1.2 所見, 1.3 本標準への当てはめ, 1. Q1 落とすか、警告にするか, 2. Q2 対応関係の特定, 3. Q3 検知と削減のどちらを主とするか (+4 more)
 
 ### Community 221 - "build-template-kb.mjs"
-Cohesion: 0.08
-Nodes (25): normalized, relative, repoRoot, res, ADR-0035, ADR-0060, ADR-0062, C-6 曖昧語 (+17 more)
+Cohesion: 0.04
+Nodes (41): normalized, relative, repoRoot, res, ADR-0031, ADR-0035, ADR-0060, ADR-0062 (+33 more)
 
-### Community 222 - "comparison.astro"
-Cohesion: 0.11
-Nodes (16): @astrojs/starlight, roleName, seg, wpName, allRows, categoryLabel, proposalRows, rows (+8 more)
+### Community 222 - "SRC-0001.yaml"
+Cohesion: 0.06
+Nodes (31): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+23 more)
 
 ### Community 223 - "0025-context-forgetting-over-detection.md"
 Cohesion: 0.33
@@ -1613,8 +7324,8 @@ Cohesion: 0.20
 Nodes (10): G-5 自動検証 CI(機械判定・即時), リスク区分の下限の照合, 依存関係の追加(基準8), 基準値と除外設定の変更, 検査対象が存在しない場合の扱い, 法的な評価を本標準が示さない理由, 知財潔白性の検査, 秘匿情報の混入(基準7) (+2 more)
 
 ### Community 247 - "5.4 次セッションへの引き継ぎ（2026-08-06 時点・最新）"
-Cohesion: 0.04
-Nodes (48): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, #129 で確定した設計（後続で覆さないこと）, #130 で確定した設計（後続で覆さないこと）, #132 で確定した設計（後続で覆さないこと） (+40 more)
+Cohesion: 0.14
+Nodes (14): #129 で確定した設計（後続で覆さないこと）, #130 で確定した設計（後続で覆さないこと）, #132 で確定した設計（後続で覆さないこと）, #133 で確定した設計（後続で覆さないこと）, #140・#131 で確定した語彙（以降は必ずこれに従う）, #141 で判明した重要な訂正（引用しないこと・引用すること）, #142 で変わった URL（重要）, #143 で確定した設計（後続で覆さないこと） (+6 more)
 
 ### Community 248 - "0035-separation-by-execution-context.md"
 Cohesion: 0.15
@@ -1652,9 +7363,9 @@ Nodes (9): BASE-Q1 / BASE-Q2 前回メモの再確認(本テーマに掛かる�
 Cohesion: 0.20
 Nodes (9): BASE-Q2・BASE-Q3 前回メモの再確認(本テーマの範囲), TH02-Q1 極小組織向け規格の代償措置, TH02-Q2 4M 変化点管理・MOC と体制変更への転用, TH02-Q3 モデルの世代交代・退役を変化点として扱う実務, TH02-Q4 段階的有効化の条件と「未実施」と「通過」の区別, TH02-Q5 1名+AI で「解けないもの」の外部記録, TH02 体制・ステージの変化点と段階的有効化, 会議体への問い (+1 more)
 
-### Community 257 - "ref_astro_content"
-Cohesion: 0.15
-Nodes (8): categoryLabel, diagram, roleName, seg, PROCESS_MODEL_ID, ADR-0006, ADR-0007, ADR-0020
+### Community 257 - "process-diagrams.ts"
+Cohesion: 0.06
+Nodes (39): @astrojs/starlight@^0.41.6, @astrojs/starlight, roleName, seg, wpName, categoryLabel, diagram, roleName (+31 more)
 
 ### Community 258 - "TH08 仕様・要求・前提・トレーサビリティ"
 Cohesion: 0.20
@@ -1708,9 +7419,9 @@ Nodes (10): 286 準拠テンプレートの運用性 — 現状の評価(2026-10
 Cohesion: 0.25
 Nodes (7): #140 で確定した設計（後続で覆さないこと）, memo.txt ↔ Issue 突合表, 対応 Epic, 未対応・ズレ4件の内訳, 突合表, 経緯（再発防止のため記録する）, 集計
 
-### Community 271 - "dependencies"
-Cohesion: 0.29
-Nodes (7): dependencies, astro, astro-mermaid, @astrojs/sitemap, @astrojs/starlight, mermaid, sharp
+### Community 271 - "SRC-0016.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 272 - "決定"
 Cohesion: 0.18
@@ -1735,6 +7446,10 @@ Nodes (10): テンプレ6: 企画書(intent-brief), 事業リスクと安全リ�
 ### Community 277 - "288 会議体 意見書03 — 規格・法務の立場(製造物責任、規制、適合性評価)"
 Cohesion: 0.05
 Nodes (37): 0.1 規制自身が「結果の義務」と「手段の義務」を区別している, 0.2 製造物責任と契約責任: 記録が効く場面と効かない場面, 0.3 対外の「品質保証」表示は、根拠を求められる, 0. 前提の整理: 「保証」の3つの意味と、それぞれの法的な帰結, 1. 最上位の主張の文言, 288 会議体 意見書03 — 規格・法務の立場(製造物責任、規制、適合性評価), 2. 組織の合意と、許容できるリスクの決め方, 3. AI の関与を前提にした保証の根拠 (+29 more)
+
+### Community 278 - "SRC-0017.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 279 - "網羅性"
 Cohesion: 0.33
@@ -1801,8 +7516,8 @@ Cohesion: 0.17
 Nodes (11): 何を追跡するか, 書式, 検査の対象, 検査の手段, 検査の限界, 準拠テンプレートのスキルの文, 逆流を検出できない, 運用 (+3 more)
 
 ### Community 297 - "check-section-refs.mjs"
-Cohesion: 0.12
-Nodes (24): ADR-0054, ADR-0056, 判定の一覧, 突合の結果(2026-10-08), adrNumbers, ANNEX, CHAPTER, check() (+16 more)
+Cohesion: 0.05
+Nodes (50): ADR-0054, ADR-0056, 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 5. 議題に無い論点, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し (+42 more)
 
 ### Community 298 - "3.5.3 兼務を判定する単位(人と実行主体の文脈)"
 Cohesion: 0.18
@@ -1844,9 +7559,9 @@ Nodes (35): 1. ISO 9000 / ISO 9001: 品質保証の定義と、トップマネ�
 Cohesion: 0.22
 Nodes (8): 284・285 会議体の論点整理(2026-09-30), オーナーの改訂方針の要約, 会議体の進め方, 入力, 現行の標準の要点(論点に関わる部分), 確かめたいこと(オーナーが完了を判断する2点), 論点A: 席と担い手(#284), 論点B: 品質保証の論証(#285)
 
-### Community 308 - "check-gate-criteria.mjs"
-Cohesion: 0.14
-Nodes (13): extractCriteria(), fromSource, fromYaml, GATE_IDS, KB, ADR-0048, problems, ROOT (+5 more)
+### Community 308 - "SRC-0065.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 309 - "284・285 4巡目の検証を受けた修正の決定(第4巡、2026-10-01)"
 Cohesion: 0.22
@@ -2401,8 +8116,8 @@ Cohesion: 0.14
 Nodes (13): (1) 立場と、守ろうとする失敗, (2) 具体案, (3) 他の立場への反論, (4) 自案が失敗する条件(自分で落とす), (5) 根拠水準と、実証が無い部分, 会議体 #295 意見書02: AI 先進の現場(リスクと結果指標で統制する側), 論点1 上限の既定の扱い: 「遮断」から「審査深度の引き上げ」へ。遮断は未保証行だけに残す, 論点2 算定方式 (+5 more)
 
 ### Community 448 - "ref_node_fs"
-Cohesion: 0.10
-Nodes (16): DEST, FILES, hashes(), ROOT, sha256(), DIR, errors, files (+8 more)
+Cohesion: 0.04
+Nodes (45): ADR-0040, ADR-0058, DEST, FILES, hashes(), ROOT, sha256(), DIR (+37 more)
 
 ### Community 449 - "#295 棚卸しの要約(2026-10-11。担当の報告を主担当が要約)"
 Cohesion: 0.20
@@ -2424,9 +8139,9 @@ Nodes (38): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 項目�
 Cohesion: 0.09
 Nodes (21): 1.1 件数, 1.2 標準へ移す価値があると見たもの, 1.3 移す前に議論が要るもの(そのまま移さない), 1.4 捨ててよいと見たもの, 1. 要旨, 2. 章別の対応表, 3. 本が古い・標準と食い違う箇所, 4.1 標準側を読んでいない範囲 (+13 more)
 
-### Community 454 - "check-recalibration-registry.mjs"
-Cohesion: 0.20
-Nodes (8): ADR-0058, DOC, JSON_FILE, problems, registry, ROOT, rows, text
+### Community 454 - "SRC-0066.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 455 - "#295 会議体の議題(2026-10-11)"
 Cohesion: 0.33
@@ -2436,13 +8151,13 @@ Nodes (5): #295 会議体の議題(2026-10-11), 事実, 制約(コアポリシ�
 Cohesion: 0.06
 Nodes (33): 1.1 語が出る全箇所, 1.2 第5章 5.5.4 の語の禁止との関係, 1.3 語の出所(調査メモ → 条項), 1.4 EV-0090, 1.5 5.4.6 の文脈から読める「測りたいもの」, 1.6 関連する既存の指標(重なりの確認), 1.7 計測の実装(実行して確かめたこと), 1.8 前回の会議体の立場(#300) (+25 more)
 
-### Community 458 - "check-template-fields.mjs"
-Cohesion: 0.20
-Nodes (9): ADR-0040, yaml, problems, ROOT, spec, STANDARD, standardText, TEMPLATE (+1 more)
+### Community 458 - "SRC-0067.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
-### Community 459 - "proposal-logic.md"
-Cohesion: 0.25
-Nodes (7): トレース(調整の根拠), 優先度の設計, 処理の流れ, 後続の実装との接続, 検証, 決定性, 競合解決の規則
+### Community 459 - "SRC-0069.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 460 - "ゲート記録 調査03: 業界実務と docs-as-code の記録方式"
 Cohesion: 0.04
@@ -2669,8 +8384,8 @@ Cohesion: 0.07
 Nodes (26): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8) (+18 more)
 
 ### Community 519 - "Issue #306 調査 — 既存のリポジトリへ後から入れる場合の扱い"
-Cohesion: 0.08
-Nodes (25): 0. 要約(論点ごと), 1.1 適合の主張に関する規定, 1.2 移行計画(`phase5-implementation/overview.md`・`enablement.md`), 1.3 準拠テンプレートに関する規定, 1.4 機械の挙動(実行して確かめたこと), 1.5 #300 で出た文案と、その中の未決の判断, 1. 標準の現状(突合), 2.1 適合を 2 値で扱い、範囲の宣言で調整する型 (+17 more)
+Cohesion: 0.12
+Nodes (16): 0. 要約(論点ごと), 2.1 適合を 2 値で扱い、範囲の宣言で調整する型, 2.2 途中を「低い水準」として名指しする型, 2.3 後付けの実務(製品の仕様), 2.4 #300 調査A が既に確かめたこと(再掲しない), 2.5 外部から言えること、言えないこと, 2. 世の中がどうなっているか, 3.1 決定 1: 導入の途中という状態を設けるか (+8 more)
 
 ### Community 520 - "1. 標準の現状(突合)"
 Cohesion: 0.08
@@ -2681,8 +8396,8 @@ Cohesion: 0.08
 Nodes (24): 0. 要約(10 行), 1.1 関係する記述(逐語), 1.2 ADR-0028 の決定(逐語), 1.3 規則・エンジン・試験(実行して確かめた), 1.4 回答だけで未達の表示が消える経路(実行して再現した), 1.5 省略の体制での開示(コードの読み。実行していない), 1.6 S0 を囲む規定, 1.7 fixture と回帰スイートが固定していること (+16 more)
 
 ### Community 522 - "調査: 規則と検査の食い違い(Issue #308)"
-Cohesion: 0.06
-Nodes (30): 0. 要約(論点ごと), 1.1 規則の全文と由来, 1.2 図・表・データ・検査の突合, 1.3 機械の挙動(実行して確かめた), 1.4 ゲートごとの「成果物の結果責任者」と「判定者」(標準の既定), 1.5 1 名体制の G-2・G-4 の判定者に関する規定, 1.6 記録の新旧と上書きの関係, 1. 論点A: `sep-self-approval`(起案者が自分の起案を判定しない) (+22 more)
+Cohesion: 0.07
+Nodes (26): 0. 要約(論点ごと), 1.1 規則の全文と由来, 1.2 図・表・データ・検査の突合, 1.3 機械の挙動(実行して確かめた), 1.4 ゲートごとの「成果物の結果責任者」と「判定者」(標準の既定), 1.5 1 名体制の G-2・G-4 の判定者に関する規定, 1.6 記録の新旧と上書きの関係, 1. 論点A: `sep-self-approval`(起案者が自分の起案を判定しない) (+18 more)
 
 ### Community 523 - "4. 争点と反論"
 Cohesion: 0.09
@@ -2725,12 +8440,12 @@ Cohesion: 0.07
 Nodes (27): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, 6. 論点どうしの依存(見つけたもの), 7. この意見書の限界, C-10 テンプレートのスキルにだけある手引き (+19 more)
 
 ### Community 533 - "1. 論点ごとの記録"
-Cohesion: 0.13
-Nodes (15): 1. 論点ごとの記録, 55 件の処理(番号は `tmp/302-310/s310-skills-inventory.md` による), C-10 スキルの文, C-11 直し残し, C-12 第2章 2.5, C-1・C-2 「自動承認の比率」, C-3 残る 3 つの比率, C-4 `sep-self-approval` の単位 (+7 more)
+Cohesion: 0.07
+Nodes (27): 0.1 文末(1.7.1), 0.2 表の升の語(1.7.3), 0.3 附属書の種別(1.5), 0.4 同じ事項は 1 か所に書く(1.7), 0.5 番号の割り当て, 0.6 実装マークの属性(C-5), 0. 後の担当(組A・組B)が従う決まり, 1. 論点ごとの記録 (+19 more)
 
 ### Community 534 - "2. 世の中がどうなっているか(原典の逐語)"
-Cohesion: 0.13
-Nodes (15): 2.1 労働者派遣事業と請負により行われる事業との区分に関する基準(昭和61年労働省告示第37号), 2.2 厚生労働省の具体的判断基準(「労働者派遣・請負を適正に行うためのガイド」), 2.4 IPA「情報システム・モデル取引・契約書」第二版, 2.6 発注側の承認・差し戻しと、作業者への直接の指示の違い(原典の区別のまとめ), 2.7 民法(請負と準委任、検収、契約不適合責任、善管注意義務), 2.8 規格は、法令上の要求事項をどう扱うか, 2.9 2026-09 の外部調査(#282)との関係, 2. 世の中がどうなっているか(原典の逐語) (+7 more)
+Cohesion: 0.07
+Nodes (28): 2.1 労働者派遣事業と請負により行われる事業との区分に関する基準(昭和61年労働省告示第37号), 2.2 厚生労働省の具体的判断基準(「労働者派遣・請負を適正に行うためのガイド」), 2.3 疑義応答集(第1集〜第3集), 2.4 IPA「情報システム・モデル取引・契約書」第二版, 2.5 IPA・経済産業省「アジャイル開発外部委託モデル契約」(情報システム・モデル取引・契約書〈アジャイル開発版〉), 2.6 発注側の承認・差し戻しと、作業者への直接の指示の違い(原典の区別のまとめ), 2.7 民法(請負と準委任、検収、契約不適合責任、善管注意義務), 2.8 規格は、法令上の要求事項をどう扱うか (+20 more)
 
 ### Community 535 - "コンテキスト"
 Cohesion: 0.13
@@ -2748,9 +8463,13 @@ Nodes (14): 1. 3名以上の体制で、出荷判定者の席は、開発者の�
 Cohesion: 0.13
 Nodes (14): 1. 軸C・軸E・G-6 の2名の目的は、単独の承認者による取り込みの抑止と、その記録である, 2. 第7章 7.9.2 の2名の目的は、検出能力の低下を検知された者の承認を、単独では数えないことである, 2名を課す箇所は4つあり、どれにも目的が無かった, 3. 2人目の条件は現行を保ち、同一の文の挙動要約だけを数えない, 4. 「判定者は1人」は、1件の判定を合議で決めないという意味である, 5. CL2 の承認者は、表のとおり1名である, 6. 個人の検出率を算出しない。附属書I I.11 の各人の検出数を外す, コンテキスト (+6 more)
 
-### Community 540 - "3. 論点ごとの判定"
-Cohesion: 0.14
-Nodes (14): 3. 論点ごとの判定, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8), C-1 「自動承認の比率」の量。行を残すか, C-2 語を改めるか, C-3 しきい値・窓。計測の実装と自己申告の経路, C-4 `sep-self-approval` の対象と単位。「起案した主体」。1 名体制 (+6 more)
+### Community 539 - "SRC-0089.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 540 - "SRC-0092.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 541 - "決定"
 Cohesion: 0.14
@@ -2764,37 +8483,37 @@ Nodes (12): 1. 立場と、全体の見立て, 2. 判定の一覧表, 4. 争点�
 Cohesion: 0.15
 Nodes (13): 3. 論点ごとの判定, B-1 導入の途中という状態を設けるか。適合の主張の条件, B-2 位置が決まっているものの一覧を置くか, B-3 準拠テンプレートを既存のリポジトリへ持ち込む手順, B-4 承認する組織を持たない読み手と、第1章 1.2 の適用組織, B-5 指示の経路にどこまで触れるか, B-6 検収の無い契約での読み替え, B-7 どの案でも共通に要る手当て (+5 more)
 
-### Community 544 - "3. 論点ごとの判定"
+### Community 544 - "4. 争点と反論"
+Cohesion: 0.25
+Nodes (8): 4. 争点と反論, 争点1(C-1): 「定義を置かなければ実測が始まらない。だから案1 で定義を置くべきだ」, 争点2(C-1): 「測定量は規格が固定せず、組織に定めさせるのが 15939 の作法だ(案4)」, 争点3(C-4): 「ADR-0035 決定1 は『体制の規模によって変わりません』と書いている。人の単位で課さないのは原則の後退だ」, 争点4(C-6): 「辞書の検出の適合率は平均 59% だ。合否から外して警告にすべきだ(C5)」, 争点5(C-8): 「JIS Z 8301 は平叙の『…する。』を要求の筆頭に置く。国内の規格の読み手に合わせて B1 を採るべきだ」, 争点6(C-9): 「確定の行為の記録を課せば、『そのまま承認していない』ことの証跡ができる(C2)」, 争点7(C-12): 「S0 は『捨てる前提で速く学ぶ』段階だ。2.5 のとおり G-8 も省略でよい(F2)」
+
+### Community 545 - "SRC-0093.yaml"
 Cohesion: 0.07
-Nodes (26): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8) (+18 more)
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
-### Community 545 - "1. 主要エージェント製品の現況"
-Cohesion: 0.29
-Nodes (7): 1-1. Anthropic — Mythos クラスの登場と Opus 5, 1-2. Cognition(Devin)— 自社モデル路線と「群」への転換, 1-3. OpenAI — Codex の世代交代と GPT-5.6 ファミリー, 1-4. GitHub Copilot coding agent — 統制設計は維持、範囲は拡大, 1-5. Google — Jules の GA と Gemini 3 系, 1-6. 新興・その他, 1. 主要エージェント製品の現況
-
-### Community 546 - "0. 後の担当(組A・組B)が従う決まり"
-Cohesion: 0.15
-Nodes (12): 0.1 文末(1.7.1), 0.2 表の升の語(1.7.3), 0.3 附属書の種別(1.5), 0.4 同じ事項は 1 か所に書く(1.7), 0.5 番号の割り当て, 0.6 実装マークの属性(C-5), 0. 後の担当(組A・組B)が従う決まり, 2. 番号の割り当て(この担当が使ったもの) (+4 more)
+### Community 546 - "SRC-0102.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 547 - "4.1 論点 1: 指示の経路にどこまで触れるか"
-Cohesion: 0.15
-Nodes (13): 4.1 論点 1: 指示の経路にどこまで触れるか, 4.2 論点 2: 検収の無い契約での読み替え, 4.3 どの案でも共通に要る手当て, 4. 選択肢, 案 1-A: 触れない。課さないと決めたことを明記する, 案 1-B: 注記で注意を促す(外部の制約の形式), 案 1-C: 「合意して記録する」ことを要求事項にする(経路の中身は定めない), 案 1-D: 標準自身の統制として、判定の宛先と中身を定める (+5 more)
+Cohesion: 0.10
+Nodes (20): 0. 要約(論点ごと), 3.1 Issue の「決めること」と材料, 3.2 Issue に無いが、避けられない事実, 3. 論点の整理(材料の対応づけ), 4.1 論点 1: 指示の経路にどこまで触れるか, 4.2 論点 2: 検収の無い契約での読み替え, 4.3 どの案でも共通に要る手当て, 4. 選択肢 (+12 more)
 
-### Community 548 - "loadCards"
-Cohesion: 0.20
-Nodes (16): 突合の結果(2026-10-08), adjudicationTasks(), blindTasks(), bundles(), cell(), claimNumbers(), deriveMechStatus(), flagValue() (+8 more)
+### Community 548 - "research-ledger.mjs"
+Cohesion: 0.10
+Nodes (43): 突合の結果(2026-10-08), adjudicationTasks(), args, blindTasks(), bundles(), canonicalize(), cell(), claimNumbers() (+35 more)
 
-### Community 549 - "findingsIngest"
-Cohesion: 0.19
-Nodes (14): canonicalize(), enumOr(), findingsIngest(), ingest(), loadFindings(), loadRqs(), mergeInto(), nextId() (+6 more)
+### Community 549 - "SRC-0121.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 550 - "5. 議題に無い論点"
-Cohesion: 0.10
-Nodes (20): 1. 立場と、全体の見立て, 2. 判定の一覧表, 4. 争点と反論, 5. 議題に無い論点, 争点 1(C-1): 「定義を置けば足りる。監査できる量を今すぐ 1 つ定めるべきだ」(品質保証と監査の委員が出しそうな判定), 争点 2(C-1): 「行を廃すると、人が確認を省き始めることを拾う条件が無くなる。弱くても残すべきだ」(擁護・現場の委員が出しそうな判定), 争点 3(C-4): 「ADR-0035 決定1 は普遍の原則として採用済みだ。範囲を狭めるのは後退だ」(擁護の委員が出しそうな判定), 争点 4(C-6): 「実際に動いているのはスクリプトだ。動いているものを正本にするのが実務的だ」(現場の委員が出しそうな判定) (+12 more)
+Cohesion: 0.06
+Nodes (34): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8) (+26 more)
 
 ### Community 551 - "1. 標準の現状(突合)"
-Cohesion: 0.17
-Nodes (12): 1.2 #300 で軸D に入れた記述, 1.3 検収に対応づけた記述の全箇所, 1.4 附属書H の問15・問16(逐語), 1.5 議題に無い事実: テンプレ8(準拠テンプレート側)の第2節, 1.6 準拠テンプレートの受信箱は、組織の境界を区別しない, 1.7 関連する ADR(所在だけ), 1. 標準の現状(突合), 他プロセスの調査データ(標準の規範ではない) (+4 more)
+Cohesion: 0.09
+Nodes (22): 1.1 第8章 軸D の全文(逐語), 1.2 #300 で軸D に入れた記述, 1.3 検収に対応づけた記述の全箇所, 1.4 附属書H の問15・問16(逐語), 1.5 議題に無い事実: テンプレ8(準拠テンプレート側)の第2節, 1.6 準拠テンプレートの受信箱は、組織の境界を区別しない, 1.7 関連する ADR(所在だけ), 1. 標準の現状(突合) (+14 more)
 
 ### Community 552 - "席と運用形態、体制の変化点"
 Cohesion: 0.17
@@ -2812,9 +8531,9 @@ Nodes (31): 1. 先に結論, 2. 争点ごとの反証, #321 会議体 05 — 弁
 Cohesion: 0.20
 Nodes (10): 4. 争点と反論, 争点1(B-1): 「初期化しただけで適用を名乗れるのは緩い。導いたゲートが全部働くまで、適用に数えるべきでない」への反論, 争点2(B-1): 「適合を主張する条件が ADR の『影響』の 1 文と手引きにしか無いのは、規格として欠落である。第1章に『適合』の箇条を置くべきだ」への反論, 争点3(B-1・B-2): 「現場は一度に全部は入れられない。観測だけの期間か、準備中の状態を認めないと、誰も始められない」への反論, 争点4(B-3): 「既存のリポジトリから入る読み手が大半だ。手引きを今書かないのは、採用を止めることになる」への反論, 争点5(B-4): 「適合を主張する主語は組織であるべきだ。QMS も規程も持たない個人を適用組織に入れると、主張の責任を負う者がいなくなる」への反論, 争点6(B-5): 「注記は何も強制しない。経路を合意してテンプレ8 に書かせるか、差し戻しの宛先を席の責任者に固定すべきだ」への反論, 争点7(B-5): 「規格は法令に触れない。告示の名を本文に書くこと自体が越権だ」への反論 (+2 more)
 
-### Community 556 - "1.1 第8章 軸D の全文(逐語)"
-Cohesion: 0.20
-Nodes (10): 1.1 第8章 軸D の全文(逐語), 「保証の開示を納品ごとに受け渡す」(550〜560 行), 冒頭の表と本文(479〜500 行), 「判定をどちらの組織へ置くか」(502〜523 行), 「受け入れの速度を契約で合意する」(562〜568 行), 「受領する記録が保証するもの」(538〜548 行), 「強制層をどちらが所有するか」(525〜536 行), 「発注側に読解の帯域がない場合」(586〜596 行) (+2 more)
+### Community 556 - "SRC-0128.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 557 - "決定"
 Cohesion: 0.20
@@ -2836,9 +8555,9 @@ Nodes (26): 1. 先に結論, 2.1 数え方, 2.2 G-6 独立レビュー, 2.3 G-4 
 Cohesion: 0.40
 Nodes (4): 288 採用判断シートでの3回目の判定(2026-10-07)— 指摘(主担当が受信メッセージから転記), 2回目の「直すべき箇所」10件: すべて解消(実走で確認), 新しく見つけた穴(採用者が自分で直せないもの), 総合の判定(3回目)
 
-### Community 562 - "0061-check-means-on-implementation-marks.md"
-Cohesion: 0.22
-Nodes (8): 1. 検査の手段を、別の属性で示す, 2. 未分類を隠さない, 3. 既存のマークの棚卸しは、今回行わない, コンテキスト, ステータス, 影響, 検討した選択肢, 決定
+### Community 562 - "SRC-0131.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 563 - "0064-skill-provisions-trace-to-standard.md"
 Cohesion: 0.22
@@ -2852,13 +8571,13 @@ Nodes (24): 10. 形骸化の抑止は既存の手段で足りる。観測値は�
 Cohesion: 0.08
 Nodes (23): 1. 先に結論, 2. Q1〜Q7 への回答, #321 会議体 04 — 規格整合・突合担当(標準の編集者)の意見書, 3. 突合表, 4. 食い違いの判定, 5.1 新 ADR は要る。ADR-0036 を補う(置き換えない), 5.2 本文の改訂箇所, 5.3 実装マーク・適用範囲マーク・template-fields.yaml・omit (+15 more)
 
-### Community 566 - "Issue #309 調査: 受発注での指示の経路(発注側の判定者と受注側の担い手。37 号告示との関係)"
-Cohesion: 0.25
-Nodes (7): 0. 要約(論点ごと), 3.1 Issue の「決めること」と材料, 3.2 Issue に無いが、避けられない事実, 3. 論点の整理(材料の対応づけ), 5. 会議体への問い, 6. 確認できなかったこと, Issue #309 調査: 受発注での指示の経路(発注側の判定者と受注側の担い手。37 号告示との関係)
+### Community 566 - "SRC-0132.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
-### Community 567 - "2.3 疑義応答集(第1集〜第3集)"
-Cohesion: 0.25
-Nodes (8): 2.3 疑義応答集(第1集〜第3集), (a) 作り直しの要求と、直接の指示の違い(第1集 Q2), (b) 文書で詳細に示す場合(第1集 Q7), (c) 受注側が 1 名の場合(第1集 Q4、第2集 問8), (d) 打ち合わせへの同席、メールの同報(第2集 問9・問10), (e) 情報提供と、対応方針の指示の違い(第2集 問1), (f) 技術指導と仕様の補足説明(第1集 Q10・Q11、事務連絡), (g) 第3集(アジャイル型開発。全 8 問)
+### Community 567 - "SRC-0133.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 568 - "provision-forms.md"
 Cohesion: 0.25
@@ -2866,7 +8585,7 @@ Nodes (7): 何を検査するか, 廃した言い回しの登録, 機械が確�
 
 ### Community 569 - "1. 決定"
 Cohesion: 0.09
-Nodes (21): 0. 起票者への答え, 1. 決定, 2. 却下した案, #321 決定の記録 — ゲート判定記録の成立手続, 3. 決めないこと(送り先), 4. 反映の範囲(規格整合 第2巡 §5 を採用。要点), 5. 根拠水準(主なもの), 6. 実機確認(2026-10-23、pit-in-template PR #53。確認後にクローズ・削除) (+13 more)
+Nodes (22): 0. 起票者への答え, 1. 決定, 2. 却下した案, #321 決定の記録 — ゲート判定記録の成立手続, 3. 決めないこと(送り先), 4. 反映の範囲(規格整合 第2巡 §5 を採用。要点), 5. 根拠水準(主なもの), 6. 実機確認(2026-10-23、pit-in-template PR #53。確認後にクローズ・削除) (+14 more)
 
 ### Community 570 - "#321 会議体 03 — QA・内部監査・規制対応の意見書"
 Cohesion: 0.10
@@ -2892,9 +8611,9 @@ Nodes (7): B-3 準拠テンプレートを既存のリポジトリへ持ち込�
 Cohesion: 0.11
 Nodes (17): 1. 先に結論, 2. Q1〜Q7 への回答, #321 会議体 01 — 起案側の意見書, 3.1 ゲートごと, 3.2 記録の置き場だけの PR の扱い, 3.3 変える実装(準拠テンプレート), 3. 提案する具体的な形, 4. 自分の案の弱点 (+9 more)
 
-### Community 576 - "tailoring-engine.mjs"
-Cohesion: 0.43
-Nodes (6): evaluate(), ADR-0008, ruleMatches(), STRUCTURAL_ACTIONS, targetKey(), visibleQuestions()
+### Community 576 - "SRC-0137.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 577 - "3. 論点ごとの判定"
 Cohesion: 0.33
@@ -2960,21 +8679,29 @@ Nodes (5): B-2 位置が決まっているものの一覧を置くか, 文の案
 Cohesion: 0.40
 Nodes (4): 1. 立場と、全体の見立て, 2. 判定の一覧表, 5. 議題に無い論点, 会議体 組B 意見書05 — 現行の規定の擁護者(Issue #306・#309、論点 B-1〜B-7)
 
-### Community 593 - "2.5 IPA・経済産業省「アジャイル開発外部委託モデル契約」(情報システム・モデル取引・契約書〈アジャイル開発版〉)"
-Cohesion: 0.40
-Nodes (5): 2.5 IPA・経済産業省「アジャイル開発外部委託モデル契約」(情報システム・モデル取引・契約書〈アジャイル開発版〉), WG の中の整理と、割れた意見(解説 16〜18 ページ), 指示の経路(第3条 体制), 「準委任でも問題が残る」の所在(解説 16 ページ「・偽装請負」), 準委任の帰結と、工程の確認行為
+### Community 593 - "SRC-0139.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 594 - "1. ADR"
 Cohesion: 0.12
 Nodes (17): 1. ADR, ADR-0010 プロセスデータと規程本文の正本を要素ごとに分担する(採用 2026-08-05), ADR-0028 達成できないゲートを省略と区別し、未達として表示し続ける(採用 2026-08-08), ADR-0035 兼務の禁止を実行主体の文脈で定義する(採用 2026-08-12), ADR-0036 工程ゲートの判定は記録の作成をもって成立させ、語彙を2値に限る(採用 2026-08-13), ADR-0039 適用範囲は見出しへ書き、案件ごとと変更ごとの判定を分ける(採用 2026-08-13), ADR-0040 テンプレートの成果物様式を標準の様式の部分集合と定める(採用 2026-08-13), ADR-0050 強制層の水準を事業ステージで動かさない (+9 more)
 
+### Community 595 - "SRC-0141.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
 ### Community 596 - "G-8 リリース決裁(事業決裁者・48時間)"
 Cohesion: 0.50
 Nodes (4): G-8 リリース決裁(事業決裁者・48時間), 出荷判定者の異議, 受容の基準との照合と上申, 残存リスクの受容を決断の記録に含める
 
-### Community 597 - "ProcessPhase.astro"
-Cohesion: 0.15
-Nodes (15): diagram, exitGates, roleName, seg, コンテキスト, ステータス, 影響, 検討した選択肢 (+7 more)
+### Community 597 - "SRC-0144.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 598 - "SRC-0145.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 599 - "6. 過去の調査・会議体のメモ"
 Cohesion: 0.20
@@ -2992,6 +8719,14 @@ Nodes (9): 4.1 `template/scripts/gate/check-pr.mjs`, 4.2 挙動要約の形の�
 Cohesion: 0.25
 Nodes (7): 1. 材料(先に読む), 2. 事象(起票者の訴え), #321 会議体 00 — 問いの整理(brief), 3. 調査の要点(主宰の抜粋。詳細は各メモ), 4. 既存の決定との関係(00 の 8 章から), 5. 決める問い, 6. 議論の規律
 
+### Community 603 - "SRC-0147.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 604 - "SRC-0148.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
 ### Community 605 - "ゲート判定記録の成立要件 — 本標準の内部の棚卸し(#321)"
 Cohesion: 0.29
 Nodes (6): 5. 根拠水準マーク, 8.1 許していること, 8.2 禁じていること, 8.3 決めていないこと, 8. まとめ — 今回の問いに対して、既存の決定が許していること・禁じていること・決めていないこと, ゲート判定記録の成立要件 — 本標準の内部の棚卸し(#321)
@@ -2999,6 +8734,14 @@ Nodes (6): 5. 根拠水準マーク, 8.1 許していること, 8.2 禁じてい
 ### Community 606 - "3. 実装マーク"
 Cohesion: 0.33
 Nodes (6): 3.1 `gate-record-template`(テンプレ4), 3.2 `gate-skill` / `gate-skill-g6`, 3.3 `pr-checks`(`check-pr.mjs`), 3.4 `next-role`(`next.mjs`), 3.5 `evidence-aggregation`(承認・判定記録・挙動要約に関わるもの), 3. 実装マーク
+
+### Community 607 - "SRC-0155.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 608 - "SRC-0157.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 609 - "7. 過去の Issue"
 Cohesion: 0.50
@@ -3008,25 +8751,22841 @@ Nodes (4): 7. 過去の Issue, `gh issue list --search "手間 ボトルネッ�
 Cohesion: 0.50
 Nodes (4): G-3 技術設計判断(技術判断者・48時間), 事業影響を金額で定量化しない, 事業決裁者が受容を拒否した場合, 記載の検査
 
+### Community 611 - "SRC-0161.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 612 - "SRC-0162.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 613 - "SRC-0165.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 614 - "SRC-0171.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 615 - "SRC-0172.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 616 - "SRC-0174.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 617 - "SRC-0199.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 618 - "SRC-0201.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 619 - "SRC-0202.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 620 - "SRC-0225.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 621 - "SRC-0227.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 622 - "SRC-0268.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 623 - "SRC-0332.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 624 - "SRC-0333.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 625 - "SRC-0334.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 626 - "SRC-0335.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 627 - "SRC-0364.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 628 - "SRC-0369.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 629 - "SRC-0375.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 630 - "SRC-0376.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 631 - "SRC-0378.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 632 - "SRC-0380.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 633 - "SRC-0384.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 634 - "SRC-0403.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 635 - "SRC-0418.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 636 - "SRC-0420.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 637 - "SRC-0422.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 638 - "SRC-0425.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 639 - "SRC-0426.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 640 - "SRC-0427.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 641 - "SRC-0436.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 642 - "SRC-0437.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 643 - "SRC-0438.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 644 - "SRC-0440.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 645 - "SRC-0442.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 646 - "SRC-0443.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 647 - "SRC-0463.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 648 - "SRC-0467.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 649 - "SRC-0468.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 650 - "SRC-0471.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 651 - "SRC-0472.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 652 - "SRC-0473.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 653 - "SRC-0474.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 654 - "SRC-0476.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 655 - "SRC-0480.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 656 - "SRC-0487.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 657 - "SRC-0492.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 658 - "SRC-0501.yaml"
+Cohesion: 0.07
+Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
+
+### Community 659 - "deploy.yml"
+Cohesion: 0.07
+Nodes (28): runs-on, steps, concurrency, cancel-in-progress, group, environment, needs, runs-on (+20 more)
+
+### Community 660 - "SRC-0002.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 661 - "SRC-0003.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 662 - "SRC-0004.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 663 - "SRC-0005.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 664 - "SRC-0006.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 665 - "SRC-0007.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 666 - "SRC-0008.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 667 - "SRC-0009.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 668 - "SRC-0010.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 669 - "SRC-0011.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 670 - "SRC-0012.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 671 - "SRC-0013.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 672 - "SRC-0014.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 673 - "SRC-0015.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 674 - "SRC-0018.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 675 - "SRC-0019.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 676 - "SRC-0020.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 677 - "SRC-0021.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 678 - "SRC-0022.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 679 - "SRC-0023.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 680 - "SRC-0024.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 681 - "SRC-0025.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 682 - "SRC-0026.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 683 - "SRC-0027.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 684 - "SRC-0028.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 685 - "SRC-0029.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 686 - "SRC-0030.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 687 - "SRC-0031.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 688 - "SRC-0032.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 689 - "SRC-0035.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 690 - "SRC-0038.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 691 - "SRC-0039.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 692 - "SRC-0042.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 693 - "SRC-0044.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 694 - "SRC-0048.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 695 - "SRC-0049.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 696 - "SRC-0050.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 697 - "SRC-0053.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 698 - "SRC-0054.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 699 - "SRC-0055.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 700 - "SRC-0056.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 701 - "SRC-0057.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 702 - "SRC-0058.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 703 - "SRC-0061.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 704 - "SRC-0062.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 705 - "SRC-0063.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 706 - "SRC-0064.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 707 - "SRC-0068.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 708 - "SRC-0070.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 709 - "SRC-0071.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 710 - "SRC-0072.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 711 - "SRC-0076.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 712 - "SRC-0077.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 713 - "SRC-0078.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 714 - "SRC-0079.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 715 - "SRC-0080.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 716 - "SRC-0081.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 717 - "SRC-0082.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 718 - "SRC-0083.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 719 - "SRC-0084.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 720 - "SRC-0085.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 721 - "SRC-0086.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 722 - "SRC-0087.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 723 - "SRC-0088.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 724 - "SRC-0090.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 725 - "SRC-0091.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 726 - "SRC-0094.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 727 - "SRC-0095.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 728 - "SRC-0096.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 729 - "SRC-0097.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 730 - "SRC-0099.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 731 - "SRC-0101.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 732 - "SRC-0103.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 733 - "SRC-0104.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 734 - "SRC-0105.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 735 - "SRC-0106.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 736 - "SRC-0107.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 737 - "SRC-0108.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 738 - "SRC-0109.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 739 - "SRC-0110.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 740 - "SRC-0111.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 741 - "SRC-0112.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 742 - "SRC-0113.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 743 - "SRC-0114.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 744 - "SRC-0115.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 745 - "SRC-0116.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 746 - "SRC-0117.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 747 - "SRC-0118.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 748 - "SRC-0119.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 749 - "SRC-0120.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 750 - "SRC-0122.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 751 - "SRC-0123.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 752 - "SRC-0124.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 753 - "SRC-0126.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 754 - "SRC-0127.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 755 - "SRC-0129.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 756 - "SRC-0130.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 757 - "SRC-0134.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 758 - "SRC-0135.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 759 - "SRC-0136.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 760 - "SRC-0138.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 761 - "SRC-0140.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 762 - "SRC-0142.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 763 - "SRC-0146.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 764 - "SRC-0149.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 765 - "SRC-0151.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 766 - "SRC-0152.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 767 - "SRC-0153.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 768 - "SRC-0154.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 769 - "SRC-0156.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 770 - "SRC-0158.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 771 - "SRC-0159.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 772 - "SRC-0160.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 773 - "SRC-0163.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 774 - "SRC-0164.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 775 - "SRC-0166.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 776 - "SRC-0167.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 777 - "SRC-0168.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 778 - "SRC-0169.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 779 - "SRC-0170.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 780 - "SRC-0173.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 781 - "SRC-0175.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 782 - "SRC-0176.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 783 - "SRC-0177.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 784 - "SRC-0178.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 785 - "SRC-0179.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 786 - "SRC-0180.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 787 - "SRC-0181.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 788 - "SRC-0182.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 789 - "SRC-0191.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 790 - "SRC-0192.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 791 - "SRC-0193.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 792 - "SRC-0194.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 793 - "SRC-0195.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 794 - "SRC-0196.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 795 - "SRC-0197.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 796 - "SRC-0198.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 797 - "SRC-0200.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 798 - "SRC-0203.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 799 - "SRC-0204.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 800 - "SRC-0206.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 801 - "SRC-0207.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 802 - "SRC-0210.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 803 - "SRC-0211.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 804 - "SRC-0212.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 805 - "SRC-0213.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 806 - "SRC-0214.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 807 - "SRC-0215.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 808 - "SRC-0217.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 809 - "SRC-0219.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 810 - "SRC-0220.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 811 - "SRC-0222.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 812 - "SRC-0223.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 813 - "SRC-0224.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 814 - "SRC-0226.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 815 - "SRC-0228.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 816 - "SRC-0229.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 817 - "SRC-0230.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 818 - "SRC-0233.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 819 - "SRC-0235.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 820 - "SRC-0236.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 821 - "SRC-0241.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 822 - "SRC-0242.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 823 - "SRC-0244.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 824 - "SRC-0245.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 825 - "SRC-0246.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 826 - "SRC-0247.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 827 - "SRC-0248.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 828 - "SRC-0250.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 829 - "SRC-0251.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 830 - "SRC-0252.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 831 - "SRC-0254.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 832 - "SRC-0255.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 833 - "SRC-0256.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 834 - "SRC-0258.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 835 - "SRC-0260.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 836 - "SRC-0261.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 837 - "SRC-0262.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 838 - "SRC-0263.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 839 - "SRC-0264.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 840 - "SRC-0265.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 841 - "SRC-0266.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 842 - "SRC-0267.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 843 - "SRC-0269.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 844 - "SRC-0270.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 845 - "SRC-0271.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 846 - "SRC-0272.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 847 - "SRC-0273.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 848 - "SRC-0274.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 849 - "SRC-0277.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 850 - "SRC-0279.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 851 - "SRC-0280.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 852 - "SRC-0281.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 853 - "SRC-0282.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 854 - "SRC-0283.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 855 - "SRC-0284.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 856 - "SRC-0285.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 857 - "SRC-0286.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 858 - "SRC-0288.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 859 - "SRC-0289.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 860 - "SRC-0300.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 861 - "SRC-0302.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 862 - "SRC-0303.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 863 - "SRC-0304.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 864 - "SRC-0305.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 865 - "SRC-0306.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 866 - "SRC-0307.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 867 - "SRC-0309.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 868 - "SRC-0310.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 869 - "SRC-0311.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 870 - "SRC-0312.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 871 - "SRC-0313.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 872 - "SRC-0314.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 873 - "SRC-0316.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 874 - "SRC-0317.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 875 - "SRC-0320.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 876 - "SRC-0321.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 877 - "SRC-0322.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 878 - "SRC-0323.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 879 - "SRC-0324.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 880 - "SRC-0325.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 881 - "SRC-0327.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 882 - "SRC-0328.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 883 - "SRC-0329.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 884 - "SRC-0330.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 885 - "SRC-0331.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 886 - "SRC-0336.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 887 - "SRC-0338.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 888 - "SRC-0339.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 889 - "SRC-0341.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 890 - "SRC-0342.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 891 - "SRC-0343.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 892 - "SRC-0348.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 893 - "SRC-0349.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 894 - "SRC-0350.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 895 - "SRC-0351.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 896 - "SRC-0352.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 897 - "SRC-0353.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 898 - "SRC-0354.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 899 - "SRC-0355.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 900 - "SRC-0356.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 901 - "SRC-0357.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 902 - "SRC-0358.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 903 - "SRC-0359.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 904 - "SRC-0360.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 905 - "SRC-0363.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 906 - "SRC-0365.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 907 - "SRC-0366.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 908 - "SRC-0367.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 909 - "SRC-0368.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 910 - "SRC-0370.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 911 - "SRC-0371.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 912 - "SRC-0372.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 913 - "SRC-0373.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 914 - "SRC-0377.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 915 - "SRC-0379.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 916 - "SRC-0381.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 917 - "SRC-0382.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 918 - "SRC-0383.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 919 - "SRC-0385.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 920 - "SRC-0386.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 921 - "SRC-0387.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 922 - "SRC-0388.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 923 - "SRC-0389.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 924 - "SRC-0390.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 925 - "SRC-0391.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 926 - "SRC-0392.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 927 - "SRC-0393.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 928 - "SRC-0394.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 929 - "SRC-0395.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 930 - "SRC-0396.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 931 - "SRC-0397.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 932 - "SRC-0398.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 933 - "SRC-0399.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 934 - "SRC-0400.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 935 - "SRC-0405.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 936 - "SRC-0406.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 937 - "SRC-0407.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 938 - "SRC-0409.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 939 - "SRC-0410.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 940 - "SRC-0412.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 941 - "SRC-0413.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 942 - "SRC-0414.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 943 - "SRC-0416.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 944 - "SRC-0419.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 945 - "SRC-0421.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 946 - "SRC-0423.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 947 - "SRC-0424.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 948 - "SRC-0428.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 949 - "SRC-0429.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 950 - "SRC-0430.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 951 - "SRC-0431.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 952 - "SRC-0432.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 953 - "SRC-0433.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 954 - "SRC-0434.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 955 - "SRC-0435.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 956 - "SRC-0439.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 957 - "SRC-0441.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 958 - "SRC-0444.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 959 - "SRC-0446.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 960 - "SRC-0447.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 961 - "SRC-0448.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 962 - "SRC-0449.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 963 - "SRC-0450.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 964 - "SRC-0451.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 965 - "SRC-0453.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 966 - "SRC-0454.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 967 - "SRC-0455.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 968 - "SRC-0456.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 969 - "SRC-0457.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 970 - "SRC-0458.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 971 - "SRC-0460.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 972 - "SRC-0461.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 973 - "SRC-0462.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 974 - "SRC-0464.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 975 - "SRC-0465.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 976 - "SRC-0466.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 977 - "SRC-0469.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 978 - "SRC-0470.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 979 - "SRC-0475.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 980 - "SRC-0477.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 981 - "SRC-0478.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 982 - "SRC-0479.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 983 - "SRC-0481.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 984 - "SRC-0482.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 985 - "SRC-0483.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 986 - "SRC-0484.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 987 - "SRC-0485.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 988 - "SRC-0486.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 989 - "SRC-0488.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 990 - "SRC-0490.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 991 - "SRC-0493.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 992 - "SRC-0494.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 993 - "SRC-0497.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 994 - "SRC-0498.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 995 - "SRC-0500.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 996 - "SRC-0503.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+20 more)
+
+### Community 997 - "SRC-0504.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 998 - "SRC-0505.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 999 - "SRC-0506.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1000 - "SRC-0507.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1001 - "SRC-0509.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1002 - "SRC-0516.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1003 - "SRC-0517.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1004 - "SRC-0521.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1005 - "SRC-0522.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1006 - "SRC-0523.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1007 - "SRC-0525.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1008 - "SRC-0526.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1009 - "SRC-0527.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1010 - "SRC-0529.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1011 - "SRC-0530.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1012 - "SRC-0531.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1013 - "SRC-0534.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1014 - "SRC-0536.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1015 - "SRC-0537.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1016 - "SRC-0538.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1017 - "SRC-0539.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1018 - "SRC-0540.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1019 - "SRC-0541.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1020 - "SRC-0543.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1021 - "SRC-0544.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1022 - "SRC-0545.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1023 - "SRC-0546.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1024 - "SRC-0547.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1025 - "SRC-0549.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1026 - "SRC-0550.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1027 - "SRC-0551.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1028 - "SRC-0552.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1029 - "SRC-0553.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1030 - "SRC-0555.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1031 - "SRC-0556.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1032 - "SRC-0557.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1033 - "SRC-0558.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1034 - "SRC-0559.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1035 - "SRC-0560.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1036 - "SRC-0561.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1037 - "SRC-0562.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1038 - "SRC-0563.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1039 - "SRC-0564.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1040 - "SRC-0565.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1041 - "SRC-0566.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1042 - "SRC-0567.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1043 - "SRC-0568.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1044 - "SRC-0569.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1045 - "SRC-0570.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1046 - "SRC-0571.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1047 - "SRC-0572.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1048 - "SRC-0573.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1049 - "SRC-0574.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1050 - "SRC-0575.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1051 - "SRC-0576.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1052 - "SRC-0577.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1053 - "SRC-0578.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1054 - "SRC-0579.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1055 - "SRC-0580.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1056 - "SRC-0582.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1057 - "SRC-0583.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1058 - "SRC-0584.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1059 - "SRC-0585.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1060 - "SRC-0586.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1061 - "SRC-0587.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1062 - "SRC-0588.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1063 - "SRC-0589.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1064 - "SRC-0590.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1065 - "SRC-0591.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1066 - "SRC-0592.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1067 - "SRC-0593.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1068 - "SRC-0594.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1069 - "SRC-0595.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1070 - "SRC-0598.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1071 - "SRC-0601.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1072 - "SRC-0602.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1073 - "SRC-0603.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1074 - "SRC-0605.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1075 - "SRC-0606.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1076 - "SRC-0607.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1077 - "SRC-0608.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1078 - "SRC-0609.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1079 - "SRC-0611.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1080 - "SRC-0612.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1081 - "SRC-0613.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1082 - "SRC-0614.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1083 - "SRC-0615.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1084 - "SRC-0616.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1085 - "SRC-0617.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1086 - "SRC-0623.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1087 - "SRC-0628.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1088 - "SRC-0629.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1089 - "SRC-0630.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1090 - "SRC-0632.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1091 - "SRC-0633.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1092 - "SRC-0634.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1093 - "SRC-0635.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1094 - "SRC-0636.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1095 - "SRC-0637.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1096 - "SRC-0638.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1097 - "SRC-0639.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 1098 - "SRC-0033.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1099 - "SRC-0034.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1100 - "SRC-0036.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1101 - "SRC-0037.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1102 - "SRC-0040.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1103 - "SRC-0041.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1104 - "SRC-0043.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1105 - "SRC-0045.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1106 - "SRC-0046.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1107 - "SRC-0047.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1108 - "SRC-0051.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1109 - "SRC-0052.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1110 - "SRC-0059.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1111 - "SRC-0060.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1112 - "SRC-0073.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1113 - "SRC-0074.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1114 - "SRC-0075.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1115 - "SRC-0098.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1116 - "SRC-0100.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1117 - "SRC-0125.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1118 - "SRC-0150.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1119 - "SRC-0183.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1120 - "SRC-0184.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1121 - "SRC-0185.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1122 - "SRC-0186.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1123 - "SRC-0187.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1124 - "SRC-0188.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1125 - "SRC-0189.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1126 - "SRC-0190.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1127 - "SRC-0205.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1128 - "SRC-0208.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1129 - "SRC-0209.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1130 - "SRC-0216.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1131 - "SRC-0218.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1132 - "SRC-0221.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1133 - "SRC-0231.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1134 - "SRC-0232.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1135 - "SRC-0234.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1136 - "SRC-0237.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1137 - "SRC-0238.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1138 - "SRC-0239.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1139 - "SRC-0240.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1140 - "SRC-0243.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1141 - "SRC-0249.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1142 - "SRC-0253.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1143 - "SRC-0257.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1144 - "SRC-0259.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1145 - "SRC-0275.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1146 - "SRC-0276.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1147 - "SRC-0278.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1148 - "SRC-0287.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1149 - "SRC-0290.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1150 - "SRC-0291.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1151 - "SRC-0292.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1152 - "SRC-0293.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1153 - "SRC-0294.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1154 - "SRC-0295.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1155 - "SRC-0296.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1156 - "SRC-0297.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1157 - "SRC-0298.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1158 - "SRC-0299.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1159 - "SRC-0301.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1160 - "SRC-0308.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1161 - "SRC-0315.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1162 - "SRC-0318.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1163 - "SRC-0319.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1164 - "SRC-0326.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1165 - "SRC-0337.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1166 - "SRC-0340.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1167 - "SRC-0344.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1168 - "SRC-0345.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1169 - "SRC-0346.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1170 - "SRC-0347.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1171 - "SRC-0361.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1172 - "SRC-0362.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1173 - "SRC-0374.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1174 - "SRC-0401.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1175 - "SRC-0402.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1176 - "SRC-0404.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1177 - "SRC-0408.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1178 - "SRC-0411.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1179 - "SRC-0415.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1180 - "SRC-0417.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1181 - "SRC-0445.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1182 - "SRC-0452.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1183 - "SRC-0459.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1184 - "SRC-0489.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1185 - "SRC-0491.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1186 - "SRC-0495.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1187 - "SRC-0496.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1188 - "SRC-0499.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1189 - "SRC-0502.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1190 - "SRC-0508.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1191 - "SRC-0510.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1192 - "SRC-0511.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1193 - "SRC-0512.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1194 - "SRC-0513.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1195 - "SRC-0514.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1196 - "SRC-0515.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1197 - "SRC-0518.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1198 - "SRC-0519.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1199 - "SRC-0520.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1200 - "SRC-0524.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1201 - "SRC-0528.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1202 - "SRC-0532.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1203 - "SRC-0533.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1204 - "SRC-0535.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1205 - "SRC-0542.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1206 - "SRC-0548.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1207 - "SRC-0554.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1208 - "SRC-0581.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1209 - "SRC-0596.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1210 - "SRC-0597.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1211 - "SRC-0599.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1212 - "SRC-0600.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1213 - "SRC-0604.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1214 - "SRC-0610.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1215 - "SRC-0618.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1216 - "SRC-0619.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1217 - "SRC-0620.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1218 - "SRC-0621.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1219 - "SRC-0622.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1220 - "SRC-0624.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1221 - "SRC-0625.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1222 - "SRC-0626.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1223 - "SRC-0627.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1224 - "SRC-0631.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 1225 - "steps"
+Cohesion: 0.07
+Nodes (26): GH_TOKEN, jobs, lychee, runs-on, steps, name, permissions, contents (+18 more)
+
+### Community 1226 - "steps"
+Cohesion: 0.08
+Nodes (23): concurrency, cancel-in-progress, group, GITHUB_TOKEN, jobs, publish, name, permissions (+15 more)
+
+### Community 1227 - "steps"
+Cohesion: 0.09
+Nodes (21): GH_TOKEN, jobs, review, name, permissions, contents, issues, runs-on (+13 more)
+
+### Community 1228 - "with"
+Cohesion: 0.10
+Nodes (20): jobs, update-graph, name, permissions, contents, branches, paths-ignore, name (+12 more)
+
+### Community 1229 - "findings"
+Cohesion: 0.10
+Nodes (20): findings, asOf, baseline, change, counter, id, independentSources, issues (+12 more)
+
+### Community 1230 - "rules"
+Cohesion: 0.10
+Nodes (20): action, note, param, target, value, name, rules, adjustments (+12 more)
+
+### Community 1231 - "mech"
+Cohesion: 0.11
+Nodes (18): authors, latestVersion, status, title, titleMatch, v1Date, arxiv, checkedAt (+10 more)
+
+### Community 1232 - "mech"
+Cohesion: 0.11
+Nodes (18): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+10 more)
+
+### Community 1233 - "provision-forms.yaml"
+Cohesion: 0.11
+Nodes (17): documents, annex, chapter, kind, page, retiredCellWords, retiredPhrases, by (+9 more)
+
+### Community 1234 - "rules"
+Cohesion: 0.11
+Nodes (17): action, note, param, target, value, name, rules, adjustments (+9 more)
+
+### Community 1235 - "rules"
+Cohesion: 0.11
+Nodes (17): action, note, param, target, value, name, rules, adjustments (+9 more)
+
+### Community 1236 - "rules"
+Cohesion: 0.11
+Nodes (17): action, note, param, target, value, name, rules, adjustments (+9 more)
+
+### Community 1237 - "rules"
+Cohesion: 0.11
+Nodes (17): action, note, param, target, value, name, rules, adjustments (+9 more)
+
+### Community 1238 - "rules"
+Cohesion: 0.11
+Nodes (17): action, note, param, target, value, name, rules, adjustments (+9 more)
+
+### Community 1239 - "mech"
+Cohesion: 0.12
+Nodes (17): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+9 more)
+
+### Community 1240 - "mech"
+Cohesion: 0.12
+Nodes (16): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+8 more)
+
+### Community 1241 - "mech"
+Cohesion: 0.12
+Nodes (16): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+8 more)
+
+### Community 1242 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1243 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1244 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1245 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1246 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1247 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1248 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1249 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1250 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1251 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1252 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1253 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1254 - "mech"
+Cohesion: 0.12
+Nodes (16): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+8 more)
+
+### Community 1255 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1256 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1257 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1258 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1259 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1260 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1261 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1262 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1263 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1264 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1265 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1266 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1267 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1268 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1269 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1270 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1271 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1272 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1273 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1274 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1275 - "mech"
+Cohesion: 0.12
+Nodes (16): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+8 more)
+
+### Community 1276 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1277 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1278 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1279 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1280 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1281 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1282 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1283 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1284 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1285 - "mech"
+Cohesion: 0.12
+Nodes (16): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1286 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1287 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1288 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1289 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1290 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1291 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1292 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1293 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1294 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1295 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1296 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1297 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1298 - "mech"
+Cohesion: 0.12
+Nodes (16): issued, status, title, titleMatch, arxiv, checkedAt, contentType, crossref (+8 more)
+
+### Community 1299 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1300 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1301 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1302 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+8 more)
+
+### Community 1303 - "mech"
+Cohesion: 0.12
+Nodes (16): issued, status, title, titleMatch, arxiv, checkedAt, contentType, crossref (+8 more)
+
+### Community 1304 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1305 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1306 - "mech"
+Cohesion: 0.12
+Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+8 more)
+
+### Community 1307 - "mech"
+Cohesion: 0.12
+Nodes (16): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+8 more)
+
+### Community 1308 - "steps"
+Cohesion: 0.13
+Nodes (14): runs-on, steps, jobs, check, name, name, run, uses (+6 more)
+
+### Community 1309 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1310 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1311 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1312 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1313 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1314 - "c2"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1315 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1316 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1317 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1318 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1319 - "c1"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1320 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1321 - "c3"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1322 - "c5"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1323 - "mech"
+Cohesion: 0.13
+Nodes (15): issued, status, title, titleMatch, checkedAt, contentType, crossref, dateMeta (+7 more)
+
+### Community 1324 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1325 - "c5"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1326 - "mech"
+Cohesion: 0.13
+Nodes (15): issued, status, title, titleMatch, checkedAt, contentType, crossref, dateMeta (+7 more)
+
+### Community 1327 - "c1"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1328 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1329 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1330 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+7 more)
+
+### Community 1331 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+7 more)
+
+### Community 1332 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+7 more)
+
+### Community 1333 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1334 - "mech"
+Cohesion: 0.13
+Nodes (15): status, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+7 more)
+
+### Community 1335 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1336 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1337 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1338 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1339 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1340 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1341 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1342 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1343 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1344 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1345 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1346 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1347 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1348 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1349 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1350 - "c3"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1351 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1352 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1353 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1354 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1355 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1356 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1357 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1358 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1359 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1360 - "c5"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1361 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1362 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1363 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1364 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1365 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1366 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1367 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1368 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1369 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1370 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1371 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1372 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1373 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1374 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1375 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1376 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1377 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1378 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1379 - "claims"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1380 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1381 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1382 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1383 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1384 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1385 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1386 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1387 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1388 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1389 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1390 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1391 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1392 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1393 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1394 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1395 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1396 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1397 - "mech"
+Cohesion: 0.13
+Nodes (15): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1398 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1399 - "c3"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1400 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1401 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1402 - "c3"
+Cohesion: 0.13
+Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
+
+### Community 1403 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1404 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1405 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1406 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1407 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1408 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1409 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1410 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1411 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1412 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1413 - "mech"
+Cohesion: 0.13
+Nodes (15): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1414 - "mech"
+Cohesion: 0.13
+Nodes (15): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1415 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1416 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1417 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1418 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1419 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1420 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1421 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1422 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1423 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1424 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1425 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1426 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1427 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1428 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1429 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1430 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1431 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1432 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1433 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1434 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1435 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1436 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1437 - "mech"
+Cohesion: 0.13
+Nodes (15): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1438 - "mech"
+Cohesion: 0.13
+Nodes (15): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1439 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1440 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1441 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1442 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1443 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1444 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1445 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1446 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1447 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1448 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1449 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1450 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1451 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1452 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1453 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1454 - "mech"
+Cohesion: 0.13
+Nodes (15): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1455 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1456 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1457 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1458 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1459 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1460 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1461 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1462 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1463 - "mech"
+Cohesion: 0.13
+Nodes (15): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1464 - "mech"
+Cohesion: 0.13
+Nodes (15): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1465 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1466 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1467 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1468 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1469 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1470 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1471 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1472 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1473 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1474 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1475 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1476 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+7 more)
+
+### Community 1477 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1478 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1479 - "mech"
+Cohesion: 0.13
+Nodes (15): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+7 more)
+
+### Community 1480 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1481 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1482 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1483 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1484 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1485 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1486 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1487 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1488 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1489 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1490 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1491 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1492 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1493 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1494 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1495 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1496 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1497 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1498 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1499 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1500 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1501 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1502 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1503 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1504 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1505 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1506 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1507 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1508 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1509 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1510 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1511 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1512 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+6 more)
+
+### Community 1513 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1514 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1515 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1516 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+6 more)
+
+### Community 1517 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1518 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1519 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1520 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note, quotes (+6 more)
+
+### Community 1521 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1522 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1523 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1524 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1525 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1526 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1527 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1528 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1529 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1530 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1531 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1532 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1533 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1534 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1535 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1536 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1537 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1538 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1539 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1540 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1541 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1542 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1543 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1544 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1545 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1546 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1547 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1548 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1549 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1550 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1551 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1552 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1553 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1554 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1555 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1556 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1557 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1558 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1559 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1560 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1561 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1562 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1563 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1564 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1565 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1566 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1567 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1568 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1569 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1570 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1571 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1572 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1573 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1574 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1575 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1576 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1577 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1578 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1579 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1580 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1581 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1582 - "quotes"
+Cohesion: 0.14
+Nodes (14): quotes, c1, c10, c11, c12, c13, c2, c3 (+6 more)
+
+### Community 1583 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1584 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1585 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1586 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1587 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1588 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1589 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1590 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1591 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1592 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1593 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1594 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1595 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1596 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1597 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1598 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1599 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1600 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1601 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1602 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1603 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1604 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1605 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1606 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1607 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1608 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1609 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1610 - "quotes"
+Cohesion: 0.14
+Nodes (14): quotes, c1, c10, c11, c12, c13, c2, c3 (+6 more)
+
+### Community 1611 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1612 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1613 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1614 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1615 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1616 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1617 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1618 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1619 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1620 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1621 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1622 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1623 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1624 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1625 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1626 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1627 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1628 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1629 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1630 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1631 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1632 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1633 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1634 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1635 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1636 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1637 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1638 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1639 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1640 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1641 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1642 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1643 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1644 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1645 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1646 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1647 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1648 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1649 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1650 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1651 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1652 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1653 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1654 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1655 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1656 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1657 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1658 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1659 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1660 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1661 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1662 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note, quotes (+6 more)
+
+### Community 1663 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1664 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1665 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1666 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1667 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1668 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1669 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1670 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1671 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1672 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1673 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1674 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1675 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1676 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1677 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1678 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1679 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1680 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1681 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1682 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1683 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1684 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1685 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1686 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1687 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1688 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1689 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1690 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1691 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1692 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1693 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1694 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1695 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1696 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1697 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1698 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1699 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1700 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1701 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1702 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1703 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1704 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1705 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1706 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1707 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1708 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1709 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1710 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1711 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1712 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1713 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1714 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1715 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1716 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1717 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1718 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1719 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1720 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1721 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1722 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1723 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1724 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1725 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1726 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1727 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1728 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1729 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1730 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1731 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1732 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1733 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1734 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1735 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1736 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1737 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1738 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1739 - "mech"
+Cohesion: 0.14
+Nodes (14): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1740 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1741 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1742 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1743 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1744 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1745 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1746 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+6 more)
+
+### Community 1747 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1748 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1749 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1750 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1751 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1752 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1753 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1754 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1755 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1756 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1757 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1758 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1759 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1760 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1761 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1762 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1763 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1764 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1765 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1766 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1767 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1768 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1769 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1770 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1771 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1772 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1773 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1774 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1775 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1776 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1777 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1778 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1779 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1780 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1781 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1782 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1783 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1784 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1785 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1786 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1787 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1788 - "claims"
+Cohesion: 0.14
+Nodes (14): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+6 more)
+
+### Community 1789 - "mech"
+Cohesion: 0.14
+Nodes (14): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+6 more)
+
+### Community 1790 - "activities"
+Cohesion: 0.14
+Nodes (14): id, inputs, name, outputs, refs, roles, summary, tasks (+6 more)
+
+### Community 1791 - "updates"
+Cohesion: 0.15
+Nodes (12): patterns, all-npm, dependency-name, versions, interval, updates, directory, groups (+4 more)
+
+### Community 1792 - "questions"
+Cohesion: 0.15
+Nodes (12): asOf, questions, answer, falsifier, findings, id, kind, origin (+4 more)
+
+### Community 1793 - "c1"
+Cohesion: 0.18
+Nodes (13): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+5 more)
+
+### Community 1794 - "mech"
+Cohesion: 0.15
+Nodes (13): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+5 more)
+
+### Community 1795 - "mech"
+Cohesion: 0.15
+Nodes (13): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+5 more)
+
+### Community 1796 - "mech"
+Cohesion: 0.15
+Nodes (13): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+5 more)
+
+### Community 1797 - "mech"
+Cohesion: 0.15
+Nodes (13): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+5 more)
+
+### Community 1798 - "mech"
+Cohesion: 0.15
+Nodes (13): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+5 more)
+
+### Community 1799 - "mech"
+Cohesion: 0.15
+Nodes (13): checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note, quotes (+5 more)
+
+### Community 1800 - "mech"
+Cohesion: 0.15
+Nodes (13): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+5 more)
+
+### Community 1801 - "c1"
+Cohesion: 0.18
+Nodes (13): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+5 more)
+
+### Community 1802 - "c1"
+Cohesion: 0.18
+Nodes (13): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+5 more)
+
+### Community 1803 - "mech"
+Cohesion: 0.15
+Nodes (13): checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note, quotes (+5 more)
+
+### Community 1804 - "mech"
+Cohesion: 0.15
+Nodes (13): checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note, quotes (+5 more)
+
+### Community 1805 - "c5"
+Cohesion: 0.18
+Nodes (13): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, extractedQuote (+5 more)
+
+### Community 1806 - "gates"
+Cohesion: 0.15
+Nodes (13): gates, approver, approverRole, contractual, criteria, decisions, deliverables, href (+5 more)
+
+### Community 1807 - "questions"
+Cohesion: 0.15
+Nodes (12): q-team-size, id, label, note, questions, appliesWhen, axis, help (+4 more)
+
+### Community 1808 - "body"
+Cohesion: 0.17
+Nodes (11): description, label, body, attributes, id, type, validations, description (+3 more)
+
+### Community 1809 - "body"
+Cohesion: 0.17
+Nodes (11): description, label, body, attributes, id, type, validations, description (+3 more)
+
+### Community 1810 - "c4"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1811 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1812 - "mech"
+Cohesion: 0.17
+Nodes (12): checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note, quotes (+4 more)
+
+### Community 1813 - "mech"
+Cohesion: 0.17
+Nodes (12): checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note, quotes (+4 more)
+
+### Community 1814 - "c8"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1815 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1816 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1817 - "c5"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1818 - "c5"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1819 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1820 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1821 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1822 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1823 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1824 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1825 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1826 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1827 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1828 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1829 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1830 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1831 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1832 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1833 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1834 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1835 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1836 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1837 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1838 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1839 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1840 - "c3"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1841 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1842 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1843 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1844 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1845 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1846 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1847 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1848 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1849 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1850 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1851 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1852 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1853 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1854 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1855 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1856 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1857 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1858 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1859 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1860 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1861 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1862 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1863 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1864 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1865 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1866 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1867 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1868 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1869 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1870 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1871 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1872 - "c3"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1873 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1874 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1875 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1876 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1877 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1878 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1879 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1880 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1881 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1882 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1883 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1884 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1885 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1886 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1887 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1888 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1889 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1890 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1891 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1892 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1893 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1894 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1895 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1896 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1897 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1898 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1899 - "c11"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1900 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1901 - "quotes"
+Cohesion: 0.17
+Nodes (12): quotes, c1, c10, c11, c2, c3, c4, c5 (+4 more)
+
+### Community 1902 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1903 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1904 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1905 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1906 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1907 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1908 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1909 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1910 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1911 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1912 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1913 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1914 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1915 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1916 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1917 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1918 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1919 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1920 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1921 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1922 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1923 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1924 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1925 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1926 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1927 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1928 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1929 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1930 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1931 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1932 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1933 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1934 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1935 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1936 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1937 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1938 - "c4"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1939 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1940 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1941 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1942 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1943 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1944 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1945 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1946 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1947 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1948 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1949 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1950 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1951 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1952 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1953 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1954 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1955 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1956 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1957 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1958 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1959 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1960 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1961 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1962 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1963 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1964 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1965 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1966 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1967 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1968 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1969 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1970 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1971 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1972 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1973 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1974 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1975 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1976 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1977 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1978 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1979 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1980 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1981 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1982 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1983 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1984 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1985 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1986 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1987 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1988 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1989 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1990 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1991 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1992 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1993 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1994 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1995 - "c4"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1996 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1997 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 1998 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 1999 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2000 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2001 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2002 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2003 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2004 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2005 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2006 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2007 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2008 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2009 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2010 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2011 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2012 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2013 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2014 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2015 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2016 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2017 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2018 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2019 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2020 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2021 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2022 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2023 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2024 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2025 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2026 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2027 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2028 - "c4"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2029 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2030 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2031 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2032 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2033 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2034 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2035 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2036 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2037 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2038 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2039 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2040 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2041 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2042 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2043 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2044 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2045 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2046 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2047 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2048 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2049 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2050 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2051 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2052 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2053 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2054 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2055 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2056 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2057 - "c3"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2058 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2059 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2060 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2061 - "c3"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2062 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2063 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2064 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2065 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2066 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2067 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2068 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2069 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2070 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2071 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2072 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2073 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2074 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2075 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2076 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2077 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2078 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2079 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2080 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2081 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2082 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2083 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2084 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2085 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2086 - "c3"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2087 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2088 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2089 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2090 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2091 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2092 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2093 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2094 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2095 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2096 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2097 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2098 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2099 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2100 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2101 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2102 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2103 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2104 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2105 - "mech"
+Cohesion: 0.17
+Nodes (12): status, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2106 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2107 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2108 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2109 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2110 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2111 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2112 - "c2"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2113 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2114 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2115 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2116 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2117 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2118 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2119 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2120 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2121 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2122 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2123 - "c1"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2124 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2125 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2126 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2127 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2128 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2129 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2130 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2131 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2132 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2133 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2134 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2135 - "c4"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2136 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2137 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2138 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2139 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2140 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2141 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2142 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2143 - "c4"
+Cohesion: 0.17
+Nodes (12): date, originalQuote, originalText, reason, verdict, adjudication, extractedQuote, extractedValue (+4 more)
+
+### Community 2144 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2145 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2146 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2147 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2148 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2149 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2150 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2151 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2152 - "mech"
+Cohesion: 0.17
+Nodes (12): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+4 more)
+
+### Community 2153 - "aidlc.yaml"
+Cohesion: 0.17
+Nodes (11): assumptions, category, iso12207Groups, jpRealities, name, origin, outcomes, plainSummary (+3 more)
+
+### Community 2154 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2155 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2156 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2157 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2158 - "c1"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+3 more)
+
+### Community 2159 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2160 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2161 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2162 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2163 - "c2"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+3 more)
+
+### Community 2164 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2165 - "c4"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2166 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2167 - "c1"
+Cohesion: 0.18
+Nodes (11): date, originalText, reason, verdict, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2168 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2169 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2170 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2171 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2172 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2173 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2174 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2175 - "c2"
+Cohesion: 0.18
+Nodes (11): date, originalText, reason, verdict, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2176 - "mech"
+Cohesion: 0.18
+Nodes (11): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+3 more)
+
+### Community 2177 - "mech"
+Cohesion: 0.18
+Nodes (11): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+3 more)
+
+### Community 2178 - "c2"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+3 more)
+
+### Community 2179 - "mech"
+Cohesion: 0.18
+Nodes (11): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+3 more)
+
+### Community 2180 - "mech"
+Cohesion: 0.18
+Nodes (11): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+3 more)
+
+### Community 2181 - "mech"
+Cohesion: 0.18
+Nodes (11): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+3 more)
+
+### Community 2182 - "mech"
+Cohesion: 0.18
+Nodes (11): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+3 more)
+
+### Community 2183 - "mech"
+Cohesion: 0.18
+Nodes (11): status, checkedAt, contentType, crossref, dateMeta, finalUrl, httpStatus, note (+3 more)
+
+### Community 2184 - "c4"
+Cohesion: 0.18
+Nodes (11): date, originalText, reason, verdict, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2185 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2186 - "c4"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2187 - "c2"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2188 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2189 - "c3"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2190 - "c2"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+3 more)
+
+### Community 2191 - "quotes"
+Cohesion: 0.18
+Nodes (11): quotes, c1, c10, c2, c3, c4, c5, c6 (+3 more)
+
+### Community 2192 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2193 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2194 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2195 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2196 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2197 - "c2"
+Cohesion: 0.18
+Nodes (11): date, originalText, reason, verdict, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2198 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2199 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2200 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2201 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2202 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2203 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2204 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2205 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2206 - "c1"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+3 more)
+
+### Community 2207 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2208 - "c2"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2209 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2210 - "c3"
+Cohesion: 0.22
+Nodes (11): date, reason, verdict, adjudication, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2211 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2212 - "c2"
+Cohesion: 0.18
+Nodes (11): date, originalText, reason, verdict, adjudication, extractedQuote, extractedValue, locator (+3 more)
+
+### Community 2213 - "mech"
+Cohesion: 0.18
+Nodes (11): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2214 - "mech"
+Cohesion: 0.18
+Nodes (11): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2215 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2216 - "mech"
+Cohesion: 0.18
+Nodes (11): arxiv, checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2217 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2218 - "mech"
+Cohesion: 0.18
+Nodes (11): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+3 more)
+
+### Community 2219 - "agile.yaml"
+Cohesion: 0.18
+Nodes (10): category, iso12207Groups, jpRealities, name, origin, outcomes, plainSummary, purpose (+2 more)
+
+### Community 2220 - "ddd.yaml"
+Cohesion: 0.18
+Nodes (10): category, iso12207Groups, jpRealities, name, origin, outcomes, plainSummary, purpose (+2 more)
+
+### Community 2221 - "event-driven.yaml"
+Cohesion: 0.18
+Nodes (10): category, iso12207Groups, jpRealities, name, origin, outcomes, plainSummary, purpose (+2 more)
+
+### Community 2222 - "activities"
+Cohesion: 0.18
+Nodes (11): id, inputs, name, outputs, roles, summary, tasks, activities (+3 more)
+
+### Community 2223 - "hybrid.yaml"
+Cohesion: 0.18
+Nodes (10): category, iso12207Groups, jpRealities, name, origin, outcomes, plainSummary, purpose (+2 more)
+
+### Community 2224 - "bodies"
+Cohesion: 0.18
+Nodes (11): bodies, approver, decides, excludes, gates, href, id, label (+3 more)
+
+### Community 2225 - "sdd.yaml"
+Cohesion: 0.18
+Nodes (10): category, iso12207Groups, jpRealities, name, origin, outcomes, plainSummary, purpose (+2 more)
+
+### Community 2226 - "tdd.yaml"
+Cohesion: 0.18
+Nodes (10): category, iso12207Groups, jpRealities, name, origin, outcomes, plainSummary, purpose (+2 more)
+
+### Community 2227 - "Process Compass 🧭"
+Cohesion: 0.20
+Nodes (10): English, Process Compass 🧭, このプロジェクトについて, コントリビュート, ピットイン方式, フィードバック歓迎, ライセンス, 要点だけ読む (+2 more)
+
+### Community 2228 - "quotes"
+Cohesion: 0.20
+Nodes (10): quotes, c1, c2, c3, c4, c5, c6, c7 (+2 more)
+
+### Community 2229 - "c5"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2230 - "quotes"
+Cohesion: 0.20
+Nodes (10): quotes, c1, c2, c3, c4, c5, c6, c7 (+2 more)
+
+### Community 2231 - "c3"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2232 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2233 - "quotes"
+Cohesion: 0.20
+Nodes (10): quotes, c1, c2, c3, c4, c5, c6, c7 (+2 more)
+
+### Community 2234 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2235 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2236 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2237 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2238 - "quotes"
+Cohesion: 0.20
+Nodes (10): quotes, c1, c2, c3, c4, c5, c6, c7 (+2 more)
+
+### Community 2239 - "c4"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2240 - "adjudication"
+Cohesion: 0.38
+Nodes (10): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication (+2 more)
+
+### Community 2241 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2242 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2243 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2244 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2245 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2246 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2247 - "c6"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2248 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2249 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2250 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2251 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2252 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2253 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2254 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2255 - "c3"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2256 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2257 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2258 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2259 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2260 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2261 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2262 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2263 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2264 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2265 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2266 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2267 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2268 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2269 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2270 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2271 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2272 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2273 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2274 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2275 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2276 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2277 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2278 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2279 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2280 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2281 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2282 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2283 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2284 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2285 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2286 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2287 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2288 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2289 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2290 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2291 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2292 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2293 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2294 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2295 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2296 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2297 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2298 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2299 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2300 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2301 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2302 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2303 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2304 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2305 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2306 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2307 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2308 - "quotes"
+Cohesion: 0.20
+Nodes (10): quotes, c1, c2, c3, c4, c5, c6, c7 (+2 more)
+
+### Community 2309 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2310 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2311 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2312 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2313 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2314 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2315 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2316 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2317 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2318 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2319 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2320 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2321 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2322 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2323 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2324 - "c3"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2325 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2326 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2327 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2328 - "quotes"
+Cohesion: 0.20
+Nodes (10): quotes, c1, c2, c3, c4, c5, c6, c7 (+2 more)
+
+### Community 2329 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2330 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2331 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2332 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2333 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2334 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2335 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2336 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2337 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2338 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2339 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2340 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2341 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2342 - "c5"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2343 - "c4"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2344 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2345 - "c5"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2346 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2347 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2348 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2349 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2350 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2351 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2352 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2353 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2354 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2355 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2356 - "c6"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2357 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2358 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2359 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2360 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2361 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2362 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2363 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2364 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2365 - "c3"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2366 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2367 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2368 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2369 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2370 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2371 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2372 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2373 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2374 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2375 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2376 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2377 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2378 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2379 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2380 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2381 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2382 - "c3"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2383 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2384 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2385 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2386 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2387 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2388 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2389 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2390 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2391 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2392 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2393 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2394 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2395 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2396 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2397 - "mech"
+Cohesion: 0.20
+Nodes (10): checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note, titleFetched (+2 more)
+
+### Community 2398 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2399 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2400 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2401 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2402 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2403 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2404 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2405 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2406 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2407 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2408 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2409 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2410 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2411 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2412 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2413 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2414 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2415 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2416 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2417 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2418 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2419 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2420 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2421 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2422 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2423 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2424 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2425 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2426 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2427 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2428 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2429 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2430 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2431 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2432 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2433 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2434 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2435 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2436 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2437 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2438 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2439 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2440 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2441 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2442 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2443 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2444 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2445 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2446 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2447 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2448 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2449 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2450 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2451 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2452 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2453 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2454 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2455 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2456 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2457 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2458 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2459 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2460 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2461 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2462 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2463 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2464 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2465 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2466 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2467 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2468 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2469 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2470 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2471 - "c3"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2472 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2473 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2474 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2475 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2476 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2477 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2478 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2479 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2480 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2481 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2482 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2483 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2484 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2485 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2486 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2487 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2488 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2489 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2490 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2491 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2492 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2493 - "c2"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2494 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2495 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2496 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2497 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2498 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2499 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2500 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2501 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2502 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2503 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2504 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2505 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2506 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2507 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2508 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2509 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2510 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2511 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2512 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2513 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2514 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2515 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2516 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2517 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2518 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2519 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2520 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2521 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2522 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2523 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2524 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2525 - "c4"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2526 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2527 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2528 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2529 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2530 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2531 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2532 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2533 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2534 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2535 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2536 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2537 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2538 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2539 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2540 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2541 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2542 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2543 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2544 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2545 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2546 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2547 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2548 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2549 - "mech"
+Cohesion: 0.20
+Nodes (10): checkedAt, contentType, dateMeta, finalUrl, fullText, httpStatus, note, titleFetched (+2 more)
+
+### Community 2550 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2551 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2552 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2553 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2554 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2555 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2556 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2557 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2558 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2559 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2560 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2561 - "c5"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2562 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2563 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2564 - "c1"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2565 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2566 - "c5"
+Cohesion: 0.20
+Nodes (10): date, reason, verdict, adjudication, extractedQuote, extractedValue, locator, note (+2 more)
+
+### Community 2567 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2568 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2569 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2570 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2571 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2572 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2573 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2574 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2575 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2576 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2577 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2578 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2579 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2580 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2581 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2582 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2583 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2584 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2585 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 2586 - "targets"
+Cohesion: 0.20
+Nodes (9): schemaVersion, targets, check, description, id, keyPath, kind, name (+1 more)
+
+### Community 2587 - "activities"
+Cohesion: 0.20
+Nodes (10): id, name, outputs, roles, summary, tasks, activities, description (+2 more)
+
+### Community 2588 - "gates"
+Cohesion: 0.20
+Nodes (10): gates, approver, contractual, criteria, decisions, deliverables, id, jpNote (+2 more)
+
+### Community 2589 - "activities"
+Cohesion: 0.20
+Nodes (10): id, inputs, name, outputs, roles, tasks, activities, description (+2 more)
+
+### Community 2590 - "gates"
+Cohesion: 0.20
+Nodes (10): gates, approver, contractual, criteria, decisions, deliverables, id, jpNote (+2 more)
+
+### Community 2591 - "integrated.yaml"
+Cohesion: 0.20
+Nodes (9): category, iso12207Groups, name, origin, outcomes, plainSummary, purpose, schemaVersion (+1 more)
+
+### Community 2592 - "activities"
+Cohesion: 0.20
+Nodes (10): id, inputs, name, outputs, roles, summary, tasks, activities (+2 more)
+
+### Community 2593 - "forms"
+Cohesion: 0.20
+Nodes (9): omit, standard, template, forms, fields, file, id, name (+1 more)
+
+### Community 2594 - "1. 標準の現状(突合)"
+Cohesion: 0.22
+Nodes (9): 1.1 適合の主張に関する規定, 1.2 移行計画(`phase5-implementation/overview.md`・`enablement.md`), 1.3 準拠テンプレートに関する規定, 1.4 機械の挙動(実行して確かめたこと), 1.5 #300 で出た文案と、その中の未決の判断, 1. 標準の現状(突合), 実行から分かったこと, 試験 a: ファイルを上書きせずに複製して持ち込む(3〜9 名・グロース・標準品質・CL0・内製) (+1 more)
+
+### Community 2595 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2596 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2597 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2598 - "quotes"
+Cohesion: 0.22
+Nodes (9): quotes, c1, c2, c3, c4, c5, c6, c7 (+1 more)
+
+### Community 2599 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2600 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2601 - "quotes"
+Cohesion: 0.22
+Nodes (9): quotes, c1, c2, c3, c4, c5, c6, c7 (+1 more)
+
+### Community 2602 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2603 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2604 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2605 - "quotes"
+Cohesion: 0.22
+Nodes (9): quotes, c1, c2, c3, c4, c5, c6, c7 (+1 more)
+
+### Community 2606 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2607 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2608 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2609 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2610 - "mech"
+Cohesion: 0.22
+Nodes (9): checkedAt, contentType, dateMeta, finalUrl, httpStatus, note, titleFetched, titleMatch (+1 more)
+
+### Community 2611 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2612 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2613 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2614 - "quotes"
+Cohesion: 0.22
+Nodes (9): quotes, c1, c2, c3, c4, c5, c6, c7 (+1 more)
+
+### Community 2615 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2616 - "quotes"
+Cohesion: 0.22
+Nodes (9): quotes, c1, c2, c3, c4, c5, c6, c7 (+1 more)
+
+### Community 2617 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2618 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2619 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2620 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2621 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2622 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2623 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2624 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2625 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2626 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2627 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2628 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2629 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2630 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2631 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2632 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2633 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2634 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2635 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2636 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2637 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2638 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2639 - "adjudication"
+Cohesion: 0.50
+Nodes (9): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication (+1 more)
+
+### Community 2640 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2641 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2642 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2643 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2644 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2645 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2646 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2647 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2648 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2649 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2650 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2651 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2652 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2653 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2654 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2655 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2656 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2657 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2658 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2659 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2660 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2661 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2662 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2663 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2664 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2665 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2666 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2667 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2668 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2669 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2670 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2671 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2672 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2673 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2674 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2675 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2676 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2677 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2678 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2679 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2680 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2681 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2682 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2683 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2684 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2685 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2686 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2687 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2688 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2689 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2690 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2691 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2692 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2693 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2694 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2695 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2696 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2697 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2698 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2699 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2700 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2701 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2702 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2703 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2704 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2705 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2706 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2707 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2708 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2709 - "adjudication"
+Cohesion: 0.39
+Nodes (9): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication (+1 more)
+
+### Community 2710 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2711 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2712 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2713 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2714 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2715 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2716 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2717 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2718 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2719 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2720 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2721 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2722 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2723 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2724 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2725 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2726 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2727 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2728 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2729 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2730 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2731 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2732 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2733 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2734 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2735 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2736 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2737 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2738 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2739 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2740 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2741 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2742 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2743 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2744 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2745 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2746 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2747 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2748 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2749 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2750 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2751 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2752 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2753 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2754 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2755 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2756 - "c10"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c10 (+1 more)
+
+### Community 2757 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2758 - "c11"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c11 (+1 more)
+
+### Community 2759 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2760 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2761 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2762 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2763 - "c5"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c5 (+1 more)
+
+### Community 2764 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2765 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2766 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2767 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2768 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2769 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2770 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2771 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2772 - "quotes"
+Cohesion: 0.22
+Nodes (9): quotes, c1, c2, c3, c4, c5, c6, c7 (+1 more)
+
+### Community 2773 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2774 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2775 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2776 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2777 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2778 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2779 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2780 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2781 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2782 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2783 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2784 - "c7"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c7 (+1 more)
+
+### Community 2785 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2786 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2787 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2788 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2789 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2790 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2791 - "c5"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c5 (+1 more)
+
+### Community 2792 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2793 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2794 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2795 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2796 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2797 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2798 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2799 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2800 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2801 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2802 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2803 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2804 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2805 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2806 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2807 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2808 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2809 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2810 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2811 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2812 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2813 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2814 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2815 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2816 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2817 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2818 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2819 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2820 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2821 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2822 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2823 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2824 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2825 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2826 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2827 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2828 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2829 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2830 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2831 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2832 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2833 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2834 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2835 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2836 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2837 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2838 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2839 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2840 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2841 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2842 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2843 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2844 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2845 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2846 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2847 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2848 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2849 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2850 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2851 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2852 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2853 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2854 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2855 - "c5"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c5 (+1 more)
+
+### Community 2856 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2857 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2858 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2859 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2860 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2861 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 2862 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2863 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2864 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2865 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2866 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2867 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2868 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2869 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2870 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2871 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2872 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2873 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2874 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2875 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2876 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2877 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2878 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2879 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2880 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2881 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2882 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2883 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2884 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2885 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2886 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2887 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2888 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2889 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2890 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2891 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2892 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2893 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2894 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2895 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2896 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2897 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2898 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2899 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2900 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2901 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2902 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2903 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2904 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2905 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2906 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2907 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2908 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2909 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2910 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2911 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2912 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2913 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2914 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2915 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2916 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2917 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2918 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2919 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2920 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2921 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2922 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2923 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2924 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2925 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2926 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2927 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2928 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2929 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2930 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2931 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2932 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2933 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2934 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2935 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2936 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2937 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2938 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2939 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2940 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2941 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2942 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2943 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2944 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2945 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2946 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2947 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2948 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2949 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2950 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2951 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2952 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2953 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2954 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2955 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2956 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2957 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2958 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2959 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2960 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2961 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2962 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2963 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2964 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2965 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2966 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2967 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2968 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2969 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2970 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2971 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2972 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2973 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2974 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2975 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2976 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2977 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2978 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2979 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2980 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2981 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2982 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2983 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2984 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2985 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2986 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2987 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2988 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2989 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2990 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2991 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2992 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2993 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 2994 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 2995 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2996 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 2997 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 2998 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 2999 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3000 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3001 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3002 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3003 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3004 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3005 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3006 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3007 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3008 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3009 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3010 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3011 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3012 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3013 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3014 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3015 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3016 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3017 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3018 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3019 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3020 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3021 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3022 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3023 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3024 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3025 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3026 - "adjudication"
+Cohesion: 0.50
+Nodes (9): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication (+1 more)
+
+### Community 3027 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3028 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3029 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3030 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3031 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3032 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 3033 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3034 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c6 (+1 more)
+
+### Community 3035 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3036 - "c5"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c5 (+1 more)
+
+### Community 3037 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3038 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3039 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3040 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 3041 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3042 - "c6"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c6 (+1 more)
+
+### Community 3043 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3044 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3045 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3046 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3047 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 3048 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3049 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3050 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3051 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3052 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3053 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3054 - "c7"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c7 (+1 more)
+
+### Community 3055 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 3056 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3057 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 3058 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3059 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3060 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3061 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3062 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3063 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3064 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 3065 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3066 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3067 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3068 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3069 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3070 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3071 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3072 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3073 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3074 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3075 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3076 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3077 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3078 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3079 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3080 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3081 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3082 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 3083 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3084 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3085 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3086 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3087 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3088 - "verification"
+Cohesion: 0.22
+Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
+
+### Community 3089 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3090 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3091 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3092 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3093 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3094 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3095 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3096 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3097 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3098 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3099 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3100 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3101 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3102 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3103 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3104 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3105 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3106 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3107 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3108 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3109 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3110 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3111 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3112 - "c2"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3113 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3114 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3115 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+
+### Community 3116 - "c1"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3117 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3118 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 3119 - "quotes"
+Cohesion: 0.22
+Nodes (9): quotes, c1, c2, c3, c4, c5, c6, c7 (+1 more)
+
+### Community 3120 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3121 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3122 - "c3"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+
+### Community 3123 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3124 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 3125 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3126 - "c4"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+
+### Community 3127 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 3128 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+
+### Community 3129 - "gates"
+Cohesion: 0.22
+Nodes (9): gates, approver, criteria, decisions, deliverables, id, jpNote, kind (+1 more)
+
+### Community 3130 - "activities"
+Cohesion: 0.22
+Nodes (9): id, inputs, name, outputs, roles, tasks, activities, id (+1 more)
+
+### Community 3131 - "activities"
+Cohesion: 0.22
+Nodes (9): id, inputs, name, outputs, roles, tasks, activities, id (+1 more)
+
+### Community 3132 - "gates"
+Cohesion: 0.22
+Nodes (9): gates, approver, criteria, decisions, deliverables, id, jpNote, kind (+1 more)
+
+### Community 3133 - "gates"
+Cohesion: 0.22
+Nodes (9): gates, approver, criteria, decisions, deliverables, id, jpNote, kind (+1 more)
+
+### Community 3134 - "activities"
+Cohesion: 0.22
+Nodes (9): id, inputs, name, outputs, roles, tasks, activities, id (+1 more)
+
+### Community 3135 - "gates"
+Cohesion: 0.22
+Nodes (9): gates, approver, criteria, decisions, deliverables, id, jpNote, kind (+1 more)
+
+### Community 3136 - "gates"
+Cohesion: 0.22
+Nodes (9): gates, approver, criteria, decisions, deliverables, id, jpNote, kind (+1 more)
+
+### Community 3137 - "2. 実行順序（8 Wave / 30 Issue）"
+Cohesion: 0.22
+Nodes (9): 2. 実行順序（8 Wave / 30 Issue）, Wave 0 — 基盤整備（器とトーン） ★最優先, Wave 1 — マクロライフサイクルと期日リスク（外殻①）, Wave 2 — 会議体・決裁・ポートフォリオ（外殻②）, Wave 3 — 役割とロール（内殻①）, Wave 4 — 形骸化防止と三識（内殻②）, Wave 5 — タスク管理と AI SLA（仕組み①）, Wave 6 — 安全規格適合（仕組み②） (+1 more)
+
+### Community 3138 - "adjudication"
+Cohesion: 0.46
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3139 - "adjudication"
+Cohesion: 0.46
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3140 - "adjudication"
+Cohesion: 0.39
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3141 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3142 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3143 - "adjudication"
+Cohesion: 0.39
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3144 - "adjudication"
+Cohesion: 0.39
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3145 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3146 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3147 - "adjudication"
+Cohesion: 0.39
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3148 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3149 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3150 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3151 - "adjudication"
+Cohesion: 0.54
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3152 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3153 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3154 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3155 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3156 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3157 - "adjudication"
+Cohesion: 0.39
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3158 - "adjudication"
+Cohesion: 0.39
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3159 - "adjudication"
+Cohesion: 0.54
+Nodes (8): date, originalQuote, originalText, reason, verdict, adjudication, adjudication, adjudication
+
+### Community 3160 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3161 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3162 - "quotes"
+Cohesion: 0.25
+Nodes (8): quotes, c1, c2, c3, c4, c5, c6, c7
+
+### Community 3163 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 3164 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 3165 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 3166 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 3167 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 3168 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 3169 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 3170 - "separations"
+Cohesion: 0.25
+Nodes (8): separations, exception, gate, id, reason, roles, scope, unit
+
+### Community 3171 - "stages"
+Cohesion: 0.25
+Nodes (8): stages, alias, exitGate, goal, href, id, label, name
+
+### Community 3172 - "constraints"
+Cohesion: 0.25
+Nodes (7): constraints, description, id, name, rationale, source, schemaVersion
+
+### Community 3173 - "Process Compass 改修 実行計画（Issue #97〜#126 / 全30件）"
+Cohesion: 0.25
+Nodes (7): 1. 作業単位の標準手順（1 Issue あたり／必ずこの順で実行）, 3. 成果物マップ（配置先の指針）, 5.6 積み残し（次に着手する候補）, 5. 進捗表（★ここを更新する）, 6. 完了の定義（全体）, Process Compass 改修 実行計画（Issue #97〜#126 / 全30件）, ★Web 検索枠（2026-08-05 判明・重要）
+
+### Community 3174 - "4. 既知の重複・要調整ポイント（着手時に必ず確認）"
+Cohesion: 0.25
+Nodes (8): 4. 既知の重複・要調整ポイント（着手時に必ず確認）, Wave 1 で確定した語彙（以降のWaveは必ずこれに従う）, Wave 2 で確定した語彙（以降のWaveは必ずこれに従う）, Wave 3 で確定した語彙（以降のWaveは必ずこれに従う）, Wave 4 で確定した語彙・設計原則（以降のWaveは必ずこれに従う）, Wave 5 で確定した語彙・訂正（以降のWaveは必ずこれに従う）, Wave 6 で確定した語彙・訂正（以降のWaveは必ずこれに従う）, Wave 7 #121 で確定した事項（#126 の総括で必ず反映すること）
+
+### Community 3175 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3176 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3177 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3178 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3179 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3180 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3181 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3182 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3183 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3184 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3185 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3186 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3187 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3188 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3189 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3190 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3191 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3192 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3193 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3194 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3195 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3196 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3197 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3198 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3199 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3200 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3201 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3202 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3203 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3204 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3205 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3206 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3207 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3208 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3209 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3210 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3211 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3212 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3213 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3214 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3215 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3216 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3217 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3218 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3219 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3220 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3221 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3222 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3223 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3224 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3225 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3226 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3227 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3228 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3229 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3230 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3231 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3232 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3233 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3234 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3235 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3236 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3237 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3238 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3239 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3240 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3241 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3242 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3243 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3244 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3245 - "adjudication"
+Cohesion: 0.38
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3246 - "adjudication"
+Cohesion: 0.38
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3247 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3248 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3249 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3250 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3251 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3252 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3253 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3254 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3255 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3256 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3257 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3258 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3259 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3260 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3261 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3262 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3263 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3264 - "adjudication"
+Cohesion: 0.38
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3265 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3266 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3267 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3268 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3269 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3270 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3271 - "adjudication"
+Cohesion: 0.48
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3272 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3273 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3274 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3275 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3276 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3277 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3278 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3279 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3280 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3281 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3282 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3283 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3284 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3285 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3286 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3287 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3288 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3289 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3290 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3291 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3292 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3293 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3294 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3295 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3296 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3297 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3298 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3299 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3300 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3301 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3302 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3303 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3304 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3305 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3306 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3307 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3308 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3309 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3310 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3311 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3312 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3313 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3314 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3315 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3316 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3317 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3318 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3319 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3320 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3321 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3322 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3323 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3324 - "adjudication"
+Cohesion: 0.48
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3325 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3326 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3327 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3328 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3329 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3330 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3331 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3332 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3333 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3334 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3335 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3336 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3337 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3338 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3339 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3340 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3341 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3342 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3343 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3344 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3345 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3346 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3347 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3348 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3349 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3350 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3351 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3352 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3353 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3354 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3355 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3356 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3357 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3358 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3359 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3360 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3361 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3362 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3363 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3364 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3365 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3366 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3367 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3368 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3369 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3370 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3371 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3372 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3373 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3374 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3375 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3376 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3377 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3378 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3379 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3380 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3381 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3382 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3383 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3384 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3385 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3386 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3387 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3388 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3389 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3390 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3391 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3392 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3393 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3394 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3395 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3396 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3397 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3398 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3399 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3400 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3401 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3402 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3403 - "adjudication"
+Cohesion: 0.38
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3404 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3405 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3406 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3407 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3408 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3409 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3410 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3411 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3412 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3413 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3414 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3415 - "adjudication"
+Cohesion: 0.48
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3416 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3417 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3418 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3419 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3420 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3421 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3422 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3423 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3424 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3425 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3426 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3427 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3428 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3429 - "adjudication"
+Cohesion: 0.38
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3430 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3431 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3432 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3433 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3434 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3435 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3436 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3437 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3438 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3439 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3440 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3441 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3442 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3443 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3444 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3445 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3446 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3447 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3448 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3449 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3450 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3451 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3452 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3453 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3454 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3455 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3456 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3457 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3458 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3459 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3460 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3461 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3462 - "adjudication"
+Cohesion: 0.38
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3463 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3464 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3465 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3466 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3467 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3468 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3469 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3470 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3471 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3472 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3473 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3474 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3475 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3476 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3477 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3478 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3479 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3480 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3481 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3482 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3483 - "adjudication"
+Cohesion: 0.38
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3484 - "adjudication"
+Cohesion: 0.38
+Nodes (7): date, originalQuote, originalText, reason, verdict, adjudication, adjudication
+
+### Community 3485 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3486 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3487 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3488 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3489 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3490 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3491 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3492 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3493 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3494 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3495 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3496 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3497 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3498 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3499 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3500 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3501 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3502 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3503 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3504 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3505 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3506 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3507 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3508 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3509 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3510 - "arxiv"
+Cohesion: 0.29
+Nodes (7): authors, latestVersion, status, title, titleMatch, v1Date, arxiv
+
+### Community 3511 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3512 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3513 - "quotes"
+Cohesion: 0.29
+Nodes (7): quotes, c1, c2, c3, c4, c5, c6
+
+### Community 3514 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3515 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3516 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3517 - "verification"
+Cohesion: 0.29
+Nodes (7): verification, agent, date, humanChecked, method, note, status
+
+### Community 3518 - "practices"
+Cohesion: 0.29
+Nodes (6): practices, description, id, name, source, schemaVersion
+
+### Community 3519 - "contact_links"
+Cohesion: 0.33
+Nodes (5): blank_issues_enabled, contact_links, about, name, url
+
+### Community 3520 - "セキュリティポリシー"
+Cohesion: 0.33
+Nodes (4): セキュリティポリシー, 対象, 脆弱性の報告方法, サポート
+
+### Community 3521 - "3. PR サイズとレビュー品質の実証(数値の原典)"
+Cohesion: 0.33
+Nodes (6): 3.1 「200〜400 行」「60 分」= SmartBear / Cisco 研究(2006 年), 3.2 「100 行」= Google のエンジニアリング実践ガイド, 3.3 Google 大規模実測(ICSE-SEIP 2018), 3.4 Microsoft 系の研究, 3.5 業界ベンチマーク(2026 年版), 3. PR サイズとレビュー品質の実証(数値の原典)
+
+### Community 3522 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3523 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3524 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3525 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3526 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 3527 - "c8"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c8
+
+### Community 3528 - "c9"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c9
+
+### Community 3529 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3530 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3531 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3532 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3533 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3534 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3535 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3536 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3537 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3538 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3539 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3540 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3541 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3542 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3543 - "c9"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c9
+
+### Community 3544 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3545 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3546 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3547 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3548 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3549 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3550 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3551 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3552 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3553 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3554 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3555 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3556 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3557 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 3558 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3559 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3560 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3561 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3562 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3563 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 3564 - "c9"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c9
+
+### Community 3565 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3566 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3567 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3568 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3569 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3570 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3571 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3572 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3573 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3574 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3575 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3576 - "c8"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c8
+
+### Community 3577 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3578 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3579 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3580 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3581 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3582 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3583 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 3584 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3585 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3586 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3587 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3588 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3589 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3590 - "c9"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c9
+
+### Community 3591 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3592 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3593 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3594 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3595 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3596 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3597 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3598 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3599 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3600 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3601 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3602 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3603 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3604 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3605 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3606 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3607 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3608 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3609 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3610 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3611 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 3612 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3613 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3614 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3615 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3616 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3617 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3618 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 3619 - "c8"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c8
+
+### Community 3620 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3621 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3622 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3623 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3624 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3625 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3626 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3627 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3628 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3629 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3630 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3631 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3632 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3633 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3634 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3635 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3636 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3637 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3638 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3639 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3640 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3641 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3642 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 3643 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3644 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3645 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3646 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3647 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3648 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3649 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3650 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3651 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3652 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3653 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3654 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3655 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3656 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3657 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3658 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3659 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3660 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3661 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3662 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3663 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3664 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3665 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3666 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3667 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3668 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3669 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3670 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3671 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3672 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3673 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3674 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3675 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3676 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3677 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3678 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3679 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3680 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3681 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3682 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3683 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3684 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3685 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3686 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3687 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3688 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3689 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3690 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3691 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3692 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3693 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3694 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3695 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3696 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3697 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3698 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3699 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3700 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3701 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3702 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3703 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3704 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3705 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3706 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3707 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3708 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3709 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3710 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3711 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3712 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3713 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3714 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3715 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3716 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3717 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3718 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3719 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3720 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3721 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3722 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3723 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3724 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3725 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3726 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3727 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3728 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3729 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3730 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 3731 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3732 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3733 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3734 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3735 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 3736 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3737 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3738 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3739 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3740 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3741 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3742 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3743 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3744 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 3745 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3746 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3747 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3748 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3749 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3750 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3751 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3752 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3753 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 3754 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3755 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 3756 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3757 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3758 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3759 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3760 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3761 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3762 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3763 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3764 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3765 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3766 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3767 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3768 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3769 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3770 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3771 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3772 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3773 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3774 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3775 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3776 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3777 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3778 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3779 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 3780 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3781 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3782 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3783 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3784 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3785 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3786 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3787 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3788 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3789 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3790 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3791 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3792 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3793 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3794 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3795 - "c10"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c10
+
+### Community 3796 - "c11"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c11
+
+### Community 3797 - "c13"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c13
+
+### Community 3798 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3799 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 3800 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3801 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3802 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3803 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3804 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 3805 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3806 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3807 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3808 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3809 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3810 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3811 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3812 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3813 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3814 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3815 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3816 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3817 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3818 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3819 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3820 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3821 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3822 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3823 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3824 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3825 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3826 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3827 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3828 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3829 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3830 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3831 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3832 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3833 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3834 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3835 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3836 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3837 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 3838 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3839 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3840 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3841 - "c9"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c9
+
+### Community 3842 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3843 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3844 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3845 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3846 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3847 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3848 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3849 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3850 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3851 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3852 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3853 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3854 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3855 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3856 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3857 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3858 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3859 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3860 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3861 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3862 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3863 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3864 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3865 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3866 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3867 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3868 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3869 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3870 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3871 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3872 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3873 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3874 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3875 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3876 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3877 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3878 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3879 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3880 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3881 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3882 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3883 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3884 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3885 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3886 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3887 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3888 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3889 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3890 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3891 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3892 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3893 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3894 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3895 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3896 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3897 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3898 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3899 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3900 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3901 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3902 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3903 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3904 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3905 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3906 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3907 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3908 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3909 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3910 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3911 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3912 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3913 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3914 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3915 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3916 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3917 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3918 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3919 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3920 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 3921 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3922 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3923 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3924 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3925 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3926 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3927 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3928 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3929 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3930 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3931 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3932 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3933 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 3934 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3935 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3936 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3937 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3938 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3939 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3940 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3941 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3942 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3943 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3944 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3945 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3946 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3947 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3948 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3949 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3950 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3951 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3952 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3953 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3954 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3955 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3956 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 3957 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3958 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3959 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3960 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3961 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3962 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3963 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3964 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3965 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3966 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3967 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3968 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3969 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3970 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3971 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3972 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3973 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3974 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3975 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3976 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 3977 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3978 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3979 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3980 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3981 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3982 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3983 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3984 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3985 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3986 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3987 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3988 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3989 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3990 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3991 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3992 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3993 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 3994 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 3995 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 3996 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3997 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 3998 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 3999 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4000 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4001 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4002 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4003 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4004 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4005 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4006 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4007 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4008 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4009 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4010 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4011 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4012 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4013 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4014 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4015 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4016 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4017 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4018 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4019 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4020 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4021 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4022 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4023 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4024 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4025 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4026 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4027 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4028 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4029 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4030 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4031 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4032 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4033 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4034 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4035 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4036 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4037 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4038 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4039 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4040 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4041 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4042 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4043 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4044 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4045 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4046 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4047 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4048 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4049 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4050 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4051 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4052 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4053 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4054 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4055 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4056 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4057 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4058 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4059 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4060 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4061 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4062 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4063 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4064 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4065 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4066 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4067 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4068 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4069 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4070 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4071 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4072 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4073 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4074 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4075 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4076 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4077 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4078 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4079 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4080 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4081 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4082 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4083 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4084 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4085 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4086 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4087 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4088 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4089 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4090 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4091 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4092 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4093 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4094 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4095 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4096 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4097 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4098 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4099 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4100 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4101 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4102 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4103 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4104 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4105 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4106 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4107 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4108 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4109 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4110 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4111 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4112 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4113 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4114 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4115 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4116 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4117 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4118 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4119 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4120 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4121 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4122 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4123 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4124 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4125 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4126 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4127 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4128 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4129 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4130 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4131 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4132 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4133 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4134 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4135 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4136 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4137 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4138 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4139 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4140 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4141 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4142 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4143 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4144 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4145 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4146 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4147 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4148 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4149 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4150 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4151 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4152 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4153 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4154 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4155 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4156 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4157 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4158 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4159 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4160 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4161 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4162 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4163 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4164 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4165 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4166 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4167 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4168 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4169 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4170 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4171 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4172 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4173 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4174 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4175 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4176 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4177 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4178 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4179 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4180 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4181 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4182 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4183 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4184 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4185 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4186 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4187 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4188 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4189 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4190 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4191 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4192 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4193 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4194 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4195 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4196 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4197 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4198 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4199 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4200 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4201 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4202 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4203 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4204 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4205 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4206 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4207 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4208 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4209 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4210 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4211 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4212 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4213 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4214 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4215 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4216 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4217 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4218 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4219 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 4220 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4221 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4222 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4223 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4224 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4225 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4226 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4227 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4228 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4229 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 4230 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4231 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4232 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4233 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4234 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4235 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4236 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4237 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4238 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4239 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4240 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4241 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4242 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4243 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4244 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4245 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4246 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4247 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4248 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4249 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4250 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4251 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4252 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4253 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4254 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4255 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4256 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4257 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4258 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4259 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4260 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4261 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4262 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4263 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4264 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4265 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4266 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4267 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4268 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4269 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4270 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4271 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4272 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4273 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4274 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4275 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4276 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4277 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4278 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4279 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4280 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4281 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4282 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4283 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4284 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4285 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4286 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4287 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4288 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4289 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4290 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4291 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4292 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4293 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4294 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4295 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4296 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4297 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4298 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4299 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4300 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4301 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4302 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4303 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4304 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4305 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4306 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4307 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4308 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4309 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4310 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4311 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4312 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4313 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4314 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4315 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4316 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4317 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4318 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4319 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4320 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4321 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4322 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4323 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4324 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4325 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4326 - "adjudication"
+Cohesion: 0.33
+Nodes (6): date, originalQuote, originalText, reason, verdict, adjudication
+
+### Community 4327 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4328 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4329 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4330 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4331 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4332 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4333 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4334 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4335 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4336 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4337 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4338 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4339 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4340 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4341 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 4342 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4343 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 4344 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4345 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4346 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4347 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4348 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4349 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4350 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4351 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4352 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4353 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4354 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4355 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4356 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4357 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4358 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4359 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4360 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4361 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4362 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4363 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4364 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4365 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4366 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4367 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4368 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4369 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4370 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4371 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4372 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4373 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4374 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4375 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4376 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4377 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4378 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4379 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4380 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4381 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4382 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4383 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4384 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4385 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4386 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4387 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4388 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4389 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4390 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4391 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4392 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4393 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4394 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4395 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4396 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4397 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4398 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4399 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4400 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4401 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4402 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4403 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4404 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4405 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4406 - "c6"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c6
+
+### Community 4407 - "c7"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c7
+
+### Community 4408 - "c8"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c8
+
+### Community 4409 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4410 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4411 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4412 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4413 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4414 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4415 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4416 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+
+### Community 4417 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4418 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4419 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4420 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4421 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4422 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4423 - "c2"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+
+### Community 4424 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+
+### Community 4425 - "c4"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+
+### Community 4426 - "c5"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+
+### Community 4427 - "quotes"
+Cohesion: 0.33
+Nodes (6): quotes, c1, c2, c3, c4, c5
+
+### Community 4428 - "verification"
+Cohesion: 0.33
+Nodes (6): verification, date, humanChecked, method, note, status
+
+### Community 4429 - "project-management.md"
+Cohesion: 0.33
+Nodes (5): PR フロー移行チェックリスト(コントリビューター参加時), バックログの構造, マイルストーン(期限は目安), 完了の定義(コンテンツ共通), 進め方のルール
+
+### Community 4430 - "antiPatterns"
+Cohesion: 0.33
+Nodes (6): antiPatterns, harm, ideal, name, reality, why
+
+### Community 4431 - "antiPatterns"
+Cohesion: 0.33
+Nodes (6): antiPatterns, harm, ideal, name, reality, why
+
+### Community 4432 - "antiPatterns"
+Cohesion: 0.33
+Nodes (6): antiPatterns, harm, ideal, name, reality, why
+
+### Community 4433 - "antiPatterns"
+Cohesion: 0.33
+Nodes (6): antiPatterns, harm, ideal, name, reality, why
+
+### Community 4434 - "antiPatterns"
+Cohesion: 0.33
+Nodes (6): antiPatterns, harm, ideal, name, reality, why
+
+### Community 4435 - "roles"
+Cohesion: 0.33
+Nodes (6): roles, href, id, jpNote, name, responsibility
+
+### Community 4436 - "workProducts"
+Cohesion: 0.33
+Nodes (6): workProducts, description, href, id, name, producedBy
+
+### Community 4437 - "antiPatterns"
+Cohesion: 0.33
+Nodes (6): antiPatterns, harm, ideal, name, reality, why
+
+### Community 4438 - "antiPatterns"
+Cohesion: 0.33
+Nodes (6): antiPatterns, harm, ideal, name, reality, why
+
+### Community 4439 - "exempt"
+Cohesion: 0.33
+Nodes (5): exempt, heading, page, reason, schemaVersion
+
+### Community 4440 - "0. 本計画の前提（毎セッション必読）"
+Cohesion: 0.33
+Nodes (6): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, push 手順の注意（graphify pre-push フック）★事故防止
+
+### Community 4441 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4442 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4443 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4444 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4445 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4446 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4447 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4448 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4449 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4450 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4451 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4452 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4453 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4454 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4455 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4456 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4457 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4458 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4459 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4460 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4461 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4462 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4463 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4464 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4465 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4466 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4467 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4468 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4469 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4470 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4471 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4472 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4473 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4474 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4475 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4476 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4477 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4478 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4479 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4480 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4481 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4482 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4483 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4484 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4485 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4486 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4487 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4488 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4489 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4490 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4491 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4492 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4493 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4494 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4495 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4496 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4497 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4498 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4499 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4500 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4501 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4502 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4503 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4504 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4505 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4506 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4507 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4508 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4509 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4510 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4511 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4512 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4513 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4514 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4515 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4516 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4517 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4518 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4519 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4520 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4521 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4522 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4523 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4524 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4525 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4526 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4527 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4528 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4529 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4530 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4531 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4532 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4533 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4534 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4535 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4536 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4537 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4538 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4539 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4540 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4541 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4542 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4543 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4544 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4545 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4546 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4547 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4548 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4549 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4550 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4551 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4552 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4553 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4554 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4555 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4556 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4557 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4558 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4559 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4560 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4561 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4562 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4563 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4564 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4565 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4566 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4567 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4568 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4569 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4570 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4571 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4572 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4573 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4574 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4575 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4576 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4577 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4578 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4579 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4580 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4581 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4582 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4583 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4584 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4585 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4586 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4587 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4588 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4589 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4590 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4591 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4592 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4593 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4594 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4595 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4596 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4597 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4598 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4599 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4600 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4601 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4602 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4603 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4604 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4605 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4606 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4607 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4608 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4609 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4610 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4611 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4612 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4613 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4614 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4615 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4616 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4617 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4618 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4619 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4620 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4621 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4622 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4623 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4624 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4625 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4626 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4627 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4628 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4629 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4630 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4631 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4632 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4633 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4634 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4635 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4636 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4637 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4638 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4639 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4640 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4641 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4642 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4643 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4644 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4645 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4646 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4647 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4648 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4649 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4650 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4651 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4652 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4653 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4654 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4655 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4656 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4657 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4658 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4659 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4660 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4661 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4662 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4663 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4664 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4665 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4666 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4667 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4668 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4669 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4670 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4671 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4672 - "crossref"
+Cohesion: 0.40
+Nodes (5): issued, status, title, titleMatch, crossref
+
+### Community 4673 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4674 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4675 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4676 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4677 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4678 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4679 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4680 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4681 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4682 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4683 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4684 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4685 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4686 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4687 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4688 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4689 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4690 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4691 - "quotes"
+Cohesion: 0.40
+Nodes (5): quotes, c1, c2, c3, c4
+
+### Community 4692 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4693 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 4694 - "phases"
+Cohesion: 0.40
+Nodes (5): phases, gatesAfter, id, name, summary
+
+### Community 4695 - "roles"
+Cohesion: 0.40
+Nodes (5): roles, id, jpNote, name, responsibility
+
+### Community 4696 - "workProducts"
+Cohesion: 0.40
+Nodes (5): workProducts, description, id, name, producedBy
+
+### Community 4697 - "phases"
+Cohesion: 0.40
+Nodes (5): phases, gatesAfter, id, name, summary
+
+### Community 4698 - "roles"
+Cohesion: 0.40
+Nodes (5): roles, id, jpNote, name, responsibility
+
+### Community 4699 - "workProducts"
+Cohesion: 0.40
+Nodes (5): workProducts, description, id, name, producedBy
+
+### Community 4700 - "phases"
+Cohesion: 0.40
+Nodes (5): phases, gatesAfter, id, name, summary
+
+### Community 4701 - "roles"
+Cohesion: 0.40
+Nodes (5): roles, id, jpNote, name, responsibility
+
+### Community 4702 - "workProducts"
+Cohesion: 0.40
+Nodes (5): workProducts, description, id, name, producedBy
+
+### Community 4703 - "phases"
+Cohesion: 0.40
+Nodes (5): phases, gatesAfter, id, name, summary
+
+### Community 4704 - "roles"
+Cohesion: 0.40
+Nodes (5): roles, id, jpNote, name, responsibility
+
+### Community 4705 - "workProducts"
+Cohesion: 0.40
+Nodes (5): workProducts, description, id, name, producedBy
+
+### Community 4706 - "phases"
+Cohesion: 0.40
+Nodes (5): phases, gatesAfter, id, name, summary
+
+### Community 4707 - "roles"
+Cohesion: 0.40
+Nodes (5): roles, id, jpNote, name, responsibility
+
+### Community 4708 - "phases"
+Cohesion: 0.40
+Nodes (5): phases, gatesAfter, id, name, summary
+
+### Community 4709 - "phases"
+Cohesion: 0.40
+Nodes (5): phases, gatesAfter, id, name, summary
+
+### Community 4710 - "roles"
+Cohesion: 0.40
+Nodes (5): roles, id, jpNote, name, responsibility
+
+### Community 4711 - "workProducts"
+Cohesion: 0.40
+Nodes (5): workProducts, description, id, name, producedBy
+
+### Community 4712 - "phases"
+Cohesion: 0.40
+Nodes (5): phases, gatesAfter, id, name, summary
+
+### Community 4713 - "roles"
+Cohesion: 0.40
+Nodes (5): roles, id, jpNote, name, responsibility
+
+### Community 4714 - "workProducts"
+Cohesion: 0.40
+Nodes (5): workProducts, description, id, name, producedBy
+
+### Community 4715 - "5.5 次セッションへの引き継ぎ（2026-08-05 時点・Wave 5 完了。履歴）"
+Cohesion: 0.40
+Nodes (5): 5.5 次セッションへの引き継ぎ（2026-08-05 時点・Wave 5 完了。履歴）, Wave 5 で残した宿題（#126 の前に補完を検討）, Wave 6（#122・#123）の設計上の注意, 次セッションの最初の3手, 現在地
+
+### Community 4716 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4717 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4718 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4719 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4720 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4721 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4722 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4723 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4724 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4725 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4726 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4727 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4728 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4729 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4730 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4731 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4732 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4733 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4734 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4735 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4736 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4737 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4738 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4739 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4740 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4741 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4742 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4743 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4744 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4745 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4746 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4747 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4748 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4749 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4750 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4751 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4752 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4753 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4754 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4755 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4756 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4757 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4758 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4759 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4760 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4761 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4762 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4763 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4764 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4765 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4766 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4767 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4768 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4769 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4770 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4771 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4772 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4773 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4774 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4775 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4776 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4777 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4778 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4779 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4780 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4781 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4782 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4783 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4784 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4785 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4786 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4787 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4788 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4789 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4790 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4791 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4792 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4793 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4794 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4795 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4796 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4797 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4798 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4799 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4800 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4801 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4802 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4803 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4804 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4805 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4806 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4807 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4808 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4809 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4810 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4811 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4812 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4813 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4814 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4815 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4816 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4817 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4818 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4819 - "quotes"
+Cohesion: 0.50
+Nodes (4): quotes, c1, c2, c3
+
+### Community 4820 - "workProducts"
+Cohesion: 0.50
+Nodes (4): workProducts, description, id, name
+
+### Community 4821 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4822 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4823 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4824 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4825 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4826 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4827 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4828 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4829 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4830 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4831 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4832 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4833 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4834 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4835 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4836 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4837 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4838 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4839 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4840 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4841 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4842 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4843 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4844 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4845 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4846 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 4847 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4848 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4849 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 4850 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4851 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4852 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4853 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4854 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4855 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4856 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 4857 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4858 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4859 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4860 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4861 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4862 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4863 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4864 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4865 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4866 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4867 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4868 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4869 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4870 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4871 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4872 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4873 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4874 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4875 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4876 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4877 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4878 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4879 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4880 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4881 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4882 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4883 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4884 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4885 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4886 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4887 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4888 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4889 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4890 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4891 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4892 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4893 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4894 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4895 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4896 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4897 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4898 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4899 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4900 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4901 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4902 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4903 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4904 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4905 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4906 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4907 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4908 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4909 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4910 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4911 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4912 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4913 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4914 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4915 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4916 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4917 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4918 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4919 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4920 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4921 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4922 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4923 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4924 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4925 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4926 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4927 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4928 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4929 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4930 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4931 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4932 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4933 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4934 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4935 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4936 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4937 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4938 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4939 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4940 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 4941 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4942 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4943 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4944 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4945 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4946 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4947 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 4948 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4949 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4950 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4951 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4952 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4953 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4954 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4955 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4956 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4957 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4958 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4959 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4960 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4961 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4962 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4963 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4964 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4965 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4966 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4967 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4968 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4969 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4970 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4971 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4972 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4973 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4974 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4975 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4976 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4977 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4978 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4979 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4980 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4981 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4982 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4983 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4984 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4985 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4986 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4987 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4988 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4989 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4990 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4991 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4992 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4993 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4994 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4995 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4996 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 4997 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 4998 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 4999 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5000 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5001 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5002 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5003 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5004 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5005 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5006 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5007 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5008 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5009 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5010 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5011 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5012 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5013 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5014 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5015 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5016 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5017 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5018 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5019 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5020 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5021 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5022 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5023 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5024 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5025 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5026 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5027 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5028 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5029 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5030 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5031 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5032 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5033 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5034 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5035 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5036 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5037 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5038 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5039 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5040 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5041 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5042 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5043 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5044 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5045 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5046 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5047 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5048 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5049 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5050 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5051 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5052 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5053 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5054 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5055 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5056 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5057 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5058 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5059 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5060 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5061 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5062 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5063 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5064 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5065 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5066 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5067 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5068 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5069 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5070 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5071 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5072 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5073 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5074 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5075 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5076 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5077 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5078 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5079 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5080 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5081 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5082 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5083 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5084 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5085 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5086 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5087 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5088 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5089 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5090 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5091 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5092 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5093 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5094 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5095 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5096 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5097 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5098 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5099 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5100 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5101 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5102 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5103 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5104 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5105 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5106 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5107 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5108 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5109 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5110 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5111 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5112 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5113 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5114 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5115 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5116 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5117 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5118 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5119 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5120 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5121 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5122 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5123 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5124 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5125 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5126 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5127 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5128 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5129 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5130 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5131 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5132 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5133 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5134 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5135 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5136 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5137 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5138 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5139 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5140 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5141 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5142 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5143 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5144 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5145 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5146 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5147 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5148 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5149 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5150 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5151 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5152 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5153 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5154 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5155 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5156 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5157 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5158 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5159 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5160 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5161 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5162 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5163 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5164 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5165 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5166 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5167 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5168 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5169 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5170 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5171 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5172 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5173 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5174 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5175 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5176 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5177 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5178 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5179 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5180 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5181 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5182 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5183 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5184 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5185 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5186 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5187 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5188 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5189 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5190 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5191 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5192 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5193 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5194 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5195 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5196 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5197 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5198 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5199 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5200 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5201 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5202 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5203 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5204 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5205 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5206 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5207 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5208 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5209 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5210 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5211 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5212 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5213 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5214 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5215 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5216 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5217 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5218 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5219 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5220 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5221 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5222 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5223 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5224 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5225 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5226 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5227 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5228 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5229 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5230 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5231 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5232 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5233 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5234 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5235 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5236 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5237 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5238 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5239 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5240 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5241 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5242 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5243 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5244 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5245 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5246 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5247 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5248 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5249 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5250 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5251 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5252 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5253 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5254 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5255 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5256 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5257 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5258 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5259 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5260 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5261 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5262 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5263 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5264 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5265 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5266 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5267 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5268 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5269 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5270 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5271 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5272 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5273 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5274 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5275 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5276 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5277 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5278 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5279 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5280 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5281 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5282 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5283 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5284 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5285 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5286 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5287 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5288 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5289 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5290 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5291 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5292 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5293 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5294 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5295 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5296 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5297 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5298 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5299 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5300 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5301 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5302 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5303 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5304 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5305 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5306 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5307 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5308 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5309 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5310 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5311 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5312 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5313 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5314 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5315 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5316 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5317 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5318 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5319 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5320 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5321 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5322 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5323 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5324 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5325 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5326 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5327 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5328 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5329 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5330 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5331 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5332 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5333 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5334 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5335 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5336 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5337 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5338 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5339 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5340 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5341 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5342 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5343 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5344 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5345 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5346 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5347 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5348 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5349 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5350 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5351 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5352 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5353 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5354 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5355 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5356 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5357 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5358 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5359 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5360 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5361 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5362 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5363 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5364 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5365 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5366 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5367 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5368 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5369 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5370 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5371 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5372 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5373 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5374 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5375 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5376 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5377 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5378 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5379 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5380 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5381 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5382 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5383 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5384 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5385 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5386 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5387 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5388 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5389 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5390 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5391 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5392 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5393 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5394 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5395 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5396 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5397 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5398 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5399 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5400 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5401 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5402 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5403 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5404 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5405 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5406 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5407 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5408 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5409 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5410 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5411 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5412 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5413 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5414 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5415 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5416 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5417 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5418 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5419 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5420 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5421 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5422 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5423 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5424 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5425 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5426 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5427 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5428 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5429 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5430 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5431 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5432 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5433 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5434 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5435 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5436 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5437 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5438 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5439 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5440 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5441 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5442 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5443 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5444 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5445 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5446 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5447 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5448 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5449 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5450 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5451 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5452 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5453 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5454 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5455 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5456 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5457 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5458 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5459 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5460 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5461 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5462 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5463 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5464 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5465 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5466 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5467 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5468 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5469 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5470 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5471 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5472 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5473 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5474 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5475 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5476 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5477 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5478 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5479 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5480 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5481 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5482 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5483 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5484 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5485 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5486 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5487 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5488 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5489 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5490 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5491 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5492 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5493 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5494 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5495 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5496 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5497 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5498 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5499 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5500 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5501 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5502 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5503 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5504 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5505 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5506 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5507 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5508 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5509 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5510 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5511 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5512 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5513 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5514 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5515 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5516 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5517 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5518 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5519 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5520 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5521 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5522 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5523 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5524 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5525 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5526 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5527 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5528 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5529 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5530 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5531 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5532 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5533 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5534 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5535 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5536 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5537 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5538 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5539 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5540 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5541 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5542 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5543 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5544 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5545 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5546 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5547 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5548 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5549 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5550 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5551 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5552 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5553 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5554 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5555 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5556 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5557 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5558 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5559 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5560 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5561 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5562 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5563 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5564 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5565 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5566 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5567 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5568 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5569 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5570 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5571 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5572 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5573 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5574 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5575 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5576 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5577 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5578 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5579 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5580 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5581 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5582 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5583 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5584 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5585 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5586 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5587 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5588 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5589 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5590 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5591 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5592 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5593 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5594 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5595 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5596 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5597 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5598 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5599 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5600 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5601 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5602 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5603 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5604 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5605 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5606 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5607 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5608 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5609 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5610 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5611 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5612 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5613 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5614 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5615 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5616 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5617 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5618 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5619 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5620 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5621 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5622 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5623 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5624 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5625 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5626 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5627 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5628 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5629 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5630 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5631 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5632 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5633 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5634 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5635 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5636 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5637 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5638 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5639 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5640 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5641 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5642 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5643 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5644 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5645 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5646 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5647 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5648 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5649 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5650 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5651 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5652 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5653 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5654 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5655 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5656 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5657 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5658 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5659 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5660 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5661 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5662 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5663 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5664 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5665 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5666 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5667 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5668 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5669 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5670 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5671 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5672 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5673 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5674 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5675 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5676 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5677 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5678 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5679 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5680 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5681 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5682 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5683 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5684 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5685 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5686 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5687 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5688 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5689 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5690 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5691 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5692 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5693 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5694 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5695 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5696 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5697 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5698 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5699 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5700 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5701 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5702 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5703 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5704 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5705 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5706 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5707 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5708 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5709 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5710 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5711 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5712 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5713 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5714 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5715 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5716 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5717 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5718 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5719 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5720 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5721 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5722 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5723 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5724 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5725 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5726 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5727 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5728 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5729 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5730 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5731 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5732 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5733 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5734 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5735 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5736 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5737 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5738 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5739 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5740 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5741 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5742 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5743 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5744 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5745 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5746 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5747 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5748 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5749 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5750 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5751 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5752 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5753 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5754 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5755 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5756 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5757 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5758 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5759 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5760 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5761 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5762 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5763 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5764 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5765 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5766 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5767 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5768 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5769 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5770 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5771 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5772 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5773 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5774 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5775 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5776 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5777 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5778 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5779 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5780 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5781 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5782 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5783 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5784 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5785 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5786 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5787 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5788 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5789 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5790 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5791 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5792 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5793 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5794 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5795 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5796 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5797 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5798 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5799 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5800 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5801 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5802 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5803 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5804 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5805 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5806 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5807 - "alsoFoundBy"
+Cohesion: 0.67
+Nodes (3): alsoFoundBy, cluster, query
+
+### Community 5808 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5809 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5810 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5811 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5812 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5813 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5814 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5815 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5816 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5817 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5818 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5819 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5820 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5821 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5822 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5823 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5824 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5825 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5826 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5827 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5828 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5829 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5830 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5831 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5832 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5833 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5834 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5835 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5836 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5837 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5838 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5839 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5840 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5841 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5842 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5843 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5844 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5845 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5846 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5847 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5848 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5849 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5850 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5851 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5852 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5853 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5854 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5855 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5856 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5857 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5858 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5859 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5860 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5861 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5862 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5863 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5864 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5865 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5866 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5867 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5868 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5869 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5870 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5871 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5872 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5873 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5874 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5875 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5876 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5877 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5878 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5879 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5880 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5881 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5882 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5883 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5884 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5885 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5886 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5887 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5888 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5889 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5890 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5891 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5892 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5893 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5894 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5895 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5896 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5897 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5898 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5899 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5900 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5901 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5902 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5903 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5904 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5905 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5906 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5907 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5908 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5909 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5910 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5911 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5912 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5913 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5914 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5915 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5916 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5917 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5918 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5919 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5920 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5921 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5922 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5923 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5924 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5925 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5926 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5927 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5928 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5929 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5930 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5931 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5932 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5933 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5934 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5935 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5936 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5937 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5938 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5939 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5940 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5941 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5942 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5943 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5944 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5945 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5946 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5947 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5948 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5949 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5950 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5951 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5952 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5953 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5954 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5955 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5956 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5957 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5958 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5959 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5960 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5961 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5962 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5963 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5964 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5965 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5966 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5967 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5968 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5969 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5970 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5971 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5972 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5973 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5974 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5975 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5976 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5977 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5978 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5979 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5980 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5981 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5982 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5983 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5984 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5985 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5986 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5987 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5988 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5989 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5990 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5991 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5992 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5993 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5994 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5995 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5996 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 5997 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 5998 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 5999 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6000 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6001 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6002 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6003 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6004 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6005 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6006 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6007 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6008 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6009 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6010 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6011 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6012 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6013 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6014 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6015 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6016 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6017 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6018 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6019 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6020 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6021 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6022 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6023 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6024 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6025 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6026 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6027 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6028 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6029 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6030 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6031 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6032 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6033 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6034 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6035 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6036 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6037 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6038 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6039 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6040 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6041 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6042 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6043 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6044 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6045 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6046 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6047 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6048 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6049 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6050 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6051 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6052 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6053 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6054 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6055 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6056 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6057 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6058 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6059 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6060 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6061 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6062 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6063 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6064 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6065 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6066 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6067 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6068 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6069 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6070 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6071 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6072 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6073 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6074 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6075 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6076 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6077 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6078 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6079 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6080 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6081 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6082 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6083 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6084 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6085 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6086 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6087 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6088 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6089 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6090 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6091 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6092 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6093 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6094 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6095 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6096 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6097 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6098 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6099 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6100 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6101 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6102 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6103 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6104 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6105 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6106 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6107 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6108 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6109 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6110 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6111 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6112 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6113 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6114 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6115 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6116 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6117 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6118 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6119 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6120 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6121 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6122 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6123 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6124 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6125 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6126 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6127 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6128 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6129 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6130 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6131 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6132 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6133 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6134 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6135 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6136 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6137 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6138 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6139 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6140 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6141 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6142 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6143 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6144 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6145 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6146 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6147 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6148 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6149 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6150 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6151 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6152 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6153 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6154 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6155 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6156 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6157 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6158 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6159 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6160 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6161 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6162 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6163 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6164 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6165 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6166 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6167 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6168 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6169 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6170 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6171 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6172 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6173 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6174 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6175 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6176 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6177 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6178 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6179 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6180 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6181 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6182 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6183 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6184 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6185 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6186 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6187 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6188 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6189 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6190 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6191 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6192 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6193 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6194 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6195 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6196 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6197 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6198 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6199 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6200 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6201 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6202 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6203 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6204 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6205 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6206 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6207 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6208 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6209 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6210 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6211 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6212 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6213 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6214 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6215 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6216 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6217 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6218 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6219 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6220 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6221 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6222 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6223 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6224 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6225 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6226 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6227 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6228 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6229 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6230 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6231 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6232 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6233 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6234 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6235 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6236 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6237 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6238 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6239 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6240 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6241 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6242 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6243 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6244 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6245 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6246 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6247 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6248 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6249 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6250 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6251 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6252 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6253 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6254 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6255 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6256 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6257 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6258 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6259 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6260 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6261 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6262 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6263 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6264 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6265 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6266 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6267 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6268 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6269 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6270 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6271 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6272 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6273 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6274 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6275 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6276 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6277 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6278 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6279 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6280 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6281 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6282 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6283 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6284 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6285 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6286 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6287 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6288 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6289 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6290 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6291 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6292 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6293 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6294 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6295 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6296 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6297 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6298 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6299 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6300 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6301 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6302 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6303 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6304 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6305 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6306 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6307 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6308 - "references"
+Cohesion: 0.67
+Nodes (3): references, title, url
+
+### Community 6309 - "references"
+Cohesion: 0.67
+Nodes (3): references, title, url
+
+### Community 6310 - "references"
+Cohesion: 0.67
+Nodes (3): references, title, url
+
+### Community 6311 - "references"
+Cohesion: 0.67
+Nodes (3): references, title, url
+
+### Community 6312 - "references"
+Cohesion: 0.67
+Nodes (3): references, title, url
+
+### Community 6313 - "references"
+Cohesion: 0.67
+Nodes (3): references, title, url
+
+### Community 6314 - "references"
+Cohesion: 0.67
+Nodes (3): references, title, url
+
 ## Knowledge Gaps
-- **37 isolated node(s):** `ADR-0006`, `ADR-0017`, `ADR-0020`, `mermaid`, `sharp` (+32 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 6491 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **14 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **33 isolated node(s):** `ADR-0006`, `ADR-0017`, `ADR-0020`, `ADR-0039`, `ADR-0062` (+28 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 53907 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `check()` connect `check-section-refs.mjs` to `3. 論点ごとの判定`, `0. 後の担当(組A・組B)が従う決まり`, `5. 議題に無い論点`, `implementation-marking.md`, `#321 会議体 04 — 規格整合・突合担当 第2巡(5 名の意見書の突合と、決定の記録の候補文)`, `1. 標準の現状(突合)`, `0061-check-means-on-implementation-marks.md`, `3. 論点ごとの判定`, `1. 論点ごとの記録`, `3. 論点ごとの判定`?**
-  _High betweenness centrality (0.010) - this node is a cross-community bridge._
+- **Why does `check()` connect `check-section-refs.mjs` to `5. 議題に無い論点`, `implementation-marking.md`, `#321 会議体 04 — 規格整合・突合担当 第2巡(5 名の意見書の突合と、決定の記録の候補文)`, `1. 標準の現状(突合)`, `3. 論点ごとの判定`, `1. 論点ごとの記録`?**
+  _High betweenness centrality (0.000) - this node is a cross-community bridge._
 - **What connects `ADR-0006`, `ADR-0017`, `ADR-0020` to the rest of the system?**
-  _37 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _33 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
-- **Why does `yaml` connect `check-template-fields.mjs` to `package.json`, `research-ledger.mjs`, `test-tailoring-engine.mjs`, `check-provisions.mjs`, `check-skill-provisions.mjs`, `check-impl.mjs`, `check-scope.mjs`, `build-template-kb.mjs`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+- **Why does `実装形態` connect `#239: 適用範囲マークの仕組みが動いているのに届いていない` to `build-template-kb.mjs`?**
+  _High betweenness centrality (0.000) - this node is a cross-community bridge._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
-- **Why does `@astrojs/starlight` connect `comparison.astro` to `package.json`, `ProcessPhase.astro`, `ref_astro_content`, `content.config.ts`?**
-  _High betweenness centrality (0.006) - this node is a cross-community bridge._
+  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
+- **Should `scripts` be split into smaller, more focused modules?**
+  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
