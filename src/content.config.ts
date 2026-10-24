@@ -174,6 +174,8 @@ const adjustmentSchema = z.object({
   param: z.string().optional(),
   value: z.union([z.string(), z.number(), z.boolean()]).optional(),
   note: z.string(), // 画面にそのまま出す人向けの説明(必須)
+  // 代償措置の印(未達の代わりに課す強化)。準拠テンプレートは基準値の導出に数えない(#318 / ADR-0088 決定5)
+  compensation: z.boolean().optional(),
 });
 
 // テーラリング規則: 「入力 → 調整」の対応 1 件。参照モデルからの逸脱だけを規則化する

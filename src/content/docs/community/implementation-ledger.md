@@ -45,7 +45,7 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 82 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 83 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 74 |
 | 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 191 |
 
@@ -177,7 +177,7 @@ sidebar:
 | IMPL-0333 | 要求事項7。AI のレビューに与える指示を、レビューの対象の変更が書き換えられない場所に置くこと。準拠テンプレートでは指示は .claude/** にあり、エージェントの書き込みはフックが遮断するが、同じ PR で指示を変えた場合に、基底の側の指示でレビューする仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者 | G-5 の PR 単位の検査(pr-rules) | 予定 [#369](https://github.com/Takenori-Kusaka/process-compass/issues/369)(見直し 2027-04) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0340 | AI維持管理者の席の責任者が強制層を所有する組織に属さない委託で、強制層を緩める変更(統制の設定の陰性の確認の対象)に、所有する組織が指名した者の同意の記録(事前の同意、または事後の提出。事後の提出は期限・記録の置き場・元に戻せることを合意した場合に限る。期限までに提出の無い変更は記録の欠落)を求める。準拠テンプレートの pr-rules は AI維持管理者の席の責任者による受け入れを照合するが、所有する組織の同意の欄と照合は無い。構成は席の組織を持たないため、適用の有無は AI-SLA 合意確認書の記録から人が読む。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | 予定 [#317](https://github.com/Takenori-Kusaka/process-compass/issues/317)(見直し 2027-04) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0342 | 1名の体制で本人の上に任命の権限を持つ者がいない場合(個人事業主、または1名で代表権を持つ法人)に、自己の任命を変化点の記録へ残し、保証の開示の項目7 へ表示する。準拠テンプレートは組織上の任命権者を体制の外の人に限り、席の責任者との同一を拒むため、この例外の記録の経路が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の changeLog[] | 予定 [#317](https://github.com/Takenori-Kusaka/process-compass/issues/317)(見直し 2027-04) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0344 | 独立した安全性の評価者と、段階「最強」の検証の担当者に求める組織上の距離の段(CL2 は段2 以上、CL3 は段3 以上。第1章 1.4)。構成の人の名簿は、直属の上長・所属の法人・部門・リリースの権限を持たず、外部の評価者を登録する欄も無い。段2 以上を確かめず、届かない段を未達として表示する仕組みも無い。それまで機械が確かめるのは段1(名簿の人で、実装の責任者・作成を指示した者・判定者と別人。IMPL-0080)だけである。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の seats[] | 予定 [#357](https://github.com/Takenori-Kusaka/process-compass/issues/357)(見直し 2027-04) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0344 | 独立した安全性の評価者と、段階「最強」の検証の担当者に求める組織上の距離の段(CL2 は段2 以上、CL3 は段3 以上。第1章 1.4)。構成の人の名簿は、直属の上長・所属の法人・部門・リリースの権限を持たず、外部の評価者を登録する欄も無い。段2 以上を確かめず、届かない段を未達として表示する仕組みも無い。それまで機械が確かめるのは段1(名簿の人で、実装の責任者・作成を指示した者・判定者と別人。IMPL-0080)だけである。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の seats[] | 予定 [#357](https://github.com/Takenori-Kusaka/process-compass/issues/357)(見直し 2026-11) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 
 ### 全件
 
@@ -530,5 +530,6 @@ sidebar:
 | IMPL-0346 | カバレッジの下限の由来(ci.coverageOrigin: derived・compensation・calibrated)と基準値(ci.coverageBaseline)を構成に持つ。未達の代償措置 ci-strict の下限 90 は未達の記録(unmet[].coverageFloor)に属し、基準値と分ける。未達を解く変化点の差分に、代償措置の終了(90 → 基準値)を緩める向きの行として出し、その変化点の記名(AI維持管理者の席の責任者、または D-0 表1 の決定者)で決める。較正した値は未達の解消で動かない。PROCESS-PROFILE.md の「較正により変更」は由来が較正の場合だけに出す。test-roster-rules.mjs が、未達で 90・解けると差分に終了の行・較正の値は動かない・表示・旧い構成の5つを固定する(#318) | プロセス構成の初期化(強制層の生成) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0347 | 適用するルールセットが強制する承認の数が、構成の承認者の数(review.reviewerCount)を上回る構成を、契約検査が失敗にせず注記に出す。出荷の証跡の集約が、保証の開示の項目1 に、強制する承認の数と記録が保証する人数を並べて出す。下回る構成は従来どおり失敗させる。test-roster-rules.mjs が固定する(#318) | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0348 | 由来の記録の無い旧い構成(ci.coverageOrigin が無い)の下限を黙って下げない。変化点の再生成では値を保ち、由来を unknown として記録し、戻す候補(導出値)を差分と出力に出す。取り込み(種別 intake)は値を変えずに同じ案内を出す。戻すのは、採用者の記名を伴う種別 settings(ci.coverageThreshold に derived か数値)だけである。旧い CL2 の構成(ruleset regulated・承認者1名)にも、取り込みで、値を変えずに緩める向きの差分の案内を出す(#318) | プロセス構成の初期化(強制層の生成) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0349 | 未適用の厳格化。準拠テンプレートの pendingTightenings が、現行の規則による再導出と構成のゲートの状態・G-6 の範囲を比べる。取り込み(intake)の案内、/pit の注記、保証の開示に出し、CL1 以上の G-6・G-7 の差は出荷の証跡の集約の欠落に数える。構成は書き換えない | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 
 <!-- implementation-ledger:end -->

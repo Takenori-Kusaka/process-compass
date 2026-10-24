@@ -54,3 +54,17 @@ rules:
     reason: 規制業では「AIがどこを生成し、誰が承認したか」の追跡が監査要件になる。最初から監査書式で運用しないと後から再構成できない
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 30
+
+  # 1〜2名の体制で規制業は、構成そのものを認めない(第8章 軸A)。エンジンは構成を拒否しないため、
+  # 認めない組み合わせであることを提案の注記として出す。準拠テンプレートは初期化で拒否する(#318 突合 X-12)
+  - id: r-c-regulated-small-team-not-allowed
+    when:
+      q-team-size: [size-1-2]
+      q-quality: [quality-regulated]
+    adjustments:
+      - target: { type: process }
+        action: note
+        note: 規制業を 1〜2名の体制で扱う構成は認めない。判定の時点そのものが監査要件になるため、3名以上の体制を確保する(第8章 軸A)
+    reason: 規制業では判定の時点そのものが監査要件になり、1〜2名の体制では席を分けられない(ADR-0028)
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 30

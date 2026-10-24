@@ -95,3 +95,17 @@ rules:
     reason: 死亡または重篤な傷害が起こりうる場合、自律レベルを固定し、機械の検証と出荷判定の記録を厚くする。独立レビューを2名とするのは、1名の承認者の確認だけでは変更を取り込めない状態を作り、その記録を残すためである(第4章 G-6)。機能安全の規格が確認者の人数を求めるという主張ではない
     source: /process-compass/phase4-process-design/safety-verification/
     priority: 50
+
+  # 1〜2名の体制で CL1 以上は、構成そのものを認めない(第8章 軸E・ADR-0028)。エンジンは構成を拒否しないため、
+  # 認めない組み合わせであることを提案の注記として出す。準拠テンプレートは初期化で拒否する(#318 突合 X-12)
+  - id: r-e-small-team-not-allowed
+    when:
+      q-team-size: [size-1-2]
+      q-criticality: [cl1, cl2, cl3]
+    adjustments:
+      - target: { type: process }
+        action: note
+        note: 安全重要度 CL1 以上を 1〜2名の体制で扱う構成は認めない。危害の深刻度は体制の都合で下がらない。外部の評価者を含めて3名以上の体制を確保するか、設計を変えて危害の帰結を下げるか、当該の機能を実施しない(第8章 軸E)
+    reason: 安全重要度 CL1 以上では、独立した人の確認と、その欠落を差し戻す出荷判定を外せない。1〜2名の体制では席を分けられず、未達の表示と代償措置で運用できるのは CL0 だけである(ADR-0028)
+    source: /process-compass/phase4-process-design/tailoring-guide/
+    priority: 50

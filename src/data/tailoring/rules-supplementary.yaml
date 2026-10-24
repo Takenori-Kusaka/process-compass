@@ -15,6 +15,9 @@ rules:
         note: 作成を指示した本人以外の確認者を置けない。省略ではなく未達として表示する(ADR-0028)
       - target: { type: gate, id: g-ci }
         action: strengthen
+        # 代償措置の印。準拠テンプレートは、この強化をカバレッジの下限の基準値(導出)へ数えず、
+        # 未達に属する代償措置の下限として持つ(#318 突合 X-1 / ADR-0088 決定5)
+        compensation: true
         note: 代償措置としてCI基準を厳格化する(カバレッジ+静的解析の基準を引き上げ)。未達の解消にも、独立レビューの代替にも数えない
       - target: { type: process }
         action: note

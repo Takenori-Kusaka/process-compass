@@ -50,6 +50,7 @@ graph TD
       note: 作成を指示した本人以外の確認者を置けない。省略ではなく未達として表示する(ADR-0028)
     - target: { type: gate, id: g-ci }
       action: strengthen
+      compensation: true
       note: 代償措置としてCI基準を厳格化する。未達の解消にも、独立レビューの代替にも数えない
   reason: 機械検証の強化は代償措置であり、独立した人の確認の代わりにならない。未達として表示し続ける
   source: /process-compass/phase4-process-design/tailoring-guide/
@@ -60,7 +61,7 @@ graph TD
 
 | action | 意味 | 例 |
 | --- | --- | --- |
-| omit | 対象を適用しない。標準の規則による省略と、目的を達成する構成を示せない未達の両方を、この動詞で表す | PoC では出荷判定を省略。確認者を置けない 1〜2名の体制では、独立レビューが未達 |
+| omit | 対象を適用しない。標準の規則による省略と、目的を達成する構成を示せない未達の両方を、この動詞で表す | PoC(安全重要度 CL0)では出荷判定を省略。確認者を置けない 1〜2名の体制では、独立レビューが未達 |
 | simplify | 簡略化する | 企画承認を1枚企画書に |
 | strengthen | 厳格化する | 規制業では CI に規制チェックを追加 |
 | merge-into | 別の対象へ統合する | 要件合意を仕様承認に統合 |
@@ -71,6 +72,8 @@ graph TD
 対象(`target`)は `gate` / `role` / `activity` / `phase` / `process` / `practice` の6種で、`practice` 以外は integrated.yaml の id を参照します。
 
 `omit` は、省略と未達を区別しません。**規則のデータが持つのは「適用しない」という操作までです**。省略(`omitted`)と未達(`unmet`)の区別は、準拠テンプレートが構成を導出するときに付けます([ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/))。独立レビューの `omit` を「独立レビューの省略」と読まないでください。確認者を置けない体制の独立レビューは、未達として表示し続けます。
+
+未達の代わりに課す強化には、`compensation: true` の印を付けます。印の付いた強化は、未達に属する代償措置です。準拠テンプレートは、この強化をカバレッジの下限の基準値(導出)へ数えません。未達が解けると、代償措置の終了が構成の差分に出ます([ADR-0088](/process-compass/adr/0088-organizational-distance-steps-and-cl1-stage-relaxation/) 決定5)。
 
 ### 5. 優先度は初期値のみ定義する
 
