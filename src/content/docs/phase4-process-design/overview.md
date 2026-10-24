@@ -373,7 +373,7 @@ flowchart LR
 
 ### 1.10.1 適用の開始
 
-適用の開始は、当該案件のテーラリングの宣言([第8章](/process-compass/phase4-process-design/tailoring-guide/)「調整は宣言を伴う」)を、案件の記録に残した時点とします。準拠テンプレートでは、既定ブランチの第1親の連鎖の上で、構成(`process.config.json`)が設定済み(`configured: true`)になった最初のコミットがこれに当たります([準拠テンプレートリポジトリ](/process-compass/phase5-implementation/template-repository/))。
+適用の開始は、当該案件のテーラリングの宣言([第8章](/process-compass/phase4-process-design/tailoring-guide/)「調整は宣言を伴う」)を、案件の記録に残した時点とします。準拠テンプレートでは、構成(`process.config.json`)が設定済み(`configured: true`)になった最初のコミットがこれに当たります([準拠テンプレートリポジトリ](/process-compass/phase5-implementation/template-repository/))。
 
 - 適用の開始より前の変更は、本標準の要求事項の対象としない
 - 適用の開始の後は、テーラリングで導いた要求事項のすべてを、同時に適用する。満たしていない要求事項は、未達・記録の欠落・逸脱・列挙に無い離脱のいずれかとして表示する(1.10.2)
@@ -383,9 +383,8 @@ flowchart LR
 - 宣言の記載が欠けていても、適用の開始は動かない。欠けた記載は、記録の欠落として表示する
 - 準拠テンプレートでは、適用の開始のコミットに、構成の変更の記録の初期化の記録(`changeLog` の `init`)を同じコミットで書く。無ければ記録の欠落として表示し、適用の開始は動かさない。適用の開始のコミットが検査の範囲(初期化の PR など)にある間は、契約の検査を失敗にする。この記録の欠落は、適用の表明の件数(開始から表明の時点まで)に常に1件として数える
 - 再テーラリング(構成の変更)、版の切り替え(1.10.3)、構成の再初期化は、適用の開始を動かさない
-- 適用の開始の境は、既定ブランチの第1親の連鎖の上の1コミットとする。併合した他の履歴の中のコミットを、境にしない
-- 適用の開始より前の履歴には、履歴の出所(採用者の過去の変更、併合した他のリポジトリの履歴、準拠テンプレートの開発履歴)を問わず、適合を主張しない。出所を識別して、一部の履歴を要求事項の対象に含めたり、対象から除いたりしない
-- 適用の開始の後に、共通の祖先を持たない履歴を併合した場合は、併合した側のコミットを要求事項の対象とする。記録が無ければ、記録の欠落として表示する
+- 適用の開始の境は、既定ブランチの主系列(既定ブランチへ順に積まれた変更の列。併合で取り込んだ側の履歴を含まない)の上に置く
+- 適用の開始より前の履歴には、履歴の出所(採用者の過去の変更、併合した他のリポジトリの履歴、準拠テンプレートの開発履歴)を問わず、適合を主張しない。出所を識別して、一部の履歴を要求事項の対象に含めたり、対象から除いたりしない。適用の開始の後に併合した履歴も、出所を問わず要求事項の対象とする
 
 <!-- impl IMPL-0119 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-edition-end.mjs note="適用の開始(構成の初期化の記録)より前の変更を変更の件数に数えず欠落にもせず、後の変更は導いた要求事項のすべての対象にする。途中の段階を表す値を持たない。初期化の直後の出荷で、記録の無い変更が欠落として出ることを実行して確かめた(#306)(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した)" -->
 
@@ -419,7 +418,7 @@ flowchart LR
 <!-- impl IMPL-0320 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-adoption.mjs note="統制に効くファイルがテンプレートの規則を欠いたまま始めないこと。事前点検が、CLAUDE.md の区間の目印と常駐の規則の欠け、CODEOWNERS の置き場の重なり、雛形の所有者 @OWNER の残り、.claude/settings.json のフックの登録(guard-write)の欠けで止める。契約検査(verify-gate-contract)は、設定済みの構成でも、フックの登録の欠けと @OWNER の残りを失敗にする(開始の後に戻した場合も止める)。初期化と generate-profile.mjs --merge-hooks は、既存の settings.json へテンプレートのフックの登録を併合する(既存の登録は残す)。test-adoption.mjs が、欠けで止まり・落ち、併合の後に通ることを実行して確かめる(#315)" -->
 
 :::caution[暫定 EV-0166 / 見直し 2027-04]
-**対象**: 既存のリポジトリで適用を始める場合の4つの要求事項と、開始の境を第1親の連鎖の上に置き、開始より前の履歴に出所を問わず主張しない定め(1.10.1)。
+**対象**: 既存のリポジトリで適用を始める場合の4つの要求事項と、開始の境を既定ブランチの主系列の上に置き、開始より前の履歴に出所を問わず主張しない定め(1.10.1)。
 **根拠の水準**: E1(間接)。
 **差し替え条件**: 観測の源は、採用者の資産の一覧(`docs/adoption-inventory.md`)と、適用の開始の後に見つかった統制の外れの報告です。開始の後に、一覧に載らなかった資産が原因で統制が外れた件数を数えます。1件でもあれば、その資産を事前点検の検出の対象へ加える向きで見直します。一覧の作成が適用の開始を妨げた件数と、その理由も数えます。資産の種類のうち、どの採用者も「対象外とする」とした種類が続けば、一覧の資産から外す向きで見直します。
 
@@ -547,9 +546,9 @@ flowchart LR
 
 <!-- impl IMPL-0321 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-adoption.mjs note="構成の形式の版(formatVersion)を持ち、契約検査(verify-gate-contract)は、知らない版(準拠テンプレートが知るより大きい formatVersion・schemaVersion)の構成を失敗にする。欄の無い構成は版 0 として読み、結果が同じ補いだけを行い、移行を注記する(失敗にしない)。契約検査は、構成が従う版と、準拠テンプレートが実装する版(知識ベースの source.edition)が違えば注記する(合否には使わない)。test-adoption.mjs が、知らない版で落ち、現行の版で落ちないことを実行して確かめる(#315)" -->
 
-<!-- impl IMPL-0322 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-adoption.mjs note="構成の形式の移行を /process-change の種別 migrate で行う。版ごとに現行の版への直接の変換を当て、ゲートの状態・席・閾値・名簿の値を変えない(変わる欄があれば拒否する)。体制や個別の値を入力に書くと拒否する。changeLog に migrate の記録(from・to・取り込んだテンプレートのコミット)を残し、変化点に数えず、D-0 の改訂履歴に行を足さない。test-adoption.mjs が、値を変える入力の拒否と、移行の前後で値が同じことを実行して確かめる(#315)" -->
+<!-- impl IMPL-0322 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-adoption.mjs note="構成の形式の移行を /process-change の種別 migrate で行う。版ごとに現行の版への直接の変換を当て、ゲートの状態・席・閾値・名簿の値を変えない(変わる欄があれば拒否する)。体制や個別の値を入力に書くと拒否する。changeLog に migrate の記録(from・to)を残し、変化点に数えず、D-0 の改訂履歴に行を足さない。移行は取り込んだテンプレートの記録(強制層の要約値)を書き換えず、templateCommit の入力を拒否する(記録し直しは種別 intake の記名。#315 突合 X-6)。test-adoption.mjs が、値を変える入力と templateCommit の拒否、移行の前後で値と記録が同じことを実行して確かめる(#315)" -->
 
-<!-- impl IMPL-0325 target=gate-contract state=delivered check=manual note="要求事項の検査を変える準拠テンプレートの更新を、従う版の切り替えと同時に取り込むこと。契約検査は、構成が従う版と、準拠テンプレートが実装する版(知識ベースの source.edition)の違いを注記に出す。取り込んだ更新が要求事項の検査を変えたかは機械で判定しない(保守者が版の発行の告知に書く。community/standard-editions.md)。第1版の発行の前は、どの構成も作業中の版に従うため実害が無い。確かめる者: 取り込みの PR を受ける AI維持管理者(state:needs-platform。告知と契約検査の注記を突き合わせる)" -->
+<!-- impl IMPL-0325 target=gate-contract state=delivered check=manual note="要求事項の検査を変える準拠テンプレートの更新を、従う版の切り替えと同時に取り込むこと。契約検査は、構成が従う版と、準拠テンプレートが実装する版(知識ベースの source.edition)の違いを注記に出す。取り込んだ更新が要求事項の検査を変えたかは機械で判定しない(保守者が版の発行の告知に書く。community/standard-editions.md)。第1版の発行の前は、どの構成も作業中の版に従う。取り込み(/process-change の種別 intake)は、知識ベースの生成元のコミットの前後を changeLog に書き、従う作業中の版の切り替えを記録に残す(#315 突合 X-18)。確かめる者: 取り込みの PR を受ける AI維持管理者(state:needs-platform。告知と契約検査の注記を突き合わせる)" -->
 
 <!-- impl IMPL-0311 target=next-role state=delivered check=machine test=template/scripts/gate/test-edition-end.mjs note="D-0 体制図の冒頭に「従う本標準の版」の欄が無い、または空欄のとき、/pit(next.mjs)が、宣言の要求事項4 の欠けとして注記する。段階は止めない。D-0 の欄と構成の standard.edition の一致は検査しない。test-edition-end.mjs が、欄の無い D-0 で注記が出ることを実行して確かめる(#313)(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した)" -->
 

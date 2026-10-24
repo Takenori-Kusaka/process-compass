@@ -1339,7 +1339,7 @@ sections:
       - IMPL-0304
       - IMPL-0313
       - IMPL-0318
-    note: 境は構成が設定済みになった最初のコミット(IMPL-0304)で、既定ブランチの第1親の連鎖の上で決める(IMPL-0313)。開始より前は出所を問わず件数だけ(IMPL-0318)。宣言が欠けても、再テーラリング・版の切り替え・再初期化でも開始は動かない
+    note: 境は構成が設定済みになった最初のコミット(IMPL-0304)で、既定ブランチの主系列(準拠テンプレートでは第1親の連鎖)の上で決める(IMPL-0313)。開始より前は出所を問わず件数だけ(IMPL-0318)。宣言が欠けても、再テーラリング・版の切り替え・再初期化でも開始は動かない
     issue: 313
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
     status: marked
@@ -2929,11 +2929,10 @@ sections:
       - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
     issue: 315
   - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 事前点検
-    status: none
-    category: elsewhere
-    reason: 止める項目と告げる項目の表は、1.10.1 の要求事項を満たすための点検の中身。点検の働きは IMPL-0319・IMPL-0320 で追う
-    location:
-      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
+    status: marked
+    ids:
+      - IMPL-0327
+    note: 点検の結果を適用の開始の記録へ書き、初期化を経ない経路の欠けを記録の欠落として出す働きは IMPL-0327。止める項目と告げる項目の表は、1.10.1 の要求事項を満たすための点検の中身で、点検の働きは 1.10.1 の IMPL-0319・IMPL-0320 で追う
     issue: 315
   - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 実環境の統制の確認の4値
     status: marked
