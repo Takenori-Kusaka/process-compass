@@ -1406,10 +1406,11 @@ sections:
       - IMPL-0013
       - IMPL-0299
     rows:
+      # 条件1(禁止の組を同一レーンへ写像しない)は降りていない。準拠テンプレートはレーンを持たず、MAILBOX はレーンを確かめない(#312 の突合 X-5)
       条件1:
         status: marked
         ids:
-          - IMPL-0013
+          - IMPL-0299
       条件2:
         status: marked
         ids:

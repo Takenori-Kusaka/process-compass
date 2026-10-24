@@ -151,3 +151,40 @@
   - MAILBOX の変更は `next.mjs --role` の表示だけに効く
   - 3〜9名で兼務している既存の採用者は、D-0 節2 に記録を書くまで、出荷の集約に欠落が出る(ADR-0082 の影響に書いた)
 - 台帳: `evidence:write`・`impl:write`・`scope:write` を再生成した。準拠テンプレートの試験(`test-*.mjs` の全件)と `npm run check` は通る
+
+## 7. 突合の指摘への対応(decision.md の 8、crosscheck.md X-1〜X-15)
+
+新しい EV・IMPL の番号は使っていない。EV-0156・EV-0157 は本文を書き直し、IMPL-0013・IMPL-0302 は注記を書き直した。次に使える番号は EV-0158・IMPL-0304 のまま。
+
+| ID | 対応 | 所在 |
+| --- | --- | --- |
+| X-1 | `state:dev-done` の受け手を G-6 の状態で分けた。G-6 が有効なら独立レビュア、省略・未達なら出荷判定者。出荷判定者は G-6 の省略・未達を PR と G-7 の判定記録に開示する。この構成では `ready-to-merge` を使わず、開発者も付けない | label-mailbox 4.3 の表・箇条、4.3.1 に出荷判定者の2行(差し戻し・マージ)、4.5 ②-2 のポーリング、pr-workflow、3.5.1 の写像の表の QA の行、ADR-0082 決定4(見出し・箇条)・却下した案・影響。テンプレート: `mailboxFor(config)`・`devDoneReceiver(config)`(generate-profile.mjs)、`next.mjs` の `seatOf` と実装中の段の受け手、役割カードの注記、G-6.md、handoff.md、README。試験: test-roster-rules.mjs に構成ごとの場面(G-6 有効 / S0 で省略 / 1名・確認者なしで未達)を足した |
+| X-2 | G-7 基準9 の欠落の表に、非推奨の兼務の記録の欠落の行を足した。CI/CD ゲート構成の「`gaps` へ記録する事象」の表にも同じ行を足した | gate-criteria.md G-7「保証の開示」、ci-gates.md。`criteria:write`(差分なし)と `template:kb`(知識ベースを再生成)を実行した |
+| X-3 | EV-0156・EV-0157 の差し替え条件を ADR-0045 決定1 の書式にした。観測の源を D-0 表5 の記録とし、比べる量と判定の向きを書いた。EV-0156 は 10名以上が観測できないため 3〜9名の比較で代える | roles-responsibilities.md 3.5 |
+| X-4 | 付与者を 4.3.1 の遷移と MAILBOX に揃えた。`needs-dev` の付与者を PO / 技術判断者 / Owner に改めた(独立レビュアの差し戻しは `qm-blocked`、PR の外の新しい作業は `needs-po`)。`dev-done` の付与者に Platform を足した(4.3.1 の needs-platform の行)。`needs-platform` は 4.3 の側を正とし、MAILBOX の独立レビュアと出荷判定者の hands に足した(4.7.3 の検知者の引き渡し)。4.3.1 に `ready-to-merge` → `qm-blocked`(Ship)の行を足した。G-6.md に `ready-to-merge` の行を足した | label-mailbox 4.3・4.3.1、generate-profile.mjs の MAILBOX、test-roster-rules.mjs |
+| X-5 | 目録の「ロールとレーンの写像」の条件1 を IMPL-0299(undelivered)へ付け替えた。条件2 は IMPL-0013 のまま | impl-inventory.yaml |
+| X-6 | `seatPairingNotes(config, { d0 })` が D-0 節2 の記録と照らし、記録のある組を `/pit` の注記に出さない。記録の無い組は「記録なし」と出す | generate-profile.mjs、next.mjs、headcount.md |
+| X-7 | 欠落と注記の文に、写す元(`templates/00-d0-governance.md` の節2)を足した。README に既存の採用者向けの段落を置いた | org-assurance.mjs の `discouragedText`、README |
+| X-8 | 旧い生成区間とだけ一致する D-0 の節を `d0LegacyOnlySections` で出し、`/pit` が再生成を勧める。期限は置かない | generate-profile.mjs、next.mjs |
+| X-9 | D-0 節1 の名簿に表5-2 の欄をすべて列として置いた(`D0_ROSTER_COLUMNS`)。`template-fields.yaml` の登録を列見出しへ向けた。標準の表5-2 の雛形から最終更新日の列を外した(名簿の変更の日付は表8 が持つ。ADR-0082 決定5 も改めた) | generate-profile.mjs、templates/00-d0-governance.md、deliverable-templates.md、template-fields.yaml |
+| X-10 | 旧名「表5(役割と現任者の対応)」を「表5(人の名簿と席)」へ改めた。テンプレートの D-0 の対応表に節2 の記録を足した | ci-gates.md の D-0 の前提の検査4、integrated.yaml、テンプレートの artifacts/00-d0-governance.md |
+| X-11 | 第8章の人数の数え方を、表5-2 の区分が「体制の内」の人で数えると書き、組織上の任命権者を除いた | tailoring-guide.md 軸A |
+| X-12 | 差し戻しの文と `ready-to-merge` の文を別の箇条に分け、「このラベル」を `state:qm-blocked` と書いた | pr-workflow.md |
+| X-13 | 1.7.3 に、○・△・可・不可を規定の強さの升に使わない箇条を足した(語彙は足していない)。規定の強さでない升の除外(`provision-ok`)を provision-forms.md に1段落で書いた | overview.md 1.7.3、community/provision-forms.md |
+| X-14 | 3.5.1 の文を「案件のレーンは7つ。Ops は案件の外」と書いた | roles-responsibilities.md 3.5.1 |
+| X-15 | ADR-0082 のコンテキストの表で、旧い 3〜4名の状態を「△(避けたい。許容)」とした | ADR-0082 |
+
+### IMPL-0298 の通しの試験
+
+`template/scripts/gate/test-discouraged-evidence.mjs` を足した。テンプレートを一時の置き場へ写し、3〜9名で価値責任者と技術判断者を兼ねた構成で `aggregate-evidence.mjs` を実行する。記録が無ければ欠落を出して失敗し、欠落の文が写す元を示すこと、記録を書けば欠落が消えること、兼務していなければ出ないことを確かめる(8件)。`gate-g5.yml` の contract ジョブへ結線し、`test-check-pr.mjs` に結線の確認を1件足した。
+
+### 逸脱
+
+- X-4 の `needs-platform` は、MAILBOX を 4.3 の側へ広げた(4.3 を狭めなかった)。4.7.3 が、統制の弱化を見つけた者に `needs-platform` を付けさせるためである。`needs-dev` は逆に 4.3 を狭めた。4.3.1 に独立レビュアが `needs-dev` へ進める遷移が無く、PR の差し戻しは `qm-blocked` が担うためである
+- X-9 は、所属・氏名の確認の列を、記入が無い場合も出す形にした。このため #312 より前に生成した D-0 は、どれも旧い区間として X-8 の注記の対象になる。失敗はしない
+- X-2 の新しい行に IMPL のマークは付けていない。G-7「保証の開示」の節は目録で未分類(pending)のままであり、機械の実装は IMPL-0298(第3章 3.5)が追う
+- README の移行の段落は旧い言い回し(「5名未満のみ可」など)を差し替えの対象として引くため、`retired-ok` の印を付けた
+
+### 検査
+
+`criteria:write`・`template:kb`・`evidence:write`・`impl:write`・`scope:write` を再実行した。準拠テンプレートの試験は全件一致した(test-roster-rules.mjs は 145件、test-discouraged-evidence.mjs は 8件)。`verify-gate-contract.mjs`・`check-decisions.mjs` と `npm run check` も通った。
