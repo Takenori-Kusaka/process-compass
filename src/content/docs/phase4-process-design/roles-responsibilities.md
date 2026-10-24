@@ -687,7 +687,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0012 target=claude-md-resident state=delivered check=presence note="ラベルの遷移は判定の成立要件ではなく順序は記録が先(単位: 行)" -->
 
-<!-- impl IMPL-0330 target=claude-md-resident state=delivered check=presence note="要求事項1〜3。引き渡しを状態のラベルで行い、コメントや宛先の指定だけで済ませず、対応を終えたら遷移先のラベルへ替える。CLAUDE.md の受信箱とラベルの節(Draft PR の間と dev-done への付け替え)と、テンプレートの運用の規則の2行に置く。check-process-rules が行の文言を照合する(単位: 行)" -->
+<!-- impl IMPL-0330 target=claude-md-resident state=delivered check=presence note="要求事項1〜3。引き渡しを状態のラベルで行い、コメントや宛先の指定だけで済ませず、対応を終えたら遷移先のラベルへ替える。CLAUDE.md の受信箱とラベルの節(Draft PR の間と dev-done への付け替え)と、ラベルによる引き渡しの節の2行(標準の所在の列を含む)に置く。check-process-rules が行の文言を照合する(単位: 行)" -->
 
 <!-- impl IMPL-0331 target=claude-md state=undelivered check=manual plan=scheduled issue=316 review=2027-04 note="要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの受け手の手順(handoff.md・各スキル)に、着手の前に判定記録の有無を確かめる手順が無い。記録の欠落は出荷の証跡の集約が G-7 で拾うが、着手の時点では止まらない。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
 

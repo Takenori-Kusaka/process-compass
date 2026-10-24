@@ -13,6 +13,8 @@ sidebar:
 
 決定1 の作業中の版の扱いは、突合の段の裁定(`decision.md` の 8 節 X-4)で改めた後の内容です。会議体の段の裁定(Q-1)は、作業中の版を適用の表明にも名指せないとしていました。
 
+「影響」のうち、準拠テンプレートの構成は `deviations[]` の欄の名と保存の形を変えない、とした記載は、[ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/)の決定7 が置き換えます(2026-10-24)。各項目に区分(`category`)を書き込みます。区分の無い旧い構成は書き換えず、構成の要約値を保ちます。逸脱の定義は変わりません。
+
 ## コンテキスト
 
 [#313](https://github.com/Takenori-Kusaka/process-compass/issues/313) は、本標準の版・適用の終了・逸脱と適合の主張の関係を問いました。指摘をそのまま条項にせず、調査(内部1本・外部1本)、会議体(起草・現場・品質保証と監査・規格・擁護の5つの立場)、突合の順で扱いました。記録は `research/313-deliberation/`(`survey-313-1-internal.md`、`survey-313-2-external.md`、`council-01`〜`05`、`decision.md` の Q-1〜Q-6、`implementation.md`)にあります。

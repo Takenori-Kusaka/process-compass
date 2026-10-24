@@ -42,7 +42,7 @@ graph LR
 2. AI に検証手段(スクリプト・スキャン設定・演習手順)を生成させる。生成物は通常の PR と同じく独立レビューを通す
 3. 本番相当環境で実行する。**開発機での実測は性能の証拠にならない**(環境差が結果を無効化する)
 4. 結果を基準と突合し、判定を[品質レポート](/process-compass/phase4-process-design/deliverable-templates/)へ記録する。実測値と基準値を並記する(「OK」だけの記録は監査で証拠にならない)
-5. 未達の要件は修正するか、受容して判断者名つきで[負債台帳](/process-compass/phase4-process-design/deliverable-templates/)へ移す。**判定記録のない非機能要件を残したまま出荷判定(G-7)へ進んではならない**
+5. 未達の要件は修正するか、受容して判断者名つきで[負債台帳](/process-compass/phase4-process-design/deliverable-templates/)へ移す。**判定記録のない非機能要件を残したまま出荷判定(G-7)へ進まないことを勧める**
 
 ## CI への組み込み
 

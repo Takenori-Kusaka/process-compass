@@ -32,8 +32,8 @@ sidebar:
 | 附属書B | 8 | 0 | 0 | 0 | **8** |
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
-| 附属書H | 43 | 3 | 0 | 7 | **33** |
-| **計** | 542 | 79 | 2 | 56 | **405** |
+| 附属書H | 44 | 3 | 0 | 8 | **33** |
+| **計** | 543 | 79 | 2 | 57 | **405** |
 
 未棚卸しの405節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
@@ -45,9 +45,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 76 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 77 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 69 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 187 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 188 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -507,10 +507,12 @@ sidebar:
 | IMPL-0326 | テンプレートの更新の取り込みを、ファイルを複製する PR で行い、強制層の変更として AI維持管理者へ引き渡す(state:needs-platform)。取り込まないことは例外承認として記録しない。CLAUDE.md の受信箱とラベルの規則(強制層の縮小・遮断の解除は state:needs-platform)と、README の「テンプレート更新時の既存案件への影響と運用ルール」に降りている。取り込みの PR が複製だけであることと、陰性の確認(統制を弱める変更が無いこと)は機械で確かめない。確かめる者: 取り込みの PR を受ける AI維持管理者 | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 人が確かめる | — | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0327 | 初期化(generate-profile.mjs)が、事前点検の結果(止める項目の件数・資産の件数と種類・一覧の所在と SHA-256・記名・既定ブランチ・根のコミットの件数)を changeLog[0] の preflight へ書く。--dry-run も止める項目があれば構成を出さずに非0で終える。契約検査は、適用の開始のコミットの構成にこの記録が無い場合と、資産があるのにそのコミットに一覧が無い場合を記録の欠落として注記し(失敗にしない)、出荷の証跡の集約は、そのコミットを範囲に含む出荷で記録の欠落にする(preflightRecordProblem)。test-adoption.mjs が、記録の無い構成で注記が出ること、初期化が記録を書くこと、--dry-run が止まることを実行して確かめる(#315 突合 X-2) | 初期化の事前点検 | — | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0328 | テンプレ4 の差し戻し理由に「再提出の期限」の欄を置く。差し戻しと同時に確定させる事項(第4章 判定の語彙)を記録する(単位: 欄) | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 実在だけ確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
-| IMPL-0329 | 構成の deviations[] の項目ごとに区分(category: listed は閉じた列挙の逸脱、unlisted は列挙に無い離脱)を初期化が書き、契約検査は書かれた区分と閉じた列挙(config.mjs の CLOSED_DEVIATIONS)の食い違いを失敗にする。区分を持たない旧い構成は書き換えず、閉じた列挙で読む。出荷の証跡の集約は、層1 の印 [逸脱] を閉じた列挙の逸脱だけに当て、列挙に無い離脱には印 [離脱] を当てる(試験は区分の側。#316) | process.config.json の deviations[] | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
-| IMPL-0330 | 要求事項1〜3。引き渡しを状態のラベルで行い、コメントや宛先の指定だけで済ませず、対応を終えたら遷移先のラベルへ替える。CLAUDE.md の受信箱とラベルの節(Draft PR の間と dev-done への付け替え)と、テンプレートの運用の規則の2行に置く。check-process-rules が行の文言を照合する(単位: 行) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0329 | 構成の deviations[] の項目ごとに区分(category: listed は閉じた列挙の逸脱、unlisted は列挙に無い離脱)を初期化が書き、契約検査は書かれた区分と閉じた列挙(config.mjs の CLOSED_DEVIATIONS)の食い違いを失敗にする。区分を持たない旧い構成は書き換えず、閉じた列挙で読む。層1 の印の照合は IMPL-0334 による(試験は区分の側。#316) | process.config.json の deviations[] | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0330 | 要求事項1〜3。引き渡しを状態のラベルで行い、コメントや宛先の指定だけで済ませず、対応を終えたら遷移先のラベルへ替える。CLAUDE.md の受信箱とラベルの節(Draft PR の間と dev-done への付け替え)と、ラベルによる引き渡しの節の2行(標準の所在の列を含む)に置く。check-process-rules が行の文言を照合する(単位: 行) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0331 | 要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの受け手の手順(handoff.md・各スキル)に、着手の前に判定記録の有無を確かめる手順が無い。記録の欠落は出荷の証跡の集約が G-7 で拾うが、着手の時点では止まらない。確かめる者: 計画の Issue(issue= の番号)の担当者 | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0332 | 要求事項7。状態のラベルの無い作業単位の再配分を価値責任者の務めとし、再配分した作業を自ら拾わない。CLAUDE.md の受信箱とラベルの節に置く(単位: 行) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0333 | 要求事項7。AI のレビューに与える指示を、レビューの対象の変更が書き換えられない場所に置くこと。準拠テンプレートでは指示は .claude/** にあり、エージェントの書き込みはフックが遮断するが、同じ PR で指示を変えた場合に、基底の側の指示でレビューする仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者 | G-5 の PR 単位の検査(pr-rules) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0334 | 層1 の印 [逸脱] と [列挙に無い離脱] の照合(deviationTagHits)。[列挙に無い離脱] を持たない層1 では [逸脱] を旧版の意味(逸脱と列挙に無い離脱の両方)で読み、注記を出す。[列挙に無い離脱] を持つ層1 では [逸脱] は閉じた列挙の逸脱だけに当たる。test-roster-rules.mjs が、旧い層1 で列挙に無い離脱に当たること、新しい層1 で印ごとに分かれて当たることを実行して確かめる(#316 突合 X-1) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
+| IMPL-0335 | G-6 基準6(変更の検証の方法と結果の記録が無い変更は差し戻す)。準拠テンプレートの gates/G-6.md の手順6 が、PR の「検証方法と結果」または PR を経ないコミットのトレーラ Verification: の有無を判定者に確かめさせる。機械は確かめない。確かめる者: G-6 の判定者(#316 で新設。突合 X-4) | ゲート判定記録のスキルの G-6 の補助ファイル | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- implementation-ledger:end -->

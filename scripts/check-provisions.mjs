@@ -4,20 +4,20 @@
 // 第1章 1.5(附属書の種別)と 1.7(規定の表現形式・表の升の語・同じ事項は1か所)を、機械で確かめられる範囲で検査する。
 // npm run check から呼ばれ、検出時は終了コード 1 で失敗する。
 //
-// 検査すること:
+// 検査すること(番号は community/provision-forms.md の「検査の一覧」の表と同じ。#316 突合 X-18):
 //   1. 附属書の種別の宣言      各附属書の表題と、第1章 1.5 の表の「種別」が、登録簿と一致する
-//   2. 規定の文書(本文8章と規定の附属書)
-//        - 依頼の形(〜ください)と「〜すべき」の文末
-//        - 廃した升の語(省略可・任意・どちらでもよい)。「省略可」は地の文でも検出する
-//        - 参考の附属書を「による」で引く箇所
-//   3. 参考の附属書            要求・禁止の文末(〜なければなりません/〜てはなりません)と、実装マーク
-//   4. 廃した言い回し          登録簿の句が、公開ドキュメント・規則データ・準拠テンプレートに残っていない
-//   5. 能力の否定の文末(#316 / ADR-0086 R-2)  規定の文書の文末の「〜できません/〜できない」
-//   6. 手引きの頁(#316 / ADR-0086 R-1)        フェーズ5・6 の頁の要求・禁止の文末で、同じ行に本文の所在が無いもの。
-//                                             実装マーク。条項番号に似た独自の節番号(見出しの「4.1」など)
-//   7. 手引きへの委任(R-1)                     規定の文書が、フェーズ5・6 を「〜による/〜に規定/〜に定め/〜が正本」で引く箇所
-//   8. 章の引用(R-1)                           「第N章 X.Y」の X が N でない引用と、リンク先が第N章の頁でない引用
-//   9. 禁止事項の番号(#316 / ADR-0086 R-6)    「禁止事項N」を、一覧の所在(5.8.5 の / テーラリングの)で修飾せずに引く箇所
+//   2. 規定の文末              規定の文書(本文8章と規定の附属書)の依頼の形(〜ください)と「〜すべき」の文末
+//   3. 表の升の語              規定の文書の廃した升の語(省略可・任意・どちらでもよい ほか)。「省略可」は地の文でも検出する
+//   4. 附属書の引き方          規定の文書が参考の附属書を「による」で引く箇所
+//   5. 参考の附属書            要求・禁止の文末(〜なければなりません/〜てはなりません)と、実装マーク
+//   6. 廃した言い回し          登録簿の句が、公開ドキュメント・規則データ・準拠テンプレートに残っていない
+//   7. 能力の否定の文末(#316 / ADR-0086)   規定の文書の文末の「〜できません/〜できない」
+//   8. 手引きの頁(#316 / ADR-0086)         フェーズ5・6 の頁の、第1章 1.8 が列挙した文末で、同じ文の中に本文の所在が無いもの。
+//                                          実装マーク。条項番号に似た独自の節番号(見出しの「4.1」など)
+//   9. 手引きへの委任(#316)                規定の文書が、フェーズ5・6 を「〜による/〜に規定/〜に定め/〜が正本」で引く箇所
+//  10. 章の引用(#316)                      「第N章 X.Y」の X が N でない引用と、リンク先が第N章の頁でない引用
+//  11. 禁止事項の番号(#316 / ADR-0086)     「禁止事項N」を、一覧の所在(5.8.5 の / テーラリングの)で修飾せずに引く箇所
+//  12. 注記の中の要求(#316 突合 X-13)      規定の文書の注記(:::note)の中の要求・禁止の文末(〜なければなりません/〜てはなりません)
 //
 // 検査しないこと(機械で判定できない):
 //   - 「〜できます」が許容か能力か
@@ -26,8 +26,8 @@
 //
 // 除外:
 //   - コードブロック(``` で囲まれた範囲)
-//   - 行に `<!-- provision-ok: 理由 -->` がある行(2・3 の検査)
-//   - 行に `retired-ok: 理由` がある行(4 の検査。Markdown は HTML コメント、YAML・スクリプトはコメントの中に書く)
+//   - 行に `<!-- provision-ok: 理由 -->` がある行(2〜5・7〜12 の検査)
+//   - 行に `retired-ok: 理由` がある行(6 の検査。Markdown は HTML コメント、YAML・スクリプトはコメントの中に書く)
 //   理由の無い印は無効とする。
 //
 // 登録簿は src/data/provision-forms.yaml。書式と運用は community/provision-forms.md による。
@@ -113,16 +113,24 @@ for (const d of docs) {
   }
 }
 
-// --- 2・3. 文末と升の語 --------------------------------------------------------
+// --- 2〜5. 文末・升の語・附属書の引き方・参考の附属書 --------------------------------------------------------
 for (const d of docs) {
   const rel = `${DOCS}/${d.page}.md`;
   if (!existsSync(path.join(ROOT, rel))) continue;
   const raw = read(rel);
   const masked = maskFences(raw);
+  let inNote = false;
   masked.forEach((line0, i) => {
     if (!line0) return;
+    // 12. 注記(:::note)の中の要求・禁止(突合 X-13。1.7.2 は注記を説明に数える)
+    if (/^\s*:::note/.test(line0)) inNote = true;
+    else if (inNote && /^\s*:::\s*$/.test(line0)) inNote = false;
     if (hasMark(line0, 'provision-ok')) return;
     const n = i + 1;
+    if (inNote && d.kind === 'normative') {
+      const mm = RE_SHALL.exec(stripComments(line0));
+      if (mm) report(rel, n, '注記の中の要求・禁止', line0.slice(Math.max(0, mm.index - 20), mm.index + mm[0].length), '注記は説明であり、要求事項を置けません。注記の外の本文へ出してください(第1章 1.7.2)');
+    }
 
     if (d.kind === 'informative') {
       if (RE_IMPL.test(line0)) {
@@ -163,7 +171,7 @@ for (const d of docs) {
   });
 }
 
-// --- 5. 能力の否定の文末(R-2) --------------------------------------------------
+// --- 7. 能力の否定の文末(R-2) --------------------------------------------------
 for (const d of docs) {
   if (d.kind !== 'normative') continue;
   const rel = `${DOCS}/${d.page}.md`;
@@ -179,7 +187,7 @@ for (const d of docs) {
   });
 }
 
-// --- 6〜8. 手引きの頁・手引きへの委任・章の引用(R-1) ----------------------------------
+// --- 8〜10. 手引きの頁・手引きへの委任・章の引用(R-1) ----------------------------------
 const guideDirs = reg.guides?.dirs ?? [];
 const chapterPages = Object.fromEntries(docs.filter((d) => d.chapter).map((d) => [d.chapter, d.page]));
 const mainPages = docs.filter((d) => d.kind === 'normative').map((d) => d.page);
@@ -189,6 +197,22 @@ const RE_MAIN_CITE = new RegExp(
 const RE_GUIDE_LINK = /\]\(\/process-compass\/(?:phase5-implementation|phase6-operation)\/[^)]*\)([^。\n]{0,40})/g;
 const RE_DELEGATE = /(?:によ(?:る|ります|り)|に規定|に定め|が正本)/;
 const RE_HEADING_NUM = /^#{2,6}\s+\d+(?:\.\d+)+\s/;
+/**
+ * 手引きの頁に置かない文末(第1章 1.8。突合 X-7): 1.7.1 の表の要求・禁止の形のうち、平叙の動詞文(〜します/〜しません。
+ * である調の〜する/〜しない)を除くすべて。〜とします、〜によります、〜を要します、〜を求めます、〜しなければなりません、
+ * 〜してはなりません(と、である調の対)。平叙の動詞文は 1.7.2 により手引きの頁では説明として読むので対象の外
+ */
+const RE_GUIDE_FORBIDDEN = new RegExp(
+  `(?:なければなりません|なければならない|[てで]はなりません|[てで]はならない|とします|とする|によります|による|を要します|を要する|を求めます|を求める)${END}`
+);
+/** 一致した位置を含む文(句点・行頭・表の升の区切りまで)を返す。本文の所在は同じ文の中に限って数える(突合 X-7) */
+const sentenceAt = (line, index) => {
+  const before = line.slice(0, index);
+  const start = Math.max(before.lastIndexOf('。'), before.lastIndexOf('|')) + 1;
+  const rest = line.slice(index);
+  const endRel = rest.search(/。|\|/);
+  return line.slice(start, endRel < 0 ? line.length : index + endRel + 1);
+};
 
 const guideFiles = [];
 for (const dir of guideDirs) {
@@ -211,9 +235,9 @@ for (const rel of guideFiles) {
       report(rel, n, '手引きの頁の節番号', line0.trim().slice(0, 40), '手引きの頁に、条項番号に似た独自の番号を振れません。見出しの名で引いてください(第1章 1.8)');
     }
     const line = stripComments(line0);
-    const m = RE_SHALL.exec(line);
-    if (m && !RE_MAIN_CITE.test(line)) {
-      report(rel, n, '手引きの頁の要求・禁止', line.slice(Math.max(0, m.index - 24), m.index + m[0].length), '手引きの頁は、要求・禁止の文末を置けません。本文の要求を述べるときは、同じ行で本文の所在を引いてください(第1章 1.8)');
+    const m = RE_GUIDE_FORBIDDEN.exec(line);
+    if (m && !RE_MAIN_CITE.test(sentenceAt(line, m.index))) {
+      report(rel, n, '手引きの頁の要求・禁止', line.slice(Math.max(0, m.index - 24), m.index + m[0].length), '手引きの頁は、要求・禁止の文末(第1章 1.8 の列挙)を置けません。本文の要求を述べるときは、同じ文の中で本文の所在を引いてください(第1章 1.8)');
     }
   });
 }
@@ -257,7 +281,7 @@ for (const rel of citeFiles) {
   });
 }
 
-// --- 9. 禁止事項の番号(R-6) -----------------------------------------------------
+// --- 11. 禁止事項の番号(R-6) -----------------------------------------------------
 const plist = reg.prohibitionLists ?? {};
 const qualifiers = plist.qualifiers ?? [];
 const RE_PNUM = /禁止事項\s*[0-9０-９]/g;
@@ -293,7 +317,7 @@ for (const rel of ptargets) {
   });
 }
 
-// --- 4. 廃した言い回し ---------------------------------------------------------
+// --- 6. 廃した言い回し ---------------------------------------------------------
 const phrases = reg.retiredPhrases ?? [];
 const scan = reg.retiredScan ?? {};
 const EXT = new Set(scan.extensions ?? ['.md', '.mdx']);

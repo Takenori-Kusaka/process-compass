@@ -45,6 +45,11 @@ sections:
       - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     note: 変化点の後の状態の次の一手は IMPL-0087。C9 の観測(登録した変更種別の停止と判定不能)の表示は 5.4.6 の IMPL-0287・0288
     issue: 311
+  - key: phase4-process-design/assurance-case#H.3 論証 > 内部監査で確かめる観点
+    status: none
+    category: org-design
+    reason: 内部監査を行う者(人)が四半期に確かめる観点の表。実行主体の挙動を制約しない。機械で検出できる部分の実装は、各観点の照合する規定の節のマークで追う(#316 突合 X-12)
+    issue: 316
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方
     status: pending
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 確認側へ渡した入力の記録
@@ -608,6 +613,7 @@ sections:
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
     status: kb
     ids:
+      - IMPL-0335
       - IMPL-0077
       - IMPL-0111
       - IMPL-0112

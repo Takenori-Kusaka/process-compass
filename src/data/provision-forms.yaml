@@ -278,6 +278,52 @@ retiredPhrases:
     instead: 列挙に無い離脱として記録(第1章 1.10.2)
 # 決定の記録(adr/)は、廃した言い回しを経緯として引くので探さない。自動生成の台帳も探さない。
 # zenn/ は派生物の置き場であり、publishing-hub の査読の経路で改めるため、ここでは探さない。
+  # 突合 X-5 で足した句(#316 / ADR-0086)
+  - phrase: 目的からの逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 目的から外れた振る舞い
+  - phrase: 処理順序の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 処理順序の誤り
+  - phrase: 欠陥や逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 欠陥や規定に反する状態
+  - phrase: 逸脱を検知
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更を検知
+  - phrase: 逸脱が1件
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更が1件
+  - phrase: 逸脱があれば
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更があれば
+  - phrase: 未達と逸脱の一覧
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 未達・逸脱・列挙に無い離脱の一覧
+  - phrase: 未達も逸脱も無い
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 未達も逸脱も列挙に無い離脱も無い
+  - phrase: 増減を、逸脱として
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 計画に反する変更として
+  - phrase: 範囲を逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 範囲を超える
+  - phrase: 手順の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 手順どおりでない作業
+
 retiredScan:
   roots:
     - src/content/docs

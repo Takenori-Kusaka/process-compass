@@ -39,7 +39,7 @@ graph LR
 | 記録 | タイムラインの自動整形、記録の下書き | 事実確認、再発防止策の決定 |
 
 - **コア機能の障害は、理解を維持している担当者**(コア理解維持タスク deep-read の記録者)が対応する。AI の推測だけで本番を触らない
-- 復旧を急ぐ場合も、変更は通常の修正のブランチ(`fix/`)と PR で行い([Git 戦略](/process-compass/phase5-implementation/git-strategy/))、CI と独立レビューを省略しない。確認を待てない変更を先へ進める経路は、[第7章 7.3](/process-compass/phase4-process-design/exception-escalation/)の例外承認だけである([第4章 G-7](/process-compass/phase4-process-design/gate-criteria/))
+- 復旧を急ぐ場合も、変更は通常の修正のブランチ(`fix/`)と PR で行い([Git 戦略](/process-compass/phase5-implementation/git-strategy/))、CI と、ファストトラックを用いた場合の事後レビュー([第7章 7.4](/process-compass/phase4-process-design/exception-escalation/))を省略しない。確認を待てない変更を先へ進める経路は、出荷判定([第4章 G-7](/process-compass/phase4-process-design/gate-criteria/))と[第7章 7.3](/process-compass/phase4-process-design/exception-escalation/)の例外承認だけである
 
 ## 生成の条件から影響範囲を絞る
 
@@ -47,7 +47,7 @@ graph LR
 
 | 手順 | 行うこと | 担い手 |
 | --- | --- | --- |
-| 1 | 原因の変更の生成の条件(モデルの版、指示資産の版、担い手の識別、変更種別)を、記録から特定する。特定できない場合は、その事実をポストモーテムに書き、手順2 の範囲を出荷済みの全変更とする | AI が記録を引き、人が確かめる |
+| 1 | 原因の変更の生成の条件(モデルの版、指示資産の版、担い手の識別、変更種別)を、記録から特定する。特定できない場合は、その事実をポストモーテムに書き、手順2 の範囲を出荷済みの全変更にする | AI が記録を引き、人が確かめる |
 | 2 | 出荷済みのリリースから、同じ生成の条件を持つ変更を一覧にする。一覧は記録の機械的な抽出とし、AI の推定で絞らない | 機械 |
 | 3 | 一覧を、リスク区分と、参照する壊してはならない品質条件(QC-NN)で並べる。R1 と、層1 の受容しない条件に関わる変更を先に置く | 機械 |
 | 4 | 点検する範囲と順序を決め、点検しない範囲とその理由を書く | 技術判断者。Sev1 では D-0 表4 の有事の決定者が停止・切替・顧客説明を決める |
@@ -124,6 +124,6 @@ Sev1・Sev2 のポストモーテムは、[第4章 G-5「是正の起動」](/pr
 
 - 当番(オンコール)は週替わりで1人。当番が Sev 判定・初動・エスカレーションの権限を持つ
 - 本フローを実行できる状態は、[開発避難訓練](/process-compass/phase6-operation/incident-drill/)で定期的に確かめる
-- 事象の症状から手順を引く場合は[こんなときどうする](/process-compass/phase6-operation/what-to-do-when/)による
+- 事象の症状から手順を引く場合は[こんなときどうする](/process-compass/phase6-operation/what-to-do-when/)参照
 - Sev3・Sev4 は[運用作業カタログ](/process-compass/phase6-operation/operations-catalog/)の週次棚卸しでまとめて処理する
 - インシデント件数・MTTR(平均復旧時間)は[運用メトリクス](/process-compass/phase6-operation/metrics/)で追跡する
