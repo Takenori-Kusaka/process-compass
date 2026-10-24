@@ -15,7 +15,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 requireInputs(ROOT, ['template/scripts/gate/recalibration-registry.json', 'template/process.config.json'], '登録簿の整合の検査の変異試験');
 const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'template/scripts/gate/recalibration-registry.json'), 'utf8'));
 const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'template/process.config.json'), 'utf8'));
-const docText = fs.readFileSync(path.join(ROOT, 'src/content/docs/phase6-operation/metrics.md'), 'utf8');
+const docText = fs.readFileSync(path.join(ROOT, 'src/content/docs/phase4-process-design/roles-responsibilities.md'), 'utf8');
 
 let passed = 0;
 function test(name, fn) {
@@ -70,7 +70,7 @@ test('変異: JSON から行を落とすと検出する', () => {
 test('変異: 表から行を落とすと検出する', () => {
   const doc = docText.replace(/^\| RC-08 \|.*\n/m, '');
   assert.notEqual(doc, docText);
-  detects(run({ docText: doc }), /RC-08: metrics\.md の登録簿の表に行が無い/);
+  detects(run({ docText: doc }), /RC-08: 第3章 3\.12\.12 の登録簿の表に行が無い/);
 });
 
 test('変異: noRelaxByCapability を外すと検出する(要求事項4 の人の帯域に由来する定数)', () => {

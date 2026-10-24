@@ -15,15 +15,11 @@ sections:
     why: G-8(リリース決裁)の判定基準そのもの
   - key: phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.3 選択肢の比較
     why: R1 の決定と例外承認で求める選択肢の比較(見出しの適用範囲)
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約
-    why: G-7 の判定の材料(出荷判定の証跡の集約・保証の開示・委任の経路の記録)
-  - key: phase5-implementation/ci-gates#デプロイゲート
-    why: G-8 の後の配備を、決裁を経た参照に限る統制
-  - key: phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
-    why: 欠陥注入の走査の実施記録を G-7 の材料へ渡す
-  - key: phase5-implementation/pre-review-automation#高リスク事項の自動ラベル付与
+  - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 実装上の要求
+    why: 欠陥注入の走査の実施記録を G-7 の材料へ渡す(第4層。#316 でフェーズ5 から本文へ移した)
+  - key: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分 > 区分の下限と確定者
     why: リスク区分(R1〜R3)の一次判定と、引き下げの記名
-  - key: phase5-implementation/pre-review-automation#沈黙の扱いの機械化
+  - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.5 期限までに意見がない場合の扱い
     why: R1・R2 の変更に課す必須ステータスチェック
-  - key: phase5-implementation/label-mailbox#4.3 label 語彙（標準8種）
+  - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し > ラベルの語彙
     why: 既定ブランチへの取り込みが出荷を起動する構成で、G-7 の判定記録の後にマージすること(IMPL-0303)をこの節で定める

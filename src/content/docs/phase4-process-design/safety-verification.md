@@ -162,7 +162,7 @@ R1〜R3 の列は本標準が定めた初期値であり、規格に基づく値
 | 3 | 入力の境界値と範囲外の値 | 範囲外を検出し、危険側へ倒れない |
 | 4 | 入力の欠落と滞留 | 前回値の保持によって異常が隠れない |
 | 5 | メモリまたは変数の破壊 | 診断が検出し、安全状態へ遷移する |
-| 6 | 処理順序の逸脱 | 順序の監視が検出する |
+| 6 | 処理順序の誤り | 順序の監視が検出する |
 | 7 | 安全状態からの復帰 | 定めた条件を満たさない限り復帰しない |
 
 項目2を省いてはなりません。**時間窓を持たない単純な監視タイマは、異常に早い応答を正常として通します**。監視の実装が単純な形式である場合、その旨と診断能力の限界を記録します。
@@ -229,4 +229,4 @@ AI が生成した試験は、**条件の境界をずらす変更を検出する
 - AI が生成した成果物の統制と、テスト生成の分離の段階は[第5章 5.8](/process-compass/phase4-process-design/human-ai-boundary/)に規定する
 - 危険源の同定とリスクの低減は[第6章](/process-compass/phase4-process-design/deliverable-templates/)に規定する
 - 独立レビュー(G-6)の実施手順は[附属書C](/process-compass/phase4-process-design/review-guide/)に示す
-- 検証の自動化と CI の構成は[フェーズ5](/process-compass/phase5-implementation/ci-gates/)に規定する
+- 検証の自動化と CI の構成の例は、[フェーズ5](/process-compass/phase5-implementation/ci-gates/)を参照

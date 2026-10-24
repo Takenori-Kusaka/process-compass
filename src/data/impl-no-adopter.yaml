@@ -19,5 +19,5 @@ sections:
     why: 一律で AI に委譲できない領域
   - key: phase4-process-design/exception-escalation#7.11 停止の申し立て
     why: 品質・安全・法令上の異常で誰でも止められること。止める経路が採用者の実装の有無で消えてはならない
-  - key: phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し
+  - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し > 統制の弱化を検知したときの引き渡し
     why: 統制の弱化の検出と引き渡し。検出の経路そのものを縮めることになる

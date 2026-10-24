@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 662(included 662、excluded 0)。生成日 2026-10-24。
+件数: 663(included 663、excluded 0)。生成日 2026-10-24。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -670,4 +670,5 @@
 | SRC-0667 | ? | vendor-official | us/en | partial | TH10 | GitHub Enterprise Cloud の組織のルールセットの作成。状態に Active・Evaluate(強制せず違反を観測する)・Disabled  | [Creating rulesets for repositories in your organization - GitHub Enterprise Cloud Docs](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) |
 | SRC-0668 | ? | vendor-official | us/en | partial | TH10 | GitHub(無料版の文書)のリポジトリのルールセットの作成。作成の手順の状態は Active と Disabled の2つで、Evaluate は現れない。# | [Creating rulesets for a repository - GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository) |
 | SRC-0669 | 2026-07-07 | industry-report | global/en | partial | TH12 | CMMI の導入の手引き(v4.0)。現行の業務プロセスを CMMI の実践へ写して差を特定し、プロセスが実際に使われているかを確かめ、差を優先付けして段階的に | [CMMI Adoption Guidance (Version 4.0)](https://www.cmmiinstitute.com/getattachment/3cc3e8d1-72a1-4f6d-b1da-c5df8c9ad87d/CMMI-Adoption-Guidance.pdf) |
+| SRC-0670 | 2019 | standard | jp/ja | unverified | TH12 | JIS Z 8301:2019 の本文の第三者による転載。原本(JISC の閲覧は利用者登録が要り、2026-10-24 は障害で開けなかった)とは照合していな | [JIS Z 8301:2019 規格票の様式及び作成方法(第三者による転載。原本と未照合)](https://kikakurui.com/z8/Z8301-2019-01.html) |
 

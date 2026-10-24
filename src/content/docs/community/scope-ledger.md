@@ -29,6 +29,7 @@ sidebar:
 | 承認レビューを判定記録とする条件 | G-6。規制業の監査対応書式を除く | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#承認レビューを判定記録とする条件適用-g-6規制業の監査対応書式を除く) |
 | 委任の変更は判定の時点を事後へ移す | CL0・R3 の変更 | 変更ごと | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#委任の変更は判定の時点を事後へ移す適用-cl0r3-の変更) |
 | 未達のまま出荷する場合の例外承認 | R1 の変更 | 変更ごと | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#未達のまま出荷する場合の例外承認適用-r1-の変更) |
+| 変更の要求を経ないコミット | PR を経ずに既定ブランチへ入れるコミット | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#変更の要求を経ないコミット適用-pr-を経ずに既定ブランチへ入れるコミット) |
 | 基準値を超えた変更の扱い | 規模の基準値を超えた PR | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#基準値を超えた変更の扱い適用-規模の基準値を超えた-pr) |
 | AI 品質指標の扱い | AI が関与した成果物の品質を比率で扱う場合。傾向の確認と第5章 5.4.6 の検知条件を含む | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#ai-品質指標の扱い適用-ai-が関与した成果物の品質を比率で扱う場合傾向の確認と第5章-546-の検知条件を含む) |
 | 新規に変更した範囲へ限定する | G-5 基準3 以外の定量条件 | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#新規に変更した範囲へ限定する適用-g-5-基準3-以外の定量条件) |
@@ -41,13 +42,13 @@ sidebar:
 | 席の責任者でない確認者の力量 | 承認を独立した人の確認に数える人 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#席の責任者でない確認者の力量適用-承認を独立した人の確認に数える人) |
 | 入力の分離 | 確認側の担い手に AI を置く場合 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#入力の分離適用-確認側の担い手に-ai-を置く場合) |
 | B-3 設計審査会 | S2 スケール、または安全・法規制の対象となる機能 | 機能ごと | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#b-3-設計審査会適用-s2-スケールまたは安全法規制の対象となる機能) |
+| 3.12.12 能力依存の定数の再評価 | 能力依存として登録した定数 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#31212-能力依存の定数の再評価適用-能力依存として登録した定数) |
 | 外部の確認者を高リスクの変更へ集中させる | チーム規模 1〜2名 | その他 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#外部の確認者を高リスクの変更へ集中させる適用-チーム規模-12名) |
 | 事後監査の手続 | 委任を適用した R3 の変更。体制の規模によらない | 変更ごと | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#事後監査の手続適用-委任を適用した-r3-の変更体制の規模によらない) |
 | S0 の省略が成立する前提 | 事業ステージ S0 で、標準品質かつ CL0 の構成 | ステージごと | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#s0-の省略が成立する前提適用-事業ステージ-s0-で標準品質かつ-cl0-の構成) |
 | 判定の結果を受け取る者を決める | 判定を置いた組織と、判定の対象を作成した組織が異なる場合 | その他 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#判定の結果を受け取る者を決める適用-判定を置いた組織と判定の対象を作成した組織が異なる場合) |
 | 既存規程との併存(移行期の措置) | 既存の規程を持つ組織 | その他 | [phase5-implementation/enablement](/process-compass/phase5-implementation/enablement/#既存規程との併存移行期の措置適用-既存の規程を持つ組織) |
 | 規模の基準値 | 規模の基準値を超えた PR | その他 | [phase5-implementation/pr-workflow](/process-compass/phase5-implementation/pr-workflow/#規模の基準値適用-規模の基準値を超えた-pr) |
-| 能力依存の定数の登録簿 | 能力依存として登録した定数 | その他 | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/#能力依存の定数の登録簿適用-能力依存として登録した定数) |
 
 <!-- scope-ledger:end -->
 

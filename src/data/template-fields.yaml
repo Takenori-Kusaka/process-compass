@@ -142,7 +142,7 @@ forms:
         template: '| 前提 | 案件層の ID | 崩れたときの影響 |'
       - standard: すべて確かめていないものとして読む
         template: すべて確かめていないものとして
-      - standard: '受入基準の識別子(例: CR-1)は、機能の中で一意とする'
+      - standard: '受入基準の識別子(例: AC-1。機能をまたいで引くときは F-NNN/AC-1)は、機能の中で一意とする'
         template: 機能の中で一意
 
   - id: t2
@@ -219,6 +219,9 @@ forms:
         template: 変更のリスク区分
       - standard: 区分を確定した者を記名する
         template: リスク区分を確定した者
+      # 差し戻しと同時に確定させる再提出の期限(第4章 判定の語彙。#316 / ADR-0086 R-5)
+      - standard: '- 再提出の期限: <YYYY-MM-DD>'
+        template: '| 再提出の期限 |'
       - standard: '## 挙動要約(G-6 独立レビューのみ必須)'
         template: 挙動要約
       # --- #288 第5巡: 監査対応書式(規制業 review.recordFormat: audit)と独立した安全性の評価(CL2 以上) ---
@@ -337,7 +340,7 @@ forms:
       - standard: '## AIエージェントへ与える分割の指示'
         template: エージェントへ与える分割の指示
       # G-4 基準6 と前提条件の自己点検(#291 / ADR-0075。突合 X-1)
-      - standard: いずれかのタスクの対応CR に現れる(G-4 基準6
+      - standard: いずれかのタスクの「対応する受入基準」に現れる(G-4 基準6
         template: いずれかのタスクの「対応する受入基準」に現れます
       - standard: 対応仕様に未確定事項が残っていない(G-4 の前提条件
         template: '未確定事項(`[NEEDS CLARIFICATION]`)が残っていないことも確かめます'
@@ -412,8 +415,8 @@ forms:
     name: テンプレ10 前提の台帳
     file: templates/10-assumption-ledger.md
     fields:
-      - standard: AC-0 / AC-1 / AC-2
-        template: AC-0
+      - standard: AS-0 / AS-1 / AS-2
+        template: AS-0
       - standard: 対処の参照先
         template: 対処の参照先
       - standard: 劣化時の進め方

@@ -11,6 +11,8 @@ sidebar:
 
 本 ADR は main へ入る前に突合(`research/315-deliberation/crosscheck.md`)を受け、議長の裁定(`decision.md` の 8 節。X-1〜X-18)に合わせて本文を改めました。主な改めは3つです。共通の祖先の無い履歴の併合を止めず、一覧の扱いとした(決定2。R-2 の改め)。1.10.1 へ置く文を、道具に依らない語の文だけとした(決定3)。要約値の記録し直しを、記名した取り込みだけとした(決定6)。
 
+決定1 のうち、テンプレートの手引きの中に残した3つの定めの位置付けは、[ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/)の決定1 で置き換えられました。3つの定めは第1章 1.10.3 の要求事項へ上げました。
+
 ## コンテキスト
 
 [#315](https://github.com/Takenori-Kusaka/process-compass/issues/315) は、既存のリポジトリへ準拠テンプレートを持ち込む手順と、旧い版で生成した構成の扱いを問いました。指摘をそのまま条項にせず、調査(内部1本・外部1本)、会議体(起草・現場・品質保証と監査・規格・擁護の5つの立場)、突合の順で扱いました。記録は `research/315-deliberation/`(`survey-315-1-internal.md`、`survey-315-2-external.md`、`council-00`〜`05`、`decision.md` の R-1〜R-6、`implementation.md`)にあります。

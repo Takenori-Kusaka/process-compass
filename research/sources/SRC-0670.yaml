@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0670
+status: included
+excludeReason: null
+title: JIS Z 8301:2019 規格票の様式及び作成方法(第三者による転載。原本と未照合)
+url: https://kikakurui.com/z8/Z8301-2019-01.html
+canonicalUrl: https://kikakurui.com/z8/Z8301-2019-01.html
+ids:
+  arxiv: null
+  doi: null
+publisher: kikakurui.com(第三者の転載。原本の発行は日本産業標準調査会・日本規格協会)
+authors: []
+orgType: community
+region: jp
+lang: ja
+sourceType: standard
+published: 2019
+publishedBasis: page
+version: '2019'
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I316
+  query: '#316 外部調査 1.3(#310 と同じ転載を再読)'
+derivedFrom: []
+derivedFromUrl:
+- https://www.jisc.go.jp/
+selfReported: false
+themes:
+- TH12
+events: []
+summary: JIS Z 8301:2019 の本文の第三者による転載。原本(JISC の閲覧は利用者登録が要り、2026-10-24 は障害で開けなかった)とは照合していない。#310・#316 の調査は、要求・推奨・許容・可能性と能力の表現形式(箇条7 の表3〜表7)と、規定要素・参考要素・解説の区分(3.3、20.2)をこの転載で読んだ。本標準は、この転載を根拠に JIS の文を引かず、一致も主張しない(EV-0096)。原本の照合は後継の Issue で保守者(人)が行う。
+claims:
+- id: c1
+  text: 要求の表現形式は「…する。」「…(し)なければならない。」等であり、こと止め(「…すること。」)を用いない。許容・可能性には「…できる」「…できない」を用いない(表3〜表6。転載による)。
+  quote: null
+  locator: 箇条7 表3〜表6
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 316
+  stance: context
+- id: c2
+  text: 参考の附属書の中でも、誤解が生じない限り要求・推奨・許容の表現を使ってよいが、規格を適用する場合、当該附属書は参考要素とみなす(20.2。転載による)。
+  quote: null
+  locator: 20.2
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 316
+  stance: context
+verification:
+  status: unverified
+  method: []
+  date: null
+  humanChecked: false
+  note: '第三者の転載であり、原本(JISC・日本規格協会)と照合していない。転載の表は列が崩れており、対応は文脈から読んだ箇所を含む(research/316-deliberation/survey-316-2-external.md 1.3・2.1)。照合まで、本標準の記述の根拠に数えない(EV-0096)'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-04

@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-10-24): verified 636 / partial 24 / unreachable 2
+集計(生成日 2026-10-24): verified 636 / partial 24 / unreachable 2 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -49,6 +49,7 @@
 | SRC-0667 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Creating rulesets for repositories in your organization - GitHub Enterprise Cloud Docs](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) |
 | SRC-0668 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Creating rulesets for a repository - GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository) |
 | SRC-0669 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [CMMI Adoption Guidance (Version 4.0)](https://www.cmmiinstitute.com/getattachment/3cc3e8d1-72a1-4f6d-b1da-c5df8c9ad87d/CMMI-Adoption-Guidance.pdf) |
+| SRC-0670 | unverified |  | 第三者の転載であり、原本(JISC・日本規格協会)と照合していない。転載の表は列が崩れており、対応は文脈から読んだ箇所を含む(research/316-deliberation/survey-316-2-external.md 1.3・2.1)。照合まで、本標準の記述の根拠に数えない(EV-0096) | [JIS Z 8301:2019 規格票の様式及び作成方法(第三者による転載。原本と未照合)](https://kikakurui.com/z8/Z8301-2019-01.html) |
 
 ### 除外した出典(却下は成果)
 

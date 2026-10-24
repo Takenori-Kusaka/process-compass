@@ -1,6 +1,6 @@
 # 実装マークの対象の棚卸しの登録簿(Issue #292 / ADR-0076)
 #
-# 対象のページ(本文8章・規定の附属書・フェーズ5・6)の節ごとの区分。書式と手続は community/implementation-marking.md「対象の棚卸し」による。
+# 対象のページ(本文8章・規定の附属書)の節ごとの区分。フェーズ5・6 は参考(手引き)であり対象にしない(第1章 1.8。#316)。書式と手続は community/implementation-marking.md「対象の棚卸し」による。
 # key    — 頁 + 「#」+ 見出しの経路(上位から「 > 」で連ねる。見出しの適用範囲の注記「(適用: …)」は外す)。見出しより前の本文は「(冒頭)」
 # status — marked(節の、実行主体の挙動を制約する規定のすべてに、ids のマークがあると登録者が判断した)
 #          kb(工程ゲートの判定基準の表。知識ベースへ降りる。ADR-0048)
@@ -32,17 +32,17 @@ sections:
     status: pending
   - key: "phase4-process-design/assurance-case#H.3 論証 > 論証の構造: 3層と外枠"
     status: pending
-  - key: "phase4-process-design/assurance-case#H.3 論証 > 検証の主張と条項の対応"
+  - key: phase4-process-design/assurance-case#H.3 論証 > 検証の主張と条項の対応
     status: none
     category: explanation
     reason: 検証の主張と、主張を支える条項・反証の兆候の対応の表(論証の構造)。規定の実装は各条項の節のマークで追う。C6 の根拠から 5.4.6 を外し、C9 に 5.4.6 の観測を足した(ADR-0081)
     issue: 311
-  - key: "phase4-process-design/assurance-case#H.3 論証 > 主張の崩れを、誰がいつ観測するか"
+  - key: phase4-process-design/assurance-case#H.3 論証 > 主張の崩れを、誰がいつ観測するか
     status: marked
     ids:
       - IMPL-0087
     location:
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     note: 変化点の後の状態の次の一手は IMPL-0087。C9 の観測(登録した変更種別の停止と判定不能)の表示は 5.4.6 の IMPL-0287・0288
     issue: 311
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方
@@ -71,7 +71,7 @@ sections:
     ids:
       - IMPL-0155
     location:
-      - "phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)"
+      - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)
     note: 往復の中の指摘の中身は IMPL-0155。往復の回数の上限は置かず、3.12.10 の停止条件による。往復への降ろし先は 3.12.10 の IMPL-0279(undelivered)。往復を禁止しないことは課さない明記
     issue: 296
   - key: phase4-process-design/assurance-case#H.5 署名の意味
@@ -98,19 +98,19 @@ sections:
     status: pending
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 独立性の表示の例(項目1)
     status: pending
-  - key: "phase4-process-design/assurance-case#H.6 保証の開示 > 件数の表示の例(項目1・3・6。1名体制・数値は例示)"
+  - key: phase4-process-design/assurance-case#H.6 保証の開示 > 件数の表示の例(項目1・3・6。1名体制・数値は例示)
     status: none
     category: explanation
     reason: 保証の開示の件数の表示の例示
     issue: 311
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 定型の文
     status: pending
-  - key: "phase4-process-design/assurance-case#H.7 形骸化していないことの示し方"
+  - key: phase4-process-design/assurance-case#H.7 形骸化していないことの示し方
     status: none
     category: elsewhere
     reason: 形骸化していないことを示す4つの出所の説明。開示の項目3 に載る登録した変更種別の停止と判定不能は 5.4.6 の IMPL-0288。少件数の値を載せないことは第4章「閾値の設定と較正」
     location:
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     issue: 311
   - key: phase4-process-design/assurance-case#H.8 対外的に使う表現
     status: none
@@ -134,7 +134,7 @@ sections:
     status: pending
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 語の対応
     status: pending
-  - key: "phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 時点ごとに行うこと"
+  - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 時点ごとに行うこと
     status: none
     category: org-design
     reason: 品質保証部門を置く組織の活動の対応。本標準は部門の設置を要求しない(H.12「語の対応」)
@@ -245,7 +245,7 @@ sections:
     category: elsewhere
     reason: 実装計画の様式と運用ルール。状態「やり直し」は手戻り率の分子であり、集計と発火は 5.4.6 の IMPL-0291(降りていない)で追う。準拠テンプレートの実装計画の様式は状態の列(「やり直し」を含む)を持ち、必須欄の対応表で検査する(#311 突合 X-17)。見積の目安は EV-0087
     location:
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     issue: 311
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付)"
     status: pending
@@ -620,6 +620,7 @@ sections:
       - IMPL-0267
       - IMPL-0078
       - IMPL-0096
+      - IMPL-0256
     note: 判定基準の表は知識ベースへ降りる。承認を承認した差分に束ねる規定は集約(IMPL-0263)・契約検査(IMPL-0264)・実環境の確認(IMPL-0265)。アカウント名の確認は IMPL-0266、コア機能のパスの追跡中のファイルとの照合は IMPL-0267。申告による承認の持ち越し、AI 名の語彙の限定は課さない明記
     issue: 296
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
@@ -660,6 +661,11 @@ sections:
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
     status: pending
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 変更の要求を経ないコミット
+    status: marked
+    ids:
+      - IMPL-0238
+    issue: 316
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 基準1・2 の記録
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 壊してはならない品質条件の突合
@@ -680,6 +686,12 @@ sections:
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間)
     status: pending
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 配備の統制と資格情報の置き場
+    status: marked
+    ids:
+      - IMPL-0236
+      - IMPL-0237
+    issue: 316
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 残存リスクの受容を決断の記録に含める
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
@@ -707,6 +719,7 @@ sections:
       - IMPL-0100
       - IMPL-0101
       - IMPL-0102
+      - IMPL-0281
     note: 規模の観測の内訳と倍率は IMPL-0270、文書の置き場の反転は IMPL-0271。ファイル数だけの超過の軽減と /pit の注記は課さない明記
     rows:
       要求事項1:
@@ -757,6 +770,13 @@ sections:
     status: pending
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 上限を自組織の実測で較正する
     status: pending
+  - key: phase4-process-design/gate-criteria#タスクの分割基準 > 上限を自組織の実測で較正する > 較正の歯止め
+    status: none
+    issue: 316
+    category: elsewhere
+    reason: 較正の判断の手続(人の判断・根拠・周期・場の分離)。実行主体が値を自動で変えないことは第3章 3.12.12 の IMPL-0103 で追う
+    location:
+      - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.12 能力依存の定数の再評価
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 分割しすぎない
     status: pending
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 積み重ねた変更とゲート
@@ -766,6 +786,8 @@ sections:
       - IMPL-0248
       - IMPL-0249
       - IMPL-0250
+      - IMPL-0254
+      - IMPL-0255
     note: G-5 の起動を絞らないことは IMPL-0247、既定ブランチ以外へ取り込むマージをしないことは IMPL-0248(降りていない)、既定ブランチの先端から読むことは IMPL-0249、層ごとの承認が無い合わさった差分への承認を層ごとに数えないことは IMPL-0250(降りていない)。手動のスタックと GitHub 標準のスタックの機構の別は説明(EV-0139)
     issue: 294
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > この基準の見直し
@@ -832,17 +854,21 @@ sections:
     category: elsewhere
     reason: G-5 基準3 は基準3 の節のマークで追う。AI 品質指標の定量条件を合否に使う実装は無い
     location:
-      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > カバレッジの測る範囲と規模(基準3)"
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > カバレッジの測る範囲と規模(基準3)
     issue: 296
   - key: phase4-process-design/gate-criteria#ゲートの健全性を計測する
     status: none
+    category: explanation
+    reason: ゲートの健全性に関わる指標の名と、何が分かるかの一覧。警戒の水準は本標準が定めない(第1章 1.8 により運用メトリクスは手引き。#316)。引き下げに用いる値は第5章 5.4.6 のマークで追う
+    issue: 316
+  - key: phase4-process-design/gate-criteria#判定の滞留および基準の不充足
+    status: none
     category: elsewhere
-    reason: 指標の定義・算出・警戒サインの正本は運用メトリクス
+    reason: 判定の滞留と基準の不充足の手続の所在を第7章へ示す節。例外承認とエスカレーションは第7章の節で追う
     location:
-      - "phase6-operation/metrics#分類別の指標と警戒サイン > 流れ(速度と滞留)"
-    issue: 296
-  - key: phase4-process-design/gate-criteria#判定の滞留および基準の逸脱
-    status: pending
+      - phase4-process-design/exception-escalation#7.3 例外承認の要求事項
+      - phase4-process-design/exception-escalation#7.6 エスカレーションの基準 > 発火条件
+    issue: 316
   - key: phase4-process-design/human-ai-boundary#(冒頭)
     status: pending
   - key: phase4-process-design/human-ai-boundary#5.1 本章が達成すべき成果
@@ -864,8 +890,8 @@ sections:
     category: elsewhere
     reason: 引き上げは技術判断者の申請と B-2 の判定(人の判断)。準拠テンプレートは L2 を支えず、登録した変更種別の L3 は 5.5.4 の登録の判定が兼ねる。上限と登録の拒否は 5.4.6 の IMPL-0289、登録の判定で戻る停止は IMPL-0284〜0286 で追う(#311 突合 X-12)。条件1 の値は EV-0147、条件4 の値は EV-0154(5.4.5 から参照する)。条件2 は組織が G-1 で定めた範囲
     location:
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合"
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ
     status: marked
@@ -873,9 +899,10 @@ sections:
       - IMPL-0290
       - IMPL-0294
       - IMPL-0295
+      - IMPL-0292
     location:
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合"
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     note: AI 起因の欄は IMPL-0290(欠陥の台帳)。L1 の範囲での数え直しの記録は IMPL-0294、誤発火の記録は IMPL-0295(欠陥の台帳の「引き下げの点検の記録」。#311 突合 X-11)。停止の導出と表示は「登録した変更種別での停止」の IMPL-0284〜0288・0291、上限と L2 を支えない宣言は計測できない検知条件の節の IMPL-0289。重複率を課さないことと、意図の禁止を課さないことは課さない明記(ADR-0081)。1件・0件は EV-0154、2か月は EV-0146、毎月の評価は EV-0155。30件は EV-0145
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合
@@ -883,7 +910,7 @@ sections:
     ids:
       - IMPL-0289
     location:
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     note: 準拠テンプレートが支えるレベル(登録した変更種別の L3、それ以外の L1)と上限は IMPL-0289。判定不能の停止と表示は「登録した変更種別での停止」の IMPL-0286〜0288。観測の窓と最小標本数は第4章「閾値の設定と較正」の IMPL-0268。IMPL-0104 は IMPL-0284〜0289・0291 へ分けた(再利用しない)。IMPL-0290・0292・0293 は新しい規定の実装マーク
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
@@ -922,6 +949,7 @@ sections:
     status: marked
     ids:
       - IMPL-0035
+      - IMPL-0048
     note: 登録の根拠は IMPL-0035。既定ブランチへの取り込みが本番環境への反映を直接起動する構成で委任の取り込みをこの行の経路に限ることは、5.5.1 の IMPL-0251 が追う
     issue: 294
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.5 運用形態にかかわらず人が確定する判断
@@ -977,31 +1005,50 @@ sections:
         category: elsewhere
         reason: 所在の節のマーク(IMPL-0190・IMPL-0191・IMPL-0047・IMPL-0192)で追う
         location:
-          - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
-          - phase5-implementation/seeded-error-safety#遮断の4層 > 第2層 トレーラによる拒否
-          - phase5-implementation/seeded-error-safety#遮断の4層 > 第3層 リリース候補の走査
-          - phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
+          - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 実装上の要求
+      周知する内容1:
+        status: marked
+        ids:
+          - IMPL-0161
+      周知する内容2:
+        status: marked
+        ids:
+          - IMPL-0161
+      周知する内容3:
+        status: marked
+        ids:
+          - IMPL-0161
+      周知する内容4:
+        status: marked
+        ids:
+          - IMPL-0161
+      周知する内容5:
+        status: marked
+        ids:
+          - IMPL-0161
+      周知する内容6:
+        status: marked
+        ids:
+          - IMPL-0161
     issue: 292
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 注入する欠陥の要件
     status: marked
     ids:
       - IMPL-0163
+      - IMPL-0196
     rows:
       要件1:
         status: none
         category: elsewhere
         reason: 所在の節のマーク(IMPL-0190・IMPL-0191・IMPL-0047・IMPL-0192)で追う
         location:
-          - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
-          - phase5-implementation/seeded-error-safety#遮断の4層 > 第2層 トレーラによる拒否
-          - phase5-implementation/seeded-error-safety#遮断の4層 > 第3層 リリース候補の走査
-          - phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
+          - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 実装上の要求
       要件2:
         status: none
         category: elsewhere
         reason: 所在の節のマーク(IMPL-0190)で追う
         location:
-          - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
+          - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 実装上の要求
       要件3:
         status: marked
         ids:
@@ -1018,6 +1065,18 @@ sections:
         status: marked
         ids:
           - IMPL-0163
+      要件7:
+        status: marked
+        ids:
+          - IMPL-0196
+      要件8:
+        status: marked
+        ids:
+          - IMPL-0196
+      要件9:
+        status: marked
+        ids:
+          - IMPL-0196
     note: 類型の表は例示
     issue: 292
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 頻度と集計の単位
@@ -1025,6 +1084,7 @@ sections:
     ids:
       - IMPL-0164
       - IMPL-0165
+      - IMPL-0197
     issue: 292
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > AIによるレビュー層も対象とする
     status: marked
@@ -1043,13 +1103,36 @@ sections:
     status: marked
     ids:
       - IMPL-0169
+      - IMPL-0190
+      - IMPL-0191
+      - IMPL-0047
+      - IMPL-0192
     note: 要件1・2 の実装は、フェーズ5 欠陥注入の隔離設計の4層のマークで追跡する
     issue: 292
-    location:
-      - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
-      - phase5-implementation/seeded-error-safety#遮断の4層 > 第2層 トレーラによる拒否
-      - phase5-implementation/seeded-error-safety#遮断の4層 > 第3層 リリース候補の走査
-      - phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
+  - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 演習の停止
+    status: marked
+    ids:
+      - IMPL-0193
+      - IMPL-0194
+    issue: 316
+  - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 注入に気づいたときの手続
+    status: marked
+    ids:
+      - IMPL-0195
+    rows:
+      手続1:
+        status: marked
+        ids:
+          - IMPL-0195
+      手続2:
+        status: marked
+        ids:
+          - IMPL-0195
+      手続3:
+        status: marked
+        ids:
+          - IMPL-0195
+    issue: 316
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.3 見逃しが生じた場合の区分
     status: none
     category: org-design
@@ -1133,10 +1216,10 @@ sections:
       - IMPL-0177
       - IMPL-0178
       - IMPL-0179
+      - IMPL-0207
+      - IMPL-0208
     note: 成果物から生成時の指示資産の版を参照できる状態は、フェーズ5 エージェントの操作の統制の IMPL-0207(降りていない)が追跡する
     issue: 292
-    location:
-      - phase5-implementation/agent-trace-control#生成の条件を記録する
   - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.3 AI に担わせない領域
     status: marked
     ids:
@@ -1161,6 +1244,8 @@ sections:
       - IMPL-0187
       - IMPL-0188
       - IMPL-0189
+      - IMPL-0203
+      - IMPL-0204
     rows:
       禁止事項1:
         status: marked
@@ -1183,6 +1268,64 @@ sections:
         ids:
           - IMPL-0189
     issue: 292
+  - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.6 実行時の拒否と、エージェントの操作の確認
+    status: marked
+    ids:
+      - IMPL-0198
+      - IMPL-0199
+      - IMPL-0200
+      - IMPL-0201
+      - IMPL-0205
+      - IMPL-0206
+      - IMPL-0209
+      - IMPL-0333
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0198
+          - IMPL-0199
+          - IMPL-0200
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0201
+          - IMPL-0199
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0199
+          - IMPL-0200
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0199
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0198
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0198
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0333
+      要求事項8:
+        status: marked
+        ids:
+          - IMPL-0206
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0209
+      要求事項10:
+        status: marked
+        ids:
+          - IMPL-0205
+    issue: 316
+    note: 附属書E E.6 とフェーズ5 のエージェントの操作の統制(手引き)から本文へ上げた節(#316 / ADR-0086 R-4)
   - key: phase4-process-design/human-ai-boundary#5.9 役割境界の見直し
     status: pending
   - key: phase4-process-design/human-ai-boundary#5.10 関連する章
@@ -1346,8 +1489,21 @@ sections:
     ids:
       - IMPL-0319
       - IMPL-0320
+      - IMPL-0327
+      - IMPL-0123
     note: 資産の一覧と照合・記名(IMPL-0319)、統制に効くファイルの規則(IMPL-0320)。一覧の記名者が技術判断の席の責任者その人であることは機械で確かめない(IMPL-0319 の注記)。採らないことの表は規定ではない
     issue: 315
+  - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 実環境の統制の確認と、導入前の検証の結果
+    status: marked
+    ids:
+      - IMPL-0314
+      - IMPL-0315
+      - IMPL-0316
+      - IMPL-0317
+      - IMPL-0324
+      - IMPL-0081
+      - IMPL-0076
+    issue: 316
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張
     status: marked
     ids:
@@ -1356,13 +1512,10 @@ sections:
     note: 述べられる名の導出は IMPL-0308。表明の様式の出力は undelivered(IMPL-0120)
     issue: 313
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張 > 逸脱の閉じた列挙
-    status: none
-    category: elsewhere
-    reason: 列挙の唯一の項目 D-1 の条件と代償措置は第3章 3.5.2 の IMPL-0002 で、主張の名への反映は 1.10.2 の IMPL-0308 で追う
-    location:
-      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.2 出荷判定者の兼務に限った例外(代償措置つき)
-      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張
+    status: marked
     issue: 313
+    ids:
+      - IMPL-0329
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張 > 列挙に無い離脱
     status: none
     category: elsewhere
@@ -1379,6 +1532,8 @@ sections:
       - IMPL-0321
       - IMPL-0322
       - IMPL-0325
+      - IMPL-0323
+      - IMPL-0326
     note: 構成の形式の版と移行は IMPL-0321・IMPL-0322、テンプレートの更新と版の切り替えの組は IMPL-0325。版の発行・付番・棚卸しは標準の保守の手続(community/standard-editions)であり、実行主体の挙動ではないため降ろさない
     issue: 313
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.4 適用の終了
@@ -1462,7 +1617,6 @@ sections:
       - IMPL-0013
       - IMPL-0299
     rows:
-      # 条件1(禁止の組を同一レーンへ写像しない)は降りていない。準拠テンプレートはレーンを持たず、MAILBOX はレーンを確かめない(#312 の突合 X-5)
       条件1:
         status: marked
         ids:
@@ -1473,6 +1627,11 @@ sections:
           - IMPL-0013
     note: 既定の写像の受信箱のラベルは IMPL-0013(MAILBOX)。レーンを構成の roles[] へ出力することは降りていない(IMPL-0299)
     issue: 312
+  - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.2 出荷判定者の兼務に限った例外(代償措置つき) > 支援と判定の分離
+    status: none
+    issue: 316
+    category: org-design
+    reason: 組織の役割の分離(支援と判定・監査、報告線、予算の配賦)の定め。実行主体の挙動を制約しない(#316 でフェーズ5 のイネーブルメント計画から本文へ上げた)
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈)
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 文脈の分離が成立する条件
@@ -1485,6 +1644,70 @@ sections:
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義
     status: pending
+  - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し
+    status: marked
+    ids:
+      - IMPL-0012
+      - IMPL-0330
+      - IMPL-0331
+      - IMPL-0332
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0330
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0330
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0330
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0012
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0331
+      要求事項6:
+        status: none
+        category: elsewhere
+        reason: 判定の語彙を通過と差し戻しの2値に限る定め(第4章「工程ゲートの判定の語彙」の IMPL-0009)で追う。準拠テンプレートのラベルの語彙に条件付き通過は無い
+        location:
+          - phase4-process-design/gate-criteria#工程ゲートの判定の語彙
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0332
+      要求事項8:
+        status: none
+        category: org-design
+        reason: 判定者(人)が事実を自ら確かめる定め。実行主体の挙動を制約しない
+    issue: 316
+    note: フェーズ5 の受信箱のラベルの頁(手引き)から本文へ上げた節(#316 / ADR-0086 R-1)
+  - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し > ラベルの語彙
+    status: marked
+    ids:
+      - IMPL-0302
+      - IMPL-0303
+    issue: 316
+  - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し > 状態の遷移
+    status: none
+    issue: 316
+    category: elsewhere
+    reason: 遷移の表。受け手と付与者はラベルの語彙の IMPL-0302、記録の後にラベルを動かす順序は 3.5.5 の IMPL-0012 で追う
+    location:
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し > ラベルの語彙
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し
+  - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し > 統制の弱化を検知したときの引き渡し
+    status: marked
+    ids:
+      - IMPL-0014
+      - IMPL-0015
+    issue: 316
   - key: phase4-process-design/roles-responsibilities#3.6 委譲ルール
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.1 会議体を置く階層
@@ -1531,47 +1754,64 @@ sections:
     category: elsewhere
     reason: 適用範囲と、AI の担い手の出力を意見に数えないことは、事前レビュー期間の自動化の必須ステータスチェックと指標の集計のマークで追跡する
     location:
-      - phase5-implementation/pre-review-automation#沈黙の扱いの機械化
-      - phase5-implementation/pre-review-automation#指標の自動集計
+      - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.5 期限までに意見がない場合の扱い
+      - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.8 形骸化の検知
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.2 期間の構成
     status: none
     category: elsewhere
     reason: 期間の時点と責任者は、事前レビュー期間の自動化の起票と通知のマークで追跡する
     location:
-      - phase5-implementation/pre-review-automation#判定資料の自動起票
-      - phase5-implementation/pre-review-automation#締切の通知と未応答の記録
+      - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.3 判定資料の要求事項
+      - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.11 応答を引き出す手段
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.3 判定資料の要求事項
-    status: none
-    category: elsewhere
-    reason: 判定資料の5項目は、事前レビュー期間の自動化の起票のマークで追跡する
-    location:
-      - phase5-implementation/pre-review-automation#判定資料の自動起票
-    issue: 292
+    status: marked
+    issue: 316
+    ids:
+      - IMPL-0210
+    rows:
+      記載事項1:
+        status: marked
+        ids:
+          - IMPL-0210
+      記載事項2:
+        status: marked
+        ids:
+          - IMPL-0210
+      記載事項3:
+        status: marked
+        ids:
+          - IMPL-0210
+      記載事項4:
+        status: marked
+        ids:
+          - IMPL-0210
+      記載事項5:
+        status: marked
+        ids:
+          - IMPL-0210
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.4 意見の様式
     status: marked
     ids:
       - IMPL-0231
+      - IMPL-0215
     note: 意見として扱わないかの手続(起案者の記録と決定者の確認)は節の中の IMPL-0231。意見の様式の欄の検査と全ての意見への応答は、事前レビュー期間の自動化の検査と pre-review-closed のマークで追う(突合 X-4)
     location:
-      - phase5-implementation/pre-review-automation#意見の様式の機械検査
-      - phase5-implementation/pre-review-automation#沈黙の扱いの機械化
+      - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.5 期限までに意見がない場合の扱い
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.5 期限までに意見がない場合の扱い
-    status: none
-    category: elsewhere
-    reason: リスク区分ごとの沈黙の扱いは、事前レビュー期間の自動化の必須ステータスチェックのマークで追跡する
-    location:
-      - phase5-implementation/pre-review-automation#沈黙の扱いの機械化
-    issue: 292
+    status: marked
+    issue: 316
+    ids:
+      - IMPL-0214
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.6 意見を出さなかった者の責任
     status: none
     category: elsewhere
     reason: 実行層へ降ろす規定は応答率の記録だけで、事前レビュー期間の自動化の通知と記録・指標の集計のマーク(IMPL-0213・IMPL-0216)で追う。差し戻しの請求の制限と指名の見直しは、組織の会議体の運営規則で、降ろし先を持たない
     location:
-      - phase5-implementation/pre-review-automation#締切の通知と未応答の記録
-      - phase5-implementation/pre-review-automation#指標の自動集計
+      - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.11 応答を引き出す手段
+      - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.8 形骸化の検知
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.7 判定当日の進め方
     status: none
@@ -1579,16 +1819,15 @@ sections:
     reason: 判定会議の議事の進め方(黙読・議題の限定・決定者による決定)。会議体の運営規則で、実行層へ降ろすものを持たない
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.8 形骸化の検知
-    status: none
-    category: elsewhere
-    reason: 指標は、事前レビュー期間の自動化の指標の集計のマークで追跡する
-    location:
-      - phase5-implementation/pre-review-automation#指標の自動集計
-    issue: 292
+    status: marked
+    issue: 316
+    ids:
+      - IMPL-0216
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.9 必須応答ロール
     status: marked
     ids:
       - IMPL-0217
+      - IMPL-0211
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.10 同期の場へのエスカレーション
     status: marked
@@ -1600,6 +1839,7 @@ sections:
     status: marked
     ids:
       - IMPL-0219
+      - IMPL-0213
     note: 応答に報奨を設けず、応答率を個人の評価にしない規定は、組織の評価の制度設計として扱う
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.12 重点箇所の提示
@@ -1739,7 +1979,7 @@ sections:
     reason: 要求事項1・2・4・5 は AI運用担当者の切り替えの手順。要求事項6(委任を協働へ下げる)と要求事項3(1段階の引き下げ)は、準拠テンプレートでは担い手の識別の変更で適合性確認が失効し協働を上限とする経路(D-0 の IMPL-0029)で起きる。L1 の下限の読みは 5.4.6 による。基盤が使えない期間の記録は D-0 表8(IMPL-0056)
     location:
       - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ"
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ
     issue: 311
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.5 障害と切り替え > 縮退の能力を量で示す
     status: pending
@@ -1774,7 +2014,7 @@ sections:
         category: elsewhere
         reason: 停止条件の3種の節の IMPL-0275〜0277 で追う
         location:
-          - "phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 停止条件の3種"
+          - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 停止条件の3種
       要求事項3:
         status: marked
         ids:
@@ -1802,12 +2042,38 @@ sections:
     category: elsewhere
     reason: 停止の記録の置き場と人による解除は 3.12.10 の IMPL-0273 で追う。同一タスクの停止の繰り返しを実装計画へ差し戻すこと、停止条件の緩和を例外手続によることは人の判断
     location:
-      - "phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)"
+      - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)
     issue: 296
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 閾値の定め方
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.11 依存先の一覧と単一障害点
     status: pending
+  - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.12 能力依存の定数の再評価
+    status: marked
+    ids:
+      - IMPL-0103
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0103
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0103
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0103
+      要求事項4:
+        status: none
+        category: org-design
+        reason: 人が再評価で短縮・緩和しない定め。実行主体は値を自動で変えない(要求事項2 の IMPL-0103)
+      要求事項5:
+        status: none
+        category: org-design
+        reason: 定数を外すときの保証の移し先を人が示す定め
+    issue: 316
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.1 変化点に数えるもの
@@ -1870,7 +2136,7 @@ sections:
     status: marked
     ids:
       - IMPL-0310
-    note: 要求事項4(従う本標準の版の宣言)を Issue #313 で足した。要求事項1〜3 は棚卸しの前の状態のまま、行の区分だけを付けた
+    note: 要求事項4(従う本標準の版の宣言)を Issue
     issue: 313
     rows:
       要求事項1:
@@ -1925,8 +2191,8 @@ sections:
     category: elsewhere
     reason: 委任・標準変更・L3 を同じ登録として扱う説明。登録の根拠は第5章 5.5.4 の IMPL-0035、登録した変更種別の停止は 5.4.6 の IMPL-0284〜0291
     location:
-      - "phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路"
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
+      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路
+      - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     issue: 311
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 切替が成立する条件"
     status: pending
@@ -1996,1438 +2262,4 @@ sections:
   - key: "phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 例3: SIer の受託開発(15名・S2・規制業・受託受注側・CL2)"
     status: pending
   - key: phase4-process-design/tailoring-guide#テーラリングの禁止事項
-    status: pending
-  - key: phase5-implementation/agent-trace-control#(冒頭)
-    status: none
-    category: explanation
-    reason: 頁の目的の文
-    issue: 292
-  - key: phase5-implementation/agent-trace-control#事象ごとの担い手
-    status: none
-    category: elsewhere
-    reason: 事象ごとの扱いの一覧。各扱いの規定は下位の節のマークで追跡する
-    location:
-      - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
-      - phase5-implementation/agent-trace-control#差分から機械判定する
-      - phase5-implementation/agent-trace-control#人が見るもの
-    issue: 292
-  - key: phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
-    status: marked
-    ids:
-      - IMPL-0198
-      - IMPL-0199
-      - IMPL-0200
-    issue: 292
-  - key: phase5-implementation/agent-trace-control#事前に遮断する > 遮断を指示ではなく設定で行う
-    status: none
-    category: elsewhere
-    reason: 遵守が必須の規則を指示ファイルだけに書かない規定は、第3章 3.11.3 の IMPL-0221 で追跡する
-    location:
-      - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.3 指示資産の3層
-    issue: 292
-  - key: phase5-implementation/agent-trace-control#事前に遮断する > 実装の手段を指定しません
-    status: marked
-    ids:
-      - IMPL-0201
-    rows:
-      要求1:
-        status: none
-        category: org-design
-        reason: 実行基盤の選定の要求。準拠テンプレートは Claude Code の権限設定を前提にする
-      要求2:
-        status: marked
-        ids:
-          - IMPL-0201
-      要求3:
-        status: none
-        category: elsewhere
-        reason: 所在の節のマーク(IMPL-0198)で追う
-        location:
-          - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
-      要求4:
-        status: none
-        category: elsewhere
-        reason: 所在の節のマーク(IMPL-0198・IMPL-0199)で追う
-        location:
-          - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
-    note: 特定の製品を指定しないことは、本標準が課さないと決めた表明
-    issue: 292
-    location:
-      - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
-  - key: phase5-implementation/agent-trace-control#差分から機械判定する
-    status: marked
-    ids:
-      - IMPL-0202
-      - IMPL-0203
-      - IMPL-0204
-    issue: 292
-    location:
-      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 統制の設定の陰性の確認
-  - key: phase5-implementation/agent-trace-control#人が見るもの
-    status: marked
-    ids:
-      - IMPL-0205
-    issue: 292
-    location:
-      - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
-      - phase5-implementation/agent-trace-control#差分から機械判定する
-    rows:
-      見るもの1:
-        status: none
-        category: elsewhere
-        reason: 遮断の記録は所在の節のマーク(IMPL-0198)で追う
-        location:
-          - phase5-implementation/agent-trace-control#事前に遮断する > 既定を拒否に置く
-      見るもの2:
-        status: none
-        category: elsewhere
-        reason: 機械判定のラベルは所在の節のマーク(IMPL-0204)で追う
-        location:
-          - phase5-implementation/agent-trace-control#差分から機械判定する
-      見るもの3:
-        status: marked
-        ids:
-          - IMPL-0205
-  - key: phase5-implementation/agent-trace-control#操作の要約を AI に作らせません
-    status: marked
-    ids:
-      - IMPL-0206
-    issue: 292
-  - key: phase5-implementation/agent-trace-control#生成の条件を記録する
-    status: marked
-    ids:
-      - IMPL-0207
-    issue: 292
-    location:
-      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.2 記録の要求事項
-  - key: phase5-implementation/agent-trace-control#生成の条件を記録する > 指示の全文を保存しません
-    status: none
-    category: not-imposed
-    reason: 指示の全文の保存を課さない
-    issue: 292
-  - key: phase5-implementation/agent-trace-control#生成の条件を記録する > 再現できることを記録の目的に置きません
-    status: marked
-    ids:
-      - IMPL-0208
-    issue: 292
-  - key: phase5-implementation/agent-trace-control#この設計の限界
-    status: marked
-    ids:
-      - IMPL-0209
-    issue: 292
-  - key: phase5-implementation/agent-trace-control#関連するページ
-    status: none
-    category: explanation
-    reason: 参照の一覧
-    issue: 292
-  - key: phase5-implementation/ai-environment#(冒頭)
-    status: pending
-  - key: phase5-implementation/ai-environment#実行形態の3層
-    status: pending
-  - key: phase5-implementation/ai-environment#権限設計(最小権限+強制層)
-    status: pending
-  - key: phase5-implementation/ai-environment#ガードレールの符号化(steering)
-    status: pending
-  - key: phase5-implementation/ai-environment#監査ログとトレーサビリティ
-    status: pending
-  - key: phase5-implementation/ai-environment#モデルアクセスの管理
-    status: pending
-  - key: phase5-implementation/ai-environment#段階導入の目安
-    status: pending
-  - key: phase5-implementation/ci-gates#(冒頭)
-    status: pending
-  - key: phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成
-    status: none
-    category: explanation
-    reason: G-5 のパイプラインの構成の例。規定の正本は第4章 G-5
-    issue: 296
-  - key: phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 知財潔白性の2つのジョブを分ける
-    status: pending
-  - key: phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 秘匿情報の検査は履歴の全体を対象にする
-    status: pending
-  - key: phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 依存の追加を PR の記述へ出力する
-    status: pending
-  - key: phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > PR 単位の検査(pr-rules)
-    status: none
-    category: elsewhere
-    reason: 準拠テンプレートの pr-rules の実装の説明。規模の基準値は第4章「L0 の既定値」(IMPL-0049)、既定ブランチから読むことは「積み重ねた変更とゲート」(IMPL-0249)、区分の下限は第3章 3.8.1(IMPL-0062)、停止の申し立ては第7章 7.11(IMPL-0059)で追う
-    location:
-      - phase4-process-design/gate-criteria#タスクの分割基準 > L0 の既定値
-      - phase4-process-design/gate-criteria#タスクの分割基準 > 積み重ねた変更とゲート
-      - phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分 > 区分の下限と確定者
-      - phase4-process-design/exception-escalation#7.11 停止の申し立て > 保留の範囲と強制の方法
-    issue: 294
-  - key: phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 独立レビュー(G-6)への引き継ぎ
-    status: pending
-  - key: phase5-implementation/ci-gates#ゲートの前提条件を機械検査する(D-0 の統制)
-    status: pending
-  - key: phase5-implementation/ci-gates#ゲートの前提条件を機械検査する(D-0 の統制) > 承認記録を監査証跡として成立させる
-    status: pending
-  - key: phase5-implementation/ci-gates#「人が毎回指摘すること」を CI へ移す運用
-    status: pending
-  - key: phase5-implementation/ci-gates#様式・データの検証もゲートに載せる
-    status: none
-    category: explanation
-    reason: 様式・データを CI で検査できる対象と方法の例示と、本サイトの実例の説明。実行主体の挙動を制約する規定を持たない
-    issue: 293
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 集約スクリプトの入出力仕様
-    status: none
-    category: explanation
-    reason: 集約の入出力の例。規定の正本は第4章 G-7・G-5 基準3
-    issue: 296
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 判定基準との対応(機械が確かめる範囲と、人が突合する範囲)
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 証跡の保管と CI 基盤の保持期間
-    status: none
-    category: elsewhere
-    reason: GitHub の保持期間の事実と準拠テンプレートの現状の開示。到達性の規定は第4章「判定が指す記録の保管」(IMPL-0243・IMPL-0244)で追う
-    location:
-      - phase4-process-design/gate-criteria#判定の成立 > 判定が指す記録の保管
-    issue: 294
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 記録だけのコミットの強制層と、レビューの写しの取り出し
-    status: none
-    category: elsewhere
-    reason: 第4章「判定記録を基底ブランチへ入れる操作」(IMPL-0124・IMPL-0128)と G-6 の承認レビューの条件(IMPL-0126)の実装の手引き。規定の所在は第4章
-    location:
-      - phase4-process-design/gate-criteria#判定の成立 > 判定記録を基底ブランチへ入れる操作
-      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
-    note: #321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 保証の主張の成立判定の出力
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 組織継続の側の状態
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 記載の欠落と、値として受け入れるもの
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 例外承認の記録が対応づく条件
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 独立した人の確認の数え方
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 委任で先へ進めた変更と、G-6 の判定を事後へ移した変更
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 出荷判定者の異議の検査
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 組織の外へ渡す出力
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 委任の期間ごとの保証の開示
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 出荷判定者が突合するもの
-    status: pending
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 委任の該当の判定とマージの経路
-    status: marked
-    ids:
-      - IMPL-0235
-    location:
-      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
-    rows:
-      要求事項1:
-        status: marked
-        ids:
-          - IMPL-0235
-        location:
-          - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
-      要求事項2:
-        status: marked
-        ids:
-          - IMPL-0235
-        location:
-          - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
-      要求事項3:
-        status: marked
-        ids:
-          - IMPL-0235
-      要求事項4:
-        status: marked
-        ids:
-          - IMPL-0235
-      要求事項5:
-        status: marked
-        ids:
-          - IMPL-0235
-      要求事項6:
-        status: marked
-        ids:
-          - IMPL-0235
-    note: 委任の該当の判定そのものは第5章 5.5.4 の IMPL-0026 でも追う。トークンの置き場はデプロイゲートの IMPL-0236
-    issue: 293
-  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 実装の制約
-    status: pending
-  - key: phase5-implementation/ci-gates#デプロイゲート
-    status: none
-    category: elsewhere
-    reason: G-8 の実装手段は例示(必須レビュアが使えない場合の成立の条件は定めていない)。ロールバック手順の記載は運用引き継ぎ文書(テンプレ5)の様式の切り戻しの欄で追う。統制と資格情報の置き場の規定は子の節にある
-    location:
-      - "phase4-process-design/deliverable-templates#テンプレ5: 運用引き継ぎ文書"
-    issue: 293
-  - key: phase5-implementation/ci-gates#デプロイゲート > 統制と資格情報の置き場
-    status: marked
-    ids:
-      - IMPL-0236
-      - IMPL-0237
-    note: 準拠テンプレートの委任のマージの経路へは IMPL-0236(届いている)。案件のデプロイのワークフローへは IMPL-0237(準拠テンプレートに無い)
-    issue: 293
-  - key: phase5-implementation/ci-gates#デプロイゲート > 配布用のブランチの保護を独立の要求事項にしない
-    status: none
-    category: not-imposed
-    reason: 配布用のブランチの保護を独立の要求事項にしない(Issue #293 裁定 J-6)
-    issue: 293
-  - key: phase5-implementation/compute-strategy#(冒頭)
-    status: pending
-  - key: phase5-implementation/compute-strategy#ローカルファーストの多段検査
-    status: none
-    category: elsewhere
-    reason: 段の構成は手引き。公式の判定を必須の検査の集約で行い、手元の結果を証跡にしない規定は第4章 G-5 のマーク(IMPL-0232)で追う。段の中の順序は課さない
-    location:
-      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 判定基準を実装する検査と集約
-    issue: 293
-  - key: phase5-implementation/compute-strategy#クラウド CI のコスト最適化
-    status: pending
-  - key: phase5-implementation/compute-strategy#AI トークン予算の管理
-    status: none
-    category: explanation
-    reason: トークンの予算の管理の手引きと、キャッシュの費用構造の説明(EV-0140)。承認を急がせない規定の所在は第3章 3.12.7
-    issue: 294
-  - key: phase5-implementation/compute-strategy#実行の強制停止の実装
-    status: pending
-  - key: phase5-implementation/compute-strategy#実行の強制停止の実装 > どこで強制するか
-    status: pending
-  - key: phase5-implementation/compute-strategy#実行の強制停止の実装 > 無進捗をどう判定するか
-    status: pending
-  - key: phase5-implementation/compute-strategy#実行の強制停止の実装 > 記録する項目
-    status: pending
-  - key: phase5-implementation/compute-strategy#実行の強制停止の実装 > 誤検知への対処
-    status: pending
-  - key: phase5-implementation/compute-strategy#ローカル実行環境の整備
-    status: none
-    category: not-imposed
-    reason: 環境の均質化は手引き。手元の検査の定義が基底より古いことを理由に手元の実行を止めることは課さない(EV-0138)
-    issue: 293
-  - key: phase5-implementation/compute-strategy#規模別の目安
-    status: pending
-  - key: phase5-implementation/context-base#(冒頭)
-    status: pending
-  - key: phase5-implementation/context-base#リポジトリ配置(恒久層・案件層)
-    status: pending
-  - key: phase5-implementation/context-base#要件との対応
-    status: pending
-  - key: phase5-implementation/context-base#書き戻しワークフロー(R3)
-    status: pending
-  - key: phase5-implementation/context-base#書き戻しワークフロー(R3) > 検証を経ていない記述を基盤へ入れません
-    status: pending
-  - key: phase5-implementation/context-base#オーナーシップの実装(R5)
-    status: pending
-  - key: phase5-implementation/context-base#陳腐化の検知
-    status: none
-    category: elsewhere
-    reason: 参照切れは G-5 基準6 の IMPL-0269(相対リンクと取り込みだけが降りた)、分量の上限は IMPL-0312 と 3.11.4 の IMPL-0222(降りていない)。乖離・停滞は記録と人の判定
-    location:
-      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時)"
-    issue: 296
-  - key: phase5-implementation/context-base#陳腐化の検知 > 落とすものと記録するものを分ける理由
-    status: pending
-  - key: phase5-implementation/context-base#乖離の監査 > 対応関係を文脈ファイル自身に書く
-    status: pending
-  - key: phase5-implementation/context-base#乖離の監査 > 乖離の定義
-    status: pending
-  - key: phase5-implementation/context-base#乖離の監査 > 滞留の上限を置く
-    status: pending
-  - key: phase5-implementation/context-base#忘却の手続 > 検知より削減を主とする
-    status: pending
-  - key: phase5-implementation/context-base#忘却の手続 > 何を外すか
-    status: pending
-  - key: phase5-implementation/context-base#忘却の手続 > 削除ではなく保管する
-    status: pending
-  - key: phase5-implementation/context-base#忘却の手続 > 誰が外すか
-    status: pending
-  - key: phase5-implementation/context-base#段階導入(テーラリング)
-    status: pending
-  - key: phase5-implementation/context-base#既存の資産からの移行
-    status: pending
-  - key: phase5-implementation/context-base#保守の資源
-    status: pending
-  - key: phase5-implementation/enablement#(冒頭)
-    status: pending
-  - key: phase5-implementation/enablement#移行の基本設計 > 賛同を前提条件にしない
-    status: pending
-  - key: phase5-implementation/enablement#移行の基本設計 > 導入を差し引きで提案する
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > T-0 準備
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > T-1 限定試行 > 対象の選び方
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > T-1 限定試行 > 試行前チェックリスト
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > T-1 限定試行 > 測定する指標
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > TG-1 増分展開の可否
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > T-2 増分展開
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > TG-2 常態化の可否
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > T-3 常態化
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > TG-3 支援組織の撤退可否
-    status: pending
-  - key: phase5-implementation/enablement#移行段階 > T-4 自走
-    status: pending
-  - key: phase5-implementation/enablement#既存規程との併存(移行期の措置)
-    status: pending
-  - key: phase5-implementation/enablement#既存規程との併存(移行期の措置) > 案件の内側で混在させない
-    status: pending
-  - key: phase5-implementation/enablement#既存規程との併存(移行期の措置) > 要求が衝突したときの決着
-    status: pending
-  - key: phase5-implementation/enablement#既存規程との併存(移行期の措置) > サンドボックス(一時的な適用免除) > 申請の要求事項
-    status: pending
-  - key: phase5-implementation/enablement#既存規程との併存(移行期の措置) > サンドボックス(一時的な適用免除) > 承認
-    status: pending
-  - key: phase5-implementation/enablement#既存規程との併存(移行期の措置) > サンドボックス(一時的な適用免除) > 合意書の様式
-    status: pending
-  - key: phase5-implementation/enablement#既存規程との併存(移行期の措置) > サンドボックス(一時的な適用免除) > 監査部門との関係
-    status: pending
-  - key: phase5-implementation/enablement#既存規程との併存(移行期の措置) > 移行期の初期コスト
-    status: pending
-  - key: phase5-implementation/enablement#支援体制
-    status: pending
-  - key: phase5-implementation/enablement#支援体制 > 支援と判定を分離する理由
-    status: pending
-  - key: phase5-implementation/enablement#支援体制 > 分離の要求事項
-    status: pending
-  - key: phase5-implementation/enablement#支援体制 > 分離できない規模の場合
-    status: pending
-  - key: phase5-implementation/enablement#支援体制 > 支援を求めた事実を判定の入力にしない
-    status: pending
-  - key: "phase5-implementation/enablement#支援体制 > 例外: 支援側が重大なリスクを観測した場合"
-    status: pending
-  - key: phase5-implementation/enablement#支援体制 > 現場推進者の任命に伴う要求事項
-    status: pending
-  - key: phase5-implementation/enablement#教育計画 > 研修だけでは定着しない
-    status: pending
-  - key: phase5-implementation/enablement#教育計画 > 教育の階層
-    status: pending
-  - key: phase5-implementation/enablement#教育計画 > 対象別の内容
-    status: pending
-  - key: phase5-implementation/enablement#教育計画 > 品質保証部門の内容を実装の読解へ寄せない
-    status: pending
-  - key: phase5-implementation/enablement#教育計画 > 設計の要求事項
-    status: pending
-  - key: phase5-implementation/enablement#教育計画 > 任命基準の確認(認定)の運用
-    status: pending
-  - key: phase5-implementation/enablement#教育計画 > 判定の負荷を持続可能にする
-    status: pending
-  - key: phase5-implementation/enablement#教育計画 > 教育の効果測定と、この計画の限界
-    status: pending
-  - key: phase5-implementation/enablement#抵抗への対処
-    status: pending
-  - key: phase5-implementation/enablement#抵抗への対処 > 自律性への配慮
-    status: pending
-  - key: phase5-implementation/enablement#期待値の較正
-    status: pending
-  - key: phase5-implementation/enablement#根拠として用いない数値
-    status: pending
-  - key: phase5-implementation/enablement#関連するページ
-    status: pending
-  - key: phase5-implementation/git-strategy#(冒頭)
-    status: pending
-  - key: "phase5-implementation/git-strategy#ブランチモデル: トランクベース+タスク単位ブランチ"
-    status: pending
-  - key: "phase5-implementation/git-strategy#ブランチモデル: トランクベース+タスク単位ブランチ > ブランチ命名の語彙"
-    status: pending
-  - key: "phase5-implementation/git-strategy#ブランチモデル: トランクベース+タスク単位ブランチ > main への追従とコンフリクト解消"
-    status: pending
-  - key: "phase5-implementation/git-strategy#ブランチ保護: ゲートの機械的強制"
-    status: none
-    category: elsewhere
-    reason: ルールセットの承認の失効と最後の push の承認は G-6 の IMPL-0264・0265。本節は設定の例と説明
-    location:
-      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)"
-    issue: 296
-  - key: phase5-implementation/git-strategy#AI 生成コミットの扱い
-    status: pending
-  - key: phase5-implementation/git-strategy#マージ後の扱い
-    status: pending
-  - key: phase5-implementation/git-strategy#段階導入(テーラリング)
-    status: marked
-    ids:
-      - IMPL-0238
-    location:
-      - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整"
-    note: 1名の行は IMPL-0238。2名・3名以上・規制業の行のルールセットの承認の数は第8章 軸E の IMPL-0110 で追う
-    issue: 293
-  - key: phase5-implementation/label-mailbox#(冒頭)
-    status: pending
-  - key: "phase5-implementation/label-mailbox#4.1 設計背景: 割り込み崩壊（外部割込競合）の防止"
-    status: none
-    category: explanation
-    reason: ラベルを非同期の受信箱として使う設計の背景。実行主体の挙動を制約する規定を持たない(#312 でレーンの語を Review に改めた)
-    issue: 312
-  - key: phase5-implementation/label-mailbox#4.2 設計原則
-    status: none
-    category: elsewhere
-    reason: 原則4 の取り消せない操作の定義と人へ戻すことは第5章 5.5.1(IMPL-0024・IMPL-0251)で追う。ガード・検証ゲート・重要テストの削除を統制の弱化として停止することは 4.7(IMPL-0014)で追う。原則1〜3・5 はラベル運用の設計の説明で、ラベルの付与と遷移は 4.5.3(IMPL-0012)で追う
-    location:
-      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
-      - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
-    issue: 294
-  - key: phase5-implementation/label-mailbox#4.3 label 語彙（標準8種）
-    status: marked
-    ids:
-      - IMPL-0302
-      - IMPL-0303
-    location:
-      - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
-      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
-    note: dev-done と ready-to-merge の受け手と付与者は IMPL-0302。取り込みが出荷を起動する構成で G-7 をマージの前に置くことは降りていない(IMPL-0303)。ラベルの付与と遷移は 4.5.3(IMPL-0012)、取り消せない操作の定義は第5章 5.5.1(IMPL-0251)で追う
-    issue: 312
-  - key: phase5-implementation/label-mailbox#4.3.1 状態遷移表（復路の完全定義）
-    status: none
-    category: elsewhere
-    reason: ラベルの遷移の正本の表。受け手と付与者は 4.3 の IMPL-0302、記録の後にラベルを動かす順序と遷移は 4.5.3 の IMPL-0012 で追う
-    location:
-      - phase5-implementation/label-mailbox#4.3 label 語彙（標準8種）
-      - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
-    issue: 312
-  - key: phase5-implementation/label-mailbox#4.4 孤児（orphan）検出の義務化
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.4 孤児（orphan）検出の義務化 > orphan の定義
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ① 開発者（Dev）の Mailbox
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ② 独立レビュア（Review）の Mailbox
-    status: none
-    category: explanation
-    reason: 受信箱を読むコマンドの例。受け手の定めは 4.3 の IMPL-0302 で追う
-    issue: 312
-  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ②-2 出荷判定者（Ship）の Mailbox
-    status: none
-    category: explanation
-    reason: 受信箱を読むコマンドの例。G-7 をポーリングで起動しないことは 4.3 の IMPL-0302 で追う
-    issue: 312
-  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ③ 価値責任者（PO）の Mailbox
-    status: none
-    category: explanation
-    reason: 受信箱を読むコマンドの例。実行主体の挙動を制約する規定を持たない
-    issue: 294
-  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ④ 監査担当（Audit）の Mailbox
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ⑤ AI維持管理（Platform）の Mailbox
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ⑥ 技術判断者の Mailbox
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.5.1 受信箱は自分のロールのものだけを見る
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.5.2 エスカレーションの段階とラベルの対応
-    status: marked
-    ids:
-      - IMPL-0005
-    note: 段階とラベルの対応は IMPL-0005。取り消せない操作の行の語を ADR-0053 に合わせた
-    issue: 294
-  - key: phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.6 経路維持と「生存確認」ルール（POの義務）
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.1 何を統制の弱化として扱うか
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.2 検知者は許容可否を判断しない
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.3 引き渡し先
-    status: none
-    category: elsewhere
-    reason: 統制の弱化の引き渡しは 4.7.1 の IMPL-0014、取り消せない操作に当たる場合の人へ戻すことは第5章 5.5.1 の IMPL-0251 で追う。ガード・検証ゲート・重要テストの削除に state:needs-owner を併記することは、準拠テンプレートの /pit の handoff.md の表にも置いた
-    location:
-      - phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.1 何を統制の弱化として扱うか
-      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
-    issue: 294
-  - key: phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.4 引き渡し先が分からないときの既定
-    status: pending
-  - key: phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.5 兼務していても記録は残す
-    status: pending
-  - key: phase5-implementation/nonfunctional-verify#(冒頭)
-    status: pending
-  - key: phase5-implementation/nonfunctional-verify#原則
-    status: pending
-  - key: phase5-implementation/nonfunctional-verify#検証の全体フロー
-    status: pending
-  - key: phase5-implementation/nonfunctional-verify#種類別の検証手段と実施手順
-    status: pending
-  - key: phase5-implementation/nonfunctional-verify#CI への組み込み
-    status: pending
-  - key: phase5-implementation/nonfunctional-verify#テーラリング
-    status: pending
-  - key: phase5-implementation/overview#(冒頭)
-    status: pending
-  - key: phase5-implementation/overview#実装とは組織移行である
-    status: pending
-  - key: phase5-implementation/overview#移行の全体像
-    status: pending
-  - key: phase5-implementation/overview#段階と実装リファレンスの対応
-    status: pending
-  - key: phase5-implementation/overview#実装リファレンス一覧
-    status: pending
-  - key: phase5-implementation/overview#設定作業の順序
-    status: pending
-  - key: phase5-implementation/pr-workflow#(冒頭)
-    status: pending
-  - key: phase5-implementation/pr-workflow#PR のライフサイクル
-    status: pending
-  - key: phase5-implementation/pr-workflow#ロール間非同期メッセージング（Label Mailbox 連携）
-    status: none
-    category: elsewhere
-    reason: PR の段階とラベルの付け替えの説明。dev-done と ready-to-merge の受け手と付与者は Label Mailbox 4.3 の IMPL-0302、遷移の順序は 4.5.3 の IMPL-0012 で追う
-    location:
-      - phase5-implementation/label-mailbox#4.3 label 語彙（標準8種）
-      - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
-    issue: 312
-  - key: phase5-implementation/pr-workflow#規模の基準値
-    status: pending
-  - key: phase5-implementation/pr-workflow#本文の必須欄(PR テンプレート)
-    status: pending
-  - key: phase5-implementation/pr-workflow#本文の必須欄(PR テンプレート) > 自動で埋める欄と、人が書く欄
-    status: pending
-  - key: phase5-implementation/pr-workflow#本文の必須欄(PR テンプレート) > human-verify を自動化しない理由と、様式の最小化
-    status: marked
-    ids:
-      - IMPL-0256
-    note: 3要素の様式は IMPL-0256(判断の欄の指示が様式に無く、降りていない)。添付と所在を求めないことは課さない明記
-    issue: 294
-  - key: phase5-implementation/pr-workflow#本文の必須欄(PR テンプレート) > 記録の書き戻しを毎回求めない
-    status: pending
-  - key: phase5-implementation/pr-workflow#誰が PR を作るか(実行形態別)
-    status: pending
-  - key: phase5-implementation/pr-workflow#Draft PR の扱い
-    status: pending
-  - key: phase5-implementation/pr-workflow#レビュー対応とマージ
-    status: none
-    category: elsewhere
-    reason: 承認の失効は G-6 の IMPL-0263・0264。スレッド解決・squash・トレーラの残し方は手順の説明で、規定の正本は第4章 G-6 と Git 戦略の頁
-    location:
-      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)"
-    issue: 296
-  - key: phase5-implementation/pr-workflow#アンチパターン
-    status: pending
-  - key: phase5-implementation/pre-review-automation#(冒頭)
-    status: none
-    category: explanation
-    reason: 頁の目的の文
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#何を機械に担わせるか
-    status: none
-    category: explanation
-    reason: 自動化の対象の一覧。各作業の規定は下位の節のマークで追跡する
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#全体の流れ
-    status: none
-    category: explanation
-    reason: 流れの図
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#判定資料の自動起票
-    status: marked
-    ids:
-      - IMPL-0210
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#レビュアの自動指名
-    status: marked
-    ids:
-      - IMPL-0211
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#高リスク事項の自動ラベル付与
-    status: marked
-    ids:
-      - IMPL-0212
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#締切の通知と未応答の記録
-    status: marked
-    ids:
-      - IMPL-0213
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#沈黙の扱いの機械化
-    status: marked
-    ids:
-      - IMPL-0214
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#意見の様式の機械検査
-    status: marked
-    ids:
-      - IMPL-0215
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#指標の自動集計
-    status: marked
-    ids:
-      - IMPL-0216
-    issue: 292
-  - key: phase5-implementation/pre-review-automation#導入の順序
-    status: none
-    category: org-design
-    reason: 自動化を有効にする段階の順序。採用する組織の導入計画で、実行層へ降ろすものを持たない
-    issue: 292
-  - key: phase5-implementation/qms-document-control#(冒頭)
-    status: pending
-  - key: phase5-implementation/qms-document-control#要求と機構の対応
-    status: pending
-  - key: phase5-implementation/qms-document-control#承認権限のマッピング
-    status: pending
-  - key: phase5-implementation/qms-document-control#承認権限のマッピング > レビューを判定記録として保全する条件
-    status: none
-    category: org-design
-    reason: アカウントと人の対応表、宣言行の事前の定義、写しの保持期間は、組織の文書管理の制度設計。写しの取り出しの時期は第4章の IMPL-0126 で追う
-    note: #321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
-  - key: phase5-implementation/qms-document-control#承認権限のマッピング > 電子署名との関係
-    status: pending
-  - key: phase5-implementation/qms-document-control#文書のステータス > 3つの状態を置く
-    status: pending
-  - key: phase5-implementation/qms-document-control#文書のステータス > ステータスの表示に依存させない
-    status: pending
-  - key: phase5-implementation/qms-document-control#文書のステータス > CI で検査する項目
-    status: pending
-  - key: phase5-implementation/qms-document-control#版の識別を人が読める形で出す
-    status: pending
-  - key: phase5-implementation/qms-document-control#外部監査への提示 > 形式を規程で固定しない
-    status: pending
-  - key: phase5-implementation/qms-document-control#外部監査への提示 > 提示の準備を監査の直前に行わない
-    status: pending
-  - key: phase5-implementation/qms-document-control#文書管理以外の要求との対応
-    status: none
-    category: elsewhere
-    reason: QMS の要求と本標準の既存の規定の対応の表。記録の到達性の規定は第4章「判定が指す記録の保管」(IMPL-0243・IMPL-0244)で追う
-    location:
-      - phase4-process-design/gate-criteria#判定の成立 > 判定が指す記録の保管
-    issue: 294
-  - key: phase5-implementation/qms-document-control#この対応関係の限界
-    status: pending
-  - key: phase5-implementation/qms-document-control#関連するページ
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#(冒頭)
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#この測定が答える問い
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#測るもの > 被説明変数(レビュー負荷)
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#測るもの > 説明変数
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#取得方法
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#取得方法 > 取得しないもの
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#測定精度
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#比較の設計 > 無作為割付を前提にしない
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#比較の設計 > 前後比較の脅威への対処
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#比較の設計 > 判断に使える条件
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#第4章への反映 > 区分を更新する手続
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#第4章への反映 > 較正の4ステップとの関係
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#測定を始める前の歯止め
-    status: pending
-  - key: phase5-implementation/review-burden-measurement#関連するページ
-    status: pending
-  - key: phase5-implementation/review-package#(冒頭)
-    status: pending
-  - key: phase5-implementation/review-package#なぜ必要か
-    status: pending
-  - key: phase5-implementation/review-package#満たすのは理解であって、理解の代行ではない
-    status: pending
-  - key: "phase5-implementation/review-package#何を含めてよいか: 3区分"
-    status: pending
-  - key: "phase5-implementation/review-package#何を含めてよいか: 3区分 > 指摘の一覧はパッケージに含めない"
-    status: pending
-  - key: phase5-implementation/review-package#提示の順序
-    status: pending
-  - key: phase5-implementation/review-package#パッケージの構成
-    status: pending
-  - key: phase5-implementation/review-package#生成の方法
-    status: pending
-  - key: phase5-implementation/review-package#誰が妥当性を保証するか
-    status: pending
-  - key: phase5-implementation/review-package#効果の検証
-    status: pending
-  - key: phase5-implementation/review-package#このパッケージが埋められない穴
-    status: pending
-  - key: phase5-implementation/seeded-error-safety#(冒頭)
-    status: none
-    category: explanation
-    reason: 頁の目的と前提の文
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#除去の成功に依存させません
-    status: none
-    category: elsewhere
-    reason: 除去型の禁止は第5章 5.6.2「実装上の要求」の IMPL-0169 で追跡する(同じ事項を1か所で追う)
-    location:
-      - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 実装上の要求
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#遮断の4層
-    status: none
-    category: elsewhere
-    reason: 各層の規定は下位の節のマークで追跡する
-    location:
-      - phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
-      - phase5-implementation/seeded-error-safety#遮断の4層 > 第2層 トレーラによる拒否
-      - phase5-implementation/seeded-error-safety#遮断の4層 > 第3層 リリース候補の走査
-      - phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#遮断の4層 > 第1層 使い捨てブランチ
-    status: marked
-    ids:
-      - IMPL-0190
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#遮断の4層 > 第2層 トレーラによる拒否
-    status: marked
-    ids:
-      - IMPL-0191
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#遮断の4層 > 第3層 リリース候補の走査
-    status: marked
-    ids:
-      - IMPL-0047
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#遮断の4層 > 第4層 出荷判定への接続
-    status: marked
-    ids:
-      - IMPL-0192
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#演習を停止する条件
-    status: marked
-    ids:
-      - IMPL-0193
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#演習を停止する条件 > 任意の停止を現場の裁量に置かない
-    status: marked
-    ids:
-      - IMPL-0194
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#注入に気づいたときの手続
-    status: marked
-    ids:
-      - IMPL-0195
-    issue: 292
-    rows:
-      手続1:
-        status: marked
-        ids:
-          - IMPL-0195
-      手続2:
-        status: marked
-        ids:
-          - IMPL-0195
-      手続3:
-        status: marked
-        ids:
-          - IMPL-0195
-  - key: phase5-implementation/seeded-error-safety#注入に気づいたときの手続 > 報奨を設けない
-    status: none
-    category: org-design
-    reason: 検出に対する報奨・表彰・順位付けを置かないことは、組織の評価の制度設計
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#注入に気づいたときの手続 > 事前周知に含める事項
-    status: none
-    category: elsewhere
-    reason: 周知の内容は、第5章 5.6.2「事前の周知」の IMPL-0161 で追跡する
-    location:
-      - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 事前の周知
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#注入の設計に対する制約
-    status: marked
-    ids:
-      - IMPL-0196
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#隔離が破れる唯一の経路
-    status: none
-    category: org-design
-    reason: 演習で用いたコードの持ち出しの禁止は組織の規約に置く。機械で止まらないことを本文が明記している
-    issue: 292
-  - key: phase5-implementation/seeded-error-safety#測定の対象を個人にしない
-    status: marked
-    ids:
-      - IMPL-0197
-    issue: 292
-    location:
-      - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 頻度と集計の単位
-  - key: phase5-implementation/seeded-error-safety#関連するページ
-    status: none
-    category: explanation
-    reason: 参照の一覧
-    issue: 292
-  - key: phase5-implementation/stacked-pr#(冒頭)
-    status: pending
-  - key: phase5-implementation/stacked-pr#前提の確認(2026-10-23 時点)
-    status: none
-    category: explanation
-    reason: GitHub 標準のスタックと外部のツールの機能の実在と挙動の事実(EV-0139)。実行主体の挙動を制約する規定を持たない
-    issue: 294
-  - key: phase5-implementation/stacked-pr#前提の確認(2026-10-23 時点) > 自動リターゲットの正確な挙動
-    status: none
-    category: explanation
-    reason: GitHub の自動リターゲットの挙動の説明
-    issue: 294
-  - key: phase5-implementation/stacked-pr#段階的な導入
-    status: none
-    category: elsewhere
-    reason: 段階1 の前提条件(G-5 の起動を絞らない・既定ブランチ以外へ取り込むマージをしない)は第4章「積み重ねた変更とゲート」のマーク(IMPL-0247・IMPL-0248)で追う。段階の構成は手引き
-    location:
-      - phase4-process-design/gate-criteria#タスクの分割基準 > 積み重ねた変更とゲート
-    issue: 294
-  - key: phase5-implementation/stacked-pr#段階的な導入 > 段階1に滞留させない
-    status: pending
-  - key: phase5-implementation/stacked-pr#段階的な導入 > ツールを選ぶ基準
-    status: pending
-  - key: phase5-implementation/stacked-pr#段階的な導入 > 操作事故へのフェイルセーフ
-    status: marked
-    ids:
-      - IMPL-0254
-    note: 手動のスタックの中間層の先行マージの拒否は IMPL-0254(降りていない)。強制プッシュの拒否などの他の行は、ホスティングと実行環境の設定の手引き
-    issue: 294
-  - key: phase5-implementation/stacked-pr#段階1の手順(標準機能のみ)
-    status: none
-    category: elsewhere
-    reason: 既定ブランチ以外へ取り込むマージをしないこと、層ごとの承認が無い合わさった差分への承認を層ごとに数えないことは第4章「積み重ねた変更とゲート」のマーク(IMPL-0248・IMPL-0250)で追う。コマンドは手順の例
-    location:
-      - phase4-process-design/gate-criteria#タスクの分割基準 > 積み重ねた変更とゲート
-    issue: 294
-  - key: phase5-implementation/stacked-pr#各層が満たすべき条件
-    status: pending
-  - key: phase5-implementation/stacked-pr#レビューの割り当て
-    status: pending
-  - key: phase5-implementation/stacked-pr#コンフリクトの解消
-    status: pending
-  - key: phase5-implementation/stacked-pr#AIエージェントへ与える指示
-    status: marked
-    ids:
-      - IMPL-0255
-    note: マージの順序の強制層は IMPL-0255(降りていない)。他の行は指示ファイル・権限設定・ブランチ保護への振り分けの手引き
-    issue: 294
-  - key: phase5-implementation/stacked-pr#導入しない判断
-    status: none
-    category: org-design
-    reason: スタック運用を導入するかの組織の判断の条件と、エージェントが作るスタックの報告の両論
-    issue: 294
-  - key: phase5-implementation/template-repository#(冒頭)
-    status: pending
-  - key: phase5-implementation/template-repository#使い方
-    status: pending
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む
-    status: none
-    category: elsewhere
-    reason: 要求事項は第1章 1.10.1 に置き、本節は手引きと図。規定は 1.10.1 のマーク(IMPL-0319・IMPL-0320)で追う
-    location:
-      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
-    issue: 315
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 手順(手引き)
-    status: none
-    category: elsewhere
-    reason: 手順は手引きであり、要求事項ではない。手順が支える機械の働き(事前点検・初期化・併合)は 1.10.1 のマークで追う
-    location:
-      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
-    issue: 315
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 事前点検
-    status: marked
-    ids:
-      - IMPL-0327
-    note: 点検の結果を適用の開始の記録へ書き、初期化を経ない経路の欠けを記録の欠落として出す働きは IMPL-0327。止める項目と告げる項目の表は、1.10.1 の要求事項を満たすための点検の中身で、点検の働きは 1.10.1 の IMPL-0319・IMPL-0320 で追う
-    issue: 315
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 実環境の統制の確認の4値
-    status: marked
-    ids:
-      - IMPL-0314
-      - IMPL-0315
-      - IMPL-0316
-      - IMPL-0317
-      - IMPL-0324
-    note: G-8 ごとの機械の読み取りは undelivered(IMPL-0324)。integration_id の固定は規定にしていない(実走の後)
-    issue: 315
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 採らないと決めたこと
-    status: none
-    category: not-imposed
-    reason: 課さないと決めたことの一覧(ADR-0085 決定7)
-    issue: 315
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 確かめた事実(2026-10-12 と 2026-10-24 の試行)
-    status: none
-    category: explanation
-    reason: 試行で確かめた事実の記録。規定を持たない
-    issue: 315
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 定め(2026-10-12 の試行から置いたもの)
-    status: marked
-    ids:
-      - IMPL-0123
-    rows:
-      定め1:
-        status: none
-        category: elsewhere
-        reason: 共通の祖先の無い履歴の併合は事前点検が止める。点検の働きは 1.10.1 の IMPL-0319 で追う
-        location:
-          - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
-      定め2:
-        status: marked
-        ids:
-          - IMPL-0123
-      定め3:
-        status: none
-        category: not-imposed
-        reason: 手引きの定め。カバレッジの測定の穴は事前点検が告げるだけで止めない(G-5 の基準の未達として表示される)
-    note: 定め1 の併合は事前点検が止める(IMPL-0319 と同じ点検)。定め3 は事前点検が告げるだけで止めない
-    issue: 315
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > テンプレートの更新の取り込み
-    status: marked
-    ids:
-      - IMPL-0323
-      - IMPL-0326
-    note: 保守者の義務は community/standard-editions.md(採用者への要求事項ではない)
-    issue: 315
-  - key: phase5-implementation/template-repository#生成されるもの
-    status: pending
-  - key: phase5-implementation/template-repository#常駐の索引と次の一手
-    status: pending
-  - key: phase5-implementation/template-repository#常駐の索引と次の一手 > 次の一手の種類
-    status: pending
-  - key: phase5-implementation/template-repository#常駐の索引と次の一手 > 常駐する量
-    status: pending
-  - key: phase5-implementation/template-repository#常駐の索引と次の一手 > 規則と担保の対応
-    status: none
-    category: explanation
-    reason: 準拠テンプレートの規則と担保(強制の手段)の対応の説明。規定は本文の各節のマークで追う
-    issue: 294
-  - key: phase5-implementation/template-repository#木構造のスキル
-    status: pending
-  - key: phase5-implementation/template-repository#組織として品質を保証する主張と、組織継続の側の状態
-    status: pending
-  - key: phase5-implementation/template-repository#組織として品質を保証する主張と、組織継続の側の状態 > 導入前の検証
-    status: none
-    category: explanation
-    reason: 準拠テンプレートの導入前の検証のコマンドの説明。規定の正本は附属書I I.11
-    issue: 296
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 標準変更カタログへの登録と、登録の根拠
-    status: none
-    category: elsewhere
-    reason: 準拠テンプレートの登録の根拠の欄の説明。規定と実装マークは第5章 5.5.4 の IMPL-0035。重複率の欄を外したことは ADR-0081
-    location:
-      - "phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路"
-    issue: 311
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > AI自律レベルの導出と停止
-    status: none
-    category: elsewhere
-    reason: 準拠テンプレートの AI自律レベルの導出と停止の説明。規定と実装マークは第5章 5.4.6 の IMPL-0284〜0291
-    location:
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合"
-      - "phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止"
-    issue: 311
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 日付と時刻
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 向きの扱い
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 拒否する入力
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 適合性確認の失効
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 即時通知
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 出荷できない状態
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 構成を書き換える経路は1つ
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > D-0 体制図との二重記入を無くす
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 旧い構成からの移行
-    status: pending
-  - key: phase5-implementation/template-repository#席と運用形態、体制の変化点 > 委任した変更のマージの経路
-    status: pending
-  - key: phase5-implementation/template-repository#判定ロジックを二重に持たない
-    status: pending
-  - key: phase5-implementation/template-repository#言語に依存しない骨格
-    status: pending
-  - key: phase5-implementation/template-repository#達成できないゲートの扱い
-    status: pending
-  - key: phase5-implementation/template-repository#AI レビューの位置づけ
-    status: pending
-  - key: phase5-implementation/template-repository#強制層
-    status: none
-    category: explanation
-    reason: 準拠テンプレートの強制層と自己修正のロックの説明。停止条件の規定の正本は第3章 3.12.10(IMPL-0272〜0277)
-    issue: 296
-  - key: phase5-implementation/template-repository#契約検査
-    status: pending
-  - key: phase5-implementation/template-repository#実装の制約
-    status: none
-    category: explanation
-    reason: 準拠テンプレートの実装の限界の開示
-    issue: 296
-  - key: phase5-implementation/template-repository#関連するページ
-    status: pending
-  - key: phase5-implementation/test-effectiveness#(冒頭)
-    status: pending
-  - key: phase5-implementation/test-effectiveness#エージェントを分けることでは解決しません
-    status: pending
-  - key: phase5-implementation/test-effectiveness#何を機械で確認するか
-    status: pending
-  - key: phase5-implementation/test-effectiveness#何を機械で確認するか > この検査が共連れそのものを解決しない理由
-    status: pending
-  - key: phase5-implementation/test-effectiveness#変異試験の適用 > 全件を対象にしません
-    status: pending
-  - key: phase5-implementation/test-effectiveness#変異試験の適用 > 閾値を外部の固定値から取りません
-    status: pending
-  - key: phase5-implementation/test-effectiveness#変異試験の適用 > スコアを目的化させない措置
-    status: pending
-  - key: phase5-implementation/test-effectiveness#受入基準とテストの突合 > 対応関係を機械が読める形で持つ
-    status: pending
-  - key: phase5-implementation/test-effectiveness#受入基準とテストの突合 > 突合を AI に行わせません
-    status: pending
-  - key: phase5-implementation/test-effectiveness#CI への組み込み
-    status: pending
-  - key: phase5-implementation/test-effectiveness#検査の結果を反映する経路
-    status: pending
-  - key: phase5-implementation/test-effectiveness#関連するページ
-    status: pending
-  - key: phase6-operation/debt-payback#(冒頭)
-    status: pending
-  - key: phase6-operation/debt-payback#AIが生みやすい負債の類型
-    status: pending
-  - key: phase6-operation/debt-payback#台帳駆動の返却サイクル
-    status: pending
-  - key: phase6-operation/debt-payback#台帳駆動の返却サイクル > トリアージ(月次)
-    status: pending
-  - key: phase6-operation/debt-payback#台帳駆動の返却サイクル > 返却枠の確保
-    status: pending
-  - key: phase6-operation/debt-payback#台帳駆動の返却サイクル > AIを返却に使う
-    status: pending
-  - key: phase6-operation/debt-payback#健全性の判断
-    status: pending
-  - key: phase6-operation/improvement-cycle#(冒頭)
-    status: pending
-  - key: phase6-operation/improvement-cycle#二重の改善ループ
-    status: pending
-  - key: phase6-operation/improvement-cycle#四半期振り返りの進め方
-    status: pending
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り
-    status: none
-    category: org-design
-    reason: 振り返りは参加者(人)が行う。周期は採用組織が定める(本標準は定めない。第1章 1.2)。AI の担い手の挙動を制約しない
-    issue: 298
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 手順
-    status: none
-    category: org-design
-    reason: 振り返りの手順。Try の登録は参加者(人)が行う。スクラムガイドの引用は由来の引用として書き分けた
-    issue: 298
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 犯人探しへの変質を防ぐ
-    status: none
-    category: org-design
-    reason: 振り返りの場の運営の規律。参加者と進行役(人)が守る
-    issue: 298
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 3区分の仕分け
-    status: none
-    category: org-design
-    reason: 仕分けの判別は品質保証の機能(人)が行う(第5章 5.6.3)
-    issue: 298
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 自己申告を促す設計
-    status: none
-    category: org-design
-    reason: 自己申告の制度の設計。制度を定め運用するのは組織
-    issue: 298
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > コンテキスト基盤への還元
-    status: none
-    category: org-design
-    reason: 振り返りで見つけた問題と、還元先の層の対応の表。還元を判断するのは振り返りの参加者(人)で、AI の担い手の挙動を制約しない。手戻り率の名を運用メトリクスの量へ揃えた
-    issue: 296
-  - key: phase6-operation/improvement-cycle#三識データを用いた振り返り > 振り返りの形骸化を検知する
-    status: none
-    category: org-design
-    reason: 振り返りの形骸化の指標。指標を見て判断するのは人
-    issue: 298
-  - key: phase6-operation/improvement-cycle#モデル更新への追従(随時)
-    status: pending
-  - key: phase6-operation/improvement-cycle#プロセス定義の版管理
-    status: pending
-  - key: phase6-operation/improvement-cycle#本プロジェクト自体の追従
-    status: pending
-  - key: phase6-operation/incident-drill#(冒頭)
-    status: pending
-  - key: phase6-operation/incident-drill#何を訓練するか
-    status: pending
-  - key: phase6-operation/incident-drill#訓練と監査と欠陥注入の違い
-    status: pending
-  - key: phase6-operation/incident-drill#訓練の6類型
-    status: pending
-  - key: phase6-operation/incident-drill#役割
-    status: pending
-  - key: phase6-operation/incident-drill#役割 > 対応側(演習の中で演じる)
-    status: pending
-  - key: phase6-operation/incident-drill#役割 > 運営側(演習を回す)
-    status: pending
-  - key: phase6-operation/incident-drill#inject の設計
-    status: pending
-  - key: phase6-operation/incident-drill#初回のシナリオ
-    status: pending
-  - key: phase6-operation/incident-drill#実施の流れ
-    status: pending
-  - key: phase6-operation/incident-drill#実施の流れ > 事前準備
-    status: pending
-  - key: phase6-operation/incident-drill#実施の流れ > 演習を停止する条件
-    status: pending
-  - key: phase6-operation/incident-drill#評価
-    status: pending
-  - key: phase6-operation/incident-drill#報告書の様式
-    status: pending
-  - key: phase6-operation/incident-drill#改善の追跡
-    status: pending
-  - key: phase6-operation/incident-drill#段階的な拡張
-    status: pending
-  - key: phase6-operation/incident-drill#この訓練の限界
-    status: pending
-  - key: phase6-operation/incident-drill#関連するページ
-    status: pending
-  - key: phase6-operation/incident-response#(冒頭)
-    status: pending
-  - key: phase6-operation/incident-response#対応フロー
-    status: pending
-  - key: phase6-operation/incident-response#重大度の判定基準
-    status: pending
-  - key: phase6-operation/incident-response#AI と人の分担
-    status: pending
-  - key: phase6-operation/incident-response#生成の条件から影響範囲を絞る
-    status: pending
-  - key: phase6-operation/incident-response#ポストモーテム(Sev1・Sev2 は必須)
-    status: marked
-    ids:
-      - IMPL-0292
-    note: AI 起因の欄の書き方は IMPL-0292(障害時の補助ファイル)。欄そのものと停止は 5.4.6 の IMPL-0290・IMPL-0284
-    issue: 311
-  - key: phase6-operation/incident-response#運用への組み込み
-    status: pending
-  - key: phase6-operation/metrics#(冒頭)
-    status: pending
-  - key: phase6-operation/metrics#指標体系の全体像
-    status: pending
-  - key: phase6-operation/metrics#測定の副作用への歯止め
-    status: pending
-  - key: phase6-operation/metrics#測定の副作用への歯止め > 3つの原則の根拠
-    status: pending
-  - key: phase6-operation/metrics#測定の副作用への歯止め > 参考値として測ることはできない
-    status: pending
-  - key: phase6-operation/metrics#測定の副作用への歯止め > 指標を増やして対処しない
-    status: none
-    category: org-design
-    reason: 正式指標の上限と廃止は採用組織の指標の運用(人の判断)。表は候補の一覧で、上限は正式指標に掛かる
-    issue: 296
-  - key: phase6-operation/metrics#測定の副作用への歯止め > 採用しない指標
-    status: marked
-    ids:
-      - IMPL-0139
-    note: 判断記録の件数を出さないことは IMPL-0139。他の量(バックログの純増を含む)は課さない明記
-    issue: 296
-  - key: phase6-operation/metrics#測定の副作用への歯止め > 閾値を目標にしない
-    status: pending
-  - key: phase6-operation/metrics#測定の副作用への歯止め > 実績を基準へ機械的に変換しない
-    status: pending
-  - key: phase6-operation/metrics#測定の副作用への歯止め > 能力依存の定数の登録簿
-    status: marked
-    ids:
-      - IMPL-0103
-    note: 再評価待ちの注記と記名の記録は IMPL-0103。表と JSON の整合(要求事項4 の区分・configKey)は本リポジトリの検査(check-recalibration-registry.mjs と変異試験)。起草者による再評価は課さない明記
-    rows:
-      要求事項1:
-        status: marked
-        ids:
-          - IMPL-0103
-      要求事項2:
-        status: marked
-        ids:
-          - IMPL-0103
-      要求事項3:
-        status: marked
-        ids:
-          - IMPL-0103
-      要求事項4:
-        status: none
-        category: org-design
-        reason: 短縮・緩和をしない判断は人が行う。能力に依らない定数は再評価待ちに数えない(IMPL-0103 の範囲)
-      要求事項5:
-        status: none
-        category: org-design
-        reason: 外すときの保証の移し先は人が記録する
-    issue: 296
-  - key: phase6-operation/metrics#分類別の指標と警戒サイン > 流れ(速度と滞留)
-    status: none
-    category: org-design
-    reason: 指標の定義と算出元。採るかは採用組織が手続1〜4 で決める。進捗を完了率の申告で測らないことは組織の運用
-    issue: 296
-  - key: phase6-operation/metrics#分類別の指標と警戒サイン > 品質(欠陥と負債)
-    status: pending
-  - key: phase6-operation/metrics#分類別の指標と警戒サイン > AI協調(委譲の効き)
-    status: none
-    category: explanation
-    reason: AI 協調の指標の定義と算出元。手戻り率はタスクの単位の量で差し戻し率を含めない。トークン効率を評価の入力にしない規定の所在は第7章 7.7.8
-    issue: 296
-  - key: phase6-operation/metrics#分類別の指標と警戒サイン > 統制(ゲートの実効性)
-    status: pending
-  - key: phase6-operation/metrics#分類別の指標と警戒サイン > 事業継続性(理解の維持)
-    status: pending
-  - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度)
-    status: pending
-  - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 設計の原則
-    status: pending
-  - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 指標の定義
-    status: none
-    category: org-design
-    reason: 三識の指標の定義と対の指標。採るかは採用組織が決める
-    issue: 296
-  - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 対話の質を機械が採点しない
-    status: pending
-  - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 歪みの検知
-    status: pending
-  - key: phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 心理的安全性を対で測る
-    status: pending
-  - key: phase6-operation/metrics#収集の実装(3つのデータソース)
-    status: none
-    category: org-design
-    reason: 集計の手段は採用組織が備える。手で数える候補を正式指標に採るには手続3 を要する
-    issue: 296
-  - key: phase6-operation/metrics#ダッシュボード化
-    status: pending
-  - key: phase6-operation/metrics#指標が示す「次の一手」の早見表
-    status: pending
-  - key: phase6-operation/metrics#参考文献
-    status: pending
-  - key: phase6-operation/operations-catalog#(冒頭)
-    status: pending
-  - key: phase6-operation/operations-catalog#定常作業カタログ > 日次〜随時
-    status: pending
-  - key: phase6-operation/operations-catalog#定常作業カタログ > 週次
-    status: pending
-  - key: phase6-operation/operations-catalog#定常作業カタログ > 月次
-    status: pending
-  - key: phase6-operation/operations-catalog#定常作業カタログ > 四半期
-    status: pending
-  - key: phase6-operation/operations-catalog#運用の原則
-    status: pending
-  - key: phase6-operation/operations-catalog#運用開始時のチェックリスト
-    status: pending
-  - key: phase6-operation/overview#(冒頭)
-    status: pending
-  - key: phase6-operation/overview#運用の全体像
-    status: pending
-  - key: phase6-operation/overview#運用が失敗する典型パターン
-    status: pending
-  - key: phase6-operation/process-audit#(冒頭)
-    status: pending
-  - key: phase6-operation/process-audit#出荷判定と何が違うか
-    status: pending
-  - key: phase6-operation/process-audit#監査が必要になる理由
-    status: pending
-  - key: phase6-operation/process-audit#実施者の要件
-    status: pending
-  - key: phase6-operation/process-audit#対象の抽出 > 全件を見ません
-    status: none
-    category: org-design
-    reason: 監査の抽出は、案件に関与していない担い手(人)が行う手続
-    issue: 296
-  - key: "phase6-operation/process-audit#対象の抽出 > 2段の抽出"
-    status: none
-    category: org-design
-    reason: 2段の抽出と段ごとの記録は、監査の担い手(人)が行う手続。抽出数を母集団に比例させないことは課さない明記
-    issue: 296
-  - key: phase6-operation/process-audit#監査の観点
-    status: none
-    category: org-design
-    reason: 監査の観点と、機械で検出できるもの・監査だけが確かめるものの対応の表。監査は監査の実施者(人)が行い、AI の担い手の挙動を制約しない。観点6 にアカウント名・氏名の確認の上書きを足した(機械の側は G-6 の IMPL-0266)。観点23(AI自律レベルの適用と引き下げ)を足した(機械の側は 5.4.6 の IMPL-0284〜0288。手戻り率は IMPL-0291 で降りていない)
-    issue: 311
-  - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証
-    status: pending
-  - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順1 網羅性の照合
-    status: pending
-  - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順2 回避行動への対応度
-    status: pending
-  - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順3 形式主義化の検査
-    status: pending
-  - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順4 担い手の一致
-    status: pending
-  - key: phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順5 総合の判定
-    status: pending
-  - key: phase6-operation/process-audit#判定と是正 > 所見の扱い
-    status: pending
-  - key: phase6-operation/process-audit#判定と是正 > 個人を評価の対象にしない
-    status: pending
-  - key: phase6-operation/process-audit#監査自体の形骸化を検知する
-    status: pending
-  - key: phase6-operation/process-audit#記録
-    status: pending
-  - key: phase6-operation/process-audit#この手続の限界
-    status: pending
-  - key: phase6-operation/process-audit#関連するページ
-    status: pending
-  - key: phase6-operation/risk-catalog#(冒頭)
-    status: pending
-  - key: phase6-operation/risk-catalog#このカタログの目的
-    status: pending
-  - key: phase6-operation/risk-catalog#影響先の定義
-    status: pending
-  - key: phase6-operation/risk-catalog#分類の3階層
-    status: pending
-  - key: phase6-operation/risk-catalog#内部リスク
-    status: pending
-  - key: phase6-operation/risk-catalog#内部リスク > 人材・組織
-    status: pending
-  - key: phase6-operation/risk-catalog#内部リスク > 開発プロセス・技術
-    status: pending
-  - key: phase6-operation/risk-catalog#内部リスク > システム・インフラ
-    status: pending
-  - key: phase6-operation/risk-catalog#内部リスク > 経営・意思決定
-    status: pending
-  - key: phase6-operation/risk-catalog#内部リスク > ガバナンス・コンプライアンス
-    status: pending
-  - key: phase6-operation/risk-catalog#外部リスク
-    status: pending
-  - key: phase6-operation/risk-catalog#外部リスク > 市場・競合
-    status: pending
-  - key: phase6-operation/risk-catalog#外部リスク > 顧客・取引先
-    status: pending
-  - key: phase6-operation/risk-catalog#外部リスク > 法規制・制度
-    status: pending
-  - key: phase6-operation/risk-catalog#外部リスク > 社会・自然環境
-    status: pending
-  - key: phase6-operation/risk-catalog#外部リスク > 技術トレンド・エコシステム
-    status: pending
-  - key: phase6-operation/risk-catalog#生成AI起因のリスク
-    status: pending
-  - key: phase6-operation/risk-catalog#リスクを扱う人間の側のリスク
-    status: pending
-  - key: phase6-operation/risk-catalog#このカタログの限界
-    status: pending
-  - key: phase6-operation/risk-catalog#関連するページ
-    status: pending
-  - key: phase6-operation/what-to-do-when#(冒頭)
-    status: pending
-  - key: phase6-operation/what-to-do-when#全体に共通する3つの原則
-    status: pending
-  - key: phase6-operation/what-to-do-when#壊れた・止まった
-    status: pending
-  - key: phase6-operation/what-to-do-when#間に合わない
-    status: pending
-  - key: phase6-operation/what-to-do-when#間に合わない > 遅延は人の問題ではありません
-    status: pending
-  - key: phase6-operation/what-to-do-when#人がいない・判断が返ってこない
-    status: pending
-  - key: phase6-operation/what-to-do-when#言い出しにくい
-    status: pending
-  - key: phase6-operation/what-to-do-when#言い出しにくい > 報告の様式に自己弁護を求めません
-    status: pending
-  - key: phase6-operation/what-to-do-when#言い出しにくい > 割り込みたくない・割り込まれたくない
-    status: pending
-  - key: phase6-operation/what-to-do-when#AI が原因かもしれない
-    status: pending
-  - key: phase6-operation/what-to-do-when#外から来た
-    status: pending
-  - key: phase6-operation/what-to-do-when#表に載っていないとき
-    status: pending
-  - key: phase6-operation/what-to-do-when#このページの限界
-    status: pending
-  - key: phase6-operation/what-to-do-when#関連するページ
     status: pending

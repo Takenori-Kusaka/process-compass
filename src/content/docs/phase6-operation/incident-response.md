@@ -39,7 +39,7 @@ graph LR
 | 記録 | タイムラインの自動整形、記録の下書き | 事実確認、再発防止策の決定 |
 
 - **コア機能の障害は、理解を維持している担当者**(コア理解維持タスク deep-read の記録者)が対応する。AI の推測だけで本番を触らない
-- 復旧を急ぐ場合も、変更は [hotfix ブランチ+PR](/process-compass/phase5-implementation/git-strategy/) で行い、CI と事後レビューを省略しない
+- 復旧を急ぐ場合も、変更は通常の修正のブランチ(`fix/`)と PR で行い([Git 戦略](/process-compass/phase5-implementation/git-strategy/))、CI と独立レビューを省略しない。確認を待てない変更を先へ進める経路は、[第7章 7.3](/process-compass/phase4-process-design/exception-escalation/)の例外承認だけである([第4章 G-7](/process-compass/phase4-process-design/gate-criteria/))
 
 ## 生成の条件から影響範囲を絞る
 
@@ -119,8 +119,6 @@ Sev1・Sev2 のポストモーテムは、[第4章 G-5「是正の起動」](/pr
 - 再発防止アクションのうち自動化できるもの(監視の追加・CI チェックの追加)を優先する。「人が気をつける」型の対策は数週間で消える
 - ポストモーテムの学びは[コンテキスト基盤への書き戻し](/process-compass/phase5-implementation/context-base/)で恒久層へ反映する。これを怠ると AI の一次分析が同じ見逃しを繰り返す
 - AI 起因の欄は、[第5章 5.4.6](/process-compass/phase4-process-design/human-ai-boundary/)の引き下げの第1区分の記録である。欄を空けたままのポストモーテムは、「特定できない」と同じく扱う
-
-<!-- impl IMPL-0292 target=incident-artifact state=delivered check=manual note="障害時の補助ファイルのポストモーテムの書き方に、AI 起因(あり / なし / 特定できない)・原因の変更・該当する登録した変更種別を、欠陥の台帳の同じ行へ写すことを書く。写したかどうかは機械が確かめない。確かめる者: ポストモーテムの承認者(振り返りを閉じるとき)" -->
 
 ## 運用への組み込み
 

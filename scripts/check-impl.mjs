@@ -384,15 +384,14 @@ function replaceBlock(text, body) {
 
 const DOCUMENTS = YAML.parse(readFileSync(path.join(ROOT, 'src/data/provision-forms.yaml'), 'utf8')).documents;
 
-/** 棚卸しの対象のページ: 本文8章・規定の附属書・フェーズ5・6 の各頁。参考の附属書・ADR・community は対象外 */
+/**
+ * 棚卸しの対象のページ: 本文8章・規定の附属書の各頁。参考の附属書・フェーズ5・6(手引き)・ADR・community は対象外。
+ * フェーズ5・6 は参考(手引き)であり、実装マークは本文の条項の側に置く(第1章 1.8。#316 / ADR-0086 R-1)
+ */
 async function inventoryPages() {
-  const pages = DOCUMENTS.filter((d) => d.kind === 'normative').map((d) => d.page);
-  for (const dir of Object.keys(PHASE_DIRS)) {
-    for await (const f of glob(`${DOCS_ROOT}/${dir}/*.{md,mdx}`)) {
-      pages.push(f.replace(/\\/g, '/').replace(`${DOCS_ROOT}/`, '').replace(/\.mdx?$/, ''));
-    }
-  }
-  return pages.sort();
+  return DOCUMENTS.filter((d) => d.kind === 'normative')
+    .map((d) => d.page)
+    .sort();
 }
 
 function pageFile(page) {

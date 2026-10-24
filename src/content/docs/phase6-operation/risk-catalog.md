@@ -98,7 +98,7 @@ graph TD
 | --- | --- | --- | --- | --- |
 | 開発 | CI が壊れ検証が止まる | 時間・モノ | AI 運用担当者 | [CI ゲート](/process-compass/phase5-implementation/ci-gates/)の復旧を最優先の運用作業に置く |
 | 開発 | 開発環境と本番環境の差異による想定外の不具合 | モノ・時間 | 技術判断者 | [非機能検証](/process-compass/phase5-implementation/nonfunctional-verify/) |
-| リリース | 配備の自動化の不備による操作の誤り | モノ・時間 | 出荷判定者 | [PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)、hotfix でも PR を経る規定 |
+| リリース | 配備の自動化の不備による操作の誤り | モノ・時間 | 出荷判定者 | [PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)、緊急の修正でも PR を経る運用 |
 | リリース | データ移行の失敗による不整合 | モノ・カネ | 技術判断者 | [G-7 出荷判定](/process-compass/phase4-process-design/gate-criteria/)の復旧手順の確認 |
 | 継続運用 | 計算資源の設定の誤りによる費用の超過 | カネ | AI 運用担当者 | [計算資源の戦略](/process-compass/phase5-implementation/compute-strategy/) |
 | 継続運用 | 監視の不足による検知の遅れ | モノ・時間 | 技術判断者 | [運用作業カタログ](/process-compass/phase6-operation/operations-catalog/)の日次作業 |
@@ -206,7 +206,7 @@ graph TD
 
 | 行動 | 概念 | 発生の仕組み | 二次被害 |
 | --- | --- | --- | --- |
-| 納期を優先し重大な不具合を見逃す | 逸脱の規範化 | 小さな逸脱が事故に至らなかった経験が累積し、逸脱が既定の状態になる | 問題が膨張してから顕在化し、修正費が跳ね上がる |
+| 納期を優先し重大な不具合を見逃す | 逸脱の常態化(normalization of deviance) | 規程から外れた小さな運用が事故に至らなかった経験が累積し、外れた運用が既定の状態になる | 問題が膨張してから顕在化し、修正費が跳ね上がる |
 | 中止すべき案件を続行する | コミットメントの拡大 | 投入済みの費用を回収したい心理と完了への近さが重なる | 失敗が確定した対象への追加投資 |
 | 人手の不足を残業で埋め続ける | クランチ | 時間は伸縮するという暗黙の前提を管理側が持つ | 疲弊と離脱による練度の流出、遅延の拡大 |
 | リスクを報告しない | 非難文化 | 報告すると個人へ責任が帰されるという予期 | 早期に検知できた事象が重大化する |
@@ -217,11 +217,11 @@ graph TD
 
 | 行動 | 本標準の受け止め |
 | --- | --- |
-| 逸脱の規範化 | [ゲート判定基準](/process-compass/phase4-process-design/gate-criteria/)の4値判定、[未達と省略の区別](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/) |
+| 逸脱の常態化(normalization of deviance) | [ゲート判定基準](/process-compass/phase4-process-design/gate-criteria/)の4値判定、[未達と省略の区別](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/) |
 | コミットメントの拡大 | [7.7.6 案件に関与していない者による棚卸し](/process-compass/phase4-process-design/exception-escalation/)、[7.7.4 自動的な上程](/process-compass/phase4-process-design/exception-escalation/) |
 | クランチ | [スコープの三層](/process-compass/adr/0019-scope-commitment-three-layers/)、[レビュー負荷の測定](/process-compass/phase5-implementation/review-burden-measurement/) |
 | 非難文化 | 責めを問わないポストモーテム、[欠陥注入の測定を個人にしない](/process-compass/phase5-implementation/seeded-error-safety/) |
-| 帰属の誤り | [改善サイクル](/process-compass/phase6-operation/improvement-cycle/)の3区分(システム起因・リスク認識の不足・意図的な逸脱) |
+| 帰属の誤り | [改善サイクル](/process-compass/phase6-operation/improvement-cycle/)の3区分(システム起因・リスク認識の不足・意図的な違反) |
 | 同調 | [独立レビュー](/process-compass/phase4-process-design/review-guide/)、[非割込型の申し送り](/process-compass/phase5-implementation/label-mailbox/) |
 
 **「気をつける」「周知する」を対策として認めません**。数週間で消えるためです。この制約は[インシデント対応](/process-compass/phase6-operation/incident-response/)の再発防止アクションと同一です。

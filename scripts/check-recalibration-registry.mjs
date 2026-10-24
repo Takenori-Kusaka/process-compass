@@ -2,7 +2,7 @@
 //
 //   node scripts/check-recalibration-registry.mjs
 //
-// 標準 第6章 metrics.md の登録簿の表と、準拠テンプレートの機械可読版(template/scripts/gate/recalibration-registry.json)が、
+// 標準 第3章 3.12.12 の登録簿の表(#316 でフェーズ6 の metrics.md から本文へ移した)と、準拠テンプレートの機械可読版(template/scripts/gate/recalibration-registry.json)が、
 // ID・定数の名称・依拠する前提・「能力に依るか」で一致することを確かめる。担っている保証は、表の側が説明を足せるため、
 // JSON の文が表のセルに含まれることだけを見る。
 //
@@ -22,7 +22,7 @@ import { requireInputs } from './lib/inputs.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JSON_FILE = path.join(ROOT, 'template/scripts/gate/recalibration-registry.json');
 const CONFIG_FILE = path.join(ROOT, 'template/process.config.json');
-const DOC = path.join(ROOT, 'src/content/docs/phase6-operation/metrics.md');
+const DOC = path.join(ROOT, 'src/content/docs/phase4-process-design/roles-responsibilities.md');
 
 const strip = (s) => s.replace(/\*\*/g, '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').trim();
 const pad = (n) => `RC-${String(n).padStart(2, '0')}`;
@@ -66,7 +66,7 @@ const getPath = (obj, key) => key.split('.').reduce((o, k) => (o === null || o =
 
 /**
  * 登録簿の整合の検査(純関数)。problems の配列を返す。
- * registry: JSON の内容。docText: metrics.md の本文。config: テンプレートの process.config.json の内容
+ * registry: JSON の内容。docText: 第3章の本文。config: テンプレートの process.config.json の内容
  */
 export function checkRegistry({ registry, docText, config }) {
   const problems = [];
@@ -75,7 +75,7 @@ export function checkRegistry({ registry, docText, config }) {
   for (const c of constants) {
     const r = rows.get(c.id);
     if (!r) {
-      problems.push(`${c.id}: metrics.md の登録簿の表に行が無い`);
+      problems.push(`${c.id}: 第3章 3.12.12 の登録簿の表に行が無い`);
       continue;
     }
     if (r.name !== c.name) problems.push(`${c.id}: 定数の名称が違う(表「${r.name}」/ JSON「${c.name}」)`);
@@ -98,7 +98,7 @@ export function checkRegistry({ registry, docText, config }) {
   for (const id of rows.keys()) if (!constants.some((c) => c.id === id)) problems.push(`${id}: 表にあるが JSON に無い`);
 
   // 要求事項4 の列挙と JSON の区分
-  if (!requirement4) problems.push('metrics.md の登録簿の要求事項4(能力に依らない定数・人の帯域に由来する定数の列挙)を読めない');
+  if (!requirement4) problems.push('第3章 3.12.12 の登録簿の要求事項4(能力に依らない定数・人の帯域に由来する定数の列挙)を読めない');
   else {
     const jsonNotDependent = constants.filter((c) => c.capabilityDependent === false).map((c) => c.id).sort();
     const jsonNoRelax = constants.filter((c) => c.noRelaxByCapability === true).map((c) => c.id).sort();

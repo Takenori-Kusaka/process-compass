@@ -79,7 +79,7 @@ graph TD
 | D-0 | 意思決定・エスカレーション体制図 | [第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/) |
 | R1 / R2 / R3 | リスク区分(決定の取り消し可能性) | [第3章 3.8.1](/process-compass/phase4-process-design/roles-responsibilities/) |
 | SC-M / SC-P / SC-B | スコープ3層(確約範囲 / 計画範囲 / 調整枠) | [第2章 2.10](/process-compass/phase4-process-design/lifecycle/) |
-| CR-n | 受入基準の識別子 | [第6章 テンプレ1](/process-compass/phase4-process-design/deliverable-templates/) |
+| AC-n | 受入基準の識別子(機能をまたいで引くときは F-NNN/AC-n) | [第6章 テンプレ1](/process-compass/phase4-process-design/deliverable-templates/) |
 | L1 / L2 / L3 | AI自律レベル | [第5章 5.4](/process-compass/phase4-process-design/human-ai-boundary/) |
 | E1 / E2 / E3 | AI実行形態 | [AI 実行環境](/process-compass/phase5-implementation/ai-environment/) |
 | Sev1 / Sev2 / Sev3 | 欠陥の重大度 | [第4章](/process-compass/phase4-process-design/gate-criteria/) |
@@ -91,7 +91,7 @@ graph TD
 | TG-1 / TG-2 / TG-3 | 移行判定ゲート | [社会実装計画](/process-compass/phase5-implementation/enablement/) |
 | EN-1 / EN-2 / EN-3 | 移行の支援体制 | [社会実装計画](/process-compass/phase5-implementation/enablement/) |
 | A-T1 〜 A-K3 | 理想モデルの前提(技術・個人・組織・知識) | [前提一覧](/process-compass/phase2-aidlc/assumptions/) |
-| AC-0 / AC-1 / AC-2 | 前提の充足状態(充足 / 劣化 / 不成立) | [第7章 7.10](/process-compass/phase4-process-design/exception-escalation/) |
+| AS-0 / AS-1 / AS-2 | 前提の充足状態(充足 / 劣化 / 不成立) | [第7章 7.10](/process-compass/phase4-process-design/exception-escalation/) |
 | テンプレ0 〜 テンプレ11 | 成果物の様式 | [第6章](/process-compass/phase4-process-design/deliverable-templates/) |
 | 附属書A 〜 附属書I | 背景・記法・手引き・様式・投影 | [第1章 1.5](/process-compass/phase4-process-design/overview/) |
 | C1 〜 C11 | 品質保証の論証を構成する下位の主張(検証の主張) | [附属書H](/process-compass/phase4-process-design/assurance-case/) H.3 |

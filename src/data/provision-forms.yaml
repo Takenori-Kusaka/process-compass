@@ -227,6 +227,55 @@ retiredPhrases:
     retired: 2026-10-24
     by: ADR-0083
     instead: 1名以下を列挙に無い離脱(第1章 1.10.2)
+  # 事象・一般の意味の「逸脱」を改めた句(#316 / ADR-0086 R-7)。「不適合」「離脱」の単独の語へは改めない
+  - phrase: 委任の範囲の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更
+  - phrase: 範囲の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更
+  - phrase: 意図的な逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 承知の上の承認(見逃しの区分の中では「意図的な違反」。第5章 5.6.3)
+  - phrase: 基準の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 基準の不充足(期日・予算は「超過」)
+  - phrase: 基準逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 同上
+  - phrase: 予算・日程の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 予算・日程の超過
+  - phrase: 期限の逸脱率
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 期限の超過率
+  - phrase: R2 以上の規範の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: R2 以上の規範を満たさないこと
+  - phrase: 運用の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 規程どおりでない運用
+  - phrase: 未達のゲートと逸脱の数
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 未達のゲート・逸脱・列挙に無い離脱の数(3つを並べて書く)
+  - phrase: 逸脱の規範化
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 逸脱の常態化(normalization of deviance)。外部の概念の訳語として原語を併記する
+  - phrase: 逸脱として記録(1〜2名
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 列挙に無い離脱として記録(第1章 1.10.2)
 # 決定の記録(adr/)は、廃した言い回しを経緯として引くので探さない。自動生成の台帳も探さない。
 # zenn/ は派生物の置き場であり、publishing-hub の査読の経路で改めるため、ここでは探さない。
 retiredScan:
@@ -242,6 +291,9 @@ retiredScan:
     - src/content/docs/community/scope-ledger.md
     - src/content/docs/community/provision-forms.md
     - src/data/provision-forms.yaml
+    # 凍結した基準線(要約値で固定。#292)と、準拠テンプレートの試験が出す未追跡の出力(.gitignore の evidence/)は探さない(#316)
+    - src/data/impl-inventory-baseline.yaml
+    - template/evidence
 
 # --- 手引きの頁(第1章 1.8。#316 / ADR-0086 R-1) ---
 # フェーズ5・6 の頁は、全体として参考(手引き)である。要求・禁止の文末は、同じ行に本文の所在が無ければ検出する。
