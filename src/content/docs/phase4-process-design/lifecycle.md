@@ -38,7 +38,7 @@ graph LR
 
 | 階層 | 頻度 | 判定の性質 | 既存制度との関係 |
 | --- | --- | --- | --- |
-| マクロライフサイクル | 案件あたり数回 | 投資継続・移管・出荷可否の判断 | 既存の稟議・決裁権限規程と、出荷判定の席・判定者・時点は変えない。出荷判定者の署名の意味と、リリース決裁(G-8)での残存リスクの受容の記名は改める。出荷判定の規程の改定を要する([第4章 G-7・G-8](/process-compass/phase4-process-design/gate-criteria/)) |
+| マクロライフサイクル | 案件あたり数回 | 投資継続・移管・出荷可否の判断 | 既存の稟議・決裁権限規程と、出荷判定の席・判定者・時点は変えない(規程を持たない体制では、D-0 体制図の記名で定める)。出荷判定者の署名の意味と、リリース決裁(G-8)での残存リスクの受容の記名は改める。出荷判定の規程を持つ組織では、その改定を要する([第4章 G-7・G-8](/process-compass/phase4-process-design/gate-criteria/)) |
 | AI協調ループ | 機能あたり数時間〜数日 | 仕様適合・実装品質の判断 | 新たに規定する |
 
 本標準は、AI協調ループについて、反復の周期・チームの会合の持ち方・事業ステージより短い期間の計画の方法を規定しません([第1章 1.2](/process-compass/phase4-process-design/overview/))。本標準は、作業の一覧については、2.10 が定める事項に限って規定します。この層にも、2.10(作業の単位の観測と調整)、[第3章 3.12.10](/process-compass/phase4-process-design/roles-responsibilities/)(停止の条件)、[第5章](/process-compass/phase4-process-design/human-ai-boundary/)(AI の自律)、[第6章](/process-compass/phase4-process-design/deliverable-templates/)(記録)の規定は掛かります。

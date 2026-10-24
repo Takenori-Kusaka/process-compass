@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-10-24): verified 636 / partial 24 / unreachable 2 / unverified 1
+集計(生成日 2026-10-24): verified 634 / partial 30 / unreachable 2 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -26,6 +26,8 @@
 | SRC-0034 | partial | mech-fetch,agent-blind,agent-adjudication |  | [ChatGPT & Codex changelog](https://developers.openai.com/codex/changelog) |
 | SRC-0051 | partial | mech-fetch,agent-blind,agent-adjudication |  | [awslabs/aidlc-workflows: AI-Driven Life Cycle (AI-DLC) adaptive workflow steering rules fo](https://github.com/awslabs/aidlc-workflows) |
 | SRC-0511 | partial | mech-fetch,agent-blind,agent-adjudication |  | [チーム憲章 — 誰が何を決め、誰に渡すか(docs/sessions/README.md)](https://github.com/Takenori-Kusaka/ganbari-quest/blob/053463794f117d7f79f961efc28be18fb7e4d43f/docs/sessions/README.md) |
+| SRC-0635 | partial | agent-read | c1・c2 は原典の写し(tmp/302-310/s309-src/gigi1-cur.txt。2026-10-12 に調査担当が取得)で逐語を確かめた(2026-10-13)。写しは PDF のテキスト化で、行の折り返しを連結した。c3〜c5 は | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集](https://www.mhlw.go.jp/content/001328443.pdf) |
+| SRC-0636 | partial | agent-read | c1 は原典の写し(tmp/302-310/s309-src/gigi3.txt。2026-10-12 に調査担当が取得)で逐語を確かめた(2026-10-13)。c2・c3 と更新日の注記(「←Q8を追加しました(令和８年５月25日更新)」)は、#317 の実装で WebFetch(要約モデル経由)に逐語を求めて返った文字列で、PDF の目視の照合はしていない(curl はプロキシで遮断された)。初版の URL(000834503.pdf)は 404 で、初版からの文言の変更は確かめていない。法律の助言ではない | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集(第3集)](https://www.mhlw.go.jp/content/001704257.pdf) |
 | SRC-0640 | partial | agent-read | WebFetch(取得結果を要約モデルが返す方式)で、原文の該当の文を逐語で抜き出させて照合した。プロキシの制約で curl による全文の取得はできなかったため、全文の通読ではない。c3 の後半は、要約モデルが125文字ずつに区切って返した断片をつないだもの | [The Scrum Guide(2020年11月版)](https://scrumguides.org/scrum-guide.html) |
 | SRC-0641 | partial | agent-read | 著者の所属先のサイトが置く出版社の PDF の写し(Taylor & Francis の表紙と引用の書誌の行つき)を WebFetch(要約モデル経由)で読み、c1・c2 の逐語を抜き出させて照合した。出版社のサイト(DOI の解決先)は取得できなかった。全文の通読ではない | [Agile–Stage-Gate for Manufacturers](https://www.five-is.com/download/agile-stage-gate-for-manufacturers) |
 | SRC-0642 | partial | agent-read | BSI の採用版(BS ISO/IEC/IEEE 12207:2017)のプレビューの PDF を WebFetch(要約モデル経由)で読み、版・日付・箇条4 の見出しを逐語で抜き出させた。箇条2・箇条4 の本文はプレビューに無い。全文の通読ではない | [ISO/IEC/IEEE 12207:2017 Systems and software engineering — Software life cycle processes (](https://webstore.ansi.org/preview-pages/BSI/preview_30295695.pdf) |
@@ -50,6 +52,10 @@
 | SRC-0668 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Creating rulesets for a repository - GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository) |
 | SRC-0669 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [CMMI Adoption Guidance (Version 4.0)](https://www.cmmiinstitute.com/getattachment/3cc3e8d1-72a1-4f6d-b1da-c5df8c9ad87d/CMMI-Adoption-Guidance.pdf) |
 | SRC-0670 | unverified |  | 第三者の転載であり、原本(JISC・日本規格協会)と照合していない。転載の表は列が崩れており、対応は文脈から読んだ箇所を含む(research/316-deliberation/survey-316-2-external.md 1.3・2.1)。照合まで、本標準の記述の根拠に数えない(EV-0096) | [JIS Z 8301:2019 規格票の様式及び作成方法(第三者による転載。原本と未照合)](https://kikakurui.com/z8/Z8301-2019-01.html) |
+| SRC-0671 | partial | agent-read |  | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集(第2集)](https://www.mhlw.go.jp/content/000780138.pdf) |
+| SRC-0672 | partial | agent-read |  | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に係る疑義応答集について(事務連絡)](https://www.mhlw.go.jp/content/000780139.pdf) |
+| SRC-0673 | partial | agent-read |  | [労働者派遣・請負を適正に行うためのガイド](https://www.mhlw.go.jp/content/001704200.pdf) |
+| SRC-0674 | partial | agent-read |  | [JISA ソフトウェア開発委託基本モデル契約書 2020](https://www.jisa.or.jp/Portals/0/report/contract_model2020.pdf) |
 
 ### 除外した出典(却下は成果)
 

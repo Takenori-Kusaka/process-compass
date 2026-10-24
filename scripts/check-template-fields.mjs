@@ -6,12 +6,17 @@
 // 全文の一致は求めません。求めるのは、対応表(src/data/template-fields.yaml)に
 // 登録した必須欄が存在することだけです。
 //
-// 検査は2方向で行います。
+// 検査は3方向で行います。
 //   1. 標準 → 対応表     : standard の文字列が標準の本文に実在するか
 //   2. 対応表 → テンプレート: template の文字列がテンプレートの様式に存在するか
+//   3. テンプレート → 対応表: 様式の見出し(## )が、節を指す欄(standard が # で始まる欄)に
+//      対応するか、extra へ理由つきで登録されているか(ADR-0087 決定4)
 //
 // 1 を欠くと、対応表が古い欄名を保持したまま通ります。標準で欄名を変えたときに
 // 対応表の更新を強制するのが 1 の役目です。
+// 3 を欠くと、標準に無い節をテンプレートへ足しても通ります。部分集合という定め(ADR-0040)を
+// 様式の側から破る変更を、登録と理由の記述なしに入れないのが 3 の役目です。
+// extra の standard を書いた場合は、その文字列の標準の本文への実在も確かめます。
 //
 // submodule(template/)を初期化していない環境では、1 を実施したうえで、検査を失敗させます。
 // 入力が無いために 2 を実施できないことを、通過として扱わないためです(Issue #293 / ADR-0077)。
@@ -73,6 +78,59 @@ for (const form of spec.forms ?? []) {
   }
 }
 
+// 方向3: テンプレートの様式の見出しが、対応表に対応を持つか
+let extras = 0;
+for (const form of spec.forms ?? []) {
+  const filePath = path.join(TEMPLATE, form.file);
+  const body = templateReady && fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : null;
+  const registered = new Map();
+  for (const ex of form.extra ?? []) {
+    if (!ex.heading || !ex.reason) {
+      problems.push(`${form.name}: extra の登録には heading と reason の両方が要ります(${JSON.stringify(ex)})`);
+      continue;
+    }
+    if (ex.standard && !standardText.includes(ex.standard)) {
+      problems.push(`${form.name}: extra「${ex.heading}」の standard「${ex.standard}」が標準の第6章に見つかりません`);
+    }
+    registered.set(ex.heading, ex);
+  }
+  if (body === null) continue;
+  const sectionFields = (form.fields ?? []).filter((f) => !f.omit && /^#/.test(f.standard));
+  const headings = headingsOf(body);
+  for (const h of headings) {
+    const covered = sectionFields.some((f) => h.includes(f.template));
+    if (covered) continue;
+    if (registered.has(h)) {
+      extras += 1;
+      continue;
+    }
+    problems.push(
+      `${form.name}: ${form.file} の見出し「## ${h}」に、対応表の対応がありません。\n` +
+        `  標準の節に対応するなら fields へ、標準に無い節なら extra へ heading と reason を登録してください`
+    );
+  }
+  for (const h of registered.keys()) {
+    if (!headings.includes(h)) {
+      problems.push(`${form.name}: extra に登録した見出し「${h}」が ${form.file} にありません`);
+    }
+  }
+}
+
+function headingsOf(text) {
+  const out = [];
+  let fenced = false;
+  for (const line of text.split('\n')) {
+    if (/^\s*(```|~~~)/.test(line)) {
+      fenced = !fenced;
+      continue;
+    }
+    if (fenced) continue;
+    const m = /^## (.+?)\s*$/.exec(line);
+    if (m) out.push(m[1]);
+  }
+  return out;
+}
+
 if (!templateReady) {
   problems.push(describeMissing('対応表 → テンプレートの方向', missing));
 }
@@ -86,5 +144,6 @@ if (problems.length > 0) {
 
 console.log(
   `必須欄の検査: ${spec.forms.length}様式 / ${checked}欄` +
-    (omitted > 0 ? `(うち省略として登録 ${omitted}欄)` : '')
+    (omitted > 0 ? `(うち省略として登録 ${omitted}欄)` : '') +
+    ` / extra として登録した見出し ${extras}件`
 );

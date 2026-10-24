@@ -13,6 +13,8 @@ sidebar:
 
 決定1 のうち、テンプレートの手引きの中に残した3つの定めの位置付けは、[ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/)の決定1 で置き換えられました。3つの定めは第1章 1.10.3 の要求事項へ上げました。
 
+決定6 の2つ目の箇条(要約値の範囲から `.claude/settings.json`・`guard.json` を除く)は、[ADR-0087](/process-compass/adr/0087-outsourcing-gate-placement-enforcement-ownership-and-authority-sources/)の決定2 で置き換えられました。2つのファイルを要約値に含め、初期化はテーラリングした後の内容で記録します。決定6 のほかの箇条は維持します(2026-10-24)。
+
 ## コンテキスト
 
 [#315](https://github.com/Takenori-Kusaka/process-compass/issues/315) は、既存のリポジトリへ準拠テンプレートを持ち込む手順と、旧い版で生成した構成の扱いを問いました。指摘をそのまま条項にせず、調査(内部1本・外部1本)、会議体(起草・現場・品質保証と監査・規格・擁護の5つの立場)、突合の順で扱いました。記録は `research/315-deliberation/`(`survey-315-1-internal.md`、`survey-315-2-external.md`、`council-00`〜`05`、`decision.md` の R-1〜R-6、`implementation.md`)にあります。

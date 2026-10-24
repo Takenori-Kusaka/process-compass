@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0673
+status: included
+excludeReason: null
+title: 労働者派遣・請負を適正に行うためのガイド
+url: https://www.mhlw.go.jp/content/001704200.pdf
+canonicalUrl: https://mhlw.go.jp/content/001704200.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 厚生労働省・都道府県労働局
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2026-05
+publishedBasis: unknown
+version: 文書番号 PL080525 需01(日付の記載は無い。番号から令和8年5月25日の作成と読める。推論)
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I317
+  query: '#317 外部調査 2.2・2.3・1.2'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '労働者派遣と請負の区分の手引き。第3集の内容を掲げ、Q8 の答えとして、アジャイル型開発以外のシステム開発を請負業務とする場合にも当てはまると書く。#317 で出典カードを起こした。'
+claims:
+- id: c1
+  text: 第3集の考え方は、アジャイル型開発以外のシステム開発を請負業務とする場合にも当てはまるとされている。
+  quote: アジャイル型開発以外のシステム開発を請負業務とする場合についても当てはまります。
+  locator: 見出し「アジャイル型開発以外のシステム開発への適用」
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: #317 の実装で WebFetch(要約モデル経由)に逐語を求めて返った文字列。PDF の目視の照合はしていない(curl はプロキシで遮断された)。法律の助言ではない
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

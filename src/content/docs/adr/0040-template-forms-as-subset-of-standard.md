@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-08-13)。一部置き換え(→ ADR-0063 の決定1): 決定5 のただし書き(附属書の中に「してはならない」で書かれた規範だけを降ろす)を、[ADR-0063](/process-compass/adr/0063-normative-informative-and-verbal-forms/)の決定1 が置き換えました(2026-10-13)。決定3 の「逸脱」は、テンプレートの様式の登録の語であり、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)の決定8 により、第1章 1.4 の「逸脱」の定義の外にあると読みます(2026-10-24)。
+採用(2026-08-13)。一部置き換え(→ ADR-0063 の決定1): 決定5 のただし書き(附属書の中に「してはならない」で書かれた規範だけを降ろす)を、[ADR-0063](/process-compass/adr/0063-normative-informative-and-verbal-forms/)の決定1 が置き換えました(2026-10-13)。決定3 の「逸脱」は、テンプレートの様式の登録の語であり、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)の決定8 により、第1章 1.4 の「逸脱」の定義の外にあると読みます(2026-10-24)。決定2 の検査の方向は、[ADR-0087](/process-compass/adr/0087-outsourcing-gate-placement-enforcement-ownership-and-authority-sources/)の決定4 が補い、3方向になりました(様式 → 対応表。2026-10-24)。
 
 ## コンテキスト
 

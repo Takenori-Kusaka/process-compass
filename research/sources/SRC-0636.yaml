@@ -14,11 +14,11 @@ orgType: government
 region: jp
 lang: ja
 sourceType: public-agency
-published: 2021-09
-publishedBasis: unknown
-version: 第3集(現行の掲載版。PDF に日付の記載が無い)
-updated: null
-accessed: '2026-10-12'
+published: 2026-05
+publishedBasis: page
+version: 第3集(2026-05-25 更新の掲載版。Q8 を追加。PDF に日付の記載は無く、日付は掲載ページの注記による。初版は 2021-09-21 公表)
+updated: '2026-05-25'
+accessed: '2026-10-24'
 access: open
 readLevel: full
 foundBy:
@@ -29,8 +29,12 @@ derivedFromUrl: []
 selfReported: false
 themes:
 - TH12
-events: []
-summary: 'アジャイル型開発についての疑義応答集(第3集、全 8 問)。準委任契約でも、実態として指揮命令関係があれば、契約の形式を問わず労働者派遣事業に当たるとする。Issue #309 の調査が現行の掲載版の全問を読んだ。初版(2021-09-21 公表)は読めていない。'
+events:
+- date: '2021-09-21'
+  label: 第3集の初版の公表(IPA の解説の記載による。初版の PDF は読めていない)
+- date: '2026-05-25'
+  label: 第3集の更新(Q8 を追加。掲載ページの注記による)
+summary: 'アジャイル型開発についての疑義応答集(第3集、全 8 問)。準委任契約でも、実態として指揮命令関係があれば、契約の形式を問わず労働者派遣事業に当たるとする。2026-05-25 の更新で Q8 を足し、Q1〜Q7 の考え方がアジャイル型開発以外の請負のシステム開発にも当てはまるとした。Issue #309 の調査が読んだ掲載版は、この更新版だった可能性が高い(A8 を読んでいる)。初版(2021-09-21 公表)は読めておらず、Q8 以外の文言の変更は確かめていない。'
 claims:
 - id: c1
   text: 準委任契約を締結して行う場合でも、実態として発注者と受注者側の労働者との間に指揮命令関係があるときは、契約の形式を問わず、労働者派遣事業に当たるとされている。
@@ -42,13 +46,33 @@ claims:
   issues:
   - 309
   stance: context
+- id: c2
+  text: Q1〜Q7 の考え方は、アジャイル型開発以外のシステム開発を請負業務とする場合にも当てはまるとされている(2026-05-25 の更新で追加された問)。
+  quote: アジャイル型開発以外のシステム開発を請負業務とする場合についても当てはまります。
+  locator: Q8 の A8
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
+- id: c3
+  text: 発注者側と受注者側の開発関係者の役割・権限と、開発チーム内の業務の進め方を、予め明確にして合意しておくことが挙げられている。
+  quote: 発注者側と受注者側の開発関係者のそれぞれの役割や権限、開発チーム内における業務の進め方等を予め明確にし、発注者と受注者の間で合意しておくこと
+  locator: Q2 の A2
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
 verification:
-  status: verified
+  status: partial
   method:
   - agent-read
-  date: '2026-10-13'
+  date: '2026-10-24'
   humanChecked: false
-  note: 原典の写し(tmp/302-310/s309-src/gigi3.txt。2026-10-12 に調査担当が取得)で、c1 の逐語を確かめた。公表日は IPA の解説の記載による。初版の URL(000834503.pdf)は 404 で、初版からの文言の変更は確かめていない。法律の助言ではない
+  note: c1 は原典の写し(tmp/302-310/s309-src/gigi3.txt。2026-10-12 に調査担当が取得)で逐語を確かめた(2026-10-13)。c2・c3 と更新日の注記(「←Q8を追加しました(令和８年５月25日更新)」)は、#317 の実装で WebFetch(要約モデル経由)に逐語を求めて返った文字列で、PDF の目視の照合はしていない(curl はプロキシで遮断された)。初版の URL(000834503.pdf)は 404 で、初版からの文言の変更は確かめていない。法律の助言ではない
   mech: null
   agent: null
 volatility: medium

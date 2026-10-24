@@ -9,6 +9,7 @@
 | 2013-05-25 | JIS B 9700:2013 を制定(ISO 12100:2010 に一致) | 日本産業標準調査会・日本規格協会(ISO/TC 199 の ISO 12100:2010 に一致) | [SRC-0645] |
 | 2015-09 | ISO 9001:2015 を承認・発行 | ISO/TC 176 (catalogue record via Bahrain Standards and Metrology Directorate store) | [SRC-0643] |
 | 2017-11 | ISO/IEC/IEEE 12207 第1版を発行 | ISO/IEC JTC 1/SC 7 and IEEE Computer Society (BSI adoption, preview via ANSI Webstore) | [SRC-0642] |
+| 2021-09-21 | 第3集の初版の公表(IPA の解説の記載による。初版の PDF は読めていない) | 厚生労働省 | [SRC-0636] |
 | 2023-01-26 | NIST が AI RMF 1.0 を公開 | National Institute of Standards and Technology (NIST) | [SRC-0518] |
 | 2023-11-29 | Automotive SPICE PAM/PRM 4.0 を公開 | VDA Quality Management Center (VDA Working Group 13) | [SRC-0554] |
 | 2024-06-25 | GitHub Artifact Attestations 一般提供(GitHub Changelog) | GitHub | [SRC-0417] |
@@ -108,6 +109,7 @@
 | 2026-05-19 | METR が Frontier Risk Report(評価窓 2026-02-16〜03-16)を公開 | METR | [SRC-0160] |
 | 2026-05-19 | METR が Anthropic・Google・Meta・OpenAI 参加のフロンティアリスク報告(2026年2〜3月期)を公開 | METR | [SRC-0160] |
 | 2026-05-21 | arXiv v1 公開 | MSR '26 (ACM) / Waseda University, The University of Osaka, Ritsumeikan University ほか | [SRC-0315] |
+| 2026-05-25 | 第3集の更新(Q8 を追加。掲載ページの注記による) | 厚生労働省 | [SRC-0636] |
 | 2026-05-28 | A2A v1.0.1 リリース | a2aproject(GitHub) | [SRC-0036] |
 | 2026-06-01 | Ultracode の並列エージェントが親の Opus/xhigh を継承し、5時間枠と Extra Usage $200 を一晩で消費 | Zenn | [SRC-0275] |
 | 2026-06-01 | Copilot の premium request を AI Credits に置き換え(トークン従量) | GitHub Blog | [SRC-0292] |

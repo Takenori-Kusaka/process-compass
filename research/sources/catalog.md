@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 663(included 663、excluded 0)。生成日 2026-10-24。
+件数: 667(included 667、excluded 0)。生成日 2026-10-24。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -642,8 +642,8 @@
 | SRC-0632 | 2026-09 | community | global/en | verified | TH12 | 品質保証の語の定義の確認。ISO 9000 の定義を引用する二次情報(規格本文は未読)。 | [Quality assurance](https://en.wikipedia.org/wiki/Quality_assurance) |
 | SRC-0633 | 2021 | standard | global/en | verified | TH12 | ISO と IEC の規格の構成と起草の規則(第9版)。規定の種類ごとの表現形式(箇条7)、検証できる要求だけを置くこと(5.5)、同じ要求を繰り返さず引用で書 | [ISO/IEC Directives, Part 2 — Principles and rules for the structure and drafting of ISO an](https://www.iso.org/sites/directives/current/part2/index.xhtml) |
 | SRC-0634 | 1986 | regulation | jp/ja | verified | TH12 | 請負の形式による契約で行う業務が、労働者派遣事業に当たるかどうかを区分する基準を定める告示。業務の遂行に関する指示その他の管理、労働時間等に関する指示その他の管 | [労働者派遣事業と請負により行われる事業との区分に関する基準(昭和61年労働省告示第37号。最終改正 平成24年厚生労働省告示第518号)](https://www.mhlw.go.jp/content/000780136.pdf) |
-| SRC-0635 | 2024-11 | public-agency | jp/ja | verified | TH12 | 37号告示の運用についての厚生労働省の疑義応答集(第1集、全 15 問)。発注者から請負事業主への要求と、請負労働者への直接の指示を区別する。Issue #30 | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集](https://www.mhlw.go.jp/content/001328443.pdf) |
-| SRC-0636 | 2021-09 | public-agency | jp/ja | verified | TH12 | アジャイル型開発についての疑義応答集(第3集、全 8 問)。準委任契約でも、実態として指揮命令関係があれば、契約の形式を問わず労働者派遣事業に当たるとする。Is | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集(第3集)](https://www.mhlw.go.jp/content/001704257.pdf) |
+| SRC-0635 | 2024-11 | public-agency | jp/ja | partial | TH12 | 37号告示の運用についての厚生労働省の疑義応答集(第1集、全 15 問)。発注者から請負事業主への要求と、請負労働者への直接の指示を区別する。Issue #30 | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集](https://www.mhlw.go.jp/content/001328443.pdf) |
+| SRC-0636 | 2026-05 | public-agency | jp/ja | partial | TH12 | アジャイル型開発についての疑義応答集(第3集、全 8 問)。準委任契約でも、実態として指揮命令関係があれば、契約の形式を問わず労働者派遣事業に当たるとする。20 | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集(第3集)](https://www.mhlw.go.jp/content/001704257.pdf) |
 | SRC-0637 | 2020-12 | public-agency | jp/ja | verified | TH12 | 受託開発の公的なモデル契約と逐条の解説。連絡の窓口(主任担当者)、準委任の工程の終了の確認(業務終了確認書)、請負の工程の検収を、別の条で定める。Issue # | [情報システム・モデル取引・契約書(受託開発(一部企画を含む)、保守運用)〈第二版〉](https://www.ipa.go.jp/digital/model/model20201222.html) |
 | SRC-0638 | 2020-03 | public-agency | jp/ja | verified | TH12 | アジャイル開発を準委任で外部へ委託する場合の公的なモデル契約と解説。月ごとの実施業務の確認を定め、成果物についての契約不適合責任は追及できないと解説する。Iss | [アジャイル開発外部委託モデル契約(情報システム・モデル取引・契約書〈アジャイル開発版〉。解説付き)](https://www.ipa.go.jp/digital/model/agile20200331.html) |
 | SRC-0639 | 1896 | regulation | jp/ja | verified | TH12 | 民法の全文(e-Gov 法令検索の API で取得)。請負(第632条)、請負人の担保責任の制限(第636条)、期間の制限(第637条)、準委任(第656条)を | [民法(明治二十九年法律第八十九号)](https://laws.e-gov.go.jp/api/1/lawdata/129AC0000000089) |
@@ -671,4 +671,8 @@
 | SRC-0668 | ? | vendor-official | us/en | partial | TH10 | GitHub(無料版の文書)のリポジトリのルールセットの作成。作成の手順の状態は Active と Disabled の2つで、Evaluate は現れない。# | [Creating rulesets for a repository - GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository) |
 | SRC-0669 | 2026-07-07 | industry-report | global/en | partial | TH12 | CMMI の導入の手引き(v4.0)。現行の業務プロセスを CMMI の実践へ写して差を特定し、プロセスが実際に使われているかを確かめ、差を優先付けして段階的に | [CMMI Adoption Guidance (Version 4.0)](https://www.cmmiinstitute.com/getattachment/3cc3e8d1-72a1-4f6d-b1da-c5df8c9ad87d/CMMI-Adoption-Guidance.pdf) |
 | SRC-0670 | 2019 | standard | jp/ja | unverified | TH12 | JIS Z 8301:2019 の本文の第三者による転載。原本(JISC の閲覧は利用者登録が要り、2026-10-24 は障害で開けなかった)とは照合していな | [JIS Z 8301:2019 規格票の様式及び作成方法(第三者による転載。原本と未照合)](https://kikakurui.com/z8/Z8301-2019-01.html) |
+| SRC-0671 | 2021-05 | public-agency | jp/ja | partial | TH12 | 37号告示の運用についての厚生労働省の疑義応答集(第2集)。発注者からの情報提供、業務手順の指示、打ち合わせへの請負労働者の同席、請負労働者の氏名等の事前確認な | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集(第2集)](https://www.mhlw.go.jp/content/000780138.pdf) |
+| SRC-0672 | 2021-05-13 | public-agency | jp/ja | partial | TH12 | 疑義応答集(第2集)を各労働局へ示した厚生労働省の事務連絡(令和3年5月13日)。従前の解釈を変更するものではないと述べる。#317 で出典カードを起こした。 | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に係る疑義応答集について(事務連絡)](https://www.mhlw.go.jp/content/000780139.pdf) |
+| SRC-0673 | 2026-05 | public-agency | jp/ja | partial | TH12 | 労働者派遣と請負の区分の手引き。第3集の内容を掲げ、Q8 の答えとして、アジャイル型開発以外のシステム開発を請負業務とする場合にも当てはまると書く。#317 で | [労働者派遣・請負を適正に行うためのガイド](https://www.mhlw.go.jp/content/001704200.pdf) |
+| SRC-0674 | 2019 | industry-report | jp/ja | partial | TH12 | 業界団体のソフトウェア開発委託のモデル契約。要件定義書を甲乙双方の責任者の記名押印で確定し、検収は甲の検査合格で完了し、業務従事者への指揮命令は乙が行う。#31 | [JISA ソフトウェア開発委託基本モデル契約書 2020](https://www.jisa.or.jp/Portals/0/report/contract_model2020.pdf) |
 

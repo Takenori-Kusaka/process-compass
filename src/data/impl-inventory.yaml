@@ -190,6 +190,11 @@ sections:
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 体制と委任の登録を誰が決めるかを決めておく"
     status: pending
+  - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 決裁の権限の出所と金額区分の境界額を書く"
+    status: none
+    category: elsewhere
+    location: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.2 決裁者の割当
+    reason: D-0 の「決裁の権限の出所」と表2-2(金額区分の境界額)の書き方。規定は 3.8.2 にあり、欄の存在は IMPL-0341 で追う(#317)
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 構成から導ける欄は生成してよい"
     status: none
     category: elsewhere
@@ -262,6 +267,9 @@ sections:
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 判定の置き先と結果の受け渡しを記録する理由"
     status: pending
+  - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 第10項〜第13項を様式に置く理由"
+    status: marked
+    ids: [IMPL-0343]
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 保証の開示と委任の適用を契約で定める理由"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳"
@@ -2235,6 +2243,12 @@ sections:
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 強制層をどちらが所有するか"
     status: pending
+  - key: "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 強制層をどちらが所有するか > 所有を決める対象と、記録する事項"
+    status: marked
+    ids: [IMPL-0339]
+  - key: "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 強制層をどちらが所有するか > 強制層の変更の承認と、所有する組織の同意"
+    status: marked
+    ids: [IMPL-0340]
   - key: "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 受領する記録が保証するもの"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 保証の開示を納品ごとに受け渡す"

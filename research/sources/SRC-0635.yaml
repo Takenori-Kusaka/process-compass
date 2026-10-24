@@ -52,13 +52,43 @@ claims:
   issues:
   - 309
   stance: context
+- id: c3
+  text: 発注者が作業の内容・順序・方法を文書等で詳細に示し、請負事業主がそのとおりに作業を行う場合も、発注者による指示その他の管理に当たり、偽装請負と判断されるとされている。
+  quote: また、こうした指示は口頭に限らず、発注者が作業の内容、順序、方法等に関して文書等で詳細に示し、そのとおりに請負事業主が作業を行っている場合も、発注者による指示その他の管理を行わせていると判断され、偽装請負と判断されることになります。
+  locator: 問7(作業工程の指示)の A
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
+- id: c4
+  text: 発注者が請負労働者に行う技術指導等のうち例示に当たるものは、行われたことをもって偽装請負とは判断されないとされている。
+  quote: 一般的には、発注者が請負労働者に対して行う技術指導等とされるもののうち次の例に該当するものについては、当該行為が行われたことをもって、偽装請負と判断されるものではありません。
+  locator: 問10(請負業務において発注者が行う技術指導)の A
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
+- id: c5
+  text: 業務に必要な機械・設備・機材を発注者から借り入れるか購入する場合は、別個の双務契約を締結することが必要とされている。
+  quote: 当該組み込み、塗装、梱包等の業務に必要な機械、設備又は機材は、請負事業主の責任で準備するか、発注者から借り入れる又は購入するのであれば、別個の双務契約を締結することが必要になります。
+  locator: 問14(双務契約が必要な範囲)の A
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
 verification:
-  status: verified
+  status: partial
   method:
   - agent-read
-  date: '2026-10-13'
+  date: '2026-10-24'
   humanChecked: false
-  note: 原典の写し(tmp/302-310/s309-src/gigi1-cur.txt。2026-10-12 に調査担当が取得)で、c1・c2 の逐語を確かめた。写しは PDF のテキスト化で、行の折り返しを連結した。法律の助言ではない
+  note: c1・c2 は原典の写し(tmp/302-310/s309-src/gigi1-cur.txt。2026-10-12 に調査担当が取得)で逐語を確かめた(2026-10-13)。写しは PDF のテキスト化で、行の折り返しを連結した。c3〜c5 は #317 の実装で WebFetch(要約モデル経由)に逐語を求めて返った文字列で、PDF の目視の照合はしていない(curl はプロキシで遮断された)。法律の助言ではない
   mech: null
   agent: null
 volatility: medium
