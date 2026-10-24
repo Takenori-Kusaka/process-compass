@@ -1,0 +1,56 @@
+schemaVersion: 0
+id: SRC-0678
+status: included
+excludeReason: null
+title: IEC 61508 Overview Report v2.0
+url: https://www.exida.com/articles/IEC-61508-Overview.pdf
+canonicalUrl: https://www.exida.com/articles/IEC-61508-Overview.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: exida
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: industry-report
+published: '2006'
+publishedBasis: pdf
+version: Version 2.0(IEC 61508 第1版ベース)
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: IEC 61508 第1版の概説。機能安全アセスメントの独立性を SIL 別に独立した人・部門・組織の推奨の強さ(HR/HR1/HR2/NR)で示す。#318 は、距離の段をリスク水準に連動させる外部の型の裏付けとして引いた。
+claims:
+- id: c1
+  text: 機能安全アセスメントの独立性は、SIL が上がるほど独立した部門・独立した組織を推奨する形で段階づけられている(SIL3 は独立した部門 HR1・独立した組織 HR2、SIL4 は独立した組織 HR)。
+  quote: null
+  locator: 機能安全アセスメントの独立性の表
+  quant: null
+  evidenceKind: expert-opinion
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

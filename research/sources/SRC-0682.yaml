@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0682
+status: included
+excludeReason: null
+title: Understanding ISO/IEC 17020:2012(IAS 研修ハンドブック)
+url: https://www.iasonline.org/wp-content/uploads/2021/01/Tab-1-01-Understanding-ISOIEC-17020-Handbook.pdf
+canonicalUrl: https://www.iasonline.org/wp-content/uploads/2021/01/Tab-1-01-Understanding-ISOIEC-17020-Handbook.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: International Accreditation Service(IAS)
+authors: []
+orgType: nonprofit
+region: us
+lang: en
+sourceType: industry-report
+published: null
+publishedBasis: pdf
+version: Rev 5.0
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: 適合性評価の検査機関の規格 ISO/IEC 17020:2012 の研修ハンドブック。附属書A の規範文を転記し、独立性を A型(第三者)・B型(親組織にだけ提供し責任を分離)・C型(組織内の保護措置、同一人物の禁止)の3つの型として定義する。#318 は、第三者の段(段4)と組織上の独立の段(段3)の対応の比較の材料として引いた(ADR-0088 の参考の対応)。
+claims:
+- id: c1
+  text: A型の検査機関は、関与する当事者から独立していなければならないとされている。
+  quote: The inspection body shall be independent of the parties involved.
+  locator: 附属書A A.1 a)の転記
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+- id: c2
+  text: B型の検査機関は、自らが属する組織にだけ検査を提供するとされている。
+  quote: Inspection services shall only be supplied to the organization of which the inspection body forms a part.
+  locator: 附属書A A.2 a)の転記
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 318
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

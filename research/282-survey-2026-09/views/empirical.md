@@ -622,6 +622,13 @@
 | [SRC-0609#c3] | controlled-experiment | 3 seeds Qwen3-8B | Qwen3-8B, 20 skills: success 0.68 (eager) vs 0.38 (progressive) | どちらの方式も一貫して優位ではない。Qwen3-8B の 20 本では段階的開示(0.38)が常時ロード(0.68)を下回った。 | 2026-09-28 | verified |  |
 | [SRC-0609#c4] | controlled-experiment |   |  | 測定対象は小型のオープンモデル 3 種で、Claude・GPT-5 以降の世代は含まない(相転移の再現測定という不足は埋まらない)。 | 2026-09-28 | verified |  |
 | [SRC-0625#c1] | survey | 3社・8チーム・52名が参加(回答者数は不記載) 日立製作所・日立ハイテク・日立産業制御ソリューションズの参加者 | 90% が「70%以上の削減」、72% が「85%以上の削減」を体感 | 工数削減の数値は参加者アンケートの体感で、測定ではない。回答者数は書かれていない。 | 2026-06-18 | verified | yes |
+| [SRC-0683#c1] | controlled-experiment |   |  | 2人と4人の検査チームで、期間と有効性に差は見られなかった。 | 1997 | partial |  |
+| [SRC-0683#c2] | controlled-experiment |   |  | 1人のレビュアーのチームの有効性は、他の2つより劣った。 | 1997 | partial |  |
+| [SRC-0684#c1] | observational |   |  | 2人のレビュアーが、最適な数の欠陥を見つけるとされている。 | 2013 | partial |  |
+| [SRC-0684#c2] | observational |   |  | 作成者以外で実際にレビューに参加する人数の中央値は2である。 | 2013 | partial |  |
+| [SRC-0685#c1] | observational |   |  | コードレビューの75% 超はレビュアーが1人である(二次の要約による)。 | 2018 | partial |  |
+| [SRC-0686#c1] | observational |   |  | レビューは、期待されているほど欠陥に関するものではないとされている。 | 2013 | partial |  |
+| [SRC-0687#c1] | observational |   |  | レビューの指標が出荷後の欠陥に直接の効果を持つことは見つからなかった。 | 2020-05 | partial |  |
 
 ## 注記
 

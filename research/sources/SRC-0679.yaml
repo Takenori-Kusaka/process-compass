@@ -1,0 +1,56 @@
+schemaVersion: 0
+id: SRC-0679
+status: included
+excludeReason: null
+title: The new EN 50716 rules for project organisation
+url: https://www.csa.ch/en/blog/the-new-en-50716-rules-for-project-organisation
+canonicalUrl: https://www.csa.ch/en/blog/the-new-en-50716-rules-for-project-organisation
+ids:
+  arxiv: null
+  doi: null
+publisher: CSA Engineering AG
+authors: []
+orgType: consultancy
+region: eu
+lang: en
+sourceType: corp-techblog
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: 鉄道ソフトウェアの EN 50716:2023(EN 50128 の後継)の体制の規定の解説。役割ごとに報告線を規定し(妥当性確認者は SIL3・4 でプロジェクトマネージャーの配下にしない、評価者はプロジェクトチームから独立した別の組織単位)、強さを人数ではなく誰の配下にいるかで上げる。#318 は、指揮系統を段の軸に置く判断の比較の材料として引いた。EN 50128・EN 50716 本文は有償で未読。
+claims:
+- id: c1
+  text: 役割の兼務の禁止の例として、妥当性確認者は同時に実装者を兼ねないとされている。
+  quote: a validator may not also be an implementer at the same time
+  locator: 5.1.2.10〜5.1.2.12 の解説
+  quant: null
+  evidenceKind: expert-opinion
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

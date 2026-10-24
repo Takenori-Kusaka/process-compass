@@ -168,8 +168,9 @@ const adjustmentSchema = z.object({
     id: z.string().optional(), // type=process のときのみ省略可
   }),
   // omit=省略 / simplify=簡略化 / strengthen=厳格化 / merge-into=統合(value に統合先 id)
+  // restore=適用へ戻す(先に効いている省略・簡略・統合を取り消す。厳格化は下げない。#318 / ADR-0088)
   // set=パラメータ設定(param+value) / note=注記のみ(構造は変えない)
-  action: z.enum(['omit', 'simplify', 'strengthen', 'merge-into', 'set', 'note']),
+  action: z.enum(['omit', 'simplify', 'strengthen', 'merge-into', 'restore', 'set', 'note']),
   param: z.string().optional(),
   value: z.union([z.string(), z.number(), z.boolean()]).optional(),
   note: z.string(), // 画面にそのまま出す人向けの説明(必須)

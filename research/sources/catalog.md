@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 667(included 667、excluded 0)。生成日 2026-10-24。
+件数: 682(included 682、excluded 0)。生成日 2026-10-24。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -675,4 +675,19 @@
 | SRC-0672 | 2021-05-13 | public-agency | jp/ja | partial | TH12 | 疑義応答集(第2集)を各労働局へ示した厚生労働省の事務連絡(令和3年5月13日)。従前の解釈を変更するものではないと述べる。#317 で出典カードを起こした。 | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に係る疑義応答集について(事務連絡)](https://www.mhlw.go.jp/content/000780139.pdf) |
 | SRC-0673 | 2026-05 | public-agency | jp/ja | partial | TH12 | 労働者派遣と請負の区分の手引き。第3集の内容を掲げ、Q8 の答えとして、アジャイル型開発以外のシステム開発を請負業務とする場合にも当てはまると書く。#317 で | [労働者派遣・請負を適正に行うためのガイド](https://www.mhlw.go.jp/content/001704200.pdf) |
 | SRC-0674 | 2019 | industry-report | jp/ja | partial | TH12 | 業界団体のソフトウェア開発委託のモデル契約。要件定義書を甲乙双方の責任者の記名押印で確定し、検収は甲の検査合格で完了し、業務従事者への指揮命令は乙が行う。#31 | [JISA ソフトウェア開発委託基本モデル契約書 2020](https://www.jisa.or.jp/Portals/0/report/contract_model2020.pdf) |
+| SRC-0675 | 2021-04 | standard | cn/zh | partial | TH06 TH12 | ISO 26262-2:2018 を修正採用する中国国家規格の改訂の意見募集草案。6.4.9 表1 に確認措置の独立性 I0〜I3 の定義と ASIL 別の要求 | [GB/T 34590.2 征求意见稿(道路车辆 功能安全 第2部分: 功能安全管理。ISO 26262-2:2018 の修正採用の意見募集草案)](https://www.catarc.org.cn/upload/202104/29/202104291547457908.pdf) |
+| SRC-0676 | 2024-02-26 | standard | us/en | partial | TH06 TH12 | RTCA の FAS トピックペーパー。DO-178C/ED-12C の用語集の independence の定義を引く。独立性は作成者以外の者が検証する職責の | [RTCA FAS Topic Paper FTP1050 "Agile Methodology" Rev 3](https://www.rtca.org/wp-content/uploads/2024/06/FTP1050_3-PUBLICATION.pdf) |
+| SRC-0677 | 2014-10 | talk | global/en | partial | TH06 TH12 | IEC 61508 の起草関係者による機能安全アセスメントの解説。独立性を独立した人・独立した部門・独立した組織の三段階とし、SIL・結果の重大さで段を決める。 | [IEC61508: Assessment, Certification and Other Assurance Measures](https://esc.uk.net/wp-content/uploads/2012/09/IEC-61508-Assessment-Certification-and-Other-Assurance-Measures-October-2014.pdf) |
+| SRC-0678 | 2006 | industry-report | global/en | partial | TH06 TH12 | IEC 61508 第1版の概説。機能安全アセスメントの独立性を SIL 別に独立した人・部門・組織の推奨の強さ(HR/HR1/HR2/NR)で示す。#318  | [IEC 61508 Overview Report v2.0](https://www.exida.com/articles/IEC-61508-Overview.pdf) |
+| SRC-0679 | ? | corp-techblog | eu/en | partial | TH06 TH12 | 鉄道ソフトウェアの EN 50716:2023(EN 50128 の後継)の体制の規定の解説。役割ごとに報告線を規定し(妥当性確認者は SIL3・4 でプロジェ | [The new EN 50716 rules for project organisation](https://www.csa.ch/en/blog/the-new-en-50716-rules-for-project-organisation) |
+| SRC-0680 | 2012 | paper-peer | global/en | partial | TH06 TH12 | IEEE 1012 に基づく IV&V の実務の教訓。IV&V を技術・管理・財務の3つの独立の組み合わせとして5形態(Classical・Modified・I | [Lessons Learned from Practical Independent Verification and Validation Based on IEEE 1012](https://www.scirp.org/html/23958.html) |
+| SRC-0681 | ? | public-agency | us/en | partial | TH06 TH12 | NASA の NPR 7150.2D 3.6.2(SWE-141)の要求と手引き。IV&V を対象の区分の案件に限って課し、IV&V は財務・管理・技術の点で独 | [SWE-141 - Software Independent Verification and Validation(NASA Software Engineering Handb](https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695499/SWE-141+-+Software+Independent+Verification+and+Validation) |
+| SRC-0682 | ? | industry-report | us/en | partial | TH06 TH12 | 適合性評価の検査機関の規格 ISO/IEC 17020:2012 の研修ハンドブック。附属書A の規範文を転記し、独立性を A型(第三者)・B型(親組織にだけ提 | [Understanding ISO/IEC 17020:2012(IAS 研修ハンドブック)](https://www.iasonline.org/wp-content/uploads/2021/01/Tab-1-01-Understanding-ISOIEC-17020-Handbook.pdf) |
+| SRC-0683 | 1997 | paper-peer | us/en | partial | TH06 TH12 | 大規模開発のコード検査の費用対効果の実験。2人と4人の検査チームで期間と有効性に差が無く、1人のチームは劣った。#318 は、承認者の人数を独立の強さの軸にしな | [An Experiment to Assess the Cost-Benefits of Code Inspections in Large Scale Software Deve](https://userweb.cs.txstate.edu/~rp31/papersSQ/PorterEtAl_TSE.pdf) |
+| SRC-0684 | 2013 | paper-peer | global/en | partial | TH06 TH12 | 複数の組織とオープンソースのピアレビューの実務の収れんの研究。実際に参加するレビュアーの中央値は2で、2人のレビュアーが欠陥の発見で最適とする。#318 は、人 | [Convergent Contemporary Software Peer Review Practices](https://users.ece.utexas.edu/~miryung/teaching/EE379K-Spring2014/Papers/Paper%204.pdf) |
+| SRC-0685 | 2018 | paper-peer | us/en | partial | TH06 TH12 | Google のモダンコードレビューの事例研究。要旨と二次の要約によれば、レビューの75% 超はレビュアー1人で、承認は所有(owner)とリーダビリティの資格 | [Modern Code Review: A Case Study at Google](https://research.google/pubs/modern-code-review-a-case-study-at-google/) |
+| SRC-0686 | 2013 | paper-peer | global/en | partial | TH06 TH12 | Microsoft のモダンコードレビューの期待と結果の研究の要旨。レビューは期待より欠陥の発見が少なく、コードと変更の理解が要とする。#318 は、承認の数を | [Expectations, Outcomes, and Challenges of Modern Code Review](https://2013.icse-conferences.org/content/expectations-outcomes-and-challenges-modern-code-review.html) |
+| SRC-0687 | 2020-05 | preprint | global/en | partial | TH06 TH12 | レビューの指標(レビュアー数などを含む)と出荷後の欠陥の関係の再現研究。指標が出荷後の欠陥を直接説明する効果を見つけられなかった。#318 は、承認の数を独立の | [Do code review measures explain the incidence of post-release defects?](https://arxiv.org/pdf/2005.09217) |
+| SRC-0688 | ? | standard | global/en | partial | TH06 TH12 | サプライチェーンの枠組み SLSA の脅威と緩和の作業草案。二者レビューを推奨しつつ、レビュアーの追加や上位のレビュアーを求めることは収穫逓減とし、2人の共謀は | [SLSA Threats & mitigations(作業草案)](https://slsa.dev/spec/draft/threats) |
+| SRC-0689 | 2024-04-16 | corp-techblog | global/en | partial | TH06 TH12 | DO-178C のソフトウェアレビューの解説。レビュー関係の目標のうち独立性を要する数はレベル A で16/31、B で7/31、C・D は0 とする。航空は独 | [A Fresh Take on DO-178C Software Reviews](https://www.adacore.com/blog/a-fresh-take-on-do-178c-software-reviews) |
 

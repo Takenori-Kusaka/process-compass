@@ -156,11 +156,12 @@ const kb = {
       simplify: '簡略化',
       strengthen: '厳格化',
       'merge-into': '統合',
+      restore: '適用へ戻す',
     };
     const humanize = (s: string) =>
       s
         .replace(/(?:gate|role|practice|phase|activity):[a-z0-9-]+/g, (m) => kb.labels[m] ?? m)
-        .replace(/「(omit|simplify|strengthen|merge-into)」/g, (_, a) => `「${ACTION_LABELS[a]}」`);
+        .replace(/「(omit|simplify|strengthen|merge-into|restore)」/g, (_, a) => `「${ACTION_LABELS[a]}」`);
 
     function currentAnswers(): Record<string, string> {
       const answers: Record<string, string> = {};

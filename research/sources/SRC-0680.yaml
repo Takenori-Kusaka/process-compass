@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: SRC-0680
+status: included
+excludeReason: null
+title: Lessons Learned from Practical Independent Verification and Validation Based on IEEE 1012
+url: https://www.scirp.org/html/23958.html
+canonicalUrl: https://www.scirp.org/html/23958.html
+ids:
+  arxiv: null
+  doi: null
+publisher: Scientific Research Publishing(Journal of Software Engineering and Applications 5)
+authors:
+- Joon Ku Lee
+- Yang Mo Kim
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: '2012'
+publishedBasis: page
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: full
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: IEEE 1012 に基づく IV&V の実務の教訓。IV&V を技術・管理・財務の3つの独立の組み合わせとして5形態(Classical・Modified・Integrated・Internal・Embedded)で並べ、財務の独立が実務で最も難しいとする。#318 は、資源(予算・人事評価)を段の軸に置く判断の比較の材料として引いた。
+claims:
+- id: c1
+  text: Classical IV&V は3つの独立の要素をすべて備える形態とされている。
+  quote: Classical IV & V embodies all three independence parameters.
+  locator: IV&V の形態の節
+  quant: null
+  evidenceKind: case-report
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+- id: c2
+  text: 財務の独立は、現実のプロジェクトで実装が難しいとされている。
+  quote: Financial independence seems to be tough to implement in realistic project environment.
+  locator: 教訓の節
+  quant: null
+  evidenceKind: case-report
+  rqs: []
+  issues:
+  - 318
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-10-24): verified 634 / partial 30 / unreachable 2 / unverified 1
+集計(生成日 2026-10-24): verified 634 / partial 45 / unreachable 2 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -56,6 +56,21 @@
 | SRC-0672 | partial | agent-read |  | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に係る疑義応答集について(事務連絡)](https://www.mhlw.go.jp/content/000780139.pdf) |
 | SRC-0673 | partial | agent-read |  | [労働者派遣・請負を適正に行うためのガイド](https://www.mhlw.go.jp/content/001704200.pdf) |
 | SRC-0674 | partial | agent-read |  | [JISA ソフトウェア開発委託基本モデル契約書 2020](https://www.jisa.or.jp/Portals/0/report/contract_model2020.pdf) |
+| SRC-0675 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [GB/T 34590.2 征求意见稿(道路车辆 功能安全 第2部分: 功能安全管理。ISO 26262-2:2018 の修正採用の意見募集草案)](https://www.catarc.org.cn/upload/202104/29/202104291547457908.pdf) |
+| SRC-0676 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [RTCA FAS Topic Paper FTP1050 "Agile Methodology" Rev 3](https://www.rtca.org/wp-content/uploads/2024/06/FTP1050_3-PUBLICATION.pdf) |
+| SRC-0677 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [IEC61508: Assessment, Certification and Other Assurance Measures](https://esc.uk.net/wp-content/uploads/2012/09/IEC-61508-Assessment-Certification-and-Other-Assurance-Measures-October-2014.pdf) |
+| SRC-0678 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [IEC 61508 Overview Report v2.0](https://www.exida.com/articles/IEC-61508-Overview.pdf) |
+| SRC-0679 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [The new EN 50716 rules for project organisation](https://www.csa.ch/en/blog/the-new-en-50716-rules-for-project-organisation) |
+| SRC-0680 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [Lessons Learned from Practical Independent Verification and Validation Based on IEEE 1012](https://www.scirp.org/html/23958.html) |
+| SRC-0681 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [SWE-141 - Software Independent Verification and Validation(NASA Software Engineering Handb](https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695499/SWE-141+-+Software+Independent+Verification+and+Validation) |
+| SRC-0682 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [Understanding ISO/IEC 17020:2012(IAS 研修ハンドブック)](https://www.iasonline.org/wp-content/uploads/2021/01/Tab-1-01-Understanding-ISOIEC-17020-Handbook.pdf) |
+| SRC-0683 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [An Experiment to Assess the Cost-Benefits of Code Inspections in Large Scale Software Deve](https://userweb.cs.txstate.edu/~rp31/papersSQ/PorterEtAl_TSE.pdf) |
+| SRC-0684 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [Convergent Contemporary Software Peer Review Practices](https://users.ece.utexas.edu/~miryung/teaching/EE379K-Spring2014/Papers/Paper%204.pdf) |
+| SRC-0685 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [Modern Code Review: A Case Study at Google](https://research.google/pubs/modern-code-review-a-case-study-at-google/) |
+| SRC-0686 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [Expectations, Outcomes, and Challenges of Modern Code Review](https://2013.icse-conferences.org/content/expectations-outcomes-and-challenges-modern-code-review.html) |
+| SRC-0687 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [Do code review measures explain the incidence of post-release defects?](https://arxiv.org/pdf/2005.09217) |
+| SRC-0688 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [SLSA Threats & mitigations(作業草案)](https://slsa.dev/spec/draft/threats) |
+| SRC-0689 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [A Fresh Take on DO-178C Software Reviews](https://www.adacore.com/blog/a-fresh-take-on-do-178c-software-reviews) |
 
 ### 除外した出典(却下は成果)
 

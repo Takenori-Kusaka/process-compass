@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0681
+status: included
+excludeReason: null
+title: SWE-141 - Software Independent Verification and Validation(NASA Software Engineering Handbook)
+url: https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695499/SWE-141+-+Software+Independent+Verification+and+Validation
+canonicalUrl: https://swehb.nasa.gov/spaces/SWEHBVD/pages/102695499/SWE-141+-+Software+Independent+Verification+and+Validation
+ids:
+  arxiv: null
+  doi: null
+publisher: NASA
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: null
+publishedBasis: page
+version: NPR 7150.2D 3.6.2
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: NASA の NPR 7150.2D 3.6.2(SWE-141)の要求と手引き。IV&V を対象の区分の案件に限って課し、IV&V は財務・管理・技術の点で独立し、開発組織に関係する会社に属さないとする。外す場合は免除の記録を残す。#318 は、最も強い段を対象を絞って外から買う型の比較の材料として引いた。
+claims:
+- id: c1
+  text: IV&V の提供者は、財務・管理・技術の点で独立し、開発組織に関係する会社の一部であってはならないとされている。
+  quote: financially, managerially, and technically independent and cannot be part of a company associated with the development organization.
+  locator: SWE-141 手引き
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+- id: c2
+  text: IV&V は、Key Decision Point A に達する対象区分の案件に課される。
+  quote: For projects reaching Key Decision Point A, the program manager shall ensure that software IV&V is performed
+  locator: NPR 7150.2D 3.6.2
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 318
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

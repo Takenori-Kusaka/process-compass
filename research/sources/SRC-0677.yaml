@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0677
+status: included
+excludeReason: null
+title: 'IEC61508: Assessment, Certification and Other Assurance Measures'
+url: https://esc.uk.net/wp-content/uploads/2012/09/IEC-61508-Assessment-Certification-and-Other-Assurance-Measures-October-2014.pdf
+canonicalUrl: https://esc.uk.net/wp-content/uploads/2012/09/IEC-61508-Assessment-Certification-and-Other-Assurance-Measures-October-2014.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Safety-Critical Systems Club(Ron Bell)
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: talk
+published: 2014-10
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: IEC 61508 の起草関係者による機能安全アセスメントの解説。独立性を独立した人・独立した部門・独立した組織の三段階とし、SIL・結果の重大さで段を決める。より低い独立性を採るなら根拠を明記させ、第三者認証は要求しない。#318 は、理由を記録して低い段を選ぶ経路(IEC 61508 型)を採らない判断の比較の材料として引いた。
+claims:
+- id: c1
+  text: より低い独立性の段を採るなら、その根拠を明記するとされている。
+  quote: If a lower level of independence is adopted, then the rationale has to be specified.
+  locator: 表5 の解説
+  quant: null
+  evidenceKind: expert-opinion
+  rqs: []
+  issues:
+  - 318
+  stance: context
+- id: c2
+  text: IEC 61508 は、適合を認証機関が証明することを要求しないとされている。
+  quote: There is no requirement in IEC 61508 for compliance to be attested by a certification body
+  locator: p.14
+  quant: null
+  evidenceKind: expert-opinion
+  rqs: []
+  issues:
+  - 318
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10
