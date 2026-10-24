@@ -218,6 +218,15 @@ retiredPhrases:
     retired: 2026-10-24
     by: ADR-0083
     instead: 同上
+  # 列挙に無い離脱を「逸脱」と呼んだ句(#313 突合 X-5)
+  - phrase: 1〜2名の体制の逸脱
+    retired: 2026-10-24
+    by: ADR-0083
+    instead: 1〜2名の体制の列挙に無い離脱(第1章 1.10.2)
+  - phrase: 1名以下を逸脱
+    retired: 2026-10-24
+    by: ADR-0083
+    instead: 1名以下を列挙に無い離脱(第1章 1.10.2)
 # 決定の記録(adr/)は、廃した言い回しを経緯として引くので探さない。自動生成の台帳も探さない。
 # zenn/ は派生物の置き場であり、publishing-hub の査読の経路で改めるため、ここでは探さない。
 retiredScan:

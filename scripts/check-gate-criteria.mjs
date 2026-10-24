@@ -14,7 +14,7 @@
 // 定量化しない」など)は降りません。降りていないことを KB 側で明示します。
 
 import fs from 'node:fs';
-import { readEdition, editionProblems } from './lib/edition.mjs';
+import { readEdition, editionProblems, editionAt } from './lib/edition.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { missingInputs, describeMissing, commitProblems } from './lib/inputs.mjs';
@@ -174,8 +174,14 @@ if (kbMissing.length) {
     const ed = readEdition();
     for (const p of editionProblems(ed)) problems.push(`src/data/edition.yaml: ${p}`);
     if (!kb.source || !('edition' in kb.source)) problems.push('知識ベースに source.edition(本標準の版。作業中の版は null)がありません');
-    else if ((kb.source.edition ?? null) !== ed.edition || (kb.source.editionIssuedAt ?? null) !== ed.issuedAt) {
-      problems.push(`知識ベースの版(${kb.source.edition ?? '作業中の版'})が、正本の版(${ed.edition ?? '作業中の版'})と一致しません。'npm run template:kb' を実行してください`);
+    else {
+      // 版の名は、発行の時点のコミットで生成した知識ベースだけが持つ(ADR-0083 X-1)。生成元のコミットから導いた版と比べる
+      const want = editionAt(kb.source.commit, ed);
+      if ((kb.source.edition ?? null) !== want.edition || (kb.source.editionIssuedAt ?? null) !== want.issuedAt || (kb.source.basedOn ?? null) !== want.basedOn) {
+        problems.push(
+          `知識ベースの版(${kb.source.edition ?? `作業中の版${kb.source.basedOn ? `。${kb.source.basedOn}の後` : ''}`})が、生成元のコミットに当たる版(${want.edition ?? `作業中の版${want.basedOn ? `。${want.basedOn}の後` : ''}`})と一致しません。'npm run template:kb' を実行してください`
+        );
+      }
     }
   }
   for (const g of kb.gates ?? []) {

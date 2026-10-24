@@ -95,7 +95,7 @@ const kb = {
     <ul id="trace-list"></ul>
     <h3>チームでの修正と採択</h3>
     <p>
-      提案は出発点です。ゲート表の「あなたの修正」列で各ゲートの扱いを上書きできます。提案より弱める方向の修正は<strong>逸脱</strong>として提案書に記録されます。修正を含めた状態はこのページの
+      提案は出発点です。ゲート表の「あなたの修正」列で各ゲートの扱いを上書きできます。提案より弱める方向の修正は<strong>提案より弱める修正</strong>として提案書に記録されます。これは本標準の「逸脱」(第1章 1.10.2 の閉じた列挙)と別のものです。弱めた結果が未達・逸脱・列挙に無い離脱のどれに当たるかは、標準の第1章 1.10.2 で確かめてください。修正を含めた状態はこのページの
       URL に保存されるので、リンクを渡せばチームの他メンバーが同じ内容を確認できます。
     </p>
     <div id="deviations"></div>
@@ -172,7 +172,7 @@ const kb = {
 
     // ユーザーによるゲート上書き(gateId → 状態)。URL に載せてチーム共有できる
     const overrides: Record<string, string> = {};
-    // 統制の強さの序列(逸脱=提案より弱める方向の修正の判定に使う)
+    // 統制の強さの序列(提案より弱める修正の判定に使う)
     const RANK: Record<string, number> = { omit: 0, simplify: 1, 'merged-into': 1, standard: 2, strengthen: 3 };
     const rankOf = (s: string) => RANK[s.split(':')[0]] ?? 2;
 
@@ -275,7 +275,7 @@ const kb = {
       lastResult?.profile[`gate:${gateId}`]?.state ?? 'standard';
     const effectiveState = (gateId: string) => overrides[gateId] ?? proposalState(gateId);
 
-    // 修正の一覧と逸脱判定(提案より弱める方向の修正は逸脱として明示する)
+    // 修正の一覧と、提案より弱める修正の判定(本標準の「逸脱」の語は使わない。第1章 1.10.2)
     function deviationList() {
       return Object.entries(overrides)
         .filter(([gid, v]) => v !== proposalState(gid))
@@ -296,7 +296,7 @@ const kb = {
               (d) =>
                 `<li>${d.weakening ? '⚠ ' : ''}<strong>${esc(d.name)}</strong>: 提案「${esc(d.from)}」→ 修正「${esc(
                   d.to
-                )}」${d.weakening ? ' <small>(統制を弱める修正のため、逸脱として提案書に記録されます)</small>' : ''}</li>`
+                )}」${d.weakening ? ' <small>(統制を弱める修正のため、「提案より弱める修正」として提案書に記録されます)</small>' : ''}</li>`
             )
             .join('')}</ul>`
         : '<p>修正はありません(提案どおり)。</p>';
@@ -340,12 +340,14 @@ const kb = {
           .filter((p: any) => p.target.type !== 'gate')
           .map((p: any) => `- **${targetLabel(p.target)}**: ${p.notes.join(' / ')}`),
         '',
-        '## チームによる修正と逸脱',
+        '## チームによる修正と、提案より弱める修正',
+        '',
+        '「提案より弱める修正」は、本標準の「逸脱」(第1章 1.10.2 の閉じた列挙)と別のものです。弱めた結果が未達・逸脱・列挙に無い離脱のどれに当たるかは、第1章 1.10.2 で確かめます。',
         '',
         ...(devs.length
           ? devs.map(
               (d) =>
-                `- ${d.weakening ? '⚠ **逸脱** ' : ''}${d.name}: 提案「${d.from}」→ 修正「${d.to}」`
+                `- ${d.weakening ? '⚠ **提案より弱める修正** ' : ''}${d.name}: 提案「${d.from}」→ 修正「${d.to}」`
             )
           : ['- 修正なし(提案どおり)']),
         '',

@@ -4,8 +4,11 @@
 // 検査すること:
 //   1. 1.3 の節にある規格の呼び名(ISO・IEC・JIS ほか)に、発行年が付いていること(版の無い引用をしない)
 //   2. 1.3 の表の各行に、出典台帳の識別子(SRC-NNNN)が書かれ、そのカードが在ること
-//   3. 表の行が引く版の呼び名(例: ISO 9001:2015)が、その行の引くカードの題名に含まれること
-//      (表の外の注記の呼び名は、台帳のいずれかのカードの題名に含まれること)
+//   3. 表の行が引く版の呼び名(例: ISO 9001:2015。部・追補まで)が、その行の引くカードの文書の呼び名と一致すること。
+//      カードの文書の呼び名は、題名の最初の規格の呼び名(追補を含む)。題名が「(<呼び名> IDT)」を持つカードは、
+//      一致の採用(IDT)としてその呼び名にも当たる。部分一致では通さない(ADR-0083 X-12)
+//      (表の外の注記の呼び名は、台帳のいずれかのカードの文書の呼び名と一致すること)
+//   5. 表の行の版の呼び名が、検証の状態 unreachable のカードだけで支えられていれば、注意として出す(失敗にしない)
 //   4. 規格の呼び名を持たず、版を「第N版」で示す文書(ガイドライン)は、その版がその行のカードの題名に含まれること
 //
 // 検査しないこと: 1.3 の外の本文の引用。機械は、引用がどの版を指すつもりかを判定できないため、
@@ -23,6 +26,20 @@ const SOURCES = path.join(ROOT, 'research/sources');
 // 規格の呼び名。発行年(:YYYY)と追補(/AMD1:2015)を任意で拾う
 const DESIGNATION =
   /\b(ISO\/IEC\/IEEE|ISO\/IEC TR|ISO\/IEC|ISO|IEC|JIS [A-Z])\s?([0-9]{3,5}(?:-[0-9]+)?)(:[0-9]{4})?((?:\/AMD[0-9]+:[0-9]{4})*)/g;
+
+const canon = (m) => `${m[1]} ${m[2]}${m[3] ?? ''}${m[4] ?? ''}`.replace(/\s+/g, ' ').trim();
+
+/** カードが支える文書の呼び名(題名の最初の呼び名と、IDT で示した呼び名) */
+export function cardDesignations(card) {
+  const title = String(card?.title ?? '');
+  const out = new Set();
+  const first = [...title.matchAll(DESIGNATION)].find((m) => m[3]);
+  if (first) out.add(canon(first));
+  for (const m of title.matchAll(/\(([^()]*?) IDT\)/g)) {
+    for (const d of m[1].matchAll(DESIGNATION)) if (d[3]) out.add(canon(d));
+  }
+  return out;
+}
 
 function loadCards() {
   const cards = new Map();
@@ -43,7 +60,7 @@ export function section13(md) {
 
 const norm = (s) => s.replace(/\s+/g, ' ').trim();
 
-export function checkCitations(md, cards) {
+export function checkCitations(md, cards, warnings = []) {
   const problems = [];
   const sec = section13(md);
   if (!sec) return ['第1章に 1.3 の節が見つかりません'];
@@ -77,18 +94,22 @@ export function checkCitations(md, cards) {
       problems.push(`1.3 の行「${doc}」に出典台帳の識別子がありません`);
       continue;
     }
-    const titles = [];
+    const rowCards = [];
     for (const id of ids) {
       const c = cards.get(id);
       if (!c) problems.push(`1.3 の行「${doc}」が引く ${id} のカードがありません`);
-      else titles.push(norm(String(c.title ?? '')));
+      else rowCards.push(c);
     }
+    const titles = rowCards.map((c) => norm(String(c.title ?? '')));
     for (const m of doc.matchAll(DESIGNATION)) {
       if (!m[3]) continue;
-      const d = norm(`${m[1]} ${m[2]}${m[3]}`).replace(/^(ISO\/IEC\/IEEE|ISO\/IEC TR|ISO\/IEC|ISO|IEC) /, '$1 ');
+      const d = canon(m);
       tableDesignations.add(d);
-      const ok = titles.some((t) => t.includes(d) || t.replace(/\s/g, '').includes(d.replace(/\s/g, '')));
-      if (!ok) problems.push(`1.3 の行「${doc}」: 版「${d}」を題名に含むカードが、その行の ${ids.join('、')} にありません`);
+      const backing = rowCards.filter((c) => cardDesignations(c).has(d));
+      if (!backing.length) problems.push(`1.3 の行「${doc}」: 版「${d}」を文書の呼び名に持つカードが、その行の ${ids.join('、')} にありません`);
+      else if (backing.every((c) => c?.verification?.status === 'unreachable')) {
+        warnings.push(`1.3 の行「${doc}」: 版「${d}」を支えるカード(${backing.map((c) => c.id).join('、')})は、どれも原本に到達できていません(unreachable)`);
+      }
     }
     // 規格の呼び名を持たない文書(ガイドライン)だけ、「第N版」を版の呼び名として照合する
     const hasDesignation = [...doc.matchAll(DESIGNATION)].some((m) => m[3]);
@@ -98,15 +119,13 @@ export function checkCitations(md, cards) {
       }
     }
   }
-  // 表の外(注記・本文)の版つきの呼び名は、台帳のいずれかのカードにあること
-  const allTitles = [...cards.values()].map((c) => norm(String(c.title ?? '')).replace(/\s/g, ''));
+  // 表の外(注記・本文)の版つきの呼び名は、台帳のいずれかのカードの文書の呼び名と一致すること
+  const all = new Set([...cards.values()].flatMap((c) => [...cardDesignations(c)]));
   for (const m of sec.matchAll(DESIGNATION)) {
     if (!m[3]) continue;
-    const d = norm(`${m[1]} ${m[2]}${m[3]}`);
+    const d = canon(m);
     if (tableDesignations.has(d)) continue;
-    if (!allTitles.some((t) => t.includes(d.replace(/\s/g, '')))) {
-      problems.push(`1.3: 版「${d}」を題名に含むカードが出典台帳にありません`);
-    }
+    if (!all.has(d)) problems.push(`1.3: 版「${d}」を文書の呼び名に持つカードが出典台帳にありません`);
   }
   return [...new Set(problems)];
 }
@@ -115,6 +134,10 @@ function selfTest() {
   const cards = new Map([
     ['SRC-0001', { id: 'SRC-0001', title: 'ISO 9001:2015 Quality management systems' }],
     ['SRC-0002', { id: 'SRC-0002', title: 'AI事業者ガイドライン(第1.2版)' }],
+    ['SRC-0003', { id: 'SRC-0003', title: 'JIS B 9700:2013 機械類の安全性(ISO 12100:2010 IDT)' }],
+    ['SRC-0004', { id: 'SRC-0004', title: 'IEC 62304:2006/AMD1:2015 Amendment 1' }],
+    ['SRC-0005', { id: 'SRC-0005', title: 'Commentary on ISO 9001:2015 and ISO 12100:2010' }],
+    ['SRC-0006', { id: 'SRC-0006', title: 'JIS Q 9001:2015 プレビュー(未取得)', verification: { status: 'unreachable' } }],
   ]);
   const wrap = (body) => `## 1.3 引用規格および参照文書\n\n本標準には、引用規格はありません。\n\n${body}\n\n## 1.4 用語の定義\n`;
   const head = '| 区分 | 文書(版) | 出典台帳 |\n| --- | --- | --- |\n';
@@ -126,9 +149,20 @@ function selfTest() {
     ['カードが無い', wrap(head + '| a | ISO 9001:2015 | SRC-0009 |'), 1],
     ['ガイドラインの版が違う', wrap(head + '| b | AI事業者ガイドライン(第1.1版) | SRC-0002 |'), 1],
     ['注記の版にカードが無い', wrap(head + '| a | ISO 9001:2015 | SRC-0001 |\n\n例: IEC 61508:2010'), 1],
+    ['IDT のカードは、一致の採用の呼び名を支える', wrap(head + '| m | ISO 12100:2010 / JIS B 9700:2013 | SRC-0003 |'), 0],
+    ['追補まで一致すれば通る', wrap(head + '| m | IEC 62304:2006/AMD1:2015 | SRC-0004 |'), 0],
+    ['本体の版を、追補のカードでは支えない', wrap(head + '| m | IEC 62304:2006 | SRC-0004 |'), 1],
+    ['題名に呼び名が出てくるだけのカードでは支えない', wrap(head + '| m | ISO 12100:2010 | SRC-0005 |'), 1],
     ['引用規格が無い旨の文が無い', `## 1.3 x\n\n${head}| a | ISO 9001:2015 | SRC-0001 |\n\n## 1.4 y\n`, 1],
   ];
   let failed = 0;
+  {
+    const w = [];
+    checkCitations(wrap(head + '| q | JIS Q 9001:2015 | SRC-0006 |'), cards, w);
+    const ok = w.length === 1;
+    if (!ok) failed++;
+    console.log(`${ok ? 'ok  ' : 'NG  '} 原本に到達できないカードだけで支える版は、注意に出す(注意 ${w.length} 件)`);
+  }
   for (const [name, md, want] of cases) {
     const got = checkCitations(md, cards).length;
     const ok = want === 0 ? got === 0 : got >= 1;
@@ -146,7 +180,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   if (process.argv.includes('--self-test')) {
     selfTest();
   } else {
-    const problems = checkCitations(readFileSync(OVERVIEW, 'utf8'), loadCards());
+    const warnings = [];
+    const problems = checkCitations(readFileSync(OVERVIEW, 'utf8'), loadCards(), warnings);
+    for (const w of warnings) console.log(`::warning::${w}`);
     if (problems.length) {
       for (const p of problems) console.error(`::error::${p}`);
       process.exit(1);

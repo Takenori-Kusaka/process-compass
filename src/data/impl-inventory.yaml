@@ -1365,6 +1365,7 @@ sections:
     ids:
       - IMPL-0305
       - IMPL-0306
+      - IMPL-0311
     note: 版の発行・付番・棚卸しは標準の保守の手続(community/standard-editions)であり、実行主体の挙動ではないため降ろさない
     issue: 313
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.4 適用の終了

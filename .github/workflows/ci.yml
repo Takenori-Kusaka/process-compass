@@ -180,8 +180,9 @@ jobs:
           cp LICENSE dist-repo/LICENSE
 
           # 出所と版を書く。受け取り側が「いつの版か」を知る唯一の手段(ADR-0052 決定2)。
-          # 版は本標準の版(第1章 1.10.3。src/data/edition.yaml)。発行していなければ作業中の版と書く(#313 / ADR-0083)
-          EDITION_LABEL=$(node scripts/lib/edition.mjs --label)
+          # 版は本標準の版(第1章 1.10.3。src/data/edition.yaml)。発行の時点のコミットのときだけ版の名を書き、
+          # それ以外は作業中の版(第N版の後 / 未発行)と書く(#313 / ADR-0083 X-1)
+          EDITION_LABEL=$(node scripts/lib/edition.mjs --label --commit "${GITHUB_SHA}")
           cat > dist-repo/VERSION.md <<EOF
           # 配布した標準の版
 
