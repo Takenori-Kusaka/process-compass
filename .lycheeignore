@@ -26,3 +26,26 @@ https://kpmg.com/jp/ja/home/insights/2018/07/revised-cgc-20180713.html
 https://www.morihamada.com/ja/insights/newsletters/137701
 https://jglobal.jst.go.jp/detail\?JGLOBAL_ID=200902229166831163
 https://www.totalum.app/blog/claude-agent-sdk-totalum-2026
+
+# 2026-10-23 の棚卸し(Issue #299)。
+# 検出 Issue の 4xx をすべて確かめ、ブラウザ相当の取得で本文を得られたもの。
+# GitHub Actions の実行環境からの要求にだけ 404 を返す(arxiv の PDF は abs ページから到達できる)
+https://www\.cncf\.io/projects/serverless-workflow/
+https://www\.asems\.mod\.uk/toolkit/goal-structuring-notation-and-claim-trees
+https://www\.faa\.gov/about/office_org/headquarters_offices/ang/redac/redac-sas-201503-gsn-community-standard-v1\.pdf
+https://handbook\.gitlab\.com/handbook/company/culture/all-remote/asynchronous/
+https://arxiv\.org/pdf/2511\.15755
+https://lushbinary\.com/blog/ai-gateway-llm-routing-comparison-litellm-portkey-cloudflare/
+https://www\.oxebridge\.com/emma/iso-survey-2024-analysis-iaf-takes-over-survey-data/
+https://www\.simula\.no/publications/survey-characteristics-projects-success-delivering-client-benefits
+https://digital\.gov/resources/requirements-for-achieving-efficiency-transparency-and-innovation-through-reusable-and-open-source-software/
+https://www\.ida\.org/assets/2026/06/18013118/P-9278\.pdf
+
+# 同上。本文を取得できず、消失または移転と判断したもの。調査メモには取得時の記録として残す
+# (foundernest は同じ記事が https://www.foundernest.com/?p=8124 にある)
+https://www\.foundernest\.com/insights/why-most-innovation-projects-never-scale-and-how-to-fix-it
+https://dev\.to/opscanopy/one-cve-four-ignore-files-unifying-trivy-grype-snyk-and-osv-scanner-4m57
+https://www\.claudedirectory\.org/blog/claude-code-permissions-guide
+
+# 同上。#288 の検証で模擬環境に置いた架空のリポジトリ。実在しない
+https://github\.com/hokuto-fg/loan-approval
