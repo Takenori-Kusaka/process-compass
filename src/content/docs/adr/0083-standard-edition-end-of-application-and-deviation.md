@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-10-24)。採用済みの ADR の決定を置き換えません。[ADR-0068](/process-compass/adr/0068-start-of-application-and-conformance-claim/)の決定1(適用の開始)と決定4(適用の表明と適合の主張)を補います。決定1 の「構成の初期化がこれに当たります」は、構成が設定済みになった最初のコミットと読みます(本 ADR の決定5)。決定2 の「未達または記録の欠落」の二分には、逸脱と列挙に無い離脱を表示の区分として足します(本 ADR の決定3)。決定4 の表には、版・逸脱・列挙に無い離脱と、逸脱を伴う適合の主張を足します(本 ADR の決定3)。[ADR-0029](/process-compass/adr/0029-shipping-approver-merge-exception/)の「代償措置つきの逸脱」は、本 ADR の閉じた列挙の唯一の項目(D-1)として維持します。[ADR-0052](/process-compass/adr/0052-delivery-is-verified-at-the-destination/)・[ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/)の配布の定めは変えず、配布物に本標準の版を併記します。[ADR-0035](/process-compass/adr/0035-separation-by-execution-context/)の決定2、[ADR-0056](/process-compass/adr/0056-assurance-argument/)の決定5、[ADR-0040](/process-compass/adr/0040-template-forms-as-subset-of-standard/)の決定3、[ADR-0008](/process-compass/adr/0008-tailoring-rules-as-data/)の決定2・4 の「逸脱」の読み方を、本 ADR の決定8 に置きます。
 
+決定5 を、[ADR-0085](/process-compass/adr/0085-adoption-into-existing-repositories/)の決定3 が補います(2026-10-24)。境は、既定ブランチの第1親の連鎖の上で探します。併合した別の履歴の中のコミットを境にしません。「分かれるすべての場合で、実装の境のほうが早い」は1本の履歴の上での判断であり、併合した別の履歴には当たりませんでした。決定5 の「旧い構成の移行は #315 で扱います」は、ADR-0085 の決定5 で扱いました。
+
 決定1 の作業中の版の扱いは、突合の段の裁定(`decision.md` の 8 節 X-4)で改めた後の内容です。会議体の段の裁定(Q-1)は、作業中の版を適用の表明にも名指せないとしていました。
 
 ## コンテキスト

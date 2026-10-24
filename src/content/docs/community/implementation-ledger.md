@@ -21,7 +21,7 @@ sidebar:
 
 | 対象 | 節 | マーク済み | 判定基準の表 | 対象にしない | **未棚卸し** |
 | --- | --- | --- | --- | --- | --- |
-| 第1章 | 24 | 4 | 0 | 6 | **14** |
+| 第1章 | 25 | 5 | 0 | 6 | **14** |
 | 第2章 | 38 | 2 | 0 | 4 | **32** |
 | 第3章 | 87 | 15 | 0 | 17 | **55** |
 | 第4章 | 91 | 14 | 2 | 5 | **70** |
@@ -33,11 +33,11 @@ sidebar:
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
 | 附属書H | 43 | 3 | 0 | 7 | **33** |
-| フェーズ5 | 304 | 32 | 0 | 51 | **221** |
+| フェーズ5 | 309 | 35 | 0 | 56 | **218** |
 | フェーズ6 | 133 | 3 | 0 | 15 | **115** |
-| **計** | 965 | 99 | 2 | 122 | **742** |
+| **計** | 971 | 103 | 2 | 127 | **739** |
 
-未棚卸しの742節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
+未棚卸しの739節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
 **台帳の件数は網羅の証明ではありません**。降りていない規定が0件であることも、未棚卸しの節が0件であることも、規定がすべて降りたことを示しません。機械が確かめるのは、節が区分つきで登録されていること、登録の鍵と識別子が実在すること、「対象にしない」の節にマークが無いことまでです。節の中の規定がすべてマークされているかは、区分を登録した者の判断です。
 
@@ -47,9 +47,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 63 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 74 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 66 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 182 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 185 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -59,20 +59,20 @@ sidebar:
 
 | 区分 | 件数 |
 | --- | --- |
-| 走査したファイル(スキルと CLAUDE.md の生成区間の外) | 60 |
-| 印を求める要求・禁止の文 | 72 |
-| 範囲の外: 太字の否定を含む行 | 116 |
-| 範囲の外: 平叙の否定で終わる行 | 333 |
+| 走査したファイル(スキルと CLAUDE.md の生成区間の外) | 61 |
+| 印を求める要求・禁止の文 | 75 |
+| 範囲の外: 太字の否定を含む行 | 118 |
+| 範囲の外: 平叙の否定で終わる行 | 340 |
 
 ### 降りていない規定
 
-降りていない規定: **96件**
+降りていない規定: **97件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-10 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 25 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 71 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 25 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 72 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -174,6 +174,7 @@ sidebar:
 | IMPL-0299 | ロールとレーンの写像を、D-0 体制図へ記載し構成の roles[] へ出力すること。準拠テンプレートの構成はレーンの概念を持たず、ロールと受信箱のラベルの固定の表(MAILBOX)だけを持つ。レーン(作業領域・セッション・認証情報の組)の分け方は、採用者が実行環境の設定で定め、D-0 体制図へ手で書く(#312)。確かめる者: 採用者(自らの実行層に実装したときに確かめる) | process.config.json の roles[] | 採用者が実装する(ADR-0084) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0309 | 同じ案件で適用を再開する経路は無い。準拠テンプレートは終了の後の構成の変更を notice のほかは拒む。再開する場合は、終了と再開の間を記録の欠落として表示し、件数を最初の適用の開始から数えることを、表明する者が手で確かめる(#313)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の changeLog[] | 予定 [#354](https://github.com/Takenori-Kusaka/process-compass/issues/354)(見直し 2027-04) | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0312 | G-5 基準6 の1ファイルの分量の上限超過 0 件を確かめるジョブ。上限の値(第3章 3.11.4 要求事項1 の初期値)を支える実証が無いため、準拠テンプレートへ降ろさない。採用者が値を定め、検査を足して集約の needs へ入れる(IMPL-0222)。人が確かめるのは、採用者の G-5 の集約の定義を読む技術判断者 | G-5 のワークフロー(gate-g5.yml) | 採用者が実装する(ADR-0084) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0324 | G-8 の判定ごとに、実環境の統制を機械が読み取り、記名した確認の記録との乖離を検出の層として出すこと(確認済みには数えない)。準拠テンプレートの ship-evidence は env-check の記録を写すだけで、実環境を読み直さない。gh の認証を出荷の集約のワークフローへ渡す設計(読み取りの権限の範囲)を決めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 導入前の検証のコマンド | 予定 [#315](https://github.com/Takenori-Kusaka/process-compass/issues/315)(見直し 2027-04) | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
 
 ### 全件
 
@@ -259,7 +260,7 @@ sidebar:
 | IMPL-0078 | G-5 の PR 単位の検査で、PR のレビューを読めるとき、独立した人の承認者の数を同じ条件で数えて「G-6 の承認者 N 名 / 要求 M 名」を出す。読めないときはその旨を出す。合否にはしない(レビューの前に走るため)。合否は出荷の証跡の集約が担う(#288 第5巡) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0079 | 規制業の監査対応書式(構成 review.recordFormat: audit)。テンプレ4 に「監査対応書式」の表(2人目の承認者・2人目の挙動要約。旧称は 2人目の判定者)を置き、出荷の証跡の集約が、変更ごとの G-6 の判定記録の有無と表の記入を確かめる。PR の承認だけでは記録にしない(#288 第5巡)(単位: 欄) | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 実在だけ確かめる | — | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0080 | CL2 以上の独立した安全性の評価(構成 independentSafetyAssessment: true)。テンプレ4 の「監査対応書式」の表に「安全性の評価者」「安全性の評価の記録の所在」を置き、出荷の証跡の集約が、G-6 の判定記録ごとに記名の有無と独立(名簿の人で、開発者の席の責任者・作成を指示した者・判定者と別人)、または「該当なし(理由)」を確かめる。評価の実施と内容は確かめない(#288 第5巡)(単位: 欄) | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 実在だけ確かめる | — | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
-| IMPL-0081 | 要件⑦ 実環境の統制の確認。env-check が採用者のリポジトリの実環境の gh で、既定ブランチに効いているルールセット(承認の数が review.reviewerCount 以上。regulated では最後の push の後の承認・コードオーナー・push で古い承認を無効にする設定。必須チェック gate-g5)、マージ済みの PR のレビュー、gate-g5 の成功した実行の成果物(license-scan・test-results)を読み、確認した者の記名つきで docs/adoption-trial/env-check.json へ書く。読めない環境では各項目を未確認に倒す(黙って通さない)。run が記録の節3 と節6・節9 へ写し、出荷の集約が項目4 へ、next.mjs が注記へ出す。確認済みの記録も構成の承認者の数・ルールセットが変われば未確認へ戻る(#288 第6巡)。記録の各項目に API の応答の識別(evidence: ルールセットの id、レビューの id と最後の提出時刻、実行の id と URL と成果物の id、取得時刻)を書き、識別の無い応答は確認済みにしない。読む側も識別の無い確認済みを未確認に倒す(#288 第7巡 V)。確かめる者: 導入前の検証の記入者(採用者の人。記録を突き合わせるとき) | 導入前の検証のコマンド | — | 降りている | 人が確かめる | — | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
+| IMPL-0081 | 要件⑦ 実環境の統制の確認。env-check が採用者のリポジトリの実環境の gh で6項目(ルールセット・旧来のブランチ保護・CODEOWNERS・バイパスの主体・マージ済みの PR のレビュー・gate-g5 の成功した実行の成果物)を読み、確認した者の記名つきで docs/adoption-trial/env-check.json へ4値で書く。読めない環境では各項目を未確認に倒す(黙って通さない)。run が記録の節3 と節6・節9 へ写し、出荷の集約が項目4 へ、next.mjs が注記へ出す。確認済みの記録も構成の承認者の数・ルールセットが変われば未確認へ戻る(#288 第6巡)。記録の各項目に API の応答の識別を書き、識別の無い応答は確認済みにしない(#288 第7巡 V)。4値と項目の振る舞いは IMPL-0314〜IMPL-0317 が模擬の gh で試験する(#315)。実際の GitHub 上で確認済みに至った記録は無い。確かめる者: 導入前の検証の記入者(採用者の人。記録を突き合わせるとき) | 導入前の検証のコマンド | — | 降りている | 人が確かめる | — | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
 | IMPL-0082 | 判断を担う席の責任者本人の、AI を使わずに判断できる力量の確認(3.4.3 要求事項1。任命時と層1 の周期)。確認日・本人以外の確認した者・記録の所在を構成の seats[].competence に持ち(/process-change の種別 accountable。記名は要らない)、D-0 節9 の表を生成する。責任者が交代すると前任の記録を引き継がない。出荷の集約の項目7 と next.mjs が、記録の無い任命を「未確認(確認を経ない任命)」、周期を過ぎた確認を「失効」と出す。欠落にはしない(#288 第6巡)。確かめる者: D-0 表1 の決定者(任命・交代と、層1 の周期の確認のとき) | process.config.json の seats[] | `verify-gate-contract` | 降りている | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0083 | 項目6 の人の層に、測定した見つける者(記録の finders[])と現在の独立レビュアの席の責任者・名簿の対応を出す。全員が体制から離れた層、層1 の「人の層の再測定の契機」に当たる層は失効(未測定)。一部が離れた層は残る者の指摘(記録の perFinder[].hits)の和集合で読み直す。席の責任者が測定に含まれないときは注記。next.mjs も同じ注記を出す(#288 第6巡 O)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | IMPL-0084 | 10名以上の規則「コア機能は別チームがレビューする」(構成 review.mode: internal-plus-core-external)。コア機能のパス(delegation.protectedPaths)に触れ独立した人の確認に数えた変更ごとに、数えた承認者に作成を指示した者と別の所属(名簿の team)の人を含むかを保証の開示の項目1 に件数で出す。パス未宣言・所属の欄なしは「判定できない」。欠落にはしない(#288 第6巡)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
@@ -442,7 +443,7 @@ sidebar:
 | IMPL-0262 | 企画書の様式に「カバレッジの測る範囲(G-5 基準3)」の行を置き、G-1 の様式の検査(check-g1.mjs)が行の有無を確かめる。G-1 を通過する前の企画書では必須。G-1 を通過済みの企画書に行が無い場合は遡って失敗させず、記載の欠落として /pit と出荷の証跡の集約に出す(単位: 行) | 成果物テンプレート テンプレ6(企画書) | — | 降りている | 実在だけ確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0263 | 承認は承認した差分に対して数える。出荷の証跡の集約は、承認したコミット(レビューの commit)と取り込んだ PR の先頭のコミット(headRefOid)を比べ、異なる承認(承認の後の更新)と承認の版を確かめられない承認を数えず、件数を保証の開示に出す。gh はレビューの commit.oid を v2.30.0 以降で返す(cli/cli の prReviews の問い合わせ。2026-10-23 に確かめた)。それより前の gh ではすべての承認が確かめられないとして数えられないため、集約は確かめられない承認があるとき gh の版と原因を出し、env-check は gh の版を記録する。実機の gh での端から端までの確認はしていない。approvalBinding を test-roster-rules.mjs が試験する。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0264 | 契約検査が、適用するルールセット(team・regulated・safety)の dismiss_stale_reviews_on_push が true であることを確かめ、外れていれば失敗させる。test-init-g5.mjs が固定する | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-init-g5.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0265 | 実環境の統制の確認(env-check)が、team を含むすべてのルールセットで、適用されたブランチ保護の dismiss_stale_reviews_on_push と require_last_push_approval を確かめる。実環境の gh で採用者が実行する。確かめる者: 導入前の検証の記入者(採用者の人。記録を突き合わせるとき) | 導入前の検証のコマンド | — | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0265 | 実環境の統制の確認(env-check)が、G-6 が有効な構成では team を含むすべてのルールセットで、適用されたブランチ保護の dismiss_stale_reviews_on_push と require_last_push_approval を確かめる。必須チェック gate-g5 は G-6 の状態に依らず確かめる(IMPL-0314。#315)。実環境の gh で採用者が実行する。確かめる者: 導入前の検証の記入者(採用者の人。記録を突き合わせるとき) | 導入前の検証のコマンド | — | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0266 | AI を示す語を含むアカウント名の人の確認(accountsConfirmed)は、本人以外が記名した名簿の変更(changeLog の accountConfirmations と decidedBy)がある場合だけ効く。本人・AI の名義の記名と記録の無い確認は契約検査が落とす。[bot] とホスティングの bot は上書きしない。出荷の証跡の集約が、確認によって数えた承認の件数を出す。氏名の確認(nameConfirmed)も同じく、本人以外が記名した名簿の変更(changeLog の nameConfirmations と decidedBy)がある場合だけ効き、記録の無い確認は契約検査が落とす。体制の内の人が1名の名簿では本人の記名を受け付け(自己申告の氏名)、記録の無い確認も効かせて未記録として /pit と契約検査の注記に出し、保証の開示に区別して出す。2人目が加わると、本人の記名だけの確認は本人以外の記名を要する。test-roster-rules.mjs が固定する | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0267 | コア機能・確約範囲のパス(delegation.protectedPaths と riskFloor.rules のパス)のうち、追跡中のファイルに1件も当たらないパスを宣言として数えない。当たるパスが無ければ未宣言として扱い、規模の基準なし(null)を効かせない。当たらないパスを結果と保証の開示に出す。test-check-pr.mjs が固定する | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0268 | 比率の判断に、観測の窓と窓の中の最小標本数を掛ける。準拠テンプレートが窓と最小標本数で集計するのは、登録した変更種別の差し戻し率だけである(第5章 5.4.6 の IMPL-0285。窓は直近2か月、最小標本数は30件で固定し、組織の値を構成に持たない)。手戻り率・一発承認率・AI 生成行の短期書き換え率は期間で集計しない。採用者が集計の手段に窓と最小標本数を備える。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -490,5 +491,19 @@ sidebar:
 | IMPL-0310 | 従う本標準の版の欄を D-0 体制図の冒頭に置く。構成の standard.edition と一致させる旨を書く。欄の存在は check-template-fields が確かめる。採用者の D-0 で欄が無い・空欄であることは /pit が注記する(IMPL-0311)。欄の値と構成の standard.edition の一致と、宣言に加える規格の発行年は、機械で確かめない(#313)(単位: 欄) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | — | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0311 | D-0 体制図の冒頭に「従う本標準の版」の欄が無い、または空欄のとき、/pit(next.mjs)が、宣言の要求事項4 の欠けとして注記する。段階は止めない。D-0 の欄と構成の standard.edition の一致は検査しない。test-edition-end.mjs が、欄の無い D-0 で注記が出ることを実行して確かめる(#313)(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-edition-end.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0312 | G-5 基準6 の1ファイルの分量の上限超過 0 件を確かめるジョブ。上限の値(第3章 3.11.4 要求事項1 の初期値)を支える実証が無いため、準拠テンプレートへ降ろさない。採用者が値を定め、検査を足して集約の needs へ入れる(IMPL-0222)。人が確かめるのは、採用者の G-5 の集約の定義を読む技術判断者 | G-5 のワークフロー(gate-g5.yml) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0313 | 適用の開始の境を、既定ブランチの第1親の連鎖の上で configured: true になった最初のコミットとする(findInitCommit が git log --first-parent で探す)。併合した別の履歴の中の configured: true のコミットを境にしない。旧い探し方(全履歴を歩く)が、開始の後に併合した別の履歴の古いコミットを境にすることを、先に test-adoption.mjs で再現した(品質保証 V-4)。境がマージのときは、第2親の側を含む境の全祖先を開始より前とする(#315) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0314 | env-check が、G-6 が無効の構成(ルールセットの指定なし。checks-only を案内する構成)でも、既定ブランチに効いている規則に必須チェック gate-g5 があることを確かめる。以前は確かめる項目なしとして確認済みにしていた(V-1)。test-env-check.mjs が、模擬の gh の固定の応答で、gate-g5 が無ければ不一致、あれば確認済みになることを実行して確かめる(#315) | 導入前の検証のコマンド | — | 降りている | 機械が確かめる | `template/scripts/gate/test-env-check.mjs` | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
+| IMPL-0315 | env-check の結果を、確認済み・不一致・未確認(理由)・対象外の4値で記録し、対象外を確認済みに数えない(件数を分けて出す)。記録を読む側(readEnvCheck)は、4値より前の形の記録(確かめる項目なしを確認済みとして書いたもの)を、確認済みにも対象外にも読み替えず、未確認(旧い形の記録)とする。導入前の検証の記録・出荷の集約の項目4・次の一手が同じ語で出す。test-env-check.mjs が実行して確かめる(#315) | 導入前の検証のコマンド | — | 降りている | 機械が確かめる | `template/scripts/gate/test-env-check.mjs` | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
+| IMPL-0316 | env-check が、読めた空の一覧(効いているルールセットが無い)を不一致とし、読めなかった場合(gh の失敗・空の出力)を未確認として区別する。未確認の理由は、HTTP 401・403 と admin の権限を要する旨の応答を「権限不足で読めない」、それ以外を「読めない」とする。test-env-check.mjs が、模擬の gh の固定の応答で実行して確かめる。実際の GitHub の応答の文言で確かめてはいない(#315) | 導入前の検証のコマンド | — | 降りている | 機械が確かめる | `template/scripts/gate/test-env-check.mjs` | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
+| IMPL-0317 | env-check が、旧来のブランチ保護(branches の protection。404 Branch not protected は重なりなし)、効いている CODEOWNERS の所在(contents の .github/・根・docs/ の順)と blob の sha、codeowners/errors の誤りと @OWNER の残り、効いているルールセットのバイパスの主体(rulesets の各 id の bypass_actors。鍵が無ければ権限不足で読めない)を読む。バイパスの主体があれば不一致として主体を列挙する。test-env-check.mjs が実行して確かめる(#315) | 導入前の検証のコマンド | — | 降りている | 機械が確かめる | `template/scripts/gate/test-env-check.mjs` | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
+| IMPL-0318 | 適用の開始より前の履歴を、出所を問わず要求事項の対象外とし、件数だけを開示する(テンプレート由来の初期コミットの識別と、製品のコードを変えたコミットの一覧をやめた)。開始の後に併合した共通の祖先の無い履歴のコミットは、開始の祖先でないため対象として数え、記録が無ければ欠落にする。test-adoption.mjs が、開始の後に併合した別の履歴の製品の変更が欠落として出ることと、開始より前の開示が件数だけであることを実行して確かめる(#315) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0319 | 既存のリポジトリで適用を始める要求事項のうち、機械が確かめる部分。初期化の事前点検(preflight.mjs)が、既存の統制の資産(独自の AGENTS.md・入れ子の指示ファイル・既存のワークフロー・テンプレートの配置の外の製品のコードと履歴・言語の目印・カバレッジの測定の穴・.gitignore の行)を検出し、資産があれば一覧(docs/adoption-inventory.md)を求める。一覧に検出した資産がすべて載り、扱いが4つの値のいずれかで、確定した者が記入済みかつ AI の名義でなく、確定日が日付であることを確かめ、欠ければ止める(初期化は構成を書かない)。確定した者が技術判断の席の責任者その人であることは確かめない(初期化の前は席が無い)。確かめる者: 初期化の PR を確かめる人(一覧の記名と D-0 の技術判断者を突き合わせる)。test-adoption.mjs と test-init-g5.mjs が、一覧の欠け・未載の資産・AI の名義・値の外の扱いで止まり、記名した一覧で通ることを実行して確かめる(#315) | 初期化の事前点検 | — | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0320 | 統制に効くファイルがテンプレートの規則を欠いたまま始めないこと。事前点検が、CLAUDE.md の区間の目印と常駐の規則の欠け、CODEOWNERS の置き場の重なり、雛形の所有者 @OWNER の残り、.claude/settings.json のフックの登録(guard-write)の欠けで止める。契約検査(verify-gate-contract)は、設定済みの構成でも、フックの登録の欠けと @OWNER の残りを失敗にする(開始の後に戻した場合も止める)。初期化と generate-profile.mjs --merge-hooks は、既存の settings.json へテンプレートのフックの登録を併合する(既存の登録は残す)。test-adoption.mjs が、欠けで止まり・落ち、併合の後に通ることを実行して確かめる(#315) | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0321 | 構成の形式の版(formatVersion)を持ち、契約検査(verify-gate-contract)は、知らない版(準拠テンプレートが知るより大きい formatVersion・schemaVersion)の構成を失敗にする。欄の無い構成は版 0 として読み、結果が同じ補いだけを行い、移行を注記する(失敗にしない)。契約検査は、構成が従う版と、準拠テンプレートが実装する版(知識ベースの source.edition)が違えば注記する(合否には使わない)。test-adoption.mjs が、知らない版で落ち、現行の版で落ちないことを実行して確かめる(#315) | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0322 | 構成の形式の移行を /process-change の種別 migrate で行う。版ごとに現行の版への直接の変換を当て、ゲートの状態・席・閾値・名簿の値を変えない(変わる欄があれば拒否する)。体制や個別の値を入力に書くと拒否する。changeLog に migrate の記録(from・to・取り込んだテンプレートのコミット)を残し、変化点に数えず、D-0 の改訂履歴に行を足さない。test-adoption.mjs が、値を変える入力の拒否と、移行の前後で値が同じことを実行して確かめる(#315) | 体制の変化点を反映するスキル | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0323 | 取り込んだ準拠テンプレートの記録。構成の template に、取り込んだコミット(template.commit。初期化の --template-commit か、種別 migrate の templateCommit で人が渡す)と、強制層のファイル(フック・ワークフロー・ルールセット・ゲートと初期化のスクリプト・アダプタ)の要約値を道具だけが書く。契約検査は、記録と現在のファイルの不一致を注記に出し、合否に使わない。記録は来歴の主張であって証明ではないと出力に書く。test-adoption.mjs が、強制層のファイルを変えると注記に出て失敗にならないことと、記録の直後は一致すると出ることを実行して確かめる(#315) | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
+| IMPL-0324 | G-8 の判定ごとに、実環境の統制を機械が読み取り、記名した確認の記録との乖離を検出の層として出すこと(確認済みには数えない)。準拠テンプレートの ship-evidence は env-check の記録を写すだけで、実環境を読み直さない。gh の認証を出荷の集約のワークフローへ渡す設計(読み取りの権限の範囲)を決めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 導入前の検証のコマンド | — | **降りていない** | 人が確かめる | — | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
+| IMPL-0325 | 要求事項の検査を変える準拠テンプレートの更新を、従う版の切り替えと同時に取り込むこと。契約検査は、構成が従う版と、準拠テンプレートが実装する版(知識ベースの source.edition)の違いを注記に出す。取り込んだ更新が要求事項の検査を変えたかは機械で判定しない(保守者が版の発行の告知に書く。community/standard-editions.md)。第1版の発行の前は、どの構成も作業中の版に従うため実害が無い。確かめる者: 取り込みの PR を受ける AI維持管理者(state:needs-platform。告知と契約検査の注記を突き合わせる) | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 人が確かめる | — | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
+| IMPL-0326 | テンプレートの更新の取り込みを、ファイルを複製する PR で行い、強制層の変更として AI維持管理者へ引き渡す(state:needs-platform)。取り込まないことは例外承認として記録しない。CLAUDE.md の受信箱とラベルの規則(強制層の縮小・遮断の解除は state:needs-platform)と、README の「テンプレート更新時の既存案件への影響と運用ルール」に降りている。取り込みの PR が複製だけであることと、陰性の確認(統制を弱める変更が無いこと)は機械で確かめない。確かめる者: 取り込みの PR を受ける AI維持管理者 | CLAUDE.md の構成依存部分 | `check-process-rules` | 降りている | 人が確かめる | — | [phase5-implementation/template-repository](/process-compass/phase5-implementation/template-repository/) |
 
 <!-- implementation-ledger:end -->

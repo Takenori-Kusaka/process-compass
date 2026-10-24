@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 647(included 647、excluded 0)。生成日 2026-10-24。
+件数: 662(included 662、excluded 0)。生成日 2026-10-24。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -655,4 +655,19 @@
 | SRC-0645 | 2013-05-25 | standard | jp/ja | partial | TH12 | 第1章 1.3 と第6章が引く機械安全の規格。JIS B 9700:2013 は ISO 12100:2010(第1版)に一致(IDT)する。日本規格協会のプレ | [JIS B 9700:2013 機械類の安全性―設計のための一般原則―リスクアセスメント及びリスク低減(ISO 12100:2010 IDT)— プレビュー](https://webdesk.jsa.or.jp/preview/pre_jis_b_09700_000_000_2013_j_ed10_ch.pdf) |
 | SRC-0646 | 2024-01-08 | standard | global/en | partial | TH12 | 第1章 1.3 と第6章が引く技術報告書。ISO/IEC TR 5469:2024(第1版、2024-01-08)。iso.org の目録で名称・版・発行日・状 | [ISO/IEC TR 5469:2024 Artificial intelligence — Functional safety and AI systems (catalogue](https://www.iso.org/standard/81283.html) |
 | SRC-0647 | 2025 | standard | jp/ja | unreachable | TH12 | 第1章 1.3 が引く JIS Q 42001:2025(ISO/IEC 42001:2023 に対応)。日本規格協会のプレビューの所在は検索で見つけたが、取得 | [JIS Q 42001:2025 情報技術―人工知能―マネジメントシステム — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_42001_000_000_2025_j_ed10_ch.pdf) |
+| SRC-0648 | 2015 | standard | jp/ja | unreachable | TH12 | 第1章 1.3 と附属書H H.10 が引く JIS Q 9001:2015(ISO 9001:2015 に対応)。日本規格協会のプレビューの所在は検索で見つけ | [JIS Q 9001:2015 品質マネジメントシステム―要求事項 — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_09001_000_000_2015_j_ed30_ch.pdf) |
+| SRC-0649 | 2010-04-30 | standard | global/en | partial | TH12 | 第1章 1.3 の注記が、業種固有の規格の例として引く IEC 61508(第2版、2010-04-30)。IEC Webstore の目録(注釈つき版 CMV | [IEC 61508:2010 CMV Functional safety of electrical/electronic/programmable electronic safe](https://webstore.iec.ch/publication/22273) |
+| SRC-0650 | ? | repo | global/en | partial | TH10 TH12 | テンプレートから生成した案件の更新の手順(Copier)。回答ファイルに生成時のテンプレートの版と入力を記録し、手で書き換えないことを求め、更新の前提に作業木の | [Updating a project - copier](https://copier.readthedocs.io/en/stable/updating/) |
+| SRC-0651 | ? | repo | global/en | partial | TH10 TH12 | Copier のテンプレートの設定。版を持つ移行の列(_migrations)を宣言し、跨いだ版の移行だけを走らせる。道具の最低の版を下回れば生成と更新を止める | [Configuring a template - copier](https://copier.readthedocs.io/en/stable/configuring/) |
+| SRC-0653 | ? | vendor-official | global/en | partial | TH10 TH12 | Renovate の構成の移行。旧い構成は使う前に内部で読み替えられ、書き換えは任意の PR として人へ出す。構成に版の欄は無く、旧い構成は無期限に動く。#31 | [Config Migration - Renovate Docs](https://docs.renovatebot.com/config-migration/) |
+| SRC-0656 | 2025-04 | vendor-official | global/en | partial | TH07 TH10 | ESLint の一括の抑制。既存の違反を抑制のファイルに記録してコミットし、新しい違反だけを報告する。直した違反の記録が残ると失敗する。#315 で、既存の違反 | [Bulk Suppressions - ESLint](https://eslint.org/docs/latest/use/suppressions) |
+| SRC-0660 | ? | repo | global/en | partial | TH10 | git merge の文書。--allow-unrelated-histories は、共通の祖先の無い履歴の併合を既定で拒む安全装置を外す。既定で有効にする設 | [git-merge Documentation](https://git-scm.com/docs/git-merge) |
+| SRC-0661 | ? | vendor-official | global/en | partial | TH12 | Kubernetes の非推奨の方針。API の版の廃止に予告と提供の期間(猶予)を置き、版の間の往復で情報を失わないことを求める。#315 で、構成の形式の移 | [Kubernetes Deprecation Policy](https://kubernetes.io/docs/reference/using-api/deprecation-policy/) |
+| SRC-0662 | ? | vendor-official | global/en | partial | TH10 TH12 | Terraform のプラグインの状態の移行。schema の版を整数で持ち、旧い版ごとに現行の版への直接の変換を用意する。中間の版を順に辿らない。該当の変換が | [State upgrade - Terraform Plugin Framework](https://developer.hashicorp.com/terraform/plugin/framework/resources/state-upgrade) |
+| SRC-0663 | 2026-10-19 | repo | global/en | partial | TH07 TH10 | terraform-provider-github の Issue。読めるが管理できないトークンでは、ルールセットの応答から bypass_actors の鍵が | [ BUG : Ruleset bypass_actors drift on every plan when the token cannot administer the rule](https://github.com/integrations/terraform-provider-github/issues/3687) |
+| SRC-0664 | ? | repo | global/en | partial | TH10 | safe-settings は、リポジトリの設定を宣言し、PR で差分を dry-run で示し、マージで適用し、定期の全同期で乖離を是正する。#315 で、実 | [safe-settings README](https://github.com/github/safe-settings) |
+| SRC-0666 | ? | vendor-official | us/en | partial | TH06 TH10 | GitHub の CODEOWNERS の文書。.github/・ルート・docs/ の順に探して最初の1つだけを使い、不正な構文の行は飛ばす(誤りは API  | [About code owners - GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) |
+| SRC-0667 | ? | vendor-official | us/en | partial | TH10 | GitHub Enterprise Cloud の組織のルールセットの作成。状態に Active・Evaluate(強制せず違反を観測する)・Disabled  | [Creating rulesets for repositories in your organization - GitHub Enterprise Cloud Docs](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) |
+| SRC-0668 | ? | vendor-official | us/en | partial | TH10 | GitHub(無料版の文書)のリポジトリのルールセットの作成。作成の手順の状態は Active と Disabled の2つで、Evaluate は現れない。# | [Creating rulesets for a repository - GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository) |
+| SRC-0669 | 2026-07-07 | industry-report | global/en | partial | TH12 | CMMI の導入の手引き(v4.0)。現行の業務プロセスを CMMI の実践へ写して差を特定し、プロセスが実際に使われているかを確かめ、差を優先付けして段階的に | [CMMI Adoption Guidance (Version 4.0)](https://www.cmmiinstitute.com/getattachment/3cc3e8d1-72a1-4f6d-b1da-c5df8c9ad87d/CMMI-Adoption-Guidance.pdf) |
 

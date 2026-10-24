@@ -36,6 +36,7 @@ sidebar:
 | 5.5.4 委任の条件 | CL0・R3 の変更 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#554-委任の条件適用-cl0r3-の変更) |
 | 5.7.3 選択肢の比較 | R1 の決定・例外承認 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#573-選択肢の比較適用-r1-の決定例外承認) |
 | 2.10.2 規模の合意 | 事業ステージのスコープ3層の規模の合意 | ステージごと | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/#2102-規模の合意適用-事業ステージのスコープ3層の規模の合意) |
+| 既存のリポジトリで適用を始める場合 | 既存のコードと履歴を持つリポジトリで適用を始める案件 | その他 | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/#既存のリポジトリで適用を始める場合適用-既存のコードと履歴を持つリポジトリで適用を始める案件) |
 | 委任を適用した変更 | CL0・R3 の変更 | 変更ごと | [phase4-process-design/review-guide](/process-compass/phase4-process-design/review-guide/#委任を適用した変更適用-cl0r3-の変更) |
 | 席の責任者でない確認者の力量 | 承認を独立した人の確認に数える人 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#席の責任者でない確認者の力量適用-承認を独立した人の確認に数える人) |
 | 入力の分離 | 確認側の担い手に AI を置く場合 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#入力の分離適用-確認側の担い手に-ai-を置く場合) |

@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0661
+status: included
+excludeReason: null
+title: Kubernetes Deprecation Policy
+url: https://kubernetes.io/docs/reference/using-api/deprecation-policy/
+canonicalUrl: https://kubernetes.io/docs/reference/using-api/deprecation-policy/
+ids:
+  arxiv: null
+  doi: null
+publisher: Kubernetes(CNCF)
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 K1'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: Kubernetes の非推奨の方針。API の版の廃止に予告と提供の期間(猶予)を置き、版の間の往復で情報を失わないことを求める。#315 で、構成の形式の移行に猶予の期間を置く案の前例として引き、本標準では採らない判断の比較の対象にした。
+claims:
+- id: c1
+  text: beta の API は、廃止の予告から一定の期間(9 か月または3つのリリース)提供を続ける。同じリリースの中で API の版の間を情報を失わずに往復できなければならない。
+  quote: null
+  locator: Deprecating parts of the API
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

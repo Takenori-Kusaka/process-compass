@@ -1,0 +1,56 @@
+schemaVersion: 0
+id: SRC-0656
+status: included
+excludeReason: null
+title: Bulk Suppressions - ESLint
+url: https://eslint.org/docs/latest/use/suppressions
+canonicalUrl: https://eslint.org/docs/latest/use/suppressions
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenJS Foundation / ESLint
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: vendor-official
+published: 2025-04
+publishedBasis: page
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 T10'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH07
+- TH10
+events: []
+summary: ESLint の一括の抑制。既存の違反を抑制のファイルに記録してコミットし、新しい違反だけを報告する。直した違反の記録が残ると失敗する。#315 で、既存の違反の基準線を置く型の前例として引き、本標準では閾値の緩和と機械で区別できないため採らない判断の材料にした。
+claims:
+- id: c1
+  text: --suppress-all で既存の違反を eslint-suppressions.json に記録してコミットし、新しい違反は通常どおり報告する。直した違反の記録が残ると非ゼロで終わる。
+  quote: null
+  locator: Bulk Suppressions
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

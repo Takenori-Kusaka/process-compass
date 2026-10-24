@@ -212,6 +212,11 @@ targets:
     kind: template-file
     path: .github/rulesets/README.md
     description: 既定ブランチと記録の置き場に掛ける強制層の構成(team / regulated / safety / checks-only)と、その説明。GitHub のルールセットはパス単位の免除を持たない(#321)ため、判定記録だけの PR にも承認 1 件が残る。降りていない規定は README に表示し続ける
+  - id: adoption-preflight
+    name: 初期化の事前点検
+    kind: template-file
+    path: scripts/gate/preflight.mjs
+    description: 既存のリポジトリで適用を始めるときの事前点検(第1章 1.10.1「既存のリポジトリで適用を始める場合」。#315 / ADR-0085)。何も書き込まずに、止める項目(CLAUDE.md の目印と常駐の規則、CODEOWNERS の置き場の重なりと @OWNER、フックの登録、既定ブランチの名、共通の祖先の無い履歴の併合、資産の一覧の欠け)と、告げる項目(既存の統制の資産)を分けて出す。初期化(generate-profile.mjs)が同じ点検を行い、止める項目があれば構成を書かない。--draft で資産の一覧の下書きを出す(扱いと記名の欄は空ける)。test-adoption.mjs と test-init-g5.mjs が試験する
 
   - id: agent-settings
     name: エージェントの権限設定

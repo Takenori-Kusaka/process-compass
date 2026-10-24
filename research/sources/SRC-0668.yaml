@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0668
+status: included
+excludeReason: null
+title: Creating rulesets for a repository - GitHub Docs
+url: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository
+canonicalUrl: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 K3'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH10
+events: []
+summary: GitHub(無料版の文書)のリポジトリのルールセットの作成。作成の手順の状態は Active と Disabled の2つで、Evaluate は現れない。#315 で、小規模の採用者に Evaluate での試行を求められない判断の根拠として引いた(明文の制限は見つけていない。推定)。
+claims:
+- id: c1
+  text: リポジトリのルールセットの作成の手順で選べる状態は Active と Disabled である。
+  quote: null
+  locator: Creating a branch or tag ruleset
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0667
+status: included
+excludeReason: null
+title: Creating rulesets for repositories in your organization - GitHub Enterprise Cloud Docs
+url: https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization
+canonicalUrl: https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 K3'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH10
+events: []
+summary: GitHub Enterprise Cloud の組織のルールセットの作成。状態に Active・Evaluate(強制せず違反を観測する)・Disabled の3つを置く。#315 で、Evaluate の状態が Enterprise Cloud の文書にしか現れないことを確かめ、持ち込みの手順で Evaluate を前提にしない判断の根拠として引いた。
+claims:
+- id: c1
+  text: 組織のルールセットの状態は Active・Evaluate・Disabled の3つで、Evaluate は強制せずに Rule Insights で違反を観測する。
+  quote: null
+  locator: Creating a ruleset(Enforcement status)
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

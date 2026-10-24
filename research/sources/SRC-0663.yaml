@@ -1,0 +1,56 @@
+schemaVersion: 0
+id: SRC-0663
+status: included
+excludeReason: null
+title: '[BUG]: Ruleset bypass_actors drift on every plan when the token cannot administer the ruleset (#3687)'
+url: https://github.com/integrations/terraform-provider-github/issues/3687
+canonicalUrl: https://github.com/integrations/terraform-provider-github/issues/3687
+ids:
+  arxiv: null
+  doi: null
+publisher: integrations/terraform-provider-github
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: '2026-10-19'
+publishedBasis: page
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 K6'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH07
+- TH10
+events: []
+summary: terraform-provider-github の Issue。読めるが管理できないトークンでは、ルールセットの応答から bypass_actors の鍵が欠落し(管理者には空の配列)、プロバイダが欠落と空を区別しないため差分が出続ける。#315 で、env-check がバイパスの主体の欠落を「権限不足で読めない」とし、空(主体なし)と区別する判断の根拠として引いた。
+claims:
+- id: c1
+  text: ルールセットを管理できないトークンでは、ルールセットの GET の応答から bypass_actors の鍵が欠落する。管理者のトークンでは空の配列が返る。
+  quote: null
+  locator: Issue 本文
+  quant: null
+  evidenceKind: case-report
+  rqs: []
+  issues:
+  - 315
+  stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

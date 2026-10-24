@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-10-24): verified 636 / partial 10 / unreachable 1
+集計(生成日 2026-10-24): verified 636 / partial 24 / unreachable 2
 
 ### 要確認(verified 以外)
 
@@ -34,6 +34,21 @@
 | SRC-0645 | partial | agent-read | 日本規格協会のプレビューの PDF を WebFetch(要約モデル経由)で読み、名称・制定日・対応国際規格を逐語で抜き出させた。ISO の第2版の状態は iso.org の頁(ISO/DIS 12100.3)を WebFetch で読んで確かめた。本文は読んでいない | [JIS B 9700:2013 機械類の安全性―設計のための一般原則―リスクアセスメント及びリスク低減(ISO 12100:2010 IDT)— プレビュー](https://webdesk.jsa.or.jp/preview/pre_jis_b_09700_000_000_2013_j_ed10_ch.pdf) |
 | SRC-0646 | partial | agent-read | iso.org の目録の頁を WebFetch(要約モデル経由)で読み、名称・版・発行日・状態を抜き出させた。本文は読んでいない | [ISO/IEC TR 5469:2024 Artificial intelligence — Functional safety and AI systems (catalogue](https://www.iso.org/standard/81283.html) |
 | SRC-0647 | unreachable | agent-read | 日本規格協会のプレビューの PDF を WebFetch で取得したが、保守の告知の頁が返った(2026-10-22 から終了日時未定)。規格の中身を確かめていない。実在しないという意味ではない | [JIS Q 42001:2025 情報技術―人工知能―マネジメントシステム — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_42001_000_000_2025_j_ed10_ch.pdf) |
+| SRC-0648 | unreachable | agent-read | 日本規格協会のプレビューの PDF を WebFetch で取得したが、保守の告知の頁が返った(2026-10-22 から終了日時未定)。規格の中身を確かめていない。実在しないという意味ではない | [JIS Q 9001:2015 品質マネジメントシステム―要求事項 — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_09001_000_000_2015_j_ed30_ch.pdf) |
+| SRC-0649 | partial | agent-read | IEC Webstore の目録の頁を WebFetch(要約モデル経由)で読み、名称・版・発行日・安定日・部の範囲を抜き出させた。版の履歴の表は空で、より新しい版の有無は目録からは確かめていない。本文は読んでいない | [IEC 61508:2010 CMV Functional safety of electrical/electronic/programmable electronic safe](https://webstore.iec.ch/publication/22273) |
+| SRC-0650 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Updating a project - copier](https://copier.readthedocs.io/en/stable/updating/) |
+| SRC-0651 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Configuring a template - copier](https://copier.readthedocs.io/en/stable/configuring/) |
+| SRC-0653 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Config Migration - Renovate Docs](https://docs.renovatebot.com/config-migration/) |
+| SRC-0656 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Bulk Suppressions - ESLint](https://eslint.org/docs/latest/use/suppressions) |
+| SRC-0660 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [git-merge Documentation](https://git-scm.com/docs/git-merge) |
+| SRC-0661 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Kubernetes Deprecation Policy](https://kubernetes.io/docs/reference/using-api/deprecation-policy/) |
+| SRC-0662 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [State upgrade - Terraform Plugin Framework](https://developer.hashicorp.com/terraform/plugin/framework/resources/state-upgrade) |
+| SRC-0663 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [ BUG : Ruleset bypass_actors drift on every plan when the token cannot administer the rule](https://github.com/integrations/terraform-provider-github/issues/3687) |
+| SRC-0664 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [safe-settings README](https://github.com/github/safe-settings) |
+| SRC-0666 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [About code owners - GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) |
+| SRC-0667 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Creating rulesets for repositories in your organization - GitHub Enterprise Cloud Docs](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) |
+| SRC-0668 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [Creating rulesets for a repository - GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository) |
+| SRC-0669 | partial | agent-read | Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施 | [CMMI Adoption Guidance (Version 4.0)](https://www.cmmiinstitute.com/getattachment/3cc3e8d1-72a1-4f6d-b1da-c5df8c9ad87d/CMMI-Adoption-Guidance.pdf) |
 
 ### 除外した出典(却下は成果)
 

@@ -1337,8 +1337,17 @@ sections:
     ids:
       - IMPL-0119
       - IMPL-0304
-    note: 境は構成が設定済みになった最初のコミット(IMPL-0304)。宣言が欠けても、再テーラリング・版の切り替え・再初期化でも開始は動かない
+      - IMPL-0313
+      - IMPL-0318
+    note: 境は構成が設定済みになった最初のコミット(IMPL-0304)で、既定ブランチの第1親の連鎖の上で決める(IMPL-0313)。開始より前は出所を問わず件数だけ(IMPL-0318)。宣言が欠けても、再テーラリング・版の切り替え・再初期化でも開始は動かない
     issue: 313
+  - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
+    status: marked
+    ids:
+      - IMPL-0319
+      - IMPL-0320
+    note: 資産の一覧と照合・記名(IMPL-0319)、統制に効くファイルの規則(IMPL-0320)。一覧の記名者が技術判断の席の責任者その人であることは機械で確かめない(IMPL-0319 の注記)。採らないことの表は規定ではない
+    issue: 315
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張
     status: marked
     ids:
@@ -1367,7 +1376,10 @@ sections:
       - IMPL-0305
       - IMPL-0306
       - IMPL-0311
-    note: 版の発行・付番・棚卸しは標準の保守の手続(community/standard-editions)であり、実行主体の挙動ではないため降ろさない
+      - IMPL-0321
+      - IMPL-0322
+      - IMPL-0325
+    note: 構成の形式の版と移行は IMPL-0321・IMPL-0322、テンプレートの更新と版の切り替えの組は IMPL-0325。版の発行・付番・棚卸しは標準の保守の手続(community/standard-editions)であり、実行主体の挙動ではないため降ろさない
     issue: 313
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.4 適用の終了
     status: marked
@@ -2903,11 +2915,74 @@ sections:
   - key: phase5-implementation/template-repository#使い方
     status: pending
   - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む
-    status: pending
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 確かめた事実(手元の git と node。2026-10-12 時点)
-    status: pending
-  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 定め
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 要求事項は第1章 1.10.1 に置き、本節は手引きと図。規定は 1.10.1 のマーク(IMPL-0319・IMPL-0320)で追う
+    location:
+      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
+    issue: 315
+  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 手順(手引き)
+    status: none
+    category: elsewhere
+    reason: 手順は手引きであり、要求事項ではない。手順が支える機械の働き(事前点検・初期化・併合)は 1.10.1 のマークで追う
+    location:
+      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
+    issue: 315
+  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 事前点検
+    status: none
+    category: elsewhere
+    reason: 止める項目と告げる項目の表は、1.10.1 の要求事項を満たすための点検の中身。点検の働きは IMPL-0319・IMPL-0320 で追う
+    location:
+      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
+    issue: 315
+  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 実環境の統制の確認の4値
+    status: marked
+    ids:
+      - IMPL-0314
+      - IMPL-0315
+      - IMPL-0316
+      - IMPL-0317
+      - IMPL-0324
+    note: G-8 ごとの機械の読み取りは undelivered(IMPL-0324)。integration_id の固定は規定にしていない(実走の後)
+    issue: 315
+  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 採らないと決めたこと
+    status: none
+    category: not-imposed
+    reason: 課さないと決めたことの一覧(ADR-0085 決定7)
+    issue: 315
+  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 確かめた事実(2026-10-12 と 2026-10-24 の試行)
+    status: none
+    category: explanation
+    reason: 試行で確かめた事実の記録。規定を持たない
+    issue: 315
+  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 定め(2026-10-12 の試行から置いたもの)
+    status: marked
+    ids:
+      - IMPL-0123
+    rows:
+      定め1:
+        status: none
+        category: elsewhere
+        reason: 共通の祖先の無い履歴の併合は事前点検が止める。点検の働きは 1.10.1 の IMPL-0319 で追う
+        location:
+          - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始 > 既存のリポジトリで適用を始める場合
+      定め2:
+        status: marked
+        ids:
+          - IMPL-0123
+      定め3:
+        status: none
+        category: not-imposed
+        reason: 手引きの定め。カバレッジの測定の穴は事前点検が告げるだけで止めない(G-5 の基準の未達として表示される)
+    note: 定め1 の併合は事前点検が止める(IMPL-0319 と同じ点検)。定め3 は事前点検が告げるだけで止めない
+    issue: 315
+  - key: phase5-implementation/template-repository#既存のリポジトリへ持ち込む > テンプレートの更新の取り込み
+    status: marked
+    ids:
+      - IMPL-0323
+      - IMPL-0326
+    note: 保守者の義務は community/standard-editions.md(採用者への要求事項ではない)
+    issue: 315
   - key: phase5-implementation/template-repository#生成されるもの
     status: pending
   - key: phase5-implementation/template-repository#常駐の索引と次の一手

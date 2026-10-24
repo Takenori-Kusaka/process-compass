@@ -225,7 +225,7 @@
 - [SRC-0448] 2026-07-30 [Optimizing CI for stacked pull requests](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests) — スタック型PRでの GitHub Actions の発火規則。pull_request トリガーは各PRがスタック基底を向いているものとして発火し、CI 回数が
 - [SRC-0605] 2026-09 [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions) — GitHub Docs のリポジトリ指示ファイルの手順書(日付表記なし、2026-09-30 取得)。リポジトリ全体(copilot-instructions.
 
-### GitHub(11)
+### GitHub(14)
 
 - [SRC-0176] 2026-09 [Approving a pull request with required reviews](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews) — GitHub Docs の必須レビュー承認ページ本文(取得日 2026-09-23)。PR 作成者の自己承認不可と、Copilot に Issue を割り当てた
 - [SRC-0177] 2026-09 [Risks and mitigations for GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations) — Copilot cloud agent(旧 coding agent)のリスクと緩和策。前回 §9 で未取得だった「依頼者は承認できない」の原文を一次で確認。無
@@ -238,6 +238,9 @@
 - [SRC-0346] 2026-09-09 [Block pull requests with exposed secrets from merging - GitHub Changelog](https://github.blog/changelog/2026-09-09-block-pull-requests-with-exposed-secrets-from-merging) — PR が持ち込んだ秘匿情報アラートが未解決ならマージを止める ruleset 規則の告知。「head コミットの走査が完了していること」と「アラートが残っていな
 - [SRC-0417] 2024-06-25 [Artifact attestations - GitHub Docs](https://docs.github.com/en/actions/concepts/security/artifact-attestations) — GitHub の artifact attestation の概念説明。docs 本体は日付なしのため、published には GA の Changelog 
 - [SRC-0573] 2026-09 [Troubleshooting required status checks - GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks) — GitHub 公式の必須ステータスチェックのトラブルシュート(掲載日不明、2026-09-30 取得)。必須チェックを満たす状態は success / skip
+- [SRC-0666] ? [About code owners - GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) — GitHub の CODEOWNERS の文書。.github/・ルート・docs/ の順に探して最初の1つだけを使い、不正な構文の行は飛ばす(誤りは API 
+- [SRC-0667] ? [Creating rulesets for repositories in your organization - GitHub Enterprise Cloud Docs](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) — GitHub Enterprise Cloud の組織のルールセットの作成。状態に Active・Evaluate(強制せず違反を観測する)・Disabled 
+- [SRC-0668] ? [Creating rulesets for a repository - GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository) — GitHub(無料版の文書)のリポジトリのルールセットの作成。作成の手順の状態は Active と Disabled の2つで、Evaluate は現れない。#
 
 ### Google (Antigravity)(1)
 
@@ -298,6 +301,10 @@
 - [SRC-0580] 2026-09 [Merge Queue Optimizations (Graphite Docs)](https://graphite.com/docs/merge-queue-optimizations) — Graphite のマージキューがスタックを原子的な単位として扱い、投機実行で CI を並列化する仕組みの公式説明。並列 CI 経由でマージした PR が Gi
 - [SRC-0614] 2026-09 [Review comments - Graphite docs](https://graphite.com/docs/ai-review-comments) — Graphite Agent(AI レビュー)の指摘様式の公式文書(日付表記なし、2026-09-30 取得)。各コメントは問題の説明・重要な理由・具体的な修正
 
+### HashiCorp(1)
+
+- [SRC-0662] ? [State upgrade - Terraform Plugin Framework](https://developer.hashicorp.com/terraform/plugin/framework/resources/state-upgrade) — Terraform のプラグインの状態の移行。schema の版を整数で持ち、旧い版ごとに現行の版への直接の変換を用意する。中間の版を順に辿らない。該当の変換が
+
 ### Intercom (Fin Help Center)(1)
 
 - [SRC-0083] 2026-08 [Manage Fin AI Agent's escalation guidance and rules](https://fin.ai/help/en/articles/13976161-manage-fin-ai-agent-s-escalation-guidance-and-rules) — Intercom の Fin(サポート AI エージェント)公式ヘルプ(「Updated over 3 weeks ago」表示、2026-09-23 取得)。
@@ -317,6 +324,14 @@
 
 - [SRC-0049] 2026-07-14 [One year of Kiro: a look back, and a look ahead](https://kiro.dev/blog/one-year/) — 前回メモで未取得だった Kiro の一次情報(AWS 公式)。プレビュー 2025-07、GA 2025-11、IDE/CLI/Web/Mobile の 4 面
 - [SRC-0050] 2026-07-31 [GPT‑5.6 update: lower credit multipliers for Terra and Luna](https://kiro.dev/blog/gpt-5-6-pricing/) — OpenAI の 2026-07-30 値下げを翌日に第三者プラットフォームが転嫁した記録。Luna 0.6x→0.1x、Terra 1.2x→1.0x、Sol
+
+### Kubernetes(CNCF)(1)
+
+- [SRC-0661] ? [Kubernetes Deprecation Policy](https://kubernetes.io/docs/reference/using-api/deprecation-policy/) — Kubernetes の非推奨の方針。API の版の廃止に予告と提供の期間(猶予)を置き、版の間の往復で情報を失わないことを求める。#315 で、構成の形式の移
+
+### Mend / Renovate(1)
+
+- [SRC-0653] ? [Config Migration - Renovate Docs](https://docs.renovatebot.com/config-migration/) — Renovate の構成の移行。旧い構成は使う前に内部で読み替えられ、書き換えは任意の PR として人へ出す。構成に版の欄は無く、旧い構成は無期限に動く。#31
 
 ### Meta Platforms (Sapling SCM)(1)
 
@@ -358,6 +373,10 @@
 - [SRC-0351] 2026-09 [Agent Skills - Codex (OpenAI Developers)](https://developers.openai.com/codex/skills) — OpenAI Codex のスキル公式文書。Codex も progressive disclosure を採り、初期スキル一覧にコンテキストの2%の上限を設け
 - [SRC-0352] 2026-09 [Custom instructions with AGENTS.md - Codex (OpenAI Developers)](https://developers.openai.com/codex/agent-configuration/agents-md) — Codex の AGENTS.md 公式文書。ルートから現在ディレクトリまでを連結して近い方を優先し、合計32KiBで読み込みを打ち切る。
 - [SRC-0408] 2026-08-26 [The Hugging Face incident and the road ahead](https://openai.com/index/hugging-face-incident-and-the-road-ahead) — 2026年7月、OpenAI の社内サイバー評価中にモデルが隔離を回避し、Hugging Face の本番基盤を侵害した事件の OpenAI 自身の事後報告。原
+
+### OpenJS Foundation / ESLint(1)
+
+- [SRC-0656] 2025-04 [Bulk Suppressions - ESLint](https://eslint.org/docs/latest/use/suppressions) — ESLint の一括の抑制。既存の違反を抑制のファイルに記録してコミットし、新しい違反だけを報告する。直した違反の記録が残ると失敗する。#315 で、既存の違反
 
 ### Quarto (Posit)(1)
 
