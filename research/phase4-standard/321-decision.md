@@ -118,7 +118,7 @@ D5〜D7 を両立させる置き場の形(既定ブランチの外の記録用�
 | 承認の失効の粒度、`strict_required_status_checks_policy` | #296 T-09 |
 | 写しの置き場の形(記録用ブランチ / CI 成果物)、`GITHUB_TOKEN` の保護外ブランチへの push、`createCommitOnBranch` と `required_signatures` | pit-in-template の Issue(新規、実機確認) |
 | PR 作成者本人が COMMENTED レビューを提出できること、COMMENTED が stale 失効の対象外であること、App・`GITHUB_TOKEN` の承認が required approving review に数えられるか | 同上(`adoption-trial.mjs env-check` へ追加) |
-| `ship-evidence.yml` の実機検証 | pit-in-template の初回の出荷 |
+| `ship-evidence.yml` の実機検証 | 一時リポジトリで実施(§8)。独立レビュアを置く体制と規制業の構成は pit-in-template の初回の出荷 |
 | レビューを媒体とした G-6 で、基準3・基準5 の確認の記載を本文に要求するか | G-6 の Issue(新規) |
 | SOX の IT 全般統制が第8章 軸C に入るか | 第8章の Issue(新規) |
 | 電子署名が要る記録かどうか、保管期間の値 | 組織 |
@@ -170,4 +170,20 @@ D5〜D7 を両立させる置き場の形(既定ブランチの外の記録用�
 | `record-copy.yml`(署名なしの経路)がマージを契機に写しを `records` ブランチへ置く | **置かれた**。`records/reviews/pr-55.json` に `head_sha`・`merge_commit_sha`・`author{id,login}`・`title`・`head_ref`・`reviews[].user.type`・本文が入る。監査ログは「取れない」と写しに書かれる | run(record-copy)、`records` ブランチ |
 | 作成者本人の COMMENTED レビューの宣言行 `G-4: 通過` を `records.mjs` が判定として読み、`commit_id == head_sha` が成り立つ | **成り立つ**(`judgementsFromCopy` → G-4 通過、`headMatches.match=true`) | ローカルで `records.mjs` を実物の写しに適用 |
 | 署名を要する構成(`records-signed.json` + `RECORDS_SIGNED=true`)での `createCommitOnBranch` | **通った**(PR #56)。`required_signatures` の下で、`record-copy.yml` の GraphQL 経路が `records/reviews/pr-56.json` を置き、コミット `6a61811` は `verified: true`(reason: valid)。ルールセットと変数の適用は人が行った | run 39962869726、`records` の `6a61811` |
-| `ship-evidence.yml` の通し実行(出荷の PR を開き、PR 上で再実行して一致を検査) | **集約まで実行**。手動起動で `records` を fetch し集約が動き、写しの有無を PR ごとに判定した(PR #5・#11・#17・#52 に写しが無いことを欠落に出す)。テンプレートのリポジトリ自体は構成が未設定で記録の欠落 172 件のため集約が失敗し、出荷の PR を開く経路と PR 上の再検査は未検証 | run 39960637580 |
+| `ship-evidence.yml` の通し実行(出荷の PR を開き、PR 上で再実行して一致を検査) | **集約まで実行**(2026-10-23)。手動起動で `records` を fetch し集約が動き、写しの有無を PR ごとに判定した(PR #5・#11・#17・#52 に写しが無いことを欠落に出す)。テンプレートのリポジトリ自体は構成が未設定で記録の欠落 172 件のため集約が失敗し、出荷の PR を開く経路と PR 上の再検査はこの時点では未検証 | run 39960637580 |
+
+## 8. ship-evidence の通し実行(2026-10-24、一時リポジトリ pit-in-trial-54)
+
+テンプレートから作った私有の一時リポジトリ(1 名体制、MVP、標準品質、CL0。全席を所有者に置き、G-6 は未達)で、タグ `v0.1.0` を push して通した。4 回の実行で 3 つの制約が見つかり、テンプレートを直した。
+
+| 回 | 結果 | 分かったこと・直したこと |
+| --- | --- | --- |
+| 1(run 40044171415) | 欠落 3 件 | Actions の `GITHUB_TOKEN` では `gh pr view --json statusCheckRollup` が失敗し、PR #1 が「記録を取得できず」になった。`checks: read` を足し、gh で取れない PR は写しのマージ時の本文で欄を読む後退経路を入れた |
+| 2(run 40044599686) | 欠落 1 件 | `checks: read` を足しても、他の App の check run を含む rollup は「Resource not accessible by integration」。rollup 抜きで記録を取り直し、gate-g5 の結果は check-runs API で引く |
+| 3(run 40044772017) | 集約は完備。PR を開く手順で失敗 | テンプレートの `.gitignore` の `evidence/` が `docs/evidence/` にも効き、`git add` が失敗した。`/evidence/` に限定し、記録の置き場は `-f` で取り込む |
+| 4(run 40044916356) | 複製 3 件を push。`gh pr create` が失敗 | GitHub の既定の設定では `GITHUB_TOKEN` は PR を作れない(「GitHub Actions is not permitted to create or approve pull requests」)。これを許す設定は機械の承認も許すため採らず、**出荷の PR は出荷判定者が開く**形にした。ワークフローは題名と本文を入力済みの URL を出す |
+| 人が開いた PR #2 | **verify success**(run 40045047322) | 人が開いた PR では gate-g5 と verify が自動で起動した。verify は `docs/gates/g1-…md` と `docs/records/reviews/pr-1.json` が `records` と一致、保証の開示は再実行の成否で確認、と出した |
+
+決定の変更: D5「基底へ入れるのは遅くとも G-7(出荷 PR 1 本)」は維持。PR を開く操作主体を「ワークフロー」から「出荷判定者(人)」へ改めた(標準の条項は操作主体を定めておらず、テンプレートの実装の変更)。`GITHUB_TOKEN` で開いた PR が検査を起動しない問題は、人が開くことで消える。
+
+残る未実施: 独立レビュアを置く体制(G-6 の承認の写しを運ぶ)と、規制業の構成(署名を要する記録用ブランチ)での出荷。一時リポジトリの名簿・席・G-1 の判定記録は、通し実行のために AI が所有者の名義で置いたものであり、実運用の任免・判定ではない(リポジトリは削除してよい)。
