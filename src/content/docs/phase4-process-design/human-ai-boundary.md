@@ -1056,7 +1056,7 @@ AI の支援を受けて作成した成果物には、次を記録します。
 <!-- impl IMPL-0206 target=claude-md state=undelivered check=manual plan=scheduled issue=358 review=2026-11 note="エージェントの操作の要約を、エージェント自身または別の AI に生成させない(機械的な導出は許容する)。準拠テンプレートの /human-verify は、自らの出力に結論・評価・要約を書かないことだけを定める。エージェントの操作の要約一般を AI に生成させない規則は、CLAUDE.md とスキルに無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0209 target=human-verify-skill state=delivered check=manual note="「拒否が 0 件だから安全である」と記録しない。/human-verify の拒否の記録を読む手順に、この禁止を置く(書き込みの遮断のフックの冒頭の注記にもある)。記録の文を機械は確かめない。独立レビュアが判定記録を読むときに確かめる。確かめる者: G-6 の判定者(/human-verify の記録を読むとき)" -->
 
-<!-- impl IMPL-0333 target=pr-checks state=undelivered check=manual plan=scheduled issue=316 review=2027-04 note="要求事項7。AI のレビューに与える指示を、レビューの対象の変更が書き換えられない場所に置くこと。準拠テンプレートでは指示は .claude/** にあり、エージェントの書き込みはフックが遮断するが、同じ PR で指示を変えた場合に、基底の側の指示でレビューする仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
+<!-- impl IMPL-0333 target=pr-checks state=undelivered check=manual plan=scheduled issue=369 review=2027-04 note="要求事項7。AI のレビューに与える指示を、レビューの対象の変更が書き換えられない場所に置くこと。準拠テンプレートでは指示は .claude/** にあり、エージェントの書き込みはフックが遮断するが、同じ PR で指示を変えた場合に、基底の側の指示でレビューする仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
 
 :::caution[暫定 EV-0175 / 見直し 2027-10]
 **対象**: 起こしてはならない3つの操作が実行される前に拒否し、人がエージェントの操作について確かめる範囲を3つに限る定め(5.8.6)。附属書E E.6 とフェーズ5 の頁にあった定めを、本文へ移したもの。
