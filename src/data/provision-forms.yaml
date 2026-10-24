@@ -242,3 +242,29 @@ retiredScan:
     - src/content/docs/community/scope-ledger.md
     - src/content/docs/community/provision-forms.md
     - src/data/provision-forms.yaml
+
+# --- 手引きの頁(第1章 1.8。#316 / ADR-0086 R-1) ---
+# フェーズ5・6 の頁は、全体として参考(手引き)である。要求・禁止の文末は、同じ行に本文の所在が無ければ検出する。
+# 実装マークと、条項番号に似た独自の節番号も検出する。規定の文書がこれらの頁を「〜による/〜に規定」で引く箇所も検出する
+guides:
+  dirs:
+    - phase5-implementation
+    - phase6-operation
+
+# --- 禁止事項の番号(#316 / ADR-0086 R-6) ---
+# 番号の正本は第5章 5.8.5 と第8章「テーラリングの禁止事項」。引くときは一覧の所在で修飾する
+prohibitionLists:
+  qualifiers:
+    - '5.8.5 の'
+    - 'テーラリングの'
+  roots:
+    - src/content/docs
+    - template
+  extensions: [.md, .mdx, .json, .mjs]
+  exclude:
+    - src/content/docs/adr
+    - src/content/docs/community/evidence-ledger.md
+    - src/content/docs/community/implementation-ledger.md
+    - src/content/docs/community/scope-ledger.md
+    - template/scripts/vendor
+    - template/evidence
