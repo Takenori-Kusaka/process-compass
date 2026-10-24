@@ -10,7 +10,8 @@
 //   1. 標準 → 対応表     : standard の文字列が標準の本文に実在するか
 //   2. 対応表 → テンプレート: template の文字列がテンプレートの様式に存在するか
 //   3. テンプレート → 対応表: 様式の見出し(## )が、節を指す欄(standard が # で始まる欄)に
-//      対応するか、extra へ理由つきで登録されているか(ADR-0087 決定4)
+//      対応するか、extra へ区分(kind)と理由つきで登録されているか(ADR-0087 決定4)。
+//      見出しは番号の接頭辞と適用範囲の括弧を除いて、完全一致で照合する(部分一致は短い語で素通りする)
 //
 // 1 を欠くと、対応表が古い欄名を保持したまま通ります。標準で欄名を変えたときに
 // 対応表の更新を強制するのが 1 の役目です。
@@ -27,6 +28,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { missingInputs, describeMissing } from './lib/inputs.mjs';
+import { checkHeadings } from './lib/template-headings.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TEMPLATE = path.join(ROOT, 'template');
@@ -78,57 +80,14 @@ for (const form of spec.forms ?? []) {
   }
 }
 
-// 方向3: テンプレートの様式の見出しが、対応表に対応を持つか
+// 方向3: テンプレートの様式の見出しが、対応表に対応を持つか(正規化した見出しの完全一致。#317 突合 X-6)
 let extras = 0;
 for (const form of spec.forms ?? []) {
   const filePath = path.join(TEMPLATE, form.file);
   const body = templateReady && fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : null;
-  const registered = new Map();
-  for (const ex of form.extra ?? []) {
-    if (!ex.heading || !ex.reason) {
-      problems.push(`${form.name}: extra の登録には heading と reason の両方が要ります(${JSON.stringify(ex)})`);
-      continue;
-    }
-    if (ex.standard && !standardText.includes(ex.standard)) {
-      problems.push(`${form.name}: extra「${ex.heading}」の standard「${ex.standard}」が標準の第6章に見つかりません`);
-    }
-    registered.set(ex.heading, ex);
-  }
-  if (body === null) continue;
-  const sectionFields = (form.fields ?? []).filter((f) => !f.omit && /^#/.test(f.standard));
-  const headings = headingsOf(body);
-  for (const h of headings) {
-    const covered = sectionFields.some((f) => h.includes(f.template));
-    if (covered) continue;
-    if (registered.has(h)) {
-      extras += 1;
-      continue;
-    }
-    problems.push(
-      `${form.name}: ${form.file} の見出し「## ${h}」に、対応表の対応がありません。\n` +
-        `  標準の節に対応するなら fields へ、標準に無い節なら extra へ heading と reason を登録してください`
-    );
-  }
-  for (const h of registered.keys()) {
-    if (!headings.includes(h)) {
-      problems.push(`${form.name}: extra に登録した見出し「${h}」が ${form.file} にありません`);
-    }
-  }
-}
-
-function headingsOf(text) {
-  const out = [];
-  let fenced = false;
-  for (const line of text.split('\n')) {
-    if (/^\s*(```|~~~)/.test(line)) {
-      fenced = !fenced;
-      continue;
-    }
-    if (fenced) continue;
-    const m = /^## (.+?)\s*$/.exec(line);
-    if (m) out.push(m[1]);
-  }
-  return out;
+  const r = checkHeadings(form, body, standardText);
+  problems.push(...r.problems);
+  extras += r.extras;
 }
 
 if (!templateReady) {

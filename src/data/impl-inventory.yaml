@@ -486,10 +486,16 @@ sections:
       - IMPL-0241
     note: 判定を受けるゲートの表(機能仕様は G-4 と第2章 2.10.8、判断記録は置き換えて G-3)と、契機で判定を受けるゲートを変えないことは /gate の補助ファイル(IMPL-0240)。確定の後の変更の機械の検出は出荷の証跡の集約(IMPL-0241。降りていない)。技術検証の種別を設けないことは課さない明記
     issue: 294
-  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程どおり)
-    status: pending
-  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程どおり) > 品質の約束と保証範囲(層2)
-    status: pending
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程または D-0 の記名による)
+    status: kb
+    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。見出しを #317 突合 X-2 で改めたため登録し直した(旧い鍵は「既存規程どおり」)。期限の欄の置き場は D-0 表1-2(IMPL なし。様式の必須欄の検査が欄の存在を確かめる)
+    issue: 317
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程または D-0 の記名による) > 品質の約束と保証範囲(層2)
+    status: none
+    category: elsewhere
+    location: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 様式"
+    reason: G-1 の判定者が確かめる約束の4欄。欄の存在は企画書の様式の IMPL-0057 で追う。判定は人が行い、記述の内容は機械が判定しない(5.7.4)。見出しの変更(#317 突合 X-2)に伴い登録し直した
+    issue: 317
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間)
     status: marked
     ids:

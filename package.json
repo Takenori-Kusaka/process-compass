@@ -33,7 +33,7 @@
     "test:registry": "node scripts/test-check-recalibration-registry.mjs",
     "template:kb": "node scripts/build-template-kb.mjs",
     "test:template": "node scripts/check-template-drift.mjs",
-    "test:fields": "node scripts/check-template-fields.mjs",
+    "test:fields": "node scripts/check-template-fields.mjs && node scripts/test-template-fields.mjs",
     "test:criteria": "node scripts/check-gate-criteria.mjs",
     "criteria:write": "node scripts/check-gate-criteria.mjs --write",
     "lint:figures": "node scripts/check-figures-svg.mjs",
