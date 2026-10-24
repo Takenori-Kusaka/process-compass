@@ -194,7 +194,7 @@ AI協調ループは、機能単位で次の4工程を反復します。
 
 **探索の記録の置き場と様式も、本標準は課しません**。ステージ移行ゲート(SG-0)へ渡すのは、SG-0 の決断の記録([第5章 5.7.2](/process-compass/phase4-process-design/human-ai-boundary/))の「確認した事項」と「確認していない事項」です。基準「技術的実現性が確認されている」について、確認した事項には依った探索の記録を挙げ、その記録へ到達できなければなりません。到達できる期間は、[第4章「判定が指す記録の保管」](/process-compass/phase4-process-design/gate-criteria/)と同じく、組織が定める保管期間です。確認していない事項に書いた技術的な問いは、S1 の機能仕様の前提か、実装計画の検証のタスクへ移します([ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/))。
 
-<!-- impl IMPL-0252 target=gate-record-template state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="SG-0 の決断の記録の「確認した事項」に、依った探索の記録を挙げ、到達できるようにする。様式は決断の記録の欄(IMPL-0171)を持つが、探索の記録を挙げる注記と、確認していない技術的な問いを S1 の前提・検証のタスクへ移す注記は無い。会議体の決定者が確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0252 target=gate-record-template state=undelivered check=manual plan=scheduled issue=359 review=2026-11 note="SG-0 の決断の記録の「確認した事項」に、依った探索の記録を挙げ、到達できるようにする。様式は決断の記録の欄(IMPL-0171)を持つが、探索の記録を挙げる注記と、確認していない技術的な問いを S1 の前提・検証のタスクへ移す注記は無い。会議体の決定者が確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 事業ステージ S1 以降の技術的な検証も、作業の種別として設けません。検証の結果が確定した成果物を変える場合の扱いは、[第4章「確定した版を変える場合」](/process-compass/phase4-process-design/gate-criteria/)によります。
 
@@ -503,8 +503,8 @@ S0 の初回については、企画承認(G-1)の時点で確定させます。
 - 実測サイクルタイムの85パーセンタイル、または企画承認(G-1)で合意した値を超えた項目を**滞留**として扱う
 - 滞留した項目は、担当者と価値責任者へ**非同期で**通知する。通知を、定例の開催まで待たせてはならない
 
-<!-- impl IMPL-0282 target=claude-md state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="進捗を担当者の完了率の申告で測らないこと。AI の担い手が作業単位の担当者である場合も、進捗は完了した受入基準の数で数え、担い手の申告する完了率を進捗の値にしない。準拠テンプレートの CLAUDE.md にこの規則は無い。価値責任者が進捗の値の出所を確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0283 target=next-role state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="未完了の作業単位の滞留期間を継続して観測し、実測サイクルタイムの85パーセンタイルまたは G-1 で合意した値を超えた項目を、担当者と価値責任者へ非同期で通知すること。準拠テンプレートの /pit(next.mjs)は受信箱の状態を出すが、作業単位の滞留期間を観測せず、通知もしない。採用者が Issue の着手の時刻から観測し、通知の手段を置く。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0282 target=claude-md state=undelivered check=manual plan=scheduled issue=358 review=2026-11 note="進捗を担当者の完了率の申告で測らないこと。AI の担い手が作業単位の担当者である場合も、進捗は完了した受入基準の数で数え、担い手の申告する完了率を進捗の値にしない。準拠テンプレートの CLAUDE.md にこの規則は無い。価値責任者が進捗の値の出所を確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0283 target=next-role state=undelivered check=manual plan=scheduled issue=359 review=2026-11 note="未完了の作業単位の滞留期間を継続して観測し、実測サイクルタイムの85パーセンタイルまたは G-1 で合意した値を超えた項目を、担当者と価値責任者へ非同期で通知すること。準拠テンプレートの /pit(next.mjs)は受信箱の状態を出すが、作業単位の滞留期間を観測せず、通知もしない。採用者が Issue の着手の時刻から観測し、通知の手段を置く。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution
 作業単位の滞留期間は、[第4章](/process-compass/phase4-process-design/gate-criteria/)の**ゲート滞留時間**とは対象が異なります。ゲート滞留時間は提出から判定までを測り、判定者の帯域を表します。滞留期間は作業単位そのものの停滞を表します。両者を同じ指標として集計してはなりません。

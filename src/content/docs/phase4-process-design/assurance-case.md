@@ -374,7 +374,7 @@ AI の確認の範囲の外側(確認が見られなかったもの)は、確認
 
 入力の記録は、機械が実行の記録から書いてよいものとします。担い手の自己申告より、実行の記録のほうが渡した入力を漏らしにくいためです。
 
-<!-- impl IMPL-0253 target=ai-review-workflow state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="AI の確認の実行ごとに、確認側へ渡した入力(起動の指示・自動で読み込まれる指示ファイル・道具の定義・渡した成果物)を実行の記録から書き出す。準拠テンプレートの ai-review.yml は差し込み口と注記だけで、入力の記録を出さない。AI維持管理者が四半期の抜き取りで、文脈を渡していない確認として記録したものに入力の列挙があるかを確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0253 target=ai-review-workflow state=undelivered check=manual plan=scheduled issue=360 review=2026-11 note="AI の確認の実行ごとに、確認側へ渡した入力(起動の指示・自動で読み込まれる指示ファイル・道具の定義・渡した成果物)を実行の記録から書き出す。準拠テンプレートの ai-review.yml は差し込み口と注記だけで、入力の記録を出さない。AI維持管理者が四半期の抜き取りで、文脈を渡していない確認として記録したものに入力の列挙があるかを確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 **本標準は、成果物だけを入力にする確認(文脈を持たない読み手の役)を、要求事項として課しません**。根拠が単一の事例と本プロジェクトでの1回の実施にとどまり、条件1 の欠陥注入で文脈の欠落を測る方法が無いためです。成果物の読み手に伝わるかを案件が重視する場合は、受入基準へ書きます([ADR-0051](/process-compass/adr/0051-usability-out-of-scope/))。組織の外へ出す成果物の前に判定の工程を置く形は、[ADR-0053](/process-compass/adr/0053-irreversible-by-criterion-not-enumeration/) 決定5 が退けています。置く場合の手引きは、[附属書C](/process-compass/phase4-process-design/review-guide/)「成果物だけを読む確認」にあります。判断の記録は [ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/) です。
 
@@ -455,7 +455,7 @@ AI の担い手の出力が第3章 3.10 の意見に当たるかは、[第3章 3
 依るのは、根拠を課した往復と素朴な往復を比べた統制実験1件です。計算量を揃えた討論が自己整合を上回らない測定もあり、課題の種類と構成に依存します。
 :::
 
-<!-- impl IMPL-0155 target=ai-review-workflow state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="AI レビューの出力に所在と根拠を含め、実行の結果を述べる指摘に実行の記録の所在を含めること(所在を示せない場合は、実行で確かめたと記録しない)。ai-review.yml の差し込み口に注記を置いたまでで、差し込む AI のレビューの出力を確かめていない(ADR-0048 決定3)。AI維持管理者が四半期の抜き取りで確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0155 target=ai-review-workflow state=undelivered check=manual plan=scheduled issue=360 review=2026-11 note="AI レビューの出力に所在と根拠を含め、実行の結果を述べる指摘に実行の記録の所在を含めること(所在を示せない場合は、実行で確かめたと記録しない)。ai-review.yml の差し込み口に注記を置いたまでで、差し込む AI のレビューの出力を確かめていない(ADR-0048 決定3)。AI維持管理者が四半期の抜き取りで確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## H.5 署名の意味
 
