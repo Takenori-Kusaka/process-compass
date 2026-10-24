@@ -197,7 +197,7 @@ AI の能力は短期間で変化するため、役割境界の定義には必�
 
 措置の下限は L1 です。L1 の範囲で検知したときは、レベルを変えません。代わりに、5.4.5 の条件1(連続運用期間)と条件4(AI が起因となった事象)の期間を、検知の日から数え直し、検知と数え直しを記録します。[第3章 3.12.5](/process-compass/phase4-process-design/roles-responsibilities/) の要求事項3「1段階引き下げる」も、同じ下限で読みます。
 
-<!-- impl IMPL-0294 target=defect-ledger-template state=delivered check=manual note="L1 の範囲で検知したときの、検知と数え直しの記録の置き場。準拠テンプレートでは欠陥の台帳の「引き下げの点検の記録」の表(扱い: L1 で数え直し)に置く。記録を書いたかは機械で確かめず、内部監査(観点23)で確かめる" -->
+<!-- impl IMPL-0294 target=defect-ledger-template state=delivered check=manual note="L1 の範囲で検知したときの、検知と数え直しの記録の置き場。準拠テンプレートでは欠陥の台帳の「引き下げの点検の記録」の表(扱い: L1 で数え直し)に置く。記録を書いたかは機械で確かめず、内部監査(観点23)で確かめる。確かめる者: AI運用担当者(引き下げの点検の記録を書くとき)" -->
 
 <!-- impl IMPL-0290 target=defect-ledger-template state=delivered check=presence note="Sev1・Sev2 を記録する様式に、AI 起因(あり / なし / 特定できない)と、原因の変更・該当する登録した変更種別の欄を持つ。準拠テンプレートでは欠陥の台帳(運用の障害の Sev1・Sev2 の行を含む)に置く。原因の変更に AI の関与の記録があるかの判断は、事後検証を書く人が行い、機械は確かめない(単位: 欄)" -->
 
@@ -211,7 +211,7 @@ AI の能力は短期間で変化するため、役割境界の定義には必�
 
 引き下げた後の点検で、引き下げが不要だったと分かった場合は、その件数を記録します(誤発火の記録)。記録は、EV-0146 と EV-0154 の差し替え条件の材料です。誤発火と記録しても、引き下げた範囲は戻りません。戻すのは 5.4.5 の判定だけです。
 
-<!-- impl IMPL-0295 target=defect-ledger-template state=delivered check=manual note="誤発火の記録の置き場。準拠テンプレートでは欠陥の台帳の「引き下げの点検の記録」の表(扱い: 誤発火)に置く。誤発火と記録しても停止は解かない。記録を書いたかは機械で確かめず、内部監査(観点23)で確かめる" -->
+<!-- impl IMPL-0295 target=defect-ledger-template state=delivered check=manual note="誤発火の記録の置き場。準拠テンプレートでは欠陥の台帳の「引き下げの点検の記録」の表(扱い: 誤発火)に置く。誤発火と記録しても停止は解かない。記録を書いたかは機械で確かめず、内部監査(観点23)で確かめる。確かめる者: AI運用担当者(引き下げの点検の記録を書くとき)" -->
 
 #### 計測できない検知条件がある場合
 
@@ -262,9 +262,9 @@ AI の能力は短期間で変化するため、役割境界の定義には必�
 <!-- impl IMPL-0284 target=autonomy-derivation state=delivered check=machine test=template/scripts/gate/test-check-delegation.mjs note="登録した変更種別の停止(第1区分)を、委任を判定するたびに記録から導く。AI 起因の Sev1・Sev2 と原因を特定できない Sev1・Sev2(欠陥の台帳)、コア機能の理解保持者数1名以下(運用引き継ぎ文書の節2)で、該当する種別を委任に該当しないものとし、協働へ落とす。AI 起因の停止は事象の日より後の登録日で戻る。原因を特定できない停止は、AI 起因を「あり」か「なし」へ改めるまで戻らない(登録し直しでは戻らない)。出荷前に検出した欠陥の行は数えない。理解保持者数による停止は、運用引き継ぎ文書の履歴から1名以下だった時点を導き、2名以上へ回復した日より後の登録日で戻る。履歴を読めない場合(浅い取得を含む)・登録日の無い種別・台帳や引き継ぎ文書が無い場合は判定できないものとして止める。欠陥の台帳と運用引き継ぎ文書に触れる変更は委任に該当させない" -->
 <!-- impl IMPL-0285 target=autonomy-derivation state=delivered check=machine test=template/scripts/gate/test-check-delegation.mjs note="登録した変更種別の差し戻し率を、毎月、直近2か月の窓で集計する。母数は既定ブランチの履歴のうち種別の規則の範囲に入る変更、分子は判定基準の番号を引いた G-6 の差し戻しの判定記録。最小標本数(30件)以上で差し戻しが0件の評価は、評価の日より後の登録日まで種別を止める。判定記録の無い差し戻し(PR のレビューだけ)は数えない" -->
 <!-- impl IMPL-0286 target=autonomy-derivation state=delivered check=machine test=template/scripts/gate/test-check-delegation.mjs note="差し戻し率の窓が最小標本数に満たない場合を判定不能とし、判定可能な窓が得られるまで登録した変更種別を止める(判定を待たずに戻る)。履歴を読めない場合(浅い取得を含む)も判定できないものとして止める" -->
-<!-- impl IMPL-0287 target=next-role state=delivered check=manual note="登録した変更種別ごとの現在のレベル・停止の原因・窓の件数と判定不能を、次の一手(/pit)の注記に出す。判定不能を「異常なし」と出さない(#314: 違反の入力で落ち適合の入力で通る試験の対が無いため、machine から manual へ下げた)" -->
-<!-- impl IMPL-0288 target=evidence-aggregation state=delivered check=manual note="登録した変更種別ごとの現在のレベル・停止の原因・窓の件数と判定不能を、保証の開示の項目3 に出す(組織の外へ渡す形にも出す)。判定不能を「異常なし」と出さない(#314: 違反の入力で落ち適合の入力で通る試験の対が無いため、machine から manual へ下げた)" -->
-<!-- impl IMPL-0291 target=autonomy-derivation state=undelivered check=manual plan=scheduled issue=348 review=2027-04 note="手戻り率の期間ごとの集計と、基準を超えたときの自動の引き下げ。準拠テンプレートは手戻り率を集計しない。組織が G-1 で定める基準値を構成に持たず、不採用となった変更(マージされなかった PR)を既定ブランチの履歴から読めないため。採用者は登録の根拠の reworkRate に書いた手段で集計し、発火の有無は内部監査(観点23)で確かめる" -->
+<!-- impl IMPL-0287 target=next-role state=delivered check=machine test=template/scripts/gate/test-check-delegation.mjs note="登録した変更種別ごとの現在のレベル・停止の原因・窓の件数と判定不能を、次の一手(/pit)の注記に出す。判定不能を「異常なし」と出さない(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した)" -->
+<!-- impl IMPL-0288 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-check-delegation.mjs note="登録した変更種別ごとの現在のレベル・停止の原因・窓の件数と判定不能を、保証の開示の項目3 に出す(組織の外へ渡す形にも出す)。判定不能を「異常なし」と出さない(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した)" -->
+<!-- impl IMPL-0291 target=autonomy-derivation state=undelivered check=manual plan=scheduled issue=348 review=2027-04 note="手戻り率の期間ごとの集計と、基準を超えたときの自動の引き下げ。準拠テンプレートは手戻り率を集計しない。組織が G-1 で定める基準値を構成に持たず、不採用となった変更(マージされなかった PR)を既定ブランチの履歴から読めないため。採用者は登録の根拠の reworkRate に書いた手段で集計し、発火の有無は内部監査(観点23)で確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 5.4.7 能力維持措置
 
@@ -409,7 +409,7 @@ graph TD
 - 案件の安全重要度を根拠に、リスク区分による上限を緩めてはならない。CL0 の案件でも、R1 の変更は人確定とする
 - **上限を案件単位で引き上げる経路はない**。実績によっても緩和しない(5.4.4 と同じ理由)
 
-<!-- impl IMPL-0025 target=config-seats state=delivered check=manual note="席ごとの運用形態の宣言は上限であり、変更ごとのリスク区分が下げる。案件単位で引き上げない" -->
+<!-- impl IMPL-0025 target=config-seats state=delivered check=manual note="席ごとの運用形態の宣言は上限であり、変更ごとのリスク区分が下げる。案件単位で引き上げない。確かめる者: D-0 表1 の決定者(任命・交代と、層1 の周期の確認のとき)" -->
 
 この線引き(R2 は協働、R3 は条件つきの委任)に、実測の裏づけはありません。根拠の水準と差し替え条件は、[ADR-0054](/process-compass/adr/0054-seat-accountable-performer/)の暫定マーク EV-0040 によります。
 
@@ -445,7 +445,7 @@ graph TD
 - 委任の識別を持つ変更のリスク区分が R3 でない場合は、**委任の範囲の逸脱**として扱う。条件2 を満たさない変更が、委任で先へ進めた変更として記録されているためである。記録の欠落として差し戻す([第4章 G-7](/process-compass/phase4-process-design/gate-criteria/))
 - G-6 の判定を事後へ移した変更を、人の判定と同じ語(承認、通過、独立レビュー済み)で記録しない
 
-<!-- impl IMPL-0026 target=config-delegation state=undelivered check=manual plan=scheduled issue=339 review=2027-04 note="委任の該当は機械の規則で判定し、行為する AI 自身に判定させない。判定の規則と構成は基底ブランチから読む。AI の確認を承認にも合否条件にもしない。該当の判定は実装、マージの実行は既定で無効、実環境で未確認" -->
+<!-- impl IMPL-0026 target=config-delegation state=undelivered check=manual plan=scheduled issue=339 review=2027-04 note="委任の該当は機械の規則で判定し、行為する AI 自身に判定させない。判定の規則と構成は基底ブランチから読む。AI の確認を承認にも合否条件にもしない。該当の判定は実装、マージの実行は既定で無効、実環境で未確認。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 登録と、登録した変更種別の経路
 
@@ -582,8 +582,8 @@ AI が席の担い手として判断を引き受け続けた運用報告は、20
 
 委任の決定を AI維持管理者だけへ寄せません。席の結果責任を負う者が決めない形になるためです。事業決裁者の決裁を常に要する形も採りません。判断の要らない事項まで決裁へ集まる形は、ADR-0038 が退けています。
 
-<!-- impl IMPL-0097 target=process-change-skill state=delivered check=manual note="委任を決定した者(decidedBy。保持していた宣言・規則の決定者を含む)と規則の承認者(ruleApprovedBy)が同一人物の変化点を、/process-change(generate-profile --change)が人数に依らず記録つきで受け付け、[注意] として出す。D-0 節13 に「決定した者と同一人物」、next.mjs と出荷の集約の項目1 に同一人物の変化点を出す。拒否は採らない(ADR-0057 補足 S50)(#288 第8巡 Y7)" -->
-<!-- impl IMPL-0098 target=config-delegation state=delivered check=manual note="層1 項目4「AI の利用の拡大」の受容できる水準が「認めない」で始まる組織では、/process-change(種別 mode・performer)が委任の登録(席の委任・規則・変更種別・規則の承認)を拒否する(構成の錠)。出荷の証跡の集約は、錠のもとで構成に委任の登録が残っていれば記載の欠落にし、next.mjs が注記に出す。語を含むだけで欄の先頭でない層1 は錠にせず「人が確かめる」と出す(#288 第8巡 Y7)" -->
+<!-- impl IMPL-0097 target=process-change-skill state=delivered check=manual note="委任を決定した者(decidedBy。保持していた宣言・規則の決定者を含む)と規則の承認者(ruleApprovedBy)が同一人物の変化点を、/process-change(generate-profile --change)が人数に依らず記録つきで受け付け、[注意] として出す。D-0 節13 に「決定した者と同一人物」、next.mjs と出荷の集約の項目1 に同一人物の変化点を出す。拒否は採らない(ADR-0057 補足 S50)(#288 第8巡 Y7)。確かめる者: 変化点の決定者(/process-change の出力を読むとき)" -->
+<!-- impl IMPL-0098 target=config-delegation state=delivered check=manual note="層1 項目4「AI の利用の拡大」の受容できる水準が「認めない」で始まる組織では、/process-change(種別 mode・performer)が委任の登録(席の委任・規則・変更種別・規則の承認)を拒否する(構成の錠)。出荷の証跡の集約は、錠のもとで構成に委任の登録が残っていれば記載の欠落にし、next.mjs が注記に出す。語を含むだけで欄の先頭でない層1 は錠にせず「人が確かめる」と出す(#288 第8巡 Y7)。確かめる者: 変化点の決定者(委任の登録を決めるとき)" -->
 
 <!-- impl IMPL-0019 target=claude-md-resident state=delivered check=presence note="4種類の判断の確定は席の責任者(人)が行い、AI の担い手へ移さないことを実行層へ書く(単位: 行)" -->
 
@@ -605,7 +605,7 @@ AI が席の担い手として判断を引き受け続けた運用報告は、20
 - 要約を伴わない承認は差し戻しとして扱う。独立した人の確認にも数えない([第4章 G-6](/process-compass/phase4-process-design/gate-criteria/))
 - 承認に要した時間と変更規模の比を継続して計測する
 
-<!-- impl IMPL-0159 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="承認に要した時間と変更規模の比を継続して計測する(5.6)。準拠テンプレートの集計は承認に要した時間を出さない。計測の手段が入るまで、品質保証の機能が PR と判定記録から四半期ごとに手で集める" -->
+<!-- impl IMPL-0159 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="承認に要した時間と変更規模の比を継続して計測する(5.6)。準拠テンプレートの集計は承認に要した時間を出さない。計測の手段が入るまで、品質保証の機能が PR と判定記録から四半期ごとに手で集める。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 5.6.1 形骸化が生じる条件
 
@@ -629,7 +629,7 @@ AI が席の担い手として判断を引き受け続けた運用報告は、20
 
 委託による開発では、**受注側の評価および契約上のペナルティの根拠にも用いません**。禁止の理由は個人の場合と同じで、測定の対象が工程であることによります。評価へ接続した時点で、注入の告知は不利益の予告になります。受注側は検出しやすい対象へ最適化し、実務で問題になる欠陥は測定から外れます。委託時の役割分担は[第8章 軸D](/process-compass/phase4-process-design/tailoring-guide/)によります。
 
-<!-- impl IMPL-0160 target=adoption-trial state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="欠陥注入の結果を、レビュー工程の検出能力の測定と見逃しやすい類型の特定に限って用い、個人の評価・人事・残存欠陥数の推定・受注側の評価に用いない。導入前の検証のコマンドは層ごとの検出率と見逃した類型だけを出し、人ごとの率と残存数の推定を出さない。用途の限定を採用者と担い手へ伝える文は、準拠テンプレートの様式・スキル・CLAUDE.md に無い(コードの注記だけ。突合 X-12)。用途は記録の外にあり、機械は確かめない" -->
+<!-- impl IMPL-0160 target=adoption-trial state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="欠陥注入の結果を、レビュー工程の検出能力の測定と見逃しやすい類型の特定に限って用い、個人の評価・人事・残存欠陥数の推定・受注側の評価に用いない。導入前の検証のコマンドは層ごとの検出率と見逃した類型だけを出し、人ごとの率と残存数の推定を出さない。用途の限定を採用者と担い手へ伝える文は、準拠テンプレートの様式・スキル・CLAUDE.md に無い(コードの注記だけ。突合 X-12)。用途は記録の外にあり、機械は確かめない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 事前の周知
 
@@ -640,8 +640,8 @@ AI が席の担い手として判断を引き受け続けた運用報告は、20
 | 3 | 周知なしに注入してはならない |
 | 4 | 注入した欠陥が組織の外部へ到達しない経路を確保する |
 
-<!-- impl IMPL-0161 target=seeded-error-drill state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="注入の事前周知(要求事項1。周知に含める6項目はフェーズ5 欠陥注入の隔離設計)と、周知なしの注入の禁止(要求事項3)。準拠テンプレートに周知の記録の欄も確認も無い。導入前の検証の注入も周知を確かめない" -->
-<!-- impl IMPL-0162 target=adoption-trial state=delivered check=manual note="個々の注入の時期・箇所を知らせない(要求事項2)。導入前の検証のコマンドは、注入の記録をリポジトリの外に置かせて封じてから実行させ、リポジトリの中の記録を拒否する。試験は無い。導入前の検証の 1 回に限る(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0161 target=seeded-error-drill state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="注入の事前周知(要求事項1。周知に含める6項目はフェーズ5 欠陥注入の隔離設計)と、周知なしの注入の禁止(要求事項3)。準拠テンプレートに周知の記録の欄も確認も無い。導入前の検証の注入も周知を確かめない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0162 target=adoption-trial state=delivered check=manual note="個々の注入の時期・箇所を知らせない(要求事項2)。導入前の検証のコマンドは、注入の記録をリポジトリの外に置かせて封じてから実行させ、リポジトリの中の記録を拒否する。試験は無い。導入前の検証の 1 回に限る(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 導入前の検証の記入者(採用者の人。記録を突き合わせるとき)" -->
 
 要求事項1の周知には、実施の告知だけでなく、**測定の対象が工程であること、個人の検出率を算出しないこと、結果を人事評価に用いないこと**を含めます。含める事項の一覧は[フェーズ5(欠陥注入の隔離設計)](/process-compass/phase5-implementation/seeded-error-safety/)に規定します。実施の告知だけでは、試されているという受け取りがそのまま残ります。
 
@@ -658,7 +658,7 @@ AI が席の担い手として判断を引き受け続けた運用報告は、20
 | 5 | 単純な字句の置換に偏らせず、記述の欠落を含める |
 | 6 | 動作に致命的な影響を与える欠陥を含めない |
 
-<!-- impl IMPL-0163 target=adoption-trial state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="注入する欠陥の性質(要件3 規約上指摘されるべき性質、要件4 難度の較正、要件5 記述の欠落を含める、要件6 致命的な影響を含めない)。導入前の検証の手順は、注入する欠陥の性質を案内も確認もしない。要件1・2 は隔離の4層のマークで追跡する" -->
+<!-- impl IMPL-0163 target=adoption-trial state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="注入する欠陥の性質(要件3 規約上指摘されるべき性質、要件4 難度の較正、要件5 記述の欠落を含める、要件6 致命的な影響を含めない)。導入前の検証の手順は、注入する欠陥の性質を案内も確認もしない。要件1・2 は隔離の4層のマークで追跡する。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 要件5が重要です。自動生成しやすい欠陥は字句の置換に偏りますが、実務で問題になる欠陥の多くは**書かれていないこと**です。欠落を含めなければ、検出能力の一部しか測れません。
 
@@ -684,14 +684,14 @@ AI が席の担い手として判断を引き受け続けた運用報告は、20
 
 注入の難度を前期の検出率から機械的に決めません。較正に共通する歯止めは[フェーズ6(運用メトリクス)](/process-compass/phase6-operation/metrics/)によります。
 
-<!-- impl IMPL-0164 target=seeded-error-drill state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="注入の頻度を測定として意味のある件数を蓄積できる水準に置くことと、難度を前期の検出率から機械的に決めないこと。運用中の継続の注入の手段が無い" -->
-<!-- impl IMPL-0165 target=adoption-trial state=delivered check=manual note="集計をチーム単位・工程単位に限り、個人単位の検出率を算出しない。導入前の検証のコマンドは人ごとの率を出さない。記録に残す人ごとの指摘の添字(perFinder)は名簿の読み直しのためで、記録から率を算出する行為にも本禁止が掛かる(ADR-0067 決定6)。算出していないことは品質保証の機能が確かめる" -->
+<!-- impl IMPL-0164 target=seeded-error-drill state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="注入の頻度を測定として意味のある件数を蓄積できる水準に置くことと、難度を前期の検出率から機械的に決めないこと。運用中の継続の注入の手段が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0165 target=adoption-trial state=delivered check=manual note="集計をチーム単位・工程単位に限り、個人単位の検出率を算出しない。導入前の検証のコマンドは人ごとの率を出さない。記録に残す人ごとの指摘の添字(perFinder)は名簿の読み直しのためで、記録から率を算出する行為にも本禁止が掛かる(ADR-0067 決定6)。算出していないことは品質保証の機能が確かめる。確かめる者: 導入前の検証の記入者(採用者の人。記録を突き合わせるとき)" -->
 
 #### AIによるレビュー層も対象とする
 
 注入は、人間のレビューだけでなく、AIによるレビューにも同一の条件で適用します。AI のレビューの指摘のうち検出に数えるものは、[附属書H](/process-compass/phase4-process-design/assurance-case/) H.4「所在か根拠を欠く指摘」によります(所在が注入した箇所を指す指摘に限る)。2026年前半の評価では、モデルによって欠陥の検出率に20〜40ポイントの差があり、特定の類型で系統的に低下することが報告されています。**AIのレビューを通したという事実は、検出されたことの保証になりません**。
 
-<!-- impl IMPL-0166 target=adoption-trial state=delivered check=manual note="注入を AI のレビュー層にも同じ条件で当てる。導入前の検証のコマンドは、AI の層の検出率を人の層と同じ数え方で出し、AI の担い手の宣言が無ければ未測定と出す。導入前の検証の 1 回に限る(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0166 target=adoption-trial state=delivered check=manual note="注入を AI のレビュー層にも同じ条件で当てる。導入前の検証のコマンドは、AI の層の検出率を人の層と同じ数え方で出し、AI の担い手の宣言が無ければ未測定と出す。導入前の検証の 1 回に限る(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 導入前の検証の記入者(採用者の人。記録を突き合わせるとき)" -->
 
 #### 結果の反映
 
@@ -701,14 +701,14 @@ AI が席の担い手として判断を引き受け続けた運用報告は、20
 
 測定した結果を訓練と手順の改善へ結び付けていないことは、同種の仕組みを運用する組織に対する監査で繰り返し指摘されています。**測定して終わりにする注入は、工数の浪費です**。
 
-<!-- impl IMPL-0167 target=adoption-trial state=delivered check=manual note="検出率と見逃した類型を記録する。導入前の検証のコマンドは、層ごとの検出率と見逃した類型(missedTypes)を記録に出す。導入前の検証の 1 回に限る(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
-<!-- impl IMPL-0168 target=seeded-error-drill state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="見逃した類型をレビューの観点と自動検査へ反映する経路と、反映の経路を持たない注入の禁止。準拠テンプレートは見逃した類型を記録に出すだけで、反映先へ渡す経路が無い" -->
+<!-- impl IMPL-0167 target=adoption-trial state=delivered check=manual note="検出率と見逃した類型を記録する。導入前の検証のコマンドは、層ごとの検出率と見逃した類型(missedTypes)を記録に出す。導入前の検証の 1 回に限る(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 導入前の検証の記入者(採用者の人。記録を突き合わせるとき)" -->
+<!-- impl IMPL-0168 target=seeded-error-drill state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="見逃した類型をレビューの観点と自動検査へ反映する経路と、反映の経路を持たない注入の禁止。準拠テンプレートは見逃した類型を記録に出すだけで、反映先へ渡す経路が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 実装上の要求
 
 要件1(本番環境へ到達しない経路)と要件2(自動的な取り消し)を満たす実装は、[フェーズ5(欠陥注入の隔離設計)](/process-compass/phase5-implementation/seeded-error-safety/)に規定します。**注入した欠陥を後から取り除く設計を採ってはなりません**。除去処理の成功を安全性の根拠に置くと、処理が一度飛んだ時点で製品へ流出します。
 
-<!-- impl IMPL-0169 target=seeded-error-isolation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="注入した欠陥を後から取り除く設計(除去型)を採らない。隔離型の4層(フェーズ5 欠陥注入の隔離設計)は準拠テンプレートに無い" -->
+<!-- impl IMPL-0169 target=seeded-error-isolation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="注入した欠陥を後から取り除く設計(除去型)を採らない。隔離型の4層(フェーズ5 欠陥注入の隔離設計)は準拠テンプレートに無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 5.6.3 見逃しが生じた場合の区分
 
@@ -784,7 +784,7 @@ R1 の決定および例外承認では、2案以上の比較を経た記録を�
 - **R1 の決定および例外承認において、どの案を選ぶかの理由は、人間が記入しなければならない**。この記入をAIに生成させてはならない
 
 <!-- impl IMPL-0016 target=gate-record-template state=delivered check=presence note="選択肢の比較を求める範囲を R1 と例外承認に限る(単位: 欄)" -->
-<!-- impl IMPL-0172 target=claude-md state=delivered check=manual note="R1 の決定と例外承認で、どの案を選ぶかの理由を人が記入し、AI に生成させない。CLAUDE.md の判断の確定と委任の節に「R1 の決定と例外承認は人確定で、AI は結論を起案しない」を置く。記入した者を機械は確かめない" -->
+<!-- impl IMPL-0172 target=claude-md state=delivered check=manual note="R1 の決定と例外承認で、どの案を選ぶかの理由を人が記入し、AI に生成させない。CLAUDE.md の判断の確定と委任の節に「R1 の決定と例外承認は人確定で、AI は結論を起案しない」を置く。記入した者を機械は確かめない。確かめる者: AI維持管理者(指示資産の棚卸しのとき)" -->
 
 ### 5.7.4 記述の質を機械的に判定しない
 
@@ -794,7 +794,7 @@ R1 の決定および例外承認では、2案以上の比較を経た記録を�
 | 2 | 自動的な判定は、人間への提示(注意の喚起)に限って用いる |
 | 3 | 欄の形式的な欠落は機械検査してよい |
 
-<!-- impl IMPL-0173 target=gate-skill state=delivered check=manual note="記述の実質性を機械で判定して承認の可否を決めず、自動の判定は人への注意の喚起に限る(要求事項1・2)。/gate の G-1 の補助ファイルと check-g1 の注記に置く。ほかのゲートの補助ファイルには書いていない。検査を足す側(技術判断者・AI維持管理者)が守る規定で、機械は確かめない" -->
+<!-- impl IMPL-0173 target=gate-skill state=delivered check=manual note="記述の実質性を機械で判定して承認の可否を決めず、自動の判定は人への注意の喚起に限る(要求事項1・2)。/gate の G-1 の補助ファイルと check-g1 の注記に置く。ほかのゲートの補助ファイルには書いていない。検査を足す側(技術判断者・AI維持管理者)が守る規定で、機械は確かめない。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 
 要求事項1の根拠は次のとおりです。文章の自動採点は、内容を伴わない記述に高い評価を与えることが繰り返し示されており、最も強い予測因子は文章の長さでした。大規模言語モデルによる判定にも、提示順序・冗長さ・自らの生成物への選好といった系統的な偏りが報告されています。**判定を自動化すると、長く書けば通るという新しい形の形骸化を生みます**。
 
@@ -808,7 +808,7 @@ R1 の決定および例外承認では、2案以上の比較を経た記録を�
 
 記述の内容そのものは、四半期ごとに人が抽出して確認します。
 
-<!-- impl IMPL-0174 target=gate-skill state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="記述の内容を四半期ごとに人が抽出して確認する。準拠テンプレートに抽出の手順と記録の置き場が無い" -->
+<!-- impl IMPL-0174 target=gate-skill state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="記述の内容を四半期ごとに人が抽出して確認する。準拠テンプレートに抽出の手順と記録の置き場が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 5.7.5 形骸化を遅らせる提示の設計
 
@@ -822,7 +822,7 @@ R1 の決定および例外承認では、2案以上の比較を経た記録を�
 
 同じ文面の確認欄を毎回同じ位置に置く運用は、最短で形骸化します。
 
-<!-- impl IMPL-0175 target=gate-record-template state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="承認時に確認を求める項目の並び・表現・強調を周期的に変える。準拠テンプレートの様式は固定である" -->
+<!-- impl IMPL-0175 target=gate-record-template state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="承認時に確認を求める項目の並び・表現・強調を周期的に変える。準拠テンプレートの様式は固定である。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 5.7.6 承認設計の評価指標
 
@@ -869,9 +869,9 @@ AI の支援を受けて作成した成果物には、次を記録します。
 
 「指示の保存」が求めるのは、生成時に参照した指示資産の版を特定できる状態です。指示の全文の保存は求めません。成果物が正しいことの根拠は、生成の条件ではなく検証の記録です。記録する項目と導出元は、[フェーズ5(操作証跡の統制)](/process-compass/phase5-implementation/agent-trace-control/)によります。
 
-<!-- impl IMPL-0176 target=claude-md state=delivered check=manual note="モデルの識別。CLAUDE.md に、AI が関与したコミットのトレーラ Co-Authored-By を必須とし、モデルの名称と版を書く規則を置く(実装のスキルの補助ファイル commit.md も同じ)。版を書いたかは人が確かめる" -->
-<!-- impl IMPL-0177 target=evidence-aggregation state=delivered check=manual note="モデルの識別。出荷の証跡の集約は、コミットに記録された共著者を項目7 に出し、宣言に無い共著者を警告する(止めない)。トレーラの無いコミットと、版を欠くトレーラは検出しない(宣言との照合は部分一致)(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
-<!-- impl IMPL-0178 target=evidence-aggregation state=delivered check=manual note="指示の保存。出荷の証跡の集約は、出荷の範囲の指示資産(CLAUDE.md・.claude)の最終変更のコミットを出す。成果物ごとに生成時の指示資産の版を引く対応は、操作証跡の統制のマーク(IMPL-0207)で追跡する(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0176 target=claude-md state=delivered check=manual note="モデルの識別。CLAUDE.md に、AI が関与したコミットのトレーラ Co-Authored-By を必須とし、モデルの名称と版を書く規則を置く(実装のスキルの補助ファイル commit.md も同じ)。版を書いたかは人が確かめる。確かめる者: AI維持管理者(指示資産の棚卸しのとき)" -->
+<!-- impl IMPL-0177 target=evidence-aggregation state=delivered check=manual note="モデルの識別。出荷の証跡の集約は、コミットに記録された共著者を項目7 に出し、宣言に無い共著者を警告する(止めない)。トレーラの無いコミットと、版を欠くトレーラは検出しない(宣言との照合は部分一致)(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
+<!-- impl IMPL-0178 target=evidence-aggregation state=delivered check=manual note="指示の保存。出荷の証跡の集約は、出荷の範囲の指示資産(CLAUDE.md・.claude)の最終変更のコミットを出す。成果物ごとに生成時の指示資産の版を引く対応は、操作証跡の統制のマーク(IMPL-0207)で追跡する(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 <!-- impl IMPL-0179 target=pr-template state=delivered check=presence note="検証の記録。PR の本文の「検証方法と結果」(PR を経ないコミットはトレーラ Verification)の有無を、出荷の証跡の集約が確かめる。どの検証で誤りを捕捉したかの内容は確かめない(単位: 欄)" -->
 
 ### 5.8.3 AI に担わせない領域
@@ -902,10 +902,10 @@ AI の支援を受けて作成した成果物には、次を記録します。
 
 本標準は、構成の兼務禁止表(`separations`)に、この段階もセッションの単位も持たせることを課しません。構成のキーにしても、文脈と入力を分けたことを機械で確かめられないためです。
 
-<!-- impl IMPL-0181 target=implement-skill state=delivered check=manual note="実装とテストの両方を同一の AI が同一の文脈で書かない(見出しの禁止と段階「弱」)。実装のスキルは、テストを受入基準だけを渡した別の文脈(サブエージェントか別のセッション)で生成させる。文脈を分けたことを機械は確かめず、確かめる者も本標準は定めていない(突合 X-3)" -->
-<!-- impl IMPL-0182 target=implement-skill state=delivered check=manual note="段階「中」。テストを実装より先に生成し、テスト生成に実装コードを渡さない。実装のスキルは区分によらず全変更に当てる。渡していないことを機械は確かめない" -->
-<!-- impl IMPL-0183 target=implement-skill state=delivered check=manual note="段階「強」(R1)。人が受入基準を事前に定義し、生成されたテストの十分性を人が判定する。実装のスキルは R1 の変更と CL2 以上の構成でこれを求める。判定したことを機械は確かめない" -->
-<!-- impl IMPL-0184 target=config-seats state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="段階「最強」(安全関連ソフトウェア)。検証の担当者を実装の責任者から組織的に独立させる。構成の席は担当者の組織上の所属を持たず、確かめない。CL2 以上の独立した安全性の評価(IMPL-0080)とは別の規定" -->
+<!-- impl IMPL-0181 target=implement-skill state=delivered check=manual note="実装とテストの両方を同一の AI が同一の文脈で書かない(見出しの禁止と段階「弱」)。実装のスキルは、テストを受入基準だけを渡した別の文脈(サブエージェントか別のセッション)で生成させる。文脈を分けたことを機械は確かめず、確かめる者も本標準は定めていない(突合 X-3)。確かめる者: G-6 の判定者(差分とテストの出自を確かめるとき)" -->
+<!-- impl IMPL-0182 target=implement-skill state=delivered check=manual note="段階「中」。テストを実装より先に生成し、テスト生成に実装コードを渡さない。実装のスキルは区分によらず全変更に当てる。渡していないことを機械は確かめない。確かめる者: G-6 の判定者(差分とテストの出自を確かめるとき)" -->
+<!-- impl IMPL-0183 target=implement-skill state=delivered check=manual note="段階「強」(R1)。人が受入基準を事前に定義し、生成されたテストの十分性を人が判定する。実装のスキルは R1 の変更と CL2 以上の構成でこれを求める。判定したことを機械は確かめない。確かめる者: G-6 の判定者(差分とテストの出自を確かめるとき)" -->
+<!-- impl IMPL-0184 target=config-seats state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="段階「最強」(安全関連ソフトウェア)。検証の担当者を実装の責任者から組織的に独立させる。構成の席は担当者の組織上の所属を持たず、確かめない。CL2 以上の独立した安全性の評価(IMPL-0080)とは別の規定。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 弱・中・強の3段階は**分離**と呼び、最強の段階だけを**独立**と呼びます。独立は人と組織の単位でだけ成立し、分離は実行主体の文脈と入力の単位で成立します([第3章 3.5.4](/process-compass/phase4-process-design/roles-responsibilities/))。呼び分けるのは語だけで、段階の内容と適用は変わりません。
 
@@ -929,7 +929,7 @@ AI の支援を受けて作成した成果物には、次を記録します。
 
 <!-- impl IMPL-0185 target=claude-md-resident state=delivered check=presence note="禁止事項1(受入基準を確定せずに実装を依頼する)。CLAUDE.md の行ってはならない作業の表と実装のスキルの前提に置く。PR では G-5(pr-rules)がトレーラ Spec の指す仕様とタスクの実在を確かめる。着手そのものは機械で確かめない(単位: 行)" -->
 <!-- impl IMPL-0186 target=claude-md-resident state=delivered check=presence note="禁止事項2(AI が生成した受入基準を、人の G-2・G-4 の判定を経ずに確定とする)。CLAUDE.md の行ってはならない作業の表に置く。check-process-rules が、表の行の禁止事項の文言を照合する(単位: 行)" -->
-<!-- impl IMPL-0187 target=guard-write-hook state=delivered check=presence note="禁止事項3(テストの失敗を、テスト側の変更で解消する)。自己修正のロック中は、フックがテストへの書き込みを遮断し、拒否を記録する。ロックの外の既存のテストの変更は、G-5(pr-rules)が PR へ一覧を出す(合否に使わない)。フックに試験は無い。Claude Code の Edit・Write だけを遮断する(単位: ファイル)" -->
+<!-- impl IMPL-0187 target=guard-write-hook state=delivered check=manual note="禁止事項3(テストの失敗を、テスト側の変更で解消する)。自己修正のロック中は、フックがテストへの書き込みを遮断し、拒否を記録する。ロックの外の既存のテストの変更は、G-5(pr-rules)が PR へ一覧を出す(合否に使わない)。フックに試験は無い。Claude Code の Edit・Write だけを遮断する。確かめる者: AI維持管理者(フックかその設定を変えたとき、テンプレートの更新を取り込むときに、遮断の動作を手で試す)。フックの遮断を確かめる試験は、後継の Issue の下書き D で足す計画(#314 の突合 X-7)" -->
 <!-- impl IMPL-0188 target=claude-md-resident state=delivered check=presence note="禁止事項4(差分を確認せずに承認する)。CLAUDE.md の行ってはならない作業の表に置く。check-process-rules が、表の行の禁止事項の文言を照合する(単位: 行)" -->
 <!-- impl IMPL-0189 target=claude-md-resident state=delivered check=presence note="禁止事項5(独立レビューの挙動要約を AI に生成させる)。CLAUDE.md の行ってはならない作業の表に置く。check-process-rules が、表の行の禁止事項の文言を照合する(単位: 行)。挙動要約を誰が書いたかを機械は確かめない(集約が確かめるのは最低限の形と同一の文)" -->
 

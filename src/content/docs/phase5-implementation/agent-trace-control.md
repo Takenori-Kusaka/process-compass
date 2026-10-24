@@ -40,9 +40,9 @@ sidebar:
 - 許可範囲の変更を、エージェントに実行させない。範囲の変更は人間の操作による
 - 秘匿情報は実行環境から参照できない位置へ置く。読み取りの制限だけに頼らない
 
-<!-- impl IMPL-0198 target=guard-write-hook state=delivered check=presence note="拒否した操作を記録へ残し(.claude/denied.log)、強制層(権限設定・guard.json・フック・ワークフロー・ゲートのスクリプト)への書き込みを遮断して、許可範囲の変更をエージェントに実行させない。Claude Code の Edit・Write だけを遮断する。試験は無い(単位: ファイル)" -->
-<!-- impl IMPL-0199 target=agent-settings state=delivered check=manual note="権限設定で、秘匿情報の経路(.env・鍵・認証情報の置き場)の読み取りと強制層の編集を確認つき(ask)に置き、実行を許すコマンドを許可リストに置く(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
-<!-- impl IMPL-0200 target=agent-settings state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="書き込みの既定を拒否にして許可を実装計画のタスクの対象パスに限ること、ネットワークの既定を拒否にして必要な宛先だけを許すこと、秘匿情報を実行環境から参照できない位置へ置くこと。準拠テンプレートの権限設定は、書き込みの範囲とネットワークを限らない" -->
+<!-- impl IMPL-0198 target=guard-write-hook state=delivered check=manual note="拒否した操作を記録へ残し(.claude/denied.log)、強制層(権限設定・guard.json・フック・ワークフロー・ゲートのスクリプト)への書き込みを遮断して、許可範囲の変更をエージェントに実行させない。Claude Code の Edit・Write だけを遮断する。試験は無い。確かめる者: AI維持管理者(フックかその設定を変えたとき、テンプレートの更新を取り込むときに、遮断の動作を手で試す)。フックの遮断を確かめる試験は、後継の Issue の下書き D で足す計画(#314 の突合 X-7)" -->
+<!-- impl IMPL-0199 target=agent-settings state=delivered check=manual note="権限設定で、秘匿情報の経路(.env・鍵・認証情報の置き場)の読み取りと強制層の編集を確認つき(ask)に置き、実行を許すコマンドを許可リストに置く(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI維持管理者(権限設定を変えるとき)" -->
+<!-- impl IMPL-0200 target=agent-settings state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="書き込みの既定を拒否にして許可を実装計画のタスクの対象パスに限ること、ネットワークの既定を拒否にして必要な宛先だけを許すこと、秘匿情報を実行環境から参照できない位置へ置くこと。準拠テンプレートの権限設定は、書き込みの範囲とネットワークを限らない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 遮断を指示ではなく設定で行う
 
@@ -89,7 +89,7 @@ sidebar:
 
 <!-- impl IMPL-0202 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="基準値の引き下げと検査の除外設定の変更(閾値・除外設定のファイル、構成の ci)を、製品のコードと同じ PR で変えると G-5(pr-rules)を失敗させる。test-check-pr.mjs が試験する。分離した変更の承認の記録は、統制の設定の陰性の確認(IMPL-0134)で扱う" -->
 <!-- impl IMPL-0203 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="検証の弱体化のうち、既存のテストの変更を G-5(pr-rules)が PR へ一覧で出す(G-6 の材料。合否に使わない)" -->
-<!-- impl IMPL-0204 target=pr-checks state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="検証の弱体化(アサーションの削除・skip 相当の付与)と、テストのみの変更で失敗が解消した変更に、ラベルを付けて独立レビューの必須確認事項にすること。準拠テンプレートに検出もラベルの付与も無い" -->
+<!-- impl IMPL-0204 target=pr-checks state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="検証の弱体化(アサーションの削除・skip 相当の付与)と、テストのみの変更で失敗が解消した変更に、ラベルを付けて独立レビューの必須確認事項にすること。準拠テンプレートに検出もラベルの付与も無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 人が見るもの
 
@@ -103,7 +103,7 @@ sidebar:
 
 E.5 は「確認の範囲が有界であること」を要件としています。範囲の定まらない確認は、時間の制約のもとで省略されるためです。本ページの3項目は、いずれも数え上げられます。
 
-<!-- impl IMPL-0205 target=pr-checks state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="実装計画の対象パスと、実際に変更されたパスの差を機械的に突き合わせて出す。準拠テンプレートに突合が無い" -->
+<!-- impl IMPL-0205 target=pr-checks state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="実装計画の対象パスと、実際に変更されたパスの差を機械的に突き合わせて出す。準拠テンプレートに突合が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 操作の要約を AI に作らせません
 
@@ -115,7 +115,7 @@ E.5 は「確認の範囲が有界であること」を要件としています�
 
 機械的な導出は許容します。実行したコマンドの分類、変更したパスの一覧、通信先の一覧は、いずれも集計であり評価を含みません。
 
-<!-- impl IMPL-0206 target=claude-md state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="エージェントの操作の要約を、エージェント自身または別の AI に生成させない(機械的な導出は許容する)。準拠テンプレートの /human-verify は、自らの出力に結論・評価・要約を書かないことだけを定める。エージェントの操作の要約一般を AI に生成させない規則は、CLAUDE.md とスキルに無い" -->
+<!-- impl IMPL-0206 target=claude-md state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="エージェントの操作の要約を、エージェント自身または別の AI に生成させない(機械的な導出は許容する)。準拠テンプレートの /human-verify は、自らの出力に結論・評価・要約を書かないことだけを定める。エージェントの操作の要約一般を AI に生成させない規則は、CLAUDE.md とスキルに無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 生成の条件を記録する
 
@@ -129,7 +129,7 @@ E.5 は「確認の範囲が有界であること」を要件としています�
 
 いずれも観測できる事実であり、判断を含みません。[PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)の「AI 関与範囲」欄と同じく、**自動で埋めます**。人へ転記させた場合、記録の欠落を目視で検査する構成になります。
 
-<!-- impl IMPL-0207 target=agent-run-record state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="生成の条件のうち、実行の識別子と指示資産の版を変更単位で自動で記録する(成果物から生成時の指示資産の版を参照できる状態。第5章 5.8.2 の指示の保存)。準拠テンプレートに実装は無い。モデルの識別は Co-Authored-By(IMPL-0176・IMPL-0177)による" -->
+<!-- impl IMPL-0207 target=agent-run-record state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="生成の条件のうち、実行の識別子と指示資産の版を変更単位で自動で記録する(成果物から生成時の指示資産の版を参照できる状態。第5章 5.8.2 の指示の保存)。準拠テンプレートに実装は無い。モデルの識別は Co-Authored-By(IMPL-0176・IMPL-0177)による。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 指示の全文を保存しません
 
@@ -152,7 +152,7 @@ E.5 は「確認の範囲が有界であること」を要件としています�
 
 **「生成時の条件を記録しているため再現できる」と外部へ説明してはなりません**。説明できるのは条件の特定までです。成果物が正しいことの根拠は、生成の条件ではなく検証の記録によります([ADR-0012](/process-compass/adr/0012-ai-output-as-unverified-input/))。
 
-<!-- impl IMPL-0208 target=claude-md state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="「生成時の条件を記録しているため再現できる」と外部へ説明しない。準拠テンプレートの CLAUDE.md・スキル・保証の開示の注記に規則が無い" -->
+<!-- impl IMPL-0208 target=claude-md state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="「生成時の条件を記録しているため再現できる」と外部へ説明しない。準拠テンプレートの CLAUDE.md・スキル・保証の開示の注記に規則が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## この設計の限界
 
@@ -160,7 +160,7 @@ E.5 は「確認の範囲が有界であること」を要件としています�
 - 遮断が0件であっても、想定外の操作がなかったことにはならない。**「拒否が0件だから安全である」と記録してはならない**
 - 差分からの機械判定は、正当な変更と区別できない範囲ではラベルにとどまる。ラベルの確認を省く運用では、この層は働かない
 
-<!-- impl IMPL-0209 target=human-verify-skill state=delivered check=manual note="「拒否が 0 件だから安全である」と記録しない。/human-verify の拒否の記録を読む手順に、この禁止を置く(書き込みの遮断のフックの冒頭の注記にもある)。記録の文を機械は確かめない。独立レビュアが判定記録を読むときに確かめる" -->
+<!-- impl IMPL-0209 target=human-verify-skill state=delivered check=manual note="「拒否が 0 件だから安全である」と記録しない。/human-verify の拒否の記録を読む手順に、この禁止を置く(書き込みの遮断のフックの冒頭の注記にもある)。記録の文を機械は確かめない。独立レビュアが判定記録を読むときに確かめる。確かめる者: G-6 の判定者(/human-verify の記録を読むとき)" -->
 
 ## 関連するページ
 

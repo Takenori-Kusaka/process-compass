@@ -19,7 +19,12 @@
 //   - check=presence の注記に、規則を運ぶ単位(単位: 欄 / キー / 行 / ファイル)を求める
 //   - state=undelivered に plan(scheduled: issue・review / adopter: decision)を求める。
 //     採用者が実装するにできない節(src/data/impl-no-adopter.yaml)では adopter を落とす
-//   - 逆向きの追跡: テンプレートのゲートのスクリプト・フック・ワークフローが、登録簿か除外の一覧(src/data/impl-untraced.yaml)にあること
+//   - 逆向きの追跡: テンプレートのゲートのスクリプト・フック・ワークフロー・エージェントの設定(.claude/*.json)・
+//     ルールセット(.github/rulesets/*.json)が、登録簿か除外の一覧(src/data/impl-untraced.yaml)にあること
+//   - check=manual の注記に確かめる者を求める。:ng と :ok の目印が別の行にあること、試験の手順が || true・if:・
+//     continue-on-error を持たないことを確かめる(#314 の突合 X-6・X-11)
+//   - 降りていない規定の順序の第2段・第3段を、節の鍵の登録簿(impl-no-adopter.yaml・impl-decision-sections.yaml)で決める(X-13)
+//   - スキルの文の範囲の外の否定の件数を台帳へ書き出す(scripts/lib/skill-provisions.mjs。X-15)
 //   - テンプレートのコード・スキルに書かれた IMPL 番号が標準に実在すること
 //
 // 対象の棚卸し(Issue #292 / ADR-0076): 対象のページ(本文8章・規定の附属書・フェーズ5・6)の
@@ -57,9 +62,11 @@ import {
   undeliveredRank,
   overdueCount,
   untracedProblems,
+  sectionKeyMatches,
   PLANS,
   OVERDUE_PREFIX,
 } from './lib/impl-inventory.mjs';
+import { scanSkillProvisions } from './lib/skill-provisions.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS_ROOT = 'src/content/docs';
@@ -293,7 +300,7 @@ function renderLedger(rows, sections, entries) {
   const out = [...renderInventory(sections, entries)];
   const undelivered = rows
     .filter((m) => m.state === 'undelivered')
-    .map((m) => ({ m, r: undeliveredRank(m, noAdopterOf) }))
+    .map((m) => ({ m, r: undeliveredRank(m, noAdopterOf, decisionOf) }))
     .sort((a, b) => a.r - b.r || a.m.id.localeCompare(b.m.id))
     .map((x) => x.m);
   const counts = countChecks(rows);
@@ -305,14 +312,29 @@ function renderLedger(rows, sections, entries) {
   out.push('| 検査の手段 | 意味 | 件数 |');
   out.push('| --- | --- | --- |');
   out.push(`| ${CHECKS.machine} | 機械が規定の中身を検査し、違反を止めるか件数で出す | ${counts.machine} |`);
-  out.push(`| ${CHECKS.presence} | 機械が確かめるのは、記録・欄・ファイル・キーの有無までである | ${counts.presence} |`);
+  out.push(`| ${CHECKS.presence} | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | ${counts.presence} |`);
   out.push(`| ${CHECKS.manual} | 機械は確かめない。確かめる者と時点は注記に書く | ${counts.manual} |`);
   out.push('');
   out.push(
-    `「${CHECKS.machine}」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で落ちる場面と適合の入力で通る場面の対を持つこと、必須の集約から実行されることまでです。` +
+    `「${CHECKS.machine}」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。` +
       '試験の中身が規定を正しく確かめていることは示しません。' +
       `「${CHECKS.presence}」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「${CHECKS.manual}」です。`
   );
+  out.push('');
+
+  out.push('### スキルの文のうち、検査の範囲の外の否定');
+  out.push('');
+  out.push(
+    '準拠テンプレートのスキルの文の検査(`scripts/check-skill-provisions.mjs`)は、要求と禁止の文末(〜なければならない・〜てはならない・〜ないでください)と、禁止を列挙する節の項目に、本標準の所在か「テンプレート独自」の印を求めます。' +
+      '平叙の否定(〜しない)と太字の否定(**〜しない**)で書いた規則には印を求めません。次の件数は、印を求めていない行の数です(規約「検査の限界」)。'
+  );
+  out.push('');
+  out.push('| 区分 | 件数 |');
+  out.push('| --- | --- |');
+  out.push(`| 走査したファイル(スキルと CLAUDE.md の生成区間の外) | ${skillStats.files} |`);
+  out.push(`| 印を求める要求・禁止の文 | ${skillStats.targets} |`);
+  out.push(`| 範囲の外: 太字の否定を含む行 | ${skillStats.boldNeg} |`);
+  out.push(`| 範囲の外: 平叙の否定で終わる行 | ${skillStats.plainNeg} |`);
   out.push('');
 
   out.push(
@@ -439,8 +461,24 @@ for (const k of NO_ADOPTER) {
   if (!sections.some((sec) => sec.key === k)) errors.push(`src/data/impl-no-adopter.yaml: 節 ${k} がありません(見出しを改めたら鍵を直します)`);
 }
 function noAdopterOf(m) {
-  const key = markSection.get(m.id) ?? '';
-  return NO_ADOPTER.some((k) => key === k || key.startsWith(`${k} > `));
+  return sectionKeyMatches(NO_ADOPTER, markSection.get(m.id) ?? '');
+}
+// 降りていない規定の順序の第3段(G-7・G-8・R1 の決定に関わる規定)の節(ADR-0084 決定4。#314 の突合 X-13)
+const DECISION_SECTIONS = (YAML.parse(readFileSync(path.join(ROOT, 'src/data/impl-decision-sections.yaml'), 'utf8')).sections ?? []).map((x) => x.key);
+for (const k of DECISION_SECTIONS) {
+  if (!sections.some((sec) => sec.key === k)) errors.push(`src/data/impl-decision-sections.yaml: 節 ${k} がありません(見出しを改めたら鍵を直します)`);
+}
+function decisionOf(m) {
+  return sectionKeyMatches(DECISION_SECTIONS, markSection.get(m.id) ?? '');
+}
+
+// スキルの文の範囲の外の否定の件数(台帳へ書き出す。X-15)
+const skillStats = { files: '—', targets: '—', boldNeg: '—', plainNeg: '—' };
+if (existsSync(path.join(TEMPLATE_ROOT, '.claude/skills'))) {
+  const s = scanSkillProvisions(ROOT);
+  Object.assign(skillStats, { files: s.files.length, targets: s.stats.targets, boldNeg: s.stats.boldNeg, plainNeg: s.stats.plainNeg });
+} else {
+  errors.push(`template/.claude/skills がありません。スキルの文の件数を台帳へ書き出せません(取得: ${INIT_HINT})`);
 }
 
 const PKG_SCRIPTS = JSON.parse(readFileSync(path.join(ROOT, 'package.json'), 'utf8')).scripts ?? {};
@@ -483,10 +521,20 @@ if (existsSync(path.join(TEMPLATE_ROOT, 'scripts/gate'))) {
   const { jobs } = await g5Jobs();
   const contractRuns = new Set([...(jobs.get('contract') ?? '').matchAll(/run:\s*node\s+(scripts\/gate\/test-[\w-]+\.mjs)/g)].map((x) => x[1]));
   const scoped = [];
-  for (const dir of ['scripts/gate', 'scripts/init', '.claude/hooks', '.github/workflows']) {
+  // 対象: ゲートのスクリプト・フック・ワークフロー・エージェントの設定(.claude 直下の json)・ルールセット(json)。
+  // 対象の外(規約「逆向きの追跡」に列挙する): .github/CODEOWNERS、.github/actions/、.github/dependabot.yml、
+  // .github/ISSUE_TEMPLATE/、.github/PULL_REQUEST_TEMPLATE.md、.claude/skills/(スキルの文の検査が見る)、scripts/vendor/、adapters/ など
+  for (const [dir, ext] of [
+    ['scripts/gate', /\.(mjs|js|json|yml|yaml|template)$/],
+    ['scripts/init', /\.(mjs|js|json|yml|yaml|template)$/],
+    ['.claude/hooks', /\.(mjs|js|json|yml|yaml|template)$/],
+    ['.github/workflows', /\.(mjs|js|json|yml|yaml|template)$/],
+    ['.claude', /\.json$/],
+    ['.github/rulesets', /\.json$/],
+  ]) {
     for await (const f of glob(`${dir}/*`, { cwd: TEMPLATE_ROOT })) {
       const rel = f.replace(/\\/g, '/');
-      if (!/\.(mjs|js|json|yml|yaml|template)$/.test(rel)) continue;
+      if (!ext.test(rel)) continue;
       if (/\/test-[\w-]+\.mjs$/.test(rel) && contractRuns.has(rel)) continue;
       scoped.push(rel);
     }
@@ -499,7 +547,7 @@ if (existsSync(path.join(TEMPLATE_ROOT, 'scripts/gate'))) {
     if (t.kind === 'config-key') traced.add('scripts/init/generate-profile.mjs');
   }
   const untraced = YAML.parse(readFileSync(path.join(ROOT, 'src/data/impl-untraced.yaml'), 'utf8')).files ?? [];
-  for (const p of untracedProblems(scoped, traced, untraced)) errors.push(`逆向きの追跡: ${p}`);
+  for (const p of untracedProblems(scoped, traced, untraced, new Set(registry.targets.map((x) => x.id)))) errors.push(`逆向きの追跡: ${p}`);
 
   // テンプレートのコード・スキル・様式に書かれた IMPL 番号が、標準に実在すること
   const ids = new Set(marks.map((x) => x.id));

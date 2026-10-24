@@ -413,6 +413,8 @@ export const OVERDUE_PREFIX = '見直しの年月を過ぎた計画(予定): ';
 export const CHECK_VALUES = ['machine', 'presence', 'manual'];
 /** presence の注記に書く、規則を運ぶ単位(ADR-0084 決定1)。より粗い単位(節の見出し)の確認は manual とする */
 export const PRESENCE_UNIT_RE = /単位:\s*(欄|キー|行|ファイル)/;
+/** manual の注記に書く、確かめる者(ADR-0061 決定1・ADR-0084 決定1。#314 の突合 X-6) */
+export const MANUAL_WHO_RE = /確かめる者[::]|人が確かめるのは/;
 /** 降りていない規定の計画(ADR-0084 決定4)。state は 2 値のまま、別の属性で持つ */
 export const PLANS = { scheduled: '予定', adopter: '採用者が実装する' };
 
@@ -430,6 +432,9 @@ export function markAttrProblems(attrs, { noAdopter = false } = {}) {
   if (attrs.test && attrs.check !== 'machine') out.push(`test= は check=machine のマークだけに書きます(check=${attrs.check ?? 'なし'})`);
   if (attrs.check === 'presence' && !PRESENCE_UNIT_RE.test(attrs.note ?? '')) {
     out.push('check=presence の注記に、規則を運ぶ単位(単位: 欄 / キー / 行 / ファイル)がありません。より粗い単位の確認は manual です');
+  }
+  if (attrs.check === 'manual' && !MANUAL_WHO_RE.test(attrs.note ?? '')) {
+    out.push('check=manual の注記に、確かめる者(「確かめる者: 」または「人が確かめるのは」)がありません。誰がいつ確かめるかを書きます');
   }
   if (attrs.state === 'undelivered') {
     if (!attrs.plan) out.push('state=undelivered に plan がありません(scheduled / adopter)');
@@ -458,10 +463,18 @@ export function machineTestProblems(id, test, { exists, read, wired }) {
   if (!exists(test)) return [`test= の試験 ${test} がありません`];
   const out = [];
   const text = read(test);
+  const lines = text.split('\n');
+  const has = (k) => new RegExp(`${id}:${k}\\b`);
   for (const k of ['ng', 'ok']) {
-    if (!new RegExp(`${id}:${k}\\b`).test(text)) {
-      out.push(`試験 ${test} に ${id}:${k}(${k === 'ng' ? '違反の入力で落ちる' : '適合の入力で通る'}場面の目印)がありません`);
+    if (!has(k).test(text)) {
+      out.push(`試験 ${test} に ${id}:${k}(${k === 'ng' ? '違反の入力で検出する' : '適合の入力で通る'}場面の目印)がありません`);
     }
+  }
+  // 対の両側は別の場面である。:ng と :ok が同じ行にしか無ければ、1つの検査に両方の目印を付けたものとして落とす(#314 の突合 X-11)
+  if (has('ng').test(text) && has('ok').test(text)) {
+    const ngOnly = lines.some((l) => has('ng').test(l) && !has('ok').test(l));
+    const okOnly = lines.some((l) => has('ok').test(l) && !has('ng').test(l));
+    if (!ngOnly || !okOnly) out.push(`試験 ${test} の ${id}:ng と ${id}:ok が同じ行にしかありません。違反の入力と適合の入力を別の検査に分け、目印を別の行に付けます`);
   }
   const w = wired(test);
   if (w) out.push(w);
@@ -495,21 +508,57 @@ export function parentTestWired(scripts, test) {
  */
 export function templateTestWired(jobs, effective, test) {
   const rel = test.replace(/^template\//, '');
-  const re = new RegExp(`run:\\s*node\\s+${rel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(\\s|$)`, 'm');
-  const hit = [...jobs].filter(([, body]) => re.test(body)).map(([name]) => name);
-  if (!hit.length) return `試験 ${test} が gate-g5.yml の run: から実行されていません`;
-  if (!hit.some((j) => effective.has(j))) return `試験 ${test} を実行するジョブ(${hit.join(', ')})が、集約 gate-g5 の合否に使われていません`;
+  const re = new RegExp(`run:\\s*node\\s+${rel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(\\s|$)`);
+  const hits = [];
+  for (const [name, body] of jobs) {
+    const lines = String(body).split('\n');
+    lines.forEach((line, i) => {
+      if (re.test(line)) hits.push({ name, defect: stepDefect(lines, i) });
+    });
+  }
+  if (!hits.length) return `試験 ${test} が gate-g5.yml の run: から実行されていません`;
+  const sound = hits.filter((h) => !h.defect);
+  if (!sound.length) return `試験 ${test} の実行の手順に結線の不備があります: ${hits.map((h) => `${h.name}(${h.defect})`).join(', ')}`;
+  if (!sound.some((h) => effective.has(h.name))) return `試験 ${test} を実行するジョブ(${sound.map((h) => h.name).join(', ')})が、集約 gate-g5 の合否に使われていません`;
+  return null;
+}
+
+/**
+ * run: の行(lines[i])を含む手順の、結線の不備を返す(#314 の突合 X-11)。不備が無ければ null。
+ * 不備: run: の行の「|| true」「|| :」(失敗を握りつぶす)、手順の if:(条件によって実行しない)、手順の continue-on-error(失敗を通す)
+ */
+export function stepDefect(lines, i) {
+  const run = lines[i];
+  if (/\|\|\s*(true|:)\s*$/.test(run) || /\|\|\s*(true|:)\s*[;#]/.test(run)) return 'run: の行が || true で失敗を握りつぶす';
+  const indentOf = (l) => l.match(/^\s*/)[0].length;
+  // 手順の始まり(「- 」で始まる行)を遡って探す
+  let start = i;
+  while (start >= 0 && !/^\s*-\s/.test(lines[start])) start--;
+  if (start < 0) return null;
+  const stepIndent = indentOf(lines[start]);
+  let end = start + 1;
+  while (end < lines.length && !(lines[end].trim() && indentOf(lines[end]) <= stepIndent)) end++;
+  const step = lines.slice(start, end);
+  if (step.some((l) => /^\s*(?:-\s+)?if\s*:/.test(l))) return '手順に if: があり、条件によって実行されない';
+  if (step.some((l) => /^\s*(?:-\s+)?continue-on-error\s*:\s*(?!false\b)\S/.test(l))) return '手順に continue-on-error があり、失敗が通る';
   return null;
 }
 
 /**
  * 降りていない規定の順序(ADR-0084 決定4。根拠水準 E0): 表示の誤り → 採用者が実装するにできない規定 →
- * G-7・G-8・R1 の決定に関わる規定 → その他。表示の誤りは見つけたその場で直すため、台帳の順序は残りの 3 段で並べる
+ * G-7・G-8・R1 の決定に関わる規定 → その他。表示の誤りは見つけたその場で直すため、台帳の順序は残りの 3 段で並べる。
+ * 第2段・第3段は、マークが置かれた節の鍵を登録簿(impl-no-adopter.yaml・impl-decision-sections.yaml)と照らして決める。
+ * 注記の語では判別しない(付随の言及を拾うため。#314 の突合 X-13)
  */
-export function undeliveredRank(m, noAdopterKey) {
+export function undeliveredRank(m, noAdopterKey, decisionKey = () => false) {
   if (noAdopterKey(m)) return 1;
-  if (/G-7|G-8|R1/.test(m.note ?? '')) return 2;
+  if (decisionKey(m)) return 2;
   return 3;
+}
+
+/** 節の鍵の登録簿(keys)に、鍵 key が当たるか。下位の節(「 > 」で続く鍵)を含む */
+export function sectionKeyMatches(keys, key) {
+  return keys.some((k) => key === k || String(key).startsWith(`${k} > `));
 }
 
 /** 見直しの年月を過ぎた plan=scheduled の件数。month は YYYY-MM。合否に使わない */
@@ -521,19 +570,22 @@ export function overdueCount(rows, month) {
  * 逆向きの追跡(ADR-0084 決定6)。files は対象のファイル(テンプレートの直下からの相対)、traced は登録簿に現れるパスの集合、
  * exempt は除外の一覧({ path, reason, why })。どちらにも無いファイルと、除外の不備を返す
  */
-export const UNTRACED_REASONS = { library: '他の検査が使う部品', infra: '検査の実行の足回り' };
-export function untracedProblems(files, traced, exempt) {
+export const UNTRACED_REASONS = { library: '他の検査が使う部品', infra: '検査の実行の足回り', variant: '登録簿の降ろし先の変種・設定' };
+export function untracedProblems(files, traced, exempt, targetIds = null) {
   const out = [];
   const ex = new Map((exempt ?? []).map((e) => [e.path, e]));
   for (const e of exempt ?? []) {
-    if (!UNTRACED_REASONS[e.reason]) out.push(`除外の一覧の ${e.path}: 理由の区分が不正です: ${e.reason}(library / infra)`);
+    if (!UNTRACED_REASONS[e.reason]) out.push(`除外の一覧の ${e.path}: 理由の区分が不正です: ${e.reason}(library / infra / variant)`);
+    if (e.reason === 'variant' && (!e.of || (targetIds && !targetIds.has(e.of)))) {
+      out.push(`除外の一覧の ${e.path}: variant には、同じ規定を運ぶ登録簿の降ろし先(of: <id>)が要ります${e.of ? `(${e.of} は登録簿にありません)` : ''}`);
+    }
     if (!String(e.why ?? '').trim()) out.push(`除外の一覧の ${e.path}: 理由(why)が空です`);
     if (!files.includes(e.path)) out.push(`除外の一覧の ${e.path}: テンプレートにありません(消えたファイルは一覧から除きます)`);
     if (traced.has(e.path)) out.push(`除外の一覧の ${e.path}: 降ろし先の登録簿にもあります(除外の一覧から除きます)`);
   }
   for (const f of files) {
     if (!traced.has(f) && !ex.has(f)) {
-      out.push(`テンプレートの ${f} が、降ろし先の登録簿(src/data/impl-targets.yaml)にも除外の一覧(src/data/impl-untraced.yaml)にもありません。実行層にしか無い規定かを確かめ、標準の規定へマークするか、理由(library / infra)つきで除外します`);
+      out.push(`テンプレートの ${f} が、降ろし先の登録簿(src/data/impl-targets.yaml)にも除外の一覧(src/data/impl-untraced.yaml)にもありません。実行層にしか無い規定かを確かめ、標準の規定へマークするか、理由(library / infra / variant)つきで除外します`);
     }
   }
   return out;

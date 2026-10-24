@@ -116,7 +116,7 @@ D-0 体制図、テーラリングの入力(軸A〜E)、担い手の適合性確
 | 出力2 | 失効と発生の一覧(失効する例外と適合性確認、解消する未達、新たに生じる未達・逸脱・列挙に無い離脱) |
 | 出力3 | 残作業(やり直しを要する確認、再確認の期日、人が行う設定) |
 
-<!-- impl IMPL-0028 target=process-change-skill state=delivered check=manual note="体制の変化点の種別を入力として構成の差分・失効と発生の一覧・残作業を出力する" -->
+<!-- impl IMPL-0028 target=process-change-skill state=delivered check=manual note="体制の変化点の種別を入力として構成の差分・失効と発生の一覧・残作業を出力する。確かめる者: 変化点の決定者(/process-change の出力を読むとき)" -->
 
 出力は構成の再生成までとします。**緩める向きの変更を、手段の側で確定させてはなりません**。確定は、記名した者の決定によります。
 
@@ -162,7 +162,7 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 人数は、D-0 体制図の表5 に記載した人のうち、表5-2 の区分が「体制の内」の人で数えます([第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/) 表5-2 の区分の規定)。AI の担い手、外部の確認者、組織上の任命権者は数えません。外部の確認者と組織上の任命権者は体制の外の人であり、AI の担い手は人ではないためです。
 
 <!-- impl IMPL-0300 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="設問の回答(q-team-size)と、席の責任者と人の名簿(外部の確認者を除く)から数えた人数の食い違いを、3名と10名の境界で検出し、構成の生成と契約検査が拒否する(config.mjs の headcountProblems)。test-roster-rules.mjs が固定する(#312)" -->
-<!-- impl IMPL-0278 target=profile-generator state=undelivered check=manual plan=scheduled issue=351 review=2027-04 note="軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは規模の規則を設問の回答(q-team-size)から導き、名簿の人数から直接は導かない。回答と人数の食い違いの検出(IMPL-0300)は、3名以上の回答で名簿が空の場合を検出しない。数え方は向きで異なる(回答より多い向きは席の責任者と名簿の多い側、少ない向きは名簿だけで数える)。採用者は、名簿へ全員を記入したことを D-0 の改訂の時点で確かめる(#312 で注記を実装に合わせた)" -->
+<!-- impl IMPL-0278 target=profile-generator state=undelivered check=manual plan=scheduled issue=351 review=2027-04 note="軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは規模の規則を設問の回答(q-team-size)から導き、名簿の人数から直接は導かない。回答と人数の食い違いの検出(IMPL-0300)は、3名以上の回答で名簿が空の場合を検出しない。数え方は向きで異なる(回答より多い向きは席の責任者と名簿の多い側、少ない向きは名簿だけで数える)。採用者は、名簿へ全員を記入したことを D-0 の改訂の時点で確かめる(#312 で注記を実装に合わせた)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0148 / 見直し 2027-10]
 **対象**: 10名の境界(10名以上の列の規則)。
@@ -176,13 +176,13 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 
 10名以上の規則のうち、実行層が確かめるのは次の範囲です。コア機能(確約範囲・コア指定のパス。構成の `delegation.protectedPaths`。委任を適用しない案件にも宣言できる)に触れる変更の独立レビューに、作成を指示した者と別の所属(人の名簿の `team`)の人を含むかを、出荷判定の証跡の集約が保証の開示の項目1 に件数で出します。出荷判定者の席の責任者の所属が開発者の席の責任者と別かは、同じ項目へ出します。所属の欄が無い名簿、コア指定のパスの未宣言は「判定できない」と出ます。いずれも記載の欠落にはしません。機能責任者への仕様承認の委譲は、席と記録のどちらも無く、機械では確かめません。実装の台帳に「降りていない」と開示し、採用者が手で代える手順を置きます(#288 第6巡)。次の一手(`/pit`)は、直近の出荷の集約の出力が手元にあれば、同じ件数を同じ文で注記に添えます。集約の後に既定ブランチが進んでいれば、その旨も出ます(#288 第7巡)。
 
-<!-- impl IMPL-0084 target=evidence-aggregation state=delivered check=manual note="10名以上の規則「コア機能は別チームがレビューする」(構成 review.mode: internal-plus-core-external)。コア機能のパス(delegation.protectedPaths)に触れ独立した人の確認に数えた変更ごとに、数えた承認者に作成を指示した者と別の所属(名簿の team)の人を含むかを保証の開示の項目1 に件数で出す。パス未宣言・所属の欄なしは「判定できない」。欠落にはしない(#288 第6巡)" -->
+<!-- impl IMPL-0084 target=evidence-aggregation state=delivered check=manual note="10名以上の規則「コア機能は別チームがレビューする」(構成 review.mode: internal-plus-core-external)。コア機能のパス(delegation.protectedPaths)に触れ独立した人の確認に数えた変更ごとに、数えた承認者に作成を指示した者と別の所属(名簿の team)の人を含むかを保証の開示の項目1 に件数で出す。パス未宣言・所属の欄なしは「判定できない」。欠落にはしない(#288 第6巡)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 
 <!-- impl IMPL-0085 target=claude-md state=delivered check=presence note="10名以上の規則「出荷判定は QA 部門・専任」(構成 gates.g7.params.approverMode: dedicated-qa)。CLAUDE.md の構成依存部分と next.mjs に規則を常駐させ、出荷の集約が出荷判定者の席の責任者の所属(名簿の team)が開発者の席の責任者と別かを項目1 に出す。所属の欄が無ければ「確かめられない」(#288 第6巡)(単位: 行)" -->
 
-<!-- impl IMPL-0090 target=next-role state=delivered check=manual note="10名以上の規則の項目1 の件数(コア機能の変更の承認者の所属、出荷判定者の所属)を、next.mjs が直近の出荷の集約の出力(evidence/evidence.json)から、集約と同じ文(org-assurance.mjs の coreReviewText・qaAffiliationText)で注記に添える。同じ所属の承認者だけの変更があれば件数を強調し、出荷判定者が判定記録の人が判断する項目に扱いを書くよう案内する。集約の出力が無ければ件数を出さず、読む所在だけを出す。集約の後のコミット数を添える(#288 第7巡 U)" -->
+<!-- impl IMPL-0090 target=next-role state=delivered check=manual note="10名以上の規則の項目1 の件数(コア機能の変更の承認者の所属、出荷判定者の所属)を、next.mjs が直近の出荷の集約の出力(evidence/evidence.json)から、集約と同じ文(org-assurance.mjs の coreReviewText・qaAffiliationText)で注記に添える。同じ所属の承認者だけの変更があれば件数を強調し、出荷判定者が判定記録の人が判断する項目に扱いを書くよう案内する。集約の出力が無ければ件数を出さず、読む所在だけを出す。集約の後のコミット数を添える(#288 第7巡 U)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
 
-<!-- impl IMPL-0086 target=config-roles state=undelivered check=manual plan=adopter decision=ADR-0084 note="10名以上の規則「機能責任者へ仕様承認を委譲することを推奨する」。機能責任者の席も委譲の記録も構成に無く、G-4 の判定者は価値責任者の席のまま。機械では確かめない。採用者は委譲の有無と判定者を社内の手順で定め、附属書I I.10 の様式に手で代える手順を書く(#288 第6巡)" -->
+<!-- impl IMPL-0086 target=config-roles state=undelivered check=manual plan=adopter decision=ADR-0084 note="10名以上の規則「機能責任者へ仕様承認を委譲することを推奨する」。機能責任者の席も委譲の記録も構成に無く、G-4 の判定者は価値責任者の席のまま。機械では確かめない。採用者は委譲の有無と判定者を社内の手順で定め、附属書I I.10 の様式に手で代える手順を書く(#288 第6巡)。確かめる者: 採用者(自らの実行層に実装したときに確かめる)" -->
 
 最小体制(3名)未満では、作成指示者・レビュア・判定者の兼務禁止が成立しません。最小体制が3名である根拠は、[第3章 3.5](/process-compass/phase4-process-design/roles-responsibilities/)によります。1〜2名の場合も、**独立レビューだけは、作成を指示した本人以外の人に求めます**。独立は人の単位で定義するため、確認者を誰に置くかは人数で変わります([第3章 3.5.4](/process-compass/phase4-process-design/roles-responsibilities/)、[ADR-0054](/process-compass/adr/0054-seat-accountable-performer/) 決定7)。
 
@@ -477,7 +477,7 @@ S0 で独立レビュー(G-6)と出荷判定(G-7)を省略するのは、標準�
 - 前提1・2 が成立しているかを、機械では確かめない。機械が確かめるのは、前提3 の扱いまでである
 - 安全重要度 CL1 以上の構成では、S0 でも G-6 を適用する(軸E)。品質要求が「高」以上の構成では、軸C の調整が本軸の省略に優先し、G-6 と G-7 を適用する
 
-<!-- impl IMPL-0108 target=process-profile state=delivered check=manual note="S0・標準品質・CL0 の G-6・G-7 の省略の前提(コア機能の指定が無い、露出が社内と実験参加者に限られる、S1 で適用に戻る)。規則 r-b-poc の注記として PROCESS-PROFILE.md に出る。露出が前提を超えていないかを、機械は確かめない。採用者は、確かめる者と時点を社内の手順で定める(S0 の成果物を外へ出す決裁は G-8)(#302)" -->
+<!-- impl IMPL-0108 target=process-profile state=delivered check=manual note="S0・標準品質・CL0 の G-6・G-7 の省略の前提(コア機能の指定が無い、露出が社内と実験参加者に限られる、S1 で適用に戻る)。規則 r-b-poc の注記として PROCESS-PROFILE.md に出る。露出が前提を超えていないかを、機械は確かめない。採用者は、確かめる者と時点を社内の手順で定める(S0 の成果物を外へ出す決裁は G-8)(#302)。確かめる者: 価値責任者(事業ステージと露出の範囲を確かめるとき)" -->
 <!-- impl IMPL-0109 target=config-gates state=delivered check=machine test=scripts/test-tailoring-engine.mjs note="安全重要度 CL1 以上は、S0 でも独立レビュー(G-6)を適用する。規則 r-e-cl1 の設定(優先度 50)が、事業ステージの省略(優先度 10)を取り消す。エンジンの試験(S0 × CL0〜CL3)と、テンプレートの test-roster-rules.mjs が固定する(#302)" -->
 
 :::caution[暫定 EV-0101 / 見直し 2027-04]
@@ -544,8 +544,8 @@ ISO 13485 7.3.9 と IEC 62304 8.2.1 の読みに基づきます。査察で承�
 
 「高」の「コア機能は2名」は、構成の `gates.g6.params.coreReviewerCount`(値 2)として降ります。コア機能の変更かどうかは、構成に既にある2つの宣言だけで機械が判定します。確約範囲・コア指定のパス(`delegation.protectedPaths`。委任を適用しない案件でも宣言できる)と、区分の下限の規則のパス(`riskFloor.rules[].paths`)です。新しい欄は設けません。どちらも未宣言の構成では、G-5 と出荷の証跡の集約が「コア機能のパスが未宣言のため確かめられない」と出し、黙って全変更の数で通しません。コア機能の変更に要する承認者の数は、`review.reviewerCount`(規制業の2名)と `coreReviewerCount` の大きいほうです。要求に満たない変更は、G-5(`pr-rules`)が「承認者 N 名 / 要求 M 名(コア機能)」と警告し、出荷判定の証跡の集約が独立した人の確認を経ていない変更に数えます。
 
-<!-- impl IMPL-0091 target=evidence-aggregation state=delivered check=manual note="軸C「高」のコア機能の独立レビュー2名(構成 gates.g6.params.coreReviewerCount)。コア機能の変更(delegation.protectedPaths と riskFloor.rules[].paths に当たる変更)の独立した人の承認者の数を、reviewerCount と coreReviewerCount の大きいほうで数え、満たない変更を「G-6 の承認者 N 名 / 要求 M 名(コア機能)」として独立した人の確認を経ていない変更に数える。パスが未宣言なら項目1 に「確かめられない」と出す。CLAUDE.md の構成依存部分と next.mjs にも常駐させる(#288 第8巡 Z7)" -->
-<!-- impl IMPL-0092 target=pr-checks state=delivered check=manual note="G-5 の PR 単位の検査で、変更したファイルがコア機能のパスに当たる PR の承認者の数を coreReviewerCount で数え、満たなければ「承認者 N 名 / 要求 M 名(コア機能)」と警告する(合否にしない)。パスが未宣言なら、その旨を出す(#288 第8巡 Z7)" -->
+<!-- impl IMPL-0091 target=evidence-aggregation state=delivered check=manual note="軸C「高」のコア機能の独立レビュー2名(構成 gates.g6.params.coreReviewerCount)。コア機能の変更(delegation.protectedPaths と riskFloor.rules[].paths に当たる変更)の独立した人の承認者の数を、reviewerCount と coreReviewerCount の大きいほうで数え、満たない変更を「G-6 の承認者 N 名 / 要求 M 名(コア機能)」として独立した人の確認を経ていない変更に数える。パスが未宣言なら項目1 に「確かめられない」と出す。CLAUDE.md の構成依存部分と next.mjs にも常駐させる(#288 第8巡 Z7)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
+<!-- impl IMPL-0092 target=pr-checks state=delivered check=manual note="G-5 の PR 単位の検査で、変更したファイルがコア機能のパスに当たる PR の承認者の数を coreReviewerCount で数え、満たなければ「承認者 N 名 / 要求 M 名(コア機能)」と警告する(合否にしない)。パスが未宣言なら、その旨を出す(#288 第8巡 Z7)。確かめる者: G-6 の判定者(PR の警告を読むとき)" -->
 
 ## 軸D: 開発形態による調整
 

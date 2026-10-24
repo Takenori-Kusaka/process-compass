@@ -11,6 +11,8 @@ schemaVersion: 0
 sections:
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.3 レベルによらない不変条件
     why: AI 自律レベルによらず AI に担わせない不変条件。採用者の実装に委ねると、実装しない案件で不変条件が消える
+  - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
+    why: 人へ戻す3つの場合(人が確定する判断・受入基準等を変える選択・取り消せない操作)と経路。戻す経路が採用者の実装の有無で消えてはならない(突合 X-18)
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.5 運用形態にかかわらず人が確定する判断
     why: 人が確定する判断。委ねる先が無い
   - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.3 AI に担わせない領域

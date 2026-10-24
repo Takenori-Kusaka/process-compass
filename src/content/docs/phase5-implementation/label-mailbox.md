@@ -74,7 +74,7 @@ sidebar:
 - **相手を指すラベルがない口頭やメンションでの判断依頼を禁止する。** 伝達経路に現れないため、エージェントや人間の双方で見落とすこととなる。
 
 <!-- impl IMPL-0302 target=next-role state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="state:dev-done の受け手は、G-6 が有効なら独立レビュアだけ、G-6 が省略・未達の構成では出荷判定者(準拠テンプレートの mailboxFor と next.mjs --role・/pit)。state:ready-to-merge を付けるのは独立レビュアだけで、出荷判定者の受信箱に入る。G-6 が省略・未達の構成では誰も付けず、開発者も付けない。needs-dev を独立レビュア・出荷判定者は付けず、needs-platform は付けられる。G-7 は next.mjs の出荷の段が出荷の範囲ごとに出し、ラベルでは起動しない。test-roster-rules.mjs が構成ごとに固定する(#312。突合 X-1・X-4)" -->
-<!-- impl IMPL-0303 target=deploy-workflow state=undelivered check=manual plan=scheduled issue=329 review=2027-04 note="既定ブランチへの取り込みが出荷を起動する構成で、出荷判定者が G-7 の判定記録を作成した後にマージすること。準拠テンプレートは配備のワークフローを持たず、マージの前に G-7 の判定記録の有無を確かめない。その取り込みは取り消せない操作として人へ戻す経路(IMPL-0251)に限る。採用者は、配備を起動する取り込みの前に G-7 の判定記録を確かめる手順を社内で定める(#312)" -->
+<!-- impl IMPL-0303 target=deploy-workflow state=undelivered check=manual plan=scheduled issue=329 review=2027-04 note="既定ブランチへの取り込みが出荷を起動する構成で、出荷判定者が G-7 の判定記録を作成した後にマージすること。準拠テンプレートは配備のワークフローを持たず、マージの前に G-7 の判定記録の有無を確かめない。その取り込みは取り消せない操作として人へ戻す経路(IMPL-0251)に限る。採用者は、配備を起動する取り込みの前に G-7 の判定記録を確かめる手順を社内で定める(#312)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ---
 
@@ -229,7 +229,7 @@ gh pr list --label "state:needs-tech" --state open
 
 エスカレーションレポートの様式（5項目）は第7章 7.6 による。ラベルの付与だけで報告を済ませてはならない。
 
-<!-- impl IMPL-0005 target=next-role state=delivered check=manual note="エスカレーションの発火条件と段階に対応するラベル" -->
+<!-- impl IMPL-0005 target=next-role state=delivered check=manual note="エスカレーションの発火条件と段階に対応するラベル。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
 
 ---
 

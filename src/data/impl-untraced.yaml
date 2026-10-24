@@ -1,12 +1,13 @@
 # 逆向きの追跡の除外の一覧(Issue #314 / ADR-0084 決定6)
 #
-# 準拠テンプレートのゲートのスクリプト(scripts/gate・scripts/init)、フック(.claude/hooks)、ワークフロー(.github/workflows)の
-# 各ファイルは、降ろし先の登録簿(src/data/impl-targets.yaml)の path か checker に現れるか、この一覧に載っていなければならない。
+# 準拠テンプレートのゲートのスクリプト(scripts/gate・scripts/init)、フック(.claude/hooks)、ワークフロー(.github/workflows)、
+# エージェントの設定(.claude 直下の json)、ルールセット(.github/rulesets の json。#314 の突合 X-16)の各ファイルは、降ろし先の登録簿(src/data/impl-targets.yaml)の path か checker に現れるか、この一覧に載っていなければならない。
 # どちらにも無いファイルは、実行層にしか無い規定を持つおそれがあるため、scripts/check-impl.mjs が落とす。
 # 試験(test-*.mjs のうち、gate-g5.yml の run: から実行されるもの)は対象の外。
 #
 # path   — テンプレートの直下からの相対パス
-# reason — library(他の検査が使う部品。それ自体は規定を実装しない)/ infra(検査の実行の足回り。記録の書き出し・補助の道具)
+# reason — library(他の検査が使う部品。それ自体は規定を実装しない)/ infra(検査の実行の足回り。記録の書き出し・補助の道具)/
+#          variant(登録簿の降ろし先の変種・設定。同じ規定を運ぶ。of に降ろし先の id を書き、検査が登録簿に実在することを確かめる)
 # why    — 理由。どの降ろし先の部品か、何の足回りかを書く
 schemaVersion: 0
 files:
@@ -49,3 +50,19 @@ files:
   - path: scripts/init/set-review-sourcing.mjs
     reason: infra
     why: 未達のゲートの確認者の調達先を構成へ記入する補助の道具。規定は構成のキー(config-unmet)のマークで追う
+  - path: .claude/guard.json
+    reason: variant
+    of: guard-write-hook
+    why: 書き込みの遮断のフック(guard-write.mjs)が読む、保護するパスの設定。規定は guard-write-hook のマーク(IMPL-0187・IMPL-0198)で追う
+  - path: .github/rulesets/checks-only.json
+    reason: variant
+    of: rulesets
+    why: 独立レビュー(G-6)を使わない構成のルールセット(必須チェックだけ)。構成に応じて team.json の代わりに適用する変種
+  - path: .github/rulesets/regulated.json
+    reason: variant
+    of: rulesets
+    why: 承認者2名を要する構成(規制業・CL3)のルールセット。team.json の承認の数を変えた変種
+  - path: .github/rulesets/safety.json
+    reason: variant
+    of: rulesets
+    why: CL2 で承認者1名の構成のルールセット。承認の数のほかは regulated.json と同じ変種

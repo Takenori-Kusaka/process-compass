@@ -144,4 +144,4 @@ Verification: <実行した検証と結果の要点、または証跡の所在> 
 - 2名で G-6 が成立する体制でも、2人とも作成の指示に関与した変更は、相互の承認では成立しない。外部の確認者を要する([第3章 3.5](/process-compass/phase4-process-design/roles-responsibilities/))
 - PR を経ない体制では、構成の手での書き換えを、push の検査と出荷の証跡の集約が検出する([準拠テンプレートリポジトリ](/process-compass/phase5-implementation/template-repository/)「構成を書き換える経路は1つ」)
 
-<!-- impl IMPL-0238 target=gate-g5-workflow state=delivered check=manual note="1名の体制の行。gate-g5.yml が、PR に加えて既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行する。push そのものは止めない。トレーラ Risk・Verification の欠落は、出荷の証跡の集約が記録の欠落として数える(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0238 target=gate-g5-workflow state=delivered check=manual note="1名の体制の行。gate-g5.yml が、PR に加えて既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行する。push そのものは止めない。トレーラ Risk・Verification の欠落は、出荷の証跡の集約が記録の欠落として数える(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI維持管理者(統制の設定の陰性の確認のとき)" -->

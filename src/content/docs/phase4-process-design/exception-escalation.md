@@ -39,7 +39,7 @@ sidebar:
 
 **本節が、条件を付して先へ進める手続です**。上表の2が条件の内容、4が条件の解消期限と責任者、5が解消までの追跡にあたります。工程ゲートの判定へ「条件付き通過」という値を設けていないのは、これらの要求を伴わない通過の経路を作らないためです([第4章 工程ゲートの判定の語彙](/process-compass/phase4-process-design/gate-criteria/) / [ADR-0036](/process-compass/adr/0036-gate-closure-by-record/))。
 
-<!-- impl IMPL-0011 target=gate-record-template state=delivered check=manual note="条件を付して先へ進める場合は例外承認の5要求事項を満たす" -->
+<!-- impl IMPL-0011 target=gate-record-template state=delivered check=manual note="条件を付して先へ進める場合は例外承認の5要求事項を満たす。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 
 例外承認の記録は、技術負債台帳([第6章 テンプレ3](/process-compass/phase4-process-design/deliverable-templates/))へ区分「例外」として置きます。記録は、次の5つの事項を持ちます。要求事項を足すものではなく、上表の要求事項が記録のどの欄に現れるかを定めるものです。
 
@@ -452,7 +452,7 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 
 独立レビュアを2名とする目的は、検出能力の低下を検知された者の承認を、該当する範囲で、単独では数えないことです。行の題が「単独での承認権限」であるのは、このためです。本標準は、2名にすることを、検出能力を回復させる措置として置きません。回復は 7.9.3 によります。承認者の人数を増やしても、判断の対象を小さくする効果は代替できません([第3章 3.10.4](/process-compass/phase4-process-design/roles-responsibilities/))。この読みは、[ADR-0067](/process-compass/adr/0067-purpose-of-two-approvers/) 決定2 によります。
 
-<!-- impl IMPL-0118 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305)" -->
+<!-- impl IMPL-0118 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 7.9.3 回復の条件
 

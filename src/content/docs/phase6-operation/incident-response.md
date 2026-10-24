@@ -120,7 +120,7 @@ Sev1・Sev2 のポストモーテムは、[第4章 G-5「是正の起動」](/pr
 - ポストモーテムの学びは[コンテキスト基盤への書き戻し](/process-compass/phase5-implementation/context-base/)で恒久層へ反映する。これを怠ると AI の一次分析が同じ見逃しを繰り返す
 - AI 起因の欄は、[第5章 5.4.6](/process-compass/phase4-process-design/human-ai-boundary/)の引き下げの第1区分の記録である。欄を空けたままのポストモーテムは、「特定できない」と同じく扱う
 
-<!-- impl IMPL-0292 target=incident-artifact state=delivered check=manual note="障害時の補助ファイルのポストモーテムの書き方に、AI 起因(あり / なし / 特定できない)・原因の変更・該当する登録した変更種別を、欠陥の台帳の同じ行へ写すことを書く。写したかどうかは機械が確かめない" -->
+<!-- impl IMPL-0292 target=incident-artifact state=delivered check=manual note="障害時の補助ファイルのポストモーテムの書き方に、AI 起因(あり / なし / 特定できない)・原因の変更・該当する登録した変更種別を、欠陥の台帳の同じ行へ写すことを書く。写したかどうかは機械が確かめない。確かめる者: ポストモーテムの承認者(振り返りを閉じるとき)" -->
 
 ## 運用への組み込み
 

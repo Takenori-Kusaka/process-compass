@@ -56,7 +56,7 @@ sidebar:
 
 工程ゲートの判定は、**判定記録の作成をもって成立します**。判定記録とは、本節の定める欄を埋めた記録です。様式の正本は[第6章 テンプレ4](/process-compass/phase4-process-design/deliverable-templates/)です。**欄を運ぶ媒体を、本標準は様式のファイルに限定しません**。記録の無い状態は、判定基準がすべて充足していても**未判定**です。
 
-<!-- impl IMPL-0008 target=gate-record-template state=delivered check=manual note="判定記録の作成をもって判定が成立する" -->
+<!-- impl IMPL-0008 target=gate-record-template state=delivered check=manual note="判定記録の作成をもって判定が成立する。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 
 判定の成立要件と、成立に伴う事務を混同してはなりません。
 
@@ -123,9 +123,9 @@ ADR-0036 の決定は、準拠テンプレートの初回の採用判断の1件�
 
 **CI 基盤の既定の保持を、保管とみなしてはなりません**。CI の成果物、ワークフローの実行の記録、チェックの履歴は、基盤の保持期間の設定に従って消えます。保管期間の値は、本標準は定めません。組織の文書管理規程によります([QMS 文書管理との対応](/process-compass/phase5-implementation/qms-document-control/))。
 
-<!-- impl IMPL-0243 target=ship-evidence-workflow state=undelivered check=manual plan=scheduled issue=333 review=2027-04 note="出荷の証跡を、組織が定める保管期間のあいだ到達できる置き場に残す。準拠テンプレートの ship-evidence.yml は証跡を CI の成果物(upload-artifact)にだけ置き、retention-days を指定しない(既定の保持に依る)。保管の設計は別 Issue。内部監査で、判定記録と証跡の指す先に到達できるかを抜き取る" -->
+<!-- impl IMPL-0243 target=ship-evidence-workflow state=undelivered check=manual plan=scheduled issue=333 review=2027-04 note="出荷の証跡を、組織が定める保管期間のあいだ到達できる置き場に残す。準拠テンプレートの ship-evidence.yml は証跡を CI の成果物(upload-artifact)にだけ置き、retention-days を指定しない(既定の保持に依る)。保管の設計は別 Issue。内部監査で、判定記録と証跡の指す先に到達できるかを抜き取る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0244 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=333 review=2027-04 note="出荷の証跡の集約は、CI 基盤の保持期間を過ぎて結果を読めない PR の G-5 を、gate-g5 の結果の記録が無い(必須チェックを経ずにマージされた可能性)として出す。保持切れと、必須チェックを経ていないことを区別しない。保管の設計は別 Issue" -->
+<!-- impl IMPL-0244 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=333 review=2027-04 note="出荷の証跡の集約は、CI 基盤の保持期間を過ぎて結果を読めない PR の G-5 を、gate-g5 の結果の記録が無い(必須チェックを経ずにマージされた可能性)として出す。保持切れと、必須チェックを経ていないことを区別しない。保管の設計は別 Issue。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 本標準は、記録の置き場と様式を課しません。PR の「検証方法と結果」(human-verify)へ画面の写しなどを添付すること、添付の所在を書くことも求めません。所在が実在することは、確かめたことを示さないためです(G-2「前提の欄(基準3)」と同じ理由。[ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/))。
 
@@ -152,7 +152,7 @@ ADR-0036 の決定は、準拠テンプレートの初回の採用判断の1件�
 
 判定者が評価するのは、**当該ゲートの判定基準と、全ゲート共通の通過条件だけです**。
 
-<!-- impl IMPL-0010 target=gate-skill state=delivered check=manual note="判定は当該ゲートの判定基準のみで行い次工程の材料の未完成を理由にしない" -->
+<!-- impl IMPL-0010 target=gate-skill state=delivered check=manual note="判定は当該ゲートの判定基準のみで行い次工程の材料の未完成を理由にしない。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 
 次のものを判定へ持ち込んではなりません。
 
@@ -182,9 +182,9 @@ ADR-0036 の決定は、準拠テンプレートの初回の採用判断の1件�
 - 本節は新しいゲートを設けない。戻る先は既存の工程ゲートである。G-3「事業決裁者が受容を拒否した場合」の3つの差し戻し先は、受容を拒否した場面の経路であり、本節と重ならない
 - 判定を受け直すために、内側のループ全体を止めない(2.10.8)。判定を待つ項目は調整枠(SC-B)へ置き、着手しない。未判定の版のまま次の工程ゲートへ進むことだけを、判定を経ない進行として扱う(前掲「判定の成立」)
 
-<!-- impl IMPL-0240 target=gate-skill state=delivered check=manual note="/gate の補助ファイル gates/G-2.md・G-3.md・G-4.md に、通過した版から受入基準・前提・スコープ外を変えた機能仕様は G-4 で判定を受けること(範囲の内外と経路は第2章 2.10.8)、判断記録の決定を改めるときは置き換える判断記録を起こして G-3 で判定すること、変更の契機で判定を受けるゲートを変えないこと、元の判定記録を残すことを置く。受け直すべき変更を見落としていないかは機械では確かめない(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0240 target=gate-skill state=delivered check=manual note="/gate の補助ファイル gates/G-2.md・G-3.md・G-4.md に、通過した版から受入基準・前提・スコープ外を変えた機能仕様は G-4 で判定を受けること(範囲の内外と経路は第2章 2.10.8)、判断記録の決定を改めるときは置き換える判断記録を起こして G-3 で判定すること、変更の契機で判定を受けるゲートを変えないこと、元の判定記録を残すことを置く。受け直すべき変更を見落としていないかは機械では確かめない(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 
-<!-- impl IMPL-0241 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="G-2 または G-4 で判定した版から受入基準・前提・スコープ外が変わったのに、変更後の版を対象とする G-4 の判定記録が無い機能と、G-3 で判定した版から書き換えられた判断記録、G-3 の判定記録が無い置き換えの判断記録を、出荷の証跡の集約で検出する。準拠テンプレートに実装は無い(IMPL-0107 が確定の後の受入基準の変更を確かめないと開示している残り)。出荷判定者が判定記録の版と現行の版を突合する" -->
+<!-- impl IMPL-0241 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="G-2 または G-4 で判定した版から受入基準・前提・スコープ外が変わったのに、変更後の版を対象とする G-4 の判定記録が無い機能と、G-3 で判定した版から書き換えられた判断記録、G-3 の判定記録が無い置き換えの判断記録を、出荷の証跡の集約で検出する。準拠テンプレートに実装は無い(IMPL-0107 が確定の後の受入基準の変更を確かめないと開示している残り)。出荷判定者が判定記録の版と現行の版を突合する。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 **本標準は、「技術検証」を作業の種別として設けません**。様式・置き場・事業ステージのいずれも課しません。技術検証は、実装計画の通常のタスクとして扱います。本標準の経路は成果物が変わったことで起動し、変更の契機では起動しないためです。種別を設けると、検証と名付けなかった変更が経路の外に出ます。前提の欄の行に検証のタスクを書かせ、着手の前提条件にする形も採りません。責任者と期限を付けた持ち越しに当たるためです(ADR-0036 決定3。判断の記録は [ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/))。
 
@@ -248,7 +248,7 @@ ADR-0036 の決定は、準拠テンプレートの初回の採用判断の1件�
 | 4 | スコープ外事項が明記されている | 仕様書の「やらないこと」欄 |
 | 5 | 合意した範囲がスコープ3層へ割り当てられている | SC-M・SC-P・SC-B の別が記入されていること([第2章 2.10.1](/process-compass/phase4-process-design/lifecycle/)) |
 
-<!-- impl IMPL-0258 target=gate-skill state=delivered check=manual note="G-2 の判定基準1〜5。/gate の補助ファイル gates/G-2.md が、基準ごとに判定の材料を並べさせる(基準1 は受入基準の形式と企画書の価値との対応の有無、基準2 は spec-lint の結果、基準3 は案件層の ID の対応と引き受けない前提の差し戻し、基準4 はやらないことの欄、基準5 はスコープ3層への割り当て)。判定は判定者(人)が行う。材料の手順があることまでを確かめる(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0258 target=gate-skill state=delivered check=manual note="G-2 の判定基準1〜5。/gate の補助ファイル gates/G-2.md が、基準ごとに判定の材料を並べさせる(基準1 は受入基準の形式と企画書の価値との対応の有無、基準2 は spec-lint の結果、基準3 は案件層の ID の対応と引き受けない前提の差し戻し、基準4 はやらないことの欄、基準5 はスコープ3層への割り当て)。判定は判定者(人)が行う。材料の手順があることまでを確かめる(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 
 基準5で合意した範囲が、G-4 における範囲内外の判定の基準になります。**G-2 で層を割り当てていない案件では、G-4 の判定が成立しません**。
 
@@ -268,8 +268,9 @@ ADR-0036 の決定は、準拠テンプレートの初回の採用判断の1件�
 
 確定に当たって何を確かめるかを、本標準は要求事項として定めません。確かめ方の推奨は、[附属書B](/process-compass/phase4-process-design/ears-guide/)「草案を受け取ったときに確かめること」によります。受入基準の誤りに歯止めが無いことは、[附属書H H.11](/process-compass/phase4-process-design/assurance-case/)に開示しています。
 
-<!-- impl IMPL-0107 target=gate-record-template state=delivered check=manual note="G-2・G-4 の判定記録の「対象」に、機能の ID と、確定した受入基準の版のコミットの識別子を書く。様式の注記と /gate の補助ファイルに降りている。機械は、対象に機能の ID があることまでを読み、版の識別子の有無と、確定の後の受入基準の変更を確かめない。内部監査で確かめる" -->
+<!-- impl IMPL-0107 target=gate-record-template state=delivered check=manual note="G-2・G-4 の判定記録の「対象」に、機能の ID と、確定した受入基準の版のコミットの識別子を書く。様式の注記と /gate の補助ファイルに降りている。機械は、対象に機能の ID があることまでを読み、版の識別子の有無と、確定の後の受入基準の変更を確かめない。内部監査で確かめる。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 <!-- impl IMPL-0129 target=evidence-aggregation state=delivered check=machine note="G-2・G-4 を判定者本人のレビューで記録した変更で、対象の「機能の ID + PR 番号」にマージ後のコミットの識別子を併記し、レビューの commit_id がマージ時の head と一致することを検査する。ずれた変更を「確定していない版を取り込んだ」として欠落に数える。宣言行の無いレビューは G-2・G-4 に数えない。IMPL-0107(様式の対象の欄)は変えず、機械の検査を補う(#321)" -->
+
 
 **本標準は、成果物の使いやすさ・学びやすさを判定基準としません**。理由と限界は[ADR-0051](/process-compass/adr/0051-usability-out-of-scope/)によります。
 
@@ -327,7 +328,7 @@ ADR-0036 の決定は、準拠テンプレートの初回の採用判断の1件�
 
 引き受けるかどうかは判定者の判断であり、前提条件1 では扱いません。前提条件は機械で検査し、人の判断を介在させないためです(前掲「前提条件と判定基準の区別」)。G-2 を G-4 へ統合する事業ステージでは、G-4 の判定者が同じ判断で差し戻します。
 
-<!-- impl IMPL-0242 target=gate-skill state=delivered check=manual note="/gate の補助ファイル gates/G-2.md・G-4.md に、判定者が前提を引き受けない場合は判定の結果として基準3 で差し戻し、その前提の案件層の ID を差し戻しの記録に書く手順を置く。前提条件1 では扱わない。引き受けるかどうかは判定者が決め、機械では確かめない(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0242 target=gate-skill state=delivered check=manual note="/gate の補助ファイル gates/G-2.md・G-4.md に、判定者が前提を引き受けない場合は判定の結果として基準3 で差し戻し、その前提の案件層の ID を差し戻しの記録に書く手順を置く。前提条件1 では扱わない。引き受けるかどうかは判定者が決め、機械では確かめない(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 
 **本標準は、前提の欄で「観測で確かめた」と「想定」を区別することを課しません**。区別の列、標識、確かめた事実を書く欄のいずれも置きません。次の3つが理由です。
 
@@ -373,7 +374,7 @@ ADR-0036 の決定は、準拠テンプレートの初回の採用判断の1件�
 
 <!-- impl IMPL-0148 target=spec-lint state=delivered check=machine test=template/scripts/gate/test-plan-trace.mjs note="G-2・G-4 の前提条件1。spec-lint --gate G-2|G-4 が機能仕様の未確定事項の印([NEEDS CLARIFICATION]。コードブロック・HTML コメント・インラインコードの中を除く)を数え、1件でも残れば失敗する(判定を開始しない)。next.mjs は印が残る機能を G-2・G-4 の判定待ちへ進めず、閉じる一手を出す。test-plan-trace.mjs が試験する。閉じ方が3つのどれに当たるかは判定しない" -->
 
-<!-- impl IMPL-0149 target=gate-skill state=delivered check=manual note="G-2 基準3・前提条件1、G-4 前提条件1。/gate の補助ファイル gates/G-2.md・G-4.md に、前提の各行の案件層の ID の確認(内容は判定しない)、前提の欄の外に事実として書かれた推測を基準3 で扱うこと、spec-lint --gate による未確定事項の件数の確認、引き受けた前提の案件層の ID を判定記録に残す手順を置く。判定は判定者が行う(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0149 target=gate-skill state=delivered check=manual note="G-2 基準3・前提条件1、G-4 前提条件1。/gate の補助ファイル gates/G-2.md・G-4.md に、前提の各行の案件層の ID の確認(内容は判定しない)、前提の欄の外に事実として書かれた推測を基準3 で扱うこと、spec-lint --gate による未確定事項の件数の確認、引き受けた前提の案件層の ID を判定記録に残す手順を置く。判定は判定者が行う(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 
 <!-- impl IMPL-0150 target=feature-spec-template state=delivered check=presence note="テンプレ1 の前提の欄を「前提 / 案件層の ID / 崩れたときの影響」の表にし、前提の欄に書いたものを確かめていないものとして読む注記、受入基準の識別子の注記、未確定事項の3つの閉じ方を置く。欄の存在は test:fields(template-fields.yaml の t1)が確かめる。記入の中身は確かめない(単位: 欄)" -->
 
@@ -420,7 +421,7 @@ G-3 の判定記録には、判定した判断記録の識別(番号と、判定
 
 <!-- impl IMPL-0131 target=decisions-check state=delivered check=machine test=template/scripts/gate/test-decisions.mjs note="判断記録の置き換えの両側の参照(置き換える側の「置き換える決定」欄と、置き換えられた側の状態の行)の一致と、状態が置き換え・廃止の判断記録が保管領域(context/_archive/decisions/)にあること、状態が採用・一部置き換えの判断記録が保管領域に無いことを検査し、不一致で失敗させる" -->
 
-<!-- impl IMPL-0132 target=decisions-check state=undelivered check=manual plan=scheduled issue=289 review=2027-04 note="判断記録の欄が空であること、「回復に要する時間」が単一の値であること、「顕在化が分かる兆候」が「なし」であること、前の判断記録と記述が一致していることの機械の検査。準拠テンプレートに実装が無い。判定者が判定のときに読んで確かめる" -->
+<!-- impl IMPL-0132 target=decisions-check state=undelivered check=manual plan=scheduled issue=289 review=2027-04 note="判断記録の欄が空であること、「回復に要する時間」が単一の値であること、「顕在化が分かる兆候」が「なし」であること、前の判断記録と記述が一致していることの機械の検査。準拠テンプレートに実装が無い。判定者が判定のときに読んで確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 「顕在化が分かる兆候」に「なし」を認めない作法は、決断の記録における「確認していない事項」と同じものです。
 
@@ -475,11 +476,11 @@ G-4 で受入基準の側から対応を見る理由は、2つです。基準2 �
 設計と計画の段で下方の対応を見る先例は、車載・航空の規格と、能力成熟度モデルの要求の管理、作業分解の 100% ルールにあります(多くは二次資料)。作業のタスクそのものに課す先例は、後の2つに限ります。G-4 の時点に数え上げを置いた効果は、測られていません。
 :::
 
-<!-- impl IMPL-0151 target=task-breakdown-skill state=delivered check=manual note="G-4 基準6。/task-breakdown の手順と完了の条件に、各受入基準をいずれかのタスクの「対応する受入基準」に書くことと、spec-lint --gate G-4 が出す、どのタスクにも現れない受入基準の一覧を確かめることを置く。手順があることまでを確かめる(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0151 target=task-breakdown-skill state=delivered check=manual note="G-4 基準6。/task-breakdown の手順と完了の条件に、各受入基準をいずれかのタスクの「対応する受入基準」に書くことと、spec-lint --gate G-4 が出す、どのタスクにも現れない受入基準の一覧を確かめることを置く。手順があることまでを確かめる(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: G-4 の判定者(基準6 を判定するとき)" -->
 
 <!-- impl IMPL-0156 target=spec-lint state=delivered check=machine test=template/scripts/gate/test-plan-trace.mjs note="G-4 基準6。spec-lint --gate G-4 が、verification-trace.mjs の unmappedCriteria で機能仕様の受入基準の表と実装計画のタスクの表を突き合わせ、どのタスクにも現れない受入基準の一覧を出す。識別子の形の語だけを対応として読み、範囲の表記・タスクの ID・文中の数は読まない(読めない書き方の受入基準は一覧に出る)。next.mjs は G-4 の判定待ちに一覧を添える。test-plan-trace.mjs が試験する。合否は出さない。対応の内容と束ね方は判定しない" -->
 
-<!-- impl IMPL-0152 target=gate-skill state=delivered check=manual note="G-4 基準6。/gate の補助ファイル gates/G-4.md が、基準6 の材料として、どのタスクにも現れない受入基準の一覧(spec-lint --gate G-4)を並べさせる。除外の欄を置かない。判定は判定者が行う" -->
+<!-- impl IMPL-0152 target=gate-skill state=delivered check=manual note="G-4 基準6。/gate の補助ファイル gates/G-4.md が、基準6 の材料として、どのタスクにも現れない受入基準の一覧(spec-lint --gate G-4)を並べさせる。除外の欄を置かない。判定は判定者が行う。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
 
 機能仕様が PR として存在する場合、判定者本人のレビューの本文を判定記録の媒体にできます。宣言行(`G-4: 通過`、または `G-4: 差し戻し / 基準 N / 期限 YYYY-MM-DD`)、対象の書き方、`commit_id` の検査、独立した人の確認(G-6)に数えないことは、前掲 G-2 によります。
 
@@ -512,9 +513,9 @@ G-4 で受入基準の側から対応を見る理由は、2つです。基準2 �
 
 **基準6にコードと文脈の乖離を含めません**。乖離の判定は対応関係の推定を含み、実効的な偽陽性が生じます。**落とすと、内容のない形式的な更新が入ります**。乖離は記録し、四半期の棚卸しで扱います(手続は[コンテキスト基盤](/process-compass/phase5-implementation/context-base/))。
 
-**基準6 のうち、準拠テンプレートが検査するのは参照切れの一部です**。テンプレートの G-5 のジョブ `context-format` は、文脈ファイルの相対リンクと取り込み(`@` で始まるパス)の先が実在することを確かめ、集約の合否に含めます。見出しのアンカーと、逆引用符の中のパスは確かめません(IMPL-0269)。分量の上限は、値を支える実証が無いため準拠テンプレートへ降ろしていません。上限の規定(第3章 3.11.4 の要求事項1。IMPL-0222)も、それを検査するジョブ(IMPL-0312)も降りていません。採用者が検査を足すまで、これらは機械では止まりません。[実装の台帳](/process-compass/community/implementation-ledger/)に、降りていない規定として表示し続けます。
+**基準6 のうち、準拠テンプレートが検査するのは参照切れの一部です**。テンプレートの G-5 のジョブ `context-format` は、文脈ファイルの相対リンク、取り込み(`@` で始まるパス)、逆引用符の中の `.claude/` と `scripts/` で始まるパスの先が実在することを確かめ、集約の合否に含めます。逆引用符の中のパスのうち、雛形の記号(`N`・`G-N` など)を含むものと `.gitignore` に当たるものは除きます。見出しのアンカーと、逆引用符の中のそれ以外で始まるパス(`docs/`・`context/` など。案件が後で作るファイル)は確かめません(IMPL-0269)。分量の上限は、値を支える実証が無いため準拠テンプレートへ降ろしていません。上限の規定(第3章 3.11.4 の要求事項1。IMPL-0222)も、それを検査するジョブ(IMPL-0312)も降りていません。採用者が検査を足すまで、これらは機械では止まりません。[実装の台帳](/process-compass/community/implementation-ledger/)に、降りていない規定として表示し続けます。
 
-<!-- impl IMPL-0269 target=context-refs state=undelivered check=machine test=template/scripts/gate/test-context-refs.mjs plan=adopter decision=ADR-0084 note="G-5 基準6 の参照切れ 0 件。準拠テンプレートの context-format ジョブ(check-context-refs)が、文脈ファイル(CLAUDE.md・AGENTS.md・context/・.claude/ の Markdown)の相対リンクと取り込み @path の先の実在を確かめ、集約 gate-g5 の合否に含める。見出しのアンカーと逆引用符の中のパスは確かめない(降りていない残り。採用者が足す)。分量の上限は IMPL-0312" -->
+<!-- impl IMPL-0269 target=context-refs state=undelivered check=machine test=template/scripts/gate/test-context-refs.mjs plan=adopter decision=ADR-0084 note="G-5 基準6 の参照切れ 0 件。準拠テンプレートの context-format ジョブ(check-context-refs)が、文脈ファイル(CLAUDE.md・AGENTS.md・context/・.claude/ の Markdown)の相対リンクと取り込み @path の先の実在を確かめ、集約 gate-g5 の合否に含める。逆引用符の中の .claude/・scripts/ で始まるパス(雛形の記号と .gitignore に当たるものを除く)も確かめる(#314 の突合 X-8)。見出しのアンカーと、逆引用符の中のそれ以外で始まるパス(docs/・context/ など。案件が後で作るファイル)は確かめない(降りていない残り。採用者が足す)。分量の上限は IMPL-0312" -->
 
 <!-- impl IMPL-0312 target=gate-g5-workflow state=undelivered check=manual plan=adopter decision=ADR-0084 note="G-5 基準6 の1ファイルの分量の上限超過 0 件を確かめるジョブ。上限の値(第3章 3.11.4 要求事項1 の初期値)を支える実証が無いため、準拠テンプレートへ降ろさない。採用者が値を定め、検査を足して集約の needs へ入れる(IMPL-0222)。人が確かめるのは、採用者の G-5 の集約の定義を読む技術判断者" -->
 
@@ -526,7 +527,7 @@ G-4 で受入基準の側から対応を見る理由は、2つです。基準2 �
 
 **手元で実行した検査の結果を、G-5 の判定の証跡としてはなりません**。G-5 の判定は、必須の検査の集約の結果で行います。手元の実行は、集約へ出す前の確認です。手元の環境は、検査の定義・入力・依存の版が基底と一致することを保証しません([ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/))。
 
-<!-- impl IMPL-0232 target=g5-local state=delivered check=manual note="手元の G-5 の検査(g5-local.mjs)は、CI と同じ範囲を実行し、結果を証跡の置き場へ書かない。出力に、結果が G-5 の判定の証跡にならないことと、マージを止めるのは CI の必須チェック gate-g5 であることを出す。手元の結果を判定記録へ貼る運用を機械では止めない(判定者が確かめる)" -->
+<!-- impl IMPL-0232 target=g5-local state=delivered check=manual note="手元の G-5 の検査(g5-local.mjs)は、CI と同じ範囲を実行し、結果を証跡の置き場へ書かない。出力に、結果が G-5 の判定の証跡にならないことと、マージを止めるのは CI の必須チェック gate-g5 であることを出す。手元の結果を判定記録へ貼る運用を機械では止めない(判定者が確かめる)。確かめる者: AI維持管理者(テンプレートの更新を取り込むとき)" -->
 
 <!-- impl IMPL-0142 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-g5-aggregate.mjs note="契約検査が、G-5 の集約(gate-g5)の needs に、基準1〜5・7 を実装するジョブと PR 単位の検査・契約検査のジョブがあり、集約がその結果を合否に使い、ジョブの単位の continue-on-error が無いことを確かめ、欠ければ失敗させる。基準6 はテンプレートの CI に無く、注意として出す。ジョブの中の手順が検査を実行しているかは確かめない(手順の書き換えは陰性の確認で人が確かめる)。基準ごとの調整の宣言は読まない(第8章に基準を個別に外す規則が無い)" -->
 
@@ -549,9 +550,9 @@ G-4 で受入基準の側から対応を見る理由は、2つです。基準2 �
 
 出荷後の Sev1・Sev2 の是正の記録は、[インシデント対応](/process-compass/phase6-operation/incident-response/)のポストモーテムとします。ポストモーテムは、上の4項目を含まなければなりません。同じ事象について、ポストモーテムと別の是正の記録を作りません。
 
-<!-- impl IMPL-0141 target=incident-artifact state=delivered check=manual note="ポストモーテムの手順に、是正の起動の4項目(再び起こりうるか・類似・仕組みで置くか置かない理由・効いたことの確認)を書くことを置く。Sev1・Sev2 の是正の記録をポストモーテムで行い、別の記録を作らない。内容の妥当性は確かめない(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)" -->
+<!-- impl IMPL-0141 target=incident-artifact state=delivered check=manual note="ポストモーテムの手順に、是正の起動の4項目(再び起こりうるか・類似・仕組みで置くか置かない理由・効いたことの確認)を書くことを置く。Sev1・Sev2 の是正の記録をポストモーテムで行い、別の記録を作らない。内容の妥当性は確かめない(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: ポストモーテムの承認者(振り返りを閉じるとき)" -->
 
-<!-- impl IMPL-0135 target=defect-ledger-template state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(再発の可能性・類似・再発防止の形と理由・効いたことの確認)の様式。準拠テンプレートに様式が無い。品質保証の担当が記録の有無を確かめる。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う" -->
+<!-- impl IMPL-0135 target=defect-ledger-template state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(再発の可能性・類似・再発防止の形と理由・効いたことの確認)の様式。準拠テンプレートに様式が無い。品質保証の担当が記録の有無を確かめる。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 再発防止を、機械の検査で失敗させる形にするのは、次の3つをすべて満たす場合に限ります。
 
@@ -637,7 +638,7 @@ G-4 で受入基準の側から対応を見る理由は、2つです。基準2 �
 
 **実装が存在する段階で、この扱いを用いてはなりません**。テストコードがあるにもかかわらず0件で通過する経路を作らないためです。実装の開始後に「対象なし」の記録が現れた場合、それは検査の不備を示します。
 
-<!-- impl IMPL-0239 target=g5-adapter state=undelivered check=manual plan=scheduled issue=330 review=2027-04 note="対象なしによる通過(基準1・2・3・5・8)。アダプタはプロジェクトの対象が無いとき実施しない旨を通知して通し、カバレッジは製品のコードが無いとき対象なしとして通す。対象なしを記録の3項目(基準・理由・時刻)で証跡へ残すこと、実装の開始後に用いないことは確かめていない" -->
+<!-- impl IMPL-0239 target=g5-adapter state=undelivered check=manual plan=scheduled issue=330 review=2027-04 note="対象なしによる通過(基準1・2・3・5・8)。アダプタはプロジェクトの対象が無いとき実施しない旨を通知して通し、カバレッジは製品のコードが無いとき対象なしとして通す。対象なしを記録の3項目(基準・理由・時刻)で証跡へ残すこと、実装の開始後に用いないことは確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 「対象なし」は、未達および省略のいずれとも異なります。
 
@@ -651,9 +652,9 @@ G-4 で受入基準の側から対応を見る理由は、2つです。基準2 �
 
 実行環境が検査器の読む入力(依存・サブモジュール・生成物など)を欠くため実施できなかった検査は、「対象なし」に当たりません。入力が無いため、対象の有無を確かめていないからです。**G-5 の判定では、未実施の検査として失敗に数えなければなりません**。「対象なし」として記録してはなりません。未実施と通過の区別は、保証の開示の項目4 と同じです([ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/)。[ADR-0033](/process-compass/adr/0033-no-target-as-recorded-state/) 決定2 の範囲の明確化)。
 
-<!-- impl IMPL-0233 target=spec-lint state=delivered check=manual note="曖昧語の検査(spec-lint)は、検出語の知識ベース(scripts/vendor/tailoring-kb.json)が無ければ読み込みで失敗し、検出語が空なら失敗する。検査の対象(機能仕様)が無いときだけ、対象なしとして通知する(#314: 違反の入力で落ち適合の入力で通る試験の対が無いため、machine から manual へ下げた)" -->
+<!-- impl IMPL-0233 target=spec-lint state=delivered check=machine test=template/scripts/gate/test-spec-lint.mjs note="曖昧語の検査(spec-lint)は、検出語の知識ベース(scripts/vendor/tailoring-kb.json)が無ければ読み込みで失敗し、検出語が空なら失敗する。検査の対象(機能仕様)が無いときだけ、対象なしとして通知する(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した)" -->
 
-<!-- impl IMPL-0234 target=g5-adapter state=undelivered check=manual plan=scheduled issue=330 review=2027-04 note="アダプタを使う G-5 のジョブ(test・coverage・lint・audit・licenses・secretScan)は、構成とアダプタが無ければ失敗する。依存の取得に失敗して検査器の入力が欠けたときに、各スタックの検査器が失敗で終わるかは確かめていない。任意の検査(lint・audit・licenses・coverage)のコマンドが空のときは、通知を出して通す" -->
+<!-- impl IMPL-0234 target=g5-adapter state=undelivered check=manual plan=scheduled issue=330 review=2027-04 note="アダプタを使う G-5 のジョブ(test・coverage・lint・audit・licenses・secretScan)は、構成とアダプタが無ければ失敗する。依存の取得に失敗して検査器の入力が欠けたときに、各スタックの検査器が失敗で終わるかは確かめていない。任意の検査(lint・audit・licenses・coverage)のコマンドが空のときは、通知を出して通す。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### カバレッジの測る範囲と規模(基準3)
 
@@ -677,15 +678,15 @@ G-5 の結果と保証の開示には、割合だけでなく、次の3つを出
 
 <!-- impl IMPL-0245 target=coverage-check state=delivered check=machine test=template/scripts/gate/test-coverage-scope.mjs note="基準3 の測る範囲を構成(ci.coverageScope)で選び、割合・範囲・分母・測っていない製品のファイルの数を結果に残す。node のアダプタは、変更で加えた行(git の差分)と行単位の被覆(coverage-final.json)から変更の範囲の割合を測る。変更した製品のファイルが計測されていなければ失敗させる。差分は core.quotePath=false で取り、引用符で囲まれる ASCII 以外のパスも戻して読む。行単位の被覆を測れない拡張子の製品のファイルを、測っていない製品のファイルの数に入れる。複数行の文の継続行が分母に入らない近似を結果に出す。新しく生成する構成は、行単位の被覆を持つアダプタでは変更の範囲を書く。範囲の無い既存の構成は従来どおり全体で測り、既定から補った旨を結果と保証の開示に出す。test-coverage-scope.mjs が試験する" -->
 
-<!-- impl IMPL-0259 target=coverage-check state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="node 以外のアダプタ(python・go・none など)で、変更で加えた・変えたコードの範囲を測ること。準拠テンプレートの node 以外のアダプタは行単位の被覆(coverageDetail)を持たない。範囲を変更にした構成は失敗させ、全体で判定するよう求める" -->
+<!-- impl IMPL-0259 target=coverage-check state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="node 以外のアダプタ(python・go・none など)で、変更で加えた・変えたコードの範囲を測ること。準拠テンプレートの node 以外のアダプタは行単位の被覆(coverageDetail)を持たない。範囲を変更にした構成は失敗させ、全体で判定するよう求める。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0260 target=coverage-check state=delivered check=manual note="全体で判定した結果に、変更の未被覆が全体の被覆で薄まる旨(dilution)・分母・測っていない製品のファイルの数を書く(#314: 違反の入力で落ち適合の入力で通る試験の対が無いため、machine から manual へ下げた)" -->
+<!-- impl IMPL-0260 target=coverage-check state=delivered check=machine test=template/scripts/gate/test-coverage-scope.mjs note="全体で判定した結果に、変更の未被覆が全体の被覆で薄まる旨(dilution)・分母・測っていない製品のファイルの数を書く(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した)" -->
 
 <!-- impl IMPL-0261 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-init-g5.mjs note="契約検査が、企画書の「カバレッジの測る範囲(G-5 基準3)」の記録と構成の範囲(ci.coverageScope。無ければ全体)を比べ、食い違えば失敗させる。範囲を変更にしたのにアダプタが変更の範囲を測れない構成も失敗させる。企画書が無い段階は注意に留める" -->
 
 <!-- impl IMPL-0262 target=project-brief-template state=delivered check=presence note="企画書の様式に「カバレッジの測る範囲(G-5 基準3)」の行を置き、G-1 の様式の検査(check-g1.mjs)が行の有無を確かめる。G-1 を通過する前の企画書では必須。G-1 を通過済みの企画書に行が無い場合は遡って失敗させず、記載の欠落として /pit と出荷の証跡の集約に出す(単位: 行)" -->
 
-<!-- impl IMPL-0246 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=333 review=2027-04 note="保証の開示に、カバレッジの割合・測った範囲・分母・測っていない製品のファイルの数と、全体で判定した場合の薄まりを出す。出荷の証跡の集約は evidence/coverage-result.json があればこれらを出すが、出荷のワークフロー(ship-evidence.yml)は G-5 の成果物 coverage-result を取り込まない。出荷の集約ではカバレッジは未測定と出る" -->
+<!-- impl IMPL-0246 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=333 review=2027-04 note="保証の開示に、カバレッジの割合・測った範囲・分母・測っていない製品のファイルの数と、全体で判定した場合の薄まりを出す。出荷の証跡の集約は evidence/coverage-result.json があればこれらを出すが、出荷のワークフロー(ship-evidence.yml)は G-5 の成果物 coverage-result を取り込まない。出荷の集約ではカバレッジは未測定と出る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0143 / 見直し 2027-10]
 **対象**: カバレッジの基準値の目安(80%)と、G-5 を強める構成の目安(90%)。
@@ -855,20 +856,20 @@ AI が追加した依存と人間が追加した依存を、扱いの上で区�
 - 条件4 の挙動要約として機械が数える最低限の形は、承認の語だけでないこと(LGTM・OK・承認・問題なし などだけの本文は数えない)と、見出し語を除いた本文が 8 文字以上あること(基準2 の1〜2文の下限)である。形を満たさない承認は「レビュアの挙動要約が無い」として扱う。機械が見るのは形だけであり、中身は確かめない(内部監査の抜き取り)
 - 条件1 の対応づけは、承認・判定の時点の名簿で行う。表5 から外した人が在籍中に行った承認(変更を取り込む前の構成の名簿)と判定記録(記録を足した時点の構成の名簿)は数え、その旨を保証の開示の項目1 に出す。外した後の承認は数えない
 
-<!-- impl IMPL-0077 target=evidence-aggregation state=delivered check=manual note="承認者の数(構成 review.reviewerCount。規制業・CL3 は 2 名)。4条件を満たす承認者の数が要求に満たない変更を、独立した人の確認を経ていない変更に計上し「G-6 の承認者 N 名 / 要求 M 名」と開示する。監査対応書式の2人目の承認者(旧称は 2人目の判定者。旧称の行も読む)を2人目の挙動要約つきで承認者に数える(#288 第5巡、#305)" -->
+<!-- impl IMPL-0077 target=evidence-aggregation state=delivered check=manual note="承認者の数(構成 review.reviewerCount。規制業・CL3 は 2 名)。4条件を満たす承認者の数が要求に満たない変更を、独立した人の確認を経ていない変更に計上し「G-6 の承認者 N 名 / 要求 M 名」と開示する。監査対応書式の2人目の承認者(旧称は 2人目の判定者。旧称の行も読む)を2人目の挙動要約つきで承認者に数える(#288 第5巡、#305)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 <!-- impl IMPL-0111 target=config-unmet state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="確認者を置けるかどうかを、人の名簿と席から導く(3名未満の体制)。開発者の席・独立レビュアの席の責任者が未記入、または同一人物なら、設問への回答と事業ステージによらず G-6 を未達にする。契約検査は、名簿と席から確認者を確かめられないのに未達でない構成を落とす。回答が「いる」のままの食い違いは、未達の理由と契約検査の注記に出す。「いない」と回答して席へ別の人を記入する変更は拒否する。表5 の記載が正しいかは確かめない。test-roster-rules.mjs が固定する(#302)" -->
 <!-- impl IMPL-0112 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="同一の変更で、先に数えた承認者と同一の文の挙動要約を、2件目に数えない。空白・記号・見出し語を除いて比べる。G-5(pr-rules)と出荷の証跡の集約が同じ関数で比べ、「承認者 N 名 / 要求 M 名」に数えなかった承認者を出す。言い換えた写しは検出しない。2人目が1人目の結果を見たかは確かめない(課していない)。test-check-pr.mjs が固定する(#305)" -->
 <!-- impl IMPL-0093 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="挙動要約の最低限の形(承認の語だけでない、見出し語を除いて 8 文字以上)。承認レビューの本文・判定記録の「挙動要約」の節・監査対応書式の「2人目の挙動要約」を同じ規則で読み、満たさない承認を「レビュアの挙動要約が無い」として数えない。G-5(pr-rules)も同じ関数で数える。中身は確かめない(#288 第8巡 X8)" -->
-<!-- impl IMPL-0094 target=evidence-aggregation state=delivered check=manual note="承認・判定の時点の名簿への対応づけ。現在の名簿に無い承認者・判定者を、PR のマージの親の構成(承認の時点)と判定記録を足したコミットの構成の名簿から引き、在籍中の承認・判定を数える。項目1 に「名簿から外した人が在籍中に行った承認・判定を数えた変更」として出す。外した後の承認は当時の名簿にも無いため数えない(#288 第8巡 Y8)" -->
+<!-- impl IMPL-0094 target=evidence-aggregation state=delivered check=manual note="承認・判定の時点の名簿への対応づけ。現在の名簿に無い承認者・判定者を、PR のマージの親の構成(承認の時点)と判定記録を足したコミットの構成の名簿から引き、在籍中の承認・判定を数える。項目1 に「名簿から外した人が在籍中に行った承認・判定を数えた変更」として出す。外した後の承認は当時の名簿にも無いため数えない(#288 第8巡 Y8)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 
 :::caution[暫定 EV-0083 / 見直し 2027-04]
 **対象**: 条件4 の挙動要約として機械が数える最低限の形(承認の語だけの本文を数えない。見出し語を除いて 8 文字以上)という値。1語の承認(LGTM)が2人目に数えられた8回目の採用判断の1件から、承認の語の一覧と文字数の下限を置いた。基準2 の「1〜2文」を文字数へ写した値であり、測定に基づかない。
 **根拠の水準**: E0(なし)。
 **差し替え条件**: 採用者の内部監査の抜き取りで、形を満たしても挙動を述べていない承認の件数と、形を満たさないのに挙動を述べている承認の件数を集める。後者が前者を上回る組織が複数あれば下限を下げ、前者が多ければ承認の語の一覧を広げる。いずれの場合も、中身の判定を機械に移さない(第5章 5.6.4)。
 :::
-<!-- impl IMPL-0263 target=evidence-aggregation state=delivered check=manual note="承認は承認した差分に対して数える。出荷の証跡の集約は、承認したコミット(レビューの commit)と取り込んだ PR の先頭のコミット(headRefOid)を比べ、異なる承認(承認の後の更新)と承認の版を確かめられない承認を数えず、件数を保証の開示に出す。gh はレビューの commit.oid を v2.30.0 以降で返す(cli/cli の prReviews の問い合わせ。2026-10-23 に確かめた)。それより前の gh ではすべての承認が確かめられないとして数えられないため、集約は確かめられない承認があるとき gh の版と原因を出し、env-check は gh の版を記録する。実機の gh での端から端までの確認はしていない。approvalBinding を test-roster-rules.mjs が試験する" -->
+<!-- impl IMPL-0263 target=evidence-aggregation state=delivered check=manual note="承認は承認した差分に対して数える。出荷の証跡の集約は、承認したコミット(レビューの commit)と取り込んだ PR の先頭のコミット(headRefOid)を比べ、異なる承認(承認の後の更新)と承認の版を確かめられない承認を数えず、件数を保証の開示に出す。gh はレビューの commit.oid を v2.30.0 以降で返す(cli/cli の prReviews の問い合わせ。2026-10-23 に確かめた)。それより前の gh ではすべての承認が確かめられないとして数えられないため、集約は確かめられない承認があるとき gh の版と原因を出し、env-check は gh の版を記録する。実機の gh での端から端までの確認はしていない。approvalBinding を test-roster-rules.mjs が試験する。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 <!-- impl IMPL-0264 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-init-g5.mjs note="契約検査が、適用するルールセット(team・regulated・safety)の dismiss_stale_reviews_on_push が true であることを確かめ、外れていれば失敗させる。test-init-g5.mjs が固定する" -->
-<!-- impl IMPL-0265 target=adoption-trial state=delivered check=manual note="実環境の統制の確認(env-check)が、team を含むすべてのルールセットで、適用されたブランチ保護の dismiss_stale_reviews_on_push と require_last_push_approval を確かめる。実環境の gh で採用者が実行する" -->
+<!-- impl IMPL-0265 target=adoption-trial state=delivered check=manual note="実環境の統制の確認(env-check)が、team を含むすべてのルールセットで、適用されたブランチ保護の dismiss_stale_reviews_on_push と require_last_push_approval を確かめる。実環境の gh で採用者が実行する。確かめる者: 導入前の検証の記入者(採用者の人。記録を突き合わせるとき)" -->
 <!-- impl IMPL-0266 target=config-change-log state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="AI を示す語を含むアカウント名の人の確認(accountsConfirmed)は、本人以外が記名した名簿の変更(changeLog の accountConfirmations と decidedBy)がある場合だけ効く。本人・AI の名義の記名と記録の無い確認は契約検査が落とす。[bot] とホスティングの bot は上書きしない。出荷の証跡の集約が、確認によって数えた承認の件数を出す。氏名の確認(nameConfirmed)も同じく、本人以外が記名した名簿の変更(changeLog の nameConfirmations と decidedBy)がある場合だけ効き、記録の無い確認は契約検査が落とす。体制の内の人が1名の名簿では本人の記名を受け付け(自己申告の氏名)、記録の無い確認も効かせて未記録として /pit と契約検査の注記に出し、保証の開示に区別して出す。2人目が加わると、本人の記名だけの確認は本人以外の記名を要する。test-roster-rules.mjs が固定する" -->
 <!-- impl IMPL-0267 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="コア機能・確約範囲のパス(delegation.protectedPaths と riskFloor.rules のパス)のうち、追跡中のファイルに1件も当たらないパスを宣言として数えない。当たるパスが無ければ未宣言として扱い、規模の基準なし(null)を効かせない。当たらないパスを結果と保証の開示に出す。test-check-pr.mjs が固定する" -->
 <!-- impl IMPL-0078 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="G-5 の PR 単位の検査で、PR のレビューを読めるとき、独立した人の承認者の数を同じ条件で数えて「G-6 の承認者 N 名 / 要求 M 名」を出す。読めないときはその旨を出す。合否にはしない(レビューの前に走るため)。合否は出荷の証跡の集約が担う(#288 第5巡)" -->
@@ -879,7 +880,7 @@ AI が追加した依存と人間が追加した依存を、扱いの上で区�
 
 安全関連ソフトウェアを含む変更では、このゲートに加えて**独立した安全性の評価を重ねます**。既存のゲートへ吸収してはなりません。評価者は実装の責任者から組織的に独立している必要があり、独立レビュアとは要件が異なるためです。手順は[附属書F](/process-compass/phase4-process-design/safety-verification/)によります。評価の記録をリポジトリに置く場合の置き場は `docs/safety/` です。出荷判定の証跡の集約は、この置き場を記録の置き場として扱い、記録だけのコミットを製品の変更に数えません。文書管理システムに置く場合は、判定記録の「安全性の評価の記録の所在」に文書番号を書きます。
 
-<!-- impl IMPL-0096 target=evidence-aggregation state=delivered check=manual note="独立した安全性の評価の記録の置き場 docs/safety/** を、出荷の証跡の集約の記録の置き場(RECORD_PATHS)に加える。ここだけを変えるコミットは製品の変更に数えず、PR を経ていないコミットの区分・検証・独立した人の確認を要しない。テンプレ4 の「安全性の評価の記録の所在」と /gate G-6 に所在を書く(#288 第8巡 W8)" -->
+<!-- impl IMPL-0096 target=evidence-aggregation state=delivered check=manual note="独立した安全性の評価の記録の置き場 docs/safety/** を、出荷の証跡の集約の記録の置き場(RECORD_PATHS)に加える。ここだけを変えるコミットは製品の変更に数えず、PR を経ていないコミットの区分・検証・独立した人の確認を要しない。テンプレ4 の「安全性の評価の記録の所在」と /gate G-6 に所在を書く(#288 第8巡 W8)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 
 #### 承認レビューを判定記録とする条件(適用: G-6。規制業の監査対応書式を除く)
 
@@ -928,7 +929,7 @@ AI が追加した依存と人間が追加した依存を、扱いの上で区�
 | G-7 と G-8 | 個別の変更ごとには行わない。登録時の事前承認と、期間ごとの保証の開示への計上で扱う(第5章 5.5.4)。期間ごとの保証の開示にも、出荷判定者の突合と記名、事業決裁者の受容の記名、出荷判定者の異議の記載を要する(後掲 G-8) |
 | 開示 | 期間ごとの件数を、保証の開示(G-7 基準9)へ載せる |
 
-<!-- impl IMPL-0027 target=gate-skill-g6 state=delivered check=manual note="G-6 の判定を事後へ移した変更を G-6 の通過として記録せず、人の事前確認を経ていない変更として変更単位で識別する。開発者の席だけが委任で、独立レビュアが事前に承認した変更は G-6 の承認の記録を持ち、委任の識別を別に残す" -->
+<!-- impl IMPL-0027 target=gate-skill-g6 state=delivered check=manual note="G-6 の判定を事後へ移した変更を G-6 の通過として記録せず、人の事前確認を経ていない変更として変更単位で識別する。開発者の席だけが委任で、独立レビュアが事前に承認した変更は G-6 の承認の記録を持ち、委任の識別を別に残す。確かめる者: G-6 の判定者(独立レビュアの席の責任者。判定記録を書くとき)" -->
 
 委任は、このゲートの未達を解消しません。作成を指示した者以外の確認者を置けない変更は、委任を宣言しても未達のまま表示します([ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/))。
 
@@ -1009,7 +1010,7 @@ G-6 を適用する体制は、作成を指示した者以外の確認者を置�
 - 出荷判定者が確かめるのは、記録の有無と、上の条件の充足である。例外承認の当否を判定しない
 - 承認した者が例外承認の権限を持つかは、この突合では確かめない。[プロセス内部監査](/process-compass/phase6-operation/process-audit/)で確かめる
 
-<!-- impl IMPL-0039 target=evidence-aggregation state=delivered check=manual note="G-6 を適用する体制で、独立した人の確認を経ておらず G-6 を事後へ移してもいない変更を記録の欠落として扱う。挙動要約を伴わない承認を独立した人の確認に数えない。例外承認は、対象の明示・有効な状態・承認した者と理由と期限の記入がある記録だけを対応づける。委任の識別を持つ R3 でない変更を範囲の逸脱として扱う。テンプレート担当の実装後に主担当が改める" -->
+<!-- impl IMPL-0039 target=evidence-aggregation state=delivered check=manual note="G-6 を適用する体制で、独立した人の確認を経ておらず G-6 を事後へ移してもいない変更を記録の欠落として扱う。挙動要約を伴わない承認を独立した人の確認に数えない。例外承認は、対象の明示・有効な状態・承認した者と理由と期限の記入がある記録だけを対応づける。委任の識別を持つ R3 でない変更を範囲の逸脱として扱う。テンプレート担当の実装後に主担当が改める。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 
 **委任で先へ進めた変更には、このゲートを個別の変更ごとには行いません**。登録時の事前承認と、期間ごとの保証の開示への計上で扱います([第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/))。出荷判定者は、期間の開示を基準9 で突合し、記名します。この突合と記名は委任しません。
 
@@ -1043,7 +1044,7 @@ G-1 で承認した壊してはならない品質条件(識別子 QC-NN)と、�
 - 項目5 へ載った条件は、記載の欠落ではない。G-8 の受容の対象である。層1 の「受容しない条件」に当たる条件(安全・法令など)は、この突合とは別に、基準9 の (b) で差し戻される
 - 突合が確かめるのは参照の有無だけである。参照したテストが条件を確かめていることは判定しない。参照の妥当性は G-6 の独立レビュアが受入基準ごとに確かめる
 
-<!-- impl IMPL-0072 target=evidence-aggregation state=delivered check=manual note="企画書の壊してはならない品質条件(QC-NN)と、受入基準・テストからの識別子の参照を突合する。テストから参照されない条件と、どこからも参照されない条件を保証の開示の項目5 へ自動で載せ、参照された条件の件数を項目4 へ出す。識別子を持たない条件を記載の欠落にする" -->
+<!-- impl IMPL-0072 target=evidence-aggregation state=delivered check=manual note="企画書の壊してはならない品質条件(QC-NN)と、受入基準・テストからの識別子の参照を突合する。テストから参照されない条件と、どこからも参照されない条件を保証の開示の項目5 へ自動で載せ、参照された条件の件数を項目4 へ出す。識別子を持たない条件を記載の欠落にする。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 
 #### 停止の申し立ての保留
 
@@ -1053,7 +1054,7 @@ G-1 で承認した壊してはならない品質条件(識別子 QC-NN)と、�
 - 申し立てが PR の段階で解除されていても、出荷の対象として申し立てられたリリースは、別に解除を要する
 - 保留は差し戻しではない。判定記録を作らず、申し立てと保留の事実を保証の開示の項目7 へ出す
 
-<!-- impl IMPL-0073 target=evidence-aggregation state=delivered check=manual note="出荷の範囲の PR にラベル state:stop-requested の未解除の申し立て(付けた履歴があり、その日以後の成立した解除の記録が基底ブランチに無いもの)がある場合と、リリースを対象とする未解除の申し立てがある場合に、出荷の証跡の集約を失敗させる。申し立てと保留を保証の開示の項目7 へ出す" -->
+<!-- impl IMPL-0073 target=evidence-aggregation state=delivered check=manual note="出荷の範囲の PR にラベル state:stop-requested の未解除の申し立て(付けた履歴があり、その日以後の成立した解除の記録が基底ブランチに無いもの)がある場合と、リリースを対象とする未解除の申し立てがある場合に、出荷の証跡の集約を失敗させる。申し立てと保留を保証の開示の項目7 へ出す。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 
 #### 保証の開示
 
@@ -1144,7 +1145,7 @@ G-1 で承認した壊してはならない品質条件(識別子 QC-NN)と、�
 - 判定記録の判定者が、開発者の席または独立レビュアの席の責任者である場合も、条件4 を満たさない。席の兼務禁止を、記名した人で確かめる
 - 機械が確かめるのは、記録に現れた指示者と承認者までである。記録に現れない関与(口頭の指示など)は確かめない
 
-<!-- impl IMPL-0113 target=evidence-aggregation state=delivered check=manual note="保証の主張の成立条件4 の出荷ごとの条件。出荷判定(G-7)を記名した人(判定記録が無ければ出荷判定者の席の責任者)が、範囲内の変更の作成を指示した者(PR の欄。未記入なら PR の作成者と開発者の席の責任者)でも、G-6 の承認者でもないことを確かめ、当たれば条件4 を不成立にして理由を出す。判定記録の判定者が開発者の席・独立レビュアの席の責任者である場合も不成立にする。記録に現れない関与(口頭の指示など)は確かめない。席の兼務(出荷判定者 × 開発者・独立レビュア)は、3名以上では構成の変更と契約検査が拒否する(config-roles)。実行して確かめた場面は research/302-310-deliberation/implementation-A.md(#304)(#314: 違反の入力で落ち適合の入力で通る試験の対が無いため、machine から manual へ下げた)" -->
+<!-- impl IMPL-0113 target=evidence-aggregation state=delivered check=manual note="保証の主張の成立条件4 の出荷ごとの条件。出荷判定(G-7)を記名した人(判定記録が無ければ出荷判定者の席の責任者)が、範囲内の変更の作成を指示した者(PR の欄。未記入なら PR の作成者と開発者の席の責任者)でも、G-6 の承認者でもないことを確かめ、当たれば条件4 を不成立にして理由を出す。判定記録の判定者が開発者の席・独立レビュアの席の責任者である場合も不成立にする。記録に現れない関与(口頭の指示など)は確かめない。席の兼務(出荷判定者 × 開発者・独立レビュア)は、3名以上では構成の変更と契約検査が拒否する(config-roles)。実行して確かめた場面は research/302-310-deliberation/implementation-A.md(#304)(#314: 機械の出力はあるが、違反と適合の対の試験が無い)。確かめる者: 出荷判定者(G-7 の判定で、成立条件4 の不成立の理由を読むとき)。テンプレートの更新を取り込むときは、AI維持管理者が research/302-310-deliberation/implementation-A.md の場面を実行し直す" -->
 
 1名体制では、外部の確認者を置かない限り、条件3・4 を満たしません。2名体制でも、2人がそれぞれ作成の指示と G-6 の承認に当たると、条件4 を満たす出荷判定の記名者が体制の内にいなくなります。体制ごとに条件へ届く道筋は、附属書H H.1「保証の主張の成立条件」によります。6条件の選定に実証はありません。根拠の水準と差し替え条件は、ADR-0057 の暫定マーク EV-0067 によります。
 
@@ -1430,7 +1431,7 @@ L2 の一次事例は、モノレポ・大規模な自動テスト基盤・高�
 
 <!-- impl IMPL-0049 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="基準値を超える変更を失敗にせず、size:over を出して区分の下限を R2 へ引き上げる。算定はファイルごとの max(追加, 削除)で、テスト・fixture・snapshot は別に数える。ロックファイル・印のある自動生成ファイル・空白だけの一括整形と、文書の置き場(docs・context・specs・templates・evidence・profiles とリポジトリの直下)の *.md を算定から除く。置き場の外の *.md は数える。基底ブランチの台帳の既存の例外承認の行は有効のまま。印の無い生成物と機械的な変換は機械で識別しない" -->
 
-<!-- impl IMPL-0136 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="算定から除いた文書だけの変更を、判定完了時間の SLA で判定すること。出荷の集約は、文書だけの変更の判定完了時間を出していない。判定の滞留はゲート滞留時間(運用メトリクス)で人が見る" -->
+<!-- impl IMPL-0136 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="算定から除いた文書だけの変更を、判定完了時間の SLA で判定すること。出荷の集約は、文書だけの変更の判定完了時間を出していない。判定の滞留はゲート滞留時間(運用メトリクス)で人が見る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 **上限を遮断として運用してはなりません**。上限で差し戻し続けると、上限を超える変更がレビューへ到達せず、**較正の母集団が上限で打ち切られます**。打ち切られた分布から上限を導けば、据え置きではなく毎期の収縮が起こります。規定は[ADR-0047](/process-compass/adr/0047-limit-is-default-not-cutoff/)によります。実行層も、この規定に反して超過を失敗にしていたため、[ADR-0058](/process-compass/adr/0058-size-over-is-confirmed-not-blocked/)で改めました(ADR-0047 の決定1を、部分的に置き換えます)。
 
@@ -1473,9 +1474,9 @@ L2 の一次事例は、モノレポ・大規模な自動テスト基盤・高�
 <!-- impl IMPL-0271 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="文書の置き場では、文書・データの拡張子のファイルだけを製品のコードから外し、それ以外を製品として数える。拡張子の無いファイルは変更後の版の先頭の行が #! なら製品として数える。test-check-pr.mjs が固定する" -->
 <!-- impl IMPL-0281 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="要求事項7。規模の基準なし(null)は、確約範囲・コア指定のパスが追跡中のファイルに1件以上当たる場合だけ効く。当たらないパスは宣言として数えず、当たるパスが無ければ未宣言として既定値で判定する(G-6 の IMPL-0267 と同じ関数 corePathsOf。突合 X-13)。test-check-pr.mjs が固定する" -->
 <!-- impl IMPL-0099 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="規模の確認(実施者・読み切れたか・分割しなかった理由・保証の所在)の節を検査する。HTML コメントの中の節は読まず、読み切れたかは「はい」「いいえ」の完全一致だけを読む。欄が無い・実施者が AI の名義・名簿の外(名簿に指示した者以外の人がいる体制)・読み切れたかが「いいえ」のときだけ失敗させ、担保水準 L1 以上で根拠が実在すれば保証の所在だけを要する。基準値 null は L2 の宣言と根拠が実在し、コア指定のパスが宣言され、R3 でコア外の変更だけに効く。別集計が基準行数の5倍を超えたら size:over" -->
-<!-- impl IMPL-0100 target=evidence-aggregation state=delivered check=manual note="出荷の範囲の PR の規模の分布・size:over の件数・読み切れたかの内訳・超過 PR の判定完了時間を、保証の開示の観測として出し、evidence.json にも出す。基準値は変更の起点(マージ時点)の構成で判定し、読めない PR は判定不能と出して黙らない。R3 記載・規模の確認なし・「いいえ」のままマージされた超過 PR は記載の欠落に数える。基準値へは自動で反映しない" -->
-<!-- impl IMPL-0101 target=process-change-skill state=delivered check=manual note="構成 task.assurance(水準・根拠・宣言者・宣言日・見直し日)を種別 settings で変える。L0 から L1・L2 へ上げるのは緩める向き(記名と理由)。根拠の実在と見直し日だけを検査し、過ぎれば L0 として扱う" -->
-<!-- impl IMPL-0102 target=pr-checks state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="L2 の「リスクを機械的に採点し閾値で審査深度を変える運用が稼働している」ことの機械の検証。採点の稼働は自己申告を超えて検査できる条件が定まっていないため、テンプレートへ降ろしていない。宣言は記録として受け、緩和は根拠の実在と区分の条件の範囲に限る" -->
+<!-- impl IMPL-0100 target=evidence-aggregation state=delivered check=manual note="出荷の範囲の PR の規模の分布・size:over の件数・読み切れたかの内訳・超過 PR の判定完了時間を、保証の開示の観測として出し、evidence.json にも出す。基準値は変更の起点(マージ時点)の構成で判定し、読めない PR は判定不能と出して黙らない。R3 記載・規模の確認なし・「いいえ」のままマージされた超過 PR は記載の欠落に数える。基準値へは自動で反映しない。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
+<!-- impl IMPL-0101 target=process-change-skill state=delivered check=manual note="構成 task.assurance(水準・根拠・宣言者・宣言日・見直し日)を種別 settings で変える。L0 から L1・L2 へ上げるのは緩める向き(記名と理由)。根拠の実在と見直し日だけを検査し、過ぎれば L0 として扱う。確かめる者: 変化点の決定者(/process-change の出力を読むとき)" -->
+<!-- impl IMPL-0102 target=pr-checks state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="L2 の「リスクを機械的に採点し閾値で審査深度を変える運用が稼働している」ことの機械の検証。採点の稼働は自己申告を超えて検査できる条件が定まっていないため、テンプレートへ降ろしていない。宣言は記録として受け、緩和は根拠の実在と区分の条件の範囲に限る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0084 / 見直し 2027-04]
 **対象**: 規模の基準値の超過を遮断でなく、規模の確認と区分の下限 R2 で扱うという判断と、担保水準の宣言(task.assurance)。
@@ -1552,13 +1553,13 @@ AIによる差分要約を緩和根拠から外す理由は別にあります。
 
 GitHub 標準のスタックの機構は、提供者の文書で確かめたもので、実機では確かめていません。スタックの基底は、既定ブランチ以外にも設定できます。その場合、取り込み先は既定ブランチにならず、2つ目の箇条により、マージしてはなりません。根拠の水準は、[スタック型 PR の前提の確認](/process-compass/phase5-implementation/stacked-pr/)の EV-0139 によります。
 
-<!-- impl IMPL-0247 target=gate-g5-workflow state=delivered check=manual note="gate-g5.yml の pull_request の契機は、基底のブランチ(branches)で絞らない。絞り込みを足す変更を、機械は止めない(統制の設定の陰性の確認で人が確かめる)" -->
+<!-- impl IMPL-0247 target=gate-g5-workflow state=delivered check=manual note="gate-g5.yml の pull_request の契機は、基底のブランチ(branches)で絞らない。絞り込みを足す変更を、機械は止めない(統制の設定の陰性の確認で人が確かめる)。確かめる者: AI維持管理者(統制の設定の陰性の確認のとき)" -->
 
-<!-- impl IMPL-0248 target=rulesets state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="手動のスタックで、既定ブランチ以外へ取り込むマージを拒否する設定。準拠テンプレートのルールセット(.github/rulesets/*.json)の対象は ~DEFAULT_BRANCH だけで、中間の層へのマージを止めない。AI の担い手のマージは .claude/settings.json の ask(gh pr merge)で人へ戻るが、人による中間の層へのマージは止まらない" -->
+<!-- impl IMPL-0248 target=rulesets state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="手動のスタックで、既定ブランチ以外へ取り込むマージを拒否する設定。準拠テンプレートのルールセット(.github/rulesets/*.json)の対象は ~DEFAULT_BRANCH だけで、中間の層へのマージを止めない。AI の担い手のマージは .claude/settings.json の ask(gh pr merge)で人へ戻るが、人による中間の層へのマージは止まらない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0249 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="pr-rules(check-pr.mjs)は、差分を PR の基底から取り、基準値・名簿・区分の下限の規則・除外設定・台帳の例外承認・停止の申し立ての解除の記録を、既定ブランチの先端(--policy-base。gate-g5.yml が github.event.repository.default_branch を渡す)から読む。既定ブランチを解決できない場合と、既定ブランチに構成が無く基底か PR に構成がある場合は失敗する。test-check-pr.mjs が、スタックの上の層で下の層の基準値・台帳の行・区分の下限の規則・停止の解除の記録を読まないこと、既定ブランチに構成が無い場合に失敗することを試験する" -->
 
-<!-- impl IMPL-0250 target=gate-skill-g6 state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="層ごとの承認が無いまま合わさった差分(スタックの複数の層)へした1件の承認を、層ごとの G-6 の確認に数えない。/gate の G-6 の補助ファイルに無い。出荷の証跡の集約は既定ブランチへ取り込んだ PR ごとに承認を数え、層の合わさりを見ない" -->
+<!-- impl IMPL-0250 target=gate-skill-g6 state=undelivered check=manual plan=scheduled issue=314 review=2026-11 note="層ごとの承認が無いまま合わさった差分(スタックの複数の層)へした1件の承認を、層ごとの G-6 の確認に数えない。/gate の G-6 の補助ファイルに無い。出荷の証跡の集約は既定ブランチへ取り込んだ PR ごとに承認を数え、層の合わさりを見ない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### この基準の見直し
 
@@ -1773,7 +1774,7 @@ AI 生成行の短期書き換え率は、大規模な変更履歴の分析で�
 30件と四半期は、比率を扱う実務の慣行値です。この文脈で必要な件数を測った測定は、見つかっていません。
 :::
 
-<!-- impl IMPL-0268 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=349 review=2027-04 note="比率の判断に、観測の窓と窓の中の最小標本数を掛ける。準拠テンプレートが窓と最小標本数で集計するのは、登録した変更種別の差し戻し率だけである(第5章 5.4.6 の IMPL-0285。窓は直近2か月、最小標本数は30件で固定し、組織の値を構成に持たない)。手戻り率・一発承認率・AI 生成行の短期書き換え率は期間で集計しない。採用者が集計の手段に窓と最小標本数を備える" -->
+<!-- impl IMPL-0268 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=349 review=2027-04 note="比率の判断に、観測の窓と窓の中の最小標本数を掛ける。準拠テンプレートが窓と最小標本数で集計するのは、登録した変更種別の差し戻し率だけである(第5章 5.4.6 の IMPL-0285。窓は直近2か月、最小標本数は30件で固定し、組織の値を構成に持たない)。手戻り率・一発承認率・AI 生成行の短期書き換え率は期間で集計しない。採用者が集計の手段に窓と最小標本数を備える。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 合否条件にしてよい指標、してはならない指標
 

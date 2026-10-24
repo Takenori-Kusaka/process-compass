@@ -20,6 +20,8 @@ import {
   undeliveredRank,
   overdueCount,
   untracedProblems,
+  stepDefect,
+  sectionKeyMatches,
   OVERDUE_PREFIX,
 } from './lib/impl-inventory.mjs';
 
@@ -319,20 +321,26 @@ test('check を欠くマークを落とす', () => {
 test('不正な check の値を落とす(陽性の対照)', () => {
   assert(ok({ check: 'auto' }).some((x) => /check が不正です: auto/.test(x)));
   assert(ok({ check: 'Machine' }).some((x) => /check が不正です/.test(x)));
-  assert.deepEqual(ok({ check: 'manual' }), []);
+  assert.deepEqual(ok({ check: 'manual', note: 'n。確かめる者: 判定者' }), []);
 });
 test('check=machine は test= を要する。test= は machine だけに書く', () => {
   assert(ok({ check: 'machine' }).some((x) => /test= がありません/.test(x)));
   assert.deepEqual(ok({ check: 'machine', test: 'x.mjs' }), []);
-  assert(ok({ check: 'manual', test: 'x.mjs' }).some((x) => /machine のマークだけ/.test(x)));
+  assert(ok({ check: 'manual', test: 'x.mjs', note: '確かめる者: x' }).some((x) => /machine のマークだけ/.test(x)));
 });
 test('check=presence は注記に規則を運ぶ単位を要する', () => {
   assert(ok({ check: 'presence', note: '節の見出しを確かめる' }).some((x) => /単位/.test(x)));
   assert(ok({ check: 'presence', note: '単位: 節' }).some((x) => /単位/.test(x)));
   for (const u of ['欄', 'キー', '行', 'ファイル']) assert.deepEqual(ok({ check: 'presence', note: `x(単位: ${u})` }), []);
 });
+test('check=manual は注記に確かめる者を要する(#314 の突合 X-6)', () => {
+  assert(ok({ check: 'manual', note: '判定記録の作成をもって判定が成立する' }).some((x) => /確かめる者/.test(x)));
+  assert.deepEqual(ok({ check: 'manual', note: 'x。確かめる者: 当該ゲートの判定者' }), []);
+  assert.deepEqual(ok({ check: 'manual', note: 'x。人が確かめるのは、技術判断者' }), []);
+  assert.deepEqual(ok({ check: 'manual', note: 'x。確かめる者:判定者' }), []);
+});
 test('state=undelivered は plan を要し、scheduled は issue と review、adopter は decision を要する', () => {
-  const u = (a) => markAttrProblems({ target: 't', state: 'undelivered', check: 'manual', note: 'n', ...a });
+  const u = (a) => markAttrProblems({ target: 't', state: 'undelivered', check: 'manual', note: 'n。確かめる者: x', ...a });
   assert(u({}).some((x) => /plan がありません/.test(x)));
   assert(u({ plan: 'later' }).some((x) => /plan が不正です/.test(x)));
   assert(u({ plan: 'scheduled', review: '2027-04' }).some((x) => /issue=/.test(x)));
@@ -342,12 +350,12 @@ test('state=undelivered は plan を要し、scheduled は issue と review、ad
   assert.deepEqual(u({ plan: 'adopter', decision: 'ADR-0084' }), []);
 });
 test('採用者が実装するにできない節では plan=adopter を落とす', () => {
-  const a = { target: 't', state: 'undelivered', check: 'manual', note: 'n', plan: 'adopter', decision: 'ADR-0084' };
+  const a = { target: 't', state: 'undelivered', check: 'manual', note: 'n。確かめる者: x', plan: 'adopter', decision: 'ADR-0084' };
   assert(markAttrProblems(a, { noAdopter: true }).some((x) => /採用者が実装する」にできません/.test(x)));
   assert.deepEqual(markAttrProblems({ ...a, plan: 'scheduled', issue: '1', review: '2027-01', decision: undefined }, { noAdopter: true }), []);
 });
 test('plan などは state=delivered に書けない', () => {
-  assert(ok({ check: 'manual', plan: 'scheduled' }).some((x) => /state=undelivered のマークだけ/.test(x)));
+  assert(ok({ check: 'manual', note: '確かめる者: x', plan: 'scheduled' }).some((x) => /state=undelivered のマークだけ/.test(x)));
 });
 test('machine の試験は ng と ok の目印を要し、集約から実行される', () => {
   const files = { 'a.mjs': '// IMPL-0001:ng x\n// IMPL-0001:ok y\n', 'b.mjs': '// IMPL-0001:ng だけ\n', 'c.mjs': '// IMPL-00011:ng IMPL-00011:ok\n' };
@@ -357,6 +365,17 @@ test('machine の試験は ng と ok の目印を要し、集約から実行さ�
   assert(machineTestProblems('IMPL-0001', 'c.mjs', env()).length === 2, '番号の前方一致で目印に数えない');
   assert(machineTestProblems('IMPL-0001', 'z.mjs', env()).some((x) => /ありません/.test(x)));
   assert(machineTestProblems('IMPL-0001', 'a.mjs', env('結線なし')).includes('結線なし'));
+});
+test('machine の試験の :ng と :ok は別の行にある(#314 の突合 X-11)', () => {
+  const files = {
+    same: '  // IMPL-0001:ng IMPL-0001:ok(違反と適合の対)\n  check(...)\n',
+    split: '  // IMPL-0001:ng\n  check(a)\n  // IMPL-0001:ok\n  check(b)\n',
+    mixed: '  // IMPL-0001:ng IMPL-0001:ok\n  // IMPL-0001:ng\n',
+  };
+  const env = { exists: (f) => f in files, read: (f) => files[f], wired: () => null };
+  assert(machineTestProblems('IMPL-0001', 'same', env).some((x) => /同じ行にしかありません/.test(x)));
+  assert.deepEqual(machineTestProblems('IMPL-0001', 'split', env), []);
+  assert(machineTestProblems('IMPL-0001', 'mixed', env).some((x) => /同じ行にしかありません/.test(x)), ':ok だけの行が無ければ落とす');
 });
 test('親の試験は package.json の check から npm run で辿れる', () => {
   const scripts = { check: 'npm run a && npm run b', a: 'node x.mjs', b: 'npm run c', c: 'node scripts/t.mjs --flag', d: 'node scripts/u.mjs' };
@@ -371,12 +390,45 @@ test('テンプレートの試験は、集約が合否に使うジョブの run:
   assert.match(templateTestWired(jobs, eff, 'template/scripts/gate/test-b.mjs'), /合否に使われていません/);
   assert.match(templateTestWired(jobs, eff, 'template/scripts/gate/test-c.mjs'), /run: から実行されていません/);
 });
-test('降りていない規定の順序: 採用者が実装するにできない → G-7・G-8・R1 → その他', () => {
-  const rank = (m, na = false) => undeliveredRank(m, () => na);
-  assert.equal(rank({ note: 'G-7 の記録' }, true), 1);
-  assert.equal(rank({ note: 'G-8 の成立' }), 2);
-  assert.equal(rank({ note: 'R1 の決定' }), 2);
+test('テンプレートの試験の手順の || true・if:・continue-on-error は結線の不備(#314 の突合 X-11)', () => {
+  const body = [
+    '    steps:',
+    '      - run: node scripts/gate/test-a.mjs || true',
+    '      - if: github.event_name == \'push\'',
+    '        run: node scripts/gate/test-b.mjs',
+    '      - name: c',
+    '        continue-on-error: true',
+    '        run: node scripts/gate/test-c.mjs',
+    '      - name: d',
+    '        continue-on-error: false',
+    '        run: node scripts/gate/test-d.mjs',
+    '      - run: node scripts/gate/test-e.mjs',
+    '      # 注記の行',
+    '      - run: node scripts/gate/other.mjs',
+  ];
+  const jobs = new Map([['contract', body.join('\n')]]);
+  const eff = new Set(['contract']);
+  assert.match(templateTestWired(jobs, eff, 'template/scripts/gate/test-a.mjs'), /\|\| true/);
+  assert.match(templateTestWired(jobs, eff, 'template/scripts/gate/test-b.mjs'), /if:/);
+  assert.match(templateTestWired(jobs, eff, 'template/scripts/gate/test-c.mjs'), /continue-on-error/);
+  assert.equal(templateTestWired(jobs, eff, 'template/scripts/gate/test-d.mjs'), null, 'continue-on-error: false は不備でない');
+  assert.equal(templateTestWired(jobs, eff, 'template/scripts/gate/test-e.mjs'), null);
+  assert.equal(stepDefect(body, 10), null, '次の手順の if: を拾わない');
+  const twice = new Map([['contract', '      - run: node scripts/gate/test-f.mjs || true\n      - run: node scripts/gate/test-f.mjs\n']]);
+  assert.equal(templateTestWired(twice, eff, 'template/scripts/gate/test-f.mjs'), null, '不備の無い実行が1つあれば足りる');
+});
+test('降りていない規定の順序: 節の鍵の登録簿で決め、注記の語では決めない(#314 の突合 X-13)', () => {
+  const rank = (m, na = false, dec = false) => undeliveredRank(m, () => na, () => dec);
+  assert.equal(rank({ note: 'G-7 の記録' }, true, true), 1);
+  assert.equal(rank({ note: 'その他' }, false, true), 2);
+  assert.equal(rank({ note: '判定資料を起票する(R1 は10営業日前)' }), 3, '注記の付随の言及で前へ出さない');
+  assert.equal(rank({ note: 'G-8 の成立' }), 3);
   assert.equal(rank({ note: 'その他' }), 3);
+  const keys = ['p#A > B'];
+  assert(sectionKeyMatches(keys, 'p#A > B'));
+  assert(sectionKeyMatches(keys, 'p#A > B > C'), '下位の節を含む');
+  assert(!sectionKeyMatches(keys, 'p#A > BC'), '前方一致の別の節を含まない');
+  assert(!sectionKeyMatches(keys, 'p#A'));
 });
 test('見直しの年月を過ぎた件数は scheduled だけを数える', () => {
   const rows = [
@@ -412,6 +464,19 @@ test('逆向きの追跡: 登録簿にも除外の一覧にも無いファイル
   assert(untracedProblems(files.slice(0, 2), traced, [{ path: 'scripts/gate/b.mjs', reason: 'other', why: 'x' }]).some((x) => /理由の区分が不正/.test(x)));
   assert(untracedProblems(files.slice(0, 2), traced, [{ path: 'scripts/gate/b.mjs', reason: 'infra', why: '' }]).some((x) => /理由\(why\)が空/.test(x)));
   assert(untracedProblems(files.slice(0, 2), traced, [...exempt, { path: 'scripts/gate/gone.mjs', reason: 'infra', why: 'x' }]).some((x) => /テンプレートにありません/.test(x)));
+});
+test('逆向きの追跡: variant は登録簿の降ろし先を of で名指す(#314 の突合 X-16)', () => {
+  const files = ['.claude/guard.json', '.github/rulesets/team.json', '.github/rulesets/safety.json'];
+  const traced = new Set(['.github/rulesets/team.json']);
+  const ids = new Set(['rulesets', 'guard-write-hook']);
+  const ok2 = [
+    { path: '.claude/guard.json', reason: 'variant', of: 'guard-write-hook', why: 'フックの設定' },
+    { path: '.github/rulesets/safety.json', reason: 'variant', of: 'rulesets', why: '承認の数の変種' },
+  ];
+  assert.deepEqual(untracedProblems(files, traced, ok2, ids), []);
+  assert(untracedProblems(files, traced, [ok2[0], { ...ok2[1], of: undefined }], ids).some((x) => /of: <id>/.test(x)));
+  assert(untracedProblems(files, traced, [ok2[0], { ...ok2[1], of: 'nothing' }], ids).some((x) => /nothing は登録簿にありません/.test(x)));
+  assert(untracedProblems(files, traced, [ok2[0]], ids).some((x) => /safety\.json/.test(x)), '登録の無いルールセットを落とす');
 });
 
 console.log(`\n実装マークの検査の試験: ${passed}件 合格`);
