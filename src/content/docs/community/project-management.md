@@ -122,15 +122,15 @@ graph LR
 
 ### 標準の規定との関係
 
-本リポジトリの配布は、[第4章 G-8](/process-compass/phase4-process-design/gate-criteria/)「配備の統制と資格情報の置き場」を満たしません。書き込みの権限は、`ci.yml` のジョブ `publish` の `permissions` から生じる `GITHUB_TOKEN` で、ワークフローのファイルの権限の宣言だけから生じるトークンは、短命であっても規定の2つの形のどちらにも当たらないためです。本リポジトリは本標準に従う開発の案件ではありませんが、`dist/standard` は採用者が submodule で取り込む配布物であるため、未達として開示します([ADR-0090](/process-compass/adr/0090-job-token-and-deploy-credential-binding/))。
+本リポジトリの配布は、[第4章 G-8](/process-compass/phase4-process-design/gate-criteria/)「配備の統制と資格情報の置き場」を満たしません。理由は2つです。書き込みの権限は、`ci.yml` のジョブ `publish` の `permissions` から生じる `GITHUB_TOKEN` です。ワークフローのファイルの権限の宣言だけから生じるトークンは、短命であっても規定の (a)(b) のどちらにも当たりません。また、`dist/standard` は結び付かない資格情報からの書き込みを拒まないため、規定の (c) も満たしません。本リポジトリは本標準に従う開発の案件ではありませんが、`dist/standard` は採用者が submodule で取り込む配布物であるため、未達として開示します([ADR-0090](/process-compass/adr/0090-job-token-and-deploy-credential-binding/))。
 
 - 区分: 手段はあるが、使わないと決めた。リポジトリは公開で、Environment の秘密情報と配備の参照の限定を使える。「手段が無い」には当たらない
 - 決定者: 保守者(所有者)。保守者の決定(2026-10-23)の中身は、鍵(deploy key・秘密情報に置く長期のトークン)を設定しないこと、配布の書き込みをジョブの権限で行うこと、`dist/standard` のルールセットで更新を制限しないことの3つ
-- 開いている経路: 書き込みの権限を持つ者が、自分のブランチへ `contents: write` を宣言したワークフローを置き、`GITHUB_TOKEN` で `dist/standard` へ push する経路。`environment:` を参照しなければ、配備の参照の限定は掛からない
-- 経路を持つ主体と直接の書き込み: 書き込みの権限を持つのは、ソロ期の保守者1名と、保守者の資格情報で push する AI のセッションである。どちらも `dist/standard` へ直接 push できる(ルールセットに更新の制限が無い)。トークンは新しい能力を足さないが、配布先は保護されていない
+- 開いている経路: 書き込みの権限を持つ者が、自分のブランチへ `contents: write` を宣言したワークフローを置き、`GITHUB_TOKEN` で `dist/standard` へ push する経路。`environment:` を参照しなければ、配備の参照の限定は掛からない。(c) の欠如により、`dist/standard` はこの書き込みを拒まない。ADR-0090 決定1 の3つの経路も開いている。Actions に PR の承認を許していれば `GITHUB_TOKEN` による PR の自己承認、範囲を狭めた資格情報を持つ主体による権限の昇格、書き込みの名義が `github-actions[bot]` になることによる責任者の消失である
+- 経路を持つ主体と直接の書き込み: 書き込みの権限を持つのは、ソロ期の保守者1名と、保守者の資格情報で push する AI のセッションである。どちらも `dist/standard` へ直接 push できる(ルールセットに更新の制限が無い)。現時点では、どちらの主体も直接 push できるため、トークンの経路は直接の書き込みより広くない。所有者の設定5 の後は、AI のセッションの資格情報が狭まり、トークンの経路が直接の書き込みより広くなりうる(ADR-0090 決定1 の2つ目の経路)。既存のワークフローが既定ブランチ以外で書き込みの権限を持って走れば、ワークフローのファイルを変えずに、ブランチ上のスクリプトの変更でその権限に届く。本リポジトリで `contents: write` を持つジョブ(`publish`・`graphify-update`)は、`main` への push に限って走る
 - 経路を狭める措置と止めないもの: 後掲の所有者の設定の1〜6。どれも、`permissions` を宣言したブランチ上のワークフローの書き込みを止めない。止めるもの・止めないものの対応は [フェーズ5「統制と資格情報の置き場」](/process-compass/phase5-implementation/ci-gates/)の表による
 
-鍵を使わずに規定を満たす道は、配布の経路を変えることだけです(Pages を使う形、受け手が出どころを確かめる形)。採用者が頼る `dist/standard` の取り込みの形を変えるため、所有者が決める事項として後継の Issue の候補にしています。
+**鍵を置かない前提のもとでは、(c) は満たせません**。(c) は、配布先のルールセットで更新を限り、迂回を結び付いた資格情報の主体だけに許す形を要します。`GITHUB_TOKEN` を迂回の主体に入れる公式の手段は無く、迂回を許せる結び付いた資格情報(Environment の秘密情報に置く deploy key や GitHub App の鍵)は、保守者の決定で置きません。鍵を使わずに規定を満たす道は、配布の経路を変えることだけです(Pages を使う形、受け手が出どころを確かめる形)。採用者が頼る `dist/standard` の取り込みの形を変えるため、所有者が決める事項として後継の Issue の候補にしています。
 
 ### リモートの実状(2026-10-27)
 
@@ -152,7 +152,7 @@ deploy key・SSH 鍵・秘密情報は作りません。配布の書き込みは
 | --- | --- | --- |
 | 1 | **2 より前に**、Environment `dist-standard` を作る(Settings → Environments)。配備のブランチは「Selected branches」で `main` だけに限る。管理者の迂回を外す。必須レビュアと秘密情報は置かない。`github-pages` も同じく `main` に限る | `environments/dist-standard` と `environments/github-pages` の `deployment_branch_policy`、`deployment-branch-policies` の一覧、管理者の迂回の設定 |
 | 2 | #293 以降の変更をリモートの `main` へ入れ、旧い `publish-standard.yml` と `deploy.yml` が消えたことを確かめる | リモートの `main` の `.github/workflows/` の一覧 |
-| 3 | `dist/standard` にルールセットを置く(Settings → Rules → Rulesets)。削除の禁止(Restrict deletions)と強制 push の禁止(Block force pushes)を有効にする。更新の制限(Restrict updates)は有効にしない(配布のジョブの `GITHUB_TOKEN` をバイパスに入れられず、配布も止まるため)。バイパスの一覧は空にする | `rules/branches/dist%2Fstandard` と、そのルールセットの `bypass_actors` |
+| 3 | `dist/standard` にルールセットを置く(Settings → Rules → Rulesets)。削除の禁止(Restrict deletions)と強制 push の禁止(Block force pushes)を有効にする。更新の制限(Restrict updates)は有効にしない(配布のジョブの `GITHUB_TOKEN` をバイパスに入れられず、配布も止まるため)。バイパスの一覧は空にする(迂回を許す主体を置かない。迂回を許せる結び付いた資格情報が無いため、(c) は満たせない) | `rules/branches/dist%2Fstandard` と、そのルールセットの `bypass_actors` |
 | 4 | Settings → Actions → Workflow permissions を read にする。「Allow GitHub Actions to create and approve pull requests」を無効にする | `actions/permissions/workflow` の `default_workflow_permissions` と `can_approve_pull_request_reviews` |
 | 5 | AI のセッションに渡す資格情報から、管理者の権限と `workflow` の範囲(fine-grained のトークン・GitHub App では Workflows の権限)を外す | 渡した資格情報の種類・範囲・権限の記録 |
 | 6 | ワークフロー実行の保護で、`push` と `workflow_dispatch` を起動できる主体を限れるかを評価する(個人所有の公開のリポジトリで使えるかは確かめていない)。限れる場合でも、規定を満たす手段には数えない | ルールセットの API(評価の記録を含む) |

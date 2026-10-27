@@ -131,7 +131,7 @@ sidebar:
 - すべての `state=undelivered` に `plan` を書く。`scheduled` の Issue は、領域ごとにまとめて起票してよい
 - 「課さない」は `plan` の値にしない。課さないと決めた規定は、条項を改め、棚卸しの区分を「対象にしない」の `not-imposed` へ移す
 - 次の節の規定は、`adopter` にできない。登録簿は `src/data/impl-no-adopter.yaml` である。一律で AI に委譲できない領域(第5章 5.8.3・5.4.3)、人へ戻す3つの場合(第5章 5.5.1)、人が確定する判断(第5章 5.5.5)、停止の申し立て(第7章 7.11)、統制の弱化の検出(第3章 3.5.5「統制の弱化を検知したときの引き渡し」)が当たる。採用者の実装の有無で統制が消える型の規定だからである
-- `adopter` とした規定ごとの、採用者に委ねる理由と採用者に求めることは、[ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/) の決定4 の表に記録する。理由を書けない規定は `scheduled` とする
+- `adopter` とした規定ごとの、採用者に委ねる理由と採用者に求めることは、`decision=` が指す記録に書く。[ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/) の決定4 の表に載る規定は、その表に記録してある。ADR-0084 の後に `adopter` とした規定は、`decision=` が指す ADR の決定に記録する(例: IMPL-0237 は [ADR-0090](/process-compass/adr/0090-job-token-and-deploy-credential-binding/) の決定6。採用済みの ADR-0084 の表は書き換えられないため)。理由を書けない規定は `scheduled` とする
 - 見直しの年月を過ぎた `scheduled` の件数を、台帳の冒頭に出す。**合否にも警戒の条件にも使わない**。期日の日数も課さない
 - `issue=` が閉じた Issue を名指すことを、**検査は検出しない**。検査はオフラインで実行し、Issue の状態を知り得ないためである。この検出は採らない。Issue を閉じる者は、その Issue を `issue=` に持つマークが 0 件であることを確かめてから閉じる。[#314](https://github.com/Takenori-Kusaka/process-compass/issues/314) を仮に名指した 60 件は、後継の Issue(#355〜#360)の起票の後に番号を改めた。[#315](https://github.com/Takenori-Kusaka/process-compass/issues/315)・[#316](https://github.com/Takenori-Kusaka/process-compass/issues/316) を仮に名指した 3 件も、後継の Issue(#361・#368・#369)の起票の後に番号を改めた
 - 台帳の降りていない規定の表は、降ろし先の種別で書き分ける。降ろし先が予定の置き場(`planned`)なら、置き場がまだ無い。降ろし先が実在するなら、置き場はあるが規定の全部または一部がそこに無い。無い部分は `note` に書く
