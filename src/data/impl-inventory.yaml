@@ -350,6 +350,21 @@ sections:
     status: pending
   - key: phase4-process-design/gate-criteria#判定の成立
     status: pending
+  - key: phase4-process-design/gate-criteria#判定の成立 > 機械が出す欄と人が書く欄
+    status: marked
+    ids:
+      - IMPL-0125
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
+    note: 受け皿の限定(レビューの本文と様式の2つ、PR 本文と Issue のコメントを受け皿にしない)は、G-6 の承認レビューの条件(IMPL-0126・IMPL-0127)の節で追う。#321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
+  - key: phase4-process-design/gate-criteria#判定の成立 > 判定記録を基底ブランチへ入れる操作
+    status: marked
+    ids:
+      - IMPL-0124
+      - IMPL-0128
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
+    note: 写しを承認と同じ時期に機械が取り出すことは IMPL-0126 で追う。遅くとも G-7 で基底ブランチへ入れることと、既定ブランチの強制層を写しのために縮小しないことには、独立のマークが無い(EV-0119 は実装前)。#321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
   - key: phase4-process-design/gate-criteria#工程ゲートの判定の語彙
     status: pending
   - key: phase4-process-design/gate-criteria#判定の範囲
@@ -412,6 +427,37 @@ sections:
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
     status: pending
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
+    status: marked
+    ids:
+      - IMPL-0126
+      - IMPL-0127
+    rows:
+      条件1:
+        status: marked
+        ids:
+          - IMPL-0127
+      条件2:
+        status: none
+        category: org-design
+        reason: 書き手が承認者本人であることは人の行為の要求であり、本文が、機械は確かめず内部監査の抜き取りで確かめると定める
+      条件3:
+        status: none
+        category: elsewhere
+        reason: commit_id による固定と、マージ時の head との一致の検査は、G-2 の節のマーク(IMPL-0129)で追う
+        location:
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間)
+      条件4:
+        status: none
+        category: elsewhere
+        reason: 承認者ごとの最後の1件を判定として読むことは、集約の記録の読み取り(IMPL-0129 の降ろし先)で追う。独立のマークは無い
+        location:
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間)
+      条件5:
+        status: marked
+        ids:
+          - IMPL-0126
+    note: #321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 委任の変更は判定の時点を事後へ移す
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 未達のまま出荷する場合の例外承認
@@ -1571,6 +1617,14 @@ sections:
     status: pending
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力
     status: pending
+  - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 記録だけのコミットの強制層と、レビューの写しの取り出し
+    status: none
+    category: elsewhere
+    reason: 第4章「判定記録を基底ブランチへ入れる操作」(IMPL-0124・IMPL-0128)と G-6 の承認レビューの条件(IMPL-0126)の実装の手引き。規定の所在は第4章
+    location:
+      - phase4-process-design/gate-criteria#判定の成立 > 判定記録を基底ブランチへ入れる操作
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
+    note: #321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 保証の主張の成立判定の出力
     status: pending
   - key: phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 組織継続の側の状態
@@ -1910,6 +1964,11 @@ sections:
     status: pending
   - key: phase5-implementation/qms-document-control#承認権限のマッピング
     status: pending
+  - key: phase5-implementation/qms-document-control#承認権限のマッピング > レビューを判定記録として保全する条件
+    status: none
+    category: org-design
+    reason: アカウントと人の対応表、宣言行の事前の定義、写しの保持期間は、組織の文書管理の制度設計。写しの取り出しの時期は第4章の IMPL-0126 で追う
+    note: #321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
   - key: phase5-implementation/qms-document-control#承認権限のマッピング > 電子署名との関係
     status: pending
   - key: phase5-implementation/qms-document-control#文書のステータス > 3つの状態を置く
