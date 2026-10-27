@@ -1,5 +1,5 @@
 {
- "_note": "期待値。p302(テンプレート ec8ecd6、複製済みの知識ベース)での観測。改めるときは、改める根拠となる決定を引く(#319 裁定 R-4)。rows は人数×ステージ×CL、sweep は回答の全組合せ。改めた行は changed に、引いた決定・日付・旧い期待値を残す",
+ "_note": "期待値。p302(テンプレート ec8ecd6、複製済みの知識ベース)での観測。改めるときは、改める根拠となる決定を引く(#319 裁定 R-4)。rows は人数×ステージ×CL、sweep は回答の全組合せ。改めた行は changed に、引いた決定・日付・旧い期待値を残す。knownFailure は、向きを決定なしに改めない行(§8 X-6)。2名で任免と緩める向きを同じ変化点に含むとき、向きは元の期待(appoint。元の注記「任免を同じ入力に含む場合、向きは任免の決定」)とし、いまの観測(loosen)に厳格な印を付ける。印の Issue は後継の Issue の起票まで #319 を仮に置く",
  "rows": {
   "1名 poc cl0": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き appoint 未達 g6 逸脱 sep-shipping-business,sep-maintainer-ops 下限 90",
   "1名 poc cl1": "初期化を拒否(不変条件。想定どおり)",
@@ -9,9 +9,9 @@
   "1名 growth cl1": "初期化を拒否(不変条件。想定どおり)",
   "2名 poc cl0": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き loosen 未達 - 逸脱 sep-shipping-business 下限 80",
   "2名 poc cl1": "初期化を拒否(不変条件。想定どおり)",
-  "2名 mvp cl0": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き loosen 未達 - 逸脱 g7,sep-shipping-business 下限 80",
+  "2名 mvp cl0": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き appoint 未達 - 逸脱 g7,sep-shipping-business 下限 80",
   "2名 mvp cl1": "初期化を拒否(不変条件。想定どおり)",
-  "2名 growth cl0": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き loosen 未達 - 逸脱 g7,sep-shipping-business 下限 80",
+  "2名 growth cl0": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き appoint 未達 - 逸脱 g7,sep-shipping-business 下限 80",
   "2名 growth cl1": "初期化を拒否(不変条件。想定どおり)",
   "3名 poc cl0": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き appoint 未達 - 逸脱 - 下限 80",
   "3名 poc cl1": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き appoint 未達 - 逸脱 - 下限 80",
@@ -54,6 +54,22 @@
     "from": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き appoint 未達 - 逸脱 g7,sep-shipping-business 下限 90"
    }
   ]
+ },
+ "knownFailure": {
+  "2名 mvp cl0": {
+   "field": "向き",
+   "issue": "#319",
+   "observed": "loosen",
+   "on": "2026-10-27",
+   "review": "2026-12"
+  },
+  "2名 growth cl0": {
+   "field": "向き",
+   "issue": "#319",
+   "observed": "loosen",
+   "on": "2026-10-27",
+   "review": "2026-12"
+  }
  },
  "sweep": {
   "size-1-2 poc quality-standard cl0 inhouse reviewer-no node": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90",

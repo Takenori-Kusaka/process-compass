@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import YAML from 'yaml';
 import { workspace, checker, BASE, APPOINTER, BASIS, TODAY } from './lib.mjs';
 
 const W = workspace('v2');
@@ -102,9 +103,16 @@ hand((c) => {
 commit('chore: 手で下限を下げた');
 const vs = run('node', ['scripts/gate/verify-gate-contract.mjs', '--base', 'HEAD~1']);
 check('K62 push の直前のコミット(HEAD~1)と比べる契約検査が書き換えを検出', !vs.ok && /changeLog への追記がありません|変化点の記録を経ずに/.test(vs.out), vs.out);
+// K62(#319 §8 X-7 で改めた): 元は gate-g5.yml の字面(push: と --base "$BEFORE")の有無だけを見た。決定の中身は
+// 「既定ブランチへの push で、push の直前のコミットと比べる契約検査が走り、書き換えを検出する」ことなので、
+// ワークフローを構造として読み、push のときに走る手順の本文を、push の直前のコミット(BEFORE)を渡して実際に流す
+const wf = YAML.parse(read('.github/workflows/gate-g5.yml'));
+const pushStep = (wf.jobs?.contract?.steps ?? []).find((st) => String(st.if ?? '').replace(/\s+/g, ' ') === "github.event_name == 'push'" && /verify-gate-contract/.test(st.run ?? ''));
+const before = git('rev-parse', 'HEAD~1').out.trim();
+const wfRun = pushStep ? run('bash', ['-c', pushStep.run], { BEFORE: before }) : { ok: true, out: '' };
+check('K62 gate-g5.yml は既定ブランチ(main)への push で起動し、ジョブ contract に push のときだけ走る契約検査の手順を持つ', (wf.on?.push?.branches ?? []).includes('main') && Boolean(pushStep), JSON.stringify(wf.on));
+check('K62 その手順を push の直前のコミット(BEFORE)で流すと、変化点を経ない書き換えを検出して落ちる', Boolean(pushStep) && !wfRun.ok && /changeLog への追記がありません|変化点の記録を経ずに/.test(wfRun.out), wfRun.out);
 resetTo('solo');
-const wf = read('.github/workflows/gate-g5.yml');
-check('K62 gate-g5.yml が既定ブランチへの push で契約検査を実行し、直前のコミットと比べる', /push:\n\s+branches: \[main\]/.test(wf) && /--base "\$BEFORE"/.test(wf));
 
 // ------------------------------------------------------------------ 2名(相互の確認)。事象5・事象6
 fixes(["K3", "K51", "K50"]);

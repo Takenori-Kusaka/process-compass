@@ -6,7 +6,8 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { check, done, fixes, setup } from './lib288.mjs';
 import { NAMES, TODAY, HERE } from './lib.mjs';
-fixes(["ADR-0057"]);
+// #319 §8 X-1: 節ごとに固定する決定(元は ADR-0057 の全体。ADR-0057 は決定を番号で分けるため、決定の番号か、採用後の補足が改めた標準の条項で引く)
+fixes(['ADR-0057 決定11']);
 
 const { W } = setup('ua2', 3);
 const { run, git, write, read, commit, change } = W;
@@ -92,6 +93,7 @@ const runsBefore = fs.readdirSync(path.join(DIR, `${TRIAL}/runs`)).length;
 commit('docs: 導入前の検証の記録');
 
 // ---------------------------------------------------------------- 4. 目隠しの欠陥注入(seal → tally)
+fixes(['ADR-0057 決定11', '標準 5.6.2']);
 const manifestIn = path.join(DIR, 'manifest.json');
 const manifestOut = path.join(HERE, 'w', 'ua2-manifest.json');
 const manifest = { injector: NAMES[0], injections: [{ file: 'src/invite.js', line: 2, type: '権限' }, { file: 'src/invite.js', line: 3, type: '状態' }] };
@@ -122,6 +124,7 @@ check('再実行で欠陥注入の表が出る(注入2・人1・AI1・見逃し�
 check('人の層の検出率 50% は基準 60% を満たさないと出す', rec.includes('| 欠陥注入: 人の層の検出率の下限 | 60% | 50% | **基準を満たさない** |'), rec.split('## 6.')[1]?.slice(0, 800));
 check('AI の層は「検出の層に数えない」の基準で基準を満たす', rec.includes('| 検出の層に数えない | 50% | 基準を満たす |'), rec.split('## 6.')[1]?.slice(0, 800));
 
+fixes(['ADR-0057 決定11']);
 // ---------------------------------------------------------------- 5. 実行の後に基準を改めたら、採用の証拠に数えない
 fill(`${TODAY} 23:00`);
 write(`${TRIAL}/criteria.md`, read(`${TRIAL}/criteria.md`).replace('| 60% |', '| 40% |'));
@@ -135,6 +138,7 @@ rec = read(`${TRIAL}/${recs.at(-1)}`);
 check('以前の実行の後に基準を改めた記録は「採用の証拠に数えない」と出す', r.ok && rec.includes('採用の証拠に数えない') && r.out.includes('採用の証拠に数えない'), rec.slice(0, 500) + r.out.slice(-500));
 
 // ---------------------------------------------------------------- 6. 演習の記録
+fixes(['ADR-0057 決定11', 'ADR-0057 決定12']);
 write(`${TRIAL}/drills.json`, JSON.stringify({ drills: [{ type: 'E', at: TODAY, result: '1週 6件', judgement: 'docs/drills/e-1.md', record: 'docs/drills/e-1.md' }, { type: 'F', at: TODAY, provider: 'ProvA', alternative: 'ProvB', result: '失敗の増加 1 件', judgement: 'docs/drills/f-1.md' }, { type: 'E', at: 'いつか', result: '', judgement: '' }] }));
 commit('docs: 演習の記録');
 r = trial('run');
@@ -143,6 +147,7 @@ rec = read(`${TRIAL}/${recs.at(-1)}`);
 check('演習の記録を取り込み、不備のある行は「数えない」と出す', rec.includes(`| E | ${TODAY} | 1週 6件 | docs/drills/e-1.md |`) && rec.includes(`| F | ${TODAY} | 失敗の増加 1 件 |`) && rec.includes('**数えない**') && rec.includes('at(実施日)が日付でない'), rec.split('## 4.')[1]?.slice(0, 800));
 check('類型E・F は数で比べられないため「人が照合する」', rec.includes('| 類型E: 人へ戻したときに処理できる量の下限 | 1週 5件 | ') && rec.includes('人が照合する'), rec.split('## 6.')[1]?.slice(0, 800));
 
+fixes(['ADR-0057 決定11', 'ADR-0057 決定9']);
 // ---------------------------------------------------------------- 7. 止まるべきでない場面の確認: 層1 を無効にすると成立判定が不成立
 write('docs/quality-assurance-policy.md', read('docs/quality-assurance-policy.md').replace('| (必須)停止の申し立ての解除(第7章 7.11) | | 事業決裁者 | — |', '| (必須)停止の申し立ての解除(第7章 7.11) | | | — |'));
 commit('docs: 層1 の必須行を空欄に');
@@ -153,6 +158,7 @@ check('層1 の必須行が空欄 → 成立判定が不成立、空欄の行を
 git('reset', '-q', '--hard', 'HEAD~1');
 
 // ---------------------------------------------------------------- 8. next.mjs の案内
+fixes(['ADR-0057 決定11']);
 git('reset', '-q', '--hard', 'base288');
 git('clean', '-qfd');
 let nx = run('node', ['scripts/gate/next.mjs']);

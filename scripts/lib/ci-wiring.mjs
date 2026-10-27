@@ -228,32 +228,34 @@ export function checkWiring(workflows) {
 }
 
 /**
- * 決定を固定する回帰の試験とテンプレートの試験の結線(#319 裁定 R-6 / ADR-0089)。
- *   11. package.json の check が、npm run test:regress と npm run test:template-suite を含む
- *   12. test:regress は scripts/regress/run.mjs を、場面を絞らず(--only・--shard を持たず。sweep を含む)に実行する。
- *       test:template-suite は scripts/test-template-suite.mjs を実行する。どちらも失敗を握りつぶす形(|| true・; true・|| exit 0)を持たない
+ * 決定を固定する回帰の試験とテンプレートの試験の結線(#319 裁定 R-6、§8 X-2・X-16 / ADR-0089)。
+ *   11. package.json の check は、`npm run <名>` だけを `&&` でつないだ連鎖で、その中に npm run test:regress と
+ *       npm run test:template-suite を、引数・`||`・`;`・`true` の付加の無い形で含む
+ *   12. test:regress と test:template-suite は、許す文字列と完全に一致する(REGRESS_SCRIPTS)。
+ *       禁止の形を列挙する方式は採らない(列挙は `|| :`・`|| echo`・`--suite`・`--template-ref` などを取りこぼした。突合 X-2)
  *   13. ci.yml のジョブ check が timeout-minutes を数で持つ(止まった実行を打ち切る。量の上限ではない)
  *   14. run.mjs が、作業の場所を作業ツリーの外(os.tmpdir() の下の mkdtemp)に作り、作業ツリーの中なら止め、
- *       失敗を終了コード 1 で返す(源の文を読む。振る舞いは scripts/regress/test-run.mjs が確かめる)
+ *       作業用の複製の最上位が複製そのものでなければ止め(rev-parse --show-toplevel の比較)、失敗を終了コード 1 で返す
+ *       (源の文を読む。振る舞いは scripts/regress/test-run.mjs が確かめる)
  * @param {{ pkg: any, ci: any, runSource: string }} input
  */
+export const REGRESS_SCRIPTS = {
+  'test:regress': 'node scripts/regress/test-run.mjs && node scripts/regress/run.mjs',
+  'test:template-suite': 'node scripts/test-template-suite.mjs',
+};
 export function checkRegressWiring({ pkg, ci, runSource }) {
   const problems = [];
   const scripts = pkg?.scripts ?? {};
-  const check = String(scripts.check ?? '');
-  for (const name of ['test:regress', 'test:template-suite']) {
-    if (!new RegExp(`(^|&&\\s*)npm run ${name.replace(':', '\\:')}(\\s*&&|$)`).test(check.trim())) {
-      problems.push(`package.json: check が npm run ${name} を含みません。通らなければ公開と配布が止まる経路に入れます(条件11)`);
-    }
+  const check = String(scripts.check ?? '').trim();
+  const segments = check.split('&&').map((x) => x.trim());
+  const odd = segments.filter((x) => !/^npm run [\w:.-]+$/.test(x));
+  if (odd.length) problems.push(`package.json: check が \`npm run <名>\` を && でつないだ形でありません(${odd.map((x) => JSON.stringify(x)).join('、')})。引数・||・;・true を付けません(条件11)`);
+  for (const name of Object.keys(REGRESS_SCRIPTS)) {
+    if (!segments.includes(`npm run ${name}`)) problems.push(`package.json: check が npm run ${name} を、付加の無い形で含みません。通らなければ公開と配布が止まる経路に入れます(条件11)`);
   }
-  const swallow = /\|\|\s*(true|exit 0|:)\b|;\s*true\b/;
-  const regress = String(scripts['test:regress'] ?? '');
-  if (!/node scripts\/regress\/run\.mjs/.test(regress)) problems.push('package.json: test:regress が scripts/regress/run.mjs を実行しません(条件12)');
-  if (/--only|--shard/.test(regress)) problems.push('package.json: test:regress が場面を絞っています(--only・--shard)。sweep を含めて全体を流します(条件12)');
-  const suite = String(scripts['test:template-suite'] ?? '');
-  if (!/node scripts\/test-template-suite\.mjs/.test(suite)) problems.push('package.json: test:template-suite が scripts/test-template-suite.mjs を実行しません(条件12)');
-  for (const [name, cmd] of [['test:regress', regress], ['test:template-suite', suite]]) {
-    if (swallow.test(cmd)) problems.push(`package.json: ${name} が失敗を握りつぶします(|| true など)(条件12)`);
+  for (const [name, want] of Object.entries(REGRESS_SCRIPTS)) {
+    const got = String(scripts[name] ?? '');
+    if (got !== want) problems.push(`package.json: ${name} が許す形と一致しません(${JSON.stringify(got)}。許す形は ${JSON.stringify(want)})。場面を絞る・別の場面や版で流す・失敗を握りつぶす形を通さないため、完全一致で検査します(条件12)`);
   }
   const job = ci?.jobs?.[CHECK_JOB];
   if (job && !(Number.isFinite(job['timeout-minutes']) && job['timeout-minutes'] > 0)) {
@@ -262,6 +264,7 @@ export function checkRegressWiring({ pkg, ci, runSource }) {
   const src = String(runSource ?? '');
   if (!/mkdtempSync\(\s*path\.join\(\s*os\.tmpdir\(\)/.test(src)) problems.push('scripts/regress/run.mjs: 作業の場所を os.tmpdir() の下の mkdtemp に作っていません(条件14)');
   if (!/作業の場所が作業ツリーの中にある/.test(src)) problems.push('scripts/regress/run.mjs: 作業の場所が作業ツリーの中なら止める確認がありません(条件14)');
+  if (!/rev-parse', '--show-toplevel'[\s\S]{0,200}?if \(top !== fs\.realpathSync\(wsDir\)\) throw/.test(src)) problems.push('scripts/regress/run.mjs: 作業用の複製の最上位が複製そのものでなければ止める確認がありません(条件14)');
   if (!/if \(errors\.length\) \{\s*console\.error\([\s\S]{0,400}?\);\s*process\.exit\(1\);/.test(src)) problems.push('scripts/regress/run.mjs: 失敗を終了コード 1 で返していません(条件14)');
   return problems;
 }

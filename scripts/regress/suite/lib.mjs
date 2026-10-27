@@ -107,9 +107,14 @@ const K_IN_LABEL = /(?<![A-Za-z0-9])K\d{1,2}(?![0-9])/g;
  * 場面の判定と記録。
  *   check(名前, 条件, 詳細, { fixes, knownFailure, changed })
  *   fixes(['K60', 'ADR-0079'])  以後の場面の固定する決定(節の宣言)。場面の名前に書かれた K 番号は自動で加える
- *   knownFailure: { issue: '#NNN', match: '拒否の理由の文', review: 'YYYY-MM' }
- *     落ちることを期待する印(裁定 R-2.5・R-2.6)。詳細(出力)の拒否の理由の 1 件(reasons)が match を含んで落ちたときだけ通る。
- *     通ったら失敗(予期しない通過)。別の理由で落ちても失敗。review を過ぎた印は run.mjs が失敗にする
+ *   knownFailure: { issue: '#NNN', match: '拒否の理由の文' | ['理由1', '理由2'], on: 'YYYY-MM-DD', review: 'YYYY-MM' }
+ *              または { issue, observed: '観測の値', on, review }(観測を期待値と比べる場面)
+ *     落ちることを期待する印(裁定 R-2.5・R-2.6、§8 X-4・X-11)。
+ *     match の形: 詳細(出力)の拒否の理由(reasons)の集合が match と一致して落ちたときだけ通る。理由の件数が match の件数と
+ *       同じで、各 match を別々の理由の1件が含むこと。期待した理由に別の理由が加わったら失敗(印が新しい拒否を覆い隠さない)。
+ *     observed の形: 場面の観測(opts.observed)が observed とちょうど一致して落ちたときだけ通る。
+ *     通ったら失敗(予期しない通過)。on は印を付けた日、review は見直しの月(01〜12)で、付けた月から 6 か月以内
+ *     (KF_REVIEW_MONTHS。暫定の値。ADR-0089 決定4・EV-0183)。review を過ぎた印は run.mjs が失敗にする
  *   dependsOn: '根の場面の名前'  根の場面の印に従属する連鎖の場面(裁定 7.5 J-1)。根が印のとおりに落ちている間は、
  *     この場面が落ちることを「根に従属して落ちる」として通す。根が落ちているのにこの場面が通ったら失敗。
  *     根が通ったら(根は予期しない通過で失敗する)、この場面は条件どおりに判定する
@@ -129,24 +134,27 @@ export function checker() {
     if (RESULTS) fs.appendFileSync(RESULTS, `${JSON.stringify(entry)}\n`);
   };
   const check = (label, cond, detail = '', opts = {}) => {
+    if (opts.knownFailure && opts.dependsOn !== undefined) throw new Error(`lib.mjs: 場面「${label}」に knownFailure と dependsOn の両方がある`);
     const fx = [...new Set([...BASE_FIXES, ...section, ...(opts.fixes ?? []), ...(String(label).match(K_IN_LABEL) ?? [])])];
     let pass = Boolean(cond);
     let note = '';
     const kf = opts.knownFailure;
     const root = opts.dependsOn !== undefined ? states.get(opts.dependsOn) : null;
     if (kf) {
-      if (!kf.issue || !kf.match || !/^\d{4}-\d{2}$/.test(kf.review ?? '')) {
+      const formProblem = kfFormProblem(kf);
+      if (formProblem) {
         pass = false;
-        note = '印の欄が欠けている(issue・match・review YYYY-MM)';
+        note = `印の欄の形が違う: ${formProblem}`;
       } else if (cond) {
         pass = false;
         note = `予期せず通った(落ちることを期待する印 ${kf.issue})`;
-      } else if (!reasons(detail).some((e) => e.includes(kf.match))) {
-        pass = false;
-        note = `期待と別の理由で落ちた(印 ${kf.issue} の照合: ${kf.match})`;
+      } else if (kf.observed !== undefined) {
+        pass = String(opts.observed) === kf.observed;
+        note = pass ? `落ちることを期待する印(${kf.issue}、観測 ${kf.observed}、見直し ${kf.review})` : `期待と別の観測で落ちた(印 ${kf.issue} の観測: ${kf.observed}、いま: ${opts.observed})`;
       } else {
-        pass = true;
-        note = `落ちることを期待する印(${kf.issue}、見直し ${kf.review})`;
+        const why = reasonSetMismatch(reasons(detail), [].concat(kf.match));
+        pass = !why;
+        note = pass ? `落ちることを期待する印(${kf.issue}、見直し ${kf.review})` : `期待と別の理由で落ちた(印 ${kf.issue}: ${why})`;
       }
     } else if (opts.dependsOn !== undefined) {
       if (!root || !root.kf) {
@@ -227,6 +235,44 @@ export function checker() {
     process.exit(bad ? 1 : 0);
   };
   return { check, refused, accepted, ghRun, fixes, done };
+}
+
+/** 印の見直しの時期の上限(付けた月からの月数)。暫定の値(ADR-0089 決定4・EV-0183) */
+export const KF_REVIEW_MONTHS = 6;
+const monthIndex = (ym) => {
+  const m = /^(\d{4})-(\d{2})$/.exec(ym ?? '');
+  return m && Number(m[2]) >= 1 && Number(m[2]) <= 12 ? Number(m[1]) * 12 + Number(m[2]) - 1 : null;
+};
+/** 落ちることを期待する印の欄の形の問題。無ければ null(§8 X-11) */
+export function kfFormProblem(kf) {
+  if (!/^#\d+$/.test(kf?.issue ?? '')) return 'issue は #NNN';
+  const hasMatch = kf.match !== undefined;
+  const hasObserved = kf.observed !== undefined;
+  if (hasMatch === hasObserved) return 'match か observed のどちらか一方';
+  if (hasMatch && !([].concat(kf.match).length && [].concat(kf.match).every((x) => typeof x === 'string' && x))) return 'match は空でない文字列か、その配列';
+  if (hasObserved && (typeof kf.observed !== 'string' || !kf.observed)) return 'observed は空でない文字列';
+  const d = /^(\d{4})-(\d{2})-(\d{2})$/.exec(kf.on ?? '');
+  const on = d ? monthIndex(`${d[1]}-${d[2]}`) : null;
+  if (on === null || Number(d[3]) < 1 || Number(d[3]) > 31) return 'on(印を付けた日)は YYYY-MM-DD';
+  const review = monthIndex(kf.review);
+  if (review === null) return 'review(見直しの月)は YYYY-MM(月は 01〜12)';
+  if (review < on) return 'review が on より前';
+  if (review - on > KF_REVIEW_MONTHS) return `review は on の月から ${KF_REVIEW_MONTHS} か月以内`;
+  return null;
+}
+/**
+ * 拒否の理由の集合が、期待した理由(各 1 件の部分文字列)と一致するか。一致すれば null、しなければ理由(§8 X-4)。
+ * 件数が同じで、期待した各理由を、別々の理由の 1 件が含むこと
+ */
+export function reasonSetMismatch(entries, wants) {
+  if (entries.length !== wants.length) return `拒否の理由が ${entries.length} 件(期待 ${wants.length} 件: ${wants.join(' / ')})。${entries.map((e) => e.split('\n')[0]).join(' / ')}`;
+  const left = [...entries];
+  for (const w of wants) {
+    const i = left.findIndex((e) => e.includes(w));
+    if (i < 0) return `期待した理由「${w}」を含む理由が無い。${entries.map((e) => e.split('\n')[0]).join(' / ')}`;
+    left.splice(i, 1);
+  }
+  return null;
 }
 
 /**

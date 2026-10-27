@@ -6,7 +6,8 @@ import path from 'node:path';
 import { check, done, fixes, POLICY, CYCLE, gateRecord, g8Extra, stopRelease, setup, cond, FUTURE, PAST } from './lib288.mjs';
 import { workspace, NAMES, TODAY, FIXTURES } from './lib.mjs';
 import { pathToFileURL } from 'node:url';
-fixes(["ADR-0057"]);
+// #319 §8 X-1: 節ごとに固定する決定(元は ADR-0057 の全体。ADR-0057 は決定を番号で分けるため、決定の番号か、採用後の補足が改めた標準の条項で引く)
+fixes(['ADR-0057 決定9']);
 
 const daysAgo = (n) => {
   const d = new Date(Date.now() - n * 86400000);
@@ -54,6 +55,7 @@ const OLD = daysAgo(400);
   reset();
 
   // ============================================================ 2. 有事の決定者の空欄(IMPL-0067。Q18)
+  fixes(['ADR-0057 決定12', '標準 G-7']);
   write('docs/D-0-governance.md', read('docs/D-0-governance.md').replace('| 重大事故 | 事業決裁者 | 層1 の項目4 による | 事業決裁者 |', '| 重大事故 | 事業決裁者 | | 事業決裁者 |'));
   commit('docs: 有事の決定者の空欄');
   let r = agg();
@@ -68,6 +70,7 @@ const OLD = daysAgo(400);
   reset();
 
   // ============================================================ 3. 品質条件の識別子と突合(IMPL-0069・0072。Q2)
+  fixes(['標準 G-1', '標準 G-7']);
   write('docs/project-brief.md', read('docs/project-brief.md').replace(/^\| QC-01 \| .*$/m, '| QC-01 | 権限の無い利用者は招待を取り消せない | 権限 |\n| QC-02 | 個人データをログへ出さない | データ |\n| QC-03 | 招待の一覧は1秒以内に返す | 性能 |'));
   fs.mkdirSync(path.join(W.DIR, 'specs/F-001'), { recursive: true });
   write('specs/F-001/spec.md', '# F-001 招待\n\n## 受入基準\n\n| # | 型 | 受入基準 |\n| --- | --- | --- |\n| 1 | イベント駆動 | 権限の無い利用者が取り消しを実行した場合、システムは 403 を返さなければならない(QC-01) |\n| 2 | ユビキタス | システムは招待トークンをログへ出力してはならない(QC-02) |\n| 3 | イベント駆動 | 期限切れの招待は一覧に「失効」と表示しなければならない |\n');
@@ -80,6 +83,7 @@ const OLD = daysAgo(400);
   check('QC の突合: QC-02(テストなし)・QC-03(参照なし)を項目5 へ自動で載せる', r.ev.assurance.residual.qcNoTest.join() === 'QC-02' && r.ev.assurance.residual.qcUnreferenced.join() === 'QC-03' && r.report.includes('テストへ降ろしていない品質条件(受入基準から参照、テストから参照なし): QC-02'), JSON.stringify(vf.qc));
   check('QC の突合: 参照の無い条件は欠落にしない(G-8 の受容の対象)', !r.ev.gaps.some((g) => g.includes('QC-0')), r.ev.gaps.join('\n'));
   // ============================================================ 4. G-7 基準1・2(IMPL-0040・0041。Q5)
+  fixes(['標準 G-7']);
   const c1 = r.ev.criteria.find((c) => c.id === 1);
   check('G-7 基準1: 受入基準3・計画したテスト1・通過1・テストの無い受入基準1(F-001/AC-2)', c1.machine === 'partial' && /受入基準 3 件、計画したテスト.*1 件。実行して通過 1/.test(c1.result) && c1.result.includes('F-001/AC-2'), c1.result);
   const c2 = r.ev.criteria.find((c) => c.id === 2);
@@ -106,6 +110,7 @@ const OLD = daysAgo(400);
   check('check-g1: 識別子の重複と、総費用の区分の空欄を検出する', !g1b.ok && g1b.out.includes('識別子が重複') && g1b.out.includes('総費用の内訳」に記入の無い区分があります(教育'), g1b.out);
   reset();
 
+  fixes(['標準 7.11', '標準 G-7']);
   // ============================================================ 5. 停止の申し立ての出荷の保留(IMPL-0073。Q9・Q17)
   const prsDir = path.join(W.DIR, '.git', 'prs');
   const lastPr = 2; // base288 の時点の範囲の最後の PR(docs: 体制・層1・企画・記録を置く)
@@ -123,6 +128,7 @@ const OLD = daysAgo(400);
   fs.writeFileSync(prFile, orig);
   reset();
 
+  fixes(['ADR-0057 決定12', '標準 3.4.3', '標準 3.12.11']);
   // ============================================================ 6. 周期の失効(IMPL-0060・0061・0063・0064。Q13〜Q16)
   const cfgAI = JSON.parse(read('process.config.json'));
   const dev = cfgAI.seats.find((s) => s.role === 'dev-verifier');
@@ -196,6 +202,7 @@ const OLD = daysAgo(400);
   reset();
 
   // ============================================================ 7. AI の層の条件2〜5(IMPL-0075。Q4)
+  fixes(['標準 3.4.2', 'ADR-0054 決定9']);
   {
     const P = { model: 'model-a-1', instructions: 'CLAUDE.md v1', permissions: 'dev-token' };
     const Q = { confirmedAt: daysAgo(5), performedBy: NAMES[1], approvedBy: NAMES[0], cases: 'docs/qualification/dev.md', result: '20 件中 19 件を再現', performer: P };
@@ -215,6 +222,7 @@ const OLD = daysAgo(400);
     check('AI の層: 条件2〜5 の確認(AI維持管理者の確認・席の責任者の承認・四半期内)があれば数える', typeof r.ev.assurance.detection.ai === 'object' && r.ev.assurance.detection.ai.detected === 6, JSON.stringify(r.ev.assurance.detection.ai));
     reset();
   }
+  fixes(['標準 7.7.8']);
   // ============================================================ 8. SG の判定記録の AI の利用の評価(IMPL-0068。Q11)
   const d0v = JSON.parse(read('process.config.json')).d0Version;
   write('docs/gates/sg1.md', gateRecord('SG-1 ステージ移行', 'S1', NAMES[1], d0v, g8Extra()));
@@ -228,6 +236,7 @@ const OLD = daysAgo(400);
   reset();
 }
 
+fixes(['標準 3.8.1', 'ADR-0054 決定5']);
 // ================================================================ 9. リスク区分の下限と確定者(IMPL-0062。Q3・Q4)
 {
   const W = workspace('u3');
@@ -293,6 +302,7 @@ const OLD = daysAgo(400);
   git('clean', '-qfd');
 }
 
+fixes(['標準 3.8.1', '標準 3.4.2']);
 // ================================================================ 10. 1名体制の確定者・AI の層の条件2〜5
 {
   const { W, agg } = setup('u1', 1);

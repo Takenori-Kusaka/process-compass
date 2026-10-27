@@ -54,7 +54,9 @@ commit('chore: 3名体制');
 git('tag', 'base3');
 
 // ------------------------------------------------------------------ 3. AI の名義
-fixes(["ADR-0028"]);
+// #319 §8 X-5: 元は ADR-0028(未達と省略の区別)を引いていた。名義を定めるのは ADR-0054 決定1(責任者は記名の自然人)と
+// ADR-0055 決定3(いずれの記名も AI の名義を受け付けない)
+fixes(['ADR-0054 決定1', 'ADR-0055 決定3']);
 refused('責任者に AI の名義', change({ kind: 'accountable', seats: { 'tech-lead': { accountable: 'Claude (AI)' } } }), 'AI');
 refused('責任者に名簿に無い名義', change({ kind: 'accountable', seats: { 'tech-lead': { accountable: '高橋 次郎' } } }), '名簿');
 refused('名簿へ AI の名義を足す', change({ kind: 'accountable', people: [...PEOPLE3, { id: 'rev', name: 'Reviewer-Agent (gpt-9)', external: true }], seats: { 'independent-reviewer': { accountable: 'Reviewer-Agent (gpt-9)' } } }), 'agent');
@@ -384,14 +386,16 @@ accepted('3名以上へ戻す変化点で解除', lifted, '出荷できない状
 check('shipBlocked が消え、契約検査が通る', cfg().shipBlocked === null && contract().ok, contract().out);
 
 // ------------------------------------------------------------------ F. 名義の機械検査の上書き
-fixes(["ADR-0028"]);
+// #319 §8 X-5: 元は ADR-0028 を引いていた。名義の機械検査と人の確認(nameConfirmed)を定めるのは ADR-0054 決定1・
+// ADR-0079 決定7(確認は本人以外の記名に限る)と #296 の付記
+fixes(['ADR-0054 決定1', 'ADR-0079 決定7', '#296']);
 resetTo('base3');
 const CLAUDE_D = { id: 'dupont', name: 'Claude Dupont' };
 refused('AI を示す語を含む氏名(確認なし)', change({ kind: 'accountable', people: [...PEOPLE3, CLAUDE_D], seats: { 'tech-lead': { accountable: 'Claude Dupont' } } }), 'nameConfirmed');
 const overridden = change({ kind: 'accountable', date: DAY, summary: 'Dupont が加わった', people: [...PEOPLE3, { ...CLAUDE_D, nameConfirmed: true }], seats: { 'tech-lead': { accountable: 'Claude Dupont' } }, decidedBy: '山田 太郎', reason: '技術判断者を任命' });
 // #319 裁定 R-2.5・7.5 J-1: 同じ変化点で名簿へ足して確認し任命すると、いまのテンプレートは拒否する(p302 では受け付けた)。
 // 回帰か決定かを人が決めるまで、元の期待(反映)のまま、厳格な「落ちることを期待する」印を付ける。Issue は起票まで #319 を仮に置く
-const J1 = { issue: '#319', match: '記名を受け付けられません: 技術判断者(Tech Lead) の責任者: "Claude Dupont"', review: '2026-12' };
+const J1 = { issue: '#319', match: '記名を受け付けられません: 技術判断者(Tech Lead) の責任者: "Claude Dupont"', on: '2026-10-27', review: '2026-12' };
 const J1_ROOT = 'AI を示す語を含む氏名(人が確認した旨あり) → 反映';
 accepted('AI を示す語を含む氏名(人が確認した旨あり)', overridden, '名義の機械検査を人が上書きした: Claude Dupont', { knownFailure: J1 });
 const ovContract = contract();

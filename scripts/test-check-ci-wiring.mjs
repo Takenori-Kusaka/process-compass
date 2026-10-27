@@ -301,17 +301,40 @@ test('条件11: check が test:regress・test:template-suite を含まない', (
 test('条件11: 名前の前方一致(test:regress-fast)では満たさない', () => {
   const pkg = goodPkg();
   pkg.scripts.check = 'npm run test:regress-fast && npm run test:template-suite';
-  assert.ok(regress({ pkg }).some((x) => x.includes('test:regress を含みません')));
+  assert.ok(regress({ pkg }).some((x) => x.includes('npm run test:regress を、付加の無い形で含みません')));
 });
-test('条件12: 場面を絞る・失敗を握りつぶす', () => {
-  for (const cmd of ['node scripts/regress/run.mjs --only v3', 'node scripts/regress/run.mjs || true', 'node scripts/regress/run.mjs; true', 'echo skip']) {
+test('条件11: 連鎖の中で引数・||・;・true を付けた形は通らない(陰性の対照。突合 X-2)', () => {
+  for (const tail of ['npm run test:regress -- --only unit', 'npm run test:regress || true', 'npm run test:regress || :', 'npm run test:regress; true', 'true || npm run test:regress', 'npm run test:regress | cat']) {
+    const pkg = goodPkg();
+    pkg.scripts.check = `npm run lint:ci && ${tail} && npm run test:template-suite && npm run build`;
+    assert.ok(regress({ pkg }).some((x) => x.includes('条件11')), tail);
+  }
+});
+test('条件12: 許す文字列との完全一致。場面を絞る・別の場面や版で流す・失敗を握りつぶす形は通らない(陰性の対照。突合 X-2)', () => {
+  const R = 'node scripts/regress/test-run.mjs && node scripts/regress/run.mjs';
+  for (const cmd of [
+    `${R} --only v3`,
+    `${R} || true`,
+    `${R} || :`,
+    `${R} || echo skipped`,
+    `${R}; exit 0`,
+    `${R}; true`,
+    'true || node scripts/regress/run.mjs',
+    'echo node scripts/regress/run.mjs',
+    `${R} --suite scripts/regress/fixtures`,
+    `${R} --template-ref ec8ecd6`,
+    'node scripts/regress/run.mjs',
+    'echo skip',
+  ]) {
     const pkg = goodPkg();
     pkg.scripts['test:regress'] = cmd;
     assert.ok(regress({ pkg }).some((x) => x.includes('条件12')), cmd);
   }
-  const pkg = goodPkg();
-  pkg.scripts['test:template-suite'] = 'node scripts/test-template-suite.mjs || exit 0';
-  assert.ok(regress({ pkg }).some((x) => x.includes('test:template-suite が失敗を握りつぶします')));
+  for (const cmd of ['node scripts/test-template-suite.mjs || exit 0', 'node scripts/test-template-suite.mjs --list', 'node scripts/test-template-suite.mjs || :']) {
+    const pkg = goodPkg();
+    pkg.scripts['test:template-suite'] = cmd;
+    assert.ok(regress({ pkg }).some((x) => x.includes('test:template-suite が許す形と一致しません')), cmd);
+  }
 });
 test('条件13: ジョブ check に timeout-minutes が無い・数でない', () => {
   assert.ok(regress({ ci: { jobs: { check: {} } } }).some((x) => x.includes('条件13')));
@@ -324,6 +347,8 @@ test('条件14: 作業の場所を作業ツリーの外に作らない・中を�
   assert.ok(p2.some((x) => x.includes('作業ツリーの中なら止める')));
   const p3 = regress({ runSource: RUN_SRC.replace(/(if \(errors\.length\) \{[\s\S]*?)process\.exit\(1\);/, '$1process.exit(0);') });
   assert.ok(p3.some((x) => x.includes('終了コード 1')));
+  const p4 = regress({ runSource: RUN_SRC.replace(/if \(top !== fs\.realpathSync\(wsDir\)\) throw[^\n]*\n/, '') });
+  assert.ok(p4.some((x) => x.includes('最上位')), 'rev-parse の比較を外す');
 });
 
 console.log(`\nCI の結線と検査器の入力の試験: ${passed}件 合格`);

@@ -18,6 +18,8 @@ const all = (j) => [...j.project, ...j.features, ...j.ship];
 const tpl = git('rev-parse', 'HEAD').out.trim();
 
 // ---------------------------------------------------------------- 準備(log-A と同じ 1名+AI)
+// #319 §8 X-1: 節ごとに固定する決定(元は #286 だけ)
+fixes(['K60', '標準 2.8']);
 write('answers.json', { 'q-team-size': 'size-1-2', 'q-biz-phase': 'poc', 'q-external-reviewer': 'reviewer-no', ...BASE });
 check('初期化(1名・poc・node)', gen('--answers', 'answers.json', '--stack', 'node').ok);
 fs.rmSync(path.join(DIR, 'answers.json'));
@@ -30,13 +32,30 @@ fs.rmSync(path.join(DIR, 'change.json'), { force: true });
 commit('docs: 体制を記入し、D-0 を承認する');
 
 // ---------------------------------------------------------------- N9: D-0 節3 の手で書く行
+fixes(['K42', 'ADR-0055 決定4']);
 let j = json();
 const note = (j.notes ?? []).find((n) => n.includes('節3'));
 check('N9: D-0 節3 の空欄の行を数え、手で書く欄・版を上げない・種別が無いことを出す', note && /空欄の行が \d+ 件/.test(note) && note.includes('例外承認') && note.includes('version は上げない') && note.includes('種別は無い'), note ?? JSON.stringify(j.notes));
 check('N9: 全文の出力に「注記(段階を止めない)」', next().out.includes('## 注記(段階を止めない)'));
-check('N9: 様式の節3 に、手で書く行と版の扱いがある', read('templates/00-d0-governance.md').includes('**ほかの行は手で書きます**') && read('templates/00-d0-governance.md').includes('`version` は上げません'));
+// N9(#319 §8 X-7 で挙動へ改めた): 元は様式(templates/00-d0-governance.md)に「ほかの行は手で書きます」「version は上げません」の
+// 文があるかだけを見た。決定の中身(手で書く行を記入・変更しても版は上げない。版を上げるのは変化点だけで、構成の d0Version と
+// 一致しない版は D-0 の検査が落とす)を、D-0 を書き換えて確かめる
+const d0Text = read('docs/D-0-governance.md');
+const blankBefore = Number(/空欄の行が (\d+) 件/.exec(note ?? '')?.[1]);
+const handRow = /^\| 例外承認 \| \| \| \| \| \| *$/m;
+check('N9 準備: D-0 節3 の「例外承認」の行が空欄', handRow.test(d0Text), d0Text.split('\n').filter((l) => l.includes('例外承認')).join('\n'));
+write('docs/D-0-governance.md', d0Text.replace(handRow, '| 例外承認 | 事業決裁者 | | 開発者 | | |'));
+const handD0 = W.checkD0();
+const noteAfter = (json().notes ?? []).find((n) => n.includes('節3'));
+check('N9: 手で書く行を記入しても、版を上げずに D-0 の検査が通る', handD0.ok && read('docs/D-0-governance.md').match(/^version:\s*(.+)$/m)?.[1].trim() === String(cfg().d0Version), handD0.out);
+check('N9: 手で書く行を記入すると、空欄の行の数が 1 減る', Number(/空欄の行が (\d+) 件/.exec(noteAfter ?? '')?.[1]) === blankBefore - 1, `${note}\n${noteAfter}`);
+write('docs/D-0-governance.md', read('docs/D-0-governance.md').replace(/^version:\s*(.+)$/m, (_, v) => `version: ${(Number(v) + 0.1).toFixed(1)}`));
+const bumped = W.checkD0();
+check('N9: 手で版だけを上げると、構成の d0Version と一致せず D-0 の検査が落ちる', !bumped.ok && bumped.out.includes(String(cfg().d0Version)), bumped.out);
+write('docs/D-0-governance.md', d0Text);
 
 // ---------------------------------------------------------------- N6: 前提の台帳の案内
+fixes(['ADR-0018', '標準 G-1']);
 check('N6: 企画書なしの次に、前提の台帳を作るコマンド', j.project[0]?.stage === '企画書なし' && j.project[1]?.stage === '前提の台帳なし' && j.project[1]?.command === 'cp templates/10-assumption-ledger.md docs/assumptions.md', JSON.stringify(j.project.map((s) => s.stage)));
 const readFile = j.project[1]?.read;
 check('N6: 「読む」の補助ファイルが実在する', readFile && fs.existsSync(path.join(DIR, readFile)), readFile);
@@ -58,6 +77,7 @@ j = json();
 check('N6: 台帳を作ると案内が消え、G-1 待ちが先頭', j.project[0]?.stage === '企画承認(G-1)待ち' && !all(j).some((s) => s.stage === '前提の台帳なし'));
 
 // ---------------------------------------------------------------- N8: 結果欄が2値のどちらでもない記録(log-B の G-1)
+fixes(['ADR-0036 決定1', 'ADR-0036 決定2']);
 const rec = (file, result, extra = '') =>
   write(`docs/gates/${file}`, `# ゲート判定記録\n\n| 項目 | 値 |\n| --- | --- |\n| ゲート | G-1 企画承認 |\n| 対象 | P-001 |\n| 判定者 | ${NAMES[0]} |\n| 判定日時 | ${TODAY} 09:00 |\n| 結果 | ${result} |\n| 確定の形態 | 人確定 |\n| 参照した D-0 の版 | ${cfg().d0Version} |\n${extra}`);
 rec('g1-P-001.md', '通過(判定者の申告を転記。判定者が確かめること)');
@@ -87,6 +107,7 @@ commit('docs: 訂正');
 git('switch', '-q', 'main');
 
 // ---------------------------------------------------------------- N6: ゲートの判定を対象とする例外承認と、変更の例外承認の区別
+fixes(['標準 7.3', '標準 G-7']);
 const { gateExceptionTarget } = await import(pathToFileURL(path.join(DIR, 'scripts/gate/config.mjs')).href);
 check('N6: 対象の形の判別(G-2 F-001 / G-1 P-001 はゲート、PR #12・コミットは変更)', gateExceptionTarget('G-2 F-001')?.gate === 'G-2' && gateExceptionTarget('G-1 P-001')?.subject === 'P-001' && !gateExceptionTarget('PR #12') && !gateExceptionTarget('a1b2c3d4') && !gateExceptionTarget('F-001 の出荷まで'));
 // R1 の変更を PR #1 で取り込む(1名の体制では G-6 が未達。R1 の変更は例外承認を要する)
@@ -125,6 +146,7 @@ commit('docs: 台帳(PR #1 の例外)');
 check('N6: 対象が PR #1 の行は変更へ対応づき、R1 の欠落が消える', !(ev.gaps ?? []).some((g) => g.startsWith('PR #1: リスク区分 R1')), (ev.gaps ?? []).join('\n'));
 
 // ---------------------------------------------------------------- N9: 判定日時のずれ(log-A の判定時刻の誤り)
+fixes(['ADR-0078 決定1', 'ADR-0055 決定4']);
 // 変化点で D-0 の版を上げる(担い手の識別)。その後の時刻を判定日時に書いた、旧い版の記録
 const before = cfg().d0Version;
 write('change.json', { kind: 'performer', date: TODAY, summary: '担い手を宣言する', seats: { 'dev-verifier': { performer: { model: 'claude-sonnet-5', instructions: 'v1', permissions: 'default' } } }, decidedBy: NAMES[0], reason: '担い手の宣言' });
@@ -144,6 +166,7 @@ check('N9: 版の不一致に、判定日時が変化点より後であること
 check('N9: 判定日時が記録を取り込んだコミットより後であることを添える', verGap?.includes('この記録を取り込んだコミットの時刻'), verGap);
 
 // ---------------------------------------------------------------- N9: 共著者と担い手の宣言のずれの案内
+fixes(['標準 5.8.2', 'ADR-0054 決定9']);
 write('src/b.js', 'export const b = 1;\n');
 commit('feat: b\n\nSpec: F-001 / Task-1\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>');
 ({ ev } = aggregate());
@@ -151,5 +174,6 @@ const drift = JSON.stringify(ev.assurance?.drift ?? ev);
 check('N9: 宣言にない共著者の警告に、直し方(/process-change performer)を添える', drift.includes('宣言にない共著者') && drift.includes('種別 performer'), drift.slice(0, 600));
 
 // ---------------------------------------------------------------- N9: 企画書の置き場
+fixes(['標準 3.11.3', '標準 G-1']);
 check('N9: /process-init が context/projects に企画書の様式を写させない', read('.claude/skills/process-init/SKILL.md').includes('企画書の様式(`templates/06-project-brief.md`)をここへ写さない'));
 done();

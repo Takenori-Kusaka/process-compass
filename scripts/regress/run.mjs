@@ -2,7 +2,7 @@
 // 決定を固定する回帰の試験を流す(#319 裁定 R-1・R-3)。
 //
 //   node scripts/regress/run.mjs [--only v3,new] [--jobs N] [--out DIR] [--keep] [-v]
-//                                [--template DIR] [--template-ref REF] [--kb rebuild|keep] [--suite DIR]
+//                                [--template DIR] [--template-ref REF] [--kb rebuild|keep] [--suite DIR] [--write-scenes]
 //
 // 試験の対象は template/ の作業ツリーで、知識ベースは標準から作り直したもの(--kb rebuild。既定)。
 // --template-ref は、テンプレートの過去の版(例: ec8ecd6。#311 の前の基準 p302)を対象にする。
@@ -14,22 +14,29 @@
 //      テンプレートのスクリプトが止まらない時計(引数なしの Intl.DateTimeFormat().format())を使わないこと
 //   3. スクリプトごと(suite/*.mjs の先頭の @regress の宣言)に、作業用の複製を作り(git init の後に最上位を確かめる)、
 //      宣言した時刻で時計を止めて流す。git の時刻も同じ時刻にそろえる
-//   4. 終了コードを伝える: どれかのスクリプトが落ちる・中断する・場面の記録と終了コードが食い違う・
-//      固定する決定(fixes)を持たない場面がある・落ちることを期待する印の見直しの時期を過ぎた、のどれかで 1 を返す
+//   4. 終了コードを伝える: 次のどれかで 1 を返す
+//      - どれかのスクリプトが落ちる・中断する・場面の記録と終了コードが食い違う
+//      - 固定する決定に、決定(ADR の決定・K 番号・標準の条項)を1つも含まない場面がある。Issue は追加としてだけ書ける(§8 X-1)
+//      - 実行した場面が、宣言した場面の一覧(expected/scenes/<名>.txt)と一致しない。場面が黙って消える・増える形を止める(§8 X-3)
+//      - 落ちることを期待する印の見直しの時期を過ぎた
+//   場面の一覧は --write-scenes で実行の結果から書き出す(一覧の差分は PR で人が確かめる。changed-scenes.mjs が出す)。
 //
-// 結果: --out(既定は作業の場所の out/)に、スクリプトごとの出力(.log)と場面の記録(.jsonl)、summary.json、fixes.md を書く。
+// 結果: --out(既定は環境変数 REGRESS_OUT、無ければ作業の場所の out/)に、スクリプトごとの出力(.log)と場面の記録(.jsonl)、
+// summary.json、fixes.md、changed.md を書く。
 import { spawn, execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { unfrozenClockUses } from './lib/unfrozen-clock.mjs';
+import { isDecision } from '../lib/decision-refs.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(HERE, '..', '..');
 const argv0 = process.argv.slice(2);
 // --suite は、実行役そのものの試験(test-run.mjs)が、作った場面のスクリプトを流すためだけに使う
 const SUITE = argv0.includes('--suite') ? path.resolve(argv0[argv0.indexOf('--suite') + 1]) : path.join(HERE, 'suite');
+const SCENES = path.join(path.dirname(SUITE), 'expected', 'scenes');
 const CLOCK = path.join(HERE, 'lib', 'clock.mjs');
 const BIN = path.join(HERE, 'lib', 'bin');
 
@@ -46,6 +53,7 @@ const TEMPLATE_REF = opt('--template-ref');
 const KB = opt('--kb', TEMPLATE_REF ? 'keep' : 'rebuild');
 const KEEP = flag('--keep');
 const VERBOSE = flag('-v');
+const WRITE_SCENES = flag('--write-scenes');
 
 const fail = (msg) => {
   console.error(`regress: ${msg}`);
@@ -238,7 +246,7 @@ async function main() {
   const rel = path.relative(fs.realpathSync(REPO), fs.realpathSync(root));
   if (!rel.startsWith('..') && !path.isAbsolute(rel)) fail(`作業の場所が作業ツリーの中にある(${root})`);
   fs.writeFileSync(path.join(root, 'gitconfig'), '');
-  const outDir = path.resolve(opt('--out', path.join(root, 'out')));
+  const outDir = path.resolve(opt('--out', process.env.REGRESS_OUT || path.join(root, 'out')));
   fs.mkdirSync(outDir, { recursive: true });
   const tpl = prepareTemplate(root);
   const problems = preflight(root, tpl);
@@ -275,6 +283,20 @@ async function main() {
     else if (failed.length) errors.push(`${r.run.name}: 終了コード 0 なのに落ちた場面が ${failed.length} 件`);
     if (!scenes.length && !r.error) errors.push(`${r.run.name}: 場面の記録が無い`);
     for (const s of noFixes) errors.push(`${r.run.name}: 固定する決定(fixes)の無い場面「${s.label}」`);
+    // 固定する決定は、決定(ADR の決定・K 番号・標準の条項)を1つ以上含む。Issue だけでは決定を固定すると言えない(§8 X-1)
+    for (const s of scenes.filter((x) => x.fixes?.length && !x.fixes.some(isDecision))) errors.push(`${r.run.name}: 固定する決定に決定(ADR-NNNN 決定N・KNN・標準 X.Y)が無い場面「${s.label}」(${s.fixes.join('・')})`);
+    // 宣言した場面の一覧との一致(§8 X-3)
+    const declared = path.join(SCENES, `${r.run.name}.txt`);
+    if (WRITE_SCENES) {
+      fs.mkdirSync(SCENES, { recursive: true });
+      fs.writeFileSync(declared, sceneListText(r.run.name, scenes));
+    } else if (!fs.existsSync(declared)) {
+      errors.push(`${r.run.name}: 場面の一覧の宣言が無い(${path.relative(REPO, declared)}。--write-scenes で書き出し、差分を確かめてコミットする)`);
+    } else {
+      const diff = sceneListDiff(readSceneList(declared), scenes.map((x) => x.label));
+      if (diff.missing.length) errors.push(`${r.run.name}: 宣言した場面が実行されなかった ${diff.missing.length} 件: ${diff.missing.slice(0, 5).map((x) => `「${x}」`).join(' ')}${diff.missing.length > 5 ? ' ほか' : ''}`);
+      if (diff.extra.length) errors.push(`${r.run.name}: 宣言に無い場面が実行された ${diff.extra.length} 件: ${diff.extra.slice(0, 5).map((x) => `「${x}」`).join(' ')}${diff.extra.length > 5 ? ' ほか' : ''}`);
+    }
     // 期待値を改めた記録の形(裁定 R-4): 引いた決定・日付・旧い期待値。決定の実在は check-fixes.mjs が確かめる
     for (const s of scenes) for (const c of s.changed ?? []) {
       if (!c?.by || !/^\d{4}-\d{2}-\d{2}$/.test(c.on ?? '') || c.from === undefined || c.from === '') errors.push(`${r.run.name}: 期待値を改めた記録(changed)の欄が欠けている「${s.label}」(by・on YYYY-MM-DD・from)`);
@@ -291,6 +313,26 @@ async function main() {
     process.exit(1);
   }
   console.log(`regress: すべて通った。結果: ${outDir}`);
+}
+
+/** 場面の一覧の宣言(1 行に 1 場面。同じ名前の場面は同じ行を繰り返す) */
+function sceneListText(name, scenes) {
+  return `# ${name} が実行する場面の一覧(#319 §8 X-3)。run.mjs --write-scenes が書く。消す・足すときは差分を PR で確かめる\n${scenes.map((x) => String(x.label).replace(/\n/g, '\\n')).join('\n')}\n`;
+}
+export function readSceneList(file) {
+  return fs.readFileSync(file, 'utf8').split('\n').filter((l) => l && !l.startsWith('# ')).map((l) => l.replace(/\\n/g, '\n'));
+}
+/** 宣言と実行の差(多重集合) */
+export function sceneListDiff(declared, ran) {
+  const count = new Map();
+  for (const l of declared) count.set(l, (count.get(l) ?? 0) + 1);
+  const extra = [];
+  for (const l of ran) {
+    if (count.get(l)) count.set(l, count.get(l) - 1);
+    else extra.push(l);
+  }
+  const missing = [...count].flatMap(([l, n]) => Array(n).fill(l));
+  return { missing, extra };
 }
 
 /** 期待値を改めた場面の一覧(裁定 R-4。PR の本文へ出す材料。生成物) */
@@ -318,7 +360,11 @@ function fixesTable(names, outDir) {
   return lines.join('\n');
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+// 実行役の試験(test-run.mjs)が fresh() などを読み込むときは、走らせない
+export { fresh };
+if (process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

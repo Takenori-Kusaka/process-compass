@@ -7,7 +7,8 @@ import { pathToFileURL } from 'node:url';
 import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE } from './lib.mjs';
 
 const { check, done, ghRun, fixes } = checker();
-fixes(["ADR-0057"]);
+// #319 §8 X-1: 節ごとに固定する決定(元は ADR-0057 の全体。ADR-0057 は決定を番号で分けるため、決定の番号か、採用後の補足が改めた標準の条項で引く)
+fixes(['K60', 'ADR-0057 決定8']);
 // gh は PATH 上の代役(lib/bin/gh)。元は --import mockgh-prs.mjs で execFileSync を差し替えていた
 const FUTURE = '2099-12-31';
 const PAST = '2020-01-01';
@@ -228,6 +229,7 @@ function setup(ws, n) {
 const cond = (ev, id) => ev.assurance.claim.conditions.find((c) => c.id === id);
 
 // ================================================================ (1) 成立条件の判定
+fixes(['ADR-0057 決定8', 'ADR-0057 決定9', 'ADR-0057 決定10']);
 {
   const { W, agg, reset, d0v } = setup('t3', 3);
   const { write, read, commit, git } = W;
@@ -320,6 +322,7 @@ const cond = (ev, id) => ev.assurance.claim.conditions.find((c) => c.id === id);
   check('層1 の記名が AI の名義: 条件1 不成立', !cond(ev, 1).ok && /AI/.test(cond(ev, 1).reason), JSON.stringify(cond(ev, 1)));
 
   // ============================================================ (2) 組織継続の側の状態
+  fixes(['ADR-0057 決定12', '標準 3.4.3', '標準 3.12.11']);
   reset();
   ({ ev, report } = agg());
   const spof = ev.assurance.continuity.spof;
@@ -397,6 +400,7 @@ const cond = (ev, id) => ev.assurance.claim.conditions.find((c) => c.id === id);
 }
 
 // ================================================================ check-g1 と next.mjs
+fixes(['ADR-0057 決定3', 'ADR-0057 決定12', '標準 G-1']);
 {
   const W = workspace('t3');
   const { run, git, write, read } = W;
@@ -419,6 +423,7 @@ const cond = (ev, id) => ev.assurance.claim.conditions.find((c) => c.id === id);
 }
 
 // ================================================================ (1') 1名体制
+fixes(['ADR-0057 決定8']);
 {
   const { W, agg } = setup('t1', 1);
   const { ev, report } = agg();
@@ -430,6 +435,7 @@ const cond = (ev, id) => ev.assurance.claim.conditions.find((c) => c.id === id);
 }
 
 // ================================================================ (3) 停止の申し立て(G-5 の pr-rules)
+fixes(['標準 7.11', 'ADR-0057 決定9']);
 {
   const W = workspace('t3');
   const { run, git, write, commit } = W;

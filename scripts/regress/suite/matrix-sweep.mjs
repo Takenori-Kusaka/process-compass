@@ -6,7 +6,11 @@
 //     元は合否だけを見て観測を出すだけで、#318 で 3 行(2名 × poc・mvp・growth の向きと下限)が変わっても合格のままだった(品質保証 Q8)。
 //     期待値は p302(テンプレート ec8ecd6)での観測。期待値を改めるときは、改める根拠となる決定を引く(裁定 R-4)。
 //     出力を期待値へ写すモードは作らない
-//   - 分割: --sweep --shard i/N で全組合せを N 個に分けて並列に流す(裁定 R-6 の並列化)
+//   - 分割: --sweep --shard i/N で全組合せを N 個に分けて並列に流す(裁定 R-6 の並列化)。
+//     組合せは、期待値の行の名前の順(並べ替えた順)の位置で分割へ割り当てる
+//   - 観測の漏れ(§8 X-3): 期待値の行のうち観測しなかった行があれば失敗にする(rows は全行、sweep は分割が受け持つ行)
+//   - 向きの印(§8 X-6): expected の knownFailure にある行は、向きを別の場面で期待値と比べ、厳格な印を付ける。
+//     行の場面は、向きを除いた観測を期待値と比べる(向きの印が、行の他の観測の変化を覆い隠さないため)
 // @regress {"now": "2026-10-01T12:00:00Z", "fixes": ["#284", "#285"], "runs": [{"name": "matrix-sweep", "workspaces": ["m2"]}, {"name": "matrix-sweep.sweep-1", "args": ["--sweep", "--shard", "1/4"], "workspaces": ["m2"]}, {"name": "matrix-sweep.sweep-2", "args": ["--sweep", "--shard", "2/4"], "workspaces": ["m2"]}, {"name": "matrix-sweep.sweep-3", "args": ["--sweep", "--shard", "3/4"], "workspaces": ["m2"]}, {"name": "matrix-sweep.sweep-4", "args": ["--sweep", "--shard", "4/4"], "workspaces": ["m2"]}]}
 import fs from 'node:fs';
 import path from 'node:path';
@@ -17,12 +21,28 @@ const { check, fixes, done } = checker();
 fixes(['K60', 'K62', 'K65']);
 const EXPECTED = JSON.parse(fs.readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'expected', 'matrix-sweep.json'), 'utf8'));
 /** 観測を期待値と比べる場面。元の合否(ok)と、観測が期待値と一致することの両方を要する */
+const seen = new Set();
 const scene = (group, tag, ok, observed, detail = '') => {
+  seen.add(`${group}\t${tag}`);
   const want = EXPECTED[group]?.[tag];
-  const same = want === observed;
   const changed = EXPECTED.changed?.[tag];
+  const kf = group === 'rows' ? EXPECTED.knownFailure?.[tag] : undefined;
+  let compared = observed;
+  if (kf) {
+    // 向きを別の場面へ分ける。行の場面は、観測の向きを期待値の向きへ置き換えてから比べる
+    if (kf.field !== '向き') throw new Error(`expected/matrix-sweep.json: knownFailure の field は「向き」だけ(${tag})`);
+    const wantDir = /向き (\S+)/.exec(want ?? '')?.[1];
+    const gotDir = /向き (\S+)/.exec(observed)?.[1];
+    compared = observed.replace(`向き ${gotDir}`, `向き ${wantDir}`);
+    const { field, ...mark } = kf;
+    void field;
+    check(`${tag}: 向き`, gotDir === wantDir, `期待 ${wantDir}\n観測 ${gotDir}`, { observed: gotDir, knownFailure: mark });
+  }
+  const same = want === compared;
   return check(tag, ok && same, `${want === undefined ? '期待値が無い' : same ? '' : `期待 ${want}`}\n観測 ${observed}\n${detail}`.trim(), { observed, ...(group === 'rows' && changed ? { changed } : {}) });
 };
+/** 観測しなかった期待値の行(§8 X-3) */
+const unobserved = (group, keys) => keys.filter((k) => !seen.has(`${group}\t${k}`));
 const shardArg = process.argv.includes('--shard') ? process.argv[process.argv.indexOf('--shard') + 1] : '1/1';
 const [shardNo, shardOf] = shardArg.split('/').map(Number);
 
@@ -106,10 +126,18 @@ if (!process.argv.includes('--sweep')) {
   reset();
   void rows;
   void bad;
+  const missingRows = unobserved('rows', Object.keys(EXPECTED.rows));
+  check(`期待値の全行(${Object.keys(EXPECTED.rows).length})を観測した`, missingRows.length === 0, missingRows.join('\n'), { kind: 'harness' });
   done();
 }
 
 // ---------------------------------------------------------------- 全組合せ
+const SWEEP_KEYS = Object.keys(EXPECTED.sweep).sort();
+/** この分割が受け持つ組合せか。期待値に無い組合せは分割1が受け持つ(期待値が無い、として落ちる) */
+const mine = (tag) => {
+  const i = SWEEP_KEYS.indexOf(tag);
+  return i < 0 ? shardNo === 1 : i % shardOf === shardNo - 1;
+};
 let total = 0;
 let index = 0;
 let rejected = 0;
@@ -122,13 +150,14 @@ for (const size of ['size-1-2', 'size-3-9', 'size-10plus'])
         for (const form of ['inhouse', 'vendor'])
           for (const rv of size === 'size-1-2' ? ['reviewer-no', 'reviewer-yes'] : [null])
             for (const stack of ['node', 'undetermined']) {
-              if (index++ % shardOf !== shardNo - 1) continue;
+              const tag = [size, phase, quality, cl, form, rv ?? '-', stack].join(' ');
+              index++;
+              if (!mine(tag)) continue;
               reset();
               const a = { 'q-team-size': size, 'q-biz-phase': phase, 'q-quality': quality, 'q-criticality': cl, 'q-dev-form': form, 'q-existing-gates': 'gates-none', 'q-ai-constraint': 'ai-free' };
               if (rv) a['q-external-reviewer'] = rv;
               write('answers.json', a);
               total++;
-              const tag = [size, phase, quality, cl, form, rv ?? '-', stack].join(' ');
               const init = gen('--answers', 'answers.json', '--stack', stack);
               if (!init.ok) {
                 const expected = size === 'size-1-2' && (cl !== 'cl0' || quality === 'quality-regulated');
@@ -197,5 +226,9 @@ for (const size of ['size-1-2', 'size-3-9', 'size-10plus'])
               );
             }
 reset();
+const mineKeys = SWEEP_KEYS.filter((_, i) => i % shardOf === shardNo - 1);
+const missingSweep = unobserved('sweep', mineKeys);
+check(`分割 ${shardArg} が受け持つ期待値の行(${mineKeys.length})を観測した`, missingSweep.length === 0, missingSweep.join('\n'), { kind: 'harness' });
+void index;
 console.log(`組合せ ${total} 件(分割 ${shardArg}) / 初期化の拒否(不変条件) ${rejected} 件 / うち、3名を割る変化点を確かめた ${blocked} 件 / 失敗 ${failures.length} 件`);
 done();

@@ -1,0 +1,34 @@
+# matrix-sweep が実行する場面の一覧(#319 §8 X-3)。run.mjs --write-scenes が書く。消す・足すときは差分を PR で確かめる
+1名 poc cl0
+1名 poc cl1
+1名 mvp cl0
+1名 mvp cl1
+1名 growth cl0
+1名 growth cl1
+2名 poc cl0
+2名 poc cl1
+2名 mvp cl0: 向き
+2名 mvp cl0
+2名 mvp cl1
+2名 growth cl0: 向き
+2名 growth cl0
+2名 growth cl1
+3名 poc cl0
+3名 poc cl1
+3名 mvp cl0
+3名 mvp cl1
+3名 growth cl0
+3名 growth cl1
+5名 poc cl0
+5名 poc cl1
+5名 mvp cl0
+5名 mvp cl1
+5名 growth cl0
+5名 growth cl1
+15名 poc cl0
+15名 poc cl1
+15名 mvp cl0
+15名 mvp cl1
+15名 growth cl0
+15名 growth cl1
+期待値の全行(30)を観測した

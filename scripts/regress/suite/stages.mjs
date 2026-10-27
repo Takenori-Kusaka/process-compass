@@ -44,6 +44,8 @@ for (const n of [1, 5, 15]) {
   const tag = `${n}名`;
 
   // 0. 構成なし
+  // #319 §8 X-1: 場面ごとに固定する決定(元は #286 だけ)。next.mjs の段階は、標準の手順とゲートの条項を実装する
+  fixes(['標準 2.8']);
   let j = log('構成なし');
   check(`${tag} 構成なし → /process-init`, first(j).command === '/process-init');
 
@@ -58,6 +60,7 @@ for (const n of [1, 5, 15]) {
   check(`${tag} D-0 なし → D-0 を作るコマンド`, first(j).stage === 'D-0 体制図なし' && first(j).kind === 'command');
 
   // 2. 出力のコマンドどおり D-0 を作る
+  fixes(['標準 2.8', 'K42', '標準 3.5.5', 'K60']);
   fs.copyFileSync(path.join(W.DIR, 'templates/00-d0-governance.md'), path.join(W.DIR, 'docs/D-0-governance.md'));
   const regen = gen('--answers', 'process.config.json');
   check(`${tag} 出力のコマンド(D-0 の生成区間の書き込み)が通る`, regen.ok, regen.out);
@@ -66,6 +69,7 @@ for (const n of [1, 5, 15]) {
   check(`${tag} 人の判断待ちに AI のコマンドが無い`, !first(j).command);
 
   // 3. 席を埋める(人が決めた体制)
+  fixes(['K60', '標準 2.8', '標準 3.5.5']);
   const people = NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [`acct-${i + 1}`] }));
   const seats = Object.fromEntries(SEATS.map((s, i) => [s, { accountable: NAMES[ASSIGN[n][i]] }]));
   const f = fill(W, people, seats);
@@ -89,6 +93,7 @@ for (const n of [1, 5, 15]) {
     continue;
   }
   // 4. G-1
+  fixes(['標準 G-1', '標準 3.5.5', 'ADR-0018']);
   const g1 = cfg().gates.g1;
   if (['required', 'simplified'].includes(g1.state)) {
     check(`${tag} 企画書なし → 企画書を作るコマンド`, s3.stage === '企画書なし' && s3.kind === 'command', JSON.stringify(s3));
@@ -108,6 +113,7 @@ for (const n of [1, 5, 15]) {
     fs.copyFileSync(path.join(W.DIR, 'templates/10-assumption-ledger.md'), path.join(W.DIR, 'docs/assumptions.md'));
   }
   // 5. 仕様なし
+  fixes(['標準 G-2', '標準 G-4', 'ADR-0075 決定4', '標準 3.5.5']);
   j = log('G-1 通過後(仕様なし)');
   check(`${tag} 仕様なし → /spec-write`, first(j).command === '/spec-write', JSON.stringify(first(j)));
   fs.mkdirSync(path.join(W.DIR, 'specs/F-001'), { recursive: true });
@@ -135,6 +141,7 @@ for (const n of [1, 5, 15]) {
   record('g4-F-001.md', 'G-4 機能仕様承認', 'F-001');
   W.commit('docs: 記録');
   // 6. 実装
+  fixes(['標準 3.12.10', 'ADR-0079 決定3', '標準 3.5.5']);
   j = log('G-4 通過後(実装前)');
   check(`${tag} 実装前 → /implement F-001 Task-1`, first(j).command === '/implement F-001 Task-1', JSON.stringify(first(j)));
   git('switch', '-q', '-c', 'feature/F-001-task-1');
@@ -155,6 +162,7 @@ for (const n of [1, 5, 15]) {
   check(`${tag} 保留中は stop で終えられない`, !sh('stop', '--reason', 'pass').ok);
   check(`${tag} release は記名を要する`, !sh('release').ok && sh('release', '--by', NAMES[0]).ok);
   // 7. 取り込み
+  fixes(['標準 G-7', '標準 G-8', '標準 3.5.5']);
   git('switch', '-q', 'main');
   write('src/a.js', 'export const a = 1;\n');
   W.commit('feat: task1\n\nSpec: F-001 / Task-1');
@@ -176,6 +184,8 @@ for (const n of [1, 5, 15]) {
     check(`${tag} 出荷前 → 証跡の集約 → G-7 待ち(読む gates/G-7.md)`, sp2?.command?.startsWith('node scripts/gate/aggregate-evidence.mjs') && sp2.then?.kind === 'human-wait' && sp2.read === '.claude/skills/gate/gates/G-7.md', JSON.stringify(sp2));
   }
   else check(`${tag} G-7 なし → G-8 待ち(読む gates/G-8.md)`, sp?.stage === 'リリース決裁(G-8)待ち' && sp.kind === 'human-wait' && sp.read === '.claude/skills/gate/gates/G-8.md', JSON.stringify(sp));
+  // 常駐の指示(セッションの開始時に入る要約)の長さ(標準 3.11.4)
+  fixes(['標準 3.11.4']);
   const b = brief();
   check(`${tag} --brief は 1,200 字以内`, b.out.length <= 1200, String(b.out.length));
 }

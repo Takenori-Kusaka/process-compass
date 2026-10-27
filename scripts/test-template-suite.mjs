@@ -8,8 +8,9 @@
 //   - run がちょうど `node scripts/gate/<名>.mjs`(引数なし)で、if を持たない手順
 // 確かめること:
 //   1. 一覧の試験がすべて通る(どれかが落ちれば終了コード 1)
-//   2. テンプレートの scripts/gate/test-*.mjs のうち、gate-g5.yml のどこからも実行されないものが無い
-//      (試験のファイルを足して一覧へ足し忘れる形を止める)
+//   2. テンプレートの scripts/gate/test-*.mjs は、一覧(上の手順)に入るか、除外の表 NOT_TESTS に理由とともに載る
+//      (試験のファイルを足して一覧へ足し忘れる形を止める。gate-g5.yml の中の文字列の出現では代えない。
+//      if を持つ手順・別のジョブ・注記にだけ書かれた試験は、親では流れないため。突合 X-13)
 //   3. 試験がテンプレートの作業ツリーを書き換えない(実行の前後で git status が同じ)
 // 確かめないこと: gate-g5.yml の Node の版(setup-node が無い。後継の Issue の候補。裁定 R-6)
 import { spawnSync, execFileSync } from 'node:child_process';
@@ -43,9 +44,17 @@ if (process.argv.includes('--list')) {
   process.exit(0);
 }
 
+/** 名が test- で始まるが、試験ではないファイル(理由つき)。ここに載せたものだけを、一覧の外に許す */
+export const NOT_TESTS = {
+  'scripts/gate/test-results.mjs': '試験ではなく、試験の結果を記録する道具。gate-g5.yml では if: always() の手順で、試験の後に実行する',
+};
 const problems = [];
 const tests = fs.readdirSync(path.join(TPL, 'scripts/gate')).filter((f) => /^test-[\w-]+\.mjs$/.test(f));
-for (const f of tests) if (!wfText.includes(`scripts/gate/${f}`)) problems.push(`scripts/gate/${f} が ${WF} のどこからも実行されません(一覧へ足すか、試験でないなら名を改める)`);
+for (const f of tests) {
+  const rel = `scripts/gate/${f}`;
+  if (!list.includes(rel) && !NOT_TESTS[rel]) problems.push(`${rel} が一覧(${WF} のジョブ contract の、if を持たない \`node ${rel}\` の手順)に無く、除外の表 NOT_TESTS にも無い(一覧へ足すか、試験でない理由を表へ書く)`);
+}
+for (const rel of Object.keys(NOT_TESTS)) if (!tests.includes(path.basename(rel))) problems.push(`除外の表 NOT_TESTS の ${rel} が無い(表から外す)`);
 
 const status = () => execFileSync('git', ['-C', TPL, 'status', '--porcelain', '--untracked-files=all'], { encoding: 'utf8' });
 const before = status();

@@ -22,6 +22,8 @@ const changeAt = (iso, c) => {
 const PEOPLE = [{ id: 'a', name: '山田 太郎' }, { id: 'b', name: '佐藤 花子' }, { id: 'c', name: '鈴木 一郎' }, APPOINTER];
 
 // ---------------------------------------------------------------- 前提: 時計が届く
+// 試験を流す経路の時計そのものを確かめる(#319 §8 X-1。固定する決定は ADR-0089 決定5)
+fixes(['ADR-0089 決定5']);
 const child = run('node', ['-e', 'process.stdout.write(new Date().toISOString() + " " + Date.now())'], at('2026-10-01T23:59:30Z'));
 check('時計: 子プロセスの new Date() と Date.now() は、渡した時刻を返す', child.ok && child.out === `2026-10-01T23:59:30.000Z ${Date.parse('2026-10-01T23:59:30Z')}`, child.out);
 // git の確認は別の作業用の複製で行う(初期化の前のコミットは、#315 の事前点検が既存の資産に数える)
@@ -43,7 +45,7 @@ commit('chore: 初期化と D-0');
 refused('境の前(23:59): 翌日(2026-10-02)の発効日', change({ kind: 'accountable', date: '2026-10-02', summary: '名簿', people: PEOPLE }), '未来の日付');
 
 // ---------------------------------------------------------------- next_review の経過(D-0 の検査)
-fixes(['#319']);
+fixes(['標準 2.8', '#319']);
 const before = run('node', ['scripts/gate/check-d0.mjs'], at('2027-03-30T12:00:00Z'));
 check('next_review(2027-03-31)の前日は「過ぎています」と出さない', !before.out.includes('が過ぎています'), before.out);
 const after = run('node', ['scripts/gate/check-d0.mjs'], at('2027-04-01T00:00:01Z'));

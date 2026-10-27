@@ -52,6 +52,21 @@ jobs:
         run: npm run check
         env:
           IMPL_BASE_REF: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event_name == 'push' && github.event.before || 'origin/main' }}
+          # 回帰の試験の結果(場面の記録・changed.md)を、次の2つの手順が読む場所へ書く(#319 §8 X-12)
+          REGRESS_OUT: ${{ runner.temp }}/regress
+      # 回帰の試験の「変わった場面」を、基底との差分として要約へ出す(#319 §8 X-12)。人が PR で確かめる材料で、合否には使わない
+      - name: 回帰の試験の変わった場面(基底との差分)
+        if: always()
+        run: node scripts/regress/changed-scenes.mjs --base "$BASE" --results "$RUNNER_TEMP/regress" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event_name == 'push' && github.event.before || 'origin/main' }}
+      - name: 回帰の試験の結果を成果物として残す
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regress-results
+          path: ${{ runner.temp }}/regress
+          if-no-files-found: ignore
       # 公開するのは、この検査が作ったサイトそのもの(npm run check の最後の astro build の出力)
       - name: 検査したサイトを公開の成果物として渡す
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

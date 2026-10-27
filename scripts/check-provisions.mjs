@@ -18,7 +18,8 @@
 //  10. 章の引用(#316)                      「第N章 X.Y」の X が N でない引用と、リンク先が第N章の頁でない引用
 //  11. 禁止事項の番号(#316 / ADR-0086)     「禁止事項N」を、一覧の所在(5.8.5 の / テーラリングの)で修飾せずに引く箇所
 //  12. 注記の中の要求(#316 突合 X-13)      規定の文書の注記(:::note)の中の要求・禁止の文末(〜なければなりません/〜てはなりません)
-//  13. 廃した言い回しの由来(#319 / ADR-0089) 登録簿の各句の by が、実在する ADR・Issue を1つ以上指す。
+//  13. 廃した言い回しの由来(#319 / ADR-0089) 登録簿の各句の by が、実在する ADR を1つ以上指す(Issue は追加として
+//                                          だけ書ける。§8 X-1)。指した ADR の決定・Issue の実在も確かめる
 //                                          by の ADR の本文に句が字句どおり現れることは求めない(ADR-0089 の却下)
 //
 // 検査しないこと(機械で判定できない):
@@ -370,8 +371,8 @@ for (const rel of targets) {
 // by は「ADR-0069」「#300(N4)、ADR-0064」のように書く。指す決定が1つも無い・実在しない場合を落とす
 for (const p of phrases) {
   const ids = decisionIdsIn(p.by);
-  if (!ids.length) {
-    report(REGISTRY, 0, '廃した言い回しの由来', p.phrase, `by(${p.by ?? '空'})が ADR・Issue を指していません。廃した決定を ADR-NNNN か #NNN で書いてください`);
+  if (!ids.some((id) => id.startsWith('ADR-'))) {
+    report(REGISTRY, 0, '廃した言い回しの由来', p.phrase, `by(${p.by ?? '空'})が ADR を指していません。廃した決定を ADR-NNNN(決定の番号があれば ADR-NNNN 決定N)で書いてください。Issue は追加としてだけ書けます`);
     continue;
   }
   for (const id of ids) {

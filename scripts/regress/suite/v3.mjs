@@ -75,7 +75,16 @@ check('K60 D-0 の改訂履歴に「組織上の任命権者の記名で行っ�
 check('契約検査', contract().ok, contract().out);
 check('D-0 の検査', checkD0().ok, checkD0().out);
 check('CLAUDE.md の検査', checkRules().ok, checkRules().out);
-check('K65 CLAUDE.md に「不可逆4操作」が残っていない', !read('CLAUDE.md').includes('不可逆4操作') && read('CLAUDE.md').includes('取り消せない時間帯'));
+// K65(#319 §8 X-7 で改めた): 決定(ADR-0053 決定1)そのものが「誘導層の取り消せない操作の定義に、効果の判定の基準の文がある」ことなので、
+// 文言の確認が決定の中身に当たる。元は CLAUDE.md の部分文字列「取り消せない時間帯」の有無だけを見て、handoff.md の別の定義
+// (基準を伴わない)を見なかった。誘導層(CLAUDE.md と .claude/ の Markdown)にある定義の行をすべて集め、各行が基準の2文を持つことを確かめる
+const IRREV_DEF = '取り消せない効果を、他の者の操作を介さずに生じさせる操作';
+const IRREV_CRITERIA = ['効果の判定の基準は、取り消せない時間帯が存在すること', '取り消し操作を用意したことを理由に外さない'];
+const guidanceFiles = (dir) => fs.readdirSync(path.join(DIR, dir), { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? guidanceFiles(path.join(dir, e.name)) : e.name.endsWith('.md') ? [path.join(dir, e.name)] : []));
+const defLines = ['CLAUDE.md', ...guidanceFiles('.claude')].flatMap((f) => read(f).split('\n').map((l, i) => ({ f, i: i + 1, l })).filter((x) => x.l.includes(IRREV_DEF)));
+const lacking = defLines.filter((x) => !IRREV_CRITERIA.every((c) => x.l.includes(c)));
+check('K65 誘導層の取り消せない操作の定義(CLAUDE.md と handoff.md を含む)が、すべて効果の判定の基準を伴う', defLines.some((x) => x.f === 'CLAUDE.md') && defLines.some((x) => x.f.endsWith('handoff.md')) && lacking.length === 0, lacking.map((x) => `${x.f}:${x.i}`).join('\n') || defLines.map((x) => x.f).join(', '), { fixes: ['ADR-0053 決定1', 'ADR-0078 決定2'] });
+check('K65 CLAUDE.md に「不可逆4操作」(列挙による定義)が残っていない', !read('CLAUDE.md').includes('不可逆4操作'), '', { fixes: ['ADR-0053 決定2'] });
 commit('chore: s4');
 git('tag', 's4');
 

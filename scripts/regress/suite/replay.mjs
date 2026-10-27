@@ -8,7 +8,9 @@ import { workspace, checker, FIXTURES, APPOINTER, BASIS, TODAY } from './lib.mjs
 const W = workspace('r');
 const { DIR, run, git, write, read, cfg, gen, contract, checkD0, checkRules, resetTo, commit, d0 } = W;
 const { check, refused, accepted, done, fixes } = checker();
-// 入力は構成管理の下(fixtures/replay-in。元は E:/Github/process-compass/tmp/reverify-scenarios/in)。24 件を手を加えずに写した
+// 入力は構成管理の下(fixtures/replay-in。元は E:/Github/process-compass/tmp/reverify-scenarios/in)。24 件のうち 23 件は手を加えずに写した。
+// s4-acc3.json は、ADR-0066 決定1(3名以上の体制で、出荷判定者の席は独立レビュアの席と兼ねない)により、独立レビュアを c から a へ改めた
+// (#319 7.5 の入力の直し。JSON には注記を書けないため、ここと scripts/regress/DISPOSITION.md に記録する。突合 X-15)
 const IN = path.join(FIXTURES, 'replay-in');
 const input = (name) => JSON.parse(fs.readFileSync(path.join(IN, `${name}.json`), 'utf8'));
 // 第3巡で入力へ足すもの(入力の意図は変えない):
@@ -97,7 +99,7 @@ accepted('s3b: 同(決定者の記名)', apply('s3b'), '未達の発生: G-6 独
 check('s3b: 向きは任免の決定。G-6 の未達は発生として残る', last().direction === 'appoint' && last().arising.some((a) => a.includes('G-6')));
 
 // ---------------------------------------------------------------- w/s4(3〜9名)
-fixes(["K55", "K60", "K38", "K37", "K42", "ADR-0066"]);
+fixes(["K55", "K60", "K38", "K37", "K42", "ADR-0066 決定1"]);
 resetTo('s1');
 git('checkout', '-q', '-b', 'team', 'HEAD~1');
 git('clean', '-qfd');
