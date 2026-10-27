@@ -66,3 +66,17 @@ files:
     reason: variant
     of: rulesets
     why: CL2 で承認者1名の構成のルールセット。承認の数のほかは regulated.json と同じ変種
+  - path: .github/rulesets/records.json
+    reason: variant
+    of: rulesets
+    why: 記録用ブランチ(records)に掛けるルールセット(非早送りと削除の禁止)。rulesets/README の「記録用ブランチ」が記述する構成の一つ(#321 との統合で登録)
+  - path: .github/rulesets/records-signed.json
+    reason: variant
+    of: rulesets
+    why: 規制業・CL2 以上の構成で records.json の代わりに適用する変種(署名の必須を足す)(#321 との統合で登録)
+  - path: .github/workflows/record-copy.yml
+    reason: infra
+    why: マージを契機に承認レビューの写しを記録用ブランチへ置く足回り。規定は evidence-aggregation のマーク(IMPL-0126)で追う(#321 との統合で登録)
+  - path: scripts/gate/records.mjs
+    reason: library
+    why: 記録用ブランチの写しと様式の読み取り。aggregate-evidence と next が使う(#321 との統合で登録)
