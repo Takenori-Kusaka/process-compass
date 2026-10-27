@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0710
+status: included
+excludeReason: null
+title: "GitHub Blog: What's coming to our GitHub Actions 2026 security roadmap"
+url: https://github.blog/news-insights/product-news/whats-coming-to-our-github-actions-2026-security-roadmap/
+canonicalUrl: https://github.blog/news-insights/product-news/whats-coming-to-our-github-actions-2026-security-roadmap/
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: "2026-03-26"
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: full
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "GitHub Actions の 2026 年のセキュリティの計画。秘密情報の範囲の限定、書き込みの権限と秘密情報の管理の分離、依存の固定を挙げる。GITHUB_TOKEN の参照への束縛は挙がっていない。"
+claims:
+  - id: c1
+    text: "2026 年の計画は、秘密情報をブランチ・環境・ワークフローの識別へ限ることを挙げ、GITHUB_TOKEN を参照へ束縛することは挙げていない。"
+    quote: ""
+    locator: "本文"
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

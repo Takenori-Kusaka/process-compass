@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0712
+status: included
+excludeReason: null
+title: "GitHub Docs: OpenID Connect reference"
+url: https://docs.github.com/en/actions/reference/security/oidc
+canonicalUrl: https://docs.github.com/en/actions/reference/security/oidc
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "GitHub Actions の OIDC の参照の頁。sub クレームの書式(Environment を参照すると environment:名、そうでなければ ref)と、id-token: write が他の資源への書き込みを与えないことを書く。#346 は、受け手が参照・配備の環境を検証する短命の資格情報の根拠として引いた。"
+claims:
+  - id: c1
+    text: "Environment を参照するジョブの OIDC トークンの sub は repo:ORG/REPO:environment:NAME の形になる。"
+    quote: ""
+    locator: "sub claim の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: supports
+  - id: c2
+    text: "id-token: write は OIDC トークンの取得を許すだけで、他の資源への書き込みの権限を与えない。"
+    quote: ""
+    locator: "permissions の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

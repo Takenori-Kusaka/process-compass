@@ -225,7 +225,7 @@
 - [SRC-0448] 2026-07-30 [Optimizing CI for stacked pull requests](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests) — スタック型PRでの GitHub Actions の発火規則。pull_request トリガーは各PRがスタック基底を向いているものとして発火し、CI 回数が
 - [SRC-0605] 2026-09 [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions) — GitHub Docs のリポジトリ指示ファイルの手順書(日付表記なし、2026-09-30 取得)。リポジトリ全体(copilot-instructions.
 
-### GitHub(14)
+### GitHub(30)
 
 - [SRC-0176] 2026-09 [Approving a pull request with required reviews](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews) — GitHub Docs の必須レビュー承認ページ本文(取得日 2026-09-23)。PR 作成者の自己承認不可と、Copilot に Issue を割り当てた
 - [SRC-0177] 2026-09 [Risks and mitigations for GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations) — Copilot cloud agent(旧 coding agent)のリスクと緩和策。前回 §9 で未取得だった「依頼者は承認できない」の原文を一次で確認。無
@@ -241,6 +241,22 @@
 - [SRC-0666] ? [About code owners - GitHub Docs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners) — GitHub の CODEOWNERS の文書。.github/・ルート・docs/ の順に探して最初の1つだけを使い、不正な構文の行は飛ばす(誤りは API 
 - [SRC-0667] ? [Creating rulesets for repositories in your organization - GitHub Enterprise Cloud Docs](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization) — GitHub Enterprise Cloud の組織のルールセットの作成。状態に Active・Evaluate(強制せず違反を観測する)・Disabled 
 - [SRC-0668] ? [Creating rulesets for a repository - GitHub Docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository) — GitHub(無料版の文書)のリポジトリのルールセットの作成。作成の手順の状態は Active と Disabled の2つで、Evaluate は現れない。#
+- [SRC-0700] ? [GitHub Docs: GITHUB_TOKEN](https://docs.github.com/en/actions/concepts/security/github_token) — GITHUB_TOKEN の概念の頁。トークンは GitHub App のインストールのアクセストークンで、ジョブごとに発行され、ジョブの終了か最大の寿命で失効
+- [SRC-0701] ? [GitHub Docs: Workflow syntax for GitHub Actions(permissions)](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax) — ワークフローの構文の頁の permissions の節。GITHUB_TOKEN の権限は既定の設定から始まり、ワークフローのファイルの設定で調整される。#34
+- [SRC-0702] ? [GitHub Docs: Managing GitHub Actions settings for a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository) — リポジトリの Actions の設定の頁。Workflow permissions は GITHUB_TOKEN の既定を permissive か restr
+- [SRC-0703] 2023-02-02 [GitHub Changelog: GitHub Actions – Updating the default GITHUB_TOKEN permissions to read-o](https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/) — 新規の企業・組織・個人所有のリポジトリで、GITHUB_TOKEN の既定を読み取りだけにした告知。既存のリポジトリの既定は変わらない。#346 は、採用者のリ
+- [SRC-0704] 2025-11-07 [GitHub Changelog: Actions pull_request_target and environment branch protections changes](https://github.blog/changelog/2025-11-07-actions-pull_request_target-and-environment-branch-protections-changes/) — 2025-12-08 以降、pull_request_target は常に既定ブランチのワークフローのファイルと参照を使い、PR 系のイベントでの Enviro
+- [SRC-0705] ? [GitHub Docs: Deployments and environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) — Environment の保護規則・配備のブランチとタグ・秘密情報・管理者の迂回・プランの制限の頁。Environment の秘密情報は、その Environm
+- [SRC-0706] ? [GitHub Docs: Available rules for rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets) — ルールセットで使える規則の頁。作成・更新・削除の制限は、バイパスの権限を持つ者だけに許す。バイパスの主体はロール・チーム・GitHub App などで、GITH
+- [SRC-0708] 2026-06-18 [GitHub Changelog: Control who and what triggers GitHub Actions workflows(public preview)](https://github.blog/changelog/2026-06-18-control-who-and-what-triggers-github-actions-workflows/) — ワークフロー実行の保護の公開プレビューの告知。ルールセットの枠組みで、起動できる主体とイベントを許可リストで決める。参照やトークンの権限の制限は記述に無い。
+- [SRC-0709] 2026-09-17 [GitHub Changelog: Workflow execution protections in GitHub Actions generally available](https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available/) — ワークフロー実行の保護の一般提供の告知。#346 は、起動する主体・イベントを限るが参照とトークンの権限を限らない措置として、狭める措置の表に置いた。
+- [SRC-0710] 2026-03-26 [GitHub Blog: What's coming to our GitHub Actions 2026 security roadmap](https://github.blog/news-insights/product-news/whats-coming-to-our-github-actions-2026-security-roadmap/) — GitHub Actions の 2026 年のセキュリティの計画。秘密情報の範囲の限定、書き込みの権限と秘密情報の管理の分離、依存の固定を挙げる。GITHUB
+- [SRC-0712] ? [GitHub Docs: OpenID Connect reference](https://docs.github.com/en/actions/reference/security/oidc) — GitHub Actions の OIDC の参照の頁。sub クレームの書式(Environment を参照すると environment:名、そうでなければ
+- [SRC-0717] ? [GitHub Docs: Secure use reference](https://docs.github.com/en/actions/reference/security/secure-use) — GitHub Actions の安全な使い方の参照(旧 Security hardening)。GITHUB_TOKEN の既定を読み取りにしジョブ単位で必要な
+- [SRC-0720] ? [GitHub Docs: Scopes for OAuth apps](https://docs.github.com/en/enterprise-cloud@latest/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) — OAuth の範囲(scope)の一覧。workflow の範囲は GitHub Actions のワークフローのファイルの追加と更新を許す。同じ内容のファイル
+- [SRC-0721] ? [GitHub Docs: Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) — 個人のアクセストークンの管理の頁。fine-grained のトークンの権限の表に Workflows(書き込み)があり、ワークフローのファイルを編集しないなら
+- [SRC-0722] ? [GitHub Docs: REST API endpoints for GitHub Actions permissions](https://docs.github.com/en/rest/actions/permissions) — Actions の権限の REST API。既定のワークフローの権限の取得は default_workflow_permissions と can_approv
+- [SRC-0723] ? [GitHub Docs: REST API endpoints for deployment environments](https://docs.github.com/en/rest/deployments/environments) — Environment の REST API。取得の応答は deployment_branch_policy(protected_branches と cust
 
 ### Google (Antigravity)(1)
 

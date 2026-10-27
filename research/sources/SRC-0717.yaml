@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0717
+status: included
+excludeReason: null
+title: "GitHub Docs: Secure use reference"
+url: https://docs.github.com/en/actions/reference/security/secure-use
+canonicalUrl: https://docs.github.com/en/actions/reference/security/secure-use
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "GitHub Actions の安全な使い方の参照(旧 Security hardening)。GITHUB_TOKEN の既定を読み取りにしジョブ単位で必要な分だけ上げること、書き込みの権限を持つ者はリポジトリの秘密情報を読めること、CODEOWNERS で .github/workflows の変更にレビューを課すこと、クラウドへの配備に OIDC を使うことを書く。"
+claims:
+  - id: c1
+    text: "リポジトリへの書き込みの権限を持つ利用者は、リポジトリに設定したすべての秘密情報を読める。"
+    quote: ""
+    locator: "Using secrets の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: supports
+  - id: c2
+    text: "CODEOWNERS に .github/workflows を加え、ワークフローの変更に指定のレビュー者の承認を求める。"
+    quote: ""
+    locator: "Using CODEOWNERS の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

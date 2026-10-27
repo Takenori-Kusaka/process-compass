@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0720
+status: included
+excludeReason: null
+title: "GitHub Docs: Scopes for OAuth apps"
+url: https://docs.github.com/en/enterprise-cloud@latest/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps
+canonicalUrl: https://docs.github.com/en/enterprise-cloud@latest/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "OAuth の範囲(scope)の一覧。workflow の範囲は GitHub Actions のワークフローのファイルの追加と更新を許す。同じ内容のファイルが同じリポジトリの別のブランチにある場合は、この範囲なしでコミットできる。#346 は、AI のセッションに渡す資格情報から workflow の範囲を外す措置の根拠として、裁定 R-2 の確認で読んだ。"
+claims:
+  - id: c1
+    text: "workflow の範囲は、GitHub Actions のワークフローのファイルを追加・更新する能力を与える。"
+    quote: "Grants the ability to add and update GitHub Actions workflow files."
+    locator: "Available scopes の表の workflow の行"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: supports
+  - id: c2
+    text: "同じパスと内容のワークフローのファイルが同じリポジトリの別のブランチにあれば、workflow の範囲なしでコミットできる。"
+    quote: "Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository."
+    locator: "Available scopes の表の workflow の行"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の実装(裁定 R-2 の確認)で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文のままとして返した文で、原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

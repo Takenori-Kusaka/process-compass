@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0707
+status: included
+excludeReason: null
+title: "GitHub Community Discussion #25305: Allow GitHub Actions to push to protected branch"
+url: https://github.com/orgs/community/discussions/25305
+canonicalUrl: https://github.com/orgs/community/discussions/25305
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub Community"
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "保護されたブランチへの Actions の push を巡る議論。GitHub の社員が、Actions の利用者はブランチ固有でないため、バイパスを許すとどのブランチのワークフローからもバイパスできると述べている。#346 は、GITHUB_TOKEN をバイパスに入れる公式の手段が無いことの補助の材料として引いた(一次資料ではない)。"
+claims:
+  - id: c1
+    text: "GitHub の社員は、Actions の利用者はブランチ固有でないため、バイパスを許せばどのブランチのワークフローからもバイパスできると述べた。"
+    quote: ""
+    locator: "2022-01-06 の発言"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [346]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

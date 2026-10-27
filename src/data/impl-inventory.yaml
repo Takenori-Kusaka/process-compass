@@ -719,6 +719,7 @@ sections:
     ids:
       - IMPL-0236
       - IMPL-0237
+      - IMPL-0351
     issue: 316
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 残存リスクの受容を決断の記録に含める
     status: pending

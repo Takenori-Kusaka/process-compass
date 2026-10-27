@@ -95,22 +95,22 @@ graph LR
 | 検査に落ちた版の公開・配布 | `needs: check`。結線は `check-ci-wiring.mjs` が確かめる(公開・配布のジョブの `if` に `always()` などの状態の関数と `\|\|` を置かない) |
 | 決定を固定する試験を流さずに公開・配布する | `npm run check` が、回帰の試験(`scripts/regress/`。sweep を含む)とテンプレートの試験(`gate-g5.yml` のジョブ `contract` と一覧を共有)を流す。`check-ci-wiring.mjs` が、`check` への結線、失敗を握りつぶす形の不在、ジョブ `check` の `timeout-minutes`、回帰の試験の作業の場所が作業ツリーの外であることを確かめる(#319 / [ADR-0089](/process-compass/adr/0089-regression-suite-under-version-control/)) |
 | 検査したものと別の生成物の公開 | `check` が作った `dist/` をそのまま配る。2回目のビルドをしない |
-| `main` 以外からの配布 | Environment `dist-standard` の配備のブランチの限定(`main` だけ)。ジョブ `publish` を `main` 以外で走らせない。ジョブ先頭の起動元の確認(事故の歯止め)。**別のブランチに置いたワークフローは止めない**(後掲「止まらない経路」) |
-| 配布の資格情報の漏えい・使い回し | 長期の鍵を作らない。書き込みは、ジョブ `publish` にだけ `contents: write` を付けた `GITHUB_TOKEN` で行い、トークンはジョブの終了で失効する。`ci.yml` の他のジョブと最上位は読み取りだけ(`check-ci-wiring.mjs` が確かめる) |
-| `dist/standard` の強制 push・削除 | `dist/standard` のルールセット(削除の禁止・強制 push の禁止)。早送りの push は止めない |
+| `main` 以外からの配布 | Environment `dist-standard` の配備のブランチの限定(`main` だけ。所有者の設定の後。後掲「リモートの実状」)。ジョブ `publish` を `main` 以外で走らせない。ジョブ先頭の起動元の確認(事故の歯止め)。**別のブランチに置いたワークフローは止めない**(後掲「止まらない経路」) |
+| 配布の資格情報の漏えい・使い回し | 長期の鍵を作らない。書き込みは、ジョブ `publish` にだけ `contents: write` を付けた `GITHUB_TOKEN` で行い、トークンはジョブの終了で失効する。`ci.yml` の他のジョブと最上位は読み取りだけ(`check-ci-wiring.mjs` が確かめる)。**この形は第4章 G-8 の資格情報の規定を満たさない**(後掲「標準の規定との関係」) |
+| `dist/standard` の強制 push・削除 | `dist/standard` のルールセット(削除の禁止・強制 push の禁止。所有者の設定の後)。早送りの push は止めない |
 | 配る知識ベースの誤り | push の前に `check-gate-criteria.mjs --kb` が、判定基準の件数と生成元の版(40桁の16進で、起動したコミットと一致)を確かめる |
 | 古い版での上書き | 配布は、配布済みの版がこの実行のコミットの子孫なら配らない。公開は、`main` がサイトに入るファイルの変更で先へ進んでいれば配らない(新しいコミットの実行が成功することに依る。後掲「止まらない経路」) |
 
 配布は前回の `dist/standard` の上へコミットを積みます。配るかどうかは、配布済みの版(`dist/standard` の知識ベースの生成元の版)と今回の生成物の中身(`VERSION.md` と知識ベースの生成元の版を除く)を比べて決めます。差が無ければ配りません。前の配布が失敗していても、次の main への push で取り戻します。案件が submodule で固定した旧版は、このブランチの履歴から取り直せます。配る中身は、本文・知識ベース・`VERSION.md`・`LICENSE` だけです。`VERSION.md` には、起動の契機・ref・コミット・実行の番号を書きます。
 
-`dist-standard` に必須レビュアは置きません。ソロ期の自己承認は独立した確認ではなく、記録が承認として誤読されるためです。承認の代わりに残すのは、配布の実行の記録(ref・コミット・実行の番号)と、下の管理者の設定の事実です。Issue #293 の受入条件3 の「Environments の承認」は「Environment の配備のブランチの限定」と読み替えました。
+`dist-standard` に必須レビュアは置きません。ソロ期の自己承認は独立した確認ではなく、記録が承認として誤読されるためです。承認の代わりに残すのは、配布の実行の記録(ref・コミット・実行の番号)と、後掲の所有者の設定の事実です。Issue #293 の受入条件3 の「Environments の承認」は「Environment の配備のブランチの限定」と読み替えました。
 
 ### 止まらない経路
 
 - 管理者は、Environment の保護とルールセットを設定画面で外せる。外した場合、残るのはワークフローの中の確認だけで、起動元のブランチでファイルを書き換えれば外れる
 - 保護の規則(配備のブランチの限定)だけを外した場合、ワークフローは検出しない。配布は失敗せずに続く
-- 管理者の設定(後掲の手順)が済むまでの間は、保護の無い Environment `dist-standard` が自動で作られ、配布はそのまま成功する(止まる側には倒れない)
-- **書き込みの権限を持つ者は、`dist/standard` へ早送りの push ができる**。直接の push でも、自分のブランチへ置いたワークフローに `contents: write` を付けて `GITHUB_TOKEN` で push する形でもできる。Environment の限定は、そのワークフローが `dist-standard` を参照しなければ掛からない。ルールセットで更新を制限すれば止まるが、2026-10-23 時点の GitHub Docs は、バイパスの主体としてロール・チーム・GitHub App・Dependabot を挙げ、`GITHUB_TOKEN`(GitHub Actions)を挙げていない。更新を制限すると配布のジョブの push も止まるため、置いていない。この経路を限るのは次の3つだけである。履歴は積み上がるだけで、削除と強制 push はルールセットが止める。配布のコミットの `VERSION.md` は ref・コミット・実行の番号を持ち、Actions の実行の記録と突き合わせられる(`VERSION.md` は書き込んだ者が自由に書けるため、突き合わせが要る)。ソロ期に書き込みの権限を持つのは保守者1名である
+- 所有者の設定(後掲の手順)が済むまでの間は、保護の無い Environment `dist-standard` が自動で作られ、配布はそのまま成功する(止まる側には倒れない)
+- **書き込みの権限を持つ者は、`dist/standard` へ早送りの push ができる**。直接の push でも、自分のブランチへ置いたワークフローに `contents: write` を付けて `GITHUB_TOKEN` で push する形でもできる。Environment の限定は、そのワークフローが `dist-standard` を参照しなければ掛からない。ルールセットで更新を制限すれば止まるが、2026-10-23 時点の GitHub Docs は、バイパスの主体としてロール・チーム・GitHub App・Dependabot を挙げ、`GITHUB_TOKEN`(GitHub Actions)を挙げていない。更新を制限すると配布のジョブの push も止まるため、置いていない。この経路を限るのは次の3つだけである。履歴は積み上がるだけで、削除と強制 push はルールセットが止める(所有者の設定の後)。配布のコミットの `VERSION.md` は ref・コミット・実行の番号を持ち、Actions の実行の記録と突き合わせられる(`VERSION.md` は書き込んだ者が自由に書けるため、突き合わせが要る)。ソロ期に書き込みの権限を持つのは保守者1名である
 - `graphify-update.yml` のジョブは `contents: write` を持つ。結線の検査は、そのジョブの定義に `dist/standard` が現れないことを確かめるが、変数で隠した push は拾わない
 - `main` へ push できる者は、`ci.yml` を書き換えて検査を外したうえで公開できる。結線の検査も、同じ push の中で書き換えられる。ソロ期に `main` へ push できるのは保守者1名である
 - 結線の検査は、ワークフローの構造と文字列を読むだけである。変数や別の手順で隠した `dist/standard` への push、`npm run check` の中身を手順の中で書き換える形は拾わない。ルールセットが止めるのは、`dist/standard` の削除と強制 push だけである
@@ -120,13 +120,43 @@ graph LR
 - 強制 push で配った過去の 14 回分の `dist/standard` は、どの参照からも辿れない。取り戻さない
 - 公開と配布のジョブは、2026-10-23 時点で実際の GitHub 上で実行して確かめていない。構文は actionlint で確かめた
 
-### 管理者の設定(保守者が設定画面で行う)
+### 標準の規定との関係
 
-ワークフローの外にある設定です。AI のセッションは行いません。
+本リポジトリの配布は、[第4章 G-8](/process-compass/phase4-process-design/gate-criteria/)「配備の統制と資格情報の置き場」を満たしません。書き込みの権限は、`ci.yml` のジョブ `publish` の `permissions` から生じる `GITHUB_TOKEN` で、ワークフローのファイルの権限の宣言だけから生じるトークンは、短命であっても規定の2つの形のどちらにも当たらないためです。本リポジトリは本標準に従う開発の案件ではありませんが、`dist/standard` は採用者が submodule で取り込む配布物であるため、未達として開示します([ADR-0090](/process-compass/adr/0090-job-token-and-deploy-credential-binding/))。
+
+- 区分: 手段はあるが、使わないと決めた。リポジトリは公開で、Environment の秘密情報と配備の参照の限定を使える。「手段が無い」には当たらない
+- 決定者: 保守者(所有者)。保守者の決定(2026-10-23)の中身は、鍵(deploy key・秘密情報に置く長期のトークン)を設定しないこと、配布の書き込みをジョブの権限で行うこと、`dist/standard` のルールセットで更新を制限しないことの3つ
+- 開いている経路: 書き込みの権限を持つ者が、自分のブランチへ `contents: write` を宣言したワークフローを置き、`GITHUB_TOKEN` で `dist/standard` へ push する経路。`environment:` を参照しなければ、配備の参照の限定は掛からない
+- 経路を持つ主体と直接の書き込み: 書き込みの権限を持つのは、ソロ期の保守者1名と、保守者の資格情報で push する AI のセッションである。どちらも `dist/standard` へ直接 push できる(ルールセットに更新の制限が無い)。トークンは新しい能力を足さないが、配布先は保護されていない
+- 経路を狭める措置と止めないもの: 後掲の所有者の設定の1〜6。どれも、`permissions` を宣言したブランチ上のワークフローの書き込みを止めない。止めるもの・止めないものの対応は [フェーズ5「統制と資格情報の置き場」](/process-compass/phase5-implementation/ci-gates/)の表による
+
+鍵を使わずに規定を満たす道は、配布の経路を変えることだけです(Pages を使う形、受け手が出どころを確かめる形)。採用者が頼る `dist/standard` の取り込みの形を変えるため、所有者が決める事項として後継の Issue の候補にしています。
+
+### リモートの実状(2026-10-27)
+
+上の経路の表と「止まらない経路」は、本リポジトリの #293 以降の変更がリモートの `main` へ入った後の形を書いています。2026-10-27 時点のリモートの実状は、それより悪い状態です。
+
+- #293 以降の変更は、リモートの `main` に入っていない。リモートの `main` では、旧い `publish-standard.yml` が動いている
+- 旧い `publish-standard.yml` は、最上位で `contents: write` を持ち、Environment を使わず、`dist/standard` へ強制 push で配る。`workflow_dispatch` で任意のブランチから起動できる。起動したブランチのファイルで動くため、書き込みの権限を持つ者はどのブランチからでも `dist/standard` を書き換えられ、履歴も消せる
+- ルールセットは空で、`main` と `dist/standard` は保護されていない
+- Environment の一覧と Actions の既定の権限は、読む権限が無く確かめていない
+- `dist/standard` の先頭は、旧いワークフローの強制 push の出力である。新しいジョブ `publish` は一度も動いていない
+
+### 所有者が行う設定(順序つき)
+
+ワークフローの外にある設定です。所有者(保守者)が設定画面で行います。AI のセッションは設定しません。**2026-10-27 時点で、どれも設定済みとは確かめていません**。
 
 deploy key・SSH 鍵・秘密情報は作りません。配布の書き込みは、`ci.yml` がジョブ `publish` に付けた `contents: write` の権限で行います。手順の中でトークンを扱いません(保守者の決定、2026-10-23。[ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/) 決定6)。
 
-1. **配布のジョブが走る前に**、Environment `dist-standard` を作る(Settings → Environments)。配備のブランチは「Selected branches」で `main` だけに限る。必須レビュアは置かない。秘密情報は置かない
-2. `dist/standard` にルールセットを置く(Settings → Rules → Rulesets)。対象は `dist/standard`。削除の禁止(Restrict deletions)と強制 push の禁止(Block force pushes)を有効にする。更新の制限(Restrict updates)は有効にしない(配布のジョブの `GITHUB_TOKEN` をバイパスに入れられず、配布も止まるため。前掲「止まらない経路」)。バイパスの一覧は空にする
-3. 設定した日付と、`main` 以外のブランチからジョブ `publish` が走らないことを確かめた結果を Issue #293 に記録する
+| # | 設定 | 監査で読む値 |
+| --- | --- | --- |
+| 1 | **2 より前に**、Environment `dist-standard` を作る(Settings → Environments)。配備のブランチは「Selected branches」で `main` だけに限る。管理者の迂回を外す。必須レビュアと秘密情報は置かない。`github-pages` も同じく `main` に限る | `environments/dist-standard` と `environments/github-pages` の `deployment_branch_policy`、`deployment-branch-policies` の一覧、管理者の迂回の設定 |
+| 2 | #293 以降の変更をリモートの `main` へ入れ、旧い `publish-standard.yml` と `deploy.yml` が消えたことを確かめる | リモートの `main` の `.github/workflows/` の一覧 |
+| 3 | `dist/standard` にルールセットを置く(Settings → Rules → Rulesets)。削除の禁止(Restrict deletions)と強制 push の禁止(Block force pushes)を有効にする。更新の制限(Restrict updates)は有効にしない(配布のジョブの `GITHUB_TOKEN` をバイパスに入れられず、配布も止まるため)。バイパスの一覧は空にする | `rules/branches/dist%2Fstandard` と、そのルールセットの `bypass_actors` |
+| 4 | Settings → Actions → Workflow permissions を read にする。「Allow GitHub Actions to create and approve pull requests」を無効にする | `actions/permissions/workflow` の `default_workflow_permissions` と `can_approve_pull_request_reviews` |
+| 5 | AI のセッションに渡す資格情報から、管理者の権限と `workflow` の範囲(fine-grained のトークン・GitHub App では Workflows の権限)を外す | 渡した資格情報の種類・範囲・権限の記録 |
+| 6 | ワークフロー実行の保護で、`push` と `workflow_dispatch` を起動できる主体を限れるかを評価する(個人所有の公開のリポジトリで使えるかは確かめていない)。限れる場合でも、規定を満たす手段には数えない | ルールセットの API(評価の記録を含む) |
+| 7 | 1〜6 の設定と、`main` 以外からの起動が拒まれた記録を Issue #346 に残す。記録は対で残す。(a) Environment `dist-standard` を参照するジョブが `main` 以外から拒まれた記録。(b) `environment:` を外して `contents: write` を宣言したワークフローが、使い捨ての参照へ書き込めたかの記録(`dist/standard` そのものでは試さない)。(a) だけを統制が成り立つ証拠に数えない([フェーズ5](/process-compass/phase5-implementation/ci-gates/)の EV-0137) | Issue #346 のコメント |
+
+1 を 2 より前に置く理由は、Environment の無いままジョブ `publish` が走ると、保護の無い Environment が自動で作られ、配布がそのまま成功するためです。5 は、本リポジトリで最も効く措置です。管理者の権限を持つ主体には、ブランチ上のワークフローを経る必要がなく、`dist/standard` へ直接 push でき、Environment とルールセットも変えられます。
 

@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0711
+status: included
+excludeReason: null
+title: "actions/create-github-app-token README"
+url: https://github.com/actions/create-github-app-token
+canonicalUrl: https://github.com/actions/create-github-app-token
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: repo
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "GitHub App のインストールトークンを作るアクションの説明。秘密鍵が必須で、トークンは1時間で失効する。#346 は、短命のトークンでも長期の鍵の置き場で参照への結び付きが決まることの例として引いた。"
+claims:
+  - id: c1
+    text: "GitHub App のインストールトークンを作るには App の秘密鍵が要り、トークンは1時間で失効する。"
+    quote: ""
+    locator: "README"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

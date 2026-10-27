@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0716
+status: included
+excludeReason: null
+title: "NSA・CISA: Defending Continuous Integration/Continuous Delivery (CI/CD) Environments"
+url: https://media.defense.gov/2023/Jun/28/2003249466/-1/-1/0/CSI_DEFENDING_CI_CD_ENVIRONMENTS.PDF
+canonicalUrl: https://media.defense.gov/2023/Jun/28/2003249466/-1/-1/0/CSI_DEFENDING_CI_CD_ENVIRONMENTS.PDF
+ids:
+  arxiv: null
+  doi: null
+publisher: "NSA・CISA"
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: "2023-06-28"
+publishedBasis: pdf
+version: "v1.0"
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "NSA と CISA の CI/CD 環境の防御の手引き。ソフトウェアに置く長期の資格情報をできるだけ避け、二者の規則と職務の分離を求める。#346 は、短命の資格情報の優先と、レビューへの結び付けが別の要求であることの根拠として引いた。"
+claims:
+  - id: c1
+    text: "ソフトウェアに置く長期の資格情報の使用を、できるだけ避ける。"
+    quote: ""
+    locator: "Minimize the use of long-term credentials"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [346]
+    stance: context
+  - id: c2
+    text: "1人の開発者が、他の開発者のレビューと承認なしにコードを取り込めないようにする(二者の規則)。"
+    quote: ""
+    locator: "Two-person rule"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [346]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

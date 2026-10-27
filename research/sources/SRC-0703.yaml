@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0703
+status: included
+excludeReason: null
+title: "GitHub Changelog: GitHub Actions – Updating the default GITHUB_TOKEN permissions to read-only"
+url: https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/
+canonicalUrl: https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: "2023-02-02"
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: full
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "新規の企業・組織・個人所有のリポジトリで、GITHUB_TOKEN の既定を読み取りだけにした告知。既存のリポジトリの既定は変わらない。#346 は、採用者のリポジトリで既定が write のまま残りうることの根拠として引いた。"
+claims:
+  - id: c1
+    text: "新規の企業・組織・個人所有のリポジトリでは GITHUB_TOKEN の既定が読み取りだけになり、既存の設定は変わらない。"
+    quote: ""
+    locator: "本文"
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

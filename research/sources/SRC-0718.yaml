@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0718
+status: included
+excludeReason: null
+title: "NIST SP 800-218: Secure Software Development Framework (SSDF) Version 1.1"
+url: https://csrc.nist.gov/pubs/sp/800/218/final
+canonicalUrl: https://csrc.nist.gov/pubs/sp/800/218/final
+ids:
+  arxiv: null
+  doi: null
+publisher: "NIST"
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: standard
+published: "2022-02-03"
+publishedBasis: byline
+version: "1.1"
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "SSDF v1.1。PS.1.1 はソースコード・実行コード・configuration-as-code を含むすべてのコードを最小権限で保護することを、PO.5.1 は開発に関わる各環境を分けて保護することを求める。資格情報の置き場に直接触れる記述は見当たらない。"
+claims:
+  - id: c1
+    text: "PS.1.1 は、configuration-as-code を含むすべてのコードを保存し、最小権限で保護することを求める。"
+    quote: ""
+    locator: "PS.1.1"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [346]
+    stance: supports
+  - id: c2
+    text: "PO.5.1 は、ソフトウェア開発に関わる各環境を分けて保護することを求める。"
+    quote: ""
+    locator: "PO.5.1"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0713
+status: included
+excludeReason: null
+title: "actions/deploy-pages README"
+url: https://github.com/actions/deploy-pages
+canonicalUrl: https://github.com/actions/deploy-pages
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: repo
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "GitHub Pages へ配備するアクションの説明。Pages の配備の API は OIDC トークンの参照のクレームを検証し、github-pages の Environment が保護されていればその保護規則が優先する。#346 は、受け手が参照を検証する短命の資格情報の先例として引いた。"
+claims:
+  - id: c1
+    text: "Pages の配備は OIDC トークンを使い、github-pages の Environment の保護規則が適用される。"
+    quote: ""
+    locator: "README"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10
