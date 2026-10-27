@@ -263,3 +263,17 @@ push はしていない。
 | 親 | `work/319` | `4405fb4c464190a442e47a793a2632d2d7f23a18`(`2d9bb81` の上) | X-1〜X-17 の全体とテンプレートの参照の更新。SHA の記入は後続の記録のコミット |
 
 push はしていない。
+
+## 9. 後継の Issue の起票と印の付け替え(2026-10-27)
+
+保守者の了承を得て、後継の Issue を起票した。仮に #319 を置いていた印を付け替えた。
+
+| 案 | Issue | 付け替えた印 |
+| --- | --- | --- |
+| 案1 同じ変化点の記名の拒否 | #375 | `suite/scenarios.mjs` の J1(scenarios の3場面) |
+| 案6 任免と緩める向きの優先 | #376 | `expected/matrix-sweep.json` の knownFailure(2名 mvp・growth cl0 の向き) |
+| 案2 gate-g5.yml の Node の版 | #377 | — |
+| 案5 fix288-r3 の 50 場面 | #378 | — |
+| 案3 | #360 へ書き置き | — |
+
+#318 の後継は #373(CL の判定とテンプレ9 の確認の段)と #374(CL0 の S1 の G-7「簡略」の中身)。`npm run issues:snapshot` で `src/data/issue-index.tsv` を更新した。
