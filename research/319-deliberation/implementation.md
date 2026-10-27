@@ -184,6 +184,6 @@ matrix-sweep の向き appoint → loosen(J-2)は、決定5 の「代償措置�
 | リポジトリ | ブランチ | SHA | 内容 |
 | --- | --- | --- | --- |
 | template | `claude/process-compass-319` | `bfaefa3eb700a27302d1f3caab8e163f23e4e42e` | K65: ADR-0053 決定1 の基準を CLAUDE.md・handoff.md・CR-010 へ戻す |
-| 親 | `work/319` | このコミットの SHA は、続く記録のコミットの本文と `git log` で確かめる(自身の SHA は本文に書けないため) | 第1段と第2段の全体 |
+| 親 | `work/319` | `0cf36314547c1a48772ecbe8570d4b18ed95ccad`(SHA の記入は後続の記録のコミット) | 第1段と第2段の全体 |
 
 push はしていない。
