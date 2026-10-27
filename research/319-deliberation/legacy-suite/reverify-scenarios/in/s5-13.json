@@ -1,0 +1,1 @@
+{ "kind": "mode", "summary": "決裁者を協働へ", "seats": { "biz-approver": { "mode": "collab" } }, "decidedBy": "山田 太郎", "reason": "x" }

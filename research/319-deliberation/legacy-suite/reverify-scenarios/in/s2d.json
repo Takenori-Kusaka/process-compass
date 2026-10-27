@@ -1,0 +1,1 @@
+{ "kind": "accountable", "date": "2026-10-10", "summary": "確認者がいると回答するが、席は同一人物のまま", "answers": { "q-external-reviewer": "reviewer-yes" }, "people": [ { "id": "p1", "name": "山田 太郎" }, { "id": "p2", "name": "佐藤 花子" } ] }

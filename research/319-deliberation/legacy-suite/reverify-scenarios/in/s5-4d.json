@@ -1,0 +1,1 @@
+{ "kind": "mode", "date": "2026-10-21", "summary": "AI維持管理者が規則 DR-001 を承認し、開発者の席を委任へ", "seats": { "dev-verifier": { "mode": "delegated" } }, "ruleApprovedBy": "佐藤 花子", "decidedBy": "佐藤 花子", "reason": "定型の変更を先へ進めたい" }

@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: SRC-0697
+status: included
+excludeReason: null
+title: An Empirical Study on the Use of Snapshot Testing(ICSME 2023。研究室の紹介頁)
+url: https://sdlab.naist.jp/en/post/fujita-icsme2023/
+canonicalUrl: https://sdlab.naist.jp/en/post/fujita-icsme2023
+ids:
+  arxiv: null
+  doi: null
+publisher: NAIST ソフトウェア設計学研究室
+authors: [S. Fujita, et al.]
+orgType: academic
+region: jp
+lang: en
+sourceType: paper-peer
+published: 2023-10-01
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-26
+access: open
+readLevel: abstract
+foundBy:
+  cluster: I319
+  query: "#319 外部調査 survey-319-2-external.md B5"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: スナップショット試験の利用の実証研究(要旨のみ読んだ)。スナップショットの更新はコミットの約 8.2% で起き、他の変更と同時に起きることが多い。#319 は、期待値の更新が機能変更と同じ差分に紛れる危険の材料として引いた。
+claims:
+  - id: c1
+    text: コミットの約 8.2% がスナップショットを更新し、他の変更と同時に起きることが多い。
+    quote: ""
+    locator: 要旨
+    quant:
+      value: 8.2%
+      n: null
+      design: リポジトリの履歴の分析
+      population: null
+    evidenceKind: observational
+    rqs: []
+    issues: [319]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-26'
+  humanChecked: false
+  note: '#319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 682(included 682、excluded 0)。生成日 2026-10-24。
+件数: 692(included 692、excluded 0)。生成日 2026-10-27。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -690,4 +690,14 @@
 | SRC-0687 | 2020-05 | preprint | global/en | partial | TH06 TH12 | レビューの指標(レビュアー数などを含む)と出荷後の欠陥の関係の再現研究。指標が出荷後の欠陥を直接説明する効果を見つけられなかった。#318 は、承認の数を独立の | [Do code review measures explain the incidence of post-release defects?](https://arxiv.org/pdf/2005.09217) |
 | SRC-0688 | ? | standard | global/en | partial | TH06 TH12 | サプライチェーンの枠組み SLSA の脅威と緩和の作業草案。二者レビューを推奨しつつ、レビュアーの追加や上位のレビュアーを求めることは収穫逓減とし、2人の共謀は | [SLSA Threats & mitigations(作業草案)](https://slsa.dev/spec/draft/threats) |
 | SRC-0689 | 2024-04-16 | corp-techblog | global/en | partial | TH06 TH12 | DO-178C のソフトウェアレビューの解説。レビュー関係の目標のうち独立性を要する数はレベル A で16/31、B で7/31、C・D は0 とする。航空は独 | [A Fresh Take on DO-178C Software Reviews](https://www.adacore.com/blog/a-fresh-take-on-do-178c-software-reviews) |
+| SRC-0690 | 2023-07-31 | public-agency | us/en | partial | TH12 | NPR 7150.2 SWE-081(5.1.4)の手引き。統制するソフトウェア構成品目として、記録・コード・データ・ツール・モデル・スクリプトを挙げ、手引きは | [NASA Software Engineering Handbook: SWE-081 Identify Software CM Items](https://swehb.nasa.gov/x/6IAIAw) |
+| SRC-0691 | 2021-10-28 | standard | global/en | partial | TH12 | 試験文書の規格。試験方針に試験資産の保管と再利用(6.2.10)、試験完了報告に再利用できる試験資産(7.4.9)、試験データ要求に保管・廃棄(8.5.7)の項 | [ISO/IEC/IEEE 29119-3:2021 Software and systems engineering — Software testing — Part 3: Te](https://standards.iteh.ai/catalog/standards/iso/b4f42a41-dd8f-446c-9674-238ba5dc90f1/iso-iec-ieee-29119-3-2021) |
+| SRC-0692 | 2023-04-01 | corp-techblog | us/en | partial | TH12 | ISO 9001:2015 7.5.3 の解説(二次)。文書化した情報が必要なときに入手可能で、完全性の喪失から保護され、版の管理を含む変更の管理の対象であるこ | [Explaining ISO 9001 Clause 7.5.3 Control of Documented Information](https://blog.auditortrainingonline.com/blog/explaining-iso-9001-clause-7.5.3-control-of-documented-information) |
+| SRC-0693 | 2024-01-18 | individual | global/en | partial | TH12 | 継続的インテグレーションの解説(2024 年改訂)。リポジトリは製品のコード・試験・試験データ・設定を返すべきで、ビルドに要るものはソース管理に置くとする。#3 | [Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html) |
+| SRC-0694 | 2011-04-14 | individual | global/en | partial | TH12 | 非決定的な試験の扱い。システムの時計を包み、試験のために差し替えられるようにすること、隔離には件数か期間の上限を置くことを勧める。#319 は、時計を試験の側で | [Eradicating Non-Determinism in Tests](https://www.martinfowler.com/articles/nonDeterminism.html) |
+| SRC-0695 | ? | vendor-official | global/en | partial | TH12 | pytest の skip と xfail の公式の手引き。xfail は落ちると期待する試験で、strict にすると予期せず通った結果がスイートを落とす。r | [How to use skip and xfail to deal with tests that cannot succeed](https://pytest.org/skipping.html) |
+| SRC-0696 | ? | vendor-official | global/en | partial | TH12 | Jest のスナップショット試験の公式の手引き。スナップショットはコードの変更と一緒にコミットしてレビューし、CI では明示しない限り書き換えない。落ちた原因を | [Snapshot Testing](https://jestjs.io/docs/snapshot-testing) |
+| SRC-0697 | 2023-10-01 | paper-peer | jp/en | partial | TH12 | スナップショット試験の利用の実証研究(要旨のみ読んだ)。スナップショットの更新はコミットの約 8.2% で起き、他の変更と同時に起きることが多い。#319 は、 | [An Empirical Study on the Use of Snapshot Testing(ICSME 2023。研究室の紹介頁)](https://sdlab.naist.jp/en/post/fujita-icsme2023/) |
+| SRC-0698 | 2017-05-30 | community | global/en | partial | TH12 | Mozilla の試験の無効化の方針。無効化の前にバグを起票し、作者・レビュアー・所有者に応答を求める。#319 は、落ちることを期待する印に Issue を結 | [Sheriffing/Test Disabling Policy](https://wiki.mozilla.org/Sheriffing/Test_Disabling_Policy) |
+| SRC-0699 | ? | vendor-official | global/en | partial | TH12 | Node.js のテストランナーの文書。スナップショットのファイルを試験と一緒にソース管理へ入れることを最善の慣行とし、todo の試験は失敗しても終了コードに | [Node.js v24.22.0 Documentation: Test runner](https://nodejs.org/download/release/v24.22.0/docs/api/test.html) |
 

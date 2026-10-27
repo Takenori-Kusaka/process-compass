@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0695
+status: included
+excludeReason: null
+title: How to use skip and xfail to deal with tests that cannot succeed
+url: https://pytest.org/skipping.html
+canonicalUrl: https://pytest.org/skipping.html
+ids:
+  arxiv: null
+  doi: null
+publisher: pytest-dev
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-26
+access: open
+readLevel: section
+foundBy:
+  cluster: I319
+  query: "#319 外部調査 survey-319-2-external.md D1"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: pytest の skip と xfail の公式の手引き。xfail は落ちると期待する試験で、strict にすると予期せず通った結果がスイートを落とす。raises で期待する例外を限定すると、別の理由の失敗は通常の失敗になる。#319 は、落ちることを期待する印を厳格にする判断の材料として引いた。
+claims:
+  - id: c1
+    text: strict の xfail では、予期せず通った結果がスイートを失敗させる。
+    quote: ""
+    locator: strict parameter の節
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [319]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-26'
+  humanChecked: false
+  note: '#319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

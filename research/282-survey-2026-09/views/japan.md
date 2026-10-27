@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-region=jp のカード 137件を組織種別ごとに並べる。
+region=jp のカード 138件を組織種別ごとに並べる。
 
 ## enterprise(26)
 
@@ -112,7 +112,7 @@ region=jp のカード 137件を組織種別ごとに並べる。
 | SRC-0647 | 2025 | 日本産業標準調査会・日本規格協会 | 第1章 1.3 が引く JIS Q 42001:2025(ISO/IEC 42001:2023 に対応)。日本規格協会のプレビューの所在は検索で見つけたが、取得の時点でサイトが緊急の保守中で読めなかっ | TH12 | [JIS Q 42001:2025 情報技術―人工知能―マネジメントシステム — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_42001_000_000_2025_j_ed10_ch.pdf) |
 | SRC-0648 | 2015 | 日本産業標準調査会・日本規格協会 | 第1章 1.3 と附属書H H.10 が引く JIS Q 9001:2015(ISO 9001:2015 に対応)。日本規格協会のプレビューの所在は検索で見つけたが、取得の時点でサイトが緊急の保守中で | TH12 | [JIS Q 9001:2015 品質マネジメントシステム―要求事項 — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_09001_000_000_2015_j_ed30_ch.pdf) |
 
-## academic(4)
+## academic(5)
 
 | ID | 公開日 | 発表元 | 要約 | テーマ | 出典 |
 |---|---|---|---|---|---|
@@ -120,6 +120,7 @@ region=jp のカード 137件を組織種別ごとに並べる。
 | SRC-0270 | 2025-09-18 | arXiv / PROFES 2025 | 奈良先端科学技術大学院大学(NAIST)らによる242リポジトリ・253件のClaude.mdの構造と内容の分析(PROFES 2025 採録)。浅い見出し構造で、ビルド・実行手順と実装詳細・アーキテ | TH01 TH03 | [On the Use of Agentic Coding Manifests: An Empirical Study of Claude Code](https://arxiv.org/abs/2509.14744) |
 | SRC-0315 | 2026-04-13 | MSR '26 (ACM) / Waseda University, The University of Osaka, Ritsumeikan University ほか | 日本の大学群による MSR 2026 論文。AIDev の閉じたエージェント PR 11,048件(人のレビュー付き9,799件)から717件を手で読み、マージ/却下の理由を復元した。却下はエージェン | TH10 TH11 | [Why Are Agentic Pull Requests Merged or Rejected? An Empirical Study](https://arxiv.org/abs/2605.22534) |
 | SRC-0319 | 2026-09-03 | 情報処理学会 ソフトウェアエンジニアリングシンポジウム2026(SES2026)論文集 pp.160–169 | 九州大学の単著の実践論文。LLM 支援の仕様駆動開発で、生成物やレビュー所見をどの仕様階層・責務・承認状態へ帰属させるかという判断を「裁定負荷」と定義した。三役レビュー(主役・敵対役・判定役)の所見1 | TH08 TH06 TH01 | [LLM支援仕様駆動開発における裁定負荷の実践的分析](https://ipsj.ixsq.nii.ac.jp/records/2011758) |
+| SRC-0697 | 2023-10-01 | NAIST ソフトウェア設計学研究室 | スナップショット試験の利用の実証研究(要旨のみ読んだ)。スナップショットの更新はコミットの約 8.2% で起き、他の変更と同時に起きることが多い。#319 は、期待値の更新が機能変更と同じ差分に紛れる | TH12 | [An Empirical Study on the Use of Snapshot Testing(ICSME 2023。研究室の紹介頁)](https://sdlab.naist.jp/en/post/fujita-icsme2023/) |
 
 ## consultancy(4)
 

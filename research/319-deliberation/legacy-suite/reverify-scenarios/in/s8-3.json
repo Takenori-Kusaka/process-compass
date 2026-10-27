@@ -1,0 +1,1 @@
+{ "kind": "outage", "summary": "障害の間、別の提供者のモデルへ切り替えた", "outage": { "from": "2026-09-30", "to": "2026-09-30", "handling": "human", "switched": true } }

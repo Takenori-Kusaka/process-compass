@@ -1,0 +1,1 @@
+{ "kind": "mode", "date": "2026-10-22", "summary": "種別を広げる", "delegation": { "rules": [ { "id": "DR-001", "seat": "dev-verifier", "decidedBy": "佐藤 花子", "decidedAt": "2026-10-20", "reason": "既存のテストで検出でき、取り消しの実績がある", "changeType": "すべての変更", "paths": ["src/**"] } ] }, "decidedBy": "佐藤 花子", "reason": "範囲を改める", "ruleApprovedBy": "佐藤 花子" }

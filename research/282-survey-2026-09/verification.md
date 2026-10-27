@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-10-24): verified 634 / partial 45 / unreachable 2 / unverified 1
+集計(生成日 2026-10-27): verified 634 / partial 55 / unreachable 2 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -71,6 +71,16 @@
 | SRC-0687 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [Do code review measures explain the incidence of post-release defects?](https://arxiv.org/pdf/2005.09217) |
 | SRC-0688 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [SLSA Threats & mitigations(作業草案)](https://slsa.dev/spec/draft/threats) |
 | SRC-0689 | partial | agent-read | #318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない | [A Fresh Take on DO-178C Software Reviews](https://www.adacore.com/blog/a-fresh-take-on-do-178c-software-reviews) |
+| SRC-0690 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [NASA Software Engineering Handbook: SWE-081 Identify Software CM Items](https://swehb.nasa.gov/x/6IAIAw) |
+| SRC-0691 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [ISO/IEC/IEEE 29119-3:2021 Software and systems engineering — Software testing — Part 3: Te](https://standards.iteh.ai/catalog/standards/iso/b4f42a41-dd8f-446c-9674-238ba5dc90f1/iso-iec-ieee-29119-3-2021) |
+| SRC-0692 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [Explaining ISO 9001 Clause 7.5.3 Control of Documented Information](https://blog.auditortrainingonline.com/blog/explaining-iso-9001-clause-7.5.3-control-of-documented-information) |
+| SRC-0693 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html) |
+| SRC-0694 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [Eradicating Non-Determinism in Tests](https://www.martinfowler.com/articles/nonDeterminism.html) |
+| SRC-0695 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [How to use skip and xfail to deal with tests that cannot succeed](https://pytest.org/skipping.html) |
+| SRC-0696 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [Snapshot Testing](https://jestjs.io/docs/snapshot-testing) |
+| SRC-0697 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [An Empirical Study on the Use of Snapshot Testing(ICSME 2023。研究室の紹介頁)](https://sdlab.naist.jp/en/post/fujita-icsme2023/) |
+| SRC-0698 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [Sheriffing/Test Disabling Policy](https://wiki.mozilla.org/Sheriffing/Test_Disabling_Policy) |
+| SRC-0699 | partial | agent-read | #319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない | [Node.js v24.22.0 Documentation: Test runner](https://nodejs.org/download/release/v24.22.0/docs/api/test.html) |
 
 ### 除外した出典(却下は成果)
 

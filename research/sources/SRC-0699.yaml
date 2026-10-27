@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0699
+status: included
+excludeReason: null
+title: "Node.js v24.22.0 Documentation: Test runner"
+url: https://nodejs.org/download/release/v24.22.0/docs/api/test.html
+canonicalUrl: https://nodejs.org/download/release/v24.22.0/docs/api/test.html
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenJS Foundation
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: v24.22.0
+updated: null
+accessed: 2026-10-26
+access: open
+readLevel: section
+foundBy:
+  cluster: I319
+  query: "#319 外部調査 survey-319-2-external.md B3・D3"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: Node.js のテストランナーの文書。スナップショットのファイルを試験と一緒にソース管理へ入れることを最善の慣行とし、todo の試験は失敗しても終了コードに影響しないこと、expectFailure(v24.14.0〜)を説明する。#319 は、CI の Node 22 で expectFailure が使えないため、印を自前で実装する判断の材料として引いた。
+claims:
+  - id: c1
+    text: todo の試験は実行されるが、失敗として扱われず、終了コードに影響しない。
+    quote: ""
+    locator: TODO tests の節
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [319]
+    stance: context
+  - id: c2
+    text: expectFailure は v24.14.0 で追加された。印を付けた試験は、例外を投げたときに通り、投げなければ失敗する。
+    quote: ""
+    locator: expectFailure の節
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [319]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-26'
+  humanChecked: false
+  note: '#319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

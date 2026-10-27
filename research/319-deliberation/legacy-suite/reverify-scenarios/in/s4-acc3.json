@@ -1,0 +1,5 @@
+{ "kind": "accountable", "date": "2026-10-01", "summary": "3名の体制を記入する",
+  "people": [ { "id": "a", "name": "山田 太郎" }, { "id": "b", "name": "佐藤 花子" }, { "id": "c", "name": "鈴木 一郎" } ],
+  "seats": { "biz-approver": { "accountable": "a" }, "value-owner": { "accountable": "a" }, "context-owner": { "accountable": "a" }, "ai-ops": { "accountable": "a" },
+    "tech-lead": { "accountable": "b" }, "dev-verifier": { "accountable": "b", "performer": { "model": "claude-fable-5-1", "instructions": "CLAUDE.md v1", "permissions": "dev-token" }, "fallback": "human" }, "ai-maintainer": { "accountable": "b" },
+    "independent-reviewer": { "accountable": "c" }, "qa-gatekeeper": { "accountable": "c" } } }

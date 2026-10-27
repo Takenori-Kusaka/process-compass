@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+// 回帰の試験の gh の代役(#319 裁定 R-1.2)。PATH の先頭に置き、GitHub へ問い合わせない。
+// 元の 2 つの模擬を 1 つにまとめた(research/319-deliberation/legacy-suite/ の fix288-tpl2/fakebin/gh と suite/mockgh-prs.mjs)。
+//   - MOCK_PRS がある: mockgh-prs.mjs と同じ。gh pr view <n> は $MOCK_PRS/<n>.json を返し、無ければ失敗する。ほかは [] を返す
+//   - MOCK_PRS が無い: fakebin/gh と同じ。run list は $FAKE_RUN_ID、run download は evidence/license-scan.json を書く。ほかは何も出さない
+// 呼び出しは REGRESS_GH_LOG(走らせる側の確認)・GH_LOG・MOCK_GH_LOG へ 1 行ずつ記録する。
+import fs from 'node:fs';
+import path from 'node:path';
+
+const args = process.argv.slice(2);
+const line = `gh ${args.join(' ')}\n`;
+for (const log of [process.env.REGRESS_GH_LOG, process.env.GH_LOG, process.env.MOCK_GH_LOG]) if (log) fs.appendFileSync(log, line);
+
+if (args[0] === '--regress-probe') {
+  process.stdout.write('regress-gh\n');
+  process.exit(0);
+}
+if (process.env.MOCK_PRS) {
+  if (args[0] === 'pr' && args[1] === 'view') {
+    const f = path.join(process.env.MOCK_PRS, `${args[2]}.json`);
+    if (fs.existsSync(f)) {
+      process.stdout.write(fs.readFileSync(f, 'utf8'));
+      process.exit(0);
+    }
+    process.stderr.write(`no pull requests found for ${args[2]}`);
+    process.exit(1);
+  }
+  process.stdout.write('[]');
+  process.exit(0);
+}
+if (args[0] === 'run' && args[1] === 'list') {
+  if (process.env.FAKE_RUN_ID) process.stdout.write(`${process.env.FAKE_RUN_ID}\n`);
+  process.exit(0);
+}
+if (args[0] === 'run' && args[1] === 'download') {
+  fs.mkdirSync('evidence', { recursive: true });
+  fs.writeFileSync('evidence/license-scan.json', '{ "scanRun": true, "result": "success", "scannedAt": "2026-10-01T00:00:00Z" }\n');
+  process.exit(0);
+}
+process.exit(0);

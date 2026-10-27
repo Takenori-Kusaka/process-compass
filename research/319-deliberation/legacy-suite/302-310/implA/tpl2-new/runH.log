@@ -1,0 +1,13 @@
+v3 exit 0
+v3b exit 0
+scenarios exit 1
+new exit 0
+replay exit 1
+tz exit 0
+acquire exit 0
+matrix exit 0
+unit exit 0
+stages exit 0
+test-check-delegation exit 0
+test-check-pr exit 0
+test-init-g5 exit 0

@@ -1,0 +1,1 @@
+{ "kind": "axis", "summary": "区分を下げる", "answers": { "q-criticality": "cl0" }, "decidedBy": "山田 太郎", "reason": "物理削除を取り消し可能な方式へ変えた(ADR-012)" }

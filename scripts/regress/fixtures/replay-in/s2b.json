@@ -1,0 +1,1 @@
+{ "kind": "accountable", "date": "2026-10-10", "summary": "2人目が加わり、独立レビュアの席を任せる(回答は変えない)", "people": [ { "id": "p1", "name": "山田 太郎" }, { "id": "p2", "name": "佐藤 花子" } ], "seats": { "independent-reviewer": { "accountable": "佐藤 花子" } } }

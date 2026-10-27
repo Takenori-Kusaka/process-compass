@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0696
+status: included
+excludeReason: null
+title: Snapshot Testing
+url: https://jestjs.io/docs/snapshot-testing
+canonicalUrl: https://jestjs.io/docs/snapshot-testing
+ids:
+  arxiv: null
+  doi: null
+publisher: Jest(Meta / OpenJS)
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-26
+access: open
+readLevel: section
+foundBy:
+  cluster: I319
+  query: "#319 外部調査 survey-319-2-external.md B2"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: Jest のスナップショット試験の公式の手引き。スナップショットはコードの変更と一緒にコミットしてレビューし、CI では明示しない限り書き換えない。落ちた原因を調べずに再生成する習慣を戒める。#319 は、期待値をコミットして人が差分で確かめ、自動で書き換えない判断の材料として引いた。
+claims:
+  - id: c1
+    text: スナップショットはコードの変更と一緒にコミットし、コードレビューの一部としてレビューするとしている。
+    quote: ""
+    locator: Snapshot Testing with Jest の節
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [319]
+    stance: supports
+  - id: c2
+    text: CI では、明示しない限りスナップショットを書き込まない。
+    quote: ""
+    locator: Best Practices の節
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [319]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-26'
+  humanChecked: false
+  note: '#319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0692
+status: included
+excludeReason: null
+title: Explaining ISO 9001 Clause 7.5.3 Control of Documented Information
+url: https://blog.auditortrainingonline.com/blog/explaining-iso-9001-clause-7.5.3-control-of-documented-information
+canonicalUrl: https://blog.auditortrainingonline.com/blog/explaining-iso-9001-clause-7.5.3-control-of-documented-information
+ids:
+  arxiv: null
+  doi: null
+publisher: Auditor Training Online
+authors: [J. Stapleton]
+orgType: consultancy
+region: us
+lang: en
+sourceType: corp-techblog
+published: 2023-04-01
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-10-26
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I319
+  query: "#319 外部調査 survey-319-2-external.md A6"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: ISO 9001:2015 7.5.3 の解説(二次)。文書化した情報が必要なときに入手可能で、完全性の喪失から保護され、版の管理を含む変更の管理の対象であることを求める。#319 は、利用者の端末にだけある試験が保護と変更の管理を欠く状態に当たることの材料として引いた。
+claims:
+  - id: c1
+    text: 7.5.3 は、文書化した情報が必要なときに入手可能であり、完全性の喪失から保護されることを求めると解説されている。
+    quote: ""
+    locator: 7.5.3.1 の解説
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [319]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-26'
+  humanChecked: false
+  note: '#319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

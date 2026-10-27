@@ -1,0 +1,1 @@
+{ "kind": "mode", "date": "2026-10-21", "summary": "承認", "seats": { "dev-verifier": { "mode": "delegated" } }, "ruleApprovedBy": "山田 太郎", "decidedBy": "佐藤 花子", "reason": "定型の変更を先へ進めたい" }

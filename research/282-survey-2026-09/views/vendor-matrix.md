@@ -309,6 +309,10 @@
 
 - [SRC-0083] 2026-08 [Manage Fin AI Agent's escalation guidance and rules](https://fin.ai/help/en/articles/13976161-manage-fin-ai-agent-s-escalation-guidance-and-rules) — Intercom の Fin(サポート AI エージェント)公式ヘルプ(「Updated over 3 weeks ago」表示、2026-09-23 取得)。
 
+### Jest(Meta / OpenJS)(1)
+
+- [SRC-0696] ? [Snapshot Testing](https://jestjs.io/docs/snapshot-testing) — Jest のスナップショット試験の公式の手引き。スナップショットはコードの変更と一緒にコミットしてレビューし、CI では明示しない限り書き換えない。落ちた原因を
+
 ### Kiro (AWS)(4)
 
 - [SRC-0223] 2026-08-04 [Quick Spec (Kiro docs)](https://kiro.dev/docs/specs/quick-spec) — Kiro の Quick Spec 公式文書(ページ記載は更新日 2026-08-04)。要件・設計・タスクを承認ゲートなしで一括生成するモードで、要件の品質が
@@ -378,6 +382,10 @@
 
 - [SRC-0656] 2025-04 [Bulk Suppressions - ESLint](https://eslint.org/docs/latest/use/suppressions) — ESLint の一括の抑制。既存の違反を抑制のファイルに記録してコミットし、新しい違反だけを報告する。直した違反の記録が残ると失敗する。#315 で、既存の違反
 
+### OpenJS Foundation(1)
+
+- [SRC-0699] ? [Node.js v24.22.0 Documentation: Test runner](https://nodejs.org/download/release/v24.22.0/docs/api/test.html) — Node.js のテストランナーの文書。スナップショットのファイルを試験と一緒にソース管理へ入れることを最善の慣行とし、todo の試験は失敗しても終了コードに
+
 ### Quarto (Posit)(1)
 
 - [SRC-0557] 2026-06 [Conditional Content – Quarto](https://quarto.org/docs/authoring/conditional.html) — 1つの原稿から HTML・PDF・スライド(revealjs)などを生成する Quarto の公式文書。出力形式やプロファイルごとに表示する内容を出し分けられる
@@ -414,6 +422,10 @@
 - [SRC-0035] 2026-04-09 [A2A Protocol Surpasses 150 Organizations, Lands in Major Cloud Platforms, and Sees Enterpr](https://www.linuxfoundation.org/press/a2a-protocol-surpasses-150-organizations-lands-in-major-cloud-platforms-and-sees-enterprise-production-use-in-first-year) — Linux Foundation の A2A 1 周年プレスリリース。v1.0 を「最初の安定仕様」と位置づけ、150 超の支持組織、Azure AI Foun
 - [SRC-0038] 2025-12-09 [Linux Foundation Announces the Formation of the Agentic AI Foundation (AAIF), Anchored by ](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) — AAIF 設立の一次プレスリリース。設立日 2025-12-09、創設寄贈 3 プロジェクト(MCP / goose / AGENTS.md)、Platinum
 - [SRC-0039] 2026-02-24 [Agentic AI Foundation Welcomes 97 New Members As Demand for Open, Collaborative Agent Stan](https://www.linuxfoundation.org/press/agentic-ai-foundation-welcomes-97-new-members) — AAIF 設立後 2.5 か月で会員が 146 になったことを示す LF プレスリリース。curl で冒頭段落のみ確認。
+
+### pytest-dev(1)
+
+- [SRC-0695] ? [How to use skip and xfail to deal with tests that cannot succeed](https://pytest.org/skipping.html) — pytest の skip と xfail の公式の手引き。xfail は落ちると期待する試験で、strict にすると予期せず通った結果がスイートを落とす。r
 
 ### オーエムネットワーク株式会社(PR TIMES)(1)
 

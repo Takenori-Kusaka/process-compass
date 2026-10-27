@@ -25,6 +25,9 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
+    # 止まった実行を打ち切る(#319 裁定 R-6)。検査の量の上限ではない。回帰の試験(sweep を含む)とテンプレートの試験を含めて、
+    # 4 CPU でおよそ 10〜15 分で終わる。打ち切りは失敗であり、公開と配布は走らない
+    timeout-minutes: 60
     steps:
       # npm run check は準拠テンプレート(submodule template/)の複製・スキルの文・様式の欄を検査する。
       # template が無ければ検査は失敗する(Issue #293 裁定 J-3)。

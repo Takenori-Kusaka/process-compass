@@ -93,6 +93,7 @@ graph LR
 | 防ぎたいこと | 止めているもの |
 | --- | --- |
 | 検査に落ちた版の公開・配布 | `needs: check`。結線は `check-ci-wiring.mjs` が確かめる(公開・配布のジョブの `if` に `always()` などの状態の関数と `\|\|` を置かない) |
+| 決定を固定する試験を流さずに公開・配布する | `npm run check` が、回帰の試験(`scripts/regress/`。sweep を含む)とテンプレートの試験(`gate-g5.yml` のジョブ `contract` と一覧を共有)を流す。`check-ci-wiring.mjs` が、`check` への結線、失敗を握りつぶす形の不在、ジョブ `check` の `timeout-minutes`、回帰の試験の作業の場所が作業ツリーの外であることを確かめる(#319 / [ADR-0089](/process-compass/adr/0089-regression-suite-under-version-control/)) |
 | 検査したものと別の生成物の公開 | `check` が作った `dist/` をそのまま配る。2回目のビルドをしない |
 | `main` 以外からの配布 | Environment `dist-standard` の配備のブランチの限定(`main` だけ)。ジョブ `publish` を `main` 以外で走らせない。ジョブ先頭の起動元の確認(事故の歯止め)。**別のブランチに置いたワークフローは止めない**(後掲「止まらない経路」) |
 | 配布の資格情報の漏えい・使い回し | 長期の鍵を作らない。書き込みは、ジョブ `publish` にだけ `contents: write` を付けた `GITHUB_TOKEN` で行い、トークンはジョブの終了で失効する。`ci.yml` の他のジョブと最上位は読み取りだけ(`check-ci-wiring.mjs` が確かめる) |

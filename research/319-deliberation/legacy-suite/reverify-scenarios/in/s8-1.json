@@ -1,0 +1,1 @@
+{ "kind": "outage", "summary": "提供者の障害で AI が使えなかった", "outage": { "from": "2026-09-29", "to": "2026-09-30", "handling": "human" } }

@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0694
+status: included
+excludeReason: null
+title: Eradicating Non-Determinism in Tests
+url: https://www.martinfowler.com/articles/nonDeterminism.html
+canonicalUrl: https://martinfowler.com/articles/nondeterminism.html
+ids:
+  arxiv: null
+  doi: null
+publisher: martinfowler.com
+authors: [Martin Fowler]
+orgType: individual
+region: global
+lang: en
+sourceType: individual
+published: 2011-04-14
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-10-26
+access: open
+readLevel: section
+foundBy:
+  cluster: I319
+  query: "#319 外部調査 survey-319-2-external.md C1・C4"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: 非決定的な試験の扱い。システムの時計を包み、試験のために差し替えられるようにすること、隔離には件数か期間の上限を置くことを勧める。#319 は、時計を試験の側で止める判断と、印の扱いの材料として引いた。
+claims:
+  - id: c1
+    text: システムの時計を包み、試験のために差し替えられるようにすることを勧めている。
+    quote: ""
+    locator: Time の節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [319]
+    stance: supports
+  - id: c2
+    text: 隔離は有効だが、件数か期間の上限を置くことを勧めている。
+    quote: ""
+    locator: Quarantine の節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [319]
+    stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-26'
+  humanChecked: false
+  note: '#319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

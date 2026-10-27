@@ -1,0 +1,1808 @@
+script	scene	legacy_p302	port_p302	port_pre311	port_cur	port_cur_adapted	fixes
+v3	初期化	ok	ok	ok	FAIL	ok	#284 #285 K60 K65
+v3	K65 初期化の記録の date は日付だけ(時刻は at)	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K65 D-0 が無いまま変化点を適用しない → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 4名の初回の記入(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 4名の初回の記入(決定者の席に記入しない人=佐藤の記名) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 4名の初回の記入(事業決裁者の席に記入する山田の記名と理由。1回の変化点) → 反映	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 4名: 記録は1件、向きは任免の決定、決定者は山田	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 4名: 全検査	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 初回の後の席の変更は、変更前の決定者(山田)の記名で通る → 反映	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	同(新任に替えた席の人の記名は不可) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	名簿を置く(席の記入なし。記名は要らない)	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 全席未記入から、記名なしで席を埋める → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 組織上の任命権者の記名で席を埋める → 反映	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 記録: 向き appoint・決定者・任命権者の印	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K60 D-0 の改訂履歴に「組織上の任命権者の記名で行った」	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K65/J D-0 の承認者は承認権限者(事業決裁者の席の責任者)、承認日は変化点の日付、最後の変化点の決定者は任命権者	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	契約検査	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	D-0 の検査	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	CLAUDE.md の検査	ok	ok	ok	-	ok	#284 #285 K60 K65
+v3	K65 CLAUDE.md に「不可逆4操作」が残っていない	ok	ok	FAIL	-	FAIL	#284 #285 K60 K65
+v3	tx-1 事業決裁者を田中へ(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	tx-1b 同(田中本人の記名) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	tx-2 田中の記名で PoC へ戻す(任命は通っていない) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	tx-4 独立レビュアを高橋へ、出荷判定者を田中へ(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	tx-4 同(前任の決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	K51 出荷判定者の交代は即時通知の対象。前任者(鈴木)へも通知する	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	K65 差分と通知は氏名で出る(名簿の id を出さない)	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	通知を記録(to は新任の出荷判定者) → 反映	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	D-0 の改訂履歴に前任者への通知が出る	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	契約検査(tx-4 の後)	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	tx-1c 前任の決定者(山田)の記名で事業決裁者を田中へ → 反映	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	以後、田中は決定者として緩める向きを決定できる → 反映	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	事業決裁者(山田)が離脱(席は空く。記名なし) → 反映	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	決定者の席が空いた後、新任者の記名で自分を任命 → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	任命権者の記名で任命 → 反映	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	任命権者の記名の印	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	任命権者を席の責任者にしない → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K51 K65
+v3	決定者が残っている間、任命権者を名簿へ足すのは決定者の記名を要する → 拒否	ok	FAIL	FAIL	-	FAIL	#284 #285 K60 K51 K65
+v3	K50 3名以上で出荷判定者を事業決裁者(山田)へ → 拒否	ok	ok	ok	-	ok	#284 #285 K50
+v3	K55 登録の根拠(basis)の無い変更種別 → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K65 K12
+v3	K55 basis の一部が空 → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K65 K12
+v3	K65 登録日が暦に無い(2026-02-31) → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K65 K12
+v3	K55 basis つきで登録(B-4 の既定。案内が出る) → 反映	ok	ok	ok	-	ok	#284 #285 K55 K65 K12
+v3	開発者の席を委任(佐藤) → 反映	ok	ok	ok	-	ok	#284 #285 K55 K65 K12
+v3	s5: 開発者の席は委任	ok	ok	ok	-	ok	#284 #285 K55 K65 K12
+v3	契約検査(s5)	ok	ok	ok	-	ok	#284 #285 K55 K65 K12
+v3	D-0 の検査(s5)	ok	ok	ok	-	ok	#284 #285 K55 K65 K12
+v3	t7b-4 AI維持管理者を田中へ(前任の決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K61
+v3	K61 規則は承認待ち(前任の承認を記録として残す)	ok	ok	ok	-	ok	#284 #285 K61
+v3	K61 席は協働。委任の宣言を保持	ok	ok	ok	-	ok	#284 #285 K61
+v3	契約検査(承認待ち)	ok	ok	ok	-	ok	#284 #285 K61
+v3	t7b-6 新任の AI維持管理者が ruleApprovedBy だけで承認し直す(規則を消さない) → 反映	ok	ok	ok	-	ok	#284 #285 K61
+v3	K61 委任へ戻る。向き loosen、決定者は宣言時の者(佐藤)	ok	ok	ok	-	ok	#284 #285 K61
+v3	契約検査(承認し直し)	ok	ok	ok	-	ok	#284 #285 K61
+v3	D-0 の検査(承認し直し)	ok	ok	ok	-	ok	#284 #285 K61
+v3	交代と承認し直しを1つの入力で(t7c 相当) → 反映	ok	ok	ok	-	ok	#284 #285 K61
+v3	同: 委任のまま	ok	ok	ok	-	ok	#284 #285 K61
+v3	t7b-3 佐藤が離脱し、同じ入力で後任を置く(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	t7b-3a 離脱だけ(記名なし) → 反映	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	t7b-3b 後任を任命(決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	t7b-2 旧い例(承認し直しだけ)は、規則の記名が前任のまま → 拒否文に takeover の案内 → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	K61 引き継ぎを1つの入力で(takeover + 新任の AI維持管理者の承認) → 反映	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	K61 規則の記名が高橋へ、前任の記名を残す。承認は田中	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	K61 実施者(佐藤)が名簿に無くても、適合性確認の記録は有効。承認者は高橋	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	契約検査(引き継ぎ後)	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	D-0 の検査(引き継ぎ後)	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	takeover の記名が席の責任者でない → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K61
+v3	t5-5b 範囲を広げる(承認なし) → 反映	ok	ok	ok	-	ok	#284 #285 K61 K12
+v3	K61 承認済みの範囲は有効なまま。席は委任のまま。広げた部分は pendingChange	ok	ok	ok	-	ok	#284 #285 K61 K12
+v3	契約検査(拡大を保持)	ok	ok	ok	-	ok	#284 #285 K61 K12
+v3	D-0 の検査(拡大を保持)	ok	ok	ok	-	ok	#284 #285 K61 K12
+v3	承認で拡大を反映(承認だけの変化点) → 反映	ok	ok	ok	-	ok	#284 #285 K61 K12
+v3	K65 承認だけの変化点で委任が広がる → 向き loosen、決定者は宣言した者	ok	ok	ok	-	ok	#284 #285 K61 K12 K65
+v3	t5-13 確約範囲の内側を指す規則 → 警告 → 反映	ok	ok	ok	-	ok	#284 #285 K65
+v3	t5-25 強制層を指す規則 → 警告 → 反映	ok	ok	ok	-	ok	#284 #285 K65
+v3	t7-4-yamada 条件4 を事業決裁者が記名 → 協働へ下がる	ok	ok	ok	-	ok	#284 #285 K65
+v3	t7-4-future 確認日が発効日より後 → 拒否	ok	ok	ok	-	ok	#284 #285 K65
+v3	td-2 存在しない日付 → 拒否	ok	ok	ok	-	ok	#284 #285 K65 K15
+v3	td-3 最後の記録より前の日付 → 拒否	ok	ok	ok	-	ok	#284 #285 K65 K15
+v3	td-4 未来の日付 → 拒否	ok	ok	ok	-	ok	#284 #285 K65 K15
+v3	通知の対象の変化点(運用形態の変更)を通知なしで適用 → 反映	ok	ok	ok	-	ok	#284 #285 K65 K15
+v3	td-5 通知日が変化点より前 → 拒否	ok	ok	ok	-	ok	#284 #285 K65 K15
+v3	td-5b 通知日が未来 → 拒否	ok	ok	ok	-	ok	#284 #285 K65 K15
+v3	growth へ進める → 反映	ok	ok	ok	-	ok	#284 #285 K65
+v3	t10-5 sgRecord が README(docs/gates/ の外) → 拒否	ok	ok	ok	-	ok	#284 #285 K65
+v3	sgRecord が docs/gates/ の判定記録 → 反映	ok	ok	ok	-	ok	#284 #285 K65
+v3	s15b D-0 の版を手で下げた状態で変化点 → 拒否	ok	ok	ok	-	ok	#284 #285 K65 K42
+v3	s15b d0Version で版を下げる → 拒否	ok	ok	ok	-	ok	#284 #285 K65 K42
+v3	s15b D-0 を消したまま変化点 → 拒否	ok	ok	ok	-	ok	#284 #285 K65 K42
+v3	厳しくする向きの変化点(決定を要しない)で版が上がる → 反映	ok	ok	ok	-	ok	#284 #285 K65 K42
+v3	K65/J 決定を要しない変化点では、最後の変化点の決定者の欄にその旨(承認者は承認権限者のまま)	ok	ok	ok	-	ok	#284 #285 K65 K42
+v3	D-0 の検査(承認者の欄を生成)	ok	ok	ok	-	ok	#284 #285 K65 K42
+v3	qaNotice を定める(厳しくする向き。記名なし) → 反映	ok	ok	ok	-	ok	#284 #285 K51 K60
+v3	運用形態の変更(通知の入力あり) → 反映	ok	ok	ok	-	ok	#284 #285 K51 K60
+v3	K51 部門の通知先が also に入る	ok	ok	ok	-	ok	#284 #285 K51 K60
+v3	qaNotice に空文字 → 拒否	ok	ok	ok	-	ok	#284 #285 K51 K60
+v3	K60 決定者の席を変える(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K51 K60
+v3	独立レビュアの席を委任し、開発者の席を協働へ戻す(s13c 相当) → 反映	ok	ok	ok	-	ok	#284 #285 K63
+v3	K63 --delegation: 開発者の席の規則に当たらない変更は「開発者の席は協働。検証は人」と出し、「人の記入を要求しません」と出さない	ok	ok	ok	-	ok	#284 #285 K63
+v3	K63 --delegation: 開発者の席の規則に当たる変更は、担い手が検証欄を書くと出す	ok	ok	ok	-	ok	#284 #285 K63
+v3	契約検査(最後に s5)	ok	ok	ok	-	ok	#284 #285 K63
+v3b	初期化(1人)	ok	ok	ok	FAIL	ok	#284 #285 K3 K37 K62
+v3b	K60 1人体制の初回の記入(記名なし) → 拒否	ok	ok	ok	FAIL	ok	#284 #285 K3 K37 K62 K60
+v3b	K60 1人体制の初回の記入(本人の記名と理由) → 反映	ok	ok	ok	FAIL	ok	#284 #285 K3 K37 K62 K60
+v3b	K50 1人体制: 出荷判定者 × 事業決裁者は逸脱として記録	ok	ok	ok	-	ok	#284 #285 K3 K37 K62 K50
+v3b	契約検査(1人)	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	D-0 の検査(1人)	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	t1-solo-delegate 反映 → 反映	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	K51 通知する者と通知先が同一 → 自動で記録(self)	ok	ok	ok	-	ok	#284 #285 K3 K37 K62 K51
+v3b	K51 未記録の即時通知は無い	ok	ok	ok	-	ok	#284 #285 K3 K37 K62 K51
+v3b	D-0 の改訂履歴に「通知する者と通知先が同一」	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	qaNotice を定める → 反映	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	1人 + 部門の通知先: 運用形態の変更(通知日なし) → 反映	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	K51 部門の通知先を定めていれば、自分への通知を省いても部門へ送った日が要る(未記録)	ok	ok	ok	-	ok	#284 #285 K3 K37 K62 K51
+v3b	b3 回答 reviewer-no のまま、外部の確認者を独立レビュアの席へ → 拒否	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	b3 手で外部の確認者を書いた構成 → 契約検査が矛盾と連鎖の不一致を出す	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	K62 configIntegrityProblems が矛盾と書き換えを返す(集約が呼ぶ)	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	b6 手での書き換え → configIntegrityProblems が検出	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	K62 整合した構成では configIntegrityProblems は空	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	K62 push の直前のコミット(HEAD~1)と比べる契約検査が書き換えを検出	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	K62 gate-g5.yml が既定ブランチへの push で契約検査を実行し、直前のコミットと比べる	ok	ok	ok	-	ok	#284 #285 K3 K37 K62
+v3b	2人目が加わる(相互の確認。決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K3 K51 K50
+v3b	2名で G-6 が成立	ok	ok	ok	-	ok	#284 #285 K3 K51 K50
+v3b	2名のまま G-6 を未達へ(決定) → 反映	ok	ok	ok	-	ok	#284 #285 K3 K51 K50
+v3b	K51 事象5: G-6 が成立から未達へ → 即時通知の対象	ok	ok	ok	-	ok	#284 #285 K3 K51 K50
+v3b	出荷判定者を佐藤へ(決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K3 K51 K50
+v3b	K51 事象6: 前任者(山田)は通知する者でもあり、新任(佐藤)とは別人 → 自動では記録しない	ok	ok	ok	-	ok	#284 #285 K3 K51 K50
+v3b	佐藤が離脱(出荷判定者の席が空く。記名なし) → 反映	ok	ok	ok	-	ok	#284 #285 K3 K51 K50
+v3b	K51 前任者が離脱 → 通知先は D-0 表1 の決定者(山田)。通知する者(文脈オーナー=山田)と同一 → 自動で記録	ok	ok	ok	-	ok	#284 #285 K3 K51 K50
+v3b	K50 2名: 出荷判定者 × 事業決裁者(山田)は逸脱として記録され続ける	ok	ok	ok	-	ok	#284 #285 K3 K51 K50
+scenarios	初期化(3名・MVP・CL0)	ok	ok	ok	FAIL	ok	#284 #285 K60
+scenarios	契約検査(初期化の直後)	ok	ok	ok	ok	ok	#284 #285 K60
+scenarios	初期化の記録が要約値を持つ	ok	ok	ok	-	ok	#284 #285 K60
+scenarios	名簿と全席の責任者を記入(初回の記入。山田の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K60
+scenarios	契約検査(記入後)	ok	ok	ok	-	ok	#284 #285 K60
+scenarios	D-0 の検査(生成区間が構成と一致)	ok	ok	ok	-	ok	#284 #285 K60
+scenarios	D-0 の節1 に責任者と名簿が出る	ok	ok	ok	-	ok	#284 #285 K60
+scenarios	D-0 の版は、D-0 の作成直後の変化点(初回の記入。1回)では上げない(最初の追随)	ok	ok	ok	-	ok	#284 #285 K60
+scenarios	責任者に AI の名義 → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	責任者に名簿に無い名義 → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	名簿へ AI の名義を足す → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	名簿へ全角の AI の名義を足す(正規化) → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	名簿へ片仮名の読みの名義を足す → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	責任者に担い手の識別と同じ文字列 → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	緩める向きの決定者に AI の名義 → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	適合性確認の承認者に AI の名義 → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	拒否のあと、構成は変わっていない	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	全域の委任(**) → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	ルート直下全体の委任(*) → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	変更種別のない規則 → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	標準変更カタログに登録していない変更種別の規則 → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	決定者が席の責任者でも事業決裁者でもない → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	出荷判定者を委任に → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	事業決裁者を協働に → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	AI維持管理者 × AI運用担当者の兼務(3名以上) → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	全域の規則だけを先に登録する(席は委任にしない) → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	AI の名義を決定者にした規則だけを登録する → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	任意の文字列の変更種別の規則 → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	変更種別の登録者に AI の名義 → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	変更種別の登録者が名簿に無い → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	拒否のあと、構成は変わっていない(2)	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	適合性確認の実施者が AI維持管理者の席の責任者でない → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	適合性確認の承認者が当該の席の責任者でない → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	適合性確認の実施者が名簿に無い → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	委任(記名なし)の dry-run は [要記名] を出す	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	委任(記名なし)の本実行 → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	委任(席の責任者が記名。規則の承認なし) → 反映	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	担い手を初めて宣言する変化点は、即時通知の対象にしない	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	承認待ちのあいだ、席は協働のまま	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	変更種別の登録が残る	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	契約検査(承認待ち)	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	D-0 の検査(承認待ち)	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	規則の承認者が AI維持管理者の席の責任者でない → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	規則の承認者に AI の名義 → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	承認待ちのあいだ、宣言と決定者を保持する	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	D-0 の節12 に、宣言済み・承認待ちと出る	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	規則の承認だけの変化点で、委任が有効になる(再宣言を要求しない) → 反映	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	席は委任。宣言した時点の決定者と理由が記録に残る	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	samePersonAsDecider は、規則を決定した者と比べる	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	通知先と通知日が記録される	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	契約検査(委任後)	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	CLAUDE.md の構成依存部分	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	D-0 の検査(委任後)	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	席が委任になった	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	D-0 の節12 に委任の範囲が出る	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	D-0 の版が上がっている	ok	ok	ok	-	ok	#284 #285 K12 K13 K32 K40
+scenarios	委任の範囲を狭める(記名なし・即時) → 反映	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	向きは「厳しくする」	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	狭めた規則は承認を引き継ぎ、委任のまま	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	範囲を広げる(決定の記名あり・規則の承認なし) → 反映	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	広げた部分だけが承認待ち。承認済みの範囲(ja)は有効で、席は委任のまま	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	委任の範囲を広げる(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	広げた部分の承認だけで、拡大が反映される → 反映	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	拡大が反映され、向きは緩める(決定者は拡大を宣言した者)	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	未承認の規則を足す → 反映	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	席は委任のまま。足した規則だけが承認待ち	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	契約検査は通し、承認待ちの規則を注意で出す	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	D-0 の検査(未承認の規則を足した後)	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	該当の判定: 承認済みの規則の範囲は該当、未承認の規則の範囲は該当しない	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	足した規則を承認する → 反映	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	承認後は両方の規則が有効	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	確約範囲・コア指定のパスは、宣言するまで構成にキーが無い(未宣言)	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	--delegation: 確約範囲・コア指定が未宣言の構成では該当しない(トレーラを書かせない)	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	確約範囲・コア指定のパスを宣言する(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	同(事業決裁者でない者の記名) → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	同(事業決裁者の席の責任者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	宣言後は空の配列を持つ	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	--delegation: 宣言後は該当。開発者の席だけの委任は、独立レビュアの事前の承認でマージする、と出る	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	--delegation: 規則の対象外のファイルを含む変更は該当しない	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	確約範囲・コア指定のパスを足す(厳しくする向き・記名なし) → 反映	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	確約範囲・コア指定のパスを外す(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K12 K61
+scenarios	独立レビュアの席を委任(席の責任者が記名) → 反映	ok	ok	ok	-	ok	#284 #285 K13
+scenarios	samePersonAsDecider は偽(決定者は佐藤、承認者は山田)	ok	ok	ok	-	ok	#284 #285 K13
+scenarios	契約検査(両席の委任)	ok	ok	ok	-	ok	#284 #285 K13
+scenarios	独立レビュアの席を協働へ戻す(記名なし・即時) → 反映	ok	ok	ok	-	ok	#284 #285 K13
+scenarios	安全重要度 CL0 → CL1(記名なし・即時) → 反映	ok	ok	ok	-	ok	#284 #285 K5
+scenarios	委任が協働へ下がった	ok	ok	ok	-	ok	#284 #285 K5
+scenarios	契約検査(CL1)	ok	ok	ok	-	ok	#284 #285 K5
+scenarios	D-0 の検査(CL1)	ok	ok	ok	-	ok	#284 #285 K5
+scenarios	AI が使えない期間(人へ戻した) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	構成は変わらず changeLog に残る	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	D-0 の版は上げない(構成の変更なし)	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	AI が使えない期間(一時的に切り替えた) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	切り替えの間、委任を協働へ下げる	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	outage で構成を変える入力 → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	outage の扱いが不正 → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	outage の期間が逆 → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	契約検査(outage 後)	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	D-0 の改訂履歴に期間が出る	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	開始だけを記録した期間は「継続中」と出る	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	継続中でない記録を閉じる → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	終了日が開始日より前 → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	閉じる入力に終了日が無い → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	継続中の期間を後から閉じる → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	開始の記録は書き換えず、終了日を持つ記録が足される	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	閉じた後は「継続中」と出ない。契約検査と D-0 の検査が通る	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	outagePeriods は、閉じた期間を1件として返す	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	閉じた期間をもう一度閉じる → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K15
+scenarios	納期だけの変更 → 反映	ok	ok	ok	-	ok	#284 #285 K5
+scenarios	「構成の変更なし」が記録される	ok	ok	ok	-	ok	#284 #285 K5
+scenarios	納期だけの変更で構成を変える → 拒否	ok	ok	ok	-	ok	#284 #285 K5
+scenarios	再生成(構成を変えない)は通り、構成は1バイトも変わらない	ok	ok	ok	-	ok	#284 #285 K37
+scenarios	再生成で D-0 の版を進めない	ok	ok	ok	-	ok	#284 #285 K37
+scenarios	D-0 の検査は版のずれを検出する	ok	ok	ok	-	ok	#284 #285 K37
+scenarios	3名 → 2名(記名なし・即時) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	向きは「未達・逸脱の発生」	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	空いた席へ後任を置く(決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	K50 2名: 出荷判定者 × 事業決裁者(山田)は逸脱として記録	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60 K50
+scenarios	G-6 は相互の確認で成立したまま	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	即時通知の対象(人数の境界の通過・出荷判定者の交代)。通知する者と通知先が同一として自動で記録	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	契約検査(2名)は通し、未記入の通知は無い	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	D-0 の検査(2名)	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	D-0 の版が上がり、改訂履歴に「決定なし(発生)」が出る	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	承認権限の一時制限の発動を記録する(通知は未記入) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	一時制限の発動が、未記入の通知として残る	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	通知先が出荷判定者の席の責任者でない → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	通知の対象でない記録を指す → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	通知を後から記録する(種別 notice) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	過去の記録は変わらず、未記入の通知が無くなる	FAIL	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	2名 → 1名(記名なし・即時) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	G-6 が未達になり、承認の強制が外れる	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	AI維持管理者 × AI運用担当者は逸脱として記録	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	代償措置(ci-strict)に合わせて、較正していないカバレッジの下限が 80 → 90 へ上がる	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	契約検査(1名)	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	D-0 の検査(1名)	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	調達先の記入は変化点の記録を経る	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	個別の値の変更は D-0 の改訂履歴へ出さない(体制の変化点ではない)	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	AI を示す調達先を拒否する	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	セルフテスト	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	外部の確認者を置く → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	G-6 が成立し、外部の確認者は人数に数えない	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	外部の確認者が名簿から外れ、席を本人が引き取る(引き取りは決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	向きは任免の決定。G-6 の未達は発生として残る	ok	ok	ok	-	ok	#284 #285 K5 K15 K39 K51 K60
+scenarios	ステージを前へ戻す(記名なし) → 拒否	ok	FAIL	FAIL	-	FAIL	#284 #285 K5 K12
+scenarios	事業決裁者を佐藤へ	ok	ok	ok	-	ok	#284 #285 K5 K12
+scenarios	ステージを前へ戻す(事業決裁者でない者の記名) → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K12
+scenarios	ステージを前へ戻す(SG の判定記録の所在なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K12
+scenarios	ステージを前へ戻す(SG の判定記録が実在しない) → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K12
+scenarios	ステージを前へ戻す(SG の判定記録がリポジトリの外) → 拒否	ok	ok	ok	-	ok	#284 #285 K5 K12
+scenarios	ステージを前へ戻す(事業決裁者の席の責任者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K12
+scenarios	契約検査(PoC へ戻した後)	ok	ok	ok	-	ok	#284 #285 K5 K12
+scenarios	D-0 の検査(PoC へ戻した後)	ok	ok	ok	-	ok	#284 #285 K5 K12
+scenarios	名簿から1名を外す(回答は3名以上のまま) → 拒否	ok	ok	ok	-	ok	#284 #285 K39 K62
+scenarios	安全重要度を CL1 へ上げる(3名) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	3名・CL1 は出荷できる構成	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	CL1 で3名 → 2名(拒否せず反映) → 反映	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	構成に shipBlocked が立つ(記名なし・向きは発生)	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	契約検査は通し、出荷できない状態を表示する	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	D-0 の検査も表示する	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	構成書と CLAUDE.md にも出る	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	再生成しても shipBlocked と発生日を保つ	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	3名以上へ戻す変化点で解除 → 反映	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	shipBlocked が消え、契約検査が通る	ok	ok	ok	-	ok	#284 #285 K5 K50
+scenarios	AI を示す語を含む氏名(確認なし) → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	AI を示す語を含む氏名(人が確認した旨あり) → 反映	ok	ok	FAIL	-	FAIL	#284 #285 ADR-0028
+scenarios	契約検査・構成書に上書きが表示される	ok	ok	FAIL	-	FAIL	#284 #285 ADR-0028
+scenarios	changeLog に上書きした氏名が残る	ok	ok	FAIL	-	FAIL	#284 #285 ADR-0028
+scenarios	担い手の識別と同じ文字列は上書きできない → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	名簿に無い名義は上書きできない → 拒否	ok	ok	ok	-	ok	#284 #285 ADR-0028
+scenarios	アカウントに bot → 拒否	ok	ok	ok	-	ok	#284 #285 K13 K67 K74
+scenarios	アカウントの重複(1つのアカウントを2人へ) → 拒否	ok	ok	ok	-	ok	#284 #285 K13 K67 K74
+scenarios	アカウントが配列でない → 拒否	ok	ok	ok	-	ok	#284 #285 K13 K67 K74
+scenarios	アカウントを足す(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K13 K67 K74
+scenarios	アカウントを足す(決定者本人の記名) → 拒否	ok	ok	ok	-	ok	#284 #285 K13 K67 K74
+scenarios	アカウントを足す → 反映	ok	ok	ok	-	ok	#284 #285 K13 K67 K74
+scenarios	アカウントの追加は「構成の変更あり」で、D-0 の名簿にも出る	ok	ok	ok	-	ok	#284 #285 K13 K67 K74
+scenarios	委任(指示資産の版を識別子で申告) → 反映	ok	ok	ok	-	ok	#284 #285 K40
+scenarios	契約検査(識別子が一致)	ok	ok	ok	-	ok	#284 #285 K40
+scenarios	指示資産を変えると契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K40
+new	初期化(1名・MVP・CL0)	ok	ok	ok	FAIL	ok	#284 #285 K3 K39 K60 K62 K70
+new	初期化ではカバレッジの下限を雛形から引き継がない(ci-strict = 90)	ok	ok	ok	FAIL	ok	#284 #285 K3 K39 K60 K62 K70
+new	1人で全席を兼ねる宣言(兼務は選択の余地がない。初回の記入は本人の記名) → 反映	ok	ok	ok	FAIL	ok	#284 #285 K3 K39 K60 K62 K70
+new	向きは「任免の決定」(人は減っていない)。逸脱は記録される	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	全検査(1名)	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	1人 → 2人で席だけを書くと、回答と名簿の矛盾として拒否し、回答を改める案内を出す	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	1人 → 2人(相互の確認で G-6 が成立。任命は決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	G-6 が成立し、ブランチ保護が付く	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	全検査(2名)	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	2名で誰も離脱していないのに reviewer-no へ(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	dry-run は「発生」ではなく、緩める向きの決定として出す	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	同(事業決裁者でない者の記名) → 拒否	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	同(事業決裁者の席の責任者の記名と理由) → 反映	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	向きは loosen。記名と理由が残る	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	2名で独立レビュアの席を開発者と同じ人にする(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	2名で AI維持管理者 × AI運用担当者を同じ人にする(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	2名 → 1名で席を引き取る(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	2名 → 1名(佐藤が離脱。席の引き取りは決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	向きは任免の決定。G-6 の未達は発生として残る	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	席を空欄にして人が抜ける → 反映	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	向きは arising で、G-6 は未達(「適用する」のまま残さない)	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	2名の体制のまま安全重要度が上がる → 出荷できない状態。理由文は区分の上昇 → 反映	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	原因は criticality。「体制が3名を割った」とは出ない。再生成しても保つ	ok	ok	ok	-	ok	#284 #285 K3 K39 K60 K62 K70
+new	14-3 手で委任を一式書き込む → 契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	14-3 そのまま回答ファイルから再生成 → 拒否	ok	ok	ok	-	ok	#284 #285 K37
+new	14-3 そのまま次の変化点を出す(手での編集を追認しない) → 拒否	ok	ok	ok	-	ok	#284 #285 K37
+new	14-4 手で PoC へ → 契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	14-4 再生成 → 拒否	ok	ok	ok	-	ok	#284 #285 K37
+new	14-7 手で架空の外部の確認者を書く → 契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	14-7 再生成 → 拒否	ok	ok	ok	-	ok	#284 #285 K37
+new	14-8 changeLog を切り詰める → 契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	14-8 changeLog を消す → 契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	14-8 途中の記録を書き換える → 連鎖の不一致	ok	ok	ok	-	ok	#284 #285 K37
+new	要約値を全部外して旧い構成に見せる → 契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	同 → 再生成を受け付けない → 拒否	ok	ok	ok	-	ok	#284 #285 K37
+new	同 → 基底ブランチとの比較でも落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	要約値ごと書き換えた構成は、ローカルの連鎖の検査を通る(開示する限界)	ok	ok	ok	-	ok	#284 #285 K37
+new	同 → 基底ブランチとの比較で落ちる(記録の書き換え、追記なし)	ok	ok	ok	-	ok	#284 #285 K37
+new	基底ブランチを解決できない場合は落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	GITHUB_BASE_REF を解決できない場合も落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	変化点を経た変更 → 反映	ok	ok	ok	-	ok	#284 #285 K37
+new	変化点を経た変更は、基底との比較を通る	ok	ok	ok	-	ok	#284 #285 K37
+new	再生成で --stack を変える → 拒否	ok	ok	ok	-	ok	#284 #285 K37
+new	別の回答ファイルで再生成 → 拒否	ok	ok	ok	-	ok	#284 #285 K37
+new	再生成(何も変えない)は通る	ok	ok	ok	-	ok	#284 #285 K37
+new	旧い構成: 契約検査は落ち、移行の手順を示す	ok	ok	ok	-	ok	#284 #285 K37
+new	旧い構成: D-0 の検査は注意にとどめる	ok	ok	ok	-	ok	#284 #285 K37
+new	旧い構成: 最初の /process-change で連鎖を始める → 反映	ok	ok	ok	-	ok	#284 #285 K37
+new	連鎖の起点が記録される	ok	ok	ok	-	ok	#284 #285 K37
+new	移行後: 契約検査が通る	ok	ok	ok	-	ok	#284 #285 K37
+new	移行後: D-0 に目印が無ければ D-0 の検査が落ちる	ok	ok	ok	-	ok	#284 #285 K37
+new	移行後: 基底(旧い構成)との比較を通る(記録は追記だけ)	ok	ok	ok	-	ok	#284 #285 K37
+new	移行後: 連鎖より前の記録の書き換えも検出する	ok	ok	ok	-	ok	#284 #285 K37
+new	D-0 の生成区間を手で書き換える → D-0 の検査が落ちる	ok	ok	ok	-	ok	#284 #285 K42
+new	再生成で区間が戻る	ok	ok	ok	-	ok	#284 #285 K42
+new	変化点(D-0 を手で改訂しない) → 反映	ok	ok	ok	-	ok	#284 #285 K42
+new	D-0 の版・節1・節13 が変化点で書き換わり、D-0 の検査が通る	ok	ok	ok	-	ok	#284 #285 K42
+new	改訂履歴に変更前後の版が出る	ok	ok	ok	-	ok	#284 #285 K42
+new	人が先に版を上げていれば、その版を使う → 反映	ok	ok	ok	-	ok	#284 #285 K42
+new	版は 2.0 のまま	ok	ok	ok	-	ok	#284 #285 K42
+new	D-0 節3 に2行があり、決定者は構成から書かれる	ok	ok	ok	-	ok	#284 #285 K33
+new	D-0 表1 の決定者を手で書き換える → D-0 の検査が落ちる	ok	ok	ok	-	ok	#284 #285 K33
+new	決定者の席を変える(変更前の決定者でない者の記名) → 拒否	ok	ok	ok	-	ok	#284 #285 K33
+new	決定者の席を変える(変更前の決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K33
+new	D-0 表1 の行が書き換わる	ok	ok	ok	-	ok	#284 #285 K33
+new	以後、緩める向きの決定は新しい決定者に限る(旧い決定者の記名) → 拒否	ok	ok	ok	-	ok	#284 #285 K33
+new	同(新しい決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K33
+new	決定者の席が不正 → 拒否	ok	ok	ok	-	ok	#284 #285 K33
+new	カバレッジの下限を下げる(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K40
+new	カバレッジの下限を下げる(AI維持管理者の席の責任者の記名) → 反映	ok	ok	ok	-	FAIL	#284 #285 K40
+new	全検査(下限を変えた後)。D-0 の版は上げない	ok	ok	ok	-	ok	#284 #285 K40
+new	カバレッジの下限を上げる(記名なし・即時) → 反映	ok	ok	ok	-	ok	#284 #285 K40
+new	アダプタを変える → 反映	ok	ok	ok	-	ok	#284 #285 K40
+new	存在しないアダプタ → 拒否	ok	ok	ok	-	ok	#284 #285 K40
+new	settings で体制を変える → 拒否	ok	ok	ok	-	ok	#284 #285 K40
+new	強制層の緩和に期限が無い → 拒否	ok	ok	ok	-	ok	#284 #285 K40
+new	強制層の緩和(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K40
+new	回答値が不正 → 拒否	ok	ok	ok	-	ok	#284 #285 K40 K65
+new	質問 ID が不正 → 拒否	ok	ok	ok	-	ok	#284 #285 K40 K65
+new	運用形態の値が不正 → 拒否	ok	ok	ok	-	ok	#284 #285 K40 K65
+new	fallback の値が不正 → 拒否	ok	ok	ok	-	ok	#284 #285 K40 K65
+new	日付が不正 → 拒否	ok	ok	ok	-	ok	#284 #285 K40 K65
+new	席に書けない欄(modeCeiling) → 拒否	ok	ok	ok	-	ok	#284 #285 K40 K65
+new	初期化の回答値が不正 → 拒否	ok	ok	ok	-	ok	#284 #285 K40 K65
+new	1名 → 3名 → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	全検査(3名)	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	3名で独立レビュア = 開発者(s11b) → 拒否	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	同(記名があっても拒否) → 拒否	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	3名で出荷判定者 = 開発者 → 拒否	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	手で同一人物にした構成は契約検査が落ちる(連鎖と兼務禁止)	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	名簿だけ15名(回答は 3〜9名のまま) → 拒否	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	3名 → 15名 → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	全検査(15名)	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	next.mjs --role に、価値責任者が兼ねてはならない役割として技術判断者が出る	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	15名で価値責任者 = 技術判断者(s4y) → 拒否	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	15名の名簿が9名へ減ったのに回答は 10名以上のまま → 拒否	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	15名 → 9名(離脱。記名なし) → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	向きは arising	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	開発者の席を委任 → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	委任になった。全検査	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4 版の変更 + 適合性確認(記名なし) → 協働へ下げる → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4 委任は維持されず、出力が食い違わない(「協働を上限とする」と言いながら委任のまま、にならない)	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4 即時通知の対象(担い手の識別の変更・運用形態の変更)	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4 確認の記録は残る(記名だけが欠けている)	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4 のあと、席の責任者の記名で委任へ戻す → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4 4条件を満たす(新しい識別の確認・旧い記録より後・実施者と承認者・席の責任者の記名) → 委任を維持 → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	委任のまま。向きは loosen。決定者が記録に残る	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	採用前に済ませた確認(確認日は変更日より前、旧い記録より後) + 記名 → 委任を維持 → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	委任のまま	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4 記名した者が席の責任者でない → 協働へ下げる → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	協働へ下がる	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4 承認者が当該の席の責任者でない → 受け付けず、協働へ → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	協働へ下がり、確認の記録は残らない	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4b 旧い記録の使い回し(確認日が旧い記録より後でない) → 受け付けず、協働へ → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	7-4b 確認の記録は残らず、席は協働	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	版の変更(再確認なし) → 協働へ → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	協働へ下がる	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	4人目が加わる → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	適合性確認の承認者が離脱する変化点を止めない(F4) → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	失効するのは承認。確認の記録(事例と結果)は残り、席は協働	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	全検査(承認者の離脱後)	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	承認し直し(承認者が新しい責任者でない) → 拒否	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	承認し直して委任へ戻す(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	新しい責任者が承認し直し、記名して委任へ戻す → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	承認者は新しい責任者。確認の記録は同じもの(再実施していない)。席は委任	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	全検査(承認し直した後)	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	席の責任者の交代(離脱なし)でも、承認が失効する → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	席は協働。向きは任免の決定(第3巡 K60。以前は厳しくする)。前の責任者(佐藤)は名簿に残っている	ok	ok	ok	-	ok	#284 #285 K38 K40 K16 K60
+new	全検査(名簿に残る交代の後)。D-0 に承認の失効が出る	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	名簿に残る交代: 前の責任者の名義では承認し直せない → 拒否	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	名簿に残る交代: 新しい責任者が承認し直し、記名して委任へ戻す → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	席は委任。承認者は新しい責任者。確認の記録は再実施していない	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	承認し直すだけでは委任へ戻らない(委任へ戻すのは、記名と理由を要する決定) → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	席は協働のまま。失効の印は消える	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	変更種別の登録を消す(厳しくする向き) → 反映	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+new	席は協働へ下がる	ok	ok	ok	-	ok	#284 #285 K38 K40 K16
+replay	s1: 初期化(a-solo)	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K70 K65
+replay	既存の不具合: 初期化で「較正引き継ぎ 80%」が出ない。下限は導出値の 90	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K70 K65
+replay	s1: s1-acc(1人で全席。記名なし) → 拒否	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K70 K65
+replay	s1: s1-acc(1人で全席。本人の記名) → 反映	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K70 K65
+replay	s1: 全検査	ok	ok	ok	ok	ok	#284 #285 K60 K62 K70 K65
+replay	14-7: 手で編集 → 再生成 → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	14-7: 契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	s2b: 席だけを書く(回答は変えない) → 回答と名簿の矛盾として拒否 → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	s2c: 回答 reviewer-yes を足す → 反映	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	sx-1: 記名なしでは通らない(「発生」として通さない) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	sx-1: 構成は変わっていない	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	sx-1: dry-run は緩める向きとして出す	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	s3c: 席を空欄にして人が抜ける → 反映	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	s3b: 佐藤が離脱し、席を山田が引き取る(記名なし) → 拒否	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	s3b: 同(決定者の記名) → 反映	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	s3b: 向きは任免の決定。G-6 の未達は発生として残る	ok	ok	ok	-	ok	#284 #285 K60 K62 K70 K65
+replay	s4: 初期化(a-3)	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s4: s4-acc3 の名簿 → 反映	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s4: s4-acc3 の席(任命権者の記名) → 反映	FAIL	FAIL	FAIL	-	FAIL	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s4: s4-5(3名 → 5名) → 反映	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s4-15: 差分にレビューの方式と出荷判定者の方式が出る → 反映	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s4y: 15名で価値責任者 = 技術判断者 → 拒否	FAIL	FAIL	FAIL	-	FAIL	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s4-back5: 15 → 5(離脱) → 反映	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s4-back5: 差分に方式の変化が出る	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s4x1: 名簿だけ15名(回答は 3〜9名のまま) → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s4: 全検査	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s11-4: 3名以上で独立レビュア = 開発者 → 拒否	FAIL	FAIL	FAIL	-	FAIL	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s11-t: 3名以上で出荷判定者 = 開発者(既存の拒否) → 拒否	FAIL	FAIL	FAIL	-	FAIL	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s5-7c: 規則だけを先に登録(全域) → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s6-6: 適合性確認の実施者に AI の名義 → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	s5-3: 変更種別を登録していない規則 → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	変更種別の登録と、確約範囲・コア指定の宣言(事業決裁者の席の責任者の記名) → 反映	FAIL	FAIL	FAIL	-	FAIL	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	14-3: 手で委任を一式書き込む → 再生成 → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	14-3: 契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	14-4: answers を手で PoC へ → 再生成 → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	14-4: 書き換えた直後の契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	14-8: changeLog を先頭1件へ切り詰める → 契約検査が落ちる	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	14-5: 別の回答ファイルでの再生成(既存の検出) → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	14-9: CLAUDE.md の生成区間の書き換え(既存の検出)	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	14-10: D-0 だけの改訂(既存の検出)	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	sx-5: 適用後も D-0 の検査が通る(生成区間と版が追随する)	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	X-4: 回答値 size-100(dry-run) → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	X-4: 運用形態 autonomous(dry-run) → 拒否	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	名義 "クロード" は拒否される	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	名義 "Ａｇｅｎｔ 太郎" は拒否される	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	名義 "Сlaude" は通る(機械で閉じない限界。開示する)	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+replay	名義 "自動レビュー担当" は通る(機械で閉じない限界。開示する)	ok	ok	ok	-	ok	#284 #285 K55 K60 K38 K37 K42 ADR-0066
+tz	2つの時刻帯の日付は、この瞬間に異なる(前提)	ok	ok	ok	ok	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 初期化	ok	ok	ok	FAIL	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 名簿	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 席の記入(任命権者の記名)	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 区分を下げる(記名つき)	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 安全重要度を上げる	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 契約検査(要約値の連鎖は保たれる)	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 別の時刻帯(Asia/Tokyo)で再生成しても、既存の記録は書き換わらない	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 初期化	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 名簿	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 席の記入(任命権者の記名)	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 区分を下げる(記名つき)	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 安全重要度を上げる	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 契約検査(要約値の連鎖は保たれる)	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 別の時刻帯(Asia/Tokyo)で再生成しても、既存の記録は書き換わらない	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 初期化	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 名簿	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 席の記入(任命権者の記名)	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 区分を下げる(記名つき)	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 安全重要度を上げる	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 契約検査(要約値の連鎖は保たれる)	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 別の時刻帯(Pacific/Pago_Pago)で再生成しても、既存の記録は書き換わらない	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 生成日時と最初の記録が、手元の時刻帯(+14:00)の YYYY-MM-DD。協定世界時の日付(YYYY-MM-DD)と異なる	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 変化点の記録の日付(date)・時刻(at)・規則の承認日(approvedAt)が、手元の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 承認の失効日(lapsed.at)が、手元の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Kiritimati: 出荷できない状態の発生日(shipBlocked.since)が、手元の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 生成日時と最初の記録が、手元の時刻帯(-11:00)の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 変化点の記録の日付(date)・時刻(at)・規則の承認日(approvedAt)が、手元の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 承認の失効日(lapsed.at)が、手元の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Pacific/Pago_Pago: 出荷できない状態の発生日(shipBlocked.since)が、手元の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 生成日時と最初の記録が、手元の時刻帯(+09:00)の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 変化点の記録の日付(date)・時刻(at)・規則の承認日(approvedAt)が、手元の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 承認の失効日(lapsed.at)が、手元の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+tz	Asia/Tokyo: 出荷できない状態の発生日(shipBlocked.since)が、手元の YYYY-MM-DD	ok	ok	ok	-	ok	#284 #285 K60 K65
+acquire	初期化	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+acquire	D-0 が無いあいだ、D-0 の検査は落ちる	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+acquire	様式を写した直後は、生成区間が構成と一致しない	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+acquire	再生成で、版を取得し、生成区間と節3 の2行を書く	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+acquire	全検査	ok	ok	ok	ok	ok	#284 #285 K75 K42
+acquire	節3 の決定者(3名以上の既定: 事業決裁者 / リリース判定会)	ok	ok	ok	ok	ok	#284 #285 K75 K42
+acquire	もう一度再生成しても、構成は変わらない	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+acquire	再生成で --project-id を変える → 拒否	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+acquire	版の形式(N.N)でない D-0 の版は拒否する → 拒否	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+acquire	D-0 の検査も、版の形式を確かめる	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+acquire	版を戻せば、名簿を反映できる	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+acquire	入力の d0Version で版を指定する	ok	ok	ok	FAIL	ok	#284 #285 K75 K42
+unit	aiName 山田 太郎	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName John Smith	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName Ai Tanaka	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName Abbott	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName Talbot	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName Claude (AI)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName Reviewer-Agent (gpt-9)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName dependabot[bot]	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName 田中AI	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName 田中ＡＩ	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName Ａｇｅｎｔ 太郎	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName ｃｌａｕｄｅ	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName クロード	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName ｸﾛｰﾄﾞ	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName コパイロット	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName レビューエージェント	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName Сlaude	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName 自動レビュー担当	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	aiName 山田 太郎 2世	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	account → person(大文字と小文字を区別しない)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	account → person(先頭の @)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	account 対応なし	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	全角の空白の氏名も同じ人	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	roster ok	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	roster: bot のアカウント	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	roster: 重複するアカウント	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	決定者の席の既定	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	決定者の席(governance)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	決定者の席(不正な値は既定へ)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	決定できる人	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	canonical: キーの並びに依らない	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	seal: 最初の記録	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	chain ok	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	chain ok(2件)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	構成の書き換えを検出	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	切り詰めを検出(構成が最後の記録と一致しない)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	記録の差し替えを検出	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	legacy	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	移行: 起点の印と連鎖	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	移行: 連鎖より前の記録の書き換えを検出	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	base: 変更なし	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	base: 未設定の基底は比べない	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	base: 構成が変わり、追記なし	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	base: 追記つきの変更は通る	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	base: 切り詰め	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	base: 未設定へ戻す	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	pendingNotices	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	規則: 登録済みの変更種別	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	規則: 未登録の変更種別	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	規則: config を渡さなければ形式だけ	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	変更種別: 登録者が決定者	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	変更種別: 登録者が決定者でない	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	変更種別: b4 なら名簿の人でよい	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	変更種別: 日付なし	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	classify: 範囲内	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	classify: 確約範囲・コア指定に触れる	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	classify: 未登録の種別の規則は該当しない	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	classify: 承認の無い規則は該当しない	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	classify: 決定した者の無い規則は該当しない	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	出荷できない状態の理由(人数の減少)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	出荷できない状態の理由(区分の上昇)	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	outagePeriods	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	適合性確認: 失効	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	変更種別: 登録の根拠(basis)が無い	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	変更種別: basis の一部が空	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	classify: basis の無い変更種別の規則は該当しない	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	isRealDay: 2026-02-31 は無い	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	isRealDay: 2028-02-29 はある	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	isRealDay: 形式違い	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	answersRosterProblems: 回答は確認者なし、席は外部の確認者	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	answersRosterProblems: 席が本人なら矛盾なし	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	isAppointer: external と appointer の両方	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	rosterProblems: appointer は external を要する	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	g6Established	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	SIGNED_DIRECTIONS	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+unit	configIntegrityProblems: 未設定は空	ok	ok	ok	ok	ok	#284 #285 K55 K62 K65
+stages	1名 構成なし: 読む .claude/skills/process-init/SKILL.md が実在する	ok	ok	ok	ok	ok	#286
+stages	1名 構成なし → /process-init	ok	ok	ok	ok	ok	#286
+stages	1名 初期化が通り、出力の末尾に次の一手が出る	ok	ok	ok	FAIL	ok	#286
+stages	1名 初期化が SessionStart のフックを保つ	ok	ok	ok	ok	ok	#286
+stages	1名 初期化後(D-0 なし): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 D-0 なし → D-0 を作るコマンド	ok	ok	ok	FAIL	ok	#286
+stages	1名 出力のコマンド(D-0 の生成区間の書き込み)が通る	ok	ok	ok	FAIL	ok	#286
+stages	1名 D-0 あり・席が未記入: 読む .claude/skills/process-change/kinds/accountable.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 席が未記入 → 人の判断待ち(決定者・needs-owner)	ok	ok	ok	FAIL	ok	#286
+stages	1名 人の判断待ちに AI のコマンドが無い	ok	ok	ok	FAIL	ok	#286
+stages	1名 席の記入(/process-change)が通り、次の一手が出る	ok	ok	ok	FAIL	ok	#286
+stages	1名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 D-0 未承認 → 人の判断待ち	ok	ok	ok	FAIL	ok	#286
+stages	1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 企画書なし → 企画書を作るコマンド	ok	ok	ok	FAIL	ok	#286
+stages	1名 企画書なしの次に、前提の台帳を作るコマンドと artifacts/10	ok	ok	ok	FAIL	ok	#286
+stages	1名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 企画書あり(前提の台帳なし): 読む .claude/skills/gate/gates/G-1.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 企画書あり・台帳なし → 前提の台帳を作るコマンドが先、G-1 待ちが続く	ok	ok	ok	FAIL	ok	#286
+stages	1名 企画書あり(G-1 待ち): 読む .claude/skills/gate/gates/G-1.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 企画書あり(G-1 待ち): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 G-1 待ち → 人の判断待ち(事業決裁者・needs-owner)	ok	ok	ok	FAIL	ok	#286
+stages	1名 G-1 通過後(仕様なし): 読む .claude/skills/spec-write/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 G-1 通過後(仕様なし): 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 仕様なし → /spec-write	ok	ok	ok	FAIL	ok	#286
+stages	1名 受入基準が空: 読む .claude/skills/spec-write/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 受入基準が空: 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 受入基準が空 → /spec-write F-001	ok	ok	ok	FAIL	ok	#286
+stages	1名 受入基準あり: 読む .claude/skills/task-breakdown/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 受入基準あり: 読む .claude/skills/artifact/artifacts/07-implementation-plan.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 計画なし → /task-breakdown F-001	ok	ok	ok	FAIL	ok	#286
+stages	1名 計画あり(G-4 待ち): 読む .claude/skills/gate/gates/G-4.md が実在する	ok	ok	-	-	-	#286
+stages	1名 G-4 待ち → 人の判断待ち(終端)	ok	ok	FAIL	FAIL	FAIL	#286
+stages	1名 G-4 待ちの「読む」が gates/G-4.md、その後が /gate G-4	ok	ok	FAIL	FAIL	FAIL	#286
+stages	1名 全文の出力に「読む: .claude/skills/gate/gates/G-4.md」	ok	ok	FAIL	FAIL	FAIL	#286
+stages	1名 G-4 通過後(実装前): 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 実装前 → /implement F-001 Task-1	ok	ok	ok	FAIL	ok	#286
+stages	1名 実装中(ブランチあり): 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 実装中 → /implement を続ける	ok	ok	ok	FAIL	ok	#286
+stages	1名 self-heal start	ok	ok	ok	ok	ok	#286
+stages	1名 自己修正ループ中: 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 ループ中 → iterate	ok	ok	ok	FAIL	ok	#286
+stages	1名 上限を超える iterate は保留(終了コード3)	ok	ok	FAIL	FAIL	FAIL	#286
+stages	1名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	-	-	-	#286
+stages	1名 保留 → 人の判断待ち(needs-po)	ok	ok	FAIL	FAIL	FAIL	#286
+stages	1名 保留中は stop で終えられない	ok	ok	ok	ok	ok	#286
+stages	1名 release は記名を要する	ok	ok	FAIL	FAIL	FAIL	#286
+stages	1名 全タスク取り込み(出荷前): 読む .claude/skills/gate/gates/G-8.md が実在する	ok	ok	ok	-	ok	#286
+stages	1名 機能は実装済み	ok	ok	ok	FAIL	ok	#286
+stages	1名 G-7 なし → G-8 待ち(読む gates/G-8.md)	ok	ok	ok	-	ok	#286
+stages	1名 --brief は 1,200 字以内	ok	ok	ok	-	ok	#286
+stages	5名 構成なし: 読む .claude/skills/process-init/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 構成なし → /process-init	ok	ok	ok	-	ok	#286
+stages	5名 初期化が通り、出力の末尾に次の一手が出る	ok	ok	ok	-	ok	#286
+stages	5名 初期化が SessionStart のフックを保つ	ok	ok	ok	-	ok	#286
+stages	5名 初期化後(D-0 なし): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 D-0 なし → D-0 を作るコマンド	ok	ok	ok	-	ok	#286
+stages	5名 出力のコマンド(D-0 の生成区間の書き込み)が通る	ok	ok	ok	-	ok	#286
+stages	5名 D-0 あり・席が未記入: 読む .claude/skills/process-change/kinds/accountable.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 席が未記入 → 人の判断待ち(決定者・needs-owner)	ok	ok	ok	-	ok	#286
+stages	5名 人の判断待ちに AI のコマンドが無い	ok	ok	ok	-	ok	#286
+stages	5名 席の記入(/process-change)が通り、次の一手が出る	ok	ok	ok	-	ok	#286
+stages	5名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 D-0 未承認 → 人の判断待ち	ok	ok	ok	-	ok	#286
+stages	5名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 D-0 承認後: 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 D-0 承認後: 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 企画書なし → 企画書を作るコマンド	ok	ok	ok	-	ok	#286
+stages	5名 企画書なしの次に、前提の台帳を作るコマンドと artifacts/10	ok	ok	ok	-	ok	#286
+stages	5名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 企画書あり(前提の台帳なし): 読む .claude/skills/gate/gates/G-1.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 企画書あり・台帳なし → 前提の台帳を作るコマンドが先、G-1 待ちが続く	ok	ok	ok	-	ok	#286
+stages	5名 企画書あり(G-1 待ち): 読む .claude/skills/gate/gates/G-1.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 企画書あり(G-1 待ち): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 G-1 待ち → 人の判断待ち(事業決裁者・needs-owner)	ok	ok	ok	-	ok	#286
+stages	5名 G-1 通過後(仕様なし): 読む .claude/skills/spec-write/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 G-1 通過後(仕様なし): 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 仕様なし → /spec-write	ok	ok	ok	-	ok	#286
+stages	5名 受入基準が空: 読む .claude/skills/spec-write/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 受入基準が空: 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 受入基準が空 → /spec-write F-001	ok	ok	ok	-	ok	#286
+stages	5名 受入基準あり: 読む .claude/skills/gate/gates/G-2.md が実在する	ok	ok	-	-	-	#286
+stages	5名 G-2 待ち → 人の判断待ち(価値責任者・needs-po)	ok	ok	FAIL	-	FAIL	#286
+stages	5名 G-2 通過後(計画なし): 読む .claude/skills/task-breakdown/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 G-2 通過後(計画なし): 読む .claude/skills/artifact/artifacts/07-implementation-plan.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 計画なし → /task-breakdown F-001	ok	ok	ok	-	ok	#286
+stages	5名 計画あり(G-4 待ち): 読む .claude/skills/gate/gates/G-4.md が実在する	ok	ok	-	-	-	#286
+stages	5名 G-4 待ち → 人の判断待ち(終端)	ok	ok	FAIL	-	FAIL	#286
+stages	5名 G-4 待ちの「読む」が gates/G-4.md、その後が /gate G-4	ok	ok	FAIL	-	FAIL	#286
+stages	5名 全文の出力に「読む: .claude/skills/gate/gates/G-4.md」	ok	ok	FAIL	-	FAIL	#286
+stages	5名 G-4 通過後(実装前): 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 実装前 → /implement F-001 Task-1	ok	ok	ok	-	ok	#286
+stages	5名 実装中(ブランチあり): 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 実装中 → /implement を続ける	ok	ok	ok	-	ok	#286
+stages	5名 self-heal start	ok	ok	ok	-	ok	#286
+stages	5名 自己修正ループ中: 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 ループ中 → iterate	ok	ok	ok	-	ok	#286
+stages	5名 上限を超える iterate は保留(終了コード3)	ok	ok	FAIL	-	FAIL	#286
+stages	5名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	-	-	-	#286
+stages	5名 保留 → 人の判断待ち(needs-po)	ok	ok	FAIL	-	FAIL	#286
+stages	5名 保留中は stop で終えられない	ok	ok	ok	-	ok	#286
+stages	5名 release は記名を要する	ok	ok	FAIL	-	FAIL	#286
+stages	5名 全タスク取り込み(出荷前): 読む .claude/skills/artifact/artifacts/05-handover.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 機能は実装済み	ok	ok	ok	-	ok	#286
+stages	5名 出荷前(引き継ぎ文書なし) → 引き継ぎ文書を作るコマンドと artifacts/05	ok	ok	ok	-	ok	#286
+stages	5名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する	ok	ok	ok	-	ok	#286
+stages	5名 出荷前 → 証跡の集約 → G-7 待ち(読む gates/G-7.md)	ok	ok	ok	-	ok	#286
+stages	5名 --brief は 1,200 字以内	ok	ok	ok	-	ok	#286
+stages	15名 構成なし: 読む .claude/skills/process-init/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 構成なし → /process-init	ok	ok	ok	-	ok	#286
+stages	15名 初期化が通り、出力の末尾に次の一手が出る	ok	ok	ok	-	ok	#286
+stages	15名 初期化が SessionStart のフックを保つ	ok	ok	ok	-	ok	#286
+stages	15名 初期化後(D-0 なし): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 D-0 なし → D-0 を作るコマンド	ok	ok	ok	-	ok	#286
+stages	15名 出力のコマンド(D-0 の生成区間の書き込み)が通る	ok	ok	ok	-	ok	#286
+stages	15名 D-0 あり・席が未記入: 読む .claude/skills/process-change/kinds/accountable.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 席が未記入 → 人の判断待ち(決定者・needs-owner)	ok	ok	ok	-	ok	#286
+stages	15名 人の判断待ちに AI のコマンドが無い	ok	ok	ok	-	ok	#286
+stages	15名 席の記入(/process-change)が通り、次の一手が出る	ok	ok	ok	-	ok	#286
+stages	15名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 D-0 未承認 → 人の判断待ち	ok	ok	ok	-	ok	#286
+stages	15名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 D-0 承認後: 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 D-0 承認後: 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 企画書なし → 企画書を作るコマンド	ok	ok	ok	-	ok	#286
+stages	15名 企画書なしの次に、前提の台帳を作るコマンドと artifacts/10	ok	ok	ok	-	ok	#286
+stages	15名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 企画書あり(前提の台帳なし): 読む .claude/skills/gate/gates/G-1.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 企画書あり・台帳なし → 前提の台帳を作るコマンドが先、G-1 待ちが続く	ok	ok	ok	-	ok	#286
+stages	15名 企画書あり(G-1 待ち): 読む .claude/skills/gate/gates/G-1.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 企画書あり(G-1 待ち): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 G-1 待ち → 人の判断待ち(事業決裁者・needs-owner)	ok	ok	ok	-	ok	#286
+stages	15名 G-1 通過後(仕様なし): 読む .claude/skills/spec-write/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 G-1 通過後(仕様なし): 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 仕様なし → /spec-write	ok	ok	ok	-	ok	#286
+stages	15名 受入基準が空: 読む .claude/skills/spec-write/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 受入基準が空: 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 受入基準が空 → /spec-write F-001	ok	ok	ok	-	ok	#286
+stages	15名 受入基準あり: 読む .claude/skills/gate/gates/G-2.md が実在する	ok	ok	-	-	-	#286
+stages	15名 G-2 待ち → 人の判断待ち(価値責任者・needs-po)	ok	ok	FAIL	-	FAIL	#286
+stages	15名 G-2 通過後(計画なし): 読む .claude/skills/task-breakdown/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 G-2 通過後(計画なし): 読む .claude/skills/artifact/artifacts/07-implementation-plan.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 計画なし → /task-breakdown F-001	ok	ok	ok	-	ok	#286
+stages	15名 計画あり(G-4 待ち): 読む .claude/skills/gate/gates/G-4.md が実在する	ok	ok	-	-	-	#286
+stages	15名 G-4 待ち → 人の判断待ち(終端)	ok	ok	FAIL	-	FAIL	#286
+stages	15名 G-4 待ちの「読む」が gates/G-4.md、その後が /gate G-4	ok	ok	FAIL	-	FAIL	#286
+stages	15名 全文の出力に「読む: .claude/skills/gate/gates/G-4.md」	ok	ok	FAIL	-	FAIL	#286
+stages	15名 G-4 通過後(実装前): 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 実装前 → /implement F-001 Task-1	ok	ok	ok	-	ok	#286
+stages	15名 実装中(ブランチあり): 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 実装中 → /implement を続ける	ok	ok	ok	-	ok	#286
+stages	15名 self-heal start	ok	ok	ok	-	ok	#286
+stages	15名 自己修正ループ中: 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 ループ中 → iterate	ok	ok	ok	-	ok	#286
+stages	15名 上限を超える iterate は保留(終了コード3)	ok	ok	FAIL	-	FAIL	#286
+stages	15名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する	ok	ok	-	-	-	#286
+stages	15名 保留 → 人の判断待ち(needs-po)	ok	ok	FAIL	-	FAIL	#286
+stages	15名 保留中は stop で終えられない	ok	ok	ok	-	ok	#286
+stages	15名 release は記名を要する	ok	ok	FAIL	-	FAIL	#286
+stages	15名 全タスク取り込み(出荷前): 読む .claude/skills/artifact/artifacts/05-handover.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 機能は実装済み	ok	ok	ok	-	ok	#286
+stages	15名 出荷前(引き継ぎ文書なし) → 引き継ぎ文書を作るコマンドと artifacts/05	ok	ok	ok	-	ok	#286
+stages	15名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する	ok	ok	ok	-	ok	#286
+stages	15名 出荷前 → 証跡の集約 → G-7 待ち(読む gates/G-7.md)	ok	ok	ok	-	ok	#286
+stages	15名 --brief は 1,200 字以内	ok	ok	ok	-	ok	#286
+stages	1名 計画あり(G-4 待ち): 読む .claude/skills/spec-write/SKILL.md が実在する	-	-	ok	-	ok	
+stages	1名 計画あり(G-4 待ち): 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	-	-	ok	-	ok	
+stages	5名 受入基準あり: 読む .claude/skills/spec-write/SKILL.md が実在する	-	-	ok	-	ok	
+stages	5名 受入基準あり: 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	-	-	ok	-	ok	
+stages	5名 計画あり(G-4 待ち): 読む .claude/skills/spec-write/SKILL.md が実在する	-	-	ok	-	ok	
+stages	5名 計画あり(G-4 待ち): 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	-	-	ok	-	ok	
+stages	15名 受入基準あり: 読む .claude/skills/spec-write/SKILL.md が実在する	-	-	ok	-	ok	
+stages	15名 受入基準あり: 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	-	-	ok	-	ok	
+stages	15名 計画あり(G-4 待ち): 読む .claude/skills/spec-write/SKILL.md が実在する	-	-	ok	-	ok	
+stages	15名 計画あり(G-4 待ち): 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する	-	-	ok	-	ok	
+t288	t3: 初期化が通る	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288	t3: 任免が通る	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288	3名: 記録の欠落が無い	ok	ok	FAIL	FAIL	FAIL	#288 ADR-0057
+t288	3名: 6条件をすべて満たし成立(全件)、定型の文なし	ok	ok	FAIL	FAIL	FAIL	#288 ADR-0057
+t288	3名: 条件4 は構成上(判定記録の前)	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288	3名: 品質レポートに成立判定の節と照らした層1 の版	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	3名: 外へ渡す開示にも成立判定の節が出て、層1 の記名者の氏名を出さない	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	3名: 受容しない条件は機械で照合した 2 件・当たる事実なし	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	3名: 記録の後の集約で、条件4 を記名で判定して成立、欠落なし	ok	ok	FAIL	FAIL	FAIL	#288 ADR-0057
+t288	G-8: 照らした層1 の版が様式のまま → 欠落	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	G-8: 上申が空欄 → 欠落	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	G-8: 異議ありを退けた受容に上申の日付が無い → 欠落	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	G-8: 上申の日付があれば欠落なし	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	条件4: G-7 と G-8 を同じ人が記名 → 不成立(記名で判定)	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	条件4 不成立の出荷で、対象外の受容が「該当なし」 → 欠落	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	層1 なし: 条件1 を満たさず、すべて対象外の定型の文	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	層1 なし: 出力に「層1 なし」と定型の文(内・外とも)	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	層1 なし: 条件5 も不成立(許容期間なしとして扱う)ではなく、測定済みなので成立	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	層1 なし: 停止の申し立て・継続の状態の表示は出る	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	未測定・許容しない: 条件5 不成立	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	未測定・許容 出荷2回(1回目): 条件5 成立	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	受容しない条件 [未測定] に当たる → 条件6 不成立と事実の出所	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	受容しない条件 [台帳:個人データ] に当たる → 条件6 不成立、事実 D-001	ok	ok	FAIL	FAIL	FAIL	#288 ADR-0057
+t288	受容しない条件の事実が品質レポートの成立判定に出る	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	G-7 の基準9 に受容しない条件の照合の範囲が出る	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	印の無い条件・知らない印は「機械で照合していない」と出し、G-7 の突合へ回す	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	層2「組織として保証しない」: 条件2 不成立	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	層1 の記名が AI の名義: 条件1 不成立	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	継続: 確認済みの代理者・保持者3名・AI の担い手なしでは単一障害点なし	ok	ok	ok	FAIL	FAIL	#288 ADR-0057
+t288	継続: 暫定任命・なしの席を後継不在、保持者1名の機能を出す	ok	ok	ok	FAIL	FAIL	#288 ADR-0057
+t288	継続: 項目5 に「受容なし」で、欠落にしない(成立条件に入れない)	ok	ok	FAIL	FAIL	FAIL	#288 ADR-0057
+t288	継続: 項目7 に後継と理解保持者を出す	ok	ok	ok	FAIL	FAIL	#288 ADR-0057
+t288	継続: 期限を過ぎた受容 → 記載の欠落	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288	継続: 期限切れで条件6 も不成立になる(欠落のため)	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	継続: 期限内の受容は「受容あり」で欠落なし	ok	ok	FAIL	FAIL	FAIL	#288 ADR-0057
+t288	継続: 層1 の受容者の席の責任者でない記名は無効(受容として数えない)	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	退出の予行: 同じ提供者の記録は数えない(読めない記録として出す)	ok	ok	ok	ok	ok	#288 ADR-0057
+t288	AI の担い手: 退出を試していない・代替の無い依存先・止める席・縮退を確かめていない業務・自組織に無い資産を出す	ok	ok	ok	-	ok	#288 ADR-0057
+t288	退出の予行(別の提供者・AI運用担当者の承認・基準集合が手元)と縮退の実測で、モデルと開発者の席は単一障害点から外れる	ok	ok	ok	-	ok	#288 ADR-0057
+t288	指示資産が URL の担い手は「自組織に無い資産」に残る	ok	ok	ok	-	ok	#288 ADR-0057
+t288	check-g1: 層2 の4欄と AI の3行を記入した企画書では、その欄を指摘しない	ok	ok	ok	-	ok	#288 ADR-0057
+t288	check-g1: 様式のままの企画書では、層2 の4欄と AI の3行を未記入として出す	ok	ok	ok	-	ok	#288 ADR-0057
+t288	check-g1: 「層1 なし」は記入として受け付ける	ok	ok	ok	-	ok	#288 ADR-0057
+t288	next: G-1 の後に層1 が無ければ、段階を止めず注記で作成を案内する	ok	ok	ok	-	ok	#288 ADR-0057
+t288	t1: 初期化が通る	ok	ok	ok	-	ok	#288 ADR-0057
+t288	t1: 任免が通る	ok	ok	ok	-	ok	#288 ADR-0057
+t288	1名: 条件3(独立した人の確認)と条件4(別の自然人)を満たさない	ok	ok	ok	-	ok	#288 ADR-0057
+t288	1名: 後継不在・コア理解1名を出す	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: ラベルなしでは対象外	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: ラベルが付いた PR は失敗(保留)	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: PR の中で足した解除の記録は数えない	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: AI の名義の解除は受け付けない	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: 層1 の権限者(事業決裁者)でない人の解除は受け付けない	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: 見解を退けた解除に上申先と日付が無い → 受け付けない	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: 権限者の記名・理由・上申の記録がある解除で通る	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: 解除の後に付け直した申し立ては、ラベルを外しても失敗(解除の日が古い)	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: 層1 の権限者が出荷判定者なら、事業決裁者の解除は受け付けない	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: 層1 の権限者(出荷判定者)の解除で通る	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: 層1 なしでは事業決裁者を権限者とみなし、その旨を出す	ok	ok	ok	-	ok	#288 ADR-0057
+t288	停止: 解除の記録が保証の開示の項目7 に出る	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	u3: 初期化が通る	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288b	u3: 任免が通る	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288b	探り: 必須行が空欄の層1 は有効にならない(第1巡の不具合の修正)	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	全欄記入の層1 は有効	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	必須行「停止の申し立ての解除」だけが空欄 → 無効で、その行を出す	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	必須行「AI の利用の縮小・停止」だけが空欄 → 無効で、その行を出す	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	必須行「有事の決定: 契約変更」だけが空欄 → 無効で、その行を出す	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	必須行を消した層1 も無効	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	記名者の権限(ア)が有・連署・上申先のどれでもない → 無効	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	権限を連署で補うのに連署の欄が「なし」 → 無効	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	連署者と連署日があれば有効	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	連署に AI の名義 → 無効	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	適用範囲の組織単位が無い → 無効	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	記名者 = 事業決裁者 → 層1 は有効のまま、項目1 に逸脱を出す	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288b	D-0 表4 の空欄 → 記載の欠落(G-7 基準9)・集約が失敗	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	check-d0 も空欄を表示する(G-1 の前提条件は止めない)	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288b	「層1 の項目4 による」で層1 の行が空欄 → 欠落	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	QC の突合: QC-01 は受入基準とテストの両方 → 項目4 の件数	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	QC の突合: QC-02(テストなし)・QC-03(参照なし)を項目5 へ自動で載せる	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	QC の突合: 参照の無い条件は欠落にしない(G-8 の受容の対象)	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	G-7 基準1: 受入基準3・計画したテスト1・通過1・テストの無い受入基準1(F-001/AC-2)	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	G-7 基準2: 「既知の欠陥なし」の台帳を取り込む	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	G-7 基準2: S1 のトリアージの区分ごとに未解決を数える(Sev1 はコア/非コア)	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288b	G-7 基準2: 欠陥の台帳が無い出荷は記載の欠落	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	識別子を持たない条件 → 記載の欠落	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	check-g1: 識別子の欠落を検出する	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288b	check-g1: 識別子の重複と、総費用の区分の空欄を検出する	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288b	出荷の範囲の PR に未解除の申し立て → 集約が失敗(保留)	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	保留と自律実行の保留の範囲を項目7 に出す	ok	ok	ok	ok	ok	#288 ADR-0057
+t288b	出荷の終点に成立した解除の記録があれば保留しない	ok	ok	ok	FAIL	ok	#288 ADR-0057
+t288b	周期内の予行・実測・確認では、モデル・縮退・後継・保持者は単一障害点に出ない	ok	ok	ok	-	FAIL	#288 ADR-0057
+t288b	退出の予行が間隔(12か月)を過ぎた → 退出を試していない	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	退出の予行の間隔が空欄 → 予行の記録があっても退出を試していない	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	縮退の実測が頻度を過ぎた → 未確認	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	縮退の実測の頻度が空欄 → 実測があっても未確認	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	基準集合の範囲の承認の記録が無い → その旨を出す	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	後継候補の確認日が力量の確認の周期を過ぎた → 数えず後継不在	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	最低数2の席に確認済みの候補1名 → 後継不在、最低数0の席は不在でない	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	候補を複数行で書けば数える(2名で最低数2を満たす)	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	力量の確認の周期・最低数が空欄 → 全席を後継不在、保持者も数えない	ok	ok	ok	-	ok	#288 ADR-0057
+t288b	保持者: 確認者が本人・確認者が空欄・確認日が周期外の名前は数えず、理由を出す	ok	ok	ok	-	-	#288 ADR-0057
+t288b	保持者0名 → コア理解の保持者が1名以下(数えなかった名前を出す)	ok	ok	ok	-	-	#288 ADR-0057
+t288b	育成の担当・演習の頻度が空欄 → 項目7 の注記	ok	ok	ok	-	-	#288 ADR-0057
+t288b	依存先の通知の期間・データが空欄 → 単一障害点の候補	ok	ok	ok	-	-	#288 ADR-0057
+t288b	依存先の一覧へ通知の期間とデータを転記する	ok	ok	ok	-	-	#288 ADR-0057
+t288b	育成の担当が空欄 → 後継不在の受容は無効	ok	ok	ok	-	-	#288 ADR-0057
+t288b	AI の担い手と適合性確認を /process-change で置ける	ok	ok	ok	-	-	#288 ADR-0057
+t288b	AI の層: 条件2〜5 の確認の記録が無い → 条件未確認として検出の層に数えない	ok	ok	ok	-	-	#288 ADR-0057
+t288b	条件2〜5 の確認だけを /process-change で足せる(適合性確認の記録は書き換えない)	ok	ok	ok	-	-	#288 ADR-0057
+t288b	AI の層: 条件2〜5 の確認(AI維持管理者の確認・席の責任者の承認・四半期内)があれば数える	ok	ok	ok	-	-	#288 ADR-0057
+t288b	SG の判定記録に「AI の利用の評価」の節が無い → 欠落	ok	ok	ok	-	-	#288 ADR-0057
+t288b	「AI の利用の評価」の総費用の内訳が空欄 → 欠落、「該当なし」は記入として受け付ける	ok	ok	ok	-	-	#288 ADR-0057
+t288b	/process-change(settings)で区分の下限の規則を置ける(厳しくする向きは記名なしで即時)	ok	ok	ok	-	-	#288 ADR-0057
+t288b	区分の下限: src/auth/** を R3 と記載 → G-5 で失敗(下限 R1)	ok	ok	ok	-	-	#288 ADR-0057
+t288b	確定者: R1 で「確定した者」が無い → 失敗	ok	ok	ok	-	-	#288 ADR-0057
+t288b	確定者: 確定した者が作成を指示した者 → 失敗	ok	ok	ok	-	-	#288 ADR-0057
+t288b	確定者: AI の名義 → 失敗	ok	ok	ok	-	-	#288 ADR-0057
+t288b	確定者: 指示した者以外の名簿の人が確定 → 区分の検査は通る	ok	ok	ok	-	-	#288 ADR-0057
+t288b	区分の下限: 変更の種類つきの規則(db/migrations の追加)→ 下限 R2	ok	ok	ok	-	-	#288 ADR-0057
+t288b	区分の下限: 規則に当たらない変更は R3 で通る	ok	ok	ok	-	-	#288 ADR-0057
+t288b	規則の変更: 下限 R2、製品のコードとの同時変更は失敗	ok	ok	ok	-	-	#288 ADR-0057
+t288b	規則の下限を下げる・削る変化点は、記名が無ければ拒否(緩める向き)	ok	ok	ok	-	-	#288 ADR-0057
+t288b	u1: 初期化が通る	ok	ok	ok	-	-	#288 ADR-0057
+t288b	u1: 任免が通る	ok	ok	ok	-	-	#288 ADR-0057
+t288b	1名体制: 確定者の無い R2 は失敗させず、確定していない区分として出す	ok	ok	ok	-	-	#288 ADR-0057
+t288b	AI の担い手の宣言が無い構成では、AI の層は「宣言なし」のまま(条件2〜5 は問わない)	ok	ok	ok	-	-	#288 ADR-0057
+trial	ua2: 初期化が通る	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	ua2: 任免が通る	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	基準が無い → 実行しない(終了コード 1、init を案内)	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	基準が無い → 記録を出さない	ok	ok	ok	ok	ok	#288 ADR-0057
+trial	init が様式を写す	ok	ok	ok	ok	ok	#288 ADR-0057
+trial	様式のまま(未記入・未コミット) → 実行しない	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	記入者が AI の名義 → 実行しない	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	記入日時がコミットより後 → 実行しない	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	コミットの後に書き換えた → 実行しない	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	基準を満たせば実行する(製品のコードなし)	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	製品のコードが無い → 「採用者の環境の証拠ではない」と出す	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	区分の下限の規則を置く	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	採用者のリポジトリで実行が通る	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	記録が附属書I の様式(節0〜9。第3巡で節0 と見出しの記入者の注記を足した)で出る	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	製品のコードがあれば「採用者の環境の証拠ではない」と出さない	ok	ok	ok	ok	ok	#288 ADR-0057
+trial	場面集11件がすべて「止まった」	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	基準の照合の表に場面集の結果が出る	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	成立判定: 層1 が有効で D-0 表4 に空欄なし	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	欠陥注入の記録が無ければ「確かめていない」	ok	ok	ok	FAIL	ok	#288 ADR-0057
+trial	採用者のリポジトリを書き換えない(記録と実行の記録以外)	ok	ok	ok	ok	ok	#288 ADR-0057
+trial	注入の記録がリポジトリの中 → 封じない	ok	ok	ok	-	ok	#288 ADR-0057
+trial	リポジトリの外の注入の記録を封じる(要約値だけ)	ok	ok	ok	-	ok	#288 ADR-0057
+trial	封じた後に書き換えた注入の記録 → 数えない	ok	ok	ok	-	ok	#288 ADR-0057
+trial	tally が人の層と AI の層を分けて数える(人 1/2、AI 1/2)	ok	ok	ok	-	ok	#288 ADR-0057
+trial	docs/adoption-trial/seeded-errors.json(記録の置き場)へ層ごとに書く(288 第4巡 B: evidence/ は .gitignore で CI に届かない)	ok	ok	ok	-	ok	#288 ADR-0057
+trial	再実行で欠陥注入の表が出る(注入2・人1・AI1・見逃した類型)	ok	ok	ok	-	ok	#288 ADR-0057
+trial	人の層の検出率 50% は基準 60% を満たさないと出す	ok	ok	ok	-	ok	#288 ADR-0057
+trial	AI の層は「検出の層に数えない」の基準で基準を満たす	ok	ok	ok	-	ok	#288 ADR-0057
+trial	以前の実行の後に基準を改めた記録は「採用の証拠に数えない」と出す	ok	ok	ok	-	ok	#288 ADR-0057
+trial	演習の記録を取り込み、不備のある行は「数えない」と出す	ok	ok	ok	-	ok	#288 ADR-0057
+trial	類型E・F は数で比べられないため「人が照合する」	ok	ok	ok	-	ok	#288 ADR-0057
+trial	層1 の必須行が空欄 → 成立判定が不成立、空欄の行を出す	ok	ok	ok	-	ok	#288 ADR-0057
+trial	next.mjs: 記録が無ければ導入前の検証を案内する(init から)	ok	ok	ok	-	ok	#288 ADR-0057
+trial	next.mjs: 基準があれば run を案内する	ok	ok	ok	-	ok	#288 ADR-0057
+trial	next.mjs: 記録が1件あれば案内しない	ok	ok	ok	-	ok	#288 ADR-0057
+s5-init-pr	PR 経由: 3名で初期化が通る	ok	ok	ok	FAIL	ok	#286 K64
+s5-init-pr	PR 経由: 3名の任免が通る	ok	ok	ok	FAIL	ok	#286 K64
+s5-init-pr	PR 経由: 初期化の変更は PR #1 として数えられる	ok	ok	ok	ok	ok	#286 K64
+s5-init-pr	PR 経由: 初期化の PR に G-6 の欠落が無い(独立した人の確認に数える)	ok	ok	FAIL	FAIL	FAIL	#286 K64
+s5-init-pr	直接(対照): 3名で初期化が通る	ok	ok	ok	FAIL	ok	#286 K64
+s5-init-pr	直接(対照): 3名の任免が通る	ok	ok	ok	FAIL	ok	#286 K64
+s5-init-pr	直接(対照): 初期化のコミットが G-6 の欠落になる(旧い案内の事例を再現)	ok	ok	ok	ok	ok	#286 K64
+verify-n	初期化(1名・poc・node)	ok	ok	ok	FAIL	ok	#286
+verify-n	任免(1名で全席)	ok	ok	ok	FAIL	ok	#286
+verify-n	N9: D-0 節3 の空欄の行を数え、手で書く欄・版を上げない・種別が無いことを出す	ok	ok	ok	FAIL	ok	#286
+verify-n	N9: 全文の出力に「注記(段階を止めない)」	ok	ok	ok	FAIL	ok	#286
+verify-n	N9: 様式の節3 に、手で書く行と版の扱いがある	ok	ok	ok	ok	ok	#286
+verify-n	N6: 企画書なしの次に、前提の台帳を作るコマンド	ok	ok	ok	FAIL	ok	#286
+verify-n	N6: 「読む」の補助ファイルが実在する	ok	ok	ok	FAIL	ok	#286
+verify-n	N6: 補助ファイルに6つの前提の内容・劣化とみなす事象・観測の手がかり・共通条件との関係がある(外部のサイトを要しない)	ok	ok	ok	FAIL	FAIL	#286
+verify-n	N6: 企画書を作った後は、前提の台帳 → G-1 待ちの順	ok	ok	ok	FAIL	ok	#286
+verify-n	N6: --brief にも前提の台帳が出る	ok	ok	ok	FAIL	ok	#286
+verify-n	N6: 台帳を作ると案内が消え、G-1 待ちが先頭	ok	ok	ok	FAIL	ok	#286
+verify-n	N8: 注記つきの結果欄は通過に数えない(安全側のまま)	ok	ok	ok	FAIL	ok	#286
+verify-n	N8: 記録の所在と「2値のどちらでもない」理由を出す	ok	ok	ok	FAIL	ok	#286
+verify-n	N8: 全文の出力に「詳細:」として出る	ok	ok	ok	FAIL	ok	#286
+verify-n	N8: --brief に通過に数えなかった記録の所在が出る	ok	ok	ok	FAIL	ok	#286
+verify-n	N8: 様式の文言のままの結果欄は「未記入、または様式の文言のまま」	ok	ok	ok	FAIL	ok	#286
+verify-n	N8: 差し戻しの記録は、その所在と再判定の手順を出す	ok	ok	ok	FAIL	ok	#286
+verify-n	N8: 結果欄が「通過」なら G-1 を通過に数え、/spec-write へ進む	ok	ok	ok	FAIL	ok	#286
+verify-n	N8: /gate の補助ファイルが、結果欄に2値の語だけを書かせ、注記を本文へ置かせる	ok	ok	ok	ok	ok	#286
+verify-n	N7: log-A の PR #2 の本文がある	FAIL	-	-	-	-	
+verify-n	N7: log-A の PR #7 の本文がある	FAIL	-	-	-	-	
+verify-n	N7: log-A の PR #8 の本文がある	FAIL	-	-	-	-	
+verify-n	N6: 対象の形の判別(G-2 F-001 / G-1 P-001 はゲート、PR #12・コミットは変更)	ok	ok	ok	ok	ok	#286
+verify-n	N6 準備: 外部の承認者を名簿へ足す	ok	ok	ok	-	ok	#286
+verify-n	N6: ゲートの判定を対象とする成立した行(D-001)は、変更(PR #1)へ対応づけない	ok	ok	ok	-	ok	#286
+verify-n	N6: 承認した者を欠くゲートの判定の例外(D-002)を欠落にする	ok	ok	ok	-	ok	#286
+verify-n	N6: 成立したゲートの判定の例外を保証の開示の項目5 に出す	ok	ok	ok	-	ok	#286
+verify-n	N6: 対象が PR #1 の行は変更へ対応づき、R1 の欠落が消える	ok	ok	ok	-	ok	#286
+verify-n	N9 準備: 担い手の宣言で D-0 の版が上がる	ok	ok	ok	-	ok	#286
+verify-n	N9: 版の不一致に、判定日時が変化点より後であることを添える	ok	ok	ok	-	ok	#286
+verify-n	N9: 判定日時が記録を取り込んだコミットより後であることを添える	ok	ok	ok	-	ok	#286
+verify-n	N9: 宣言にない共著者の警告に、直し方(/process-change performer)を添える	ok	ok	ok	-	ok	#286
+verify-n	N9: /process-init が context/projects に企画書の様式を写させない	ok	ok	ok	-	ok	#286
+matrix-sweep	1名 poc cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	1名 poc cl1	ok	ok	ok	ok	ok	#284 #285 K60 K62 K65
+matrix-sweep	1名 mvp cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	1名 mvp cl1	ok	ok	ok	ok	ok	#284 #285 K60 K62 K65
+matrix-sweep	1名 growth cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	1名 growth cl1	ok	ok	ok	ok	ok	#284 #285 K60 K62 K65
+matrix-sweep	2名 poc cl0	ok	ok	ok	FAIL	FAIL	#284 #285 K60 K62 K65
+matrix-sweep	2名 poc cl1	ok	ok	ok	ok	ok	#284 #285 K60 K62 K65
+matrix-sweep	2名 mvp cl0	ok	ok	ok	FAIL	FAIL	#284 #285 K60 K62 K65
+matrix-sweep	2名 mvp cl1	ok	ok	ok	ok	ok	#284 #285 K60 K62 K65
+matrix-sweep	2名 growth cl0	ok	ok	ok	FAIL	FAIL	#284 #285 K60 K62 K65
+matrix-sweep	2名 growth cl1	ok	ok	ok	ok	ok	#284 #285 K60 K62 K65
+matrix-sweep	3名 poc cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	3名 poc cl1	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	3名 mvp cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	3名 mvp cl1	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	3名 growth cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	3名 growth cl1	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	5名 poc cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	5名 poc cl1	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	5名 mvp cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	5名 mvp cl1	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	5名 growth cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	5名 growth cl1	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	15名 poc cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	15名 poc cl1	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	15名 mvp cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	15名 mvp cl1	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	15名 growth cl0	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep	15名 growth cl1	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+clock	時計: 子プロセスの new Date() と Date.now() は、渡した時刻を返す	-	ok	ok	ok	ok	#319
+clock	時計: git のコミットの時刻(作成・取り込み)は、渡した時刻になる	-	ok	ok	ok	ok	#319
+clock	境の前(23:59): 初期化の記録の日付は 2026-10-01	-	ok	ok	ok	ok	#319 K65
+clock	境の前(23:59): 翌日(2026-10-02)の発効日 → 拒否	-	ok	ok	ok	ok	#319 K65
+clock	next_review(2027-03-31)の前日は「過ぎています」と出さない	-	ok	ok	ok	ok	#319
+clock	next_review(2027-03-31)を過ぎると、D-0 の検査が落ちる	-	ok	ok	ok	ok	#319
+clock	境の後(00:00): 発効日を書かない変化点 → 反映	-	ok	ok	ok	ok	#319 K65
+clock	境の後(00:00): スクリプトが書く日付は翌日(2026-10-02)	-	ok	ok	ok	ok	#319 K65
+clock	境の後(00:00): 前日(2026-10-01)の発効日 — 実行が日付の境をまたいだときの形 → 拒否	-	ok	ok	ok	ok	#319 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl0 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl0 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl1 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl1 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl2 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl2 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl3 inhouse reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl3 vendor reviewer-no node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl0 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl1 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl2 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl3 inhouse - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl0 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl0 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl1 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl1 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl2 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl2 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl3 inhouse reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl3 vendor reviewer-no undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl0 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl1 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl2 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl3 inhouse - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl0 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl0 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl1 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl1 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl2 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl2 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl3 inhouse reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl3 vendor reviewer-yes node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl0 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl1 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl2 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl3 vendor - node	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-standard cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-high cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 poc quality-regulated cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-standard cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-high cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 mvp quality-regulated cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-standard cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-high cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 growth quality-regulated cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-standard cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-high cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl0 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl0 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl1 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl1 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl2 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl2 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl3 inhouse reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-1-2 stable quality-regulated cl3 vendor reviewer-yes undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-standard cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-high cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 poc quality-regulated cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-standard cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-high cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 mvp quality-regulated cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-standard cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-high cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 growth quality-regulated cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-standard cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-high cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-3-9 stable quality-regulated cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-standard cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-high cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus poc quality-regulated cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-standard cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-high cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus mvp quality-regulated cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-standard cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-high cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus growth quality-regulated cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-standard cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-high cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl0 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl1 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl2 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65
+matrix-sweep --sweep	size-10plus stable quality-regulated cl3 vendor - undetermined	ok	ok	ok	FAIL	ok	#284 #285 K60 K62 K65

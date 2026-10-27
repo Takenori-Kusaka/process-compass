@@ -1,0 +1,1 @@
+{ "kind": "mode", "date": "2026-10-22", "summary": "規則だけを先に登録", "delegation": { "rules": [ { "id": "DR-001", "seat": "dev-verifier", "decidedBy": "佐藤 花子", "decidedAt": "2026-10-20", "reason": "既存のテストで検出でき、取り消しの実績がある", "changeType": "表示文言", "paths": ["**"] } ] }, "decidedBy": "佐藤 花子", "reason": "先に登録" }

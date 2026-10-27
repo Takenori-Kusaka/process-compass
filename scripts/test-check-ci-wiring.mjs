@@ -11,7 +11,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { checkWiring, renderProblems } from './lib/ci-wiring.mjs';
+import { checkWiring, checkRegressWiring, renderProblems } from './lib/ci-wiring.mjs';
 import { missingInputs, commitProblems, describeMissing, describeMissingTarget, INIT_HINT } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -271,6 +271,59 @@ test('生成元の版: 40 桁の16進は通り、期待と違えば失敗する'
   assert.deepEqual(commitProblems(sha), []);
   assert.deepEqual(commitProblems(sha, sha), []);
   assert.match(commitProblems(sha, 'f'.repeat(40))[0], /一致しません/);
+});
+
+// ---------------------------------------------------------------- 条件11〜14(#319 裁定 R-6)
+const RUN_SRC = fs.readFileSync(path.join(ROOT, 'scripts/regress/run.mjs'), 'utf8');
+const goodPkg = () => ({
+  scripts: {
+    check: 'npm run lint:ci && npm run test:regress && npm run test:template-suite && npm run build',
+    'test:regress': 'node scripts/regress/test-run.mjs && node scripts/regress/run.mjs',
+    'test:template-suite': 'node scripts/test-template-suite.mjs',
+  },
+});
+const goodCiT = () => ({ jobs: { check: { 'timeout-minutes': 60 } } });
+const regress = (over = {}) => checkRegressWiring({ pkg: goodPkg(), ci: goodCiT(), runSource: RUN_SRC, ...over });
+test('条件11〜14: 結線が揃えば通る', () => {
+  assert.deepEqual(regress(), []);
+});
+test('条件11〜14: リポジトリの実際の package.json・ci.yml・run.mjs は通る', () => {
+  const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
+  const ci = YAML.parse(fs.readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf8'));
+  assert.deepEqual(checkRegressWiring({ pkg, ci, runSource: RUN_SRC }), []);
+});
+test('条件11: check が test:regress・test:template-suite を含まない', () => {
+  const pkg = goodPkg();
+  pkg.scripts.check = 'npm run lint:ci && npm run build';
+  const p = regress({ pkg });
+  assert.equal(p.filter((x) => x.includes('条件11')).length, 2);
+});
+test('条件11: 名前の前方一致(test:regress-fast)では満たさない', () => {
+  const pkg = goodPkg();
+  pkg.scripts.check = 'npm run test:regress-fast && npm run test:template-suite';
+  assert.ok(regress({ pkg }).some((x) => x.includes('test:regress を含みません')));
+});
+test('条件12: 場面を絞る・失敗を握りつぶす', () => {
+  for (const cmd of ['node scripts/regress/run.mjs --only v3', 'node scripts/regress/run.mjs || true', 'node scripts/regress/run.mjs; true', 'echo skip']) {
+    const pkg = goodPkg();
+    pkg.scripts['test:regress'] = cmd;
+    assert.ok(regress({ pkg }).some((x) => x.includes('条件12')), cmd);
+  }
+  const pkg = goodPkg();
+  pkg.scripts['test:template-suite'] = 'node scripts/test-template-suite.mjs || exit 0';
+  assert.ok(regress({ pkg }).some((x) => x.includes('test:template-suite が失敗を握りつぶします')));
+});
+test('条件13: ジョブ check に timeout-minutes が無い・数でない', () => {
+  assert.ok(regress({ ci: { jobs: { check: {} } } }).some((x) => x.includes('条件13')));
+  assert.ok(regress({ ci: { jobs: { check: { 'timeout-minutes': '60' } } } }).some((x) => x.includes('条件13')));
+});
+test('条件14: 作業の場所を作業ツリーの外に作らない・中を止めない・終了コードを返さない', () => {
+  const p1 = regress({ runSource: RUN_SRC.replace('mkdtempSync(path.join(os.tmpdir()', 'mkdtempSync(path.join(REPO') });
+  assert.ok(p1.some((x) => x.includes('mkdtemp')));
+  const p2 = regress({ runSource: RUN_SRC.replaceAll('作業の場所が作業ツリーの中にある', 'x') });
+  assert.ok(p2.some((x) => x.includes('作業ツリーの中なら止める')));
+  const p3 = regress({ runSource: RUN_SRC.replace(/(if \(errors\.length\) \{[\s\S]*?)process\.exit\(1\);/, '$1process.exit(0);') });
+  assert.ok(p3.some((x) => x.includes('終了コード 1')));
 });
 
 console.log(`\nCI の結線と検査器の入力の試験: ${passed}件 合格`);

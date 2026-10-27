@@ -24,7 +24,7 @@ sidebar:
 | 第1章 | 26 | 7 | 0 | 5 | **14** |
 | 第2章 | 38 | 2 | 0 | 4 | **32** |
 | 第3章 | 93 | 22 | 0 | 16 | **55** |
-| 第4章 | 94 | 16 | 3 | 8 | **67** |
+| 第4章 | 95 | 17 | 3 | 8 | **67** |
 | 第5章 | 52 | 25 | 0 | 8 | **19** |
 | 第6章 | 73 | 3 | 0 | 5 | **65** |
 | 第7章 | 42 | 0 | 0 | 3 | **39** |
@@ -33,7 +33,7 @@ sidebar:
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
 | 附属書H | 44 | 3 | 0 | 8 | **33** |
-| **計** | 547 | 82 | 3 | 59 | **403** |
+| **計** | 548 | 83 | 3 | 59 | **403** |
 
 未棚卸しの403節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
@@ -47,7 +47,7 @@ sidebar:
 | --- | --- | --- |
 | 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 83 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 74 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 191 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 192 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -120,7 +120,7 @@ sidebar:
 | IMPL-0196 | 注入の設計の制約(演習用ブランチの外へ持ち出しうる形・依存関係の追加と更新・本番のデータストアと外部サービスへ到達する変更へ注入しない)。導入前の検証の手順は、注入の箇所の制約を案内も確認もしない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 導入前の検証のコマンド | 予定 [#356](https://github.com/Takenori-Kusaka/process-compass/issues/356)(見直し 2026-11) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0197 | 継続の注入の台帳と検査の出力に、検出者・見逃した者・受注者の識別子を含めず、集計をチーム・工程の単位に限り、見逃しの区分を自動判定せず、見逃しへの措置を実装へ組み込まない。運用中の継続の注入の手段が無い。導入前の検証の記録の扱いは ADR-0067 決定6 による。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 継続の欠陥注入の演習の置き場(予定)(予定の置き場) | 予定 [#356](https://github.com/Takenori-Kusaka/process-compass/issues/356)(見直し 2026-11) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0200 | 書き込みの既定を拒否にして許可を実装計画のタスクの対象パスに限ること、ネットワークの既定を拒否にして必要な宛先だけを許すこと、秘匿情報を実行環境から参照できない位置へ置くこと。準拠テンプレートの権限設定は、書き込みの範囲とネットワークを限らない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | エージェントの権限設定 | 予定 [#358](https://github.com/Takenori-Kusaka/process-compass/issues/358)(見直し 2026-11) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
-| IMPL-0204 | 検証の弱体化(アサーションの削除・skip 相当の付与)と、テストのみの変更で失敗が解消した変更に、ラベルを付けて独立レビューの必須確認事項にすること。準拠テンプレートに検出もラベルの付与も無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | 予定 [#360](https://github.com/Takenori-Kusaka/process-compass/issues/360)(見直し 2026-11) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0204 | 検証の弱体化(アサーションの削除・skip 相当の付与・落ちることを期待する印の付与)と、テストのみの変更で失敗が解消した変更と、根拠の決定を引かずに改めた期待値に、ラベルを付けて独立レビューの必須確認事項にすること。準拠テンプレートに検出もラベルの付与も無い(#319 で、落ちることを期待する印と期待値の改めを対象に足した)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | 予定 [#360](https://github.com/Takenori-Kusaka/process-compass/issues/360)(見直し 2026-11) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0205 | 実装計画の対象パスと、実際に変更されたパスの差を機械的に突き合わせて出す。準拠テンプレートに突合が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | 予定 [#360](https://github.com/Takenori-Kusaka/process-compass/issues/360)(見直し 2026-11) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0206 | エージェントの操作の要約を、エージェント自身または別の AI に生成させない(機械的な導出は許容する)。準拠テンプレートの /human-verify は、自らの出力に結論・評価・要約を書かないことだけを定める。エージェントの操作の要約一般を AI に生成させない規則は、CLAUDE.md とスキルに無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | CLAUDE.md の構成依存部分 | 予定 [#358](https://github.com/Takenori-Kusaka/process-compass/issues/358)(見直し 2026-11) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0207 | 生成の条件のうち、実行の識別子と指示資産の版を変更単位で自動で記録する(成果物から生成時の指示資産の版を参照できる状態。第5章 5.8.2 の指示の保存)。準拠テンプレートに実装は無い。モデルの識別は Co-Authored-By(IMPL-0176・IMPL-0177)による。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 変更単位の生成の条件の記録(予定)(予定の置き場) | 予定 [#358](https://github.com/Takenori-Kusaka/process-compass/issues/358)(見直し 2026-11) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
@@ -385,7 +385,7 @@ sidebar:
 | IMPL-0201 | 権限設定(.claude/settings.json)を版管理下に置き、構成の初期化が案件ごとに生成する(要求2)(単位: ファイル) | エージェントの権限設定 | — | 降りている | 実在だけ確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0202 | 基準値の引き下げと検査の除外設定の変更(閾値・除外設定のファイル、構成の ci)を、製品のコードと同じ PR で変えると G-5(pr-rules)を失敗させる。test-check-pr.mjs が試験する。分離した変更の承認の記録は、統制の設定の陰性の確認(IMPL-0134)で扱う | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0203 | 検証の弱体化のうち、既存のテストの変更を G-5(pr-rules)が PR へ一覧で出す(G-6 の材料。合否に使わない) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
-| IMPL-0204 | 検証の弱体化(アサーションの削除・skip 相当の付与)と、テストのみの変更で失敗が解消した変更に、ラベルを付けて独立レビューの必須確認事項にすること。準拠テンプレートに検出もラベルの付与も無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0204 | 検証の弱体化(アサーションの削除・skip 相当の付与・落ちることを期待する印の付与)と、テストのみの変更で失敗が解消した変更と、根拠の決定を引かずに改めた期待値に、ラベルを付けて独立レビューの必須確認事項にすること。準拠テンプレートに検出もラベルの付与も無い(#319 で、落ちることを期待する印と期待値の改めを対象に足した)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0205 | 実装計画の対象パスと、実際に変更されたパスの差を機械的に突き合わせて出す。準拠テンプレートに突合が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0206 | エージェントの操作の要約を、エージェント自身または別の AI に生成させない(機械的な導出は許容する)。準拠テンプレートの /human-verify は、自らの出力に結論・評価・要約を書かないことだけを定める。エージェントの操作の要約一般を AI に生成させない規則は、CLAUDE.md とスキルに無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0207 | 生成の条件のうち、実行の識別子と指示資産の版を変更単位で自動で記録する(成果物から生成時の指示資産の版を参照できる状態。第5章 5.8.2 の指示の保存)。準拠テンプレートに実装は無い。モデルの識別は Co-Authored-By(IMPL-0176・IMPL-0177)による。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 変更単位の生成の条件の記録(予定) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
@@ -531,5 +531,6 @@ sidebar:
 | IMPL-0347 | 適用するルールセットが強制する承認の数が、構成の承認者の数(review.reviewerCount)を上回る構成を、契約検査が失敗にせず注記に出す。出荷の証跡の集約が、保証の開示の項目1 に、強制する承認の数と記録が保証する人数を並べて出す。下回る構成は従来どおり失敗させる。test-roster-rules.mjs が固定する(#318) | 契約検査と、G-5 の集約が合否に使う検査の読み方 | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0348 | 由来の記録の無い旧い構成(ci.coverageOrigin が無い)の下限を黙って下げない。変化点の再生成では値を保ち、由来を unknown として記録し、戻す候補(導出値)を差分と出力に出す。取り込み(種別 intake)は値を変えずに同じ案内を出す。戻すのは、採用者の記名を伴う種別 settings(ci.coverageThreshold に derived か数値)だけである。旧い CL2 の構成(ruleset regulated・承認者1名)にも、取り込みで、値を変えずに緩める向きの差分の案内を出す(#318) | プロセス構成の初期化(強制層の生成) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0349 | 未適用の厳格化。準拠テンプレートの pendingTightenings が、現行の規則による再導出と構成のゲートの状態・G-6 の範囲を比べる。取り込み(intake)の案内、/pit の注記、保証の開示に出し、CL1 以上の G-6・G-7 の差は出荷の証跡の集約の欠落に数える。構成は書き換えない | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0350 | G-5 の判定の根拠に数える試験を、判定の対象と同じ版管理の下に置く。準拠テンプレートの gate-g5 は、取り出した版の試験だけを実行するため、版管理の外の試験は gate-g5 の結果に入らない。手元で流しただけの試験を、PR の「検証方法と結果」で G-5 の根拠として挙げていないかは、機械では確かめない。確かめる者: 独立レビュー(G-6)の判定者(PR の検証方法と結果を読むときに、挙げた試験が差分か既定ブランチにあるかを確かめる) | G-5 のワークフロー(gate-g5.yml) | — | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- implementation-ledger:end -->

@@ -1,0 +1,1 @@
+{ "kind": "mode", "date": "2026-10-24", "summary": "種別を変える", "delegation": { "rules": [ { "id": "DR-001", "seat": "dev-verifier", "changeType": "設定変更", "decidedBy": "佐藤 花子", "reason": "x", "paths": ["src/i18n/ja/**"] } ] } }

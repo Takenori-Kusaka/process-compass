@@ -15,6 +15,8 @@
 //   9. ci.yml で contents の書き込みを持つのはジョブ publish だけ。publish は contents: write をジョブ単位で持ち、
 //      environment dist-standard を参照し、needs に check を含む(最上位の書き込みは 5 が止める)
 //   10. 配布のジョブが秘密情報(secrets.)を参照せず、SSH の鍵・接続を使わない(deploy key を作らないと決めた)
+//   11〜14. 決定を固定する回帰の試験(scripts/regress/)とテンプレートの試験を check に入れ、失敗を握りつぶさず、
+//      ジョブ check に timeout-minutes を置き、回帰の試験の作業の場所を作業ツリーの外に作る(#319 裁定 R-6 / ADR-0089)
 //
 // 限界(構造の検査では拾えないもの): 変数や別の手順で隠した dist/standard への push、
 // npm run check の前の手順で package.json の check を書き換える形(npm pkg set など)。
@@ -30,7 +32,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { checkWiring, renderProblems } from './lib/ci-wiring.mjs';
+import { checkWiring, checkRegressWiring, renderProblems } from './lib/ci-wiring.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIR = path.join(ROOT, '.github/workflows');
@@ -41,7 +43,14 @@ const workflows = fs
   .sort()
   .map((file) => ({ file, doc: YAML.parse(fs.readFileSync(path.join(DIR, file), 'utf8')) }));
 
-const problems = checkWiring(workflows);
+const problems = [
+  ...checkWiring(workflows),
+  ...checkRegressWiring({
+    pkg: JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')),
+    ci: workflows.find((w) => w.file === 'ci.yml')?.doc,
+    runSource: fs.readFileSync(path.join(ROOT, 'scripts/regress/run.mjs'), 'utf8'),
+  }),
+];
 if (problems.length) {
   console.error(renderProblems(problems));
   process.exit(1);

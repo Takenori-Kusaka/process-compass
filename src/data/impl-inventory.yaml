@@ -475,6 +475,12 @@ sections:
       - IMPL-0244
     note: 判定記録と出荷の証跡が指す記録の到達性と、CI 基盤の既定の保持を保管とみなさないことは、出荷の証跡のワークフロー(IMPL-0243)と集約の保持切れの扱い(IMPL-0244)で追う。どちらも降りていない。置き場・様式・添付を課さないことは課さない明記
     issue: 294
+  - key: phase4-process-design/gate-criteria#判定の成立 > 判定の根拠に数える試験の置き場
+    status: marked
+    ids:
+      - IMPL-0350
+    note: G-5 の判定の根拠に数える試験を版管理の下に置くことは、gate-g5 が取り出した版の試験だけを実行することで降りる(IMPL-0350)。手元の試験を根拠に挙げていないかは G-6 の判定者が確かめる。試験の種別・枠組み・時計の方式を課さないことは課さない明記。期待値の改めと印の扱いは 5.8.5 の後の段落(IMPL-0204)
+    issue: 319
   - key: phase4-process-design/gate-criteria#工程ゲートの判定の語彙
     status: pending
   - key: phase4-process-design/gate-criteria#判定の範囲
