@@ -375,6 +375,12 @@ targets:
     path: .github/rulesets/team.json
     description: 既定ブランチ(~DEFAULT_BRANCH)へのマージに掛ける必須チェック・承認・最後の push の承認。既定ブランチ以外を基底とする PR のマージは対象の外(Issue #294)
 
+  - id: record-copy-workflow
+    name: 承認レビューの写しのワークフロー(record-copy.yml)
+    kind: template-file
+    path: .github/workflows/record-copy.yml
+    description: PR のマージを契機に、承認レビューの写しを記録用ブランチ records の records/reviews/ へ追記するワークフロー。写しの取り出しの時期と置き場を運ぶのはこのファイルだけである。ジョブのトークン(権限 contents の write)で書くため、同じ権限を持つ者とトークンは、記録用ブランチの写しと様式を新しいコミットで追記・変更できる(IMPL-0353。降りていない)(#321 との統合の突合 F-6・未解決4)
+
   - id: ship-evidence-workflow
     name: 出荷の証跡のワークフロー(ship-evidence.yml)
     kind: template-file

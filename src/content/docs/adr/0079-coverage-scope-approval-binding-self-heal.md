@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-10-23)。採用済みの ADR の決定を置き換えません。[ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/) 決定6(G-5 基準3 の測る範囲を企画時に決める)を、既定の範囲と開示で**補います**。決定6 の「範囲を選べる」は保ちます。ADR-0078 のステータスの節は変えていません。
 
+決定2(承認を承認した差分に束ねる)は、[ADR-0070](/process-compass/adr/0070-gate-record-medium-and-field-sources/)が「決めないこと」で #296 へ送った承認の失効の粒度を閉じます。第4章 G-6「承認レビューを判定記録とする条件」の条件3・条件4 は、本 ADR の IMPL-0263〜IMPL-0265 が降ろしています。
+
 ## コンテキスト
 
 [#296](https://github.com/Takenori-Kusaka/process-compass/issues/296) は、固定定数の棚卸し(#295)の後継として、本文の固定値と、その値を支える規範・実装の食い違いをまとめた Issue です。指摘をそのまま条項にせず、調査2本と会議体5名の意見書で扱いました。記録は `research/296-deliberation/`(`decision.md` の L-1〜L-11)にあります。本 Issue は値を動かす材料を持ちません。値を動かさず、根拠水準を開示し、方法と記録を求める形を基本にしました。

@@ -15,6 +15,7 @@ sidebar:
 | [ADR-0085](/process-compass/adr/0085-adoption-into-existing-repositories/)の決定1 のうち、テンプレートの手引きの中に残した3つの定めの位置付け | 本 ADR の決定1 で置き換える。手引きの中の定めとせず、第1章 1.10.3 の要求事項へ上げた。決定1 のほかの部分と、決定2〜6 は維持する |
 | [ADR-0019](/process-compass/adr/0019-scope-commitment-three-layers/)の「記号の衝突を1件解消した」(受入基準の識別子を `CR-n` へ改称した) | 本 ADR の決定5 で置き換える。受入基準の識別子を `AC-n` へ戻し、前提の充足状態の記号を改める |
 | [ADR-0018](/process-compass/adr/0018-assumption-ledger/)の前提の充足状態の記号 `AC-0 / AC-1 / AC-2` | 本 ADR の決定5 で `AS-0 / AS-1 / AS-2` へ改める。3区分の意味と、受容の決裁の扱いは維持する |
+| [ADR-0070](/process-compass/adr/0070-gate-record-medium-and-field-sources/)の決定8・決定10・決定11 の置き場(第5章 QMS 文書管理と内部監査) | 本 ADR の決定1 で置き換える。保全の条件の5つを第4章「判定の成立」へ、観測値を合否にしないことを第4章 G-6 へ置いた。QMS 対応表は手引きとして残る。各決定の内容は維持する(#321 との統合の突合 F-4・F-8) |
 | [ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)の「影響」のうち、準拠テンプレートの構成は `deviations[]` の欄の名と保存の形を変えない、とした記載 | 本 ADR の決定7 で置き換える。初期化と構成の生成し直しで、各項目に区分(`category`)を書き込む。区分の無い旧い構成は書き換えない。構成の要約値を保つためである。区分の無い項目は、読むときに導く。逸脱の定義(ADR-0083 の決定)は維持する |
 
 [ADR-0068](/process-compass/adr/0068-start-of-application-and-conformance-claim/)(初期化の PR を本文の要求にしない)、[ADR-0075](/process-compass/adr/0075-acceptance-criteria-coverage-premises-and-ai-findings/)(受入基準の記法は組織が定める)、ADR-0083 の決定(逸脱の定義)、[ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/)(実装マークと常駐の規則。常駐の規則の核から外す列は「止める仕組み」と「例」に限る)は維持します。

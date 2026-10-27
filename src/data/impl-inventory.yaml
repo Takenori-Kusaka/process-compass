@@ -463,11 +463,14 @@ sections:
   - key: phase4-process-design/gate-criteria#判定の成立 > 判定記録を基底ブランチへ入れる操作
     status: marked
     ids:
+      - IMPL-0355
+      - IMPL-0356
+      - IMPL-0353
       - IMPL-0124
       - IMPL-0128
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
-    note: 写しを承認と同じ時期に機械が取り出すことは IMPL-0126 で追う。遅くとも G-7 で基底ブランチへ入れることと、既定ブランチの強制層を写しのために縮小しないことには、独立のマークが無い(EV-0119 は実装前)。#321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
+    note: 写しを承認と同じ時期に機械が取り出すことは G-6 の節の IMPL-0126(集約)と IMPL-0354(record-copy.yml)で追う。遅くとも G-7 で基底ブランチへ入れることは IMPL-0355、既定ブランチの強制層を写しのために縮小しないことは IMPL-0356、写しの置き場を書き換えられない場所にすることは IMPL-0353(降りていない。EV-0185)。#321 との統合の突合(research/integration-321/crosscheck.md の未解決1・F-6)の裁定で足した
   - key: phase4-process-design/gate-criteria#判定の成立 > 判定が指す記録の保管
     status: marked
     ids:
@@ -642,6 +645,7 @@ sections:
       - IMPL-0093
       - IMPL-0094
       - IMPL-0263
+      - IMPL-0357
       - IMPL-0264
       - IMPL-0265
       - IMPL-0266
@@ -668,20 +672,21 @@ sections:
       条件3:
         status: none
         category: elsewhere
-        reason: commit_id による固定と、マージ時の head との一致の検査は、G-2 の節のマーク(IMPL-0129)で追う
+        reason: commit_id による対象の固定と、承認の後の push による失効は、G-6 の承認を承認した差分に束ねる規定のマーク(IMPL-0263 集約・IMPL-0264 契約検査・IMPL-0265 実環境の確認)で追う。G-2 の IMPL-0129 は G-2〜G-4 の commit_id とマージ時の head の一致であり、G-6 の失効を数えない
         location:
-          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間)
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
       条件4:
         status: none
         category: elsewhere
-        reason: 承認者ごとの最後の1件を判定として読むことは、集約の記録の読み取り(IMPL-0129 の降ろし先)で追う。独立のマークは無い
+        reason: 承認者ごとの最後の状態で数えることは、G-6 の承認の数え方のマーク(IMPL-0357)で追う
         location:
-          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間)
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
       条件5:
         status: marked
         ids:
           - IMPL-0126
-    note: #321 との統合で、統合の作業者(AI)が #321 のマークから暫定に区分した。人の棚卸しで確かめ直す
+          - IMPL-0354
+    note: 条件1・5 はこの節のマーク。条件3・4 の送り先は #321 との統合の突合 F-11 の裁定で G-6 の節へ改めた。承認までの時間・コメントの有無・差分の量を合否にしないことは、課さない明記(ADR-0059)
 
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 委任の変更は判定の時点を事後へ移す
     status: pending
