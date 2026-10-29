@@ -27,11 +27,12 @@ graph LR
 
 ## ロール間非同期メッセージング（Label Mailbox 連携）
 
-物理分割された各ロール（PO, Dev, QM, Audit, Platform）は、直接の同期通信や割り込みをせず、GitHubラベルをメッセージバスとしたポーリングベースの **[非割込型メッセージボックス（Label Mailbox）](/process-compass/phase5-implementation/label-mailbox/)** を使用して仕事を引き渡す。
+物理分割された各ロール（[第3章 3.5.1](/process-compass/phase4-process-design/roles-responsibilities/)の7レーン）は、直接の同期通信や割り込みをせず、GitHubラベルをメッセージバスとしたポーリングベースの **[非割込型メッセージボックス（Label Mailbox）](/process-compass/phase5-implementation/label-mailbox/)** を使用して仕事を引き渡す。
 
 - 開発に着手した際、Draft PR の状態では **`state:needs-dev`** ラベルを維持する。
-- 実装・単体テスト（CI緑）が完了し、`human-verify` を記録して Ready にする際、開発者（Dev）は `state:needs-dev` を剥がし、**`state:dev-done`** ラベルを付与して出荷判定者（QM）へ引き渡す。
-- 独立レビューにおいて差し戻し（BLOCK）が発生した場合、QMは **`state:qm-blocked`** を付与する。開発者は対応を終えて再 Ready 化する際、必ずこのラベルを剥がして再度 **`state:dev-done`** に戻す（復路の厳守）。
+- 実装・単体テスト（CI緑）が完了し、`human-verify` を記録して Ready にする際、開発者（Dev）は `state:needs-dev` を剥がし、**`state:dev-done`** ラベルを付与して引き渡す。受け手は、G-6 が有効な構成では独立レビュア（Review）であり、出荷判定者の受信箱には入れない。G-6 が省略・未達の構成では、出荷判定者（Ship）が受ける（[Label Mailbox 4.3](/process-compass/phase5-implementation/label-mailbox/)）。
+- 独立レビューにおいて差し戻し（BLOCK）が発生した場合、独立レビュアは **`state:qm-blocked`** を付与する。開発者は対応を終えて再 Ready 化する際、必ず `state:qm-blocked` を剥がして再度 **`state:dev-done`** に戻す（復路の厳守）。
+- G-6 の判定記録を作成して通過とした場合は、独立レビュアが **`state:ready-to-merge`** を付与して出荷判定者（Ship）へ渡す。G-6 が省略・未達の構成では、このラベルを使わない。開発者は自らこのラベルを付けない。
 
 各ロールのエージェントセッションは、直接の指示を待つのではなく、Label Mailbox で規定された polling コマンドにより自律的に仕事を処理する。
 
@@ -39,7 +40,7 @@ graph LR
 
 | 項目 | 基準値 | 超えたときの扱い |
 | --- | --- | --- |
-| 変更行数 | 400 行(製品のコードのファイルごとの max(追加, 削除)の合計。テスト・fixture・snapshot は別に数え、自動生成ファイル・ロックファイルを除く) | `size:over` を付け、区分の下限を R2 へ引き上げ、PR の「規模の確認」を要する。失敗にはしない |
+| 変更行数 | 400 行(製品のコードのファイルごとの max(追加, 削除)の合計。テスト・fixture・snapshot は別に数え、自動生成ファイル・ロックファイルを除く) | `size:over` を付け、区分の下限を R2 へ引き上げ、PR の「規模の確認」が要る。失敗にはしない |
 | 変更ファイル数 | 15 ファイル | 同上(ファイル数は確認の記入以外の合否に使わない) |
 | レビュー所要時間 | 目安 30 分 | 規模の確認の「読み切れたか」で扱う |
 
@@ -49,7 +50,7 @@ graph LR
 
 ## 本文の必須欄(PR テンプレート)
 
-リポジトリの `.github/PULL_REQUEST_TEMPLATE.md` に次を置き、必須欄を空にしたままのレビュー依頼を禁止します。
+リポジトリの `.github/PULL_REQUEST_TEMPLATE.md` に次を置き、必須欄を空にしたままのレビュー依頼を防ぐことを勧めます。
 
 ```markdown
 ## 対応タスク
@@ -94,7 +95,7 @@ R1 / R2 / R3 <!-- 変更ごとに1つ。AI は草案まで。確定は人が行�
 ```
 
 - 「検証方法と結果」欄は、人確定・協働の変更では、**実装と検証タスク(human-verify)の完了記録**を兼ねる。開発者の席の委任の範囲の変更では、担い手が書く実行結果の証拠である。どちらの変更でも、空欄のまま Ready にした PR は差し戻し対象
-- 「作成を指示した者」欄は、承認を独立した人の確認に数えるかどうかの判定に使う。承認した人がこの欄に載っていれば、その承認は独立した確認に数えない。2名体制で2人とも指示に関与した変更は、相互の確認では成立しない([第3章 3.5](/process-compass/phase4-process-design/roles-responsibilities/))。集計の規則は[CI/CD ゲート構成リファレンス](/process-compass/phase5-implementation/ci-gates/)「保証の開示の出力」による
+- 「作成を指示した者」欄は、承認を独立した人の確認に数えるかどうかの判定に使う。承認した人がこの欄に載っていれば、その承認は独立した確認に数えない。2名体制で2人とも指示に関与した変更は、相互の確認では成立しない([第3章 3.5](/process-compass/phase4-process-design/roles-responsibilities/))。集計の規則は[CI/CD ゲート構成リファレンス](/process-compass/phase5-implementation/ci-gates/)「保証の開示の出力」参照
 - 「規模の確認」欄は、規模の基準値を超えた PR だけが書く([第4章 基準値を超えた変更の扱い](/process-compass/phase4-process-design/gate-criteria/))。それ以外の PR は節を消してよい。担保水準 L1 以上の宣言(構成 task.assurance)に根拠が実在する場合は、保証の所在だけで足りる
 - 「リスク区分」欄は、保証の開示の項目3 の集計元になる。区分は変更ごとに判定する([第3章 3.8.1](/process-compass/phase4-process-design/roles-responsibilities/))。未記入と、選択肢を残したままの欄は、記録の欠落として扱う
 - PR を経ないコミットは、PR 本文の欄を持たない。リスク区分はコミットのトレーラ `Risk` で、検証の記載はトレーラ `Verification` で記録する([Git 戦略リファレンス](/process-compass/phase5-implementation/git-strategy/)「AI 生成コミットの扱い」)
@@ -124,9 +125,9 @@ R1 / R2 / R3 <!-- 変更ごとに1つ。AI は草案まで。確定は人が行�
 
 ### human-verify を自動化しない理由と、様式の最小化
 
-人確定・協働の変更では、human-verify の記述は、体裁を整えるための欄ではなく、**動かして確かめた人がいることの記録**です。生成物はその証拠になりません([附属書E E.9 禁止事項5](/process-compass/phase4-process-design/developer-guide/))。開発者の席の委任の範囲の変更では、この欄は実行結果の証拠であり、人が確かめたことの記録ではありません。人の確認は、独立レビュアによる事前の承認と挙動要約が担います。
+人確定・協働の変更では、human-verify の記述は、体裁を整えるための欄ではなく、**動かして確かめた人がいることの記録**です。生成物はその証拠になりません([第5章 5.8.5 の禁止事項5](/process-compass/phase4-process-design/human-ai-boundary/))。開発者の席の委任の範囲の変更では、この欄は実行結果の証拠であり、人が確かめたことの記録ではありません。人の確認は、独立レビュアによる事前の承認と挙動要約が担います。
 
-自動化しない代わりに、様式を3要素へ絞ります。
+自動化しない代わりに、様式を3要素へ絞ります。3要素は、[第4章 G-6](/process-compass/phase4-process-design/gate-criteria/) 基準6 の記録の内容です。
 
 | 要素 | 書くこと |
 | --- | --- |
@@ -135,6 +136,8 @@ R1 / R2 / R3 <!-- 変更ごとに1つ。AI は草案まで。確定は人が行�
 | 判断 | 受入基準を満たすと考えた理由を、自分の言葉で1文 |
 
 **分量の下限を設けません**。3要素が揃っていれば、3行で足ります。長さを求めると、埋めるための文章が増え、記録の意味が薄まります。
+
+**本標準は、human-verify に、画面の写し・DOM などの添付と、その所在の記載を求めません**。添付の有無と所在は機械で確かめられても、確かめたことを示さないためです([第4章「判定が指す記録の保管」](/process-compass/phase4-process-design/gate-criteria/))。添付する場合の置き場と保管は、組織の文書管理規程に基づきます。
 
 ### 記録の書き戻しを毎回求めない
 
@@ -189,7 +192,7 @@ gh pr create --draft --title "feat: <タスクの要約> (F-012/Task-3)" --body-
 ## レビュー対応とマージ
 
 - レビュー指摘は**スレッド解決を必須**にする(ルールセットの `required_review_thread_resolution`)。「見たが直さない」判断も、理由をスレッドに書いてから解決する
-- 指摘の修正は AI に任せてよい。ただし修正 push で承認は自動的に無効化されるため(`dismiss_stale_reviews_on_push`)、再承認を依頼する。修正が挙動に触れる場合は human-verify も更新する
+- 指摘の修正は AI に任せてよい。承認の後の push は、修正に限らず、承認を自動で無効にする(`dismiss_stale_reviews_on_push`)。基底ブランチの取り込み(Update branch)で差分の基準が変わった場合も無効になる。再承認を依頼する。承認は承認した差分に対して数え、差分を変える更新の後の承認を数えないため([第4章 G-6](/process-compass/phase4-process-design/gate-criteria/))、「些末な修正」として承認を持ち越す運用はしない。修正が挙動に触れる場合は human-verify も更新する
 - レビューは、レビュアごとの最後の状態で数える。承認の後に同じ人が変更要求を出した場合、先の承認は取り下げられたものとして扱う。出荷の証跡の集約も、独立した人の確認に数えない
 - マージは **squash を既定**とし、squash 後のコミットメッセージにもトレーラを残す(履歴の集計可能性を保つ)。残すのは `Spec`・`Co-Authored-By` と、該当する場合の `Delegated`・`Risk`・`Verification` である。`Delegated` を落とすと、委任で先へ進めた変更を変更単位で識別できなくなる
 - コミットが PR を経たかどうかは、PR のマージコミットとの一致で判定する。件名の `(#N)` では判定しない([Git 戦略リファレンス](/process-compass/phase5-implementation/git-strategy/)「マージ後の扱い」)

@@ -3,7 +3,10 @@
   "note": "自動生成。正本は process-compass の src/data/。手で編集しない",
   "source": {
     "repository": "https://github.com/Takenori-Kusaka/process-compass",
-    "commit": "d26479322f0dea7781e345e0440927ee7386df77"
+    "commit": "719aa4d5f267a83fe59248a6333717fb3f8c811f",
+    "edition": null,
+    "editionIssuedAt": null,
+    "basedOn": null
   },
   "questions": [
     {
@@ -215,7 +218,7 @@
             "id": "g-ship"
           },
           "action": "omit",
-          "note": "出荷判定は省略する"
+          "note": "出荷判定は省略する。安全重要度 CL1 以上では省略しない"
         },
         {
           "target": {
@@ -266,7 +269,7 @@
           "action": "set",
           "param": "scope",
           "value": "core-only",
-          "note": "独立レビューはコア機能のみ実施する"
+          "note": "独立レビューはコア機能のみ実施する。安全重要度 CL1 以上では全変更に適用する"
         },
         {
           "target": {
@@ -274,7 +277,7 @@
             "id": "g-ship"
           },
           "action": "simplify",
-          "note": "出荷判定は簡略化する(記録は残す)"
+          "note": "出荷判定は簡略化する(記録は残す)。安全重要度 CL1 以上では簡略にしない"
         },
         {
           "target": {
@@ -411,9 +414,27 @@
           "param": "appliesInAllStages",
           "value": true,
           "note": "独立レビューは、事業ステージによる省略の対象にしない(S0 でも適用する)。危害の深刻度は、ステージの都合で下がらない"
+        },
+        {
+          "target": {
+            "type": "gate",
+            "id": "g-indep-review"
+          },
+          "action": "set",
+          "param": "scope",
+          "value": "all",
+          "note": "独立レビューを、コア機能に限らず全変更に適用する(事業ステージ S1 のコア機能への限定を適用しない)"
+        },
+        {
+          "target": {
+            "type": "gate",
+            "id": "g-ship"
+          },
+          "action": "restore",
+          "note": "出荷判定は、事業ステージによる省略(S0)・簡略(S1)の対象にしない。G-6 の記録の欠落を読んで差し戻す席を残す"
         }
       ],
-      "reason": "回復可能であっても個人の権利に影響が及ぶ場合、判断の経路を後から再構成できる必要がある。独立した人の確認を、事業ステージを理由に外さない",
+      "reason": "回復可能であっても個人の権利に影響が及ぶ場合、判断の経路を後から再構成できる必要がある。独立した人の確認と、その欠落を差し戻す出荷判定を、事業ステージを理由に外さない。危害の深刻度は、体制の都合でも事業ステージの都合でも下がらない",
       "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/tailoring-guide/",
       "priority": 50,
       "sourceFile": "rules-criticality.yaml"
@@ -455,7 +476,7 @@
           "action": "set",
           "param": "independentSafetyAssessment",
           "value": true,
-          "note": "独立レビューとは別に、実装の責任者から組織的に独立した安全性の評価を重ねる"
+          "note": "独立レビューとは別に、独立した安全性の評価を重ねる。評価者は、実装の責任者・作成を指示した者・当該の判定者から組織上の距離の段2 以上(CL3 は段3 以上)の者とする(第1章 1.4)。届かない段は未達であり、AI の確認はどの段にも数えない"
         },
         {
           "target": {
@@ -465,6 +486,14 @@
           "param": "maxAutonomyLevel",
           "value": "L2",
           "note": "安全関連部のAI自律レベルはL2を上限とする"
+        },
+        {
+          "target": {
+            "type": "practice",
+            "id": "ai-usage"
+          },
+          "action": "note",
+          "note": "安全関連ソフトウェアのテスト生成の分離の段階は最強を適用する。検証の担当者は、実装の責任者から組織上の距離の段2 以上(CL3 は段3 以上)の者とする(第5章 5.8.4)"
         }
       ],
       "reason": "適合性評価または第三者認証の対象になる場合、危険源の同定から検証記録までの追跡が要求される",
@@ -521,11 +550,37 @@
             "id": "ai-usage"
           },
           "action": "note",
-          "note": "実装とテストを同一のAIに同一の文脈で書かせない。テスト生成の分離の段階は最強(組織的な独立)を適用する"
+          "note": "実装とテストを同一のAIに同一の文脈で書かせない。テスト生成の分離の段階は最強を適用し、検証の担当者と独立した安全性の評価者は、組織上の距離の段3 以上の者とする(第1章 1.4)"
         }
       ],
       "reason": "死亡または重篤な傷害が起こりうる場合、自律レベルを固定し、機械の検証と出荷判定の記録を厚くする。独立レビューを2名とするのは、1名の承認者の確認だけでは変更を取り込めない状態を作り、その記録を残すためである(第4章 G-6)。機能安全の規格が確認者の人数を求めるという主張ではない",
       "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/safety-verification/",
+      "priority": 50,
+      "sourceFile": "rules-criticality.yaml"
+    },
+    {
+      "id": "r-e-small-team-not-allowed",
+      "when": {
+        "q-team-size": [
+          "size-1-2"
+        ],
+        "q-criticality": [
+          "cl1",
+          "cl2",
+          "cl3"
+        ]
+      },
+      "adjustments": [
+        {
+          "target": {
+            "type": "process"
+          },
+          "action": "note",
+          "note": "安全重要度 CL1 以上を 1〜2名の体制で扱う構成は認めない。危害の深刻度は体制の都合で下がらない。外部の評価者を含めて3名以上の体制を確保するか、設計を変えて危害の帰結を下げるか、当該の機能を実施しない(第8章 軸E)"
+        }
+      ],
+      "reason": "安全重要度 CL1 以上では、独立した人の確認と、その欠落を差し戻す出荷判定を外せない。1〜2名の体制では席を分けられず、未達の表示と代償措置で運用できるのは CL0 だけである(ADR-0028)",
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/tailoring-guide/",
       "priority": 50,
       "sourceFile": "rules-criticality.yaml"
     },
@@ -756,6 +811,30 @@
       "sourceFile": "rules-quality.yaml"
     },
     {
+      "id": "r-c-regulated-small-team-not-allowed",
+      "when": {
+        "q-team-size": [
+          "size-1-2"
+        ],
+        "q-quality": [
+          "quality-regulated"
+        ]
+      },
+      "adjustments": [
+        {
+          "target": {
+            "type": "process"
+          },
+          "action": "note",
+          "note": "規制業を 1〜2名の体制で扱う構成は認めない。判定の時点そのものが監査要件になるため、3名以上の体制を確保する(第8章 軸A)"
+        }
+      ],
+      "reason": "規制業では判定の時点そのものが監査要件になり、1〜2名の体制では席を分けられない(ADR-0028)",
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/tailoring-guide/",
+      "priority": 30,
+      "sourceFile": "rules-quality.yaml"
+    },
+    {
       "id": "r-s-no-external-reviewer",
       "when": {
         "q-team-size": [
@@ -780,6 +859,7 @@
             "id": "g-ci"
           },
           "action": "strengthen",
+          "compensation": true,
           "note": "代償措置としてCI基準を厳格化する(カバレッジ+静的解析の基準を引き上げ)。未達の解消にも、独立レビューの代替にも数えない"
         },
         {
@@ -853,7 +933,7 @@
             "id": "ai-usage"
           },
           "action": "note",
-          "note": "認可済みツールの範囲でAI協調ループを構成する。自律度はL1(人が全承認)から開始し、実績に応じて引き上げる"
+          "note": "認可済みツールの範囲でAI協調ループを構成する。自律度はL1(人が全承認)から開始し、第5章 5.4.5 の判定を経て引き上げる"
         }
       ],
       "reason": "ツール制約がある組織では、解禁条件つきの段階的な自律度引き上げが現実的",
@@ -960,7 +1040,15 @@
             "id": "value-owner"
           },
           "action": "note",
-          "note": "価値責任者と技術判断者の分離を推奨する(兼務は避けたい)"
+          "note": "価値責任者と技術判断者の兼務は非推奨(拒否しない)。兼務する場合は、兼務の事実と理由を D-0 体制図へ記録する(第3章 3.5)。代替の統制は課さない"
+        },
+        {
+          "target": {
+            "type": "role",
+            "id": "biz-approver"
+          },
+          "action": "note",
+          "note": "事業決裁者と価値責任者の兼務は非推奨(拒否しない)。兼務する場合は、兼務の事実と理由を D-0 体制図へ記録する(第3章 3.5)"
         },
         {
           "target": {
@@ -988,7 +1076,7 @@
             "id": "role-delegation"
           },
           "action": "note",
-          "note": "仕様承認の委譲は必要に応じて行う"
+          "note": "仕様承認を機能責任者へ委譲してよい(許容。第3章 3.6。委譲は担当表に記録する)"
         }
       ],
       "reason": "分離の最低条件は満たせる規模。責任の所在を名前で明示することが形骸化の予防になる",
@@ -1012,7 +1100,15 @@
           "action": "set",
           "param": "mustSplitFrom",
           "value": "tech-lead",
-          "note": "価値責任者と技術判断者は分離必須(兼務にしない)"
+          "note": "価値責任者と技術判断者の兼務は禁止(根拠の水準は第3章 3.5 の EV-0156。E0)"
+        },
+        {
+          "target": {
+            "type": "role",
+            "id": "biz-approver"
+          },
+          "action": "note",
+          "note": "事業決裁者と価値責任者の兼務は非推奨(10名以上でも禁止しない。第3章 3.5)。兼務する場合は、兼務の事実と理由を D-0 体制図へ記録する"
         },
         {
           "target": {
@@ -1042,7 +1138,7 @@
           "action": "set",
           "param": "enabled",
           "value": true,
-          "note": "機能責任者へ仕様承認を積極的に委譲する(価値責任者の帯域を守る)"
+          "note": "機能責任者へ仕様承認を委譲することを推奨する(推奨。価値責任者の帯域を守る)"
         }
       ],
       "reason": "規模が大きいほど判定者の帯域がボトルネックになる。分離と委譲で承認の滞留を防ぐ",
@@ -1187,7 +1283,7 @@
       ],
       "criteriaComplete": false,
       "criteriaNote": "この一覧は標準 第4章の判定基準表のみである。表の外にある規範(手続・禁止・注記)は含まない。source を参照すること",
-      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/gate-criteria/#g-1-企画承認事業決裁者既存規程どおり"
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/gate-criteria/#g-1-企画承認事業決裁者既存規程または-d-0-の記名による"
     },
     {
       "id": "g-req-agree",
@@ -1234,7 +1330,8 @@
         "タスク分解の粒度が1タスク=1レビュー単位",
         "対象機能のコア/非コア指定が明示されている",
         "各タスクの規模が分割基準の範囲内である。範囲を超える見込みのタスクは、関心事が1つであること(行数に合わせて細切れにしていないこと)を確かめる",
-        "合意した範囲の内か外かの判定が記入されている"
+        "合意した範囲の内か外かの判定が記入されている",
+        "各受入基準が、実装計画のいずれかのタスクの「対応する受入基準」に現れる"
       ],
       "criteriaComplete": false,
       "criteriaNote": "この一覧は標準 第4章の判定基準表のみである。表の外にある規範(手続・禁止・注記)は含まない。source を参照すること",
@@ -1271,7 +1368,8 @@
         "レビュアが挙動を自分の言葉で説明できる",
         "(コア機能のみ)設計意図の記録が完備",
         "レビュアが作成の指示者本人でない",
-        "(依存の追加・更新を含む場合)追加の必要性を確認した"
+        "(依存の追加・更新を含む場合)追加の必要性を確認した",
+        "変更の検証の方法と結果が記録されている"
       ],
       "criteriaComplete": false,
       "criteriaNote": "この一覧は標準 第4章の判定基準表のみである。表の外にある規範(手続・禁止・注記)は含まない。source を参照すること",
@@ -1531,10 +1629,34 @@
       "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/gate-criteria/#未達のまま出荷する場合の例外承認適用-r1-の変更"
     },
     {
+      "title": "変更の要求を経ないコミット",
+      "range": "PR を経ずに既定ブランチへ入れるコミット",
+      "unit": "other",
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/gate-criteria/#変更の要求を経ないコミット適用-pr-を経ずに既定ブランチへ入れるコミット"
+    },
+    {
       "title": "基準値を超えた変更の扱い",
       "range": "規模の基準値を超えた PR",
       "unit": "other",
       "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/gate-criteria/#基準値を超えた変更の扱い適用-規模の基準値を超えた-pr"
+    },
+    {
+      "title": "AI 品質指標の扱い",
+      "range": "AI が関与した成果物の品質を比率で扱う場合。傾向の確認と第5章 5.4.6 の検知条件を含む",
+      "unit": "other",
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/gate-criteria/#ai-品質指標の扱い適用-ai-が関与した成果物の品質を比率で扱う場合傾向の確認と第5章-546-の検知条件を含む"
+    },
+    {
+      "title": "新規に変更した範囲へ限定する",
+      "range": "G-5 基準3 以外の定量条件",
+      "unit": "other",
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/gate-criteria/#新規に変更した範囲へ限定する適用-g-5-基準3-以外の定量条件"
+    },
+    {
+      "title": "登録した変更種別での停止",
+      "range": "5.5.4 で登録した変更種別",
+      "unit": "other",
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/human-ai-boundary/#登録した変更種別での停止適用-554-で登録した変更種別"
     },
     {
       "title": "5.5.4 委任の条件",
@@ -1547,6 +1669,18 @@
       "range": "R1 の決定・例外承認",
       "unit": "per-change",
       "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/human-ai-boundary/#573-選択肢の比較適用-r1-の決定例外承認"
+    },
+    {
+      "title": "2.10.2 規模の合意",
+      "range": "事業ステージのスコープ3層の規模の合意",
+      "unit": "other",
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/lifecycle/#2102-規模の合意適用-事業ステージのスコープ3層の規模の合意"
+    },
+    {
+      "title": "既存のリポジトリで適用を始める場合",
+      "range": "既存のコードと履歴を持つリポジトリで適用を始める案件",
+      "unit": "other",
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/overview/#既存のリポジトリで適用を始める場合適用-既存のコードと履歴を持つリポジトリで適用を始める案件"
     },
     {
       "title": "委任を適用した変更",
@@ -1571,6 +1705,12 @@
       "range": "S2 スケール、または安全・法規制の対象となる機能",
       "unit": "other",
       "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/roles-responsibilities/#b-3-設計審査会適用-s2-スケールまたは安全法規制の対象となる機能"
+    },
+    {
+      "title": "3.12.12 能力依存の定数の再評価",
+      "range": "能力依存として登録した定数",
+      "unit": "other",
+      "source": "https://takenori-kusaka.github.io/process-compass/phase4-process-design/roles-responsibilities/#31212-能力依存の定数の再評価適用-能力依存として登録した定数"
     },
     {
       "title": "外部の確認者を高リスクの変更へ集中させる",
@@ -1607,12 +1747,6 @@
       "range": "規模の基準値を超えた PR",
       "unit": "other",
       "source": "https://takenori-kusaka.github.io/process-compass/phase5-implementation/pr-workflow/#規模の基準値適用-規模の基準値を超えた-pr"
-    },
-    {
-      "title": "能力依存の定数の登録簿",
-      "range": "能力依存として登録した定数",
-      "unit": "other",
-      "source": "https://takenori-kusaka.github.io/process-compass/phase6-operation/metrics/#能力依存の定数の登録簿適用-能力依存として登録した定数"
     }
   ]
 }

@@ -53,7 +53,7 @@ graph TD
 ```
 
 - 第1階層は**発生源**。チームが統制できるかどうかで内部と外部に分ける
-- 第2階層は**カテゴリ**。内部5・外部5の10分類とする
+- 第2階層は**カテゴリ**。内部5・外部5の10分類にする
 - 第3階層は**フェーズ**。企画・開発・リリース・継続運用のどこで顕在化しやすいかを示す
 - 生成AI起因のリスクは第3の軸として独立させる。既存の分類へ分散させると横断的な監視ができなくなるため
 
@@ -98,7 +98,7 @@ graph TD
 | --- | --- | --- | --- | --- |
 | 開発 | CI が壊れ検証が止まる | 時間・モノ | AI 運用担当者 | [CI ゲート](/process-compass/phase5-implementation/ci-gates/)の復旧を最優先の運用作業に置く |
 | 開発 | 開発環境と本番環境の差異による想定外の不具合 | モノ・時間 | 技術判断者 | [非機能検証](/process-compass/phase5-implementation/nonfunctional-verify/) |
-| リリース | 配備の自動化の不備による操作の誤り | モノ・時間 | 出荷判定者 | [PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)、hotfix でも PR を経る規定 |
+| リリース | 配備の自動化の不備による操作の誤り | モノ・時間 | 出荷判定者 | [PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)、緊急の修正でも PR を経る運用 |
 | リリース | データ移行の失敗による不整合 | モノ・カネ | 技術判断者 | [G-7 出荷判定](/process-compass/phase4-process-design/gate-criteria/)の復旧手順の確認 |
 | 継続運用 | 計算資源の設定の誤りによる費用の超過 | カネ | AI 運用担当者 | [計算資源の戦略](/process-compass/phase5-implementation/compute-strategy/) |
 | 継続運用 | 監視の不足による検知の遅れ | モノ・時間 | 技術判断者 | [運用作業カタログ](/process-compass/phase6-operation/operations-catalog/)の日次作業 |
@@ -109,7 +109,7 @@ graph TD
 | フェーズ | 具体例 | 影響先 | リスクオーナー | 本標準の受け止め |
 | --- | --- | --- | --- | --- |
 | 企画 | 方針の頻繁な転換による混乱 | ヒト・時間 | 事業決裁者 | [事業意図の記述](/process-compass/phase4-process-design/deliverable-templates/)と変更の記録 |
-| 企画 | 予算の承認の遅延による着手の遅れ | 時間・カネ | 事業決裁者 | 受け止めなし(組織の決裁規程による) |
+| 企画 | 予算の承認の遅延による着手の遅れ | 時間・カネ | 事業決裁者 | 受け止めなし(組織の決裁規程に基づく) |
 | 開発 | 優先順位の誤りによる資源配分の失敗 | ヒト・カネ・時間 | 価値責任者 | [7.7.3 中止の判断基準](/process-compass/phase4-process-design/exception-escalation/) |
 | リリース | 合意の不足によるリリース可否の混乱 | 時間 | 事業決裁者 | [第7章 エスカレーション](/process-compass/phase4-process-design/exception-escalation/)の発火条件 |
 | 継続運用 | 指標の設定の誤りによる誤った判断の継続 | カネ・時間 | 価値責任者 | [運用メトリクス](/process-compass/phase6-operation/metrics/)の警戒サイン、[前提の監視](/process-compass/adr/0018-assumption-ledger/) |
@@ -133,7 +133,7 @@ graph TD
 | --- | --- | --- | --- | --- |
 | 企画 | 競合の先行によるポジションの喪失 | カネ・時間 | 事業決裁者 | [前提台帳](/process-compass/adr/0018-assumption-ledger/)による前提の失効の検知 |
 | 企画 | 市場の変化により企画時点の前提が崩れる | カネ・時間 | 価値責任者 | 同上、[7.7.3 中止の判断基準](/process-compass/phase4-process-design/exception-escalation/) |
-| 継続運用 | 為替の変動による費用と売上への影響 | カネ | 事業決裁者 | 受け止めなし(組織の財務機能による) |
+| 継続運用 | 為替の変動による費用と売上への影響 | カネ | 事業決裁者 | 受け止めなし(組織の財務機能に基づく) |
 
 ### 顧客・取引先
 
@@ -150,7 +150,7 @@ graph TD
 | フェーズ | 具体例 | 影響先 | リスクオーナー | 本標準の受け止め |
 | --- | --- | --- | --- | --- |
 | 企画 | 法令の改正により企画自体が成立しなくなる | 時間・カネ | 事業決裁者 | 前提台帳(規制の前提を明示する) |
-| 開発 | 展開先の規制への未対応 | カネ・時間 | 事業決裁者 | 受け止めなし(組織の法務機能による) |
+| 開発 | 展開先の規制への未対応 | カネ・時間 | 事業決裁者 | 受け止めなし(組織の法務機能に基づく) |
 | リリース | 業界の基準への非準拠による差し戻し | 時間・カネ | 出荷判定者 | [安全性の検証](/process-compass/phase4-process-design/safety-verification/)、[QMS 文書管理](/process-compass/phase5-implementation/qms-document-control/) |
 | 継続運用 | 制度の変更による課金・請求の改修 | モノ・時間・カネ | 価値責任者 | 通常の開発サイクルで扱う |
 
@@ -158,7 +158,7 @@ graph TD
 
 | フェーズ | 具体例 | 影響先 | リスクオーナー | 本標準の受け止め |
 | --- | --- | --- | --- | --- |
-| 全フェーズ | 災害による拠点・設備の機能停止 | モノ・ヒト・時間 | 事業決裁者 | 受け止めなし(組織の事業継続計画による) |
+| 全フェーズ | 災害による拠点・設備の機能停止 | モノ・ヒト・時間 | 事業決裁者 | 受け止めなし(組織の事業継続計画に基づく) |
 | 全フェーズ | 感染症等による出社の制限 | ヒト・時間 | 事業決裁者 | 受け止めなし(同上) |
 | 継続運用 | サイバー攻撃(サービス妨害、身代金要求型) | モノ・カネ・時間 | 技術判断者 | [インシデント対応](/process-compass/phase6-operation/incident-response/)、避難訓練の類型A・C |
 
@@ -189,7 +189,7 @@ graph TD
 | 提供 | 生成AI 機能の誤作動時の責任の所在が不明 | 時間・カネ | 事業決裁者 | [5章 役割境界](/process-compass/phase4-process-design/human-ai-boundary/)、[決定はリスク受容](/process-compass/adr/0024-decision-as-risk-acceptance/) |
 | 事業戦略 | 活用しないことによる相対的な生産性の低下 | カネ・時間 | 事業決裁者 | [イネーブルメント計画](/process-compass/phase5-implementation/enablement/) |
 | 事業戦略 | 使いこなす練度の不足による誤用 | ヒト・時間 | 価値責任者 | [限定試行による習得](/process-compass/adr/0013-enablement-by-bounded-trial/) |
-| 規制 | 各国の AI 規制への未対応 | カネ・時間 | 事業決裁者 | 受け止めなし(組織の法務機能による) |
+| 規制 | 各国の AI 規制への未対応 | カネ・時間 | 事業決裁者 | 受け止めなし(組織の法務機能に基づく) |
 | セキュリティ | 高度化した攻撃の標的になる | モノ・カネ | 技術判断者 | 避難訓練の類型A・C |
 
 :::caution[暫定 EV-0015 / 見直し 2027-02]
@@ -206,7 +206,7 @@ graph TD
 
 | 行動 | 概念 | 発生の仕組み | 二次被害 |
 | --- | --- | --- | --- |
-| 納期を優先し重大な不具合を見逃す | 逸脱の規範化 | 小さな逸脱が事故に至らなかった経験が累積し、逸脱が既定の状態になる | 問題が膨張してから顕在化し、修正費が跳ね上がる |
+| 納期を優先し重大な不具合を見逃す | 逸脱の常態化(normalization of deviance) | 規程から外れた小さな運用が事故に至らなかった経験が累積し、外れた運用が既定の状態になる | 問題が膨張してから顕在化し、修正費が跳ね上がる |
 | 中止すべき案件を続行する | コミットメントの拡大 | 投入済みの費用を回収したい心理と完了への近さが重なる | 失敗が確定した対象への追加投資 |
 | 人手の不足を残業で埋め続ける | クランチ | 時間は伸縮するという暗黙の前提を管理側が持つ | 疲弊と離脱による練度の流出、遅延の拡大 |
 | リスクを報告しない | 非難文化 | 報告すると個人へ責任が帰されるという予期 | 早期に検知できた事象が重大化する |
@@ -217,11 +217,11 @@ graph TD
 
 | 行動 | 本標準の受け止め |
 | --- | --- |
-| 逸脱の規範化 | [ゲート判定基準](/process-compass/phase4-process-design/gate-criteria/)の4値判定、[未達と省略の区別](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/) |
+| 逸脱の常態化(normalization of deviance) | [ゲート判定基準](/process-compass/phase4-process-design/gate-criteria/)の4値判定、[未達と省略の区別](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/) |
 | コミットメントの拡大 | [7.7.6 案件に関与していない者による棚卸し](/process-compass/phase4-process-design/exception-escalation/)、[7.7.4 自動的な上程](/process-compass/phase4-process-design/exception-escalation/) |
 | クランチ | [スコープの三層](/process-compass/adr/0019-scope-commitment-three-layers/)、[レビュー負荷の測定](/process-compass/phase5-implementation/review-burden-measurement/) |
 | 非難文化 | 責めを問わないポストモーテム、[欠陥注入の測定を個人にしない](/process-compass/phase5-implementation/seeded-error-safety/) |
-| 帰属の誤り | [改善サイクル](/process-compass/phase6-operation/improvement-cycle/)の3区分(システム起因・リスク認識の不足・意図的な逸脱) |
+| 帰属の誤り | [改善サイクル](/process-compass/phase6-operation/improvement-cycle/)の3区分(システム起因・リスク認識の不足・意図的な違反) |
 | 同調 | [独立レビュー](/process-compass/phase4-process-design/review-guide/)、[非割込型の申し送り](/process-compass/phase5-implementation/label-mailbox/) |
 
 **「気をつける」「周知する」を対策として認めません**。数週間で消えるためです。この制約は[インシデント対応](/process-compass/phase6-operation/incident-response/)の再発防止アクションと同一です。

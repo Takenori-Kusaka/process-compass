@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-10-13)。[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)を置き換えません。同 ADR の決定1(未達にする構成)の読み方と、決定4・5(未記入の表示、未達の記録を消す書き換えの拒否)の実装を補います。
 
+一部置き換え(→ ADR-0088 の決定5): 「影響」の5つ目の箇条(初期化の直後の下限 90% は、未達が解けた後も残る)は、[ADR-0088](/process-compass/adr/0088-organizational-distance-steps-and-cl1-stage-relaxation/)の決定5 が置き換えました。代償措置の下限は未達の記録に属し、未達を解く変更の差分に終了の行が出ます。決定3(CL1 以上は S0 でも G-6 を適用する)は、ADR-0088 の決定4 が G-7 と S1 へ広げました(2026-10-24)。
+
 ## コンテキスト
 
 [#302](https://github.com/Takenori-Kusaka/process-compass/issues/302) は、S0 で独立レビューを省略することを決めた記録が無いこと、確認者の有無で省略と未達に型が分かれること、設問への回答だけで未達の表示が消えることを指摘しました。指摘をそのまま条項にせず、調査・会議体・突合の順で扱いました。記録は `research/302-310-deliberation/`(`survey-302.md`、`council-A-01`〜`05`、`decision.md` の A-1〜A-3)にあります。
