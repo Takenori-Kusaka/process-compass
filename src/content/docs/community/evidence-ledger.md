@@ -127,6 +127,9 @@ sidebar:
 | EV-0123 | 文書の量(総量・文書と実装の比率・増加の速度)と、判断記録の本数・行数・参照の回数を、指標にしないこと | E1(間接) | 未記載 | 2027-10 | ゲート滞留時間とレビュー所要時間が悪化しているのに、既存の指標で原因を特定できなかった事例の記録 | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/) |
 | EV-0124 | 同種の指摘をルール化の候補に挙げる目安の「3回」(フェーズ5・6、準拠テンプレートの観点表) | E0(なし) | 未記載 | 2027-10 | 是正の起動の記録のうち、件数の目安で拾えて、影響の起点で拾えなかった事例の件数 | [phase5-implementation/ci-gates](/process-compass/phase5-implementation/ci-gates/) |
 | EV-0125 | 統制の設定を変える変更ごとに、陰性の確認の記録を求めること | E1(間接) | 未記載 | 2027-10 | 陰性の確認で検出した、効いていない設定の件数と、別の経路で見つかった効いていない設定の件数 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| EV-0126 | 検査装置の量(本数・行数・実行時間・変更に占める割合)と、後続の Issue の件数を、指標にしないこと | E1(間接) | 未記載 | 2027-10 | 四半期の棚卸しの記録で、廃止の候補が挙がらないまま、検査装置を起点とする是正の記録が増え続けた案件の件数 | [phase6-operation/metrics](/process-compass/phase6-operation/metrics/) |
+| EV-0127 | 強制層の検査の削除・統合の承認を AI維持管理者に置き、廃止の候補を四半期の棚卸しで判定すること | E1(間接) | 未記載 | 2027-10 | 棚卸しで挙がった廃止の候補のうち承認された割合と、外した後に同じ場面の流出が起きた件数 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| EV-0128 | 組織が書く基準に、緩める理由への読み替えの列挙を求めないこと | E1(間接) | 未記載 | 2027-10 | 附属書H H.11 の表に載らない読み替えが、案件の流出の原因として観測された件数 | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 
 <!-- evidence-ledger:end -->
 

@@ -30,7 +30,7 @@ sidebar:
 | 作業 | 担当 | 内容 |
 | --- | --- | --- |
 | 負債返却の計画 | 価値責任者+開発者 | 台帳のトリアージと返却枠への割り当て([負債返却プロセス](/process-compass/phase6-operation/debt-payback/)) |
-| CI ゲートの見直し | 技術判断者 | 是正の起動の記録([第4章 G-5「是正の起動」](/process-compass/phase4-process-design/gate-criteria/))の確認、ルール化候補(目安は同種指摘3回。[CI/CD ゲート構成リファレンス](/process-compass/phase5-implementation/ci-gates/)。件数は義務の起動条件でない)の吸い上げ、誤検知ルールの調整 |
+| CI ゲートの見直し | 技術判断者 | 是正の起動の記録([第4章 G-5「是正の起動」](/process-compass/phase4-process-design/gate-criteria/))の確認、ルール化候補(目安は同種指摘3回。[CI/CD ゲート構成リファレンス](/process-compass/phase5-implementation/ci-gates/)。件数は義務の起動条件でない)の吸い上げ、是正の起点に当たらない誤検知の検査の修正。検査を外す・統合する場合は、AI維持管理者の承認へ回す([第3章 3.11.4](/process-compass/phase4-process-design/roles-responsibilities/) 要求事項3) |
 | 文脈の陳腐化チェック | 文脈オーナー | 停滞ファイルの棚卸し(自動一覧から) |
 | アクセス・権限の確認 | 技術判断者 | AIエージェントの権限設定・シークレットの棚卸し |
 
@@ -39,6 +39,7 @@ sidebar:
 | 作業 | 担当 | 内容 |
 | --- | --- | --- |
 | プロセスの振り返り | 全ロール代表 | メトリクスに基づくプロセス自体の適応([改善サイクル](/process-compass/phase6-operation/improvement-cycle/)) |
+| 強制層の検査の棚卸し | AI維持管理者 | 廃止の候補の判定([第3章 3.11.4](/process-compass/phase4-process-design/roles-responsibilities/) 要求事項4)。入力は、検査装置を起点とする是正の記録と、検査ごとの失敗の履歴。論証のどの主張も支えない検査を候補にする([附属書H](/process-compass/phase4-process-design/assurance-case/) H.3) |
 | モデル更新の検証・切り替え判断 | 技術判断者 | 新モデルの検証と切り替え(随時発生にも対応) |
 | コア指定の見直し | 価値責任者+技術判断者 | 事業の変化に応じたコア/非コアの再判定 |
 | 担当表の総点検 | 文脈オーナー | ロール担当表・CODEOWNERS の実態との突合(異動対応) |
