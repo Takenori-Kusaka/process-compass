@@ -1,17 +1,17 @@
 # Graph Report - process-compass  (2026-10-29)
 
 ## Corpus Check
-- 1123 files · ~868,690 words
+- 1646 files · ~1,336,946 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 11 file(s) not represented in the graph (top: (none) 9, .css 2)
+- Unclassified: 23 file(s) not represented in the graph (top: (none) 10, .log 6, .tsv 5)
 
 ## Summary
-- 63674 nodes · 63115 edges · 6342 communities (6328 shown, 14 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 50 edges (avg confidence: 0.95)
+- 74601 nodes · 74592 edges · 7022 communities (6992 shown, 30 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 197 edges (avg confidence: 0.94)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d2647932`
+- Built from commit: `719aa4d5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,7 +19,7 @@
 - ウォーターフォール開発プロセス 調査メモ
 - エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)
 - プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査
-- scripts
+- regress/suite/lib.mjs
 - 日本企業のガバナンス・決裁ゲートの実態 調査メモ
 - エージェント型開発(自律・マルチエージェント)の現在地 調査メモ
 - コンテキスト移管ゲート(ブートストラップ・プロセス)一次調査メモ
@@ -44,7 +44,7 @@
 - Process Compass
 - research-framework.md
 - deliverable-templates.md
-- tailoring-guide.md
+- 軸D: 開発形態による調整
 - metrics.md
 - 表現ポリシーの複数案検討と批評ループの記録
 - phase1-current-state/overview.md
@@ -76,7 +76,7 @@
 - 台帳駆動の返却サイクル
 - 画像生成ワークフロー
 - Mermaid 作図規約
-- 1. スタック型 PR(stacked pull requests)の実務
+- fix288-tpl2/suite/new.mjs
 - 作図規約の検討メモ(2026-07-08)
 - 付録: 公式出典の一覧(生成)
 - 0001-public-adr.md
@@ -113,7 +113,7 @@
 - index.mdx
 - phase5-implementation/overview.md
 - phase6-operation/overview.md
-- package.json
+- scripts
 - 調査メモ: 4大会議体と決裁権限マトリクス／デジタル根回し（Issue #102・#103）
 - 調査メモ: エスカレーション・意思決定体制図(D-0)テンプレートと初期フェーズへの組み込み
 - 0027-process-name-pit-in.md
@@ -125,7 +125,7 @@
 - 3. 設計判断
 - 1. 調査結果
 - exception-escalation.md
-- human-ai-boundary.md
+- 5.4 AI自律レベル
 - lifecycle.md
 - 0009-phase4-standard-chapter-structure.md
 - 2. 設計判断
@@ -245,12 +245,12 @@
 - agent-trace-control.md
 - risk-catalog.md
 - 0029-shipping-approver-merge-exception.md
-- label-mailbox.md
+- ロール別のポーリングのコマンド
 - 第1部: 弁護できるもの
 - 検証の記録(2026-09-23〜24)
 - 0036-gate-closure-by-record.md
 - assurance-case.md
-- evidence-ledger.md
+- run.mjs
 - 日本の実務動向(出典一覧)
 - seeded-error-safety.md
 - 各ゲートの判定チェックリスト
@@ -306,7 +306,7 @@
 - 286 遵守の場面集による前後比較(2026-10-01)
 - manifest.json
 - 決定
-- #239 適用範囲マークの仕組みが動いているのに届いていない
+- ta.mjs
 - 実証研究の一覧(研究デザイン・N・効果)
 - モデル・ツールの年表(2026-06〜09)
 - 284・285 会議体 意見書04: 規格・法務・安全役(2026-09-30)
@@ -371,30 +371,30 @@
 - (a) 出典ごとの要点と原文
 - 5. 反証の探索 — 意図的に、体系を否定する材料を探した結果
 - 9. 「計画したテストの消化率」を出荷判定に使うことの妥当性
-- 7. 実務側の指針と研究
+- status
 - 3. 29119-3:2021（テスト文書）— 一次情報で確認した構造と適合性
 - 「作るか、あるものを使うか」に既存規格は何を要求しているか
 - 8. 会議体用の要約
 - 10. 特に問われた 4 つの問いへの回答
 - 13. 会議体向けの要約
-- 11. 問いへの回答
-- 12. 未解決の穴(圧縮版)
-- 1. ISO/IEC/IEEE 12207 と 15288
-- 3. CMMI
+- test-check-ci-wiring.mjs
+- impl-inventory.mjs
+- 会議体 #316 意見書 02: 現場(採用者)の立場
+- 会議体 #316 意見書 05: 現行の擁護者(defender)
 - 4. Automotive SPICE
 - 決定
 - 2. 29119-2:2021（テストプロセス）— 一次情報で確認した構造
 - 6. テストレベルの階層概念
 - 7. 29119 に対する批判
-- 10. 2026年8月13日時点の AI コーディング文脈
-- 5. 政府調達 — 「探す義務」と「否定的結果の記録」の先例
-- 6. OSS ガバナンス — 「使うときの管理」に閉じているか
-- 8. 日本の実態 — 建前と実運用の乖離(追加調査)
-- 9. 反対側 — 依存を増やすリスク
+- 付録 A. 事前点検への適応を足した場合に落ちる 47 場面(出力と差分)
+- 3. 論点ごとの詳細
+- 審議の入力: Issue #294 と、引き継いだ 8 論点の元 Issue の要点
+- regress/suite/new.mjs
+- regress/suite/scenarios.mjs
 - 4. ISO/IEC/IEEE 12207 / 15288 / JIS X 0160 におけるテストの位置づけ
 - G-7 出荷判定(QA・3営業日)
 - 修正の決定(第2巡)
-- 0048-gate-criteria-source-of-truth.md
+- criteria
 - 0058-size-over-is-confirmed-not-blocked.md
 - 288 会議体(組織継続の側) 意見書11: 標準策定者(起案)(2026-10-03)
 - 4. Q17・Q18 止める権限と有事の決定
@@ -406,15 +406,15 @@
 - #241: 投資対効果の様式が収益前提になっている
 - 1.1 案
 - 4. 選択肢
-- 総論 — 9件を3つの型に分ける
+- 会議体 意見書 03: 品質保証・監査の立場(#316)
 - #240: 着手決裁が降りるまでの活動量に上限が無い
 - #246: 「利用者が使い方に気づけるか」を問う工程が無い
-- #239: 適用範囲マークの仕組みが動いているのに届いていない
+- #319 会議体 意見書 03: 品質保証・監査
 - #241: 投資対効果の様式が収益前提になっている
-- #244: 決裁の場で「伝わるか」を扱う規定が無い
+- 総論 — 9件を3つの型に分ける
 - #245: 中核の価値仮説に根拠を付ける工程が、着手決裁の前に無い
 - #247: 変更規模の数値を合否条件にすると、較正手続に必要な実測が採れない
-- #238 判定基準の実物が案件へ降りていない
+- #319 外部調査: 決定を固定する回帰試験を、どこに置き、どう保つか
 - #238: 判定基準の実物が案件へ降りていない
 - #244: 決裁の場で「伝わるか」を扱う規定が無い
 - #245: 中核の価値仮説に根拠を付ける工程が、着手決裁の前に無い
@@ -425,12 +425,12 @@
 - #247: 変更規模の数値を合否条件にすると、較正手続に必要な実測が採れない
 - 第1部: 弁護できるもの
 - 第3部: 会議体への警告
-- 会議体2 標準策定者 意見書
-- #235 軸B が統制の水準に効かない
-- #241 投資対効果の様式が収益前提になっている
-- #244 決裁の場で「伝わるか」を扱う規定が無い
-- #245 中核の価値仮説に根拠を付ける工程が、着手決裁の前に無い
-- #246 「利用者が使い方に気づけるか」を問う工程が無い
+- #296 外部調査 2: 固定定数の外部規格・業界実務
+- 会議体 #316 意見書 04: 規格(standards)の立場
+- 2. Policy as Code と Compliance as Code
+- 3. 論点ごとの詳細
+- #316 実装の記録(議長の裁定 R-1〜R-7・1.5 の反映)
+- 3. 論点ごとの詳細
 - 0050-enforcement-layer-is-not-staged.md
 - 5. AI と品質保証の日本の議論
 - 288 会議体(組織継続の側)の趣意書(2026-10-03)
@@ -462,7 +462,7 @@
 - 1. 決定
 - 3. 論点ごとの具体案
 - (2) 具体案
-- ref_node_fs
+- check-gate-criteria.mjs
 - #295 棚卸しの要約(2026-10-11。担当の報告を主担当が要約)
 - 3. M4 悩み別の読み先表
 - 1. M3 形骸化のパターン・条件・手段の横断表
@@ -540,7 +540,7 @@
 - 4. 争点と反論
 - check-provisions.mjs
 - 1. 論点ごとの記録
-- check-skill-provisions.mjs
+- ref_node_fs
 - 決定
 - 決定の記録(Issue #302〜#310)
 - 1. 標準の現状(突合)
@@ -558,7 +558,7 @@
 - 決定
 - 4. 争点と反論
 - 2. 世の中がどうなっているか
-- 4. 争点と反論
+- #314 会議体 意見書 05: 擁護(現行の規約の側)
 - SRC-0093.yaml
 - SRC-0102.yaml
 - 3. 論点ごとの詳細
@@ -614,17 +614,17 @@
 - SRC-0144.yaml
 - SRC-0145.yaml
 - 6. 過去の調査・会議体のメモ
-- 2. 標準本文
-- 4. テンプレート側の実装
+- #317 会議体 意見書 01: 起案者(drafter)
+- 席と運用形態、体制の変化点
 - #321 会議体 00 — 問いの整理(brief)
 - SRC-0147.yaml
 - SRC-0148.yaml
-- ゲート判定記録の成立要件 — 本標準の内部の棚卸し(#321)
-- 3. 実装マーク
+- #317 会議体 意見書 03: 品質保証・監査(QA/audit)の立場
+- #314 会議体 意見書 03: 品質保証・監査の立場
 - SRC-0155.yaml
 - SRC-0157.yaml
-- 7. 過去の Issue
-- G-3 技術設計判断(技術判断者・48時間)
+- #314 会議体 委員意見書 04: 規格(検証の方法・追跡・評価の深さ)
+- #317 会議体 意見書 02: 現場(受託開発会社・発注側の情報システム部門・スタートアップ)
 - SRC-0161.yaml
 - SRC-0162.yaml
 - SRC-0165.yaml
@@ -673,7 +673,7 @@
 - SRC-0487.yaml
 - SRC-0492.yaml
 - SRC-0501.yaml
-- deploy.yml
+- #317 会議体 意見書 05: 現行の擁護者(defender)
 - SRC-0002.yaml
 - SRC-0003.yaml
 - SRC-0004.yaml
@@ -1240,7 +1240,7 @@
 - SRC-0627.yaml
 - SRC-0631.yaml
 - steps
-- steps
+- 会議体 #318 意見書 04: 規格の委員
 - steps
 - with
 - findings
@@ -1322,7 +1322,7 @@
 - mech
 - mech
 - mech
-- steps
+- ci.yml
 - claims
 - claims
 - claims
@@ -3188,7 +3188,7 @@
 - stages
 - constraints
 - Process Compass 改修 実行計画（Issue #97〜#126 / 全30件）
-- 4. 既知の重複・要調整ポイント（着手時に必ず確認）
+- suite-A/v3.mjs
 - arxiv
 - quotes
 - arxiv
@@ -3535,7 +3535,7 @@
 - practices
 - contact_links
 - 3. 論点ごとの詳細
-- 3. PR サイズとレビュー品質の実証(数値の原典)
+- #311 会議体 意見書 04: 規格(規定の形式・外部規格との整合・検証可能性)
 - c1
 - c3
 - c4
@@ -4454,7 +4454,7 @@
 - antiPatterns
 - antiPatterns
 - exempt
-- 0. 本計画の前提（毎セッション必読）
+- #311 会議体 意見書 05: 擁護(現行の条項と ADR の根拠を守る立場)
 - quant
 - crossref
 - quotes
@@ -4729,7 +4729,7 @@
 - phases
 - roles
 - workProducts
-- 5.5 次セッションへの引き継ぎ（2026-08-05 時点・Wave 5 完了。履歴）
+- setup.mjs
 - quotes
 - quotes
 - quotes
@@ -6336,55 +6336,734 @@
 - 決定
 - 決定
 - 決定
-- 3. 論点ごとの判定
-- 3. 論点ごとの判定
+- #314 会議体 意見書 02: 現場(準拠テンプレートを使う案件の技術リーダー)
+- #319 落ちる場面の分類(草案)
 - 0. 後の担当(組A・組B)が従う決まり
 - TH06 検証の独立性とAIレビュー
 - コードレビューの負荷と有効性に関する実証的知見 ── 「行数」は何の代理変数か
 - 審議の入力: Issue #289 と、束ねた元 Issue の要点
-- 2. 主要手法:コンテキストの層としての整理
+- #318 会議体 意見書 02: 現場(field)
 - 0061-check-means-on-implementation-marks.md
 - 会議体の議題(Issue #289 成果物の構造)
 - Issue #295 外部調査メモ(PR サイズ上限を CI の合否にする規定の再評価)
-- 2. 世の中がどうなっているか
-- 1. 「行数」が代理変数として持つ限界(反証研究)
-- 11. 調査フレームワーク観点での整理(#118 の運用標準向け素材)
-- 4. AI生成コードのレビューに固有の負荷(2024〜2026年)
-- 9. コンフリクト解消の自動化
-- 2. 行数以外にレビュー負荷を規定する要因
+- #318 会議体 意見書 05: 既存決定の擁護者
+- #311 会議体 意見書 02: 現場(AI コーディングエージェントを日常に使う 3〜9 名のチームの技術リード)
+- 会議体 #312 意見書 02 — 現場(3〜9名のチームのテックリード)
+- 会議体 #313 意見書 03 — 品質保証・監査の立場
+- 会議体 #313 意見書 05 — 擁護(現行の条文の側)
+- #319 会議体 意見書 01: 起案者(drafter)
 - テンプレ2: 判断記録(ADR)
-- 6. レビュー SLA の実務
+- 1. 論点ごとの記録
 - テンプレ12: プロダクトの原則
 - research-01-sources.md
+- 調査 294-1: 8 論点に対する標準の現状(内部の突合)
+- #311 会議体 意見書 03: 品質保証・内部監査の立場
+- 会議体 #312 意見書 03 — 品質保証・監査の立場
+- 会議体 #312 意見書 04 — 規格(standards expert)
+- 1. 指摘
+- #346 会議体 意見書 04 — 規格(standards)
+- 3. 選択肢
+- 2. 業界の実務(AI コーディングエージェント、2025〜2026)
+- 会議体 意見書 02 — 現場(採用組織のテックリード)
+- 会議体 #313 意見書 04 — 規格(standards expert)
+- #314 内部調査 1: 実装マークの検査の手段と、降りていない規定
+- #315 会議体 意見書 02 — 現場(既存のリポジトリへ持ち込む開発チーム)
+- #317 会議体 意見書 04: 規格・法令(standards)
+- regress/suite/v3.mjs
+- #315 会議体 意見書 01 — 起案者(drafter)
+- 会議体 #346 意見書 05: 既存決定の擁護者(defender)
+- 1. 裁定ごとの記録
+- #312 外部調査 2: 兼務と職務分離(規模別の席の兼務・出荷判定と独立レビュー・人員名簿)
+- #314 会議体 意見書 01: 起草者
+- 1. 指摘(重大度の順)
+- #294 外部調査メモ(2): 既存規格と業界実務の8論点
+- 会議体 #313 意見書 01 — 起草者
+- 会議体 #346 意見書 02: 現場(field)
+- sections
+- 反映の記録(Issue #298 スクラムなど既存の反復手法との関係。裁定 M-1〜M-8)
+- #315 会議体 意見書 05 — 現行の擁護者(defender)
+- 会議体 #346 意見書 01: 起案者(drafter)
+- suite-A/unit.mjs
+- 2. 所見
+- 1. 裁定ごとの記録
+- SRC-0640.yaml
+- SRC-0641.yaml
+- SRC-0644.yaml
+- SRC-0646.yaml
+- SRC-0647.yaml
+- SRC-0648.yaml
+- SRC-0649.yaml
+- SRC-0650.yaml
+- SRC-0651.yaml
+- SRC-0653.yaml
+- SRC-0656.yaml
+- SRC-0660.yaml
+- SRC-0661.yaml
+- SRC-0662.yaml
+- SRC-0663.yaml
+- SRC-0664.yaml
+- SRC-0666.yaml
+- SRC-0667.yaml
+- SRC-0668.yaml
+- SRC-0669.yaml
+- SRC-0670.yaml
+- SRC-0671.yaml
+- SRC-0672.yaml
+- SRC-0673.yaml
+- SRC-0674.yaml
+- SRC-0675.yaml
+- SRC-0676.yaml
+- SRC-0677.yaml
+- SRC-0678.yaml
+- SRC-0679.yaml
+- SRC-0680.yaml
+- SRC-0681.yaml
+- SRC-0682.yaml
+- SRC-0683.yaml
+- SRC-0684.yaml
+- SRC-0685.yaml
+- SRC-0686.yaml
+- SRC-0687.yaml
+- SRC-0688.yaml
+- SRC-0689.yaml
+- SRC-0690.yaml
+- SRC-0691.yaml
+- SRC-0692.yaml
+- SRC-0693.yaml
+- SRC-0694.yaml
+- SRC-0695.yaml
+- SRC-0696.yaml
+- SRC-0697.yaml
+- SRC-0698.yaml
+- SRC-0699.yaml
+- SRC-0700.yaml
+- SRC-0701.yaml
+- SRC-0702.yaml
+- SRC-0703.yaml
+- SRC-0704.yaml
+- SRC-0705.yaml
+- SRC-0706.yaml
+- SRC-0707.yaml
+- SRC-0708.yaml
+- SRC-0709.yaml
+- SRC-0710.yaml
+- SRC-0711.yaml
+- SRC-0712.yaml
+- SRC-0713.yaml
+- SRC-0714.yaml
+- SRC-0715.yaml
+- SRC-0716.yaml
+- SRC-0717.yaml
+- SRC-0718.yaml
+- SRC-0719.yaml
+- SRC-0720.yaml
+- SRC-0721.yaml
+- SRC-0722.yaml
+- SRC-0723.yaml
+- 1. 裁定ごとの記録
+- 2. 所見
+- fix288-tpl2/suite/verify-n.mjs
+- SRC-0642.yaml
+- SRC-0643.yaml
+- SRC-0645.yaml
+- 2. 所見
+- 内部調査 #312 — 席の兼務の境界、既定の写像、人の名簿
+- 1. #321(main)とスタックの意味の食い違い
+- 1. 標準の現状(突合)
+- 裁定(Issue #291 254 系: G-4 の数え上げ、仕様の前提、AI の指摘、往復)
+- #311 内部調査 1: AI 自律レベルの検知と引き下げ(本リポジトリと準拠テンプレートの現状)
+- 決定
+- ok
+- 検討した選択肢
+- 4. 個別の食い違い
+- #317 外部調査(2): 委託開発での判断・成果物・統制の持ち主
+- 準拠テンプレート(`template/`)
+- 2. 世の中がどうなっているか
+- 2. 世の中がどうなっているか
+- 2. 測定
+- 3. 選択肢
+- 調査1(内部): Issue #313 — 標準の版、適用の終了、逸脱と適合の主張
+- 1. 指摘
+- #318 外部調査 2: 独立検証の強さを「承認者の人数」ではなく「組織上の距離」で上げるべきか
+- 調査 319-1 内部: 回帰スイートの棚卸しと、いまのテンプレートでの実行
+- 1. GitHub Actions の GITHUB_TOKEN
+- 1. 標準の現状(突合)
+- 調査: 仕様の前提を「観測で確かめた / 想定」で区別するか、根拠水準マークを案件へ課すか — Issue #291(#256 の残り)
+- 裁定(Issue #293 リポジトリ運営 — CI・配布)
+- #298 外部調査: 既存の反復手法・規格は「他手法との関係」をどう書いているか
+- 1. 所見
+- 1. 所見
+- 会議体 #318 意見書 01: 起案者(drafter)
+- scen.mjs
+- 裁定(Issue #292 実装マークを足すべき条項の特定)
+- 1. 裁定ごとの記録
+- 指摘
+- 2. 指摘
+- 実装の記録(#315 既存のリポジトリへ準拠テンプレートを持ち込む)
+- 調査 316-2: 規格策定機関は規定の表現形式をどう扱うか(外部)
+- 1. 裁定ごとの変更
+- 1. 裁定ごとの変更
+- 決定
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 会議体 #312 意見書 05 — 擁護(現行の条文と ADR の根拠を守る立場)
+- #317 内部調査 1: 標準・テンプレート・記録の現状(2026-10-24)
+- 指摘
+- 調査 318-1: 内部の事実(独立の強さ、S0 の残り、下限、CL2 のルールセット)
+- 1. 指摘
+- regress/suite/replay.mjs
+- 調査: 「escape clause」の意味と、基準が言い訳に転用されるパターンの扱い — Issue #290(#269 の残り)・#275 原則5
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 1. 本標準(フェーズ4: 本文8章+附属書A〜I)の言及の全数
+- Issue #309 調査: 受発注での指示の経路(発注側の判定者と受注側の担い手。37 号告示との関係)
+- scen3.mjs
+- 会議体 #346 意見書 03: 品質保証・セキュリティ監査の立場
+- 3. 論点ごとの詳細
+- 1. 標準の現状(突合)
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 指摘
+- 3. 論点ごとの詳細
+- #314 の後継 Issue の下書き(起票待ち)
+- fix288-tpl2/suite/replay.mjs
+- 決定
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 決定の記録(Issue #290 検査装置の総量)
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 実装の記録(Issue #313 標準の版・適用の終了・逸脱と適合の主張)
+- 実装の記録(#346 ジョブの権限で発行される短命のトークンと、G-8「配備の統制と資格情報の置き場」)
+- 調査 346-1: 内部の現状(条項・決定・ワークフロー・設定)
+- 決定
+- 決定
+- 2. 推奨
+- 反映の記録(Issue #291 254 系: G-4 の数え上げ、仕様の前提、AI の指摘、往復。論点 G-1〜G-15)
+- 2. 世の中がどうなっているか
+- 3. 論点ごとの詳細
+- fix288-r3/trial.mjs
+- 指摘
+- 実装の記録(Issue #312 席の兼務の境界と既定の写像)
+- scen2.mjs
+- 決定
+- 決定
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 裁定(Issue #296 固定定数の棚卸し(#295)の後継)
+- 1. 標準の現状(突合)
+- #319 第1段: 回帰の試験の移植と、一致の確認の結果
+- 決定
+- 決定
+- 裁定(Issue #294 次の改訂の入力 — 8 論点)
+- 1. 論点ごとの経緯
+- 実装の記録(Issue #311 AI 自律レベルの検知と引き下げ)
+- 決定
+- 決定
+- 決定
+- fix288-tpl2/suite/unit.mjs
+- 3. 論点ごとの詳細
+- #293 外部調査: 空の検査対象・手元と CI の境界・配布の保護・検査一覧の突合
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 議長の裁定(#316 規定の表現形式の残り)
+- 議長の裁定(#319 決定を固定する回帰の fixture を、リポジトリの検査へ入れる)
+- lib.sh
+- 決定
+- content.config.ts
+- 1. 論点ごとの記録
+- 指摘
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- 3. 論点ごとの詳細
+- #315 会議体 意見書 04 — 規格(standards)の立場
+- 件数
+- 場面の再検証 — 再現手順の詳細(主担当が受信メッセージから転記)
+- 決定
+- 0080-method-neutrality-and-relation-to-existing-methods.md
+- ci-gates.md
+- 議長の裁定(#315 既存のリポジトリへ準拠テンプレートを持ち込む)
+- #315 内部調査 — 既存のリポジトリへの持ち込み・旧い構成の移行・テンプレートの更新(2026-10-24)
+- 議長の裁定(#317 委託(軸D)の残り)
+- 議長の裁定(#318 独立の強さを距離で上げる案と、S0 の残り)
+- 裁定(Issue #298 スクラムなど既存の反復手法との関係)
+- 件数
+- 意見書 04: 規格の立場(#319 決定を固定する回帰の fixture を、リポジトリの検査へ入れる)
+- 会議体 #319 意見書 05: 既存決定の擁護者
+- 議長の裁定(#346 ジョブの権限で発行される短命のトークンと、G-8「配備の統制と資格情報の置き場」)
+- project-management.md
+- #311 会議体 意見書 01: 起草者
+- 裁定(Issue #311 AI 自律レベルの検知と引き下げ)
+- 会議体 #312 意見書 01 — 起草者
+- 裁定(Issue #312 席の兼務の境界と既定の写像)
+- 裁定(Issue #314 実装マークの検査の手段と降りていない規定)
+- #315 会議体 意見書 03 — 品質保証・監査(QA/audit)
+- 会議体 #316 意見書 01: 起案者(drafter)
+- 会議体 #318 意見書 03: 品質保証・監査(QA/audit)
+- 導入前の検証の記録: 招待サービス(開発部)
+- patch-agg.cjs
+- scanSkillProvisions
+- 会議体の議題(#319 決定を固定する回帰の fixture を、リポジトリの検査へ入れる)
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- claims
+- 5.6.2 欠陥注入による検出能力の測定
+- publish
+- #313 外部調査 2: 版の付け方・改訂時の適合主張・適用の終了・他規格の引用
+- #315 外部調査 2: 既存リポジトリへの導入・実プラットフォームでの検証・旧い版の構成の移行
+- 会議体の議題(#316 規定の表現形式の残り)
+- 新しく見つけた穴
+- claims
+- claims
+- standard-editions.md
+- human-ai-boundary.md
+- 5.5 判断の席と、確定の担い手
+- tailoring-guide.md
+- 極小規模での事後監査への切替
+- steps
+- 審議の入力: Issue #290 と、束ねた元 Issue の要点
+- 審議の入力: Issue #291 と、束ねた元 Issue の要点
+- 審議の入力: Issue #292 と、元 Issue #259 の要点
+- 審議の入力: Issue #293 と、束ねた元 Issue の要点
+- L-1 カバレッジの遮断
+- 調査 296-1: 内部の現状(標準・テンプレート・台帳)
+- 9. コメント 1 の項目(テンプレートの挙動)
+- #298 の論点の経緯(会議体の入力)
+- 会議体の議題(#311 AI 自律レベルの検知と引き下げ)
+- 会議体の議題(#312 席の兼務の境界と既定の写像)
+- 会議体の議題(#313 標準の版・適用の終了・逸脱と適合の主張)
+- 会議体の議題(#314 実装マークの検査の手段と降りていない規定)
+- 会議体の議題(#317 委託(軸D)の残り)
+- 会議体の議題(#318 独立の強さを人数ではなく距離で上げる案と、S0 の残り)
+- 会議体の議題(#346 ジョブの権限で発行される短命のトークンと、G-8「配備の統制と資格情報の置き場」)
+- 1. 自律コーディングエージェントの主要実装例
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- verification
+- deploy
+- with
+- 会議体の議題(Issue #290 検査装置の総量)
+- 会議体の議題(Issue #291 254 系: G-4 の数え上げ、仕様の前提、AI の指摘、往復)
+- 会議体の議題(Issue #292 実装マークを足すべき条項の特定)
+- L-10 運用メトリクス
+- 10. 公開仕様の版の付け方 — ASVS / SLSA / OpenAPI / W3C(Q1)
+- 場面の再検証(2026-09-30)— 指摘の一覧(主担当が受信メッセージから転記)
+- 5.7 ゲート承認における判断の要求事項
+- 5.8 AI が生成した成果物の統制
+- files
+- セキュリティポリシー
+- permissions
+- 会議体の議題(Issue #293 リポジトリ運営 — CI・配布)
+- 会議体の議題(Issue #294 次の改訂の入力 — 8 論点)
+- 会議体の議題(Issue #296 固定定数の棚卸し(#295)の後継)
+- 3. 論点ごとの詳細
+- L-4 手戻り率
+- L-2 承認の失効
+- L-3 自己修復の反復の停止
+- 突合(Issue #296 固定定数の棚卸し(#295)の後継)
+- 会議体の議題(Issue #298 スクラムなど既存の反復手法との関係)
+- 13. 含意のまとめ
+- tpl2-base/runall2.sh
+- fix288-tpl2/runall2.sh
+- #321 との統合: 突合(crosscheck.md)への裁定
+- #321 との統合: 識別子の振り直し
+- 回帰の試験の処置の表(#319 裁定 R-1.1)
+- 軸E: 安全重要度による調整
+- 組み合わせ例(3つの典型)
+- env
+- on
+- 会議体 意見書 01 — 起草(Issue #296 固定定数の棚卸し(#295)の後継)
+- L-5 監査の抽出
+- 1. T-07 全体の行カバレッジの遮断
+- 2. T-09 全 PR・全 push の承認失効
+- 3. T-08 自己修復の反復の止め方
+- 11. 日本の事例(Q1・Q4)
+- 4. 認証制度の移行期間 — IAF / ISO 9001 / ISO 27001(Q1・Q2)
+- 5. 適用の終了 — 認証の取消し・適用範囲の縮小(Q2)
+- 7. MISRA Compliance:2020 — 逸脱つき適合の最良の先例(Q3)
+- 9. IEC 62304 / IEC 61508 / ISO 26262 — 改訂中の案件と「技術水準」(Q1・Q3)
+- quant
+- quant
+- 0007-schema-driven-process-data.md
+- 判定の成立
+- 再テーラリングの契機
+- edition.yaml
+- sections
+- sections
+- L-7 登録簿の最初の運用
+- L-8 PR 分布の実測と規模の算定
+- 10. コメント 2 の項目(運用メトリクス)
+- 4. S-11 手戻り率の条件つき合否化
+- 5. S-23 監査の抽出率
+- 7. S-14・S-18/19 登録簿の最初の運用
+- 1. ISO/IEC Directives Part 2 — 発行年付き引用と発行年なし引用(Q1・Q4)
+- 2. ISO/IEC/IEEE 12207・15288・42020 — 完全適合と修整適合(Q1・Q3)
+- run-some.sh
+- #321 との統合: コミットの対応
+- G-2 要件合意(価値責任者・48時間)
+- 軸B: 事業ステージによる調整
+- impl-inventory-baseline.yaml
+- 6. S-16 10 名の境界
+- 0. 読み方
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- events
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- foundBy
+- ids
+- lib/clock.mjs
+- 311-deliberation/issues-context.md
+- 312-deliberation/issues-context.md
+- 313-deliberation/issues-context.md
+- 314-deliberation/issues-context.md
+- 315-deliberation/issues-context.md
+- 316-deliberation/issues-context.md
+- 317-deliberation/issues-context.md
+- 318-deliberation/issues-context.md
+- 319-deliberation/issues-context.md
+- suite-A/fresh.sh
+- tpl2-setup.sh
+- tpl2-new/suite/fresh.sh
+- fix288-tpl2/suite/fresh.sh
+- sync.sh
+- 346-deliberation/issues-context.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `付録: 公式出典の一覧(生成)` - 65 edges
+1. `付録: 公式出典の一覧(生成)` - 72 edges
 2. `open Issue 全件の突合(2026-10-08)` - 59 edges
-3. `3. 項目ごとの判定` - 32 edges
-4. `Issue 別の根拠索引` - 30 edges
-5. `scripts` - 29 edges
-6. `check()` - 24 edges
-7. `Issue #300 決定の反映の記録` - 20 edges
-8. `Process Compass` - 19 edges
-9. `決定の記録(Issue #289 成果物の構造)` - 18 edges
-10. `findings` - 17 edges
+3. `付録 A. 事前点検への適応を足した場合に落ちる 47 場面(出力と差分)` - 48 edges
+4. `Issue 別の根拠索引` - 42 edges
+5. `scripts` - 39 edges
+6. `3. 項目ごとの判定` - 32 edges
+7. `2. 所見` - 24 edges
+8. `2. 所見` - 23 edges
+9. `checker()` - 22 edges
+10. `workspace()` - 20 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `2. 判定の一覧表` --references--> `check()`  [INFERRED]
-  research/302-310-deliberation/council-C-02-field.md → scripts/check-section-refs.mjs
-- `C-3 しきい値・窓。計測の実装と自己申告の経路` --references--> `check()`  [INFERRED]
-  research/302-310-deliberation/council-C-02-field.md → scripts/check-section-refs.mjs
-- `C-5 検査していないことを実装マークで表示するか` --references--> `check()`  [INFERRED]
-  research/302-310-deliberation/council-C-02-field.md → scripts/check-section-refs.mjs
-- `C-8 推奨・許容の文末の規則。平叙文の扱い` --references--> `check()`  [INFERRED]
-  research/302-310-deliberation/council-C-02-field.md → scripts/check-section-refs.mjs
-- `C-5 検査していないことを実装マークで表示するか` --references--> `check()`  [INFERRED]
-  research/302-310-deliberation/council-C-03-qa-audit.md → scripts/check-section-refs.mjs
+- `5. 適用の開始の境は、構成が設定済みになった最初のコミットとする` --references--> `init()`  [INFERRED]
+  src/content/docs/adr/0083-standard-edition-end-of-application-and-deviation.md → research/319-deliberation/legacy-suite/fix288-r3/setup.mjs
+- `集約スクリプトの入出力仕様` --references--> `init()`  [INFERRED]
+  src/content/docs/phase5-implementation/ci-gates.md → research/319-deliberation/legacy-suite/fix288-r3/setup.mjs
+- `使い方` --references--> `init()`  [INFERRED]
+  src/content/docs/phase5-implementation/template-repository.md → research/319-deliberation/legacy-suite/fix288-r3/setup.mjs
+- `影響` --references--> `ambiguousTerms()`  [INFERRED]
+  src/content/docs/adr/0062-ambiguous-terms-source-of-truth.md → scripts/build-template-kb.mjs
+- `J-1 検査の一覧` --references--> `checkWiring()`  [INFERRED]
+  research/293-deliberation/implementation.md → scripts/lib/ci-wiring.mjs
 
 ## Import Cycles
 - None detected.
 
-## Communities (6342 total, 14 thin omitted)
+## Communities (7022 total, 30 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -6398,17 +7077,17 @@ Nodes (32): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出�
 Cohesion: 0.06
 Nodes (34): 1. BPMN 2.0(OMG 標準)+ bpmn-js, 2. SPEM 2.0 / Eclipse Process Framework (EPF) Composer, 3. Structurizr DSL / C4 model, 4.1 Mermaid, 4.2 PlantUML, 4.3 D2, 4.4 Kroki, 4. テキスト DSL 勢(Mermaid / PlantUML / D2 / Kroki) (+26 more)
 
-### Community 3 - "scripts"
-Cohesion: 0.07
-Nodes (29): scripts, astro, brand:check, brand:sync, build, check, criteria:write, dev (+21 more)
+### Community 3 - "regress/suite/lib.mjs"
+Cohesion: 0.01
+Nodes (165): ADR-0075, before, { check, refused, done, fixes }, { git, write, read, cfg, gen, contract, checkD0, checkRules, d0 }, r, A, answers, { check, refused, accepted, done } (+157 more)
 
 ### Community 4 - "日本企業のガバナンス・決裁ゲートの実態 調査メモ"
 Cohesion: 0.06
 Nodes (33): 0. このメモの位置づけと全体像, 10. 埋められなかった観点(追加調査項目), 11. 出典一覧, 1.1 定義と仕組み(建前), 1.2 歴史的背景, 1.3 責任分散という機能(建前と実態の核心), 1.4 デジタル化(ワークフローシステム)の現状, 1. 稟議制度(りんぎ) (+25 more)
 
 ### Community 5 - "エージェント型開発(自律・マルチエージェント)の現在地 調査メモ"
-Cohesion: 0.06
-Nodes (33): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules (+25 more)
+Cohesion: 0.08
+Nodes (25): 0-1. エージェント型開発とは(定義の整理), 0-2. AIDLC との接続(なぜ本テーマを調べるか), 0. 概要, 2-1. Anthropic による協調パターンの分類(設計語彙の基準点), 2-2. 主要フレームワーク, 2. マルチエージェント・オーケストレーションのパターンとフレームワーク, 3-1. SWE-bench とその派生, 3-2. 到達点の推移(SWE-bench Verified、公式発表値) (+17 more)
 
 ### Community 6 - "コンテキスト移管ゲート(ブートストラップ・プロセス)一次調査メモ"
 Cohesion: 0.05
@@ -6419,8 +7098,8 @@ Cohesion: 0.06
 Nodes (29): 0. プロセスの概要 — DDD は「ライフサイクル」ではなく「設計手法/思想」である, 10. 出典一覧, 1. title / purpose / outcomes, 2. 階層構造(process → activities → tasks), 3. roles(ロール), 4. information items(成果物・文書), 5. gates(ゲート・決裁), 6. レビュープロセス (+21 more)
 
 ### Community 8 - "コンテキストエンジニアリング手法 調査メモ"
-Cohesion: 0.10
-Nodes (21): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 3.1 ポランニー:暗黙知の原典, 3.2 野中の SECI モデル:暗黙知⇄形式知の変換サイクル, 3.3 CE 手法と SECI プロセスの対応(本メモの統合。→ 考察扱い), 3. 暗黙知の形式知化という観点(SECI / ポランニー) (+13 more)
+Cohesion: 0.07
+Nodes (30): 0. このメモの全体像, 1.1 一次定義(Anthropic), 1.2 プロンプトエンジニアリングとの違い(建前上の切り分け), 1. 定義:コンテキストエンジニアリングとは何か, 2.1 システムプロンプト・指示の設計, 2.2 Few-shot 例示(手本による誘導), 2.3 RAG(検索拡張生成)による外部知識の注入, 2.4 ステアリングファイル / ルール(プロジェクト文脈の永続化) (+22 more)
 
 ### Community 9 - "プロセス記述に関する国際標準の調査メモ"
 Cohesion: 0.07
@@ -6431,8 +7110,8 @@ Cohesion: 0.08
 Nodes (26): 0. このメモの位置づけと全体像, 1.1 AWS AI-DLC(AI-Driven Development Life Cycle), 1.2 Sean Grove(OpenAI)「The New Code」— 仕様を書く人が最も価値ある programmer, 1.3 「Product Engineer」への収束論(everyone becomes a product owner の実像), 1. 理想像の出所(建前=そう語られる), 2.1 スクラムガイド 2020 の PO 定義(建前=原典), 2.2 「全員が PO 化する」の意味論(定義からの含意), 2. プロダクトオーナーの本来の責任(スクラムガイド=土台の定義) (+18 more)
 
 ### Community 11 - "test-tailoring-engine.mjs"
-Cohesion: 0.09
-Nodes (23): ADR-0065, ADR-0066, ADR-0069, integrated, kb, knownIds, load(), ADR-0063 (+15 more)
+Cohesion: 0.08
+Nodes (27): ADR-0065, integrated, kb, knownIds, load(), ADR-0028, ADR-0063, ADR-0066 (+19 more)
 
 ### Community 12 - "コントリビューションガイド"
 Cohesion: 0.09
@@ -6471,24 +7150,24 @@ Cohesion: 0.15
 Nodes (12): 2026年3月→8月で何が変わったか, 2026年8月時点の現在地, エージェント型開発とは, ベンチマークは飽和し、指標が分裂した, モデルは二段跳んだ(2026年6月〜7月), 主要製品の現況(2026-08-04 時点), 参考文献(主要な一次情報), 日本文脈での効きどころ (+4 more)
 
 ### Community 21 - "タスクの分割基準"
-Cohesion: 0.18
-Nodes (11): L0 の既定値, この基準の見直し, タスクの分割基準, レビュー可能性の担保水準(L0〜L2), 上限を緩和できる手段と、できない手段, 上限を自組織の実測で較正する, 分割しすぎない, 基準値を超えた変更の扱い(適用: 規模の基準値を超えた PR) (+3 more)
+Cohesion: 0.15
+Nodes (13): L0 の既定値, この基準の見直し, タスクの分割基準, レビュー可能性の担保水準(L0〜L2), 上限を緩和できる手段と、できない手段, 上限を自組織の実測で較正する, 分割しすぎない, 基準値を超えた変更の扱い(適用: 規模の基準値を超えた PR) (+5 more)
 
 ### Community 22 - "1. 論点ごとの記録"
 Cohesion: 0.06
 Nodes (35): 0.1 番号, 0.2 語の決まり(今回足したもの), 0.3 機械の決まり(今回足したもの), 0. 次の担当へ引き継ぐこと, 1. 論点ごとの記録, 2. 番号の割り当て(この担当が使ったもの), 3. 変更したファイル, 4.1 `npm run check` (+27 more)
 
 ### Community 23 - "review-guide.md"
-Cohesion: 0.14
-Nodes (13): AI をレビューに使う場合, パス1: 仕様突合(10分), パス2: 品質確認(10分), パス3: 理解(10分), レビューの目的(2つ), 入力の分離, 委任を適用した変更(適用: CL0・R3 の変更), 実施手順: 3パス方式 (+5 more)
+Cohesion: 0.13
+Nodes (14): AI をレビューに使う場合, パス1: 仕様突合(10分), パス2: 品質確認(10分), パス3: 理解(10分), レビューの目的(2つ), 入力の分離, 委任を適用した変更(適用: CL0・R3 の変更), 実施手順: 3パス方式 (+6 more)
 
 ### Community 24 - "requirements.md"
 Cohesion: 0.17
 Nodes (11): シナリオ1: スタートアップの技術リード(2名・PoC), シナリオ2: 事業会社のエンジニアリングマネージャー(8名・グロース), シナリオ3: SIer のプロジェクトマネージャー(15名・受託・規制業), スコープ外(v1 では扱わない), ツールの位置づけ, 入力項目, 出力形式, 利用シナリオ (+3 more)
 
 ### Community 25 - "Process Compass"
-Cohesion: 0.05
-Nodes (35): Claude Code 設定(.claude/), Git 戦略, graphify, Process Compass, Zenn 発信(submodule), コアポリシー: 取り込みの前に議論する, コマンド, テンプレートの様式(#227 / ADR-0040) (+27 more)
+Cohesion: 0.10
+Nodes (19): Claude Code 設定(.claude/), Git 戦略, graphify, Process Compass, Zenn 発信(submodule), コアポリシー: 取り込みの前に議論する, コマンド, テンプレートの様式(#227 / ADR-0040) (+11 more)
 
 ### Community 26 - "research-framework.md"
 Cohesion: 0.18
@@ -6498,9 +7177,9 @@ Nodes (10): 7観点との対応, スコープ外: 生成AIの現場利用実態,
 Cohesion: 0.18
 Nodes (10): AI への指示との関係, テンプレ1: 機能仕様書(spec), テンプレ3: 技術負債台帳, テンプレ4: ゲート判定記録, テンプレ5: 運用引き継ぎ文書, テンプレ7: 実装計画(plan), データとドキュメントのインターフェース, レビュープロセスの流れ (+2 more)
 
-### Community 28 - "tailoring-guide.md"
-Cohesion: 0.04
-Nodes (47): AI の確認を独立した人の確認に数えません, S0 の省略が成立する前提(適用: 事業ステージ S0 で、標準品質かつ CL0 の構成), テーラリングの禁止事項, 事後監査の手続(適用: 委任を適用した R3 の変更。体制の規模によらない), 人員が足りない場合, 会議体と体制図の調整, 例1: スタートアップの PoC(2名・S0・標準品質・内製・CL0), 例2: 事業会社のグロース期プロダクト(8名・S2・高品質・内製・CL1) (+39 more)
+### Community 28 - "軸D: 開発形態による調整"
+Cohesion: 0.18
+Nodes (11): 保証の開示を納品ごとに受け渡す, 判定の結果を受け取る者を決める(適用: 判定を置いた組織と、判定の対象を作成した組織が異なる場合), 判定をどちらの組織へ置くか, 受け入れの速度を契約で合意する, 受領する記録が保証するもの, 強制層の変更の承認と、所有する組織の同意, 強制層をどちらが所有するか, 所有を決める対象と、記録する事項 (+3 more)
 
 ### Community 29 - "metrics.md"
 Cohesion: 0.08
@@ -6520,7 +7199,7 @@ Nodes (9): 全員がPOになれるのか(スキルの偏在), 前提条件の依
 
 ### Community 33 - "設計判断のポイント"
 Cohesion: 0.18
-Nodes (10): 1. 規則は「参照モデルからの逸脱」だけを書く(差分方式), 2. 説明のない調整は型レベルで書けない, 3. 条件は「質問→回答」の等値照合だけ, 4. 調整操作は6動詞に限定する, 5. 優先度は初期値のみ定義する, 全体構造, 収録済みの規則, 安全重要度の優先度 (+2 more)
+Nodes (10): 1. 規則は「参照モデルからの差分」だけを書く(差分方式), 2. 説明のない調整は型レベルで書けない, 3. 条件は「質問→回答」の等値照合だけ, 4. 調整操作は7動詞に限定する, 5. 優先度は初期値のみ定義する, 全体構造, 収録済みの規則, 安全重要度の優先度 (+2 more)
 
 ### Community 34 - "Claude Code 開発リポジトリとしての整備 — ディープリサーチ結果(2026-07-08)"
 Cohesion: 0.22
@@ -6544,7 +7223,7 @@ Nodes (7): 2つの新しい単位: Bolt と Mob, 3つのフェーズ, なぜこ�
 
 ### Community 39 - "assumptions.md"
 Cohesion: 0.20
-Nodes (9): この一覧の使いみち, どの前提が実際に崩れやすいか, 個人・スキルの前提(人間に残る部分), 前提の全体像: AIが解くのは一部だけ, 前提条件の一覧, 崩れた前提はフェーズ4のどこで扱われたか, 情報・知識の前提(明文化コストが残る部分), 技術の前提(AIが解こうとしている部分) (+1 more)
+Nodes (9): この一覧の使いみち, どの前提が実際に崩れやすいか, 個人・スキルの前提(人間に残る部分), 前提の一覧, 前提の全体像: AIが解くのは一部だけ, 崩れた前提はフェーズ4のどこで扱われたか, 情報・知識の前提(明文化コストが残る部分), 技術の前提(AIが解こうとしている部分) (+1 more)
 
 ### Community 40 - "git-strategy.md"
 Cohesion: 0.25
@@ -6595,8 +7274,8 @@ Cohesion: 0.25
 Nodes (7): 5つのパターン, なぜ形式を決めるのか, チェックリスト(G-2 提出前のセルフチェック), 出典, 書き方の手順(formalize-criteria タスクの実施手順), 良い例・悪い例, 草案を受け取ったときに確かめること
 
 ### Community 52 - "integrated-process.md"
-Cohesion: 0.29
-Nodes (6): A.1 二層構造を採用した理由, A.2 4つの設計原則と5つのギャップへの対応, A.3 各要素の由来, A.4 人間の検証帯域を守る設計, A.5 変えるもの・変えないもの, A.6 前提と限界
+Cohesion: 0.17
+Nodes (11): A.1 二層構造を採用した理由, A.2 4つの設計原則と5つのギャップへの対応, A.3 各要素の由来, A.4 人間の検証帯域を守る設計, A.5 変えるもの・変えないもの, A.6 前提と限界, A.7 既存の開発手法との関係, スクラムガイドの文言との接点 (+3 more)
 
 ### Community 53 - "3.7 会議体"
 Cohesion: 0.20
@@ -6607,8 +7286,8 @@ Cohesion: 0.29
 Nodes (6): ガードレールの符号化(steering), モデルアクセスの管理, 実行形態の3層, 権限設計(最小権限+強制層), 段階導入の目安, 監査ログとトレーサビリティ
 
 ### Community 55 - "保証の開示の出力"
-Cohesion: 0.07
-Nodes (28): G-5(自動検証)のパイプライン構成, PR 単位の検査(pr-rules), ゲートの前提条件を機械検査する(D-0 の統制), デプロイゲート, 「人が毎回指摘すること」を CI へ移す運用, 例外承認の記録が対応づく条件, 依存の追加を PR の記述へ出力する, 保証の主張の成立判定の出力 (+20 more)
+Cohesion: 0.12
+Nodes (17): 保証の主張の成立判定の出力, 保証の開示の出力, 出荷判定(G-7)エビデンスの自動集約, 出荷判定者が突合するもの, 出荷判定者の異議の検査, 判定基準との対応(機械が確かめる範囲と、人が突合する範囲), 委任で先へ進めた変更と、G-6 の判定を事後へ移した変更, 委任の期間ごとの保証の開示 (+9 more)
 
 ### Community 56 - "context-base.md"
 Cohesion: 0.10
@@ -6626,9 +7305,9 @@ Nodes (5): コマンド, ビジュアル規約(サイト全体の統一感), 使
 Cohesion: 0.33
 Nodes (5): Mermaid 作図規約, スタイル規約, 書き方, 記法の選択ガイド, 階層構造の表現(本プロジェクトの核)
 
-### Community 60 - "1. スタック型 PR(stacked pull requests)の実務"
-Cohesion: 0.40
-Nodes (5): 1.1 概念, 1.2 ベース自動リターゲット(#118 の前提の検証), 1.3 主要ツールの現況(2026-08-05 時点), 1.4 マージキューとの関係, 1. スタック型 PR(stacked pull requests)の実務
+### Community 60 - "fix288-tpl2/suite/new.mjs"
+Cohesion: 0.01
+Nodes (162): before, { check, refused, done }, { git, write, read, cfg, gen, contract, checkD0, checkRules, d0 }, r, APPOINTER, BASE, BASIS, checker() (+154 more)
 
 ### Community 61 - "作図規約の検討メモ(2026-07-08)"
 Cohesion: 0.33
@@ -6636,7 +7315,7 @@ Nodes (5): 作図規約の検討メモ(2026-07-08), 手段の整理, 未決事�
 
 ### Community 62 - "付録: 公式出典の一覧(生成)"
 Cohesion: 0.03
-Nodes (65): About Amazon(Amazon Staff)(1), About Amazon(Bryar & Carr『Working Backwards』の抜粋を Amazon が公式サイトに掲載)(1), Agentic AI Foundation(Linux Foundation)(1), Amazon(1), Amazon (About Amazon)(1), Anthropic(22), Anthropic (Claude blog)(2), Anthropic (Claude Code Docs)(3) (+57 more)
+Nodes (72): About Amazon(Amazon Staff)(1), About Amazon(Bryar & Carr『Working Backwards』の抜粋を Amazon が公式サイトに掲載)(1), Agentic AI Foundation(Linux Foundation)(1), Amazon(1), Amazon (About Amazon)(1), Anthropic(22), Anthropic (Claude blog)(2), Anthropic (Claude Code Docs)(3) (+64 more)
 
 ### Community 63 - "0001-public-adr.md"
 Cohesion: 0.33
@@ -6696,7 +7375,7 @@ Nodes (5): CI への組み込み, テーラリング, 原則, 検証の全体フ
 
 ### Community 77 - "三識データを用いた振り返り(スプリントごと)"
 Cohesion: 0.15
-Nodes (12): 3区分の仕分け, コンテキスト基盤への還元, プロセス定義の版管理, モデル更新への追従(随時), 三識データを用いた振り返り(スプリントごと), 二重の改善ループ, 四半期振り返りの進め方, 手順 (+4 more)
+Nodes (12): 3区分の仕分け, コンテキスト基盤への還元, プロセス定義の版管理, モデル更新への追従(随時), 三識データを用いた振り返り, 二重の改善ループ, 四半期振り返りの進め方, 手順 (+4 more)
 
 ### Community 78 - "incident-response.md"
 Cohesion: 0.29
@@ -6735,12 +7414,12 @@ Cohesion: 0.50
 Nodes (3): チェックリスト, 変更内容, 概要
 
 ### Community 87 - "research/ — 調査メモ置き場"
-Cohesion: 0.15
-Nodes (11): research/ — 調査メモ置き場, 出典台帳(2026-09 開始), 最新の外部調査を引くとき, 構成, 運用ルール(実運用で確定済み), ID の規則, スキーマ(`schemaVersion: 0`、欄名は camelCase), 主張(`claims[]`) (+3 more)
+Cohesion: 0.10
+Nodes (18): H-8 5.8.1・5.8.2, 7.1 判断が要った箇所, 7.2 CI で実行できない部分の調査(X-7), 7.3 検査と試験(突合の後), 7. 突合の後の修正(`crosscheck.md` X-1〜X-14、`decision.md` 8 章の裁定に従う), 5. 裁定と食い違った点, research/ — 調査メモ置き場, 出典台帳(2026-09 開始) (+10 more)
 
 ### Community 88 - "Issue 別の根拠索引"
-Cohesion: 0.07
-Nodes (30): #109, #110, #123, #135, #139, #222, #240, #248 (+22 more)
+Cohesion: 0.05
+Nodes (42): #109, #110, #123, #135, #139, #222, #240, #248 (+34 more)
 
 ### Community 89 - "index.md"
 Cohesion: 0.50
@@ -6751,12 +7430,12 @@ Cohesion: 0.50
 Nodes (3): 成果物, 目的, 調査観点(候補)
 
 ### Community 91 - "phase4-process-design/overview.md"
-Cohesion: 0.11
-Nodes (17): 1.0 名称, 1.10.1 適用の開始, 1.10.2 適用の表明と適合の主張, 1.10 適用の開始と適合の主張, 1.1 目的, 1.2 適用範囲, 1.3 引用規格および参照文書, 1.4 用語の定義 (+9 more)
+Cohesion: 0.09
+Nodes (22): 1.0 名称, 1.10.2 適用の表明と適合の主張, 1.10.3 本標準の版, 1.10.4 適用の終了, 1.10 適用の開始と適合の主張, 1.1 目的, 1.2 適用範囲, 1.3 引用規格および参照文書 (+14 more)
 
 ### Community 92 - "288 採用判断シートでの7回目の判定(2026-10-08、最終版・金融系 5名 CL0 quality-high)— 指摘(検証担当の報告を主担当が転記)"
-Cohesion: 0.12
-Nodes (15): 288 採用判断シートでの7回目の判定(2026-10-08、最終版・金融系 5名 CL0 quality-high)— 指摘(検証担当の報告を主担当が転記), 3回目の判定からの変化(穴A〜F と、以後の巡で直した穴のうちこの設定に関わるもの), Q1〜Q18 の表(5要素 = 主張 / 範囲 / 根拠 / 証拠 / 限界と責任), W【低・手引き】穴S の「期間の表現」の検出が、「許容期間に依らず当たる」と明記した文にも食い違いを出す, X【中・手引き】印 `[未測定]` は人の層と AI の層を区別できず、「AI の層は検出の層に数えない」と定めた層1 でも、モデルの世代交代のたびに全変更が条件6 不成立になる, Y【中】3名体制(I.5 条件6 の例の割り当て)では、委任の登録(事業決裁者の決定)・規則の承認(AI維持管理者)・委任の変更の事前承認(独立レビュア)が同一人物に集まり、1つの変化点で1人が委任を有効にできる。層1 の「委任の登録は認めない」は読まれず、CL0 では構成に錠を掛ける経路が無い, Z【中・手引き】quality-high の `coreReviewerCount 2`(コア機能の独立レビューは2名)は、構成と PROCESS-PROFILE.md に出るが、check-pr・出荷の集約・env-check のどれも読まず、実装の台帳の「降りていない規定」にも無い。コアの R1 変更が1名承認で「独立した人の確認あり」になる, 冒頭 (+7 more)
+Cohesion: 0.13
+Nodes (14): 288 採用判断シートでの7回目の判定(2026-10-08、最終版・金融系 5名 CL0 quality-high)— 指摘(検証担当の報告を主担当が転記), 3回目の判定からの変化(穴A〜F と、以後の巡で直した穴のうちこの設定に関わるもの), Q1〜Q18 の表(5要素 = 主張 / 範囲 / 根拠 / 証拠 / 限界と責任), W【低・手引き】穴S の「期間の表現」の検出が、「許容期間に依らず当たる」と明記した文にも食い違いを出す, X【中・手引き】印 `[未測定]` は人の層と AI の層を区別できず、「AI の層は検出の層に数えない」と定めた層1 でも、モデルの世代交代のたびに全変更が条件6 不成立になる, Y【中】3名体制(I.5 条件6 の例の割り当て)では、委任の登録(事業決裁者の決定)・規則の承認(AI維持管理者)・委任の変更の事前承認(独立レビュア)が同一人物に集まり、1つの変化点で1人が委任を有効にできる。層1 の「委任の登録は認めない」は読まれず、CL0 では構成に錠を掛ける経路が無い, Z【中・手引き】quality-high の `coreReviewerCount 2`(コア機能の独立レビューは2名)は、構成と PROCESS-PROFILE.md に出るが、check-pr・出荷の集約・env-check のどれも読まず、実装の台帳の「降りていない規定」にも無い。コアの R1 変更が1名承認で「独立した人の確認あり」になる, 即時保留・不採用の8条件 (+6 more)
 
 ### Community 94 - "index.mdx"
 Cohesion: 0.33
@@ -6766,9 +7445,9 @@ Nodes (5): このプロジェクトがやること, まず要点だけ知りた�
 Cohesion: 0.33
 Nodes (5): 実装とは組織移行である, 実装リファレンス一覧, 段階と実装リファレンスの対応, 移行の全体像, 設定作業の順序
 
-### Community 97 - "package.json"
-Cohesion: 0.09
-Nodes (29): ADR-0006, ADR-0020, ADR-0017, dependencies, astro@^7.2.0, astro-mermaid@^2.1.0, @astrojs/sitemap@^3.7.3, mermaid@^11.16.1 (+21 more)
+### Community 97 - "scripts"
+Cohesion: 0.03
+Nodes (68): ADR-0006, ADR-0020, ADR-0017, dependencies, astro@^7.2.0, astro-mermaid@^2.1.0, @astrojs/sitemap@^3.7.3, mermaid@^11.16.1 (+60 more)
 
 ### Community 99 - "調査メモ: 4大会議体と決裁権限マトリクス／デジタル根回し（Issue #102・#103）"
 Cohesion: 0.05
@@ -6810,13 +7489,13 @@ Nodes (12): 1.1 日本の製造業におけるデザインレビュー（DR）�
 Cohesion: 0.05
 Nodes (42): 7.10.1 なぜ止めないか, 7.10.2 充足状態の3区分, 7.10.3 劣化の定義, 7.10.4 受容の要求事項, 7.10.5 ゲートとの接続, 7.10 前提の劣化と受容, 7.11 停止の申し立て, 7.12 関連する章 (+34 more)
 
-### Community 110 - "human-ai-boundary.md"
-Cohesion: 0.04
-Nodes (48): 5.10 関連する章, 5.1 本章が達成すべき成果, 5.2 責任の原則, 5.3 役割境界の時点表記, 5.4.1 レベルを定義する3変数, 5.4.2 3つのレベル, 5.4.3 レベルによらない不変条件, 5.4.4 リスク区分による上限 (+40 more)
+### Community 110 - "5.4 AI自律レベル"
+Cohesion: 0.18
+Nodes (11): 5.4.1 レベルを定義する3変数, 5.4.2 3つのレベル, 5.4.3 レベルによらない不変条件, 5.4.4 リスク区分による上限, 5.4.5 レベルの引き上げ, 5.4.6 レベルの引き下げ, 5.4.7 能力維持措置, 5.4.8 見直しの頻度 (+3 more)
 
 ### Community 111 - "lifecycle.md"
 Cohesion: 0.05
-Nodes (37): 2.10.1 スコープの3層, 2.10.2 規模の合意, 2.10.3 スコープを確定する時期, 2.10.4 進捗の観測, 2.10.5 棚卸しとスコープの調整, 2.10.6 期日に間に合わない見込みが立った場合, 2.10.7 通常運転と例外の境界, 2.10.8 合意した範囲から外れた変更の扱い (+29 more)
+Nodes (37): 2.10.1 スコープの3層, 2.10.2 規模の合意(適用: 事業ステージのスコープ3層の規模の合意), 2.10.3 スコープを確定する時期, 2.10.4 進捗の観測, 2.10.5 棚卸しとスコープの調整, 2.10.6 期日に間に合わない見込みが立った場合, 2.10.7 通常運転と例外の境界, 2.10.8 合意した範囲から外れた変更の扱い (+29 more)
 
 ### Community 112 - "0009-phase4-standard-chapter-structure.md"
 Cohesion: 0.33
@@ -6851,8 +7530,8 @@ Cohesion: 0.14
 Nodes (13): 1.1 適用条件, 1.2 承認と事後レビュー, 1.3 一般的な失敗パターン, 1.4 監視すべき指標, 1. 調査結果: 緊急変更(Emergency Change)の運用, 2.1 ファストトラックの適用条件を「期日の性質」で限定する, 2.2 何を後回しにできるか・できないかを明示する, 2.3 乱用防止の制約（Issue の問いへの回答） (+5 more)
 
 ### Community 120 - "118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA"
-Cohesion: 0.17
-Nodes (12): 10. Git 初心者にとってのスタック運用の難度, 118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA, 12. 考察(事実からの解釈。一次情報ではない), 13. 未確認・追加調査が必要な穴, 2. `gh stack submit` の実在確認, 4.1 効果(出典あり), 4.2 分割しすぎのコスト(出典あり), 4. 小さい PR の効果と副作用 (+4 more)
+Cohesion: 0.07
+Nodes (29): 10. Git 初心者にとってのスタック運用の難度, 118/119 一次調査: スタック型 PR と AI 協調タスク管理・レビュー SLA, 11.1 ロールモデル(スタック運用で必要な役割), 11.2 ゲート・意思決定, 11.3 成果物(インプット/アウトプット), 11.4 階層構造(3 階層で図解する素材), 11. 調査フレームワーク観点での整理(#118 の運用標準向け素材), 12. 考察(事実からの解釈。一次情報ではない) (+21 more)
 
 ### Community 121 - "調査メモ: Seeded Errors による自動化バイアス検知と、承認権限の一時制限・例外決裁（Issue #113 / #114）"
 Cohesion: 0.05
@@ -6864,7 +7543,7 @@ Nodes (39): 0. 本メモの読み方, 10.1 位置づけの訂正（最優先）,
 
 ### Community 123 - "developer-guide.md"
 Cohesion: 0.11
-Nodes (17): E.10 認知負荷の管理, E.11 関連する章, E.1 作業の重心, E.2 1機能あたりの作業サイクル, E.3 受入基準を書く, E.4 タスクへ分解する, E.5 差分を検証する, E.6 実行トレースの確認 (+9 more)
+Nodes (18): E.10 認知負荷の管理, E.11 関連する章, E.1 作業の重心, E.2 1機能あたりの作業サイクル, E.3 受入基準を書く, E.4 タスクへ分解する, E.5 差分を検証する, E.6 実行トレースの確認 (+10 more)
 
 ### Community 124 - "調査メモ: 安全制御ソフトウェア（PL / SIL）の設計と V&V 検証ガイド（Issue #123）"
 Cohesion: 0.06
@@ -6892,7 +7571,7 @@ Nodes (9): 0. 本メモの鮮度と読み方, 11. 埋められなかった観点
 
 ### Community 131 - "3.12 AI運用担当者と全社統制の接続"
 Cohesion: 0.12
-Nodes (16): 3.12.10 実行の強制停止(サーキットブレーカー), 3.12.11 依存先の一覧と単一障害点, 3.12.1 位置づけ, 3.12.2 インタフェース, 3.12.3 モデルの適合性評価, 3.12.4 可用性と品質を分けて監視する, 3.12.5 障害と切り替え, 3.12.6 モデルの廃止への追随 (+8 more)
+Nodes (17): 3.12.10 実行の強制停止(サーキットブレーカー), 3.12.11 依存先の一覧と単一障害点, 3.12.12 能力依存の定数の再評価(適用: 能力依存として登録した定数), 3.12.1 位置づけ, 3.12.2 インタフェース, 3.12.3 モデルの適合性評価, 3.12.4 可用性と品質を分けて監視する, 3.12.5 障害と切り替え (+9 more)
 
 ### Community 132 - "roles-responsibilities.md"
 Cohesion: 0.18
@@ -7020,15 +7699,15 @@ Nodes (24): 1.1 ISO/IEC/IEEE 12207・15288 の tailoring(仕立て), 1.2 ISO 262
 
 ### Community 163 - "stacked-pr.md"
 Cohesion: 0.15
-Nodes (12): AIエージェントへ与える指示, コンフリクトの解消, ツールを選ぶ基準, レビューの割り当て, 前提の確認(2026-08-05 時点), 各層が満たすべき条件, 導入しない判断, 操作事故へのフェイルセーフ (+4 more)
+Nodes (12): AIエージェントへ与える指示, コンフリクトの解消, ツールを選ぶ基準, レビューの割り当て, 前提の確認(2026-10-23 時点), 各層が満たすべき条件, 導入しない判断, 操作事故へのフェイルセーフ (+4 more)
 
 ### Community 164 - "waterfall.yaml"
 Cohesion: 0.04
 Nodes (48): id, inputs, name, outputs, roles, summary, tasks, category (+40 more)
 
 ### Community 165 - "template-repository.md"
-Cohesion: 0.06
-Nodes (32): AI レビューの位置づけ, D-0 体制図との二重記入を無くす, 使い方, 出荷できない状態, 判定ロジックを二重に持たない, 即時通知, 向きの扱い, 契約検査 (+24 more)
+Cohesion: 0.08
+Nodes (23): AI レビューの位置づけ, テンプレートの更新の取り込み, 使い方, 判定ロジックを二重に持たない, 契約検査, 定め(2026-10-12 の試行から置いたもの), 実環境の統制の確認の4値, 実装の制約 (+15 more)
 
 ### Community 166 - "review-burden-measurement.md"
 Cohesion: 0.12
@@ -7227,8 +7906,8 @@ Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
 ### Community 215 - "check-impl.mjs"
-Cohesion: 0.09
-Nodes (22): ADR-0061, args, checkCounts, CHECKS, collect(), countChecks(), errors, files (+14 more)
+Cohesion: 0.05
+Nodes (57): 0.2 機械の決まり(今回足したもの), I-1 母集団, I-5 0 件(課さないと明記), 本意見書が確かめていないこと, 1.2 マークを検査するスクリプト, args, base, baseline (+49 more)
 
 ### Community 216 - "0024-decision-as-risk-acceptance.md"
 Cohesion: 0.33
@@ -7251,8 +7930,8 @@ Cohesion: 0.15
 Nodes (12): 0. 調査の問い, 133 一次調査: コンテキストの鮮度監査と忘却, 1.1 一次情報, 1.2 所見, 1.3 本標準への当てはめ, 1. Q1 落とすか、警告にするか, 2. Q2 対応関係の特定, 3. Q3 検知と削減のどちらを主とするか (+4 more)
 
 ### Community 221 - "build-template-kb.mjs"
-Cohesion: 0.05
-Nodes (38): normalized, relative, repoRoot, res, ADR-0031, ADR-0035, ADR-0060, ADR-0062 (+30 more)
+Cohesion: 0.03
+Nodes (75): ADR-0031, ADR-0035, ADR-0060, ADR-0062, X-1 重大 版を発行した後の main が、発行した版の名で配られ、記録される, 0. 裁定の一覧, 1. 版(Q-1), 2. 適用の終了(Q-2) (+67 more)
 
 ### Community 222 - "SRC-0001.yaml"
 Cohesion: 0.06
@@ -7279,8 +7958,8 @@ Cohesion: 0.33
 Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
 ### Community 228 - "agent-trace-control.md"
-Cohesion: 0.14
-Nodes (13): この設計の限界, 事前に遮断する, 事象ごとの担い手, 人が見るもの, 再現できることを記録の目的に置きません, 実装の手段を指定しません, 差分から機械判定する, 指示の全文を保存しません (+5 more)
+Cohesion: 0.17
+Nodes (11): この設計の限界, 事象ごとの担い手, 人が見るもの, 実行基盤を選ぶときの確かめ方, 実行時に拒否する, 差分から機械で検出する, 拒否を指示ではなく設定で行う, 操作の要約 (+3 more)
 
 ### Community 229 - "risk-catalog.md"
 Cohesion: 0.10
@@ -7290,9 +7969,9 @@ Nodes (19): このカタログの目的, このカタログの限界, ガバナ�
 Cohesion: 0.29
 Nodes (6): G-6 と G-7 を分けて扱う理由, コンテキスト, ステータス, 影響, 検討した選択肢, 決定
 
-### Community 231 - "label-mailbox.md"
-Cohesion: 0.08
-Nodes (23): ① 開発者（Dev）の Mailbox, ② 出荷判定者（QM）の Mailbox, ③ 価値責任者（PO）の Mailbox, 4.1 設計背景: 割り込み崩壊（外部割込競合）の防止, 4.2 設計原則, 4.3.1 状態遷移表（復路の完全定義）, 4.3 label 語彙（標準8種）, 4.4 孤児（orphan）検出の義務化 (+15 more)
+### Community 231 - "ロール別のポーリングのコマンド"
+Cohesion: 0.12
+Nodes (15): AI維持管理（Platform）の受信箱, ロール別のポーリングのコマンド, 事業決裁者（Owner）の受信箱, 価値責任者（PO）の受信箱, 出荷判定者（Ship）の受信箱, 孤児の定義の例, 孤児の検出, 実装の方針 (+7 more)
 
 ### Community 232 - "第1部: 弁護できるもの"
 Cohesion: 0.13
@@ -7307,28 +7986,32 @@ Cohesion: 0.15
 Nodes (12): コンテキスト, ステータス, 判定の語彙が工程ゲートに無い, 影響, 「条件付き」を求める要求が上がっている, 検討した選択肢, 決定, 決定1: 判定記録の作成をもって判定の成立とする (+4 more)
 
 ### Community 235 - "assurance-case.md"
-Cohesion: 0.05
-Nodes (38): AI の関与を前提にした保証の根拠, H.10 既存の枠組みとの対応, H.11 残るリスク, H.12 品質保証部門が行うこと, H.1 最上位の主張, H.2 主張しないこと, H.3 論証, H.4 AI による確認の数え方 (+30 more)
+Cohesion: 0.04
+Nodes (45): AI どうしの往復, AI の関与を前提にした保証の根拠, H.10 既存の枠組みとの対応, H.11 残るリスク, H.12 品質保証部門が行うこと, H.1 最上位の主張, H.2 主張しないこと, H.3 論証 (+37 more)
+
+### Community 236 - "run.mjs"
+Cohesion: 0.03
+Nodes (78): 1.1 R-1〜R-7, 1.2 7.5 節, 1.3 ほかの `refused` の場面の網羅(7.5 J-5), 1.4 898 行と 900 件の差, 1. 裁定の各項目と実装の対応, 2.1 期待値を改めた場面(D。`changed` に記録), 2.2 入力を直した場面(I。期待値は変えていない), 2.3 照合を分けた場面(P。期待の語は元のまま) (+70 more)
 
 ### Community 237 - "日本の実務動向(出典一覧)"
-Cohesion: 0.14
-Nodes (13): academic(4), consultancy(4), enterprise(26), government(20), individual(38), media(4), nonprofit(2), sier(16) (+5 more)
+Cohesion: 0.12
+Nodes (15): academic(5), community(2), consultancy(4), enterprise(26), government(29), individual(38), media(4), nonprofit(2) (+7 more)
 
 ### Community 238 - "seeded-error-safety.md"
 Cohesion: 0.12
 Nodes (15): 事前周知に含める事項, 任意の停止を現場の裁量に置かない, 報奨を設けない, 注入に気づいたときの手続, 注入の設計に対する制約, 測定の対象を個人にしない, 演習を停止する条件, 第1層 使い捨てブランチ (+7 more)
 
 ### Community 239 - "各ゲートの判定チェックリスト"
-Cohesion: 0.17
-Nodes (12): G-1 企画承認(事業決裁者・既存規程どおり), G-2 要件合意(価値責任者・48時間), G-4 機能仕様承認(価値責任者または委譲先・24時間), G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日), 各ゲートの判定チェックリスト, 品質の約束と保証範囲(層2), 委任の変更は判定の時点を事後へ移す(適用: CL0・R3 の変更), 承認レビューを判定記録とする条件(適用: G-6。規制業の監査対応書式を除く) (+4 more)
+Cohesion: 0.13
+Nodes (15): G-1 企画承認(事業決裁者・既存規程または D-0 の記名による), G-3 技術設計判断(技術判断者・48時間), G-4 機能仕様承認(価値責任者または委譲先・24時間), G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日), 事業影響を金額で定量化しない, 事業決裁者が受容を拒否した場合, 受入基準とタスクの対応(基準6), 各ゲートの判定チェックリスト (+7 more)
 
 ### Community 240 - "決定"
 Cohesion: 0.13
 Nodes (14): 1. 既存の部品を探す義務を課さない, 2. 探索の結果を記録させない, 3. 「課さないと決めた」ことを本 ADR に記録する, 4. 判断記録(ADR)の様式は変更しない, 5. slopsquatting への対処は、実装層の既存の検査へ降ろす, AI に探索を実行させると、露出が直接増える, コンテキスト, ステータス (+6 more)
 
 ### Community 241 - "gate-criteria.md"
-Cohesion: 0.17
-Nodes (11): ゲートの2系統, ゲートの健全性を計測する, ゲート運用の共通ルール, 全ゲートに共通する通過条件, 判定の成立, 判定の滞留および基準の逸脱, 判定の範囲, 判定記録を基底ブランチへ入れる操作 (+3 more)
+Cohesion: 0.20
+Nodes (9): ゲートの2系統, ゲートの健全性を計測する, ゲート運用の共通ルール, 全ゲートに共通する通過条件, 判定の滞留および基準の不充足, 判定の範囲, 前提条件と判定基準の区別, 工程ゲートの判定の語彙 (+1 more)
 
 ### Community 242 - "欠陥トリアージ基準"
 Cohesion: 0.33
@@ -7344,11 +8027,11 @@ Nodes (7): 2つの時刻を分ける, レビュー SLA と滞留の措置, 偏�
 
 ### Community 245 - "AI 品質指標の扱い"
 Cohesion: 0.40
-Nodes (5): AI 品質指標の扱い, 合否条件にしてよい指標、してはならない指標, 指標の定義, 新規に変更した範囲へ限定する, 閾値の設定と較正
+Nodes (5): AI 品質指標の扱い(適用: AI が関与した成果物の品質を比率で扱う場合。傾向の確認と第5章 5.4.6 の検知条件を含む), 合否条件にしてよい指標、してはならない指標, 指標の定義, 新規に変更した範囲へ限定する(適用: G-5 基準3 以外の定量条件), 閾値の設定と較正
 
 ### Community 246 - "G-5 自動検証 CI(機械判定・即時)"
-Cohesion: 0.17
-Nodes (12): G-5 自動検証 CI(機械判定・即時), リスク区分の下限の照合, 依存関係の追加(基準8), 基準値と除外設定の変更, 是正の起動, 検査対象が存在しない場合の扱い, 法的な評価を本標準が示さない理由, 知財潔白性の検査 (+4 more)
+Cohesion: 0.13
+Nodes (15): G-5 自動検証 CI(機械判定・即時), カバレッジの測る範囲と規模(基準3), リスク区分の下限の照合, 依存関係の追加(基準8), 判定基準を実装する検査と集約, 基準値と除外設定の変更, 是正の起動, 検査を外す変更の記録 (+7 more)
 
 ### Community 247 - "5.4 次セッションへの引き継ぎ（2026-08-06 時点・最新）"
 Cohesion: 0.14
@@ -7368,7 +8051,7 @@ Nodes (17): inject の設計, この訓練の限界, 事前準備, 何を訓練�
 
 ### Community 251 - "process-audit.md"
 Cohesion: 0.10
-Nodes (19): この手続の限界, プロセスを新設・改訂したときの検証, 個人を評価の対象にしない, 全件を見ません, 出荷判定と何が違うか, 判定と是正, 実施者の要件, 対象の抽出 (+11 more)
+Nodes (20): 2段の抽出, この手続の限界, プロセスを新設・改訂したときの検証, 個人を評価の対象にしない, 全件を見ません, 出荷判定と何が違うか, 判定と是正, 実施者の要件 (+12 more)
 
 ### Community 252 - "0037-label-points-to-lane-not-role.md"
 Cohesion: 0.15
@@ -7391,8 +8074,8 @@ Cohesion: 0.20
 Nodes (9): BASE-Q2・BASE-Q3 前回メモの再確認(本テーマの範囲), TH02-Q1 極小組織向け規格の代償措置, TH02-Q2 4M 変化点管理・MOC と体制変更への転用, TH02-Q3 モデルの世代交代・退役を変化点として扱う実務, TH02-Q4 段階的有効化の条件と「未実施」と「通過」の区別, TH02-Q5 1名+AI で「解けないもの」の外部記録, TH02 体制・ステージの変化点と段階的有効化, 会議体への問い (+1 more)
 
 ### Community 257 - "process-diagrams.ts"
-Cohesion: 0.04
-Nodes (60): ADR-0004, ADR-0010, @astrojs/starlight@^0.41.6, @astrojs/starlight, 推奨の組み合わせ案, roleName, seg, wpName (+52 more)
+Cohesion: 0.05
+Nodes (44): @astrojs/starlight@^0.41.6, @astrojs/starlight, 推奨の組み合わせ案, roleName, seg, wpName, categoryLabel, diagram (+36 more)
 
 ### Community 258 - "TH08 仕様・要求・前提・トレーサビリティ"
 Cohesion: 0.20
@@ -7530,25 +8213,25 @@ Nodes (7): files, brand.css, LICENSE.md, tokens.flat.json, sourceCommit, syncedA
 Cohesion: 0.15
 Nodes (12): 1. 差し替え条件は、対立仮説を分離できる形で書く, 2. 分離できる条件を書けない場合、マークを置かない, 3. 既存の観測機構の出力を優先して使う, 4. 台帳へ、根拠となった事例の識別子を書く, 5. 本 ADR の適用は、以後に書くマークからとする, コンテキスト, ステータス, 台帳が同一事例の重複計上を検出しない (+4 more)
 
-### Community 292 - "#239 適用範囲マークの仕組みが動いているのに届いていない"
-Cohesion: 0.50
-Nodes (4): #239 適用範囲マークの仕組みが動いているのに届いていない, ただし、変更の範囲をここまでに限るべき, なぜ成立しないか, 弁護を試みた形
+### Community 292 - "ta.mjs"
+Cohesion: 0.04
+Nodes (47): check, cond(), CYCLE, done, g8Extra(), gateRecord(), HERE, MOCK (+39 more)
 
 ### Community 295 - "284・285 会議体 意見書04: 規格・法務・安全役(2026-09-30)"
 Cohesion: 0.08
 Nodes (23): 0. 読めた範囲と読めていない範囲, 1. 結論, 284・285 会議体 意見書04: 規格・法務・安全役(2026-09-30), 2.1 各案と規範の整合, 2.2 自然人に固定するもの、AI が担えるもの、規範が沈黙するもの, 2.3 規範は独立性をどう定義しているか, 2.4 安全重要度(CL)が高い案件での上限, 2.5 変化点管理について規範が求める記録 (+15 more)
 
 ### Community 296 - "implementation-marking.md"
-Cohesion: 0.17
-Nodes (11): 何を追跡するか, 書式, 検査の対象, 検査の手段, 検査の限界, 準拠テンプレートのスキルの文, 逆流を検出できない, 運用 (+3 more)
+Cohesion: 0.11
+Nodes (18): `machine` の要件, `presence` の単位, 何を追跡するか, 区分, 基準線, 対象の棚卸し, 書式, 検査が失敗にするもの (+10 more)
 
 ### Community 297 - "check-section-refs.mjs"
-Cohesion: 0.12
-Nodes (24): ADR-0054, ADR-0056, 判定の一覧, 突合の結果(2026-10-08), adrNumbers, ANNEX, CHAPTER, check() (+16 more)
+Cohesion: 0.13
+Nodes (22): ADR-0056, adrNumbers, ANNEX, CHAPTER, check(), counts, detail, errors (+14 more)
 
 ### Community 298 - "3.5.3 兼務を判定する単位(人と実行主体の文脈)"
-Cohesion: 0.18
-Nodes (11): 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制, 3.5.2 出荷判定者の兼務に限った例外(代償措置つき), 3.5.3 兼務を判定する単位(人と実行主体の文脈), 3.5.4 独立と分離の語の定義, 3.5 兼務ルール(許可 / 禁止), ロールとレーンの写像, 入力の分離(適用: 確認側の担い手に AI を置く場合), 同じロールの中で並行して実行する場合 (+3 more)
+Cohesion: 0.12
+Nodes (16): 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制, 3.5.2 出荷判定者の兼務に限った例外(代償措置つき), 3.5.3 兼務を判定する単位(人と実行主体の文脈), 3.5.4 独立と分離の語の定義, 3.5.5 受信箱のラベルによる引き渡し, 3.5 兼務ルール(許可 / 禁止), ラベルの語彙, ロールとレーンの写像 (+8 more)
 
 ### Community 299 - "決定"
 Cohesion: 0.10
@@ -7603,16 +8286,16 @@ Cohesion: 0.06
 Nodes (31): 288 会議体 意見書01: 標準策定者(起案), 会議体への申し送り(起案者が自分の案に残す疑問), 層1(新設): 品質保証の方針と残存リスクの受容の基準, 層2(既存の拡張): 品質の約束と保証範囲, 層3(既存の拡張): 出荷ごとの判定と受容, 採らない案, 採らない案, 採らない案 (+23 more)
 
 ### Community 312 - "テンプレ0: 意思決定・エスカレーション体制図(D-0)"
-Cohesion: 0.18
-Nodes (11): テンプレ0: 意思決定・エスカレーション体制図(D-0), 体制と委任の登録を誰が決めるかを決めておく, 個人名を1か所へ隔離する, 判断を担う席の後継を表5 に書く, 市場・顧客の仮説を誰が検証するかを決めておく, 席ごとに責任者と担い手を書く, 平常時と障害時を分ける, 改訂履歴に体制の変化点を残す (+3 more)
+Cohesion: 0.15
+Nodes (13): テンプレ0: 意思決定・エスカレーション体制図(D-0), 人の名簿を表5 に置く, 体制と委任の登録を誰が決めるかを決めておく, 個人名を1か所へ隔離する, 判断を担う席の後継を表5 に書く, 市場・顧客の仮説を誰が検証するかを決めておく, 席ごとに責任者と担い手を書く, 平常時と障害時を分ける (+5 more)
 
 ### Community 313 - "テンプレ10: 前提の台帳"
 Cohesion: 0.40
 Nodes (5): テンプレ10: 前提の台帳, リスク登録簿と統合しない, 台帳に対処の実体を書かない, 様式, 記入時の注意
 
 ### Community 314 - "テンプレ8: AI-SLA 合意確認書(委託契約の添付)"
-Cohesion: 0.33
-Nodes (6): テンプレ8: AI-SLA 合意確認書(委託契約の添付), 保証の開示と委任の適用を契約で定める理由, 判定の置き先と結果の受け渡しを記録する理由, 契約への組み込み方の3類型, 様式, 知財潔白性を AI 固有の要求として書かない理由
+Cohesion: 0.29
+Nodes (7): テンプレ8: AI-SLA 合意確認書(委託契約の添付), 保証の開示と委任の適用を契約で定める理由, 判定の置き先と結果の受け渡しを記録する理由, 契約への組み込み方の3類型, 様式, 知財潔白性を AI 固有の要求として書かない理由, 第10項〜第13項を様式に置く理由
 
 ### Community 315 - "テンプレ9: AIエージェント安全リスクアセスメント表"
 Cohesion: 0.50
@@ -7651,8 +8334,8 @@ Cohesion: 0.33
 Nodes (6): 3.8.1 リスク区分, 3.8.2 決裁者の割当, 3.8.3 起案・意見・決定の分離, 3.8.4 決定は技術的正しさの承認ではない, 3.8 決裁権限マトリクス, 区分の下限と確定者
 
 ### Community 324 - "#235: 軸B(事業ステージ)が統制の水準に効かない"
-Cohesion: 0.15
-Nodes (13): 1. 事業ステージは案件の自己申告であり、統制の解除条件にできない, #235: 軸B(事業ステージ)が統制の水準に効かない, 2. 有効化されるゲートの数は記録に残るが、強制層の有無は記録に残らない, 3. P-001 の事象1 は、ステージの問題ではない, 反対されうる点, 変更の総量, 実装形態, 根拠水準 (+5 more)
+Cohesion: 0.17
+Nodes (12): 1. 事業ステージは案件の自己申告であり、統制の解除条件にできない, #235: 軸B(事業ステージ)が統制の水準に効かない, 2. 有効化されるゲートの数は記録に残るが、強制層の有無は記録に残らない, 3. P-001 の事象1 は、ステージの問題ではない, 反対されうる点, 変更の総量, 実装形態, 根拠水準 (+4 more)
 
 ### Community 325 - "組織継続の側の決定(会議体 council-11〜13 の突き合わせ、2026-10-03)"
 Cohesion: 0.10
@@ -7667,16 +8350,16 @@ Cohesion: 0.11
 Nodes (18): 1. 立場の前提 — 品質保証部長は何を判断し、何に書き写すのか, 288 会議体 意見書02 — 品質保証部長(採用を判断する側)の立場, 2. Q1〜Q18 の判定, 3. 「保証するとは主張しない」標準を採用できない理由, 4. 決めること1〜6, 5. 社内規程へ書き写せるか — 書き写しの試し, 6. 本立場の限界, 判定の表 (+10 more)
 
 ### Community 328 - "implementation-ledger.md"
-Cohesion: 0.50
-Nodes (3): 全件, 検査の手段ごとの件数, 降りていない規定
+Cohesion: 0.33
+Nodes (5): スキルの文のうち、検査の範囲の外の否定, 全件, 棚卸しの状況, 検査の手段ごとの件数, 降りていない規定
 
 ### Community 329 - "288 会議体(組織継続の側) 意見書12 — 採用を判断する部門長(事業部長・品質保証部長)の立場"
 Cohesion: 0.11
 Nodes (17): 1. 立場の前提 — 部門長は何を書き、何に書き写すのか, 288 会議体(組織継続の側) 意見書12 — 採用を判断する部門長(事業部長・品質保証部長)の立場, 2. Q10〜Q18 の判定 — 調査03 の案が入った場合に「採用可能」と書けるか, 3. 決めること1〜6, 4. 経営会議への説明 — 補正後に私が言える文, 5. 社内規程へ書き写せるか — 書き写しの試し, 6. 本立場の限界, 判定の表 (+9 more)
 
 ### Community 330 - "288 採用判断シートでの4回目の判定(2026-10-07)— 指摘(検証担当の報告を主担当が転記)"
-Cohesion: 0.11
-Nodes (17): 288 採用判断シートでの4回目の判定(2026-10-07)— 指摘(検証担当の報告を主担当が転記), G【重大】規制業の「独立レビュー 2名」が、G-5 にも出荷の証跡の集約にも降りていない, GH_LOG(`out/gh.log`)の要約, H【中】`evidence/seeded-errors.json`(未コミット・.gitignore)の測定が、コミット済みの目隠しの測定より優先される, I【低】AI の層の検出率の失効が「日」の粒度, J【中・手引き】D-0 の frontmatter の承認者が、変化点のたびに決定者の氏名で上書きされる, K【手引き】2名の独立レビューの体制で、見つける者の記録を2名分として扱う形が無い, L【低・手引き】`org-assurance.mjs` は単体で実行しても何も出さない (+9 more)
+Cohesion: 0.22
+Nodes (8): 288 採用判断シートでの4回目の判定(2026-10-07)— 指摘(検証担当の報告を主担当が転記), GH_LOG(`out/gh.log`)の要約, Q1〜Q18 の表(5要素 = 主張 / 範囲 / 根拠 / 証拠 / 限界と責任), 前回の穴A〜F: すべて解消(実走で確認), 即時保留・不採用の8条件, 最終記入欄(I.10 の様式), 確かめられなかったこと, 総合の判定(4回目)
 
 ### Community 331 - "scope-ledger.md"
 Cohesion: 0.50
@@ -7782,17 +8465,17 @@ Nodes (7): 5.1 リスクマトリクス方式そのものへの、査読を経�
 Cohesion: 0.29
 Nodes (7): 9.1 確認できた事実: 規格・シラバスは閾値を規定しない, 9.2 確認できた事実: 実務側の扱い, 9.3 確認できた事実: 進捗指標への批判, 9.4 確認できた事実: 日本の実務からの一次的な批判（JaSST'08、全文確認）, 9.5 確認できた事実: テスト計画が実際に何に使われ、崩れると何が起きるか（JaSST'16 九州、全文確認）, 9.6 確認できた事実: IPA の定量データ収集が何を「テスト計画」として数えているか（分析データ集 2022、全文確認）, 9. 「計画したテストの消化率」を出荷判定に使うことの妥当性
 
-### Community 357 - "7. 実務側の指針と研究"
-Cohesion: 0.29
-Nodes (7): 7.1 Google(Software Engineering at Google 第21章), 7.2 OpenSSF Concise Guide for Evaluating Open Source Software, 7.3 ADR — 「検討したが採らなかった選択肢」を記録する慣行(追加調査), 7.4 InnerSource(社内資産の探索), 7.5 Not Invented Here 症候群の実証研究, 7.6 再利用の経済性(反対向きの証拠), 7. 実務側の指針と研究
+### Community 357 - "status"
+Cohesion: 0.10
+Nodes (20): H-3 明示除外の書き方と陳腐化, 6. AI の異議・不同意理由の構造化出力, 主な知見, 実務の幅(不一致点), 標準への含意・選択肢, X-12 軽 `check-citations` の照合が、題名の部分一致に頼る, 1.1 概念, 1.2 ベース自動リターゲット(#118 の前提の検証) (+12 more)
 
 ### Community 358 - "3. 29119-3:2021（テスト文書）— 一次情報で確認した構造と適合性"
 Cohesion: 0.33
 Nodes (6): 3.1 確認できた事実: 章構成と文書の階層, 3. 29119-3:2021（テスト文書）— 一次情報で確認した構造と適合性, 3.2 確認できた事実: 適合水準表（テスト計画・報告部分）, 3.3 確認できた事実: 第 4 章「適合性」の全文（本 Issue の核心）, 3.4 確認できた事実: 第 3 章の主要な用語定義, 3.5 確認できた事実: 附属書 C・D の記入例（規格自身が示すアジャイル運用）
 
 ### Community 359 - "「作るか、あるものを使うか」に既存規格は何を要求しているか"
-Cohesion: 0.33
-Nodes (5): 0.1 この環境で PDF はどこまで読めたか, 0.2 一次と二次の区別, 0. 読了状況とツール制約の明示, 2. IEEE 1517(Software Reuse Processes), 「作るか、あるものを使うか」に既存規格は何を要求しているか
+Cohesion: 0.04
+Nodes (45): 0.1 この環境で PDF はどこまで読めたか, 0.2 一次と二次の区別, 0. 読了状況とツール制約の明示, 10.1 エージェントの普及度, 10. 2026年8月13日時点の AI コーディング文脈, 10.2 「ライブラリを探さず自分で書く」傾向についての直接的証拠, 10.3 逆向きのリスク — 存在しないパッケージの推薦, 11. 問いへの回答 (+37 more)
 
 ### Community 360 - "8. 会議体用の要約"
 Cohesion: 0.40
@@ -7806,21 +8489,21 @@ Nodes (5): 10.1 規格はテスト計画を独立文書として要求してい�
 Cohesion: 0.40
 Nodes (5): 13.1 G-7 基準 1 を現状のまま維持することを支持する事実, 13.2 G-7 基準 1 の変更を支持する事実, 13.3 新しい成果物（テスト計画書）を要求しないことを支持する事実, 13.4 どちらの立場を採っても残る欠落（本メモの解釈）, 13. 会議体向けの要約
 
-### Community 363 - "11. 問いへの回答"
-Cohesion: 0.40
-Nodes (5): 11. 問いへの回答, Q1. 規格は make-or-buy を明示的な判断点として置いているか, Q2. 「探したが無かった」という否定的結果の記録を要求する規格はあるか, Q3. 「なるべく既存のものを使え」を標準の規範として書くのは妥当か, Q4. 判断を設計時点(実装前)に置く根拠はあるか
+### Community 363 - "test-check-ci-wiring.mjs"
+Cohesion: 0.05
+Nodes (52): X-10 軽 委任の実装の表の「次行」が別の行を指す, X-11 軽 compute-strategy の新しい文が、判定の材料を基底から読むことを一般化している, X-12 軽 登録簿の区分: デプロイゲートの親の節を「説明」とした, X-14 軽 git-strategy の1名の行の重複, X-15 軽 新しい文「失敗に数えなければなりません」と、アダプタの任意の検査の通過, X-1 重大 デプロイゲートの新しい規範が、本標準のタグによるリリースと、プランの制限に反する, X-2 中 テンプレートの `delegation.yml` が、既定で無効のまま、保護の無い Environment を全採用者に作らせる(IMPL-0236 の `delivered` が成り立たない), X-3 中 デプロイゲートに、裁定に無い G-8 の代替の手段が入った(QMS の成立の条件と衝突する) (+44 more)
 
-### Community 364 - "12. 未解決の穴(圧縮版)"
-Cohesion: 0.40
-Nodes (5): 12. 未解決の穴(圧縮版), 中, 低, 結論として残す(追加調査不要), 高
+### Community 364 - "impl-inventory.mjs"
+Cohesion: 0.06
+Nodes (44): X-1 要修正 基準線のラチェットが、見出しの改名で素通りする(裁定 I-4 の目的が満たされない), X-11 試験の目印の確かめは容易に満たせる。`:ng` の定義が `machine` の定義と合わない, X-13 降ろす順序の第3段を注記の語で決めるため、付随的な言及を拾う, X-6 `manual` の注記に「確かめる者と時点」が無いマークが多い。`machine` から下げたマークは機械の確かめを持つのに「機械は確かめない」と表示される, 8. 突合(crosscheck.md)への裁定への応答, R-1 検査の強さ, X-17 取り込みの手順(PR の作成時に行う), 突合への応答の後の値 (+36 more)
 
-### Community 365 - "1. ISO/IEC/IEEE 12207 と 15288"
-Cohesion: 0.40
-Nodes (5): 1.1 版の状況, 1.2 12207:2026 の目次(一次確認済み。今回の追加調査), 1.3 12207:2008 の再利用プロセス(現行版では削除済み), 1.4 取得プロセスの make-or-buy(未解決), 1. ISO/IEC/IEEE 12207 と 15288
+### Community 365 - "会議体 #316 意見書 02: 現場(採用者)の立場"
+Cohesion: 0.04
+Nodes (47): catalog.md の SRC-0633〜0639, hotfix, JIS Z 8301(EV-0096), R-1 フェーズ5・6 の頁の種別, R-2 「〜できません/できない」, R-3 平叙の「〜します」, R-4 参考の附属書 C・E・G・I の平叙の要求らしい文, R-5 様式・記入例の食い違い (+39 more)
 
-### Community 366 - "3. CMMI"
-Cohesion: 0.40
-Nodes (5): 3.1.1 原典(一次情報)— CMMI for Development, Version 1.3, pp.149-153, 3.1.2 含意, 3.1 DAR(CMMI-DEV V1.3), 3.2 CMMI V3.0(2023年4月6日リリース), 3. CMMI
+### Community 366 - "会議体 #316 意見書 05: 現行の擁護者(defender)"
+Cohesion: 0.04
+Nodes (47): 7-1 初期化を PR で入れるか, 7-2 hotfix, 7-3 JIS Z 8301(EV-0096), 7-4 catalog.md, 7-5 「逸脱」, 7-6 重なる Issue との分け方, R-1 フェーズ5・6 の頁の種別, R-2 「〜できません/できない」 (+39 more)
 
 ### Community 367 - "4. Automotive SPICE"
 Cohesion: 0.40
@@ -7842,41 +8525,41 @@ Nodes (4): 6.1 確認できた事実: ISTQB CTFL v4.0.1（一次情報、全文�
 Cohesion: 0.50
 Nodes (4): 7.1 確認できた事実: Stop29119 運動の経緯, 7. 29119 に対する批判, 7.2 確認できた事実: 批判側の論点, 7.3 確認できた事実: 擁護側・中立側の論点、および規格側の応答
 
-### Community 372 - "10. 2026年8月13日時点の AI コーディング文脈"
-Cohesion: 0.50
-Nodes (4): 10.1 エージェントの普及度, 10. 2026年8月13日時点の AI コーディング文脈, 10.2 「ライブラリを探さず自分で書く」傾向についての直接的証拠, 10.3 逆向きのリスク — 存在しないパッケージの推薦
+### Community 372 - "付録 A. 事前点検への適応を足した場合に落ちる 47 場面(出力と差分)"
+Cohesion: 0.04
+Nodes (48): matrix-sweep: 2名 growth cl0, matrix-sweep: 2名 mvp cl0, matrix-sweep: 2名 poc cl0, new: カバレッジの下限を下げる(AI維持管理者の席の責任者の記名) → 反映, replay: s11-4: 3名以上で独立レビュア = 開発者 → 拒否, replay: s11-t: 3名以上で出荷判定者 = 開発者(既存の拒否) → 拒否, replay: s4: s4-acc3 の席(任命権者の記名) → 反映, replay: s4y: 15名で価値責任者 = 技術判断者 → 拒否 (+40 more)
 
-### Community 373 - "5. 政府調達 — 「探す義務」と「否定的結果の記録」の先例"
-Cohesion: 0.50
-Nodes (4): 5.1 FAR Part 10(Market Research), 5.2 OMB M-16-21(Federal Source Code Policy、2016年8月8日), 5.3 適用範囲の違い(重要な留保), 5. 政府調達 — 「探す義務」と「否定的結果の記録」の先例
+### Community 373 - "3. 論点ごとの詳細"
+Cohesion: 0.04
+Nodes (46): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, K-1 S1 以降の技術検証の置き場と再判定の経路、S0 の探索の記録, K-2 不可逆な操作の停止条件, K-3 文脈ゼロの読者役, K-4 スタック型 PR の CI の発火条件と GitHub 標準のスタック (+38 more)
 
-### Community 374 - "6. OSS ガバナンス — 「使うときの管理」に閉じているか"
-Cohesion: 0.50
-Nodes (4): 6.1 OpenChain(ISO/IEC 5230:2020), 6.2 SBOM, 6.3 EU Cyber Resilience Act(規則 (EU) 2024/2847), 6. OSS ガバナンス — 「使うときの管理」に閉じているか
+### Community 374 - "審議の入力: Issue #294 と、引き継いだ 8 論点の元 Issue の要点"
+Cohesion: 0.04
+Nodes (46): #294(本 Issue), その後の作業で決まったこと, その後の作業で決まったこと(#294 起票より後), その後の作業で決まったこと(#294 起票より後), その後の作業で決まったこと(#294 起票より後。論点の大半を先取りしている), 元 Issue の要点(起票 2026-08-14、実証案件 Filetto の CI 実測から), 元 Issue の要点(起票 2026-08-14、実証案件 Filetto の G-2 再判定の棄却から), 元 Issue の要点(起票 2026-09-20、実証案件 がんばりクエスト の PO セッション) (+38 more)
 
-### Community 375 - "8. 日本の実態 — 建前と実運用の乖離(追加調査)"
-Cohesion: 0.50
-Nodes (4): 8.1 IPA オープンソース推進レポート, 8.2 車載: ASPICE REU.2 はアセスメントで見られない, 8.3 未収穫, 8. 日本の実態 — 建前と実運用の乖離(追加調査)
+### Community 375 - "regress/suite/new.mjs"
+Cohesion: 0.04
+Nodes (38): again, again2, blank, { check, refused, accepted, done, fixes }, cl1, drop, early, envBase (+30 more)
 
-### Community 376 - "9. 反対側 — 依存を増やすリスク"
-Cohesion: 0.50
-Nodes (4): 9.1 事件, 9.2 規模, 9.3 緊張関係を扱った先例, 9. 反対側 — 依存を増やすリスク
+### Community 376 - "regress/suite/scenarios.mjs"
+Cohesion: 0.04
+Nodes (42): ADR-0055, addRule, before, blockedChange, { check, refused, accepted, done, fixes }, CLAUDE_D, cls, DELEGATE_DEV (+34 more)
 
 ### Community 377 - "4. ISO/IEC/IEEE 12207 / 15288 / JIS X 0160 におけるテストの位置づけ"
 Cohesion: 0.67
 Nodes (3): 4.1 確認できた事実: 12207:2017 は「テストプロセス」を持たない, 4.2 確認できた事実: 日本の共通フレームは最新規格と整合しなくなっている, 4. ISO/IEC/IEEE 12207 / 15288 / JIS X 0160 におけるテストの位置づけ
 
 ### Community 378 - "G-7 出荷判定(QA・3営業日)"
-Cohesion: 0.20
-Nodes (10): G-7 出荷判定(QA・3営業日), テストの中身に対する検査を G-5 へ置く, 保証の主張の成立判定, 保証の開示, 停止の申し立ての保留, 出荷判定者の署名の意味, 出荷判定者へ数値の十分性を判定させない, 基準1・2 の記録 (+2 more)
+Cohesion: 0.18
+Nodes (11): G-7 出荷判定(QA・3営業日), テストの中身に対する検査を G-5 へ置く, 保証の主張の成立判定, 保証の開示, 停止の申し立ての保留, 出荷判定者の署名の意味, 出荷判定者へ数値の十分性を判定させない, 基準1・2 の記録 (+3 more)
 
 ### Community 379 - "修正の決定(第2巡)"
 Cohesion: 0.20
 Nodes (9): 288 採用判断シートでの1回目の判定(2026-10-03)と、修正の決定, E1 導入前の検証(採用の判断の時点の証拠), E2 機械化の穴を埋める, E3 欄が無い・空欄で通る・1回で永続する, E4 層1 の記名者(最終決裁者), E5 回答の正直さ, 修正の決定(第2巡), 問いごとの指摘(要約) (+1 more)
 
-### Community 380 - "0048-gate-criteria-source-of-truth.md"
-Cohesion: 0.17
-Nodes (11): 1. 判定基準の正本を、第4章の判定基準表とする, 2. 本文からの抽出と、乖離の検査を置く, 3. 表の外にある規範は降ろさない。降りていないことを明示する, 4. 前提条件の表と、判定基準の表を区別する, コンテキスト, ステータス, 帰結, 検討した選択肢 (+3 more)
+### Community 380 - "criteria"
+Cohesion: 0.09
+Nodes (25): F-14 降ろし先, F-2 置き方, F-14 降ろし先, G-1・G-2 G-4 基準6(受入基準 → タスク), criteria(), 実装形態, 決定1: 判定基準の正本を `gate-criteria.md` の判定基準表とする, 決定2: KB へ判定基準の中身を載せる (+17 more)
 
 ### Community 381 - "0058-size-over-is-confirmed-not-blocked.md"
 Cohesion: 0.11
@@ -7922,9 +8605,9 @@ Nodes (7): 1.1 案, 1.2 理由, 1.3 採らない案, 1. Q10・Q11 投資の目�
 Cohesion: 0.06
 Nodes (35): 0. 要約(10 行), 1.1 2 名を課す箇所(逐語), 1.2 それぞれが入った経緯, 1.3 目的に触れる記録(4 か所の外), 1.4 実装(実行して確かめた範囲), 1.5 2 人の独立について、標準が確保しているものと、していないもの, 1.6 「単独判定」との関係, 1.7 食い違い(どちらが新しい記録か) (+27 more)
 
-### Community 392 - "総論 — 9件を3つの型に分ける"
-Cohesion: 0.20
-Nodes (10): #238: 判定基準の実物が案件へ降りていない, 反対されうる点, 変更の総量, 実装形態, 根拠水準, 決定1: 判定基準の正本を `gate-criteria.md` の判定基準表とする, 決定2: KB へ判定基準の中身を載せる, 決定3: テンプレ4 の「確認した項目」を KB から生成する (+2 more)
+### Community 392 - "会議体 意見書 03: 品質保証・監査の立場(#316)"
+Cohesion: 0.04
+Nodes (45): R-1 フェーズ5・6 の頁の種別, R-2 「〜できません/できない」, R-3 平叙の「〜します」, R-4 参考の附属書 C・E・G・I の平叙の要求らしい文, R-5 様式・記入例の食い違い, R-6 禁止事項の番号の重なり, R-7-1 初期化を PR で入れるか, R-7-2 hotfix (+37 more)
 
 ### Community 393 - "#240: 着手決裁が降りるまでの活動量に上限が無い"
 Cohesion: 0.20
@@ -7934,17 +8617,17 @@ Nodes (10): #240: 着手決裁が降りるまでの活動量に上限が無い, 
 Cohesion: 0.22
 Nodes (9): #246: 「利用者が使い方に気づけるか」を問う工程が無い, 一般化できるか, 代案, 反対されうる点, 採る場合、何欄増えるか, 案1 を採らない理由, 案2 を後置とする理由と条件, 案3 の後半を採る形 (+1 more)
 
-### Community 395 - "#239: 適用範囲マークの仕組みが動いているのに届いていない"
-Cohesion: 0.22
-Nodes (9): #239: 適用範囲マークの仕組みが動いているのに届いていない, 反対されうる点, 変更の総量, 実装形態, 根拠水準, 決定1: 判定の単位に「ステージごと」と「機能ごと」を加える, 決定2: `LIMIT_RE` を、語彙を限定して拡張する, 決定3: 会議体(B-1〜B-3)の適用条件を見出しへ併記する (+1 more)
+### Community 395 - "#319 会議体 意見書 03: 品質保証・監査"
+Cohesion: 0.04
+Nodes (45): 0. 自分で確かめた事実(調査に無い、または調査と食い違うもの), #319 会議体 意見書 03: 品質保証・監査, R-1 何を、どこへ、どの形で移すか, R-2 いま落ちる場面の扱い, R-3 時計, R-4 期待値を変えるときの手続, R-5 「採らない」と決めた文と、廃した言い回し, R-6 CI と実行時間・知識ベースへの依存 (+37 more)
 
 ### Community 396 - "#241: 投資対効果の様式が収益前提になっている"
 Cohesion: 0.22
 Nodes (9): #241: 投資対効果の様式が収益前提になっている, 反対されうる点, 変更の総量, 実装形態, 根拠水準, 決定1: 新しいテーラリング軸を足さない, 決定2: 観点4 に「効果の型」を置き、型ごとに測る対象を分岐させる, 決定3: 観点4 の費用側を、7.7.1 の4区分と対応させる (+1 more)
 
-### Community 397 - "#244: 決裁の場で「伝わるか」を扱う規定が無い"
-Cohesion: 0.22
-Nodes (9): #244: 決裁の場で「伝わるか」を扱う規定が無い, ADR-0045 の判別可能性の要件の適用, EV-0019 をどう扱うか, 反対されうる点, 変更の総量, 根拠水準, 決定1: G.6「提示の形式」を新設する, 決定2: 4回目の指摘は附属書G の対象外とする。その旨を明記する (+1 more)
+### Community 397 - "総論 — 9件を3つの型に分ける"
+Cohesion: 0.07
+Nodes (26): #238: 判定基準の実物が案件へ降りていない, #239: 適用範囲マークの仕組みが動いているのに届いていない, #244: 決裁の場で「伝わるか」を扱う規定が無い, ADR-0045 の判別可能性の要件の適用, EV-0019 をどう扱うか, 会議体2 標準策定者 意見書, 反対されうる点, 反対されうる点 (+18 more)
 
 ### Community 398 - "#245: 中核の価値仮説に根拠を付ける工程が、着手決裁の前に無い"
 Cohesion: 0.22
@@ -7954,9 +8637,9 @@ Nodes (9): #245: 中核の価値仮説に根拠を付ける工程が、着手決
 Cohesion: 0.22
 Nodes (9): #247: 変更規模の数値を合否条件にすると、較正手続に必要な実測が採れない, 反対されうる点, 変更の総量, 実装形態, 根拠水準, 決定1: 上限を「差し戻しの既定値」と定め、遮断としない, 決定2: 較正手続の手順2〜4 を書き換える, 決定3: 散文の成果物を行数の算定から除外する (+1 more)
 
-### Community 400 - "#238 判定基準の実物が案件へ降りていない"
-Cohesion: 0.22
-Nodes (9): #238 判定基準の実物が案件へ降りていない, #247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない, ただし、変更の範囲をここまでに限るべき, ただし、変更の範囲をここまでに限るべき, なぜ成立しないか, なぜ成立しないか, 弁護を試みた形, 弁護を試みた形 (+1 more)
+### Community 400 - "#319 外部調査: 決定を固定する回帰試験を、どこに置き、どう保つか"
+Cohesion: 0.04
+Nodes (45): 0. 要点, #319 外部調査: 決定を固定する回帰試験を、どこに置き、どう保つか, A1. ISO/IEC/IEEE 29119-3:2021(試験文書), A2. ISO/IEC/IEEE 29119-2:2021・29119-1(試験プロセス・用語), A3. ISO/IEC/IEEE 12207・15288(構成管理プロセス・検証プロセス), A4. IEEE 828-2012(構成管理), A5. 構成品目に試験資産を含める(CMMI・NASA・IEC 61508-3), A6. ISO 9001:2015 7.5.3(文書化した情報の管理) (+37 more)
 
 ### Community 401 - "#238: 判定基準の実物が案件へ降りていない"
 Cohesion: 0.25
@@ -7991,36 +8674,36 @@ Cohesion: 0.29
 Nodes (7): #247: 変更規模の数値を合否条件にすると、較正手続に必要な実測が採れない, 一般化できるか, 代案, 反対されうる点, 採る場合、何欄増えるか, 標準の落ち度か、案件の運用の誤りか, 逆流の実在
 
 ### Community 409 - "第1部: 弁護できるもの"
-Cohesion: 0.29
-Nodes (6): #240 着手決裁が降りるまでの活動量に上限が無い, 会議体 第2ラウンド 03: 現状維持の弁護, 変更を採ると何を失うか, 弁護の骨子, 提案側が答えていない問い, 第1部: 弁護できるもの
+Cohesion: 0.07
+Nodes (30): #235 軸B が統制の水準に効かない, #240 着手決裁が降りるまでの活動量に上限が無い, #241 投資対効果の様式が収益前提になっている, #244 決裁の場で「伝わるか」を扱う規定が無い, #245 中核の価値仮説に根拠を付ける工程が、着手決裁の前に無い, #246 「利用者が使い方に気づけるか」を問う工程が無い, 変更を採ると何を失うか, 変更を採ると何を失うか (+22 more)
 
 ### Community 410 - "第3部: 会議体への警告"
-Cohesion: 0.29
-Nodes (7): 付記: 私自身の弁護の限界, 第3部: 会議体への警告, 警告1: 9件はすべて「標準に無い」の形で書かれているが、事実として無いのは3件だけである, 警告2: 「足す」以外の選択肢が、議題から具体的に抜けている, 警告3: 同一案件から出た9件を、9つの独立した根拠として台帳に並べないでください, 警告4: #244 の表題が、提出していないデータを提出したと述べている, 警告5: 私が第2部で認めた3件は、すべて「検査が無い」ことの報告である
+Cohesion: 0.11
+Nodes (17): #239 適用範囲マークの仕組みが動いているのに届いていない, #247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない, ただし、変更の範囲をここまでに限るべき, ただし、変更の範囲をここまでに限るべき, なぜ成立しないか, なぜ成立しないか, 付記: 私自身の弁護の限界, 会議体 第2ラウンド 03: 現状維持の弁護 (+9 more)
 
-### Community 411 - "会議体2 標準策定者 意見書"
-Cohesion: 0.40
-Nodes (4): 会議体2 標準策定者 意見書, 採否の一覧, 根拠水準のマークの一覧, 私の意見書の最も弱いところ
+### Community 411 - "#296 外部調査 2: 固定定数の外部規格・業界実務"
+Cohesion: 0.05
+Nodes (40): 1. カバレッジゲート(全体閾値 / 差分カバレッジ / ラチェット), #296 外部調査 2: 固定定数の外部規格・業界実務, 2. push 時の承認の失効(stale approval), 3. AI コーディングエージェントの自己修復・再試行ループの停止条件, 4. 手戻り・チャーン指標, 5. 監査のサンプリング, 6. チーム規模の境界(例: 10 人), 7. PR サイズの分布・レビュー品質との関係・測り方 (+32 more)
 
-### Community 412 - "#235 軸B が統制の水準に効かない"
-Cohesion: 0.40
-Nodes (5): #235 軸B が統制の水準に効かない, 変更を採ると何を失うか, 弁護の骨子, 弁護側の対案, 提案側が答えていない問い
+### Community 412 - "会議体 #316 意見書 04: 規格(standards)の立場"
+Cohesion: 0.04
+Nodes (44): 0. 前提の整理(全議題に掛かる), R-1 フェーズ5・6 の頁の種別, R-2 「〜できません/できない」, R-3 平叙の「〜します」, R-4 参考の附属書 C・E・G・I の平叙の要求らしい文, R-5 様式・記入例の食い違い, R-6 禁止事項の番号の重なり, R-7 その他の食い違いと語 (+36 more)
 
-### Community 413 - "#241 投資対効果の様式が収益前提になっている"
-Cohesion: 0.40
-Nodes (5): #241 投資対効果の様式が収益前提になっている, 変更を採ると何を失うか, 弁護の骨子, 弁護側の対案, 提案側が答えていない問い
+### Community 413 - "2. Policy as Code と Compliance as Code"
+Cohesion: 0.05
+Nodes (42): 1. 検証の方法と、要求から実装への追跡, 2. Policy as Code と Compliance as Code, #314 外部調査: 検査の強さ・未達の規定の順序・指示文の検査, 3. AI エージェントへの自然言語の指示の検査, 4. 未達の統制の優先づけと開示, 5. 見つからなかったこと, 6. 示唆の要約, (a) 検査の強さの棚卸しと分類 (+34 more)
 
-### Community 414 - "#244 決裁の場で「伝わるか」を扱う規定が無い"
-Cohesion: 0.40
-Nodes (5): #244 決裁の場で「伝わるか」を扱う規定が無い, 変更を採ると何を失うか, 弁護の骨子, 弁護側の対案, 提案側が答えていない問い
+### Community 414 - "3. 論点ごとの詳細"
+Cohesion: 0.05
+Nodes (41): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, K-1 S1 以降に生じる「設計方針を変えうる技術検証」と、S0 の探索の記録, K-2 不可逆な操作の停止に「後段に人だけが通せる門」を足すか, K-3 査読に「文脈ゼロの読者役」の層を置くか, K-4 スタック型 PR の CI の発火条件と、GitHub 標準のスタック機能 (+33 more)
 
-### Community 415 - "#245 中核の価値仮説に根拠を付ける工程が、着手決裁の前に無い"
-Cohesion: 0.40
-Nodes (5): #245 中核の価値仮説に根拠を付ける工程が、着手決裁の前に無い, 変更を採ると何を失うか, 弁護できない部分を切り出します, 弁護の骨子, 提案側が答えていない問い
+### Community 415 - "#316 実装の記録(議長の裁定 R-1〜R-7・1.5 の反映)"
+Cohesion: 0.05
+Nodes (40): 1. 採番, 2. 裁定ごとの変更, #316 実装の記録(議長の裁定 R-1〜R-7・1.5 の反映), 3. 2つの読み手の一致率, 4. 割れた文と決めた扱い, 5. 裁定からの逸れと理由, 6. 7 節の自己点検, 7. 承認を要する強制層の変更(state:needs-platform) (+32 more)
 
-### Community 416 - "#246 「利用者が使い方に気づけるか」を問う工程が無い"
-Cohesion: 0.40
-Nodes (5): #246 「利用者が使い方に気づけるか」を問う工程が無い, 変更を採ると何を失うか, 弁護の骨子, 弁護側の対案, 提案側が答えていない問い
+### Community 416 - "3. 論点ごとの詳細"
+Cohesion: 0.05
+Nodes (40): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, K-1 S1 以降の技術検証、再判定の経路、S0 の探索の記録, K-2 不可逆な操作の停止と、後段の人の門, K-3 査読に文脈ゼロの読者役を置くか, K-4 スタック型 PR (+32 more)
 
 ### Community 417 - "0050-enforcement-layer-is-not-staged.md"
 Cohesion: 0.17
@@ -8047,8 +8730,8 @@ Cohesion: 0.33
 Nodes (5): #288 調査01 — 品質保証とは何か: 日本の品質管理の系譜と JTC の実務, 出典一覧(取得日はすべて 2026-10-03), 未確認・限界, 根拠の強さの凡例, 結論(10行)
 
 ### Community 424 - "288 採用判断シートでの9回目の判定(2026-10-08、第8巡の修正後・金融系 5名 CL0 quality-high)— 指摘(検証担当の報告を主担当が転記)"
-Cohesion: 0.12
-Nodes (15): 288 採用判断シートでの9回目の判定(2026-10-08、第8巡の修正後・金融系 5名 CL0 quality-high)— 指摘(検証担当の報告を主担当が転記), 3回目の穴A〜F と、以後の巡の穴のうちこの設定に関わるものの維持, 7回目からの変化(穴W7〜Z7 の解消/未解消と、採用条件 (a)〜(f)), AA【中・手引き】`/pit` の同一人物の注記の文が、標準(ADR-0057 S50「拒否は採らない」)と `/process-change` の実際の挙動(受け付けた)に反する, AB【低・手引き】層1(`docs/quality-assurance-policy.md`)の改版のコミットが、記録の置き場の外の「製品の変更」として数えられる, AC【低・手引き】`env-check` の項目1「ルールセットの適用」は、全変更の要求(1 名)とだけ突合して「確認済み」と出し、コアの2名がルールセットでは強制されないことを言わない, Q1〜Q18 の表(5要素 = 主張 / 範囲 / 根拠 / 証拠 / 限界と責任), 冒頭 (+7 more)
+Cohesion: 0.13
+Nodes (14): 288 採用判断シートでの9回目の判定(2026-10-08、第8巡の修正後・金融系 5名 CL0 quality-high)— 指摘(検証担当の報告を主担当が転記), 3回目の穴A〜F と、以後の巡の穴のうちこの設定に関わるものの維持, 7回目からの変化(穴W7〜Z7 の解消/未解消と、採用条件 (a)〜(f)), AA【中・手引き】`/pit` の同一人物の注記の文が、標準(ADR-0057 S50「拒否は採らない」)と `/process-change` の実際の挙動(受け付けた)に反する, AB【低・手引き】層1(`docs/quality-assurance-policy.md`)の改版のコミットが、記録の置き場の外の「製品の変更」として数えられる, AC【低・手引き】`env-check` の項目1「ルールセットの適用」は、全変更の要求(1 名)とだけ突合して「確認済み」と出し、コアの2名がルールセットでは強制されないことを言わない, Q1〜Q18 の表(5要素 = 主張 / 範囲 / 根拠 / 証拠 / 限界と責任), 即時保留・不採用の8条件 (+6 more)
 
 ### Community 425 - "5. 層1 との関係"
 Cohesion: 0.40
@@ -8079,8 +8762,8 @@ Cohesion: 0.22
 Nodes (8): ステータス, 品質保証の側, 帰結, 採らなかった案, 根拠水準, 検討した選択肢, 組織継続の側, 補足(2026-10-08): 採用判断シートでの9回目の判定を受けた修正
 
 ### Community 432 - "open Issue 全件の突合(2026-10-08)"
-Cohesion: 0.04
-Nodes (55): #248 5.5「人間が担う判断の4種類」が、AI を主体に置く体制を構造的に禁じている, #249 軸A(チーム規模)が、人数の減少を「兼務」でしか吸収していない, #250 S1 以降に生じた「設計方針を変えうる技術検証」の置き場が無い — 技術検証が S0 探索ステージに閉じている, #251 「困ったときに立ち戻る先」の成果物が無く、ADR がその役割を代替させられている — 実装0行で ADR 18本・3,348行, #252 実装10行に対して文書 21,116行 — 標準が要求する成果物の量に上限も比率の観測も無い, #253 G-3 が ADR を判定対象にしているため、設計判断ごとに ADR が1本生まれる — 判定しているのは欄の充足であって設計の妥当性ではない, #254 S1 段階で G-5 が検証しているのは実装ではなく記録である — 実装向けの検査を「いつから」有効にするかを規定できない, #255 G-4 に、受入基準の側から対応するタスクを数え上げる検査を置く — G-2 基準1 と同じ形が1段だけ存在し、次の段で落ちている (+47 more)
+Cohesion: 0.03
+Nodes (59): #248 5.5「人間が担う判断の4種類」が、AI を主体に置く体制を構造的に禁じている, #249 軸A(チーム規模)が、人数の減少を「兼務」でしか吸収していない, #250 S1 以降に生じた「設計方針を変えうる技術検証」の置き場が無い — 技術検証が S0 探索ステージに閉じている, #251 「困ったときに立ち戻る先」の成果物が無く、ADR がその役割を代替させられている — 実装0行で ADR 18本・3,348行, #252 実装10行に対して文書 21,116行 — 標準が要求する成果物の量に上限も比率の観測も無い, #253 G-3 が ADR を判定対象にしているため、設計判断ごとに ADR が1本生まれる — 判定しているのは欄の充足であって設計の妥当性ではない, #254 S1 段階で G-5 が検証しているのは実装ではなく記録である — 実装向けの検査を「いつから」有効にするかを規定できない, #255 G-4 に、受入基準の側から対応するタスクを数え上げる検査を置く — G-2 基準1 と同じ形が1段だけ存在し、次の段で落ちている (+51 more)
 
 ### Community 433 - "C. 調査で新たに見つかった標準側の論点"
 Cohesion: 0.04
@@ -8142,9 +8825,9 @@ Nodes (15): 1. 立場と、守ろうとする失敗, #295 会議体 03: 標準�
 Cohesion: 0.14
 Nodes (13): (1) 立場と、守ろうとする失敗, (2) 具体案, (3) 他の立場への反論, (4) 自案が失敗する条件(自分で落とす), (5) 根拠水準と、実証が無い部分, 会議体 #295 意見書02: AI 先進の現場(リスクと結果指標で統制する側), 論点1 上限の既定の扱い: 「遮断」から「審査深度の引き上げ」へ。遮断は未保証行だけに残す, 論点2 算定方式 (+5 more)
 
-### Community 448 - "ref_node_fs"
-Cohesion: 0.04
-Nodes (45): ADR-0040, ADR-0058, DEST, FILES, hashes(), ROOT, sha256(), DIR (+37 more)
+### Community 448 - "check-gate-criteria.mjs"
+Cohesion: 0.03
+Nodes (83): ADR-0040, ADR-0052, ADR-0058, J-3 検査の対象・入力が無いとき, X-13 軽 `build-template-kb.mjs` は template/ が無いとき失敗しない(反映の記録の確認が偽), 7.1 6 章の記録の訂正, 7.2 検査と試験(突合の後), 7. 突合の後の修正(`crosscheck.md` X-1〜X-15、`decision.md` 8 章の裁定に従う) (+75 more)
 
 ### Community 449 - "#295 棚卸しの要約(2026-10-11。担当の報告を主担当が要約)"
 Cohesion: 0.20
@@ -8411,16 +9094,16 @@ Cohesion: 0.07
 Nodes (26): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8) (+18 more)
 
 ### Community 519 - "Issue #306 調査 — 既存のリポジトリへ後から入れる場合の扱い"
-Cohesion: 0.08
-Nodes (25): 0. 要約(論点ごと), 1.1 適合の主張に関する規定, 1.2 移行計画(`phase5-implementation/overview.md`・`enablement.md`), 1.3 準拠テンプレートに関する規定, 1.4 機械の挙動(実行して確かめたこと), 1.5 #300 で出た文案と、その中の未決の判断, 1. 標準の現状(突合), 2.1 適合を 2 値で扱い、範囲の宣言で調整する型 (+17 more)
+Cohesion: 0.07
+Nodes (26): 0. 要約(論点ごと), 1.1 適合の主張に関する規定, 1.2 移行計画(`phase5-implementation/overview.md`・`enablement.md`), 1.3 準拠テンプレートに関する規定, 1.4 機械の挙動(実行して確かめたこと), 1.5 #300 で出た文案と、その中の未決の判断, 1. 標準の現状(突合), 2.1 適合を 2 値で扱い、範囲の宣言で調整する型 (+18 more)
 
 ### Community 520 - "1. 標準の現状(突合)"
 Cohesion: 0.08
 Nodes (25): 0. 要約, 1.1 独立の定義: 「席の責任者」を主語にする記述, 1.2 G-6 の 4 条件: 「承認した者」を主語にする記述, 1.3 新旧と上書きの関係, 1.4 主語の違いが判定を分ける場面, 1.5 外部の確認者の位置づけ: 標準とテンプレートの記述, 1.6 任命基準の所在と内容, 1.7 実行して確かめたこと(1 名・MVP・CL0。テンプレート 47f7920) (+17 more)
 
 ### Community 521 - "2. 世の中がどうなっているか"
-Cohesion: 0.08
-Nodes (24): 0. 要約(10 行), 1.1 関係する記述(逐語), 1.2 ADR-0028 の決定(逐語), 1.3 規則・エンジン・試験(実行して確かめた), 1.4 回答だけで未達の表示が消える経路(実行して再現した), 1.5 省略の体制での開示(コードの読み。実行していない), 1.6 S0 を囲む規定, 1.7 fixture と回帰スイートが固定していること (+16 more)
+Cohesion: 0.12
+Nodes (15): 0. 要約(10 行), 2.1 用途の分類で外し、用途が変われば格上げする型, 2.2 統制の開始点を定める型, 2.3 捨てる・公開しないを条件にする型, 2.4 成熟度・規模の段階で課さない型, 2.5 例外を置かず一律に課す型, 2.6 独立性の水準を下げる扱いと、理由の記録, 2.7 テーラリングの正当化の記録 (+7 more)
 
 ### Community 522 - "調査: 規則と検査の食い違い(Issue #308)"
 Cohesion: 0.06
@@ -8431,16 +9114,16 @@ Cohesion: 0.09
 Nodes (22): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, B-1 導入の途中という状態を設けるか。適合の主張の条件, B-2 位置が決まっているものの一覧を置くか, B-3 準拠テンプレートを既存のリポジトリへ持ち込む手順 (+14 more)
 
 ### Community 524 - "check-provisions.mjs"
-Cohesion: 0.10
-Nodes (16): anywhere, END, excluded(), EXT, informativeAnnexes, KIND_LABEL, ADR-0063, overviewDoc (+8 more)
+Cohesion: 0.04
+Nodes (61): ADR-0036, ADR-0078, anywhere, chapterPages, citeFiles, END, EXT, guideFiles (+53 more)
 
 ### Community 525 - "1. 論点ごとの記録"
 Cohesion: 0.10
 Nodes (20): 0.1 番号, 0.2 語の決まり(今回足したもの), 0.3 機械の決まり(今回足したもの), 0. 後の作業へ引き継ぐこと, 1. 論点ごとの記録, 2. 番号の割り当て(この担当が使ったもの), 3. 回帰スイートの比較, 4. 検査と試験の結果 (+12 more)
 
-### Community 526 - "check-skill-provisions.mjs"
-Cohesion: 0.13
-Nodes (19): ADR-0064, annexDoc, chapterPage, DOCS, END, errors, files, headingCache (+11 more)
+### Community 526 - "ref_node_fs"
+Cohesion: 0.03
+Nodes (69): normalized, relative, repoRoot, res, APPOINTER, BASE, BASIS, HERE (+61 more)
 
 ### Community 527 - "決定"
 Cohesion: 0.11
@@ -8451,8 +9134,8 @@ Cohesion: 0.09
 Nodes (21): #302 S0 での独立レビュー(G-6), #303 「自動承認の比率」, #304 「開発ライン」と出荷判定者の独立, #305 承認者 2 名の目的, #306 既存のリポジトリへ後から入れる場合, #307 外部の確認者, #308 規則と検査の食い違い, #309 受発注での指示の経路 (+13 more)
 
 ### Community 529 - "1. 標準の現状(突合)"
-Cohesion: 0.11
-Nodes (17): 0. 要約(10 行), 1.1 「開発ライン」の全出現箇所と意味の分類, 1.2 第3章 3.5 の図・表・「最小体制は3名」, 1.3 規則 `sep-dev-shipping` と、機械の挙動, 1.4 改訂仕様 K38、IMPL-0085、fixture が固定しているもの, 1.5 「独立」の定義と、G-7 の署名の意味, 1.6 「第三者レビュー」の定義の所在, 1.7 矛盾の整理(どちらが新しいか、上書きの記録があるか) (+9 more)
+Cohesion: 0.08
+Nodes (24): 0. 要約(10 行), 1.1 「開発ライン」の全出現箇所と意味の分類, 1.2 第3章 3.5 の図・表・「最小体制は3名」, 1.3 規則 `sep-dev-shipping` と、機械の挙動, 1.4 改訂仕様 K38、IMPL-0085、fixture が固定しているもの, 1.5 「独立」の定義と、G-7 の署名の意味, 1.6 「第三者レビュー」の定義の所在, 1.7 矛盾の整理(どちらが新しいか、上書きの記録があるか) (+16 more)
 
 ### Community 530 - "決定"
 Cohesion: 0.12
@@ -8463,16 +9146,16 @@ Cohesion: 0.12
 Nodes (15): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, 6. 論点どうしの依存, 7. この意見書が依っている未確認の事項, B-1 導入の途中という状態を設けるか。適合の主張の条件 (+7 more)
 
 ### Community 532 - "3. 論点ごとの判定"
-Cohesion: 0.13
-Nodes (14): 1. 立場と、全体の見立て, 2. 判定の一覧表, 4. 争点と反論, 5. 議題に無い論点, 6. 論点どうしの依存(見つけたもの), 7. この意見書の限界, 争点 1(C-1): 「定義を置いて行を残すべきだ。検知条件を 1 つ減らすのは後退だ」, 争点 2(C-1・C-3): 「実装が無いことは、標準の条項の問題ではない。テンプレートを直せばよい」 (+6 more)
+Cohesion: 0.07
+Nodes (27): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, 6. 論点どうしの依存(見つけたもの), 7. この意見書の限界, C-10 テンプレートのスキルにだけある手引き (+19 more)
 
 ### Community 533 - "1. 論点ごとの記録"
-Cohesion: 0.12
-Nodes (16): 1. 論点ごとの記録, 55 件の処理(番号は `tmp/302-310/s310-skills-inventory.md` による), C-10 スキルの文, C-11 直し残し, C-12 第2章 2.5, C-1・C-2 「自動承認の比率」, C-3 残る 3 つの比率, C-4 `sep-self-approval` の単位 (+8 more)
+Cohesion: 0.13
+Nodes (15): 1. 論点ごとの記録, 55 件の処理(番号は `tmp/302-310/s310-skills-inventory.md` による), C-10 スキルの文, C-11 直し残し, C-12 第2章 2.5, C-1・C-2 「自動承認の比率」, C-3 残る 3 つの比率, C-4 `sep-self-approval` の単位 (+7 more)
 
 ### Community 534 - "2. 世の中がどうなっているか(原典の逐語)"
-Cohesion: 0.04
-Nodes (48): 0. 要約(論点ごと), 2.1 労働者派遣事業と請負により行われる事業との区分に関する基準(昭和61年労働省告示第37号), 2.2 厚生労働省の具体的判断基準(「労働者派遣・請負を適正に行うためのガイド」), 2.3 疑義応答集(第1集〜第3集), 2.4 IPA「情報システム・モデル取引・契約書」第二版, 2.5 IPA・経済産業省「アジャイル開発外部委託モデル契約」(情報システム・モデル取引・契約書〈アジャイル開発版〉), 2.6 発注側の承認・差し戻しと、作業者への直接の指示の違い(原典の区別のまとめ), 2.7 民法(請負と準委任、検収、契約不適合責任、善管注意義務) (+40 more)
+Cohesion: 0.07
+Nodes (28): 2.1 労働者派遣事業と請負により行われる事業との区分に関する基準(昭和61年労働省告示第37号), 2.2 厚生労働省の具体的判断基準(「労働者派遣・請負を適正に行うためのガイド」), 2.3 疑義応答集(第1集〜第3集), 2.4 IPA「情報システム・モデル取引・契約書」第二版, 2.5 IPA・経済産業省「アジャイル開発外部委託モデル契約」(情報システム・モデル取引・契約書〈アジャイル開発版〉), 2.6 発注側の承認・差し戻しと、作業者への直接の指示の違い(原典の区別のまとめ), 2.7 民法(請負と準委任、検収、契約不適合責任、善管注意義務), 2.8 規格は、法令上の要求事項をどう扱うか (+20 more)
 
 ### Community 535 - "コンテキスト"
 Cohesion: 0.13
@@ -8510,9 +9193,9 @@ Nodes (20): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点�
 Cohesion: 0.08
 Nodes (24): 0. 要約(10 行), 1.1 進捗・予算・AI の評価の指標(第2章・第7章), 1.2 第4章: 変更単位の水準と行数算定の除外(IMPL-0049), 1.3 3.11.4 の量の規定(対象は指示資産), 1.4 フェーズ6 の指標体系と、指標を足す手続, 1.5 第3章 3.11.7・第8章・その他の関連規定, 1.6 矛盾・空白の一覧, 1. 標準の現状(突合) (+16 more)
 
-### Community 544 - "4. 争点と反論"
-Cohesion: 0.25
-Nodes (8): 4. 争点と反論, 争点1(C-1): 「定義を置かなければ実測が始まらない。だから案1 で定義を置くべきだ」, 争点2(C-1): 「測定量は規格が固定せず、組織に定めさせるのが 15939 の作法だ(案4)」, 争点3(C-4): 「ADR-0035 決定1 は『体制の規模によって変わりません』と書いている。人の単位で課さないのは原則の後退だ」, 争点4(C-6): 「辞書の検出の適合率は平均 59% だ。合否から外して警告にすべきだ(C5)」, 争点5(C-8): 「JIS Z 8301 は平叙の『…する。』を要求の筆頭に置く。国内の規格の読み手に合わせて B1 を採るべきだ」, 争点6(C-9): 「確定の行為の記録を課せば、『そのまま承認していない』ことの証跡ができる(C2)」, 争点7(C-12): 「S0 は『捨てる前提で速く学ぶ』段階だ。2.5 のとおり G-8 も省略でよい(F2)」
+### Community 544 - "#314 会議体 意見書 05: 擁護(現行の規約の側)"
+Cohesion: 0.05
+Nodes (40): 0. 前提の確認: 「`state` の値を増やさない」規則は実在する, 1. 擁護の骨子, #314 会議体 意見書 05: 擁護(現行の規約の側), R-1 検査の強さの分類(`check` の属性), R-2 `claude-md` の常駐の規則の検査, R-3 G-5 基準6(文脈ファイルの形式検査), R-4 降りていない規定の扱い(順序・降ろさない決定), R-5 スキルの文の検査(ADR-0064)の範囲 (+32 more)
 
 ### Community 545 - "SRC-0093.yaml"
 Cohesion: 0.07
@@ -8527,16 +9210,16 @@ Cohesion: 0.09
 Nodes (22): 1. 立場と全体の見立て, 2. 判定の一覧表, 3.10 D-10 IMPL-0049 の後の歯止め, 3.11 D-11 探索の記録の量, 3.12 D-12 「減らす」手続(ADR・成果物の文脈), 3.13 D-13 同種の不具合の昇格(class-lock), 3.14 D-14 値が正しいことと効いていること, 3.15 D-15 範囲の外と食い違い 13 件 (+14 more)
 
 ### Community 548 - "research-ledger.mjs"
-Cohesion: 0.08
-Nodes (56): 操作(`scripts/research-ledger.mjs`), adjudicationTasks(), args, arxivWait(), blindTasks(), bundles(), canonicalize(), cell() (+48 more)
+Cohesion: 0.09
+Nodes (55): 操作(`scripts/research-ledger.mjs`), adjudicationTasks(), args, arxivWait(), blindTasks(), bundles(), canonicalize(), cell() (+47 more)
 
 ### Community 549 - "SRC-0121.yaml"
 Cohesion: 0.07
 Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 550 - "5. 議題に無い論点"
-Cohesion: 0.10
-Nodes (20): 1. 立場と、全体の見立て, 2. 判定の一覧表, 4. 争点と反論, 5. 議題に無い論点, 争点 1(C-1): 「定義を置けば足りる。監査できる量を今すぐ 1 つ定めるべきだ」(品質保証と監査の委員が出しそうな判定), 争点 2(C-1): 「行を廃すると、人が確認を省き始めることを拾う条件が無くなる。弱くても残すべきだ」(擁護・現場の委員が出しそうな判定), 争点 3(C-4): 「ADR-0035 決定1 は普遍の原則として採用済みだ。範囲を狭めるのは後退だ」(擁護の委員が出しそうな判定), 争点 4(C-6): 「実際に動いているのはスクリプトだ。動いているものを正本にするのが実務的だ」(現場の委員が出しそうな判定) (+12 more)
+Cohesion: 0.06
+Nodes (34): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8) (+26 more)
 
 ### Community 551 - "1. 標準の現状(突合)"
 Cohesion: 0.09
@@ -8563,8 +9246,8 @@ Cohesion: 0.07
 Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 557 - "決定"
-Cohesion: 0.20
-Nodes (9): 1. 規範は類で書く, 2. 検出語の正本を、第4章 G-2 の表に置く, 3. 合否は保ち、検査の範囲を受入基準の節に絞る, 4. 除外の印に条項を置く, 5. 根拠の水準を開示する, コンテキスト, ステータス, 検討した選択肢 (+1 more)
+Cohesion: 0.18
+Nodes (10): 1. 規範は類で書く, 2. 検出語の正本を、第4章 G-2 の表に置く, 3. 合否は保ち、検査の範囲を受入基準の節に絞る, 4. 除外の印に条項を置く, 5. 根拠の水準を開示する, コンテキスト, ステータス, 影響 (+2 more)
 
 ### Community 558 - "会議体の議題(Issue #302〜#310)"
 Cohesion: 0.22
@@ -8607,8 +9290,8 @@ Cohesion: 0.07
 Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 568 - "provision-forms.md"
-Cohesion: 0.25
-Nodes (7): 何を検査するか, 廃した言い回しの登録, 機械が確かめないこと, 準拠テンプレートのスキルの文, 登録簿, 附属書の種別を変えるとき, 除外の印
+Cohesion: 0.17
+Nodes (11): 何を検査するか, 却下した案ごとに、残す形を決める, 廃した言い回しの登録, 機械が確かめないこと, 準拠テンプレートのスキルの文, 登録簿, 緩める理由への読み替えを問う, 起草の規則(機械で検査しないもの) (+3 more)
 
 ### Community 569 - "1. 決定"
 Cohesion: 0.09
@@ -8719,8 +9402,8 @@ Cohesion: 0.07
 Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 596 - "G-8 リリース決裁(事業決裁者・48時間)"
-Cohesion: 0.50
-Nodes (4): G-8 リリース決裁(事業決裁者・48時間), 出荷判定者の異議, 受容の基準との照合と上申, 残存リスクの受容を決断の記録に含める
+Cohesion: 0.40
+Nodes (5): G-8 リリース決裁(事業決裁者・48時間), 出荷判定者の異議, 受容の基準との照合と上申, 残存リスクの受容を決断の記録に含める, 配備の統制と資格情報の置き場
 
 ### Community 597 - "SRC-0144.yaml"
 Cohesion: 0.07
@@ -8731,16 +9414,16 @@ Cohesion: 0.07
 Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
 ### Community 599 - "6. 過去の調査・会議体のメモ"
-Cohesion: 0.20
-Nodes (10): 6.1 `research/phase4-standard/236b-conditional-gate-approval.md`(#236b、2026-08-13、ADR-0036 決定3 の再協議材料), 6.2 `research/phase4-standard/review-burden-01〜03`(2026-08-07、タスクの分割基準の改稿素材), 6.3 `research/phase4-standard/284-council-*`(#284・#285、体制が変わっても回るロール設計・品質保証の論証), 6.4 `research/phase4-standard/288/`(#288、組織として品質を保証すると言える形), 6.5 `research/phase4-standard/295/`(#295、固定の上限と人間の速度を前提にした定数), 6.6 `research/phase4-standard/issue-triage-2026-10-08.md`(#248〜#281 の突合), 6.7 `research/300-book-intake/survey-B-hollowing-bandwidth.md`(#300、形骸化と帯域), 6.8 `research/302-310-deliberation/`(#302〜#310) (+2 more)
+Cohesion: 0.06
+Nodes (35): 2.1 第4章 ゲートと判定基準(`gate-criteria.md`), 2.2 第7章 例外・エスカレーション(`exception-escalation.md`), 2.3 第5章 Label Mailbox「ゲート判定の成立とラベルの遷移」(`phase5-implementation/label-mailbox.md`), 2.4 第6章 テンプレ4(`deliverable-templates.md`), 2.5 第3章 実施体制(`roles-responsibilities.md`), 2.6 第8章 テーラリング(`tailoring-guide.md`), 2.7 第5章 人間とAIの役割境界(`human-ai-boundary.md`), 2.8 附属書・フェーズ5 の記録・監査証跡・強制層・ホスティングの設定 (+27 more)
 
-### Community 600 - "2. 標準本文"
-Cohesion: 0.22
-Nodes (9): 2.1 第4章 ゲートと判定基準(`gate-criteria.md`), 2.2 第7章 例外・エスカレーション(`exception-escalation.md`), 2.3 第5章 Label Mailbox「ゲート判定の成立とラベルの遷移」(`phase5-implementation/label-mailbox.md`), 2.4 第6章 テンプレ4(`deliverable-templates.md`), 2.5 第3章 実施体制(`roles-responsibilities.md`), 2.6 第8章 テーラリング(`tailoring-guide.md`), 2.7 第5章 人間とAIの役割境界(`human-ai-boundary.md`), 2.8 附属書・フェーズ5 の記録・監査証跡・強制層・ホスティングの設定 (+1 more)
+### Community 600 - "#317 会議体 意見書 01: 起案者(drafter)"
+Cohesion: 0.05
+Nodes (40): #317 会議体 意見書 01: 起案者(drafter), ADR の起案の骨子(#317 で1本), R-1 軸D の表の空いた行(G-1・G-2・G-5), R-2 指示資産と強制層の持ち主, R-3 判定の結果を受け取る者, R-4 様式 08 の、標準に無い節, R-5 決裁権限規程を前提にした文, R-6 疑義応答集 第3集の版と、偽装請負の扱いの範囲 (+32 more)
 
-### Community 601 - "4. テンプレート側の実装"
-Cohesion: 0.22
-Nodes (9): 4.1 `template/scripts/gate/check-pr.mjs`, 4.2 挙動要約の形の検査(`template/scripts/gate/config.mjs`), 4.3 `template/scripts/gate/aggregate-evidence.mjs`, 4.4 `template/scripts/gate/next.mjs` と `readGateRecords`, 4.5 スキル `/gate`, 4.6 テンプレ4(`template/templates/04-gate-record.md`), 4.7 ワークフロー, 4.8 ルールセットと README「ブランチ保護を適用する」 (+1 more)
+### Community 601 - "席と運用形態、体制の変化点"
+Cohesion: 0.08
+Nodes (25): 4.1 `template/scripts/gate/check-pr.mjs`, 4.2 挙動要約の形の検査(`template/scripts/gate/config.mjs`), 4.3 `template/scripts/gate/aggregate-evidence.mjs`, 4.4 `template/scripts/gate/next.mjs` と `readGateRecords`, 4.5 スキル `/gate`, 4.6 テンプレ4(`template/templates/04-gate-record.md`), 4.7 ワークフロー, 4.8 ルールセットと README「ブランチ保護を適用する」 (+17 more)
 
 ### Community 602 - "#321 会議体 00 — 問いの整理(brief)"
 Cohesion: 0.25
@@ -8754,13 +9437,13 @@ Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl
 Cohesion: 0.07
 Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
-### Community 605 - "ゲート判定記録の成立要件 — 本標準の内部の棚卸し(#321)"
-Cohesion: 0.29
-Nodes (6): 5. 根拠水準マーク, 8.1 許していること, 8.2 禁じていること, 8.3 決めていないこと, 8. まとめ — 今回の問いに対して、既存の決定が許していること・禁じていること・決めていないこと, ゲート判定記録の成立要件 — 本標準の内部の棚卸し(#321)
+### Community 605 - "#317 会議体 意見書 03: 品質保証・監査(QA/audit)の立場"
+Cohesion: 0.05
+Nodes (40): 0. 監査の立場から先に示す、自分で確かめた事実(調査に無いもの・調査を直すもの), #317 会議体 意見書 03: 品質保証・監査(QA/audit)の立場, R-1 軸D の表の空いた行(G-1・G-2・G-5), R-2 指示資産と強制層の持ち主, R-3 判定の結果を受け取る者, R-4 様式 08 の、標準に無い節, R-5 決裁権限規程を前提にした文, R-6 疑義応答集 第3集の版と、偽装請負の扱いの範囲 (+32 more)
 
-### Community 606 - "3. 実装マーク"
-Cohesion: 0.33
-Nodes (6): 3.1 `gate-record-template`(テンプレ4), 3.2 `gate-skill` / `gate-skill-g6`, 3.3 `pr-checks`(`check-pr.mjs`), 3.4 `next-role`(`next.mjs`), 3.5 `evidence-aggregation`(承認・判定記録・挙動要約に関わるもの), 3. 実装マーク
+### Community 606 - "#314 会議体 意見書 03: 品質保証・監査の立場"
+Cohesion: 0.05
+Nodes (39): #314 会議体 意見書 03: 品質保証・監査の立場, A-11(IMPL-0115), IMPL-0209・0206 の注記, R-1 検査の強さの分類(`check` の属性), R-2 `claude-md` の常駐の規則の検査, R-3 G-5 基準6(文脈ファイルの形式検査), R-4 降りていない規定の扱い(順序・降ろさない決定), R-5 スキルの文の検査(ADR-0064)の範囲 (+31 more)
 
 ### Community 607 - "SRC-0155.yaml"
 Cohesion: 0.07
@@ -8770,13 +9453,13 @@ Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl
 Cohesion: 0.07
 Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
-### Community 609 - "7. 過去の Issue"
-Cohesion: 0.50
-Nodes (4): 7. 過去の Issue, `gh issue list --search "手間 ボトルネック" --state all --limit 50`, `gh issue list --search "記録 承認 帳票 ゲート判定" --state all --limit 50`, 補助の検索(`"挙動要約"`・`"判定記録"`)で出た、今回の論点に近いもの
+### Community 609 - "#314 会議体 委員意見書 04: 規格(検証の方法・追跡・評価の深さ)"
+Cohesion: 0.05
+Nodes (39): #314 会議体 委員意見書 04: 規格(検証の方法・追跡・評価の深さ), R-1 検査の強さの分類(`check` の属性), R-2 `claude-md` の常駐の規則の検査, R-3 G-5 基準6(文脈ファイルの形式検査), R-4 降りていない規定の扱い(順序・降ろさない決定), R-5 スキルの文の検査(ADR-0064)の範囲, R-6 の矛盾の確認, R-6 附随 (+31 more)
 
-### Community 610 - "G-3 技術設計判断(技術判断者・48時間)"
-Cohesion: 0.50
-Nodes (4): G-3 技術設計判断(技術判断者・48時間), 事業影響を金額で定量化しない, 事業決裁者が受容を拒否した場合, 記載の検査
+### Community 610 - "#317 会議体 意見書 02: 現場(受託開発会社・発注側の情報システム部門・スタートアップ)"
+Cohesion: 0.05
+Nodes (39): 0. 現場から見た前提, #317 会議体 意見書 02: 現場(受託開発会社・発注側の情報システム部門・スタートアップ), R-1 軸D の表の空いた行(G-1・G-2・G-5), R-2 指示資産と強制層の持ち主, R-3 判定の結果を受け取る者, R-4 様式 08 の、標準に無い節, R-5 決裁権限規程を前提にした文, R-6 疑義応答集 第3集の版と、偽装請負の扱いの範囲 (+31 more)
 
 ### Community 611 - "SRC-0161.yaml"
 Cohesion: 0.07
@@ -8970,9 +9653,9 @@ Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl
 Cohesion: 0.07
 Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+21 more)
 
-### Community 659 - "deploy.yml"
-Cohesion: 0.07
-Nodes (28): runs-on, steps, concurrency, cancel-in-progress, group, environment, needs, runs-on (+20 more)
+### Community 659 - "#317 会議体 意見書 05: 現行の擁護者(defender)"
+Cohesion: 0.05
+Nodes (39): #317 会議体 意見書 05: 現行の擁護者(defender), R-1 軸D の表の空いた行(G-1・G-2・G-5), R-2 指示資産と強制層の持ち主, R-3 判定の結果を受け取る者, R-4 様式 08 の、標準に無い節, R-5 決裁権限規程を前提にした文, R-6 疑義応答集 第3集の版と、偽装請負の扱いの範囲, 他の案を落とす理由 (+31 more)
 
 ### Community 660 - "SRC-0002.yaml"
 Cohesion: 0.07
@@ -10712,7 +11395,7 @@ Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl
 
 ### Community 1094 - "SRC-0636.yaml"
 Cohesion: 0.07
-Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
 
 ### Community 1095 - "SRC-0637.yaml"
 Cohesion: 0.07
@@ -11236,27 +11919,27 @@ Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl
 
 ### Community 1225 - "steps"
 Cohesion: 0.07
-Nodes (26): GH_TOKEN, jobs, lychee, runs-on, steps, name, on, schedule (+18 more)
+Nodes (27): GH_TOKEN, jobs, lychee, permissions, runs-on, steps, name, on (+19 more)
 
-### Community 1226 - "steps"
-Cohesion: 0.08
-Nodes (23): concurrency, cancel-in-progress, group, GITHUB_TOKEN, jobs, publish, name, on (+15 more)
+### Community 1226 - "会議体 #318 意見書 04: 規格の委員"
+Cohesion: 0.05
+Nodes (39): 0.1 外部調査の吟味(一次資料の水準で), 0. 根拠の区分と、この意見書での確かめ方, R-1 独立の強さを、承認者の人数ではなく確認者の距離で上げるか, R-2 CL1 以上かつ S0 の G-7, R-3 `tool/requirements.md` シナリオ1, R-4 未達が解けた後のカバレッジの下限, R-5 既存の CL2 の構成への案内(ルールセット `safety`), R-6 重なりと分担 (+31 more)
 
 ### Community 1227 - "steps"
 Cohesion: 0.09
-Nodes (21): GH_TOKEN, jobs, review, name, on, schedule, workflow_dispatch, permissions (+13 more)
+Nodes (22): GH_TOKEN, jobs, review, name, on, schedule, workflow_dispatch, permissions (+14 more)
 
 ### Community 1228 - "with"
 Cohesion: 0.10
-Nodes (20): jobs, update-graph, name, on, push, permissions, contents, branches (+12 more)
+Nodes (21): jobs, update-graph, name, on, push, permissions, contents, branches (+13 more)
 
 ### Community 1229 - "findings"
 Cohesion: 0.10
 Nodes (20): findings, asOf, baseline, change, counter, id, independentSources, issues (+12 more)
 
 ### Community 1230 - "rules"
-Cohesion: 0.10
-Nodes (20): action, note, param, target, value, name, rules, adjustments (+12 more)
+Cohesion: 0.09
+Nodes (21): action, compensation, note, param, target, value, name, rules (+13 more)
 
 ### Community 1231 - "mech"
 Cohesion: 0.11
@@ -11267,8 +11950,8 @@ Cohesion: 0.11
 Nodes (18): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus (+10 more)
 
 ### Community 1233 - "provision-forms.yaml"
-Cohesion: 0.11
-Nodes (17): documents, annex, chapter, kind, page, retiredCellWords, retiredPhrases, by (+9 more)
+Cohesion: 0.08
+Nodes (24): documents, annex, chapter, kind, page, guides, dirs, prohibitionLists (+16 more)
 
 ### Community 1234 - "rules"
 Cohesion: 0.11
@@ -11276,7 +11959,7 @@ Nodes (17): action, note, param, target, value, name, rules, adjustments (+9 mor
 
 ### Community 1235 - "rules"
 Cohesion: 0.11
-Nodes (17): action, note, param, target, value, name, rules, adjustments (+9 more)
+Nodes (18): action, note, param, target, value, name, rules, adjustments (+10 more)
 
 ### Community 1236 - "rules"
 Cohesion: 0.11
@@ -11284,7 +11967,7 @@ Nodes (17): action, note, param, target, value, name, rules, adjustments (+9 mor
 
 ### Community 1237 - "rules"
 Cohesion: 0.11
-Nodes (17): action, note, param, target, value, name, rules, adjustments (+9 more)
+Nodes (18): action, note, param, target, value, name, rules, adjustments (+10 more)
 
 ### Community 1238 - "rules"
 Cohesion: 0.11
@@ -11566,9 +12249,9 @@ Nodes (16): arxiv, checkedAt, contentType, crossref, dateMeta, finalUrl, fullTex
 Cohesion: 0.12
 Nodes (16): checkedAt, contentType, crossref, dateMeta, finalUrl, fullText, httpStatus, note (+8 more)
 
-### Community 1308 - "steps"
-Cohesion: 0.13
-Nodes (14): runs-on, steps, jobs, check, name, on, pull_request, workflow_dispatch (+6 more)
+### Community 1308 - "ci.yml"
+Cohesion: 0.33
+Nodes (5): runs-on, timeout-minutes, jobs, check, name
 
 ### Community 1309 - "claims"
 Cohesion: 0.13
@@ -16680,7 +17363,7 @@ Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 mor
 
 ### Community 2586 - "targets"
 Cohesion: 0.20
-Nodes (9): schemaVersion, targets, check, description, id, keyPath, kind, name (+1 more)
+Nodes (9): schemaVersion, targets, checker, description, id, keyPath, kind, name (+1 more)
 
 ### Community 2587 - "activities"
 Cohesion: 0.20
@@ -16707,8 +17390,8 @@ Cohesion: 0.20
 Nodes (10): id, inputs, name, outputs, roles, summary, tasks, activities (+2 more)
 
 ### Community 2593 - "forms"
-Cohesion: 0.20
-Nodes (9): omit, standard, template, forms, fields, file, id, name (+1 more)
+Cohesion: 0.13
+Nodes (14): heading, kind, reason, standard, omit, standard, template, forms (+6 more)
 
 ### Community 2594 - "3. 論点ごとの詳細"
 Cohesion: 0.09
@@ -19027,12 +19710,12 @@ Cohesion: 0.25
 Nodes (7): constraints, description, id, name, rationale, source, schemaVersion
 
 ### Community 3173 - "Process Compass 改修 実行計画（Issue #97〜#126 / 全30件）"
-Cohesion: 0.25
-Nodes (7): 1. 作業単位の標準手順（1 Issue あたり／必ずこの順で実行）, 3. 成果物マップ（配置先の指針）, 5.6 積み残し（次に着手する候補）, 5. 進捗表（★ここを更新する）, 6. 完了の定義（全体）, Process Compass 改修 実行計画（Issue #97〜#126 / 全30件）, ★Web 検索枠（2026-08-05 判明・重要）
+Cohesion: 0.07
+Nodes (26): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, 1. 作業単位の標準手順（1 Issue あたり／必ずこの順で実行）, 3. 成果物マップ（配置先の指針）, 4. 既知の重複・要調整ポイント（着手時に必ず確認） (+18 more)
 
-### Community 3174 - "4. 既知の重複・要調整ポイント（着手時に必ず確認）"
-Cohesion: 0.25
-Nodes (8): 4. 既知の重複・要調整ポイント（着手時に必ず確認）, Wave 1 で確定した語彙（以降のWaveは必ずこれに従う）, Wave 2 で確定した語彙（以降のWaveは必ずこれに従う）, Wave 3 で確定した語彙（以降のWaveは必ずこれに従う）, Wave 4 で確定した語彙・設計原則（以降のWaveは必ずこれに従う）, Wave 5 で確定した語彙・訂正（以降のWaveは必ずこれに従う）, Wave 6 で確定した語彙・訂正（以降のWaveは必ずこれに従う）, Wave 7 #121 で確定した事項（#126 の総括で必ず反映すること）
+### Community 3174 - "suite-A/v3.mjs"
+Cohesion: 0.06
+Nodes (36): APPOINTER, BASE, BASIS, checker(), fill(), HERE, NAMES, SEATS (+28 more)
 
 ### Community 3175 - "arxiv"
 Cohesion: 0.29
@@ -20418,9 +21101,9 @@ Nodes (5): blank_issues_enabled, contact_links, about, name, url
 Cohesion: 0.09
 Nodes (21): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, D-10 行数の算定から文書を除いた後の歯止め, D-11 探索の記録(S0)の量, D-12 「減らす」手続を ADR・成果物の文脈で置くか, D-13 同種の不具合の昇格(class-lock) (+13 more)
 
-### Community 3521 - "3. PR サイズとレビュー品質の実証(数値の原典)"
-Cohesion: 0.33
-Nodes (6): 3.1 「200〜400 行」「60 分」= SmartBear / Cisco 研究(2006 年), 3.2 「100 行」= Google のエンジニアリング実践ガイド, 3.3 Google 大規模実測(ICSE-SEIP 2018), 3.4 Microsoft 系の研究, 3.5 業界ベンチマーク(2026 年版), 3. PR サイズとレビュー品質の実証(数値の原典)
+### Community 3521 - "#311 会議体 意見書 04: 規格(規定の形式・外部規格との整合・検証可能性)"
+Cohesion: 0.05
+Nodes (38): 0. 前提として確かめた事実, 1. 判断の物差し(規格の側から), 2. 外部規格との整合の要約(本標準が踏み込む点の開示), #311 会議体 意見書 04: 規格(規定の形式・外部規格との整合・検証可能性), 3. 結論の一覧, N-1 実行層へ降ろすか(IMPL-0104), N-2 第2区分の3行目(重複率・手戻り率)の措置の強さと定義, N-3 閾値の根拠の開示 (+30 more)
 
 ### Community 3522 - "c1"
 Cohesion: 0.33
@@ -24094,9 +24777,9 @@ Nodes (6): antiPatterns, harm, ideal, name, reality, why
 Cohesion: 0.33
 Nodes (5): exempt, heading, page, reason, schemaVersion
 
-### Community 4440 - "0. 本計画の前提（毎セッション必読）"
-Cohesion: 0.33
-Nodes (6): 0.1 「実装」の定義, 0.2 5つの設計柱（全Issue共通の整合基準）, 0.3 執筆規約（プロジェクト CLAUDE.md 準拠 + 本件追加）, 0.4 Git 運用（オーナー決定 2026-08-05）, 0. 本計画の前提（毎セッション必読）, push 手順の注意（graphify pre-push フック）★事故防止
+### Community 4440 - "#311 会議体 意見書 05: 擁護(現行の条項と ADR の根拠を守る立場)"
+Cohesion: 0.05
+Nodes (38): 0.1 「自動的に発火」は「機械が実行する」ではない, 0.2 非対称は 5.4.6 だけの規定ではない, 0.3 誤った引き下げの費用は、上限が決まっている, 0. 擁護の前提(全議題に共通), #311 会議体 意見書 05: 擁護(現行の条項と ADR の根拠を守る立場), N-1 実行層へ降ろすか(IMPL-0104), N-2 第2区分の3行目の措置の強さと定義, N-3 閾値の根拠の開示 (+30 more)
 
 ### Community 4441 - "quant"
 Cohesion: 0.40
@@ -25194,9 +25877,9 @@ Nodes (5): roles, id, jpNote, name, responsibility
 Cohesion: 0.40
 Nodes (5): workProducts, description, id, name, producedBy
 
-### Community 4715 - "5.5 次セッションへの引き継ぎ（2026-08-05 時点・Wave 5 完了。履歴）"
-Cohesion: 0.40
-Nodes (5): 5.5 次セッションへの引き継ぎ（2026-08-05 時点・Wave 5 完了。履歴）, Wave 5 で残した宿題（#126 の前に補完を検討）, Wave 6（#122・#123）の設計上の注意, 次セッションの最初の3手, 現在地
+### Community 4715 - "setup.mjs"
+Cohesion: 0.08
+Nodes (38): Q-5 適用の開始の境(pre-init), 他の案を落とす理由, 文の案, 機械の検査, 理由(どちらが誤りか), 理由(後半の2文), 矛盾の検査, 結論 (+30 more)
 
 ### Community 4716 - "quotes"
 Cohesion: 0.50
@@ -31607,8 +32290,8 @@ Cohesion: 0.11
 Nodes (18): D-10 行数の算定から文書を除いた後の歯止め, D-11 探索の記録の量, D-12 減らす手続(判断記録に限る), D-13 同種の不具合の昇格(class-lock), D-14 設計の有効性と運用の有効性, D-15 範囲の外と、調査が見つけた食い違い, D-1 立ち戻る先(原則), D-2 判定の対象・材料・証跡 (+10 more)
 
 ### Community 6318 - "3. 論点ごとの判定"
-Cohesion: 0.11
-Nodes (18): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 5. 議題に無い論点, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8), C-1 「自動承認の比率」の量。行を残すか (+10 more)
+Cohesion: 0.07
+Nodes (26): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの判定, 4. 争点と反論, 5. 議題に無い論点, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8) (+18 more)
 
 ### Community 6319 - "決定"
 Cohesion: 0.11
@@ -31622,13 +32305,13 @@ Nodes (15): 1. 件数を起動条件にした義務を課さない, 2. 第4章 G
 Cohesion: 0.13
 Nodes (14): 1. 判断記録の総量と参照の実績を指標にしない(D-7), 2. 文書の量を指標にせず、上限も警戒水準も置かない(D-8・D-9), 3. 行数の算定から除く文書を、置き場の散文に限る(D-10), 4. 探索の記録の量は課さない(D-11), 5. 期限つきの実験の結果を判断記録の状態へ反映し、期限超過を四半期の入力にする(D-12), 6. 件数の削除義務は課さない(D-12), コンテキスト, ステータス (+6 more)
 
-### Community 6322 - "3. 論点ごとの判定"
-Cohesion: 0.14
-Nodes (14): 3. 論点ごとの判定, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8), C-1 「自動承認の比率」の量。行を残すか, C-2 語を改めるか, C-3 しきい値・窓。計測の実装と自己申告の経路, C-4 `sep-self-approval` の対象と単位。「起案した主体」。1 名体制 (+6 more)
+### Community 6322 - "#314 会議体 意見書 02: 現場(準拠テンプレートを使う案件の技術リーダー)"
+Cohesion: 0.05
+Nodes (38): #314 会議体 意見書 02: 現場(準拠テンプレートを使う案件の技術リーダー), A-11(IMPL-0115), `check` の値の陽性対照, IMPL-0209・IMPL-0206, R-1 検査の強さの分類(`check` の属性), R-2 `claude-md` の常駐の規則の検査, R-3 G-5 基準6(文脈ファイルの形式検査), R-4 降りていない規定の扱い(順序・降ろさない決定) (+30 more)
 
-### Community 6323 - "3. 論点ごとの判定"
-Cohesion: 0.15
-Nodes (13): 3. 論点ごとの判定, C-10 テンプレートのスキルにだけある手引き, C-11 `ab45a25` の直し残し, C-12 第2章 2.5 の「省略可」とエンジンの差(G-3・G-8), C-1 「自動承認の比率」の量。行を残すか, C-2 語を改めるか, C-3 しきい値・窓。計測の実装と自己申告の経路, C-4 `sep-self-approval` の対象と単位。1 名体制 (+5 more)
+### Community 6323 - "#319 落ちる場面の分類(草案)"
+Cohesion: 0.05
+Nodes (38): 0.1 流したもの, 0.2 分類の枠, 0. 方法, 1.1 事実, 1.2 分類: I(fixture・入力が決定に反する), 1.3 移した試験の側で直すこと, 1. 事前点検で初期化が止まる件(移した版のまま、900 件), 2.1 matrix-sweep(3 場面) (+30 more)
 
 ### Community 6324 - "0. 後の担当(組A・組B)が従う決まり"
 Cohesion: 0.15
@@ -31639,16 +32322,16 @@ Cohesion: 0.17
 Nodes (11): BASE-Q1 BASE-Q2 前回基準の再確認(本テーマに関わる部分), TH06-Q1 #258 の討論の数値は原典どおりか, TH06-Q2 実効独立票 2.18 は原典どおりか、コードレビューへ転用できるか, TH06-Q3 誤り相関・系統混合・討論の害に一貫した結論はあるか, TH06-Q4 #268 の漂流(drift)は外部研究で再現するか, TH06-Q5 仕様接地・構造化フィードバック・自己批判・文脈分離の数値は原典どおりか, TH06-Q6 AI レビュー製品の指摘様式と「懸念」型出力の扱い, TH06 検証の独立性とAIレビュー (+3 more)
 
 ### Community 6326 - "コードレビューの負荷と有効性に関する実証的知見 ── 「行数」は何の代理変数か"
-Cohesion: 0.17
-Nodes (10): 3.1 直接適用を主張する確立研究は見つからなかった, 3.2 近接領域: 生理指標によるコード理解の負荷測定, 3. 認知負荷理論(Sweller)のコードレビューへの適用, 5.1 スタック管理コスト・待ち時間の総量(既存メモとの重複を避けた追加分), 5.2 コンテキスト分断コスト, 5. 「小さいPR」の副作用の実証, 6. 改稿にあたっての示唆(考察), 7. 埋められなかった観点(追加調査が必要な穴) (+2 more)
+Cohesion: 0.07
+Nodes (25): 1.1.1 この反証の射程(過剰一般化しないための線引き、団長指示への回答), 1.1 レビュー指標は事後欠陥をほとんど説明しない(2020年の追試), 1.2.1 行数より「読解時間」と「外部要因」が支配的(Laitenberger 1999のパス解析), 1.2 SmartBear/Cisco(2006年)の原典確証(全文精読、団長指示への回答), 1.3 DORA 2025年版: 組織全体でのPRサイズ増加とレビュー負荷の実測, 1. 「行数」が代理変数として持つ限界(反証研究), 2.1 変更の分散度(ファイル数・ディレクトリ数、change entropy), 2.2 レビュアーの馴染み(familiarity)・所有権(ownership) (+17 more)
 
 ### Community 6327 - "審議の入力: Issue #289 と、束ねた元 Issue の要点"
 Cohesion: 0.22
 Nodes (8): #251 「困ったときに立ち戻る先」の成果物が無く、ADR が代替させられている, #252 実装 10 行に対して文書 21,116 行 — 成果物の量に上限も比率の観測も無い, #253 G-3 が ADR を判定対象にしているため、設計判断ごとに ADR が 1 本生まれる, #272 ADR「常時参照は 10 本まで」は守れなかった — 削除主義と索引構造を成果物テンプレートへ, #275 実証案件の「生成AI自律開発の原則」10 条の照合 — 原則4・9 の未対応部分, #289(本 Issue)の受入条件, 審議の入力: Issue #289 と、束ねた元 Issue の要点, 関連して既に決まっていること(会議体が蒸し返さないために)
 
-### Community 6328 - "2. 主要手法:コンテキストの層としての整理"
-Cohesion: 0.22
-Nodes (9): 2.1 システムプロンプト・指示の設計, 2.2 Few-shot 例示(手本による誘導), 2.3 RAG(検索拡張生成)による外部知識の注入, 2.4 ステアリングファイル / ルール(プロジェクト文脈の永続化), 2.5 MCP(Model Context Protocol)によるツール・データ接続, 2.6 コンテキストの圧縮・要約・選択(ウィンドウ管理), 2.7 メモリ(短期/長期、エージェントメモリ), 2.8 サブエージェントへのコンテキスト分離 (+1 more)
+### Community 6328 - "#318 会議体 意見書 02: 現場(field)"
+Cohesion: 0.05
+Nodes (37): #318 会議体 意見書 02: 現場(field), R-1 独立の強さを、承認者の人数ではなく確認者の距離で上げるか, R-2 CL1 以上かつ S0 の G-7, R-3 `tool/requirements.md` シナリオ1, R-4 未達が解けた後のカバレッジの下限, R-5 既存の CL2 の構成への案内(ルールセット `safety`), R-6 重なりと分担, 他の案を落とす理由 (+29 more)
 
 ### Community 6329 - "0061-check-means-on-implementation-marks.md"
 Cohesion: 0.22
@@ -31662,61 +32345,2713 @@ Nodes (7): D-15 で判定する、調査が見つけた食い違い, 会議体�
 Cohesion: 0.25
 Nodes (7): (1) AI エージェント生成 PR の規模の実測と、大きくなったときの実務, (2) 「PR サイズ上限」を合否にする実務と、リスク・結果指標への移行, (3) 能力向上に合わせて制約を失効・再評価させる設計の先例, (4) 規格・IPA に固定の規模上限を合否とする規定があるか, Issue #295 外部調査メモ(PR サイズ上限を CI の合否にする規定の再評価), 出典一覧(URL・日付・読んだ範囲・信頼度), 補足: 「400 行/15 ファイル」の出自の弱さ(参考)
 
-### Community 6332 - "2. 世の中がどうなっているか"
-Cohesion: 0.29
-Nodes (7): 2.1 独立の水準を持つ規格: 相手は誰か, 2.2 役割ごとの兼務の表を持つ規格(鉄道), 2.3 評価した者と決定する者を分ける規格(適合性評価), 2.4 何も要求しない規格と、部門で独立を定める法令, 2.5 製品の仕様と実務(2026-10-12 時点), 2.6 「ライン」「第三者」の語, 2. 世の中がどうなっているか
+### Community 6332 - "#318 会議体 意見書 05: 既存決定の擁護者"
+Cohesion: 0.05
+Nodes (37): 0. 擁護者としての総論, #318 会議体 意見書 05: 既存決定の擁護者, R-1 独立の強さを、承認者の人数ではなく確認者の距離で上げるか, R-2 CL1 以上かつ S0 の G-7, R-3 `tool/requirements.md` シナリオ1, R-4 未達が解けた後のカバレッジの下限, R-5 既存の CL2 の構成への案内(ルールセット `safety`), R-6 重なりと分担 (+29 more)
 
-### Community 6333 - "1. 「行数」が代理変数として持つ限界(反証研究)"
-Cohesion: 0.33
-Nodes (6): 1.1.1 この反証の射程(過剰一般化しないための線引き、団長指示への回答), 1.1 レビュー指標は事後欠陥をほとんど説明しない(2020年の追試), 1.2.1 行数より「読解時間」と「外部要因」が支配的(Laitenberger 1999のパス解析), 1.2 SmartBear/Cisco(2006年)の原典確証(全文精読、団長指示への回答), 1.3 DORA 2025年版: 組織全体でのPRサイズ増加とレビュー負荷の実測, 1. 「行数」が代理変数として持つ限界(反証研究)
+### Community 6333 - "#311 会議体 意見書 02: 現場(AI コーディングエージェントを日常に使う 3〜9 名のチームの技術リード)"
+Cohesion: 0.05
+Nodes (36): 0. 前提として共有したい現場の事実, #311 会議体 意見書 02: 現場(AI コーディングエージェントを日常に使う 3〜9 名のチームの技術リード), N-1 実行層へ降ろすか(IMPL-0104), N-2 第2区分の 3 行目(重複率・手戻り率)の措置の強さと定義, N-3 閾値の根拠の開示, N-4 附属書H C6 と内部監査の観点, N-5 最小標本に満たない窓(#340 事象1 を含む), N-6 附随の不整合 (+28 more)
 
-### Community 6334 - "11. 調査フレームワーク観点での整理(#118 の運用標準向け素材)"
-Cohesion: 0.40
-Nodes (5): 11.1 ロールモデル(スタック運用で必要な役割), 11.2 ゲート・意思決定, 11.3 成果物(インプット/アウトプット), 11.4 階層構造(3 階層で図解する素材), 11. 調査フレームワーク観点での整理(#118 の運用標準向け素材)
+### Community 6334 - "会議体 #312 意見書 02 — 現場(3〜9名のチームのテックリード)"
+Cohesion: 0.05
+Nodes (36): 0. 現場から見た前提(先に書く), IMPL-0278, P-1 価値責任者×技術判断者の兼務の境界, P-2 3.5.1 の既定の写像, P-3 `dev-done` の受け手, P-4 人の名簿, P-5 表の記号の語彙, P-6 附随の不整合 (+28 more)
 
-### Community 6335 - "4. AI生成コードのレビューに固有の負荷(2024〜2026年)"
-Cohesion: 0.40
-Nodes (5): 4.1 生成量の増大とレビュー負荷の実測(組織レベル), 4.2 自動化バイアス(automation bias)・過信, 4.3 AIコードの欠陥傾向, 4.4 レビュー時間の変化に関する報告, 4. AI生成コードのレビューに固有の負荷(2024〜2026年)
+### Community 6335 - "会議体 #313 意見書 03 — 品質保証・監査の立場"
+Cohesion: 0.05
+Nodes (36): 0. 監査の立場から先に示す事実(自分で確かめた), Q-1 標準の版の付番と改訂時の扱い, Q-2 適用の終了, Q-3 逸脱がある場合の適合の主張, Q-4 引用規格の版の書き方, Q-5 適用の開始の境(pre-init), Q-6 附随の不整合, 他の案を落とす理由 (+28 more)
 
-### Community 6336 - "9. コンフリクト解消の自動化"
-Cohesion: 0.50
-Nodes (4): 9.1 既存の決定論的手段, 9.2 LLM によるコンフリクト解消(2025〜2026 年), 9.3 自動解消が危険なケース(意味的競合), 9. コンフリクト解消の自動化
+### Community 6336 - "会議体 #313 意見書 05 — 擁護(現行の条文の側)"
+Cohesion: 0.05
+Nodes (36): 0. 先に結論の骨格, Q-1 標準の版の付番と改訂時の扱い, Q-2 適用の終了, Q-3 逸脱がある場合の適合の主張, Q-4 引用規格の版の書き方, Q-5 適用の開始の境(pre-init), Q-6 附随の不整合, 他の案を落とす理由 (+28 more)
 
-### Community 6337 - "2. 行数以外にレビュー負荷を規定する要因"
-Cohesion: 0.50
-Nodes (4): 2.1 変更の分散度(ファイル数・ディレクトリ数、change entropy), 2.2 レビュアーの馴染み(familiarity)・所有権(ownership), 2.3 レビュー持続時間と検出率低下の再検証状況, 2. 行数以外にレビュー負荷を規定する要因
+### Community 6337 - "#319 会議体 意見書 01: 起案者(drafter)"
+Cohesion: 0.05
+Nodes (36): 0. 自分で確かめた事実(調査に無いもの), #319 会議体 意見書 01: 起案者(drafter), R-1 何を、どこへ、どの形で移すか, R-2 いま落ちる場面の扱い, R-3 時計, R-4 期待値を変えるときの手続, R-5 「採らない」と決めた文と、廃した言い回し, R-6 CI と実行時間・知識ベースへの依存 (+28 more)
 
 ### Community 6338 - "テンプレ2: 判断記録(ADR)"
 Cohesion: 0.50
 Nodes (4): テンプレ2: 判断記録(ADR), 事業影響の欄が要る理由, 判断記録の索引, 置き換えと廃止
 
-### Community 6339 - "6. レビュー SLA の実務"
-Cohesion: 0.67
-Nodes (3): 6.1 目標値の一次的根拠, 6.2 自動エスカレーション・再割り当て, 6. レビュー SLA の実務
+### Community 6339 - "1. 論点ごとの記録"
+Cohesion: 0.06
+Nodes (35): 0.1 番号, 0.2 語の決まり(今回足したもの), 0.3 機械の決まり(今回足したもの), 0. 次の担当へ引き継ぐこと, 1. 論点ごとの記録, 2. 番号の割り当て(この担当が使ったもの), 3. 変更したファイル, 4.1 `npm run check` (+27 more)
 
 ### Community 6340 - "テンプレ12: プロダクトの原則"
 Cohesion: 0.67
 Nodes (3): テンプレ12: プロダクトの原則, 様式, 置く場合の規定(適用: プロダクトの原則を置いた場合)
 
+### Community 6342 - "調査 294-1: 8 論点に対する標準の現状(内部の突合)"
+Cohesion: 0.06
+Nodes (35): 全体に掛かる前提(本文と従属文書の関係), 現状の規定, 現状の規定, 現状の規定, 現状の規定, 現状の規定, 現状の規定, 現状の規定 (+27 more)
+
+### Community 6343 - "#311 会議体 意見書 03: 品質保証・内部監査の立場"
+Cohesion: 0.06
+Nodes (35): 0. 監査の立場から見た現状の要約, #311 会議体 意見書 03: 品質保証・内部監査の立場, N-1 実行層へ降ろすか(IMPL-0104), N-2 第2区分の3行目(重複率・手戻り率)の措置の強さと定義, N-3 閾値の根拠の開示, N-4 附属書H C6 と内部監査の観点, N-5 最小標本に満たない窓(#340 事象1 を含む), N-6 附随の不整合 (+27 more)
+
+### Community 6344 - "会議体 #312 意見書 03 — 品質保証・監査の立場"
+Cohesion: 0.06
+Nodes (35): IMPL-0278 について [確認], P-1 価値責任者×技術判断者の兼務の境界, P-2 3.5.1 の既定の写像, P-3 `dev-done` の受け手, P-4 人の名簿, P-5 表の記号の語彙, P-6 附随の不整合, 他の案を落とす理由 (+27 more)
+
+### Community 6345 - "会議体 #312 意見書 04 — 規格(standards expert)"
+Cohesion: 0.06
+Nodes (35): 0. 全体の見立て, P-1 価値責任者×技術判断者の兼務の境界, P-2 3.5.1 の既定の写像, P-3 `dev-done` の受け手, P-4 人の名簿, P-5 表の記号の語彙, P-6 附随の不整合, 他の案を落とす理由 (+27 more)
+
+### Community 6346 - "1. 指摘"
+Cohesion: 0.06
+Nodes (35): 0. 結論の要約, 1. 指摘, 2. 申告された逸れ(`implementation.md` 5 節)の判定, #316 突合(crosscheck), 3.1 R-2(「できません」), 3.2 R-3(平叙の文・因果の文), 3.3 R-4(参考の附属書), 3.4 「逸脱」の改名 (+27 more)
+
+### Community 6347 - "#346 会議体 意見書 04 — 規格(standards)"
+Cohesion: 0.06
+Nodes (35): 0. 一次資料の水準での吟味(外部調査への所見), #346 会議体 意見書 04 — 規格(standards), EV-0137 の差し替え条件の修正, R-1 条項は、ジョブの権限で発行される短命のトークンをどう扱うか, R-2 何が止めるか。語の定義, R-3 本リポジトリの配布, R-4 採用者とテンプレート, R-5 記録 (+27 more)
+
+### Community 6348 - "3. 選択肢"
+Cohesion: 0.06
+Nodes (34): 0. 要約(10 行), 1.1.1 `npm run check` の中身(`package.json`), 1.1 #276 — 検査の一覧と CI, 1.1.2 ワークフローと契機, 1.1.3 検査を列挙する箇所・CI と同じと主張する箇所(逐語), 1.1.4 CI で `npm run check` を走らせる前提, 1.2.1 対象が無いときの各検査の振る舞い, 1.2 #277 — 配布物の検査と、対象が無いときの扱い (+26 more)
+
+### Community 6349 - "2. 業界の実務(AI コーディングエージェント、2025〜2026)"
+Cohesion: 0.06
+Nodes (34): 0.1 検証の区分, 0.2 4つの判断(本書が想定する論点), 0.3 既存の出典台帳との対応, 0. 読み方, 1. 規格, 2. 業界の実務(AI コーディングエージェント、2025〜2026), #311 外部調査 2: 自律レベルの自動引き下げ(規格と業界の実務), 3. 指標で統制を自動に変えることの証拠 (+26 more)
+
+### Community 6350 - "会議体 意見書 02 — 現場(採用組織のテックリード)"
+Cohesion: 0.06
+Nodes (34): Q-1 標準の版の付番と改訂時の扱い, Q-2 適用の終了, Q-3 逸脱がある場合の適合の主張, Q-4 引用規格の版の書き方, Q-5 適用の開始の境(pre-init), Q-6 附随の不整合, 会議体 意見書 02 — 現場(採用組織のテックリード), 前提として共有したい現場の事実 (+26 more)
+
+### Community 6351 - "会議体 #313 意見書 04 — 規格(standards expert)"
+Cohesion: 0.06
+Nodes (34): 0.1 「本標準を適用する者への要求」と「本標準を維持する者の手順」を分ける, 0.2 検証可能性の基準, 0. 全議題に通じる指摘(先に述べる), Q-1 標準の版の付番と改訂時の扱い, Q-2 適用の終了, Q-3 逸脱がある場合の適合の主張, Q-4 引用規格の版の書き方, Q-6 附随の不整合 (+26 more)
+
+### Community 6352 - "#314 内部調査 1: 実装マークの検査の手段と、降りていない規定"
+Cohesion: 0.06
+Nodes (34): 1.1 属性と `check` の値, 1.3 `impl-targets.yaml` の種別, 1. 実装マークの規約と ADR-0061, 2.1 全体(マーク 304 件。識別子は IMPL-0001〜0311、欠番は 0104 だけ), 2.2 降ろし先 × state/check(d=delivered, u=undelivered, -=未分類), 2.3 `check` の無いマーク(未分類 100 件), 2.4 `delivered` かつ `manual`(19 件), 2.5 `machine` のうち note に実行の裏づけを書いていないもの (+26 more)
+
+### Community 6353 - "#315 会議体 意見書 02 — 現場(既存のリポジトリへ持ち込む開発チーム)"
+Cohesion: 0.06
+Nodes (34): 0. 先に、調査に無かった現場の詰まり所(自分で確かめたもの), #315 会議体 意見書 02 — 現場(既存のリポジトリへ持ち込む開発チーム), EV-0107 を差し替える条件(現行への追加), R-1 手順の全体の置き場, R-2 初期化が既存のリポジトリで検出し、告げ、止まること, R-3 併合した履歴と適用の開始, R-4 実際の GitHub 上での検証の計画, R-5 旧い版のテンプレートで生成した構成の移行 (+26 more)
+
+### Community 6354 - "#317 会議体 意見書 04: 規格・法令(standards)"
+Cohesion: 0.06
+Nodes (34): 0. 立場からの総論, #317 会議体 意見書 04: 規格・法令(standards), R-1 軸D の表の空いた行(G-1・G-2・G-5), R-2 指示資産と強制層の持ち主, R-3 判定の結果を受け取る者, R-4 様式 08 の、標準に無い節, R-5 決裁権限規程を前提にした文, R-6 疑義応答集 第3集の版と、偽装請負の扱いの範囲 (+26 more)
+
+### Community 6355 - "regress/suite/v3.mjs"
+Cohesion: 0.06
+Nodes (31): ADR-0053, approveWiden, { check, refused, accepted, done, fixes }, d13, d5, defLines, first4, guidanceFiles() (+23 more)
+
+### Community 6356 - "#315 会議体 意見書 01 — 起案者(drafter)"
+Cohesion: 0.06
+Nodes (33): #315 会議体 意見書 01 — 起案者(drafter), R-1 手順の全体の置き場, R-2 初期化が既存のリポジトリで検出し、告げ、止まること, R-3 併合した履歴と適用の開始, R-4 実際の GitHub 上での検証の計画, R-6 テンプレートの更新の取り込みと、既存の採用者を壊す変更, 文の案, 文の案(`template-repository.md`、定めの表の後) (+25 more)
+
+### Community 6357 - "会議体 #346 意見書 05: 既存決定の擁護者(defender)"
+Cohesion: 0.06
+Nodes (33): 0. 立場の要約, EV-0137 の差し替え条件の扱い, R-1 条項は、ジョブの権限で発行される短命のトークンをどう扱うか, R-2 何が止めるか。語の定義, R-3 本リポジトリの配布, R-4 採用者とテンプレート, R-5 記録, 他の案を落とす理由 (+25 more)
+
+### Community 6358 - "1. 裁定ごとの記録"
+Cohesion: 0.06
+Nodes (32): 0.1 番号, 0.2 マージの前提(利用者へ伝えること), 0.3 利用者の了承が要るもの, 0.4 別 Issue として起票すること(裁定 6 章), 0. 次の担当へ引き継ぐこと, 1. 裁定ごとの記録, 2. 使った番号, 3.1 本リポジトリ (+24 more)
+
+### Community 6359 - "#312 外部調査 2: 兼務と職務分離(規模別の席の兼務・出荷判定と独立レビュー・人員名簿)"
+Cohesion: 0.06
+Nodes (32): 0.1 検証の区分, 0.2 3つの問い, 0.3 既存の出典台帳との対応, 0. 読み方, 1. 安全・医療の規格: 独立性は「誰が」ではなく「どの活動に・どの水準で」, 2. 情報セキュリティ・内部統制: 職務分離と小規模組織の代替統制, #312 外部調査 2: 兼務と職務分離(規模別の席の兼務・出荷判定と独立レビュー・人員名簿), 3. ソフトウェア実務: チームの大きさと役割の兼務 (+24 more)
+
+### Community 6360 - "#314 会議体 意見書 01: 起草者"
+Cohesion: 0.06
+Nodes (32): #314 会議体 意見書 01: 起草者, A-11(IMPL-0115), IMPL-0209・0206, R-2 `claude-md` の常駐の規則の検査, R-3 G-5 基準6(文脈ファイルの形式検査), R-4 降りていない規定の扱い(順序・降ろさない決定), R-5 スキルの文の検査(ADR-0064)の範囲, R-6 附随 (+24 more)
+
+### Community 6361 - "1. 指摘(重大度の順)"
+Cohesion: 0.06
+Nodes (32): 0. 結論の要約, 1. 指摘(重大度の順), 2. 裁定 7 節の観点ごとの確認, #319 突合(独立した確認), 3. `npm run check` の結果, 4. 実装の記録の「従えなかった点」1〜9 との突き合わせ, 5. 分類の草案(classification.md)との突き合わせ, 6.1 R-1.4・R-4: 実在の確認の強さを定めていない (+24 more)
+
+### Community 6362 - "#294 外部調査メモ(2): 既存規格と業界実務の8論点"
+Cohesion: 0.06
+Nodes (31): 1. 設計ベースライン後の技術スパイク・実現性検証と設計判断の再開, #294 外部調査メモ(2): 既存規格と業界実務の8論点, 2. 自動化・AI エージェントによる不可逆操作の停止条件, 3. ゼロコンテキスト読者(コールドリード)レビュー, 4. スタック PR と CI, 5. 定額サブスクリプションの利用上限と従量課金、プロンプトキャッシュの費用構造, 7. PR に付随する証跡の保存先, 8. 実装時のチェック適用の最小規模・閾値 (+23 more)
+
+### Community 6363 - "会議体 #313 意見書 01 — 起草者"
+Cohesion: 0.06
+Nodes (31): Q-1 標準の版の付番と改訂時の扱い, Q-2 適用の終了, Q-3 逸脱がある場合の適合の主張, Q-4 引用規格の版の書き方, Q-6 附随の不整合, 他の案を落とす理由, 他の案を落とす理由, 他の案を落とす理由 (+23 more)
+
+### Community 6364 - "会議体 #346 意見書 02: 現場(field)"
+Cohesion: 0.06
+Nodes (31): 0. 現場から見た問題の核, R-1 条項は、ジョブの権限で発行される短命のトークンをどう扱うか, R-2 認める場合、何が止めるか。語の定義, R-3 本リポジトリの配布, R-4 採用者とテンプレート, R-5 記録, 他の案を落とす理由, 他の案を落とす理由 (+23 more)
+
+### Community 6365 - "sections"
+Cohesion: 0.06
+Nodes (31): 判定基準1, 判定基準2, 判定基準3, 判定基準4, 判定基準5, 前提条件1, schemaVersion, sections (+23 more)
+
+### Community 6366 - "反映の記録(Issue #298 スクラムなど既存の反復手法との関係。裁定 M-1〜M-8)"
+Cohesion: 0.06
+Nodes (30): 0.1 番号, 0.2 マージの前提, 0.3 議長が行うこと, 0.4 別 Issue として起票すること(裁定 5 章 M-8), 0. 次の担当へ引き継ぐこと, 1. 裁定ごとの記録, 2. 使った番号, 3.1 本リポジトリ (+22 more)
+
+### Community 6367 - "#315 会議体 意見書 05 — 現行の擁護者(defender)"
+Cohesion: 0.07
+Nodes (28): R-1 手順の全体の置き場(標準 / テンプレートの文書), R-2 初期化が既存のリポジトリで検出し、告げ、止まること, R-3 併合した履歴と適用の開始, R-4 実際の GitHub 上での検証の計画, R-5 旧い版のテンプレートで生成した構成の移行, R-6 テンプレートの更新の取り込みと、既存の採用者を壊す変更, 会議体の議題(#315 既存のリポジトリへ準拠テンプレートを持ち込む手順の全体), R-6 テンプレートの更新の取り込みと、既存の採用者を壊す変更 (+20 more)
+
+### Community 6368 - "会議体 #346 意見書 01: 起案者(drafter)"
+Cohesion: 0.07
+Nodes (29): R-1 条項は、ジョブの権限で発行される短命のトークンをどう扱うか, R-2 何が止めるか。語の定義, R-3 本リポジトリの配布, R-4 採用者とテンプレート, R-5 記録, プランの制限, 会議体 #346 意見書 01: 起案者(drafter), 所有者が行う設定の一覧(起案。順序つき) (+21 more)
+
+### Community 6369 - "suite-A/unit.mjs"
+Cohesion: 0.07
+Nodes (24): appended, base, c, cfg, cut, dcfg, legacy, legacyEdit (+16 more)
+
+### Community 6370 - "2. 所見"
+Cohesion: 0.07
+Nodes (28): 0. 総評, 1. 5.2 の逸脱の判定, 2. 所見, 3. 突き合わせて問題が無かったもの(記録), X-10 要検討 — 欠陥注入の検出の数え方(G-9)に実装マークが無い, X-11 要検討 — G-11 の「0〜2 ポイント」に根拠水準のマークが無い, X-12 要検討 — G-8 の 2 つの項が、実行の結果の書き方で噛み合わない, X-13 要検討 — G-13 の「対外の表示」の禁止が、附属書H H.8 の表に無い (+20 more)
+
+### Community 6371 - "1. 裁定ごとの記録"
+Cohesion: 0.07
+Nodes (28): 0.1 番号, 0.3 見出しを改める・節を足すとき, 0. 次の担当へ引き継ぐこと, 1. 裁定ごとの記録, 2. 番号の割り当て(この担当が使ったもの), 3. 変更したファイル, 4.1 検査と試験の結果(突合の前), 4. 棚卸しの件数(2026-10-23、台帳の冒頭と同じ) (+20 more)
+
+### Community 6372 - "SRC-0640.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6373 - "SRC-0641.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6374 - "SRC-0644.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6375 - "SRC-0646.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6376 - "SRC-0647.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6377 - "SRC-0648.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6378 - "SRC-0649.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6379 - "SRC-0650.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6380 - "SRC-0651.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6381 - "SRC-0653.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6382 - "SRC-0656.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6383 - "SRC-0660.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6384 - "SRC-0661.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6385 - "SRC-0662.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6386 - "SRC-0663.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6387 - "SRC-0664.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6388 - "SRC-0666.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6389 - "SRC-0667.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6390 - "SRC-0668.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6391 - "SRC-0669.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6392 - "SRC-0670.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6393 - "SRC-0671.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6394 - "SRC-0672.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6395 - "SRC-0673.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6396 - "SRC-0674.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6397 - "SRC-0675.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6398 - "SRC-0676.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6399 - "SRC-0677.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6400 - "SRC-0678.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6401 - "SRC-0679.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6402 - "SRC-0680.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6403 - "SRC-0681.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6404 - "SRC-0682.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6405 - "SRC-0683.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6406 - "SRC-0684.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6407 - "SRC-0685.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6408 - "SRC-0686.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6409 - "SRC-0687.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6410 - "SRC-0688.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6411 - "SRC-0689.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6412 - "SRC-0690.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6413 - "SRC-0691.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6414 - "SRC-0692.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6415 - "SRC-0693.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6416 - "SRC-0694.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6417 - "SRC-0695.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6418 - "SRC-0696.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6419 - "SRC-0697.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6420 - "SRC-0698.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6421 - "SRC-0699.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6422 - "SRC-0700.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6423 - "SRC-0701.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6424 - "SRC-0702.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6425 - "SRC-0703.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6426 - "SRC-0704.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6427 - "SRC-0705.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6428 - "SRC-0706.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6429 - "SRC-0707.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6430 - "SRC-0708.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6431 - "SRC-0709.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6432 - "SRC-0710.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6433 - "SRC-0711.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6434 - "SRC-0712.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6435 - "SRC-0713.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6436 - "SRC-0714.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6437 - "SRC-0715.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6438 - "SRC-0716.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6439 - "SRC-0717.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6440 - "SRC-0718.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6441 - "SRC-0719.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6442 - "SRC-0720.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6443 - "SRC-0721.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6444 - "SRC-0722.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6445 - "SRC-0723.yaml"
+Cohesion: 0.07
+Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
+
+### Community 6446 - "1. 裁定ごとの記録"
+Cohesion: 0.07
+Nodes (27): 0.1 番号, 0.2 マージの前提(利用者へ伝えること), 0.3 利用者の了承が要るもの, 0.4 別 Issue として起票すること(裁定 7 章), 0. 次の担当へ引き継ぐこと, 1. 裁定ごとの記録, 2. 番号の割り当て, 3.1 本リポジトリ (+19 more)
+
+### Community 6447 - "2. 所見"
+Cohesion: 0.07
+Nodes (27): 0. 実行した検査, 1. 宣言された逸脱の判定, 2. 所見, 3. 7節の確認項目への答え, X-10 「1名の組織」は 1.2 の語ではなく、例外の適用の境界が定まらない, X-11 所有する組織の同意の要件が、第3章の側から辿れない, X-12 軸D の強制層の列挙が 3.11.3 の定義より広いのに、「3.11.3 の強制層です」と書く, X-13 外部の制約の注記の新しい3文が、未照合の抜粋に依り、ADR-0069 決定3 の文末に合わない (+19 more)
+
+### Community 6448 - "fix288-tpl2/suite/verify-n.mjs"
+Cohesion: 0.07
+Nodes (20): addExt, { check, done }, drift, { ev, report }, EVAL, g1, gapsText, HERE (+12 more)
+
+### Community 6449 - "SRC-0642.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 6450 - "SRC-0643.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 6451 - "SRC-0645.yaml"
+Cohesion: 0.07
+Nodes (27): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, excludeReason, id (+19 more)
+
+### Community 6452 - "2. 所見"
+Cohesion: 0.07
+Nodes (26): 0. 実行した確認, 1. 裁定ごとの評価(要約), 2. 所見, 3. 問2 の突合(既存の ADR・条項・語彙), 4. 問6 台帳と実装マーク, 5. 問8 `npm run check`, 6. `implementation.md` 3 節の逸脱の評価, 7. 所見の一覧 (+18 more)
+
+### Community 6453 - "内部調査 #312 — 席の兼務の境界、既定の写像、人の名簿"
+Cohesion: 0.07
+Nodes (26): 0. 起票時の所見の現況(先に結論), 1.1 第3章(`docs/roles-responsibilities.md`), 1.2 第8章(`docs/tailoring-guide.md`), 1.3 第5章 5.5(`docs/human-ai-boundary.md`), 1.4 第4章 ゲートの判定者(`docs/gate-criteria.md`), 1.5 第1章(`docs/overview.md`), 1.6 ADR, 1.7 規則データ (+18 more)
+
+### Community 6454 - "1. #321(main)とスタックの意味の食い違い"
+Cohesion: 0.07
+Nodes (26): 1. #321(main)とスタックの意味の食い違い, 2. 統合の忠実さ, #321 との統合の突合(独立の確認), 3. 振り直しの正しさ, 4. 統合の修正のコミット, 5. 件数, 6. `conflicts.md` の総括との食い違い, 7. 「人の確認を要する判断」への裁定の推奨 (+18 more)
+
+### Community 6455 - "1. 標準の現状(突合)"
+Cohesion: 0.08
+Nodes (25): 0. 要約(10 行), 1.1 運用メトリクスの原則・追加手続・上限(`src/content/docs/phase6-operation/metrics.md`), 1.2 統制の分類「ルール化の進み」(`metrics.md:209-216`), 1.3 データ源の実装(準拠テンプレート `template/`、commit 81a8a2d 2026-10-23), 1.4 「ルール化」を足す向きに書く規定と、減らす向きに書く規定, 1.5 「装置」の語と、機械判定の素材, 1.6 先例となる ADR, 1.7 「1 PR ≈ 1 follow-up」に関わる既存の観測 (+17 more)
+
+### Community 6456 - "裁定(Issue #291 254 系: G-4 の数え上げ、仕様の前提、AI の指摘、往復)"
+Cohesion: 0.08
+Nodes (25): 0. 裁定の一覧, 1. #255(G-1〜G-3), 2. #256(G-4〜G-7), 3. #257(G-8〜G-11), 4. #258(G-12・G-13), 5. 降ろし先と範囲の外(G-14・G-15), 6. 暫定マーク(EV-0129 から), 7. 委員の少数意見(記録) (+17 more)
+
+### Community 6457 - "#311 内部調査 1: AI 自律レベルの検知と引き下げ(本リポジトリと準拠テンプレートの現状)"
+Cohesion: 0.08
+Nodes (25): 0. 起票時からの変化(先に確認すべき事実), 1.1 構成(見出しの行), 1.2 定義(5.4.1・5.4.2), 1.3 上限と運用形態との関係(5.4.4), 1.4 誰がレベルを決めるか(5.4.5), 1.5 5.4.6 引き下げ(全文の要点), 1.6 5.4.7・5.4.8, 1. 第5章 5.4 の現行本文 (+17 more)
+
+### Community 6458 - "決定"
+Cohesion: 0.08
+Nodes (24): 1. 本標準の版は、発行した版に限る, 2. 適用の終了を1つの事象で定める, 3. 「逸脱」を1義にし、主張を2つの名に分ける, 4. 引用は版つきにし、本標準には引用規格が無いと書く, 5. 適用の開始の境は、構成が設定済みになった最初のコミットとする, 6. 附随の修正, 7. 列挙に無い離脱の一覧を、本文に開示する, 8. 採用済みの ADR の「逸脱」を読み替える (+16 more)
+
+### Community 6459 - "ok"
+Cohesion: 0.08
+Nodes (26): R-1 検査の強さの分類(`check` の属性), 文の案(`community/implementation-marking.md`「検査の手段」へ), 既存の ADR・条項との矛盾, 理由, 結論, 落とす案, 1. 裁定ごとの変更, R-2 常駐の規則 (+18 more)
+
+### Community 6460 - "検討した選択肢"
+Cohesion: 0.08
+Nodes (24): 2. 裁定からの逸れと理由, 3. 7 節の突合の結果, 4. 人が行うこと, ADR との矛盾, 再生成, 分類の分布と下げたマーク, 実装の記録(Issue #314 実装マークの検査の手段と降りていない規定), 誤検出 (+16 more)
+
+### Community 6461 - "4. 個別の食い違い"
+Cohesion: 0.08
+Nodes (25): 1.1 第1章 1.8 の定め, 1.2 ページの一覧(29 頁), 1.3 本文・附属書がフェーズ5・6 を規範として引く箇所, 1.4 #315 が置いた形(ADR-0085), 1. フェーズ5・6 のページの種別, 2.1 「〜できません」「〜できない」, 2.2 平叙の「〜します」, 2.3 既存の表現形式の定め (+17 more)
+
+### Community 6462 - "#317 外部調査(2): 委託開発での判断・成果物・統制の持ち主"
+Cohesion: 0.08
+Nodes (25): 0. 既存カードとの関係(重複の確認), 1.1 モデル取引・契約書〈第二版〉(IPA・経済産業省), 1.2 JISA ソフトウェア開発委託基本モデル契約書 2020, 1.3 アジャイル開発外部委託モデル契約(IPA、2020-03-31、解説 PDF は 2025-04-08 改訂), 1.4 共通フレーム 2013 に基づく調達管理ガイド(試作版), 1.5 ISO/IEC/IEEE 12207 / JIS X 0160 の取得・供給プロセス, 1.6 準委任と請負: 誰が仕事を指図するか, 1. 委託開発で、どちらがどの判断・成果物・統制を持つか (+17 more)
+
+### Community 6463 - "準拠テンプレート(`template/`)"
+Cohesion: 0.08
+Nodes (25): #289, #289 判断記録の状態, #291 G-4 基準6・G-2 基準6・G-4 基準7, #293 リポジトリ運営(CI・配布), #294 基準値を既定ブランチから読む, #294 確定した版の受け直し, #296 カバレッジの範囲・承認の失効, #296 カバレッジの範囲・承認の失効・自己修正 (+17 more)
+
+### Community 6464 - "2. 世の中がどうなっているか"
+Cohesion: 0.08
+Nodes (24): 0. 要約(10 行), 1.1 量の上限・総数の規定(逐語), 1.2 「足す」向きの規定(逐語), 1.3 「減らす」向きの規定と、その席(逐語), 1.4 外す側に掛かる手続(足す側との非対称), 1.5 準拠テンプレートと本プロジェクトの装置量(実測、2026-10-23), 1.6 矛盾・食い違いの一覧, 1. 標準の現状(突合) (+16 more)
+
+### Community 6465 - "2. 世の中がどうなっているか"
+Cohesion: 0.08
+Nodes (24): 0. 要約(10 行), 1.1 AI の指摘の「扱い」と「記録」 — 既にある規範(逐語), 1.2 作成側の「実行したこと・観測したこと」 — 既にある様式(逐語), 1.3 3.10.4 意見の様式(逐語)と適用範囲, 1.4 記述の質と形式の検査の境界(逐語), 1.5 関係する既存の決定(蒸し返さない前提), 1. 標準の現状(突合), 2.1 #257 が引く数値の原典(SRC-0002)の条件 (+16 more)
+
+### Community 6466 - "2. 測定"
+Cohesion: 0.08
+Nodes (24): 0. 要約(10 行), 1.1 実装マークの規約が定めること(逐語), 1.2 規定の表現形式(第1章 1.7)— 母集団の定義に効く条項(逐語), 1.3 既にある機械(手続が再利用できる部品), 1.4 関係する決定(蒸し返さない前提を含む), 1.5 測定の途中で見つかった事実(直すかは会議体), 1. 標準の現状(突合), 2.1 方法 (+16 more)
+
+### Community 6467 - "3. 選択肢"
+Cohesion: 0.08
+Nodes (24): 0. 要約(10 行), 1.1 5.6.2 欠陥注入による検出能力の測定, 1.2 5.8.1・5.8.2 未検証の入力と記録, 1.3 5.8.4 テスト生成における分離の段階, 1.4 附属書E E.5 検証の順序, 1.5 3.11.4 要求事項6, 1.6 3.10.4 意見の様式と、フェーズ5 の機械検査, 1. 標準の現状(突合) (+16 more)
+
+### Community 6468 - "調査1(内部): Issue #313 — 標準の版、適用の終了、逸脱と適合の主張"
+Cohesion: 0.09
+Nodes (24): 1.1 第1章 1.10 の全文(`src/content/docs/phase4-process-design/overview.md:343-392`), 1.2 第1章 1.3 の全文(`overview.md:60-80`), 1.3 1.4 の用語(`overview.md:138-140`), 1.4 附属書H H.8 の該当行(`src/content/docs/phase4-process-design/assurance-case.md:732-771`), 1.5 ADR-0029(`src/content/docs/adr/0029-shipping-approver-merge-exception.md`), 1.6 ADR-0068(`src/content/docs/adr/0068-start-of-application-and-conformance-claim.md`), 1.7 「版」「改訂」「適用の開始/終了」の用例(1.10 以外), 1. 現行の条項の全文 (+16 more)
+
+### Community 6469 - "1. 指摘"
+Cohesion: 0.08
+Nodes (24): 0. 実行した検査, 1. 指摘, 2. 実装の記録の逸脱の表(19 件)の判定, 3. 7 節の項目の突合, 4. スクリプトの確認の結果(依頼の 3 の項目ごと), 5. 議長へ上げる判断, X-10 EV-0169 の水準が試行の範囲を超え、EV-0107 の差し替え条件が裁定どおりに改まっていない, X-11 ADR-0085 決定7 の「8つを 1.10.1 に書く」が本文と合わない (+16 more)
+
+### Community 6470 - "#318 外部調査 2: 独立検証の強さを「承認者の人数」ではなく「組織上の距離」で上げるべきか"
+Cohesion: 0.08
+Nodes (24): 0. 結論の先取り, 10. 読めなかったもの・未確認, 1.1 I0〜I3 の定義と表1, 1.2 二次資料の食い違い(注意), 1.3 ISO 26262-8 との関係, 1. ISO 26262-2:2018 表1(確認措置と独立性 I0〜I3), 2.1 独立性を要する目標の数, 2.2 DO-330 との関係 (+16 more)
+
+### Community 6471 - "調査 319-1 内部: 回帰スイートの棚卸しと、いまのテンプレートでの実行"
+Cohesion: 0.08
+Nodes (24): 0.1 流した環境(4 つ), 0.2 「直した版」の中身(組A・組C の直しを重ねたもの), 0. 方法, 1.1 スクリプトの一覧(`tmp/legacy/fix288-tpl2/suite/`、23 本), 1.2 既にリポジトリの試験に同じ主張があるか, 1. 棚卸し, 3.1 scenarios の 1 件(原因を特定した), 3.2 replay の 15 件(当初は入力が無く特定できなかった。3.2 追記で特定した) (+16 more)
+
+### Community 6472 - "1. GitHub Actions の GITHUB_TOKEN"
+Cohesion: 0.08
+Nodes (24): 0. 結論の先取り(推論を含む), 1.1 発行と有効期間(事実), 1.2 権限の決まり方(事実), 1.3 起動元のブランチのファイルが使われる(事実と推論), 1.4 Environment(配備の環境)と GITHUB_TOKEN(事実), 1.5 ルールセットとブランチ保護(事実), 1.6 GITHUB_TOKEN と保護されたブランチへの push(実務・GitHub 社員の発言), 1.7 新機能: ワークフロー実行の保護(Workflow execution protections) (+16 more)
+
+### Community 6473 - "1. 標準の現状(突合)"
+Cohesion: 0.08
+Nodes (23): 0. 要約(10 行), 1.1 G-4 の判定基準と判定の範囲(逐語), 1.2 上位 → 下位の数え上げ — 既にあるもの(逐語), 1.3 タスク → 受入基準の向き — 既にあるもの(逐語), 1.4 機械で数えられるか(準拠テンプレート), 1.5 行を足すことを制約する記述(逐語), 1.6 機械の検査に掛かる既存の条件(逐語), 1.7 #289・#290 の決定との関係 (+15 more)
+
+### Community 6474 - "調査: 仕様の前提を「観測で確かめた / 想定」で区別するか、根拠水準マークを案件へ課すか — Issue #291(#256 の残り)"
+Cohesion: 0.08
+Nodes (23): 0. 要約(10 行), 1.1 案件の前提に関わる規定(逐語), 1.2 標準が置いた前提の規律(テンプレ10・7.10。逐語), 1.3 区別の標識について既にある却下と、近い型(逐語), 1.4 語「前提」の衝突, 1.5 論点B: 根拠水準マークの適用範囲(逐語), 1.6 関係する既存の決定(蒸し返さない前提), 1. 標準の現状(突合) (+15 more)
+
+### Community 6475 - "裁定(Issue #293 リポジトリ運営 — CI・配布)"
+Cohesion: 0.08
+Nodes (23): 0. 裁定の一覧, 1. 検査の一覧と CI の結線(J-1・J-2), 2. 対象・入力が無いとき(J-3), 3. 配布物の検査と CI の段(J-4・J-5), 4. 配布ブランチと手動起動(J-6), 5. 事実の誤り・リンク・範囲の外(J-7〜J-9), 6. 落とした案の一覧(各論点の本文に無いもの), 7. 突合で確かめること(実装の後) (+15 more)
+
+### Community 6476 - "#298 外部調査: 既存の反復手法・規格は「他手法との関係」をどう書いているか"
+Cohesion: 0.08
+Nodes (23): 1. スクラムガイド 2020, #298 外部調査: 既存の反復手法・規格は「他手法との関係」をどう書いているか, 2.1 SAFe, 2.2 Shape Up(Basecamp / 37signals、Ryan Singer), 2.3 カンバン(2 系統), 2.4 XP, 2.5 Disciplined Agile(PMI), 2. 他の手法・フレームワーク (+15 more)
+
+### Community 6477 - "1. 所見"
+Cohesion: 0.08
+Nodes (23): 0. 実行した検査, 1. 所見, 2. 裁定ごとの判定, 3. 既存の ADR・条項との突合, 4. implementation.md の逸脱の判定, 5. テンプレートの実装の確認, 6. 一覧, X-10 表5 の旧い名称と、テンプレートの対応表が残っている(軽) (+15 more)
+
+### Community 6478 - "1. 所見"
+Cohesion: 0.08
+Nodes (23): 0. 実行して確かめたこと, 1. 所見, 2. 裁定ごとの判定, 3. 実装の離れ(implementation.md §3)の判定, 4. 「逸脱」の棚卸し(implementation.md §2)の判定, 5. 版の仕組みの判定, 6. ADR-0083 の正確さ, 7. まとめ (+15 more)
+
+### Community 6479 - "会議体 #318 意見書 01: 起案者(drafter)"
+Cohesion: 0.08
+Nodes (23): 0. 起案の前提として確かめた事実(調査に無いもの), R-1 独立の強さを、承認者の人数ではなく確認者の距離で上げるか, R-2 CL1 以上かつ S0 の G-7, R-3 `tool/requirements.md` シナリオ1, R-4 未達が解けた後のカバレッジの下限, R-5 既存の CL2 の構成への案内(ルールセット `safety`), R-6 重なりと分担, 他の案を落とす理由 (+15 more)
+
+### Community 6480 - "scen.mjs"
+Cohesion: 0.11
+Nodes (20): agg(), commit(), DIR, env, git(), HERE, MOCK, OUT (+12 more)
+
+### Community 6481 - "裁定(Issue #292 実装マークを足すべき条項の特定)"
+Cohesion: 0.09
+Nodes (22): 0. 裁定の一覧, 1. 母集団・単位・除外(I-1〜I-3), 2. 未分類・0 件・限界(I-4〜I-6), 3. 名指しの条項(I-7〜I-12), 4. 棚卸しの範囲と IMPL-0095(I-13), 5. 範囲の外(I-14), 6. 暫定マーク(EV-0135 から), 7. 委員の少数意見(記録) (+14 more)
+
+### Community 6482 - "1. 裁定ごとの記録"
+Cohesion: 0.09
+Nodes (22): 0.1 番号, 0.2 マージの前提(利用者へ伝えること), 0.3 管理者の設定(利用者が設定画面で行う。AI は行わない), 0.4 Issue に書くこと, 0. 次の担当へ引き継ぐこと, 1. 裁定ごとの記録, 2. 番号の割り当て, 3.1 登録簿で区分した節(すべて `issue: 293`) (+14 more)
+
+### Community 6483 - "指摘"
+Cohesion: 0.09
+Nodes (22): X-10 軽 `check-pr.mjs` の「既定ブランチから読む」は、既定ブランチの先端でなく分岐点を読む。構成が未設定の既定ブランチでは PR 自身の構成へ落ちる, X-11 軽 スタックの試験が、基準値と台帳の例外承認の2つしか確かめていない, X-12 軽 `github.base_ref` が直接の親を指すことを、一次文書で確かめた事実として書いている, X-13 軽 EV-0039 の差し替え条件(b)の数え方が、新しい定義で曖昧になった, X-14 軽 「確認の範囲は、確認側へ渡した入力の記録で示す」は、入力の記録が範囲の上限しか示さないことを書いていない, X-15 軽 3.12.7 の「上限には、提供者が課す利用上限を含める」が、直後の「数えてはならない」と逆に読める, X-16 軽 登録簿の区分: 3.12.7 を `org-design` にしたが、承認を急がせない禁止は実行主体の挙動を制約する, X-17 軽 適用範囲の除外が見出しの全体に掛かる (+14 more)
+
+### Community 6484 - "2. 指摘"
+Cohesion: 0.09
+Nodes (22): 0. 結論の要約, 1. 実装者が申告した逸れの判定, 2. 指摘, 3. 突合(ADR・規約・語彙), 4. 抜き取りの結果(分類したマーク), 5. 再現の記録, X-10 強制層の変更の開示が一部にとどまる(ADR-0074 決定3), X-12 常駐の規則の一覧の縮小と、後置の打ち消しは機械で止まらない (+14 more)
+
+### Community 6485 - "実装の記録(#315 既存のリポジトリへ準拠テンプレートを持ち込む)"
+Cohesion: 0.09
+Nodes (22): 1. 裁定ごとの変更, 2. 裁定からの逸脱と、解釈で決めたこと, 3. 7 節の突合の結果, 4. AI維持管理者の承認を要する、強制層の変更(テンプレート), 5. 後継の Issue の下書き(起票していない), 6. 次の空き番号, 8. 突合(crosscheck.md)と裁定(decision.md 8 節)への対応, R-1 手順の置き場と、標準に置く要求事項 (+14 more)
+
+### Community 6486 - "調査 316-2: 規格策定機関は規定の表現形式をどう扱うか(外部)"
+Cohesion: 0.09
+Nodes (22): 0. 結論の先出し, 1.1 ISO/IEC 専門業務用指針 第2部(第9版 2021), 1.2 手引きの文書と規格の関係(ISO/IEC/IEEE 24748-3:2020), 1.3 JIS Z 8301:2019(規格票の様式及び作成方法), 1. 規定と参考, 2.1 JIS Z 8301:2019 箇条7(転載の再読), 2.2 ISO 指針 第2部 箇条7 と、平叙文の扱い, 2.3 IEEE SA Standards Style Manual(2021) (+14 more)
+
+### Community 6487 - "1. 裁定ごとの変更"
+Cohesion: 0.09
+Nodes (22): 1. 裁定ごとの変更, 2. 裁定からの逸脱と、その理由, 3. 突合(decision.md 7節), 4. 承認を要する強制層の変更(state:needs-platform), 5.1 受注側が1名で責任者を兼ねる委託の構成(軸A × 軸D), 5.2 同じ PR の中でワークフローとゲートの検査スクリプトを書き換えて検査を緩められる(委託に限らない), 5.3 発注側の設備を受注側が使う場合と、中小受託取引の適正化に関する法令との関係の調査, 5.4 疑義応答集 第3集 A7(要員の名指しの承認・拒否)と #357 の関係 (+14 more)
+
+### Community 6488 - "1. 裁定ごとの変更"
+Cohesion: 0.09
+Nodes (22): 1. 裁定ごとの変更, 2. 裁定からの逸脱・裁定に書かれていない判断と、その理由, 3. 突合(decision.md 7節), 4. 承認を要する強制層の変更(state:needs-platform), 5.1 CL の判定と安全リスクアセスメントを、誰がどの段で確かめるか, 5.2 CL0 の S1 の G-7「簡略」の中身の定義, 5.3 関係する Issue への書き置き(下書き), 5. 後継の Issue の下書き(起票しない。起票は人の了承を得てから) (+14 more)
+
+### Community 6489 - "決定"
+Cohesion: 0.09
+Nodes (22): 10. AI の指摘の書式を定めない, 11. AI どうしの往復を禁止しない。H.4 の合議の行の根拠を記録する, 12. モデルの系統・提供元の異質性を求めず、禁止もしない, 13. 範囲の外の誤りの記録, 1. G-4 に基準6(受入基準 → タスクの対応)を置く, 2. 受入基準の識別子と、G-7 基準1 の記録, 3. 前提の欄で「観測で確かめた / 想定」を区別しない, 4. 未確定事項を G-2・G-4 の前提条件にし、テンプレ1 の前提を表にする (+14 more)
+
+### Community 6490 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (21): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, E-10 (a) の残る隙間, E-11 (c) を横断の要求にするか(#275 原則5), E-12 (b) 当てはまらない項目を外す規定を採るか, E-13 範囲外の誤り (+13 more)
+
+### Community 6491 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (21): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, H-10 附属書E E.5, H-11 3.11.4 要求事項6, H-12 3.10.4 と `pre-review-automation.md`, H-13 5.6〜5.8 ほかの未マークの規範、IMPL-0095 (+13 more)
+
+### Community 6492 - "3. 論点ごとの詳細"
+Cohesion: 0.09
+Nodes (21): (1) 段の中の順序 — 課さないと明記する, 1. 立場と、全体の見立て, 2. 判定の一覧表, (2) 検査定義の鮮度で手元の実行を止める — 課さないと明記する, (3) 手元の通過は公式の判定ではない — 採る(置き場は第4章), 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, J-1 CI で走る検査の一覧を 1 か所に置く (+13 more)
+
+### Community 6493 - "会議体 #312 意見書 05 — 擁護(現行の条文と ADR の根拠を守る立場)"
+Cohesion: 0.09
+Nodes (21): IMPL-0278 の注記は実装と合っていない(譲る), P-1 価値責任者 × 技術判断者の兼務の境界, P-2 3.5.1 の既定の写像, P-3 `state:dev-done` の受け手, P-4 人の名簿, P-5 表の記号の語彙, P-6 附随の不整合, 会議体 #312 意見書 05 — 擁護(現行の条文と ADR の根拠を守る立場) (+13 more)
+
+### Community 6494 - "#317 内部調査 1: 標準・テンプレート・記録の現状(2026-10-24)"
+Cohesion: 0.09
+Nodes (21): 1.1 軸D の表と「判定をどちらの組織へ置くか」, 1.2 G-1・G-2・G-5 の本文と準拠テンプレートでの扱い, 1.3 第2〜7章・附属書・ADR の委託への言及, 1. 第8章 軸D(委託)の現状, 2.1 標準, 2.2 テンプレ8 第9項と様式 08 第3節, 2.3 準拠テンプレートの構成・CODEOWNERS・レーン, 2. 指示資産と強制層の持ち主 (+13 more)
+
+### Community 6495 - "指摘"
+Cohesion: 0.09
+Nodes (21): X-10 S0 で G-7 を省略すると無条件に書いた既存の文が残る(軽), X-11 段を「記録から確かめられる」ための記録の欄が無い(軽), X-12 全升の試験が 1〜2名と確認者なしの升を含まない(軽), X-13 ADR-0012 の決定5 との関係が ADR-0088 のステータスに無い(軽), X-14 段4 の「別の法人」と 1.4 の第三者レビューの「別の組織」が食い違う(軽), X-15 同じ #357 への計画の見直しの時期が揃っていない(軽), X-16 試験の注記の引用と、シナリオ3 の主張の試験の抜け(軽), X-1 確認者なしの回答で上がった下限 90 が「導出」の基準値になり、未達が解けても終了の行が出ない(重大) (+13 more)
+
+### Community 6496 - "調査 318-1: 内部の事実(独立の強さ、S0 の残り、下限、CL2 のルールセット)"
+Cohesion: 0.09
+Nodes (21): 1.1 強さを動かす5つのつまみ, 1.2 規則データとエンジン, 1.3 #305 の「距離」の案, 1. 独立の強さを、いま何で決めているか, 2.1 ADR-0065 の決定, 2.2 標準の文, 2.3 エンジンとテンプレートの出力(実行して確認), 2. CL1 以上かつ S0 (+13 more)
+
+### Community 6497 - "1. 指摘"
+Cohesion: 0.09
+Nodes (21): 1. 指摘, 2. 裁定そのものへの指摘, 3. 確かめて問題が無かった項目, 4. 実装担当の説明(implementation.md)との突き合わせ, 5. 要約, X-10(低)Restrict file paths(push ルールセット)の提供範囲の記述が GitHub Docs と合わない, X-11(低)(a) の行の「止めないもの」に、既定ブランチの定義で走るイベントが PR の中身を実行する経路が無い, X-12(低)IMPL-0237 の `plan=adopter` の理由の置き場が、規約の文と食い違う (+13 more)
+
+### Community 6498 - "regress/suite/replay.mjs"
+Cohesion: 0.11
+Nodes (17): apply(), back5, { check, refused, accepted, done, fixes }, clampDates(), IN, input(), ADR-0066, s2b (+9 more)
+
+### Community 6499 - "調査: 「escape clause」の意味と、基準が言い訳に転用されるパターンの扱い — Issue #290(#269 の残り)・#275 原則5"
+Cohesion: 0.10
+Nodes (20): 0. 要約(10 行), 1.2 (b) 当てはまらない項目を外す規定 — 既にある形(逐語), 1.3 (c) 基準が言い訳に転用されるパターン — 起票の文言, 1.4 (c) の個別の歯止め(逐語。「〜を理由に緩めない」型), 1.5 関係する既存の決定(蒸し返さない前提), 1. 標準の現状(突合), 2.1 (a) 要求文の逃げ道の句, 2.2 (b) 当てはまらない項目の扱い (+12 more)
+
+### Community 6500 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (20): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, F-10 3.10.4 意見の様式との関係, F-11 出力形式(JSON 等), F-12 分けた AI 同士の往復, F-13 モデルの系統(ベンダー)の異質性 (+12 more)
+
+### Community 6501 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (20): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, F-10 3.10.4 意見の様式との関係, F-11 出力形式(JSON 等), F-12 分けた AI 同士の往復, F-13 モデルの系統の異質性 (+12 more)
+
+### Community 6502 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (20): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, F-10 3.10.4 意見の様式との関係, F-11 出力形式, F-12 分けた AI 同士の往復, F-13 系統の異質性 (+12 more)
+
+### Community 6503 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (20): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, H-10 附属書E E.5, H-11 3.11.4 要求事項6, H-12 3.10.4 と事前レビューの自動化, H-13 未マークの規範と IMPL-0095 (+12 more)
+
+### Community 6504 - "1. 本標準(フェーズ4: 本文8章+附属書A〜I)の言及の全数"
+Cohesion: 0.10
+Nodes (20): 1.1 本文と規定の附属書(B・D・F・H), 1.2 参考の附属書(A・C・E・G・I), 1.3 参照モデル(ADR-0020 により本標準の一部), 1.4 標準の外(フェーズ1・2・6、カタログ、トップページ), 1.5 結論(言及の全数から), 1. 本標準(フェーズ4: 本文8章+附属書A〜I)の言及の全数, 2.1 本標準が規定するもの(スクラム等と重なりうる面), 2.2 本標準が組織に委ねる、または規定しないもの (+12 more)
+
+### Community 6505 - "Issue #309 調査: 受発注での指示の経路(発注側の判定者と受注側の担い手。37 号告示との関係)"
+Cohesion: 0.10
+Nodes (20): 0. 要約(論点ごと), 3.1 Issue の「決めること」と材料, 3.2 Issue に無いが、避けられない事実, 3. 論点の整理(材料の対応づけ), 4.1 論点 1: 指示の経路にどこまで触れるか, 4.2 論点 2: 検収の無い契約での読み替え, 4.3 どの案でも共通に要る手当て, 4. 選択肢 (+12 more)
+
+### Community 6506 - "scen3.mjs"
+Cohesion: 0.13
+Nodes (17): agg(), base, commit(), DIR, env, git(), HERE, MOCK (+9 more)
+
+### Community 6507 - "会議体 #346 意見書 03: 品質保証・セキュリティ監査の立場"
+Cohesion: 0.10
+Nodes (20): 0. 攻撃者の側から見た要点, R-1 条項は、ジョブの権限で発行される短命のトークンをどう扱うか, R-2 何が止めるか。語の定義, R-3 本リポジトリの配布, R-4 採用者とテンプレート, R-5 記録, 他の案を落とす理由, 会議体 #346 意見書 03: 品質保証・セキュリティ監査の立場 (+12 more)
+
+### Community 6508 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (19): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, F-10 3.10.4 意見の様式との関係, F-11 出力形式(JSON 等), F-12 分けた AI 同士の往復, F-13 モデルの系統(ベンダー)の異質性 (+11 more)
+
+### Community 6509 - "1. 標準の現状(突合)"
+Cohesion: 0.10
+Nodes (19): 0. 要約(10 行), 1.1 分離と独立(5.8.4・3.5.4)— 逐語, 1.2 AI の確認の数え方(附属書H H.4)— 逐語, 1.3 外部の観測に接地した往復 — 既にある手順, 1.4 人の側の往復・合議 — 対称の先例, 1.5 テンプレート, 1.6 関係する既存の決定(蒸し返さない前提), 1. 標準の現状(突合) (+11 more)
+
+### Community 6510 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (19): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, H-10 附属書E E.5, H-11 3.11.4 要求事項6, H-12 3.10.4 と `pre-review-automation.md`, H-13 5.6〜5.8 ほかの未マークの規範と IMPL-0095 (+11 more)
+
+### Community 6511 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (19): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, H-10 附属書E E.5, H-11 3.11.4 要求事項6, H-12 3.10.4 と `pre-review-automation.md`, H-13 5.6〜5.8 ほかの未マークと IMPL-0095 (+11 more)
+
+### Community 6512 - "指摘"
+Cohesion: 0.10
+Nodes (19): X-10 軽微 コードブロックの検出が、字下げのコードブロックとインラインのコードを見ない, X-11 軽微 区分の使い方が節によって揺れている, X-12 軽微 IMPL-0160(目的の限定)の `delivered` は、実行主体に届く文を持たない, X-13 軽微 フェーズ5 と第3章で督促の時点が食い違ったまま、両側にマークが付いた, X-14 軽微 ADR-0075 の本文の修正が、ADR-0075 の側に記録されていない, X-2 要修正 棚卸し済みの節を `pending` へ戻しても通る(「減る向きにしか動かない」が偽), X-3 要修正 5.8.4 の新しい文が、裁定に無い要求と準拠テンプレートの名を本文へ入れた, X-4 要検討 事前レビューの「判定者が判定記録で確かめる」が、フェーズ5 の頁にだけある (+11 more)
+
+### Community 6513 - "3. 論点ごとの詳細"
+Cohesion: 0.10
+Nodes (19): (1) 段の中の順序 — 課さないと明記する, 1. 立場と全体の見立て, 2. 判定の一覧表, (2) 基底で検査定義が更新されていたら手元の実行を止めるか — 課さないと明記する, (3) 「手元の通過は公式判定ではない」— 採る(標準), 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, J-1 CI で走る検査の一覧を 1 か所に置く方法と、`ci.yml` が外れないことを確かめる手段 (+11 more)
+
+### Community 6514 - "#314 の後継 Issue の下書き(起票待ち)"
+Cohesion: 0.10
+Nodes (19): #314 の後継 Issue の下書き(起票待ち), 下書き A: 出荷判定の証跡の集約が、G-7 の判定基準の中身と計測を確かめていない, 下書き B: 欠陥注入の運用中の演習・隔離・走査と、導入前の検証の案内が準拠テンプレートに無い, 下書き C: 外部の確認者と2名必須の制限と組織的な独立を、構成の欄で表す, 下書き D: エージェントの指示資産・権限・実行の記録の規則が、準拠テンプレートに無い, 下書き E: 判定の様式・スキル・次の一手に、欄と注記が欠けている規定, 下書き F: PR 単位の検査・ルールセット・AI レビュー・カバレッジのアダプタの欠け, 受け入れ条件 (+11 more)
+
+### Community 6515 - "fix288-tpl2/suite/replay.mjs"
+Cohesion: 0.13
+Nodes (15): apply(), back5, { check, refused, accepted, done }, clampDates(), input(), s2b, s3c, s415 (+7 more)
+
+### Community 6516 - "決定"
+Cohesion: 0.10
+Nodes (19): 1. 第1章 1.4 に組織上の距離の段1〜4 を定義し、人数とは別の軸に置く, 2. 求める段と、届かないときの扱い, 2名の目的は、強さの段とは別だった, 3. 5.8.4 と軸E の食い違いを、表の側を直して解く, 4. CL1 以上では、軸B による G-6・G-7 の緩和をどのステージでも適用しない, 5.8.4 と軸E が食い違っていた, 5. カバレッジの下限は由来と基準値を持ち、代償措置の終了を同じ差分の中で決める, 6. ルールセット `safety` を記録し、強制する承認は「下回らせない」とする (+11 more)
+
+### Community 6517 - "3. 論点ごとの詳細"
+Cohesion: 0.11
+Nodes (18): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, E-10 (a) の残る隙間, E-11 (c) を横断の要求にするか, E-12 (b) を採るか, E-13 調査が見つけた範囲外の誤り (+10 more)
+
+### Community 6518 - "3. 論点ごとの詳細"
+Cohesion: 0.11
+Nodes (18): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, E-10 (a) の残る隙間, E-11 (c) を横断の要求にするか, E-12 (b) 当てはまらない項目を外す規定を採るか, E-13 範囲外の誤り (+10 more)
+
+### Community 6519 - "3. 論点ごとの詳細"
+Cohesion: 0.11
+Nodes (18): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, E-10 (a) の残る隙間, E-11 (c) を横断の要求にするか, E-12 (b) 当てはまらない項目を外す規定, E-13 調査が見つけた範囲外の誤り (+10 more)
+
+### Community 6520 - "3. 論点ごとの詳細"
+Cohesion: 0.11
+Nodes (18): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, E-10 (a) の残る隙間, E-11 (c) を横断の要求にするか(#275 原則5), E-12 (b) 当てはまらない項目を外す規定を採るか, E-13 調査が見つけた範囲外の誤り (+10 more)
+
+### Community 6521 - "決定の記録(Issue #290 検査装置の総量)"
+Cohesion: 0.11
+Nodes (18): E-10 (a) の残る隙間, E-11 (c) を横断の要求にするか(#275 原則5), E-12 (b) 当てはまらない項目を外す規定, E-13 範囲外の誤り, E-1 総量の上限, E-2 減らす席と、足す・外す費用の非対称, E-3 「80 点で止める」(追加の凍結), E-4 ADR-0073 との関係と、外すときの記録 (+10 more)
+
+### Community 6522 - "3. 論点ごとの詳細"
+Cohesion: 0.11
+Nodes (18): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, F-10 3.10.4 意見の様式との関係, F-11 出力形式, F-12 分けた AI 同士の往復, F-13 モデルの系統の異質性 (+10 more)
+
+### Community 6523 - "3. 論点ごとの詳細"
+Cohesion: 0.11
+Nodes (18): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, H-10 附属書E E.5, H-11 3.11.4 要求事項6, H-12 3.10.4 と `pre-review-automation.md`, H-13 そのほかの未マークの規範と IMPL-0095 (+10 more)
+
+### Community 6524 - "実装の記録(Issue #313 標準の版・適用の終了・逸脱と適合の主張)"
+Cohesion: 0.11
+Nodes (19): 1. 裁定ごとの変更, 2. 「逸脱」の棚卸し(Q-3), 3. 裁定からの離れと理由, 4. 使った識別子, 5. 降りていないもの, 6. 別に起こす Issue, 7. 突合(decision.md 7 節), (a) 閉じた列挙 (+11 more)
+
+### Community 6525 - "実装の記録(#346 ジョブの権限で発行される短命のトークンと、G-8「配備の統制と資格情報の置き場」)"
+Cohesion: 0.11
+Nodes (18): 1. 裁定の各項目との対応, 2. 裁定からの逸脱・裁定に書かれていない判断と、その理由, 3. 注意(所有者へ), 4. 所有者の設定の一覧(#346 へ書き込む文の案), 5.1 配布の経路を、受け手が出どころを確かめられる形へ変えるか, 5.2 準拠テンプレートの workflows の最小権限, 5.3 「実行環境」「資格情報」「認証情報」の語の統一, 5.4 関係する Issue への書き置き(下書き) (+10 more)
+
+### Community 6526 - "調査 346-1: 内部の現状(条項・決定・ワークフロー・設定)"
+Cohesion: 0.11
+Nodes (18): 1.1 第4章 G-8「配備の統制と資格情報の置き場」, 1.2 フェーズ5 `ci-gates.md`「デプロイゲート」>「統制と資格情報の置き場」, 1.3 第6章 `deliverable-templates.md`「短命の資格情報を用いる」, 1.4 資格情報・秘密情報・トークン・権限に触れるほかの条項(grep の結果), 1. 条項, 2.1 ADR-0077(採用 2026-10-23)決定6 と影響, 2.2 #293 の審議の経緯(`research/293-deliberation/`), 2.3 ADR-0052・ADR-0036・ADR-0071・ADR-0028 の関係箇所 (+10 more)
+
+### Community 6527 - "決定"
+Cohesion: 0.11
+Nodes (18): 10. 逃げ道の句を本標準の規定文に使わないことを、起草規則にする, 11. 範囲の外の誤りの記録, 1. 検査装置の総量に上限を置かない, 2. 判定基準を実装する検査が集約に入っていることを、機械で確かめる, 3. 強制層の検査の追加・削除・統合は AI維持管理者が承認する, 4. 検査を外す変更の記録を置く, 5. ADR-0073 決定3 の起点の範囲を、影響で限る(一部置き換え), 6. 追加の凍結を課さない (+10 more)
+
+### Community 6528 - "決定"
+Cohesion: 0.11
+Nodes (18): 10. ADR-0075 の事実の誤りを直す, 1. 母集団は、対象の頁の節と、番号つきの要求事項の表の行とする, 2. 区分を4つにし、判定者・人の席の規定も対象にする, 3. 登録簿を本文の外に置き、消えた鍵と使われない除外を落とす, 4. 未棚卸しは、凍結した基準線の中に限る, 5. 降りていない規定の件数を、合否にも警戒の条件にも使わない, 6. 限界を、機械が確かめることと確かめないことに分けて書く, 7. 参考の附属書にマークを置かない (+10 more)
+
+### Community 6529 - "2. 推奨"
+Cohesion: 0.11
+Nodes (17): 0. 実行した検査, 1. 要修正, 2. 推奨, 3. 記録のみ, X-1 「統制を緩める向きの変更は AI維持管理者が承認する」が、G-5「基準値と除外設定の変更」(技術判断者)と ADR-0055 決定5 に当たる, X-2 「CI の検査の追加」の A を技術判断者にした RACI が、3.11.2 の承認権限と ADR-0038 決定3 の字面に当たる, X-3 ADR-0074 決定5 は ADR-0073 決定3 の起点を狭める決定の変更であり、「読み方」の記録だけで済ませている(運用ルール4・5), X-4 CI/CD ゲート構成の冒頭が、改めたはずの「合意済みルールはすべて機械化して CI に載せ」を原則として引き続けている(E-6 の直し残し) (+9 more)
+
+### Community 6530 - "反映の記録(Issue #291 254 系: G-4 の数え上げ、仕様の前提、AI の指摘、往復。論点 G-1〜G-15)"
+Cohesion: 0.11
+Nodes (17): 0.1 番号, 0.2 語の決まり(今回足したもの), 0.3 機械の決まり(今回足したもの), 0. 次の担当へ引き継ぐこと, 2. 番号の割り当て(この担当が使ったもの), 3. 変更したファイル, 4.1 `npm run check`, 4. 検査と試験の結果 (+9 more)
+
+### Community 6531 - "2. 世の中がどうなっているか"
+Cohesion: 0.11
+Nodes (17): 0. 要約(10 行), 1. 本標準の現状(要点のみ), 2.1 規格の側で要求事項を識別できるようにする, 2.2 参照の一覧を全件並べ、各行に状態を書かせる, 2.3 双方向トレーサビリティの完了を検証項目にする(規制産業), 2.4 ソフトウェアの実務: 未分類を機械で落とす装置, 2.5 「0 件」を検査の対象にする — 規範と実務, 2.6 AI エージェントの指示ファイルを方針と同期させる実務 (+9 more)
+
+### Community 6532 - "3. 論点ごとの詳細"
+Cohesion: 0.11
+Nodes (17): (1) 段の中の順序 — 課さないと明記する, 1. 立場と、全体の見立て, 2. 判定の一覧表, (2) 検査定義が基底で更新されていたら手元で止める — 課さないと明記する, (3) 「手元の通過は公式判定ではない」 — 採る(標準), 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, J-1 検査の一覧を 1 か所に置く方法 (+9 more)
+
+### Community 6533 - "fix288-r3/trial.mjs"
+Cohesion: 0.14
+Nodes (13): X-8 軽 自己修正の記録(`docs/self-heal-log.tsv`)を、追跡する置き場へ「置く」手順が無い。1 本のファイルへの追記は、並行するブランチで競合する, commit(), DIR, git(), HERE, log(), now, OUT (+5 more)
+
+### Community 6534 - "指摘"
+Cohesion: 0.11
+Nodes (17): X-10 軽 第3章 3.7.3 の「スコープを定めるための会議体を別に設けません」が、2.10.3 と同じ形のまま残った, X-11 軽 2.10.4 を「対象にしない」に分類した理由に、テンプレートに実装が無いことを挙げている, X-12 軽 出典台帳の再生成の副作用の記述が不足している(副作用そのものは無害), X-1 重大 「作業の一覧の運用」「事業ステージより短い期間の計画の方法」を定めないという表明が、第2章 2.10 とフェーズ6 の既存の要求事項と矛盾する, X-2 中 2.2 に足した「本標準がこの層に規定するのは、工程・判定者・判定基準です」は、AI協調ループに掛かる規定を言い尽くしておらず、A.7 の表と食い違う, X-3 中 第1章 1.4「会議体」の定義の 2 つの節が、第8章で既存の定例へ対応づけた場合に重なり、どちらで読むかが決まらない, X-4 中 附属書H H.8 の「使ってはならない表現」の行は、規定の附属書への新しい禁止である。反映の記録と ADR-0080 は「規範を足していない」と書いている, X-5 中 #267 への訂正コメントの案が、逐語で確かめていないスクラムの性格づけを新たに書いている。附属書A の当時の記述の要約も不正確 (+9 more)
+
+### Community 6535 - "実装の記録(Issue #312 席の兼務の境界と既定の写像)"
+Cohesion: 0.11
+Nodes (17): 1. 使った番号, 2. 裁定ごとの変更, 3. 裁定からの逸脱と、裁定に無い変更, 4. 降りていないもの, 5. 別に起票する Issue, 6. 突合(decision.md の 7), 7. 突合の指摘への対応(decision.md の 8、crosscheck.md X-1〜X-15), IMPL-0298 の通しの試験 (+9 more)
+
+### Community 6536 - "scen2.mjs"
+Cohesion: 0.13
+Nodes (13): commit(), DIR, env, git(), HERE, j, OUT, r (+5 more)
+
+### Community 6537 - "決定"
+Cohesion: 0.11
+Nodes (17): 1. 価値責任者×技術判断者は、許容(1〜2名)・非推奨(3〜9名)・禁止(10名以上)とする, 2. 事業決裁者×価値責任者は、3名以上で非推奨とし、どの規模でも禁止しない, 3. 既定の写像で、禁止の組を同じレーンに置かない, 4. `state:dev-done` の受け手は独立レビュアとし、G-6 が省略・未達の構成では出荷判定者とする, 5. テンプレ0 の表5 を「人の名簿と席」とする, 6. 表の升は 1.7.3 の語彙で書く, 7. ADR-0037 の読み方, `state:dev-done` の受け手が決まっていなかった (+9 more)
+
+### Community 6538 - "決定"
+Cohesion: 0.11
+Nodes (17): 1. 既存のリポジトリで適用を始める要求事項を、第1章 1.10.1 に置く, 3. 適用の開始の境を既定ブランチの主系列の上に置き、開始より前に出所を問わず主張しない, 4. 実環境の確認を4値にし、確かめる項目を足す, 5. 構成に形式の版を持たせ、移行を種別 `migrate` で行う, 6. 取り込んだテンプレートを記録し、取り込みを強制層の変更として扱う, 7. 採らないと決めたことを、本文に明記する, 8. 附随の修正, コンテキスト (+9 more)
+
+### Community 6539 - "3. 論点ごとの詳細"
+Cohesion: 0.12
+Nodes (16): (1) 段の中の順序 — 課さないと明記する, 1. 立場と全体の見立て, 2. 判定の一覧表, (2) 基底で検査定義が更新されていたら止める — 課さないと明記する, (3) 手元の通過は公式の判定ではない — 採る, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, J-1 検査の一覧を 1 か所に置く (+8 more)
+
+### Community 6540 - "3. 論点ごとの詳細"
+Cohesion: 0.12
+Nodes (16): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, L-10 運用メトリクス, L-11 範囲の外で見つけたもの, L-1 カバレッジの遮断(T-07), L-2 承認の失効(T-09) (+8 more)
+
+### Community 6541 - "3. 論点ごとの詳細"
+Cohesion: 0.12
+Nodes (16): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, L-10 運用メトリクス, L-11 範囲の外で見つけたもの, L-1 カバレッジの遮断(T-07), L-2 承認の失効(T-09) (+8 more)
+
+### Community 6542 - "3. 論点ごとの詳細"
+Cohesion: 0.12
+Nodes (16): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, L-10 運用メトリクス, L-11 範囲の外で見つけたもの, L-1 カバレッジの遮断, L-2 承認の失効 (+8 more)
+
+### Community 6543 - "3. 論点ごとの詳細"
+Cohesion: 0.12
+Nodes (16): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, L-10 運用メトリクス, L-11 範囲の外で見つけたもの, L-1 カバレッジの遮断(T-07), L-2 承認の失効(T-09) (+8 more)
+
+### Community 6544 - "裁定(Issue #296 固定定数の棚卸し(#295)の後継)"
+Cohesion: 0.12
+Nodes (16): 0. 裁定の一覧, 1. カバレッジ(L-1), 2. 承認の失効(L-2), 3. 自己修復の停止(L-3), 4. 手戻り率(L-4), 5. 監査・境界・登録簿・規模・名義・指標(L-5〜L-10), 6. 範囲の外(L-11), 7. 突合で確かめること(実装の後) (+8 more)
+
+### Community 6545 - "1. 標準の現状(突合)"
+Cohesion: 0.12
+Nodes (17): 1.1 関係する記述(逐語), 1.2 ADR-0028 の決定(逐語), 1.3 規則・エンジン・試験(実行して確かめた), 1.4 回答だけで未達の表示が消える経路(実行して再現した), 1.5 省略の体制での開示(コードの読み。実行していない), 1.6 S0 を囲む規定, 1.7 fixture と回帰スイートが固定していること, 1.8 矛盾の一覧と、新旧 (+9 more)
+
+### Community 6546 - "#319 第1段: 回帰の試験の移植と、一致の確認の結果"
+Cohesion: 0.12
+Nodes (16): 1. 退避物の写し(R-1.5), 2.1 形, 2.2 移すときに直したこと(元の仕組みは保った), 2.3 時計(R-3), 2.4 移植で残る限界, 2. 移したスイート(R-1.1〜R-1.4、R-3), #319 第1段: 回帰の試験の移植と、一致の確認の結果, 3.1 スクリプトごとの一致 (+8 more)
+
+### Community 6547 - "決定"
+Cohesion: 0.12
+Nodes (16): 1. 変更の重複率を、引き下げの検知条件から外す(N-2), 2. 手戻り率の行の措置を、自動の1段階の引き下げにする(N-2), 3. 「自動」を定義する(N-2), 4. 閾値の根拠を開示し、「1名以下」へ揃える(N-3・N-6), 5. 最小標本数に満たない窓を判定不能とする(N-5), 6. 準拠テンプレートは、登録した変更種別を L3、それ以外を L1 とする(N-1), 7. 附属書H の C6 の根拠を付け替え、内部監査の観点を新設する(N-4), 8. ADR-0059 の「4行目」を読み替える(N-6) (+8 more)
+
+### Community 6548 - "決定"
+Cohesion: 0.12
+Nodes (16): 10. 廃した言い回しの登録簿と、却下した案の残し方, 1. 決定を固定する回帰の試験を、元の仕組みのまま版管理の下へ移す, 2. 各場面に、固定する決定を持たせる, 3. 期待値を改めるときは、先に存在する決定を引く, 4. 拒否は理由で照合し、落ちることを期待する印は厳格にする, 5. 試験を流す経路と時計, 6. 落ちていた 47 場面を分類して直す, 7. #302〜#310 の手続の欠陥と、ADR-0066 の過大な主張 (+8 more)
+
+### Community 6549 - "裁定(Issue #294 次の改訂の入力 — 8 論点)"
+Cohesion: 0.12
+Nodes (15): 0. 裁定の一覧, 1. 確定した版を変える場合(K-1), 2. 取り消せない操作(K-2), 3. 読者役と AI の指摘(K-3・K-6), 4. スタック型 PR(K-4), 5. 費用(K-5), 6. 証跡の置き場と規模の下限(K-7・K-8), 7. 範囲の外(K-9) (+7 more)
+
+### Community 6550 - "1. 論点ごとの経緯"
+Cohesion: 0.12
+Nodes (15): 0. #296 の位置づけ, 1. 論点ごとの経緯, #296 の論点の経緯(会議体の入力), 2. 既に決まっていること, 3. 本 Issue で開いている問い(会議体へ), S-11 手戻り率(14 日窓、AI 生成行数が分母)の条件つき合否化, S-14・S-18/19 本文の再評価(能力依存の定数の登録簿の最初の運用で), S-16 10 名境界の根拠水準マーク (+7 more)
+
+### Community 6551 - "実装の記録(Issue #311 AI 自律レベルの検知と引き下げ)"
+Cohesion: 0.12
+Nodes (15): 1. 使った番号, 2. 裁定ごとの変更, 3. 裁定からの逸脱と理由, 4. 降りていない規定, 5. 突合(decision.md 7), 6. 別に起こす Issue, 7. 実行していないこと, 8. 突合の指摘への対応(X-1〜X-17) (+7 more)
+
+### Community 6552 - "決定"
+Cohesion: 0.12
+Nodes (15): 1. 確定した版を変えたら、確定したゲートの判定を受け直す(K-1), 2. 取り消せない操作を、効果を他の者の操作を介さずに生じさせる操作と定める(K-2), 3. スタック型 PR は既定ブランチへの取り込みで G-5・G-6 を成立させる(K-4), 4. 判定が指す記録は保管期間のあいだ到達できなければならない(K-7), 5. 費用の統制は課金形態を前提にしない(K-5), 6. G-5 基準3 の測る範囲を企画時に決める(K-8), 7. 確認の範囲の外側は、確認側へ渡した入力の記録で示す(K-3・K-6), コンテキスト (+7 more)
+
+### Community 6553 - "決定"
+Cohesion: 0.12
+Nodes (15): 1. G-5 基準3 の既定の範囲を、変更で加えた・変えたコードとする(L-1), 2. 承認を、承認した差分に束ねる(L-2), 3. 自己修正の停止は第3章 3.12.10 を正本とする(L-3), 4. AI 生成行の短期書き換え率を、合否条件から外す(L-4), 5. 規模の観測と算定を、差し替え条件を観測できる形にする(L-8・L-9), 6. 監査・境界・登録簿の値の根拠を開示し、単位を書き分ける(L-5・L-6・L-7), 7. アカウント名の確認と、登録簿の整合の検査を確かめられる形にする(L-9・L-10), コンテキスト (+7 more)
+
+### Community 6554 - "決定"
+Cohesion: 0.12
+Nodes (15): 1. 軸D の表へ G-1・G-2・G-5 を足し、8つのゲートを全部載せる, 2. 強制層の範囲を列挙し、所有をテンプレ8 第9項に記録する, 3. 判定の結果を受け取る者は、様式の1か所に置き、構成へ写さない, 4. 様式 08 の節を標準へ上げ、様式から標準への逆向きの検査を足す, 5. 決裁権限規程を前提にした文を、1か所ずつ行の中で直す, 6. 偽装請負の外部の制約の注記を、疑義応答集の改訂に合わせる, コンテキスト, ステータス (+7 more)
+
+### Community 6555 - "fix288-tpl2/suite/unit.mjs"
+Cohesion: 0.13
+Nodes (12): appended, base, c, cfg, cut, dcfg, legacy, legacyEdit (+4 more)
+
+### Community 6556 - "3. 論点ごとの詳細"
+Cohesion: 0.13
+Nodes (14): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, J-1 検査の一覧を 1 か所に置く, J-2 公開・配布が CI を待たない, J-3 対象・入力が無いときの扱い, J-4 配布物そのものの検査段 (+6 more)
+
+### Community 6557 - "#293 外部調査: 空の検査対象・手元と CI の境界・配布の保護・検査一覧の突合"
+Cohesion: 0.13
+Nodes (14): 0. 要約(10 行), #293 外部調査: 空の検査対象・手元と CI の境界・配布の保護・検査一覧の突合, 2.1 検査対象が無いときの扱い(#277), 2.2 手元の検査と CI の境界(#280), 2.3 配布・公開の保護(#281), 2.4 CI の検査一覧を 1 か所に置く(#276), 2. 世の中がどうなっているか, 3.1 #277 検査対象の不在 (+6 more)
+
+### Community 6558 - "3. 論点ごとの詳細"
+Cohesion: 0.13
+Nodes (14): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, K-1 S1 以降の技術検証と、S0 の探索の記録, K-2 不可逆な操作の停止に「後段の人の門」を足すか, K-3 査読に「文脈ゼロの読者役」の層を置くか, K-4 スタック型 PR (+6 more)
+
+### Community 6559 - "3. 論点ごとの詳細"
+Cohesion: 0.13
+Nodes (14): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, K-1 S1 以降の技術検証の置き場と再判定の経路、S0 の探索の記録, K-2 不可逆な操作の停止条件に「後段に人だけが通せる門」を足すか, K-3 査読に「文脈ゼロの読者役」の層を置くか, K-4 スタック型 PR の CI の発火条件と GitHub 標準のスタック機能 (+6 more)
+
+### Community 6560 - "3. 論点ごとの詳細"
+Cohesion: 0.13
+Nodes (14): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, M-1 書く型, M-2 置き場所, M-3 併用を書くなら何を書くか, M-4 比較の軸 (+6 more)
+
+### Community 6561 - "議長の裁定(#316 規定の表現形式の残り)"
+Cohesion: 0.13
+Nodes (14): 0. 全体の方針, 1.5 読み手の振り分けを受けた補足の裁定, 7. 突合で確かめること, 8. 突合(crosscheck.md)への裁定, R-1 フェーズ5・6 の頁の種別, R-2 「〜できません/できない」, R-3 平叙の「〜します」, R-4 参考の附属書 C・E・G・I の、要求に見える平叙の文 (+6 more)
+
+### Community 6562 - "議長の裁定(#319 決定を固定する回帰の fixture を、リポジトリの検査へ入れる)"
+Cohesion: 0.13
+Nodes (14): 0. 全体の方針, 7.5 分類(classification.md)への裁定, 7. 突合で確かめること, 8. 突合(crosscheck.md)への裁定, R-1 何を、どこへ、どの形で移すか, R-2 いま落ちる場面の扱い, R-3 時計, R-4 期待値を変えるときの手続 (+6 more)
+
+### Community 6563 - "lib.sh"
+Cohesion: 0.17
+Nodes (6): brief(), chg(), chgb(), gp(), lib.sh script, trim()
+
+### Community 6564 - "決定"
+Cohesion: 0.13
+Nodes (14): 1. G-8 の資格情報の規定を、置き場の指定から性質の規定へ改める, 2. 未達に「手段はあるが、組織が使わないと決めた場合」を足し、記録の中身を定める, 3. 配備の語を 1.4 で定義し、G-8 とフェーズ5 の「実行環境」を「配備の環境」へ改める, 4. フェーズ5 に、止めるもの・止めないもの・監査で読む値の表を置く, 5. 本リポジトリの配布は変えず、未達(使わないと決めた)としてリモートの実状に合わせて開示する, 6. 準拠テンプレートにデプロイの雛形を足さず、env-check に狭める措置の事実を読ませる, 7. 記録の扱い, 8. 本件で決めないこと (+6 more)
+
+### Community 6565 - "content.config.ts"
+Cohesion: 0.14
+Nodes (13): ADR-0004, ADR-0010, activitySchema, adjustmentSchema, collections, phaseSchema, processSchema, questionSchema (+5 more)
+
+### Community 6566 - "1. 論点ごとの記録"
+Cohesion: 0.14
+Nodes (14): 1. 論点ごとの記録, G-10 3.10 との関係, G-11 出力形式(課さない), G-12 往復(課さない + 入力の分離), G-13 系統の異質性(課さない + 禁止 1 文), G-14 降ろし先, G-15 範囲の外, G-3 識別子・G-7 基準1・ci-gates (+6 more)
+
+### Community 6567 - "指摘"
+Cohesion: 0.14
+Nodes (14): X-10 軽 アカウント名の確認の上書きを「監査の観点6 で確かめる」としたが、観点6 の表は改めていない, X-11 軽 廃した名・旧い語が 2 か所に残る, X-12 軽 本文が ADR-0079 の決定番号で引く内容が、その決定の本文に無い, X-13 軽 棚卸しの「タスクの分割基準」の行7 が、新しい規則の実装マーク(IMPL-0267)を指していない, X-14 軽 降ろし先 `g1-check` の名前が実体と合わない, X-1 中 「AI 品質指標の扱い」の適用範囲を見出しへ移していない(L-11 の 1 が未実施)。ADR-0079 と反映の記録は実施済みと書いている, X-2 中 要求事項3「母数は変更の件数で数える」が、タスクの単位に改めた手戻り率と食い違う。運用メトリクスの手戻り率は分子と分母の範囲も食い違う, X-3 中 テンプレートの無進捗の判定は「同じテストが落ちた」だけで止め、3.12.10 の「同一の検査が同一の理由で落ち続ける」より広い。既定 2 回では、同じテストを直し進めている正当な反復が 2 回目で止まる (+6 more)
+
+### Community 6568 - "3. 論点ごとの詳細"
+Cohesion: 0.14
+Nodes (13): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, M-1 書く型, M-2 置き場所, M-3 併用を書くなら何を書くか, M-4 比較の軸 (+5 more)
+
+### Community 6569 - "3. 論点ごとの詳細"
+Cohesion: 0.14
+Nodes (13): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, M-1 書く型, M-2 置き場, M-3 併用を書くなら何を書くか, M-4 比較の軸 (+5 more)
+
+### Community 6570 - "3. 論点ごとの詳細"
+Cohesion: 0.14
+Nodes (13): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, M-1 書く型, M-2 置き場所, M-3 併用を書くなら何を書くか, M-4 比較の軸 (+5 more)
+
+### Community 6571 - "3. 論点ごとの詳細"
+Cohesion: 0.14
+Nodes (13): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, M-1 書く型, M-2 置き場所, M-3 併用を書くなら何を書くか, M-4 比較の軸 (+5 more)
+
+### Community 6572 - "#315 会議体 意見書 04 — 規格(standards)の立場"
+Cohesion: 0.14
+Nodes (13): 0. 根拠の水準の断り, 1.1 フェーズ5 のページは、規範の置き場として使えない, 1.2 本文は、準拠テンプレートへ要求を課す前例を持つ, 1.3 「適用の表明」と「適合の主張」と「保証の開示」を混ぜない, 1.4 3つの「版」を区別する, 1. 横断の所見(全議題の前提), #315 会議体 意見書 04 — 規格(standards)の立場, R-1 手順の全体の置き場 (+5 more)
+
+### Community 6573 - "件数"
+Cohesion: 0.14
+Nodes (13): R2, R2(65 件), R3, R3(471 件), R4, R4(580 件), 件数, 判断が難しかった文 (+5 more)
+
+### Community 6574 - "場面の再検証 — 再現手順の詳細(主担当が受信メッセージから転記)"
+Cohesion: 0.14
+Nodes (13): 中10(out/s05b-approval.txt の 5-4a), 中11(out/sx-extra.txt の X-5), 中4(out/s05d-broad-apply.txt、out/s06b-ai-names-apply.txt), 中5(out/s13-delegated-merge.txt), 中6(out/s02-one-to-two.txt の 2b), 中7(out/s04-headcount.txt、s04y-10plus.txt、s04x-boundaries.txt), 中8(out/s06b-ai-names-apply.txt の 6-6), 中9(out/s07-model-version.txt の 7-4、out/s07b-requalify-same-change.txt) (+5 more)
+
+### Community 6575 - "決定"
+Cohesion: 0.14
+Nodes (13): 1. 検査の一覧の正本は `package.json` の `check` だけとする, 2. 公開と配布を、CI の検査の通過に繋ぐ, 3. 検査器の入力の欠如を、「対象なし」と名乗らせない, 4. `dist/standard` を、ADR-0052 決定1 の配布物に含める, 5. 手元の結果を G-5 の判定の証跡にしない。段の中の順序と、手元の停止は課さない, 6. 配布は履歴を積み、書き込みはジョブ単位の GITHUB_TOKEN の権限で行う, コンテキスト, ステータス (+5 more)
+
+### Community 6576 - "0080-method-neutrality-and-relation-to-existing-methods.md"
+Cohesion: 0.14
+Nodes (13): 1. 本標準は、既存の開発手法との関係を主張しない(M-1・M-2), 2. 附属書A A.7 に、定めるもの・定めないものの読み分けを置く(M-3・M-4), 3. 由来の記述に根拠水準を開示する(M-5), 4. 会議体の範囲を定義で閉じ、2.10 の文の形を直す(M-6), 5. 手法の名との名乗りを、適用の表明と適合の主張に数えない(M-7), コンテキスト, ステータス, 影響 (+5 more)
+
+### Community 6577 - "ci-gates.md"
+Cohesion: 0.14
+Nodes (13): G-5(自動検証)のパイプライン構成, PR 単位の検査(pr-rules), ゲートの前提条件を機械検査する(D-0 の統制), デプロイゲート, 「人が毎回指摘すること」を CI へ移す運用, 依存の追加を PR の記述へ出力する, 承認記録を監査証跡として成立させる, 様式・データの検証もゲートに載せる (+5 more)
+
+### Community 6578 - "議長の裁定(#315 既存のリポジトリへ準拠テンプレートを持ち込む)"
+Cohesion: 0.15
+Nodes (12): 0. 全体の方針, 7. 突合で確かめること, 8. 突合(crosscheck.md)への裁定, R-1 手順の置き場と、標準に置く要求事項, R-2 初期化の事前点検(検出し、止め、告げる), R-3 併合した履歴と、適用の開始の境, R-4 実際の GitHub 上での検証, R-5 旧い版で生成した構成の移行 (+4 more)
+
+### Community 6579 - "#315 内部調査 — 既存のリポジトリへの持ち込み・旧い構成の移行・テンプレートの更新(2026-10-24)"
+Cohesion: 0.15
+Nodes (12): 1.1 `phase5-implementation/template-repository.md`「既存のリポジトリへ持ち込む」(38〜84 行), 1.2 ADR と本文の関連箇所, 1. 標準と ADR の現状の記述, 2.1 初期化(`scripts/init/generate-profile.mjs`), 2.2 証跡の集約の「テンプレート由来」の識別(`scripts/gate/aggregate-evidence.mjs`), 2.4 アダプタとカバレッジ, 2. テンプレートが既存のリポジトリで実際にすること, #315 内部調査 — 既存のリポジトリへの持ち込み・旧い構成の移行・テンプレートの更新(2026-10-24) (+4 more)
+
+### Community 6580 - "議長の裁定(#317 委託(軸D)の残り)"
+Cohesion: 0.15
+Nodes (12): 0. 全体の方針, 7. 突合で確かめること, 8. 突合(crosscheck.md)への裁定, R-1 軸D の表の空いた行, R-2 指示資産と強制層の持ち主, R-3 判定の結果を受け取る者, R-4 様式 08 の、標準に無い節, R-5 決裁権限規程を前提にした文 (+4 more)
+
+### Community 6581 - "議長の裁定(#318 独立の強さを距離で上げる案と、S0 の残り)"
+Cohesion: 0.15
+Nodes (12): 0. 全体の方針, 7. 突合で確かめること, 8. 突合(crosscheck.md)への裁定, R-1 距離の段, R-2 CL1 以上の、軸B による G-6・G-7 の緩和, R-3 ツールの要件の文書のシナリオ, R-4 未達が解けた後のカバレッジの下限, R-5 既存の CL2 の構成と、緩める向きの更新 (+4 more)
+
+### Community 6582 - "裁定(Issue #298 スクラムなど既存の反復手法との関係)"
+Cohesion: 0.17
+Nodes (11): 0. 裁定の一覧, 1. 書く型と置き場所(M-1・M-2), 2. A.7 に書くこと(M-3・M-4), 3. 既存の記述(M-5), 4. 2.10 の文と会議体の定義(M-6), 5. 名乗りと範囲の外(M-7・M-8), 6. 突合で確かめること(実装の後), 7. 突合の指摘への裁定(crosscheck.md X-1〜X-12) (+3 more)
+
+### Community 6583 - "件数"
+Cohesion: 0.17
+Nodes (11): R-2, R-2 文末の「できません/できない」(本文8章と規定の附属書 B・D・F・H), R-3, R-3 平叙の「〜します。」「〜とします。」(本文8章), R-4, R-4 参考の附属書 C・E・G・I の、要求に見える平叙の文, 件数, 判断の難しかった文 (+3 more)
+
+### Community 6584 - "意見書 04: 規格の立場(#319 決定を固定する回帰の fixture を、リポジトリの検査へ入れる)"
+Cohesion: 0.17
+Nodes (11): 0. 外部調査の記述の吟味(一次資料の水準), 1. 既存の決定との関係(全議題に掛かる前提), R-1 何を、どこへ、どの形で移すか, R-2 いま落ちる場面の扱い, R-3 時計, R-4 期待値を変えるときの手続, R-5 「採らない」と決めた文と、廃した言い回し, R-6 CI と実行時間・知識ベースへの依存 (+3 more)
+
+### Community 6585 - "会議体 #319 意見書 05: 既存決定の擁護者"
+Cohesion: 0.17
+Nodes (11): 0. 擁護者としての総論, R-1 何を、どこへ、どの形で移すか, R-2 いま落ちる場面の扱い, R-3 時計, R-4 期待値を変えるときの手続, R-5 「採らない」と決めた文と、廃した言い回し, R-6 CI と実行時間・知識ベースへの依存, R-7 標準の側の規定 (+3 more)
+
+### Community 6586 - "議長の裁定(#346 ジョブの権限で発行される短命のトークンと、G-8「配備の統制と資格情報の置き場」)"
+Cohesion: 0.17
+Nodes (11): 0. 全体の方針, 7. 突合で確かめること, 8. 突合(crosscheck.md)への裁定, R-1 条項は短命のトークンをどう扱うか, R-2 何が止めるか。語の定義, R-3 本リポジトリの配布, R-4 採用者とテンプレート, R-5 記録 (+3 more)
+
+### Community 6587 - "project-management.md"
+Cohesion: 0.17
+Nodes (11): PR フロー移行チェックリスト(コントリビューター参加時), バックログの構造, マイルストーン(期限は目安), リモートの実状(2026-10-27), 公開と配布の経路, 完了の定義(コンテンツ共通), 所有者が行う設定(順序つき), 本リポジトリの運用 (+3 more)
+
+### Community 6588 - "#311 会議体 意見書 01: 起草者"
+Cohesion: 0.18
+Nodes (10): #311 会議体 意見書 01: 起草者, N-1 実行層へ降ろすか(IMPL-0104), N-2 第2区分の3行目(重複率・手戻り率)の措置の強さと定義, N-3 閾値の根拠の開示, N-4 附属書H C6 と内部監査の観点, N-5 最小標本に満たない窓(#340 事象1 を含む), N-6 附随の不整合, 前提として押さえた事実(起草に効くもの) (+2 more)
+
+### Community 6589 - "裁定(Issue #311 AI 自律レベルの検知と引き下げ)"
+Cohesion: 0.18
+Nodes (10): 0. 裁定の一覧, 1. 実行層へ降ろすか(N-1), 2. 3 行目の措置の強さと定義(N-2), 3. 閾値の根拠の開示(N-3), 4. 附属書H C6 と内部監査(N-4), 5. 最小標本に満たない窓(N-5), 6. 附随の不整合(N-6), 7. 突合で確かめること(実装の後) (+2 more)
+
+### Community 6590 - "会議体 #312 意見書 01 — 起草者"
+Cohesion: 0.18
+Nodes (10): P-1 価値責任者×技術判断者の兼務の境界, P-2 3.5.1 の既定の写像, P-3 `dev-done` の受け手, P-4 人の名簿, P-5 表の記号の語彙, P-6 附随の不整合, 会議体 #312 意見書 01 — 起草者, 先に確かめた事実(調査に無い、または調査を補うもの) (+2 more)
+
+### Community 6591 - "裁定(Issue #312 席の兼務の境界と既定の写像)"
+Cohesion: 0.18
+Nodes (10): 0. 裁定の一覧, 1. 価値責任者×技術判断者の兼務の境界(P-1), 2. 3.5.1 の既定の写像(P-2), 3. `dev-done` の受け手(P-3), 4. 人の名簿(P-4), 5. 表の記号(P-5), 6. 附随(P-6), 7. 突合で確かめること(実装の後) (+2 more)
+
+### Community 6592 - "裁定(Issue #314 実装マークの検査の手段と降りていない規定)"
+Cohesion: 0.18
+Nodes (10): 0. 裁定の一覧, 1. 検査の強さ(R-1), 2. 常駐の規則(R-2), 3. G-5 基準6(R-3), 4. 降りていない規定(R-4), 5. スキルの文の検査(R-5), 6. 附随(R-6), 7. 突合で確かめること (+2 more)
+
+### Community 6593 - "#315 会議体 意見書 03 — 品質保証・監査(QA/audit)"
+Cohesion: 0.18
+Nodes (10): 0. 自分で確かめた事実(調査に無いもの、または調査を確かめ直したもの), #315 会議体 意見書 03 — 品質保証・監査(QA/audit), R-1 手順の全体の置き場, R-2 初期化が既存のリポジトリで検出し、告げ、止まること, R-3 併合した履歴と適用の開始, R-4 実際の GitHub 上での検証の計画, R-5 旧い版のテンプレートで生成した構成の移行, R-6 テンプレートの更新の取り込みと、既存の採用者を壊す変更 (+2 more)
+
+### Community 6594 - "会議体 #316 意見書 01: 起案者(drafter)"
+Cohesion: 0.18
+Nodes (10): R-1 フェーズ5・6 の頁の種別, R-2 「〜できません/できない」, R-3 平叙の「〜します」, R-4 参考の附属書 C・E・G・I の平叙の要求らしい文, R-5 様式・記入例の食い違い, R-6 禁止事項の番号の重なり, R-7 その他の食い違いと語, 会議体 #316 意見書 01: 起案者(drafter) (+2 more)
+
+### Community 6595 - "会議体 #318 意見書 03: 品質保証・監査(QA/audit)"
+Cohesion: 0.18
+Nodes (10): R-1 独立の強さを、承認者の人数ではなく確認者の距離で上げるか, R-2 CL1 以上かつ S0 の G-7, R-3 `tool/requirements.md` シナリオ1, R-4 未達が解けた後のカバレッジの下限, R-5 既存の CL2 の構成への案内(ルールセット `safety`), R-6 重なりと分担, 会議体 #318 意見書 03: 品質保証・監査(QA/audit), 監査で見つけた事実(確認) (+2 more)
+
+### Community 6596 - "導入前の検証の記録: 招待サービス(開発部)"
+Cohesion: 0.18
+Nodes (10): 1. 合否の基準(実行の前に記入する), 2. 欠陥注入(要件③), 3. 場面集の結果(要件⑤), 4. 演習, 5. 成立判定, 6. 判定(基準との照合), 7. 再実行の手順(要件④), 8. 根拠の水準(要件⑥) (+2 more)
+
+### Community 6597 - "patch-agg.cjs"
+Cohesion: 0.20
+Nodes (5): crlf, fs, s, fs, s
+
+### Community 6598 - "scanSkillProvisions"
+Cohesion: 0.29
+Nodes (10): 6.1 対象と仕組み, 6.2 対象の外(規約の「検査の限界」implementation-marking.md:239-244、ADR-0064:60), 6.3 選択肢(列挙のみ), 6. ADR-0064 スキルの文の検査, scanSkillProvisions(), headings(), implExists(), locatorProblem() (+2 more)
+
+### Community 6599 - "会議体の議題(#319 決定を固定する回帰の fixture を、リポジトリの検査へ入れる)"
+Cohesion: 0.20
+Nodes (9): R-1 何を、どこへ、どの形で移すか, R-2 いま落ちる場面の扱い, R-3 時計, R-4 期待値を変えるときの手続, R-5 「採らない」と決めた文と、廃した言い回し, R-6 CI と実行時間・知識ベースへの依存, R-7 標準の側の規定, 会議体の議題(#319 決定を固定する回帰の fixture を、リポジトリの検査へ入れる) (+1 more)
+
+### Community 6600 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6601 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6602 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6603 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6604 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6605 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6606 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6607 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6608 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6609 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6610 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6611 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6612 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6613 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6614 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6615 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6616 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6617 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6618 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6619 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6620 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6621 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6622 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6623 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6624 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6625 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6626 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6627 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6628 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6629 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6630 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6631 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6632 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6633 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6634 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6635 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6636 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6637 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6638 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6639 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6640 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6641 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6642 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6643 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6644 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6645 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6646 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6647 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6648 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6649 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6650 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6651 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6652 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6653 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6654 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6655 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6656 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6657 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6658 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6659 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6660 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6661 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6662 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6663 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6664 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6665 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6666 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6667 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6668 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6669 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6670 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6671 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6672 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6673 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6674 - "claims"
+Cohesion: 0.20
+Nodes (10): claims, evidenceKind, id, issues, locator, quant, quote, rqs (+2 more)
+
+### Community 6675 - "5.6.2 欠陥注入による検出能力の測定"
+Cohesion: 0.20
+Nodes (10): 5.6.2 欠陥注入による検出能力の測定, AIによるレビュー層も対象とする, 事前の周知, 実装上の要求, 注入する欠陥の要件, 注入に気づいたときの手続, 演習の停止, 目的の限定 (+2 more)
+
+### Community 6676 - "publish"
+Cohesion: 0.25
+Nodes (9): cancel-in-progress, group, concurrency, publish, concurrency, environment, if, needs (+1 more)
+
+### Community 6677 - "#313 外部調査 2: 版の付け方・改訂時の適合主張・適用の終了・他規格の引用"
+Cohesion: 0.22
+Nodes (8): 12. 見つけられなかったもの, #313 外部調査 2: 版の付け方・改訂時の適合主張・適用の終了・他規格の引用, 3. ISO/IEC 33001 系 — 適合性と適合性評価の切り分け(Q3), 6. Automotive SPICE 3.1 → 4.0(Q1・Q4), 8. DO-178C と FAA AC — 版の切替と「同じ版で続ける」許容(Q1・Q3), Q1〜Q4 への関わり, Q1〜Q4 への関わり, Q1〜Q4 への関わり
+
+### Community 6678 - "#315 外部調査 2: 既存リポジトリへの導入・実プラットフォームでの検証・旧い版の構成の移行"
+Cohesion: 0.22
+Nodes (8): 1. 規格: 既存のプロジェクトへのテーラリングと移行, 2. 業界の実務: テンプレートの持ち込みと追従, #315 外部調査 2: 既存リポジトリへの導入・実プラットフォームでの検証・旧い版の構成の移行, 3. 実プラットフォームでの検証と履歴の来歴, 4. 既存リポジトリへの持ち込みで報告されている落とし穴, 5. 標準への含意(議論の材料。採否は会議体で決める), 6. 出典カードの候補(SRC-0650 以降。カードは未作成), 構成の版の移行の型(T1〜T10、§3 の K1〜K2 を合わせて)
+
+### Community 6679 - "会議体の議題(#316 規定の表現形式の残り)"
+Cohesion: 0.22
+Nodes (8): R-1 フェーズ5・6 の頁の種別, R-2 「〜できません/できない」, R-3 平叙の「〜します」, R-4 参考の附属書 C・E・G・I の平叙の要求らしい文, R-5 様式・記入例の食い違い, R-6 禁止事項の番号の重なり, R-7 その他の食い違いと語, 会議体の議題(#316 規定の表現形式の残り)
+
+### Community 6680 - "新しく見つけた穴"
+Cohesion: 0.22
+Nodes (9): G【重大】規制業の「独立レビュー 2名」が、G-5 にも出荷の証跡の集約にも降りていない, H【中】`evidence/seeded-errors.json`(未コミット・.gitignore)の測定が、コミット済みの目隠しの測定より優先される, I【低】AI の層の検出率の失効が「日」の粒度, J【中・手引き】D-0 の frontmatter の承認者が、変化点のたびに決定者の氏名で上書きされる, K【手引き】2名の独立レビューの体制で、見つける者の記録を2名分として扱う形が無い, L【低・手引き】`org-assurance.mjs` は単体で実行しても何も出さない, M【中・手引き】規制業・CL2 の調整が「表示」にとどまる項目, 採用者側の記録(穴ではない) (+1 more)
+
+### Community 6681 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 6682 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
+
+### Community 6683 - "standard-editions.md"
+Cohesion: 0.22
+Nodes (8): 付番の規則, 定めないこと, 引用規格の棚卸し, 準拠テンプレートの更新で、再導出すると緩める向きの差分になる変更を出すとき, 準拠テンプレートの更新で、既存の採用者を落とす変更を出すとき, 版の状態, 発行の手続, 配布物への版の記録
+
+### Community 6684 - "human-ai-boundary.md"
+Cohesion: 0.22
+Nodes (8): 5.10 関連する章, 5.1 本章が達成すべき成果, 5.2 責任の原則, 5.3 役割境界の時点表記, 5.6.1 形骸化が生じる条件, 5.6.3 見逃しが生じた場合の区分, 5.6 判断の深さに関する要求事項, 5.9 役割境界の見直し
+
+### Community 6685 - "5.5 判断の席と、確定の担い手"
+Cohesion: 0.22
+Nodes (9): 5.5.1 席・責任者・担い手, 5.5.2 運用形態, 5.5.3 リスク区分による上限, 5.5.4 委任の条件(適用: CL0・R3 の変更), 5.5.5 運用形態にかかわらず人が確定する判断, 5.5.6 席ごとの上限, 5.5.7 運用形態の引き上げと引き下げ, 5.5 判断の席と、確定の担い手 (+1 more)
+
+### Community 6686 - "tailoring-guide.md"
+Cohesion: 0.22
+Nodes (8): テーラリングの禁止事項, 入力: 5つの調整軸, 外部の確認者を高リスクの変更へ集中させる(適用: チーム規模 1〜2名), 市場・顧客仮説の検証が成立しない場合, 調整は宣言を伴う, 軸A: チーム規模による調整, 軸B と事業ステージの対応, 軸C: 期待品質・規制による調整
+
+### Community 6687 - "極小規模での事後監査への切替"
+Cohesion: 0.22
+Nodes (9): AI の確認を独立した人の確認に数えません, 事後監査の手続(適用: 委任を適用した R3 の変更。体制の規模によらない), 切替が成立する条件, 委任・標準変更・L3 は同じ変更種別を指す, 対象にできる変更の境界, 指示資産の監査証跡, 極小規模での事後監査への切替, 登録した種別の変更が通るゲート (+1 more)
+
+### Community 6688 - "steps"
+Cohesion: 0.43
+Nodes (8): steps, steps, steps, id, if, name, run, uses
+
+### Community 6689 - "審議の入力: Issue #290 と、束ねた元 Issue の要点"
+Cohesion: 0.25
+Nodes (7): #267(閉) 一人が 5 ロールを 7 か月運用して解けなかった 4 点と「80 点で止める」, #269(閉) 受入基準とチェックリストを厳格にするほど AI は微差の修正へ向かった, #270(閉) 品質ゲートを強化し続けたら装置が製品の 0.76 倍、PR の 60% が装置修理、装置が顧客を止めた, #289 から送られた論点(research/289-deliberation/decision.md D-12・D-13・D-15), #290(本 Issue), 審議の入力: Issue #290 と、束ねた元 Issue の要点, 既に決まっていること(蒸し返さない。覆すなら材料を示す)
+
+### Community 6690 - "審議の入力: Issue #291 と、束ねた元 Issue の要点"
+Cohesion: 0.25
+Nodes (7): #255(閉) G-4 に受入基準 → タスクの数え上げが無い, #256(閉) 仕様の前提に、観測で確かめたか否かの区別が無い, #257(閉) AI が提出する指摘に含めるべき値, #258(閉) 分けた AI 同士を往復させない規定, #291(本 Issue), 他 Issue から送られてきた論点, 審議の入力: Issue #291 と、束ねた元 Issue の要点
+
+### Community 6691 - "審議の入力: Issue #292 と、元 Issue #259 の要点"
+Cohesion: 0.25
+Nodes (7): 2026-09-23 起票者のコメント(ganbari-quest の型), 2026-10-08 突合の結果(一部), #259(閉)のコメント, #292(本 Issue), 他 Issue から送られてきた論点, 審議の入力: Issue #292 と、元 Issue #259 の要点, 既に決まっていること(蒸し返さない)
+
+### Community 6692 - "審議の入力: Issue #293 と、束ねた元 Issue の要点"
+Cohesion: 0.25
+Nodes (7): #260 の残り(週次 lychee の 4xx の棚卸し), #276 CI が実際に落とす検査の一覧を 1 か所に置き、ci.yml と突合する(未対応), #277 配布物を配る前に検査する(未対応), #280 手元の検査と CI の境界を書く(一部), #281 配布ブランチへの force push を、起動元ブランチのワークフローのファイルだけで守らない(未対応), #293(本 Issue), 審議の入力: Issue #293 と、束ねた元 Issue の要点
+
+### Community 6693 - "L-1 カバレッジの遮断"
+Cohesion: 0.25
+Nodes (8): 80%・90% の根拠水準, L-1 カバレッジの遮断, ratchet を課さない文, 実装と台帳, 文の案, 根拠水準, 選ばなかった案, 食い違いの裁き
+
+### Community 6694 - "調査 296-1: 内部の現状(標準・テンプレート・台帳)"
+Cohesion: 0.25
+Nodes (7): 0. 共通の前提, 11. 突合で確かめること(本 Issue の決定の後), 8. 利用者の PR 分布の実測, 根拠水準マークの有無(本 Issue の論点の値), 確認できなかったこと, 能力依存の定数の登録簿, 調査 296-1: 内部の現状(標準・テンプレート・台帳)
+
+### Community 6695 - "9. コメント 1 の項目(テンプレートの挙動)"
+Cohesion: 0.25
+Nodes (8): 9.1 規模の別集計 5 倍, 9.2 `CODE_EXTENSIONS` と `evidence/`, 9.3 `aiNameReason` の語彙, 9.4 `riskFloor` のダミーのパス, 9.5 `sizeObservation` の前回比・登録簿の整合検査の変異試験, 9.6 `/pit` の注記, 9.7 ファイル数だけの超過, 9. コメント 1 の項目(テンプレートの挙動)
+
+### Community 6696 - "#298 の論点の経緯(会議体の入力)"
+Cohesion: 0.25
+Nodes (7): 0. #298 の位置づけ, 1. 関連する Issue, #298 の論点の経緯(会議体の入力), 2. 関連する ADR, 3. 過去の調査・議論で既に出ていること, 4. 既に決まっていること, 5. 開いている問い(会議体へ)
+
+### Community 6697 - "会議体の議題(#311 AI 自律レベルの検知と引き下げ)"
+Cohesion: 0.25
+Nodes (7): N-1 実行層へ降ろすか(IMPL-0104), N-2 第2区分の 3 行目(重複率・手戻り率)の措置の強さと定義, N-3 閾値の根拠の開示, N-4 附属書H C6 と内部監査の観点, N-5 最小標本に満たない窓(#340 事象1 を含む), N-6 附随の不整合, 会議体の議題(#311 AI 自律レベルの検知と引き下げ)
+
+### Community 6698 - "会議体の議題(#312 席の兼務の境界と既定の写像)"
+Cohesion: 0.25
+Nodes (7): P-1 価値責任者×技術判断者の兼務の境界, P-2 3.5.1 の既定の写像, P-3 `dev-done` の受け手, P-4 人の名簿, P-5 表の記号の語彙, P-6 附随の不整合, 会議体の議題(#312 席の兼務の境界と既定の写像)
+
+### Community 6699 - "会議体の議題(#313 標準の版・適用の終了・逸脱と適合の主張)"
+Cohesion: 0.25
+Nodes (7): Q-1 標準の版の付番と改訂時の扱い, Q-2 適用の終了, Q-3 逸脱がある場合の適合の主張, Q-4 引用規格の版の書き方, Q-5 適用の開始の境(pre-init), Q-6 附随の不整合, 会議体の議題(#313 標準の版・適用の終了・逸脱と適合の主張)
+
+### Community 6700 - "会議体の議題(#314 実装マークの検査の手段と降りていない規定)"
+Cohesion: 0.25
+Nodes (7): R-1 検査の強さの分類(`check` の属性), R-2 `claude-md` の常駐の規則の検査, R-3 G-5 基準6(文脈ファイルの形式検査), R-4 降りていない規定の扱い(順序・降ろさない決定), R-5 スキルの文の検査(ADR-0064)の範囲, R-6 附随, 会議体の議題(#314 実装マークの検査の手段と降りていない規定)
+
+### Community 6701 - "会議体の議題(#317 委託(軸D)の残り)"
+Cohesion: 0.25
+Nodes (7): R-1 軸D の表の空いた行(G-1・G-2・G-5), R-2 指示資産と強制層の持ち主, R-3 判定の結果を受け取る者, R-4 様式 08 の、標準に無い節, R-5 決裁権限規程を前提にした文, R-6 疑義応答集 第3集の版と、偽装請負の扱いの範囲, 会議体の議題(#317 委託(軸D)の残り)
+
+### Community 6702 - "会議体の議題(#318 独立の強さを人数ではなく距離で上げる案と、S0 の残り)"
+Cohesion: 0.25
+Nodes (7): R-1 独立の強さを、承認者の人数ではなく確認者の距離で上げるか, R-2 CL1 以上かつ S0 の G-7, R-3 `tool/requirements.md` シナリオ1, R-4 未達が解けた後のカバレッジの下限, R-5 既存の CL2 の構成への案内(ルールセット `safety`), R-6 重なりと分担, 会議体の議題(#318 独立の強さを人数ではなく距離で上げる案と、S0 の残り)
+
+### Community 6703 - "会議体の議題(#346 ジョブの権限で発行される短命のトークンと、G-8「配備の統制と資格情報の置き場」)"
+Cohesion: 0.25
+Nodes (7): R-1 条項は、ジョブの権限で発行される短命のトークンをどう扱うか, R-2 認める場合、何が止めるか。語の定義, R-3 本リポジトリの配布, R-4 採用者とテンプレート, R-5 記録, 会議体の議題(#346 ジョブの権限で発行される短命のトークンと、G-8「配備の統制と資格情報の置き場」), 前提として確かめた事実(要旨)
+
+### Community 6704 - "1. 自律コーディングエージェントの主要実装例"
+Cohesion: 0.25
+Nodes (8): 1-1. Devin(Cognition), 1-2. SWE-agent(Princeton NLP), 1-3. OpenAI Codex / Operator, 1-4. GitHub Copilot coding agent, 1-5. Google Jules, 1-6. Claude Code / Claude Agent SDK(Anthropic), 1-7. 一覧(建前 vs 現実の要約), 1. 自律コーディングエージェントの主要実装例
+
+### Community 6705 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6706 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6707 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6708 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6709 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6710 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6711 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6712 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6713 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6714 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6715 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6716 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6717 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6718 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6719 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6720 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6721 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6722 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6723 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6724 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6725 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6726 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6727 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6728 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6729 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6730 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6731 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6732 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6733 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6734 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6735 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6736 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6737 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6738 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6739 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6740 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6741 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6742 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6743 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6744 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6745 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6746 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6747 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6748 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6749 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6750 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6751 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6752 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6753 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6754 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6755 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6756 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6757 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6758 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6759 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6760 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6761 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6762 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6763 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6764 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6765 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6766 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6767 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6768 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6769 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6770 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6771 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6772 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6773 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6774 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6775 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6776 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6777 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6778 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6779 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6780 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6781 - "verification"
+Cohesion: 0.25
+Nodes (8): verification, agent, date, humanChecked, mech, method, note, status
+
+### Community 6782 - "deploy"
+Cohesion: 0.29
+Nodes (7): environment, if, needs, runs-on, name, url, deploy
+
+### Community 6783 - "with"
+Cohesion: 0.29
+Nodes (7): with, cache, fetch-depth, if-no-files-found, name, node-version, path
+
+### Community 6784 - "会議体の議題(Issue #290 検査装置の総量)"
+Cohesion: 0.29
+Nodes (6): 会議体の議題(Issue #290 検査装置の総量), 判定の語, 既に決まっていること(蒸し返さない。覆すなら材料を示す), 調査が自分で断っている限界, 論点, 論点どうしの依存(議長が調査から拾ったもの)
+
+### Community 6785 - "会議体の議題(Issue #291 254 系: G-4 の数え上げ、仕様の前提、AI の指摘、往復)"
+Cohesion: 0.29
+Nodes (6): 会議体の議題(Issue #291 254 系: G-4 の数え上げ、仕様の前提、AI の指摘、往復), 判定の語, 既に決まっていること(蒸し返さない。覆すなら材料を示す), 調査が自分で断っている限界, 論点, 論点どうしの依存(議長が調査から拾ったもの)
+
+### Community 6786 - "会議体の議題(Issue #292 実装マークを足すべき条項の特定)"
+Cohesion: 0.29
+Nodes (6): 会議体の議題(Issue #292 実装マークを足すべき条項の特定), 判定の語, 既に決まっていること(蒸し返さない。覆すなら材料を示す), 調査が自分で断っている限界, 論点, 論点どうしの依存(議長が調査から拾ったもの)
+
+### Community 6787 - "L-10 運用メトリクス"
+Cohesion: 0.29
+Nodes (7): L-10 運用メトリクス, バックログの純増を課さない, 区分の定義, 実装マーク, 対の指標の列, 誤りの文, 選ばなかった案
+
+### Community 6788 - "10. 公開仕様の版の付け方 — ASVS / SLSA / OpenAPI / W3C(Q1)"
+Cohesion: 0.29
+Nodes (7): 10.1 OWASP ASVS **[原文・部分]**, 10.2 SLSA **[原文]**, 10.3 OpenAPI のパッチ版の方針 **[原文・部分]**, 10.4 W3C Process **[未確認]**, 10.5 OASIS の適合性条項の手引き **[原文]**, 10.6 Q1〜Q4 への関わり, 10. 公開仕様の版の付け方 — ASVS / SLSA / OpenAPI / W3C(Q1)
+
+### Community 6789 - "場面の再検証(2026-09-30)— 指摘の一覧(主担当が受信メッセージから転記)"
+Cohesion: 0.29
+Nodes (6): 中, 場面の再検証(2026-09-30)— 指摘の一覧(主担当が受信メッセージから転記), 確かめられなかったこと, 詰まる箇所, 軽, 重大
+
+### Community 6790 - "5.7 ゲート承認における判断の要求事項"
+Cohesion: 0.29
+Nodes (7): 5.7.1 ゲートごとに求める水準, 5.7.2 決断の記録の構造, 5.7.3 選択肢の比較(適用: R1 の決定・例外承認), 5.7.4 記述の質を機械的に判定しない, 5.7.5 形骸化を遅らせる提示の設計, 5.7.6 承認設計の評価指標, 5.7 ゲート承認における判断の要求事項
+
+### Community 6791 - "5.8 AI が生成した成果物の統制"
+Cohesion: 0.29
+Nodes (7): 5.8.1 未検証の入力として扱う, 5.8.2 記録の要求事項, 5.8.3 AI に担わせない領域, 5.8.4 テスト生成における分離の段階, 5.8.5 AI 協調の作業で行ってはならないこと, 5.8.6 実行時の拒否と、エージェントの操作の確認, 5.8 AI が生成した成果物の統制
+
+### Community 6792 - "files"
+Cohesion: 0.29
+Nodes (6): files, of, path, reason, why, schemaVersion
+
+### Community 6793 - "セキュリティポリシー"
+Cohesion: 0.33
+Nodes (4): セキュリティポリシー, 対象, 脆弱性の報告方法, サポート
+
+### Community 6794 - "permissions"
+Cohesion: 0.33
+Nodes (6): permissions, permissions, contents, id-token, pages, permissions
+
+### Community 6795 - "会議体の議題(Issue #293 リポジトリ運営 — CI・配布)"
+Cohesion: 0.33
+Nodes (5): 会議体の議題(Issue #293 リポジトリ運営 — CI・配布), 判定の語, 既に決まっていること(蒸し返さない。覆すなら材料を示す), 調査が自分で断っている限界, 論点
+
+### Community 6796 - "会議体の議題(Issue #294 次の改訂の入力 — 8 論点)"
+Cohesion: 0.33
+Nodes (5): 会議体の議題(Issue #294 次の改訂の入力 — 8 論点), 判定の語, 既に決まっていること(蒸し返さない。覆すなら材料を示す), 調査が自分で断っている限界, 論点
+
+### Community 6797 - "会議体の議題(Issue #296 固定定数の棚卸し(#295)の後継)"
+Cohesion: 0.33
+Nodes (5): 会議体の議題(Issue #296 固定定数の棚卸し(#295)の後継), 判定の語, 既に決まっていること(蒸し返さない。覆すなら材料を示す), 調査が自分で断っている限界, 論点
+
+### Community 6798 - "3. 論点ごとの詳細"
+Cohesion: 0.33
+Nodes (6): 3. 論点ごとの詳細, L-11 範囲の外で見つけたもの, L-6 10名の境界, L-9 名義と宣言, 文の案, 選ばなかった案
+
+### Community 6799 - "L-4 手戻り率"
+Cohesion: 0.33
+Nodes (6): 4 つの定義の裁き, L-4 手戻り率, 合否化を外す理由, 文の案, 根拠水準, 選ばなかった案
+
+### Community 6800 - "L-2 承認の失効"
+Cohesion: 0.33
+Nodes (6): L-2 承認の失効, 実装マーク, 文の案, 根拠水準, 現状の欠陥, 選ばなかった案
+
+### Community 6801 - "L-3 自己修復の反復の停止"
+Cohesion: 0.33
+Nodes (6): L-3 自己修復の反復の停止, 実装マーク(3.12.10), 文の案, 根拠水準, 現状, 選ばなかった案
+
+### Community 6802 - "突合(Issue #296 固定定数の棚卸し(#295)の後継)"
+Cohesion: 0.33
+Nodes (5): 反映の記録 5 章の食い違い 9 件の評価, 指摘の一覧, 確かめて問題が無かったこと, 突合(Issue #296 固定定数の棚卸し(#295)の後継), 裁定の採る・直す・課さない
+
+### Community 6803 - "会議体の議題(Issue #298 スクラムなど既存の反復手法との関係)"
+Cohesion: 0.33
+Nodes (5): 会議体の議題(Issue #298 スクラムなど既存の反復手法との関係), 判定の語, 既に決まっていること(蒸し返さない。覆すなら材料を示す), 調査が自分で断っている限界, 論点
+
+### Community 6804 - "13. 含意のまとめ"
+Cohesion: 0.33
+Nodes (6): 13.1 Q1(版の付け方と改訂時の適合主張), 13.2 Q2(適用の終了), 13.3 Q3(逸脱・テーラリングを伴う適合主張), 13.4 Q4(他規格の版の引用), 13.5 条項を書く前に埋めるべき空白, 13. 含意のまとめ
+
+### Community 6805 - "tpl2-base/runall2.sh"
+Cohesion: 0.33
+Nodes (4): GH_LOG, PATH, runall2.sh script, runsuite.sh script
+
+### Community 6806 - "fix288-tpl2/runall2.sh"
+Cohesion: 0.33
+Nodes (4): GH_LOG, PATH, runall2.sh script, runsuite.sh script
+
+### Community 6807 - "#321 との統合: 突合(crosscheck.md)への裁定"
+Cohesion: 0.33
+Nodes (5): #321 との統合: 突合(crosscheck.md)への裁定, 低, 後継の Issue(起票は議長が行う), 未解決の事項(conflicts.md), 本文の是正(統合の後に積むコミット)
+
+### Community 6808 - "#321 との統合: 識別子の振り直し"
+Cohesion: 0.33
+Nodes (5): #321 との統合: 識別子の振り直し, ADR のファイル名, コミットの識別子, 写像の規則, 振り直さなかったもの
+
+### Community 6809 - "回帰の試験の処置の表(#319 裁定 R-1.1)"
+Cohesion: 0.33
+Nodes (5): 回帰の試験の処置の表(#319 裁定 R-1.1), 宣言した決定の監査(§8 X-5), 文言の有無を確かめる場面の棚卸し(裁定 R-1.1、§8 X-7), 移さなかったもの, 移したもの
+
+### Community 6810 - "軸E: 安全重要度による調整"
+Cohesion: 0.33
+Nodes (6): 人員が足りない場合, 区分ごとの調整, 設計で下げられない危害, 設計によって区分を下げる, 軸E: 安全重要度による調整, 適用してはならない組み合わせ
+
+### Community 6811 - "組み合わせ例(3つの典型)"
+Cohesion: 0.33
+Nodes (6): 会議体と体制図の調整, 例1: スタートアップの PoC(2名・S0・標準品質・内製・CL0), 例2: 事業会社のグロース期プロダクト(8名・S2・高品質・内製・CL1), 例3: SIer の受託開発(15名・S2・規制業・受託受注側・CL2), 社会実装の段階の調整, 組み合わせ例(3つの典型)
+
+### Community 6812 - "env"
+Cohesion: 0.40
+Nodes (5): BASE, GH_TOKEN, IMPL_BASE_REF, REGRESS_OUT, env
+
+### Community 6813 - "on"
+Cohesion: 0.40
+Nodes (5): on, pull_request, push, workflow_dispatch, branches
+
+### Community 6814 - "会議体 意見書 01 — 起草(Issue #296 固定定数の棚卸し(#295)の後継)"
+Cohesion: 0.40
+Nodes (4): 1. 立場と全体の見立て, 2. 判定の一覧表, 4. 他の委員に問いたいこと, 会議体 意見書 01 — 起草(Issue #296 固定定数の棚卸し(#295)の後継)
+
+### Community 6815 - "L-5 監査の抽出"
+Cohesion: 0.40
+Nodes (5): L-5 監査の抽出, 文の案, 根拠水準, 現状の欠陥, 選ばなかった案
+
+### Community 6816 - "1. T-07 全体の行カバレッジの遮断"
+Cohesion: 0.40
+Nodes (5): 1. T-07 全体の行カバレッジの遮断, テンプレートの現状(コードで確認), 標準の現状, 矛盾・欠落, 選択肢
+
+### Community 6817 - "2. T-09 全 PR・全 push の承認失効"
+Cohesion: 0.40
+Nodes (5): 2. T-09 全 PR・全 push の承認失効, テンプレートの現状(コードで確認), 標準の現状, 矛盾・欠落, 選択肢
+
+### Community 6818 - "3. T-08 自己修復の反復の止め方"
+Cohesion: 0.40
+Nodes (5): 3. T-08 自己修復の反復の止め方, テンプレートの現状(コードで確認), 標準の現状, 矛盾・欠落, 選択肢
+
+### Community 6819 - "11. 日本の事例(Q1・Q4)"
+Cohesion: 0.40
+Nodes (5): 11.1 JIS の引用規格の書式 **[未確認]**, 11.2 JIS の改正と経過措置 **[未確認]**, 11.3 IPA 共通フレーム **[原文・部分]**, 11. 日本の事例(Q1・Q4), Q1〜Q4 への関わり
+
+### Community 6820 - "4. 認証制度の移行期間 — IAF / ISO 9001 / ISO 27001(Q1・Q2)"
+Cohesion: 0.40
+Nodes (5): 4.1 ISO/IEC 27001:2022 — IAF MD 26 **[原文]**, 4.2 ISO 9001:2015 — 3年移行の原型 **[原文・部分] / [二次]**, 4.3 ISO 9001:2026 — 現行の移行(直近事例) **[二次]**, 4.4 Q1〜Q4 への関わり, 4. 認証制度の移行期間 — IAF / ISO 9001 / ISO 27001(Q1・Q2)
+
+### Community 6821 - "5. 適用の終了 — 認証の取消し・適用範囲の縮小(Q2)"
+Cohesion: 0.40
+Nodes (5): 5.1 ISO/IEC 17065 の条項構成 **[原文・部分]**, 5.2 認証機関の運用規程(17021 系の実装例) **[二次]**, 5.3 CMMI — 評定結果の有効期限 **[原文]**, 5.4 Q1〜Q4 への関わり, 5. 適用の終了 — 認証の取消し・適用範囲の縮小(Q2)
+
+### Community 6822 - "7. MISRA Compliance:2020 — 逸脱つき適合の最良の先例(Q3)"
+Cohesion: 0.40
+Nodes (5): 7.1 逸脱(deviation) **[原文]**, 7.2 再分類計画(GRP)と逸脱できない層 **[原文]**, 7.3 適合の主張 **[原文]**, 7.4 Q1〜Q4 への関わり, 7. MISRA Compliance:2020 — 逸脱つき適合の最良の先例(Q3)
+
+### Community 6823 - "9. IEC 62304 / IEC 61508 / ISO 26262 — 改訂中の案件と「技術水準」(Q1・Q3)"
+Cohesion: 0.40
+Nodes (5): 9.1 IEC 62304 **[原文・部分]**, 9.2 欧州の整合規格と「どの版を使うか」 **[二次]**, 9.3 「技術水準(state of the art)」 **[未確認]**, 9. IEC 62304 / IEC 61508 / ISO 26262 — 改訂中の案件と「技術水準」(Q1・Q3), Q1〜Q4 への関わり
+
+### Community 6824 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 6825 - "quant"
+Cohesion: 0.40
+Nodes (5): quant, design, n, population, value
+
+### Community 6826 - "0007-schema-driven-process-data.md"
+Cohesion: 0.40
+Nodes (4): コンテキスト, ステータス, 影響, 検討した選択肢
+
+### Community 6827 - "判定の成立"
+Cohesion: 0.40
+Nodes (5): 判定が指す記録の保管, 判定の成立, 判定の根拠に数える試験の置き場, 判定記録を基底ブランチへ入れる操作, 機械が出す欄と人が書く欄
+
+### Community 6828 - "再テーラリングの契機"
+Cohesion: 0.40
+Nodes (5): 再テーラリングの契機, 再実行の時点と向き, 契機に数えないもの, 契機に数えるもの, 準拠テンプレートが備える手段
+
+### Community 6829 - "edition.yaml"
+Cohesion: 0.40
+Nodes (4): edition, history, issuedAt, schemaVersion
+
+### Community 6830 - "sections"
+Cohesion: 0.40
+Nodes (4): schemaVersion, sections, key, why
+
+### Community 6831 - "sections"
+Cohesion: 0.40
+Nodes (4): schemaVersion, sections, key, why
+
+### Community 6832 - "L-7 登録簿の最初の運用"
+Cohesion: 0.50
+Nodes (4): L-7 登録簿の最初の運用, 本 Issue で直すもの, 理由, 選ばなかった案
+
+### Community 6833 - "L-8 PR 分布の実測と規模の算定"
+Cohesion: 0.50
+Nodes (4): L-8 PR 分布の実測と規模の算定, 先送りの記録(何が足りないか), 採るもの, 課さないもの
+
+### Community 6834 - "10. コメント 2 の項目(運用メトリクス)"
+Cohesion: 0.50
+Nodes (4): 10. コメント 2 の項目(運用メトリクス), 現状, 矛盾・欠落, 選択肢
+
+### Community 6835 - "4. S-11 手戻り率の条件つき合否化"
+Cohesion: 0.50
+Nodes (4): 4. S-11 手戻り率の条件つき合否化, 標準の現状, 矛盾・欠落, 選択肢
+
+### Community 6836 - "5. S-23 監査の抽出率"
+Cohesion: 0.50
+Nodes (4): 5. S-23 監査の抽出率, 標準の現状, 矛盾・欠落, 選択肢
+
+### Community 6837 - "7. S-14・S-18/19 登録簿の最初の運用"
+Cohesion: 0.50
+Nodes (4): 7. S-14・S-18/19 登録簿の最初の運用, 現状, 矛盾・欠落, 選択肢
+
+### Community 6838 - "1. ISO/IEC Directives Part 2 — 発行年付き引用と発行年なし引用(Q1・Q4)"
+Cohesion: 0.50
+Nodes (4): 1.1 引用の2方式 **[原文]**, 1.2 適合主張の前提 **[原文]**, 1.3 Q1〜Q4 への関わり, 1. ISO/IEC Directives Part 2 — 発行年付き引用と発行年なし引用(Q1・Q4)
+
+### Community 6839 - "2. ISO/IEC/IEEE 12207・15288・42020 — 完全適合と修整適合(Q1・Q3)"
+Cohesion: 0.50
+Nodes (4): 2.1 条項の構造 **[原文・部分]**, 2.2 テーラリングの手続き(42020 附属書A 経由) **[原文]**, 2.3 Q1〜Q4 への関わり, 2. ISO/IEC/IEEE 12207・15288・42020 — 完全適合と修整適合(Q1・Q3)
+
+### Community 6840 - "run-some.sh"
+Cohesion: 0.50
+Nodes (3): GH_LOG, PATH, run-some.sh script
+
+### Community 6841 - "#321 との統合: コミットの対応"
+Cohesion: 0.50
+Nodes (3): #321 との統合: コミットの対応, 本リポジトリ, 準拠テンプレート(`template/`)
+
+### Community 6842 - "G-2 要件合意(価値責任者・48時間)"
+Cohesion: 0.50
+Nodes (4): G-2 要件合意(価値責任者・48時間), 前提の欄(基準3), 曖昧語(基準2), 未確定事項(前提条件1)
+
+### Community 6843 - "軸B: 事業ステージによる調整"
+Cohesion: 0.50
+Nodes (4): S0 の省略が成立する前提(適用: 事業ステージ S0 で、標準品質かつ CL0 の構成), 実装スタックが未確定でも構成を初期化してよい, 本軸が動かすもの、動かさないもの, 軸B: 事業ステージによる調整
+
+### Community 6844 - "impl-inventory-baseline.yaml"
+Cohesion: 0.50
+Nodes (3): frozenAt, schemaVersion, sections
+
+### Community 6845 - "6. S-16 10 名の境界"
+Cohesion: 0.67
+Nodes (3): 6. S-16 10 名の境界, 標準の現状, 選択肢
+
+### Community 6846 - "0. 読み方"
+Cohesion: 0.67
+Nodes (3): 0.1 検証の区分, 0.2 4つの問い, 0. 読み方
+
+### Community 6847 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6848 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6849 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6850 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6851 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6852 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6853 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6854 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6855 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6856 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6857 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6858 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6859 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6860 - "events"
+Cohesion: 0.67
+Nodes (3): events, date, label
+
+### Community 6861 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6862 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6863 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6864 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6865 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6866 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6867 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6868 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6869 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6870 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6871 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6872 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6873 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6874 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6875 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6876 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6877 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6878 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6879 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6880 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6881 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6882 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6883 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6884 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6885 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6886 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6887 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6888 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6889 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6890 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6891 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6892 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6893 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6894 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6895 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6896 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6897 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6898 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6899 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6900 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6901 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6902 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6903 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6904 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6905 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6906 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6907 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6908 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6909 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6910 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6911 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6912 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6913 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6914 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6915 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6916 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6917 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6918 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6919 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6920 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6921 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6922 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6923 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6924 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6925 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6926 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6927 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6928 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6929 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6930 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6931 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6932 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6933 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6934 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6935 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6936 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6937 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6938 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6939 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6940 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6941 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6942 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6943 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6944 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6945 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6946 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6947 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6948 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6949 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6950 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6951 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6952 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6953 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6954 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6955 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6956 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6957 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6958 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6959 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6960 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6961 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6962 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6963 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6964 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6965 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6966 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6967 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6968 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6969 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6970 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6971 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6972 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6973 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6974 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6975 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6976 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6977 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6978 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6979 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6980 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6981 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6982 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6983 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6984 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6985 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6986 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6987 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6988 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6989 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6990 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6991 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6992 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6993 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6994 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6995 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6996 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6997 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 6998 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 6999 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 7000 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 7001 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 7002 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
+### Community 7003 - "foundBy"
+Cohesion: 0.67
+Nodes (3): foundBy, cluster, query
+
+### Community 7004 - "ids"
+Cohesion: 0.67
+Nodes (3): ids, arxiv, doi
+
 ## Knowledge Gaps
-- **33 isolated node(s):** `ADR-0006`, `ADR-0017`, `ADR-0020`, `ADR-0039`, `ADR-0062` (+28 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 54311 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **14 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **108 isolated node(s):** `ADR-0006`, `ADR-0017`, `ADR-0020`, `PATH`, `GH_LOG` (+103 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 63479 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **30 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `操作(`scripts/research-ledger.mjs`)` connect `research-ledger.mjs` to `research/ — 調査メモ置き場`?**
-  _High betweenness centrality (0.000) - this node is a cross-community bridge._
+- **Why does `ゲート判定記録の成立要件 — 本標準の内部の棚卸し(#321)` connect `6. 過去の調査・会議体のメモ` to `席と運用形態、体制の変化点`, `1. ADR`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **What connects `ADR-0006`, `ADR-0017`, `ADR-0020` to the rest of the system?**
-  _33 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _108 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
-- **Why does `出典台帳(research/sources/)` connect `research/ — 調査メモ置き場` to `research-ledger.mjs`?**
-  _High betweenness centrality (0.000) - this node is a cross-community bridge._
+- **Why does `at()` connect `席と運用形態、体制の変化点` to `regress/suite/lib.mjs`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
-- **Why does `yaml` connect `package.json` to `ref_node_fs`, `research-ledger.mjs`, `test-tailoring-engine.mjs`, `check-provisions.mjs`, `check-skill-provisions.mjs`, `check-impl.mjs`, `check-scope.mjs`, `build-template-kb.mjs`?**
-  _High betweenness centrality (0.000) - this node is a cross-community bridge._
+- **Why does `4. テンプレート側の実装` connect `席と運用形態、体制の変化点` to `6. 過去の調査・会議体のメモ`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
   _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
