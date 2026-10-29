@@ -94,6 +94,7 @@ const TEMPLATE_FILES = {
   9: '09-safety-risk-assessment.md',
   10: '10-assumption-ledger.md',
   11: '11-quality-assurance-policy.md',
+  12: '12-product-principles.md',
 };
 
 // 標準本体で新設したが、配布テンプレートがまだ無い様式。テンプレ番号 → 実装マークの番号。

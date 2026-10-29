@@ -194,3 +194,45 @@ targets:
     kind: template-file
     path: .github/rulesets/README.md
     description: 既定ブランチと記録の置き場に掛ける強制層の構成(team / regulated / safety / checks-only)と、その説明。GitHub のルールセットはパス単位の免除を持たない(#321)ため、判定記録だけの PR にも承認 1 件が残る。降りていない規定は README に表示し続ける
+
+  - id: agent-settings
+    name: エージェントの権限設定
+    kind: template-file
+    path: .claude/settings.json
+    description: エージェントの読み込みと書き込みの権限。保管領域(context/_archive/)の読み込みを deny に置く(第3章 3.11.4 要求事項7)。構成の生成(generate-profile.mjs)が、ステージに依らずこの行を残す。test-init-g5.mjs が生成後の deny を確かめる
+
+  - id: decisions-check
+    name: 判断記録の状態と参照の検査
+    kind: template-file
+    path: scripts/gate/check-decisions.mjs
+    description: 判断記録(context/decisions/ と context/_archive/decisions/)の状態の行と「置き換える決定」の欄を読み、置き換えの両側の参照の一致と、状態に応じた置き場を検査する。期限つきの実験の判断記録のうち、期限を過ぎて結果が状態に反映されていないものを一覧に出す(--overdue)。gate-g5.yml の contract ジョブが呼び、test-decisions.mjs が試験する(ADR-0071・ADR-0072)
+
+  - id: adr-template
+    name: 成果物テンプレート テンプレ2(判断記録)
+    kind: template-file
+    path: templates/02-adr.md
+    description: 判断記録の様式。状態の語彙(採用 / 一部置き換え / 置き換え / 廃止)、置き換える決定の欄、可逆性の欄、期限つきの実験の期限の欄の置き場(第6章 テンプレ2、ADR-0071)
+
+  - id: principles-template
+    name: 成果物テンプレート テンプレ12(プロダクトの原則)
+    kind: template-file
+    path: templates/12-product-principles.md
+    description: プロダクトの原則の様式。名前・文・理由・含意(反する選択の例)の4欄、記名、改廃の判断記録の欄の置き場(第6章 テンプレ12、ADR-0071)。置くことは義務ではない
+
+  - id: defect-ledger-template
+    name: 欠陥の台帳の様式
+    kind: template-file
+    path: templates/defect-ledger.md
+    description: 出荷判定(G-7)基準2 の既知の欠陥の台帳。欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(第4章 G-5)の様式は、ここにまだ無い
+
+  - id: incident-artifact
+    name: 障害時に使う記録の補助ファイル
+    kind: template-file
+    path: .claude/skills/artifact/artifacts/incident.md
+    description: 障害時の手順とポストモーテムの書き方。Sev1・Sev2 のポストモーテムが是正の起動(第4章 G-5)の記録を兼ね、4項目を書く
+
+  - id: pr-template
+    name: PR の本文の様式
+    kind: template-file
+    path: .github/PULL_REQUEST_TEMPLATE.md
+    description: PR の本文の節(変更の概要・作成を指示した者・リスク区分・規模の確認・統制の設定の陰性の確認・トレーラ)。G-5 の PR 単位の検査(check-pr.mjs)が節を読む

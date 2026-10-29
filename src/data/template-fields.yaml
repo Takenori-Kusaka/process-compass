@@ -117,6 +117,19 @@ forms:
         template: 取り消しの可否
       - standard: 影響する必達基準
         template: 影響する必達基準
+      # --- #289 / ADR-0071: 状態の語彙と両側の参照、可逆性、期限つきの実験 ---
+      - standard: 一部置き換え(→ ADR-MMM の決定 n)
+        template: 一部置き換え(→ ADR-MMM の決定 n)
+      - standard: '- 置き換える決定:'
+        template: 置き換える決定
+      - standard: '## 可逆性'
+        template: 可逆性
+      - standard: 戻せる選択か
+        template: 戻せる選択か
+      - standard: 戻せなくなるもの
+        template: 戻せなくなるもの
+      - standard: 期限(期限つきの実験として導入した場合)
+        template: 期限(期限つきの実験として導入した場合)
 
   - id: t3
     name: テンプレ3 技術負債台帳
@@ -153,6 +166,9 @@ forms:
       - standard: 非同期コメント期間
         template: 非同期コメント期間
         omit: 機械が出す欄。提出日時から判定日時までの期間とコメントの数を、PR の記録から出荷の証跡の集約が出す(第4章 判定の成立、#321)
+      # G-3 の判定記録は、判定した判断記録の番号と版を書く(第4章 G-3、ADR-0071)
+      - standard: 判定した判断記録(G-3 のみ)
+        template: 判定した判断記録(G-3 のみ)
       # リスク区分を確定した者の記名(第3章 3.8.1)。自己記載のままなら保証の開示へ出る(ADR-0056 決定6)
       - standard: 変更のリスク区分(変更を対象とする判定のみ)
         template: 変更のリスク区分
@@ -349,6 +365,16 @@ forms:
         template: 劣化時の進め方
       - standard: 有効期限
         template: 有効期限
+
+  - id: t12
+    name: テンプレ12 プロダクトの原則
+    file: templates/12-product-principles.md
+    fields:
+      # 4欄・技術判断者の記名・改廃の判断記録(第6章 テンプレ12、ADR-0071)
+      - standard: '| # | 名前 | 文 | 理由 | 含意(反する選択の例) | 改廃の判断記録 |'
+        template: '| # | 名前 | 文 | 理由 | 含意(反する選択の例) | 改廃の判断記録 |'
+      - standard: 記名(技術判断者)
+        template: 記名(技術判断者)
 
   - id: t11
     name: テンプレ11 品質保証の方針と受容の基準(層1)

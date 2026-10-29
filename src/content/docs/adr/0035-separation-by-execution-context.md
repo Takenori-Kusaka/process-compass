@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-08-12)
+採用(2026-08-12)。一部置き換え(→ ADR-0060 の決定1): 決定1 の適用範囲を、[ADR-0060](/process-compass/adr/0060-drafting-context-and-two-layer-independence/)の決定1 が置き換えました(2026-10-13)。
 
 ## コンテキスト
 
