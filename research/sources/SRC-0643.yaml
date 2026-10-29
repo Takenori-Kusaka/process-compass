@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: SRC-0643
+status: included
+excludeReason: null
+title: ISO 9001:2015 Quality management systems — Requirements (catalogue record)
+url: https://bsmd.moic.gov.bh/store/standards/iso:pub:std:IS:62085/ISO%209001:2015?lang=en
+canonicalUrl: https://bsmd.moic.gov.bh/store/standards/iso:pub:std:is:62085/iso%209001:2015
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/TC 176 (catalogue record via Bahrain Standards and Metrology Directorate store)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: '2015-09-22'
+publishedBasis: page
+version: 2015 edition
+updated: null
+accessed: '2026-10-24'
+access: paywall
+readLevel: abstract
+foundBy:
+  cluster: I313
+  query: ISO 9001:2015 Quality management systems Requirements catalogue status
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: 
+- date: 2015-09
+  label: ISO 9001:2015 を承認・発行
+- date: 2026-09-16
+  label: ISO 9001:2026 の発行により 2015 年版は旧版(Historical)
+summary: '第1章 1.3 と附属書H H.10 が依る ISO 9001 の 2015 年版。規格の販売の頁で、版の識別と状態(Historical)だけを確かめた。本文は読んでいない。2026-09-16 に 2026 年版が発行された(SRC-0542 ほか)。Issue #313 で登録した。'
+claims:
+- id: c1
+  text: ISO 9001:2015(品質マネジメントシステム—要求事項)は、2015-09-22 に承認された版で、目録の状態は「Historical」である。
+  quote: Approved on 22 September 2015.
+  locator: 目録の頁
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 313
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: バーレーンの規格の販売の頁(ISO の目録の写し)を WebFetch(要約モデル経由)で読み、名称・承認日・状態を抜き出させた。iso.org の頁はこの環境の代理が拒否した(403)。本文は読んでいない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-10'

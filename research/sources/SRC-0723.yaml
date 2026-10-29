@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0723
+status: included
+excludeReason: null
+title: "GitHub Docs: REST API endpoints for deployment environments"
+url: https://docs.github.com/en/rest/deployments/environments
+canonicalUrl: https://docs.github.com/en/rest/deployments/environments
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "Environment の REST API。取得の応答は deployment_branch_policy(protected_branches と custom_branch_policies)と protection_rules を持ち、リポジトリの読み取りの権限で呼べる。選んだブランチとタグの一覧は deployment-branch-policies の API で読む。#346 は、準拠テンプレートの env-check が読む値の所在として引いた。"
+claims:
+  - id: c1
+    text: "Environment の取得の応答は deployment_branch_policy を持ち、protected_branches と custom_branch_policies は逆の値をとる。"
+    quote: ""
+    locator: "Get an environment の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の実装(裁定 R-2 の確認)で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文のままとして返した文で、原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

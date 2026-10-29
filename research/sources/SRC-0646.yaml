@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0646
+status: included
+excludeReason: null
+title: ISO/IEC TR 5469:2024 Artificial intelligence — Functional safety and AI systems (catalogue record)
+url: https://www.iso.org/standard/81283.html
+canonicalUrl: https://www.iso.org/standard/81283.html
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC JTC 1/SC 42
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: '2024-01-08'
+publishedBasis: page
+version: Edition 1
+updated: null
+accessed: '2026-10-24'
+access: paywall
+readLevel: abstract
+foundBy:
+  cluster: I313
+  query: ISO/IEC TR 5469:2024 Functional safety and AI systems
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '第1章 1.3 と第6章が引く技術報告書。ISO/IEC TR 5469:2024(第1版、2024-01-08)。iso.org の目録で名称・版・発行日・状態を確かめた。本文は読んでいない。Issue #313 で登録した。'
+claims:
+- id: c1
+  text: ISO/IEC TR 5469:2024 は第1版で、2024-01-08 に発行され、状態は Published である。
+  quote: Artificial intelligence — Functional safety and AI systems
+  locator: 目録の頁
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 313
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: iso.org の目録の頁を WebFetch(要約モデル経由)で読み、名称・版・発行日・状態を抜き出させた。本文は読んでいない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-10'

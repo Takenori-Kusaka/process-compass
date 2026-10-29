@@ -1,0 +1,1 @@
+{ "kind": "axis", "date": "2027-04-01", "summary": "PoC へ戻す", "answers": { "q-biz-phase": "poc" }, "decidedBy": "山田 太郎", "reason": "技術的実現性が未検証と判明", "sgRecord": "docs/gates/sg-0-2027-04-01.md" }

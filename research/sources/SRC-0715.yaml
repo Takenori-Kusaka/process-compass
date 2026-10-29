@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0715
+status: included
+excludeReason: null
+title: "SLSA v1.0 Build requirements"
+url: https://slsa.dev/spec/v1.0/requirements
+canonicalUrl: https://slsa.dev/spec/v1.0/requirements
+ids:
+  arxiv: null
+  doi: null
+publisher: "OpenSSF SLSA"
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: standard
+published: null
+publishedBasis: page
+version: "v1.0"
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "SLSA v1.0 の Build トラックの要求事項(頁は Retired の表示)。ビルドの定義を誰が変えられるかは Build トラックの範囲外とする。"
+claims:
+  - id: c1
+    text: "Build トラックは、生産者が危険なビルドを行うことを基盤が防ぐことを要求しない。"
+    quote: ""
+    locator: "Build requirements の範囲の記述"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

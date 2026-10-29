@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: SRC-0684
+status: included
+excludeReason: null
+title: Convergent Contemporary Software Peer Review Practices
+url: https://users.ece.utexas.edu/~miryung/teaching/EE379K-Spring2014/Papers/Paper%204.pdf
+canonicalUrl: https://users.ece.utexas.edu/~miryung/teaching/EE379K-Spring2014/Papers/Paper%204.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ESEC/FSE 2013
+authors:
+- Peter C. Rigby
+- Christian Bird
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: '2013'
+publishedBasis: pdf
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: 複数の組織とオープンソースのピアレビューの実務の収れんの研究。実際に参加するレビュアーの中央値は2で、2人のレビュアーが欠陥の発見で最適とする。#318 は、人数を増やしても独立の段は上がらない判断の材料として引いた。
+claims:
+- id: c1
+  text: 2人のレビュアーが、最適な数の欠陥を見つけるとされている。
+  quote: Two reviewers find an optimal number of defects.
+  locator: 結果の節
+  quant: null
+  evidenceKind: observational
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+- id: c2
+  text: 作成者以外で実際にレビューに参加する人数の中央値は2である。
+  quote: the median number of people that actually take part in a review (other than the author) is 2.
+  locator: Microsoft の事例の節
+  quant: null
+  evidenceKind: observational
+  rqs: []
+  issues:
+  - 318
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

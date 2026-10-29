@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0672
+status: included
+excludeReason: null
+title: 「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に係る疑義応答集について(事務連絡)
+url: https://www.mhlw.go.jp/content/000780139.pdf
+canonicalUrl: https://mhlw.go.jp/content/000780139.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 厚生労働省職業安定局需給調整事業課
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2021-05-13
+publishedBasis: pdf
+version: 令和3年5月13日の事務連絡
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I317
+  query: '#317 外部調査 2.2・2.3・1.2'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '疑義応答集(第2集)を各労働局へ示した厚生労働省の事務連絡(令和3年5月13日)。従前の解釈を変更するものではないと述べる。#317 で出典カードを起こした。'
+claims:
+- id: c1
+  text: 第2集の回答は、従前の解釈を変更するものではないとされている。
+  quote: 従前の解釈を変更するものではありませんが、下記のとおり回答をお示ししますので、対応に遺漏なきようお願いいたします。
+  locator: 本文の冒頭
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: #317 の実装で WebFetch(要約モデル経由)に逐語を求めて返った文字列。PDF の目視の照合はしていない(curl はプロキシで遮断された)。法律の助言ではない
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

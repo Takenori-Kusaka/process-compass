@@ -1,0 +1,1 @@
+{ "kind": "headcount", "date": "2026-12-01", "summary": "15名から5名へ", "answers": { "q-team-size": "size-3-9" }, "people": [ { "id": "a", "name": "山田 太郎" }, { "id": "b", "name": "佐藤 花子" }, { "id": "c", "name": "鈴木 一郎" }, { "id": "d", "name": "高橋 次郎" }, { "id": "e", "name": "田中 三郎" } ] }

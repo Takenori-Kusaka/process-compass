@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0674
+status: included
+excludeReason: null
+title: JISA ソフトウェア開発委託基本モデル契約書 2020
+url: https://www.jisa.or.jp/Portals/0/report/contract_model2020.pdf
+canonicalUrl: https://jisa.or.jp/Portals/0/report/contract_model2020.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 一般社団法人 情報サービス産業協会(JISA)
+authors: []
+orgType: community
+region: jp
+lang: ja
+sourceType: industry-report
+published: 2019
+publishedBasis: pdf
+version: 2020 年版(Copyright 2019。平成30年度の報告書に所収)
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I317
+  query: '#317 外部調査 2.2・2.3・1.2'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '業界団体のソフトウェア開発委託のモデル契約。要件定義書を甲乙双方の責任者の記名押印で確定し、検収は甲の検査合格で完了し、業務従事者への指揮命令は乙が行う。#317 は、G-2 を双方の記名で成立させる案を採らない判断の比較の材料として引いた(本文の範囲は第11条・第17条・第28条)。'
+claims:
+- id: c1
+  text: 要件定義書は、甲乙双方の責任者の記名押印による確認をもって確定するとされている。
+  quote: 前項による甲乙双方の確認をもって、要件定義書は確定したものとする。
+  locator: 第17条 第2項
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
+- id: c2
+  text: 本件ソフトウェアの検収は、甲の検査合格をもって完了するとされている。
+  quote: 本条所定の検査合格をもって、本件ソフトウェアの検収完了とする。
+  locator: 第28条 第4項
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
+- id: c3
+  text: 業務従事者への業務遂行に関する指示と指揮命令は、乙が行うとされている。
+  quote: 乙は、労働法規その他関係法令に基づき業務従事者に対する雇用主としての一切の義務を負うものとし、業務従事者に対する本件業務遂行に関する指示、労務管理、安全衛生管理等に関する一切の指揮命令を行うものとする。
+  locator: 第11条 第2項
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: #317 の実装で WebFetch(要約モデル経由)に逐語を求めて返った文字列。PDF の目視の照合はしていない(curl はプロキシで遮断された)。法律の助言ではない
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

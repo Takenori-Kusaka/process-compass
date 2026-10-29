@@ -5,13 +5,16 @@ on:
     - cron: "0 21 * * 0" # 毎週月曜 06:00 JST
   workflow_dispatch:
 
+# 最上位は読み取りだけ。書き込みはジョブ単位で付ける(Issue #293 裁定 J-6 f)
 permissions:
   contents: read
-  issues: write
 
 jobs:
   lychee:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v7

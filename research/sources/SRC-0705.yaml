@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0705
+status: included
+excludeReason: null
+title: "GitHub Docs: Deployments and environments"
+url: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments
+canonicalUrl: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "Environment の保護規則・配備のブランチとタグ・秘密情報・管理者の迂回・プランの制限の頁。Environment の秘密情報は、その Environment を参照するジョブにだけ渡る。GITHUB_TOKEN の権限を Environment が限るという記述は無い。#346 は、Environment が GITHUB_TOKEN を限らないことの根拠として引いた。"
+claims:
+  - id: c1
+    text: "Environment に置いた秘密情報は、その Environment を参照するワークフローのジョブにだけ渡る。"
+    quote: ""
+    locator: "Environment secrets の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: supports
+  - id: c2
+    text: "配備のブランチとタグは、制限なし・保護されたブランチだけ・選んだブランチとタグから選ぶ。既定では管理者は保護規則を迂回できる。"
+    quote: ""
+    locator: "Deployment branches and tags の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

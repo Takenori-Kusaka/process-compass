@@ -6,22 +6,22 @@
 // テーラリングの判定ロジックが2箇所へ分かれ、標準の改訂がテンプレートへ伝わらなくなる
 // 状態を防ぐための検査です。
 //
-// submodule(template/)を初期化していない環境では、検査を飛ばします。
-// クローン直後に npm run check が失敗する構成にしないためです。
+// submodule(template/)を初期化していない環境(空のディレクトリを含む)では、検査を失敗させます。
+// 以前は「クローン直後に npm run check を失敗させない」ために飛ばしていました。しかし
+// check-impl.mjs が既に template 無しで失敗しており、その方針は成り立っていませんでした。
+// 入力が無いために実施できなかった検査を、通過として扱いません。手元でも CI でも同じです
+// (Issue #293 裁定 J-3 / ADR-0077)。取得: git submodule update --init --recursive
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildKb } from './build-template-kb.mjs';
+import { requireInputs } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const TEMPLATE = path.join(ROOT, 'template');
 
-if (!fs.existsSync(path.join(TEMPLATE, 'process.config.json'))) {
-  console.log('template/ が未初期化のため、複製の検査を飛ばします');
-  console.log('  初期化: git submodule update --init --recursive');
-  process.exit(0);
-}
+requireInputs(ROOT, ['template', 'template/process.config.json'], 'テンプレートの複製の検査');
 
 const problems = [];
 
@@ -47,7 +47,8 @@ if (!fs.existsSync(kbDst)) {
 } else {
   const expected = JSON.stringify(buildKb(), null, 2) + '\n';
   const actual = fs.readFileSync(kbDst, 'utf8');
-  // source.commit は比較から外す。標準側でコミットを積むたびに HEAD が進み、規則データが同じでも一致しなくなるため(#301)
+  // source.commit は比較から外す。標準側でコミットを積むたびに HEAD が進み、規則データが同じでも一致しなくなるため(#301)。
+  // source.edition(本標準の版。作業中の版は null)は比較に含める。版を発行したら複製も同じ版になる(#313)
   const sansCommit = (s) => norm(s).replace(/("commit": )"[^"]*"/, '$1""');
   if (sansCommit(expected) !== sansCommit(actual)) {
     problems.push(

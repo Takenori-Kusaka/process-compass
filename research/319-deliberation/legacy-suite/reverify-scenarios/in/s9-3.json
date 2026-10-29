@@ -1,0 +1,1 @@
+{ "kind": "headcount", "date": "2026-11-15", "summary": "鈴木が離脱し、2名になった", "answers": { "q-team-size": "size-1-2" }, "people": [ { "id": "a", "name": "山田 太郎" }, { "id": "b", "name": "佐藤 花子" } ], "seats": { "independent-reviewer": { "accountable": "a" }, "qa-gatekeeper": { "accountable": "a" } } }

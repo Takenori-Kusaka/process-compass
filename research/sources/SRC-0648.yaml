@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0648
+status: included
+excludeReason: null
+title: JIS Q 9001:2015 品質マネジメントシステム―要求事項 — プレビュー(未取得)
+url: https://webdesk.jsa.or.jp/preview/pre_jis_q_09001_000_000_2015_j_ed30_ch.pdf
+canonicalUrl: https://webdesk.jsa.or.jp/preview/pre_jis_q_09001_000_000_2015_j_ed30_ch.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 日本産業標準調査会・日本規格協会
+authors: []
+orgType: standards-body
+region: jp
+lang: ja
+sourceType: standard
+published: '2015'
+publishedBasis: page
+version: 2015 年版
+updated: null
+accessed: '2026-10-24'
+access: blocked
+readLevel: snippet
+foundBy:
+  cluster: I313
+  query: JIS Q 9001:2015 品質マネジメントシステム 要求事項 ISO 9001:2015 IDT 制定
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '第1章 1.3 と附属書H H.10 が引く JIS Q 9001:2015(ISO 9001:2015 に対応)。日本規格協会のプレビューの所在は検索で見つけたが、取得の時点でサイトが緊急の保守中で読めなかった。対応の程度(IDT など)と制定日は確かめていない。Issue #313 で登録した。'
+claims:
+- id: c1
+  text: JIS Q 9001 の 2015 年版のプレビューが日本規格協会に置かれている(検索で所在だけを確かめた)。中身は確かめていない。
+  quote: pre jis q 09001 000 000 2015 j ed30 ch
+  locator: 検索結果の題
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 313
+  stance: context
+verification:
+  status: unreachable
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 日本規格協会のプレビューの PDF を WebFetch で取得したが、保守の告知の頁が返った(2026-10-22 から終了日時未定)。規格の中身を確かめていない。実在しないという意味ではない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-10'

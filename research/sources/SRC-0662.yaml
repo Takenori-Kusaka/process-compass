@@ -1,0 +1,56 @@
+schemaVersion: 0
+id: SRC-0662
+status: included
+excludeReason: null
+title: State upgrade - Terraform Plugin Framework
+url: https://developer.hashicorp.com/terraform/plugin/framework/resources/state-upgrade
+canonicalUrl: https://developer.hashicorp.com/terraform/plugin/framework/resources/state-upgrade
+ids:
+  arxiv: null
+  doi: null
+publisher: HashiCorp
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 K2'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH10
+- TH12
+events: []
+summary: Terraform のプラグインの状態の移行。schema の版を整数で持ち、旧い版ごとに現行の版への直接の変換を用意する。中間の版を順に辿らない。該当の変換が無ければエラーにする。#315 で、構成の形式の版(formatVersion)と、版ごとの現行の版への直接の変換、未知の版の拒否の前例として引いた。
+claims:
+- id: c1
+  text: UpgradeState は旧い版から変換への写像で、該当が無ければエラーになる。フレームワークは中間の版を順に辿らず、各変換は旧い版から現行の版へ全面的に上げる。
+  quote: null
+  locator: UpgradeState
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

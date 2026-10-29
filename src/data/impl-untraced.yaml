@@ -1,0 +1,79 @@
+# 逆向きの追跡の除外の一覧(Issue #314 / ADR-0084 決定6)
+#
+# 準拠テンプレートのゲートのスクリプト(scripts/gate・scripts/init)、フック(.claude/hooks)、ワークフロー(.github/workflows)、
+# エージェントの設定(.claude 直下の json)、ルールセット(.github/rulesets の json。#314 の突合 X-16)の各ファイルは、降ろし先の登録簿(src/data/impl-targets.yaml)の path か checker に現れるか、この一覧に載っていなければならない。
+# どちらにも無いファイルは、実行層にしか無い規定を持つおそれがあるため、scripts/check-impl.mjs が落とす。
+# 試験(test-*.mjs のうち、gate-g5.yml の run: から実行されるもの)は対象の外。
+#
+# path   — テンプレートの直下からの相対パス
+# reason — library(他の検査が使う部品。それ自体は規定を実装しない)/ infra(検査の実行の足回り。記録の書き出し・補助の道具)/
+#          variant(登録簿の降ろし先の変種・設定。同じ規定を運ぶ。of に降ろし先の id を書き、検査が登録簿に実在することを確かめる)
+# why    — 理由。どの降ろし先の部品か、何の足回りかを書く
+schemaVersion: 0
+files:
+  - path: scripts/gate/check-delegation.mjs
+    reason: library
+    why: 委任の経路のワークフロー(降ろし先 delegation-workflow)が呼ぶ判定の本体。規定は delegation-workflow のマークで追う
+  - path: scripts/gate/claude-md-resident.mjs
+    reason: library
+    why: check-process-rules が使う常駐の規則の照合(降ろし先 claude-md-resident)
+  - path: scripts/gate/config.mjs
+    reason: library
+    why: 構成の読み込みと共通の判定。各検査が使う
+  - path: scripts/gate/delegation.mjs
+    reason: library
+    why: 委任の規則の照合。check-delegation・check-pr・next が使う
+  - path: scripts/gate/ip-clearance-python.mjs
+    reason: infra
+    why: アダプタの python のライセンス検査の補助(G-5 基準5 のジョブ ip-clearance の足回り)
+  - path: scripts/gate/org-assurance.mjs
+    reason: library
+    why: 組織の保証の主張の材料を記録から読む。aggregate-evidence・check-pr が使う
+  - path: scripts/gate/period-needed.mjs
+    reason: infra
+    why: 期間ごとの保証の開示のワークフロー(降ろし先 assurance-period-workflow)が、開示の要否を判定する補助
+  - path: scripts/gate/recalibration-registry.json
+    reason: library
+    why: 能力依存の定数の再評価の登録簿。recalibration.mjs が読む
+  - path: scripts/gate/recalibration.mjs
+    reason: library
+    why: 再評価待ちの判定。next・aggregate-evidence が使う
+  - path: scripts/gate/verification-trace.mjs
+    reason: library
+    why: 受入基準とタスク・テストの対応の読み取り。spec-lint・next・aggregate-evidence が使う
+  - path: scripts/gate/test-results.mjs
+    reason: infra
+    why: G-5 の test ジョブが、テストの実行の記録を evidence/ へ書く足回り。集約(aggregate-evidence)が読む
+  - path: scripts/init/check-g1.mjs.template
+    reason: infra
+    why: 初期化が scripts/gate/check-g1.mjs(降ろし先に登録)として書き出す雛形
+  - path: scripts/init/set-review-sourcing.mjs
+    reason: infra
+    why: 未達のゲートの確認者の調達先を構成へ記入する補助の道具。規定は構成のキー(config-unmet)のマークで追う
+  - path: .claude/guard.json
+    reason: variant
+    of: guard-write-hook
+    why: 書き込みの遮断のフック(guard-write.mjs)が読む、保護するパスの設定。規定は guard-write-hook のマーク(IMPL-0187・IMPL-0198)で追う
+  - path: .github/rulesets/checks-only.json
+    reason: variant
+    of: rulesets
+    why: 独立レビュー(G-6)を使わない構成のルールセット(必須チェックだけ)。構成に応じて team.json の代わりに適用する変種
+  - path: .github/rulesets/regulated.json
+    reason: variant
+    of: rulesets
+    why: 承認者2名を要する構成(規制業・CL3)のルールセット。team.json の承認の数を変えた変種
+  - path: .github/rulesets/safety.json
+    reason: variant
+    of: rulesets
+    why: CL2 で承認者1名の構成のルールセット。承認の数のほかは regulated.json と同じ変種
+  - path: .github/rulesets/records.json
+    reason: variant
+    of: rulesets
+    why: 記録用ブランチ(records)に掛けるルールセット(非早送りと削除の禁止)。rulesets/README の「記録用ブランチ」が記述する構成の一つ(#321 との統合で登録)
+  - path: .github/rulesets/records-signed.json
+    reason: variant
+    of: rulesets
+    why: 規制業・CL2 以上の構成で records.json の代わりに適用する変種(署名の必須を足す)(#321 との統合で登録)
+  - path: scripts/gate/records.mjs
+    reason: library
+    why: 記録用ブランチの写しと様式の読み取り。aggregate-evidence と next が使う(#321 との統合で登録)

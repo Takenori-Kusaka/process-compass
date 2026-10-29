@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# 試験用の偽の gh。呼び出しを記録し、GitHub へ問い合わせない
+echo "gh $*" >> "$GH_LOG"
+case "$1 $2" in
+  "run list") [ -n "$FAKE_RUN_ID" ] && echo "$FAKE_RUN_ID"; exit 0;;
+  "run download") mkdir -p evidence; printf '{ "scanRun": true, "result": "success", "scannedAt": "2026-10-01T00:00:00Z" }\n' > evidence/license-scan.json; exit 0;;
+esac
+exit 0

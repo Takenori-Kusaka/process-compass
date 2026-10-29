@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0649
+status: included
+excludeReason: null
+title: IEC 61508:2010 CMV Functional safety of electrical/electronic/programmable electronic safety-related systems — Parts 1 to 7 (Edition 2.0, catalogue record)
+url: https://webstore.iec.ch/publication/22273
+canonicalUrl: https://webstore.iec.ch/publication/22273
+ids:
+  arxiv: null
+  doi: null
+publisher: IEC TC 65/SC 65A
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: '2010-04-30'
+publishedBasis: page
+version: Edition 2.0
+updated: null
+accessed: '2026-10-24'
+access: paywall
+readLevel: abstract
+foundBy:
+  cluster: I313
+  query: IEC 61508-1:2010 edition 2.0 2010-04 webstore functional safety
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '第1章 1.3 の注記が、業種固有の規格の例として引く IEC 61508(第2版、2010-04-30)。IEC Webstore の目録(注釈つき版 CMV、第1部〜第7部)で名称・版・発行日・安定日を確かめた。本文は読んでいない。第3版の CDV(SRC-0528)が審議中である。Issue #313 で登録した。'
+claims:
+- id: c1
+  text: IEC 61508:2010 は第2.0版で、2010-04-30 に発行され、第1部〜第7部からなる。安定日は 2027 である。
+  quote: Edition 2.0
+  locator: 目録の頁
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 313
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: IEC Webstore の目録の頁を WebFetch(要約モデル経由)で読み、名称・版・発行日・安定日・部の範囲を抜き出させた。版の履歴の表は空で、より新しい版の有無は目録からは確かめていない。本文は読んでいない
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-10'

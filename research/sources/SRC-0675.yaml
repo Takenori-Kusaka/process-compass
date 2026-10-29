@@ -1,0 +1,76 @@
+schemaVersion: 0
+id: SRC-0675
+status: included
+excludeReason: null
+title: 'GB/T 34590.2 征求意见稿(道路车辆 功能安全 第2部分: 功能安全管理。ISO 26262-2:2018 の修正採用の意見募集草案)'
+url: https://www.catarc.org.cn/upload/202104/29/202104291547457908.pdf
+canonicalUrl: https://www.catarc.org.cn/upload/202104/29/202104291547457908.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 中国汽车技术研究中心(CATARC)/ 全国汽车标准化技术委员会
+authors: []
+orgType: standards-body
+region: cn
+lang: zh
+sourceType: standard
+published: 2021-04
+publishedBasis: pdf
+version: 征求意见稿(ISO 26262-2:2018 を重新起草法で修正採用)
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: ISO 26262-2:2018 を修正採用する中国国家規格の改訂の意見募集草案。6.4.9 表1 に確認措置の独立性 I0〜I3 の定義と ASIL 別の要求を載せる。独立性は人数ではなく作成者からの組織上の距離(別人・直属の上長が別・管理と資源とリリース権限の点で別部門)で段階づけられる。#318 は、組織上の距離の段(標準 第1章 1.4)の3軸の比較の材料として引いた。ISO 原文は有償で未読。
+claims:
+- id: c1
+  text: I2 は、作成チームから独立した人、すなわち同じ直属の上長に報告しない人が確認措置を行う段とされている。
+  quote: 认可措施应由独立于负责创建工作成果的团队的人员执行，即由不向同一个直接上级报告的人员执行
+  locator: 6.4.9.1 表1 脚注 a(I2)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+- id: c2
+  text: I3 は、管理・資源・リリース権限の点で作成部門から独立した人が確認措置を行う段とされている。
+  quote: 认可措施应由在管理、资源和发布权限方面与负责创建对应工作产品的部门独立的人员执行
+  locator: 6.4.9.1 表1 脚注 a(I3)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+- id: c3
+  text: 本文書の独立性は組織上の独立性を指すとされ、確認に関わる人数の段階は規定されていない。
+  quote: 本文中所用的“独立性”一词指的是组织独立性
+  locator: 6.4.9 注3
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

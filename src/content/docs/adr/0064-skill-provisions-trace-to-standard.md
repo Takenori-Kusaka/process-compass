@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-10-13)。[ADR-0040](/process-compass/adr/0040-template-forms-as-subset-of-standard/)の決定4(標準と逆の指示を書かない)を、様式から、スキルの手順の文へ及ぼします。ADR-0040 のほかの決定は維持します。
+採用(2026-10-13)。[ADR-0040](/process-compass/adr/0040-template-forms-as-subset-of-standard/)の決定4(標準と逆の指示を書かない)を、様式から、スキルの手順の文へ及ぼします。ADR-0040 のほかの決定は維持します。検査の範囲を、[ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/)が改めます(2026-10-24)。依頼の形(「〜ないでください」)を対象の文末に加え、準拠テンプレートの CLAUDE.md の構成依存部分の外を対象のファイルに加えます。
 
 ## コンテキスト
 

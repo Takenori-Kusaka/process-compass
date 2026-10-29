@@ -1,0 +1,25 @@
+# 降りていない規定の順序の第3段の節の登録簿(Issue #314 / ADR-0084 決定4。突合 X-13)
+#
+# 降りていない規定(state=undelivered)は、台帳で次の順に並べる: 採用者が実装するにできない規定(impl-no-adopter.yaml)
+# → G-7・G-8・R1 の決定に関わる規定(この登録簿) → その他。
+# この節(と下位の節)に置いたマークを第3段(台帳では第2の並び)に置く。注記の語(G-7・G-8・R1)では判別しない。
+# 注記の語による判別は、付随的な言及(例: 「R1 は10営業日前」)を拾い、決定に関わらない規定を前へ出すため採らない。
+#
+# key — 実装マークの棚卸しの鍵(src/data/impl-inventory.yaml と同じ書式)。下位の節(「 > 」で続く鍵)を含む
+# why — この節が G-7・G-8・R1 のどの決定に関わるか
+schemaVersion: 0
+sections:
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+    why: G-7(出荷判定)の判定基準そのもの
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間)
+    why: G-8(リリース決裁)の判定基準そのもの
+  - key: phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.3 選択肢の比較
+    why: R1 の決定と例外承認で求める選択肢の比較(見出しの適用範囲)
+  - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 実装上の要求
+    why: 欠陥注入の走査の実施記録を G-7 の材料へ渡す(第4層。#316 でフェーズ5 から本文へ移した)
+  - key: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分 > 区分の下限と確定者
+    why: リスク区分(R1〜R3)の一次判定と、引き下げの記名
+  - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.5 期限までに意見がない場合の扱い
+    why: R1・R2 の変更に課す必須ステータスチェック
+  - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し > ラベルの語彙
+    why: 既定ブランチへの取り込みが出荷を起動する構成で、G-7 の判定記録の後にマージすること(IMPL-0303)をこの節で定める

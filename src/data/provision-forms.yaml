@@ -33,6 +33,11 @@ retiredCellWords:
   - 省略可
   - 任意
   - どちらでもよい
+  # 兼務の表の旧い記号と語(#312 / ADR-0082)。許容・非推奨・禁止と括弧の限定で書く
+  - ○
+  - △
+  - 可
+  - 不可
 # 規定の文書の地の文でも検出する語
 retiredWordsAnywhere:
   - 省略可
@@ -144,10 +149,181 @@ retiredPhrases:
     retired: 2026-10-23
     by: ADR-0071
     instead: 判断記録の「可逆性」欄(第4章 G-3 基準3、第6章 テンプレ2)
+  - phrase: AI起因の手戻り率
+    retired: 2026-10-23
+    by: ADR-0079
+    instead: 第4章の量は「AI 生成行の短期書き換え率」(合否条件にしない)。運用メトリクスの「手戻り率」はタスクの単位の別の量
+  - phrase: 短期の手戻り率
+    retired: 2026-10-23
+    by: ADR-0079
+    instead: 「AI 生成行の短期書き換え率」(第4章「AI 品質指標の扱い」)を名指しで引く
+  - phrase: 自己修復の反復上限
+    retired: 2026-10-23
+    by: ADR-0079
+    instead: 自己修正の停止条件の初期値(連続失敗3回・無進捗2回。第3章 3.12.10)。登録簿の RC-05
+  - phrase: 重複率および手戻り率
+    retired: 2026-10-23
+    by: ADR-0081
+    instead: 変更の重複率を引き下げの検知条件に置かない。第2区分の検知条件は差し戻し率と手戻り率(第5章 5.4.6)
+  - phrase: 重複率と手戻り率
+    retired: 2026-10-23
+    by: ADR-0081
+    instead: 同上
+  - phrase: 重複率、手戻り率
+    retired: 2026-10-23
+    by: ADR-0081
+    instead: 同上
+  - phrase: duplicationRate
+    retired: 2026-10-23
+    by: ADR-0081
+    instead: 登録の根拠の basis.detection は rejectionRate と reworkRate の2つ。旧い構成の欄は読まずに警告する
+  - phrase: 引き下げを検討する
+    retired: 2026-10-23
+    by: ADR-0081
+    instead: 手戻り率の行の措置は「該当範囲を1段階引き下げる」(自動。第5章 5.4.6)
+
+  - phrase: △(避けたい)
+    retired: 2026-10-23
+    by: ADR-0082
+    instead: 第1章 1.7.3 の語(許容・非推奨・禁止)と括弧の限定で書く。ADR-0037 の「△」は ADR-0082 で「非推奨」と読み替える
+  - phrase: 5名未満
+    retired: 2026-10-23
+    by: ADR-0082
+    instead: 価値責任者 × 技術判断者の兼務は、許容(1〜2名)、非推奨(3〜9名)、禁止(10名以上)。5名の境界は置かない(第3章 3.5)
+  - phrase: 小規模のみ許容
+    retired: 2026-10-23
+    by: ADR-0082
+    instead: 事業決裁者 × 価値責任者の兼務は、許容(1〜2名)、非推奨(3名以上)。どの規模でも禁止しない(第3章 3.5)
+  - phrase: 小規模のみ可
+    retired: 2026-10-23
+    by: ADR-0082
+    instead: 同上
+  - phrase: 兼務は避けたい
+    retired: 2026-10-23
+    by: ADR-0082
+    instead: 非推奨(第1章 1.7.3)。兼務する場合は兼務の事実と理由を D-0 体制図へ記録する(第3章 3.5)
 
 # --- 廃した言い回しを探す範囲 ---
+  # 逸脱の語を閉じた列挙にした(#313 / ADR-0083 決定3)。要求の強さの表は 1.10.2 を引く
+  - phrase: 逸脱を認めない
+    retired: 2026-10-24
+    by: ADR-0083
+    instead: 第1章 1.7.1 の要求の行。満たさない要求事項が逸脱(1.10.2 の閉じた列挙)に限られる範囲は、逸脱を伴う適合の主張になる
+  # 適用の開始の境は構成が設定済みになった最初のコミット(#313 / ADR-0083 決定5)
+  - phrase: changeLog[] の1件目)より前
+    retired: 2026-10-24
+    by: ADR-0083
+    instead: 適用の開始(構成が設定済み configured true になった最初のコミット。第1章 1.10.1)より前
+  - phrase: 構成の初期化の記録より前
+    retired: 2026-10-24
+    by: ADR-0083
+    instead: 同上
+  # 列挙に無い離脱を「逸脱」と呼んだ句(#313 突合 X-5)
+  - phrase: 1〜2名の体制の逸脱
+    retired: 2026-10-24
+    by: ADR-0083
+    instead: 1〜2名の体制の列挙に無い離脱(第1章 1.10.2)
+  - phrase: 1名以下を逸脱
+    retired: 2026-10-24
+    by: ADR-0083
+    instead: 1名以下を列挙に無い離脱(第1章 1.10.2)
+  # 事象・一般の意味の「逸脱」を改めた句(#316 / ADR-0086 R-7)。「不適合」「離脱」の単独の語へは改めない
+  - phrase: 委任の範囲の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更
+  - phrase: 範囲の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更
+  - phrase: 意図的な逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 承知の上の承認(見逃しの区分の中では「意図的な違反」。第5章 5.6.3)
+  - phrase: 基準の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 基準の不充足(期日・予算は「超過」)
+  - phrase: 基準逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 同上
+  - phrase: 予算・日程の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 予算・日程の超過
+  - phrase: 期限の逸脱率
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 期限の超過率
+  - phrase: R2 以上の規範の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: R2 以上の規範を満たさないこと
+  - phrase: 運用の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 規程どおりでない運用
+  - phrase: 未達のゲートと逸脱の数
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 未達のゲート・逸脱・列挙に無い離脱の数(3つを並べて書く)
+  - phrase: 逸脱の規範化
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 逸脱の常態化(normalization of deviance)。外部の概念の訳語として原語を併記する
+  - phrase: 逸脱として記録(1〜2名
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 列挙に無い離脱として記録(第1章 1.10.2)
 # 決定の記録(adr/)は、廃した言い回しを経緯として引くので探さない。自動生成の台帳も探さない。
 # zenn/ は派生物の置き場であり、publishing-hub の査読の経路で改めるため、ここでは探さない。
+  # 突合 X-5 で足した句(#316 / ADR-0086)
+  - phrase: 目的からの逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 目的から外れた振る舞い
+  - phrase: 処理順序の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 処理順序の誤り
+  - phrase: 欠陥や逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 欠陥や規定に反する状態
+  - phrase: 逸脱を検知
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更を検知
+  - phrase: 逸脱が1件
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更が1件
+  - phrase: 逸脱があれば
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 委任の条件に反する変更があれば
+  - phrase: 未達と逸脱の一覧
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 未達・逸脱・列挙に無い離脱の一覧
+  - phrase: 未達も逸脱も無い
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 未達も逸脱も列挙に無い離脱も無い
+  - phrase: 増減を、逸脱として
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 計画に反する変更として
+  - phrase: 範囲を逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 範囲を超える
+  - phrase: 手順の逸脱
+    retired: 2026-10-24
+    by: ADR-0086
+    instead: 手順どおりでない作業
+
 retiredScan:
   roots:
     - src/content/docs
@@ -161,3 +337,32 @@ retiredScan:
     - src/content/docs/community/scope-ledger.md
     - src/content/docs/community/provision-forms.md
     - src/data/provision-forms.yaml
+    # 凍結した基準線(要約値で固定。#292)と、準拠テンプレートの試験が出す未追跡の出力(.gitignore の evidence/)は探さない(#316)
+    - src/data/impl-inventory-baseline.yaml
+    - template/evidence
+
+# --- 手引きの頁(第1章 1.8。#316 / ADR-0086 R-1) ---
+# フェーズ5・6 の頁は、全体として参考(手引き)である。要求・禁止の文末は、同じ行に本文の所在が無ければ検出する。
+# 実装マークと、条項番号に似た独自の節番号も検出する。規定の文書がこれらの頁を「〜による/〜に規定」で引く箇所も検出する
+guides:
+  dirs:
+    - phase5-implementation
+    - phase6-operation
+
+# --- 禁止事項の番号(#316 / ADR-0086 R-6) ---
+# 番号の正本は第5章 5.8.5 と第8章「テーラリングの禁止事項」。引くときは一覧の所在で修飾する
+prohibitionLists:
+  qualifiers:
+    - '5.8.5 の'
+    - 'テーラリングの'
+  roots:
+    - src/content/docs
+    - template
+  extensions: [.md, .mdx, .json, .mjs]
+  exclude:
+    - src/content/docs/adr
+    - src/content/docs/community/evidence-ledger.md
+    - src/content/docs/community/implementation-ledger.md
+    - src/content/docs/community/scope-ledger.md
+    - template/scripts/vendor
+    - template/evidence

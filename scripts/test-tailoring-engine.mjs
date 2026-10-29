@@ -68,7 +68,37 @@ const kb = { questions, rules };
   assert.equal(r.profile['practice:debt-management'].params.mode, 'record-only');
   assert.equal(r.profile['role:value-owner'].params.canMergeWith, 'tech-lead');
   assert.equal(r.warnings.length, 0, 'このペルソナで衝突は起きないはず');
+  // シナリオ1 の主張(src/content/docs/tool/requirements.md)。残るゲートは G-1(簡略)・G-3・G-4・G-5・G-8。
+  // 確認者がいる場合、CI 基準は厳格化しない(G-6 の代わりの厳格化は無い。#318 / ADR-0088 決定8)
+  for (const gate of ['g-tech-design', 'g-spec-cycle', 'g-ci', 'g-release']) {
+    assert(!['omit', 'simplify'].includes(r.profile[`gate:${gate}`]?.state), `シナリオ1: ${gate} は残る`);
+  }
+  assert.notEqual(r.profile['gate:g-ci']?.state, 'strengthen', 'シナリオ1: 確認者がいる場合、CI 基準は厳格化しない');
   console.log('ペルソナ1(2名・PoC) OK');
+}
+
+// ペルソナ1 の変形: 確認者がいない 2名・PoC(シナリオ1 の確認者のいない場合)。
+// G-6 は省略ではなく未達(規則のデータは omit で表し、準拠テンプレートが未達として表示する。ADR-0028)。
+// CI の厳格化は代償措置であり、未達の解消にも独立レビューの代替にも数えない(ADR-0028 決定6)
+{
+  const r = evaluate(kb, {
+    'q-team-size': 'size-1-2',
+    'q-biz-phase': 'poc',
+    'q-quality': 'quality-standard',
+    'q-dev-form': 'inhouse',
+    'q-external-reviewer': 'reviewer-no',
+    'q-existing-gates': 'gates-none',
+    'q-ai-constraint': 'ai-free',
+  });
+  assert.equal(r.profile['gate:g-indep-review'].state, 'omit');
+  assert(r.profile['gate:g-indep-review'].notes.some((n) => n.includes('未達')), 'G-6 の注記は未達として表示すると述べる');
+  assert.equal(r.profile['gate:g-ci'].state, 'strengthen', '代償措置として CI 基準を厳格化する');
+  assert(r.profile['gate:g-ci'].notes.some((n) => n.includes('代替にも数えない')), '厳格化は独立レビューの代替に数えない');
+  assert.equal(r.profile['gate:g-plan-approval'].state, 'simplify', 'G-1 は簡略で残る');
+  for (const gate of ['g-tech-design', 'g-release']) {
+    assert(!['omit', 'simplify'].includes(r.profile[`gate:${gate}`]?.state), `確認者のいない場合も ${gate} は残る`);
+  }
+  console.log('ペルソナ1 の変形(2名・PoC・確認者なし) OK');
 }
 
 // S0(PoC)で、G-3・G-4・G-5・G-8 に事業ステージの調整が掛からないこと(= 適用)を固定する。
@@ -111,6 +141,8 @@ console.log('S0 の G-3・G-4・G-5・G-8 は適用 OK');
   assert.equal(r.profile['gate:g-indep-review'].params.reviewMode, 'internal-separated');
   assert.equal(r.profile['gate:g-ship'].state, 'strengthen');
   assert.equal(r.profile['practice:debt-management'].params.mode, 'planned-payback');
+  // シナリオ2 の主張(src/content/docs/tool/requirements.md)。兼務は推奨ではなく、非推奨として示す(#318)
+  assert(r.profile['role:value-owner'].notes.some((n) => n.includes('兼務は非推奨')), 'シナリオ2: 価値責任者と技術判断者の兼務は非推奨');
   console.log('ペルソナ2(8名・グロース・高品質) OK');
 }
 
@@ -140,6 +172,11 @@ console.log('S0 の G-3・G-4・G-5・G-8 は適用 OK');
   assert.equal(r.profile['gate:g-indep-review'].params.recordFormat, 'audit');
   assert.equal(r.profile['practice:traceability'].params.required, true);
   assert.equal(r.profile['gate:g-ship'].state, 'strengthen');
+  // シナリオ3 の主張: 価値責任者を発注側に置くことを契約時に合意する(受注側は価値責任者になれない)
+  assert.ok(
+    r.profile['role:value-owner'].notes.some((n) => n.includes('価値責任者を発注側に置くことを契約時に合意する')),
+    '受注側の構成は、価値責任者を発注側に置く合意を注記する'
+  );
   console.log('ペルソナ3(15名・安定運用・規制業・受注側) OK');
 }
 
@@ -302,9 +339,11 @@ for (const size of ['size-3-9', 'size-10plus']) {
     'q-existing-gates': 'gates-none',
     'q-ai-constraint': 'ai-free',
   };
+  // IMPL-0109:ok 標準品質・CL0 の S0 は、独立レビューの省略がそのまま効く(対照)
   const cl0 = evaluate(kb, { ...base, 'q-criticality': 'cl0' });
   assert.equal(cl0.profile['gate:g-indep-review'].state, 'omit', `S0・標準品質・CL0(${size})は独立レビューを省略`);
   assert.equal(cl0.profile['gate:g-ship'].state, 'omit', `S0・標準品質・CL0(${size})は出荷判定を省略`);
+  // IMPL-0109:ng CL1 以上の S0 で独立レビューを省略する入力は、r-e-cl1 が省略を取り消す(省略のままなら落ちる)
   for (const cl of ['cl1', 'cl2', 'cl3']) {
     const r = evaluate(kb, { ...base, 'q-criticality': cl });
     const state = r.profile['gate:g-indep-review']?.state;
@@ -316,6 +355,128 @@ for (const size of ['size-3-9', 'size-10plus']) {
   }
 }
 console.log('S0 の G-6(CL0 は省略、CL1 以上は適用) OK');
+
+// 事業ステージ × 安全重要度の全升で、G-6 の状態と範囲・G-7 の状態を固定する(#318 / ADR-0088 決定4)。
+// CL1 以上では、軸B による G-6・G-7 の緩和(省略・簡略・範囲の限定)を、どのステージでも適用しない。
+// CL2・CL3 の S0 の G-7 の復帰は、r-e-cl2 の set の副作用ではなく、r-e-cl1 の restore の決定による。
+// 厳格化(S2 の安定運用・CL3・品質「高」)は restore で下がらない
+{
+  const PHASES = ['poc', 'mvp', 'growth', 'stable'];
+  const CLS = ['cl0', 'cl1', 'cl2', 'cl3'];
+  const expectG7 = (phase, cl) =>
+    cl === 'cl3' || phase === 'stable' ? 'strengthen' : cl !== 'cl0' ? 'standard' : { poc: 'omit', mvp: 'simplify', growth: 'standard' }[phase];
+  const expectG6 = (phase, cl) => (phase === 'poc' && cl === 'cl0' ? 'omit' : 'standard');
+  const expectScope = (phase, cl) => (cl !== 'cl0' ? 'all' : phase === 'mvp' ? 'core-only' : undefined);
+  /** 全升を調べ、期待と食い違う升を返す(空なら全升が期待どおり) */
+  const matrixProblems = (k, size, reviewer = undefined) => {
+    const out = [];
+    for (const phase of PHASES) {
+      for (const cl of CLS) {
+        const r = evaluate(k, {
+          'q-team-size': size,
+          ...(reviewer ? { 'q-external-reviewer': reviewer } : {}),
+          'q-biz-phase': phase,
+          'q-quality': 'quality-standard',
+          'q-criticality': cl,
+          'q-dev-form': 'inhouse',
+          'q-existing-gates': 'gates-none',
+          'q-ai-constraint': 'ai-free',
+        });
+        const g6 = r.profile['gate:g-indep-review'];
+        const g7 = r.profile['gate:g-ship'];
+        const at = `${size}${reviewer ? `・${reviewer}` : ''}・${phase}・${cl}`;
+        // 1〜2名の体制で CL1 以上は、構成そのものを認めない(第8章 軸E・ADR-0028)。期待は「認めない組み合わせ」の注記
+        if (size === 'size-1-2' && cl !== 'cl0') {
+          if (!(r.profile['process']?.notes ?? []).some((n) => /認めない/.test(n ?? ''))) out.push(`${at}: 認めない組み合わせの注記が無い`);
+          continue;
+        }
+        // 確認者を置けない 1〜2名の CL0 は、どのステージでも G-6 を適用しない(準拠テンプレートは未達として表示する)
+        if (reviewer === 'reviewer-no') {
+          if (g6?.state !== 'omit') out.push(`${at}: G-6 ${g6?.state}(期待 omit。未達として表示する)`);
+          if ((g7?.state ?? 'standard') !== expectG7(phase, cl)) out.push(`${at}: G-7 ${g7?.state}(期待 ${expectG7(phase, cl)})`);
+          continue;
+        }
+        if ((g6?.state ?? 'standard') !== expectG6(phase, cl)) out.push(`${at}: G-6 ${g6?.state}(期待 ${expectG6(phase, cl)})`);
+        if (g6?.params?.scope !== expectScope(phase, cl)) out.push(`${at}: G-6 の範囲 ${g6?.params?.scope}(期待 ${expectScope(phase, cl)})`);
+        if ((g7?.state ?? 'standard') !== expectG7(phase, cl)) out.push(`${at}: G-7 ${g7?.state}(期待 ${expectG7(phase, cl)})`);
+        // 適用へ戻したゲートが、省略の前に決まっていた設定を失わない(G-6 のレビューの方式、G-7 の判定者の方式)
+        if (expectG6(phase, cl) !== 'omit' && !g6?.params?.reviewMode) out.push(`${at}: G-6 のレビューの方式が無い`);
+        if (expectG7(phase, cl) !== 'omit' && !g7?.params?.approverMode) out.push(`${at}: G-7 の判定者の方式が無い`);
+      }
+    }
+    return out;
+  };
+  for (const [size, reviewer] of [['size-1-2', 'reviewer-yes'], ['size-1-2', 'reviewer-no'], ['size-3-9'], ['size-10plus']]) {
+    // IMPL-0345:ok 規則データのとおりなら、全升が期待どおり(CL1 以上は G-6 を全変更、G-7 を適用。厳格化は下がらない。1〜2名の CL1 以上は認めない注記)
+    assert.deepEqual(matrixProblems(kb, size, reviewer), [], `全升の G-6・G-7(${size}${reviewer ? `・${reviewer}` : ''})`);
+  }
+  // IMPL-0345:ng r-e-cl1 から G-7 の restore と G-6 の範囲の設定を外した規則では、CL1 以上の S0・S1 の升が食い違いとして出る
+  const weakened = {
+    questions,
+    rules: rules.map((r) =>
+      r.id === 'r-e-cl1'
+        ? { ...r, adjustments: r.adjustments.filter((a) => a.action !== 'restore' && a.param !== 'scope') }
+        : r
+    ),
+  };
+  const found = matrixProblems(weakened, 'size-3-9');
+  assert(found.some((p) => p.includes('poc・cl1: G-7 omit')), `CL1・S0 の G-7 の省略を検出する: ${found.join(' / ')}`);
+  assert(found.some((p) => p.includes('mvp・cl1: G-7 simplify')), 'CL1・S1 の G-7 の簡略を検出する');
+  assert(found.some((p) => p.includes('mvp・cl2: G-6 の範囲 core-only')), 'CL2・S1 の G-6 のコア機能への限定を検出する');
+  // r-e-cl1 の restore が G-7 の省略・簡略を取り消したことを、警告として残す(r-e-cl2 の副作用ではない)
+  const s0cl2 = evaluate(kb, {
+    'q-team-size': 'size-3-9',
+    'q-biz-phase': 'poc',
+    'q-quality': 'quality-standard',
+    'q-criticality': 'cl2',
+    'q-dev-form': 'inhouse',
+    'q-existing-gates': 'gates-none',
+    'q-ai-constraint': 'ai-free',
+  });
+  assert(s0cl2.warnings.some((w) => w.target === 'gate:g-ship' && w.winner === 'r-e-cl1'), 'S0・CL2 の G-7 の復帰は r-e-cl1 の決定');
+  // 品質「高」の厳格化(優先度 30)は、restore(優先度 50)で標準へ下がらない
+  const highCl1 = evaluate(kb, {
+    'q-team-size': 'size-3-9',
+    'q-biz-phase': 'poc',
+    'q-quality': 'quality-high',
+    'q-criticality': 'cl1',
+    'q-dev-form': 'inhouse',
+    'q-existing-gates': 'gates-none',
+    'q-ai-constraint': 'ai-free',
+  });
+  assert.equal(highCl1.profile['gate:g-ship'].state, 'strengthen', '品質「高」の G-7 の厳格化は restore で下がらない');
+}
+console.log('事業ステージ × 安全重要度の全升(G-6 の状態と範囲・G-7) OK');
+
+// restore と設定の復帰の細部(#318 突合 X-8・X-9)。合成の規則で、提案ロジックの文(低い優先度の省略を取り消す)と一致させる
+{
+  const q = [{ id: 'q1', axis: 'A', text: 'x', options: [{ id: 'a', label: 'a' }, { id: 'b', label: 'b' }] }];
+  const G = { type: 'gate', id: 'g-ship' };
+  const mk = (rules) => ({ questions: q, rules: rules.map((r) => ({ when: { q1: ['a'] }, reason: 'r', source: 's', ...r })) });
+  // X-9: 同じ優先度の restore は、省略を取り消さない(同じ優先度では構造操作を優先する既存の規則と揃える)
+  const same = evaluate(mk([
+    { id: 'omit10', priority: 10, adjustments: [{ target: G, action: 'omit', note: 'o' }] },
+    { id: 'restore10', priority: 10, adjustments: [{ target: G, action: 'restore', note: 'r' }] },
+  ]), { q1: 'a' });
+  assert.equal(same.profile['gate:g-ship'].state, 'omit', '同じ優先度の restore は省略を取り消さない');
+  const higher = evaluate(mk([
+    { id: 'omit10', priority: 10, adjustments: [{ target: G, action: 'omit', note: 'o' }] },
+    { id: 'restore20', priority: 20, adjustments: [{ target: G, action: 'restore', note: 'r' }] },
+  ]), { q1: 'a' });
+  assert.equal(higher.profile['gate:g-ship'].state, 'standard', '高い優先度の restore は省略を取り消す');
+  // X-8: 省略 A が無効化した設定は、A を上書きした省略 B が取り消されたときにも戻る
+  const chain = evaluate(mk([
+    { id: 'set10', priority: 10, adjustments: [{ target: G, action: 'set', param: 'approverMode', value: 'qa', note: 's' }] },
+    { id: 'omitA', priority: 10, adjustments: [{ target: G, action: 'omit', note: 'a' }] },
+    { id: 'omitB', priority: 40, adjustments: [{ target: G, action: 'omit', note: 'b' }] },
+    { id: 'restore50', priority: 50, adjustments: [{ target: G, action: 'restore', note: 'r' }] },
+  ]), { q1: 'a' });
+  assert.equal(chain.profile['gate:g-ship'].state, 'standard', '省略の連鎖を取り消すと適用へ戻る');
+  assert.equal(chain.profile['gate:g-ship'].params.approverMode, 'qa', '上書きされた省略が無効化した設定も戻る');
+}
+console.log('restore の優先度と、上書きされた省略の設定の復帰 OK');
+
+
 
 // 最小体制は3名(#304 / ADR-0066 決定4)。本文(第3章 3.5)の「最小体制は3名」を、兼務禁止の組から総当たりで導く。
 // 席を n 名へ割り当てる全通りを調べ、人の単位の兼務禁止(unit: context を除く)をすべて満たす最小の n を求める

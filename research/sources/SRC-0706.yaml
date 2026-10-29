@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0706
+status: included
+excludeReason: null
+title: "GitHub Docs: Available rules for rulesets"
+url: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets
+canonicalUrl: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "ルールセットで使える規則の頁。作成・更新・削除の制限は、バイパスの権限を持つ者だけに許す。バイパスの主体はロール・チーム・GitHub App などで、GITHUB_TOKEN を指定できる記述は無い。push ルールセット(Restrict file paths を含む)は GitHub Team プランの internal・private のリポジトリ(と、push ルールセットを有効にしたリポジトリの fork)で使える。"
+claims:
+  - id: c1
+    text: "Restrict creations・updates・deletions は、バイパスの権限を持つ者だけに対象の参照の作成・push・削除を許す。"
+    quote: ""
+    locator: "Restrict updates の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: context
+  - id: c2
+    text: "push ルールセットは、GitHub Team プランの internal・private のリポジトリと、push ルールセットを有効にしたリポジトリの fork で使える。公開のリポジトリは挙げていない。"
+    quote: "Push rulesets are available for the GitHub Team plan in internal and private repositories"
+    locator: "push rulesets の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない。c2 は #346 の突合(X-10)で同じ頁を WebFetch で読み直して改め、要約モデルが原文のままとして返した文を quote に置いた'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

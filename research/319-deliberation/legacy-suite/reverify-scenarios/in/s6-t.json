@@ -1,0 +1,1 @@
+{ "kind": "mode", "summary": "x", "delegation": { "rules": [ { "id": "DR-009", "seat": "dev-verifier", "changeType": "スタイル", "paths": ["src/styles/**"], "decidedBy": "Claude (AI)", "reason": "x" } ] }, "decidedBy": "佐藤 花子", "reason": "x", "ruleApprovedBy": "佐藤 花子" }

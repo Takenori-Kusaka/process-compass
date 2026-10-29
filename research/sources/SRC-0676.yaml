@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0676
+status: included
+excludeReason: null
+title: RTCA FAS Topic Paper FTP1050 "Agile Methodology" Rev 3
+url: https://www.rtca.org/wp-content/uploads/2024/06/FTP1050_3-PUBLICATION.pdf
+canonicalUrl: https://www.rtca.org/wp-content/uploads/2024/06/FTP1050_3-PUBLICATION.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: RTCA, Inc.
+authors: []
+orgType: standards-body
+region: us
+lang: en
+sourceType: standard
+published: '2024-02-26'
+publishedBasis: pdf
+version: Rev 3
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: RTCA の FAS トピックペーパー。DO-178C/ED-12C の用語集の independence の定義を引く。独立性は作成者以外の者が検証する職責の分離の一段で、ツールが人の検証と同等になりうるとする。#318 は、AI の確認を段に数えない判断(DO-330 型の適格性の経路を採らない)の比較の材料として引いた。DO-178C 本文は有償で未読。
+claims:
+- id: c1
+  text: DO-178C の独立性は、目的の評価を確保する職責の分離と定義されている。
+  quote: Independence - Separation of responsibilities which ensures the accomplishment of objective evaluation.
+  locator: §2.0 p.4(DO-178C/ED-12C 用語集の引用)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 318
+  stance: context
+- id: c2
+  text: 検証の独立性は、作成者以外の者が検証活動を行うことで達成され、ツールで人の検証と同等を得てもよいとされている。
+  quote: a tool(s) may be used to achieve equivalence to the human verification activity
+  locator: §2.0 p.4
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 318
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

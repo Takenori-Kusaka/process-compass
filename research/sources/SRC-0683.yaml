@@ -1,0 +1,70 @@
+schemaVersion: 0
+id: SRC-0683
+status: included
+excludeReason: null
+title: An Experiment to Assess the Cost-Benefits of Code Inspections in Large Scale Software Development
+url: https://userweb.cs.txstate.edu/~rp31/papersSQ/PorterEtAl_TSE.pdf
+canonicalUrl: https://userweb.cs.txstate.edu/~rp31/papersSQ/PorterEtAl_TSE.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: IEEE Transactions on Software Engineering 23(6)
+authors:
+- Adam A. Porter
+- Harvey P. Siy
+- Carol A. Toman
+- Lawrence G. Votta
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: '1997'
+publishedBasis: pdf
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: 大規模開発のコード検査の費用対効果の実験。2人と4人の検査チームで期間と有効性に差が無く、1人のチームは劣った。#318 は、承認者の人数を独立の強さの軸にしない判断(人数と距離を別の軸に置く)の材料として引いた。
+claims:
+- id: c1
+  text: 2人と4人の検査チームで、期間と有効性に差は見られなかった。
+  quote: We found no difference in the interval or effectiveness of inspections of two- or four-person teams.
+  locator: §5.2
+  quant: null
+  evidenceKind: controlled-experiment
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+- id: c2
+  text: 1人のレビュアーのチームの有効性は、他の2つより劣った。
+  quote: The effectiveness of one-reviewer teams was poorer than both of the others.
+  locator: §5.2
+  quant: null
+  evidenceKind: controlled-experiment
+  rqs: []
+  issues:
+  - 318
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

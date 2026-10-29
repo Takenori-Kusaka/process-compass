@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0660
+status: included
+excludeReason: null
+title: git-merge Documentation
+url: https://git-scm.com/docs/git-merge
+canonicalUrl: https://git-scm.com/docs/git-merge
+ids:
+  arxiv: null
+  doi: null
+publisher: Git project
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 K11'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH10
+events: []
+summary: git merge の文書。--allow-unrelated-histories は、共通の祖先の無い履歴の併合を既定で拒む安全装置を外す。既定で有効にする設定は無い。#315 で、併合した別の履歴が適用の開始の境を動かしうる経路(V-4)と、共通の祖先の無い履歴の併合を事前点検で止める判断の背景として引いた。
+claims:
+- id: c1
+  text: git merge は既定で、共通の祖先を持たない履歴の併合を拒む。--allow-unrelated-histories はこの安全装置を外す。既定で有効にする設定は無い。
+  quote: null
+  locator: --allow-unrelated-histories
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 315
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

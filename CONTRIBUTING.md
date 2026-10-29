@@ -13,15 +13,16 @@ Process Compass への関心をありがとうございます。このプロジ�
 ## 開発環境
 
 ```bash
+git submodule update --init --recursive   # 準拠テンプレート(template/)。無いと npm run check が失敗します
 npm install
 npm run dev      # ローカルプレビュー (http://localhost:4321/process-compass)
-npm run check    # textlint(日本語校正)+ ビルド検証
+npm run check    # 全検査(一覧の正本は package.json の check)
 ```
 
 ## Pull Request のルール
 
 1. 対応する Issue を確認・起票してから作業する(Issue 駆動。詳細は [プロジェクト運営](https://takenori-kusaka.github.io/process-compass/community/project-management/))
-2. `npm run check` が通ること(PR では CI が同じチェックを実行します)
+2. `npm run check` が通ること(PR では CI が同じ `npm run check` を実行します)
 3. 執筆規約に従うこと:
    - 本文は「ですます調」、箇条書き・表は「である調 / 体言止め」(textlint が検査)
    - 図解ファースト([作図規約](https://takenori-kusaka.github.io/process-compass/community/style-guide-diagrams/))

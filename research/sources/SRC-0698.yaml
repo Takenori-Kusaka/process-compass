@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0698
+status: included
+excludeReason: null
+title: Sheriffing/Test Disabling Policy
+url: https://wiki.mozilla.org/Sheriffing/Test_Disabling_Policy
+canonicalUrl: https://wiki.mozilla.org/sheriffing/test_disabling_policy
+ids:
+  arxiv: null
+  doi: null
+publisher: Mozilla
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: community
+published: 2017-05-30
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-26
+access: open
+readLevel: full
+foundBy:
+  cluster: I319
+  query: "#319 外部調査 survey-319-2-external.md D5"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: Mozilla の試験の無効化の方針。無効化の前にバグを起票し、作者・レビュアー・所有者に応答を求める。#319 は、落ちることを期待する印に Issue を結ぶ判断の材料として引いた。期限の自動の強制は持たない。
+claims:
+  - id: c1
+    text: 試験を無効化する前に、作者・レビュアー・モジュール所有者を含むバグを起票し、応答を求める。
+    quote: ""
+    locator: 本文
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [319]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-26'
+  humanChecked: false
+  note: '#319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

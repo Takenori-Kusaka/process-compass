@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0664
+status: included
+excludeReason: null
+title: safe-settings README
+url: https://github.com/github/safe-settings
+canonicalUrl: https://github.com/github/safe-settings
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub(github/safe-settings)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: repo
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 K7'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH10
+events: []
+summary: safe-settings は、リポジトリの設定を宣言し、PR で差分を dry-run で示し、マージで適用し、定期の全同期で乖離を是正する。#315 で、実環境の統制の定期の再確認を課す案の前例として引き、本標準では周期を課さず変化点と G-8 の機械の読み取りに留める判断の比較の対象にした。
+claims:
+- id: c1
+  text: 非既定のブランチの PR では、基底のブランチの構成との差分だけを dry-run で報告する。Webhook は届く保証が無いため、定期の全同期で乖離を是正する。
+  quote: null
+  locator: README
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

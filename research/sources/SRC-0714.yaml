@@ -1,0 +1,71 @@
+schemaVersion: 0
+id: SRC-0714
+status: included
+excludeReason: null
+title: "OWASP Top 10 CI/CD Security Risks"
+url: https://owasp.org/www-project-top-10-ci-cd-security-risks/
+canonicalUrl: https://owasp.org/www-project-top-10-ci-cd-security-risks/
+ids:
+  arxiv: null
+  doi: null
+publisher: "OWASP Foundation"
+authors: []
+orgType: nonprofit
+region: global
+lang: en
+sourceType: industry-report
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "CI/CD の10のリスクの一覧。CICD-SEC-4(PPE)は CI 設定の変更を走らせる前にレビューするか別の保護されたブランチに置くことを、CICD-SEC-1 は未レビューのコードを push できるアカウントに配備の起動の権限を与えないことを、CICD-SEC-6 は一時の資格情報を静的なものより優先することを推奨する。#346 は、短命とレビューへの結び付けが別の要求であることの根拠として引いた。"
+claims:
+  - id: c1
+    text: "CICD-SEC-4 は、CI 設定の変更を走らせる前にレビューするか、別の保護されたブランチに置くことを推奨する。"
+    quote: ""
+    locator: "CICD-SEC-4 Poisoned Pipeline Execution"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [346]
+    stance: supports
+  - id: c2
+    text: "CICD-SEC-6 は、静的な資格情報より一時の資格情報を優先することを推奨する。"
+    quote: ""
+    locator: "CICD-SEC-6 Insufficient Credential Hygiene"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [346]
+    stance: context
+  - id: c3
+    text: "CICD-SEC-1 は、未レビューのコードを push できるアカウントが配備のパイプラインを起動できないことを推奨する。"
+    quote: ""
+    locator: "CICD-SEC-1 Insufficient Flow Control Mechanisms"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [346]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

@@ -1,0 +1,13 @@
+{ "kind": "accountable", "date": "2026-10-01", "summary": "1人+AI。全席の責任者を同一人物にし、開発者の作業は AI が担う",
+  "people": [ { "id": "p1", "name": "山田 太郎" } ],
+  "seats": {
+    "biz-approver": { "accountable": "山田 太郎" },
+    "value-owner": { "accountable": "山田 太郎" },
+    "tech-lead": { "accountable": "山田 太郎" },
+    "dev-verifier": { "accountable": "山田 太郎", "performer": { "model": "claude-fable-5-1", "instructions": "CLAUDE.md v1", "permissions": "dev-token" }, "fallback": "human" },
+    "independent-reviewer": { "accountable": "山田 太郎" },
+    "qa-gatekeeper": { "accountable": "山田 太郎" },
+    "context-owner": { "accountable": "山田 太郎" },
+    "ai-maintainer": { "accountable": "山田 太郎" },
+    "ai-ops": { "accountable": "山田 太郎" }
+  } }

@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0650
+status: included
+excludeReason: null
+title: Updating a project - copier
+url: https://copier.readthedocs.io/en/stable/updating/
+canonicalUrl: https://copier.readthedocs.io/en/stable/updating/
+ids:
+  arxiv: null
+  doi: null
+publisher: Copier(copier-org)
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 T1'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH10
+- TH12
+events: []
+summary: テンプレートから生成した案件の更新の手順(Copier)。回答ファイルに生成時のテンプレートの版と入力を記録し、手で書き換えないことを求め、更新の前提に作業木の清浄を置く。#315 で、構成(process.config.json)を手で編集しない規則と、取り込んだテンプレートのコミットを道具だけが書く型の前例として引いた。
+claims:
+- id: c1
+  text: 回答ファイル(.copier-answers.yml)はテンプレートの版と回答の記録であり、手で更新してはならない。手で更新すると、異なる回答で生成されたと誤認し、差分が予測できなくなる。
+  quote: null
+  locator: Updating a project
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: supports
+- id: c2
+  text: 更新は、現行の版で新規に生成した結果との差分を取り、事前の移行、最新の変更の適用、差分の再適用、事後の移行の順に行う。衝突は人が解く。
+  quote: null
+  locator: Updating a project
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

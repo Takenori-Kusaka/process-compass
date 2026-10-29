@@ -1,0 +1,176 @@
+# stages が実行する場面の一覧(#319 §8 X-3)。run.mjs --write-scenes が書く。消す・足すときは差分を PR で確かめる
+1名 構成なし: 読む .claude/skills/process-init/SKILL.md が実在する
+1名 構成なし → /process-init
+1名 初期化が通り、出力の末尾に次の一手が出る
+1名 初期化が SessionStart のフックを保つ
+1名 初期化後(D-0 なし): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
+1名 D-0 なし → D-0 を作るコマンド
+1名 出力のコマンド(D-0 の生成区間の書き込み)が通る
+1名 D-0 あり・席が未記入: 読む .claude/skills/process-change/kinds/accountable.md が実在する
+1名 席が未記入 → 人の判断待ち(決定者・needs-owner)
+1名 人の判断待ちに AI のコマンドが無い
+1名 席の記入(/process-change)が通り、次の一手が出る
+1名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
+1名 D-0 未承認 → 人の判断待ち
+1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する
+1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する
+1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する
+1名 企画書なし → 企画書を作るコマンド
+1名 企画書なしの次に、前提の台帳を作るコマンドと artifacts/10
+1名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する
+1名 企画書あり(前提の台帳なし): 読む .claude/skills/gate/gates/G-1.md が実在する
+1名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する
+1名 企画書あり・台帳なし → 前提の台帳を作るコマンドが先、G-1 待ちが続く
+1名 企画書あり(G-1 待ち): 読む .claude/skills/gate/gates/G-1.md が実在する
+1名 企画書あり(G-1 待ち): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する
+1名 G-1 待ち → 人の判断待ち(事業決裁者・needs-owner)
+1名 G-1 通過後(仕様なし): 読む .claude/skills/spec-write/SKILL.md が実在する
+1名 G-1 通過後(仕様なし): 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する
+1名 仕様なし → /spec-write
+1名 受入基準が空: 読む .claude/skills/spec-write/SKILL.md が実在する
+1名 受入基準が空: 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する
+1名 受入基準が空 → /spec-write F-001
+1名 受入基準あり: 読む .claude/skills/task-breakdown/SKILL.md が実在する
+1名 受入基準あり: 読む .claude/skills/artifact/artifacts/07-implementation-plan.md が実在する
+1名 計画なし → /task-breakdown F-001
+1名 計画あり(G-4 待ち): 読む .claude/skills/gate/gates/G-4.md が実在する
+1名 G-4 待ち → 人の判断待ち(終端)
+1名 G-4 待ちの「読む」が gates/G-4.md、その後が /gate G-4
+1名 全文の出力に「読む: .claude/skills/gate/gates/G-4.md」
+1名 G-4 通過後(実装前): 読む .claude/skills/implement/SKILL.md が実在する
+1名 実装前 → /implement F-001 Task-1
+1名 実装中(ブランチあり): 読む .claude/skills/implement/SKILL.md が実在する
+1名 実装中 → /implement を続ける
+1名 self-heal start
+1名 自己修正ループ中: 読む .claude/skills/implement/SKILL.md が実在する
+1名 ループ中 → iterate
+1名 上限を超える iterate は保留(終了コード3)
+1名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
+1名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
+1名 保留 → 人の判断待ち(needs-po)
+1名 保留中は stop で終えられない
+1名 release は記名を要する
+1名 全タスク取り込み(出荷前): 読む .claude/skills/gate/gates/G-8.md が実在する
+1名 機能は実装済み
+1名 G-7 なし → G-8 待ち(読む gates/G-8.md)
+1名 --brief は 1,200 字以内
+5名 構成なし: 読む .claude/skills/process-init/SKILL.md が実在する
+5名 構成なし → /process-init
+5名 初期化が通り、出力の末尾に次の一手が出る
+5名 初期化が SessionStart のフックを保つ
+5名 初期化後(D-0 なし): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
+5名 D-0 なし → D-0 を作るコマンド
+5名 出力のコマンド(D-0 の生成区間の書き込み)が通る
+5名 D-0 あり・席が未記入: 読む .claude/skills/process-change/kinds/accountable.md が実在する
+5名 席が未記入 → 人の判断待ち(決定者・needs-owner)
+5名 人の判断待ちに AI のコマンドが無い
+5名 席の記入(/process-change)が通り、次の一手が出る
+5名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
+5名 D-0 未承認 → 人の判断待ち
+5名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する
+5名 D-0 承認後: 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する
+5名 D-0 承認後: 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する
+5名 企画書なし → 企画書を作るコマンド
+5名 企画書なしの次に、前提の台帳を作るコマンドと artifacts/10
+5名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する
+5名 企画書あり(前提の台帳なし): 読む .claude/skills/gate/gates/G-1.md が実在する
+5名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する
+5名 企画書あり・台帳なし → 前提の台帳を作るコマンドが先、G-1 待ちが続く
+5名 企画書あり(G-1 待ち): 読む .claude/skills/gate/gates/G-1.md が実在する
+5名 企画書あり(G-1 待ち): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する
+5名 G-1 待ち → 人の判断待ち(事業決裁者・needs-owner)
+5名 G-1 通過後(仕様なし): 読む .claude/skills/spec-write/SKILL.md が実在する
+5名 G-1 通過後(仕様なし): 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する
+5名 仕様なし → /spec-write
+5名 受入基準が空: 読む .claude/skills/spec-write/SKILL.md が実在する
+5名 受入基準が空: 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する
+5名 受入基準が空 → /spec-write F-001
+5名 受入基準あり: 読む .claude/skills/gate/gates/G-2.md が実在する
+5名 G-2 待ち → 人の判断待ち(価値責任者・needs-po)
+5名 G-2 通過後(計画なし): 読む .claude/skills/task-breakdown/SKILL.md が実在する
+5名 G-2 通過後(計画なし): 読む .claude/skills/artifact/artifacts/07-implementation-plan.md が実在する
+5名 計画なし → /task-breakdown F-001
+5名 計画あり(G-4 待ち): 読む .claude/skills/gate/gates/G-4.md が実在する
+5名 G-4 待ち → 人の判断待ち(終端)
+5名 G-4 待ちの「読む」が gates/G-4.md、その後が /gate G-4
+5名 全文の出力に「読む: .claude/skills/gate/gates/G-4.md」
+5名 G-4 通過後(実装前): 読む .claude/skills/implement/SKILL.md が実在する
+5名 実装前 → /implement F-001 Task-1
+5名 実装中(ブランチあり): 読む .claude/skills/implement/SKILL.md が実在する
+5名 実装中 → /implement を続ける
+5名 self-heal start
+5名 自己修正ループ中: 読む .claude/skills/implement/SKILL.md が実在する
+5名 ループ中 → iterate
+5名 上限を超える iterate は保留(終了コード3)
+5名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
+5名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
+5名 保留 → 人の判断待ち(needs-po)
+5名 保留中は stop で終えられない
+5名 release は記名を要する
+5名 全タスク取り込み(出荷前): 読む .claude/skills/artifact/artifacts/05-handover.md が実在する
+5名 機能は実装済み
+5名 出荷前(引き継ぎ文書なし) → 引き継ぎ文書を作るコマンドと artifacts/05
+5名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する
+5名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する
+5名 出荷前 → 証跡の集約 → G-7 待ち(読む gates/G-7.md)
+5名 --brief は 1,200 字以内
+15名 構成なし: 読む .claude/skills/process-init/SKILL.md が実在する
+15名 構成なし → /process-init
+15名 初期化が通り、出力の末尾に次の一手が出る
+15名 初期化が SessionStart のフックを保つ
+15名 初期化後(D-0 なし): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
+15名 D-0 なし → D-0 を作るコマンド
+15名 出力のコマンド(D-0 の生成区間の書き込み)が通る
+15名 D-0 あり・席が未記入: 読む .claude/skills/process-change/kinds/accountable.md が実在する
+15名 席が未記入 → 人の判断待ち(決定者・needs-owner)
+15名 人の判断待ちに AI のコマンドが無い
+15名 席の記入(/process-change)が通り、次の一手が出る
+15名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
+15名 D-0 未承認 → 人の判断待ち
+15名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する
+15名 D-0 承認後: 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する
+15名 D-0 承認後: 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する
+15名 企画書なし → 企画書を作るコマンド
+15名 企画書なしの次に、前提の台帳を作るコマンドと artifacts/10
+15名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する
+15名 企画書あり(前提の台帳なし): 読む .claude/skills/gate/gates/G-1.md が実在する
+15名 企画書あり(前提の台帳なし): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する
+15名 企画書あり・台帳なし → 前提の台帳を作るコマンドが先、G-1 待ちが続く
+15名 企画書あり(G-1 待ち): 読む .claude/skills/gate/gates/G-1.md が実在する
+15名 企画書あり(G-1 待ち): 読む .claude/skills/artifact/artifacts/11-quality-assurance-policy.md が実在する
+15名 G-1 待ち → 人の判断待ち(事業決裁者・needs-owner)
+15名 G-1 通過後(仕様なし): 読む .claude/skills/spec-write/SKILL.md が実在する
+15名 G-1 通過後(仕様なし): 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する
+15名 仕様なし → /spec-write
+15名 受入基準が空: 読む .claude/skills/spec-write/SKILL.md が実在する
+15名 受入基準が空: 読む .claude/skills/artifact/artifacts/01-feature-spec.md が実在する
+15名 受入基準が空 → /spec-write F-001
+15名 受入基準あり: 読む .claude/skills/gate/gates/G-2.md が実在する
+15名 G-2 待ち → 人の判断待ち(価値責任者・needs-po)
+15名 G-2 通過後(計画なし): 読む .claude/skills/task-breakdown/SKILL.md が実在する
+15名 G-2 通過後(計画なし): 読む .claude/skills/artifact/artifacts/07-implementation-plan.md が実在する
+15名 計画なし → /task-breakdown F-001
+15名 計画あり(G-4 待ち): 読む .claude/skills/gate/gates/G-4.md が実在する
+15名 G-4 待ち → 人の判断待ち(終端)
+15名 G-4 待ちの「読む」が gates/G-4.md、その後が /gate G-4
+15名 全文の出力に「読む: .claude/skills/gate/gates/G-4.md」
+15名 G-4 通過後(実装前): 読む .claude/skills/implement/SKILL.md が実在する
+15名 実装前 → /implement F-001 Task-1
+15名 実装中(ブランチあり): 読む .claude/skills/implement/SKILL.md が実在する
+15名 実装中 → /implement を続ける
+15名 self-heal start
+15名 自己修正ループ中: 読む .claude/skills/implement/SKILL.md が実在する
+15名 ループ中 → iterate
+15名 上限を超える iterate は保留(終了コード3)
+15名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
+15名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
+15名 保留 → 人の判断待ち(needs-po)
+15名 保留中は stop で終えられない
+15名 release は記名を要する
+15名 全タスク取り込み(出荷前): 読む .claude/skills/artifact/artifacts/05-handover.md が実在する
+15名 機能は実装済み
+15名 出荷前(引き継ぎ文書なし) → 引き継ぎ文書を作るコマンドと artifacts/05
+15名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する
+15名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する
+15名 出荷前 → 証跡の集約 → G-7 待ち(読む gates/G-7.md)
+15名 --brief は 1,200 字以内

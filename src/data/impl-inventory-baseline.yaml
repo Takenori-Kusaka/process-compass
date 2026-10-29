@@ -1,0 +1,867 @@
+# 実装マークの対象の棚卸しの基準線(Issue #292 / ADR-0076)
+#
+# 2026-10-23 の凍結の時点で「未棚卸し(pending)」だった節(857 件)。Issue #292 で区分を判断した 86 節は含めない。
+# 棚卸しの登録簿(impl-inventory.yaml)で「未棚卸し」と登録してよいのは、この一覧にある節だけである。
+# **このファイルは編集しない**。scripts/check-impl.mjs が鍵の要約(SHA-256)を定数で持ち、食い違えば失敗する。
+# 節が消えた鍵は残したままでよい(検査は無視する)。改名した節・新しい節は、区分を判断して登録する。
+# 規約は community/implementation-marking.md「対象の棚卸し」
+schemaVersion: 1
+frozenAt: 2026-10-23
+sections:
+  - phase4-process-design/assurance-case#(冒頭)
+  - phase4-process-design/assurance-case#H.1 最上位の主張 > 組織の保証の主張
+  - "phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の根拠の層: 検証の主張"
+  - phase4-process-design/assurance-case#H.1 最上位の主張 > AI の関与を前提にした保証の根拠
+  - phase4-process-design/assurance-case#H.1 最上位の主張 > 「切り離された検証」が指すもの
+  - phase4-process-design/assurance-case#H.1 最上位の主張 > 「品質保証」という語の意味
+  - phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の主張の成立条件
+  - phase4-process-design/assurance-case#H.2 主張しないこと
+  - "phase4-process-design/assurance-case#H.3 論証 > 論証の構造: 3層と外枠"
+  - phase4-process-design/assurance-case#H.3 論証 > 検証の主張と条項の対応
+  - phase4-process-design/assurance-case#H.3 論証 > 主張の崩れを、誰がいつ観測するか
+  - phase4-process-design/assurance-case#H.4 AI による確認の数え方
+  - phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5)
+  - phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > 所在か根拠を欠く指摘
+  - phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > 指摘の書式
+  - phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > 意見と指摘
+  - phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > AI どうしの往復
+  - phase4-process-design/assurance-case#H.5 署名の意味
+  - phase4-process-design/assurance-case#H.5 署名の意味 > 出荷判定者の異議
+  - phase4-process-design/assurance-case#H.5 署名の意味 > 受容の基準との照合と上申
+  - phase4-process-design/assurance-case#H.5 署名の意味 > 停止の申し立てとの関係
+  - phase4-process-design/assurance-case#H.6 保証の開示
+  - phase4-process-design/assurance-case#H.6 保証の開示 > 人の層の値は誰の値か
+  - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+  - phase4-process-design/assurance-case#H.6 保証の開示 > 組織継続の側の状態の表示
+  - phase4-process-design/assurance-case#H.6 保証の開示 > 値の推移と、値の出所を併記する
+  - phase4-process-design/assurance-case#H.6 保証の開示 > 独立した人の確認の数え方(項目1・3)
+  - phase4-process-design/assurance-case#H.6 保証の開示 > 組織の外へ渡すとき
+  - phase4-process-design/assurance-case#H.6 保証の開示 > 独立性の表示の例(項目1)
+  - phase4-process-design/assurance-case#H.6 保証の開示 > 件数の表示の例(項目1・3・6。1名体制・数値は例示)
+  - phase4-process-design/assurance-case#H.6 保証の開示 > 定型の文
+  - phase4-process-design/assurance-case#H.7 形骸化していないことの示し方
+  - phase4-process-design/assurance-case#H.8 対外的に使う表現
+  - phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答
+  - phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答 > 体制と責任に関する問い
+  - phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答 > 検証と記録に関する問い
+  - phase4-process-design/assurance-case#H.10 既存の枠組みとの対応
+  - phase4-process-design/assurance-case#H.11 残るリスク
+  - phase4-process-design/assurance-case#H.12 品質保証部門が行うこと
+  - phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 語の対応
+  - phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 時点ごとに行うこと
+  - phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 行わないこと
+  - phase4-process-design/deliverable-templates#(冒頭)
+  - phase4-process-design/deliverable-templates#データとドキュメントのインターフェース
+  - phase4-process-design/deliverable-templates#成果物と様式の対応
+  - phase4-process-design/deliverable-templates#成果物と様式の対応 > 原則・判断記録・判定記録の関係
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0)"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 平常時と障害時を分ける"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 個人名を1か所へ隔離する"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 席ごとに責任者と担い手を書く"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 有事の決定者を決めておく"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 改訂履歴に体制の変化点を残す"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 体制と委任の登録を誰が決めるかを決めておく"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 構成から導ける欄は生成してよい"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 市場・顧客の仮説を誰が検証するかを決めておく"
+  - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 記録としての要求事項"
+  - "phase4-process-design/deliverable-templates#テンプレ1: 機能仕様書(spec)"
+  - "phase4-process-design/deliverable-templates#テンプレ2: 判断記録(ADR)"
+  - "phase4-process-design/deliverable-templates#テンプレ2: 判断記録(ADR) > 事業影響の欄が要る理由"
+  - "phase4-process-design/deliverable-templates#テンプレ2: 判断記録(ADR) > 置き換えと廃止"
+  - "phase4-process-design/deliverable-templates#テンプレ2: 判断記録(ADR) > 判断記録の索引"
+  - "phase4-process-design/deliverable-templates#テンプレ3: 技術負債台帳"
+  - "phase4-process-design/deliverable-templates#テンプレ4: ゲート判定記録"
+  - "phase4-process-design/deliverable-templates#テンプレ5: 運用引き継ぎ文書"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief)"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 企画で評価する6つの観点"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 事業リスクと安全リスクを混ぜない"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 様式"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 期待効果を単一の金額で書かない理由"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 市場規模を書かせない理由"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 記述の充足をどう検査するか"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 誰がいつ書くか"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 品質の約束と AI の利用の評価を企画の時点で書く理由"
+  - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 決裁制度への提示"
+  - "phase4-process-design/deliverable-templates#テンプレ7: 実装計画(plan)"
+  - "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付)"
+  - "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 契約への組み込み方の3類型"
+  - "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 様式"
+  - "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 知財潔白性を AI 固有の要求として書かない理由"
+  - "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 判定の置き先と結果の受け渡しを記録する理由"
+  - "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 保証の開示と委任の適用を契約で定める理由"
+  - "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳"
+  - "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > 台帳に対処の実体を書かない"
+  - "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > リスク登録簿と統合しない"
+  - "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > 様式"
+  - "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > 記入時の注意"
+  - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1)"
+  - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 要求事項"
+  - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式"
+  - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+  - "phase4-process-design/deliverable-templates#テンプレ12: プロダクトの原則"
+  - "phase4-process-design/deliverable-templates#テンプレ12: プロダクトの原則 > 置く場合の規定"
+  - "phase4-process-design/deliverable-templates#テンプレ12: プロダクトの原則 > 様式"
+  - phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント
+  - phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 本節の位置づけ
+  - phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 適用条件
+  - phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 記号体系
+  - phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 記号体系 > 記号の出所
+  - phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 手順
+  - phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 危険源の同定
+  - phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 危険源の同定 > 分析手法
+  - phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > リスク低減の3ステップ
+  - "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表"
+  - "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表 > 軽量版(1ページ)"
+  - "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表 > 完全版で追加する項目"
+  - "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表 > 記入時の注意"
+  - phase4-process-design/deliverable-templates#レビュープロセスの流れ
+  - phase4-process-design/deliverable-templates#判断の順序に関する要求事項
+  - phase4-process-design/deliverable-templates#判断の順序に関する要求事項 > 実装作業における順序
+  - phase4-process-design/deliverable-templates#判断の順序に関する要求事項 > 判定における対比
+  - phase4-process-design/deliverable-templates#AI への指示との関係
+  - phase4-process-design/ears-guide#(冒頭)
+  - phase4-process-design/ears-guide#なぜ形式を決めるのか
+  - phase4-process-design/ears-guide#5つのパターン
+  - phase4-process-design/ears-guide#良い例・悪い例
+  - phase4-process-design/ears-guide#書き方の手順(formalize-criteria タスクの実施手順)
+  - phase4-process-design/ears-guide#草案を受け取ったときに確かめること
+  - phase4-process-design/ears-guide#チェックリスト(G-2 提出前のセルフチェック)
+  - phase4-process-design/ears-guide#出典
+  - phase4-process-design/exception-escalation#(冒頭)
+  - phase4-process-design/exception-escalation#7.1 本章が達成すべき成果
+  - phase4-process-design/exception-escalation#7.2 例外の前提
+  - phase4-process-design/exception-escalation#7.3 例外承認の要求事項
+  - phase4-process-design/exception-escalation#7.3 例外承認の要求事項 > 7.3.1 経路の使い分け
+  - phase4-process-design/exception-escalation#7.3 例外承認の要求事項 > 7.3.2 未解決事項
+  - phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外)
+  - phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 適用できる期日
+  - phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 後回しにできる対象
+  - phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 申請書の必須項目
+  - phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 乱用を防ぐ制約
+  - phase4-process-design/exception-escalation#7.5 判定の滞留に対する措置
+  - phase4-process-design/exception-escalation#7.6 エスカレーションの基準 > 発火条件
+  - phase4-process-design/exception-escalation#7.6 エスカレーションの基準 > 発火条件 > 着手決裁の前に消費した分の扱い
+  - phase4-process-design/exception-escalation#7.6 エスカレーションの基準 > エスカレーションレポートの様式
+  - phase4-process-design/exception-escalation#7.6 エスカレーションの基準 > 決裁後のポートフォリオ調整
+  - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断
+  - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.1 予算の構成
+  - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.2 測定する指標
+  - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.3 中止の判断基準
+  - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.4 自動的な上程
+  - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.5 継続と判定する場合の要求事項
+  - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.6 案件に関与していない者による棚卸し
+  - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.7 中止と判定した場合の要求事項
+  - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.8 AI の利用の評価と総費用
+  - phase4-process-design/exception-escalation#7.8 記録の要求事項
+  - phase4-process-design/exception-escalation#7.9 承認権限の一時制限
+  - phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.1 発動の条件
+  - phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.2 制限の内容
+  - phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.3 回復の条件
+  - phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.4 制限された状態での例外決裁
+  - phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.5 例外の枠
+  - phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.6 記録と可視化
+  - phase4-process-design/exception-escalation#7.10 前提の劣化と受容
+  - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.1 なぜ止めないか
+  - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.2 充足状態の3区分
+  - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.3 劣化の定義
+  - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.4 受容の要求事項
+  - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.5 ゲートとの接続
+  - phase4-process-design/exception-escalation#7.11 停止の申し立て
+  - phase4-process-design/exception-escalation#7.11 停止の申し立て > 保留の範囲と強制の方法
+  - phase4-process-design/exception-escalation#7.12 関連する章
+  - phase4-process-design/gate-criteria#(冒頭)
+  - phase4-process-design/gate-criteria#ゲートの2系統
+  - phase4-process-design/gate-criteria#前提条件と判定基準の区別
+  - phase4-process-design/gate-criteria#全ゲートに共通する通過条件
+  - phase4-process-design/gate-criteria#ゲート運用の共通ルール
+  - phase4-process-design/gate-criteria#判定の成立
+  - phase4-process-design/gate-criteria#工程ゲートの判定の語彙
+  - phase4-process-design/gate-criteria#判定の範囲
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程どおり)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程どおり) > 品質の約束と保証範囲(層2)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 曖昧語(基準2)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 前提の欄(基準3)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 未確定事項(前提条件1)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間) > 事業影響を金額で定量化しない
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間) > 記載の検査
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間) > 事業決裁者が受容を拒否した場合
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間) > 受入基準とタスクの対応(基準6)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間) > 範囲内外の判定を機械が行わない理由
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間) > 範囲外と判定した場合
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 判定基準を実装する検査と集約
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 是正の起動
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 基準値と除外設定の変更
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 統制の設定の陰性の確認
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 検査を外す変更の記録
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > リスク区分の下限の照合
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 検査対象が存在しない場合の扱い
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 知財潔白性の検査
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 類似が検知された場合の措置
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 法的な評価を本標準が示さない理由
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 秘匿情報の混入(基準7)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 依存関係の追加(基準8)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 許可リストが判定を妨げた場合の救済
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 委任の変更は判定の時点を事後へ移す
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 未達のまま出荷する場合の例外承認
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 基準1・2 の記録
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 壊してはならない品質条件の突合
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 停止の申し立ての保留
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の主張の成立判定
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 出荷判定者の署名の意味
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 未消化が残る場合に書くもの
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 出荷判定者へ数値の十分性を判定させない
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > テストの中身に対する検査を G-5 へ置く
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間)
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 残存リスクの受容を決断の記録に含める
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+  - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 出荷判定者の異議
+  - phase4-process-design/gate-criteria#タスクの分割基準
+  - phase4-process-design/gate-criteria#タスクの分割基準 > 規範
+  - phase4-process-design/gate-criteria#タスクの分割基準 > 行数を代理指標として扱う根拠と、その限界
+  - phase4-process-design/gate-criteria#タスクの分割基準 > レビュー可能性の担保水準(L0〜L2)
+  - phase4-process-design/gate-criteria#タスクの分割基準 > 行数上限が成立しない類型
+  - phase4-process-design/gate-criteria#タスクの分割基準 > L0 の既定値
+  - phase4-process-design/gate-criteria#タスクの分割基準 > 基準値を超えた変更の扱い
+  - phase4-process-design/gate-criteria#タスクの分割基準 > 上限を緩和できる手段と、できない手段
+  - phase4-process-design/gate-criteria#タスクの分割基準 > 上限を自組織の実測で較正する
+  - phase4-process-design/gate-criteria#タスクの分割基準 > 分割しすぎない
+  - phase4-process-design/gate-criteria#タスクの分割基準 > この基準の見直し
+  - phase4-process-design/gate-criteria#レビュー SLA と滞留の措置
+  - phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 2つの時刻を分ける
+  - phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 割り当て
+  - phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 滞留したときの措置
+  - phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 偏りの監視
+  - phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 流入を絞る
+  - phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 帯域を理由に判定を省略しない
+  - phase4-process-design/gate-criteria#欠陥トリアージ基準
+  - phase4-process-design/gate-criteria#欠陥トリアージ基準 > 重大度と優先度の分離
+  - phase4-process-design/gate-criteria#欠陥トリアージ基準 > 重大度の定義
+  - phase4-process-design/gate-criteria#欠陥トリアージ基準 > 事業ステージ別のトリアージマトリクス
+  - phase4-process-design/gate-criteria#欠陥トリアージ基準 > 既知の不具合の要求事項
+  - phase4-process-design/gate-criteria#欠陥トリアージ基準 > 定量指標の設定義務
+  - phase4-process-design/gate-criteria#AI 品質指標の扱い
+  - phase4-process-design/gate-criteria#AI 品質指標の扱い > 指標の定義
+  - phase4-process-design/gate-criteria#AI 品質指標の扱い > 閾値の設定と較正
+  - phase4-process-design/gate-criteria#AI 品質指標の扱い > 合否条件にしてよい指標、してはならない指標
+  - phase4-process-design/gate-criteria#AI 品質指標の扱い > 新規に変更した範囲へ限定する
+  - phase4-process-design/gate-criteria#ゲートの健全性を計測する
+  - phase4-process-design/gate-criteria#判定の滞留および基準の逸脱
+  - phase4-process-design/human-ai-boundary#(冒頭)
+  - phase4-process-design/human-ai-boundary#5.1 本章が達成すべき成果
+  - phase4-process-design/human-ai-boundary#5.2 責任の原則
+  - phase4-process-design/human-ai-boundary#5.3 役割境界の時点表記
+  - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.1 レベルを定義する3変数
+  - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.2 3つのレベル
+  - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.3 レベルによらない不変条件
+  - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.4 リスク区分による上限
+  - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.5 レベルの引き上げ
+  - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ
+  - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合
+  - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.7 能力維持措置
+  - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.8 見直しの頻度
+  - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手
+  - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
+  - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.2 運用形態
+  - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.3 リスク区分による上限
+  - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
+  - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路
+  - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.5 運用形態にかかわらず人が確定する判断
+  - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.6 席ごとの上限
+  - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.7 運用形態の引き上げと引き下げ
+  - phase4-process-design/human-ai-boundary#5.9 役割境界の見直し
+  - phase4-process-design/human-ai-boundary#5.10 関連する章
+  - phase4-process-design/lifecycle#(冒頭)
+  - phase4-process-design/lifecycle#2.1 本章が達成すべき成果
+  - phase4-process-design/lifecycle#2.2 二層構造
+  - phase4-process-design/lifecycle#2.3 事業ステージ
+  - phase4-process-design/lifecycle#2.3 事業ステージ > 実装スタックの確定時期
+  - phase4-process-design/lifecycle#2.3 事業ステージ > 既存の設計審査体系との対応
+  - phase4-process-design/lifecycle#2.4 ステージ移行ゲート
+  - phase4-process-design/lifecycle#2.5 工程ゲートとの関係
+  - phase4-process-design/lifecycle#2.6 AI協調ループの構成
+  - phase4-process-design/lifecycle#2.6 AI協調ループの構成 > 判断記録の範囲
+  - phase4-process-design/lifecycle#2.6 AI協調ループの構成 > ステージによるループの回し方の変化
+  - phase4-process-design/lifecycle#2.7 部門間移管
+  - phase4-process-design/lifecycle#2.8 案件の立ち上げ手順
+  - phase4-process-design/lifecycle#2.8 案件の立ち上げ手順 > D-0 を前提条件とする理由
+  - phase4-process-design/lifecycle#2.8 案件の立ち上げ手順 > 前提条件の統制
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.1 適用対象
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.2 移管の成立条件
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.3 3つのゲート
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 予告期間
+  - "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.4 H-1 移管準備: 欠落の棚卸し"
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 期限と範囲を予告期間で決める
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 短い予告のときに何から書き戻すか
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 機械検査
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.6 H-3 理解の実証
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.7 準備段階における AI の利用
+  - phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.8 H-3 が期限内に合格しない場合
+  - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制
+  - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.1 スコープの3層
+  - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.2 規模の合意
+  - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.3 スコープを確定する時期
+  - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.4 進捗の観測
+  - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.5 棚卸しとスコープの調整
+  - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.6 期日に間に合わない見込みが立った場合
+  - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.7 通常運転と例外の境界
+  - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.8 合意した範囲から外れた変更の扱い
+  - phase4-process-design/lifecycle#2.11 関連する章
+  - phase4-process-design/overview#(冒頭)
+  - phase4-process-design/overview#1.0 名称
+  - phase4-process-design/overview#1.1 目的
+  - phase4-process-design/overview#1.2 適用範囲
+  - phase4-process-design/overview#1.3 引用規格および参照文書
+  - phase4-process-design/overview#1.4 用語の定義
+  - phase4-process-design/overview#1.5 本標準の構成
+  - phase4-process-design/overview#1.6 各章の入力・処理・出力(IPO)
+  - phase4-process-design/overview#1.7 記述の原則
+  - phase4-process-design/overview#1.7 記述の原則 > 1.7.1 規定の表現形式
+  - phase4-process-design/overview#1.7 記述の原則 > 1.7.2 規定と説明の読み分け
+  - phase4-process-design/overview#1.7 記述の原則 > 1.7.3 表の升に入れる語
+  - phase4-process-design/overview#1.7 記述の原則 > 1.7.4 検査と、その限界
+  - phase4-process-design/overview#1.7 記述の原則 > 1.7.5 組織が書く基準の読み替え
+  - phase4-process-design/overview#1.7 記述の原則 > 1.7.6 根拠水準のマークの範囲
+  - phase4-process-design/overview#1.8 関連するフェーズ
+  - phase4-process-design/overview#1.9 本標準を適用する組織が主張できること、主張しないこと
+  - phase4-process-design/overview#1.10 適用の開始と適合の主張
+  - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.1 適用の開始
+  - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張
+  - phase4-process-design/proposal-template#(冒頭)
+  - "phase4-process-design/proposal-template#提案の戦略: 「変えない」から入る"
+  - phase4-process-design/proposal-template#提案書テンプレート
+  - phase4-process-design/proposal-template#提案書で使わない表現
+  - phase4-process-design/proposal-template#想定問答(提案時に必ず出る質問) > 品質保証に関する問い(附属書H からの投影)
+  - phase4-process-design/proposal-template#想定問答(提案時に必ず出る質問) > 採用の判断と組織継続に関する問い(附属書I からの投影)
+  - phase4-process-design/proposal-template#想定問答(提案時に必ず出る質問) > 提案の進め方に関する問い
+  - phase4-process-design/proposal-template#提案の進め方
+  - phase4-process-design/roles-responsibilities#(冒頭)
+  - phase4-process-design/roles-responsibilities#3.1 本章が達成すべき成果
+  - "phase4-process-design/roles-responsibilities#3.2 責任の種類: A と R を分ける"
+  - phase4-process-design/roles-responsibilities#3.3 RACI マトリクス(作業 × ロール)
+  - phase4-process-design/roles-responsibilities#3.4 任命基準
+  - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか
+  - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 確認に用いるもの
+  - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 暫定任命
+  - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 席の責任者でない確認者の力量
+  - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 有効期間を置く理由
+  - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 教育の対象範囲
+  - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.2 AI を担い手に置くときの適合性確認
+  - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.3 判断を担う席の力量の維持と後継
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止)
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.2 出荷判定者の兼務に限った例外(代償措置つき)
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > 同じロールの中で並行して実行する場合
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > ロールとレーンの写像
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈)
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 文脈の分離が成立する条件
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 入力の分離
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 成果物を起案した文脈と、判定の草案を作る文脈
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 実行主体が参照するもの
+  - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義
+  - phase4-process-design/roles-responsibilities#3.6 委譲ルール
+  - phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.1 会議体を置く階層
+  - phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.2 4つの会議体
+  - phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.3 判定の語彙
+  - phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.4 各会議体の規定 > B-1 IT投資委員会
+  - phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.4 各会議体の規定 > B-2 ステアリングコミッティ
+  - phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.4 各会議体の規定 > B-3 設計審査会
+  - phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.4 各会議体の規定 > B-4 リリース判定会
+  - phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.5 会議体に持ち込んではならない事項
+  - phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分
+  - phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分 > 区分の下限と確定者
+  - phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.2 決裁者の割当
+  - phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.3 起案・意見・決定の分離
+  - phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.4 決定は技術的正しさの承認ではない
+  - phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.1 判定期限の起算
+  - phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.2 定例を待てない場合の措置
+  - phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.3 期限を超過した場合
+  - phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.4 会議体の健全性指標
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.1 位置づけ
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.2 インタフェース
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.3 モデルの適合性評価
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.4 可用性と品質を分けて監視する
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.5 障害と切り替え
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.5 障害と切り替え > 縮退の能力を量で示す
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.6 モデルの廃止への追随
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.7 実行予算の配給
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.8 セキュリティとデータ保護
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.9 統制と CI 検査の同期
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 停止条件の3種
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 停止したときの扱い
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 閾値の定め方
+  - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.11 依存先の一覧と単一障害点
+  - phase4-process-design/roles-responsibilities#3.13 体制の変化点
+  - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.1 変化点に数えるもの
+  - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.2 変化点に数えないもの
+  - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.3 手続
+  - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.4 記録
+  - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.5 宣言と実態のずれの検出
+  - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.6 品質保証部門への通知
+  - phase4-process-design/roles-responsibilities#3.14 関連する章
+  - phase4-process-design/safety-verification#(冒頭)
+  - phase4-process-design/safety-verification#F.1 本附属書の位置づけ
+  - phase4-process-design/safety-verification#F.1 本附属書の位置づけ > 用語を安易に併記しない
+  - phase4-process-design/safety-verification#F.2 適用の判定
+  - phase4-process-design/safety-verification#F.2 適用の判定 > 安全関連部の切り分け
+  - phase4-process-design/safety-verification#F.2 適用の判定 > 安全関連ソフトウェアの区分
+  - phase4-process-design/safety-verification#F.3 AI を用いる場合の追加要求 > 2つのケースを混同しない
+  - phase4-process-design/safety-verification#F.3 AI を用いる場合の追加要求 > 追加要求
+  - phase4-process-design/safety-verification#F.3 AI を用いる場合の追加要求 > 反復して合格へ至った修正の扱い
+  - phase4-process-design/safety-verification#F.4 検証手法の割当て
+  - phase4-process-design/safety-verification#F.5 故障挿入試験の実施手順
+  - phase4-process-design/safety-verification#F.5 故障挿入試験の実施手順 > 手法の分類
+  - phase4-process-design/safety-verification#F.5 故障挿入試験の実施手順 > 最小限の試験項目
+  - phase4-process-design/safety-verification#F.5 故障挿入試験の実施手順 > AI に故障挿入の試験項目を生成させる場合
+  - phase4-process-design/safety-verification#F.6 ミューテーション試験 > 位置づけ
+  - phase4-process-design/safety-verification#F.6 ミューテーション試験 > カバレッジを試験の品質指標にしない
+  - phase4-process-design/safety-verification#F.6 ミューテーション試験 > CI への組み込み
+  - phase4-process-design/safety-verification#F.6 ミューテーション試験 > 既知の限界を補う
+  - phase4-process-design/safety-verification#F.7 記録
+  - phase4-process-design/safety-verification#F.8 関連する章
+  - phase4-process-design/tailoring-guide#(冒頭)
+  - phase4-process-design/tailoring-guide#調整は宣言を伴う
+  - phase4-process-design/tailoring-guide#再テーラリングの契機
+  - phase4-process-design/tailoring-guide#再テーラリングの契機 > 契機に数えるもの
+  - phase4-process-design/tailoring-guide#再テーラリングの契機 > 契機に数えないもの
+  - phase4-process-design/tailoring-guide#再テーラリングの契機 > 再実行の時点と向き
+  - phase4-process-design/tailoring-guide#再テーラリングの契機 > 準拠テンプレートが備える手段
+  - "phase4-process-design/tailoring-guide#入力: 5つの調整軸"
+  - "phase4-process-design/tailoring-guide#入力: 5つの調整軸 > 軸B と事業ステージの対応"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 外部の確認者を高リスクの変更へ集中させる"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 市場・顧客仮説の検証が成立しない場合"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 委任・標準変更・L3 は同じ変更種別を指す"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 切替が成立する条件"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 登録した種別の変更が通るゲート"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 対象にできる変更の境界"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 事後監査の手続"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > AI の確認を独立した人の確認に数えません"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 指示資産の監査証跡"
+  - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 適用できない場合"
+  - "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整"
+  - "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > S0 の省略が成立する前提"
+  - "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > 本軸が動かすもの、動かさないもの"
+  - "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > 実装スタックが未確定でも構成を初期化してよい"
+  - "phase4-process-design/tailoring-guide#軸C: 期待品質・規制による調整"
+  - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整"
+  - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 判定をどちらの組織へ置くか"
+  - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 判定の結果を受け取る者を決める"
+  - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 強制層をどちらが所有するか"
+  - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 受領する記録が保証するもの"
+  - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 保証の開示を納品ごとに受け渡す"
+  - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 受け入れの速度を契約で合意する"
+  - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 計算資源の負担を決める"
+  - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 発注側に読解の帯域がない場合"
+  - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整"
+  - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 区分ごとの調整"
+  - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 適用してはならない組み合わせ"
+  - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 設計によって区分を下げる"
+  - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 設計で下げられない危害"
+  - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 人員が足りない場合"
+  - phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 会議体と体制図の調整
+  - phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 社会実装の段階の調整
+  - "phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 例1: スタートアップの PoC(2名・S0・標準品質・内製・CL0)"
+  - "phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 例2: 事業会社のグロース期プロダクト(8名・S2・高品質・内製・CL1)"
+  - "phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 例3: SIer の受託開発(15名・S2・規制業・受託受注側・CL2)"
+  - phase4-process-design/tailoring-guide#テーラリングの禁止事項
+  - phase5-implementation/ai-environment#(冒頭)
+  - phase5-implementation/ai-environment#実行形態の3層
+  - phase5-implementation/ai-environment#権限設計(最小権限+強制層)
+  - phase5-implementation/ai-environment#ガードレールの符号化(steering)
+  - phase5-implementation/ai-environment#監査ログとトレーサビリティ
+  - phase5-implementation/ai-environment#モデルアクセスの管理
+  - phase5-implementation/ai-environment#段階導入の目安
+  - phase5-implementation/ci-gates#(冒頭)
+  - phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成
+  - phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 知財潔白性の2つのジョブを分ける
+  - phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 秘匿情報の検査は履歴の全体を対象にする
+  - phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 依存の追加を PR の記述へ出力する
+  - phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > PR 単位の検査(pr-rules)
+  - phase5-implementation/ci-gates#G-5(自動検証)のパイプライン構成 > 独立レビュー(G-6)への引き継ぎ
+  - phase5-implementation/ci-gates#ゲートの前提条件を機械検査する(D-0 の統制)
+  - phase5-implementation/ci-gates#ゲートの前提条件を機械検査する(D-0 の統制) > 承認記録を監査証跡として成立させる
+  - phase5-implementation/ci-gates#「人が毎回指摘すること」を CI へ移す運用
+  - phase5-implementation/ci-gates#様式・データの検証もゲートに載せる
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 集約スクリプトの入出力仕様
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 判定基準との対応(機械が確かめる範囲と、人が突合する範囲)
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 保証の主張の成立判定の出力
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 組織継続の側の状態
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 記載の欠落と、値として受け入れるもの
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 例外承認の記録が対応づく条件
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 独立した人の確認の数え方
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 委任で先へ進めた変更と、G-6 の判定を事後へ移した変更
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 出荷判定者の異議の検査
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 組織の外へ渡す出力
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 委任の期間ごとの保証の開示
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 保証の開示の出力 > 出荷判定者が突合するもの
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 委任の該当の判定とマージの経路
+  - phase5-implementation/ci-gates#出荷判定(G-7)エビデンスの自動集約 > 実装の制約
+  - phase5-implementation/ci-gates#デプロイゲート
+  - phase5-implementation/compute-strategy#(冒頭)
+  - phase5-implementation/compute-strategy#ローカルファーストの多段検査
+  - phase5-implementation/compute-strategy#クラウド CI のコスト最適化
+  - phase5-implementation/compute-strategy#AI トークン予算の管理
+  - phase5-implementation/compute-strategy#実行の強制停止の実装
+  - phase5-implementation/compute-strategy#実行の強制停止の実装 > どこで強制するか
+  - phase5-implementation/compute-strategy#実行の強制停止の実装 > 無進捗をどう判定するか
+  - phase5-implementation/compute-strategy#実行の強制停止の実装 > 記録する項目
+  - phase5-implementation/compute-strategy#実行の強制停止の実装 > 誤検知への対処
+  - phase5-implementation/compute-strategy#ローカル実行環境の整備
+  - phase5-implementation/compute-strategy#規模別の目安
+  - phase5-implementation/context-base#(冒頭)
+  - phase5-implementation/context-base#リポジトリ配置(恒久層・案件層)
+  - phase5-implementation/context-base#要件との対応
+  - phase5-implementation/context-base#書き戻しワークフロー(R3)
+  - phase5-implementation/context-base#書き戻しワークフロー(R3) > 検証を経ていない記述を基盤へ入れません
+  - phase5-implementation/context-base#オーナーシップの実装(R5)
+  - phase5-implementation/context-base#陳腐化の検知
+  - phase5-implementation/context-base#陳腐化の検知 > 落とすものと記録するものを分ける理由
+  - phase5-implementation/context-base#乖離の監査 > 対応関係を文脈ファイル自身に書く
+  - phase5-implementation/context-base#乖離の監査 > 乖離の定義
+  - phase5-implementation/context-base#乖離の監査 > 滞留の上限を置く
+  - phase5-implementation/context-base#忘却の手続 > 検知より削減を主とする
+  - phase5-implementation/context-base#忘却の手続 > 何を外すか
+  - phase5-implementation/context-base#忘却の手続 > 削除ではなく保管する
+  - phase5-implementation/context-base#忘却の手続 > 誰が外すか
+  - phase5-implementation/context-base#段階導入(テーラリング)
+  - phase5-implementation/context-base#既存の資産からの移行
+  - phase5-implementation/context-base#保守の資源
+  - phase5-implementation/enablement#(冒頭)
+  - phase5-implementation/enablement#移行の基本設計 > 賛同を前提条件にしない
+  - phase5-implementation/enablement#移行の基本設計 > 導入を差し引きで提案する
+  - phase5-implementation/enablement#移行段階 > T-0 準備
+  - phase5-implementation/enablement#移行段階 > T-1 限定試行 > 対象の選び方
+  - phase5-implementation/enablement#移行段階 > T-1 限定試行 > 試行前チェックリスト
+  - phase5-implementation/enablement#移行段階 > T-1 限定試行 > 測定する指標
+  - phase5-implementation/enablement#移行段階 > TG-1 増分展開の可否
+  - phase5-implementation/enablement#移行段階 > T-2 増分展開
+  - phase5-implementation/enablement#移行段階 > TG-2 常態化の可否
+  - phase5-implementation/enablement#移行段階 > T-3 常態化
+  - phase5-implementation/enablement#移行段階 > TG-3 支援組織の撤退可否
+  - phase5-implementation/enablement#移行段階 > T-4 自走
+  - phase5-implementation/enablement#既存規程との併存(移行期の措置)
+  - phase5-implementation/enablement#既存規程との併存(移行期の措置) > 案件の内側で混在させない
+  - phase5-implementation/enablement#既存規程との併存(移行期の措置) > 要求が衝突したときの決着
+  - phase5-implementation/enablement#既存規程との併存(移行期の措置) > サンドボックス(一時的な適用免除) > 申請の要求事項
+  - phase5-implementation/enablement#既存規程との併存(移行期の措置) > サンドボックス(一時的な適用免除) > 承認
+  - phase5-implementation/enablement#既存規程との併存(移行期の措置) > サンドボックス(一時的な適用免除) > 合意書の様式
+  - phase5-implementation/enablement#既存規程との併存(移行期の措置) > サンドボックス(一時的な適用免除) > 監査部門との関係
+  - phase5-implementation/enablement#既存規程との併存(移行期の措置) > 移行期の初期コスト
+  - phase5-implementation/enablement#支援体制
+  - phase5-implementation/enablement#支援体制 > 支援と判定を分離する理由
+  - phase5-implementation/enablement#支援体制 > 分離の要求事項
+  - phase5-implementation/enablement#支援体制 > 分離できない規模の場合
+  - phase5-implementation/enablement#支援体制 > 支援を求めた事実を判定の入力にしない
+  - "phase5-implementation/enablement#支援体制 > 例外: 支援側が重大なリスクを観測した場合"
+  - phase5-implementation/enablement#支援体制 > 現場推進者の任命に伴う要求事項
+  - phase5-implementation/enablement#教育計画 > 研修だけでは定着しない
+  - phase5-implementation/enablement#教育計画 > 教育の階層
+  - phase5-implementation/enablement#教育計画 > 対象別の内容
+  - phase5-implementation/enablement#教育計画 > 品質保証部門の内容を実装の読解へ寄せない
+  - phase5-implementation/enablement#教育計画 > 設計の要求事項
+  - phase5-implementation/enablement#教育計画 > 任命基準の確認(認定)の運用
+  - phase5-implementation/enablement#教育計画 > 判定の負荷を持続可能にする
+  - phase5-implementation/enablement#教育計画 > 教育の効果測定と、この計画の限界
+  - phase5-implementation/enablement#抵抗への対処
+  - phase5-implementation/enablement#抵抗への対処 > 自律性への配慮
+  - phase5-implementation/enablement#期待値の較正
+  - phase5-implementation/enablement#根拠として用いない数値
+  - phase5-implementation/enablement#関連するページ
+  - phase5-implementation/git-strategy#(冒頭)
+  - "phase5-implementation/git-strategy#ブランチモデル: トランクベース+タスク単位ブランチ"
+  - "phase5-implementation/git-strategy#ブランチモデル: トランクベース+タスク単位ブランチ > ブランチ命名の語彙"
+  - "phase5-implementation/git-strategy#ブランチモデル: トランクベース+タスク単位ブランチ > main への追従とコンフリクト解消"
+  - "phase5-implementation/git-strategy#ブランチ保護: ゲートの機械的強制"
+  - phase5-implementation/git-strategy#AI 生成コミットの扱い
+  - phase5-implementation/git-strategy#マージ後の扱い
+  - phase5-implementation/git-strategy#段階導入(テーラリング)
+  - phase5-implementation/label-mailbox#(冒頭)
+  - "phase5-implementation/label-mailbox#4.1 設計背景: 割り込み崩壊（外部割込競合）の防止"
+  - phase5-implementation/label-mailbox#4.2 設計原則
+  - phase5-implementation/label-mailbox#4.3 label 語彙（標準8種）
+  - phase5-implementation/label-mailbox#4.3.1 状態遷移表（復路の完全定義）
+  - phase5-implementation/label-mailbox#4.4 孤児（orphan）検出の義務化
+  - phase5-implementation/label-mailbox#4.4 孤児（orphan）検出の義務化 > orphan の定義
+  - phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド
+  - phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ① 開発者（Dev）の Mailbox
+  - phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ② 出荷判定者（QM）の Mailbox
+  - phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ③ 価値責任者（PO）の Mailbox
+  - phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ④ 監査担当（Audit）の Mailbox
+  - phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ⑤ AI維持管理（Platform）の Mailbox
+  - phase5-implementation/label-mailbox#4.5 ロール別 polling コマンド > ⑥ 技術判断者の Mailbox
+  - phase5-implementation/label-mailbox#4.5.1 受信箱は自分のロールのものだけを見る
+  - phase5-implementation/label-mailbox#4.5.2 エスカレーションの段階とラベルの対応
+  - phase5-implementation/label-mailbox#4.5.3 ゲート判定の成立とラベルの遷移
+  - phase5-implementation/label-mailbox#4.6 経路維持と「生存確認」ルール（POの義務）
+  - phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し
+  - phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.1 何を統制の弱化として扱うか
+  - phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.2 検知者は許容可否を判断しない
+  - phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.3 引き渡し先
+  - phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.4 引き渡し先が分からないときの既定
+  - phase5-implementation/label-mailbox#4.7 統制の弱化を検知したときの引き渡し > 4.7.5 兼務していても記録は残す
+  - phase5-implementation/nonfunctional-verify#(冒頭)
+  - phase5-implementation/nonfunctional-verify#原則
+  - phase5-implementation/nonfunctional-verify#検証の全体フロー
+  - phase5-implementation/nonfunctional-verify#種類別の検証手段と実施手順
+  - phase5-implementation/nonfunctional-verify#CI への組み込み
+  - phase5-implementation/nonfunctional-verify#テーラリング
+  - phase5-implementation/overview#(冒頭)
+  - phase5-implementation/overview#実装とは組織移行である
+  - phase5-implementation/overview#移行の全体像
+  - phase5-implementation/overview#段階と実装リファレンスの対応
+  - phase5-implementation/overview#実装リファレンス一覧
+  - phase5-implementation/overview#設定作業の順序
+  - phase5-implementation/pr-workflow#(冒頭)
+  - phase5-implementation/pr-workflow#PR のライフサイクル
+  - phase5-implementation/pr-workflow#ロール間非同期メッセージング（Label Mailbox 連携）
+  - phase5-implementation/pr-workflow#規模の基準値
+  - phase5-implementation/pr-workflow#本文の必須欄(PR テンプレート)
+  - phase5-implementation/pr-workflow#本文の必須欄(PR テンプレート) > 自動で埋める欄と、人が書く欄
+  - phase5-implementation/pr-workflow#本文の必須欄(PR テンプレート) > human-verify を自動化しない理由と、様式の最小化
+  - phase5-implementation/pr-workflow#本文の必須欄(PR テンプレート) > 記録の書き戻しを毎回求めない
+  - phase5-implementation/pr-workflow#誰が PR を作るか(実行形態別)
+  - phase5-implementation/pr-workflow#Draft PR の扱い
+  - phase5-implementation/pr-workflow#レビュー対応とマージ
+  - phase5-implementation/pr-workflow#アンチパターン
+  - phase5-implementation/qms-document-control#(冒頭)
+  - phase5-implementation/qms-document-control#要求と機構の対応
+  - phase5-implementation/qms-document-control#承認権限のマッピング
+  - phase5-implementation/qms-document-control#承認権限のマッピング > 電子署名との関係
+  - phase5-implementation/qms-document-control#文書のステータス > 3つの状態を置く
+  - phase5-implementation/qms-document-control#文書のステータス > ステータスの表示に依存させない
+  - phase5-implementation/qms-document-control#文書のステータス > CI で検査する項目
+  - phase5-implementation/qms-document-control#版の識別を人が読める形で出す
+  - phase5-implementation/qms-document-control#外部監査への提示 > 形式を規程で固定しない
+  - phase5-implementation/qms-document-control#外部監査への提示 > 提示の準備を監査の直前に行わない
+  - phase5-implementation/qms-document-control#文書管理以外の要求との対応
+  - phase5-implementation/qms-document-control#この対応関係の限界
+  - phase5-implementation/qms-document-control#関連するページ
+  - phase5-implementation/review-burden-measurement#(冒頭)
+  - phase5-implementation/review-burden-measurement#この測定が答える問い
+  - phase5-implementation/review-burden-measurement#測るもの > 被説明変数(レビュー負荷)
+  - phase5-implementation/review-burden-measurement#測るもの > 説明変数
+  - phase5-implementation/review-burden-measurement#取得方法
+  - phase5-implementation/review-burden-measurement#取得方法 > 取得しないもの
+  - phase5-implementation/review-burden-measurement#測定精度
+  - phase5-implementation/review-burden-measurement#比較の設計 > 無作為割付を前提にしない
+  - phase5-implementation/review-burden-measurement#比較の設計 > 前後比較の脅威への対処
+  - phase5-implementation/review-burden-measurement#比較の設計 > 判断に使える条件
+  - phase5-implementation/review-burden-measurement#第4章への反映 > 区分を更新する手続
+  - phase5-implementation/review-burden-measurement#第4章への反映 > 較正の4ステップとの関係
+  - phase5-implementation/review-burden-measurement#測定を始める前の歯止め
+  - phase5-implementation/review-burden-measurement#関連するページ
+  - phase5-implementation/review-package#(冒頭)
+  - phase5-implementation/review-package#なぜ必要か
+  - phase5-implementation/review-package#満たすのは理解であって、理解の代行ではない
+  - "phase5-implementation/review-package#何を含めてよいか: 3区分"
+  - "phase5-implementation/review-package#何を含めてよいか: 3区分 > 指摘の一覧はパッケージに含めない"
+  - phase5-implementation/review-package#提示の順序
+  - phase5-implementation/review-package#パッケージの構成
+  - phase5-implementation/review-package#生成の方法
+  - phase5-implementation/review-package#誰が妥当性を保証するか
+  - phase5-implementation/review-package#効果の検証
+  - phase5-implementation/review-package#このパッケージが埋められない穴
+  - phase5-implementation/stacked-pr#(冒頭)
+  - phase5-implementation/stacked-pr#前提の確認(2026-08-05 時点)
+  - phase5-implementation/stacked-pr#前提の確認(2026-08-05 時点) > 自動リターゲットの正確な挙動
+  - phase5-implementation/stacked-pr#段階的な導入
+  - phase5-implementation/stacked-pr#段階的な導入 > 段階1に滞留させない
+  - phase5-implementation/stacked-pr#段階的な導入 > ツールを選ぶ基準
+  - phase5-implementation/stacked-pr#段階的な導入 > 操作事故へのフェイルセーフ
+  - phase5-implementation/stacked-pr#段階1の手順(標準機能のみ)
+  - phase5-implementation/stacked-pr#各層が満たすべき条件
+  - phase5-implementation/stacked-pr#レビューの割り当て
+  - phase5-implementation/stacked-pr#コンフリクトの解消
+  - phase5-implementation/stacked-pr#AIエージェントへ与える指示
+  - phase5-implementation/stacked-pr#導入しない判断
+  - phase5-implementation/template-repository#(冒頭)
+  - phase5-implementation/template-repository#使い方
+  - phase5-implementation/template-repository#既存のリポジトリへ持ち込む
+  - phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 確かめた事実(手元の git と node。2026-10-12 時点)
+  - phase5-implementation/template-repository#既存のリポジトリへ持ち込む > 定め
+  - phase5-implementation/template-repository#生成されるもの
+  - phase5-implementation/template-repository#常駐の索引と次の一手
+  - phase5-implementation/template-repository#常駐の索引と次の一手 > 次の一手の種類
+  - phase5-implementation/template-repository#常駐の索引と次の一手 > 常駐する量
+  - phase5-implementation/template-repository#常駐の索引と次の一手 > 規則と担保の対応
+  - phase5-implementation/template-repository#木構造のスキル
+  - phase5-implementation/template-repository#組織として品質を保証する主張と、組織継続の側の状態
+  - phase5-implementation/template-repository#組織として品質を保証する主張と、組織継続の側の状態 > 導入前の検証
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 標準変更カタログへの登録と、登録の根拠
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 日付と時刻
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 向きの扱い
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 拒否する入力
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 適合性確認の失効
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 即時通知
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 出荷できない状態
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 構成を書き換える経路は1つ
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > D-0 体制図との二重記入を無くす
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 旧い構成からの移行
+  - phase5-implementation/template-repository#席と運用形態、体制の変化点 > 委任した変更のマージの経路
+  - phase5-implementation/template-repository#判定ロジックを二重に持たない
+  - phase5-implementation/template-repository#言語に依存しない骨格
+  - phase5-implementation/template-repository#達成できないゲートの扱い
+  - phase5-implementation/template-repository#AI レビューの位置づけ
+  - phase5-implementation/template-repository#強制層
+  - phase5-implementation/template-repository#契約検査
+  - phase5-implementation/template-repository#実装の制約
+  - phase5-implementation/template-repository#関連するページ
+  - phase5-implementation/test-effectiveness#(冒頭)
+  - phase5-implementation/test-effectiveness#エージェントを分けることでは解決しません
+  - phase5-implementation/test-effectiveness#何を機械で確認するか
+  - phase5-implementation/test-effectiveness#何を機械で確認するか > この検査が共連れそのものを解決しない理由
+  - phase5-implementation/test-effectiveness#変異試験の適用 > 全件を対象にしません
+  - phase5-implementation/test-effectiveness#変異試験の適用 > 閾値を外部の固定値から取りません
+  - phase5-implementation/test-effectiveness#変異試験の適用 > スコアを目的化させない措置
+  - phase5-implementation/test-effectiveness#受入基準とテストの突合 > 対応関係を機械が読める形で持つ
+  - phase5-implementation/test-effectiveness#受入基準とテストの突合 > 突合を AI に行わせません
+  - phase5-implementation/test-effectiveness#CI への組み込み
+  - phase5-implementation/test-effectiveness#検査の結果を反映する経路
+  - phase5-implementation/test-effectiveness#関連するページ
+  - phase6-operation/debt-payback#(冒頭)
+  - phase6-operation/debt-payback#AIが生みやすい負債の類型
+  - phase6-operation/debt-payback#台帳駆動の返却サイクル
+  - phase6-operation/debt-payback#台帳駆動の返却サイクル > トリアージ(月次)
+  - phase6-operation/debt-payback#台帳駆動の返却サイクル > 返却枠の確保
+  - phase6-operation/debt-payback#台帳駆動の返却サイクル > AIを返却に使う
+  - phase6-operation/debt-payback#健全性の判断
+  - phase6-operation/improvement-cycle#(冒頭)
+  - phase6-operation/improvement-cycle#二重の改善ループ
+  - phase6-operation/improvement-cycle#四半期振り返りの進め方
+  - phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと)
+  - phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 手順
+  - phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 犯人探しへの変質を防ぐ
+  - phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 3区分の仕分け
+  - phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 自己申告を促す設計
+  - phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > コンテキスト基盤への還元
+  - phase6-operation/improvement-cycle#三識データを用いた振り返り(スプリントごと) > 振り返りの形骸化を検知する
+  - phase6-operation/improvement-cycle#モデル更新への追従(随時)
+  - phase6-operation/improvement-cycle#プロセス定義の版管理
+  - phase6-operation/improvement-cycle#本プロジェクト自体の追従
+  - phase6-operation/incident-drill#(冒頭)
+  - phase6-operation/incident-drill#何を訓練するか
+  - phase6-operation/incident-drill#訓練と監査と欠陥注入の違い
+  - phase6-operation/incident-drill#訓練の6類型
+  - phase6-operation/incident-drill#役割
+  - phase6-operation/incident-drill#役割 > 対応側(演習の中で演じる)
+  - phase6-operation/incident-drill#役割 > 運営側(演習を回す)
+  - phase6-operation/incident-drill#inject の設計
+  - phase6-operation/incident-drill#初回のシナリオ
+  - phase6-operation/incident-drill#実施の流れ
+  - phase6-operation/incident-drill#実施の流れ > 事前準備
+  - phase6-operation/incident-drill#実施の流れ > 演習を停止する条件
+  - phase6-operation/incident-drill#評価
+  - phase6-operation/incident-drill#報告書の様式
+  - phase6-operation/incident-drill#改善の追跡
+  - phase6-operation/incident-drill#段階的な拡張
+  - phase6-operation/incident-drill#この訓練の限界
+  - phase6-operation/incident-drill#関連するページ
+  - phase6-operation/incident-response#(冒頭)
+  - phase6-operation/incident-response#対応フロー
+  - phase6-operation/incident-response#重大度の判定基準
+  - phase6-operation/incident-response#AI と人の分担
+  - phase6-operation/incident-response#生成の条件から影響範囲を絞る
+  - phase6-operation/incident-response#ポストモーテム(Sev1・Sev2 は必須)
+  - phase6-operation/incident-response#運用への組み込み
+  - phase6-operation/metrics#(冒頭)
+  - phase6-operation/metrics#指標体系の全体像
+  - phase6-operation/metrics#測定の副作用への歯止め
+  - phase6-operation/metrics#測定の副作用への歯止め > 3つの原則の根拠
+  - phase6-operation/metrics#測定の副作用への歯止め > 参考値として測ることはできない
+  - phase6-operation/metrics#測定の副作用への歯止め > 指標を増やして対処しない
+  - phase6-operation/metrics#測定の副作用への歯止め > 採用しない指標
+  - phase6-operation/metrics#測定の副作用への歯止め > 閾値を目標にしない
+  - phase6-operation/metrics#測定の副作用への歯止め > 実績を基準へ機械的に変換しない
+  - phase6-operation/metrics#測定の副作用への歯止め > 能力依存の定数の登録簿
+  - phase6-operation/metrics#分類別の指標と警戒サイン > 流れ(速度と滞留)
+  - phase6-operation/metrics#分類別の指標と警戒サイン > 品質(欠陥と負債)
+  - phase6-operation/metrics#分類別の指標と警戒サイン > AI協調(委譲の効き)
+  - phase6-operation/metrics#分類別の指標と警戒サイン > 統制(ゲートの実効性)
+  - phase6-operation/metrics#分類別の指標と警戒サイン > 事業継続性(理解の維持)
+  - phase6-operation/metrics#三識メトリクス(AI協調の習熟度)
+  - phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 設計の原則
+  - phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 指標の定義
+  - phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 対話の質を機械が採点しない
+  - phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 歪みの検知
+  - phase6-operation/metrics#三識メトリクス(AI協調の習熟度) > 心理的安全性を対で測る
+  - phase6-operation/metrics#収集の実装(3つのデータソース)
+  - phase6-operation/metrics#ダッシュボード化
+  - phase6-operation/metrics#指標が示す「次の一手」の早見表
+  - phase6-operation/metrics#参考文献
+  - phase6-operation/operations-catalog#(冒頭)
+  - phase6-operation/operations-catalog#定常作業カタログ > 日次〜随時
+  - phase6-operation/operations-catalog#定常作業カタログ > 週次
+  - phase6-operation/operations-catalog#定常作業カタログ > 月次
+  - phase6-operation/operations-catalog#定常作業カタログ > 四半期
+  - phase6-operation/operations-catalog#運用の原則
+  - phase6-operation/operations-catalog#運用開始時のチェックリスト
+  - phase6-operation/overview#(冒頭)
+  - phase6-operation/overview#運用の全体像
+  - phase6-operation/overview#運用が失敗する典型パターン
+  - phase6-operation/process-audit#(冒頭)
+  - phase6-operation/process-audit#出荷判定と何が違うか
+  - phase6-operation/process-audit#監査が必要になる理由
+  - phase6-operation/process-audit#実施者の要件
+  - phase6-operation/process-audit#対象の抽出 > 全件を見ません
+  - phase6-operation/process-audit#監査の観点
+  - phase6-operation/process-audit#プロセスを新設・改訂したときの検証
+  - phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順1 網羅性の照合
+  - phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順2 回避行動への対応度
+  - phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順3 形式主義化の検査
+  - phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順4 担い手の一致
+  - phase6-operation/process-audit#プロセスを新設・改訂したときの検証 > 手順5 総合の判定
+  - phase6-operation/process-audit#判定と是正 > 所見の扱い
+  - phase6-operation/process-audit#判定と是正 > 個人を評価の対象にしない
+  - phase6-operation/process-audit#監査自体の形骸化を検知する
+  - phase6-operation/process-audit#記録
+  - phase6-operation/process-audit#この手続の限界
+  - phase6-operation/process-audit#関連するページ
+  - phase6-operation/risk-catalog#(冒頭)
+  - phase6-operation/risk-catalog#このカタログの目的
+  - phase6-operation/risk-catalog#影響先の定義
+  - phase6-operation/risk-catalog#分類の3階層
+  - phase6-operation/risk-catalog#内部リスク
+  - phase6-operation/risk-catalog#内部リスク > 人材・組織
+  - phase6-operation/risk-catalog#内部リスク > 開発プロセス・技術
+  - phase6-operation/risk-catalog#内部リスク > システム・インフラ
+  - phase6-operation/risk-catalog#内部リスク > 経営・意思決定
+  - phase6-operation/risk-catalog#内部リスク > ガバナンス・コンプライアンス
+  - phase6-operation/risk-catalog#外部リスク
+  - phase6-operation/risk-catalog#外部リスク > 市場・競合
+  - phase6-operation/risk-catalog#外部リスク > 顧客・取引先
+  - phase6-operation/risk-catalog#外部リスク > 法規制・制度
+  - phase6-operation/risk-catalog#外部リスク > 社会・自然環境
+  - phase6-operation/risk-catalog#外部リスク > 技術トレンド・エコシステム
+  - phase6-operation/risk-catalog#生成AI起因のリスク
+  - phase6-operation/risk-catalog#リスクを扱う人間の側のリスク
+  - phase6-operation/risk-catalog#このカタログの限界
+  - phase6-operation/risk-catalog#関連するページ
+  - phase6-operation/what-to-do-when#(冒頭)
+  - phase6-operation/what-to-do-when#全体に共通する3つの原則
+  - phase6-operation/what-to-do-when#壊れた・止まった
+  - phase6-operation/what-to-do-when#間に合わない
+  - phase6-operation/what-to-do-when#間に合わない > 遅延は人の問題ではありません
+  - phase6-operation/what-to-do-when#人がいない・判断が返ってこない
+  - phase6-operation/what-to-do-when#言い出しにくい
+  - phase6-operation/what-to-do-when#言い出しにくい > 報告の様式に自己弁護を求めません
+  - phase6-operation/what-to-do-when#言い出しにくい > 割り込みたくない・割り込まれたくない
+  - phase6-operation/what-to-do-when#AI が原因かもしれない
+  - phase6-operation/what-to-do-when#外から来た
+  - phase6-operation/what-to-do-when#表に載っていないとき
+  - phase6-operation/what-to-do-when#このページの限界
+  - phase6-operation/what-to-do-when#関連するページ

@@ -1,0 +1,61 @@
+schemaVersion: 0
+id: SRC-0685
+status: included
+excludeReason: null
+title: 'Modern Code Review: A Case Study at Google'
+url: https://research.google/pubs/modern-code-review-a-case-study-at-google/
+canonicalUrl: https://research.google/pubs/modern-code-review-a-case-study-at-google/
+ids:
+  arxiv: null
+  doi: null
+publisher: ICSE-SEIP 2018
+authors:
+- Caitlin Sadowski
+- Emma Söderberg
+- Luke Church
+- Michal Sipko
+- Alberto Bacchelli
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: '2018'
+publishedBasis: meta
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: abstract
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: Google のモダンコードレビューの事例研究。要旨と二次の要約によれば、レビューの75% 超はレビュアー1人で、承認は所有(owner)とリーダビリティの資格で縛られる。#318 は、人数ではなく資格・距離で承認を縛る実務の比較の材料として引いた。75% の数値は論文本文で確かめていない(二次の要約による)。
+claims:
+- id: c1
+  text: コードレビューの75% 超はレビュアーが1人である(二次の要約による)。
+  quote: null
+  locator: 二次の要約(michaelagreiler.com)
+  quant: null
+  evidenceKind: observational
+  rqs: []
+  issues:
+  - 318
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

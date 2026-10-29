@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0719
+status: included
+excludeReason: null
+title: "NIST SP 800-204D: Strategies for the Integration of Software Supply Chain Security in DevSecOps CI/CD Pipelines"
+url: https://csrc.nist.gov/pubs/sp/800/204/d/final
+canonicalUrl: https://csrc.nist.gov/pubs/sp/800/204/d/final
+ids:
+  arxiv: null
+  doi: null
+publisher: "NIST"
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: standard
+published: "2024-02"
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "CI/CD のパイプラインへのサプライチェーンの安全の組み込みの手引き。SCM への書き込みを高いリスクとして管理し、制御面は個々の手順より高い信頼で動くとする。短命の資格情報・OIDC の具体の記述は無い(読めた範囲)。"
+claims:
+  - id: c1
+    text: "ドライバーツールとビルドの制御面は、個々の機能の手順より高い信頼の水準で動く。"
+    quote: ""
+    locator: "5 節"
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [346]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

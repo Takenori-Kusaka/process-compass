@@ -15,7 +15,8 @@
 //   4. 様式              テンプレ0 / テンプレ0〜10 → 第6章に、その番号の見出しがある
 //   5. 附属書の節        H.6 / F.6 / G.1          → 当該の附属書に、その番号で始まる見出しがある
 //   6. 調整軸            軸A〜軸E                  → 第8章に、その軸の見出しがある
-//   7. 監査の観点        観点14 / 観点2・3・5      → プロセス内部監査の観点の表に、その番号の行がある
+//   7. 監査の観点        観点14 / 観点2・3・5      → 附属書H「内部監査で確かめる観点」の表(正本)か、
+//                                                   プロセス内部監査の観点の例の表に、その番号の行がある
 //   8. 問い              問21                     → 附属書H H.9 の表に、その番号の行がある
 //   9. 見出しの名前      [第8章](…)「事後監査の手続」/ [第8章「事後監査の手続」](…)
 //                                                 → リンク先のページに、その語を含む見出しがある
@@ -73,6 +74,7 @@ const ANNEX = {
 
 const AUDIT_PAGE = 'phase6-operation/process-audit';
 const AUDIT_HEADING = /^監査の観点/;
+const AUDIT_NORMATIVE_HEADING = /^内部監査で確かめる観点/;
 const QUESTION_PAGE = `${P4}/assurance-case`;
 const QUESTION_HEADING = /^H\.9\s/;
 
@@ -281,10 +283,13 @@ function check(source) {
     // 7. 監査の観点
     const viewRe = /観点\s*(\d+)((?:\s*[・〜]\s*\d+)*)/g;
     while ((m = viewRe.exec(text))) {
-      const rows = tableNumbers(AUDIT_PAGE, AUDIT_HEADING, /観点/);
+      const rows = new Set([
+        ...(tableNumbers(`${P4}/assurance-case`, AUDIT_NORMATIVE_HEADING, /観点/) ?? []),
+        ...(tableNumbers(AUDIT_PAGE, AUDIT_HEADING, /観点/) ?? []),
+      ]);
       for (const n of expand(m[1], m[2])) {
         count('監査の観点');
-        if (!rows || !rows.has(n)) report(i, '監査の観点', `観点${n}`, 'がプロセス内部監査の観点の表にありません');
+        if (!rows.has(n)) report(i, '監査の観点', `観点${n}`, 'が附属書H「内部監査で確かめる観点」とプロセス内部監査の観点の例の表にありません');
       }
     }
 

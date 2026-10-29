@@ -1,15 +1,43 @@
 name: CI
 
+# 検査・公開・配布を 1 つのワークフローにまとめる(Issue #293 裁定 J-2 / ADR-0077)。
+#
+#   check   PR・main への push・手動で、npm run check を実行する。検査の一覧の正本は package.json の check
+#   deploy  main への push のときだけ、check が作ったサイト(dist/)を GitHub Pages へ配る。2 回目のビルドはしない
+#   publish main への push で、標準の本文と知識ベースを dist/standard へ積む。配布済みの中身と差が無ければ配らない
+#
+# deploy と publish は needs: check で繋ぐ。check が落ちれば、公開も配布もしない。
+# 結線は scripts/check-ci-wiring.mjs(npm run check に含む)が確かめる。
+# GitHub 側の設定(Environment dist-standard・ルールセット)と、止まらない経路は
+# src/content/docs/community/project-management.md「公開と配布の経路」に書く。
+
 on:
   pull_request:
+  # ソロ期は main へ直接 push する(CLAUDE.md「Git 戦略」)。push でも同じ検査を回す
+  push:
+    branches: [main]
   workflow_dispatch:
+
+# 最上位は読み取りだけ。書き込みはジョブ単位で付ける
+permissions:
+  contents: read
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    # 止まった実行を打ち切る(#319 裁定 R-6)。検査の量の上限ではない。回帰の試験(sweep を含む)とテンプレートの試験を含めて、
+    # 4 CPU でおよそ 10〜15 分で終わる。打ち切りは失敗であり、公開と配布は走らない
+    timeout-minutes: 60
     steps:
+      # npm run check は準拠テンプレート(submodule template/)の複製・スキルの文・様式の欄を検査する。
+      # template が無ければ検査は失敗する(Issue #293 裁定 J-3)。
+      # zenn/ は検査が読まないため取得しない(Issue #292 突合 X-7)
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Checkout template submodule
+        run: git submodule update --init --recursive template
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
@@ -17,7 +45,216 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
-      - name: textlint (日本語校正)
-        run: npm run lint:text
-      - name: Build
-        run: npm run build
+      # 実装マークの検査は、棚卸し済みの節を未棚卸しへ戻していないかを、基点の登録簿と比べる(ADR-0076)。
+      # PR では基点のブランチ、main への push では push の直前のコミット、手動の実行では origin/main と比べる。
+      # 基点の登録簿が読めなければ(ブランチの作成・基点に登録簿が無い など)、比べなかったことを出力する
+      - name: npm run check(push 前と同じ検査)
+        run: npm run check
+        env:
+          IMPL_BASE_REF: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event_name == 'push' && github.event.before || 'origin/main' }}
+          # 回帰の試験の結果(場面の記録・changed.md)を、次の2つの手順が読む場所へ書く(#319 §8 X-12)
+          REGRESS_OUT: ${{ runner.temp }}/regress
+      # 回帰の試験の「変わった場面」を、基底との差分として要約へ出す(#319 §8 X-12)。人が PR で確かめる材料で、合否には使わない
+      - name: 回帰の試験の変わった場面(基底との差分)
+        if: always()
+        run: node scripts/regress/changed-scenes.mjs --base "$BASE" --results "$RUNNER_TEMP/regress" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || github.event_name == 'push' && github.event.before || 'origin/main' }}
+      - name: 回帰の試験の結果を成果物として残す
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regress-results
+          path: ${{ runner.temp }}/regress
+          if-no-files-found: ignore
+      # 公開するのは、この検査が作ったサイトそのもの(npm run check の最後の astro build の出力)
+      - name: 検査したサイトを公開の成果物として渡す
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: check
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      # 先に push したコミットの実行が後に終わっても、新しい版を古い版で上書きしない。
+      # main の先頭が、サイトに入るファイルを変えたコミットで進んでいれば、配らない(新しいコミットの実行が配る)。
+      # 知識グラフの自動更新(graphify-update.yml。[skip ci] で CI を起動しない)だけで進んだ場合は配る
+      - name: main の先頭より古い版で上書きしないことを確かめる
+        id: head
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eu
+          read -r STATUS OTHERS < <(gh api "repos/${GITHUB_REPOSITORY}/compare/${GITHUB_SHA}...main" \
+            --jq '[.status, ([.files[]?.filename | select((startswith("graphify-out/") or . == ".gitattributes") | not)] | length)] | @tsv')
+          if [ "$STATUS" = "identical" ] || { [ "$STATUS" = "ahead" ] && [ "$OTHERS" = "0" ]; }; then
+            echo "latest=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "latest=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::main がこの実行のコミット(${GITHUB_SHA})から進んでいる(${STATUS}。サイトに入るファイルの変更 ${OTHERS} 件)ため、公開しません。新しいコミットの実行が公開します"
+          fi
+      - name: Deploy to GitHub Pages
+        id: deployment
+        if: steps.head.outputs.latest == 'true'
+        uses: actions/deploy-pages@v5
+
+  # 標準の本文を配布用ブランチ dist/standard へ積む(pit-in-template#35)。
+  #
+  # main の src/content/docs/ と、機械可読の知識ベースだけを書き出す。履歴・調査メモ・知識グラフ・画像は含めない。
+  # 案件はこのブランチを submodule として参照する。submodule はコミットを固定するため、
+  # 「どの版の標準に従って開発したか」が案件の記録に残る。
+  #
+  # 強制 push はしない。前回の dist/standard の上へ配布のコミットを積み、案件が固定した旧版を取り直せるようにする
+  # (ADR-0052 決定2・ADR-0077)。書き込みの権限は、このジョブにだけ付けた permissions(contents: write)で与え、トークンを手順の中で扱わない。
+  # deploy key・SSH 鍵・秘密情報は作らない(保守者の決定 2026-10-23)。トークンはジョブの終了で失効する。
+  publish:
+    needs: check
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    environment: dist-standard
+    concurrency:
+      group: publish-standard
+      cancel-in-progress: false
+    steps:
+      # ファイルの中の確認は、起動元のブランチでファイルを書き換えれば外れる。事故の歯止めであり、
+      # 迂回の一部は、Environment の配備のブランチの限定(このジョブを main 以外で走らせない)と、
+      # ルールセット(dist/standard の削除・強制 push の禁止)が止める。止まらない経路は project-management.md に書く
+      - name: 起動元を確かめる
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != "push" ] || [ "$GITHUB_REF" != "refs/heads/main" ]; then
+            echo "::error::配布は main への push からだけ行います(起動: ${GITHUB_EVENT_NAME} / ${GITHUB_REF})"
+            exit 1
+          fi
+
+      # 書き込みの権限は、このジョブの permissions(contents: write)だけで与える。
+      # トークンをワークフローの中で扱わない。push は actions/checkout が設定した認証のまま行う
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # 配布物は正本から生成する。手で編集したものを配らない(ADR-0052 決定4)
+      - name: 知識ベースを生成する
+        run: node scripts/build-template-kb.mjs --out dist-standard/tailoring-kb.json
+
+      # 配る知識ベースそのものを、push の前に検査する(ADR-0052 決定1・ADR-0077)。
+      # 判定基準の件数・criteriaComplete・生成元の版(40 桁の16進で、GITHUB_SHA と一致)を確かめる
+      - name: 配る知識ベースを検査する
+        run: node scripts/check-gate-criteria.mjs --kb dist-standard/tailoring-kb.json
+
+      # 配布用ブランチを同じリポジトリの作業ツリー(git worktree)として取り出す。
+      # 認証は actions/checkout が設定したものをそのまま使い、トークンを手順へ渡さない
+      - name: 配布用ブランチへ積む
+        run: |
+          set -eu
+          rm -rf dist-repo
+          git worktree prune
+          set +e
+          git ls-remote --exit-code --heads origin dist/standard > /dev/null
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            git fetch -q origin dist/standard
+            git worktree add -q -B dist/standard dist-repo FETCH_HEAD
+            # 新しい版を古い版で上書きしない。配布済みの版がこの実行のコミットの子孫なら、配らない
+            PREV=$(node -e "try{const k=require('./dist-repo/tailoring-kb.json');process.stdout.write(String(k.source?.commit??''))}catch{}")
+            if [ -n "$PREV" ] && [ "$PREV" != "$GITHUB_SHA" ] && git merge-base --is-ancestor "$GITHUB_SHA" "$PREV" 2>/dev/null; then
+              echo "::notice::dist/standard は既に新しい版(${PREV})を配っています。この実行(${GITHUB_SHA})は配りません"
+              exit 0
+            fi
+          elif [ "$status" -eq 2 ]; then
+            echo "dist/standard がまだ無いため、最初の配布として作ります"
+            git worktree add -q --orphan -b dist/standard dist-repo
+          else
+            echo "::error::dist/standard を確かめられませんでした(git ls-remote の終了コード ${status})"
+            exit 1
+          fi
+
+          # 中身を入れ替える。配布物は本文・知識ベース・VERSION.md・LICENSE だけ
+          find dist-repo -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r src/content/docs dist-repo/docs
+          cp dist-standard/tailoring-kb.json dist-repo/tailoring-kb.json
+          cp LICENSE dist-repo/LICENSE
+
+          # 出所と版を書く。受け取り側が「いつの版か」を知る唯一の手段(ADR-0052 決定2)。
+          # 版は本標準の版(第1章 1.10.3。src/data/edition.yaml)。発行の時点のコミットのときだけ版の名を書き、
+          # それ以外は作業中の版(第N版の後 / 未発行)と書く(#313 / ADR-0083 X-1)
+          EDITION_LABEL=$(node scripts/lib/edition.mjs --label --commit "${GITHUB_SHA}")
+          cat > dist-repo/VERSION.md <<EOF
+          # 配布した標準の版
+
+          - 版: ${EDITION_LABEL}
+          - 出所: https://github.com/${GITHUB_REPOSITORY}
+          - コミット: \`${GITHUB_SHA}\`(機械の識別。版の代わりにならない)
+          - 起動: \`${GITHUB_EVENT_NAME}\` / \`${GITHUB_REF}\`
+          - 生成: ${GITHUB_WORKFLOW} / run ${GITHUB_RUN_NUMBER}(試行 ${GITHUB_RUN_ATTEMPT})
+
+          版が「作業中の版(未発行)」のとき、この内容は発行した版ではありません。
+          作業中の版は、適用の表明と適合の主張に名指せません(標準 第1章 1.10.3)。
+
+          **本ブランチは配布物です。正本は上記リポジトリの \`main\` です。**
+          ここを編集しても標準は変わりません。変更は正本へ提起してください。
+
+          ## 含まれるもの
+
+          | 対象 | 内容 |
+          | --- | --- |
+          | \`docs/\` | 標準の本文。公開サイトと同じ内容 |
+          | \`tailoring-kb.json\` | 機械可読の知識ベース。判定基準・適用範囲・ロール |
+
+          ## 含まれないもの
+
+          本文の履歴、調査メモ(\`research/\`)、知識グラフ、画像、サイトのビルド設定。
+          **本文の理解に要らないものは配りません。**
+          本ブランチの履歴は配布の履歴です。過去の配布のコミットは、このブランチから辿れます。
+
+          ## ライセンス
+
+          ドキュメントは CC-BY-4.0 です。再配布の際は出所とコミットを併記してください。
+          EOF
+
+          SIZE=$(du -sh --exclude=.git dist-repo | cut -f1)
+          echo "配布物のサイズ: ${SIZE}"
+
+          cd dist-repo
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          # 配るかどうかは、配布済みの中身との差で決める。VERSION.md と知識ベースの生成元のコミット(source.commit)は
+          # 毎回変わるので比べない。本標準の版(source.edition)は比べる。前の配布が失敗していても、次の main への push で取り戻す
+          OTHERS=$(git diff --cached --name-only -- . ':(exclude)VERSION.md' ':(exclude)tailoring-kb.json' | wc -l)
+          if git cat-file -e HEAD:tailoring-kb.json 2>/dev/null; then
+            export PREV_KB="${RUNNER_TEMP:-/tmp}/prev-kb.json"
+            git show HEAD:tailoring-kb.json > "$PREV_KB"
+            KB_SAME=$(node -e "const f=(p)=>{const k=JSON.parse(require('fs').readFileSync(p,'utf8'));k.source={...(k.source||{}),commit:null};return JSON.stringify(k)};process.stdout.write(String(f(process.env.PREV_KB)===f('tailoring-kb.json')))")
+          else
+            KB_SAME=false
+          fi
+          if [ "$OTHERS" -eq 0 ] && [ "$KB_SAME" = "true" ]; then
+            echo "配布済みの中身と差がありません(VERSION.md と生成元のコミットを除く)。配りません"
+            exit 0
+          fi
+          git commit -q -m "標準の本文を配布する (${GITHUB_SHA})"
+          # 強制 push はしない。dist/standard が先へ進んでいれば失敗する
+          git push -q origin HEAD:refs/heads/dist/standard

@@ -24,7 +24,17 @@ rules:
         param: appliesInAllStages
         value: true
         note: 独立レビューは、事業ステージによる省略の対象にしない(S0 でも適用する)。危害の深刻度は、ステージの都合で下がらない
-    reason: 回復可能であっても個人の権利に影響が及ぶ場合、判断の経路を後から再構成できる必要がある。独立した人の確認を、事業ステージを理由に外さない
+      # 事業ステージ(軸B)による G-6 の範囲の限定(S1 のコア機能)と、G-7 の省略(S0)・簡略(S1)も、CL1 以上では適用しない
+      # (#318 / ADR-0088 決定4)。CL2・CL3 の S0 の G-7 の復帰は、r-e-cl2 の set の副作用ではなく、この restore の決定による
+      - target: { type: gate, id: g-indep-review }
+        action: set
+        param: scope
+        value: all
+        note: 独立レビューを、コア機能に限らず全変更に適用する(事業ステージ S1 のコア機能への限定を適用しない)
+      - target: { type: gate, id: g-ship }
+        action: restore
+        note: 出荷判定は、事業ステージによる省略(S0)・簡略(S1)の対象にしない。G-6 の記録の欠落を読んで差し戻す席を残す
+    reason: 回復可能であっても個人の権利に影響が及ぶ場合、判断の経路を後から再構成できる必要がある。独立した人の確認と、その欠落を差し戻す出荷判定を、事業ステージを理由に外さない。危害の深刻度は、体制の都合でも事業ステージの都合でも下がらない
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 50
 
@@ -46,12 +56,15 @@ rules:
         action: set
         param: independentSafetyAssessment
         value: true
-        note: 独立レビューとは別に、実装の責任者から組織的に独立した安全性の評価を重ねる
+        note: 独立レビューとは別に、独立した安全性の評価を重ねる。評価者は、実装の責任者・作成を指示した者・当該の判定者から組織上の距離の段2 以上(CL3 は段3 以上)の者とする(第1章 1.4)。届かない段は未達であり、AI の確認はどの段にも数えない
       - target: { type: process }
         action: set
         param: maxAutonomyLevel
         value: L2
         note: 安全関連部のAI自律レベルはL2を上限とする
+      - target: { type: practice, id: ai-usage }
+        action: note
+        note: 安全関連ソフトウェアのテスト生成の分離の段階は最強を適用する。検証の担当者は、実装の責任者から組織上の距離の段2 以上(CL3 は段3 以上)の者とする(第5章 5.8.4)
     reason: 適合性評価または第三者認証の対象になる場合、危険源の同定から検証記録までの追跡が要求される
     source: /process-compass/phase4-process-design/safety-verification/
     priority: 50
@@ -78,7 +91,21 @@ rules:
         note: 出荷判定に、適用しなかった強く推奨される手法の理由の記載を求める
       - target: { type: practice, id: ai-usage }
         action: note
-        note: 実装とテストを同一のAIに同一の文脈で書かせない。テスト生成の分離の段階は最強(組織的な独立)を適用する
+        note: 実装とテストを同一のAIに同一の文脈で書かせない。テスト生成の分離の段階は最強を適用し、検証の担当者と独立した安全性の評価者は、組織上の距離の段3 以上の者とする(第1章 1.4)
     reason: 死亡または重篤な傷害が起こりうる場合、自律レベルを固定し、機械の検証と出荷判定の記録を厚くする。独立レビューを2名とするのは、1名の承認者の確認だけでは変更を取り込めない状態を作り、その記録を残すためである(第4章 G-6)。機能安全の規格が確認者の人数を求めるという主張ではない
     source: /process-compass/phase4-process-design/safety-verification/
+    priority: 50
+
+  # 1〜2名の体制で CL1 以上は、構成そのものを認めない(第8章 軸E・ADR-0028)。エンジンは構成を拒否しないため、
+  # 認めない組み合わせであることを提案の注記として出す。準拠テンプレートは初期化で拒否する(#318 突合 X-12)
+  - id: r-e-small-team-not-allowed
+    when:
+      q-team-size: [size-1-2]
+      q-criticality: [cl1, cl2, cl3]
+    adjustments:
+      - target: { type: process }
+        action: note
+        note: 安全重要度 CL1 以上を 1〜2名の体制で扱う構成は認めない。危害の深刻度は体制の都合で下がらない。外部の評価者を含めて3名以上の体制を確保するか、設計を変えて危害の帰結を下げるか、当該の機能を実施しない(第8章 軸E)
+    reason: 安全重要度 CL1 以上では、独立した人の確認と、その欠落を差し戻す出荷判定を外せない。1〜2名の体制では席を分けられず、未達の表示と代償措置で運用できるのは CL0 だけである(ADR-0028)
+    source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 50

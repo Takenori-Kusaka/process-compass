@@ -1,0 +1,1 @@
+{ "kind": "headcount", "summary": "x", "people": [ { "id": "a", "name": "山田 太郎" }, { "id": "b", "name": "佐藤 花子" }, { "id": "c", "name": "鈴木 一郎", "external": true } ] }

@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-10-13)。[ADR-0021](/process-compass/adr/0021-ip-clearance-evidence-not-guarantee/)の決定2 のうち「検収」の語に関わる部分を置き換えます。同 ADR のほかの決定は変えません。[ADR-0040](/process-compass/adr/0040-template-forms-as-subset-of-standard/)を適用し、様式の対応を直します。
 
+「影響」の最後の箇条で決定の外に置いた3点(軸D の表の G-1・G-2・G-5、指示資産の持ち主、標準の外の節を様式が持つこと)は、[ADR-0087](/process-compass/adr/0087-outsourcing-gate-placement-enforcement-ownership-and-authority-sources/)で扱いました。本 ADR の決定1〜8 は維持します。疑義応答集 第3集の版は、ADR-0087 の決定6 が 2026-05-25 の改訂へ改めました(2026-10-24)。
+
 ## コンテキスト
 
 [#309](https://github.com/Takenori-Kusaka/process-compass/issues/309) は、受託で発注側の判定者が受注側の担い手へ伝える経路と、検収の無い契約での読み替えを問いました。指摘をそのまま条項にせず、調査・会議体・突合の順で扱いました。記録は `research/302-310-deliberation/`(`survey-309.md`、`council-B-01`〜`05`、`decision.md` の B-5〜B-7)にあります。

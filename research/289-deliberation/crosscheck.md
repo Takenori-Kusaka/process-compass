@@ -35,7 +35,7 @@
 ### X-3 G-3 基準2 の突合先「状態が採用の判断記録」が、一部置き換えの判断記録の効いている決定を外し、「恒久層」の語の範囲も揺らしている
 
 - 重さ: **要修正**(決定の文そのものの欠陥。議長の確認を要する)
-- ファイル:行: `gate-criteria.md:233`、`adr/0070-…md:38`、`template/.claude/skills/gate/gates/G-3.md:15`、`template/.claude/skills/artifact/artifacts/02-adr.md`(レビューの観点の基準2)、`template/templates/04-gate-record.md:41`、`template/templates/12-product-principles.md:5`
+- ファイル:行: `gate-criteria.md:233`、`adr/0071-…md:38`、`template/.claude/skills/gate/gates/G-3.md:15`、`template/.claude/skills/artifact/artifacts/02-adr.md`(レビューの観点の基準2)、`template/templates/04-gate-record.md:41`、`template/templates/12-product-principles.md:5`
 - 何が・なぜ: (1) D-6 は「一部置き換え」を新設し、一部置き換えの判断記録は「効いている決定を含むため」`context/decisions/` に残すと決めた(D-5)。基準2 が突合先を「状態が採用」に限ると、効いている決定を含む判断記録が突合から外れる。テンプレ2「判断記録の索引」は「`context/decisions/` に残る判断記録が、現に効いている判断記録の集合」と書いており、基準2 と食い違う。(2) 基準2 は判断記録を「恒久層(用語集・設計標準・プロダクトの原則・状態が採用の判断記録)」の中に置く。一方、第6章「原則・判断記録・判定記録の関係」(`deliverable-templates.md:54〜80`)は、恒久層を「書き換えて保つ」もの(原則・用語集・設計標準)とし、判断記録を恒久層の外に描く。D-1 の理由も「2.6 は規約を恒久層、選択を判断記録へ分けている」。同じ版の中で「恒久層」が判断記録を含むか否かが割れている。`implementation.md` 5.2 と 6 章も (1) を認識したうえで決定の文どおりにしている
 - 直し方の案: 基準2 の確認方法を「恒久層(用語集・設計標準・プロダクトの原則)と、状態が採用・一部置き換えの判断記録(一部置き換えは、置き換えられていない決定に限る)のうち存在するものとの突合」へ改め、ADR-0071 決定2 と、テンプレートの 5 か所を揃える。決定の文を改めることになるため、議長が `decision.md` に追記して確定する
 

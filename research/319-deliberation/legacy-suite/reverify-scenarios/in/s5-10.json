@@ -1,0 +1,1 @@
+{ "kind": "mode", "date": "2026-10-25", "summary": "抜き取りで逸脱を検知。協働へ下げる", "seats": { "dev-verifier": { "mode": "collab" } } }

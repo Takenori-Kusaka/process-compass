@@ -1,0 +1,1 @@
+{ "kind": "accountable", "date": "2026-11-01", "summary": "他チームの田中さんに独立レビューを依頼する", "answers": { "q-external-reviewer": "reviewer-yes" }, "people": [ { "id": "p1", "name": "山田 太郎" }, { "id": "x1", "name": "田中 三郎", "external": true } ], "seats": { "independent-reviewer": { "accountable": "田中 三郎" } } }

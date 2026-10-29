@@ -37,7 +37,10 @@ rules:
     adjustments:
       - target: { type: role, id: value-owner }
         action: note
-        note: 価値責任者と技術判断者の分離を推奨する(兼務は避けたい)
+        note: 価値責任者と技術判断者の兼務は非推奨(拒否しない)。兼務する場合は、兼務の事実と理由を D-0 体制図へ記録する(第3章 3.5)。代替の統制は課さない
+      - target: { type: role, id: biz-approver }
+        action: note
+        note: 事業決裁者と価値責任者の兼務は非推奨(拒否しない)。兼務する場合は、兼務の事実と理由を D-0 体制図へ記録する(第3章 3.5)
       - target: { type: gate, id: g-indep-review }
         action: set
         param: reviewMode
@@ -50,7 +53,7 @@ rules:
         note: 出荷判定の兼務者を指名する(誰が判定するかを曖昧にしない)
       - target: { type: practice, id: role-delegation }
         action: note
-        note: 仕様承認の委譲は必要に応じて行う
+        note: 仕様承認を機能責任者へ委譲してよい(許容。第3章 3.6。委譲は担当表に記録する)
     reason: 分離の最低条件は満たせる規模。責任の所在を名前で明示することが形骸化の予防になる
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 10
@@ -63,7 +66,10 @@ rules:
         action: set
         param: mustSplitFrom
         value: tech-lead
-        note: 価値責任者と技術判断者は分離必須(兼務にしない)
+        note: 価値責任者と技術判断者の兼務は禁止(根拠の水準は第3章 3.5 の EV-0156。E0)
+      - target: { type: role, id: biz-approver }
+        action: note
+        note: 事業決裁者と価値責任者の兼務は非推奨(10名以上でも禁止しない。第3章 3.5)。兼務する場合は、兼務の事実と理由を D-0 体制図へ記録する
       - target: { type: gate, id: g-indep-review }
         action: set
         param: reviewMode
@@ -78,7 +84,7 @@ rules:
         action: set
         param: enabled
         value: true
-        note: 機能責任者へ仕様承認を積極的に委譲する(価値責任者の帯域を守る)
+        note: 機能責任者へ仕様承認を委譲することを推奨する(推奨。価値責任者の帯域を守る)
     reason: 規模が大きいほど判定者の帯域がボトルネックになる。分離と委譲で承認の滞留を防ぐ
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 10

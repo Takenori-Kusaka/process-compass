@@ -1,0 +1,1 @@
+{ "kind": "accountable", "summary": "出荷判定者を開発者が兼ねる", "seats": { "qa-gatekeeper": { "accountable": "b" } } }

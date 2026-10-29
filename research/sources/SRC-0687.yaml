@@ -1,0 +1,60 @@
+schemaVersion: 0
+id: SRC-0687
+status: included
+excludeReason: null
+title: Do code review measures explain the incidence of post-release defects?
+url: https://arxiv.org/pdf/2005.09217
+canonicalUrl: https://arxiv.org/pdf/2005.09217
+ids:
+  arxiv: '2005.09217'
+  doi: null
+publisher: arXiv
+authors:
+- Andrey Krutauz
+- Tapajit Dey
+- Peter C. Rigby
+- Audris Mockus
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2020-05
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: レビューの指標(レビュアー数などを含む)と出荷後の欠陥の関係の再現研究。指標が出荷後の欠陥を直接説明する効果を見つけられなかった。#318 は、承認の数を独立の強さの代わりにしない判断の材料として引いた。
+claims:
+- id: c1
+  text: レビューの指標が出荷後の欠陥に直接の効果を持つことは見つからなかった。
+  quote: we were unable to find any direct effect of review measures on post-release defects
+  locator: 要旨
+  quant: null
+  evidenceKind: observational
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

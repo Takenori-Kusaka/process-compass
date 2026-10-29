@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0651
+status: included
+excludeReason: null
+title: Configuring a template - copier
+url: https://copier.readthedocs.io/en/stable/configuring/
+canonicalUrl: https://copier.readthedocs.io/en/stable/configuring/
+ids:
+  arxiv: null
+  doi: null
+publisher: Copier(copier-org)
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 T2'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH10
+- TH12
+events: []
+summary: Copier のテンプレートの設定。版を持つ移行の列(_migrations)を宣言し、跨いだ版の移行だけを走らせる。道具の最低の版を下回れば生成と更新を止める。生成元のコミット(_commit)を回答ファイルへ自動で記録する。#315 で、形式の版と版ごとの移行、未知の版を黙って通さない型の前例として引いた。
+claims:
+- id: c1
+  text: _migrations は版を持つ項目の列で、新しい版が宣言した版以上で、古い版が宣言した版より小さいときだけ走る。初回の複製では走らない。
+  quote: null
+  locator: _migrations
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: supports
+- id: c2
+  text: _min_copier_version を下回る道具では、生成と更新を中止してエラーを出す。生成元のコミット _commit は回答ファイルへ自動で記録される。
+  quote: null
+  locator: _min_copier_version / _commit
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0708
+status: included
+excludeReason: null
+title: "GitHub Changelog: Control who and what triggers GitHub Actions workflows(public preview)"
+url: https://github.blog/changelog/2026-06-18-control-who-and-what-triggers-github-actions-workflows/
+canonicalUrl: https://github.blog/changelog/2026-06-18-control-who-and-what-triggers-github-actions-workflows/
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: "2026-06-18"
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: full
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "ワークフロー実行の保護の公開プレビューの告知。ルールセットの枠組みで、起動できる主体とイベントを許可リストで決める。参照やトークンの権限の制限は記述に無い。"
+claims:
+  - id: c1
+    text: "ワークフロー実行の保護は、ワークフローを起動できる主体とイベントを許可リストで決める。"
+    quote: ""
+    locator: "本文"
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

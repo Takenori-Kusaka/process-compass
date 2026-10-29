@@ -1,0 +1,1 @@
+{ "kind": "axis", "date": "2026-11-01", "summary": "個人データを扱う機能が加わり、安全重要度が CL1 へ上がった", "answers": { "q-criticality": "cl1" } }

@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-08-05)
+採用(2026-08-05)。決定5 の段階「最強」の担当者の条件は、[ADR-0088](/process-compass/adr/0088-organizational-distance-steps-and-cl1-stage-relaxation/)の決定1〜3 が、案件の安全重要度ごとの組織上の距離の段で補いました。4段階の区分は維持します(2026-10-24)。
 
 ## コンテキスト
 

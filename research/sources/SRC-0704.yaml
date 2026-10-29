@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0704
+status: included
+excludeReason: null
+title: "GitHub Changelog: Actions pull_request_target and environment branch protections changes"
+url: https://github.blog/changelog/2025-11-07-actions-pull_request_target-and-environment-branch-protections-changes/
+canonicalUrl: https://github.blog/changelog/2025-11-07-actions-pull_request_target-and-environment-branch-protections-changes/
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: "2025-11-07"
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: full
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "2025-12-08 以降、pull_request_target は常に既定ブランチのワークフローのファイルと参照を使い、PR 系のイベントでの Environment のブランチの規則は実行の参照で評価するとした告知。"
+claims:
+  - id: c1
+    text: "2025-12-08 以降、pull_request_target は既定ブランチのワークフローのファイルと参照を使う。"
+    quote: ""
+    locator: "本文"
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

@@ -1,0 +1,19 @@
+# 本標準の版(Issue #313 / ADR-0083)
+#
+# 版は、保守者(本リポジトリの所有者)が発行したものだけを指す。手続の正本は
+# src/content/docs/community/standard-editions.md(「本標準の版の発行」)。
+#
+# edition: 発行した最新の版。「第N版」または「第N版 修正M」。発行していなければ null(作業中の版)
+# issuedAt: その版の発行日(YYYY-MM-DD)。edition が null なら null
+# history: 発行した版の履歴。新しい版を先頭に足し、過去の行を書き換えない
+#   - { edition, issuedAt, commit, change: 'N' | 'M', summary, citationReview }
+#     commit: 発行の時点のコミット(40 桁)。版の名は、このコミット(と、ここからの差分が本ファイルと template の
+#       参照だけのコミット)をビルドしたときだけ付く。それ以外は作業中の版(第N版の後)になる(ADR-0083 X-1)
+#     citationReview: 引用の棚卸しの記録の所在(版の発行ごとに必須。修正M を含む)
+#
+# 第1版の発行は取り消せない外部への発行であり、所有者の判断による。
+# この値を書き換える変更は、発行の手続の記録(上の history の1行)を伴う。
+schemaVersion: 0
+edition: null
+issuedAt: null
+history: []

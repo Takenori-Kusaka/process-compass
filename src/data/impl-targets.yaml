@@ -8,62 +8,80 @@
 #   config-key    — 準拠テンプレートが生成する process.config.json のキー。
 #                   検査はサンプル回答から構成を生成し、キーの存在を確かめる
 #   template-file — 準拠テンプレートに置くファイル。検査は存在を確かめる
+#   planned       — 準拠テンプレートにまだ無い実装の置き場(予定)。state=undelivered の
+#                   マークだけが使える。state=delivered のマークで使うと検査が失敗する。
+#                   path は予定の置き場であり、検査は実在を確かめない(Issue #292 / ADR-0076)。
+#                   無関係の既存のファイルを、予定の降ろし先として書かない
+#
+# checker: 降ろし先を検査する準拠テンプレートのスクリプト(template/scripts/gate/<checker>.mjs)。実在を確かめる。
+#          マークの属性 check(検査の手段 machine / presence / manual)とは別の事実である(#314 / ADR-0084 で check から改名)
+#
+# 逆向きの追跡(#314 / ADR-0084 決定6): 準拠テンプレートのゲートのスクリプト(scripts/gate・scripts/init)、フック(.claude/hooks)、
+# ワークフロー(.github/workflows)の各ファイルは、この登録簿の path か checker に現れるか、src/data/impl-untraced.yaml に
+# 理由(library / infra)つきで載っていなければならない。どちらにも無いファイルを scripts/check-impl.mjs が落とす
 schemaVersion: 0
 targets:
   - id: config-gates
     name: process.config.json の gates
     kind: config-key
     keyPath: gates
-    check: verify-gate-contract
+    checker: verify-gate-contract
     description: 有効なゲートと判定者。案件の CI と PROCESS-PROFILE.md はここを正本とする
 
   - id: config-roles
     name: process.config.json の roles[]
     kind: config-key
     keyPath: roles
-    check: check-process-rules
+    checker: check-process-rules
     description: ロールごとの判定ゲート・担ってはならない工程・兼務の禁止(ADR-0035)
 
   - id: config-unmet
     name: process.config.json の unmet[]
     kind: config-key
     keyPath: unmet
-    check: verify-gate-contract
+    checker: verify-gate-contract
     description: 目的を達成する構成を示せていないゲート(ADR-0028)
 
   - id: config-deviations
     name: process.config.json の deviations[]
     kind: config-key
     keyPath: deviations
-    check: verify-gate-contract
+    checker: verify-gate-contract
     description: 実施するが標準の要求する属性を欠くゲート(ADR-0029)
 
   - id: config-seats
     name: process.config.json の seats[]
     kind: config-key
     keyPath: seats
-    check: verify-gate-contract
+    checker: verify-gate-contract
     description: 席ごとの責任者・担い手の識別・運用形態(上限の宣言)・適合性確認・AI が使えないときの扱い(ADR-0054)
 
   - id: config-delegation
     name: process.config.json の delegation
     kind: config-key
     keyPath: delegation
-    check: verify-gate-contract
+    checker: verify-gate-contract
     description: 委任を適用できる案件かどうかと、委任の範囲を定める機械の規則(ADR-0054 決定4)
 
   - id: config-change-log
     name: process.config.json の changeLog[]
     kind: config-key
     keyPath: changeLog
-    check: verify-gate-contract
+    checker: verify-gate-contract
     description: 体制の変化点の記録。統制を緩める向きの変更は、決定した者の記名と理由を要する(ADR-0055)
+
+  - id: config-standard
+    name: process.config.json の standard
+    kind: config-key
+    keyPath: standard
+    checker: verify-gate-contract
+    description: 案件が従う本標準の版(第N版、または作業中の版を表す null)。切り替えは /process-change の edition の種別を経る(ADR-0083 決定1)
 
   - id: claude-md
     name: CLAUDE.md の構成依存部分
     kind: template-file
     path: CLAUDE.md
-    check: check-process-rules
+    checker: check-process-rules
     description: エージェントが起動時に読む文書。構成から導出した権限・禁止工程・受信箱
 
   - id: process-profile
@@ -82,42 +100,42 @@ targets:
     name: 成果物テンプレート テンプレ4(ゲート判定記録)
     kind: template-file
     path: templates/04-gate-record.md
-    check: aggregate-evidence
+    checker: aggregate-evidence
     description: 判定の成立要件となる記録の様式。判定の語彙と例外承認の扱い(ADR-0036)
 
   - id: debt-ledger-template
     name: 成果物テンプレート テンプレ3(技術負債台帳)
     kind: template-file
     path: templates/03-debt-ledger.md
-    check: aggregate-evidence
+    checker: aggregate-evidence
     description: 受容した負債と未解決事項の置き場。7.3 由来と 7.3.2 由来を区分欄で分ける
 
   - id: gate-record-skill
     name: ゲート判定記録のスキル
     kind: template-file
     path: .claude/skills/gate-record/SKILL.md
-    check: aggregate-evidence
+    checker: aggregate-evidence
     description: /gate の旧名(互換の入口)。中身は /gate への案内だけ(#286)。判定記録の手順は gate-skill
 
   - id: gate-skill
     name: ゲート判定記録の入口のスキル(/gate)
     kind: template-file
     path: .claude/skills/gate/SKILL.md
-    check: aggregate-evidence
+    checker: aggregate-evidence
     description: 実行主体が判定記録を作る入口。判定の範囲(当該ゲートの判定基準と全ゲート共通の通過条件だけ)と、判定を人が行う境界。ゲートごとの補助ファイル(gates/)を1枚だけ読ませる(#286)
 
   - id: gate-skill-g6
     name: ゲート判定記録のスキルの G-6 の補助ファイル
     kind: template-file
     path: .claude/skills/gate/gates/G-6.md
-    check: aggregate-evidence
+    checker: aggregate-evidence
     description: G-6 の判定記録の書き方。G-6 を事後へ移した委任の変更を通過として記録しないこと、開発者の席だけの委任の変更の事前の承認、独立した人の確認の条件(#286)
 
   - id: pr-checks
     name: G-5 の PR 単位の検査(pr-rules)
     kind: template-file
     path: scripts/gate/check-pr.mjs
-    description: トレーラ Spec、変更規模の基準値(基底ブランチの構成。超過は規模の確認と区分の下限 R2 で扱い、既存の台帳の例外承認の行は有効)、閾値・除外設定と製品のコードの同時変更、既存のテストの変更の一覧(G-6 の材料)を、PR ごとに検査する(#286)。gate-g5.yml の pr-rules ジョブが呼び、test-check-pr.mjs がフィクスチャで試験する
+    description: トレーラ Spec、変更規模の基準値(既定ブランチの構成。差分は PR の基底から取り、基準値・名簿・規則・台帳・停止の申し立ての解除は --policy-base の既定ブランチから読む。Issue #294。超過は規模の確認と区分の下限 R2 で扱い、既存の台帳の例外承認の行は有効)、閾値・除外設定と製品のコードの同時変更、既存のテストの変更の一覧(G-6 の材料)を、PR ごとに検査する(#286)。gate-g5.yml の pr-rules ジョブが呼び、test-check-pr.mjs がフィクスチャで試験する
 
   - id: spec-lint
     name: 受入基準の曖昧語の検査(spec-lint)
@@ -129,21 +147,21 @@ targets:
     name: 体制の変化点を反映するスキル
     kind: template-file
     path: .claude/skills/process-change/SKILL.md
-    check: verify-gate-contract
+    checker: verify-gate-contract
     description: 変化点の種別を入力に取り、構成の差分・失効と発生の一覧・残作業を出力する手順(ADR-0055 決定8)
 
   - id: evidence-aggregation
     name: 出荷判定の証跡の集約(保証の開示)
     kind: template-file
     path: scripts/gate/aggregate-evidence.mjs
-    check: aggregate-evidence
+    checker: aggregate-evidence
     description: G-7 の突合対象と、保証の開示の7項目を、構成と既存の記録から導出する(ADR-0056 決定6)
 
   - id: d0-template
     name: 成果物テンプレート D-0(体制図)
     kind: template-file
     path: templates/00-d0-governance.md
-    check: check-d0
+    checker: check-d0
     description: 案件の体制・兼務・エスカレーションの経路を案件ごとに定める成果物
 
   - id: project-brief-template
@@ -180,8 +198,8 @@ targets:
     name: CLAUDE.md の常駐の規則(構成依存部分の外)
     kind: template-file
     path: scripts/gate/claude-md-resident.json
-    check: check-process-rules
-    description: 準拠テンプレートの CLAUDE.md が常駐させる規則の節の一覧。check-process-rules が、案件の CLAUDE.md に各節の見出しと本文があることを確かめる。既存のリポジトリへ持ち込んだときに、常駐の規則を欠いたまま検査が通る経路を塞ぐ(#306、ADR-0068)。節の中の個々の行の有無は確かめない
+    checker: check-process-rules
+    description: 準拠テンプレートの CLAUDE.md が常駐させる規則の一覧(節と、規則ごとの識別子・核の文言)。check-process-rules が、案件の CLAUDE.md に各節の見出しと本文があり、規則ごとの核の文言が同じ節の行に含まれることを、正規化して照合する(#314 / ADR-0084 決定2)。案件が行の前後へ書き足すこと・並べ替えることは妨げない。一覧の作り直しは追加だけで、規則を除くのは強制層の縮小(state:needs-platform)。既存のリポジトリへ持ち込んだときに、常駐の規則を欠いたまま検査が通る経路を塞ぐ(#306、ADR-0068)
 
   - id: adoption-trial
     name: 導入前の検証のコマンド
@@ -194,6 +212,11 @@ targets:
     kind: template-file
     path: .github/rulesets/README.md
     description: 既定ブランチと記録の置き場に掛ける強制層の構成(team / regulated / safety / checks-only)と、その説明。GitHub のルールセットはパス単位の免除を持たない(#321)ため、判定記録だけの PR にも承認 1 件が残る。降りていない規定は README に表示し続ける
+  - id: adoption-preflight
+    name: 初期化の事前点検
+    kind: template-file
+    path: scripts/gate/preflight.mjs
+    description: 既存のリポジトリで適用を始めるときの事前点検(第1章 1.10.1「既存のリポジトリで適用を始める場合」。#315 / ADR-0085)。何も書き込まずに、止める項目(CLAUDE.md の目印と常駐の規則、CODEOWNERS の置き場の重なりと @OWNER、フックの登録、既定ブランチの名、共通の祖先の無い履歴の併合、資産の一覧の欠け)と、告げる項目(既存の統制の資産)を分けて出す。初期化(generate-profile.mjs)が同じ点検を行い、止める項目があれば構成を書かない。--draft で資産の一覧の下書きを出す(扱いと記名の欄は空ける)。test-adoption.mjs と test-init-g5.mjs が試験する
 
   - id: agent-settings
     name: エージェントの権限設定
@@ -236,3 +259,192 @@ targets:
     kind: template-file
     path: .github/PULL_REQUEST_TEMPLATE.md
     description: PR の本文の節(変更の概要・作成を指示した者・リスク区分・規模の確認・統制の設定の陰性の確認・トレーラ)。G-5 の PR 単位の検査(check-pr.mjs)が節を読む
+
+  - id: gate-contract
+    name: 契約検査と、G-5 の集約が合否に使う検査の読み方
+    kind: template-file
+    path: scripts/gate/g5-aggregate.mjs
+    checker: verify-gate-contract
+    description: G-5 の集約ジョブ(gate-g5)の needs に、判定基準を実装するジョブ(基準1〜5・7)と PR 単位の検査・契約検査のジョブがあり、集約がその結果を合否に使っているかを、ワークフローの定義から読む。契約検査(verify-gate-contract.mjs)が不備を失敗にし、出荷判定の証跡の集約が保証の開示 項目4 の「実施」をここから導く。test-g5-aggregate.mjs と test-init-g5.mjs が試験する(第4章 G-5「判定基準を実装する検査と集約」、ADR-0074)
+
+  - id: profile-generator
+    name: プロセス構成の初期化(強制層の生成)
+    kind: template-file
+    path: scripts/init/generate-profile.mjs
+    description: 回答から process.config.json・.claude/guard.json・.claude/settings.json を生成する。フックの保護と権限設定の遮断を、事業ステージに依らず有効にする(第8章 軸B、ADR-0050 決定1、ADR-0074)。外すのは構成の guard の上書き(期限と理由。契約検査が期限を確かめる)だけ。test-init-g5.mjs が S0 と S1 で確かめる
+
+  - id: task-breakdown-skill
+    name: 実装計画へ分解するスキル(/task-breakdown)
+    kind: template-file
+    path: .claude/skills/task-breakdown/SKILL.md
+    description: 機能仕様を実装計画へ分解する手順。各受入基準をいずれかのタスクの「対応する受入基準」に書き、spec-lint --gate G-4 が出す、どのタスクにも現れない受入基準の一覧を確かめてから G-4 へ渡す(第4章 G-4 基準6、ADR-0075)
+
+  - id: feature-spec-template
+    name: 成果物テンプレート テンプレ1(機能仕様書)
+    kind: template-file
+    path: templates/01-feature-spec.md
+    description: 機能仕様の様式。受入基準の識別子(機能の中で一意)、前提の表(前提 / 案件層の ID / 崩れたときの影響。前提の欄に書いたものは確かめていないものとして読む)、未確定事項の3つの閉じ方の置き場(第4章 G-2 基準3・6、G-4 基準6・7、ADR-0075)。欄の存在は必須欄の検査(test:fields)が確かめる
+
+  - id: ai-review-workflow
+    name: AI レビューのワークフロー(差し込み口)
+    kind: template-file
+    path: .github/workflows/ai-review.yml
+    description: AI レビューを差し込む口と、検出の層としての位置づけを PR へ明記するワークフロー。差し込む AI のレビューの実装は採用者が置く。指摘の中身(所在と根拠、実行の結果の記録の所在)の注記を差し込み口に置くまでで、出力は確かめない(附属書H H.4、ADR-0075)
+
+  - id: implement-skill
+    name: 実装のスキル(/implement)
+    kind: template-file
+    path: .claude/skills/implement/SKILL.md
+    description: 実装計画のタスクを実装する手順。テストを、受入基準だけを渡した別の文脈(サブエージェントか別のセッション)で実装より先に生成させ、テスト生成に実装コードを渡さない(第5章 5.8.4、Issue #292)。R1 の変更では人が受入基準を事前に定義し、生成されたテストの十分性を判定する。文脈を分けたことを確かめる機械は無い
+
+  - id: guard-write-hook
+    name: 書き込みの遮断のフック
+    kind: template-file
+    path: .claude/hooks/guard-write.mjs
+    description: 強制層(設定・フック・ワークフロー・ルールセット・ゲートのスクリプト)への書き込みと、自己修正のロック中のテストへの書き込みを遮断し、拒否した操作を .claude/denied.log へ残す(第5章 5.8.5 禁止事項3)。Claude Code の Edit・Write だけを遮断する。試験は無い
+
+  - id: context-drift-workflow
+    name: 恒久層コンテキストの陳腐化の記録のワークフロー
+    kind: template-file
+    path: .github/workflows/context-drift.yml
+    description: 恒久層コンテキストと指示ファイルの最終更新からの経過日数を週次で記録し、Issue へ残す。PR の必須チェックにしない(第3章 3.11.4「乖離の検知でビルドを落としてはなりません」)
+
+  - id: pre-review-automation
+    name: 事前レビュー期間の検査と集計(予定)
+    kind: planned
+    path: scripts/pre-review/
+    description: フェーズ5「事前レビュー期間の自動化」の判定資料の起票・締切の通知と未応答の記録・必須ステータスチェック(pre-review-closed・pre-review-all-responded)・意見の様式の欄の検査・指標の集計の置き場。準拠テンプレートに実装は無い(2026-10-23 確認。Issue #292)
+
+  - id: seeded-error-isolation
+    name: 欠陥注入の隔離(第1層・第2層)の置き場(予定)
+    kind: planned
+    path: .github/rulesets/drill.json
+    description: 演習用ブランチ(drill/)にマージ先を持たせない規則と、注入の標識(Seeded-Error トレーラ)を持つコミットを本番ブランチが拒否する規則の置き場。準拠テンプレートに実装は無い(Issue #292)
+
+  - id: seeded-error-scan
+    name: 欠陥注入のリリース候補の走査(第3層)の置き場(予定)
+    kind: planned
+    path: .github/workflows/seeded-error-scan.yml
+    description: タグの生成時に、標識の残存・注入台帳の未回収の識別子・期限を超過した未回収の注入を走査し、1件でもあれば失敗させるワークフローの置き場。結果を走査の実施記録(seededErrors.scanRun)として集約へ渡す。準拠テンプレートに実装は無い(Issue #292)
+
+  - id: seeded-error-drill
+    name: 継続の欠陥注入の演習の置き場(予定)
+    kind: planned
+    path: scripts/drill/
+    description: 運用中の継続の欠陥注入(事前周知の記録・頻度・停止の条件・注入に気づいたときの報告・見逃した類型の反映の経路・個人識別子を含めない台帳)の置き場。準拠テンプレートにあるのは附属書I I.11 の導入前の検証の 1 回の測定(adoption-trial)だけである(Issue #292)
+
+  - id: agent-run-record
+    name: 変更単位の生成の条件の記録(予定)
+    kind: planned
+    path: scripts/gate/agent-run-record.mjs
+    description: フェーズ5「エージェントの操作の統制」の生成の条件(実行の識別子・指示資産の版)を、変更単位で自動で記録する仕組みの置き場。準拠テンプレートに実装は無い。モデルの識別はトレーラ Co-Authored-By による(Issue #292)
+
+  - id: g5-local
+    name: G-5 の手元の検査(g5-local)
+    kind: template-file
+    path: scripts/gate/g5-local.mjs
+    description: G-5 の検査を、CI(gate-g5.yml)と同じ範囲で手元で実行する。結果を証跡の置き場へ書かず、結果が G-5 の判定の証跡にならないことと、マージを止めるのは CI の必須チェック gate-g5 であることを出力する(第4章 G-5「判定基準を実装する検査と集約」。Issue #293)
+
+  - id: g5-adapter
+    name: G-5 のアダプタの実行(adapter.mjs)
+    kind: template-file
+    path: scripts/gate/adapter.mjs
+    description: gate-g5.yml の test・coverage・static-analysis・ip-clearance・secret-scan のジョブが、スタックごとのアダプタ(adapters/<stack>.json)のコマンドを実行する入口。構成・アダプタが無ければ失敗し、必須の検査のコマンドが空なら失敗する(Issue #293)
+
+  - id: delegation-workflow
+    name: 委任した変更のマージの経路(delegation.yml)
+    kind: template-file
+    path: .github/workflows/delegation.yml
+    description: 委任の範囲への該当を基底ブランチの定義で判定し、組織が有効化した場合に限ってマージする。マージのトークンは、配備のブランチを既定ブランチに限った Environment delegated-merge の秘密情報から読む(ジョブの environment)。test-check-delegation.mjs がワークフローの定義を確かめる(フェーズ5「CI/CD ゲート構成」。Issue #293)
+
+  - id: deploy-workflow
+    name: 案件のデプロイのワークフローの置き場(予定)
+    kind: planned
+    path: .github/workflows/deploy.yml
+    description: リリース決裁(G-8)の後の配備のワークフローの置き場。配備の資格情報を、配備を許す参照(既定ブランチ、またはリリースのタグ)に結び付けた形(参照に限った配備の環境の秘密情報、または参照・配備の環境を確かめる受け手が発行・受理する短命の資格情報)で得て、配備先は結び付かない資格情報(ジョブのトークンなど)からの書き込みを拒む。GITHUB_TOKEN の権限の宣言だけで配備先へ書き込む構成と、配備先の限定を欠く構成は未達。準拠テンプレートに実装は無い(意図した省略。2026-10-27 確認。Issue #346 / ADR-0090)
+
+  - id: gate-g5-workflow
+    name: G-5 のワークフロー(gate-g5.yml)
+    kind: template-file
+    path: .github/workflows/gate-g5.yml
+    description: PR と既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行するワークフロー。必須ステータスチェックの名前は gate-g5(Issue #293)
+
+  - id: rulesets
+    name: ルールセット(ブランチ保護)の定義
+    kind: template-file
+    path: .github/rulesets/team.json
+    description: 既定ブランチ(~DEFAULT_BRANCH)へのマージに掛ける必須チェック・承認・最後の push の承認。既定ブランチ以外を基底とする PR のマージは対象の外(Issue #294)
+
+  - id: record-copy-workflow
+    name: 承認レビューの写しのワークフロー(record-copy.yml)
+    kind: template-file
+    path: .github/workflows/record-copy.yml
+    description: PR のマージを契機に、承認レビューの写しを記録用ブランチ records の records/reviews/ へ追記するワークフロー。写しの取り出しの時期と置き場を運ぶのはこのファイルだけである。ジョブのトークン(権限 contents の write)で書くため、同じ権限を持つ者とトークンは、記録用ブランチの写しと様式を新しいコミットで追記・変更できる(IMPL-0353。降りていない)(#321 との統合の突合 F-6・未解決4)
+
+  - id: ship-evidence-workflow
+    name: 出荷の証跡のワークフロー(ship-evidence.yml)
+    kind: template-file
+    path: .github/workflows/ship-evidence.yml
+    description: 出荷の範囲の証跡を集約して残すワークフロー。2026-10-23 時点では証跡を CI の成果物にだけ置き、保持期間を指定しない(Issue #294)
+
+  - id: coverage-check
+    name: G-5 基準3 のカバレッジの判定(coverage-check.mjs)
+    kind: template-file
+    path: scripts/gate/coverage-check.mjs
+    description: アダプタの集計ファイルから割合を読み、構成の coverageThreshold と比べる。測る範囲(構成 ci.coverageScope。変更で加えた・変えたコード / 全体)を読み、結果に範囲・分母・測っていない製品のファイルの数を書く。変更の範囲は行単位の被覆(coverageDetail)を持つアダプタ(node)だけが測れる(Issue #294・#296)
+
+  - id: self-heal
+    name: 自己修正ループの停止(self-heal.mjs)
+    kind: template-file
+    path: scripts/gate/self-heal.mjs
+    description: 自己修正のロックの開始・反復・保留・解除。iterate が自らテストを実行し、失敗したテストの識別を記録し、連続失敗(反復の上限)と無進捗(同じ失敗の集合の連続)で保留にする。記録は docs/self-heal-log.tsv。解除は名簿の人の名義に限る。単一タスクの累積消費は測らない(Issue #296)
+
+  - id: size-observation
+    name: 規模の観測の集計(size-observation.mjs)
+    kind: template-file
+    path: scripts/gate/size-observation.mjs
+    description: 出荷の範囲の PR の規模の分布・超過の理由の内訳・別集計の倍率の分布を、同じ入力から同じ出力で出す。出荷の証跡の集約が呼ぶ(Issue #296)
+
+  - id: g1-check
+    name: G-1 の企画書の様式の検査(check-g1.mjs)
+    kind: template-file
+    path: scripts/gate/check-g1.mjs
+    description: 企画書(docs/project-brief.md)の必須の欄の有無を確かめる。G-5 基準3 のカバレッジの測る範囲の行を含む(Issue #296)
+
+  - id: autonomy-derivation
+    name: AI自律レベルの導出と停止(登録した変更種別)
+    kind: template-file
+    path: scripts/gate/autonomy.mjs
+    description: 委任の登録から、範囲ごとの現在の AI自律レベル(登録した変更種別は L3、それ以外は L1)を導き、第5章 5.4.6 の第1区分(AI 起因・原因を特定できない Sev1・Sev2、コア機能の理解保持者数1名以下)と第2区分の差し戻し率(毎月、直近2か月の窓、最小標本数30件、判定不能)で、登録した変更種別を止める。委任の判定(delegation.mjs)・次の一手・保証の開示が同じ導出を使う(#311)
+
+  - id: context-refs
+    name: 文脈ファイルの参照切れの検査(G-5 基準6 の一部)
+    kind: template-file
+    path: scripts/gate/check-context-refs.mjs
+    checker: check-context-refs
+    description: CLAUDE.md・AGENTS.md・context/・.claude/ の Markdown の相対リンクと取り込み(@path)の先が、リポジトリに実在することを確かめる。gate-g5.yml の context-format ジョブが呼び、集約 gate-g5 の合否に含める。見出しのアンカー、逆引用符の中のパス、1ファイルの分量の上限は確かめない(#314 / ADR-0084 決定3)
+
+  - id: human-verify-skill
+    name: 人の確認のスキル(/human-verify)
+    kind: template-file
+    path: .claude/skills/human-verify/SKILL.md
+    description: 人が担う確認の手順。拒否の記録(denied.log)を読む手順と、「拒否が0件だから安全である」と記録しない規則を置く(#314 / ADR-0084 決定6)
+
+  - id: dependency-diff
+    name: 依存の追加・更新の一覧(G-5 基準8)
+    kind: template-file
+    path: scripts/gate/dependency-diff.mjs
+    description: PR の基底と比べて、依存の追加・更新を一覧に出す。合否は判定しない。gate-g5.yml の dependency-diff ジョブが呼ぶ
+
+  - id: gate-entry-workflow
+    name: ゲートの前提条件の検査のワークフロー
+    kind: template-file
+    path: .github/workflows/gate-entry.yml
+    checker: check-d0
+    description: D-0(意思決定・エスカレーション体制図)の承認と期限を、PR と週次で確かめる。承認が期限で切れる記録の失効を、変更が止まっている期間にも見る
+
+  - id: assurance-period-workflow
+    name: 期間ごとの保証の開示のワークフロー
+    kind: template-file
+    path: .github/workflows/assurance-period.yml
+    description: 委任で先へ進めた変更の保証の開示を、期間の起点と終点で区切って出す(第4章 G-7・G-8「期間ごとの保証の開示」、第5章 5.5.4)。委任を使っていない構成では要らない旨を出して終える(period-needed.mjs)

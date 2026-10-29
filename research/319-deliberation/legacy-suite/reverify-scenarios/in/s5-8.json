@@ -1,0 +1,1 @@
+{ "kind": "mode", "date": "2026-10-23", "summary": "委任の範囲を狭める", "delegation": { "rules": [ { "id": "DR-001", "seat": "dev-verifier", "changeType": "表示文言", "decidedBy": "佐藤 花子", "decidedAt": "2026-10-20", "reason": "既存のテストで検出でき、取り消しの実績がある", "paths": ["src/i18n/ja/**"] } ] } }

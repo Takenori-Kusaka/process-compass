@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0693
+status: included
+excludeReason: null
+title: Continuous Integration
+url: https://martinfowler.com/articles/continuousIntegration.html
+canonicalUrl: https://martinfowler.com/articles/continuousintegration.html
+ids:
+  arxiv: null
+  doi: null
+publisher: martinfowler.com
+authors: [Martin Fowler]
+orgType: individual
+region: global
+lang: en
+sourceType: individual
+published: 2024-01-18
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-10-26
+access: open
+readLevel: section
+foundBy:
+  cluster: I319
+  query: "#319 外部調査 survey-319-2-external.md G"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: 継続的インテグレーションの解説(2024 年改訂)。リポジトリは製品のコード・試験・試験データ・設定を返すべきで、ビルドに要るものはソース管理に置くとする。#319 は、作業ディレクトリに置いた試験が版管理の外にある状態の材料として引いた。
+claims:
+  - id: c1
+    text: ビルドに要るもの(試験と試験データを含む)はすべてソース管理に置くべきとしている。
+    quote: ""
+    locator: Put everything in a version controlled mainline の節
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [319]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-26'
+  humanChecked: false
+  note: '#319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

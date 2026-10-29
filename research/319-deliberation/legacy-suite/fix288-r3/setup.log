@@ -1,0 +1,22 @@
+$ git init -q -b main . -> exit 0
+$ git config user.email it-dept@tokai-seiki.example -> exit 0
+$ git config user.name tokai-seiki-it -> exit 0
+$ git config core.autocrlf false -> exit 0
+$ git add -A -> exit 0
+$ git commit -q -m chore: pit-in-template から作成 -> exit 0
+$ git rev-parse HEAD -> exit 0
+clone done
+$ node scripts/init/generate-profile.mjs --answers answers.json --stack node --project-id P-2026-017 --profile-name inspection-scheduler -> exit 0
+$ git switch -q -c chore/process-init -> exit 0
+$ git add -A -> exit 0
+$ git commit -q -m chore: プロセス構成を初期化する -> exit 0
+$ git rev-parse HEAD -> exit 0
+$ git switch -q main -> exit 0
+$ git merge -q --squash chore/process-init -> exit 0
+$ git add -A -> exit 0
+$ git commit -q -m chore: プロセス構成を初期化する (#1) -> exit 0
+$ git rev-parse HEAD -> exit 0
+$ node scripts/init/generate-profile.mjs --answers process.config.json -> exit 0
+init done
+$ node scripts/init/generate-profile.mjs --change change.json -> exit 0
+seats done

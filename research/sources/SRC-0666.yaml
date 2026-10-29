@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0666
+status: included
+excludeReason: null
+title: About code owners - GitHub Docs
+url: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+canonicalUrl: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 K10'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH10
+events: []
+summary: GitHub の CODEOWNERS の文書。.github/・ルート・docs/ の順に探して最初の1つだけを使い、不正な構文の行は飛ばす(誤りは API で取得できる)。#315 で、CODEOWNERS の置き場の重なりと雛形の所有者 @OWNER の残りが失敗ではなく無効化として現れることを、事前点検・契約検査・env-check で確かめる判断の根拠として引いた。
+claims:
+- id: c1
+  text: CODEOWNERS は .github/・ルート・docs/ の順に探され、最初に見つかった1つだけが使われる。
+  quote: null
+  locator: CODEOWNERS file location
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: supports
+- id: c2
+  text: 不正な構文の行は飛ばされ、誤りは画面で強調され、API で一覧を取得できる。
+  quote: null
+  locator: CODEOWNERS syntax
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

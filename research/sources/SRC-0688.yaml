@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0688
+status: included
+excludeReason: null
+title: SLSA Threats & mitigations(作業草案)
+url: https://slsa.dev/spec/draft/threats
+canonicalUrl: https://slsa.dev/spec/draft/threats
+ids:
+  arxiv: null
+  doi: null
+publisher: OpenSSF SLSA
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: standard
+published: null
+publishedBasis: page
+version: draft(現行 v1.2 の作業草案)
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: サプライチェーンの枠組み SLSA の脅威と緩和の作業草案。二者レビューを推奨しつつ、レビュアーの追加や上位のレビュアーを求めることは収穫逓減とし、2人の共謀は SLSA の対象外とする。#318 は、人数の追加が独立の強さを上げない判断の材料として引いた。
+claims:
+- id: c1
+  text: 追加の、または上位のレビュアーを求めることは収穫逓減とされている。
+  quote: doing so has diminishing returns
+  locator: 'Threats: source の節'
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 318
+  stance: supports
+- id: c2
+  text: レビュアーどうしの共謀の脅威は、SLSA では現在扱っていないとされている。
+  quote: This threat is not currently addressed by SLSA.
+  locator: 'Threats: source の節'
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 318
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

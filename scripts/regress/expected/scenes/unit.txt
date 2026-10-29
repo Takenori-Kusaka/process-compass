@@ -1,0 +1,77 @@
+# unit が実行する場面の一覧(#319 §8 X-3)。run.mjs --write-scenes が書く。消す・足すときは差分を PR で確かめる
+aiName 山田 太郎
+aiName John Smith
+aiName Ai Tanaka
+aiName Abbott
+aiName Talbot
+aiName Claude (AI)
+aiName Reviewer-Agent (gpt-9)
+aiName dependabot[bot]
+aiName 田中AI
+aiName 田中ＡＩ
+aiName Ａｇｅｎｔ 太郎
+aiName ｃｌａｕｄｅ
+aiName クロード
+aiName ｸﾛｰﾄﾞ
+aiName コパイロット
+aiName レビューエージェント
+aiName Сlaude
+aiName 自動レビュー担当
+aiName 山田 太郎 2世
+account → person(大文字と小文字を区別しない)
+account → person(先頭の @)
+account 対応なし
+全角の空白の氏名も同じ人
+roster ok
+roster: bot のアカウント
+roster: 重複するアカウント
+決定者の席の既定
+決定者の席(governance)
+決定者の席(不正な値は既定へ)
+決定できる人
+canonical: キーの並びに依らない
+seal: 最初の記録
+chain ok
+chain ok(2件)
+構成の書き換えを検出
+切り詰めを検出(構成が最後の記録と一致しない)
+記録の差し替えを検出
+legacy
+移行: 起点の印と連鎖
+移行: 連鎖より前の記録の書き換えを検出
+base: 変更なし
+base: 未設定の基底は比べない
+base: 構成が変わり、追記なし
+base: 追記つきの変更は通る
+base: 切り詰め
+base: 未設定へ戻す
+pendingNotices
+規則: 登録済みの変更種別
+規則: 未登録の変更種別
+規則: config を渡さなければ形式だけ
+変更種別: 登録者が決定者
+変更種別: 登録者が決定者でない
+変更種別: b4 なら名簿の人でよい
+変更種別: 日付なし
+classify: 範囲内
+classify: 確約範囲・コア指定に触れる
+classify: 未登録の種別の規則は該当しない
+classify: 承認の無い規則は該当しない
+classify: 決定した者の無い規則は該当しない
+出荷できない状態の理由(人数の減少)
+出荷できない状態の理由(区分の上昇)
+outagePeriods
+適合性確認: 失効
+変更種別: 登録の根拠(basis)が無い
+変更種別: basis の一部が空
+classify: basis の無い変更種別の規則は該当しない
+isRealDay: 2026-02-31 は無い
+isRealDay: 2028-02-29 はある
+isRealDay: 形式違い
+answersRosterProblems: 回答は確認者なし、席は外部の確認者
+answersRosterProblems: 席が本人なら矛盾なし
+isAppointer: external と appointer の両方
+rosterProblems: appointer は external を要する
+g6Established
+SIGNED_DIRECTIONS
+configIntegrityProblems: 未設定は空

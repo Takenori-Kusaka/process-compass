@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-07-23)
+採用(2026-07-23)。決定2・決定4 の「逸脱」は、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)の決定8 により、第1章 1.4 の「逸脱」の定義の外にあると読みます(2026-10-24)。
 
 ## コンテキスト
 

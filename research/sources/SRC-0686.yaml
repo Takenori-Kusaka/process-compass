@@ -1,0 +1,58 @@
+schemaVersion: 0
+id: SRC-0686
+status: included
+excludeReason: null
+title: Expectations, Outcomes, and Challenges of Modern Code Review
+url: https://2013.icse-conferences.org/content/expectations-outcomes-and-challenges-modern-code-review.html
+canonicalUrl: https://2013.icse-conferences.org/content/expectations-outcomes-and-challenges-modern-code-review.html
+ids:
+  arxiv: null
+  doi: null
+publisher: ICSE 2013
+authors:
+- Alberto Bacchelli
+- Christian Bird
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: '2013'
+publishedBasis: page
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: abstract
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: Microsoft のモダンコードレビューの期待と結果の研究の要旨。レビューは期待より欠陥の発見が少なく、コードと変更の理解が要とする。#318 は、承認の数を検出の層の量として扱い、独立の段と分ける判断の材料として引いた。
+claims:
+- id: c1
+  text: レビューは、期待されているほど欠陥に関するものではないとされている。
+  quote: reviews are less about defects than expected
+  locator: 要旨
+  quant: null
+  evidenceKind: observational
+  rqs: []
+  issues:
+  - 318
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

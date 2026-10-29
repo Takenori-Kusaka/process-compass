@@ -1,0 +1,1 @@
+{ "kind": "outage", "summary": "利用上限に達した", "outage": { "from": "2026-09-30", "handling": "stop" } }

@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0700
+status: included
+excludeReason: null
+title: "GitHub Docs: GITHUB_TOKEN"
+url: https://docs.github.com/en/actions/concepts/security/github_token
+canonicalUrl: https://docs.github.com/en/actions/concepts/security/github_token
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-10-27
+access: open
+readLevel: section
+foundBy:
+  cluster: I346
+  query: "#346 外部調査 survey-346-2-external.md と裁定 R-2 の確認"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10, TH12]
+events: []
+summary: "GITHUB_TOKEN の概念の頁。トークンは GitHub App のインストールのアクセストークンで、ジョブごとに発行され、ジョブの終了か最大の寿命で失効し、権限はワークフローを含むリポジトリに限られる。#346 は、短命であっても参照に結び付かないことの前提として引いた。"
+claims:
+  - id: c1
+    text: "GITHUB_TOKEN はジョブの開始前にジョブごとに発行され、ジョブの終了時か最大の寿命(GitHub ホストのランナーで最大6時間)で失効する。"
+    quote: ""
+    locator: "GITHUB_TOKEN の発行と有効期間の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: context
+  - id: c2
+    text: "GITHUB_TOKEN の権限は、ワークフローを含むリポジトリに限られる。"
+    quote: ""
+    locator: "権限の節"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [346]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-27'
+  humanChecked: false
+  note: '#346 の外部調査(survey-346-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-10

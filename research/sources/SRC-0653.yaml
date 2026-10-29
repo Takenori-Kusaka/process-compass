@@ -1,0 +1,56 @@
+schemaVersion: 0
+id: SRC-0653
+status: included
+excludeReason: null
+title: Config Migration - Renovate Docs
+url: https://docs.renovatebot.com/config-migration/
+canonicalUrl: https://docs.renovatebot.com/config-migration/
+ids:
+  arxiv: null
+  doi: null
+publisher: Mend / Renovate
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I315
+  query: '#315 外部調査 T7'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH10
+- TH12
+events: []
+summary: Renovate の構成の移行。旧い構成は使う前に内部で読み替えられ、書き換えは任意の PR として人へ出す。構成に版の欄は無く、旧い構成は無期限に動く。#315 で、緩める向きの黙った読み替えを採らない判断の比較の対象として引いた。
+claims:
+- id: c1
+  text: 旧い構成は使う前に内部で移行され、デバッグログのほかには見えない。configMigration を有効にすると、構成ファイルを書き換える PR を作る。
+  quote: null
+  locator: Config migration
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 315
+  stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

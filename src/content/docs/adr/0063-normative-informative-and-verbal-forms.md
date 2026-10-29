@@ -17,6 +17,8 @@ sidebar:
 
 維持する決定は2つです。[ADR-0009](/process-compass/adr/0009-phase4-standard-chapter-structure/)の決定5(テーラリングは本文の章に置き、附属書へ落とさない)と、[ADR-0051](/process-compass/adr/0051-usability-out-of-scope/)の決定2 です。[ADR-0057](/process-compass/adr/0057-organizational-quality-assurance/)の修正の表の1行が挙げた理由(第8章の表は手引き)を、採りません。
 
+決定1 の最後の箇条(フェーズ5 とフェーズ6 は本文に従属する)は、[ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/)の決定1 で置き換えられました。フェーズ5・6 は参考(手引き)です。
+
 ## コンテキスト
 
 [#310](https://github.com/Takenori-Kusaka/process-compass/issues/310) は、本標準が規格としての書き分けを欠いていると指摘しました。指摘をそのまま条項にせず、調査・会議体・突合の順で扱いました。記録は `research/302-310-deliberation/`(`survey-310.md`、`council-C-01`〜`05`、`decision.md` の C-7〜C-12)にあります。

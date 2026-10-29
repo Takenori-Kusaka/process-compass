@@ -1,0 +1,35 @@
+# tz が実行する場面の一覧(#319 §8 X-3)。run.mjs --write-scenes が書く。消す・足すときは差分を PR で確かめる
+2つの時刻帯の日付は、この瞬間に異なる(前提)
+Pacific/Kiritimati: 初期化
+Pacific/Kiritimati: 生成日時と最初の記録が、手元の時刻帯(+14:00)の 2026-10-02。協定世界時の日付(2026-10-01)と異なる
+Pacific/Kiritimati: 名簿
+Pacific/Kiritimati: 席の記入(任命権者の記名)
+Pacific/Kiritimati: 区分を下げる(記名つき)
+Pacific/Kiritimati: 変化点の記録の日付(date)・時刻(at)・規則の承認日(approvedAt)が、手元の 2026-10-02
+Pacific/Kiritimati: 承認の失効日(lapsed.at)が、手元の 2026-10-02
+Pacific/Kiritimati: 安全重要度を上げる
+Pacific/Kiritimati: 出荷できない状態の発生日(shipBlocked.since)が、手元の 2026-10-02
+Pacific/Kiritimati: 契約検査(要約値の連鎖は保たれる)
+Pacific/Kiritimati: 別の時刻帯(Asia/Tokyo)で再生成しても、既存の記録は書き換わらない
+Pacific/Pago_Pago: 初期化
+Pacific/Pago_Pago: 生成日時と最初の記録が、手元の時刻帯(-11:00)の 2026-10-01
+Pacific/Pago_Pago: 名簿
+Pacific/Pago_Pago: 席の記入(任命権者の記名)
+Pacific/Pago_Pago: 区分を下げる(記名つき)
+Pacific/Pago_Pago: 変化点の記録の日付(date)・時刻(at)・規則の承認日(approvedAt)が、手元の 2026-10-01
+Pacific/Pago_Pago: 承認の失効日(lapsed.at)が、手元の 2026-10-01
+Pacific/Pago_Pago: 安全重要度を上げる
+Pacific/Pago_Pago: 出荷できない状態の発生日(shipBlocked.since)が、手元の 2026-10-01
+Pacific/Pago_Pago: 契約検査(要約値の連鎖は保たれる)
+Pacific/Pago_Pago: 別の時刻帯(Asia/Tokyo)で再生成しても、既存の記録は書き換わらない
+Asia/Tokyo: 初期化
+Asia/Tokyo: 生成日時と最初の記録が、手元の時刻帯(+09:00)の 2026-10-01
+Asia/Tokyo: 名簿
+Asia/Tokyo: 席の記入(任命権者の記名)
+Asia/Tokyo: 区分を下げる(記名つき)
+Asia/Tokyo: 変化点の記録の日付(date)・時刻(at)・規則の承認日(approvedAt)が、手元の 2026-10-01
+Asia/Tokyo: 承認の失効日(lapsed.at)が、手元の 2026-10-01
+Asia/Tokyo: 安全重要度を上げる
+Asia/Tokyo: 出荷できない状態の発生日(shipBlocked.since)が、手元の 2026-10-01
+Asia/Tokyo: 契約検査(要約値の連鎖は保たれる)
+Asia/Tokyo: 別の時刻帯(Pacific/Pago_Pago)で再生成しても、既存の記録は書き換わらない

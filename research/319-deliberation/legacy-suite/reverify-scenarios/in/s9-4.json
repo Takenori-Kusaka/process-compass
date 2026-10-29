@@ -1,0 +1,1 @@
+{ "kind": "headcount", "date": "2026-12-01", "summary": "高橋が加わり、3名へ戻った", "answers": { "q-team-size": "size-3-9" }, "people": [ { "id": "a", "name": "山田 太郎" }, { "id": "b", "name": "佐藤 花子" }, { "id": "d", "name": "高橋 次郎" } ], "seats": { "independent-reviewer": { "accountable": "d" }, "qa-gatekeeper": { "accountable": "d" } } }

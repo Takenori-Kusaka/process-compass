@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0671
+status: included
+excludeReason: null
+title: 「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集(第2集)
+url: https://www.mhlw.go.jp/content/000780138.pdf
+canonicalUrl: https://mhlw.go.jp/content/000780138.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 厚生労働省
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2021-05
+publishedBasis: pdf
+version: 第2集(PDF に日付の記載が無い。発出の事務連絡は令和3年5月13日)
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: section
+foundBy:
+  cluster: I317
+  query: '#317 外部調査 2.2・2.3・1.2'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '37号告示の運用についての厚生労働省の疑義応答集(第2集)。発注者からの情報提供、業務手順の指示、打ち合わせへの請負労働者の同席、請負労働者の氏名等の事前確認などを扱う。#309 の調査(survey-309.md)が読み、#317 で出典カードを起こした。本標準の注記は第2集を引いていない。'
+claims:
+- id: c1
+  text: 第2集は、発注者からの情報提供、業務手順の指示、打ち合わせへの請負労働者の同席、発注者による請負労働者の氏名等の事前確認などの論点を扱う。
+  quote: null
+  locator: 見出しの一覧
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 317
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: #317 の実装で WebFetch(要約モデル経由)に表題と見出しを求めた。逐語の抜粋は取れていない。問の番号と見出しの対応は読み取れなかった。法律の助言ではない
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-04

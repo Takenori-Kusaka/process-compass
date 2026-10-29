@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0691
+status: included
+excludeReason: null
+title: "ISO/IEC/IEEE 29119-3:2021 Software and systems engineering — Software testing — Part 3: Test documentation(カタログとサンプル)"
+url: https://standards.iteh.ai/catalog/standards/iso/b4f42a41-dd8f-446c-9674-238ba5dc90f1/iso-iec-ieee-29119-3-2021
+canonicalUrl: https://standards.iteh.ai/catalog/standards/iso/b4f42a41-dd8f-446c-9674-238ba5dc90f1/iso-iec-ieee-29119-3-2021
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC/IEEE(iTeh カタログ)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2021-10-28
+publishedBasis: page
+version: "2021"
+updated: null
+accessed: 2026-10-26
+access: paywall
+readLevel: abstract
+foundBy:
+  cluster: I319
+  query: "#319 外部調査 survey-319-2-external.md A1"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: 試験文書の規格。試験方針に試験資産の保管と再利用(6.2.10)、試験完了報告に再利用できる試験資産(7.4.9)、試験データ要求に保管・廃棄(8.5.7)の項目を持つ。本文は読めておらず、見出しと要約だけを確認した。#319 は、試験資産の保管を方針の項目として持つ規格の材料として引いた。
+claims:
+  - id: c1
+    text: 規格の要約は、試験資産の管理・保管・再利用を容易にすることを目的の1つに挙げている。
+    quote: test asset management, archiving, and reuse
+    locator: カタログの要約
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [319]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-26'
+  humanChecked: false
+  note: '#319 の外部調査(survey-319-2-external.md)で WebFetch(要約モデル経由)により読んだ。quote の空欄は、調査が原文を日本語で要約しただけで原文の抜粋を残していないため(言い換えを quote に置かない)。PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-10

@@ -1,0 +1,205 @@
+item	file:line	sentence	reader-A	reader-B	原文の最長の断片(先頭40字)が現行の本文に残るか(文末だけ改めた文は「残る」になる)	決めた扱いの理由
+ITSU	phase4-process-design/assurance-case.md:216	は原因のゲートへ戻り、運用の〔逸脱〕は内部監査が拾う | [イン …| **C9 事後**: 出荷後の欠陥は原因のゲートへ戻り、運用の逸脱は内部監査が拾う | [インシデント対応](/process	UNLISTED	RENAME	改めた	同上
+ITSU	phase4-process-design/assurance-case.md:259	**検出の層**とは、欠陥や〔逸脱〕を見つけるために置く確認のう …**検出の層**とは、欠陥や逸脱を見つけるために置く確認のうち、ゲートの判定に数えないものを	UNLISTED	RENAME	改めた	同上
+ITSU	phase4-process-design/assurance-case.md:431	または構成上の未達のゲートと〔逸脱〕の数(列挙に無い離脱を含む) …未測定である (3) 独立した人の確認を経ていない変更の件数、または構成上の未達のゲートと逸脱の数(列挙に無い離脱を含む)が、前回の出荷より増えた。2つの	UNLISTED	CONFLICT-OTHER	残る	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase4-process-design/assurance-case.md:684	 は、構成上の未達のゲートと〔逸脱〕の数が前回と同じでも、変更の …本人が行っているためである(H.5 の事項2・3・4)。事項3 は、構成上の未達のゲートと逸脱の数が前回と同じでも、変更の件数の増加だけで当たる。理由の無	UNLISTED	CONFLICT-OTHER	残る	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase4-process-design/assurance-case.md:935	件数、構成上の未達のゲートと〔逸脱〕の数、未測定の継続を、抽出条 …の写しを証跡として受け取る。独立した人の確認を経ていない変更の件数、構成上の未達のゲートと逸脱の数、未測定の継続を、抽出条件に用いる | 内部監査の実施者	UNLISTED	CONFLICT-OTHER	残る	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase4-process-design/deliverable-templates.md:1275	未確認] [未達ゲート] [〔逸脱〕] [未回収の例外] [未測 …<!-- 行頭の印([R1未確認] [未達ゲート] [逸脱] [未回収の例外] [未測定] [台帳:<語>])を付けた	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	phase4-process-design/deliverable-templates.md:1515	| 目的からの〔逸脱〕 | 誤った指標を最適化し、 …| 目的からの逸脱 | 誤った指標を最適化し、意図した機能から外れて振る舞う 	UNLISTED	RENAME	改めた	同上
+ITSU	phase4-process-design/deliverable-templates.md:95	応答期限が書かれている | 〔逸脱〕が上位へ届かないまま蓄積する …| 3 | 境界を超えたときの通知先と応答期限が書かれている | 逸脱が上位へ届かないまま蓄積する |	UNLISTED	RENAME	改めた	同上
+ITSU	phase4-process-design/gate-criteria.md:1179	または構成上の未達のゲートと〔逸脱〕の数(列挙に無い離脱を含む) …| 3 | 独立した人の確認を経ていない変更の件数、または構成上の未達のゲートと逸脱の数(列挙に無い離脱を含む)が、前回の出荷より増えた | 項	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase4-process-design/gate-criteria.md:1187	| 構成上の未達のゲートと〔逸脱〕の数 | 構成が未達として表 …| 構成上の未達のゲートと逸脱の数 | 構成が未達として表示するゲートの数と、逸脱(第1章	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase4-process-design/lifecycle.md:528	*計画範囲と調整枠の増減を、〔逸脱〕として扱ってはなりません** …**計画範囲と調整枠の増減を、逸脱として扱ってはなりません**。利用者の要望の変化や学習を反映	UNLISTED	RENAME	改めた	同上
+ITSU	phase4-process-design/lifecycle.md:528	への調査)。スコープの削減は〔逸脱〕ではなく、便益を実現するため …において平均を下回ったという調査があります(2016年、実務者への調査)。スコープの削減は逸脱ではなく、便益を実現するための通常の操作です。	UNLISTED	RENAME	残る	同上
+ITSU	phase4-process-design/overview.md:127	| 検出の層 | 欠陥や〔逸脱〕を見つけるために置く確認のう …| 検出の層 | 欠陥や逸脱を見つけるために置く確認のうち、ゲートの判定に数えないもの。	UNLISTED	RENAME	改めた	同上
+ITSU	phase4-process-design/overview.md:165	的な逸脱、基準の逸脱、運用の〔逸脱〕など)。これらは上表の「逸脱 …、本文の一部で事象を指して用いています(委任の範囲の逸脱、意図的な逸脱、基準の逸脱、運用の逸脱など)。これらは上表の「逸脱」の定義の外にあり、適合の主張の	UNLISTED	RENAME	改めた	同上
+ITSU	phase4-process-design/safety-verification.md:165	| 6 | 処理順序の〔逸脱〕 | 順序の監視が検出する  …| 6 | 処理順序の逸脱 | 順序の監視が検出する |	UNLISTED	RENAME	改めた	同上
+ITSU	phase5-implementation/ci-gates.md:500	| `[未達ゲート]`・`[〔逸脱〕]` | 構成上の未達のゲー …| `[未達ゲート]`・`[逸脱]` | 構成上の未達のゲート・逸脱(`[逸脱]` は列挙に	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase5-implementation/ci-gates.md:500	 | 構成上の未達のゲート・〔逸脱〕(`[逸脱]` は列挙に無い …| `[未達ゲート]`・`[逸脱]` | 構成上の未達のゲート・逸脱(`[逸脱]` は列挙に無い離脱を含む。第1章 1.10.2	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase5-implementation/ci-gates.md:500	上の未達のゲート・逸脱(`[〔逸脱〕]` は列挙に無い離脱を含む …| `[未達ゲート]`・`[逸脱]` | 構成上の未達のゲート・逸脱(`[逸脱]` は列挙に無い離脱を含む。第1章 1.10.2) |	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase5-implementation/ci-gates.md:723	または構成上の未達のゲートと〔逸脱〕の数が、前回の出荷より増えた …| 3 独立した人の確認を経ていない変更の件数、または構成上の未達のゲートと逸脱の数が、前回の出荷より増えた | どちらか一方の増加で当たる	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase5-implementation/ci-gates.md:870	の件数、または未達のゲートと〔逸脱〕の数の増加)は、前回の出力が …- 異議の事項3(独立した人の確認を経ていない変更の件数、または未達のゲートと逸脱の数の増加)は、前回の出力が無いと判定しない。判定していない	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase5-implementation/overview.md:43	 | 標準を既定の運用とし、〔逸脱〕の側を申請制にする | 規程 …| T-3 常態化 | 標準を既定の運用とし、逸脱の側を申請制にする | 規程への反映、教育の定着 |	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/improvement-cycle.md:93	。同じ構造を、見逃しや手順の〔逸脱〕の自己申告へ適用します。 …航空分野の安全報告制度は、次の3点で報告を促しています。同じ構造を、見逃しや手順の逸脱の自己申告へ適用します。	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/process-audit.md:122	| # | 観点 | 〔逸脱〕の例 | …| # | 観点 | 逸脱の例 |	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/process-audit.md:190	または構成上の未達のゲートと〔逸脱〕の数が、前回の出荷より増えた …| 3 | 独立した人の確認を経ていない変更の件数、または構成上の未達のゲートと逸脱の数が、前回の出荷より増えた。2つの量を別々に比べ、どちらか	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase6-operation/process-audit.md:204	決定から導いたもので、監査で〔逸脱〕を検出できた実績はありません …/adr/0056-assurance-argument/)の決定から導いたもので、監査で逸脱を検出できた実績はありません。	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/process-audit.md:212	定から導いたものです。監査で〔逸脱〕を検出できた実績はありません …観点は ADR-0057 の決定から導いたものです。監査で逸脱を検出できた実績はありません。	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/process-audit.md:321	、**抽出されなかった範囲の〔逸脱〕は検出できない**。所見の不 …- 抜き取りである以上、**抽出されなかった範囲の逸脱は検出できない**。所見の不在は、逸脱の不在を意味しない	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/process-audit.md:321	できない**。所見の不在は、〔逸脱〕の不在を意味しない …- 抜き取りである以上、**抽出されなかった範囲の逸脱は検出できない**。所見の不在は、逸脱の不在を意味しない	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/process-audit.md:323	- 監査が検出するのは運用の〔逸脱〕であり、**規程そのものの誤 …- 監査が検出するのは運用の逸脱であり、**規程そのものの誤りは検出しない**。規程の妥当性	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/process-audit.md:68	づく抽出 | 残り半分 | 〔逸脱〕が起きやすい条件へ資源を寄せ …| リスクに基づく抽出 | 残り半分 | 逸脱が起きやすい条件へ資源を寄せる |	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/process-audit.md:76	数と、構成上の未達のゲートと〔逸脱〕の数が多い案件から選ぶ …に、未達の記載がある案件。独立した人の確認を経ていない変更の件数と、構成上の未達のゲートと逸脱の数が多い案件から選ぶ	UNLISTED	CONFLICT-OTHER	残る	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	phase6-operation/risk-catalog.md:209	し重大な不具合を見逃す | 〔逸脱〕の規範化 | 小さな逸脱が事 …| 納期を優先し重大な不具合を見逃す | 逸脱の規範化 | 小さな逸脱が事故に至らなかった経験が累積し、逸	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/risk-catalog.md:209	| 逸脱の規範化 | 小さな〔逸脱〕が事故に至らなかった経験が累 …| 納期を優先し重大な不具合を見逃す | 逸脱の規範化 | 小さな逸脱が事故に至らなかった経験が累積し、逸脱が既定の状態になる |	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/risk-catalog.md:209	に至らなかった経験が累積し、〔逸脱〕が既定の状態になる | 問題 …し重大な不具合を見逃す | 逸脱の規範化 | 小さな逸脱が事故に至らなかった経験が累積し、逸脱が既定の状態になる | 問題が膨張してから顕在化し、修正費が	UNLISTED	RENAME	改めた	同上
+ITSU	phase6-operation/risk-catalog.md:220	| 〔逸脱〕の規範化 | [ゲート判定基 …| 逸脱の規範化 | [ゲート判定基準](/process-comp	UNLISTED	RENAME	改めた	同上
+ITSU	template/.claude/skills/gate/gates/G-8.md:30	または構成上の未達のゲートと〔逸脱〕の数が、前回の出荷より増えた …| 3 | 独立した人の確認を経ていない変更の件数、または構成上の未達のゲートと逸脱の数が、前回の出荷より増えた(どちらか一方の増加で当たる) 	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	template/.claude/skills/process-change/SKILL.md:54	け取るまで適用しない。未達・〔逸脱〕の発生は記名を待たず即時に適 …**向きに応じて進める**。緩める向き・任免は、記名と理由を受け取るまで適用しない。未達・逸脱の発生は記名を待たず即時に適用する。見分け方: `refer	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/.claude/skills/process-change/kinds/headcount.md:41	減った結果として生じた未達・〔逸脱〕は「発生」**。記名を待たず …- **人が実際に減った結果として生じた未達・逸脱は「発生」**。記名を待たず即時に反映する。旧い構成のまま止	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/.claude/skills/process-change/kinds/headcount.md:44	い人を名簿から外して、未達・〔逸脱〕を「発生」に見せない …- 離脱していない人を名簿から外して、未達・逸脱を「発生」に見せない	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/.claude/skills/process-change/reference/apply.md:51	 / 厳しくする / 未達・〔逸脱〕の発生 / なし>。決定:  …- 向き: <緩める / 任免の決定 / 厳しくする / 未達・逸脱の発生 / なし>。決定: <decidedBy>	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/.claude/skills/process-change/reference/direction.md:8	| 未達・〔逸脱〕の発生 | **即時に適用す …| 未達・逸脱の発生 | **即時に適用する。記名を要求しない**。旧い構	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/.claude/skills/process-change/reference/dry-run.md:11	| 未達の発生・〔逸脱〕の発生 / 解消する未達 | …| 未達の発生・逸脱の発生 / 解消する未達 | 変更後の構成で導出したもの。*	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/.claude/skills/process-init/SKILL.md:105	ト、出荷できない状態、未達・〔逸脱〕、運用形態、委任の範囲、席の …の `[開発の基盤]`)。区間には構成の要約(体制、有効なゲート、出荷できない状態、未達・逸脱、運用形態、委任の範囲、席の責任者の記入状況)と、自分のロー	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/.claude/skills/process-init/SKILL.md:233	- 〔逸脱〕(`deviations[] …- 逸脱(`deviations[]`)の記録を消して、通常の `r	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/.claude/skills/process-init/SKILL.md:234	 D-0 体制図の兼務表を、〔逸脱〕の記録なしに埋めること …- D-0 体制図の兼務表を、逸脱の記録なしに埋めること	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/README.md:132	する例外と適合性確認、未達・〔逸脱〕の発生、残作業が表示されます …構成の差分、失効する例外と適合性確認、未達・逸脱の発生、残作業が表示されます。	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/README.md:138	| 未達・〔逸脱〕の発生 | 即時に反映される …| 未達・逸脱の発生 | 即時に反映される。人の離脱で統制が成立しなくなっ	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/gate/aggregate-evidence.mjs:2694	   構成上の未達のゲートと〔逸脱〕の数の合計(項目1) …//   構成上の未達のゲートと逸脱の数の合計(項目1)	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	template/scripts/gate/aggregate-evidence.mjs:2705	? `構成上の未達のゲートと〔逸脱〕の数が増えた(前回 ${pr …    ? `構成上の未達のゲートと逸脱の数が増えた(前回 ${prevUnmetAndDeviat	UNLISTED	CONFLICT-OTHER	改めた	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	template/scripts/gate/aggregate-evidence.mjs:2719	または構成上の未達のゲートと〔逸脱〕の数が、前回より増えた):  …[] : ['事項3(独立した人の確認を経ていない変更の件数、または構成上の未達のゲートと逸脱の数が、前回より増えた): 前回の出力が無いため、判定してい	UNLISTED	CONFLICT-OTHER	残る	事象・一般の意味の用例。R-7 の改名の表に当てはめ、表に無いものは文脈に合う語へ改めた(implementation.md の表)
+ITSU	template/scripts/gate/aggregate-evidence.mjs:2873	 (c.kind === '〔逸脱〕') { …  } else if (c.kind === '逸脱') {	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/gate/aggregate-evidence.mjs:2874	.length) hit(`〔逸脱〕 ${deviations. …    if (deviations.length) hit(`逸脱 ${deviations.map((d) => d.lab	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/gate/config.mjs:237	。arising は、未達・〔逸脱〕の発生(決定ではなく事実。第 … * 変化点の向きの表示名。arising は、未達・逸脱の発生(決定ではなく事実。第3章 3.13.3)。	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/gate/config.mjs:952	立しなくなった統制は、未達・〔逸脱〕として即時に反映します(an …名ですが、チーム規模の回答は 3名以上のままです。人の離脱で成立しなくなった統制は、未達・逸脱として即時に反映します(answers の q-team-s	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/gate/org-assurance.mjs:192	認', '未達ゲート', '〔逸脱〕', '未回収の例外', ' …t const CONDITION_TAGS = ['R1未確認', '未達ゲート', '逸脱', '未回収の例外', '未測定'];	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1037	    // 未達・〔逸脱〕の発生。決定ではなく事実であ …    // 未達・逸脱の発生。決定ではなく事実であり、記名を待たずに反映する(第3	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1096	る向きの決定ではなく、未達・〔逸脱〕の … * 人の離脱などで統制が成立しなくなった変化は、緩める向きの決定ではなく、未達・逸脱の	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1117	 人が実際に減ったか。未達・〔逸脱〕を「発生」(決定ではない事実 …  // 人が実際に減ったか。未達・逸脱を「発生」(決定ではない事実)として扱えるのは、名簿の体制内	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1243	  // 未達と〔逸脱〕。消えた逸脱は例外の失効とし …  // 未達と逸脱。消えた逸脱は例外の失効として挙げる(第3章 3.5.2 /	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1259	arising.push(`〔逸脱〕の発生: ${d.label …      arising.push(`逸脱の発生: ${d.label} — ${d.rule}`);	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1260	(`${d.label}: 〔逸脱〕が生じる`); …      diff.push(`${d.label}: 逸脱が生じる`);	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1264	 `${d.label}: 〔逸脱〕が生じる(人は減っていない。 …          ? `${d.label}: 逸脱が生じる(人は減っていない。体制の入力を下げる決定である)`	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1265	 `${d.label}: 〔逸脱〕が生じる(別の人を置ける体制 …          : `${d.label}: 逸脱が生じる(別の人を置ける体制で、同じ人が兼ねる決定である)`	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1273	e})。兼務を解く` : `〔逸脱〕の解消: ${d.label … ? `例外の失効: ${d.label}(${d.source})。兼務を解く` : `逸脱の解消: ${d.label}`);	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1274	(`${d.label}: 〔逸脱〕が解消する`, 0, 1); …      push(`${d.label}: 逸脱が解消する`, 0, 1);	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:1992	    '未達の発生・〔逸脱〕の発生(即時に反映する。決定 …    '未達の発生・逸脱の発生(即時に反映する。決定ではないため、記名を要求しない。	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:206	/** 〔逸脱〕1件を識別するキー。ゲートの …/** 逸脱1件を識別するキー。ゲートの逸脱はゲート、兼務の逸脱は兼務禁	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:2746	は限らない(1〜2名の体制で〔逸脱〕として記録する組を含む) …          // ただし書きは、兼務を認める例外とは限らない(1〜2名の体制で逸脱として記録する組を含む)	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:2910	      '向きが「未達・〔逸脱〕の発生」の行は、人が減った結 …        '向きが「未達・逸脱の発生」の行は、人が減った結果の反映であり、決定ではありませ	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:2986	る方向の決定ではなく、未達・〔逸脱〕の発生である。記名を待たず、 ….push('- 人の離脱で統制が成立しなくなった変化は、緩める方向の決定ではなく、未達・逸脱の発生である。記名を待たず、即時に反映して表示する');	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:4843	og('[即時反映] 未達・〔逸脱〕の発生を含みます。決定ではな …      console.log('[即時反映] 未達・逸脱の発生を含みます。決定ではないため、記名を待たずに反映します	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:5075	セス構成正本（ゲート、未達、〔逸脱〕の記録）" }, …PROFILE.md", "reason": "人間向けのプロセス構成正本（ゲート、未達、逸脱の記録）" },	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/scripts/init/generate-profile.mjs:5244	console.log('[〔逸脱〕] 次のゲート・兼務は、標準 …      console.log('[逸脱] 次のゲート・兼務は、標準が要求する属性を欠いています:'	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/templates/00-d0-governance.md:23	応答期限が書かれている | 〔逸脱〕が上位へ届かないまま蓄積する …| 3 | 境界を超えたときの通知先と応答期限が書かれている | 逸脱が上位へ届かないまま蓄積する |	UNLISTED	RENAME	改めた	同上
+ITSU	template/templates/00-d0-governance.md:403	る向きの決定ではなく、未達・〔逸脱〕の発生である**。記名を待た …- **人の離脱で成立しなくなった統制は、緩める向きの決定ではなく、未達・逸脱の発生である**。記名を待たず、即時に未達・逸脱として構成へ	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/templates/00-d0-governance.md:403	。記名を待たず、即時に未達・〔逸脱〕として構成へ反映される。決定 …た統制は、緩める向きの決定ではなく、未達・逸脱の発生である**。記名を待たず、即時に未達・逸脱として構成へ反映される。決定した者の欄は「決定なし(発生)」	DEFINED	CONFLICT-OTHER	改めた	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+ITSU	template/templates/09-safety-risk-assessment.md:117	| 目的からの〔逸脱〕 | 誤った指標を最適化し、 …| 目的からの逸脱 | 誤った指標を最適化し、意図した機能から外れて振る舞う 	UNLISTED	RENAME	改めた	同上
+ITSU	template/templates/11-quality-assurance-policy.md:50	| `[〔逸脱〕]` | 逸脱(標準 第1章 …| `[逸脱]` | 逸脱(標準 第1章 1.10.2 の閉じた列挙。代	DEFINED	CONFLICT-OTHER	残る	1.10.2 の閉じた列挙を指す用例は定義どおりとして残した。列挙に無い離脱を含めて読める合算の語は「逸脱・列挙に無い離脱」と並べた(1.5)
+R2	phase4-process-design/assurance-case.md:190	- 外枠の不充足は、誰も受容できない。	PROHIBITION-MAIN	PROHIBITION-RESTATE	改めた	どちらの読みでも禁止。禁止の文末へ改め、主文が別の箇所にある場合だけ所在を引いた
+R2	phase4-process-design/exception-escalation.md:248	推奨の提示は結果責任(A)を負う者の行為であり、AI へ委譲できません。	PROHIBITION-MAIN	PROHIBITION-RESTATE	改めた	どちらの読みでも禁止。禁止の文末へ改め、主文が別の箇所にある場合だけ所在を引いた
+R2	phase4-process-design/gate-criteria.md:886	検知に完全さを期待できない以上、検出されなかったことを潔白の根拠にできません。	PROHIBITION-RESTATE	PROHIBITION-MAIN	改めた	同上
+R2	phase4-process-design/overview.md:479	上の表の帰結として、次の構成は、適合の主張と逸脱を伴う適合の主張のどちらもできません。	PROHIBITION-MAIN	PROHIBITION-RESTATE	改めた	どちらの読みでも禁止。禁止の文末へ改め、主文が別の箇所にある場合だけ所在を引いた
+R3	phase4-process-design/deliverable-templates.md:1044	本標準は、出荷判定では是正計画型と開示義務型を、契約では開示義務型を基本とします。	REQUIREMENT	OTHER-EXPLANATION	残る	要求か説明かが割れた文は、要求として残した
+R3	phase4-process-design/deliverable-templates.md:433	Git 上で管理する場合の具体的な構成([フェーズ5])では、要求事項1を所有者定義による承認、要求事項2をマージ日時、要求事項3を申請様式への明記、要求事項4を版管理で満たします。	OTHER-EXPLANATION	REQUIREMENT	改めた	要求か説明かが割れた文は、要求として残した(R-3: 要求が説明へ落ちる向きの誤りを避ける)
+R3	phase4-process-design/exception-escalation.md:189	次の条件に該当した時点で、報告が発生します。	REQUIREMENT	CAUSAL-OR-FACT	改めた	同上。要求として残し、形を変えなかった
+R3	phase4-process-design/exception-escalation.md:283	顧客ヒアリング、市場調査、代替品の実地評価、外部への調査委託などが該当します。	OTHER-EXPLANATION	CAUSAL-OR-FACT	改めた	同上
+R3	phase4-process-design/gate-criteria.md:1421	手段ごとの効果を分離して測る設計は、[フェーズ5(レビュー負荷削減手段の効果測定)]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/gate-criteria.md:1423	較正に共通する歯止め(更新は人の判断を経る、引き上げには実績以外の根拠を要する、更新の周期を観測の周期より長く取る、基準の更新と未達への措置を同じ場で決めない)は[フェーズ6(運用メトリクス)]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/gate-criteria.md:1438	分割の実際の手順は[フェーズ5(スタック型 PR の運用)]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/gate-criteria.md:1504	本標準は速度を優先し、分配は下記の偏りの監視で担保します。	REQUIREMENT	OTHER-EXPLANATION	残る	要求か説明かが割れた文は、要求として残した
+R3	phase4-process-design/gate-criteria.md:480	是正と再発防止の手続を起動する条件は、本節を正本とします。	REQUIREMENT	CAUSAL-OR-FACT	改めた	同上。要求として残し、形を変えなかった
+R3	phase4-process-design/gate-criteria.md:575	資格情報は文書へも混入します。	REQUIREMENT	CAUSAL-OR-FACT	改めた	同上。要求として残し、形を変えなかった
+R3	phase4-process-design/gate-criteria.md:595	未達と省略の区別は[ADR-0028]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/gate-criteria.md:692	検査の実装は[フェーズ5(CI/CD ゲート)]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/human-ai-boundary.md:646	含める事項の一覧は[フェーズ5(欠陥注入の隔離設計)]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/human-ai-boundary.md:709	要件1(本番環境へ到達しない経路)と要件2(自動的な取り消し)を満たす実装は、[フェーズ5(欠陥注入の隔離設計)]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/human-ai-boundary.md:916	分離の効果を機械で確認する手続(変異試験、受入基準とテストの突合)は、[フェーズ5(AI生成テストの検出力検証)]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/human-ai-boundary.md:942	役割境界は、次のいずれかに該当した場合に見直します。	REQUIREMENT	CAUSAL-OR-FACT	残る	同上。要求として残し、形を変えなかった
+R3	phase4-process-design/human-ai-boundary.md:949	見直しの結果は、時点を併記して本章へ反映し、変更履歴を残します。	REQUIREMENT	CAUSAL-OR-FACT	残る	同上。要求として残し、形を変えなかった
+R3	phase4-process-design/lifecycle.md:260	両者を区別します。	REQUIREMENT	CAUSAL-OR-FACT	残る	同上。要求として残し、形を変えなかった
+R3	phase4-process-design/lifecycle.md:326	本節は予告期間を区分して扱うことで、この不確実性を吸収します。	CAUSAL-OR-FACT	OTHER-EXPLANATION	改めた	説明であることは一致。因果・事実の形(〜ためです/〜ことがあります)へ書き直した
+R3	phase4-process-design/lifecycle.md:513	測定の実装は[フェーズ6(メトリクス)]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/lifecycle.md:62	DR0・DR1・DR2 は別称として併記します。	CAUSAL-OR-FACT	OTHER-EXPLANATION	改めた	説明であることは一致。因果・事実の形(〜ためです/〜ことがあります)へ書き直した
+R3	phase4-process-design/overview.md:170	本標準は本文8章と附属書9編で構成します。	CAUSAL-OR-FACT	OTHER-EXPLANATION	改めた	説明であることは一致。因果・事実の形(〜ためです/〜ことがあります)へ書き直した
+R3	phase4-process-design/overview.md:212	本標準は、章ごとに入力・処理・出力を定義し、章間のトレーサビリティを確保します。	CAUSAL-OR-FACT	OTHER-EXPLANATION	改めた	説明であることは一致。因果・事実の形(〜ためです/〜ことがあります)へ書き直した
+R3	phase4-process-design/overview.md:532	版は「第N版」と発行日で示します。	REQUIREMENT	META	残る	述語が記述の動詞でない、または主語が本標準でないため、メタの文に当たらない。要求として残した
+R3	phase4-process-design/overview.md:532	要求事項を変えない改訂は「第N版 修正M」と示します。	REQUIREMENT	META	残る	述語が記述の動詞でない、または主語が本標準でないため、メタの文に当たらない。要求として残した
+R3	phase4-process-design/overview.md:8	本標準は、生成AIを開発の主たる実装主体として組み込みながら、日本の大企業が備える投資決裁・品質保証・監査の統制と接続できる開発プロセスを規定します。	REQUIREMENT	META	残る	述語が記述の動詞でない、または主語が本標準でないため、メタの文に当たらない。要求として残した
+R3	phase4-process-design/roles-responsibilities.md:157	段階別の内容は[フェーズ5の社会実装計画]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/roles-responsibilities.md:531	移行支援担当と標準所管の職掌、および分離が成立するための報告線と予算の要件は、[フェーズ5(イネーブルメント計画)]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R3	phase4-process-design/roles-responsibilities.md:905	計測と改善の運用は[フェーズ6]に規定します。	CAUSAL-OR-FACT	META	改めた	1.7.2 のメタの文は主語が本標準またはその部分と書かれた文に限る。主語を省いた文はメタに入れず、因果・事実の形へ書き直した
+R4	phase4-process-design/adoption-guide.md:107	- 条件7 に当たらないと言うには、**層1 の「判断の席ごとの後継候補の最低数」と「育成の担当」が記入されていること**を要する。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:107	表示があっても、最低数と担当の無い状態は、計画が無い状態として読める	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:108	- 条件5・6・7 は、計画の文書ではなく実施の記録で当たらないことを示す。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:108	採用の時点では導入前の検証の演習の記録で、運用では周期内の記録で示す。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:108	記録が無い間、または周期を過ぎた間は「未確認」「退出を試していない」「後継不在」と保証の開示に表示され、層1 の権限者が期限つきで受容する	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:495	人の層の見つける者は運用で G-6 を担う人であり、G-6 を2名で行う体制(規制業・CL3)では2名で見つける。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:495	検出率は和集合で数える。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:495	人ごとの検出数は算出しない(第5章 5.6.2 参照)	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:51	各回答は、次の5要素を満たして初めて「回答あり」とみなします。	b	NONE	改めた	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:61	「対応しています」「レビューします」「AI は補助です」「別製品へ切り替えられます」「教育します」だけでは、回答とみなしません。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:610	第三者は `node scripts/gate/adoption-trial.mjs verify <記録>` で再計算し、一致を確かめる。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:610	一致しない記録は、git の履歴を見るまでもなく書き換えが分かるため、記録として数えない	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:611	欠陥注入の測定の記録 `seeded-errors.json` を含む)は、記録だけのコミットとしてコミットする。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:611	出荷の証跡の集約は、この置き場と演習の報告書、退出の予行の記録を、判定記録と同じ記録の置き場として扱い、製品の変更に数えない。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:613	- 機械化の穴(節9 の3行目)は、効果や挙動と違い、受容で終わらせない。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:613	手で代える手順を置き、テンプレートの実装を待って解消する	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:624	層1 の「縮退の実測の頻度」を過ぎた実測は「未確認」へ戻る。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/adoption-guide.md:63	証拠は、時点で2つに書き分けます。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:644	- 全社の品質マネジメントシステムを持つ組織では、層1 を全社の品質方針の下位文書として位置づけ、全社の品質保証部門が整合を確認した記録を残す。	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:644	全社からの権限の委譲が職務権限規程などにあれば、委譲を受けた者の記名を有効とする	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:645	- 記名者を、適用範囲の案件の事業決裁者と同一人物にしない	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:647	採用の判断と運用とでは、同じ人が別の立場に立ちます。	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:647	採用の判断の時点の立場と、運用に入る時点の席の対応を示します。	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:651	品質保証部門の長と事業部門の長を兼ねていても、運用に入る時点で、出荷判定者(G-7)と事業決裁者(G-8)を別の人に分ける。	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:651	採用判断者は、事業決裁者の席に就かない(テンプレ11 の要求事項5)	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:652	層1 の記名者にはしない	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:653	その場合、層1 の記名者は事業部門の長より上位の者か、事業部門の長と別の3つの権限を持つ者とする	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:656	- 採用の判断で兼ねていた2つの立場は、運用に入る時点で分ける。	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:657	導入前の検証の結果の十分性を一人で判定させないため、採用判断の記録には、品質保証部門の見解を添えることを勧める	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/adoption-guide.md:82	本標準を統制可能と判断しない	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:88	この2つは、**採用者の層1 の受容者が範囲と期限を付けて受容する残余リスク**として、I.11 の記録の節9 に書く。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:88	範囲は、検証した構成と開発組織に限る。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:88	受容の期限までに運用の記録で確かめ、再判定する	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:89	- 機械化の穴(規定が実行層へ降りていない部分)は、受容で埋めない。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:89	[実装の台帳]の「降りていない規定」を採用者が確かめ、降りていない規定は採用の条件か、手で代える手順として記録する	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:94	次の8条件のいずれかに当たる場合、採用者は保留または不採用とします。	b	NONE	改めた	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:94	各条件について、本標準のどの規定が「当たらない」ことを示すかと、採用者が確かめる記録を示します。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/adoption-guide.md:94	規定が実在しても、採用した組織が運用していなければ、条件に当たります。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/developer-guide.md:118	最後の2項目は必ず確認します。	NONE	b	改めた	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:120	基準値そのものの変更(カバレッジ基準の引き下げ、検査の除外設定の追加)は、機能の変更とは別の変更として分離し、技術判断者の承認を得ます。	NONE	b	改めた	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:128	実装の再試行を続けない	d	c	改めた	本文の値に合わせた (d)
+R4	phase4-process-design/developer-guide.md:136	自己修正ループの書き込み範囲に、テストを含めません。	NONE	c	改めた	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/developer-guide.md:138	- 除外は指示ではなく、[エージェントの操作の統制]の書き込み範囲の設定による	NONE	c	改めた	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/developer-guide.md:139	- テストの修正を要すると判明した場合、ループを終了して人が受入基準へ戻る。	NONE	c	改めた	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/developer-guide.md:139	ループの内側で続けて行わない	NONE	c	改めた	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/developer-guide.md:140	- 除外の解除は人間の操作による。	NONE	c	改めた	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/developer-guide.md:146	サイクルの終わりに、該当がある記録を書き戻します。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:148	採らなかった選択肢とその理由を含める	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:160	受入基準を確定せずに実装を依頼する	a	c	残る	(a)・(c) のどちらでも本文へ戻す。本文へ移した
+R4	phase4-process-design/developer-guide.md:161	AIが生成した受入基準を、人の判定(G-2・G-4)を経ずに確定とする	a	c	残る	(a)・(c) のどちらでも本文へ戻す。本文へ移した
+R4	phase4-process-design/developer-guide.md:162	テストの失敗を、テスト側の変更で解消する	a	c	残る	(a)・(c) のどちらでも本文へ戻す。本文へ移した
+R4	phase4-process-design/developer-guide.md:163	差分を確認せずに承認する	a	c	残る	(a)・(c) のどちらでも本文へ戻す。本文へ移した
+R4	phase4-process-design/developer-guide.md:164	独立レビューの挙動要約を、AIに生成させる	a	c	残る	(a)・(c) のどちらでも本文へ戻す。本文へ移した
+R4	phase4-process-design/developer-guide.md:170	- 1つのタスクは1つの変更単位に対応させる。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:170	複数の関心事を1つの変更へ混ぜない	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:22	何を作るか、どこまでを正しいとするかを決める作業は移譲の対象になりません。	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/developer-guide.md:37	開発者の席の委任の範囲の変更([第5章 5.5.6])では、工程5 の差分の検証を担い手が行い、実行結果の証拠を PR の検証欄へ書きます。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:41	- 受入基準は「条件 + 期待動作」の形式で書く([附属書B])	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:42	- 曖昧語を使用しない。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:59	- 1タスクは、独立レビューが単独で完結できる大きさに収める([第4章 G-4])	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/developer-guide.md:60	- 各タスクが、どの受入基準に対応するかを明記する	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/executive-projection.md:14	リリース決裁(G-8)で、事業決裁者は出荷判定者の異議の欄を読み、保証の開示に載った残存リスクの受容を記名します。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/executive-projection.md:14	出荷判定者の署名の意味も改めるため、出荷判定の規程の改定を要します。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/executive-projection.md:34	新しい記述を書かせない	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/executive-projection.md:35	判定の対象にしない	a	NONE	残る	本文が当該の附属書の箇所を根拠として引いている文は (a) とし、本文へ移すか本文を引く形にした
+R4	phase4-process-design/executive-projection.md:90	数値には、算定根拠と効果が出ない条件を併記する。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/executive-projection.md:97	数値を上げて通すのではなく、通らない理由を記録します。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/review-guide.md:114	- 差し戻し理由は**必ず受入基準・チェックリストの項目を引用**する(「なんとなく不安」では作成者が直せない)	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/review-guide.md:115	- 好みの指摘(命名の趣味・書き方の流儀)は差し戻し理由にしない。	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/review-guide.md:117	機能仕様サイクル(G-4)へ差し戻す	b	NONE	残る	同上。本文の判定基準・記録の事項に同じ内容がある文は本文を引き、無い文は推奨の形へ改めた
+R4	phase4-process-design/review-guide.md:121	ただし AI の指摘の採否はレビュアが判断する	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/review-guide.md:122	- **承認の権限は AI に与えない**(テーラリングの禁止事項「AI を結果責任に割り当てない」)。	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/review-guide.md:122	AI レビューで代替してよいのは指摘の列挙までで、挙動要約は必ず人間が書く	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/review-guide.md:123	- AI へ渡す入力は、仕様・受入基準・差分とする。	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/review-guide.md:123	作成側の説明文・主張・推論の過程を、判断の前に渡さない(前掲「入力の分離」)	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/review-guide.md:125	- 記録には「AI レビュー通過」と書かない。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:125	指摘の内容と、レビュアによる採否を残す	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:126	- AI の確認を「独立レビュー」と呼ばない。	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/review-guide.md:126	G-6 の判定に数えず、検出の層としてのみ数える([第3章 3.5.4]、[附属書H] H.4)	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:130	委任([第5章 5.5.4])を適用した変更でも、**承認の権限は AI へ移りません**。	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/review-guide.md:135	独立レビュアの席の責任者が抜き取りで確かめる	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:136	承認として扱わない	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:137	G-6 の基準1〜5 は変わらない。	NONE	b	改めた	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:138	G-6 を通過した変更として記録しない。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:138	人の事前確認を経ていない変更として、変更単位で識別する。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:138	抜き取った変更は、挙動要約を含む事後確認の記録を残す	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:139	該当する範囲を協働へ引き下げ、事前の判定へ戻す	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした
+R4	phase4-process-design/review-guide.md:142	開発者の席の規則にだけ該当する変更は、G-6 を事前に判定する。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:144	- 委任を適用した変更を「独立レビュー済み」と記録しない。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:154	- 読み手の役の感想を、受入基準の判定の根拠にしない。	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:154	AI の読み手の指摘は検出の層として扱い、指摘の内容(所在と根拠)と採否を残す(附属書H H.4)	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:60	**理解できないまま承認しない**	NONE	b	残る	1.5 の裁定で (b) は適合・ゲートの判定・記録の有効性を左右する事項に限る。採用の判断や手順の進め方だけに掛かる文は (b) に当たらず、推奨の形か本文の所在を引く形にした
+R4	phase4-process-design/review-guide.md:71	AI へは、判断を出す前に作成側の説明文・主張・推論の過程を渡さない	NONE	c	残る	実行主体の挙動を止める・範囲を限る文は (c) とし、本文(5.8.5・5.8.6)へ移すか本文を引いた。手順の勧めに留まる文は推奨の形にした

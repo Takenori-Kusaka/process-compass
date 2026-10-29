@@ -1,0 +1,56 @@
+schemaVersion: 0
+id: SRC-0689
+status: included
+excludeReason: null
+title: A Fresh Take on DO-178C Software Reviews
+url: https://www.adacore.com/blog/a-fresh-take-on-do-178c-software-reviews
+canonicalUrl: https://www.adacore.com/blog/a-fresh-take-on-do-178c-software-reviews
+ids:
+  arxiv: null
+  doi: null
+publisher: AdaCore
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: corp-techblog
+published: '2024-04-16'
+publishedBasis: byline
+version: null
+updated: null
+accessed: '2026-10-24'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I318
+  query: '#318 外部調査 survey-318-2-external.md 第9節'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH06
+- TH12
+events: []
+summary: DO-178C のソフトウェアレビューの解説。レビュー関係の目標のうち独立性を要する数はレベル A で16/31、B で7/31、C・D は0 とする。航空は独立の強さを距離ではなく独立性を要する目標の範囲で上げる。#318 は、外部の型の比較の材料として引いた。
+claims:
+- id: c1
+  text: レビュー関係の目標のうち独立性を要するのは、レベル A で31 のうち16、レベル B で31 のうち7、C・D は0 とされている。
+  quote: 16 out of 31 for software level A
+  locator: 本文
+  quant: null
+  evidenceKind: expert-opinion
+  rqs: []
+  issues:
+  - 318
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-10-24'
+  humanChecked: false
+  note: '#318 の外部調査(survey-318-2-external.md)で WebFetch(要約モデル経由)により読んだ。逐語とした引用も PDF・原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10
