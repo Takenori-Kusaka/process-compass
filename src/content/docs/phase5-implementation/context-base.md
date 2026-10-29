@@ -69,6 +69,8 @@ graph LR
 | 2 | 標識の付与そのものが自動になり、標識のないことが検証済みの根拠にならなくなる |
 | 3 | 未検証の記述が量で上回り、検証済みの部分が見分けられなくなる |
 
+この却下は、機能仕様の前提の欄で「観測で確かめた」と「想定」を区別する設計にも及びます。区別を書き手が申告する点で、破れ方2 を同じく持つためです([第4章 G-2](/process-compass/phase4-process-design/gate-criteria/)「前提の欄(基準3)」、[ADR-0075](/process-compass/adr/0075-acceptance-criteria-coverage-premises-and-ai-findings/) 決定3)。
+
 承認の記録は、標識ではなく変更履歴によります。誰がいつ承認したかは、PR とコミットの署名から特定できます([QMS 文書管理](/process-compass/phase5-implementation/qms-document-control/))。
 
 ## オーナーシップの実装(R5)

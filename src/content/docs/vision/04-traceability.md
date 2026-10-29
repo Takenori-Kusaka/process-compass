@@ -42,7 +42,7 @@ graph TD
 | --- | --- |
 | [フェーズ1 総括](/process-compass/phase1-current-state/summary/) | 3つの発見 → 第2章・第3章・第4章 |
 | [人材の入れ替えと事業フェーズの推移](/process-compass/phase1-current-state/workforce-mobility/) | 異動の周期と予告期間 → 第2章 2.3・2.9 |
-| [理想モデルの前提条件一覧](/process-compass/phase2-aidlc/assumptions/) | 崩れる前提 T3・P3・O1〜O3・K1〜K3 → 第3章・第4章・第5章 |
+| [理想モデルの前提一覧](/process-compass/phase2-aidlc/assumptions/) | 崩れる前提 T3・P3・O1〜O3・K1〜K3 → 第3章・第4章・第5章 |
 | [ロール別の作業分担](/process-compass/phase3-gap-analysis/role-mapping/) | AI自律レベル L1〜L3 → 第5章 5.4 / 5.8 |
 | [フェーズ3 総括](/process-compass/phase3-gap-analysis/summary/) | ギャップ G1〜G5 → 第2章・第3章・第4章・第7章 |
 
@@ -90,7 +90,7 @@ graph TD
 | T-0 〜 T-4 | 移行段階 | [社会実装計画](/process-compass/phase5-implementation/enablement/) |
 | TG-1 / TG-2 / TG-3 | 移行判定ゲート | [社会実装計画](/process-compass/phase5-implementation/enablement/) |
 | EN-1 / EN-2 / EN-3 | 移行の支援体制 | [社会実装計画](/process-compass/phase5-implementation/enablement/) |
-| A-T1 〜 A-K3 | 理想モデルの前提条件(技術・個人・組織・知識) | [前提条件一覧](/process-compass/phase2-aidlc/assumptions/) |
+| A-T1 〜 A-K3 | 理想モデルの前提(技術・個人・組織・知識) | [前提一覧](/process-compass/phase2-aidlc/assumptions/) |
 | AC-0 / AC-1 / AC-2 | 前提の充足状態(充足 / 劣化 / 不成立) | [第7章 7.10](/process-compass/phase4-process-design/exception-escalation/) |
 | テンプレ0 〜 テンプレ11 | 成果物の様式 | [第6章](/process-compass/phase4-process-design/deliverable-templates/) |
 | 附属書A 〜 附属書I | 背景・記法・手引き・様式・投影 | [第1章 1.5](/process-compass/phase4-process-design/overview/) |
