@@ -312,7 +312,7 @@ Skitka ら 2000、Mosier ら 2001、Domeinski ら 2007 は読めなかった。�
 
 ### 2.3 原子力の手引き(独立した検証の定義)
 
-米国エネルギー省の手引き DOE-HDBK-1028-2009 Volume 2 と DOE-STD-1036-93 を抜粋で読んだ(https://www.energy.gov/sites/default/files/2026-04/1028-2009_Volume%202.pdf、https://www.energy.gov/sites/default/files/2026-05/DOE-STD-1036-93_Chg_Notice_1.pdf)。どちらも手引きで、実験のデータは示していない。
+米国エネルギー省の手引き DOE-HDBK-1028-2009 Volume 2 と DOE-STD-1036-93 を抜粋で読んだ(https://www.energy.gov/sites/default/files/2026-04/1028-2009_Volume%202.pdf 、 https://www.energy.gov/sites/default/files/2026-05/DOE-STD-1036-93_Chg_Notice_1.pdf)。どちらも手引きで、実験のデータは示していない。
 
 - 4 つの道具を目的で分ける。peer-checking(実施者の誤りを防ぐ。最も厳格でない)、concurrent verification(一緒に確かめる。"true independence cannot be achieved")、independent verification(時間と距離で分ける)、peer review(文書のレビュー)
 - 独立の定義: "Independence exists when the verifier has freedom of thought from the performer. Separating the acts of the performer and verifier in time and by distance promotes freedom of thought."
