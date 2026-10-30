@@ -1,7 +1,7 @@
-# Graph Report - process-compass  (2026-10-29)
+# Graph Report - process-compass  (2026-10-30)
 
 ## Corpus Check
-- 1646 files · ~1,336,946 words
+- 1646 files · ~1,336,948 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 23 file(s) not represented in the graph (top: (none) 10, .log 6, .tsv 5)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `719aa4d5`
+- Built from commit: `14c320b7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -7447,7 +7447,7 @@ Nodes (5): 実装とは組織移行である, 実装リファレンス一覧, �
 
 ### Community 97 - "scripts"
 Cohesion: 0.03
-Nodes (68): ADR-0006, ADR-0020, ADR-0017, dependencies, astro@^7.2.0, astro-mermaid@^2.1.0, @astrojs/sitemap@^3.7.3, mermaid@^11.16.1 (+60 more)
+Nodes (68): ADR-0006, ADR-0020, ADR-0017, dependencies, astro@^7.2.0, astro-mermaid@^2.2.0, @astrojs/sitemap@^3.7.4, mermaid@^12.2.0 (+60 more)
 
 ### Community 99 - "調査メモ: 4大会議体と決裁権限マトリクス／デジタル根回し（Issue #102・#103）"
 Cohesion: 0.05
@@ -8075,7 +8075,7 @@ Nodes (9): BASE-Q2・BASE-Q3 前回メモの再確認(本テーマの範囲), TH
 
 ### Community 257 - "process-diagrams.ts"
 Cohesion: 0.05
-Nodes (44): @astrojs/starlight@^0.41.6, @astrojs/starlight, 推奨の組み合わせ案, roleName, seg, wpName, categoryLabel, diagram (+36 more)
+Nodes (44): @astrojs/starlight@^0.42.7, @astrojs/starlight, 推奨の組み合わせ案, roleName, seg, wpName, categoryLabel, diagram (+36 more)
 
 ### Community 258 - "TH08 仕様・要求・前提・トレーサビリティ"
 Cohesion: 0.20
