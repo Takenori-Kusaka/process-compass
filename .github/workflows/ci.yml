@@ -70,7 +70,7 @@ jobs:
       # 公開するのは、この検査が作ったサイトそのもの(npm run check の最後の astro build の出力)
       - name: 検査したサイトを公開の成果物として渡す
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
