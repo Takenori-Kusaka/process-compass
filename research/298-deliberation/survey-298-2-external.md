@@ -150,7 +150,7 @@
 
 ### 4.3 Agile-Stage-Gate(Cooper & Sommer)
 
-- Cooper, R. G. & Sommer, A. F. (2018) "Agile–Stage-Gate for Manufacturers", Research-Technology Management 61(2):17–26: https://www.five-is.com/download/agile-stage-gate-for-manufacturers 【一次の写し】
+- Cooper, R. G. & Sommer, A. F. (2018) "Agile–Stage-Gate for Manufacturers", Research-Technology Management 61(2):17–26: https://www.five-is.com/download/agile-stage-gate-for-manufacturers (保存版: <https://web.archive.org/web/20251015104458/https://www.five-is.com/download/agile-stage-gate-for-manufacturers>。2026-11-04 に併記) 【一次の写し】
   - 6 社の聞き取りで市場投入期間 約 30% 短縮・生産性 約 30% 向上の**推定**(知覚ベース)。客観指標を入れていたのは 1 社だけ
   - 緊張: アジャイルの変わり続ける計画と、ステージゲートの固定された定義・事前承認の衝突。アジャイルのプロジェクトは「めったに止められない」。経営層の「アジャイル = ステージゲートの放棄」という誤解。専任チームの確保の難しさ
 - SAFe 原則5 が引く Oosterwal: フェーズゲートの期日どおりの通過とプロジェクトの成功に相関が無い(前掲 2.1)

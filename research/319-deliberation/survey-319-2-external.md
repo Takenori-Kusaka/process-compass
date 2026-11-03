@@ -238,7 +238,7 @@
 
 - Schellander「Architectural Decision Enforcement」(OST 修士論文, 2026-08 登録): 既存の適合検査ツールは**規則がどの ADR に由来するかと結ばれておらず**、それが浸食を招くと指摘。ADR の隣に置く規則の DSL を提案し、ADR 17 件の .NET プロジェクトで 9 件の決定を 44 の検査で自動強制した
 - 含意: 「決定 → 試験」の対応を明示的に持つと、決定の改廃時にどの試験を見直すかが追える。#319 の「scenarios が前から落ちている」原因調査も、各場面がどの ADR・Issue を固定しているかの対応があれば、陳腐化か後退かの判断が速くなる(調査者の読み)
-- 出典: <https://eprints.ost.ch/id/eprint/1381/>(OST, 2026。要旨のみ読んだ)
+- 出典: <https://eprints.ost.ch/id/eprint/1381/> (保存版: <https://web.archive.org/web/20261014025932/https://eprints.ost.ch/id/eprint/1381/>。2026-11-04 に併記)(OST, 2026。要旨のみ読んだ)
 
 ## G. 作業ディレクトリに試験を置くリスク
 

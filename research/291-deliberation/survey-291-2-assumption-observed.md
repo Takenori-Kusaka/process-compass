@@ -110,7 +110,7 @@
 | GSN 第3版(SCSC-141C、2021)。FND-0240、SRC-0562 | 前提は「意図的に立証しない言明」。読めた範囲に検証済み / 想定の属性は無い。未展開(undeveloped)は goal・strategy に付く別の標識。第3版は challenges 関係と defeated 状態を加えた | 規範・E1 |
 | GSN 第1版(2011)。FND-0111、SRC-0440 | 前提は「立証されていない言明」で、正当化(justification)とは別要素。論証戦略の重要な前提の記録を求める | 規範 |
 | PMBOK 第4版。FND-0242、SRC-0564 | 「計画のために、証明や実証なしに真・現実・確実とみなす要素」。PMI 論文(2010)は、文献が一覧化と定期見直し以上の手引きを与えていないと指摘 | 規範・意見 |
-| Assumption Mapping(David Bland の手法として紹介)。https://helio.zurb.com/blog/assumption-mapping/(2026-10-23 取得) | 前提は「十分な証拠なしに真とみなす、現在または将来の状態についての信念」。重要度 × 証拠の有無で 4 象限に分け、重要で確かでないものを「Experiment」へ回す。「validated」の定義は無い | 実務の解説(二次) |
+| Assumption Mapping(David Bland の手法として紹介)。https://helio.zurb.com/blog/assumption-mapping/ (2026-10-23 取得) | 前提は「十分な証拠なしに真とみなす、現在または将来の状態についての信念」。重要度 × 証拠の有無で 4 象限に分け、重要で確かでないものを「Experiment」へ回す。「validated」の定義は無い | 実務の解説(二次) |
 | IEEE 830 型 SRS 雛形「Assumptions and Dependencies」。https://www.cs.fsu.edu/~baker/swe1/restricted/templates/SRSTemplate.html(2026-10-23 取得) | 「SRS の要求に影響する要因を列挙する。設計上の制約ではないが、変われば要求に影響しうる」 | 雛形(出典の規格名は頁に無い) |
 
 **整理**: どの規範も、前提を「確かめていない」ことを定義に含む。「観測で確かめた前提」は、GSN では証拠で支える主張(goal + solution)の側の構造になる(FND-0111 の注記「前提欄の中に検証状態の列を持つ様式ではない」)。前提の欄の中に検証状態を持つ様式の先例は確認できなかった(FND-0240)。
@@ -120,8 +120,8 @@
 | 出典 | 記述 | 水準 |
 | --- | --- | --- |
 | NASA SE ハンドブック附属書C。FND-0241、SRC-0563 | 未確定の値は最良推定値に TBR を付け、根拠・解消のためにすべきこと・責任者・期限を添える。**要求に添える根拠中の前提はベースライン化の前に確認すべき**。不完全な要求をすべて TBD/TBR として捕捉し、完全な一覧を維持しているかを点検する | 手引き・E1 |
-| Spec Kit `templates/commands/specify.md`(https://raw.githubusercontent.com/github/spec-kit/main/templates/commands/specify.md、2026-10-23 取得) | 「LIMIT: Maximum 3 [NEEDS CLARIFICATION] markers total」。使ってよいのは「選択が範囲や体験に大きく影響する」「解釈が複数ある」「妥当な既定が無い」場合だけ。それ以外は「Make informed guesses based on context and industry standards」「Record reasonable defaults in the Assumptions section」。3 件を超えたら「keep only the 3 most critical」、残りは推測で埋める。品質チェックリストに「No [NEEDS CLARIFICATION] markers remain」 | 製品の手順(原典) |
-| Spec Kit `templates/spec-template.md`(https://raw.githubusercontent.com/github/spec-kit/main/templates/spec-template.md、2026-10-23 取得) | Assumptions 節は「reasonable defaults chosen when the feature description did not specify certain details」で埋める。例「Users have stable internet connectivity」「Existing authentication system will be reused」 | 同上 |
+| Spec Kit `templates/commands/specify.md`(https://raw.githubusercontent.com/github/spec-kit/main/templates/commands/specify.md 、2026-10-23 取得) | 「LIMIT: Maximum 3 [NEEDS CLARIFICATION] markers total」。使ってよいのは「選択が範囲や体験に大きく影響する」「解釈が複数ある」「妥当な既定が無い」場合だけ。それ以外は「Make informed guesses based on context and industry standards」「Record reasonable defaults in the Assumptions section」。3 件を超えたら「keep only the 3 most critical」、残りは推測で埋める。品質チェックリストに「No [NEEDS CLARIFICATION] markers remain」 | 製品の手順(原典) |
+| Spec Kit `templates/spec-template.md`(https://raw.githubusercontent.com/github/spec-kit/main/templates/spec-template.md 、2026-10-23 取得) | Assumptions 節は「reasonable defaults chosen when the feature description did not specify certain details」で埋める。例「Users have stable internet connectivity」「Existing authentication system will be reused」 | 同上 |
 
 **整理**: 本標準のテンプレ1 は Spec Kit の `[NEEDS CLARIFICATION]` を引き継いでいるが、Spec Kit の側では**確かめていない既定値は Assumptions へ流れる**設計である。NASA は前提をベースライン化の前に確認する対象とし、確かめられない値は TBR として責任者・期限つきで残す。本標準では、責任者・期限つきの未確定事項は SG-1 の移管にだけある(r7)。
 
@@ -129,8 +129,8 @@
 
 | 出典 | 記述 | 水準 |
 | --- | --- | --- |
-| ISO 26262 Part 10(SEooC)。Renesas の解説 https://www.renesas.com/en/blogs/renesas-functional-safety-support-automotive-3-applying-iso-26262-standard-seooc-software(2026-10-23 取得) | 供給側は統合する側への要求を AoU(Assumption of Use)として文書化する。「the validity of its assumptions can be established during integration」。合わない場合は影響分析を起こす。妥当性確認は統合する側(顧客)が行う | 二次資料(条項番号は頁に無い) |
-| 同。Embitel の解説 https://www.embitel.com/blog/embedded-blog/what-is-safety-element-out-of-context-seooc-in-automotive-functional-safety(2026-10-23 取得) | 統合の前に前提を要求・アーキテクチャ・ASIL の 3 点で妥当性確認する。食い違いは Part 8 の変更管理へ回し、影響分析の結果で許容・項目定義の変更・SEooC の変更を選ぶ | 二次資料 |
+| ISO 26262 Part 10(SEooC)。Renesas の解説 https://www.renesas.com/en/blogs/renesas-functional-safety-support-automotive-3-applying-iso-26262-standard-seooc-software (2026-10-23 取得) | 供給側は統合する側への要求を AoU(Assumption of Use)として文書化する。「the validity of its assumptions can be established during integration」。合わない場合は影響分析を起こす。妥当性確認は統合する側(顧客)が行う | 二次資料(条項番号は頁に無い) |
+| 同。Embitel の解説 https://www.embitel.com/blog/embedded-blog/what-is-safety-element-out-of-context-seooc-in-automotive-functional-safety (2026-10-23 取得) | 統合の前に前提を要求・アーキテクチャ・ASIL の 3 点で妥当性確認する。食い違いは Part 8 の変更管理へ回し、影響分析の結果で許容・項目定義の変更・SEooC の変更を選ぶ | 二次資料 |
 | Assurance 2.0・動的安全ケース。FND-0111 | 解消しない疑念の許容を意識的に判断して記録する。前提の変化を監視指標の閾値逸脱で検知して主張を再評価する(提案段階) | 意見・E0 相当 |
 | RAND Assumption-Based Planning。FND-0242・0248 | 崩れると大きな変更が要る前提(load-bearing)と崩れうる前提(vulnerable)を特定し、兆候(signpost)と備えの行動を前もって定める。分ける軸は影響と脆弱さで、検証済みか否かではない | 規範的手順・E1 |
 
@@ -208,7 +208,7 @@
 
 ## 5. 確認できなかったこと
 
-- ISO/IEC/IEEE 29148:2018 の本文(SRS の「前提と依存関係」節の記述、TBD/TBR の扱い、「前提」と「依存」の語義の区別)。講義資料(https://student.cs.uwaterloo.ca/~cs445/Winter2026/Week09/09d_SRS_slides.pdf、2026-10-23 取得)は 29148 を参照に挙げるが、前提の節を 29148 へ帰していない
+- ISO/IEC/IEEE 29148:2018 の本文(SRS の「前提と依存関係」節の記述、TBD/TBR の扱い、「前提」と「依存」の語義の区別)。講義資料(https://student.cs.uwaterloo.ca/~cs445/Winter2026/Week09/09d_SRS_slides.pdf 、2026-10-23 取得)は 29148 を参照に挙げるが、前提の節を 29148 へ帰していない
 - IEEE 830 の「TBD の使い方」(条件・責任者・解消の手段を添える規定)の原文。検索で原文に当たらなかった
 - IEEE 1016 の前提の扱い。調べていない
 - ISO 26262 Part 10 の SEooC の前提の妥当性確認の条項番号と原文。二次資料 2 件(Renesas・Embitel)のみ。どちらも条項番号を示していない

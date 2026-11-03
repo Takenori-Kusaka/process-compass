@@ -372,7 +372,7 @@
 - [S4-16] Chromium, "Contributing to Chromium"(Unresolved-Comment-Reason) — https://chromium.googlesource.com/chromium/src/+/main/docs/contributing.md
 - [S4-17] Sadowski, Söderberg, Church, Sipko, Bacchelli, "Modern Code Review: A Case Study at Google"(ICSE-SEIP 2018) — https://sback.it/publications/icse2018seip.pdf
 - [S4-18] Google eng-practices, "The Standard of Code Review" — https://google.github.io/eng-practices/review/reviewer/standard.html
-- [S4-19] Graphite, "How Google does code review"(CODEOWNERS の由来) — https://graphite.com/blog/how-google-does-code-review
+- [S4-19] Graphite, "How Google does code review"(CODEOWNERS の由来) — https://graphite.com/blog/how-google-does-code-review (保存版: <https://web.archive.org/web/20260725153917/https://graphite.com/blog/how-google-does-code-review>。2026-11-04 に併記)
 
 ### 5. 実証研究
 
@@ -386,7 +386,7 @@
 - [S5-08] Gön, Yetiştiren, Tüzün, "Towards Unmasking LGTM Smells in Code Reviews"(ICSME 2024) — https://repository.bilkent.edu.tr/server/api/core/bitstreams/b438e043-7d22-42c3-ae89-37b1d12eaaaf/content
 - [S5-09] Pyor, "LGTM Code Review: When Approval Becomes Theatre"(ベンダー記事) — https://pyor.review/blog/lgtm-culture-code-review-theatre
 - [S5-10] Rong et al., "The Effect of Checklist in Code Review for Inexperienced Students"(2012) — https://ieeexplore.ieee.org/document/6245021
-- [S5-11] Graphite, "Empirically supported code review best practices"(66.7% の出典不明) — https://graphite.com/blog/code-review-best-practices
+- [S5-11] Graphite, "Empirically supported code review best practices"(66.7% の出典不明) — https://graphite.com/blog/code-review-best-practices (保存版: <https://web.archive.org/web/20260514015751/https://graphite.com/blog/code-review-best-practices>。2026-11-04 に併記)
 - [S5-12] Spadini et al., "Test-Driven Code Review: An Empirical Study"(ICSE 2019) — https://sback.it/publications/icse2019a.pdf
 - [S5-13] "Understanding and effectively mitigating code review anxiety"(EMSE 2024) — https://link.springer.com/article/10.1007/s10664-024-10550-9
 

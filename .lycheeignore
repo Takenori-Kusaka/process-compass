@@ -49,3 +49,50 @@ https://www\.claudedirectory\.org/blog/claude-code-permissions-guide
 
 # 同上。#288 の検証で模擬環境に置いた架空のリポジトリ。実在しない
 https://github\.com/hokuto-fg/loan-approval
+
+# 2026-11-04 の棚卸し(#405)。
+# 検出 Issue の 4xx と接続エラーをすべて確かめ、ブラウザ相当の取得(curl に一般的な UA、WebFetch)でも 404・410 のもの、
+# または名前解決できない(DoH で NXDOMAIN)もの。消失と判断した。Wayback Machine に保存版があるものは、元のファイルに保存版を併記した。
+# 先頭の ^ は、併記した保存版(web.archive.org/web/…/<旧 URL>)まで除外しないためのもの。記録の詳細は research/405-link-triage.md
+^https://www\.five-is\.com/download/agile-stage-gate-for-manufacturers
+^https://ma\.iaqg\.org/wp-content/uploads/2019/11/ISO9001_2015_Guidance_on_Documented_Information\.docx
+^https://www\.nqa\.com/en-ca/resources/blog/October-2020/non-applicable-requirements
+^https://docs\.hackerone\.com/en/articles/8514356-quality-reports
+^https://cybersecurity\.cd\.foundation/docs/phase-1/ssdf/ssdf-ps/
+^https://support\.claude\.com/en/articles/11014257-about-claude-s-max-plan-usage
+^https://graphite\.com/blog/the-ideal-pr-is-50-lines-long
+^https://graphite\.com/blog/code-review-best-practices
+^https://graphite\.com/blog/how-google-does-code-review
+^https://www\.adacore\.com/uploads/techPapers/couverture_ertss2010\.pdf
+^https://www\.sac-accreditation\.gov\.sg/files/Documents/iaf_md26_issue_2_15012023\.pdf
+^https://origin-www\.gsa\.gov/system/files/Plan-of-Action-and-Milestones-%28POAM%29-%5BCIO-IT-Security-09-44-Rev-8%5D-09-14-2022\.pdf
+^https://eprints\.ost\.ch/id/eprint/1381/
+
+# 同上。ドメインが名前解決できない(NXDOMAIN、isec.ipa.go.jp は A レコード無し)。消失。保存版を併記
+^https://automate\.fedramp\.gov/documentation/ssp/6-security-controls
+^https://cio\.go\.jp/guides/
+^https://isec\.ipa\.go\.jp/benchmark-main/
+^https://www\.cmmi\.co\.uk/cmmi/OPD\.htm
+^https://davidbarker\.consulting/iso9001/clause-8-6-release-of-products-and-services
+^https://publications\.axelos\.com/PRINCE2Agile2016/content\.aspx\?page=pra_199&showNav=true&expandNav=true
+^https://workplaceinsights\.microsoft\.com/employee-experience/onboarding-buddy/
+
+# 同上。消失し、Wayback Machine にも保存版が無いもの(presencis は 410 Gone で記事の頁を廃止、
+# agentsmd-lint は組織ごと消失、iteh.es・aviatorlegacies.com は NXDOMAIN)。調査メモには取得時の記録として残す
+^https://cdn\.presencis\.com/regulations/iso-9001/article-10\.2/
+^https://presencis\.com/regulations/iso-26262/article-2-safety-management/
+^https://presencis\.com/regulations/iso-26262/article-6-software-verification/
+^https://ma\.iaqg\.org/wp-content/uploads/2019/10/qp1220standardissues\.pdf
+^https://git\.polymech\.info/polymech/zeroclaw/src/tag/v0\.1\.8/docs/operations/required-check-mapping\.md
+^https://tessl\.io/registry/tessl/pypi-coverage/files/docs/exceptions\.md
+^https://aami\.org/training/training-suites/software-cybersecurity/key-updates-aami-tir45-2023-guidance-on-agile-practices
+^https://www\.tuv-nord\.com/fileadmin/Content/TUV_NORD_COM/TUV_USA/Documents/Quality_Management_Documents/P008_Certification_Reduction_of_Scope_Suspension__or_Withdrawal_rev_3_03162016\.pdf
+^https://github\.com/agentwares/agentsmd-lint
+^https://iso26262\.academy/features/concepts/software-qualification
+^https://iteh\.es/catalog/standards/iso/71a606f9-9681-4ef6-b389-fe051c8a83a0/iso-iec-ieee-24748-3-2020
+^https://www\.aviatorlegacies\.com/post/james-reason-s-just-culture-enhancing-safety-reporting-in-aviation
+
+# 同上。移転先へ差し替えた旧 URL。差し替えの記録として同じ行に残している
+# (ACL Anthology の予稿の頁は公開版 aclanthology.org/2026.acl-srw.1/ へ、ASVS は 2025-05 に 0x03-What-is-the-ASVS.md へ改名)
+^https://preview\.aclanthology\.org/ingest-acl/2026\.acl-srw\.1/
+^https://github\.com/OWASP/ASVS/blob/master/5\.0/en/0x03-Using-ASVS\.md

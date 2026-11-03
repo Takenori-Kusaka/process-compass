@@ -141,7 +141,7 @@
 | --- | --- | --- |
 | NIST SP 800-53 Rev.5 <https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf> 2.2 | 「A two-character identifier uniquely identifies each control family」「**Control designations are not re-used when a control is withdrawn.**」 | 逐語 |
 | 同 | 評価手順(800-53A)とベースライン(800-53B、既存 SRC-0544)が同じ統制を扱う。同じ識別子を使うとの明文は、今回読んだ範囲には無かった | 要約経由 |
-| OWASP ASVS「Using the ASVS」 <https://github.com/OWASP/ASVS/blob/master/5.0/en/0x03-Using-ASVS.md> | 「Each requirement has an identifier in the format <chapter>.<section>.<requirement>」。版を前置して「v<version>-<chapter>.<section>.<requirement>」で引く。「the identifiers may change between versions of the standard」。版を省くと最新版を指すと見なす | 逐語の断片。取得した頁の例は v4.0.2-1.11.3 で、5.0 用の頁かは確かめきれていない |
+| OWASP ASVS「Using the ASVS」 <https://github.com/OWASP/ASVS/blob/master/5.0/en/0x03-What-is-the-ASVS.md> (2026-11-04 に移転先へ差し替え。旧 URL: https://github.com/OWASP/ASVS/blob/master/5.0/en/0x03-Using-ASVS.md ) | 「Each requirement has an identifier in the format <chapter>.<section>.<requirement>」。版を前置して「v<version>-<chapter>.<section>.<requirement>」で引く。「the identifiers may change between versions of the standard」。版を省くと最新版を指すと見なす | 逐語の断片。取得した頁の例は v4.0.2-1.11.3 で、5.0 用の頁かは確かめきれていない |
 | OWASP ASVS 5.0 序文 | 「A two-way mapping between v4.0 and v5.0 is provided to facilitate migration.」 | 逐語 |
 | NASA NPR 7150.2 と SWEHB <https://swehb.nasa.gov/x/3AP7> | 要求ごとに SWE-NNN を振り、手引き(Software Engineering Handbook)が同じ番号の頁で解説する。例: SWE-126 は NPR 7150.2 の 6.3.3 に対応する(既存 SRC-0560 は NPR 7150.2D 第2章) | 要約経由 |
 | DO-178C 附属書A(既存 SRC-0529・SRC-0530・SRC-0437) | 目標を附属書A の表(A-1〜A-10)へ番号付きで並べ、ソフトウェアレベルごとの適用を示す。補足文書(DO-331〜DO-333)は、DO-178C の目標と活動への「additions, modifications, and deletions」を自分の附属書A で示す。AC 20-115D は附属書A の表の目標の充足を求める | SRC-0530・SRC-0529 の要約経由 |
@@ -240,7 +240,7 @@
 | SRC-0674 | W3C Manual of Style | <https://www.w3.org/guide/manual-of-style/> | community / section |
 | SRC-0675 | ISO/IEC/IEEE 24748-3:2020(12207 の適用の手引き、目録とプレビュー) | <https://www.iso.org/standard/77698.html> | standard / partial |
 | SRC-0676 | NIST SP 800-53 Rev.5(2.2 統制の構造) | <https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf> | public-agency / section |
-| SRC-0677 | OWASP ASVS「Using the ASVS」(識別子の書式) | <https://github.com/OWASP/ASVS/blob/master/5.0/en/0x03-Using-ASVS.md> | community / section |
+| SRC-0677 | OWASP ASVS「Using the ASVS」(識別子の書式) | <https://github.com/OWASP/ASVS/blob/master/5.0/en/0x03-What-is-the-ASVS.md> (2026-11-04 に移転先へ差し替え。旧 URL: https://github.com/OWASP/ASVS/blob/master/5.0/en/0x03-Using-ASVS.md ) | community / section |
 | SRC-0678 | NASA SWEHB SWE-126 Waiver and Deviation Considerations | <https://swehb.nasa.gov/x/3AP7> | public-agency / section |
 | SRC-0679 | ERA 用語集(ISO 9000:2015 の deviation permit・concession・nonconformity を出典つきで収録) | <https://www.era.europa.eu/era-railway-terminology-collection/deviationpermit/term/sms_safety_culture_human_and_organisational_factor> | public-agency / 二次 |
 | SRC-0680 | JIS Q 9000:2015(第三者の転載、3.6.4・3.6.9) | <https://kikakurui.com/q/Q9000-2015-01.html> | standard / partial |

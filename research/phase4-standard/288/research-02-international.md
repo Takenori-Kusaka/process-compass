@@ -336,7 +336,7 @@ flowchart TD
 | 8 | Qlause 8.6(2026、変更なし) | https://qlause.app/clauses/2026-8-6 | C |
 | 9 | DNV ISO 9001:2026 改訂 | https://www.dnv.us/assurance/Management-Systems/new-iso/transition/iso-9001-revision | C |
 | 10 | MSI ISO 9001:2026 | https://msi-international.com/iso-90012026-update-ethics-culture-importance | C |
-| 11 | David Barker Consulting 8.6 | https://davidbarker.consulting/iso9001/clause-8-6-release-of-products-and-services | C |
+| 11 | David Barker Consulting 8.6 | https://davidbarker.consulting/iso9001/clause-8-6-release-of-products-and-services (保存版: <https://web.archive.org/web/20250710055911/https://davidbarker.consulting/iso9001/clause-8-6-release-of-products-and-services>。2026-11-04 に併記) | C |
 | 12 | iso9001expert 8.6 | https://iso9001expert.com/blog/iso-9001-clause-8-6-release-products-services-requirements-checklist | C |
 | 13 | TÜV SÜD ISO 9001:2015 guidance | https://www.tuvsud.com/-/jssmedia/global/pdf-files/whitepaper-report-e-books/tuvsud-iso-9001-2015-guidance.pdf | C |
 | 14 | ISO 9000 定義の引用(LinkedIn 投稿) | https://www.linkedin.com/posts/rajesh-thiyagarajan-b0a18727_iso9000-iso90002026-qualitymanagement-activity-7492763558946951168-GBMn | C |

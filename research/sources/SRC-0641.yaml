@@ -64,7 +64,7 @@ verification:
   - agent-read
   date: '2026-10-23'
   humanChecked: false
-  note: 著者の所属先のサイトが置く出版社の PDF の写し(Taylor & Francis の表紙と引用の書誌の行つき)を WebFetch(要約モデル経由)で読み、c1・c2 の逐語を抜き出させて照合した。出版社のサイト(DOI の解決先)は取得できなかった。全文の通読ではない
+  note: 著者の所属先のサイトが置く出版社の PDF の写し(Taylor & Francis の表紙と引用の書誌の行つき)を WebFetch(要約モデル経由)で読み、c1・c2 の逐語を抜き出させて照合した。出版社のサイト(DOI の解決先)は取得できなかった。全文の通読ではない。2026-11-04 の #405 の棚卸しで url は 404(消失)。保存版 https://web.archive.org/web/20251015104458/https://www.five-is.com/download/agile-stage-gate-for-manufacturers を併記する
   mech: null
   agent: null
 volatility: slow

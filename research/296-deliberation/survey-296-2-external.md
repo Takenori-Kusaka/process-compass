@@ -28,7 +28,7 @@
   - 論文はゲーミングを論じていない
 - **カバレッジと欠陥検出力の関係**(一次・査読: Inozemtseva & Holmes, ICSE 2014, https://cs.ubc.ca/~rtholmes/papers/icse_2014_inozemtseva.pdf 。2024 年 ICSE Most Influential Paper)
   - テストスイートの規模を制御すると、カバレッジと有効性(mutation 検出)の相関は弱〜中程度。カバレッジを品質目標とすることへの代表的な反証
-- **DO-178C**(二次: AdaCore 論文 https://www.adacore.com/uploads/techPapers/couverture_ertss2010.pdf )
+- **DO-178C**(二次: AdaCore 論文 https://www.adacore.com/uploads/techPapers/couverture_ertss2010.pdf (保存版: <https://web.archive.org/web/20240725171200/https://www.adacore.com/uploads/techPapers/couverture_ertss2010.pdf>。2026-11-04 に併記) )
   - Level A = MC/DC、B = decision、C = statement、D/E = 要求なし。**ソフトウェアレベル(危険度)で基準の種類を変える**
   - 目的は「要求ベーステストの不足・要求に由来しないコードの検出」。パーセント閾値ではなく、未被覆箇所を解消または正当化する構造
 - **IEC 62304**(二次: Johner Institute https://blog.johner-institute.com/iec-62304-medical-software/unit-testing-iec-62304/ )
@@ -227,7 +227,7 @@
 - **Google**(一次・査読: Sadowski et al., "Modern Code Review: A Case Study at Google", ICSE-SEIP 2018。二次要約 https://plg.uwaterloo.ca/~migod/846/current/summaries/10-Youssef-GoogleCodeReview-slides.pdf ): 変更の中央値は**約 24 行**、約 90% が 10 ファイル未満、承認者中央値 1 人、承認までの中央値 4 時間未満
 - **Google eng-practices**(一次: 公開ガイドの翻訳ミラー https://eng-practices.gh.miniasp.com/review/developer/small-cls.html ): 「100 行は通常妥当、1000 行は通常大きすぎる、ただしレビュアーの判断」。50 ファイルに散る 200 行は大きすぎ。**関連テストは同じ CL に含めよ**。信頼できる自動リファクタリングの大きな CL は例外。ファイル削除は約 1 行扱い
 - **Rigby & Bird**, "Convergent Contemporary Software Peer Review Practices", FSE 2013(一次: https://users.ece.utexas.edu/~miryung/teaching/EE379K-Spring2014/Papers/Paper%204.pdf ): OSS の変更中央値 11〜32 行、Android/AMD 44 行、Lucent(旧来の inspection)263 行。参加レビュアー中央値 2 人、間隔は中央値約 1 日
-- **Graphite**(二次・ベンダー: https://graphite.com/blog/the-ideal-pr-is-50-lines-long ): 50 行が「最適」、25〜100 行の範囲を推奨。10 行未満は blind approval が多く revert も多い。行の数え方・生成ファイル除外の記載なし。自社ユーザー偏り
+- **Graphite**(二次・ベンダー: https://graphite.com/blog/the-ideal-pr-is-50-lines-long (保存版: <https://web.archive.org/web/20261002192314/https://graphite.com/blog/the-ideal-pr-is-50-lines-long>。2026-11-04 に併記) ): 50 行が「最適」、25〜100 行の範囲を推奨。10 行未満は blind approval が多く revert も多い。行の数え方・生成ファイル除外の記載なし。自社ユーザー偏り
 - **LinearB 2026 ベンチマーク**(一次・ベンダー: https://linearb.io/library/engineering-benchmarks-and-research 、810 万 PR): PR サイズ P75 で Elite <100 行、Good 100〜155、Fair 156〜228、要改善 >228
   - AI 別: 中央値 Agentic AI 89 行 / AI-Assisted 96 行 / 非支援 26 行。P75 で AI-Assisted 408 行は非支援 157 行の約 2.6 倍
   - AI PR の受理率(30 日以内マージ)32.7%、手動 84.4%

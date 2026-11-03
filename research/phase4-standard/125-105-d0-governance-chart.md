@@ -45,7 +45,7 @@
 
 出典:
 - PRINCE2 wiki(管理成果物) <https://prince2.wiki/management-products/baselines/project-initiation-documentation/>
-- AXELOS 公式出版物 PRINCE2 Agile 2016 A.20 <https://publications.axelos.com/PRINCE2Agile2016/content.aspx?page=pra_199&showNav=true&expandNav=true>(2016、公式)
+- AXELOS 公式出版物 PRINCE2 Agile 2016 A.20 <https://publications.axelos.com/PRINCE2Agile2016/content.aspx?page=pra_199&showNav=true&expandNav=true> (保存版: <https://web.archive.org/web/20210509190455/https://publications.axelos.com/PRINCE2Agile2016/content.aspx?page=pra_199&showNav=true&expandNav=true>。2026-11-04 に併記)(2016、公式)
 - <https://en.wikipedia.org/wiki/Project_initiation_documentation>
 
 ### 1.3 プロジェクトボードの3ロール

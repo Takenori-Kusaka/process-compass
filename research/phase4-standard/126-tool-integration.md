@@ -102,7 +102,7 @@ CMMI-DEV の Organizational Process Definition（OPD）SP 1.3「Establish Tailor
 
 - wibas OPD SP 1.3: https://www.wibas.com/cmmi/opdsp-13-establish-tailoring-criteria-and-guidelines
 - wibas OPD 概要: https://www.wibas.com/cmmi/organizational-process-definition-opd-cmmi-dev
-- cmmi.co.uk OPD: https://www.cmmi.co.uk/cmmi/OPD.htm
+- cmmi.co.uk OPD: https://www.cmmi.co.uk/cmmi/OPD.htm (保存版: <https://web.archive.org/web/20240805000902/https://www.cmmi.co.uk/cmmi/OPD.htm>。2026-11-04 に併記)
 
 **本 Issue への含意**: CMMI が要求する要素のうち、本標準の知識ベースにまだ明示的な受け皿がない可能性が高いのは **(a) 削ってはいけない下限（必須要求）の明示**、**(b) waiver（逸脱）の申請・承認手順**の 2 つ。テーラリング・シミュレーターは「省略可」を提案するだけでなく、「これは省略不可」「省略するなら誰の承認が要る」を返す必要がある。
 
@@ -117,7 +117,7 @@ CMMI-DEV の Organizational Process Definition（OPD）SP 1.3「Establish Tailor
 
 - デジタル庁「標準ガイドライン 解説書（第3編第1章 IT マネジメントの全体像）」2025-06-19 版: https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/e2a06143-ed29-4f1d-9c31-0f06fca67afc/573c839f/20250619_resources_standard_guidelines_guideline_03.pdf
 - DS-100 デジタル・ガバメント推進標準ガイドライン（2025-05-27 改定案）: https://www.digital.go.jp/assets/contents/node/basic_page/field_ref_resources/44df7733-3df2-4e47-bf0b-85c0353c20c7/0dd18334/20250527_meeting_executive_guideline_draft_02.pdf
-- 政府CIOポータル 標準ガイドライン群: https://cio.go.jp/guides/
+- 政府CIOポータル 標準ガイドライン群: https://cio.go.jp/guides/ (保存版: <https://web.archive.org/web/20251210232836/https://cio.go.jp/guides/>。2026-11-04 に併記)
 
 **これが重要な理由（考察）**: 本標準は日本語圏の読者を対象としている。**「テーラリング」という語は、日本政府の公式ガイドラインに既に定義済みの用語である**。本標準がこの定義と整合する語義を採ることで、日本の SIer・受託開発・公共調達の文脈にそのまま接続できる。デジタル庁の定義は「手続・手順や成果物などを適切に調整して適用すること」であり、本標準の「調整済みプロセスを提案する」という目標と一致する。
 
@@ -352,7 +352,7 @@ CMMI-DEV の Organizational Process Definition（OPD）SP 1.3「Establish Tailor
 - **時系列比較**: 最新版ではレーダーチャート・散布図に**最新の診断結果と過去 2 回の診断結果を同時表示**し、以前の対策状況と比較できる
 
 - IPA 情報セキュリティ対策ベンチマーク（公式）: https://www.ipa.go.jp/security/sec-tools/benchmark.html
-- IPA セルフチェック（公式ツール本体）: https://isec.ipa.go.jp/benchmark-main/
+- IPA セルフチェック（公式ツール本体）: https://isec.ipa.go.jp/benchmark-main/ (保存版: <https://web.archive.org/web/20191113100708/https://isec.ipa.go.jp/benchmark-main/>。2026-11-04 に併記)
 - IPA アーカイブ 概要ページ（公式）: https://www.ipa.go.jp/archive/security/sme/benchmark/benchmark-gaiyou.html
 - Security NEXT（機能強化の報道、二次）: https://www.security-next.com/008037
 

@@ -68,7 +68,7 @@
 ### 2.1 独立性を要する目標の数
 
 - https://en.wikipedia.org/wiki/DO-178C — 二次。目標数/独立性つき: A 71/30、B 69/18、C 62/5、D 26/2、E 0/0
-- https://www.adacore.com/blog/a-fresh-take-on-do-178c-software-reviews(Appéré・Nava Bello、2024-04-16)— 二次。レビュー関係の目標で「16 out of 31 for software level A (7 out of 31 for level B, none for level C or D)」。独立性は §6.2 e を引く
+- https://www.adacore.com/blog/a-fresh-take-on-do-178c-software-reviews (Appéré・Nava Bello、2024-04-16)— 二次。レビュー関係の目標で「16 out of 31 for software level A (7 out of 31 for level B, none for level C or D)」。独立性は §6.2 e を引く
 - 示唆: 航空は「距離」ではなく「**どの目標に独立性を要するか(範囲)**」で強さを上げる。人数ではない点は他規格と共通
 
 ### 2.2 DO-330 との関係
@@ -97,7 +97,7 @@
   - 抽出した行(列の位置は崩れていたため再構成): 独立した人 = SIL1 X、SIL2 X1、SIL3 Y、SIL4 Y / 独立した部門 = SIL2 X2、SIL3 X1、SIL4 Y / 独立した組織 = SIL3 X2、SIL4 X
   - 引用: "If a lower level of independence is adopted, then the rationale has to be specified."
   - 引用(p.14): "There is no requirement in IEC 61508 for compliance to be attested by a certification body"
-- 裏付け: https://www.exida.com/articles/IEC-61508-Overview.pdf(exida、2006、第1版ベース、二次)が同じ形を HR/HR1/HR2/NR で示す(SIL3 は独立した部門 HR1・独立した組織 HR2、SIL4 は独立した組織 HR)
+- 裏付け: https://www.exida.com/articles/IEC-61508-Overview.pdf (exida、2006、第1版ベース、二次)が同じ形を HR/HR1/HR2/NR で示す(SIL3 は独立した部門 HR1・独立した組織 HR2、SIL4 は独立した組織 HR)
 - 表4(結果の重大さ別)については https://safecontrols.blog/2015/07/08/how-independent-should-your-fsa-leader-be/ (二次)が、61508-1:2010 8.2.15 を引き、結果区分 C は独立した部門、D は独立した組織とし、「complexity is high, the design is novel」の場合は C でも独立した組織を使うと説明する
 - X1・X2 の選択: 経験不足・複雑さ・新規性があれば一段上げる(https://hsseworld.com/wp-content/uploads/2021/06/The-Safety-Critical-Systems-Handbook.pdf の注記「Add one level if there is lack of experience, unusual complexity or novel design.」。二次)
 - 示唆: IEC 61508 は**リスク(SIL・結果)と状況(新規性・複雑さ・経験)の2つで距離を決め**、より低い距離を採るなら理由を書かせる。第三者認証は要求しない
@@ -112,7 +112,7 @@
 ## 4. EN 50128:2011 / EN 50716:2023(鉄道ソフトウェア)
 
 - 本文は有償で未読。以下はすべて二次(要約経由)
-- URL: https://www.csa.ch/en/blog/the-new-en-50716-rules-for-project-organisation(CSA Engineering、日付・著者の表示無し)
+- URL: https://www.csa.ch/en/blog/the-new-en-50716-rules-for-project-organisation (CSA Engineering、日付・著者の表示無し)
   - 基本完全性(旧 SIL0): 評価者不要。テスター・検証者・妥当性確認者は同一人物でよい
   - SIL1・2: 独立した評価者(Assessor)を置く。要求管理者・設計者・実装者は自分の作ったコンポーネントをテストしない
   - SIL3・4: 妥当性確認者(Validator)はプロジェクトマネージャーの部下であってはならない。検証者と妥当性確認者は原則別人

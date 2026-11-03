@@ -136,7 +136,7 @@
 | IEC 62304 §5.7.4(修正票1) | FND-0237(公開プレビュー) | 全要求が検証済み、要求と試験の間のトレーサビリティが記録されている | 試験の段。受入基準 → テストの向き(本標準の G-7 基準1 に当たる) |
 | IEC 62304 §5.3.6 注記 | FND-0239(修正票1) | アーキテクチャから要求へのトレーサビリティ分析を、アーキテクチャ検証の手段として認める | 設計の段 |
 | DO-178C | FND-0106・0237・0239(二次。本文は有償で未読) | トレースデータを独立の成果物とし、システム要求 ↔ 上位要求 ↔ 下位要求 ↔ コード、要求 ↔ テストの各組を挙げる。「全コードが1つ以上の下位要求へ追跡できる」と「コードが全下位要求を正しく満たす」を別の項目にする | 開発の各段(テストの前の段を含む) |
-| ISO 26262(第8部 6.4.3 とされる) | 二次(PSAM12 の発表資料 https://www.iapsam.org/psam12/proceedings/Presentations/paper_195_4.pdf。条番号は資料に無く、規格名のみ) | 「Safety requirements shall be traceable to (i) each source of a safety requirement at the upper hierarchical level, (ii) each derived safety requirement at a lower hierarchical level, i.e. realization in the design, (iii) the specification of verification.」 | 設計での実現と検証仕様への双方向 |
+| ISO 26262(第8部 6.4.3 とされる) | 二次(PSAM12 の発表資料 https://www.iapsam.org/psam12/proceedings/Presentations/paper_195_4.pdf 。条番号は資料に無く、規格名のみ) | 「Safety requirements shall be traceable to (i) each source of a safety requirement at the upper hierarchical level, (ii) each derived safety requirement at a lower hierarchical level, i.e. realization in the design, (iii) the specification of verification.」 | 設計での実現と検証仕様への双方向 |
 | ISO/IEC/IEEE 29148 | FND-0106(公開プレビューの定義) | 要求トレーサビリティを上方(導出元)と下方(割当先)の経路の識別・文書化と定義 | 段を問わない定義 |
 
 - 規格はそろって**下方(上位 → 下位)の網羅を設計の段(テストの前)でも求める**(ASPICE SWE.2・SWE.3、DO-178C の要求 ↔ 設計、26262 の realization in the design、62304 §5.3.6)。この点で、本標準が下方の数え上げを G-7(テスト)にしか持たないのは、規格の時点の置き方より遅い

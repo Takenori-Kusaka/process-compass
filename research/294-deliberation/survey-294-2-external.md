@@ -70,7 +70,7 @@
   - danger-full-access(サンドボックスなし・承認なし)は「非推奨」
   - 安全監視は「サンドボックス・権限・成果物のレビューを置き換えない」— 多層防御の明示
   - 旧 approval_policy = "untrusted" は廃止
-  - https://learn.chatgpt.com/docs/agent-approvals-security.md(developers.openai.com/codex/agent-approvals-security からリダイレクト)
+  - https://learn.chatgpt.com/docs/agent-approvals-security.md (developers.openai.com/codex/agent-approvals-security からリダイレクト)
 - GitHub Environments(デプロイ承認)【一次】
   - required reviewers は最大6名、**1名の承認で進む**
   - prevent self-review: デプロイを起動した者は承認不可
@@ -84,7 +84,7 @@
 - OWASP Top 10 for Agentic Applications(2025-12)【二次】
   - ASI09 人間とエージェントの信頼悪用 — 緩和策としてリスク閾値超の操作カテゴリに明示的人間レビュー(HITL ゲート)
   - **承認者自身が操作されること(承認疲れ・誘導)をリスクとして挙げる点が重要**
-  - https://www.speakeasy.com/blog/owasp-agentic-top-10-explained(一次: https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/ は未読)
+  - https://www.speakeasy.com/blog/owasp-agentic-top-10-explained (一次: https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/ は未読)
 
 ### 実務の幅(不一致点)
 
@@ -213,7 +213,7 @@
   - Anthropic の裁量で週次・月次の上限を課す可能性
   - 上限は Claude と Claude Code で共有
   - 消費量はメッセージ長・添付サイズ・モデル・機能・会話長で変動 — **固定のトークン数上限は公開されていない**
-  - https://support.claude.com/en/articles/11014257-about-claude-s-max-plan-usage
+  - https://support.claude.com/en/articles/11014257-about-claude-s-max-plan-usage (保存版: <https://web.archive.org/web/20260124232649/https://support.claude.com/en/articles/11014257-about-claude-s-max-plan-usage>。2026-11-04 に併記)
   - 上限到達後は usage credits(従量)へ移行可能。**標準 API 料金で課金**、月次の支出上限を設定可、Claude Code にも適用。セッション5時間・週次のリセットは不変
   - https://support.claude.com/en/articles/12429409-using-extra-usage-and-resets
 - Anthropic API のプロンプトキャッシュ【一次】
@@ -278,7 +278,7 @@
 - 却下理由の記録【二次】
   - code scanning の `dismissed_reason` は列挙で API 照会可能。Copilot の解決理由(Addressed / Won't fix / Incorrect)が 2026-08-27 に追加、code scanning に "mitigated" が 2026-08-20 に追加との記述
   - 「指摘が誤り」と「指摘は正しいが今回は見送る」を分ける語彙を推奨
-  - https://agentpatterns.ai/code-review/dismissal-reason-capture/(著者不明、AI 生成と自称。changelog 一次は未読)
+  - https://agentpatterns.ai/code-review/dismissal-reason-capture/ (著者不明、AI 生成と自称。changelog 一次は未読)
 
 ### 実務の幅(不一致点)
 
@@ -322,7 +322,7 @@
   - PS.3 各リリースを保管・保護 — リリース後に発見された脆弱性の特定・分析・除去のため
   - PS.3.1 リリースごとに必要なファイルと支援データ(完全性検証情報、出所データ等)を安全に保管
   - PS.3.2 全構成要素の出所データを収集・保護・維持・共有(例: SBOM)
-  - https://cybersecurity.cd.foundation/docs/phase-1/ssdf/ssdf-ps/
+  - https://cybersecurity.cd.foundation/docs/phase-1/ssdf/ssdf-ps/ (保存版: <https://web.archive.org/web/20260415173208/https://cybersecurity.cd.foundation/docs/phase-1/ssdf/ssdf-ps/>。2026-11-04 に併記)
 - ISO 9001:2015 7.5.3 文書化した情報の管理(保持・廃棄を含む)【既知】— 期間は組織が決める
 
 ### 実務の幅(不一致点)
@@ -346,7 +346,7 @@
 
 - ISO/IEC/IEEE 29119-2 テストプロセス【既知・二次】
   - テスト計画プロセスの中でリスクの識別・分析と緩和方針を定め、それに基づいてテスト戦略(技法・完了基準・テスト強度)を設計する構造。リスクは計画の一部として扱う
-  - https://arxiv.org/pdf/1801.06812(「29119 はリスク考慮をテスト計画プロセスの不可欠な部分として明示的に規定」)
+  - https://arxiv.org/pdf/1801.06812 (「29119 はリスク考慮をテスト計画プロセスの不可欠な部分として明示的に規定」)
   - 本文の条番号・具体的閾値は未確認
 - IEC 62304(医療機器ソフトウェア)【二次】
   - 安全クラス A/B/C で適用要求が段階化。B 以上でアーキテクチャ設計・ユニット試験、C で詳細設計・ユニット検証を含む全要求

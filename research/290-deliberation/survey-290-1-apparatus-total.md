@@ -133,7 +133,7 @@
 
 | # | 出典 | 種別 | 内容 |
 | --- | --- | --- | --- |
-| R1 | NAO「The Business Impact Target: cutting the cost of regulation」2016-06-29。https://www.nao.org.uk/reports/the-business-impact-target-cutting-the-cost-of-regulation/(取得 2026-10-23、今回) | 原典(会計検査院の報告の要約頁) | 英国の BIT(2015〜2020 に事業者の規制費用を 100 億ポンド削減)について、範囲から外れた規制費用 83 億ポンドが数えた削減 9 億ポンドを大きく上回る。「範囲が操作されうる」「目標を達成するよう設計され、事業者の費用を減らすよう設計されていない」「省庁は規制の決定の継続的な影響をほとんど監視していない」 |
+| R1 | NAO「The Business Impact Target: cutting the cost of regulation」2016-06-29。https://www.nao.org.uk/reports/the-business-impact-target-cutting-the-cost-of-regulation/ (取得 2026-10-23、今回) | 原典(会計検査院の報告の要約頁) | 英国の BIT(2015〜2020 に事業者の規制費用を 100 億ポンド削減)について、範囲から外れた規制費用 83 億ポンドが数えた削減 9 億ポンドを大きく上回る。「範囲が操作されうる」「目標を達成するよう設計され、事業者の費用を減らすよう設計されていない」「省庁は規制の決定の継続的な影響をほとんど監視していない」 |
 | R2 | Treasury Board of Canada Secretariat「Report on the internal review of the Red Tape Reduction Act」2022-12-22。https://www.canada.ca/en/government/system/laws/developing-improving-federal-regulations/modernizing-regulations/red-tape-reduction-act/rtra-report.html(取得 2026-10-23、今回) | 原典(政府の内部評価) | one-for-one 規則は「設計どおりに作動し、目的をおおむね達成」(2012〜2021 に年換算の負担が純 6,050 万ドル減)。一方、**廃止として数えたものの 87% は事業者の事務負担に影響しなかった**。「廃止した規則の本数と負担の削減の間に直接の関係は無い」。新たな負担を課す規則の約 58%(212 件中 124 件)が適用除外。規制当局は「長く広い規則を 1 本にまとめる誘因」を指摘。勧告は規制の総体の見直し(stock review)と累積の負担への対処 |
 | R3 | Cecot & Livermore「The One-In, Two-Out Executive Order Is a Zero」Univ. of Pennsylvania Law Review Online 166(2017)。https://pennlawreview.com/?p=1561(取得 2026-10-23、今回。序論のみ閲覧) | 原典(論考) | EO 13771(新設 1 件ごとに 2 件の廃止、FY2017 の増分費用の上限 0)は、純便益の向上・負担の削減・統制の強化のいずれも「分別をもって達成しそうにない」。本文の詳細な論拠は閲覧範囲外 |
 
@@ -143,7 +143,7 @@
 
 | # | 出典 | 種別 | 内容 |
 | --- | --- | --- | --- |
-| Q1 | ISO/TC 176/SC 2「ISO 9001:2015 Guidance on the requirements for Documented Information」(© ISO 2017。IAQG の配布版 https://ma.iaqg.org/wp-content/uploads/2019/11/ISO9001_2015_Guidance_on_Documented_Information.docx、取得 2026-10-23、今回。文書番号は頁上で確認できず) | 規格策定側の手引き(原典に準ずる) | 「各組織が必要な文書化した情報の量を決める」「プロセスの分析が、必要な量を定める原動力であるべき」「文書化した情報がプロセスを駆動するべきではない」「既存の文書化した情報の一部を簡素化・統合できることがある」。**上限ではなく、組織が必要な量を決めるという枠組み** |
+| Q1 | ISO/TC 176/SC 2「ISO 9001:2015 Guidance on the requirements for Documented Information」(© ISO 2017。IAQG の配布版 https://ma.iaqg.org/wp-content/uploads/2019/11/ISO9001_2015_Guidance_on_Documented_Information.docx (保存版: <https://web.archive.org/web/20261013180741/https://ma.iaqg.org/wp-content/uploads/2019/11/ISO9001_2015_Guidance_on_Documented_Information.docx>。2026-11-04 に併記) 、取得 2026-10-23、今回。文書番号は頁上で確認できず) | 規格策定側の手引き(原典に準ずる) | 「各組織が必要な文書化した情報の量を決める」「プロセスの分析が、必要な量を定める原動力であるべき」「文書化した情報がプロセスを駆動するべきではない」「既存の文書化した情報の一部を簡素化・統合できることがある」。**上限ではなく、組織が必要な量を決めるという枠組み** |
 | Q2 | GAO Green Book(2025 改訂)[SRC-0419] | 原典(束) | 統制の設計で費用要因を期待便益と比べて考慮する。**費用だけを統制を実施しない理由として認めない**(FND-0103) |
 | Q3 | NIST SP 800-53B [SRC-0544] | 原典(束) | ベースラインから外した統制の理由を計画へ記録し、明示的なリスクに基づく決定で弁護できること(FND-0232)。TH07-Q4 は、#267 の「装置の総数を ratchet で増やさない」を「リスクと切り離した上限」で、この要件と別の軸と整理している |
 | Q4 | Protiviti「Calmer Audits, Higher Bar: 2025 SOX Compliance Trends and Update」2025-10-29。https://blog.protiviti.com/2025/10/29/calmer-audits-higher-bar-2025-sox-compliance-trends-and-update/(取得 2026-10-23、今回) | 二次資料(コンサルの調査・解説。標本の設計は不明) | 統制の rationalization と最適化を上位 3 の改善領域に挙げた回答者 54%、リスク評価と範囲の見直し 57%。「この領域の統制が 10 個あり、多すぎると思う」という企業の声。**削減は外部監査人が受け入れる必要があり、文書化した弁護できる理由を要する**。統制の数の総計や目安は示さない |
@@ -153,25 +153,25 @@
 
 | # | 出典 | 種別 | 内容 |
 | --- | --- | --- | --- |
-| S1 | Sadowski ほか「Lessons from Building Static Analysis Tools at Google」CACM 61(4), 2018。https://6826.csail.mit.edu/2020/papers/google-analysis-cacm.pdf(取得 2026-10-23、今回。ADR-0073 が既に引く) | 原典(査読誌) | コードレビュー時の解析器は「実効的な偽陽性 10% 未満」。「解析器の比率が 10% を超えると、Tricorder の班は作者が改善するまでその解析器を無効にする」。コンパイルエラーに上げる条件は偽陽性ゼロ・対処可能・既存の違反の解消。**外す判断は中央の班(プラットフォーム)が持ち、指標は「役に立たない」の比率で、本数の上限ではない** |
-| S2 | Micco「Flaky Tests at Google and How We Mitigate Them」Google Testing Blog 2016-05-27。https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html(取得 2026-10-23、今回) | 原典(企業の技術ブログ) | テストの約 16% に何らかの不安定さ。成功→失敗の遷移の約 84% が不安定なテストに関わる。「隔離は、テストをクリティカルパスから外し、開発者へ不安定さを減らすバグを起票する」。不安定さが高すぎるテストを自動で隔離する道具がある。隔離は「本物の競合状態を隠しうる」とも書く |
-| S3 | Machalica ほか「How do you test your tests?」Engineering at Meta 2020-12-10。https://engineering.fb.com/2020/12/10/developer-tools/probabilistic-flakiness/(取得 2026-10-23、今回) | 原典(企業の技術ブログ) | 不安定さの確率的スコア(PFS)で各テストを定量化し、悪化したら宣言された所有者へ起票。「大きく悪化した、または期限内に直らないテストは不安定と印を付け」、変更に対するテストの選択から外す。不安定なテストは「技術者の信頼を損ない、回帰試験全体の有効性を損なう」。数値の閾値は非公開。削除の方針は書かれていない |
-| S4 | Johnson ほか「Why Don't Software Developers Use Static Analysis Tools to Find Bugs?」ICSE 2013, pp. 672-681。https://research.google/pubs/why-dont-software-developers-use-static-analysis-tools-to-find-bugs/(取得 2026-10-23、今回) | 原典(査読、20 名の面接) | 偽陽性と警告の提示のされ方が、利用の障壁 |
+| S1 | Sadowski ほか「Lessons from Building Static Analysis Tools at Google」CACM 61(4), 2018。https://6826.csail.mit.edu/2020/papers/google-analysis-cacm.pdf (取得 2026-10-23、今回。ADR-0073 が既に引く) | 原典(査読誌) | コードレビュー時の解析器は「実効的な偽陽性 10% 未満」。「解析器の比率が 10% を超えると、Tricorder の班は作者が改善するまでその解析器を無効にする」。コンパイルエラーに上げる条件は偽陽性ゼロ・対処可能・既存の違反の解消。**外す判断は中央の班(プラットフォーム)が持ち、指標は「役に立たない」の比率で、本数の上限ではない** |
+| S2 | Micco「Flaky Tests at Google and How We Mitigate Them」Google Testing Blog 2016-05-27。https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html (取得 2026-10-23、今回) | 原典(企業の技術ブログ) | テストの約 16% に何らかの不安定さ。成功→失敗の遷移の約 84% が不安定なテストに関わる。「隔離は、テストをクリティカルパスから外し、開発者へ不安定さを減らすバグを起票する」。不安定さが高すぎるテストを自動で隔離する道具がある。隔離は「本物の競合状態を隠しうる」とも書く |
+| S3 | Machalica ほか「How do you test your tests?」Engineering at Meta 2020-12-10。https://engineering.fb.com/2020/12/10/developer-tools/probabilistic-flakiness/ (取得 2026-10-23、今回) | 原典(企業の技術ブログ) | 不安定さの確率的スコア(PFS)で各テストを定量化し、悪化したら宣言された所有者へ起票。「大きく悪化した、または期限内に直らないテストは不安定と印を付け」、変更に対するテストの選択から外す。不安定なテストは「技術者の信頼を損ない、回帰試験全体の有効性を損なう」。数値の閾値は非公開。削除の方針は書かれていない |
+| S4 | Johnson ほか「Why Don't Software Developers Use Static Analysis Tools to Find Bugs?」ICSE 2013, pp. 672-681。https://research.google/pubs/why-dont-software-developers-use-static-analysis-tools-to-find-bugs/ (取得 2026-10-23、今回) | 原典(査読、20 名の面接) | 偽陽性と警告の提示のされ方が、利用の障壁 |
 | S5 | SonarQube の文書 [SRC-0342]、DORA [SRC-0348] | 束 | 条件を増やした品質ゲートは速度のボトルネックになり、頻繁な失敗で無視される。承認とプロセスを足すとリードタイムとバッチサイズが増える(FND-0021・0104) |
-| S6 | Sardesai & Teton-Landis「How we evolved our code: Notion's ratcheting system using custom ESLint rules」Notion 2025-03-03。https://www.notion.com/blog/how-we-evolved-our-code-notions-ratcheting-system-using-custom-eslint-rules(取得 2026-10-23、今回) | 原典(企業の技術ブログ) | ratchet は**ファイルと規則の組ごとの違反の許容件数**を記録し、直すと自動で下がり、増やすには承認を要する。「着実で不可逆な過程」。**規則の本数ではなく違反の件数を一方向へ固定する仕組み**。#267 の「装置の総数を ratchet で増やさない」とは数える対象が違う |
+| S6 | Sardesai & Teton-Landis「How we evolved our code: Notion's ratcheting system using custom ESLint rules」Notion 2025-03-03。https://www.notion.com/blog/how-we-evolved-our-code-notions-ratcheting-system-using-custom-eslint-rules (取得 2026-10-23、今回) | 原典(企業の技術ブログ) | ratchet は**ファイルと規則の組ごとの違反の許容件数**を記録し、直すと自動で下がり、増やすには承認を要する。「着実で不可逆な過程」。**規則の本数ではなく違反の件数を一方向へ固定する仕組み**。#267 の「装置の総数を ratchet で増やさない」とは数える対象が違う |
 
 ### 2.4 アラートの棚卸し(SRE)
 
 | # | 出典 | 種別 | 内容 |
 | --- | --- | --- | --- |
-| A1 | Ewaschuk「Monitoring Distributed Systems」Site Reliability Engineering(Google, 2016)第6章。https://sre.google/sre-book/monitoring-distributed-systems/(取得 2026-10-23、今回) | 原典(書籍の公開版) | 「収集されているが、どのダッシュボードにも出ず、どのアラートにも使われていない信号は、削除の候補である」「すべての呼び出しは対処可能であるべき」「実際の障害を最もよく捉える規則は、できるだけ単純で予測可能で信頼できるべき」。O'Reilly の抜粋(2016-04-27)は「呼び出しが頻繁すぎると、受け手は疑い、読み飛ばし、無視さえする」 |
+| A1 | Ewaschuk「Monitoring Distributed Systems」Site Reliability Engineering(Google, 2016)第6章。https://sre.google/sre-book/monitoring-distributed-systems/ (取得 2026-10-23、今回) | 原典(書籍の公開版) | 「収集されているが、どのダッシュボードにも出ず、どのアラートにも使われていない信号は、削除の候補である」「すべての呼び出しは対処可能であるべき」「実際の障害を最もよく捉える規則は、できるだけ単純で予測可能で信頼できるべき」。O'Reilly の抜粋(2016-04-27)は「呼び出しが頻繁すぎると、受け手は疑い、読み飛ばし、無視さえする」 |
 | A2 | Google SRE の error budget [SRC-0418] | 束 | 信頼性 100% を目標にせず、許容する不信頼の量を定める(FND-0103)。#267 の「80 点で止める」に最も近い外部の枠組みだが、装置の量ではなく**サービスの信頼性の目標**に掛かる |
 
 ### 2.5 チェックリストの長さ(航空・医療)
 
 | # | 出典 | 種別 | 内容 |
 | --- | --- | --- | --- |
-| C1 | FAA AC 120-71B「Standard Operating Procedures and Pilot Monitoring Duties for Flight Deck Crewmembers」2017-01-10、§5.3・§5.6.3。https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_120-71B.pdf(取得 2026-10-23、今回) | 原典(規制当局の通達) | 「チェックリストに情報を多く含めると記憶の負荷は下がる。しかし含めるほど長くなり、完了までの時間が増える」「中断と注意散漫の確率は、チェックリストの長さと実行時間とともに増す」。チェックリストは flow の項目の部分集合で、主に重要項目を含む。**本数の上限値は置かない** |
+| C1 | FAA AC 120-71B「Standard Operating Procedures and Pilot Monitoring Duties for Flight Deck Crewmembers」2017-01-10、§5.3・§5.6.3。https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_120-71B.pdf (取得 2026-10-23、今回) | 原典(規制当局の通達) | 「チェックリストに情報を多く含めると記憶の負荷は下がる。しかし含めるほど長くなり、完了までの時間が増える」「中断と注意散漫の確率は、チェックリストの長さと実行時間とともに増す」。チェックリストは flow の項目の部分集合で、主に重要項目を含む。**本数の上限値は置かない** |
 | C2 | Degani & Wiener「Human Factors of Flight-Deck Checklists: The Normal Checklist」NASA CR-177549, 1990(NTRS 掲載 1991)。https://ntrs.nasa.gov/citations/19910017830(取得 2026-10-23、今回。要旨のみ) | 原典(要旨のみ閲覧) | 機能・形式・設計・**長さ**・使用を分析し、設計指針で結ぶ。合併・生産圧力・チェックリストの管理が設計に及ぼす影響を扱う。**本文の長さの指針は未読**(5 章) |
 | C3 | The Human Diver「How to Build an Effective Checklist」(取得 2026-10-23、今回) | 二次資料(実務の解説) | 経験則として「5〜8 項目、各 5〜8 語」。長いなら分ける。「チェックリストを回すためにチェックリストを作るべきではない」。Gawande の「5〜9 項目」は今回、原典で確かめられなかった |
 | C4 | オンタリオ州 101 病院の手術安全チェックリスト [SRC-0422] | 束 | 自己申告の遵守率 98% 超で、死亡率・合併症に有意な改善なし(FND-0098)。形式の遵守と実効の乖離は人の制度でも起きる |
@@ -180,7 +180,7 @@
 
 | # | 出典 | 種別 | 内容 |
 | --- | --- | --- | --- |
-| G1 | Goodhart(1975)「観測された統計的規則性は、統制の目的で圧力を掛けると崩れる傾向がある」、Strathern(1997)「指標が目標になると、良い指標でなくなる」 | **二次資料**(https://unintendedconsequenc.es/new-morality-of-attainment-goodharts-law/、取得 2026-10-23。原典は未確認) | 装置の本数を目標値にすると、本数を満たす行動(統合で 1 本に束ねる)が起きうる。R2 の当事者の指摘と同じ |
+| G1 | Goodhart(1975)「観測された統計的規則性は、統制の目的で圧力を掛けると崩れる傾向がある」、Strathern(1997)「指標が目標になると、良い指標でなくなる」 | **二次資料**(https://unintendedconsequenc.es/new-morality-of-attainment-goodharts-law/ 、取得 2026-10-23。原典は未確認) | 装置の本数を目標値にすると、本数を満たす行動(統合で 1 本に束ねる)が起きうる。R2 の当事者の指摘と同じ |
 | G2 | FND-0102 [SRC-0424・0274・0208・0249・0271・0423] | 束 | 稀に落ちる E2E がアラート疲れと対症療法の蓄積を招く(SQiP 2026)、Stop hook と達成不能な完了条件が 2 分で 6 回同じ指摘を返す、OpenAI の社内チームは当初週の 20% を AI 生成物の粗の掃除に充て、のちに原則の符号化と**定期清掃タスク**へ置換、デジタル庁「エージェント任せでは不要なテストが増大」、豆蔵「改善=項目追加という誤解が肥大化の原因」。製品側の打ち切り(Claude Code の Stop hook は 8 回連続ブロックで上書き) |
 | G3 | FND-0102 の反対側 [SRC-0424#c2] | 束 | 同じ SQiP の発表は、RCA とポカ除けの自動検査で約 4 週間に CI 失敗率が大きく下がったと報告。**足して負荷が下がった側の事例** |
 | G4 | FND-0196・0229・0230・0262 [SRC-0510・0511] | 束 | 実証案件の数え直し。検査スクリプト 63(07-30)・61(08-05)→ 凍結後 46(08-12)・47(09-24)。装置修理 PR 55〜65% はおおむね再現。装置比率は定義で 0.35〜1.36 に動き、0.76 は再現しない |

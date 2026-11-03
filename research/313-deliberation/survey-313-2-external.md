@@ -114,7 +114,7 @@ ISO/IEC 42020 の附属書A(規範「Tailoring process」)は "adapts annex A of
 
 ### 4.1 ISO/IEC 27001:2022 — IAF MD 26 **[原文]**
 
-出典: *IAF MD 26:2022 (Issue 2, 15 January 2023) Transition Requirements for ISO/IEC 27001:2022*, International Accreditation Forum, 2023, <https://www.sac-accreditation.gov.sg/files/Documents/iaf_md26_issue_2_15012023.pdf>
+出典: *IAF MD 26:2022 (Issue 2, 15 January 2023) Transition Requirements for ISO/IEC 27001:2022*, International Accreditation Forum, 2023, <https://www.sac-accreditation.gov.sg/files/Documents/iaf_md26_issue_2_15012023.pdf> (保存版: <https://web.archive.org/web/20250404210304/https://www.sac-accreditation.gov.sg/files/Documents/iaf_md26_issue_2_15012023.pdf>。2026-11-04 に併記)
 
 - 移行期間: "Transition Period: 3 Years (36 months)" — "CAB transitions of certified clients completed by 36 months from the last day of publication month of ISO/IEC 27001:2022"(= 2025-10-31)
 - 新規・更新審査の切替期限: "Initial certification and recertification by CAB to ISO/IEC 27001:2022 only, to begin no later than 18 months from the last day of publication month of ISO/IEC 27001:2022 (i.e. 30 April 2024)"

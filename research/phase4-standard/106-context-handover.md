@@ -37,7 +37,7 @@
 ### 1.2 メンター・バディの効果(Microsoft)
 
 - 出典: Microsoft「Every new employee needs an onboarding buddy」(Workplace Insights)
-  - <https://workplaceinsights.microsoft.com/employee-experience/onboarding-buddy/>
+  - <https://workplaceinsights.microsoft.com/employee-experience/onboarding-buddy/> (保存版: <https://web.archive.org/web/20240524003722/https://workplaceinsights.microsoft.com/employee-experience/onboarding-buddy/>。2026-11-04 に併記)
 - 主な事実(600名規模のパイロット)
   - バディありの新入社員は初週時点でオンボーディング満足度が23%高い。90日時点では36%高い
   - 90日間の面談回数と「生産性が上がった」と回答した割合の関係: 1回以上=56%、2〜3回=73%、4〜8回=86%、8回超=97%

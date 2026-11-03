@@ -90,7 +90,7 @@
 - 主張: OSCAL の `implementation-status` の `state` は次の5値である。implemented(完全に実装)、partial(一部を実装)、planned(注記で説明した実装の計画がある)、alternative(注記で説明した代替の実装がある)、not-applicable(注記で正当化した上で、この系に適用しない)。FedRAMP はこの5値だけを受け付ける。partial と planned は併記できる。partial は注記に隙間の説明を、planned は「主要なマイルストーンを含む計画の簡潔な説明」と `planned-completion-date` を必須とする
 - 出典
   - NIST, liboscal-java `ImplementationStatus`(OSCAL メタスキーマの許容値の実装). https://pages.nist.gov/liboscal-java/xref/gov/nist/secauto/oscal/lib/model/ImplementationStatus.html [原文]
-  - FedRAMP Automation, "SSP — Security Controls". https://automate.fedramp.gov/documentation/ssp/6-security-controls [原文]
+  - FedRAMP Automation, "SSP — Security Controls". https://automate.fedramp.gov/documentation/ssp/6-security-controls (保存版: <https://web.archive.org/web/20250523085917/https://automate.fedramp.gov/documentation/ssp/6-security-controls>。2026-11-04 に併記) [原文]
 - 関連: (b) 本標準の `state` は delivered / undelivered の2値である。OSCAL は「計画あり(期日つき)」「代替で満たす」「適用しない(理由つき)」を、未実装と区別して持つ。降ろさないと決めた規定を `not-applicable` や `alternative` に当たる値で示し、降ろす予定の規定に期日を持たせる設計の先例になる。`state` の値を増やさない現行規約(implementation-marking.md)とは衝突するため、別の欄で持つか、規約を改めるかを議論で決める必要がある
 
 ### F11. OSCAL の評価結果は「主張された実装」と「評価で確かめた状態」を別の層に置く
@@ -225,7 +225,7 @@
 ### F29. 米国 GSA: POA&M はリスク評価で優先づけ、項目を消さず、期日の未定は1四半期まで
 
 - 主張: POA&M の項目は、リスク評価の結果を使って是正の優先順位をつける。システム所有者は重大度で上位5件の弱点を優先し、最も重大な POA&M に資源を割り当てる。脆弱性の是正期限は、インターネットに面する Critical が15日、Critical・High が30日、Moderate が90日、Low が120日である。期日の TBD は避け、使う場合は理由を書き、1四半期に限る。POA&M の項目は削除せず、完了したものは表示から除くだけにする。是正できないリスクは、承認されたリスク受容(AOR)を作る
-- 出典: U.S. General Services Administration, "Plan of Action and Milestones (POA&M)", CIO-IT Security-09-44 Rev.8, 2022-09-14. https://origin-www.gsa.gov/system/files/Plan-of-Action-and-Milestones-%28POAM%29-%5BCIO-IT-Security-09-44-Rev-8%5D-09-14-2022.pdf [原文]
+- 出典: U.S. General Services Administration, "Plan of Action and Milestones (POA&M)", CIO-IT Security-09-44 Rev.8, 2022-09-14. https://origin-www.gsa.gov/system/files/Plan-of-Action-and-Milestones-%28POAM%29-%5BCIO-IT-Security-09-44-Rev-8%5D-09-14-2022.pdf (保存版: <https://web.archive.org/web/20250222143018/https://origin-www.gsa.gov/system/files/Plan-of-Action-and-Milestones-%28POAM%29-%5BCIO-IT-Security-09-44-Rev-8%5D-09-14-2022.pdf>。2026-11-04 に併記) [原文]
 - 関連: (b) 降ろす順序を**リスクで決め**、期日の無い項目を許す期間に上限を置き、項目を消さない。「消さない」は本標準の `undelivered` の方針と一致する。「降ろさない」と決める経路は、是正の項目とは別の承認つきのリスク受容として分かれている
 
 ### F30. FedRAMP: 重大度で期限を変え、High には運用上の理由による例外を認めない
