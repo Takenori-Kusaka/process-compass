@@ -156,6 +156,14 @@ sections:
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0)"
     status: pending
+  - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > AI が生成した顧客の声を、観測に数えない"
+    status: marked
+    ids:
+      - IMPL-0358
+      - IMPL-0359
+      - IMPL-0360
+    note: D-0 表1 の列の決まりは IMPL-0358、テンプレ6 観点3 の出所の区分は IMPL-0359、検査の未達は IMPL-0360(ADR-0091)
+    issue: 409
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 平常時と障害時を分ける"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 個人名を1か所へ隔離する"
