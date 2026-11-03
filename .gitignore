@@ -44,3 +44,6 @@ graphify-out/*/
 graphify-out/graph.html
 graphify-out/memory/
 graphify-out/reflections/
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
