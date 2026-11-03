@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `0a4fa6d5`
+- Built from commit: `2f1a74df`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32891,7 +32891,7 @@ Nodes (24): 0. 要約(10 行), 1.1 量の上限・総数の規定(逐語), 1.2 �
 
 ### Community 6465 - "package.json"
 Cohesion: 0.09
-Nodes (27): ADR-0006, ADR-0020, ADR-0017, dependencies, astro@^7.2.0, astro-mermaid@^2.2.0, @astrojs/sitemap@^3.7.4, mermaid@^12.2.0 (+19 more)
+Nodes (27): ADR-0006, ADR-0020, ADR-0017, dependencies, astro@^7.4.4, astro-mermaid@^2.2.0, @astrojs/sitemap@^3.7.4, mermaid@^12.2.0 (+19 more)
 
 ### Community 6466 - "2. 測定"
 Cohesion: 0.08
@@ -32991,7 +32991,7 @@ Nodes (22): 10. AI の指摘の書式を定めない, 11. AI どうしの往復�
 
 ### Community 6490 - "@astrojs/starlight"
 Cohesion: 0.10
-Nodes (17): @astrojs/starlight@^0.42.7, @astrojs/starlight, roleName, seg, wpName, allRows, categoryLabel, proposalRows (+9 more)
+Nodes (17): @astrojs/starlight@^0.42.8, @astrojs/starlight, roleName, seg, wpName, allRows, categoryLabel, proposalRows (+9 more)
 
 ### Community 6491 - "3. 論点ごとの詳細"
 Cohesion: 0.10
