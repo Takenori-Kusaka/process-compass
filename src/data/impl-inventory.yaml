@@ -1512,10 +1512,38 @@ sections:
     reason: スコープの3層と容量の配分は、価値責任者とステージ移行ゲートの判定者(人)が合意し調整する。AI の担い手の挙動を制約しない。60%・20% は EV-0150
     issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.2 規模の合意
-    status: none
-    category: org-design
-    reason: 規模の合意は価値責任者(人)が行う。精度を装った見積り手法の禁止の適用範囲を見出しへ併記した。AI の担い手の挙動を制約しない
-    issue: 298
+    status: marked
+    ids:
+      - IMPL-0373
+      - IMPL-0374
+      - IMPL-0375
+    rows:
+      要求事項1:
+        status: none
+        category: org-design
+        reason: 規模の合意は価値責任者(人)が行う。AI の担い手の挙動を制約しない
+      要求事項2:
+        status: none
+        category: org-design
+        reason: 規模の合意は価値責任者(人)が行う。AI の担い手の挙動を制約しない
+      要求事項3:
+        status: none
+        category: org-design
+        reason: 規模の合意は価値責任者(人)が行う。AI の担い手の挙動を制約しない
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0373
+          - IMPL-0374
+          - IMPL-0375
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0373
+          - IMPL-0374
+          - IMPL-0375
+    note: 記録の欄は企画書の様式の IMPL-0373、実測スループットと完了に当たらない個数の集計は IMPL-0374(降りていない)。規模の合意そのものは人が行う(#417 で 1件の定義・観測の窓・完了の条件の記録と要求事項5 を足した)
+    issue: 417
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.3 スコープを確定する時期
     status: none
     category: org-design
@@ -2168,6 +2196,7 @@ sections:
     status: marked
     ids:
       - IMPL-0103
+      - IMPL-0372
     rows:
       要求事項1:
         status: marked

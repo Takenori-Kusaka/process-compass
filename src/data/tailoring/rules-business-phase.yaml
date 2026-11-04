@@ -74,7 +74,7 @@ rules:
         action: set
         param: mode
         value: planned-payback
-        note: 負債の計画返却を開始する(返却枠の目安は容量の20%)
+        note: 負債の計画返却を開始する(返却枠の例は完了させる作業単位の個数の20%)
     reason: グロース期は参照モデルをほぼそのまま適用する段階。負債を返し始めないと拡大速度が落ちる
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 10

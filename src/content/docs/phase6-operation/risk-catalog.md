@@ -89,7 +89,7 @@ graph TD
 | 開発 | テスト設計の不備による不具合の流出 | モノ・時間 | 開発者(検証者) | [テスト有効性の測定](/process-compass/phase5-implementation/test-effectiveness/) |
 | 開発 | AI 生成物を検証せずに取り込む | モノ・時間 | 開発者(検証者) | [AI 出力は未検証の入力](/process-compass/adr/0012-ai-output-as-unverified-input/)、挙動要約 |
 | リリース | 見積りの過小評価による延期 | 時間・カネ | 価値責任者 | [7.7.2 測定する指標](/process-compass/phase4-process-design/exception-escalation/) |
-| 継続運用 | 技術的負債の累積による改修費の増大 | モノ・カネ・時間 | 技術判断者 | [負債返却サイクル](/process-compass/phase6-operation/debt-payback/)(容量の20%) |
+| 継続運用 | 技術的負債の累積による改修費の増大 | モノ・カネ・時間 | 技術判断者 | [負債返却サイクル](/process-compass/phase6-operation/debt-payback/)(例: 作業単位の20%) |
 | 継続運用 | 記述の不足による引き継ぎの困難 | ヒト・時間 | 文脈オーナー | 恒久層への[書き戻し](/process-compass/phase5-implementation/context-base/) |
 
 ### システム・インフラ
