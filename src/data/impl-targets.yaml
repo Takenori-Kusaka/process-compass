@@ -321,6 +321,12 @@ targets:
     path: scripts/pre-review/
     description: フェーズ5「事前レビュー期間の自動化」の判定資料の起票・締切の通知と未応答の記録・必須ステータスチェック(pre-review-closed・pre-review-all-responded)・意見の様式の欄の検査・指標の集計の置き場。準拠テンプレートに実装は無い(2026-10-23 確認。Issue #292)
 
+  - id: attention-estimator
+    name: 推定による注意の喚起の部品(採用者)
+    kind: planned
+    path: (採用者が置く)
+    description: 指示・発話・作業の状態を分類して注意を出す部品(第5章 5.8.7)。準拠テンプレートは同梱しない(ADR-0103)。採用者が置く場合に、5.8.7 の要求事項1〜9 が掛かる
+
   - id: vendor-estimate-records
     name: 受注側の見積りの版の記録の置き場(予定・採用者)
     kind: planned

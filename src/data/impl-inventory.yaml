@@ -1082,9 +1082,10 @@ sections:
     ids:
       - IMPL-0024
       - IMPL-0251
+      - IMPL-0398
     location:
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.3 リスク区分による上限
-    note: 人へ戻す場合と経路は IMPL-0024、取り消せない操作の定義は IMPL-0251。席と責任者の宣言は 5.5.3 の IMPL-0025(config-seats)で追う
+    note: 人へ戻す場合と経路は IMPL-0024、取り消せない操作の定義は IMPL-0251、推定による注意の不在を根拠にしないことは IMPL-0398(#401)。席と責任者の宣言は 5.5.3 の IMPL-0025(config-seats)で追う
     issue: 294
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.2 運用形態
     status: pending
@@ -1479,6 +1480,52 @@ sections:
           - IMPL-0205
     issue: 316
     note: 附属書E E.6 とフェーズ5 のエージェントの操作の統制(手引き)から本文へ上げた節(#316 / ADR-0086 R-4)
+  - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.7 推定による注意の喚起
+    status: marked
+    ids:
+      - IMPL-0399
+      - IMPL-0400
+      - IMPL-0401
+      - IMPL-0402
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0399
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0399
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0399
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0400
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0400
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0400
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0401
+      要求事項8:
+        status: marked
+        ids:
+          - IMPL-0401
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0402
+    note: 準拠テンプレートは注意を出す部品を同梱しない(ADR-0103)。採用者が部品を置くときに掛かる(plan=adopter)
+    issue: 401
   - key: phase4-process-design/human-ai-boundary#5.9 役割境界の見直し
     status: pending
   - key: phase4-process-design/human-ai-boundary#5.10 関連する章
