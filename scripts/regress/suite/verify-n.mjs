@@ -24,6 +24,8 @@ write('answers.json', { 'q-team-size': 'size-1-2', 'q-biz-phase': 'poc', 'q-exte
 check('初期化(1名・poc・node)', gen('--answers', 'answers.json', '--stack', 'node').ok);
 fs.rmSync(path.join(DIR, 'answers.json'));
 fs.copyFileSync(path.join(DIR, 'templates/00-d0-governance.md'), path.join(DIR, 'docs/D-0-governance.md'));
+// #411(ADR-0091): D-0 表1 の「市場・顧客仮説の検証の実施」の行は空にしない。決定と実行に席を書く
+fs.writeFileSync(path.join(DIR, 'docs/D-0-governance.md'), fs.readFileSync(path.join(DIR, 'docs/D-0-governance.md'), 'utf8').replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |'));
 gen('--answers', 'process.config.json');
 const people = [{ id: 'p1', name: NAMES[0], accounts: ['acct-1'] }];
 check('任免(1名で全席)', fill(W, people, Object.fromEntries(SEATS.map((s) => [s, { accountable: NAMES[0] }]))).ok);

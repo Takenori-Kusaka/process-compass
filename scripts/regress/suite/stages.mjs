@@ -62,6 +62,8 @@ for (const n of [1, 5, 15]) {
   // 2. 出力のコマンドどおり D-0 を作る
   fixes(['標準 2.8', 'K42', '標準 3.5.5', 'K60']);
   fs.copyFileSync(path.join(W.DIR, 'templates/00-d0-governance.md'), path.join(W.DIR, 'docs/D-0-governance.md'));
+  // #411(ADR-0091): D-0 表1 の「市場・顧客仮説の検証の実施」の行は空にしない。決定と実行に席を書く
+  fs.writeFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), fs.readFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), 'utf8').replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |'));
   const regen = gen('--answers', 'process.config.json');
   check(`${tag} 出力のコマンド(D-0 の生成区間の書き込み)が通る`, regen.ok, regen.out);
   j = log('D-0 あり・席が未記入');

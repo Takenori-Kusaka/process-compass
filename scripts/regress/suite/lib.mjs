@@ -82,6 +82,8 @@ export function workspace(name) {
     write(
       'docs/D-0-governance.md',
       read('templates/00-d0-governance.md')
+        // #411(ADR-0091): 表1 の「市場・顧客仮説の検証の実施」の行は空にしない
+        .replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |')
         .replace(/^version:.*$/m, `version: ${version}`)
         .replace(/^approver:.*$/m, 'approver: 山田 太郎')
         .replace(/^approved_at:.*$/m, 'approved_at: 2026-09-30')

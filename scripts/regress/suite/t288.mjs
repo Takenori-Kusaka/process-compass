@@ -148,6 +148,8 @@ function setup(ws, n) {
   commit('chore: プロセス構成を初期化する (#1)');
   const initHash = git('rev-parse', 'HEAD').out.trim();
   fs.copyFileSync(path.join(W.DIR, 'templates/00-d0-governance.md'), path.join(W.DIR, 'docs/D-0-governance.md'));
+  // #411(ADR-0091): D-0 表1 の「市場・顧客仮説の検証の実施」の行は空にしない。決定と実行に席を書く
+  fs.writeFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), fs.readFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), 'utf8').replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |'));
   gen('--answers', 'process.config.json');
   // 第3巡(C): D-0 節9 の代理者は名簿の人へ対応づく氏名だけを候補に数える。代理者を名簿へ入れる
   const people = [...NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [`acct-${i + 1}`] })), ...(n === 1 ? [] : [{ id: 'dep1', name: '代理 太郎', accounts: ['acct-dep1'] }, { id: 'dep2', name: '候補 花子', accounts: ['acct-dep2'] }])];
@@ -170,7 +172,8 @@ function setup(ws, n) {
   if (n > 1 && !d0.includes(`| 価値責任者 × 技術判断者 | ${NAMES[0]} |`)) throw new Error('D-0 の非推奨の兼務の記録の表の置き換えが空振りした(様式の見出しが変わった)');
   write('docs/D-0-governance.md', d0);
   write('docs/quality-assurance-policy.md', POLICY());
-  write('docs/project-brief.md', read('templates/06-project-brief.md').replace(/^\| (想定する利用者・目的・利用状況・制約|この案件に掛かる外枠|AI の利用で期待する成果|AI を使わない場合との比較の基準値|AI の利用の拡大と停止の基準) \| .*$/gm, '| $1 | 記入済み |').replace(/^\| 保証範囲と範囲外 \| .*$/m, '| 保証範囲と範囲外 | 顧客向け機能の全体 |').replace(/^\| 壊してはならない品質条件 \| .*$/m, '| 壊してはならない品質条件 | 下の表による |').replace(/^\| QC-01 \| .*$/m, '| QC-01 | 権限の無い利用者は招待を取り消せない | 権限 |').replace(/^\| (AI の実行|検証|修正|教育|管理) \| ([^|]*) \| \| \| [^|]* \| \|$/gm, '| $1 | $2 | 10時間 | 見積り | 見積りの方法 | 10時間 |'));
+  // #411(ADR-0091): 観点3 の裏づけに出所の区分と観測の記録への到達先を書く
+  write('docs/project-brief.md', read('templates/06-project-brief.md').replace('| <価値仮説を支える事実> | <実在の顧客・利用者の観測 / 二次資料 / AI の生成物> | <ヒアリングの記録、利用の記録などの所在。観測でなければ「なし」> |', '| 利用者 5 名への聞き取り | 実在の顧客・利用者の観測 | docs/interviews.md |').replace(/^\| (想定する利用者・目的・利用状況・制約|この案件に掛かる外枠|AI の利用で期待する成果|AI を使わない場合との比較の基準値|AI の利用の拡大と停止の基準) \| .*$/gm, '| $1 | 記入済み |').replace(/^\| 保証範囲と範囲外 \| .*$/m, '| 保証範囲と範囲外 | 顧客向け機能の全体 |').replace(/^\| 壊してはならない品質条件 \| .*$/m, '| 壊してはならない品質条件 | 下の表による |').replace(/^\| QC-01 \| .*$/m, '| QC-01 | 権限の無い利用者は招待を取り消せない | 権限 |').replace(/^\| (AI の実行|検証|修正|教育|管理) \| ([^|]*) \| \| \| [^|]* \| \|$/gm, '| $1 | $2 | 10時間 | 見積り | 見積りの方法 | 10時間 |'));
   write('docs/defect-ledger.md', '# 欠陥の台帳\n\n## 台帳\n\n| ID | 現象 | 重大度(Sev1 / Sev2 / Sev3) | 優先度 | 状態(未解決 / 解決済み) | コア機能(はい / いいえ) | 回避策(文書の所在) |\n| --- | --- | --- | --- | --- | --- | --- |\n\n既知の欠陥なし\n');
   // #319 7.5(入力の直し): 引き継ぎ文書の節2 の表に列「関わる登録した変更種別」が足された(ADR-0081。#311)
   write('docs/handover.md', read('templates/05-handover.md').replace('| 機能 | 理解保持者 | 確認した者(本人以外) | 確認の記録と確認日 | 判断記録 | 関わる登録した変更種別 |\n| --- | --- | --- | --- | --- | --- |\n| | | | | | |', `| 機能 | 理解保持者 | 確認した者(本人以外) | 確認の記録と確認日 | 判断記録 | 関わる登録した変更種別 |\n| --- | --- | --- | --- | --- | --- |\n${(n > 1 ? [NAMES[0], NAMES[1], '代理 太郎'] : [NAMES[0]]).map((h, i, a) => `| 招待 | ${h} | ${n > 1 ? a[(i + 1) % a.length] : '外部 確認者'} | H-3 理解の実証 ${TODAY} | ADR-0001 | |`).join('\n')}`));

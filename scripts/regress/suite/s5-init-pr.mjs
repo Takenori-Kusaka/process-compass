@@ -35,6 +35,8 @@ for (const [ws, viaPr] of [['s5a', true], ['s5b', false]]) {
 
   // D-0 と任免(記録だけのコミット)
   fs.copyFileSync(path.join(W.DIR, 'templates/00-d0-governance.md'), path.join(W.DIR, 'docs/D-0-governance.md'));
+  // #411(ADR-0091): D-0 表1 の「市場・顧客仮説の検証の実施」の行は空にしない。決定と実行に席を書く
+  fs.writeFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), fs.readFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), 'utf8').replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |'));
   gen('--answers', 'process.config.json');
   const people = NAMES.slice(0, 3).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [`acct-${i + 1}`] }));
   const assign = { 'biz-approver': 1, 'value-owner': 0, 'tech-lead': 0, 'dev-verifier': 0, 'independent-reviewer': 1, 'qa-gatekeeper': 2, 'context-owner': 0, 'ai-maintainer': 1, 'ai-ops': 0 };
