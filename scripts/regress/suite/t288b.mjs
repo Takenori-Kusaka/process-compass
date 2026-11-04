@@ -222,14 +222,15 @@ const OLD = daysAgo(400);
     check('AI の層: 条件2〜5 の確認(AI維持管理者の確認・席の責任者の承認・四半期内)があれば数える', typeof r.ev.assurance.detection.ai === 'object' && r.ev.assurance.detection.ai.detected === 6, JSON.stringify(r.ev.assurance.detection.ai));
     reset();
   }
-  fixes(['標準 7.7.8']);
+  fixes(['標準 7.7.8', 'ADR-0092 決定2']);
   // ============================================================ 8. SG の判定記録の AI の利用の評価(IMPL-0068。Q11)
+  // ADR-0092 決定2(2026-11-04): 評価の節は 7 欄になった。入力の判定記録に「上積みとして示した品質の活動」を足す(期待値は変えない)
   const d0v = JSON.parse(read('process.config.json')).d0Version;
   write('docs/gates/sg1.md', gateRecord('SG-1 ステージ移行', 'S1', NAMES[1], d0v, g8Extra()));
   commit('docs: SG の判定記録(評価の節なし)');
   r = agg();
   check('SG の判定記録に「AI の利用の評価」の節が無い → 欠落', r.ev.gaps.some((g) => g.includes('sg1.md') && g.includes('「AI の利用の評価」の節がありません')), r.ev.gaps.join('\n'));
-  write('docs/gates/sg1.md', gateRecord('SG-1 ステージ移行', 'S1', NAMES[1], d0v, g8Extra() + '\n## AI の利用の評価(適用: ステージ移行ゲート・第三者による棚卸し)\n\n| 欄 | 記載 |\n| --- | --- |\n| 評価の単位 | 案件 |\n| 下流の指標と比較の基準値 | 変更失敗率 5% / 基準値 8%(導入前の実測) |\n| 総費用の内訳 | |\n| 評価に用いなかった入力 | 自己申告の速度と利用量 |\n| 判定 | 継続 |\n| 縮小・停止の基準に当たる状態での継続 | 該当なし |\n'));
+  write('docs/gates/sg1.md', gateRecord('SG-1 ステージ移行', 'S1', NAMES[1], d0v, g8Extra() + '\n## AI の利用の評価(適用: ステージ移行ゲート・第三者による棚卸し)\n\n| 欄 | 記載 |\n| --- | --- |\n| 評価の単位 | 案件 |\n| 下流の指標と比較の基準値 | 変更失敗率 5% / 基準値 8%(導入前の実測) |\n| 総費用の内訳 | |\n| 評価に用いなかった入力 | 自己申告の速度と利用量 |\n| 上積みとして示した品質の活動 | なし |\n| 判定 | 継続 |\n| 縮小・停止の基準に当たる状態での継続 | 該当なし |\n'));
   commit('docs: SG の判定記録(総費用が空欄)');
   r = agg();
   check('「AI の利用の評価」の総費用の内訳が空欄 → 欠落、「該当なし」は記入として受け付ける', r.ev.gaps.some((g) => g.includes('sg1.md') && g.includes('空欄の欄があります(総費用の内訳)')), r.ev.gaps.join('\n'));
