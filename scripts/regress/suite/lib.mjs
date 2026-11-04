@@ -11,6 +11,8 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+// 名簿の要素 { login, id }。ホスティングの代役(lib/bin/gh)と同じ識別子を作る(名簿の照合は識別子で行う。process-compass #430)
+export { rosterAccount, regressAccountId } from '../lib/account-id.mjs';
 
 if (!globalThis.__REGRESS_CLOCK__) {
   console.error('lib.mjs: 時計が止まっていない。scripts/regress/run.mjs から流す(NODE_OPTIONS=--import lib/clock.mjs)');

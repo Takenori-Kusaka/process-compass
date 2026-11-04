@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import YAML from 'yaml';
-import { workspace, checker, BASE, APPOINTER, BASIS, TODAY } from './lib.mjs';
+import { workspace, checker, BASE, APPOINTER, BASIS, TODAY, rosterAccount } from './lib.mjs';
 
 const W = workspace('v2');
 const { DIR, run, git, write, read, cfg, gen, change, contract, checkD0, checkRules, resetTo, commit, d0 } = W;
@@ -24,8 +24,8 @@ fixes(["K3", "K37", "K62"]);
 write('answers.json', { ...BASE, 'q-team-size': 'size-1-2', 'q-biz-phase': 'mvp', 'q-external-reviewer': 'reviewer-no' });
 check('初期化(1人)', gen('--answers', 'answers.json', '--stack', 'node').ok);
 d0('1.0');
-refused('K60 1人体制の初回の記入(記名なし)', change({ kind: 'accountable', date: DAY, summary: '1人', people: [{ id: 'p1', name: '山田 太郎', accounts: ['yamada'] }], seats: all('山田 太郎') }), '任免');
-const solo = change({ kind: 'accountable', date: DAY, summary: '1人', people: [{ id: 'p1', name: '山田 太郎', accounts: ['yamada'] }], seats: all('山田 太郎'), decidedBy: '山田 太郎', reason: '初期の設定' });
+refused('K60 1人体制の初回の記入(記名なし)', change({ kind: 'accountable', date: DAY, summary: '1人', people: [{ id: 'p1', name: '山田 太郎', accounts: [rosterAccount('yamada')] }], seats: all('山田 太郎') }), '任免');
+const solo = change({ kind: 'accountable', date: DAY, summary: '1人', people: [{ id: 'p1', name: '山田 太郎', accounts: [rosterAccount('yamada')] }], seats: all('山田 太郎'), decidedBy: '山田 太郎', reason: '初期の設定' });
 accepted('K60 1人体制の初回の記入(本人の記名と理由)', solo);
 check('K50 1人体制: 出荷判定者 × 事業決裁者は逸脱として記録', cfg().deviations.some((d) => d.separationId === 'sep-shipping-business' && /異議を書く者と、残存リスクを受容する者が同一/.test(d.reason)), JSON.stringify(cfg().deviations.map((d) => d.separationId ?? d.gate)));
 check('契約検査(1人)', contract().ok, contract().out);
@@ -68,7 +68,7 @@ resetTo('solo');
 // b3: 回答は確認者なし、名簿に架空の外部の確認者を席へ
 refused(
   'b3 回答 reviewer-no のまま、外部の確認者を独立レビュアの席へ',
-  change({ kind: 'accountable', date: DAY, summary: '外部', people: [{ id: 'p1', name: '山田 太郎', accounts: ['yamada'] }, { id: 'x', name: '外山 健', external: true }], seats: { 'independent-reviewer': { accountable: '外山 健' } }, decidedBy: '山田 太郎', reason: 'r' }),
+  change({ kind: 'accountable', date: DAY, summary: '外部', people: [{ id: 'p1', name: '山田 太郎', accounts: [rosterAccount('yamada')] }, { id: 'x', name: '外山 健', external: true }], seats: { 'independent-reviewer': { accountable: '外山 健' } }, decidedBy: '山田 太郎', reason: 'r' }),
   'reviewer-no',
   '外部の確認者'
 );
@@ -116,7 +116,7 @@ resetTo('solo');
 
 // ------------------------------------------------------------------ 2名(相互の確認)。事象5・事象6
 fixes(["K3", "K51", "K50"]);
-accepted('2人目が加わる(相互の確認。決定者の記名)', change({ kind: 'headcount', date: DAY, summary: '2名', answers: { 'q-external-reviewer': 'reviewer-yes' }, people: [{ id: 'p1', name: '山田 太郎', accounts: ['yamada'] }, { id: 'p2', name: '佐藤 花子', accounts: ['sato'] }], seats: { 'independent-reviewer': { accountable: '佐藤 花子' }, 'ai-ops': { accountable: '佐藤 花子' } }, decidedBy: '山田 太郎', reason: '2人目' }));
+accepted('2人目が加わる(相互の確認。決定者の記名)', change({ kind: 'headcount', date: DAY, summary: '2名', answers: { 'q-external-reviewer': 'reviewer-yes' }, people: [{ id: 'p1', name: '山田 太郎', accounts: [rosterAccount('yamada')] }, { id: 'p2', name: '佐藤 花子', accounts: [rosterAccount('sato')] }], seats: { 'independent-reviewer': { accountable: '佐藤 花子' }, 'ai-ops': { accountable: '佐藤 花子' } }, decidedBy: '山田 太郎', reason: '2人目' }));
 check('2名で G-6 が成立', cfgMod.g6Established(cfg()), JSON.stringify(cfg().gates.g6));
 commit('chore: duo');
 git('tag', 'duo');
@@ -127,7 +127,7 @@ resetTo('duo');
 accepted('出荷判定者を佐藤へ(決定者の記名)', change({ kind: 'accountable', date: DAY, summary: '出荷判定者を佐藤へ', seats: { 'qa-gatekeeper': { accountable: '佐藤 花子' } }, decidedBy: '山田 太郎', reason: '分ける' }));
 check('K51 事象6: 前任者(山田)は通知する者でもあり、新任(佐藤)とは別人 → 自動では記録しない', last().notice?.reasons?.includes('出荷判定者の席の責任者の交代') && !last().notice.self && last().notice.also?.[0]?.to === '山田 太郎', JSON.stringify(last().notice));
 commit('chore: qa sato');
-accepted('佐藤が離脱(出荷判定者の席が空く。記名なし)', change({ kind: 'headcount', date: DAY, summary: '佐藤が離脱', answers: { 'q-external-reviewer': 'reviewer-no' }, people: [{ id: 'p1', name: '山田 太郎', accounts: ['yamada'] }], seats: { 'independent-reviewer': { accountable: null }, 'ai-ops': { accountable: null }, 'qa-gatekeeper': { accountable: null } } }));
+accepted('佐藤が離脱(出荷判定者の席が空く。記名なし)', change({ kind: 'headcount', date: DAY, summary: '佐藤が離脱', answers: { 'q-external-reviewer': 'reviewer-no' }, people: [{ id: 'p1', name: '山田 太郎', accounts: [rosterAccount('yamada')] }], seats: { 'independent-reviewer': { accountable: null }, 'ai-ops': { accountable: null }, 'qa-gatekeeper': { accountable: null } } }));
 check('K51 前任者が離脱 → 通知先は D-0 表1 の決定者(山田)。通知する者(文脈オーナー=山田)と同一 → 自動で記録', last().notice?.self === true && last().notice.to === '山田 太郎', JSON.stringify(last().notice));
 resetTo('duo');
 // K50: 2名で出荷判定者を事業決裁者と同じ人にする(1〜2名は逸脱。別の人を置けるので決定)

@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount, regressAccountId } from './lib.mjs';
 
 const { check, done, ghRun, fixes } = checker();
 // 判定の材料とする記録を入れた変更の記録(gh の代役が返す。lib/bin/gh。process-compass #380 / ADR-0106)
@@ -158,7 +158,7 @@ function setup(ws, n) {
   fs.writeFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), fs.readFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), 'utf8').replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |'));
   gen('--answers', 'process.config.json');
   // 第3巡(C): D-0 節9 の代理者は名簿の人へ対応づく氏名だけを候補に数える。代理者を名簿へ入れる
-  const people = [...NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [`acct-${i + 1}`] })), ...(n === 1 ? [] : [{ id: 'dep1', name: '代理 太郎', accounts: ['acct-dep1'] }, { id: 'dep2', name: '候補 花子', accounts: ['acct-dep2'] }])];
+  const people = [...NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [rosterAccount(`acct-${i + 1}`)] })), ...(n === 1 ? [] : [{ id: 'dep1', name: '代理 太郎', accounts: [rosterAccount('acct-dep1')] }, { id: 'dep2', name: '候補 花子', accounts: [rosterAccount('acct-dep2')] }])];
   const assign = n === 1 ? Object.fromEntries(SEATS.map((s) => [s, 0])) : { 'biz-approver': 1, 'value-owner': 0, 'tech-lead': 0, 'dev-verifier': 0, 'independent-reviewer': 1, 'qa-gatekeeper': 2, 'context-owner': 0, 'ai-maintainer': 1, 'ai-ops': 0 };
   const seats = Object.fromEntries(SEATS.map((s) => [s, { accountable: NAMES[assign[s]] }]));
   const f = fill(W, people, seats);
@@ -466,9 +466,9 @@ fixes(['標準 7.11', 'ADR-0057 決定9']);
   commit('docs: メモ');
   const body = '## 検証方法と結果\n\nなし\n\n## リスク区分\n\nR3\n\n## トレーラ\n\nSpec: setup\n';
   // 解除の記録を入れた変更の記録。既定ブランチのコミットはどれも、記名者(acct-1〜3)の承認で入った PR として扱う(ADR-0106)
-  const hosting = () => ({ commits: Object.fromEntries(git('log', '--format=%H', 'main').out.split('\n').filter(Boolean).map((h) => [h.trim(), { number: 70, author: 'acct-9', approvers: ['acct-1', 'acct-2', 'acct-3'] }])) });
+  const hosting = () => ({ commits: Object.fromEntries(git('log', '--format=%H', 'main').out.split('\n').filter(Boolean).map((h) => [h.trim(), { number: 70, author: 'acct-9', authorId: regressAccountId('acct-9'), approvers: [rosterAccount('acct-1'), rosterAccount('acct-2'), rosterAccount('acct-3')] }])) });
   const pr = (extra) => {
-    write('../pr-t288.json', JSON.stringify({ number: 7, title: 'docs', body, author: 'acct-1', hosting: hosting(), ...extra }));
+    write('../pr-t288.json', JSON.stringify({ number: 7, title: 'docs', body, author: 'acct-1', authorId: regressAccountId('acct-1'), hosting: hosting(), ...extra }));
     return run('node', ['scripts/gate/check-pr.mjs', '--base', 'main', '--pr', '../pr-t288.json', '--json']);
   };
   const res = (r) => JSON.parse(r.out.slice(r.out.indexOf('{')));

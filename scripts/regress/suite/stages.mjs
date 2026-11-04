@@ -3,7 +3,7 @@
 // @regress {"now": "2026-10-02T12:00:00Z", "workspaces": ["st1", "st5", "st15"], "fixes": ["#286"]}
 import fs from 'node:fs';
 import path from 'node:path';
-import { workspace, checker, NAMES, SEATS, fill, TODAY } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, fill, TODAY, rosterAccount } from './lib.mjs';
 
 const { check, done, fixes } = checker();
 const SHOW = process.argv.includes('-v');
@@ -72,7 +72,7 @@ for (const n of [1, 5, 15]) {
 
   // 3. 席を埋める(人が決めた体制)
   fixes(['K60', '標準 2.8', '標準 3.5.5']);
-  const people = NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [`acct-${i + 1}`] }));
+  const people = NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [rosterAccount(`acct-${i + 1}`)] }));
   const seats = Object.fromEntries(SEATS.map((s, i) => [s, { accountable: NAMES[ASSIGN[n][i]] }]));
   const f = fill(W, people, seats);
   check(`${tag} 席の記入(/process-change)が通り、次の一手が出る`, f.ok && f.out.includes('[ピットイン] 次の一手'), f.out);

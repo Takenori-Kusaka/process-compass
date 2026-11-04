@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount } from './lib.mjs';
 
 const { check, done, ghRun, fixes } = checker();
 // 判定の材料とする記録を入れた変更の記録(gh の代役が返す。lib/bin/gh。process-compass #380 / ADR-0106)
@@ -33,7 +33,7 @@ fs.copyFileSync(path.join(DIR, 'templates/00-d0-governance.md'), path.join(DIR, 
 // #411(ADR-0091): D-0 表1 の「市場・顧客仮説の検証の実施」の行は空にしない。決定と実行に席を書く
 fs.writeFileSync(path.join(DIR, 'docs/D-0-governance.md'), fs.readFileSync(path.join(DIR, 'docs/D-0-governance.md'), 'utf8').replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |'));
 gen('--answers', 'process.config.json');
-const people = [{ id: 'p1', name: NAMES[0], accounts: ['acct-1'] }];
+const people = [{ id: 'p1', name: NAMES[0], accounts: [rosterAccount('acct-1')] }];
 check('任免(1名で全席)', fill(W, people, Object.fromEntries(SEATS.map((s) => [s, { accountable: NAMES[0] }]))).ok);
 write('docs/D-0-governance.md', read('docs/D-0-governance.md').replace(/^approver:.*$/m, `approver: ${NAMES[0]}`).replace(/^approved_at:.*$/m, `approved_at: ${TODAY}`).replace(/^approval_scope:.*$/m, 'approval_scope: all').replace(/^next_review:.*$/m, 'next_review: 2027-03-31'));
 fs.rmSync(path.join(DIR, 'change.json'), { force: true });
@@ -137,7 +137,7 @@ const aggregate = () => {
 };
 // 承認した者は名簿の外部の人(1名の体制で、作成を指示した本人と別の人)
 const roster = cfg();
-write('change.json', { kind: 'accountable', date: TODAY, summary: '外部の承認者を名簿へ足す', people: [...roster.people, { id: 'ext1', name: '組織 承認者', external: true, accounts: ['ext-acct'] }], decidedBy: NAMES[0], reason: '例外承認の承認者' });
+write('change.json', { kind: 'accountable', date: TODAY, summary: '外部の承認者を名簿へ足す', people: [...roster.people, { id: 'ext1', name: '組織 承認者', external: true, accounts: [rosterAccount('ext-acct')] }], decidedBy: NAMES[0], reason: '例外承認の承認者' });
 const addExt = gen('--change', 'change.json');
 check('N6 準備: 外部の承認者を名簿へ足す', addExt.ok, addExt.out);
 fs.rmSync(path.join(DIR, 'change.json'), { force: true });

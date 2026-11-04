@@ -3,7 +3,7 @@
 // @regress {"now": "2026-10-01T12:00:00Z", "workspaces": ["n"], "fixes": ["#284", "#285"]}
 import fs from 'node:fs';
 import path from 'node:path';
-import { workspace, checker, BASE, NAMES, APPOINTER, fill, BASIS, TODAY } from './lib.mjs';
+import { workspace, checker, BASE, NAMES, APPOINTER, fill, BASIS, TODAY, rosterAccount } from './lib.mjs';
 
 const W = workspace('n');
 const { DIR, run, git, write, read, cfg, gen, change, contract, checkD0, checkRules, resetTo, commit, d0, d0Version } = W;
@@ -24,7 +24,7 @@ d0('1.0');
 const P1 = { model: 'claude-fable-5-1', instructions: 'CLAUDE.md v1', permissions: 'dev-token' };
 const SOLO = Object.fromEntries(['biz-approver', 'value-owner', 'tech-lead', 'dev-verifier', 'independent-reviewer', 'qa-gatekeeper', 'context-owner', 'ai-maintainer', 'ai-ops'].map((r) => [r, { accountable: '山田 太郎' }]));
 SOLO['dev-verifier'] = { accountable: '山田 太郎', performer: P1, fallback: 'human' };
-const solo = change({ kind: 'accountable', date: DAY, summary: '1人+AI。全席の責任者を同一人物にする', people: [{ id: 'p1', name: '山田 太郎', accounts: ['yamada-taro'] }], seats: SOLO, decidedBy: '山田 太郎', reason: '初期の設定' });
+const solo = change({ kind: 'accountable', date: DAY, summary: '1人+AI。全席の責任者を同一人物にする', people: [{ id: 'p1', name: '山田 太郎', accounts: [rosterAccount('yamada-taro')] }], seats: SOLO, decidedBy: '山田 太郎', reason: '初期の設定' });
 // 第3巡(K60): 兼務の逸脱は選択の余地がないため記名を求めないが、席の責任者の初回の記入は任免であり、1人体制に限り本人の記名と理由で受け付ける
 accepted('1人で全席を兼ねる宣言(兼務は選択の余地がない。初回の記入は本人の記名)', solo, '逸脱の発生');
 check('向きは「任免の決定」(人は減っていない)。逸脱は記録される', last().direction === 'appoint' && cfg().deviations.some((d) => d.separationId === 'sep-maintainer-ops'), last().direction);
@@ -33,7 +33,7 @@ commit('chore: solo');
 git('tag', 'solo');
 
 // ---- 中6: 1人 → 2人
-const two = [{ id: 'p1', name: '山田 太郎', accounts: ['yamada-taro'] }, { id: 'p2', name: '佐藤 花子', accounts: ['sato-hanako'] }];
+const two = [{ id: 'p1', name: '山田 太郎', accounts: [rosterAccount('yamada-taro')] }, { id: 'p2', name: '佐藤 花子', accounts: [rosterAccount('sato-hanako')] }];
 const s2b = change({ kind: 'accountable', date: DAY, summary: '2人目が加わり、独立レビュアの席を任せる(回答は変えない)', people: two, seats: { 'independent-reviewer': { accountable: '佐藤 花子' } } }, true);
 // 第3巡(K62): 回答(確認者なし)と席(別の人の確認者)の矛盾は、案内ではなく拒否する。拒否の文に直し方を出す
 check('1人 → 2人で席だけを書くと、回答と名簿の矛盾として拒否し、回答を改める案内を出す', !s2b.ok && s2b.out.includes('回答を reviewer-yes へ改めます'), s2b.out);
@@ -265,7 +265,7 @@ refused('初期化の回答値が不正', (write('bad.json', { ...BASE, 'q-team-
 // ================================================================== 3名以上(K38・中7・中8・中9・K16)
 fixes(["K38", "K40", "K16"]);
 resetTo('solo');
-const people = (n) => NAMES.slice(0, n).map((name, i) => ({ id: String.fromCharCode(97 + i), name, accounts: [`acct-${String.fromCharCode(97 + i)}`] }));
+const people = (n) => NAMES.slice(0, n).map((name, i) => ({ id: String.fromCharCode(97 + i), name, accounts: [rosterAccount(`acct-${String.fromCharCode(97 + i)}`)] }));
 const SEATS3 = { 'biz-approver': { accountable: 'a' }, 'value-owner': { accountable: 'a' }, 'tech-lead': { accountable: 'a' }, 'dev-verifier': { accountable: 'b' }, 'independent-reviewer': { accountable: 'a' }, 'qa-gatekeeper': { accountable: 'c' }, 'context-owner': { accountable: 'a' }, 'ai-maintainer': { accountable: 'a' }, 'ai-ops': { accountable: 'c' } };
 accepted('1名 → 3名', change({ kind: 'headcount', date: DAY, summary: '3名体制', answers: { 'q-team-size': 'size-3-9' }, people: people(3), seats: SEATS3, decidedBy: '山田 太郎', reason: '3名体制へ' }), '未達の解消');
 check('全検査(3名)', allChecks(), why());
@@ -348,7 +348,7 @@ check('協働へ下がる', seat('dev-verifier').mode === 'collab');
 resetTo('delegated');
 
 // K16: 適合性確認を承認した席の責任者(開発者の席の責任者 b)が離脱する。失効するのは承認である
-const four = [...people(3), { id: 'd', name: NAMES[3], accounts: ['acct-d'] }];
+const four = [...people(3), { id: 'd', name: NAMES[3], accounts: [rosterAccount('acct-d')] }];
 accepted('4人目が加わる', change({ kind: 'accountable', date: DAY, summary: '4人目', people: four }));
 commit('chore: 4名');
 git('tag', 'four');

@@ -6,6 +6,11 @@
 // 呼び出しは REGRESS_GH_LOG(走らせる側の確認)・GH_LOG・MOCK_GH_LOG へ 1 行ずつ記録する。
 import fs from 'node:fs';
 import path from 'node:path';
+import { regressAccountId } from '../account-id.mjs';
+
+// REST の応答は書き手の数値の識別子(user.id)を持つ。場面の材料に無ければ、ログイン名から決まる値を足す(lib/account-id.mjs。#430)
+const withId = (u) => (u && typeof u === 'object' && u.login && u.id == null ? { ...u, id: regressAccountId(u.login) } : u);
+const readJson = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));
 
 const args = process.argv.slice(2);
 const line = `gh ${args.join(' ')}\n`;
@@ -13,6 +18,12 @@ for (const log of [process.env.REGRESS_GH_LOG, process.env.GH_LOG, process.env.M
 
 if (args[0] === '--regress-probe') {
   process.stdout.write('regress-gh\n');
+  process.exit(0);
+}
+// gh api users/<login>: 作成を指示した者の @アカウントを数値の識別子へ解決する(check-pr・集約。#430 突合 M-1)。ログイン名から決まる値を返す
+if (args[0] === 'api' && /^users\/[^/]+$/.test(args[1] ?? '')) {
+  const login = decodeURIComponent(args[1].slice('users/'.length));
+  process.stdout.write(JSON.stringify({ login, id: regressAccountId(login) }));
   process.exit(0);
 }
 if (process.env.MOCK_PRS) {
@@ -24,7 +35,30 @@ if (process.env.MOCK_PRS) {
     const m = target.match(/^repos\/[^/]+\/[^/]+\/(?:commits\/([0-9a-f]+)\/pulls|pulls\/(\d+)\/reviews|commits\/([0-9a-f]+))$/);
     const f = m ? path.join(process.env.MOCK_PRS, m[1] ? `pulls-${m[1]}.json` : m[2] ? `reviews-${m[2]}.json` : `commit-${m[3]}.json`) : null;
     if (f && fs.existsSync(f)) {
-      process.stdout.write(fs.readFileSync(f, 'utf8'));
+      const v = readJson(f);
+      // 書き手・作成者の数値の識別子を足す(REST の形)
+      const out = m[1] ? (Array.isArray(v) ? v.map((p) => ({ ...p, user: withId(p?.user) })) : v) : m[2] ? (Array.isArray(v) ? v.map((r) => ({ ...r, user: withId(r?.user) })) : v) : v && typeof v === 'object' ? { ...v, author: withId(v.author), committer: withId(v.committer) } : v;
+      process.stdout.write(JSON.stringify(out));
+      process.exit(0);
+    }
+    // gh api repos/<r>/pulls/<n>/reviews の材料が無ければ、gh pr view の材料($MOCK_PRS/<n>.json)の reviews を REST の形へ直して返す。
+    // gh api repos/<r>/pulls/<n> は、同じ材料の作成者を REST の形(user.login・user.id)で返す(集約が写しの無い PR の識別子を引く。#430)
+    const pr = target.match(/^repos\/[^/]+\/[^/]+\/pulls\/(\d+)(\/reviews)?$/);
+    const src = pr ? path.join(process.env.MOCK_PRS, `${pr[1]}.json`) : null;
+    if (src && fs.existsSync(src)) {
+      const d = readJson(src);
+      if (pr[2]) {
+        const reviews = (Array.isArray(d.reviews) ? d.reviews : []).map((r, i) => ({
+          id: r.id ?? 9000000 + i,
+          user: withId({ login: r.author?.login ?? null, ...(r.author?.id != null && /^\d+$/.test(String(r.author.id)) ? { id: Number(r.author.id) } : {}), type: r.author?.is_bot ? 'Bot' : 'User' }),
+          state: r.state ?? null,
+          body: r.body ?? '',
+          submitted_at: r.submittedAt ?? r.submitted_at ?? null,
+          commit_id: r.commit?.oid ?? r.commit_id ?? null,
+          ...(r.authorAssociation || r.author_association ? { author_association: r.authorAssociation ?? r.author_association } : {}),
+        }));
+        process.stdout.write(JSON.stringify(reviews));
+      } else process.stdout.write(JSON.stringify({ number: d.number ?? Number(pr[1]), user: withId({ login: d.author?.login ?? null }) }));
       process.exit(0);
     }
   }

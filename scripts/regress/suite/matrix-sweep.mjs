@@ -15,7 +15,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { workspace, checker, NAMES, SEATS, APPOINTER, fill, TODAY } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, APPOINTER, fill, TODAY, rosterAccount } from './lib.mjs';
 
 const { check, fixes, done } = checker();
 fixes(['K60', 'K62', 'K65']);
@@ -62,7 +62,7 @@ const ASSIGN = {
   15: [0, 1, 2, 3, 4, 5, 6, 7, 8],
 };
 const SIZE = { 1: 'size-1-2', 2: 'size-1-2', 3: 'size-3-9', 5: 'size-3-9', 15: 'size-10plus' };
-const roster = (n) => NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [`acct-${i + 1}`] }));
+const roster = (n) => NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [rosterAccount(`acct-${i + 1}`)] }));
 
 let bad = 0;
 const rows = [];

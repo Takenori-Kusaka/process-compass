@@ -26,6 +26,9 @@ files:
   - path: scripts/gate/material-attribution.mjs
     reason: library
     why: check-pr.mjs(PR の時点の検査)と aggregate-evidence.mjs(出荷の証跡の集約)が使う、判定の材料とする記録(例外承認の台帳の行・停止の解除の記録)の帰属の照合。規定は第4章「判定記録を基底ブランチへ入れる操作」の IMPL-0413・0414・0416 で追う(process-compass #380)
+  - path: scripts/gate/roster-ids.mjs
+    reason: infra
+    why: 名簿の数値の識別子を、記録用ブランチの写しと基底ブランチの複製の user.id から提案する補助の道具(名簿は書き換えない。名簿へ書くのは人の /process-change 種別 accountable)。照合そのものは config.mjs の identifyAccount を使う各検査が行い、規定は第4章「アカウントと人の対応表」の IMPL-0426 で追う(process-compass #430)
   - path: scripts/gate/customer-voice.mjs
     reason: library
     why: check-d0(降ろし先 d0-template)と check-g1(降ろし先 g1-check)が使う、D-0 表1 の検証の行・決定と同意の列と、企画書の観点3 の出所の区分の判定。規定は D-0 の IMPL-0360 で追う(process-compass #411)

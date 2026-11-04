@@ -3,7 +3,7 @@
 // @regress {"now": "2026-10-01T12:00:00Z", "workspaces": ["s"], "fixes": ["#284", "#285"]}
 import fs from 'node:fs';
 import path from 'node:path';
-import { workspace, checker, BASE, APPOINTER, fill, BASIS, TODAY } from './lib.mjs';
+import { workspace, checker, BASE, APPOINTER, fill, BASIS, TODAY, rosterAccount, regressAccountId } from './lib.mjs';
 
 const W = workspace('s');
 const { DIR, run, git, write, read, cfg, gen, change, contract, checkD0, checkRules, resetTo, commit, d0, d0Version } = W;
@@ -13,9 +13,9 @@ const P = { model: 'claude-fable-5-1', instructions: 'CLAUDE.md@v1', permissions
 // 適合性確認: 実施は AI維持管理者の席の責任者(山田)、承認は当該の席の責任者
 const Q = (approvedBy = '山田 太郎', o = {}) => ({ confirmedAt: '2026-09-30', performedBy: '山田 太郎', approvedBy, cases: '注入事例10件', result: '9/10', performer: P, ...o });
 const PEOPLE3 = [
-  { id: 'yamada', name: '山田 太郎', accounts: ['yamada-taro'] },
-  { id: 'sato', name: '佐藤 花子', accounts: ['sato-hanako'] },
-  { id: 'suzuki', name: '鈴木 一郎', accounts: ['suzuki-ichiro'] },
+  { id: 'yamada', name: '山田 太郎', accounts: [rosterAccount('yamada-taro')] },
+  { id: 'sato', name: '佐藤 花子', accounts: [rosterAccount('sato-hanako')] },
+  { id: 'suzuki', name: '鈴木 一郎', accounts: [rosterAccount('suzuki-ichiro')] },
   // 第3巡(K60): 組織上の任命権者。全席が未記入の体制の初回の記入を記名する(体制の外)
   APPOINTER,
 ];
@@ -130,7 +130,7 @@ check('契約検査(委任後)', contract().ok, contract().out);
 check('CLAUDE.md の構成依存部分', checkRules().ok, checkRules().out);
 check('D-0 の検査(委任後)', checkD0().ok, checkD0().out);
 check('席が委任になった', cfg().seats.find((s) => s.role === 'dev-verifier').mode === 'delegated');
-check('D-0 の節12 に委任の範囲が出る', read('docs/D-0-governance.md').includes('| 開発者(検証者) | claude-fable-5-1 / CLAUDE.md@v1 / tok-dev | 委任 | `DR-001` |'), read('docs/D-0-governance.md').split('\n').filter((l) => l.includes('開発者(検証者)')).join('\n'));
+check('D-0 の節12 に委任の範囲が出る', read('docs/D-0-governance.md').includes('| 開発者(検証者) | claude-fable-5-1 / CLAUDE.md@v1 / tok-dev | **未申告**(席の責任者と共有として扱う。列挙に無い離脱) | 委任 | `DR-001` |'), read('docs/D-0-governance.md').split('\n').filter((l) => l.includes('開発者(検証者)')).join('\n'));
 check('D-0 の版が上がっている', d0Version() !== '1.0' && String(cfg().d0Version) === d0Version(), `${d0Version()} / ${cfg().d0Version}`);
 commit('chore: 委任');
 git('tag', 'delegated');
@@ -317,7 +317,7 @@ check('セルフテスト', run('node', ['scripts/init/set-review-sourcing.mjs',
 // 外部の確認者を置く(1名 + 外部)
 accepted(
   '外部の確認者を置く',
-  change({ kind: 'accountable', date: DAY, summary: '外部の確認者を置いた', answers: { 'q-external-reviewer': 'reviewer-yes' }, people: [PEOPLE3[0], { id: 'ext', name: '高橋 次郎', external: true, accounts: ['takahashi-j'] }], seats: { 'independent-reviewer': { accountable: '高橋 次郎' } }, decidedBy: '山田 太郎', reason: '外部の確認者と取り決めた' }),
+  change({ kind: 'accountable', date: DAY, summary: '外部の確認者を置いた', answers: { 'q-external-reviewer': 'reviewer-yes' }, people: [PEOPLE3[0], { id: 'ext', name: '高橋 次郎', external: true, accounts: [rosterAccount('takahashi-j')] }], seats: { 'independent-reviewer': { accountable: '高橋 次郎' } }, decidedBy: '山田 太郎', reason: '外部の確認者と取り決めた' }),
   '未達の解消'
 );
 check('G-6 が成立し、外部の確認者は人数に数えない', cfg().gates.g6.state === 'required' && contract().ok, contract().out);
@@ -411,10 +411,10 @@ refused('アカウントに bot', change({ kind: 'accountable', people: [PEOPLE3
 refused('アカウントの重複(1つのアカウントを2人へ)', change({ kind: 'accountable', people: [PEOPLE3[0], { ...PEOPLE3[1], accounts: ['Yamada-Taro'] }, PEOPLE3[2]] }), '重複');
 refused('アカウントが配列でない', change({ kind: 'accountable', people: [{ ...PEOPLE3[0], accounts: 'yamada-taro' }, PEOPLE3[1], PEOPLE3[2]] }), '配列');
 // 第4巡(K67): アカウントだけの変更は同じ人の表記の変更で、記名と理由を要する。山田は決定者本人のため、本人以外の席の責任者が記名する
-refused('アカウントを足す(記名なし)', change({ kind: 'accountable', date: DAY, summary: '山田の副アカウント', people: [{ ...PEOPLE3[0], accounts: ['yamada-taro', 'yamada-sub'] }, PEOPLE3[1], PEOPLE3[2]] }), '表記の変更');
-refused('アカウントを足す(決定者本人の記名)', change({ kind: 'accountable', date: DAY, summary: '山田の副アカウント', people: [{ ...PEOPLE3[0], accounts: ['yamada-taro', 'yamada-sub'] }, PEOPLE3[1], PEOPLE3[2]], decidedBy: '山田 太郎', reason: '副アカウント' }), '決定者本人の行');
-accepted('アカウントを足す', change({ kind: 'accountable', date: DAY, summary: '山田の副アカウント', people: [{ ...PEOPLE3[0], accounts: ['yamada-taro', 'yamada-sub'] }, PEOPLE3[1], PEOPLE3[2]], decidedBy: '佐藤 花子', reason: '副アカウント' }), 'のアカウント');
-check('アカウントの追加は「構成の変更あり」で、D-0 の名簿にも出る', cfg().people[0].accounts.length === 2 && checkD0().ok && read('docs/D-0-governance.md').includes('yamada-taro, yamada-sub'), checkD0().out);
+refused('アカウントを足す(記名なし)', change({ kind: 'accountable', date: DAY, summary: '山田の副アカウント', people: [{ ...PEOPLE3[0], accounts: [rosterAccount('yamada-taro'), rosterAccount('yamada-sub')] }, PEOPLE3[1], PEOPLE3[2]] }), '表記の変更');
+refused('アカウントを足す(決定者本人の記名)', change({ kind: 'accountable', date: DAY, summary: '山田の副アカウント', people: [{ ...PEOPLE3[0], accounts: [rosterAccount('yamada-taro'), rosterAccount('yamada-sub')] }, PEOPLE3[1], PEOPLE3[2]], decidedBy: '山田 太郎', reason: '副アカウント' }), '決定者本人の行');
+accepted('アカウントを足す', change({ kind: 'accountable', date: DAY, summary: '山田の副アカウント', people: [{ ...PEOPLE3[0], accounts: [rosterAccount('yamada-taro'), rosterAccount('yamada-sub')] }, PEOPLE3[1], PEOPLE3[2]], decidedBy: '佐藤 花子', reason: '副アカウント' }), 'のアカウント');
+check('アカウントの追加は「構成の変更あり」で、D-0 の名簿にも出る', cfg().people[0].accounts.length === 2 && checkD0().ok && read('docs/D-0-governance.md').includes(`yamada-taro(#${regressAccountId('yamada-taro')}), yamada-sub(#${regressAccountId('yamada-sub')})`), checkD0().out);
 
 // ------------------------------------------------------------------ 指示資産の版の照合
 fixes(["K40"]);

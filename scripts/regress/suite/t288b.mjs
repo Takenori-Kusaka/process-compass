@@ -10,7 +10,7 @@ const mockMaterialPr = (dir, sha, { number, author, approvers }) => {
   fs.writeFileSync(path.join(dir, `pulls-${sha}.json`), JSON.stringify([{ number, merged_at: '2026-10-01T00:00:00Z', merge_commit_sha: sha, head: { sha: `head-${number}` }, user: { login: author } }]));
   fs.writeFileSync(path.join(dir, `reviews-${number}.json`), JSON.stringify(approvers.map((login) => ({ user: { login, type: 'User' }, state: 'APPROVED', commit_id: `head-${number}` }))));
 };
-import { workspace, NAMES, TODAY, FIXTURES } from './lib.mjs';
+import { workspace, NAMES, TODAY, FIXTURES, regressAccountId } from './lib.mjs';
 import { pathToFileURL } from 'node:url';
 // #319 §8 X-1: 節ごとに固定する決定(元は ADR-0057 の全体。ADR-0057 は決定を番号で分けるため、決定の番号か、採用後の補足が改めた標準の条項で引く)
 fixes(['ADR-0057 決定9']);
@@ -263,7 +263,7 @@ fixes(['標準 3.8.1', 'ADR-0054 決定5']);
   git('tag', 'floor288');
   const body = (risk, extra = '', instr = NAMES[0]) => `## 検証方法と結果\n\nなし\n\n## 作成を指示した者\n\n${instr}\n\n## リスク区分\n\n${risk}\n${extra}\n## トレーラ\n\nSpec: setup\n`;
   const pr = (b) => {
-    write('../pr-u3.json', JSON.stringify({ number: 91, title: 'feat', body: b, author: 'acct-1' }));
+    write('../pr-u3.json', JSON.stringify({ number: 91, title: 'feat', body: b, author: 'acct-1', authorId: regressAccountId('acct-1') }));
     const r = run('node', ['scripts/gate/check-pr.mjs', '--base', 'main', '--pr', '../pr-u3.json', '--json']);
     return { ...r, j: JSON.parse(r.out.slice(r.out.indexOf('{'))) };
   };
@@ -322,7 +322,7 @@ fixes(['標準 3.8.1', '標準 3.4.2']);
   write('docs/notes.md', '# メモ\n');
   git('add', '-A');
   git('commit', '-q', '-m', 'docs: メモ');
-  write('../pr-u1.json', JSON.stringify({ number: 5, title: 'docs', body: '## 検証方法と結果\n\nなし\n\n## リスク区分\n\nR2\n\n## トレーラ\n\nSpec: setup\n', author: 'acct-1' }));
+  write('../pr-u1.json', JSON.stringify({ number: 5, title: 'docs', body: '## 検証方法と結果\n\nなし\n\n## リスク区分\n\nR2\n\n## トレーラ\n\nSpec: setup\n', author: 'acct-1', authorId: regressAccountId('acct-1') }));
   const r = run('node', ['scripts/gate/check-pr.mjs', '--base', 'main', '--pr', '../pr-u1.json', '--json']);
   const j = JSON.parse(r.out.slice(r.out.indexOf('{')));
   check('1名体制: 確定者の無い R2 は失敗させず、確定していない区分として出す', !j.errors.some((e) => e.includes('確定者')) && j.notices.some((n) => n.includes('確定していないものとして扱い')), JSON.stringify(j.errors.concat(j.notices)));

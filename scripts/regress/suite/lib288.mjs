@@ -2,7 +2,7 @@
 //   sh fresh.sh t3 && sh fresh.sh t1 && node t288.mjs [-v]
 import fs from 'node:fs';
 import path from 'node:path';
-import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount } from './lib.mjs';
 
 export const { check, done, ghRun, fixes } = checker();
 // gh は PATH 上の代役(lib/bin/gh)。元は --import mockgh-prs.mjs で execFileSync を差し替えていた
@@ -148,7 +148,7 @@ function setup(ws, n) {
   fs.writeFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), fs.readFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), 'utf8').replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |'));
   gen('--answers', 'process.config.json');
   // 第3巡(C): D-0 節9 の代理者は名簿の人へ対応づく氏名だけを候補に数える。代理者を名簿へ入れる
-  const people = [...NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [`acct-${i + 1}`] })), ...(n === 1 ? [] : [{ id: 'dep1', name: '代理 太郎', accounts: ['acct-dep1'] }, { id: 'dep2', name: '候補 花子', accounts: ['acct-dep2'] }])];
+  const people = [...NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [rosterAccount(`acct-${i + 1}`)] })), ...(n === 1 ? [] : [{ id: 'dep1', name: '代理 太郎', accounts: [rosterAccount('acct-dep1')] }, { id: 'dep2', name: '候補 花子', accounts: [rosterAccount('acct-dep2')] }])];
   const assign = n === 1 ? Object.fromEntries(SEATS.map((s) => [s, 0])) : { 'biz-approver': 1, 'value-owner': 0, 'tech-lead': 0, 'dev-verifier': 0, 'independent-reviewer': 1, 'qa-gatekeeper': 2, 'context-owner': 0, 'ai-maintainer': 1, 'ai-ops': 0 };
   const seats = Object.fromEntries(SEATS.map((s) => [s, { accountable: NAMES[assign[s]] }]));
   const f = fill(W, people, seats);

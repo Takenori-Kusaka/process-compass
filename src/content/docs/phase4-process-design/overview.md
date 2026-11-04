@@ -604,7 +604,7 @@ flowchart LR
 <!-- impl IMPL-0120 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=354 review=2027-04 note="第1章 1.10.2 の適用の表明に併記する事項(従う版と、作業中の版のときの配布物のコミットの識別、未達のゲートの件数と記録の欠落の件数、逸脱と列挙に無い離脱の一覧)を、表明の様式として出力する仕組みは無い。出荷の証跡の集約は、範囲について述べられる名と版と逸脱を出す(IMPL-0308)が、未達と記録の欠落の件数を表明の文と組にして出さない。表明する者が、表明の時点で転記して確かめる(#306・#313)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0308 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-edition-end.mjs note="集約の範囲について述べられる名(適合の主張・逸脱を伴う適合の主張・適用の表明だけ・述べられない)を、範囲の終点のコミットの構成の版・未達・閉じた列挙の逸脱・列挙に無い離脱と、範囲の記録の欠落から導いて出力する(claim)。範囲の中で従う版が変われば名を出さず、範囲を分けるよう出す。終了の記録は、終了を含む範囲の名を消さず、過去の範囲として述べる旨を出す。PROCESS-PROFILE.md と CLAUDE.md の生成区間も構成について同じ名を出す。作業中の版では適用の表明までとし、列挙に無い離脱があれば適用の表明までとすることを、版をまたぐ範囲と終了を含む範囲とあわせて test-edition-end.mjs が実行して確かめる。範囲の時点の未達と兼務は範囲の終点の構成で読み、範囲の途中の構成の変化は版のほかは見ない(#313)" -->
-<!-- impl IMPL-0430 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-material-attribution.mjs note="述べられる名(claimStatus。保証の開示と PROCESS-PROFILE.md が読む)が、AI の担い手を宣言した席(seats[].performer)で名義が専用と申告されていないものを、列挙に無い離脱「AI の担い手の名義の共有・未申告」として数え、適合の主張と逸脱を伴う適合の主張を出さない。名義の申告の欄は #430 で降ろすため、それまでは担い手を宣言した席はすべて未申告として数える(#429)" -->
+<!-- impl IMPL-0430 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-material-attribution.mjs note="述べられる名(claimStatus。保証の開示と PROCESS-PROFILE.md が読む)が、AI の担い手を宣言した席(seats[].performer)で名義が専用と申告されていないものを、列挙に無い離脱「AI の担い手の名義の共有・未申告」として数え、適合の主張と逸脱を伴う適合の主張を出さない。名義の申告(seats[].performerAccount。IMPL-0420)に基づき、共有を明示した席も数える。未申告は、担い手を宣言した席に限って数える(#429・#430)" -->
 
 #### 逸脱の閉じた列挙
 
