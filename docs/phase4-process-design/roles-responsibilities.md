@@ -946,6 +946,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 - 規則の網羅は主張しない。規則に当たらない R1 相当の変更は、指示した者の記載どおり R3 として通りうる。この残余は、保証の開示の項目3 の自己記載の件数と、[附属書H](/process-compass/phase4-process-design/assurance-case/) H.11 に開示する
 - 1名体制では、要求事項3 の確定者を内側に置けない。R1・R2 の変更は外部の確認者が確定するか、確定していない区分として扱い、保証の開示の項目3 へ表示する
 
+<!-- impl IMPL-0391 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-direct-commit-rules.mjs note="要求事項2・6 のうち、PR を経ないコミットへの照合。出荷の証跡の集約が、当該コミットの直前の構成の riskFloor.rules をコミットの差分に当て、トレーラ Risk(または判定記録の区分)が下限より低いコミットと、riskFloor と製品のコードを同じコミットで変えたコミットを記載の欠落にする。R1・R2 の確定者の記名は、PR を経ないコミットについては判定記録の件数として開示するだけで、コミットごとに欠落にしない(#423)" -->
 <!-- impl IMPL-0062 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="プロセス構成に区分の下限の規則(パスと変更種別から R1・R2 の下限を導く)を置き、pr-rules が、PR の差分から導いた下限より低い区分の記載を失敗させる。R1・R2 の区分に、作成を指示した者以外の名簿の人による確定の記名(AI の名義でない)が無い PR を失敗させる。規則のファイルを変える PR の下限を R2 とし、規則と製品のコードの同時変更を失敗させる。下限の規則は基底ブランチから読む" -->
 
 委任の範囲([第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/))に当たるかどうかは、事前に定めた機械の規則で判定します。**行為する AI 自身に判定させません**。規則で分類できない変更の区分は、人間が確定します。規則に関わる者は、次のとおり分かれます。
