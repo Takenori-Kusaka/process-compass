@@ -26,6 +26,7 @@ sidebar:
 | --- | --- | --- | --- |
 | 置く場合の規定 | プロダクトの原則を置いた場合 | その他 | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/#置く場合の規定適用-プロダクトの原則を置いた場合) |
 | AIエージェント安全リスクアセスメント | 物理的な危険源・R1 の変更種別・本番到達・L2 以上のいずれか | 変更ごと | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/#aiエージェント安全リスクアセスメント適用-物理的な危険源r1-の変更種別本番到達l2-以上のいずれか) |
+| 確認の範囲と深さ | G-6 の承認 | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#確認の範囲と深さ適用-g-6-の承認) |
 | 承認レビューを判定記録とする条件 | G-6。規制業の監査対応書式を除く | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#承認レビューを判定記録とする条件適用-g-6規制業の監査対応書式を除く) |
 | 委任の変更は判定の時点を事後へ移す | CL0・R3 の変更 | 変更ごと | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#委任の変更は判定の時点を事後へ移す適用-cl0r3-の変更) |
 | 未達のまま出荷する場合の例外承認 | R1 の変更 | 変更ごと | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#未達のまま出荷する場合の例外承認適用-r1-の変更) |
