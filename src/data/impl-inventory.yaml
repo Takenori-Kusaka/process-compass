@@ -530,7 +530,11 @@ sections:
   - key: phase4-process-design/gate-criteria#ゲート運用の共通ルール
     status: pending
   - key: phase4-process-design/gate-criteria#判定の成立
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0008
+      - IMPL-0425
+      - IMPL-0426
   - key: phase4-process-design/gate-criteria#判定の成立 > 機械が出す欄と人が書く欄
     status: marked
     ids:
@@ -550,6 +554,7 @@ sections:
       - IMPL-0415
       - IMPL-0416
       - IMPL-0417
+      - IMPL-0427
       - IMPL-0128
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
@@ -723,6 +728,8 @@ sections:
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
     status: kb
     ids:
+      - IMPL-0423
+      - IMPL-0424
       - IMPL-0335
       - IMPL-0077
       - IMPL-0111
@@ -1788,7 +1795,8 @@ sections:
     ids:
       - IMPL-0120
       - IMPL-0308
-    note: 述べられる名の導出は IMPL-0308。表明の様式の出力は undelivered(IMPL-0120)
+      - IMPL-0430
+    note: 述べられる名の導出は IMPL-0308。担い手の名義の未申告の数え方は IMPL-0430。表明の様式の出力は undelivered(IMPL-0120)
     issue: 313
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張 > 逸脱の閉じた列挙
     status: marked
@@ -1921,6 +1929,48 @@ sections:
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 実行主体が参照するもの
     status: pending
+  - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 人と AI の担い手の名義
+    status: marked
+    ids:
+      - IMPL-0418
+      - IMPL-0419
+      - IMPL-0420
+      - IMPL-0421
+      - IMPL-0422
+      - IMPL-0428
+      - IMPL-0429
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0420
+          - IMPL-0422
+          - IMPL-0428
+          - IMPL-0429
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0420
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0420
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0418
+          - IMPL-0419
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0421
+      要求事項6:
+        status: none
+        category: elsewhere
+        reason: 崩れる統制の扱いは第4章 G-6 の数え方(IMPL-0423・0424)と「判定記録を基底ブランチへ入れる操作」(IMPL-0427)で追う
+        location:
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
+          - phase4-process-design/gate-criteria#判定の成立 > 判定記録を基底ブランチへ入れる操作
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し

@@ -309,6 +309,12 @@ targets:
     path: .claude/hooks/guard-write.mjs
     description: 強制層(設定・フック・ワークフロー・ルールセット・ゲートのスクリプト)への書き込みと、自己修正のロック中のテストへの書き込みを遮断し、拒否した操作を .claude/denied.log へ残す(第5章 5.8.5 禁止事項3)。Claude Code の Edit・Write だけを遮断する。試験は無い
 
+  - id: guard-bash-hook
+    name: ホスティングへの書き込みの操作の遮断のフック
+    kind: template-file
+    path: .claude/hooks/guard-bash.mjs
+    description: AI の担い手が Bash で行う、ホスティングの上の承認・レビュー・マージ・書き込みの形の gh api・GraphQL の mutation・curl による書き込み・認証情報の読み出しを拒否し、.claude/denied.log へ残す(第3章 3.5.3「人と AI の担い手の名義」の要求事項4。#429)。抑止の層であり、名義の分離ではない
+
   - id: context-drift-workflow
     name: 恒久層コンテキストの陳腐化の記録のワークフロー
     kind: template-file

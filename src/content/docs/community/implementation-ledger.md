@@ -23,8 +23,8 @@ sidebar:
 | --- | --- | --- | --- | --- | --- |
 | 第1章 | 27 | 7 | 0 | 6 | **14** |
 | 第2章 | 39 | 4 | 0 | 3 | **32** |
-| 第3章 | 94 | 23 | 0 | 16 | **55** |
-| 第4章 | 97 | 19 | 3 | 8 | **67** |
+| 第3章 | 95 | 24 | 0 | 16 | **55** |
+| 第4章 | 97 | 20 | 3 | 8 | **66** |
 | 第5章 | 54 | 27 | 0 | 8 | **19** |
 | 第6章 | 75 | 4 | 0 | 6 | **65** |
 | 第7章 | 43 | 2 | 0 | 2 | **39** |
@@ -33,9 +33,9 @@ sidebar:
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
 | 附属書H | 44 | 3 | 0 | 8 | **33** |
-| **計** | 558 | 93 | 3 | 59 | **403** |
+| **計** | 559 | 95 | 3 | 59 | **402** |
 
-未棚卸しの403節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
+未棚卸しの402節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
 **台帳の件数は網羅の証明ではありません**。降りていない規定が0件であることも、未棚卸しの節が0件であることも、規定がすべて降りたことを示しません。機械が確かめるのは、節が区分つきで登録されていること、登録の鍵と識別子が実在すること、「対象にしない」の節にマークが無いことまでです。節の中の規定がすべてマークされているかは、区分を登録した者の判断です。
 
@@ -45,9 +45,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 105 |
-| 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 90 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 221 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 108 |
+| 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 91 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 230 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -59,18 +59,18 @@ sidebar:
 | --- | --- |
 | 走査したファイル(スキルと CLAUDE.md の生成区間の外) | 62 |
 | 印を求める要求・禁止の文 | 64 |
-| 範囲の外: 太字の否定を含む行 | 128 |
-| 範囲の外: 平叙の否定で終わる行 | 377 |
+| 範囲の外: 太字の否定を含む行 | 130 |
+| 範囲の外: 平叙の否定で終わる行 | 378 |
 
 ### 降りていない規定
 
-降りていない規定: **116件**
+降りていない規定: **125件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 34 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 82 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 34 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 91 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -192,6 +192,15 @@ sidebar:
 | IMPL-0408 | 3.12.4 の基準値。品質の監視の基準値を、導入を承認した評価の結果とし、監視の結果から自動で改めない。改めは AI運用担当者の記名と理由・旧い値・新しい値の記録による。基準値を下げる変更を緩める向きとして扱う。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 採用者の AI運用担当者(基準値を定めるとき、改めるとき) | モデルの品質の監視(採用者の AI 実行基盤)(予定の置き場) | 採用者が実装する(ADR-0104) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0412 | 3.12.13 の要求事項5・8〜10 と 3.12.4 の追加の段落。監視の試行を AI の採点で採点する場合に、採点のモデルを明示して版を固定し、採点者の識別の変更・正解の改め・半期の暦で較正を測り直し、識別が変わった後の結果を変わる前の基準値と比べない。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 採用者の AI運用担当者(採点のモデルを導入するとき、識別を変えるとき) | モデルの品質の監視(採用者の AI 実行基盤)(予定の置き場) | 採用者が実装する(ADR-0105) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0415 | 層1 の行(受容者の記名)、D-0 の決定の記名、前倒しで要る SG の判定記録の帰属を、効力を持つ前に記名者本人のアカウントの操作で確かめること。準拠テンプレートは、これらを名前で照合するだけで、記録を入れた変更の作成者・承認者と照合しない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#428](https://github.com/Takenori-Kusaka/process-compass/issues/428)(見直し 2027-02) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0420 | 要求事項1〜3 と 6。構成の seats[].performerAccount に名義(dedicated / shared / 無記入=未申告)を書き、dedicated は数値の識別子とログイン名、shared は名簿の識別子を持ち、契約検査が名簿との重なりを確かめ、共有・未申告を列挙に無い離脱として出すこと。準拠テンプレートは名義の欄を持たない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の seats[] | 予定 [#430](https://github.com/Takenori-Kusaka/process-compass/issues/430)(見直し 2027-02) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0421 | 要求事項5。env-check が担い手の実行環境で認証したアカウント(login と数値の識別子)を引き、名簿と名義の申告に照合し、確かめた日時と結果を残すこと。準拠テンプレートは照合しない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 導入前の検証のコマンド | 予定 [#430](https://github.com/Takenori-Kusaka/process-compass/issues/430)(見直し 2027-02) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0422 | 要求事項1〜3 の記録の欄。D-0 表5-2 に列「アカウントの数値の識別子」、表7 に列「担い手の名義」を置き、構成から埋めること。様式に欄が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 成果物テンプレート D-0(体制図) | 予定 [#430](https://github.com/Takenori-Kusaka/process-compass/issues/430)(見直し 2027-02) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0423 | G-6 の承認者の数(検査8)と出荷の集約が、seats[].performerAccount の dedicated のアカウントの承認を数値の識別子で数えず、名義を共有する人のアカウントの承認に印を付けて数えること。準拠テンプレートは名義の欄を持たず、AI の承認を名義の語と bot の型でしか見分けない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | 予定 [#430](https://github.com/Takenori-Kusaka/process-compass/issues/430)(見直し 2027-02) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0424 | 保証の開示の項目1 に、AI の担い手の名義の状態(専用 / 共有する人 / 未申告)と、名義を共有するアカウントの承認・名義の共有に依る帰属の件数を、前回の値と並べて出すこと。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#430](https://github.com/Takenori-Kusaka/process-compass/issues/430)(見直し 2027-02) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0426 | アカウントと人の対応表を数値の識別子で照合すること。名簿 people[].accounts に {login, id} を許し、数値の識別子で照合し、id の無い名簿の要素へ対応づけず、login が一致し id が異なるアカウントを所見に出し、名簿の数値の識別子を記録用ブランチの写しの user.id から提案し(名簿へ入れるのは人)、作成を指示した者の @アカウントを検査の時点に数値へ解決して残すこと。準拠テンプレートはログイン名の文字列で照合する。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#430](https://github.com/Takenori-Kusaka/process-compass/issues/430)(見直し 2027-02) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0427 | 名義を共有する記名者(seats[].performerAccount が shared または無記入の担い手と共有する人)の操作だけでは、効力を持つ記録の帰属に数えず、名義を共有していない人の帰属の確認を要すること。名義の共有を理由とする自己申告を区別して開示すること。準拠テンプレートは名義を見分けない(名義の欄が無い)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#430](https://github.com/Takenori-Kusaka/process-compass/issues/430)(見直し 2027-02) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0428 | 要求事項1。/process-init で担い手の名義を全規模で問い、回答から seats[].performerAccount を生成すること。初期化は名義を問わない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | プロセス構成の初期化(強制層の生成) | 予定 [#430](https://github.com/Takenori-Kusaka/process-compass/issues/430)(見直し 2027-02) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0429 | 要求事項1〜3 の変更。/process-change の種別 performer で名義を変え、変化点4 に数え、適合性確認を失効させず、専用から共有への切り替えを緩める向きの変更として席の責任者の記名を要すること。種別 accountable で名簿のアカウントを login と数値の識別子の対で書くこと。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 体制の変化点を反映するスキル | 予定 [#430](https://github.com/Takenori-Kusaka/process-compass/issues/430)(見直し 2027-02) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 
 ### 全件
 
@@ -608,10 +617,23 @@ sidebar:
 | IMPL-0410 | 3.12.13 の要求事項2〜4・6〜8。較正の記録(judge)の採点者の識別(モデルの固定した版・採点の指示の版・推論の設定)、一致の読み方と技術判断者の記名と日、部分集合の選び方と件数の決め方、人の採点者の記名(AI の名義を数えない)、比べる双方ごとの組の件数・偶然の一致を除く指標・区間を確かめ、欠けた記録を『未測定』と出す。読み方を回帰評価の日より後に定めた記録を緩める向きの変更として出す。値の妥当性と、識別の変更後の測り直しの有無は確かめない(#426) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-model-adoption.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0411 | 3.12.13 の要求事項1(a)。退出の予行の記録 docs/exit-rehearsal.json の rehearsals[] に、AI の採点を用いたか(grading)と較正の記録(judge)の欄を置き(kinds/performer.md)、出荷の証跡の集約が AI の採点を用いて較正の記録の欠けた予行を『未測定』と出す(#426) | 体制の変化点を反映するスキル | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-model-adoption.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0412 | 3.12.13 の要求事項5・8〜10 と 3.12.4 の追加の段落。監視の試行を AI の採点で採点する場合に、採点のモデルを明示して版を固定し、採点者の識別の変更・正解の改め・半期の暦で較正を測り直し、識別が変わった後の結果を変わる前の基準値と比べない。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 採用者の AI運用担当者(採点のモデルを導入するとき、識別を変えるとき) | モデルの品質の監視(採用者の AI 実行基盤) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0413 | PR の時点の検査(check-pr.mjs が material-attribution.mjs で読む)が、例外承認の台帳の行と停止の解除の記録を、名前の一致だけでは数えない。(A) 対象の PR の上の記名者本人のレビュー(宣言行「例外承認: 行の ID」「停止の解除: 解除」。書き手が名簿の人で AI・bot でなく、PR の作成者と異なり、レビューの対象のコミットが PR の先頭(PR_HEAD_SHA)と一致し、解除はラベルの後で層1 の項目4 の権限者、例外は行の承認した者で作成を指示した者でない)か、(B) 記録を最後に変えたコミットの PR の作成者・承認者に記名者のアカウントがあること(記名者が作成者なら記名者以外の人の承認。名簿に記名者以外の人がいなければ自己申告として受け付ける。PR を経ないコミットは署名の検証と author)をホスティングの記録で確かめる。(A) で裏づけた台帳の行は PR の中で足してよい。レビューの本文を書き手以外が編集したもの(GraphQL の editor)と、編集の記録を読めないものは数えない。(B) の承認は取り込んだ先頭のコミットに対するもので名簿の人のものに限り、記名者が作成者の PR は記名者以外のコミットを含めば数えない。PR を経ないコミットは committer・author とも記名者の署名つきに限る。ラベルの履歴を読めなければ解除のレビューを数えない。限界: 作成を指示した者の照合は PR 本文の欄(判定される側が書く)に依る。editor が直近の編集者だけを示すかは確かめていない(EV-0220)。名簿の照合はログイン名(#429)(#380) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0413 | PR の時点の検査(check-pr.mjs が material-attribution.mjs で読む)が、例外承認の台帳の行と停止の解除の記録を、名前の一致だけでは数えない。(A) 対象の PR の上の記名者本人のレビュー(宣言行「例外承認: 行の ID」「停止の解除: 解除」。書き手が名簿の人で AI・bot でなく、PR の作成者と異なり、レビューの対象のコミットが PR の先頭(PR_HEAD_SHA)と一致し、解除はラベルの後で層1 の項目4 の権限者、例外は行の承認した者で作成を指示した者でない)か、(B) 記録を最後に変えたコミットの PR の作成者・承認者に記名者のアカウントがあること(記名者が作成者なら記名者以外の人の承認。名簿に記名者以外の人がいなければ自己申告として受け付ける。PR を経ないコミットは署名の検証と author)をホスティングの記録で確かめる。(A) で裏づけた台帳の行は PR の中で足してよい。レビューの本文を書き手以外が編集したもの(GraphQL の editor)と、編集の記録を読めないものは数えない。(B) の承認は取り込んだ先頭のコミットに対するもので名簿の人のものに限り、記名者が作成者の PR は記名者以外のコミットを含めば数えない。PR を経ないコミットは committer・author とも記名者の署名つきに限る。ラベルの履歴を読めなければ解除のレビューを数えない。限界: 作成を指示した者の照合は PR 本文の欄(判定される側が書く)に依る。editor が直近の編集者だけを示すかは確かめていない(EV-0220)。名簿の照合はログイン名(数値の識別子は #430)(#380) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0414 | 出荷の証跡の集約が、例外承認の台帳の行(変更・コミット・ゲートの判定を対象とするもの)と停止の解除の記録を、PR の時点の検査と同じ (A)(B) の照合で裏づけ、裏づけの無い行を成立した例外承認に数えず、解除の記録を成立しないものとして欠落に出す。範囲の外のコミットはホスティング(gh)から引く。自己申告として受け付けた記録は保証の開示の項目1 の自己申告の記録に出す(#380) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-material-attribution.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0415 | 層1 の行(受容者の記名)、D-0 の決定の記名、前倒しで要る SG の判定記録の帰属を、効力を持つ前に記名者本人のアカウントの操作で確かめること。準拠テンプレートは、これらを名前で照合するだけで、記録を入れた変更の作成者・承認者と照合しない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0416 | 準拠テンプレートの既定ブランチのルールセット(team・safety・regulated・checks-only)に bypass actor を置かず、PR を課すルールセットで承認の件数を 0 にしない(パス条件の承認で足し戻す構成を既定にしない)ことを、雛形の JSON で確かめる。採用者が適用したルールセットの bypass actor は env-check の所見に出る(IMPL-0356)(#380) | ルールセット(ブランチ保護)の定義 | — | 降りている | 機械が確かめる | `template/scripts/gate/test-material-attribution.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0417 | AI の担い手が、例外承認・停止の解除の宣言行のレビューを出さない。権限設定(generate-profile.mjs の standardReview)が gh pr review をステージと guard.enabled に依らず拒否し、常駐の規則(CLAUDE.md)が宣言行のレビューを出さないことを定める。gh api で直接レビューを作る経路は権限設定で止めない(読み取りと区別できない)(#380)(単位: ファイル) | エージェントの権限設定 | — | 降りている | 実在だけ確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0417 | AI の担い手が、例外承認・停止の解除の宣言行のレビューを出さない。権限設定(generate-profile.mjs の standardReview)が gh pr review をステージと guard.enabled に依らず拒否し、常駐の規則(CLAUDE.md)が宣言行のレビューを出さないことを定める。gh api で直接レビューを作る経路は、権限設定で止めない形を実行時のフック(IMPL-0418。#429)が受け持つ(#380)(単位: ファイル) | エージェントの権限設定 | — | 降りている | 実在だけ確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0418 | 要求事項4 の実行時の拒否(抑止の層)。PreToolUse(Bash)のフック .claude/hooks/guard-bash.mjs が、gh pr review・gh pr merge、書き込みの形の gh api(-X・--method が GET 以外、-f・-F・--input による POST、GraphQL の mutation とファイルから渡す問い合わせ)、記録用ブランチ records への git push、認証情報の読み出し(gh auth token、--show-token、GH_TOKEN・GITHUB_TOKEN の展開、printenv)、curl などによる GitHub の API への書き込みを、guard.enabled に依らず拒否し、.claude/denied.log に残す。区画は ; & && || | ( ) { } と $( で分け、bash -c・eval の中も見る。止めないもの: 担い手が書いたプログラム・スクリプトからの呼び出し、変数の展開や命令の組み立てによる回避、ブランチ保護の変更(Web の画面と API。API の書き込みは上の gh api の規則に当たる)。名義の申告の有無に依らず掛ける。既存の settings.json を持ち込む採用者へは TEMPLATE_HOOKS の併合で登録を足す(登録の欠けを契約の不備にしない)(#429) | ホスティングへの書き込みの操作の遮断のフック | — | 降りている | 機械が確かめる | `template/scripts/gate/test-guard-bash.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0419 | 要求事項4 の権限設定。generate-profile.mjs の standardReview が gh pr review・gh auth token と、前方一致で表せる書き込みの形の gh api(-X・--method の POST・PUT・PATCH・DELETE)をステージと guard.enabled に依らず拒否し、雛形の settings.json は gh api graphql を確認つき(ask)に置き、Bash のフックを登録する。拒否は抑止であり分離ではない(#429)(単位: ファイル) | エージェントの権限設定 | — | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0420 | 要求事項1〜3 と 6。構成の seats[].performerAccount に名義(dedicated / shared / 無記入=未申告)を書き、dedicated は数値の識別子とログイン名、shared は名簿の識別子を持ち、契約検査が名簿との重なりを確かめ、共有・未申告を列挙に無い離脱として出すこと。準拠テンプレートは名義の欄を持たない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の seats[] | `verify-gate-contract` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0421 | 要求事項5。env-check が担い手の実行環境で認証したアカウント(login と数値の識別子)を引き、名簿と名義の申告に照合し、確かめた日時と結果を残すこと。準拠テンプレートは照合しない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 導入前の検証のコマンド | — | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0422 | 要求事項1〜3 の記録の欄。D-0 表5-2 に列「アカウントの数値の識別子」、表7 に列「担い手の名義」を置き、構成から埋めること。様式に欄が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 成果物テンプレート D-0(体制図) | `check-d0` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0423 | G-6 の承認者の数(検査8)と出荷の集約が、seats[].performerAccount の dedicated のアカウントの承認を数値の識別子で数えず、名義を共有する人のアカウントの承認に印を付けて数えること。準拠テンプレートは名義の欄を持たず、AI の承認を名義の語と bot の型でしか見分けない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0424 | 保証の開示の項目1 に、AI の担い手の名義の状態(専用 / 共有する人 / 未申告)と、名義を共有するアカウントの承認・名義の共有に依る帰属の件数を、前回の値と並べて出すこと。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0425 | アカウントと人の対応表の照合のうち、改名・削除の後に他人が名簿のログイン名を取得した場合の誤同定を、書き手のリポジトリとの関係(author_association が OWNER・MEMBER・COLLABORATOR 以外。値は権限の強さでなく関係を示し、読み取りの協力者も COLLABORATOR)で数えない(G-6 の承認者の数、効力を持つ記録のレビュー、出荷の集約の承認)。出荷の集約は、数えなかった理由を出さない(承認の数から外れるだけ)。PR の時点の検査は、名簿に対応づかない作成を指示した者を黙って落とさず、G-6 の承認・例外承認の行・リスク区分の確定者で数えない(規模の確認は警告)。既定値の指示者は、集約が開発者の席の責任者を足すのに対し PR の時点は作成者だけである。関係の値の無い写しでは判定しない(#429) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0426 | アカウントと人の対応表を数値の識別子で照合すること。名簿 people[].accounts に {login, id} を許し、数値の識別子で照合し、id の無い名簿の要素へ対応づけず、login が一致し id が異なるアカウントを所見に出し、名簿の数値の識別子を記録用ブランチの写しの user.id から提案し(名簿へ入れるのは人)、作成を指示した者の @アカウントを検査の時点に数値へ解決して残すこと。準拠テンプレートはログイン名の文字列で照合する。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0427 | 名義を共有する記名者(seats[].performerAccount が shared または無記入の担い手と共有する人)の操作だけでは、効力を持つ記録の帰属に数えず、名義を共有していない人の帰属の確認を要すること。名義の共有を理由とする自己申告を区別して開示すること。準拠テンプレートは名義を見分けない(名義の欄が無い)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0428 | 要求事項1。/process-init で担い手の名義を全規模で問い、回答から seats[].performerAccount を生成すること。初期化は名義を問わない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | プロセス構成の初期化(強制層の生成) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0429 | 要求事項1〜3 の変更。/process-change の種別 performer で名義を変え、変化点4 に数え、適合性確認を失効させず、専用から共有への切り替えを緩める向きの変更として席の責任者の記名を要すること。種別 accountable で名簿のアカウントを login と数値の識別子の対で書くこと。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 体制の変化点を反映するスキル | `verify-gate-contract` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0430 | 述べられる名(claimStatus。保証の開示と PROCESS-PROFILE.md が読む)が、AI の担い手を宣言した席(seats[].performer)で名義が専用と申告されていないものを、列挙に無い離脱「AI の担い手の名義の共有・未申告」として数え、適合の主張と逸脱を伴う適合の主張を出さない。名義の申告の欄は #430 で降ろすため、それまでは担い手を宣言した席はすべて未申告として数える(#429) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-material-attribution.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 
 <!-- implementation-ledger:end -->
