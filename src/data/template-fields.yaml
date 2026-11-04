@@ -597,6 +597,13 @@ forms:
       - standard: '- 計画容量:'
         template: '- 計画容量:'
       # 7.6 と 7.7.4 の閾値の行(組織が定める値。第1章 1.7.7 / ADR-0097 / IMPL-0371)
+      # 見積り値の出所・契約で固定した範囲・実測の主体(ADR-0100)
+      - standard: '| 見積り値の出所 |'
+        template: '| 見積り値の出所 |'
+      - standard: '- 契約で固定した範囲(受託):'
+        template: '- 契約で固定した範囲(受託):'
+      - standard: '- 実測の主体:'
+        template: '- 実測の主体:'
       - standard: '| エスカレーション閾値 |'
         template: '| エスカレーション閾値 |'
       - standard: '| 自動的な上程の閾値 |'
@@ -834,7 +841,18 @@ forms:
         template: 発注側に読解の帯域がない場合
       - standard: 選んだ選択肢
         template: 選んだ選択肢
-      - standard: '## 14. 合意'
+      # 範囲と契約変更(第8章 軸D / ADR-0100 / IMPL-0382)
+      - standard: '## 14. 範囲と契約変更'
+        template: 範囲と契約変更
+      - standard: '| 契約の基礎とした見積りの版 |'
+        template: '| 契約の基礎とした見積りの版 |'
+      - standard: '| 契約で固定した範囲 |'
+        template: '| 契約で固定した範囲 |'
+      - standard: '| 固定した範囲と SC-M の対応 |'
+        template: '| 固定した範囲と SC-M の対応 |'
+      - standard: '| 契約変更を伴わずに調整できる範囲 |'
+        template: '| 契約変更を伴わずに調整できる範囲 |'
+      - standard: '## 15. 合意'
         template: 合意
     # 標準の様式に節として対応しない見出し(方向3。ADR-0087 決定4)。kind: same-as-standard / structure / guide
     extra:

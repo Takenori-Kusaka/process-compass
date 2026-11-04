@@ -1788,7 +1788,7 @@ D-0 体制図、テーラリングの入力(軸A〜E)、担い手の適合性確
 | 2 | 人数の境界の通過(3名未満と3名以上、10名) | 3.5.2、[第8章 軸A](/process-compass/phase4-process-design/tailoring-guide/) |
 | 3 | 担い手の運用形態の変更と、委任の範囲の変更 | [第5章 5.5](/process-compass/phase4-process-design/human-ai-boundary/) |
 | 4 | AI の担い手の識別の変更(モデルの版・提供者、指示資産の恒久層、ツールと権限、実行基盤) | 3.4.2、3.11.5、3.11.6、3.12.3、3.12.6 |
-| 5 | 軸B〜E の入力の変化(ステージ移行、規制への該当、委託への切替、安全重要度) | [第8章](/process-compass/phase4-process-design/tailoring-guide/)、[第2章 2.4](/process-compass/phase4-process-design/lifecycle/) |
+| 5 | 軸B〜E の入力の変化(ステージ移行、規制への該当、委託への切替と委託先の交代、安全重要度) | [第8章](/process-compass/phase4-process-design/tailoring-guide/)、[第2章 2.4](/process-compass/phase4-process-design/lifecycle/) |
 
 ### 3.13.2 変化点に数えないもの
 

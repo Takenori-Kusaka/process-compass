@@ -282,7 +282,7 @@ sections:
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 判定の置き先と結果の受け渡しを記録する理由"
     status: pending
-  - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 第10項〜第13項を様式に置く理由"
+  - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 第10項〜第14項を様式に置く理由"
     status: marked
     ids: [IMPL-0343]
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 保証の開示と委任の適用を契約で定める理由"
@@ -1544,6 +1544,10 @@ sections:
           - IMPL-0373
           - IMPL-0374
           - IMPL-0375
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0373
     note: 記録の欄は企画書の様式の IMPL-0373、実測スループットと完了に当たらない個数の集計は IMPL-0374(降りていない)。規模の合意そのものは人が行う(#417 で 1件の定義・観測の窓・完了の条件の記録と要求事項5 を足した)
     issue: 417
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.3 スコープを確定する時期

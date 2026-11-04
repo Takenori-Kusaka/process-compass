@@ -315,6 +315,12 @@ targets:
     path: scripts/pre-review/
     description: フェーズ5「事前レビュー期間の自動化」の判定資料の起票・締切の通知と未応答の記録・必須ステータスチェック(pre-review-closed・pre-review-all-responded)・意見の様式の欄の検査・指標の集計の置き場。準拠テンプレートに実装は無い(2026-10-23 確認。Issue #292)
 
+  - id: vendor-estimate-records
+    name: 受注側の見積りの版の記録の置き場(予定・採用者)
+    kind: planned
+    path: docs/vendor-estimates/
+    description: 第8章 軸D の受注側の行。顧客へ示した見積りを版ごとに残し書き換えない記録の置き場。受注側の社内の記録であり、準拠テンプレートに置き場は無い(2026-11-04 確認。Issue #414)
+
   - id: budget-escalation
     name: 予算の自動的な上程の置き場(予定・採用者)
     kind: planned
