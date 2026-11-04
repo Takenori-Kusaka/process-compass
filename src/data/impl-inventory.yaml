@@ -162,7 +162,8 @@ sections:
       - IMPL-0358
       - IMPL-0359
       - IMPL-0360
-    note: D-0 表1 の列の決まりは IMPL-0358、テンプレ6 観点3 の出所の区分は IMPL-0359、検査の未達は IMPL-0360(ADR-0091)
+      - IMPL-0397
+    note: D-0 表1 の列の決まりは IMPL-0358、テンプレ6 観点3 の出所の区分は IMPL-0359、D-0 の検査は IMPL-0360、観点3 の G-1 の検査は IMPL-0397(ADR-0091、#411)
     issue: 409
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > フローの観測と見込みの報告の行"
     status: none
