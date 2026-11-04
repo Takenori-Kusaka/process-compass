@@ -289,6 +289,9 @@ forms:
     name: テンプレ3 技術負債台帳
     file: templates/03-debt-ledger.md
     fields:
+      # 行わないと決めた品質の活動を負債に載せる(第7章 7.7.8 要求事項13 / ADR-0092 / IMPL-0362)
+      - standard: 行わないと決めた品質の活動を含む
+        template: 行わないと決めた品質の活動を含む
       - standard: 受容理由
         template: 受容した理由
       - standard: 返却目安
@@ -326,6 +329,9 @@ forms:
     name: テンプレ4 ゲート判定記録
     file: templates/04-gate-record.md
     fields:
+      # 品質の上積みを示す欄(第7章 7.7.8 要求事項11 / ADR-0092 / IMPL-0361)
+      - standard: 上積みとして示した品質の活動
+        template: 上積みとして示した品質の活動
       # 判定の語彙は第4章の2値(ADR-0036)。確定の形態は運用形態(ADR-0054)
       - standard: 通過 / 差し戻し
         template: 通過 / 差し戻し
