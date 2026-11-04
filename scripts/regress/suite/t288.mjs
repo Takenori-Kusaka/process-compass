@@ -415,6 +415,16 @@ fixes(['ADR-0057 決定3', 'ADR-0057 決定12', '標準 G-1']);
   write('docs/project-brief.md', read('docs/project-brief.md').replace(/^\| 保証範囲と範囲外 \| .*$/m, '| 保証範囲と範囲外 | 層1 なし |'));
   r = run('node', ['scripts/gate/check-g1.mjs']);
   check('check-g1: 「層1 なし」は記入として受け付ける', !r.out.includes('「保証範囲と範囲外」が未記入'), r.out);
+  // IMPL-0371:ok(G-1 を通過済みの企画書は、閾値の2行の空欄で遡って失敗させず、欠落として出す。process-compass #419)
+  check('check-g1: G-1 を通過済みの企画書では、閾値の2行の空欄を欠落として出し、遡って失敗させない', r.out.includes('「エスカレーション閾値」が未記入です') && r.out.includes('遡って失敗させません') && !r.out.includes('閾値は組織が定める値です'), r.out);
+  fs.rmSync(path.join(W.DIR, 'docs/gates/g1-P-001.md'));
+  r = run('node', ['scripts/gate/check-g1.mjs']);
+  // IMPL-0371:ng(G-1 の前の企画書は、閾値の2行の空欄で失敗する)
+  check('check-g1: G-1 の前の企画書では、閾値の2行の空欄で失敗させる', !r.ok && r.out.includes('「自動的な上程の閾値」が未記入です') && r.out.includes('閾値は組織が定める値です'), r.out);
+  write('docs/project-brief.md', read('docs/project-brief.md').replace(/^\| エスカレーション閾値 \| .*$/m, '| エスカレーション閾値 | 予算 10%・20%・30% の見込み |').replace(/^\| 自動的な上程の閾値 \| .*$/m, '| 自動的な上程の閾値 | 消化進捗比 1.3 超が2期連続 |'));
+  r = run('node', ['scripts/gate/check-g1.mjs']);
+  // IMPL-0371:ok(値を書いた企画書は、閾値の2行を指摘しない)
+  check('check-g1: 閾値の2行に値を書いた企画書では、その欄を指摘しない', !r.out.includes('閾値」が未記入'), r.out);
   git('checkout', '-q', '--', '.');
   fs.rmSync(path.join(W.DIR, 'docs/quality-assurance-policy.md'));
   const j = JSON.parse(run('node', ['scripts/gate/next.mjs', '--json']).out);

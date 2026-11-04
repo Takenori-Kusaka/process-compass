@@ -14,6 +14,9 @@ files:
   - path: scripts/gate/check-delegation.mjs
     reason: library
     why: 委任の経路のワークフロー(降ろし先 delegation-workflow)が呼ぶ判定の本体。規定は delegation-workflow のマークで追う
+  - path: scripts/gate/brief-thresholds.mjs
+    reason: library
+    why: check-g1(降ろし先 g1-check)が使う企画書の閾値の行の判定。規定は G-1 の IMPL-0371 で追う
   - path: scripts/gate/claude-md-resident.mjs
     reason: library
     why: check-process-rules が使う常駐の規則の照合(降ろし先 claude-md-resident)

@@ -315,6 +315,12 @@ targets:
     path: scripts/pre-review/
     description: フェーズ5「事前レビュー期間の自動化」の判定資料の起票・締切の通知と未応答の記録・必須ステータスチェック(pre-review-closed・pre-review-all-responded)・意見の様式の欄の検査・指標の集計の置き場。準拠テンプレートに実装は無い(2026-10-23 確認。Issue #292)
 
+  - id: budget-escalation
+    name: 予算の自動的な上程の置き場(予定・採用者)
+    kind: planned
+    path: scripts/budget/escalation.mjs
+    description: 第7章 7.7.4 の自動的な上程。7.7.2 の指標を期ごとに測り、記録した閾値の超過を検知した時点で B-2 または B-1 への判定要求を起票する仕組みの置き場。予算の消化はリポジトリの外の記録に依るため、採用者が実装する(ADR-0096)。準拠テンプレートに実装は無い(2026-11-04 確認。Issue #419)
+
   - id: seeded-error-isolation
     name: 欠陥注入の隔離(第1層・第2層)の置き場(予定)
     kind: planned

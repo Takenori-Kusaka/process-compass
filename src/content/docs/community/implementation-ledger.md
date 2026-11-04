@@ -21,19 +21,19 @@ sidebar:
 
 | 対象 | 節 | マーク済み | 判定基準の表 | 対象にしない | **未棚卸し** |
 | --- | --- | --- | --- | --- | --- |
-| 第1章 | 26 | 7 | 0 | 5 | **14** |
+| 第1章 | 27 | 7 | 0 | 6 | **14** |
 | 第2章 | 38 | 2 | 0 | 4 | **32** |
 | 第3章 | 93 | 22 | 0 | 16 | **55** |
 | 第4章 | 95 | 17 | 3 | 8 | **67** |
 | 第5章 | 52 | 25 | 0 | 8 | **19** |
 | 第6章 | 75 | 4 | 0 | 6 | **65** |
-| 第7章 | 43 | 1 | 0 | 3 | **39** |
+| 第7章 | 43 | 2 | 0 | 2 | **39** |
 | 第8章 | 49 | 4 | 0 | 2 | **43** |
 | 附属書B | 8 | 0 | 0 | 0 | **8** |
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
 | 附属書H | 44 | 3 | 0 | 8 | **33** |
-| **計** | 551 | 85 | 3 | 60 | **403** |
+| **計** | 552 | 86 | 3 | 60 | **403** |
 
 未棚卸しの403節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
@@ -45,9 +45,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 86 |
-| 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 82 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 199 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 87 |
+| 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 83 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 200 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -64,13 +64,13 @@ sidebar:
 
 ### 降りていない規定
 
-降りていない規定: **106件**
+降りていない規定: **107件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 25 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 81 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 26 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 81 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -135,7 +135,7 @@ sidebar:
 | IMPL-0219 | 締切の2営業日前と前営業日の未応答者への自動の通知と、締切で未応答が残るときの 3.9.3 の措置の起動。準拠テンプレートに通知の仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 事前レビュー期間の検査と集計(予定)(予定の置き場) | 予定 [#325](https://github.com/Takenori-Kusaka/process-compass/issues/325)(見直し 2027-04) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0220 | AI による差分の要約を判定資料の必須にせず、要約だけを読んで判定しない。要約を添付するときは原資料へ到達できる状態にし、判定の記録には原資料の該当箇所を根拠に書く。/gate のスキルに規則が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | ゲート判定記録の入口のスキル(/gate) | 予定 [#359](https://github.com/Takenori-Kusaka/process-compass/issues/359)(見直し 2026-11) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0221 | 遵守が必須の規則を誘導層(指示ファイル)だけに書かず、強制層へ降ろす。準拠テンプレートの CLAUDE.md は規則ごとに機械の担保の有無を印で示すが、規則を足す側(AI維持管理者)への禁止を置いていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | CLAUDE.md の構成依存部分 | 予定 [#358](https://github.com/Takenori-Kusaka/process-compass/issues/358)(見直し 2026-11) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0222 | 要求事項1。指示資産の1ファイルあたりの分量の上限(初期値 200行)。準拠テンプレートに上限の規則も検査も無い。確かめる者: 採用者(自らの実行層に実装したときに確かめる) | CLAUDE.md の構成依存部分 | 採用者が実装する(ADR-0084) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0222 | 要求事項1。指示資産の1ファイルあたりの分量の上限(参考の値 200行)。準拠テンプレートに上限の規則も検査も無い。確かめる者: 採用者(自らの実行層に実装したときに確かめる) | CLAUDE.md の構成依存部分 | 採用者が実装する(ADR-0084) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0223 | 要求事項2。指示資産へ追記してよい条件(同種の誤りが2回以上、またはレビューでの指摘)。準拠テンプレートに追記の条件の規則が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | CLAUDE.md の構成依存部分 | 予定 [#358](https://github.com/Takenori-Kusaka/process-compass/issues/358)(見直し 2026-11) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0224 | 要求事項5。コードベースから導出できる内容(ディレクトリ構成・依存一覧・自動生成できる概要)を指示資産に記載しない。準拠テンプレートに規則も検査も無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | CLAUDE.md の構成依存部分 | 予定 [#358](https://github.com/Takenori-Kusaka/process-compass/issues/358)(見直し 2026-11) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0225 | 要求事項6。実際に読み込まれたファイルを記録し、監査できる状態にする。準拠テンプレートのフックは読み込みを記録しない。読み込みの記録が無い状態では、0 回を「読まれていない」と読まない(要求事項4 の棚卸しの第一の候補は、この記録が入るまで挙げられない)。道具による読み込みを経ずに文脈へ入るファイル(常駐の指示ファイル・下位のディレクトリの指示ファイル・条件つきの規則のファイル・スキルの定義など)を記録の取り方が数えるかは、実装の別 Issue で確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | エージェントの権限設定 | 予定 [#325](https://github.com/Takenori-Kusaka/process-compass/issues/325)(見直し 2027-04) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
@@ -171,7 +171,7 @@ sidebar:
 | IMPL-0291 | 手戻り率の期間ごとの集計と、基準を超えたときの自動の引き下げ。準拠テンプレートは手戻り率を集計しない。組織が G-1 で定める基準値を構成に持たず、不採用となった変更(マージされなかった PR)を既定ブランチの履歴から読めないため。採用者は登録の根拠の reworkRate に書いた手段で集計し、発火の有無は内部監査(観点23)で確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | AI自律レベルの導出と停止(登録した変更種別) | 予定 [#348](https://github.com/Takenori-Kusaka/process-compass/issues/348)(見直し 2027-04) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0299 | ロールとレーンの写像を、D-0 体制図へ記載し構成の roles[] へ出力すること。準拠テンプレートの構成はレーンの概念を持たず、ロールと受信箱のラベルの固定の表(MAILBOX)だけを持つ。レーン(作業領域・セッション・認証情報の組)の分け方は、採用者が実行環境の設定で定め、D-0 体制図へ手で書く(#312)。確かめる者: 採用者(自らの実行層に実装したときに確かめる) | process.config.json の roles[] | 採用者が実装する(ADR-0084) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0309 | 同じ案件で適用を再開する経路は無い。準拠テンプレートは終了の後の構成の変更を notice のほかは拒む。再開する場合は、終了と再開の間を記録の欠落として表示し、件数を最初の適用の開始から数えることを、表明する者が手で確かめる(#313)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の changeLog[] | 予定 [#354](https://github.com/Takenori-Kusaka/process-compass/issues/354)(見直し 2027-04) | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
-| IMPL-0312 | G-5 基準6 の1ファイルの分量の上限超過 0 件を確かめるジョブ。上限の値(第3章 3.11.4 要求事項1 の初期値)を支える実証が無いため、準拠テンプレートへ降ろさない。採用者が値を定め、検査を足して集約の needs へ入れる(IMPL-0222)。人が確かめるのは、採用者の G-5 の集約の定義を読む技術判断者 | G-5 のワークフロー(gate-g5.yml) | 採用者が実装する(ADR-0084) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0312 | G-5 基準6 の1ファイルの分量の上限超過 0 件を確かめるジョブ。上限の値(第3章 3.11.4 要求事項1 の参考の値)を支える実証が無いため、準拠テンプレートへ降ろさない。採用者が値を定め、検査を足して集約の needs へ入れる(IMPL-0222)。人が確かめるのは、採用者の G-5 の集約の定義を読む技術判断者 | G-5 のワークフロー(gate-g5.yml) | 採用者が実装する(ADR-0084) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0324 | G-8 の判定ごとに、実環境の統制を機械が読み取り、記名した確認の記録との乖離を検出の層として出すこと(確認済みには数えない)。準拠テンプレートの ship-evidence は env-check の記録を写すだけで、実環境を読み直さない。gh の認証を出荷の集約のワークフローへ渡す設計(読み取りの権限の範囲)を決めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#361](https://github.com/Takenori-Kusaka/process-compass/issues/361)(見直し 2027-04) | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0331 | 要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの受け手の手順(handoff.md・各スキル)に、着手の前に判定記録の有無を確かめる手順が無い。記録の欠落は出荷の証跡の集約が G-7 で拾うが、着手の時点では止まらない。確かめる者: 計画の Issue(issue= の番号)の担当者 | CLAUDE.md の構成依存部分 | 予定 [#368](https://github.com/Takenori-Kusaka/process-compass/issues/368)(見直し 2027-04) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0333 | 要求事項7。AI のレビューに与える指示を、レビューの対象の変更が書き換えられない場所に置くこと。準拠テンプレートでは指示は .claude/** にあり、エージェントの書き込みはフックが遮断するが、同じ PR で指示を変えた場合に、基底の側の指示でレビューする仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者 | G-5 の PR 単位の検査(pr-rules) | 予定 [#369](https://github.com/Takenori-Kusaka/process-compass/issues/369)(見直し 2027-04) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
@@ -182,6 +182,7 @@ sidebar:
 | IMPL-0360 | D-0 表1 の「市場・顧客仮説の検証の実施」の行の空欄、決定・同意の列への席でない担当の記載、出所の区分の未記入を、準拠テンプレートの検査は確かめない(template/scripts/gate/ に検査が無い)。降ろすまで未達として表示する。確かめる者: 内部監査の実施者(H.3 観点24 を四半期に確かめるとき)(#409 / ADR-0091) | 成果物テンプレート D-0(体制図) | 予定 [#411](https://github.com/Takenori-Kusaka/process-compass/issues/411)(見直し 2027-05) | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0363 | 上積みとして示した行が評価の期間の開始より前に台帳へ登録されていたか、返却の変更を示せるかを、準拠テンプレートの検査は確かめない。降ろすまで未達として表示する。確かめる者: ステージ移行ゲートと 7.7.6 の棚卸しの判定者(B-2 の決定者。AI の利用の評価を判定するとき)(#408 / ADR-0092) | 出荷判定の証跡の集約(保証の開示) | 予定 [#412](https://github.com/Takenori-Kusaka/process-compass/issues/412)(見直し 2027-05) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0366 | 総費用の内訳の『G-1 の時点の見積り』の列が G-1 の時点で埋まっているか(check-g1 は同じ表の値・実績 / 見積り・出所だけを読む)、G-1 の後に書き換えられていないか、ステージ移行ゲートの判定記録の『見積りと実績の差』が書かれているかを、準拠テンプレートの検査は確かめない。降ろすまで未達として表示する。確かめる者: ステージ移行ゲートの判定者(B-2 の決定者。判定のとき)(#407 / ADR-0093) | 出荷判定の証跡の集約(保証の開示) | 予定 [#416](https://github.com/Takenori-Kusaka/process-compass/issues/416)(見直し 2027-05) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0370 | 7.7.4 の自動的な上程。7.7.2 の指標を期ごとに測り、記録した閾値の超過を検知した時点で、B-2(B-2 を置かない体制では事業決裁者)または B-1 への判定要求を機械的に起票する仕組み。予算の消化はリポジトリの外の記録に依るため、準拠テンプレートに無い。降りるまでは、D-0 表1『フローの観測と見込みの報告』の担い手が裁量なく起票する(#419)。確かめる者: 採用者(自らの実行層に実装したときに確かめる) | 予算の自動的な上程の置き場(予定・採用者)(予定の置き場) | 採用者が実装する(ADR-0096) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 
 ### 全件
 
@@ -407,7 +408,7 @@ sidebar:
 | IMPL-0219 | 締切の2営業日前と前営業日の未応答者への自動の通知と、締切で未応答が残るときの 3.9.3 の措置の起動。準拠テンプレートに通知の仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 事前レビュー期間の検査と集計(予定) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0220 | AI による差分の要約を判定資料の必須にせず、要約だけを読んで判定しない。要約を添付するときは原資料へ到達できる状態にし、判定の記録には原資料の該当箇所を根拠に書く。/gate のスキルに規則が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0221 | 遵守が必須の規則を誘導層(指示ファイル)だけに書かず、強制層へ降ろす。準拠テンプレートの CLAUDE.md は規則ごとに機械の担保の有無を印で示すが、規則を足す側(AI維持管理者)への禁止を置いていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0222 | 要求事項1。指示資産の1ファイルあたりの分量の上限(初期値 200行)。準拠テンプレートに上限の規則も検査も無い。確かめる者: 採用者(自らの実行層に実装したときに確かめる) | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0222 | 要求事項1。指示資産の1ファイルあたりの分量の上限(参考の値 200行)。準拠テンプレートに上限の規則も検査も無い。確かめる者: 採用者(自らの実行層に実装したときに確かめる) | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0223 | 要求事項2。指示資産へ追記してよい条件(同種の誤りが2回以上、またはレビューでの指摘)。準拠テンプレートに追記の条件の規則が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0224 | 要求事項5。コードベースから導出できる内容(ディレクトリ構成・依存一覧・自動生成できる概要)を指示資産に記載しない。準拠テンプレートに規則も検査も無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0225 | 要求事項6。実際に読み込まれたファイルを記録し、監査できる状態にする。準拠テンプレートのフックは読み込みを記録しない。読み込みの記録が無い状態では、0 回を「読まれていない」と読まない(要求事項4 の棚卸しの第一の候補は、この記録が入るまで挙げられない)。道具による読み込みを経ずに文脈へ入るファイル(常駐の指示ファイル・下位のディレクトリの指示ファイル・条件つきの規則のファイル・スキルの定義など)を記録の取り方が数えるかは、実装の別 Issue で確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | エージェントの権限設定 | — | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
@@ -497,7 +498,7 @@ sidebar:
 | IMPL-0309 | 同じ案件で適用を再開する経路は無い。準拠テンプレートは終了の後の構成の変更を notice のほかは拒む。再開する場合は、終了と再開の間を記録の欠落として表示し、件数を最初の適用の開始から数えることを、表明する者が手で確かめる(#313)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の changeLog[] | `verify-gate-contract` | **降りていない** | 人が確かめる | — | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0310 | 従う本標準の版の欄を D-0 体制図の冒頭に置く。構成の standard.edition と一致させる旨を書く。欄の存在は check-template-fields が確かめる。採用者の D-0 で欄が無い・空欄であることは /pit が注記する(IMPL-0311)。欄の値と構成の standard.edition の一致と、宣言に加える規格の発行年は、機械で確かめない(#313)(単位: 欄) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | — | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0311 | D-0 体制図の冒頭に「従う本標準の版」の欄が無い、または空欄のとき、/pit(next.mjs)が、宣言の要求事項4 の欠けとして注記する。段階は止めない。D-0 の欄と構成の standard.edition の一致は検査しない。test-edition-end.mjs が、欄の無い D-0 で注記が出ることを実行して確かめる(#313)(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-edition-end.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
-| IMPL-0312 | G-5 基準6 の1ファイルの分量の上限超過 0 件を確かめるジョブ。上限の値(第3章 3.11.4 要求事項1 の初期値)を支える実証が無いため、準拠テンプレートへ降ろさない。採用者が値を定め、検査を足して集約の needs へ入れる(IMPL-0222)。人が確かめるのは、採用者の G-5 の集約の定義を読む技術判断者 | G-5 のワークフロー(gate-g5.yml) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0312 | G-5 基準6 の1ファイルの分量の上限超過 0 件を確かめるジョブ。上限の値(第3章 3.11.4 要求事項1 の参考の値)を支える実証が無いため、準拠テンプレートへ降ろさない。採用者が値を定め、検査を足して集約の needs へ入れる(IMPL-0222)。人が確かめるのは、採用者の G-5 の集約の定義を読む技術判断者 | G-5 のワークフロー(gate-g5.yml) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0313 | 適用の開始の境を、既定ブランチの第1親の連鎖の上で configured: true になった最初のコミットとする(findInitCommit が git log --first-parent で探す)。併合した別の履歴の中の configured: true のコミットを境にしない。旧い探し方(全履歴を歩く)が、開始の後に併合した別の履歴の古いコミットを境にすることを、先に test-adoption.mjs で再現した(品質保証 V-4)。境がマージのときは、第2親の側を含む境の全祖先を開始より前とする(#315) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0314 | env-check が、G-6 が無効の構成(ルールセットの指定なし。checks-only を案内する構成)でも、既定ブランチに効いている規則に必須チェック gate-g5 があることを確かめる。以前は確かめる項目なしとして確認済みにしていた(V-1)。test-env-check.mjs が、模擬の gh の固定の応答で、gate-g5 が無ければ不一致、あれば確認済みになることを実行して確かめる(#315) | 導入前の検証のコマンド | — | 降りている | 機械が確かめる | `template/scripts/gate/test-env-check.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0315 | env-check の結果を、確認済み・不一致・未確認(理由)・対象外の4値で記録し、対象外を確認済みに数えない(件数を分けて出す)。記録を読む側(readEnvCheck)は、4値より前の形の記録(確かめる項目なしを確認済みとして書いたもの)を、確認済みにも対象外にも読み替えず、未確認(旧い形の記録)とする。読む側も対象外を書く側と同じ2つの場合(コードオーナーの承認を要しない構成の CODEOWNERS、効いているルールセットが無いときのバイパスの主体)に限り、ほかは未確認(対象外にできない項目・場合)とする。記録の時点の G-6 の状態が現在と違えば確認し直す(#315 突合 X-1)。導入前の検証の記録・出荷の集約の項目4・次の一手が同じ語で出す。test-env-check.mjs が、手書きで対象外を重ねた記録が確認済みにならないことを含めて実行して確かめる(#315) | 導入前の検証のコマンド | — | 降りている | 機械が確かめる | `template/scripts/gate/test-env-check.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
@@ -554,5 +555,8 @@ sidebar:
 | IMPL-0366 | 総費用の内訳の『G-1 の時点の見積り』の列が G-1 の時点で埋まっているか(check-g1 は同じ表の値・実績 / 見積り・出所だけを読む)、G-1 の後に書き換えられていないか、ステージ移行ゲートの判定記録の『見積りと実績の差』が書かれているかを、準拠テンプレートの検査は確かめない。降ろすまで未達として表示する。確かめる者: ステージ移行ゲートの判定者(B-2 の決定者。判定のとき)(#407 / ADR-0093) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0367 | D-0 表1 に行『フローの観測と見込みの報告』を置き、決定は価値責任者、実行の担い手は役割名で書く(AI の担い手でよい)。その担い手が割当・再配分・スコープの層の調整・他の席の状態ラベルを遷移させないことを、表1 の注記へ降ろす(#406 / ADR-0094)(単位: 行) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | — | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
 | IMPL-0368 | D-0 の様式の節4 に、表2 の 3 層を 7.6 の段階1〜3 に写す注記と SC-M のチーム層の境界ゼロを置き、節6 に行『確約範囲(SC-M)を動かす必要の見込み(量を問わない)』と、判定する者・写しの宛先の列、起票した席だけを通知先に書かない注記、兼務の体制で同一人物である旨を書く注記を置く(#418 / ADR-0095)(単位: 行) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0369 | D-0 の様式の節6 に、品質側の4行(ゲート判定の期限超過率・差し戻し率が範囲より高い・同一箇所の修正が収束しない・事業ステージの基準を満たさない未解決欠陥)を、判定する者を予め書いて置く。行『ゲート判定・会議体の決定が期限を超過』の判定する者に D-0 表1『体制と運用形態』の決定者を予め書き、同じ人のときの組織上の任命権者と『指名できる者なし』を注記する(#419 / ADR-0096)(単位: 行) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0370 | 7.7.4 の自動的な上程。7.7.2 の指標を期ごとに測り、記録した閾値の超過を検知した時点で、B-2(B-2 を置かない体制では事業決裁者)または B-1 への判定要求を機械的に起票する仕組み。予算の消化はリポジトリの外の記録に依るため、準拠テンプレートに無い。降りるまでは、D-0 表1『フローの観測と見込みの報告』の担い手が裁量なく起票する(#419)。確かめる者: 採用者(自らの実行層に実装したときに確かめる) | 予算の自動的な上程の置き場(予定・採用者) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0371 | G-1 基準4 のエスカレーション閾値(7.6)と自動的な上程の閾値(7.7.4)。準拠テンプレートの check-g1 が、企画書の2行の欠落・空欄・様式の説明のままを検出し、G-1 の前は失敗させる。G-1 を通過済みの企画書は遡って失敗させず、欠落として出す。試験は、一時の置き場で入口(node scripts/gate/check-g1.mjs)を走らせ、G-1 の前の失敗・値の記入・通過済みの警告の3つを確かめる。回帰の試験(t288)も同じ入口を通す。値の妥当性は確かめない(#419 / ADR-0097) | G-1 の企画書の様式の検査(check-g1.mjs) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-brief-thresholds.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- implementation-ledger:end -->

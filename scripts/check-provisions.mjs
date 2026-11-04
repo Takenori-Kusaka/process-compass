@@ -93,6 +93,8 @@ const RE_BY_ANNEX = /附属書\s*([A-Z])(?:\]\([^)]*\))?(?:\s*[A-Z]\.\d+(?:\.\d+
 const cellWords = reg.retiredCellWords ?? [];
 const RE_CELL = cellWords.length ? new RegExp(`^(?:${cellWords.join('|')})(?:[((].*)?$`) : null;
 const anywhere = new Set(reg.retiredWordsAnywhere ?? []);
+// 廃した値の語(第1章 1.7.7。#419 / ADR-0097)。規定の文書の注記とコメントの中も探す
+const valueWords = reg.retiredValueWords ?? [];
 
 // --- 1. 附属書の種別の宣言 ---------------------------------------------------
 const overviewDoc = docs.find((d) => d.chapter === 1);
@@ -154,6 +156,9 @@ for (const d of docs) {
     m = RE_SHOULD.exec(line);
     if (m) report(rel, n, '「すべき」', line.slice(Math.max(0, m.index - 20), m.index + m[0].length), '強さが決まりません。要求か推奨の形で書いてください(第1章 1.7.1)');
 
+    for (const w of valueWords) {
+      if (line0.includes(w.word)) report(rel, n, '廃した値の語', w.word, w.instead);
+    }
     for (const w of anywhere) {
       if (line.includes(w)) report(rel, n, '廃した升の語', w, `「${w}」は使えません。ゲートの状態は 適用・簡略・統合・省略・未達 で書いてください(第1章 1.7.3)`);
     }

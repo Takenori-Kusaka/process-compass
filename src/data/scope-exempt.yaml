@@ -33,7 +33,7 @@ exempt:
 
   - page: phase4-process-design/safety-verification
     heading: F.4 検証手法の割当て
-    reason: 限定ではなく、表の R1〜R3 の列が初期値であることの断り
+    reason: 限定ではなく、表の R1〜R3 の列が既定値であることの断り
 
   - page: phase4-process-design/tailoring-guide
     heading: "軸B: 事業ステージによる調整"
