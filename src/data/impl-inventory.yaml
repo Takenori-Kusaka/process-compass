@@ -2349,6 +2349,61 @@ sections:
         category: org-design
         reason: 定数を外すときの保証の移し先を人が示す定め
     issue: 316
+  - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.13 AI の採点者の較正
+    status: marked
+    ids:
+      - IMPL-0409
+      - IMPL-0410
+      - IMPL-0411
+      - IMPL-0412
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0410
+          - IMPL-0411
+          - IMPL-0412
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0410
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0410
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0409
+          - IMPL-0410
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0409
+          - IMPL-0412
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0410
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0409
+          - IMPL-0410
+      要求事項8:
+        status: marked
+        ids:
+          - IMPL-0410
+          - IMPL-0412
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0412
+      要求事項10:
+        status: marked
+        ids:
+          - IMPL-0412
+    issue: 427
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.1 変化点に数えるもの
