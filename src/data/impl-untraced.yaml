@@ -20,6 +20,9 @@ files:
   - path: scripts/gate/brief-thresholds.mjs
     reason: library
     why: check-g1(降ろし先 g1-check)が使う企画書の閾値の行の判定。規定は G-1 の IMPL-0371 で追う
+  - path: scripts/gate/model-adoption.mjs
+    reason: library
+    why: org-assurance.mjs(出荷の証跡の集約の依存先の一覧)が使う、モデルの導入の記録・正解の目録・AI の採点者の較正の記録の判定。規定は 3.12.3 の IMPL-0405〜0407 と 3.12.13 の IMPL-0410・0411 で追う(process-compass #426)
   - path: scripts/gate/customer-voice.mjs
     reason: library
     why: check-d0(降ろし先 d0-template)と check-g1(降ろし先 g1-check)が使う、D-0 表1 の検証の行・決定と同意の列と、企画書の観点3 の出所の区分の判定。規定は D-0 の IMPL-0360 で追う(process-compass #411)
