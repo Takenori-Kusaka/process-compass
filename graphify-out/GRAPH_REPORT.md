@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6b733c2d`
+- Built from commit: `099499f7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -7258,8 +7258,6 @@
 10. `checker()` - 22 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `集約スクリプトの入出力仕様` --references--> `init()`  [INFERRED]
-  src/content/docs/phase5-implementation/ci-gates.md → research/319-deliberation/legacy-suite/fix288-r3/setup.mjs
 - `3.1 仕組み` --references--> `parseSections()`  [INFERRED]
   research/314-deliberation/survey-314-1-internal.md → scripts/lib/impl-inventory.mjs
 - `裁定ごとの確認(問題が無かったもの)` --references--> `renderUndelivered()`  [INFERRED]
@@ -7268,6 +7266,8 @@
   research/314-deliberation/implementation.md → scripts/lib/impl-inventory.mjs
 - `J-1 検査の一覧` --references--> `checkWiring()`  [INFERRED]
   research/293-deliberation/implementation.md → scripts/lib/ci-wiring.mjs
+- `1.2 7.5 節` --references--> `fresh()`  [INFERRED]
+  research/319-deliberation/implementation.md → scripts/regress/run.mjs
 
 ## Import Cycles
 - None detected.
@@ -36079,24 +36079,24 @@ Cohesion: 0.40
 Nodes (5): 3.1.1 原典(一次情報)— CMMI for Development, Version 1.3, pp.149-153, 3.1.2 含意, 3.1 DAR(CMMI-DEV V1.3), 3.2 CMMI V3.0(2023年4月6日リリース), 3. CMMI
 
 ## Knowledge Gaps
-- **117 isolated node(s):** `ADR-0106`, `ADR-0057`, `ADR-0091`, `ADR-0082`, `ADR-0081` (+112 more)
+- **117 isolated node(s):** `ADR-0045`, `ADR-0061`, `ADR-0076`, `ADR-0077`, `ADR-0084` (+112 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 66902 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **30 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `status()` connect `status` to `7. 突合の後の修正(`crosscheck.md` X-1〜X-14、`decision.md` 8 章の裁定に従う)`, `check-gate-criteria.mjs`, `大規模改訂に先立つ外部調査(2026-09)— 入口`, `#294 外部調査メモ(2): 既存規格と業界実務の8論点`, `1. 裁定ごとの記録`?**
+- **Why does `criteria()` connect `criteria` to `反映の記録(Issue #291 254 系: G-4 の数え上げ、仕様の前提、AI の指摘、往復。論点 G-1〜G-15)`, `1. 標準の現状(突合)`, `3. 設計判断`, `build-template-kb.mjs`, `3. 論点ごとの詳細`, `fix288-tpl2/suite/new.mjs`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
-- **What connects `ADR-0106`, `ADR-0057`, `ADR-0091` to the rest of the system?**
+- **What connects `ADR-0045`, `ADR-0061`, `ADR-0076` to the rest of the system?**
   _117 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
-- **Why does `構成` connect `大規模改訂に先立つ外部調査(2026-09)— 入口` to `status`?**
+- **Why does `第2部: 弁護できないもの` connect `#239 適用範囲マークの仕組みが動いているのに届いていない` to `第1部: 弁護できるもの`, `criteria`?**
   _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
+- **Why does `実装の記録(Issue #313 標準の版・適用の終了・逸脱と適合の主張)` connect `実装の記録(Issue #313 標準の版・適用の終了・逸脱と適合の主張)` to `決定`, `ref_node_path`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
   _Cohesion score 0.05714285714285714 - nodes in this community are weakly interconnected._
-- **Should `regress/suite/lib.mjs` be split into smaller, more focused modules?**
-  _Cohesion score 0.013370836900248664 - nodes in this community are weakly interconnected._
