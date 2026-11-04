@@ -46,7 +46,7 @@ sidebar:
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
 | 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 86 |
-| 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 81 |
+| 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 82 |
 | 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 199 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
@@ -191,7 +191,7 @@ sidebar:
 | IMPL-0002 | 出荷判定者の兼務に限った例外と代償措置 | process.config.json の deviations[] | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0003 | 実行主体が起動時に参照する内容(判定するゲート・担ってはならない工程・引き渡し先)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0004 | 指示資産の統合・削除の権限を AI維持管理者へ集約する(単位: 行) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0005 | エスカレーションの発火条件と段階に対応するラベル。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 人が確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0005 | エスカレーションの段階ごとの判定する者と、判定する席に対応するラベル(SC-M の段階1 は state:needs-owner)。準拠テンプレートの ESCALATION(next.mjs --role の出力)が、7.6 の席の語で写す(#418 で改めた)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 人が確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0006 | 目的を達成する構成を示せないゲートを未達として宣言する(単位: キー) | process.config.json の unmet[] | `verify-gate-contract` | 降りている | 実在だけ確かめる | — | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0007 | ポーリングの対象を自ロールの受信箱に限る(単位: 行) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0008 | 判定記録の作成をもって判定が成立する。確かめる者: 当該ゲートの判定者(判定記録を書くとき) | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -553,5 +553,6 @@ sidebar:
 | IMPL-0365 | テンプレ4 に欄『参照した企画書の版』と節『見積りと実績の差』(当初の見積り、実績、差と主な原因)を置く(#407 / ADR-0093)(単位: 欄) | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 実在だけ確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0366 | 総費用の内訳の『G-1 の時点の見積り』の列が G-1 の時点で埋まっているか(check-g1 は同じ表の値・実績 / 見積り・出所だけを読む)、G-1 の後に書き換えられていないか、ステージ移行ゲートの判定記録の『見積りと実績の差』が書かれているかを、準拠テンプレートの検査は確かめない。降ろすまで未達として表示する。確かめる者: ステージ移行ゲートの判定者(B-2 の決定者。判定のとき)(#407 / ADR-0093) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0367 | D-0 表1 に行『フローの観測と見込みの報告』を置き、決定は価値責任者、実行の担い手は役割名で書く(AI の担い手でよい)。その担い手が割当・再配分・スコープの層の調整・他の席の状態ラベルを遷移させないことを、表1 の注記へ降ろす(#406 / ADR-0094)(単位: 行) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | — | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
+| IMPL-0368 | D-0 の様式の節4 に、表2 の 3 層を 7.6 の段階1〜3 に写す注記と SC-M のチーム層の境界ゼロを置き、節6 に行『確約範囲(SC-M)を動かす必要の見込み(量を問わない)』と、判定する者・写しの宛先の列、起票した席だけを通知先に書かない注記、兼務の体制で同一人物である旨を書く注記を置く(#418 / ADR-0095)(単位: 行) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 
 <!-- implementation-ledger:end -->
