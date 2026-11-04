@@ -45,9 +45,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 97 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 102 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 89 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 225 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 220 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -59,18 +59,18 @@ sidebar:
 | --- | --- |
 | 走査したファイル(スキルと CLAUDE.md の生成区間の外) | 62 |
 | 印を求める要求・禁止の文 | 64 |
-| 範囲の外: 太字の否定を含む行 | 125 |
-| 範囲の外: 平叙の否定で終わる行 | 371 |
+| 範囲の外: 太字の否定を含む行 | 126 |
+| 範囲の外: 平叙の否定で終わる行 | 373 |
 
 ### 降りていない規定
 
-降りていない規定: **121件**
+降りていない規定: **116件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 34 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 87 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 34 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 82 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -190,12 +190,7 @@ sidebar:
 | IMPL-0400 | 要求事項4〜6。推定のモデル・サービスを AI 実行基盤として正規の経路で接続し、3.12.3 で導入し、依存先の一覧へ載せる。基準集合の正解を人が確定する。閾値を版ごとに技術判断者が記名で決め、自動で変えず、版を固定する。確かめる者: 採用者の AI運用担当者(導入の記名承認のとき) | 推定による注意の喚起の部品(採用者)(予定の置き場) | 採用者が実装する(ADR-0103) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0401 | 要求事項7・8。組織の管理外へ送る構成の有効化と送信先・送る項目の変更を取り消せない操作の上流の操作とし、事業決裁者が範囲と期限を定めて記名で決める。送信先の許可を強制層のネットワークの許可に置き、送出の検査を接続経路の上に置く。担い手が有効化しないことは CLAUDE.md の (c)(IMPL-0251)が運ぶ。確かめる者: 採用者の事業決裁者(有効化を決めるとき)と AI維持管理者(送信先の許可を変えるとき) | 推定による注意の喚起の部品(採用者)(予定の置き場) | 採用者が実装する(ADR-0103) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0402 | 要求事項9。注意の件数・人へ戻した件数・戻しを要した件数・戻さなかった件数・注意が出なかった見逃しの件数を、四半期の棚卸しで記録する。確かめる者: 採用者の AI維持管理者(指示資産の四半期の棚卸しのとき) | 推定による注意の喚起の部品(採用者)(予定の置き場) | 採用者が実装する(ADR-0103) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
-| IMPL-0405 | 要求事項1〜4。導入前の回帰評価の実施、現行モデルとの差分の記録、AI運用担当者の記名による導入の承認、差し替えの変更管理の記録を、導入の記録として読み、承認の無いモデルを依存先の一覧で『承認なし』と出す。準拠テンプレートに導入の記録の形も検査も無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#426](https://github.com/Takenori-Kusaka/process-compass/issues/426)(見直し 2027-05) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0406 | 要求事項11〜14。基準集合の事例ごとの確定した者(席の責任者の記名。AI の名義を数えない)・確定の日・草案の有無と出所・正解の出所・盲検の確定の記録を読み、欠けた事例と一括の承認だけの事例を『確定なし』として出す。確定した者と導入を承認した者の同一を、依存先の一覧と保証の開示の項目5・7 に出す(開示への投影もこの Issue で足す)。事例を人が実際に見たかは確かめない。確かめる者: 計画の Issue(issue= の番号)の担当者 | 出荷判定の証跡の集約(保証の開示) | 予定 [#426](https://github.com/Takenori-Kusaka/process-compass/issues/426)(見直し 2027-05) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0407 | 要求事項15・16。AI の採点を用いた評価で、3.12.13 の要求事項6 の記録(偶然の一致を除く指標を含む)が無いものを『未測定』と出す(判定は 3.12.13 の IMPL-0410 と同じ)。未測定の評価で導入を承認した記録に層1 の権限者の受容が無いもの、未測定かつ比べるモデルと同じモデル・版で採点した差分を導入の根拠にしたものを出す。結果を見た後に改めた正解の一覧と、改める前の正解による結果の併記の有無を、導入の承認の記録から出す。不合格を合格へ改める変更と事例を除く変更を、緩める向きの変更として出す。確かめる者: 計画の Issue(issue= の番号)の担当者 | 出荷判定の証跡の集約(保証の開示) | 予定 [#426](https://github.com/Takenori-Kusaka/process-compass/issues/426)(見直し 2027-05) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0408 | 3.12.4 の基準値。品質の監視の基準値を、導入を承認した評価の結果とし、監視の結果から自動で改めない。改めは AI運用担当者の記名と理由・旧い値・新しい値の記録による。基準値を下げる変更を緩める向きとして扱う。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 採用者の AI運用担当者(基準値を定めるとき、改めるとき) | モデルの品質の監視(採用者の AI 実行基盤)(予定の置き場) | 採用者が実装する(ADR-0104) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0410 | 3.12.13 の要求事項2〜4・6〜8。部分集合の選び方・上乗せした事例の分離の記録、人の採点者の記名(AI の名義を数えない)の欠落を出す。AI の採点を用いた評価の記録で、読み方の記名・採点者の識別・偶然の一致を除く指標・合否の内訳・区間・双方に分けた値のいずれかが無いものを『未測定』と出す。較正の記録の採点者の識別と、評価に用いた採点者の識別が異なるものを『失効』と出す。読み方の改めの日付が評価の日付より後のものを、緩める向きの変更として出す。値の妥当性は確かめない。確かめる者: 計画の Issue(issue= の番号)の担当者 | 出荷判定の証跡の集約(保証の開示) | 予定 [#426](https://github.com/Takenori-Kusaka/process-compass/issues/426)(見直し 2027-05) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0411 | 3.12.13 の要求事項1(a)。退出の予行の記録 docs/exit-rehearsal.json に、AI の採点を用いたか、用いた場合の較正の記録の所在の欄を足す。準拠テンプレートの kinds/performer.md の記録の形に欄が無い。確かめる者: 計画の Issue(issue= の番号)の担当者 | 体制の変化点を反映するスキル | 予定 [#426](https://github.com/Takenori-Kusaka/process-compass/issues/426)(見直し 2027-05) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0412 | 3.12.13 の要求事項5・8〜10 と 3.12.4 の追加の段落。監視の試行を AI の採点で採点する場合に、採点のモデルを明示して版を固定し、採点者の識別の変更・正解の改め・半期の暦で較正を測り直し、識別が変わった後の結果を変わる前の基準値と比べない。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 採用者の AI運用担当者(採点のモデルを導入するとき、識別を変えるとき) | モデルの品質の監視(採用者の AI 実行基盤)(予定の置き場) | 採用者が実装する(ADR-0105) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 
 ### 全件
@@ -605,13 +600,13 @@ sidebar:
 | IMPL-0402 | 要求事項9。注意の件数・人へ戻した件数・戻しを要した件数・戻さなかった件数・注意が出なかった見逃しの件数を、四半期の棚卸しで記録する。確かめる者: 採用者の AI維持管理者(指示資産の四半期の棚卸しのとき) | 推定による注意の喚起の部品(採用者) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0403 | 要求事項1 の一部。準拠テンプレートが案内する道具(graft)の、組織の管理外への送信を既定で止める。構成の生成(generate-profile.mjs)が、.claude/settings.json の env に DO_NOT_TRACK=1 を置き(採用者が値を変えた場合は残す)、ソース・パス・シンボルを LLM の提供者へ送るコマンド(build --deep・blast --name)を deny に置く。ステージと guard.enabled に依らない。0.12.1 の日次の更新確認(npm レジストリ)は止められず、ネットワークの既定の拒否(IMPL-0200。降りていない)で扱う。test-init-g5.mjs が生成後の値を確かめる。確かめる者: AI維持管理者(道具の版を上げるとき)(#425) | エージェントの権限設定 | — | 降りている | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0404 | 評価用の基準集合の正解・採点の基準・品質の監視の基準値を AI が確定しない。草案は草案と明記し、確定した正解として記録へ書かない。複数の AI の合議や多数決の一致、AI の採点の一致を正解に数えない。モデルの出力を正解へ写さない。準拠テンプレートの CLAUDE.md「判断の確定と委任」の箇条と常駐の規則に置く(単位: 行) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0405 | 要求事項1〜4。導入前の回帰評価の実施、現行モデルとの差分の記録、AI運用担当者の記名による導入の承認、差し替えの変更管理の記録を、導入の記録として読み、承認の無いモデルを依存先の一覧で『承認なし』と出す。準拠テンプレートに導入の記録の形も検査も無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0406 | 要求事項11〜14。基準集合の事例ごとの確定した者(席の責任者の記名。AI の名義を数えない)・確定の日・草案の有無と出所・正解の出所・盲検の確定の記録を読み、欠けた事例と一括の承認だけの事例を『確定なし』として出す。確定した者と導入を承認した者の同一を、依存先の一覧と保証の開示の項目5・7 に出す(開示への投影もこの Issue で足す)。事例を人が実際に見たかは確かめない。確かめる者: 計画の Issue(issue= の番号)の担当者 | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0407 | 要求事項15・16。AI の採点を用いた評価で、3.12.13 の要求事項6 の記録(偶然の一致を除く指標を含む)が無いものを『未測定』と出す(判定は 3.12.13 の IMPL-0410 と同じ)。未測定の評価で導入を承認した記録に層1 の権限者の受容が無いもの、未測定かつ比べるモデルと同じモデル・版で採点した差分を導入の根拠にしたものを出す。結果を見た後に改めた正解の一覧と、改める前の正解による結果の併記の有無を、導入の承認の記録から出す。不合格を合格へ改める変更と事例を除く変更を、緩める向きの変更として出す。確かめる者: 計画の Issue(issue= の番号)の担当者 | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0405 | 要求事項1〜4。出荷の証跡の集約(org-assurance.mjs が model-adoption.mjs で読む)が、docs/model-adoption.json の導入の記録の基準集合の所在・回帰評価の日・現行モデルとの差分の記録・AI運用担当者の席の責任者の記名による承認(AI の名義を数えない。承認の日が評価の日より後)・差し替えの変更の記録を確かめ、依存先の一覧の『導入の承認』に承認あり・承認なし・導入の記録なしを出す。導入の記録の無い構成は欠落にしない。差分の中身と評価の十分性は確かめない(#426) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-model-adoption.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0406 | 要求事項11〜14。基準集合の所在の answers.json の事例ごとに、正解の種類・出所(外部の観測・人の過去の判定は所在を引けば確定をやり直さない)・確定した者(事例が再現する席の責任者、席が無い・AI運用担当者の席は技術判断者。AI の名義を数えない)・確定の日・草案のモデルの版・盲検の確定の記録を確かめ、欠けた事例を『確定なし』として導入の記録の欠けに出す。確定した者と導入を承認した者の同一を注記に出す。依存先の一覧と注記は保証の開示の項目7 に出る。項目5 への投影は行わない。事例を人が実際に見たかは確かめない(#426) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-model-adoption.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0407 | 要求事項15・16。AI の採点を用いた導入の記録で、3.12.13 の較正の記録が未測定なら、層1 の権限者の期限つきの受容(unmeasuredAcceptance)の無いものと、未測定かつ比べるモデルと同じモデル・版で採点したもの(受容があっても根拠に数えない)を導入の記録の欠けに出す。結果を見た後に改めた正解(revisedAfterResults)に改める前の結果の併記が無いものを出し、不合格を合格へ改めた事例と除いた事例を緩める向きとして注記に出す(#426) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-model-adoption.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0408 | 3.12.4 の基準値。品質の監視の基準値を、導入を承認した評価の結果とし、監視の結果から自動で改めない。改めは AI運用担当者の記名と理由・旧い値・新しい値の記録による。基準値を下げる変更を緩める向きとして扱う。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 採用者の AI運用担当者(基準値を定めるとき、改めるとき) | モデルの品質の監視(採用者の AI 実行基盤) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0409 | AI の採点の一致を測る部分集合の人の採点の欄を AI が埋めない。単純な一致の割合だけを一致の記録として書かない。採点のモデルを明示せずに、道具の既定のモデルで採点した結果を差分の根拠に書かない。準拠テンプレートの CLAUDE.md「判断の確定と委任」の箇条に置く(単位: 行) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0410 | 3.12.13 の要求事項2〜4・6〜8。部分集合の選び方・上乗せした事例の分離の記録、人の採点者の記名(AI の名義を数えない)の欠落を出す。AI の採点を用いた評価の記録で、読み方の記名・採点者の識別・偶然の一致を除く指標・合否の内訳・区間・双方に分けた値のいずれかが無いものを『未測定』と出す。較正の記録の採点者の識別と、評価に用いた採点者の識別が異なるものを『失効』と出す。読み方の改めの日付が評価の日付より後のものを、緩める向きの変更として出す。値の妥当性は確かめない。確かめる者: 計画の Issue(issue= の番号)の担当者 | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0411 | 3.12.13 の要求事項1(a)。退出の予行の記録 docs/exit-rehearsal.json に、AI の採点を用いたか、用いた場合の較正の記録の所在の欄を足す。準拠テンプレートの kinds/performer.md の記録の形に欄が無い。確かめる者: 計画の Issue(issue= の番号)の担当者 | 体制の変化点を反映するスキル | `verify-gate-contract` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0410 | 3.12.13 の要求事項2〜4・6〜8。較正の記録(judge)の採点者の識別(モデルの固定した版・採点の指示の版・推論の設定)、一致の読み方と技術判断者の記名と日、部分集合の選び方と件数の決め方、人の採点者の記名(AI の名義を数えない)、比べる双方ごとの組の件数・偶然の一致を除く指標・区間を確かめ、欠けた記録を『未測定』と出す。読み方を回帰評価の日より後に定めた記録を緩める向きの変更として出す。値の妥当性と、識別の変更後の測り直しの有無は確かめない(#426) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-model-adoption.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0411 | 3.12.13 の要求事項1(a)。退出の予行の記録 docs/exit-rehearsal.json の rehearsals[] に、AI の採点を用いたか(grading)と較正の記録(judge)の欄を置き(kinds/performer.md)、出荷の証跡の集約が AI の採点を用いて較正の記録の欠けた予行を『未測定』と出す(#426) | 体制の変化点を反映するスキル | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-model-adoption.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0412 | 3.12.13 の要求事項5・8〜10 と 3.12.4 の追加の段落。監視の試行を AI の採点で採点する場合に、採点のモデルを明示して版を固定し、採点者の識別の変更・正解の改め・半期の暦で較正を測り直し、識別が変わった後の結果を変わる前の基準値と比べない。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 採用者の AI運用担当者(採点のモデルを導入するとき、識別を変えるとき) | モデルの品質の監視(採用者の AI 実行基盤) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 
 <!-- implementation-ledger:end -->
