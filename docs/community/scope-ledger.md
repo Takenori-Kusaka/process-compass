@@ -43,6 +43,7 @@ sidebar:
 | 委任を適用した変更 | CL0・R3 の変更 | 変更ごと | [phase4-process-design/review-guide](/process-compass/phase4-process-design/review-guide/#委任を適用した変更適用-cl0r3-の変更) |
 | 席の責任者でない確認者の力量 | 承認を独立した人の確認に数える人 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#席の責任者でない確認者の力量適用-承認を独立した人の確認に数える人) |
 | 入力の分離 | 確認側の担い手に AI を置く場合 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#入力の分離適用-確認側の担い手に-ai-を置く場合) |
+| 人と AI の担い手の名義 | AI の担い手がホスティングを操作する構成 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#人と-ai-の担い手の名義適用-ai-の担い手がホスティングを操作する構成) |
 | B-3 設計審査会 | S2 スケール、または安全・法規制の対象となる機能 | 機能ごと | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#b-3-設計審査会適用-s2-スケールまたは安全法規制の対象となる機能) |
 | 3.12.12 能力依存の定数の再評価 | 能力依存として登録した定数 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#31212-能力依存の定数の再評価適用-能力依存として登録した定数) |
 | 3.12.13 AI の採点者の較正 | AI の採点を用いる評価 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#31213-ai-の採点者の較正適用-ai-の採点を用いる評価) |
