@@ -1746,6 +1746,10 @@ AI運用担当者は、3.12.2 の承認済みモデルの一覧を広げ、**依
 
 登録簿の再評価(要求事項3)を記録するのは、採用組織の人です。契機(モデル・指示資産の版の変更)を持つのは、案件の体制だからです。**本標準の起草者は、登録簿の定数を自ら再評価して記録することをしません**。起草者の側には変化点が無く、契機と記名の無い記録が登録簿の運用に見えてしまうためです。本標準が示す値そのものは、根拠水準のマーク(EV)の見直し日で見直します([ADR-0079](/process-compass/adr/0079-coverage-scope-approval-binding-self-heal/)「課さないと決めたこと」)。
 
+定数が働く記録を採用組織の様式が持たない場合、その定数は再評価待ちに数えず、適用なしとして示します。RC-03(タスクの見積の目安)は、見積の列を持たない実装計画では働きません([ADR-0098](/process-compass/adr/0098-flow-measurement-by-work-unit-count/))。
+
+<!-- impl IMPL-0372 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-recalibration.mjs note="準拠テンプレートの実装計画は見積の列を持たないため、能力依存の定数の再評価(recalibration.mjs)が RC-03 を再評価待ちに数えず、/pit と /process-change の注記に『適用なし』として出す。登録簿 recalibration-registry.json の notApplicable による。再評価待ちが1件以上あるときの注記に併記する。採用者が実装計画へ見積の列を足した場合は、登録簿の notApplicable を外す(#417 / ADR-0098)" -->
+
 組織の構造に由来する境界(第8章 軸A の10名の境界など)は、登録簿に載せません。担い手の能力に依らないうえ、観測の周期の性質も持たないためです。値の根拠は、各所の根拠水準のマークで開示します。
 
 <!-- impl IMPL-0103 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-recalibration.mjs note="再評価待ちの能力依存の定数の件数を /process-change の出力と /pit の注記に出す。契機は performer の変化点の記録と暦だけで、値を自動で変えない。再評価の記録(残す・外す・移す)は docs/calibration-register.md に記名で置き、AI の名義は数えない" -->
