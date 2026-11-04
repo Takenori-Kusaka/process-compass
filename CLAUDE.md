@@ -46,6 +46,13 @@
 - 規則データを変えたら `npm run template:kb` で複製を更新する。乖離は `npm run check` が検出する
 - テンプレート側の設計判断は ADR-0028(未達と省略の区別)
 
+## ハーネスと評価基盤(submodule)
+
+- `pit-crew/` = [pit-crew](https://github.com/Takenori-Kusaka/pit-crew)。ロール分離型 AI エージェント(PO・Dev・QM・review・maintenance)の汎用ハーネスと、評価基盤 pit-wall(`packages/pit-wall/`)。準拠テンプレートと合わせて改修する(#421)
+- **pit-crew は別のセッションで開発が続いている。main へ直接 push しない**。ブランチを切って PR を作り、所有者または開発中のセッションの取り込みに委ねる。submodule の参照を進めるのは、PR が main へ入った後
+- 初期化: `git -c core.longpaths=true submodule update --init pit-crew`(Windows では `runs/` のパスが長く、longpaths が無いと checkout が失敗する)。初期化の後に `git -C pit-crew config core.longpaths true` を設定する
+- CI(`ci.yml`)と `npm run check` は pit-crew を初期化しない。標準の検査は pit-crew に依らない
+
 ## Zenn 発信(submodule)
 
 - `zenn/` = [zenn-content](https://github.com/Takenori-Kusaka/zenn-content)。Zenn の GitHub 連携先

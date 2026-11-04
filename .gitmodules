@@ -4,3 +4,6 @@
 [submodule "zenn"]
 	path = zenn
 	url = https://github.com/Takenori-Kusaka/zenn-content.git
+[submodule "pit-crew"]
+	path = pit-crew
+	url = https://github.com/Takenori-Kusaka/pit-crew.git
