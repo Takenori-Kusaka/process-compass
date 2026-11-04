@@ -53,6 +53,14 @@ git submodule update --init --recursive
 
 原稿は [zenn-content](https://github.com/Takenori-Kusaka/zenn-content) にあり、このリポジトリからは `zenn/` としてサブモジュール参照しています。
 
+### ハーネスと評価の記録
+
+[**pit-crew**](https://github.com/Takenori-Kusaka/pit-crew) は、ピットイン方式の席(PO・技術判断者・Dev・review・QM・maintenance)に対応するロール分離型 AI エージェントのハーネスと、それを評価する基盤 pit-wall です。評価は進行中です(2026-11-04 時点で Dev のハーネスをチケット粒度で評価。ほかのロールは未着手)。このリポジトリからは `pit-crew/` としてサブモジュール参照しています。評価の実行記録(約 1.9 GB)を含むため、既定の `git submodule update` では取得しません。取得するときは次のとおりです。
+
+```bash
+git -c core.longpaths=true submodule update --init --checkout pit-crew
+```
+
 ## フィードバック歓迎
 
 意見・アイデア・フィードバックを広く募集しています。[Issues](https://github.com/Takenori-Kusaka/process-compass/issues) からお気軽にどうぞ。
@@ -88,3 +96,4 @@ Feedback is welcome in [Issues](https://github.com/Takenori-Kusaka/process-compa
 
 - **ドキュメント** (`src/content/docs/` 以下の文章・図): [CC-BY-4.0](./LICENSE-docs)
 - **コード** (サイト実装・ツール類): [MIT](./LICENSE)
+- サブモジュール(`template/`・`zenn/`・`pit-crew/`)は、それぞれのリポジトリのライセンスによる。pit-crew は MIT

@@ -50,7 +50,8 @@
 
 - `pit-crew/` = [pit-crew](https://github.com/Takenori-Kusaka/pit-crew)。ロール分離型 AI エージェント(PO・Dev・QM・review・maintenance)の汎用ハーネスと、評価基盤 pit-wall(`packages/pit-wall/`)。準拠テンプレートと合わせて改修する(#421)
 - **pit-crew は別のセッションで開発が続いている。main へ直接 push しない**。ブランチを切って PR を作り、所有者または開発中のセッションの取り込みに委ねる。submodule の参照を進めるのは、PR が main へ入った後
-- 初期化: `git -c core.longpaths=true submodule update --init pit-crew`(Windows では `runs/` のパスが長く、longpaths が無いと checkout が失敗する)。初期化の後に `git -C pit-crew config core.longpaths true` を設定する
+- **既定の `git submodule update --init --recursive` では取得しない**(`.gitmodules` の `update = none`。評価の実行記録 runs/ が約 1.9 GB あり、Windows ではパスが長い)。取得は `git -c core.longpaths=true submodule update --init --checkout pit-crew`。取得の後に `git -C pit-crew config core.longpaths true` を設定する
+- 参照を進める規則: pit-crew の main へ入った版だけを取り込む(#420)。ライセンスは pit-crew 側の MIT による
 - CI(`ci.yml`)と `npm run check` は pit-crew を初期化しない。標準の検査は pit-crew に依らない
 
 ## Zenn 発信(submodule)
