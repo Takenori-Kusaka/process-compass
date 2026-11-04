@@ -734,6 +734,32 @@ sections:
       - IMPL-0256
     note: 判定基準の表は知識ベースへ降りる。承認を承認した差分に束ねる規定は集約(IMPL-0263)・契約検査(IMPL-0264)・実環境の確認(IMPL-0265)。アカウント名の確認は IMPL-0266、コア機能のパスの追跡中のファイルとの照合は IMPL-0267。申告による承認の持ち越し、AI 名の語彙の限定は課さない明記
     issue: 296
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 確認の範囲と深さ
+    status: marked
+    ids:
+      - IMPL-0385
+      - IMPL-0386
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0385
+          - IMPL-0386
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0385
+          - IMPL-0386
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0385
+          - IMPL-0386
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0385
+    issue: 422
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
     status: marked
     ids:
@@ -1212,6 +1238,12 @@ sections:
       - IMPL-0167
       - IMPL-0168
     issue: 292
+  - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 示した箇所の内と外
+    status: marked
+    ids:
+      - IMPL-0387
+      - IMPL-0388
+    issue: 422
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 実装上の要求
     status: marked
     ids:
@@ -1466,6 +1498,42 @@ sections:
     status: pending
   - key: phase4-process-design/lifecycle#2.6 AI協調ループの構成 > 判断記録の範囲
     status: pending
+  - key: phase4-process-design/lifecycle#2.6 AI協調ループの構成 > 判断記録の範囲 > 判断記録の要否の規則
+    status: marked
+    ids:
+      - IMPL-0384
+      - IMPL-0389
+      - IMPL-0390
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0384
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0384
+          - IMPL-0389
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0384
+          - IMPL-0389
+      要求事項4:
+        status: none
+        category: org-design
+        reason: 判断記録の G-3 の判定記録への到達は、G-3 の判定者と G-6 の判定者(基準3)が確かめる。機械は判断記録の実在までを確かめる(IMPL-0384 の note)
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0390
+        note: 緩める向きの記名は変化点の入口が強制する(IMPL-0390)。起案者が技術判断者であること、AI維持管理者の承認は機械で確かめない
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0384
+          - IMPL-0389
+    issue: 422
   - key: phase4-process-design/lifecycle#2.6 AI協調ループの構成 > ステージによるループの回し方の変化
     status: marked
     ids:
