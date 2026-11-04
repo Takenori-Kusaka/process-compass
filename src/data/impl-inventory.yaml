@@ -164,6 +164,13 @@ sections:
       - IMPL-0360
     note: D-0 表1 の列の決まりは IMPL-0358、テンプレ6 観点3 の出所の区分は IMPL-0359、検査の未達は IMPL-0360(ADR-0091)
     issue: 409
+  - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > フローの観測と見込みの報告の行"
+    status: none
+    category: elsewhere
+    reason: 表1 の行と実行の担い手の権限の限りは、第2章 2.10.6 の IMPL-0367(D-0 の様式の行と注記)で追う
+    location:
+      - "phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.6 期日に間に合わない見込みが立った場合"
+    issue: 406
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 平常時と障害時を分ける"
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 個人名を1か所へ隔離する"
