@@ -327,6 +327,12 @@ targets:
     path: (採用者が置く)
     description: 指示・発話・作業の状態を分類して注意を出す部品(第5章 5.8.7)。準拠テンプレートは同梱しない(ADR-0103)。採用者が置く場合に、5.8.7 の要求事項1〜9 が掛かる
 
+  - id: model-quality-monitor
+    name: モデルの品質の監視(採用者の AI 実行基盤)
+    kind: planned
+    path: (採用者の AI 実行基盤)
+    description: 第3章 3.12.4 の品質の監視と基準値。準拠テンプレートは AI 実行基盤と品質の監視を持たない(ADR-0104)
+
   - id: vendor-estimate-records
     name: 受注側の見積りの版の記録の置き場(予定・採用者)
     kind: planned
