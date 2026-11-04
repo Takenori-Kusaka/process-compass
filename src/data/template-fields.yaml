@@ -406,6 +406,15 @@ forms:
         template: 申し立てた者の見解を退けたか
       - standard: 上申先と日付
         template: 上申先と日付
+      # 見積りと実績の差と、参照した企画書の版(第7章 7.7.9 / ADR-0093 / IMPL-0365)
+      - standard: '## 見積りと実績の差'
+        template: 見積りと実績の差
+      - standard: '| 当初の見積り |'
+        template: '| 当初の見積り |'
+      - standard: '| 差と主な原因 |'
+        template: '| 差と主な原因 |'
+      - standard: 参照した企画書の版
+        template: 参照した企画書の版
       - standard: '## AI の利用の評価'
         template: AI の利用の評価
       - standard: 評価の単位
@@ -525,6 +534,21 @@ forms:
         template: 予算の4区分
       - standard: 参照した過去案件
         template: 参照した過去案件
+      # 見積りの記録と当初の見積りの保存(第7章 7.7.9 / ADR-0093 / IMPL-0364)
+      - standard: '## 見積りの記録(観点4 / 第7章 7.7.9)'
+        template: 見積りの記録(観点4 / 第7章 7.7.9)
+      - standard: '| G-1 の時点の見積り |'
+        template: '| G-1 の時点の見積り |'
+      - standard: '### 予算の案(示す場合)'
+        template: 予算の案(示す場合)
+      - standard: '| 見積り値 |'
+        template: '| 見積り値 |'
+      - standard: '| 見積りの時点 |'
+        template: '| 見積りの時点 |'
+      - standard: '| 担い手の前提 |'
+        template: '| 担い手の前提 |'
+      - standard: 目標からの逆算
+        template: 目標からの逆算
       # 価値仮説の裏づけの出所の区分(ADR-0091 決定3 / IMPL-0359)
       - standard: 観測の記録への到達先
         template: 観測の記録への到達先

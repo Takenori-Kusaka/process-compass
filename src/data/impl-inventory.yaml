@@ -415,6 +415,65 @@ sections:
     status: pending
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.8 AI の利用の評価と総費用
     status: pending
+  - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.9 見積りの記録と、予算の案の示し方
+    status: marked
+    ids:
+      - IMPL-0364
+      - IMPL-0365
+      - IMPL-0366
+    note: 企画書の見積りの記録と予算の案は IMPL-0364、判定記録の見積りと実績の差は IMPL-0365、当初値の上書きと差の欄の検査の未達は IMPL-0366(ADR-0093)
+    issue: 407
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0364
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0364
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0364
+          - IMPL-0365
+          - IMPL-0366
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0365
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0364
+      要求事項6:
+        status: none
+        category: org-design
+        reason: 見積りの精度の目標を合否・人の評価に使わないことは、組織の評価の制度設計の禁止であり、様式も検査も持たない。内部監査の観点20(件数・目標値を評価に使っていないか)が人事評価の規程の写しで確かめる
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0364
+      要求事項8:
+        status: marked
+        ids:
+          - IMPL-0364
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0364
+      要求事項10:
+        status: marked
+        ids:
+          - IMPL-0364
+      要求事項11:
+        status: marked
+        ids:
+          - IMPL-0364
+      要求事項12:
+        status: marked
+        ids:
+          - IMPL-0364
   - key: phase4-process-design/exception-escalation#7.8 記録の要求事項
     status: pending
   - key: phase4-process-design/exception-escalation#7.9 承認権限の一時制限
