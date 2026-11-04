@@ -105,7 +105,7 @@ const OLD = daysAgo(400);
   const g1 = W.run('node', ['scripts/gate/check-g1.mjs']);
   check('check-g1: 識別子の欠落を検出する', !g1.ok && g1.out.includes('識別子(QC-NN)を持たない条件'), g1.out);
   reset();
-  write('docs/project-brief.md', read('docs/project-brief.md').replace(/^\| QC-01 \| .*$/m, '| QC-01 | 権限 | 権限 |\n| QC-01 | 重複 | データ |').replace(/^\| 教育 \| ([^|]*) \| 10時間 \| 見積り \| 見積りの方法 \|$/m, '| 教育 | $1 | | | |'));
+  write('docs/project-brief.md', read('docs/project-brief.md').replace(/^\| QC-01 \| .*$/m, '| QC-01 | 権限 | 権限 |\n| QC-01 | 重複 | データ |').replace(/^\| 教育 \| ([^|]*) \| 10時間 \| 見積り \| 見積りの方法 \| 10時間 \|$/m, '| 教育 | $1 | | | | |'));
   const g1b = W.run('node', ['scripts/gate/check-g1.mjs']);
   check('check-g1: 識別子の重複と、総費用の区分の空欄を検出する', !g1b.ok && g1b.out.includes('識別子が重複') && g1b.out.includes('総費用の内訳」に記入の無い区分があります(教育'), g1b.out);
   reset();
