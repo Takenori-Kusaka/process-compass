@@ -234,6 +234,8 @@ const OLD = daysAgo(400);
   commit('docs: SG の判定記録(総費用が空欄)');
   r = agg();
   check('「AI の利用の評価」の総費用の内訳が空欄 → 欠落、「該当なし」は記入として受け付ける', r.ev.gaps.some((g) => g.includes('sg1.md') && g.includes('空欄の欄があります(総費用の内訳)')), r.ev.gaps.join('\n'));
+  // process-compass #416(第7章 7.7.9 の要求事項4): SG の判定記録に「見積りと実績の差」の節が無ければ欠落
+  check('SG の判定記録に「見積りと実績の差」の節が無い → 欠落', r.ev.gaps.some((g) => g.includes('sg1.md') && g.includes('「見積りと実績の差」の節がありません')), r.ev.gaps.join('\n'));
   reset();
 }
 

@@ -429,7 +429,8 @@ sections:
       - IMPL-0364
       - IMPL-0365
       - IMPL-0366
-    note: 企画書の見積りの記録と予算の案は IMPL-0364、判定記録の見積りと実績の差は IMPL-0365、当初値の上書きと差の欄の検査の未達は IMPL-0366(ADR-0093)
+      - IMPL-0376
+    note: 企画書の見積りの記録と予算の案は IMPL-0364、判定記録の見積りと実績の差は IMPL-0365、当初値の空欄と書き換えの検査は IMPL-0366(#416 で降りた)、SG の判定記録の見積りと実績の差の空欄の検出は IMPL-0376(ADR-0093)
     issue: 407
     rows:
       要求事項1:
@@ -450,6 +451,7 @@ sections:
         status: marked
         ids:
           - IMPL-0365
+          - IMPL-0376
       要求事項5:
         status: marked
         ids:

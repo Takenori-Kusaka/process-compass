@@ -560,7 +560,8 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 
 <!-- impl IMPL-0364 target=project-brief-template state=delivered check=presence note="テンプレ6 に節『見積りの記録』(前提、目標、見積り値と根拠、見積りの時点、逆算の有無、担い手の表の版、人だけで処理できる量)と節『予算の案(示す場合)』を置き、総費用の内訳に列『G-1 の時点の見積り』を足す(#407 / ADR-0093)(単位: 欄)" -->
 <!-- impl IMPL-0365 target=gate-record-template state=delivered check=presence note="テンプレ4 に欄『参照した企画書の版』と節『見積りと実績の差』(当初の見積り、実績、差と主な原因)を置く(#407 / ADR-0093)(単位: 欄)" -->
-<!-- impl IMPL-0366 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=416 review=2027-05 note="総費用の内訳の『G-1 の時点の見積り』の列が G-1 の時点で埋まっているか(check-g1 は同じ表の値・実績 / 見積り・出所だけを読む)、G-1 の後に書き換えられていないか、ステージ移行ゲートの判定記録の『見積りと実績の差』が書かれているかを、準拠テンプレートの検査は確かめない。降ろすまで未達として表示する。確かめる者: ステージ移行ゲートの判定者(B-2 の決定者。判定のとき)(#407 / ADR-0093)" -->
+<!-- impl IMPL-0366 target=g1-check state=delivered check=machine test=template/scripts/gate/test-brief-estimates.mjs note="要求事項3。準拠テンプレートの check-g1 が、総費用の内訳の『G-1 の時点の見積り』の列の欠落と空欄を検出し(G-1 の前は失敗、通過済みは欠落として出す)、G-1 の判定記録の『参照した企画書の版』の企画書と比べて列の書き換えを検出して失敗させる。版を読めない場合は確かめられないことを出す。値の妥当性は確かめない(#416 / ADR-0093)" -->
+<!-- impl IMPL-0376 target=evidence-aggregation state=delivered check=manual note="要求事項4。出荷の証跡の集約が、ステージ移行ゲートの判定記録の『見積りと実績の差』の節の欠落と、3欄(当初の見積り・実績・差と主な原因)の空欄を記載の欠落として出す。判定の部品は test-brief-estimates.mjs が、集約を通した場面は回帰の試験 t288b が確かめる。差の原因の当否は確かめない(#416)。確かめる者: ステージ移行ゲートの判定者(B-2 の決定者。判定記録を書くとき)" -->
 
 :::caution[暫定 EV-0190 / 見直し 2027-05]
 **対象**: 見積りの記録として、前提・目標・見積り値と根拠・時点を分け、当初の見積りを保存し、見積りと実績の差を判定記録に残させる判断(要求事項1〜5)。
