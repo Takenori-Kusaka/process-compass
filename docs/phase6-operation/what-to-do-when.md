@@ -12,7 +12,7 @@ sidebar:
 | # | 原則 | 意味 |
 | --- | --- | --- |
 | 1 | **報告が先、調査は後** | 報告の時点で原因と経緯の説明を求めない。報告を遅らせる唯一最大の要因が説明の負担である |
-| 2 | **迷ったら重いほうへ倒す** | 重大度の判定は当番が単独で即断する。合議にかけない |
+| 2 | **迷ったら重いほうへ倒す** | 初動の緊急度(U1〜U4)の判定は当番が単独で即断する。合議にかけない |
 | 3 | **上げた先には応答の義務がある** | エスカレーションは丸投げではない。受けた側には期限内に応答する義務が生じる |
 
 原則3を欠く組織では、**エスカレーションしても結局は現場で対応する**状態が定着します。この状態はエスカレーションを名目化させ、次からは誰も上げなくなります。期限と措置は[7.5 判定の滞留に対する措置](/process-compass/phase4-process-design/exception-escalation/)に規定します。
@@ -21,8 +21,8 @@ sidebar:
 
 | こんなとき | まず何をするか | 決める人 | 参照 |
 | --- | --- | --- | --- |
-| 本番でサービスが止まった | 重大度を単独で判定し、Sev1・Sev2 なら即時に連絡する | 当番 | [インシデント対応](/process-compass/phase6-operation/incident-response/) |
-| データの破損・漏えいが疑われる | Sev1 として扱う。**証拠を消さずに**アクセスを遮断する | 当番 → 事業決裁者 | 同上、[避難訓練の類型D](/process-compass/phase6-operation/incident-drill/) |
+| 本番でサービスが止まった | 初動の緊急度を単独で判定し、U1 なら即時に、U2 なら1時間以内に連絡する | 当番 | [インシデント対応](/process-compass/phase6-operation/incident-response/) |
+| データの破損・漏えいが疑われる | 緊急度 U1 として扱う。**証拠を消さずに**アクセスを遮断する | 当番 → 事業決裁者 | 同上、[避難訓練の類型D](/process-compass/phase6-operation/incident-drill/) |
 | CI が壊れて誰も検証できない | 復旧を当日の最優先の作業に置く。検査を無効化して先へ進めない | 技術判断者 | [CI ゲート](/process-compass/phase5-implementation/ci-gates/) |
 | 直せば直すほど壊れる | 修正を止め、変更を戻す。原因の特定を修正より先に置く | 技術判断者 | [挙動検証](/process-compass/phase4-process-design/developer-guide/) |
 | 復旧を急いでいて手順を飛ばしたい | 飛ばさない。緊急の修正でも PR と CI を通す。確認を待てない場合の経路は第7章 7.3 の例外承認だけ | 技術判断者 | [Git 戦略](/process-compass/phase5-implementation/git-strategy/) |
@@ -122,6 +122,6 @@ sidebar:
 ## 関連するページ
 
 - [リスクカタログ](/process-compass/phase6-operation/risk-catalog/) — 症状の背後にあるリスクの分類
-- [インシデント対応](/process-compass/phase6-operation/incident-response/) — Sev 判定とポストモーテム
+- [インシデント対応](/process-compass/phase6-operation/incident-response/) — 初動の緊急度の判定とポストモーテム
 - [開発避難訓練](/process-compass/phase6-operation/incident-drill/) — 本ページを引く練習
 - [第7章 例外・エスカレーション](/process-compass/phase4-process-design/exception-escalation/) — 滞留・例外・中止の規定
