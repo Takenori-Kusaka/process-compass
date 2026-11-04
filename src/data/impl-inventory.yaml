@@ -955,6 +955,13 @@ sections:
     status: pending
   - key: phase4-process-design/gate-criteria#欠陥トリアージ基準 > 既知の不具合の要求事項
     status: pending
+  - key: phase4-process-design/gate-criteria#欠陥トリアージ基準 > 確定した欠陥と検出した工程
+    status: marked
+    ids:
+      - IMPL-0392
+      - IMPL-0393
+      - IMPL-0394
+    issue: 413
   - key: phase4-process-design/gate-criteria#欠陥トリアージ基準 > 定量指標の設定義務
     status: pending
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い

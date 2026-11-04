@@ -248,6 +248,12 @@ targets:
     path: templates/defect-ledger.md
     description: 出荷判定(G-7)基準2 の既知の欠陥の台帳。欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(第4章 G-5)の様式は、ここにまだ無い
 
+  - id: bug-issue-template
+    name: 不具合の報告の Issue の様式
+    kind: template-file
+    path: .github/ISSUE_TEMPLATE/bug.yml
+    description: 不具合の報告の入口。欠陥の件数の算出元ではない(算出元は欠陥の台帳。ADR-0102)
+
   - id: incident-artifact
     name: 障害時に使う記録の補助ファイル
     kind: template-file

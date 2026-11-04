@@ -142,7 +142,7 @@ graph TD
 | 企画 | 聞き取りの対象の偏りによる要求の誤認 | カネ・時間 | 価値責任者 | [事業性評価](/process-compass/adr/0016-business-appraisal-in-intent-brief/) |
 | 開発 | 委託先の納期の遅延と品質の不足 | 時間・モノ・カネ | 価値責任者 | 受け止めは部分的(成果物の受入は G ゲートで判定) |
 | 開発 | 外部 API・SaaS の仕様変更と障害 | モノ・時間 | 技術判断者 | 前提台帳、[開発避難訓練](/process-compass/phase6-operation/incident-drill/)の類型B |
-| 継続運用 | 苦情の急増による対応稼働の圧迫 | カネ・ヒト | 事業決裁者 | [インシデント対応](/process-compass/phase6-operation/incident-response/)の Sev 判定 |
+| 継続運用 | 苦情の急増による対応稼働の圧迫 | カネ・ヒト | 事業決裁者 | [インシデント対応](/process-compass/phase6-operation/incident-response/)の初動の緊急度の判定 |
 | 継続運用 | 計算資源の提供元の障害・値上げ | モノ・カネ | AI 運用担当者 | [計算資源の戦略](/process-compass/phase5-implementation/compute-strategy/)の代替の確保 |
 
 ### 法規制・制度
