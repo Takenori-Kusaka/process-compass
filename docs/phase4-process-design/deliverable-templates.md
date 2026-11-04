@@ -263,7 +263,8 @@ D-0 と同じ内容を機械可読の構成にも持つ場合、同じ事実を2
 
 <!-- impl IMPL-0358 target=d0-template state=delivered check=presence note="D-0 表1 の列の決まり(起案・意見・実行は席を持たない担当を役割名で書ける、決定・同意には決定権を委ねられていない担当を書かない、検証の行の実行が AI の担い手だけなら観測の担い手の指名にならない)を、テンプレートの D-0 の表1 の注記へ降ろす(#409 / ADR-0091)(単位: 行)" -->
 <!-- impl IMPL-0359 target=project-brief-template state=delivered check=presence note="テンプレ6 観点3 の裏づけの表(出所の区分と、観測の記録への到達先)と、AI が生成した顧客の声を観測に数えない旨を、テンプレートの企画書へ降ろす(#409 / ADR-0091)(単位: 欄)" -->
-<!-- impl IMPL-0360 target=d0-template state=undelivered check=manual plan=scheduled issue=411 review=2027-05 note="D-0 表1 の「市場・顧客仮説の検証の実施」の行の空欄、決定・同意の列への席でない担当の記載、出所の区分の未記入を、準拠テンプレートの検査は確かめない(template/scripts/gate/ に検査が無い)。降ろすまで未達として表示する。確かめる者: 内部監査の実施者(H.3 観点24 を四半期に確かめるとき)(#409 / ADR-0091)" -->
+<!-- impl IMPL-0360 target=d0-template state=delivered check=machine test=template/scripts/gate/test-customer-voice.mjs note="D-0 表1 の「市場・顧客仮説の検証の実施」の行が無い・決定か実行の空欄・実行が AI の担い手だけの D-0 を、D-0 の検査(check-d0.mjs)が失敗させる(G-1 を通過済みの案件は遡って失敗させず注意)。決定・同意の列の、席・会議体の名と照合できない記載は注意に出すだけで失敗させない。役割名の語彙が閉じておらず、決定権を委ねられていない担当かを機械で判別できないため。人が附属書H 観点24 で確かめる(#411)" -->
+<!-- impl IMPL-0397 target=g1-check state=delivered check=machine test=template/scripts/gate/test-customer-voice.mjs note="テンプレ6 観点3 の裏づけの表で、出所の区分の未記入・3 区分の外の記載と、「実在の顧客・利用者の観測」なのに観測の記録への到達先が無い行を、G-1 の検査(check-g1.mjs)が失敗させる(G-1 を通過済みの企画書は注意)。表の無い旧い様式は注意。観測が実在の顧客によるかは確かめない(第5章 5.7.4。附属書H 観点24)(#411)" -->
 
 :::caution[暫定 EV-0186 / 見直し 2027-05]
 **対象**: AI が顧客・利用者を模して生成した出力を、検証の結果・実証データ・判定の根拠・顧客接点に数えないとする範囲と、使ってよい用途の線引き。
