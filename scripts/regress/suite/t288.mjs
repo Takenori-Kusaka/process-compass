@@ -16,6 +16,9 @@ const mockMaterialPr = (dir, sha, { number, author, approvers }) => {
 // #319 §8 X-1: 節ごとに固定する決定(元は ADR-0057 の全体。ADR-0057 は決定を番号で分けるため、決定の番号か、採用後の補足が改めた標準の条項で引く)
 fixes(['K60', 'ADR-0057 決定8']);
 // gh は PATH 上の代役(lib/bin/gh)。元は --import mockgh-prs.mjs で execFileSync を差し替えていた
+// #428(IMPL-0415): 層1 の記名者。名簿に組織上の任命権者(体制の外)として置き、層1 を入れた PR の承認者にする
+const BOSS = { id: 'boss', name: '社長 一郎', external: true, appointer: true, accounts: [rosterAccount('acct-boss')] };
+const BOSS_APPROVAL = { author: { login: 'acct-boss' }, state: 'APPROVED', body: '' };
 const FUTURE = '2099-12-31';
 const PAST = '2020-01-01';
 
@@ -158,7 +161,8 @@ function setup(ws, n) {
   fs.writeFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), fs.readFileSync(path.join(W.DIR, 'docs/D-0-governance.md'), 'utf8').replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |'));
   gen('--answers', 'process.config.json');
   // 第3巡(C): D-0 節9 の代理者は名簿の人へ対応づく氏名だけを候補に数える。代理者を名簿へ入れる
-  const people = [...NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [rosterAccount(`acct-${i + 1}`)] })), ...(n === 1 ? [] : [{ id: 'dep1', name: '代理 太郎', accounts: [rosterAccount('acct-dep1')] }, { id: 'dep2', name: '候補 花子', accounts: [rosterAccount('acct-dep2')] }])];
+  // #428(IMPL-0415): 層1 の記名者(社長 一郎)は、層1 を入れた PR の承認者として帰属を確かめる。名簿に組織上の任命権者(体制の外)として置く
+  const people = [...NAMES.slice(0, n).map((name, i) => ({ id: `p${i + 1}`, name, accounts: [rosterAccount(`acct-${i + 1}`)] })), ...(n === 1 ? [] : [{ id: 'dep1', name: '代理 太郎', accounts: [rosterAccount('acct-dep1')] }, { id: 'dep2', name: '候補 花子', accounts: [rosterAccount('acct-dep2')] }]), BOSS];
   const assign = n === 1 ? Object.fromEntries(SEATS.map((s) => [s, 0])) : { 'biz-approver': 1, 'value-owner': 0, 'tech-lead': 0, 'dev-verifier': 0, 'independent-reviewer': 1, 'qa-gatekeeper': 2, 'context-owner': 0, 'ai-maintainer': 1, 'ai-ops': 0 };
   const seats = Object.fromEntries(SEATS.map((s) => [s, { accountable: NAMES[assign[s]] }]));
   const f = fill(W, people, seats);
@@ -193,7 +197,7 @@ function setup(ws, n) {
   const prs = path.join(W.DIR, '.git', 'prs');
   fs.mkdirSync(prs, { recursive: true });
   const reviewer = n === 1 ? null : { author: { login: 'acct-2' }, state: 'APPROVED', body: '挙動要約: 変更の内容を確かめた' };
-  const prJson = (num, title, hash) =>
+  const prJson = (num, title, hash, extra = []) =>
     fs.writeFileSync(
       path.join(prs, `${num}.json`),
       JSON.stringify({
@@ -201,7 +205,7 @@ function setup(ws, n) {
         title,
         author: { login: 'acct-1' },
         // #319 7.5(入力の直し): 承認を承認した差分に束ねる(ADR-0079 の 2)
-        reviews: reviewer ? [{ ...reviewer, commit: { oid: hash } }] : [],
+        reviews: [...(reviewer ? [{ ...reviewer, commit: { oid: hash } }] : []), ...extra.map((r) => ({ ...r, commit: { oid: hash } }))],
         headRefOid: hash,
         statusCheckRollup: [{ __typename: 'CheckRun', name: 'gate-g5', status: 'COMPLETED', conclusion: 'SUCCESS' }],
         body: `## 検証方法と結果\n\ng5-local が通過\n\n## 作成を指示した者\n\n${NAMES[0]}\n\n## リスク区分\n\nR2\n\n## トレーラ\n\nSpec: setup\n`,
@@ -216,7 +220,9 @@ function setup(ws, n) {
     prNo += 1;
     git('add', '-A');
     git('commit', '-q', '-m', `${msg} (#${prNo})`);
-    prJson(prNo, msg, git('rev-parse', 'HEAD').out.trim());
+    // #428(IMPL-0415): 層1 を変える PR は、層1 の記名者(社長 一郎)本人の承認で入れる(帰属の確認。中身の判定ではない)
+    const touchesPolicy = git('diff', '--name-only', 'HEAD^', 'HEAD').out.split(/\r?\n/).includes('docs/quality-assurance-policy.md');
+    prJson(prNo, msg, git('rev-parse', 'HEAD').out.trim(), touchesPolicy ? [BOSS_APPROVAL] : []);
   };
   prCommit('docs: 体制・層1・企画・記録を置く');
   git('tag', 'base288');
@@ -247,6 +253,10 @@ fixes(['ADR-0057 決定8', 'ADR-0057 決定9', 'ADR-0057 決定10']);
   check('3名: 記録の欠落が無い', ev.gaps.length === 0, ev.gaps.join('\n') || r.out);
   check('3名: 6条件をすべて満たし成立(全件)、定型の文なし', c.total === 2 && c.established === 2 && c.notEstablished === 0 && !c.statement, JSON.stringify(c, null, 1));
   check('3名: 条件4 は構成上(判定記録の前)', cond(ev, 4).ok && cond(ev, 4).basis === 'structure');
+  // #428(IMPL-0415): 層1 と D-0 の決定の記名(任免)の帰属を、記録を入れた PR の作成者・承認者で確かめる
+  const da = ev.assurance.generation.decisionAttribution ?? [];
+  check('3名: 層1 の帰属を、層1 を入れた PR の記名者本人(任命権者)の承認で確かめる', c.policy.attribution?.backed === true, JSON.stringify(c.policy.attribution), { fixes: ['ADR-0106 決定3', 'ADR-0106 決定5'] });
+  check('3名: 範囲の中の D-0 の決定の記名(任免)の帰属を、記録を入れた PR で確かめ、すべて裏づく', da.some((d) => d.kind === 'd0') && da.every((d) => d.backed), JSON.stringify(da, null, 1), { fixes: ['ADR-0106 決定3', 'ADR-0106 決定5'] });
   check('3名: 品質レポートに成立判定の節と照らした層1 の版', report.includes('### 保証の主張の成立判定') && report.includes('v1.2(記名日 2026-09-01)'), report.slice(0, 2000));
   check('3名: 外へ渡す開示にも成立判定の節が出て、層1 の記名者の氏名を出さない', ext.includes('### 保証の主張の成立判定') && !ext.includes('社長 一郎'), ext.slice(0, 1500));
   check('3名: 受容しない条件は機械で照合した 2 件・当たる事実なし', c.nonAcceptable.checked === 2 && !c.nonAcceptable.facts.length);
@@ -466,7 +476,7 @@ fixes(['標準 7.11', 'ADR-0057 決定9']);
   commit('docs: メモ');
   const body = '## 検証方法と結果\n\nなし\n\n## リスク区分\n\nR3\n\n## トレーラ\n\nSpec: setup\n';
   // 解除の記録を入れた変更の記録。既定ブランチのコミットはどれも、記名者(acct-1〜3)の承認で入った PR として扱う(ADR-0106)
-  const hosting = () => ({ commits: Object.fromEntries(git('log', '--format=%H', 'main').out.split('\n').filter(Boolean).map((h) => [h.trim(), { number: 70, author: 'acct-9', authorId: regressAccountId('acct-9'), approvers: [rosterAccount('acct-1'), rosterAccount('acct-2'), rosterAccount('acct-3')] }])) });
+  const hosting = () => ({ commits: Object.fromEntries(git('log', '--format=%H', 'main').out.split('\n').filter(Boolean).map((h) => [h.trim(), { number: 70, author: 'acct-9', authorId: regressAccountId('acct-9'), approvers: [rosterAccount('acct-1'), rosterAccount('acct-2'), rosterAccount('acct-3'), rosterAccount('acct-boss')] }])) });
   const pr = (extra) => {
     write('../pr-t288.json', JSON.stringify({ number: 7, title: 'docs', body, author: 'acct-1', authorId: regressAccountId('acct-1'), hosting: hosting(), ...extra }));
     return run('node', ['scripts/gate/check-pr.mjs', '--base', 'main', '--pr', '../pr-t288.json', '--json']);
