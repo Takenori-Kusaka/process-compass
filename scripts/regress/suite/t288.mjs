@@ -7,6 +7,12 @@ import { pathToFileURL } from 'node:url';
 import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE } from './lib.mjs';
 
 const { check, done, ghRun, fixes } = checker();
+// 判定の材料とする記録を入れた変更の記録(gh の代役が返す。lib/bin/gh。process-compass #380 / ADR-0106)
+const mockMaterialPr = (dir, sha, { number, author, approvers }) => {
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, `pulls-${sha}.json`), JSON.stringify([{ number, merged_at: '2026-10-01T00:00:00Z', merge_commit_sha: sha, head: { sha: `head-${number}` }, user: { login: author } }]));
+  fs.writeFileSync(path.join(dir, `reviews-${number}.json`), JSON.stringify(approvers.map((login) => ({ user: { login, type: 'User' }, state: 'APPROVED', commit_id: `head-${number}` }))));
+};
 // #319 §8 X-1: 節ごとに固定する決定(元は ADR-0057 の全体。ADR-0057 は決定を番号で分けるため、決定の番号か、採用後の補足が改めた標準の条項で引く)
 fixes(['K60', 'ADR-0057 決定8']);
 // gh は PATH 上の代役(lib/bin/gh)。元は --import mockgh-prs.mjs で execFileSync を差し替えていた
@@ -459,8 +465,10 @@ fixes(['標準 7.11', 'ADR-0057 決定9']);
   write('docs/notes.md', '# メモ\n');
   commit('docs: メモ');
   const body = '## 検証方法と結果\n\nなし\n\n## リスク区分\n\nR3\n\n## トレーラ\n\nSpec: setup\n';
+  // 解除の記録を入れた変更の記録。既定ブランチのコミットはどれも、記名者(acct-1〜3)の承認で入った PR として扱う(ADR-0106)
+  const hosting = () => ({ commits: Object.fromEntries(git('log', '--format=%H', 'main').out.split('\n').filter(Boolean).map((h) => [h.trim(), { number: 70, author: 'acct-9', approvers: ['acct-1', 'acct-2', 'acct-3'] }])) });
   const pr = (extra) => {
-    write('../pr-t288.json', JSON.stringify({ number: 7, title: 'docs', body, author: 'acct-1', ...extra }));
+    write('../pr-t288.json', JSON.stringify({ number: 7, title: 'docs', body, author: 'acct-1', hosting: hosting(), ...extra }));
     return run('node', ['scripts/gate/check-pr.mjs', '--base', 'main', '--pr', '../pr-t288.json', '--json']);
   };
   const res = (r) => JSON.parse(r.out.slice(r.out.indexOf('{')));
@@ -514,6 +522,7 @@ fixes(['標準 7.11', 'ADR-0057 決定9']);
   check('停止: 層1 なしでは事業決裁者を権限者とみなし、その旨を出す', r.ok && res(r).notices.join('').includes('みなした'), r.out.slice(0, 1200));
   // 解除の記録が集約で項目7 に出る
   git('switch', '-q', 'main');
+  mockMaterialPr(path.join(W.DIR, '.git', 'prs'), git('log', '-1', '--format=%H', 'main', '--', 'docs/gates/stop-7.md').out.trim(), { number: 71, author: 'acct-1', approvers: ['acct-2'] });
   const agg = ghRun(W, '出荷の証跡の集約(停止の解除)', 'node', ['scripts/gate/aggregate-evidence.mjs', '--from', 'base288', '--to', 'HEAD'], { GITHUB_REPOSITORY: 'example/t288', MOCK_PRS: path.join(W.DIR, '.git', 'prs') });
   const ev = JSON.parse(W.read('evidence/evidence.json'));
   check('停止: 解除の記録が保証の開示の項目7 に出る', ev.assurance.stopReleases.length >= 1 && W.read('evidence/quality-report.md').includes('停止の申し立ての解除: PR #7'), agg.out.slice(0, 600));

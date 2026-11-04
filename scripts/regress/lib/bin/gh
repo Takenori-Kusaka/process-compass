@@ -16,6 +16,18 @@ if (args[0] === '--regress-probe') {
   process.exit(0);
 }
 if (process.env.MOCK_PRS) {
+  // 判定の材料とする記録を入れた変更の記録(#380 / ADR-0106)。gh api repos/<r>/commits/<sha>/pulls は $MOCK_PRS/pulls-<sha>.json、
+  // gh api [--paginate] repos/<r>/pulls/<n>/reviews は $MOCK_PRS/reviews-<n>.json、gh api repos/<r>/commits/<sha> は
+  // $MOCK_PRS/commit-<sha>.json を返す。無ければ [](PR を経ていない・記録が無い)
+  if (args[0] === 'api') {
+    const target = args.slice(1).find((a) => a.startsWith('repos/')) ?? '';
+    const m = target.match(/^repos\/[^/]+\/[^/]+\/(?:commits\/([0-9a-f]+)\/pulls|pulls\/(\d+)\/reviews|commits\/([0-9a-f]+))$/);
+    const f = m ? path.join(process.env.MOCK_PRS, m[1] ? `pulls-${m[1]}.json` : m[2] ? `reviews-${m[2]}.json` : `commit-${m[3]}.json`) : null;
+    if (f && fs.existsSync(f)) {
+      process.stdout.write(fs.readFileSync(f, 'utf8'));
+      process.exit(0);
+    }
+  }
   if (args[0] === 'pr' && args[1] === 'view') {
     const f = path.join(process.env.MOCK_PRS, `${args[2]}.json`);
     if (fs.existsSync(f)) {

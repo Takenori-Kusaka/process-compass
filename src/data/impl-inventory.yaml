@@ -545,6 +545,11 @@ sections:
       - IMPL-0356
       - IMPL-0353
       - IMPL-0124
+      - IMPL-0413
+      - IMPL-0414
+      - IMPL-0415
+      - IMPL-0416
+      - IMPL-0417
       - IMPL-0128
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件

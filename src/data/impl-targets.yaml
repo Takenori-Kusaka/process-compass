@@ -211,7 +211,7 @@ targets:
     name: ブランチ保護のルールセット
     kind: template-file
     path: .github/rulesets/README.md
-    description: 既定ブランチと記録の置き場に掛ける強制層の構成(team / regulated / safety / checks-only)と、その説明。GitHub のルールセットはパス単位の免除を持たない(#321)ため、判定記録だけの PR にも承認 1 件が残る。降りていない規定は README に表示し続ける
+    description: 既定ブランチと記録の置き場に掛ける強制層の構成(team / regulated / safety / checks-only)と、その説明。GitHub のルールセットはパス単位の免除を持たない(#321)ため、判定記録だけの PR(出荷の PR)にも承認 1 件が残る。その承認は転記の確認であり、判定の材料とする記録は承認の要件を外して入れない(#380 / ADR-0106)
   - id: adoption-preflight
     name: 初期化の事前点検
     kind: template-file

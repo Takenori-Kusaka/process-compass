@@ -7,6 +7,12 @@ import { pathToFileURL } from 'node:url';
 import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE } from './lib.mjs';
 
 const { check, done, ghRun, fixes } = checker();
+// 判定の材料とする記録を入れた変更の記録(gh の代役が返す。lib/bin/gh。process-compass #380 / ADR-0106)
+const mockMaterialPr = (dir, sha, { number, author, approvers }) => {
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, `pulls-${sha}.json`), JSON.stringify([{ number, merged_at: '2026-10-01T00:00:00Z', merge_commit_sha: sha, head: { sha: `head-${number}` }, user: { login: author } }]));
+  fs.writeFileSync(path.join(dir, `reviews-${number}.json`), JSON.stringify(approvers.map((login) => ({ user: { login, type: 'User' }, state: 'APPROVED', commit_id: `head-${number}` }))));
+};
 // gh は PATH 上の代役(lib/bin/gh)。元は --import mockgh-prs.mjs で execFileSync を差し替えていた
 // N7 の場面は移さない(入力 tmp/eval286-novice2 が退避物に無い。scripts/regress/DISPOSITION.md)
 
@@ -131,12 +137,14 @@ const aggregate = () => {
 };
 // 承認した者は名簿の外部の人(1名の体制で、作成を指示した本人と別の人)
 const roster = cfg();
-write('change.json', { kind: 'accountable', date: TODAY, summary: '外部の承認者を名簿へ足す', people: [...roster.people, { id: 'ext1', name: '組織 承認者', external: true }], decidedBy: NAMES[0], reason: '例外承認の承認者' });
+write('change.json', { kind: 'accountable', date: TODAY, summary: '外部の承認者を名簿へ足す', people: [...roster.people, { id: 'ext1', name: '組織 承認者', external: true, accounts: ['ext-acct'] }], decidedBy: NAMES[0], reason: '例外承認の承認者' });
 const addExt = gen('--change', 'change.json');
 check('N6 準備: 外部の承認者を名簿へ足す', addExt.ok, addExt.out);
 fs.rmSync(path.join(DIR, 'change.json'), { force: true });
 write('docs/debt-ledger.md', LEDGER + row('D-001', 'G-1 P-001') + row('D-002', 'G-2 F-001', '—'));
 commit('docs: 台帳');
+// 台帳の行は、承認した者本人(外部の承認者)の承認で入った(ADR-0106。名前の一致だけでは数えない)
+mockMaterialPr(prs, git('rev-parse', 'HEAD').out.trim(), { number: 50, author: 'acct-1', approvers: ['ext-acct'] });
 let { ev, report } = aggregate();
 const gapsText = (ev.gaps ?? []).join('\n');
 check('N6: ゲートの判定を対象とする成立した行(D-001)は、変更(PR #1)へ対応づけない', /PR #1: リスク区分 R1 の変更が、独立した人の確認を経ていません/.test(gapsText), gapsText);
@@ -144,6 +152,7 @@ check('N6: 承認した者を欠くゲートの判定の例外(D-002)を欠落�
 check('N6: 成立したゲートの判定の例外を保証の開示の項目5 に出す', JSON.stringify(ev).includes('D-001(G-1 P-001)'), JSON.stringify(ev.assurance?.residual ?? {}));
 write('docs/debt-ledger.md', LEDGER + row('D-001', 'G-1 P-001') + row('D-003', 'PR #1'));
 commit('docs: 台帳(PR #1 の例外)');
+mockMaterialPr(prs, git('rev-parse', 'HEAD').out.trim(), { number: 51, author: 'acct-1', approvers: ['ext-acct'] });
 ({ ev } = aggregate());
 check('N6: 対象が PR #1 の行は変更へ対応づき、R1 の欠落が消える', !(ev.gaps ?? []).some((g) => g.startsWith('PR #1: リスク区分 R1')), (ev.gaps ?? []).join('\n'));
 

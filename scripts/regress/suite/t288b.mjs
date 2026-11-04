@@ -4,6 +4,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { check, done, fixes, POLICY, CYCLE, gateRecord, g8Extra, stopRelease, setup, cond, FUTURE, PAST } from './lib288.mjs';
+// 判定の材料とする記録を入れた変更の記録(gh の代役が返す。lib/bin/gh。process-compass #380 / ADR-0106)
+const mockMaterialPr = (dir, sha, { number, author, approvers }) => {
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, `pulls-${sha}.json`), JSON.stringify([{ number, merged_at: '2026-10-01T00:00:00Z', merge_commit_sha: sha, head: { sha: `head-${number}` }, user: { login: author } }]));
+  fs.writeFileSync(path.join(dir, `reviews-${number}.json`), JSON.stringify(approvers.map((login) => ({ user: { login, type: 'User' }, state: 'APPROVED', commit_id: `head-${number}` }))));
+};
 import { workspace, NAMES, TODAY, FIXTURES } from './lib.mjs';
 import { pathToFileURL } from 'node:url';
 // #319 §8 X-1: 節ごとに固定する決定(元は ADR-0057 の全体。ADR-0057 は決定を番号で分けるため、決定の番号か、採用後の補足が改めた標準の条項で引く)
@@ -122,6 +128,8 @@ const OLD = daysAgo(400);
   check('保留と自律実行の保留の範囲を項目7 に出す', r.report.includes('**停止の申し立ての保留**') && r.report.includes('AI の担い手の自律実行の停止は、指示文(CLAUDE.md)と AI運用担当者の操作に依る'), '');
   write('docs/gates/stop-ship.md', stopRelease({ judge: NAMES[1], d0: JSON.parse(read('process.config.json')).d0Version, pr: lastPr }));
   commit('docs: 解除の記録');
+  // 解除の記録は、解除した者本人(acct-2)の承認で入った(ADR-0106。名前の一致だけでは数えない)
+  mockMaterialPr(prsDir, W.git('rev-parse', 'HEAD').out.trim(), { number: 96, author: 'acct-1', approvers: ['acct-2'] });
   fs.writeFileSync(prFile, JSON.stringify({ ...JSON.parse(orig), labels: [{ name: 'state:stop-requested' }] }));
   r = agg();
   check('出荷の終点に成立した解除の記録があれば保留しない', !r.ev.gaps.some((g) => g.startsWith('停止の申し立ての保留')), r.ev.gaps.join('\n'));
