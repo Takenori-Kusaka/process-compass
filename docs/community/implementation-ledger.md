@@ -45,9 +45,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 94 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 95 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 86 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 215 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 214 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -64,13 +64,13 @@ sidebar:
 
 ### 降りていない規定
 
-降りていない規定: **112件**
+降りていない規定: **111件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 28 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 84 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 28 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 83 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -180,7 +180,6 @@ sidebar:
 | IMPL-0344 | 独立した安全性の評価者と、段階「最強」の検証の担当者に求める組織上の距離の段(CL2 は段2 以上、CL3 は段3 以上。第1章 1.4)。構成の人の名簿は、直属の上長・所属の法人・部門・リリースの権限を持たず、外部の評価者を登録する欄も無い。段2 以上を確かめず、届かない段を未達として表示する仕組みも無い。それまで機械が確かめるのは段1(名簿の人で、実装の責任者・作成を指示した者・判定者と別人。IMPL-0080)だけである。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の seats[] | 予定 [#357](https://github.com/Takenori-Kusaka/process-compass/issues/357)(見直し 2026-11) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0353 | 写しと様式を、記名者と判定される側が書き換えられない場所へ置く。準拠テンプレートの記録用ブランチ records のルールセット(records.json)は non_fast_forward と deletion だけを持ち、書き込みの権限を持つ者とジョブのトークンが、新しいコミットで写しと様式を追記し、既存のファイルの中身を変えられる。書き換えの防止または検出は #379 で会議体に掛ける。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | ルールセット(ブランチ保護)の定義 | 予定 [#379](https://github.com/Takenori-Kusaka/process-compass/issues/379)(見直し 2027-01) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0360 | D-0 表1 の「市場・顧客仮説の検証の実施」の行の空欄、決定・同意の列への席でない担当の記載、出所の区分の未記入を、準拠テンプレートの検査は確かめない(template/scripts/gate/ に検査が無い)。降ろすまで未達として表示する。確かめる者: 内部監査の実施者(H.3 観点24 を四半期に確かめるとき)(#409 / ADR-0091) | 成果物テンプレート D-0(体制図) | 予定 [#411](https://github.com/Takenori-Kusaka/process-compass/issues/411)(見直し 2027-05) | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
-| IMPL-0363 | 上積みとして示した行が評価の期間の開始より前に台帳へ登録されていたか、返却の変更を示せるかを、準拠テンプレートの検査は確かめない。降ろすまで未達として表示する。確かめる者: ステージ移行ゲートと 7.7.6 の棚卸しの判定者(B-2 の決定者。AI の利用の評価を判定するとき)(#408 / ADR-0092) | 出荷判定の証跡の集約(保証の開示) | 予定 [#412](https://github.com/Takenori-Kusaka/process-compass/issues/412)(見直し 2027-05) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0370 | 7.7.4 の自動的な上程。7.7.2 の指標を期ごとに測り、記録した閾値の超過を検知した時点で、B-2(B-2 を置かない体制では事業決裁者)または B-1 への判定要求を機械的に起票する仕組み。予算の消化はリポジトリの外の記録に依るため、準拠テンプレートに無い。降りるまでは、D-0 表1『フローの観測と見込みの報告』の担い手が裁量なく起票する(#419)。確かめる者: 採用者(自らの実行層に実装したときに確かめる) | 予算の自動的な上程の置き場(予定・採用者)(予定の置き場) | 採用者が実装する(ADR-0096) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0374 | 要求事項4・5 の実測スループットの集計。完了の条件を満たした作業単位だけを数え、同じ期間に閉じたが完了に当たらない作業単位の個数を並べて出す。準拠テンプレートに完了スループットの集計は無い(閉じた件数も数えない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 次の一手のスクリプト(ロールの詳細) | 予定 [#359](https://github.com/Takenori-Kusaka/process-compass/issues/359)(見直し 2027-04) | [phase4-process-design/lifecycle](/process-compass/phase4-process-design/lifecycle/) |
 | IMPL-0377 | 必達基準2 の到達の見込みの算定。進行中のステージの未完了の SC-M の作業単位の個数と、観測の窓の単位期間ごとの完了スループットの最小値・最大値から、組ごとの見込みの両端と区分(甲・乙・丙・算定できない・対象外)を、7.7.2 の期ごとに出し、見込みの報告の Issue に置く。準拠テンプレートに算定は無い(実測スループットの集計 IMPL-0374 に依る)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 次の一手のスクリプト(ロールの詳細) | 予定 [#359](https://github.com/Takenori-Kusaka/process-compass/issues/359)(見直し 2027-04) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
@@ -554,7 +553,7 @@ sidebar:
 | IMPL-0360 | D-0 表1 の「市場・顧客仮説の検証の実施」の行の空欄、決定・同意の列への席でない担当の記載、出所の区分の未記入を、準拠テンプレートの検査は確かめない(template/scripts/gate/ に検査が無い)。降ろすまで未達として表示する。確かめる者: 内部監査の実施者(H.3 観点24 を四半期に確かめるとき)(#409 / ADR-0091) | 成果物テンプレート D-0(体制図) | `check-d0` | **降りていない** | 人が確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0361 | テンプレ4「AI の利用の評価」に欄『上積みとして示した品質の活動』(評価の期間の開始より前に台帳へ登録されていた行の識別子と、返却の変更。示さない場合は「なし」)。出荷・SG の証跡の集約が、この欄の空欄を記載の欠落として出すを置き、『評価に用いなかった入力』に AI が生成した文書の量・指摘の件数と、人の確認を経ていない AI の生成物を足す(#408 / ADR-0092)(単位: 欄) | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 実在だけ確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0362 | テンプレ3 の区分「負債」の由来に、行わないと決めた品質の活動(設計の細部の文書化、細かいレビューの見送り)を例として置く(#408 / ADR-0092)(単位: 行) | 成果物テンプレート テンプレ3(技術負債台帳) | `aggregate-evidence` | 降りている | 実在だけ確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
-| IMPL-0363 | 上積みとして示した行が評価の期間の開始より前に台帳へ登録されていたか、返却の変更を示せるかを、準拠テンプレートの検査は確かめない。降ろすまで未達として表示する。確かめる者: ステージ移行ゲートと 7.7.6 の棚卸しの判定者(B-2 の決定者。AI の利用の評価を判定するとき)(#408 / ADR-0092) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0363 | 上積みとして示した行の突合(要求事項11 (b))。出荷・SG の証跡の集約が、ステージ移行ゲートと棚卸しの判定記録の欄『上積みとして示した品質の活動』の行の識別子ごとに、技術負債台帳の区分が「負債」「未解決」であること、状態が返却済みであること、台帳へ行を足したコミットの日が評価の期間の開始(直前の評価の判定日時、初回は G-1 の判定日時)より前であることを確かめ、返却の変更(PR の番号はコミットのメッセージから、コミットの識別子は履歴から)を引けない欄とともに記載の欠落にする。登録の日は台帳の記載でなく履歴から取る(書き換えられるため)。返却の変更が人のゲートを経たことは、変更ごとの独立した人の確認の集計による。示した行の件数・率は出さない(#412) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-uplift-evidence.mjs` | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0364 | テンプレ6 に節『見積りの記録』(前提、目標、見積り値と根拠、見積りの時点、逆算の有無、担い手の表の版、人だけで処理できる量)と節『予算の案(示す場合)』を置き、総費用の内訳に列『G-1 の時点の見積り』を足す(#407 / ADR-0093)(単位: 欄) | 成果物テンプレート テンプレ6(企画書) | — | 降りている | 実在だけ確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0365 | テンプレ4 に欄『参照した企画書の版』と節『見積りと実績の差』(当初の見積り、実績、差と主な原因)を置く(#407 / ADR-0093)(単位: 欄) | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 実在だけ確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0366 | 要求事項3。準拠テンプレートの check-g1 が、総費用の内訳の『G-1 の時点の見積り』の列の欠落と空欄を検出し(G-1 の前は失敗、通過済みは欠落として出す)、G-1 の判定記録の『参照した企画書の版』の企画書と比べて列の書き換えを検出して失敗させる。版を読めない場合は確かめられないことを出す。値の妥当性は確かめない(#416 / ADR-0093) | G-1 の企画書の様式の検査(check-g1.mjs) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-brief-estimates.mjs` | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
