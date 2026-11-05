@@ -57,3 +57,31 @@
 - 準拠テンプレートの試験一式(本体の test:template-suite。Windows): test-g5-aggregate.mjs(CRLF による既知の失敗)を除いてすべて通過
 - 回帰スイート(WSL、--kb keep): 通常の時刻帯と TZ=UTC の両方で全本が通過。scenarios は 185 場面、印 0
 - 本体の npm run check の各段(Windows で個別に実行。test:regress は上の WSL で実行): 落ちたのは test:template-suite(同じ CRLF の既知の失敗)だけ。lint:provisions は最初、試験の fixture の廃した言い回し(basis.detection の duplicationRate)を拒否したため、fixture から外して通過を確かめた。lint:text は通過。build は通過
+
+## 突合の指摘と追加の裁定への対応
+
+入力: `crosscheck.md`(X-1〜X-6)と、`decision.md` 末尾の追加の裁定(AR-1〜AR-3)。本体のコミットは 3a3c3cf の上に積んだ(rebase していない)。
+
+| 指摘・裁定 | 対応 | 変えたファイル |
+| --- | --- | --- |
+| AR-1・X-2 例外の範囲 | 確認の記名者の資格(類B)の例外を、第3章 3.13.3 の初回の記入に限った。判定は任免の決定者の初回の例外と同じで、どの席にも責任者が記入されたことのない状態(`allBlankBefore`)で、この変化点で D-0 表1 の決定者の席に記入する人が記名する場合である。「前の名簿の体制の内が0名」の条件は廃した。G-6・表5・accountable.md の書き方を「第3章 3.13.3 の初回の記入を除く」に揃えた(G-6 には初回の記入の中身を括弧で書いた) | `generate-profile.mjs`、`gate-criteria.md`、`deliverable-templates.md`、`accountable.md`、`config.mjs`(案内の文) |
+| AR-2・X-1 1名から2名への移行 | `awaitingSelfConfirmations(before, after)` を置いた。体制の内が1名から2名以上へ移る変化点で、前の名簿で効いていた本人の自己申告(`self`・`unrecorded`)の確認の id を返す。この変化点では、その確認を記名を要する項目にせず(`pendingNameConfirmations` から除く)、評価用の構成に `nameConfirmPending` を載せて、類A・類B の両方で `pending`(確認待ち)として効かせる。構成と記録へは書かない。出力に `[確認待ち]` と次の手順を出す。書き出した構成では `invalid` になり、契約検査(`nameConfirmationProblems`)が確認待ちとして落とす。出荷の証跡の集約の `configIntegrityProblems` にも `nameConfirmationProblems` を足した。拒否・注意の文に、確認待ちと次の変化点で本人以外が確認する手順(同じ PR でよい)を書いた | `config.mjs`(`nameConfirmationState` の `pending`、`nameConfirmedValid`、`nameConfirmationProblems` の文、`configIntegrityProblems`)、`generate-profile.mjs`(類B の呼び出しを評価用の構成 `cfgB` へ替えた。決定した者・規則の決定者・変更種別・規則の承認者・通知先・確認の記名者・任免の決定者)、G-6 の箇条、表5、ADR-0111 決定5、IMPL-0266・IMPL-0446 の注記、accountable.md |
+| AR-3・X-3 試験と場面 | 試験に、初回の記入の例外(数える・本人の記名は拒否・AI 名どうしは拒否)、AR-1 の境界(外部の人だけが前の名簿にいる初回でない変化点では拒否)、AR-2 の経路(足す変化点は通る・確認待ちのままでは契約検査と集約が落とす・次の変化点で2人目が確認すれば解ける・構成へ印を書かない)を足した。回帰スイートに `suite/name-confirmation.mjs`(17 場面)を新設し、同じ経路を固定した | `test-name-confirmation-timing.mjs`、`scripts/regress/suite/name-confirmation.mjs`、`expected/scenes/name-confirmation.txt` |
+| AR-2 に伴う既存の試験 | test-roster-rules.mjs の「2人目が加わると、本人の記名だけの確認は本人以外の記名を要する項目になる」は、2人目を足す変化点そのものの差分を見ていた。AR-2 により、その変化点では確認待ちとして項目にせず、2名以上になった後の変化点で項目になる形に分けた(2件) | `test-roster-rules.mjs` |
+| X-4 表の記名者の行 | ADR-0111 決定2 の表の「決定した者の記名」を2行に分けた。AI の名義の判定は変化点の前の記録(確認待ちを効かせる)、名簿の人かの照合はこの変化点の名簿(初回の記入の決定者が同じ変化点で記入されるため。任免の決定者の要件は前の構成で別に照らす) | `adr/0111-...md` |
+| X-5 アカウント名の確認 | ADR-0111 決定2 に、アカウント名の確認の記名者は類B の「前から名簿にいる」の照合の対象外であり、#375 では審議しておらず、本 ADR は課さないと書いた | `adr/0111-...md` |
+| X-6 空振りの試験 | 2件目を、規則の承認待ちで委任の宣言を保持して協働に留まった席(宣言の保持を確かめる)が、記名の無い後の変化点(規則の承認を含まない名簿の変更)を受け付けても委任へ変わらない形に改めた | `test-name-confirmation-timing.mjs` |
+| EV-0229 の範囲 | 対象に、例外を初回の記入に限ることで足りるという判断と、確認待ちの扱いを足した。差し替え条件に、確認待ちの件数と解けるまでの変化点の数、確認待ちを経て置いた名義の事象を足した | `gate-criteria.md` |
+| ADR-0111 の本文 | ステータスの節に、公開の前に突合と追加の裁定で改めた旨を足した。決定2 の例外と境界、決定5、採らなかった案3件(例外を体制の内0名とする案、移行の場合に限り同じ変化点で足した人の確認を数える案、確認待ちを欠落に数えない案)、影響を改めた。ADR-0079 のステータスの段落に確認待ちを足した | `adr/0111-...md`、`adr/0079-...md` |
+
+### 気づいたこと(直していない)
+
+- 確認待ちを解く変化点(2人目が本人の氏名を確認する変化点)では、委任の規則の決定者の資格(類B)を変化点の前の構成で照らす。前の構成では本人の氏名が確認待ち(効かない)のため、本人が決定した委任の規則は成立せず、本人が責任者の委任の席は協働へ下がる(コードを読んだ範囲。実行では確かめていない)。1名の体制で AI を示す語を含む氏名の本人が委任の席を持つ場合に限る。裁定 R-3 のとおり類B は前の構成で照らすため、本件では変えていない。委任へ戻すには、確認の後に緩める向きの手続による
+
+### 試験の結果(突合の後)
+
+- 準拠テンプレートのコミット(突合の後): 4c5d6dd(pit-in-template の main へ push 済み)
+- test-name-confirmation-timing.mjs: 25 件すべて通過(Windows、WSL の TZ=UTC)
+- 準拠テンプレートの試験一式(本体の test:template-suite。Windows): test-g5-aggregate.mjs(CRLF。既知)を除いてすべて通過
+- 回帰スイート(WSL、--kb keep): 通常と TZ=UTC の両方で全本が通過。name-confirmation は 17 場面。WSL の /tmp が消えていたため、作業の写し /tmp/pc430 を作り直した(リポジトリの写しと yaml、research/phase4-standard)
+- 本体の npm run check の各段(Windows): 落ちたのは test:template-suite(同じ既知の失敗)だけ。lint:provisions は G-6 の追記の文末「できない」を拒否したため「取り込んではならず、出荷してはならない」へ改めて通過を確かめた。lint:text・build は通過
