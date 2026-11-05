@@ -118,3 +118,4 @@
 - lint:text: 通過。build: 通過(346 ページ)
 - WSL: 回帰スイート(--kb keep)は通常の時刻帯と TZ=UTC の両方で全本が通過(落ちた 0、印 0)。test-env-check.mjs(62 件)・test-g5-aggregate.mjs(23 件)・test-control-approval.mjs(31 件。TZ=UTC でも通過)・test-base-judge-workflow.mjs(19 件)は通過
 - graphify の更新は行っていない(main への push で自動の更新が走る)
+- コミット: 本体 cea873e(標準の本文)と submodule の参照の更新(push していない)。準拠テンプレート ba2b7e8(pit-in-template の main へ push 済み。トレーラ Spec: setup)
