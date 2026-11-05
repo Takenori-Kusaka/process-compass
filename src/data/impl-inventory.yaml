@@ -50,6 +50,7 @@ sections:
     category: org-design
     reason: 内部監査を行う者(人)が四半期に確かめる観点の表。実行主体の挙動を制約しない。機械で検出できる部分の実装は、各観点の照合する規定の節のマークで追う(#316 突合 X-12)
     issue: 316
+    note: 抽出の対象を監査される当事者に選ばせない規則(#367)も、監査する者と組織の監査の手続の事項であり、準拠テンプレートに内部監査の記録の様式が無いため、同じ区分とした(ADR-0116 決定6)
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方
     status: pending
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 確認側へ渡した入力の記録
