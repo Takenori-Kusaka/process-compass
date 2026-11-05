@@ -156,7 +156,7 @@
 - **活性化の操舵**(arXiv 2509.03647、NeurIPS 2025 workshop): 不当な自己優遇の最大 97% を反転。プロンプトや DPO より有効。自己優遇はモデルの規模・事後学習・性能とともに強まり、著者を隠しても残る
   - 出典: https://arxiv.org/pdf/2509.03647
 - **著者の難読化**(arXiv 2512.05379、2025-12): 数語の同義語置換で自己優遇が予測どおり減る。ただし**文体の差を完全に消す方向へ外挿すると自己優遇が戻る**(効果は限定的)
-  - 出典: https://www.emergentmind.com/papers/2512.05379(要旨の二次掲載。arXiv 本体は未読)
+  - 出典: https://www.emergentmind.com/papers/2512.05379 (要旨の二次掲載。arXiv 本体は未読)
 - **測定**(Chen ほか、EMNLP 2025、DBG スコア): 金の判定と比べて自己優遇を回答の品質から切り分ける。応答の文体と採点モデルの事後学習データが影響
   - 出典: https://aclanthology.org/2025.emnlp-main.86
 - 主要ベンダの手引き: Anthropic の develop-tests の全言語のコード例に「**生成したモデルと別のモデルで評価するのが一般に最善**」と注記(ただし例のコードは同じモデルを使っている)
@@ -186,7 +186,7 @@
   - 第三者の検証(Shisa.AI、2024): GPT-4 と GPT-4o のどちらで採点し直しても、公表された日本語 MT-Bench の点数を再現できなかった。日本語を出力していないモデルが高い点数を得る例も指摘
     - 出典: https://huggingface.co/blog/leonardlin/llm-jp-eval-eval
 - **実務ブログの主張(二次)**: 「latest」のような可動の別名は提供者の版の差し替えを隠す。日付付きのスナップショットに固定し、採点モデル・採点基準の版・プロンプトのハッシュを各点数に記録する。採点モデルの更新ごとに人のラベルで再検証する
-  - 出典: https://tianpan.co/blog/2026-04-23-llm-judge-drift-evaluator-upgrade-phantom-regression(個人ブログ。一次資料ではない)
+  - 出典: https://tianpan.co/blog/2026-04-23-llm-judge-drift-evaluator-upgrade-phantom-regression (個人ブログ。一次資料ではない)
 
 ### 3.2 評価の対象の分布の変化
 

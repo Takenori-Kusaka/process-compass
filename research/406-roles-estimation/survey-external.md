@@ -16,7 +16,7 @@
 ## A. 見積もり・予算の既存規格と実務
 
 **1. 精度の実測値(誤差の分布)**
-- ソフトウェアの工数・費用の超過は平均で約 30% です。この値は 1980 年代からほとんど改善していません。見積もり手法の主流は今も専門家見積もりで、専門家が付ける 90% 信頼区間は系統的に狭すぎます。Jørgensen は、幅を過去の見積もり誤差の分布から決めるよう勧めています【一次: Jørgensen, IEEE Software 2014 ほか / Simula の文献群 https://web-backend.simula.no/sites/default/files/publications/Simula.simula.2440.pdf】。2007 年の欧州の公共 ICT 105 件でも、平均超過は 30.5% でした【二次: Springer の章 https://springerlink.bibliotecabuap.elogim.com/10.1007/978-3-642-55035-5_3】。
+- ソフトウェアの工数・費用の超過は平均で約 30% です。この値は 1980 年代からほとんど改善していません。見積もり手法の主流は今も専門家見積もりで、専門家が付ける 90% 信頼区間は系統的に狭すぎます。Jørgensen は、幅を過去の見積もり誤差の分布から決めるよう勧めています【一次: Jørgensen, IEEE Software 2014 ほか / Simula の文献群 https://web-backend.simula.no/sites/default/files/publications/Simula.simula.2440.pdf 】。2007 年の欧州の公共 ICT 105 件でも、平均超過は 30.5% でした【二次: Springer の章 https://springerlink.bibliotecabuap.elogim.com/10.1007/978-3-642-55035-5_3】。
 - IT 案件 5,392 件の費用超過は、正規分布ではなくべき乗則に従います。裾が厚いので、平均に余裕を一律に上乗せする予備費は、大きな超過の確率を過小に見積もることになります。著者らは、計画の初期にリスクを評価すること、部品間の依存関係を考慮することを勧めています【一次: Flyvbjerg, Budzier ほか, JMIS 39(3), 2022, https://jmis-web.org/articles/1579】。
   - 「18% が 50% 超の超過で、その平均は 447%」という数値は一般書の要約経由で、原典では照合できていません【二次】。
 - 参照クラス予測(RCF)の手順は次のとおりです。
@@ -38,44 +38,44 @@
   - NESMA(ISO/IEC 24570)
   - FiSMA(ISO/IEC 29881)
   - Mk II(ISO/IEC 20968)
-- 14143-6 は手法を選ぶ手順の手引きで、特定の手法は推奨しません(2024 年に確認済みで現行)【一次: ISO https://www.iso.org/standard/60176.html / COSMIC https://cosmic-sizing.org/cosmic-sizing/functional-size-measurement/second-generation/】。
-- AI 以後も「機能規模そのものは仕様の性質なので変わらない。規模から工数への換算は再較正が要る」という整理が出ています【二次・弱: 2026 年の大学講義資料 https://frostburg-state-university.github.io/bju/lectures/lecture-12-ai-estimation/】。
+- 14143-6 は手法を選ぶ手順の手引きで、特定の手法は推奨しません(2024 年に確認済みで現行)【一次: ISO https://www.iso.org/standard/60176.html / COSMIC https://cosmic-sizing.org/cosmic-sizing/functional-size-measurement/second-generation/ 】。
+- AI 以後も「機能規模そのものは仕様の性質なので変わらない。規模から工数への換算は再較正が要る」という整理が出ています【二次・弱: 2026 年の大学講義資料 https://frostburg-state-university.github.io/bju/lectures/lecture-12-ai-estimation/ 】。
   - 同じ資料は「AI は工数を消すのではなく移す(検証・統合・幻覚の選別へ)」と述べます。
-- FP などの規模をトークン消費量へ写像し、費用を「LLM 費用 + 人の監督費用 + 基盤費用」の和として組むモデルの提案が出ています【一次・未検証: El-Ramly, ACEM, arXiv 2608.02582, 2026-08-03 投稿 https://arxiv.org/abs/2608.02582】。
+- FP などの規模をトークン消費量へ写像し、費用を「LLM 費用 + 人の監督費用 + 基盤費用」の和として組むモデルの提案が出ています【一次・未検証: El-Ramly, ACEM, arXiv 2608.02582, 2026-08-03 投稿 https://arxiv.org/abs/2608.02582 】。
   - 定数は未較正で、実データでの検証もありません。
   - 同一の課題でもトークン量が非決定的にばらつくことを、本人が限界として挙げています。
 
 **3. IPA・国内の状況**
-- IPA の「ソフトウェア開発分析データ集 2022」の概要は次のとおりです【一次: IPA https://www.ipa.go.jp/digital/chousa/metrics/metrics2022.html】。
+- IPA の「ソフトウェア開発分析データ集 2022」の概要は次のとおりです【一次: IPA https://www.ipa.go.jp/digital/chousa/metrics/metrics2022.html 】。
   - 2022-09-26 発行、2025-08-28 更新
   - 5,546 件、うち直近 6 年の 1,479 件で算出
   - 分析は信頼性(リリース後の欠陥密度)が中心
   - **事業は終了しており、後継版の予定はない**
-- 「見積りガイドブック」シリーズの著作権は、2013-04-01 に JISA へ譲渡されています【一次: IPA https://www.ipa.go.jp/sec/publish/tn04-011.html】。
-  - IPA の見積りの基本的な考え方は「前提(インプット)とアウトプットを明確にし、算出根拠を明確にして再現性を確保する」です【一次: IPA 資料 https://www.ipa.go.jp/archive/publish/qv6pgp0000000wvg-att/000005104.pdf】。
+- 「見積りガイドブック」シリーズの著作権は、2013-04-01 に JISA へ譲渡されています【一次: IPA https://www.ipa.go.jp/sec/publish/tn04-011.html 】。
+  - IPA の見積りの基本的な考え方は「前提(インプット)とアウトプットを明確にし、算出根拠を明確にして再現性を確保する」です【一次: IPA 資料 https://www.ipa.go.jp/archive/publish/qv6pgp0000000wvg-att/000005104.pdf 】。
 - 国内の公的なベンチマークは 2022 年版で更新が止まっており、AI 協働の実績を収録した国内の公的データベースは存在しません。これは事実です。
-- JUAS「ソフトウェア・メトリクス調査 2025」は、利用者企業がよく使うメトリクス 10 項目に絞ったアンケートです【一次: https://juas.or.jp/cms/media/2025/03/25swm.pdf】。
+- JUAS「ソフトウェア・メトリクス調査 2025」は、利用者企業がよく使うメトリクス 10 項目に絞ったアンケートです【一次: https://juas.or.jp/cms/media/2025/03/25swm.pdf 】。
   - 遅延率・超過率の最新値は今回取れていません。
 - **日本の実運用(建前と実態)**:
-  - 要求仕様が固まる前に「KKD(勘・経験・度胸)」で人数と期間を決め、最後は「度胸」で決まるのが実態だとする現場の指摘があります【二次: MONOist 山浦恒央 2025-06 https://monoist.itmedia.co.jp/mn/articles/2506/24/news011_3.html】。
+  - 要求仕様が固まる前に「KKD(勘・経験・度胸)」で人数と期間を決め、最後は「度胸」で決まるのが実態だとする現場の指摘があります【二次: MONOist 山浦恒央 2025-06 https://monoist.itmedia.co.jp/mn/articles/2506/24/news011_3.html 】。
   - 予算の上限や希望納期を「目標」とせず、見積もりの側を削って辻褄を合わせる慣行への批判もあります【二次: https://www.issoh.co.jp/md/column/11019】。
   - いずれも定量的な調査ではありません。
 - 国内で AI 協働の見積もりと実績を対比した一次事例は、デジタル庁の検証 1 件だけです。PO 兼エンジニア 1 名とエージェントで、見積もり 720H に対して実績は約 120H でした【内部: SRC-0249, 2026-06-25】。1 機能の事例です。
 - 日立グループの「70% 以上の削減」は体感、NRI の値は試算です【内部: FND-0268】。
 
 **4. アジャイル側の手法**
-- Scrum Guide 2020 の記述は次のとおりです【一次: https://scrumguides.org/scrum-guide.html】。
+- Scrum Guide 2020 の記述は次のとおりです【一次: https://scrumguides.org/scrum-guide.html 】。
   - スプリントの量は、過去の実績・今後のキャパシティ・DoD を知るほど確度が上がる
   - バーンダウンや累積フロー図は有用だが「経験主義の代わりにはならない」
 - モンテカルロによるスループット予測(Magennis ほか)は実務で広く使われています。ただし予測と実績を突き合わせたバックテストの統制研究は、今回見つかりませんでした。根拠は実践者の報告が中心で、**弱い**と判断します【二次: https://www.infoq.com/news/2019/09/statistical-forecasting-agility ほか】。
 - #NoEstimates 系の報告として「ストーリーを事前に見積もっても精度の上積みはわずか」という 1 チームの事例があります【二次: https://medium.com/nationwide-technology/story-pointless-part-2-of-3-57db27a48a58】。
-- PMBOK 第 7 版の扱い(二次要約による。原文は未読)【二次: https://onlinepmcourses.com/monitoring-and-controlling-what-is-the-pmbok-7-measurement-performance-domain/】:
+- PMBOK 第 7 版の扱い(二次要約による。原文は未読)【二次: https://onlinepmcourses.com/monitoring-and-controlling-what-is-the-pmbok-7-measurement-performance-domain/ 】:
   - 見積もりは計画のパフォーマンス領域に属する
   - 範囲・正確さ・精密さ・確信度を、確定的・確率的・フローの各手法で扱う
   - 測定の罠として、ホーソン効果・虚栄の指標・確証バイアスを挙げる
 - 段階的な予算提示に使える既存の枠組みは 2 つあります。
   - DSDM の MoSCoW は、Must を**工数の**約 60% に抑え、Could を約 20% 残すことを推奨しています。Must 以外は予備費の役割を持ち、Must が保証する最小限の使える部分集合になります【一次: Agile Business Consortium https://www.agilebusiness.org/?p=1907】。
-  - Shape Up の appetite は「どれだけかかるか」ではなく「どれだけの時間をかける価値があるか」を先に決め、範囲を可変にします【一次: https://basecamp.com/shapeup/1.2-chapter-03】。
+  - Shape Up の appetite は「どれだけかかるか」ではなく「どれだけの時間をかける価値があるか」を先に決め、範囲を可変にします【一次: https://basecamp.com/shapeup/1.2-chapter-03 】。
 
 ## B. AI 協働の工数・費用の測定(2026-11-04 時点)
 
@@ -91,7 +91,7 @@
   - 理由 2: 30〜50% が AI なしでやりたくない課題を出さなかった
   - 理由 3: 並行エージェントの利用で、課題単位の時間計測が成立しなくなった
   - **「人だけ」と「AI 協働」を同じ課題で比べる反実仮想の測定が、2026 年には実験の場でも崩れた**ことを示す一次資料です。
-- Google 社内の RCT(96 人、2024 年夏のツール)は所要時間を約 21% 短縮しましたが、信頼区間は広いものでした【一次: arXiv 2410.12944, ICSE-SEIP 2025 https://arxiv.org/abs/2410.12944v3】。
+- Google 社内の RCT(96 人、2024 年夏のツール)は所要時間を約 21% 短縮しましたが、信頼区間は広いものでした【一次: arXiv 2410.12944, ICSE-SEIP 2025 https://arxiv.org/abs/2410.12944v3 】。
 - 自己申告は過大になります。METR では体感が実測を平均 40pt 上回り、Atlassian は 20 パーセンタイル値を採っています【内部: FND-0157】。
 
 **2. 組織レベル(2025-09〜2026-07 時点)**
@@ -104,7 +104,7 @@
 - DORA が 2026 年の年次調査をやめたという報道があります【内部: FND-0267、二次・一次未確認】。
 
 **3. トークン・処理時間・費用の記録(ツールの一次情報、2026-11-04 取得)**
-- Claude Code の公式ドキュメント【一次: Anthropic https://code.claude.com/docs/en/costs , https://code.claude.com/docs/en/monitoring-usage】:
+- Claude Code の公式ドキュメント【一次: Anthropic https://code.claude.com/docs/en/costs , https://code.claude.com/docs/en/monitoring-usage 】:
   - 費用は企業導入の平均で、稼働日あたり約 13 ドル、開発者 1 人あたり月 150〜250 ドル
   - 利用者の 90% は稼働日あたり 30 ドル未満
   - セッションごとに、トークン・費用・API 時間・壁時計時間を表示できる
@@ -114,7 +114,7 @@
 - 同じ課題でも総トークンは最大 30 倍ばらつきます【内部: FND-0164】。1 回の計測値を工数の実績として使うのは危険です。
 
 **4. FinOps for AI**
-- FinOps Foundation(ページの最終更新 2026-10-28)【一次: https://www.finops.org/wg/finops-for-ai-overview/】:
+- FinOps Foundation(ページの最終更新 2026-10-28)【一次: https://www.finops.org/wg/finops-for-ai-overview/ 】:
   - 推論あたり・利用者あたり・**成功した成果あたり**の費用を分布で報告する
   - 成功あたり費用は、失敗した実行も分母に入れる「全実行の費用 ÷ 品質基準を満たした実行数」
   - AI 費用の予測はクラウドより不確実で、予測の期間を短くし、頻繁に改定する
@@ -131,12 +131,12 @@
 **6. AI 込みの見積もり手法の確立度(2026-11-04 時点)**
 - 較正済みで、実データにより検証された AI 込みの見積もりモデルは見つかりませんでした。
 - ACEM は未較正の提案です。
-- 2026 年に「AI 付きのシニアが 1 スプリントに中規模機能を 1.5〜2.0 件」といった経験則がありますが、出典は 1 本のブログです【二次・弱: https://www.techinterview.org/post/3233475304/em-and-ai-how-llms-change-engineering-management-2026/】。
+- 2026 年に「AI 付きのシニアが 1 スプリントに中規模機能を 1.5〜2.0 件」といった経験則がありますが、出典は 1 本のブログです【二次・弱: https://www.techinterview.org/post/3233475304/em-and-ai-how-llms-change-engineering-management-2026/ 】。
 
 ## C. ロール
 
 **1. 既存のロール定義**
-- Scrum Master(2020 年版)の説明責任【一次: https://scrumguides.org/scrum-guide.html】:
+- Scrum Master(2020 年版)の説明責任【一次: https://scrumguides.org/scrum-guide.html 】:
   - チームの有効性と、障害の除去
   - PO を支援する: プロダクトゴールとバックログ管理の技法、**経験主義的なプロダクト計画の確立**、ステークホルダー協働のファシリテーション
   - 組織を支援する
@@ -147,21 +147,21 @@
   - Service Request Manager は、上流(ディスカバリー)のフローを担う
   - Anderson は「新しい職位ではなく、既存の人員が担う役割」と明記しており、PMO 出身者が担うことが多いとする
   - 所有者が提起した「メトリクス管理ロール」に最も近い既存の定義です。
-- SAFe の RTE は ART のコーチ兼ファシリテータです。メトリクスでフローを最適化し、価値の流れのマッピングとリスク管理を担います。RTE のページに AI への言及はありません【一次: https://framework.scaledagile.com/release-train-engineer/】。
-- 英国政府の DDaT 枠組みでは、Delivery Manager はプロダクトとサービスの提供に説明責任を負い、チームの構築と障害の特定を担います【一次: https://ddat-capability-framework.service.gov.uk/delivery-manager.html】。
+- SAFe の RTE は ART のコーチ兼ファシリテータです。メトリクスでフローを最適化し、価値の流れのマッピングとリスク管理を担います。RTE のページに AI への言及はありません【一次: https://framework.scaledagile.com/release-train-engineer/ 】。
+- 英国政府の DDaT 枠組みでは、Delivery Manager はプロダクトとサービスの提供に説明責任を負い、チームの構築と障害の特定を担います【一次: https://ddat-capability-framework.service.gov.uk/delivery-manager.html 】。
 
 **2. AI エージェント時代の変化(2025〜2026)**
 - 一次の実証研究は見つかりませんでした。
-- Scrum.org の寄稿者の見解は 2 つあります【二次: https://www.scrum.org/resources/blog/10-scrum-master-interview-questions-ai-era】。いずれも意見です。
+- Scrum.org の寄稿者の見解は 2 つあります【二次: https://www.scrum.org/resources/blog/10-scrum-master-interview-questions-ai-era 】。いずれも意見です。
   - 古典的な定義の Scrum Master は存在しなくなるかもしれない
   - PO・SM・Developers の説明責任は縮まず、むしろ集中する
 - 「書記・フロー分析・障害検知をエージェントに任せ、コーチングと信頼の構築は人に残す」という整理が多く見られます【二次: https://www.bishopphillips.com/riskwiki/Agile_Frameworks_-_Embedding_Agentic_AI_into_Scrum ほか】。
 
 **3. メトリクス管理を独立のロールにする是非**
-- Scrum.org は velocity の誤用を明確に戒めています。弊害は観察されたものとして報告されています【一次: Scrum.org https://www.scrum.org/resources/blog/dont-confuse-velocity-success , https://www.scrum.org/resources/blog/gaming-velocity-how-not-measure-success-and-what-avoid】。
+- Scrum.org は velocity の誤用を明確に戒めています。弊害は観察されたものとして報告されています【一次: Scrum.org https://www.scrum.org/resources/blog/dont-confuse-velocity-success , https://www.scrum.org/resources/blog/gaming-velocity-how-not-measure-success-and-what-avoid 】。
   - チーム間の比較や成功の尺度に使うと、ポイントが水増しされる
   - Goodhart の法則が働く
-- Beck と Orosz の McKinsey 批判(2023)【一次: https://newsletter.pragmaticengineer.com/p/measuring-developer-productivity】:
+- Beck と Orosz の McKinsey 批判(2023)【一次: https://newsletter.pragmaticengineer.com/p/measuring-developer-productivity 】:
   - 努力や出力ではなく、成果と影響を測るべきだとする
   - 生産性のスコアが人事評価へ流れ込む害を警告する
   - 個人よりチーム単位の測定を勧める
@@ -182,17 +182,17 @@
 ## E. 営業・企画・顧客代弁のロール
 
 - デュアルトラックの発案者 Cagan は、INSPIRED 第 2 版から「Dual-track Agile」という語を使うのをやめました。プロセスに目が向きすぎ、原則が軽んじられたためです。ディスカバリーは検証済みのバックログ項目を、デリバリーはリリース可能なソフトウェアを生み出す、という構図自体は維持しています【一次: SVPG https://svpg.com/dual-track-agile】。
-- Torres の継続的ディスカバリーは、作り手のチーム自身が毎週顧客と接点を持つことを要件にします。プロダクトマネージャ・デザイナー・エンジニアの 3 人組で行う方法です【一次: Product Talk https://www.producttalk.org/glossary-discovery-continuous-discovery/】。
+- Torres の継続的ディスカバリーは、作り手のチーム自身が毎週顧客と接点を持つことを要件にします。プロダクトマネージャ・デザイナー・エンジニアの 3 人組で行う方法です【一次: Product Talk https://www.producttalk.org/glossary-discovery-continuous-discovery/ 】。
   - 顧客の声を、専任の代弁者を通さずにチームへ直接入れる設計です。
-- 代理の PO は、決定権を持たないと優先順位のずれや決定の遅れを招きます。広く普及した反パターンとされます【二次: https://www.scrum.org/node/94719 , https://sites.google.com/site/agilepatterns/agilepatterns-org/proxy-product-ownership】。
-- XP の現場顧客(on-site customer)は理想とされますが、顧客を張り付けておけないことや、顧客と開発者の双方の燃え尽きが Coplien に批判されています【二次: https://c2.com/xp/OnsiteCustomer.html , https://accu.org/content/conf2008/Coplien-20080504FiveSolutions.pdf】。
+- 代理の PO は、決定権を持たないと優先順位のずれや決定の遅れを招きます。広く普及した反パターンとされます【二次: https://www.scrum.org/node/94719 , https://sites.google.com/site/agilepatterns/agilepatterns-org/proxy-product-ownership 】。
+- XP の現場顧客(on-site customer)は理想とされますが、顧客を張り付けておけないことや、顧客と開発者の双方の燃え尽きが Coplien に批判されています【二次: https://c2.com/xp/OnsiteCustomer.html , https://accu.org/content/conf2008/Coplien-20080504FiveSolutions.pdf 】。
 - **AI に顧客役(ペルソナ)をさせる是非**
-  - NN/g は 3 つの実研究と比較しました【一次: Rosala & Moran, NN/g, 2024-06-21 https://www.nngroup.com/articles/synthetic-users/】。
+  - NN/g は 3 つの実研究と比較しました【一次: Rosala & Moran, NN/g, 2024-06-21 https://www.nngroup.com/articles/synthetic-users/ 】。
     - 合成ユーザーは迎合的で、過度に好意的。全講座を修了したと答えたが、実際の利用者は 7 講座中 3 講座だった
     - 優先順位を付けられず、行動データを生まない
     - 使ってよいのは机上調査・仮説生成・インタビューガイドの試行まで
     - コンセプトの検証や最終判断に使うこと、実ユーザーの知見として示すことは不適切(後者は「非倫理的」)
-  - 2025-08 の NN/g の続報は、合成ユーザーは母集団の傾向を当てても、ばらつきが実際の人より小さいとしています【二次: https://thehuman2ai.pages.dev/research/best-practices/nngroup-ai-simulations-digital-twins】。
+  - 2025-08 の NN/g の続報は、合成ユーザーは母集団の傾向を当てても、ばらつきが実際の人より小さいとしています【二次: https://thehuman2ai.pages.dev/research/best-practices/nngroup-ai-simulations-digital-twins 】。
   - 要求抽出の研究: Elicitron は LLM のペルソナで潜在ニーズを人のインタビューより多く出しましたが、2024 年・GPT-4-Turbo の時点の結果です【一次: arXiv 2404.16045】。一方、LLM が演じる顧客は不正確・矛盾した情報を出すことがあります【一次: arXiv 2503.07800, 2025-03】。
 
 ---

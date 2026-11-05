@@ -31,7 +31,7 @@
 
 ### 1.3 NASA JCL(Joint Cost and Schedule Confidence Level)〔一次(SMD 方針文書経由の NPR 引用)〕
 
-- URL: https://discovery.larc.nasa.gov/PDF_FILES/SPD-19_PI-ledmissions_70JCL.pdf(SMD Policy Document SPD-19、2010-06-18 承認)
+- URL: https://discovery.larc.nasa.gov/PDF_FILES/SPD-19_PI-ledmissions_70JCL.pdf (SMD Policy Document SPD-19、2010-06-18 承認)
 - NM 7120-81(NPR 7120.5D NID)2.1.8.5 の引用: (a) プログラムは信頼水準 **70%**(または決定権者が承認した水準)でベースライン化・予算化する。(c) 最低限、プロジェクトは信頼水準 **50%** 相当で資金を付ける
 - 構造: Management Baseline(プロジェクトへ渡す予算)+ UFE(Unallocated Future Expenses、本部が保持)= Commitment Baseline(70% JCL、議会への約束)
 - 3(g)(h): Management Baseline を超えて UFE を渡すと PI の約束の超過、Commitment Baseline を超える追加資金は**機関の約束の違反(breach)**
@@ -56,7 +56,7 @@
 
 ### 1.6 Flyvbjerg の参照クラス予測(DfT 向け、2004/2006)〔一次〕
 
-- URL: https://arxiv.org/pdf/1302.3642(Flyvbjerg, "From Nobel Prize to Project Management: Getting Risks Right", Project Management Journal 37(3), 2006)
+- URL: https://arxiv.org/pdf/1302.3642 (Flyvbjerg, "From Nobel Prize to Project Management: Getting Risks Right", Project Management Journal 37(3), 2006)
 - 表4: 楽観バイアスの上乗せ率(資本費)。道路 50%点 15% / 80%点 32%、鉄道 40% / 57%、固定リンク 23% / 55%
 - 「50% 点は大きなポートフォリオを持つ投資者向け(ある事業の超過を別の事業の余りで相殺できる)。80% 点 — 超過の危険 20% — は英国 DfT が地方交通の大型投資で**通例受け入れる**危険の水準」
 - 「上側の百分位(80〜90%)は、超過が起きないことを強く確かめたい投資者、例えば**承認予算を超える追加資金にアクセスできない単独の事業**で使う」

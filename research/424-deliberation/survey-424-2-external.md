@@ -173,7 +173,7 @@
   - Measure の推奨行動に、TEVV(試験・評価・検証・妥当性確認)として正解との比較(ground-truth comparison)・事実確認・レッドチームを含む
   - MS-1.3-003: 構造化された評価(レッドチームなど)を行う者を、同じモデルの開発に直接関わらない者とする(独立性)
   - 任意の資源であり認証の項目表ではない
-  - 出典: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf(本文は今回は直接読めず、二次解説 https://www.anaconda.com/blog/nist-ai-600-1-generative-ai-profile-guide で確認)
+  - 出典: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf (本文は今回は直接読めず、二次解説 https://www.anaconda.com/blog/nist-ai-600-1-generative-ai-profile-guide で確認)
 - **NIST AI 800-2 初期公開草案「Practices for Automated Benchmark Evaluations of Language Models」**(CAISI、2026-01-30 公開、意見募集 2026-03-31 まで)
   - 3 部構成(評価目的の定義と基準集合の選定 / 実装と実行 / 分析と報告)。不確かさを信頼区間・標準誤差で示すよう推奨
   - 自動の基準集合は、構造化され検証可能で安定した作業に向き、主観的・動的・人が介在する評価には向かない(報道による)
@@ -247,7 +247,7 @@
 
 ### 3.1 主要ベンダ
 
-- **OpenAI「Evaluation best practices」**(https://developers.openai.com/api/docs/guides/evaluation-best-practices、2026-11-04 取得)
+- **OpenAI「Evaluation best practices」**(https://developers.openai.com/api/docs/guides/evaluation-best-practices 、2026-11-04 取得)
   - 人の判定は最高品質だが遅く高価。人の専門家同士の不一致を課題として挙げる
   - 「人のフィードバックで自動採点を較正し、一致を保つ」。判定モデルが人の注釈と一貫して一致してから規模を広げる。**費用・遅延の最適化の前に、人のラベルとの一致を検証する**
   - 正解の作り手: 要約の例では**専門家(書き手)が作ったデータ集合**、Q&A の例では**専門家が作った固定の正答**。試験データには「人の専門家のラベラーを使う」

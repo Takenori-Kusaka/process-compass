@@ -96,3 +96,25 @@ https://github\.com/hokuto-fg/loan-approval
 # (ACL Anthology の予稿の頁は公開版 aclanthology.org/2026.acl-srw.1/ へ、ASVS は 2025-05 に 0x03-What-is-the-ASVS.md へ改名)
 ^https://preview\.aclanthology\.org/ingest-acl/2026\.acl-srw\.1/
 ^https://github\.com/OWASP/ASVS/blob/master/5\.0/en/0x03-Using-ASVS\.md
+
+# 2026-11-05 の棚卸し(#431)。手動で起動した週次の検査(実行 41961280086)の 4xx を、検査と同じ UA の curl で確かめ直し、
+# 404・410・401 が続いたもの。調査メモには取得時の記録として残すため、チェックだけ除外する。保存版は探していない。
+# 403 の2件(scrum.org)は検査が受け入れる状態のため足さない。記録の詳細は research/431-link-triage.md
+^https://sites\.google\.com/site/agilepatterns/agilepatterns-org/proxy-product-ownership
+^https://www\.github\.com/theoremlp/required-reviews
+^https://student\.cs\.uwaterloo\.ca/~cs430/CII_modelman2000\.0\.pdf
+^https://www\.agilebusiness\.org/dsdm-project-framework/moscow-prioririsation\.html
+^https://www\.city\.osaka\.lg\.jp/ictsenryakushitsu/cmsfiles/contents/0000251/251904/RFItouRYUIJIKOU20250801\.pdf
+^https://processgroup\.com/benchmark-team-files-release/TPG-cmmi-V3-SVC-condensed-practices-v1\.pdf
+^https://www\.scruminc\.com/\?p=764
+^https://nicolas-brown-tdxj\.squarespace\.com/blog/tag/Forecasting
+^https://www\.simula\.no/research/impact-lessons-learned-sessions-effort-estimation-and-uncertainty-assessments
+^https://www\.simula\.no/research/origami-software-development-review-studies-judgment-based-predictions-performance-time
+^https://www\.simula\.no/research/what-we-do-and-dont-know-about-software-development-effort-estimation
+^https://firebrand\.training/se/learn/pmp/course-material/project-integration-management/perform-integrated-change-control
+^https://help\.easyagile\.com/easy-agile-programs/pi-objectives
+^https://project-management-basics\.com/prince2009/PRINCE2_2009_041_Organization_The_PRINCE2_approach_The_project_management_team_Change_Authority
+^https://csrc\.nist\.gov/Projects/risk-management/sp800-53-controls/overlay-repository/overlay-overview
+^https://gravidor\.gitbooks\.io/800-53/the_fundamentals/22_security_control_structure\.html
+^https://presencis\.com/regulations/iso-13485/article-5\.5/
+^https://preview\.aclanthology\.org/setup/2025\.gem-1\.33

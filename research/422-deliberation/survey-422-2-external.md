@@ -47,7 +47,7 @@
 
 ### 1.2 社内の開発ライフサイクル(セキュリティ)
 
-- Jason Clinton(Deputy CISO)"How Anthropic secures its AI-native software development lifecycle"(https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle、2026-07-21)〔一次〕〔要照合: WebFetch の要約経由。全文の逐語照合はしていない〕
+- Jason Clinton(Deputy CISO)"How Anthropic secures its AI-native software development lifecycle"(https://claude.com/blog/how-anthropic-secures-its-ai-native-software-development-lifecycle 、2026-07-21)〔一次〕〔要照合: WebFetch の要約経由。全文の逐語照合はしていない〕
   - PR が開かれると、範囲を絞った複数のレビューエージェントが自動でレビューする。エージェントは指摘の妥当性を示す必要がある
   - "We tier our codebase by risk, and make deliberate decisions on what parts to automate."(リスクで層別し、何を自動化するかを意図して決める)
   - 人のレビューは "regulated or truly critical code" に取っておく。"Entire codebases have strict human approval processes."
@@ -59,15 +59,15 @@
 
 ### 1.3 社内のコード生成の割合と開発者の役割
 
-- Marina Favaro, Jack Clark "When AI builds itself"(https://www.anthropic.com/institute/recursive-self-improvement、2026-06 公開・本文に日付なし、9/18/2026 に更新)〔一次・自社報告〕
+- Marina Favaro, Jack Clark "When AI builds itself"(https://www.anthropic.com/institute/recursive-self-improvement 、2026-06 公開・本文に日付なし、9/18/2026 に更新)〔一次・自社報告〕
   - 2026-05 時点で、マージされるコードの 80% 超を Claude が書いた
   - マージ前に "an automated Claude reviewer that looks for bugs, security flaws, and other defects" が読む
   - "much of the code is written by Claude, with the engineer directing and reviewing"
   - "human review will become the bottleneck to AI development" という見通し
-- Anthropic "How AI is transforming work at Anthropic"(https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic、2025-12)〔一次・社内調査: 132 名の調査、53 名の面接〕
+- Anthropic "How AI is transforming work at Anthropic"(https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic 、2025-12)〔一次・社内調査: 132 名の調査、53 名の面接〕
   - 完全に任せられるのは仕事の 0〜20%。任せるのは「容易に検証できる」「低リスク」「退屈」な作業。高リスクの作業では能動的な監督と検証を伴う
   - 研究の限界として、最先端の道具を早く使える特権的な立場であることを自ら挙げる
-- "How Anthropic teams use Claude Code"(https://claude.com/blog/how-anthropic-teams-use-claude-code、2025-07-24)〔一次〕: 検索結果の範囲では PR レビューの運用の記述を確認できなかった〔未: PDF 全文は読んでいない〕
+- "How Anthropic teams use Claude Code"(https://claude.com/blog/how-anthropic-teams-use-claude-code 、2025-07-24)〔一次〕: 検索結果の範囲では PR レビューの運用の記述を確認できなかった〔未: PDF 全文は読んでいない〕
 
 ### 1.4 二次資料にしかないもの
 
