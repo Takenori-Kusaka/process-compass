@@ -18,6 +18,8 @@ sidebar:
 | [ADR-0012](/process-compass/adr/0012-ai-output-as-unverified-input/)の決定5(テスト生成の独立性の段階。最強 = 組織的独立 = 安全関連ソフトウェア) | 本 ADR の決定1〜3 で補う。段階「最強」の担当者の条件を、案件の CL ごとの組織上の距離の段(CL2 は段2 以上、CL3 は段3 以上)で表す。4段階の区分とリスク区分への対応は維持する |
 | [ADR-0054](/process-compass/adr/0054-seat-accountable-performer/)の用語の表の「独立」の行(安全関連は組織上の独立を重ねる) | 本 ADR の決定1 で補う。「組織上の独立」を、1.4 の段で読む |
 
+「影響」の節で決めていない事項とした「CL0 の S1 の G-7『簡略』の中身」は、[ADR-0112](/process-compass/adr/0112-s1-ship-gate-applied-and-simplified-defined/)が閉じました。S1 の G-7 を CL に依らず適用とし、工程ゲートの状態の「簡略」を第1章 1.7.3 で定義しました(2026-11-05)。決定4 は置き換えていません。
+
 ## コンテキスト
 
 [#318](https://github.com/Takenori-Kusaka/process-compass/issues/318) は、#302〜#310 の申し送りとして、次の5点を問いました。
