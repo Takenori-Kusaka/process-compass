@@ -7,10 +7,8 @@
 1名 growth cl1
 2名 poc cl0
 2名 poc cl1
-2名 mvp cl0: 向き
 2名 mvp cl0
 2名 mvp cl1
-2名 growth cl0: 向き
 2名 growth cl0
 2名 growth cl1
 3名 poc cl0

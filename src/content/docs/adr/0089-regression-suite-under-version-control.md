@@ -18,6 +18,8 @@ sidebar:
 | [ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/)の決定2(効果の判定の基準は ADR-0053 決定1 のまま) | 本 ADR の決定6 で、準拠テンプレートの常駐の層から消えていた基準を戻した。ADR-0078 の決定は変えない |
 | [ADR-0073](/process-compass/adr/0073-corrective-action-by-impact-and-control-effectiveness/)・[ADR-0074](/process-compass/adr/0074-no-cap-on-inspection-apparatus/)・[ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/) | 本 ADR の決定5 は、ADR-0077 決定1・2・5 の経路(通らなければ公開と配布が止まる)へ回帰の試験を入れる。量の上限を置かないのは ADR-0074 決定1 による。落ちる場面を分類せずに入れないのは ADR-0073 による |
 
+決定6 で matrix-sweep の向きの2場面(2名 mvp・growth cl0)に付けた落ちることを期待する印(#376)は、[ADR-0110](/process-compass/adr/0110-mixed-change-point-direction-and-signer/)の決定1 で解きました。期待の向きを緩めるへ改め、`changed` に ADR-0110 決定1 を引きました(2026-11-05)。決定6 のそれ以外の分類と直し方は維持します。
+
 ## コンテキスト
 
 #284〜#288 の会議体は、決定を固定する回帰の試験(場面のスクリプトと入力)を作りました。#302〜#310 の組A・組C は、その試験を直して流しました。試験は利用者の端末の作業ディレクトリ(`tmp/`)にだけあり、リポジトリの版管理の外にありました。クラウドの作業環境には無く、失われる寸前でした。
