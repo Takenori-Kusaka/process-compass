@@ -11,6 +11,7 @@
 1名 人の判断待ちに AI のコマンドが無い
 1名 席の記入(/process-change)が通り、次の一手が出る
 1名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
+1名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 1名 D-0 未承認 → 人の判断待ち
 1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する
 1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する
@@ -65,6 +66,7 @@
 5名 席が未記入 → 人の判断待ち(決定者・needs-owner)
 5名 人の判断待ちに AI のコマンドが無い
 5名 席の記入(/process-change)が通り、次の一手が出る
+5名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 5名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 5名 D-0 未承認 → 人の判断待ち
 5名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する
@@ -125,6 +127,7 @@
 15名 席が未記入 → 人の判断待ち(決定者・needs-owner)
 15名 人の判断待ちに AI のコマンドが無い
 15名 席の記入(/process-change)が通り、次の一手が出る
+15名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 15名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 15名 D-0 未承認 → 人の判断待ち
 15名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する

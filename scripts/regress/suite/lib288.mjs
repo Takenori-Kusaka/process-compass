@@ -2,7 +2,7 @@
 //   sh fresh.sh t3 && sh fresh.sh t1 && node t288.mjs [-v]
 import fs from 'node:fs';
 import path from 'node:path';
-import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount, clRecord } from './lib.mjs';
 
 export const { check, done, ghRun, fixes } = checker();
 // gh は PATH 上の代役(lib/bin/gh)。元は --import mockgh-prs.mjs で execFileSync を差し替えていた
@@ -166,6 +166,8 @@ function setup(ws, n) {
   if (n > 1) d0 = d0.replace('| 兼務する組 | 責任者 | 兼務を選んだ理由 | 記録日 |\n| --- | --- | --- | --- |\n| | | | |', `| 兼務する組 | 責任者 | 兼務を選んだ理由 | 記録日 |\n| --- | --- | --- | --- |\n| 価値責任者 × 技術判断者 | ${NAMES[0]} | 3名の体制で技術判断を兼ねる | ${TODAY} |`);
   // #319: 様式の見出しが変わると replace は黙って空振りする(#311 の引き継ぎの表で起きた)。置き換えが起きたことを確かめる
   if (n > 1 && !d0.includes(`| 価値責任者 × 技術判断者 | ${NAMES[0]} |`)) throw new Error('D-0 の非推奨の兼務の記録の表の置き換えが空振りした(様式の見出しが変わった)');
+  // #373(ADR-0113 決定1・決定4): 節16 の安全重要度の判定の記録。判定者は D-0 表1「体制と運用形態」の決定者(事業決裁者の席の責任者)
+  d0 = clRecord(d0, { judge: NAMES[assign['biz-approver']], cls: String(cfg().answers?.['q-criticality'] ?? 'cl0').toUpperCase() });
   write('docs/D-0-governance.md', d0);
   write('docs/quality-assurance-policy.md', POLICY());
   // #411(ADR-0091): 観点3 の裏づけに出所の区分と観測の記録への到達先を書く

@@ -4,7 +4,7 @@
 // @regress {"now": "2026-11-05T03:00:00Z", "workspaces": ["pa1"], "fixes": ["#430"]}
 import fs from 'node:fs';
 import path from 'node:path';
-import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount, clRecord } from './lib.mjs';
 import { regressAccountId } from '../lib/account-id.mjs';
 
 const { check, done, ghRun, fixes } = checker();
@@ -37,7 +37,8 @@ check('準備: 開発者の席の担い手を、名義の共有として宣言�
 // 独立レビュアの席の担い手は、専用のアカウント(AI を示す語を含まない)で動く
 const s2 = W.change({ kind: 'performer', date: TODAY, summary: '独立レビュアの席の担い手を宣言する(専用)', seats: { 'independent-reviewer': { performer: PERF, performerAccount: { kind: 'dedicated', account: { login: 'pit-helper', id: regressAccountId('pit-helper') } } } }, decidedBy: NAMES[1], reason: '担い手の宣言' });
 check('準備: 独立レビュアの席の担い手を、専用の名義として宣言する(席の責任者の記名)', s2.ok, s2.out);
-write('docs/D-0-governance.md', read('docs/D-0-governance.md').replace(/^approver:.*$/m, `approver: ${NAMES[1]}`).replace(/^approved_at:.*$/m, `approved_at: ${TODAY}`).replace(/^approval_scope:.*$/m, 'approval_scope: all').replace(/^next_review:.*$/m, 'next_review: 2027-03-31'));
+// #373(ADR-0113 決定1・決定4): 節16 の安全重要度の判定の記録。判定者は事業決裁者の席の責任者(佐藤)
+write('docs/D-0-governance.md', clRecord(read('docs/D-0-governance.md'), { judge: NAMES[1] }).replace(/^approver:.*$/m, `approver: ${NAMES[1]}`).replace(/^approved_at:.*$/m, `approved_at: ${TODAY}`).replace(/^approval_scope:.*$/m, 'approval_scope: all').replace(/^next_review:.*$/m, 'next_review: 2027-03-31'));
 fs.rmSync(path.join(W.DIR, 'change.json'), { force: true });
 commit('docs: 体制と担い手の名義を記入する');
 

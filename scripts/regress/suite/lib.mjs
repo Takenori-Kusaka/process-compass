@@ -83,7 +83,7 @@ export function workspace(name) {
   const d0 = (version = '1.0') =>
     write(
       'docs/D-0-governance.md',
-      read('templates/00-d0-governance.md')
+      clRecord(read('templates/00-d0-governance.md'), { judge: '山田 太郎', cls: cfgCl() })
         // #411(ADR-0091): 表1 の「市場・顧客仮説の検証の実施」の行は空にしない
         .replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |')
         .replace(/^version:.*$/m, `version: ${version}`)
@@ -92,8 +92,44 @@ export function workspace(name) {
         .replace(/^approval_scope:.*$/m, 'approval_scope: all')
         .replace(/^next_review:.*$/m, 'next_review: 2027-03-31')
     );
+  /** D-0 を作る時点の構成の安全重要度(構成が無ければ CL0) */
+  const cfgCl = () => {
+    try {
+      return String(cfg().answers?.['q-criticality'] ?? 'cl0').toUpperCase();
+    } catch {
+      return 'CL0';
+    }
+  };
   const d0Version = () => read('docs/D-0-governance.md').match(/^version:\s*(.+)$/m)?.[1].trim();
   return { DIR, run, git, write, read, cfg, gen, change, contract, checkD0, checkRules, resetTo, commit, d0, d0Version };
+}
+
+/**
+ * D-0 の節16「安全重要度の判定の記録」を記入する(#373 / ADR-0113 決定1・決定4)。初期化の回答は仮の判定であり、記録と判定者の
+ * 記名がそろうまで D-0 の検査が失敗する。D-0 を作る場面の入力として、判定者(D-0 表1「体制と運用形態」の決定者)の記名と
+ * 判定の欄を埋める。確認者は既定で「未達」(CL0 で規制業でない案件は止めない)。人名は架空
+ */
+export function clRecord(text, { judge, cls = 'CL0', confirmer = '未達', step = '', basis = '', confirmedAt = '' } = {}) {
+  const rows = {
+    判定した区分: cls,
+    対策を入れる前の最悪の帰結: '業務の集計の誤りで、作業が半日止まる',
+    '1つ上の区分に当たらない理由': '個人の権利・利益に影響する判定を扱わない',
+    '附属書F F.2 の回答': 'いいえ。人身への危害が生じうる制御を持たない',
+    判定者: judge,
+    判定日: '2026-09-30',
+    確認者: confirmer,
+    確認者の段: step,
+    段の根拠: basis,
+    確認日: confirmedAt,
+    区分の引き下げの根拠: '該当なし',
+  };
+  let out = text;
+  for (const [k, v] of Object.entries(rows)) {
+    const re = new RegExp(`^\\| ${k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} \\| .*\\|$`, 'm');
+    if (!re.test(out)) throw new Error(`lib.mjs: D-0 の節16 の欄「${k}」の置き換えが空振りした(様式の欄の名が変わった)`);
+    out = out.replace(re, `| ${k} | ${v} |`);
+  }
+  return out;
 }
 
 /** gh の代役の呼び出しの行数(REGRESS_GH_LOG) */

@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount, clRecord } from './lib.mjs';
 
 const { check, done, ghRun, fixes } = checker();
 // 判定の材料とする記録を入れた変更の記録(gh の代役が返す。lib/bin/gh。process-compass #380 / ADR-0106)
@@ -35,7 +35,8 @@ fs.writeFileSync(path.join(DIR, 'docs/D-0-governance.md'), fs.readFileSync(path.
 gen('--answers', 'process.config.json');
 const people = [{ id: 'p1', name: NAMES[0], accounts: [rosterAccount('acct-1')] }];
 check('任免(1名で全席)', fill(W, people, Object.fromEntries(SEATS.map((s) => [s, { accountable: NAMES[0] }]))).ok);
-write('docs/D-0-governance.md', read('docs/D-0-governance.md').replace(/^approver:.*$/m, `approver: ${NAMES[0]}`).replace(/^approved_at:.*$/m, `approved_at: ${TODAY}`).replace(/^approval_scope:.*$/m, 'approval_scope: all').replace(/^next_review:.*$/m, 'next_review: 2027-03-31'));
+// #373(ADR-0113 決定1・決定4): D-0 を承認するときに、節16 の安全重要度の判定の記録も判定者(事業決裁者の席の責任者)が記入する
+write('docs/D-0-governance.md', clRecord(read('docs/D-0-governance.md'), { judge: NAMES[0] }).replace(/^approver:.*$/m, `approver: ${NAMES[0]}`).replace(/^approved_at:.*$/m, `approved_at: ${TODAY}`).replace(/^approval_scope:.*$/m, 'approval_scope: all').replace(/^next_review:.*$/m, 'next_review: 2027-03-31'));
 fs.rmSync(path.join(DIR, 'change.json'), { force: true });
 commit('docs: 体制を記入し、D-0 を承認する');
 

@@ -3,7 +3,7 @@
 // @regress {"now": "2026-10-02T12:00:00Z", "workspaces": ["st1", "st5", "st15"], "fixes": ["#286"]}
 import fs from 'node:fs';
 import path from 'node:path';
-import { workspace, checker, NAMES, SEATS, fill, TODAY, rosterAccount } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, fill, TODAY, rosterAccount, clRecord } from './lib.mjs';
 
 const { check, done, fixes } = checker();
 const SHOW = process.argv.includes('-v');
@@ -78,9 +78,10 @@ for (const n of [1, 5, 15]) {
   check(`${tag} 席の記入(/process-change)が通り、次の一手が出る`, f.ok && f.out.includes('[ピットイン] 次の一手'), f.out);
   j = log('席の記入後(D-0 未承認)');
   check(`${tag} D-0 未承認 → 人の判断待ち`, first(j).stage.startsWith('D-0 体制図が未承認') && first(j).kind === 'human-wait', JSON.stringify(first(j)));
+  // #373(ADR-0113 決定1・決定4): D-0 を承認するときに、節16 の安全重要度の判定の記録も判定者(事業決裁者の席の責任者)が記入する
   write(
     'docs/D-0-governance.md',
-    read('docs/D-0-governance.md')
+    clRecord(read('docs/D-0-governance.md'), { judge: NAMES[0] })
       .replace(/^approver:.*$/m, `approver: ${NAMES[0]}`)
       .replace(/^approved_at:.*$/m, `approved_at: ${TODAY}`)
       .replace(/^approval_scope:.*$/m, 'approval_scope: all')

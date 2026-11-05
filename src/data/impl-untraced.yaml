@@ -17,6 +17,9 @@ files:
   - path: scripts/gate/brief-estimates.mjs
     reason: library
     why: check-g1(降ろし先 g1-check)と出荷の証跡の集約(evidence-aggregation)が使う、当初の見積りと見積りと実績の差の判定。規定は 7.7.9 の IMPL-0366・IMPL-0376 で追う
+  - path: scripts/gate/cl-judgment.mjs
+    reason: library
+    why: check-d0(降ろし先 d0-template)・出荷の証跡の集約(evidence-aggregation)・next.mjs・変化点の反映(generate-profile.mjs)が使う、安全重要度の判定の記録と確認の判定と、区分を下げる操作の引き下げの根拠の判定。規定は第8章 軸E「判定の記録と確認」の IMPL-0449〜0451 で追う(process-compass #373)
   - path: scripts/gate/brief-thresholds.mjs
     reason: library
     why: check-g1(降ろし先 g1-check)が使う企画書の閾値の行の判定。規定は G-1 の IMPL-0371 で追う

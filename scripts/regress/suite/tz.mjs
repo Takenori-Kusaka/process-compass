@@ -5,9 +5,9 @@
 // どの瞬間でも、この2つの時刻帯の日付は異なる。両方で「その時刻帯の日付」が書かれていれば、
 // 協定世界時の日付を書いていないことが確かめられる。日本時間(UTC+9)でも同じ確認をする。
 // @regress {"now": "2026-10-01T12:00:00Z", "workspaces": ["z"], "fixes": ["#284", "#285"]}
-import { workspace, checker, BASE, APPOINTER, BASIS } from './lib.mjs';
+import { workspace, checker, BASE, APPOINTER, BASIS, clRecord } from './lib.mjs';
 
-const { run, write, cfg, git, resetTo, commit, d0 } = workspace('z');
+const { run, write, read, cfg, git, resetTo, commit, d0 } = workspace('z');
 const { check, done, fixes } = checker();
 fixes(["K60", "K65"]);
 
@@ -52,6 +52,14 @@ for (const [tz, offset] of [
   check(`${tz}: 席の記入(任命権者の記名)`, change(tz, { kind: 'accountable', summary: '3名', seats: SEATS, decidedBy: APPOINTER.name, reason: '組織が任命した' }).ok);
   // CL0 へ下げるのは決定。以後の場面のために日付つきで反映する
   write('docs/gates/x.md', '# 記録\n');
+  // #373(ADR-0113 決定4): 区分を下げる変化点は、D-0 節16 の記録(下げた後の区分と引き下げの根拠)と、根拠が引く ADR・機能仕様を要する。
+  // この場面の入力として先に置く(この場面が確かめるのは時刻帯の日付であり、引き下げの根拠の検査は cl-judgment が固定する)
+  write('context/decisions/0001-reversible-delete.md', '# ADR-0001: 物理削除を取り消せる方式へ変える\n');
+  write('specs/F-001/spec.md', '# 機能仕様: 削除\n');
+  write(
+    'docs/D-0-governance.md',
+    clRecord(read('docs/D-0-governance.md'), { judge: '山田 太郎' }).replace(/^\| 区分の引き下げの根拠 \| .*\|$/m, '| 区分の引き下げの根拠 | 低減の前 CL1 → 後 CL0。物理削除を取り消せる方式へ変えた。ADR-0001、F-001 |')
+  );
   check(`${tz}: 区分を下げる(記名つき)`, change(tz, { kind: 'axis', summary: 'CL0', answers: { 'q-criticality': 'cl0' }, decidedBy: 'a', reason: '設計で帰結を下げた' }).ok);
   const dlg = change(tz, {
     kind: 'mode',

@@ -4,7 +4,7 @@
 // @regress {"now": "2026-10-02T12:00:00Z", "workspaces": ["s5a", "s5b"], "fixes": ["#286"]}
 import fs from 'node:fs';
 import path from 'node:path';
-import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount } from './lib.mjs';
+import { workspace, checker, NAMES, SEATS, fill, TODAY, BASE, rosterAccount, clRecord } from './lib.mjs';
 
 const { check, done, ghRun, fixes } = checker();
 fixes(["K64"]);
@@ -43,7 +43,8 @@ for (const [ws, viaPr] of [['s5a', true], ['s5b', false]]) {
   const seats = Object.fromEntries(SEATS.map((s) => [s, { accountable: NAMES[assign[s]] }]));
   const f = fill(W, people, seats);
   check(`${tag}: 3名の任免が通る`, f.ok, f.out);
-  write('docs/D-0-governance.md', read('docs/D-0-governance.md').replace(/^approver:.*$/m, `approver: ${NAMES[1]}`).replace(/^approved_at:.*$/m, `approved_at: ${TODAY}`).replace(/^approval_scope:.*$/m, 'approval_scope: all').replace(/^next_review:.*$/m, 'next_review: 2027-03-31'));
+  // #373(ADR-0113 決定1・決定4): 節16 の安全重要度の判定の記録。判定者は事業決裁者の席の責任者(佐藤)
+  write('docs/D-0-governance.md', clRecord(read('docs/D-0-governance.md'), { judge: NAMES[1] }).replace(/^approver:.*$/m, `approver: ${NAMES[1]}`).replace(/^approved_at:.*$/m, `approved_at: ${TODAY}`).replace(/^approval_scope:.*$/m, 'approval_scope: all').replace(/^next_review:.*$/m, 'next_review: 2027-03-31'));
   fs.rmSync(path.join(W.DIR, 'change.json'), { force: true });
   commit('docs: 体制を記入し、D-0 を承認する');
 

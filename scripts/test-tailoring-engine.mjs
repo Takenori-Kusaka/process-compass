@@ -319,13 +319,17 @@ console.log('S0 の G-3・G-4・G-5・G-8 は適用 OK');
   assert.equal(cl2.profile['practice:traceability'].params.required, true, 'CL1 の要求を包含する');
 
   const cl0 = evaluate(kb, { ...base, 'q-criticality': 'cl0' });
+  // テンプレ9 の要否は第6章の4条件を正とする(#373 / ADR-0113 決定3)。CL0・CL1 は「適用条件による」、CL2 以上は必須
   assert.equal(
     cl0.profile['gate:g-plan-approval']?.params?.safetyRiskAssessment,
-    undefined,
-    'CL0 では安全成果物を追加しない'
+    'conditional',
+    'CL0 の安全リスクアセスメントは、第6章の適用条件による(不要と出さない)'
   );
+  const cl1 = evaluate(kb, { ...base, 'q-criticality': 'cl1' });
+  assert.equal(cl1.profile['gate:g-plan-approval']?.params?.safetyRiskAssessment, 'conditional', 'CL1 も第6章の適用条件による');
+  assert.equal(cl0.profile['gate:g-ship']?.params?.safetyVerificationRecord, undefined, 'CL0 では安全適合性の検証記録を追加しない');
   assert.equal(cl0.profile.process?.params?.maxAutonomyLevel, undefined);
-  console.log('安全重要度2(CL2 は入れ子で加算・CL0 は無加算) OK');
+  console.log('安全重要度2(CL2 は入れ子で加算・CL0 は適用条件によるテンプレ9 だけ) OK');
 }
 
 // S0 の独立レビュー(G-6): 標準品質・CL0 は省略、CL1 以上は S0 でも適用(#302 / ADR-0065 決定1・3)。

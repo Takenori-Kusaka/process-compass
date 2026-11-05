@@ -39,6 +39,22 @@ rules:
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 50
 
+  # 安全リスクアセスメント(テンプレ9)の要否は、第6章の CL に依らない4条件(物理的な危険源・R1 の変更種別・本番到達・
+  # L2 以上)を正とする(#373 / ADR-0113 決定3)。CL0・CL1 でも、条件のいずれかに当たれば G-1 の前提条件になる。
+  # 構成は4条件の入力を持たないため、要否を「適用条件による」として出し、該当の有無は人が判定する。CL2 以上は r-e-cl2 が必須にする
+  - id: r-e-sra-conditions
+    when:
+      q-criticality: [cl0, cl1]
+    adjustments:
+      - target: { type: gate, id: g-plan-approval }
+        action: set
+        param: safetyRiskAssessment
+        value: conditional
+        note: 安全リスクアセスメント(第6章 テンプレ9)は、第6章の適用条件(物理的な危険源・R1 の変更種別・本番到達・AI自律レベル L2 以上)のいずれかに当たれば、企画承認の前提条件にする。該当の有無は人が判定する
+    reason: テンプレ9 は開発に使う AI エージェントの危害の評価であり、危害の大きさはエージェントの到達範囲で決まる。製品の安全重要度が低くても、本番へ到達する L2 のエージェントは本番の資源を壊しうる
+    source: /process-compass/phase4-process-design/deliverable-templates/
+    priority: 50
+
   - id: r-e-cl2
     when:
       q-criticality: [cl2, cl3]

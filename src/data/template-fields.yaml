@@ -171,6 +171,30 @@ forms:
         template: 組織継続の状態の受容
       - standard: '| 状態 | 対象 | 受容した者 | 受容の期限 | 照らした層1 の版 |'
         template: '| 状態 | 対象 | 受容した者 | 受容の期限 | 照らした層1 の版 |'
+      # 表10 の安全重要度の判定の記録(第8章 軸E「判定の記録と確認」。#373 / ADR-0113)。準拠テンプレートでは節16。
+      # 欄の名は check-d0・出荷の証跡の集約(cl-judgment.mjs)が読む
+      - standard: '## 表10: 安全重要度の判定の記録(第8章 軸E)'
+        template: 安全重要度の判定の記録
+      - standard: '| 判定した区分 |'
+        template: '| 判定した区分 |'
+      - standard: '| 対策を入れる前の最悪の帰結 |'
+        template: '| 対策を入れる前の最悪の帰結 |'
+      - standard: '| 1つ上の区分に当たらない理由 |'
+        template: '| 1つ上の区分に当たらない理由 |'
+      - standard: '| 附属書F F.2 の回答 |'
+        template: '| 附属書F F.2 の回答 |'
+      - standard: '| 判定者 |'
+        template: '| 判定者 |'
+      - standard: '| 判定日 |'
+        template: '| 判定日 |'
+      - standard: '| 確認者 |'
+        template: '| 確認者 |'
+      - standard: '| 確認者の段 |'
+        template: '| 確認者の段 |'
+      - standard: '| 段の根拠 |'
+        template: '| 段の根拠 |'
+      - standard: '| 区分の引き下げの根拠 |'
+        template: '| 区分の引き下げの根拠 |'
       # --- #288 第6巡 ---
       # 席の責任者本人の力量の確認(第3章 3.4.3 要求事項1)。準拠テンプレートでは節9 の生成区間
       - standard: 席の責任者本人の力量の確認
@@ -885,6 +909,11 @@ forms:
         template: 残留リスクの受容
       - standard: '### 完全版で追加する項目'
         template: 完全版で追加する項目
+      # 承認の欄(作成者と別の自然人。段1。#373 / ADR-0113 決定3)
+      - standard: '## 承認'
+        template: 承認
+      - standard: '| 作成者 | 承認者(作成者と別の自然人) | 承認日 | 承認した版 |'
+        template: '| 作成者 | 承認者(作成者と別の自然人) | 承認日 | 承認した版 |'
     # 標準の様式に節として対応しない見出し(方向3。ADR-0087 決定4)。kind: same-as-standard / structure / guide
     extra:
       - heading: "適用条件"

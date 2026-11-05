@@ -206,6 +206,12 @@ sections:
     status: pending
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 体制と委任の登録を誰が決めるかを決めておく"
     status: pending
+  - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 安全重要度の判定を表10 に記録する"
+    status: none
+    category: elsewhere
+    reason: 表10 の欄と確認の規定の正本は第8章 軸E「判定の記録と確認」で、IMPL-0449・0450・0452 が追う。様式の欄は src/data/template-fields.yaml の必須欄で両方向に検査する(#373)
+    location:
+      - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 判定の記録と確認"
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 決裁の権限の出所と金額区分の境界額を書く"
     status: none
     category: elsewhere
@@ -2645,6 +2651,12 @@ sections:
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整"
     status: pending
+  - key: "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 判定の記録と確認"
+    status: marked
+    ids: [IMPL-0449, IMPL-0450, IMPL-0452]
+    location:
+      - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 設計によって区分を下げる"
+    note: 記録の欄・判定者の記名・G-1 の停止は IMPL-0449、確認者の記名と段・未達と欠落は IMPL-0450、段2 以上の距離の照合は IMPL-0452(#357)。区分を下げる操作の引き下げの根拠の実在は、設計によって区分を下げるの節の IMPL-0451(#373)
   - key: "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 区分ごとの調整"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 適用してはならない組み合わせ"
