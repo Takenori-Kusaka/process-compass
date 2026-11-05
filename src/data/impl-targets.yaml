@@ -405,6 +405,12 @@ targets:
     path: .github/workflows/gate-g5.yml
     description: PR と既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行するワークフロー。必須ステータスチェックの名前は gate-g5(Issue #293)
 
+  - id: gate-g5-base-workflow
+    name: G-5 の基底から読む判定のワークフロー(gate-g5-base.yml)
+    kind: template-file
+    path: .github/workflows/gate-g5-base.yml
+    description: PR 単位の検査(check-pr.mjs)を、既定ブランチの定義・スクリプト・構成で行うワークフロー(pull_request_target。PR のコードを checkout せず、PR の先頭を fetch して差分と本文をデータとして読む)。統制の設定を変える PR に、AI維持管理者が本人のアカウントで出す承認のレビューを、名簿の数値の識別子で照らして求める。結果はジョブの結果(check run)の gate-g5-base で、ルールセットの必須チェックが指す。test-base-judge-workflow.mjs が定義を静的に確かめる(Issue #371 / ADR-0115)
+
   - id: rulesets
     name: ルールセット(ブランチ保護)の定義
     kind: template-file
@@ -415,7 +421,7 @@ targets:
     name: 承認レビューの写しのワークフロー(record-copy.yml)
     kind: template-file
     path: .github/workflows/record-copy.yml
-    description: PR のマージを契機に、承認レビューの写しを記録用ブランチ records の records/reviews/ へ追記するワークフロー。写しの取り出しの時期と置き場を運ぶのはこのファイルだけである。ジョブのトークン(権限 contents の write)で書くため、同じ権限を持つ者とトークンは、記録用ブランチの写しと様式を新しいコミットで追記・変更できる。置き場は書き換えを防がず、出荷の集約が履歴の走査で検出する(IMPL-0353・IMPL-0432。#379 / ADR-0109)。既にある写しと不変の欄が食い違えば、衝突を記録して失敗する(IMPL-0437)(#321 との統合の突合 F-6・未解決4)
+    description: PR のマージを契機に、承認レビューの写しを記録用ブランチ records の records/reviews/ へ追記するワークフロー。写しの取り出しの時期と置き場を運ぶのはこのファイルだけである。ジョブのトークン(権限 contents の write)で書くため、同じ権限を持つ者とトークンは、記録用ブランチの写しと様式を新しいコミットで追記・変更できる。置き場は書き換えを防がず、出荷の集約が履歴の走査で検出する(IMPL-0353・IMPL-0432。#379 / ADR-0109)。既にある写しと不変の欄が食い違えば、衝突を記録して失敗する(IMPL-0437)(#321 との統合の突合 F-6・未解決4)。書き込みの権限を持つため、pull_request_target の closed で既定ブランチの定義で動き、既定ブランチを checkout する(IMPL-0459。#371 / ADR-0115)
 
   - id: ship-evidence-workflow
     name: 出荷の証跡のワークフロー(ship-evidence.yml)

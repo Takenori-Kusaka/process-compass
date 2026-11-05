@@ -690,6 +690,22 @@ sections:
       - IMPL-0232
     note: 集約に含めること・集約から外さないこと・集約の確認で代えないことは IMPL-0142、手元の結果を証跡にしないことは IMPL-0232
     issue: 293
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 判定のコードの読み元
+    status: marked
+    ids:
+      - IMPL-0455
+      - IMPL-0459
+    note: 変更のコードを実行しない判定を基底ブランチの判定のコードで行い、結果を check run で出すことは IMPL-0455、書き込みの権限を持つ処理を基底の定義で動かすことは IMPL-0459。送り手の固定を適合の手段に数えないことは、機械の降ろし先を持たない(env-check が区別されないことを記録に書く。IMPL-0458)
+    issue: 371
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 統制の設定の変更の承認
+    status: marked
+    ids:
+      - IMPL-0456
+      - IMPL-0457
+      - IMPL-0458
+      - IMPL-0460
+    note: 基底から読む判定の承認の照合は IMPL-0456、出荷の証跡の集約の照合は IMPL-0457、env-check の3値は IMPL-0458、別のアカウントの承認・コード所有者・フォークに依る部分(降りていない)は IMPL-0460
+    issue: 371
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 是正の起動
     status: pending
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 基準値と除外設定の変更
