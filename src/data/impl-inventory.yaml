@@ -535,6 +535,7 @@ sections:
       - IMPL-0008
       - IMPL-0425
       - IMPL-0426
+      - IMPL-0441
   - key: phase4-process-design/gate-criteria#判定の成立 > 機械が出す欄と人が書く欄
     status: marked
     ids:
@@ -548,6 +549,12 @@ sections:
       - IMPL-0355
       - IMPL-0356
       - IMPL-0353
+      - IMPL-0432
+      - IMPL-0433
+      - IMPL-0434
+      - IMPL-0443
+      - IMPL-0442
+      - IMPL-0440
       - IMPL-0124
       - IMPL-0413
       - IMPL-0414
@@ -559,7 +566,7 @@ sections:
       - IMPL-0128
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
-    note: 写しを承認と同じ時期に機械が取り出すことは G-6 の節の IMPL-0126(集約)と IMPL-0354(record-copy.yml)で追う。遅くとも G-7 で基底ブランチへ入れることは IMPL-0355、既定ブランチの強制層を写しのために縮小しないことは IMPL-0356、写しの置き場を書き換えられない場所にすることは IMPL-0353(降りていない。EV-0185)。#321 との統合の突合(research/integration-321/crosscheck.md の未解決1・F-6)の裁定で足した
+    note: 写しを承認と同じ時期に機械が取り出すことは G-6 の節の IMPL-0126(集約)と IMPL-0354(record-copy.yml)で追う。遅くとも G-7 で基底ブランチへ入れることは IMPL-0355、既定ブランチの強制層を写しのために縮小しないことは IMPL-0356、写しの置き場を、成立した記録を記録を残さずには書き換えられない場所にすることは IMPL-0353、履歴の走査は IMPL-0432、先頭の固定は IMPL-0433、規制業・CL2 以上の署名は IMPL-0434、誤検出の対策は IMPL-0442、委任の判定が数える G-6 の差し戻しの帰属は IMPL-0440(#379 / ADR-0109。EV-0185 を EV-0224 で置き換えた)。#321 との統合の突合(research/integration-321/crosscheck.md の未解決1・F-6)の裁定で足した
   - key: phase4-process-design/gate-criteria#判定の成立 > 判定が指す記録の保管
     status: marked
     ids:
@@ -779,6 +786,8 @@ sections:
     ids:
       - IMPL-0126
       - IMPL-0127
+      - IMPL-0435
+      - IMPL-0437
     rows:
       条件1:
         status: marked
@@ -805,6 +814,8 @@ sections:
         ids:
           - IMPL-0126
           - IMPL-0354
+          - IMPL-0435
+          - IMPL-0437
     note: 条件1・5 はこの節のマーク。条件3・4 の送り先は #321 との統合の突合 F-11 の裁定で G-6 の節へ改めた。承認までの時間・コメントの有無・差分の量を合否にしないことは、課さない明記(ADR-0059)
 
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 委任の変更は判定の時点を事後へ移す

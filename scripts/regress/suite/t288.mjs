@@ -216,13 +216,13 @@ function setup(ws, n) {
   prJson(1, 'chore: プロセス構成を初期化する', initHash);
   let prNo = 1;
   // 記録の置き場の外(企画書・引き継ぎ・層1 など)を変える変更は、PR のスカッシュとして入れる
-  const prCommit = (msg) => {
+  const prCommit = (msg, extra = []) => {
     prNo += 1;
     git('add', '-A');
     git('commit', '-q', '-m', `${msg} (#${prNo})`);
     // #428(IMPL-0415): 層1 を変える PR は、層1 の記名者(社長 一郎)本人の承認で入れる(帰属の確認。中身の判定ではない)
     const touchesPolicy = git('diff', '--name-only', 'HEAD^', 'HEAD').out.split(/\r?\n/).includes('docs/quality-assurance-policy.md');
-    prJson(prNo, msg, git('rev-parse', 'HEAD').out.trim(), touchesPolicy ? [BOSS_APPROVAL] : []);
+    prJson(prNo, msg, git('rev-parse', 'HEAD').out.trim(), [...(touchesPolicy ? [BOSS_APPROVAL] : []), ...extra]);
   };
   prCommit('docs: 体制・層1・企画・記録を置く');
   git('tag', 'base288');
@@ -263,7 +263,9 @@ fixes(['ADR-0057 決定8', 'ADR-0057 決定9', 'ADR-0057 決定10']);
   // G-7・G-8 の記録を書いて集約し直す(記名で判定)
   write('docs/gates/g7-ship.md', gateRecord('G-7 出荷判定', 'HEAD', NAMES[2], d0v));
   write('docs/gates/g8-ship.md', gateRecord('G-8 リリース決裁', 'HEAD', NAMES[1], d0v, g8Extra()));
-  commit('docs: G-7・G-8 の記録');
+  // #379(ADR-0109 決定3、入力の直し): 条件4 は帰属を裏づけた記名だけで判定する。記録を入れる PR を、G-7 の記名者(acct-3)も
+  // 承認する(G-8 の記名者 acct-2 は既定の承認者)。承認は転記の確認であり、記録の中身の判定ではない
+  commit('docs: G-7・G-8 の記録', [{ author: { login: 'acct-3' }, state: 'APPROVED', body: '挙動要約: 記録の転記を確かめた' }]);
   ({ r, ev } = agg());
   check('3名: 記録の後の集約で、条件4 を記名で判定して成立、欠落なし', ev.gaps.length === 0 && cond(ev, 4).ok && cond(ev, 4).basis === 'record' && ev.assurance.claim.established === ev.assurance.claim.total, ev.gaps.join('\n') + JSON.stringify(cond(ev, 4)));
   // G-8 の新しい3行の欠落

@@ -415,7 +415,7 @@ targets:
     name: 承認レビューの写しのワークフロー(record-copy.yml)
     kind: template-file
     path: .github/workflows/record-copy.yml
-    description: PR のマージを契機に、承認レビューの写しを記録用ブランチ records の records/reviews/ へ追記するワークフロー。写しの取り出しの時期と置き場を運ぶのはこのファイルだけである。ジョブのトークン(権限 contents の write)で書くため、同じ権限を持つ者とトークンは、記録用ブランチの写しと様式を新しいコミットで追記・変更できる(IMPL-0353。降りていない)(#321 との統合の突合 F-6・未解決4)
+    description: PR のマージを契機に、承認レビューの写しを記録用ブランチ records の records/reviews/ へ追記するワークフロー。写しの取り出しの時期と置き場を運ぶのはこのファイルだけである。ジョブのトークン(権限 contents の write)で書くため、同じ権限を持つ者とトークンは、記録用ブランチの写しと様式を新しいコミットで追記・変更できる。置き場は書き換えを防がず、出荷の集約が履歴の走査で検出する(IMPL-0353・IMPL-0432。#379 / ADR-0109)。既にある写しと不変の欄が食い違えば、衝突を記録して失敗する(IMPL-0437)(#321 との統合の突合 F-6・未解決4)
 
   - id: ship-evidence-workflow
     name: 出荷の証跡のワークフロー(ship-evidence.yml)
