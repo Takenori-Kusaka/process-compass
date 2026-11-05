@@ -89,7 +89,7 @@
 - 回帰スイート(WSL、--kb keep): 25 本。通常の時刻帯と TZ=UTC の両方で全本が通過(落ちた 0、印 0)
 - npm run check の各段(test:template-suite と test:regress を除き Windows で個別に実行): lint:ci・lint:tone・lint:evidence・lint:impl・lint:scope・lint:refs・lint:provisions・lint:skills・lint:figures・brand:check・lint:sources・lint:citations・test:citations・test:edition・lint:registry・test:registry・test:engine・lint:stage-table・test:impl・test:ci-wiring・test:template・test:fields・test:criteria はすべて通過
 - lint:text: 通過。build: 通過(344 ページ)
-- 準拠テンプレートのコミット: aa204b0(pit-in-template の main へ push 済み。トレーラ Spec: setup)。本体はコミットまで(push していない)
+- 準拠テンプレートのコミット: aa204b0、裁定への対応は bb4b3e7(pit-in-template の main へ push 済み。トレーラ Spec: setup)。本体はコミットまで(push していない)
 
 ## 5. 呼び手へ報告する判断
 
@@ -98,3 +98,17 @@
 - J-1: 3〜9名の CL1 の案件は、段2 の確認者を置けないだけで出荷できなくなる(既存の「CL1 以上は未達のまま出荷しない」に乗せた)
 - J-10: 判定の記録そのものの欠落は、出荷の集約では欠落に数えない(止めるのは G-1 の前の D-0 の検査)
 - J-12: 判定者が現在の決定者でない記名は、注意にとどまる(初めから決定者でない人が記名した記録も止まらない)
+
+## 6. 議長の裁定(J-1・J-10・J-12)への対応
+
+入力: `decision.md`「実装の判断への裁定」。本体は 372db20 の上に積んだ。
+
+| 裁定 | 対応 | 変えたファイル |
+| --- | --- | --- |
+| J-1 維持 | 実装は変えていない。ADR-0113 決定2 に、CL1 以上と規制業は確認の未達のまま出荷しないことと、3〜9名の CL1 の案件で段2 の確認者を置けなければ出荷できないことを「帰結」として明記した | `adr/0113-...md` |
+| J-10 改める | 旧い構成を「G-1 の判定記録(基底ブランチと記録用ブランチ)の判定日時が、ADR-0113 の採用日 2026-11-05 より前」と定めた(`CL_RECORD_REQUIRED_SINCE`)。旧い構成に限り、D-0 の検査は注意、集約は未達として表示する。それ以外の構成は、G-1 を通過済みでも、判定の記録と判定者の記名の不備を D-0 の検査が失敗させ、出荷の証跡の集約が記載の欠落に数える。G-1 の判定日時を読めない構成は、旧い構成に数えない。標準は軸E の届かないものの表(G-1 の後に欠けたら G-7 の記載の欠落)と第4章 G-7 の記載の欠落の表に1行を足し、IMPL-0449 の注記と ADR-0113 の決定2・影響を改めた | `cl-judgment.mjs`、`check-d0.mjs`、`next.mjs`、`tailoring-guide.md`、`gate-criteria.md`、`adr/0113-...md`、D-0 の補助ファイル |
+| J-12 改める | 判定者の記名を、記録の時点(判定日)の決定者と照らす。現在の決定者と一致すれば足りる。一致しなければ、判定日の終わりまでに process.config.json を最後に変えたコミットの構成から決定者を導く(`deciderAt`)。その時点の決定者と一致すれば、交代の後も効力を保つ(現在の名簿と照らし直さない)。一致しなければ記録の不備として拒否する。判定日を読めない・その日までの構成の記録が無い・その構成に決定者が無いときだけ注意にする。標準の欄の規定(記録を作る時点の決定者、交代の前の記録は効力を保つ)と ADR-0113 決定2 に書いた | `cl-judgment.mjs`、`tailoring-guide.md`、`adr/0113-...md`、D-0 の補助ファイル |
+
+- 時点の判定は、構成のコミットの日時(committer の日時)で行う。判定日は日付だけのため、同じ日に決定者を交代した場合は、その日の終わりの構成で照らす(同じ日の交代の前の記名は拒否される。残る粗さ)
+- 試験: test-cl-judgment.mjs を 50 件へ(採用日の後に G-1 を通過した構成・判定日時を読めない構成は旧い構成に数えず欠落、G-1 の前の構成の記録の不備も集約で欠落、一時の履歴で交代の前の決定者の記名は効力を保ち、時点の決定者でない記名と交代の後の日付の前の決定者の記名は拒否、時点を導けないときだけ注意、集約は記録の欠落を欠落に数え、旧い構成だけ未達)。回帰の場面 cl-judgment を 23 場面へ(記録の時点で決定者でなかった人の記名の拒否、採用日の後に G-1 を通過した構成の D-0 の検査の失敗と集約の欠落)。`expected/scenes/cl-judgment.txt` を改めた
+- 試験の結果: test-cl-judgment.mjs は 50 件通過。テンプレートの試験一式(Windows)は test-g5-aggregate.mjs(CRLF による既知の失敗)を除いて通過。回帰スイート(WSL、--kb keep)は通常の時刻帯と TZ=UTC の両方で 25 本すべて通過。WSL の作業の場所が消えていたため作り直した。最初の実行では v3b が `yaml` の欠けで中断したため、依存を置いて v3b を両方の時刻帯で流し直した。npm run check の各段(test:template-suite と test:regress を除き Windows で個別に実行)、lint:text・lint:provisions・build はすべて通過
