@@ -295,7 +295,7 @@ targets:
     name: AI レビューのワークフロー(差し込み口)
     kind: template-file
     path: .github/workflows/ai-review.yml
-    description: AI レビューを差し込む口と、検出の層としての位置づけを PR へ明記するワークフロー。差し込む AI のレビューの実装は採用者が置く。指摘の中身(所在と根拠、実行の結果の記録の所在)の注記を差し込み口に置くまでで、出力は確かめない(附属書H H.4、ADR-0075)
+    description: AI レビューを差し込む口と、検出の層としての位置づけを PR へ明記するワークフロー。差し込む AI のレビューの実装は採用者が置く。指摘の中身(所在と根拠、実行の結果の記録の所在)の注記を差し込み口に置くまでで、出力は確かめない(附属書H H.4、ADR-0075)。pull_request_target で動き、AI レビューの指示(.github/ai-review/)を既定ブランチの版から読む。AI レビューのジョブは read だけで、PR へ書くジョブを分ける。test-base-judge-workflow.mjs が定義を静的に確かめる(Issue #369)
 
   - id: implement-skill
     name: 実装のスキル(/implement)
