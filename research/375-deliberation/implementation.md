@@ -85,3 +85,28 @@
 - 準拠テンプレートの試験一式(本体の test:template-suite。Windows): test-g5-aggregate.mjs(CRLF。既知)を除いてすべて通過
 - 回帰スイート(WSL、--kb keep): 通常と TZ=UTC の両方で全本が通過。name-confirmation は 17 場面。WSL の /tmp が消えていたため、作業の写し /tmp/pc430 を作り直した(リポジトリの写しと yaml、research/phase4-standard)
 - 本体の npm run check の各段(Windows): 落ちたのは test:template-suite(同じ既知の失敗)だけ。lint:provisions は G-6 の追記の文末「できない」を拒否したため「取り込んではならず、出荷してはならない」へ改めて通過を確かめた。lint:text・build は通過
+
+## 再確認の指摘と追加の裁定 2 への対応
+
+入力: `crosscheck.md` 末尾の再確認(Y-1・Y-2)と、`decision.md` 末尾の追加の裁定 2(AR-4・AR-5)。本体のコミットは 08460bf の上に積んだ。再現は再確認の台本 `scratchpad/p375/probe2.mjs` で行った。直す前の版の観測は `out2.txt` のとおり(D2 拒否、L1 受け付け)。直した後は D2 を受け付け、L1 を拒否する。
+
+| 指摘・裁定 | 対応 | 変えたファイル |
+| --- | --- | --- |
+| AR-4・Y-1 既存の記録の照らし直し | `awaitingConfirmationIds(config)` を置いた。2名以上の名簿で、本人の記名の記録だけがあって効かない確認の id を返す。本人の記名の記録は1名の名簿でだけ受け付けるため、その人が記名した既存の記録は、記名した時点では効いていた。`recordSignerContext(config)` は、その id を確認待ちとして効かせた評価用の構成を返す(構成へは書かない)。これを既存の記録の照合に限って使う: (1) `/process-change` の変更種別の検査で、この変化点で足していない既存の登録の登録者(`changeTypeProblems` の `existingConfig`)、(2) `clampSeats` の規則の成立(`ruleStanding` の `ctxPrior`)。この変化点で追加・変更した規則の決定者と、足した変更種別の登録者は、従来どおり前の構成で照らす。人の離脱・席の交代・規則の失効などの扱いは変えていない | `config.mjs`、`generate-profile.mjs` |
+| AR-5・Y-2 確認待ちの本人が記名した確認 | 確認の記名者の検査に、記名者がこの変化点で確認待ちになる本人(`awaiting`)なら拒否する行を足した。拒否の文で、後の変化点で数えられない理由と、本人の氏名を本人以外が確認した後に出す手順を案内する | `generate-profile.mjs` |
+| 試験 | AR-4: 1名で本人が委任の規則を決めて承認し、変更種別を登録して委任にする → 2人目を足す → 2人目が確認して通る。規則・種別・委任の席が保たれ、契約検査に確認待ちが出ない。AR-5: 確認待ちになる本人の記名による Gemini の確認を拒否し、構成を書き換えない。2件とも、直す前のコード(4c5d6dd)では NG になることを確かめた | `test-name-confirmation-timing.mjs` |
+| 回帰の場面 | `suite/name-confirmation.mjs` に AR-4 の6場面と AR-5 の3場面を足した(計 26 場面)。`fixes` に ADR-0111 決定6・決定5 | `scripts/regress/suite/name-confirmation.mjs`、`expected/scenes/name-confirmation.txt` |
+| 標準・ADR・印 | ADR-0111 に決定6 を足し、ステータスの節、採らなかった案(前の構成でも確認待ちを確認済みとして効かせる案)、影響を改めた。G-6 に既存の記録の記名者を照らし直さない箇条を足した。IMPL-0446 の注記に AR-4・AR-5 と試験を足した。EV-0229 の対象に、記録した時点の効力で照らしても確認待ちの本人が新しい記録の資格を得ないという判断を足した | `adr/0111-...md`、`gate-criteria.md` |
+
+### 気づいたこと(直していない)
+
+- AR-5 は確認待ちの本人に限った。確認待ちでない AI を示す語の氏名の人(本人以外が確認済み)が他の人の氏名の確認に記名した場合も、`confirmedNames` は記名者の名義が AI を示す語を含む記録を数えないため、効かない記録が残りうる。裁定の範囲の外のため変えていない
+- 記録が無い確認(未記録)から1名→2名へ移った人は、`awaitingConfirmationIds` の対象に入らない(本人の記名の記録が無いため)。未記録の確認は #296 より前の旧い構成に限られる
+
+### 試験の結果(再確認の後)
+
+- 準拠テンプレートのコミット: 91929ef(pit-in-template の main へ push 済み)
+- test-name-confirmation-timing.mjs: 27 件すべて通過(Windows、WSL の TZ=UTC)
+- 準拠テンプレートの試験一式(本体の test:template-suite。Windows): test-g5-aggregate.mjs(CRLF。既知)を除いてすべて通過
+- 回帰スイート(WSL、--kb keep): 通常と TZ=UTC の両方で全本が通過。name-confirmation は 26 場面
+- 本体の npm run check の各段(Windows): 落ちたのは test:template-suite(同じ既知の失敗)だけ。lint:text・lint:provisions・build は通過

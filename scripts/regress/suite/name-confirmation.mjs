@@ -82,4 +82,24 @@ accepted('確認待ち: 次の変化点で、足した2人目(高橋)が記名�
 const resolved = contract();
 check('確認した後は、契約検査が確認待ちを出さない', resolved.ok && !resolved.out.includes('確認待ち'), resolved.out);
 
+// ---------------------------------------------------------------- AR-4・AR-5(追加の裁定 2。再確認 Y-1・Y-2)
+fixes(['ADR-0111 決定6', 'ADR-0111 決定5']);
+const PF = { model: 'claude-fable-5-1', instructions: 'CLAUDE.md@v1', permissions: 'tok-dev' };
+const BASIS2 = { detection: { rejectionRate: 'docs/metrics/q3.md(差し戻しの件数から算出)', reworkRate: 'docs/metrics/q3.md(14日以内の書き換えの行数から算出)' }, rollback: 'docs/rollback/2026-09.md(文言の取り消しを3回実行)', tests: 'tests/i18n/*.spec.ts が全キーの表示を確かめる' };
+const DTYPES = [{ id: '表示文言', registeredBy: 'Claude Dupont', registeredAt: '2026-09-30', basis: BASIS2 }];
+const DRULE = { id: 'DR-001', seat: 'dev-verifier', changeType: '表示文言', paths: ['src/i18n/**'], decidedBy: 'Claude Dupont', decidedAt: '2026-09-30', reason: '文言のレビュー待ちを無くす' };
+const DQ = { confirmedAt: '2026-09-30', performedBy: 'Claude Dupont', approvedBy: 'Claude Dupont', cases: '注入事例10件', result: '9/10', performer: PF };
+check('AR-4: 準備(初期化)', init('size-1-2').ok);
+accepted('AR-4: 準備(1名の体制)', change({ kind: 'accountable', date: TODAY, summary: '1名', people: [DUPONT], seats: ALL('Claude Dupont'), decidedBy: 'Claude Dupont', reason: '初期の体制を記入する' }));
+accepted('AR-4: 準備(本人が委任の規則を決めて承認し、変更種別を登録し、委任にする)', change({ kind: 'mode', date: TODAY, summary: '委任', seats: { 'dev-verifier': { mode: 'delegated', performer: PF, fallback: 'human', qualification: DQ } }, delegation: { rules: [DRULE], changeTypes: DTYPES }, ruleApprovedBy: 'Claude Dupont', decidedBy: 'Claude Dupont', reason: '委任する' }));
+accepted('AR-4: 2人目を足す(確認待ち)', change({ kind: 'accountable', date: TODAY, summary: '高橋が加わった', people: [DUPONT, TAKAHASHI], decidedBy: 'Claude Dupont', reason: '2人目' }), '[確認待ち]');
+accepted('AR-4: 確認待ちを解く変化点で、既存の規則と変更種別を照らし直さない', change({ kind: 'accountable', date: TODAY, summary: 'Dupont の氏名を確認', people: [DUPONT, TAKAHASHI], decidedBy: '高橋 次郎', reason: '氏名を確認した' }));
+check(
+  'AR-4: 規則・変更種別・委任の席が保たれる',
+  cfg().delegation.rules.some((r) => r.id === 'DR-001') && cfg().delegation.changeTypes.some((t) => t.registeredBy === 'Claude Dupont') && cfg().seats.find((s) => s.role === 'dev-verifier').mode === 'delegated'
+);
+check('AR-5: 準備(初期化)', init('size-1-2').ok);
+accepted('AR-5: 準備(1名の体制)', change({ kind: 'accountable', date: TODAY, summary: '1名', people: [DUPONT], seats: ALL('Claude Dupont'), decidedBy: 'Claude Dupont', reason: '初期の体制を記入する' }));
+refused('AR-5: 確認待ちになる本人が記名した、他の人の氏名の確認', change({ kind: 'accountable', date: TODAY, summary: 'Gemini を足す', people: [DUPONT, GEMINI], decidedBy: 'Claude Dupont', reason: '2人目' }), '記名者 "Claude Dupont" は、この変化点で氏名の確認が確認待ちになる本人です');
+
 done();
