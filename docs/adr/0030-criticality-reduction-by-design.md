@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-08-12)
 
+要求事項1 の記録先(CL2 以上でテンプレ9、CL1 以下で ADR)を、[ADR-0113](/process-compass/adr/0113-criticality-judgment-record-and-confirmation/) 決定3 が置き換えました。低減の前後の区分と根拠の設計は、区分に依らず安全重要度の判定の記録(D-0 表10)へ書きます(2026-11-05)。引き下げの4要求と、審査制を採らない判断は置き換えていません。
+
 ## コンテキスト
 
 [第8章 軸E](/process-compass/phase4-process-design/tailoring-guide/)は、人員が足りない場合の選択肢を2つ示していました。
