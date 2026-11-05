@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0725
+status: included
+excludeReason: null
+title: REST API endpoints for rules - GitHub Docs
+url: https://docs.github.com/en/rest/repos/rules
+canonicalUrl: https://docs.github.com/en/rest/repos/rules
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-05
+access: open
+readLevel: section
+foundBy:
+  cluster: I364
+  query: "#364 照合 O-3 ruleset enforcement evaluate GitHub Enterprise"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10]
+events: []
+summary: GitHub の REST API の文書(無料版の文書の版。リポジトリのルールセットの作成・更新)。ルールセットの enforcement の欄の説明で、evaluate は規則を強制する前に試す状態であり、GitHub Enterprise でだけ使えると明記する。#364 で、持ち込みの手順がルールセットの Evaluate の状態を前提にしない理由の根拠として引いた(SRC-0667・SRC-0668 は Evaluate の出現を示すだけで、プランの限定を書いていない)。
+claims:
+  - id: c1
+    text: ルールセットの enforcement の欄で、evaluate は規則を強制する前に管理者が試す状態であり、GitHub Enterprise でだけ使える。
+    quote: Admins can view insights on the Rule Insights page (evaluate is only available with GitHub Enterprise).
+    locator: Create a repository ruleset / Update a repository ruleset > Body parameters > enforcement
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [364]
+    stance: supports
+verification:
+  status: verified
+  method: [agent-read, mech-fetch]
+  date: 2026-11-05
+  humanChecked: false
+  note: '#364 の照合の追加の観測 O-3(research/364-verification.md)。2026-11-05 に curl で頁を取得し、enforcement の欄の説明文を逐語で抜いた(原文は "`evaluate` is only available with GitHub Enterprise" と code の書式。quote は書式を外した)。頁の版の一覧は free-pro-team@latest を含む。目視の照合ではない'
+  mech:
+    checkedAt: 2026-11-05T14:16:45.954Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/rest/repos/rules
+    contentType: text/html; charset=utf-8
+    titleFetched: REST API endpoints for rules - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent: null
+volatility: medium
+reviewBy: 2027-04
