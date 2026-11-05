@@ -356,58 +356,63 @@ for (const size of ['size-3-9', 'size-10plus']) {
 }
 console.log('S0 の G-6(CL0 は省略、CL1 以上は適用) OK');
 
-// 事業ステージ × 安全重要度の全升で、G-6 の状態と範囲・G-7 の状態を固定する(#318 / ADR-0088 決定4)。
-// CL1 以上では、軸B による G-6・G-7 の緩和(省略・簡略・範囲の限定)を、どのステージでも適用しない。
+// 事業ステージ × 安全重要度 × 品質要求の全升で、G-6 の状態と範囲・G-7 の状態を固定する(#318 / ADR-0088 決定4、#374 / ADR-0112)。
+// CL1 以上では、軸B による G-6・G-7 の緩和(S0 の省略、S1 の G-6 のコア機能への限定)を、どのステージでも適用しない。
 // CL2・CL3 の S0 の G-7 の復帰は、r-e-cl2 の set の副作用ではなく、r-e-cl1 の restore の決定による。
-// 厳格化(S2 の安定運用・CL3・品質「高」)は restore で下がらない
+// 品質「高」・規制業では、軸C の強化が軸B の緩和に優先する。S0 の G-7 の省略の取り消しは r-c-high・r-c-regulated の restore の決定による。
+// S1 の G-7 は CL・品質に依らず適用(簡略にしない。ADR-0112 決定1)。厳格化(S2 の安定運用・CL3・品質「高」以上)は restore で下がらない
 {
   const PHASES = ['poc', 'mvp', 'growth', 'stable'];
   const CLS = ['cl0', 'cl1', 'cl2', 'cl3'];
-  const expectG7 = (phase, cl) =>
-    cl === 'cl3' || phase === 'stable' ? 'strengthen' : cl !== 'cl0' ? 'standard' : { poc: 'omit', mvp: 'simplify', growth: 'standard' }[phase];
-  const expectG6 = (phase, cl) => (phase === 'poc' && cl === 'cl0' ? 'omit' : 'standard');
+  const QUALITIES = ['quality-standard', 'quality-high', 'quality-regulated'];
+  const expectG7 = (phase, cl, q) =>
+    cl === 'cl3' || phase === 'stable' || q !== 'quality-standard' ? 'strengthen' : cl !== 'cl0' ? 'standard' : { poc: 'omit', mvp: 'standard', growth: 'standard' }[phase];
+  const expectG6 = (phase, cl, q) => (phase === 'poc' && cl === 'cl0' && q === 'quality-standard' ? 'omit' : 'standard');
   const expectScope = (phase, cl) => (cl !== 'cl0' ? 'all' : phase === 'mvp' ? 'core-only' : undefined);
   /** 全升を調べ、期待と食い違う升を返す(空なら全升が期待どおり) */
   const matrixProblems = (k, size, reviewer = undefined) => {
     const out = [];
-    for (const phase of PHASES) {
-      for (const cl of CLS) {
-        const r = evaluate(k, {
-          'q-team-size': size,
-          ...(reviewer ? { 'q-external-reviewer': reviewer } : {}),
-          'q-biz-phase': phase,
-          'q-quality': 'quality-standard',
-          'q-criticality': cl,
-          'q-dev-form': 'inhouse',
-          'q-existing-gates': 'gates-none',
-          'q-ai-constraint': 'ai-free',
-        });
-        const g6 = r.profile['gate:g-indep-review'];
-        const g7 = r.profile['gate:g-ship'];
-        const at = `${size}${reviewer ? `・${reviewer}` : ''}・${phase}・${cl}`;
-        // 1〜2名の体制で CL1 以上は、構成そのものを認めない(第8章 軸E・ADR-0028)。期待は「認めない組み合わせ」の注記
-        if (size === 'size-1-2' && cl !== 'cl0') {
-          if (!(r.profile['process']?.notes ?? []).some((n) => /認めない/.test(n ?? ''))) out.push(`${at}: 認めない組み合わせの注記が無い`);
-          continue;
+    for (const q of QUALITIES) {
+      for (const phase of PHASES) {
+        for (const cl of CLS) {
+          const r = evaluate(k, {
+            'q-team-size': size,
+            ...(reviewer ? { 'q-external-reviewer': reviewer } : {}),
+            'q-biz-phase': phase,
+            'q-quality': q,
+            'q-criticality': cl,
+            'q-dev-form': 'inhouse',
+            'q-existing-gates': 'gates-none',
+            'q-ai-constraint': 'ai-free',
+          });
+          const g6 = r.profile['gate:g-indep-review'];
+          const g7 = r.profile['gate:g-ship'];
+          const at = `${size}${reviewer ? `・${reviewer}` : ''}・${q}・${phase}・${cl}`;
+          // 1〜2名の体制で CL1 以上と規制業は、構成そのものを認めない(第8章 軸A・軸E・ADR-0028)。期待は「認めない組み合わせ」の注記
+          if (size === 'size-1-2' && (cl !== 'cl0' || q === 'quality-regulated')) {
+            if (!(r.profile['process']?.notes ?? []).some((n) => /認めない/.test(n ?? ''))) out.push(`${at}: 認めない組み合わせの注記が無い`);
+            continue;
+          }
+          // 確認者を置けない 1〜2名の CL0 は、どのステージでも G-6 を適用しない(準拠テンプレートは未達として表示する)
+          if (reviewer === 'reviewer-no') {
+            if (g6?.state !== 'omit') out.push(`${at}: G-6 ${g6?.state}(期待 omit。未達として表示する)`);
+            if ((g7?.state ?? 'standard') !== expectG7(phase, cl, q)) out.push(`${at}: G-7 ${g7?.state}(期待 ${expectG7(phase, cl, q)})`);
+            if (expectG7(phase, cl, q) !== 'omit' && !g7?.params?.approverMode) out.push(`${at}: G-7 の判定者の方式が無い`);
+            continue;
+          }
+          if ((g6?.state ?? 'standard') !== expectG6(phase, cl, q)) out.push(`${at}: G-6 ${g6?.state}(期待 ${expectG6(phase, cl, q)})`);
+          if (g6?.params?.scope !== expectScope(phase, cl)) out.push(`${at}: G-6 の範囲 ${g6?.params?.scope}(期待 ${expectScope(phase, cl)})`);
+          if ((g7?.state ?? 'standard') !== expectG7(phase, cl, q)) out.push(`${at}: G-7 ${g7?.state}(期待 ${expectG7(phase, cl, q)})`);
+          // 適用へ戻したゲートが、省略の前に決まっていた設定を失わない(G-6 のレビューの方式、G-7 の判定者の方式)
+          if (expectG6(phase, cl, q) !== 'omit' && !g6?.params?.reviewMode) out.push(`${at}: G-6 のレビューの方式が無い`);
+          if (expectG7(phase, cl, q) !== 'omit' && !g7?.params?.approverMode) out.push(`${at}: G-7 の判定者の方式が無い`);
         }
-        // 確認者を置けない 1〜2名の CL0 は、どのステージでも G-6 を適用しない(準拠テンプレートは未達として表示する)
-        if (reviewer === 'reviewer-no') {
-          if (g6?.state !== 'omit') out.push(`${at}: G-6 ${g6?.state}(期待 omit。未達として表示する)`);
-          if ((g7?.state ?? 'standard') !== expectG7(phase, cl)) out.push(`${at}: G-7 ${g7?.state}(期待 ${expectG7(phase, cl)})`);
-          continue;
-        }
-        if ((g6?.state ?? 'standard') !== expectG6(phase, cl)) out.push(`${at}: G-6 ${g6?.state}(期待 ${expectG6(phase, cl)})`);
-        if (g6?.params?.scope !== expectScope(phase, cl)) out.push(`${at}: G-6 の範囲 ${g6?.params?.scope}(期待 ${expectScope(phase, cl)})`);
-        if ((g7?.state ?? 'standard') !== expectG7(phase, cl)) out.push(`${at}: G-7 ${g7?.state}(期待 ${expectG7(phase, cl)})`);
-        // 適用へ戻したゲートが、省略の前に決まっていた設定を失わない(G-6 のレビューの方式、G-7 の判定者の方式)
-        if (expectG6(phase, cl) !== 'omit' && !g6?.params?.reviewMode) out.push(`${at}: G-6 のレビューの方式が無い`);
-        if (expectG7(phase, cl) !== 'omit' && !g7?.params?.approverMode) out.push(`${at}: G-7 の判定者の方式が無い`);
       }
     }
     return out;
   };
   for (const [size, reviewer] of [['size-1-2', 'reviewer-yes'], ['size-1-2', 'reviewer-no'], ['size-3-9'], ['size-10plus']]) {
-    // IMPL-0345:ok 規則データのとおりなら、全升が期待どおり(CL1 以上は G-6 を全変更、G-7 を適用。厳格化は下がらない。1〜2名の CL1 以上は認めない注記)
+    // IMPL-0345:ok 規則データのとおりなら、全升が期待どおり(CL1 以上は G-6 を全変更、G-7 を適用。品質「高」以上は G-6・G-7 を適用。厳格化は下がらない。1〜2名の CL1 以上・規制業は認めない注記)
     assert.deepEqual(matrixProblems(kb, size, reviewer), [], `全升の G-6・G-7(${size}${reviewer ? `・${reviewer}` : ''})`);
   }
   // IMPL-0345:ng r-e-cl1 から G-7 の restore と G-6 の範囲の設定を外した規則では、CL1 以上の S0・S1 の升が食い違いとして出る
@@ -420,9 +425,35 @@ console.log('S0 の G-6(CL0 は省略、CL1 以上は適用) OK');
     ),
   };
   const found = matrixProblems(weakened, 'size-3-9');
-  assert(found.some((p) => p.includes('poc・cl1: G-7 omit')), `CL1・S0 の G-7 の省略を検出する: ${found.join(' / ')}`);
-  assert(found.some((p) => p.includes('mvp・cl1: G-7 simplify')), 'CL1・S1 の G-7 の簡略を検出する');
+  assert(found.some((p) => p.includes('quality-standard・poc・cl1: G-7 omit')), `CL1・S0 の G-7 の省略を検出する: ${found.join(' / ')}`);
   assert(found.some((p) => p.includes('mvp・cl2: G-6 の範囲 core-only')), 'CL2・S1 の G-6 のコア機能への限定を検出する');
+  // 否定の対(#374 / ADR-0112 決定1): S1 の G-7 の簡略を規則へ戻すと、全升の試験が CL0 の S1 の簡略を検出する。
+  // r-e-cl1 の restore を残した規則では、CL1 以上の S1 の簡略は取り消され、食い違いに出ない(restore が S1 の簡略も取り消す性質を保つ)
+  const reSimplified = {
+    questions,
+    rules: rules.map((r) =>
+      r.id === 'r-b-mvp'
+        ? { ...r, adjustments: [...r.adjustments, { target: { type: 'gate', id: 'g-ship' }, action: 'simplify', note: '試験のための簡略' }] }
+        : r
+    ),
+  };
+  const foundSimplified = matrixProblems(reSimplified, 'size-3-9');
+  assert(foundSimplified.some((p) => p.includes('quality-standard・mvp・cl0: G-7 simplify')), `CL0・S1 の G-7 の簡略を検出する: ${foundSimplified.join(' / ')}`);
+  assert(!foundSimplified.some((p) => /mvp・cl[123]: G-7/.test(p)), `r-e-cl1 の restore が CL1 以上の S1 の簡略を取り消す: ${foundSimplified.join(' / ')}`);
+  assert(!foundSimplified.some((p) => /quality-(high|regulated)・mvp・cl0: G-7/.test(p)), `軸C の強化が S1 の簡略に優先する: ${foundSimplified.join(' / ')}`);
+  // 否定の対(#374 / ADR-0112 決定2): r-c-high・r-c-regulated から G-7 の restore を外すと、S0 の G-7 は strengthen の上書きで
+  // 適用に戻るが、省略が無効化した判定者の方式(approverMode)が戻らない。全升の試験がこれを検出する
+  const noQualityRestore = {
+    questions,
+    rules: rules.map((r) =>
+      r.id === 'r-c-high' || r.id === 'r-c-regulated'
+        ? { ...r, adjustments: r.adjustments.filter((a) => !(a.action === 'restore' && a.target.id === 'g-ship')) }
+        : r
+    ),
+  };
+  const foundNoRestore = matrixProblems(noQualityRestore, 'size-3-9');
+  assert(foundNoRestore.some((p) => p.includes('quality-high・poc・cl0: G-7 の判定者の方式が無い')), `品質「高」の S0 の G-7 の判定者の方式の欠落を検出する: ${foundNoRestore.join(' / ')}`);
+  assert(foundNoRestore.some((p) => p.includes('quality-regulated・poc・cl0: G-7 の判定者の方式が無い')), '規制業の S0 の G-7 の判定者の方式の欠落を検出する');
   // r-e-cl1 の restore が G-7 の省略・簡略を取り消したことを、警告として残す(r-e-cl2 の副作用ではない)
   const s0cl2 = evaluate(kb, {
     'q-team-size': 'size-3-9',

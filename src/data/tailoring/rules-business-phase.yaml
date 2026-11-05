@@ -46,9 +46,6 @@ rules:
         param: scope
         value: core-only
         note: 独立レビューはコア機能のみ実施する。安全重要度 CL1 以上では全変更に適用する
-      - target: { type: gate, id: g-ship }
-        action: simplify
-        note: 出荷判定は簡略化する(記録は残す)。安全重要度 CL1 以上では簡略にしない
       - target: { type: practice, id: core-designation }
         action: set
         param: scope

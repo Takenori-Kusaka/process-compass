@@ -16,6 +16,11 @@ rules:
         param: coreReviewerCount
         value: 2
         note: コア機能の独立レビューは2名で実施する(コア機能は確約範囲・コア指定のパスと区分の下限の規則のパス。G-5 と出荷の証跡の集約が承認者の数を数える。パスが未宣言なら「確かめられない」と出る)
+      # 事業ステージ(軸B)による G-7 の省略(S0)を、品質「高」では適用しない。strengthen の上書きの副作用にせず、
+      # restore の決定にする。省略が無効化した判定者の方式(approverMode)を戻すため(#374 / ADR-0112 決定2)
+      - target: { type: gate, id: g-ship }
+        action: restore
+        note: 出荷判定は、事業ステージによる省略(S0)の対象にしない(軸C の強化が軸B の緩和に優先する)
       - target: { type: gate, id: g-ship }
         action: strengthen
         note: 出荷判定に限定的な抜き取り確認を追加する
@@ -43,6 +48,10 @@ rules:
         param: recordFormat
         value: audit
         note: レビュー記録は監査対応書式で残す
+      # 品質「高」と同じく、G-7 の省略(S0)の取り消しを restore の決定にする(#374 / ADR-0112 決定2)
+      - target: { type: gate, id: g-ship }
+        action: restore
+        note: 出荷判定は、事業ステージによる省略(S0)の対象にしない(軸C の強化が軸B の緩和に優先する)
       - target: { type: gate, id: g-ship }
         action: strengthen
         note: 出荷判定に規制当局向けエビデンスとAI関与範囲の明記を追加する

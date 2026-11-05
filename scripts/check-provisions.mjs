@@ -7,7 +7,8 @@
 // 検査すること(番号は community/provision-forms.md の「検査の一覧」の表と同じ。#316 突合 X-18):
 //   1. 附属書の種別の宣言      各附属書の表題と、第1章 1.5 の表の「種別」が、登録簿と一致する
 //   2. 規定の文末              規定の文書(本文8章と規定の附属書)の依頼の形(〜ください)と「〜すべき」の文末
-//   3. 表の升の語              規定の文書の廃した升の語(省略可・任意・どちらでもよい ほか)。「省略可」は地の文でも検出する
+//   3. 表の升の語              規定の文書の廃した升の語(省略可・任意・どちらでもよい ほか)。「省略可」は地の文でも検出する。
+//                              中身の無い「簡略」の升(括弧に減らすものの限定が無いもの。#374 / ADR-0112 決定3)
 //   4. 附属書の引き方          規定の文書が参考の附属書を「による」で引く箇所
 //   5. 参考の附属書            要求・禁止の文末(〜なければなりません/〜てはなりません)と、実装マーク
 //   6. 廃した言い回し          登録簿の句が、公開ドキュメント・規則データ・準拠テンプレートに残っていない
@@ -41,6 +42,7 @@ import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { missingInputs, INIT_HINT } from './lib/inputs.mjs';
 import { problemOf, decisionIdsIn } from './lib/decision-refs.mjs';
+import { emptySimplified } from './lib/stage-table.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = 'src/content/docs';
@@ -168,6 +170,13 @@ for (const d of docs) {
         if (RE_CELL.test(c) && ![...anywhere].some((w) => c.startsWith(w))) {
           report(rel, n, '廃した升の語', c.slice(0, 30), '表の升に使えません。許容(組織が選べる)か規定(標準が決めている)かを、第1章 1.7.3 の語で書いてください');
         }
+      }
+    }
+    // 3 の続き: 中身の無い「簡略」の升(#374 / ADR-0112 決定3)。括弧に減らすものの限定が無いものを止める
+    if (line.trim().startsWith('|')) {
+      const cells = line.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+      for (const c of cells) {
+        if (emptySimplified(c)) report(rel, n, '中身の無い「簡略」の升', c.slice(0, 30), '「簡略」の升には、括弧に減らすものの限定を書き、境界を本文に書いてください。他の軸が取り消す条件だけでは限定になりません(第1章 1.7.3)');
       }
     }
     RE_BY_ANNEX.lastIndex = 0;

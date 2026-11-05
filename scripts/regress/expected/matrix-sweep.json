@@ -1,5 +1,5 @@
 {
- "_note": "期待値。p302(テンプレート ec8ecd6、複製済みの知識ベース)での観測。改めるときは、改める根拠となる決定を引く(#319 裁定 R-4)。rows は人数×ステージ×CL、sweep は回答の全組合せ。改めた行は changed に、引いた決定・日付・旧い期待値を残す。knownFailure は、向きを決定なしに改めない行(§8 X-6)。2名で任免と緩める向きを同じ変化点に含む行(mvp・growth)の印(#376)は、ADR-0110 決定1(緩める向きを優先する)で解き、期待の向きを loosen へ改めた",
+ "_note": "期待値。p302(テンプレート ec8ecd6、複製済みの知識ベース)での観測。改めるときは、改める根拠となる決定を引く(#319 裁定 R-4)。rows は人数×ステージ×CL、sweep は回答の全組合せ。改めた行は changed に、引いた決定・日付・旧い期待値を残す。knownFailure は、向きを決定なしに改めない行(§8 X-6)。2名で任免と緩める向きを同じ変化点に含む行(mvp・growth)の印(#376)は、ADR-0110 決定1(緩める向きを優先する)で解き、期待の向きを loosen へ改めた。1〜2名・S0・品質「高」・CL0 の sweep の8行は、ADR-0112 決定2(r-c-high の G-7 の restore が、省略の無効化した判定者の方式を戻す)で G-7 の価値責任者の兼務が逸脱として記録されるようになり、逸脱 g7 へ改めた",
  "rows": {
   "1名 poc cl0": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き appoint 未達 g6 逸脱 sep-shipping-business,sep-maintainer-ops 下限 90",
   "1名 poc cl1": "初期化を拒否(不変条件。想定どおり)",
@@ -63,6 +63,30 @@
     "on": "2026-11-05",
     "from": "契約(初期)○ 規則○ dry○ 変化点○ 契約(記入後)○ D-0○ 規則○ 再生成○ 契約(再生成後)○ | 向き appoint 未達 - 逸脱 g7,sep-shipping-business 下限 80"
    }
+  ],
+  "size-1-2 poc quality-high cl0 inhouse reviewer-no node": [
+   { "by": "ADR-0112 決定2", "on": "2026-11-05", "from": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90" }
+  ],
+  "size-1-2 poc quality-high cl0 vendor reviewer-no node": [
+   { "by": "ADR-0112 決定2", "on": "2026-11-05", "from": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90" }
+  ],
+  "size-1-2 poc quality-high cl0 inhouse reviewer-no undetermined": [
+   { "by": "ADR-0112 決定2", "on": "2026-11-05", "from": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90" }
+  ],
+  "size-1-2 poc quality-high cl0 vendor reviewer-no undetermined": [
+   { "by": "ADR-0112 決定2", "on": "2026-11-05", "from": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90" }
+  ],
+  "size-1-2 poc quality-high cl0 inhouse reviewer-yes node": [
+   { "by": "ADR-0112 決定2", "on": "2026-11-05", "from": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90" }
+  ],
+  "size-1-2 poc quality-high cl0 vendor reviewer-yes node": [
+   { "by": "ADR-0112 決定2", "on": "2026-11-05", "from": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90" }
+  ],
+  "size-1-2 poc quality-high cl0 inhouse reviewer-yes undetermined": [
+   { "by": "ADR-0112 決定2", "on": "2026-11-05", "from": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90" }
+  ],
+  "size-1-2 poc quality-high cl0 vendor reviewer-yes undetermined": [
+   { "by": "ADR-0112 決定2", "on": "2026-11-05", "from": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90" }
   ]
  },
  "knownFailure": {},
@@ -75,8 +99,8 @@
   "size-1-2 poc quality-standard cl2 vendor reviewer-no node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
   "size-1-2 poc quality-standard cl3 inhouse reviewer-no node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
   "size-1-2 poc quality-standard cl3 vendor reviewer-no node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
-  "size-1-2 poc quality-high cl0 inhouse reviewer-no node": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90",
-  "size-1-2 poc quality-high cl0 vendor reviewer-no node": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90",
+  "size-1-2 poc quality-high cl0 inhouse reviewer-no node": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 g7 下限 90",
+  "size-1-2 poc quality-high cl0 vendor reviewer-no node": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 g7 下限 90",
   "size-1-2 poc quality-high cl1 inhouse reviewer-no node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
   "size-1-2 poc quality-high cl1 vendor reviewer-no node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
   "size-1-2 poc quality-high cl2 inhouse reviewer-no node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
@@ -267,8 +291,8 @@
   "size-1-2 poc quality-standard cl2 vendor reviewer-no undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
   "size-1-2 poc quality-standard cl3 inhouse reviewer-no undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
   "size-1-2 poc quality-standard cl3 vendor reviewer-no undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
-  "size-1-2 poc quality-high cl0 inhouse reviewer-no undetermined": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90",
-  "size-1-2 poc quality-high cl0 vendor reviewer-no undetermined": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90",
+  "size-1-2 poc quality-high cl0 inhouse reviewer-no undetermined": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 g7 下限 90",
+  "size-1-2 poc quality-high cl0 vendor reviewer-no undetermined": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 g7 下限 90",
   "size-1-2 poc quality-high cl1 inhouse reviewer-no undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
   "size-1-2 poc quality-high cl1 vendor reviewer-no undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
   "size-1-2 poc quality-high cl2 inhouse reviewer-no undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点×(独立レビューを置かない決定の記名を要する) 出荷できない× 向き - 契約○ 規則○",
@@ -459,8 +483,8 @@
   "size-1-2 poc quality-standard cl2 vendor reviewer-yes node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
   "size-1-2 poc quality-standard cl3 inhouse reviewer-yes node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
   "size-1-2 poc quality-standard cl3 vendor reviewer-yes node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
-  "size-1-2 poc quality-high cl0 inhouse reviewer-yes node": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90",
-  "size-1-2 poc quality-high cl0 vendor reviewer-yes node": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90",
+  "size-1-2 poc quality-high cl0 inhouse reviewer-yes node": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 g7 下限 90",
+  "size-1-2 poc quality-high cl0 vendor reviewer-yes node": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 g7 下限 90",
   "size-1-2 poc quality-high cl1 inhouse reviewer-yes node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
   "size-1-2 poc quality-high cl1 vendor reviewer-yes node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
   "size-1-2 poc quality-high cl2 inhouse reviewer-yes node": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
@@ -651,8 +675,8 @@
   "size-1-2 poc quality-standard cl2 vendor reviewer-yes undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
   "size-1-2 poc quality-standard cl3 inhouse reviewer-yes undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
   "size-1-2 poc quality-standard cl3 vendor reviewer-yes undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
-  "size-1-2 poc quality-high cl0 inhouse reviewer-yes undetermined": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90",
-  "size-1-2 poc quality-high cl0 vendor reviewer-yes undetermined": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 - 下限 90",
+  "size-1-2 poc quality-high cl0 inhouse reviewer-yes undetermined": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 g7 下限 90",
+  "size-1-2 poc quality-high cl0 vendor reviewer-yes undetermined": "契約○ 規則○ 再生成○ | 未達 g6 逸脱 g7 下限 90",
   "size-1-2 poc quality-high cl1 inhouse reviewer-yes undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
   "size-1-2 poc quality-high cl1 vendor reviewer-yes undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",
   "size-1-2 poc quality-high cl2 inhouse reviewer-yes undetermined": "初期化を拒否(不変条件) → 3名で初期化○ 記入○ 3名を割る変化点○ 出荷できない○ 向き arising 契約○ 規則○",

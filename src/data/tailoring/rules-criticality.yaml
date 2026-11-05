@@ -24,8 +24,9 @@ rules:
         param: appliesInAllStages
         value: true
         note: 独立レビューは、事業ステージによる省略の対象にしない(S0 でも適用する)。危害の深刻度は、ステージの都合で下がらない
-      # 事業ステージ(軸B)による G-6 の範囲の限定(S1 のコア機能)と、G-7 の省略(S0)・簡略(S1)も、CL1 以上では適用しない
-      # (#318 / ADR-0088 決定4)。CL2・CL3 の S0 の G-7 の復帰は、r-e-cl2 の set の副作用ではなく、この restore の決定による
+      # 事業ステージ(軸B)による G-6 の範囲の限定(S1 のコア機能)と、G-7 の省略(S0)も、CL1 以上では適用しない
+      # (#318 / ADR-0088 決定4)。CL2・CL3 の S0 の G-7 の復帰は、r-e-cl2 の set の副作用ではなく、この restore の決定による。
+      # S1 の G-7 の簡略は ADR-0112 決定1 で規則から外した(S1 の G-7 は CL に依らず適用)
       - target: { type: gate, id: g-indep-review }
         action: set
         param: scope
@@ -33,7 +34,7 @@ rules:
         note: 独立レビューを、コア機能に限らず全変更に適用する(事業ステージ S1 のコア機能への限定を適用しない)
       - target: { type: gate, id: g-ship }
         action: restore
-        note: 出荷判定は、事業ステージによる省略(S0)・簡略(S1)の対象にしない。G-6 の記録の欠落を読んで差し戻す席を残す
+        note: 出荷判定は、事業ステージによる省略(S0)の対象にしない。G-6 の記録の欠落を読んで差し戻す席を残す
     reason: 回復可能であっても個人の権利に影響が及ぶ場合、判断の経路を後から再構成できる必要がある。独立した人の確認と、その欠落を差し戻す出荷判定を、事業ステージを理由に外さない。危害の深刻度は、体制の都合でも事業ステージの都合でも下がらない
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 50

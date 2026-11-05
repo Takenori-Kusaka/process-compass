@@ -48,7 +48,7 @@ graph LR
 | 構造操作同士(省略・簡略化・厳格化・統合) | 優先度の高い方が生き残る。負けた方は「上書きされた」としてトレースに残る |
 | set(パラメータ設定)同士(同一 param) | 同上 |
 | 低優先度の省略 × 高優先度の set | **対象を復活させる**。省略が取り消され、設定要求が生きる(例: PoC の独立レビュー省略は、規制業のレビュア2名要求で取り消される) |
-| 低優先度の省略・簡略化・統合 × 高優先度の適用へ戻す(restore) | **標準の適用へ戻す**。厳格化は下げない。既に適用以上なら何もしない(例: 安全重要度 CL1 以上は、PoC の出荷判定の省略と MVP の簡略化を取り消す。[ADR-0088](/process-compass/adr/0088-organizational-distance-steps-and-cl1-stage-relaxation/)) |
+| 低優先度の省略・簡略化・統合 × 高優先度の適用へ戻す(restore) | **標準の適用へ戻す**。厳格化は下げない。既に適用以上なら何もしない(例: 安全重要度 CL1 以上と品質「高」以上は、PoC の出荷判定の省略を取り消す。[ADR-0088](/process-compass/adr/0088-organizational-distance-steps-and-cl1-stage-relaxation/)・[ADR-0112](/process-compass/adr/0112-s1-ship-gate-applied-and-simplified-defined/)) |
 
 同じ優先度では、set と restore のどちらに対しても、先に効いている省略を優先します。
 
