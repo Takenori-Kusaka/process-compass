@@ -101,7 +101,48 @@ delivered の note に開示したこと(機械も実機も確かめていない
 | `test:template-suite`(Windows) | `test-g5-aggregate.mjs` の4件だけが落ちる。**変更前の HEAD でも同じ4件が落ちる**(git worktree の HEAD で確かめた)。Windows の作業ツリーの gate-g5.yml が CRLF で、変異の置換が当たらないため。WSL の LF の作業ツリーでは通る |
 | `test:regress`(Windows) | `test-run.mjs` が実物の gh を呼び `unknown flag: --regress-probe` で止まる。環境の問題であり、指定の WSL の手順で確かめた |
 
+突合と実機の確認への対応の後(template 92fafd0)にも、同じ検査を流した: `test-base-judge-workflow.mjs` 89/89(Windows)、採用者が差し込みの手順の名前・run: と secrets の env を替えた写しでも 89/89、template の試験一式(WSL)全件通過、WSL の回帰スイート(通常の時刻・`TZ=UTC`)すべて通過、`npm run check` の各段は `test:template-suite`(既知の test-g5-aggregate の CRLF)と `test:regress`(Windows の gh)を除き 25 段が通過。
+
+作業の途中で、本体の `node_modules` を空にした(一時の git worktree に `node_modules` への接続点(junction)を作り、`git worktree remove --force` で消したため、接続先の中身が消えた)。`npm ci` で lockfile から戻し、その後の検査はすべて戻した後に流した。
+
 WSL の作業の場所: 依頼の `/tmp/pc430` は、並行するセッションと共有していて作業の途中で消えた。そのため、#369 専用の `/tmp/pc369` で行った(`scratchpad/wsl369.sh`。本体の scripts・src・research を写し、template は `git clone` で LF の作業ツリーにし、`node_modules/yaml` を写した)。走らせた中身は依頼のコマンド(`node scripts/regress/run.mjs --kb keep`)と同じである。
+
+## 4b. 独立の突合(`crosscheck.md`)への対応(2026-11-06)
+
+調整役から受けた指示(高・中1〜3・低)に従って直した。
+
+| 突合 | 対応 |
+| --- | --- |
+| F-1(高) | `aiReviewCheckPlan` を足した。`ai-review.yml` が無いとき、構成の `aiReview.enabled` が false なら対象外として飛ばし、飛ばしたことを出す。true なら不備にする。試験は判定の3場面に加え、テンプレートの写しから `ai-review.yml` を消して試験そのものを動かす2場面(無効なら通る、有効なら落ちる)を持つ。/process-init の後片付けは「削除する」のまま(突合の案 (a))。指示の置き場 `.github/ai-review/` は残す(有効へ戻したときに既定ブランチの指示として使う)。process-init の SKILL.md にその旨を書いた |
+| F-2(中1) | 静的な検査を許す形の一覧の検査(`aiReviewAllowlistProblems`)へ改めた。契機・トップの権限・ジョブの集合(ai-review と ai-review-notice だけ)・各ジョブの見出し・決まった手順(checkout・有効かどうか・PR の先頭の取得・差分の書き出し・失敗の表示)は、テンプレートの形と字下げを含めて一致すること。足せる手順は `actions/setup-(node\|python\|go)` だけ。式(`${{ }}`)は一覧の8つと、差し込みの手順の env の1行ごとの `secrets.<名前>` だけ。差し込みの手順の run: では、PR の先頭の参照(refs/remotes/pr・refs/pull・FETCH_HEAD)、PR のイベント(GITHUB_EVENT_PATH)、gh の API の操作、GitHub の API の直接の呼び出し、作業ツリーへ木を展開する・PR の内容を取り出す git の操作、GITHUB_ENV・GITHUB_PATH、承認を拒む。書き込みのジョブは、env の3つと、引用つきのヒアドキュメントで定型の文を `gh pr comment` へ渡す形だけを許す。否定のリストの検査は、どの禁止に当たったかの説明として残し、結果を合わせて返す。突合の変異を含む25件を試験に足した(合わせて43件)。依存の導入(`npm ci` など)は誤検出として拒否を外した(作業ツリーは既定ブランチ)。手元の action(`uses: ./`)は、手順を同じファイルの中に見える形で置くために許さない。決まった手順の文言を採用者が変えると落ちる(統制の設定の変更として扱う) |
+| F-3(中2) | 既定では、同じリポジトリからの PR に限って AI の手順を動かす(`head.repo.full_name == github.repository`)。フォークからの PR で動かすのは、既定ブランチの構成で `aiReview.allowForks` を true にした場合だけ。フォークからの PR では、要約と notice に動かさなかったことを出す。位置づけの定型の文は書く |
+| F-5(中3) | 手順「レビューの失敗を表示する」を足した(`steps.review.outcome == 'failure'` のとき、警告とジョブの要約に「指摘は出ていません」)。README に「process-compass #369 の更新を取り込むとき」を足した(403 の失敗、取り込みの PR に新しい定義が効かないことと承認、指示の置き場の移し替えと自動の読み込みの停止、フォークの既定、無効の案件の対象外、許す形の一覧)。PR のコメントへ AI の指摘を出す形を採らないことと理由も書いた |
+| F-4(低) | **`CLAUDE.md`・`AGENTS.md`・`.claude/agents/**`・`.claude/skills/**` を CONTROL_FILES に足さない**と決めた。理由: (1) 本テンプレートの AI レビューは、指示を `AI_REVIEW_INSTRUCTIONS` だけから与える形にしている。これらのファイルは AI レビューの指示ではなく、作成側のエージェントの文脈である。差し込みの道具がこれらを自動で読み込む場合は、その読み込みを止めることを差し込み口の注記と README に置いた(機械は確かめない。限界として IMPL-0333 の note に開示)。(2) エージェント指示資産の変更に AI維持管理者の確認を課すかは IMPL-0227(#358)の審議の対象であり、`CLAUDE.md` の生成区間を /process-change が書き換える経路の扱いも同じ審議に入る。ここで CONTROL_FILES に足すと、その審議の結論を先に決めることになる。残る経路: 自動で読み込む道具を止めずに差し込んだ案件では、指示を弱める変更を先に取り込む2段の経路が、これらのファイルについて残る |
+| F-9(低) | 構成の `aiReview` を、承認を要する統制の設定の鍵に足した(`CONTROL_CONFIG_KEYS`。controlTouchedBetween が読む)。有効化を切る・フォークを許す変更も、指示を弱める変更と同じ2段の経路になるため。閾値の同時変更の検査(製品のコードと同じ PR で変えない)には入れない(閾値ではない) |
+| F-10(低) | AI の出力をジョブの要約へ書くときはコードブロックの中へ入れる、と差し込み口の注記に置いた(機械は確かめない) |
+| F-8(低) | IMPL-0464 の確かめる事項に、同じリポジトリからの PR での2つのジョブ(needs と outputs、書き込みのジョブの pull-requests: write)の実機の振る舞いを足した |
+| F-6 | 調整役が #361 へコメントを書く。issue=361 のまま |
+
+### 実機の確認(`probe-369.md`)を受けた対応
+
+- 6項目とも設計どおり(既定ブランチの定義、checkout、指示の sha256 の一致、式の展開、権限、必須チェック)。IMPL-0333 の note に、確かめた範囲を項目ごとに書き、delivered のままにした。J-7 の「同じ型の gate-g5-base.yml の確認で代える」という根拠は、ai-review.yml そのものの確認(準拠テンプレート ab4cf21 の版)に置き換わった
+- 確かめていない範囲(実際のモデルの実行とプロンプトの注入への耐性、フォークからの PR、確認の後の定義の変更)は IMPL-0464 に含めた
+- 観測「ジョブ ai-review が落ちると ai-review-notice が skipped になり、定型の文が出ない」への対応として、ai-review-notice の条件を `always() && needs.ai-review.outputs.enabled == 'yes'` にした。試験は、許す形の一覧(見出しの一致)で always() を固定し、変異「always() を外す」を検出する。定型の文の要の3行(G-6 の代替でない・承認しない・合否条件にしない)が無いことも不備にした(変異「承認しないを消す」)
+- 観測「差し込みの手順の run: を置き換えると、変異の試験2件が足場を失う」への対応として、変異は、差し込みの手順の名前と run: を雛形へ戻した写しへ入れる形にした。採用者が run: を置き換えた案件でも、変異の試験が足場を失わない(写しで確かめた)
+
+### 実機で動かしていない、動作の変わる定義の変更(ab4cf21 の後)
+
+次の変更は ai-review.yml の動作を変える。静的な試験だけで確かめており、実機では動かしていない(IMPL-0464 の (c))。
+
+| 変更 | 変わる動作 |
+| --- | --- |
+| 手順「有効かどうかを確認する」に env の `HEAD_REPO`・`REPO` と出力 `run_ai` を足した | フォークからの PR(`head.repo.full_name` が `github.repository` と違う)では、構成の `aiReview.allowForks` が true でない限り、PR の先頭の取得・差分の書き出し・レビューの実行を飛ばし、要約と notice に出す |
+| 手順「PR の先頭を取得する」「差分を書き出す」の条件を `enabled` から `run_ai` へ替えた | 同上 |
+| 手順「レビューの実行」に `id: review` を足し、条件を `run_ai` へ替えた | 同上 |
+| 手順「レビューの失敗を表示する」を足した | 差し込みの手順が失敗したとき、警告とジョブの要約に「指摘は出ていません」を出す |
+| 指示の置き場が無いときの注記を notice から warning にし、要約にも出した | 表示の重さだけが変わる |
+| ai-review-notice の条件に `always()` を足した | ジョブ ai-review が落ちても、enabled が yes なら定型の文を出す |
+| 構成の `aiReview` を承認を要する統制の設定の鍵に足した(check-pr.mjs の `CONTROL_CONFIG_KEYS`) | 構成の aiReview を変える PR に、gate-g5-base が AI維持管理者の承認を求める |
 
 ## 5. 所有者の承認待ちの事項
 
