@@ -12,7 +12,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 import YAML from 'yaml';
-import { readTableAfterHeading, stageTableProblems, emptySimplified } from './lib/stage-table.mjs';
+import { readTableAfterHeading, stageTableProblems, emptySimplified, simplifiedCellProblem } from './lib/stage-table.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'src/data/tailoring');
@@ -52,7 +52,14 @@ assert(wrongCond.some((p) => /cl1 を上書きの条件に書くが/.test(p)), `
 // 範囲の限定の上書きを書き落とした升(S1 の G-6)
 const noScope = stageTableProblems(replaceCell('G-6', 1, '適用(コア機能)'), kb);
 assert(noScope.some((p) => /cl1 の構成でエンジンは全変更へ戻すが/.test(p)), `範囲の上書きの条件の欠けを検出する: ${noScope.join(' / ')}`);
+// 範囲の限定(コア機能)を書き落とした升(S1 の G-6 を「適用」だけにする。突合 X-1)
+const noCore = stageTableProblems(replaceCell('G-6', 1, '適用'), kb);
+assert(noCore.some((p) => /範囲をコア機能に限るが、升の括弧に限定「コア機能」が無い/.test(p)), `範囲の限定の書き落としを検出する: ${noCore.join(' / ')}`);
 assert.equal(emptySimplified('簡略'), true, '括弧の無い簡略は中身が無い');
+// 表記の揺れで読めない「簡略」の升を止める(突合 X-4)
+for (const c of ['簡略化', '簡略(1枚企画書)。', '**簡略化**']) assert.equal(simplifiedCellProblem(c), 'unreadable', `読めない簡略の升を止める: ${c}`);
+assert.equal(simplifiedCellProblem('簡略(CL1 以上は適用)'), 'empty', '中身の無い簡略を止める');
+assert.equal(simplifiedCellProblem('簡略(1枚企画書)'), null, '限定のある簡略は通る(揺れの検査)');
 // IMPL-0447:ok 本物の表と規則データは一致する。中身のある簡略(1枚企画書)は通る
 assert.equal(emptySimplified('簡略(1枚企画書)'), false, '限定のある簡略は通る');
 const problems = stageTableProblems(table, kb);

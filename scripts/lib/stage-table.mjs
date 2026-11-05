@@ -91,6 +91,17 @@ export function emptySimplified(cell) {
   return splitInner(p.inner).limits.length === 0;
 }
 
+/**
+ * 「簡略」の升の問題を返す(第1章 1.7.3。突合 X-4)。'empty' は中身の無い簡略、'unreadable' は「簡略」で始まるが
+ * 状態の語と括弧の形で読めない升(「簡略化」「簡略(1枚企画書)。」など)。読めない升は、中身の有無を確かめられないため止める
+ */
+export function simplifiedCellProblem(cell) {
+  const c = String(cell ?? '').trim().replace(/\*\*/g, '').trim();
+  if (!c.startsWith('簡略')) return null;
+  if (!parseCell(c)) return 'unreadable';
+  return emptySimplified(c) ? 'empty' : null;
+}
+
 /** Markdown の本文から、見出し heading の直下の最初の表を読む。{ header, rows: [{ label, cells, line }] } */
 export function readTableAfterHeading(text, heading) {
   const lines = String(text).split(/\r?\n/);
@@ -143,8 +154,10 @@ export function stageTableProblems(table, kb) {
       for (const o of overrides) {
         for (const w of o.conditions) if (!known.has(w)) out.push(`${at}: 上書きの条件「${w}」を読めない(${[...known].join('・')})`);
       }
-      const scoped = /コア機能/.test(p.inner);
+      const scoped = splitInner(p.inner).limits.includes('コア機能');
       if (scoped && base?.params?.scope !== 'core-only') out.push(`${at}: 升は範囲を「コア機能」に限るが、エンジンの出力の範囲は ${base?.params?.scope ?? '全変更'}`);
+      // 突合 X-1: エンジンが範囲をコア機能に限るのに、升の括弧に限定が無い(範囲の限定の書き落とし)
+      if (!scoped && base?.params?.scope === 'core-only') out.push(`${at}: エンジンの出力は範囲をコア機能に限るが、升の括弧に限定「コア機能」が無い`);
       const relaxing = baseWord !== '適用';
       if (!relaxing && !scoped) return;
       // 上書きの値ごとに、出力が適用・全変更へ戻るかを見て、升の括弧の条件と比べる

@@ -1375,7 +1375,9 @@ G-1 で承認した壊してはならない品質条件(識別子 QC-NN)と、�
 - 項目1 には、判定記録の置き場へ書き込める主体を、構成ごとの定型の文で示す。書き込みの権限を持つ者とジョブのトークンが置き場へ書き込めること、置き場の規則が止めるのは履歴の書き換えと削除であって記録の追加と既存の記録の変更ではないこと、ホスティングの管理者が規則そのものを外せることを書く。この文は良否の評価を含めない。検出の件数(前掲「判定記録を基底ブランチへ入れる操作」)を併記し、件数が 0 であることを、書き換えを防いだことと読ませない
 - 前項の文と件数は、組織の外へ渡す保証の開示にも載せる。保証の主張は判定記録の帰属に依るため、依って立つ置き場の性質を外へ伏せない
 - 項目2 には、状態を変えたゲート(簡略・統合・省略・未達)に加え、範囲を限って適用するゲートを、限定と理由とともに載せる。事業ステージ S1 で独立レビュー(G-6)の範囲をコア機能に限る構成が当たる([第8章 軸B](/process-compass/phase4-process-design/tailoring-guide/)。[ADR-0112](/process-compass/adr/0112-s1-ship-gate-applied-and-simplified-defined/) 決定1)
-- 規則の再導出で厳しくなるゲートが構成に残っている場合(未適用の厳格化)は、項目2 にその旨を載せる。旧い構成で簡略として記録された S1 の出荷判定(G-7)が当たる。安全重要度 CL0 の構成では、適用されるまで表示し続け、欠落には数えない(ADR-0112 決定4)
+- 旧い構成で簡略として記録された出荷判定(G-7)は、現行の規則の再導出で適用になる。項目2 には、未適用の厳格化としてその旨を載せる。安全重要度 CL0 の構成では、適用されるまで表示し続け、欠落には数えない(ADR-0112 決定4)
+
+<!-- impl IMPL-0448 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-tailoring-declaration.mjs note="保証の開示の項目2(evidence/quality-report.md と assurance-disclosure.external.md)に、G-6 の範囲が core-only の構成を「範囲の限定(コア機能)」の行として、範囲の設定の注記を理由に載せる。旧い構成で簡略として記録された G-7 には、未適用の厳格化(現行の規則の再導出では適用。欠落の計上は変えない)を添える。ほかのゲートの旧い状態には添えない。試験は集約を通しで実行して項目2 の行を確かめる(#374)" -->
 
 <!-- impl IMPL-0439 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-records-history.mjs note="保証の開示の項目1(evidence/quality-report.md と assurance-disclosure.external.md の両方)に、記録用ブランチへ書き込める主体の定型の文を、署名を要する構成か(recordsSignatureRequired。構成の回答から導く)と、記録用ブランチの規則の適用の状態(実環境の統制の確認の所見 recordsBranch。確かめた / 適用されていない / 確かめていない)で出し分けて出す(aggregate-evidence.mjs の recordsWriterStatement、config.mjs の recordsProtectionState)。規則が適用されていない構成は、適用の表明の判定(claimStatus)で列挙に無い離脱に数える(突合 M-7・M-8)。例外承認で受け入れた検出の件数も出す。走査した書き換え・マージより前の写し・署名の無い書き込み(署名を要する構成)の件数、前回の出荷の先頭からの連続、写しの突合の欠落・照合できなかったもの・突合しなかった写しの件数を、前回の値と並べて出す。限界: 適用したルールセットそのもの(管理者が外したか)は集約では読まない(env-check の所見)(#379)" -->
 

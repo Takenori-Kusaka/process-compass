@@ -95,4 +95,22 @@
 - lint:text: 通過。build: 通過(343 ページ)
 - 準拠テンプレートの試験一式(本体の test:template-suite。Windows): test-g5-aggregate.mjs(CRLF による既知の失敗)を除いてすべて通過。新しい test-tailoring-declaration.mjs も通過
 - 回帰スイート(WSL、--kb keep): 期待値を改めた後、通常の時刻帯と TZ=UTC の両方で全本が通過(落ちた 0、印 0)
-- 準拠テンプレートのコミット: cc27644(pit-in-template の main へ push 済み)
+- 準拠テンプレートのコミット: cc27644(pit-in-template の main へ push 済み)。本体のコミット: efa58c5
+
+## 突合の指摘への対応
+
+入力: `crosscheck.md`(X-1〜X-7)。本体は efa58c5 の上に積んだ。
+
+| 指摘 | 対応 | 変えたファイル |
+| --- | --- | --- |
+| X-1 範囲の限定の書き落とし | 基準の構成の出力が `scope: core-only` で、升の括弧の限定に「コア機能」が無ければ食い違いとして出す。「コア機能」の判定を括弧の文字列の部分一致から、限定の句(`splitInner` の limits)との一致に改めた。check-stage-table.mjs に壊した入力の対(S1 の G-6 を「適用」に置き換える)を足し、IMPL-0447 の注記に足した | `scripts/lib/stage-table.mjs`、`scripts/check-stage-table.mjs`、`tailoring-guide.md` |
+| X-2 項目2 の規範の実装マーク | gate-criteria.md の項目2 の2つの箇条の直後に IMPL-0448(target=evidence-aggregation、state=delivered、check=machine、test=template/scripts/gate/test-tailoring-declaration.mjs)を置き、試験に IMPL-0448:ok・:ng を付けた。注記の言い回しは適用範囲の検査に当たらない形にした。impl:write で台帳を再生成 | `gate-criteria.md`、`test-tailoring-declaration.mjs`、`implementation-ledger.md` |
+| X-3 一般化 | 規定の文を「旧い構成で簡略として記録された G-7」に限った。集約も、未適用の厳格化を添えるのは `g7` が `simplified` の場合だけにし、ほかのゲートと G-6 の範囲の後書きを外した。広げる要は無いと判断した。ほかの未適用の厳格化は、項目1 の既存の表示(IMPL-0349)が出し続けるため、項目2 に重ねる理由が無い。試験に、G-7 以外のゲート(G-2 を omitted にした旧い構成)には添えない対を足した | `gate-criteria.md`、`aggregate-evidence.mjs`、`test-tailoring-declaration.mjs` |
+| X-4 表記の揺れ | `simplifiedCellProblem(cell)` を足した。「簡略」で始まるが状態の語と括弧の形で読めない升(「簡略化」「簡略(1枚企画書)。」「**簡略化**」)を 'unreadable' として、検査3 で「読めない『簡略』の升」として止める。check-stage-table.mjs の自己試験に入れ、provision-forms.md の検査3 の行に書いた。現行の文書に該当は無い(lint:provisions は違反なし) | `scripts/lib/stage-table.mjs`、`scripts/check-provisions.mjs`、`scripts/check-stage-table.mjs`、`provision-forms.md` |
+| X-5 内部の語 required | 項目2 の後書きを日本語の状態の語(required → 適用)で出す。試験で `required` が項目2 に出ないことを確かめる。項目1 の既存の行(g7 simplified → required)は今回の変更の前からあり、裁定の範囲の外のため変えていない | `aggregate-evidence.mjs`、`test-tailoring-declaration.mjs` |
+| X-6 #435 | ADR-0112 の決定4 と「影響」から #435 を引いた。ステータスの節に、公開の前に突合で実装を改めた旨を足した | `adr/0112-...md` |
+| X-7 G-6 の行の理由 | `generate-profile.mjs` に `paramNotes(config, gateKey, param)` を足し、項目2 の範囲の限定の行の理由を、範囲(`scope`)を設定した規則の注記だけにした。レビューの方式の注記は出ない。試験で確かめる | `generate-profile.mjs`、`aggregate-evidence.mjs`、`test-tailoring-declaration.mjs` |
+
+- 集約の import の行の1か所(`paramNotes` の追加)は、Edit でなく sed で書き換えた
+- 準拠テンプレートのコミット: e64ccbe(pit-in-template の main へ push 済み)
+- 試験の結果: test-tailoring-declaration.mjs は8件通過。template の試験一式(Windows)は test-g5-aggregate.mjs(CRLF による既知の失敗)だけが落ちた。回帰スイート(WSL、--kb keep)は通常の時刻帯と TZ=UTC の両方で全本通過。npm run check の各段(test:template-suite と test:regress を除き Windows で個別に実行)、lint:text・lint:provisions・build はすべて通過

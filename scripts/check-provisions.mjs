@@ -42,7 +42,7 @@ import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { missingInputs, INIT_HINT } from './lib/inputs.mjs';
 import { problemOf, decisionIdsIn } from './lib/decision-refs.mjs';
-import { emptySimplified } from './lib/stage-table.mjs';
+import { simplifiedCellProblem } from './lib/stage-table.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = 'src/content/docs';
@@ -176,7 +176,10 @@ for (const d of docs) {
     if (line.trim().startsWith('|')) {
       const cells = line.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
       for (const c of cells) {
-        if (emptySimplified(c)) report(rel, n, '中身の無い「簡略」の升', c.slice(0, 30), '「簡略」の升には、括弧に減らすものの限定を書き、境界を本文に書いてください。他の軸が取り消す条件だけでは限定になりません(第1章 1.7.3)');
+        const sp = simplifiedCellProblem(c);
+        if (sp === 'empty') report(rel, n, '中身の無い「簡略」の升', c.slice(0, 30), '「簡略」の升には、括弧に減らすものの限定を書き、境界を本文に書いてください。他の軸が取り消す条件だけでは限定になりません(第1章 1.7.3)');
+        // 表記の揺れ(「簡略化」、末尾の句点など)で読めない升も止める(#374 突合 X-4)
+        if (sp === 'unreadable') report(rel, n, '読めない「簡略」の升', c.slice(0, 30), '「簡略」の升は「簡略(減らすもの)」の形で書いてください。「簡略化」や升の末尾の句点では、限定の有無を確かめられません(第1章 1.7.3)');
       }
     }
     RE_BY_ANNEX.lastIndex = 0;
