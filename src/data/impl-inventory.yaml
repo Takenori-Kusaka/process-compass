@@ -50,7 +50,7 @@ sections:
     category: org-design
     reason: 内部監査を行う者(人)が四半期に確かめる観点の表。実行主体の挙動を制約しない。機械で検出できる部分の実装は、各観点の照合する規定の節のマークで追う(#316 突合 X-12)
     issue: 316
-    note: 抽出の対象を監査される当事者に選ばせない規則(#367)も、監査する者と組織の監査の手続の事項であり、準拠テンプレートに内部監査の記録の様式が無いため、同じ区分とした(ADR-0116 決定6)
+    note: 抽出の対象を監査される当事者に選ばせない規則(#367)も、内部監査を行う者(人)が組織の監査の手続として守る事項であり、同じ区分とした(ADR-0116 決定6)。区分の理由は制度設計の事項であることで、準拠テンプレートに内部監査の記録の様式が無いことは理由にしていない
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方
     status: pending
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 確認側へ渡した入力の記録
@@ -2695,7 +2695,12 @@ sections:
   - key: phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 会議体と体制図の調整
     status: pending
   - key: phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 社会実装の段階の調整
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0465
+      - IMPL-0466
+    note: サンドボックスの期限と延長(IMPL-0465)と T-1 の開始条件(IMPL-0466)は、試行前チェックリストの様式へ降ろす規定。準拠テンプレートに置き場が無いことは未達として扱う(ADR-0116 決定6)。移行段階の表・EN-1/EN-3 の兼務・既存規程との併存の適用範囲は組織の体制の設計であり、マークを付けない。申請の様式・承認者は採用組織が決める事項で、本標準は定めない
+    issue: 367
   - key: "phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 例1: スタートアップの PoC(2名・S0・標準品質・内製・CL0)"
     status: pending
   - key: "phase4-process-design/tailoring-guide#組み合わせ例(3つの典型) > 例2: 事業会社のグロース期プロダクト(8名・S2・高品質・内製・CL1)"
