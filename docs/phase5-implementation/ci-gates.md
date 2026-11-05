@@ -137,6 +137,8 @@ jobs:
 
 準拠テンプレートの `gate-g5` は、PR ごとに `pr-rules` のジョブを走らせます(#286)。指示文だけに依っていた規則のうち、PR の差分と本文から機械で判定できるものを、ここで止めます。実装は `scripts/gate/check-pr.mjs`、試験は `scripts/gate/test-check-pr.mjs`(一時のリポジトリで場面を作るフィクスチャ。`contract` のジョブが毎回実行する)です。
 
+`gate-g5` は `pull_request` で動き、定義も検査のスクリプトも PR の側から読まれます。同じ PR で集約や検査の一覧を書き換えれば、その PR の `gate-g5` は通ります(2026-11-05 の実機の確認。[ADR-0115](/process-compass/adr/0115-g5-judgment-code-from-base-and-control-change-approval/))。準拠テンプレートは、同じ検査を `gate-g5-base.yml` でも走らせます。`pull_request_target` で既定ブランチの定義・スクリプト・構成を読み、PR のコードを checkout せず、PR の先頭を `git fetch` で取得して差分と本文をデータとして読みます(`check-pr.mjs --head`)。権限は read だけで、結果はジョブの結果(check run)の `gate-g5-base` です。commit status で出す形は、PR の側のワークフローが後から上書きできるため採りません。統制の設定を変える PR には、AI維持管理者が本人のアカウントで出す承認のレビューを、名簿の数値の識別子で照らして求めます(`--require-control-approval`)。本文の記名は数えません。ルールセットの必須チェックには `gate-g5` と `gate-g5-base` の両方を置きます。手順の注意は GitHub Security Lab の「Preventing pwn requests」に沿います。次の4つが無いことを、`scripts/gate/test-base-judge-workflow.mjs` が定義の静的な試験で確かめます。PR の先頭を ref に指定した checkout、PR の側の手元の action・依存の導入・アダプタの実行、題名と本文の `run:` への式展開、書き込みの権限と秘密情報です。承認レビューの写しを置く `record-copy.yml`(`contents: write`)も、同じ理由で `pull_request_target` の `closed` で動かし、既定ブランチを checkout します。
+
 | 検査 | 扱い | 通す場面 | 落とす場面 |
 | --- | --- | --- | --- |
 | トレーラ `Spec:` | 失敗させる | 製品のコードを変えない PR(文書・記録・強制層・構成だけ)。依存の更新の bot の PR。変更が開発の基盤(設定・ツール・雛形のファイル)だけに収まり、トレーラが `Spec: setup` の PR | 本文に `Spec: F-NNN / Task-N` が無い。末尾の段落に無い。形式が違う。指す仕様・実装計画のタスクが無い。`Spec: setup` なのに製品のコードを含む |
