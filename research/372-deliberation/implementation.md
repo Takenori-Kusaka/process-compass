@@ -55,3 +55,20 @@
 - npm run check の各段(test:template-suite と test:regress を除き Windows で個別に実行): lint:ci・lint:text・lint:tone・lint:evidence・lint:impl・lint:scope・lint:refs・lint:provisions・lint:skills・lint:figures・brand:check・lint:sources・lint:citations・test:citations・test:edition・lint:registry・test:registry・test:engine・lint:stage-table・test:impl・test:ci-wiring・test:template・test:fields・test:criteria はすべて終了コード 0
 - build: 通過(345 ページ)
 - 準拠テンプレートのコミット: c65d211(pit-in-template の main へ push 済み。トレーラ Spec: setup)。本体は submodule の参照を c65d211 へ進めてコミットした(push していない)
+
+## 4. 独立の突合(crosscheck.md の X-1〜X-7)への裁定への対応
+
+本体は 81b44eb の上に積んだ。準拠テンプレートに変更は無い(様式は指摘の対象の文を持たない)。
+
+| 指摘 | 対応 | 変えたファイル |
+| --- | --- | --- |
+| X-1(中) | 注記から運用基準 3-9 の文を外した。要件の文に出典「運用基準 第4 の 6(1)」を添えた。ADR-0114 決定1 から 3-9 を外し、採らなかった案に 3-9 の行を足し、裁定 R-1 の出典の位置の誤り(議長の誤り)を記した。SRC-0724 の c2(3-9)を、本文が引かなくなったため外した(J-1 を置き換える) | `tailoring-guide.md`、`adr/0114`、`SRC-0724.yaml` |
+| X-2(中) | SRC-0634 に c2(第二条第二号ハ。quote は PDF のテキストの逐語、issues 372)を足し、note に 2026-11-05 の pdftotext による照合を記した。照合できたので、注記の「照合しました」は残し、対象を「同基準 第二条第二号ハ」と明記した(J-5 を置き換える) | `SRC-0634.yaml`、`tailoring-guide.md` |
+| X-3(低) | 指揮命令の注記の開示を書き分けた。第1集 問7 と第3集 A2 は照合していない抜粋、第3集 Q6 と Q8 は 2026-11-05 に PDF のテキストと照合した | `tailoring-guide.md` |
+| X-4(低) | 運用基準の引用元を「令和7年10月1日に全部改正された版から取り、令和8年10月1日に改正された版の掲載ページで文言が同じことを確かめた(要約モデル経由。照合は部分)」の形にした。ADR-0114 の未確認の一覧の行も揃えた | `tailoring-guide.md`、`adr/0114` |
+| X-5(低) | SRC-0635 c6 の quote を「他方、…特に問題にないものです。」まで、SRC-0636 c4 の quote を A6 の後段(直接の指揮命令の文)まで延ばした。後段は pdftotext のテキストで逐語を確かめ、c4 の note に記した | `SRC-0635.yaml`、`SRC-0636.yaml` |
+| X-6(低) | 「確認した範囲の法令と実証のどちらにも、一致させる理由が無いためです」と範囲を限った。ADR-0114 の採らなかった案の表も同じ形にした | `tailoring-guide.md`、`adr/0114` |
+| X-7(低) | 「公的な整理が無い」の文を、両法令の段落の後へ独立の段落として移した。対象に SaaS の利用権(チャットツール・プロジェクト管理ツールなど)を戻し、第12項の3種類と並べた。ADR-0114 決定1 も同じにした | `tailoring-guide.md`、`adr/0114` |
+
+- 知識ベースの再生成で、準拠テンプレートの `scripts/vendor/tailoring-kb.json` の出所のコミットの値だけが変わった。a93d0f5(Spec: setup)で pit-in-template の main へ push し、submodule の参照を進めた
+- 試験の結果: npm run check の各段(test:template-suite と test:regress を除き Windows で個別に実行)と build はすべて終了コード 0。テンプレートの試験一式(Windows)は test-g5-aggregate.mjs(CRLF による既知の失敗)を除いて通過し、同試験は WSL で 23 件とも通過した。回帰スイート(WSL、--kb keep)は通常の時刻帯と TZ=UTC の両方ですべて通過した
