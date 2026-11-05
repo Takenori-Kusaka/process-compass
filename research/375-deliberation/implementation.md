@@ -110,3 +110,7 @@
 - 準拠テンプレートの試験一式(本体の test:template-suite。Windows): test-g5-aggregate.mjs(CRLF。既知)を除いてすべて通過
 - 回帰スイート(WSL、--kb keep): 通常と TZ=UTC の両方で全本が通過。name-confirmation は 26 場面
 - 本体の npm run check の各段(Windows): 落ちたのは test:template-suite(同じ既知の失敗)だけ。lint:text・lint:provisions・build は通過
+
+## 後継の Issue
+
+- 裁定の範囲の外として直していない2点(数えられない確認の記録を受け付ける残りの経路、記録の無い旧い確認のまま1名から2名へ移る場合)は #434 で扱う
