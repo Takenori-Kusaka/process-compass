@@ -14,6 +14,10 @@ exempt:
     reason: 限定は独立した段落の先頭で「**例外**」として示されており、規範を述べる箇条書きと分離していない
 
   - page: phase4-process-design/tailoring-guide
+    heading: 判定の記録と確認
+    reason: 地の文に見える限定は、実装マーク(IMPL-0449)の注記の中の、準拠テンプレートの旧い構成の扱いの説明である。条項の限定は、届かないものの扱いの表の行の中に書いた(#373 突合への裁定 X-1)
+
+  - page: phase4-process-design/tailoring-guide
     heading: 人員が足りない場合
     reason: 条項の適用範囲ではなく、要求が制約によって外れないことの説明
 

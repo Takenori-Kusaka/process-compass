@@ -1395,7 +1395,8 @@ G-1 で承認した壊してはならない品質条件(識別子 QC-NN)と、�
 | 欠落に当たる | D-0 表4 の有事の決定者の12欄に空欄がある([第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/)) |
 | 欠落に当たる | 3名以上の体制で非推奨の兼務(3〜9名の価値責任者 × 技術判断者、3名以上の事業決裁者 × 価値責任者)をしているのに、D-0 表5 の「非推奨の兼務の記録」に、その組と責任者と理由を書いた行が無い([第3章 3.5](/process-compass/phase4-process-design/roles-responsibilities/)、[第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/))。理由の妥当性は判定しない |
 | 欠落に当たる | 欠陥の台帳が無い。企画書の壊してはならない品質条件に、識別子を持たない条件がある(前掲「基準1・2 の記録」「壊してはならない品質条件の突合」) |
-| 欠落に当たる | 安全重要度の判定の記録(D-0 表10)または判定者の記名が無い([第8章 軸E「判定の記録と確認」](/process-compass/phase4-process-design/tailoring-guide/)) |
+| 欠落に当たる | 安全重要度の判定の記録(D-0 表10)の欄・判定者の記名が無い、または記録に不備がある(判定者が記録を入れた時点の決定者でない、確認者が判定者本人・AI の名義、構成の回答が記録の区分より低い)。判定の記録を求める前に G-1 を通過した CL0 の案件で、附属書F F.2 の Q1 が「いいえ」のものは、未達として表示する([第8章 軸E「判定の記録と確認」](/process-compass/phase4-process-design/tailoring-guide/)、[ADR-0113](/process-compass/adr/0113-criticality-judgment-record-and-confirmation/) の「影響」) |
+| 欠落に当たる | 安全重要度 CL1 以上、または規制業の案件で、判定の確認が未達である(第8章「再実行の時点と向き」) |
 | 欠落に当たる | 附属書F F.2 の Q1 が「はい」の案件で、安全重要度の判定の確認(段3)が欠けている。G-8 の受容で代えない([第8章 軸E「判定の記録と確認」](/process-compass/phase4-process-design/tailoring-guide/)) |
 | 欠落に当たらない | 「未測定」「記録なし」と記載された項目。実施しなかった事実の開示であり、値として受け入れる |
 

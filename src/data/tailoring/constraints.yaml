@@ -25,8 +25,8 @@ constraints:
     source: /process-compass/phase4-process-design/safety-verification/
   - id: c-safety-assessment-not-omittable
     name: 安全リスクアセスメントは省略しない
-    description: 安全重要度CL2以上で、安全リスクアセスメント(テンプレ9)と安全適合性の検証記録を省略しない
-    rationale: 人員・期日の制約は、危害の深刻度を下げない。省略するなら安全重要度の判定自体を見直す
+    description: 第6章の適用条件に当たる案件で安全リスクアセスメント(テンプレ9)を省略しない。安全重要度CL2以上で安全適合性の検証記録を省略しない
+    rationale: 人員・期日の制約は、危害の深刻度を下げない。テンプレ9 の要否は第6章の4条件で決まり、安全重要度に依らない(ADR-0113 決定3)
     source: /process-compass/phase4-process-design/deliverable-templates/
   - id: c-tailoring-must-be-declared
     name: 調整は宣言する

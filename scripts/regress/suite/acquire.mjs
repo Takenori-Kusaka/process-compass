@@ -14,7 +14,15 @@ d0('1.0');
 check('様式を写した直後は、生成区間が構成と一致しない', !checkD0().ok && checkD0().out.includes('生成区間が、構成'), checkD0().out);
 const r = gen('--answers', 'process.config.json');
 check('再生成で、版を取得し、生成区間と節3 の2行を書く', r.ok && cfg().d0Version === '1.0' && cfg().changeLog.length === 2 && cfg().changeLog[1].summary === 'D-0 体制図の版を取得した' && Boolean(cfg().changeLog[1].prevHash), r.out);
-check('全検査', contract().ok && checkD0().ok && checkRules().ok, contract().out + checkD0().out);
+// #373(ADR-0113 決定4、突合 X-9 への裁定): 決定者の席が空のあいだは、判定者を照らす決定者がいないため、節16 の判定の記録を作れない。
+// この時点の D-0 の検査は、判定の記録の欠落(と、仮の判定の旨)だけで落ちる。ほかの不備が無いことを確かめる
+const clOnly = (out) => {
+  const errs = out.split('\n').filter((l) => /::error::/.test(l));
+  return errs.length > 0 && errs.every((l) => /安全重要度の判定|仮の判定/.test(l));
+};
+check('全検査', contract().ok && clOnly(checkD0().out) && checkRules().ok, contract().out + checkD0().out, {
+  changed: [{ by: 'ADR-0113 決定4', on: '2026-11-05', from: 'contract().ok && checkD0().ok && checkRules().ok(D-0 の検査が通る)' }],
+});
 check('節3 の決定者(3名以上の既定: 事業決裁者 / リリース判定会)', /\| 体制と運用形態[^|]*\| 事業決裁者 \|/.test(read('docs/D-0-governance.md')) && /\| 標準変更カタログへの登録[^|]*\| リリース判定会\(B-4\) \|/.test(read('docs/D-0-governance.md')));
 const before = read('process.config.json');
 check('もう一度再生成しても、構成は変わらない', gen('--answers', 'process.config.json').ok && before === read('process.config.json') && git('status', '--porcelain', 'docs').out.includes('docs/'));

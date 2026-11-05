@@ -313,7 +313,8 @@ console.log('S0 の G-3・G-4・G-5・G-8 は適用 OK');
     'q-ai-constraint': 'ai-free',
   };
   const cl2 = evaluate(kb, { ...base, 'q-criticality': 'cl2' });
-  assert.equal(cl2.profile['gate:g-plan-approval'].params.safetyRiskAssessment, 'required');
+  // テンプレ9 の要否は CL2 以上でも第6章の4条件による(#373 突合 X-7 への議長の裁定。CL2 以上の必須を取り消した)
+  assert.equal(cl2.profile['gate:g-plan-approval'].params.safetyRiskAssessment, 'conditional');
   assert.equal(cl2.profile['gate:g-ship'].params.safetyVerificationRecord, 'required');
   assert.equal(cl2.profile.process.params.maxAutonomyLevel, 'L2');
   assert.equal(cl2.profile['practice:traceability'].params.required, true, 'CL1 の要求を包含する');

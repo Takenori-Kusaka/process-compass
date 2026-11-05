@@ -11,7 +11,6 @@
 1名 人の判断待ちに AI のコマンドが無い
 1名 席の記入(/process-change)が通り、次の一手が出る
 1名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
-1名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 1名 D-0 未承認 → 人の判断待ち
 1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する
 1名 D-0 承認後: 読む .claude/skills/artifact/artifacts/10-assumption-ledger.md が実在する
@@ -47,7 +46,7 @@
 1名 ループ中 → iterate
 1名 上限を超える iterate は保留(終了コード3)
 1名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
-1名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
+1名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する(実装中(Task-1))
 1名 保留 → 人の判断待ち(needs-po)
 1名 保留中は stop で終えられない
 1名 release は記名を要する
@@ -66,7 +65,6 @@
 5名 席が未記入 → 人の判断待ち(決定者・needs-owner)
 5名 人の判断待ちに AI のコマンドが無い
 5名 席の記入(/process-change)が通り、次の一手が出る
-5名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 5名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 5名 D-0 未承認 → 人の判断待ち
 5名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する
@@ -105,7 +103,7 @@
 5名 ループ中 → iterate
 5名 上限を超える iterate は保留(終了コード3)
 5名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
-5名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
+5名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する(実装中(Task-1))
 5名 保留 → 人の判断待ち(needs-po)
 5名 保留中は stop で終えられない
 5名 release は記名を要する
@@ -113,7 +111,7 @@
 5名 機能は実装済み
 5名 出荷前(引き継ぎ文書なし) → 引き継ぎ文書を作るコマンドと artifacts/05
 5名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する
-5名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する
+5名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する(出荷前(証跡の集約) の次)
 5名 出荷前 → 証跡の集約 → G-7 待ち(読む gates/G-7.md)
 5名 --brief は 1,200 字以内
 15名 構成なし: 読む .claude/skills/process-init/SKILL.md が実在する
@@ -127,7 +125,6 @@
 15名 席が未記入 → 人の判断待ち(決定者・needs-owner)
 15名 人の判断待ちに AI のコマンドが無い
 15名 席の記入(/process-change)が通り、次の一手が出る
-15名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 15名 席の記入後(D-0 未承認): 読む .claude/skills/artifact/artifacts/00-d0-governance.md が実在する
 15名 D-0 未承認 → 人の判断待ち
 15名 D-0 承認後: 読む .claude/skills/artifact/artifacts/06-project-brief.md が実在する
@@ -166,7 +163,7 @@
 15名 ループ中 → iterate
 15名 上限を超える iterate は保留(終了コード3)
 15名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
-15名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する
+15名 自己修正が保留: 読む .claude/skills/implement/SKILL.md が実在する(実装中(Task-1))
 15名 保留 → 人の判断待ち(needs-po)
 15名 保留中は stop で終えられない
 15名 release は記名を要する
@@ -174,6 +171,6 @@
 15名 機能は実装済み
 15名 出荷前(引き継ぎ文書なし) → 引き継ぎ文書を作るコマンドと artifacts/05
 15名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する
-15名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する
+15名 引き継ぎ文書あり(出荷前): 読む .claude/skills/gate/gates/G-7.md が実在する(出荷前(証跡の集約) の次)
 15名 出荷前 → 証跡の集約 → G-7 待ち(読む gates/G-7.md)
 15名 --brief は 1,200 字以内

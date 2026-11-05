@@ -27,9 +27,16 @@ for (const n of [1, 5, 15]) {
     write(`docs/gates/${file}`, `# ゲート判定記録\n\n| 項目 | 値 |\n| --- | --- |\n| ゲート | ${gate} |\n| 対象 | ${target} |\n| 判定者 | ${NAMES[0]} |\n| 判定日時 | ${ts} |\n| 結果 | ${result} |\n| 確定の形態 | 人確定 |\n`);
   };
   // #286 段2: 出力の「読む:」の所在が実在すること
+  // 同じ状態で同じ補助ファイルを読ませる段階が複数あるときは、2つ目から段階の名を添えて場面の名を一意にする(#373 突合 X-16)
   const readOk = (j, label) => {
-    for (const st of all(j).flatMap((x) => [x, x.then].filter(Boolean))) {
-      for (const r of [].concat(st.read ?? [])) check(`${n}名 ${label}: 読む ${r} が実在する`, fs.existsSync(path.join(W.DIR, r)), r);
+    const seen = new Set();
+    for (const st of all(j).flatMap((x) => [x, x.then ? { ...x.then, stage: x.then.stage ?? `${x.stage} の次` } : null].filter(Boolean))) {
+      for (const r of [].concat(st.read ?? [])) {
+        const base = `${n}名 ${label}: 読む ${r} が実在する`;
+        const name = seen.has(base) ? `${base}(${st.stage ?? st.what ?? '段階の名なし'})` : base;
+        seen.add(base);
+        check(name, fs.existsSync(path.join(W.DIR, r)), r);
+      }
     }
   };
   const log = (label) => {

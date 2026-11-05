@@ -63,7 +63,36 @@ export function workspace(name) {
   };
   const read = (rel) => fs.readFileSync(path.join(DIR, rel), 'utf8');
   const cfg = () => JSON.parse(read('process.config.json'));
-  const gen = (...args) => run('node', ['scripts/init/generate-profile.mjs', ...args]);
+  // 構成を書き換えた後に、決定者の席が埋まっていれば節16 を埋める(signClIfReady。乾いた実行では書かない)
+  const gen = (...args) => {
+    const r = run('node', ['scripts/init/generate-profile.mjs', ...args]);
+    if (r.ok && !args.includes('--dry-run')) signClIfReady();
+    return r;
+  };
+  /** 構成の D-0 表1「体制と運用形態」の決定者の氏名(席が空なら null) */
+  const deciderName = () => {
+    try {
+      const c = cfg();
+      const role = c.governance?.structureDecider ?? 'biz-approver';
+      const ref = (c.seats ?? []).find((s) => s.role === role)?.accountable;
+      if (!ref) return null;
+      return (c.people ?? []).find((p) => p.id === ref || p.name === ref)?.name ?? ref;
+    } catch {
+      return null;
+    }
+  };
+  /**
+   * #373(ADR-0113 決定1・決定4、突合 X-9 への裁定): 判定者は、記録を作る時点の決定者に限る。場面の入力として、D-0 の節16 が
+   * 様式のまま(判定者が未記入)で決定者の席が埋まったら、その決定者の記名で記録を埋める(人が任命の後に記名することの代わり)
+   */
+  const signClIfReady = () => {
+    const rel = 'docs/D-0-governance.md';
+    if (!fs.existsSync(path.join(DIR, rel))) return;
+    const text = read(rel);
+    if (!/^\| 判定者 \| <氏名/m.test(text)) return;
+    const who = deciderName();
+    if (who) write(rel, clRecord(text, { judge: who, cls: cfgCl() }));
+  };
   const change = (c, dry = false) => {
     write('change.json', c);
     return gen('--change', 'change.json', ...(dry ? ['--dry-run'] : []));
@@ -83,7 +112,8 @@ export function workspace(name) {
   const d0 = (version = '1.0') =>
     write(
       'docs/D-0-governance.md',
-      clRecord(read('templates/00-d0-governance.md'), { judge: '山田 太郎', cls: cfgCl() })
+      // 決定者の席が埋まっていれば、その人の記名で節16 を埋める。空なら様式のまま残し、席を埋める変化点の後に埋める(signClIfReady)
+      (deciderName() ? clRecord(read('templates/00-d0-governance.md'), { judge: deciderName(), cls: cfgCl() }) : read('templates/00-d0-governance.md'))
         // #411(ADR-0091): 表1 の「市場・顧客仮説の検証の実施」の行は空にしない
         .replace('| 市場・顧客仮説の検証の実施 | | | | | |', '| 市場・顧客仮説の検証の実施 | 価値責任者 | | | | 価値責任者 |')
         .replace(/^version:.*$/m, `version: ${version}`)

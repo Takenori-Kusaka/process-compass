@@ -40,11 +40,12 @@ rules:
     priority: 50
 
   # 安全リスクアセスメント(テンプレ9)の要否は、第6章の CL に依らない4条件(物理的な危険源・R1 の変更種別・本番到達・
-  # L2 以上)を正とする(#373 / ADR-0113 決定3)。CL0・CL1 でも、条件のいずれかに当たれば G-1 の前提条件になる。
-  # 構成は4条件の入力を持たないため、要否を「適用条件による」として出し、該当の有無は人が判定する。CL2 以上は r-e-cl2 が必須にする
+  # L2 以上)を正とする(#373 / ADR-0113 決定3)。どの区分でも、条件のいずれかに当たれば G-1 の前提条件になる。
+  # 構成は4条件の入力を持たないため、要否を「適用条件による」として出し、該当の有無は人が判定する。
+  # CL2 以上を4条件に依らず必須に残す扱いは、突合 X-7 への議長の裁定で取り消した
   - id: r-e-sra-conditions
     when:
-      q-criticality: [cl0, cl1]
+      q-criticality: [cl0, cl1, cl2, cl3]
     adjustments:
       - target: { type: gate, id: g-plan-approval }
         action: set
@@ -59,11 +60,6 @@ rules:
     when:
       q-criticality: [cl2, cl3]
     adjustments:
-      - target: { type: gate, id: g-plan-approval }
-        action: set
-        param: safetyRiskAssessment
-        value: required
-        note: 安全リスクアセスメント(第6章 テンプレ9)を企画承認の前提条件にする
       - target: { type: gate, id: g-ship }
         action: set
         param: safetyVerificationRecord

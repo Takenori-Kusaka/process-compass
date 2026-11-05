@@ -193,6 +193,8 @@ forms:
         template: '| 確認者の段 |'
       - standard: '| 段の根拠 |'
         template: '| 段の根拠 |'
+      - standard: '| 確認日 | YYYY-MM-DD |'
+        template: '| 確認日 | <YYYY-MM-DD> |'
       - standard: '| 区分の引き下げの根拠 |'
         template: '| 区分の引き下げの根拠 |'
       # --- #288 第6巡 ---
