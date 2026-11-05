@@ -1919,6 +1919,7 @@ sections:
       - IMPL-0114
       - IMPL-0115
       - IMPL-0116
+      - IMPL-0463
       - IMPL-0001
     note: 10名以上の価値責任者 × 技術判断者の拒否は IMPL-0296、非推奨の兼務の注記は IMPL-0297、記録の無い非推奨の兼務の欠落は IMPL-0298。代替の統制を課さないこと、5名の境界を置かないこと、事業決裁者 × 価値責任者を禁止しないことは課さない明記(EV-0156・EV-0157)
     issue: 312
@@ -2645,6 +2646,13 @@ sections:
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 判定をどちらの組織へ置くか"
     status: pending
+  - key: "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 委託の体制の人数と、軸A との組み合わせ"
+    status: none
+    category: elsewhere
+    reason: 既存の規定(軸A の人数の数え方、軸D の価値責任者の所属、表5-2 の区分)から導いた読みの明文化と、組み合わせの表・境界の未決の開示。新しい義務を課さない(#370)。人数の照合は軸A の IMPL-0300、外部の確認者を責任者に置ける席の限定は第3章 3.5 の IMPL-0463、価値責任者の所属は軸D の IMPL-0462 で追う
+    location:
+      - "phase4-process-design/tailoring-guide#軸A: チーム規模による調整"
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止)
   - key: "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 判定の結果を受け取る者を決める"
     status: pending
   - key: "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 強制層をどちらが所有するか"
