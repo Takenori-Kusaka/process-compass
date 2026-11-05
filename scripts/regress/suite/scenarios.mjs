@@ -393,16 +393,24 @@ resetTo('base3');
 const CLAUDE_D = { id: 'dupont', name: 'Claude Dupont' };
 refused('AI を示す語を含む氏名(確認なし)', change({ kind: 'accountable', people: [...PEOPLE3, CLAUDE_D], seats: { 'tech-lead': { accountable: 'Claude Dupont' } } }), 'nameConfirmed');
 const overridden = change({ kind: 'accountable', date: DAY, summary: 'Dupont が加わった', people: [...PEOPLE3, { ...CLAUDE_D, nameConfirmed: true }], seats: { 'tech-lead': { accountable: 'Claude Dupont' } }, decidedBy: '山田 太郎', reason: '技術判断者を任命' });
-// #319 裁定 R-2.5・7.5 J-1: 同じ変化点で名簿へ足して確認し任命すると、いまのテンプレートは拒否する(p302 では受け付けた)。
-// 回帰か決定かを人が決めるまで、元の期待(反映)のまま、厳格な「落ちることを期待する」印を付ける。Issue は #375
-const J1 = { issue: '#375', match: '記名を受け付けられません: 技術判断者(Tech Lead) の責任者: "Claude Dupont"', on: '2026-10-27', review: '2026-12' };
-const J1_ROOT = 'AI を示す語を含む氏名(人が確認した旨あり) → 反映';
-accepted('AI を示す語を含む氏名(人が確認した旨あり)', overridden, '名義の機械検査を人が上書きした: Claude Dupont', { knownFailure: J1 });
+// #319 裁定 R-2.5・7.5 J-1 で付けた印(#375)は、ADR-0111 決定1 で解いた(同じ変化点の確認を、その変化点の任命に数える。
+// 今の拒否は回帰)。期待値は p302 と同じ(反映)のまま改めないため、changed は置かない
+accepted('AI を示す語を含む氏名(人が確認した旨あり)', overridden, '名義の機械検査を人が上書きした: Claude Dupont', { fixes: ['ADR-0111 決定1', 'ADR-0111 決定2'] });
 const ovContract = contract();
-check('契約検査・構成書に上書きが表示される', ovContract.ok && ovContract.out.includes('名義の機械検査を人が上書きした: Claude Dupont') && read('PROCESS-PROFILE.md').includes('名義の機械検査を人が上書きした: Claude Dupont'), ovContract.out, { dependsOn: J1_ROOT });
-check('changeLog に上書きした氏名が残る', (cfg().changeLog.at(-1).nameOverrides ?? []).includes('Claude Dupont'), '', { dependsOn: J1_ROOT });
+check('契約検査・構成書に上書きが表示される', ovContract.ok && ovContract.out.includes('名義の機械検査を人が上書きした: Claude Dupont') && read('PROCESS-PROFILE.md').includes('名義の機械検査を人が上書きした: Claude Dupont'), ovContract.out, { fixes: ['ADR-0111 決定2'] });
+check('changeLog に上書きした氏名が残る', (cfg().changeLog.at(-1).nameOverrides ?? []).includes('Claude Dupont'), '', { fixes: ['ADR-0111 決定2'] });
 refused('担い手の識別と同じ文字列は上書きできない', change({ kind: 'accountable', people: [...PEOPLE3, { id: 'x', name: 'tok-dev', nameConfirmed: true }], seats: { 'dev-verifier': { accountable: 'tok-dev', performer: P } } }), '担い手の識別');
 refused('名簿に無い名義は上書きできない', change({ kind: 'accountable', seats: { 'tech-lead': { accountable: 'Gemini Sato' } } }), '名簿');
+// ADR-0111 決定2: 同じ変化点で数えるのは、確認の記名の要件を満たした確認だけである。拒否されたままの経路を固定する
+const confirmAndAppoint = (o) => change({ kind: 'accountable', date: DAY, summary: 'Dupont が加わった', people: [...PEOPLE3, { ...CLAUDE_D, nameConfirmed: true }], seats: { 'tech-lead': { accountable: 'Claude Dupont' } }, decidedBy: '山田 太郎', reason: '技術判断者を任命', ...o });
+const SAME_CP = { fixes: ['ADR-0111 決定2', 'ADR-0079 決定7'] };
+resetTo('base3');
+refused('同じ変化点の確認: 本人の記名', confirmAndAppoint({ decidedBy: 'Claude Dupont' }), '本人の記名では確定できません', SAME_CP);
+refused('同じ変化点の確認: AI の名義の記名', confirmAndAppoint({ decidedBy: 'Claude Fable 5.1' }), '氏名の確認の記名を受け付けられません: "Claude Fable 5.1"', SAME_CP);
+refused('同じ変化点の確認: 名簿に無い人の記名', confirmAndAppoint({ decidedBy: '田中 三郎' }), '氏名の確認の記名を受け付けられません: "田中 三郎" は人の名簿(people[])にない', SAME_CP);
+refused('同じ変化点の確認: 記名なし', confirmAndAppoint({ decidedBy: undefined, reason: undefined }), '決定した者の記名(decidedBy)と理由(reason)が要ります', SAME_CP);
+refused('同じ変化点の確認: AI を示す語を含む名義どうしの相互の確認', confirmAndAppoint({ people: [...PEOPLE3, { ...CLAUDE_D, nameConfirmed: true }, { id: 'gsato', name: 'Gemini Sato', nameConfirmed: true }], decidedBy: 'Gemini Sato' }), 'Gemini Sato の氏名の確認を、本人の記名では確定できません', SAME_CP);
+refused('同じ変化点の確認: 同じ変化点で名簿へ足した人の記名', change({ kind: 'accountable', date: DAY, summary: '高橋と Dupont が加わった', people: [...PEOPLE3, { id: 'takahashi', name: '高橋 次郎' }, { ...CLAUDE_D, nameConfirmed: true }], decidedBy: '高橋 次郎', reason: '氏名を確認した' }), 'この変化点で名簿へ足した人です', SAME_CP);
 
 // ------------------------------------------------------------------ アカウント(K13 の入力)
 fixes(["K13", "K67", "K74"]);
