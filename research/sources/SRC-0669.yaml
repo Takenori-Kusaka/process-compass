@@ -14,52 +14,86 @@ orgType: standards-body
 region: global
 lang: en
 sourceType: industry-report
-published: '2026-07-07'
+published: 2026-07-07
 publishedBasis: page
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 S4'
+  query: "#315 外部調査 S4"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH12
+themes: [TH12]
 events: []
 summary: CMMI の導入の手引き(v4.0)。現行の業務プロセスを CMMI の実践へ写して差を特定し、プロセスが実際に使われているかを確かめ、差を優先付けして段階的に展開する。#315 で、既存の統制の資産の一覧と扱いを適用の開始の記録に含める要求事項の型として引いた。段階的な展開は、本標準では採らない。
 claims:
-- id: c1
-  text: 手順3 で、現行の業務プロセスを CMMI の実践へ写し、差を特定する。よく作られたプロセスでも使われなければ価値は小さく、使われ続けているかを確かめる。
-  quote: null
-  locator: 手順3
-  quant: null
-  evidenceKind: expert-opinion
-  rqs: []
-  issues:
-  - 315
-  stance: supports
-- id: c2
-  text: 手順5 で、段階的に展開し、部分ごとに異なる時期に展開してよい。
-  quote: null
-  locator: 手順5
-  quant: null
-  evidenceKind: expert-opinion
-  rqs: []
-  issues:
-  - 315
-  stance: contradicts
+  - id: c1
+    text: 手順3 で、現行の業務プロセスを CMMI の実践へ写し、差を特定する。よく作られたプロセスでも使われなければ価値は小さく、使われ続けているかを確かめる。
+    quote: This analysis does more than just identifying gaps in the processes being used. It also involves determining if the processes are utilized, persistent, and habitual. A well-crafted business process is of little value if it is not used.
+    locator: "Step 3: Map current organizational processes to CMMI, Figure 8. Step 3 Activities and Considerations Table (Page 27)"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [315]
+    stance: supports
+  - id: c2
+    text: 手順5 では、改善の試行と展開を通例は反復して行い、しばしば段階的に展開する。利害関係者を圧倒しないため、組織の部分ごとに異なる改善を異なる時期に展開する必要が生じることがある。
+    quote: This step involves piloting and deploying the performance and process improvements identified in action plans from the previous step, typically an iterative process. Improvements are often rolled out gradually to assess performance. Piloting improvements enables an organization to evaluate the impact of performance improvements to ensure they are successful before wider deployment.
+    locator: "Step 5: Deploy improvements and measure results (Page 32) / Additional Information (Page 34)"
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [315]
+    stance: contradicts
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。
+  mech:
+    checkedAt: 2026-11-05T12:20:34.757Z
+    httpStatus: 200
+    finalUrl: https://www.cmmiinstitute.com/getattachment/3cc3e8d1-72a1-4f6d-b1da-c5df8c9ad87d/CMMI-Adoption-Guidance.pdf
+    contentType: application/pdf
+    titleFetched: null
+    titleMatch: null
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: pdf
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "Step 3: map current business processes to CMMI components/practices, identify gaps, recommend improvements; the gap analysis also determines whether processes are utilized, persistent, and habitual — a well-crafted process is of little value if not used."
+        extractedQuote: This analysis does more than just identifying gaps in the processes being used. It also involves determining if the processes are utilized, persistent, and habitual. A well-crafted business process is of little value if it is not used.
+        locator: "Step 3: Map current organizational processes to CMMI, Figure 8. Step 3 Activities and Considerations Table (Page 27)"
+        note: '写像と差異の特定 原文(箇条、PDF の改行を空白化): "Maps current business processes to CMMI components and practices" / "Identifies any gaps between the business processes and the CMMI components and practices identified for improvement" / "Recommends improvements to address the gaps"。重要性 原文: "It is important to understand the processes currently used in the organization and the extent to which these processes meet the intent, value, and any additional required information of the CMMI Practice Areas and Practices. This is an important step as it forms the basis of future improvement activities." 差異分析は形式的評定(CMMI Evaluation Appraisal)でも非形式的な比較でもよいと書かれている。'
+        adjudication:
+          verdict: consistent
+          reason: 原文 "Maps current business processes to CMMI components and practices" "Identifies any gaps" と "determining if the processes are utilized, persistent, and habitual. A well-crafted business process is of little value if it is not used" が主張を支える(Step 3)。
+          date: 2026-11-05
+      c2:
+        verdict: match
+        extractedValue: Deployment is typically iterative and gradual, piloted before wider deployment; different improvements may be deployed to different parts of the organization at different times to avoid overwhelming stakeholders.
+        extractedQuote: This step involves piloting and deploying the performance and process improvements identified in action plans from the previous step, typically an iterative process. Improvements are often rolled out gradually to assess performance. Piloting improvements enables an organization to evaluate the impact of performance improvements to ensure they are successful before wider deployment.
+        locator: "Step 5: Deploy improvements and measure results (Page 32) / Additional Information (Page 34)"
+        note: '部門ごとの時期 原文: "To avoid overwhelming stakeholders, it may be necessary to select and deploy different improvements to different parts of the organization at different times. The selection of improvements to deploy should be based on the criteria described above and should also be sensitive to the needs of the various parts of the organization." 調整 原文: "Coordinate the deployment of processes to avoid confusion, waste, contradictory results, and adverse effects." 試行の結果の利用 原文: "Determine if the pilot is sufficiently successful to deploy the process to other parts of the organization"。原文は『一斉展開を禁じる』とは書いておらず、『often』『typically』『may be necessary』の語で漸進を推奨・通例として述べている。'
+        adjudication:
+          verdict: corrected
+          reason: 原文 "typically an iterative process" "Improvements are often rolled out gradually" "it may be necessary to select and deploy different improvements to different parts of the organization at different times" は大筋を支える。ただし原文は通例・必要になりうる場合として述べており、許容(「してよい」)ではない。"To avoid overwhelming stakeholders" という理由と、試行(piloting)も欠けている。機械比較の mismatch は「手順5」によるもの。
+          date: 2026-11-05
+          originalText: 手順5 で、段階的に展開し、部分ごとに異なる時期に展開してよい。
+          originalQuote: null
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

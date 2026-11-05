@@ -18,39 +18,60 @@ published: null
 publishedBasis: unknown
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 K2'
+  query: "#315 外部調査 K2"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH10
-- TH12
+themes: [TH10, TH12]
 events: []
 summary: Terraform のプラグインの状態の移行。schema の版を整数で持ち、旧い版ごとに現行の版への直接の変換を用意する。中間の版を順に辿らない。該当の変換が無ければエラーにする。#315 で、構成の形式の版(formatVersion)と、版ごとの現行の版への直接の変換、未知の版の拒否の前例として引いた。
 claims:
-- id: c1
-  text: UpgradeState は旧い版から変換への写像で、該当が無ければエラーになる。フレームワークは中間の版を順に辿らず、各変換は旧い版から現行の版へ全面的に上げる。
-  quote: null
-  locator: UpgradeState
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: supports
+  - id: c1
+    text: UpgradeState は旧い版から変換への写像で、該当が無ければエラーになる。フレームワークは中間の版を順に辿らず、各変換は旧い版から現行の版へ全面的に上げる。
+    quote: Each resource.StateUpgrader implementation is expected to wholly upgrade the resource state from the prior version to the current version. The framework does not iterate through intermediate version implementations as incrementing versions by 1 is only conventional and not required.
+    locator: State Upgrade Process / Implementing State Upgrade Support
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: supports
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。
+  mech:
+    checkedAt: 2026-11-05T12:20:34.532Z
+    httpStatus: 200
+    finalUrl: https://developer.hashicorp.com/terraform/plugin/framework/resources/state-upgrade
+    contentType: text/html; charset=utf-8
+    titleFetched: State upgrade | Terraform | HashiCorp Developer
+    titleMatch: false
+    dateMeta: 2026-03-05
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: UpgradeState returns map[int64]resource.StateUpgrader keyed by prior state version; if no upgrader for the requested prior version, an error diagnostic is returned; the framework does not iterate through intermediate versions — each StateUpgrader must wholly upgrade from the prior version to the current version.
+        extractedQuote: Each resource.StateUpgrader implementation is expected to wholly upgrade the resource state from the prior version to the current version. The framework does not iterate through intermediate version implementations as incrementing versions by 1 is only conventional and not required.
+        locator: State Upgrade Process / Implementing State Upgrade Support
+        note: '構造について 原文(コード例): "func (r *ThingResource) UpgradeState(ctx context.Context) map[int64]resource.StateUpgrader {" およびキーのコメント "// State upgrade implementation from 0 (prior state version) to 1 (Schema.Version)"。上位版が無い場合 原文: "If state upgrade support is defined, but not for the requested prior state version, an error diagnostic is returned." また 原文: "If no state upgrade support is defined, an error diagnostic is returned." 補足 原文: "Any response errors will cause Terraform to keep the prior resource state."'
+        adjudication:
+          verdict: consistent
+          reason: 原文 "UpgradeState(ctx context.Context) map[int64]resource.StateUpgrader" "If state upgrade support is defined, but not for the requested prior state version, an error diagnostic is returned" "expected to wholly upgrade the resource state from the prior version to the current version. The framework does not iterate through intermediate version implementations" が主張をそのまま支える。
+          date: 2026-11-05
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

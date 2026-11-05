@@ -18,49 +18,82 @@ published: null
 publishedBasis: unknown
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 T1'
+  query: "#315 外部調査 T1"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH10
-- TH12
+themes: [TH10, TH12]
 events: []
-summary: テンプレートから生成した案件の更新の手順(Copier)。回答ファイルに生成時のテンプレートの版と入力を記録し、手で書き換えないことを求め、更新の前提に作業木の清浄を置く。#315 で、構成(process.config.json)を手で編集しない規則と、取り込んだテンプレートのコミットを道具だけが書く型の前例として引いた。
+summary: テンプレートから生成した案件の更新の手順(Copier)。回答ファイルを手で書き換えないことを求める(書き換えると、変更後の回答が現在の案件を生んだと Copier が誤認し、更新の差分が予測できなくなる)。更新の前に git status の清浄を確かめるよう利用者へ指示する(Copier が拒むとは書いていない)。テンプレートの版の記録(_commit)はこの頁ではなく SRC-0651 にある(#364 の照合で改めた)。#315 で、構成(process.config.json)を手で編集しない規則と、取り込んだテンプレートのコミットを道具だけが書く型の前例として引いた。
 claims:
-- id: c1
-  text: 回答ファイル(.copier-answers.yml)はテンプレートの版と回答の記録であり、手で更新してはならない。手で更新すると、異なる回答で生成されたと誤認し、差分が予測できなくなる。
-  quote: null
-  locator: Updating a project
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: supports
-- id: c2
-  text: 更新は、現行の版で新規に生成した結果との差分を取り、事前の移行、最新の変更の適用、差分の再適用、事後の移行の順に行う。衝突は人が解く。
-  quote: null
-  locator: Updating a project
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: context
+  - id: c1
+    text: 回答ファイル(.copier-answers.yml)を手で更新してはならない。手で更新すると、変更後の回答が現在のサブプロジェクトを生んだと Copier が誤認し、更新に使う smart diff の挙動が予測できなくなる(支持されない更新の方法である)。
+    quote: Never update .copier-answers.yml manually. This will trick Copier, making it believe that those modified answers produced the current subproject, while it was produced by a different answers set. This will produce unpredictable behavior of the smart diff algorithm used for updates, which may work under certain circumstances, but not always.
+    locator: Updating a project > Never change the answers file manually
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: supports
+  - id: c2
+    text: 更新は、現行の版で新規に生成した結果との差分を取り、事前の移行、最新の変更の適用、差分の再適用、事後の移行の順に行う。衝突は人が解く。
+    quote: It regenerates a fresh project from the current template version. Then, it compares both version to get the diff from "fresh project" to "current project". Now, it applies pre-migrations to your project, and updates the current project with the latest template changes (asking for confirmation). Finally, it re-applies the previously obtained diff and then runs the post-migrations.
+    locator: Updating a project > How the update works
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: context
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。
+  mech:
+    checkedAt: 2026-11-05T12:20:34.386Z
+    httpStatus: 200
+    finalUrl: https://copier.readthedocs.io/en/stable/updating/
+    contentType: text/html; charset=utf-8
+    titleFetched: Updating a project - copier
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Never update .copier-answers.yml manually; doing so makes Copier believe the modified answers produced the current subproject, causing unpredictable behaviour of the smart diff update algorithm; it is an unsupported way to update.
+        extractedQuote: Never update .copier-answers.yml manually. This will trick Copier, making it believe that those modified answers produced the current subproject, while it was produced by a different answers set. This will produce unpredictable behavior of the smart diff algorithm used for updates, which may work under certain circumstances, but not always.
+        locator: Updating a project > Never change the answers file manually
+        note: "原文に書かれていること: 手で編集すると、変更後の回答が現在のサブプロジェクトを生んだと Copier が誤認し、更新の smart diff が予測不能になる。原文: \"This is an unsupported way to update. Please do not open issues if you updated this way.\" 正しい手順は copier update を実行し質問に答えること(既定値は前回の回答)。原文: \"Answer the questions. They'll default to your answers on your last update.\" 書かれていないこと: このページは回答ファイルが「何を記録するか」を明示的に定義していない(回答の組が現在のプロジェクトを生成したという前提が上の文から読み取れるのみ)。更新の前提条件として \"The destination folder includes a valid .copier-answers.yml file.\" とある。テンプレートの版 (_commit) が回答ファイルに保存される旨は SRC-0651 の vcs_ref 節にあり、本ページには無い。"
+        adjudication:
+          verdict: corrected
+          reason: '原文 "Never update .copier-answers.yml manually" と "making it believe that those modified answers produced the current subproject" "unpredictable behavior of the smart diff algorithm" は禁止と理由を支える。ただし、このページは回答ファイルが「テンプレートの版」を記録するとは書いていない(_commit の保存は SRC-0651 の vcs_ref 節)。誤認の向きも、原文は「変更後の回答で生成された」と誤認するであり、「異なる回答で生成された」と誤認するのではない。要約: 「更新の前提に作業木の清浄を置く」は "make sure git status shows it clean" という利用者への指示であり、Copier が拒否するとは書かれていない。版の記録もこのページには無い。'
+          date: 2026-11-05
+          originalText: 回答ファイル(.copier-answers.yml)はテンプレートの版と回答の記録であり、手で更新してはならない。手で更新すると、異なる回答で生成されたと誤認し、差分が予測できなくなる。
+          originalQuote: null
+      c2:
+        verdict: match
+        extractedValue: "1) regenerate fresh project from current template version; 2) diff fresh project -> current project; 3) apply pre-migrations and update current project with latest template (asking confirmation); 4) re-apply the diff, then run post-migrations. Conflicts: --conflict inline (default, conflict markers) or --conflict rej (.rej files); review manually before committing. Precondition: git status clean, plus valid answers file and Git-versioned template (tags) and destination."
+        extractedQuote: It regenerates a fresh project from the current template version. Then, it compares both version to get the diff from "fresh project" to "current project". Now, it applies pre-migrations to your project, and updates the current project with the latest template changes (asking for confirmation). Finally, it re-applies the previously obtained diff and then runs the post-migrations.
+        locator: Updating a project > How the update works
+        note: '競合の扱い 原文: "In those cases, copier handles the conflict in one of two ways, controlled with the --conflict option: --conflict rej: Creates a separate .rej file for each file with conflicts. These files contain the unresolved diffs. --conflict inline (default): Updates the file with conflict markers." / "If the update results in conflicts, you should review those manually before committing." 競合マーカーや .rej のコミットを防ぐ pre-commit フックを推奨している。前提条件 原文: "The best way to update a project from its template is when all of these conditions are true: The destination folder includes a valid .copier-answers.yml file. The template is versioned with Git (with tags). The destination folder is versioned with Git." および "make sure git status shows it clean, and run: copier update"。書かれていないこと: 作業ツリーが clean でない場合に Copier が拒否するかどうかは本ページの抜粋範囲には書かれていない(利用者への指示として clean を確かめるよう述べるのみ)。'
+        adjudication:
+          verdict: consistent
+          reason: 原文 "regenerates a fresh project from the current template version" "get the diff from fresh project to current project" "applies pre-migrations ... updates the current project with the latest template changes ... re-applies the previously obtained diff and then runs the post-migrations" が手順と順序をそのまま支える。衝突は "you should review those manually before committing" で、人が解くことに当たる。
+          date: 2026-11-05
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

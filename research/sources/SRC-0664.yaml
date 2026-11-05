@@ -18,38 +18,62 @@ published: null
 publishedBasis: unknown
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 K7'
+  query: "#315 外部調査 K7"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH10
+themes: [TH10]
 events: []
-summary: safe-settings は、リポジトリの設定を宣言し、PR で差分を dry-run で示し、マージで適用し、定期の全同期で乖離を是正する。#315 で、実環境の統制の定期の再確認を課す案の前例として引き、本標準では周期を課さず変化点と G-8 の機械の読み取りに留める判断の比較の対象にした。
+summary: safe-settings は、リポジトリの設定を宣言し、PR で差分を dry-run で示し、マージで適用する。Webhook は届く保証が無いため、CRON で定期の適用を設定でき、乖離への対処になりうる(任意の機能。#364 の照合で改めた)。#315 で、実環境の統制の定期の再確認を課す案の前例として引き、本標準では周期を課さず変化点と G-8 の機械の読み取りに留める判断の比較の対象にした。
 claims:
-- id: c1
-  text: 非既定のブランチの PR では、基底のブランチの構成との差分だけを dry-run で報告する。Webhook は届く保証が無いため、定期の全同期で乖離を是正する。
-  quote: null
-  locator: README
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: qualifies
+  - id: c1
+    text: 非既定のブランチで設定を変えて PR を作ると、dry-run で検証し、PR の構成を基底のブランチの構成と比べて、その PR が持ち込む変更だけを報告する。Webhook は届く保証が無いため、CRON 環境変数で定期の適用を設定でき、構成の乖離への対処になりうる。
+    quote: If the settings are changed on a non-default branch and a PR is created to merge the changes, the app runs in a `dry-run` mode to evaluate and validate the changes. Checks pass or fail based on the `dry-run` results. The dry-run compares the PR's config against the **base branch** config, so the check run and PR comment report only the changes the PR itself introduces (see [Dry-run PR comment](#dry-run-pr-comment)).
+    locator: README (冒頭の番号付き項目 1 / Dry-run PR comment / Schedule)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: qualifies
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。
+  mech:
+    checkedAt: 2026-11-05T12:20:34.660Z
+    httpStatus: 200
+    finalUrl: https://github.com/github-community-projects/safe-settings
+    contentType: text/html; charset=utf-8
+    titleFetched: GitHub - github-community-projects/safe-settings
+    titleMatch: false
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Settings in the default branch are applied; for a PR from a non-default branch it runs in dry-run (nop) mode, checks pass/fail on the result, and compares the PR config against the base-branch config so only changes the PR introduces are reported. Scheduled sync (CRON env var) periodically converges settings to address drift, since webhooks are not always guaranteed to be delivered.
+        extractedQuote: If the settings are changed on a non-default branch and a PR is created to merge the changes, the app runs in a `dry-run` mode to evaluate and validate the changes. Checks pass or fail based on the `dry-run` results. The dry-run compares the PR's config against the **base branch** config, so the check run and PR comment report only the changes the PR itself introduces (see [Dry-run PR comment](#dry-run-pr-comment)).
+        locator: README (冒頭の番号付き項目 1 / Dry-run PR comment / Schedule)
+        note: '定期同期の理由と方法 原文: "The App can be configured to apply the settings on a schedule. This could be a way to address configuration drift since webhooks are not always guaranteed to be delivered." 続けて 原文: "To periodically converge the settings to the configuration, set the `CRON` environment variable." PR コメント 原文: "The results are filtered against the **base branch** config, so the comment reports only the changes the PR introduces — not the full diff against live GitHub settings." 管理対象アプリの乖離 原文: "Drift on managed apps is reconciled by the **full (cron) sync**, not by"(行で切れており続きは別行)。'
+        adjudication:
+          verdict: corrected
+          reason: "原文の dry-run の記述(\"compares the PR's config against the **base branch** config, so ... report only the changes the PR itself introduces\")は前半を支える。後半は \"The App can be configured to apply the settings on a schedule. This could be a way to address configuration drift\" であり、任意の設定で、対処に「なりうる」という書き方である。常に定期の全同期で是正すると読める主張は言い過ぎ。要約: 「定期の全同期で乖離を是正する」も同じく、設定したときの任意の機能である。"
+          date: 2026-11-05
+          originalText: 非既定のブランチの PR では、基底のブランチの構成との差分だけを dry-run で報告する。Webhook は届く保証が無いため、定期の全同期で乖離を是正する。
+          originalQuote: null
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

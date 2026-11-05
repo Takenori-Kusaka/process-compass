@@ -18,39 +18,60 @@ published: null
 publishedBasis: unknown
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 T7'
+  query: "#315 外部調査 T7"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH10
-- TH12
+themes: [TH10, TH12]
 events: []
 summary: Renovate の構成の移行。旧い構成は使う前に内部で読み替えられ、書き換えは任意の PR として人へ出す。構成に版の欄は無く、旧い構成は無期限に動く。#315 で、緩める向きの黙った読み替えを採らない判断の比較の対象として引いた。
 claims:
-- id: c1
-  text: 旧い構成は使う前に内部で移行され、デバッグログのほかには見えない。configMigration を有効にすると、構成ファイルを書き換える PR を作る。
-  quote: null
-  locator: Config migration
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: qualifies
+  - id: c1
+    text: 旧い構成は使う前に内部で移行され、デバッグログのほかには見えない。configMigration を有効にすると、構成ファイルを書き換える PR を作る。
+    quote: Config migration works by migrating legacy config internally, before the config is used. If done right, config migration "just works" silently and legacy configs continue working indefinitely. The only sign that "config migration" is needed is the debug message in the Renovate logs, noting the old and newly migrated configs.
+    locator: Config Migration
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: qualifies
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。
+  mech:
+    checkedAt: 2026-11-05T12:20:34.431Z
+    httpStatus: 200
+    finalUrl: https://docs.renovatebot.com/config-migration/
+    contentType: text/html; charset=utf-8
+    titleFetched: Config Migration - Renovate Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Legacy config is migrated internally before use and keeps working; the only sign is a debug message in Renovate logs showing old and migrated configs. configMigration=true makes Renovate create config migration PRs (disabled by default).
+        extractedQuote: Config migration works by migrating legacy config internally, before the config is used. If done right, config migration "just works" silently and legacy configs continue working indefinitely. The only sign that "config migration" is needed is the debug message in the Renovate logs, noting the old and newly migrated configs.
+        locator: Config Migration
+        note: '原文: "To get automated config migration Pull Requests from Renovate: set the configMigration config option to true. Config migration PRs are disabled by default." 有効時: Config Migration PR を作り、Dependency Dashboard が有効ならそこへリンクを置く。無効時 原文: "If config migration is needed, but disabled then Renovate adds a checkbox to the Dependency Dashboard (if the dashboard exists)."(on-demand)。閉じた移行 PR があるときは有効・無効に関わらずダッシュボードへチェックボックスを置き、選択で旧ブランチ削除と新 PR 作成。'
+        adjudication:
+          verdict: consistent
+          reason: '原文 "migrating legacy config internally, before the config is used" "The only sign ... is the debug message in the Renovate logs" "set the configMigration config option to true" "Config migration PRs are disabled by default" が主張を支える。要約: 「構成に版の欄は無く」は抜粋に無い。「旧い構成は無期限に動く」は "If done right" という条件つきの記述である。'
+          date: 2026-11-05
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

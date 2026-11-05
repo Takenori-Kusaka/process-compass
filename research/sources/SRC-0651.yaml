@@ -18,49 +18,84 @@ published: null
 publishedBasis: unknown
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 T2'
+  query: "#315 外部調査 T2"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH10
-- TH12
+themes: [TH10, TH12]
 events: []
 summary: Copier のテンプレートの設定。版を持つ移行の列(_migrations)を宣言し、跨いだ版の移行だけを走らせる。道具の最低の版を下回れば生成と更新を止める。生成元のコミット(_commit)を回答ファイルへ自動で記録する。#315 で、形式の版と版ごとの移行、未知の版を黙って通さない型の前例として引いた。
 claims:
-- id: c1
-  text: _migrations は版を持つ項目の列で、新しい版が宣言した版以上で、古い版が宣言した版より小さいときだけ走る。初回の複製では走らない。
-  quote: null
-  locator: _migrations
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: supports
-- id: c2
-  text: _min_copier_version を下回る道具では、生成と更新を中止してエラーを出す。生成元のコミット _commit は回答ファイルへ自動で記録される。
-  quote: null
-  locator: _min_copier_version / _commit
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: supports
+  - id: c1
+    text: _migrations の各項目は version を指定でき、指定したときは「新しい版 >= 宣言した版 > 古い版」のときだけ走る。version を指定しなければ毎回の更新で走る。移行は更新のときだけ走り、初回の複製では走らない。
+    quote: When version is given they will only run when new version >= declared version > old version. Your template will only be marked as unsafe if this condition is true. Migrations will also only run when updating (not when copying for the 1st time).
+    locator: migrations
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: supports
+  - id: c2
+    text: 生成または更新のとき、導入された Copier が _min_copier_version を下回れば、生成を中止してエラーを示す。Git で版管理されたテンプレートから複製・更新するとき、テンプレートの版(vcs_ref)は回答ファイルへ _commit として自動で保存される。
+    quote: Upon generating or updating a project, if the installed version of Copier is less than the required one, the generation will be aborted and an error will be shown to the user.
+    locator: min_copier_version / vcs_ref
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: supports
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。
+  mech:
+    checkedAt: 2026-11-05T12:20:34.430Z
+    httpStatus: 200
+    finalUrl: https://copier.readthedocs.io/en/stable/configuring/
+    contentType: text/html; charset=utf-8
+    titleFetched: Configuring a template - copier
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: "With version given: runs only when new version >= declared version > old version; without version: runs on every update; optional 'when' condition must hold; migrations run only when updating, not on the first copy."
+        extractedQuote: When version is given they will only run when new version >= declared version > old version. Your template will only be marked as unsafe if this condition is true. Migrations will also only run when updating (not when copying for the 1st time).
+        locator: migrations
+        note: '原文: "version (optional): Indicates the version that the template update has to go through to trigger this migration. It is evaluated using PEP 440. If no version is specified the migration will run on every update." / "when (optional): Specifies a condition that needs to hold for the task to run. By default, a migration will run in the after upgrade stage." 実行順は宣言順。v9.3.0 より前の形式(version/before/after)も警告付きで使える。'
+        adjudication:
+          verdict: corrected
+          reason: 原文 "When version is given they will only run when new version >= declared version > old version" と "Migrations will also only run when updating (not when copying for the 1st time)" は主張の条件を支える。ただし version は "(optional)" であり、"If no version is specified the migration will run on every update" とある。「版を持つ項目の列」「…ときだけ走る」は、版が任意であることを落としている。
+          date: 2026-11-05
+          originalText: _migrations は版を持つ項目の列で、新しい版が宣言した版以上で、古い版が宣言した版より小さいときだけ走る。初回の複製では走らない。
+          originalQuote: null
+      c2:
+        verdict: match
+        extractedValue: "If installed Copier < _min_copier_version, generation/update is aborted with an error. _commit is the template version (vcs_ref) stored automatically in the answers file, e.g. _commit: v1.0.0."
+        extractedQuote: Upon generating or updating a project, if the installed version of Copier is less than the required one, the generation will be aborted and an error will be shown to the user.
+        locator: min_copier_version / vcs_ref
+        note: '_commit について 原文: "When copying or updating from a Git-versioned template, indicate which template version to copy. This is stored automatically in the answers file, like this: _commit: v1.0.0" (vcs_ref 節)。メジャー版の差については 原文: "If Copier detects that there is a major version difference, it will warn you about possible incompatibilities." 書かれていないこと: _commit 自体の独立した節は無く、vcs_ref 節で回答ファイルへの保存形式として示されるのみ。'
+        adjudication:
+          verdict: corrected
+          reason: '原文 "if the installed version of Copier is less than the required one, the generation will be aborted and an error will be shown" は前半を支える。後半は "When copying or updating from a Git-versioned template ... This is stored automatically in the answers file, like this: _commit: v1.0.0" であり、Git で版管理されたテンプレートという条件が欠けている。保存されるのは「テンプレートの版」(タグ等)であり、「生成元のコミット」に限らない。要約: 「道具の最低の版を下回れば生成と更新を止める」は原文と一致する。'
+          date: 2026-11-05
+          originalText: _min_copier_version を下回る道具では、生成と更新を中止してエラーを出す。生成元のコミット _commit は回答ファイルへ自動で記録される。
+          originalQuote: null
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

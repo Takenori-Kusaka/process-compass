@@ -18,38 +18,66 @@ published: null
 publishedBasis: unknown
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 K3'
+  query: "#315 外部調査 K3"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH10
+themes: [TH10]
 events: []
-summary: GitHub Enterprise Cloud の組織のルールセットの作成。状態に Active・Evaluate(強制せず違反を観測する)・Disabled の3つを置く。#315 で、Evaluate の状態が Enterprise Cloud の文書にしか現れないことを確かめ、持ち込みの手順で Evaluate を前提にしない判断の根拠として引いた。
+summary: GitHub Enterprise Cloud の組織のルールセットの作成。状態に Active・Evaluate(強制せず違反を観測する)・Disabled の3つを置く。#315 で、Evaluate の状態が Enterprise Cloud の文書にしか現れないとして(#364 の照合で、無料版の文書 SRC-0668 のメタデータの制限の節にも現れることが分かった)、持ち込みの手順で Evaluate を前提にしない判断の根拠として引いた。
 claims:
-- id: c1
-  text: 組織のルールセットの状態は Active・Evaluate・Disabled の3つで、Evaluate は強制せずに Rule Insights で違反を観測する。
-  quote: null
-  locator: Creating a ruleset(Enforcement status)
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: qualifies
+  - id: c1
+    text: 組織のルールセットの状態は Active・Evaluate・Disabled の3つで、Evaluate は強制せずに Rule Insights で違反を観測する。
+    quote: |-
+      Active: your ruleset will be enforced upon creation.
+       Evaluate: your ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page.
+       Disabled: your ruleset will not be enforced or evaluated.
+    locator: Using ruleset enforcement statuses (GitHub Enterprise Cloud Docs, organization rulesets)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: qualifies
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。 Evaluate の状態は SRC-0668(無料版の文書)のメタデータの制限の節にも現れる。「Enterprise Cloud の文書にしか現れない」は原文と合わない(research/364-verification.md)
+  mech:
+    checkedAt: 2026-11-05T12:20:34.690Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization
+    contentType: text/html; charset=utf-8
+    titleFetched: Creating rulesets for repositories in your organization - GitHub Enterprise Cloud Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Active (enforced upon creation), Evaluate (not enforced; would-be violations monitored on Rule Insights page), Disabled (not enforced or evaluated). No per-status plan restriction stated on this page.
+        extractedQuote: |-
+          Active: your ruleset will be enforced upon creation.
+           Evaluate: your ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page.
+           Disabled: your ruleset will not be enforced or evaluated.
+        locator: Using ruleset enforcement statuses (GitHub Enterprise Cloud Docs, organization rulesets)
+        note: 'ページ自体は GitHub Enterprise Cloud Docs の組織ルールセットの頁(URL に enterprise-cloud@latest)。原文: "For customers on GitHub Team or GitHub Enterprise plans you can create rulesets in your organization"(組織ルールセット全体のプラン限定であり、Evaluate 個別のプラン限定ではない)。Evaluate を特定プランに限る記述はこの頁に無い。原文: "Using \"Evaluate\" mode is a great option for testing your ruleset without enforcing it." 既定の状態は Disabled("to change the default enforcement status, click Disabled and select an enforcement status")。'
+        adjudication:
+          verdict: consistent
+          reason: '原文の一覧 "Active: ... enforced upon creation" "Evaluate: your ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the \"Rule Insights\" page" "Disabled: ... not be enforced or evaluated" が3つの状態と Evaluate の性質を支える。機械比較の mismatch は「3つ」によるもの。要約: 「Evaluate の状態が Enterprise Cloud の文書にしか現れない」は、SRC-0668 の頁のメタデータの制限の節に Evaluate が現れることと食い違う。この頁には Evaluate をプランで限る記述も無い(プランの限定は組織のルールセット全体について "GitHub Team or GitHub Enterprise plans")。'
+          date: 2026-11-05
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

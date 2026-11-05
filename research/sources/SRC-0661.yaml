@@ -18,38 +18,62 @@ published: null
 publishedBasis: unknown
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 K1'
+  query: "#315 外部調査 K1"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH12
+themes: [TH12]
 events: []
 summary: Kubernetes の非推奨の方針。API の版の廃止に予告と提供の期間(猶予)を置き、版の間の往復で情報を失わないことを求める。#315 で、構成の形式の移行に猶予の期間を置く案の前例として引き、本標準では採らない判断の比較の対象にした。
 claims:
-- id: c1
-  text: beta の API は、廃止の予告から一定の期間(9 か月または3つのリリース)提供を続ける。同じリリースの中で API の版の間を情報を失わずに往復できなければならない。
-  quote: null
-  locator: Deprecating parts of the API
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: qualifies
+  - id: c1
+    text: beta の API の版は、非推奨化から 9 か月または3つのマイナーリリースの長い方を経ると、提供されなくなる。API のオブジェクトは、同じリリースの中で API の版の間を情報を失わずに往復できなければならない(一部の版に存在しない REST 資源の全体は除く)。
+    quote: Beta API versions are deprecated no more than 9 months or 3 minor releases after introduction (whichever is longer), and are no longer served 9 months or 3 minor releases after deprecation (whichever is longer)
+    locator: "Deprecating parts of the API, Rule #4a / Rule #2"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: qualifies
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。
+  mech:
+    checkedAt: 2026-11-05T12:20:34.434Z
+    httpStatus: 200
+    finalUrl: https://kubernetes.io/docs/reference/deprecation-policy/
+    contentType: text/html; charset=UTF-8
+    titleFetched: Kubernetes Deprecation Policy
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: Beta API versions are no longer served 9 months or 3 minor releases after deprecation (whichever is longer); API objects must round-trip between API versions in a given release without information loss (except whole REST resources absent in some versions).
+        extractedQuote: Beta API versions are deprecated no more than 9 months or 3 minor releases after introduction (whichever is longer), and are no longer served 9 months or 3 minor releases after deprecation (whichever is longer)
+        locator: "Deprecating parts of the API, Rule #4a / Rule #2"
+        note: '往復変換について 原文: "Rule #2: API objects must be able to round-trip between API versions in a given release without information loss, with the exception of whole REST resources that do not exist in some versions." 続けて 原文: "Additionally, any new field added in v2 must be able to round-trip to v1 and back, which means v1 might have to add an equivalent field or represent it as an annotation." 原文は『廃止後 9か月または3マイナーリリース(長い方)で提供されなくなる』と書いており、『少なくともそれだけ提供し続けねばならない』という最低保証の文言そのものではない点に注意。理由として 原文: "This ensures beta API support covers the maximum supported version skew of 2 releases"。'
+        adjudication:
+          verdict: corrected
+          reason: '原文 "are no longer served 9 months or 3 minor releases after deprecation (whichever is longer)" は提供の終わりを定める文であり、「提供を続ける」という最低保証の言い方とは向きが違う。"whichever is longer" も欠けている。往復は "with the exception of whole REST resources that do not exist in some versions" という例外が欠けている。要約: 「予告と提供の期間(猶予)を置き」は、原文の非推奨化後の提供終了の規則を言い換えたものである。'
+          date: 2026-11-05
+          originalText: beta の API は、廃止の予告から一定の期間(9 か月または3つのリリース)提供を続ける。同じリリースの中で API の版の間を情報を失わずに往復できなければならない。
+          originalQuote: null
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

@@ -2,7 +2,7 @@ schemaVersion: 0
 id: SRC-0663
 status: included
 excludeReason: null
-title: '[BUG]: Ruleset bypass_actors drift on every plan when the token cannot administer the ruleset (#3687)'
+title: "[BUG]: Ruleset bypass_actors drift on every plan when the token cannot administer the ruleset (#3687)"
 url: https://github.com/integrations/terraform-provider-github/issues/3687
 canonicalUrl: https://github.com/integrations/terraform-provider-github/issues/3687
 ids:
@@ -14,43 +14,66 @@ orgType: community
 region: global
 lang: en
 sourceType: repo
-published: '2026-10-19'
+published: 2026-10-19
 publishedBasis: page
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 K6'
+  query: "#315 外部調査 K6"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH07
-- TH10
+themes: [TH07, TH10]
 events: []
 summary: terraform-provider-github の Issue。読めるが管理できないトークンでは、ルールセットの応答から bypass_actors の鍵が欠落し(管理者には空の配列)、プロバイダが欠落と空を区別しないため差分が出続ける。#315 で、env-check がバイパスの主体の欠落を「権限不足で読めない」とし、空(主体なし)と区別する判断の根拠として引いた。
 claims:
-- id: c1
-  text: ルールセットを管理できないトークンでは、ルールセットの GET の応答から bypass_actors の鍵が欠落する。管理者のトークンでは空の配列が返る。
-  quote: null
-  locator: Issue 本文
-  quant: null
-  evidenceKind: case-report
-  rqs: []
-  issues:
-  - 315
-  stance: supports
+  - id: c1
+    text: 起票者の報告(再現手順つき)によれば、ルールセットを管理できない呼び出し元では、ルールセットの GET の応答から bypass_actors の鍵が欠落し、管理者の呼び出し元では空のときに空の配列が返る。メンテナによる API の挙動の独立の確認は無い。
+    quote: 'GitHub omits `bypass_actors` from `GET /repos/{owner}/{repo}/rulesets/{id}` when the caller cannot administer the ruleset. An admin caller gets `"bypass_actors": []` when the list is empty, so a missing key and an empty list mean different things.'
+    locator: Issue body, "Actual Behavior" (also "Steps to Reproduce")
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [315]
+    stance: supports
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: '登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。 加えて 2026-11-05 に #364 の照合者が gh api で観測した: 管理の権限の無い公開リポジトリ3件(integrations/terraform-provider-github・cli/cli・github/docs)のルールセット6件の GET で has("bypass_actors") はすべて false。所有者(admin)として読んだ Takenori-Kusaka/Filetto のルールセット records では "bypass_actors": [](空の配列)が返った。起票者の報告と一致する(research/364-verification.md)'
+  mech:
+    checkedAt: 2026-11-05T12:20:34.543Z
+    httpStatus: 200
+    finalUrl: https://github.com/integrations/terraform-provider-github/issues/3687
+    contentType: text/html; charset=utf-8
+    titleFetched: "[BUG]: Ruleset bypass_actors drift on every plan when the token cannot administer the ruleset · Issue #3687 · integrations/terraform-provider-github"
+    titleMatch: true
+    dateMeta: 2026-10-19
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: 'Non-admin caller: bypass_actors key omitted from GET /repos/{owner}/{repo}/rulesets/{id} response; admin caller: key present, "bypass_actors": [] when empty. Stated by the issue reporter (rriski), with reproduction steps; no maintainer confirmation of the API behavior.'
+        extractedQuote: 'GitHub omits `bypass_actors` from `GET /repos/{owner}/{repo}/rulesets/{id}` when the caller cannot administer the ruleset. An admin caller gets `"bypass_actors": []` when the list is empty, so a missing key and an empty list mean different things.'
+        locator: Issue body, "Actual Behavior" (also "Steps to Reproduce")
+        note: "原文: \"The API difference is visible with `gh api repos/<owner>/<repo>/rulesets/<id> --jq 'has(\"bypass_actors\")'`: `false` for a non-admin caller, `true` for an admin caller, including when the list is empty.\" 観察者は起票者 rriski(2026-10-19、本文の Actual Behavior と Steps to Reproduce に再現手順を記載。例として Administration write 権限のない GitHub App installation token)。メンテナ側のコメント(deiga, 2026-10-20)は \"This is not a bug, this is how Terraform is supposed to work.\" と \"We can't start breaking the Terraform contract just to work around a deficit in the GitHub API\" で、API の挙動そのものの独立な再現・確認は書かれていない(否定もしていない)。他はボットの定型コメントのみ。Issue は open。GitHub 公式の文書による裏付けは原文に無い。"
+        adjudication:
+          verdict: corrected
+          reason: '原文 "GitHub omits `bypass_actors` ... when the caller cannot administer the ruleset. An admin caller gets `\"bypass_actors\": []` when the list is empty" は内容を支える。ただし観察者は起票者 rriski だけで、メンテナのコメント "This is not a bug, this is how Terraform is supposed to work" は API の挙動を確認も否定もしていない。GitHub 公式の裏付けも無いため、事実としてではなく起票者の報告として書く必要がある。要約: 「プロバイダが欠落と空を区別しないため差分が出続ける」も起票者の主張であり、メンテナは不具合と認めていない。'
+          date: 2026-11-05
+          originalText: ルールセットを管理できないトークンでは、ルールセットの GET の応答から bypass_actors の鍵が欠落する。管理者のトークンでは空の配列が返る。
+          originalQuote: null
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

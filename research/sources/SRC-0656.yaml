@@ -18,39 +18,62 @@ published: 2025-04
 publishedBasis: page
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 T10'
+  query: "#315 外部調査 T10"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH07
-- TH10
+themes: [TH07, TH10]
 events: []
 summary: ESLint の一括の抑制。既存の違反を抑制のファイルに記録してコミットし、新しい違反だけを報告する。直した違反の記録が残ると失敗する。#315 で、既存の違反の基準線を置く型の前例として引き、本標準では閾値の緩和と機械で区別できないため採らない判断の材料にした。
 claims:
-- id: c1
-  text: --suppress-all で既存の違反を eslint-suppressions.json に記録してコミットし、新しい違反は通常どおり報告する。直した違反の記録が残ると非ゼロで終わる。
-  quote: null
-  locator: Bulk Suppressions
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: qualifies
+  - id: c1
+    text: --suppress-all は、"error" として有効にした規則の既存の違反をまとめて抑制し、プロジェクトの根に eslint-suppressions.json を作る。このファイルはコミットする。違反を直したのに抑制の記録が残っていると、ESLint は非ゼロで終わり、使われない抑制をエラーとして報告する(--pass-on-unpruned-suppressions で終了コードから外せる)。
+    quote: You can address any of the reported violations by making the necessary changes to the code as usual. If you run ESLint again you will notice that it exits with a non-zero exit code and an error is reported about unused suppressions. This is because the violations have been resolved but the suppressions are still in place.
+    locator: Bulk Suppressions > Resolving Suppressions
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: qualifies
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。
+  mech:
+    checkedAt: 2026-11-05T12:20:34.432Z
+    httpStatus: 200
+    finalUrl: https://eslint.org/docs/latest/use/suppressions
+    contentType: text/html; charset=UTF-8
+    titleFetched: Bulk Suppressions - ESLint - Pluggable JavaScript Linter
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: --suppress-all / --suppress-rule (only 'error' rules); creates eslint-suppressions.json at project root (commit it); suppressed violations not reported afterwards. If violations are fixed but suppressions remain, ESLint exits non-zero and reports unused suppressions; --prune-suppressions removes them; --pass-on-unpruned-suppressions ignores them for the exit code.
+        extractedQuote: You can address any of the reported violations by making the necessary changes to the code as usual. If you run ESLint again you will notice that it exits with a non-zero exit code and an error is reported about unused suppressions. This is because the violations have been resolved but the suppressions are still in place.
+        locator: Bulk Suppressions > Resolving Suppressions
+        note: '原文: "After you enable a rule as "error" in your configuration file, you can suppress all the existing violations at once by using the --suppress-all flag." / "This command will suppress all the existing violations of all the rules that are enabled as "error". Running the eslint command again will not report these violations." / "When you suppress violations, ESLint creates a eslint-suppressions.json file in the root of the project. This file contains the list of rules that have been suppressed. You should commit this file to the repository so that the suppressions are shared with all the developers." / "Only rules configured as "error" are suppressed." / "To ignore unused suppressions when calculating the exit code and not report an error about unused suppressions, you can use the --pass-on-unpruned-suppressions flag." 特定ルールは --suppress-rule、場所の変更は --suppressions-location。Node.js API は既存の抑制の適用のみ(作成・刈り込みは CLI のみ)。'
+        adjudication:
+          verdict: corrected
+          reason: 原文 "suppress all the existing violations of all the rules that are enabled as \"error\"" "You should commit this file" "exits with a non-zero exit code and an error is reported about unused suppressions" が大筋を支える。ただし "Only rules configured as \"error\" are suppressed" という限定が欠けている。「新しい違反は通常どおり報告する」は与えられた抜粋に無い。非ゼロの終了には --pass-on-unpruned-suppressions という例外がある。
+          date: 2026-11-05
+          originalText: --suppress-all で既存の違反を eslint-suppressions.json に記録してコミットし、新しい違反は通常どおり報告する。直した違反の記録が残ると非ゼロで終わる。
+          originalQuote: null
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

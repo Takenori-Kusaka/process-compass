@@ -18,49 +18,82 @@ published: null
 publishedBasis: unknown
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 K10'
+  query: "#315 外部調査 K10"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH06
-- TH10
+themes: [TH06, TH10]
 events: []
-summary: GitHub の CODEOWNERS の文書。.github/・ルート・docs/ の順に探して最初の1つだけを使い、不正な構文の行は飛ばす(誤りは API で取得できる)。#315 で、CODEOWNERS の置き場の重なりと雛形の所有者 @OWNER の残りが失敗ではなく無効化として現れることを、事前点検・契約検査・env-check で確かめる判断の根拠として引いた。
+summary: GitHub の CODEOWNERS の文書。.github/・ルート・docs/ の順に探して最初に見つけたものを使い(ほかを無視するとの明文は無い。#364)、不正な構文の行は飛ばす(誤りは API で取得できる)。#315 で、CODEOWNERS の置き場の重なりと雛形の所有者 @OWNER の残りが失敗ではなく無効化として現れることを、事前点検・契約検査・env-check で確かめる判断の根拠として引いた。
 claims:
-- id: c1
-  text: CODEOWNERS は .github/・ルート・docs/ の順に探され、最初に見つかった1つだけが使われる。
-  quote: null
-  locator: CODEOWNERS file location
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: supports
-- id: c2
-  text: 不正な構文の行は飛ばされ、誤りは画面で強調され、API で一覧を取得できる。
-  quote: null
-  locator: CODEOWNERS syntax
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: supports
+  - id: c1
+    text: CODEOWNERS は .github/・ルート・docs/ のいずれかに置く。複数の場所にあるとき、GitHub はこの順に探し、最初に見つけたものを使う。
+    quote: To use a CODEOWNERS file, create a new file called CODEOWNERS in the .github/, root, or docs/ directory of the repository, in the branch where you'd like to add the code owners. If CODEOWNERS files exist in more than one of those locations, GitHub will search for them in that order and use the first one it finds.
+    locator: CODEOWNERS file location
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: supports
+  - id: c2
+    text: 不正な構文の行は飛ばされ、誤りは画面で強調され、API で一覧を取得できる。
+    quote: If any line in your CODEOWNERS file contains invalid syntax, that line will be skipped. When you navigate to the CODEOWNERS file in your repository, you can see any errors highlighted. A list of errors in a repository's CODEOWNERS file is also accessible via the API.
+    locator: CODEOWNERS syntax
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: supports
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。 2026-11-05 に Takenori-Kusaka/pit-in-template の codeowners/errors API を引き、雛形の行 "* @OWNER" が kind "Unknown owner" の誤りとして返ることを観測した(research/364-verification.md)
+  mech:
+    checkedAt: 2026-11-05T12:20:34.668Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+    contentType: text/html; charset=utf-8
+    titleFetched: About code owners - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+      c2: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: .github/, root, or docs/ directory; searched in that order; the first one found is used.
+        extractedQuote: To use a CODEOWNERS file, create a new file called CODEOWNERS in the .github/, root, or docs/ directory of the repository, in the branch where you'd like to add the code owners. If CODEOWNERS files exist in more than one of those locations, GitHub will search for them in that order and use the first one it finds.
+        locator: CODEOWNERS file location
+        note: '原文: "Each CODEOWNERS file assigns the code owners for a single branch in the repository." / "For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request." 他の場所のファイルが無視される旨の明示的な語は無いが、「最初に見つけたものを使う」と書かれている。'
+        adjudication:
+          verdict: corrected
+          reason: '原文 "If CODEOWNERS files exist in more than one of those locations, GitHub will search for them in that order and use the first one it finds" は順序を支える。ただし「1つだけが使われる」(他は無視される)という排他は明示されていない。機械比較の mismatch は「1つ」によるもので、数値の誤りではない。要約: 「最初の1つだけを使い」も同じ言い過ぎ。'
+          date: 2026-11-05
+          originalText: CODEOWNERS は .github/・ルート・docs/ の順に探され、最初に見つかった1つだけが使われる。
+          originalQuote: null
+      c2:
+        verdict: match
+        extractedValue: Invalid lines are skipped; errors are highlighted when viewing the CODEOWNERS file in the repository UI, and a list of errors is accessible via the REST API.
+        extractedQuote: If any line in your CODEOWNERS file contains invalid syntax, that line will be skipped. When you navigate to the CODEOWNERS file in your repository, you can see any errors highlighted. A list of errors in a repository's CODEOWNERS file is also accessible via the API.
+        locator: CODEOWNERS syntax
+        note: "原文: \"For more information, see REST API endpoints for repositories.\"(具体的なエンドポイント名は原文テキストに無い)。関連: \"If you specify a user or team that doesn't exist or has insufficient access, a code owner will not be assigned.\" / 3 MB 超のファイルは \"will not be loaded\"。PR 上での警告やマージ阻止については書かれていない。"
+        adjudication:
+          verdict: consistent
+          reason: 原文 "that line will be skipped" "you can see any errors highlighted" "A list of errors ... is also accessible via the API" が主張をそのまま支える。
+          date: 2026-11-05
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

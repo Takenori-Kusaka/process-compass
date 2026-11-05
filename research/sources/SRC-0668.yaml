@@ -18,38 +18,68 @@ published: null
 publishedBasis: unknown
 version: null
 updated: null
-accessed: '2026-10-24'
+accessed: 2026-10-24
 access: open
 readLevel: section
 foundBy:
   cluster: I315
-  query: '#315 外部調査 K3'
+  query: "#315 外部調査 K3"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
-themes:
-- TH10
+themes: [TH10]
 events: []
-summary: GitHub(無料版の文書)のリポジトリのルールセットの作成。作成の手順の状態は Active と Disabled の2つで、Evaluate は現れない。#315 で、小規模の採用者に Evaluate での試行を求められない判断の根拠として引いた(明文の制限は見つけていない。推定)。
+summary: GitHub(無料版の文書)のリポジトリのルールセットの作成。状態の一覧は Active と Disabled の2つだが、同じ頁のメタデータの制限の節は Evaluate を選んで試すよう述べる(頁の内部の不整合)。#315 で、小規模の採用者に Evaluate での試行を求められない判断の根拠として引いた(登録時は「Evaluate は現れない」「明文の制限は見つけていない。推定」としていた。#364 の照合で、Evaluate はこの頁にも現れ、REST API の文書が "evaluate is only available with GitHub Enterprise" と明記していることが分かった)。
 claims:
-- id: c1
-  text: リポジトリのルールセットの作成の手順で選べる状態は Active と Disabled である。
-  quote: null
-  locator: Creating a branch or tag ruleset
-  quant: null
-  evidenceKind: vendor-guidance
-  rqs: []
-  issues:
-  - 315
-  stance: qualifies
+  - id: c1
+    text: リポジトリのルールセットの作成の頁で、状態の一覧に挙がるのは Active と Disabled である。ただし同じ頁のメタデータの制限の節は Evaluate の状態を選んで試すよう述べており、一覧と本文が食い違う。
+    quote: |-
+      You can select any of the following enforcement statuses for your ruleset.
+       Active: your ruleset will be enforced upon creation.
+       Disabled: your ruleset will not be enforced.
+    locator: Using ruleset enforcement statuses / Creating a branch or tag ruleset > Adding metadata restrictions
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [315]
+    stance: qualifies
 verification:
-  status: partial
-  method:
-  - agent-read
-  date: '2026-10-24'
+  status: verified
+  method: [agent-read, mech-fetch, agent-blind, agent-adjudication]
+  date: 2026-11-05
   humanChecked: false
-  note: 'Issue #315 の外部調査(research/315-deliberation/survey-315-2-external.md)で、調査役が WebFetch(要約モデル経由)で読んだ。原文の抜粋は取れていない(登録の作業の環境から外部へ出られなかった)。主張は調査メモの記述に依る。目隠し抽出は未実施'
-  mech: null
-  agent: null
+  note: 登録時(#315)は調査役が WebFetch(要約モデル経由)で読み、原文の抜粋が無かった。#364(2026-11-05)で原文を取得し(HTML は本文を抽出、PDF は pdftotext、GitHub の Issue と README は gh api)、主張を見せない目隠し抽出で quote を逐語で取り、裁定役が主張を原文と突き合わせた(corrected は原文に沿って主張を書き直した。旧文は agent.claims.*.adjudication.originalText)。記録は research/364-verification.md。 状態の一覧は Active と Disabled だが、同じ頁のメタデータの制限の節が Evaluate を選ぶよう述べている(頁の内部の不整合)。REST API の文書(docs.github.com/en/rest/repos/rules)は "evaluate is only available with GitHub Enterprise" と明記している(台帳には未登録。research/364-verification.md)
+  mech:
+    checkedAt: 2026-11-05T12:20:34.748Z
+    httpStatus: 200
+    finalUrl: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository
+    contentType: text/html; charset=utf-8
+    titleFetched: Creating rulesets for a repository - GitHub Docs
+    titleMatch: true
+    dateMeta: null
+    quotes:
+      c1: found
+    arxiv: null
+    crossref: null
+    fullText: null
+    note: ""
+  agent:
+    claims:
+      c1:
+        verdict: match
+        extractedValue: The status list names only Active and Disabled. Evaluate is mentioned once, in the metadata restrictions section, with no plan restriction stated.
+        extractedQuote: |-
+          You can select any of the following enforcement statuses for your ruleset.
+           Active: your ruleset will be enforced upon creation.
+           Disabled: your ruleset will not be enforced.
+        locator: Using ruleset enforcement statuses / Creating a branch or tag ruleset > Adding metadata restrictions
+        note: '原文(Adding metadata restrictions): "Optionally, before enacting your ruleset with metadata restrictions, select the \"Evaluate\" enforcement status for your ruleset to test the effects of any metadata restrictions without impacting contributors." この頁では Evaluate に制限(プラン等)を付す記述は無く、一覧にも含まれていない(一覧と本文で不整合)。作成手順の該当行: "Optionally, to change the default enforcement status, click Disabled and select an enforcement status." 頁冒頭のプラン記述はルールセット全体について: "Rulesets are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, and GitHub Enterprise Cloud."'
+        adjudication:
+          verdict: corrected
+          reason: '原文の一覧 "You can select any of the following enforcement statuses ... Active ... Disabled" は2つだけを挙げる。一方、同じ頁の "select the \"Evaluate\" enforcement status for your ruleset to test the effects of any metadata restrictions" は、作成の手順で Evaluate を選べることを示す。「選べる状態は Active と Disabled である」と言い切ると、本文の記述と食い違う。要約: 「Evaluate は現れない」は誤り(メタデータの制限の節に現れる)。Evaluate をプランで限る記述もこの頁に無い。'
+          date: 2026-11-05
+          originalText: リポジトリのルールセットの作成の手順で選べる状態は Active と Disabled である。
+          originalQuote: null
+    date: 2026-11-05
 volatility: medium
 reviewBy: 2027-04

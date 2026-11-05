@@ -24,6 +24,7 @@
 | 2025-08-26 | 東京海上日動システムズが金融業界初の AI-DLC Unicorn Gym を実施(〜08-27) | Amazon Web Services ブログ | [SRC-0626] |
 | 2025-09-01 | AI 法を全面施行(人工知能基本計画・人工知能戦略本部の規定) | e-Gov 法令検索(デジタル庁) | [SRC-0619] |
 | 2025-09-23 | DORA 2025 レポート(State of AI-assisted Software Development)公表 | Google Cloud Blog (DORA) | [SRC-0218] |
+| 2025-10-01 | 全部改正(令和7年法律第41号による下請代金支払遅延等防止法の改正に伴う。施行は 2026-01-01) | 公正取引委員会 | [SRC-0724] |
 | 2025-10-16 | Anthropic が Agent Skills を発表 | Anthropic | [SRC-0353] |
 | 2025-11 | Kiro 一般提供(GA)。Kiro CLI、property-based testing、checkpointing | Kiro(AWS) | [SRC-0049] |
 | 2025-11-13 | リポジトリ作成 | AWS Labs(GitHub) | [SRC-0051] |
@@ -271,6 +272,7 @@
 | 2026-09-23 | cc-sdd v3.1.0 公開 | GitHub (gotalab) | [SRC-0361] |
 | 2026-09-23 | OpenSpec v1.13.2 公開(/opsx:verify が未実施の検査を合格と報告しなくなった) | Fission AI (OpenSpec) | [SRC-0604] |
 | 2026-09-29 | in-toto/attestation に AI Change Review predicate の追加 PR(#603)が提出された(未マージ) | in-toto Attestation Framework (GitHub pull request) | [SRC-0618] |
+| 2026-10-01 | 改正(知的財産取引に関する指針の内容を反映。掲載ページの記載による) | 公正取引委員会 | [SRC-0724] |
 | 2026-11-12 | OpenAI モデルの Cursor への提供終了の提案日(将来モデルは提供しない) | OpenAI | [SRC-0293] |
 | 2027-12-02 | Annex III 高リスク系への第14条適用開始(Omnibus 後) | Regulation (EU) 2024/1689 (AI Act Explorer, Future of Life Institute) | [SRC-0087] |
 | 2027-12-02 | 高リスク AI システムの規則の適用日(延期後) | European Commission (Shaping Europe's digital future) | [SRC-0299] |
