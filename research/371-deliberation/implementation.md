@@ -103,6 +103,29 @@
 - **check run と commit status**: AI レビューの結果を状態として出す場合も、commit status は PR の側から上書きできる(実機の確認 E-4)。必須にしない既存の扱いを保つ
 - **承認の要求**: AI レビューの指示や `ai-review.yml` を変える PR は統制の設定の変更であり、AI維持管理者が本人のアカウントで出す承認のレビューを要する(`.claude/**` は `.claude/settings.json`・`guard.json`・`hooks/**` だけが CONTROL_FILES。指示の置き場を CONTROL_FILES に足すかは #369 で決める)
 
+## 3b. 実装の判断への裁定(J-3・J-5・J-7・J-8)と独立の突合への裁定(C-1〜C-11)への対応
+
+入力: `decision.md` の末尾の2つの裁定、`crosscheck.md`、実装した版の実機の確認 `probe-371b.md`(F-1a〜F-5)。本体は 43e375c の上に積んだ。
+
+| 裁定 | 対応 | 変えたファイル |
+| --- | --- | --- |
+| C-1・J-7 | 実機で確かめた部分だけを delivered にした。IMPL-0455(gate-g5-base の基底での実行と check run が上書きされないこと。F-1a・F-1b・F-4)、IMPL-0456(承認のレビューが無いとき・本文の記名だけのとき・意見のレビューのときに落ちること。F-2・F-4)、IMPL-0459(record-copy の closed 契機。F-3)。IMPL-0456 の note は、確認用のワークフローの E-4 と実装した版の F-2・F-4 を分けて書いた。別のアカウントの承認で通ること、承認の後の push での失効、1名の体制で本人の意見のレビューで通ること(F-5 の後に変えた振る舞い)は IMPL-0460(undelivered)に入れた | `gate-criteria.md` |
+| C-2・J-5 | 規定を取り込む前かを、基底ブランチの第1親の連鎖で `gate-g5-base.yml` を初めて足したコミット(`controlRuleBoundary`)と、変更のマージのコミットの前後で決めるようにした。日付の定数 `CONTROL_APPROVAL_REQUIRED_SINCE` を外した。連鎖に無いコミット・浅い取得は規定の後(欠落の側)。境が無い構成はすべて規定の前。試験で、日付を偽った後のコミットが規定の後になることを固定した | `aggregate-evidence.mjs`、`material-attribution.mjs`、`test-control-approval.mjs`、`gate-criteria.md`(欠落の表・IMPL-0457)、ADR-0115 |
+| C-3・J-8 | IMPL-0340・IMPL-0460 の `issue=` を 361 へ。`impl-inventory.yaml` の `issue: 371` はマークを付けた Issue の記録であり、計画の Issue ではないため残した | `gate-criteria.md`、`tailoring-guide.md` |
+| C-4 | PR の時点の判定と集約が同じ関数 `controlTouchedBetween`(名前の変更の元、変更の前の版のアダプタの thresholdFiles、process.config.json の閾値の鍵)で範囲を決めるようにした。2つの範囲の一致を試験で固定した | `check-pr.mjs`、`aggregate-evidence.mjs`、`test-control-approval.mjs` |
+| C-5 | 保証の開示の層の行を、出荷の時点の既定ブランチの `gate-g5-base.yml` の定義から導く(`baseJudgeLayers`。4層それぞれ満たす / 満たさない。ファイルが無ければ4層とも未達)。定義の読み方を `base-judge.mjs` へ切り出し、静的な試験・env-check・集約で共有した | `base-judge.mjs`(新設)、`test-base-judge-workflow.mjs`、`aggregate-evidence.mjs`、`impl-untraced.yaml`、IMPL-0461 |
+| C-6 | 1名の体制の自己申告は、席の責任者本人のアカウントの PR の先頭へのレビュー(意見のレビューを含む)を数値の識別子で照らして成立させる。本文の記名・作成の事実だけでは通さない(F-5 の経路を塞いだ)。PR の時点の判定と集約の両方の試験で固定した。名義を共有する構成では、その操作が AI のものでありうることを注記と開示に出す | `material-attribution.mjs`、`test-control-approval.mjs`、`gate-criteria.md`、ADR-0115 決定5、ワークフローの冒頭 |
+| C-7 | checkout は変えず(F-1a で確かめた形を保つ)、判定に使った定義(`GITHUB_SHA`)とスクリプト(checkout した先端)の版をジョブの要約に出し、違えば警告する手順を足した。限界を ADR の影響に書いた | `gate-g5-base.yml`、ADR-0115 |
+| C-8 | 承認の取り下げ・変更要求が gate-g5-base を起動しない限界と、集約が事後に検出することを、ワークフローの冒頭と ADR の影響に書いた | `gate-g5-base.yml`、ADR-0115 |
+| C-9 | env-check の「満たす」に、定義の中身(静的な試験と同じ観点)の確認を足した。PR の先頭を checkout する定義は「満たさない」。IMPL-0458 の note に、実際の振る舞いを確かめないことを書いた | `adoption-trial.mjs`、`test-env-check.mjs`、`gate-criteria.md` |
+| C-10 | 専用の App の鍵の却下を「採らなかった案」から外し、「決定の外」の節に書いた | ADR-0115 |
+| C-11 | 準拠テンプレートの main への直接の push が所有者の作業の指示にもとづき、採用者のリポジトリの承認の手続と別であることを状態の節に書いた | ADR-0115 |
+| F-3 | マージした PR が書き換えた写しの手順がその PR 自身の写しに使われる経路を、残る経路として標準(判定のコードの読み元の箇条、G-7 の項目1 の箇条)・ADR(決定7)・保証の開示の項目1 の定型の文に書いた | `gate-criteria.md`、ADR-0115、`aggregate-evidence.mjs` |
+
+- 新しい裁定に無い判断: K-1 IMPL-0457(集約)・IMPL-0458(env-check)・IMPL-0461(開示の行)は delivered のままにした。実機の確認(probe-371b)は集約と env-check を動かしていない。集約は記録用ブランチの写しとホスティングの記録を読む既存の経路の上の照合で、env-check は既存の項目と同じ API を読む。依頼の「実機で確かめた部分だけを delivered」の列挙に入っていないため、報告する。K-2 C-7 は `ref: ${{ github.sha }}` へ替えなかった。替えると F-1a・F-3 で確かめた checkout の形が変わり、実機で確かめていない版になるため
+- 試験: test-control-approval.mjs 40 件、test-base-judge-workflow.mjs 25 件、test-env-check.mjs に1場面
+- 試験の結果: テンプレートの試験一式(Windows)は test-g5-aggregate.mjs(CRLF による既知の失敗)を除いて通過。WSL で test-env-check.mjs(63 件)・test-g5-aggregate.mjs(23 件)・test-control-approval.mjs(40 件。TZ=UTC でも通過)・test-base-judge-workflow.mjs(25 件)は通過。回帰スイート(WSL、--kb keep)は通常の時刻帯と TZ=UTC の両方で全本が通過(WSL の作業の場所が消えていたため作り直した)。npm run check の各段(test:template-suite と test:regress を除き Windows で個別に実行)、lint:text・lint:provisions・build はすべて通過
+
 ## 4. 本件で直さず申し送ること(裁定の外)
 
 - **委任のマージと必須の検査**: 委任の判定(`check-delegation.mjs`)は、PR の先頭の check run を名前で読み、`gate-g5` の通過を見る。`gate-g5` は PR の側の定義で作られる(起案の委員 R-2 理由4)。委任のマージのトークン(`DELEGATED_MERGE_TOKEN`。必須の承認を回避できる権限)が、必須の検査 `gate-g5-base` の失敗も回避してマージできるかは確かめていない。統制の設定を変える変更が委任の範囲(R3 の登録した変更種別)に入らないことは、規則の登録の側に依る。後継で、委任の判定が `gate-g5-base` の成功を条件に読むかを決める
