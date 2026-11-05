@@ -148,6 +148,20 @@ const t7b6 = change({ kind: 'mode', date: DAY, summary: '新しい AI維持管�
 accepted('t7b-6 新任の AI維持管理者が ruleApprovedBy だけで承認し直す(規則を消さない)', t7b6, '[委任を有効化]');
 check('K61 委任へ戻る。向き loosen、決定者は宣言時の者(佐藤)', seat('dev-verifier').mode === 'delegated' && last().direction === 'loosen' && last().decidedBy === '佐藤 花子' && cfg().delegation.rules[0].approvedBy === '田中 三郎', JSON.stringify(last()));
 check('契約検査(承認し直し)', contract().ok, contract().out);
+// #376 突合 F-3: 委任の席に規則を足し(承認待ち)、承認だけの変化点で有効にすると、向きは緩める。差分の承認の行を緩める行として記録する
+resetTo('s5');
+accepted(
+  '委任の席に規則を足す(承認待ち。佐藤の記名)',
+  change({ kind: 'mode', date: DAY, summary: '規則を足す', delegation: { rules: [RULE, { ...RULE, id: 'DR-002', paths: ['src/help/**'] }] }, decidedBy: '佐藤 花子', reason: '文言の追加' })
+);
+accepted('承認だけの変化点で、足した規則を有効にする', change({ kind: 'mode', date: DAY, summary: '規則を承認する', ruleApprovedBy: '佐藤 花子' }));
+check(
+  '承認だけの変化点: 向きは緩める。承認の行の種類は緩める(行ごとの種類が向きと食い違わない)',
+  last().direction === 'loosen' && last().rowKinds?.length === last().diff.length && last().rowKinds[last().diff.findIndex((l) => l.startsWith('委任の規則 DR-002: AI維持管理者の承認 '))] === 'loosen',
+  JSON.stringify({ direction: last().direction, diff: last().diff, rowKinds: last().rowKinds }),
+  { fixes: ['ADR-0110 決定3', '標準 3.13.4'] }
+);
+check('契約検査(規則の承認だけの変化点)', contract().ok, contract().out);
 check('D-0 の検査(承認し直し)', checkD0().ok, checkD0().out);
 resetTo('s5');
 accepted('交代と承認し直しを1つの入力で(t7c 相当)', change({ kind: 'accountable', date: DAY, summary: 'AI維持管理者を田中へ', seats: { 'ai-maintainer': { accountable: 'e' } }, decidedBy: '山田 太郎', reason: '佐藤の負荷', ruleApprovedBy: '田中 三郎' }));
