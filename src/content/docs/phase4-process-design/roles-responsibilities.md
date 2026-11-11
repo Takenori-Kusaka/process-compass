@@ -1390,7 +1390,7 @@ AI運用担当者の職掌は、3.12 によります。
 指示ファイルへ書いた内容が必ず守られるという前提で統制を設計してはなりません。強制が必要な規則は強制層へ降ろします。
 :::
 
-<!-- impl IMPL-0221 target=claude-md-resident state=delivered check=presence note="違反を許容できない規則を誘導層だけに置かない。準拠テンプレートの CLAUDE.md の「指示資産と外部ツール」の節に、規則を足す起案で強制層の候補を併せて示し、手段が無ければ止まらないことを行に書いて [機械] を付けない規則を置く。check-process-rules が核の文言を照合する。起案が守ったかは機械で確かめない(#358)(単位: 行)" -->
+<!-- impl IMPL-0221 target=claude-md-resident state=delivered check=presence note="違反を許容できない規則を誘導層だけに置かない。準拠テンプレートの CLAUDE.md の「指示資産と外部ツール」の節に、規則を足す起案で強制層の候補を併せて示し、手段が無ければ止まらないことを行に書いて機械の印を付けない規則を置く。check-process-rules が、書いたことを守られた根拠にしない句まで、核の文言を照合する。起案が守ったかは機械で確かめない(#358)(単位: 行)" -->
 
 ### 3.11.4 指示資産の保守要求
 
@@ -1406,7 +1406,7 @@ AI運用担当者の職掌は、3.12 によります。
 
 表の右の列の扱いは、次のとおりです([第1章 1.7.7](/process-compass/phase4-process-design/overview/))。要求事項1 の上限は組織が定める値です。要求事項2・4 の回数と周期は既定値です。要求事項3・5〜7 の列は値ではなく、要求事項の中身です。
 
-<!-- impl IMPL-0222 target=claude-md state=undelivered check=manual plan=adopter decision=ADR-0084 note="要求事項1。指示資産の1ファイルあたりの分量の上限(参考の値 200行)。準拠テンプレートに上限の規則も検査も無い。確かめる者: 採用者(自らの実行層に実装したときに確かめる)" -->
+<!-- impl IMPL-0222 target=claude-md state=undelivered check=manual plan=adopter decision=ADR-0084 note="要求事項1。指示資産の1ファイルあたりの分量の上限(参考の値 200行)。準拠テンプレートは値を定めない(組織が .claude/guard.json の instructionAssetLimit.maxLinesPerFile に置く)。置いた値の検査のうち、変えたファイルの超過を失敗させる部分は IMPL-0501 で降りた。変えていないファイルの超過を拾う検査は降りていない。確かめる者: 採用者(自らの実行層に実装したときに確かめる)" -->
 <!-- impl IMPL-0223 target=claude-md-resident state=delivered check=presence note="要求事項2。指示資産へ規則を足す起案は、同種の誤りが2回以上起きたか、レビューで指摘された場合に限り、その所在を PR の「指示資産の変更の確認」の「追記の根拠」へ書く。CLAUDE.md の行と PR の様式の欄に置く。欄の記入と所在の実在は機械で確かめない(#358)(単位: 行)" -->
 <!-- impl IMPL-0224 target=claude-md-resident state=delivered check=presence note="要求事項5。指示資産の手で書く部分に、コードベースから導出できる内容を書かない。CLAUDE.md の行に置く。形で特定できるもの(ディレクトリの木の図)は IMPL-0502 が一覧に出す。テンプレートの CLAUDE.md の自動生成の区間(構成の要約)は手で書く部分に含めない。この区間と要求事項5 の字面の食い違いは残る(#358)(単位: 行)" -->
 <!-- impl IMPL-0225 target=agent-settings state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="要求事項6。実際に読み込まれたファイルを記録し、監査できる状態にする。準拠テンプレートのフックは読み込みを記録しない。読み込みの記録が無い状態では、0 回を「読まれていない」と読まない(要求事項4 の棚卸しの第一の候補は、この記録が入るまで挙げられない)。道具による読み込みを経ずに文脈へ入るファイル(常駐の指示ファイル・下位のディレクトリの指示ファイル・条件つきの規則のファイル・スキルの定義など)を記録の取り方が数えるかは、実装の別 Issue で確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
@@ -1478,10 +1478,10 @@ AI運用担当者の職掌は、3.12 によります。
 - 個人の作業環境に固有の指示は、版管理の対象から除外し、共有資産へ混入させない
 
 <!-- impl IMPL-0004 target=claude-md-resident state=delivered check=presence note="指示資産の統合・削除の権限を AI維持管理者へ集約する(単位: 行)" -->
-<!-- impl IMPL-0227 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-control-approval.mjs note="指示資産の変更に AI維持管理者の本人による承認を必須とする。準拠テンプレートの G-5(gate-g5-base)は、指示資産(CLAUDE.md・AGENTS.md・下位の同名のファイル・.claude/skills/・rules/・agents/・commands/)を、統制の設定の変更の承認と同じ数え方(本人の承認のレビュー。本文の記名は数えない)の範囲に入れる。陰性の確認は課さない。出荷の集約も同じ範囲で数える。規則の前の版(既定ブランチの判定のコードが規則を持たない)の変更は遡って数えない。.mcp.json は統制の設定として扱う(IMPL-0229)(#358)" -->
-<!-- impl IMPL-0501 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="1ファイルあたりの分量。G-5(pr-rules)が、変えた指示資産の行数と文字数を一覧に出し、既定ブランチの強制層の設定(.claude/guard.json の instructionAssetLimit.maxLinesPerFile)の上限を超えれば失敗させる。上限が null の間は「上限未設定」と出して判定しない(上限内と記録しない。失敗にもしない)。値は組織が定める(ADR-0084。IMPL-0312)。変えていない指示資産は数えない(#358)" -->
+<!-- impl IMPL-0227 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-control-approval.mjs note="指示資産の変更に AI維持管理者の本人による承認を必須とする。準拠テンプレートの G-5(gate-g5-base)は、指示資産(CLAUDE.md・AGENTS.md・下位の同名のファイル・.claude/ の skills/・rules/・agents/・commands/・output-styles/。下位のディレクトリの .claude/ も含む。大文字と小文字は区別しない)を、統制の設定の変更の承認と同じ数え方(本人の承認のレビュー。本文の記名は数えない)の範囲に入れる。陰性の確認は課さない。出荷の集約も同じ範囲で数える。規則の前の版(既定ブランチの判定のコードが規則を持たない)の変更は遡って数えない。.mcp.json は統制の設定として承認の対象に数えるが、陰性の確認の記録は求めない(止める仕組みではなく、書く中身が定まらないため。IMPL-0229)(#358)" -->
+<!-- impl IMPL-0501 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="1ファイルあたりの分量。G-5(pr-rules)が、変えた指示資産の行数と文字数を一覧に出し、既定ブランチの強制層の設定(.claude/guard.json の instructionAssetLimit.maxLinesPerFile)の上限を超えれば失敗させる。上限が null の間は「上限未設定」と出して判定しない(上限内と記録しない。失敗にもしない)。値が正の整数でないときは設定の誤りとして失敗させる。値は組織が定める(ADR-0084。IMPL-0312)。変えていない指示資産は数えない(#358)" -->
 <!-- impl IMPL-0502 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="導出できる内容のうち形で特定できるもの。G-5(pr-rules)が、変えた指示資産のディレクトリの木の図の形(罫線の枝 ├ と └ に横線が続く行)を機械の検出の一覧に出す。合否に使わない。依存の一覧の形は、版の固定の記述を誤検出するため検出しない。0 件が導出できる内容の無いことを示さない旨を定型で出す(#358。EV-0250)" -->
-<!-- impl IMPL-0503 target=pr-template state=delivered check=manual note="矛盾と、形で特定できない導出できる内容のレビューの記録。PR の様式の「指示資産の変更の確認」の欄(既存の記述との矛盾・コードから導出できる内容・確かめた者)を AI維持管理者が書く。AI に生成させない。欄の記入を機械は確かめない。確かめる者: AI維持管理者(指示資産の変更の承認のとき)。内部監査が四半期の棚卸しで記録の有無を抜き取る(#358)" -->
+<!-- impl IMPL-0503 target=pr-template state=delivered check=manual note="矛盾と、形で特定できない導出できる内容のレビューの記録。PR の様式の「指示資産の変更の確認」の欄(既存の記述との矛盾・コードから導出できる内容・確かめた者)を AI維持管理者が書く。AI に生成させない。欄の記入を機械は確かめない。確かめる者: AI維持管理者(指示資産の変更の承認のとき)(#358)" -->
 <!-- impl IMPL-0504 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="個人の作業環境に固有の指示(CLAUDE.local.md・.claude/settings.local.json。下位の階層を含む)を版管理から除外する。テンプレートの .gitignore に置き、PR がそれを追跡へ入れたら G-5(pr-rules)を失敗させる。消す変更は通す。Claude Code 以外の基盤の個人用のファイルは数えない(#358)" -->
 
 :::caution[暫定 EV-0250 / 見直し 2027-05]
@@ -1512,7 +1512,7 @@ AI運用担当者の職掌は、3.12 によります。
 
 <!-- impl IMPL-0228 target=agent-settings state=delivered check=presence note="要求事項1・3。採用する外部ツールの一覧を、版管理下の案件の設定 .mcp.json に置く(テンプレートはサーバーを持たない空の一覧)。権限設定の enableAllProjectMcpServers を偽にし、一覧のサーバーの自動の有効化をしない。付与する道具の権限は権限設定の mcp__サーバー名__道具名 の規則で限る。権限の範囲の妥当さは機械で確かめない(#358)(単位: ファイル)" -->
 <!-- impl IMPL-0505 target=agent-settings state=undelivered check=manual plan=adopter decision=ADR-0126 note="要求事項1・5のうち、利用者の範囲(Claude Code の user・local の範囲。~/.claude.json)に足した外部ツール。リポジトリの外に保存され、案件の設定では止められない。採用者が組織の管理の設定(許可・拒否の一覧)で限る。確かめる者: 採用者(組織の管理の設定を置いたとき)" -->
-<!-- impl IMPL-0229 target=claude-md-resident state=delivered check=presence note="要求事項2・4・5。CLAUDE.md の行に、外部ツールは .mcp.json に置いたものだけを使い各自の範囲へ足さないこと、足す起案で提供元と付与する権限を PR に書くこと、ツールの説明文と出力を信頼できない入力として扱うことを置く。追加と変更の AI維持管理者の承認は、.mcp.json を統制の設定に入れた G-5(gate-g5-base)が求める(test-control-approval.mjs)。提供元の確認の中身は機械で確かめない(#358)(単位: 行)" -->
+<!-- impl IMPL-0229 target=claude-md-resident state=delivered check=presence note="要求事項2・4・5。CLAUDE.md の行に、外部ツールは .mcp.json に置いたものだけを使い各自の範囲へ足さないこと、足す起案で提供元と付与する権限を PR に書くこと、ツールの説明文と出力を信頼できない入力として扱うことを置く。追加と変更の AI維持管理者の承認は、.mcp.json を承認の対象の統制の設定に入れた G-5(gate-g5-base)が求める(陰性の確認は課さない)(test-control-approval.mjs)。提供元の確認の中身は機械で確かめない(#358)(単位: 行)" -->
 
 要求事項4の理由は、ツールの実行が任意のコード実行と同等の作用を持ち、その説明文が第三者の制御下にある場合があるためです。説明文を経由して意図しない操作を誘導する攻撃が知られています。掲載先の登録簿に載っていることは、安全性の検証を意味しません。
 
