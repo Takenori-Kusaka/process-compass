@@ -543,6 +543,7 @@ sections:
       - IMPL-0425
       - IMPL-0426
       - IMPL-0441
+      - IMPL-0480
   - key: phase4-process-design/gate-criteria#判定の成立 > 機械が出す欄と人が書く欄
     status: marked
     ids:
