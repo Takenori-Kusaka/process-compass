@@ -1,6 +1,6 @@
 // 除外の印と、異表記の登録の判定(#438 / ADR-0118)
 //
-// scripts/check-tone.mjs(tone-ok)と scripts/check-provisions.mjs(provision-ok・retired-ok・variant-ok、
+// scripts/check-tone.mjs(tone-ok)、scripts/check-section-refs.mjs(ref-ok)と scripts/check-provisions.mjs(provision-ok・retired-ok・variant-ok、
 // 異表記の区画 variantForms)が使う。試験は scripts/test-provisions.mjs(npm run test:provisions)。
 
 /** 行の印 `name: 理由` の理由を返す。印が無ければ null。理由は HTML コメントの閉じ(-->)の前まで */
@@ -9,14 +9,23 @@ export function markReason(line, name) {
   return m ? m[1] : null;
 }
 
-/** 理由のある印か。理由の無い印(`<!-- retired-ok: -->` など)は無効とする */
-export const hasMark = (line, name) => Boolean(markReason(line, name));
+/** 理由として数えるか。文字(仮名・漢字・英字)か数字を1つ以上含むこと。`-` などの記号だけの理由は数えない(#438 突合 X-1) */
+export const isReason = (text) => typeof text === 'string' && /[\p{L}\p{N}]/u.test(text);
 
-/** 行末の `<!-- tone-ok: 理由 -->`。HTML コメントの中に書いた印だけを数える */
-export function hasToneOk(line) {
-  const m = /<!--\s*tone-ok\s*:\s*(.*?)\s*(?:-->|$)/.exec(line);
-  return Boolean(m && m[1]);
+/** 理由のある印か。理由の無い印(`<!-- retired-ok: -->`、`<!-- retired-ok: - -->` など)は無効とする */
+export const hasMark = (line, name) => isReason(markReason(line, name));
+
+/** HTML コメントの中に書いた印 `<!-- name: 理由 -->` だけを数える(tone-ok・ref-ok) */
+export function hasCommentMark(line, name) {
+  const m = new RegExp(`<!--\\s*${name}\\s*:\\s*(.*?)\\s*(?:-->|$)`).exec(line);
+  return Boolean(m && isReason(m[1]));
 }
+
+/** 行末の `<!-- tone-ok: 理由 -->` */
+export const hasToneOk = (line) => hasCommentMark(line, 'tone-ok');
+
+/** 行の `<!-- ref-ok: 理由 -->`(lint:refs。#438 突合 X-2) */
+export const hasRefOk = (line) => hasCommentMark(line, 'ref-ok');
 
 /** 異表記の正規表現を作る。書けない登録は Error を投げる */
 export const variantRegExp = (entry) => new RegExp(entry.variant, 'g');

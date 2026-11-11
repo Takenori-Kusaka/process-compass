@@ -8,7 +8,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { hasMark, hasToneOk, markReason, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
+import { hasMark, hasToneOk, hasRefOk, markReason, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -28,6 +28,9 @@ check('理由の無い retired-ok(HTML コメント)は除外しない。閉じ�
 check('理由の無い retired-ok(行末のコメント)は除外しない', !hasMark('x # retired-ok:', 'retired-ok'));
 check('理由の無い provision-ok は除外しない', !hasMark('| 可 | <!-- provision-ok: -->', 'provision-ok'));
 check('理由の無い variant-ok は除外しない', !hasMark('x <!-- variant-ok: -->', 'variant-ok'));
+check('理由の無い ref-ok は除外しない(突合 X-2)', !hasRefOk('第4章 9.9 <!-- ref-ok: -->'));
+check('理由が - の1字の印は除外しない(突合 X-1)', !hasMark('統合 <!-- retired-ok: - -->', 'retired-ok') && !hasToneOk('めっちゃ <!-- tone-ok: - -->') && !hasMark('| 可 | <!-- provision-ok: - -->', 'provision-ok') && !hasRefOk('x <!-- ref-ok: - -->'));
+check('ハイフン3つの閉じ(--->)を理由に数えない(突合 X-1)', !hasMark('統合 <!-- retired-ok: --->', 'retired-ok'));
 
 // --- 除外の印: 理由のある印は有効(適合) ---
 check('理由のある tone-ok は除外する', hasToneOk('めっちゃ <!-- tone-ok: 引用 -->'));
@@ -36,6 +39,8 @@ check('理由のある retired-ok(YAML のコメント)は除外する', hasMark
 check('理由のある provision-ok は除外する', hasMark('| 可 | <!-- provision-ok: 規定の強さではない -->', 'provision-ok'));
 check('理由は閉じの前までを取る', markReason('a <!-- retired-ok: 経緯 --> b', 'retired-ok') === '経緯');
 check('HTML コメントの外の tone-ok は数えない', !hasToneOk('めっちゃ tone-ok: 引用'));
+check('理由のある ref-ok は除外する', hasRefOk('ISO 9001:2015 の 9.2 <!-- ref-ok: 外部の規格の箇条 -->'));
+check('英数字だけの理由も理由に数える', hasMark('x # retired-ok: ADR-0027', 'retired-ok'));
 
 // --- 異表記の登録の自己試験の仕組み ---
 const good = { variant: 'ピット[・ ]イン', correct: 'ピットイン', by: 'ADR-0027', specs: { hit: ['ピット・イン方式'], miss: ['ピットイン方式'] } };

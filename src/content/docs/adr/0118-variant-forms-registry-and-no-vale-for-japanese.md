@@ -51,11 +51,15 @@ sidebar:
 
 ### 3. 除外の印の理由を、検査が確かめる
 
-`tone-ok`・`provision-ok`・`retired-ok`・`variant-ok` の印は、理由が空のとき無効とします。HTML コメントの閉じ(`-->`)は理由に数えません。判定を `scripts/lib/exempt-marks.mjs` へまとめ、`check-tone.mjs` と `check-provisions.mjs` が同じ関数を使います。試験 `scripts/test-provisions.mjs` は、直す前の判定では落ちる場面(理由の無い `tone-ok`、`<!-- retired-ok: -->` ほか)を持ちます。
+`tone-ok`・`provision-ok`・`retired-ok`・`variant-ok`・`ref-ok` の印は、理由が文字(仮名・漢字・英字)か数字を1つも含まないとき無効とします。空の理由と、`-` などの記号だけの理由が当たります。HTML コメントの閉じ(`-->`)は理由に数えません。判定を `scripts/lib/exempt-marks.mjs` へまとめ、`check-tone.mjs`・`check-provisions.mjs`・`check-section-refs.mjs`(`lint:refs`)が同じ関数を使います。`ref-ok` は裁定が名指しした印ではありませんが、同じ類の欠陥を持ち、第1章 1.7.4 が除外の印を限定せずに述べるため、合わせて直しました(独立の突合 X-2)。理由の中身の当否は、機械は確かめません。試験 `scripts/test-provisions.mjs` は、直す前の判定では落ちる場面(理由の無い `tone-ok`、`<!-- retired-ok: -->` ほか)を持ちます。
 
 ### 4. 登録するのは、正表記を決めた決定のある語だけとする
 
-いま登録するのは ADR-0027 の名称だけです。通称「ピットイン方式」の区切りを入れた表記、英語表記「PIT-IN」の別の書き方、正式名称の別の書き方、使わない語「統合プロセス」の4項目です。識別子の小文字の `pit-in`(リポジトリ名 `pit-in-template` など)は、ADR-0027 が定めた名前であり、対象の外とします。
+いま登録するのは ADR-0027 の名称だけです。通称「ピットイン方式」の区切りを入れた表記、英語表記「PIT-IN」の別の書き方、正式名称の別の書き方、使わない語「統合プロセス」の4項目です。次の3つは対象の外とし、自己試験の `miss` で固定します。
+
+- 識別子の小文字の `pit-in`(リポジトリ名 `pit-in-template` など)。ADR-0027 が定めた名前である
+- 英語の地の文の小文字の句 `pit in`(ピットに入る、ピットの中)。名称の異表記ではない
+- 規格の工程名「システム統合プロセス」「ソフトウェア統合プロセス」「ハードウェア統合プロセス」(ISO/IEC/IEEE 15288・12207 の Integration process の訳語)。ADR-0027 が使わないと決めたのは、本標準の自己参照としての「統合プロセス」である(独立の突合 X-3)。前置きの無い形で規格の工程を引くときは、`variant-ok: 理由` で除外する
 
 第1章 1.4 の語の正表記をどう決めるかは、道具の選定と別の決定です。この区画へ、決定の無い語を正表記として登録しません。用語の一覧の決め方は [#328](https://github.com/Takenori-Kusaka/process-compass/issues/328)(参照と語の食い違い)の論点として扱います。
 
@@ -68,25 +72,22 @@ sidebar:
 | 案 | 採らなかった理由 | 残す形 |
 | --- | --- | --- |
 | 日本語の文書に Vale を入れる | 既定では検出 0 件。独自の規則にすると既存の検査と二重になり、除外の理由も強制できない | どちらも置かない。道具の導入は設定ファイルと CI の段の追加として差分に現れ、査読で見えるため |
-| `lint:tone` を Vale へ移す | 検出の集合は変わらず、除外の理由の規律だけを失う | どちらも置かない(同上) |
 | textlint の prh の辞書だけで異表記を扱う | 置き換え先の無い禁止語に向かない。登録簿が `provision-forms.yaml` と辞書の2か所に割れ、決定の実在の検査と理由つきの除外を失う | どちらも置かない。依存の追加として差分に現れるため |
-| 異表記を `retiredPhrases` に混ぜる | 「廃した言い回し」と「表記ゆれ」は意味が違い、読み手が区別できなくなる | どちらも置かない。区画の構造で分けた |
 | 手動・目視の確認にとどめる | #108 の起票の経緯のとおり、すり抜ける | どちらも置かない |
 | 警告だけの段階運用(Warning) | 既存の検査は検出を失敗とする。警告だけの経路は読まれない | どちらも置かない。規定の表現形式の検査は「警告にとどめる区分はありません」と定めている |
 | 用語の一覧(#438 の5語ほか)を本件で決めて登録する | 道具の選定と別の決定で、規範の語の確定に当たる | どちらも置かない。#328 の論点として扱う |
-| 英語の頁が無いうちに Vale の英語のスタイルを配備する | 対象の無い検査は、効いているかを実行で確かめられない | どちらも置かない。決定5 の契機で選び直す |
 
 どれも、決めていない事項ではなく、本件で採らないと決めた事項です。
 
 ## 影響
 
 - 登録簿: `src/data/provision-forms.yaml` に区画 `variantForms`(4項目、いずれも `by: ADR-0027`)を足した。既存の本文に違反は無かった
-- 検査: `scripts/check-provisions.mjs` に検査15・16 を足した。`scripts/check-tone.mjs` と `scripts/check-provisions.mjs` の除外の印の判定を `scripts/lib/exempt-marks.mjs` へまとめた。試験 `scripts/test-provisions.mjs`(`npm run test:provisions`)を `npm run check` に入れた
+- 検査: `scripts/check-provisions.mjs` に検査15・16 を足した。`scripts/check-tone.mjs`・`scripts/check-provisions.mjs`・`scripts/check-section-refs.mjs` の除外の印の判定を `scripts/lib/exempt-marks.mjs` へまとめた。試験 `scripts/test-provisions.mjs`(`npm run test:provisions`)を `npm run check` に入れた
 - 第1章 1.7.4 と[規定の表現形式の検査](/process-compass/community/provision-forms/)を、区画と除外の印の規則に合わせて改めた
 - 準拠テンプレートと規則データ(`src/data/tailoring/`)は変えない。採用者に新しい義務は生じない
 - 記録: `research/438-deliberation/`(`survey-438.md` に調査、`council-01-drafter.md`・`council-02-opponent.md` に2委員、`decision.md` に議長の裁定、`implementation.md` に実装の記録)
 
 ## 見直しの契機
 
-- `astro.config.mjs` へ `locales.en` を足すとき(決定5)
+- `astro.config.mjs` へ `locales.en` を足すとき(決定5)。英語表記の異表記の項目(小文字の `pit in` を対象の外とする扱いを含む)も見直す
 - #328 で第1章 1.4 の語の正表記を決めたとき。決定のある語を `variantForms` へ足す

@@ -37,6 +37,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { hasRefOk } from './lib/exempt-marks.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS_ROOT = 'src/content/docs';
@@ -78,7 +79,7 @@ const AUDIT_NORMATIVE_HEADING = /^内部監査で確かめる観点/;
 const QUESTION_PAGE = `${P4}/assurance-case`;
 const QUESTION_HEADING = /^H\.9\s/;
 
-const OK_RE = /<!--\s*ref-ok:/;
+// 理由の無い印は無効(#438 突合 X-2)。判定は scripts/lib/exempt-marks.mjs
 
 const errors = [];
 const counts = {};
@@ -210,7 +211,7 @@ function check(source) {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-    if (!line || OK_RE.test(line)) continue;
+    if (!line || hasRefOk(line)) continue;
     // 見出しそのものは参照ではない
     if (/^#{1,6}\s/.test(line)) continue;
 
