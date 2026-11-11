@@ -137,7 +137,8 @@ const ppl1d = (team) => [PEOPLE3[0], PEOPLE3[1], { ...PEOPLE3[2], team }, PEOPLE
 accepted(
   '#434 1d: 名簿に既にある確認の旨は、数えられない記名者(Dupont)の無関係の変化点を止めず、記録へ載せずに注意を出す',
   change({ kind: 'accountable', date: TODAY, summary: '鈴木の所属', people: ppl1d('品質'), decidedBy: 'Claude Dupont', reason: '所属の変更' }),
-  '[注意] Gemini Sato の氏名の確認(名簿に既にある確認の旨)は、この変化点の記名者 "Claude Dupont" の記名では数えられない'
+  '[注意] Gemini Sato の氏名の確認(名簿に既にある確認の旨)は、この変化点の記名者 "Claude Dupont" の記名では数えられない',
+  'この変化点は、Gemini Sato の氏名の確認として記録されません'
 );
 check('#434 1d: その変化点の記録に Gemini の確認を載せない', !(cfg().changeLog.at(-1).nameConfirmations ?? []).length);
 
@@ -181,6 +182,17 @@ refused(
   '#434 2b の否定: 確認と同じ変化点で登録した変更種別の登録者(旧い確認の人)には、その確認を使わない',
   change({ ...UNLOCK, delegation: { changeTypes: [...DTYPES, { ...DTYPES[0], id: '画像', registeredAt: TODAY }] } }),
   '変更種別 "画像" を登録した者 "Claude Dupont"'
+);
+refused(
+  '#434 2g の否定: 確認と同じ変化点で、確認する人が変更種別を登録し直す入力は、登録の権限の検査で拒否したまま',
+  change({ ...UNLOCK, delegation: { changeTypes: [{ ...DTYPES[0], registeredBy: '高橋 次郎', registeredAt: TODAY }] } }),
+  '変更種別 "表示文言" を登録した者 "高橋 次郎" は、事業決裁者の席の責任者ではない'
+);
+refused(
+  '#434 確認の外の否定: 旧い確認の本人が記名する無関係の変化点は拒否したまま。拒否の末尾で、本人以外が確認すれば既存の記録も照合して通ることを案内する',
+  change({ kind: 'accountable', date: TODAY, summary: '高橋の所属', people: [DUPONT, { ...TAKAHASHI, team: '品質' }], decidedBy: 'Claude Dupont', reason: '所属の変更' }),
+  'Claude Dupont の氏名の確認に、本人以外が記名した記録がありません',
+  '確認を数えた後の構成で照合するため通ります'
 );
 const logBefore = JSON.stringify(cfg().changeLog);
 accepted(

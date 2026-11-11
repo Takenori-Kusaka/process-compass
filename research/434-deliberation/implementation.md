@@ -77,3 +77,22 @@
 - 承認者: (空欄。AI維持管理者が記名する)
 - 承認日: (空欄)
 - `.github/workflows/` は変えていない
+
+## 8. 独立の突合への対応
+
+入力: `crosscheck.md`(F-1〜F-8。高は無し)。本体は 48492a8 と、その上の #435 のコミット 00bd726 の上に積んだ。template は 1ba707e(#435)の上に積んだ。
+
+| 指摘 | 対応 | 変えたファイル |
+| --- | --- | --- |
+| F-1(中) | 「記録の無い確認は、既存の記録の照合に使わない」を、決定2 の照合の根拠に範囲を限る文へ改めた。1名の名簿と確認待ちでの記録の無い確認の扱いは変えない旨を同じ文に書いた | `gate-criteria.md` G-6、ADR-0120 決定2 |
+| F-2 | G-6 の「照らし直さないことの例外として」を、ADR-0120 の読み(照らし直しの禁止は効力を落とす向きを止める規定で、決定2 の照合を妨げない)へ揃えた。ADR-0120 のステータスの表にも「例外ではなく範囲の外」と書き、G-6 も同じ読みであると書いた | `gate-criteria.md`、ADR-0120 |
+| F-3 | 2g(確認と同じ変化点で、確認する人が変更種別を登録し直す)と、確認の外で旧い確認の本人が記名する無関係の変化点(X3)を、否定の場面として試験と回帰に足した | `test-name-confirmation-timing.mjs`、`suite/name-confirmation.mjs`、`expected/scenes/name-confirmation.txt` |
+| F-4 | 変更種別の拒否の文だけに付けていた案内をやめ、確認の変化点の外で、氏名の確認に本人以外の記録の無い人が拒否の原因に含まれるとき、拒否の末尾に1回まとめて案内を出す形にした(`unconfirmedSignerHint`)。既存の規則の成立が同じ原因で落ちる場合(席の引き下げ)も `[案内]` で出す | `generate-profile.mjs`、IMPL-0473 の注記 |
+| F-5 | 注意の文に「この変化点は、X の氏名の確認として記録されません(確認するつもりで記名した場合も同じ)」と、確認待ちが残り欠落として扱い続けることを足した。G-6 と ADR-0120 決定1 に、確認するつもりの記名でも記録されない境界を書いた。確認の対象を明示する入力は、入力の形を変える決定で裁定の範囲の外のため、ADR の採らなかった案に「後の審議に残す」として記録し、見直しの契機に挙げた | `generate-profile.mjs`、`gate-criteria.md`、ADR-0120、IMPL-0472 の注記 |
+| F-6 | ADR-0120 に「見直しの契機」の節を足した(EV-0236 の差し替え条件、F-5 の事象、期限) | ADR-0120 |
+| F-7 | ADR-0111 のステータスの追記に「補足(2026-11-11):」を前置きした | ADR-0111 |
+| F-8 | ADR-0120 のステータスに、強制層の変更が AI維持管理者の承認待ちであること、承認の記録の置き場(本書 §7)を書いた | ADR-0120 |
+
+- 台帳は `impl:write`・`evidence:write` で再生成した
+- 準拠テンプレートのコミット: 8591464(pit-in-template の main へ push 済み)。submodule の参照を進めた
+- 試験の結果: test-name-confirmation-timing.mjs は 42 件すべて通過(Windows、WSL の通常・TZ=UTC)。template の試験一式(WSL、HEAD 1ba707e の LF の clone に本件の差分を当てて 46 本)はすべて通過。Windows の test:template-suite は test-g5-aggregate.mjs だけが CRLF で落ちる(既知)。WSL の回帰スイートは通常と TZ=UTC の両方で全本が通過し、name-confirmation は 54 場面。本体の npm run check の各段(test:template-suite・test:regress を除き Windows で個別に実行)、lint:text・lint:provisions・build はすべて通過
