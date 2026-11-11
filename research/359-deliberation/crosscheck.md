@@ -127,3 +127,16 @@ ADR-0040・0078・0084・0094・0116 決定4・6 と矛盾する点は見つか�
 | 低-1 | 訂正の記録の理由と記名を機械は確かめない(抽出の結果は変えない) | ― |
 | 低-2 | 浅いクローンでは母集団が空になり、/pit が黙る | populationAt |
 | 低-3 | README の「2026Q4…には出しません」が、コードの挙動(2027Q1 に 2026Q4 の注記を出す)と逆 | README 11節 |
+
+## 確認(第3巡)への裁定の実装の確認
+
+- 対象: b8f1437 → 81bdb95 と本体の差分。実装を見ていない新しい文脈の確認者が、裁定の節と差分だけで確かめた。test-content-sampling 30 件・test-loosening-decider・check-template-fields・check-template-drift は通過。境界は TZ=UTC0・JST-9・EST5 で同じ結果、記録用ブランチの取得と失敗、浅いクローン、--first-parent、訂正の記録の空欄、選択の欄の完全一致(全角・CRLF でも)、欄の無い D-0 への案内、EV-0248・IMPL-0342・IMPL-0174 の note、第6章 D-0 と template-fields の対応は裁定どおり
+- 結果: 高 1(抽出の経路ではない)・中 2(抽出の経路 1・それ以外 1)・低 2(抽出の経路 1・それ以外 1)。**抽出の経路でない高が出たので止める**(直していない)
+
+| # | 経路 | 所見 | 所在 |
+| --- | --- | --- | --- |
+| 高-1 | それ以外(IMPL-0342) | 選択の欄だけを見るので、「決裁の権限の出所」が様式の `<…>` のまま・空・「—」でも自己の任命が通る(修正前は出所が未記入なら例外に入らなかった)。統制を緩める。様式の文自体に「登記事項・選任の議事録」の語があるため externalRef が真になり、項目7 に「外部の記録の所在なし」が出ない。試験の ok の事例も、出所が様式のままで通っている | `generate-profile.mjs` の authoritySourceForm・selfAppointmentOf、`test-loosening-decider.mjs` |
+| 中-1 | 抽出の経路 | 締まったかの判断は手元の日付のままで、境界だけ UTC になった。JST の 1/1 0:00〜8:59 は UTC ではまだ締まっていないのに抽出が通り、その後の 12-31 UTC のコミットで後の --verify が失敗する | `content-sampling.mjs`(localToday と quarterEnd の比較)、`next.mjs` |
+| 中-2 | それ以外 | 保証の開示の文が「法的な形態は D-0 の『決裁の権限の出所』の自己申告」のままで、新しい欄と食い違う | `aggregate-evidence.mjs` |
+| 低-1 | 抽出の経路 | 記録用ブランチを force-push で書き換えると fetch が失敗し続けるのに、文言は「取得できる環境で実行し直す」。origin の無いリポジトリは手元の records を数え、README・SKILL の「取得できない環境では失敗」と合わない。/pit のたびに ls-remote・fetch が走る | `content-sampling.mjs` の populationOrError |
+| 低-2 | それ以外 | ADR-0125 決定1 と generate-profile のコメントが、条件をいまも「決裁の権限の出所が…を挙げている」と書く。ADR-0125 は採用済みで、置き換える記録が要る | ADR-0125、`generate-profile.mjs` |
