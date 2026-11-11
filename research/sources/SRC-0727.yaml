@@ -1,0 +1,131 @@
+schemaVersion: 0
+id: SRC-0727
+status: included
+excludeReason: null
+title: 特定受託事業者に係る取引の適正化等に関する法律の考え方(解釈ガイドライン)
+url: https://www.jftc.go.jp/file/fl_jftcmhlwguidelines.pdf
+canonicalUrl: https://jftc.go.jp/file/fl_jftcmhlwguidelines.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 公正取引委員会・厚生労働省
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2024-05
+publishedBasis: pdf
+version: 令和6年5月31日。改正 令和7年10月1日、令和8年10月1日(表紙の記載)
+updated: '2026-10-01'
+accessed: '2026-11-11'
+access: open
+readLevel: full
+foundBy:
+  cluster: I436
+  query: フリーランス法 解釈ガイドライン 費用等 報酬の額 購入・利用強制
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events:
+- date: '2024-05-31'
+  label: 策定
+- date: '2025-10-01'
+  label: 改正
+- date: '2026-10-01'
+  label: 改正
+summary: 'フリーランス・事業者間取引適正化等法の解釈を公正取引委員会と厚生労働省が示した文書(全48頁)。#436 は、特定受託事業者と特定業務委託事業者の定義、明示(法第3条)が全ての業務委託事業者に掛かること、禁止行為(法第5条)の期間(1か月)、費用等を業務委託事業者が負担する場合の報酬の額の明示と、精算の明示が無い場合の扱い、購入・利用強制が対価の負担を要件とすることを、第8章「計算資源の負担を決める」の外部の制約の注記に引いた。発注側の設備・ソフトウェアの利用権・計算資源を直接扱った記述は無い。'
+claims:
+- id: c1
+  text: 特定受託事業者は、従業員を使用しない個人と、一の代表者以外に他の役員がなく、かつ従業員を使用しない法人である。
+  quote: 「特定受託事業者」とは、業務委託の相手方である事業者であって、①個人であって、従業員を使用しないもの、②法人であって、一の代表者以外に他の役員(理事、取締役、執行役、業務を執行する社員、監事若しくは監査役又はこれらに準ずる者をいう。以下同じ。)がなく、かつ、従業員を使用しないもののいずれかに該当するものをいい、
+  locator: 第1部 1(3頁)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 436
+  stance: context
+- id: c2
+  text: 明示(法第3条)は、特定業務委託事業者に限らず、全ての業務委託事業者に適用される。
+  quote: なお、本条は、特定業務委託事業者のみならず、全ての業務委託事業者に適用されることに留意が必要である。
+  locator: 第2部 第1 1 柱書(7頁)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 436
+  stance: context
+- id: c3
+  text: 業務委託事業者が、業務の遂行に特定受託事業者が要する費用等(名目を問わない)を自ら負担する場合は、その金額を含めた総額が把握できるように報酬の額を明示する必要がある。
+  quote: 業務委託事業者は、業務委託に係る業務の遂行に特定受託事業者が要する費用等(例えば材料費、交通費、通信費等であるが、名目を問わない。)を業務委託事業者自身が負担する場合には、当該費用等の金額を含めた総額が把握できるように「報酬の額」を明示する必要がある。
+  locator: 第2部 第1 1(3)キ(ウ)(10頁)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 436
+  stance: context
+- id: c4
+  text: 費用等の精算の有無等について特段の明示が無い場合は、3条通知に記載した報酬の額のみを支払う旨を明示したものとされる。
+  quote: なお、特定受託事業者は、費用等の精算の有無等について特段の明示が無い場合には、業務委託事業者は３条通知に記載した「報酬の額」のみを支払う旨を明示したものであることに留意が必要である。
+  locator: 第2部 第1 1(3)キ(ウ)(11頁)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 436
+  stance: context
+- id: c5
+  text: 禁止行為(法第5条)は、特定業務委託事業者が政令で定める期間(1か月)以上の期間行う業務委託(更新により継続するものを含む)に掛かる。
+  quote: 特定業務委託事業者は、特定受託事業者に対し、業務委託(政令で定める期間以上の期間行うもの(契約の更新により当該期間以上継続して行うこととなるものを含む。))を行う場合には、後記⑵の各行為をしてはならない。「政令で定める期間」は、１か月である
+  locator: 第2部 第2 2 柱書(26頁)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 436
+  stance: context
+- id: c6
+  text: 購入・利用強制(法第5条第1項第5号)は、正当な理由がある場合を除き、自己の指定する物を強制して購入させ、または役務を強制して利用させることにより、特定受託事業者にその対価を負担させることとされている。
+  quote: 本法第５条第１項第５号で禁止されている購入・利用強制とは、「特定受託事業者の給付の内容を均質にし、又はその改善を図るため必要がある場合その他正当な理由がある場合を除き、自己の指定する物を強制して購入させ、又は役務を強制して利用させること」により、特定受託事業者にその対価を負担させることをいう。
+  locator: 第2部 第2 2(2)オ(36頁)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 436
+  stance: context
+- id: c8
+  text: 特定業務委託事業者は、業務委託事業者のうち、従業員を使用する個人と、二以上の役員があるか従業員を使用する法人である。
+  quote: 「特定業務委託事業者」とは、業務委託事業者であって、①個人であって、従業員を使用するもの、②法人であって、二以上の役員があり、又は従業員を使用するもののいずれかに該当するものをいう。
+  locator: 第1部 4(6頁)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 436
+  stance: context
+- id: c7
+  text: 全48頁に、発注側の設備・ソフトウェアの利用権・計算資源の提供や費用の負担を直接扱った記述は無い。「設備」「ソフトウェア」「計算資源」「ライセンス」「利用権」の語は0件で、「クラウド」は明示の到達の方法の例(クラウドサービス)にだけ現れる。
+  quote: null
+  locator: 全文の検索
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 436
+  stance: context
+verification:
+  status: verified
+  method:
+  - agent-read
+  date: '2026-11-11'
+  humanChecked: false
+  note: '#436 の調査(2026-11-11)で WebFetch が保存した PDF の原本(令和8年10月1日 改正の版、全48頁)を、#436 の実装で pdftotext によりテキスト化し、c1〜c6・c8 の逐語と頁、c7 の語の件数を確かめた(要約モデルを経由しない)。quote の括弧は全角を半角に改め、行の折り返しの空白と頁番号を除いた。c4 の直後の「協議し決定することが望ましい」の文は、本文が引かないため claim にしていない(#436 の裁定)。目視の照合ではない。法律の助言ではない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

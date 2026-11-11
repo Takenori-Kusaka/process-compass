@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: SRC-0728
+status: included
+excludeReason: null
+title: 特定受託事業者に係る取引の適正化等に関する法律と独占禁止法及び取適法との適用関係等の考え方
+url: https://www.jftc.go.jp/file/fl_jftcguidelines.pdf
+canonicalUrl: https://jftc.go.jp/file/fl_jftcguidelines.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 公正取引委員会
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2024-05
+publishedBasis: pdf
+version: 令和6年5月31日。改正 令和8年1月1日(表紙の記載)
+updated: '2026-01-01'
+accessed: '2026-11-11'
+access: open
+readLevel: full
+foundBy:
+  cluster: I436
+  query: フリーランス法 取適法 適用関係 優先 勧告
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events:
+- date: '2024-05-31'
+  label: 策定
+- date: '2026-01-01'
+  label: 改正
+summary: 'フリーランス・事業者間取引適正化等法と、独占禁止法・中小受託取引適正化法との適用関係を公正取引委員会が示した文書(全2頁)。#436 は、両法のいずれにも違反する行為の勧告の扱い(原則としてフリーランス法を優先し、例外がある)を、第8章「計算資源の負担を決める」の外部の制約の注記に引いた。'
+claims:
+- id: c1
+  text: フリーランス法と中小受託取引適正化法のいずれにも違反する行為は、原則としてフリーランス法を優先して適用し、同法の勧告の対象となった行為について重ねて取適法で勧告しない。ただし、行為の全体について取適法を適用することが適当であると公正取引委員会が考えるときは、取適法で勧告することがある。
+  quote: 本法と取適法のいずれにも違反する行為については、原則として本法を優先して適用し、本法第８条に基づく勧告の対象となった行為について、重ねて取適法第１０条に基づき勧告することはない。ただし、本法と取適法のいずれにも違反する行為を行っている事業者が取適法のみに違反する行為も行っている場合において、当該事業者のこれらの行為の全体について取適法を適用することが適当であると公正取引委員会が考えるときには、本法と取適法のいずれにも違反する行為についても取適法第１０条に基づき勧告することがある。
+  locator: 3 本法と取適法との関係(1頁)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 436
+  stance: context
+verification:
+  status: verified
+  method:
+  - agent-read
+  date: '2026-11-11'
+  humanChecked: false
+  note: '#436 の調査(2026-11-11)で WebFetch が保存した PDF の原本(令和8年1月1日 改正の版)を、#436 の実装で pdftotext によりテキスト化し、c1 の逐語を確かめた(要約モデルを経由しない)。行の折り返しの空白を除いた。目視の照合ではない。法律の助言ではない'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-10

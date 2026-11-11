@@ -15,6 +15,8 @@ sidebar:
 | [ADR-0087](/process-compass/adr/0087-outsourcing-gate-placement-enforcement-ownership-and-authority-sources/) 決定4 | 維持する。様式 08 の節を標準へ上げた決定であり、第12項の規範の中身は決めていない。第12項の欄と様式の記入済みの値だけを、本 ADR が置き換える |
 | [ADR-0069](/process-compass/adr/0069-handing-over-judgements-and-contractual-confirmation/) 決定3 | 型を適用する。法令は外部の制約の注記として書き、規範を足さない。適用を中小受託取引適正化法へ広げる |
 
+補足(2026-11-11): 本 ADR が本件の外に置いたフリーランス法との関係は、[ADR-0119](/process-compass/adr/0119-freelance-act-in-compute-cost-external-constraints/) が補いました(#436)。外部の制約の注記と「本標準が定めないこと」の範囲に、同法を加えています。
+
 Issue #372 の本文の「ADR-0086」は、**ADR-0087** の誤りです。#317 の決定は ADR-0087 であり、ADR-0086 はフェーズ5・6 の手引き化と規定の表現形式の決定で、本論点と無関係です。
 
 ## コンテキスト
