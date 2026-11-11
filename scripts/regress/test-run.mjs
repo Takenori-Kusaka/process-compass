@@ -72,6 +72,14 @@ const scripts = {
   issueOnly: `${HEAD('["#319"]')}check('Issue だけ', true);\ndone();\n`,
   changedOk: `${HEAD()}check('改めた', true, '', { changed: [{ by: 'ADR-0088 決定5', on: '2026-10-24', from: '旧い期待' }] });\ndone();\n`,
   changedBad: `${HEAD()}check('改めた', true, '', { changed: [{ by: 'ADR-0088 決定5', from: '旧い期待' }] });\ndone();\n`,
+  // #378 裁定 R-3・R-5: 入力を改めた記録(inputs)と、前提の段の確認(kind: precondition)
+  inputsOk: `${HEAD()}check('入力を足した', true, '', { inputs: [{ by: 'ADR-0088 決定5', on: '2026-11-11', what: '足した入力', without: '落ちる' }] });\ndone();\n`,
+  inputsBad: `${HEAD()}check('入力を足した', true, '', { inputs: [{ by: 'ADR-0088 決定5', on: '2026-11-11', what: '足した入力' }] });\ndone();\n`,
+  // 前提の段の確認は Issue だけの fixes でも通り、fixes.md に数えない
+  precondition: `${HEAD('["#319"]')}check('[前提] 段', true, '', { kind: 'precondition' });\ncheck('本体', true, '', { fixes: ['K65'] });\ndone();\n`,
+  // 除外の歯止め(#378 突合 F-1): 名前と kind の対応、前提の段だけのスクリプト
+  preNoName: `${HEAD()}check('段', true, '', { kind: 'precondition' });\ncheck('本体', true);\ndone();\n`,
+  preOnly: `${HEAD()}check('[前提] 段', true, '', { kind: 'precondition' });\ndone();\n`,
 };
 for (const [name, body] of Object.entries(scripts)) fs.writeFileSync(path.join(suite, `${name}.mjs`), body);
 // 場面の一覧の宣言(§8 X-3)。run.mjs は SUITE の隣の expected/scenes/<名>.txt を読む
@@ -85,6 +93,11 @@ declare('kfTwoOk', ['根 → 反映']);
 declare('kfObservedOk', ['向き']);
 declare('earlyExit', ['一つ目', '二つ目']);
 declare('issueOnly', ['Issue だけ']);
+declare('inputsOk', ['入力を足した']);
+declare('inputsBad', ['入力を足した']);
+declare('precondition', ['[前提] 段', '本体']);
+declare('preNoName', ['段', '本体']);
+declare('preOnly', ['[前提] 段']);
 
 const run = (only) => {
   const out = path.join(tmp, `out-${only}`);
@@ -117,6 +130,18 @@ try {
   test('期待値を改めた場面の一覧を書く', () => {
     assert.match(fs.readFileSync(path.join(ok.out, 'changed.md'), 'utf8'), /\| changedOk \| 改めた \| ADR-0088 決定5 \| 2026-10-24 \| 旧い期待 \|/);
   });
+  test('入力を改めた場面の一覧を、期待値の改めと別に書く(#378 裁定 R-3)', () => {
+    const r = run('inputsOk');
+    assert.equal(r.status, 0, r.text);
+    assert.match(fs.readFileSync(path.join(r.out, 'inputs.md'), 'utf8'), /\| inputsOk \| 入力を足した \| ADR-0088 決定5 \| 2026-11-11 \| 足した入力 \| 落ちる \|/);
+    assert.doesNotMatch(fs.readFileSync(path.join(r.out, 'changed.md'), 'utf8'), /inputsOk/);
+  });
+  test('前提の段の確認は、決定の検査と fixes.md から除く(#378 裁定 R-5)', () => {
+    const r = run('precondition');
+    assert.equal(r.status, 0, r.text);
+    const fx = fs.readFileSync(path.join(r.out, 'fixes.md'), 'utf8');
+    assert.ok(!fx.includes('[前提] 段') && fx.includes('precondition: 本体'), fx);
+  });
   for (const [only, why] of [
     ['fail', '落ちる場面'],
     ['crash', '場面の外の中断'],
@@ -137,6 +162,9 @@ try {
     ['depPassWhileRootFails', '根が落ちているのに連鎖が通った'],
     ['depNoRoot', '従属する根が無い'],
     ['changedBad', 'changed の日付が無い'],
+    ['inputsBad', 'inputs の元の入力のときの結果が無い'],
+    ['preNoName', '前提の段の名前が「[前提] 」で始まらない'],
+    ['preOnly', '前提の段だけで、決定を固定する場面が無い'],
   ]) {
     test(`${why}なら終了コード 1`, () => {
       const r = run(only);

@@ -93,7 +93,8 @@ let file = null;
 for (const l of diff.split('\n')) {
   const m = /^\+\+\+ b\/(.*)$/.exec(l);
   if (m) file = m[1];
-  else if (/^[-+](?![-+])/.test(l) && /\b(changed|knownFailure|dependsOn)\b/.test(l)) hunks.push(`| ${cell(path.basename(file ?? ''))} | ${l[0] === '+' ? '足した' : '除いた'} | \`${cell(l.slice(1).trim().slice(0, 300))}\` |`);
+  // 入力の改め(inputs)と、決定の検査から除く前提の段(precondition)も、人が確かめる差に出す(#378 突合 F-2)
+  else if (/^[-+](?![-+])/.test(l) && /\b(changed|knownFailure|dependsOn|inputs|precondition)\b/.test(l)) hunks.push(`| ${cell(path.basename(file ?? ''))} | ${l[0] === '+' ? '足した' : '除いた'} | \`${cell(l.slice(1).trim().slice(0, 300))}\` |`);
 }
 out.push('### 場面のスクリプトの、期待値の改めと印(suite/*.mjs)', '');
 if (hunks.length) {
@@ -111,6 +112,14 @@ if (RESULTS && fs.existsSync(RESULTS)) {
   }
   out.push('### 期待値を改めた場面の観測(この実行。累積)', '');
   out.push(rows.length ? ['| スクリプト | 場面 | 引いた決定 | 日付 | 旧い期待値 | いまの観測 |', '| --- | --- | --- | --- | --- | --- |', ...rows].join('\n') : 'なし', '');
+  const inRows = [];
+  for (const f of fs.readdirSync(RESULTS).filter((x) => x.endsWith('.jsonl')).sort()) {
+    for (const s of fs.readFileSync(path.join(RESULTS, f), 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l))) {
+      for (const c of s.inputs ?? []) inRows.push(`| ${f.replace(/\.jsonl$/, '')} | ${cell(s.label)} | ${cell(c.by)} | ${cell(c.on)} | ${cell(c.what)} | ${cell(c.without)} |`);
+    }
+  }
+  out.push('### 入力を改めた場面(この実行。累積。#378)', '');
+  out.push(inRows.length ? ['| スクリプト | 場面 | 引いた決定 | 日付 | 改めた入力 | 元の入力のときの結果 |', '| --- | --- | --- | --- | --- | --- |', ...inRows].join('\n') : 'なし', '');
 }
 
 if (!any) out.push('この変更で変わった場面は無い。');

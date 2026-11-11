@@ -189,6 +189,11 @@ const K_IN_LABEL = /(?<![A-Za-z0-9])K\d{1,2}(?![0-9])/g;
  *     この場面が落ちることを「根に従属して落ちる」として通す。根が落ちているのにこの場面が通ったら失敗。
  *     根が通ったら(根は予期しない通過で失敗する)、この場面は条件どおりに判定する
  *   changed: [{ by: 'ADR-NNNN' | '#NNN', on: 'YYYY-MM-DD', from: '旧い期待値' }]  期待値を改めた記録(裁定 R-4)
+ *   inputs: [{ by: 'ADR-NNNN 決定N' | '標準 X.Y', on: 'YYYY-MM-DD', what: '足した・改めた入力', without: '元の入力のときの結果' }]
+ *     入力を改めた記録(#378 裁定 R-3)。期待値は元のまま、場面へ渡す入力を、後の決定・様式に合わせて足した・改めたことを残す。
+ *     期待値の改め(changed)と分け、run.mjs が inputs.md へ書き出す
+ *   kind: 'precondition'  場面の前提の段(採用者のリポジトリの作成など)の確認。決定を固定しないため、run.mjs は
+ *     固定する決定の検査と対応表(fixes.md)から除く(#378 裁定 R-5)
  */
 export function checker() {
   const VERBOSE = process.argv.includes('-v');
@@ -259,6 +264,7 @@ export function checker() {
       ...(opts.words ? { words: opts.words } : {}),
       ...(opts.section ? { section: opts.section } : {}),
       ...(opts.changed ? { changed: opts.changed } : {}),
+      ...(opts.inputs ? { inputs: opts.inputs } : {}),
       ...(opts.kind ? { kind: opts.kind } : {}),
       ...(opts.observed !== undefined ? { observed: opts.observed } : {}),
       ...(!pass || process.env.REGRESS_CAPTURE ? { detail: String(detail).slice(0, 4000) } : {}),

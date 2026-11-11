@@ -27,6 +27,7 @@
 | `302-310/implC/tpl2-new/suite/lib.mjs`(組C の版) | `suite/lib.mjs` | (補助。場面の記録・fixes・落ちることを期待する印・拒否の理由の照合を足した) |
 | `fix288-tpl2/fakebin/gh`、`fix288-tpl2/suite/mockgh-prs.mjs` | `lib/bin/gh`(Node の代役 1 つにまとめた) | (補助) |
 | `fix288-tpl2/runsuite.sh`・`runall2.sh`・`suite/fresh.sh`(組C の版)・`302-310/implA/tpl2-setup.sh`・`fix288-tpl2/sync.sh` | `run.mjs` | (補助。Node へ置き換えた) |
+| `fix288-r3/`(`setup.mjs`・`trial.mjs` は判定なし、`scen.mjs` 27・`scen2.mjs` 11・`scen3.mjs` 12。#378 で移した。裁定は `research/378-deliberation/decision.md`) | `suite/r3-scen.mjs`(scen 27 と対照 4)・`suite/r3-verify.mjs`(scen2 11)・`suite/r3-succession.mjs`(scen3 12 と対照 1)、補助 `suite/lib-r3.mjs`、製品のコードの固定の本文 `fixtures/adopter-r3/` | #288 第3巡の指摘 1〜10(ADR-0057 補足 S16〜S30)。ADR-0057 決定11・決定12、標準 3.4.3・3.12.3・3.12.5・5.6.2・G-7。**元のとおりではない点を、この行に書く**: (1) setup.mjs の docs の段(製品のコード・D-0・層1 など)は退避物に無く、作り直した。値ごとの出所(元の置き換えの文字列 / いまの規定 / 期待の文からの逆算・推定)は `lib-r3.mjs` の `INPUT_ORIGIN` による。(2) 逆算・推定した入力(開発者の席の AI の担い手と条件2〜5 の記録、区分の下限の規則、層1 の育成の担当)を足して通した場面は i6・q3・q4・q5・j6・j7・A2 の 7 つで、場面ごとに `inputs` に記録し、元の入力のときの挙動を対照の場面(AI の担い手なしの n、区分の下限の規則なしの f)で固定した。層1 の育成の担当(j8 が読む)には、名簿の氏名を書けば外部向けで伏せる対照 t を置いた。(3) 期待値を改めた場面は h2・i1・i3・i8・j1(`changed`。j1 は元の式に記録だけのコミットの識別子での照合を足した)、置き換える欄の名(入力)を改めた場面は v4・v6(`inputs`)。(4) 元の連鎖(scen → scen2 → scen3)は、各スクリプトが前の段の状態を変える手順を判定せずに再生して作り直す(裁定 R-1)。元の段0(テンプレートの更新の PR)は作らない。(5) 名前から件数を外した場面: j2(元「j: 記録だけのコミットの件数が出る(N 件)」)・B3(元「B: 記録だけのコミットに数える(N 件)」)、h2(元は名前に観測の true / false)。(6) 元の仕組みの出力が退避物に無く、p302 との場面ごとの一致(ADR-0089 決定1)は確かめられない。比較の基準は元の判定の式である。(7) #378 より前のこの表の表示「一部だけ。suite/trial.mjs が…確かめる」は、実際より多くを主張していた。50 場面と同じ決定を確かめる場面は無かった(`research/378-deliberation/survey.md` 2.4) |
 
 新設: `suite/clock.mjs`(時刻を明示した場面。裁定 R-3。時計の場面は ADR-0089 決定5、next_review の場面は標準 2.8 を固定する)、`suite/adjust.mjs`(事前点検への調整を外すと初期化が止まること。裁定 7.5 J-4)、`lib/clock.mjs`(時計の先読み)、`lib/unfrozen-clock.mjs`(止まらない時計の検出)、`check-fixes.mjs`(決定の実在の検査。`npm run lint:refs` から呼ぶ)、`test-run.mjs`(実行役の振る舞いの試験。`npm run test:regress` が先に流す)。
 
@@ -59,7 +60,6 @@
 
 | 元のファイル(場面の数) | 理由 | 固定していた決定 | ほかの試験で覆われているか |
 | --- | --- | --- | --- |
-| `fix288-r3/`(`setup.mjs`・`trial.mjs`・`scen.mjs` 27・`scen2.mjs` 11・`scen3.mjs` 12) | 前の段の状態を引き継ぐ連鎖で、単独で流せない。採用者の製品のコード `adopter/src/inspection.js` を作るスクリプトが退避物に無く、再現できない | #288 第3巡の指摘 1〜10(導入前の検証の記録の目隠し・tally の人の層・類型E の転記・記録の要約値と verify・記録だけのコミットの欠落・外部向けの伏せ方・代理者の候補の数え方)。ADR-0057 | **一部だけ**。`suite/trial.mjs` が導入前の検証の run・seal・tally・基準の改変を、テンプレートの `test-adoption.mjs`・`test-env-check.mjs` が一部を確かめる。scen2・scen3 の verify(記録の要約値)と、外部向けの伏せ方・代理者の候補の数え方は、場面ごとの突合をしていない。**覆われていない可能性がある 50 場面として表示し続ける** |
 | `fix288-tpl2/suite/ta.mjs`(13 で中断) | p302 でも同じ箇所で中断する(`seeded.human` が無い)。`trial.mjs` が後継 | #288 第2巡(導入前の検証) | はい(`suite/trial.mjs`) |
 | `fix288-tpl2/suite/trial-r7.mjs`(35) | `trial.mjs` との差は、合否の基準の記入日時の時刻(09:00 / 00:00)の 3 行だけ。時計を宣言した時刻(12:00)に止めると、同じ確認になる。p302 の結果は 35 場面とも同じ | #288 第2巡 | はい(`suite/trial.mjs`) |
 | `fix288-tpl2/suite/tok.mjs` | 合否を持たない計測(CLAUDE.md の容量とトークンの推定) | なし | 対象外 |

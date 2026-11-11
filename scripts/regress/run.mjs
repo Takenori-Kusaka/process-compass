@@ -22,7 +22,8 @@
 //   場面の一覧は --write-scenes で実行の結果から書き出す(一覧の差分は PR で人が確かめる。changed-scenes.mjs が出す)。
 //
 // 結果: --out(既定は環境変数 REGRESS_OUT、無ければ作業の場所の out/)に、スクリプトごとの出力(.log)と場面の記録(.jsonl)、
-// summary.json、fixes.md、changed.md を書く。
+// summary.json、fixes.md、changed.md、inputs.md(入力を改めた場面。#378)を書く。
+// 前提の段の確認(場面の kind が precondition)は、固定する決定の検査と fixes.md から除く(#378 裁定 R-5)。
 import { spawn, execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -275,7 +276,16 @@ async function main() {
     const scenes = readResults(outDir, r.run.name);
     const failed = scenes.filter((s) => !s.ok);
     const kf = scenes.filter((s) => s.knownFailure);
-    const noFixes = scenes.filter((s) => !s.fixes?.length);
+    // 前提の段の確認(kind: precondition)は決定を固定しない。固定する決定の検査から除く(#378 裁定 R-5)
+    const decisionScenes = scenes.filter((s) => s.kind !== 'precondition');
+    // 除外の歯止め(#378 突合 F-1): 前提の段は名前を「[前提] 」で始め、その名前の場面だけが前提の段である(両方向)。
+    // スクリプトは、決定を固定する場面を1つ以上持つ(前提の段だけのスクリプトを通さない)
+    for (const s of scenes) {
+      const named = String(s.label).startsWith('[前提] ');
+      if (named !== (s.kind === 'precondition')) errors.push(`${r.run.name}: 前提の段の名前「[前提] 」と kind: precondition が対応しない場面「${s.label}」`);
+    }
+    if (scenes.length && !decisionScenes.length) errors.push(`${r.run.name}: 決定を固定する場面が無い(前提の段だけ)`);
+    const noFixes = decisionScenes.filter((s) => !s.fixes?.length);
     const row = { name: r.run.name, now: r.run.now, exit: r.exit, signal: r.signal, seconds: r.seconds, scenes: scenes.length, failed: failed.length, knownFailure: kf.length };
     summary.push(row);
     if (r.error) errors.push(`${r.run.name}: ${r.error}`);
@@ -284,7 +294,7 @@ async function main() {
     if (!scenes.length && !r.error) errors.push(`${r.run.name}: 場面の記録が無い`);
     for (const s of noFixes) errors.push(`${r.run.name}: 固定する決定(fixes)の無い場面「${s.label}」`);
     // 固定する決定は、決定(ADR の決定・K 番号・標準の条項)を1つ以上含む。Issue だけでは決定を固定すると言えない(§8 X-1)
-    for (const s of scenes.filter((x) => x.fixes?.length && !x.fixes.some(isDecision))) errors.push(`${r.run.name}: 固定する決定に決定(ADR-NNNN 決定N・KNN・標準 X.Y)が無い場面「${s.label}」(${s.fixes.join('・')})`);
+    for (const s of decisionScenes.filter((x) => x.fixes?.length && !x.fixes.some(isDecision))) errors.push(`${r.run.name}: 固定する決定に決定(ADR-NNNN 決定N・KNN・標準 X.Y)が無い場面「${s.label}」(${s.fixes.join('・')})`);
     // 宣言した場面の一覧との一致(§8 X-3)
     const declared = path.join(SCENES, `${r.run.name}.txt`);
     if (WRITE_SCENES) {
@@ -301,11 +311,16 @@ async function main() {
     for (const s of scenes) for (const c of s.changed ?? []) {
       if (!c?.by || !/^\d{4}-\d{2}-\d{2}$/.test(c.on ?? '') || c.from === undefined || c.from === '') errors.push(`${r.run.name}: 期待値を改めた記録(changed)の欄が欠けている「${s.label}」(by・on YYYY-MM-DD・from)`);
     }
+    // 入力を改めた記録の形(#378 裁定 R-3): 引いた決定・日付・改めた入力・元の入力のときの結果
+    for (const s of scenes) for (const c of s.inputs ?? []) {
+      if (!c?.by || !/^\d{4}-\d{2}-\d{2}$/.test(c.on ?? '') || !c.what || !c.without) errors.push(`${r.run.name}: 入力を改めた記録(inputs)の欄が欠けている「${s.label}」(by・on YYYY-MM-DD・what・without)`);
+    }
     for (const s of kf) if (s.knownFailure.review && s.knownFailure.review < today) errors.push(`${r.run.name}: 落ちることを期待する印の見直しの時期を過ぎた「${s.label}」(${s.knownFailure.issue} / ${s.knownFailure.review})`);
   }
   fs.writeFileSync(path.join(outDir, 'summary.json'), JSON.stringify({ template: TEMPLATE_REF ?? 'worktree', kb: KB, runs: summary, errors }, null, 2) + '\n');
   fs.writeFileSync(path.join(outDir, 'fixes.md'), fixesTable(results.map((r) => r.run.name), outDir));
   fs.writeFileSync(path.join(outDir, 'changed.md'), changedTable(results.map((r) => r.run.name), outDir));
+  fs.writeFileSync(path.join(outDir, 'inputs.md'), inputsTable(results.map((r) => r.run.name), outDir));
   console.log(summary.map((s) => `  ${s.name.padEnd(22)} 場面 ${String(s.scenes).padStart(4)} 落ちた ${String(s.failed).padStart(3)} 印 ${s.knownFailure} (${s.now})`).join('\n'));
   if (!KEEP) fs.rmSync(path.join(root, 'runs'), { recursive: true, force: true });
   if (errors.length) {
@@ -345,10 +360,20 @@ function changedTable(names, outDir) {
   return `${lines.join('\n')}\n`;
 }
 
-/** 固定する決定 → 場面の対応表(場面の fixes から生成する。手で持たない。裁定 R-1.4) */
+/** 入力を改めた場面の一覧(#378 裁定 R-3。期待値の改めの changed.md と分ける。生成物) */
+function inputsTable(names, outDir) {
+  const lines = ['# 入力を改めた場面(生成物。手で編集しない)', '', '| スクリプト | 場面 | 引いた決定 | 日付 | 改めた入力 | 元の入力のときの結果 |', '| --- | --- | --- | --- | --- | --- |'];
+  const cell = (v) => String(v ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  for (const name of names) for (const s of readResults(outDir, name)) for (const c of s.inputs ?? []) {
+    lines.push(`| ${name} | ${cell(s.label)} | ${cell(c.by)} | ${cell(c.on)} | ${cell(c.what)} | ${cell(c.without)} |`);
+  }
+  return `${lines.join('\n')}\n`;
+}
+
+/** 固定する決定 → 場面の対応表(場面の fixes から生成する。手で持たない。裁定 R-1.4)。前提の段の確認は数えない(#378 裁定 R-5) */
 function fixesTable(names, outDir) {
   const map = new Map();
-  for (const name of names) for (const s of readResults(outDir, name)) for (const f of s.fixes ?? []) {
+  for (const name of names) for (const s of readResults(outDir, name).filter((x) => x.kind !== 'precondition')) for (const f of s.fixes ?? []) {
     if (!map.has(f)) map.set(f, []);
     map.get(f).push(`${name}: ${s.label}`);
   }
