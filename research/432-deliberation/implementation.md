@@ -146,3 +146,10 @@
 - Windows: `npm run check` の lint:ci〜test:criteria の各段と `npm run build`(353 頁)は通過。test:template-suite は既知の `test-g5-aggregate.mjs`(CRLF)だけが落ちた
 - WSL(LF の写し): 回帰スイート 26 本は通常の時刻帯で「すべて通った」。template の試験一式は既知の `test-init-g5.mjs` の1件だけが落ちた。回帰の道具の試験は通過。場面の一覧(self-decision・mixed-change-point・new・replay)を書き出して取り込んだ
 - WSL の TZ=UTC でも回帰スイート 26 本が「すべて通った」(一度目は外からの終了の合図で中断したため、流し直した)
+
+## 再確認(Y-1)への対応(2026-11-12)
+
+- 裁定(`decision.md` の「再確認への裁定」)に従い、R-1 の例外を行ごとに判定するよう改めた(`selfDecisionContext` の `okFor`・`selfFor`)。行の当事者(交代の行は前任と新任、本人の表記の変更は前任、兼務の行は当事者)以外に記名できる者がいない行だけが例外に当たり、本人(変化点より前の決定者)の記名を受け付ける。ほかの行は、その行の当事者以外の記名を要する。記名者は1人(R-3)のため、例外に当たらない行を束ねた変化点は受け付けず、拒否の文で分け方を案内する
+- 本文 3.13.3 の表の該当の行、ADR-0122 決定1、IMPL-0483 の注記に書いた
+- 試験: template の `test-loosening-decider.mjs` に IMPL-0483 の ng(交代と本人の改名を束ねた変化点を前任の記名で拒否し、分け方を案内する)と ok(分ければ、改名はもう1人、交代は前任の自己の決定で通る)を足した。回帰の場面 self-decision に「束ね」の6場面を足した
+- 検査: WSL の LF の写しで回帰スイート 29 本を、通常の時刻帯と TZ=UTC の両方で流した。本件の場面(self-decision 131 場面を含む)はすべて通った。落ちたのは r3-scen・r3-succession・r3-verify の前提の段の1場面ずつで、#378 が移した場面の製品のコードが node 18 で CommonJS として読まれるためであり、本件の変更に依らない。template の試験一式は既知の `test-init-g5.mjs` の1件だけが落ち、回帰の道具の試験は通過した。template は ef539dc(main へ push)

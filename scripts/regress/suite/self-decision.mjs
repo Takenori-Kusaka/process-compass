@@ -217,6 +217,18 @@ authority();
 refused('交代 2名(任命権者なし): 決定者を2人目へ。記名 新任', change(acc('交代', [P(0), P(1)], seatsOf([1, 0, 0, 0, 1, 1, 0, 0, 1]), NAMES[1])), SELF, '新任の決定者が、自分の任命を自分の記名で確定することはできません');
 accepted('交代 2名(任命権者なし): 同じ変化点。記名 前任(自己の決定)', change(acc('交代', [P(0), P(1)], seatsOf([1, 0, 0, 0, 1, 1, 0, 0, 1]), NAMES[0])));
 check('交代 変化点の記録に自己の決定が残る', last().selfDecided === true, JSON.stringify(last()));
+// Y-1(再確認への裁定): 例外は行ごとに判定する。交代(例外に当たる行)と本人の改名(もう1人が記名できる行)を束ねた変化点は、
+// 前任の記名でも新任の記名でも受け付けず、分け方を案内する。分ければ通る
+twoBase('束ね');
+authority();
+const TAROU = (arr) => Object.fromEntries(SEATS.map((s, i) => [s, { accountable: arr[i] === 0 ? '山田 太朗' : NAMES[arr[i]] }]));
+refused('束ね 2名(任命権者なし): 決定者の交代と本人の改名を1つの変化点に。記名 前任', change(acc('改名と交代', renamed([P(0), P(1)]), TAROU([1, 0, 0, 0, 1, 1, 0, 0, 1]), '山田 太朗')), '例外は行ごとに判定します');
+check('束ね 拒否した変化点は記録されない(自己の決定が残らない)', last().selfDecided !== true && !/改名と交代/.test(last().summary ?? ''), JSON.stringify(last()));
+refused('束ね 同じ変化点。記名 新任', change(acc('改名と交代', renamed([P(0), P(1)]), TAROU([1, 0, 0, 0, 1, 1, 0, 0, 1]), NAMES[1])), SELF);
+accepted('束ね 分ける1: 本人の改名だけ。記名 もう1人', change(acc('改名', renamed([P(0), P(1)]), TAROU([0, 0, 0, 0, 1, 1, 0, 0, 1]), NAMES[1])));
+check('束ね 分ける1 は自己の決定でない', last().selfDecided !== true, JSON.stringify(last()));
+accepted('束ね 分ける2: 決定者の交代だけ。記名 前任(自己の決定)', change(acc('交代', renamed([P(0), P(1)]), TAROU([1, 0, 0, 0, 1, 1, 0, 0, 1]), '山田 太朗')));
+check('束ね 分ける2 は自己の決定として残る', last().selfDecided === true, JSON.stringify(last()));
 twoBase('交代(任命権者)', [P(0), P(1), APPOINTER]);
 accepted('交代 2名 + 任命権者: 決定者を2人目へ。記名 任命権者', change(acc('交代', [P(0), P(1), APPOINTER], seatsOf([1, 0, 0, 0, 1, 1, 0, 0, 1]), APPOINTER.name)));
 // 2手に分けた迂回: 1名の決定者が、自分の別の行を(席を持たない)名簿の人として足し、その行の記名で本人の行を変える
