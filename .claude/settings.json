@@ -18,6 +18,9 @@
       "Read(./.env.*)"
     ]
   },
+  "env": {
+    "CLAUDE_CODE_GOAL_CHECKIN_MINUTES": "0"
+  },
   "hooks": {
     "PostToolUse": [
       {
