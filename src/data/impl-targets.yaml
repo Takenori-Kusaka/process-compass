@@ -213,11 +213,11 @@ targets:
     path: scripts/gate/adoption-trial.mjs
     description: 附属書I I.11 の導入前の検証を、採用者のリポジトリで準備・実行・集計し、様式の記録を出す1コマンド(init / seal / tally / run)。合否の基準の記入が実行の前であることを確かめてから実行する。next.mjs が記録の無い間に案内する(#288 第2巡)
 
-  - id: rulesets
-    name: ブランチ保護のルールセット
+  - id: rulesets-readme
+    name: ブランチ保護のルールセットの説明
     kind: template-file
     path: .github/rulesets/README.md
-    description: 既定ブランチと記録の置き場に掛ける強制層の構成(team / regulated / safety / checks-only)と、その説明。GitHub のルールセットはパス単位の免除を持たない(#321)ため、判定記録だけの PR(出荷の PR)にも承認 1 件が残る。その承認は転記の確認であり、判定の材料とする記録は承認の要件を外して入れない(#380 / ADR-0106)
+    description: 既定ブランチと記録の置き場に掛ける強制層の構成(team / regulated / safety / checks-only)と、その説明。GitHub のルールセットはパス単位の免除を持たない(#321)ため、判定記録だけの PR(出荷の PR)にも承認 1 件が残る。その承認は転記の確認であり、判定の材料とする記録は承認の要件を外して入れない(#380 / ADR-0106)。id は、ルールセットの定義(rulesets。team.json)と重ねて定義されていたため分けた(#360。実装マークの照合は従前から後の定義の team.json を使っていた)
   - id: adoption-preflight
     name: 初期化の事前点検
     kind: template-file

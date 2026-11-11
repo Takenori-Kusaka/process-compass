@@ -106,6 +106,10 @@ const marks = [];
 
 const registry = YAML.parse(readFileSync(path.join(ROOT, 'src/data/impl-targets.yaml'), 'utf8'));
 const TARGETS = Object.fromEntries(registry.targets.map((t) => [t.id, t]));
+/** 同じ id の重ね書きは、後の定義が黙って前の定義を上書きする。重ねた id を失敗にする(#360) */
+for (const [id, n] of Object.entries(registry.targets.reduce((m, t) => ((m[t.id] = (m[t.id] || 0) + 1), m), {}))) {
+  if (n > 1) errors.push(`src/data/impl-targets.yaml: 降ろし先の id「${id}」が ${n} 回定義されている(後の定義が前の定義を上書きする)`);
+}
 
 /** src/content/docs/a/b.md -> /process-compass/a/b/ */
 function toUrl(file) {
