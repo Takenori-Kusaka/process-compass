@@ -6,13 +6,14 @@
 //
 // 除外:
 //   - コードブロック(``` で囲まれた範囲)と HTML コメント
-//   - 行末に `<!-- tone-ok: 理由 -->` がある行(引用など正当な使用のため)
+//   - 行末に `<!-- tone-ok: 理由 -->` がある行(引用など正当な使用のため)。理由の無い印は無効(#438)
 //
 // 禁止語の追加・削除は下の RULES を編集する。運用方針は
 // research/phase4-standard/108-tone-guardrail.md を参照。
 
 import { readFileSync } from 'node:fs';
 import { glob } from 'node:fs/promises';
+import { hasToneOk } from './lib/exempt-marks.mjs';
 
 const RULES = [
   {
@@ -37,7 +38,6 @@ const RULES = [
   },
 ];
 
-const TONE_OK = /<!--\s*tone-ok:/;
 
 /** コードブロックと HTML コメントを空行へ置換し、行番号を保ったまま検査対象外にする */
 function maskExcluded(lines) {
@@ -75,7 +75,7 @@ for await (const file of glob('src/content/docs/**/*.{md,mdx}')) {
   const lines = readFileSync(file, 'utf8').split(/\r?\n/);
   const masked = maskExcluded(lines);
   masked.forEach((line, index) => {
-    if (!line || TONE_OK.test(lines[index])) return;
+    if (!line || hasToneOk(lines[index])) return;
     for (const rule of RULES) {
       const match = line.match(rule.pattern);
       if (match) {
@@ -101,5 +101,5 @@ for (const v of violations) {
   console.error(`${v.file}:${v.line}  [${v.category}] "${v.term}"`);
   console.error(`  → ${v.hint}\n`);
 }
-console.error('引用など正当な使用の場合は、行末に <!-- tone-ok: 理由 --> を付けて除外できます。');
+console.error('引用など正当な使用の場合は、行末に <!-- tone-ok: 理由 --> を付けて除外できます。理由の無い印は無効です。');
 process.exit(1);

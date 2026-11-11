@@ -22,6 +22,10 @@
 //  13. 廃した言い回しの由来(#319 / ADR-0089) 登録簿の各句の by が、実在する ADR を1つ以上指す(Issue は追加として
 //                                          だけ書ける。§8 X-1)。指した ADR の決定・Issue の実在も確かめる
 //                                          by の ADR の本文に句が字句どおり現れることは求めない(ADR-0089 の却下)
+//  15. 異表記(#438 / ADR-0118)              登録簿の variantForms の異表記が、6 と同じ置き場に残っていない
+//  16. 異表記の登録(#438 / ADR-0118)        各項目の自己試験(specs の hit を検出し、miss を検出しない)が合い、
+//                                          by が実在する ADR を指す。合わない項目は 15 に使わない
+//  (14 の廃した値の語は 2〜5 のループの中で検査する)
 //
 // 検査しないこと(機械で判定できない):
 //   - 「〜できます」が許容か能力か
@@ -32,7 +36,8 @@
 //   - コードブロック(``` で囲まれた範囲)
 //   - 行に `<!-- provision-ok: 理由 -->` がある行(2〜5・7〜12 の検査)
 //   - 行に `retired-ok: 理由` がある行(6 の検査。Markdown は HTML コメント、YAML・スクリプトはコメントの中に書く)
-//   理由の無い印は無効とする。
+//   - 行に `variant-ok: 理由` がある行(15 の検査。書く場所は retired-ok と同じ)
+//   理由の無い印は無効とする。HTML コメントの閉じ(-->)は理由に数えない(#438)。
 //
 // 登録簿は src/data/provision-forms.yaml。書式と運用は community/provision-forms.md による。
 
@@ -43,6 +48,7 @@ import YAML from 'yaml';
 import { missingInputs, INIT_HINT } from './lib/inputs.mjs';
 import { problemOf, decisionIdsIn } from './lib/decision-refs.mjs';
 import { simplifiedCellProblem } from './lib/stage-table.mjs';
+import { hasMark, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = 'src/content/docs';
@@ -75,7 +81,7 @@ function maskFences(lines) {
 }
 
 const stripComments = (line) => line.replace(/<!--.*?-->/g, '');
-const hasMark = (line, name) => new RegExp(`${name}\\s*[::]\\s*\\S`).test(line);
+// 理由の無い印(`<!-- retired-ok: -->` の閉じの - を含む)は無効(#438 / ADR-0118)。判定は scripts/lib/exempt-marks.mjs
 
 /** 文末(句点、行末、表の升の終わり、閉じ括弧の前)。太字の閉じを挟んでよい */
 const END = String.raw`(?=\*{0,2}\s*(?:。|$|\||[))]))`;
@@ -398,12 +404,41 @@ for (const p of phrases) {
   }
 }
 
+// --- 15. 異表記(#438 / ADR-0118) ------------------------------------------------------
+// 登録簿の variantForms の異表記を、廃した言い回しと同じ置き場(retiredScan)から探す。除外は variant-ok: 理由
+const variants = reg.variantForms ?? [];
+const usable = [];
+for (const v of variants) {
+  // 16. 異表記の登録: 自己試験(specs の hit・miss)と、by の決定の実在
+  const problems = variantEntryProblems(v);
+  for (const p of problems) report(REGISTRY, 0, '異表記の登録', v?.variant ?? '', p);
+  const ids = decisionIdsIn(v?.by);
+  if (!ids.some((id) => id.startsWith('ADR-'))) {
+    report(REGISTRY, 0, '異表記の登録', v?.variant ?? '', `by(${v?.by ?? '空'})が ADR を指していません。正表記を決めた決定を ADR-NNNN で書いてください`);
+  }
+  for (const id of ids) {
+    const why = problemOf(id);
+    if (why) report(REGISTRY, 0, '異表記の登録', v?.variant ?? '', `by の ${id}: ${why}`);
+  }
+  if (problems.length === 0) usable.push(v);
+}
+for (const rel of targets) {
+  read(rel).forEach((line, i) => {
+    if (hasMark(line, 'variant-ok')) return;
+    for (const v of usable) {
+      for (const hit of findVariants(line, v)) {
+        report(rel, i + 1, '異表記', hit, `異表記です。正表記: ${v.correct}(${v.by})`);
+      }
+    }
+  });
+}
+
 // --- 結果 ---------------------------------------------------------------------
 const normative = docs.filter((d) => d.kind === 'normative').length;
 const informative = docs.filter((d) => d.kind === 'informative').length;
 if (violations.length === 0) {
   console.log(
-    `規定の表現形式: 違反なし(規定の文書 ${normative}・参考の附属書 ${informative}・廃した言い回し ${phrases.length} 句を ${targets.length} ファイルで検査)`
+    `規定の表現形式: 違反なし(規定の文書 ${normative}・参考の附属書 ${informative}・廃した言い回し ${phrases.length} 句・異表記 ${usable.length} 項目を ${targets.length} ファイルで検査)`
   );
   process.exit(0);
 }
@@ -414,5 +449,5 @@ for (const v of violations) {
   console.error(`  → ${v.hint}\n`);
 }
 console.error(`規約: ${DOCS}/community/provision-forms.md`);
-console.error('正当な使用は、行に <!-- provision-ok: 理由 -->(文末・升の語)または retired-ok: 理由(廃した言い回し)を書いて除外できます。');
+console.error('正当な使用は、行に <!-- provision-ok: 理由 -->(文末・升の語)、retired-ok: 理由(廃した言い回し)、variant-ok: 理由(異表記)を書いて除外できます。理由の無い印は無効です。');
 process.exit(1);
