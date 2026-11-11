@@ -383,7 +383,11 @@ AI の確認の範囲の外側(確認が見られなかったもの)は、確認
 
 入力の記録は、機械が実行の記録から書いてよいものとします。担い手の自己申告より、実行の記録のほうが渡した入力を漏らしにくいためです。
 
-<!-- impl IMPL-0253 target=ai-review-workflow state=undelivered check=manual plan=scheduled issue=360 review=2026-11 note="AI の確認の実行ごとに、確認側へ渡した入力(起動の指示・自動で読み込まれる指示ファイル・道具の定義・渡した成果物)を実行の記録から書き出す。準拠テンプレートの ai-review.yml は差し込み口と注記だけで、入力の記録を出さない。AI維持管理者が四半期の抜き取りで、文脈を渡していない確認として記録したものに入力の列挙があるかを確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+準拠テンプレートは、ワークフローが列挙できる入力(指示ファイル、差分、既定ブランチと PR の先頭の版、作業ツリーにある自動読込の候補)を、パスと内容の要約値で書き出します。候補は読み込まれうるものの上限で、実際に読み込まれたものではありません。道具にしか分からない入力(実際の起動の指示、道具の定義、実際に読んだファイル)は、差し込む手順が決まった置き場の契約のファイルに書きます。そのファイルが無い確認は「列挙できない確認」と表示します([ADR-0124](/process-compass/adr/0124-unmeasured-coverage-merge-control-and-detection-scope/) 決定5)。
+
+<!-- impl IMPL-0253 target=ai-review-workflow state=delivered check=machine test=template/scripts/gate/test-base-judge-workflow.mjs note="AI の確認の実行ごとに、ワークフローが列挙できる入力(.github/ai-review/ の指示ファイル、差分 diff.patch・files.txt、既定ブランチと PR の先頭の SHA、作業ツリーにある自動読込の候補 CLAUDE.md・AGENTS.md・.claude/)を、差し込み口の前の固定の手順がパスと sha256 でジョブの要約と成果物へ書き出す。候補は上限であり実際に読み込まれたものではない旨と、入力の記録は確かめたことを示さない旨を定型で出す。差し込み口の後の固定の手順が、道具の側の入力の契約のファイル(tool-inputs.json)が無いか欄を欠けば「列挙できない確認」と出す。ai-review-record.mjs、許す形の一覧は base-judge.mjs(#360)" -->
+<!-- impl IMPL-0492 target=ai-review-workflow state=undelivered check=manual plan=scheduled issue=358 review=2027-05 note="入力の記録を、AI維持管理者の四半期の抜き取りまで残すこと。準拠テンプレートは成果物を保持 90 日で上げるだけで、実行の記録の保持の既定に依る。四半期の抜き取りの時点で消えている実行がありうる。記録用ブランチへ運ぶ形は降ろしていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0493 target=ai-review-workflow state=undelivered check=manual plan=adopter decision=ADR-0124 note="道具にしか分からない入力(実際の起動の指示・道具の定義・実際に読んだファイル)を、差し込む手順が契約のファイル(.github/ai-review/README.md の tool-inputs.json)に書くこと。差し込む道具ごとに取り出し方が異なるため、採用者が差し込みの実装に置く。準拠テンプレートは契約と、ファイルの欠けの表示だけを持つ。申告と実際の入力の一致は機械で確かめない。確かめる者: 採用者(差し込みの実装を置いたとき)と AI維持管理者(四半期の抜き取り)" -->
 
 **本標準は、成果物だけを入力にする確認(文脈を持たない読み手の役)を、要求事項として課しません**。根拠が単一の事例と本プロジェクトでの1回の実施にとどまり、条件1 の欠陥注入で文脈の欠落を測る方法が無いためです。成果物の読み手に伝わるかを案件が重視する場合は、受入基準へ書きます([ADR-0051](/process-compass/adr/0051-usability-out-of-scope/))。組織の外へ出す成果物の前に判定の工程を置く形は、[ADR-0053](/process-compass/adr/0053-irreversible-by-criterion-not-enumeration/) 決定5 が退けています。置く場合の手引きは、[附属書C](/process-compass/phase4-process-design/review-guide/)「成果物だけを読む確認」にあります。判断の記録は [ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/) です。
 
@@ -464,7 +468,7 @@ AI の担い手の出力が第3章 3.10 の意見に当たるかは、[第3章 3
 依るのは、根拠を課した往復と素朴な往復を比べた統制実験1件です。計算量を揃えた討論が自己整合を上回らない測定もあり、課題の種類と構成に依存します。
 :::
 
-<!-- impl IMPL-0155 target=ai-review-workflow state=undelivered check=manual plan=scheduled issue=360 review=2026-11 note="AI レビューの出力に所在と根拠を含め、実行の結果を述べる指摘に実行の記録の所在を含めること(所在を示せない場合は、実行で確かめたと記録しない)。ai-review.yml の差し込み口に注記を置いたまでで、差し込む AI のレビューの出力を確かめていない(ADR-0048 決定3)。AI維持管理者が四半期の抜き取りで確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0155 target=ai-review-workflow state=delivered check=machine test=template/scripts/gate/test-base-judge-workflow.mjs note="差し込む手順が構造化された指摘(findings.json。各指摘の location・basis、実行の結果を述べる指摘の run の所在)を書いた場合、差し込み口の後の固定の手順が、所在・根拠・実行の記録の所在の欠落をジョブの要約に表示する。指摘を消さず、合否に使わず、PR へ書くジョブへ渡さない。散文だけなら「構造が無いため欠落を検査していない」と出し、構造を満たしたことを内容が成り立つ根拠にしない旨を定型で出す。指摘の中身の正しさは確かめない(AI維持管理者が四半期に抜き取る)(#360)" -->
 
 ## H.5 署名の意味
 
