@@ -45,7 +45,7 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 145 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 148 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 92 |
 | 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 230 |
 
@@ -669,5 +669,8 @@ sidebar:
 | IMPL-0466 | T-1 の限定試行を、試行前チェックリストの全項目を確認してから始めること(未充足の項目・撤退の条件の無いまま始めない。該当しない項目は理由を書き、理由の無い「該当なし」を確認済みとしない)。準拠テンプレートに試行前チェックリストの置き場が無い(ADR-0116 決定6)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 試行前チェックリストの様式の置き場(予定) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0467 | 要求事項5 のうち、準拠テンプレートが前提の判定記録を読めない場面。(a) 出荷判定者の記録の突合による state:qm-blocked(差し戻しの判定記録の様式が無い)、(b) state:needs-po・state:needs-owner を経た state:needs-dev の、価値責任者の判断・事業決裁者の決裁の記録(様式が無い)、(c) 機能へ対応づけない作業単位の state:needs-dev。next.mjs --pickup は (a)(c) で「判定できない」を出して人へ渡し、(b) では G-2・G-4 だけを読む。着手の時点で要求事項5 を機械で行わない(#368 の突合 X-1・X-7)。確かめる者: 計画の Issue(issue= の番号)の担当者 | 次の一手のスクリプト(着手の前の判定記録の確認) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0468 | 要求事項5 のうち、開いている PR の判定記録を実環境で読む部分。next.mjs --pickup は state:ready-to-merge・state:qm-blocked で PR のレビューを gh api で読み、写しと同じ形で読むが、実際の GitHub の上で読み出しと承認の失効・挙動要約の読み方を確かめていない(試験は --offline と模擬の写しだけ)(#368 の突合 X-7)。確かめる者: 計画の Issue(issue= の番号)の担当者 | 次の一手のスクリプト(着手の前の判定記録の確認) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0469 | S1 の G-6 の範囲(コア機能)。構成の gates.g6.params.scope が core-only のとき、出荷の証跡の集約は、変更の親のコミットの構成が S1・core-only の PR のうち、コア機能のパス(corePathsOf: delegation.protectedPaths と riskFloor.rules[].paths の和)に当たらない変更を、独立した人の確認の欠落に数えない(R1 は例外承認を要する。写しの欠落にも数えない)。コア機能の PR は当たったファイルを添えて欠落に数える。歯止め(パスが親の版か HEAD の版で未宣言なら全変更を数えて理由を出す、親の版と HEAD の版のパスの和で判定する、S0 から移った後の最初の出荷は全変更、PR を経ないコミットは範囲を限らない)と S0 の期間の変更(前提3)は IMPL-0470 の試験が固定する。ブランチ保護の必須の承認数は全 PR に掛かり、その差は項目2 に開示する(IMPL-0471)(#435) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-tailoring-declaration.mjs` | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0470 | S1 の軽さのうち G-6 の範囲(コア機能)を、出荷の証跡の集約が欠落の計上で読む(IMPL-0469)。範囲を限らず全変更を数える場合: コア機能のパスが変更の親の版か HEAD の版で未宣言(理由を欠落の文に添える)、親の版と HEAD の版のパスの和でコア機能に当たる、変更の親の版の構成が S0(第8章「S0 の省略が成立する前提」の前提3)、出荷の範囲に親の版が S0 のコミットを含む(S0 から移った後の最初の出荷)、PR を経ないコミット。期間は変更の親のコミットの構成の事業ステージで分ける。試験は模擬の gh で集約を通しで実行し、4点と前提3 を違反の場面として、移行の後の2回目の出荷を適合の場面として確かめる(Windows では省き、CI の Linux で走る)(#435) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-tailoring-declaration.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0471 | 項目2(テーラリングの宣言)。状態を変えたゲートを外した項目として理由つきで載せる(aggregate-evidence.mjs の tailoring)。G-6 の範囲の限定(core-only)の行は集約の数え方と一致させる。パスの未宣言と、S0 から移った後の最初の出荷について、集約が範囲を限らず全変更を数えた旨を状態に出す。理由に、数え方と、ブランチ保護の必須の承認数がパスで分けられず PR の経路の全変更に掛かることを載せる。試験は集約を通しで実行して項目2 の行を確かめる(#435) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-tailoring-declaration.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- implementation-ledger:end -->
