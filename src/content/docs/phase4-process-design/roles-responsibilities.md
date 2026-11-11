@@ -718,7 +718,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0330 target=claude-md-resident state=delivered check=presence note="要求事項1〜3。引き渡しを状態のラベルで行い、コメントや宛先の指定だけで済ませず、対応を終えたら遷移先のラベルへ替える。CLAUDE.md の受信箱とラベルの節(Draft PR の間と dev-done への付け替え)と、ラベルによる引き渡しの節の2行(標準の所在の列を含む)に置く。check-process-rules が行の文言を照合する(単位: 行)" -->
 
-<!-- impl IMPL-0331 target=claude-md state=undelivered check=manual plan=scheduled issue=368 review=2027-04 note="要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの受け手の手順(handoff.md・各スキル)に、着手の前に判定記録の有無を確かめる手順が無い。記録の欠落は出荷の証跡の集約が G-7 で拾うが、着手の時点では止まらない。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
+<!-- impl IMPL-0331 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの next.mjs --intake(ラベルと作業単位を渡す)が、遷移の前提の判定記録(state:needs-dev は機能の G-2・G-4 の通過、state:ready-to-merge は PR の G-6 の通過、state:qm-blocked は G-6 の差し戻し)を3つの出所と開いている PR のレビューから読み、無ければ「着手しない」と判定者の受信箱を出す。受け手の手順(handoff.md・/pit・/implement)と CLAUDE.md のラベルによる引き渡しの節が着手の前に実行させる。試験は入口を --offline で通す。機械が止めるのは確認の出力までで、着手そのものは指示文。出荷判定者の記録の突合による差し戻し、機能へ対応づけない作業単位、gh api での PR のレビューの読み出しは機械で確かめない(#368)" -->
 
 <!-- impl IMPL-0332 target=claude-md-resident state=delivered check=presence note="要求事項7。状態のラベルの無い作業単位の再配分を価値責任者の務めとし、再配分した作業を自ら拾わない。CLAUDE.md の受信箱とラベルの節に置く(単位: 行)" -->
 

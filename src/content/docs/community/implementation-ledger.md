@@ -45,9 +45,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 144 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 145 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 92 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 229 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 228 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -58,19 +58,19 @@ sidebar:
 | 区分 | 件数 |
 | --- | --- |
 | 走査したファイル(スキルと CLAUDE.md の生成区間の外) | 62 |
-| 印を求める要求・禁止の文 | 64 |
+| 印を求める要求・禁止の文 | 65 |
 | 範囲の外: 太字の否定を含む行 | 139 |
-| 範囲の外: 平叙の否定で終わる行 | 400 |
+| 範囲の外: 平叙の否定で終わる行 | 405 |
 
 ### 降りていない規定
 
-降りていない規定: **120件**
+降りていない規定: **119件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 36 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 84 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 36 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 83 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -172,7 +172,6 @@ sidebar:
 | IMPL-0309 | 同じ案件で適用を再開する経路は無い。準拠テンプレートは終了の後の構成の変更を notice のほかは拒む。再開する場合は、終了と再開の間を記録の欠落として表示し、件数を最初の適用の開始から数えることを、表明する者が手で確かめる(#313)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の changeLog[] | 予定 [#354](https://github.com/Takenori-Kusaka/process-compass/issues/354)(見直し 2027-04) | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0312 | G-5 基準6 の1ファイルの分量の上限超過 0 件を確かめるジョブ。上限の値(第3章 3.11.4 要求事項1 の参考の値)を支える実証が無いため、準拠テンプレートへ降ろさない。採用者が値を定め、検査を足して集約の needs へ入れる(IMPL-0222)。人が確かめるのは、採用者の G-5 の集約の定義を読む技術判断者 | G-5 のワークフロー(gate-g5.yml) | 採用者が実装する(ADR-0084) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0324 | G-8 の判定ごとに、実環境の統制を機械が読み取り、記名した確認の記録との乖離を検出の層として出すこと(確認済みには数えない)。準拠テンプレートの ship-evidence は env-check の記録を写すだけで、実環境を読み直さない。gh の認証を出荷の集約のワークフローへ渡す設計(読み取りの権限の範囲)を決めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#361](https://github.com/Takenori-Kusaka/process-compass/issues/361)(見直し 2027-04) | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
-| IMPL-0331 | 要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの受け手の手順(handoff.md・各スキル)に、着手の前に判定記録の有無を確かめる手順が無い。記録の欠落は出荷の証跡の集約が G-7 で拾うが、着手の時点では止まらない。確かめる者: 計画の Issue(issue= の番号)の担当者 | CLAUDE.md の構成依存部分 | 予定 [#368](https://github.com/Takenori-Kusaka/process-compass/issues/368)(見直し 2027-04) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0340 | AI維持管理者の席の責任者が強制層を所有する組織に属さない委託で、強制層を緩める変更(統制の設定の陰性の確認の対象)に、所有する組織が指名した者の同意の記録(事前の同意、または事後の提出。事後の提出は期限・記録の置き場・元に戻せることを合意した場合に限る。期限までに提出の無い変更は記録の欠落)を求める。準拠テンプレートの gate-g5-base は AI維持管理者が本人のアカウントで出す承認のレビューを照合する(IMPL-0456)が、所有する組織の同意の照合は無い。事前の同意の形は、所有する組織が置くホスティングの規則(指名した者の承認のレビューを要する規則)と指名した者のレビューで行うと定めた(ADR-0115)。指名した者を構成へ写さないため、準拠テンプレートの機械は同意を確かめない。個人所有のリポジトリではパス単位の必須のレビュアーを置けず(2026-11-05 の実機の確認 E-8)、コード所有者の承認が基底の側で評価されるかは確かめていない(E-7 の本題)。適用の有無と規則の所在は AI-SLA 合意確認書の記録から人が読む。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 の PR 単位の検査(pr-rules) | 予定 [#361](https://github.com/Takenori-Kusaka/process-compass/issues/361)(見直し 2027-04) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0342 | 1名の体制で本人の上に任命の権限を持つ者がいない場合(個人事業主、または1名で代表権を持つ法人)に、自己の任命を変化点の記録へ残し、保証の開示の項目7 へ表示する。準拠テンプレートは組織上の任命権者を体制の外の人に限り、席の責任者との同一を拒むため、この例外の記録の経路が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の changeLog[] | 予定 [#359](https://github.com/Takenori-Kusaka/process-compass/issues/359)(見直し 2027-04) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0344 | 独立した安全性の評価者と、段階「最強」の検証の担当者に求める組織上の距離の段(CL2 は段2 以上、CL3 は段3 以上。第1章 1.4)。構成の人の名簿は、直属の上長・所属の法人・部門・リリースの権限を持たず、外部の評価者を登録する欄も無い。段2 以上を確かめず、届かない段を未達として表示する仕組みも無い。それまで機械が確かめるのは段1(名簿の人で、実装の責任者・作成を指示した者・判定者と別人。IMPL-0080)だけである。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の seats[] | 予定 [#357](https://github.com/Takenori-Kusaka/process-compass/issues/357)(見直し 2026-11) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
@@ -530,7 +529,7 @@ sidebar:
 | IMPL-0328 | テンプレ4 の差し戻し理由に「再提出の期限」の欄を置く。差し戻しと同時に確定させる事項(第4章 判定の語彙)を記録する(単位: 欄) | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 実在だけ確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0329 | 構成の deviations[] の項目ごとに区分(category: listed は閉じた列挙の逸脱、unlisted は列挙に無い離脱)を初期化が書き、契約検査は書かれた区分と閉じた列挙(config.mjs の CLOSED_DEVIATIONS)の食い違いを失敗にする。区分を持たない旧い構成は書き換えず、閉じた列挙で読む。層1 の印の照合は IMPL-0334 による(試験は区分の側。#316) | process.config.json の deviations[] | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0330 | 要求事項1〜3。引き渡しを状態のラベルで行い、コメントや宛先の指定だけで済ませず、対応を終えたら遷移先のラベルへ替える。CLAUDE.md の受信箱とラベルの節(Draft PR の間と dev-done への付け替え)と、ラベルによる引き渡しの節の2行(標準の所在の列を含む)に置く。check-process-rules が行の文言を照合する(単位: 行) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
-| IMPL-0331 | 要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの受け手の手順(handoff.md・各スキル)に、着手の前に判定記録の有無を確かめる手順が無い。記録の欠落は出荷の証跡の集約が G-7 で拾うが、着手の時点では止まらない。確かめる者: 計画の Issue(issue= の番号)の担当者 | CLAUDE.md の構成依存部分 | `check-process-rules` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0331 | 要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの next.mjs --intake(ラベルと作業単位を渡す)が、遷移の前提の判定記録(state:needs-dev は機能の G-2・G-4 の通過、state:ready-to-merge は PR の G-6 の通過、state:qm-blocked は G-6 の差し戻し)を3つの出所と開いている PR のレビューから読み、無ければ「着手しない」と判定者の受信箱を出す。受け手の手順(handoff.md・/pit・/implement)と CLAUDE.md のラベルによる引き渡しの節が着手の前に実行させる。試験は入口を --offline で通す。機械が止めるのは確認の出力までで、着手そのものは指示文。出荷判定者の記録の突合による差し戻し、機能へ対応づけない作業単位、gh api での PR のレビューの読み出しは機械で確かめない(#368) | 次の一手のスクリプト(着手の前の判定記録の確認) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-next-records.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0332 | 要求事項7。状態のラベルの無い作業単位の再配分を価値責任者の務めとし、再配分した作業を自ら拾わない。CLAUDE.md の受信箱とラベルの節に置く(単位: 行) | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | 降りている | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0333 | 要求事項7。AI のレビューに与える指示を、レビューの対象の変更が書き換えられない場所に置くこと。準拠テンプレートの ai-review.yml を、#371 の基底から読む型(ADR-0115)の上へ移した(#369): pull_request_target で動き、checkout は既定ブランチだけ(資格情報を残さない)、指示の置き場 .github/ai-review/ を既定ブランチの作業ツリーから AI の手順へ渡し、PR の先頭は fetch して差分をデータとして読む。プロンプトの注入の条件として、AI レビューのジョブの権限は read だけ、PR へ書くジョブは分けて PR の内容に依らない入力(PR の番号と既定ブランチの構成の有効かどうか)だけを渡し、題名・本文はどのジョブにも渡さず、秘密情報は環境変数でだけ参照し、承認・commit status を出さず、AI の手順は continue-on-error で、ルールセットの必須チェックに入れない。指示の置き場と構成の aiReview を、承認を要する統制の設定に足した(指示を弱める変更・AI レビューを切る変更を先に取り込む2段の経路を塞ぐ)。フォークからの PR では、既定で AI の手順を動かさない(構成の aiReview.allowForks で明示した場合だけ動かす)。差し込みの手順の失敗は、警告とジョブの要約に出す(PR へコメントする旧い実装が黙って失敗しないように)。test-base-judge-workflow.mjs が定義を許す形の一覧で静的に確かめる: 契機・トップの権限・ジョブの集合と見出し・決まった手順はテンプレートの形と一致すること、足せる手順は actions/setup-* だけ、式は一覧にあるものだけ、差し込みの手順の env に足せるのは1つの名前ごとの secrets だけ、その run: では PR の先頭・PR のイベント・PR の API を読む書き方と作業ツリーへ木を展開する git の操作を拒む。変異45件(#369 の独立の突合の変異を含む: FETCH_HEAD、変数を経由した参照、PR の先頭の CLAUDE.md、置き場の外への辿り、checkout の repository: のフォーク、read-tree・archive、toJSON、添字の書き方、GITHUB_EVENT_PATH、gh pr view・gh api、artifact、toJSON(secrets)、フォークの判定の除去、失敗の表示の除去ほか)を検出し、許す書き換え(依存の導入、secrets の env、setup-node)を不備にしない。一覧の外の書き方(外部のサービスを経由した PR の内容の取得など)と、差し込んだ道具が作業ツリーの指示ファイルを自動で読み込まないことは確かめない。AI レビューを無効にして ai-review.yml を消した構成では、対象外として飛ばしたことを出す。ジョブ ai-review が落ちても、位置づけの定型の文を出す(always())。実機の確認(2026-11-06、一時リポジトリ、準拠テンプレート ab4cf21 の ai-review.yml。research/369-delivery/probe-369.md)で確かめた範囲: (1) 既定ブランチの定義: pull_request_target で既定ブランチの定義が動き、PR の側の手順の追加・checkout の指定・構成の enabled の書き換えは効かない、(2) checkout: 全ての実行で既定ブランチだけを取り出し、PR の先頭は refs/pull/N/head の取得だけ、(3) 指示の sha256 の一致: PR の側で指示を削除・書き換えても、差し込みの手順が読んだ指示の sha256 は既定ブランチの版と一致し、PR の側の書き換えは差分としてだけ届く、(4) 式の展開: $(...)・逆引用符・引用符を含む題名・本文・ブランチ名で展開の痕跡は0件、(5) 権限: ai-review は contents・metadata・pull-requests の read だけ、ai-review-notice は pull-requests: write だけで PR の番号と enabled だけを受け取る、(6) 必須チェック: 必須は gate-g5・gate-g5-base だけで、AI の手順の失敗でもジョブ ai-review の失敗でもマージを止めない。確かめていない範囲(IMPL-0464): 実際のモデルの実行とプロンプトの注入への耐性(AI の API の鍵を置いていない)、フォークからの PR、確認の後に入れた定義の変更(許す形の一覧の検査、フォークの既定の限定、失敗の表示、always())の実機の振る舞い | AI レビューのワークフロー(差し込み口) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-base-judge-workflow.mjs` | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0334 | 層1 の印 [逸脱] と [列挙に無い離脱] の照合(deviationTagHits)。[列挙に無い離脱] を持たない層1 では [逸脱] を旧版の意味(逸脱と列挙に無い離脱の両方)で読み、注記を出す。[列挙に無い離脱] を持つ層1 では [逸脱] は閉じた列挙の逸脱だけに当たる。test-roster-rules.mjs が、旧い層1 で列挙に無い離脱に当たること、新しい層1 で印ごとに分かれて当たることを実行して確かめる(#316 突合 X-1) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-roster-rules.mjs` | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |

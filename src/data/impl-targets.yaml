@@ -96,6 +96,12 @@ targets:
     path: scripts/gate/next.mjs
     description: 構成から導出するロールの詳細(判定するゲート・判定してはならないゲート・受信箱と引き渡しのラベル・エスカレーションの段階とラベル)。CLAUDE.md へ常駐させず、next.mjs --role で必要な時点に出す(#286)。構成から毎回導出するため、構成と乖離しない
 
+  - id: next-intake
+    name: 次の一手のスクリプト(着手の前の判定記録の確認)
+    kind: template-file
+    path: scripts/gate/next.mjs
+    description: 受信箱から拾った作業単位に、ラベルへの遷移の前提の判定記録があるかを確かめる(next.mjs --intake <ラベル> <対象>)。無ければ「着手しない」と差し戻す先を出す。受け手のスキル(/pit・/implement・handoff.md)と CLAUDE.md の行が着手の前に実行させる(#368)
+
   - id: gate-record-template
     name: 成果物テンプレート テンプレ4(ゲート判定記録)
     kind: template-file
