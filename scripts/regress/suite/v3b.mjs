@@ -110,7 +110,14 @@ const wf = YAML.parse(read('.github/workflows/gate-g5.yml'));
 const pushStep = (wf.jobs?.contract?.steps ?? []).find((st) => String(st.if ?? '').replace(/\s+/g, ' ') === "github.event_name == 'push'" && /verify-gate-contract/.test(st.run ?? ''));
 const before = git('rev-parse', 'HEAD~1').out.trim();
 const wfRun = pushStep ? run('bash', ['-c', pushStep.run], { BEFORE: before }) : { ok: true, out: '' };
-check('K62 gate-g5.yml は既定ブランチ(main)への push で起動し、ジョブ contract に push のときだけ走る契約検査の手順を持つ', (wf.on?.push?.branches ?? []).includes('main') && Boolean(pushStep), JSON.stringify(wf.on));
+// #362 / ADR-0123: 既定ブランチへの push の契機は gate-g5-push.yml へ分けた(既定ブランチの名に依らない)。gate-g5.yml は
+// workflow_call で呼ばれ、呼ばれた側の github.event_name は push のまま(2026-11-11 の実機の確認)。push の手順は gate-g5.yml に残る
+const pwf = YAML.parse(read('.github/workflows/gate-g5-push.yml') ?? 'null') ?? {};
+const pjob = Object.values(pwf.jobs ?? {})[0] ?? {};
+const callsOnDefault = (pwf.on?.push?.branches ?? []).includes('**') && /github\.ref == format\('refs\/heads\/\{0\}', github\.event\.repository\.default_branch\)/.test(String(pjob.if ?? '')) && pjob.uses === './.github/workflows/gate-g5.yml';
+check('K62 既定ブランチへの push で gate-g5-push.yml が gate-g5.yml を呼び、ジョブ contract に push のときだけ走る契約検査の手順を持つ', callsOnDefault && wf.on && 'workflow_call' in wf.on && !('push' in wf.on) && Boolean(pushStep), JSON.stringify({ g5: wf.on, push: pwf.on, job: pjob }), {
+  changed: [{ by: 'ADR-0123 決定1', on: '2026-11-12', from: "(wf.on?.push?.branches ?? []).includes('main') && Boolean(pushStep)(gate-g5.yml が main への push で起動する)" }],
+});
 check('K62 その手順を push の直前のコミット(BEFORE)で流すと、変化点を経ない書き換えを検出して落ちる', Boolean(pushStep) && !wfRun.ok && /changeLog への追記がありません|変化点の記録を経ずに/.test(wfRun.out), wfRun.out);
 resetTo('solo');
 

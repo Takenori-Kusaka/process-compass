@@ -18,7 +18,7 @@ K62 configIntegrityProblems が矛盾と書き換えを返す(集約が呼ぶ)
 b6 手での書き換え → configIntegrityProblems が検出
 K62 整合した構成では configIntegrityProblems は空
 K62 push の直前のコミット(HEAD~1)と比べる契約検査が書き換えを検出
-K62 gate-g5.yml は既定ブランチ(main)への push で起動し、ジョブ contract に push のときだけ走る契約検査の手順を持つ
+K62 既定ブランチへの push で gate-g5-push.yml が gate-g5.yml を呼び、ジョブ contract に push のときだけ走る契約検査の手順を持つ
 K62 その手順を push の直前のコミット(BEFORE)で流すと、変化点を経ない書き換えを検出して落ちる
 2人目が加わる(相互の確認。決定者の記名) → 反映
 2名で G-6 が成立
