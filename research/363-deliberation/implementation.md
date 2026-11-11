@@ -99,7 +99,7 @@
 
 | 欄 | 値 |
 | --- | --- |
-| 変更 | pit-in-template 5877531 |
+| 変更 | pit-in-template 5877531・608505d |
 | 承認の状態 | 承認待ち |
 | 名簿 | |
 | 承認者(AI維持管理者) | |
@@ -114,3 +114,22 @@
 - 構成(process.config.json)に製品のコードの所在を置くこと。形式の版の繰り上げと migrate を要する(ADR-0085 決定5)。アダプタの欄で足りる
 - poetry・uv の版の固定。下限だけを置き、固定はアダプタの書き換え(統制の設定の変更)で行う旨を note に書いた
 - 欠陥③(混在のリポジトリ)と、事前点検が混在を告げること。重の審議の裁定(decision.md)に従い、別の作業で行う
+
+## 独立の突合(crosscheck-fix.md)への対応
+
+入力: `crosscheck-fix.md`(重大度 中が X-1〜X-3、低が X-4〜X-6。高は無い)。議長の指示に従い、6件とも直した。template のコミットは 5877531 の上に積んだ 608505d(push は所有者の権限の更新を待つ。試していない)。
+
+| 指摘 | 対応 |
+| --- | --- |
+| X-1 projectDir の書き誤りで対象なしになる | `config.mjs` に `assertProjectDirExists` を足した。projectDir が無いディレクトリを指せば、目印が直下にあっても adapter.mjs(secretScan を含むすべての段)・coverage-check.mjs・契約検査で失敗させる。所在が直下でないときは、直下の目印も所在の外の目印に数える(従来は `/` を含むパスだけを見ていた)。IMPL-0475 の note に書いた |
+| X-2 既存のファイルへの表の新設が「初回の設定」で通る | 案(a)を採った。初回の設定は、ファイルそのものが基底に無い場合に限る。基底に在るファイルへ表を新しく足す変更は、閾値の変更(表示に「表を新しく足した」)として同時変更の検査と統制の設定の変更の承認の範囲に入れる。IMPL-0202 の note、ci-gates.md の限界の記述、template-repository.md の表の行に書いた。案(b)(表にも初回の免除を及ぼす)は採らない。表の新設は除外の追加に近く、緩める経路が残るため |
+| X-3 旧い S0 の採用者で、secretlint の英語の失敗だけが出る | 落ちる向きは変えない。adapter.mjs は secretScan の前に `.secretlintrc*` の有無を確かめ、無ければ日本語で `--scaffold` で作れることを出して失敗させる。契約検査は、undetermined・none の空の secretScan に、取り込んだ版のアダプタから写す手順を出す。template の README に旧い採用者への影響を書いた |
+| X-4 python-uv が runtimeVersion の python を使うとは限らない | adapter.mjs が、runtime が python のアダプタで `UV_PYTHON` に runtimeVersion を渡す(既に指定があれば変えない)。python-uv の note に書いた。WSL の実物の確認で、カバレッジの出力が python 3.12.3 であることを見た |
+| X-5 文書の取り残し | /process-init の SKILL.md 240 行と generate-profile.mjs 528 行のスタックの列挙に python-poetry・python-uv を足した |
+| X-6 行末の注記の変更で閾値の変更に数える | TOML のファイルに限り、文字列の外の行末の注記を除いて比べる(`stripTomlComment`。基本の文字列・リテラルの文字列・複数行の文字列を区別する)。INI(setup.cfg・tox.ini)は値の中の `#` を値として読むため、行の全体の注記だけを除く従来のままとした |
+
+試験: test-adapter.mjs は 54 件(X-1・X-3・X-4 を足した)、test-check-pr.mjs は 147 場面(X-2・X-6 を足した)、test-init-g5.mjs は 138 件(契約検査が無い projectDir で落ちること)。前のコミット(5877531)の check-pr.mjs・config.mjs・adapter.mjs では、足した場面のうち 13 件が NG になる(陰性の確認)。
+
+確認(608505d): WSL の回帰スイートは実行役の試験と、通常の時刻帯・TZ=UTC の両方で「すべて通った」。WSL の template の試験一式は 44 本すべて通過。Windows の npm run check の各段(lint:ci〜test:criteria・lint:text・lint:provisions・build)はすべて通過し、test:template-suite は既知の test-g5-aggregate.mjs(CRLF)だけが落ちる。WSL の実物の確認(p363/impl/wsl-adapters-2.txt)は前回と同じ結果で、python-uv のカバレッジの出力は python 3.12.3 だった。
+
+本体の submodule の参照は 608505d へ進める。template の push は未了のままであり、template の push の前に本体を push してはならない。

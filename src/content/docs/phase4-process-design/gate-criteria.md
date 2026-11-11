@@ -778,7 +778,7 @@ push のパスの制限とマージのキューは、この要求の手段に数
 
 基準値そのものの変更(カバレッジ基準の引き下げ、静的解析の重大度の変更、検査の除外設定の追加)は、機能の変更とは別の変更として分離し、技術判断者の承認を得ます。この分離は、このゲートの PR 単位の検査で強制します。基準値と除外設定を、製品のコードと同じ変更で変えてはなりません。
 
-<!-- impl IMPL-0202 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="基準値の引き下げと検査の除外設定の変更(閾値・除外設定のファイル、構成の ci)を、製品のコードと同じ PR で変えると G-5(pr-rules)を失敗させる。依存と設定を兼ねるファイルの中は、アダプタの thresholdFiles の「ファイル#表」(python の pyproject.toml・setup.cfg・tox.ini の閾値・除外設定の表)の中身だけを比べる(#363。package.json の中は見ない)。test-check-pr.mjs が試験する。分離した変更の承認の記録は、統制の設定の陰性の確認(IMPL-0134)で扱う" -->
+<!-- impl IMPL-0202 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="基準値の引き下げと検査の除外設定の変更(閾値・除外設定のファイル、構成の ci)を、製品のコードと同じ PR で変えると G-5(pr-rules)を失敗させる。依存と設定を兼ねるファイルの中は、アダプタの thresholdFiles の「ファイル#表」(python の pyproject.toml・setup.cfg・tox.ini の閾値・除外設定の表)の中身だけを比べる(#363。package.json の中は見ない)。初回の設定として同時変更の検査から外すのは、ファイルそのものが基底に無い場合に限る。基底に在るファイルへ閾値の表を新しく足す変更は、閾値の変更に数える(突合 X-2)。TOML の文字列の外の行末の注記だけの変更は数えない。test-check-pr.mjs が試験する。分離した変更の承認の記録は、統制の設定の陰性の確認(IMPL-0134)で扱う" -->
 
 #### 統制の設定の陰性の確認
 
@@ -848,7 +848,7 @@ push のパスの制限とマージのキューは、この要求の手段に数
 
 **実装が存在する段階で、この扱いを用いてはなりません**。テストコードがあるにもかかわらず0件で通過する経路を作らないためです。実装の開始後に「対象なし」の記録が現れた場合、それは検査の不備の兆候です。
 
-<!-- impl IMPL-0475 target=g5-adapter state=delivered check=machine test=template/scripts/gate/test-adapter.mjs note="実装が存在する段階で対象なしを用いないことのうち、製品のコードの目印(package.json・pyproject.toml・go.mod など)がアダプタの所在(projectDir。既定は直下)に無く下の階層にある場合。準拠テンプレートの adapter.mjs と coverage-check.mjs は、対象なしにせず失敗させ、所在を projectDir に書くよう出す。目印がどこにも無い実装(目印を持たないコード)と、実装の開始の後に対象なしが続くことは IMPL-0239 の範囲(#363)" -->
+<!-- impl IMPL-0475 target=g5-adapter state=delivered check=machine test=template/scripts/gate/test-adapter.mjs note="実装が存在する段階で対象なしを用いないことのうち、製品のコードの目印(package.json・pyproject.toml・go.mod など)がアダプタの所在(projectDir。既定は直下)に無く下の階層にある場合。準拠テンプレートの adapter.mjs と coverage-check.mjs は、対象なしにせず失敗させ、所在を projectDir に書くよう出す。projectDir が無いディレクトリを指すときは、目印が直下にあっても、adapter.mjs・coverage-check.mjs・契約検査が失敗させる。所在が直下でないときは、直下の目印も所在の外の目印に数える(突合 X-1)。目印がどこにも無い実装(目印を持たないコード)と、実装の開始の後に対象なしが続くことは IMPL-0239 の範囲(#363)" -->
 
 <!-- impl IMPL-0239 target=g5-adapter state=undelivered check=manual plan=scheduled issue=330 review=2027-04 note="対象なしによる通過(基準1・2・3・5・8)。アダプタはプロジェクトの対象が無いとき実施しない旨を通知して通し(目印が下の階層にある場合は対象なしにしない。IMPL-0475)、カバレッジは製品のコードが無いとき対象なしとして通す。対象なしを記録の3項目(基準・理由・時刻)で証跡へ残すこと、実装の開始後に用いないことは確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
