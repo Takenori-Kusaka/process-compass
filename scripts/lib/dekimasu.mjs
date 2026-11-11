@@ -31,6 +31,7 @@ export function normalizeSentence(s) {
     t = t.replace(/[\s*_`]+$/g, '');
     t = t.replace(/(\([^()]*\)|（[^（）]*）)$/u, '');
     t = t.replace(/[、,:：;]+$/u, '');
+    t = t.replace(/[」』—―]+$/u, ''); // かぎ括弧の閉じとダッシュ(#366 突合 X-6)
   } while (t !== prev);
   return t;
 }
@@ -101,25 +102,27 @@ export function checkDekimasu(registry, pages) {
     else if (!(e.class in CLASSES)) problems.push(`${at}: 区分(class)は ${Object.keys(CLASSES).join('・')} のいずれかです(「${e.class ?? ''}」)`);
     if (!BASES.includes(e.basis)) problems.push(`${at}: 区分の根拠(basis)は ${BASES.join('・')} のいずれかです(「${e.basis ?? ''}」)`);
     if (e.text !== normalizeSentence(e.text) || !END.test(e.text)) problems.push(`${at}: text は、文末の句点・括弧・強調を外した文で、「できます」か「できる」で終わる形で書いてください`);
+    if (e.count !== undefined && !(Number.isInteger(e.count) && e.count >= 2)) problems.push(`${at}: count は、同じ頁に同じ文が2度以上現れるときだけ、その回数(2 以上の整数)を書いてください`);
     const key = `${e.page}\u0000${e.text}`;
-    if (keys.has(key)) problems.push(`${at}: 同じ頁の同じ文が ${keys.get(key)} にもあります`);
-    else keys.set(key, at);
+    if (keys.has(key)) problems.push(`${at}: 同じ頁の同じ文が ${keys.get(key).at} にもあります。回数は count に書いてください`);
+    else keys.set(key, { at, count: Number.isInteger(e.count) ? e.count : 1 });
   });
   let found = 0;
-  const seen = new Set();
+  const seen = new Map(); // key → 出現の行
   for (const [page, lines] of Object.entries(pages)) {
     for (const s of findDekimasu(lines)) {
       found++;
       const key = `${page}\u0000${s.text}`;
-      if (keys.has(key)) { seen.add(key); continue; }
+      if (keys.has(key)) { seen.set(key, [...(seen.get(key) ?? []), s.line]); continue; }
       problems.push(`${page}.md:${s.line}: 文末の「できます/できる」が登録簿にありません。「${s.text.slice(-40)}」。許容なら「〜してよいものとします/〜してよい」へ改め、能力・可能性または条件の項目なら区分を付けて登録してください(第1章 1.7.1・1.7.4)`);
     }
   }
-  for (const [key, at] of keys) {
-    if (!seen.has(key)) {
-      const [page, text] = key.split('\u0000');
-      problems.push(`${at}: 登録した文が ${page} にありません。「${text.slice(-40)}」。文を改めたら登録も改めてください`);
-    }
+  // 出現の回数まで照らす(#366 突合 X-5)。登録した文の2度目の出現を、登録の無い出現として扱う
+  for (const [key, { at, count }] of keys) {
+    const [page, text] = key.split('\u0000');
+    const at2 = seen.get(key) ?? [];
+    if (at2.length === 0) problems.push(`${at}: 登録した文が ${page} にありません。「${text.slice(-40)}」。文を改めたら登録も改めてください`);
+    else if (at2.length !== count) problems.push(`${page}.md:${at2.join('・')}: 登録した文の出現が ${at2.length} 回で、登録の回数(${count})と合いません。「${text.slice(-40)}」。新しい出現は区分を確かめてから count を改めてください`);
   }
   return { problems, found, registered: entries.length };
 }

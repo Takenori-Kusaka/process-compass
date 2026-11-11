@@ -41,6 +41,13 @@ check('知らない区分で失敗する', run([entry('実行できる', { class
 check('区分の根拠が無いと失敗する', run([entry('実行できる', { basis: undefined })], '- 実行できる\n').problems.some((p) => p.includes('basis')));
 check('対象の外の頁の登録で失敗する', run([entry('実行できる', { page: 'phase5-x/y' })], '- 実行できる\n').problems.some((p) => p.includes('対象の頁')));
 check('文末が「できる」でない text の登録で失敗する', run([entry('実行してよい')], '').problems.some((p) => p.includes('text は')));
+const twice = run([entry('実行できる')], '- 実行できる\n\n| a | 実行できる |\n');
+check('登録した文の2度目の出現で失敗する(出現の回数を照らす)', twice.problems.length === 1 && twice.problems[0].includes('2 回'), twice.problems.join(' / '));
+check('count に回数を書いた登録は、その回数の出現で通る', run([entry('実行できる', { count: 2 })], '- 実行できる\n\n| a | 実行できる |\n').problems.length === 0);
+check('count と出現の回数が合わなければ失敗する', run([entry('実行できる', { count: 2 })], '- 実行できる\n').problems.length === 1);
+check('count に 1 以下を書くと失敗する', run([entry('実行できる', { count: 1 })], '- 実行できる\n').problems.some((p) => p.includes('count は')));
+check('かぎ括弧の閉じで終わる文を拾う', findDekimasu('「差し戻すことができます」\n'.split('\n')).length === 1);
+check('ダッシュで終わる文を拾う', findDekimasu('差し戻すことができる——\n'.split('\n')).length === 1);
 check('同じ文の二重の登録で失敗する', run([entry('実行できる'), entry('実行できる')], '- 実行できる\n').problems.some((p) => p.includes('にもあります')));
 
 console.log(`\n${checks} 件中 ${checks - failures} 件が通過`);
