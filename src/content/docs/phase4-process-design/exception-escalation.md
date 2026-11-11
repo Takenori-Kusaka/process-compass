@@ -682,7 +682,7 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 
 独立レビュアを2名とする目的は、検出能力の低下を検知された者の承認を、該当する範囲で、単独では数えないことです。行の題が「単独での承認権限」であるのは、このためです。本標準は、2名にすることを、検出能力を回復させる措置として置きません。回復は 7.9.3 によります。承認者の人数を増やしても、判断の対象を小さくする効果の代わりにはなりません([第3章 3.10.4](/process-compass/phase4-process-design/roles-responsibilities/))。この読みは、[ADR-0067](/process-compass/adr/0067-purpose-of-two-approvers/) 決定2 によります。
 
-<!-- impl IMPL-0118 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=357 review=2026-11 note="検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。制限の発動は変化点の通知(event: restriction)として記録されるだけで、構成は制限中の範囲を持たず、出荷の証跡の集約は該当する範囲の承認者の数を上げない。採用者は、制限中の範囲の変更に2名の承認があることを確かめる者と時点を、社内の手順で定める(#305)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0118 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-roster-conditions.mjs note="検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。種別 notice の event: restriction に範囲(paths)・対象の人・根拠・記録した者を必須にし、解除(event: restriction-release)を記録できるようにした。出荷の証跡の集約は、取り込んだ日に解除されていない制限の範囲に触れる変更で、独立した人の確認に数えた承認が2名に満たないものを、独立した人の確認に数えない(だれが承認したかに依らない)。強制する承認の数(ブランチ保護)は上げない。範囲を記録していない旧い発動は、範囲を判定できないとして保証の開示の項目1 に出す(#305 / #357 / ADR-0127 決定5)" -->
 
 ### 7.9.3 回復の条件
 
@@ -738,7 +738,8 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 | --- | --- |
 | 記録する者 | 品質保証の機能。[第5章 5.6.3](/process-compass/phase4-process-design/human-ai-boundary/)の見逃しの区分を判別する者と同じである |
 | 記録する契機 | 測定の結果(第5章 5.6.2)と区分の判別から、7.9.1 の発動の条件、または 7.9.3 の回復の条件に当たることを確かめた時点 |
-| 機械による発動 | 行わない。発動の記録は人が行う。自動で権限を制限する仕組みを置くと、測定が隠蔽の対象になる([フェーズ5(欠陥注入の隔離設計)](/process-compass/phase5-implementation/seeded-error-safety/)) |
+| 機械による発動 | 行わない。発動と解除の記録は人が行う。自動で権限を制限する仕組みを置くと、測定が隠蔽の対象になる([フェーズ5(欠陥注入の隔離設計)](/process-compass/phase5-implementation/seeded-error-safety/))。人が記録した制限を出荷の証跡の集約が照らし、範囲の変更の承認者の数を確かめることは、機械による発動に当たらない([ADR-0127](/process-compass/adr/0127-external-reviewer-seats-restriction-scope-and-organizational-distance/) 決定5) |
+| 記録する事項 | 発動では、識別子・対象の人・範囲(パスなど、変更が範囲に触れるかを判定できる形)・根拠となった測定結果の所在・記録した者。解除では、発動の識別子・解除の根拠・記録した者。範囲を限定しない発動を記録しない(7.9.2「適用の範囲」) |
 | 発動の通知 | 記録した者が、即時に通知する。通知先と通知日の記録は、[第3章 3.13.6](/process-compass/phase4-process-design/roles-responsibilities/)による |
 
 品質保証の機能を担う者が出荷判定者の席の責任者と同一人物である場合、発動の通知は、通知する者と通知先が同一になります。この場合の扱いは、第3章 3.13.6 によります。
