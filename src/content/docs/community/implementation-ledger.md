@@ -24,7 +24,7 @@ sidebar:
 | 第1章 | 27 | 7 | 0 | 6 | **14** |
 | 第2章 | 39 | 4 | 0 | 3 | **32** |
 | 第3章 | 95 | 24 | 0 | 16 | **55** |
-| 第4章 | 99 | 22 | 3 | 8 | **66** |
+| 第4章 | 100 | 23 | 3 | 8 | **66** |
 | 第5章 | 54 | 27 | 0 | 8 | **19** |
 | 第6章 | 76 | 4 | 0 | 7 | **65** |
 | 第7章 | 43 | 2 | 0 | 2 | **39** |
@@ -33,7 +33,7 @@ sidebar:
 | 附属書D | 8 | 0 | 0 | 0 | **8** |
 | 附属書F | 20 | 0 | 0 | 0 | **20** |
 | 附属書H | 44 | 3 | 0 | 8 | **33** |
-| **計** | 564 | 99 | 3 | 61 | **401** |
+| **計** | 565 | 100 | 3 | 61 | **401** |
 
 未棚卸しの401節は、実行主体を縛る規定があるかを確かめていません。この節の規定は、マークが無くても本台帳に現れません。
 
@@ -45,9 +45,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 152 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 155 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 92 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 230 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 231 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -60,17 +60,17 @@ sidebar:
 | 走査したファイル(スキルと CLAUDE.md の生成区間の外) | 62 |
 | 印を求める要求・禁止の文 | 65 |
 | 範囲の外: 太字の否定を含む行 | 139 |
-| 範囲の外: 平叙の否定で終わる行 | 406 |
+| 範囲の外: 平叙の否定で終わる行 | 408 |
 
 ### 降りていない規定
 
-降りていない規定: **121件**
+降りていない規定: **122件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 36 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 85 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 36 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 86 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -197,6 +197,7 @@ sidebar:
 | IMPL-0466 | T-1 の限定試行を、試行前チェックリストの全項目を確認してから始めること(未充足の項目・撤退の条件の無いまま始めない。該当しない項目は理由を書き、理由の無い「該当なし」を確認済みとしない)。準拠テンプレートに試行前チェックリストの置き場が無い(ADR-0116 決定6)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 試行前チェックリストの様式の置き場(予定)(予定の置き場) | 予定 [#359](https://github.com/Takenori-Kusaka/process-compass/issues/359)(見直し 2027-04) | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0467 | 要求事項5 のうち、準拠テンプレートが前提の判定記録を読めない場面。(a) 出荷判定者の記録の突合による state:qm-blocked(差し戻しの判定記録の様式が無い)、(b) state:needs-po・state:needs-owner を経た state:needs-dev の、価値責任者の判断・事業決裁者の決裁の記録(様式が無い)、(c) 機能へ対応づけない作業単位の state:needs-dev。next.mjs --pickup は (a)(c) で「判定できない」を出して人へ渡し、(b) では G-2・G-4 だけを読む。着手の時点で要求事項5 を機械で行わない(#368 の突合 X-1・X-7)。確かめる者: 計画の Issue(issue= の番号)の担当者 | 次の一手のスクリプト(着手の前の判定記録の確認) | 予定 [#359](https://github.com/Takenori-Kusaka/process-compass/issues/359)(見直し 2027-05) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0468 | 要求事項5 のうち、開いている PR の判定記録を実環境で読む部分。next.mjs --pickup は state:ready-to-merge・state:qm-blocked で PR のレビューを gh api で読み、写しと同じ形で読むが、実際の GitHub の上で読み出しと承認の失効・挙動要約の読み方を確かめていない(試験は --offline と模擬の写しだけ)(#368 の突合 X-7)。確かめる者: 計画の Issue(issue= の番号)の担当者 | 次の一手のスクリプト(着手の前の判定記録の確認) | 予定 [#361](https://github.com/Takenori-Kusaka/process-compass/issues/361)(見直し 2027-05) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| IMPL-0479 | 第2段: 1つの構成で複数のアダプタを回すこと。単一値の欄(adapters.stack)は有効のまま残し、追加の欄で足す。スタックごとの段を並列に回し、段を if: で飛ばさない。宣言したアダプタが作業の場所に対象を見つけなければ失敗にする。カバレッジはスタックごとに同じ基準値と比べ、合算しない。準拠テンプレートの構成は1つのアダプタしか持てず、混在のリポジトリは none の手書きの要素(stacks)で受ける(その形ではカバレッジは未実施)。python ほか node 以外のスタックで変更の範囲のカバレッジを測ることは IMPL-0259(#360)に依る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 のアダプタの実行(adapter.mjs) | 予定 [#360](https://github.com/Takenori-Kusaka/process-compass/issues/360)(見直し 2027-05) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 ### 全件
 
@@ -676,5 +677,9 @@ sidebar:
 | IMPL-0473 | 本人以外の確認を記録する変化点に限り、既存の記録の記名者を、その確認を数えた後の構成で照らす(ADR-0120 決定2)。/process-change は、この変化点の記名者の記名で本人以外の記名として数える確認(laterConfirmation)を、既存の変更種別の登録者の照合と、clampSeats の既存の規則(この変化点で追加・変更・承認していない規則)の成立に使う。同じ変化点で追加・変更した規則・変更種別・規則の承認の記名者と、確認する人の資格は、変化点の前の構成で照らす。照合で通した既存の記録を、確認の差分の行に列挙し、変化点の記録の laterSignerCheck(確認の id と記録の一覧。日付と記名者はその記録の date と decidedBy)へ自動で載せる。既存の記録は書き換えない。D-0 の変化点の履歴と出荷の証跡の集約の保証の開示の項目1 が、作られた時点の確認でないことを区別して出す(組織の外への開示は件数だけ)。確認の変化点の外で、氏名の確認に本人以外の記録が無い人が拒否の原因に含まれるとき(既存の変更種別の登録者、変化点の記名者など)は、拒否の末尾に1回、原因と本人以外が確認すれば既存の記録も照合して通ることを案内する。既存の規則の成立が同じ原因で落ちる場合も同じ案内を出す。test-name-confirmation-timing.mjs と回帰の試験 suite/name-confirmation.mjs が、記録の無い旧い確認のまま1名から2名へ移った構成(2b)と旧い2名の構成(2f)で確認の変化点を受け付け規則・種別・委任の席を保つこと、既存の記録を書き換えないこと、差分と記録と履歴の表示、確認の変化点の外(記名なし・旧い確認の本人の記名)の拒否と案内、確認と同じ変化点での変更種別の登録し直し(2g)の拒否、同じ変化点で追加した規則と変更種別の拒否を固定する(#434) | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-name-confirmation-timing.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0474 | 基準7 は対象なしによる通過を認めない。準拠テンプレートの adapter.mjs は、秘匿情報の検査(secretScan)を製品のコードの有無とアダプタの対象の判定に依らず、リポジトリの直下で全体へ実行する。undetermined・none のアダプタにも検査のコマンドを置き、契約検査はスタックが未確定でも空のコマンドを落とす。保証の開示 項目4 は秘匿情報の検査を「検査対象が存在しない」と出さない(#363) | G-5 のアダプタの実行(adapter.mjs) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-adapter.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0475 | 実装が存在する段階で対象なしを用いないことのうち、製品のコードの目印(package.json・pyproject.toml・go.mod など)がアダプタの所在(projectDir。既定は直下)に無く下の階層にある場合。準拠テンプレートの adapter.mjs と coverage-check.mjs は、対象なしにせず失敗させ、所在を projectDir に書くよう出す。projectDir が無いディレクトリを指すときは、目印が直下にあっても、adapter.mjs・coverage-check.mjs・契約検査が失敗させる。所在が直下でないときは、直下の目印も所在の外の目印に数える(突合 X-1)。目印がどこにも無い実装(目印を持たないコード)と、実装の開始の後に対象なしが続くことは IMPL-0239 の範囲(#363) | G-5 のアダプタの実行(adapter.mjs) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-adapter.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0476 | G-5 基準1・2・3・5 の対象を製品のすべてのスタックとし、宣言していないスタックの製品のコードがある変更を通さないこと(第1段)。準拠テンプレートの契約検査(verify-gate-contract.mjs が stack-coverage.mjs を呼ぶ。PR ごと・既定ブランチへの push ごと)が、追跡しているファイルのうち製品のコードの候補(強制層・文書・依存の置き場を除く)のスタックを、目印のファイルと拡張子の集計で検出し、宣言(言語のアダプタのスタック × projectDir、または adapters/none.json の stacks のスタック × 作業の場所)と除外の一覧に入らなければ失敗させる。表示はゲートの単位で「G-5 基準1 未充足」、検査の単位で「未実施(構成のアダプタの外)」。宣言は人が書き、検出で埋めない。旧い構成(アダプタ1つ)は値を変えずに宣言として読み、猶予を置かない。知る言語は node・python・go・rust・java・ruby・php・dotnet・swift の9つで、それ以外の言語(シェル・C/C++ など)は検出しない。依存・生成物の置き場(dist・build・vendor など)は数えない。test-init-g5.mjs も初期化した構成で確かめる(#363) | 製品のすべてのスタックと宣言の突き合わせ | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-stack-coverage.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0477 | 除外の一覧(.github/stack-exclusions.json)の各行に、パス(ファイルかディレクトリ。ワイルドカード・直下の全体・直下の外を受けない)・区分 non-product(製品でない。これだけの閉じた区分)・理由・人の記名を要し、AI の名義の記名を受け付けないこと。宣言した作業の場所を覆う除外を受けない(製品のスタックは除外できない)。受けなかった行は突き合わせに使わない。除外は秘匿情報の検査(secretScan。基準7)に効かない(adapter.mjs の secretScan は一覧を読まず直下から全体を検査する)。除外したパスの件数と、当たらない除外を契約検査の注記に出す。除外したパスの下を製品のコードが参照していないかは確かめない(#363) | 製品のすべてのスタックと宣言の突き合わせ | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-stack-coverage.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0478 | 除外の一覧(.github/stack-exclusions.json)を、製品のコードと同じ PR で変えると G-5(pr-rules)を失敗させる。check-pr.mjs の閾値・除外設定のファイル(THRESHOLD_FILES)に入れ、基底の構成が設定済みなら、基底に無い一覧を新しく置く変更も初回の設定として外さない。統制の設定の変更の承認の範囲(controlTouchedOf・controlTouchedBetween)に入り、AI維持管理者が本人のアカウントで出す承認のレビュー(IMPL-0455 ほか。gate-g5-base)と統制の設定の陰性の確認を要する(#363) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0479 | 第2段: 1つの構成で複数のアダプタを回すこと。単一値の欄(adapters.stack)は有効のまま残し、追加の欄で足す。スタックごとの段を並列に回し、段を if: で飛ばさない。宣言したアダプタが作業の場所に対象を見つけなければ失敗にする。カバレッジはスタックごとに同じ基準値と比べ、合算しない。準拠テンプレートの構成は1つのアダプタしか持てず、混在のリポジトリは none の手書きの要素(stacks)で受ける(その形ではカバレッジは未実施)。python ほか node 以外のスタックで変更の範囲のカバレッジを測ることは IMPL-0259(#360)に依る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | G-5 のアダプタの実行(adapter.mjs) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 <!-- implementation-ledger:end -->

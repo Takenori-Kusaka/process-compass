@@ -146,3 +146,63 @@ gh の認証に workflow の権限が入った後に、退避していたブラ�
   - WSL の回帰スイート(LF の clone、`--kb keep`、通常と TZ=UTC): 実行役の試験 30 件が合格し、通常・TZ=UTC とも「すべて通った」
   - 本体の `npm run check` の各段(Windows。test:regress は上の WSL): lint:ci〜test:criteria・lint:text・lint:provisions・build は通過。test:template-suite は test-g5-aggregate.mjs・test-base-judge-workflow.mjs・test-discouraged-evidence.mjs が落ちる。3本とも Windows の CRLF の作業ツリーで origin/main(8591464)の版でも落ち、WSL の LF では通るため、本件の変更と関係しない
 - **push**: template を main へ、続けて本体を main へ push した(template の参照先が遠隔にある状態で本体を push する)
+
+## 欠陥③の取り込み(2026-11-11。審議の重さ: 重。裁定は `decision.md` の R-1〜R-4)
+
+作業の前に本体と template を pull した(本体 ef15e58、template c4fe4ff)。番号は main の最大の次から振った: ADR-0121(0118〜0120 は使用済み)、EV-0237〜0239、IMPL-0476〜0479。
+
+### 標準(第4章 G-5「製品のすべてのスタック」の節を新設)
+
+- 要求 (i): 基準1・2・3・5 の対象は製品のすべてのスタック。要求 (ii): 宣言していないスタックの製品のコードがある変更は G-5 を通さない(除外を除く)。道具に依らない語で書き、「アダプタ」の語を要求に入れない
+- 宣言は人が「スタック × 作業の場所」で行い、検出で埋めない。検出は目印のファイルと拡張子の集計を併せる
+- 除外: 区分「製品でない」だけ、パスの単位、理由と人の記名、AI の名義を受けない、統制の設定(変更の承認)、製品のコードとの同時の変更を禁じる、基準7 に効かない
+- 宣言の外は「未実施は失敗に数える」を当てる。表示はゲートで「基準1 未充足」、検査ごとに「未実施(構成のアダプタの外)」。「検査していない」「未達」を用いない理由を本文に書いた
+- IMPL-0476(第1段の突き合わせ。stack-coverage・delivered)、IMPL-0477(除外の行。delivered)、IMPL-0478(除外の一覧の同時変更と承認の範囲。pr-checks・delivered)、IMPL-0479(第2段。g5-adapter・undelivered・issue=360・review=2027-05。IMPL-0259 への依存を note に書いた)
+- EV-0237(拡張子の集計の誤検出の率)、EV-0238(複数のアダプタの CI の時間とスタックごとのカバレッジの十分さ)、EV-0239(62304・DO-178C・9001 8.6 の二次資料の読み。E1)
+- 降ろし先 `stack-coverage`(template-file、checker verify-gate-contract)を `impl-targets.yaml` に足し、節を `impl-inventory.yaml` に marked で登録した
+- ADR-0121 を新設した(ADR-0085 決定2 の理由の射程を単一のスタックに限る、採らなかった案、決定6 の落ちうる検査と直し方)。ADR-0085 の状態の節に注記を足した。Issue 本文の ADR-0084 は ADR-0085 の誤記、#360 本文の IMPL-0253 は IMPL-0259 の誤記であることを ADR-0121 のコンテキストに書いた
+- `template-repository.md` の規則と担保の対応の表に行を足した
+
+### 準拠テンプレート(第1段)
+
+- `scripts/gate/stack-coverage.mjs`(新): 製品のコードの候補(check-pr の isNonProduct の外。依存・生成物の置き場を除く)のスタックを、目印(preflight と同じ9言語)と拡張子で検出する。宣言は、言語のアダプタのスタック × projectDir(旧い構成の1つのアダプタを値を変えずにそのまま読む。構成の形式を変えないため、形式の版と migrate を要さない)と、`adapters/none.json` の `stacks`(手書きの要素)。言語のアダプタに `stacks` を書くと失敗(複数のアダプタは第2段)。undetermined は宣言を持たない
+- 除外の一覧は `.github/stack-exclusions.json`。パスはファイルかディレクトリで、ワイルドカード・直下の全体・直下の外を受けない(`**/*.py` はスタックの単位の除外と同じになるため)。宣言した作業の場所を覆う除外を受けない。受けなかった行は突き合わせに使わない
+- `verify-gate-contract.mjs`(5.2 節): 突き合わせの不備と宣言の外のスタックを失敗にする。除外の件数・当たらない除外は注記
+- `check-pr.mjs`: 除外の一覧を THRESHOLD_FILES に入れた(同時変更の検査、統制の設定の変更の承認の範囲、陰性の確認)。基底の構成が設定済みなら、一覧を新しく置く変更も初回の設定として外さない
+- `adapters/none.json` に `stacks: []` と note。`README.md`・`CLAUDE.md`(禁止事項の表)・`process-change/kinds/settings.md`、常駐の規則の一覧(`claude-md-resident.json`。追加だけ)
+- 試験: `test-stack-coverage.mjs`(新。39 件。gate-g5.yml の contract に結線): 混在の場面(違反と適合の対)、目印の無い .py、除外の記名の欠け・AI の名義・区分・ワイルドカード・全体・作業の場所を覆う除外、none の経路(手書きの要素の有無)。`test-check-pr.mjs`: 除外の一覧と製品のコードの同時の変更(失敗)と一覧だけの PR(通過)。`test-init-g5.mjs`: 初期化した構成で、混在が契約検査で落ち、記名の無い除外で落ち、記名のある除外で通る
+- 陰性の確認: check-pr.mjs を変更の前の版へ戻すと、足した3件が NG になる
+
+### 採らなかったこと(実装の範囲)
+
+- 第2段(複数のアダプタ・並列の段・スタックごとのカバレッジ)。裁定のとおり降ろさない(IMPL-0479)
+- 事前点検に宣言の候補を出すこと。裁定の「宣言の初期値の機械の埋め込み」を採らないに当たる
+- 除外の行に日付の欄を必須にすること、除外の記名者を名簿の人に限ること。裁定に無い
+- シェル・C/C++ などの検出。preflight の知る9言語にそろえ、限界として IMPL-0476 の note に書いた
+
+### 確認の結果
+
+| 対象 | 結果 |
+| --- | --- |
+| template の試験一式(WSL。62dbe5e の LF の clone、node 22.23。gate-g5.yml の `node scripts/gate/test-*.mjs`) | すべて通過(失敗 0)。test-stack-coverage.mjs は 39 件、test-check-pr.mjs は 149 場面、test-init-g5.mjs は 144 件 |
+| template の試験一式(Windows) | test-g5-aggregate.mjs だけが落ちる(作業ツリーの CRLF。既知で、本件と関係しない) |
+| 回帰スイート(WSL。LF の clone、`--kb keep`、通常と TZ=UTC) | 実行役の試験 30 件が合格。通常・TZ=UTC とも「すべて通った」(最初の実行は clone に node_modules が無く v3b が `yaml` を読めずに中断した。`npm ci` の後に流し直した。変更の側の問題ではない) |
+| 本体の `npm run check` の各段(Windows。test:template-suite・test:regress は上の WSL) | lint:ci〜test:criteria がすべて通過。lint:text は IMPL-0478 の note の漢字の連続で一度落ち、語を改めて通過。lint:provisions 通過、build は 352 頁 |
+| 陰性の確認 | check-pr.mjs を変更の前の版へ戻すと、test-check-pr.mjs の足した3件が NG になる。test-stack-coverage.mjs・test-init-g5.mjs の違反の場面は、突き合わせが無ければ成り立たない(契約検査が通る) |
+
+- `criteria:write` で `src/data/processes/integrated.yaml` の G-6 の基準の行が、main の第4章 G-6 の本文に合わせて書き直された(本件の前からの乖離)。知識ベースはその後に作り直した
+
+### コミットと承認の記録
+
+- template: コミット 62dbe5e(トレーラ `Spec: setup`・`Co-Authored-By: Claude Opus 5.5`)。main へ push した(c4fe4ff..62dbe5e)
+- 本体: submodule の参照を 62dbe5e へ進めてコミットした。push はしない(所有者に委ねる)
+- 強制層(scripts/gate・adapters・.github/workflows・CLAUDE.md)の変更であり、AI維持管理者の承認待ちとして記録する
+- #360 へのコメント(IMPL-0479 が IMPL-0259 に依ること、本文の IMPL-0253 は IMPL-0259 の誤記)は、まだ書いていない。依存は IMPL-0479 の note と ADR-0121 に書いた
+
+| 欄 | 値 |
+| --- | --- |
+| 変更 | pit-in-template 62dbe5e |
+| 承認の状態 | 承認待ち |
+| 名簿 | |
+| 承認者(AI維持管理者) | |
+| 承認の日 | |

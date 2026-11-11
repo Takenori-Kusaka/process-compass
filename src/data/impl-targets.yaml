@@ -279,6 +279,13 @@ targets:
     checker: verify-gate-contract
     description: G-5 の集約ジョブ(gate-g5)の needs に、判定基準を実装するジョブ(基準1〜5・7)と PR 単位の検査・契約検査のジョブがあり、集約がその結果を合否に使っているかを、ワークフローの定義から読む。契約検査(verify-gate-contract.mjs)が不備を失敗にし、出荷判定の証跡の集約が保証の開示 項目4 の「実施」をここから導く。test-g5-aggregate.mjs と test-init-g5.mjs が試験する(第4章 G-5「判定基準を実装する検査と集約」、ADR-0074)
 
+  - id: stack-coverage
+    name: 製品のすべてのスタックと宣言の突き合わせ
+    kind: template-file
+    path: scripts/gate/stack-coverage.mjs
+    checker: verify-gate-contract
+    description: 製品のコードのスタック(目印のファイルと拡張子の集計)を、宣言(アダプタのスタック × projectDir、adapters/none.json の stacks)と除外の一覧(.github/stack-exclusions.json)に突き合わせ、外れたスタックがあれば契約検査を失敗させる。除外の行のパス・区分・理由・人の記名を確かめる。test-stack-coverage.mjs が試験する(第4章 G-5「製品のすべてのスタック」、ADR-0121。Issue #363)
+
   - id: profile-generator
     name: プロセス構成の初期化(強制層の生成)
     kind: template-file
