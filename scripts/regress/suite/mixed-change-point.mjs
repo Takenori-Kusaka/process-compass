@@ -42,6 +42,8 @@ for (const [who, signer] of [['前任の決定者', NAMES[0]], ['新任の決定
 // 分ける: (i) 決定者の交代だけ(前任の記名)→ (ii) 残りの任免と緩める向きの行(新しい決定者の記名)
 check('(b) 分ける 準備: 初期化', init().ok);
 accepted('(b) 分ける 準備: 1人目が全席(初回の記入)', change({ kind: 'accountable', date: TODAY, summary: '1人目', people: [P(0)], seats: seatsOf(ALL(0)), decidedBy: NAMES[0], reason: '初期の設定' }));
+// #432 突合 X-1・X-7(ADR-0122 決定1): 変化点より前の名簿は1名で、当事者以外に記名できる者がいない。前任の記名は自己の決定であり、D-0 の「決裁の権限の出所」の記載を要する
+write('docs/D-0-governance.md', W.read('docs/D-0-governance.md').replace(/^(\| 決裁の権限の出所 \|)[^\n]*\|\s*$/m, '$1 個人事業主本人(試験) |'));
 accepted('(b) 分ける1: 決定者の交代だけ(記名 前任の決定者)', change({ kind: 'accountable', date: TODAY, summary: '決定者の交代', people: [P(0), P(1)], seats: seatsOf([1, 0, 0, 0, 0, 0, 0, 0, 0]), decidedBy: NAMES[0], reason: '決定者を交代する' }));
 const b1 = last();
 check('(b) 分ける1: 向きは任免の決定。緩める向きの行は無い', b1.direction === 'appoint' && Array.isArray(b1.rowKinds) && !b1.rowKinds.includes('loosen'), JSON.stringify({ direction: b1.direction, diff: b1.diff, rowKinds: b1.rowKinds }));
@@ -60,7 +62,8 @@ const aSetup = (tag) => {
   check(`(a) 準備: 初期化(${tag})`, init().ok);
   // #432(ADR-0122 決定1): 2名の名簿で全席を1人目(決定者)に置くと決定者が当事者の兼務になり、1人目の記名では通らない。1人目と任命権者で記入する
   accepted(`(a) 準備: 名簿 [1人目, 任命権者] で1人目が全席(${tag})`, change({ kind: 'accountable', date: TODAY, summary: '体制を記入', people: [P(0), APPOINTER], seats: seatsOf(ALL(0)), decidedBy: NAMES[0], reason: '初期の体制を記入する' }));
-  accepted(`(a) 準備: 1人目の離脱(記名なし。${tag})`, change({ kind: 'accountable', date: TODAY, summary: '1人目が離脱', people: [P(1), APPOINTER], seats: seatsOf(SEATS.map(() => null)) }));
+  // #432 突合 X-2(ADR-0108 決定3): 名簿への追加は記名を要する。決定者が外れる変化点なので、組織上の任命権者が記名する
+  accepted(`(a) 準備: 1人目の離脱と2人目の追加(追加は任命権者の記名。${tag})`, change({ kind: 'accountable', date: TODAY, summary: '1人目が離脱', people: [P(1), APPOINTER], seats: seatsOf(SEATS.map(() => null)), decidedBy: APPOINTER.name, reason: '2人目を名簿へ足す' }), { changed: [{ by: 'ADR-0108 決定3', on: '2026-11-12', from: '記名なしで反映(1人目の離脱と2人目の追加)' }] });
 };
 aSetup('1つの変化点');
 // 出荷判定者も3人目へ置き、緩める向きの行を代償措置の終了の1行に絞る(兼務の行の扱いは #432)

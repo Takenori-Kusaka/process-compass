@@ -109,11 +109,17 @@ d0('1.0');
 // 第3巡(K60): 全席が未記入の3名体制は、名簿(組織上の任命権者を含む)を先に置き、任命権者の記名で席を埋める
 accepted('s4: s4-acc3 の名簿', apply('s4-acc3', ({ seats, decidedBy, reason, ...c }) => ({ ...c, people: [...c.people, APPOINTER] })));
 accepted('s4: s4-acc3 の席(任命権者の記名)', apply('s4-acc3', (c) => ({ ...c, people: [...c.people, APPOINTER], decidedBy: APPOINTER.name, reason: '組織が任命した' })));
-accepted('s4: s4-5(3名 → 5名)', apply('s4-5'));
+// #432 突合 X-2(ADR-0108 決定3): 名簿への追加は記名を要する。決定者(事業決裁者の席の責任者)の記名を足す
+const byDecider = (c) => {
+  const k = cfg();
+  const ref = k.seats.find((s) => s.role === (k.governance?.structureDecider ?? 'biz-approver'))?.accountable;
+  return { ...c, decidedBy: (k.people.find((p) => p.id === ref || p.name === ref) ?? {}).name ?? ref, reason: c.reason ?? '人を名簿へ足す' };
+};
+accepted('s4: s4-5(3名 → 5名。追加は決定者の記名)', apply('s4-5', byDecider), { changed: [{ by: 'ADR-0108 決定3', on: '2026-11-12', from: '記名なしで反映' }] });
 commit('s4-5');
 git('tag', 's4-5');
 // 中7: 5 → 15
-const s415 = apply('s4-15');
+const s415 = apply('s4-15', byDecider);
 accepted('s4-15: 差分にレビューの方式と出荷判定者の方式が出る', s415, 'reviewMode: internal-separated → internal-plus-core-external', 'approverMode: named-concurrent → dedicated-qa', '分離必須とする');
 commit('s4-15');
 git('tag', 's4-15');

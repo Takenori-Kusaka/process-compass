@@ -232,9 +232,11 @@ resetTo('two');
 // 新任(佐藤)は自分の任命を確定できない。2名の名簿では記名できる者がいないため、組織上の任命権者を名簿へ置いてから替える
 const CHANGED_0122 = [{ by: 'ADR-0122 決定3', on: '2026-11-11', from: '前任の決定者(山田)の記名で決定者の席を変えて反映。新任(佐藤)の拒否の語は「変更前の D-0 表1「体制と運用形態」の決定者」' }];
 refused('決定者の席を変える(変更前の決定者でない者の記名)', change({ kind: 'accountable', date: DAY, summary: '決定者を価値責任者へ', seats: { 'value-owner': { accountable: '佐藤 花子' } }, governance: { structureDecider: 'value-owner' }, decidedBy: '佐藤 花子', reason: 'r' }), '自分に関わる変更', '新任の決定者が、自分の任命を自分の記名で確定することはできません', { changed: CHANGED_0122 });
-refused('決定者の席を変える(変更前の決定者の記名。本人)', change({ kind: 'accountable', date: DAY, summary: '決定者を価値責任者へ', seats: { 'value-owner': { accountable: '佐藤 花子' } }, governance: { structureDecider: 'value-owner' }, decidedBy: '山田 太郎', reason: '体制の決定を価値責任者へ移す' }), '自分に関わる変更', '本人以外に記名できる者がいません', { changed: CHANGED_0122 });
+// #432 突合 X-1(裁定): 当事者以外に記名できる者がいないので、前任の記名は自己の決定として受け付ける。ただし D-0 の「決裁の権限の出所」の記載を要する(X-7)
+refused('決定者の席を変える(変更前の決定者の記名。本人。D-0 の決裁の権限の出所が様式のまま)', change({ kind: 'accountable', date: DAY, summary: '決定者を価値責任者へ', seats: { 'value-owner': { accountable: '佐藤 花子' } }, governance: { structureDecider: 'value-owner' }, decidedBy: '山田 太郎', reason: '体制の決定を価値責任者へ移す' }), '決裁の権限の出所', { changed: CHANGED_0122 });
 const ORG = { id: 'org', name: '組織 任命者', external: true, appointer: true };
 const twoPeople = cfg().people;
+// 任命権者を置くことは推奨。置けば任命権者の記名で替えられ、自己の決定にならない
 accepted('組織上の任命権者を名簿へ置く(決定者の記名)', change({ kind: 'accountable', date: DAY, summary: '任命権者を置く', people: [...twoPeople, ORG], decidedBy: '山田 太郎', reason: '決定者の交代の記名者' }));
 accepted('決定者の席を変える(組織上の任命権者の記名)', change({ kind: 'accountable', date: DAY, summary: '決定者を価値責任者へ', people: [...twoPeople, ORG], seats: { 'value-owner': { accountable: '佐藤 花子' } }, governance: { structureDecider: 'value-owner' }, decidedBy: ORG.name, reason: '体制の決定を価値責任者へ移す' }), '緩める向き', { changed: CHANGED_0122 });
 check('D-0 表1 の行が書き換わる', /\| 体制と運用形態[^|]*\| 価値責任者\(Value Owner\) \|/.test(read('docs/D-0-governance.md')) && checkD0().ok, checkD0().out);
@@ -356,7 +358,7 @@ resetTo('delegated');
 
 // K16: 適合性確認を承認した席の責任者(開発者の席の責任者 b)が離脱する。失効するのは承認である
 const four = [...people(3), { id: 'd', name: NAMES[3], accounts: [rosterAccount('acct-d')] }];
-accepted('4人目が加わる', change({ kind: 'accountable', date: DAY, summary: '4人目', people: four }));
+accepted('4人目が加わる(決定者の記名)', change({ kind: 'accountable', date: DAY, summary: '4人目', people: four, decidedBy: 'a', reason: '4人目を名簿へ足す' }), { changed: [{ by: 'ADR-0108 決定3', on: '2026-11-12', from: '記名なしで反映' }] });
 commit('chore: 4名');
 git('tag', 'four');
 const leave = change({ kind: 'accountable', date: DAY, summary: '佐藤(開発者の席の責任者・適合性確認の承認者)が離脱', people: four.filter((p) => p.id !== 'b'), seats: { 'dev-verifier': { accountable: 'd' } }, decidedBy: 'a', reason: '後任に高橋' });

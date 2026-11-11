@@ -34,30 +34,35 @@ const rowsOf = (e, re) => (e.diff ?? []).map((l, i) => ({ l, k: e.rowKinds?.[i] 
 const SELF = '決定者は、自分に関わる変更を自分の記名で決められません';
 const SHIP = 'qa-gatekeeper';
 const SHIP_SEP = 'sep-shipping-business';
-/** 判定記録(G-1)を基底ブランチの置き場へ書く。期限(最初のゲート判定より前)の確認に使う */
-const gateRecord = (day) =>
+/** 自己の決定の根拠(D-0 節11「決裁の権限の出所」。突合 X-7)を書く */
+const authority = () => write('docs/D-0-governance.md', W.read('docs/D-0-governance.md').replace(/^(\| 決裁の権限の出所 \|)[^\n]*\|\s*$/m, '$1 個人事業主本人(試験) |'));
+/** 判定記録(G-1)を基底ブランチの置き場へ書く。期限(最初のゲート判定より前)の確認に使う。when は判定日時(日付だけ、または日付と時刻) */
+const gateRecord = (day, when = `${day} 10:00`) =>
   write(
     `docs/gates/g1-test-${day}.md`,
-    `# ゲート判定記録\n\n| 項目 | 値 |\n| --- | --- |\n| ゲート | G-1 企画承認 |\n| 対象 | 企画書 |\n| 判定者 | ${NAMES[0]} |\n| 判定日時 | ${day} 10:00 |\n| 結果 | 通過 |\n| 確定の形態 | 人確定 |\n| 参照した D-0 の版 | 1.0 |\n`
+    `# ゲート判定記録\n\n| 項目 | 値 |\n| --- | --- |\n| ゲート | G-1 企画承認 |\n| 対象 | 企画書 |\n| 判定者 | ${NAMES[0]} |\n| 判定日時 | ${when} |\n| 結果 | 通過 |\n| 確定の形態 | 人確定 |\n| 参照した D-0 の版 | 1.0 |\n`
   );
 
 // ================================================================ 論点1(発生で入った兼務)
 // L1c: 初回の記入で、2名の名簿の全席を1人目(決定者)へ。兼務は決定者が当事者の決定であり、本人の記名では通らない(R-1)
 check('L1c 準備: 初期化', init().ok);
 refused('L1c 名簿 [1人目, 2人目]、全席 1人目(初回の記入。記名 1人目=決定者・当事者)', change(acc('体制を記入', [P(0), P(1)], seatsOf(ALL(0)), NAMES[0])), SELF);
+accepted('L1c 同じ初回の記入。記名 2人目(同じ変化点で記入されるもう1人。突合 X-3)', change(acc('体制を記入', [P(0), P(1)], seatsOf(ALL(0)), NAMES[1])));
+check('L1c もう1人の記名で、2組とも緩める行として決定済みになる', rowsOf(last(), /が生じる\(別の人を置ける体制で/).length === 2 && last().decidedBy === NAMES[1] && last().selfDecided !== true, JSON.stringify(last()));
 
 // L1f: 1人体制で兼務が入り(発生)、2人目を名簿へ足すだけ(記名なし)。人を足す反映は止めない。決定待ちの行が出る(1-D)
 check('L1f 準備: 初期化', init().ok);
 accepted('L1f 名簿 [1人目]、全席 1人目(初回の記入)', change(acc('1人目', [P(0)], seatsOf(ALL(0)), NAMES[0])));
 check('L1f 1人体制の兼務は発生', rowsOf(last(), /の兼務\(当事者の id p1。/).every((x) => x.k === 'arising') && rowsOf(last(), /の兼務\(当事者の id p1。/).length === 2, JSON.stringify(last().diff));
-accepted('L1f 2人目を名簿へ足すだけ(記名なし)', change(acc('2人目を名簿へ', [P(0), P(1)], seatsOf(ALL(0)))));
+refused('L1f 2人目を名簿へ足すだけ(記名なし。名簿の追加は記名を要する。突合 X-2)', change(acc('2人目を名簿へ', [P(0), P(1)], seatsOf(ALL(0)))), '人の名簿への追加');
+accepted('L1f 2人目を名簿へ足すだけ(記名 1人目=決定者。兼務の決定の記名は待たない)', change(acc('2人目を名簿へ', [P(0), P(1)], seatsOf(ALL(0)), NAMES[0])));
 {
   const e = last();
   const pending = rowsOf(e, /選択の余地が生じた\(決定待ち/);
-  check('L1f 選択の余地が生じた行が2組とも出る(種類 none。記名を要しない)', pending.length === 2 && pending.every((x) => x.k === 'none') && !e.decidedBy, JSON.stringify(e));
+  check('L1f 選択の余地が生じた行が2組とも出る(種類 none。兼務の決定ではない)', pending.length === 2 && pending.every((x) => x.k === 'none') && e.direction !== 'loosen', JSON.stringify(e));
 }
 check('L1f 期限の前(判定記録なし): 契約検査は決定待ちを問題にしない', !/決定待ちです/.test(contract().out), contract().out);
-gateRecord('2026-10-02');
+gateRecord(TODAY, TODAY);
 {
   const r = contract();
   check('L1f 期限の後(決定待ちのまま記録したゲート判定): 契約検査が記載の欠落として落ちる', !r.ok && /決定待ちです/.test(r.out) && /記載の欠落/.test(r.out), r.out);
@@ -76,11 +81,16 @@ accepted('L1f 出荷判定者 × 事業決裁者の兼務を続ける決定。�
 }
 refused('L1f 決定待ちでない兼務を keepSeparations に書く(決定済みの組)', change(acc('もう一度', [P(0), P(1)], seatsOf(ALL(0)), NAMES[1], { keepSeparations: [SHIP_SEP] })), '続ける決定ができる兼務ではありません');
 accepted('L1f AI の組も続ける決定(記名 2人目)', change(acc('AI の組', [P(0), P(1)], seatsOf(ALL(0)), NAMES[1], { keepSeparations: ['sep-maintainer-ops'] })));
-check('L1f すべて決定した後は、契約検査が決定待ちを問題にしない', !/決定待ちです/.test(contract().out), contract().out);
+{
+  const r = contract();
+  check('L1f すべて決定した後も、決定待ちの間に記録した判定は記載の欠落のまま残る(突合 X-5)', !r.ok && /決定待ちの間/.test(r.out) && !/決定待ちです/.test(r.out), r.out);
+}
+gateRecord('2099-01-02');
+check('L1f 決定の後にそのゲートを判定し直すと、欠落が解ける', !/決定待ち/.test(contract().out), contract().out);
 // 体制の内が1人へ戻る(2人目の離脱。記名なし)。発生の扱いへ戻る
 accepted('L1f 2人目の離脱(記名なし)', change(acc('2人目が離脱', [P(0)], seatsOf(ALL(0)))));
 check('L1f 1人へ戻ると「選択の余地が無くなった」の行が出る(発生へ戻す)', rowsOf(last(), /選択の余地が無くなった/).length === 2 && rowsOf(last(), /選択の余地が無くなった/).every((x) => x.k === 'arising'), JSON.stringify(last().diff));
-accepted('L1f もう一度2人目を足す(記名なし)', change(acc('2人目を再び', [P(0), P(1)], seatsOf(ALL(0)))));
+accepted('L1f もう一度2人目を足す(記名 1人目)', change(acc('2人目を再び', [P(0), P(1)], seatsOf(ALL(0)), NAMES[0])));
 check('L1f 再び2人になると、決定済みだった兼務も決定待ちへ戻る', rowsOf(last(), /選択の余地が生じた/).length === 2, JSON.stringify(last().diff));
 
 // L1d: 当事者の差し替え。AI の組の両席を2人目へ移すと、旧い兼務の解消と新しい兼務の発生の行が出る(1-A)
@@ -108,7 +118,7 @@ accepted('L1e 同じ変化点。記名 2人目(もう1人)', change(acc('戻す'
 // L1a: 離脱を経る。任命権者の記名で2人目を全席へ(内側は2人目だけ。発生)、3人目を名簿へ足すと決定待ち
 check('L1a 準備: 初期化', init().ok);
 accepted('L1a 名簿 [1人目, 任命権者]、全席 1人目', change(acc('1人目', [P(0), APPOINTER], seatsOf(ALL(0)), NAMES[0])));
-accepted('L1a 1人目の離脱(全席を空ける。記名なし)', change(acc('1人目が離脱', [P(1), APPOINTER], seatsOf(SEATS.map(() => null)))));
+accepted('L1a 1人目の離脱(全席を空ける)と2人目の追加(追加は任命権者の記名)', change(acc('1人目が離脱', [P(1), APPOINTER], seatsOf(SEATS.map(() => null)), APPOINTER.name)));
 accepted('L1a 任命権者の記名で2人目を全席へ', change(acc('後任', [P(1), APPOINTER], seatsOf(ALL(1)), APPOINTER.name)));
 check('L1a 内側は2人目だけ: 兼務は発生', rowsOf(last(), /の兼務\(当事者の id p2。.*が生じる$/).length === 2, JSON.stringify(last().diff));
 accepted('L1a 3人目を名簿へ足す(記名 2人目=決定者)', change(acc('3人目', [P(1), P(2), APPOINTER], seatsOf(ALL(1)), NAMES[1])));
@@ -120,7 +130,8 @@ check('追加 準備: 初期化', init().ok);
 accepted('追加 名簿 [1人目]、全席 1人目', change(acc('1人目', [P(0)], seatsOf(ALL(0)), NAMES[0])));
 accepted('追加 2人目を名簿へ(記名 1人目=決定者)', change(acc('2人目', [P(0), P(1)], seatsOf(ALL(0)), NAMES[0])));
 refused('追加 外部の確認者を名簿へ。記名 2人目(決定者でない)', change(acc('外部の確認者', [P(0), P(1), X], seatsOf(ALL(0)), NAMES[1])), '名簿の変更です');
-accepted('追加 外部の確認者を名簿へ。記名なし(人を足す反映は止めない)', change(acc('外部の確認者', [P(0), P(1), X], seatsOf(ALL(0)))));
+refused('追加 外部の確認者を名簿へ。記名なし', change(acc('外部の確認者', [P(0), P(1), X], seatsOf(ALL(0)))), '人の名簿への追加');
+accepted('追加 外部の確認者を名簿へ。記名 1人目(決定者)', change(acc('外部の確認者', [P(0), P(1), X], seatsOf(ALL(0)), NAMES[0])));
 
 // ================================================================ 論点2(決定者が当事者になる兼務)
 // 名簿 [1人目, 2人目, 任命権者]。2人目 = 事業決裁者(決定者)・独立レビュア・AI運用担当者、ほか = 1人目
@@ -171,6 +182,9 @@ accepted('S8 2名: 同じ変化点。記名 もう1人', change(acc('改名', re
 // S9: 1名・任命権者なし。本人の記名を自己の決定として受け付ける(行き止まりを解く)
 check('S9 準備: 初期化', init().ok);
 accepted('S9 準備: 1名', change(acc('1人目', [P(0)], seatsOf(ALL(0)), NAMES[0])));
+// X-7: 自己の決定には、D-0 節11 の「決裁の権限の出所」の記載を求める
+refused('S9 1名(任命権者なし): 本人の氏名の訂正。記名 本人(D-0 の決裁の権限の出所が様式のまま)', change(acc('改名', renamed([P(0)]), Object.fromEntries(SEATS.map((s) => [s, { accountable: '山田 太朗' }])), '山田 太朗')), '決裁の権限の出所');
+authority();
 accepted('S9 1名(任命権者なし): 本人の氏名の訂正。記名 本人(自己の決定)', change(acc('改名', renamed([P(0)]), Object.fromEntries(SEATS.map((s) => [s, { accountable: '山田 太朗' }])), '山田 太朗')));
 check('S9 変化点の記録に自己の決定(selfDecided)が残る', last().selfDecided === true, JSON.stringify(last()));
 // S11: 1名 + 任命権者。本人は通らず、任命権者が通る
@@ -181,6 +195,7 @@ accepted('S11 同じ変化点。記名 任命権者', change(acc('改名', renam
 check('S11 任命権者の記名は自己の決定でない', last().selfDecided !== true, JSON.stringify(last()));
 // 外部の確認者の経路: 1名 + 外部の確認者(独立レビュアの席)。外部の確認者は本人以外の記名者に数えない
 check('外部 準備: 初期化', init().ok);
+authority();
 accepted('外部 準備: 1名 + 外部の確認者(独立レビュアの席)', change(acc('体制', [P(0), X], Object.fromEntries(SEATS.map((s) => [s, { accountable: s === 'independent-reviewer' ? X.name : NAMES[0] }])), NAMES[0])));
 refused('外部 決定者の氏名の訂正。記名 外部の確認者', change(acc('改名', renamed([P(0), X]), Object.fromEntries(SEATS.map((s) => [s, { accountable: s === 'independent-reviewer' ? X.name : '山田 太朗' }])), X.name)), SELF);
 accepted('外部 同じ変化点。記名 本人(本人以外に決められる者がいない1名の体制。自己の決定)', change(acc('改名', renamed([P(0), X]), Object.fromEntries(SEATS.map((s) => [s, { accountable: s === 'independent-reviewer' ? X.name : '山田 太朗' }])), '山田 太朗')));
@@ -191,15 +206,17 @@ const U1_BASE = [0, 0, 0, 0, 1, 2, 0, 0, 1];
 const U1_PEOPLE = [P(0), P(1), P(2)];
 check('U1 準備: 初期化', init().ok);
 accepted('U1 準備: 3名の体制(回答 size-3-9)', change(acc('体制', U1_PEOPLE, seatsOf(U1_BASE), NAMES[0], { answers: { 'q-team-size': 'size-3-9' } })));
-accepted('U1 1手目: 新しい行を名簿へ足すだけ(記名なし)', change(acc('別の行', [...U1_PEOPLE, ALT], seatsOf(U1_BASE))));
+accepted('U1 1手目: 新しい行を名簿へ足すだけ(記名 本人=決定者)', change(acc('別の行', [...U1_PEOPLE, ALT], seatsOf(U1_BASE), NAMES[0])));
 const U1_SEATS = seatsOf(['alt', ...U1_BASE.slice(1)]);
 refused('U1 2手目: 決定者の席を新しい行へ。記名 本人(前任の決定者)', change(acc('付け替え', [...U1_PEOPLE, ALT], U1_SEATS, NAMES[0])), SELF);
 refused('U1 2手目: 同じ変化点。記名 新しい行(新任の決定者)', change(acc('付け替え', [...U1_PEOPLE, ALT], U1_SEATS, ALT.name)), SELF);
 accepted('U1 2手目: 同じ変化点。記名 本人以外の席の責任者(2人目)', change(acc('付け替え', [...U1_PEOPLE, ALT], U1_SEATS, NAMES[1])));
-// 正当な交代(2名・任命権者なし): 前任は本人、新任は 2001 行で記名できない。記名できる者がいない
+// 正当な交代(2名・任命権者なし): 前任も新任も当事者で、当事者以外に記名できる者がいない。前任の記名を自己の決定として受け付ける(突合 X-1 への裁定)
 twoBase('交代');
-refused('交代 2名(任命権者なし): 決定者を2人目へ。記名 前任', change(acc('交代', [P(0), P(1)], seatsOf([1, 0, 0, 0, 1, 1, 0, 0, 1]), NAMES[0])), SELF, '本人以外に記名できる者がいません');
-refused('交代 2名(任命権者なし): 同じ変化点。記名 新任', change(acc('交代', [P(0), P(1)], seatsOf([1, 0, 0, 0, 1, 1, 0, 0, 1]), NAMES[1])), SELF);
+authority();
+refused('交代 2名(任命権者なし): 決定者を2人目へ。記名 新任', change(acc('交代', [P(0), P(1)], seatsOf([1, 0, 0, 0, 1, 1, 0, 0, 1]), NAMES[1])), SELF, '新任の決定者が、自分の任命を自分の記名で確定することはできません');
+accepted('交代 2名(任命権者なし): 同じ変化点。記名 前任(自己の決定)', change(acc('交代', [P(0), P(1)], seatsOf([1, 0, 0, 0, 1, 1, 0, 0, 1]), NAMES[0])));
+check('交代 変化点の記録に自己の決定が残る', last().selfDecided === true, JSON.stringify(last()));
 twoBase('交代(任命権者)', [P(0), P(1), APPOINTER]);
 accepted('交代 2名 + 任命権者: 決定者を2人目へ。記名 任命権者', change(acc('交代', [P(0), P(1), APPOINTER], seatsOf([1, 0, 0, 0, 1, 1, 0, 0, 1]), APPOINTER.name)));
 // 2手に分けた迂回: 1名の決定者が、自分の別の行を(席を持たない)名簿の人として足し、その行の記名で本人の行を変える
@@ -211,6 +228,21 @@ accepted(
   '2手 2手目(表記の変更): 本人の行の氏名を変える。記名 別の行(機械には2名の体制のもう1人に見える。残る迂回)',
   change(acc('改名', renamed([P(0), ALT]), Object.fromEntries(SEATS.map((s) => [s, { accountable: '山田 太朗' }])), ALT.name))
 );
+
+// X-4: 同じ根(名簿のアカウントが別の人であることを機械が確かめられない)の残る経路。規則は足さず、EV-0243 で開示する
+const ALT_ORG = { id: 'org-alt', name: '組織 別名', external: true, appointer: true, accounts: [rosterAccount('acct-org-alt')] };
+check('任命権者の経路 準備: 初期化', init().ok);
+accepted('任命権者の経路 準備: 1名', change(acc('1人目', [P(0)], seatsOf(ALL(0)), NAMES[0])));
+accepted('任命権者の経路 1手目: 決定者が自分の別のアカウントを組織上の任命権者として置く(記名 本人=決定者)', change(acc('任命権者', [P(0), ALT_ORG], seatsOf(ALL(0)), NAMES[0])));
+accepted(
+  '任命権者の経路 2手目: その任命権者の記名で本人の行の氏名を変える(自己の決定と出ない。残る経路)',
+  change(acc('改名', renamed([P(0), ALT_ORG]), Object.fromEntries(SEATS.map((s) => [s, { accountable: '山田 太朗' }])), ALT_ORG.name))
+);
+check('任命権者の経路 記録は自己の決定でない(開示されない)', last().selfDecided !== true, JSON.stringify(last()));
+check('兼務の経路 準備: 初期化', init().ok);
+accepted('兼務の経路 準備: 1名', change(acc('1人目', [P(0)], seatsOf(ALL(0)), NAMES[0])));
+accepted('兼務の経路 1手目: 別の行を名簿へ足す(記名 本人=決定者)。兼務が決定待ちになる', change(acc('別の行', [P(0), ALT], seatsOf(ALL(0)), NAMES[0])));
+accepted('兼務の経路 2手目: その行の記名で決定待ちの兼務を続ける決定(当事者以外の決定に見える。残る経路)', change(acc('続ける', [P(0), ALT], seatsOf(ALL(0)), ALT.name, { keepSeparations: [SHIP_SEP, 'sep-maintainer-ops'] })));
 
 // 差し替えの禁止(#433 の a-1): 既存の行の氏名とアカウントの両方を変える変更は、記名者に依らず受け付けない。2回に分けても同じ
 twoBase('差し替え');
