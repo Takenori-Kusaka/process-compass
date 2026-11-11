@@ -206,3 +206,32 @@ gh の認証に workflow の権限が入った後に、退避していたブラ�
 | 名簿 | |
 | 承認者(AI維持管理者) | |
 | 承認の日 | |
+
+## 独立の突合 3(crosscheck-3.md)への対応
+
+入力: `crosscheck-3.md`(高なし。中 X3-1・X3-2、低 X3-3〜X3-8)。議長の指示に従い、全件を直した。template のコミットは 62dbe5e の上に積んだ 0bf4b64。
+
+| 指摘 | 対応 |
+| --- | --- |
+| X3-1 none の経路の混在で基準3 が未実施のまま通る | 裁定 R-3 の「未実施は失敗に数える」をそのまま当て、失敗にした。`coverage-check.mjs` は、none の `stacks` で宣言したスタックについて要素ごとの `coverageSummary`(作業の場所からの相対のパス。istanbul か pytest-cov の形)を読み、要素ごとに同じ基準値と比べる。合算しない。報告の無い要素・集計ファイルの無い要素・基準値を下回る要素は失敗。本文の段落(第2段が降りるまでの間)、IMPL-0476・0479 の note、ADR-0121 決定4・影響に書いた。手書きのコマンドが宣言したスタックを実際に走らせるかは確かめないこと、lint・audit・licenses の空は従来どおり(IMPL-0234 の範囲)であることを IMPL-0476 の note に書いた |
+| X3-2 除外の記名が担い手の文字列と名簿にない名前を受ける | `aiNameBlocked` を `nameProblems(config, decidedBy, { requireRoster: true })` に替えた。除外は緩める向きの決定であり、名簿が未記入の間は受け付けない(ほかの緩める向きの決定と同じ)。IMPL-0477 の note、本文の箇条、ADR-0121 決定3 に書いた |
+| X3-3 参照の向き | 「前掲『統制の設定の変更の承認』」を「後掲」へ直した。「基準値と除外設定の変更」と同じ扱いの括弧を、同時の変更の禁止に限る書き方へ改めた(技術判断者の承認を要すると読ませない) |
+| X3-4 直下の道具の設定の誤検出 | 本文は変えない。README と `kinds/settings.md` に、`eslint.config.js`・workspace の `package.json`・Sphinx の `docs/conf.py` の型と除外の書き方を書いた |
+| X3-5 開示されていない見逃し | EV-0240 を新設し、ノートブック・拡張子の無いスクリプト・置き場と同じ名のディレクトリの下・9言語の外を開示した。IMPL-0476 の note に、置き場の名はどの階層でも数えないことを書いた |
+| X3-6 基底が未設定の PR の除外の一覧 | 本文の括弧を「構成を設定した後に一覧を新しく置く変更を含む」へ改め、実装(基底の構成が設定済みに限る)と揃えた |
+| X3-7 宣言の変更の案内 | 直し方の文(`uncoveredProblems`)と `kinds/settings.md`・README・none.json の note に、アダプタ(`stacks` を含む)の変更も製品のコードと別の PR にすることを書いた |
+| X3-8 integrated.yaml の G-6 の行 | 取り消さない。書き直した後の基準3 は第4章 G-6 の表の文言と一致し、#422 / ADR-0101(3e935b2)で本文に入った文言にデータが追随していなかったもの(突合で正しいと確かめられた)。#363 の範囲の外の追随である |
+
+試験: `test-stack-coverage.mjs` は 47 件(X3-1: evaluateCoverage と要素ごとの判定の違反と適合の対・合算しない場面・集計ファイルの欠け。X3-2: 担い手の文字列・名簿にない名前)。`test-init-g5.mjs` は 146 件(名簿で照らせない記名の除外で落ちること)。陰性の確認: 記名の検査を `aiNameBlocked` へ戻すと X3-2 の2件が NG、coverage-check の手書きの要素の分岐を外すと X3-1 の evaluateCoverage の場面が NG になる。
+
+確認(0bf4b64): WSL の template の試験一式(LF の clone、node 22.23)は失敗 0。WSL の回帰スイート(LF の clone、`--kb keep`)は実行役の試験 30 件が合格し、通常・TZ=UTC とも「すべて通った」。Windows の npm run check の各段(lint:ci〜test:criteria)・lint:text・lint:provisions・build(352 頁)は通過した。lint:provisions は EV-0240 の補足の「含めてください」で一度落ち、推奨の形へ改めて通過した。
+
+template は main へ push した(62dbe5e..0bf4b64)。本体の submodule の参照を 0bf4b64 へ進めた。強制層の変更であり、AI維持管理者の承認待ちとして記録する。
+
+| 欄 | 値 |
+| --- | --- |
+| 変更 | pit-in-template 0bf4b64 |
+| 承認の状態 | 承認待ち |
+| 名簿 | |
+| 承認者(AI維持管理者) | |
+| 承認の日 | |
