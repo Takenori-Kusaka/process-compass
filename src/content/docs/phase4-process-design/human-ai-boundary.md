@@ -1066,7 +1066,7 @@ AI の支援を受けて作成した成果物には、次を記録します。
 | テストの削除・名前の変更 | 基底にあるテストのファイル | テストのパスの規則(guard.json の testPatterns)に当たらない置き場のテスト |
 | アサーションの削除と、削除・追加の対(旧・新) | 削除行と、同じ塊の追加行 | 列挙した語の外の検証(自前の throw など) |
 | skip・only 相当の付与 | 追加行(基底に無い新しいテストのファイルを含む) | 別名を経た付与、早期の return、注釈化、設定による除外 |
-| 落ちることを期待する印の付与 | 追加行 | 採用者独自の印 |
+| 落ちることを期待する印の付与 | 追加行 | 採用者独自の印、別名を経た印の一部 |
 | 製品のコードを変えずに既存のテストを変えた変更 | 変更の全体 | 同じ変更で製品とテストを変えた場合、ローカルで解消した失敗 |
 | 根拠の識別子の無い期待値の改め | PR 本文の「期待値の改め」の表 | 引いた決定がその挙動を定めているか |
 
@@ -1084,7 +1084,7 @@ AI の支援を受けて作成した成果物には、次を記録します。
 <!-- impl IMPL-0486 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="製品のコードを変えずに既存のテストを変えた変更を一覧に出す(合否に使わない)。「テストだけの変更で失敗が解消した」ことの近似であり、同じ変更で製品とテストを変えた場合とローカルで解消した失敗を拾わない旨を、0 件でも定型で出す(#360)" -->
 <!-- impl IMPL-0487 target=pr-checks state=undelivered check=manual plan=scheduled issue=361 review=2027-05 note="テストだけの変更で失敗が解消したことを確かめる部分。push ごとの検査の結論と差分の履歴を読むか、変更後の製品のコードに基底の版のテストを流し、旧版が落ちて新版が通るテストを出す。実際の GitHub の上で検査の履歴の読み出しを確かめていないため降ろしていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0488 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="落ちることを期待する印の付与に、注釈 pit-in: known-failure(issue・match・review)が添えられているかを読み、注釈の欠け・欄の欠け・見直しの時期の超過を一覧に出す(合否に使わない)(#360)" -->
-<!-- impl IMPL-0489 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="予期せず通った場合を試験の失敗とすること。pytest の xfail の付与で、印に strict=True が無く、構成(pyproject.toml・pytest.ini・setup.cfg・tox.ini)にも xfail_strict = true が無ければ、G-5(pr-rules)を失敗させる。Jest の test.failing・Vitest の test.fails は、枠組みが予期せず通った場合を失敗にするため検査しない(#360)" -->
+<!-- impl IMPL-0489 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="予期せず通った場合を試験の失敗とすること。pytest の xfail の付与で、印に strict=True が無く、構成(pyproject.toml・pytest.ini・setup.cfg・tox.ini)にも xfail_strict = true が無ければ、G-5(pr-rules)を失敗させる。pytest の印の別名(from pytest import mark の mark.xfail、import pytest as の別名、同じファイルで代入した別名)まで照合し、それより遠い別名は拾わない。Jest の test.failing・Vitest の test.fails は、枠組みが予期せず通った場合を失敗にするため検査しない(#360)" -->
 <!-- impl IMPL-0490 target=pr-checks state=undelivered check=manual plan=adopter decision=ADR-0124 note="落ちることを期待する印の、照合する失敗の理由との一致(別の理由で落ちた場合を失敗にすること)と、印を持たない枠組み(go の testing・JUnit 5 ほか)の印。枠組みごとの扱いと採用者に求めることは ADR-0124 決定3 の表による。確かめる者: 採用者(自らの試験の補助に実装したときに確かめる)" -->
 
 
@@ -1128,7 +1128,7 @@ AI の支援を受けて作成した成果物には、次を記録します。
 :::caution[暫定 EV-0175 / 見直し 2027-10]
 **対象**: 起こしてはならない3つの操作が実行される前に拒否し、人がエージェントの操作について確かめる範囲を3つに限る定め(5.8.6)。附属書E E.6 とフェーズ5 の頁にあった定めを、本文へ移したもの。
 **根拠の水準**: E1(間接)。
-**差し替え条件**: 観測の源は、拒否の記録・機械の検出のラベル・パスの差の件数と、人がそれらの確認に費やした時間の記録です。拒否の範囲の外で起きた想定外の操作が、事後の調査で1件でも見つかれば、拒否の対象を広げる向きで見直します。ラベルの確認を省いた変更の割合が増えれば、ラベルを合否へ近づける向きで見直します。
+**差し替え条件**: 観測の源は、拒否の記録・機械の検出の一覧・パスの差の件数と、人がそれらの確認に費やした時間の記録です。拒否の範囲の外で起きた想定外の操作が、事後の調査で1件でも見つかれば、拒否の対象を広げる向きで見直します。一覧の確認を省いた変更の割合が増えれば、一覧を合否へ近づける向きで見直します。
 
 最小権限と既定の拒否は、情報セキュリティの管理策で一般の原則です。AI のエージェントの操作について、この構成で目視の確認が縮退しないことを測った資料は、見つかっていません(2026-10-24 時点)。
 :::
