@@ -2019,6 +2019,8 @@ sections:
       - IMPL-0330
       - IMPL-0331
       - IMPL-0332
+      - IMPL-0467
+      - IMPL-0468
     rows:
       要求事項1:
         status: marked
@@ -2040,6 +2042,8 @@ sections:
         status: marked
         ids:
           - IMPL-0331
+          - IMPL-0467
+          - IMPL-0468
       要求事項6:
         status: none
         category: elsewhere
