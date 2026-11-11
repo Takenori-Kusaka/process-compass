@@ -46,3 +46,26 @@
 - npm run check の各段(test:template-suite と test:regress を除き Windows で個別に実行): lint:ci・lint:text・lint:tone・lint:evidence・lint:impl・lint:scope・lint:refs・lint:provisions・test:provisions・lint:dekimasu・test:dekimasu・lint:skills・lint:figures・brand:check・lint:sources・lint:citations・test:citations・test:edition・lint:registry・test:registry・test:engine・lint:stage-table・test:impl・test:ci-wiring・test:template・test:fields・test:criteria はすべて終了コード 0
 - build: 通過(350 ページ)
 - 本体はコミットまで(push していない)
+
+## 4. 独立の突合(crosscheck.md)への対応
+
+本体は b42f957 の上に積んだ。準拠テンプレートに変更は無い。
+
+| 指摘 | 対応 | 変えたファイル |
+| --- | --- | --- |
+| M-1(中) | 重なりの例外の文に、原文の条件(中小受託取引適正化法のみに違反する行為もしている場合)と判断の主体(公取委)を戻した。文が長くなったため3文に分けた。「公正取引委員会」は漢字の連続で止まるため「公取委」と書いた。ADR-0119 決定1 の箇条も同じにした | `tailoring-guide.md`、`adr/0119` |
+| M-2(中) | 費用等の額が確定しない場合は、算定方法の明示(キ(ア))または未定事項の扱い(ケ)により報酬の額を明示できる、とする原文の文を足した。SRC-0727 に c9 を起こした。ADR-0119 決定1 の箇条も直した。文末を「明示できる」とした文は lint:dekimasu(文末の「できる」の登録簿)で止まったため、「明示の方法として…を挙げる」の形に改めた(規範ではなく行政の文書の記述のため、登録簿には足していない) | `tailoring-guide.md`、`SRC-0727.yaml`、`adr/0119` |
+| L-1(低) | SRC-0726 c3 の claim を、quote の範囲(第5条第1項第5号に置かれること)に絞った | `SRC-0726.yaml` |
+| L-2(低) | 「記述はありません」に「確認した範囲では」と「語の検索による確認です」を添えた。ADR-0119 決定1 の箇条も「確かめた範囲(語の検索)では」とした | `tailoring-guide.md`、`adr/0119` |
+| L-3(低) | 見出しを「外部の制約(37号告示と中小受託取引適正化法は 2026-11-05、フリーランス法は 2026-11-11 時点)」とした。37号告示・取適法の段落は 11-11 に確かめ直していない。ADR-0119 決定1 に理由を書いた | `tailoring-guide.md`、`adr/0119` |
+| L-4(低) | 留意の名宛人を戻した(「…明示したものであることに、特定受託事業者は留意が必要である」)。SRC-0727 c4 の claim も同じにした | `tailoring-guide.md`、`SRC-0727.yaml` |
+
+### 出所の確かさ
+
+- scratchpad の `dl436/s2.pdf`・`s3.pdf`・`s6.pdf` が Access Denied の HTML だったのは、着手の前に curl で取ろうとして失敗したものが残っていたため。照合のテキストは、調査の段で WebFetch が保存した PDF(`tool-results/webfetch-1794379301662-nwvqz2.pdf` など)から作っていた。0 節の記録はこの区別を書いておらず、不正確だった
+- 2026-11-11 に WebFetch(既定の取得の方法。UA は変えていない)で3つの PDF を取り直せた。いずれも PDF(S-2 は48頁、S-3 は2頁、S-6 は50頁)で、先の保存物と SHA-256 が一致した。pdftotext のテキストも先のものと一致した。取り直した PDF を `dl436/` の s2.pdf・s3.pdf・s6.pdf に上書きして置いた
+  - S-2 b5d5f615d29410729bd755c0a8d0db2f2be7489666703255e01389d9b5c315e8
+  - S-3 9fe54b650115adc6657bc15e8d53b77dbc16e2966e80365ca0cb204f95c86047
+  - S-6 30ab06160ecb8d5dc1108fc3b18737ade2254661e98dcf3c8af78879aa5e820d
+- 原本と照合できたため、SRC-0727〜0729 の照合の状態は verified のまま据え置いた。各カードの note に、取り直しと SHA-256 の一致を書いた。ADR-0119 の未確認の一覧には加えていない
+- S-6 は PDF が50頁で、43〜50頁はテキストを持たない。カードの summary の「全42頁」を改めた(調査の記載の42頁は、テキストを持つ頁の数だった)
