@@ -26,7 +26,7 @@
 
 | 記録の対応(implementation.md・decision.md R-7) | 作り直した中身 |
 | --- | --- |
-| X-6: `push-trigger.mjs` にジョブの鍵と最上位の鍵の検査 | `PUSH_JOB_KEYS`(name・if・uses)と `PUSH_TOP_KEYS`(name・on・permissions・jobs)を置き、ほかの鍵を不備にする。冒頭に読まない書き方(4字下げのジョブ・流れ形・matrix や format で組んだ名・引用符つきの事象のキー)と、別の書き方は統制の設定の変更のレビューで確かめることを書いた。IMPL-0485 の注記(本体)と同じ範囲 |
+| X-6: `push-trigger.mjs` にジョブの鍵と最上位の鍵の検査 | `PUSH_JOB_KEYS`(name・if・uses)と `PUSH_TOP_KEYS`(name・on・permissions・jobs)を置き、ほかの鍵を不備にする。冒頭に読まない書き方(4字下げのジョブ・流れ形・matrix や format で組んだ名・引用符つきの事象のキー)と、別の書き方は統制の設定の変更のレビューで確かめることを書いた。作り直した時点では、IMPL-0485 の注記(本体)は引用符つきの事象のキーを挙げておらず、列挙は一致していなかった(作り直しの確認 Z-5)。`f8a196e` で両方を同じ列挙にそろえた |
 | `test-push-trigger.mjs` に変異 2 件 | 呼び出し側のジョブへ `secrets: inherit`、最上位へ `concurrency`(`cancel-in-progress: true`)。20 件から 22 件(記録の 22/22 と一致) |
 | X-2: `test-env-check.mjs` の模擬に `--workflow gate-g5-push.yml` | push の実行(77)に成果物の模擬を持たせ、後退の経路の `--workflow gate-g5` は実行 88 を返して成果物の模擬を持たない。主の経路を通らなければ成果物が読めずに落ちる |
 | X-4: `README.md` と `/process-init` の手順 | README の事前点検の段落(既定ブランチの名で止めない、項目 `push-trigger` で止める)。process-init の SKILL.md の止める項目の表の行(「既定ブランチの名」を「既定ブランチへの push の契機の形(`push-trigger`)」へ) |
@@ -55,3 +55,17 @@
 | 番号の衝突 | ADR-0123・EV-0245・IMPL-0485・SRC-0730 は main に無く、それぞれ1か所だけ。台帳の再生成(`evidence:write`・`impl:write`・`scope:write`・`sources:index`)で差は出なかった |
 
 - WSL の既定の node(v18.19.1。nvm を読まない非ログインのシェル)では、テンプレートの試験一式の `test-init-g5.mjs` の1件(既知)に加え、回帰の r3-scen・r3-succession・r3-verify(#378)が、採用者の製品の試験の CommonJS の名前つきの取り込みで落ちた。本件に依らない環境の差であり、node 22 で通ることを確かめた
+
+## 作り直しの確認(Z-1〜Z-5)への対応
+
+裁定は `decision.md`「作り直しの確認への裁定」にある。
+
+| 番号 | 対応 |
+| --- | --- |
+| Z-1 | template `f8a196e`: `push-trigger.mjs` はコメント(字下げが 0 の行、行末)を除いてから `jobsOf` へ渡す。`g5-aggregate.mjs` の `jobsOf` は改めていない。変異2件(`gate-g5-push.yml` の末尾のコメント行の後の条件なしの `gate-g5`、ほかのワークフローの `jobs: # x` の後の `gate-g5`) |
+| Z-2 | 条件を残した。ADR-0123 の決定2 と第5章の表・箇条に「`workflow_call` か `pull_request` を持たない」を書き足した。変異1件(`pull_request` を外す)。テンプレートの README の止める条件にも足した |
+| Z-3 | `preflight.mjs` の処理を、読み方が「現在のブランチ」のときに限った(232 行の注記と同じ条件)。ADR-0123 の決定2 の文言も R-2 にそろえた |
+| Z-4 | ブロック形の `branches:` の列を流れ形と同じに読む。正当な構成1件(`- '**'`)と変異1件(`- main`) |
+| Z-5 | `push-trigger.mjs` の冒頭と IMPL-0485 の注記を同じ列挙にそろえた。上の対応表の X-6 の行を事実に合わせて直した |
+
+`test-push-trigger.mjs` は 27 件になった。
