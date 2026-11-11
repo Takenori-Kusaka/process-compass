@@ -222,7 +222,7 @@ targets:
     name: 初期化の事前点検
     kind: template-file
     path: scripts/gate/preflight.mjs
-    description: 既存のリポジトリで適用を始めるときの事前点検(第1章 1.10.1「既存のリポジトリで適用を始める場合」。#315 / ADR-0085)。何も書き込まずに、止める項目(CLAUDE.md の目印と常駐の規則、CODEOWNERS の置き場の重なりと @OWNER、フックの登録、既定ブランチの名、共通の祖先の無い履歴の併合、資産の一覧の欠け)と、告げる項目(既存の統制の資産)を分けて出す。初期化(generate-profile.mjs)が同じ点検を行い、止める項目があれば構成を書かない。--draft で資産の一覧の下書きを出す(扱いと記名の欄は空ける)。test-adoption.mjs と test-init-g5.mjs が試験する
+    description: 既存のリポジトリで適用を始めるときの事前点検(第1章 1.10.1「既存のリポジトリで適用を始める場合」。#315 / ADR-0085)。何も書き込まずに、止める項目(CLAUDE.md の目印と常駐の規則、CODEOWNERS の置き場の重なりと @OWNER、フックの登録、既定ブランチへの push の契機の形(旧版の gate-g5.yml・gate-g5-push.yml の欠け。既定ブランチの名では止めない。#362)、共通の祖先の無い履歴の併合、資産の一覧の欠け)と、告げる項目(既存の統制の資産)を分けて出す。初期化(generate-profile.mjs)が同じ点検を行い、止める項目があれば構成を書かない。--draft で資産の一覧の下書きを出す(扱いと記名の欄は空ける)。test-adoption.mjs と test-init-g5.mjs が試験する
 
   - id: agent-settings
     name: エージェントの権限設定
@@ -416,7 +416,21 @@ targets:
     name: G-5 のワークフロー(gate-g5.yml)
     kind: template-file
     path: .github/workflows/gate-g5.yml
-    description: PR と既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行するワークフロー。必須ステータスチェックの名前は gate-g5(Issue #293)
+    description: PR を契機に、契約検査を含む G-5 の検査を実行するワークフロー。既定ブランチへの push では gate-g5-push.yml から workflow_call で呼ばれる。必須ステータスチェックの名前は gate-g5(Issue #293・#362)
+
+  - id: gate-g5-push-workflow
+    name: 既定ブランチへの push の G-5 のワークフロー(gate-g5-push.yml)
+    kind: template-file
+    path: .github/workflows/gate-g5-push.yml
+    checker: verify-gate-contract
+    description: すべてのブランチへの push を契機とし、ジョブ default-push の条件(github.ref が既定ブランチ)で既定ブランチに限って gate-g5.yml を呼ぶ。既定ブランチの名に依らない。名も ID も gate-g5 のジョブを持たない(既定ブランチでないブランチへの push の skipped のジョブが、必須チェック gate-g5 を満たさないため)。形は push-trigger.mjs が確かめる(第3章 3.13.5、ADR-0123。Issue #362)
+
+  - id: push-trigger
+    name: 既定ブランチへの push の契機の形の検査
+    kind: template-file
+    path: scripts/gate/push-trigger.mjs
+    checker: verify-gate-contract
+    description: gate-g5.yml が push を契機に持たず workflow_call を持つこと、gate-g5-push.yml の契機・ジョブ・条件・呼び先、どのワークフローにも集約のほかに ID か名が gate-g5 のジョブが無いことを、ワークフローの定義から読む。契約検査(verify-gate-contract.mjs)と事前点検(preflight.mjs の止める項目 push-trigger)が使う。test-push-trigger.mjs と test-adoption.mjs が試験する(ADR-0123。Issue #362)
 
   - id: gate-g5-base-workflow
     name: G-5 の基底から読む判定のワークフロー(gate-g5-base.yml)

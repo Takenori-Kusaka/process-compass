@@ -225,7 +225,7 @@
 - [SRC-0448] 2026-07-30 [Optimizing CI for stacked pull requests](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests) — スタック型PRでの GitHub Actions の発火規則。pull_request トリガーは各PRがスタック基底を向いているものとして発火し、CI 回数が
 - [SRC-0605] 2026-09 [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions) — GitHub Docs のリポジトリ指示ファイルの手順書(日付表記なし、2026-09-30 取得)。リポジトリ全体(copilot-instructions.
 
-### GitHub(30)
+### GitHub(32)
 
 - [SRC-0176] 2026-09 [Approving a pull request with required reviews](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews) — GitHub Docs の必須レビュー承認ページ本文(取得日 2026-09-23)。PR 作成者の自己承認不可と、Copilot に Issue を割り当てた
 - [SRC-0177] 2026-09 [Risks and mitigations for GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations) — Copilot cloud agent(旧 coding agent)のリスクと緩和策。前回 §9 で未取得だった「依頼者は承認できない」の原文を一次で確認。無
@@ -257,6 +257,8 @@
 - [SRC-0721] ? [GitHub Docs: Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) — 個人のアクセストークンの管理の頁。fine-grained のトークンの権限の表に Workflows(書き込み)があり、ワークフローのファイルを編集しないなら
 - [SRC-0722] ? [GitHub Docs: REST API endpoints for GitHub Actions permissions](https://docs.github.com/en/rest/actions/permissions) — Actions の権限の REST API。既定のワークフローの権限の取得は default_workflow_permissions と can_approv
 - [SRC-0723] ? [GitHub Docs: REST API endpoints for deployment environments](https://docs.github.com/en/rest/deployments/environments) — Environment の REST API。取得の応答は deployment_branch_policy(protected_branches と cust
+- [SRC-0725] ? [REST API endpoints for rules - GitHub Docs](https://docs.github.com/en/rest/repos/rules) — GitHub の REST API の文書(無料版の文書の版。リポジトリのルールセットの作成・更新)。ルールセットの enforcement の欄の説明で、ev
+- [SRC-0730] ? [GitHub Docs: Contexts reference(Context availability)](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts) — GitHub Actions のコンテキストの参照。節「Context availability」の表が、ワークフローのキーごとに使えるコンテキストと特殊な関数
 
 ### Google (Antigravity)(1)
 

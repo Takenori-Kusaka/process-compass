@@ -1,0 +1,71 @@
+schemaVersion: 0
+id: SRC-0730
+status: included
+excludeReason: null
+title: "GitHub Docs: Contexts reference(Context availability)"
+url: https://docs.github.com/en/actions/reference/workflows-and-actions/contexts
+canonicalUrl: https://docs.github.com/en/actions/reference/workflows-and-actions/contexts
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: null
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: section
+foundBy:
+  cluster: I362
+  query: "#362 on.push.branches に式を書けるか(Context availability の表)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH10]
+events: []
+summary: 'GitHub Actions のコンテキストの参照。節「Context availability」の表が、ワークフローのキーごとに使えるコンテキストと特殊な関数を挙げる。#362 は、表に on.<event>.branches の行が無いこと(on の行は on.workflow_call の inputs の既定値と outputs の値だけ)と、jobs.<job_id>.if と jobs.<job_id>.name が github コンテキストを使えることを引いた。on.push.branches に式を書くと「Invalid workflow file」になることは、一時のリポジトリの実機で観測した(research/362-deliberation/survey.md)。'
+claims:
+  - id: c1
+    text: "コンテキストを使えるキーは表に挙がったものに限られ、on の下で挙がるのは on.workflow_call.inputs.<inputs_id>.default と on.workflow_call.outputs.<output_id>.value だけである。on.push.branches は表に無い。"
+    quote: "Different contexts are available throughout a workflow run."
+    locator: "Context availability(表)"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [362]
+    stance: supports
+  - id: c2
+    text: "jobs.<job_id>.if は github・needs・vars・inputs のコンテキストを使え、jobs.<job_id>.name は github・needs・strategy・matrix・vars・inputs を使える。"
+    quote: "jobs.<job_id>.if | github, needs, vars, inputs | always, cancelled, success, failure"
+    locator: "Context availability(表の jobs.<job_id>.if と jobs.<job_id>.name の行)"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [362]
+    stance: supports
+  - id: c3
+    text: "github.ref は契機となったブランチまたはタグの完全な参照名、github.ref_name はその短い名である。ref_name だけではブランチとタグを区別しない。"
+    quote: "The short ref name of the branch or tag that triggered the workflow run."
+    locator: "github context(github.ref_name の行)"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [362]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: '#362 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない。表の末尾の 13682 字は読んでいない(on の行の有無は表の前半で確かめた)。on.push.branches に式を書けないことの裏づけは、この表の不記載と、実機の観測(Unrecognized named-value: github)の2つである'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-11

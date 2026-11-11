@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 717(included 717、excluded 0)。生成日 2026-11-05。
+件数: 723(included 723、excluded 0)。生成日 2026-11-11。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -725,4 +725,10 @@
 | SRC-0722 | ? | vendor-official | global/en | partial | TH10 TH12 | Actions の権限の REST API。既定のワークフローの権限の取得は default_workflow_permissions と can_approv | [GitHub Docs: REST API endpoints for GitHub Actions permissions](https://docs.github.com/en/rest/actions/permissions) |
 | SRC-0723 | ? | vendor-official | global/en | partial | TH10 TH12 | Environment の REST API。取得の応答は deployment_branch_policy(protected_branches と cust | [GitHub Docs: REST API endpoints for deployment environments](https://docs.github.com/en/rest/deployments/environments) |
 | SRC-0724 | 2025-10 | public-agency | jp/ja | partial | TH12 | 中小受託取引適正化法(旧下請法)の運用基準。第4 の委託事業者の禁止行為ごとに考え方と違反行為事例を示す。#372 は、購入・利用強制(法第5条第1項第6号)が | [製造委託等に係る中小受託事業者に対する代金の支払の遅延等の防止に関する法律の運用基準](https://www.jftc.go.jp/toriteki/legislation/unyou.html) |
+| SRC-0725 | ? | vendor-official | us/en | verified | TH10 | GitHub の REST API の文書(無料版の文書の版。リポジトリのルールセットの作成・更新)。ルールセットの enforcement の欄の説明で、ev | [REST API endpoints for rules - GitHub Docs](https://docs.github.com/en/rest/repos/rules) |
+| SRC-0726 | 2023 | regulation | jp/ja | verified | TH12 | フリーランス・事業者間取引適正化等法の全文(e-Gov 法令検索の API で取得)。#436 は、第8章「計算資源の負担を決める」の外部の制約の注記で、法律の | [特定受託事業者に係る取引の適正化等に関する法律(令和五年法律第二十五号)](https://laws.e-gov.go.jp/api/1/lawdata/505AC0000000025) |
+| SRC-0727 | 2024-05 | public-agency | jp/ja | verified | TH12 | フリーランス・事業者間取引適正化等法の解釈を公正取引委員会と厚生労働省が示した文書(全48頁)。#436 は、特定受託事業者と特定業務委託事業者の定義、明示(法 | [特定受託事業者に係る取引の適正化等に関する法律の考え方(解釈ガイドライン)](https://www.jftc.go.jp/file/fl_jftcmhlwguidelines.pdf) |
+| SRC-0728 | 2024-05 | public-agency | jp/ja | verified | TH12 | フリーランス・事業者間取引適正化等法と、独占禁止法・中小受託取引適正化法との適用関係を公正取引委員会が示した文書(全2頁)。#436 は、両法のいずれにも違反す | [特定受託事業者に係る取引の適正化等に関する法律と独占禁止法及び取適法との適用関係等の考え方](https://www.jftc.go.jp/file/fl_jftcguidelines.pdf) |
+| SRC-0729 | 2021-03 | public-agency | jp/ja | verified | TH12 | フリーランスとの取引に掛かる独占禁止法・中小受託取引適正化法・フリーランス・事業者間取引適正化等法・労働関係法令の適用関係を、三府省が示したガイドライン(PDF | [フリーランスとして安心して働ける環境を整備するためのガイドライン](https://www.jftc.go.jp/file/fl_guidelines1-2.pdf) |
+| SRC-0730 | ? | vendor-official | global/en | partial | TH10 | GitHub Actions のコンテキストの参照。節「Context availability」の表が、ワークフローのキーごとに使えるコンテキストと特殊な関数 | [GitHub Docs: Contexts reference(Context availability)](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts) |
 

@@ -9,12 +9,16 @@
 | 2013-05-25 | JIS B 9700:2013 を制定(ISO 12100:2010 に一致) | 日本産業標準調査会・日本規格協会(ISO/TC 199 の ISO 12100:2010 に一致) | [SRC-0645] |
 | 2015-09 | ISO 9001:2015 を承認・発行 | ISO/TC 176 (catalogue record via Bahrain Standards and Metrology Directorate store) | [SRC-0643] |
 | 2017-11 | ISO/IEC/IEEE 12207 第1版を発行 | ISO/IEC JTC 1/SC 7 and IEEE Computer Society (BSI adoption, preview via ANSI Webstore) | [SRC-0642] |
+| 2021-03-26 | 策定 | 公正取引委員会・中小企業庁・厚生労働省 | [SRC-0729] |
 | 2021-09-21 | 第3集の初版の公表(IPA の解説の記載による。初版の PDF は読めていない) | 厚生労働省 | [SRC-0636] |
 | 2023-01-26 | NIST が AI RMF 1.0 を公開 | National Institute of Standards and Technology (NIST) | [SRC-0518] |
 | 2023-11-29 | Automotive SPICE PAM/PRM 4.0 を公開 | VDA Quality Management Center (VDA Working Group 13) | [SRC-0554] |
+| 2024-05-31 | 策定 | 公正取引委員会・厚生労働省 | [SRC-0727] |
+| 2024-05-31 | 策定 | 公正取引委員会 | [SRC-0728] |
 | 2024-06-25 | GitHub Artifact Attestations 一般提供(GitHub Changelog) | GitHub | [SRC-0417] |
 | 2024-07 | NIST が生成 AI プロファイル(AI 600-1)を公開 | National Institute of Standards and Technology (NIST) | [SRC-0520] |
 | 2024-09-17 | MADR 4.0.0 を公開(GitHub API の最新リリースも 4.0.0) | ADR GitHub organization (adr/madr) | [SRC-0548] |
+| 2024-10-18 | 改定 | 公正取引委員会・中小企業庁・厚生労働省 | [SRC-0729] |
 | 2025-02-18 | ISO/IEC 29110-5-1-2:2025 発行(TR 29110-5-1-2:2011 を置き換え) | International Organization for Standardization (ISO) / IEC JTC 1/SC 7 | [SRC-0533] |
 | 2025-02-21 | IEC 61508-3 第 3 版の CDV を回付(投票締切 2025-05-16) | International Electrotechnical Commission (IEC) SC 65A | [SRC-0528] |
 | 2025-05-27 | DS-920 初版を策定 | デジタル庁(デジタル社会推進会議幹事会決定) | [SRC-0250] |
@@ -25,6 +29,7 @@
 | 2025-09-01 | AI 法を全面施行(人工知能基本計画・人工知能戦略本部の規定) | e-Gov 法令検索(デジタル庁) | [SRC-0619] |
 | 2025-09-23 | DORA 2025 レポート(State of AI-assisted Software Development)公表 | Google Cloud Blog (DORA) | [SRC-0218] |
 | 2025-10-01 | 全部改正(令和7年法律第41号による下請代金支払遅延等防止法の改正に伴う。施行は 2026-01-01) | 公正取引委員会 | [SRC-0724] |
+| 2025-10-01 | 改正 | 公正取引委員会・厚生労働省 | [SRC-0727] |
 | 2025-10-16 | Anthropic が Agent Skills を発表 | Anthropic | [SRC-0353] |
 | 2025-11 | Kiro 一般提供(GA)。Kiro CLI、property-based testing、checkpointing | Kiro(AWS) | [SRC-0049] |
 | 2025-11-13 | リポジトリ作成 | AWS Labs(GitHub) | [SRC-0051] |
@@ -38,6 +43,8 @@
 | 2025-12-09 | OWASP Top 10 for Agentic Applications 2026 を公開 | OWASP Gen AI Security Project — Agentic Security Initiative | [SRC-0495] |
 | 2025-12-19 | AI 法第13条に基づく適正性確保指針を人工知能戦略本部が決定 | 人工知能戦略本部(内閣府) | [SRC-0620] |
 | 2025-12-23 | 第1期 人工知能基本計画を閣議決定 | 内閣府(人工知能戦略本部) | [SRC-0499] |
+| 2026-01-01 | 改正 | 公正取引委員会 | [SRC-0728] |
+| 2026-01-01 | 改定 | 公正取引委員会・中小企業庁・厚生労働省 | [SRC-0729] |
 | 2026-01-15 | Cursor が Bugbot の設計と解決率の推移を公開 | Cursor (Anysphere) | [SRC-0401] |
 | 2026-01-21 | Cognition が Devin Review（PR レビュー支援）を公開 | Cognition | [SRC-0238] |
 | 2026-01-29 | METR が Time Horizon 1.1 を公開(タスク 170→228、Inspect へ移行) | METR | [SRC-0159] |
@@ -273,6 +280,7 @@
 | 2026-09-23 | OpenSpec v1.13.2 公開(/opsx:verify が未実施の検査を合格と報告しなくなった) | Fission AI (OpenSpec) | [SRC-0604] |
 | 2026-09-29 | in-toto/attestation に AI Change Review predicate の追加 PR(#603)が提出された(未マージ) | in-toto Attestation Framework (GitHub pull request) | [SRC-0618] |
 | 2026-10-01 | 改正(知的財産取引に関する指針の内容を反映。掲載ページの記載による) | 公正取引委員会 | [SRC-0724] |
+| 2026-10-01 | 改正 | 公正取引委員会・厚生労働省 | [SRC-0727] |
 | 2026-11-12 | OpenAI モデルの Cursor への提供終了の提案日(将来モデルは提供しない) | OpenAI | [SRC-0293] |
 | 2027-12-02 | Annex III 高リスク系への第14条適用開始(Omnibus 後) | Regulation (EU) 2024/1689 (AI Act Explorer, Future of Life Institute) | [SRC-0087] |
 | 2027-12-02 | 高リスク AI システムの規則の適用日(延期後) | European Commission (Shaping Europe's digital future) | [SRC-0299] |

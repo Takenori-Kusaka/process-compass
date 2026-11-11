@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-05): verified 647 / partial 67 / unreachable 2 / unverified 1
+集計(生成日 2026-11-11): verified 652 / partial 68 / unreachable 2 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -93,6 +93,7 @@
 | SRC-0722 | partial | agent-read | #346 の実装(裁定 R-2 の確認)で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文のままとして返した文で、原文の目視の照合はしていない | [GitHub Docs: REST API endpoints for GitHub Actions permissions](https://docs.github.com/en/rest/actions/permissions) |
 | SRC-0723 | partial | agent-read | #346 の実装(裁定 R-2 の確認)で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文のままとして返した文で、原文の目視の照合はしていない | [GitHub Docs: REST API endpoints for deployment environments](https://docs.github.com/en/rest/deployments/environments) |
 | SRC-0724 | partial | agent-read | c1 の逐語は、#372 の外部調査(survey-372-2-external.md S3)が令和7年10月1日 全部改正の版の PDF(https://www.jftc.go.jp/houdou/pressrelease/2025/oct/251001_toriteki1-4.pdf)から取った。#372 の実装(2026-11-05)で、掲載中の HTML 版(令和8年10月1日 改正)を WebFetch(要約モデル経由)で読み、改正の履歴と c1 の文言が同じであることを確かめた。3-9(システム利用料の減額)の claim は、本文が引かなくなったため外した(独立の突合 X-1 への裁定)。curl は Access Denied。目視の照合ではない。両版の差分の全体は照合していない。法律の助言ではない | [製造委託等に係る中小受託事業者に対する代金の支払の遅延等の防止に関する法律の運用基準](https://www.jftc.go.jp/toriteki/legislation/unyou.html) |
+| SRC-0730 | partial | agent-read | #362 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない。表の末尾の 13682 字は読んでいない(on の行の有無は表の前半で確かめた)。on.push.branches に式を書けないことの裏づけは、この表の不記載と、実機の観測(Unrecognized named-value: github)の2つである | [GitHub Docs: Contexts reference(Context availability)](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts) |
 
 ### 除外した出典(却下は成果)
 
