@@ -69,3 +69,12 @@
 | Z-5 | `push-trigger.mjs` の冒頭と IMPL-0485 の注記を同じ列挙にそろえた。上の対応表の X-6 の行を事実に合わせて直した |
 
 `test-push-trigger.mjs` は 27 件になった。
+
+Z の対応の後の検査(template `f8a196e`。本体は `ea5e6ec` で流し、文の分割 `34fa6b8` の後に `lint:text` を流し直した):
+
+| 検査 | 結果 |
+| --- | --- |
+| `test-push-trigger.mjs`・`test-adoption.mjs`・`test-env-check.mjs`(WSL、node v26.13.1) | 27/27、69 件一致、63 件一致 |
+| テンプレートの試験一式(WSL、node v26.13.1) | 46 本が通った |
+| `npm run check` の各段(Windows) | `test:template-suite` と `test:regress` を除いて通過(`build` を含む)。`lint:text` は Z-2 で足した文の長さで落ち、文を分けて通した。`test:template-suite` は CRLF による既知の3本(`test-g5-aggregate`・`test-base-judge-workflow`・`test-discouraged-evidence`)、`test:regress` は既知 |
+| 回帰スイート(WSL、node v26.13.1、29 本) | `test-run.mjs` 合格。通常の時刻帯と `TZ=UTC` の両方で「すべて通った」 |
