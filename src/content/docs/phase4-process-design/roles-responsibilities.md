@@ -1342,7 +1342,7 @@ AI による差分の要約を、**判定資料の必須要件にしません**�
 - 要約と原資料の双方へ到達できる状態にする
 - 判定の記録には、要約ではなく原資料の該当箇所を根拠として記載する
 
-<!-- impl IMPL-0220 target=gate-skill state=undelivered check=manual plan=scheduled issue=359 review=2026-11 note="AI による差分の要約を判定資料の必須にせず、要約だけを読んで判定しない。要約を添付するときは原資料へ到達できる状態にし、判定の記録には原資料の該当箇所を根拠に書く。/gate のスキルに規則が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0220 target=gate-skill state=delivered check=manual note="AI による差分の要約を判定資料の必須にせず、要約だけを読んで判定しない。要約を添付するときは要約と原資料の両方へ届く所在を並べ、判定の記録には原資料の該当箇所を根拠に書く。/gate の判定の原則6 が置き、テンプレ4 の「人が判断する項目」の列「根拠とした原資料の所在」が書く場所になる。挙動要約(人が書く欄)と混同しない注記も置く。根拠が要約でないことは機械で確かめない。確かめる者: 当該ゲートの判定者(判定記録を書くとき)(#359)" -->
 
 ## 3.11 AI基盤に関するロール
 
@@ -1769,7 +1769,7 @@ graph LR
 <!-- impl IMPL-0279 target=ai-review-workflow state=undelivered check=manual plan=adopter decision=ADR-0084 note="要求事項1(AI の確認側と作成側の往復)。準拠テンプレートは、AI のレビューの指摘と修正の往復を実行の単位として数えず、停止条件を強制しない(self-heal.mjs はテストの失敗の反復だけを止める)。採用者が接続経路・エージェント実行基盤の上で往復の停止条件を強制する。確かめる者: 採用者(自らの実行層に実装したときに確かめる)" -->
 <!-- impl IMPL-0273 target=self-heal state=delivered check=machine test=template/scripts/gate/test-self-heal.mjs note="要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場のタスクごとのファイル(docs/self-heal/F-NNN-Task-N.tsv の形)に残し、同じ PR でコミットする手順を implement の SKILL.md に置く。書き込みに失敗したら警告を出す。コミットしたかは機械で確かめない" -->
 <!-- impl IMPL-0274 target=profile-generator state=delivered check=manual note="要求事項4 のうち値を定めること。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点の記録は IMPL-0280(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI運用担当者(停止条件の値を /process-change で変えるとき)" -->
-<!-- impl IMPL-0280 target=project-brief-template state=undelivered check=manual plan=scheduled issue=359 review=2026-11 note="要求事項4 のうち企画承認(G-1)の時点で記録すること。準拠テンプレートの企画書の様式に停止条件の値の行が無く、G-1 の検査(check-g1.mjs)も記録を確かめない。採用者が企画書に停止条件の値を書き、G-1 の判定で確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0280 target=project-brief-template state=delivered check=machine test=template/scripts/gate/test-brief-thresholds.mjs note="要求事項4 のうち企画承認(G-1)の時点で記録すること。企画書の様式(templates/06-project-brief.md と3つのプロファイル)の「指標の閾値と予算区分」に行「停止条件の値」を置き、G-1 の検査(check-g1.mjs)が行の欠けと空欄・様式の説明のままを、G-1 の前は失敗、G-1 を通過済みは欠落(遡って失敗させない)として出す。行の連続失敗・無進捗の上限が構成(task.selfHealMaxIterations・task.selfHealNoProgressLimit)と異なれば、構成の値が効くことを注意に出す。累積消費の上限の中身は確かめない(IMPL-0277)。値の妥当性は G-1 の判定者が確かめる(#359)" -->
 
 #### 停止条件の3種
 

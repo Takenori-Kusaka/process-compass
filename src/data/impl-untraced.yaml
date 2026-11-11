@@ -82,6 +82,10 @@ files:
     reason: variant
     of: guard-write-hook
     why: 書き込みの遮断のフック(guard-write.mjs)が読む、保護するパスの設定。規定は guard-write-hook のマーク(IMPL-0187・IMPL-0198)で追う
+  - path: scripts/gate/trial-checklist.mjs
+    reason: variant
+    of: trial-checklist
+    why: 試行前チェックリストの様式(templates/trial-checklist.md)の形を検査する部品。/pit(next.mjs)が読む。規定は trial-checklist のマーク(IMPL-0465・IMPL-0466)で追う(#359)
   - path: .github/rulesets/checks-only.json
     reason: variant
     of: rulesets

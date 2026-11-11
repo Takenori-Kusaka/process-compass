@@ -520,7 +520,7 @@ targets:
     description: 委任で先へ進めた変更の保証の開示を、期間の起点と終点で区切って出す(第4章 G-7・G-8「期間ごとの保証の開示」、第5章 5.5.4)。委任を使っていない構成では要らない旨を出して終える(period-needed.mjs)
 
   - id: trial-checklist
-    name: 試行前チェックリストの様式の置き場(予定)
-    kind: planned
+    name: 試行前チェックリストの様式と検査
+    kind: template-file
     path: templates/trial-checklist.md
-    description: 第8章「社会実装の段階の調整」の試行前チェックリスト(T-1 開始条件)の様式の置き場。サンドボックスによる免除の期限を記録する欄を含む。附属書H H.3 の観点5 が照合する記録になる。準拠テンプレートに置き場は無い(2026-11-06 確認。Issue #367 / ADR-0116)
+    description: 第8章「社会実装の段階の調整」の試行前チェックリスト(T-1 開始条件)の様式。サンドボックスによる免除の期限と延長の決定の欄を含む。附属書H H.3 の観点5 が照合する記録になる。形の検査は scripts/gate/trial-checklist.mjs、/pit が注記に出す(Issue #367 / ADR-0116 決定6。#359 で置いた)

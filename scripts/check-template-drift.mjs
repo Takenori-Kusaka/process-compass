@@ -112,7 +112,12 @@ const AUX_TEMPLATES = {
   'defect-ledger.md': { doc: 'phase4-process-design/gate-criteria.md', phrase: '欠陥の台帳が無い出荷は、基準2 を確かめられない' },
   // 附属書I I.11: 導入前の検証の合否の基準(実行の前に採用者が記入する)
   'adoption-trial-criteria.md': { doc: 'phase4-process-design/adoption-guide.md', phrase: '## 1. 合否の基準(実行の前に記入する。採用者が書き、コマンドが写す)' },
+  // 第8章「社会実装の段階の調整」: 試行前チェックリスト(T-1 開始条件)。項目(- [ ] の行)は本文の写しと一致させる(#359 / IMPL-0465・IMPL-0466)
+  'trial-checklist.md': { doc: 'phase4-process-design/tailoring-guide.md', phrase: '## 試行前チェックリスト(T-1 開始条件)', items: true },
 };
+
+// チェックの行(- [ ] …)の本文の集合。補助の様式で items: true のものは、本文の項目と様式の項目が一致することを確かめる
+const checkItems = (md) => new Set(md.split(/\r?\n/).map((l) => /^\s*-\s*\[[ xX]\]\s*(.+?)\s*$/.exec(l)?.[1]).filter(Boolean));
 
 // 標準本体と配布テンプレートの双方に現れなければならない項目名。
 // 片側にしか無い項目が二重規範を生んだ事例(ADR-0031)への対処であり、網羅表ではありません。
@@ -175,6 +180,17 @@ if (!fs.existsSync(TEMPLATE_DIR)) {
       const text = fs.readFileSync(path.join(ROOT, 'src/content/docs', aux.doc), 'utf8');
       if (!text.includes(aux.phrase)) {
         problems.push(`template/templates/${f} は補助の様式ですが、標準(${aux.doc})に「${aux.phrase}」がありません`);
+      }
+      if (aux.items) {
+        // 様式は本文の ```markdown の中にある。見出しの行から、フェンスの閉じまでを読む
+        const all = text.split(/\r?\n/);
+        const at = all.findIndex((l) => l.startsWith(aux.phrase));
+        const end = all.findIndex((l, i) => i > at && l.startsWith('```'));
+        const std = checkItems(at < 0 ? '' : all.slice(at + 1, end < 0 ? undefined : end).join('\n'));
+        const tpl = checkItems(fs.readFileSync(path.join(TEMPLATE_DIR, f), 'utf8'));
+        for (const i of std) if (!tpl.has(i)) problems.push(`template/templates/${f} に、標準(${aux.doc})の項目「${i}」がありません`);
+        for (const i of tpl) if (!std.has(i)) problems.push(`template/templates/${f} の項目「${i}」が、標準(${aux.doc})にありません`);
+        if (!std.size) problems.push(`標準(${aux.doc})の「${aux.phrase}」から項目を読めません`);
       }
       continue;
     }
