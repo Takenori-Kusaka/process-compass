@@ -114,3 +114,39 @@
 - 承認者: (空欄。AI維持管理者が記名する)
 - 承認日: (空欄)
 - `.github/workflows/` は変えていない
+
+## 9. 独立の突合への対応(`crosscheck.md`、`decision.md`「独立の突合への裁定」)
+
+### 9.1 変更(template `aggregate-evidence.mjs`)
+
+| 指摘 | 対応 |
+| --- | --- |
+| X-1 名前の変更 | 範囲の判定に渡すファイルの一覧へ、`git diff --name-only --no-renames` の結果(消した側=移す前のパスと、足した側)を加えた。証跡の `prs[].files` の件数は従来どおり |
+| X-2 移行の範囲 | 「移行の後の最初の出荷」の判定を、出荷の範囲に、親の版の構成が範囲の限定の数え方に入らない(S1・G-6 適用・範囲 core-only・CL0 のどれかを欠く)コミットを含むことへ広げた。S0 → S1、S2 → S1、範囲 all → core-only、CL1 以上 → CL0 のいずれも当たる。欠落の文に移行の元を出す。構成の初期化より前(親の版に設定済みの構成が無い)は移行に数えない |
+| X-3 項目2 の計上 | 状態の文に「集約の計上: 範囲の外として欠落に数えなかった PR の変更 N 件 / コア機能に当たり数えた PR の変更 N 件 / 範囲を限らず全変更として数えた PR の変更 N 件(理由ごとの件数) / 範囲を限らない PR を経ないコミット N 件」を添えた。数え方の文にも名前の変更の元・移行の種類・CL1 以上を足した |
+| X-4 CL1 の古い core-only | 親の版か HEAD の版の回答が CL1 以上なら範囲を限らない。項目2 の状態にも CL1 以上のため全変更を数えた旨を出す |
+| X-5 番号の衝突 | 本件では扱わない(裁定: wip-363 を取り込むときに wip-363 側を 0472 以降へ付け直す) |
+
+- 本体: IMPL-0469・0470・0471 の注記を、上の扱いに合わせて書き改め、台帳を再生成した
+- `config.mjs`・`generate-profile.mjs` には触れていない(#434 が同じ作業ツリーで変更中)
+
+### 9.2 試験(`test-tailoring-declaration.mjs`)
+
+- 足した場面: X-1(コア機能のファイルを範囲の外のパスへ移す PR。対照のコア機能でない PR)、X-2(S2 → S1、範囲 all → core-only のそれぞれで最初の出荷と2回目の出荷)、X-3(移行の後の最初の出荷と、親の版だけ未宣言の PR で、全変更として数えた件数が項目2 に出る)、X-4(CL1 の回答で core-only のまま残した構成)。既存の項目2 の場面の期待の文を、計上の件数を含む形へ改めた
+- 履歴の組み立てに名前の変更(`git mv`)の手順を足した。HEAD の宣言が追跡中のファイルに当たるよう、固定の `src/core/keep.js` を置いた
+- 印: X-1・X-2(最初の出荷)・X-4 は IMPL-0470:ng、X-2(2回目)は IMPL-0470:ok、X-3(移行の後)は IMPL-0471:ng
+
+### 9.3 確かめたこと(前回と同じもの)
+
+- 直す前のコード(7d795e3 の `aggregate-evidence.mjs`)で新しい試験を流すと 12 / 32 件が NG。新しく足した X の違反の場面 8 件はすべて NG で、2回目の出荷の適合の場面 2 件は ok(直す前から限定していたため)。既存の項目2 の文の期待を改めた場面も NG になる
+- 直した版では 32 件すべて ok(WSL)
+- template の試験一式・WSL の回帰スイート(通常と TZ=UTC)・本体の check の各段: §9.4
+
+### 9.4 結果
+
+- 同じ作業ツリーで #434 が `aggregate-evidence.mjs` にも手を入れていた。#435 の差分の塊だけを index へ載せ(`git apply --cached`)、試験はその index の内容で流した。template では #434 が先に af5e62e をコミットし、本件の 1ba707e がその上に載った。2つのコミットの差分は重ならない
+- **新しい試験**(WSL): index の版で 32 / 32 件が通過。7d795e3 の版では 12 / 32 件が NG(§9.3)。1ba707e(#434 を含む main)を clone して流しても 32 件が通過し、#434 の `test-name-confirmation-timing.mjs` も通過した
+- **template の試験一式**(WSL、41 本): 40 本が通過。`test-results.mjs` は前回と同じく引数 `--outcome` が要るだけの失敗
+- **WSL の回帰スイート**(LF の clone、`--kb keep`、通常と TZ=UTC): 25 本のうち 24 本が通過した。name-confirmation だけが 9 場面で落ちた。本体の作業ツリーの `scripts/regress/suite/name-confirmation.mjs` と `expected/scenes/name-confirmation.txt` を #434 が変更中で、その場面(「#434 1a」など)は #434 の template の変更を前提とする。f1916de を clone した本体で name-confirmation だけを流し直し、通常・TZ=UTC とも 26 場面が通過した(落ちた場面 0)
+- **本体の `npm run check` の各段**(Windows): 落ちたのは test:template-suite の `test-g5-aggregate.mjs`(Windows の CRLF。既知で、WSL では通過)だけ。lint:impl・lint:scope・lint:text・lint:provisions・test:impl・build は通過
+- template 1ba707e を pit-in-template の main へ push し、submodule の参照を進めた(本体は push しない)
