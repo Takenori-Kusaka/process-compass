@@ -488,6 +488,7 @@ S1 の出荷判定(G-7)は適用します。S1 の軽さは、ゲートの状態
 - 未解決の欠陥: [第4章「事業ステージ別のトリアージマトリクス」](/process-compass/phase4-process-design/gate-criteria/)の S1 の行で判定する(G-7 基準2)
 - 受容した負債: 上表「負債台帳」の S1 の運用(記録+返却目安)による。G-7 基準3 が問うのは台帳の記録の漏れだけである
 - 独立レビュー(G-6)の範囲: コア機能(上表。CL1 以上は全変更)
+<!-- impl IMPL-0469 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-tailoring-declaration.mjs note="S1 の G-6 の範囲(コア機能)。構成の gates.g6.params.scope が core-only のとき、出荷の証跡の集約は、変更の親のコミットの構成が S1・core-only の PR のうち、コア機能のパス(corePathsOf: delegation.protectedPaths と riskFloor.rules[].paths の和。名前の変更の元のパスを含めて判定する)に当たらない変更を、独立した人の確認の欠落に数えない(R1 は例外承認を要する。写しの欠落にも数えない)。コア機能の PR は当たったファイルを添えて欠落に数える。歯止め(パスが親の版か HEAD の版で未宣言なら全変更を数えて理由を出す、親の版と HEAD の版のパスの和で判定する、範囲の限定の数え方へ移った後の最初の出荷は全変更(S0 → S1・S2 → S1・範囲 all → core-only のいずれも)、PR を経ないコミットは範囲を限らない)と、S0 の期間の変更(前提3)、安全重要度 CL1 以上の回答の構成(古い core-only でも限らない)は IMPL-0470 の試験が固定する。ブランチ保護の必須の承認数は全 PR に掛かり、その差は項目2 に開示する(IMPL-0471)(#435)" -->
 - G-7 の判定は、どの事業ステージでも、記録と基準の突合に限る([第4章 G-7](/process-compass/phase4-process-design/gate-criteria/))
 
 これ以外に、S1 であることを理由に G-7 の判定基準を外しません。S1 の G-7 を簡略にしないことは、決めた事項です。S1 で緩めている G-6 の範囲の限定は、保証の開示の項目2 に載せます([第4章 G-7「保証の開示」](/process-compass/phase4-process-design/gate-criteria/))。
