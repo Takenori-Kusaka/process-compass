@@ -84,7 +84,7 @@
 - 観測
   - PR #4: 同じ名前の check run が2つ(本来 failure https://github.com/Takenori-Kusaka/pit-in-trial-371/actions/runs/41995577102 、偽 success https://github.com/Takenori-Kusaka/pit-in-trial-371/actions/runs/41995577198)、いずれも app id 15368。`mergeStateStatus=BLOCKED`
   - PR #6(送り手を縛らない): 偽の check run だけ(success、run https://github.com/Takenori-Kusaka/pit-in-trial-371/actions/runs/41995879035)。`mergeStateStatus=CLEAN`
-  - PR #6(送り手を GitHub Actions に固定): 偽の check run(run https://github.com/Takenori-Kusaka/pit-in-trial-371/actions/runs/41996013263、app id 15368)で `mergeStateStatus=CLEAN`
+  - PR #6(送り手を GitHub Actions に固定): 偽の check run(run https://github.com/Takenori-Kusaka/pit-in-trial-371/actions/runs/41996013263 、app id 15368)で `mergeStateStatus=CLEAN`
 - 判定: **裁定の前提と合う**(R-2)。同じ名前の失敗が1つでも残れば止まるが、本来のワークフローを消すか起動条件を外す PR では、別のワークフローの同名のジョブが必須チェックを満たす。送り手を GitHub Actions に固定しても区別されない(どちらも同じ app)。「送り手の固定は適合の手段に数えない」の根拠になる
 
 ### E-14 PR の側のワークフローが statuses: write で commit status gate-g5 を出せるか。送り手の固定で区別されるか

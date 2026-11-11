@@ -40,7 +40,7 @@
 
 ### 準備で分かったこと(項目の外)
 
-- 構成した直後の main では、gate-g5 の gate-contract が失敗する(push の run https://github.com/Takenori-Kusaka/pit-in-trial-371b/actions/runs/42035541211。前回の「基準の失敗」と同じ)。以降、PR の gate-g5 の failure はこの既存の失敗による。gate-g5-base は gate-contract を走らせない(check-pr.mjs だけ)
+- 構成した直後の main では、gate-g5 の gate-contract が失敗する(push の run https://github.com/Takenori-Kusaka/pit-in-trial-371b/actions/runs/42035541211 。前回の「基準の失敗」と同じ)。以降、PR の gate-g5 の failure はこの既存の失敗による。gate-g5-base は gate-contract を走らせない(check-pr.mjs だけ)
 - 手元の写しで、一度だけ CRLF のファイルを PR #2 の最初のコミットへ入れた(手元の git の `core.autocrlf` による)。PR #2 の2つ目のコミットで LF へ戻し、PR #2 の差分は意図した2か所だけになった。判定は2つ目のコミット(先頭)の run で行った
 
 ### F-1a 統制の設定に触れない PR で、gate-g5-base が基底の定義で動き、check run で出るか(対照)
@@ -92,7 +92,7 @@
   2. 新しいワークフロー `forge-base.yml`(`pull_request`、`permissions: statuses: write`)を足した。ジョブ名 `gate-g5-base` を success で出すジョブと、90 秒待ってから PR の先頭へ commit status `gate-g5-base` success を出すジョブ
   3. 2つ目のコミットで、`gate-g5.yml` の集約にも `exit 0` を入れ、必須チェック gate-g5 を通した(gate-g5-base だけが止める状態にするため)
 - 観測(先頭 d0eb364)
-  - 基底の gate-g5-base(run https://github.com/Takenori-Kusaka/pit-in-trial-371b/actions/runs/42036467080。1つ目のコミットでは https://github.com/Takenori-Kusaka/pit-in-trial-371b/actions/runs/42036048745): `pull_request_target`、`ref: main` の checkout。ログに `PR-SIDE-` の印は0件(PR の側の gate-g5-base.yml も check-pr.mjs も使われていない)。**failure**(陰性の確認の節なし、統制の設定の変更の承認なし。統制の設定に `forge-base.yml` の追加を数えた)
+  - 基底の gate-g5-base(run https://github.com/Takenori-Kusaka/pit-in-trial-371b/actions/runs/42036467080 。1つ目のコミットでは https://github.com/Takenori-Kusaka/pit-in-trial-371b/actions/runs/42036048745): `pull_request_target`、`ref: main` の checkout。ログに `PR-SIDE-` の印は0件(PR の側の gate-g5-base.yml も check-pr.mjs も使われていない)。**failure**(陰性の確認の節なし、統制の設定の変更の承認なし。統制の設定に `forge-base.yml` の追加を数えた)
   - PR の側の同名の check run `gate-g5-base`(ワークフロー forge-base、run https://github.com/Takenori-Kusaka/pit-in-trial-371b/actions/runs/42036470581): success。送り手はどちらも app id 15368
   - commit status `gate-g5-base` success(creator `github-actions[bot]`、13:32:49、description `forged-by-pr-side`)。基底の check run の後に出た
   - PR の側の gate-g5(run https://github.com/Takenori-Kusaka/pit-in-trial-371b/actions/runs/42036470590): 印 `PR-SIDE-F1B` が出て success

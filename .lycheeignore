@@ -118,3 +118,13 @@ https://github\.com/hokuto-fg/loan-approval
 ^https://gravidor\.gitbooks\.io/800-53/the_fundamentals/22_security_control_structure\.html
 ^https://presencis\.com/regulations/iso-13485/article-5\.5/
 ^https://preview\.aclanthology\.org/setup/2025\.gem-1\.33
+
+# 2026-11-11 の棚卸し(#437)。実機の確認のために作り、確認の後に削除した一時リポジトリの実行の記録。
+# 削除は所有者の承認の範囲(#369・#371)で行った。記録には実行の識別として残すため、チェックだけ除外する
+^https://github\.com/Takenori-Kusaka/pit-in-trial-[0-9a-z]+/
+
+# 同上。検査と同じ UA の curl で確かめ直し、404・410 が続いたもの。調査メモには取得時の記録として残す。保存版は探していない
+^https://www\.michaelagreiler\.com/code-reviews/
+^https://docs\.github\.com/actions/using-workflows/required-workflows
+^https://johner-institute\.com/articles/software-iec-62304/safety-classes-level-of-concern
+^https://presencis\.com/regulations/iso-27001/article-A\.5\.3/

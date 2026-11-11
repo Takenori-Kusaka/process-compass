@@ -28,7 +28,7 @@ AI の API の鍵を置いていないため、実際のモデルの実行(プ�
 
 ### 準備で分かったこと(項目の外)
 
-- 構成した直後の main では、gate-g5 の gate-contract が失敗する(push の run https://github.com/Takenori-Kusaka/pit-in-trial-369/actions/runs/42119251046。`test-edition-end.mjs` が判定記録・台帳・D-0 節7 の空欄などの欠落を誤りとして出す。前回 371b の「基準の失敗」と同じ)。以降、PR の gate-g5 の failure はこの既存の失敗による。ai-review の確認には関わらない
+- 構成した直後の main では、gate-g5 の gate-contract が失敗する(push の run https://github.com/Takenori-Kusaka/pit-in-trial-369/actions/runs/42119251046 。`test-edition-end.mjs` が判定記録・台帳・D-0 節7 の空欄などの欠落を誤りとして出す。前回 371b の「基準の失敗」と同じ)。以降、PR の gate-g5 の failure はこの既存の失敗による。ai-review の確認には関わらない
 - ルールセット: main に雛形の `checks-only`(必須チェック `gate-g5` と `gate-g5-base`)を適用した(id 26653749)
 
 ### 項目1・2・4(対照) 統制に触れない PR で、ai-review が既定ブランチの定義で動き、既定ブランチだけを checkout し、権限が分かれるか

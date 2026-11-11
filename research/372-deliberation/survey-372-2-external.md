@@ -260,7 +260,7 @@ Q8 の問と答:
 
 ### S5-3. OpenAI Services Agreement(ChatGPT Enterprise・Business・API に適用)
 
-- URL: https://cdn.openai.com/osa/openai-services-agreement.pdf(openai.com/policies/services-agreement/ は HTTP 403 で取得できず、OpenAI の CDN の PDF で確かめた)
+- URL: https://cdn.openai.com/osa/openai-services-agreement.pdf (openai.com/policies/services-agreement/ は HTTP 403 で取得できず、OpenAI の CDN の PDF で確かめた)
 - 取得日: 2026-11-05
 - 版: "OpenAI Services Agreement ONLINE v.010126"
 

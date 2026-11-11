@@ -80,11 +80,11 @@
 ## B. AI 協働の工数・費用の測定(2026-11-04 時点)
 
 **1. 生産性の実験は向きが割れ、測定法の限界が露呈している**
-- METR の RCT(2025-02〜06 実施、2025-07-10 公表)【一次: https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/】:
+- METR の RCT(2025-02〜06 実施、2025-07-10 公表)【一次: https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/ 】:
   - 熟練した OSS 開発者 16 人・246 課題で、AI を許可すると完了時間が +19%
   - 事前の予想は 24% 短縮、事後の体感は 20% 短縮
   - このページは現在「out of date」の表示
-- METR の追試(2025-08 開始、2026-02-24 公表)【一次: https://metr.org/blog/2026-02-24-uplift-update/】:
+- METR の追試(2025-08 開始、2026-02-24 公表)【一次: https://metr.org/blog/2026-02-24-uplift-update/ 】:
   - 57 人・800 課題超で、継続参加の 10 人が −18%(CI −38〜+9%)、新規の 47 人が −4%(CI −15〜+9%)
   - METR はこれを「very weak evidence」とした
   - 理由 1: AI なしで働くのを嫌う開発者が参加を断った
