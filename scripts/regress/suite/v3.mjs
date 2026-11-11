@@ -102,8 +102,10 @@ accepted('通知を記録(to は新任の出荷判定者)', change({ kind: 'noti
 check('D-0 の改訂履歴に前任者への通知が出る', read('docs/D-0-governance.md').includes('鈴木 一郎(前任者)'));
 check('契約検査(tx-4 の後)', contract().ok, contract().out);
 resetTo('s4');
-const tx1 = change({ kind: 'accountable', date: DAY, summary: '事業決裁者を田中へ', seats: { 'biz-approver': { accountable: '田中 三郎' } }, decidedBy: '山田 太郎', reason: '事業部の再編' });
-accepted('tx-1c 前任の決定者(山田)の記名で事業決裁者を田中へ', tx1, '任免');
+// #433(ADR-0122 決定3): 前任の決定者が残る場合、決定者を替える変化点は本人以外が記名する。前任(山田)の記名では確定しない
+refused('tx-1d 前任の決定者(山田)の記名で事業決裁者を田中へ', change({ kind: 'accountable', date: DAY, summary: '事業決裁者を田中へ', seats: { 'biz-approver': { accountable: '田中 三郎' } }, decidedBy: '山田 太郎', reason: '事業部の再編' }), '自分に関わる変更');
+const tx1 = change({ kind: 'accountable', date: DAY, summary: '事業決裁者を田中へ', seats: { 'biz-approver': { accountable: '田中 三郎' } }, decidedBy: APPOINTER.name, reason: '事業部の再編' });
+accepted('tx-1c 組織上の任命権者の記名で事業決裁者を田中へ(前任の決定者は残る)', tx1, '任免', { changed: [{ by: 'ADR-0122 決定1・決定3', on: '2026-11-11', from: '前任の決定者(山田)の記名で反映' }] });
 accepted('以後、田中は決定者として緩める向きを決定できる', change({ kind: 'settings', date: DAY, summary: 'カバレッジ', settings: { ci: { coverageThreshold: 70 } }, decidedBy: '田中 三郎', reason: '較正' }));
 resetTo('s4');
 // 決定者が離脱した後の任命: 任命権者の記名に限る。同じ変化点で足した任命権者は記名できない

@@ -265,7 +265,9 @@ const to2 = change({
 });
 accepted('3名 → 2名(記名なし・即時)', to2, '逸脱の発生: G-7 出荷判定', '[即時反映]', '[即時通知]');
 check('向きは「未達・逸脱の発生」', cfg().changeLog.at(-1).direction === 'arising' && cfg().deviations.some((d) => d.gate === 'g7'));
-accepted('空いた席へ後任を置く(決定者の記名)', change({ kind: 'accountable', date: DAY, summary: '出荷判定者と AI運用担当者', seats: { 'qa-gatekeeper': { accountable: '山田 太郎' }, 'ai-ops': { accountable: '佐藤 花子' } }, decidedBy: '山田 太郎', reason: '2名で分担する' }), '任免');
+// #432(ADR-0122 決定1・決定2): 決定者(山田)が自分を出荷判定者へ置くと、決定者が当事者になる兼務になる。本人の記名では通らず、2名の体制のもう1人(佐藤)が記名する
+refused('空いた席へ後任を置く(決定者が自分を出荷判定者へ。決定者本人の記名)', change({ kind: 'accountable', date: DAY, summary: '出荷判定者と AI運用担当者', seats: { 'qa-gatekeeper': { accountable: '山田 太郎' }, 'ai-ops': { accountable: '佐藤 花子' } }, decidedBy: '山田 太郎', reason: '2名で分担する' }), '自分に関わる変更');
+accepted('空いた席へ後任を置く(もう1人の記名)', change({ kind: 'accountable', date: DAY, summary: '出荷判定者と AI運用担当者', seats: { 'qa-gatekeeper': { accountable: '山田 太郎' }, 'ai-ops': { accountable: '佐藤 花子' } }, decidedBy: '佐藤 花子', reason: '2名で分担する' }), '任免', { changed: [{ by: 'ADR-0122 決定1・決定3', on: '2026-11-11', from: '決定者(山田)の記名で反映' }] });
 check('K50 2名: 出荷判定者 × 事業決裁者(山田)は逸脱として記録', cfg().deviations.some((d) => d.separationId === 'sep-shipping-business'));
 check('G-6 は相互の確認で成立したまま', cfg().gates.g6.state === 'required');
 // 第3巡(K51): 出荷判定者(鈴木)が離脱して席が空いたため、通知先は D-0 表1 の決定者(山田)。通知する者(文脈オーナー=山田)と
@@ -332,7 +334,8 @@ fixes(["K5", "K12"]);
 resetTo('base3');
 // 照合を2つに分けた(#319 裁定 7.5 J-5): 拒否の理由は記名の欠け。SG の判定による変更であることは、差分の「統制を緩める向きの変更」の節で確かめる
 refused('ステージを前へ戻す(記名なし)', change({ kind: 'axis', answers: { 'q-biz-phase': 'poc' } }), '決定した者の記名', { section: { heading: '統制を緩める向きの変更', words: ['ステージ移行ゲート(SG)の判定による'] } });
-write('change2.json', { kind: 'accountable', date: DAY, summary: '事業決裁者を佐藤に', seats: { 'biz-approver': { accountable: '佐藤 花子' } }, decidedBy: '山田 太郎', reason: '事業の決裁を移す' });
+// #433(ADR-0122 決定3): 前任の決定者が残る場合、決定者を替える変化点は本人以外(本人以外の席の責任者の鈴木)が記名する
+write('change2.json', { kind: 'accountable', date: DAY, summary: '事業決裁者を佐藤に', seats: { 'biz-approver': { accountable: '佐藤 花子' } }, decidedBy: '鈴木 一郎', reason: '事業の決裁を移す' });
 check('事業決裁者を佐藤へ', gen('--change', 'change2.json').ok);
 refused('ステージを前へ戻す(事業決裁者でない者の記名)', change({ kind: 'axis', answers: { 'q-biz-phase': 'poc' }, decidedBy: '山田 太郎', reason: '仮説が崩れた' }), '事業決裁者の席の責任者');
 refused('ステージを前へ戻す(SG の判定記録の所在なし)', change({ kind: 'axis', answers: { 'q-biz-phase': 'poc' }, decidedBy: '佐藤 花子', reason: '仮説が崩れた' }), 'sgRecord');

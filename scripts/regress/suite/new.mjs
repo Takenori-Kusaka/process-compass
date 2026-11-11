@@ -228,8 +228,15 @@ check('D-0 節3 に2行があり、決定者は構成から書かれる', /\| �
 write('docs/D-0-governance.md', read('docs/D-0-governance.md').replace(/(\| 体制と運用形態[^|]*\|)[^|]*\|/, '$1 開発者 |'));
 check('D-0 表1 の決定者を手で書き換える → D-0 の検査が落ちる', !checkD0().ok && checkD0().out.includes('governance'), checkD0().out);
 resetTo('two');
-refused('決定者の席を変える(変更前の決定者でない者の記名)', change({ kind: 'accountable', date: DAY, summary: '決定者を価値責任者へ', seats: { 'value-owner': { accountable: '佐藤 花子' } }, governance: { structureDecider: 'value-owner' }, decidedBy: '佐藤 花子', reason: 'r' }), '変更前の D-0 表1「体制と運用形態」の決定者');
-accepted('決定者の席を変える(変更前の決定者の記名)', change({ kind: 'accountable', date: DAY, summary: '決定者を価値責任者へ', seats: { 'value-owner': { accountable: '佐藤 花子' } }, governance: { structureDecider: 'value-owner' }, decidedBy: '山田 太郎', reason: '体制の決定を価値責任者へ移す' }), '緩める向き');
+// #432・#433(ADR-0122 決定3): 前任の決定者が体制に残る場合、決定者その人を替える変化点は本人以外が記名する。前任(山田)は本人、
+// 新任(佐藤)は自分の任命を確定できない。2名の名簿では記名できる者がいないため、組織上の任命権者を名簿へ置いてから替える
+const CHANGED_0122 = [{ by: 'ADR-0122 決定3', on: '2026-11-11', from: '前任の決定者(山田)の記名で決定者の席を変えて反映。新任(佐藤)の拒否の語は「変更前の D-0 表1「体制と運用形態」の決定者」' }];
+refused('決定者の席を変える(変更前の決定者でない者の記名)', change({ kind: 'accountable', date: DAY, summary: '決定者を価値責任者へ', seats: { 'value-owner': { accountable: '佐藤 花子' } }, governance: { structureDecider: 'value-owner' }, decidedBy: '佐藤 花子', reason: 'r' }), '自分に関わる変更', '新任の決定者が、自分の任命を自分の記名で確定することはできません', { changed: CHANGED_0122 });
+refused('決定者の席を変える(変更前の決定者の記名。本人)', change({ kind: 'accountable', date: DAY, summary: '決定者を価値責任者へ', seats: { 'value-owner': { accountable: '佐藤 花子' } }, governance: { structureDecider: 'value-owner' }, decidedBy: '山田 太郎', reason: '体制の決定を価値責任者へ移す' }), '自分に関わる変更', '本人以外に記名できる者がいません', { changed: CHANGED_0122 });
+const ORG = { id: 'org', name: '組織 任命者', external: true, appointer: true };
+const twoPeople = cfg().people;
+accepted('組織上の任命権者を名簿へ置く(決定者の記名)', change({ kind: 'accountable', date: DAY, summary: '任命権者を置く', people: [...twoPeople, ORG], decidedBy: '山田 太郎', reason: '決定者の交代の記名者' }));
+accepted('決定者の席を変える(組織上の任命権者の記名)', change({ kind: 'accountable', date: DAY, summary: '決定者を価値責任者へ', people: [...twoPeople, ORG], seats: { 'value-owner': { accountable: '佐藤 花子' } }, governance: { structureDecider: 'value-owner' }, decidedBy: ORG.name, reason: '体制の決定を価値責任者へ移す' }), '緩める向き', { changed: CHANGED_0122 });
 check('D-0 表1 の行が書き換わる', /\| 体制と運用形態[^|]*\| 価値責任者\(Value Owner\) \|/.test(read('docs/D-0-governance.md')) && checkD0().ok, checkD0().out);
 refused('以後、緩める向きの決定は新しい決定者に限る(旧い決定者の記名)', change({ kind: 'accountable', date: DAY, summary: '確認者を置かない', answers: { 'q-external-reviewer': 'reviewer-no' }, seats: { 'independent-reviewer': { accountable: '山田 太郎' } }, decidedBy: '山田 太郎', reason: 'r' }), '決定できるのは');
 accepted('同(新しい決定者の記名)', change({ kind: 'accountable', date: DAY, summary: '確認者を置かない', answers: { 'q-external-reviewer': 'reviewer-no' }, seats: { 'independent-reviewer': { accountable: '山田 太郎' } }, decidedBy: '佐藤 花子', reason: '相互の確認が成立しない' }));

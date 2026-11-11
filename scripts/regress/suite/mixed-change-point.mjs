@@ -45,7 +45,8 @@ accepted('(b) 分ける 準備: 1人目が全席(初回の記入)', change({ kin
 accepted('(b) 分ける1: 決定者の交代だけ(記名 前任の決定者)', change({ kind: 'accountable', date: TODAY, summary: '決定者の交代', people: [P(0), P(1)], seats: seatsOf([1, 0, 0, 0, 0, 0, 0, 0, 0]), decidedBy: NAMES[0], reason: '決定者を交代する' }));
 const b1 = last();
 check('(b) 分ける1: 向きは任免の決定。緩める向きの行は無い', b1.direction === 'appoint' && Array.isArray(b1.rowKinds) && !b1.rowKinds.includes('loosen'), JSON.stringify({ direction: b1.direction, diff: b1.diff, rowKinds: b1.rowKinds }));
-accepted('(b) 分ける2: 確認者・AI維持管理者・AI運用担当者の任命(記名 新しい決定者)', change({ kind: 'accountable', date: TODAY, summary: '確認者', people: [P(0), P(1)], seats: seatsOf([1, 0, 0, 0, 1, 0, 0, 1, 1]), decidedBy: NAMES[1], reason: '確認者を置く' }));
+// #432(ADR-0122 決定1): 新しい決定者(2人目)が AI維持管理者と AI運用担当者の両方に就くと決定者が当事者の兼務になり、本人の記名では通らない。AI運用担当者は1人目に残す
+accepted('(b) 分ける2: 確認者・AI維持管理者の任命(記名 新しい決定者)', change({ kind: 'accountable', date: TODAY, summary: '確認者', people: [P(0), P(1)], seats: seatsOf([1, 0, 0, 0, 1, 0, 0, 1, 0]), decidedBy: NAMES[1], reason: '確認者を置く' }), { changed: [{ by: 'ADR-0122 決定1・決定3', on: '2026-11-11', from: 'AI運用担当者も2人目へ([1, 0, 0, 0, 1, 0, 0, 1, 1])' }] });
 const b2 = last();
 check(
   '(b) 分ける2: 向きは緩める。行ごとの種類に任免(独立レビュア)と緩める(代償措置の終了)が残り、下限は 80',
@@ -57,7 +58,8 @@ check(
 // ---------------------------------------------------------------- (a) 任命権者の記名 + 緩める向きの行(2名 mvp cl0。前任の決定者は離脱済み)
 const aSetup = (tag) => {
   check(`(a) 準備: 初期化(${tag})`, init().ok);
-  accepted(`(a) 準備: 名簿 [1人目, 2人目, 任命権者] で1人目が全席(${tag})`, change({ kind: 'accountable', date: TODAY, summary: '体制を記入', people: [P(0), P(1), APPOINTER], seats: seatsOf(ALL(0)), decidedBy: NAMES[0], reason: '初期の体制を記入する' }));
+  // #432(ADR-0122 決定1): 2名の名簿で全席を1人目(決定者)に置くと決定者が当事者の兼務になり、1人目の記名では通らない。1人目と任命権者で記入する
+  accepted(`(a) 準備: 名簿 [1人目, 任命権者] で1人目が全席(${tag})`, change({ kind: 'accountable', date: TODAY, summary: '体制を記入', people: [P(0), APPOINTER], seats: seatsOf(ALL(0)), decidedBy: NAMES[0], reason: '初期の体制を記入する' }));
   accepted(`(a) 準備: 1人目の離脱(記名なし。${tag})`, change({ kind: 'accountable', date: TODAY, summary: '1人目が離脱', people: [P(1), APPOINTER], seats: seatsOf(SEATS.map(() => null)) }));
 };
 aSetup('1つの変化点');
