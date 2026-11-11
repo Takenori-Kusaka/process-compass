@@ -1,0 +1,849 @@
+{
+ "generated": "2026-11-11",
+ "source": "research/366-deliberation/extract.mjs",
+ "scope": "本文8章(第1章〜第8章)+規定の附属書B・D・F・H(ADR-0086 R-2 と同じ範囲)",
+ "items": [
+  {
+   "file": "src/content/docs/phase4-process-design/overview.md",
+   "part": "第1章",
+   "line": 568,
+   "sentence": "構成の変更の記録は、後から切り詰めや書き換えができます。",
+   "prev": "適用の開始の境を、構成の変更の記録の1件目(`changeLog` の `init`)に置く案は採りませんでした。",
+   "next": "手で `configured: true` を先に入れた履歴では、境が遅れ、その間の変更が数えられなくなるためです。",
+   "inTemplateBlock": false,
+   "id": "K-001"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/lifecycle.md",
+   "part": "第2章",
+   "line": 428,
+   "sentence": "後から再構成できる。",
+   "prev": "設計の背景と制約",
+   "next": "ただし前任者の関与を要する",
+   "inTemplateBlock": false,
+   "id": "K-002"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/lifecycle.md",
+   "part": "第2章",
+   "line": 435,
+   "sentence": "期限を相対の指定へ変えても、検査は機械化できます。",
+   "prev": "機械検査",
+   "next": "H-1 の記録に次の欄を必須とします。",
+   "inTemplateBlock": false,
+   "id": "K-003"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/lifecycle.md",
+   "part": "第2章",
+   "line": 454,
+   "sentence": "対象のコア機能について、記録を参照せずに設計判断とその理由を自分の言葉で説明できる",
+   "prev": "設計の説明",
+   "next": "2",
+   "inTemplateBlock": false,
+   "id": "K-004"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/lifecycle.md",
+   "part": "第2章",
+   "line": 455,
+   "sentence": "採らなかった選択肢を1つ以上挙げ、採らなかった理由を説明できる",
+   "prev": "却下案の再構成",
+   "next": "3",
+   "inTemplateBlock": false,
+   "id": "K-005"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 70,
+   "sentence": "顧客接点を持つ、または価値仮説の検証を設計し発注できる",
+   "prev": "決定権の委譲を組織から受けている。",
+   "next": "不問(職位でなく権限委譲で決める)",
+   "inTemplateBlock": false,
+   "id": "K-006"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 72,
+   "sentence": "AI生成コードを読み解き、挙動を自分の言葉で説明できる",
+   "prev": "開発者(検証者)",
+   "next": "不問",
+   "inTemplateBlock": false,
+   "id": "K-007"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 74,
+   "sentence": "品質記録と基準の突合ができる。",
+   "prev": "QA(出荷判定者)",
+   "next": "開発ライン(同一案件の開発者の席と独立レビュアの席)から独立していること",
+   "inTemplateBlock": false,
+   "id": "K-008"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 76,
+   "sentence": "継続的に保守できる",
+   "prev": "対象領域の規約・用語に責任を持てる。",
+   "next": "不問",
+   "inTemplateBlock": false,
+   "id": "K-009"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 77,
+   "sentence": "対象リポジトリの規約と設計標準を理解し、指示資産の記述と実際の挙動の一致を検証できる",
+   "prev": "AI維持管理者",
+   "next": "不問",
+   "inTemplateBlock": false,
+   "id": "K-010"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 78,
+   "sentence": "AI 実行基盤の構成・費用・統制要件を理解し、全社の規程と開発組織を接続できる",
+   "prev": "AI運用担当者",
+   "next": "全社の統制部門の任命規程どおり",
+   "inTemplateBlock": false,
+   "id": "K-011"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 330,
+   "sentence": "案件の都合で全社の統制を緩める経路ができる",
+   "prev": "**禁止**",
+   "next": "移行支援担当 × 出荷判定者(同一案件)",
+   "inTemplateBlock": false,
+   "id": "K-012"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 477,
+   "sentence": "また、前段の未確定な途中状態が他のロールのコンテキストに混ざり込み、AIの判断が歪む（自動化バイアスや追従バイアス）ことを物理的に遮断できる。",
+   "prev": "単一の作業コピーをPO・Dev・Review 等の複数エージェントが同時に変更すると、gitのインデックスファイル（`.git/index`）のロック競合や破損が即座に発生する。",
+   "next": "**非同期協調への強制**:",
+   "inTemplateBlock": false,
+   "id": "K-013"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 793,
+   "sentence": "価値責任者は、機能単位の仕様承認(G-4)を**機能責任者へ明示的に委譲できる**。",
+   "prev": "3.6 委譲ルール",
+   "next": "委譲は文書(担当表)で行い、口頭では行わない",
+   "inTemplateBlock": false,
+   "id": "K-014"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 1321,
+   "sentence": "1名が兼ねると、案件の都合で全社の統制を緩める経路ができます。",
+   "prev": "前者はリポジトリ内の資産に責任を持ち、後者は複数案件が共有する基盤に責任を持ちます。",
+   "next": "AI運用担当者の職掌は、3.12 によります。",
+   "inTemplateBlock": false,
+   "id": "K-015"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 2095,
+   "sentence": "手続を飛ばした書き換えと、変更記録の切り詰め・差し替えは、機械で検出できる",
+   "prev": "機械で検出できるのは、人数・担い手の識別・版の不一致と、構成の書き換えに限ります。",
+   "next": "構成を書き換えたうえで、要約値を合わせた記録を偽って追記する改ざんを、機械で検出する手段はない。",
+   "inTemplateBlock": false,
+   "id": "K-016"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 99,
+   "sentence": "ログイン名は改名で直ちに、削除の後は 90 日で他人が取得できます(GitHub の文書、2026-11-05 時点)。",
+   "prev": "食い違いが多ければ、写しを正とする前提を見直す。",
+   "next": "数値の識別子は REST と GraphQL で引け、ルールセットの迂回者も数値で照合されます。",
+   "inTemplateBlock": false,
+   "id": "K-017"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 376,
+   "sentence": "層1 の記名が無い組織でも、G-1 は判定できる。",
+   "prev": "その案件の変更は保証の主張の成立条件2 を満たさず、出荷は品質保証の対象外として扱われる(G-7「保証の主張の成立判定」)",
+   "next": "保証範囲の欄には「層1 なし」と書く。",
+   "inTemplateBlock": false,
+   "id": "K-018"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 408,
+   "sentence": "対象の成果物(機能仕様)が PR として存在する場合、**判定者本人のレビューの本文を、判定記録の媒体にできます**(前掲「判定の成立」)。",
+   "prev": "G-2 と G-4 の判定記録の「対象」には、機能の ID に加えて、確定した版を特定できる識別子(コミットの識別子)を書きます([第6章 テンプレ4](/process-compass/phase4-process-design/deliverable-templates/))。",
+   "next": "確定は独立した確認ではないため、PR の作成者である判定者も、本人のレビューで記録できます。",
+   "inTemplateBlock": false,
+   "id": "K-019"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 408,
+   "sentence": "確定は独立した確認ではないため、PR の作成者である判定者も、本人のレビューで記録できます。",
+   "prev": "対象の成果物(機能仕様)が PR として存在する場合、**判定者本人のレビューの本文を、判定記録の媒体にできます**(前掲「判定の成立」)。",
+   "next": "レビューの状態(承認・変更要求・コメント)を問わない。",
+   "inTemplateBlock": false,
+   "id": "K-020"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 474,
+   "sentence": "判定者は、前提として引き受けない行を示して、提出者へ差し戻すことができます。",
+   "prev": "判定者は、これを基準3 で差し戻します。",
+   "next": "引き受けないのは、崩れたときの影響を負えないという判断です。",
+   "inTemplateBlock": false,
+   "id": "K-021"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 536,
+   "sentence": "判断記録が PR として存在する場合、判定者本人のレビューの本文を判定記録の媒体にできます(前掲「判定の成立」)。",
+   "prev": "判定記録は、判断記録の内容を再掲せず、識別で引きます。",
+   "next": "宣言行(`G-3: 通過`、または `G-3: 差し戻し / 基準 N / 期限 YYYY-MM-DD`)、`commit_id` の検査、独立した人の確認(G-6)に数えないことは、前掲 G-2 によります。",
+   "inTemplateBlock": false,
+   "id": "K-022"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 638,
+   "sentence": "機能仕様が PR として存在する場合、判定者本人のレビューの本文を判定記録の媒体にできます。",
+   "prev": ":::",
+   "next": "宣言行(`G-4: 通過`、または `G-4: 差し戻し / 基準 N / 期限 YYYY-MM-DD`)、対象の書き方、`commit_id` の検査、独立した人の確認(G-6)に数えないことは、前掲 G-2 によります。",
+   "inTemplateBlock": false,
+   "id": "K-023"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 766,
+   "sentence": "検出されたものを、開発者が修正できる",
+   "prev": "実効的な偽陽性が無い(検出されたものを、修正すべきものと開発者が認める)",
+   "next": "既存の違反を解消してある",
+   "inTemplateBlock": false,
+   "id": "K-024"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1031,
+   "sentence": "レビュアが挙動を自分の言葉で説明できる",
+   "prev": "2",
+   "next": "承認コメントに1〜2文の挙動要約を必須記載",
+   "inTemplateBlock": false,
+   "id": "K-025"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1471,
+   "sentence": "本標準を適用した組織は、出荷ごとに、保証範囲に入る変更が次の6つの成立条件をすべて満たす場合に限り、その変更について「品質を保証する」と主張できます([ADR-0057](/process-compass/adr/0057-organizational-quality-assurance/))。",
+   "prev": "保証の主張の成立判定",
+   "next": "#",
+   "inTemplateBlock": false,
+   "id": "K-026"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1531,
+   "sentence": "品質を保証できる",
+   "prev": "保証範囲の変更が十分に多い。",
+   "next": "出荷判定者の署名を、品質の保証として対外文書へ書いてはなりません。",
+   "inTemplateBlock": false,
+   "id": "K-027"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1733,
+   "sentence": "変更規模は測りやすく、レビュー依頼の時点で自動的に判定できる。",
+   "prev": "行数を代理指標として扱う根拠と、その限界",
+   "next": "運用コストが最も低い代理指標である",
+   "inTemplateBlock": false,
+   "id": "K-028"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1764,
+   "sentence": "変更の影響範囲を機械的に提示できる。",
+   "prev": "L1",
+   "next": "かつ、確認すべき範囲を実行可能な保証で限定できる",
+   "inTemplateBlock": false,
+   "id": "K-029"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1764,
+   "sentence": "かつ、確認すべき範囲を実行可能な保証で限定できる",
+   "prev": "変更の影響範囲を機械的に提示できる。",
+   "next": "上限を緩和してよい。",
+   "inTemplateBlock": false,
+   "id": "K-030"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1777,
+   "sentence": "L2 が机上の設計ではないことは、公開された一次事例で確認できます。",
+   "prev": ":::",
+   "next": "ある大規模事業者は、変更のリスクスコアに基づいて低リスク変更のレビューを自動化する仕組みを本番運用し、53.5万件超の変更を評価して33.1万件超を自動的に着地させたと報告しています(2026年)。",
+   "inTemplateBlock": false,
+   "id": "K-031"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1792,
+   "sentence": "変換の正しさをテストが検出でき、そのテストが信頼できる",
+   "prev": "変換が機械的であり、同じ入力から同じ出力が決定論的に得られる",
+   "next": "独立してコミットできる単位へ分割でき、問題があれば部分的に取り消せる",
+   "inTemplateBlock": false,
+   "id": "K-032"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1899,
+   "sentence": "担保範囲を機械的に画定できる",
+   "prev": "**認める**(L1)。",
+   "next": "構造差分・影響範囲解析による提示",
+   "inTemplateBlock": false,
+   "id": "K-033"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1978,
+   "sentence": "スタックの基底は、既定ブランチ以外にも設定できます。",
+   "prev": "GitHub 標準のスタックの機構は、提供者の文書で確かめたもので、実機では確かめていません。",
+   "next": "その場合、取り込み先は既定ブランチにならず、2つ目の箇条により、マージしてはなりません。",
+   "inTemplateBlock": false,
+   "id": "K-034"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 2123,
+   "sentence": "業務は継続できる",
+   "prev": "機能は動作するが、表示・操作性・性能が仕様を満たさない。",
+   "next": "Sev1 と Sev2 を分ける唯一の境界は「回避策が存在するか」です。",
+   "inTemplateBlock": false,
+   "id": "K-035"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 2271,
+   "sentence": "さらに、変更の大きさとレビュー時間で機械的に操作できる。",
+   "prev": "したがって、この指標を上げる最短の経路は**指摘を控えること**になる",
+   "next": "1回のレビューで欠陥検出率が高く保たれるのは200〜400行を60〜90分で読む場合とされており、**大きな変更を短時間で通せば一発承認率は容易に上がります**",
+   "inTemplateBlock": false,
+   "id": "K-036"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 15,
+   "sentence": "人間が担う判断について、その判断が実質的に行われたことを確認できる",
+   "prev": "どの作業を AI が担い、どの判断を人間が担うかが、時点を明示した形で定義されている",
+   "next": "AI の能力向上に伴って役割境界を見直す手続が定められている",
+   "inTemplateBlock": false,
+   "id": "K-037"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 32,
+   "sentence": "*2026-08-05 時点の前提**: 生成AIエージェントは、仕様を入力として実装・テスト生成・自己修正を主導的に実行できます。",
+   "prev": "AI の能力は短期間で変化するため、役割境界の定義には必ず妥当な時点を併記します。",
+   "next": "人間の主たる作業は、コードの記述ではなく、仕様の設計・コンテキストの整備・差分の検証へ移っています。",
+   "inTemplateBlock": false,
+   "id": "K-038"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 65,
+   "sentence": "生成AIエージェントは、仕様を入力として実装・テスト生成・自己修正を主導的に実行できます。",
+   "prev": "*2026-08-05 時点のベースラインは L1 です**。",
+   "next": "人間の主たる作業は、コードの記述ではなく仕様の設計・コンテキストの整備・差分の検証です。",
+   "inTemplateBlock": false,
+   "id": "K-039"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 231,
+   "sentence": "記録の存在で判定できる",
+   "prev": "必要なもの",
+   "next": "AI が起因となった Sev1 または Sev2 の発生、コア機能の理解保持者数",
+   "inTemplateBlock": false,
+   "id": "K-040"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 441,
+   "sentence": "機械検査(G-5)の全項目を通過し、変更箇所の挙動を既存のテストで検出できる",
+   "prev": "3",
+   "next": "変更ごと",
+   "inTemplateBlock": false,
+   "id": "K-041"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 445,
+   "sentence": "記録の上で、委任で先へ進めた変更として変更単位で識別できる。",
+   "prev": "7",
+   "next": "G-6 の判定を事後へ移した変更は、人の事前確認を経ていない変更として識別できる",
+   "inTemplateBlock": false,
+   "id": "K-042"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 445,
+   "sentence": "G-6 の判定を事後へ移した変更は、人の事前確認を経ていない変更として識別できる",
+   "prev": "記録の上で、委任で先へ進めた変更として変更単位で識別できる。",
+   "next": "変更ごと",
+   "inTemplateBlock": false,
+   "id": "K-043"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 595,
+   "sentence": "ただし2つの記名が1人に集まり、1つの変化点で1人が委任を有効にできる。",
+   "prev": "上の行と同じく、どの席で判断したかを記録して受け付ける。",
+   "next": "この事実を変化点の記録・D-0 体制図の改訂履歴・次の一手・保証の開示に出す。",
+   "inTemplateBlock": false,
+   "id": "K-044"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 901,
+   "sentence": "同じ文面の複製を検出できます。",
+   "prev": "3点目の検査は実務上有効です。",
+   "next": "記述の内容そのものは、四半期ごとに人が抽出して確認します。",
+   "inTemplateBlock": false,
+   "id": "K-045"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/deliverable-templates.md",
+   "part": "第6章",
+   "line": 543,
+   "sentence": "承認者を後から同定できる",
+   "prev": "1",
+   "next": "口頭の合意は監査証拠として扱えない",
+   "inTemplateBlock": false,
+   "id": "K-046"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/deliverable-templates.md",
+   "part": "第6章",
+   "line": 1675,
+   "sentence": "例があれば、判定者は、技術上の選択が例に当たるかを突き合わせて、基準2 を判定できます。",
+   "prev": "「含意」の欄に反する選択の例を書くのは、原則を反証できる形にするためです。",
+   "next": "例を書けない原則は、どの選択も差し戻せません。",
+   "inTemplateBlock": false,
+   "id": "K-047"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/deliverable-templates.md",
+   "part": "第6章",
+   "line": 1730,
+   "sentence": "エージェントが本番環境の資源へ到達できる",
+   "prev": "3",
+   "next": "4",
+   "inTemplateBlock": false,
+   "id": "K-048"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/exception-escalation.md",
+   "part": "第7章",
+   "line": 58,
+   "sentence": "対象が PR の場合は、対象の PR の上の承認した者本人のレビューを裏づけにできる([第4章「判定記録を基底ブランチへ入れる操作」](/process-compass/phase4-process-design/gate-criteria/)、[ADR-0106](/process-compass/adr/0106-material-records-attributed-before-effect/))。",
+   "prev": "例外承認の記録は効力を持つ記録であり、効力を持つ前に、承認した者本人のアカウントの操作で帰属を裏づける。",
+   "next": "台帳の行は、登録と追跡の記録として残す",
+   "inTemplateBlock": false,
+   "id": "K-049"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/exception-escalation.md",
+   "part": "第7章",
+   "line": 373,
+   "sentence": "残る予算と期間でステージのゴール(当該ステージの確約範囲 SC-M の完了)に到達できる",
+   "prev": "2",
+   "next": "到達の見込み(下記)の区分が乙または丙に当たる",
+   "inTemplateBlock": false,
+   "id": "K-050"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/exception-escalation.md",
+   "part": "第7章",
+   "line": 646,
+   "sentence": "回収済みの項目と未回収の項目を区別できる",
+   "prev": "出荷判定において、全件の状態を突合できる形式で保持する",
+   "next": "案件の完了後も、監査の求めに応じて提示できる期間にわたり保管する",
+   "inTemplateBlock": false,
+   "id": "K-051"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/tailoring-guide.md",
+   "part": "第8章",
+   "line": 163,
+   "sentence": "自ら顧客に接する、または検証の設計と発注ができる",
+   "prev": "価値責任者の顧客接点",
+   "next": "いずれかを満たす者を任命",
+   "inTemplateBlock": false,
+   "id": "K-052"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/tailoring-guide.md",
+   "part": "第8章",
+   "line": 268,
+   "sentence": "または検証の設計と発注ができる",
+   "prev": "価値責任者が自ら顧客に接する。",
+   "next": "**兼務を宣言して適用する**。",
+   "inTemplateBlock": false,
+   "id": "K-053"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/tailoring-guide.md",
+   "part": "第8章",
+   "line": 325,
+   "sentence": "検出能力が「未測定」の体制でも、5.4.6 の検知条件を計測できていれば、種別を登録できます。",
+   "prev": "第5章 5.6.2)とは別の量です。",
+   "next": "逆は成り立ちません。",
+   "inTemplateBlock": false,
+   "id": "K-054"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/tailoring-guide.md",
+   "part": "第8章",
+   "line": 349,
+   "sentence": "機械検査(G-5)の全項目を通過し、変更箇所の挙動を既存のテストで検出できる",
+   "prev": "3",
+   "next": "事後の抜き取りは不具合の検出手段ではない。",
+   "inTemplateBlock": false,
+   "id": "K-055"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/tailoring-guide.md",
+   "part": "第8章",
+   "line": 353,
+   "sentence": "委任で先へ進めた変更として、変更単位で識別できる。",
+   "prev": "7",
+   "next": "G-6 の判定を事後へ移した変更は、人の事前確認を経ていない変更として識別できる",
+   "inTemplateBlock": false,
+   "id": "K-056"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/tailoring-guide.md",
+   "part": "第8章",
+   "line": 353,
+   "sentence": "G-6 の判定を事後へ移した変更は、人の事前確認を経ていない変更として識別できる",
+   "prev": "委任で先へ進めた変更として、変更単位で識別できる。",
+   "next": "件数を保証の開示の項目1・3 へ載せる。",
+   "inTemplateBlock": false,
+   "id": "K-057"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/tailoring-guide.md",
+   "part": "第8章",
+   "line": 943,
+   "sentence": "CL0 で規制業に該当しない案件は、保証の開示への表示とリリース決裁(G-8)の受容で出荷できる",
+   "prev": "未達のまま出荷するかは、本章「再実行の時点と向き」の表による。",
+   "next": "附属書F F.2 の Q1 が「はい」の案件の、段3 の確認",
+   "inTemplateBlock": false,
+   "id": "K-058"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/ears-guide.md",
+   "part": "附属書B",
+   "line": 73,
+   "sentence": "[ ] 各基準がテスト名に変換できる(AI で試行済み)",
+   "prev": "[ ] 正常系に対応する異常系(もし〜なら)の基準がある",
+   "next": "このチェックリストに「該当なし」の欄を置きません。",
+   "inTemplateBlock": true,
+   "id": "K-059"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/safety-verification.md",
+   "part": "附属書F",
+   "line": 74,
+   "sentence": "応用ソフトウェア向けの簡略化された手順は、**限定可変言語で記述する場合にのみ適用できます**。",
+   "prev": "限定可変言語または完全可変言語",
+   "next": "完全可変言語で書く場合は、組込ソフトウェアと同等の措置が必要になります。",
+   "inTemplateBlock": false,
+   "id": "K-060"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 40,
+   "sentence": "本標準を適用した組織は、宣言した保証範囲について、顧客と社会に対し、次の意味で品質を保証すると主張できます。",
+   "prev": "組織の保証の主張",
+   "next": "受託では、相手に発注者を含めます。",
+   "inTemplateBlock": false,
+   "id": "K-061"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 78,
+   "sentence": "成果物(コード・設定)は決定論的に検査できる。",
+   "prev": "本標準が管理するのは、生成の過程ではなく、成果物を AI と独立に確かめる検証の過程である。",
+   "next": "ただし、工程の実施は製品の品質の必要条件であって十分条件ではない。",
+   "inTemplateBlock": false,
+   "id": "K-062"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 124,
+   "sentence": "出荷ごとに、保証範囲に入る変更について、次の6つをすべて満たす場合に、組織は「品質を保証する」と主張できます。",
+   "prev": "正本は[第4章 G-7](/process-compass/phase4-process-design/gate-criteria/)「保証の主張の成立判定」です。",
+   "next": "#",
+   "inTemplateBlock": false,
+   "id": "K-063"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 259,
+   "sentence": "承認を経ていない除外設定の追加、判定基準を実装する検査の集約からの除外、検査を外す変更の記録の欠落と受け入れた者が AI の名義であることは、機械で検出できる。",
+   "prev": "第4章 G-5、[第3章 3.11.2](/process-compass/phase4-process-design/roles-responsibilities/)",
+   "next": "監査は、検出の仕組みが働いていたかと、判定基準を実装しない検査を外したことの妥当性を見る",
+   "inTemplateBlock": false,
+   "id": "K-064"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 261,
+   "sentence": "名簿の人へ対応づかないアカウントの承認は、機械で検出できる。",
+   "prev": "第3章 3.2・3.4.1、第6章 テンプレ0",
+   "next": "承認者が権限者であるか、名簿の人が実在するか、1人が複数のアカウントを使っていないか、名簿の外の確認した者が実在するかは、監査だけが確かめる",
+   "inTemplateBlock": false,
+   "id": "K-065"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 263,
+   "sentence": "版の不一致は機械で検出できる。",
+   "prev": "第3章 3.13 の体制の変化点",
+   "next": "監査は、起票されなかった変化点が無いかを見る",
+   "inTemplateBlock": false,
+   "id": "K-066"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 264,
+   "sentence": "担い手の識別の不一致は機械で検出できる。",
+   "prev": "第3章 3.4.2 の適合性確認",
+   "next": "監査は、失効の後に上限が協働へ下がっていたかを見る。",
+   "inTemplateBlock": false,
+   "id": "K-067"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 266,
+   "sentence": "異議の欄の空欄は、記載の欠落として機械で検出できる。",
+   "prev": "第4章 G-8「出荷判定者の異議」、第5章 5.7.2 の決断の記録、H.5",
+   "next": "監査は、開示された未達・未測定と受容の記載との対応と、理由の記載の有無を見る。",
+   "inTemplateBlock": false,
+   "id": "K-068"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 269,
+   "sentence": "宣言した担い手の識別と、変更に記録された共著者の不一致は、機械で警告できる。",
+   "prev": "第5章 5.8.2、第3章 3.12.3",
+   "next": "監査は、警告が放置されていないかを見る",
+   "inTemplateBlock": false,
+   "id": "K-069"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 270,
+   "sentence": "層1 の版の記載の有無は機械で検出できる。",
+   "prev": "第6章 テンプレ11、第4章 G-8「受容の基準との照合と上申」",
+   "next": "監査は、外枠と体制の変化に層1 が追随しているか、段階を超える受容が上申を経ているかを見る",
+   "inTemplateBlock": false,
+   "id": "K-070"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 271,
+   "sentence": "期限切れは、保証の開示で記載の欠落として機械で検出できる。",
+   "prev": "H.6「組織継続の側の状態の表示」、第3章 3.4.3・3.12.3・3.12.5・3.12.11",
+   "next": "監査は、期限を延ばし続ける受容が無いかを見る",
+   "inTemplateBlock": false,
+   "id": "K-071"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 477,
+   "sentence": "受入基準との一致を確かめ、挙動を自分の言葉で説明できる",
+   "prev": "独立レビュア(G-6)",
+   "next": "全行を読んだこと、欠陥が無いこと",
+   "inTemplateBlock": false,
+   "id": "K-072"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 529,
+   "sentence": "ゲートの間で、誰でも品質・安全・法令上の異常を認めたときは、[第7章 7.11](/process-compass/phase4-process-design/exception-escalation/)の停止の申し立てで対象を保留できます。",
+   "prev": "停止の申し立てとの関係",
+   "next": "異議とは別の経路です。",
+   "inTemplateBlock": false,
+   "id": "K-073"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 807,
+   "sentence": "記録が実在し、抜き取りで突合できる。",
+   "prev": "「出荷した各変更について、責任者、リスク区分、経た検証、確認しなかった事項を記録から再構成できる」",
+   "next": "保証範囲の外でも使える",
+   "inTemplateBlock": false,
+   "id": "K-074"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/assurance-case.md",
+   "part": "附属書H",
+   "line": 879,
+   "sentence": "変更ごとの記録から、同じ条件(モデルの版・指示資産の版)で生成した成果物を特定できる。",
+   "prev": "欠陥が流出したとき、同じ条件で作った出荷済みの成果物をどう扱うのか",
+   "next": "遡って点検する範囲は、[インシデント対応](/process-compass/phase6-operation/incident-response/)で決める。",
+   "inTemplateBlock": false,
+   "id": "K-075"
+  }
+ ],
+ "auxiliary": [
+  {
+   "file": "src/content/docs/phase4-process-design/lifecycle.md",
+   "part": "第2章",
+   "line": 57,
+   "sentence": "事業仮説と技術的実現性を検証し、投資継続の可否を判断できる状態にする",
+   "prev": "DR0",
+   "next": "SG-0",
+   "inTemplateBlock": false,
+   "id": "KX-001"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 1305,
+   "sentence": "要約と原資料の双方へ到達できる状態にする",
+   "prev": "添付する場合、次を守ります。",
+   "next": "判定の記録には、要約ではなく原資料の該当箇所を根拠として記載する",
+   "inTemplateBlock": false,
+   "id": "KX-002"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 1365,
+   "sentence": "実際に読み込まれたファイルを記録し、監査できる状態にする",
+   "prev": "6",
+   "next": "読み込み実績のログ",
+   "inTemplateBlock": false,
+   "id": "KX-003"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/roles-responsibilities.md",
+   "part": "第3章",
+   "line": 1627,
+   "sentence": "復旧後、切り替え期間中に生成された変更を特定できる状態にする",
+   "prev": "5",
+   "next": "6",
+   "inTemplateBlock": false,
+   "id": "KX-004"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/gate-criteria.md",
+   "part": "第4章",
+   "line": 1692,
+   "sentence": "開示を読まないままの「異議なし」を、記録の上で判別できるようにする",
+   "prev": "求めるのは理由の記載である。",
+   "next": "4つの事項に当たるかどうかは、保証の開示の値から機械的に読み取れる。",
+   "inTemplateBlock": false,
+   "id": "KX-005"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/human-ai-boundary.md",
+   "part": "第5章",
+   "line": 954,
+   "sentence": "生成に用いた指示を構成管理の対象とし、成果物から参照できる状態にする",
+   "prev": "指示の保存",
+   "next": "検証の記録",
+   "inTemplateBlock": false,
+   "id": "KX-006"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/deliverable-templates.md",
+   "part": "第6章",
+   "line": 634,
+   "sentence": "決裁者が「今は判断できないが、この兆候が出たら戻す」という形で受容できるようになります。",
+   "prev": "*「顕在化が分かる兆候」がこの様式の要です**。",
+   "next": "[第5章 5.7.2](/process-compass/phase4-process-design/human-ai-boundary/)の決断の記録における「判断が変わる条件」と同型です。",
+   "inTemplateBlock": false,
+   "id": "KX-007"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/proposal-template.md",
+   "part": "附属書D",
+   "line": 42,
+   "sentence": "当社は、宣言した保証範囲について、組織として品質を保証すると主張できるようになる。",
+   "prev": "レビュー、決裁制度)を保ったまま、AI利用を統制下に置く開発プロセスの導入を提案する",
+   "next": "主張は、トップマネジメントが記名する方針と受容の基準、案件ごとの保証範囲、",
+   "inTemplateBlock": true,
+   "id": "KX-008"
+  },
+  {
+   "file": "src/content/docs/phase4-process-design/safety-verification.md",
+   "part": "附属書F",
+   "line": 96,
+   "sentence": "生成に用いたモデルの版と指示を構成管理下に置き、成果物から参照できるようにする",
+   "prev": "2",
+   "next": "3",
+   "inTemplateBlock": false,
+   "id": "KX-009"
+  }
+ ]
+}

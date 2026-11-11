@@ -1,0 +1,527 @@
+[
+ {
+  "id": "K-001",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "記録が改ざんされうるという事実の記述"
+ },
+ {
+  "id": "K-002",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": true,
+  "reason": "再構成が可能という状態の記述で、条件の列挙とも読める"
+ },
+ {
+  "id": "K-003",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "検査の機械化が技術的に可能という記述"
+ },
+ {
+  "id": "K-004",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "力量要件の升"
+ },
+ {
+  "id": "K-005",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "力量要件の升"
+ },
+ {
+  "id": "K-006",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "任命の要件の升"
+ },
+ {
+  "id": "K-007",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "力量要件の升"
+ },
+ {
+  "id": "K-008",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "力量要件の升"
+ },
+ {
+  "id": "K-009",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "力量要件の升"
+ },
+ {
+  "id": "K-010",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "力量要件の升"
+ },
+ {
+  "id": "K-011",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "力量要件の升"
+ },
+ {
+  "id": "K-012",
+  "class": "OTHER",
+  "subtype": "ARISE",
+  "ambiguous": false,
+  "reason": "禁止の理由として経路が生じることを述べる"
+ },
+ {
+  "id": "K-013",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "構成の効果として遮断が可能であることの記述"
+ },
+ {
+  "id": "K-014",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "委譲という選択を規格が認めている"
+ },
+ {
+  "id": "K-015",
+  "class": "OTHER",
+  "subtype": "ARISE",
+  "ambiguous": false,
+  "reason": "兼務により経路が生じることを述べる"
+ },
+ {
+  "id": "K-016",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "機械で検出が可能という事実の記述"
+ },
+ {
+  "id": "K-017",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "外部サービスの仕様上の事実"
+ },
+ {
+  "id": "K-018",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": true,
+  "reason": "層1 が無くても G-1 の判定を行ってよいと読めるが、可能性の記述とも読める"
+ },
+ {
+  "id": "K-019",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "判定記録の媒体として認める"
+ },
+ {
+  "id": "K-020",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "判定者本人のレビューでの記録を認める"
+ },
+ {
+  "id": "K-021",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "判定者に差し戻しの選択を認める"
+ },
+ {
+  "id": "K-022",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "媒体として認める"
+ },
+ {
+  "id": "K-023",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "媒体として認める"
+ },
+ {
+  "id": "K-024",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "検査を採用する条件の列挙"
+ },
+ {
+  "id": "K-025",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "判定の条件の升"
+ },
+ {
+  "id": "K-026",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "条件を満たす場合に限り主張を許す"
+ },
+ {
+  "id": "K-027",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": true,
+  "reason": "表の升で、保証の主張が許される帰結とも状態の条件とも読める"
+ },
+ {
+  "id": "K-028",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "代理指標の性質の記述"
+ },
+ {
+  "id": "K-029",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "上限を緩和する条件の列挙"
+ },
+ {
+  "id": "K-030",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "上限を緩和する条件の列挙"
+ },
+ {
+  "id": "K-031",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "事例で確認が可能という記述"
+ },
+ {
+  "id": "K-032",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "適用条件の列挙"
+ },
+ {
+  "id": "K-033",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "認める場合の条件の升"
+ },
+ {
+  "id": "K-034",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": true,
+  "reason": "技術的に設定が可能という記述だが、許容とも読まれうる"
+ },
+ {
+  "id": "K-035",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "重大度区分を定める条件の升"
+ },
+ {
+  "id": "K-036",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "指標が操作されうるという事実"
+ },
+ {
+  "id": "K-037",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "満たすべき状態の列挙"
+ },
+ {
+  "id": "K-038",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "AI の能力に関する時点つきの前提"
+ },
+ {
+  "id": "K-039",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "AI の能力に関する前提"
+ },
+ {
+  "id": "K-040",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": true,
+  "reason": "判定の手段が記録の存在で足りるという性質の記述で、条件とも読める"
+ },
+ {
+  "id": "K-041",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "委任の条件の列挙"
+ },
+ {
+  "id": "K-042",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "委任の条件の列挙"
+ },
+ {
+  "id": "K-043",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "委任の条件の列挙"
+ },
+ {
+  "id": "K-044",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "1人が委任を有効にしうるという事実の記述"
+ },
+ {
+  "id": "K-045",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "検査の検出能力の記述"
+ },
+ {
+  "id": "K-046",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "記録が満たすべき条件"
+ },
+ {
+  "id": "K-047",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "例があることで判定が可能になるという記述"
+ },
+ {
+  "id": "K-048",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "該当を判断する条件の項目"
+ },
+ {
+  "id": "K-049",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "本人のレビューを裏づけとして認める"
+ },
+ {
+  "id": "K-050",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "判断の条件の升"
+ },
+ {
+  "id": "K-051",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "保持の形式が満たすべき条件"
+ },
+ {
+  "id": "K-052",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "任命の要件の升"
+ },
+ {
+  "id": "K-053",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "任命の要件の升"
+ },
+ {
+  "id": "K-054",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "条件下で種別の登録を認める"
+ },
+ {
+  "id": "K-055",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "委任の条件の列挙"
+ },
+ {
+  "id": "K-056",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "委任の条件の列挙"
+ },
+ {
+  "id": "K-057",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "委任の条件の列挙"
+ },
+ {
+  "id": "K-058",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "条件下で出荷を認める"
+ },
+ {
+  "id": "K-059",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "チェックリストの基準"
+ },
+ {
+  "id": "K-060",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "簡略な手順の適用を限定的に認める"
+ },
+ {
+  "id": "K-061",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "保証の主張を認める"
+ },
+ {
+  "id": "K-062",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "成果物の性質の記述"
+ },
+ {
+  "id": "K-063",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "条件を満たす場合に主張を許す"
+ },
+ {
+  "id": "K-064",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "機械で検出が可能という記述"
+ },
+ {
+  "id": "K-065",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "機械で検出が可能という記述"
+ },
+ {
+  "id": "K-066",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "機械で検出が可能という記述"
+ },
+ {
+  "id": "K-067",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "機械で検出が可能という記述"
+ },
+ {
+  "id": "K-068",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "機械で検出が可能という記述"
+ },
+ {
+  "id": "K-069",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "機械で警告が可能という記述"
+ },
+ {
+  "id": "K-070",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "機械で検出が可能という記述"
+ },
+ {
+  "id": "K-071",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "機械で検出が可能という記述"
+ },
+ {
+  "id": "K-072",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "力量要件の升"
+ },
+ {
+  "id": "K-073",
+  "class": "PERMISSION",
+  "subtype": null,
+  "ambiguous": false,
+  "reason": "誰でも停止の申し立てで保留してよいと認める"
+ },
+ {
+  "id": "K-074",
+  "class": "OTHER",
+  "subtype": "CRITERION",
+  "ambiguous": false,
+  "reason": "満たすべき状態の升"
+ },
+ {
+  "id": "K-075",
+  "class": "CAPABILITY",
+  "subtype": null,
+  "ambiguous": true,
+  "reason": "記録から特定が可能という記述だが、満たすべき状態とも読める"
+ }
+]
