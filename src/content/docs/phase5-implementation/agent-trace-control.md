@@ -36,7 +36,8 @@ sidebar:
 
 - 拒否の発生そのものが、タスクの範囲の設定が実態と合っていない兆候になる。記録の要求は 5.8.6 要求事項5
 - 準拠テンプレートでは、書き込みの遮断のフック(`.claude/hooks/guard-write.mjs`)が拒否を `.claude/denied.log` へ記録し、強制層への書き込みを遮断する
-- 準拠テンプレートの権限設定(`.claude/settings.json`)は、秘匿情報の経路の読み取りを確認つきに置き、コマンドを許可リストに置く。書き込みの範囲とネットワークの既定の拒否は、まだ降りていない([実装の台帳](/process-compass/community/implementation-ledger/))
+- 準拠テンプレートの権限設定(`.claude/settings.json`)は、秘匿情報の経路の読み取りを拒否に置き、コマンドを許可リストに置く。強制層への書き込みは、ファイルの道具の経路だけをフックが拒否する(シェルの経路は開いている)
+- 書き込みの範囲(実装計画の対象のパスの和と計画外の置き場)とネットワークの既定の拒否は、まだ降りていない。確認つき(ask)は拒否に数えない。実行基盤の隔離はシェルだけに掛かり、ネイティブの Windows では効かない([ADR-0126](/process-compass/adr/0126-instruction-asset-checks-write-scope-and-agent-records/)、[実装の台帳](/process-compass/community/implementation-ledger/))
 
 ### 拒否を指示ではなく設定で行う
 
@@ -97,7 +98,7 @@ sidebar:
 
 ## 生成の条件の記録
 
-記録する項目(モデルの識別子と版、指示資産の版、実行の識別子)は、[第5章 5.8.2](/process-compass/phase4-process-design/human-ai-boundary/)によります。[PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)の「AI 関与範囲」欄と同じく、導出元から自動で埋める形が、5.8.2 の「人の転記に頼らない」を満たします。準拠テンプレートでは、モデルの識別はコミットのトレーラ `Co-Authored-By` に基づきます。実行の識別子と指示資産の版の自動の記録は、まだ降りていません。
+記録する項目(モデルの識別子と版、指示資産の版、実行の識別子)は、[第5章 5.8.2](/process-compass/phase4-process-design/human-ai-boundary/)によります。[PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)の「AI 関与範囲」欄と同じく、導出元から自動で埋める形が、5.8.2 の「人の転記に頼らない」を満たします。準拠テンプレートでは、モデルの識別はコミットのトレーラ `Co-Authored-By` に基づきます。実行の識別子と指示資産の版の自動の記録は、まだ降りていません。採る形は、セッションの開始のフックが観測した値の記録と、git のフックによるトレーラの付与です。道具の入力の書き換えと、履歴からの導出は採りません([ADR-0126](/process-compass/adr/0126-instruction-asset-checks-write-scope-and-agent-records/) 決定5)。
 
 エージェントへ渡した指示の全文は、記録の対象に含めないことを勧めます。理由は3つです。
 
