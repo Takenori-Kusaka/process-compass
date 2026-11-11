@@ -7,9 +7,9 @@
 
 | マーク | 状態 | 準拠テンプレート | 本体 |
 | --- | --- | --- | --- |
-| IMPL-0135 | undelivered → delivered(manual) | `templates/defect-ledger.md` に節「是正の記録」。`/artifact defect` の手順7 とレビューの観点、`/artifact adoption-trial` の集計の後の手順に、行を足すことを置いた | マークの改め。起点の記録と行の対応の検出は IMPL-0486(新設、undelivered、`target=adoption-trial`、`issue=359`) |
+| IMPL-0135 | undelivered → delivered(manual) | `templates/defect-ledger.md` に節「是正の記録」。`/artifact defect` の手順7 とレビューの観点、`/artifact adoption-trial` の集計の後の手順に、行を足すことを置いた | マークの改め。起点の記録と行の対応の検出は IMPL-0497(新設、undelivered、`target=adoption-trial`、`issue=359`) |
 | IMPL-0256 | undelivered → delivered(manual) | `.github/PULL_REQUEST_TEMPLATE.md` の「検証方法と結果」の注記に、3要素・判断の指示・山括弧の例・写さないこと・分量の下限が無いこと | マークの改め |
-| IMPL-0250 | undelivered → delivered(manual) | `gates/G-6.md` の承認の数え方に、層ごとに承認する注記。集約が層の合わさりを見ないこと、中間の層へのマージを拒否する設定が無いことを開示 | マークの改め。集約の側は IMPL-0487(新設、undelivered、`target=evidence-aggregation`、`issue=360`)。棚卸しの登録簿の「積み重ねた変更とゲート」に IMPL-0487 を足した |
+| IMPL-0250 | undelivered → delivered(manual) | `gates/G-6.md` の承認の数え方に、層ごとに承認する注記。集約が層の合わさりを見ないこと、中間の層へのマージを拒否する設定が無いことを開示 | マークの改め。集約の側は IMPL-0498(新設、undelivered、`target=evidence-aggregation`、`issue=360`)。棚卸しの登録簿の「積み重ねた変更とゲート」に IMPL-0498 を足した |
 | IMPL-0252 | undelivered → delivered(manual) | `templates/04-gate-record.md` の決断の記録の後と `gates/SG.md` の判定記録の書き方に、SG-0 の2つの注記 | マークの改め。`template-fields.yaml` の t4 に「確認した事項」を登録 |
 | IMPL-0220 | undelivered → delivered(manual) | `/gate` の判定の原則6。テンプレ4 の「人が判断する項目」の表に列「根拠とした原資料の所在」と注記 | マークの改め。第6章テンプレ4 のチェックリスト突合に注記 |
 | IMPL-0280 | undelivered → delivered(machine) | 企画書の様式(本体と3つのプロファイル)に行「停止条件の値」。`brief-thresholds.mjs` に `briefStopConditionState`・`briefStopConditionMessages`、`check-g1.mjs` から呼ぶ。試験は `test-brief-thresholds.mjs`(IMPL-0280:ok/ng と入口) | マークの改め。第6章テンプレ6 に行、t6 に登録 |
@@ -21,7 +21,7 @@
 
 ## 2. 番号
 
-- IMPL-0486・IMPL-0487 を新設した
+- IMPL-0497・IMPL-0498 を新設した
 - ADR・EV は新設していない(裁定 4)
 
 ## 3. 台帳の再生成
@@ -53,14 +53,14 @@
 
 | 裁定 | マーク | 状態 | 準拠テンプレート | 本体 |
 | --- | --- | --- | --- | --- |
-| 1 | IMPL-0342 | undelivered → delivered(machine) | `generate-profile.mjs` の `authoritySourceForm`・`selfAppointmentOf`、任免と名簿への追加の行で受け付け、changeLog に `selfAppointed`(法人で外部の記録の言及が無ければ `selfAppointedNoExternalRef`)。集約の変化点の表に出す。D-0 の様式の未達の記述を改めた。試験は test-loosening-decider(IMPL-0342 の ng 2・ok 2)(08f453a) | マーク、EV-0250 |
+| 1 | IMPL-0342 | undelivered → delivered(machine) | `generate-profile.mjs` の `authoritySourceForm`・`selfAppointmentOf`、任免と名簿への追加の行で受け付け、changeLog に `selfAppointed`(法人で外部の記録の言及が無ければ `selfAppointedNoExternalRef`)。集約の変化点の表に出す。D-0 の様式の未達の記述を改めた。試験は test-loosening-decider(IMPL-0342 の ng 2・ok 2)(08f453a) | マーク、EV-0248 |
 | 2 | IMPL-0462 | undelivered のまま、issue=357 へ | `outsourcingPointer` に確かめる経路の1行(08f453a) | マークの note |
-| 3 | IMPL-0174 | undelivered → delivered(machine) | `content-sampling.mjs`・様式 `templates/content-sampling.md`・/gate の節・/pit の注記、試験 test-content-sampling(7a95889) | 5.7.4 の要求事項表、EV-0251、棚卸しの登録簿の行、check-template-drift の補助の様式 |
-| 4 | IMPL-0377・IMPL-0488 | 0377 は scheduled のまま、0488 を新設(adopter、decision=ADR-0125) | ― | マーク、ADR-0125 決定4 |
-| 5 | IMPL-0467・IMPL-0489 | 0467 は undelivered → delivered(machine)、0489 を新設(undelivered) | `next.mjs --pickup` の (a)(b)(c)、テンプレ4 の節「ゲートでない判断の記録」、試験 test-next-records(7a95889) | 3.5.5 要求事項9、第6章テンプレ4 の注記、template-fields の extra、棚卸しの登録簿の行 |
+| 3 | IMPL-0174 | undelivered → delivered(machine) | `content-sampling.mjs`・様式 `templates/content-sampling.md`・/gate の節・/pit の注記、試験 test-content-sampling(7a95889) | 5.7.4 の要求事項表、EV-0249、棚卸しの登録簿の行、check-template-drift の補助の様式 |
+| 4 | IMPL-0377・IMPL-0499 | 0377 は scheduled のまま、0488 を新設(adopter、decision=ADR-0125) | ― | マーク、ADR-0125 決定4 |
+| 5 | IMPL-0467・IMPL-0500 | 0467 は undelivered → delivered(machine)、0489 を新設(undelivered) | `next.mjs --pickup` の (a)(b)(c)、テンプレ4 の節「ゲートでない判断の記録」、試験 test-next-records(7a95889) | 3.5.5 要求事項9、第6章テンプレ4 の注記、template-fields の extra、棚卸しの登録簿の行 |
 
 - ADR-0125 を新設した
-- 番号: ADR-0125、EV-0250・EV-0251、IMPL-0486〜0489
+- 番号: ADR-0125、EV-0248・EV-0249、IMPL-0497〜0500
 
 ## 8. 検査(最終)
 
@@ -70,3 +70,45 @@
 ## 9. 止めた点
 
 重の裁定の実装の独立の突合で、**高 1**(四半期の抽出で、当事者が種を選んで抽出する記録を選べる。IMPL-0174 は delivered と表示している)・中 3・低 4 が出た(`crosscheck.md`「重の裁定の実装の独立の突合」)。高が出たので、ここで止めた。どれも直していない。
+
+## 10. 重の実装の突合への裁定の実装(準拠テンプレート 834a546)
+
+- 高-1(種): 種を、四半期と、四半期の締めの時点の母集団の記録の識別子の一覧(並べ替えたもの)の sha256 から導く。`--seed` は照合に限り、違えば拒否する。四半期が締まる前は抽出しない。履歴(git log)にその四半期の記録があれば、消した後も起こし直さない。`--verify` が、1回のコミットで入ったこと・種が記録の母集団の一覧から導いたものと一致すること・抽出が種と件数から再現できること・母集団の一覧がいまの母集団と一致すること・記入を確かめる。試験 test-content-sampling に ng/ok で固定した。ただし再確認で種を動かす経路が残る(新-高-1)と分かったため、裁定に従い IMPL-0174 は undelivered(plan=scheduled)とした
+- 中・空欄の記録: 記入の無い記録と、検証を通らない記録は、/pit が抽出を済ませたことに数えず注記に出す
+- 中・自己の任命: 変化点の前の名簿でも、本人と前任の決定者以外の体制の内の人が 0 であることを求める。裁定の「本人以外の体制の内の人が 0」のうち、前任の決定者は例外の前提(体制から外れる人)なので除いて読んだ。試験 test-loosening-decider に、2人の体制から同じ変化点で外して承継する場面の ng を足した
+- 中・類型: 機能へ対応づけない作業単位は「Issue #N / 類型 <名>」で指定させる。類型だけ・作業単位だけ・--from の無い指定は判定できない。--from の経路の前提(needs-owner は作業単位の事業決裁者の決裁、needs-tech は作業単位の G-3、作業単位の価値責任者の差し戻し)を照らす
+- 低-1: 対象 Issue #N の判断の記録を読む(類型の経路)
+- 低-2: 判断の記録が無いときの「着手しない」に、取り込む前からの作業単位も同じ扱いで猶予が無いことと直し方を出す。準拠テンプレートの README に「process-compass #359 の更新を取り込むとき」を置き、標準のフェーズ5 の準拠テンプレートの頁「テンプレートの更新の取り込み」に既存の採用者の扱いを書いた。裁定の「第5章」は、準拠テンプレートの取り込みを扱うフェーズ5 の頁と読んだ
+- 低-3: 「個人事業主ではない」などの否定と、「11名」「十一人」の中の「1名」「一人」を拾わない。試験に3つの ng を足した
+- 低-4: 2026Q4(規定を運び始めた四半期)と、案件の開始(構成の最初の変化点)の四半期より前には、遡って注記を出さない
+- 確かめていない点: 「価値責任者の判断」「事業決裁者の決裁」の記録を docs/gates/ に置いて集約を走らせ、欠落・失敗の行に挙がらないことを試験 test-reach-forecast-record で確かめた。問題は無かった
+- 5.7.4 の要求事項2 と ADR-0125 決定2 の文を、導いた種・締めの後・1回の記録に合わせた
+
+## 11. 番号の振り直し
+
+#360 が先に取り込まれ、IMPL-0486〜0496 と EV-0246・0247 を使うため、本件の番号を振り直した。本文・試験の ng/ok の印・棚卸しの登録簿・準拠テンプレート・この記録の参照をそろえ、台帳を再生成した。
+
+| 旧 | 新 |
+| --- | --- |
+| IMPL-0486(是正の記録の欠けの検出) | IMPL-0497 |
+| IMPL-0487(集約が合わさった差分の承認を数えないこと) | IMPL-0498 |
+| IMPL-0488(到達の見込みの費用の実績の入力。adopter) | IMPL-0499 |
+| IMPL-0489(判定できない件数の表示) | IMPL-0500 |
+| EV-0250(1名の体制の自己の任命) | EV-0248 |
+| EV-0251(四半期の抽出の件数) | EV-0249 |
+
+ADR-0125 は変えていない。
+
+## 12. 申し送り
+
+- 内部監査(附属書H H.3)の観点6 に「名簿の完全性(組織上の任命権者が名簿の外にいないか)」の所見の例を足すこと(重の会議体の品質監査の委員の提案)は、本件では採らない。採用者に新しい監査の義務を課すことになるため(`decision.md`「重の実装の突合への裁定」)。名簿から任命権者を外して例外に入る抜け道は、自己の決定(IMPL-0483)と自己の任命(IMPL-0342)の両方に残る。既存の Issue へのコメントは、所有者の側で付ける
+- 自己の任命で、離脱だけの変化点(記名なしで通る)で先に人を外してから承継する2段の経路は残る。止めるのは内部監査である
+
+## 13. 検査(この巡)
+
+- Windows: lint:ci〜test:criteria の各段は通過
+- WSL(本体の作業ツリーと準拠テンプレート 834a546 の LF の写し): 回帰の道具の試験、回帰スイート(通常の時刻帯と TZ=UTC)、テンプレートの試験一式 48 本がすべて通った
+
+## 14. 止めた点
+
+重の実装の突合の再確認で新-高-1(種の材料が当事者の付けるファイル名で、種を動かして抽出から特定の記録を外せる)が出たため止めた。IMPL-0174 は裁定に従い undelivered に戻した。新-中-1・新-中-2・新-低-1・新-低-2 は直していない(`crosscheck.md`「重の実装の突合の再確認」)。

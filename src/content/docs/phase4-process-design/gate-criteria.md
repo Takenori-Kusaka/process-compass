@@ -827,8 +827,8 @@ push のパスの制限とマージのキューは、この要求の手段に数
 
 <!-- impl IMPL-0141 target=incident-artifact state=delivered check=manual note="ポストモーテムの手順に、是正の起動の4項目(再び起こりうるか・類似・仕組みで置くか置かない理由・効いたことの確認)を書くことを置く。Sev1・Sev2 の是正の記録をポストモーテムで行い、別の記録を作らない。内容の妥当性は確かめない(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: ポストモーテムの承認者(振り返りを閉じるとき)" -->
 
-<!-- impl IMPL-0135 target=defect-ledger-template state=delivered check=manual note="欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録の様式。準拠テンプレートの欠陥の台帳(templates/defect-ledger.md)の節「是正の記録」が、起点・対象・4項目(再び起こりうるか・類似・仕組みで置くか/置かない理由・効いたことの確認)・記録した者(人。AI の名義を書かない)の列を持つ。/artifact defect と導入前の検証の手順(/artifact adoption-trial)が、見逃しと弱化の検知で行を足すことを置く。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う。起点の記録と行の対応は機械が確かめない(IMPL-0486)。確かめる者: 品質保証の担当(起点の記録と台帳の行を突き合わせるとき)(#359)" -->
-<!-- impl IMPL-0486 target=adoption-trial state=undelivered check=manual plan=scheduled issue=359 review=2027-05 note="是正の記録の欠けの検出。導入前の検証の集計で見逃された類型と、統制の弱化の引き渡し(state:needs-platform)の記録があるのに、欠陥の台帳の節「是正の記録」に対応する行が無いことを、/pit か導入前の検証が出すこと。準拠テンプレートは様式と手順だけを置き、起点の記録と行を突き合わせない(#359 の裁定 1-1)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0135 target=defect-ledger-template state=delivered check=manual note="欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録の様式。準拠テンプレートの欠陥の台帳(templates/defect-ledger.md)の節「是正の記録」が、起点・対象・4項目(再び起こりうるか・類似・仕組みで置くか/置かない理由・効いたことの確認)・記録した者(人。AI の名義を書かない)の列を持つ。/artifact defect と導入前の検証の手順(/artifact adoption-trial)が、見逃しと弱化の検知で行を足すことを置く。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う。起点の記録と行の対応は機械が確かめない(IMPL-0497)。確かめる者: 品質保証の担当(起点の記録と台帳の行を突き合わせるとき)(#359)" -->
+<!-- impl IMPL-0497 target=adoption-trial state=undelivered check=manual plan=scheduled issue=359 review=2027-05 note="是正の記録の欠けの検出。導入前の検証の集計で見逃された類型と、統制の弱化の引き渡し(state:needs-platform)の記録があるのに、欠陥の台帳の節「是正の記録」に対応する行が無いことを、/pit か導入前の検証が出すこと。準拠テンプレートは様式と手順だけを置き、起点の記録と行を突き合わせない(#359 の裁定 1-1)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 再発防止を、機械の検査で失敗させる形にするのは、次の3つをすべて満たす場合に限ります。
 
@@ -2103,8 +2103,8 @@ GitHub 標準のスタックの機構は、提供者の文書で確かめたも�
 
 <!-- impl IMPL-0249 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="pr-rules(check-pr.mjs)は、差分を PR の基底から取り、基準値・名簿・区分の下限の規則・除外設定・台帳の例外承認・停止の申し立ての解除の記録を、既定ブランチの先端(--policy-base。gate-g5.yml が github.event.repository.default_branch を渡す)から読む。既定ブランチを解決できない場合と、既定ブランチに構成が無く基底か PR に構成がある場合は失敗する。test-check-pr.mjs が、スタックの上の層で下の層の基準値・台帳の行・区分の下限の規則・停止の解除の記録を読まないこと、既定ブランチに構成が無い場合に失敗することを試験する" -->
 
-<!-- impl IMPL-0250 target=gate-skill-g6 state=delivered check=manual note="層ごとの承認が無いまま合わさった差分(手動のスタックの複数の層)へした1件の承認を、層ごとの G-6 の確認に数えない。/gate の G-6 の補助ファイル(gates/G-6.md)の承認の数え方の注記が、層ごとの承認が無い合わさった差分への承認を層ごとの確認に数えないこと、GitHub 標準のスタックは当たらないことを置く。出荷の証跡の集約が層の合わさりを見ないことは IMPL-0487、中間の層へのマージの拒否は IMPL-0248・IMPL-0254 が追う。確かめる者: G-6 の判定者(承認するとき)(#359)" -->
-<!-- impl IMPL-0487 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=360 review=2027-05 note="出荷の証跡の集約が、手動のスタックの中間の層を取り込んで合わさった差分へした1件の承認を、層ごとの G-6 の確認に数えないこと。集約は既定ブランチへ取り込んだ PR ごとに承認を数え、その PR の head へ中間の層が取り込まれたか(基底が既定ブランチ以外の PR のマージ)を見ない。/gate の注記(IMPL-0250)だけでは、機械が規定と逆に数える(#359 の裁定 1-3)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0250 target=gate-skill-g6 state=delivered check=manual note="層ごとの承認が無いまま合わさった差分(手動のスタックの複数の層)へした1件の承認を、層ごとの G-6 の確認に数えない。/gate の G-6 の補助ファイル(gates/G-6.md)の承認の数え方の注記が、層ごとの承認が無い合わさった差分への承認を層ごとの確認に数えないこと、GitHub 標準のスタックは当たらないことを置く。出荷の証跡の集約が層の合わさりを見ないことは IMPL-0498、中間の層へのマージの拒否は IMPL-0248・IMPL-0254 が追う。確かめる者: G-6 の判定者(承認するとき)(#359)" -->
+<!-- impl IMPL-0498 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=360 review=2027-05 note="出荷の証跡の集約が、手動のスタックの中間の層を取り込んで合わさった差分へした1件の承認を、層ごとの G-6 の確認に数えないこと。集約は既定ブランチへ取り込んだ PR ごとに承認を数え、その PR の head へ中間の層が取り込まれたか(基底が既定ブランチ以外の PR のマージ)を見ない。/gate の注記(IMPL-0250)だけでは、機械が規定と逆に数える(#359 の裁定 1-3)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### この基準の見直し
 
