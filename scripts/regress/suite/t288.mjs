@@ -194,6 +194,7 @@ function setup(ws, n) {
   const d0v = cfg().d0Version;
   write('docs/gates/g1-P-001.md', gateRecord('G-1 企画承認', 'P-001', NAMES[assign['biz-approver']], d0v));
   // PR の記録(独立レビュアが挙動要約つきで承認。1名では承認なし)
+  let putCopy = () => {};
   const prs = path.join(W.DIR, '.git', 'prs');
   fs.mkdirSync(prs, { recursive: true });
   const reviewer = n === 1 ? null : { author: { login: 'acct-2' }, state: 'APPROVED', body: '挙動要約: 変更の内容を確かめた' };
@@ -225,6 +226,18 @@ function setup(ws, n) {
     prJson(prNo, msg, git('rev-parse', 'HEAD').out.trim(), [...(touchesPolicy ? [BOSS_APPROVAL] : []), ...extra]);
   };
   prCommit('docs: 体制・層1・企画・記録を置く');
+  // #358 / ADR-0126 決定1: PR #2 は CLAUDE.md(指示資産)を変えるため、統制の設定の変更の承認を数える。承認のレビューの本文の編集の記録(editor)は
+  // 写し(record-copy.yml の pr-N.json の edited_by)にだけあるため、PR #2 の承認(AI維持管理者 acct-2)を写しと REST の記録で置く。
+  // evidence/ と同じくコミットしない置き場で、場面ごとに置き直す(seed)
+  const h2 = git('rev-parse', 'HEAD').out.trim();
+  // PR #2 は層1 も入れるため、記名者(acct-boss)の承認も置く(#428)
+  const rv2 = [['acct-2', 5002, '挙動要約: 変更の内容を確かめた'], ['acct-boss', 5003, '']].map(([login, id, body]) => ({ login, id, state: 'APPROVED', body, submitted_at: '2026-10-01T00:00:00Z', commit_id: h2, author_association: 'MEMBER' }));
+  fs.writeFileSync(path.join(prs, 'reviews-2.json'), JSON.stringify(rv2.map(({ login, ...r }) => ({ ...r, user: { login, type: 'User' } }))));
+  putCopy = () => {
+    fs.mkdirSync(path.join(W.DIR, 'docs/records/reviews'), { recursive: true });
+    fs.writeFileSync(path.join(W.DIR, 'docs/records/reviews/pr-2.json'), JSON.stringify({ pr: 2, head_sha: h2, reviews: rv2.map(({ login, ...r }) => ({ ...r, user: { login, id: regressAccountId(login), type: 'User' }, edited_by: null })) }));
+  };
+  putCopy();
   git('tag', 'base288');
   const agg = () => {
     const r = ghRun(W, '出荷の証跡の集約', 'node', ['scripts/gate/aggregate-evidence.mjs', '--from', tpl, '--to', 'HEAD'], { GITHUB_REPOSITORY: 'example/t288', MOCK_PRS: prs });
@@ -232,7 +245,7 @@ function setup(ws, n) {
     return { r, ev, report: read('evidence/quality-report.md'), ext: read('evidence/assurance-disclosure.external.md') };
   };
   // evidence/ は無視の対象(コミットされない)。測定の記録は場面ごとに置き直す
-  const seed = () => write('evidence/seeded-errors.json', '{ "seeded": 10, "detected": 8, "measuredAt": "2026-10-01", "method": "試験の固定値", "blind": true }\n');
+  const seed = () => (putCopy(), write('evidence/seeded-errors.json', '{ "seeded": 10, "detected": 8, "measuredAt": "2026-10-01", "method": "試験の固定値", "blind": true }\n'));
   const reset = () => {
     git('reset', '-q', '--hard', 'base288');
     git('clean', '-qfd');
@@ -241,6 +254,9 @@ function setup(ws, n) {
   return { W: { ...W, commit: prCommit }, agg, reset, d0v, assign };
 }
 
+// #358 / ADR-0126 決定1: 指示資産(CLAUDE.md)の変更は、統制の設定の変更の承認と同じ数え方の範囲に入る。PR #2 の初期化の生成が CLAUDE.md を変える。
+// 承認のレビュー(AI維持管理者 acct-2)に本文の編集の記録(editor。編集なし)が無いと、承認に数えない
+const editInput = [{ by: 'ADR-0126 決定1', on: '2026-11-12', what: 'PR #2 の承認のレビューを、本文の編集の記録(edited_by: null。編集なし)を持つ写し(docs/records/reviews/pr-2.json)と REST の記録で置く', without: 'PR #2 が CLAUDE.md を変えるため「統制の設定の変更の承認」が欠落し、記録の欠落が出て成立の判定が落ちる(承認の編集の記録を読めない)' }];
 const cond = (ev, id) => ev.assurance.claim.conditions.find((c) => c.id === id);
 
 // ================================================================ (1) 成立条件の判定
@@ -250,8 +266,8 @@ fixes(['ADR-0057 決定8', 'ADR-0057 決定9', 'ADR-0057 決定10']);
   const { write, read, commit, git } = W;
   let { r, ev, report, ext } = agg();
   const c = ev.assurance.claim;
-  check('3名: 記録の欠落が無い', ev.gaps.length === 0, ev.gaps.join('\n') || r.out);
-  check('3名: 6条件をすべて満たし成立(全件)、定型の文なし', c.total === 2 && c.established === 2 && c.notEstablished === 0 && !c.statement, JSON.stringify(c, null, 1));
+  check('3名: 記録の欠落が無い', ev.gaps.length === 0, ev.gaps.join('\n') || r.out, { inputs: editInput });
+  check('3名: 6条件をすべて満たし成立(全件)、定型の文なし', c.total === 2 && c.established === 2 && c.notEstablished === 0 && !c.statement, JSON.stringify(c, null, 1), { inputs: editInput });
   check('3名: 条件4 は構成上(判定記録の前)', cond(ev, 4).ok && cond(ev, 4).basis === 'structure');
   // #428(IMPL-0415): 層1 と D-0 の決定の記名(任免)の帰属を、記録を入れた PR の作成者・承認者で確かめる
   const da = ev.assurance.generation.decisionAttribution ?? [];
@@ -267,7 +283,7 @@ fixes(['ADR-0057 決定8', 'ADR-0057 決定9', 'ADR-0057 決定10']);
   // 承認する(G-8 の記名者 acct-2 は既定の承認者)。承認は転記の確認であり、記録の中身の判定ではない
   commit('docs: G-7・G-8 の記録', [{ author: { login: 'acct-3' }, state: 'APPROVED', body: '挙動要約: 記録の転記を確かめた' }]);
   ({ r, ev } = agg());
-  check('3名: 記録の後の集約で、条件4 を記名で判定して成立、欠落なし', ev.gaps.length === 0 && cond(ev, 4).ok && cond(ev, 4).basis === 'record' && ev.assurance.claim.established === ev.assurance.claim.total, ev.gaps.join('\n') + JSON.stringify(cond(ev, 4)));
+  check('3名: 記録の後の集約で、条件4 を記名で判定して成立、欠落なし', ev.gaps.length === 0 && cond(ev, 4).ok && cond(ev, 4).basis === 'record' && ev.assurance.claim.established === ev.assurance.claim.total, ev.gaps.join('\n') + JSON.stringify(cond(ev, 4)), { inputs: editInput });
   // G-8 の新しい3行の欠落
   write('docs/gates/g8-ship.md', gateRecord('G-8 リリース決裁', 'HEAD', NAMES[1], d0v, g8Extra({ policyVersion: '<受容を照らした…>', escalation: '', objection: '異議あり: R1 の未確認を受容すべきでない' })));
   commit('docs: G-8 の記録(欄の欠落)');
@@ -321,7 +337,7 @@ fixes(['ADR-0057 決定8', 'ADR-0057 決定9', 'ADR-0057 決定10']);
   commit('docs: 台帳に個人データの未解決');
   ({ ev, report } = agg());
   cl = ev.assurance.claim;
-  check('受容しない条件 [台帳:個人データ] に当たる → 条件6 不成立、事実 D-001', !cond(ev, 6).ok && cl.nonAcceptable.facts.some((f) => f.fact.includes('D-001')) && ev.gaps.length === 0, JSON.stringify(cl.nonAcceptable) + ev.gaps.join('\n'));
+  check('受容しない条件 [台帳:個人データ] に当たる → 条件6 不成立、事実 D-001', !cond(ev, 6).ok && cl.nonAcceptable.facts.some((f) => f.fact.includes('D-001')) && ev.gaps.length === 0, JSON.stringify(cl.nonAcceptable) + ev.gaps.join('\n'), { inputs: editInput });
   check('受容しない条件の事実が品質レポートの成立判定に出る', report.includes('当たる事実 1 件'), '');
   check('G-7 の基準9 に受容しない条件の照合の範囲が出る', ev.criteria.find((x) => x.id === 9).result.includes('受容しない条件'), JSON.stringify(ev.criteria.find((x) => x.id === 9)));
   write('docs/quality-assurance-policy.md', POLICY({ conditions: ['確約範囲に当たる未解決の欠陥', '[謎の印] なにか'] }));
@@ -354,7 +370,7 @@ fixes(['ADR-0057 決定8', 'ADR-0057 決定9', 'ADR-0057 決定10']);
   ({ ev, report, ext } = agg());
   const states = ev.assurance.continuity.spof.map((x) => `${x.state}:${x.subject}`);
   check('継続: 暫定任命・なしの席を後継不在、保持者1名の機能を出す', states.includes('後継不在の席:独立レビュア') && states.includes('後継不在の席:出荷判定者') && states.includes('コア理解の保持者が1名以下:招待'), states.join(' / '));
-  check('継続: 項目5 に「受容なし」で、欠落にしない(成立条件に入れない)', report.includes('後継不在の席: 出荷判定者') && report.includes('受容なし') && ev.gaps.length === 0 && ev.assurance.claim.established === ev.assurance.claim.total, ev.gaps.join('\n') + JSON.stringify(ev.assurance.claim.conditions.filter((x) => !x.ok)) + (report.split('### 5.')[1] ?? '').slice(0, 900));
+  check('継続: 項目5 に「受容なし」で、欠落にしない(成立条件に入れない)', report.includes('後継不在の席: 出荷判定者') && report.includes('受容なし') && ev.gaps.length === 0 && ev.assurance.claim.established === ev.assurance.claim.total, ev.gaps.join('\n') + JSON.stringify(ev.assurance.claim.conditions.filter((x) => !x.ok)) + (report.split('### 5.')[1] ?? '').slice(0, 900), { inputs: editInput });
   check('継続: 項目7 に後継と理解保持者を出す', report.includes('判断を担う席の後継(確認済みで周期内の候補の数 / 最低数)') && report.includes('招待 1 名(1名以下)'), '');
   // 期限切れの受容
   const accept = (rows) => write('docs/D-0-governance.md', read('docs/D-0-governance.md').replace('| 状態 | 対象 | 受容した者 | 受容の期限 | 照らした層1 の版 |\n| --- | --- | --- | --- | --- |\n| | | | | |', `| 状態 | 対象 | 受容した者 | 受容の期限 | 照らした層1 の版 |\n| --- | --- | --- | --- | --- |\n${rows}`));
@@ -369,7 +385,7 @@ fixes(['ADR-0057 決定8', 'ADR-0057 決定9', 'ADR-0057 決定10']);
   commit('docs: 期限内の受容');
   ({ ev, report } = agg());
   const acc = ev.assurance.continuity.spof.find((x) => x.subject === '出荷判定者')?.acceptance;
-  check('継続: 期限内の受容は「受容あり」で欠落なし', acc?.status === 'accepted' && ev.gaps.length === 0, JSON.stringify(acc) + ev.gaps.join('\n'));
+  check('継続: 期限内の受容は「受容あり」で欠落なし', acc?.status === 'accepted' && ev.gaps.length === 0, JSON.stringify(acc) + ev.gaps.join('\n'), { inputs: editInput });
   write('docs/quality-assurance-policy.md', POLICY({ contRole: '出荷判定者' }));
   commit('docs: 継続の受容者を出荷判定者に');
   ({ ev } = agg());
