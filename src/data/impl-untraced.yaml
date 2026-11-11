@@ -47,6 +47,10 @@ files:
   - path: scripts/gate/delegation.mjs
     reason: library
     why: 委任の規則の照合。check-delegation・check-pr・next が使う
+  - path: scripts/gate/python-install.mjs
+    reason: variant
+    of: g5-adapter
+    why: python のアダプタ(adapters/python.json)の install の段が呼ぶ、依存の取得の部品。pyproject.toml の宣言から入れ方を決める。規定は g5-adapter のマーク(IMPL-0474・IMPL-0475)で追う(#363)
   - path: scripts/gate/ip-clearance-python.mjs
     reason: infra
     why: アダプタの python のライセンス検査の補助(G-5 基準5 のジョブ ip-clearance の足回り)
