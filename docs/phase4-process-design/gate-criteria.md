@@ -721,7 +721,7 @@ flowchart LR
 
 <!-- impl IMPL-0478 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="除外の一覧(.github/stack-exclusions.json)を、製品のコードと同じ PR で変えると G-5(pr-rules)を失敗させる。check-pr.mjs の閾値・除外設定のファイル(THRESHOLD_FILES)に入れ、基底の構成が設定済みなら、基底に無い一覧を新しく置く変更も初回の設定として外さない。統制の設定の変更の承認の範囲(controlTouchedOf・controlTouchedBetween)に入り、AI維持管理者が本人のアカウントで出す承認のレビュー(IMPL-0455 ほか。gate-g5-base)と統制の設定の陰性の確認を要する(#363)" -->
 
-<!-- impl IMPL-0479 target=g5-adapter state=undelivered check=manual plan=scheduled issue=360 review=2027-05 note="第2段: 1つの構成で複数のアダプタを回すこと。単一値の欄(adapters.stack)は有効のまま残し、追加の欄で足す。スタックごとの段を並列に回し、段を if: で飛ばさない。宣言したアダプタが作業の場所に対象を見つけなければ失敗にする。カバレッジはスタックごとに同じ基準値と比べ、合算しない。準拠テンプレートの構成は1つのアダプタしか持てず、混在のリポジトリは none の手書きの要素(stacks)で受ける(その形では、要素ごとに手で書いたコマンドの集計ファイルを報告する。突合 X3-1)。python ほか node 以外のスタックで変更の範囲のカバレッジを測ることは IMPL-0259(#360)に依る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0479 target=g5-adapter state=undelivered check=manual plan=scheduled issue=361 review=2027-05 note="第2段: 1つの構成で複数のアダプタを回すこと。単一値の欄(adapters.stack)は有効のまま残し、追加の欄で足す。スタックごとの段を並列に回し、段を if: で飛ばさない。宣言したアダプタが作業の場所に対象を見つけなければ失敗にする。カバレッジはスタックごとに同じ基準値と比べ、合算しない。準拠テンプレートの構成は1つのアダプタしか持てず、混在のリポジトリは none の手書きの要素(stacks)で受ける(その形では、要素ごとに手で書いたコマンドの集計ファイルを報告する。突合 X3-1)。python・go で変更の範囲を測る部品(IMPL-0259)は #360 で降りた。動的な matrix が空のときの扱い、脚1つの失敗の伝わり方、成果物の名の衝突は実機でしか確かめられないため、実機の確認を降ろす条件とし #361 へ寄せた(ADR-0124)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0237 / 見直し 2027-05]
 **対象**: 製品のスタックの検出に、目印のファイルと拡張子の集計を併せて用い、検出の誤り(製品でないコードを製品として数えること)をパスの単位の除外で受けるという判断。
@@ -967,9 +967,31 @@ G-5 の結果と保証の開示には、割合だけでなく、次の3つを出
 
 測っていない製品のファイルの数には、検査が行単位の被覆を測れない種類の製品のファイルも含めます。変更の範囲の分母は、加えた・変えた行のうち、被覆の記録で文の開始行に当たる行で数えます。複数行にわたる文の2行目以降だけを変えた変更は、分母に入りません。行の割合と同じ近似であり、限界として開示します。
 
+被覆の記録を持たない構成で、基準3 を「実施しない」と記録して通してはなりません。実装が存在する段階で測らない通過は、前掲「検査対象が存在しない場合の扱い」が禁じる「対象なし」の通過と同じ働きをします。測れない構成は未実施として失敗に数えます([ADR-0124](/process-compass/adr/0124-unmeasured-coverage-merge-control-and-detection-scope/) 決定1。ADR-0085 決定2 の go の句を置き換える)。
+
+準拠テンプレートは、node・python・go の3つの言語で変更の範囲を測ります。
+
+| 言語 | 被覆の記録 | 文の開始行の得方 | 開示する限界 |
+| --- | --- | --- | --- |
+| node | istanbul の `coverage-final.json` | 記録の文の位置 | 複数行の文の継続行は分母に入らない |
+| python | coverage.py の `coverage json` | 記録の実行した行・実行していない行 | `# pragma: no cover` で除いた行は分母に入らない。分岐の計測を有効にすると、記録の割合は文と分岐の合算になる。全体の割合はテストのファイルを除いて数える |
+| go | `go test -coverprofile` の `coverage.out` | ソースの構文木から得た各文の開始行に、その文を含むブロックの回数を当てる | 構文木の文とプロファイルのブロックの対応は、手元の例でしか確かめていない(EV-0246) |
+
+:::caution[暫定 EV-0246 / 見直し 2027-05]
+**対象**: go の変更の範囲のカバレッジを、構文木で得た文の開始行にプロファイルのブロックの回数を当てて測るという近似。
+**根拠の水準**: E2(単一事例)。
+**差し替え条件**: 採用者の go のリポジトリで、この近似の割合と `go tool cover` の文の割合が、変更の範囲で食い違う事例の観測。
+
+同じ方式は、go のカバレッジを行の形式へ移す外部の道具(gocov 系)が採っています。本プロジェクトで確かめたのは、手元の小さな例1件です。
+:::
+
 <!-- impl IMPL-0245 target=coverage-check state=delivered check=machine test=template/scripts/gate/test-coverage-scope.mjs note="基準3 の測る範囲を構成(ci.coverageScope)で選び、割合・範囲・分母・測っていない製品のファイルの数を結果に残す。node のアダプタは、変更で加えた行(git の差分)と行単位の被覆(coverage-final.json)から変更の範囲の割合を測る。変更した製品のファイルが計測されていなければ失敗させる。差分は core.quotePath=false で取り、引用符で囲まれる ASCII 以外のパスも戻して読む。行単位の被覆を測れない拡張子の製品のファイルを、測っていない製品のファイルの数に入れる。複数行の文の継続行が分母に入らない近似を結果に出す。新しく生成する構成は、行単位の被覆を持つアダプタでは変更の範囲を書く。範囲の無い既存の構成は従来どおり全体で測り、既定から補った旨を結果と保証の開示に出す。test-coverage-scope.mjs が試験する" -->
 
-<!-- impl IMPL-0259 target=coverage-check state=undelivered check=manual plan=scheduled issue=360 review=2026-11 note="node 以外のアダプタ(python・go・none など)で、変更で加えた・変えたコードの範囲を測ること。準拠テンプレートの node 以外のアダプタは行単位の被覆(coverageDetail)を持たない。範囲を変更にした構成は失敗させ、全体で判定するよう求める。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0259 target=coverage-check state=delivered check=machine test=template/scripts/gate/test-coverage-scope.mjs note="python・go のアダプタで、変更で加えた・変えたコードの範囲を測る。python は coverage.py の coverage.json の executed_lines・missing_lines を文の開始行の被覆として読み、go は coverage.out のブロックを構文木の文の開始行へ当てる(go のパスは go.mod の module で戻す)。go の全体の割合は coverage.out の文の数の割合。go の構文木の場面は go のある環境でだけ流れ、CI(環境変数 CI)で go が無ければ試験を失敗に数える。none は手書きの要素の既存の扱い(全体)のまま(#360)" -->
+
+<!-- impl IMPL-0495 target=coverage-check state=delivered check=machine test=template/scripts/gate/test-coverage-scope.mjs note="言語のアダプタ(node・python・go)で被覆の記録が出ない構成と、集計の記録(coverageSummary)の無い言語のアダプタは、基準3 を未実施として失敗させる。測らずに通過(終了コード 0)を返す分岐を除いた(ADR-0124 決定1。#360)" -->
+
+<!-- impl IMPL-0496 target=coverage-check state=delivered check=machine test=template/scripts/gate/test-coverage-scope.mjs note="python の全体の割合から、テストのファイル(.claude/guard.json の testPatterns)を除いて数える。coverage.py の既定(--cov に対象の指定なし)ではテストのファイルが分母と分子に入り、割合を上へ寄せるため(#360)" -->
 
 <!-- impl IMPL-0260 target=coverage-check state=delivered check=machine test=template/scripts/gate/test-coverage-scope.mjs note="全体で判定した結果に、変更の未被覆が全体の被覆で薄まる旨(dilution)・分母・測っていない製品のファイルの数を書く(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した)" -->
 
@@ -1437,7 +1459,9 @@ G-6 を適用する体制は、作成を指示した者以外の確認者を置�
 
 変更の要求を経る経路そのものは、本標準の要求事項にしません([ADR-0068](/process-compass/adr/0068-start-of-application-and-conformance-claim/))。実装の例は、[フェーズ5(Git 戦略)](/process-compass/phase5-implementation/git-strategy/)と[CI/CD ゲート構成リファレンス](/process-compass/phase5-implementation/ci-gates/)を参照。
 
-<!-- impl IMPL-0238 target=gate-g5-workflow state=delivered check=manual note="1名の体制の行。gate-g5.yml が、PR に加えて既定ブランチへの push を契機に、契約検査を含む G-5 の検査を実行する。push そのものは止めない。トレーラ Risk・Verification の欠落は、出荷の証跡の集約が記録の欠落として数える(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI維持管理者(統制の設定の陰性の確認のとき)" -->
+<!-- impl IMPL-0238 target=gate-g5-push-workflow state=delivered check=manual note="1名の体制の行。gate-g5.yml が PR を契機に、gate-g5-push.yml が既定ブランチへの push を契機に(gate-g5.yml を workflow_call で呼ぶ。既定ブランチの名に依らない。#362 / ADR-0123)、契約検査を含む G-5 の検査を実行する。push そのものは止めない。トレーラ Risk・Verification の欠落は、出荷の証跡の集約が記録の欠落として数える(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI維持管理者(統制の設定の陰性の確認のとき)" -->
+
+<!-- impl IMPL-0485 target=push-trigger state=delivered check=machine test=template/scripts/gate/test-push-trigger.mjs note="既定ブランチへの取り込みを契機に G-5 の検査を実行することを、既定ブランチの名に依らず保つ形の検査(#362 / ADR-0123)。push-trigger.mjs が、gate-g5.yml が push を契機に持たず workflow_call と pull_request を持つこと、gate-g5-push.yml の契機が branches: ['**'] だけであること、ジョブが1つで ID と名が default-push であること、条件が github.ref == format('refs/heads/{0}', github.event.repository.default_branch) であること、呼び先が ./.github/workflows/gate-g5.yml であること、ジョブの鍵が name・if・uses だけで最上位の鍵が name・on・permissions・jobs だけであること(secrets: inherit・concurrency を足さない)、どのワークフローにも集約のほかに ID か名が gate-g5 のジョブ(名の式に gate-g5 を含むものを含む)が無いことを確かめる。読むのはテンプレートの書き方(jobs: の下の2字下げのジョブ、4字下げのジョブの鍵)だけで、4字下げのジョブ・流れ形({ ... })のジョブ・matrix や format で組んだ名・引用符つきの事象のキーは読まない。コメント(字下げが 0 の行、行末)は除いてから読み、branches はブロック形の列(- '**')も流れ形と同じに読む。契約検査(verify-gate-contract.mjs)が PR と push のたびに不備を失敗にし、事前点検(preflight.mjs)が止める項目 push-trigger として初期化を止める。確かめないのは GitHub 上の振る舞い(呼び出し側のジョブが skipped のときの check run の名、呼ばれた側の github コンテキスト)で、2026-11-11 の実機の観測に依る(EV-0245)" -->
 
 #### 基準1・2 の記録
 
@@ -1853,6 +1877,8 @@ graph TD
 
 **水準は自己申告ではなく、条件の充足を記録で示します**。示せない場合の既定は L0 です。
 
+記録が条件を満たしているかは、宣言を構成へ反映する変化点の決定者が、根拠の中身を表の条件に照らして読んで確かめます。**本標準は、L2 の採点の運用が稼働していることを、機械で検証することを課しません**。自己申告を超えて検査できる条件が定まらないためです。採点の出力の記録を条件にしても、照合する相手(審査深度を変える機構)が準拠テンプレートに無く、条件を条項に定めることは採用者への新しい義務になります([ADR-0124](/process-compass/adr/0124-unmeasured-coverage-merge-control-and-detection-scope/) 決定6)。
+
 :::caution[暫定 EV-0006 / 見直し 2027-08]
 **対象**: L2 において行数上限を規範から外せるという判断。
 **根拠の水準**: E2(単一事例)。
@@ -1952,7 +1978,7 @@ L2 の一次事例は、モノレポ・大規模な自動テスト基盤・高�
 - 強制層・構成のパスに置いたコードは数えない
 - 規模の確認は、欄の有無・実施者の名義・読み切れたかの答えだけを確かめる。理由が1語や定型文でも通る。実施者が実際に読んだかは、機械では確かめない
 - 333 行の変更を3つの PR に分けても検出しない(改訂前も同じ)
-- 担保水準 L1・L2 の宣言は、根拠のパスの実在と見直し日だけを確かめる。根拠の中身(条件の充足)は確かめない
+- 担保水準 L1・L2 の宣言は、根拠のパスの実在と見直し日だけを確かめる。根拠の中身(条件の充足)は確かめない。L2 で規模の基準なしが効いた PR の結果には、その旨を毎回出す
 - 1名体制では、超過した PR ごとに「独立した人の確認が無い」記載の欠落が出続ける(G-6 未達の表示。解消できる体制ではない)
 
 規模の超過について、次は課しません。いずれも意図的な決定です([ADR-0079](/process-compass/adr/0079-coverage-scope-approval-binding-self-heal/)「課さないと決めたこと」)。
@@ -1966,7 +1992,8 @@ L2 の一次事例は、モノレポ・大規模な自動テスト基盤・高�
 <!-- impl IMPL-0099 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="規模の確認(実施者・読み切れたか・分割しなかった理由・保証の所在)の節を検査する。HTML コメントの中の節は読まず、読み切れたかは「はい」「いいえ」の完全一致だけを読む。欄が無い・実施者が AI の名義・名簿の外(名簿に指示した者以外の人がいる体制)・読み切れたかが「いいえ」のときだけ失敗させ、担保水準 L1 以上で根拠が実在すれば保証の所在だけを要する。基準値 null は L2 の宣言と根拠が実在し、コア指定のパスが宣言され、R3 でコア外の変更だけに効く。別集計が基準行数の5倍を超えたら size:over" -->
 <!-- impl IMPL-0100 target=evidence-aggregation state=delivered check=manual note="出荷の範囲の PR の規模の分布・size:over の件数・読み切れたかの内訳・超過 PR の判定完了時間を、保証の開示の観測として出し、evidence.json にも出す。基準値は変更の起点(マージ時点)の構成で判定し、読めない PR は判定不能と出して黙らない。R3 記載・規模の確認なし・「いいえ」のままマージされた超過 PR は記載の欠落に数える。基準値へは自動で反映しない。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 <!-- impl IMPL-0101 target=process-change-skill state=delivered check=manual note="構成 task.assurance(水準・根拠・宣言者・宣言日・見直し日)を種別 settings で変える。L0 から L1・L2 へ上げるのは緩める向き(記名と理由)。根拠の実在と見直し日だけを検査し、過ぎれば L0 として扱う。確かめる者: 変化点の決定者(/process-change の出力を読むとき)" -->
-<!-- impl IMPL-0102 target=pr-checks state=undelivered check=manual plan=scheduled issue=360 review=2026-11 note="L2 の「リスクを機械的に採点し閾値で審査深度を変える運用が稼働している」ことの機械の検証。採点の稼働は自己申告を超えて検査できる条件が定まっていないため、テンプレートへ降ろしていない。宣言は記録として受け、緩和は根拠の実在と区分の条件の範囲に限る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0102 target=process-change-skill state=delivered check=manual note="L2 の宣言の根拠が条件の充足を記録で示しているか(リスクの機械的な採点と閾値による審査深度の可変化が稼働し、取り消し可能性が担保されていること)を、宣言を反映する変化点の決定者が根拠の中身を表の条件に照らして読んで確かめる。/process-change の種別 settings の手順に置く。採点の稼働の機械の検証は課さない(ADR-0124 決定6。#360 で主題を、機械の検証から人の確認へ改めた)。確かめる者: 変化点の決定者(/process-change で task.assurance を L2 へ変えるとき)" -->
+<!-- impl IMPL-0494 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="担保水準 L2 で規模の基準なし(null)が効いた PR の結果に、担保水準の根拠の中身を機械で確かめていない旨を定型の文で毎回出す(#360)" -->
 
 :::caution[暫定 EV-0084 / 見直し 2027-04]
 **対象**: 規模の基準値の超過を遮断でなく、規模の確認と区分の下限 R2 で扱うという判断と、担保水準の宣言(task.assurance)。
@@ -2066,9 +2093,12 @@ GitHub 標準のスタックの機構は、提供者の文書で確かめたも�
 
 <!-- impl IMPL-0247 target=gate-g5-workflow state=delivered check=manual note="gate-g5.yml の pull_request の契機は、基底のブランチ(branches)で絞らない。絞り込みを足す変更を、機械は止めない(統制の設定の陰性の確認で人が確かめる)。確かめる者: AI維持管理者(統制の設定の陰性の確認のとき)" -->
 
-<!-- impl IMPL-0248 target=rulesets state=undelivered check=manual plan=scheduled issue=360 review=2026-11 note="手動のスタックで、既定ブランチ以外へ取り込むマージを拒否する設定。準拠テンプレートのルールセット(.github/rulesets/*.json)の対象は ~DEFAULT_BRANCH だけで、中間の層へのマージを止めない。AI の担い手のマージは .claude/settings.json の ask(gh pr merge)で人へ戻るが、人による中間の層へのマージは止まらない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0254 target=rulesets state=undelivered check=manual plan=scheduled issue=360 review=2026-11 note="手動のスタックの中間層の先行マージ(既定ブランチ以外へ取り込むマージ)を拒否する設定。準拠テンプレートのルールセットの対象は ~DEFAULT_BRANCH だけで、必須チェックは中間のマージを止めない。人による中間のマージは、手順の遵守に依っている。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0255 target=rulesets state=undelivered check=manual plan=scheduled issue=360 review=2026-11 note="AI への指示の表の「既定ブランチ以外へ取り込むマージをしない」の強制層。準拠テンプレートのルールセットは中間のマージを拒否しない。AI の担い手による gh pr merge は .claude/settings.json の ask で人へ戻るため、AI 単独では中間のマージに至らない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+**本標準は、既定ブランチ以外へ取り込むマージを拒否する設定を課しません**。ホスティングの規則(ルールセット・ブランチの保護)は参照の更新に掛かり、PR のマージと作業ブランチへの直接の push を区別しないためです。対象を既定ブランチ以外へ広げると、手動のスタックの各層への push も止まります。採用者も、ホスティングの上で実装する手段を持ちません。禁止は、人の手順と、マージの後の検出で支えます。検出は出荷の集約に「検出あり・0 件・未確認」で出し、合否に使いません。PR を経ない push による取り込みは、検出に掛かりません([ADR-0124](/process-compass/adr/0124-unmeasured-coverage-merge-control-and-detection-scope/) 決定4)。
+
+<!-- impl IMPL-0248 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-aggregate-records.mjs note="既定ブランチ以外へ取り込むマージの、マージの後の検出。出荷の集約が、出荷の範囲の記録の写し(record-copy の写し。範囲の PR と、マージの時刻が範囲に入る写し)の base.ref を既定ブランチの名前(写しの default_branch、ホスティング、origin の HEAD の順に読む)と比べ、「検出あり(PR の番号と base.ref)・0 件・未確認(写しが読めない・base.ref が無い・既定ブランチの名前が読めない)」を evidence.json と保証の開示に出す。合否・出荷の失敗に使わない。0 件でも、PR を経ない push の取り込みは拾わない旨を定型で出す(#360 で主題を、拒否の設定からマージの後の検出へ改めた。拒否の設定は課さない。ADR-0124 決定4)" -->
+<!-- impl IMPL-0254 target=rulesets-readme state=delivered check=manual note="手動のスタックの中間の層をマージしない人の手順(下の層から順に既定ブランチへ取り込み、上の層の基底を付け替える)と、ルールセットにマージだけを拒否する規則が無いこと、マージの後に出荷の集約で検出されることと検出の限界を、ルールセットの説明(.github/rulesets/README.md)の節に置く。人による中間のマージそのものは止まらない(#360 で主題を、拒否の設定から人の手順へ改めた。ADR-0124 決定4)。確かめる者: AI維持管理者(ルールセットの説明を変えるとき、テンプレートの更新を取り込むとき)" -->
+<!-- impl IMPL-0255 target=guard-bash-hook state=delivered check=machine test=template/scripts/gate/test-guard-bash.mjs note="AI への指示の表の「既定ブランチ以外へ取り込むマージをしない」の強制層のうち、フックが拒否する経路。guard-bash は guard.enabled に依らず、gh pr merge の各形、REST の pulls/N/merge への書き込み、GraphQL の mergePullRequest・enablePullRequestAutoMerge を拒否する。gh pr create/edit --base の付け替えは通す(手動のスタックの正当な操作)。gh alias で作った別名を経た形と、npx gh の形は拾わない。拒否の経路に限る(#360 で、ask で人へ戻るという誤った記述を改めた)" -->
+<!-- impl IMPL-0491 target=guard-bash-hook state=undelivered check=manual plan=scheduled issue=358 review=2027-05 note="AI の担い手が、git merge と git push の組、またはスクリプトから API を呼ぶ経路で、既定ブランチ以外へ取り込むこと。フックは既定ブランチからの同期と区別できないため拒否せず、PR を経ないためマージの後の検出(IMPL-0248)にも掛からない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0249 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="pr-rules(check-pr.mjs)は、差分を PR の基底から取り、基準値・名簿・区分の下限の規則・除外設定・台帳の例外承認・停止の申し立ての解除の記録を、既定ブランチの先端(--policy-base。gate-g5.yml が github.event.repository.default_branch を渡す)から読む。既定ブランチを解決できない場合と、既定ブランチに構成が無く基底か PR に構成がある場合は失敗する。test-check-pr.mjs が、スタックの上の層で下の層の基準値・台帳の行・区分の下限の規則・停止の解除の記録を読まないこと、既定ブランチに構成が無い場合に失敗することを試験する" -->
 
