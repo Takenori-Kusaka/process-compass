@@ -133,3 +133,16 @@
 確認(608505d): WSL の回帰スイートは実行役の試験と、通常の時刻帯・TZ=UTC の両方で「すべて通った」。WSL の template の試験一式は 44 本すべて通過。Windows の npm run check の各段(lint:ci〜test:criteria・lint:text・lint:provisions・build)はすべて通過し、test:template-suite は既知の test-g5-aggregate.mjs(CRLF)だけが落ちる。WSL の実物の確認(p363/impl/wsl-adapters-2.txt)は前回と同じ結果で、python-uv のカバレッジの出力は python 3.12.3 だった。
 
 本体の submodule の参照は 608505d へ進める。template の push は未了のままであり、template の push の前に本体を push してはならない。
+
+## main への取り込み(2026-11-11)
+
+gh の認証に workflow の権限が入った後に、退避していたブランチ `wip-363` を main の上へ積み直して取り込んだ。
+
+- **template**: `wip-363`(5877531・608505d)を origin/main(8591464。#435・#434 を含む)の上へ rebase した。衝突は出なかった(#435・#434 の変更はそのまま残る)。積み直した後のコミットは 08bcdf7・c4fe4ff
+- **IMPL の付け直し**: #435 が IMPL-0469〜0471、#434 が IMPL-0472・0473 を先に使ったため(#435 の突合 X-5 の指摘)、本件の IMPL-0469 を **IMPL-0474**、IMPL-0470 を **IMPL-0475** へ付け直した。直したのは本体の規定の実装マーク・`impl-inventory.yaml`・この記録の上の節と、template の `test-adapter.mjs` の ok/ng の目印。台帳は `npm run impl:write` で作り直した。この記録より前に書いた会議体・突合の記録(council-*.md・crosscheck-fix.md など)は、当時の番号のまま残す。読み替えは 0469 → 0474、0470 → 0475
+- **本体**: 7198443・63b71eb を origin/main(4db8e70)の上へ積み直し、submodule の参照をそれぞれ 08bcdf7・c4fe4ff へ進めた。研究の記録のコミットはそのまま積んだ
+- **確認**
+  - template の試験一式(WSL。c4fe4ff の LF の clone で gate-g5.yml の `node scripts/gate/test-*.mjs` 43 本): 42 本が通過。`test-init-g5.mjs` の「1名: テストが0件の段階で npm test が通る」の 1 件だけが落ちる。origin/main(8591464)の clone でも同じ 1 件が落ちるため、本件の変更と関係しない(WSL の node 22.23 で `tests/**/*.test.*` が見つからないと出る)
+  - WSL の回帰スイート(LF の clone、`--kb keep`、通常と TZ=UTC): 実行役の試験 30 件が合格し、通常・TZ=UTC とも「すべて通った」
+  - 本体の `npm run check` の各段(Windows。test:regress は上の WSL): lint:ci〜test:criteria・lint:text・lint:provisions・build は通過。test:template-suite は test-g5-aggregate.mjs・test-base-judge-workflow.mjs・test-discouraged-evidence.mjs が落ちる。3本とも Windows の CRLF の作業ツリーで origin/main(8591464)の版でも落ち、WSL の LF では通るため、本件の変更と関係しない
+- **push**: template を main へ、続けて本体を main へ push した(template の参照先が遠隔にある状態で本体を push する)
