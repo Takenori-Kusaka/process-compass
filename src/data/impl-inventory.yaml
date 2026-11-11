@@ -1408,6 +1408,30 @@ sections:
         status: none
         category: not-imposed
         reason: 許容の規定(してよい)。欄の形式的な欠落の機械検査を課さない
+      四半期の抽出の要求事項1:
+        status: marked
+        ids:
+          - IMPL-0174
+      四半期の抽出の要求事項2:
+        status: marked
+        ids:
+          - IMPL-0174
+      四半期の抽出の要求事項3:
+        status: marked
+        ids:
+          - IMPL-0174
+      四半期の抽出の要求事項4:
+        status: marked
+        ids:
+          - IMPL-0174
+      四半期の抽出の要求事項5:
+        status: marked
+        ids:
+          - IMPL-0174
+      四半期の抽出の要求事項6:
+        status: marked
+        ids:
+          - IMPL-0174
     issue: 292
   - key: phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.5 形骸化を遅らせる提示の設計
     status: marked
@@ -2051,6 +2075,7 @@ sections:
       - IMPL-0332
       - IMPL-0467
       - IMPL-0468
+      - IMPL-0489
     rows:
       要求事項1:
         status: marked
@@ -2088,6 +2113,11 @@ sections:
         status: none
         category: org-design
         reason: 判定者(人)が事実を自ら確かめる定め。実行主体の挙動を制約しない
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0467
+          - IMPL-0489
     issue: 316
     note: フェーズ5 の受信箱のラベルの頁(手引き)から本文へ上げた節(#316 / ADR-0086 R-1)
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し > ラベルの語彙

@@ -38,3 +38,35 @@
 ## 5. 独立の突合と、止めた点
 
 `crosscheck.md` のとおり、高 1・中 4・低 7 が出た。**高-1(G-1 を通過済みで出荷前の案件の企画書を、check-g1 が遡って失敗させる)が出たので、ここで止めた**。高・中・低のいずれも直していない。IMPL-0280 は `state=delivered` の表示のまま残っており、高-1 を直すまでは、その note の「G-1 を通過済みは欠落」は記録用ブランチにだけ判定記録がある案件で成り立たない。
+
+## 6. 独立の突合への裁定の実装(高-1・中 4 件・低 7 件)
+
+議長の裁定(`decision.md`「独立の突合への裁定」)に従って直した。準拠テンプレート bf465e8。その後の再確認で出た実装の欠陥を、裁定の範囲の中で直した(bfbd22d・6cfbef8・6950b5a。`crosscheck.md` の再確認 1〜3回目)。
+
+- 高-1: `records.mjs` の `g1PassState` が、G-1 の通過を基底ブランチの docs/gates/ と記録用ブランチの records/gates/ の両方から読む。記録用ブランチを読めず通過を決められないとき、check-g1 は G-1 の前とも通過済みとも扱わず「G-1 の通過を判定記録で決められない」の失敗に欠けた行を添える。停止条件の値・閾値の行(#419)・観点3(#411)・G-1 の時点の見積り・安全リスクアセスメントの承認・カバレッジの範囲の行を同じ経路にした。記録用ブランチの通過の記録は、判定者の記名を resolveSigner で名簿の人へ対応づけ、AI の名義を除く(席では照らさない)。複製した記録を二重に読まない
+  - 裁定の文言「readGateRecords はそこも読みます」とは形を変えた。readGateRecords は出荷の証跡の集約ほかの呼び出し元が別に記録用ブランチを読んでいるため、関数そのものに読ませると二重に数える。G-1 の通過の判定にだけ両方を読む関数を足した
+- check-g1.mjs.template: どこからも参照されていない古い写しだったので消し、`impl-untraced.yaml` の行も消した
+- 中-1〜4、低-1〜7: `crosscheck.md` の表のとおり直した。低-6 は直さない(理由は再確認の記録)
+- 再確認の後の残る限界: 行末への否定の追記、同じ名前で中身が違う記録、名簿から外した人の記名は決められない、名簿の誰の記名でも数える(記名は自己申告で、帰属は集約が確かめる)
+
+## 7. 重の裁定の実装
+
+| 裁定 | マーク | 状態 | 準拠テンプレート | 本体 |
+| --- | --- | --- | --- | --- |
+| 1 | IMPL-0342 | undelivered → delivered(machine) | `generate-profile.mjs` の `authoritySourceForm`・`selfAppointmentOf`、任免と名簿への追加の行で受け付け、changeLog に `selfAppointed`(法人で外部の記録の言及が無ければ `selfAppointedNoExternalRef`)。集約の変化点の表に出す。D-0 の様式の未達の記述を改めた。試験は test-loosening-decider(IMPL-0342 の ng 2・ok 2)(08f453a) | マーク、EV-0250 |
+| 2 | IMPL-0462 | undelivered のまま、issue=357 へ | `outsourcingPointer` に確かめる経路の1行(08f453a) | マークの note |
+| 3 | IMPL-0174 | undelivered → delivered(machine) | `content-sampling.mjs`・様式 `templates/content-sampling.md`・/gate の節・/pit の注記、試験 test-content-sampling(7a95889) | 5.7.4 の要求事項表、EV-0251、棚卸しの登録簿の行、check-template-drift の補助の様式 |
+| 4 | IMPL-0377・IMPL-0488 | 0377 は scheduled のまま、0488 を新設(adopter、decision=ADR-0125) | ― | マーク、ADR-0125 決定4 |
+| 5 | IMPL-0467・IMPL-0489 | 0467 は undelivered → delivered(machine)、0489 を新設(undelivered) | `next.mjs --pickup` の (a)(b)(c)、テンプレ4 の節「ゲートでない判断の記録」、試験 test-next-records(7a95889) | 3.5.5 要求事項9、第6章テンプレ4 の注記、template-fields の extra、棚卸しの登録簿の行 |
+
+- ADR-0125 を新設した
+- 番号: ADR-0125、EV-0250・EV-0251、IMPL-0486〜0489
+
+## 8. 検査(最終)
+
+- Windows: lint:ci〜test:criteria の各段は通過。`npm run build` は 354 頁で通過
+- WSL(本体の作業ツリーと準拠テンプレート 8f39b4b を LF に写したもの、node v22.23.4): 回帰の道具の試験は通過。回帰スイートは通常の時刻帯と TZ=UTC の両方で「すべて通った」。テンプレートの試験一式は 48 本すべて通った
+
+## 9. 止めた点
+
+重の裁定の実装の独立の突合で、**高 1**(四半期の抽出で、当事者が種を選んで抽出する記録を選べる。IMPL-0174 は delivered と表示している)・中 3・低 4 が出た(`crosscheck.md`「重の裁定の実装の独立の突合」)。高が出たので、ここで止めた。どれも直していない。

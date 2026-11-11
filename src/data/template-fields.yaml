@@ -524,6 +524,9 @@ forms:
         template: '| 渡した日時 |'
     # 標準の様式に節として対応しない見出し(方向3。ADR-0087 決定4)。kind: same-as-standard / structure / guide
     extra:
+      - heading: "ゲートでない判断の記録(適用: state:needs-po・state:needs-owner を経た state:needs-dev、機能へ対応づけない作業単位。標準 第3章 3.5.5 要求事項9)"
+        kind: guide
+        reason: "標準のテンプレ4 の冒頭の注記(ゲート名「価値責任者の判断」「事業決裁者の決裁」、対象「類型 <名>」、G-6 が省略・未達の構成の G-7 の差し戻し)の記入の手引き。新しい欄を足さず、標準と逆の指示を含まない(2026-11-12 に点検。#359 / ADR-0125 決定3)"
       - heading: "確認した項目"
         kind: same-as-standard
         standard: "## チェックリスト突合"

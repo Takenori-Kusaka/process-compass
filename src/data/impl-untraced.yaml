@@ -72,9 +72,6 @@ files:
   - path: scripts/gate/test-results.mjs
     reason: infra
     why: G-5 の test ジョブが、テストの実行の記録を evidence/ へ書く足回り。集約(aggregate-evidence)が読む
-  - path: scripts/init/check-g1.mjs.template
-    reason: infra
-    why: 初期化が scripts/gate/check-g1.mjs(降ろし先に登録)として書き出す雛形
   - path: scripts/init/set-review-sourcing.mjs
     reason: infra
     why: 未達のゲートの確認者の調達先を構成へ記入する補助の道具。規定は構成のキー(config-unmet)のマークで追う
@@ -82,6 +79,10 @@ files:
     reason: variant
     of: guard-write-hook
     why: 書き込みの遮断のフック(guard-write.mjs)が読む、保護するパスの設定。規定は guard-write-hook のマーク(IMPL-0187・IMPL-0198)で追う
+  - path: scripts/gate/content-sampling.mjs
+    reason: variant
+    of: gate-skill
+    why: /gate の節「四半期の抽出」が呼ぶ、判定記録の記述の内容の抽出の部品。/pit(next.mjs)も直前の四半期の未実施を読む。規定は gate-skill のマーク(IMPL-0174)で追う(#359)
   - path: scripts/gate/trial-checklist.mjs
     reason: variant
     of: trial-checklist

@@ -746,6 +746,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 | 6 | 「条件付き通過」を表すラベルを設けてはならない。条件を付して先へ進める手続は、[第7章 7.3](/process-compass/phase4-process-design/exception-escalation/)の例外承認である |
 | 7 | 状態のラベルの無い作業単位を検出し、受信箱へ再配分するのは、価値責任者の務めとする。価値責任者は、再配分した作業を自ら拾ってはならない |
 | 8 | ラベルが付いていても、判定者は、検査の結果などの事実を自ら確かめる。ラベルを事実の代わりにしてはならない |
+| 9 | 要求事項5 の前提の判定記録は、次による。state:needs-po・state:needs-owner を経た state:needs-dev は、価値責任者の判断・事業決裁者の決裁の記録(第6章テンプレ4 の判定記録で、ゲートを「価値責任者の判断」「事業決裁者の決裁」とし、対象を作業単位とする)を前提とする。独立レビュー(G-6)が省略・未達の構成の state:qm-blocked は、出荷判定者の G-7 の差し戻しの判定記録を前提とする。機能へ対応づけない作業単位は、価値責任者が作業の類型ごとに前もって記録した判断(対象を「類型 <名>」とする)があり、作業単位がその類型に当たる場合に限り、その記録を前提とする。類型の記録が無い作業単位は、前提の判定記録を導けないものとして着手しない |
 
 <!-- impl IMPL-0012 target=claude-md-resident state=delivered check=presence note="ラベルの遷移は判定の成立要件ではなく順序は記録が先(単位: 行)" -->
 
@@ -753,7 +754,8 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0331 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの next.mjs --pickup(ラベル・作業単位・needs-dev では前のラベルを渡す)が、遷移の前提の判定記録を最新の判定で読み、無ければ「着手しない」と判定者の受信箱を出す。前提は本節の状態の遷移から導く(state:ready-to-merge は G-6 の通過、state:qm-blocked は G-6 の差し戻し、needs-tech を経た state:needs-dev は G-3 の通過)。needs-dev の G-2・G-4 の通過は本節でなく第5章 5.8.5 の禁止事項1 による。構成にゲートのキーが無い・記録を読めないときは「判定できない」。受け手の手順(handoff.md・/pit・/implement・next.mjs --role)と CLAUDE.md のラベルによる引き渡しの節が着手の前に実行させる。試験は入口を --offline で通す。機械が止めるのは確認の出力までで、着手そのものは指示文。様式の無い記録と実環境の読み出しは IMPL-0467・IMPL-0468。テンプレートの変更は、所有者の作業の指示にもとづいて pit-in-template の main へ直接入れた(#371 の C-11 と同じ扱い)。採用者のリポジトリでの強制層の変更の承認(AI維持管理者)の手続とは別であり、その承認の記録はまだ無い(research/368-delivery/implementation.md)(#368)" -->
 
-<!-- impl IMPL-0467 target=next-intake state=undelivered check=manual plan=scheduled issue=359 review=2027-05 note="要求事項5 のうち、準拠テンプレートが前提の判定記録を読めない場面。(a) 出荷判定者の記録の突合による state:qm-blocked(差し戻しの判定記録の様式が無い)、(b) state:needs-po・state:needs-owner を経た state:needs-dev の、価値責任者の判断・事業決裁者の決裁の記録(様式が無い)、(c) 機能へ対応づけない作業単位の state:needs-dev。next.mjs --pickup は (a)(c) で「判定できない」を出して人へ渡し、(b) では G-2・G-4 だけを読む。着手の時点で要求事項5 を機械で行わない(#368 の突合 X-1・X-7)。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
+<!-- impl IMPL-0467 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5 のうち、準拠テンプレートが前提の判定記録を読めなかった場面(要求事項9)。next.mjs --pickup が、(a) G-6 が省略・未達の構成の state:qm-blocked で出荷判定者の G-7 の差し戻しの判定記録を、(b) state:needs-po・state:needs-owner を経た state:needs-dev で G-2・G-4 の通過に加えて価値責任者の判断・事業決裁者の決裁の記録(テンプレ4 のゲート欄、対象は作業単位)を、(c) 機能へ対応づけない作業単位(類型と名を対象に書く)で価値責任者が前もって記録した類型の判断を、最新の判定として読む。無ければ (a)(b) は着手しない、(c) は判定できない。判定者の本人性は確かめない(G-5 と集約が見る)。類型の範囲が広すぎないかは機械が確かめない。確かめる者: 内部監査(#359 の重の裁定5)" -->
+<!-- impl IMPL-0489 target=next-intake state=undelivered check=manual plan=scheduled issue=359 review=2027-05 note="--pickup が「判定できない」で止めた件数を、作業単位ごとに数えて /pit に出すこと(合否に使わない表示。止め方の形骸化の兆候を見せる。#359 の重の裁定5)。準拠テンプレートは --pickup の結果を残さず、件数を数えない。結果を残す置き場が要る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0468 target=next-intake state=undelivered check=manual plan=scheduled issue=361 review=2027-05 note="要求事項5 のうち、開いている PR の判定記録を実環境で読む部分。next.mjs --pickup は state:ready-to-merge・state:qm-blocked で PR のレビューを gh api で読み、写しと同じ形で読むが、実際の GitHub の上で読み出しと承認の失効・挙動要約の読み方を確かめていない(試験は --offline と模擬の写しだけ)(#368 の突合 X-7)。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
 
@@ -1769,7 +1771,7 @@ graph LR
 <!-- impl IMPL-0279 target=ai-review-workflow state=undelivered check=manual plan=adopter decision=ADR-0084 note="要求事項1(AI の確認側と作成側の往復)。準拠テンプレートは、AI のレビューの指摘と修正の往復を実行の単位として数えず、停止条件を強制しない(self-heal.mjs はテストの失敗の反復だけを止める)。採用者が接続経路・エージェント実行基盤の上で往復の停止条件を強制する。確かめる者: 採用者(自らの実行層に実装したときに確かめる)" -->
 <!-- impl IMPL-0273 target=self-heal state=delivered check=machine test=template/scripts/gate/test-self-heal.mjs note="要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場のタスクごとのファイル(docs/self-heal/F-NNN-Task-N.tsv の形)に残し、同じ PR でコミットする手順を implement の SKILL.md に置く。書き込みに失敗したら警告を出す。コミットしたかは機械で確かめない" -->
 <!-- impl IMPL-0274 target=profile-generator state=delivered check=manual note="要求事項4 のうち値を定めること。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点の記録は IMPL-0280(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI運用担当者(停止条件の値を /process-change で変えるとき)" -->
-<!-- impl IMPL-0280 target=project-brief-template state=delivered check=machine test=template/scripts/gate/test-brief-thresholds.mjs note="要求事項4 のうち企画承認(G-1)の時点で記録すること。企画書の様式(templates/06-project-brief.md と3つのプロファイル)の「指標の閾値と予算区分」に行「停止条件の値」を置き、G-1 の検査(check-g1.mjs)が行の欠けと空欄・様式の説明のままを、G-1 の前は失敗、G-1 を通過済みは欠落(遡って失敗させない)として出す。行の連続失敗・無進捗の上限が構成(task.selfHealMaxIterations・task.selfHealNoProgressLimit)と異なれば、構成の値が効くことを注意に出す。累積消費の上限の中身は確かめない(IMPL-0277)。値の妥当性は G-1 の判定者が確かめる(#359)" -->
+<!-- impl IMPL-0280 target=project-brief-template state=delivered check=machine test=template/scripts/gate/test-brief-thresholds.mjs note="要求事項4 のうち企画承認(G-1)の時点で記録すること。企画書の様式(templates/06-project-brief.md と3つのプロファイル)の「指標の閾値と予算区分」に行「停止条件の値」を置き、G-1 の検査(check-g1.mjs)が行の欠けと空欄・様式の説明のままを、G-1 の前は失敗、G-1 を通過済みは欠落(遡って失敗させない)として出す。G-1 の通過は、基底ブランチの docs/gates/ と記録用ブランチの records/gates/(判定記録の正本)の両方から読み、記録用ブランチの通過の記録は、判定者の記名が人の名簿の人に対応づくものだけを数える(交代の前の責任者・代行者を外さないため席では照らさない。記名の照合は自己申告で、帰属は集約が確かめる)。記録用ブランチを読めないか、対応づかない通過の記録しか無く通過を決められないときは、「G-1 の通過を判定記録で決められない」という失敗として理由と欠けた行を出す(閾値の行・観点3・G-1 の時点の見積り・安全リスクアセスメントの承認も同じ。#359 の独立の突合 高-1)。行の連続失敗・無進捗の上限が構成(task.selfHealMaxIterations・task.selfHealNoProgressLimit)と異なれば、構成の値が効くことを注意に出す。累積消費の上限の中身は確かめない(IMPL-0277)。値の妥当性は G-1 の判定者が確かめる(#359)" -->
 
 #### 停止条件の3種
 
@@ -2090,7 +2092,16 @@ graph LR
 - 満たす者がいない場合は、変化点を分ける。決定者その人を替える変化点と、組織上の任命権者が記名する変化点には、緩める向きの行を入れない。緩める向きの行は、新しい決定者が記名する後の変化点で決める([ADR-0110](/process-compass/adr/0110-mixed-change-point-direction-and-signer/))
 
 <!-- impl IMPL-0036 target=config-change-log state=delivered check=manual note="席の責任者の任命と交代は D-0 表1 の決定者の記名と理由を要する。決定者の交代は前任の決定者または組織上の任命権者の記名を要する。離脱は発生として記名を待たない。テンプレート担当の実装後に主担当が改める。確かめる者: 変化点の決定者(/process-change で記録を書くとき)" -->
-<!-- impl IMPL-0342 target=config-change-log state=undelivered check=manual plan=scheduled issue=359 review=2027-04 note="1名の体制で本人の上に任命の権限を持つ者がいない場合(個人事業主、または1名で代表権を持つ法人)に、自己の任命を変化点の記録へ残し、保証の開示の項目7 へ表示する。準拠テンプレートは組織上の任命権者を体制の外の人に限り、席の責任者との同一を拒むため、この例外の記録の経路が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0342 target=config-change-log state=delivered check=machine test=template/scripts/gate/test-loosening-decider.mjs note="1名の体制で本人の上に任命の権限を持つ者がいない場合(個人事業主、または1名で代表権を持つ法人)に、自己の任命を変化点の記録へ残し、保証の開示の項目7 へ表示する。/process-change(generate-profile.mjs の selfAppointmentOf)は、初回の記入でない・前任の決定者が体制から外れている・記名者が変化点の後の決定者・体制の内が本人1名・名簿の前後に組織上の任命権者がいない・D-0 節11 の「決裁の権限の出所」が個人事業主か1名で代表権を持つ法人を挙げる・決定者が当事者になるほかの行を束ねていない、のすべてを満たすときに限り、新任の決定者の記名を受け付け、changeLog に selfAppointed を残す。法人で登記・議事録への言及が無ければ selfAppointedNoExternalRef を残す。出荷の証跡の集約が項目7 に出す。法的な形態の真偽は確かめない(EV-0250)。確かめる者: 内部監査(附属書H H.3)と外部の確認者(#359 の重の裁定1)" -->
+
+:::caution[暫定 EV-0250 / 見直し 2027-05]
+**対象**: 1名の体制の自己の任命の例外(上の任免の箇条)を、D-0 の「決裁の権限の出所」が個人事業主か1名で代表権を持つ法人を挙げることで受け付けるという判断。準拠テンプレートは語の有無だけを見て、法的な形態の真偽と、名簿の外に組織上の任命権者がいないことを確かめない。
+**根拠の水準**: E0(なし)。
+**差し替え条件**: 観測の源は、変化点の記録の自己の任命(selfAppointed)と、内部監査(附属書H H.3)の観点6 の所見です。自己の任命を使った案件のうち、名簿の外に任命権者がいた件数、または法的な形態の記載が事実と異なった件数を数えます。1件でもあれば、外部の記録の所在を必須にする向きで見直します。
+
+外部の統制の枠組みは、1名の体制で職務を分離できないことを認め、禁止せずに代わりの統制と開示を求めます。一人会社の自己の選任は株主総会の決議と登記に残りますが、個人事業主に当たる公的な記録と、自己の任命の開示を直接定める規範は見つかっていません(2026-11-12 時点。`research/359-deliberation/survey-external.md` 議題1)。
+:::
+
 
 :::caution[暫定 EV-0179 / 見直し 2027-04]
 **対象**: 本人の上に任命の権限を持つ者がいない1名の体制(個人事業主、または1名で代表権を持つ法人)で、自己の任命を記録したうえで認め、保証の開示の対象とする例外。

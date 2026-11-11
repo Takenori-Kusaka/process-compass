@@ -114,6 +114,8 @@ const AUX_TEMPLATES = {
   'adoption-trial-criteria.md': { doc: 'phase4-process-design/adoption-guide.md', phrase: '## 1. 合否の基準(実行の前に記入する。採用者が書き、コマンドが写す)' },
   // 第8章「社会実装の段階の調整」: 試行前チェックリスト(T-1 開始条件)。項目(- [ ] の行)は本文の写しと一致させる(#359 / IMPL-0465・IMPL-0466)
   'trial-checklist.md': { doc: 'phase4-process-design/tailoring-guide.md', phrase: '## 試行前チェックリスト(T-1 開始条件)', items: true },
+  // 第5章 5.7.4「四半期の抽出」: 判定記録の記述の内容の抽出の記録(#359 / IMPL-0174)
+  'content-sampling.md': { doc: 'phase4-process-design/human-ai-boundary.md', phrase: '| # | 四半期の抽出の要求事項 |' },
 };
 
 // チェックの行(- [ ] …)の本文の集合。補助の様式で items: true のものは、本文の項目と様式の項目が一致することを確かめる
