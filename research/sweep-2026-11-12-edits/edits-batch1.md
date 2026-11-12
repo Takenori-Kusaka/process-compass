@@ -28,7 +28,7 @@ template/ には触れていない。`npm run template:kb` も流していない
 
 - `community/project-management.md` に節「本リポジトリが従わない運営の規定(#331、所有者の決定 2026-11-12)」を足した。トレーラ・タグ固定(`graphifyy` の版固定を含む)・`VERSION.md` の人が読める版の3点を、「従えないのではなく課さないと決めた」と明記。理由、採用者への規定は弱めないこと、見直しの条件(PR フローへ移行するとき)を添えた
 - 論点3(`checks-only.json` の `strict_required_status_checks_policy`)は template 側の設定のため、本体では決めず、template 側に残すと書いた
-- 確かめた事実: `graphify-update.yml` の権限は `contents: read`(Issue の「書き込み権限」とは食い違う。節では「必要な範囲に限る」と書いた)。`VERSION.md` は既に `EDITION_LABEL` を持つ
+- 確かめた事実(訂正済み。`fix-batch1.md` 参照): `graphify-update.yml` の最上位は `contents: read`、ジョブ `update-graph` は `contents: write`。Issue の記述が正しい。`VERSION.md` は既に `EDITION_LABEL` を持つ
 - 「通し番号を足さない」理由(作業中の版と発行した版の区別を弱める)は議論を経ていない暫定の判断である。根拠水準マークは付けていない(値でも実証の主張でもないため)。異論があれば 1.10.3 の観点で再検討する
 
 ## #338 書いた(持たないと決めた)
