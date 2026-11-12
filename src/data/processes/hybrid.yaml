@@ -54,7 +54,7 @@ gates:
     criteria: [発注側の受入基準]
     approver: 発注側ステークホルダー
     decisions: [承認 / 手戻り]
-    jpNote: スクラムガイドは「レビューを価値リリースのゲートと見なしてはならない」と明文で禁止。実態では検収イベント化する
+    jpNote: スクラムガイド(2020年版、SRC-0640)は、レビューを「価値のリリースのゲートと見なすべきでない」(should never be considered a gate to releasing value)と述べる。実態では検収イベント化する
   - id: g-release-approval
     name: リリース承認ゲート(後段WF)
     kind: decision
@@ -133,7 +133,7 @@ antiPatterns:
     why: 旧来のコマンド&コントロール型管理を温存したままロール名だけ変える。上司がPO/SMを兼ねる
     harm: 開発者の疲弊・離職・心理的安全性の欠如。「持続可能な開発」原則の破壊
   - name: AP-6 WF決裁ゲートのスクラムへの接ぎ木
-    ideal: スクラムには Go/Kill 型のフェーズゲートがない。「スプリントレビューを価値リリースのゲートと見なしてはならない」と明文で禁止
+    ideal: スクラムには Go/Kill 型のフェーズゲートがない。スクラムガイド(2020年版、SRC-0640)は、スプリントレビューを「価値のリリースのゲートと見なすべきでない」(should never be considered a gate to releasing value)と述べる。禁止条項の形では書かれていない
     reality: 要件承認・設計承認・リリース承認といったWFの直列決裁ゲートがスプリントの前後に差し込まれ、レビューが検収ゲート化する
     why: 品質ゲートは「日本の品質レベルを支えてきた技術」と位置づけられ手放しにくい。稟議による多段決裁が制度化されている
     harm: 「承認待ち」滞留の復活。反復のリズムが決裁サイクルに律速される
@@ -150,6 +150,6 @@ references:
     url: https://medium.com/the-liberators/the-rise-of-zombie-scrum-cd98741015d5
   - title: Stefan Wolpers「Product Owner Anti-Patterns」(age-of-product)
     url: https://age-of-product.com/product-owner-anti-patterns/
-  - title: スクラムガイド2020(単一PO原則・レビューのゲート化禁止条項)
+  - title: スクラムガイド2020(単一PO原則・レビューをゲートと見なすべきでないとする記述。SRC-0640)
     url: https://scrumguides.org/scrum-guide.html
   - title: 一次調査メモ(リポジトリ内 research/phase1/20260709-hybrid-antipatterns.md に全出典)
