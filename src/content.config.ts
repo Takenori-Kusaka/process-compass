@@ -124,7 +124,7 @@ const processSchema = z.object({
       id: z.string(),
       name: z.string(),
       label: z.string().optional(), // 文書側の記号(例: S0)
-      alias: z.string().optional(), // 別称(例: DR0)。検索性のために保持する
+      alias: z.string().optional(), // 別称。検索性のために保持する
       goal: z.string(),
       exitGate: z.string(), // Gate の id 参照(このステージの出口ゲート)
       href: z.string().optional(),

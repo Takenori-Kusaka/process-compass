@@ -94,6 +94,15 @@ claims:
     rqs: []
     issues: [310]
     stance: supports
+  - id: c8
+    text: 注記は、要求事項や、文書の使用に不可欠な情報(指示・推奨・許可)を含んではならない。注記は事実の記述として書く。
+    quote: 'Notes shall not contain requirements (e.g. use of "shall" …) or any information considered indispensable for the use of the document, for example instructions (imperative mood), recommendations … or permission …. Notes should be written as a statement of fact.'
+    locator: 24.5
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [342]
+    stance: supports
 verification:
   status: verified
   method: [agent-read]

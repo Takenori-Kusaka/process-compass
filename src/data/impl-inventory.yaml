@@ -1654,7 +1654,10 @@ sections:
   - key: phase4-process-design/lifecycle#2.3 事業ステージ > 実装スタックの確定時期
     status: pending
   - key: phase4-process-design/lifecycle#2.3 事業ステージ > 既存の設計審査体系との対応
-    status: pending
+    status: none
+    category: org-design
+    reason: SG と自組織の設計審査の対応は、採用組織が第8章「会議体と体制図の調整」で確定する。実行主体の挙動を縛らない。対応の目安の表と DR の番号体系の注は説明
+    issue: 342
   - key: phase4-process-design/lifecycle#2.4 ステージ移行ゲート
     status: pending
   - key: phase4-process-design/lifecycle#2.5 工程ゲートとの関係
@@ -1740,7 +1743,10 @@ sections:
   - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.8 H-3 が期限内に合格しない場合
     status: pending
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制
-    status: pending
+    status: none
+    category: org-design
+    reason: 節全体の導入。本標準が本節のために新しい会議体・ゲート・様式を定めないことの表明で、実行主体を縛る文ではない
+    issue: 345
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.1 スコープの3層
     status: none
     category: org-design
@@ -1796,7 +1802,10 @@ sections:
     note: 完了率の申告で測らないことは AI の担い手が担当者の場合にも掛かる(IMPL-0282、降りていない)。滞留の観測と非同期の通知は実行層の仕組みが担う(IMPL-0283、降りていない)。ゲート滞留時間と混ぜない旨の注記は説明(突合 X-11)
     issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.5 棚卸しとスコープの調整
-    status: pending
+    status: none
+    category: org-design
+    reason: 棚卸しの会議体を本標準が定めないことの表明と、人による非同期の確認。一覧づくりの読み出しは滞留の観測と通知(IMPL-0283、降りていない)と同じ置き場に乗るが、規範は人の確認である
+    issue: 345
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.6 期日に間に合わない見込みが立った場合
     status: pending
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.7 通常運転と例外の境界

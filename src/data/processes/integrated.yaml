@@ -163,21 +163,18 @@ stages:
   - id: s-explore
     name: 探索
     label: S0
-    alias: DR0
     goal: 事業仮説と技術的実現性を検証し、投資を継続する価値があるかを判断できる状態にする
     exitGate: sg-explore
     href: /process-compass/phase4-process-design/lifecycle/
   - id: s-validate
     name: 価値確立
     label: S1
-    alias: DR1
     goal: 実利用者に価値が届くことを実証し、継続的に提供できる技術基盤を確立する
     exitGate: sg-validate
     href: /process-compass/phase4-process-design/lifecycle/
   - id: s-scale
     name: スケール
     label: S2
-    alias: DR2
     goal: 対象利用者層の拡大に耐える品質・運用体制・再現性を確立する
     exitGate: sg-scale
     href: /process-compass/phase4-process-design/lifecycle/
