@@ -19,6 +19,9 @@ const P = (i) => ({ id: `p${i + 1}`, name: NAMES[i], accounts: [rosterAccount(`a
 /** 決定者の別の行(同じ人を新しい id で足す。機械は別の人として扱う) */
 const ALT = { id: 'p1b', name: 'ヤマダ タロウ', accounts: [rosterAccount('acct-1b')] };
 const X = { id: 'x', name: '高橋 次郎', external: true, accounts: [rosterAccount('acct-x')] };
+// 外部の確認者を独立レビュアの席の責任者に置く条件(標準 第3章 3.5 の(イ)。#357 / ADR-0127 決定2・3): 力量の確認の記録と書面の合意の所在
+const XC = { ...X, reviewCompetence: { confirmedAt: TODAY, confirmedBy: NAMES[0], record: 'docs/review-competence/x.md' } };
+const X_AGREEMENT = { at: TODAY, record: 'docs/agreements/x.pdf' };
 const seatsOf = (arr) => Object.fromEntries(SEATS.map((s, i) => [s, { accountable: arr[i] === null ? null : arr[i] === 'alt' ? ALT.name : NAMES[arr[i]] }]));
 const ALL = (i) => SEATS.map(() => i);
 const init = () => {
@@ -196,9 +199,9 @@ check('S11 任命権者の記名は自己の決定でない', last().selfDecided
 // 外部の確認者の経路: 1名 + 外部の確認者(独立レビュアの席)。外部の確認者は本人以外の記名者に数えない
 check('外部 準備: 初期化', init().ok);
 authority();
-accepted('外部 準備: 1名 + 外部の確認者(独立レビュアの席)', change(acc('体制', [P(0), X], Object.fromEntries(SEATS.map((s) => [s, { accountable: s === 'independent-reviewer' ? X.name : NAMES[0] }])), NAMES[0])));
-refused('外部 決定者の氏名の訂正。記名 外部の確認者', change(acc('改名', renamed([P(0), X]), Object.fromEntries(SEATS.map((s) => [s, { accountable: s === 'independent-reviewer' ? X.name : '山田 太朗' }])), X.name)), SELF);
-accepted('外部 同じ変化点。記名 本人(本人以外に決められる者がいない1名の体制。自己の決定)', change(acc('改名', renamed([P(0), X]), Object.fromEntries(SEATS.map((s) => [s, { accountable: s === 'independent-reviewer' ? X.name : '山田 太朗' }])), '山田 太朗')));
+accepted('外部 準備: 1名 + 外部の確認者(独立レビュアの席)', change(acc('体制', [P(0), XC], Object.fromEntries(SEATS.map((s) => [s, (s === 'independent-reviewer' ? { accountable: X.name, agreement: X_AGREEMENT } : { accountable: NAMES[0] })])), NAMES[0])));
+refused('外部 決定者の氏名の訂正。記名 外部の確認者', change(acc('改名', renamed([P(0), XC]), Object.fromEntries(SEATS.map((s) => [s, { accountable: s === 'independent-reviewer' ? X.name : '山田 太朗' }])), X.name)), SELF);
+accepted('外部 同じ変化点。記名 本人(本人以外に決められる者がいない1名の体制。自己の決定)', change(acc('改名', renamed([P(0), XC]), Object.fromEntries(SEATS.map((s) => [s, { accountable: s === 'independent-reviewer' ? X.name : '山田 太朗' }])), '山田 太朗')));
 check('外部 変化点の記録に自己の決定が残る', last().selfDecided === true, JSON.stringify(last()));
 // U1: 3名の体制。決定者(1人目)の別のアカウントの新しい行を名簿へ足し、決定者の席をその行へ移す。経路を問わず本人以外の記名を要する(c-2)
 // 席: 1人目 = 事業決裁者・価値責任者・技術判断者・開発者・文脈オーナー・AI維持管理者、2人目 = 独立レビュア・AI運用担当者、3人目 = 出荷判定者

@@ -280,7 +280,7 @@ commit('chore: 2名');
 git('tag', 'two');
 
 // K15: 後から通知を記録する(過去の記録は書き換えない)。通知の対象として、承認権限の一時制限の発動を使う
-accepted('承認権限の一時制限の発動を記録する(通知は未記入)', change({ kind: 'notice', date: DAY, summary: '注入欠陥を連続2回見逃した', event: 'restriction' }), '[即時通知]');
+accepted('承認権限の一時制限の発動を記録する(通知は未記入)', change({ kind: 'notice', date: DAY, summary: '注入欠陥を連続2回見逃した', event: 'restriction', restriction: { id: 'r1', person: '佐藤 花子', paths: ['src/**'], basis: 'docs/measurements/injected-defects.md', recordedBy: '山田 太郎' } }), '[即時通知]');
 check('一時制限の発動が、未記入の通知として残る', contract().out.includes('即時通知が未記録') && cfg().changeLog.at(-1).notice.reasons[0].includes('7.9'), contract().out);
 const idx = cfg().changeLog.length - 1;
 refused('通知先が出荷判定者の席の責任者でない', change({ kind: 'notice', summary: '通知した', noticeFor: idx, notice: { to: '佐藤 花子', at: DAY } }), '出荷判定者の席の責任者');
@@ -319,7 +319,7 @@ check('セルフテスト', run('node', ['scripts/init/set-review-sourcing.mjs',
 // 外部の確認者を置く(1名 + 外部)
 accepted(
   '外部の確認者を置く',
-  change({ kind: 'accountable', date: DAY, summary: '外部の確認者を置いた', answers: { 'q-external-reviewer': 'reviewer-yes' }, people: [PEOPLE3[0], { id: 'ext', name: '高橋 次郎', external: true, accounts: [rosterAccount('takahashi-j')] }], seats: { 'independent-reviewer': { accountable: '高橋 次郎' } }, decidedBy: '山田 太郎', reason: '外部の確認者と取り決めた' }),
+  change({ kind: 'accountable', date: DAY, summary: '外部の確認者を置いた', answers: { 'q-external-reviewer': 'reviewer-yes' }, people: [PEOPLE3[0], { id: 'ext', name: '高橋 次郎', external: true, accounts: [rosterAccount('takahashi-j')], reviewCompetence: { confirmedAt: DAY, confirmedBy: '山田 太郎', record: 'docs/review-competence/takahashi-j.md' } }], seats: { 'independent-reviewer': { accountable: '高橋 次郎', agreement: { at: DAY, record: 'docs/agreements/takahashi-j.pdf' } } }, decidedBy: '山田 太郎', reason: '外部の確認者と取り決めた' }),
   '未達の解消'
 );
 check('G-6 が成立し、外部の確認者は人数に数えない', cfg().gates.g6.state === 'required' && contract().ok, contract().out);
