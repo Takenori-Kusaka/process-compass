@@ -18,7 +18,7 @@ published: 2026-04
 publishedBasis: pdf
 version: 2nd edition
 updated: null
-accessed: 2026-09-24
+accessed: 2026-11-12
 access: paywall
 readLevel: section
 foundBy:
@@ -92,9 +92,9 @@ verification:
   method: [mech-fetch, agent-blind]
   date: 2026-11-12
   humanChecked: false
-  note: "c4〜c6 は 2026-11-12 に #341 #336 の独立の突合で足した(プレビューを取り直し pdftotext で確認)。"
+  note: "c4〜c6 は 2026-11-12 に #341 #336 の独立の突合で足した。2026-11-12 に PDF の pdftotext 出力と照合(人の確認)。機械の照合(mech)は同日に verify を流し直した結果。"
   mech:
-    checkedAt: 2026-09-23T23:49:12.303Z
+    checkedAt: 2026-11-12T08:17:29.475Z
     httpStatus: 200
     finalUrl: https://assets.vde-verlag.de/iec-normen/preview-pdf/info_isoiecieee12207%7Bed2.0%7Den.pdf
     contentType: application/pdf
@@ -131,7 +131,7 @@ verification:
         extractedValue: Annex A〜E
         extractedQuote: Annex A (normative) Tailoring process / Annex E (informative) Assurance and assurance cases
         locator: Contents
-        note: 2026-11-12 に #341 #336 の独立の突合の担当が、公開プレビューを取り直して目次を確かめた。附属書H は無い。
+        note: "2026-11-12 に #341 #336 の独立の突合の担当が、公開プレビューを取り直して目次を確かめた。附属書H は無い。"
       c5:
         verdict: match
         extractedValue: same process purpose and process outcomes
