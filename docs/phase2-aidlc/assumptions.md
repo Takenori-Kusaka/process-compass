@@ -108,7 +108,7 @@ graph TD
 | A-O2 説明責任の一意性 | 結果責任は1名。AIを結果責任に割り当てない(テーラリングの禁止事項) |
 | A-O3 検証キャパシティ | [第4章](/process-compass/phase4-process-design/gate-criteria/) レビュー SLA と帯域の上限、[第6章](/process-compass/phase4-process-design/deliverable-templates/) 認知強制機能 |
 | A-K1・A-K2 言語化・表出化 | [第3章 3.11](/process-compass/phase4-process-design/roles-responsibilities/) 指示資産、[コンテキスト基盤](/process-compass/phase5-implementation/context-base/) |
-| A-K3 ガードレールの符号化 | [第3章 3.11.3](/process-compass/phase4-process-design/roles-responsibilities/) 強制層。遵守が必須の規則を誘導層に書かない |
+| A-K3 ガードレールの符号化 | [第3章 3.11.3](/process-compass/phase4-process-design/roles-responsibilities/) 強制層。違反を許容できない規則を誘導層だけに置かない |
 
 上表は個別の対処です。前提一覧を物差しとして充足状況を監視し、崩れた状態でどう進むかを決める手続は[第7章 7.10](/process-compass/phase4-process-design/exception-escalation/)に規定します。
 

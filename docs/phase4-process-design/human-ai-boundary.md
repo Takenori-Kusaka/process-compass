@@ -989,7 +989,7 @@ AI の支援を受けて作成した成果物には、次を記録します。
 | 項目 | 記録する内容 | 導出元 |
 | --- | --- | --- |
 | モデルの識別子と版 | 実行に用いた生成モデル | エージェントの実行記録 |
-| 指示資産の版 | 参照した恒久層コンテキストと指示ファイルのコミット | リポジトリの参照点 |
+| 指示資産の版 | 参照した恒久層コンテキストと指示ファイルのコミットと、コミットに無い変更の有無。利用者の範囲の指示(リポジトリの外の個人の指示ファイル)は版を記録できないため、その旨を記録する | リポジトリの参照点 |
 | 実行の識別子 | 当該の実行を後から引き当てる鍵 | エージェントの実行記録 |
 
 **「生成時の条件を記録しているため再現できる」と外部へ説明してはなりません**。説明できるのは条件の特定までです([ADR-0012](/process-compass/adr/0012-ai-output-as-unverified-input/))。記録の実装例は、[フェーズ5(エージェントの操作の統制)](/process-compass/phase5-implementation/agent-trace-control/)を参照。
@@ -998,8 +998,10 @@ AI の支援を受けて作成した成果物には、次を記録します。
 <!-- impl IMPL-0177 target=evidence-aggregation state=delivered check=manual note="モデルの識別。出荷の証跡の集約は、コミットに記録された共著者を項目7 に出し、宣言に無い共著者を警告する(止めない)。トレーラの無いコミットと、版を欠くトレーラは検出しない(宣言との照合は部分一致)(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 <!-- impl IMPL-0178 target=evidence-aggregation state=delivered check=manual note="指示の保存。出荷の証跡の集約は、出荷の範囲の指示資産(CLAUDE.md・.claude)の最終変更のコミットを出す。成果物ごとに生成時の指示資産の版を引く対応は、操作証跡の統制のマーク(IMPL-0207)で追跡する(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 <!-- impl IMPL-0179 target=pr-template state=delivered check=presence note="検証の記録。PR の本文の「検証方法と結果」(PR を経ないコミットはトレーラ Verification)の有無を、出荷の証跡の集約が確かめる。どの検証で誤りを捕捉したかの内容は確かめない(単位: 欄)" -->
-<!-- impl IMPL-0207 target=agent-run-record state=undelivered check=manual plan=scheduled issue=358 review=2026-11 note="生成の条件のうち、実行の識別子と指示資産の版を変更単位で自動で記録する(成果物から生成時の指示資産の版を参照できる状態。第5章 5.8.2 の指示の保存)。準拠テンプレートに実装は無い。モデルの識別は Co-Authored-By(IMPL-0176・IMPL-0177)による。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0208 target=claude-md state=undelivered check=manual plan=scheduled issue=358 review=2026-11 note="「生成時の条件を記録しているため再現できる」と外部へ説明しない。準拠テンプレートの CLAUDE.md・スキル・保証の開示の注記に規則が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0207 target=agent-run-record state=undelivered check=manual plan=scheduled issue=358 review=2027-02 note="生成の条件のうち、実行の識別子と指示資産の版(コミットに無い変更の有無を含む)を、Claude Code の実行で変更単位に自動で記録する。採る形は、SessionStart のフックが観測した値(フックの入力の session_id・開始の時点の HEAD・指示資産の要約値・コミットに無い変更の有無)を記録し、git のフックがコミットへトレーラとして足す形(ADR-0126 決定5)。道具の入力を書き換える形(updatedInput)と、履歴からの導出は採らない。実機で確かめていないため降ろしていない。モデルの識別は Co-Authored-By(IMPL-0176・IMPL-0177)による。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0511 target=agent-run-record state=undelivered check=manual plan=adopter decision=ADR-0126 note="Claude Code 以外の実行基盤での、実行の識別子と指示資産の版の自動の記録。識別子の取り出し方が基盤ごとに異なる。採用者が自らの基盤の実行記録から導く。確かめる者: 採用者(自らの基盤に記録を実装したとき)" -->
+<!-- impl IMPL-0512 target=agent-run-record state=undelivered check=manual plan=adopter decision=ADR-0126 note="実行の識別子が引き当てる先(実行の記録そのもの)の保持。準拠テンプレートは識別子までを扱い、実行の記録の保持の期間と置き場を定めない。採用者が実行基盤の保持の設定か外部の保管で定める。確かめる者: 採用者(保持の期間を定めたとき)" -->
+<!-- impl IMPL-0208 target=claude-md-resident state=delivered check=presence note="「生成時の条件を記録しているため再現できる」と外部へ説明しない。準拠テンプレートの CLAUDE.md の判断の確定と委任の節の行に置く(保証の開示・PR の本文・対外の資料を含む)。説明の文を機械は確かめない(#358)(単位: 行)" -->
 
 ### 5.8.3 AI に担わせない領域
 
@@ -1056,7 +1058,7 @@ AI の支援を受けて作成した成果物には、次を記録します。
 
 <!-- impl IMPL-0185 target=claude-md-resident state=delivered check=presence note="5.8.5 の禁止事項1(受入基準を確定せずに実装を依頼する)。CLAUDE.md の行ってはならない作業の表と実装のスキルの前提に置く。PR では G-5(pr-rules)がトレーラ Spec の指す仕様とタスクの実在を確かめる。着手そのものは機械で確かめない(単位: 行)" -->
 <!-- impl IMPL-0186 target=claude-md-resident state=delivered check=presence note="5.8.5 の禁止事項2(AI が生成した受入基準を、人の G-2・G-4 の判定を経ずに確定とする)。CLAUDE.md の行ってはならない作業の表に置く。check-process-rules が、表の行の禁止事項の文言を照合する(単位: 行)" -->
-<!-- impl IMPL-0187 target=guard-write-hook state=delivered check=manual note="5.8.5 の禁止事項3(テストの失敗を、テスト側の変更で解消する)。自己修正のロック中は、フックがテストへの書き込みを遮断し、拒否を記録する。ロックの外の既存のテストの変更は、G-5(pr-rules)が PR へ一覧を出す(合否に使わない)。フックに試験は無い。Claude Code の Edit・Write だけを遮断する。確かめる者: AI維持管理者(フックかその設定を変えたとき、テンプレートの更新を取り込むときに、遮断の動作を手で試す)。フックの遮断を確かめる試験は、後継の Issue の下書き D で足す計画(#314 の突合 X-7)" -->
+<!-- impl IMPL-0187 target=guard-write-hook state=delivered check=machine test=template/scripts/gate/test-guard-write.mjs note="5.8.5 の禁止事項3(テストの失敗を、テスト側の変更で解消する)。自己修正のロック中は、フックがテストへの書き込み(Edit・Write・MultiEdit・NotebookEdit)とロックのファイルの書き換えを遮断し、拒否を記録する。guard.enabled に依らない。ロックの外のテストと、ロック中のテスト以外のパスは遮断しない。照合は大文字と小文字を区別しない。試験は一時の置き場でフックを起動して確かめ、権限設定の PreToolUse の結線も確かめる。シェルからのテストの書き換え・ロックの削除は止めない。ロックの外の既存のテストの変更は、G-5(pr-rules)が PR へ一覧を出す(合否に使わない)(#358)" -->
 <!-- impl IMPL-0188 target=claude-md-resident state=delivered check=presence note="5.8.5 の禁止事項4(差分を確認せずに承認する)。CLAUDE.md の行ってはならない作業の表に置く。check-process-rules が、表の行の禁止事項の文言を照合する(単位: 行)" -->
 <!-- impl IMPL-0189 target=claude-md-resident state=delivered check=presence note="5.8.5 の禁止事項5(独立レビューの挙動要約を AI に生成させる)。CLAUDE.md の行ってはならない作業の表に置く。check-process-rules が、表の行の禁止事項の文言を照合する(単位: 行)。挙動要約を誰が書いたかを機械は確かめない(集約が確かめるのは最低限の形と同一の文)" -->
 
@@ -1117,7 +1119,7 @@ AI の支援を受けて作成した成果物には、次を記録します。
 | --- | --- |
 | 1 | 次の3つの操作は、起きてから見つけるのではなく、**実行時に拒否しなければならない**。タスクの範囲外への書き込み、認証情報・秘密情報への接触、許可していない外部への通信 |
 | 2 | 拒否の範囲(書き込み・ネットワーク・コマンド実行の許可範囲)は、実行環境の設定(強制層)に置かなければならない。指示ファイルにだけ書いた範囲は、拒否できたものとして扱わない([第3章 3.11.3](/process-compass/phase4-process-design/roles-responsibilities/))。設定は版管理下に置き、案件ごとに定める |
-| 3 | 書き込みとネットワークは既定を拒否とし、許可する範囲を列挙する。書き込みの許可は実装計画のタスクの対象のパスに、ネットワークの許可は必要な宛先に限る。コマンドの実行は許可リストによる |
+| 3 | 書き込みとネットワークは既定を拒否とし、許可する範囲を列挙する。書き込みの許可は、既定ブランチへ入った実装計画の対象のパスの和と、強制層に列挙した計画外の置き場(仕様・計画・記録の置き場など)に限る。範囲を決める入力は既定ブランチの版から読み、エージェントは範囲を狭められるが広げられない。タスクごとの超過は要求事項10 の差で示す。ネットワークの許可は必要な宛先に限る。コマンドの実行は許可リストによる |
 | 4 | 秘匿情報は、実行環境から参照できない位置へ置かなければならない。読み取りの制限だけに頼ってはならない |
 | 5 | 拒否した操作は、後から参照できる形で記録しなければならない |
 | 6 | 許可範囲の変更を、エージェント自身の操作で行わせてはならない。範囲の変更は人の操作による。この条件を満たさない実行基盤では、要求事項1 の拒否は成立しない |
@@ -1132,15 +1134,32 @@ AI の支援を受けて作成した成果物には、次を記録します。
 
 拒否されずに起きた認証情報・秘密情報への接触と、許可していない外部への通信について、影響を確かめる手順(漏えいの範囲の特定、認証情報の失効など)を、本標準は課しません。組織の情報セキュリティのインシデント対応の規程が扱う事項であり、本標準が手順を定めると規程と二重になるためです。拒否を実装していない実行基盤では要求事項1 を満たさないため、その案件は 5.8.6 に適合しません。
 
+本節の「拒否」は、求められた操作をせずに終えることです。実行の前に人へ確認を求める設定(確認つき)は、拒否に数えません。確認を自動で判定する権限の形では、確認が人の確認にもなりません([ADR-0126](/process-compass/adr/0126-instruction-asset-checks-write-scope-and-agent-records/) 決定3)。
+
+要求事項3 の書き込みの範囲を「実装計画の対象のパスの和」と「計画外の置き場」に置いたのは、エージェントがどのタスクを作業しているかを自ら選べる構成では、タスクごとの範囲が境界にならないためです。タスクごとの超過は、実行の前に止めず、要求事項10 の差で人が見ます。
+
+:::caution[暫定 EV-0251 / 見直し 2027-05]
+**対象**: 要求事項3 の書き込みの許可の範囲(既定ブランチへ入った実装計画の対象のパスの和と、強制層に列挙した計画外の置き場)が、実行時の拒否の境界として働くこと。
+**根拠の水準**: E0(なし)。
+**差し替え条件**: この範囲で書き込みを拒否する実装の運用の記録で、誤った遮断と、範囲の外への書き込みの件数の観測。
+
+外部の調査(2026-11-12 時点)で読んだ提供者は、書き込みの範囲を作業ディレクトリ・ブランチ・コンテナの単位で限っており、実装計画の対象のパスに限る実装は見つかりませんでした(`research/358-deliberation/survey-external.md`)。準拠テンプレートにも降りていません(IMPL-0200)。
+:::
+
 拒否の実装の手段(製品・拡張機能)は指定しません。指定すると、提供条件が変わったときに規定が破綻するためです。実装の例は、[フェーズ5(エージェントの操作の統制)](/process-compass/phase5-implementation/agent-trace-control/)を参照。
 
-<!-- impl IMPL-0198 target=guard-write-hook state=delivered check=manual note="拒否した操作を記録へ残し(.claude/denied.log)、強制層(権限設定・guard.json・フック・ワークフロー・ゲートのスクリプト)への書き込みを遮断して、許可範囲の変更をエージェントに実行させない。Claude Code の Edit・Write だけを遮断する。試験は無い。確かめる者: AI維持管理者(フックかその設定を変えたとき、テンプレートの更新を取り込むときに、遮断の動作を手で試す)。フックの遮断を確かめる試験は、後継の Issue の下書き D で足す計画(#314 の突合 X-7)" -->
-<!-- impl IMPL-0199 target=agent-settings state=delivered check=manual note="権限設定で、秘匿情報の経路(.env・鍵・認証情報の置き場)の読み取りと強制層の編集を確認つき(ask)に置き、実行を許すコマンドを許可リストに置く(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI維持管理者(権限設定を変えるとき)" -->
-<!-- impl IMPL-0200 target=agent-settings state=undelivered check=manual plan=scheduled issue=358 review=2026-11 note="書き込みの既定を拒否にして許可を実装計画のタスクの対象パスに限ること、ネットワークの既定を拒否にして必要な宛先だけを許すこと、秘匿情報を実行環境から参照できない位置へ置くこと。準拠テンプレートの権限設定は、書き込みの範囲とネットワークを限らない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0198 target=guard-write-hook state=delivered check=machine test=template/scripts/gate/test-guard-write.mjs note="要求事項5・6 のうち、Claude Code のファイルの道具(Edit・Write・MultiEdit・NotebookEdit)の経路。強制層(権限設定・guard.json・フック・ワークフロー・ルールセット・ゲートのスクリプト・アダプタ)への書き込みを遮断し、拒否した操作を .claude/denied.log へ残す。照合の前にパスを正規化し、大文字と小文字を区別せず、NTFS の代替データストリームの記法(::$DATA・:名前)を除き、存在するパスは realpath で長い名前へ解く(8.3 の短い名前、シンボリックリンク)。解けない成分に 8.3 の形(~ の後に数字)や : を含むパスは、強制層の置き場の下では拒否する(NTFS・APFS で同じファイルを指すため。#358 で直した)。guard.enabled の一時緩和では外れる。試験は一時の置き場でフックを起動し、遮断・通過・記録と、権限設定の PreToolUse の結線を確かめる。Claude Code が実際にフックを呼ぶことは確かめない(#358)" -->
+<!-- impl IMPL-0510 target=agent-settings state=undelivered check=manual plan=scheduled issue=358 review=2027-02 note="要求事項6 のうちシェルの経路。Bash から強制層のファイルを書き換えて許可範囲を変える操作を、実行時に拒否する。guard-write はファイルの道具だけを遮断し、シェルの経路は開いている。隔離(sandbox)の書き込みの拒否で塞ぐ形は、隔離が効く基盤(macOS・Linux・WSL2)で実機を確かめていないため降ろしていない。ネイティブの Windows では隔離が効かない(IMPL-0507)。0198 を根拠に要求事項6 の全体の適合を述べない(ADR-0126 決定4)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0199 target=agent-settings state=delivered check=manual note="権限設定で、秘匿情報の経路(.env・鍵・認証情報の置き場)の読み取りを拒否(deny)に置き、強制層の編集を、初期化の前は確認つき(ask)、構成の生成の後(guard.enabled が真)は拒否(deny)に置き、実行を許すコマンドを許可リストに置く。確認つきは拒否に数えない(本節の「拒否」)。確認を自動で判定する権限の形(auto)では、確認つきは人の確認にもならない。強制層の編集の拒否は権限設定の deny(一時緩和では外れる)と guard-write(IMPL-0198)に依る(#358 で秘匿情報の読み取りを確認つきから拒否へ改めた)。確かめる者: AI維持管理者(権限設定を変えるとき)" -->
+<!-- impl IMPL-0509 target=agent-settings state=delivered check=presence note="要求事項1 の認証情報・秘密情報への接触のうち、ファイルの道具による読み取り。初期化の前の権限設定と、構成の生成(generate-profile.mjs)が書く権限設定の両方で、秘匿情報の経路の Read を deny に置く。シェルからの読み取り(cat など)は止めない(#358)(単位: キー)" -->
+<!-- impl IMPL-0200 target=guard-write-hook state=undelivered check=manual plan=scheduled issue=358 review=2027-02 note="要求事項3 の書き込みの既定の拒否。既定ブランチの実装計画の対象のパスの和と、強制層に列挙した計画外の置き場の外への、ファイルの道具の書き込みをフックで拒否する(ADR-0126 決定3)。計画の読み方と計画外の置き場の既定の一覧を決める実測が無く、誤った遮断で採用者がフックを外す危険があるため降ろしていない。権限設定の確認つき(ask)は拒否に数えない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0506 target=agent-settings state=undelivered check=manual plan=scheduled issue=358 review=2027-02 note="要求事項3 のシェルとネットワーク。隔離が効く基盤(macOS・Linux・WSL2)で、実行基盤の隔離(Claude Code の sandbox の書き込みの許可と許可する宛先)を既定の拒否として置く。隔離はシェルだけに掛かり、ファイルの道具・MCP・フックは隔離の外。依存の取得の宛先と、隔離の外での実行を閉じる設定を実機で確かめていないため降ろしていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0507 target=agent-settings state=undelivered check=manual plan=adopter decision=ADR-0126 note="要求事項1・3 のうち、隔離が効かない経路。ネイティブの Windows のシェル、MCP サーバー、WebFetch の宛先。準拠テンプレートの設定では既定の拒否にならない。採用者が実行環境(WSL2・コンテナ・送信の代理と許可の一覧)で拒否を置く。確かめる者: 採用者(実行環境を置いたとき)" -->
+<!-- impl IMPL-0508 target=agent-settings state=undelivered check=manual plan=adopter decision=ADR-0126 note="要求事項4。秘匿情報を実行環境から参照できない位置へ置く。リポジトリの外の配置(実行環境の外の秘密の保管・実行時の注入)の問題で、準拠テンプレートの設定では置けない。読み取りの拒否(IMPL-0509)は要求事項4 を満たさない。確かめる者: 採用者(実行環境を置いたとき)" -->
 <!-- impl IMPL-0403 target=agent-settings state=delivered check=manual note="要求事項1 の一部。準拠テンプレートが案内する道具(graft)の、組織の管理外への送信を既定で止める。構成の生成(generate-profile.mjs)が、.claude/settings.json の env に DO_NOT_TRACK=1 を置き(採用者が値を変えた場合は残す)、ソース・パス・シンボルを LLM の提供者へ送るコマンド(build --deep・blast --name)を deny に置く。ステージと guard.enabled に依らない。0.12.1 の日次の更新確認(npm レジストリ)は止められず、ネットワークの既定の拒否(IMPL-0200。降りていない)で扱う。test-init-g5.mjs が生成後の値を確かめる。確かめる者: AI維持管理者(道具の版を上げるとき)(#425)" -->
 <!-- impl IMPL-0201 target=agent-settings state=delivered check=presence note="権限設定(.claude/settings.json)を版管理下に置き、構成の初期化が案件ごとに生成する(要求2)(単位: ファイル)" -->
 <!-- impl IMPL-0205 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="要求事項10。トレーラ Spec のタスクについて、既定ブランチの先端の実装計画の「変更の対象パス」と、変更されたパスの差を一覧に出す。計画の対象パスの列そのものの変更、既定ブランチの計画に無いタスク、読めない升、テストのパスを別の一覧で出す。合否に使わない。Spec: setup と bot の PR は対象外の旨を出す(#360)" -->
-<!-- impl IMPL-0206 target=claude-md state=undelivered check=manual plan=scheduled issue=358 review=2026-11 note="エージェントの操作の要約を、エージェント自身または別の AI に生成させない(機械的な導出は許容する)。準拠テンプレートの /human-verify は、自らの出力に結論・評価・要約を書かないことだけを定める。エージェントの操作の要約一般を AI に生成させない規則は、CLAUDE.md とスキルに無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0206 target=claude-md-resident state=delivered check=presence note="要求事項8。エージェントの操作の要約を、AI(自分を含む)に生成させない。人が操作を確かめる材料を、拒否の記録・機械の検出の一覧・計画の対象パスとの差と、評価を含まない機械的な導出に限る。PR の「変更の概要」(変更の意図と理由)は作成側の説明で、操作の要約に当たらない。CLAUDE.md の判断の確定と委任の節の行に置く。要約を書いたかを機械は確かめない(#358)(単位: 行)" -->
 <!-- impl IMPL-0209 target=human-verify-skill state=delivered check=manual note="「拒否が 0 件だから安全である」と記録しない。/human-verify の拒否の記録を読む手順に、この禁止を置く(書き込みの遮断のフックの冒頭の注記にもある)。記録の文を機械は確かめない。独立レビュアが判定記録を読むときに確かめる。確かめる者: G-6 の判定者(/human-verify の記録を読むとき)" -->
 
 <!-- impl IMPL-0333 target=ai-review-workflow state=delivered check=machine test=template/scripts/gate/test-base-judge-workflow.mjs note="要求事項7。AI のレビューに与える指示を、レビューの対象の変更が書き換えられない場所に置くこと。準拠テンプレートの ai-review.yml を、#371 の基底から読む型(ADR-0115)の上へ移した(#369): pull_request_target で動き、checkout は既定ブランチだけ(資格情報を残さない)、指示の置き場 .github/ai-review/ を既定ブランチの作業ツリーから AI の手順へ渡し、PR の先頭は fetch して差分をデータとして読む。プロンプトの注入の条件として、AI レビューのジョブの権限は read だけ、PR へ書くジョブは分けて PR の内容に依らない入力(PR の番号と既定ブランチの構成の有効かどうか)だけを渡し、題名・本文はどのジョブにも渡さず、秘密情報は環境変数でだけ参照し、承認・commit status を出さず、AI の手順は continue-on-error で、ルールセットの必須チェックに入れない。指示の置き場と構成の aiReview を、承認を要する統制の設定に足した(指示を弱める変更・AI レビューを切る変更を先に取り込む2段の経路を塞ぐ)。フォークからの PR では、既定で AI の手順を動かさない(構成の aiReview.allowForks で明示した場合だけ動かす)。差し込みの手順の失敗は、警告とジョブの要約に出す(PR へコメントする旧い実装が黙って失敗しないように)。test-base-judge-workflow.mjs が定義を許す形の一覧で静的に確かめる: 契機・トップの権限・ジョブの集合と見出し・決まった手順はテンプレートの形と一致すること、足せる手順は actions/setup-* だけ、式は一覧にあるものだけ、差し込みの手順の env に足せるのは1つの名前ごとの secrets だけ、その run: では PR の先頭・PR のイベント・PR の API を読む書き方と作業ツリーへ木を展開する git の操作を拒む。変異45件(#369 の独立の突合の変異を含む: FETCH_HEAD、変数を経由した参照、PR の先頭の CLAUDE.md、置き場の外への辿り、checkout の repository: のフォーク、read-tree・archive、toJSON、添字の書き方、GITHUB_EVENT_PATH、gh pr view・gh api、artifact、toJSON(secrets)、フォークの判定の除去、失敗の表示の除去ほか)を検出し、許す書き換え(依存の導入、secrets の env、setup-node)を不備にしない。一覧の外の書き方(外部のサービスを経由した PR の内容の取得など)と、差し込んだ道具が作業ツリーの指示ファイルを自動で読み込まないことは確かめない。AI レビューを無効にして ai-review.yml を消した構成では、対象外として飛ばしたことを出す。ジョブ ai-review が落ちても、位置づけの定型の文を出す(always())。実機の確認(2026-11-06、一時リポジトリ、準拠テンプレート ab4cf21 の ai-review.yml。research/369-delivery/probe-369.md)で確かめた範囲: (1) 既定ブランチの定義: pull_request_target で既定ブランチの定義が動き、PR の側の手順の追加・checkout の指定・構成の enabled の書き換えは効かない、(2) checkout: 全ての実行で既定ブランチだけを取り出し、PR の先頭は refs/pull/N/head の取得だけ、(3) 指示の sha256 の一致: PR の側で指示を削除・書き換えても、差し込みの手順が読んだ指示の sha256 は既定ブランチの版と一致し、PR の側の書き換えは差分としてだけ届く、(4) 式の展開: $(...)・逆引用符・引用符を含む題名・本文・ブランチ名で展開の痕跡は0件、(5) 権限: ai-review は contents・metadata・pull-requests の read だけ、ai-review-notice は pull-requests: write だけで PR の番号と enabled だけを受け取る、(6) 必須チェック: 必須は gate-g5・gate-g5-base だけで、AI の手順の失敗でもジョブ ai-review の失敗でもマージを止めない。確かめていない範囲(IMPL-0464): 実際のモデルの実行とプロンプトの注入への耐性(AI の API の鍵を置いていない)、フォークからの PR、確認の後に入れた定義の変更(許す形の一覧の検査、フォークの既定の限定、失敗の表示、always())の実機の振る舞い" -->
