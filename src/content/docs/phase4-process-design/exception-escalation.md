@@ -682,7 +682,7 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 
 独立レビュアを2名とする目的は、検出能力の低下を検知された者の承認を、該当する範囲で、単独では数えないことです。行の題が「単独での承認権限」であるのは、このためです。本標準は、2名にすることを、検出能力を回復させる措置として置きません。回復は 7.9.3 によります。承認者の人数を増やしても、判断の対象を小さくする効果の代わりにはなりません([第3章 3.10.4](/process-compass/phase4-process-design/roles-responsibilities/))。この読みは、[ADR-0067](/process-compass/adr/0067-purpose-of-two-approvers/) 決定2 によります。
 
-<!-- impl IMPL-0118 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-roster-conditions.mjs note="検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。種別 notice の event: restriction に範囲(paths)・対象の人・根拠・記録した者を必須にし、解除(event: restriction-release)を記録できるようにした。出荷の証跡の集約は、取り込んだ日に解除されていない制限の範囲に触れる変更で、独立した人の確認に数えた承認が2名に満たないものを、独立した人の確認に数えない(だれが承認したかに依らない)。強制する承認の数(ブランチ保護)は上げない。照らすのは G-6 を適用する体制(G-6 が required か simplified で未達でない体制)に限る。G-6 が未達の体制では、範囲に触れた件数を開示するだけで数えない扱いにしない。範囲を記録していない旧い発動は、範囲を判定できないとして保証の開示の項目1 に出し、解除できず件数が残り続ける(#305 / #357 / ADR-0127 決定5)" -->
+<!-- impl IMPL-0118 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-roster-conditions.mjs note="検出能力の低下を検知された範囲の独立レビュアを2名必須とする制限(7.9.2)。種別 notice の event: restriction に範囲(paths)・対象の人・根拠・記録した者を必須にし、解除(event: restriction-release)を記録できるようにした。出荷の証跡の集約は、取り込んだ日に解除されていない制限の範囲に触れる変更で、独立した人の確認に数えた承認が2名に満たないものを、独立した人の確認に数えない(だれが承認したかに依らない)。強制する承認の数(ブランチ保護)は上げない。照らすのは G-6 を適用する体制(G-6 が required か simplified で未達でない体制)に限る。範囲に触れた変更の件数は G-6 の適用に依らず数えて開示する。G-6 が未達の体制では2名を要する扱いにせず、数えなかった変更の件数は出さないと表示する(0 件と出さない)。範囲を記録していない旧い発動は、範囲を判定できないとして保証の開示の項目1 に出し、解除できず件数が残り続ける(#305 / #357 / ADR-0127 決定5)" -->
 
 ### 7.9.3 回復の条件
 
