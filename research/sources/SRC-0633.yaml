@@ -108,7 +108,7 @@ verification:
   method: [agent-read]
   date: 2026-10-13
   humanChecked: false
-  note: 原典の全文の写し(tmp/302-310/s310-dl/dir2.txt。2026-10-12 に調査担当が curl で取得)で、c1〜c7 の逐語を確かめた。写しは作業用で、リポジトリには置いていない。これより新しい版の有無は確かめていない
+  note: 原典の全文の写し(tmp/302-310/s310-dl/dir2.txt。2026-10-12 に調査担当が curl で取得)で、c1〜c7 の逐語を確かめた。c8 は #310 の調査の写し(research/316-deliberation/survey-316-2-external.md)からの逐語で、原典の全文との照合は c1〜c7 の範囲に含めていない。写しは作業用で、リポジトリには置いていない。これより新しい版の有無は確かめていない
   mech: null
   agent: null
 volatility: slow
