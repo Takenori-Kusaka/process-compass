@@ -108,6 +108,7 @@ sidebar:
 | G-5(`gate-g5-base`)の承認 | CLAUDE.md・AGENTS.md・`.claude/skills/` ほか、または `.mcp.json` を変えた PR に、AI維持管理者の本人の承認のレビューが無い | AI維持管理者が承認のレビューを出す。`/process-change` が CLAUDE.md の生成区間を書き換える PR も当たる |
 | G-5(`pr-rules`) | `CLAUDE.local.md`・`.claude/settings.local.json` を追跡へ入れた | 追跡から外す(`git rm --cached`) |
 | G-5(`pr-rules`) | 指示資産が `.claude/guard.json` の `instructionAssetLimit.maxLinesPerFile` を超える | 分ける・削る。上限を変えるのは強制層の変更 |
+| G-5(`pr-rules`) | `.claude/guard.json` の `instructionAssetLimit` の上限の値が正の整数でない | 値を正の整数か null に直す。強制層の変更 |
 
 ## 見直しの契機
 
@@ -119,4 +120,4 @@ sidebar:
 
 - 採用者: 指示資産の変更に、AI維持管理者の本人の承認が要る。規則の前に入った変更は遡って数えない。IMPL-0198 を根拠に 5.8.6 要求事項6 の全体の適合を述べていた場合は、主張を改める(シェルの経路は IMPL-0510)
 - 適合の主張: 第1版は未発行であり、経過措置を置かない
-- 番号: IMPL-0501〜0512、EV-0250・EV-0251 を使った
+- 番号: IMPL-0501〜0512、EV-0250・EV-0251・EV-0252 を使った
