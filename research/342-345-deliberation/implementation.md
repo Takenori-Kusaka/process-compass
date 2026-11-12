@@ -18,3 +18,8 @@ template/ に別称 DR0〜DR2 の語は無い(grep 0 件)。
 - 2.10.5 の 3.7.5 の引用は、表明の文の直後に置いた(O-4)
 - SRC-0633 に claim c8(24.5)を足した。verification の note は c1〜c7 の確認を述べたままで、c8 は調査の逐語(research/316-deliberation/survey-316-2-external.md:123)による
 - 変えたもの: lifecycle.md・overview.md・tailoring-guide.md・gate-criteria.md(334 行も「定めません」へ)・roles-responsibilities.md(3.7.3・1454)・vision/04-traceability.md(対応の目安)・content.config.ts(注記)・integrated.yaml(alias)・provision-forms.yaml・impl-targets.yaml(flow-observation)・impl-inventory.yaml・implementation-ledger.md(再生成)・SRC-0633.yaml
+
+## 追補: ADR
+
+- #342 の別称 DR0〜DR2 を廃する決定を ADR-0128 に記録した。retiredPhrases 4語の by を "#342、ADR-0128" へ改めた（旧 ADR-0063 は別称を廃した決定でなく、検査13の趣旨と食い違っていた）
+- 検査: lint:provisions、lint:refs、textlint は通過
