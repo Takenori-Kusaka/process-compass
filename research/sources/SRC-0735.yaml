@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0735
+status: included
+excludeReason: null
+title: "GitHub Docs: REST API endpoints for secret scanning(Update a secret scanning alert)"
+url: https://docs.github.com/en/rest/secret-scanning/secret-scanning
+canonicalUrl: https://docs.github.com/en/rest/secret-scanning/secret-scanning
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: API 2026-03-10
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: section
+foundBy:
+  cluster: I336
+  query: '#336 secret scanning の resolution の値'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10]
+events: []
+summary: 'GitHub の secret scanning の警告の REST API。解決の理由 resolution は false_positive・wont_fix・revoked・used_in_tests の列挙(と null)。resolution_comment は任意で、後から更新も削除もできない。#336 で、外部の却下の語彙の比較のために登録した。'
+claims:
+  - id: c1
+    text: secret scanning の警告を解決にするとき resolution が必須で、値は false_positive・wont_fix・revoked・used_in_tests のいずれか(または null)である。
+    quote: 'Can be one of: false_positive, wont_fix, revoked, used_in_tests, null'
+    locator: Update a secret scanning alert(Body parameters の resolution)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [336]
+    stance: context
+  - id: c2
+    text: 解決の自由文 resolution_comment は任意で、更新も削除もできない。
+    quote: An optional comment when closing or reopening an alert. Cannot be updated or deleted.
+    locator: Update a secret scanning alert(resolution_comment)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [336]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: '#336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-11

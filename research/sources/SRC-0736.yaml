@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0736
+status: included
+excludeReason: null
+title: "DQS: ISO 9001:2026 published(newsroom, 2026-09-16)"
+url: https://www.dqsglobal.com/en/about/newsroom/iso-9001-2026-published
+canonicalUrl: https://www.dqsglobal.com/en/about/newsroom/iso-9001-2026-published
+ids:
+  arxiv: null
+  doi: null
+publisher: DQS Holding GmbH
+authors: []
+orgType: consultancy
+region: eu
+lang: en
+sourceType: news
+published: 2026-09-16
+publishedBasis: meta
+version: null
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I336
+  query: '#336 ISO 9001:2026 の発行と移行の期限'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2026-09-16
+    label: ISO 9001:2026 発行(認証機関の発表)
+  - date: 2029-09-30
+    label: ISO 9001:2015 の認証の有効期限(GAC Inc. の最終の決定による)
+summary: '認証機関 DQS の発表。ISO 9001:2026 が 2026-09-16 に発行され、2015 年版の認証は 3 年の移行の後、2029-09-30 まで有効(GAC Inc. の最終の決定による)。調和構造に従うこと、品質文化と倫理的な行動の推進をトップマネジメントに求めること等を変更点に挙げる。二次情報で、規格の本文ではない。#336 で、附属書H H.10 の追随の期限を考えるために登録した。'
+claims:
+  - id: c1
+    text: ISO 9001:2026 は 2026-09-16 に発行された。
+    quote: With ISO 9001:2026, published today
+    locator: 本文の冒頭(日付欄 Frankfurt am Main, September 16, 2026)
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: [336]
+    stance: context
+  - id: c2
+    text: 2015 年版の認証は 2029-09-30 まで有効で、この期限は GAC Inc. の最終の決定による。
+    quote: subject to a final determination by the Global Accreditation Cooperation Incorporated (GAC Inc.)
+    locator: 移行の段落
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: [336]
+    stance: context
+  - id: c3
+    text: 2026 年版は 2021-05 に導入された調和構造に従い、トップマネジメントに品質文化と倫理的な行動の推進を明示に求める。
+    quote: ISO 9001:2026 explicitly obliges top management to actively promote a quality culture and ethical behaviour.
+    locator: 変更点の一覧
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: [336]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: '#336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない。箇条1〜10 の番号の維持は、この頁から確かめられなかった'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-09

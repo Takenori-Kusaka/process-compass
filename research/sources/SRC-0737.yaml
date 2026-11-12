@@ -1,0 +1,64 @@
+schemaVersion: 0
+id: SRC-0737
+status: included
+excludeReason: null
+title: "JIS Q 9001:2015/AMENDMENT 1:2025 品質マネジメントシステム－要求事項(追補1)(ISO 9001:2015/AMENDMENT 1:2024 IDT)— 日本規格協会 webdesk の頁"
+url: https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS+Q+9001:2015/AMENDMENT+1:2025
+canonicalUrl: https://webdesk.jsa.or.jp/books/w11m0090/index/?bunsyo_id=jis+q+9001:2015/amendment+1:2025
+ids:
+  arxiv: null
+  doi: null
+publisher: 日本規格協会(JSA)
+authors: []
+orgType: standards-body
+region: jp
+lang: ja
+sourceType: standard
+published: 2025-03-21
+publishedBasis: page
+version: 追補1(2025)
+updated: null
+accessed: '2026-11-12'
+access: paywall
+readLevel: abstract
+foundBy:
+  cluster: I336
+  query: '#336 JIS Q 9001 の追補と改正の状況'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2025-03-21
+    label: JIS Q 9001:2015 追補1 を公示(ISO 9001:2015/Amd 1:2024 と一致)
+summary: '日本規格協会の販売の頁。JIS Q 9001:2015 の追補1 が 2025-03-21 に改正として公示され、ISO 9001:2015/AMENDMENT 1:2024 と一致(IDT)する。本体と併せて 2025 年版として使うと備考にある。本文は読んでいない。第1章 1.3 の「ISO 9001:2015 / JIS Q 9001:2015」が追補を書いていないことを確かめるために、#336 で登録した。'
+claims:
+  - id: c1
+    text: JIS Q 9001:2015/AMENDMENT 1:2025(追補1)は 2025-03-21 に改正として公示され、対応国際規格は ISO 9001:2015/AMENDMENT 1:2024(IDT)である。
+    quote: ISO 9001:2015/AMENDMENT 1:2024 (IDT)
+    locator: 規格の詳細の表(対応国際規格・一致の程度・発行年月日)
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: [336]
+    stance: context
+  - id: c2
+    text: 追補1 は本体(JIS Q 9001:2015)を一部改正するもので、本体と併せて 2025 年版として使える。
+    quote: この規格は本体（JIS Q 9001:2015）を一部改正するもので、本体と併せて利用することで2025年版としてご利用いただけます。
+    locator: 備考
+    quant: null
+    evidenceKind: news-fact
+    rqs: []
+    issues: [336]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: '#336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない。JISC の頁(JIS Q 9001:2026 への改正の予定)は 502 で読めなかった'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-09

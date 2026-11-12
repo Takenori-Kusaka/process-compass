@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 723(included 723、excluded 0)。生成日 2026-11-11。
+件数: 730(included 730、excluded 0)。生成日 2026-11-12。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -731,4 +731,11 @@
 | SRC-0728 | 2024-05 | public-agency | jp/ja | verified | TH12 | フリーランス・事業者間取引適正化等法と、独占禁止法・中小受託取引適正化法との適用関係を公正取引委員会が示した文書(全2頁)。#436 は、両法のいずれにも違反す | [特定受託事業者に係る取引の適正化等に関する法律と独占禁止法及び取適法との適用関係等の考え方](https://www.jftc.go.jp/file/fl_jftcguidelines.pdf) |
 | SRC-0729 | 2021-03 | public-agency | jp/ja | verified | TH12 | フリーランスとの取引に掛かる独占禁止法・中小受託取引適正化法・フリーランス・事業者間取引適正化等法・労働関係法令の適用関係を、三府省が示したガイドライン(PDF | [フリーランスとして安心して働ける環境を整備するためのガイドライン](https://www.jftc.go.jp/file/fl_guidelines1-2.pdf) |
 | SRC-0730 | ? | vendor-official | global/en | partial | TH10 | GitHub Actions のコンテキストの参照。節「Context availability」の表が、ワークフローのキーごとに使えるコンテキストと特殊な関数 | [GitHub Docs: Contexts reference(Context availability)](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts) |
+| SRC-0731 | 2017-11 | standard | global/en | partial | TH12 | ISO/IEC/IEEE 12207:2017(第1版)の出版社の公開プレビュー(10 頁。表紙・目次・まえがき・序論の一部)。目次で、附属書が A〜I の9つ | [ISO/IEC/IEEE 12207:2017 Systems and software engineering — Software life cycle processes (](https://assets.vde-verlag.de/iec-normen/preview-pdf/info_isoiecieee12207%7Bed1.0%7Den.pdf) |
+| SRC-0732 | ? | standard | global/en | partial | TH06 TH12 | SARIF 2.1.0(正誤表1 を含む OASIS 標準)の抑止の定め。抑止は「結果を一覧・件数から外す要求」で、kind は抑止の仕組み(inSource  | [Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01 — OASIS St](https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html) |
+| SRC-0733 | ? | vendor-official | global/en | partial | TH06 TH10 | GitHub の code scanning の REST API。警告を dismissed にするとき dismissed_reason が必須で、値は f | [GitHub Docs: REST API endpoints for code scanning(Update a code scanning alert)](https://docs.github.com/en/rest/code-scanning/code-scanning) |
+| SRC-0734 | ? | vendor-official | global/en | partial | TH06 TH10 | GitHub の Dependabot の警告の REST API。却下の理由 dismissed_reason は fix_started・inaccurat | [GitHub Docs: REST API endpoints for Dependabot alerts(Update a Dependabot alert)](https://docs.github.com/en/rest/dependabot/alerts) |
+| SRC-0735 | ? | vendor-official | global/en | partial | TH06 TH10 | GitHub の secret scanning の警告の REST API。解決の理由 resolution は false_positive・wont_fi | [GitHub Docs: REST API endpoints for secret scanning(Update a secret scanning alert)](https://docs.github.com/en/rest/secret-scanning/secret-scanning) |
+| SRC-0736 | 2026-09-16 | news | eu/en | partial | TH12 | 認証機関 DQS の発表。ISO 9001:2026 が 2026-09-16 に発行され、2015 年版の認証は 3 年の移行の後、2029-09-30 まで | [DQS: ISO 9001:2026 published(newsroom, 2026-09-16)](https://www.dqsglobal.com/en/about/newsroom/iso-9001-2026-published) |
+| SRC-0737 | 2025-03-21 | standard | jp/ja | partial | TH12 | 日本規格協会の販売の頁。JIS Q 9001:2015 の追補1 が 2025-03-21 に改正として公示され、ISO 9001:2015/AMENDMENT | [JIS Q 9001:2015/AMENDMENT 1:2025 品質マネジメントシステム－要求事項(追補1)(ISO 9001:2015/AMENDMENT 1:2024 IDT](https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS+Q+9001:2015/AMENDMENT+1:2025) |
 

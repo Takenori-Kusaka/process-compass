@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0733
+status: included
+excludeReason: null
+title: "GitHub Docs: REST API endpoints for code scanning(Update a code scanning alert)"
+url: https://docs.github.com/en/rest/code-scanning/code-scanning
+canonicalUrl: https://docs.github.com/en/rest/code-scanning/code-scanning
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: API 2026-03-10
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: section
+foundBy:
+  cluster: I336
+  query: '#336 code scanning の dismissed_reason の値'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10]
+events: []
+summary: "GitHub の code scanning の REST API。警告を dismissed にするとき dismissed_reason が必須で、値は false positive・won't fix・used in tests・mitigated の列挙(と null)。自由文の dismissed_comment は 280 字まで。#336 で、外部の書式の却下の側の語彙として登録した。"
+claims:
+  - id: c1
+    text: "警告の状態を dismissed にするとき、dismissed_reason が必須で、値は false positive・won't fix・used in tests・mitigated のいずれか(または null)である。"
+    quote: "Can be one of: false positive, won't fix, used in tests, mitigated, null"
+    locator: Update a code scanning alert(Body parameters の dismissed_reason)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [336]
+    stance: context
+  - id: c2
+    text: 却下の自由文は dismissed_comment で、長さの上限は 280 字である。
+    quote: The dismissal comment associated with the dismissal of the alert.
+    locator: Update a code scanning alert(dismissed_comment。応答のスキーマの maxLength 280)
+    quant: 280
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [336]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: '#336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない。頁の末尾の 7847 字は読んでいない。UI の却下の理由の説明の頁(resolving-code-scanning-alerts)は、理由の一覧を載せていなかった'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-11

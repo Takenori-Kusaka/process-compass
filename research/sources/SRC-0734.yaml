@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0734
+status: included
+excludeReason: null
+title: "GitHub Docs: REST API endpoints for Dependabot alerts(Update a Dependabot alert)"
+url: https://docs.github.com/en/rest/dependabot/alerts
+canonicalUrl: https://docs.github.com/en/rest/dependabot/alerts
+ids:
+  arxiv: null
+  doi: null
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: page
+version: API 2026-03-10
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: section
+foundBy:
+  cluster: I336
+  query: '#336 Dependabot の dismissed_reason の値'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH10]
+events: []
+summary: 'GitHub の Dependabot の警告の REST API。却下の理由 dismissed_reason は fix_started・inaccurate・no_bandwidth・not_used・tolerable_risk の列挙。同じ提供者の code scanning(SRC-0733)・secret scanning(SRC-0735)と値の組が異なる。#336 で、外部の却下の語彙が製品ごとに割れていることを示すために登録した。'
+claims:
+  - id: c1
+    text: Dependabot の警告の却下の理由は fix_started・inaccurate・no_bandwidth・not_used・tolerable_risk のいずれかである。
+    quote: 'Can be one of: fix_started, inaccurate, no_bandwidth, not_used, tolerable_risk'
+    locator: Update a Dependabot alert(Body parameters の dismissed_reason)
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [336]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: '#336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない'
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: 2027-11

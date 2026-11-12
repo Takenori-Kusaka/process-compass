@@ -1,0 +1,64 @@
+schemaVersion: 0
+id: SRC-0731
+status: included
+excludeReason: null
+title: ISO/IEC/IEEE 12207:2017 Systems and software engineering — Software life cycle processes (First edition 2017-11) — VDE preview
+url: https://assets.vde-verlag.de/iec-normen/preview-pdf/info_isoiecieee12207%7Bed1.0%7Den.pdf
+canonicalUrl: https://assets.vde-verlag.de/iec-normen/preview-pdf/info_isoiecieee12207%7bed1.0%7den.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/IEC JTC 1/SC 7 and IEEE Computer Society (preview via VDE Verlag)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: '2017-11'
+publishedBasis: pdf
+version: 1st edition
+updated: null
+accessed: '2026-11-12'
+access: paywall
+readLevel: section
+foundBy:
+  cluster: I341
+  query: '#341 12207:2017 の附属書の一覧(附属書H Application of Agile の有無)'
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events:
+  - date: 2017-11
+    label: ISO/IEC/IEEE 12207 第1版を発行
+summary: 'ISO/IEC/IEEE 12207:2017(第1版)の出版社の公開プレビュー(10 頁。表紙・目次・まえがき・序論の一部)。目次で、附属書が A〜I の9つであり、附属書H が「Application of Agile」(参考)であることを確かめた。附属書の本文は読んでいない。#341 で、2026 年版(SRC-0491)の附属書の一覧と比べるために登録した。SRC-0642(BSI の採用版のプレビュー)と同じ文書の別の写し。'
+claims:
+  - id: c1
+    text: 2017 年版の附属書は A(規定。テーラリングのプロセス)〜I(参考。12207:2008 との対応)の9つで、附属書H は参考の「Application of Agile」である。
+    quote: Annex H (informative) Application of Agile
+    locator: 目次(Annex H、127 頁)
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [341]
+    stance: context
+  - id: c2
+    text: 2017 年版は、ISO/IEC 12207:2008(第2版)を置き換えた ISO/IEC/IEEE 12207 の第1版である。
+    quote: This first edition of ISO/IEC/IEEE 12207 cancels and replaces ISO/IEC 12207:2008 (second edition)
+    locator: Foreword
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [341]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: 'プレビューの PDF を取得し pdftotext で文字に起こして、目次とまえがきの該当の文を逐語で確かめた。附属書H の本文はプレビューに無い'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: null
