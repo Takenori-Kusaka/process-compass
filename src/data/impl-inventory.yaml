@@ -150,15 +150,47 @@ sections:
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 行わないこと
     status: pending
   - key: phase4-process-design/deliverable-templates#(冒頭)
-    status: pending
+    status: none
+    category: explanation
+    reason: "章の導入の文(成果物を様式として定義する理由と、識別子と様式の正本の所在)。規定の文は無い"
   - key: phase4-process-design/deliverable-templates#データとドキュメントのインターフェース
-    status: pending
+    status: none
+    category: explanation
+    reason: "本標準の記述とデータ(src/data/processes/integrated.yaml)の正本の分担、本文からの参照の書き方、本標準の構造を変えるときの順序(データ → npm run check → 本文)。本標準の記述だけに掛かる起草と保守の規則で、案件の実行主体の挙動を縛らない(先例: 第1章 1.7.7)。検出は npm run check が行う"
+    issue: 324
   - key: phase4-process-design/deliverable-templates#成果物と様式の対応
-    status: pending
+    status: none
+    category: explanation
+    reason: "成果物・様式・主な読者・ゲートとの関係の対応の表。末尾の列の限定(組織に1つ・置くことを課さない)は、各様式の節(テンプレ11・テンプレ12)が正本で、そちらの節で扱う。語の定義は第1章 1.4"
+    issue: 324
   - key: phase4-process-design/deliverable-templates#成果物と様式の対応 > 原則・判断記録・判定記録の関係
-    status: pending
+    status: none
+    category: elsewhere
+    reason: "現に効いている規則(原則)と経緯(判断記録)と判定の証跡(判定記録)を分ける関係の図と箇条書き。判定記録が判断記録の内容を再掲しないことは IMPL-0133(G-3)、置き換え・廃止した判断記録を保管領域へ移すことは IMPL-0131(G-3 記載の検査)、原則の改廃を判断記録で記録することは IMPL-0138(テンプレ12)が追う。判定の対象・材料・証跡の語は第1章 1.4 の定義で、G-3 基準2 の突合先は判定基準の表(知識ベース)の側。判断記録を判定の証跡に数えない旨と、原則を判定の対象にしない旨は、G-3 の本文が正本で、この節の再掲を名指すマークは無い(G-3 の節で扱う。突合へ渡す)"
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間)
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間) > 記載の検査
+      - "phase4-process-design/deliverable-templates#テンプレ12: プロダクトの原則 > 置く場合の規定"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0)"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0774
+    note: "満たすべき3条件(決定者の1名への特定・権限境界の数値・通知先と応答期限)は IMPL-0774。条件を欠いた場合に起きることの列は理由の説明"
+    issue: 324
+    rows:
+      条件1:
+        status: marked
+        ids:
+          - IMPL-0774
+      条件2:
+        status: marked
+        ids:
+          - IMPL-0774
+      条件3:
+        status: marked
+        ids:
+          - IMPL-0774
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > AI が生成した顧客の声を、観測に数えない"
     status: marked
     ids:
@@ -176,7 +208,10 @@ sections:
       - "phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.6 期日に間に合わない見込みが立った場合"
     issue: 406
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 平常時と障害時を分ける"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0775
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 個人名を1か所へ隔離する"
     status: none
     category: elsewhere
@@ -202,13 +237,43 @@ sections:
     note: AI自律レベルの適用の表の生成は IMPL-0293。表5・表7 の席・責任者・担い手・縮退の3列は「判断を担う席の後継を表5 に書く」の IMPL-0029・IMPL-0056
     issue: 311
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 有事の決定者を決めておく"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0776
+      - IMPL-0067
+    note: "12欄の空欄を記載の欠落とする規定は IMPL-0067。役割名・層1 の項目4 を引く・外枠を受容しない書き方は IMPL-0776"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0777
+      - IMPL-0056
+      - IMPL-0029
+    note: "縮退の3列・有事の決定者の表・層1 の版の行は IMPL-0056、席の責任者・担い手・運用形態・委任の範囲・改訂履歴の欄は IMPL-0029。後継候補の確認の状態の列と責任者本人の確認の表は IMPL-0777"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 改訂履歴に体制の変化点を残す"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0778
+      - IMPL-0779
+    location:
+      - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.3 手続
+      - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.2 変化点に数えないもの
+      - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.4 記録
+      - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.6 品質保証部門への通知
+      - phase4-process-design/tailoring-guide#再テーラリングの契機 > 契機に数えないもの
+      - phase4-process-design/gate-criteria#判定の成立 > 判定記録を基底ブランチへ入れる操作
+    note: "手続と記録(最初のゲート判定より前の改訂・新しい台帳を作らない)は IMPL-0022、緩める向きの記名と理由・AI の名義を受け付けない・人の離脱は発生・ステージを前へ戻す変更は IMPL-0722・IMPL-0036、構成の変更なしの記録・納期だけの変更は IMPL-0733、即時の通知は IMPL-0033・IMPL-0037、席の責任者の任免・自己の任命は IMPL-0036・IMPL-0342・IMPL-0483、成立済みの判定記録を書き換えられないことは IMPL-0432(記録用ブランチの履歴)。変化点をまたぐ未完了の判定の引き継ぎは IMPL-0779(降りていない)。変化点の列挙の根拠(製造と労働安全の変更管理からの類推)は ADR-0055 が根拠水準を開示している"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 体制と委任の登録を誰が決めるかを決めておく"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0780
+      - IMPL-0781
+    location:
+      - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.3 手続
+    note: "表1 の2行は IMPL-0780。決定者の AI の名義は IMPL-0781(降りていない)。ステージを前へ戻す変更にステージ移行ゲートの判定を要することは IMPL-0722(3.13.3)。席の責任者が登録された変更種別の内側で委任の範囲を宣言し登録そのものは行わないことは、第5章 5.5.4・第3章 3.7.4 のマークの側で、この節では名指しを確かめていない"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 安全重要度の判定を表10 に記録する"
     status: none
     category: elsewhere
@@ -238,43 +303,247 @@ sections:
       - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 有事の決定者を決めておく"
     issue: 311
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 記録としての要求事項"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0782
+    note: "承認者・承認日・承認の対象・次回見直し・改訂履歴の欄は IMPL-0782。要求事項4(過去の版を隠蔽しない)は版管理による。承認者を後から同定できる点の機械の確認は、D-0 の記名の帰属の照合(IMPL-0415)の側"
+    issue: 324
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0782
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0782
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0782
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0782
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0782
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0782
   - key: "phase4-process-design/deliverable-templates#テンプレ1: 機能仕様書(spec)"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: "機能仕様の様式(コードブロック)。前提の欄を確かめていないものとして読むことは IMPL-0150、未確定事項の印は IMPL-0148、受入基準の曖昧語は IMPL-0106、受入基準の識別子とタスクの対応は IMPL-0156 が追う。冒頭の機能ID・コア指定・スコープ層・価値責任者の欄は、必須欄の対応表(src/data/template-fields.yaml)が存在を両方向に検査する(#227)"
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 未確定事項(前提条件1)
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 曖昧語(基準2)
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間) > 受入基準とタスクの対応(基準6)
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ2: 判断記録(ADR)"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0783
+      - IMPL-0784
+    note: "置き場と統合の禁止は IMPL-0784、原則と規約を書かないことは IMPL-0783。状態・置き換える決定・可逆性・期限の欄は「置き換えと廃止」の IMPL-0137。比較した代替案と事業影響の欄は G-3 の判定基準の表(知識ベース)と IMPL-0538・IMPL-0540(G-3)の側"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ2: 判断記録(ADR) > 事業影響の欄が要る理由"
-    status: pending
+    status: none
+    category: explanation
+    reason: "事業影響の欄の理由(技術の語彙を事業側の語彙へ翻訳する)と、顕在化が分かる兆候が要であること。金額を義務づけない理由は第4章 G-3 を指す。規定の文は無い"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ2: 判断記録(ADR) > 置き換えと廃止"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0785
+      - IMPL-0137
+      - IMPL-0140
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間) > 記載の検査
+      - phase4-process-design/roles-responsibilities#3.11 AI基盤に関するロール > 3.11.4 指示資産の保守要求
+    note: "状態の語彙・置き換える決定の欄・可逆性・期限の欄は IMPL-0137、期限切れの一覧は IMPL-0140、状態の行だけを書き換える規定は IMPL-0785。置き換えの両側の参照の一致と保管領域へ移すことは IMPL-0131(G-3 記載の検査)、保管領域を読み込みから外すことは IMPL-0130(3.11.4)"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ2: 判断記録(ADR) > 判断記録の索引"
     status: pending
+    note: "区分済み・降ろし先未定。規定: 「導く場合は、一覧を手で保守してはなりません」(判断記録の索引)。準拠テンプレートの .claude/skills/adr-write/SKILL.md が「置く場合は機械で生成し、手で保守しません」と運ぶが、そのスキルの降ろし先が impl-targets.yaml に登録されていない(近い降ろし先を当てない)。節の中の IMPL-0139(集約が判断記録の総数を出さない)は規定の一部を追う。索引の作成を課さない旨は課さない明記"
   - key: "phase4-process-design/deliverable-templates#テンプレ3: 技術負債台帳"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0786
+      - IMPL-0787
+      - IMPL-0788
+      - IMPL-0789
+    location:
+      - phase4-process-design/exception-escalation#7.3 例外承認の要求事項
+      - phase4-process-design/exception-escalation#7.3 例外承認の要求事項 > 7.3.2 未解決事項
+      - phase4-process-design/exception-escalation#7.8 記録の要求事項
+      - phase4-process-design/gate-criteria#判定の成立 > 判定記録を基底ブランチへ入れる操作
+    note: "区分(負債・例外・未解決)と例外の行の必須欄は IMPL-0018・IMPL-0038、状態の閉じた値は IMPL-0625、例外承認の記名の照合は IMPL-0413・IMPL-0414。例外承認への対応づけの条件は IMPL-0786、期限切れの扱いは IMPL-0787(降りていない)、運用ルールの記録は IMPL-0788・IMPL-0789(降りていない)。返却を運用フェーズの負債返却サイクルで消化する文は参照(規定は参考の頁の側)"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ4: ゲート判定記録"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0068
+      - IMPL-0328
+    location:
+      - phase4-process-design/gate-criteria#判定の成立
+      - phase4-process-design/gate-criteria#判定の成立 > 機械が出す欄と人が書く欄
+      - phase4-process-design/gate-criteria#判定の成立 > 判定記録を基底ブランチへ入れる操作
+      - phase4-process-design/gate-criteria#工程ゲートの判定の語彙
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間)
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間)
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 停止の申し立ての保留
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 出荷判定者の異議
+      - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.1 ゲートごとに求める水準
+      - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.2 決断の記録の構造
+      - phase4-process-design/exception-escalation#7.11 停止の申し立て > 保留の範囲と強制の方法
+      - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.9 見積りの記録と、予算の案の示し方
+      - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.3 中止の判断基準
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 判定の結果を受け取る者を決める"
+      - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 区分ごとの調整"
+      - "phase4-process-design/tailoring-guide#軸C: 期待品質・規制による調整"
+      - phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分
+    note: "この節の IMPL-0068(AI の利用の評価)・IMPL-0328(再提出の期限)のほか、判定の成立 IMPL-0008、機械が出す欄と人が書く欄 IMPL-0125、2値の語彙と条件付き通過を用いない IMPL-0009・IMPL-0537(様式に条件付き承認の欄を足してはならない旨を含む)、確定の形態 IMPL-0170、決断の記録の6欄 IMPL-0171(確認していない事項の空欄と「なし」は機械が検出しない旨を開示済み)、G-8 の3行 IMPL-0052、異議の欄 IMPL-0565、停止の申し立ての解除の記録 IMPL-0059・IMPL-0073、見積りと実績の差 IMPL-0365、到達の見込み IMPL-0378、結果の受け渡し IMPL-0336、監査対応書式 IMPL-0079・IMPL-0080、リスク区分の確定者 IMPL-0696 が追う。非同期コメント期間・提出日時など機械が出す欄の省略は template-fields.yaml の omit が理由を持つ。PR を経ていないコミットで補う判定記録・検証方法と結果を必須欄にしない・期間の開示と評価の様式を別に定めない旨は、許容と課さない明記"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ5: 運用引き継ぎ文書"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0066
+    location:
+      - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.3 判断を担う席の力量の維持と後継
+    note: "理解保持者の表に確認した者と確認日の列を置く規定は IMPL-0066。保持者の数を確認の記録から数えることは第3章 3.4.3 の IMPL-0061(本人以外の確認者と確認日がある行だけ数える)"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief)"
-    status: pending
+    status: none
+    category: explanation
+    reason: "企画承認(G-1)の判定基準4項目と欄を対応させる旨の導入の文。規定の文は無い"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 企画で評価する6つの観点"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0790
+      - IMPL-0791
+    note: "6観点の欄とその順序は IMPL-0790、因果の物語を書かせない規定は IMPL-0791。観点6 を 7.7.3 の必達基準5項目の具体化とする規定は中止条件の欄(様式の節)の側。観点1・2 が 7.7.3 の評点基準と揃うことは理由の説明"
+    issue: 324
+    rows:
+      観点1:
+        status: marked
+        ids:
+          - IMPL-0790
+          - IMPL-0791
+      観点2:
+        status: marked
+        ids:
+          - IMPL-0790
+          - IMPL-0791
+      観点3:
+        status: marked
+        ids:
+          - IMPL-0790
+      観点4:
+        status: marked
+        ids:
+          - IMPL-0790
+      観点5:
+        status: marked
+        ids:
+          - IMPL-0790
+      観点6:
+        status: marked
+        ids:
+          - IMPL-0790
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 事業リスクと安全リスクを混ぜない"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0792
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 様式"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0793
+      - IMPL-0794
+      - IMPL-0795
+      - IMPL-0796
+    location:
+      - phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.9 見積りの記録と、予算の案の示し方
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程または D-0 の記名による)
+      - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)
+      - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 品質の約束と AI の利用の評価を企画の時点で書く理由"
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > AI が生成した顧客の声を、観測に数えない"
+      - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 期待効果を単一の金額で書かない理由"
+    note: "総費用の内訳の5区分・AI の利用の3行・品質の約束の4欄と識別子は IMPL-0069・IMPL-0057、見積りの記録・予算の案・G-1 の時点の見積りの列は IMPL-0364・IMPL-0366、エスカレーション閾値と自動的な上程の閾値は IMPL-0371、停止条件の値は IMPL-0280、観点3 の裏づけの表は IMPL-0359・IMPL-0397、期待効果の幅は IMPL-0797(期待効果の節)が追う。この節の記入の禁止文は IMPL-0793(一般語のみ・「ない」のみの検査は IMPL-0801 で降りていない)、収益で説明しない案件の類型は IMPL-0794、AI 利用リスクの1行以上は IMPL-0795、コア機能の候補は IMPL-0796。中止条件・スコープ3層・マイルストーン・スコープ外の欄の存在は必須欄の対応表(template-fields.yaml)が検査する。スコープ3層の個数と計画容量の規定(第2章 2.10.2)は第2章のマークの側で、この節では名指しを確かめていない"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 期待効果を単一の金額で書かない理由"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0797
+      - IMPL-0798
+    note: "単一の年額を要求しない規定と3点の欄は IMPL-0797、外部の比率を補正値に用いない規定は IMPL-0798(降りていない)。研究の数値は説明(注記の枠の中)"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 市場規模を書かせない理由"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0799
+    note: "禁止として読む(第1章 1.7.2)。表明か禁止かは審議中(#440)で、表明と決まれば区分を not-imposed へ改める(裁定 T9)"
+    issue: 440
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 記述の充足をどう検査するか"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0800
+      - IMPL-0801
+    location:
+      - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項
+    note: "観点1・2 の空欄は IMPL-0800、一般語・「ない」のみの検査は IMPL-0801(降りていない)。前案件の記述との同一の検査は他案件の企画書を入力に要し、準拠テンプレートに入力の置き場が無い(新しい記録を要するため棚卸しで足さない。議長の裁定の候補)。記述の質を機械的に判定して承認可否を決めてはならない旨(5.7.4)は、検査が空欄・一般語・「ない」の形式に限られることで守られる(5.7.4 の節のマークは本節で確かめていない)"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 誰がいつ書くか"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: "観点1・2 の空欄検査(G-1 の審議開始前)は、「記述の充足をどう検査するか」の IMPL-0800 が check-g1.mjs を名指して追う。表の担い手と時期の割当(観点1〜5 は価値責任者、観点6 は価値責任者と事業決裁者の合議、判定は事業決裁者)は、起案者と決裁者を様式の冒頭に記名する欄にとどまり、合議があったことは会議の進め方で、本標準が求める記録のどれにも現れない(順 6: 縛る相手は起案者と決裁者、探した降ろし先は project-brief-template・g1-check・gate-record-template。template/ の企画書の様式に合議の記録の欄は無い)。D-0 の承認後に着手することは G-1 の前提条件で、D-0 の承認の欄は「テンプレ0 > 記録としての要求事項」の IMPL-0782 が追う"
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 記述の充足をどう検査するか"
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 記録としての要求事項"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 品質の約束と AI の利用の評価を企画の時点で書く理由"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0069
+      - IMPL-0057
+    note: "総費用の内訳の5区分と品質条件の識別子は IMPL-0069、品質の約束と保証範囲の4欄と AI の利用の3行は IMPL-0057。比較の基準値を導入の時点で記録し、見積りを実績と書かない規定は IMPL-0057・IMPL-0069 の欄で追う。自己申告の速度・利用量を成果としない根拠(19% の無作為化実験。根拠の水準は E2)と、測る位置をリリースと安定性の側に置く旨は理由の説明"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 決裁制度への提示"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0802
+    note: "規定3〜6 は様式の「稟議へ数値を出すとき」の節と見積りの記録のコメントが運ぶ(IMPL-0802)。規定1・2 は投影そのものの扱いで org-design(行の理由に探した場所を書いた)。承認レビューの写しが投影でない旨は説明。投影の構成は附属書G(手引き)"
+    issue: 324
+    rows:
+      規定1:
+        status: none
+        category: org-design
+        reason: "(a) 稟議へ提示する投影の作成者を縛る。(b) 投影は組織の決裁制度の文書であり、本標準が求める記録(構成・様式の欄・判定記録・台帳・CI の結果・集約の出力)のどれにも、項目と出所の対応づけは現れない。(c) 探した降ろし先: project-brief-template・g1-check・evidence-aggregation(企画書の欄と判定記録の版は読むが、投影を入力に持たない)。template/ を「投影」「稟議」で検索し、templates/06 の「稟議へ数値を出すとき」の節だけが見つかった(出所の対応づけの記述は無い)"
+      規定2:
+        status: none
+        category: org-design
+        reason: "(a) 投影の保管と、投影を判定の対象にしないことを縛る。(b) 投影を保管する場所は組織の決裁制度の側にあり、判定記録は参照した企画書の版を指すため、投影を対象にしたかは記録に現れない(投影の保管は本標準が求める記録の外)。(c) 探した降ろし先: g1-check・evidence-aggregation・gate-record-template。template/ に投影を保管する置き場は無い(検索 0 件)"
+      規定3:
+        status: marked
+        ids:
+          - IMPL-0802
+      規定4:
+        status: marked
+        ids:
+          - IMPL-0802
+      規定5:
+        status: marked
+        ids:
+          - IMPL-0802
+      規定6:
+        status: marked
+        ids:
+          - IMPL-0802
   - key: "phase4-process-design/deliverable-templates#テンプレ7: 実装計画(plan)"
     status: none
     category: elsewhere
