@@ -641,7 +641,7 @@ AI が席の担い手として判断を引き受け続けた運用報告は、20
 
 <!-- impl IMPL-0019 target=claude-md-resident state=delivered check=presence note="4種類の判断の確定は席の責任者(人)が行い、AI の担い手へ移さないことを実行層へ書く(単位: 行)" -->
 
-<!-- impl IMPL-0600 target=config-change-log state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="安全重要度の上昇時に全件を確認し直すこと。scripts/init/generate-profile.mjs が抜き取り待ちの全件確認の通知を出すが、確認し直しの実施は人が行い、実施を照らす検査は無い。適合性確認の失効・識別を変える前の確認済みの切り替え・提供者の障害時の引き下げ・引き下げた範囲を緩める手続を経るまで戻さないことは IMPL-0693 が追う。変化点の記録(config-change-log)の記名・理由は IMPL-0097・0098 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0600 target=config-change-log state=delivered check=manual note="安全重要度の上昇時に全件を確認し直すこと。scripts/init/generate-profile.mjs が残作業に「委任を適用できない案件になった。抜き取り待ちの委任の変更(トレーラ Delegated: のある変更のうち、事後の抜き取りが済んでいないもの)を、協働の手続で全件確認し直す」を出し、.claude/skills/process-change/kinds/axis.md・reference/apply.md も同じ文を持つ。確認し直しの実施は人が行い、実施そのものを照らす検査は無い(IMPL-0724(3.13.3)と同じ規定を同じ表示にそろえた)。適合性確認の失効・識別を変える前の確認済みの切り替え・提供者の障害時の引き下げ・引き下げた範囲を緩める手続を経るまで戻さないことは IMPL-0693 が追う。変化点の記録(config-change-log)の記名・理由は IMPL-0097・0098 が追う。確かめる者: 変化点の決定者(安全重要度の変化点を反映するとき)。所在を読んだ(実行して確かめていない)" -->
 <!-- impl IMPL-0693 target=config-delegation state=delivered check=manual note="適合性確認の失効(識別の変更・責任者の交代)と協働への引き下げ、識別を変える前の確認済みの切り替え、提供者の障害時の協働への引き下げ、引き下げた範囲を緩める手続を経るまで戻さないこと。config.mjs の qualificationProblems、scripts/init/generate-profile.mjs の「宣言の失効」の出力と lapsedApproval・切り替えの4条件・自動では戻さない処理、.claude/skills/process-change/kinds/performer.md・accountable.md・outage.md が運ぶ。実行は見ていない。置き場は降ろし先の構成の鍵 delegation の外にも分かれる(席の欄 seats と、変化点のスキル process-change の kinds/performer.md)。確かめる者: 変化点の決定者(/process-change で記録を書くとき)" -->
 
 ## 5.6 判断の深さに関する要求事項
