@@ -1035,7 +1035,7 @@ G-5 の結果と保証の開示には、割合だけでなく、次の3つを出
 
 <!-- impl IMPL-0262 target=project-brief-template state=delivered check=presence note="企画書の様式に「カバレッジの測る範囲(G-5 基準3)」の行を置き、G-1 の様式の検査(check-g1.mjs)が行の有無を確かめる。G-1 を通過する前の企画書では必須。G-1 を通過済みの企画書に行が無い場合は遡って失敗させず、記載の欠落として /pit と出荷の証跡の集約に出す(単位: 行)" -->
 
-<!-- impl IMPL-0246 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=333 review=2027-04 note="保証の開示に、カバレッジの割合・測った範囲・分母・測っていない製品のファイルの数と、全体で判定した場合の薄まりを出す。出荷の証跡の集約は evidence/coverage-result.json があればこれらを出すが、出荷のワークフロー(ship-evidence.yml)は G-5 の成果物 coverage-result を取り込まない。出荷の集約ではカバレッジは未測定と出る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0246 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-evidence-manifest.mjs note="保証の開示に、カバレッジの割合・測った範囲・分母・測っていない製品のファイルの数と、全体で判定した場合の薄まりを出す。出荷のワークフロー(ship-evidence.yml)は、対象のコミットに対する gate-g5 の実行から coverage-result を取り込み、実行の headSha が対象と一致するときだけ取り込む。範囲が変更のときは、起点と「出荷の範囲の全体の被覆ではない」を同じ行に出す(ADR-0135)。機械が確かめるのは、取り込みの手順の存在までで、実機の通しは未確認(EV-0261)" -->
 
 :::caution[暫定 EV-0143 / 見直し 2027-10]
 **対象**: カバレッジの基準値の目安(80%)と、G-5 を強める構成の目安(90%)。
