@@ -3251,32 +3251,64 @@ sections:
     category: explanation
     reason: 関連する章への参照の一覧。規定の文ではない
     issue: 324
-  - key: phase4-process-design/lifecycle#(冒頭)
-    status: pending
-  - key: phase4-process-design/lifecycle#2.1 本章が達成すべき成果
-    status: pending
+  - key: "phase4-process-design/lifecycle#(冒頭)"
+    status: none
+    category: explanation
+    reason: "本章の範囲を述べる導入の文。規定の文は無い"
+    issue: 324
+  - key: "phase4-process-design/lifecycle#2.1 本章が達成すべき成果"
+    status: none
+    category: explanation
+    reason: "本章の要求事項を満たしたときの成果の列挙。結果の記述で、実行主体の挙動を縛る文は無い"
+    issue: 324
   - key: phase4-process-design/lifecycle#2.2 二層構造
     status: none
     category: explanation
     reason: 二層構造の説明。AI協調ループについて反復の周期・チームの会合の持ち方・ステージより短い計画の方法を規定しないことの表明(主語が本標準)と、この層に掛かる規定の所在
     issue: 298
-  - key: phase4-process-design/lifecycle#2.3 事業ステージ
-    status: pending
-  - key: phase4-process-design/lifecycle#2.3 事業ステージ > 実装スタックの確定時期
-    status: pending
+  - key: "phase4-process-design/lifecycle#2.3 事業ステージ"
+    status: none
+    category: explanation
+    reason: "3ステージの定義(記号・名称・ゴール・出口ゲート)と、製造業の設計審査(DR)との取り違えを避ける注記。定義と事実の記述で、守らせる文は無い。ステージごとの工程ゲートの状態は第8章 軸B のマークで追う"
+    issue: 324
+  - key: "phase4-process-design/lifecycle#2.3 事業ステージ > 実装スタックの確定時期"
+    status: marked
+    ids:
+      - IMPL-0844
+      - IMPL-0845
+    location:
+      - "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > 実装スタックが未確定でも構成を初期化してよい"
+    note: "未確定は未達でないこと、SG-0 の通過後に未確定が残ると未達であることは、第8章 軸B の IMPL-0747 が追う。SG-0 の判定基準を増やさないことは IMPL-0844、スタックの変更を技術判断者の判断とし判断記録を残すことは IMPL-0845。「企画承認(G-1)の再判定は要しません」は要しないことの表明で、追わない"
+    issue: 324
   - key: phase4-process-design/lifecycle#2.3 事業ステージ > 既存の設計審査体系との対応
     status: none
     category: org-design
     reason: SG と自組織の設計審査の対応は、採用組織が第8章「会議体と体制図の調整」で確定する。実行主体の挙動を縛らない。対応の目安の表と DR の番号体系の注は説明
     issue: 342
-  - key: phase4-process-design/lifecycle#2.4 ステージ移行ゲート
+  - key: "phase4-process-design/lifecycle#2.4 ステージ移行ゲート"
+    status: marked
+    ids:
+      - IMPL-0846
+    location:
+      - "phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.3 判定の語彙"
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > AI が生成した顧客の声を、観測に数えない"
+    note: "判定の値・判定者(B-2)・予算の同時確定は IMPL-0846。判断を保留したまま継続する状態を作らないことは 3.7.3 の IMPL-0657、AI が顧客を模して生成した出力を実証データに数えないことは第6章 D-0 の IMPL-0359 が追う。SG-2 を設けない場合の定常運用への移行の判定は、gates/SG.md の表が SG-2 の行を置く(IMPL-0846)"
+    issue: 324
+  - key: "phase4-process-design/lifecycle#2.5 工程ゲートとの関係"
+    status: marked
+    ids:
+      - IMPL-0847
+    note: "G-4 と G-5 を省略しないことは IMPL-0847。SG と G を混同しないことは、SG の判定の値が工程ゲートの2値と別の表であること(IMPL-0846)として現れる。S0 の G-3・G-8 の適用は第8章 軸B の規則が決め、本節のマークは追わない"
+    issue: 324
+  - key: "phase4-process-design/lifecycle#2.6 AI協調ループの構成"
     status: pending
-  - key: phase4-process-design/lifecycle#2.5 工程ゲートとの関係
-    status: pending
-  - key: phase4-process-design/lifecycle#2.6 AI協調ループの構成
-    status: pending
-  - key: phase4-process-design/lifecycle#2.6 AI協調ループの構成 > 判断記録の範囲
-    status: pending
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 反復の終わりに、該当がある記録(設計上の選択を伴ったら判断記録、妥協・仮実装を受容したら技術負債台帳、規約・用語が変わったら恒久層コンテキスト)をコンテキスト基盤へ書き戻し、該当が無い反復に記録を求めない。この書き戻しを運ぶ置き場は登録に無い(判断記録の要否の規則 IMPL-0384 は規則に当たる変更だけを追う)。同じ節の「受入基準を満たさない実装は次工程へ進めずループ内で差し戻す」は rulesets(IMPL-0572 が同型を追う)、「1周期の実装量は独立レビューが単独で完結できる大きさに収める」は pr-checks の変更規模の基準値が運ぶ見込みだが、確かめていない。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.6 AI協調ループの構成 > 判断記録の範囲"
+    status: marked
+    ids:
+      - IMPL-0848
+    note: "判断記録の範囲(原則と規約を恒久層に置く、可逆性を理由に省かない、プロセスの構造・CL の引き下げ・実装スタックの変更を対象とする)は IMPL-0848。設計上の選択の例示の一覧は ADR-0041 により例示で、説明。判断記録の要否の規則は下位の節のマーク(IMPL-0384・0389・0390)が追う"
+    issue: 324
   - key: phase4-process-design/lifecycle#2.6 AI協調ループの構成 > 判断記録の範囲 > 判断記録の要否の規則
     status: marked
     ids:
@@ -3319,40 +3351,70 @@ sections:
       - IMPL-0252
     note: SG-0 の確認した事項に探索の記録を挙げ到達できることは IMPL-0252(降りていない)。ステージごとの表は説明。想定する反復周期は要求事項ではなく EV-0149(#298)。探索の記録の量・置き場・様式と技術検証の種別を課さないことは課さない明記
     issue: 294
-  - key: phase4-process-design/lifecycle#2.7 部門間移管
+  - key: "phase4-process-design/lifecycle#2.7 部門間移管"
     status: pending
-  - key: phase4-process-design/lifecycle#2.8 案件の立ち上げ手順
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 移管を SG-1 の判定要件として扱い、移管の完了条件1〜5(受入部門の再構成した文書、移管元の確認、持ち越し事項の一覧と期限・責任者、恒久層への登録、結果責任者(A)の指名と担当表への記録)を満たし、条件1 を文書の受領で代替しない。SG-1 の判定基準「受入部門が要求を自らの言葉で再構成できている」は gates/SG.md の表にあるが、移管記録の様式と完了条件の検査は準拠テンプレートに無い。番号つきの表の行(完了条件1〜5)は、置き場が決まった後に行ごとに区分する。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.8 案件の立ち上げ手順"
     status: pending
-  - key: phase4-process-design/lifecycle#2.8 案件の立ち上げ手順 > D-0 を前提条件とする理由
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 立ち上げの順序(案件の登録 → D-0 の作成 → 承認 → 安全重要度の判定 → 安全リスクアセスメント → 企画書 → G-1)を入れ替えない。手順1 の案件登録記録(案件IDの付与)の様式と、順序そのものを検査する置き場は準拠テンプレートに無い。順序の一部(D-0 の承認と安全重要度の判定の記録が G-1 の審議の前提)は G-1 の IMPL-0679 と第8章 軸E の IMPL-0449 が追う。手順3b の適用条件と様式は第6章が扱う。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.8 案件の立ち上げ手順 > D-0 を前提条件とする理由"
+    status: none
+    location:
+      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程または D-0 の記名による)"
+    category: elsewhere
+    reason: "D-0 を判定基準でなく前提条件に置く理由の説明。「誰が決めるかが決まっていない状態で、何を作るかを決裁してはなりません」は、D-0 が承認済みでない状態で G-1 の審議を開始させないこと(G-1 の節の IMPL-0679。D-0 の検査 check-d0.mjs が失敗させる)として追う"
+    issue: 324
+  - key: "phase4-process-design/lifecycle#2.8 案件の立ち上げ手順 > 前提条件の統制"
+    status: marked
+    ids:
+      - IMPL-0849
+      - IMPL-0850
+    location:
+      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程または D-0 の記名による)"
+      - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 判定の記録と確認"
+    note: "D-0 が承認されていない案件で G-1 の審議を開始しないことと、前提条件の充足を機械の検査で判定することは G-1 の IMPL-0679。安全重要度の判定の記録と判定者の記名がそろわない案件で G-1 の審議を開始しないことは第8章 軸E の IMPL-0449(IMPL-0679 の note が名指す)。判定の確認が届かないことが審議を止めないことは、止めないことの明記。SR4 が残る案件で G-1 を開始しないことは IMPL-0849、D-0 の次回レビュー期日の超過で SG の判定を開始しないことは IMPL-0850(どちらも降りていない)"
+    issue: 324
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート"
+    status: none
+    category: explanation
+    reason: "節の導入の文(コンテキスト移管ゲートの趣旨と、規定が下位の節にあること)。規定の文は無い"
+    issue: 324
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.1 適用対象"
     status: pending
-  - key: phase4-process-design/lifecycle#2.8 案件の立ち上げ手順 > 前提条件の統制
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 結果責任者(A)の交代、文脈オーナーの交代、コア機能の理解保持者が交代して残る保持者が1名以下になる場合に、コンテキスト移管ゲートを適用する。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.2 移管の成立条件"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 移管は口頭説明の完了によって成立せず、後任者が前任者へ問い合わせずに判断できる状態をもって成立とする。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.3 3つのゲート"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.1 適用対象
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: H-1 移管準備(交代の通知から3営業日以内。予告期間が5営業日未満なら翌営業日まで。価値責任者)、H-2 書き戻し完了(文脈オーナー)、H-3 理解の実証(交代日以降、合意した期限内。前任者でも後任者でもない者)の判定時期と判定者。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 予告期間"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.2 移管の成立条件
-    status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.3 3つのゲート
-    status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 予告期間
-    status: pending
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 期限はすべて予告期間(交代が本人へ通知された時点から交代日までの営業日数)を基準とし、通知された日を起点とする。予告期間の長さを要求しないことは課さない明記。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.4 H-1 移管準備: 欠落の棚卸し"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: コンテキスト基盤に無い知識を4類型で洗い出し、コア機能ごとの理解保持者数を数え、保持者が1名の機能を交代の前に2名以上へ増やす。保持者に数えるのは本人以外の者が日付を付けて理解を確認した記録を持つ人に限る(この数え方は IMPL-0066・IMPL-0284 が追う)。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 期限と範囲を予告期間で決める
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 書き戻しは前任者が書き後任者がレビューする(順序を逆にしない)。却下した選択肢と当時の制約は人が記入する。完了は H-1 で特定した欠落項目の消化で判定する。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 期限と範囲を予告期間で決める"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 短い予告のときに何から書き戻すか
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 予告期間の長短にかかわらず同じ期限と範囲を課さない。区分ごとの期限と範囲(20営業日以上・10〜19・5〜9・5未満)。予告期間が10営業日未満なら前任者の関与の延長(期間・稼働の目安・連絡手段・繰り越した項目)を H-1 の判定と同時に確定させ、未確定の案件を H-1 で通過させない。「必要に応じて協力する」を関与の延長と認めない。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 短い予告のときに何から書き戻すか"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 機械検査
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 上位2類型の優先順位(組織的文脈、運用上の勘所、設計の背景と制約、却下した選択肢)を入れ替えない。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 機械検査"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.6 H-3 理解の実証
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: H-1 の記録に欄(交代の通知日、交代日、予告期間、前任者の関与の延長)を必須とし、通知日と交代日から導出して予告期間の区分を申告させない。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.6 H-3 理解の実証"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.7 準備段階における AI の利用
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 移管の完了を後任者の自己申告で判定しない。4課題(設計の説明、却下案の再構成、障害時の初動、変更の実作業)の組み合わせで判定し、課題1〜3 は AI へ問い合わせない状態で実施し、評価者・方法・課題・結果を記録する。評価者に前任者と後任者を充てない。番号つきの表の行(課題1〜4)は、置き場が決まった後に行ごとに区分する。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.7 準備段階における AI の利用"
     status: pending
-  - key: phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.8 H-3 が期限内に合格しない場合
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 後任者が準備段階で AI エージェントを用いることを禁止せず、生成された説明をそのまま受け取る使い方(受動的な委譲)を認めず、疑問点を問いとして立て回答の根拠を記録と突き合わせる使い方を求める。違反が現れる記録が H-1〜H-3 の記録の外にあるかは、置き場が決まった後に再度判断する。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.8 H-3 が期限内に合格しない場合"
     status: pending
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 交代日までに H-3 が合格しない場合は前任者の関与を延長するか対象を他の理解保持者へ一時的に移す。結果責任者(A)を空席にしたまま交代日を過ぎない。H-3 の不合格を後任者の人事評価に用いない(人事評価は組織の制度で、本標準が求める記録に現れない。制度設計として扱う候補)。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制
     status: none
     category: org-design
@@ -3412,32 +3474,56 @@ sections:
       - IMPL-0283
     note: 完了率の申告で測らないことは AI の担い手が担当者の場合にも掛かる(IMPL-0282、降りていない)。滞留の観測と非同期の通知は実行層の仕組みが担う(IMPL-0283、降りていない)。ゲート滞留時間と混ぜない旨の注記は説明(突合 X-11)
     issue: 298
-  - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.5 棚卸しとスコープの調整
+  - key: "phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.5 棚卸しとスコープの調整"
+    status: marked
+    ids:
+      - IMPL-0851
+    note: "SC-P へ項目を追加する調整の上限(個数の合計が計画容量を超える追加をしない。「実測なし」の間は置かない)は IMPL-0851(降りていない)。(1)「棚卸しのための会議体を定めません」は課さない明記。(2) 調整の権限の表は、価値責任者の単独判定と SG・7.6 の判定の割当で、判定記録または調整の記録に現れるが、調整の記録の置き場は標準が定めていない。表の「SC-M を増減する」は SG(IMPL-0846)と 7.6 の判定記録が追う。(4) 契約で固定した範囲に触れる調整を B-2 の裁定へ回す限定は 2.10.8 の経路(IMPL-0852)。(5)「計画範囲と調整枠の増減を、計画に反する変更として扱ってはなりません」は評価の向きの禁止で、人の席が担い、実行層に置き場を持たない(理由は置き場の有無で、AI の担い手を縛らないことではない)。登録は区分済みの none / org-design から改めた(#324 の裁定 decision.md 2章 #8)"
+    issue: 443
+  - key: "phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.6 期日に間に合わない見込みが立った場合"
+    status: pending
+    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。IMPL-0367(D-0 表1 の行『フローの観測と見込みの報告』と担い手の権限)は節の中にある。規定: 見込みを価値責任者が評価して手続を開始し期日の到来を待たない、手順の選択の順序(範囲を削る → 期日を動かす → 基準を下げる)を入れ替えない、SC-B から先に削り SC-M へ手を付けない、手順1 で不足するときは 7.6 のエスカレーションレポートを起票する。順序と評価を記録する置き場は、2.10.5 の調整の記録と同じく標準が定めていない。手順の権限の割当は 7.6・7.3 のマーク、報告の様式は IMPL-0617 が追う見込みだが、確かめていない。議長が束の終わりに裁定する"
+  - key: "phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.7 通常運転と例外の境界"
     status: none
-    category: org-design
-    reason: "節の規範は人の席が担う。会議体を本標準が定めないことの表明、価値責任者と SG の判定者による調整の権限の表と記録、計画容量の上限の禁止、契約で固定した範囲を B-2 の裁定へ回す限定、計画範囲と調整枠の増減を計画に反する変更として扱うことの禁止は、いずれも人の判断と記録を縛り、AI の担い手の挙動を縛らない(2.10.1 と同じ整理)。計画容量の上限は個数と容量で決まる条件だが、機械で確かめるとは決めていない(降ろし先の候補は企画書の様式 IMPL-0373 で、実装マークの棚卸し #324 へ送る)。一覧づくりの読み出しは滞留の観測と通知(IMPL-0283、降りていない)と同じ置き場に乗るが、規範は人の確認である"
-    issue: 345
-  - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.6 期日に間に合わない見込みが立った場合
-    status: pending
-  - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.7 通常運転と例外の境界
-    status: pending
-  - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.8 合意した範囲から外れた変更の扱い
-    status: pending
-  - key: phase4-process-design/lifecycle#2.11 関連する章
-    status: pending
-  - key: phase4-process-design/overview#(冒頭)
-    status: pending
-  - key: phase4-process-design/overview#1.0 名称
-    status: pending
-  - key: phase4-process-design/overview#1.1 目的
-    status: pending
+    category: explanation
+    reason: "通常運転と例外の対応の表。規定は 2.10.1・2.10.5・2.10.6 と第7章 7.3・7.4・7.6 の各節にあり、この表は再掲(先例: 附属書H H.3 検証の主張と条項の対応)"
+    issue: 324
+  - key: "phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.8 合意した範囲から外れた変更の扱い"
+    status: marked
+    ids:
+      - IMPL-0852
+    note: "範囲外と判定した変更の経路と、内側のループを止めないこと、判定を待つ項目を SC-B に置いて着手しないことは IMPL-0852。契約で固定した範囲に触れる調整を「契約に影響」の枝へ入れることは 2.10.5 の限定と同じ規定で、判定者の割当(価値責任者・B-2)は判定記録と調整の記録に現れる。乖離を G-4 で捕捉することは G-4 の判定基準5(スコープの層の判定欄)の側にある"
+    issue: 324
+  - key: "phase4-process-design/lifecycle#2.11 関連する章"
+    status: none
+    category: explanation
+    reason: "関連する章への参照の列挙。規定の文は無い"
+    issue: 324
+  - key: "phase4-process-design/overview#(冒頭)"
+    status: none
+    category: explanation
+    reason: "本標準の位置づけを述べる導入の文。規定の文は無い"
+    issue: 324
+  - key: "phase4-process-design/overview#1.0 名称"
+    status: none
+    category: explanation
+    reason: "通称と正式名称の定義(ADR-0027)と、名称の由来の説明。名称の使い分けは本標準の記述の規則で、案件の実行主体の挙動を縛らない。異表記の検出は npm run check(variant-forms)が行う"
+    issue: 324
+  - key: "phase4-process-design/overview#1.1 目的"
+    status: none
+    category: explanation
+    reason: "本標準の目的の列挙と、担保が欠陥の無いことの約束でない旨の注記。範囲を述べる文で、守らせる文は無い"
+    issue: 324
   - key: phase4-process-design/overview#1.2 適用範囲
     status: none
     category: org-design
     reason: 適用範囲の表と、本標準が開発の方式・手法の名で適用の対象を限定せず既存の開発手法との関係を主張しないことの表明(主語が本標準)。除外理由の記録は第8章のテーラリングの宣言による。AI の担い手の挙動を制約しない
     issue: 298
-  - key: phase4-process-design/overview#1.3 引用規格および参照文書
-    status: pending
+  - key: "phase4-process-design/overview#1.3 引用規格および参照文書"
+    status: none
+    category: explanation
+    reason: "引用規格が無いことの宣言と、参照した文書の一覧。「版を付ける」「出典台帳の識別子を書く」「版の発行のたびに棚卸しする」は本標準の記述にだけ掛かる起草の規則で、検査は npm run check(lint:sources)が行う。案件の実行主体の挙動を縛らない"
+    issue: 324
   - key: phase4-process-design/overview#1.4 用語の定義
     status: none
     category: explanation
@@ -3448,31 +3534,65 @@ sections:
     category: explanation
     reason: 本標準の章と附属書の構成の表。附属書A の内容欄を中身に合わせた
     issue: 298
-  - key: phase4-process-design/overview#1.6 各章の入力・処理・出力(IPO)
-    status: pending
-  - key: phase4-process-design/overview#1.7 記述の原則
-    status: pending
-  - key: phase4-process-design/overview#1.7 記述の原則 > 1.7.1 規定の表現形式
-    status: pending
-  - key: phase4-process-design/overview#1.7 記述の原則 > 1.7.2 規定と説明の読み分け
-    status: pending
-  - key: phase4-process-design/overview#1.7 記述の原則 > 1.7.3 表の升に入れる語
-    status: pending
-  - key: phase4-process-design/overview#1.7 記述の原則 > 1.7.4 検査と、その限界
-    status: pending
-  - key: phase4-process-design/overview#1.7 記述の原則 > 1.7.5 組織が書く基準の読み替え
-    status: pending
-  - key: phase4-process-design/overview#1.7 記述の原則 > 1.7.6 根拠水準のマークの範囲
-    status: pending
+  - key: "phase4-process-design/overview#1.6 各章の入力・処理・出力(IPO)"
+    status: none
+    category: explanation
+    reason: "章ごとの入力・処理・出力の対応の表(章間のトレーサビリティの説明)。守らせる文は無い"
+    issue: 324
+  - key: "phase4-process-design/overview#1.7 記述の原則"
+    status: none
+    category: explanation
+    reason: "本標準の記述の原則の列挙(文末の形、説明の書き方、同じ事項を1か所に書く、番号つき列挙の引き方、時点の併記)。本標準の記述にだけ掛かる起草の規則で、案件の実行主体の挙動を縛らない。検出は規定の表現形式の検査(check-provisions)が行う"
+    issue: 324
+  - key: "phase4-process-design/overview#1.7 記述の原則 > 1.7.1 規定の表現形式"
+    status: none
+    category: explanation
+    reason: "本標準の規定の文末の形の決まり(起草の規則)。本標準の記述にだけ掛かり、案件の実行主体の挙動を縛らない。検出は規定の表現形式の検査(check-provisions)が行う。先例は 1.7.7(rulings.md R-13)"
+    issue: 324
+  - key: "phase4-process-design/overview#1.7 記述の原則 > 1.7.2 規定と説明の読み分け"
+    status: none
+    category: explanation
+    reason: "規定と説明の読み分けの決まり(読み方の規則)と、地位が未決の文を挙げる根拠水準のマーク(EV-0263)。本標準の記述の読み方にだけ掛かり、案件の実行主体の挙動を縛らない。マークの表が挙げる文は、各文の所在の節で区分する(市場規模の欄は第6章 テンプレ6、枠の中の文は各節)"
+    issue: 324
+  - key: "phase4-process-design/overview#1.7 記述の原則 > 1.7.3 表の升に入れる語"
+    status: none
+    category: explanation
+    reason: "表の升に入れる語彙の決まり(起草の規則)。本標準の表にだけ掛かり、案件の実行主体の挙動を縛らない。機械は括弧の限定の有無までを npm run check で確かめる"
+    issue: 324
+  - key: "phase4-process-design/overview#1.7 記述の原則 > 1.7.4 検査と、その限界"
+    status: none
+    category: explanation
+    reason: "npm run check が検出するものと検出しないものの説明(検査の限界の開示)。本標準の記述の検査にだけ掛かり、案件の実行主体の挙動を縛らない"
+    issue: 324
+  - key: "phase4-process-design/overview#1.7 記述の原則 > 1.7.5 組織が書く基準の読み替え"
+    status: none
+    category: not-imposed
+    reason: "組織が書く基準に、緩める理由への読み替えの列挙を求めないこと、規定の目的に反する結果を文言の充足で得てはならないという一般的な規定を置かないことの表明。課さないと決めた事項で、読み替えへの歯止めは各条項の禁止として書く(EV-0128)。本節は組織が書く文書に掛かるが、課さない表明のため追うマークを持たない"
+    issue: 324
+  - key: "phase4-process-design/overview#1.7 記述の原則 > 1.7.6 根拠水準のマークの範囲"
+    status: none
+    category: not-imposed
+    reason: "根拠水準のマークを本標準を適用する者の文書に課さないことの表明(付け忘れを記録で検出する手段が無い)。導入前の検証の結果の根拠の水準の開示は 1.10.1 の節が扱い、この節の範囲の外"
+    issue: 324
   - key: phase4-process-design/overview#1.7 記述の原則 > 1.7.7 値の扱い
     status: none
     category: explanation
     reason: 本標準の記述が値の扱いを示す語の決まり(起草の規則)。本標準の記述にだけ掛かり、実行主体の挙動を制約しない。「初期値」の語の検出は規定の表現形式の検査(check-provisions)が行う。値ごとの記録の検出は各条項の節のマークで追う(G-1 の IMPL-0371 など)
     issue: 419
-  - key: phase4-process-design/overview#1.8 関連するフェーズ
-    status: pending
-  - key: phase4-process-design/overview#1.9 本標準を適用する組織が主張できること、主張しないこと
-    status: pending
+  - key: "phase4-process-design/overview#1.8 関連するフェーズ"
+    status: marked
+    ids:
+      - IMPL-0853
+    note: "手引きに従ったことを適合の根拠に数えないことは IMPL-0853(降りていない)。フェーズ5・6 の頁に置かない形、条項番号に似た番号を振らないこと、実装マークの置き場、本文が手引きへ要求事項を委ねない書き方は、本標準の記述にだけ掛かる起草の規則で、npm run check(lint:provisions)が検出する。手引きの記述が本文を緩めず要求事項を加えないことも、本標準の記述の規則"
+    issue: 324
+  - key: "phase4-process-design/overview#1.9 本標準を適用する組織が主張できること、主張しないこと"
+    status: marked
+    ids:
+      - IMPL-0854
+    location:
+      - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の主張の成立判定"
+    note: "1名体制の保証の主張の禁止は IMPL-0854。満たさない範囲を「品質保証の対象外として出荷した」と伝えること、主張を6つの成立条件を満たす場合に限ることは、G-7 の保証の主張の成立判定の IMPL-0050(定型の文を出す)・IMPL-0113・IMPL-0438 が追う。組織の保証の主張が含まない事項の列挙は、主張しないことの表明(説明)。保証の主張の3層の対応の表は説明"
+    issue: 324
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張
     status: none
     category: explanation
