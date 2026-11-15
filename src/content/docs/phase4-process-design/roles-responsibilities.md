@@ -889,7 +889,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 - 検知者と承認者が同一人物でも(兼務を記録した案件)、ラベルを経由させ、引き渡しを記録する。どの職務で判断したかは、記録によってしか追えない([ADR-0038](/process-compass/adr/0038-detection-handoff-of-control-weakening/))
 - 統制の弱化は、取り消せない操作([第5章 5.5.1](/process-compass/phase4-process-design/human-ai-boundary/))とは別の停止の事由とする。取り消せない操作の定義に当たらなくても、自律実行を止めて引き渡す。1つの変更が両方に当たる場合は、どちらの停止も外さない(5.5.1)
 
-<!-- impl IMPL-0982 target=claude-md-resident state=undelivered check=presence plan=scheduled issue=335 review=2027-05 note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる" -->
+<!-- impl IMPL-0982 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=335 review=2027-05 note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる。機械(check-process-rules)は、この併記を運ぶ行を確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0014 target=claude-md-resident state=delivered check=presence note="統制の弱化を性質で定義し検知の対象とする(単位: 行)" -->
 <!-- impl IMPL-0015 target=claude-md-resident state=delivered check=presence note="検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す(単位: 行)" -->
@@ -1128,7 +1128,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 
 <!-- impl IMPL-0699 target=config-delegation state=delivered check=manual note="委任の範囲の規則の登録の節の、登録されていない変更種別を席の宣言だけで委任の範囲に入れないこと。scripts/gate/delegation.mjs が、構成の delegation.changeTypes に無い種別の規則を拒む(3.7.4 の IMPL-0663 と同じ検査)。登録する者(B-4・D-0 表1 の決定者)と AI の名義の登録の拒否は IMPL-0823(3.7.4 B-4)が追う。確かめる者: 席の責任者(委任の範囲を定めるとき)。実行して確かめていない(所在を読んだ)" -->
 
-<!-- impl IMPL-0212 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="リスク区分の一次判定のラベル(risk/R1〜R3)を自動で付与し、引き下げに技術判断者の記名を要する。区分の下限の照合(G-5 の pr-rules)はあるが、ラベルの自動付与と引き下げの記名の検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0212 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="リスク区分の一次判定のラベル(risk/R1〜R3)を自動で付与し、引き下げに技術判断者の記名を要する。区分の下限の照合と、R1・R2 の確定者(作成を指示した者以外の名簿の人)の記名の検査は G-5 の pr-rules にあり、IMPL-0062 が追う。未実装は、ラベルの自動付与だけである。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.8.2 決裁者の割当
 
@@ -1265,9 +1265,9 @@ AI の出力を本節の意見に含めないのは、意見を求めるレビ�
 
 リスク区分 R1(3.8.1)の案件は、T−10営業日の公開・T−5営業日の締切とします。取り消せない決定には、意見を出す側の検討時間を確保する必要があるためです。
 
-期間を短縮できるのは、[第7章 7.4](/process-compass/phase4-process-design/exception-escalation/)のファストトラックを適用した場合に限ります。
+期間を短縮できるのは、[第7章 7.4](/process-compass/phase4-process-design/exception-escalation/)のファストトラックを適用した場合に限ります。短縮の下限(何営業日まで縮めてよいか)は、本標準では定めていません。課さないと決めた事項であり、定めの欠落ではありません。
 
-<!-- impl IMPL-0830 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-05 note="3.10.2 の、事前レビュー期間を短縮できるのは第7章 7.4 のファストトラックを適用した場合に限ること。第7章 7.4 のマーク(IMPL-0608〜0612)は適用の期日・申請書・乱用の制約を追うが、期間の短縮をファストトラックの適用に限る照合を名指さない。事前レビュー期間の自動化(判定資料の公開と締切の記録)に準拠テンプレートの実装は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0830 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-05 note="3.10.2 の、事前レビュー期間を短縮できるのは第7章 7.4 のファストトラックを適用した場合に限ること。第7章 7.4 のマーク(IMPL-0608〜0612)は適用の期日・申請書・乱用の制約を追うが、期間の短縮をファストトラックの適用に限る照合を名指さない。事前レビュー期間の自動化(判定資料の公開と締切の記録)に準拠テンプレートの実装は無い。降ろすのは、#445 の IMPL-0608〜0610(第7章 7.4 の適用の期日・申請書・乱用の制約)が先に要る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.10.3 判定資料の要求事項
 
