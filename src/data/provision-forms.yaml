@@ -480,3 +480,43 @@ prohibitionLists:
     - src/content/docs/community/scope-ledger.md
     - template/scripts/vendor
     - template/evidence
+
+# --- 地位が未決の文(第1章 1.7.2。#440 / ADR-0131) ---
+# 注意の枠(札に「暫定」を持たない :::caution と :::danger)の中の要求・禁止の文末(検査12)と、
+# 主語の無い「設けません」(検査17)のうち、地位を Issue #440 の審議で定める文。載せた文は検出から外れる。
+# 検査は、登録の句が実物の本文にあること(枠の中、または文の中)、実物のそばに notice の文があること、
+# 第1章 1.7.2 のマークの表に ledgerKey の文字列があることを確かめる。登録の句が本文から消えたとき、失敗する。
+#   kind      — frame(注意の枠の中の文)/ declaration(主語の無い、表明か禁止か決まらない文)
+#   page      — 本文の頁(documents の page)
+#   phrase    — 実物の文の句
+#   ledgerKey — 1.7.2 のマークの表の「所在」の升にある文字列
+#   issue     — 地位を定める Issue
+#   review    — 見直しの月
+# 審議が済み、文を直したら、その項目を除く(除かないと「消えた登録」で失敗する)。
+undecidedFrameSentences:
+  notice:
+    frame: 前の枠の中の禁止は、枠の外へ出すかどうかを審議中です。決まるまで要求として読みます(第1章 1.7.2)。
+    declaration: 前の文は、表明か禁止かを審議中です。決まるまで禁止として読みます(第1章 1.7.2)。
+  ledgerPage: phase4-process-design/overview
+  entries:
+    - { kind: frame, page: phase4-process-design/safety-verification, phrase: 本番稼働中の安全関連システムへ故障を挿入してはなりません, ledgerKey: 附属書F F.5「手法の分類」の枠, issue: 440, review: 2027-05 }
+    - { kind: frame, page: phase4-process-design/deliverable-templates, phrase: RRS3 でリスクを下げてはなりません, ledgerKey: 第6章「リスク低減の3ステップ」の枠, issue: 440, review: 2027-05 }
+    - { kind: frame, page: phase4-process-design/deliverable-templates, phrase: 唯一の防御としてはなりません, ledgerKey: 第6章「判定における対比」の枠, issue: 440, review: 2027-05 }
+    - { kind: frame, page: phase4-process-design/lifecycle, phrase: 同じ指標として集計してはなりません, ledgerKey: 第2章 2.10.4 の枠, issue: 440, review: 2027-05 }
+    - { kind: declaration, page: phase4-process-design/deliverable-templates, phrase: 市場規模の欄は設けません, ledgerKey: 第6章「市場規模を書かせない理由」, issue: 440, review: 2027-05 }
+    - { kind: declaration, page: phase4-process-design/roles-responsibilities, phrase: 応答に対する報奨を設けません, ledgerKey: 第3章 3.10.11, issue: 440, review: 2027-05 }
+
+# --- 主語の無い表明の動詞(第1章 1.7.2・1.7.4。#440 / ADR-0131) ---
+# 規定の文書の文末が「<動詞>の否定形」で、同じ文に主語(本標準・本章・本節・本附属書・本様式 + は・では・も)が無い文を検出する(検査17)。
+# 動詞を広げるときは、その動詞の主語の無い否定の文を読み、正しい禁止を止めないことを確かめてから足す(定める・課す は #440 に残す)。
+#   forms — 否定形(文末の形)
+#   specs — 自己試験。hit は検出する文、miss は検出しない文
+declarationVerbs:
+  subject: '(?:本標準|本章|本節|本附属書|本様式)(?:は|では|も)'
+  verbs:
+    - verb: 設ける
+      forms: [設けません, 設けない]
+      by: ADR-0131
+      specs:
+        hit: ['新しいゲートを設けません', '経路も設けない(AI の確認は検出の層である)', '| 記載する場所 | 新しい様式を設けない |']
+        miss: ['本標準は、このための新しいゲートを設けません', '本節は新しいゲートを設けない', '設けない場合は、記録します', '設けないのは、運用を圧迫するためです']

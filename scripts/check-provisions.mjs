@@ -18,7 +18,11 @@
 //   9. 手引きへの委任(#316)                規定の文書が、フェーズ5・6 を「〜による/〜に規定/〜に定め/〜が正本」で引く箇所
 //  10. 章の引用(#316)                      「第N章 X.Y」の X が N でない引用と、リンク先が第N章の頁でない引用
 //  11. 禁止事項の番号(#316 / ADR-0086)     「禁止事項N」を、一覧の所在(5.8.5 の / テーラリングの)で修飾せずに引く箇所
-//  12. 注記の中の要求(#316 突合 X-13)      規定の文書の注記(:::note)の中の要求・禁止の文末(〜なければなりません/〜てはなりません)
+//  12. 注記の中の要求(#316 突合 X-13)      規定の文書の注記(:::note)と注意の枠(札に「暫定」を持たない :::caution、:::danger。#440 / ADR-0131)の
+//                                          中の要求・禁止の文末(〜なければなりません/〜てはなりません)。地位が未決の文は登録簿
+//                                          (undecidedFrameSentences)に載せて通し、登録・実物のそばの表示・1.7.2 のマークの表の一致を確かめる
+//  17. 主語の無い表明の文末(#440 / ADR-0131)  規定の文書の文末が「設けません/設けない」で、同じ文に主語(本標準・本章・本節・本附属書・本様式)が無い文。
+//                                          動詞は登録簿(declarationVerbs)で持つ
 //  13. 廃した言い回しの由来(#319 / ADR-0089) 登録簿の各句の by が、実在する ADR を1つ以上指す(Issue は追加として
 //                                          だけ書ける。§8 X-1)。指した ADR の決定・Issue の実在も確かめる
 //                                          by の ADR の本文に句が字句どおり現れることは求めない(ADR-0089 の却下)
@@ -49,6 +53,7 @@ import { missingInputs, INIT_HINT } from './lib/inputs.mjs';
 import { problemOf, decisionIdsIn } from './lib/decision-refs.mjs';
 import { simplifiedCellProblem } from './lib/stage-table.mjs';
 import { hasMark, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
+import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems } from './lib/frame-checks.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = 'src/content/docs';
@@ -104,6 +109,13 @@ const anywhere = new Set(reg.retiredWordsAnywhere ?? []);
 // 廃した値の語(第1章 1.7.7。#419 / ADR-0097)。規定の文書の注記とコメントの中も探す
 const valueWords = reg.retiredValueWords ?? [];
 
+// 地位が未決の文の登録(第1章 1.7.2。#440 / ADR-0131)
+const undecidedReg = reg.undecidedFrameSentences ?? {};
+const undecidedFrame = undecidedReg.entries ?? [];
+const declReg = reg.declarationVerbs ?? {};
+const declVerbs = declReg.verbs ?? [];
+const declSubject = declReg.subject ?? '本標準は';
+
 // --- 1. 附属書の種別の宣言 ---------------------------------------------------
 const overviewDoc = docs.find((d) => d.chapter === 1);
 const overviewLines = overviewDoc ? read(`${DOCS}/${overviewDoc.page}.md`) : [];
@@ -134,13 +146,24 @@ for (const d of docs) {
   const raw = read(rel);
   const masked = maskFences(raw);
   let inNote = false;
+  let inFrameBox = false;
   masked.forEach((line0, i) => {
     if (!line0) return;
     // 12. 注記(:::note)の中の要求・禁止(突合 X-13。1.7.2 は注記を説明に数える)
     if (/^\s*:::note/.test(line0)) inNote = true;
-    else if (inNote && /^\s*:::\s*$/.test(line0)) inNote = false;
+    else if (frameOpening(line0) === 'frame') inFrameBox = true;
+    else if ((inNote || inFrameBox) && isFenceClose(line0)) {
+      inNote = false;
+      inFrameBox = false;
+    }
     if (hasMark(line0, 'provision-ok')) return;
     const n = i + 1;
+    if (inFrameBox && d.kind === 'normative') {
+      const mm = RE_SHALL.exec(stripComments(line0));
+      if (mm && !undecidedFrame.some((u) => u.kind === 'frame' && u.page === d.page && line0.includes(u.phrase))) {
+        report(rel, n, '注意の枠の中の要求・禁止', line0.slice(Math.max(0, mm.index - 20), mm.index + mm[0].length), '要求事項と禁止を、注意の枠だけに書けません。枠の外の本文に 1.7.1 の形で書き、枠の中は所在を示してください。地位が未決の文は登録簿の undecidedFrameSentences に載せます(第1章 1.7.2)');
+      }
+    }
     if (inNote && d.kind === 'normative') {
       const mm = RE_SHALL.exec(stripComments(line0));
       if (mm) report(rel, n, '注記の中の要求・禁止', line0.slice(Math.max(0, mm.index - 20), mm.index + mm[0].length), '注記は説明であり、要求事項を置けません。注記の外の本文へ出してください(第1章 1.7.2)');
@@ -212,6 +235,54 @@ for (const d of docs) {
       report(rel, i + 1, '「できません」の文末', line.slice(Math.max(0, m.index - 24), m.index + m[0].length), '規定の文末に「〜できません/〜できない」を使えません。禁止は「〜しません/〜してはなりません」、可能性・能力の否定は「〜は不可能です/〜する手段がありません」と書いてください(第1章 1.7.1)');
     }
   });
+}
+
+// --- 17. 主語の無い表明の文末(#440 / ADR-0131) ------------------------------------------------
+for (const v of declVerbs) {
+  for (const p of declarationVerbProblems(v, declSubject)) report(REGISTRY, 0, '表明の動詞の登録', v?.verb ?? '', p);
+}
+for (const d of docs) {
+  if (d.kind !== 'normative') continue;
+  const rel = `${DOCS}/${d.page}.md`;
+  if (!existsSync(path.join(ROOT, rel))) continue;
+  const mine = undecidedFrame.filter((u) => u.kind === 'declaration' && u.page === d.page);
+  maskFences(read(rel)).forEach((line0, i) => {
+    if (!line0 || hasMark(line0, 'provision-ok')) return;
+    for (const f of subjectlessDeclarations(stripComments(line0), declVerbs, declSubject)) {
+      if (mine.some((u) => f.sentence.includes(u.phrase))) continue;
+      report(rel, i + 1, '主語の無い表明の文末', f.sentence.slice(-40), '「設けません/設けない」の文は主語を省けません。本標準が定めないことの表明は「本標準は、〜を定めません」と書きます。適用する者への禁止は、その行為を主語にして書きます(第1章 1.7.2)。決まらない文は登録簿の undecidedFrameSentences に載せます');
+    }
+  });
+}
+
+// --- 12 の続き: 地位が未決の文の登録と実物の一致(#440 / ADR-0131) ---------------------------------
+{
+  const pageLines = (page) => {
+    const rel = `${DOCS}/${page}.md`;
+    return existsSync(path.join(ROOT, rel)) ? maskFences(read(rel)) : null;
+  };
+  const pageFrames = (page) => {
+    const lines = pageLines(page) ?? [];
+    let on = false;
+    return lines.map((l) => {
+      if (frameOpening(l) === 'frame') on = true;
+      else if (on && isFenceClose(l)) {
+        on = false;
+        return false;
+      }
+      return on;
+    });
+  };
+  const ledgerRel = `${DOCS}/${undecidedReg.ledgerPage ?? overviewDoc?.page}.md`;
+  const ledgerText = existsSync(path.join(ROOT, ledgerRel)) ? readFileSync(path.join(ROOT, ledgerRel), 'utf8') : '';
+  for (const e of undecidedFrame) {
+    if (!docs.some((d) => d.page === e?.page && d.kind === 'normative')) {
+      report(REGISTRY, 0, '未決の文の登録', e?.phrase ?? '', `page(${e?.page})が規定の文書ではありません`);
+    }
+  }
+  for (const p of undecidedProblems({ entries: undecidedFrame, notice: undecidedReg.notice, linesOf: pageLines, inFrame: pageFrames, ledgerText })) {
+    report(REGISTRY, 0, '未決の文の登録', '', p);
+  }
 }
 
 // --- 8〜10. 手引きの頁・手引きへの委任・章の引用(R-1) ----------------------------------

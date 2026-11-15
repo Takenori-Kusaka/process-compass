@@ -9,6 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { hasMark, hasToneOk, hasRefOk, markReason, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
+import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems } from './lib/frame-checks.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -61,6 +62,55 @@ for (const e of entries) {
   const p = variantEntryProblems(e);
   check(`登録簿の項目「${e.variant}」の自己試験`, p.length === 0, p.join(' / '));
 }
+
+// --- 注意の枠の中の要求・禁止(検査12 の拡張)と、主語の無い表明の文末(検査17)。#440 / ADR-0131 ---
+const decl = reg.declarationVerbs ?? {};
+const subj = decl.subject ?? '';
+const verbs = decl.verbs ?? [];
+check('枠の開き: 札の無い caution は対象の枠', frameOpening(':::caution') === 'frame');
+check('枠の開き: danger は対象の枠', frameOpening(':::danger') === 'frame');
+check('枠の開き: 暫定の札の caution は対象の外', frameOpening(':::caution[暫定 EV-0001 / 見直し 2027-05]') === 'tentative');
+check('枠の開き: note は枠の対象ではない(注記は別に見る)', frameOpening(':::note') === null);
+check('枠の閉じは:::だけの行', isFenceClose(':::') && !isFenceClose(':::danger'));
+check('登録簿に declarationVerbs があり、項目が1つ以上ある', verbs.length > 0 && subj !== '');
+for (const v of verbs) {
+  const p = declarationVerbProblems(v, subj);
+  check(`表明の動詞「${v.verb}」の自己試験`, p.length === 0, p.join(' / '));
+}
+const sl = (line) => subjectlessDeclarations(line, verbs, subj).length;
+check('違反: 主語の無い「設けません」を検出する', sl('新しいゲートを設けません。') === 1);
+check('違反: 太字と表の升の中の「設けない」を検出する', sl('| 記載する場所 | **新しい様式を設けない** |') === 1);
+check('違反: 開き括弧の前の「設けない」を検出する', sl('段に数える経路も設けない(AI の確認は検出の層である)') === 1);
+check('適合: 主語「本標準は」のある文は検出しない', sl('本標準は、新しいゲートを設けません。') === 0);
+check('適合: 主語「本節は」のある文は検出しない', sl('- 本節は新しいゲートを設けない。戻る先は既存の工程ゲートである。') === 0);
+check('違反: 文を分ければ前の文の主語は引き継がない', sl('本標準は定めます。新しい経路を設けません。') === 1);
+check('適合: 「設けない場合」「設けないのは」は文末ではない', sl('設けない場合は記録します。') === 0 && sl('設けないのは運用を圧迫するためです。') === 0);
+
+const U = {
+  notice: { frame: 'F通知', declaration: 'D通知' },
+  ledgerText: '| 所在K1 |',
+  linesOf: (page) => ({
+    ok: ['前', ':::danger', '禁止してはなりません', ':::', '', 'F通知', '宣言を設けません。D通知'],
+    nonotice: ['前', ':::danger', '禁止してはなりません', ':::', '', '空'],
+    gone: ['前', '空'],
+    outside: ['禁止してはなりません', ':::danger', '別', ':::'],
+  })[page] ?? null,
+  inFrame: (page) => ({ ok: [false, true, true, false, false, false, false], nonotice: [false, true, true, false, false, false], outside: [false, true, true, false] })[page],
+};
+const base = { kind: 'frame', page: 'ok', phrase: '禁止してはなりません', ledgerKey: '所在K1', issue: 440, review: '2027-05' };
+const up = (entries) => undecidedProblems({ ...U, entries });
+check('適合: 登録と実物・表示・マークの表が一致すれば通る(枠)', up([base]).length === 0, up([base]).join(' / '));
+check('適合: 登録と実物・表示・マークの表が一致すれば通る(文)', up([{ ...base, kind: 'declaration', phrase: '宣言を設けません' }]).length === 0);
+check('違反: 登録の句が本文から消えたら失敗する', up([{ ...base, page: 'gone' }]).some((p) => p.includes('消えた登録')));
+check('違反: 登録の句が枠の外にあるなら枠の登録は失敗する', up([{ ...base, page: 'outside' }]).some((p) => p.includes('消えた登録')));
+check('違反: 実物のそばに表示の文が無ければ失敗する', up([{ ...base, page: 'nonotice' }]).some((p) => p.includes('表示の文')));
+check('違反: マークの表に所在の文字列が無ければ失敗する', up([{ ...base, ledgerKey: '無い所在' }]).some((p) => p.includes('マークの表')));
+check('違反: 頁が無い登録は失敗する', up([{ ...base, page: 'none' }]).some((p) => p.includes('頁')));
+check('違反: 必須の項目が無い登録は失敗する', up([{ ...base, issue: undefined }]).some((p) => p.includes('issue')));
+check('違反: kind が frame・declaration でない登録は失敗する', up([{ ...base, kind: 'x' }]).some((p) => p.includes('kind')));
+
+// 実物: 登録簿の未決の文がすべて、いまの本文と一致している(検査12 の拡張の本体は npm run lint:provisions)
+check('登録簿に未決の文の区画があり、項目が1つ以上ある', (reg.undecidedFrameSentences?.entries ?? []).length > 0);
 
 console.log(`\n${checks - failures}/${checks} 件が合格`);
 process.exit(failures === 0 ? 0 : 1);
