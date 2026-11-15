@@ -529,8 +529,10 @@ sections:
     note: "5項目・3案・項目5 を人が記入することは IMPL-0617(降りている)、分量の上限と表の形は IMPL-0618(降りていない)。3案を必須とする理由は説明"
     issue: 324
   - key: phase4-process-design/exception-escalation#7.6 エスカレーションの基準 > 決裁後のポートフォリオ調整
-    status: pending
-    note: "区分済み・降ろし先未定。規定の所在: 「決裁結果に、影響を受ける他の案件の一覧を含める」「移動元の案件の責任者へ通知する」「移動により実施できなくなる事項を記録する」。案件をまたぐ決裁の記録の置き場が登録に無く、準拠テンプレートの判定記録(templates/04-gate-record.md)に他の案件の欄は無い(「他の案件」の検索で 0 件。2026-11-15)。準拠テンプレートの単位は単一の案件のリポジトリで、降ろし先が合うかを議長が裁定する。伝達の手段(様式・ツール)は第8章で定める旨は範囲の注記"
+    status: marked
+    ids:
+      - IMPL-0668
+    note: 決裁結果への他の案件の一覧・移動元の責任者への通知・実施できなくなる事項の記録は IMPL-0668(降りていない。判定記録の様式に他の案件の欄が無い)。伝達の手段(様式・ツール)は第8章で定める旨は範囲の注記
     issue: 324
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断
     status: none
@@ -599,7 +601,8 @@ sections:
     status: marked
     ids:
       - IMPL-0621
-    note: "要求事項1〜3 は IMPL-0621(降りていない)。要求事項4(同一の必達基準の不合格に3回を超えて継続と判定しない)の回数は、7.7.3 の IMPL-0378 の note(7.7.5 の回数)と IMPL-0380(SG への引き継ぎ)が追う"
+      - IMPL-0667
+    note: "要求事項1〜3 は IMPL-0621、要求事項4(同一の必達基準の不合格に3回を超えて継続と判定しない上限)は IMPL-0667(いずれも降りていない)。要求事項4の回数の欄は、7.7.3 の IMPL-0378 の note(7.7.5 の回数)と IMPL-0380(SG への引き継ぎ)が追う"
     issue: 324
     rows:
       要求事項1:
@@ -615,11 +618,9 @@ sections:
         ids:
           - IMPL-0621
       要求事項4:
-        status: none
-        category: elsewhere
-        reason: "回数は、7.7.3 の IMPL-0378 の note「7.7.5 の回数(通算の回数・変更の後の区分・延長と増額の累計)」と、IMPL-0380 の note「7.7.5 の回数を次のステージへ引き継いで判定記録に書く」が追う。3回を超えて継続と判定しない上限そのものを拒む検査は、これらの note に名指しが無い(回数の記録の欄はテンプレ4 が持つ)"
-        location:
-          - "phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.3 中止の判断基準"
+        status: marked
+        ids:
+          - IMPL-0667
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.6 案件に関与していない者による棚卸し
     status: marked
     ids:
@@ -830,12 +831,13 @@ sections:
     note: "独立レビュアを2名必須とする制限・適用の範囲の限定・期間を定めないことは IMPL-0118 が追う。全権の停止を採らない旨は、制限の記録に範囲を必須とする IMPL-0118 の note が運ぶ(範囲を限定しない発動を記録しない)。独立レビュアを2名とする目的と ADR-0067 の読みは説明"
     issue: 324
   - key: phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.3 回復の条件
-    status: none
-    category: elsewhere
-    reason: "解除の記録(解除の識別子・根拠・記録した者)と、解除されない限り制限が残り続ける扱い(期間の経過で自動的に解除しない)は、7.9.2 の IMPL-0118 の note(解除(event: restriction-release)を記録できる、取り込んだ日に解除されていない制限の範囲、解除できず件数が残り続ける)で引ける。連続2回の検出で解除する条件の充足の判断は品質保証の機能(人)が行い、根拠を解除の記録に書かせる。期間で戻さない理由は説明"
+    status: marked
+    ids:
+      - IMPL-0666
     location:
       - "phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.2 制限の内容"
-    issue: 324
+    note: "解除の条件(注入した欠陥を連続2回検出)は IMPL-0666(降りていない。7.9.1 の IMPL-0627 と同じ降ろし先・同じ issue)。解除の記録(解除の識別子・根拠・記録した者)と、期間の経過で自動的に解除しない扱い(解除されない限り制限が残り続ける)は、7.9.2 の IMPL-0118 の note(解除(event: restriction-release)を記録できる、取り込んだ日に解除されていない制限の範囲)が追う(location)。期間で戻さない理由は説明"
+    issue: 356
   - key: phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.4 制限された状態での例外決裁
     status: marked
     ids:
@@ -870,7 +872,8 @@ sections:
     ids:
       - IMPL-0629
       - IMPL-0630
-    note: "要求事項1 は IMPL-0629、要求事項2〜4 は IMPL-0630(いずれも降りていない)。要求事項5(行使した件数と残りを B-2 の定例で報告)は会議体の報告で、違反は会議の議事にしか現れず、本標準が求める記録に現れない。比率の上限を規程に書く方式を採らない旨は課さない明記"
+      - IMPL-0669
+    note: "要求事項1 は IMPL-0629、要求事項2〜4 は IMPL-0630、要求事項5のうち件数を数えることは IMPL-0669(いずれも降りていない)。要求事項5の B-2 の定例で報告するふるまいは会議の議事にしか現れず、制度設計として扱う(7.4 制約5 の IMPL-0612 と同じ)。比率の上限を規程に書く方式を採らない旨は課さない明記"
     issue: 324
     rows:
       要求事項1:
@@ -890,15 +893,17 @@ sections:
         ids:
           - IMPL-0630
       要求事項5:
-        status: none
-        category: org-design
-        reason: "行使した件数と残りの件数を B-2 の定例で報告する定め。違反(報告しない)は会議の議事にしか現れない。件数の元になる台帳の行は IMPL-0630 の降ろし先が数える。探した場所: templates/00-d0-governance.md(B-2 の定例の報告の欄なし)、templates/04-gate-record.md(枠の欄なし)、scripts/gate/aggregate-evidence.mjs(「枠」の語なし)、impl-targets.yaml(会議体の定例の降ろし先なし)"
+        status: marked
+        ids:
+          - IMPL-0669
+        note: "件数を数える部分は IMPL-0669。B-2 の定例で報告するふるまいは、会議の議事にしか現れない制度設計(探した場所: templates/00-d0-governance.md に B-2 の定例の報告の欄なし。impl-targets.yaml に会議体の定例の降ろし先なし)"
   - key: phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.6 記録と可視化
     status: none
     category: elsewhere
-    reason: "発動と解除の記録する事項(識別子・対象の人・範囲・根拠の所在・記録した者・解除の識別子)と、人が記録し機械が発動しないことは、7.9.2 の IMPL-0118 の note(event: restriction に範囲・対象の人・根拠・記録した者を必須、解除を記録できる、範囲を記録していない旧い発動は判定できない)で引ける。残りの文のうち、四半期ごとの確認、行使件数の推移を検出率の推移とあわせて確認すること、発動の通知(通知先と通知日は第3章 3.13.6)は、確認と通知のふるまいで、違反が本標準の求める記録のどれにも現れない制度設計(探した場所: templates/04-gate-record.md、scripts/gate/aggregate-evidence.mjs の制限の読み、impl-targets.yaml)。EV は無し"
+    reason: "発動と解除の記録する事項(識別子・対象の人・範囲・根拠の所在・記録した者・解除の識別子)と、人が記録し機械が発動しないことは、7.9.2 の IMPL-0118 の note(event: restriction に範囲・対象の人・根拠・記録した者を必須、解除を記録できる、範囲を記録していない旧い発動は判定できない)で引ける。発動の通知(通知先と通知日の記録)は、第3章 3.13.6 の IMPL-0033 の note(通知する者が通知先と通知日を変化点の記録へ書く。未記入の即時通知は記録の欠落)が追う。残りの文のうち、四半期ごとの確認、行使件数の推移を検出率の推移とあわせて確認することは、確認のふるまいで、違反が本標準の求める記録のどれにも現れない制度設計(探した場所: templates/04-gate-record.md、scripts/gate/aggregate-evidence.mjs の制限の読み、impl-targets.yaml)。EV は無し"
     location:
       - "phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.2 制限の内容"
+      - "phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.6 品質保証部門への通知"
     issue: 324
   - key: phase4-process-design/exception-escalation#7.10 前提の劣化と受容
     status: none
@@ -906,21 +911,45 @@ sections:
     reason: "節の導入(本標準が成立するために置いている前提が崩れた場合の手続を規定する旨と、前提の一覧の所在)。規定の文は 0 件。行為の規定は 7.10.1 以降の節が持つ"
     issue: 324
   - key: phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.1 なぜ止めないか
-    status: pending
-    note: "区分済み・降ろし先未定。規定の所在: 「前提が崩れていることを理由に、判定を機械的に停止してはなりません」は第4章の IMPL-0534 が追う。「安全リスク区分 SR3 以上に該当する工程では、前提の劣化を受容してはなりません」は準拠テンプレートの前提の台帳の手引き(.claude/skills/artifact/artifacts/10-assumption-ledger.md の例外の行)が運ぶが、前提の台帳の様式(templates/10-assumption-ledger.md)と手引きは impl-targets.yaml に降ろし先の登録が無い。登録を足すか後継へ送るかを議長が裁定する。理由の4点は説明"
+    status: marked
+    ids:
+      - IMPL-0670
+    note: "SR3 以上の工程で前提の劣化を受容しないことは IMPL-0670(降りている。手引きの節「全ゲートの共通条件との関係」)。判定を機械的に停止しないことは第4章の IMPL-0534 が追う。理由の4点は説明"
     issue: 324
   - key: phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.2 充足状態の3区分
-    status: pending
-    note: "区分済み・降ろし先未定。規定の所在: 「二値で表してはなりません」「AS-1 以上の前提については、受容の決裁を要します」。準拠テンプレートの templates/10-assumption-ledger.md の表「充足状態」(AS-0/AS-1/AS-2)と「二値で書かない。AS-1 以上の行は受容の決裁を要する」(artifacts/10-assumption-ledger.md)が運ぶ。降ろし先の登録が無い。旧版の記号の読み替えは説明"
+    status: marked
+    ids:
+      - IMPL-0671
+    note: "二値で表さないこと・AS-1 以上の受容の決裁は IMPL-0671(降りている。台帳の表と手引き)。旧版の記号の読み替えは説明"
     issue: 324
   - key: phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.3 劣化の定義
-    status: pending
-    note: "区分済み・降ろし先未定。規定の所在: 「劣化を観測された事象で定義します。判断や自己申告で定義してはなりません」「閾値の数値は組織が定める値。当該の前提に責任を負う者が定め、前提の台帳に記録する」「上記以外の前提は劣化の判定条件を定めません」。templates/10-assumption-ledger.md の行(A-T3・A-T4・A-O1〜A-O3・A-K3 の6つ)と観測の列、「充足状態を自己申告で決めないでください」が運ぶ。降ろし先の登録が無い。表の例と A-O3 の注は説明"
+    status: marked
+    ids:
+      - IMPL-0672
+      - IMPL-0673
+    note: "観測された事象で定義し自己申告で定義しないこと・劣化の判定条件を定めない前提を扱わないことは IMPL-0672(降りている)。閾値の数値を当該の前提に責任を負う者が定めて台帳に記録することは IMPL-0673(降りていない。台帳に閾値の欄が無い)。表の例と A-O3 の注は説明"
     issue: 324
   - key: phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.4 受容の要求事項
-    status: pending
-    note: "区分済み・降ろし先未定。規定の所在: 要求事項1〜3(受容の決裁者は当該の前提に責任を負う者、有効期限と再評価の契機、受容の記録を台帳に残す)。artifacts/10-assumption-ledger.md の手順5(決裁者・有効期限・再評価の契機)と templates/10-assumption-ledger.md の列(決裁者 / 日付 / 有効期限 / 再評価の契機)が運ぶ。降ろし先の登録が無い。番号つきの表は、登録が決まった時点で行ごとに区分する"
+    status: marked
+    ids:
+      - IMPL-0674
+      - IMPL-0675
+      - IMPL-0676
+    note: 要求事項1 は IMPL-0674、要求事項2 は IMPL-0675、要求事項3 は IMPL-0676(いずれも降りている。台帳の表の列「受容の記録」と手引きの作成の手順5)。台帳の中身を検査する仕組みは無く、各ゲートの判定者が確かめる
     issue: 324
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0674
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0675
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0676
   - key: phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.5 ゲートとの接続
     status: none
     category: elsewhere
@@ -978,7 +1007,7 @@ sections:
       要求事項8:
         status: none
         category: elsewhere
-        reason: "IMPL-0073 の note に「申し立てと保留を保証の開示の項目7 へ出す」がある。解除の記録の表示は名指しされていない(引き継ぎの記録に挙げた)"
+        reason: "IMPL-0073 の note に「申し立てと保留を保証の開示の項目7 へ出す」と、成立した解除の記録(stopReleases)を項目7 へ出し、成立しない解除の記録を記載の欠落とすることがある(aggregate-evidence.mjs の renderContinuityGeneration を確かめた。2026-11-15)"
         location:
           - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 停止の申し立ての保留"
   - key: phase4-process-design/exception-escalation#7.11 停止の申し立て > 保留の範囲と強制の方法
@@ -1008,8 +1037,10 @@ sections:
   - key: phase4-process-design/gate-criteria#前提条件と判定基準の区別
     status: none
     category: elsewhere
-    reason: 規定は「両者を混同してはなりません」「前提条件を満たさない場合は判定を開始せず提出者へ差し戻す」「前提条件は機械的に検査し、人の判断を介在させない」。前提条件に当たるのは G-2・G-4 の前提条件1(機能仕様の未確定事項)で、IMPL-0148 の note が「G-2・G-4 の前提条件1」を名指し、spec-lint --gate が検査する。区別そのものの一般則を名指すマークは無いが、前提条件が2件に限られるため所在の節のマークで追うと登録した(迷った点。引き継ぎの記録に挙げる)
+    reason: 規定は「両者を混同してはなりません」「前提条件を満たさない場合は判定を開始せず提出者へ差し戻す」「前提条件は機械的に検査し、人の判断を介在させない」。前提条件の表を持つのは G-1(行1 D-0 の承認、行2 安全重要度の判定の記録)・G-2・G-4(前提条件1 機能仕様の未確定事項)で、G-1 は IMPL-0679 と第8章 軸E の IMPL-0449、G-2・G-4 は IMPL-0148 の note(「G-2・G-4 の前提条件1」を名指し、spec-lint --gate が検査する)が追う。区別そのものの一般則を名指すマークは無いが、前提条件の表を持つ節のマークで追うと登録した(独立の突合 1巡目の所見 4 で G-1 を足した)
     location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程または D-0 の記名による)
+      - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 判定の記録と確認"
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 未確定事項(前提条件1)
     issue: 324
   - key: phase4-process-design/gate-criteria#全ゲートに共通する通過条件
@@ -1109,7 +1140,8 @@ sections:
     status: kb
     ids:
       - IMPL-0371
-    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。見出しを #317 突合 X-2 で改めたため登録し直した(旧い鍵は「既存規程どおり」)。期限の欄の置き場は D-0 表1-2(IMPL なし。様式の必須欄の検査が欄の存在を確かめる)
+      - IMPL-0679
+    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。前提条件1(D-0 の承認)は IMPL-0679、前提条件2 は第8章 軸E の IMPL-0449 が追う。見出しを #317 突合 X-2 で改めたため登録し直した(旧い鍵は「既存規程どおり」)。期限の欄の置き場は D-0 表1-2(IMPL なし。様式の必須欄の検査が欄の存在を確かめる)
     issue: 317
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-1 企画承認(事業決裁者・既存規程または D-0 の記名による) > 品質の約束と保証範囲(層2)
     status: none
@@ -1326,11 +1358,12 @@ sections:
     note: 変更の範囲の測定は node(IMPL-0245)と python・go(IMPL-0259。#360)、被覆の記録の無い構成の失敗は IMPL-0495、python の全体の割合からテストのファイルを除くことは IMPL-0496。薄まりの開示は IMPL-0260、記録した範囲と構成の一致は契約検査(IMPL-0261)、企画書の行は IMPL-0262、保証の開示は出荷のワークフローが同じ実行から結果を取り込む(IMPL-0246。#333 / ADR-0135)。規模の下限と ratchet は課さない明記(EV-0142・EV-0143)。下限の由来と代償措置の終了は IMPL-0346、由来の記録の無い旧い構成は IMPL-0348(#318)
     issue: 296
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 知財潔白性の検査
-    status: none
-    category: elsewhere
-    reason: 依存関係のライセンスの合否(基準5)は判定基準の表(kb)の規定。類似の検知を合否条件にせず、実施と結果を記録して G-7 のエビデンスにすることは IMPL-0046 の note が「類似の検知の実施記録」を名指す(降りていない)。AI の利用の有無で検査を変えないことは、検査を AI の利用で分岐させない構成で追う(分岐する検査は準拠テンプレートに無い)。類似の検知の実施そのものを運ぶ降ろし先は無く、迷った点として引き継ぎの記録に挙げる
+    status: marked
+    ids:
+      - IMPL-0678
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+    note: 検査を AI の利用の有無で変えないことは IMPL-0678(降りている。gate-g5.yml の条件がイベントと構成の有無だけを見る)。依存関係のライセンスの合否(基準5)は判定基準の表(kb)の規定。類似の検知を合否条件にせず、実施と結果を記録して G-7 のエビデンスにすることは、G-7 の IMPL-0046・0548 の note が「類似の検知の実施記録」を名指す(降りていない。location)
     issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 類似が検知された場合の措置
     status: marked
@@ -1374,8 +1407,24 @@ sections:
     note: 追加・更新の一覧の出力(合否なし)は L1、依存の必要性を G-6 で確かめることは L2。ライセンスの適合は基準5(kb)
     issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 許可リストが判定を妨げた場合の救済
-    status: pending
-    note: '区分済み・降ろし先未定。規定: 暫定の許可には必ず期限を付す/恒久の追加を技術判断者および AI維持管理者の裁量で行わない(許可リストは法務の所管)/期限を超過した暫定の許可は失効させ基準5で再び停止する。手続の表3行(申請・暫定の許可・恒久の可否)。許可リストの置き場(ライセンスの許可リストと暫定の許可の記録)を運ぶ降ろし先が impl-targets.yaml に無い(ip-clearance は gates/G-5.md の基準の表の行で、許可リストの運用は置かない)。近い降ろし先を当てない。議長の裁定待ち(予定の降ろし先を足すか、後継へ送るか)'
+    status: marked
+    ids:
+      - IMPL-0683
+    note: 暫定の許可の期限・恒久の追加の所管・失効は IMPL-0683(降りていない。予定の降ろし先 ip-allowlist-operation。採用者に委ねるかは本件で決めない)
+    issue: 324
+    rows:
+      手続1:
+        status: marked
+        ids:
+          - IMPL-0683
+      手続2:
+        status: marked
+        ids:
+          - IMPL-0683
+      手続3:
+        status: marked
+        ids:
+          - IMPL-0683
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
     status: kb
     ids:
@@ -1522,8 +1571,51 @@ sections:
     note: 未解除の停止の申し立てがあれば集約を失敗させ、保留を解くのは7.11 の解除の記録だけ(署名と G-8 の受容は解かない)ことは IMPL-0073
     issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
-    status: pending
-    note: 区分済み・一部未確認。節の中に IMPL-0471・0461・0448・0439 がある(項目1 の置き場の性質・G-5 の読み元・統制の設定の変更の承認の内訳・項目2 のテーラリングの宣言)。保証の開示の出力の形は H.6 の IMPL-0032(投影・未達と未測定の扱い)が追う。箇条のうち、前回の出荷の値の併記・対外文書の検出率の扱い・等級で表さない・受託の納品ごとの受け渡し・定型の文・旧い構成の簡略の表示を、名指すマークが無いか見つけられていない(本担当では確かめきれず、残す)。基準9 が差し戻す記載の欠落の表(13行の「欠落に当たる」)も、行ごとの追跡を確かめていない
+    status: marked
+    ids:
+      - IMPL-0471
+      - IMPL-0461
+      - IMPL-0448
+      - IMPL-0439
+      - IMPL-0685
+      - IMPL-0686
+      - IMPL-0687
+    location:
+      - phase4-process-design/assurance-case#H.6 保証の開示
+    rows:
+      項目1:
+        status: marked
+        ids:
+          - IMPL-0439
+          - IMPL-0461
+          - IMPL-0685
+      項目2:
+        status: marked
+        ids:
+          - IMPL-0471
+          - IMPL-0448
+      項目3:
+        status: marked
+        ids:
+          - IMPL-0685
+      項目4:
+        status: marked
+        ids:
+          - IMPL-0685
+      項目5:
+        status: marked
+        ids:
+          - IMPL-0685
+      項目6:
+        status: marked
+        ids:
+          - IMPL-0685
+      項目7:
+        status: marked
+        ids:
+          - IMPL-0685
+    note: "項目1 の置き場の性質は IMPL-0439、G-5 の読み元・統制の設定の変更の承認の内訳・残る経路は IMPL-0461、項目2 のテーラリングの宣言は IMPL-0471、旧い構成の簡略は IMPL-0448。前回の値の併記・未測定の継続期間・区分確定者の記名・対外文書で検出率を値で出さない・定型の文・同一人物の表示・委任の内訳・安全重要度の判定の確認・等級を出さないことは IMPL-0685(降りている)。基準9 の記載の欠落の表のうち、集約が欠落として出す行は IMPL-0686(降りている)、出すかを確かめていない行(7項目の欠け・作成を求める記録の不在・成立判定の出力の不在)は IMPL-0687(降りていない)。出力の形(投影・未達と未測定の扱い)は H.6 の IMPL-0032(location)が追う。受託の納品ごとの受け渡しは第8章 軸D の規定で、本節では追わない"
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の主張の成立判定
     status: marked
     ids:
@@ -1564,7 +1656,7 @@ sections:
         status: marked
         ids:
           - IMPL-0556
-    note: 条件4 は IMPL-0113・0438。突合は2点だけで署名の意味を変えないこと・受容しない条件に当たる事実を G-8 で受容しないことは S1。成立判定の機械出力・対象外として出荷した記録は IMPL-0050(H.6)、対象外の受容の記名は IMPL-0052(G-8)。「条件付き保証」のような中間の語を作らないこと、組織継続の側を成立条件に入れないことを名指すマークは確かめていない(H.6 の IMPL-0050 の note に読めたかどうかは未確認)
+    note: 条件4 は IMPL-0113・0438。突合は2点だけで署名の意味を変えないこと・受容しない条件に当たる事実を G-8 で受容しないことは S1。成立判定の機械出力・対象外として出荷した記録は IMPL-0050(H.6)、対象外の受容の記名は IMPL-0052(G-8)。定型の文「品質保証の対象外として出荷した」は H.6 の IMPL-0050 の note から引ける。「条件付き保証」のような中間の語を作らないこと、組織継続の側を成立条件に入れないことを名指すマークは見つけていない(独立の突合 1巡目の所見 19。附属書H の束で H.1・H.8 を仕分けるときに所在を決め、この note を直す)
     issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 出荷判定者の署名の意味
     status: marked
@@ -1820,26 +1912,42 @@ sections:
       - IMPL-0583
     issue: 324
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 割り当て
-    status: pending
-    note: 区分済み・降ろし先未定。規定の文は「レビュー依頼は個人へ指名する。チーム宛てのままにしない」。違反は PR のレビュー依頼の宛先に現れ、様式・スキルの手順として置けば実行主体が読むため、規定として扱う。合う降ろし先が impl-targets.yaml に無い(pr-checks は PR の本文の節を読むが、レビュー依頼の宛先は読まない。flow-observation の description は第2章 2.10.4 の滞留期間に限る)。近い降ろし先を当てない。議長の裁定待ち
+    status: marked
+    ids:
+      - IMPL-0680
+    note: レビュー依頼の個人への指名は IMPL-0680(降りていない。予定の降ろし先 review-queue-control)
     issue: 324
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 滞留したときの措置
-    status: pending
-    note: 区分済み・降ろし先未定。規定の文は、応答時間の超過で指名したレビュアへ自動で催促する、2倍の超過で D-0 表3 の判定する者へ通知する、判定完了時間の超過で第7章 7.5 の代理判定者の指名を適用する、自動的な再割り当てを第一の手段にしない。催促と通知の置き場は準拠テンプレートに無く(CLAUDE.md の「催促」は費用を挙げて承認を催促しない規則で別の規定)、planned の flow-observation は第2章 2.10.4 の滞留期間に限る。近い降ろし先を当てない。議長の裁定待ち
+    status: marked
+    ids:
+      - IMPL-0681
+    note: 催促・通知・自動的な再割り当てを第一の手段にしないことは IMPL-0681(降りていない。予定の降ろし先 review-queue-control)。判定完了時間の超過で適用する第7章 7.5 の措置は 7.5 の節(pending)の側
     issue: 324
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 偏りの監視
     status: marked
     ids:
       - IMPL-0584
-    issue: 355
-  - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 流入を絞る
-    status: pending
-    note: 区分済み・降ろし先未定。規定の文は制御1(レビュアあたりの同時保有数の上限。既定は1人3件、新たに指名しない)と制御2(指名先が確保できない場合は新たな判定依頼を作らず実装計画へ差し戻す)。準拠テンプレートに同時保有数を数える置き場が無い(templates/08-ai-sla.md の受け入れの速度の欄は受託の契約の記入欄であり、実行主体を縛る置き場ではない)。番号つきの表(制御1・2)の行は、降ろし先の裁定の後に区分する。議長の裁定待ち
     issue: 324
+  - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 流入を絞る
+    status: marked
+    ids:
+      - IMPL-0682
+    note: 制御1・2 は IMPL-0682(降りていない。予定の降ろし先 review-queue-control)
+    issue: 324
+    rows:
+      制御1:
+        status: marked
+        ids:
+          - IMPL-0682
+      制御2:
+        status: marked
+        ids:
+          - IMPL-0682
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 帯域を理由に判定を省略しない
     status: marked
     ids:
       - IMPL-0585
+      - IMPL-0694
       - IMPL-0586
     issue: 324
     note: 判定の時点を移せる場合は5.5.4と第8章が定める。手段の順(分割の総量を減らす、判定に要する労力を下げる、判定できる人数を増やす)は手引きの順序であり、個別のマークは足していない
@@ -1915,8 +2023,8 @@ sections:
     issue: 296
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い > 合否条件にしてよい指標、してはならない指標
     status: none
-    category: not-imposed
-    reason: AI 生成行の短期書き換え率と一発承認率を合否条件にしない(課さない明記)。G-5 の機械判定は G-5 の節と基準3 の節のマークで追う
+    category: org-design
+    reason: "合否条件にしない2指標(AI 生成行の短期書き換え率・一発承認率)の扱いを定める表。独立の突合 1巡目の所見 11 で、課さない明記(not-imposed)から読み直した。禁止の主語は判定者・組織であり、順 6 の問い(破ったことを実行主体の外から検知する・拒む仕組みが成り立つか)に、成り立たないと答えた。探した場所: 準拠テンプレートに2指標を計算・参照する箇所は無い(「一発承認」「書き換え率」で template/ を検索して 0 件。2026-11-15)。G-5 の構成(process.config.json)と集約(aggregate-evidence.mjs)に2指標を合否条件として置く入口が無く、gate-skill の G-7 の補助ファイル(gates/G-7.md)は「数値を合格の根拠として書かない」と一般則だけを置く(2指標を名指さない)。合否条件にする側の指標(G-5 の機械判定)は G-5 の節と基準3 の節のマークで追う"
     issue: 296
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い > 新規に変更した範囲へ限定する
     status: none
@@ -1953,6 +2061,7 @@ sections:
     ids:
       - IMPL-0591
       - IMPL-0592
+      - IMPL-0688
     issue: 324
   - key: phase4-process-design/human-ai-boundary#5.3 役割境界の時点表記
     status: none
@@ -1973,12 +2082,13 @@ sections:
     status: marked
     ids:
       - IMPL-0593
+      - IMPL-0689
     issue: 324
     rows:
       不変条件1:
         status: marked
         ids:
-          - IMPL-0593
+          - IMPL-0689
       不変条件2:
         status: marked
         ids:
@@ -1986,12 +2096,13 @@ sections:
       不変条件3:
         status: marked
         ids:
+          - IMPL-0689
           - IMPL-0593
       不変条件4:
         status: marked
         ids:
-          - IMPL-0593
-    note: 4行とも IMPL-0019(CLAUDE.md)・IMPL-0251(5.5.1)・IMPL-0097(5.5.7)と部分的に重なるが、行ごとの対応を確かめていないため、節の中の未達のマークで開示した
+          - IMPL-0689
+    note: 不変条件1・4と不変条件3の認証・認可・個人データは IMPL-0689(降りている。IMPL-0019・IMPL-0097 とも重なる)、不変条件2の本番反映の承認の記名と不変条件3の外部との契約は IMPL-0593(降りていない。IMPL-0251 が取り消せない操作の側を追う)
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.4 リスク区分による上限
     status: marked
     ids:
@@ -2040,7 +2151,7 @@ sections:
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.7 能力維持措置
     status: pending
-    note: 区分済み・降ろし先未定。規定の文は、L2 以上を適用する範囲に「AI を用いずに実装または調査する機会を定められた頻度で確保する」「コア機能の理解保持者数を維持する」「独立レビューの挙動要約の記載をレベルにかかわらず継続する」を義務づける。理解保持者の記録は handover-template と第3章 3.4.3 側のマークが追うが、AI を用いない機会の頻度を運ぶ降ろし先が無い。近い降ろし先を当てない。議長の裁定待ち
+    note: "区分済み・降ろし先未定。規定は3つに分かれる。(1) 「コア機能の理解保持者数を維持する」は第3章 3.4.3 の IMPL-0061(保持者の記録と人数の表示)と IMPL-0645(1名以下の扱い)の側で追う。(2) 「独立レビューの挙動要約の記載をレベルにかかわらず継続する」は第4章 G-6 の IMPL-0093・IMPL-0077・IMPL-0112 の側で追える(挙動要約の最低限の形・承認者の数・同一の文の拒否)。(3) 「AI を用いずに実装または調査する機会を定められた頻度で確保する」は、頻度と実施の記録の置き場を本標準が定めておらず、記録を足すことは新しい義務になるため、棚卸しでは決めない(rulings.md 順 5 の末尾の定め)。送り先は既存の open の Issue で、束の終わりに議長が決める。節は(3) が残るため pending のまま"
     issue: 324
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.8 見直しの頻度
     status: marked
@@ -2066,10 +2177,11 @@ sections:
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.2 運用形態
     status: none
     category: elsewhere
-    reason: "運用形態3つの定義の表(説明)と、規定の文: 宣言は上限であり変更ごとのリスク区分の判定が下げる(5.5.3)、AI が判定を確定する形態は置かない・委任でも判定者は席の責任者のまま、人確定を残すのは R1 の決定で AI に結論を起案させないため(5.7.3)。宣言が上限であることは5.5.3の IMPL-0025、判定を席の責任者(人)が確定することは5.5.7の IMPL-0019、R1 の決定の理由を人が記入することは5.7.3の IMPL-0172 が追う。「完全自律」の語を使わないは本標準の語の方針(起草の規則)"
+    reason: "運用形態3つの定義の表(説明)と、規定の文: 宣言は上限であり変更ごとのリスク区分の判定が下げる(5.5.3)、AI が判定を確定する形態は置かない・委任でも判定者は席の責任者のまま、人確定を残すのは R1 の決定で AI に結論を起案させないため(5.7.3)。席ごとに D-0 体制図で運用形態を宣言することと、宣言が上限であることは5.5.3の IMPL-0025、開発者の席だけが委任で独立レビュアが事前に承認した変更の扱い(G-6 の判定の時点を事後へ移せるのは独立レビュアの席の委任の規則に当たる変更だけ)は第4章 G-6 の IMPL-0552、判定を席の責任者(人)が確定することは5.5.7の IMPL-0019、R1 の決定の理由を人が記入することは5.7.3の IMPL-0172 が追う。「完全自律」の語を使わないは本標準の語の方針(起草の規則)"
     location:
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.3 リスク区分による上限
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.7 運用形態の引き上げと引き下げ
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 委任の変更は判定の時点を事後へ移す
       - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.3 選択肢の比較
     issue: 324
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.3 リスク区分による上限
@@ -2084,11 +2196,12 @@ sections:
       - IMPL-0026
       - IMPL-0235
       - IMPL-0597
+      - IMPL-0690
     rows:
       条件1:
         status: marked
         ids:
-          - IMPL-0597
+          - IMPL-0690
       条件2:
         status: marked
         ids:
@@ -2097,7 +2210,7 @@ sections:
       条件3:
         status: marked
         ids:
-          - IMPL-0597
+          - IMPL-0690
       条件4:
         status: marked
         ids:
@@ -2105,19 +2218,20 @@ sections:
       条件5:
         status: marked
         ids:
-          - IMPL-0597
+          - IMPL-0690
       条件6:
         status: marked
         ids:
           - IMPL-0597
+          - IMPL-0690
       条件7:
         status: marked
         ids:
-          - IMPL-0597
+          - IMPL-0690
     location:
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路
     issue: 324
-    note: 登録の根拠は IMPL-0035、期間ごとの保証の開示は IMPL-0048(下位の節)。条件1・3〜7 は節の中の未達のマークで開示した
+    note: 登録の根拠は IMPL-0035、期間ごとの保証の開示は IMPL-0048(下位の節)。条件1・3・5・7と条件6の本人による抜き取りの表示は IMPL-0690(降りている)、条件4と条件6の事後の抜き取りは IMPL-0597(降りていない。delegation.mjs が判定せず NOT_JUDGED に載せる)
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路
     status: marked
     ids:
@@ -2129,6 +2243,7 @@ sections:
     status: marked
     ids:
       - IMPL-0598
+      - IMPL-0691
     rows:
       人が確定する判断1:
         status: none
@@ -2139,10 +2254,11 @@ sections:
       人が確定する判断2:
         status: marked
         ids:
-          - IMPL-0598
+          - IMPL-0691
       人が確定する判断3:
         status: marked
         ids:
+          - IMPL-0691
           - IMPL-0598
       人が確定する判断4:
         status: marked
@@ -2151,7 +2267,7 @@ sections:
       人が確定する判断5:
         status: marked
         ids:
-          - IMPL-0598
+          - IMPL-0691
       人が確定する判断6:
         status: marked
         ids:
@@ -2161,6 +2277,7 @@ sections:
     status: marked
     ids:
       - IMPL-0599
+      - IMPL-0692
     issue: 324
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.7 運用形態の引き上げと引き下げ
     status: marked
@@ -2169,6 +2286,7 @@ sections:
       - IMPL-0098
       - IMPL-0019
       - IMPL-0600
+      - IMPL-0693
     issue: 324
     note: 緩める向きの記名と理由は IMPL-0097・0098、判断の確定を人に置くことは IMPL-0019。厳しくする向き(引き下げ)の即時適用と5.4.6の検知条件は5.4.6のマークが追う。残りは節の中の未達のマークで開示した
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項
@@ -2630,9 +2748,10 @@ sections:
     note: 準拠テンプレートは注意を出す部品を同梱しない(ADR-0103)。採用者が部品を置くときに掛かる(plan=adopter)
     issue: 401
   - key: phase4-process-design/human-ai-boundary#5.9 役割境界の見直し
-    status: none
-    category: org-design
-    reason: 役割境界を見直す契機4つ(能力の前提の乖離・形骸化の指標が警戒水準を超えた・事業フェーズまたは規制要件の変化・体制の変化点)と、結果を時点を併記して本章へ反映し履歴を残すこと。縛る相手は本標準の保守者と組織で、違反の痕跡は標準の改訂と ADR にしか現れず、案件の記録(構成・様式の欄・判定記録・台帳・PR・CI)に現れない。体制の変化点の記録は構成の changeLog(config-change-log。第3章 3.13)が別に追う。探した場所は impl-targets.yaml の config-change-log・process-change-skill の description(template/ の実物は開いていない。突合で読み直すこと)
+    status: marked
+    ids:
+      - IMPL-0684
+    note: "4つ目の契機(体制の変化点で、席ごとの運用形態の宣言と委任の範囲を見直す)は IMPL-0684(降りている。/process-change の種別 mode)。残りの3つの契機(能力の前提の乖離・形骸化の指標の警戒水準・事業フェーズまたは規制要件の変化)と、見直しの結果を時点を併記して本章へ反映し変更履歴を残すことは、縛る相手が本標準の保守者と組織で、違反の痕跡が標準の改訂と ADR にしか現れず案件の記録に現れない制度設計(探した場所: impl-targets.yaml の config-change-log・process-change-skill、template/.claude/skills/process-change/SKILL.md)"
     issue: 324
   - key: phase4-process-design/human-ai-boundary#5.10 関連する章
     status: none

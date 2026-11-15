@@ -542,3 +542,33 @@ targets:
     kind: planned
     path: scripts/committee/
     description: 第3章 3.7.4・3.7.5 の、会議体が決定する事項に列挙した事項のみを議題とし、判定を要しない報告のみの議題を定例の議題としないことの照合の置き場。上程の判定資料(求める判断)の議題の種別を、会議体ごとの決定する事項に照らす。準拠テンプレートに実装は無い(2026-11-15 確認。Issue #324。decision.md 5章 T8)
+
+  - id: handoff-reference
+    name: /pit の手引き handoff.md(ロール間の引き渡しとエスカレーション)
+    kind: template-file
+    path: .claude/skills/pit/reference/handoff.md
+    description: 受信箱・引き渡しのラベル・人の判断待ちの出し方と、節「エスカレーション」(ラベルの付与だけで報告を済ませない・エスカレーションレポートの5項目・推奨と決裁事項は人が記入)。段階と判定する者とラベルの表は next.mjs --role が出す。/pit が読ませる(Issue #324。束 A 独立の突合 1巡目の裁定)
+
+  - id: assumption-ledger-template
+    name: 成果物テンプレート テンプレ10(前提の台帳)
+    kind: template-file
+    path: templates/10-assumption-ledger.md
+    description: 標準が置く前提の充足状態(AS-0・AS-1・AS-2)の台帳の様式。観測した事象・対処の参照先・劣化時の進め方・受容の記録(決裁者・日付・有効期限・再評価の契機)の欄を持つ。台帳の中身を検査する仕組みは無い(Issue #324。束 A 独立の突合 1巡目の裁定)
+
+  - id: assumption-ledger-guide
+    name: 前提の台帳の手引き(テンプレ10)
+    kind: template-file
+    path: .claude/skills/artifact/artifacts/10-assumption-ledger.md
+    description: テンプレ10 の手引き。判定を停止せず受容の決裁を求めること・安全リスク区分 SR3 以上の工程は劣化を受容しないこと・二値で書かないこと・劣化は観測された事象で定義し自己申告で決めないこと・決裁者は当該の前提に責任を負う者であること(incident-artifact と同じく手引きを降ろし先とする。Issue #324。束 A 独立の突合 1巡目の裁定)
+
+  - id: review-queue-control
+    name: 判定とレビューの滞留の検知・催促・通知・同時保有数の制御(予定)
+    kind: planned
+    path: .github/workflows/review-queue-control.yml
+    description: 第4章「レビュー SLA と滞留の措置」の、レビュー依頼の個人への指名、応答時間の超過の催促、D-0 表3 の判定する者への通知、同時保有数の上限、指名先が確保できないときの差し戻しの置き場。準拠テンプレートに実装は無い(2026-11-15 確認。Issue #324。束 A 独立の突合 1巡目の裁定。flow-observation は第2章 2.10.4 の滞留期間の観測に限り、本件の範囲を広げない)
+
+  - id: ip-allowlist-operation
+    name: ライセンスの許可リストと暫定の許可の運用(予定・採用者)
+    kind: planned
+    path: (採用者のライセンス許可リストの置き場)
+    description: 第4章 G-5「許可リストが判定を妨げた場合の救済」の、暫定の許可の期限・恒久の追加の所管(法務)・期限超過の失効の置き場。準拠テンプレートに許可リストの置き場は無い(「許可リスト」で G-5 の検査に当たるものは 0 件。2026-11-15 確認。Issue #324。束 A 独立の突合 1巡目の裁定。採用者に委ねるかは本件で決めない)

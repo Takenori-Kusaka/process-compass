@@ -202,7 +202,7 @@ G-4 と G-5 を短縮できない理由は、この2つを外すと「何を作�
 
 <!-- impl IMPL-0610 target=pr-checks state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.4 の乱用を防ぐ制約1(未回収のファストトラック項目が残る間は同一案件で新たに申請しない)と制約3(適用後の期限内の事後レビュー。未実施ならファストトラック権限を停止)。台帳の行でファストトラックの適用を見分ける区分は無く、未回収の行の存在で新たな申請を拒む検査と、事後レビューの未実施を検出する検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0611 target=project-brief-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.4 の乱用を防ぐ制約2。事業ステージあたりのファストトラックの適用回数の上限を企画承認(G-1)の時点で合意して記録すること。企画書の様式(templates/06-project-brief.md)に適用回数の上限の欄は無い(「ファストトラック」の検索で 0 件。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0612 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.4 の乱用を防ぐ制約5。ファストトラックの発生率・回収完了率・適用後の欠陥発生率を継続して測定し、会議体へ報告すること。出荷の証跡の集約にこれらの指標は無い(ファストトラックを見分ける区分が台帳に無い)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0612 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.4 の乱用を防ぐ制約5のうち、ファストトラックの発生率・回収完了率・適用後の欠陥発生率を継続して測定すること(会議体へ報告するふるまいは会議の議事にしか現れず、制度設計として扱う。7.9.5 要求事項5 の IMPL-0669 と同じ)。出荷の証跡の集約にこれらの指標は無い(ファストトラックを見分ける区分が台帳に無い)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 7.5 判定の滞留に対する措置
 
@@ -273,7 +273,7 @@ graph TD
 
 **スコープの発火条件は、確約範囲(SC-M)を動かす必要の見込みのみを対象とします**。計画範囲(SC-P)と調整枠(SC-B)の増減では発火しません。その調整は価値責任者が決めます([第2章 2.10.5](/process-compass/phase4-process-design/lifecycle/))。層を区別せずに変動率を測ると、通常の調整で発火が続き、報告が読まれなくなります。
 
-<!-- impl IMPL-0613 target=next-role state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.6 の運用の規則。起票した者が自分の起票を判定しないこと、応答期限を過ぎても承認とみなさず代理の判定者の指名を求めること、段階2 の事業決裁者の決定を非同期の持ち回りにするとき、リスク区分 R1 の変更に係る決定には使わないこと。D-0 の様式(IMPL-0368)は判定する者の列に起票した席だけを書かないことと、兼務の体制の「自己の判定」の記載を置くが、自分の起票を判定しない規則そのものは next.mjs の ESCALATION の出力に無い(scripts/gate/next.mjs に「起票」の語は無い。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0613 target=next-role state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.6 の運用の規則。起票した者が自分の起票を判定しないこと、応答期限を過ぎても承認とみなさず代理の判定者の指名を求めること、段階2 の事業決裁者の決定を非同期の持ち回りにするとき、リスク区分 R1 の変更に係る決定には使わないこと。D-0 の様式(IMPL-0368)は判定する者の列に起票した席だけを書かないことと、兼務の体制の「自己の判定」の記載を置くが、自分の起票を判定しない規則そのものは next.mjs --role の出力(見出し「エスカレーションの段階とラベル」)に無い(scripts/gate/next.mjs に「起票」の語は無い。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0614 target=next-role state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="7.6 の発火条件の判定に使う値の算定。予算の超過の見込み・日程の遅延の見込みと、SC-M の変動率(直近の確定からの追加と削除の累計。SC-P・SC-B へ移すことと分割して外すことは SC-M の減少に数える)を、見込みの報告の Issue へ出す仕組み。準拠テンプレートに算定は無い。完了スループットの集計(IMPL-0374)と同じ領域で、#443 の範囲に入ると読んで issue=443 を名指す。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 着手決裁の前に消費した分の扱い
@@ -337,7 +337,7 @@ graph TD
 <!-- impl IMPL-0005 target=next-role state=delivered check=manual note="エスカレーションの段階ごとの判定する者と、判定する席に対応するラベル(SC-M の段階1 は state:needs-owner)。準拠テンプレートの ESCALATION(next.mjs --role の出力)が、7.6 の席の語で写す(#418 で改めた)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
 
 <!-- impl IMPL-0615 target=next-role state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="7.6 の着手決裁前の累計消費。企画承認(G-1)から機能仕様承認(G-4)までの累計消費を、配賦予定額に対する割合で測り(AI 実行費を含める)、段階1〜3 の参考の値(30%・50%・70%)を超える見込みで発火させる仕組み。閾値の記録は企画書の行「エスカレーション閾値」(IMPL-0371)が追うが、累計消費の算定は準拠テンプレートに無い。この発火のための新しいゲートを定めないことは課さない明記。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0616 target=next-intake state=delivered check=manual note="ラベルの付与だけで報告を済ませないこと。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が、段階・判定する者・ラベルの表は next.mjs --role が出すこと、ラベルの付与だけで報告を済ませてはならないこと、エスカレーションレポートを書くことを書く。ラベルの語彙を段階の数だけ増やさないことは、next.mjs のラベルの表が席の語で写す(IMPL-0005)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
+<!-- impl IMPL-0616 target=handoff-reference state=delivered check=manual note="ラベルの付与だけで報告を済ませないこと。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が、段階・判定する者・ラベルの表は next.mjs --role が出すこと、ラベルの付与だけで報告を済ませてはならないこと、エスカレーションレポートを書くことを書く。ラベルの語彙を段階の数だけ増やさないことは、next.mjs のラベルの表が席の語で写す(IMPL-0005)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
 
 ### エスカレーションレポートの様式
 
@@ -355,8 +355,8 @@ graph TD
 
 項目1〜4の草案は、AI エージェントに生成させてよいものとします。項目5は人間が記入しなければなりません。推奨の提示は、結果責任(A)を負う者の行為であるためです。
 
-<!-- impl IMPL-0617 target=next-intake state=delivered check=manual note="エスカレーションレポートの5項目(状態・原因・事業影響・リカバリ選択肢3案・推奨と決裁事項)と、推奨と決裁事項を人が記入すること。handoff.md の節「エスカレーション」に同じ語がある。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
-<!-- impl IMPL-0618 target=next-intake state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="エスカレーションレポートの分量の上限(状態3行・原因5行・推奨と決裁事項3行)、事業影響とリカバリ選択肢を表で書くこと、項目1〜4 の草案を AI に生成させてよいこと。handoff.md は5項目の名と項目5 を人が記入することだけを書き、分量の上限と表の形は書かない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0617 target=handoff-reference state=delivered check=manual note="エスカレーションレポートの5項目(状態・原因・事業影響・リカバリ選択肢3案・推奨と決裁事項)と、推奨と決裁事項を人が記入すること。handoff.md の節「エスカレーション」に同じ語がある。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
+<!-- impl IMPL-0618 target=handoff-reference state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="エスカレーションレポートの分量の上限(状態3行・原因5行・推奨と決裁事項3行)、事業影響とリカバリ選択肢を表で書くこと、項目1〜4 の草案を AI に生成させてよいこと。handoff.md は5項目の名と項目5 を人が記入することだけを書き、分量の上限と表の形は書かない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 決裁後のポートフォリオ調整
 
@@ -367,6 +367,8 @@ graph TD
 - 移動により実施できなくなる事項を記録する
 
 伝達の手段(様式・ツール)は、組織の既存の PMO 運用に合わせて[第8章](/process-compass/phase4-process-design/tailoring-guide/)で定めます。本標準が規定するのは伝達すべき内容です。
+
+<!-- impl IMPL-0668 target=gate-record-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.6 の決裁後のポートフォリオ調整。要員または予算の移動を伴う決裁の結果に、影響を受ける他の案件の一覧を含めること、移動元の案件の責任者へ通知すること、移動により実施できなくなる事項を記録すること。判定記録の様式(templates/04-gate-record.md)に、他の案件の一覧・移動元への通知・実施できなくなる事項を書く欄は無い(「他の案件」の検索で 0 件。2026-11-15)。準拠テンプレートの単位は単一の案件のリポジトリであり、案件をまたぐ決裁の記録の置き場は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 会議体の構成と決裁権限は、[第3章 3.7](/process-compass/phase4-process-design/roles-responsibilities/)によります。
 
@@ -558,6 +560,7 @@ AI実行予算の超過時の扱い(実行の停止・通知のみ・上限の�
 要求事項4が最も強い歯止めです。継続の判断そのものを禁じるのではなく、同じ理由での継続に上限を設けます。投じた資源が大きいほど中止の判断は下されにくくなります。この傾向は意思決定の研究で繰り返し確認されています。
 
 <!-- impl IMPL-0621 target=gate-record-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.7.5 の継続と判定する場合の要求事項1〜3(決定者の記名と継続の理由、不合格の項目ごとの解消の期限と責任者、必達基準を再判定する期限。最長で1つの事業ステージ)。テンプレ4 の節「到達の見込み」(IMPL-0378)は7.7.5 の回数の欄を持つが、継続の理由・解消の期限と責任者・再判定の期限を書く欄は必達基準の判定記録に無い(templates/04-gate-record.md を読んだ。「継続の理由」「解消の期限」の語は無い。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0667 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.7.5 要求事項4。同一の必達基準の不合格に対して、3回を超えて継続または保留と判定しないこと。回数は必達基準の番号ごとに通算し数え直さない。回数を書く欄はテンプレ4 の節「到達の見込み」にあり IMPL-0378(7.7.3)と IMPL-0380(SG への引き継ぎ)が追うが、回数が3を超えた継続の判定を拒む検査は出荷の証跡の集約(scripts/gate/aggregate-evidence.mjs)に無い(「3回」を数える箇所を探したが無い。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 7.7.6 案件に関与していない者による棚卸し
 
@@ -759,6 +762,8 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 - **期間の経過によって自動的に解除してはならない**
 - 解除の判定と根拠を記録する
 
+<!-- impl IMPL-0666 target=seeded-error-drill state=undelivered check=manual plan=scheduled issue=356 review=2027-05 note="7.9.3 の制限の解除の条件。注入した欠陥を連続2回検出したときに制限を解除すること。期間の経過では解除しないこと。解除の記録の様式と、解除されない限り制限が残り続ける扱いは IMPL-0118(7.9.2)が追うが、注入の結果から連続2回の検出を確かめて解除の根拠にする仕組みは無い(7.9.1 の発動の条件の IMPL-0627 と同じ。準拠テンプレートの欠陥注入は adoption-trial の1回の測定だけ)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+
 期間で戻す設計は「待てば戻る」という運用を生み、是正の動機を失わせます。実績で戻す設計にします。
 
 ### 7.9.4 制限された状態での例外決裁
@@ -795,6 +800,7 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 
 <!-- impl IMPL-0629 target=project-brief-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.9.5 要求事項1。事業ステージあたりの例外の枠を、企画承認(G-1)の時点で件数として定めて記録すること。企画書の様式に例外の枠の欄は無い(templates/06-project-brief.md の「枠」の検索で SC-B 調整枠だけ。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0630 target=pr-checks state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.9.5 要求事項2〜4。枠を期の途中で補充しないこと、使い切った後は例外を認めないこと、行使のたびに事後レビューを実施し未実施なら以降の行使を認めないこと。枠の残りを数えて例外承認の行を拒む検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0669 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.9.5 要求事項5のうち、行使した件数と残りの件数を数えること。出荷の証跡の集約(scripts/gate/aggregate-evidence.mjs)に「枠」の語は無く、枠の件数と行使の件数を数えて出す箇所は無い(2026-11-15)。B-2 の定例で報告するふるまい自体は会議の議事にしか現れず、制度設計として扱う(7.4 制約5 の IMPL-0612 の報告の部分と同じ)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 7.9.6 記録と可視化
 
@@ -839,6 +845,8 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 SR3 以上の工程の例外の定めは、7.10.1 の冒頭の段落にあります。
 :::
 
+<!-- impl IMPL-0670 target=assumption-ledger-guide state=delivered check=manual note="安全リスク区分 SR3 以上に該当する工程では前提の劣化を受容しないこと。前提が崩れていることを理由に判定を機械的に停止せず、崩れを記録して受容の決裁を求めること。.claude/skills/artifact/artifacts/10-assumption-ledger.md の節「全ゲートの共通条件との関係」が「前提が崩れていることを理由に判定を停止しない」「例外: 安全リスク区分 SR3 以上に該当する工程では、前提の劣化を受容しない」と置く。判定を機械的に停止しないことの第4章側は IMPL-0534 が追う。確かめる者: 当該の前提に責任を負う者(台帳を更新するとき)" -->
+
 ### 7.10.2 充足状態の3区分
 
 **二値で表してはなりません**。前提の崩れは段階的に進みます。
@@ -850,6 +858,8 @@ SR3 以上の工程の例外の定めは、7.10.1 の冒頭の段落にありま
 | AS-2 | 不成立。前提が成立していない |
 
 AS-1 以上の前提については、受容の決裁を要します。
+
+<!-- impl IMPL-0671 target=assumption-ledger-guide state=delivered check=manual note="充足状態を二値で表さないこと(AS-0・AS-1・AS-2 の3区分)、AS-1 以上の前提は受容の決裁を要すること。.claude/skills/artifact/artifacts/10-assumption-ledger.md の節「充足状態の3区分(7.10.2)」が「二値で書かない。AS-1 以上の行は受容の決裁を要する」と置き、templates/10-assumption-ledger.md の表「充足状態」が AS-0・AS-1・AS-2 の欄を持つ。台帳の中身を検査する仕組みは無い(各ゲートの判定者が共通の通過条件として確かめる)。確かめる者: 各ゲートの判定者(台帳の行を確かめるとき)" -->
 
 記号の AS は前提(assumption)の状態を表します。受入基準の識別子 AC-n([第6章 テンプレ1](/process-compass/phase4-process-design/deliverable-templates/))と区別するため、旧版の AC-0・AC-1・AC-2 を AS-0・AS-1・AS-2 へ改めました([ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/))。旧版の記号で書いた台帳は、そのまま読み替えます。
 
@@ -870,6 +880,9 @@ AS-1 以上の前提については、受容の決裁を要します。
 
 **上記以外の前提(A-P1・A-P2・A-P4・A-K1・A-K2)は、劣化の判定条件を定めません**。測る尺度が確立していないためです。**尺度がないまま判定条件を作ると、測れないものを測ったことにする運用が生まれます**。測定の手段が確立した時点で、本標準の改訂により追加する対象です。
 
+<!-- impl IMPL-0672 target=assumption-ledger-template state=delivered check=manual note="劣化を観測された事象で定義し、自己申告で定義しないこと。劣化の判定条件を定めない前提(A-P1・A-P2・A-P4・A-K1・A-K2)を台帳で扱わないこと。templates/10-assumption-ledger.md の表の列「観測した事象」と注意「充足状態を自己申告で決めないでください。観測した事象の欄が空のまま AS-0 とした行は、記録として成立していません」、文「劣化の判定条件を定めていない前提は、この台帳では扱いません」が置き、行は A-T3・A-T4・A-O1・A-O2・A-O3・A-K3 の6つ。.claude/skills/artifact/artifacts/10-assumption-ledger.md も同じ6行の要約を持つ。台帳の中身を検査する仕組みは無い。確かめる者: 各ゲートの判定者(台帳の行を確かめるとき)" -->
+<!-- impl IMPL-0673 target=assumption-ledger-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="7.10.3 の閾値の数値を、当該の前提に責任を負う者が定め、前提の台帳に記録すること。templates/10-assumption-ledger.md の表の列(前提・充足状態・最終観測日・観測した事象・対処の参照先・劣化時の進め方・受容の記録)に、閾値の数値とそれを定めた者を書く欄は無い(「閾値」の語は無い。2026-11-15)。手引き(artifacts/10-assumption-ledger.md)は「閾値の数値は組織が定める」と書くが、定める者と台帳への記録は書かない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+
 :::note
 A-O3 の「変更行数の上限」は、本標準が外部の実証から直接導けた数少ない値です。1回のレビューで扱う量には上限があり、それを超えると欠陥の検出率が下がるという研究があります。ただし当該の研究は2000年代の実務を対象としており、**現在の開発様式への外挿は検証されていません**。上限の既定値([第4章](/process-compass/phase4-process-design/gate-criteria/)「上限を自組織の実測で較正する」)は、自組織の実測へ置き換えます。
 :::
@@ -883,6 +896,10 @@ AS-1 または AS-2 の前提を抱えたまま進む場合、7.3 の5項目に�
 | 1 | 受容の決裁者は、**当該の前提に責任を負う者**とする。職位の上下で決めない |
 | 2 | 受容に**有効期限と再評価の契機**を付す |
 | 3 | 受容の記録を台帳に残す。**記録の残らない受容は、承認なく進んだことと同じ**とする |
+
+<!-- impl IMPL-0674 target=assumption-ledger-guide state=delivered check=manual note="7.10.4 要求事項1。受容の決裁者は当該の前提に責任を負う者とし、職位の上下で決めないこと。.claude/skills/artifact/artifacts/10-assumption-ledger.md の節「作成の手順」5 が「決裁者は当該の前提に責任を負う者(職位の上下で決めない)」「受容の決裁は人が記名する」と置く。確かめる者: 各ゲートの判定者(受容の記録を確かめるとき)" -->
+<!-- impl IMPL-0675 target=assumption-ledger-template state=delivered check=manual note="7.10.4 要求事項2。受容に有効期限と再評価の契機を付すこと。templates/10-assumption-ledger.md の表の列「受容の記録」が「決裁者 / 日付 / 有効期限 / 再評価の契機」を持ち、注意「受容の記録には有効期限を必ず書きます。期限のない受容は、恒久的な基準の引き下げになります」が置く。確かめる者: 各ゲートの判定者(受容の記録を確かめるとき)" -->
+<!-- impl IMPL-0676 target=assumption-ledger-template state=delivered check=manual note="7.10.4 要求事項3。受容の記録を台帳に残すこと。templates/10-assumption-ledger.md の表の列「受容の記録」が置く。台帳が無い、または行が記録されていない状態は共通条件を満たさないと手引き(artifacts/10-assumption-ledger.md)が書く。台帳の中身を検査する仕組みは無い(next.mjs は台帳の有無だけを見る)。確かめる者: 各ゲートの判定者(受容の記録を確かめるとき)" -->
 
 ### 7.10.5 ゲートとの接続
 
