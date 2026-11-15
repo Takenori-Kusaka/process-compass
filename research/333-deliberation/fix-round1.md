@@ -13,13 +13,13 @@
 | H-1 | 直した | 前回の実行の成果物を取れないと `bash -e` が手順を終え、写しを読まなかった → 取得を `if gh run download …; then … else warning` で受け、`evidence-manifest.mjs previous` が写しを digest の一覧と照合して読む。一致しない写しは読まず理由を警告に出す。読める写しが無いときは見た場所と理由を警告と `evidence/previous-source.json` に出し、集約が `evidence.json` の `previousSource` と「前回なし(…)」に出す(M-3 も同時に解消) |
 | H-2 | 直した | 欠落に数えることは文の関数とソースの正規表現でしか確かめていなかった → 集約を偽の gh で通しで動かす試験(`test-g5-missing.mjs`)。写しが success でも欠落に数え充足に数えないこと、ホスティングの成功は欠落にならないこと、failure は failure として数えること、書き分け3通りを確かめる。偽の gh を差せるよう、`gh()` に環境変数 `AGGREGATE_GH_FAKE` の継ぎ目を足した(未設定なら従来どおり gh。設計の変更ではなく試験の継ぎ目) |
 | H-3 | 直した | 追加だけ・出荷の PR 以外・一式の存在を試験が確かめていなかった → verify の一式の検査を `evidence-manifest.mjs changes`(関数 `evidenceChangeProblems`)へ出し、ワークフローがそれを呼ぶ。出荷の PR に一式の置き場が無い・`evidence.json`/`manifest.json` を欠く場合も失敗にした(「写しの存在」をコードに足した)。手順の本文を取り出して git の一時リポジトリで動かす試験(`test-ship-evidence-steps.mjs`)と、関数の入出力の試験(`test-evidence-manifest.mjs`) |
-| M-1 | 直した(表示) | 一覧は自己整合しか示さないことを、`evidence-manifest.mjs` の冒頭・ADR-0135 決定1・IMPL-0521 の note・ci-gates.md・PR 本文へ書いた。出荷の PR へ入る前の差し替えは検出しない・`ship-evidence-verify` は必須チェックではない、も書いた。再集約との突き合わせは足さない(裁定の範囲外) |
+| M-1 | 直した(表示) | 一覧は自己整合しか示さないことを、`evidence-manifest.mjs` の冒頭・ADR-0135 決定1・IMPL-0522 の note・ci-gates.md・PR 本文へ書いた。出荷の PR へ入る前の差し替えは検出しない・`ship-evidence-verify` は必須チェックではない、も書いた。再集約との突き合わせは足さない(裁定の範囲外) |
 | M-2 | 直した | `--range`・`--target` の引数をやめ、置き場の `evidence.json` の `range`・`toCommit` から取る。取れなければ null |
 | M-3 | H-1 と同時 | 読む前に置き場を verify し、不一致は警告で読まない。新しい側が壊れていれば古い側を読み、壊れていた側を警告に出す |
 | M-4 | 直した | `dependency-diff` の取り込みを外した(両ジョブ)。ADR 決定4・注記・ci-gates.md に、push の実行には無いため取り込まないと書いた |
-| M-5 | 直した | EV-0261 の「確かめたのは」を、実際に確かめた範囲(集約の通し、手順の本文の偽の gh による実行、公式の文書)へ書き直し、確かめていない点(実機、record-copy が読めなくても失敗しないことは文字列の確認まで)を書いた |
+| M-5 | 直した | EV-0266 の「確かめたのは」を、実際に確かめた範囲(集約の通し、手順の本文の偽の gh による実行、公式の文書)へ書き直し、確かめていない点(実機、record-copy が読めなくても失敗しないことは文字列の確認まで)を書いた |
 | M-6 | 直した | ADR-0135 決定2: 2点目を「準拠テンプレートが写すものの一覧。保管の対象に含めるかは採用者の規程による(既存の規定が挙げるのは…)」、3点目を「引き渡すときは digest の一覧を照合に使える。要否は本 ADR が求めない」へ。新しい義務を置かない側。IMPL-0243 の note も同趣旨 |
-| M-7 | 直した | `retention-days: 90` をやめた。ワークフローの注記・ADR・ci-gates.md・IMPL-0521・impl-inventory/targets の文言を「設定に従う一時置き」へ。`workflowProblems` は、明示を問題として返す向きに反転した(試験も反転) |
+| M-7 | 直した | `retention-days: 90` をやめた。ワークフローの注記・ADR・ci-gates.md・IMPL-0522・impl-inventory/targets の文言を「設定に従う一時置き」へ。`workflowProblems` は、明示を問題として返す向きに反転した(試験も反転) |
 | M-8 | 直した(template 07) | 事象4 の所見の文に「「検証方法と結果」の有無は今の本文で数えており、写しの本文では数えない」を足した |
 | M-9 | 直した | IMPL-0246 の `test=` を、取り込みの手順の本文を動かす `test-ship-evidence-steps.mjs` へ移した(headSha 一致・不一致・view 失敗・license-scan 欠落でも coverage-result へ進む、を確認)。取り込みは license-scan の成否と独立にした。開示の文は `test-coverage-scope.mjs` が確かめるが、`test=` に含めないと note に書いた。state は `delivered`・`check=machine` のまま |
 | L-1 | 直した | ship-evidence.yml の冒頭の注記に、今回足した手順も実機で未確認と書いた |
@@ -61,7 +61,7 @@
 
 - record-copy が check run を読めなくても失敗しないこと(文字列の確認まで)
 - ワークフローの一式の `git add`(verify の「一式の欠け」で間接に閉じる)
-- 実機の GitHub での挙動(EV-0261)
+- 実機の GitHub での挙動(EV-0266)
 - 出荷の PR は一式を欠くと verify が失敗する。この規則の追加により、一式の欠けた旧い出荷の PR を再検査すると失敗する(裁定の「写しの存在をコードに足す」の帰結)
 
 ## 裁定に無い設計の変更の有無

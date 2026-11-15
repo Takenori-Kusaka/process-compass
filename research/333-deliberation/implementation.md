@@ -1,6 +1,6 @@
 # #333 実装の記録
 
-作成日 2026-11-15。裁定 `decision.md` の「実装の指示」と「統制の閉じ方」のとおりに実装した。ADR の番号は議長の補足で ADR-0135(decision.md の ADR-0136 は 0135 と読み替え)。識別子は IMPL-0521(decision.md の IMPL-A)・EV-0261(EV-A)。push はしていない。
+作成日 2026-11-15。裁定 `decision.md` の「実装の指示」と「統制の閉じ方」のとおりに実装した。ADR の番号は議長の補足で ADR-0135(decision.md の ADR-0136 は 0135 と読み替え)。識別子は IMPL-0522(decision.md の IMPL-A)・EV-0266(EV-A)。push はしていない。
 
 ## 変更したファイル
 
@@ -15,8 +15,8 @@ template(コミット 4 つ。bundle は `E:/Github/process-compass/tmp/bundles/
 
 本体(コミット 86a2e7e)
 
-- `gate-criteria.md`: IMPL-0243(adopter・decision=ADR-0135。1文目の直後へ移した)、IMPL-0521(新規。2文目の直後)、IMPL-0244(delivered・machine)
-- `ci-gates.md`: 「証跡の保管と CI 基盤の保持期間」を 2026-11-15 に改め、EV-0261 を置いた
+- `gate-criteria.md`: IMPL-0243(adopter・decision=ADR-0135。1文目の直後へ移した)、IMPL-0522(新規。2文目の直後)、IMPL-0244(delivered・machine)
+- `ci-gates.md`: 「証跡の保管と CI 基盤の保持期間」を 2026-11-15 に改め、EV-0266 を置いた
 - `src/data/impl-targets.yaml`・`impl-inventory.yaml`・`impl-untraced.yaml`(evidence-manifest.mjs を library で除外登録)
 - `adr/0135-ship-evidence-copied-to-base-branch-retention-left-to-adopter.md`(採らない案を表で記録)
 - 出典台帳 SRC-0745〜0747(2つの changelog と設定の頁)。`sources:index` の派生物(catalog・282 の views)
@@ -30,11 +30,11 @@ template(コミット 4 つ。bundle は `E:/Github/process-compass/tmp/bundles/
 
 ## 裁定との食い違い・実装の判断
 
-1. IMPL-0521 の ok 側は、集約の実行ではなく静的な確認で足りるとした部分がある。IMPL-0244 の ok(「ホスティングに gate-g5 の成功がある入力で文が出ない」)は、集約を偽の gh で通す形にしていない。文の関数 `g5MissingText` の単体と、集約が `g5 === 'unknown'` のときだけ呼ぶこと・写しの結論で g5 を作らないことのソースの静的な確認で置き換えた。偽の gh による集約の通し(裁定の「偽の gh による集約の実行」)は未実施。EV-0261 の「確かめたのは」には、この分を含む
+1. IMPL-0522 の ok 側は、集約の実行ではなく静的な確認で足りるとした部分がある。IMPL-0244 の ok(「ホスティングに gate-g5 の成功がある入力で文が出ない」)は、集約を偽の gh で通す形にしていない。文の関数 `g5MissingText` の単体と、集約が `g5 === 'unknown'` のときだけ呼ぶこと・写しの結論で g5 を作らないことのソースの静的な確認で置き換えた。偽の gh による集約の通し(裁定の「偽の gh による集約の実行」)は未実施。EV-0266 の「確かめたのは」には、この分を含む
 2. 事象4 の所見の配列は、ADR-0109 のレビュー本文の所見(`reconcileCopy` の findings)と同じ `copyFindings` へ出した。レポートの節も既存の「写しとホスティングの記録の所見」の行に出る(別の節は足していない)
 3. 事象3 の「3か所」(品質レポート・保証の開示・外へ渡す版)は、実際には `coverageScopeText` を使う 2 か所(machineChecks の表と品質レポートの行)だった。machineChecks の「未実施」の分岐にも限定を足した。外へ渡す版が同じ machineChecks を読むかは集約の実行で確かめていない
 4. manifest の `inputs` は、取り込み元を `evidence/inputs.json` へ書き、その内容を載せる形にした(inputs.json 自体も一式に入る)。取り込めなかった場合は `inputs.json` が無く、`inputs` は null
-5. IMPL-0521 の置き場所を gate-criteria.md の2文目の直後へ置いたため、IMPL-0243 のマークは1文目の直後へ移した(現状はどちらも2文目の後にあった)
+5. IMPL-0522 の置き場所を gate-criteria.md の2文目の直後へ置いたため、IMPL-0243 のマークは1文目の直後へ移した(現状はどちらも2文目の後にあった)
 6. 逆向きの追跡のため、`evidence-manifest.mjs` を `impl-untraced.yaml` に library として登録した(裁定に無い。lint:impl が要求した)
 7. 突合の担当に確かめさせる点(裁定 4 節の末尾): (1) `checks` 欄を `parseCopy`・`reconcileCopy` が落とさず読み飛ばすこと — `parseCopy` は欄を検査せず、`reconcileCopy` は欄を選んで読む。コードの読みで確かめた。`next.mjs` は未確認 (2) tpl2 の suite の fixture が g5 の欠落の文とカバレッジの開示の文を固定していないか — 未確認(test:template-suite は重く流していない)
 
@@ -44,7 +44,7 @@ template(コミット 4 つ。bundle は `E:/Github/process-compass/tmp/bundles/
 - record-copy が `checks: read` で head の check run を読めること。`jq` の整形(sort_by・last)は構文を `bash -n` で通しただけで、実 API の応答では未確認
 - 保持切れの PR での集約の出力
 - `retention-days: 90` が設定の上限を超えるときの扱い
-- 内容が EV-0261 の「実機で未確認の点」に載っている
+- 内容が EV-0266 の「実機で未確認の点」に載っている
 
 ## 残る作業
 
