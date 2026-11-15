@@ -86,7 +86,7 @@ graph TD
 | 主要成果物 | 各フェーズの information items |
 | レビュー方式 | 誰が・何を・どの形式で検証するか |
 | 階層の深さ | プロセス分解の粒度 |
-| 12207 対応 | ISO/IEC/IEEE 12207:2017 の4プロセス群(合意 / 組織 / テクニカルマネジメント / テクニカル)のどこを厚くカバーするか |
+| 12207 対応 | ISO/IEC/IEEE 12207 の4プロセス群(2017 年版。第2版でも同じ)(合意 / 組織 / テクニカルマネジメント / テクニカル)のどこを厚くカバーするか |
 
 ## スコープ外: 生成AIの現場利用実態
 
@@ -120,7 +120,7 @@ graph TD
 ## 参考文献
 
 - [ISO/IEC/IEEE 24774:2021 — Specification for process description](https://www.iso.org/standard/78981.html)
-- [ISO/IEC/IEEE 12207:2017 — Software life cycle processes](https://www.iso.org/standard/63712.html)
+- [ISO/IEC/IEEE 12207:2017 — Software life cycle processes](https://www.iso.org/standard/63712.html)(枠組みを作った時点の版の記録。2026-04 に第2版 ISO/IEC/IEEE 12207:2026 が置き換えた。4プロセス群は第2版でも同じ)
 - [OMG SPEM 2.0 — Software & Systems Process Engineering Meta-Model](https://www.omg.org/spec/SPEM/2.0/)
 - [Stage-Gate International — The Stage-Gate Model: An Overview](https://www.stage-gate.com/blog/the-stage-gate-model-an-overview/)
 - [IPA — 国際規格 SLCP の進化とそのポイント(共通フレーム)](https://www.ipa.go.jp/digital/kaihatsu/slcp/slcp-evolution-keypoints.html)
