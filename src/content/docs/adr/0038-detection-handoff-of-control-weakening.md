@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-08-13)
 
+案内(2026-11-15、#335): 本文が引く「第5章 4.2 原則4」の不可逆4操作の並びは、[ADR-0053](/process-compass/adr/0053-irreversible-by-criterion-not-enumeration/) と [ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/) 決定2 を経て、取り消せない操作(第5章 5.5.1)と統制の弱化(第3章 3.5.5)を別の停止の事由とする形に変わっています。現在の並びの正本は第3章 3.5.5 です。本文と決定は変えていません。
+
 ## コンテキスト
 
 案件 P-001 で、**出荷判定者が統制の弱化を検知したにもかかわらず、引き渡す先が分からずコメントに留めた**事象が起きました([#224](https://github.com/Takenori-Kusaka/process-compass/issues/224))。
