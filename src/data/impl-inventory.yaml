@@ -4893,6 +4893,7 @@ sections:
     ids:
       - IMPL-0014
       - IMPL-0015
+      - IMPL-0982
     issue: 316
   - key: phase4-process-design/roles-responsibilities#3.6 委譲ルール
     status: marked

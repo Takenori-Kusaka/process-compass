@@ -46,7 +46,7 @@ sidebar:
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
 | 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 202 |
-| 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 146 |
+| 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 147 |
 | 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 622 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
@@ -64,13 +64,13 @@ sidebar:
 
 ### 降りていない規定
 
-降りていない規定: **331件**
+降りていない規定: **332件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 103 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 228 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 103 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 229 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -79,6 +79,7 @@ sidebar:
 | IMPL-0593 | 不変条件のうち、不変条件2(本番環境への反映の承認は人間の記名)。CLAUDE.md の「ホスティングの上で、承認・レビュー(状態を問わない)・マージ…をしない」の行と delegation.yml の承認条件が一部を運ぶが、本番反映の承認の記名を照らす検査は IMPL-0251(5.5.1 の取り消せない操作)の範囲に限られる。不変条件1・3・4は IMPL-0689 が追う(不変条件3の外部との契約は CLAUDE.md の節「一律で AI に委譲できない領域」の箇条が置く)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | CLAUDE.md の構成依存部分 | 予定 [#449](https://github.com/Takenori-Kusaka/process-compass/issues/449)(見直し 2027-05) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0598 | 人が確定する判断3・4・6と、出荷判定者の停止権の範囲。リスク区分の機械の分類(riskFloorOf)と、分類できない変更を協働へ落とす classifyDelegation は判断3の一部を運び、CLAUDE.md と IMPL-0251 が判断4(G-7 の記名・本番反映の承認)の一部を運ぶが、判断6のうち安全の最終判断は CLAUDE.md の節「一律で AI に委譲できない領域」の箇条「安全に関する最終的な判断」が置くが理解の確認の側を運ぶ文は無く、出荷判定者の停止権の範囲は template/ を「停止権」で検索して見つからなかった(2026-11-15)。判断1は5.7.3の IMPL-0172 が追う。判断2・5と4つの席を委任しないことは IMPL-0691 が追う。この節は adopter にできない節のため scheduled とする。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | process.config.json の delegation | 予定 [#446](https://github.com/Takenori-Kusaka/process-compass/issues/446)(見直し 2027-05) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0631 | 7.11 要求事項6。保証の開示に載った未達・未測定についての出荷判定者の見解を G-8 の異議で扱い、停止の申し立てに数えないこと。集約は G-8 の判定記録の「出荷判定者の異議」欄を読む(aggregate-evidence.mjs)が、異議を停止の申し立て(ラベル state:stop-requested)の保留に数えない扱いを確かめる試験は見つけていない。ラベルと異議の欄は別の入力で、数えない側に働くと読めるが、確かめていないため降りていない規定として表示する。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#355](https://github.com/Takenori-Kusaka/process-compass/issues/355)(見直し 2027-05) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
+| IMPL-0982 | 強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる | CLAUDE.md の常駐の規則(構成依存部分の外) | 予定 [#335](https://github.com/Takenori-Kusaka/process-compass/issues/335)(見直し 2027-05) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0042 | G-7 基準3。受容した負債の記録漏れの検出。台帳の有無だけを確かめており、変更との突合が降りていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#355](https://github.com/Takenori-Kusaka/process-compass/issues/355)(見直し 2026-11) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0043 | G-7 基準4。運用引き継ぎ文書の3項目の記載の確認。文書の有無だけを確かめている。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#355](https://github.com/Takenori-Kusaka/process-compass/issues/355)(見直し 2026-11) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0044 | G-7 基準6。AI 品質指標の確認の記録を集約へ取り込む。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 出荷判定の証跡の集約(保証の開示) | 予定 [#355](https://github.com/Takenori-Kusaka/process-compass/issues/355)(見直し 2026-11) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -1382,5 +1383,6 @@ sidebar:
 | IMPL-0979 | ゲートの判定期限の超過を検出して、代理を指名する者(D-0 表3 の記名)へ通知し、代理の判定者の指名を求めること。宛先の者の務めは代理の判定者・決定者を指名することであり、通知を受けて終わりにしないこと。準拠テンプレートに期限超過の検出と宛先への通知を運ぶ仕組みは無い(flow-observation は第2章 2.10.4 の滞留期間の観測で、この通知を含まない。第3章 3.9.3 の同じ措置と同じ向き。2026-11-15)。自動承認にしないことは IMPL-0535、D-0 表3 の行の既定の判定する者・組織上の任命権者・「指名できる者なし」の注記は IMPL-0369 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 判定とレビューの滞留の検知・催促・通知・同時保有数の制御(予定) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0980 | 3.12.12 要求事項5 のうち、判断「外す」の再評価の記録でも、外した後に失わない保証(移した先)を示すこと。recalibration.mjs が移した先の保証を求めるのは判断「移す」の行だけで、判断「外す」の行は移した先が空でも再評価の記録として受け付ける。docs/calibration-register.md の説明も「移す」場合だけを挙げる(2026-11-15 に確認。束 D 突合 2巡目 D2-03 と議長の裁定。外すことを保証ごと不要とする読みは採らない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 体制の変化点を反映するスキル | `verify-gate-contract` | **降りていない** | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0981 | 登録の根拠の記入が「内容は機械で確かめていない」ことの表示。準拠テンプレートの次の一手・期間ごとの保証の開示・D-0 の節12 に、記入の有無は機械が確かめたが内容は機械で確かめていない旨を出し、その表示の試験と README の一文を持つ。信頼性の向上とは称さない(誤読を減らす表示である)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | AI自律レベルの導出と停止(登録した変更種別) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-0982 | 強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | **降りていない** | 実在だけ確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 
 <!-- implementation-ledger:end -->
