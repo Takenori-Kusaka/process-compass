@@ -5292,7 +5292,7 @@ sections:
     status: marked
     ids:
       - IMPL-0230
-      - IMPL-0525
+      - IMPL-0981
     issue: 292
     location:
       - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 計測できない検知条件がある場合
