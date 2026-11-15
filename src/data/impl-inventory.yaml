@@ -278,7 +278,7 @@ sections:
   - key: "phase4-process-design/deliverable-templates#テンプレ7: 実装計画(plan)"
     status: none
     category: elsewhere
-    reason: 実装計画の様式と運用ルール。状態「やり直し」は手戻り率の分子であり、集計と発火は 5.4.6 の IMPL-0291(降りていない)で追う。準拠テンプレートの実装計画の様式は状態の列(「やり直し」を含む)を持ち、必須欄の対応表で検査する(#311 突合 X-17)。見積の目安は EV-0087
+    reason: 実装計画の様式と運用ルール。状態「やり直し」は手戻り率の分子であり、集計と発火は 5.4.6 の IMPL-0517(降りている)で追い、残りは IMPL-0291・0518(降りていない)で追う。準拠テンプレートの実装計画の様式は状態の列(「やり直し」を含む)を持ち、必須欄の対応表で検査する(#311 突合 X-17)。見積の目安は EV-0087
     location:
       - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     issue: 311
@@ -1047,7 +1047,8 @@ sections:
     status: marked
     ids:
       - IMPL-0268
-    note: 観測の窓と最小標本数は IMPL-0268(降りていない)
+      - IMPL-0516
+    note: 観測の窓と最小標本数は、第2区分の差し戻し率・手戻り率が IMPL-0516(降りている)、一発承認率・AI 生成行の短期書き換え率が IMPL-0268(降りていない)
     rows:
       要求事項1:
         status: none
@@ -1061,6 +1062,7 @@ sections:
         status: marked
         ids:
           - IMPL-0268
+          - IMPL-0516
     issue: 296
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い > 合否条件にしてよい指標、してはならない指標
     status: none
@@ -1140,7 +1142,9 @@ sections:
       - IMPL-0287
       - IMPL-0288
       - IMPL-0291
-    note: 第1区分の停止 IMPL-0284、差し戻し率の集計と発火 IMPL-0285、判定不能 IMPL-0286、表示 IMPL-0287・0288、手戻り率 IMPL-0291(降りていない)。理解保持者数の停止は、運用引き継ぎ文書の履歴から1名以下だった時点を導き、回復の後の登録の判定まで解かない(#311 突合 X-2)。原因を特定できない事象の停止は、原因の特定まで解かない(突合 X-3)
+      - IMPL-0517
+      - IMPL-0518
+    note: 第1区分の停止 IMPL-0284、差し戻し率の集計と発火 IMPL-0285、判定不能 IMPL-0286、表示 IMPL-0287・0288、手戻り率の算出と発火 IMPL-0517(降りている)、手戻り率の判定不能・基準値未設定で止めるか IMPL-0291(降りていない)、書かれない不採用の後の再作成 IMPL-0518(採用者に委ねる)。理解保持者数の停止は、運用引き継ぎ文書の履歴から1名以下だった時点を導き、回復の後の登録の判定まで解かない(#311 突合 X-2)。原因を特定できない事象の停止は、原因の特定まで解かない(突合 X-3)
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.7 能力維持措置
     status: pending
@@ -2451,16 +2455,18 @@ sections:
     status: marked
     ids:
       - IMPL-0272
+      - IMPL-0519
       - IMPL-0279
       - IMPL-0273
       - IMPL-0274
       - IMPL-0280
-    note: 実行の単位(自己修正のループと AI のレビューの往復)の停止の正本。附属書E E.7 と附属書H は本節を引く。往復への降ろし先は IMPL-0279(undelivered)、G-1 の時点の記録は IMPL-0280(undelivered)
+    note: 実行の単位(自己修正のループと AI のレビューの往復)の停止の正本。附属書E E.7 と附属書H は本節を引く。自己修正のループの強制の範囲は start を呼んだ単位で、ロックの外の反復は IMPL-0519(undelivered・adopter)。往復への降ろし先は IMPL-0279(undelivered)、G-1 の時点の記録は IMPL-0280(undelivered)
     rows:
       要求事項1:
         status: marked
         ids:
           - IMPL-0272
+          - IMPL-0519
           - IMPL-0279
       要求事項2:
         status: none
