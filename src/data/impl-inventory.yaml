@@ -2952,34 +2952,214 @@ sections:
   - key: phase4-process-design/proposal-template#提案の進め方
     status: pending
   - key: phase4-process-design/roles-responsibilities#(冒頭)
-    status: pending
+    status: none
+    category: explanation
+    reason: "章の導入の2文(本章が規定する対象の宣言)。規定の文は無い"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.1 本章が達成すべき成果
-    status: pending
+    status: none
+    category: explanation
+    reason: "本章の要求事項を満たしたときの成果の列挙(得られます)と、席と責任の図、席の全数9の説明。実行主体の挙動を縛る規定の文は無い。席の全数は 3.4 の表の事実の記述である"
+    issue: 324
   - key: "phase4-process-design/roles-responsibilities#3.2 責任の種類: A と R を分ける"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0634
+      - IMPL-0635
+    note: "A と R の定義と、責任者・担い手の区別は説明。AI を責任者にしない(AI の列に A を置かない)ことと、席ごとに記名の自然人1名とすることは IMPL-0634。成果物ごとの結果責任者を担当表で1名に定めることは IMPL-0635(降りていない)。責任者でない担い手の増減を変化点に数える条件は 3.13.1 による再掲で、そちらのマークで追う。AI は担い手として R になれる(許容)は規定でない"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.3 RACI マトリクス(作業 × ロール)
-    status: pending
+    status: none
+    category: elsewhere
+    reason: "作業 × ロールの RACI の表は割当の定義(説明)。読み方の要点の規定(A は1人、A が2人の行・A を欠く行を作らない)は IMPL-0635 が、AI の列に A を置かない規定は IMPL-0634 が追う。席の全数9と AI維持管理者・AI運用担当者の作業の置き場(3.11.8)は説明"
+    location:
+      - "phase4-process-design/roles-responsibilities#3.2 責任の種類: A と R を分ける"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準
     status: none
     category: org-design
     reason: 席ごとの任命基準と職位要件の表、監査担当の任命基準の所在(フェーズ6 の実施者の要件)。任命は組織の制度設計で、実行主体の挙動を制約する規定を持たない。任命の記名と力量の確認は 3.4.1・3.13.3 で扱う
     issue: 312
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0636
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0636
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0636
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0636
+      要求事項4:
+        status: none
+        category: elsewhere
+        reason: "確認を経ない任命を期限付きの暫定任命に限る定め。暫定任命の期間と期間中の判定の併記は、IMPL-0637・IMPL-0638 が追う"
+        location:
+          - "phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 暫定任命"
+      要求事項5:
+        status: none
+        category: elsewhere
+        reason: "確認の有効期間を定め無期限としない定め。IMPL-0070 が層1 の確認の周期の欄を、IMPL-0071 が周期の空欄の扱いを追う"
+        location:
+          - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+    note: "手続の前置き(できることの確認手続を持たない任命基準は無条件の任命)は説明。任命基準の表(3.4)は席ごとの任命基準と職位要件で、別に org-design として登録済み"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 確認に用いるもの
-    status: pending
+    status: none
+    category: elsewhere
+    reason: "IMPL-0636 が、成果物による確認(実務の成果物か演習の記録)と、筆記試験を確認の主たる手段としないことを追う。ロール別の成果物の表は確認に用いるものの例示(説明)"
+    location:
+      - "phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 暫定任命
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0637
+      - IMPL-0638
+    note: "暫定任命を認める文(許容)と、確認が済むまで任命できない運用は現場を停止させるという理由は説明。期間を定める規定と期間内に確認へ至らない場合の扱いは IMPL-0637。期間中の判定の併記と未達の表示は IMPL-0638。いずれも降りていない"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 席の責任者でない確認者の力量
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0117
+    note: "全文を IMPL-0117 が追う: 力量の基準を位置づけで変えず独立レビュアの任命基準を当てること、確認の記録が無い承認を数えたうえで件数を保証の開示の項目1 へ表示すること、確認済みの者がいない体制で依頼した本人による確認を区別して受け付けること、出荷を止めないこと。外部の確認者のための別の基準と数値を置かないことは課さない明記"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 有効期間を置く理由
-    status: pending
+    status: none
+    category: elsewhere
+    reason: "確認の有効期間は組織が定め、本標準は値を規定しない(課さない明記)。周期の欄は IMPL-0070 が追う。期間の設定のときに確認の手続そのものの改訂を同時に行うことは制度設計(違反は確認の中身の改訂にしか現れない)。探した場所: D-0 の様式、層1 の様式の周期の欄、generate-profile.mjs の qualification の項目"
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか > 教育の対象範囲
-    status: pending
+    status: none
+    category: org-design
+    reason: "教育の対象をロールに任命される者と業務で AI を利用する者に分け、前者に確認を通過する水準、後者に統制の遵守を求め、第2区分の内容を第1区分の内容と混ぜない定め。全構成員への一律の教育を要求しない(課さない明記を含む)。違反は教育の内容と実施にしか現れず、本標準が求める記録のどれにも現れない。探した場所: templates/06-project-brief.md・adoption-trial.mjs・check-g1.mjs の「教育」の語(別の文脈)、CLAUDE.md、D-0 の様式、層1 の様式"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.2 AI を担い手に置くときの適合性確認
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0020
+      - IMPL-0639
+      - IMPL-0640
+      - IMPL-0641
+      - IMPL-0642
+      - IMPL-0643
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0639
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0640
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0639
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0639
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0640
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0020
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0639
+      要求事項8:
+        status: marked
+        ids:
+          - IMPL-0642
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0639
+      協働へ下げずに切り替える条件1:
+        status: marked
+        ids:
+          - IMPL-0641
+      協働へ下げずに切り替える条件2:
+        status: marked
+        ids:
+          - IMPL-0641
+      協働へ下げずに切り替える条件3:
+        status: marked
+        ids:
+          - IMPL-0641
+      協働へ下げずに切り替える条件4:
+        status: marked
+        ids:
+          - IMPL-0641
+    note: "任命の語を AI に用いない理由と、担い手の名義を識別に含めない理由は説明(名義は 3.5.3 の節のマークで追う)。3.12.3 を通過していないモデルを確認の対象にしない規定は IMPL-0643(降りていない)。確認に用いる事例の件数と合格の基準を本標準が定めないことは課さない明記。適合性確認は AI の判断が正しいことの保証でないという文は説明。条件2 のうち機械が確かめるのは確認日の前後までで、使い回しでないことは承認する席の責任者が読む(人の確認)"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.3 判断を担う席の力量の維持と後継
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0082
+      - IMPL-0089
+      - IMPL-0060
+      - IMPL-0061
+      - IMPL-0053
+      - IMPL-0644
+      - IMPL-0645
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0082
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0082
+          - IMPL-0089
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0082
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0060
+          - IMPL-0053
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0060
+          - IMPL-0644
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0645
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0053
+          - IMPL-0645
+      要求事項8:
+        status: marked
+        ids:
+          - IMPL-0061
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0644
+    note: "表の後の段落(任命時の確認の記録が無い責任者の未確認表示、周期を過ぎた確認の失効表示、出荷を止めない)は IMPL-0082。AI を使わない判断の成果物の例の表は説明。AI を使わない作業の頻度を定めないこと、10年後の後継者を予測しないこと、後継の計画書を書かせないことは課さない明記。最低数を満たす手段(採用・配置転換・外部の招へい)の選択は組織の人事の制度で、本標準の対象としない(課さない明記)。1名の体制の表示は IMPL-0645 と IMPL-0053"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止)
     status: marked
     ids:
@@ -2996,7 +3176,30 @@ sections:
     note: 発生で入った兼務の鍵・決定待ち・続ける決定は IMPL-0481、決定待ちのまま記録した判定の欠落は IMPL-0482(#432)。10名以上の価値責任者 × 技術判断者の拒否は IMPL-0296、非推奨の兼務の注記は IMPL-0297、記録の無い非推奨の兼務の欠落は IMPL-0298。代替の統制を課さないこと、5名の境界を置かないこと、事業決裁者 × 価値責任者を禁止しないことは課さない明記(EV-0156・EV-0157)
     issue: 312
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.2 出荷判定者の兼務に限った例外(代償措置つき)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0002
+      - IMPL-0647
+      - IMPL-0648
+    rows:
+      条件1:
+        status: marked
+        ids:
+          - IMPL-0002
+      条件2:
+        status: marked
+        ids:
+          - IMPL-0647
+      条件3:
+        status: marked
+        ids:
+          - IMPL-0648
+      条件4:
+        status: marked
+        ids:
+          - IMPL-0648
+    note: "例外を作成指示者 × 独立レビュアなど他の禁止の組へ広げないことは、3.5 の兼務禁止の組(IMPL-0001)が追う。3名未満の出荷判定者 × 事業決裁者は列挙に無い離脱として記録する(3.5・IMPL-0114)。2つのゲートの比較の表と、代償措置は独立性の回復でないという文は説明。支援と判定の分離は下位の節で登録済み"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制
     status: none
     category: elsewhere
@@ -3005,7 +3208,10 @@ sections:
       - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > ロールとレーンの写像
     issue: 312
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > 同じロールの中で並行して実行する場合
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0646
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > ロールとレーンの写像
     status: marked
     ids:
@@ -3028,15 +3234,81 @@ sections:
     category: org-design
     reason: 組織の役割の分離(支援と判定・監査、報告線、予算の配賦)の定め。実行主体の挙動を制約しない(#316 でフェーズ5 のイネーブルメント計画から本文へ上げた)
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0649
+    note: "人と実行主体の文脈の2つの単位の定め。役割の割り当てを人へ書いただけでは実行主体に届かないという文は説明(ADR-0035)。文脈の分離の条件は下位の節"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 文脈の分離が成立する条件
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0007
+    rows:
+      分離する対象1:
+        status: none
+        category: elsewhere
+        reason: "作業領域(clone または worktree)を分ける条件。IMPL-0299 が、レーン(作業領域・セッション・認証情報の組)の分け方と、準拠テンプレートの構成がレーンを持たないことを追う"
+        location:
+          - "phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > ロールとレーンの写像"
+      分離する対象2:
+        status: none
+        category: elsewhere
+        reason: "セッションを分け、1セッションが複数の役割を担わない条件。IMPL-0299 がレーン(作業領域・セッション・認証情報の組)を追う"
+        location:
+          - "phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > ロールとレーンの写像"
+      分離する対象3:
+        status: none
+        category: elsewhere
+        reason: "認証情報(トークン)を分け、分けられなければ列挙に無い離脱として記録する条件。IMPL-0299 がレーンの認証情報の組を追う。共有・未申告の名義の離脱は 3.5.3 の名義の節のマーク(IMPL-0420)が追う"
+        location:
+          - "phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.1 物理隔離（ロール別 clone / worktree）による兼務禁止の強制 > ロールとレーンの写像"
+    note: "受信箱の確認(ポーリング)を自ロールのラベルに限ることは IMPL-0007。1だけを満たした構成がよくある誤りという文は説明。この構成に条件と代償措置を定めないことは課さない明記(ADR-0133)"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 入力の分離
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0650
+    rows:
+      要求事項1:
+        status: none
+        category: elsewhere
+        reason: "確認側の担い手へ作成側の説明文・主張・推論の過程を判断の前に渡さない定め。IMPL-0021 が確認側への入力の分離を追う"
+        location:
+          - "phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義"
+      要求事項2:
+        status: none
+        category: elsewhere
+        reason: "確認側の担い手へ渡すのを仕様・受入基準・差分とする定め。IMPL-0021 が確認側への入力の分離を追う"
+        location:
+          - "phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義"
+    note: "入力の分離は兼務を判定する単位でないという文は説明。人の確認者への提示(範囲を広げる情報は開始時、注意を狭める情報はパス1 の後)の規定は IMPL-0650(降りていない)。生成側を切り離すと検出が上がるという向きの文は根拠の説明"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 成果物を起案した文脈と、判定の草案を作る文脈
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0105
+    note: "起案した文脈は判定の草案を作らず、草案を担い手に作らせるときは作業領域・セッション・認証情報を分けること(体制の人数に依らない)は IMPL-0105。人の単位ではこの規定を課さないこと、G-2・G-3・G-4・G-7 で結果責任者が判定者を兼ねることを禁止しないこと、1名体制に未達と逸脱の表示を足さないことは課さない明記(ADR-0060。書かれていないのではなく課さないと決めたもの)"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 実行主体が参照するもの
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0003
+      - IMPL-0651
+    rows:
+      参照する内容1:
+        status: marked
+        ids:
+          - IMPL-0003
+      参照する内容2:
+        status: marked
+        ids:
+          - IMPL-0003
+      参照する内容3:
+        status: marked
+        ids:
+          - IMPL-0003
+    note: "参照先を D-0 から導出し手で書き足さない定めと、参照先が D-0 の改訂に追随しているかを機械的に検査できる定めは IMPL-0651(降りていない)。形式と配置は準拠テンプレートが定めるという文は範囲の宣言"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.3 兼務を判定する単位(人と実行主体の文脈) > 人と AI の担い手の名義
     status: marked
     ids:
@@ -3080,7 +3352,37 @@ sections:
           - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
           - phase4-process-design/gate-criteria#判定の成立 > 判定記録を基底ブランチへ入れる操作
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0158
+      - IMPL-0021
+      - IMPL-0652
+      - IMPL-0653
+    rows:
+      帰結1:
+        status: none
+        category: elsewhere
+        reason: "責任者が同一人物なら AI を何体に分けても独立は成立しない。IMPL-0114 が3名以上で出荷判定者の席の責任者を開発者・独立レビュアの席の責任者と同一人物にする構成を拒否し、IMPL-0001 が兼務禁止の組を追う"
+        location:
+          - "phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止)"
+      帰結2:
+        status: marked
+        ids:
+          - IMPL-0021
+      帰結3:
+        status: marked
+        ids:
+          - IMPL-0652
+      帰結4:
+        status: marked
+        ids:
+          - IMPL-0158
+      帰結5:
+        status: marked
+        ids:
+          - IMPL-0653
+    note: "語の定義の表と2層の独立の組み合わせの表は定義(説明)。独立の2層のうち構成の条件は 3.5 の兼務禁止の組(IMPL-0001・IMPL-0114)、変更ごとの条件は第4章 G-6 の4条件で追う。モデルの系統・提供元の異質性を求めず禁止もしないこと、系統を混ぜることを推奨しないとも書かないことは課さない明記。帰結4 の理由の箇条は根拠の説明"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.5 受信箱のラベルによる引き渡し
     status: marked
     ids:
@@ -3156,23 +3458,64 @@ sections:
       - IMPL-0015
     issue: 316
   - key: phase4-process-design/roles-responsibilities#3.6 委譲ルール
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0654
+      - IMPL-0655
+    note: "本節の委譲は人から人への委譲で、AI の担い手への委任は第5章 5.5 によるという文は範囲の宣言。機能責任者への委譲は準拠テンプレートが機械で確かめない(集約が開示している)"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.1 会議体を置く階層
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0656
+    note: "3階層の図と、承認のための委員会が変更失敗率を下げないという調査の引用は説明"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.2 4つの会議体
-    status: pending
+    status: none
+    category: elsewhere
+    reason: "4つの会議体の表は会議体の定義(説明)。B-3・B-4 が工程ゲートを置き換えず、単独判定者の権限を超える事項のみを扱う定めは IMPL-0665 が追う"
+    location:
+      - "phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.5 会議体に持ち込んではならない事項"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.3 判定の語彙
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0657
+      - IMPL-0658
+    note: "表の意味の列と、第2章のステージ移行ゲートの語との対応の注記は説明。スコープを定めるための会議体を継続の判定と別に定めないことは課さない明記。継続の判定に次段階の資源配分・スコープ・次回判定日を含める定めは IMPL-0658"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.4 各会議体の規定 > B-1 IT投資委員会
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0659
+    note: "目的・意見(C)・開催の周期は会議体の運営の定めで、記録に現れない部分は制度設計(探した場所: templates/00-d0-governance.md、04-gate-record.md)。決定する事項・決定しない事項・決定者・判定期限・記録の規定の降ろし先は IMPL-0659(降りていない)"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.4 各会議体の規定 > B-2 ステアリングコミッティ
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0660
+    note: "目的・意見(C)・開催の周期は会議体の運営の定めで、記録に現れない部分は制度設計。決定する事項・決定しない事項・決定者・判定期限・記録の規定の降ろし先は IMPL-0660(降りていない)"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.4 各会議体の規定 > B-3 設計審査会
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0661
+    note: "設計審査会に検証結果の読み合わせをさせてはならないことは会議の進め方で、違反は当日のふるまいにしか現れず本標準が求める記録のどれにも現れない制度設計(探した場所: templates/04-gate-record.md、00-d0-governance.md 節10、pre-review-automation の説明)。決定者・判定期限・適用条件の降ろし先は IMPL-0661(降りていない)"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.4 各会議体の規定 > B-4 リリース判定会
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0662
+      - IMPL-0663
+      - IMPL-0664
+    note: "標準変更カタログを育てることが主たる仕事という文と、変更の3区分の定義は説明。標準変更と委任の範囲を同じものとする定めは IMPL-0663、登録する者・計測可能性などは IMPL-0664。期間の開示を突合して記名する出荷判定者の席とリリース決裁の席を委任しない定めは第5章 5.5.5 の節で追う(本担当の範囲外。突合で確かめる)"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.5 会議体に持ち込んではならない事項
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0665
+    note: "議題の限定(列挙外の事項・報告のみの議題)は予定の降ろし先 committee-agenda(decision.md 5章 T8)。工程ゲートの判定を会議体へ持ち込まない定めは、判定記録の様式が判定者を1人とすること(IMPL-0656)が追う。判定者の帯域が不足する場合は第7章 7.5 の措置によるという文は参照"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分 > 区分の下限と確定者
