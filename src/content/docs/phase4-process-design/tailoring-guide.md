@@ -30,7 +30,7 @@ sidebar:
 
 要求事項2の宣言は、[附属書D](/process-compass/phase4-process-design/proposal-template/)の提案書に含めます。宣言のない省略には、後から妥当性を検証する手段がありません。
 
-<!-- impl IMPL-0959 target=profile-generator state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="要求事項2の宣言(外した項目・簡略化した項目と理由)を附属書D の提案書に含めること。複製した知識ベース(scripts/vendor/tailoring-kb.json)の禁止 c-tailoring-must-be-declared が「理由と承認者とともに提案書へ記載せずに運用しない」を文として持つが、データのままで、generate-profile.mjs の checkConstraints はこれを検査せず、構成にも出さない。準拠テンプレートに提案書の様式も検査も無い(template の vendor 以外に「提案書」の語と c-tailoring の語が0件。2026-11-15 確認)。宣言せずに運用しないことの全般は IMPL-0772。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0959 target=profile-generator state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="要求事項2の宣言(外した項目・簡略化した項目と理由)を附属書D の提案書に含めること。複製した知識ベース(scripts/vendor/tailoring-kb.json)の禁止 c-tailoring-must-be-declared が「理由と承認者とともに提案書へ記載せずに運用しない」を文として持つが、データのままで、generate-profile.mjs の checkConstraints はこれを検査せず、構成にも出さない。準拠テンプレートに提案書の様式も検査も無い(template の vendor 以外に提案書の様式と検査と c-tailoring の語が0件。process-init に外部ページへのリンクが1行ある。2026-11-15 確認)。宣言せずに運用しないことの全般は IMPL-0772。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 再テーラリングの契機
 

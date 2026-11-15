@@ -94,7 +94,7 @@ A と R の分離は、ロール(席)に置く人と実行主体の区別に対�
 - 要件4 の監査を担う者を置けない場合は、その観点を未実施として監査記録へ表示する。実施したものとして所見 0 件と記録しない
 - 本表の要件は、一定期間の運用全体を対象とする内部監査の実施者に掛かる。委任の変更に対する事後の抜き取り([第8章](/process-compass/phase4-process-design/tailoring-guide/)「事後監査の手続」)の実施者は、同章による
 
-<!-- impl IMPL-0901 target=internal-audit-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.4 の監査担当の要件を満たす担い手を置けないときに、他チーム・他部門への委託、外部への委託、チーム間の相互の監査のいずれを選んだかの事実を監査記録へ明記すること(相互の監査では同一期間に相互を監査しない)と、要件4 の観点を未実施として監査記録へ表示し、実施したものとして所見 0 件と記録しないこと。違反は本標準の求める記録(監査記録)に現れる。準拠テンプレートに内部監査の記録の様式は無く、監査担当の名簿の検査も無い(scripts/init/generate-profile.mjs・scripts/gate の席と任命の項目を探した。2026-11-15)。監査担当の要件1〜4 と席ごとの任命基準の表は制度設計として降ろさない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0901 target=internal-audit-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.4 の監査担当の要件を満たす担い手を置けないときに、他チーム・他部門への委託、外部への委託、チーム間の相互の監査のいずれを選んだかの事実を監査記録へ明記すること(相互の監査では同一期間に相互を監査しない)と、要件4 の観点を未実施として監査記録へ表示し、実施したものとして所見 0 件と記録しないこと。違反は本標準の求める記録(監査記録)に現れる。準拠テンプレートに内部監査の記録の様式は無く、監査担当の名簿の検査も無い(scripts/init/generate-profile.mjs・scripts/gate の席と任命の項目を探した。2026-11-15)。追うのは、要件1・4 の監査の実施者(案件に関与していない者、出荷判定者の席の責任者であった者でないこと)が、監査記録の実施者と判定記録・名簿の突き合わせに現れることで、本マークが降りていない規定として追う(附属書H H.3 の観点13・14 の実施者の限定は IMPL-0964)。追わないのは、要件2・3(当該案件の支援に関与していない者を置く要件と、開発部門の長が差し戻せない報告線)と席ごとの任命基準の表で、制度設計として降ろさない(束 D 突合 2巡目 D2-02)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 監査の手続の例(対象の抽出、観点、判定と是正)は、[フェーズ6(プロセス内部監査)](/process-compass/phase6-operation/process-audit/)を参照。
 
@@ -816,7 +816,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 <!-- impl IMPL-0467 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5 のうち、準拠テンプレートが前提の判定記録を読めなかった場面(要求事項9)。next.mjs --pickup が、(a) G-6 が省略・未達の構成の state:qm-blocked で出荷判定者の G-7 の差し戻しの判定記録を、(b) state:needs-po・state:needs-owner を経た state:needs-dev で G-2・G-4 の通過に加えて価値責任者の判断・事業決裁者の決裁の記録(テンプレ4 のゲート欄、対象は作業単位)を、(c) 機能へ対応づけない作業単位(Issue #N と類型の名をあわせて指定する)で価値責任者が前もって記録した類型の判断と、--from の経路の前提(needs-owner は作業単位の決裁、needs-tech は作業単位の G-3、作業単位ごとの価値責任者の差し戻し)を、最新の判定として読む。無ければ (a)(b) と経路の前提は着手しない、類型の判断が無い・作業単位か類型の指定が無いときは判定できない。作業単位がその類型に当たるかと判定者の本人性は機械が確かめない(価値責任者が類型の範囲を定め、内部監査が見る)。確かめる者: 内部監査(#359 の重の裁定5・重の実装の突合への裁定)" -->
 <!-- impl IMPL-0500 target=next-intake state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="--pickup が「判定できない」で止めた件数を、作業単位ごとに数えて /pit に出すこと(合否に使わない表示。止め方の形骸化の兆候を見せる。#359 の重の裁定5)。準拠テンプレートは --pickup の結果を残さず、件数を数えない。結果を残す置き場が要る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0975 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.5 要求事項8: ラベルが付いていても、判定者は検査の結果などの事実を自ら確かめ、ラベルを事実の代わりにしないこと。template/CLAUDE.md と skills/gate/SKILL.md に、ラベルを事実の代わりにしない行は無い(2026-11-15 に確認。試し c だけで規定とした。IMPL-0918 と同じ裁定。束 D 突合 D-O07)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0975 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.5 要求事項8: ラベルが付いていても、判定者は検査の結果などの事実を自ら確かめ、ラベルを事実の代わりにしないこと。template/CLAUDE.md と skills/gate/SKILL.md に、判定者が事実を自ら確かめる行は無い。近い行(「ラベルが遷移していて判定記録が無ければ、着手せず判定者へ差し戻す」、「ラベルの遷移は判定の成立要件ではない」、implement/SKILL.md「ラベルが付いていても、判定記録が無い作業単位は未判定」)は要求事項5 の側で、判定者の確認は言わない(2026-11-15 に確認。試し c だけで規定とした。IMPL-0918 と同じ裁定。束 D 突合 D-O07)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0468 target=next-intake state=undelivered check=manual plan=scheduled issue=361 review=2027-05 note="要求事項5 のうち、開いている PR の判定記録を実環境で読む部分。next.mjs --pickup は state:ready-to-merge・state:qm-blocked で PR のレビューを gh api で読み、写しと同じ形で読むが、実際の GitHub の上で読み出しと承認の失効・挙動要約の読み方を確かめていない(試験は --offline と模擬の写しだけ)(#368 の突合 X-7)。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
 
@@ -2032,7 +2032,9 @@ AI運用担当者は、3.12.2 の承認済みモデルの一覧を広げ、**依
 
 <!-- impl IMPL-0103 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-recalibration.mjs note="再評価待ちの能力依存の定数の件数を /process-change の出力と /pit の注記に出す。契機は performer の変化点の記録と暦だけで、値を自動で変えない。再評価の記録(残す・外す・移す)は docs/calibration-register.md に記名で置き、AI の名義は数えない" -->
 
-<!-- impl IMPL-0976 target=process-change-skill state=delivered check=manual note="3.12.12 要求事項4・5。能力が上がったことを理由に定数を短縮・緩和しないこと(recalibration.mjs は capabilityDependent の定数を再評価待ちの件数として数えるだけで、値を自動で変えない)と、外す・移すときに移した先の保証を示すこと(docs/calibration-register.md の再評価の記録の表の列「移した先」。recalibration.mjs は「移す」に移した先の保証が無い行を無視して所見に出す)。IMPL-0103 と同じ降ろし先。実績や手段の変化の十分性は人の判断。確かめる者: AI維持管理者(再評価の記録を記名するとき)(単位: 列)" -->
+<!-- impl IMPL-0976 target=process-change-skill state=delivered check=manual note="3.12.12 要求事項4・5。能力が上がったことを理由に定数を短縮・緩和しないこと(recalibration.mjs は capabilityDependent の定数を再評価待ちの件数として数えるだけで、値を自動で変えない)と、判断「移す」の行に移した先の保証を示させること(docs/calibration-register.md の再評価の記録の表の列「移した先の保証」。recalibration.mjs は「移す」に移した先の保証が無い行を無視して所見に出す)。判断「外す」の行に移した先の保証を求めないことは IMPL-0980(undelivered)。IMPL-0103 と同じ降ろし先。実績や手段の変化の十分性は人の判断。確かめる者: AI維持管理者(再評価の記録を記名するとき)(単位: 列)" -->
+
+<!-- impl IMPL-0980 target=process-change-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.12 要求事項5 のうち、判断「外す」の再評価の記録でも、外した後に失わない保証(移した先)を示すこと。recalibration.mjs が移した先の保証を求めるのは判断「移す」の行だけで、判断「外す」の行は移した先が空でも再評価の記録として受け付ける。docs/calibration-register.md の説明も「移す」場合だけを挙げる(2026-11-15 に確認。束 D 突合 2巡目 D2-03 と議長の裁定。外すことを保証ごと不要とする読みは採らない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0089 / 見直し 2027-04]
 **対象**: 能力依存の定数の登録簿と、再評価の契機(performer の変化点の記録と暦)、能力に依らない周期・窓の区分。
