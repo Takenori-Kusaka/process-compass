@@ -53,7 +53,7 @@ const errors = [];
 const warnings = [];
 const scopes = [];
 
-const exempt = YAML.parse(readFileSync(path.join(ROOT, 'src/data/scope-exempt.yaml'), 'utf8'));
+const exempt = YAML.parse(readFileSync(process.env.SCOPE_EXEMPT_YAML ?? path.join(ROOT, 'src/data/scope-exempt.yaml'), 'utf8'));
 const EXEMPT = new Set((exempt.exempt ?? []).map(exemptKey));
 /** 免除として実際に働いた登録の鍵。働かなかった登録は残骸として検査を落とす(#326) */
 const USED = new Set();

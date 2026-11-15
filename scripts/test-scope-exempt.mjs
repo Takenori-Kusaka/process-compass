@@ -3,6 +3,11 @@
 //   node scripts/test-scope-exempt.mjs   (npm run lint:scope に含む)
 import assert from 'node:assert/strict';
 import { exemptProblems } from './lib/scope-exempt.mjs';
+import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 let passed = 0;
 function test(name, fn) {
@@ -39,6 +44,23 @@ test('重複した登録は落ちる', () => {
 });
 test('登録が無ければ適合', () => {
   assert.deepEqual(exemptProblems(undefined, new Set()), []);
+});
+
+// 検査本体の結線(突合 R-3): 存在しない見出しの登録を足した写しで check-scope.mjs を起動し、残骸の検出が働くことを確かめる。
+// check-scope.mjs の exemptProblems の呼び出しを消すと、この試験が落ちる
+test('検査本体: 使われない登録を足すと check-scope が落ちる', () => {
+  const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'scope-'));
+  try {
+    const src = fs.readFileSync(path.join(ROOT, 'src/data/scope-exempt.yaml'), 'utf8');
+    const file = path.join(dir, 'scope-exempt.yaml');
+    fs.writeFileSync(file, `${src.trimEnd()}\n\n  - page: phase4-process-design/overview\n    heading: 存在しない見出し(試験用の残骸)\n    reason: 試験\n`);
+    const r = spawnSync(process.execPath, [path.join(ROOT, 'scripts/check-scope.mjs')], { encoding: 'utf8', env: { ...process.env, SCOPE_EXEMPT_YAML: file } });
+    assert.equal(r.status, 1);
+    assert.match(`${r.stdout}${r.stderr}`, /存在しない見出し\(試験用の残骸\)/);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 console.log(`scope-exempt の試験: ${passed}件通過`);

@@ -1,6 +1,6 @@
 // 1.10.2 と H.8 の語の存在の検査(#326)
 //
-// 第1章 1.10.2(適用の表明と適合の主張)の表と、附属書H H.8 の「対外的に使う表現」の表は、
+// 第1章 1.10.2(適用の表明と適合の主張)の表と、附属書H H.8 の「使ってよい表現」の表は、
 // 同じ件数の句と主張の名を持つ。一方だけ直すと、対外の文の型が条件とずれる(#353 は manual で確かめた)。
 //
 // 機械で閉じるのは、所定の語が両方の表に出ることだけである。文の型が一致しているか(語順・件数の数え方・
@@ -30,8 +30,18 @@ export function sectionLines(lines, headingRe) {
   return lines.slice(s + 1, e < 0 ? undefined : e);
 }
 
-/** 節の中の表の行(| で始まる行)をつなげた文 */
-export const tableText = (sectionLinesArr) => sectionLinesArr.filter((l) => l.startsWith('|')).join('\n');
+/**
+ * 節の中の、見出し行の最初の升が headerCell である最初の表の行をつなげた文(無ければ null)。
+ * 節に別の表があっても読まない。別の表に語が残っていても、該当の表から消えたことを見逃さないため(#326 突合 R-1)
+ */
+export function tableText(sectionLinesArr, headerCell) {
+  const first = (l) => l.replace(/^\|/, '').split('|')[0].trim();
+  const s = sectionLinesArr.findIndex((l) => l.startsWith('|') && first(l) === headerCell);
+  if (s < 0) return null;
+  const rows = [];
+  for (let i = s; i < sectionLinesArr.length && sectionLinesArr[i].startsWith('|'); i += 1) rows.push(sectionLinesArr[i]);
+  return rows.join('\n');
+}
 
 /**
  * 問題の文の配列を返す(空なら適合)。

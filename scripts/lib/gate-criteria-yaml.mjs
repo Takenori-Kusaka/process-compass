@@ -33,8 +33,12 @@ export function formatCriterion(c) {
   return JSON.stringify(c);
 }
 
-/** integrated.yaml の text のうち、ゲート id の criteria 行だけを want で置き換える */
+/**
+ * integrated.yaml の text のうち、ゲート id の criteria 行だけを want で置き換える。
+ * 置換の範囲は次の `- id:` の手前までに限る(criteria の行を持たないゲートは書かない。次のゲートの行を書き換えない)。
+ * 行末が CRLF でも書く(#326 突合 R-6)
+ */
 export function writeCriteria(text, id, want) {
-  const re = new RegExp(`(- id: ${id}\\n[\\s\\S]*?criteria: )\\[.*\\]`);
+  const re = new RegExp(`(- id: ${id}\\r?\\n(?:(?!\\s*- id: )[\\s\\S])*?criteria: )\\[.*\\]`);
   return text.replace(re, (_m, head) => `${head}[${want.map(formatCriterion).join(', ')}]`);
 }

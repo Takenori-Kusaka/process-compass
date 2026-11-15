@@ -27,6 +27,19 @@ export function successorsIn(status) {
   return [...out];
 }
 
+/** 検査した順方向の参照の数(参照を持つ ADR の数と、参照の組の数。自己参照は数えない) */
+export function forwardCounts(adrs) {
+  let withRef = 0;
+  let pairs = 0;
+  for (const [num, text] of adrs) {
+    const status = statusSection(text);
+    const next = status === null ? [] : successorsIn(status).filter((n) => n !== num);
+    if (next.length) withRef += 1;
+    pairs += next.length;
+  }
+  return { withRef, pairs };
+}
+
 /**
  * adrs: Map(番号 4桁 → ファイルの全文)。問題の文の配列を返す(空なら適合)
  */

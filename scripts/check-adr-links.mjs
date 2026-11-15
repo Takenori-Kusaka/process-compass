@@ -10,7 +10,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { forwardProblems } from './lib/adr-links.mjs';
+import { forwardProblems, forwardCounts } from './lib/adr-links.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIR = path.join(ROOT, 'src/content/docs/adr');
@@ -27,4 +27,5 @@ if (problems.length) {
   for (const p of problems) console.error(`  ${p}`);
   process.exit(1);
 }
-console.log(`ADR の後継参照: ${adrs.size} 件を検査(状態の行の「置き換え(→ ADR-N)」の順方向。逆向きは検査しない)`);
+const { withRef, pairs } = forwardCounts(adrs);
+console.log(`ADR の後継参照: ${adrs.size} 件のうち、順方向の参照を持つ ${withRef} 件(${pairs} 組)を検査(状態の行の「置き換え(→ ADR-N)」の順方向。逆向きは検査しない)`);

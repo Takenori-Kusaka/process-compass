@@ -22,7 +22,8 @@ import { missingInputs, describeMissing, commitProblems } from './lib/inputs.mjs
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE = path.join(ROOT, 'src/content/docs/phase4-process-design/gate-criteria.md');
-const TARGET = path.join(ROOT, 'src/data/processes/integrated.yaml');
+// GATE_CRITERIA_YAML は試験が検査本体の結線を確かめるための差し替え(#326)
+const TARGET = process.env.GATE_CRITERIA_YAML ?? path.join(ROOT, 'src/data/processes/integrated.yaml');
 
 // 第4章のゲート見出し → integrated.yaml の gate id
 const GATE_IDS = {
