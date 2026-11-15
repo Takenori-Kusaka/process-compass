@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-11-15)。[ADR-0063](/process-compass/adr/0063-provision-forms-and-registry/) の決定2 と [ADR-0086](/process-compass/adr/0086-guide-pages-and-meta-sentences/) の決定3 は置き換えず、足します。注意の枠の種類の地位は、本 ADR では定めません。重い審議(Issue #440 に残す)の結論が、本 ADR を置き換えることがあります。
+採用(2026-11-15)。[ADR-0063](/process-compass/adr/0063-normative-informative-and-verbal-forms/) の決定2 と [ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/) の決定3 は置き換えず、足します。注意の枠の種類の地位は、本 ADR では定めません。重い審議(Issue #440 に残す)の結論が、本 ADR を置き換えることがあります。
 
 ## コンテキスト
 

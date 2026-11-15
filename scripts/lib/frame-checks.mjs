@@ -4,13 +4,13 @@
 // 登録簿は src/data/provision-forms.yaml の undecidedFrameSentences・declarationVerbs。
 
 /**
- * 行が注意の枠の開きか。札に「暫定」を持つ枠(根拠水準のマーク)は対象の外。
+ * 行が注意の枠の開きか。札が根拠水準のマークの書式(「暫定 EV-NNNN」)の枠は対象の外。「暫定」の語を含むだけの札は対象に入る(X-6)。
  * 注記(:::note)は検査12 の本来の対象なので、ここでは扱わない。戻り値: 'frame' | 'tentative' | null
  */
 export function frameOpening(line) {
   const m = /^\s*:::(caution|danger|tip|warning)(?![A-Za-z])(.*)$/.exec(line);
   if (!m) return null;
-  return m[2].includes('暫定') ? 'tentative' : 'frame';
+  return /^\[暫定 EV-\d+/.test(m[2]) ? 'tentative' : 'frame';
 }
 
 /** 行が枠の閉じ(:::だけの行)か */
@@ -23,6 +23,14 @@ export function splitSentences(line) {
     .split(/。|\|/)
     .map((x) => x.replace(/^\s*(?:[-*]\s+|\d+\.\s+)?/, '').trim())
     .filter(Boolean);
+}
+
+/**
+ * 行の中の、re に当たる文のうち、登録した句を含まない文を返す(X-5。除外は行ではなく文の単位)。
+ * 登録した文と同じ行・同じ段落へ別の禁止を足しても、足した文は登録の句を含まないので残る。
+ */
+export function unregisteredSentences(line, re, phrases) {
+  return splitSentences(line).filter((s) => re.test(s) && !phrases.some((p) => s.includes(p)));
 }
 
 /**

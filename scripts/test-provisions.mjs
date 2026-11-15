@@ -4,12 +4,14 @@
 //
 // 判定の本体は scripts/lib/exempt-marks.mjs。check-tone.mjs と check-provisions.mjs が同じ関数を使う。
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, cpSync, mkdirSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { hasMark, hasToneOk, hasRefOk, markReason, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
-import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems } from './lib/frame-checks.mjs';
+import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems, unregisteredSentences } from './lib/frame-checks.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -111,6 +113,51 @@ check('違反: kind が frame・declaration でない登録は失敗する', up(
 
 // 実物: 登録簿の未決の文がすべて、いまの本文と一致している(検査12 の拡張の本体は npm run lint:provisions)
 check('登録簿に未決の文の区画があり、項目が1つ以上ある', (reg.undecidedFrameSentences?.entries ?? []).length > 0);
+
+// 文の単位の除外(X-5): 登録した文だけを通し、同じ行へ足した別の禁止は残す
+const SH = /[てで]はなりません$/;
+check('適合: 登録した文だけの行は残さない', unregisteredSentences('検証で挿入してはなりません。', SH, ['挿入してはなりません']).length === 0);
+check('違反: 登録した文と同じ行の別の禁止は残す', unregisteredSentences('検証で挿入してはなりません。加えて記録を消してはなりません。', SH, ['挿入してはなりません']).length === 1);
+check('違反: 登録が無ければ残す', unregisteredSentences('消してはなりません。', SH, []).length === 1);
+
+// 検査の本体の結線(X-4): 違反の見本を置いた一時の木で check-provisions.mjs を子プロセスとして走らせる
+{
+  const tmp = mkdtempSync(path.join(tmpdir(), 'prov-'));
+  try {
+    cpSync(path.join(ROOT, 'src/data'), path.join(tmp, 'src/data'), { recursive: true });
+    cpSync(path.join(ROOT, 'src/content/docs'), path.join(tmp, 'src/content/docs'), { recursive: true });
+    mkdirSync(path.join(tmp, 'template'), { recursive: true });
+    writeFileSync(path.join(tmp, 'template/README.md'), '# placeholder'); // 入力の存在検査(空のディレクトリは失敗)を通すため
+    const DOC = (p) => path.join(tmp, 'src/content/docs', `${p}.md`);
+    const REG = path.join(tmp, 'src/data/provision-forms.yaml');
+    const run = () => spawnSync(process.execPath, [path.join(ROOT, 'scripts/check-provisions.mjs')], { env: { ...process.env, PROVISIONS_ROOT: tmp }, encoding: 'utf8' });
+    const trial = (file, edit) => {
+      const orig = readFileSync(file, 'utf8');
+      writeFileSync(file, edit(orig));
+      try {
+        const r = run();
+        return r.status !== 0 ? r.stdout + r.stderr : '';
+      } finally {
+        writeFileSync(file, orig);
+      }
+    };
+    const base = run();
+    check('結線: 見本の木(違反なし)で本体が exit 0 になる', base.status === 0, (base.stdout + base.stderr).slice(-300));
+    const PG = 'phase4-process-design/';
+    const safety = DOC(`${PG}safety-verification`);
+    const o1 = trial(safety, (t) => `${t}\n\n:::danger\n記録を省いてはなりません。\n:::\n`);
+    check('結線: 枠の中の未登録の禁止で本体が非 0 になる', o1.includes('注意の枠の中の要求・禁止'), o1.slice(-200));
+    const phrase = '本番稼働中の安全関連システムへ故障を挿入してはなりません';
+    const o2 = trial(safety, (t) => t.replace(phrase, `${phrase}。加えて記録を消してはなりません`));
+    check('結線: 登録した枠の同じ行へ足した別の禁止で本体が非 0 になる(X-5)', o2.includes('注意の枠の中の要求・禁止'), o2.slice(-200));
+    const o3 = trial(DOC(`${PG}overview`), (t) => `${t}\n\n新しいゲートを設けません。\n`);
+    check('結線: 主語の無い「設けません」で本体が非 0 になる(検査17)', o3.includes('主語の無い表明の文末'), o3.slice(-200));
+    const o4 = trial(REG, (t) => t.replace('ledgerKey: 附属書F F.5「手法の分類」の枠', 'ledgerKey: 存在しない所在'));
+    check('結線: 未決の登録がマークの表と食い違うと本体が非 0 になる', o4.includes('未決の文の登録'), o4.slice(-200));
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
 
 console.log(`\n${checks - failures}/${checks} 件が合格`);
 process.exit(failures === 0 ? 0 : 1);

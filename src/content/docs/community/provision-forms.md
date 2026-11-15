@@ -24,7 +24,7 @@ sidebar:
 | 9 | 手引きへの委任 | 本文8章と規定の附属書 | フェーズ5・6 の頁を「〜による」「〜に規定」「〜に定め」「〜が正本」で引いている(第1章 1.8) |
 | 10 | 章の引用 | 規定の文書とフェーズ5・6 の頁 | 「第N章 X.Y」の X が N でない引用と、リンク先が第N章の頁でない引用 |
 | 11 | 禁止事項の番号 | 公開ドキュメント(ADR と台帳を除く)と準拠テンプレート | 「禁止事項N」を、一覧の所在(「5.8.5 の」「テーラリングの」)で修飾せずに引いている(第1章 1.7。#316) |
-| 12 | 注記と注意の枠の中の要求 | 本文8章と規定の附属書 | 注記(`:::note`)と、注意の枠(札に「暫定」を持たない `:::caution` と `:::danger`)の中の、要求・禁止の文末(「〜なければなりません」「〜てはなりません」)。注記は説明に数える(第1章 1.7.2。#316 突合 X-13)。注意の枠は、要求・禁止を枠だけに書かない規則(#440 / [ADR-0131](/process-compass/adr/0131-frame-placement-rule-and-declaration-subject/))。地位が未決の文は `undecidedFrameSentences` に載せて通し、登録の句が本文にあること、実物のそばに表示の文があること、第1章 1.7.2 のマークの表に所在があることを確かめる。登録が本文から消えたとき、失敗する |
+| 12 | 注記と注意の枠の中の要求 | 本文8章と規定の附属書 | 注記(`:::note`)と、注意の枠(札が根拠水準のマーク(`暫定 EV-NNNN`)でない `:::caution` と `:::danger`。`:::tip` と `:::warning` も同じ扱い)の中の、要求・禁止の文末(「〜なければなりません」「〜てはなりません」)。注記は説明に数える(第1章 1.7.2。#316 突合 X-13)。注意の枠は、要求・禁止を枠だけに書かない規則(#440 / [ADR-0131](/process-compass/adr/0131-frame-placement-rule-and-declaration-subject/))。地位が未決の文は `undecidedFrameSentences` に載せて通し、登録の句が本文にあること、実物のそばに表示の文があること、第1章 1.7.2 のマークの表に所在があることを確かめる。登録が本文から消えたとき、失敗する |
 | 13 | 廃した言い回しの由来 | 登録簿の `retiredPhrases` | `by` が ADR・Issue を1つも指さない、または指す ADR・Issue が実在しない(#319。[ADR-0089](/process-compass/adr/0089-regression-suite-under-version-control/)) |
 | 14 | 廃した値の語 | 本文8章と規定の附属書(注記とコメントを含む) | 登録簿の `retiredValueWords` の語(「初期値」)。値の扱いは、組織が定める値・既定値・例で書く([第1章 1.7.7](/process-compass/phase4-process-design/overview/)。#419 / [ADR-0097](/process-compass/adr/0097-value-types-replace-initial-value/)) |
 | 15 | 異表記 | 公開ドキュメント、規則データ、準拠テンプレート(検査6 と同じ置き場) | 登録簿の `variantForms` の異表記(正規表現)。正表記を決めた決定のある語だけを登録する(#438 / [ADR-0118](/process-compass/adr/0118-variant-forms-registry-and-no-vale-for-japanese/)) |

@@ -53,9 +53,10 @@ import { missingInputs, INIT_HINT } from './lib/inputs.mjs';
 import { problemOf, decisionIdsIn } from './lib/decision-refs.mjs';
 import { simplifiedCellProblem } from './lib/stage-table.mjs';
 import { hasMark, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
-import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems } from './lib/frame-checks.mjs';
+import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems, unregisteredSentences } from './lib/frame-checks.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// PROVISIONS_ROOT は試験用。違反の見本を置いた一時の木へ、検査の本体を向ける(scripts/test-provisions.mjs)
+const ROOT = process.env.PROVISIONS_ROOT ? path.resolve(process.env.PROVISIONS_ROOT) : path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = 'src/content/docs';
 const REGISTRY = 'src/data/provision-forms.yaml';
 const reg = YAML.parse(readFileSync(path.join(ROOT, REGISTRY), 'utf8'));
@@ -160,7 +161,9 @@ for (const d of docs) {
     const n = i + 1;
     if (inFrameBox && d.kind === 'normative') {
       const mm = RE_SHALL.exec(stripComments(line0));
-      if (mm && !undecidedFrame.some((u) => u.kind === 'frame' && u.page === d.page && line0.includes(u.phrase))) {
+      // 未決の登録で通すのは、登録した文そのもの。同じ行へ足した別の禁止は通さない(X-5)
+      const regPhrases = undecidedFrame.filter((u) => u.kind === 'frame' && u.page === d.page).map((u) => u.phrase);
+      if (mm && unregisteredSentences(stripComments(line0), RE_SHALL, regPhrases).length > 0) {
         report(rel, n, '注意の枠の中の要求・禁止', line0.slice(Math.max(0, mm.index - 20), mm.index + mm[0].length), '要求事項と禁止を、注意の枠だけに書けません。枠の外の本文に 1.7.1 の形で書き、枠の中は所在を示してください。地位が未決の文は登録簿の undecidedFrameSentences に載せます(第1章 1.7.2)');
       }
     }
