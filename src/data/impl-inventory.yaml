@@ -1048,7 +1048,7 @@ sections:
     ids:
       - IMPL-0533
       - IMPL-0534
-    note: 通過条件は A1(降りている)、前提が崩れていても停止しない旨は A2(降りていない)
+    note: 通過条件は A1(降りている)、前提が崩れていても停止しない旨は A2(降りていない。前提の台帳の手引き IMPL-0670 は同じ文を置くが、判定者が読む /gate の側には無い)
     issue: 324
   - key: phase4-process-design/gate-criteria#ゲート運用の共通ルール
     status: marked
@@ -1410,7 +1410,8 @@ sections:
     status: marked
     ids:
       - IMPL-0683
-    note: 暫定の許可の期限・恒久の追加の所管・失効は IMPL-0683(降りていない。予定の降ろし先 ip-allowlist-operation。採用者に委ねるかは本件で決めない)
+      - IMPL-0731
+    note: 恒久の追加の所管(法務)は IMPL-0731(降りている。process-change スキルの settings の種別)。暫定の許可の期限と期限超過の失効は IMPL-0683(降りていない。許可リストは ci.allowedLicenses にあるが、暫定の許可を記録する欄と失効の検査が無い。予定の降ろし先 ip-allowlist-operation)
     issue: 324
     rows:
       手続1:
@@ -1424,6 +1425,7 @@ sections:
       手続3:
         status: marked
         ids:
+          - IMPL-0731
           - IMPL-0683
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
     status: kb
@@ -2097,12 +2099,11 @@ sections:
         status: marked
         ids:
           - IMPL-0689
-          - IMPL-0593
       不変条件4:
         status: marked
         ids:
           - IMPL-0689
-    note: 不変条件1・4と不変条件3の認証・認可・個人データは IMPL-0689(降りている。IMPL-0019・IMPL-0097 とも重なる)、不変条件2の本番反映の承認の記名と不変条件3の外部との契約は IMPL-0593(降りていない。IMPL-0251 が取り消せない操作の側を追う)
+    note: 不変条件1・3・4は IMPL-0689(降りている。不変条件3の外部との契約を含む。IMPL-0019・IMPL-0097 とも重なる)、不変条件2の本番反映の承認の記名は IMPL-0593(降りていない。IMPL-0251 が取り消せない操作の側を追う)
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.4 リスク区分による上限
     status: marked
     ids:
@@ -2258,7 +2259,6 @@ sections:
       人が確定する判断3:
         status: marked
         ids:
-          - IMPL-0691
           - IMPL-0598
       人が確定する判断4:
         status: marked
