@@ -1220,21 +1220,54 @@ sections:
     reason: 様式を AI の出力形式の指定として恒久層に登録する旨と、機械チェック・人間判定の流れの説明。具体的な組み込みはフェーズ5(参考・対象外)で扱うと本文が書く
     issue: 324
   - key: phase4-process-design/ears-guide#(冒頭)
-    status: pending
+    status: none
+    category: explanation
+    reason: G-2 の通過条件(受入基準が検証可能な形式で記述されている)と EARS 記法の説明、本附属書が規定であること、第4章 G-2 の基準1 が本附属書の形式への準拠を求めること。基準1 の判定基準の表は第4章の kb に降りる。読み方の規則。
+    issue: 324
   - key: phase4-process-design/ears-guide#なぜ形式を決めるのか
-    status: pending
+    status: none
+    category: explanation
+    reason: 形式を決める理由の3点(曖昧語は AI にテストへ変換する手段がなく人にも合否を判定する手段がない、AI へ5つの型で書けと指示できる、基準がそのままテスト名になる)。理由だけを述べる文で、規定の文は無い。
+    issue: 324
   - key: phase4-process-design/ears-guide#5つのパターン
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0935
+    note: 「受入基準の文末の形は組織が定めます。本附属書が定めるのはパターンであり、文末の形ではありません」は本標準が文末の形を課さない明記で、IMPL-0935 の note が名指す。見本の文末の形(しなければならない)を示す文と組み合わせの例は見本・例で規定に数えない。
+    issue: 324
   - key: phase4-process-design/ears-guide#良い例・悪い例
-    status: pending
+    status: none
+    category: explanation
+    reason: 悪い例・問題・良い例の対応の表。例の中の文は規定の文に数えない(判定表 P3)。
+    issue: 324
   - key: phase4-process-design/ears-guide#書き方の手順(formalize-criteria タスクの実施手順)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0936
+      - IMPL-0937
+      - IMPL-0938
+      - IMPL-0939
+    note: formalize-criteria の語に当たるタスクは準拠テンプレートに無い(git grep で /spec-write の本文の1か所だけ)。手順の4ステップをそれぞれ1件のマークで追う。
+    issue: 324
   - key: phase4-process-design/ears-guide#草案を受け取ったときに確かめること
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0940
+    note: 「受入基準の内容そのものは、G-2 では判定しません」「本節の確認は推奨事項です。判定基準を足しません。確かめたことの記録も求めません」は本標準が課さない明記で、IMPL-0940 の note が名指す。基準の確定が価値判断で人が行うことは第5章 5.5 の規定の参照。EV-0095 の枠は根拠水準の開示。
+    issue: 324
   - key: phase4-process-design/ears-guide#チェックリスト(G-2 提出前のセルフチェック)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0941
+      - IMPL-0942
+      - IMPL-0943
+    note: 「記載の当否(異常条件が本当に無いか)は判定しません」「本附属書は、受入基準が言い訳に読み替えられる場合の列挙を、受入基準を書く者に求めません」「事業ステージを理由に未完成を許す読み替えは受入基準の問題ではありません」は課さない明記・理由の説明。IMPL-0941 は「該当なし」の欄を置かないことを含む。
+    issue: 324
   - key: phase4-process-design/ears-guide#出典
-    status: pending
+    status: none
+    category: explanation
+    reason: EARS の出典(論文)の1行。
+    issue: 324
   - key: phase4-process-design/exception-escalation#(冒頭)
     status: none
     category: explanation
@@ -4157,21 +4190,45 @@ sections:
     note: 再開の経路は undelivered(IMPL-0309)
     issue: 313
   - key: phase4-process-design/proposal-template#(冒頭)
-    status: pending
-  - key: "phase4-process-design/proposal-template#提案の戦略: 「変えない」から入る"
-    status: pending
+    status: none
+    category: org-design
+    reason: '提案書は組織として品質を保証すると言える形で書くという定めと、本ページで回答を独自に書かないという定め(本標準の記述の起草の規則)。前者が縛る相手は採用を提案する者(人)で、提案書は採用の前に作る対外文書であり、準拠テンプレートの構成・様式・判定記録・台帳・PR のどれにも現れない。違反(保証すると言えない形の提案書)は提案書の文面にしか現れない。探した場所: impl-targets の project-brief-template・qa-policy-template・claude-md-resident・adoption-trial、template の templates/00〜12 と README、.claude/skills の process-init・artifact(提案書の様式・提案書の表現を扱う欄・検査は無い。process-init が参照するのは外部ページの出力フォーマットの1行)。附属書H H.8(対外的に使う表現)と同じ扱い。'
+    issue: 324
+  - key: 'phase4-process-design/proposal-template#提案の戦略: 「変えない」から入る'
+    status: none
+    category: org-design
+    reason: '本附属書の冒頭が「提案の進め方と説得の順序の記述は、説明です」と定める部分。「変える点を小さく見せません」「出荷判定の手続は変わらないとは説明しません」は提案する者(人)の書き方への禁止で、違反は提案書の文面にしか現れず、本標準が求める記録に現れない。探した場所: impl-targets の project-brief-template・qa-policy-template・claude-md-resident・adoption-trial、template の templates/00〜12 と README、.claude/skills の process-init・artifact(提案書の様式・提案書の表現を扱う欄・検査は無い。process-init が参照するのは外部ページの出力フォーマットの1行)。'
+    issue: 324
   - key: phase4-process-design/proposal-template#提案書テンプレート
-    status: pending
+    status: none
+    category: explanation
+    reason: '提案書の様式の見本(コードブロック)。様式の見本の中の文は規定の文に数えない(判定表 P3)。節 §4 の4つの変更点と §5 の品質統制の観点は附属書H・第4章 G-7・第8章の規定の投影で、規定の正本は各章(本附属書の冒頭が「回答を独自に書きません」と定める)。提案書は採用前に作る文書で、案件の実行層に置き場を持たない。探した場所: impl-targets の project-brief-template・qa-policy-template・claude-md-resident・adoption-trial、template の templates/00〜12 と README、.claude/skills の process-init・artifact(提案書の様式・提案書の表現を扱う欄・検査は無い。process-init が参照するのは外部ページの出力フォーマットの1行)。'
+    issue: 324
   - key: phase4-process-design/proposal-template#提案書で使わない表現
-    status: pending
+    status: none
+    category: org-design
+    reason: '提案書で「品質を保証する」を範囲・根拠・証拠なしに使わないこと、「独立検証済み」「第三者レビュー済み」「規格に適合」「AI がレビューしたので検証済み」などを使わないこと、「第三者レビュー」の語を第1章 1.4 の定義の範囲に限ること。縛る相手は提案する者(人)で、違反は提案書の文面にしか現れず、本標準が求める記録のどれにも現れない。附属書H H.8 が同じ表現の規定を org-design として登録済みで、同じ扱い。探した場所: impl-targets の project-brief-template・qa-policy-template・claude-md-resident・adoption-trial、template の templates/00〜12 と README、.claude/skills の process-init・artifact(提案書の様式・提案書の表現を扱う欄・検査は無い。process-init が参照するのは外部ページの出力フォーマットの1行)。'
+    issue: 324
   - key: phase4-process-design/proposal-template#想定問答(提案時に必ず出る質問) > 品質保証に関する問い(附属書H からの投影)
-    status: pending
+    status: none
+    category: explanation
+    reason: 附属書H H.9 の問いと回答の骨子を引く対応の表。表の中の文は回答の骨子の投影で、規定の正本は附属書H と各章。「H.9 に無い問いを受けたときは、附属書H の側へ問いを足し、本表はそこから引き直します」は本標準の記述の更新の規則(起草)。
+    issue: 324
   - key: phase4-process-design/proposal-template#想定問答(提案時に必ず出る質問) > 採用の判断と組織継続に関する問い(附属書I からの投影)
-    status: pending
+    status: none
+    category: explanation
+    reason: 附属書I の問いと回答の骨子を引く対応の表。「採否の判定は採用者が行います」は採用者の権限の表明(本標準が採否を決めないという説明)。規定の正本は附属書I と各章。
+    issue: 324
   - key: phase4-process-design/proposal-template#想定問答(提案時に必ず出る質問) > 提案の進め方に関する問い
-    status: pending
+    status: none
+    category: explanation
+    reason: 提案の進め方の問いと回答の骨子の表(単独判定は独断にならないか、失敗したらどうするか)。回答の出所は第4章「ゲート運用の共通ルール」と提案書 §6。
+    issue: 324
   - key: phase4-process-design/proposal-template#提案の進め方
-    status: pending
+    status: none
+    category: explanation
+    reason: 提案の進め方の3段(事前の非同期共有・パイロットで実証・展開時にテーラリング)と、定量データを提案前に測っておく推奨。本附属書の冒頭が「提案の進め方と説得の順序の記述は、説明です」と定める部分。
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#(冒頭)
     status: none
     category: explanation
@@ -5692,45 +5749,208 @@ sections:
     reason: 他の章の規定への参照の一覧
     issue: 324
   - key: phase4-process-design/safety-verification#(冒頭)
-    status: pending
+    status: none
+    category: explanation
+    reason: 本附属書が規定であること(第1章 1.5)、第5章 5.4 が切り分けの判定手順を本附属書によると定めること、本文と食い違う場合は本文によること、本附属書が扱う範囲(保護方策のうちソフトウェアで実現する部分の検証)の表明。読み方の規則で、実行主体の挙動を縛る文は無い。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.1 本附属書の位置づけ
-    status: pending
+    status: none
+    category: org-design
+    reason: '本標準が適用規格を決めず特定の手順を提供するという課さない明記と、機能安全の規格への適合性を証明しないこと、規格適合が必要な案件では認証機関または適合性評価の担当部門の指示が優先するという定め(課さない明記を含む)。優先の定めは、認証機関・適合性評価の部門と開発組織の関係で、違反(指示に従わないこと)は組織の外の制度にしか現れず、本標準が求める記録のどれにも現れない。探した場所(認証機関の指示を扱う欄・語を探した): impl-targets の d0-template・safety-risk-assessment-template・gate-record-template・g5-adapter・evidence-aggregation、template の templates/04・09・00 と scripts/gate(「適用規格」「適用した手法」「故障挿入」「ミューテーション」の欄・語は無い)。「:::caution」の枠は版と根拠の開示。'
+    issue: 324
   - key: phase4-process-design/safety-verification#F.1 本附属書の位置づけ > 用語を安易に併記しない
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0914
+    note: 「PLr/SIL」の併記禁止の1文。指標と規格の表、規格ごとの現行の版の記述(目録で確かめた事実)、「安全度水準」を抽象語として用いる文(本標準の記述の用語の規則)は規定の文でない。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.2 適用の判定
-    status: pending
+    status: none
+    category: elsewhere
+    reason: '節の本文は判定の流れの図だけ。図の各判断の所在: Q1(人身への危害が生じうる制御があるか)の答えは IMPL-0449 が「附属書F F.2 の回答」の欄として追う。適用規格の特定は F.7 の IMPL-0933(「適用規格と安全度水準」)、F.4 の手法割当ての適用は IMPL-0924、安全関連部の切り分けは下位の節の IMPL-0915 が追う。Q1 が「いいえ」のときの「本附属書の適用外」は適用範囲の表明(説明)。'
+    location:
+      - 'phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 判定の記録と確認'
+      - phase4-process-design/safety-verification#F.4 検証手法の割当て
+      - phase4-process-design/safety-verification#F.7 記録
+    issue: 324
   - key: phase4-process-design/safety-verification#F.2 適用の判定 > 安全関連部の切り分け
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0915
+    location:
+      - 'phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 判定の記録と確認'
+    note: 切り分けの基準の表(安全関連部/それ以外)と、切り分けを記録しない場合の効果の説明は判定の内容(人が行う)。判定者と別の自然人が確かめること、Q1 が「はい」の案件で確認者に段3 を求めることは、IMPL-0450・IMPL-0452 の note が「附属書F F.2 の Q1 が「はい」なら段3」を名指す。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.2 適用の判定 > 安全関連ソフトウェアの区分
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0916
+      - IMPL-0917
+    note: 2種の区分の表(記述言語)と、ISO 13849-1 の読みの紹介(EV-0235 で暫定)は説明。規定は、2種に分けることと完全可変言語の応用ソフトウェアに組込同等の措置を求めること(IMPL-0916)、最上位の水準で汎用の機能安全規格を適用すること(IMPL-0917)。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.3 AI を用いる場合の追加要求 > 2つのケースを混同しない
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0918
+    note: 2つのケースの表の「AI が開発を支援する」側は本附属書の対象(説明)。「AI が安全機能そのものを実現する」側の扱い(対象外、専門部門と行う)が規定で、降ろし先の記録が無いため IMPL-0918 で表示する。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.3 AI を用いる場合の追加要求 > 追加要求
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0919
+      - IMPL-0920
+      - IMPL-0921
+    location:
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.2 記録の要求事項
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.4 テスト生成における分離の段階
+      - 'phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 区分ごとの調整'
+    note: 表の後の段落「生成物であることは、検証を省く理由にも、追加の検証を課す理由にもなりません」は要求3の4条件の読み方で、IMPL-0920 が名指す。
+    issue: 324
+    rows:
+      要求1:
+        status: marked
+        ids:
+          - IMPL-0919
+      要求2:
+        status: none
+        category: elsewhere
+        reason: モデルの版と指示を構成管理下に置き成果物から参照できるようにすることは、IMPL-0207 が「実行の識別子と指示資産の版」を変更単位で記録することとして追い、モデルの識別は Co-Authored-By による(IMPL-0207 の note)。
+        location:
+          - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.2 記録の要求事項
+        issue: 324
+      要求3:
+        status: marked
+        ids:
+          - IMPL-0920
+      要求4:
+        status: none
+        category: elsewhere
+        reason: テスト生成の分離の段階「最強」と、検証の担当者に求める組織上の距離の段(CL2 は段2 以上、CL3 は段3 以上)は、IMPL-0184(段階「最強」)と IMPL-0344(最強の検証の担当者に求める段)が追う。
+        location:
+          - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.4 テスト生成における分離の段階
+          - 'phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 区分ごとの調整'
+        issue: 324
+      要求5:
+        status: none
+        category: elsewhere
+        reason: 安全度の評価者に求める組織上の距離の段は IMPL-0344(独立した安全性の評価者)、評価者の記名と評価の記録の所在は IMPL-0080、距離そのもの(直属の上長・指揮系統)の照合は IMPL-0514(undelivered)が追う。
+        location:
+          - 'phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 区分ごとの調整'
+        issue: 324
+      要求6:
+        status: marked
+        ids:
+          - IMPL-0921
   - key: phase4-process-design/safety-verification#F.3 AI を用いる場合の追加要求 > 反復して合格へ至った修正の扱い
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0922
+      - IMPL-0923
+    note: 「要求1は自律レベルを L1 に固定しますが、自己修正ループは自律レベルによらず回ります」「結果からこの2つを判別する手段はありません」は要求6の理由の説明。規定は、仕様へ戻して4条件を改めて満たすこと(IMPL-0922)と、実行時に不変条件を確認する構成の確認を故障挿入試験の対象にすること(IMPL-0923)。不変条件の記述と静的な検証を要するかは規格の要求による(課さない明記)。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.4 検証手法の割当て
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0924
+    note: 推奨度の記法の表と、R1〜R3 の列が本標準の既定値であること(EV の開示は第1章 1.7.7)、組織が第8章で調整できることは説明。規定は手法を推奨度に従って適用し、HR を適用しない理由を記録すること。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.5 故障挿入試験の実施手順
-    status: pending
+    status: none
+    category: explanation
+    reason: 故障挿入試験の定義の1文(正常系では到達しない経路を強制的に通し、保護方策が働くことを確かめる手法)。規定の文は下位の節にある。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.5 故障挿入試験の実施手順 > 手法の分類
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0925
+    note: 分類の表(実行前・実行時・ハードウェアによる挿入と本標準での用途)は説明。規定は「:::danger」の枠の中の禁止(本番稼働中の安全関連システムへ故障を挿入してはならない)と、実行時の挿入を模擬環境に限ること。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.5 故障挿入試験の実施手順 > 最小限の試験項目
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0926
+      - IMPL-0927
+      - IMPL-0928
+    note: 項目7の見落とされやすさの説明は規定でない。
+    issue: 324
+    rows:
+      項目1:
+        status: marked
+        ids:
+          - IMPL-0926
+      項目2:
+        status: marked
+        ids:
+          - IMPL-0926
+          - IMPL-0927
+          - IMPL-0928
+      項目3:
+        status: marked
+        ids:
+          - IMPL-0926
+      項目4:
+        status: marked
+        ids:
+          - IMPL-0926
+      項目5:
+        status: marked
+        ids:
+          - IMPL-0926
+      項目6:
+        status: marked
+        ids:
+          - IMPL-0926
+      項目7:
+        status: marked
+        ids:
+          - IMPL-0926
   - key: phase4-process-design/safety-verification#F.5 故障挿入試験の実施手順 > AI に故障挿入の試験項目を生成させる場合
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0929
+    location:
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.4 テスト生成における分離の段階
+    note: 段階2「実装コードを渡さずに生成させる」は IMPL-0182(テスト生成に実装コードを渡さない)が追う。段階2の理由の段落は説明。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.6 ミューテーション試験 > 位置づけ
-    status: pending
+    status: none
+    category: explanation
+    reason: ミューテーション試験の定義と、本標準が AI が生成した試験の十分性を測る指標として用いるという位置づけ。通過条件にする規定は次の節(カバレッジを試験の品質指標にしない)にあり、IMPL-0930 が追う。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.6 ミューテーション試験 > カバレッジを試験の品質指標にしない
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0930
+    note: 網羅率が AI の生成した試験の品質を表さない旨は理由の説明。規定は、AI に試験を書かせる工程でミューテーションスコアの閾値を通過条件にすること。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.6 ミューテーション試験 > CI への組み込み
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0931
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > テストの中身に対する検査を G-5 へ置く
+    note: IMPL-0560 の note が「生存した変異の一覧は G-7 のエビデンスへ集約する」を名指す。閾値の値を本標準が定めないことは課さない明記(組織が定める)。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.6 ミューテーション試験 > 既知の限界を補う
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0932
+    note: AI が生成した試験が境界をずらす変更を検出する検査を書けないことが多いという傾向の記述は説明。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.7 記録
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0933
+      - IMPL-0934
+    location:
+      - 'phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 区分ごとの調整'
+    note: 表の最後の行(独立した評価の評価者・段・段の根拠)と「AI の利用」の行のうち最強の検証の担当者の段と根拠は、IMPL-0080(評価者・評価の記録の所在)と IMPL-0344(段の比較)が追う。
+    issue: 324
   - key: phase4-process-design/safety-verification#F.8 関連する章
-    status: pending
+    status: none
+    category: explanation
+    reason: 他の章・附属書・フェーズ5への参照の一覧。
+    issue: 324
   - key: phase4-process-design/tailoring-guide#(冒頭)
     status: none
     category: explanation
