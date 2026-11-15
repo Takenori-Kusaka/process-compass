@@ -15,23 +15,105 @@
 schemaVersion: 0
 sections:
   - key: phase4-process-design/assurance-case#(冒頭)
-    status: pending
+    status: none
+    category: not-imposed
+    reason: 「案件には論証を書かせません。案件が出すのは G-1 の品質の約束と保証範囲(層2)と、H.6 の保証の開示だけです」は、本標準が案件に論証を課さないという課さない明記である。「投影が各章と食い違う場合は各章による」は本標準の読み方の規則で、実行主体を縛らない。案件ごとの論証を書かない席の規定は H.12「行わないこと」の IMPL-0911 が運ぶ
+    issue: 324
   - key: phase4-process-design/assurance-case#H.1 最上位の主張 > 組織の保証の主張
-    status: pending
-  - key: "phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の根拠の層: 検証の主張"
-    status: pending
+    status: none
+    category: explanation
+    reason: 組織が対外に使う保証の主張の雛形と、保証の主張が欠陥が無いことの約束ではないことの意味の説明。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。主張の文言の使い方の規定は H.8、成立の条件は H.1「保証の主張の成立条件」が追う
+    issue: 324
+  - key: 'phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の根拠の層: 検証の主張'
+    status: none
+    category: explanation
+    reason: 検証の主張(工程についての主張)の一文と、論証が機能するかを実証していない旨(EV-0044)。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。
+    issue: 324
   - key: phase4-process-design/assurance-case#H.1 最上位の主張 > AI の関与を前提にした保証の根拠
-    status: pending
+    status: none
+    category: explanation
+    reason: 保証の根拠4つと、主張 C1〜C11・H.4・H.5 の対応の表、QA4AI との差の説明。各行の規定は C2〜C11 の支える条項(5.8.1・G-6・5.6.2・3.13 ほか)と H.4 が追う。H.3「検証の主張と条項の対応」(explanation)と同じ扱い。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。
+    issue: 324
   - key: phase4-process-design/assurance-case#H.1 最上位の主張 > 「切り離された検証」が指すもの
-    status: pending
+    status: none
+    category: explanation
+    reason: 切り離された検証の3つの手段(人の独立・文脈の分離・入力の分離)と、リスク区分ごとに求める段階の対応の表。正本は 3.5.4(語)、5.8.4(テスト生成の段階。IMPL-0181〜0184)、G-6、附属書F F.6。「AI の確認は人の独立に数えない」は H.4(IMPL-0031)が追う。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。
+    issue: 324
   - key: phase4-process-design/assurance-case#H.1 最上位の主張 > 「品質保証」という語の意味
-    status: pending
+    status: none
+    category: explanation
+    reason: 品質保証の語の系譜(JSQC・JIS・ISO)と、品質保証・契約上の担保・結果の約束の3つの意味の整理。表の「使ってはならない(H.8)」は H.8 の規定を指す参照で、H.8 は org-design(登録済み)。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。
+    issue: 324
   - key: phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の主張の成立条件
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0905
+      - IMPL-0906
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の主張の成立判定
+      - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+      - 'phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方'
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+    note: 成立条件の判定・出力・「品質保証の対象外として出荷した」の記録は IMPL-0050(H.6 成立判定の出力)、条件4 は IMPL-0113・0438(G-7)、条件1 の層1 の無効は IMPL-0071、印 [未測定] と条件5 だけが期間を見ることは IMPL-0088、対象外として出荷することの受容の記名と権限者は IMPL-0052、受容しない条件の突合は IMPL-0556。中間の語を作らないことと、組織継続の側を成立条件に入れないことは、どのマークの note も名指していなかったため、この節に IMPL-0905・0906 を足した(束 A 突合 所見19)。体制ごとの道筋の表と、対象外でも検証・開示・記録・受容の記名を行う旨は、各章の規定の投影
+    issue: 324
+    rows:
+      成立条件1:
+        status: none
+        category: elsewhere
+        reason: IMPL-0071 の note が「層1 を無効として成立条件1 を不成立にする」と名指す
+        location:
+          - 'phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方'
+        issue: 324
+      成立条件2:
+        status: none
+        category: elsewhere
+        reason: IMPL-0050 の note が「層2(企画書の4欄と G-1 の判定記録)」から条件を判定すると名指す
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+        issue: 324
+      成立条件3:
+        status: none
+        category: elsewhere
+        reason: IMPL-0032 の note が、承認を名簿の人へ対応づけ作成を指示した者でない場合にだけ独立した人の確認に数えると名指す。数え方は IMPL-0908
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示
+        issue: 324
+      成立条件4:
+        status: none
+        category: elsewhere
+        reason: IMPL-0113(出荷判定を記名した人が指示者でも G-6 の承認者でもないこと)と IMPL-0438(記名が自己申告の判定記録)の note が条件4 を名指す
+        location:
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の主張の成立判定
+        issue: 324
+      成立条件5:
+        status: none
+        category: elsewhere
+        reason: IMPL-0088 の note が「期間は成立条件5 だけが見る」と名指す
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+        issue: 324
+      成立条件6:
+        status: none
+        category: elsewhere
+        reason: IMPL-0050 の note が受容しない条件の照合を名指し、IMPL-0556 が受容しない条件に当たる事実の突合を名指す
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の主張の成立判定
+        issue: 324
   - key: phase4-process-design/assurance-case#H.2 主張しないこと
-    status: pending
-  - key: "phase4-process-design/assurance-case#H.3 論証 > 論証の構造: 3層と外枠"
-    status: pending
+    status: none
+    category: explanation
+    reason: 組織の保証の主張が含まない事項(本標準そのものが保証すること・欠陥が無いこと・契約上の担保など)と、代わりに示すものの表。主張の範囲の説明で、各行の「既に明記している箇所」が規定の所在(H.1・H.8・第5章 5.6.2 ほか)を挙げる。使ってはならない表現の規定は H.8。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。
+    issue: 324
+  - key: 'phase4-process-design/assurance-case#H.3 論証 > 論証の構造: 3層と外枠'
+    status: none
+    category: elsewhere
+    reason: 外枠の不充足を受容の対象にしないことと、層3 の受容が層1 の権限の段階を超える場合に上申先へ届くことは IMPL-0563 の note が名指す。層1 の受容の基準が外枠を下回らないこと・事業規模を理由に水準を下げないことは IMPL-0815 の note が名指す(undelivered)。誰でも懸念を記録できる経路は 7.11 の IMPL-0059。組織の全員の合意を保証の条件にしないこと(周知は合意を求めない)は組織の周知の運用で、違反が本標準の求める記録のどれにも現れない制度設計(H.12 導入時の「層1 を組織へ周知する」と同じ)。層3 の記録が層1 の改訂の入力になることは説明
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+      - 'phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 要求事項'
+      - phase4-process-design/exception-escalation#7.11 停止の申し立て > 保留の範囲と強制の方法
+    issue: 324
   - key: phase4-process-design/assurance-case#H.3 論証 > 検証の主張と条項の対応
     status: none
     category: explanation
@@ -52,7 +134,48 @@ sections:
     issue: 316
     note: 抽出の対象を監査される当事者に選ばせない規則(#367)も、内部監査を行う者(人)が組織の監査の手続として守る事項であり、同じ区分とした(ADR-0116 決定6)。区分の理由は制度設計の事項であることで、準拠テンプレートに内部監査の記録の様式が無いことは理由にしていない
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0075
+      - IMPL-0031
+      - IMPL-0153
+      - IMPL-0907
+    location:
+      - phase4-process-design/tailoring-guide#テーラリングの禁止事項
+      - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.12 重点箇所の提示
+      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.7 推定による注意の喚起
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義
+      - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > AIによるレビュー層も対象とする
+      - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 結果の反映
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.4 テスト生成における分離の段階
+    note: '「次のものを数えてはなりません」の7項目の所在: 適合性確認が失効した担い手は IMPL-0030(テーラリングの禁止事項)、合議・多数決・自己修正は IMPL-0153、AI の要約だけの人の承認は IMPL-0220(3.10.12)、推定による注意の喚起は IMPL-0398(5.5.1)・IMPL-0399(5.8.7)、系統の違いだけを根拠にした独立の表示は IMPL-0158(3.5.4)、検出率が未測定の層を確かめた層として示さないことは IMPL-0166・0167(5.6.2)と IMPL-0032。同じセッション・作業領域・認証情報の確認を数えないことは名指すマークが無かったため IMPL-0907(undelivered)を足した。決定論的な検査の条件(期待値の出所・テスト生成の分離)は 5.8.4 の IMPL-0181〜0184。条件4 の「合否条件に入れない」は ai-review-workflow が合否に使わない旨(IMPL-0253)。本標準が評価に用いる物差しを本節の対象にしないことは範囲の限定'
+    issue: 324
+    rows:
+      条件1:
+        status: none
+        category: elsewhere
+        reason: 欠陥注入による検出率の測定と未測定の開示は、IMPL-0166(AI の層の検出率を人の層と同じ数え方で出し、宣言が無ければ未測定と出す)と IMPL-0167(層ごとの検出率の記録)が名指す。測り直しの契機は 3.4.2 の側
+        location:
+          - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > AIによるレビュー層も対象とする
+          - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 結果の反映
+        issue: 324
+      条件2:
+        status: marked
+        ids:
+          - IMPL-0075
+      条件3:
+        status: marked
+        ids:
+          - IMPL-0075
+      条件4:
+        status: marked
+        ids:
+          - IMPL-0031
+      条件5:
+        status: marked
+        ids:
+          - IMPL-0031
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 確認側へ渡した入力の記録
     status: marked
     ids:
@@ -62,9 +185,19 @@ sections:
     note: 入力を列挙できない確認を文脈を渡していない確認として記録しないこと、列挙できる入力の記録は IMPL-0253、四半期の抜き取りまでの保持は IMPL-0492(降りていない)、道具の側の入力の契約は IMPL-0493(採用者)(#360)。成果物だけを読む確認を課さないことは課さない明記
     issue: 294
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0154
+    note: 指摘の中身(所在と根拠。実行の結果を述べる指摘は実行の記録の所在を含め、所在を示せなければ実行で確かめたと記録しない)は IMPL-0154。AI の指摘に実行・観測値・代替案を求めないことは課さない明記
+    issue: 324
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > 所在か根拠を欠く指摘
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0157
+    location:
+      - phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > AI どうしの往復
+    note: 欠陥注入の検出に数えるのは所在が注入した箇所を指す指摘に限ることは IMPL-0157。機械が欠落を示すだけで指摘を消さないことは IMPL-0155(AI どうしの往復の節)が名指す。採否の欄に「不採用(所在・根拠なし)」と記録してよいことは許容。提出の時点で不成立とすることを課さないことは課さない明記
+    issue: 324
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > 指摘の書式
     status: none
     category: elsewhere
@@ -73,7 +206,10 @@ sections:
       - phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 確認側へ渡した入力の記録
     issue: 294
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > 意見と指摘
-    status: pending
+    status: none
+    category: explanation
+    reason: AI の担い手の出力が第3章 3.10 の意見に当たるかは 3.10.1 による、という参照の2文。規定は 3.10 の節(IMPL-0214 ほか)と H.4 の本節にあり、本節は規定の文を持たない
+    issue: 324
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方 > 指摘の内容(条件5) > AI どうしの往復
     status: marked
     ids:
@@ -83,36 +219,166 @@ sections:
     note: 往復の中の指摘の中身は IMPL-0155。往復の回数の上限は置かず、3.12.10 の停止条件による。往復への降ろし先は 3.12.10 の IMPL-0279(undelivered)。往復を禁止しないことは課さない明記
     issue: 296
   - key: phase4-process-design/assurance-case#H.5 署名の意味
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 出荷判定者の署名の意味(出荷基準の充足と記録・開示の完備の確認で、成果物の正しさの承認ではない)は IMPL-0557 の note が名指す。G-7 へ内容の十分性の判定を戻さないこと(値の良否で差し戻さない)は IMPL-0909(H.12「行わないこと」)。表の署名ごとの意味は説明
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 出荷判定者の署名の意味
+      - phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 行わないこと
+    issue: 324
   - key: phase4-process-design/assurance-case#H.5 署名の意味 > 出荷判定者の異議
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 異議の有無を G-8 の決断の記録へ必ず記載し「異議なし」も書くこと・空欄では事業決裁者が受容を記名しないことは IMPL-0564、空欄と理由の記載を要する4事項の欠落を記載の欠落に数えることは IMPL-0565、委任の期間の開示の異議と受容の記名は IMPL-0566、異議を退けた受容の上申先と日付は IMPL-0052・0563、異議を書く者と受容する者が同一人物のときの項目1 の表示は IMPL-0685 の note が名指す。異議は出荷を止める権限ではないこと(権限の分担)は G-7.md と G-8.md の判定者の定め(IMPL-0909・0910)の説明
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 出荷判定者の異議
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+    issue: 324
   - key: phase4-process-design/assurance-case#H.5 署名の意味 > 受容の基準との照合と上申
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 場面の表の各行は、層1 の権限の段階を超える残存リスクの上申・受容しない条件と外枠の不充足を受容の対象にしないこと(IMPL-0563)、照らした層1 の版・上申先と日付・対象外として出荷することの受容の3行(IMPL-0052)の note が名指す。社内の受容は外部への責任を限定しないことは説明
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+    issue: 324
   - key: phase4-process-design/assurance-case#H.5 署名の意味 > 停止の申し立てとの関係
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 誰でも停止を申し立ててよいこと・申し立てた時点の保留は 7.11 の IMPL-0059(PR の保留)・IMPL-0074(自律実行の保留)、保証の開示に載った未達・未測定への出荷判定者の見解を異議で扱い申し立てに数えないことは IMPL-0631(undelivered)の note が名指す。比較の表は説明
+    location:
+      - phase4-process-design/exception-escalation#7.11 停止の申し立て
+      - phase4-process-design/exception-escalation#7.11 停止の申し立て > 保留の範囲と強制の方法
+    issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0147
+      - IMPL-0032
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+      - phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の主張の成立条件
+      - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+      - phase4-process-design/assurance-case#H.6 保証の開示 > 人の層の値は誰の値か
+      - phase4-process-design/assurance-case#H.6 保証の開示 > 組織継続の側の状態の表示
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+    note: 7項目の出所と読み方。項目4 の「実施」は IMPL-0147、投影として出力し未達と未測定を値として表示することと独立した人の確認の数え方は IMPL-0032、項目1・2・3・6 の出力は G-7 の保証の開示の節(IMPL-0461・0471・0685・0439)、項目6 の人の層は IMPL-0083、項目5・7 の継続の側は IMPL-0051、記載の欠落に数えるものは IMPL-0686・0687。保証の水準を等級で表さないことは IMPL-0905。開示したことは出荷してよい理由にならず受容は G-8 の記名で残すことは IMPL-0563 の側。項目の過不足を検証していないことは根拠水準マークで開示済み
+    issue: 324
+    rows:
+      項目1:
+        status: marked
+        ids:
+          - IMPL-0032
+        location:
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+      項目2:
+        status: none
+        category: elsewhere
+        reason: IMPL-0471 の note が「項目2(テーラリングの宣言)」を名指す
+        location:
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+        issue: 324
+      項目3:
+        status: none
+        category: elsewhere
+        reason: IMPL-0685 の note が項目3 のリスク区分と確定の形態を名指し、IMPL-0288 が登録した変更種別の停止と判定不能の項目3 への表示を名指す
+        location:
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+          - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
+        issue: 324
+      項目4:
+        status: marked
+        ids:
+          - IMPL-0147
+      項目5:
+        status: none
+        category: elsewhere
+        reason: IMPL-0051 の note が組織継続の側の状態を項目5 に受容の状態つきで出すと名指す
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示 > 組織継続の側の状態の表示
+        issue: 324
+      項目6:
+        status: none
+        category: elsewhere
+        reason: IMPL-0083 の note が「項目6 の人の層」を名指し、IMPL-0685 が項目6 の未測定の継続期間を名指す
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示 > 人の層の値は誰の値か
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+        issue: 324
+      項目7:
+        status: none
+        category: elsewhere
+        reason: IMPL-0051 の note が項目7 への継続の側の状態の表示を名指し、IMPL-0073 が停止の申し立てを項目7 へ出すと名指す
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示 > 組織継続の側の状態の表示
+        issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 人の層の値は誰の値か
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0083
+    note: 項目6 の人の層の値の失効・読み直し・注記(状態の表の各行)は IMPL-0083。契機の値を本標準が定めないことは課さない明記
+    issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0050
+      - IMPL-0088
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+      - phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の主張の成立条件
+    note: 成立判定の出力の4行・層1 の記名が無い組織の出力・「品質保証の対象外として出荷した」の定型の文は IMPL-0050、印 [未測定] の扱いは IMPL-0088。成立判定の出力が開示に無いことを記載の欠落にすることは IMPL-0687(G-7 の保証の開示の節。undelivered)の note が名指す。成立・不成立を2値で出し等級にしないことは IMPL-0905
+    issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 組織継続の側の状態の表示
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0051
+    location:
+      - phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の主張の成立条件
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+    note: 継続の側の状態の項目5・7 への表示と期限切れの受容を記載の欠落にすることは IMPL-0051(期限切れの欠落への計上は IMPL-0686 も)。成立条件に入れないことは IMPL-0906。停止の申し立てと解除の項目7 への表示は IMPL-0073(G-7 の停止の申し立ての保留の節)
+    issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 値の推移と、値の出所を併記する
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0913
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+    note: 項目1・3・6 に前回の出荷の値を併記し良否を付けないこと、項目6 が未測定のとき続いている期間を併記すること、項目3 のリスク区分に確定した者の記名の有無と自己記載だけに依る旨を出すことは IMPL-0685 の note が名指す。委任の変更の件数と事後の抜き取りを本人が実施した旨は名指すマークが無かったため IMPL-0913 を足した。期間の開示にも異議の記載と受容の記名を要することは IMPL-0566
+    issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 独立した人の確認の数え方(項目1・3)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0908
+    location:
+      - phase4-process-design/assurance-case#H.6 保証の開示
+    note: 数える承認と数えない承認の表と箇条書きの数え方は IMPL-0908(集約の実装)。独立した人の確認の数え方の総則は IMPL-0032(H.6 の節)。独立した人の確認を経ていない変更が1件でもあれば定型の文を出すことは H.6「定型の文」の節の規定。名簿の記載が正しいかを機械が確かめないことは、内部監査の観点6(org-design)
+    issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 組織の外へ渡すとき
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0912
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+    note: 組織の外側へ項目6 を値で出さず、測定している事実・時点・推移の向きで示すことは IMPL-0685 の note が名指す。氏名・アカウント・自由記述を出さず席の名前と件数で示すことと、人が値を差し替える手順を置かないことは名指すマークが無かったため IMPL-0912 を足した。受託の納品ごとに保証の開示を受け渡すことと、委任を適用するかの契約での合意は、第8章 軸D・テンプレ8 の側の規定(IMPL-0687 の note もその側と述べる)
+    issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 独立性の表示の例(項目1)
-    status: pending
+    status: none
+    category: explanation
+    reason: 体制ごとの G-6・G-7 の表示と対外的に言えることの例示の表。末尾の「AI を何体に分けても、責任者が同一人物であれば独立は成立しません」「代償措置は未達の解消として扱いません」は 3.5.4・3.5.2 の規定の再掲で、H.1 冒頭の投影の定めによる(正本の節のマークが追う)。H.6「件数の表示の例」(explanation)と同じ扱い
+    issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 件数の表示の例(項目1・3・6。1名体制・数値は例示)
     status: none
     category: explanation
     reason: 保証の開示の件数の表示の例示
     issue: 311
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 定型の文
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 独立した人の確認を経ていない変更が1件でもある成果物に定型の文を出すことは IMPL-0685 の note が名指す。保証の主張の成立条件を満たさない変更が1件でもある出荷に「品質保証の対象外として出荷しました」の定型の文を内側・外側の開示とも出すことは IMPL-0050 の note が名指す
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+      - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+    issue: 324
   - key: phase4-process-design/assurance-case#H.7 形骸化していないことの示し方
     status: none
     category: elsewhere
@@ -126,29 +392,56 @@ sections:
     reason: 組織が対外の文書で使う表現の手引き。#298 で、手法の名との併用・互換・準拠の名乗りを禁じる行(規定の附属書の禁止)を足した。禁止は採用者の対外の表明を縛るもので、記名の自然人が書き署名する文書に掛かり、AI の担い手の挙動を制約しないため実装マークを付けない(突合 X-4)
     issue: 298
   - key: phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答
-    status: pending
+    status: none
+    category: explanation
+    reason: 問いの識別子(通しの番号を振り直さない)と、附属書I の問いとの関係の説明。本標準の記述の番号の付け方の規則で、実行主体を縛らない。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。
+    issue: 324
   - key: phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答 > 体制と責任に関する問い
-    status: pending
+    status: none
+    category: explanation
+    reason: 品質保証部門の問い12件と、本標準の答え・根拠の条項・根拠の水準・受け取る証跡の表。答えは根拠の条項の投影で、規定の正本と追跡する置き場は各行の「根拠の条項」の節のマークが持つ。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。答えが各章と食い違う場合は各章による
+    issue: 324
   - key: phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答 > 検証と記録に関する問い
-    status: pending
+    status: none
+    category: explanation
+    reason: 品質保証部門の問い12件と、本標準の答え・根拠の条項・根拠の水準・受け取る証跡の表。答えは根拠の条項の投影で、規定の正本と追跡する置き場は各行の「根拠の条項」の節のマークが持つ。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。答えが各章と食い違う場合は各章による
+    issue: 324
   - key: phase4-process-design/assurance-case#H.10 既存の枠組みとの対応
     status: none
     category: explanation
     reason: 既存の枠組み(ISO 9001 ほか)と本標準の機構の対応の表と、対応を示さない文書の一覧。実行主体の挙動を制約する規定を持たない
     issue: 294
   - key: phase4-process-design/assurance-case#H.11 残るリスク
-    status: pending
+    status: none
+    category: explanation
+    reason: 本標準の主張に掛かる読み替えの台帳(リスク・内容・現時点の歯止め)と、行を足す起草の手順。台帳の運用は本標準の起草の規則で、歯止めの欄は各章の規定を指す参照(層1 を周期で見直さないことは IMPL-0813、禁止する表現は H.8)
+    issue: 324
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと
-    status: pending
+    status: none
+    category: explanation
+    reason: 品質保証部門が行うことを時点ごとに集めた索引の導入。「規範は各章にあり、本節が持つのは条項への参照と作業の1行だけ。食い違う場合は各章を正とする」という読み方の規則
+    issue: 324
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 語の対応
-    status: pending
+    status: none
+    category: explanation
+    reason: 品質保証部門・出荷判定者の席・品質保証・トップマネジメント・層1・品質保証の機能・内部監査の実施者の語の対応表(定義)。「本標準は部門の設置を要求しない」は課さない明記で、規定の文ではない
+    issue: 324
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 時点ごとに行うこと
     status: none
     category: org-design
     reason: 品質保証部門を置く組織の活動の対応。本標準は部門の設置を要求しない(H.12「語の対応」)
     issue: 311
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 行わないこと
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0909
+      - IMPL-0910
+      - IMPL-0911
+    location:
+      - 'phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 要求事項'
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+    note: '各文の所在: 値の良否で差し戻さず再テストと再レビューを始めない=IMPL-0909、開示された残存リスクを受容せず受容は事業決裁者が記名=IMPL-0910、案件ごとの論証を書かない=IMPL-0911、層1 を記名しない=IMPL-0814(テンプレ11 要求事項。品質保証部門は起案してよいが記名者にしない)、残存リスクを受容しない(上申を受領しても受容の権限は層1 の段階による)=IMPL-0563(段階を超える残存リスクは単独で受容せず上申先へ届ける)。内部監査は出荷を止めない=制度設計(org-design)。(a) 内部監査を行う者の行為を縛る。(b) 監査の所見が動かすのは是正で、出荷の停止はゲートの判定記録にだけ現れ、監査が出荷を止めたかは本標準が求める記録のどれにも現れない。(c) 探した場所: 降ろし先 internal-audit-record(登録の説明が、準拠テンプレートに内部監査の記録の様式も監査担当の名簿の検査も無いと述べる。2026-11-15 確認)、gate-record-template、evidence-aggregation。文の主語は人の席であり、本標準を主語にした課さない明記(not-imposed)ではないため、各文に順 4〜6 を当てた'
+    issue: 324
   - key: phase4-process-design/deliverable-templates#(冒頭)
     status: none
     category: explanation
@@ -2228,8 +2521,10 @@ sections:
         status: marked
         ids:
           - IMPL-0556
-    note: 条件4 は IMPL-0113・0438。突合は2点だけで署名の意味を変えないこと・受容しない条件に当たる事実を G-8 で受容しないことは S1。成立判定の機械出力・対象外として出荷した記録は IMPL-0050(H.6)、対象外の受容の記名は IMPL-0052(G-8)。定型の文「品質保証の対象外として出荷した」は H.6 の IMPL-0050 の note から引ける。「条件付き保証」のような中間の語を作らないこと、組織継続の側を成立条件に入れないことを名指すマークは見つけていない(独立の突合 1巡目の所見 19。附属書H の束で H.1・H.8 を仕分けるときに所在を決め、この note を直す)
+    note: 条件4 は IMPL-0113・0438。突合は2点だけで署名の意味を変えないこと・受容しない条件に当たる事実を G-8 で受容しないことは S1。成立判定の機械出力・対象外として出荷した記録は IMPL-0050(H.6)、対象外の受容の記名は IMPL-0052(G-8)。定型の文「品質保証の対象外として出荷した」は H.6 の IMPL-0050 の note から引ける。「条件付き保証」のような中間の語を作らないこと、組織継続の側を成立条件に入れないことを名指すマークは見つけていない(独立の突合 1巡目の所見 19。附属書H の束で H.1・H.8 を仕分けるときに所在を決め、この note を直す)。「中間の語を作らない」「組織継続の側を成立条件に入れない」は附属書H H.1 成立条件の IMPL-0905・0906 が追う(束 A 突合 所見19)
     issue: 324
+    location:
+      - phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の主張の成立条件
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 出荷判定者の署名の意味
     status: marked
     ids:
