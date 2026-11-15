@@ -40,12 +40,12 @@ ADR-0084 が退けた理由は、検査(`npm run check`)をオフラインで実
 
 ### 3. オフラインの検査で、番号の実在と種別を確かめる
 
-- `npm run lint:impl` は、`issue=` の番号が Issue の一覧の写し(`src/data/issue-index.tsv`)に在り、種別が Issue であることを確かめる。状態(開閉)は見ない。写しは状態を書かない設計のままである([ADR-0089](/process-compass/adr/0089-regression-suite-under-version-control/))
+- `npm run lint:impl` は、`issue=` の番号が Issue の一覧の写し(`src/data/issue-index.tsv`)に在り、種別が Issue であることを確かめる。状態(開閉)は見ない。写しは [ADR-0089](/process-compass/adr/0089-regression-suite-under-version-control/) が定める。状態を書かないのは `scripts/issues-snapshot.mjs` の設計であり、そのままである
 - 番号の打ち間違いと、PR の番号の名指しを落とす。後継の Issue を名指すときは、写しの更新(`npm run issues:snapshot`)が要る
 
 ### 4. 閉じる者の手順は残し、道具を与える
 
-- Issue を閉じる者は、閉じる前に `npm run impl:issues` を実行する
+- Issue を閉じる者は、閉じる前に `npm run impl:issues -- --issue <番号>` を実行する。この入力は Issue の状態に依らず、その番号を `issue=` に持つマークを列挙し、1 件以上で終了コード 1 になる(オフライン。`gh` は要らない)。引数なしの `npm run impl:issues` は閉じた Issue を探す確認であり、閉じる前の問いには答えない
 - `Closes #N` を書くコミットは、付け替えを同じ push に含める
 - 付け替える者は、寄せ先の Issue へ、寄せるマークと受け入れ条件の案をコメントで足す
 
@@ -55,7 +55,7 @@ ADR-0084 が退けた理由は、検査(`npm run check`)をオフラインで実
 | --- | --- |
 | 寄せ先の Issue が、その規定の担い手として合っているか | manual(付け替える者)。機械は open であることだけを見る |
 | ワークフローが実際の GitHub で発火し、コメントが動くこと | main へ入った後に確かめる。確かめるまで暫定(EV-0259) |
-| ワークフローの無効化・権限の変更・GitHub Actions の障害 | 検出しない。月次の契機と、閉じる者の手元の実行が補う |
+| ワークフローの無効化・権限の変更・GitHub Actions の障害 | 検出しない。月次の契機と、閉じる者の手元の実行(`--issue`)が補う |
 | フォークや写しのリポジトリ | 対象外。本リポジトリの Issue だけを見る |
 
 ## 検討した選択肢

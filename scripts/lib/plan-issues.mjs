@@ -50,12 +50,52 @@ export function planIssueFindings(marks, stateOf) {
     if (!s) reason = 'notfound';
     else if (s.kind === 'pr') reason = 'pr';
     else if (s.state === 'closed') reason = 'closed';
+    else if (s.state !== 'open') throw new Error(`#${issue} の状態を読めません: ${JSON.stringify(s.state)}`);
     if (reason) out.push({ issue, reason, marks: ms });
   }
   return out;
 }
 
+/**
+ * 指定した番号を issue= に持つマークを、Issue の状態に依らず番号ごとにまとめる(閉じる前の確認用。オフライン)。
+ * @returns {{issue: number, reason: 'named', marks: object[]}[]} 番号の昇順。名指すマークの無い番号は含まない
+ */
+export function marksNaming(marks, numbers) {
+  const want = new Set(numbers);
+  const out = [];
+  for (const n of [...want].sort((a, b) => a - b)) {
+    const ms = marks.filter((m) => m.issue === n);
+    if (ms.length) out.push({ issue: n, reason: 'named', marks: ms });
+  }
+  return out;
+}
+
+/** --issue の値(`443` または `443,444`)を番号の配列へ。読めなければ例外 */
+export function parseIssueList(text) {
+  const parts = String(text).split(',').map((x) => x.trim());
+  if (!parts.length || !parts.every((x) => /^\d+$/.test(x))) throw new Error(`--issue の値を読めません: ${text}`);
+  return parts.map(Number);
+}
+
+/**
+ * gh の実行関数 run(args) で番号の状態を問い合わせる。HTTP 404 だけを「実在しない」(null)とし、
+ * それ以外の失敗・読めない応答は例外(実行の失敗)にする。偽の合格を作らないため。
+ */
+export function ghStateOf(run, repo, issue) {
+  let out;
+  try {
+    out = run(['api', `repos/${repo}/issues/${issue}`]);
+  } catch (e) {
+    if (/\(HTTP 404\)/.test(String(e.stderr ?? e.message))) return null;
+    throw e;
+  }
+  const j = JSON.parse(out);
+  if (j.state !== 'open' && j.state !== 'closed') throw new Error(`#${issue} の状態を読めません: ${JSON.stringify(j.state)}`);
+  return { kind: j.pull_request ? 'pr' : 'issue', state: j.state };
+}
+
 const REASON_TEXT = {
+  named: 'を issue= に持つマークがあります(状態は問いません)',
   closed: 'は閉じています',
   notfound: 'は実在しません',
   pr: 'は Issue ではなくプルリクエストです',

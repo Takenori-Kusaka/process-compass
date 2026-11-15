@@ -3,6 +3,8 @@
 //
 //   node scripts/check-impl-plan-issues.mjs                       (npm run impl:issues)  gh で番号の状態を問い合わせる
 //   node scripts/check-impl-plan-issues.mjs --closed-from <file>  番号の状態を <file> から読む(試験・オフラインの再現)
+//   node scripts/check-impl-plan-issues.mjs --issue <番号[,番号]>  その番号を issue= に持つマークを、状態に依らず列挙する。
+//                                                             閉じる前の確認(オフライン。gh を使わない。1 件以上で終了コード 1)
 //   node scripts/check-impl-plan-issues.mjs --emit <file>         所見を JSON で書く(ワークフローが使う)
 //   node scripts/check-impl-plan-issues.mjs --comment <file>      --emit の JSON を読み、閉じた Issue へコメントする
 //
@@ -21,10 +23,13 @@ import {
   commentBody,
   alreadyCommented,
   parseClosedFrom,
+  marksNaming,
+  parseIssueList,
+  ghStateOf as ghStateOfWith,
 } from './lib/plan-issues.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const DOCS = path.join(ROOT, 'src/content/docs');
+const DOCS = process.env.IMPL_DOCS_DIR ?? path.join(ROOT, 'src/content/docs'); // IMPL_DOCS_DIR は試験用
 const REPO = process.env.ISSUES_REPO ?? 'Takenori-Kusaka/process-compass';
 const LEDGER = path.join('community', 'implementation-ledger.md');
 
@@ -51,16 +56,8 @@ function gh(args) {
   return execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
 }
 
-/** gh で番号の状態を問い合わせる。404 は実在しない。それ以外の失敗は実行の失敗 */
-function ghStateOf(issue) {
-  try {
-    const j = JSON.parse(gh(['api', `repos/${REPO}/issues/${issue}`]));
-    return { kind: j.pull_request ? 'pr' : 'issue', state: j.state };
-  } catch (e) {
-    if (/404|Not Found/.test(String(e.stderr ?? e.message))) return null;
-    throw e;
-  }
-}
+/** gh で番号の状態を問い合わせる。HTTP 404 は実在しない。それ以外の失敗は実行の失敗 */
+const ghStateOf = (issue) => ghStateOfWith(gh, REPO, issue);
 
 function main() {
   const commentFile = argValue('--comment');
@@ -85,6 +82,22 @@ function main() {
     const rel = path.relative(DOCS, file).split(path.sep).join('/');
     if (rel === LEDGER.split(path.sep).join('/')) continue; // 台帳は生成物
     marks.push(...marksWithIssue(rel, readFileSync(file, 'utf8')));
+  }
+  if (marks.length === 0) {
+    console.error('issue= を持つ実装マークが 1 件も見つかりません(置き場か書式の誤りです)。検出できないため失敗とします');
+    return 2;
+  }
+  const issueArg = argValue('--issue');
+  if (issueArg) {
+    const named = marksNaming(marks, parseIssueList(issueArg));
+    if (named.length === 0) {
+      console.log(`#${issueArg} を issue= に持つマークは 0 件です。閉じてよい(付け替え済み)`);
+      return 0;
+    }
+    console.error('この Issue を担い手として名指すマークが残っています。閉じる前に付け替えてください:\n');
+    for (const l of renderFindings(named)) console.error(l);
+    console.error('\n対処: issue= を open の Issue へ付け替える(寄せ先へ受け入れ条件の案をコメントで足す)。');
+    return 1;
   }
   const closedFrom = argValue('--closed-from');
   const stateOf = closedFrom ? parseClosedFrom(readFileSync(closedFrom, 'utf8')) : memo(ghStateOf);
