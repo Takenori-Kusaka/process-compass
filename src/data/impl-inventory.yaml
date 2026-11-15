@@ -1209,17 +1209,44 @@ sections:
     note: 異議の記載(異議なしを含む)は AA1、空欄と理由の無い記載を欠落に数えることは AA2、期間ごとの保証の開示の受容と異議は AA3。出荷判定者の席と事業決裁者の席の責任者を同一にしない前提(3名以上)は 3.5 の兼務の定めが追う。4つの事項は異議を書かせる基準ではなく、異議の有無は出荷判定者が決める
     issue: 324
   - key: phase4-process-design/gate-criteria#タスクの分割基準
-    status: pending
+    status: none
+    category: explanation
+    reason: 節の導入の文。分割の基準を、生成側の都合ではなくレビューする側の帯域で決めること、規範をレビュー可能性に置き行数をその代理指標として扱うことを述べる。規定の文は下位の節にあり、そこで追う
+    issue: 324
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 規範
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0576
+    issue: 324
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 行数を代理指標として扱う根拠と、その限界
-    status: pending
+    status: none
+    category: explanation
+    reason: 行数を代理指標とする根拠と限界の説明(追試の紹介、出典の注意、理論的根拠を引用しない旨)。「この節の数値を守れば品質が上がる基準として提示しません」は本標準の提示の姿勢の表明であり、実行主体の挙動を縛る文ではない
+    issue: 324
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > レビュー可能性の担保水準(L0〜L2)
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 水準は自己申告でなく条件の充足を記録で示し、示せない場合の既定は L0、記録の読みは宣言を構成へ反映する変化点の決定者が行う、という規定は、基準値を超えた変更の扱いの節の IMPL-0101(構成 task.assurance の水準・根拠・見直し日を /process-change で変える。L0 から L1・L2 へ上げるのは緩める向き)と IMPL-0102(L2 の宣言の根拠が条件の充足を記録で示しているかを変化点の決定者が確かめる)が追う。課さない明記を含む(L2 の採点の運用が稼働していることを機械で検証することを課さない。ADR-0124 決定6)
+    location:
+      - phase4-process-design/gate-criteria#タスクの分割基準 > 基準値を超えた変更の扱い
+    issue: 324
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 行数上限が成立しない類型
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0577
+    issue: 324
+    note: 3点を満たす変更に行数上限を適用しない部分のうち、基底の生成の印で識別できるものは IMPL-0049(基準値を超えた変更の扱いの節)が追う。3点を満たすことを確かめる部分は降りていない
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > L0 の既定値
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0049
+      - IMPL-0136
+      - IMPL-0578
+      - IMPL-0579
+    location:
+      - phase4-process-design/gate-criteria#タスクの分割基準 > 基準値を超えた変更の扱い
+    issue: 324
+    note: 基準値の超過時の扱いと記録は IMPL-0049・0136。超過したレビューの判定完了時間と規模の記録、既存のテストの削除・書き換えの一覧は、基準値を超えた変更の扱いの節のマークで追う。上限を遮断として運用しない(ADR-0047・0058)は IMPL-0049 の size:over の扱いが運ぶ
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 基準値を超えた変更の扱い
     status: marked
     ids:
@@ -1279,9 +1306,15 @@ sections:
           - IMPL-0271
     issue: 296
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 上限を緩和できる手段と、できない手段
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0580
+    issue: 324
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 上限を自組織の実測で較正する
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0581
+    issue: 324
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 上限を自組織の実測で較正する > 較正の歯止め
     status: none
     issue: 316
@@ -1290,7 +1323,10 @@ sections:
     location:
       - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.12 能力依存の定数の再評価
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 分割しすぎない
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0582
+    issue: 324
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 積み重ねた変更とゲート
     status: marked
     ids:
@@ -1305,31 +1341,71 @@ sections:
     note: G-5 の起動を絞らないことは IMPL-0247、既定ブランチ以外へ取り込むマージをしないことは、拒否の設定を課さず(ADR-0124 決定4)、人の手順は IMPL-0254、マージの後の検出は IMPL-0248、AI の担い手の拒否は IMPL-0255、AI の担い手への指示文の行は IMPL-0491(拒否しない経路を開示する。ADR-0126 決定2)、既定ブランチの先端から読むことは IMPL-0249、層ごとの承認が無い合わさった差分への承認を層ごとに数えないことは IMPL-0250(/gate の注記。#359)と IMPL-0498(集約。降りていない)。手動のスタックと GitHub 標準のスタックの機構の別は説明(EV-0139)
     issue: 294
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > この基準の見直し
-    status: pending
+    status: none
+    category: explanation
+    reason: 本標準の基準の見直しの契機と手続(2027-08 の棚卸し、基準の変更は本文を直接書き換えず ADR を起票する)。本標準の改訂の手続であり、案件の実行主体の挙動を縛る文ではない(起草・保守の規則。第1章 1.7.7 の先例)。能力依存の定数の再評価の契機は第3章 3.12.12 側で追う
+    issue: 324
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置
-    status: pending
+    status: none
+    category: explanation
+    reason: 節の導入の文(変更を小さくするだけでは総待ち時間を改善できないこと、割り当てと滞留時の措置を併せて設計すること)。規定は下位の節にある
+    issue: 324
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 2つの時刻を分ける
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0583
+    issue: 324
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 割り当て
     status: pending
+    note: 区分済み・降ろし先未定。規定の文は「レビュー依頼は個人へ指名する。チーム宛てのままにしない」。違反は PR のレビュー依頼の宛先に現れ、様式・スキルの手順として置けば実行主体が読むため、規定として扱う。合う降ろし先が impl-targets.yaml に無い(pr-checks は PR の本文の節を読むが、レビュー依頼の宛先は読まない。flow-observation の description は第2章 2.10.4 の滞留期間に限る)。近い降ろし先を当てない。議長の裁定待ち
+    issue: 324
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 滞留したときの措置
     status: pending
+    note: 区分済み・降ろし先未定。規定の文は、応答時間の超過で指名したレビュアへ自動で催促する、2倍の超過で D-0 表3 の判定する者へ通知する、判定完了時間の超過で第7章 7.5 の代理判定者の指名を適用する、自動的な再割り当てを第一の手段にしない。催促と通知の置き場は準拠テンプレートに無く(CLAUDE.md の「催促」は費用を挙げて承認を催促しない規則で別の規定)、planned の flow-observation は第2章 2.10.4 の滞留期間に限る。近い降ろし先を当てない。議長の裁定待ち
+    issue: 324
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 偏りの監視
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0584
+    issue: 355
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 流入を絞る
     status: pending
+    note: 区分済み・降ろし先未定。規定の文は制御1(レビュアあたりの同時保有数の上限。既定は1人3件、新たに指名しない)と制御2(指名先が確保できない場合は新たな判定依頼を作らず実装計画へ差し戻す)。準拠テンプレートに同時保有数を数える置き場が無い(templates/08-ai-sla.md の受け入れの速度の欄は受託の契約の記入欄であり、実行主体を縛る置き場ではない)。番号つきの表(制御1・2)の行は、降ろし先の裁定の後に区分する。議長の裁定待ち
+    issue: 324
   - key: phase4-process-design/gate-criteria#レビュー SLA と滞留の措置 > 帯域を理由に判定を省略しない
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0585
+      - IMPL-0586
+    issue: 324
+    note: 判定の時点を移せる場合は5.5.4と第8章が定める。手段の順(分割の総量を減らす、判定に要する労力を下げる、判定できる人数を増やす)は手引きの順序であり、個別のマークは足していない
   - key: phase4-process-design/gate-criteria#欠陥トリアージ基準
-    status: pending
+    status: none
+    category: explanation
+    reason: 節の導入の文(未解決の重大欠陥をゼロにする基準を全ステージへ一律に適用せず、露出する利用者の性質に応じて許容水準を変える)。規定は下位の節にある
+    issue: 324
   - key: phase4-process-design/gate-criteria#欠陥トリアージ基準 > 重大度と優先度の分離
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0396
+      - IMPL-0395
+    issue: 324
+    note: 重大度は技術側が観測可能な事実で判定し台帳の重大度は人が確定する(IMPL-0395・0396)。優先度は事業側が決める。優先度の列は欠陥の台帳の様式にある。AI が材料と案を示してよいことは許容であり規定ではない
   - key: phase4-process-design/gate-criteria#欠陥トリアージ基準 > 重大度の定義
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0587
+    issue: 324
   - key: phase4-process-design/gate-criteria#欠陥トリアージ基準 > 事業ステージ別のトリアージマトリクス
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0588
+    issue: 324
   - key: phase4-process-design/gate-criteria#欠陥トリアージ基準 > 既知の不具合の要求事項
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0589
+    issue: 324
   - key: phase4-process-design/gate-criteria#欠陥トリアージ基準 > 確定した欠陥と検出した工程
     status: marked
     ids:
@@ -1338,9 +1414,15 @@ sections:
       - IMPL-0394
     issue: 413
   - key: phase4-process-design/gate-criteria#欠陥トリアージ基準 > 定量指標の設定義務
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0590
+    issue: 324
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い
-    status: pending
+    status: none
+    category: explanation
+    reason: 節の導入の文(AI が関与した成果物の品質を比率で扱うときの指標の定義・閾値・合否条件への使用を規定する、と範囲を述べる)。規定は下位の節(指標の定義、閾値の設定と較正、合否条件にしてよい指標、してはならない指標)にある
+    issue: 324
   - key: phase4-process-design/gate-criteria#AI 品質指標の扱い > 指標の定義
     status: none
     category: explanation
@@ -1393,21 +1475,64 @@ sections:
       - phase4-process-design/exception-escalation#7.6 エスカレーションの基準 > 発火条件
     issue: 316
   - key: phase4-process-design/human-ai-boundary#(冒頭)
-    status: pending
+    status: none
+    category: explanation
+    reason: 章の導入の文(frontmatter と、生成AIエージェントと人間の役割境界を規定すること、境界は能力向上に応じて見直す対象であることの説明)
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.1 本章が達成すべき成果
-    status: pending
+    status: none
+    category: explanation
+    reason: 本章の要求事項を満たしたときに得られる成果の列挙(成果の説明)。規定の文ではない
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.2 責任の原則
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0591
+      - IMPL-0592
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.3 役割境界の時点表記
-    status: pending
+    status: none
+    category: explanation
+    reason: 役割境界の定義に妥当な時点を併記する規則と、2026-08-05 時点の前提の記述。本標準の記述の仕方に掛かる起草の規則であり(第1章 1.7.7 の先例)、案件の実行主体の挙動を縛る文ではない
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.1 レベルを定義する3変数
-    status: pending
+    status: none
+    category: explanation
+    reason: 3変数(監視者・フォールバックの担い手・適用範囲)と適用範囲の4軸の定義の表。語の定義であり、実行主体の挙動を縛る文ではない。レベルの上限は5.4.4、引き上げ・引き下げは5.4.5・5.4.6の各マークで追う
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.2 3つのレベル
-    status: pending
+    status: none
+    category: explanation
+    reason: L1〜L3 の名称・監視者・フォールバック・典型的な適用範囲の定義の表と、2026-08-05 時点のベースラインが L1 であるという記述。レベルの定義であり、レベルの上限と引き上げ・引き下げの規定は5.4.4〜5.4.6にある
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.3 レベルによらない不変条件
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0593
+    issue: 324
+    rows:
+      不変条件1:
+        status: marked
+        ids:
+          - IMPL-0593
+      不変条件2:
+        status: marked
+        ids:
+          - IMPL-0593
+      不変条件3:
+        status: marked
+        ids:
+          - IMPL-0593
+      不変条件4:
+        status: marked
+        ids:
+          - IMPL-0593
+    note: 4行とも IMPL-0019(CLAUDE.md)・IMPL-0251(5.5.1)・IMPL-0097(5.5.7)と部分的に重なるが、行ごとの対応を確かめていないため、節の中の未達のマークで開示した
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.4 リスク区分による上限
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0594
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.5 レベルの引き上げ
     status: none
     category: elsewhere
@@ -1451,10 +1576,19 @@ sections:
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.7 能力維持措置
     status: pending
+    note: 区分済み・降ろし先未定。規定の文は、L2 以上を適用する範囲に「AI を用いずに実装または調査する機会を定められた頻度で確保する」「コア機能の理解保持者数を維持する」「独立レビューの挙動要約の記載をレベルにかかわらず継続する」を義務づける。理解保持者の記録は handover-template と第3章 3.4.3 側のマークが追うが、AI を用いない機会の頻度を運ぶ降ろし先が無い。近い降ろし先を当てない。議長の裁定待ち
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.8 見直しの頻度
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0595
+    issue: 324
+    note: 時点の併記と1年経過後の再評価は本標準の記述の保守(起草の規則)として扱い、マークを足していない。外部の性能指標のみを根拠に引き上げない規定を未達のマークで追う
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手
-    status: pending
+    status: none
+    category: explanation
+    reason: 節の導入の文と図(人に固定するのは判断の確定であり席の作業ではないこと、席・責任者・担い手・運用形態・リスク区分と安全重要度による上限の関係の図)。規定は下位の節(5.5.1〜5.5.7)にある
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
     status: marked
     ids:
@@ -1466,11 +1600,60 @@ sections:
     note: 人へ戻す場合と経路は IMPL-0024、取り消せない操作の定義は IMPL-0251、推定による注意の不在を根拠にしないことは IMPL-0398(#401)。席と責任者の宣言は 5.5.3 の IMPL-0025(config-seats)で追う
     issue: 294
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.2 運用形態
-    status: pending
+    status: none
+    category: elsewhere
+    reason: "運用形態3つの定義の表(説明)と、規定の文: 宣言は上限であり変更ごとのリスク区分の判定が下げる(5.5.3)、AI が判定を確定する形態は置かない・委任でも判定者は席の責任者のまま、人確定を残すのは R1 の決定で AI に結論を起案させないため(5.7.3)。宣言が上限であることは5.5.3の IMPL-0025、判定を席の責任者(人)が確定することは5.5.7の IMPL-0019、R1 の決定の理由を人が記入することは5.7.3の IMPL-0172 が追う。「完全自律」の語を使わないは本標準の語の方針(起草の規則)"
+    location:
+      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.3 リスク区分による上限
+      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.7 運用形態の引き上げと引き下げ
+      - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.3 選択肢の比較
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.3 リスク区分による上限
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0025
+      - IMPL-0596
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0026
+      - IMPL-0235
+      - IMPL-0597
+    rows:
+      条件1:
+        status: marked
+        ids:
+          - IMPL-0597
+      条件2:
+        status: marked
+        ids:
+          - IMPL-0026
+          - IMPL-0235
+      条件3:
+        status: marked
+        ids:
+          - IMPL-0597
+      条件4:
+        status: marked
+        ids:
+          - IMPL-0597
+      条件5:
+        status: marked
+        ids:
+          - IMPL-0597
+      条件6:
+        status: marked
+        ids:
+          - IMPL-0597
+      条件7:
+        status: marked
+        ids:
+          - IMPL-0597
+    location:
+      - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路
+    issue: 324
+    note: 登録の根拠は IMPL-0035、期間ごとの保証の開示は IMPL-0048(下位の節)。条件1・3〜7 は節の中の未達のマークで開示した
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 > 登録と、登録した変更種別の経路
     status: marked
     ids:
@@ -1479,11 +1662,51 @@ sections:
     note: 登録の根拠は IMPL-0035。既定ブランチへの取り込みが本番環境への反映を直接起動する構成で委任の取り込みをこの行の経路に限ることは、5.5.1 の IMPL-0251 が追う
     issue: 294
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.5 運用形態にかかわらず人が確定する判断
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0598
+    rows:
+      人が確定する判断1:
+        status: none
+        category: elsewhere
+        reason: R1 の決定の理由を人が記入し AI に生成させないことは、5.7.3の IMPL-0172 が追う(例外承認の理由の人による記入を含む)
+        location:
+          - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.3 選択肢の比較
+      人が確定する判断2:
+        status: marked
+        ids:
+          - IMPL-0598
+      人が確定する判断3:
+        status: marked
+        ids:
+          - IMPL-0598
+      人が確定する判断4:
+        status: marked
+        ids:
+          - IMPL-0598
+      人が確定する判断5:
+        status: marked
+        ids:
+          - IMPL-0598
+      人が確定する判断6:
+        status: marked
+        ids:
+          - IMPL-0598
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.6 席ごとの上限
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0599
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.7 運用形態の引き上げと引き下げ
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0097
+      - IMPL-0098
+      - IMPL-0019
+      - IMPL-0600
+    issue: 324
+    note: 緩める向きの記名と理由は IMPL-0097・0098、判断の確定を人に置くことは IMPL-0019。厳しくする向き(引き下げ)の即時適用と5.4.6の検知条件は5.4.6のマークが追う。残りは節の中の未達のマークで開示した
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項
     status: marked
     ids:
@@ -1943,9 +2166,15 @@ sections:
     note: 準拠テンプレートは注意を出す部品を同梱しない(ADR-0103)。採用者が部品を置くときに掛かる(plan=adopter)
     issue: 401
   - key: phase4-process-design/human-ai-boundary#5.9 役割境界の見直し
-    status: pending
+    status: none
+    category: org-design
+    reason: 役割境界を見直す契機4つ(能力の前提の乖離・形骸化の指標が警戒水準を超えた・事業フェーズまたは規制要件の変化・体制の変化点)と、結果を時点を併記して本章へ反映し履歴を残すこと。縛る相手は本標準の保守者と組織で、違反の痕跡は標準の改訂と ADR にしか現れず、案件の記録(構成・様式の欄・判定記録・台帳・PR・CI)に現れない。体制の変化点の記録は構成の changeLog(config-change-log。第3章 3.13)が別に追う。探した場所は impl-targets.yaml の config-change-log・process-change-skill の description(template/ の実物は開いていない。突合で読み直すこと)
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.10 関連する章
-    status: pending
+    status: none
+    category: explanation
+    reason: 関連する章への参照の一覧。規定の文ではない
+    issue: 324
   - key: phase4-process-design/lifecycle#(冒頭)
     status: pending
   - key: phase4-process-design/lifecycle#2.1 本章が達成すべき成果
