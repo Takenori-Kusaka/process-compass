@@ -455,7 +455,7 @@ targets:
     name: 出荷の証跡のワークフロー(ship-evidence.yml)
     kind: template-file
     path: .github/workflows/ship-evidence.yml
-    description: 出荷の範囲の証跡を集約して残すワークフロー。証跡の一式と digest の一覧(manifest.json)を、出荷の PR で基底ブランチの docs/evidence/<日付>-<範囲>/ へ写す。成果物 ship-evidence は retention-days を明示した一時置きで、保管ではない。写しは保管期間の充足を示さない(IMPL-0243。Issue #333 / ADR-0135)。2026-10-23 時点で通しでは確かめていない
+    description: 出荷の範囲の証跡を集約して残すワークフロー。証跡の一式と digest の一覧(manifest.json)を、出荷の PR で基底ブランチの docs/evidence/<日付>-<範囲>/ へ写す。成果物 ship-evidence は、保持の日数を明示せずリポジトリの設定に従う一時置きで、保管ではない。写しは保管期間の充足を示さない(IMPL-0243。Issue #333 / ADR-0135)。2026-10-23 時点で通しでは確かめていない
 
   - id: coverage-check
     name: G-5 基準3 のカバレッジの判定(coverage-check.mjs)

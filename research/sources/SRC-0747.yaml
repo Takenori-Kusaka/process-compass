@@ -42,6 +42,16 @@ claims:
   issues:
   - 333
   stance: context
+- id: c2
+  text: リポジトリで設定できる成果物とログの保持の期間は、公開リポジトリが 1〜90 日、非公開リポジトリが 1〜400 日である。
+  quote: anywhere between 1 day or 90 days
+  locator: 設定の頁の本文(公開リポジトリの範囲。非公開は「anywhere between 1 day or 400 days」)
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 333
+  stance: context
 verification:
   status: partial
   method:
