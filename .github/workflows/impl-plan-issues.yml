@@ -1,0 +1,65 @@
+name: impl-plan-issues
+
+# 実装マークの issue= が閉じた Issue・実在しない番号・PR を名指していないかを確かめる(Issue #439 / ADR-0130)。
+# npm run check には入れない(検査はオフラインで実行し、Issue の状態を知り得ないため。ADR-0084・ADR-0089)。
+# 所見があれば、閉じた Issue へ「この Issue を名指すマーク」をコメントし、実行を失敗にする。
+# 機械は Issue の状態を変えない(開き直さない・閉じない・編集しない)。同じ所見のコメントは繰り返さない。
+# 手元でも同じ確認ができる: npm run impl:issues
+
+on:
+  issues:
+    types: [closed]
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/docs/**'
+      - 'scripts/check-impl-plan-issues.mjs'
+      - 'scripts/lib/plan-issues.mjs'
+  schedule:
+    - cron: '0 0 1 * *' # 毎月1日 00:00 UTC
+  workflow_dispatch:
+
+# 最上位は読み取りだけ。書き込みはコメントするジョブにだけ付ける(evidence-review.yml と同じ。Issue #293 裁定 J-6 f)
+permissions:
+  contents: read
+
+# コメントの重複を避けるため、実行を直列にする
+concurrency:
+  group: impl-plan-issues
+  cancel-in-progress: false
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+
+      - name: 計画の Issue の状態を確かめる
+        id: detect
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          node scripts/check-impl-plan-issues.mjs --emit findings.json
+          code=$?
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+
+      - name: 閉じた Issue へコメント(同じ所見は繰り返さない)
+        if: steps.detect.outputs.code == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/check-impl-plan-issues.mjs --comment findings.json
+
+      - name: 所見があれば実行を失敗にする
+        if: steps.detect.outputs.code != '0'
+        run: |
+          echo "計画の Issue が open の Issue ではないマークがあります。対処は人が決めます(付け替えるか、開き直す)。"
+          exit 1

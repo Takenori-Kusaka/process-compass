@@ -67,6 +67,8 @@ import {
   OVERDUE_PREFIX,
 } from './lib/impl-inventory.mjs';
 import { scanSkillProvisions } from './lib/skill-provisions.mjs';
+import { issueRefProblem } from './lib/plan-issues.mjs';
+import { issueIndex } from './lib/decision-refs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS_ROOT = 'src/content/docs';
@@ -500,7 +502,13 @@ async function g5Jobs() {
   return g5;
 }
 
+// issue= の番号が Issue の一覧の写しに在り、種別が issue であること(オフライン。状態は見ない。Issue #439 / ADR-0130)
+const ISSUES = issueIndex();
 for (const m of marks) {
+  if (m.issue) {
+    const p = issueRefProblem(m.issue, ISSUES);
+    if (p) errors.push(`${m.file}:${m.line} ${m.id} の ${p}`);
+  }
   for (const p of markAttrProblems(m.attrs, { noAdopter: noAdopterOf(m) })) errors.push(`${m.file}:${m.line} ${m.id} の ${p}`);
   if (m.check === 'machine' && m.test) {
     const { jobs, effective, missing } = await g5Jobs();

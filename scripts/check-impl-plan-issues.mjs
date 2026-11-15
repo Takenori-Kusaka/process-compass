@@ -1,0 +1,120 @@
+#!/usr/bin/env node
+// 実装マークの issue= が、閉じた Issue・実在しない番号・PR を名指していないかを確かめる(Issue #439 / ADR-0130)。
+//
+//   node scripts/check-impl-plan-issues.mjs                       (npm run impl:issues)  gh で番号の状態を問い合わせる
+//   node scripts/check-impl-plan-issues.mjs --closed-from <file>  番号の状態を <file> から読む(試験・オフラインの再現)
+//   node scripts/check-impl-plan-issues.mjs --emit <file>         所見を JSON で書く(ワークフローが使う)
+//   node scripts/check-impl-plan-issues.mjs --comment <file>      --emit の JSON を読み、閉じた Issue へコメントする
+//
+// npm run check には入れない(検査はオフラインで実行し、Issue の状態を知り得ないため。ADR-0084・ADR-0089)。
+// 終了コード: 0 = 所見なし / 1 = 所見あり / 2 = 実行の失敗。
+// 機械は Issue の状態を変えない(開き直さない・閉じない・編集しない)。コメントと失敗の表示だけを行う。
+// 同じ所見(識別子の集合が同じ)のコメントが既にあれば、足さない。
+import { execFileSync } from 'node:child_process';
+import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  marksWithIssue,
+  planIssueFindings,
+  renderFindings,
+  commentBody,
+  alreadyCommented,
+  parseClosedFrom,
+} from './lib/plan-issues.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const DOCS = path.join(ROOT, 'src/content/docs');
+const REPO = process.env.ISSUES_REPO ?? 'Takenori-Kusaka/process-compass';
+const LEDGER = path.join('community', 'implementation-ledger.md');
+
+function* walk(dir) {
+  for (const name of readdirSync(dir)) {
+    const p = path.join(dir, name);
+    if (statSync(p).isDirectory()) yield* walk(p);
+    else if (/\.mdx?$/.test(name)) yield p;
+  }
+}
+
+function argValue(flag) {
+  const i = process.argv.indexOf(flag);
+  if (i < 0) return null;
+  const v = process.argv[i + 1];
+  if (!v || v.startsWith('--')) {
+    console.error(`${flag} に値がありません`);
+    process.exit(2);
+  }
+  return v;
+}
+
+function gh(args) {
+  return execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
+}
+
+/** gh で番号の状態を問い合わせる。404 は実在しない。それ以外の失敗は実行の失敗 */
+function ghStateOf(issue) {
+  try {
+    const j = JSON.parse(gh(['api', `repos/${REPO}/issues/${issue}`]));
+    return { kind: j.pull_request ? 'pr' : 'issue', state: j.state };
+  } catch (e) {
+    if (/404|Not Found/.test(String(e.stderr ?? e.message))) return null;
+    throw e;
+  }
+}
+
+function main() {
+  const commentFile = argValue('--comment');
+  if (commentFile) {
+    const findings = JSON.parse(readFileSync(commentFile, 'utf8'));
+    for (const f of findings) {
+      // コメントするのは閉じた Issue だけ。実在しない番号・PR は失敗の表示だけ
+      if (f.reason !== 'closed') continue;
+      const existing = JSON.parse(gh(['api', '--paginate', '--slurp', `repos/${REPO}/issues/${f.issue}/comments`])).flat();
+      if (alreadyCommented(existing.map((c) => c.body), f)) {
+        console.log(`#${f.issue}: 同じ所見のコメントが既にあります。足しません`);
+        continue;
+      }
+      gh(['issue', 'comment', String(f.issue), '--repo', REPO, '--body', commentBody(f)]);
+      console.log(`#${f.issue}: コメントを足しました`);
+    }
+    return 0;
+  }
+
+  const marks = [];
+  for (const file of walk(DOCS)) {
+    const rel = path.relative(DOCS, file).split(path.sep).join('/');
+    if (rel === LEDGER.split(path.sep).join('/')) continue; // 台帳は生成物
+    marks.push(...marksWithIssue(rel, readFileSync(file, 'utf8')));
+  }
+  const closedFrom = argValue('--closed-from');
+  const stateOf = closedFrom ? parseClosedFrom(readFileSync(closedFrom, 'utf8')) : memo(ghStateOf);
+  const findings = planIssueFindings(marks, stateOf);
+
+  const emit = argValue('--emit');
+  if (emit) writeFileSync(emit, JSON.stringify(findings, null, 2));
+  console.log(`issue= を持つ実装マーク: ${marks.length}件(番号 ${new Set(marks.map((m) => m.issue)).size}件)`);
+  if (findings.length === 0) {
+    console.log('計画の Issue は、すべて open の Issue です');
+    return 0;
+  }
+  console.error('計画の Issue が open の Issue ではないマークがあります:\n');
+  for (const l of renderFindings(findings)) console.error(l);
+  console.error('\n対処: issue= を open の Issue へ付け替える(寄せ先へ受け入れ条件の案をコメントで足す)か、Issue を開き直す。');
+  console.error('規約: community/implementation-marking.md');
+  return 1;
+}
+
+function memo(fn) {
+  const cache = new Map();
+  return (n) => {
+    if (!cache.has(n)) cache.set(n, fn(n));
+    return cache.get(n);
+  };
+}
+
+try {
+  process.exit(main());
+} catch (e) {
+  console.error(`実行に失敗しました: ${e.message}`);
+  process.exit(2);
+}
