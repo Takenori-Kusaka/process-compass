@@ -3636,23 +3636,111 @@ sections:
     note: "議題の限定(列挙外の事項・報告のみの議題)は予定の降ろし先 committee-agenda(decision.md 5章 T8)。工程ゲートの判定を会議体へ持ち込まない定めは、判定記録の様式が判定者を1人とすること(IMPL-0656)が追う。判定者の帯域が不足する場合は第7章 7.5 の措置によるという文は参照"
     issue: 324
   - key: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0695
+      - IMPL-0696
+    location:
+      - phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分 > 区分の下限と確定者
+    note: リスク区分の3区分の表と、AI に草案を作成させてよいことは説明と許容の文。区分の下限の規則・R1・R2 の確定・自己記載の件数の表示は下位の節(区分の下限と確定者)のマーク(IMPL-0062・0391・0697・0698)が追う
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.1 リスク区分 > 区分の下限と確定者
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0391
+      - IMPL-0062
+      - IMPL-0212
+      - IMPL-0697
+      - IMPL-0698
+      - IMPL-0699
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0062
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0062
+          - IMPL-0391
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0062
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0697
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0698
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0062
+          - IMPL-0391
+    note: 表の後の3つの箇条のうち、規則が判定するのは区分が低すぎないことだけ(正しさは確定者の記名と内部監査の観点10 で確かめる)と、規則の網羅は主張しないことは、課さない・主張しない明記。規則に当たらない R1 相当の自己記載の件数と、1名体制で確定していない区分の表示は IMPL-0697。委任の範囲の規則に関わる者の表は、登録する者の行を IMPL-0664、登録されていない種別を入れない規定を IMPL-0699 が追う。IMPL-0212 はリスク区分のラベルの自動付与
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.2 決裁者の割当
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0341
+      - IMPL-0700
+      - IMPL-0701
+    note: 境界額と出所・決定者が金額区分で変わらない旨・表2 とどちらが決めるかは IMPL-0341。規程と別の金額体系の新設の禁止と、割当を変えた交点の記録は IMPL-0700。既定の割当の表は IMPL-0701(降りていない)。D-0 表2 と金額区分の全面の対応表を課さないことは課さない明記
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.3 起案・意見・決定の分離
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0702
+    note: 工程ゲートの判定者を1人とし合議体にしないことは 3.7.1 の IMPL-0656。起案・意見・決定の3つの役割を分けて記録することは IMPL-0702(降りていない)。役割の表の人数の列は説明
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.8 決裁権限マトリクス > 3.8.4 決定は技術的正しさの承認ではない
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0703
+    rows:
+      帰結1:
+        status: none
+        category: org-design
+        reason: "決裁者の判断の中身(設計の良否を判定しない)を縛る。違反が現れる記録は、判定記録の受容したリスクの欄の文面にしか無く、機械も記入の注意も判断の中身を縛らない。探した場所: templates/04-gate-record.md の受容したリスクの欄、G-3・G-8 の判定基準の表(知識ベースへ降りる)"
+      帰結2:
+        status: none
+        category: org-design
+        reason: "結果責任が技術判断者から移転しないという責任の帰属の定め。責任の帰属は組織の制度で、本標準が求める記録のどれにも違反が現れない。探した場所: templates/04-gate-record.md、templates/00-d0-governance.md の責任者の欄"
+      帰結3:
+        status: marked
+        ids:
+          - IMPL-0703
+      帰結4:
+        status: none
+        category: explanation
+        reason: 差し戻し先を第4章 G-3 の3経路に結ぶ参照。G-3 の判定基準は知識ベースへ降りる(ADR-0048)
+    note: 本節は決定の意味を定義する節。定義の引用と、分離は責任の消去ではないという段落は説明。事業影響を記述する様式への参照は説明
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.1 判定期限の起算
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0704
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.2 定例を待てない場合の措置
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0705
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.3 期限を超過した場合
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0706
+    note: 超過の検知と通知の実施は降りていない(第7章 7.5 の滞留の措置と同じ型。IMPL-0706 の note に確かめていないと書いた)
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.9 会議体の運用規律 > 3.9.4 会議体の健全性指標
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0707
+    note: 計測と改善の運用の例をフェーズ6 に参照させる文と、中止・差し戻しが出ない会議体の廃止・見直しの検討は手引き
+    issue: 443
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間
     status: none
     category: explanation
@@ -3878,7 +3966,10 @@ sections:
     reason: AI基盤に関する作業の責任分担の表。席ごとの承認の規定は 3.11.2・3.11.4・3.11.5 のマークで追跡する
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.1 位置づけ
-    status: pending
+    status: none
+    category: org-design
+    reason: "AI運用担当者が全社の AI 実行基盤への統制を、規程でなく実行環境として届けるという届け方の定め。違反(規程の配布だけで済ませる)が現れる記録は本標準が求めるもののどれにも無い。接続経路そのものの限定は 3.12.2 の IMPL-0568、統制の同期は 3.12.9 の IMPL-0718 が追う。探した場所: impl-targets.yaml の ai-runtime-connection・agent-settings・claude-md-resident、template/ の .claude/settings.json の deny"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.2 インタフェース
     status: marked
     ids:
@@ -3886,9 +3977,103 @@ sections:
     note: 直接接続の禁止と経路の限定は R2(降ろし先は予定の ai-runtime-connection。議長の裁定 T1・T2)。手元の記録の日次の複製を課さないことは課さない明記(ADR-0078)。表(方向と内容)は説明
     issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.3 モデルの適合性評価
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0405
+      - IMPL-0406
+      - IMPL-0407
+      - IMPL-0404
+      - IMPL-0054
+      - IMPL-0063
+      - IMPL-0708
+      - IMPL-0709
+      - IMPL-0710
+      - IMPL-0711
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0405
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0405
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0405
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0405
+      要求事項5:
+        status: none
+        category: elsewhere
+        reason: 基準集合・指示資産が自組織の管理するリポジトリに無い依存先は、IMPL-0055 の note(単一障害点の一覧の「自組織に無い資産」)で引ける
+        location:
+          - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.11 依存先の一覧と単一障害点
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0708
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0054
+      要求事項8:
+        status: marked
+        ids:
+          - IMPL-0054
+        location:
+          - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.11 依存先の一覧と単一障害点
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0063
+      要求事項10:
+        status: marked
+        ids:
+          - IMPL-0063
+          - IMPL-0709
+      要求事項11:
+        status: marked
+        ids:
+          - IMPL-0406
+          - IMPL-0404
+      要求事項12:
+        status: marked
+        ids:
+          - IMPL-0406
+          - IMPL-0710
+      要求事項13:
+        status: marked
+        ids:
+          - IMPL-0406
+          - IMPL-0711
+      要求事項14:
+        status: marked
+        ids:
+          - IMPL-0406
+      要求事項15:
+        status: marked
+        ids:
+          - IMPL-0407
+          - IMPL-0404
+      要求事項16:
+        status: marked
+        ids:
+          - IMPL-0407
+          - IMPL-0404
+    note: 表の後の「承認されていないモデルを開発組織で用いてはなりません」は IMPL-0405(依存先の一覧に承認なし・導入の記録なしを出す)。要求事項7 は複数の提供者の常時の並行運用を求めない明記を含む。要求事項11〜16 の後の箇条のうち、正解の確定が誤りの無さの保証でないこと・正解の出所の優先・採点のモデルの系統・二人での確定や抜き取りの比率や件数や一致の値の下限を課さないことは、説明と課さない明記
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.4 可用性と品質を分けて監視する
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0408
+      - IMPL-0712
+      - IMPL-0713
+    note: 2025年の事後分析の引用は説明。品質の監視の基準値の固定は IMPL-0408(採用者。ADR-0104)。監視の実施は IMPL-0712、採点者の識別の変更と正解の改めの後の扱いは IMPL-0713(降りていない)
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.5 障害と切り替え
     status: none
     category: elsewhere
@@ -3898,18 +4083,87 @@ sections:
       - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ
     issue: 311
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.5 障害と切り替え > 縮退の能力を量で示す
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0064
+    location:
+      - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.11 依存先の一覧と単一障害点
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0064
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0064
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0064
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0064
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0064
+    note: 要求事項3 の単一障害点の一覧への表示と期限つきの受容は 3.12.11 の IMPL-0055。処理できる量の下限を定めないことは課さない明記(根拠水準マーク EV-0073)
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.6 モデルの廃止への追随
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0714
+      - IMPL-0715
+    note: 廃止の猶予の幅の説明と、猶予期間の全体を移行に使えると想定しない旨は説明。通知の期間を持つ依存先の欄は 3.12.11 の IMPL-0065
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.7 実行予算の配給
     status: marked
     ids:
       - IMPL-0257
     issue: 294
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.8 セキュリティとデータ保護
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0716
+      - IMPL-0717
+    rows:
+      要求事項1:
+        status: none
+        category: elsewhere
+        reason: 承認された経路以外からモデルへ接続しない規定は、3.12.2 の IMPL-0568 の note(開発組織が AI 実行基盤へ直接接続せず、接続はすべて AI運用担当者が用意した経路を通る)で引ける
+        location:
+          - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.2 インタフェース
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0716
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0717
+        location:
+          - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.11 依存先の一覧と単一障害点
+      要求事項4:
+        status: none
+        category: elsewhere
+        reason: 統制の内容を CI の必須検査として反映する規定は、3.12.9 の IMPL-0718 の note(全社の統制の更新を開発組織の CI に反映する順序)で引ける
+        location:
+          - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.9 統制と CI 検査の同期
+      要求事項5:
+        status: none
+        category: elsewhere
+        reason: 統制の変更を猶予期間を置いて通知する規定は、3.12.9 の IMPL-0718 の note(猶予期間・昇格の予定日の通知)で引ける
+        location:
+          - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.9 統制と CI 検査の同期
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.9 統制と CI 検査の同期
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0718
+    note: 統制の更新から必須検査への昇格の流れの図は説明
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)
     status: marked
     ids:
@@ -3963,9 +4217,52 @@ sections:
       - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)
     issue: 296
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー) > 閾値の定め方
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 停止条件の値を組織が定めて記録すること(IMPL-0274 の値を構成に持つこと、IMPL-0280 の企画承認(G-1)の時点で企画書に記録すること)と、定めていない状態で運用を始めてはならないこと(IMPL-0280 が G-1 の前は失敗させる)は、3.12.10 の節の note で引ける。参考の値の連続失敗3回・無進捗2回は根拠水準マーク EV-0001 の手引き。誤検知率で較正する手順は組織の運用
+    location:
+      - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.11 依存先の一覧と単一障害点
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0055
+      - IMPL-0065
+      - IMPL-0719
+      - IMPL-0720
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0055
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0055
+          - IMPL-0065
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0055
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0055
+          - IMPL-0065
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0719
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0720
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0055
+    note: 表の後の2つの段落のうち、依存先は人と資産を含むこと・束ねた一覧は生成とすることは IMPL-0055。正規の経路を迂回した利用は一覧に載らず網羅は接続経路の統制が前提という文は、網羅の限界の開示
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.12 能力依存の定数の再評価
     status: marked
     ids:
@@ -4049,21 +4346,154 @@ sections:
           - IMPL-0412
     issue: 427
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0721
+    location:
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止)
+    note: "変化点のための新しいゲート・会議体・台帳を置かないことは課さない明記。引き継ぎの実体をコンテキスト基盤と判断記録(ADR)に置くことは制度設計(後任が経緯を追える状態は記録のどれにも違反が現れない。探した場所: impl-targets.yaml の handover-template・decisions-check)。兼務が変わったときの禁止組み合わせの機械検査は 3.5 の IMPL-0001(兼務を禁止する組み合わせ)"
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.1 変化点に数えるもの
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 変化点の定義(D-0・テーラリングの入力・適合性確認の前提のいずれかを変える変化)。定義が決めるのは変化点の手続の対象で、手続は IMPL-0022(体制の変化点の手続)、手続を経ない構成の書き換えの検出は IMPL-0034 が追う。表の右列は個別の規定への対応
+    location:
+      - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.4 記録
+      - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.5 宣言と実態のずれの検出
+    note: 定義が手続の対象を決めるため、規定として読む余地がある(迷った点。引き継ぎの記録に挙げた)。人の担い手の増減のうち兼務禁止と独立の再判定に影響しないものは、担当表の更新による(変化点の手続を課さない)
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.2 変化点に数えないもの
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0730
+    note: 数えないものの表は、変化点の手続を課さないと決めた明記(課さない明記)。提供者の障害・利用上限で AI が使えない期間の記録は、IMPL-0726(3.13.4)の changeLog の outage の種別と D-0 表8(IMPL-0056)
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.3 手続
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0483
+      - IMPL-0484
+      - IMPL-0036
+      - IMPL-0342
+      - IMPL-0444
+      - IMPL-0722
+      - IMPL-0723
+      - IMPL-0724
+      - IMPL-0725
+    location:
+      - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.4 記録
+      - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.2 AI を担い手に置くときの適合性確認
+    note: 最初のゲート判定より前に D-0 と構成を改めることは 3.13.4 の IMPL-0022。失効(3名未満の例外・適合性確認・承認・暫定任命)は 3.4.2 の IMPL-0639 と 3.5.2 の IMPL-0114、担い手の識別を変えるときの4条件は 3.4.2 の IMPL-0641 が追う。成立済みの判定記録を書き換えないことは判定の成立の規定(ADR-0036)、未完了の判定の引き継ぎとコンテキスト移管ゲートの併用は他章の規定への参照。出荷済みの成果物の再検証を求めないことは課さない明記
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.4 記録
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0445
+      - IMPL-0022
+      - IMPL-0726
+      - IMPL-0727
+      - IMPL-0728
+    rows:
+      記録する内容1:
+        status: marked
+        ids:
+          - IMPL-0022
+          - IMPL-0726
+      記録する内容2:
+        status: marked
+        ids:
+          - IMPL-0726
+      記録する内容3:
+        status: marked
+        ids:
+          - IMPL-0726
+      記録する内容4:
+        status: marked
+        ids:
+          - IMPL-0726
+      記録する内容5:
+        status: marked
+        ids:
+          - IMPL-0726
+      記録する内容6:
+        status: none
+        category: elsewhere
+        reason: 通知先と通知日を変化点の記録へ書くことは、3.13.6 の IMPL-0033 の note(通知する者が通知先と通知日を変化点の記録へ書く)で引ける
+        location:
+          - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.6 品質保証部門への通知
+      記録する内容7:
+        status: marked
+        ids:
+          - IMPL-0445
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0727
+      要求事項2:
+        status: none
+        category: elsewhere
+        reason: 変更記録を追記だけで保ち、過去の記録の削除と差し替えを検出する規定は、3.13.5 の IMPL-0034 の note(変更記録が切り詰められた・差し替えられたことの検出)で引ける
+        location:
+          - phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.5 宣言と実態のずれの検出
+      要求事項3:
+        status: none
+        category: explanation
+        reason: 構成から導ける欄を構成から生成してよいという許可の文。生成の実装は D-0 の IMPL-0029(表5・表7・表8)
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0728
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0726
+    note: 「構成の変更なし」という結果の記録と、障害・利用上限で AI が使えなかった期間の記録は IMPL-0726。変化点のための台帳を別に作らないことは課さない明記
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.5 宣言と実態のずれの検出
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0034
+      - IMPL-0023
+    note: 起票されない変化点を機械で検出できない場合があること(要約値を合わせた偽の追記の改ざんを検出する手段が無いこと)は検出の限界の開示。止めるのは AI維持管理者の承認と変更を確認する人(3.11.2)
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.6 品質保証部門への通知
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0033
+      - IMPL-0037
+      - IMPL-0729
+    rows:
+      即時に知らせる事象1:
+        status: marked
+        ids:
+          - IMPL-0033
+      即時に知らせる事象2:
+        status: marked
+        ids:
+          - IMPL-0033
+      即時に知らせる事象3:
+        status: marked
+        ids:
+          - IMPL-0033
+      即時に知らせる事象4:
+        status: marked
+        ids:
+          - IMPL-0033
+      即時に知らせる事象5:
+        status: marked
+        ids:
+          - IMPL-0037
+      即時に知らせる事象6:
+        status: marked
+        ids:
+          - IMPL-0037
+    note: 品質保証部門の設置を要求しないことは課さない明記。通知のための帳票を別に作らないことは課さない明記。通知先と通知日の無い即時の通知を記録の欠落とすることは IMPL-0033
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.14 関連する章
-    status: pending
+    status: none
+    category: explanation
+    reason: 他の章の規定への参照の一覧
+    issue: 324
   - key: phase4-process-design/safety-verification#(冒頭)
     status: pending
   - key: phase4-process-design/safety-verification#F.1 本附属書の位置づけ
