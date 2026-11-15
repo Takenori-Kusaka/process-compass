@@ -225,7 +225,7 @@
 - [SRC-0448] 2026-07-30 [Optimizing CI for stacked pull requests](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests) — スタック型PRでの GitHub Actions の発火規則。pull_request トリガーは各PRがスタック基底を向いているものとして発火し、CI 回数が
 - [SRC-0605] 2026-09 [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions) — GitHub Docs のリポジトリ指示ファイルの手順書(日付表記なし、2026-09-30 取得)。リポジトリ全体(copilot-instructions.
 
-### GitHub(35)
+### GitHub(38)
 
 - [SRC-0176] 2026-09 [Approving a pull request with required reviews](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews) — GitHub Docs の必須レビュー承認ページ本文(取得日 2026-09-23)。PR 作成者の自己承認不可と、Copilot に Issue を割り当てた
 - [SRC-0177] 2026-09 [Risks and mitigations for GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations) — Copilot cloud agent(旧 coding agent)のリスクと緩和策。前回 §9 で未取得だった「依頼者は承認できない」の原文を一次で確認。無
@@ -262,6 +262,9 @@
 - [SRC-0733] ? [GitHub Docs: REST API endpoints for code scanning(Update a code scanning alert)](https://docs.github.com/en/rest/code-scanning/code-scanning) — GitHub の code scanning の REST API。警告を dismissed にするとき dismissed_reason が必須で、値は f
 - [SRC-0734] ? [GitHub Docs: REST API endpoints for Dependabot alerts(Update a Dependabot alert)](https://docs.github.com/en/rest/dependabot/alerts) — GitHub の Dependabot の警告の REST API。却下の理由 dismissed_reason は fix_started・inaccurat
 - [SRC-0735] ? [GitHub Docs: REST API endpoints for secret scanning(Update a secret scanning alert)](https://docs.github.com/en/rest/secret-scanning/secret-scanning) — GitHub の secret scanning の警告の REST API。解決の理由 resolution は false_positive・wont_fi
+- [SRC-0745] 2026-10-01 [GitHub Changelog — Actions retention now covers checks, runs, and statuses (2026-10-01)](https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses) — GitHub が、チェック・ワークフローの実行・ステータスの保持を、Actions の成果物とログの保持の設定に揃えた旨の変更履歴。Issue #333 の審議
+- [SRC-0746] 2026-07-17 [GitHub Changelog — Actions retention will cover checks, workflow runs, and statuses (2026-](https://github.blog/changelog/2026-07-17-actions-retention-will-cover-checks-workflow-runs-and-statuses/) — チェック・実行・ステータスの保持を 2026-10-01 から Actions の保持の設定に揃える旨の事前告知(編集注記 9月15日)。既定は 90 日で、リ
+- [SRC-0747] ? [GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in yo](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) — 成果物とログの保持の設定の頁。公開リポジトリは 1〜90 日、非公開は 1〜400 日の範囲で設定でき、組織・企業の上限をリポジトリは超えられない。設定は新しい
 
 ### Google (Antigravity)(1)
 

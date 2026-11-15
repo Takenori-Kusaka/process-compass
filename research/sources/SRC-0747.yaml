@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0747
+status: included
+excludeReason: null
+title: GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in your organization
+url: https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
+canonicalUrl: https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-11-15'
+access: open
+readLevel: section
+foundBy:
+  cluster: I333
+  query: GitHub Actions artifact log retention period organization setting
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '成果物とログの保持の設定の頁。公開リポジトリは 1〜90 日、非公開は 1〜400 日の範囲で設定でき、組織・企業の上限をリポジトリは超えられない。設定は新しいものにだけ適用され、消えたものは戻らない。Issue #333 の審議で読んだ。'
+claims:
+- id: c1
+  text: リポジトリの保持の期間は、管理する組織または企業が定めた上限を超えられない。設定は新しい成果物とログにだけ適用される。
+  quote: the maximum retention period cannot exceed the limit set by the managing organization or enterprise
+  locator: 設定の頁の本文
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 333
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-15'
+  humanChecked: false
+  note: 審議の調査(research-supplement.md)で読んだ記述を引いた。upload-artifact の retention-days の個別指定の上限は、この頁からは確かめられなかった。
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: '2027-05'

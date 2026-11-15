@@ -113,3 +113,6 @@ files:
   - path: scripts/gate/spec-sections.mjs
     reason: library
     why: 機能仕様の受入基準・前提・スコープ外の3節の取り出しと比較。check-pr.mjs の検査4c(降ろし先 pr-checks。規定は IMPL-0520)が使い、出荷の証跡の集約(IMPL-0241 の実装、#355)が同じ定義を使う(#334)
+  - path: scripts/gate/evidence-manifest.mjs
+    reason: library
+    why: 出荷の証跡のワークフロー(降ろし先 ship-evidence-workflow)が呼ぶ、証跡の一式の digest の一覧の作成と検査、ワークフローの経路の静的な確認。規定は第4章「判定が指す記録の保管」の IMPL-0521 で追う(process-compass #333 / ADR-0135)

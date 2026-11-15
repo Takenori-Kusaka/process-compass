@@ -240,11 +240,13 @@ PR の作成者がコメントの状態のレビューを出せることと、�
 
 判定記録と、出荷の証跡(G-7 の集約の出力)が指す記録は、組織が定める保管期間のあいだ、到達できなければなりません。指す先に到達できない判定は、何に基づいて判定したかを後から確かめられず、自己申告と区別できなくなります。
 
+<!-- impl IMPL-0243 target=ship-evidence-workflow state=undelivered check=manual plan=adopter decision=ADR-0135 note="出荷の証跡が指す記録を、組織が定める保管期間のあいだ到達できる置き場に残す。降りた部分: 準拠テンプレートは、証跡の一式と digest の一覧を、出荷の PR で基底ブランチ(docs/evidence/)へ写す(IMPL-0521)。残る部分: 保管期間の値、期間の充足、リポジトリの削除・移管の後の到達、リポジトリの外の保管への引き渡し。準拠テンプレートは期間を知らず、これらを実装しない。採用者が自組織の文書管理規程で定め、digest の一覧を使って引き渡す。確かめる者: 内部監査の担当(判定記録と証跡の指す先に到達できるかを抜き取る)" -->
+
 **CI 基盤の既定の保持を、保管とみなしてはなりません**。CI の成果物、ワークフローの実行の記録、チェックの履歴は、基盤の保持期間の設定に従って消えます。保管期間の値は、本標準は定めません。組織の文書管理規程によります([QMS 文書管理との対応](/process-compass/phase5-implementation/qms-document-control/))。
 
-<!-- impl IMPL-0243 target=ship-evidence-workflow state=undelivered check=manual plan=scheduled issue=333 review=2027-04 note="出荷の証跡を、組織が定める保管期間のあいだ到達できる置き場に残す。準拠テンプレートの ship-evidence.yml は証跡を CI の成果物(upload-artifact)にだけ置き、retention-days を指定しない(既定の保持に依る)。保管の設計は別 Issue。内部監査で、判定記録と証跡の指す先に到達できるかを抜き取る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0521 target=ship-evidence-workflow state=delivered check=machine test=template/scripts/gate/test-evidence-manifest.mjs note="CI 基盤の既定の保持を保管とみなさない。準拠テンプレートは、出荷の証跡の一式を CI の成果物だけに置かず、digest の一覧とともに出荷の PR で基底ブランチへ写す。成果物は保持の日数を明示した一時置きとする。機械が確かめるのは、写しの存在・digest の一致・追加だけであること。写しは保管期間の充足を示さず(IMPL-0243)、書き込みの権限を持つ者の変更は防がない(履歴に残る)。出荷の PR を人が開いて取り込むまでは、一式は出荷のブランチと成果物にだけある" -->
 
-<!-- impl IMPL-0244 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=333 review=2027-04 note="出荷の証跡の集約は、CI 基盤の保持期間を過ぎて結果を読めない PR の G-5 を、gate-g5 の結果の記録が無い(必須チェックを経ずにマージされた可能性)として出す。保持切れと、必須チェックを経ていないことを区別しない。保管の設計は別 Issue。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0244 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-g5-missing.mjs note="出荷の証跡の集約は、gate-g5 の結果をホスティングから読めない PR を、マージの時点の写し(record-copy が足す gate-g5 の check run の結論)で書き分ける。写しに結論がある場合は保持切れの可能性、写しにも無い場合は必須チェックを経ていない可能性、写しの欄が無い場合は区別できない旨を出す。どの場合も欠落に数え、写しの値で充足に数えない。限界: 欄を足す前にマージした PR と、写しの取り出しで check run を読めなかった PR は区別できない" -->
 
 本標準は、判定が指す記録の置き場と様式を課しません。PR の「検証方法と結果」(human-verify)へ画面の写しなどを添付すること、添付の所在を書くことも求めません。所在が実在することは、確かめたことを示さないためです(G-2「前提の欄(基準3)」と同じ理由。[ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/))。
 

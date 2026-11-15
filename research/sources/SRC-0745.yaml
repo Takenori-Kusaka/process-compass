@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0745
+status: included
+excludeReason: null
+title: GitHub Changelog — Actions retention now covers checks, runs, and statuses (2026-10-01)
+url: https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses
+canonicalUrl: https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: '2026-10-01'
+publishedBasis: page
+version: null
+updated: null
+accessed: '2026-11-15'
+access: open
+readLevel: section
+foundBy:
+  cluster: I333
+  query: GitHub Actions retention checks workflow runs statuses 2026-10-01
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'GitHub が、チェック・ワークフローの実行・ステータスの保持を、Actions の成果物とログの保持の設定に揃えた旨の変更履歴。Issue #333 の審議(research/333-deliberation/research-supplement.md)で、出荷の証跡の保管の設計の前提として読んだ。'
+claims:
+- id: c1
+  text: 2026-10-01 以降、チェック・ワークフローの実行・ステータスは、Actions の成果物とログと同じ保持の設定に従う。
+  quote: checks, workflow runs, and statuses are now governed by the same GitHub Actions retention setting
+  locator: 変更履歴の本文
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 333
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-15'
+  humanChecked: false
+  note: 審議の調査(research-supplement.md)で読んだ記述を引いた。公開リポジトリの最大、非公開の最大はこの頁に記述が無い。
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: '2027-05'

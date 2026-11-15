@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-15): verified 652 / partial 84 / unverified 1
+集計(生成日 2026-11-15): verified 652 / partial 87 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -108,6 +108,9 @@
 | SRC-0742 | partial | agent-read | WebFetch(要約モデル経由)で読んだ。置き換えた規格の状態が「現行」と出る点は、目録の表示の誤りの可能性がある(確かめていない)。規格の本文は読んでいない。 | [ISO 9000:2026 品質マネジメント―基本及び用語 — AFNOR の目録の頁(二次)](https://www.boutique.afnor.org/en-gb/standard/iso-90002026/quality-management-fundamentals-and-vocabulary/xs147235/599826) |
 | SRC-0743 | partial | agent-read | WebFetch(要約モデル経由)で読んだ。2004 年版が廃止された旨は頁に明記されていない。規格の本文は読んでいない。 | [ISO 8601-1:2019 と ISO 8601-2:2019 の紹介 — ISO/TC 154 の頁](https://www.isotc154.org/posts/2019-08-27-introduction-to-the-new-8601/) |
 | SRC-0744 | partial | agent-read | WebFetch(要約モデル経由)で読んだ。ISO の頁は取得できなかった(403)。規格の本文は読んでいない。第1部〜第12部の各部の版は確かめていない。 | [ISO 26262-2:2018 道路車両―機能安全―第2部 機能安全のマネジメント — genorma の目録の頁(二次)](https://genorma.com/en/standards/iso-26262-2-2018) |
+| SRC-0745 | partial | agent-read | 審議の調査(research-supplement.md)で読んだ記述を引いた。公開リポジトリの最大、非公開の最大はこの頁に記述が無い。 | [GitHub Changelog — Actions retention now covers checks, runs, and statuses (2026-10-01)](https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses) |
+| SRC-0746 | partial | agent-read | 審議の調査(research-supplement.md)で読んだ記述を引いた。 | [GitHub Changelog — Actions retention will cover checks, workflow runs, and statuses (2026-](https://github.blog/changelog/2026-07-17-actions-retention-will-cover-checks-workflow-runs-and-statuses/) |
+| SRC-0747 | partial | agent-read | 審議の調査(research-supplement.md)で読んだ記述を引いた。upload-artifact の retention-days の個別指定の上限は、この頁からは確かめられなかった。 | [GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in yo](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) |
 
 ### 除外した出典(却下は成果)
 

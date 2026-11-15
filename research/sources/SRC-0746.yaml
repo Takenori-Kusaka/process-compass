@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0746
+status: included
+excludeReason: null
+title: GitHub Changelog — Actions retention will cover checks, workflow runs, and statuses (2026-07-17 事前告知)
+url: https://github.blog/changelog/2026-07-17-actions-retention-will-cover-checks-workflow-runs-and-statuses/
+canonicalUrl: https://github.blog/changelog/2026-07-17-actions-retention-will-cover-checks-workflow-runs-and-statuses/
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: '2026-07-17'
+publishedBasis: page
+version: null
+updated: '2026-09-15'
+accessed: '2026-11-15'
+access: open
+readLevel: section
+foundBy:
+  cluster: I333
+  query: GitHub Actions retention will cover checks workflow runs statuses
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'チェック・実行・ステータスの保持を 2026-10-01 から Actions の保持の設定に揃える旨の事前告知(編集注記 9月15日)。既定は 90 日で、リポジトリは組織・企業の上限までしか上げられない。Issue #333 の審議で読んだ。'
+claims:
+- id: c1
+  text: 保持の設定を超えて残ったチェック・実行・ステータスは自動で消える。従前は設定に依らず 400 日以上残っていた。既定は 90 日で、リポジトリの保持は組織・企業の上限までしか上げられない。
+  quote: A repository can raise its retention only up to the cap configured at the organization and enterprise level
+  locator: 事前告知の本文
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 333
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-15'
+  humanChecked: false
+  note: 審議の調査(research-supplement.md)で読んだ記述を引いた。
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: '2027-05'

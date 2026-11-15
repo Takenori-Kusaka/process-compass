@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 737(included 737、excluded 0)。生成日 2026-11-15。
+件数: 740(included 740、excluded 0)。生成日 2026-11-15。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -745,4 +745,7 @@
 | SRC-0742 | 2026-05 | standard | eu/en | partial | TH12 | ISO 9000 の版の確認。iso.org は取得できなかった(403)ため、AFNOR の目録で版を確かめた。規格の本文は読んでいない。Issue #354 | [ISO 9000:2026 品質マネジメント―基本及び用語 — AFNOR の目録の頁(二次)](https://www.boutique.afnor.org/en-gb/standard/iso-90002026/quality-management-fundamentals-and-vocabulary/xs147235/599826) |
 | SRC-0743 | 2019-08-27 | standard | global/en | partial | TH12 | ISO 8601 の版の確認。規格を所管する委員会の紹介の頁で、2019 年版が 2004 年版の後継であることを確かめた。規格の本文は読んでいない。Issue | [ISO 8601-1:2019 と ISO 8601-2:2019 の紹介 — ISO/TC 154 の頁](https://www.isotc154.org/posts/2019-08-27-introduction-to-the-new-8601/) |
 | SRC-0744 | 2018-12-17 | standard | global/en | partial | TH12 | ISO 26262 の版の確認。iso.org は取得できなかった(403)ため、目録の頁で第2部の 2018 年版の発行日と前版(2011 年版)を確かめた。 | [ISO 26262-2:2018 道路車両―機能安全―第2部 機能安全のマネジメント — genorma の目録の頁(二次)](https://genorma.com/en/standards/iso-26262-2-2018) |
+| SRC-0745 | 2026-10-01 | vendor-official | global/en | partial | TH12 | GitHub が、チェック・ワークフローの実行・ステータスの保持を、Actions の成果物とログの保持の設定に揃えた旨の変更履歴。Issue #333 の審議 | [GitHub Changelog — Actions retention now covers checks, runs, and statuses (2026-10-01)](https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses) |
+| SRC-0746 | 2026-07-17 | vendor-official | global/en | partial | TH12 | チェック・実行・ステータスの保持を 2026-10-01 から Actions の保持の設定に揃える旨の事前告知(編集注記 9月15日)。既定は 90 日で、リ | [GitHub Changelog — Actions retention will cover checks, workflow runs, and statuses (2026-](https://github.blog/changelog/2026-07-17-actions-retention-will-cover-checks-workflow-runs-and-statuses/) |
+| SRC-0747 | ? | vendor-official | global/en | partial | TH12 | 成果物とログの保持の設定の頁。公開リポジトリは 1〜90 日、非公開は 1〜400 日の範囲で設定でき、組織・企業の上限をリポジトリは超えられない。設定は新しい | [GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in yo](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) |
 
