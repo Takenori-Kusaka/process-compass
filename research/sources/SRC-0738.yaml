@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0738
+status: included
+excludeReason: null
+title: JIS Z 8301:2019 規格票の様式及び作成方法 — 日本規格協会の公開プレビュー(表紙の識別だけ)
+url: https://webdesk.jsa.or.jp/preview/pre_jis_z_08301_000_000_2019_j_ed10_ch.pdf
+canonicalUrl: https://webdesk.jsa.or.jp/preview/pre_jis_z_08301_000_000_2019_j_ed10_ch.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 日本産業標準調査会・日本規格協会
+authors: []
+orgType: standards-body
+region: jp
+lang: ja
+sourceType: standard
+published: '2019'
+publishedBasis: page
+version: 2019 年版
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: snippet
+foundBy:
+  cluster: I354
+  query: JIS Z 8301 規格票の様式及び作成方法 2019 改正 JISC
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'JIS Z 8301 の 2019 年版の公開プレビュー(PDF)。取得できた。ただし日本語の文字が抽出できず(フォントに文字の対応表が無い)、読めたのは表紙のラテン文字と数字だけ。表現形式の表(箇条7)の本文は読めていない。Issue #354 で登録した。'
+claims:
+- id: c1
+  text: 日本規格協会のプレビューの表紙に「JIS Z 8301:2019」とある。本標準が引く JIS Z 8301 の版は 2019 年版である(第三者の転載 SRC-0670 の題とも一致する)。
+  quote: null
+  locator: 表紙(1頁目。ラテン文字の抽出結果は「JIS Z 83012019」。コロンは抽出で落ちる)
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
+- id: c2
+  text: 表紙の日付の数字は「7」「22」で、検索結果の説明(令和元年7月22日改正)と一致する。元号の文字は抽出できていない。
+  quote: null
+  locator: 表紙(数字だけを抽出)
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: curl で PDF を取得し pdftotext で抽出した。日本語の文字は抽出できなかった。箇条7 の表は読めていない。令和元年7月22日の改正日は、検索結果の説明で補った(原本の文字では確かめていない)。
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-11'

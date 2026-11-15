@@ -9,6 +9,7 @@
 | 2013-05-25 | JIS B 9700:2013 を制定(ISO 12100:2010 に一致) | 日本産業標準調査会・日本規格協会(ISO/TC 199 の ISO 12100:2010 に一致) | [SRC-0645] |
 | 2015-09 | ISO 9001:2015 を承認・発行 | ISO/TC 176 (catalogue record via Bahrain Standards and Metrology Directorate store) | [SRC-0643] |
 | 2017-11 | ISO/IEC/IEEE 12207 第1版を発行 | ISO/IEC JTC 1/SC 7 and IEEE Computer Society (BSI adoption, preview via ANSI Webstore) | [SRC-0642] |
+| 2017-11 | ISO/IEC/IEEE 12207 第1版を発行 | ISO/IEC JTC 1/SC 7 and IEEE Computer Society (preview via VDE Verlag) | [SRC-0731] |
 | 2021-03-26 | 策定 | 公正取引委員会・中小企業庁・厚生労働省 | [SRC-0729] |
 | 2021-09-21 | 第3集の初版の公表(IPA の解説の記載による。初版の PDF は読めていない) | 厚生労働省 | [SRC-0636] |
 | 2023-01-26 | NIST が AI RMF 1.0 を公開 | National Institute of Standards and Technology (NIST) | [SRC-0518] |
@@ -21,6 +22,7 @@
 | 2024-10-18 | 改定 | 公正取引委員会・中小企業庁・厚生労働省 | [SRC-0729] |
 | 2025-02-18 | ISO/IEC 29110-5-1-2:2025 発行(TR 29110-5-1-2:2011 を置き換え) | International Organization for Standardization (ISO) / IEC JTC 1/SC 7 | [SRC-0533] |
 | 2025-02-21 | IEC 61508-3 第 3 版の CDV を回付(投票締切 2025-05-16) | International Electrotechnical Commission (IEC) SC 65A | [SRC-0528] |
+| 2025-03-21 | JIS Q 9001:2015 追補1 を公示(ISO 9001:2015/Amd 1:2024 と一致) | 日本規格協会(JSA) | [SRC-0737] |
 | 2025-05-27 | DS-920 初版を策定 | デジタル庁(デジタル社会推進会議幹事会決定) | [SRC-0250] |
 | 2025-06-04 | AI 法を公布・一部施行 | e-Gov 法令検索(デジタル庁) | [SRC-0619] |
 | 2025-07-14 | Kiro IDE プレビュー公開(1 周年記事の逆算) | Kiro(AWS) | [SRC-0049] |
@@ -261,6 +263,7 @@
 | 2026-09-16 | Anthropic が Claude Docs / Claude Slides をベータ公開し、Cowork をチャットへ統合 | Anthropic (Claude blog) | [SRC-0374] |
 | 2026-09-16 | ISO 9001:2026(第6版)発行、ISO 9001:2015 は廃止 | Qlause | [SRC-0542] |
 | 2026-09-16 | ISO 9001:2026 の発行により 2015 年版は旧版(Historical) | ISO/TC 176 (catalogue record via Bahrain Standards and Metrology Directorate store) | [SRC-0643] |
+| 2026-09-16 | ISO 9001:2026 発行(認証機関の発表) | DQS Holding GmbH | [SRC-0736] |
 | 2026-09-17 | Anthropic Institute が AI R&D 自動化指標と監視指標を公表 | Anthropic Institute | [SRC-0068] |
 | 2026-09-18 | Kiro Crew チームが「1 週間で 1,000 PR マージ」を公表 | Kiro(AWS) | [SRC-0061] |
 | 2026-09-18 | Faros が高AI採用の深化期を扱う新版を公表。レビューなしマージの増加率が31.3%から76.3%へ | Faros AI | [SRC-0475] |
@@ -285,6 +288,7 @@
 | 2027-12-02 | Annex III 高リスク系への第14条適用開始(Omnibus 後) | Regulation (EU) 2024/1689 (AI Act Explorer, Future of Life Institute) | [SRC-0087] |
 | 2027-12-02 | 高リスク AI システムの規則の適用日(延期後) | European Commission (Shaping Europe's digital future) | [SRC-0299] |
 | 2028-08-02 | Annex I 高リスク系への第14条適用開始(Omnibus 後) | Regulation (EU) 2024/1689 (AI Act Explorer, Future of Life Institute) | [SRC-0087] |
+| 2029-09-30 | ISO 9001:2015 の認証の有効期限(GAC Inc. の最終の決定による) | DQS Holding GmbH | [SRC-0736] |
 
 ## 注記
 

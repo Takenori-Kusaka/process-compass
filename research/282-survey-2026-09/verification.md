@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-11): verified 652 / partial 68 / unreachable 2 / unverified 1
+集計(生成日 2026-11-15): verified 652 / partial 84 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -35,8 +35,8 @@
 | SRC-0644 | partial | agent-read | カナダ規格協議会の規格の目録の頁を WebFetch(要約モデル経由)で読み、名称・発行日・状態を抜き出させた。本文は読んでいない。名称が ISO/IEC/IEEE であることも、この頁で確かめた | [ISO/IEC/IEEE 90003:2018 Software engineering — Guidelines for the application of ISO 9001:](https://scc-ccn.ca/standardsdb/standards/2043769) |
 | SRC-0645 | partial | agent-read | 日本規格協会のプレビューの PDF を WebFetch(要約モデル経由)で読み、名称・制定日・対応国際規格を逐語で抜き出させた。ISO の第2版の状態は iso.org の頁(ISO/DIS 12100.3)を WebFetch で読んで確かめた。本文は読んでいない | [JIS B 9700:2013 機械類の安全性―設計のための一般原則―リスクアセスメント及びリスク低減(ISO 12100:2010 IDT)— プレビュー](https://webdesk.jsa.or.jp/preview/pre_jis_b_09700_000_000_2013_j_ed10_ch.pdf) |
 | SRC-0646 | partial | agent-read | iso.org の目録の頁を WebFetch(要約モデル経由)で読み、名称・版・発行日・状態を抜き出させた。本文は読んでいない | [ISO/IEC TR 5469:2024 Artificial intelligence — Functional safety and AI systems (catalogue](https://www.iso.org/standard/81283.html) |
-| SRC-0647 | unreachable | agent-read | 日本規格協会のプレビューの PDF を WebFetch で取得したが、保守の告知の頁が返った(2026-10-22 から終了日時未定)。規格の中身を確かめていない。実在しないという意味ではない | [JIS Q 42001:2025 情報技術―人工知能―マネジメントシステム — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_42001_000_000_2025_j_ed10_ch.pdf) |
-| SRC-0648 | unreachable | agent-read | 日本規格協会のプレビューの PDF を WebFetch で取得したが、保守の告知の頁が返った(2026-10-22 から終了日時未定)。規格の中身を確かめていない。実在しないという意味ではない | [JIS Q 9001:2015 品質マネジメントシステム―要求事項 — プレビュー(未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_09001_000_000_2015_j_ed30_ch.pdf) |
+| SRC-0647 | partial | agent-read | 2026-10-24 は保守の告知の頁が返った。2026-11-12 は curl で取得し、pdftotext で抽出した。日本語の文字は抽出できなかった(フォントに文字の対応表が無い)。表紙の括弧書きが ISO/IEC 42001:2023 であることだけを確かめた。 | [JIS Q 42001:2025 情報技術―人工知能―マネジメントシステム — プレビュー(表紙の識別だけ。本文は未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_42001_000_000_2025_j_ed10_ch.pdf) |
+| SRC-0648 | partial | agent-read | 2026-10-24 は保守の告知の頁が返った。2026-11-12 は curl で取得し、pdftotext で抽出した。日本語の文字は抽出できなかった(フォントに文字の対応表が無い)。表紙の括弧書きが ISO 9001:2015 であることだけを確かめた。 | [JIS Q 9001:2015 品質マネジメントシステム―要求事項 — プレビュー(表紙の識別だけ。本文は未取得)](https://webdesk.jsa.or.jp/preview/pre_jis_q_09001_000_000_2015_j_ed30_ch.pdf) |
 | SRC-0649 | partial | agent-read | IEC Webstore の目録の頁を WebFetch(要約モデル経由)で読み、名称・版・発行日・安定日・部の範囲を抜き出させた。版の履歴の表は空で、より新しい版の有無は目録からは確かめていない。本文は読んでいない | [IEC 61508:2010 CMV Functional safety of electrical/electronic/programmable electronic safe](https://webstore.iec.ch/publication/22273) |
 | SRC-0670 | unverified |  | 第三者の転載であり、原本(JISC・日本規格協会)と照合していない。転載の表は列が崩れており、対応は文脈から読んだ箇所を含む(research/316-deliberation/survey-316-2-external.md 1.3・2.1)。照合まで、本標準の記述の根拠に数えない(EV-0096) | [JIS Z 8301:2019 規格票の様式及び作成方法(第三者による転載。原本と未照合)](https://kikakurui.com/z8/Z8301-2019-01.html) |
 | SRC-0671 | partial | agent-read |  | [「労働者派遣事業と請負により行われる事業との区分に関する基準」(37号告示)に関する疑義応答集(第2集)](https://www.mhlw.go.jp/content/000780138.pdf) |
@@ -94,6 +94,20 @@
 | SRC-0723 | partial | agent-read | #346 の実装(裁定 R-2 の確認)で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文のままとして返した文で、原文の目視の照合はしていない | [GitHub Docs: REST API endpoints for deployment environments](https://docs.github.com/en/rest/deployments/environments) |
 | SRC-0724 | partial | agent-read | c1 の逐語は、#372 の外部調査(survey-372-2-external.md S3)が令和7年10月1日 全部改正の版の PDF(https://www.jftc.go.jp/houdou/pressrelease/2025/oct/251001_toriteki1-4.pdf)から取った。#372 の実装(2026-11-05)で、掲載中の HTML 版(令和8年10月1日 改正)を WebFetch(要約モデル経由)で読み、改正の履歴と c1 の文言が同じであることを確かめた。3-9(システム利用料の減額)の claim は、本文が引かなくなったため外した(独立の突合 X-1 への裁定)。curl は Access Denied。目視の照合ではない。両版の差分の全体は照合していない。法律の助言ではない | [製造委託等に係る中小受託事業者に対する代金の支払の遅延等の防止に関する法律の運用基準](https://www.jftc.go.jp/toriteki/legislation/unyou.html) |
 | SRC-0730 | partial | agent-read | #362 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない。表の末尾の 13682 字は読んでいない(on の行の有無は表の前半で確かめた)。on.push.branches に式を書けないことの裏づけは、この表の不記載と、実機の観測(Unrecognized named-value: github)の2つである | [GitHub Docs: Contexts reference(Context availability)](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts) |
+| SRC-0731 | partial | agent-read | プレビューの PDF を取得し pdftotext で文字に起こして、目次とまえがきの該当の文を逐語で確かめた。附属書H の本文はプレビューに無い | [ISO/IEC/IEEE 12207:2017 Systems and software engineering — Software life cycle processes (](https://assets.vde-verlag.de/iec-normen/preview-pdf/info_isoiecieee12207%7Bed1.0%7Den.pdf) |
+| SRC-0732 | partial | agent-read | OASIS の HTML を取得し、タグを除いた文字から §3.27.23 と §3.35.1〜3.35.6 の文を逐語で確かめた。他の節は読んでいない | [Static Analysis Results Interchange Format (SARIF) Version 2.1.0 Plus Errata 01 — OASIS St](https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/sarif-v2.1.0-errata01-os-complete.html) |
+| SRC-0733 | partial | agent-read | #336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない。頁の末尾の 7847 字は読んでいない。UI の却下の理由の説明の頁(resolving-code-scanning-alerts)は、理由の一覧を載せていなかった | [GitHub Docs: REST API endpoints for code scanning(Update a code scanning alert)](https://docs.github.com/en/rest/code-scanning/code-scanning) |
+| SRC-0734 | partial | agent-read | #336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない | [GitHub Docs: REST API endpoints for Dependabot alerts(Update a Dependabot alert)](https://docs.github.com/en/rest/dependabot/alerts) |
+| SRC-0735 | partial | agent-read | #336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない | [GitHub Docs: REST API endpoints for secret scanning(Update a secret scanning alert)](https://docs.github.com/en/rest/secret-scanning/secret-scanning) |
+| SRC-0736 | partial | agent-read | #336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない。箇条1〜10 の番号の維持は、この頁から確かめられなかった | [DQS: ISO 9001:2026 published(newsroom, 2026-09-16)](https://www.dqsglobal.com/en/about/newsroom/iso-9001-2026-published) |
+| SRC-0737 | partial | agent-read | #336 の調査で WebFetch(要約モデル経由)により読んだ。quote は要約モデルが原文から抜き出した文で、原文の目視の照合はしていない。JISC の頁(JIS Q 9001:2026 への改正の予定)は 502 で読めなかった | [JIS Q 9001:2015/AMENDMENT 1:2025 品質マネジメントシステム－要求事項(追補1)(ISO 9001:2015/AMENDMENT 1:2024 IDT](https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS+Q+9001:2015/AMENDMENT+1:2025) |
+| SRC-0738 | partial | agent-read | curl で PDF を取得し pdftotext で抽出した。日本語の文字は抽出できなかった。箇条7 の表は読めていない。令和元年7月22日の改正日は、検索結果の説明で補った(原本の文字では確かめていない)。 | [JIS Z 8301:2019 規格票の様式及び作成方法 — 日本規格協会の公開プレビュー(表紙の識別だけ)](https://webdesk.jsa.or.jp/preview/pre_jis_z_08301_000_000_2019_j_ed10_ch.pdf) |
+| SRC-0739 | partial | agent-read | curl で PDF を取得し pdftotext で抽出した。日本語の文字は抽出できなかった。定義の本文は読めていない。 | [JIS Q 9027:2018 マネジメントシステムのパフォーマンス改善―プロセス保証の指針 — 日本規格協会の公開プレビュー(表紙の識別だけ)](https://webdesk.jsa.or.jp/preview/pre_jis_q_09027_000_000_2018_j_ed10_ch.pdf) |
+| SRC-0740 | partial | agent-read | WebFetch(要約モデル経由)で読んだ。逐語の確認は要約モデルの抜き出しによる。規格の本文は読んでいない。 | [ISO 13849-1:2023 機械類の安全性―制御システムの安全関連部 — スウェーデン規格協会の目録の頁(二次)](https://www.sis.se/en/produkter/environment-health-protection-safety/safety-of-machinery/iso-13849-12023/) |
+| SRC-0741 | partial | agent-read | WebFetch(要約モデル経由)で読んだ。逐語の確認は要約モデルの抜き出しによる。頁の題が「IEC 62062:2021」と一度表記された(要約モデルの誤りと見られるが、確かめていない)。規格の本文は読んでいない。 | [IEC 62061:2021 機械類の安全性―安全関連制御システムの機能安全 — IEC ウェブストアの頁(統合版 +AMD1:2024)](https://webstore.iec.ch/en/publication/59927) |
+| SRC-0742 | partial | agent-read | WebFetch(要約モデル経由)で読んだ。置き換えた規格の状態が「現行」と出る点は、目録の表示の誤りの可能性がある(確かめていない)。規格の本文は読んでいない。 | [ISO 9000:2026 品質マネジメント―基本及び用語 — AFNOR の目録の頁(二次)](https://www.boutique.afnor.org/en-gb/standard/iso-90002026/quality-management-fundamentals-and-vocabulary/xs147235/599826) |
+| SRC-0743 | partial | agent-read | WebFetch(要約モデル経由)で読んだ。2004 年版が廃止された旨は頁に明記されていない。規格の本文は読んでいない。 | [ISO 8601-1:2019 と ISO 8601-2:2019 の紹介 — ISO/TC 154 の頁](https://www.isotc154.org/posts/2019-08-27-introduction-to-the-new-8601/) |
+| SRC-0744 | partial | agent-read | WebFetch(要約モデル経由)で読んだ。ISO の頁は取得できなかった(403)。規格の本文は読んでいない。第1部〜第12部の各部の版は確かめていない。 | [ISO 26262-2:2018 道路車両―機能安全―第2部 機能安全のマネジメント — genorma の目録の頁(二次)](https://genorma.com/en/standards/iso-26262-2-2018) |
 
 ### 除外した出典(却下は成果)
 

@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0741
+status: included
+excludeReason: null
+title: IEC 62061:2021 機械類の安全性―安全関連制御システムの機能安全 — IEC ウェブストアの頁(統合版 +AMD1:2024)
+url: https://webstore.iec.ch/en/publication/59927
+canonicalUrl: https://webstore.iec.ch/en/publication/59927
+ids:
+  arxiv: null
+  doi: null
+publisher: IEC(国際電気標準会議)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: '2021-03-22'
+publishedBasis: page
+version: 第2版(2021)、統合版は +AMD1:2024
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I354
+  query: IEC 62061:2021 edition 2.0 iec.ch webstore
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'IEC 62061 の版の確認。IEC ウェブストアの頁で版と発行日を確かめた。規格の本文は読んでいない。Issue #354 で登録した。'
+claims:
+- id: c1
+  text: IEC 62061:2021 は第2版(2021-03-22 発行)で、2005 年の第1版と Amendment 1:2012・Amendment 2:2015 を取り消して置き換える。統合版 IEC 62061:2021+AMD1:2024 がある。
+  quote: 'IEC 62061:2021 cancels and replaces the first edition, published in 2005, Amendment 1:2012 and Amendment 2:2015.'
+  locator: 頁の説明(Edition 2.0、2021-03-22)
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: WebFetch(要約モデル経由)で読んだ。逐語の確認は要約モデルの抜き出しによる。頁の題が「IEC 62062:2021」と一度表記された(要約モデルの誤りと見られるが、確かめていない)。規格の本文は読んでいない。
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: '2027-05'

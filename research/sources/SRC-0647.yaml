@@ -2,7 +2,7 @@ schemaVersion: 0
 id: SRC-0647
 status: included
 excludeReason: null
-title: JIS Q 42001:2025 情報技術―人工知能―マネジメントシステム — プレビュー(未取得)
+title: JIS Q 42001:2025 情報技術―人工知能―マネジメントシステム — プレビュー(表紙の識別だけ。本文は未取得)
 url: https://webdesk.jsa.or.jp/preview/pre_jis_q_42001_000_000_2025_j_ed10_ch.pdf
 canonicalUrl: https://webdesk.jsa.or.jp/preview/pre_jis_q_42001_000_000_2025_j_ed10_ch.pdf
 ids:
@@ -18,8 +18,8 @@ published: '2025'
 publishedBasis: page
 version: 2025 年版
 updated: null
-accessed: '2026-10-24'
-access: blocked
+accessed: '2026-11-12'
+access: open
 readLevel: snippet
 foundBy:
   cluster: I313
@@ -30,25 +30,35 @@ selfReported: false
 themes:
 - TH12
 events: []
-summary: '第1章 1.3 が引く JIS Q 42001:2025(ISO/IEC 42001:2023 に対応)。日本規格協会のプレビューの所在は検索で見つけたが、取得の時点でサイトが緊急の保守中で読めなかった。対応の程度(IDT など)と制定日は確かめていない。Issue #313 で登録した。'
+summary: '第1章 1.3 が引く JIS Q 42001:2025(ISO/IEC 42001:2023 に対応)。日本規格協会のプレビューの所在は検索で見つけたが、2026-10-24 はサイトが緊急の保守中で読めなかった。2026-11-12 に表紙の識別だけを確かめた(Issue #354)。対応の程度(IDT など)と制定日は確かめていない。Issue #313 で登録した。'
 claims:
 - id: c1
-  text: JIS Q 42001 の 2025 年版のプレビューが日本規格協会に置かれている(検索で所在だけを確かめた)。中身は確かめていない。
-  quote: pre jis q 42001 000 000 2025 j ed10 ch
-  locator: 検索結果の題
+  text: JIS Q 42001:2025 のプレビューが日本規格協会に置かれている(検索で所在だけを確かめた)。中身は確かめていない。
+  quote: null
+  locator: 検索結果の題(2026-10-24)
   quant: null
   evidenceKind: news-fact
   rqs: []
   issues:
   - 313
   stance: context
+- id: c2
+  text: 2026-11-12 にプレビューの PDF を取得できた。表紙に「JIS Q 42001:2025(ISO/IEC 42001:2023)」とある。日付の数字は「7」「8」「20」(令和7年8月20日の制定と読める。元号の文字は抽出できていない)。日本語の文字は抽出できず、対応の程度(IDT など)と本文は確かめていない。
+  quote: null
+  locator: 表紙(1頁目。ラテン文字と数字だけを抽出)
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
 verification:
-  status: unreachable
+  status: partial
   method:
   - agent-read
-  date: '2026-10-24'
+  date: '2026-11-12'
   humanChecked: false
-  note: 日本規格協会のプレビューの PDF を WebFetch で取得したが、保守の告知の頁が返った(2026-10-22 から終了日時未定)。規格の中身を確かめていない。実在しないという意味ではない
+  note: 2026-10-24 は保守の告知の頁が返った。2026-11-12 は curl で取得し、pdftotext で抽出した。日本語の文字は抽出できなかった(フォントに文字の対応表が無い)。表紙の括弧書きが ISO/IEC 42001:2023 であることだけを確かめた。
   mech: null
   agent: null
 volatility: slow

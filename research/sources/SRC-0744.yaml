@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0744
+status: included
+excludeReason: null
+title: ISO 26262-2:2018 道路車両―機能安全―第2部 機能安全のマネジメント — genorma の目録の頁(二次)
+url: https://genorma.com/en/standards/iso-26262-2-2018
+canonicalUrl: https://genorma.com/en/standards/iso-26262-2-2018
+ids:
+  arxiv: null
+  doi: null
+publisher: genorma(規格の目録サービス)
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: standard
+published: '2018-12-17'
+publishedBasis: page
+version: 2018 年版(第2版に当たる)
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I354
+  query: ISO 26262:2018 second edition 2018-12
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'ISO 26262 の版の確認。iso.org は取得できなかった(403)ため、目録の頁で第2部の 2018 年版の発行日と前版(2011 年版)を確かめた。規格の本文は読んでいない。第2版という呼び方は ISO の頁の検索結果の要約(第1部の Edition 2)による。Issue #354 で登録した。'
+claims:
+- id: c1
+  text: ISO 26262-2:2018 は 2018-12-17 に発行された。前版は ISO 26262-2:2011(廃止)で、改訂の素案(ISO/DIS 26262-2)が審議中である。
+  quote: Dec 17, 2018
+  locator: 目録の頁(Lifecycle)
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: WebFetch(要約モデル経由)で読んだ。ISO の頁は取得できなかった(403)。規格の本文は読んでいない。第1部〜第12部の各部の版は確かめていない。
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: '2027-05'

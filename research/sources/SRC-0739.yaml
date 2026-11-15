@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0739
+status: included
+excludeReason: null
+title: JIS Q 9027:2018 マネジメントシステムのパフォーマンス改善―プロセス保証の指針 — 日本規格協会の公開プレビュー(表紙の識別だけ)
+url: https://webdesk.jsa.or.jp/preview/pre_jis_q_09027_000_000_2018_j_ed10_ch.pdf
+canonicalUrl: https://webdesk.jsa.or.jp/preview/pre_jis_q_09027_000_000_2018_j_ed10_ch.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: 日本産業標準調査会・日本規格協会(原案作成は日本品質管理学会)
+authors: []
+orgType: standards-body
+region: jp
+lang: ja
+sourceType: standard
+published: '2018'
+publishedBasis: page
+version: 2018 年版
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: snippet
+foundBy:
+  cluster: I354
+  query: JIS Q 9027:2018 JSA preview
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'JIS Q 9027 の 2018 年版の公開プレビュー(PDF)。取得できた。日本語の文字が抽出できず、読めたのは表紙のラテン文字と数字だけ。品質保証の定義の本文は読めていない。附属書H の定義は、引き続き JSQC-Std 00-001:2023 付録C の対照表による。Issue #354 で登録した。'
+claims:
+- id: c1
+  text: 日本規格協会のプレビューの表紙に「JIS Q 9027:2018」とある。本標準が引く JIS Q 9027 の版は 2018 年版である。
+  quote: null
+  locator: 表紙(1頁目。ラテン文字の抽出結果は「JIS Q 90272018」。コロンは抽出で落ちる)
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
+- id: c2
+  text: 表紙の日付の数字は「30」「3」「20」で、平成30年3月20日の制定と読める。元号の文字は抽出できていない。
+  quote: null
+  locator: 表紙(数字だけを抽出)
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: curl で PDF を取得し pdftotext で抽出した。日本語の文字は抽出できなかった。定義の本文は読めていない。
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-11'

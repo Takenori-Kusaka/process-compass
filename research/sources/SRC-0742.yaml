@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0742
+status: included
+excludeReason: null
+title: ISO 9000:2026 品質マネジメント―基本及び用語 — AFNOR の目録の頁(二次)
+url: https://www.boutique.afnor.org/en-gb/standard/iso-90002026/quality-management-fundamentals-and-vocabulary/xs147235/599826
+canonicalUrl: https://www.boutique.afnor.org/en-gb/standard/iso-90002026/quality-management-fundamentals-and-vocabulary/xs147235/599826
+ids:
+  arxiv: null
+  doi: null
+publisher: AFNOR(フランス規格協会)
+authors: []
+orgType: standards-body
+region: eu
+lang: en
+sourceType: standard
+published: '2026-05'
+publishedBasis: page
+version: 2026 年版(2015 年版を置き換える)
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I354
+  query: ISO 9000:2026 replaces ISO 9000:2015
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'ISO 9000 の版の確認。iso.org は取得できなかった(403)ため、AFNOR の目録で版を確かめた。規格の本文は読んでいない。Issue #354 で登録した。'
+claims:
+- id: c1
+  text: ISO 9000:2026 は 2026 年 5 月に発行され、置き換える規格として ISO 9000:2015(2015 年 9 月)を挙げる。版の番号の記載は無い(印刷の番号が 5 とある)。
+  quote: 'ISO 9000:2026'
+  locator: '目録の頁(Publication date: May 2026、Replaced standards)'
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: WebFetch(要約モデル経由)で読んだ。置き換えた規格の状態が「現行」と出る点は、目録の表示の誤りの可能性がある(確かめていない)。規格の本文は読んでいない。
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: '2027-05'

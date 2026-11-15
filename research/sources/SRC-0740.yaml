@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0740
+status: included
+excludeReason: null
+title: ISO 13849-1:2023 機械類の安全性―制御システムの安全関連部 — スウェーデン規格協会の目録の頁(二次)
+url: https://www.sis.se/en/produkter/environment-health-protection-safety/safety-of-machinery/iso-13849-12023/
+canonicalUrl: https://www.sis.se/en/produkter/environment-health-protection-safety/safety-of-machinery/iso-13849-12023/
+ids:
+  arxiv: null
+  doi: null
+publisher: SIS(スウェーデン規格協会)
+authors: []
+orgType: standards-body
+region: eu
+lang: en
+sourceType: standard
+published: '2023'
+publishedBasis: page
+version: 第4版(2023)
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I354
+  query: ISO 13849-1:2023 edition 4 replaces ISO 13849-1:2015
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'ISO 13849-1 の版の確認。iso.org は取得できなかった(403)ため、国の規格協会の目録で版を確かめた。規格の本文は読んでいない。Issue #354 で登録した。'
+claims:
+- id: c1
+  text: ISO 13849-1:2023 は第4版で、ISO 13849-1:2015 を置き換える。目録は有効(valid)とする。
+  quote: 'Replaces: ISO 13849-1:2015'
+  locator: '目録の頁(Edition: 4、Approved: 4/26/2023)'
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: WebFetch(要約モデル経由)で読んだ。逐語の確認は要約モデルの抜き出しによる。規格の本文は読んでいない。
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: '2027-05'

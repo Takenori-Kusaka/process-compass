@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0743
+status: included
+excludeReason: null
+title: ISO 8601-1:2019 と ISO 8601-2:2019 の紹介 — ISO/TC 154 の頁
+url: https://www.isotc154.org/posts/2019-08-27-introduction-to-the-new-8601/
+canonicalUrl: https://www.isotc154.org/posts/2019-08-27-introduction-to-the-new-8601/
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO/TC 154
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: '2019-08-27'
+publishedBasis: page
+version: ISO 8601-1:2019
+updated: null
+accessed: '2026-11-12'
+access: open
+readLevel: secondary
+foundBy:
+  cluster: I354
+  query: ISO 8601-1:2019 successor of ISO 8601:2004
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'ISO 8601 の版の確認。規格を所管する委員会の紹介の頁で、2019 年版が 2004 年版の後継であることを確かめた。規格の本文は読んでいない。Issue #354 で登録した。'
+claims:
+- id: c1
+  text: ISO 8601-1:2019 は ISO 8601:2004 の直接の後継で、ISO 8601-2:2019 とともに 2019-03-26 に発行された。
+  quote: 'ISO 8601-1:2019 is the direct successor to ISO 8601:2004'
+  locator: 頁の本文(発行日は表)
+  quant: null
+  evidenceKind: news-fact
+  rqs: []
+  issues:
+  - 354
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-12'
+  humanChecked: false
+  note: WebFetch(要約モデル経由)で読んだ。2004 年版が廃止された旨は頁に明記されていない。規格の本文は読んでいない。
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-11'
