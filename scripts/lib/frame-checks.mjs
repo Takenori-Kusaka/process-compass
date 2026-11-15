@@ -1,4 +1,4 @@
-// 注意の枠の中の要求・禁止(検査12 の拡張)と、主語の無い表明の文末(検査17)の判定(#440 / ADR-0131)
+// 注意の枠の中の要求・禁止(検査12 の拡張)と、主語の無い表明の文末(検査17)の判定(#440 / ADR-0132)
 //
 // scripts/check-provisions.mjs が使う。試験は scripts/test-provisions.mjs(npm run test:provisions)。
 // 登録簿は src/data/provision-forms.yaml の undecidedFrameSentences・declarationVerbs。

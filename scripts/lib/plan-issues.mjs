@@ -1,4 +1,4 @@
-// 実装マークの計画の Issue(issue=)の検出の本体(Issue #439 / ADR-0130)。純粋な関数だけを置く。
+// 実装マークの計画の Issue(issue=)の検出の本体(Issue #439 / ADR-0131)。純粋な関数だけを置く。
 //
 // 検査(npm run check)はオフラインで実行する。ここは GitHub へ問い合わせない。問い合わせは
 // scripts/check-impl-plan-issues.mjs が行い、結果をこの関数へ渡す。

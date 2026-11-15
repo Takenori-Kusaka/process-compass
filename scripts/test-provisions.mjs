@@ -65,7 +65,7 @@ for (const e of entries) {
   check(`登録簿の項目「${e.variant}」の自己試験`, p.length === 0, p.join(' / '));
 }
 
-// --- 注意の枠の中の要求・禁止(検査12 の拡張)と、主語の無い表明の文末(検査17)。#440 / ADR-0131 ---
+// --- 注意の枠の中の要求・禁止(検査12 の拡張)と、主語の無い表明の文末(検査17)。#440 / ADR-0132 ---
 const decl = reg.declarationVerbs ?? {};
 const subj = decl.subject ?? '';
 const verbs = decl.verbs ?? [];

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 実装マークの issue= が、閉じた Issue・実在しない番号・PR を名指していないかを確かめる(Issue #439 / ADR-0130)。
+// 実装マークの issue= が、閉じた Issue・実在しない番号・PR を名指していないかを確かめる(Issue #439 / ADR-0131)。
 //
 //   node scripts/check-impl-plan-issues.mjs                       (npm run impl:issues)  gh で番号の状態を問い合わせる
 //   node scripts/check-impl-plan-issues.mjs --closed-from <file>  番号の状態を <file> から読む(試験・オフラインの再現)

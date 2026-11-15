@@ -1,4 +1,4 @@
-// 実装マークの計画の Issue の検出(check-impl-plan-issues.mjs / lib/plan-issues.mjs)の陽性対照(Issue #439 / ADR-0130)
+// 実装マークの計画の Issue の検出(check-impl-plan-issues.mjs / lib/plan-issues.mjs)の陽性対照(Issue #439 / ADR-0131)
 //
 // 違反(閉じた Issue・実在しない番号・PR を名指す)で所見が出ること、適合(open の Issue)で出ないことを対で確かめる。
 // 純粋な関数だけを対象にする。GitHub の実機での発火は、この試験の範囲の外である(implementation-marking.md に開示)。

@@ -502,7 +502,7 @@ async function g5Jobs() {
   return g5;
 }
 
-// issue= の番号が Issue の一覧の写しに在り、種別が issue であること(オフライン。状態は見ない。Issue #439 / ADR-0130)
+// issue= の番号が Issue の一覧の写しに在り、種別が issue であること(オフライン。状態は見ない。Issue #439 / ADR-0131)
 const ISSUES = issueIndex();
 for (const m of marks) {
   if (m.issue) {
