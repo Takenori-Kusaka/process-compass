@@ -138,7 +138,7 @@ sidebar:
 - 閉じた Issue を名指していたマークを 14 件付け替えた経緯は、[#439](https://github.com/Takenori-Kusaka/process-compass/issues/439) に残る。[#314](https://github.com/Takenori-Kusaka/process-compass/issues/314) を仮に名指した 60 件と、[#315](https://github.com/Takenori-Kusaka/process-compass/issues/315)・[#316](https://github.com/Takenori-Kusaka/process-compass/issues/316) を仮に名指した 3 件も、後継の Issue の起票の後に番号を改めた
 - 台帳の降りていない規定の表は、降ろし先の種別で書き分ける。降ろし先が予定の置き場(`planned`)なら、置き場がまだ無い。降ろし先が実在するなら、置き場はあるが規定の全部または一部がそこに無い。無い部分は `note` に書く
 
-:::caution[暫定 EV-0260 / 見直し 2027-05]
+:::caution[暫定 EV-0261 / 見直し 2027-05]
 **対象**: 閉じた Issue を名指すマークの検出ワークフロー(`impl-plan-issues.yml`)が、実際の GitHub で発火し、コメントが動くこと。無効化・権限の変更・GitHub Actions の障害は検出しないこと。
 **根拠の水準**: E0(なし)。
 **差し替え条件**: main へ入った後の手動の実行と、試験用の Issue を閉じた試行で、発火、コメント、重複の抑止を確かめた記録。
@@ -146,7 +146,7 @@ sidebar:
 実装の時点では、純粋な関数と、スクリプト本体を `gh` なしで走らせる試験(終了コード 0・1・2 と `--issue`)だけを通しました。`gh` の呼び出し自体(認証・レート制限の実機の応答)は、手で確かめています。月次の契機と、閉じる者の手元の実行(`npm run impl:issues -- --issue <番号>`)が、ワークフローの取りこぼしを補います。
 :::
 
-:::caution[暫定 EV-0261 / 見直し 2027-05]
+:::caution[暫定 EV-0262 / 見直し 2027-05]
 **対象**: 付け替えた先の Issue が、その規定の担い手として合っているかを機械で確かめないこと。
 **根拠の水準**: E0(なし)。
 **差し替え条件**: 付け替えの後に、寄せ先の Issue がマークの規定を降ろさずに閉じた事例の有無と件数。

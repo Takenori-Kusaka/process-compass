@@ -1917,8 +1917,8 @@ sections:
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張 > 列挙に無い離脱
     status: marked
     ids:
-      - IMPL-0520
-    note: 一覧は各条項の記録と表示の規定の所在を示す。主張を妨げることは 1.10.2 の IMPL-0308 で追う。構成に欄の無い離脱を名が数えない点は IMPL-0520(undelivered)
+      - IMPL-0521
+    note: 一覧は各条項の記録と表示の規定の所在を示す。主張を妨げることは 1.10.2 の IMPL-0308 で追う。構成に欄の無い離脱を名が数えない点は IMPL-0521(undelivered)
     issue: 352
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.3 本標準の版
     status: marked
