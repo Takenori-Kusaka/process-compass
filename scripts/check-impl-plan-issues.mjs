@@ -9,6 +9,7 @@
 //   node scripts/check-impl-plan-issues.mjs --comment <file>      --emit の JSON を読み、閉じた Issue へコメントする
 //
 // npm run check には入れない(検査はオフラインで実行し、Issue の状態を知り得ないため。ADR-0084・ADR-0089)。
+// 未知の引数・余った引数・値の欠けた旗・重複は使い方を出して終了コード 2(書き損ねで別の確認へ落とさない)。--issue=<番号> の形も受ける。
 // 終了コード: 0 = 所見なし / 1 = 所見あり / 2 = 実行の失敗。
 // 機械は Issue の状態を変えない(開き直さない・閉じない・編集しない)。コメントと失敗の表示だけを行う。
 // 同じ所見(識別子の集合が同じ)のコメントが既にあれば、足さない。
@@ -41,16 +42,46 @@ function* walk(dir) {
   }
 }
 
-function argValue(flag) {
-  const i = process.argv.indexOf(flag);
-  if (i < 0) return null;
-  const v = process.argv[i + 1];
-  if (!v || v.startsWith('--')) {
-    console.error(`${flag} に値がありません`);
-    process.exit(2);
+const USAGE = '使い方: [--closed-from <file>] [--issue <番号[,番号]>] [--emit <file>] [--comment <file>](--issue=<番号> の形も可)';
+const KNOWN_FLAGS = ['--closed-from', '--issue', '--emit', '--comment'];
+
+/** 引数を厳密に読む。未知の引数・余った引数・値の欠けた旗は使い方を出して exit 2(書き損ねで別の確認へ落ちないため) */
+function parseArgs(argv) {
+  const out = new Map();
+  for (let i = 0; i < argv.length; i++) {
+    let flag = argv[i];
+    let value = null;
+    const eq = flag.indexOf('=');
+    if (flag.startsWith('--') && eq > 0) {
+      value = flag.slice(eq + 1);
+      flag = flag.slice(0, eq);
+    }
+    if (!KNOWN_FLAGS.includes(flag)) {
+      console.error(`知らない引数、または余った引数です: ${argv[i]}
+${USAGE}`);
+      process.exit(2);
+    }
+    if (value === null) {
+      value = argv[i + 1];
+      i++;
+    }
+    if (!value || value.startsWith('--')) {
+      console.error(`${flag} に値がありません
+${USAGE}`);
+      process.exit(2);
+    }
+    if (out.has(flag)) {
+      console.error(`${flag} が重複しています
+${USAGE}`);
+      process.exit(2);
+    }
+    out.set(flag, value);
   }
-  return v;
+  return out;
 }
+
+let ARGS = new Map();
+const argValue = (flag) => ARGS.get(flag) ?? null;
 
 function gh(args) {
   return execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -60,6 +91,7 @@ function gh(args) {
 const ghStateOf = (issue) => ghStateOfWith(gh, REPO, issue);
 
 function main() {
+  ARGS = parseArgs(process.argv.slice(2));
   const commentFile = argValue('--comment');
   if (commentFile) {
     const findings = JSON.parse(readFileSync(commentFile, 'utf8'));

@@ -175,6 +175,19 @@ test('--issue の値が読めなければ exit=2', () => {
   assert.equal(run(['--issue']).code, 2);
 });
 
+test('N-1 違反: 書き損ねた引数は exit=2(黙って別の確認へ落ちない)', () => {
+  const n = String(NUM);
+  for (const args of [['--issues', n], [n], ['--issue', n, '444'], ['--issue=', ], ['--issue', '#' + n], ['--isue=' + n], ['--issue', n, '--bogus'], ['--issue', n, '--issue', n]]) {
+    const r = run(args);
+    assert.equal(r.code, 2, JSON.stringify(args) + ' ' + r.out);
+  }
+});
+
+test('N-1 適合: --issue=<番号> の形は --issue <番号> と同じ結果', () => {
+  assert.equal(run(['--issue=' + NUM]).code, 1);
+  assert.equal(run(['--issue=' + (NUM + 100000)]).code, 0);
+});
+
 // ---- M-2: 失敗の扱い ----
 test('gh が無ければ(PATH が空)exit=2。所見なしの合格にしない', () => {
   const r = run([]);
