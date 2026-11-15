@@ -110,7 +110,7 @@ A と R の分離は、ロール(席)に置く人と実行主体の区別に対�
 | 4 | 確認を経ない任命は、期限付きの暫定任命に限る(下記) |
 | 5 | 確認の有効期間を定める。無期限としない |
 
-<!-- impl IMPL-0636 target=config-seats state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.4.1 要求事項1〜3 と「確認に用いるもの」。ロールへの任命に先立つ任命基準の充足の確認を、実務の成果物か演習の記録で行い(筆記試験を主たる手段としない)、判定者・判定日・用いた成果物・判定結果を記録する。準拠テンプレートは、判断を担う4席の責任者本人について確認日・本人以外の確認した者・記録の所在を seats[].competence に持つ(IMPL-0082・0089)が、判定結果と用いた成果物の欄は無く、開発者・事業決裁者・文脈オーナー・AI維持管理者・AI運用担当者の任命の確認の置き場は無い(generate-profile.mjs の JUDGE_SEAT_IDS を読んだ)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0636 target=config-seats state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.4.1 要求事項1〜3 と「確認に用いるもの」。ロールへの任命に先立つ任命基準の充足の確認を、実務の成果物か演習の記録で行い(筆記試験を主たる手段としない)、判定者・判定日・用いた成果物・判定結果を記録する。準拠テンプレートは、判断を担う4席の責任者本人について確認日・本人以外の確認した者・記録の所在を seats[].competence に持つ(IMPL-0082・0089)が、判定結果と用いた成果物の欄は無く、開発者・事業決裁者・文脈オーナー・AI維持管理者・AI運用担当者の任命の確認の置き場は無い(generate-profile.mjs の JUDGE_SEAT_IDS を読んだ)。要求事項5 の確認の有効期間も、判断を担う4席の力量の確認の周期(層1。IMPL-0070)のほかは、これらの席の任命の確認の有効期間を書く置き場が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 確認に用いるもの
 
@@ -248,9 +248,9 @@ AI生成コードの読解に必要な能力は、モデルの世代交代によ
 
 <!-- impl IMPL-0641 target=config-seats state=delivered check=manual note="3.4.2 の協働へ下げずに切り替える4条件(確認の記録の識別が新しい識別と一致する、旧い記録の使い回しでない(確認日が旧い記録より後)、実施者が AI維持管理者の席の責任者で承認者が当該の席の責任者、当該の席の責任者が委任を続ける決定として記名し理由を書く)。generate-profile.mjs の担い手の識別が変わる変更の処理が、1つでも欠ければ委任を協働へ下げ、確認日が旧い記録より後でない記録の使い回しを受け付けない。確かめる者: 席の責任者(確認の記録を読むとき)。実行して確かめていない(所在を読んだ)" -->
 
-<!-- impl IMPL-0642 target=d0-template state=delivered check=presence note="3.4.2 要求事項8。確認の日付・確認した担い手の識別・失効後の再確認の期日を D-0 体制図へ記載する。D-0 の様式の節12 の表に、担い手(人 / AI の担い手の識別)と適合性確認の期限または失効条件の列がある(単位: 欄)" -->
+<!-- impl IMPL-0642 target=d0-template state=delivered check=presence note="3.4.2 要求事項8。確認の日付・確認した担い手の識別・失効後の再確認の期日を D-0 体制図へ記載する。D-0 の様式の節12 の表に、担い手(人 / AI の担い手の識別)と適合性確認の期限または失効条件の列がある(単位: 欄。識別と失効条件)。確認の日付と失効後の再確認の期日は表の見出しに列を持たず、構成の qualification.confirmedAt から生成区間の出力で運ぶ" -->
 
-<!-- impl IMPL-0643 target=config-seats state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.4.2 の、3.12.3 のモデルの適合性評価を通過していないモデルを、席の単位の適合性確認の対象にしてはならないこと。準拠テンプレートは AI 実行基盤とモデルの適合性評価を持たない(ADR-0104)ため、席の確認の前に評価の通過を照らす検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0643 target=config-seats state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.4.2 の、3.12.3 のモデルの適合性評価を通過していないモデルを、席の単位の適合性確認の対象にしてはならないこと。準拠テンプレートは AI 実行基盤とモデルの適合性評価を持たない(ADR-0104)。scripts/gate/model-adoption.mjs はモデルの導入の記録を読む(IMPL-0405)が、席の適合性確認の対象のモデルが導入の記録の評価を通過したかを照らす検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.4.3 判断を担う席の力量の維持と後継
 
@@ -325,7 +325,7 @@ AI生成コードの読解に必要な能力は、モデルの世代交代によ
 
 <!-- impl IMPL-0644 target=evidence-aggregation state=delivered check=manual note="3.4.3 要求事項9。育成の担当(役割)を空欄にした層1 では、後継不在の受容を更新しない。scripts/gate/org-assurance.mjs が、層1 の育成の担当が空欄のとき後継不在の受容を受け付けず、集約と next.mjs が空欄の旨と、育成の担当が後継候補を力量の確認へ進める案内を出す。確かめる者: 出荷判定者(G-7 の判定で、集約の出力を読むとき)。実行して確かめていない(所在を読んだ)" -->
 
-<!-- impl IMPL-0645 target=debt-ledger-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.4.3 要求事項6・7。コア機能の理解の保持者が1名以下の状態を、列挙に無い離脱として扱い、是正の期限と責任者を技術負債台帳へ登録し、層1 の権限者が期限つきで受容すること。準拠テンプレートの集約は保持者の人数を「(1名以下)」と表示し、next.mjs が保持者を増やす案内を出す(IMPL-0061)が、列挙に無い離脱の数への算入と、台帳への是正の期限と責任者の登録を確かめる検査は見つけていない(aggregate-evidence.mjs・next.mjs を検索した)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0645 target=debt-ledger-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.4.3 要求事項6・7。コア機能の理解の保持者が1名以下の状態を、列挙に無い離脱として扱い、是正の期限と責任者を技術負債台帳へ登録すること。層1 の権限者が期限つきで受容することは、D-0 節15「組織継続の状態の受容」(状態・受容した者・受容の期限)と scripts/gate/org-assurance.mjs(コア理解の保持者が1名以下を組織継続の状態として扱い、期限の無い受容・期限を過ぎた受容を記載の欠落にする)が運び、このマークは追わない。準拠テンプレートの集約は保持者の人数を「(1名以下)」と表示し、next.mjs が保持者を増やす案内を出す(IMPL-0061)が、列挙に無い離脱の数への算入と、台帳への是正の期限と責任者の登録を確かめる検査は見つけていない(受容の側は上のとおり降りている)(aggregate-evidence.mjs・next.mjs を検索した)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 3.5 兼務ルール(許可 / 禁止)
 
@@ -616,7 +616,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0002 target=config-deviations state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="出荷判定者の兼務に限った例外と代償措置" -->
 
-<!-- impl IMPL-0647 target=gate-record-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.2 の例外の条件2。G-7 の判定記録を必須とし、基準の各項目との突合を記録に残すこと。準拠テンプレートの検査(verify-gate-contract.mjs)は、閉じた列挙の逸脱(D-1 の G-7 の兼務)について判定を実施したうえで代償措置つきで属性を持たせるが、基準の各項目との突合の記録を例外の条件として確かめる検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0647 target=gate-record-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.2 の例外の条件2。G-7 の判定記録を必須とし、基準の各項目との突合を記録に残すこと。準拠テンプレートの検査(verify-gate-contract.mjs)は、閉じた列挙の逸脱(D-1 の G-7 の兼務)について判定を実施したうえで代償措置つきで属性を持たせるが、基準の各項目との突合の記録を例外の条件として確かめる検査は確かめられなかった。判定記録の様式(templates/04-gate-record.md)は節「確認した項目」「機械が確認した項目」と「確認していない事項(空欄および「なし」は無効)」の欄を持ち、.claude/skills/gate/gates/G-7.md は基準ごとの突合の手順を書く。突合を書く場所は在るが、突合の記録が在ることを例外の条件として照らす検査が無い、と読んでこの状態を保つ(欄の存在で足りると読む案は採らない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0648 target=d0-template state=delivered check=presence note="3.5.2 の条件3・4。リリース後の抜き取り確認を運用作業の定常作業として置くことと、兼務の事実と代償措置を D-0 体制図へ明記すること。D-0 の様式(templates/00-d0-governance.md の出荷判定者の兼務の例外の節)に、リリース後の抜き取り確認を定常作業として置いている旨のチェック欄と、兼務の事実・代償措置を書く欄がある(単位: 欄)" -->
 
@@ -633,6 +633,8 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 - 要員が不足し、支援と判定を同じ担い手が担わざるを得ない場合は、兼務を隠して形式だけ整えてはならない。判定の担い手を3つ(他チーム・他部門への委託、外部への委託、兼務のままの実施)から選び、選んだ事実を記録する。兼務のまま実施する場合は、兼務の事実と、判定時に支援へ関与した範囲を判定記録へ明記する
 - 兼務のまま実施したことを、独立性の確保として扱ってはならない。記録は、後から判定の偏りを疑える状態を保つだけである
 - 支援の側から判定の側へ渡すのは、標準の記述の欠陥(解釈できなかった箇所、実務に合わない手順、改訂が要る事項)に限る。次の3つを渡してはならない。特定のチームの習熟度の評価、支援を求めた回数、支援の場で観測した個人の言動である。ただし、法令違反・安全に関わる不備・意図的な統制の回避は、当該チームへ先に伝えて是正の期限を合意し、期限内に是正されなければ上げる。上げることは事前に伝える。緊急に停止すべき事象は即時に上げ、事後に当該チームへ通知する
+
+<!-- impl IMPL-0831 target=gate-record-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.2「支援と判定の分離」の、兼務のまま実施する場合に兼務の事実と判定時に支援へ関与した範囲を判定記録へ明記することと、兼務のまま実施したことを独立性の確保として扱わないこと。判定記録の様式(templates/04-gate-record.md)に、支援への関与の範囲を書く欄は確かめられなかった。支援に関与した者を同一案件の出荷判定者にしないこと(要求事項1)は 3.5 の兼務の表(IMPL-0001)が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 体制の規模による支援の役割の調整は、[第8章](/process-compass/phase4-process-design/tailoring-guide/)「社会実装の段階の調整」によります。役割の職掌と計画の例は、[フェーズ5(イネーブルメント計画)](/process-compass/phase5-implementation/enablement/)を参照。
 
@@ -662,6 +664,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 1 だけを満たした構成は、よくある誤りです。**ディレクトリを分けても、1つのセッションが複数のレーンの受信箱を見に行けば、文脈は合流するためです**。**受信箱の確認(ポーリング)は、自分のロールを指すラベルに限らなければなりません**。他のロールの受信箱を見に行ってはなりません。技術判断者が開発者とレーンを共有する体制では、セッションを分けて確認します。
 
 <!-- impl IMPL-0007 target=claude-md-resident state=delivered check=presence note="ポーリングの対象を自ロールの受信箱に限る(単位: 行)" -->
+<!-- impl IMPL-0829 target=d0-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.3「文脈の分離が成立する条件」の、全ロールが同一の認証情報(トークン)を共有する構成では強制は成立せず、分離できない場合は権限の分離の不成立を列挙に無い離脱として記録すること。D-0 の様式の担い手の名義(専用 / 共有 / 未申告)の列は、席の責任者と AI の担い手の名義の共有を表す(IMPL-0420)もので、担い手どうしの認証情報の共有を離脱として記録する欄は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 入力の分離(適用: 確認側の担い手に AI を置く場合)
 
@@ -700,7 +703,8 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0003 target=next-role state=delivered check=manual note="実行主体が起動時に参照する内容(判定するゲート・担ってはならない工程・引き渡し先)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
 
-<!-- impl IMPL-0651 target=process-profile state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.3 の、実行主体が参照する内容(自ロールと判定ゲート・担ってはならない工程・引き渡し先)が D-0 の改訂に追随しているかを、機械的に検査できること。準拠テンプレートは D-0 の節9 の生成区間が構成と一致しないことを検出する(generate-profile.mjs)が、PROCESS-PROFILE.md・CLAUDE.md の参照先が D-0 の改訂に追随しているかを確かめる検査は、確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0651 target=process-profile state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.3 の、実行主体が参照する内容(自ロールと判定ゲート・担ってはならない工程・引き渡し先)が D-0 の改訂に追随しているかを、機械的に検査できること。CLAUDE.md の構成依存部分と次の一手の側は IMPL-0824 が追う。PROCESS-PROFILE.md の参照先が D-0 の改訂に追随しているかを確かめる検査は、scripts/gate/check-process-rules.mjs・verify-gate-contract.mjs で見つからなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0824 target=claude-md state=delivered check=manual note="3.5.3 の、実行主体が参照する内容(自ロールと判定ゲート・担ってはならない工程・引き渡し先)が D-0 の改訂に追随しているかを、機械的に検査できること。scripts/gate/check-process-rules.mjs が CLAUDE.md の構成依存部分と process.config.json の一致を検査し、不一致で失敗する。D-0 の生成区間と構成の一致は check-d0.mjs(IMPL-0728)が、次の一手は next.mjs --role が構成から毎回導出する。D-0 → 構成 → CLAUDE.md・次の一手の連鎖は機械で検査される。PROCESS-PROFILE.md の追随は IMPL-0651 が追う。確かめる者: AI維持管理者(D-0 を改訂するとき)。実行して確かめていない(所在を読んだ)" -->
 
 #### 人と AI の担い手の名義(適用: AI の担い手がホスティングを操作する構成)
 
@@ -779,9 +783,9 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0021 target=claude-md-resident state=delivered check=presence note="確認側への入力の分離(3.5.3)と、独立・分離の語の使い分け(3.5.4)(単位: 行)" -->
 
-<!-- impl IMPL-0652 target=gate-skill-g6 state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.4 帰結3。分離した AI の確認によって G-6 の未達を解かないこと。AI の確認は代償措置として記録し、未達の解消に数えない。準拠テンプレートの G-6 の補助ファイルと判定記録の様式に、AI の確認を代償措置として記録し未達の解消に数えない旨の文は無い(.claude/skills/gate/gates/G-6.md・gate-skill の代償措置の語を検索した。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0652 target=gate-skill-g6 state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.4 帰結3。分離した AI の確認によって G-6 の未達を解かないこと。AI の確認は代償措置として記録し、未達の解消に数えない。CLAUDE.md の「AI の確認は検出の層。承認・通過・独立レビュー済みと記録しない」と G-6.md の「例外承認は未達を解消しない」は在るが、分離した AI の確認を代償措置として記録し G-6 の未達の解消に数えない旨の文そのものは無い(.claude/skills/gate/gates/G-6.md・gate-skill の代償措置の語を検索した。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0653 target=config-seats state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.5.4 帰結5。承認者の人数が組織上の距離の段(第1章 1.4)を上げず、段も承認者の人数を満たさないこと。準拠テンプレートの距離の段の反証(scripts/gate/config.mjs)が承認者の人数を入力に使うかは確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0653 target=config-seats state=delivered check=manual note="3.5.4 帰結5。承認者の人数が組織上の距離の段(第1章 1.4)を上げず、段も承認者の人数を満たさないこと。scripts/gate/config.mjs の組織上の距離の段の反証(stepCeiling)は、判定記録に書いた段と根拠を求める段と比べ、入力は席の責任者の席(出荷判定者・事業決裁者はリリースの権限を持つため段2 以上に数えない)と名簿の所属(team)だけで、承認者の人数を入力に使わない。人数が段を上げる経路が無いことを確かめた。段の記録が求める人数を満たすかの照合は別の規定(IMPL-0343 などの欄)にある。確かめる者: 判定の確認者(段を記録するとき)。実行して確かめていない(所在を読んだ)" -->
 
 ### 3.5.5 受信箱のラベルによる引き渡し
 
@@ -888,7 +892,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0654 target=d0-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.6 の、価値責任者が機能単位の仕様承認(G-4)を機能責任者へ、技術判断者が定型的な技術選定の判定を開発者へ委譲するときは文書(担当表)で行い口頭で行わないこと。アーキテクチャに影響する判断は委譲しない。準拠テンプレートは機能責任者への仕様承認の委譲を機械で確かめず(aggregate-evidence.mjs が、席も記録も無いと開示する)、D-0 に委譲の担当表の欄は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0655 target=gate-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.6 の、委譲しても結果責任(A)は価値責任者に残ること、委任で移るのは判定の時点であり判定の主体と結果責任は席の責任者に残ること。準拠テンプレートの集約は G-4 の判定者を価値責任者の席のままと開示するが、委譲先の記名を判定者として受け付けない検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0655 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.6 の、委譲しても結果責任(A)は価値責任者に残ること、委任で移るのは判定の時点であり判定の主体と結果責任は席の責任者に残ること。準拠テンプレートの集約は G-4 の判定者を価値責任者の席のままと開示するが、委譲先の記名を判定者として受け付けない検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 3.7 会議体
 
@@ -951,7 +955,8 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 [第2章 2.4](/process-compass/phase4-process-design/lifecycle/)のステージ移行ゲートに示した「移行 / 継続検証 / 中止」は、本節の語彙では「継続 / 保留 / 中止」に対応する語です。ステージ移行ゲートでは差し戻しを用いません。前段階が存在しないためです。
 :::
 
-<!-- impl IMPL-0657 target=gate-record-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.7.3 の、すべての会議体が継続・中止・保留・差し戻しの4値のいずれかで判定し、判定を保留したまま次回へ持ち越さないこと。第7章 7.7.4 の併合で判定要求を移した会議体は、その要求について判定を出さないこと。準拠テンプレートの判定記録の様式(templates/04-gate-record.md)の判定欄は、工程ゲートの通過・差し戻しの2値を書き、会議体の4値の欄は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0657 target=gate-record-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.7.3 の、すべての会議体が継続・中止・保留・差し戻しの4値のいずれかで判定し、判定を保留したまま次回へ持ち越さないこと。第7章 7.7.4 の併合で判定要求を移した会議体は、その要求について判定を出さないこと。ステージ移行ゲートと棚卸しの判定記録の4値の欄は IMPL-0825 が追う。B-1・B-3・B-4 の会議体の判定を記録する欄と、保留の持ち越しの禁止、併合で移した側が判定を出さないことは、templates/04-gate-record.md で見つからなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0825 target=gate-record-template state=delivered check=presence note="3.7.3 の会議体の判定の4値のうち、ステージ移行ゲートと棚卸しの判定。判定記録の様式(templates/04-gate-record.md)の節「AI の利用の評価(適用: ステージ移行ゲート・棚卸し)」に、欄「判定」(標準 第3章 3.7.3 の4値(継続 / 中止 / 保留 / 差し戻し)と、縮小の場合はその手段)がある(判定者は B-2 の決定者。単位: 欄)。冒頭の対象には、会議体がステージの途中で行う必達基準の判定も挙がる。確かめる者: 会議体の決定者(判定記録を書くとき)。実行して確かめていない(所在を読んだ)" -->
 
 <!-- impl IMPL-0658 target=gate-record-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.7.3 の、判定と同時に確定させる事項(継続は次段階の予算・要員・期間・スコープ3層・次回判定日、中止は資産の扱い・要員の再配置先・記録の保管、保留は解除条件と再判定の期限、差し戻しは満たすべき条件と再提出の期限)。準拠テンプレートの判定記録の様式は、差し戻しの再提出の期限を書く(templates/04-gate-record.md)が、継続・中止・保留の確定事項の欄は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -1002,7 +1007,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 
 設計審査会に検証結果の読み合わせをさせてはなりません。検証(テストによる要求充足の確認)は工程ゲートの対象であり、本会議体が扱うのは審査(設計が要求を満たすかの評価)です。この区別を失うと、会議体は資料の朗読の場になります。
 
-<!-- impl IMPL-0661 target=d0-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.7.4 B-3 の、決定者(A)を技術判断者の1名とし、判定期限を提出から5営業日以内とし、適用条件(S2 スケール、または安全・法規制の対象となる機能)に限って置くこと。設計審査会に検証結果の読み合わせをさせてはならないこと(会議の進め方であり、違反は当日のふるまいにしか現れない制度設計の事項)を含む。準拠テンプレートの D-0 は会議体の設置・対応づけ(節10)を持つが、適用条件と判定期限を書く欄は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0661 target=d0-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.7.4 B-3 の、決定者(A)を技術判断者の1名とし、判定期限を提出から5営業日以内とし、適用条件(S2 スケール、または安全・法規制の対象となる機能)に限って置くこと。準拠テンプレートの D-0 は会議体の設置・対応づけ(節10)を持つが、適用条件と判定期限を書く欄は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### B-4 リリース判定会
 
@@ -1045,7 +1050,8 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 
 <!-- impl IMPL-0663 target=config-delegation state=delivered check=manual note="3.7.4 B-4 の、標準変更として登録した変更種別と委任の範囲として登録した変更種別を同じものとし、登録した種別の変更だけを先へ進めること。準拠テンプレートの構成の delegation.changeTypes が登録した変更種別を持ち、scripts/gate/delegation.mjs が、登録されていない種別の規則を拒み、変更のリスク区分が R3 でなければ委任の条件2 を満たさないとする。確かめる者: 席の責任者(委任の範囲を定めるとき)。実行して確かめていない(所在を読んだ)" -->
 
-<!-- impl IMPL-0664 target=config-delegation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.7.4 B-4 の標準変更カタログの規定のうち、登録する者を B-4(置かない体制は D-0 表1 の決定者の人)とし AI の名義の登録を受け付けないこと、登録の判定で第5章 5.4.6 の検知条件を計測できる種別だけを登録すること、登録からの削除と範囲の縮小を B-4 の定例を待たずに適用すること、登録できる種別を R3 に限ること(種別の属性)。準拠テンプレートは、登録の記名者と AI の名義の拒否、計測可能性の確認、種別の属性を R3 に限る検査を、確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0664 target=config-delegation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.7.4 B-4 の標準変更カタログの規定のうち、登録できる種別を R3 に限ること(種別の属性)と、登録からの削除と範囲の縮小を B-4 の定例を待たずに適用することを、準拠テンプレートの検査が運ぶか。登録する者の記名と AI の名義の拒否、登録の根拠(計測できる検知条件)の確認は IMPL-0823 が追う。種別の属性を R3 に限る検査と、削除・縮小を定例を待たず適用する処理は、scripts/gate/config.mjs の changeTypeProblems・scripts/gate/delegation.mjs で見つからなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0823 target=config-delegation state=delivered check=manual note="3.7.4 B-4 の標準変更カタログの規定のうち、登録する者を B-4(置かない体制は D-0 表1 の決定者の人)とし AI の名義の登録を受け付けないことと、登録の判定で第5章 5.4.6 の検知条件を計測できる種別だけを登録すること。scripts/gate/config.mjs の changeTypeProblems が、変更種別ごとに登録した者(registeredBy)と登録日(registeredAt)を必須とし、AI の名義を受け付けず(nameProblems の requireRoster で名簿の人に限る)、登録する者の席を governance.catalogRegistrar(既定は D-0 表1 の決定者の席。B-4 のときは注記を出す)で定める。missingBasis が、登録の根拠 basis.detection(検知条件ごとの算出の所在)の無い種別を「登録しない(標準 第5章 5.5.4)」と拒む。第5章 5.5.4 の IMPL-0035 が登録の根拠の欄を追う。確かめる者: 席の責任者(委任の範囲を定めるとき)。実行して確かめていない(所在を読んだ)" -->
 
 ### 3.7.5 会議体に持ち込んではならない事項
 
@@ -1108,7 +1114,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 
 席の責任者は、変更種別を登録しません。登録されていない種別を、席の宣言だけで委任の範囲に入れません。
 
-<!-- impl IMPL-0699 target=config-delegation state=delivered check=manual note="委任の範囲の規則の登録の節の、登録されていない変更種別を席の宣言だけで委任の範囲に入れないこと。scripts/gate/delegation.mjs が、構成の delegation.changeTypes に無い種別の規則を拒む(3.7.4 の IMPL-0663 と同じ検査)。登録する者(B-4・D-0 表1 の決定者)と AI の名義の登録の拒否は IMPL-0664(降りていない)が追う。確かめる者: 席の責任者(委任の範囲を定めるとき)。実行して確かめていない(所在を読んだ)" -->
+<!-- impl IMPL-0699 target=config-delegation state=delivered check=manual note="委任の範囲の規則の登録の節の、登録されていない変更種別を席の宣言だけで委任の範囲に入れないこと。scripts/gate/delegation.mjs が、構成の delegation.changeTypes に無い種別の規則を拒む(3.7.4 の IMPL-0663 と同じ検査)。登録する者(B-4・D-0 表1 の決定者)と AI の名義の登録の拒否は IMPL-0823(3.7.4 B-4)が追う。確かめる者: 席の責任者(委任の範囲を定めるとき)。実行して確かめていない(所在を読んだ)" -->
 
 <!-- impl IMPL-0212 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="リスク区分の一次判定のラベル(risk/R1〜R3)を自動で付与し、引き下げに技術判断者の記名を要する。区分の下限の照合(G-5 の pr-rules)はあるが、ラベルの自動付与と引き下げの記名の検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -1217,7 +1223,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 
 中止・差し戻しが一度も出ない会議体は、判定の場ではなく通過点です。この状態が続く場合、会議体の廃止または判定基準の見直しを検討します。
 
-<!-- impl IMPL-0707 target=flow-observation state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="3.9.4 の会議体の健全性指標(上程から判定までの日数、中止・差し戻しの比率、報告のみの議題の比率、持ち回り決議の比率、標準変更カタログの登録件数)の継続計測。準拠テンプレートに会議体の記録の様式も集計も無い(3.10.8 の IMPL-0216 の形骸化の指標と同じ型)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0707 target=committee-agenda state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.9.4 の会議体の健全性指標(上程から判定までの日数、中止・差し戻しの比率、報告のみの議題の比率、持ち回り決議の比率、標準変更カタログの登録件数)の継続計測。準拠テンプレートに会議体の記録の様式も集計も無い(3.10.8 の IMPL-0216 の形骸化の指標と同じ型)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 3.10 事前レビュー期間
 
@@ -1248,6 +1254,8 @@ AI の出力を本節の意見に含めないのは、意見を求めるレビ�
 リスク区分 R1(3.8.1)の案件は、T−10営業日の公開・T−5営業日の締切とします。取り消せない決定には、意見を出す側の検討時間を確保する必要があるためです。
 
 期間を短縮できるのは、[第7章 7.4](/process-compass/phase4-process-design/exception-escalation/)のファストトラックを適用した場合に限ります。
+
+<!-- impl IMPL-0830 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.10.2 の、事前レビュー期間を短縮できるのは第7章 7.4 のファストトラックを適用した場合に限ること。第7章 7.4 のマーク(IMPL-0608〜0612)は適用の期日・申請書・乱用の制約を追うが、期間の短縮をファストトラックの適用に限る照合を名指さない。事前レビュー期間の自動化(判定資料の公開と締切の記録)に準拠テンプレートの実装は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.10.3 判定資料の要求事項
 
@@ -1329,6 +1337,8 @@ sequenceDiagram
 - 議題は未解決論点と高リスク事項に限る。事前レビュー期間で解決した事項を再度扱わない
 - 期限までに解消しなかった対立は、決定者が判定によって決める。合意の成立を待たない
 - 判定に異議を述べた者も、判定の後はその決定に従って実行する
+
+<!-- impl IMPL-0832 target=committee-agenda state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.10.7 の、判定当日の議題を未解決論点と高リスク事項に限り、事前レビュー期間で解決した事項を再度扱わないこと(判定資料の未解決論点の一覧(3.10.3 の記載事項2)に議題を照らす)。黙読の時間・資料の読み上げの禁止・判定の後の実行は、会議の進め方で違反が当日のふるまいにしか現れない制度設計の事項として追わない。準拠テンプレートに議題の照合は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 意見が一致するまで議論を続ける運用は、最も長く主張を続けた者の案が通る結果を招きます。決定者を1名に定める(3.8.3)のは、この帰結を避けるためです。
 
@@ -1741,8 +1751,8 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 <!-- impl IMPL-0054 target=evidence-aggregation state=delivered check=manual note="依存先の一覧(席の担い手のモデルを広げたもの)を構成と退出の予行の記録(docs/exit-rehearsal.json)から作り、退出の予行を最後に行った日と、別の提供者での予行の記録が無い依存先を『退出を試していない』として保証の開示の項目5・7 へ出す。同じ提供者の世代交代の記録は数えない。予行の間隔が層1 の定める間隔を超えたかは判定しない。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 
 <!-- impl IMPL-0063 target=evidence-aggregation state=delivered check=manual note="退出の予行の最後の日が、層1 の『確認の周期と後継』の表の退出の予行の間隔を過ぎた依存先を『退出を試していない』へ戻して出す。間隔の欄が空欄なら、予行の記録があっても『退出を試していない』と出す。基準集合の範囲の承認(AI運用担当者の起案と技術判断者の記名)の記録が無い場合は、その旨を出す。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
-<!-- impl IMPL-0708 target=context-drift-workflow state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.3 要求事項6。指示資産のうち特定の提供者の書式・機能に依存する記述を識別して印を付けること(3.11.4 の四半期の棚卸し)。準拠テンプレートに、提供者依存の記述を識別する印や棚卸しの検査は確かめられなかった(「提供者に依存」「提供者の書式」「提供者依存」の検索で該当なし。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0709 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.3 要求事項10 のうち、評価用の基準集合の範囲を狭める変更を統制を緩める向きの変更として扱うこと(3.13.3)。基準集合の範囲の承認(AI運用担当者の起案と技術判断者の記名)は IMPL-0063 が追う。範囲を狭める変更を緩める向きに分類する処理は、generate-profile.mjs の差分の分類で確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0708 target=instruction-asset-inventory state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.3 要求事項6。指示資産のうち特定の提供者の書式・機能に依存する記述を識別して印を付けること(3.11.4 の四半期の棚卸し)。準拠テンプレートに、提供者依存の記述を識別する印や棚卸しの検査は確かめられなかった(「提供者に依存」「提供者の書式」「提供者依存」の検索で該当なし。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0709 target=config-change-log state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.3 要求事項10 のうち、評価用の基準集合の範囲を狭める変更を統制を緩める向きの変更として扱うこと(3.13.3)。基準集合の範囲の承認(AI運用担当者の起案と技術判断者の記名)は IMPL-0063 が追う。範囲を狭める変更を緩める向きに分類する処理は、generate-profile.mjs の差分の分類で確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0710 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.3 要求事項12 のうち、基準集合の正解を確定した者と導入を承認した AI運用担当者が同一人物の場合に、分離が成り立たないことを依存先の一覧と保証の開示の項目5・7 に出し、層1 の受容の権限の段階で定めた権限者が期限つきで受容すること。IMPL-0406 は同一の注記を項目7 に出し、項目5 への投影は行わないと書く。期限つきの受容を照らす処理は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0711 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.3 要求事項13 のうち、正解の草案を作る AI へ評価の対象のモデルの出力を渡さないこと、確定する者に確定の前に評価の対象のモデルの出力を示さないこと、草案の一覧を一括で承認する記名と抜き取りで確かめた残りを確定に数えないこと。IMPL-0404 は草案を確定した正解として記録に書かないことを常駐の指示に置くが、これらの制限は常駐の指示に無い(CLAUDE.md の判断の確定と委任の節を読んだ)。IMPL-0406 は事例ごとの確定の記録を確かめるが、事例を人が実際に見たかは確かめない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -1790,6 +1800,10 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 | 5 | 復旧後、切り替え期間中に生成された変更を特定できる状態にする |
 | 6 | 切り替えの期間中は、委任([第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/))を協働へ下げる。担い手の識別が変わり、適合性確認(3.4.2)の前提を欠くためである |
 
+<!-- impl IMPL-0826 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.5 要求事項1・2。切り替え先を 3.12.3 の適合性評価を通過したモデルに限ることと、切り替えの発生を記録して開発組織へ通知すること。切り替えの手順は AI運用担当者が採用者の AI 実行基盤に置き、準拠テンプレートは AI 実行基盤を持たない。切り替えの期間の記録と保証の開示への集約は IMPL-0726・IMPL-0729 が運ぶが、切り替え先の限定と発生の通知を照らす検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0827 target=model-quality-monitor state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.5 要求事項4。切り替え後に品質監視の結果を確認し、基準を下回る場合は作業を停止すること。品質の監視は採用者の AI 実行基盤にあり(ADR-0104)、準拠テンプレートは持たない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0828 target=agent-run-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.5 要求事項5。復旧後、切り替え期間中に生成された変更を特定できる状態にすること。変更単位の生成の条件(モデルの識別・実行の識別子)の記録の仕組みに乗る。準拠テンプレートに実装は無く、モデルの識別はトレーラ Co-Authored-By に限る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+
 要求事項3 の下限は L1 です。L1 の範囲では、段階を下げません。代わりに、第5章 5.4.5 の条件1(連続運用期間)を、切り替えの終了の日から数え直します(第5章 5.4.6 の措置の下限と同じ読み)。
 
 要求事項3の理由は、切り替え先の挙動の特性が現行と異なるためです。可用性を確保するために、品質の担保を暗黙に下げてはなりません。**評価を経ていない接続先への自動的な切り替えは、可用性のために品質を犠牲にする設計**です。
@@ -1834,7 +1848,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 猶予期間の全体を移行に使えると想定してはなりません。評価と修正のリードタイムを確保できない計画は、期限直前の無評価の差し替えを招きます。
 
 <!-- impl IMPL-0714 target=d0-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.6 の、開発組織で用いるモデルを版を固定して指定すること。D-0 の様式(節12「担い手と運用形態」)は AI の担い手をモデルの版・指示資産の版・権限の組で識別すると書くが、用いるモデルを版固定で指定することを要求する欄・検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0715 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.6 の、廃止予定の一覧を四半期ごとに棚卸しして影響する案件へ通知することと、回帰評価・差分の修正・展開に要する期間を差し引いた着手の期限を定めること。依存先の欄の通知の期間(IMPL-0065)は持つが、棚卸しの実施・通知・着手の期限を定める欄は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0715 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.6 の、廃止予定の一覧を四半期ごとに棚卸しして影響する案件へ通知することと、回帰評価・差分の修正・展開に要する期間を差し引いた着手の期限を定めること。依存先の欄の通知の期間(IMPL-0065)は持つが、廃止予定の棚卸しの実施・影響する案件への通知・着手の期限を定める欄は確かめられなかった。棚卸し・通知・着手の期限を運ぶ置き場は登録に無く、降ろし先は議長の裁定を待つ(集約の出力ではないため、evidence-aggregation は仮の置き場)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.12.7 実行予算の配給
 
@@ -1845,6 +1859,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 - 月次の消費実績を B-2 へ報告する。[第7章 7.7.4](/process-compass/phase4-process-design/exception-escalation/)の閾値を超えた場合は自動的に上程する
 
 <!-- impl IMPL-0257 target=claude-md-resident state=delivered check=presence note="待つことで費用が増えることを、ゲートの判定や人の承認を急がせる理由にしない。CLAUDE.md の判断の確定と委任の節の行に置く。催促の有無を機械は確かめない。AI維持管理者が、承認の催促に費用を理由として挙げた記録が無いかを抜き取りで確かめる(#358)(単位: 行)" -->
+<!-- impl IMPL-0833 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.7 の、接続経路の上でチーム単位の上限を設定して消費の前に強制することと、提供者が課す利用上限を組織が設定した上限に数えないこと。上限の強制は AI運用担当者が採用者の AI 実行基盤の接続経路に置き、準拠テンプレートは持たない。上限到達時の扱いを G-1 で合意して記録することは、企画書の様式に欄を確かめられなかった(「指標の閾値と予算区分」の IMPL-0371 は閾値の記名を追う)。月次の消費実績の B-2 への報告と閾値を超えたときの自動的な上程は第7章 7.7.4 の IMPL-0370 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 上限到達時に実行を停止する設定は、開発を止める代わりに費用の暴走を防ぐ選択です。どちらを選ぶかは案件ごとの判断であり、本標準は**事前に決めて記録すること**を要求します。決めていない状態で上限に到達すると、その場の判断で上限が引き上げられ、統制が事実上消えます。
 
@@ -1861,7 +1876,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 | 5 | 統制の変更は、猶予期間を置いて開発組織へ通知する |
 
 <!-- impl IMPL-0716 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.8 要求事項2。機密情報の送出を検査する仕組みを接続経路の上に置くこと。置き場は採用者の AI 実行基盤にあり、準拠テンプレートは接続経路を持たない(agent-settings の deny は秘匿情報の読み取りと gh の操作で、モデルへの送出の検査ではない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0717 target=profile-generator state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.8 要求事項3 のうち、提供者との契約で入出力の学習利用の有無を確認し記録すること。保持の条件は構成の依存先の欄の data(提供者へ渡すデータの種別と保持の条件。IMPL-0065)が運ぶが、学習利用の有無を書く欄は確かめられなかった(/process-change の種別 settings の dependencies の項目は provider・models・noticePeriod・data)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0717 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.8 要求事項3 のうち、提供者との契約で入出力の学習利用の有無を確認し記録すること。保持の条件は構成の依存先の欄の data(提供者へ渡すデータの種別と保持の条件。IMPL-0065)が運ぶが、学習利用の有無を書く欄は確かめられなかった(/process-change の種別 settings の dependencies の項目は provider・models・noticePeriod・data)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.12.9 統制と CI 検査の同期
 
@@ -1879,7 +1894,7 @@ graph LR
 - 猶予期間の長さは統制の緊急度によって定める。セキュリティ上の重大な事象に対応する統制は、この限りではない
 - 昇格の予定日を、先行導入の時点で通知する
 
-<!-- impl IMPL-0718 target=pr-checks state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.9 の、全社の統制の更新を、検査ルールの更新・警告として先行導入・猶予期間・必須検査へ昇格の順で開発組織の CI に反映すること(猶予期間なしの昇格の禁止、猶予の長さを統制の緊急度で定めること、昇格の予定日を先行導入の時点で通知すること)。3.12.8 要求事項4・5 も同じ。準拠テンプレートに、検査を警告から必須へ昇格させる猶予と通知の仕組みは確かめられなかった(「猶予期間」「警告として先行」「必須検査へ昇格」の検索で該当なし。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0718 target=control-rollout state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.9 の、全社の統制の更新を、検査ルールの更新・警告として先行導入・猶予期間・必須検査へ昇格の順で開発組織の CI に反映すること(猶予期間なしの昇格の禁止、猶予の長さを統制の緊急度で定めること、昇格の予定日を先行導入の時点で通知すること)。3.12.8 要求事項4・5 も同じ。準拠テンプレートに、検査を警告から必須へ昇格させる猶予と通知の仕組みは確かめられなかった(「猶予期間」「警告として先行」「必須検査へ昇格」の検索で該当なし。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.12.10 実行の強制停止(サーキットブレーカー)
 
@@ -1905,6 +1920,7 @@ graph LR
 <!-- impl IMPL-0273 target=self-heal state=delivered check=machine test=template/scripts/gate/test-self-heal.mjs note="要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場のタスクごとのファイル(docs/self-heal/F-NNN-Task-N.tsv の形)に残し、同じ PR でコミットする手順を implement の SKILL.md に置く。書き込みに失敗したら警告を出す。コミットしたかは機械で確かめない" -->
 <!-- impl IMPL-0274 target=profile-generator state=delivered check=manual note="要求事項4 のうち値を定めること。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点の記録は IMPL-0280(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI運用担当者(停止条件の値を /process-change で変えるとき)" -->
 <!-- impl IMPL-0280 target=project-brief-template state=delivered check=machine test=template/scripts/gate/test-brief-thresholds.mjs note="要求事項4 のうち企画承認(G-1)の時点で記録すること。企画書の様式(templates/06-project-brief.md と3つのプロファイル)の「指標の閾値と予算区分」に行「停止条件の値」を置き、G-1 の検査(check-g1.mjs)が行の欠けと空欄・様式の説明のままを、G-1 の前は失敗、G-1 を通過済みは欠落(遡って失敗させない)として出す。G-1 の通過は、基底ブランチの docs/gates/ と記録用ブランチの records/gates/(判定記録の正本)の両方から読み、記録用ブランチの通過の記録は、判定者の記名が人の名簿の人に対応づくものだけを数える(交代の前の責任者・代行者を外さないため席では照らさない。記名の照合は自己申告で、帰属は集約が確かめる)。記録用ブランチを読めないか、対応づかない通過の記録しか無く通過を決められないときは、「G-1 の通過を判定記録で決められない」という失敗として理由と欠けた行を出す(閾値の行・観点3・G-1 の時点の見積り・安全リスクアセスメントの承認も同じ。#359 の独立の突合 高-1)。行の連続失敗・無進捗の上限が構成(task.selfHealMaxIterations・task.selfHealNoProgressLimit)と異なれば、構成の値が効くことを注意に出す。累積消費の上限の中身は確かめない(IMPL-0277)。値の妥当性は G-1 の判定者が確かめる(#359)" -->
+<!-- impl IMPL-0834 target=autonomy-derivation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.12.10 要求事項5。停止条件を強制できない環境で、AIエージェントの自律実行を解禁しないこと。scripts/gate/autonomy.mjs は登録した変更種別から範囲ごとの AI自律レベル(L3)を導くが、登録の時点で停止条件を強制できる環境かを照らさず、登録を拒む検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 停止条件の3種
 
@@ -2126,7 +2142,7 @@ D-0 体制図、テーラリングの入力(軸A〜E)、担い手の適合性確
 
 **人が減っていないのに人の確認を減らす変更を、未達の発生に数えません**。独立レビューの確認者を外す変更や、承認の数を下げる変更が当たります。これらは統制を緩める向きの決定であり、記名と理由を要します(3.13.3)。未達の発生として扱うのは、体制内の人が実際に減った場合と、席の責任者が体制から外れた場合に限ります。
 
-<!-- impl IMPL-0730 target=config-change-log state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.13.2 の、人が減っていないのに人の確認を減らす変更(独立レビューの確認者を外す、承認の数を下げる)を未達の発生に数えず緩める向きの決定として記名と理由を要することと、納期を理由に統制を外す要求を納期の変更として扱わず緩める向きの変更として 3.13.3 の決定に掛けること。generate-profile.mjs の差分の分類は、発生(arising)を体制の縮小と未達の発生に結ぶが、確認者を外す変更や承認の数を下げる変更を緩める向きに分ける処理は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0730 target=config-change-log state=delivered check=manual note="3.13.2 の、人が減っていないのに人の確認を減らす変更(独立レビューの確認者を外す、承認の数を下げる)を未達の発生に数えず緩める向きの決定として記名と理由を要すること。scripts/init/generate-profile.mjs の差分の分類が、体制内の人が減ったか・席の責任者が名簿から外れたか(departure)を見て、人が減っていないときの独立レビューや承認数を下げる変更を緩める向きに分け、G-6 の未達を発生でなく緩める向きの側へ出す(g6Forced。試験: test-loosening-decider.mjs)。納期を理由に統制を外す要求を納期の変更として扱わず緩める向きの変更として 3.13.3 の決定に掛けることは、第8章の IMPL-0733(.claude/skills/process-change/kinds/schedule-only.md が schedule-only では扱えないと書き、構成が変わる入力をスクリプトが拒否する)が追う。ここでは重ねて数えない。確かめる者: 変化点の決定者(/process-change で記録を書くとき)。実行して確かめていない(所在を読んだ)" -->
 
 ### 3.13.3 手続
 
@@ -2275,10 +2291,10 @@ graph LR
 - 結果責任者または文脈オーナーの交代には、[第2章 2.9](/process-compass/phase4-process-design/lifecycle/)のコンテキスト移管ゲートをあわせて適用する
 - 担い手の識別が変わっても、出荷済みの成果物の再検証を求めない。成果物の正しさの根拠は検証の記録であり、生成の条件ではない。再確認するのは工程の検出能力である(3.4.2)
 
-<!-- impl IMPL-0722 target=config-change-log state=delivered check=manual note="3.13.3 の、変化点の差分を向きで分けること。緩める向きは記名と理由を要し、事業ステージを前へ戻す変更はステージ移行ゲート(SG)の判定による旨を示し、人の離脱で成立しなくなった統制(体制の縮小、未達の発生)は決定でなく発生(arising)として記名を待たず反映する。scripts/init/generate-profile.mjs の差分の分類(direction・arising・stageBack)が運ぶ。厳しくする向きの即時適用と、AI の名義の記名の拒否は確かめていない。確かめる者: 変化点の決定者(/process-change で記録を書くとき)。実行して確かめていない(所在を読んだ)" -->
-<!-- impl IMPL-0723 target=config-change-log state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.13.3 の、無効になった確認の特定(仕掛かり中の成果物のうち、作成を指示した者と確認する者の関係が変わったものを挙げ、確認のやり直しの要否を決めること)。変化点の記録は invalidatedChecks の欄を持つ(generate-profile.mjs の changeLogEntry)が、欄を満たす処理と仕掛かりの成果物の照合は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0724 target=config-change-log state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.13.3 の、安全重要度が上がり委任を適用できなくなったときに、抜き取り待ちの委任の変更を協働の手続で全件確認し直すこと。generate-profile.mjs の委任の承認待ちの扱いは確かめたが、安全重要度の上昇で抜き取り待ちの変更を全件確認の対象へ戻す処理は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0725 target=config-change-log state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3.13.3 の、AI維持管理者の席の責任者が交代する変化点で、前任者が承認した委任の規則が承認待ちへ戻り、新しい責任者が承認し直すこと。generate-profile.mjs の承認待ちの扱いは、足した・広げた規則が承認待ちになる記述で、責任者の交代で既存の規則を承認待ちへ戻す処理は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0722 target=config-change-log state=delivered check=manual note="3.13.3 の、変化点の差分を向きで分けること。緩める向きは記名と理由を要し、事業ステージを前へ戻す変更はステージ移行ゲート(SG)の判定による旨を示し、人の離脱で成立しなくなった統制(体制の縮小、未達の発生)は決定でなく発生(arising)として記名を待たず反映する。scripts/init/generate-profile.mjs の差分の分類(direction・arising・stageBack)が運ぶ。厳しくする向きの即時適用は確かめていない。緩める向き・任免を含む変化点の決定者の記名は、deciderProblems → scripts/gate/config.mjs の nameProblems(requireRoster)が AI の名義・担い手の識別と同じ文字列・名簿にない名義を拒む(第8章の IMPL-0735 と同じ所在)。確かめる者: 変化点の決定者(/process-change で記録を書くとき)。実行して確かめていない(所在を読んだ)" -->
+<!-- impl IMPL-0723 target=config-change-log state=delivered check=manual note="3.13.3 の、無効になった確認の特定(仕掛かり中の成果物のうち、作成を指示した者と確認する者の関係が変わったものを挙げ、確認のやり直しの要否を決めること)。scripts/init/generate-profile.mjs が、席の責任者が替わる変化点で判定者となるゲートの仕掛かり中の判定、運用形態が変わる変化点で仕掛かり中の変更の確認を candidates に積み、変化点の報告に「無効になった確認の候補(やり直しの要否は文脈オーナーが決める)」として出す。D-0 節13 の生成区間は invalidatedChecks を無効になった確認(やり直しの要否)の列に、やり直し 要 / 不要 / 未定 で出す。候補は席と運用形態の変化から導くだけで、個々の仕掛かりの成果物の一覧との照合は無い。確かめる者: 文脈オーナー(変化点の報告を読むとき)。実行して確かめていない(所在を読んだ)" -->
+<!-- impl IMPL-0724 target=config-change-log state=delivered check=manual note="3.13.3 の、安全重要度が上がり委任を適用できなくなったときに、抜き取り待ちの委任の変更を協働の手続で全件確認し直すこと。scripts/init/generate-profile.mjs が残作業に「委任を適用できない案件になった。抜き取り待ちの委任の変更(トレーラ Delegated: のある変更のうち、事後の抜き取りが済んでいないもの)を、協働の手続で全件確認し直す」を出し、.claude/skills/process-change/kinds/axis.md も同じ文を持つ。実施そのものを照らす検査は無い(第5章 5.5.7 の IMPL-0600 が同じ規定を追う。向きの揃えは議長の裁定)。確かめる者: 変化点の決定者(安全重要度の変化点を反映するとき)。実行して確かめていない(所在を読んだ)" -->
+<!-- impl IMPL-0725 target=config-change-log state=delivered check=manual note="3.13.3 の、AI維持管理者の席の責任者が交代する変化点で、前任者が承認した委任の規則が承認待ちへ戻り、新しい責任者が承認し直すこと。scripts/init/generate-profile.mjs の lapsedApproval の扱いが、承認した者が席を離れた規則の承認を外して承認待ちへ戻し(委任は働かない)、差分に「承認した AI維持管理者が交代したため、承認待ちへ戻る」と出す。規則を消さずに、新しい責任者が ruleApprovedBy で承認し直す経路がある。確かめる者: 変化点の決定者(/process-change で記録を書くとき)。実行して確かめていない(所在を読んだ)" -->
 
 ### 3.13.4 記録
 
@@ -2300,7 +2316,7 @@ graph LR
 
 変化点に数えない事象のうち、提供者の障害・利用上限で AI が使えなかった期間は、D-0 体制図の改訂履歴へ記録します(3.12.5)。記録するのは、期間と、その間の扱い(人へ戻した / 止めた)です。
 
-<!-- impl IMPL-0726 target=config-change-log state=delivered check=manual note="3.13.4 の記録の項目。変化点の記録(構成の changeLog[]。scripts/init/generate-profile.mjs の changeLogEntry)が、種別・日付・変更前後の D-0 の版(d0Before・d0After)、兼務禁止と独立性の再判定の結果(separationRecheck)、無効になった確認(invalidatedChecks)、失効した適合性確認と例外・再確認の期日(expired・recheckDue)、決定した自然人と理由(decidedBy・reason。組織上の任命権者の記名は appointerSigned)の欄を持ち、変更なしを result の no-change として「構成の変更なし」と記録する。欄の中身の十分性と、無効になった確認を挙げる処理(IMPL-0723)は確かめていない。確かめる者: 変化点の決定者(/process-change で記録を書くとき)。実行して確かめていない(所在を読んだ)" -->
+<!-- impl IMPL-0726 target=config-change-log state=delivered check=manual note="3.13.4 の記録の項目。変化点の記録(構成の changeLog[]。scripts/init/generate-profile.mjs の changeLogEntry)が、種別・日付・変更前後の D-0 の版(d0Before・d0After)、兼務禁止と独立性の再判定の結果(separationRecheck)、無効になった確認(invalidatedChecks)、失効した適合性確認と例外・再確認の期日(expired・recheckDue)、決定した自然人と理由(decidedBy・reason。組織上の任命権者の記名は appointerSigned)の欄を持ち、変更なしを result の no-change として「構成の変更なし」と記録する。欄の中身の十分性は確かめていない。無効になった確認を挙げる処理は IMPL-0723 が追う。確かめる者: 変化点の決定者(/process-change で記録を書くとき)。実行して確かめていない(所在を読んだ)" -->
 
 <!-- impl IMPL-0022 target=config-change-log state=delivered check=presence note="体制の変化点の手続(最初のゲート判定より前に D-0 と構成を改める)と、D-0 の改訂履歴への記録(単位: キー)" -->
 
@@ -2403,7 +2419,7 @@ graph LR
 <!-- impl IMPL-0033 target=config-change-log state=delivered check=manual note="即時に知らせる事象では、通知する者が通知先と通知日を変化点の記録へ書く。未記入の即時通知は記録の欠落として扱う。確かめる者: 変化点の決定者(/process-change で記録を書くとき)" -->
 
 <!-- impl IMPL-0037 target=config-change-log state=delivered check=manual note="即時通知の事象5・6(G-6 が未達へ変わる変化、出荷判定者の席の責任者の交代)、前任者と品質保証部門の通知先、通知する者と通知先が同一の場合の記録。テンプレート担当の実装後に主担当が改める。確かめる者: 変化点の決定者(/process-change で記録を書くとき)" -->
-<!-- impl IMPL-0729 target=evidence-aggregation state=delivered check=manual note="3.13.6 の、期間中のすべての変化点を出荷ごとの保証の開示(項目7)へ集約して出荷判定者へ知らせること。出荷の証跡の集約が変化点の記録を保証の開示の項目7 の変化点の表に出す(IMPL-0483 の note は自己の決定を同じ表に出すと書く)。AI が使えなかった期間の集約は確かめていない。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)。実行して確かめていない(所在を読んだ)" -->
+<!-- impl IMPL-0729 target=evidence-aggregation state=delivered check=manual note="3.13.6 の、期間中のすべての変化点を出荷ごとの保証の開示(項目7)へ集約して出荷判定者へ知らせること。出荷の証跡の集約が変化点の記録を保証の開示の項目7 の変化点の表に出す(IMPL-0483 の note は自己の決定を同じ表に出すと書く)。AI が使えなかった期間は aggregate-evidence.mjs が outagePeriods を読み、期間とその間の扱いを出す(閉じていない期間は継続中)。期間と変化点の突き合わせは確かめていない。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)。実行して確かめていない(所在を読んだ)" -->
 
 保証の開示の項目は、[第4章 G-7](/process-compass/phase4-process-design/gate-criteria/)の「保証の開示」によります。各項目の読み方と表示の例は、[附属書H](/process-compass/phase4-process-design/assurance-case/) H.6 によります。本節の判断の根拠は、[ADR-0055](/process-compass/adr/0055-team-change-points/)によります。
 
