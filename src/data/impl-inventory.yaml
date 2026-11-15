@@ -390,10 +390,11 @@ sections:
   - key: phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 適用できる期日
     status: pending
   - key: phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 後回しにできる対象
-    status: none
-    category: org-design
-    reason: ファストトラックで後回しにできるゲートの限定列挙。申請と承認は人が行う例外の手続の範囲の定め。#312 で升の語を 1.7.3 の語(許容・禁止)へ改めた。強さは変えていない
-    issue: 312
+    status: marked
+    ids:
+      - IMPL-0567
+    note: 限定列挙(G-4・G-5・認証・認可・データ保全の検証は禁止)を例外承認の台帳の行の対象で照らす検査は降りていない(R1)。承認が人であることは置き場から外す理由にならないため、制度設計の区分を改めた(#324 の議長の裁定 T5)
+    issue: 324
   - key: phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 申請書の必須項目
     status: pending
   - key: phase4-process-design/exception-escalation#7.4 ファストトラック(期日制約下の例外) > 乱用を防ぐ制約
@@ -411,10 +412,12 @@ sections:
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断
     status: pending
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.1 予算の構成
-    status: none
-    category: org-design
-    reason: 予算の区分と配賦の単位の制度設計。AI実行予算が課金形態を前提にしないこと、消費の実績が無い場合の未測定の報告を含む
-    issue: 294
+    status: marked
+    ids:
+      - IMPL-0569
+      - IMPL-0570
+    note: 消化率の分母と提供者の上限の報告は R3a、未測定の報告は R3b(どちらも plan=scheduled。同じ降ろし先の IMPL-0370 が plan=adopter・ADR-0096 であることは議長の裁定 T3)。配賦の単位と時点(ステージ単位の配賦・一括配賦の禁止・4区分の表)は、組織の予算の制度の記録にあり、本標準が求める記録に配賦額の履歴が無いため制度設計とした(違反の痕跡が標準の記録に現れない)。事業仮説・価値仮説の検証費用を期間予算の内訳として明示することは、企画書の様式に内訳の欄が無いかを確かめていない(引き継ぎの記録に挙げる)
+    issue: 324
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.2 測定する指標
     status: pending
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.3 中止の判断基準
@@ -529,15 +532,40 @@ sections:
   - key: phase4-process-design/exception-escalation#7.12 関連する章
     status: pending
   - key: phase4-process-design/gate-criteria#(冒頭)
-    status: pending
+    status: none
+    category: explanation
+    reason: 冒頭の導入(本章の範囲と、ゲートの識別子・順序の正本が参照モデルであることの宣言)。「各ゲートの判定は、このページのチェックリストとの突合で行います」は、各ゲートの節の判定基準の表(kb)と判定の範囲(IMPL-0010)が実際の規定を運ぶ導入の文で、単独では実行主体に守らせる文にならない
+    issue: 324
   - key: phase4-process-design/gate-criteria#ゲートの2系統
-    status: pending
+    status: none
+    category: explanation
+    reason: ステージ移行ゲートと工程ゲートの対応表。「本章が規定するのは工程ゲート」は範囲の宣言、事業ステージごとの状態は第8章 軸B への参照で、実行主体に守らせる文が無い
+    issue: 324
   - key: phase4-process-design/gate-criteria#前提条件と判定基準の区別
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 規定は「両者を混同してはなりません」「前提条件を満たさない場合は判定を開始せず提出者へ差し戻す」「前提条件は機械的に検査し、人の判断を介在させない」。前提条件に当たるのは G-2・G-4 の前提条件1(機能仕様の未確定事項)で、IMPL-0148 の note が「G-2・G-4 の前提条件1」を名指し、spec-lint --gate が検査する。区別そのものの一般則を名指すマークは無いが、前提条件が2件に限られるため所在の節のマークで追うと登録した(迷った点。引き継ぎの記録に挙げる)
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 未確定事項(前提条件1)
+    issue: 324
   - key: phase4-process-design/gate-criteria#全ゲートに共通する通過条件
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0533
+      - IMPL-0534
+    note: 通過条件は A1(降りている)、前提が崩れていても停止しない旨は A2(降りていない)
+    issue: 324
   - key: phase4-process-design/gate-criteria#ゲート運用の共通ルール
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0535
+      - IMPL-0536
+    location:
+      - phase4-process-design/gate-criteria#判定の成立
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 承認レビューを判定記録とする条件
+      - 'phase4-process-design/deliverable-templates#テンプレ4: ゲート判定記録'
+    note: 4つの共通ルールのうち、期限付き(自動承認にしない)は B1、単独判定は B2(降りていない)。差し戻しは理由付き(項目番号で示す)は IMPL-0127・IMPL-0328 の note が追い、記録をもって成立するは IMPL-0008(判定の成立)が追う
+    issue: 324
   - key: phase4-process-design/gate-criteria#判定の成立
     status: marked
     ids:
@@ -592,9 +620,18 @@ sections:
     note: G-5 の判定の根拠に数える試験を版管理の下に置くことは、gate-g5 が取り出した版の試験だけを実行することで降りる(IMPL-0350)。手元の試験を根拠に挙げていないかは G-6 の判定者が確かめる。試験の種別・枠組み・時計の方式を課さないことは課さない明記。期待値の改めと印の扱いは 5.8.5 の後の段落(IMPL-0204)
     issue: 319
   - key: phase4-process-design/gate-criteria#工程ゲートの判定の語彙
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0009
+      - IMPL-0537
+    note: 2値に限ることは IMPL-0009、条件付き通過を用いないことは C1。差し戻しと同時に確定させる事項は IMPL-0328(テンプレ4)が追う
+    issue: 324
   - key: phase4-process-design/gate-criteria#判定の範囲
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0010
+    note: 次工程の未完成・基準に無い懸念・投資を続けるか・所属組織の内規を判定に持ち込まないことは、/gate の「判定の原則」の項3(IMPL-0010 が追う)
+    issue: 324
   - key: phase4-process-design/gate-criteria#確定した版を変える場合
     status: marked
     ids:
@@ -652,7 +689,11 @@ sections:
           - IMPL-0258
     issue: 294
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 曖昧語(基準2)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0106
+    note: 検出語の表(正本)の複製・部分一致の検出・理由の無い除外の印を無効にすること・除外した行の件数と所在の表示は IMPL-0106。組織が検出語を足してよく減らしてはならないことは、検出語の表を知識ベースの1か所に置くことで追い、足す入口は確かめていない
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-2 要件合意(価値責任者・48時間) > 前提の欄(基準3)
     status: marked
     ids:
@@ -668,21 +709,59 @@ sections:
     note: 未確定事項の件数の検査は IMPL-0148、判定者の手順は IMPL-0149、様式は IMPL-0150。前提を引き受けない場合の差し戻しは基準3 で扱い、前提の欄(基準3)の節の IMPL-0242 が追う
     issue: 294
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間)
-    status: pending
+    status: kb
+    ids:
+      - IMPL-0133
+      - IMPL-0352
+    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。表の外の規定(判定記録に判断記録の番号と版のコミットを書く・PR のレビューを媒体にする)は IMPL-0133・IMPL-0352
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間) > 事業影響を金額で定量化しない
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0538
+      - IMPL-0539
+      - IMPL-0540
+    note: (a) 金額での定量化を義務づけない(課さない明記)と (b) 書く場合の3点の併記は D1。(c) 格付けを掛け合わせた順位づけを根拠にしないは D2。(d) 観測可能な事象で書くは D3(降りていない)
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間) > 記載の検査
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0131
+      - IMPL-0132
+    note: 機械が検査してよい形式の欠落は IMPL-0131(降りている分)と IMPL-0132(降りていない分)。記述の質を機械判定して承認可否を決めないことは第5章 5.7.4 の規定で、本節は表の「しない」で再掲する
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間) > 事業決裁者が受容を拒否した場合
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0541
+    note: 差し戻し先の3分けと、「受容できないが進める」を通常の経路として認めないことは E1。「本標準は新しい経路を定めない」は課さない明記
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間)
-    status: pending
+    status: kb
+    ids:
+      - IMPL-0542
+    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。前提条件1(未確定事項)は IMPL-0148(未確定事項の節)が追う。基準5 の空欄で判定を始めないことは F1
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間) > 受入基準とタスクの対応(基準6)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0151
+      - IMPL-0156
+      - IMPL-0152
+    note: 基準6 が確かめるのは対応の有無だけで、機械は一覧を出し合否を出さないこと、除外の欄を置かないことは IMPL-0151・IMPL-0156・IMPL-0152。受入基準の識別子を機能の中で一意にすることはテンプレ1 の IMPL-0150
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間) > 範囲内外の判定を機械が行わない理由
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0543
+    note: 機械が判定してよいのは記入の有無だけ、AI は草案、確定は判定者は G1。第5章 5.7.4 の原則の再掲を含む
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-4 機能仕様承認(価値責任者または委譲先・24時間) > 範囲外と判定した場合
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0544
+    note: 内側のループを止めず経路を分けることは G2。手続の正本は第2章 2.10.8。「判定の総数は増えません」は説明
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時)
     status: kb
     ids:
@@ -723,13 +802,32 @@ sections:
     note: 基底から読む判定の承認の照合は IMPL-0456、出荷の証跡の集約の照合は IMPL-0457、env-check の3値は IMPL-0458、別のアカウントの承認・コード所有者・フォークに依る部分(降りていない)は IMPL-0460
     issue: 371
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 是正の起動
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0141
+      - IMPL-0135
+      - IMPL-0497
+      - IMPL-0545
+    note: 是正の記録の4項目は IMPL-0141(出荷後の Sev1・Sev2)と IMPL-0135(欠陥注入の見逃しと統制の弱化)。記録の欠けの検出は IMPL-0497。再発防止を機械の検査にする3条件と凍結の扱いは H1(降りていない)。件数を起動条件にしないことは課さない明記
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 基準値と除外設定の変更
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0202
+    note: 基準値・除外設定の変更を製品のコードと分離することは IMPL-0202。技術判断者の承認は IMPL-0134 の陰性の確認の記録と合わせて扱う
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 統制の設定の陰性の確認
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0134
+    note: 統制の設定を変える変更に陰性の確認の記録(通した違反の場面・結果・確かめた者)を求めることは IMPL-0134。設計の有効性で運用の有効性に代えない点は同じ記録で扱い、場面が実際に止まるかは確かめない
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 検査を外す変更の記録
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0143
+    note: 外した検査・止めていた場面・外した後に止めるもの・受け入れた者の記録と、AI の名義を受け付けないことは IMPL-0143。外部の道具の却下の理由を本標準の記録の語と対応づけないことは課さない明記(EV-0258)
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > リスク区分の下限の照合
     status: none
     category: elsewhere
@@ -764,17 +862,56 @@ sections:
     note: 変更の範囲の測定は node(IMPL-0245)と python・go(IMPL-0259。#360)、被覆の記録の無い構成の失敗は IMPL-0495、python の全体の割合からテストのファイルを除くことは IMPL-0496。薄まりの開示は IMPL-0260、記録した範囲と構成の一致は契約検査(IMPL-0261)、企画書の行は IMPL-0262、保証の開示は出荷のワークフローが同じ実行から結果を取り込む(IMPL-0246。#333 / ADR-0135)。規模の下限と ratchet は課さない明記(EV-0142・EV-0143)。下限の由来と代償措置の終了は IMPL-0346、由来の記録の無い旧い構成は IMPL-0348(#318)
     issue: 296
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 知財潔白性の検査
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 依存関係のライセンスの合否(基準5)は判定基準の表(kb)の規定。類似の検知を合否条件にせず、実施と結果を記録して G-7 のエビデンスにすることは IMPL-0046 の note が「類似の検知の実施記録」を名指す(降りていない)。AI の利用の有無で検査を変えないことは、検査を AI の利用で分岐させない構成で追う(分岐する検査は準拠テンプレートに無い)。類似の検知の実施そのものを運ぶ降ろし先は無く、迷った点として引き継ぎの記録に挙げる
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 類似が検知された場合の措置
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0548
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+    note: 検知を未処理のまま先へ進めず、当該の変更単位で処理する(3つの選択肢)こと、期限のない記録を認めないこと、期限超過の未処理項目が残る出荷を止めることは I1(降りていない)。期限超過の確認は IMPL-0046。再検査で検出されなくなったことを潔白の根拠として提示しないことは、記録の文面の禁止で、I1 と同じ確かめで扱う
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 法的な評価を本標準が示さない理由
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0549
+    note: 案件の判定者へ法的評価を求めないことは J1(降りていない)。「評価の担い手は法務」は説明
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 秘匿情報の混入(基準7)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0546
+      - IMPL-0547
+    rows:
+      手続1:
+        status: marked
+        ids:
+          - IMPL-0547
+      手続2:
+        status: marked
+        ids:
+          - IMPL-0547
+      手続3:
+        status: marked
+        ids:
+          - IMPL-0547
+    note: 台帳への記録による通過を認めないことは K1(降りている)。検出時の手順1〜3 は K2(降りていない)。「検出されなかったことは混入がないことの証明にならない」は説明
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 依存関係の追加(基準8)
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0550
+      - IMPL-0551
+    note: 追加・更新の一覧の出力(合否なし)は L1、依存の必要性を G-6 で確かめることは L2。ライセンスの適合は基準5(kb)
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 許可リストが判定を妨げた場合の救済
     status: pending
+    note: '区分済み・降ろし先未定。規定: 暫定の許可には必ず期限を付す/恒久の追加を技術判断者および AI維持管理者の裁量で行わない(許可リストは法務の所管)/期限を超過した暫定の許可は失効させ基準5で再び停止する。手続の表3行(申請・暫定の許可・恒久の可否)。許可リストの置き場(ライセンスの許可リストと暫定の許可の記録)を運ぶ降ろし先が impl-targets.yaml に無い(ip-clearance は gates/G-5.md の基準の表の行で、許可リストの運用は置かない)。近い降ろし先を当てない。議長の裁定待ち(予定の降ろし先を足すか、後継へ送るか)'
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
     status: kb
     ids:
@@ -864,11 +1001,37 @@ sections:
     note: 条件1・5 はこの節のマーク。条件3・4 の送り先は #321 との統合の突合 F-11 の裁定で G-6 の節へ改めた。承認までの時間・コメントの有無・差分の量を合否にしないことは、課さない明記(ADR-0059)
 
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 委任の変更は判定の時点を事後へ移す
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0027
+      - IMPL-0552
+    note: 通過として記録しないことは IMPL-0027。移せる条件(席の宣言・機械の規則・R3)と抜き取りの実施者は N1。R3 でない委任の識別を持つ変更を欠落に数えることは IMPL-0039(G-7)。G-7・G-8 は個別の変更ごとに行わないことは第5章 5.5.4
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 未達のまま出荷する場合の例外承認
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0553
+    note: G-6 未達で R1 の変更を出荷する場合に例外承認を要することは P1。例外承認は未達を解消しない(表示と開示は残る)ことは G-7 の保証の開示と IMPL-0039 が追う
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
-    status: pending
+    status: kb
+    ids:
+      - IMPL-0040
+      - IMPL-0041
+      - IMPL-0042
+      - IMPL-0043
+      - IMPL-0044
+      - IMPL-0045
+      - IMPL-0046
+      - IMPL-0470
+      - IMPL-0436
+      - IMPL-0039
+      - IMPL-0554
+      - IMPL-0555
+    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。基準5 の突合の規定は IMPL-0436(基底ブランチを正とする)・IMPL-0039(独立した人の確認を経ていない変更と例外承認の対応づけ)。写しと同じ PR で台帳の行・基準値を変えないことは Q1、例外承認の対応づけ条件4 は Q2(どちらも降りていない)。例外承認の対応づく条件の表(4行)は kb の節の中の表で、条件1〜3 は IMPL-0039 が追う
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 変更の要求を経ないコミット
     status: marked
     ids:
@@ -876,25 +1039,99 @@ sections:
       - IMPL-0485
     issue: 316
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 基準1・2 の記録
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 基準1・2 を集約で機械に数えることは、IMPL-0040(計画数・通過数・対応するテストの無い受入基準の数)と IMPL-0041(欠陥の台帳の区分ごとの未解決の件数。台帳が無い出荷と読めない台帳を記載の欠落にする)の note が、本節の見出しを名指して追う。節の箇条(対応するテストの無い受入基準は欠落でなく開示の項目4・実装計画の対応は基準1 の記録に取り込まない)も同じ集約の数え方
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 壊してはならない品質条件の突合
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0072
+    note: 品質条件(QC-NN)と受入基準・テストの参照の突合、項目4・5 への自動の掲載、識別子を持たない条件を欠落にすることは IMPL-0072。参照の妥当性を判定しないことは課さない明記
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 停止の申し立ての保留
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0073
+    note: 未解除の停止の申し立てがあれば集約を失敗させ、保留を解くのは7.11 の解除の記録だけ(署名と G-8 の受容は解かない)ことは IMPL-0073
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
     status: pending
+    note: 区分済み・一部未確認。節の中に IMPL-0471・0461・0448・0439 がある(項目1 の置き場の性質・G-5 の読み元・統制の設定の変更の承認の内訳・項目2 のテーラリングの宣言)。保証の開示の出力の形は H.6 の IMPL-0032(投影・未達と未測定の扱い)が追う。箇条のうち、前回の出荷の値の併記・対外文書の検出率の扱い・等級で表さない・受託の納品ごとの受け渡し・定型の文・旧い構成の簡略の表示を、名指すマークが無いか見つけられていない(本担当では確かめきれず、残す)。基準9 が差し戻す記載の欠落の表(13行の「欠落に当たる」)も、行ごとの追跡を確かめていない
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の主張の成立判定
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0113
+      - IMPL-0438
+      - IMPL-0556
+    rows:
+      成立条件1:
+        status: none
+        category: elsewhere
+        reason: 層1 の有効性は IMPL-0071(層1 の必須行の受容者に空欄があれば層1 を無効として成立条件1 を不成立にする)の note が成立条件1 を名指す
+        location:
+          - 'phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方'
+      成立条件2:
+        status: none
+        category: elsewhere
+        reason: 層2 の宣言を含む6つの成立条件の判定は IMPL-0050 が追う(note が「6つの成立条件を層1・層2(企画書…)から機械で判定」)
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+      成立条件3:
+        status: none
+        category: elsewhere
+        reason: 範囲内の変更の確認(委任は事後の抜き取り)は保証の開示の項目1・3 で判定され、IMPL-0050 が6つの成立条件の機械判定を追う
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+      成立条件4:
+        status: marked
+        ids:
+          - IMPL-0113
+          - IMPL-0438
+      成立条件5:
+        status: none
+        category: elsewhere
+        reason: 検出能力の測定と未測定が続く期間は、IMPL-0088(層1 項目2 の印 [未測定] を項目1 の許容する期間と照らす)が追う
+        location:
+          - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
+      成立条件6:
+        status: marked
+        ids:
+          - IMPL-0556
+    note: 条件4 は IMPL-0113・0438。突合は2点だけで署名の意味を変えないこと・受容しない条件に当たる事実を G-8 で受容しないことは S1。成立判定の機械出力・対象外として出荷した記録は IMPL-0050(H.6)、対象外の受容の記名は IMPL-0052(G-8)。「条件付き保証」のような中間の語を作らないこと、組織継続の側を成立条件に入れないことを名指すマークは確かめていない(H.6 の IMPL-0050 の note に読めたかどうかは未確認)
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 出荷判定者の署名の意味
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0557
+    note: 署名の意味と、署名を品質の保証として対外文書へ書かないことは T1。「署名を品質の承認として定めている規程は改定を要する」は採用者への注記
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 未消化が残る場合に書くもの
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0558
+    note: 書き手は未消化を生じさせた側、再テスト・再レビューを始めないことは U1。未消化が無ければ節は適用されない(適用範囲の表明)。計画の妥当性を判定する検査を置かないことは課さない明記(ADR-0041)
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 出荷判定者へ数値の十分性を判定させない
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0559
+    note: 数値の十分性を G-7 で見直さず、数値そのものを合格の根拠として書かないことは V1
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > テストの中身に対する検査を G-5 へ置く
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0560
+    note: 変異の一覧の読解を出荷判定者へ求めないことは W1(降りていない)。出荷判定者の任命基準は 3.4.1 の IMPL-0117 が追う
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間)
-    status: pending
+    status: kb
+    ids:
+      - IMPL-0561
+    note: 判定基準の表は知識ベースへ降りる(ADR-0048)。基準2 の層1 の版・上申は IMPL-0052(受容の基準との照合と上申の節)。技術品質を蒸し返さないことは X1
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 配備の統制と資格情報の置き場
     status: marked
     ids:
@@ -903,11 +1140,74 @@ sections:
       - IMPL-0351
     issue: 316
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 残存リスクの受容を決断の記録に含める
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0562
+    location:
+      - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.2 決断の記録の構造
+    note: 受容の記名と差し戻しの規則は Y1。決断の記録の構造(受容したリスク欄ほか)は第5章 5.7.2 の IMPL-0171
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0052
+      - IMPL-0563
+    rows:
+      要求事項1:
+        status: marked
+        ids:
+          - IMPL-0052
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0563
+      要求事項3:
+        status: marked
+        ids:
+          - IMPL-0052
+      要求事項4:
+        status: marked
+        ids:
+          - IMPL-0052
+      要求事項5:
+        status: marked
+        ids:
+          - IMPL-0563
+      要求事項6:
+        status: marked
+        ids:
+          - IMPL-0052
+      要求事項7:
+        status: marked
+        ids:
+          - IMPL-0563
+    note: 照らした層1 の版・上申の日付・対象外の受容は IMPL-0052、段階を超える受容を単独で受容しない・受容しない条件を対象にしない・AI が記名しないは Z1。段階を超える受容かどうかの判定は機械が行わない
+    issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 出荷判定者の異議
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0564
+      - IMPL-0565
+      - IMPL-0566
+    rows:
+      理由の記載を要する事項1:
+        status: marked
+        ids:
+          - IMPL-0565
+      理由の記載を要する事項2:
+        status: marked
+        ids:
+          - IMPL-0565
+      理由の記載を要する事項3:
+        status: marked
+        ids:
+          - IMPL-0565
+      理由の記載を要する事項4:
+        status: marked
+        ids:
+          - IMPL-0565
+    note: 異議の記載(異議なしを含む)は AA1、空欄と理由の無い記載を欠落に数えることは AA2、期間ごとの保証の開示の受容と異議は AA3。出荷判定者の席と事業決裁者の席の責任者を同一にしない前提(3名以上)は 3.5 の兼務の定めが追う。4つの事項は異議を書かせる基準ではなく、異議の有無は出荷判定者が決める
+    issue: 324
   - key: phase4-process-design/gate-criteria#タスクの分割基準
     status: pending
   - key: phase4-process-design/gate-criteria#タスクの分割基準 > 規範
@@ -1457,14 +1757,13 @@ sections:
     reason: 節の導入の文(適用の範囲の表明)
     issue: 292
   - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.1 未検証の入力として扱う
-    status: none
-    category: elsewhere
-    reason: 原則の文。行為の規定は 5.8.5 と第4章 G-5・G-6 へ展開されており、各節のマークで追跡する
+    status: marked
+    ids:
+      - IMPL-0572
     location:
-      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.5 AI 協調の作業で行ってはならないこと
-      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時)
-      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)
-    issue: 292
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+    note: 「検証を経て初めて成果物になる」の原則は、既定ブランチのルールセットが G-5 の必須チェックと承認を取り込みの条件にすること(R5)で追う。独立した人の確認を経ない変更を記録の欠落に数える検知の側は IMPL-0039(G-7)。5.8.5 は禁止事項1〜5、G-5・G-6 のマークは基準6 と承認者の数え方を名指し、この原則そのものを名指していないため location から外した
+    issue: 324
   - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.2 記録の要求事項
     status: marked
     ids:
@@ -2204,13 +2503,14 @@ sections:
     reason: 節の導入の文
     issue: 292
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.1 適用範囲
-    status: none
-    category: elsewhere
-    reason: 適用範囲と、AI の担い手の出力を意見に数えないことは、事前レビュー期間の自動化の必須ステータスチェックと指標の集計のマークで追跡する
+    status: marked
+    ids:
+      - IMPL-0571
     location:
       - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.5 期限までに意見がない場合の扱い
       - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.8 形骸化の検知
-    issue: 292
+    note: 適用範囲(全ての上程・工程ゲート・標準変更の除外)は R4。AI の担い手の出力を意見に数えないことは IMPL-0214・IMPL-0216
+    issue: 325
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.2 期間の構成
     status: none
     category: elsewhere
@@ -2424,10 +2724,11 @@ sections:
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.1 位置づけ
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.2 インタフェース
-    status: none
-    category: org-design
-    reason: AI運用担当者と開発組織の間の接続経路と契約の制度設計。個人の契約を正規の経路に数えないこと、手元の記録の複製を課さないこと(課さない明記)を含む
-    issue: 294
+    status: marked
+    ids:
+      - IMPL-0568
+    note: 直接接続の禁止と経路の限定は R2(降ろし先は予定の ai-runtime-connection。議長の裁定 T1・T2)。手元の記録の日次の複製を課さないことは課さない明記(ADR-0078)。表(方向と内容)は説明
+    issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.3 モデルの適合性評価
     status: pending
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.4 可用性と品質を分けて監視する
