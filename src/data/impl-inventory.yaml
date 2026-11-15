@@ -2208,7 +2208,8 @@ sections:
       - IMPL-0120
       - IMPL-0308
       - IMPL-0430
-    note: 述べられる名の導出は IMPL-0308。担い手の名義の未申告の数え方は IMPL-0430。表明の様式の出力は undelivered(IMPL-0120)
+      - IMPL-0573
+    note: 述べられる名の導出は IMPL-0308。担い手の名義の未申告の数え方は IMPL-0430。表明の様式の出力は undelivered(IMPL-0120)。例外承認の件数の併記は undelivered(IMPL-0573。#353)
     issue: 313
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張 > 逸脱の閉じた列挙
     status: marked
