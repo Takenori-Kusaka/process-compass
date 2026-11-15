@@ -43,7 +43,7 @@ sidebar:
 <!-- impl IMPL-0002 target=claude-md state=undelivered check=manual plan=scheduled issue=123 review=2027-04 note="...。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 ```
 
-見本の Issue の番号(`123`)は架空の番号です。
+見本の `issue=123` は書式を示す番号です。実際の Issue を指しません。閉じた Issue の検出(「降りていない規定の扱い」の節)は、コードブロックの中の見本を数えません。
 
 | 要素 | 規則 |
 | --- | --- |
@@ -133,9 +133,26 @@ sidebar:
 - 次の節の規定は、`adopter` にできない。登録簿は `src/data/impl-no-adopter.yaml` である。一律で AI に委譲できない領域(第5章 5.8.3・5.4.3)、人へ戻す3つの場合(第5章 5.5.1)、人が確定する判断(第5章 5.5.5)、停止の申し立て(第7章 7.11)、統制の弱化の検出(第3章 3.5.5「統制の弱化を検知したときの引き渡し」)が当たる。採用者の実装の有無で統制が消える型の規定だからである
 - `adopter` とした規定ごとの、採用者に委ねる理由と採用者に求めることは、`decision=` が指す記録に書く。[ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/) の決定4 の表に載る規定は、その表に記録してある。ADR-0084 の後に `adopter` とした規定は、`decision=` が指す ADR の決定に記録する(例: IMPL-0237 は [ADR-0090](/process-compass/adr/0090-job-token-and-deploy-credential-binding/) の決定6。採用済みの ADR-0084 の表は書き換えられないため)。理由を書けない規定は `scheduled` とする
 - 見直しの年月を過ぎた `scheduled` の件数を、台帳の冒頭に出す。**合否にも警戒の条件にも使わない**。期日の日数も課さない
-- `issue=` が閉じた Issue を名指すことを、**検査は検出しない**。検査はオフラインで実行し、Issue の状態を知り得ないためである。この検出は採らない。Issue を閉じる者は、その Issue を `issue=` に持つマークが 0 件であることを確かめてから閉じる。[#314](https://github.com/Takenori-Kusaka/process-compass/issues/314) を仮に名指した 60 件は、後継の Issue(#355〜#360)の起票の後に番号を改めた。[#315](https://github.com/Takenori-Kusaka/process-compass/issues/315)・[#316](https://github.com/Takenori-Kusaka/process-compass/issues/316) を仮に名指した 3 件も、後継の Issue(#361・#368・#369)の起票の後に番号を改めた
+- `issue=` が閉じた Issue・実在しない番号・PR を名指すことを、**検査の外で検出する**([ADR-0130](/process-compass/adr/0130-detect-closed-issues-named-by-implementation-marks/))。検査(`npm run check`)はオフラインで実行し、Issue の状態を知り得ないため、検出は検査に入れない。`.github/workflows/impl-plan-issues.yml` が、Issue を閉じたとき・main への push・月次・手動の契機で `scripts/check-impl-plan-issues.mjs` を実行する。同じスクリプトを手元で実行できる(`npm run impl:issues`)。所見があれば、閉じた Issue へ「この Issue を名指すマーク(識別子と所在)」をコメントし、実行を失敗にする。**機械は Issue の状態を変えない**(開き直さない・閉じない)。同じ所見のコメントは繰り返さない。食い違いは、コメントを受けた人が `issue=` を付け替えるか、Issue を開き直すかを決めて解く。付け替えまで、台帳はその Issue を計画として表示し続ける。`npm run lint:impl` は、オフラインで `issue=` の番号が Issue の一覧の写し(`src/data/issue-index.tsv`)に在り、種別が Issue であることを確かめる(状態は見ない)
+- Issue を閉じる者は、閉じる前に `npm run impl:issues` を実行し、その Issue を `issue=` に持つマークが 0 件であることを確かめる。`Closes #N` を書くコミットは、付け替えを同じ push に含める。付け替える者は、寄せ先の Issue へ、寄せるマークと受け入れ条件の案をコメントで足す。寄せ先が担い手として合っているかは機械で確かめない(確かめる者: 付け替える者)
+- 閉じた Issue を名指していたマークを 14 件付け替えた経緯は、[#439](https://github.com/Takenori-Kusaka/process-compass/issues/439) に残る。[#314](https://github.com/Takenori-Kusaka/process-compass/issues/314) を仮に名指した 60 件と、[#315](https://github.com/Takenori-Kusaka/process-compass/issues/315)・[#316](https://github.com/Takenori-Kusaka/process-compass/issues/316) を仮に名指した 3 件も、後継の Issue の起票の後に番号を改めた
 - 台帳の降りていない規定の表は、降ろし先の種別で書き分ける。降ろし先が予定の置き場(`planned`)なら、置き場がまだ無い。降ろし先が実在するなら、置き場はあるが規定の全部または一部がそこに無い。無い部分は `note` に書く
 
+:::caution[暫定 EV-0259 / 見直し 2027-05]
+**対象**: 閉じた Issue を名指すマークの検出ワークフロー(`impl-plan-issues.yml`)が、実際の GitHub で発火し、コメントが動くこと。無効化・権限の変更・GitHub Actions の障害は検出しないこと。
+**根拠の水準**: E0(なし)。
+**差し替え条件**: main へ入った後の手動の実行と、試験用の Issue を閉じた試行で、発火、コメント、重複の抑止を確かめた記録。
+
+実装の時点では、純粋な関数と手元のスクリプトの試験だけを通しました。月次の契機と、閉じる者の手元の実行(`npm run impl:issues`)が、ワークフローの取りこぼしを補います。
+:::
+
+:::caution[暫定 EV-0260 / 見直し 2027-05]
+**対象**: 付け替えた先の Issue が、その規定の担い手として合っているかを機械で確かめないこと。
+**根拠の水準**: E0(なし)。
+**差し替え条件**: 付け替えの後に、寄せ先の Issue がマークの規定を降ろさずに閉じた事例の有無と件数。
+
+機械が見るのは、番号が実在する open の Issue であることまでです。閉じた Issue を避けるために合わない open の Issue へ寄せる誘因は、機械で閉じません。付け替える者が寄せ先の本文を読み、受け入れ条件の案をコメントで足します。
+:::
 降りていない規定を降ろす順序は、次のとおりです。台帳の表もこの順で並べます(表示の誤りは見つけたその場で直すため、台帳の並びは2段目からです)。
 
 1. 表示の誤り(注記が実態と違うマーク)

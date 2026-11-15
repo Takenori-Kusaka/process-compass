@@ -598,7 +598,7 @@ G-3 の判定記録には、判定した判断記録の識別(番号と、判定
 
 <!-- impl IMPL-0131 target=decisions-check state=delivered check=machine test=template/scripts/gate/test-decisions.mjs note="判断記録の置き換えの両側の参照(置き換える側の「置き換える決定」欄と、置き換えられた側の状態の行)の一致と、状態が置き換え・廃止の判断記録が保管領域(context/_archive/decisions/)にあること、状態が採用・一部置き換えの判断記録が保管領域に無いことを検査し、不一致で失敗させる" -->
 
-<!-- impl IMPL-0132 target=decisions-check state=undelivered check=manual plan=scheduled issue=289 review=2027-04 note="判断記録の欄が空であること、「回復に要する時間」が単一の値であること、「顕在化が分かる兆候」が「なし」であること、前の判断記録と記述が一致していることの機械の検査。準拠テンプレートに実装が無い。判定者が判定のときに読んで確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0132 target=decisions-check state=undelivered check=manual plan=scheduled issue=355 review=2027-04 note="判断記録の欄が空であること、「回復に要する時間」が単一の値であること、「顕在化が分かる兆候」が「なし」であること、前の判断記録と記述が一致していることの機械の検査。準拠テンプレートに実装が無い。判定者が判定のときに読んで確かめる。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 「顕在化が分かる兆候」に「なし」を認めない作法は、決断の記録における「確認していない事項」と同じものです。
 
@@ -851,7 +851,7 @@ push のパスの制限とマージのキューは、この要求の手段に数
 <!-- impl IMPL-0141 target=incident-artifact state=delivered check=manual note="ポストモーテムの手順に、是正の起動の4項目(再び起こりうるか・類似・仕組みで置くか置かない理由・効いたことの確認)を書くことを置く。Sev1・Sev2 の是正の記録をポストモーテムで行い、別の記録を作らない。内容の妥当性は確かめない(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: ポストモーテムの承認者(振り返りを閉じるとき)" -->
 
 <!-- impl IMPL-0135 target=defect-ledger-template state=delivered check=manual note="欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録の様式。準拠テンプレートの欠陥の台帳(templates/defect-ledger.md)の節「是正の記録」が、起点・対象・4項目(再び起こりうるか・類似・仕組みで置くか/置かない理由・効いたことの確認)・記録した者(人。AI の名義を書かない)の列を持つ。/artifact defect と導入前の検証の手順(/artifact adoption-trial)が、見逃しと弱化の検知で行を足すことを置く。出荷後の Sev1・Sev2 はポストモーテムが記録であり、IMPL-0141 が覆う。起点の記録と行の対応は機械が確かめない(IMPL-0497)。確かめる者: 品質保証の担当(起点の記録と台帳の行を突き合わせるとき)(#359)" -->
-<!-- impl IMPL-0497 target=adoption-trial state=undelivered check=manual plan=scheduled issue=359 review=2027-05 note="是正の記録の欠けの検出。導入前の検証の集計で見逃された類型と、統制の弱化の引き渡し(state:needs-platform)の記録があるのに、欠陥の台帳の節「是正の記録」に対応する行が無いことを、/pit か導入前の検証が出すこと。準拠テンプレートは様式と手順だけを置き、起点の記録と行を突き合わせない(#359 の裁定 1-1)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0497 target=adoption-trial state=undelivered check=manual plan=scheduled issue=326 review=2027-05 note="是正の記録の欠けの検出。導入前の検証の集計で見逃された類型と、統制の弱化の引き渡し(state:needs-platform)の記録があるのに、欠陥の台帳の節「是正の記録」に対応する行が無いことを、/pit か導入前の検証が出すこと。準拠テンプレートは様式と手順だけを置き、起点の記録と行を突き合わせない(#359 の裁定 1-1)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 再発防止を、機械の検査で失敗させる形にするのは、次の3つをすべて満たす場合に限ります。
 
