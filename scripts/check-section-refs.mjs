@@ -20,6 +20,8 @@
 //   8. 問い              問21                     → 附属書H H.9 の表に、その番号の行がある
 //   9. 見出しの名前      [第8章](…)「事後監査の手続」/ [第8章「事後監査の手続」](…)
 //                                                 → リンク先のページに、その語を含む見出しがある
+//                                                 リンクの文に節番号もあるとき([第3章 3.8](…)「決裁権限マトリクス」)は、
+//                                                 その番号で始まる見出しが、その語を含む(番号と名の対応。#326 の項目)
 //  10. 判断記録          ADR-0056                 → その番号の ADR のページがある
 //
 // 検査しない形式:
@@ -28,6 +30,8 @@
 //   - ADR の決定の番号(ADR-0054 決定7)、根拠水準マークの番号(lint:evidence が検査する)
 //   - 外部の規格の箇条番号(「箇条 8.5.1」の形で書く。本標準の節番号として扱わない)
 //   - 参照先の内容が、引いた側の記述と合っているか
+//   - 語を添えない参照(「第3章 3.9 で定める」)の、番号と見出しの対応。語が無いので機械では閉じない。
+//     元の誤参照(label-mailbox の「第3章 3.9 の決裁マトリクス」)は、この類で、検査では拾えない
 //
 // 誤検出は、同じ行へ <!-- ref-ok: 理由 --> を書いて除外する。
 //
@@ -146,6 +150,24 @@ function hasHeadingContaining(page, text) {
 }
 
 /**
+ * その番号で始まる見出しの節(次の同階層以上の見出しの手前まで)に、その語を含む見出しがあるか。
+ * 番号つきの見出しの下に、番号のない小見出しで名を置く書き方があるため、節の中の見出しも数える。
+ */
+function hasNumberedHeadingContaining(page, prefix, text) {
+  const p = load(page);
+  if (!p) return false;
+  const re = new RegExp(`^${esc(prefix)}(?![\\d.])`);
+  return p.headings.some((h, idx) => {
+    if (!re.test(h.text)) return false;
+    if (h.text.includes(text)) return true;
+    for (let k = idx + 1; k < p.headings.length && p.headings[k].level > h.level; k++) {
+      if (p.headings[k].text.includes(text)) return true;
+    }
+    return false;
+  });
+}
+
+/**
  * 見出しの節にある表から、先頭の列の番号を集める。
  * header を渡すと、見出し行がそれに合う最初の表だけを読む(G-1 は前提条件の表が先にある)。
  * 渡さなければ、節にあるすべての表を読む。
@@ -222,9 +244,14 @@ function check(source) {
       const page = m[2].replace(`${BASE_PATH}/`, '').replace(/\/$/, '');
       const names = [...m[1].matchAll(/「([^」]+)」/g)].map((x) => x[1]);
       if (m[3]) names.push(m[3].slice(1, -1));
+      const numbers = [...m[1].matchAll(/(?<![A-Za-z0-9.])(?:[A-I]\.\d{1,2}|[1-8]\.\d{1,2}(?:\.\d{1,2})?)(?![\d.]|[A-Za-z])/g)].map((x) => x[0]);
       for (const name of names) {
         count('見出しの名前');
         if (!hasHeadingContaining(page, name)) report(i, '見出しの名前', name, `が ${page} の見出しにありません`);
+        else if (numbers.length === 1 && hasHeadingStarting(page, numbers[0]) && !hasNumberedHeadingContaining(page, numbers[0], name)) {
+          count('番号と名の対応');
+          report(i, '番号と名の対応', `${numbers[0]}「${name}」`, `は、${page} の ${numbers[0]} の見出しに語が含まれません`);
+        } else if (numbers.length === 1) count('番号と名の対応');
       }
     }
 

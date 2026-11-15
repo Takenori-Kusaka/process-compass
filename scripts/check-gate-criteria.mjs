@@ -16,6 +16,7 @@
 import fs from 'node:fs';
 import { readEdition, editionProblems, editionAt } from './lib/edition.mjs';
 import path from 'node:path';
+import { readYamlCriteria, writeCriteria } from './lib/gate-criteria-yaml.mjs';
 import { fileURLToPath } from 'node:url';
 import { missingInputs, describeMissing, commitProblems } from './lib/inputs.mjs';
 
@@ -80,22 +81,6 @@ function extractCriteria(text) {
   return out;
 }
 
-/** integrated.yaml の gates[].criteria を、id をキーに読む(簡易パーサ) */
-function readYamlCriteria(text) {
-  const out = {};
-  const re = /^\s*- id: (g-[a-z0-9-]+)$/gm;
-  const heads = [...text.matchAll(re)];
-  for (let i = 0; i < heads.length; i += 1) {
-    const id = heads[i][1];
-    const start = heads[i].index;
-    const end = i + 1 < heads.length ? heads[i + 1].index : text.length;
-    const block = text.slice(start, end);
-    const m = /criteria: \[(.*?)\]/s.exec(block);
-    if (m) out[id] = m[1].split(',').map((s) => s.trim()).filter(Boolean);
-  }
-  return out;
-}
-
 const sourceText = fs.readFileSync(SOURCE, 'utf8');
 const targetText = fs.readFileSync(TARGET, 'utf8');
 const fromSource = extractCriteria(sourceText);
@@ -116,6 +101,10 @@ for (const [gate, id] of Object.entries(GATE_IDS)) {
     problems.push(`${gate}(${id}): integrated.yaml に criteria がありません`);
     continue;
   }
+  if (have.length === want.length && want.some((w, i) => have[i] !== w)) {
+    const i = want.findIndex((w, k) => have[k] !== w);
+    problems.push(`${gate}(${id}): 判定基準 ${i + 1} の文が一致しません。第4章「${want[i]}」 / yaml「${have[i]}」`);
+  }
   if (have.length !== want.length) {
     problems.push(
       `${gate}(${id}): 判定基準の件数が一致しません。第4章 ${want.length}件 / yaml ${have.length}件\n` +
@@ -129,8 +118,7 @@ if (process.argv.includes('--write')) {
   for (const [gate, id] of Object.entries(GATE_IDS)) {
     const want = fromSource[gate];
     if (!want) continue;
-    const re = new RegExp(`(- id: ${id}\\n[\\s\\S]*?criteria: )\\[.*?\\]`, '');
-    next = next.replace(re, `$1[${want.join(', ')}]`);
+    next = writeCriteria(next, id, want);
   }
   if (next !== targetText) {
     fs.writeFileSync(TARGET, next);

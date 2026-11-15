@@ -14,6 +14,9 @@
 // 2 の誤検出は src/data/scope-exempt.yaml へ理由付きで登録する。登録そのものが
 // 「この節の限定は規範と同じ行にある」という判断の記録になる。
 //
+// 登録の残骸(どの節の免除にも当たらなかった登録)と reason の欠けは、検査を落とす(#326)。
+// reason の意味は検査しない(自由な文。登録そのものが人の判断の記録である)。
+//
 // オプション:
 //   --write   台帳ページ(community/scope-ledger.md)を再生成する
 
@@ -23,6 +26,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import GithubSlugger from 'github-slugger';
+import { exemptKey, exemptProblems } from './lib/scope-exempt.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS_ROOT = 'src/content/docs';
@@ -50,7 +54,9 @@ const warnings = [];
 const scopes = [];
 
 const exempt = YAML.parse(readFileSync(path.join(ROOT, 'src/data/scope-exempt.yaml'), 'utf8'));
-const EXEMPT = new Set((exempt.exempt ?? []).map((e) => `${e.page}#${e.heading}`));
+const EXEMPT = new Set((exempt.exempt ?? []).map(exemptKey));
+/** 免除として実際に働いた登録の鍵。働かなかった登録は残骸として検査を落とす(#326) */
+const USED = new Set();
 
 /** src/content/docs/a/b.md -> /process-compass/a/b/ */
 function toUrl(file) {
@@ -143,7 +149,10 @@ function collect(file) {
     const body = lines[i].trim();
     if (!body || body.startsWith('|') || body.startsWith('-') || body.startsWith('>')) continue;
     if (!LIMIT_RE.test(body)) continue;
-    if (EXEMPT.has(`${page}#${heading}`)) continue;
+    if (EXEMPT.has(`${page}#${heading}`)) {
+      USED.add(`${page}#${heading}`);
+      continue;
+    }
 
     flagged = true;
     warnings.push(
@@ -207,6 +216,7 @@ if (args.has('--write')) {
 }
 
 for (const w of warnings) errors.push(w);
+errors.push(...exemptProblems(exempt.exempt, USED));
 
 if (errors.length > 0) {
   console.error('適用範囲の検査で問題が見つかりました:\n');
