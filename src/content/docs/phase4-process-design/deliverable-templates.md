@@ -213,7 +213,7 @@ graph LR
 
 <!-- impl IMPL-0779 target=d0-template state=delivered check=manual note="成立済みの判定記録は書き換えず、変化点をまたぐ未完了の判定は新しい体制の判定者が引き継ぐこと(文のこと)。templates/00-d0-governance.md の節13 の箇条書きの末尾が同じ文を置く。記録の有無と、判定者の名義の検査は IMPL-0944 が追う。確かめる者: 体制の変化点を反映する席の責任者" -->
 
-<!-- impl IMPL-0944 target=process-change-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="変化点をまたぐ未完了の判定を、変化点の後の体制の判定者(新しい席の責任者)が引き継ぐことの記録と、変化点の前の体制の判定者の名義の判定を変化点の後の判定として受け付けない検査。変化点の入口(/process-change)は dry-run.md の「無効になった確認の候補」に、責任者または運用形態が変わった席の仕掛かり中の判定を挙げる(候補を示すだけ)。引き継ぎの記録と名義の検査は、読んだ範囲(scripts/init/generate-profile.mjs の差分の分類、/process-change の補助ファイル。2026-11-15 に付け替え)で見つかっていない。降ろし先を config-change-log から付け替えた(changeLog は変化点の記録で、仕掛かりの判定を持たない)。IMPL-0723(無効になった確認の特定)と同じ仕掛かりの扱い。IMPL-0779 から分けた(束 C の突合 1巡目 C1-03)。確かめる者: 計画の Issue の担当者" -->
+<!-- impl IMPL-0944 target=process-change-skill state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="変化点をまたぐ未完了の判定を、変化点の後の体制の判定者(新しい席の責任者)が引き継ぐことの記録と、変化点の前の体制の判定者の名義の判定を変化点の後の判定として受け付けない検査。変化点の入口(/process-change)は dry-run.md の「無効になった確認の候補」に、責任者または運用形態が変わった席の仕掛かり中の判定を挙げる(候補を示すだけ)。引き継ぎの記録と名義の検査は、読んだ範囲(scripts/init/generate-profile.mjs の差分の分類、/process-change の補助ファイル。2026-11-15 に付け替え)で見つかっていない。降ろし先を config-change-log から付け替えた(changeLog は変化点の記録で、仕掛かりの判定を持たない)。IMPL-0723(無効になった確認の特定)と同じ仕掛かりの扱い。IMPL-0779 から分けた(束 C の突合 1巡目 C1-03)。確かめる者: 計画の Issue の担当者" -->
 
 変化点の列挙と手続は、製造と労働安全の変更管理からの類推です。開発体制へ転用した効果は測定されておらず、根拠の水準は ADR-0055 に開示しています。
 
@@ -734,7 +734,7 @@ D-0 は監査の対象です。記録として成立するために、次を満�
 
 <!-- impl IMPL-0786 target=evidence-aggregation state=delivered check=manual note="技術負債台帳の区分「例外」の行を変更の例外承認として対応づける条件(「対象」の欄が当該の変更を明示している、状態が「未返却」と完全一致する、承認した者・理由・期限が記入されている、承認した者が名簿の人で作成を指示した者でない)。scripts/gate/aggregate-evidence.mjs の例外承認の対応づけの規則(コメントの 1〜4)と material-attribution.mjs を読んだ範囲で、試験は実行していない。確かめる者: 出荷判定者(集約を読むとき)" -->
 
-<!-- impl IMPL-0787 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="返却目安の期限を過ぎた未返却の行と失効の行を記録の欠落として扱うこと、期限を延ばすときは行を書き換えず新しい行で承認し直すこと。scripts/gate/aggregate-evidence.mjs を期限・失効で検索した範囲で見つかっていない(期限切れを欠落にするのは D-0 節15 の受容の側)。確かめる者: 計画の Issue の担当者" -->
+<!-- impl IMPL-0787 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="返却目安の期限を過ぎた未返却の行と失効の行を記録の欠落として扱うこと、期限を延ばすときは行を書き換えず新しい行で承認し直すこと。scripts/gate/aggregate-evidence.mjs を期限・失効で検索した範囲で見つかっていない(期限切れを欠落にするのは D-0 節15 の受容の側)。確かめる者: 計画の Issue の担当者" -->
 
 運用ルール(である調 / 体言止め):
 
@@ -1176,7 +1176,7 @@ PR を経ていないコミットで、リスク区分または検証の記載�
 
 <!-- impl IMPL-0797 target=project-brief-template state=delivered check=presence note="期待効果の欄に単一の年額を要求せず、長期の期待効果を幅で書かせ、算定根拠・参照した過去案件・効果が出ない条件の3点を欄として置く(templates/06-project-brief.md の投資対効果の表)(単位: 行)" -->
 
-<!-- impl IMPL-0798 target=project-brief-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="外部の比率(交通インフラの需要予測の過大の比率など)を自組織の補正値として用いないこと。templates/06-project-brief.md を比率・補正値で検索した範囲で、この文は見つかっていない。確かめる者: 計画の Issue の担当者" -->
+<!-- impl IMPL-0798 target=project-brief-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="外部の比率(交通インフラの需要予測の過大の比率など)を自組織の補正値として用いないこと。templates/06-project-brief.md を比率・補正値で検索した範囲で、この文は見つかっていない。確かめる者: 計画の Issue の担当者" -->
 
 :::note
 上記の数値は交通インフラの案件を対象とした研究によるものです。ソフトウェア開発の案件へ同じ比率が当てはまるという意味ではありません。
@@ -1204,9 +1204,9 @@ PR を経ていないコミットで、リスク区分または検証の記載�
 
 <!-- impl IMPL-0800 target=g1-check state=delivered check=manual note="観点1(戦略整合)と観点2(自社が勝てる理由)の未記入(TBD / 未定 / ??? / 空欄)を、scripts/gate/check-g1.mjs が G-1 の審議開始前に問題として出す。確かめる者: 価値責任者(G-1 の審議開始前に check-g1 を流すとき)" -->
 
-<!-- impl IMPL-0801 target=g1-check state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="禁止した一般語のみで書かれた欄と、代替手段の欄に「ない」とのみ書かれた欄を、機械が検査すること。scripts/gate/check-g1.mjs は未記入と様式の説明のままを検出するが、一般語のみ・「ない」のみは「成長」「一般語」「同一」で検索した範囲で見つかっていない。前案件の記述との同一の検査は、他案件の企画書を入力に要し、準拠テンプレートに入力の置き場が無いため、ここでは扱わない。確かめる者: 計画の Issue の担当者" -->
+<!-- impl IMPL-0801 target=g1-check state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="禁止した一般語のみで書かれた欄と、代替手段の欄に「ない」とのみ書かれた欄を、機械が検査すること。scripts/gate/check-g1.mjs は未記入と様式の説明のままを検出するが、一般語のみ・「ない」のみは「成長」「一般語」「同一」で検索した範囲で見つかっていない。前案件の記述との同一の検査は、他案件の企画書を入力に要し、準拠テンプレートに入力の置き場が無いため、ここでは扱わない。確かめる者: 計画の Issue の担当者" -->
 
-<!-- impl IMPL-0878 target=g1-check state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="企画書の記述が前案件の記述と同一であることを、機械が検査すること(記述の充足をどう検査するかの表)。他案件の企画書を入力に要し、準拠テンプレートの check-g1.mjs に入力の置き場も同一の検査も無い(読んだ範囲。2026-11-15)。検査を足すには新しい記録を要するため、棚卸しでは機械の検査(check=machine)を足さず、降りていない規定として表示する。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0878 target=g1-check state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="企画書の記述が前案件の記述と同一であることを、機械が検査すること(記述の充足をどう検査するかの表)。他案件の企画書を入力に要し、準拠テンプレートの check-g1.mjs に入力の置き場も同一の検査も無い(読んだ範囲。2026-11-15)。検査を足すには新しい記録を要するため、棚卸しでは機械の検査(check=machine)を足さず、降りていない規定として表示する。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 誰がいつ書くか
 
@@ -1258,7 +1258,7 @@ AI の利用の3行は、AI の利用そのものが目的になることを防�
 
 <!-- impl IMPL-0802 target=project-brief-template state=delivered check=presence note="稟議へ数値を出すとき。決裁制度が単一の金額を要求する場合は期待効果の幅の下限値を用い、上限値を提示しない、数値に算定根拠と効果が出ない条件を併記する、期待効果の欄を稟議のために書き換えない(templates/06-project-brief.md の「稟議へ数値を出すとき」)。費用の数値は見積りの幅の上側を用い、上側を下回る額は差を記名で受容する(同 見積りの記録のコメント)。稟議の文書そのものは検査しない(単位: 行)" -->
 
-<!-- impl IMPL-0950 target=project-brief-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="稟議へ提示する投影(決裁制度への提示の規定1・2)。投影に出所を持たない項目を加えず、すべての項目に既存の成果物の出所を対応づけること(規定1)。投影を正本として保管せず、判定の対象にしないこと(規定2)。templates/06-project-brief.md と手引き 06 に、この2つを運ぶ文は無い(規定3〜6 は様式の「稟議へ数値を出すとき」が運ぶ IMPL-0802。2026-11-15)。投影は組織の決裁制度の文書で、対応づけと保管を拒む検査は標準の記録に現れないため、降りていない規定として表示する(束 C の突合 1巡目 C1-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0950 target=project-brief-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="稟議へ提示する投影(決裁制度への提示の規定1・2)。投影に出所を持たない項目を加えず、すべての項目に既存の成果物の出所を対応づけること(規定1)。投影を正本として保管せず、判定の対象にしないこと(規定2)。templates/06-project-brief.md と手引き 06 に、この2つを運ぶ文は無い(規定3〜6 は様式の「稟議へ数値を出すとき」が運ぶ IMPL-0802。2026-11-15)。投影は組織の決裁制度の文書で、対応づけと保管を拒む検査は標準の記録に現れないため、降りていない規定として表示する(束 C の突合 1巡目 C1-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## テンプレ7: 実装計画(plan)
 
@@ -1343,9 +1343,9 @@ AI の利用の3行は、AI の利用そのものが目的になることを防�
 
 <!-- impl IMPL-0856 target=ai-sla-guide state=delivered check=manual note="契約への組み込み方。品質に関する比率指標を金銭措置の条件にしないこと、契約では開示義務型を基本とすること。.claude/skills/artifact/artifacts/08-ai-sla.md の節「目的・読み手・形式」の形式の行と、節「レビューの観点」の金銭措置の条件に比率指標が入っていないかの項目が置く。 確かめる者: 委託契約の調達・法務の担当者と出荷判定者(G-7 でテンプレ8 を突合するとき)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0857 target=ai-sla-guide state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="金銭措置型は、稼働率など客観的に観測できる量に限って用いること。08-ai-sla.md は比率指標を金銭措置の条件にしないことは置くが、金銭措置型を客観的に観測できる量に限る旨(その逆の向き)は置かない(読んだ範囲。2026-11-15)。 確かめる者: 計画の Issue の担当者" -->
+<!-- impl IMPL-0857 target=ai-sla-guide state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="金銭措置型は、稼働率など客観的に観測できる量に限って用いること。08-ai-sla.md は比率指標を金銭措置の条件にしないことは置くが、金銭措置型を客観的に観測できる量に限る旨(その逆の向き)は置かない(読んだ範囲。2026-11-15)。 確かめる者: 計画の Issue の担当者" -->
 
-<!-- impl IMPL-0958 target=gate-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="出荷判定(G-7)で、AI-SLA の契約への組み込みの類型として是正計画型と開示義務型を基本とすること。.claude/skills/gate/gates/G-7.md に是正計画型の語は無く、手引き 08 は契約の側(開示義務型を基本。IMPL-0856)を置く(2026-11-15)。IMPL-0856 は契約の側だけを追う(束 C の突合 1巡目 C1-35)。是正計画の構造は様式 08 の第3項・第4項(IMPL-0804)が運び、出荷判定の側で類型を名指す文が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0958 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="出荷判定(G-7)で、AI-SLA の契約への組み込みの類型として是正計画型と開示義務型を基本とすること。.claude/skills/gate/gates/G-7.md に是正計画型の語は無く、手引き 08 は契約の側(開示義務型を基本。IMPL-0856)を置く(2026-11-15)。IMPL-0856 は契約の側だけを追う(束 C の突合 1巡目 C1-35)。是正計画の構造は様式 08 の第3項・第4項(IMPL-0804)が運び、出荷判定の側で類型を名指す文が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 様式
 
@@ -1516,7 +1516,7 @@ AI の利用の3行は、AI の利用そのものが目的になることを防�
 
 <!-- impl IMPL-0805 target=ai-sla-template state=delivered check=manual note="テンプレ8 第5項。監査の範囲・事前通知の期間・提示を求める記録(ゲート判定記録・判断記録・指標の算出根拠)の欄。templates/08-ai-sla.md の節「5. 監査」が置き、必須欄の検査(t8『## 5. 監査』)は節の見出しの存在だけを確かめる。欄と記入の中身は確かめない。確かめる者: 委託契約の調達・法務の担当者と出荷判定者(G-7 でテンプレ8 を突合するとき)" -->
 
-<!-- impl IMPL-0957 target=ai-sla-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="テンプレ8 第7項の6行のうち、「禁止するライセンス」「納品時に提出する記録」「検査で指摘が出た場合の措置」の3行と、検査を AI の利用の有無によらず全件へ適用する旨の注記を、様式に置くこと。templates/08-ai-sla.md の「7. 知財の扱い」は4行(依存関係のライセンス検査・類似検知・補償・結果責任を負う者)で、この3行と注記は無い(開いて確かめた。2026-11-15)。src/data/template-fields.yaml の t8 は第7項の見出し・補償・結果責任の fields を持つが、この3行の fields も omit も無い(後継へ寄せる事実)。注記の趣旨(検査を AI の利用の有無で変えない)は手引き 08 の手順 3 が運ぶ(IMPL-0955)。様式の注記としては無い。軸D の IMPL-0751 は在る4行を、IMPL-0752 は結果責任の検査の範囲と手段を追う(束 C の突合 1巡目 C1-18)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0957 target=ai-sla-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="テンプレ8 第7項の6行のうち、「禁止するライセンス」「納品時に提出する記録」「検査で指摘が出た場合の措置」の3行と、検査を AI の利用の有無によらず全件へ適用する旨の注記を、様式に置くこと。templates/08-ai-sla.md の「7. 知財の扱い」は4行(依存関係のライセンス検査・類似検知・補償・結果責任を負う者)で、この3行と注記は無い(開いて確かめた。2026-11-15)。src/data/template-fields.yaml の t8 は第7項の見出し・補償・結果責任の fields を持つが、この3行の fields も omit も無い(後継へ寄せる事実)。注記の趣旨(検査を AI の利用の有無で変えない)は手引き 08 の手順 3 が運ぶ(IMPL-0955)。様式の注記としては無い。軸D の IMPL-0751 は在る4行を、IMPL-0752 は結果責任の検査の範囲と手段を追う(束 C の突合 1巡目 C1-18)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 知財潔白性を AI 固有の要求として書かない理由
 
@@ -1550,7 +1550,7 @@ EU 域内に関わる案件では、生成された出力を機械可読な形�
 
 受託の案件では、発注側の席の責任者も「体制の内」の人として数えます([第8章 軸D](/process-compass/phase4-process-design/tailoring-guide/)「委託の体制の人数と、軸A との組み合わせ」)。この対応を置き先の記録の隣に書くのは、置き先を決めると、確認者を置く側が決まるためです。締結の時点で、置き先と確認者の対応を読み手が確かめられます。根拠は審議の記録(`research/370-deliberation/`)にあります。
 
-<!-- impl IMPL-0807 target=ai-sla-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="独立レビュー(G-6)の置き先にかかわらず、確認者の D-0 表5-2 の区分を変えないこと(発注側に置けば発注側の「体制の内」の人または発注側が置いた外部の確認者、受注側に置けば受注側の同じ区分)。第9節は置き先の欄を持つが、置き先と確認者の区分の対応を書く記述は無い(templates/08-ai-sla.md に「5-2」「体制の内」の語は無い。2026-11-15)。G-6 の4条件が置き先によらず同じであることは第4章 G-6 の節で扱う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0807 target=ai-sla-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="独立レビュー(G-6)の置き先にかかわらず、確認者の D-0 表5-2 の区分を変えないこと(発注側に置けば発注側の「体制の内」の人または発注側が置いた外部の確認者、受注側に置けば受注側の同じ区分)。第9節は置き先の欄を持つが、置き先と確認者の区分の対応を書く記述は無い(templates/08-ai-sla.md に「5-2」「体制の内」の語は無い。2026-11-15)。G-6 の4条件が置き先によらず同じであることは第4章 G-6 の節で扱う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 第10項〜第14項を様式に置く理由
 
@@ -1657,7 +1657,7 @@ EU 域内に関わる案件では、生成された出力を機械可読な形�
 
 <!-- impl IMPL-0812 target=qa-policy-template state=delivered check=manual note="テンプレ11 要求事項2 のうち、記名者を、適用範囲の組織単位を最高位で指揮し管理する者(この単位のトップマネジメント)とすること。templates/11-quality-assurance-policy.md の冒頭の箇条1 と、様式の行「記名(記名者)」が置く。最高位であることは機械では確かめない。確かめる者: 品質保証部門(層1 を記名するとき)" -->
 
-<!-- impl IMPL-0946 target=qa-policy-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="テンプレ11 要求事項2 のうち、本標準の適用を決める時点で、本様式の5項目を文書で定め、記名すること(時点の定め)。templates/11-quality-assurance-policy.md と手引き 11 に「適用を決め」「時点」の語は無い(2026-11-15)。IMPL-0812 は記名者の定義だけを追う(束 C の突合 1巡目 C1-16)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0946 target=qa-policy-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="テンプレ11 要求事項2 のうち、本標準の適用を決める時点で、本様式の5項目を文書で定め、記名すること(時点の定め)。templates/11-quality-assurance-policy.md と手引き 11 に「適用を決め」「時点」の語は無い(2026-11-15)。IMPL-0812 は記名者の定義だけを追う(束 C の突合 1巡目 C1-16)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0813 target=qa-policy-template state=delivered check=manual note="テンプレ11 要求事項8。層1 を改めるのは、体制の変化点・事業の変化点・外枠の変化(法令の改正、契約の変更、規格の改版)のときだけとし、周期的な見直しの文書を置かないこと。templates/11-quality-assurance-policy.md の冒頭の箇条5 と、様式の行「改めた契機」(導入 / 体制の変化点 / 事業の変化点 / 外枠の変化)が置く。確かめる者: 品質保証部門(層1 を改めるとき)" -->
 
@@ -1665,11 +1665,11 @@ EU 域内に関わる案件では、生成された出力を機械可読な形�
 
 <!-- impl IMPL-0815 target=qa-policy-guide state=delivered check=manual note="テンプレ11 要求事項9 のうち、受容しない条件(項目2)が外枠(項目3)を下回らないこと、外へ約束する品質の水準を事業規模を理由に下げないこと。.claude/skills/artifact/artifacts/11-quality-assurance-policy.md の節「レビューの観点」の「受容しない条件が外枠(法令・契約・規格)を下回っていないか」と「規模を理由に、外へ約束する品質の水準を下げていないか」が置く。項目4 の分は IMPL-0945 が追う。様式の項目3 の注記「外枠は受容の対象ではありません」は IMPL-0563。確かめる者: 層1 をレビューする者(品質保証部門と事業決裁者)" -->
 
-<!-- impl IMPL-0945 target=qa-policy-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="テンプレ11 要求事項9 のうち、受容の基準(項目4)が外枠(項目3)を下回らないこと。手引き 11 の観点は受容しない条件(項目2)と規模の分だけを置く(IMPL-0815)。項目4 が外枠を下回らないことを置く文は、templates/11-quality-assurance-policy.md と手引き 11 に無い(「下回」の語は手引きの1箇所のみ。2026-11-15)。IMPL-0815 から分けた(束 C の突合 1巡目 C1-08)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0945 target=qa-policy-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="テンプレ11 要求事項9 のうち、受容の基準(項目4)が外枠(項目3)を下回らないこと。手引き 11 の観点は受容しない条件(項目2)と規模の分だけを置く(IMPL-0815)。項目4 が外枠を下回らないことを置く文は、templates/11-quality-assurance-policy.md と手引き 11 に無い(「下回」の語は手引きの1箇所のみ。2026-11-15)。IMPL-0815 から分けた(束 C の突合 1巡目 C1-08)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0947 target=qa-policy-guide state=delivered check=manual note="テンプレ11 要求事項10 のうち、5項目を組織の管理下で働く者へ周知し、周知は合意を求めないこと(手引きの行「周知」は担い手と「合意を求めない」を置き、「組織の管理下で働く者へ」の句は言わない)。.claude/skills/artifact/artifacts/11-quality-assurance-policy.md の節「作成の手順」の表の行「周知」(記名者。AI の担い手は周知の文案を示してよく、合意を求める文にしてはならない)が置く。周知したことを拒む検査と記録の欄は無い。確かめる者: 記名者(周知するとき)" -->
 
-<!-- impl IMPL-0948 target=qa-policy-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="テンプレ11 要求事項10 のうち、各人が自らの役割と、懸念を記録する経路(第7章 7.11 の停止の申し立て)を認識していることを求めること。手引き 11 の周知の行は、周知の文案と合意を求めないことだけを置き、各人の認識を求める文は templates/11 にも手引き 11 にも無い(2026-11-15)。IMPL-0947 から分けた(束 C の突合 1巡目 C1-10)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0948 target=qa-policy-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="テンプレ11 要求事項10 のうち、各人が自らの役割と、懸念を記録する経路(第7章 7.11 の停止の申し立て)を認識していることを求めること。手引き 11 の周知の行は、周知の文案と合意を求めないことだけを置き、各人の認識を求める文は templates/11 にも手引き 11 にも無い(2026-11-15)。IMPL-0947 から分けた(束 C の突合 1巡目 C1-10)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0822 target=d0-template state=delivered check=manual note="層1(テンプレ11)の版の更新を、各案件の体制の変化点に数えること。templates/00-d0-governance.md の層1 の版の行の次の段落が「層1(テンプレ11)の版の更新は、この案件の体制の変化点に数えます」と置き、出荷判定の証跡の集約がこの行を保証の開示の項目7 へ出す。確かめる者: 品質保証部門(層1 を改めるとき)" -->
 
@@ -2183,7 +2183,7 @@ sequenceDiagram
 
 順序を強制する手段(ツールの機能・運用規律・レビュー時の確認のいずれか)は問いません。本標準が要求するのは順序であり、実現手段ではありません。
 
-<!-- impl IMPL-0819 target=implement-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="コア機能とリスク区分 R1 の変更で、実装の方針を人が自分の言葉で記述し(段階1)、その後に AI の生成結果を参照し(段階2)、方針との相違を記録する(段階3)こと。段階1を経ずに段階2へ進まない(非コア機能かつ R3 の変更は段階1を省略してよい)。実装のスキルは、テストを別の文脈で先に生成する手順を置くが、人が方針を先に確定する順序は置かない(.claude/skills/implement/SKILL.md、templates/07-implementation-plan.md、.github を「方針」「相違」「自分の言葉」で検索して該当なし。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0819 target=implement-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="コア機能とリスク区分 R1 の変更で、実装の方針を人が自分の言葉で記述し(段階1)、その後に AI の生成結果を参照し(段階2)、方針との相違を記録する(段階3)こと。段階1を経ずに段階2へ進まない(非コア機能かつ R3 の変更は段階1を省略してよい)。実装のスキルは、テストを別の文脈で先に生成する手順を置くが、人が方針を先に確定する順序は置かない(.claude/skills/implement/SKILL.md、templates/07-implementation-plan.md、.github を「方針」「相違」「自分の言葉」で検索して該当なし。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 判定における対比
 

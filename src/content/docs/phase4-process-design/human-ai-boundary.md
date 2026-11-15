@@ -27,7 +27,7 @@ sidebar:
 
 <!-- impl IMPL-0591 target=claude-md state=delivered check=manual note="原則1(結果責任は人間に紐づき、AI は実行のみを担う)。準拠テンプレートの CLAUDE.md の「4種類の判断の確定…席の責任者(人)が記名で行う。AI の担い手へ移さない」の行が、結果責任を席の責任者(人)に置く。原則2・3 は別のマークで追う。 確かめる者: AI維持管理者(指示資産・様式を改めるとき)" -->
 
-<!-- impl IMPL-0592 target=config-roles state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="原則2(結果責任は成果物ごとに1名)。構成の席の責任者(seats[].accountable)は席ごとに1名の欄で、成果物ごとの1名を照らす検査は scripts/gate・scripts/init に見つからない(2026-11-15)。原則3(生成を指示した者と別の自然人が確認する席の責任者を置く。兼務で確認しても満たせず G-6 を未達として表示する)は IMPL-0688 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0592 target=config-roles state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="原則2(結果責任は成果物ごとに1名)。構成の席の責任者(seats[].accountable)は席ごとに1名の欄で、成果物ごとの1名を照らす検査は scripts/gate・scripts/init に見つからない(2026-11-15)。原則3(生成を指示した者と別の自然人が確認する席の責任者を置く。兼務で確認しても満たせず G-6 を未達として表示する)は IMPL-0688 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0688 target=config-unmet state=delivered check=manual note="原則3。生成を指示した者と別の自然人が確認する席の責任者を置くこと。兼務で確認しても満たせず、G-6 を未達として表示すること。scripts/init/generate-profile.mjs の detectUnmet が、確認する人がいない・同一人物・確認の担い手が示されていない構成で gates.g6.state を unmet にし、scripts/gate/config.mjs の confirmerOnRoster と verify-gate-contract.mjs が、未達の記録が無い構成を拒む。3名以上の体制は兼務禁止の表からの導出と、同一人物にする変更の拒否が generate-profile.mjs にある。第3章 3.5 のマークとの突き合わせは別の束で行う。実行は見ていない。確かめる者: 出荷判定者(PROCESS-PROFILE.md の未達の表示を読むとき)" -->
 
 ## 5.3 役割境界の時点表記
@@ -82,7 +82,7 @@ AI の能力は短期間で変化するため、役割境界の定義には必�
 
 要求事項2は、2026-08-05 時点の実務における到達点でもあります。エージェントによる変更の提案までを自律化し、反映の判断を人間が保持する構成は、主要な開発基盤で標準となっています。
 
-<!-- impl IMPL-0593 target=claude-md state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="不変条件のうち、不変条件2(本番環境への反映の承認は人間の記名)。CLAUDE.md の「ホスティングの上で、承認・レビュー(状態を問わない)・マージ…をしない」の行と delegation.yml の承認条件が一部を運ぶが、本番反映の承認の記名を照らす検査は IMPL-0251(5.5.1 の取り消せない操作)の範囲に限られる。不変条件1・3・4は IMPL-0689 が追う(不変条件3の外部との契約は CLAUDE.md の節「一律で AI に委譲できない領域」の箇条が置く)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0593 target=claude-md state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="不変条件のうち、不変条件2(本番環境への反映の承認は人間の記名)。CLAUDE.md の「ホスティングの上で、承認・レビュー(状態を問わない)・マージ…をしない」の行と delegation.yml の承認条件が一部を運ぶが、本番反映の承認の記名を照らす検査は IMPL-0251(5.5.1 の取り消せない操作)の範囲に限られる。不変条件1・3・4は IMPL-0689 が追う(不変条件3の外部との契約は CLAUDE.md の節「一律で AI に委譲できない領域」の箇条が置く)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0689 target=claude-md state=delivered check=manual note="不変条件1(結果責任は人間)、不変条件3(認証・認可・個人データ・外部との契約に関わる変更の人の判断)、不変条件4(適用範囲の拡大を AI が決定しない)。template/CLAUDE.md の節「一律で AI に委譲できない領域(第5章 5.8.3・5.4.3)」が「認証・認可・個人データ・外部との契約に関わる決定」と「適用範囲(標準の適用境界)そのものの拡大」を箇条で置き、節「判断の確定と委任」が「4種類の判断の確定は席の責任者(人)が記名で行い、AI の担い手へ移さない」と置き(IMPL-0019 が追う)、行「リスク区分は変更ごとに判定」が認証・認可・個人データ・外部 IF を R1 とし、構成の riskFloor.rules を check-pr.mjs の riskFloorOf が下限として機械で課す。行「緩める向きの変更を AI が決めない」と AI の名義の記名の拒否は IMPL-0097 が追う。確かめる者: 各ロールの席の責任者(CLAUDE.md を読むとき)" -->
 
 ### 5.4.4 リスク区分による上限
@@ -119,7 +119,7 @@ AI の能力は短期間で変化するため、役割境界の定義には必�
 
 ![AI自律レベルの非対称の図。L1 主導実装、L2 仕様駆動の並行実行、L3 自己修復を階段として並べ、引き上げは申請して判定を受ける細い点線の矢印、引き下げは検知した時点で自動に発火する太い矢印で示す](../../../assets/figures/pit-in/fig-ratchet.png)
 
-<!-- impl IMPL-0594 target=autonomy-derivation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="リスク区分ごとの最大レベルのうち、R1 は L1・R2 は L2 を変更ごとのリスク区分と照合すること、安全関連部の R1・L1 固定。scripts/gate/autonomy.mjs は登録した変更種別ごとにレベルを導き(R3 外は L1 に留める。IMPL-0289 が追う)、変更ごとのリスク区分とは照合しない。準拠テンプレートの構成は安全関連部の範囲を持たず案件の全体へ上限を掛ける(autonomy.mjs の capReason が明記)ため、安全関連部だけを R1・L1 に固定する検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0594 target=autonomy-derivation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="リスク区分ごとの最大レベルのうち、R1 は L1・R2 は L2 を変更ごとのリスク区分と照合すること、安全関連部の R1・L1 固定。scripts/gate/autonomy.mjs は登録した変更種別ごとにレベルを導き(R3 外は L1 に留める。IMPL-0289 が追う)、変更ごとのリスク区分とは照合しない。準拠テンプレートの構成は安全関連部の範囲を持たず案件の全体へ上限を掛ける(autonomy.mjs の capReason が明記)ため、安全関連部だけを R1・L1 に固定する検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 5.4.5 レベルの引き上げ
 
@@ -308,7 +308,7 @@ AI の能力は短期間で変化するため、役割境界の定義には必�
 
 AI 支援を用いた群が、支援なしの後続作業で著しく高い失敗率を示したという実験結果が複数報告されています(2026年前半)。監督者の能力低下は、レベルを上げた組織が数年後に直面する固有のリスクです。個人の心構えではなく、プロセス上の措置として扱います。
 
-<!-- impl IMPL-0978 target=ai-free-practice-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="L2 以上を適用する範囲で、対象領域について AI エージェントを用いずに実装または調査する機会を、定められた頻度で確保すること。頻度と実施の記録の置き場を準拠テンプレートが持たない(2026-11-15 確認)。頻度の値と記録の欄を足すことは採用者への新しい義務になるため、棚卸しでは決めず、降ろす段階で審議する。コア機能の理解保持者数の維持は第3章 3.4.3 の IMPL-0061・IMPL-0645、挙動要約の記載の継続は第4章 G-6 の IMPL-0093・IMPL-0077・IMPL-0112 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0978 target=ai-free-practice-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="L2 以上を適用する範囲で、対象領域について AI エージェントを用いずに実装または調査する機会を、定められた頻度で確保すること。頻度と実施の記録の置き場を準拠テンプレートが持たない(2026-11-15 確認)。頻度の値と記録の欄を足すことは採用者への新しい義務になるため、棚卸しでは決めず、降ろす段階で審議する。コア機能の理解保持者数の維持は第3章 3.4.3 の IMPL-0061・IMPL-0645、挙動要約の記載の継続は第4章 G-6 の IMPL-0093・IMPL-0077・IMPL-0112 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 5.4.8 見直しの頻度
 
@@ -318,7 +318,7 @@ AI 支援を用いた群が、支援なしの後続作業で著しく高い失�
 
 外部指標を単独の根拠にしない理由は、公開ベンチマークに評価データの混入や設問不備が繰り返し報告されており、2026年前半には主要な提供者がその一部の使用を取りやめているためです。
 
-<!-- impl IMPL-0595 target=process-change-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="外部の性能指標(ベンチマークのスコア)のみを根拠にレベルを引き上げないこと、自組織の実測値を根拠とすること。/process-change の SKILL.md・kinds/mode.md・CLAUDE.md・autonomy.mjs・config.mjs を「ベンチマーク」「外部の性能」「指標」で検索して、該当する文は無かった(2026-11-15)。時点の併記と1年後の再評価は本標準の記述の保守であり、案件の実行主体の挙動ではない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0595 target=process-change-skill state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="外部の性能指標(ベンチマークのスコア)のみを根拠にレベルを引き上げないこと、自組織の実測値を根拠とすること。/process-change の SKILL.md・kinds/mode.md・CLAUDE.md・autonomy.mjs・config.mjs を「ベンチマーク」「外部の性能」「指標」で検索して、該当する文は無かった(2026-11-15)。時点の併記と1年後の再評価は本標準の記述の保守であり、案件の実行主体の挙動ではない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 5.5 判断の席と、確定の担い手
 
@@ -491,7 +491,7 @@ graph TD
 <!-- impl IMPL-0026 target=config-delegation state=undelivered check=manual plan=scheduled issue=339 review=2027-04 note="委任の該当は機械の規則で判定し、行為する AI 自身に判定させない。判定の規則と構成は基底ブランチから読む。AI の確認を承認にも合否条件にもしない。該当の判定は実装、マージの実行は既定で無効、実環境で未確認。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0235 target=delegation-workflow state=undelivered check=manual plan=scheduled issue=339 review=2027-04 note="要求事項1〜6 を delegation.yml と check-delegation.mjs が実装する。基底ブランチの定義で起動して既定ブランチを checkout し、判定を必須でないステータスで出し、承認を付けずに記録し、有効化の変数と Environment delegated-merge の秘密情報が揃った場合に限り、判定した時点のコミットに固定してマージする。test-check-delegation.mjs がワークフローの定義と模擬の入力で確かめる。実際の GitHub 上で実行していない(本節の開示)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0597 target=config-delegation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="条件4(単独で取り消せ、取り消しを実行した実績がある)と条件6(独立レビュアの席の責任者が事後に抜き取りで確かめる。頻度・抜き取り数・記録)。delegation.mjs は条件4・6を人の判断として判定せず、NOT_JUDGED として出力へ必ず載せる(登録の根拠の記入の有無は IMPL-0035、期間の開示は IMPL-0048 が追う)。取り消しの実績の確認と抜き取りの実施そのものを照らす検査は無い。条件1・3・5・7と本人による抜き取りの表示は IMPL-0690 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0597 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="条件4(単独で取り消せ、取り消しを実行した実績がある)と条件6(独立レビュアの席の責任者が事後に抜き取りで確かめる。頻度・抜き取り数・記録)。delegation.mjs は条件4・6を人の判断として判定せず、NOT_JUDGED として出力へ必ず載せる(登録の根拠の記入の有無は IMPL-0035、期間の開示は IMPL-0048 が追う)。取り消しの実績の確認と抜き取りの実施そのものを照らす検査は無い。条件1・3・5・7と本人による抜き取りの表示は IMPL-0690 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0690 target=config-delegation state=delivered check=manual note="委任の条件1(案件の安全重要度 CL0 で規制業でない)、条件3(G-5 の必須チェック gate-g5 の通過。変更箇所の挙動を既存テストで検出できることは機械で確かめない)、条件5(確約範囲とコア指定のパスに触れない)、条件7(トレーラ Delegated の規則ID で委任の変更を識別する)、条件6の本人による抜き取りの表示。scripts/gate/delegation.mjs の judgeDelegatedMerge と recordText、check-delegation.mjs の入口が判定し、aggregate-evidence.mjs が R3 でない委任の変更を記載の欠落として出し、作成を指示した本人が抜き取る体制を保証の開示に表示する(samplerIsAuthor)。要求事項1〜6は IMPL-0235 が追う。実環境での動作は未確認(check-delegation.mjs にも未実行と書かれている)。台帳では、同じ判定の経路の条件2 を追う IMPL-0026・IMPL-0235(#339。実環境で未確認を理由に降りていない扱い)と基準が割れて見える。本マークは降ろし先の実物が規定を運ぶことを読んで確かめた基準(rulings.md 1.4)で delivered とし、実環境での動作は未確認である。確かめる者: 出荷判定者(集約と保証の開示を読むとき)" -->
 
 #### 登録と、登録した変更種別の経路
@@ -549,7 +549,7 @@ graph TD
 
 **本節と 5.5.3 の上限は、既定値ではありません。推奨でもありません**([第1章 1.7.7](/process-compass/phase4-process-design/overview/)の型の外です)。案件が判断記録(ADR)を書けば緩和できる、という規定ではありません。役割境界の見直しは 5.9 によります。**見直しの結果は本章へ反映するものであり、案件側の記録で本章の要求を緩和する経路はありません**。案件が選べるのは、上限の内側での運用形態だけです。
 
-<!-- impl IMPL-0598 target=config-delegation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="人が確定する判断3・4・6と、出荷判定者の停止権の範囲。リスク区分の機械の分類(riskFloorOf)と、分類できない変更を協働へ落とす classifyDelegation は判断3の一部を運び、CLAUDE.md と IMPL-0251 が判断4(G-7 の記名・本番反映の承認)の一部を運ぶが、判断6のうち安全の最終判断は CLAUDE.md の節「一律で AI に委譲できない領域」の箇条「安全に関する最終的な判断」が置くが理解の確認の側を運ぶ文は無く、出荷判定者の停止権の範囲は template/ を「停止権」で検索して見つからなかった(2026-11-15)。判断1は5.7.3の IMPL-0172 が追う。判断2・5と4つの席を委任しないことは IMPL-0691 が追う。この節は adopter にできない節のため scheduled とする。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0598 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="人が確定する判断3・4・6と、出荷判定者の停止権の範囲。リスク区分の機械の分類(riskFloorOf)と、分類できない変更を協働へ落とす classifyDelegation は判断3の一部を運び、CLAUDE.md と IMPL-0251 が判断4(G-7 の記名・本番反映の承認)の一部を運ぶが、判断6のうち安全の最終判断は CLAUDE.md の節「一律で AI に委譲できない領域」の箇条「安全に関する最終的な判断」が置くが理解の確認の側を運ぶ文は無く、出荷判定者の停止権の範囲は template/ を「停止権」で検索して見つからなかった(2026-11-15)。判断1は5.7.3の IMPL-0172 が追う。判断2・5と4つの席を委任しないことは IMPL-0691 が追う。この節は adopter にできない節のため scheduled とする。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0691 target=config-delegation state=delivered check=manual note="出荷判定者・事業決裁者・AI運用担当者・AI維持管理者の席を委任しないこと、判断2(委任の範囲の決定は人)、判断5(適合性確認の承認は人)。config.mjs の SEAT_CEILING が biz-approver と ai-ops を人確定、qa-gatekeeper と ai-maintainer を協働の上限とし、verify-gate-contract.mjs が上限を超える宣言を拒み、generate-profile.mjs の delegable が委任の対象を絞る。委任の範囲の決定は NEVER_DELEGATED と ruleDeciderProblems・ruleApprovalProblems(IMPL-0097 が追う)、適合性確認の承認は qualificationAuthorityProblems が人の記名に限る。置き場は降ろし先の構成の鍵 delegation の外にも分かれる(席の欄 seats と、変化点のスキル process-change)。実行は見ていない。確かめる者: 出荷判定者(構成を読むとき)" -->
 
 ### 5.5.6 席ごとの上限
@@ -594,7 +594,7 @@ graph TD
 AI が席の担い手として判断を引き受け続けた運用報告は、2026-09 時点の外部調査(`research/282-survey-2026-09/`)で見つかっていません。割当ては、既存の条項が人に固定している判断を除いた残りとして置いたものです。
 :::
 
-<!-- impl IMPL-0599 target=config-delegation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="席ごとの委任できる範囲と協働で AI が起案できるものの上限の表を、構成が受け付ける値の検査として持つこと。config.mjs の SEAT_CEILING は4席(事業決裁者・AI運用担当者は人確定、出荷判定者・AI維持管理者は協働)の運用形態の上限だけで、表の列(委任できる範囲・協働で起案できるもの)を持つ構成の欄と検査は無い。表は暫定(EV-0050)。開発者の席の検証の記載を書く者とレディーにする者の区別は IMPL-0692 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0599 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="席ごとの委任できる範囲と協働で AI が起案できるものの上限の表を、構成が受け付ける値の検査として持つこと。config.mjs の SEAT_CEILING は4席(事業決裁者・AI運用担当者は人確定、出荷判定者・AI維持管理者は協働)の運用形態の上限だけで、表の列(委任できる範囲・協働で起案できるもの)を持つ構成の欄と検査は無い。表は暫定(EV-0050)。開発者の席の検証の記載を書く者とレディーにする者の区別は IMPL-0692 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0692 target=claude-md state=delivered check=manual note="開発者の席の検証の記載を書く者とレディーにする者の区別。template/CLAUDE.md の行が「人確定・協働の変更では PR の『検証方法と結果』を書くのも Ready にするのも人」と置き、delegation.mjs の judgeDelegatedMerge が開発者の席(DEVELOPER_SEAT)の規則に当たらない協働の変更で、開発者の席の責任者(人)の承認を機械がマージを実行する条件に加える。委任時の担い手が書く行は機械では検査しない。確かめる者: 各ロールの席の責任者(PR を Ready にするとき)" -->
 
 ### 5.5.7 運用形態の引き上げと引き下げ

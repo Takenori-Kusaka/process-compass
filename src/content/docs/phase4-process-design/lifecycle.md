@@ -118,7 +118,7 @@ SG-2 を設けない場合、プロジェクト体制のまま運用が継続し
 
 <!-- impl IMPL-0846 target=gate-skill state=delivered check=manual note="ステージ移行ゲートの補助ファイル gates/SG.md が、判定の値(SG-0 と SG-1 は3値、SG-2 は定常運用へ移行 / 改善継続)と判定者(B-2)を表で置き、材料の集め方3 で次ステージの予算を SG の判定と同時に確定させると置く。保留のまま継続しない扱いは 3.7.3 の IMPL-0657 が、AI が顧客を模して生成した出力を実証データに数えない扱いは第6章 D-0 の IMPL-0359 が追う。確かめる者: B-2 の決定者(SG の判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0953 target=gate-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="ステージ移行ゲート(SG-0・SG-1)の実証に、AI が顧客を模して生成した出力を数えないこと。gates/SG.md と templates/04-gate-record.md に「顧客を模」「顧客の声」の語は無い(2026-11-15)。第6章 D-0 の IMPL-0359 は企画書の観点3 の裏づけの表(G-1 の材料)に限り、SG の判定の材料には届かない(束 C の突合 1巡目 C1-19)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0953 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="ステージ移行ゲート(SG-0・SG-1)の実証に、AI が顧客を模して生成した出力を数えないこと。gates/SG.md と templates/04-gate-record.md に「顧客を模」「顧客の声」の語は無い(2026-11-15)。第6章 D-0 の IMPL-0359 は企画書の観点3 の裏づけの表(G-1 の材料)に限り、SG の判定の材料には届かない(束 C の突合 1巡目 C1-19)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 2.5 工程ゲートとの関係
 
@@ -216,7 +216,7 @@ AI協調ループは、機能単位で次の4工程を反復します。
 <!-- impl IMPL-0389 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-direct-commit-rules.mjs note="要求事項2・3・6 のうち、PR を経ないコミット(トレーラ Risk・Verification で扱う経路)への照合。出荷の証跡の集約が、当該コミットの直前の構成の decisionRules.rules をコミットの差分に当て、トレーラ ADR が無い、または指す判断記録がそのコミットの context/decisions/ に無いコミットを記載の欠落にする。事業ステージ S0 では欠落にせず品質レポートに注意を出す。decisionRules と製品のコードを同じコミットで変えたコミットを欠落にする。成立済みのコミットは書き換えず、判定記録の「対象」で補う(#423)" -->
 <!-- impl IMPL-0390 target=config-change-log state=delivered check=machine test=template/scripts/gate/test-loosening-decider.mjs note="要求事項5 のうち、規則を削る・対象のパスを外す・変更の種類を絞る構成の変更を、緩める向きの変更として D-0 表1『体制と運用形態』の決定者の記名と理由なしには受け付けないこと。変化点の入口(generate-profile.mjs --change の種別 settings)が拒否する。起案者が技術判断者であること、AI維持管理者の承認は確かめない" -->
 
-<!-- impl IMPL-0972 target=pr-checks state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="2.6 要求事項4: 識別を持つ変更は、取り込む前に、その判断記録の G-3 の判定記録を要すること。check-pr.mjs は判断記録の実在までを確かめ(IMPL-0384)、判断記録の G-3 の判定記録への到達を PR と判定記録の突き合わせで拒む処理を持たない(失敗の文が判断記録を G-3 の判定に掛けることを伝えるが、到達は確かめない。2026-11-15 に確認。束 D 突合 D-O06)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0972 target=pr-checks state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="2.6 要求事項4: 識別を持つ変更は、取り込む前に、その判断記録の G-3 の判定記録を要すること。check-pr.mjs は判断記録の実在までを確かめ(IMPL-0384)、判断記録の G-3 の判定記録への到達を PR と判定記録の突き合わせで拒む処理を持たない(失敗の文が判断記録を G-3 の判定に掛けることを伝えるが、到達は確かめない。2026-11-15 に確認。束 D 突合 D-O06)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0206 / 見直し 2027-11]
 **対象**: 判断記録の要否をパスと変更種別の規則で導き、当たった変更に判断記録の識別を求め、申告で外す経路を置かない判断。S0 で失敗させず注意に留める扱い。
@@ -286,7 +286,7 @@ sequenceDiagram
 
 人員の交代を伴う移管、および定期異動によるロールの継続性の断絶については、2.9 のコンテキスト移管ゲートを併せて適用します。
 
-<!-- impl IMPL-0882 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="部門間移管。事業ステージの移行に伴って担当部門が変わる場合の移管記録を SG-1 の判定要件とし、完了条件5つ(受入部門の再構成文書・移管元の確認と相違の解消・持ち越し事項の期限と責任者・恒久層への登録・移管後の結果責任者の指名と担当表への記録)を満たすこと。条件1を文書の受領で代替しない。準拠テンプレートに移管記録の様式も検査も無い(template/ で移管・持ち越し・担当表を検索して該当無し。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0882 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="部門間移管。事業ステージの移行に伴って担当部門が変わる場合の移管記録を SG-1 の判定要件とし、完了条件5つ(受入部門の再構成文書・移管元の確認と相違の解消・持ち越し事項の期限と責任者・恒久層への登録・移管後の結果責任者の指名と担当表への記録)を満たすこと。条件1を文書の受領で代替しない。準拠テンプレートに移管記録の様式も検査も無い(template/ で移管・持ち越し・担当表を検索して該当無し。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 2.8 案件の立ち上げ手順
 
@@ -317,9 +317,9 @@ graph LR
 
 手順3b の適用条件と様式は[第6章「AIエージェント安全リスクアセスメント」](/process-compass/phase4-process-design/deliverable-templates/)によります。該当しない案件では手順3b を省略します。
 
-<!-- impl IMPL-0883 target=project-registration-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="案件の登録。S0 の開始時に案件を登録して案件IDを付与し、案件登録記録を残すこと(手順1)。準拠テンプレートに案件登録記録の様式も置き場も無い(template/ で案件登録を検索して該当無し。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0883 target=project-registration-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="案件の登録。S0 の開始時に案件を登録して案件IDを付与し、案件登録記録を残すこと(手順1)。準拠テンプレートに案件登録記録の様式も置き場も無い(template/ で案件登録を検索して該当無し。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0884 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="立ち上げの順序(案件の登録、D-0 の作成、D-0 の承認、安全重要度の判定の記録、安全リスクアセスメント、企画書、G-1)を入れ替えないこと。案件の登録が先であることと、手順4 の企画書の作成が手順3 の後であることを、順序として確かめる検査は無い(読んだ範囲。2026-11-15)。D-0 の承認と期限は check-d0.mjs(G-1 の IMPL-0679)、判定の記録は第8章 軸E の IMPL-0449、テンプレ9 の承認の欄の検査は第6章 テンプレ9 の IMPL-0453 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0884 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="立ち上げの順序(案件の登録、D-0 の作成、D-0 の承認、安全重要度の判定の記録、安全リスクアセスメント、企画書、G-1)を入れ替えないこと。案件の登録が先であることと、手順4 の企画書の作成が手順3 の後であることを、順序として確かめる検査は無い(読んだ範囲。2026-11-15)。D-0 の承認と期限は check-d0.mjs(G-1 の IMPL-0679)、判定の記録は第8章 軸E の IMPL-0449、テンプレ9 の承認の欄の検査は第6章 テンプレ9 の IMPL-0453 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### D-0 を前提条件とする理由
 
@@ -342,10 +342,10 @@ D-0 を判定基準に含めると、体制の不備が投資対効果と相殺�
 - D-0 の次回レビュー期日を超過している案件は、ステージ移行ゲート(SG)の判定を開始してはならない
 - 前提条件の充足は、人の確認ではなく機械的な検査によって判定する([フェーズ5](/process-compass/phase5-implementation/ci-gates/))
 
-<!-- impl IMPL-0849 target=g1-check state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="安全リスクアセスメントの適用条件に該当し、かつ SR4 の危険源が残っている案件で、G-1 の審議を開始させないこと。準拠テンプレートの D-0 の検査(check-d0.mjs)は D-0 の承認と期限を見るが、SR4 の残存は見ない。降ろし先 g1-check(scripts/gate/check-g1.mjs)はテンプレ9 の承認の欄を見るが、SR4 の語は同ファイルに無い(templates/09-safety-risk-assessment.md に SR4 の語はあるが検査は無い。2026-11-15 に読んだ)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0849 target=g1-check state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="安全リスクアセスメントの適用条件に該当し、かつ SR4 の危険源が残っている案件で、G-1 の審議を開始させないこと。準拠テンプレートの D-0 の検査(check-d0.mjs)は D-0 の承認と期限を見るが、SR4 の残存は見ない。降ろし先 g1-check(scripts/gate/check-g1.mjs)はテンプレ9 の承認の欄を見るが、SR4 の語は同ファイルに無い(templates/09-safety-risk-assessment.md に SR4 の語はあるが検査は無い。2026-11-15 に読んだ)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0850 target=gate-entry-workflow state=delivered check=manual note="D-0 の次回レビュー期日を超過している案件を検出し、ステージ移行ゲート(SG)の判定の材料に並べること(検出の分)。scripts/gate/check-d0.mjs が next_review の超過で失敗し、gates/SG.md の節「材料の集め方」1 が check-d0 の結果を SG の材料に並べさせる(G-1 の IMPL-0679 が追う検出と同じ検査を判定者が読む)。check-d0.mjs の冒頭の文言は G-1 だけを名指す。失敗のとき SG を開始しないことは IMPL-0951 が追う。IMPL-0850 から分けた(束 C の突合 1巡目 C1-13)。確かめる者: SG の判定者(判定の材料を集めるとき)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0951 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="D-0 の次回レビュー期日を超過している案件で、ステージ移行ゲート(SG)の判定を開始させないこと。gates/SG.md に「失敗なら SG を始めない」の文は無く、check-d0.mjs の冒頭は「未承認・期限切れの状態では G-1 の審議を開始できません」と G-1 だけを名指す(2026-11-15)。検出は IMPL-0850 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0951 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="D-0 の次回レビュー期日を超過している案件で、ステージ移行ゲート(SG)の判定を開始させないこと。gates/SG.md に「失敗なら SG を始めない」の文は無く、check-d0.mjs の冒頭は「未承認・期限切れの状態では G-1 の審議を開始できません」と G-1 だけを名指す(2026-11-15)。検出は IMPL-0850 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 期日を超過した D-0 を放置したまま判定を続ける運用を認めると、体制図は初回の作成時にのみ存在する文書になります。
 
@@ -361,7 +361,7 @@ D-0 を判定基準に含めると、体制の不備が投資対効果と相殺�
 - 文脈オーナーの交代
 - コア機能の理解保持者が交代し、残る保持者が1名以下になる場合
 
-<!-- impl IMPL-0885 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="コンテキスト移管ゲートの適用。結果責任者(A)の交代、文脈オーナーの交代、コア機能の理解保持者の交代(残る保持者が1名以下)のいずれかで、H-1・H-2・H-3 の記録を要すること。準拠テンプレートにコンテキスト移管の記録も、交代から H-1〜H-3 を求める結線もない(席の責任者の交代は /process-change の種別 accountable が変化点として記録するが、H-1〜H-3 を求めない。template/ で予告期間・コンテキスト移管・書き戻し完了を検索して該当無し。2026-11-15)。採用者に委ねるかは本件では決めない。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0885 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="コンテキスト移管ゲートの適用。結果責任者(A)の交代、文脈オーナーの交代、コア機能の理解保持者の交代(残る保持者が1名以下)のいずれかで、H-1・H-2・H-3 の記録を要すること。準拠テンプレートにコンテキスト移管の記録も、交代から H-1〜H-3 を求める結線もない(席の責任者の交代は /process-change の種別 accountable が変化点として記録するが、H-1〜H-3 を求めない。template/ で予告期間・コンテキスト移管・書き戻し完了を検索して該当無し。2026-11-15)。採用者に委ねるかは本件では決めない。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 2.9.2 移管の成立条件
 
@@ -369,7 +369,7 @@ D-0 を判定基準に含めると、体制の不備が投資対効果と相殺�
 
 この定義は 2.7 の部門間移管と同型です。文書の引き渡しは移管の手段であり、完了条件ではありません。
 
-<!-- impl IMPL-0886 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="移管の成立の定義。口頭説明の完了で成立とせず、後任者が前任者へ問い合わせずに判断できる状態をもって成立とすること。判定は H-3(IMPL-0896)に依るが、準拠テンプレートにコンテキスト移管の記録の置き場が無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0886 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="移管の成立の定義。口頭説明の完了で成立とせず、後任者が前任者へ問い合わせずに判断できる状態をもって成立とすること。判定は H-3(IMPL-0896)に依るが、準拠テンプレートにコンテキスト移管の記録の置き場が無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 2.9.3 3つのゲート
 
@@ -387,7 +387,7 @@ graph LR
 | H-2 書き戻し完了 | **予告期間に応じて定める**(2.9.5) | 文脈オーナー | 予告期間の区分に対応する範囲の解消 |
 | H-3 理解の実証 | 交代日以降、合意した期限内 | 前任者でも後任者でもない者 | 後任者が独立して判断できること |
 
-<!-- impl IMPL-0887 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="3つのゲートの判定。H-1 は価値責任者が交代の通知から3営業日以内(予告期間が5営業日未満は翌営業日まで)、H-2 は文脈オーナーが予告期間に応じた期限で、H-3 は前任者でも後任者でもない者が交代日以降に判定すること。準拠テンプレートにゲートの判定記録の種別も判定者の割当も無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0887 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3つのゲートの判定。H-1 は価値責任者が交代の通知から3営業日以内(予告期間が5営業日未満は翌営業日まで)、H-2 は文脈オーナーが予告期間に応じた期限で、H-3 は前任者でも後任者でもない者が交代日以降に判定すること。準拠テンプレートにゲートの判定記録の種別も判定者の割当も無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 予告期間
 
@@ -398,7 +398,7 @@ graph LR
 - 組織の内部で決定した日ではなく、**通知された日を起点とする**。前任者と後任者が動けるのは通知の後であるため
 - **本標準は予告期間の長さを要求しない**。予告期間は人事制度が定めるものであり、開発プロセスの標準が介入する対象ではない。本標準が規定するのは、与えられた予告期間の中で何を行うか
 
-<!-- impl IMPL-0888 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="予告期間の数え方。交代が本人へ通知された時点から交代日までの営業日数とし、組織の内部で決定した日を起点にしないこと。予告期間の長さは要求しない(課さない明記)。通知日の記録も営業日の導出も準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0888 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="予告期間の数え方。交代が本人へ通知された時点から交代日までの営業日数とし、組織の内部で決定した日を起点にしないこと。予告期間の長さは要求しない(課さない明記)。通知日の記録も営業日の導出も準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution
 日本の一次統計では、転居を伴う異動の打診を**2週間前以内**に行う企業が 21.5%、**1ヵ月前以内**が 56.4% を占めます([調査記録](/process-compass/phase1-current-state/workforce-mobility/))。**予告期間が3週間以上あることを前提とした手続は、企業の2割強で成立しません**。満たせない期限を置くと、手続は運用されずに迂回されます。
@@ -425,9 +425,9 @@ graph LR
 変更履歴の作成者数は、理解保持者数ではありません。AIエージェントが生成した変更の比率が高い環境では、作成者の記録が理解の所在を表さないためです。保持者の数え方の定めは、前の段落にあります。
 :::
 
-<!-- impl IMPL-0889 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="H-1 の欠落の棚卸し。コンテキスト基盤へ記録されていない知識を、設計の背景と制約・却下した選択肢・運用上の勘所・組織的文脈の4類型で洗い出し、書き戻し先を特定すること。H-1 の記録の様式が準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0889 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="H-1 の欠落の棚卸し。コンテキスト基盤へ記録されていない知識を、設計の背景と制約・却下した選択肢・運用上の勘所・組織的文脈の4類型で洗い出し、書き戻し先を特定すること。H-1 の記録の様式が準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0890 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="コア機能ごとの理解保持者数を数え、理解保持者が1名の機能を、交代の前に2名以上へ増やすこと。保持者数を数える手段も、交代の前の確認も準拠テンプレートに無い(運用引き継ぎ文書の節2 は保持者を並べる表で、交代の契機での確認を求めない。読んだ範囲。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0890 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="コア機能ごとの理解保持者数を数え、理解保持者が1名の機能を、交代の前に2名以上へ増やすこと。保持者数を数える手段も、交代の前の確認も準拠テンプレートに無い(運用引き継ぎ文書の節2 は保持者を並べる表で、交代の契機での確認を求めない。読んだ範囲。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0891 target=handover-template state=delivered check=manual note="理解保持者の数え方。保持者に数えるのは、本人以外の者が日付を付けて理解を確認した記録(H-3・3.4.3 の演習・コア機能の障害対応の記録)を持つ人だけを数え、運用引き継ぎ文書へ名前を書いただけの人は数えないこと。templates/05-handover.md が同じ数え方を置き、確認した者が本人である行を受け付けない(IMPL-0066)。 確かめる者: 運用引き継ぎ文書の作成者と技術判断者(保持者を記入するとき)。所在を読んだ(実行して確かめていない)" -->
 
@@ -439,7 +439,7 @@ graph LR
 - AIエージェントが草案を生成してよい。ただし却下した選択肢と当時の制約は前任者しか保持していない情報であり、人が記入する
 - 完了の判定は、追記した分量ではなく **H-1 で特定した欠落項目の消化**で行う
 
-<!-- impl IMPL-0892 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="H-2 の書き戻しの進め方。前任者が書き後任者がレビューする順序を逆にしないこと、AI が草案を生成してよいが却下した選択肢と当時の制約は人が記入すること、完了の判定を追記の分量でなく H-1 で特定した欠落項目の消化で行うこと。H-2 の記録の様式が準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0892 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="H-2 の書き戻しの進め方。前任者が書き後任者がレビューする順序を逆にしないこと、AI が草案を生成してよいが却下した選択肢と当時の制約は人が記入すること、完了の判定を追記の分量でなく H-1 で特定した欠落項目の消化で行うこと。H-2 の記録の様式が準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 期限と範囲を予告期間で決める
 
@@ -465,7 +465,7 @@ graph LR
 
 **「必要に応じて協力する」という合意を関与の延長として認めません**。前任者は次の配属先で別の業務を負うため、期間と稼働を定めない約束は履行されません。
 
-<!-- impl IMPL-0893 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="予告期間に応じた H-2 の期限と範囲(20営業日以上は交代日の10営業日前まで全部、10〜19は5営業日前まで全部、5〜9は前営業日まで上位2類型、5未満は交代前に置かず全部を交代後へ繰り越す)。繰り越しが生じるときは前任者の関与の延長(期間・稼働の目安・連絡手段・繰り越した項目)を H-1 の判定と同時に確定させ、確定していない案件を H-1 で通過させず、必要に応じての協力を延長として認めないこと。期限の導出も延長の記録も準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0893 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="予告期間に応じた H-2 の期限と範囲(20営業日以上は交代日の10営業日前まで全部、10〜19は5営業日前まで全部、5〜9は前営業日まで上位2類型、5未満は交代前に置かず全部を交代後へ繰り越す)。繰り越しが生じるときは前任者の関与の延長(期間・稼働の目安・連絡手段・繰り越した項目)を H-1 の判定と同時に確定させ、確定していない案件を H-1 で通過させず、必要に応じての協力を延長として認めないこと。期限の導出も延長の記録も準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 短い予告のときに何から書き戻すか
 
@@ -480,7 +480,7 @@ graph LR
 
 順位1・2 は**前任者の不在と同時に必要になるもの**、順位3・4 は**時間をかけて回収できるもの**です。
 
-<!-- impl IMPL-0894 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="短い予告のときの書き戻しの優先順位(組織的文脈、運用上の勘所、設計の背景と制約、却下した選択肢)を入れ替えないこと。優先順位を記録する置き場が準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0894 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="短い予告のときの書き戻しの優先順位(組織的文脈、運用上の勘所、設計の背景と制約、却下した選択肢)を入れ替えないこと。優先順位を記録する置き場が準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 機械検査
 
@@ -495,7 +495,7 @@ graph LR
 
 **予告期間の区分は申告させません**。通知日と交代日から導出します。区分を申告させると、期限の緩い区分を選ぶ動機が生まれます。
 
-<!-- impl IMPL-0895 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="H-1 の記録の必須欄(交代の通知日・交代日・予告期間の営業日・前任者の関与の延長)と機械検査(空でないこと、交代日が通知日以降であること、予告期間が通知日と交代日からの導出値と一致すること、予告期間が10営業日未満なら延長の4項目がすべて埋まっていること)。予告期間の区分を申告させず導出する。この検査は決定可能な条件であり、記録の様式ができたときに機械の検査にできるが、様式と検査が準拠テンプレートに無く、本件では check=machine を足さない。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0895 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="H-1 の記録の必須欄(交代の通知日・交代日・予告期間の営業日・前任者の関与の延長)と機械検査(空でないこと、交代日が通知日以降であること、予告期間が通知日と交代日からの導出値と一致すること、予告期間が10営業日未満なら延長の4項目がすべて埋まっていること)。予告期間の区分を申告させず導出する。この検査は決定可能な条件であり、記録の様式ができたときに機械の検査にできるが、様式と検査が準拠テンプレートに無く、本件では check=machine を足さない。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 2.9.6 H-3 理解の実証
 
@@ -516,7 +516,7 @@ graph LR
 
 課題2を含める理由は、却下した選択肢を再構成できることが、結論の暗記と理解の区別になるためです。
 
-<!-- impl IMPL-0896 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="H-3 の理解の実証。後任者の自己申告で判定せず、設計の説明・却下案の再構成・障害時の初動・変更の実作業の4課題の組み合わせで行い、課題1〜3 は AI へ問い合わせない状態で実施し、評価者・評価方法・課題・結果を記録し、評価者に前任者と後任者のいずれも充てないこと。H-3 の記録の様式も評価者の検査も準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0896 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="H-3 の理解の実証。後任者の自己申告で判定せず、設計の説明・却下案の再構成・障害時の初動・変更の実作業の4課題の組み合わせで行い、課題1〜3 は AI へ問い合わせない状態で実施し、評価者・評価方法・課題・結果を記録し、評価者に前任者と後任者のいずれも充てないこと。H-3 の記録の様式も評価者の検査も準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 2.9.7 準備段階における AI の利用
 
@@ -527,7 +527,7 @@ graph LR
 
 未知のライブラリを用いる課題の対照実験では、AI 支援を受けた群の事後理解度が支援なしの群より17ポイント低く、群内では能動的に質問を重ねた者ほど高い成績を示しました(2026年1月公表)。**AI の利用そのものではなく、受動的な委譲が理解の形成を妨げます**。
 
-<!-- impl IMPL-0897 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="準備段階の AI の利用。後任者が生成された説明をそのまま受け取る使い方(受動的な委譲)をせず、疑問点を問いとして立て、回答の根拠を記録と突き合わせること。使い方を観測する手段が準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0897 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="準備段階の AI の利用。後任者が生成された説明をそのまま受け取る使い方(受動的な委譲)をせず、疑問点を問いとして立て、回答の根拠を記録と突き合わせること。使い方を観測する手段が準拠テンプレートに無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 2.9.8 H-3 が期限内に合格しない場合
 
@@ -539,7 +539,7 @@ graph LR
 
 最後の項目は運用上の要です。不合格を個人の評価へ跳ね返す運用では、合格の目的化と判定の形式化を招くことがあります。
 
-<!-- impl IMPL-0898 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="H-3 が期限内に合格しない場合。交代日までに H-3 が合格しないときは前任者の関与を延長するか対象を他の理解保持者へ一時的に移し、結果責任者(A)を空席にしたまま交代日を過ぎないこと。延長の記録も空席の検出も準拠テンプレートに無い。H-3 の不合格を後任者の人事評価に用いない旨は、本標準が求める記録に現れない制度設計で、マークを付けない(登録に探した場所を書いた。束 C の突合 1巡目 C1-40)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0898 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="H-3 が期限内に合格しない場合。交代日までに H-3 が合格しないときは前任者の関与を延長するか対象を他の理解保持者へ一時的に移し、結果責任者(A)を空席にしたまま交代日を過ぎないこと。延長の記録も空席の検出も準拠テンプレートに無い。H-3 の不合格を後任者の人事評価に用いない旨は、本標準が求める記録に現れない制度設計で、マークを付けない(登録に探した場所を書いた。束 C の突合 1巡目 C1-40)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 2.10 スコープの確約と進捗の統制
 
@@ -602,7 +602,7 @@ graph LR
 <!-- impl IMPL-0375 target=gate-skill state=delivered check=manual note="ステージ移行ゲートの補助ファイル gates/SG.md が、継続で次ステージのスコープ3層を確定するときに、要求事項4・5 の規模の記録を判定記録へ書く材料を並べさせ、分けていない要求を SC-M に入れないことを書く(#417 / ADR-0098)。確かめる者: B-2 の決定者(事業決裁者。SG の判定記録を書くとき)" -->
 <!-- impl IMPL-0374 target=next-role state=undelivered check=manual plan=scheduled issue=443 review=2027-04 note="要求事項4・5 の実測スループットの集計。完了の条件を満たした作業単位だけを数え、同じ期間に閉じたが完了に当たらない作業単位の個数を並べて出す。準拠テンプレートに完了スループットの集計は無い(閉じた件数も数えない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0971 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="2.10.2 要求事項3: 見積りの精度を根拠として確約範囲の上限を引き上げないこと。template/CLAUDE.md と claude-md-resident.json に、見積りの精度を根拠にしない行は無い(2026-11-15 に確認。試し c だけで規定とした。束 D 突合 D-O11 と議長の裁定)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0971 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="2.10.2 要求事項3: 見積りの精度を根拠として確約範囲の上限を引き上げないこと。template/CLAUDE.md と claude-md-resident.json に、見積りの精度を根拠にしない行は無い(2026-11-15 に確認。試し c だけで規定とした。束 D 突合 D-O11 と議長の裁定)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 要求事項3を置く理由は、工程の進行によって見積りの不確実性が収束するとは限らないという報告があるためです(2006年、実案件のデータに基づく)。**確約の量を支えるのは見積りの巧拙ではなく、実測された完了の速さです**。
 
