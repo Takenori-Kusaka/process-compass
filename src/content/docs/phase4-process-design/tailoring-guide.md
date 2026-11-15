@@ -722,7 +722,7 @@ IPA のモデル契約は、構想〜要件定義の見積りを参考値とし�
 
 <!-- impl IMPL-0751 target=ai-sla-template state=delivered check=presence note="知財の扱いの欄。依存関係のライセンス検査を合否条件とし、生成物と既存著作物の類似検知を合否条件にせず実施と記録を判定の対象とすること、事業者の知財補償を検査を省略する根拠にしないこと、結果責任を負う者を書くこと。templates/08-ai-sla.md の第7項が置く。記入の有無と中身は確かめない(単位: 欄)" -->
 <!-- impl IMPL-0752 target=ai-sla-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="知財潔白性の結果責任を受注側に負わせる場合に、検査の範囲と手段を契約で特定し、「知財潔白であること」だけを契約に書かないこと。様式の第7項(templates/08-ai-sla.md「7. 知財の扱い」)は結果責任を負う者の欄を持つが、検査の範囲と手段を書く欄は無い(開いて確かめた。2026-11-15)。本文の第7項のうち様式が置かない3行(禁止するライセンス・納品時に提出する記録・検査で指摘が出た場合の措置)は第6章の IMPL-0957 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0904 target=ai-sla-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="知財潔白性の要求を、AI を利用する場合に限って課さないこと(人が書いたコードにも他者の著作物は混入する)。templates/08-ai-sla.md の第7項は依存関係のライセンス検査・類似検知・事業者の知財補償・結果責任を負う者の行を持つが、要求を AI の利用に限って課さないとする文は無い(2026-11-15 に確かめた)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0904 target=ai-sla-guide state=delivered check=manual note="知財潔白性の要求を、AI を利用する場合に限って課さないこと(人が書いたコードにも他者の著作物は混入する)。.claude/skills/artifact/artifacts/08-ai-sla.md の節「作成の手順」3 が「知財潔白性の検査を、AI を利用する場合に限って課さない。事業者の知財補償を、検査を省略する根拠にしない」と置く(IMPL-0955 が第6章の側で同じ規定を追う)。templates/08-ai-sla.md の第7項には、要求を AI の利用に限って課さないとする文は無い(2026-11-15 に開いて確かめた)。確かめる者: 委託契約の調達・法務の担当者と出荷判定者(G-7 でテンプレ8 を突合するとき)" -->
 
 ### 判定をどちらの組織へ置くか
 
@@ -1160,7 +1160,7 @@ SaaS の利用権(チャットツール・プロジェクト管理ツールな�
 段階を増やして「さらに厳しくすれば実施してよい」とはしません。**上限を段階の延長として表現すると、厳格化によって到達できるという誤読を招きます**。
 
 <!-- impl IMPL-0765 target=autonomy-derivation state=delivered check=manual note="組み合わせ表の「CL3 の安全関連部 × L2 以上」。CL3 の構成は規則 r-e-cl3 の maxAutonomyLevel: L1 で上限を L1 にし(src/data/tailoring/rules-criticality.yaml の複製が template の scripts/vendor/tailoring-kb.json にある)、scripts/gate/autonomy.mjs の capFromAnswers が autonomy.maxLevel へ落とす。上限は構成の全体に掛かり、安全関連部の外に限って L2 以上を認める単位は持たない(IMPL-0766)。確かめる者: AI維持管理者(構成を生成したとき、上限の表示を読む)。所在を読んだ(実行して確かめていない)" -->
-<!-- impl IMPL-0766 target=profile-generator state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="「適用範囲を安全関連部の外へ限定する」扱い(CL3 の案件で、安全関連部の外に限って L2 以上を認める)。構成の AI自律レベルの上限は案件の全体に掛かり、安全関連部と外を分ける単位を持たない。禁止の側(IMPL-0765)は降りており、限定の側が降りていないため、CL3 の案件は全体が L1 に固定される。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0766 target=profile-generator state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="「適用範囲を安全関連部の外へ限定する」扱い(CL3 の案件で、安全関連部の外だけ L2 以上を認める)。構成の AI自律レベルの上限は案件の全体に掛かり、安全関連部と外を分ける単位を持たない。禁止の側(IMPL-0765)は降りており、外だけ認める側が降りていないため、CL3 の案件は全体が L1 に固定される。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 設計によって区分を下げる
 

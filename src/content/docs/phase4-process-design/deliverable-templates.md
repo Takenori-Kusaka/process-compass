@@ -742,7 +742,7 @@ D-0 は監査の対象です。記録として成立するために、次を満�
 - 「受容理由」が書けない負債は受容してはならない(その場で直すか、仕様に戻す)
 - 返却は[運用フェーズの負債返却サイクル](/process-compass/phase4-process-design/process-model/operate/debt-payback/)で台帳から優先度順に消化する
 
-<!-- impl IMPL-0788 target=debt-ledger-guide state=delivered check=manual note="AI 生成の過程で見つけた妥協・TODO・仮実装をすべて1行=1負債で台帳へ記録すること。.claude/skills/artifact/artifacts/03-debt-ledger.md の節「作成の手順」2 が「AI の生成の過程で見つけた妥協・仮実装はすべて記録する」と置く(手引きに「TODO」の語は無く、妥協・仮実装に含めて読む)。記録漏れを拒む検査は見つかっていない。第2章 2.6 の IMPL-0879 が追う書き戻しと同じ趣旨。確かめる者: 技術負債台帳をレビューする者" -->
+<!-- impl IMPL-0788 target=debt-ledger-guide state=delivered check=manual note="AI 生成の過程で見つけた妥協・未完了の目印・仮実装をすべて1行=1負債で台帳へ記録すること。.claude/skills/artifact/artifacts/03-debt-ledger.md の節「作成の手順」2 が「AI の生成の過程で見つけた妥協・仮実装はすべて記録する」と置く(手引きに未完了の目印の語は無く、妥協・仮実装に含めて読む)。記録漏れを拒む検査は見つかっていない。第2章 2.6 の IMPL-0879 が追う書き戻しと同じ趣旨。確かめる者: 技術負債台帳をレビューする者" -->
 
 <!-- impl IMPL-0789 target=debt-ledger-guide state=delivered check=manual note="「受容した理由」が書けない負債は受容せず、その場で直すか仕様に戻すこと。.claude/skills/artifact/artifacts/03-debt-ledger.md の節「作成の手順」2 が置き、節「レビューの観点」が受容した理由と顕在化の兆候が書かれているかを見る。理由の空欄の負債の行を拒む検査は見つかっていない。確かめる者: 技術負債台帳をレビューする者" -->
 
@@ -1158,7 +1158,7 @@ PR を経ていないコミットで、リスク区分または検証の記載�
 
 <!-- impl IMPL-0793 target=project-brief-template state=delivered check=presence note="企画書の欄の記入の禁止文。戦略目標に「成長」等の一般語を書かない、「知見がある」「実績がある」の一般語を書かない、現在の代替手段に「ない」と書かない、コンテキスト基盤の初期整備費をゼロにしない、「効果が出ない条件」を空欄にしない(templates/06-project-brief.md の各欄の注記)。一般語のみ・「ない」のみの機械の検査は IMPL-0801(降りていない)。本文の「測れない表現は不可」(中止条件の欄)の文は、様式 06 にも在るが、本マークの単位に数えていない(束 C の突合 1巡目 C1-29)(単位: 行)" -->
 
-<!-- impl IMPL-0794 target=project-brief-guide state=delivered check=manual note="収益で説明しない案件(社内基盤・内製部品・OSS への貢献など)の期待効果を、類型(コスト回避・サプライチェーン耐性・標準化・影響力・内製化・学習・採用・定着)から選んで観測できる事象で書き、算定根拠へ選んだ類型と金額で算定しない理由を書くこと。.claude/skills/artifact/artifacts/06-project-brief.md の節「作成の手順」4 が置く。類型の一覧は様式と一致しない(基本の templates/06 に類型は無い。profiles/internal の様式は行の名だけ、profiles/oss の様式は4類型でサプライチェーン耐性と採用・定着が無い。2026-11-15)。算定根拠の空欄を検査するかは読んでいない。確かめる者: G-1 の判定者(事業決裁者)" -->
+<!-- impl IMPL-0794 target=project-brief-guide state=delivered check=manual note="収益で説明しない案件(社内基盤・内製部品・OSS への貢献など)の期待効果を、類型(コスト回避・サプライチェーン耐性・標準化・影響力・内製化・学習・採用・定着)から選んで観測できる事象で書き、算定根拠へ選んだ類型と金額で算定しない理由を書くこと(手引きの手順 4 は類型の選択と金額で算定しない理由を置き、「観測できる事象で書く」の句は言わない)。.claude/skills/artifact/artifacts/06-project-brief.md の節「作成の手順」4 が置く。類型の一覧は様式と一致しない(基本の templates/06 に類型は無い。profiles/internal の様式は行の名だけ、profiles/oss の様式は4類型でサプライチェーン耐性と採用・定着が無い。2026-11-15)。算定根拠の空欄を検査するかは読んでいない。確かめる者: G-1 の判定者(事業決裁者)" -->
 
 <!-- impl IMPL-0795 target=project-brief-template state=delivered check=presence note="事業リスクの表に、AI 利用に伴うリスク(生成物の品質・機密情報の扱い・知財)を必ず1行以上書くこと(templates/06-project-brief.md の事業リスクと受容方針の節の指示)。1行以上あるかを検査するかは読んでいない(単位: 行)" -->
 
@@ -1345,7 +1345,7 @@ AI の利用の3行は、AI の利用そのものが目的になることを防�
 
 <!-- impl IMPL-0857 target=ai-sla-guide state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="金銭措置型は、稼働率など客観的に観測できる量に限って用いること。08-ai-sla.md は比率指標を金銭措置の条件にしないことは置くが、金銭措置型を客観的に観測できる量に限る旨(その逆の向き)は置かない(読んだ範囲。2026-11-15)。 確かめる者: 計画の Issue の担当者" -->
 
-<!-- impl IMPL-0958 target=gate-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="出荷判定(G-7)で、AI-SLA の契約への組み込みの類型として是正計画型と開示義務型を基本とすること。.claude/skills/gate/gates/G-7.md に是正計画型の語は無く、手引き 08 は契約の側(開示義務型を基本。IMPL-0856)を置く(2026-11-15)。IMPL-0856 は契約の側だけを追う(束 C の突合 1巡目 C1-35)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0958 target=gate-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="出荷判定(G-7)で、AI-SLA の契約への組み込みの類型として是正計画型と開示義務型を基本とすること。.claude/skills/gate/gates/G-7.md に是正計画型の語は無く、手引き 08 は契約の側(開示義務型を基本。IMPL-0856)を置く(2026-11-15)。IMPL-0856 は契約の側だけを追う(束 C の突合 1巡目 C1-35)。是正計画の構造は様式 08 の第3項・第4項(IMPL-0804)が運び、出荷判定の側で類型を名指す文が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 様式
 
@@ -1516,7 +1516,7 @@ AI の利用の3行は、AI の利用そのものが目的になることを防�
 
 <!-- impl IMPL-0805 target=ai-sla-template state=delivered check=manual note="テンプレ8 第5項。監査の範囲・事前通知の期間・提示を求める記録(ゲート判定記録・判断記録・指標の算出根拠)の欄。templates/08-ai-sla.md の節「5. 監査」が置き、必須欄の検査(t8『## 5. 監査』)は節の見出しの存在だけを確かめる。欄と記入の中身は確かめない。確かめる者: 委託契約の調達・法務の担当者と出荷判定者(G-7 でテンプレ8 を突合するとき)" -->
 
-<!-- impl IMPL-0957 target=ai-sla-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="テンプレ8 第7項の6行のうち、「禁止するライセンス」「納品時に提出する記録」「検査で指摘が出た場合の措置」の3行と、検査を AI の利用の有無によらず全件へ適用する旨の注記を、様式に置くこと。templates/08-ai-sla.md の「7. 知財の扱い」は4行(依存関係のライセンス検査・類似検知・補償・結果責任を負う者)で、この3行と注記は無い(開いて確かめた。2026-11-15)。src/data/template-fields.yaml の t8 に第7項の fields も omit も無い(後継へ寄せる事実)。軸D の IMPL-0751 は在る4行を、IMPL-0752 は結果責任の検査の範囲と手段を追う(束 C の突合 1巡目 C1-18)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0957 target=ai-sla-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="テンプレ8 第7項の6行のうち、「禁止するライセンス」「納品時に提出する記録」「検査で指摘が出た場合の措置」の3行と、検査を AI の利用の有無によらず全件へ適用する旨の注記を、様式に置くこと。templates/08-ai-sla.md の「7. 知財の扱い」は4行(依存関係のライセンス検査・類似検知・補償・結果責任を負う者)で、この3行と注記は無い(開いて確かめた。2026-11-15)。src/data/template-fields.yaml の t8 は第7項の見出し・補償・結果責任の fields を持つが、この3行の fields も omit も無い(後継へ寄せる事実)。注記の趣旨(検査を AI の利用の有無で変えない)は手引き 08 の手順 3 が運ぶ(IMPL-0955)。様式の注記としては無い。軸D の IMPL-0751 は在る4行を、IMPL-0752 は結果責任の検査の範囲と手段を追う(束 C の突合 1巡目 C1-18)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 知財潔白性を AI 固有の要求として書かない理由
 
@@ -1524,7 +1524,7 @@ AI の利用の3行は、AI の利用そのものが目的になることを防�
 
 **事業者の知財補償を、検査を省略する根拠にしてはなりません**。補償は条件付きであり、条件は事業者の都合で変わります。2026-04-03 に、ある事業者の補償において複製検知機能の利用が要件から外れた実例があります。補償を受けるには要件への適合を利用者側で示さねばならず、記録がなければ補償は機能しません。
 
-<!-- impl IMPL-0955 target=ai-sla-guide state=delivered check=manual note="契約の第7項の検査(ライセンスの検査と類似の検知)を、AI を利用する場合に限って課さないこと。事業者の知財補償を、検査を省略する根拠にしないこと。.claude/skills/artifact/artifacts/08-ai-sla.md の節「作成の手順」3 が同じ趣旨で置く(手順 2 は指標の定義の添付)。自組織の CI の分岐を扱う IMPL-0678(第4章 G-5)とは別の規定(契約で課す検査)。確かめる者: 委託契約の調達・法務の担当者と出荷判定者(G-7 でテンプレ8 を突合するとき)" -->
+<!-- impl IMPL-0955 target=ai-sla-guide state=delivered check=manual note="契約の第7項の検査(ライセンスの検査と類似の検知)を、AI を利用する場合に限って課さないこと。事業者の知財補償を、検査を省略する根拠にしないこと。.claude/skills/artifact/artifacts/08-ai-sla.md の節「作成の手順」3 が同じ趣旨で置く(手順 2 は指標の定義の添付)。第8章 軸D の IMPL-0904 が同じ規定を追う(向きは同じ)。自組織の CI の分岐を扱う IMPL-0678(第4章 G-5)とは別の規定(契約で課す検査)。確かめる者: 委託契約の調達・法務の担当者と出荷判定者(G-7 でテンプレ8 を突合するとき)" -->
 
 根拠は `research/phase4-standard/129-ip-clearance.md` に記録しています。
 
@@ -1667,7 +1667,7 @@ EU 域内に関わる案件では、生成された出力を機械可読な形�
 
 <!-- impl IMPL-0945 target=qa-policy-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="テンプレ11 要求事項9 のうち、受容の基準(項目4)が外枠(項目3)を下回らないこと。手引き 11 の観点は受容しない条件(項目2)と規模の分だけを置く(IMPL-0815)。項目4 が外枠を下回らないことを置く文は、templates/11-quality-assurance-policy.md と手引き 11 に無い(「下回」の語は手引きの1箇所のみ。2026-11-15)。IMPL-0815 から分けた(束 C の突合 1巡目 C1-08)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0947 target=qa-policy-guide state=delivered check=manual note="テンプレ11 要求事項10 のうち、5項目を組織の管理下で働く者へ周知し、周知は合意を求めないこと。.claude/skills/artifact/artifacts/11-quality-assurance-policy.md の節「作成の手順」の表の行「周知」(記名者。AI の担い手は周知の文案を示してよく、合意を求める文にしてはならない)が置く。周知したことを拒む検査と記録の欄は無い。確かめる者: 記名者(周知するとき)" -->
+<!-- impl IMPL-0947 target=qa-policy-guide state=delivered check=manual note="テンプレ11 要求事項10 のうち、5項目を組織の管理下で働く者へ周知し、周知は合意を求めないこと(手引きの行「周知」は担い手と「合意を求めない」を置き、「組織の管理下で働く者へ」の句は言わない)。.claude/skills/artifact/artifacts/11-quality-assurance-policy.md の節「作成の手順」の表の行「周知」(記名者。AI の担い手は周知の文案を示してよく、合意を求める文にしてはならない)が置く。周知したことを拒む検査と記録の欄は無い。確かめる者: 記名者(周知するとき)" -->
 
 <!-- impl IMPL-0948 target=qa-policy-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="テンプレ11 要求事項10 のうち、各人が自らの役割と、懸念を記録する経路(第7章 7.11 の停止の申し立て)を認識していることを求めること。手引き 11 の周知の行は、周知の文案と合意を求めないことだけを置き、各人の認識を求める文は templates/11 にも手引き 11 にも無い(2026-11-15)。IMPL-0947 から分けた(束 C の突合 1巡目 C1-10)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -1877,7 +1877,7 @@ EU 域内に関わる案件では、生成された出力を機械可読な形�
 
 <!-- impl IMPL-0859 target=safety-risk-assessment-template state=delivered check=manual note="製品の最悪の帰結を設計で下げた記録(区分の引き下げの根拠)を本表に書かず、安全重要度の判定の記録へ書くこと。09-safety-risk-assessment.md の節「記号」の末尾が、D-0 の節16 へ書く旨とともに置く。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0860 target=safety-risk-assessment-template state=delivered check=manual note="本表が要る安全重要度 CL2 以上の案件で、独立した安全性の評価者が本表を読むこと。templates/09-safety-risk-assessment.md の承認の段落(この表が要る安全重要度 CL2 以上の案件では、独立した安全性の評価者がこの表を読みます)と、手引き 09 の節「作成の手順」9 が置く。評価者の欄・読んだ記録の欄・検査は無い(読んだ記録を求める文は本文に無く、棚卸しでは足さない)。G-6 の安全性の評価者の記名は IMPL-0080 が追う。確かめる者: 技術判断者と安全担当(承認のとき)" -->
+<!-- impl IMPL-0860 target=safety-risk-assessment-template state=delivered check=manual note="本表が要る案件(安全重要度 CL2 以上)で、独立した安全性の評価者が本表を読むこと。templates/09-safety-risk-assessment.md の承認の段落(独立した安全性の評価者がこの表を読む旨。条件は同じ案件)と、手引き 09 の節「作成の手順」9 が置く。評価者の欄・読んだ記録の欄・検査は無い(読んだ記録を求める文は本文に無く、棚卸しでは足さない)。G-6 の安全性の評価者の記名は IMPL-0080 が追う。確かめる者: 技術判断者と安全担当(承認のとき)" -->
 
 更新は**エージェントの実行環境の設定を変更したとき**に行います。定期更新は求めません。設定が変わらない限り危険源の構成も変わらないためです。
 

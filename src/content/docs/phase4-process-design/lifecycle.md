@@ -319,7 +319,7 @@ graph LR
 
 <!-- impl IMPL-0883 target=project-registration-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="案件の登録。S0 の開始時に案件を登録して案件IDを付与し、案件登録記録を残すこと(手順1)。準拠テンプレートに案件登録記録の様式も置き場も無い(template/ で案件登録を検索して該当無し。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0884 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="立ち上げの順序(案件の登録、D-0 の作成、D-0 の承認、安全重要度の判定の記録、安全リスクアセスメント、企画書、G-1)を入れ替えないこと。案件の登録が先であることと、手順4 の企画書の作成が手順3 の後であることを、順序として確かめる検査は無い(読んだ範囲。2026-11-15)。D-0 の承認と期限は check-d0.mjs(G-1 の IMPL-0679)、判定の記録は第8章 軸E の IMPL-0449・0453 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0884 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="立ち上げの順序(案件の登録、D-0 の作成、D-0 の承認、安全重要度の判定の記録、安全リスクアセスメント、企画書、G-1)を入れ替えないこと。案件の登録が先であることと、手順4 の企画書の作成が手順3 の後であることを、順序として確かめる検査は無い(読んだ範囲。2026-11-15)。D-0 の承認と期限は check-d0.mjs(G-1 の IMPL-0679)、判定の記録は第8章 軸E の IMPL-0449、テンプレ9 の承認の欄の検査は第6章 テンプレ9 の IMPL-0453 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### D-0 を前提条件とする理由
 
@@ -342,7 +342,7 @@ D-0 を判定基準に含めると、体制の不備が投資対効果と相殺�
 - D-0 の次回レビュー期日を超過している案件は、ステージ移行ゲート(SG)の判定を開始してはならない
 - 前提条件の充足は、人の確認ではなく機械的な検査によって判定する([フェーズ5](/process-compass/phase5-implementation/ci-gates/))
 
-<!-- impl IMPL-0849 target=g1-check state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="安全リスクアセスメントの適用条件に該当し、かつ SR4 の危険源が残っている案件で、G-1 の審議を開始させないこと。準拠テンプレートの D-0 の検査(check-d0.mjs)は D-0 の承認と期限を見るが、SR4 の残存は見ない(templates/09-safety-risk-assessment.md に SR4 の語はあるが検査は無い。2026-11-15 に読んだ)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0849 target=g1-check state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="安全リスクアセスメントの適用条件に該当し、かつ SR4 の危険源が残っている案件で、G-1 の審議を開始させないこと。準拠テンプレートの D-0 の検査(check-d0.mjs)は D-0 の承認と期限を見るが、SR4 の残存は見ない。降ろし先 g1-check(scripts/gate/check-g1.mjs)はテンプレ9 の承認の欄を見るが、SR4 の語は同ファイルに無い(templates/09-safety-risk-assessment.md に SR4 の語はあるが検査は無い。2026-11-15 に読んだ)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0850 target=gate-entry-workflow state=delivered check=manual note="D-0 の次回レビュー期日を超過している案件を検出し、ステージ移行ゲート(SG)の判定の材料に並べること(検出の分)。scripts/gate/check-d0.mjs が next_review の超過で失敗し、gates/SG.md の節「材料の集め方」1 が check-d0 の結果を SG の材料に並べさせる(G-1 の IMPL-0679 が追う検出と同じ検査を判定者が読む)。check-d0.mjs の冒頭の文言は G-1 だけを名指す。失敗のとき SG を開始しないことは IMPL-0951 が追う。IMPL-0850 から分けた(束 C の突合 1巡目 C1-13)。確かめる者: SG の判定者(判定の材料を集めるとき)。所在を読んだ(実行して確かめていない)" -->
 
 <!-- impl IMPL-0951 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="D-0 の次回レビュー期日を超過している案件で、ステージ移行ゲート(SG)の判定を開始させないこと。gates/SG.md に「失敗なら SG を始めない」の文は無く、check-d0.mjs の冒頭は「未承認・期限切れの状態では G-1 の審議を開始できません」と G-1 だけを名指す(2026-11-15)。検出は IMPL-0850 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
@@ -429,7 +429,7 @@ graph LR
 
 <!-- impl IMPL-0890 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="コア機能ごとの理解保持者数を数え、理解保持者が1名の機能を、交代の前に2名以上へ増やすこと。保持者数を数える手段も、交代の前の確認も準拠テンプレートに無い(運用引き継ぎ文書の節2 は保持者を並べる表で、交代の契機での確認を求めない。読んだ範囲。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0891 target=handover-template state=delivered check=manual note="理解保持者の数え方。保持者に数えるのは、本人以外の者が日付を付けて理解を確認した記録(H-3・3.4.3 の演習・コア機能の障害対応の記録)を持つ人に限り、運用引き継ぎ文書へ名前を書いただけの人は数えないこと。templates/05-handover.md が同じ数え方を置き、確認した者が本人である行を受け付けない(IMPL-0066)。 確かめる者: 運用引き継ぎ文書の作成者と技術判断者(保持者を記入するとき)。所在を読んだ(実行して確かめていない)" -->
+<!-- impl IMPL-0891 target=handover-template state=delivered check=manual note="理解保持者の数え方。保持者に数えるのは、本人以外の者が日付を付けて理解を確認した記録(H-3・3.4.3 の演習・コア機能の障害対応の記録)を持つ人だけを数え、運用引き継ぎ文書へ名前を書いただけの人は数えないこと。templates/05-handover.md が同じ数え方を置き、確認した者が本人である行を受け付けない(IMPL-0066)。 確かめる者: 運用引き継ぎ文書の作成者と技術判断者(保持者を記入するとき)。所在を読んだ(実行して確かめていない)" -->
 
 ### 2.9.5 H-2 書き戻し完了
 
