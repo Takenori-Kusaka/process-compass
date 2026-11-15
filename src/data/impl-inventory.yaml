@@ -1249,7 +1249,7 @@ sections:
     location:
       - "phase4-process-design/gate-criteria#ゲート運用の共通ルール"
       - "phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.1 会議体を置く階層"
-    note: "判定会議を開かず非同期コメントの後に単独で判定することは IMPL-0536・IMPL-0656。提出者の応答の定め(反映の義務を置かない・応答は 3.10.4 と H.4 条件5・不採用に一言の理由)は IMPL-0877(降りていない)。3.10.7・3.10.8 との食い違いは #325 の裁定1 で解いた(research/325-deliberation/04-ruling.md)。"
+    note: "判定会議を開かず非同期コメントの後に単独で判定することは IMPL-0536・IMPL-0656。提出者の応答の定め(反映の義務を置かない・応答は 3.10.1 の対象では 3.10.4、AI の指摘を検出の層に数える場合は H.4 条件5 がその条件・不採用に一言の理由)は IMPL-0877(降りていない)。応答の義務の食い違いは #325 の裁定1 で解いた(research/325-deliberation/04-ruling.md)。第6章の節冒頭の範囲(判定会議)と 3.10.7 の食い違いは #325 の未決の点。"
     issue: 324
   - key: phase4-process-design/deliverable-templates#判断の順序に関する要求事項
     status: none
