@@ -110,3 +110,6 @@ files:
   - path: scripts/gate/records.mjs
     reason: library
     why: 記録用ブランチの写しと様式の読み取り。aggregate-evidence と next が使う(#321 との統合で登録)
+  - path: scripts/gate/spec-sections.mjs
+    reason: library
+    why: 機能仕様の受入基準・前提・スコープ外の3節の取り出しと比較。check-pr.mjs の検査4c(降ろし先 pr-checks。規定は IMPL-0520)が使い、出荷の証跡の集約(IMPL-0241 の実装、#355)が同じ定義を使う(#334)
