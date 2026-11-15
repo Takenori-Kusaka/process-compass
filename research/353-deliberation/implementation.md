@@ -10,8 +10,8 @@
 | --- | --- | --- |
 | `phase4-process-design/overview.md` | 1.4 用語の表 | 適用の表明・逸脱・適合の主張・逸脱を伴う適合の主張の4行(5.1) |
 | 同 | 1.10.1 | 例外承認の表示の項を1つ(5.2) |
-| 同 | 1.10.2 | 表の併記する事項3行、箇条書き7項(5.3)、IMPL-0573、EV-0266 |
-| `phase4-process-design/exception-escalation.md` | 7.3 | 記録の表の「状態」(失効の定義)、箇条書き5項(5.5)、IMPL-0574、EV-0267 |
+| 同 | 1.10.2 | 表の併記する事項3行、箇条書き7項(5.3)、IMPL-0573、EV-0270 |
+| `phase4-process-design/exception-escalation.md` | 7.3 | 記録の表の「状態」(失効の定義)、箇条書き5項(5.5)、IMPL-0574、EV-0271 |
 | `phase4-process-design/gate-criteria.md` | G-7 基準5 | 対応づく条件の表の 2(5.6) |
 | `phase4-process-design/deliverable-templates.md` | テンプレ3 | 区分「例外」の箇条書き1項(5.7)。欄は変えていない |
 | `phase4-process-design/tailoring-guide.md` | 第8章(1023 行) | 箇条書き1項の差し替え(5.8)。1122 行付近は変えていない |
@@ -28,8 +28,8 @@
 
 - IMPL-0573: 1.10.2。件数の併記(issue=354、undelivered、manual)
 - IMPL-0574: 7.3。期限の比較と失効の記録の欠落への計上(issue=355、undelivered、manual)。7.3 の末尾に置いた
-- EV-0266: 1.10.2(併記の定め。E1)。見直し 2027-05
-- EV-0267: 7.3(失効の定め。E0)。見直し 2027-05
+- EV-0270: 1.10.2(併記の定め。E1)。見直し 2027-05
+- EV-0271: 7.3(失効の定め。E0)。見直し 2027-05
 - ADR-0134
 
 他の束(b1〜b4)が同じ番号を使う可能性がある。push の前に origin/main の最大と突き合わせ、必要なら付け直す。
