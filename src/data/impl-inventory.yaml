@@ -366,8 +366,12 @@ sections:
     note: "状態の語彙・置き換える決定の欄・可逆性・期限の欄は IMPL-0137、期限切れの一覧は IMPL-0140、状態の行だけを書き換える規定は IMPL-0785。置き換えの両側の参照の一致と保管領域へ移すことは IMPL-0131(G-3 記載の検査)、保管領域を読み込みから外すことは IMPL-0130(3.11.4)"
     issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ2: 判断記録(ADR) > 判断記録の索引"
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 「導く場合は、一覧を手で保守してはなりません」(判断記録の索引)。準拠テンプレートの .claude/skills/adr-write/SKILL.md が「置く場合は機械で生成し、手で保守しません」と運ぶが、そのスキルの降ろし先が impl-targets.yaml に登録されていない(近い降ろし先を当てない)。節の中の IMPL-0139(集約が判断記録の総数を出さない)は規定の一部を追う。索引の作成を課さない旨は課さない明記"
+    status: marked
+    ids:
+      - IMPL-0139
+      - IMPL-0855
+    note: "索引の作成を課さない旨は課さない明記。導く場合に一覧を手で保守しないことは IMPL-0855(adr-write スキルが運ぶ)。集約が判断記録の総数を出さず状態ごとの件数を出すことは IMPL-0139。"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ3: 技術負債台帳"
     status: marked
     ids:
@@ -494,9 +498,10 @@ sections:
     ids:
       - IMPL-0800
       - IMPL-0801
+      - IMPL-0878
     location:
       - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項
-    note: "観点1・2 の空欄は IMPL-0800、一般語・「ない」のみの検査は IMPL-0801(降りていない)。前案件の記述との同一の検査は他案件の企画書を入力に要し、準拠テンプレートに入力の置き場が無い(新しい記録を要するため棚卸しで足さない。議長の裁定の候補)。記述の質を機械的に判定して承認可否を決めてはならない旨(5.7.4)は、検査が空欄・一般語・「ない」の形式に限られることで守られる(5.7.4 の節のマークは本節で確かめていない)"
+    note: "観点1・2 の空欄は IMPL-0800、一般語・「ない」のみの検査は IMPL-0801(降りていない)。前案件の記述との同一の検査は IMPL-0878(降りていない。他案件の企画書を入力に要し、準拠テンプレートに入力の置き場が無い。check=machine は足さない)。記述の質を機械的に判定して承認可否を決めてはならない旨(5.7.4)は、検査が空欄・一般語・「ない」の形式に限られることで守られる(5.7.4 の節のマークは本節で確かめていない)"
     issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 誰がいつ書くか"
     status: none
@@ -557,8 +562,12 @@ sections:
     reason: 委託先が AI を用いて成果物を作成する場合に契約へ添付する確認書であることと、指標の定義の所在(第4章)を示す導入の文。規定の文は無い
     issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 契約への組み込み方の3類型"
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 「品質に関する比率指標を、金銭措置の条件にしてはなりません」「金銭措置型は、稼働率など客観的に観測できる量に限って用います」「契約では開示義務型を基本とします」(契約の組み込み方の限定)。順 5 の試し c に当たる(守らせる文を、記入の手引きとして置けば実行主体がその場で読む)。運ぶのは template/.claude/skills/artifact/artifacts/08-ai-sla.md(形式の節『品質に関する比率指標を金銭措置の条件にしない』、レビューの観点『金銭措置の条件に、品質の比率指標が入っていないか』)だが、impl-targets.yaml にテンプレ8 の手引きの降ろし先が無い(様式 templates/08-ai-sla.md は ai-sla-template だが、様式に3類型の語は無い。2026-11-15)。近い降ろし先を当てない。議長へ: テンプレ8 の手引きを降ろし先に登録するか(assumption-ledger-guide と同じ種類)"
+    status: marked
+    ids:
+      - IMPL-0856
+      - IMPL-0857
+    note: "比率指標を金銭措置の条件にしないこと・開示義務型を基本とすることは IMPL-0856(手引き 08-ai-sla.md が運ぶ)。金銭措置型を客観的に観測できる量に限る旨は手引きに無く IMPL-0857(降りていない)。3類型の表は説明。"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 様式"
     status: marked
     ids:
@@ -786,44 +795,112 @@ sections:
     category: explanation
     reason: 本節が ISO 12100:2010(JIS B 9700:2013)のリスクアセスメント手順を参照した本標準の規定であり、準拠を主張しないこと、手順の借用の根拠の説明。本標準の主張の範囲の開示で、実行主体の挙動を制約する文は無い
     issue: 324
-  - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 適用条件
-    status: pending
-    note: "区分済み・降ろし先未定。既存のマーク IMPL-0453(承認の欄の検査。g1-check)・IMPL-0454(要否の判定。gate-skill)は本節の中にあり、4条件(条件1〜4)の要否は IMPL-0454、承認者を作成者と別の自然人とし AI の名義を書かないことは IMPL-0453 が追う。マークが無い規定: 「更新はエージェントの実行環境の設定を変更したときに行い、定期更新は求めません」、「製品の最悪の帰結を設計で下げた記録(区分の引き下げの根拠)を、本表に書かない。安全重要度の判定の記録へ書く」、「本表が要る CL2 以上の案件では、独立した安全性の評価者が本表を読む(適用: 適用条件に当たる CL2 以上の構成)」。運ぶのは template/templates/09-safety-risk-assessment.md だが、降ろし先の登録が無い。「本表の承認に、段2 以上を求めない」は課さない明記。番号つきの表(条件1〜4)は登録後に行ごとに区分する(条件1〜4 は IMPL-0454 を挙げる)。議長へ: テンプレ9 の様式の降ろし先(safety-risk-assessment-template)の登録と、独立した安全性の評価者が本表を読むことの降ろし先(附属書F の評価者の欄 IMPL-0080 の降ろし先と同じか)の裁定"
+  - key: "phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 適用条件"
+    status: marked
+    ids:
+      - IMPL-0453
+      - IMPL-0454
+      - IMPL-0858
+      - IMPL-0859
+      - IMPL-0860
+    rows:
+      条件1:
+        status: marked
+        ids:
+          - IMPL-0454
+      条件2:
+        status: marked
+        ids:
+          - IMPL-0454
+      条件3:
+        status: marked
+        ids:
+          - IMPL-0454
+      条件4:
+        status: marked
+        ids:
+          - IMPL-0454
+    note: "承認の欄の検査は IMPL-0453、要否は IMPL-0454、更新の契機は IMPL-0858、区分の引き下げの根拠を書かないことは IMPL-0859(様式 09 が運ぶ)。独立した安全性の評価者が本表を読むことは IMPL-0860(降りていない)。本表の承認に段2 以上を求めない旨は課さない明記。"
+    issue: 324
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 記号体系
     status: none
     category: explanation
     reason: 安全リスクの記号(Hz・Hs・Ex・Oc・Av・SR・RRS)の定義の表と、数値の向きを統一する定義(Av1 を容易に回避できる状態、Av3 を回避できない状態)。本標準の記述にだけ掛かる定義で、実行主体の挙動を制約する文は無い
     issue: 324
-  - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 記号体系 > 記号の出所
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 「L と E は Ex を決める入力である」「引き上げの判定(5.4.5)では本表の再評価を伴う」「SR2 以上の残留リスクの受容は R1 の決定として扱う」(区分どうしの接続の2つ)。表の出所と既存の区分との違いは説明。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
-  - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 手順
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 「SR4 が1件でも残る間は、当該のエージェント運用を開始してはならない」、段階1〜7の要求事項(対象と制限の決定で L と E を宣言する、計算式は規定せず SR の判定根拠を文章で書かせる、保護方策が生んだ新たな危険源を点検して段階2へ戻る、残留リスクと受容の決裁を記録する)。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
-  - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 危険源の同定
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 「OWASP Top 10 for Agentic Applications の版を記録すること」、「同分類を網羅とみなしてはなりません」(分類外の4類型も候補として同じ表で扱う)、「『人間の信頼の悪用』を省いてはなりません」。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
-  - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 危険源の同定 > 分析手法
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 「制御構造に基づく分析を主、故障モード分析を従とする」「故障モード分析を単独で用いてはなりません」。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
-  - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > リスク低減の3ステップ
-    status: pending
-    note: "区分済み・降ろし先未定。規定: RRS1・RRS2・RRS3 の順に適用し、RRS1 の具体策を設定ファイルとして実装して文書と実態を乖離させない、「RRS3 でリスクを下げてはなりません」(:::danger の枠。審議中のため要求として読む。第1章 1.7.2)、「隔離の適用範囲を必ず確認し、対象外の経路を『隔離の対象外』欄へ明記する」。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
+  - key: "phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 記号体系 > 記号の出所"
+    status: marked
+    ids:
+      - IMPL-0861
+      - IMPL-0862
+      - IMPL-0863
+    note: "L・E を引き上げるときの再評価は IMPL-0861、SR2 以上の受容を R1 の決定として扱うことは IMPL-0862、SR を比較に使わないことは IMPL-0863(いずれも様式 09 が運ぶ)。出所の表と既存の区分との違いは説明。"
+    issue: 324
+  - key: "phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 手順"
+    status: marked
+    ids:
+      - IMPL-0864
+      - IMPL-0865
+      - IMPL-0866
+    note: "SR4 が残る間の運用開始の禁止は IMPL-0864(様式 09 が運ぶ。G-1 の審議を止める検査は IMPL-0849 が降りていない旨を開示)。手順1・3・7 の記入欄は IMPL-0865、新たな危険源の点検は IMPL-0866。"
+    issue: 324
+  - key: "phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 危険源の同定"
+    status: marked
+    ids:
+      - IMPL-0867
+      - IMPL-0868
+    note: "版の記録は IMPL-0867、分類を網羅とみなさず分類外の4類型と人間の信頼の悪用を表に置くことは IMPL-0868(様式 09 が運ぶ)。"
+    issue: 324
+  - key: "phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 危険源の同定 > 分析手法"
+    status: marked
+    ids:
+      - IMPL-0869
+    note: "制御構造分析を主・故障モード分析を従とし故障モード分析を単独で用いないことは様式 09 に無く IMPL-0869(降りていない)。"
+    issue: 324
+  - key: "phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > リスク低減の3ステップ"
+    status: marked
+    ids:
+      - IMPL-0870
+      - IMPL-0871
+      - IMPL-0872
+    note: "3ステップの順と RRS1 の設定ファイルでの実装は IMPL-0870、RRS3 でリスクを下げないことは IMPL-0871、隔離の対象外の欄は IMPL-0872(様式 09 が運ぶ)。"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表"
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 「適用条件の1(物理的な危険源)に該当する案件は完全版、それ以外の該当案件は軽量版から始めます」(版の選び方)。運ぶのは template/templates/09-safety-risk-assessment.md の冒頭(物理的な危険源を持つ案件は完全版、それ以外の該当案件は軽量版から始める)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い(g1-check・gate-skill は適用条件の承認と要否だけを運ぶ。2026-11-15)。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md、説明: 安全リスクアセスメント表の様式。適用条件・記号・判定の規則・軽量版と完全版・記入時の注意を置く。内容を検査する仕組みは無い)。登録されたら、安全リスクアセスメントの節と本節の下位の節を一括して区分できる"
+    status: marked
+    ids:
+      - IMPL-0873
+    note: "版の選び方は IMPL-0873(様式 09 が運ぶ)。"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表 > 軽量版(1ページ)"
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 様式の欄(制限3種、危険源とリスクの表、低減策、隔離の対象外、残留リスクの受容、承認)と、承認者を作成者と別の自然人とし承認日・承認した版を書く欄(承認の欄は IMPL-0453 が g1-check で検査)。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
+    status: marked
+    ids:
+      - IMPL-0874
+    location:
+      - "phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 適用条件"
+    note: "様式の欄は IMPL-0874。承認の欄の検査は IMPL-0453(適用条件の節にある)。"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表 > 完全版で追加する項目"
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 完全版で追加する5項目(制御構造図、不適切な制御動作の一覧、システム状態別の評価、反復の記録、設定ファイルへの参照)と様式の節6・節7。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
+    status: marked
+    ids:
+      - IMPL-0875
+    note: "完全版の5項目と節6・節7 の様式は IMPL-0875。故障モード分析を単独で用いない旨は IMPL-0869。"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表 > 記入時の注意"
-    status: pending
-    note: "区分済み・降ろし先未定。規定: 「低減策には実装場所を書く。文章だけの記載は RRS3 とみなし、RRS1 および RRS2 として数えない」「4つのパラメータは互いに独立に見積もる」「確からしい最悪の条件で見積もる」「Av2 以下を主張する場合、判定根拠の欄に3点を書く。書けない場合は Av3 とする」「承認の件数が増える低減策を採る場合、その件数を判定根拠へ書く」「案件をまたいで SR の分布を比較しない」「SR の値を危険源どうしの比較に使わない」(後ろ2つは ADR-0042。課さない明記を含む)。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
-  - key: phase4-process-design/deliverable-templates#レビュープロセスの流れ
-    status: pending
-    note: "区分済み・降ろし先未定(判定会議を開かない・非同期コメントの後に単独判定する規定は、ゲート運用の共通ルールの IMPL-0536 と 3.7.1 の IMPL-0656 が追う)。降ろし先が無い規定: 「コメントは意見であり、反映するかは提出者と判定者が決める。全コメントへの対応義務はない」「コメントの不採用には一言の理由を残す」(提出者の応答の定め)。文の食い違いの候補(条文は変えない): 第3章 3.10.7 は T-1 に起案者が全意見へ応答するとし、3.10.8 は応答が付いていない意見の比率が 0% より大きい状態を警戒サインとするのに対し、本節は全コメントへの対応義務を置かない(合議化の防止)。事前レビュー期間(3.10)の対象は B-1〜B-4 の上程と工程ゲートで、本節の「すべてのレビュー」との範囲の関係も読み切れていない。議長へ: どちらを正とするかの裁定を要する(IMPL-0214・0216 の降ろし先 pre-review-automation は 3.10.5 の意見の数え方を追うが、本節の対応義務の否定は名指さない)"
+    status: marked
+    ids:
+      - IMPL-0876
+    location:
+      - "phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 記号体系 > 記号の出所"
+    note: "記入時の注意の7項目は IMPL-0876(様式 09 が運ぶ)。SR を危険源どうし・案件どうしの比較に使わないことは IMPL-0863(記号の出所の節にある。課さない明記を含む)。"
+    issue: 324
+  - key: "phase4-process-design/deliverable-templates#レビュープロセスの流れ"
+    status: marked
+    ids:
+      - IMPL-0877
+    location:
+      - "phase4-process-design/gate-criteria#ゲート運用の共通ルール"
+      - "phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.1 会議体を置く階層"
+    note: "判定会議を開かず非同期コメントの後に単独で判定することは IMPL-0536・IMPL-0656。提出者の応答の定め(全コメントへの対応義務を置かない・不採用に一言の理由)は IMPL-0877(降りていない)。条文は変えず、3.10.7・3.10.8 との食い違いの疑いは fix-C-pending.md に事実を挙げた。"
+    issue: 324
   - key: phase4-process-design/deliverable-templates#判断の順序に関する要求事項
     status: none
     category: explanation
@@ -3301,8 +3378,13 @@ sections:
     note: "G-4 と G-5 を省略しないことは IMPL-0847。SG と G を混同しないことは、SG の判定の値が工程ゲートの2値と別の表であること(IMPL-0846)として現れる。S0 の G-3・G-8 の適用は第8章 軸B の規則が決め、本節のマークは追わない"
     issue: 324
   - key: "phase4-process-design/lifecycle#2.6 AI協調ループの構成"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 反復の終わりに、該当がある記録(設計上の選択を伴ったら判断記録、妥協・仮実装を受容したら技術負債台帳、規約・用語が変わったら恒久層コンテキスト)をコンテキスト基盤へ書き戻し、該当が無い反復に記録を求めない。この書き戻しを運ぶ置き場は登録に無い(判断記録の要否の規則 IMPL-0384 は規則に当たる変更だけを追う)。同じ節の「受入基準を満たさない実装は次工程へ進めずループ内で差し戻す」は rulesets(IMPL-0572 が同型を追う)、「1周期の実装量は独立レビューが単独で完結できる大きさに収める」は pr-checks の変更規模の基準値が運ぶ見込みだが、確かめていない。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0879
+      - IMPL-0880
+      - IMPL-0881
+    note: "書き戻しは IMPL-0879(CLAUDE.md が運ぶ)、実装量は IMPL-0880(規模の確認の欄)、受入基準を満たさない実装を次工程へ進めないことは IMPL-0881(必須チェック)。判断記録の範囲・要否の規則は下位の節のマーク(IMPL-0848・0384・0389・0390)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.6 AI協調ループの構成 > 判断記録の範囲"
     status: marked
     ids:
@@ -3352,11 +3434,61 @@ sections:
     note: SG-0 の確認した事項に探索の記録を挙げ到達できることは IMPL-0252(降りていない)。ステージごとの表は説明。想定する反復周期は要求事項ではなく EV-0149(#298)。探索の記録の量・置き場・様式と技術検証の種別を課さないことは課さない明記
     issue: 294
   - key: "phase4-process-design/lifecycle#2.7 部門間移管"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 移管を SG-1 の判定要件として扱い、移管の完了条件1〜5(受入部門の再構成した文書、移管元の確認、持ち越し事項の一覧と期限・責任者、恒久層への登録、結果責任者(A)の指名と担当表への記録)を満たし、条件1 を文書の受領で代替しない。SG-1 の判定基準「受入部門が要求を自らの言葉で再構成できている」は gates/SG.md の表にあるが、移管記録の様式と完了条件の検査は準拠テンプレートに無い。番号つきの表の行(完了条件1〜5)は、置き場が決まった後に行ごとに区分する。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0882
+    rows:
+      完了条件1:
+        status: marked
+        ids:
+          - IMPL-0882
+      完了条件2:
+        status: marked
+        ids:
+          - IMPL-0882
+      完了条件3:
+        status: marked
+        ids:
+          - IMPL-0882
+      完了条件4:
+        status: marked
+        ids:
+          - IMPL-0882
+      完了条件5:
+        status: marked
+        ids:
+          - IMPL-0882
+    note: "移管記録と完了条件5つ。準拠テンプレートに様式も検査も無く IMPL-0882(降りていない。予定の降ろし先 context-transfer-record)。2.9 を併せて適用する旨は参照。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.8 案件の立ち上げ手順"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 立ち上げの順序(案件の登録 → D-0 の作成 → 承認 → 安全重要度の判定 → 安全リスクアセスメント → 企画書 → G-1)を入れ替えない。手順1 の案件登録記録(案件IDの付与)の様式と、順序そのものを検査する置き場は準拠テンプレートに無い。順序の一部(D-0 の承認と安全重要度の判定の記録が G-1 の審議の前提)は G-1 の IMPL-0679 と第8章 軸E の IMPL-0449 が追う。手順3b の適用条件と様式は第6章が扱う。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0883
+      - IMPL-0884
+    rows:
+      手順1:
+        status: marked
+        ids:
+          - IMPL-0883
+          - IMPL-0884
+      手順2:
+        status: marked
+        ids:
+          - IMPL-0884
+      手順3:
+        status: marked
+        ids:
+          - IMPL-0884
+      手順4:
+        status: marked
+        ids:
+          - IMPL-0884
+      手順5:
+        status: marked
+        ids:
+          - IMPL-0884
+    note: "案件登録記録は IMPL-0883、立ち上げの順序は IMPL-0884(いずれも降りていない)。前提条件の統制は下位の節のマーク(IMPL-0849・0850)。文の食い違いの候補(条文は変えない): 図と前提条件の統制の「SR4 が残る間は審議を開始しない」は G-1 の前提条件の表に無く、「D-0 の次回レビュー期日を超過している案件は SG の判定を開始しない」は G-1 の前提条件の表が D-0 の承認だけを書く点と食い違う(事実は fix-C-pending.md)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.8 案件の立ち上げ手順 > D-0 を前提条件とする理由"
     status: none
     location:
@@ -3380,41 +3512,96 @@ sections:
     reason: "節の導入の文(コンテキスト移管ゲートの趣旨と、規定が下位の節にあること)。規定の文は無い"
     issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.1 適用対象"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 結果責任者(A)の交代、文脈オーナーの交代、コア機能の理解保持者が交代して残る保持者が1名以下になる場合に、コンテキスト移管ゲートを適用する。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0885
+    note: "適用の契機(結果責任者・文脈オーナー・理解保持者の交代)の検出と記録は IMPL-0885(降りていない。予定の降ろし先 context-transfer-record)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.2 移管の成立条件"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 移管は口頭説明の完了によって成立せず、後任者が前任者へ問い合わせずに判断できる状態をもって成立とする。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0886
+    note: "移管の成立の定義は IMPL-0886(降りていない)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.3 3つのゲート"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: H-1 移管準備(交代の通知から3営業日以内。予告期間が5営業日未満なら翌営業日まで。価値責任者)、H-2 書き戻し完了(文脈オーナー)、H-3 理解の実証(交代日以降、合意した期限内。前任者でも後任者でもない者)の判定時期と判定者。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0887
+    note: "3つのゲートの判定時期と判定者は IMPL-0887(降りていない)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 予告期間"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 期限はすべて予告期間(交代が本人へ通知された時点から交代日までの営業日数)を基準とし、通知された日を起点とする。予告期間の長さを要求しないことは課さない明記。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0888
+    note: "予告期間の数え方は IMPL-0888(降りていない)。予告期間の長さを要求しない旨は課さない明記。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.4 H-1 移管準備: 欠落の棚卸し"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: コンテキスト基盤に無い知識を4類型で洗い出し、コア機能ごとの理解保持者数を数え、保持者が1名の機能を交代の前に2名以上へ増やす。保持者に数えるのは本人以外の者が日付を付けて理解を確認した記録を持つ人に限る(この数え方は IMPL-0066・IMPL-0284 が追う)。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0889
+      - IMPL-0890
+      - IMPL-0891
+    note: "棚卸しの4類型は IMPL-0889、理解保持者1名の機能を交代の前に2名以上へ増やすことは IMPL-0890(いずれも降りていない)。保持者の数え方は IMPL-0891(運用引き継ぎ文書が運ぶ。IMPL-0066 が本人の確認を受け付けない)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 書き戻しは前任者が書き後任者がレビューする(順序を逆にしない)。却下した選択肢と当時の制約は人が記入する。完了は H-1 で特定した欠落項目の消化で判定する。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0892
+    note: "H-2 の進め方は IMPL-0892(降りていない)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 期限と範囲を予告期間で決める"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 予告期間の長短にかかわらず同じ期限と範囲を課さない。区分ごとの期限と範囲(20営業日以上・10〜19・5〜9・5未満)。予告期間が10営業日未満なら前任者の関与の延長(期間・稼働の目安・連絡手段・繰り越した項目)を H-1 の判定と同時に確定させ、未確定の案件を H-1 で通過させない。「必要に応じて協力する」を関与の延長と認めない。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0893
+    note: "予告期間に応じた期限・範囲と前任者の関与の延長は IMPL-0893(降りていない)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 短い予告のときに何から書き戻すか"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 上位2類型の優先順位(組織的文脈、運用上の勘所、設計の背景と制約、却下した選択肢)を入れ替えない。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0894
+    note: "優先順位を入れ替えないことは IMPL-0894(降りていない)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.5 H-2 書き戻し完了 > 機械検査"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: H-1 の記録に欄(交代の通知日、交代日、予告期間、前任者の関与の延長)を必須とし、通知日と交代日から導出して予告期間の区分を申告させない。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0895
+    note: "H-1 の必須欄の検査は IMPL-0895(降りていない。決定可能な条件のため、様式ができたときに機械の検査にできるが、本件では check=machine を足さない)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.6 H-3 理解の実証"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 移管の完了を後任者の自己申告で判定しない。4課題(設計の説明、却下案の再構成、障害時の初動、変更の実作業)の組み合わせで判定し、課題1〜3 は AI へ問い合わせない状態で実施し、評価者・方法・課題・結果を記録する。評価者に前任者と後任者を充てない。番号つきの表の行(課題1〜4)は、置き場が決まった後に行ごとに区分する。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0896
+    rows:
+      課題1:
+        status: marked
+        ids:
+          - IMPL-0896
+      課題2:
+        status: marked
+        ids:
+          - IMPL-0896
+      課題3:
+        status: marked
+        ids:
+          - IMPL-0896
+      課題4:
+        status: marked
+        ids:
+          - IMPL-0896
+    note: "H-3 の4課題と評価者の限定は IMPL-0896(降りていない)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.7 準備段階における AI の利用"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 後任者が準備段階で AI エージェントを用いることを禁止せず、生成された説明をそのまま受け取る使い方(受動的な委譲)を認めず、疑問点を問いとして立て回答の根拠を記録と突き合わせる使い方を求める。違反が現れる記録が H-1〜H-3 の記録の外にあるかは、置き場が決まった後に再度判断する。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0897
+    note: "受動的な委譲を認めないことは IMPL-0897(降りていない)。"
+    issue: 324
   - key: "phase4-process-design/lifecycle#2.9 コンテキスト移管ゲート > 2.9.8 H-3 が期限内に合格しない場合"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。規定: 交代日までに H-3 が合格しない場合は前任者の関与を延長するか対象を他の理解保持者へ一時的に移す。結果責任者(A)を空席にしたまま交代日を過ぎない。H-3 の不合格を後任者の人事評価に用いない(人事評価は組織の制度で、本標準が求める記録に現れない。制度設計として扱う候補)。コンテキスト移管ゲート(H-1・H-2・H-3)の判定記録の様式と検査の置き場は準拠テンプレートに無い(テンプレ5 の理解保持者の欄は IMPL-0066 が追うが、H-1〜H-3 の記録は運ばない。2026-11-15 に template/ を検索して、移管・予告期間・書き戻しの語を持つ様式と検査が無いことを確かめた)。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0898
+    note: "延長・移管先・A の空席の禁止・人事評価への不使用は IMPL-0898(降りていない)。人事評価への不使用は人の席が担い、実行層に置き場を持たない。"
+    issue: 324
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制
     status: none
     category: org-design
@@ -3481,8 +3668,15 @@ sections:
     note: "SC-P へ項目を追加する調整の上限(個数の合計が計画容量を超える追加をしない。「実測なし」の間は置かない)は IMPL-0851(降りていない)。(1)「棚卸しのための会議体を定めません」は課さない明記。(2) 調整の権限の表は、価値責任者の単独判定と SG・7.6 の判定の割当で、判定記録または調整の記録に現れるが、調整の記録の置き場は標準が定めていない。表の「SC-M を増減する」は SG(IMPL-0846)と 7.6 の判定記録が追う。(4) 契約で固定した範囲に触れる調整を B-2 の裁定へ回す限定は 2.10.8 の経路(IMPL-0852)。(5)「計画範囲と調整枠の増減を、計画に反する変更として扱ってはなりません」は評価の向きの禁止で、人の席が担い、実行層に置き場を持たない(理由は置き場の有無で、AI の担い手を縛らないことではない)。登録は区分済みの none / org-design から改めた(#324 の裁定 decision.md 2章 #8)"
     issue: 443
   - key: "phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.6 期日に間に合わない見込みが立った場合"
-    status: pending
-    note: "区分済み・降ろし先未定(登録された降ろし先に合うものが無い。近い降ろし先は当てない)。IMPL-0367(D-0 表1 の行『フローの観測と見込みの報告』と担い手の権限)は節の中にある。規定: 見込みを価値責任者が評価して手続を開始し期日の到来を待たない、手順の選択の順序(範囲を削る → 期日を動かす → 基準を下げる)を入れ替えない、SC-B から先に削り SC-M へ手を付けない、手順1 で不足するときは 7.6 のエスカレーションレポートを起票する。順序と評価を記録する置き場は、2.10.5 の調整の記録と同じく標準が定めていない。手順の権限の割当は 7.6・7.3 のマーク、報告の様式は IMPL-0617 が追う見込みだが、確かめていない。議長が束の終わりに裁定する"
+    status: marked
+    ids:
+      - IMPL-0367
+      - IMPL-0899
+    location:
+      - "phase4-process-design/exception-escalation#7.3 例外承認の要求事項"
+      - "phase4-process-design/exception-escalation#7.6 エスカレーションの基準 > 発火条件"
+    note: "D-0 表1 の行と担い手の権限は IMPL-0367。見込みの評価・手続の開始・選択の順序は IMPL-0899(降りていない。予定の降ろし先 flow-observation)。手順の権限の割当は 7.3・7.6 の節のマークが追う。"
+    issue: 443
   - key: "phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.7 通常運転と例外の境界"
     status: none
     category: explanation

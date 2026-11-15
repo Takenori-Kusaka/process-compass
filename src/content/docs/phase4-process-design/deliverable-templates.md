@@ -209,7 +209,7 @@ graph LR
 
 <!-- impl IMPL-0778 target=d0-template state=delivered check=presence note="D-0 の節14 に、納期を理由に統制を外す要求を納期の変更として扱わず緩める向きの変更として決定に掛けること、AI が使えない期間(提供者の障害・利用上限への到達)を変化点に数えず期間とその間の扱いを記録することを、更新の契機の注記として置く(templates/00-d0-governance.md 節14)(単位: 行)" -->
 
-<!-- impl IMPL-0779 target=config-change-log state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="変化点をまたぐ未完了の判定を、変化点の後の体制の判定者(新しい席の責任者)が引き継ぐこと。仕掛かりの判定を挙げる出力と、変化点の前の体制の判定者の名義の判定を変化点の後の判定として受け付けない検査は、読んだ範囲(scripts/init/generate-profile.mjs の差分の分類、/process-change の補助ファイル)で見つかっていない。IMPL-0723(無効になった確認の特定)と同じ仕掛かりの扱い。確かめる者: 計画の Issue の担当者" -->
+<!-- impl IMPL-0779 target=process-change-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="変化点をまたぐ未完了の判定を、変化点の後の体制の判定者(新しい席の責任者)が引き継ぐこと。変化点の入口(/process-change)は dry-run.md の「無効になった確認の候補」に、責任者または運用形態が変わった席の仕掛かり中の判定を挙げる(候補を示すだけ)。変化点の後の判定者が引き継ぐことの記録と、変化点の前の体制の判定者の名義の判定を変化点の後の判定として受け付けない検査は、読んだ範囲(scripts/init/generate-profile.mjs の差分の分類、/process-change の補助ファイル。2026-11-15 に付け替え)で見つかっていない。降ろし先を config-change-log から付け替えた(changeLog は変化点の記録で、仕掛かりの判定を持たない)。IMPL-0723(無効になった確認の特定)と同じ仕掛かりの扱い。確かめる者: 計画の Issue の担当者" -->
 
 変化点の列挙と手続は、製造と労働安全の変更管理からの類推です。開発体制へ転用した効果は測定されておらず、根拠の水準は ADR-0055 に開示しています。
 
@@ -683,6 +683,8 @@ D-0 は監査の対象です。記録として成立するために、次を満�
 判断記録を出荷判定の証跡に集約する場合は、判断記録の総数を出さず、状態ごとの件数と、置き換えの両側の参照の不一致の件数を出します。総数は、参考として測る形そのものだからです。
 
 <!-- impl IMPL-0139 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-decisions.mjs note="出荷判定の証跡の集約は、判断記録の件数を出さず、状態ごとの件数(採用・一部置き換え・置き換え・廃止。保管領域を含む)と、置き換えの両側の参照の不一致の件数を出す。README を数えない" -->
+
+<!-- impl IMPL-0855 target=adr-write-skill state=delivered check=manual note="判断記録の索引。一覧を導く場合に手で保守しないこと。.claude/skills/adr-write/SKILL.md の節「置き換えと廃止」の末尾が、索引(一覧の文書)は課さず、置く場合は機械で生成し手で保守しない旨を置く。索引の作成を課さない旨は課さない明記。 確かめる者: 技術判断者(判断記録を起こす・一覧を置くとき)。所在を読んだ(実行して確かめていない)" -->
 
 :::caution[暫定 EV-0122 / 見直し 2027-10]
 **対象**: 判断記録の索引を課さず、置き換え・廃止の判断記録の保管と読み込みからの除外で、現に効いている判断記録の集合を示すこと。
@@ -1200,6 +1202,8 @@ PR を経ていないコミットで、リスク区分または検証の記載�
 
 <!-- impl IMPL-0801 target=g1-check state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="禁止した一般語のみで書かれた欄と、代替手段の欄に「ない」とのみ書かれた欄を、機械が検査すること。scripts/gate/check-g1.mjs は未記入と様式の説明のままを検出するが、一般語のみ・「ない」のみは「成長」「一般語」「同一」で検索した範囲で見つかっていない。前案件の記述との同一の検査は、他案件の企画書を入力に要し、準拠テンプレートに入力の置き場が無いため、ここでは扱わない。確かめる者: 計画の Issue の担当者" -->
 
+<!-- impl IMPL-0878 target=g1-check state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="企画書の記述が前案件の記述と同一であることを、機械が検査すること(記述の充足をどう検査するかの表)。他案件の企画書を入力に要し、準拠テンプレートの check-g1.mjs に入力の置き場も同一の検査も無い(読んだ範囲。2026-11-15)。検査を足すには新しい記録を要するため、棚卸しでは機械の検査(check=machine)を足さず、降りていない規定として表示する。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+
 ### 誰がいつ書くか
 
 | 手順 | 担い手 | 時期 |
@@ -1328,6 +1332,10 @@ AI の利用の3行は、AI の利用そのものが目的になることを防�
 - 金銭が絡むと未達の過小報告が誘発され、品質の実態がかえって見えなくなる
 
 本標準は、出荷判定では是正計画型と開示義務型を、契約では開示義務型を基本とします。金銭措置型は、稼働率など客観的に観測できる量に限って用います。
+
+<!-- impl IMPL-0856 target=ai-sla-guide state=delivered check=manual note="契約への組み込み方。品質に関する比率指標を金銭措置の条件にしないこと、契約では開示義務型を基本とすること。.claude/skills/artifact/artifacts/08-ai-sla.md の節「目的・読み手・形式」の形式の行と、節「レビューの観点」の金銭措置の条件に比率指標が入っていないかの項目が置く。 確かめる者: 委託契約の調達・法務の担当者と出荷判定者(G-7 でテンプレ8 を突合するとき)。所在を読んだ(実行して確かめていない)" -->
+
+<!-- impl IMPL-0857 target=ai-sla-guide state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="金銭措置型は、稼働率など客観的に観測できる量に限って用いること。08-ai-sla.md は比率指標を金銭措置の条件にしないことは置くが、金銭措置型を客観的に観測できる量に限る旨(その逆の向き)は置かない(読んだ範囲。2026-11-15)。 確かめる者: 計画の Issue の担当者" -->
 
 ### 様式
 
@@ -1843,6 +1851,12 @@ EU 域内に関わる案件では、生成された出力を機械可読な形�
 
 <!-- impl IMPL-0454 target=gate-skill state=delivered check=manual note="本表の要否(適用条件の4条件のいずれかに当たるか)。構成は4条件の入力を持たず、規則データは要否を「適用条件による」(safetyRiskAssessment: conditional)として出すだけで、準拠テンプレートの検査は要否を判定しない。本表を置かない案件が条件に当たらないことは、機械では確かめない。G-1 の補助ファイル(.claude/skills/gate/gates/G-1.md)が前提条件として挙げる。確かめる者: G-1 の判定者(事業決裁者。G-1 の審議の前に、4条件と本表の有無を照らすとき)(#373 突合 X-7)" -->
 
+<!-- impl IMPL-0858 target=safety-risk-assessment-template state=delivered check=manual note="本表の更新の契機。実行環境の設定を変更したときに更新し、定期更新は求めないこと。templates/09-safety-risk-assessment.md の節「適用条件」が置く。 確かめる者: 安全リスクアセスメント表の承認者(設定を変更するとき)。所在を読んだ(実行して確かめていない)" -->
+
+<!-- impl IMPL-0859 target=safety-risk-assessment-template state=delivered check=manual note="製品の最悪の帰結を設計で下げた記録(区分の引き下げの根拠)を本表に書かず、安全重要度の判定の記録へ書くこと。09-safety-risk-assessment.md の節「記号」の末尾が、D-0 の節16 へ書く旨とともに置く。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
+
+<!-- impl IMPL-0860 target=safety-risk-assessment-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="本表が要る安全重要度 CL2 以上の案件で、独立した安全性の評価者が本表を読むこと。09-safety-risk-assessment.md の軽量版の末尾の段落は読む旨を書くだけで、評価者の欄・読んだ記録の欄・検査は無い。G-6 の安全性の評価者の記名は IMPL-0080 が追うが、本表を読んだことは追わない。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+
 更新は**エージェントの実行環境の設定を変更したとき**に行います。定期更新は求めません。設定が変わらない限り危険源の構成も変わらないためです。
 
 ### 記号体系
@@ -1891,6 +1905,12 @@ EU 域内に関わる案件では、生成された出力を機械可読な形�
 - **L と E は Ex を決める入力である**。自律レベルまたは実行形態を引き上げると、同じ危険源でも暴露が増える。したがって引き上げの判定([第5章 5.4.5](/process-compass/phase4-process-design/human-ai-boundary/))では本表の再評価を伴う
 - **SR2 以上の残留リスクの受容は R1 の決定として扱う**。受容の決裁者は[第3章 3.8.2](/process-compass/phase4-process-design/roles-responsibilities/)の決裁権限マトリクスで特定する
 
+<!-- impl IMPL-0861 target=safety-risk-assessment-template state=delivered check=manual note="引き上げの判定での本表の再評価。AI自律レベル(L)と実行形態(E)は Ex を決める入力であり、引き上げる場合は本表を再評価すること。09-safety-risk-assessment.md の節「記号の出所」の接続の箇条と、節「記入時の注意」の第1項が置く。引き上げの判定(5.4.5)が再評価を要する旨を名指すマークは別に無い。 確かめる者: 安全リスクアセスメント表の承認者(L・E を引き上げるとき)。所在を読んだ(実行して確かめていない)" -->
+
+<!-- impl IMPL-0862 target=safety-risk-assessment-template state=delivered check=manual note="SR2 以上の残留リスクの受容を R1 の決定として扱うこと。09-safety-risk-assessment.md の節「記号の出所」の接続の箇条が置く。R1 の決定そのものの人確定は別のマークが追う。 確かめる者: 安全リスクアセスメント表の承認者(残留リスクの受容を決裁するとき)。所在を読んだ(実行して確かめていない)" -->
+
+<!-- impl IMPL-0863 target=safety-risk-assessment-template state=delivered check=manual note="SR の値を危険源どうしの比較に使わず、案件をまたいだ SR の分布の比較もしないこと(ADR-0042)。09-safety-risk-assessment.md の節「記号の出所」が置く。比較を行う者を機械は検出しない。 確かめる者: 安全リスクアセスメント表の承認者と内部監査を行う者。所在を読んだ(実行して確かめていない)" -->
+
 ### 手順
 
 ```mermaid
@@ -1913,6 +1933,12 @@ graph TD
 5. **リスクの低減**: 後述の3ステップを順に適用する
 6. **再評価**: 保護方策の追加によって生じた新たな危険源を点検し、段階2へ戻る
 7. **受容**: 残留リスクと受容の決裁を記録する
+
+<!-- impl IMPL-0864 target=safety-risk-assessment-template state=delivered check=manual note="SR4 が1件でも残る間は、当該のエージェント運用を開始しないこと。09-safety-risk-assessment.md の節「判定の規則」が置く。SR4 の残存で G-1 の審議を止める検査は無い(IMPL-0849 が降りていない旨を開示している)。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
+
+<!-- impl IMPL-0865 target=safety-risk-assessment-template state=delivered check=presence note="手順の記入欄。使用上・空間上・時間上の限界の3種と L・E の宣言(手順1)、判定の根拠(手順3。計算式を定めず文章で書く)、残留リスクの受容の理由・決裁者・日付(手順7)の欄を、軽量版の様式に置く。欄の中身は確かめない(単位: 欄)" -->
+
+<!-- impl IMPL-0866 target=safety-risk-assessment-template state=delivered check=manual note="低減策の適用後に生じた新たな危険源を点検し、危険源の同定へ戻ること(手順6)。09-safety-risk-assessment.md の節「判定の規則」が置き、完全版は節7 の反復の記録を様式に持つ。軽量版は反復の記録の欄を持たない。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
 
 ### 危険源の同定
 
@@ -1945,6 +1971,10 @@ graph TD
 
 **「人間の信頼の悪用」を省いてはなりません**。承認ゲートを設けても、承認者が内容を読まずに通すのであれば保護方策は機能しません。ISO 12100:2010 の「保護方策が新たな危険源を導入していないか」という要求に直接対応する項目です。対策は[第5章 5.6](/process-compass/phase4-process-design/human-ai-boundary/)および[第6章 認知強制機能](/process-compass/phase4-process-design/deliverable-templates/)によります。
 
+<!-- impl IMPL-0867 target=safety-risk-assessment-template state=delivered check=manual note="危険源の同定に用いた OWASP Top 10 for Agentic Applications の版を記録すること。09-safety-risk-assessment.md の節「危険源の同定」が書く旨を置く。版を書く専用の欄は様式に無い。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
+
+<!-- impl IMPL-0868 target=safety-risk-assessment-template state=delivered check=presence note="同分類を網羅とみなさず、分類外の4類型(保護対策の回避・性能評価の不正確性・増殖と管理困難性・秘匿情報への到達)を候補として同じ表で扱い、「人間の信頼の悪用」を省かないこと。09-safety-risk-assessment.md の節「危険源の同定」の表が、14 行(ASI01〜10 と分類外4件)を置く。行を省いた表を拒む検査は無い(単位: 行)" -->
+
 #### 分析手法
 
 危険源の洗い出しには、**制御構造に基づく分析を主、故障モード分析を従**とします。
@@ -1955,6 +1985,8 @@ graph TD
 | 故障モード分析(FMEA) | 個々のツールの故障モードを網羅的に列挙する | 従 |
 
 故障モード分析を単独で用いてはなりません。同手法は単一の原因が単一の影響を生む前提に立ち、構成要素間の相互作用を扱えないためです。AIエージェントの有害な結果は、各要素が仕様どおりに動作したうえで発生することが多く、部品の故障としては表れません。
+
+<!-- impl IMPL-0869 target=safety-risk-assessment-template state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="危険源の洗い出しは制御構造に基づく分析を主、故障モード分析を従とし、故障モード分析を単独で用いないこと。09-safety-risk-assessment.md に故障モード・FMEA の語は無く(読んだ範囲。2026-11-15)、完全版の制御構造図と不適切な制御動作の一覧(IMPL-0875)は物理的な危険源を持つ案件の欄にとどまる。軽量版には分析手法の指示が無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### リスク低減の3ステップ
 
@@ -1992,9 +2024,17 @@ RRS3 の具体策は、残留リスク一覧の提示、レビュアへの教育
 
 **隔離の適用範囲を必ず確認します**。エージェント基盤の隔離機構は、一部の実行経路にのみ適用されることがあります。組込みのファイル操作、外部取得、拡張ツールなどが別系統の権限設定で制御される場合、その旨をテンプレ9 の「隔離の対象外」欄へ明記します。対象外の経路を把握しないまま「隔離済み」とみなすことが、本節で最も起きやすい誤りです。
 
+<!-- impl IMPL-0870 target=safety-risk-assessment-template state=delivered check=manual note="リスク低減の3ステップ。RRS1・RRS2・RRS3 の順に適用し、RRS1 は設定ファイルとして実装して実装場所を低減策の欄へ書くこと。09-safety-risk-assessment.md の節「リスク低減の3ステップ」が置く。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
+
+<!-- impl IMPL-0871 target=safety-risk-assessment-template state=delivered check=manual note="RRS3(使用上の情報)でリスクを下げないこと。手順書に記載したことを対策済みとしない。09-safety-risk-assessment.md の節「リスク低減の3ステップ」と節「記入時の注意」(文章だけの記載は RRS3 とみなし RRS1・RRS2 に数えない)が置く。審議中のため要求として読む(第1章 1.7.2)。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
+
+<!-- impl IMPL-0872 target=safety-risk-assessment-template state=delivered check=presence note="隔離の適用範囲を確認し、隔離の対象外の経路を「隔離の対象外」欄へ明記すること。軽量版の様式の節4 と、節「軽量版」末尾の段落が置く。欄を空にした表を拒む検査は無い(単位: 欄)" -->
+
 ## テンプレ9: AIエージェント安全リスクアセスメント表
 
 記入量を抑えるため、軽量版と完全版の2段構えとします。適用条件の1(物理的な危険源)に該当する案件は完全版、それ以外の該当案件は軽量版から始めます。
+
+<!-- impl IMPL-0873 target=safety-risk-assessment-template state=delivered check=manual note="版の選び方。適用条件の1(物理的な危険源)に該当する案件は完全版、それ以外の該当案件は軽量版から始めること。09-safety-risk-assessment.md の節「軽量版」の冒頭が置く。 確かめる者: 安全リスクアセスメント表の承認者(様式を起こすとき)。所在を読んだ(実行して確かめていない)" -->
 
 ### 軽量版(1ページ)
 
@@ -2034,6 +2074,8 @@ RRS3 の具体策は、残留リスク一覧の提示、レビュアへの教育
 | | | | |
 ```
 
+<!-- impl IMPL-0874 target=safety-risk-assessment-template state=delivered check=presence note="軽量版の様式。制限(3種)、危険源とリスクの表、低減策(RRS1〜RRS3 と低減後 SR)、隔離の対象外、残留リスクの受容、承認(作成者と別の自然人の承認者・承認日・承認した版)の欄を置く。承認の欄の検査は IMPL-0453、欄の中身は確かめない(単位: 欄)" -->
+
 ### 完全版で追加する項目
 
 完全版は軽量版に次を加えます。
@@ -2045,6 +2087,8 @@ RRS3 の具体策は、残留リスク一覧の提示、レビュアへの教育
 | システム状態別の評価 | 通常運転・起動・停止・異常・保守の各状態で危険源が変わる場合に、状態ごとに評価する |
 | 反復の記録 | 低減策の適用後に生じた新たな危険源と、再評価の結果 |
 | 設定ファイルへの参照 | RRS1 の各項目が、どの設定ファイルのどの項目として実装されているか |
+
+<!-- impl IMPL-0875 target=safety-risk-assessment-template state=delivered check=presence note="完全版で追加する5項目(制御構造図・不適切な制御動作の一覧・システム状態別の評価・反復の記録・設定ファイルへの参照)。09-safety-risk-assessment.md の節「完全版で追加する項目」の表の5行と、節6・節7 の様式が置く。完全版であるのに項目を欠く表を拒む検査は無い(単位: 行)" -->
 
 ```markdown
 ## 6. 不適切な制御動作(完全版)
@@ -2071,6 +2115,8 @@ RRS3 の具体策は、残留リスク一覧の提示、レビュアへの教育
 
 **案件をまたいで SR の分布を比較しません**。見積りは自己申告であり、第三者認証を持ちません。比較は見積りを甘くする誘因を直接与えます。
 
+<!-- impl IMPL-0876 target=safety-risk-assessment-template state=delivered check=manual note="記入時の注意。低減策に実装場所を書き文章だけの記載は RRS3 とみなすこと、4つのパラメータを互いに独立に見積もること、確からしい最悪の条件で見積もること、Av2 以下を主張するときは判定根拠に通知経路・止められる者・止まるまでの時間の3点を書き書けなければ Av3 とすること、承認の件数が増える低減策では件数を判定根拠へ書くこと。09-safety-risk-assessment.md の節「記入時の注意」が置く。判定根拠の中身は確かめない。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
+
 ## レビュープロセスの流れ
 
 すべてのレビューは「**非同期コメント → 単独判定**」の2段で流れます。判定会議は開きません。
@@ -2091,6 +2137,8 @@ sequenceDiagram
 - コメントは「意見」であり、反映するかは提出者と判定者が決める。全コメントへの対応義務はない(合議化の防止)
 - コメントの不採用には一言の理由を残す(納得感の担保)
 - 判定記録(テンプレ4)がそのまま監査証跡になり、出荷判定(G-7)の突合対象になる
+
+<!-- impl IMPL-0877 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="提出者の応答の定め。コメントは意見であり全コメントへの対応義務は置かないこと、コメントを不採用にするときは一言の理由を残すこと。準拠テンプレートに応答の記録の置き場は無い(.github/ai-review/README.md は AI レビューの指摘の採否を残す旨で、人のコメントの応答の定めではない。読んだ範囲。2026-11-15)。判定会議を開かず単独で判定する規定は IMPL-0536・IMPL-0656 が追う。全コメントへの対応義務を否定する文は、3.10.7(T-1 に全意見へ応答)・3.10.8(応答が無い意見の比率が 0% を超える状態を警戒サインとする)と食い違う疑いがあり、条文は変えずに事実を記録へ挙げた(research/324-deliberation/fix-C-pending.md)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ## 判断の順序に関する要求事項
 

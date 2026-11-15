@@ -584,3 +584,33 @@ targets:
     kind: planned
     path: (process.config.json の ci.allowedLicenses を置き場とする暫定の許可の記録欄と失効の検査)
     description: 第4章 G-5「許可リストが判定を妨げた場合の救済」の、暫定の許可の期限と期限超過の失効の置き場。許可リスト自体は process.config.json の ci.allowedLicenses にあるが、暫定の許可を記録する欄と失効の検査は準拠テンプレートに無い(「暫定の許可」で template/ を引いて 0 件。2026-11-15 確認。Issue #324。束 A 独立の突合 2巡目の裁定)。恒久の追加の所管は process-change-skill が運ぶ
+
+  - id: adr-write-skill
+    name: 判断記録を書くスキル(/adr-write)
+    kind: template-file
+    path: .claude/skills/adr-write/SKILL.md
+    description: 判断記録(ADR)の書き方。採らなかった選択肢と理由を含めること、採用済みを書き換えないこと、置き換えと廃止の状態の行だけを書き換えて保管領域へ移すこと、索引(一覧の文書)を課さず置く場合は機械で生成し手で保守しないことを置く(第6章 テンプレ2「判断記録の索引」。Issue #324。束 C の裁定)
+
+  - id: ai-sla-guide
+    name: AI-SLA 合意確認書(テンプレ8)の手引き
+    kind: template-file
+    path: .claude/skills/artifact/artifacts/08-ai-sla.md
+    description: テンプレ8 の手引き。契約への組み込みは3類型で、品質に関する比率指標を金銭措置の条件にしないこと、開示義務型を基本とすること、レビューの観点に金銭措置の条件に比率指標が入っていないかを置く(incident-artifact と同じく手引きを降ろし先とする。Issue #324。束 C の裁定)
+
+  - id: safety-risk-assessment-template
+    name: 成果物テンプレート テンプレ9(AIエージェント安全リスクアセスメント表)
+    kind: template-file
+    path: templates/09-safety-risk-assessment.md
+    description: 安全リスクアセスメント表の様式。適用条件・記号・判定の規則・軽量版と完全版・危険源の同定・リスク低減の3ステップ・記入時の注意を置く。承認の欄は check-g1.mjs が確かめる(g1-check)が、危険源の洗い出しと SR の評価の中身を検査する仕組みは無い(Issue #324。束 C の裁定)
+
+  - id: context-transfer-record
+    name: 部門間移管・コンテキスト移管の記録の置き場(予定)
+    kind: planned
+    path: docs/context-transfer/
+    description: 第2章 2.7 の部門間移管の移管記録と、2.9 のコンテキスト移管ゲート(H-1 移管準備・H-2 書き戻し完了・H-3 理解の実証)の記録の置き場。H-1 の必須欄(交代の通知日・交代日・予告期間・前任者の関与の延長)の導出検査もここに降りる。準拠テンプレートに様式も検査も無い(2026-11-15 確認。Issue #324。束 C の裁定)。採用者に委ねるかは未決
+
+  - id: project-registration-record
+    name: 案件登録記録の置き場(予定)
+    kind: planned
+    path: docs/project-registration.md
+    description: 第2章 2.8 手順1 の案件登録記録(案件IDの付与)の置き場。準拠テンプレートに様式も置き場も無い(2026-11-15 確認。Issue #324。束 C の裁定)
