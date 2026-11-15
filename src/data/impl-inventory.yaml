@@ -552,80 +552,303 @@ sections:
       - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     issue: 311
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付)"
-    status: pending
+    status: none
+    category: explanation
+    reason: 委託先が AI を用いて成果物を作成する場合に契約へ添付する確認書であることと、指標の定義の所在(第4章)を示す導入の文。規定の文は無い
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 契約への組み込み方の3類型"
     status: pending
+    note: "区分済み・降ろし先未定。規定: 「品質に関する比率指標を、金銭措置の条件にしてはなりません」「金銭措置型は、稼働率など客観的に観測できる量に限って用います」「契約では開示義務型を基本とします」(契約の組み込み方の限定)。順 5 の試し c に当たる(守らせる文を、記入の手引きとして置けば実行主体がその場で読む)。運ぶのは template/.claude/skills/artifact/artifacts/08-ai-sla.md(形式の節『品質に関する比率指標を金銭措置の条件にしない』、レビューの観点『金銭措置の条件に、品質の比率指標が入っていないか』)だが、impl-targets.yaml にテンプレ8 の手引きの降ろし先が無い(様式 templates/08-ai-sla.md は ai-sla-template だが、様式に3類型の語は無い。2026-11-15)。近い降ろし先を当てない。議長へ: テンプレ8 の手引きを降ろし先に登録するか(assumption-ledger-guide と同じ種類)"
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 様式"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0803
+      - IMPL-0804
+      - IMPL-0805
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 第10項〜第14項を様式に置く理由"
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整"
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 判定をどちらの組織へ置くか"
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 判定の結果を受け取る者を決める"
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 強制層をどちらが所有するか > 所有を決める対象と、記録する事項"
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 保証の開示を納品ごとに受け渡す"
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.2 記録の要求事項
+    note: 第2項(IMPL-0803)・第3項と第4項(IMPL-0804)・第5項(IMPL-0805)は本節。第1項・第6項・第10項〜第13項の欄は IMPL-0343(第10項〜第14項を様式に置く理由の節)、第7項の欄(依存関係のライセンス検査と類似検知の扱い、結果責任を負う者、補償)は軸D の IMPL-0751・IMPL-0752、第8項は IMPL-0757、第9項は IMPL-0754・IMPL-0121・IMPL-0122・IMPL-0339・IMPL-0756、第14項は IMPL-0382 が追う。第1項の注記(記録しているため再現できるとは説明しない)は第5章 5.8.2 の IMPL-0208。第15項(合意の氏名・日付)は当事者が記入する欄で、AI の名義を書かない旨は手引きの側。「結果責任を負う者」の検査範囲と手段の特定は IMPL-0752 が降りていないと開示している
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 知財潔白性を AI 固有の要求として書かない理由"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 第7項の検査を AI を利用する場合に限って課さないこと(依存関係のライセンス検査を AI の利用の有無で変えない)は、第4章 G-5「知財潔白性の検査」の IMPL-0678 が名指して追う。事業者の知財補償を検査を省略する根拠にしないことは、軸D の IMPL-0751 の note が名指す。契約の相手方へ指標を提示するときに定義と算出方法を添付することは、注記の枠の中の文で、第2項の IMPL-0803 が追う(定義を添付しない提示を受け取らない)。成果物の適否の確認の基準を受入基準への適合に限る構成との関係、EU の識別義務は説明
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 知財潔白性の検査
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整"
+      - "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 様式"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 判定の置き先と結果の受け渡しを記録する理由"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0806
+      - IMPL-0807
+    location:
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 判定をどちらの組織へ置くか"
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 判定の結果を受け取る者を決める"
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整"
+    note: G-2・G-8 の対応づけは対応づけない場合も書く旨は IMPL-0806。独立レビュー(G-6)の置き先と確認者の D-0 表5-2 の区分の対応は IMPL-0807(降りていない)。判定の置き先の欄と結果を受け取る者の欄は軸D の IMPL-0754・IMPL-0121・IMPL-0122 が追う。判定の置き先が結果責任の配分を定めない旨(「結果責任の配分を定めません」「読み方を採りません」)は課さない明記で、様式 templates/08-ai-sla.md も「契約の類型ごとの責任の配分を、標準は定めません」と置く。受託の案件で発注側の席の責任者を「体制の内」の人に数える対応は第8章 軸D「委託の体制の人数と、軸A との組み合わせ」の側
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 第10項〜第14項を様式に置く理由"
     status: marked
     ids: [IMPL-0343]
   - key: "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 保証の開示と委任の適用を契約で定める理由"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 第8項の欄(納品ごとの保証の開示の提出、項目6 の示し方、記載が欠落した場合の措置、委任の適用の合意)と、組織の外へ渡す開示で検出率の値を出さないこと、委任を適用した変更は人の事前確認を経ずに納品されるため締結時に合意することは、軸D「保証の開示を納品ごとに受け渡す」の IMPL-0757 の note が名指して追う。第8項と第9項が必須欄であること(ADR-0069 決定8)は説明
+    location:
+      - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 保証の開示を納品ごとに受け渡す"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳"
-    status: pending
+    status: none
+    category: explanation
+    reason: 本標準の前提の充足状態を記録する様式であることと、手続の所在(第7章 7.10)を示す導入の文。規定の文は無い
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > 台帳に対処の実体を書かない"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0808
+    note: 表(前提と既存の対処の参照先の対応)は説明。対処の内容を台帳に再掲しない規定は IMPL-0808
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > リスク登録簿と統合しない"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0809
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > 様式"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 様式の列の規定は、列ごとに名指すマークが追う。充足状態の3区分(AS-0・AS-1・AS-2)の欄は 7.10.2 の IMPL-0671、観測した事象の列と、劣化の判定条件を定めない前提(A-P1・A-P2・A-P4・A-K1・A-K2)を台帳で扱わないことは 7.10.3 の IMPL-0672、受容の記録の列(決裁者・日付・有効期限・再評価の契機)は 7.10.4 の IMPL-0675、対処の参照先の列は IMPL-0808、劣化時の進め方の列は IMPL-0810。行(A-T3・A-T4・A-O1・A-O2・A-O3・A-K3)の選び方は IMPL-0672 の note が名指す
+    location:
+      - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.2 充足状態の3区分
+      - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.3 劣化の定義
+      - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.4 受容の要求事項
+      - "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > 台帳に対処の実体を書かない"
+      - "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > 記入時の注意"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > 記入時の注意"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0810
+    location:
+      - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.3 劣化の定義
+      - phase4-process-design/exception-escalation#7.10 前提の劣化と受容 > 7.10.4 受容の要求事項
+      - "phase4-process-design/deliverable-templates#テンプレ10: 前提の台帳 > 台帳に対処の実体を書かない"
+    note: 充足状態を自己申告で決めない(観測した事象が空のまま AS-0 とした行は記録として成立しない)は 7.10.3 の IMPL-0672、受容の記録に有効期限を必ず書くは 7.10.4 の IMPL-0675、対処の参照先の欄に参照だけを書くは IMPL-0808、「注意して進める」を認めないは IMPL-0810
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1)"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0811
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 要求事項"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0812
+      - IMPL-0813
+      - IMPL-0814
+      - IMPL-0815
+      - IMPL-0822
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+      - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+    note: 表の外の2段落(1名の組織、大企業の一部門)は要求事項3・5 の読み方と、課さない明記(「本標準は、この体制に条件と代償措置を定めません」。ADR-0133)。1名の組織で保証の開示の項目1 に「方針を定めた者と受容する者が同一である」と表示することは IMPL-0071 が追う。要求事項2 の「本標準の適用を決める時点で、本様式の5項目を文書で定め、記名する」のうち時点の定めは、様式に読めていない(未確認として記録に挙げた)
+    issue: 324
+    rows:
+      要求事項1:
+        status: none
+        category: elsewhere
+        reason: 適用範囲の組織単位と保証の相手の欄は、様式の読み方の節の IMPL-0070 が名指す
+        location:
+          - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+      要求事項2:
+        status: marked
+        ids:
+          - IMPL-0812
+      要求事項3:
+        status: none
+        category: elsewhere
+        reason: 3つの権限の欄(有 / 連署者 / 上申先)は IMPL-0070、権限のいずれも記名・連署・上申先に結びつかない層1 を無効にすることは IMPL-0071 が名指す
+        location:
+          - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+      要求事項4:
+        status: none
+        category: elsewhere
+        reason: 全社の品質方針との関係(整合を確認した者と確認日)と権限の委譲の根拠の欄は IMPL-0070 が名指す
+        location:
+          - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+      要求事項5:
+        status: none
+        category: elsewhere
+        reason: 記名者が適用範囲の案件の事業決裁者の席の責任者と同一の場合に保証の開示の項目1 へ表示することは IMPL-0071 が名指す。同一を拒む検査は無い(表示で開示する設計)
+        location:
+          - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+      要求事項6:
+        status: none
+        category: elsewhere
+        reason: 必須行の受容者に空欄がある層1 を無効にし、成立条件1 を満たさないことは IMPL-0071 が名指す
+        location:
+          - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+      要求事項7:
+        status: none
+        category: elsewhere
+        reason: 確認の周期と後継の表の空欄の扱い(層1 を無効にせず、組織継続の側の状態を不利な側へ倒して表示)は IMPL-0071 が名指す
+        location:
+          - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+      要求事項8:
+        status: marked
+        ids:
+          - IMPL-0813
+      要求事項9:
+        status: marked
+        ids:
+          - IMPL-0815
+      要求事項10:
+        status: none
+        category: org-design
+        reason: "(a) 層1 の5項目を組織の管理下で働く者へ周知し、各人が役割と懸念を記録する経路を認識していることを求める。(b) 周知したことと各人の認識は、本標準が求める記録(構成・様式の欄・判定記録・台帳・CI の結果・集約の出力)のどれにも現れない。(c) 探した場所: qa-policy-template(templates/11 に『周知』の語は無い)、evidence-aggregation(層1 の版・記名・印・権限の段階を読む)、handoff-reference。周知の記録の欄を標準へ足す必要があるため、新しい義務は棚卸しで足さない"
+      要求事項11:
+        status: none
+        category: org-design
+        reason: "(a) 既存の品質マネジメントシステムを持つ組織が、品質方針とリスクの基準の文書へ5項目を加える形で満たしてよい(許容)と、別の文書体系を作らない定め。(b) 文書体系の置き方は組織の文書管理に現れる。templates/11 は、その場合も docs/quality-assurance-policy.md へ版・記名・5項目を写した文書を置くと書くが、標準の本文にその定めは無い。(c) 探した場所: qa-policy-template・evidence-aggregation(置き場の1か所を読む)"
+      要求事項12:
+        status: marked
+        ids:
+          - IMPL-0814
+      要求事項13:
+        status: marked
+        ids:
+          - IMPL-0822
+        location:
+          - "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 判断を担う席の後継を表5 に書く"
+      要求事項14:
+        status: none
+        category: elsewhere
+        reason: 記名と連署に AI の名義を受け付けないことは IMPL-0071 が名指す
+        location:
+          - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
   - key: "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0095
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
+      - phase4-process-design/exception-escalation#7.11 停止の申し立て
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
+      - phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.11 依存先の一覧と単一障害点
+    note: 項目2 の印([未測定:人] / [未測定:AI] の層の指定、期間の表現の検出)は IMPL-0095。項目1 の評価の方針は 7.11 の IMPL-0632、項目2 の注記(当たる事実が保証の開示にある出荷は G-7 で差し戻される)と項目4・5 の受容の段階と上申は様式の読み方の IMPL-0071、外枠は受容の対象ではない旨は G-8 の IMPL-0563、組織継続の状態の受容に期限を付ける旨は 3.12.11 の IMPL-0720、印 [逸脱]・[列挙に無い離脱] の照合は IMPL-0334、様式の版・記名・権限の段階・上申先を集約と G-5 が読む点は IMPL-0058。項目3 の外枠の表と各欄の記入は採用者が行い、記入の中身は検査しない
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0334
+      - IMPL-0070
+      - IMPL-0071
+      - IMPL-0058
+    note: 項目2 は出荷判定者が突合し値の良否を判断させない、項目4 の受容者が G-8 で受容を記名する者の範囲を定める、確認の周期と後継の表の失効は IMPL-0071。受容の基準の値(件数・比率)を本標準が定めない旨は課さない明記。記名者の定義と採用の判断の時点の関係は説明。項目1 の評価の方針の担保として内部監査が人事評価の規程と目標設定の様式の写しを証跡に評価の方針との照合を記録する点(プロセス内部監査 観点20)は、内部監査を行う者(人)の手続で、附属書H H.3 の内部監査の観点と同じく制度設計(org-design)に当たる。照合できるのは文書までと本文が書く
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ12: プロダクトの原則"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0816
+    note: 「本標準は、プロダクトの原則を置くことを課しません」は課さない明記で、IMPL-0138 の note(置くことは義務にしない)が追う。原則を置かない場合の G-3 基準2 の突合先(ほかの恒久層と、状態が採用または一部置き換えの判断記録)は説明。突合先がどれも無い場合に判定記録へ書く旨は IMPL-0816
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ12: プロダクトの原則 > 置く場合の規定"
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ12: プロダクトの原則 > 置く場合の規定"
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0138
+      - IMPL-0817
+      - IMPL-0818
+    issue: 324
   - key: "phase4-process-design/deliverable-templates#テンプレ12: プロダクトの原則 > 様式"
-    status: pending
+    status: none
+    category: elsewhere
+    reason: 様式の欄(名前・文・理由・含意・改廃の判断記録、技術判断者の記名)と、採らなかった案を書かない注記は、直前の節「置く場合の規定」の IMPL-0138 が名指す。事業の軸を再掲しない注記は IMPL-0818 が名指す
+    location:
+      - "phase4-process-design/deliverable-templates#テンプレ12: プロダクトの原則 > 置く場合の規定"
+    issue: 324
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント
-    status: pending
+    status: none
+    category: explanation
+    reason: 安全リスクアセスメントの節の導入(AIエージェントに実行を委ねる範囲を決める前の危害の洗い出しの手続と、テンプレ9 が記録様式であること)。規定は下位の節
+    issue: 324
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 本節の位置づけ
-    status: pending
+    status: none
+    category: explanation
+    reason: 本節が ISO 12100:2010(JIS B 9700:2013)のリスクアセスメント手順を参照した本標準の規定であり、準拠を主張しないこと、手順の借用の根拠の説明。本標準の主張の範囲の開示で、実行主体の挙動を制約する文は無い
+    issue: 324
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 適用条件
     status: pending
+    note: "区分済み・降ろし先未定。既存のマーク IMPL-0453(承認の欄の検査。g1-check)・IMPL-0454(要否の判定。gate-skill)は本節の中にあり、4条件(条件1〜4)の要否は IMPL-0454、承認者を作成者と別の自然人とし AI の名義を書かないことは IMPL-0453 が追う。マークが無い規定: 「更新はエージェントの実行環境の設定を変更したときに行い、定期更新は求めません」、「製品の最悪の帰結を設計で下げた記録(区分の引き下げの根拠)を、本表に書かない。安全重要度の判定の記録へ書く」、「本表が要る CL2 以上の案件では、独立した安全性の評価者が本表を読む(適用: 適用条件に当たる CL2 以上の構成)」。運ぶのは template/templates/09-safety-risk-assessment.md だが、降ろし先の登録が無い。「本表の承認に、段2 以上を求めない」は課さない明記。番号つきの表(条件1〜4)は登録後に行ごとに区分する(条件1〜4 は IMPL-0454 を挙げる)。議長へ: テンプレ9 の様式の降ろし先(safety-risk-assessment-template)の登録と、独立した安全性の評価者が本表を読むことの降ろし先(附属書F の評価者の欄 IMPL-0080 の降ろし先と同じか)の裁定"
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 記号体系
-    status: pending
+    status: none
+    category: explanation
+    reason: 安全リスクの記号(Hz・Hs・Ex・Oc・Av・SR・RRS)の定義の表と、数値の向きを統一する定義(Av1 を容易に回避できる状態、Av3 を回避できない状態)。本標準の記述にだけ掛かる定義で、実行主体の挙動を制約する文は無い
+    issue: 324
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 記号体系 > 記号の出所
     status: pending
+    note: "区分済み・降ろし先未定。規定: 「L と E は Ex を決める入力である」「引き上げの判定(5.4.5)では本表の再評価を伴う」「SR2 以上の残留リスクの受容は R1 の決定として扱う」(区分どうしの接続の2つ)。表の出所と既存の区分との違いは説明。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 手順
     status: pending
+    note: "区分済み・降ろし先未定。規定: 「SR4 が1件でも残る間は、当該のエージェント運用を開始してはならない」、段階1〜7の要求事項(対象と制限の決定で L と E を宣言する、計算式は規定せず SR の判定根拠を文章で書かせる、保護方策が生んだ新たな危険源を点検して段階2へ戻る、残留リスクと受容の決裁を記録する)。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 危険源の同定
     status: pending
+    note: "区分済み・降ろし先未定。規定: 「OWASP Top 10 for Agentic Applications の版を記録すること」、「同分類を網羅とみなしてはなりません」(分類外の4類型も候補として同じ表で扱う)、「『人間の信頼の悪用』を省いてはなりません」。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > 危険源の同定 > 分析手法
     status: pending
+    note: "区分済み・降ろし先未定。規定: 「制御構造に基づく分析を主、故障モード分析を従とする」「故障モード分析を単独で用いてはなりません」。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
   - key: phase4-process-design/deliverable-templates#AIエージェント安全リスクアセスメント > リスク低減の3ステップ
     status: pending
+    note: "区分済み・降ろし先未定。規定: RRS1・RRS2・RRS3 の順に適用し、RRS1 の具体策を設定ファイルとして実装して文書と実態を乖離させない、「RRS3 でリスクを下げてはなりません」(:::danger の枠。審議中のため要求として読む。第1章 1.7.2)、「隔離の適用範囲を必ず確認し、対象外の経路を『隔離の対象外』欄へ明記する」。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
   - key: "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表"
     status: pending
+    note: "区分済み・降ろし先未定。規定: 「適用条件の1(物理的な危険源)に該当する案件は完全版、それ以外の該当案件は軽量版から始めます」(版の選び方)。運ぶのは template/templates/09-safety-risk-assessment.md の冒頭(物理的な危険源を持つ案件は完全版、それ以外の該当案件は軽量版から始める)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い(g1-check・gate-skill は適用条件の承認と要否だけを運ぶ。2026-11-15)。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md、説明: 安全リスクアセスメント表の様式。適用条件・記号・判定の規則・軽量版と完全版・記入時の注意を置く。内容を検査する仕組みは無い)。登録されたら、安全リスクアセスメントの節と本節の下位の節を一括して区分できる"
   - key: "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表 > 軽量版(1ページ)"
     status: pending
+    note: "区分済み・降ろし先未定。規定: 様式の欄(制限3種、危険源とリスクの表、低減策、隔離の対象外、残留リスクの受容、承認)と、承認者を作成者と別の自然人とし承認日・承認した版を書く欄(承認の欄は IMPL-0453 が g1-check で検査)。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
   - key: "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表 > 完全版で追加する項目"
     status: pending
+    note: "区分済み・降ろし先未定。規定: 完全版で追加する5項目(制御構造図、不適切な制御動作の一覧、システム状態別の評価、反復の記録、設定ファイルへの参照)と様式の節6・節7。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
   - key: "phase4-process-design/deliverable-templates#テンプレ9: AIエージェント安全リスクアセスメント表 > 記入時の注意"
     status: pending
+    note: "区分済み・降ろし先未定。規定: 「低減策には実装場所を書く。文章だけの記載は RRS3 とみなし、RRS1 および RRS2 として数えない」「4つのパラメータは互いに独立に見積もる」「確からしい最悪の条件で見積もる」「Av2 以下を主張する場合、判定根拠の欄に3点を書く。書けない場合は Av3 とする」「承認の件数が増える低減策を採る場合、その件数を判定根拠へ書く」「案件をまたいで SR の分布を比較しない」「SR の値を危険源どうしの比較に使わない」(後ろ2つは ADR-0042。課さない明記を含む)。運ぶのは template/templates/09-safety-risk-assessment.md(該当の節を読んで確かめた)だが、impl-targets.yaml にテンプレ9 の様式の降ろし先が無い。近い降ろし先を当てない。議長へ: 提案する降ろし先 safety-risk-assessment-template(kind: template-file、path: templates/09-safety-risk-assessment.md。テンプレ9 の節の note を参照)。登録されたら state=delivered のマークを足して marked にできる"
   - key: phase4-process-design/deliverable-templates#レビュープロセスの流れ
     status: pending
+    note: "区分済み・降ろし先未定(判定会議を開かない・非同期コメントの後に単独判定する規定は、ゲート運用の共通ルールの IMPL-0536 と 3.7.1 の IMPL-0656 が追う)。降ろし先が無い規定: 「コメントは意見であり、反映するかは提出者と判定者が決める。全コメントへの対応義務はない」「コメントの不採用には一言の理由を残す」(提出者の応答の定め)。文の食い違いの候補(条文は変えない): 第3章 3.10.7 は T-1 に起案者が全意見へ応答するとし、3.10.8 は応答が付いていない意見の比率が 0% より大きい状態を警戒サインとするのに対し、本節は全コメントへの対応義務を置かない(合議化の防止)。事前レビュー期間(3.10)の対象は B-1〜B-4 の上程と工程ゲートで、本節の「すべてのレビュー」との範囲の関係も読み切れていない。議長へ: どちらを正とするかの裁定を要する(IMPL-0214・0216 の降ろし先 pre-review-automation は 3.10.5 の意見の数え方を追うが、本節の対応義務の否定は名指さない)"
   - key: phase4-process-design/deliverable-templates#判断の順序に関する要求事項
-    status: pending
+    status: none
+    category: explanation
+    reason: 人間が先に判断を確定してから AI の出力を参照する順序の効果と、航空機の運航手順の同型性の説明(2段落)。規定の文は無く、規定は下位の節
+    issue: 324
   - key: phase4-process-design/deliverable-templates#判断の順序に関する要求事項 > 実装作業における順序
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0819
+    note: 「順序を強制する手段(ツールの機能・運用規律・レビュー時の確認のいずれか)は問いません。本標準が要求するのは順序であり、実現手段ではありません」は課さない明記。省略を認める理由(摩擦の配分。5.7.5)は説明
+    issue: 324
   - key: phase4-process-design/deliverable-templates#判断の順序に関する要求事項 > 判定における対比
-    status: pending
+    status: marked
+    ids:
+      - IMPL-0820
+      - IMPL-0821
+    location:
+      - phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項 > 5.7.3 選択肢の比較
+    note: リリース決裁・ステージ移行・例外承認で2案以上の比較を経た記録を求める範囲は 5.7.3 の IMPL-0016 が名指す(例外承認の補助ファイルは読めていない)。採否の理由を人間が記入する規定は IMPL-0820。「唯一の防御としてはならない」は注記の枠の中の禁止で、IMPL-0821(降りていない)。「AI エージェントは、案とリスクの見積を提示してよい」は許容
+    issue: 324
   - key: phase4-process-design/deliverable-templates#AI への指示との関係
-    status: pending
+    status: none
+    category: explanation
+    reason: 様式を AI の出力形式の指定として恒久層に登録する旨と、機械チェック・人間判定の流れの説明。具体的な組み込みはフェーズ5(参考・対象外)で扱うと本文が書く
+    issue: 324
   - key: phase4-process-design/ears-guide#(冒頭)
     status: pending
   - key: phase4-process-design/ears-guide#なぜ形式を決めるのか
