@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-08-12)。一部置き換え(→ ADR-0060 の決定1): 決定1 の適用範囲を、[ADR-0060](/process-compass/adr/0060-drafting-context-and-two-layer-independence/)の決定1 が置き換えました(2026-10-13)。決定2 の「代償措置つきの逸脱」は、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)の決定8 により、同 ADR の列挙に無い離脱と読みます(2026-10-24)。
+採用(2026-08-12)。一部置き換え(→ ADR-0060 の決定1): 決定1 の適用範囲を、[ADR-0060](/process-compass/adr/0060-drafting-context-and-two-layer-independence/)の決定1 が置き換えました(2026-10-13)。決定2 の「代償措置つきの逸脱」は、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)の決定8 により、同 ADR の列挙に無い離脱と読みます(2026-10-24)。一部置き換え(→ ADR-0133 の決定3): 決定2 の「代償措置つきの逸脱」は、[ADR-0133](/process-compass/adr/0133-no-conditions-or-compensating-measures-for-unlisted-deviations/)の決定3 が、列挙に無い離脱であり措置を持たないと置き換えました(2026-11-15)。
 
 ## コンテキスト
 
