@@ -15,7 +15,7 @@ sidebar:
 
 「影響」のうち、準拠テンプレートの構成は `deviations[]` の欄の名と保存の形を変えない、とした記載は、[ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/)の決定7 が置き換えます(2026-10-24)。各項目に区分(`category`)を書き込みます。区分の無い旧い構成は書き換えず、構成の要約値を保ちます。逸脱の定義は変わりません。
 
-決定7 の「次の4つの規定が常に当たる」を、[ADR-0133](/process-compass/adr/0133-no-conditions-or-compensating-measures-for-unlisted-deviations/)の決定2 が補います(2026-11-15)。決定7・決定8 が別の Issue へ送った問い(1名・2名の体制のための代償措置を閉じた列挙へ加えるか、認証情報の分離が許可に当たるか)を、ADR-0133 が閉じました。決定の本文は変わりません。
+一部置き換え(→ ADR-0133 の決定2): 決定7 の「次の4つの規定が常に当たる」を、[ADR-0133](/process-compass/adr/0133-no-conditions-or-compensating-measures-for-unlisted-deviations/)の決定2 が置き換えました(2026-11-15)。常に当たるのは兼務の2組で、ほかは第1章 1.10.2 の表の「当たる条件」によります。決定7・決定8 が別の Issue へ送った問い(1名・2名の体制のための代償措置を閉じた列挙へ加えるか、認証情報の分離が許可に当たるか)を、ADR-0133 が閉じました。決定の本文は変わりません。
 
 ## コンテキスト
 
