@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-10-24)。[ADR-0061](/process-compass/adr/0061-check-means-on-implementation-marks/)の決定2(`check` を欠くマークを検査で落とさない)と、決定1 の表の「(書いていない) 未分類」の行、`presence` の定義(記録・欄・ファイル・キーの有無まで)を、本 ADR の決定1 で置き換えます。読み方の補足ではなく決定の範囲の変更なので、一部置き換えとして扱います([ADR-0074](/process-compass/adr/0074-no-cap-on-inspection-apparatus/)の決定5 と同じ扱い)。ADR-0061 の決定3(既存のマークを棚卸ししない)は時点の決定であり、棚卸しを終えたことで補います。ADR-0061 の決定1 のうち、`state` を2値に保つことと `check` を独立に書くことは維持します。[ADR-0064](/process-compass/adr/0064-skill-provisions-trace-to-standard/)の検査の範囲を、依頼の形の文末と準拠テンプレートの `CLAUDE.md` へ広げます。[ADR-0068](/process-compass/adr/0068-start-of-application-and-conformance-claim/)の「影響」にある常駐の規則の節の確認を、規則の単位へ改めます。
+採用(2026-10-24)。一部置き換え(→ [ADR-0131](/process-compass/adr/0131-detect-closed-issues-named-by-implementation-marks/)の決定1): 決定4 のうち、`issue=` が閉じた Issue を名指すことを機械で検出しないとした項と、検討した選択肢(R-4)の該当の行。[ADR-0061](/process-compass/adr/0061-check-means-on-implementation-marks/)の決定2(`check` を欠くマークを検査で落とさない)と、決定1 の表の「(書いていない) 未分類」の行、`presence` の定義(記録・欄・ファイル・キーの有無まで)を、本 ADR の決定1 で置き換えます。読み方の補足ではなく決定の範囲の変更なので、一部置き換えとして扱います([ADR-0074](/process-compass/adr/0074-no-cap-on-inspection-apparatus/)の決定5 と同じ扱い)。ADR-0061 の決定3(既存のマークを棚卸ししない)は時点の決定であり、棚卸しを終えたことで補います。ADR-0061 の決定1 のうち、`state` を2値に保つことと `check` を独立に書くことは維持します。[ADR-0064](/process-compass/adr/0064-skill-provisions-trace-to-standard/)の検査の範囲を、依頼の形の文末と準拠テンプレートの `CLAUDE.md` へ広げます。[ADR-0068](/process-compass/adr/0068-start-of-application-and-conformance-claim/)の「影響」にある常駐の規則の節の確認を、規則の単位へ改めます。
 
 ## コンテキスト
 
