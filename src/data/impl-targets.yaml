@@ -529,7 +529,7 @@ targets:
     name: フローの観測と滞留の通知(予定)
     kind: planned
     path: .github/workflows/flow-observation.yml
-    description: 第2章 2.10.4 の滞留期間の観測と非同期の通知の置き場。Issue の事象(割当・PR の結び付き・閉じた時刻と理由)を定期の実行で読み出し、作業単位への Issue のコメントで通知する(他の席のラベルを遷移させない)。準拠テンプレートに実装は無い(2026-11-12 確認。#359 の裁定 2)
+    description: 第2章 2.10.4 の滞留期間の観測と非同期の通知の置き場。Issue の事象(割当・PR の結び付き・閉じた時刻と理由)を定期の実行で読み出し、作業単位への Issue のコメントで通知する(他の席のラベルを遷移させない)。準拠テンプレートに実装は無い(2026-11-12 確認。#359 の裁定 2)。あわせて、2.10.5 の調整の記録と、2.10.6 の見込みの評価・手続の開始・選択の順序の記録の置き場とする(予定。IMPL-0899・0954。束 C の突合 1巡目 C1-22 の裁定で説明を広げた)
 
   - id: ai-runtime-connection
     name: AI 実行基盤への接続経路の統制(予定・採用者)
@@ -595,7 +595,37 @@ targets:
     name: AI-SLA 合意確認書(テンプレ8)の手引き
     kind: template-file
     path: .claude/skills/artifact/artifacts/08-ai-sla.md
-    description: テンプレ8 の手引き。契約への組み込みは3類型で、品質に関する比率指標を金銭措置の条件にしないこと、開示義務型を基本とすること、レビューの観点に金銭措置の条件に比率指標が入っていないかを置く(incident-artifact と同じく手引きを降ろし先とする。Issue #324。束 C の裁定)
+    description: テンプレ8 の手引き。契約への組み込みは3類型で、品質に関する比率指標を金銭措置の条件にしないこと、開示義務型を基本とすること、知財潔白性の検査を AI の利用の場合に限って課さず事業者の知財補償を検査を省略する根拠にしないこと(手順 3)、レビューの観点に金銭措置の条件に比率指標が入っていないかを置く(incident-artifact と同じく手引きを降ろし先とする。Issue #324。束 C の裁定)
+
+  - id: debt-ledger-guide
+    name: 技術負債台帳(テンプレ3)の手引き
+    kind: template-file
+    path: .claude/skills/artifact/artifacts/03-debt-ledger.md
+    description: テンプレ3 の手引き。AI の生成の過程で見つけた妥協・仮実装はすべて記録すること、受容した理由が書けない負債は受容しない(その場で直すか仕様へ戻す)こと、例外の行の5事項・承認した者の別をレビューの観点に置く。記録漏れや理由の空欄の行を拒む検査は無い(ai-sla-guide と同じく手引きを降ろし先とする。Issue #324。束 C の突合 1巡目の裁定)
+
+  - id: d0-guide
+    name: 意思決定・エスカレーション体制図(テンプレ0。D-0)の手引き
+    kind: template-file
+    path: .claude/skills/artifact/artifacts/00-d0-governance.md
+    description: テンプレ0 の手引き。決定の種類ごとに決定者が1名に特定されているか、AI の名義が責任者・決定者・承認者の欄に無いかをレビューの観点に置く。作成の手順に、成立済みの判定記録を書き換えないことを置く。決定者の欄の中身を拒む検査は無い(Issue #324。束 C の突合 1巡目の裁定)
+
+  - id: project-brief-guide
+    name: 企画書(テンプレ6)の手引き
+    kind: template-file
+    path: .claude/skills/artifact/artifacts/06-project-brief.md
+    description: テンプレ6 の手引き。観点ごとに誰が何を書くか(観点1〜5 は価値責任者、観点6 は価値責任者と事業決裁者の合議)と、AI の担い手がしてよいこと・してはならないこと、収益で説明しない案件の期待効果の類型、稟議へ出すために記述を削らないことを置く(Issue #324。束 C の突合 1巡目の裁定)
+
+  - id: safety-risk-assessment-guide
+    name: 安全リスクアセスメント表(テンプレ9)の手引き
+    kind: template-file
+    path: .claude/skills/artifact/artifacts/09-safety-risk-assessment.md
+    description: テンプレ9 の手引き。制御構造に基づく分析を主・故障モード分析を従にし単独で使わないこと、SR4 が残る間は運用を始めないこと、承認の欄は作成者と別の自然人が記名すること、CL2 以上で独立した安全性の評価者が読むことを作成の手順に置く。危険源の洗い出しと SR の評価の中身を検査する仕組みは無い(Issue #324。束 C の突合 1巡目の裁定)
+
+  - id: qa-policy-guide
+    name: 品質保証の方針と受容の基準(テンプレ11。層1)の手引き
+    kind: template-file
+    path: .claude/skills/artifact/artifacts/11-quality-assurance-policy.md
+    description: テンプレ11 の手引き。記名者・連署者の欄を AI が埋めないこと、周知の文案は示してよいが合意を求める文にしないこと、受容しない条件が外枠を下回っていないか・規模を理由に水準を下げていないかをレビューの観点に置く。条件と段階の妥当性は検査しない(Issue #324。束 C の突合 1巡目の裁定)
 
   - id: safety-risk-assessment-template
     name: 成果物テンプレート テンプレ9(AIエージェント安全リスクアセスメント表)
