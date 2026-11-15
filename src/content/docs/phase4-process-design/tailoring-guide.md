@@ -30,6 +30,8 @@ sidebar:
 
 要求事項2の宣言は、[附属書D](/process-compass/phase4-process-design/proposal-template/)の提案書に含めます。宣言のない省略には、後から妥当性を検証する手段がありません。
 
+<!-- impl IMPL-0959 target=profile-generator state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="要求事項2の宣言(外した項目・簡略化した項目と理由)を附属書D の提案書に含めること。複製した知識ベース(scripts/vendor/tailoring-kb.json)の禁止 c-tailoring-must-be-declared が「理由と承認者とともに提案書へ記載せずに運用しない」を文として持つが、データのままで、generate-profile.mjs の checkConstraints はこれを検査せず、構成にも出さない。準拠テンプレートに提案書の様式も検査も無い(template の vendor 以外に「提案書」の語と c-tailoring の語が0件。2026-11-15 確認)。宣言せずに運用しないことの全般は IMPL-0772。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+
 ## 再テーラリングの契機
 
 テーラリングは、案件の開始時に1回だけ行うものではありません。**体制の変化点が生じたときは、テーラリングを再実行しなければなりません**([ADR-0055](/process-compass/adr/0055-team-change-points/))。変化点の定義と手続の正本は[第3章 3.13](/process-compass/phase4-process-design/roles-responsibilities/)です。本節は、そのうち再テーラリングに関わる要求事項を規定します。
@@ -1136,7 +1138,7 @@ SaaS の利用権(チャットツール・プロジェクト管理ツールな�
 <!-- impl IMPL-0760 target=profile-generator state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="CL1 以上の AI 生成箇所の追跡(成果物のどの箇所を AI が生成し誰が承認したかを箇所の単位で辿れる状態)。規則 r-e-cl1 が practice traceability を required にするが、scripts/init/generate-profile.mjs は practice を読まず、構成にも PROCESS-PROFILE.md にも出ない。箇所の単位の追跡を照らす検査も準拠テンプレートに見つけていない。5.8.2 の変更ごとの利用記録とは別の規定である。規制業の同じ必須は IMPL-0839 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0761 target=gate-skill state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="CL2 以上の安全適合性の検証記録(附属書F F.7)を出荷判定(G-7)の判定基準にすること。規則 r-e-cl2 が g-ship の safetyVerificationRecord を required にするが、準拠テンプレートの scripts 配下にこの値の参照が無く、G-7 の判定が検証記録の有無を照らさない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0762 target=autonomy-derivation state=delivered check=manual note="案件の安全重要度ごとの AI自律レベルの上限(CL2 は L2、CL3 は L1 固定)。規則 r-e-cl2・r-e-cl3 の maxAutonomyLevel を、scripts/gate/autonomy.mjs の capFromAnswers が autonomy.maxLevel へ落とし、PROCESS-PROFILE.md に上限を出す。CL0・CL1 は本軸が上限の値を置かない。確かめる者: AI維持管理者(構成を生成したとき、上限の表示を読む)。所在を読んだ(実行して確かめていない)" -->
-<!-- impl IMPL-0763 target=g5-adapter state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="CL3 の CI の必須チェックに故障挿入試験とミューテーション試験を加えること。規則 r-e-cl3 が g-ci の強化として注記するが、G-5 の入口(g5-adapter のコマンド)に故障挿入試験の段は無い。ミューテーションの降ろしは 第4章 G-5 の IMPL-0560 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0763 target=g5-adapter state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="CL3 の CI の必須チェックに故障挿入試験とミューテーション試験を加えること。規則 r-e-cl3 が g-ci の強化として注記するが、G-5 の入口(g5-adapter のコマンド)に故障挿入試験の段は無い。ミューテーションの降ろしは附属書F の IMPL-0930・0931 が追う(IMPL-0560 は一覧の読解を出荷判定者へ求めないことだけを追う)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0764 target=profile-generator state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="案件の安全重要度ごとのテスト生成の分離の段階(CL2 は最強〈段2 以上〉、CL3 は最強〈段3 以上〉)。規則 r-e-cl2・r-e-cl3 は ai-usage への注記として持つが、案件の値を構成へ降ろし変更ごとの段階の検査へ渡す処理は読めていない。最強の検証の担当者の段は IMPL-0344 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 上表の2つの行は、名称の近い別の規定と区別して読みます。

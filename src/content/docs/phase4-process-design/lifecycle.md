@@ -216,6 +216,8 @@ AI協調ループは、機能単位で次の4工程を反復します。
 <!-- impl IMPL-0389 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-direct-commit-rules.mjs note="要求事項2・3・6 のうち、PR を経ないコミット(トレーラ Risk・Verification で扱う経路)への照合。出荷の証跡の集約が、当該コミットの直前の構成の decisionRules.rules をコミットの差分に当て、トレーラ ADR が無い、または指す判断記録がそのコミットの context/decisions/ に無いコミットを記載の欠落にする。事業ステージ S0 では欠落にせず品質レポートに注意を出す。decisionRules と製品のコードを同じコミットで変えたコミットを欠落にする。成立済みのコミットは書き換えず、判定記録の「対象」で補う(#423)" -->
 <!-- impl IMPL-0390 target=config-change-log state=delivered check=machine test=template/scripts/gate/test-loosening-decider.mjs note="要求事項5 のうち、規則を削る・対象のパスを外す・変更の種類を絞る構成の変更を、緩める向きの変更として D-0 表1『体制と運用形態』の決定者の記名と理由なしには受け付けないこと。変化点の入口(generate-profile.mjs --change の種別 settings)が拒否する。起案者が技術判断者であること、AI維持管理者の承認は確かめない" -->
 
+<!-- impl IMPL-0972 target=pr-checks state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="2.6 要求事項4: 識別を持つ変更は、取り込む前に、その判断記録の G-3 の判定記録を要すること。check-pr.mjs は判断記録の実在までを確かめ(IMPL-0384)、判断記録の G-3 の判定記録への到達を PR と判定記録の突き合わせで拒む処理を持たない(2026-11-15 に確認。束 D 突合 D-O06)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+
 :::caution[暫定 EV-0206 / 見直し 2027-11]
 **対象**: 判断記録の要否をパスと変更種別の規則で導き、当たった変更に判断記録の識別を求め、申告で外す経路を置かない判断。S0 で失敗させず注意に留める扱い。
 **根拠の水準**: E2(単一事例)。
@@ -555,6 +557,8 @@ graph LR
 
 確約範囲(SC-M)は、当該ステージの計画容量の 60% を超えてはなりません。調整枠(SC-B)には 20% 程度を残します。計画容量と、割合を数える量は、作業単位の個数です([第1章 1.4](/process-compass/phase4-process-design/overview/))。
 
+<!-- impl IMPL-0970 target=project-brief-template state=delivered check=presence note="確約範囲(SC-M)を当該ステージの計画容量の 60% 以内に置くこと(60%は暫定値 EV-0150)と、作業単位へ分けていない要求を SC-M として確定しないこと。template/templates/06-project-brief.md の「次ステージのスコープ3層」が、SC-M の行に「作業単位へ分けてから数える(分けていない要求は SC-M として確定しない)」と「60%以内」を置く。割合の値の検査はしない(単位: 欄)" -->
+
 :::caution[暫定 EV-0150 / 見直し 2027-10]
 **対象**: 確約範囲(SC-M)の上限 60% と、調整枠(SC-B)の 20% の既定値。
 **根拠の水準**: E0(なし)。
@@ -594,9 +598,11 @@ graph LR
 前の体制の実測を流用して確約範囲を置く事故の型は、会議体の現場の委員が挙げたものです(`research/414-deliberation/council-02-field.md`)。流用の誤差を測った資料は、見つかっていません。
 :::
 
-<!-- impl IMPL-0373 target=project-brief-template state=delivered check=presence note="企画書の様式の『次ステージのスコープ3層』に、作業単位の個数と計画容量に対する割合の列、1件の作業単位の定義・単位期間の長さ・完了の条件・実測スループット・閉じたが完了に当たらない作業単位の個数・計画容量の欄と、実測の主体・契約で固定した範囲(受託)の欄を置く(#414 で要求事項6 の実測の主体を足した)。値と記入は確かめない(#417 / ADR-0098)(単位: 欄)" -->
+<!-- impl IMPL-0373 target=project-brief-template state=delivered check=presence note="企画書の様式の『次ステージのスコープ3層』に、作業単位の個数と計画容量に対する割合の列、1件の作業単位の定義・単位期間の長さ・完了の条件・実測スループット・閉じたが完了に当たらない作業単位の個数・計画容量の欄と、実測の主体・契約で固定した範囲(受託)の欄を置く(#414 で要求事項6 の実測の主体を足した)。実測がない場合の記載「実測なし。確約範囲を置かない」と、SC-M の「60%以内」の行も同じ節が置く。値と記入は確かめない(#417 / ADR-0098)(単位: 欄)" -->
 <!-- impl IMPL-0375 target=gate-skill state=delivered check=manual note="ステージ移行ゲートの補助ファイル gates/SG.md が、継続で次ステージのスコープ3層を確定するときに、要求事項4・5 の規模の記録を判定記録へ書く材料を並べさせ、分けていない要求を SC-M に入れないことを書く(#417 / ADR-0098)。確かめる者: B-2 の決定者(事業決裁者。SG の判定記録を書くとき)" -->
 <!-- impl IMPL-0374 target=next-role state=undelivered check=manual plan=scheduled issue=443 review=2027-04 note="要求事項4・5 の実測スループットの集計。完了の条件を満たした作業単位だけを数え、同じ期間に閉じたが完了に当たらない作業単位の個数を並べて出す。準拠テンプレートに完了スループットの集計は無い(閉じた件数も数えない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+
+<!-- impl IMPL-0971 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=324 review=2027-05 note="2.10.2 要求事項3: 見積りの精度を根拠として確約範囲の上限を引き上げないこと。template/CLAUDE.md と claude-md-resident.json に、見積りの精度を根拠にしない行は無い(2026-11-15 に確認。試し c だけで規定とした。束 D 突合 D-O11 と議長の裁定)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 要求事項3を置く理由は、工程の進行によって見積りの不確実性が収束するとは限らないという報告があるためです(2006年、実案件のデータに基づく)。**確約の量を支えるのは見積りの巧拙ではなく、実測された完了の速さです**。
 

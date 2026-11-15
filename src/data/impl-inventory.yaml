@@ -31,13 +31,20 @@ sections:
     issue: 324
   - key: phase4-process-design/assurance-case#H.1 最上位の主張 > AI の関与を前提にした保証の根拠
     status: none
-    category: explanation
-    reason: 保証の根拠4つと、主張 C1〜C11・H.4・H.5 の対応の表、QA4AI との差の説明。各行の規定は C2〜C11 の支える条項(5.8.1・G-6・5.6.2・3.13 ほか)と H.4 が追う。H.3「検証の主張と条項の対応」(explanation)と同じ扱い。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。
+    category: elsewhere
+    reason: 保証の根拠4つと、主張 C1〜C11・H.4・H.5 の対応の表、QA4AI との差の説明。各行の規定は C2〜C11 の支える条項(5.8.1・G-6・5.6.2・3.13 ほか)のマークが追い、AI の確認を数える条件は H.4(IMPL-0031 ほか)が追う。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。課さない明記ではなく、正本の節への参照である
+    location:
+      - phase4-process-design/assurance-case#H.4 AI による確認の数え方
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.1 未検証の入力として扱う
     issue: 324
   - key: phase4-process-design/assurance-case#H.1 最上位の主張 > 「切り離された検証」が指すもの
     status: none
-    category: explanation
-    reason: 切り離された検証の3つの手段(人の独立・文脈の分離・入力の分離)と、リスク区分ごとに求める段階の対応の表。正本は 3.5.4(語)、5.8.4(テスト生成の段階。IMPL-0181〜0184)、G-6、附属書F F.6。「AI の確認は人の独立に数えない」は H.4(IMPL-0031)が追う。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。
+    category: elsewhere
+    reason: 切り離された検証の3つの手段(人の独立・文脈の分離・入力の分離)と、リスク区分ごとに求める段階の対応の表。語は 3.5.4、テスト生成の段階は 5.8.4(IMPL-0181〜0184)のマークが追う。「AI の確認は人の独立に数えない」は H.4(IMPL-0031)が追う。文の形は「AI の確認は人の独立に数えない」など規定だが、同じ規定の正本は location の節で、本節は投影の再掲である(束 D 突合 D-H01)
+    location:
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.4 テスト生成における分離の段階
+      - phase4-process-design/assurance-case#H.4 AI による確認の数え方
     issue: 324
   - key: phase4-process-design/assurance-case#H.1 最上位の主張 > 「品質保証」という語の意味
     status: none
@@ -128,11 +135,11 @@ sections:
     note: 変化点の後の状態の次の一手は IMPL-0087。C9 の観測(登録した変更種別の停止と判定不能)の表示は 5.4.6 の IMPL-0287・0288
     issue: 311
   - key: phase4-process-design/assurance-case#H.3 論証 > 内部監査で確かめる観点
-    status: none
-    category: org-design
-    reason: 内部監査を行う者(人)が四半期に確かめる観点の表。実行主体の挙動を制約しない。機械で検出できる部分の実装は、各観点の照合する規定の節のマークで追う(#316 突合 X-12)
-    issue: 316
-    note: 抽出の対象を監査される当事者に選ばせない規則(#367)も、内部監査を行う者(人)が組織の監査の手続として守る事項であり、同じ区分とした(ADR-0116 決定6)。区分の理由は制度設計の事項であることで、準拠テンプレートに内部監査の記録の様式が無いことは理由にしていない
+    status: marked
+    ids:
+      - IMPL-0964
+    note: 観点で確かめる義務と、観点13・14 の実施者の限定は IMPL-0964(undelivered。内部監査の記録の置き場)。抽出の対象を当事者に選ばせない規則だけが ADR-0116 決定6 の制度設計で、IMPL-0552・0690(samplerIsAuthor)が同じ違反を検知している。ADR の範囲を棚卸しの読みで広げない(束 D 突合 D-O01 と議長の裁定)。観点ごとの照合する規定は各節のマークが追う(#316 突合 X-12)。所見の例は説明
+    issue: 324
   - key: phase4-process-design/assurance-case#H.4 AI による確認の数え方
     status: marked
     ids:
@@ -140,8 +147,10 @@ sections:
       - IMPL-0031
       - IMPL-0153
       - IMPL-0907
+      - IMPL-0966
     location:
       - phase4-process-design/tailoring-guide#テーラリングの禁止事項
+      - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.2 AI を担い手に置くときの適合性確認
       - phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.12 重点箇所の提示
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手
       - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.7 推定による注意の喚起
@@ -149,16 +158,18 @@ sections:
       - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > AIによるレビュー層も対象とする
       - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 結果の反映
       - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.4 テスト生成における分離の段階
-    note: '「次のものを数えてはなりません」の7項目の所在: 適合性確認が失効した担い手は IMPL-0030(テーラリングの禁止事項)、合議・多数決・自己修正は IMPL-0153、AI の要約だけの人の承認は IMPL-0220(3.10.12)、推定による注意の喚起は IMPL-0398(5.5.1)・IMPL-0399(5.8.7)、系統の違いだけを根拠にした独立の表示は IMPL-0158(3.5.4)、検出率が未測定の層を確かめた層として示さないことは IMPL-0166・0167(5.6.2)と IMPL-0032。同じセッション・作業領域・認証情報の確認を数えないことは名指すマークが無かったため IMPL-0907(undelivered)を足した。決定論的な検査の条件(期待値の出所・テスト生成の分離)は 5.8.4 の IMPL-0181〜0184。条件4 の「合否条件に入れない」は ai-review-workflow が合否に使わない旨(IMPL-0253)。本標準が評価に用いる物差しを本節の対象にしないことは範囲の限定'
+    note: '「次のものを数えてはなりません」の7項目の所在: 適合性確認が失効した担い手は IMPL-0030(テーラリングの禁止事項)、合議・多数決・自己修正は IMPL-0153、AI の要約だけの人の承認は IMPL-0220(3.10.12)、推定による注意の喚起は IMPL-0398(5.5.1)・IMPL-0399(5.8.7)(両マークの語は「判定・承認に使わない」で、本節の「検出の層に数えない」はこの読み替え)、系統の違いだけを根拠にした独立の表示は IMPL-0158(3.5.4)、役割名(ペルソナ・席名)の付与だけを根拠にした表示は IMPL-0639(3.4.2)、エージェントを分けただけの表示は IMPL-0966(undelivered)、検出率が未測定の層を確かめた層として示さないことは IMPL-0166・0167(5.6.2)と IMPL-0032。同じセッション・作業領域・認証情報の確認を数えないことは名指すマークが無かったため IMPL-0907(undelivered)を足した。決定論的な検査の条件(期待値の出所・テスト生成の分離)は 5.8.4 の IMPL-0181〜0184。条件4 の「合否条件に入れない」は ai-review-workflow が合否に使わない旨(IMPL-0253)。本標準が評価に用いる物差しを本節の対象にしないことは範囲の限定'
     issue: 324
     rows:
       条件1:
         status: none
         category: elsewhere
-        reason: 欠陥注入による検出率の測定と未測定の開示は、IMPL-0166(AI の層の検出率を人の層と同じ数え方で出し、宣言が無ければ未測定と出す)と IMPL-0167(層ごとの検出率の記録)が名指す。測り直しの契機は 3.4.2 の側
+        reason: 欠陥注入による検出率の測定と未測定の開示は、IMPL-0166(AI の層の検出率を人の層と同じ数え方で出し、宣言が無ければ未測定と出す)と IMPL-0167(層ごとの検出率の記録)が名指す。出荷ごとの開示は IMPL-0685(G-7「保証の開示」)、担い手の識別が変わったときの失効と測り直しは 3.4.2 の IMPL-0639・0641
         location:
           - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > AIによるレビュー層も対象とする
           - phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.2 欠陥注入による検出能力の測定 > 結果の反映
+          - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.2 AI を担い手に置くときの適合性確認
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
         issue: 324
       条件2:
         status: marked
@@ -229,8 +240,9 @@ sections:
   - key: phase4-process-design/assurance-case#H.5 署名の意味 > 出荷判定者の異議
     status: none
     category: elsewhere
-    reason: 異議の有無を G-8 の決断の記録へ必ず記載し「異議なし」も書くこと・空欄では事業決裁者が受容を記名しないことは IMPL-0564、空欄と理由の記載を要する4事項の欠落を記載の欠落に数えることは IMPL-0565、委任の期間の開示の異議と受容の記名は IMPL-0566、異議を退けた受容の上申先と日付は IMPL-0052・0563、異議を書く者と受容する者が同一人物のときの項目1 の表示は IMPL-0685 の note が名指す。異議は出荷を止める権限ではないこと(権限の分担)は G-7.md と G-8.md の判定者の定め(IMPL-0909・0910)の説明
+    reason: 異議の有無を G-8 の決断の記録へ必ず記載し「異議なし」も書くこと・空欄では事業決裁者が受容を記名しないことは IMPL-0564、空欄と理由の記載を要する4事項の欠落を記載の欠落に数えることは IMPL-0565、委任の期間の開示の異議と受容の記名は IMPL-0566、異議を退けた受容の上申先と日付は IMPL-0052・0563、異議を書く者と受容する者が同一人物のときの項目1 の表示は IMPL-0685 の note が名指す。異議は出荷を止める権限ではないこと(権限の分担)は G-7.md と G-8.md の判定者の定め(IMPL-0909・0910)の説明。3名未満の体制で同一人物になる場合を列挙に無い離脱として D-0 へ記録することは第1章 1.10.2「列挙に無い離脱」の節のマークが追う。ただし、この行から D-0 への記録を直接名指すマークは確かめられていない(束 D 突合 D-H08。fix-D1.md に記録)
     location:
+      - phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張 > 列挙に無い離脱
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 出荷判定者の異議
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
@@ -255,14 +267,16 @@ sections:
     ids:
       - IMPL-0147
       - IMPL-0032
+      - IMPL-0967
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+      - 'phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 決裁制度への提示'
       - phase4-process-design/assurance-case#H.1 最上位の主張 > 保証の主張の成立条件
       - phase4-process-design/assurance-case#H.6 保証の開示 > 保証の主張の成立判定の出力
       - phase4-process-design/assurance-case#H.6 保証の開示 > 人の層の値は誰の値か
       - phase4-process-design/assurance-case#H.6 保証の開示 > 組織継続の側の状態の表示
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
-    note: 7項目の出所と読み方。項目4 の「実施」は IMPL-0147、投影として出力し未達と未測定を値として表示することと独立した人の確認の数え方は IMPL-0032、項目1・2・3・6 の出力は G-7 の保証の開示の節(IMPL-0461・0471・0685・0439)、項目6 の人の層は IMPL-0083、項目5・7 の継続の側は IMPL-0051、記載の欠落に数えるものは IMPL-0686・0687。保証の水準を等級で表さないことは IMPL-0905。開示したことは出荷してよい理由にならず受容は G-8 の記名で残すことは IMPL-0563 の側。項目の過不足を検証していないことは根拠水準マークで開示済み
+    note: 7項目の出所と読み方。項目4 の「実施」は IMPL-0147、投影として出力し未達と未測定を値として表示することと独立した人の確認の数え方は IMPL-0032、項目1・2・3・6 の出力は G-7 の保証の開示の節(IMPL-0461・0471・0685・0439)、項目6 の人の層は IMPL-0083、項目5・7 の継続の側は IMPL-0051、記載の欠落に数えるものは IMPL-0686・0687。保証の水準を等級で表さない。導出は機械的な集約に限り、AI が作った要約と評価を項目の値にしないことは IMPL-0967(template/CLAUDE.md の常駐の規則)、出所を持たない項目を加えず投影を正本として保管しないことは第6章「決裁制度への提示」の規定1・2(IMPL-0950。undelivered)が追うことは IMPL-0905。開示したことは出荷してよい理由にならず受容は G-8 の記名で残すことは IMPL-0563 の側。項目の過不足を検証していないことは根拠水準マークで開示済み
     issue: 324
     rows:
       項目1:
@@ -293,9 +307,10 @@ sections:
       項目5:
         status: none
         category: elsewhere
-        reason: IMPL-0051 の note が組織継続の側の状態を項目5 に受容の状態つきで出すと名指す
+        reason: IMPL-0051 の note が組織継続の側の状態を項目5 に受容の状態つきで出すと名指す。出荷ごとの開示は IMPL-0685(G-7「保証の開示」)
         location:
           - phase4-process-design/assurance-case#H.6 保証の開示 > 組織継続の側の状態の表示
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
         issue: 324
       項目6:
         status: none
@@ -308,9 +323,11 @@ sections:
       項目7:
         status: none
         category: elsewhere
-        reason: IMPL-0051 の note が項目7 への継続の側の状態の表示を名指し、IMPL-0073 が停止の申し立てを項目7 へ出すと名指す
+        reason: IMPL-0051 の note が項目7 への継続の側の状態の表示を名指し、IMPL-0073(G-7「停止の申し立ての保留」)が停止の申し立てを項目7 へ出すと名指す。出荷ごとの開示は IMPL-0685(G-7「保証の開示」)
         location:
           - phase4-process-design/assurance-case#H.6 保証の開示 > 組織継続の側の状態の表示
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
+          - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 停止の申し立ての保留
         issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 人の層の値は誰の値か
     status: marked
@@ -359,12 +376,16 @@ sections:
       - IMPL-0912
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
-    note: 組織の外側へ項目6 を値で出さず、測定している事実・時点・推移の向きで示すことは IMPL-0685 の note が名指す。氏名・アカウント・自由記述を出さず席の名前と件数で示すことと、人が値を差し替える手順を置かないことは名指すマークが無かったため IMPL-0912 を足した。受託の納品ごとに保証の開示を受け渡すことと、委任を適用するかの契約での合意は、第8章 軸D・テンプレ8 の側の規定(IMPL-0687 の note もその側と述べる)
+      - 'phase4-process-design/tailoring-guide#軸D: 開発形態による調整'
+    note: 組織の外側へ項目6 を値で出さず、測定している事実・時点・推移の向きで示すことは IMPL-0685 の note が名指す。氏名・アカウント・自由記述を出さず席の名前と件数で示すことと、人が値を差し替える手順を置かないことは名指すマークが無かったため IMPL-0912 を足した。受託の納品ごとに保証の開示を受け渡すことと、委任を適用するかの契約での合意は、第8章 軸D・テンプレ8 の側の規定で、IMPL-0757(ai-sla-template。AI-SLA 合意確認書の第8項)が追う(IMPL-0687 の note もその側と述べる)
     issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 独立性の表示の例(項目1)
     status: none
-    category: explanation
-    reason: 体制ごとの G-6・G-7 の表示と対外的に言えることの例示の表。末尾の「AI を何体に分けても、責任者が同一人物であれば独立は成立しません」「代償措置は未達の解消として扱いません」は 3.5.4・3.5.2 の規定の再掲で、H.1 冒頭の投影の定めによる(正本の節のマークが追う)。H.6「件数の表示の例」(explanation)と同じ扱い
+    category: elsewhere
+    reason: 体制ごとの G-6・G-7 の表示と対外的に言えることの例示の表。末尾の「AI を何体に分けても、責任者が同一人物であれば独立は成立しません」「代償措置は未達の解消として扱いません」は 3.5.4・3.5.2 の規定の再掲で、H.1 冒頭の投影の定めによる。正本の節のマークが追う(束 D 突合 D-H01)
+    location:
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.4 独立と分離の語の定義
+      - phase4-process-design/roles-responsibilities#3.5 兼務ルール(許可 / 禁止) > 3.5.2 出荷判定者の兼務に限った例外(代償措置つき)
     issue: 324
   - key: phase4-process-design/assurance-case#H.6 保証の開示 > 件数の表示の例(項目1・3・6。1名体制・数値は例示)
     status: none
@@ -387,10 +408,15 @@ sections:
       - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     issue: 311
   - key: phase4-process-design/assurance-case#H.8 対外的に使う表現
-    status: none
-    category: org-design
-    reason: 組織が対外の文書で使う表現の手引き。#298 で、手法の名との併用・互換・準拠の名乗りを禁じる行(規定の附属書の禁止)を足した。禁止は採用者の対外の表明を縛るもので、記名の自然人が書き署名する文書に掛かり、AI の担い手の挙動を制約しないため実装マークを付けない(突合 X-4)
-    issue: 298
+    status: marked
+    ids:
+      - IMPL-0963
+    location:
+      - 'phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.2 適用の表明と適合の主張'
+      - 'phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.3 本標準の版'
+      - 'phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.4 適用の終了'
+    note: 対外の表現の禁止は IMPL-0963(undelivered)。附属書D の提案書の同じ規定は IMPL-0962。適用の表明・適合の主張の文の型と末尾の禁止は第1章 1.10.2〜1.10.4 の再掲で、IMPL-0120・0573・0308 が追う(束 D 突合 D-O12)。禁止は採用者の対外の表明を縛る。違反は対外の文書に現れる
+    issue: 324
   - key: phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答
     status: none
     category: explanation
@@ -399,12 +425,12 @@ sections:
   - key: phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答 > 体制と責任に関する問い
     status: none
     category: explanation
-    reason: 品質保証部門の問い12件と、本標準の答え・根拠の条項・根拠の水準・受け取る証跡の表。答えは根拠の条項の投影で、規定の正本と追跡する置き場は各行の「根拠の条項」の節のマークが持つ。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。答えが各章と食い違う場合は各章による
+    reason: 品質保証部門の問い12件と、本標準の答え・根拠の条項・根拠の水準・受け取る証跡の表。答えは根拠の条項の投影で、規定の正本と追跡する置き場は各行の「根拠の条項」の節のマークが持つ。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。答えが各章と食い違う場合は各章による。問2・3・4・5・9・12・13・17 の8問を条項の本文と1文ずつ突き合わせていないことは、根拠水準マーク EV-0268 で開示した(束 D 突合 意見4)
     issue: 324
   - key: phase4-process-design/assurance-case#H.9 品質保証部門の問いと回答 > 検証と記録に関する問い
     status: none
     category: explanation
-    reason: 品質保証部門の問い12件と、本標準の答え・根拠の条項・根拠の水準・受け取る証跡の表。答えは根拠の条項の投影で、規定の正本と追跡する置き場は各行の「根拠の条項」の節のマークが持つ。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。答えが各章と食い違う場合は各章による
+    reason: 品質保証部門の問い12件と、本標準の答え・根拠の条項・根拠の水準・受け取る証跡の表。答えは根拠の条項の投影で、規定の正本と追跡する置き場は各行の「根拠の条項」の節のマークが持つ。本附属書の冒頭が「投影の部分の要求事項の正本は各章にあり、本附属書を第2の正本として扱わない」と定める投影の部分。答えが各章と食い違う場合は各章による。問2・3・4・5・9・12・13・17 の8問を条項の本文と1文ずつ突き合わせていないことは、根拠水準マーク EV-0268 で開示した(束 D 突合 意見4)
     issue: 324
   - key: phase4-process-design/assurance-case#H.10 既存の枠組みとの対応
     status: none
@@ -413,8 +439,11 @@ sections:
     issue: 294
   - key: phase4-process-design/assurance-case#H.11 残るリスク
     status: none
-    category: explanation
-    reason: 本標準の主張に掛かる読み替えの台帳(リスク・内容・現時点の歯止め)と、行を足す起草の手順。台帳の運用は本標準の起草の規則で、歯止めの欄は各章の規定を指す参照(層1 を周期で見直さないことは IMPL-0813、禁止する表現は H.8)
+    category: elsewhere
+    reason: 本標準の主張に掛かる読み替えの台帳(リスク・内容・現時点の歯止め)と、行を足す起草の手順。台帳の運用は本標準の起草の規則で、歯止めの欄は各章の規定を指す参照。層1 を周期で見直さないことは IMPL-0813(テンプレ11 の要求事項)、禁止する表現は H.8(IMPL-0963)が追う
+    location:
+      - 'phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 要求事項'
+      - phase4-process-design/assurance-case#H.8 対外的に使う表現
     issue: 324
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと
     status: none
@@ -427,10 +456,17 @@ sections:
     reason: 品質保証部門・出荷判定者の席・品質保証・トップマネジメント・層1・品質保証の機能・内部監査の実施者の語の対応表(定義)。「本標準は部門の設置を要求しない」は課さない明記で、規定の文ではない
     issue: 324
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 時点ごとに行うこと
-    status: none
-    category: org-design
-    reason: 品質保証部門を置く組織の活動の対応。本標準は部門の設置を要求しない(H.12「語の対応」)
-    issue: 311
+    status: marked
+    ids:
+      - IMPL-0965
+    location:
+      - 'phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 様式の読み方'
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 出荷判定者の署名の意味
+      - phase4-process-design/assurance-case#H.4 AI による確認の数え方
+      - phase4-process-design/assurance-case#H.6 保証の開示 > 組織の外へ渡すとき
+      - phase4-process-design/assurance-case#H.8 対外的に使う表現
+    note: 表は条項の列を持つ投影で、他節の再掲と「本標準は定めない」の行が混在する。出荷ごとの「G-8 の記録を書いた後に集約し直す」は第4章に正本の節が無く、IMPL-0965(delivered)が追う。ほかの行は location の節のマークが追う。本標準は部門の設置を要求しない(H.12「語の対応」)
+    issue: 324
   - key: phase4-process-design/assurance-case#H.12 品質保証部門が行うこと > 行わないこと
     status: marked
     ids:
@@ -440,7 +476,7 @@ sections:
     location:
       - 'phase4-process-design/deliverable-templates#テンプレ11: 品質保証の方針と受容の基準(層1) > 要求事項'
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 受容の基準との照合と上申
-    note: '各文の所在: 値の良否で差し戻さず再テストと再レビューを始めない=IMPL-0909、開示された残存リスクを受容せず受容は事業決裁者が記名=IMPL-0910、案件ごとの論証を書かない=IMPL-0911、層1 を記名しない=IMPL-0814(テンプレ11 要求事項。品質保証部門は起案してよいが記名者にしない)、残存リスクを受容しない(上申を受領しても受容の権限は層1 の段階による)=IMPL-0563(段階を超える残存リスクは単独で受容せず上申先へ届ける)。内部監査は出荷を止めない=制度設計(org-design)。(a) 内部監査を行う者の行為を縛る。(b) 監査の所見が動かすのは是正で、出荷の停止はゲートの判定記録にだけ現れ、監査が出荷を止めたかは本標準が求める記録のどれにも現れない。(c) 探した場所: 降ろし先 internal-audit-record(登録の説明が、準拠テンプレートに内部監査の記録の様式も監査担当の名簿の検査も無いと述べる。2026-11-15 確認)、gate-record-template、evidence-aggregation。文の主語は人の席であり、本標準を主語にした課さない明記(not-imposed)ではないため、各文に順 4〜6 を当てた'
+    note: '各文の所在: 値の良否で差し戻さず再テストと再レビューを始めない=IMPL-0909、開示された残存リスクを受容せず受容は事業決裁者が記名=IMPL-0910、案件ごとの論証を書かない=IMPL-0911、層1 を記名しない=IMPL-0814(テンプレ11 要求事項。品質保証部門は起案してよいが記名者にしない)、残存リスクを受容しない(上申を受領しても受容の権限は層1 の段階による)=IMPL-0563(段階を超える残存リスクは単独で受容せず上申先へ届ける)。IMPL-0563 の主語は受容の記名をする事業決裁者で、本行の文の主語は上申を受領する品質保証部門である。主語は違うが、受容の権限が層1 の段階による点で同じ規定の別の面を追う(束 D 突合 D-H09)。内部監査は出荷を止めない=制度設計(org-design)。(a) 内部監査を行う者の行為を縛る。(b) 監査の所見が動かすのは是正で、出荷の停止はゲートの判定記録にだけ現れ、監査が出荷を止めたかは本標準が求める記録のどれにも現れない。(c) 探した場所: 降ろし先 internal-audit-record(登録の説明が、準拠テンプレートに内部監査の記録の様式も監査担当の名簿の検査も無いと述べる。2026-11-15 確認)、gate-record-template、evidence-aggregation。文の主語は人の席であり、本標準を主語にした課さない明記(not-imposed)ではないため、各文に順 4〜6 を当てた'
     issue: 324
   - key: phase4-process-design/deliverable-templates#(冒頭)
     status: none
@@ -1267,7 +1303,7 @@ sections:
       - IMPL-0937
       - IMPL-0938
       - IMPL-0939
-    note: formalize-criteria の語に当たるタスクは準拠テンプレートに無い(git grep で /spec-write の本文の1か所だけ)。手順の4ステップをそれぞれ1件のマークで追う。
+    note: formalize-criteria の語は準拠テンプレート(template/)に0件である。語は標準のプロセスの定義 src/data/processes/integrated.yaml のタスクの識別子で、附属書B の題がそれを引く(題が内部の識別子を露出している形。編集の指摘として fix-D1.md に記録した)。手順の4ステップをそれぞれ1件のマークで追う。
     issue: 324
   - key: phase4-process-design/ears-guide#草案を受け取ったときに確かめること
     status: marked
@@ -1459,7 +1495,10 @@ sections:
     ids:
       - IMPL-0569
       - IMPL-0570
-    note: 消化率の分母と提供者の上限の報告は R3a、未測定の報告は R3b(どちらも plan=scheduled。同じ降ろし先の IMPL-0370 が plan=adopter・ADR-0096 であることは議長の裁定 T3)。配賦の単位と時点(ステージ単位の配賦・一括配賦の禁止・4区分の表)は、組織の予算の制度の記録にあり、本標準が求める記録に配賦額の履歴が無いため制度設計とした(違反の痕跡が標準の記録に現れない)。事業仮説・価値仮説の検証費用を期間予算の内訳として明示することは、企画書の様式に内訳の欄が無いかを確かめていない(引き継ぎの記録に挙げる)
+      - IMPL-0969
+    location:
+      - 'phase4-process-design/lifecycle#2.4 ステージ移行ゲート'
+    note: 消化率の分母と提供者の上限の報告は R3a、未測定の報告は R3b(どちらも plan=scheduled。同じ降ろし先の IMPL-0370 が plan=adopter・ADR-0096 であることは議長の裁定 T3)。配賦の時点(SG の判定と同時に次ステージ分を確定し、案件の全期間分を一括で配賦しない)は 第2章 2.4 の IMPL-0846 が gate-skill の delivered で追う(束 D 突合 D-O05 で制度設計から改めた)。4区分の表と配賦の単位は説明。事業仮説・価値仮説の検証費用を期間予算の内訳として明示することは IMPL-0969(undelivered)
     issue: 324
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.2 測定する指標
     status: marked
@@ -1658,6 +1697,7 @@ sections:
       - IMPL-0365
       - IMPL-0366
       - IMPL-0376
+      - IMPL-0968
     note: 企画書の見積りの記録と予算の案は IMPL-0364、判定記録の見積りと実績の差は IMPL-0365、当初値の空欄と書き換えの検査は IMPL-0366(#416 で降りた)、SG の判定記録の見積りと実績の差の空欄の検出は IMPL-0376(ADR-0093)
     issue: 407
     rows:
@@ -1685,9 +1725,10 @@ sections:
         ids:
           - IMPL-0364
       要求事項6:
-        status: none
-        category: org-design
-        reason: 見積りの精度の目標を合否・人の評価に使わないことは、組織の評価の制度設計の禁止であり、様式も検査も持たない。内部監査の観点20(件数・目標値を評価に使っていないか)が人事評価の規程の写しで確かめる
+        status: marked
+        ids:
+          - IMPL-0968
+        note: 様式の「見積りの記録」の注意が運ぶ。評価に使っていないかは内部監査の観点20 が人事評価の規程の写しで確かめる
       要求事項7:
         status: marked
         ids:
@@ -2400,15 +2441,19 @@ sections:
       - IMPL-0127
       - IMPL-0435
       - IMPL-0437
+      - IMPL-0973
+      - IMPL-0974
     rows:
       条件1:
         status: marked
         ids:
           - IMPL-0127
       条件2:
-        status: none
-        category: org-design
-        reason: 書き手が承認者本人であることは人の行為の要求であり、本文が、機械は確かめず内部監査の抜き取りで確かめると定める
+        status: marked
+        ids:
+          - IMPL-0973
+          - IMPL-0974
+        note: AI の担い手に書かせないことは IMPL-0973(権限設定と常駐の規則が拒む)。別の人に書かせないことは IMPL-0974(undelivered。内部監査の抜き取りが書き手を確かめる)
       条件3:
         status: none
         category: elsewhere
@@ -2925,12 +2970,14 @@ sections:
     ids:
       - IMPL-0268
       - IMPL-0516
+      - IMPL-0977
     note: 観測の窓と最小標本数は、第2区分の差し戻し率・手戻り率が IMPL-0516(降りている)、一発承認率・AI 生成行の短期書き換え率が IMPL-0268(降りていない)
     rows:
       要求事項1:
-        status: none
-        category: org-design
-        reason: 閾値は組織が G-1 で定め、企画書に記録する(人の判断)
+        status: marked
+        ids:
+          - IMPL-0977
+        note: 閾値を G-1 で定め5事項を記録することは IMPL-0977(undelivered)。企画書の様式の行「安定性指標の閾値」は値を置く欄までを運ぶ
       要求事項2:
         status: none
         category: org-design
@@ -3390,8 +3437,10 @@ sections:
     issue: 316
   - key: phase4-process-design/human-ai-boundary#5.6 判断の深さに関する要求事項 > 5.6.3 見逃しが生じた場合の区分
     status: none
-    category: org-design
-    reason: 見逃しの区分の判別(品質保証の機能)と懲戒的な措置の範囲は、組織の規程と品質保証の手続に置く。実装へ措置を組み込まない規定は、フェーズ5 欠陥注入の隔離設計の IMPL-0197 が追跡する
+    category: elsewhere
+    reason: 「判別は直属の上位者ではなく、品質保証の機能が行う」は、7.9.6 の記録の「記録する者」に現れる。区分ごとの措置の範囲(個人への措置を行わない、対話による是正、規程に基づく措置)は、組織の規程と品質保証の手続に置く制度設計で、実装へ措置を組み込まない規定は、フェーズ5 欠陥注入の隔離設計の IMPL-0197 が追跡する(束 D 突合 D-O13)
+    location:
+      - phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.6 記録と可視化
     issue: 292
   - key: phase4-process-design/human-ai-boundary#5.7 ゲート承認における判断の要求事項
     status: none
@@ -3747,6 +3796,7 @@ sections:
       - IMPL-0384
       - IMPL-0389
       - IMPL-0390
+      - IMPL-0972
     rows:
       要求事項1:
         status: marked
@@ -3763,9 +3813,10 @@ sections:
           - IMPL-0384
           - IMPL-0389
       要求事項4:
-        status: none
-        category: org-design
-        reason: 判断記録の G-3 の判定記録への到達は、G-3 の判定者と G-6 の判定者(基準3)が確かめる。機械は判断記録の実在までを確かめる(IMPL-0384 の note)
+        status: marked
+        ids:
+          - IMPL-0972
+        note: 判断記録の実在は IMPL-0384(machine)が確かめる。G-3 の判定記録への到達は IMPL-0972(undelivered)が追い、G-3 の判定者と G-6 の判定者(基準3)も確かめる
       要求事項5:
         status: marked
         ids:
@@ -3960,13 +4011,14 @@ sections:
     issue: 324
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制
     status: none
-    category: org-design
-    reason: 節全体の導入。本標準が本節のために新しい会議体・ゲート・様式を定めないことの表明で、実行主体を縛る文ではない
+    category: not-imposed
+    reason: 節全体の導入。本標準が本節のために新しい会議体・ゲート・様式を定めないことの表明で、課さない明記である。実行主体を縛る文ではない(束 D 突合 D-O18)
     issue: 345
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.1 スコープの3層
-    status: none
-    category: org-design
-    reason: スコープの3層と容量の配分は、価値責任者とステージ移行ゲートの判定者(人)が合意し調整する。AI の担い手の挙動を制約しない。60%・20% は EV-0150
+    status: marked
+    ids:
+      - IMPL-0970
+    note: SC-M の 60% 以内と、作業単位へ分けていない要求を SC-M として確定しないことは IMPL-0970(企画書の様式の「次ステージのスコープ3層」)。3層の定義と動かすときの手続の表、SC-B の 20% 程度は価値責任者とステージ移行ゲートの判定者(人)が合意し調整する事項で、60%・20% は EV-0150(束 D 突合 D-O04)
     issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.2 規模の合意
     status: marked
@@ -3974,19 +4026,20 @@ sections:
       - IMPL-0373
       - IMPL-0374
       - IMPL-0375
+      - IMPL-0971
     rows:
       要求事項1:
-        status: none
-        category: org-design
-        reason: 規模の合意は価値責任者(人)が行う。AI の担い手の挙動を制約しない
+        status: marked
+        ids:
+          - IMPL-0373
       要求事項2:
-        status: none
-        category: org-design
-        reason: 規模の合意は価値責任者(人)が行う。AI の担い手の挙動を制約しない
+        status: marked
+        ids:
+          - IMPL-0373
       要求事項3:
-        status: none
-        category: org-design
-        reason: 規模の合意は価値責任者(人)が行う。AI の担い手の挙動を制約しない
+        status: marked
+        ids:
+          - IMPL-0971
       要求事項4:
         status: marked
         ids:
@@ -4007,8 +4060,10 @@ sections:
     issue: 417
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.3 スコープを確定する時期
     status: none
-    category: org-design
-    reason: スコープの確定は SG の判定と G-1 で人が行う。場を別に設けないことは本標準の表明
+    category: elsewhere
+    reason: SG の「継続」の判定と同時に次ステージの SC-M・SC-P・SC-B を確定させること、S0 の初回は G-1 で確定させることは、2.10.2 の IMPL-0375(SG の補助ファイルが次ステージのスコープ3層の確定を判定記録へ書かせる)と IMPL-0373(企画書の様式のスコープ3層)が追う。場を別に設けないことは本標準の表明(束 D 突合 D-O11)
+    location:
+      - phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.2 規模の合意
     issue: 298
   - key: phase4-process-design/lifecycle#2.10 スコープの確約と進捗の統制 > 2.10.4 進捗の観測
     status: marked
@@ -4072,8 +4127,11 @@ sections:
     issue: 324
   - key: phase4-process-design/overview#1.2 適用範囲
     status: none
-    category: org-design
-    reason: 適用範囲の表と、本標準が開発の方式・手法の名で適用の対象を限定せず既存の開発手法との関係を主張しないことの表明(主語が本標準)。除外理由の記録は第8章のテーラリングの宣言による。AI の担い手の挙動を制約しない
+    category: elsewhere
+    reason: 適用範囲の表と、本標準が開発の方式・手法の名で適用の対象を限定せず既存の開発手法との関係を主張しないことの表明(主語が本標準)。「適用外の領域が存在する場合は、テーラリングの記録として除外理由を残します」は、第8章の調整の宣言(要求事項2)と、宣言せずに運用しない禁止事項6(IMPL-0772)が追う(束 D 突合 D-O14)
+    location:
+      - phase4-process-design/tailoring-guide#調整は宣言を伴う
+      - phase4-process-design/tailoring-guide#テーラリングの禁止事項
     issue: 298
   - key: "phase4-process-design/overview#1.3 引用規格および参照文書"
     status: none
@@ -4227,24 +4285,31 @@ sections:
     note: 再開の経路は undelivered(IMPL-0309)
     issue: 313
   - key: phase4-process-design/proposal-template#(冒頭)
-    status: none
-    category: org-design
-    reason: '提案書は組織として品質を保証すると言える形で書くという定めと、本ページで回答を独自に書かないという定め(本標準の記述の起草の規則)。前者が縛る相手は採用を提案する者(人)で、提案書は採用の前に作る対外文書であり、準拠テンプレートの構成・様式・判定記録・台帳・PR のどれにも現れない。違反(保証すると言えない形の提案書)は提案書の文面にしか現れない。探した場所: impl-targets の project-brief-template・qa-policy-template・claude-md-resident・adoption-trial、template の templates/00〜12 と README、.claude/skills の process-init・artifact(提案書の様式・提案書の表現を扱う欄・検査は無い。process-init が参照するのは外部ページの出力フォーマットの1行)。附属書H H.8(対外的に使う表現)と同じ扱い。'
+    status: marked
+    ids:
+      - IMPL-0960
+    note: 提案書を、組織として品質を保証すると言える形で書く定めは IMPL-0960(undelivered)。提案書は第8章「調整は宣言を伴う」が調整の宣言を含めると定める記録であり、人の行為の制度設計とは読まない(束 D 突合 D-F01 と議長の裁定)。「本ページで回答を独自に書かない」は本標準の記述の起草の規則で、実行主体を縛らない。本附属書は規定であり、提案の進め方と説得の順序の記述は説明(冒頭の定め)
     issue: 324
   - key: 'phase4-process-design/proposal-template#提案の戦略: 「変えない」から入る'
-    status: none
-    category: org-design
-    reason: '本附属書の冒頭が「提案の進め方と説得の順序の記述は、説明です」と定める部分。「変える点を小さく見せません」「出荷判定の手続は変わらないとは説明しません」は提案する者(人)の書き方への禁止で、違反は提案書の文面にしか現れず、本標準が求める記録に現れない。探した場所: impl-targets の project-brief-template・qa-policy-template・claude-md-resident・adoption-trial、template の templates/00〜12 と README、.claude/skills の process-init・artifact(提案書の様式・提案書の表現を扱う欄・検査は無い。process-init が参照するのは外部ページの出力フォーマットの1行)。'
+    status: marked
+    ids:
+      - IMPL-0961
+    note: 「変える点を小さく見せません」「出荷判定の手続は変わらないとは説明しません」の禁止は IMPL-0961(undelivered)。提案の進め方と説得の順序(何を変えないかを最初に示す、図の4段)は、冒頭が「説明です」と定める部分で、規定の文に数えない
     issue: 324
   - key: phase4-process-design/proposal-template#提案書テンプレート
     status: none
-    category: explanation
-    reason: '提案書の様式の見本(コードブロック)。様式の見本の中の文は規定の文に数えない(判定表 P3)。節 §4 の4つの変更点と §5 の品質統制の観点は附属書H・第4章 G-7・第8章の規定の投影で、規定の正本は各章(本附属書の冒頭が「回答を独自に書きません」と定める)。提案書は採用前に作る文書で、案件の実行層に置き場を持たない。探した場所: impl-targets の project-brief-template・qa-policy-template・claude-md-resident・adoption-trial、template の templates/00〜12 と README、.claude/skills の process-init・artifact(提案書の様式・提案書の表現を扱う欄・検査は無い。process-init が参照するのは外部ページの出力フォーマットの1行)。'
+    category: elsewhere
+    reason: 提案書の様式の見本(コードブロック)。見本の中の文は規定の文に数えない(判定表 P3)。様式 §5 の「調整の宣言」の行が表す、調整の宣言を提案書に含める定めは、第8章「調整は宣言を伴う」の IMPL-0959(undelivered)が追う。§4 の4つの変更点と §5 の品質統制の観点は附属書H・第4章 G-7・第8章の規定の投影で、規定の正本は各章。提案書の様式そのものを準拠テンプレートが持たないことは、IMPL-0959 の note に書いた
+    location:
+      - phase4-process-design/tailoring-guide#調整は宣言を伴う
     issue: 324
   - key: phase4-process-design/proposal-template#提案書で使わない表現
-    status: none
-    category: org-design
-    reason: '提案書で「品質を保証する」を範囲・根拠・証拠なしに使わないこと、「独立検証済み」「第三者レビュー済み」「規格に適合」「AI がレビューしたので検証済み」などを使わないこと、「第三者レビュー」の語を第1章 1.4 の定義の範囲に限ること。縛る相手は提案する者(人)で、違反は提案書の文面にしか現れず、本標準が求める記録のどれにも現れない。附属書H H.8 が同じ表現の規定を org-design として登録済みで、同じ扱い。探した場所: impl-targets の project-brief-template・qa-policy-template・claude-md-resident・adoption-trial、template の templates/00〜12 と README、.claude/skills の process-init・artifact(提案書の様式・提案書の表現を扱う欄・検査は無い。process-init が参照するのは外部ページの出力フォーマットの1行)。'
+    status: marked
+    ids:
+      - IMPL-0962
+    location:
+      - phase4-process-design/assurance-case#H.8 対外的に使う表現
+    note: 提案書で使わない表現と、「第三者レビュー」の語を第1章 1.4 の範囲に限ることは IMPL-0962(undelivered)。理由と代わりの表現は附属書H H.8 の IMPL-0963 と同じ規定
     issue: 324
   - key: phase4-process-design/proposal-template#想定問答(提案時に必ず出る質問) > 品質保証に関する問い(附属書H からの投影)
     status: none
@@ -4296,9 +4361,10 @@ sections:
       - IMPL-0901
     rows:
       要件1:
-        status: none
-        category: org-design
-        reason: "監査の対象となる案件に関与していない者を監査担当に置く要件。任命は組織の制度設計で、構成にも記録の様式にも現れない(探した場所: 準拠テンプレートの様式と検査。内部監査の記録の様式も監査担当の名簿の検査も無い)"
+        status: marked
+        ids:
+          - IMPL-0901
+        note: "監査の対象となる案件に関与していない者を監査担当に置く要件。違反は監査記録の実施者と判定記録・名簿の突き合わせに現れる。IMPL-0901(undelivered。内部監査の記録の置き場)が追う(束 D 突合 D-O15)"
       要件2:
         status: none
         category: org-design
@@ -4308,10 +4374,11 @@ sections:
         category: org-design
         reason: "監査の結果を開発部門の長が差し戻せない報告線を持たせる要件。組織の報告線の設計で、構成にも記録の様式にも現れない"
       要件4:
-        status: none
-        category: org-design
-        reason: "監査の対象の案件で出荷判定者の席の責任者であった者が、出荷判定者が突合した保証の開示と記載した異議を監査しない要件。任命は組織の制度設計。席ごとの任命基準と職位要件の表も同じ"
-    note: "席ごとの任命基準と職位要件の表、監査担当の要件1〜4 と、抽出の対象を監査される当事者に選ばせない規則(#367。ADR-0116 決定6)は、内部監査を行う者(人)が組織の監査の手続として守る制度設計とした。ADR-0116 決定6 が制度設計と名指すのは抽出の対象の選定だけで、置き場が無いことを制度設計の理由にしていない。要件を満たす担い手を置けないときに選んだ事実を監査記録へ明記することと、要件4 の観点を未実施として表示し所見 0 件と記録しないことは、違反が本標準の求める記録(監査記録)に現れるため規定として扱い、予定の降ろし先 internal-audit-record の IMPL-0901 が降りていない規定として追う。任命の記名と力量の確認は 3.4.1・3.13.3 で扱う"
+        status: marked
+        ids:
+          - IMPL-0901
+        note: "監査の対象の案件で出荷判定者の席の責任者であった者が、出荷判定者が突合した保証の開示と記載した異議を監査しない要件。違反は監査記録の実施者と判定記録・名簿の突き合わせに現れる。IMPL-0901(undelivered)が追い、附属書H H.3 の観点13・14 の実施者の限定は IMPL-0964(束 D 突合 D-O15)"
+    note: "席ごとの任命基準と職位要件の表と、監査担当の要件2・3 は、組織の制度設計とした。要件1・4 は束 D 突合で IMPL-0901 の追いに改めた。抽出の対象を監査される当事者に選ばせない規則(#367。ADR-0116 決定6)は、制度設計とした。ADR-0116 決定6 が制度設計と名指すのは抽出の対象の選定だけで、置き場が無いことを制度設計の理由にしていない。要件を満たす担い手を置けないときに選んだ事実を監査記録へ明記することと、要件4 の観点を未実施として表示し所見 0 件と記録しないことは、違反が本標準の求める記録(監査記録)に現れるため規定として扱い、予定の降ろし先 internal-audit-record の IMPL-0901 が降りていない規定として追う。任命の記名と力量の確認は 3.4.1・3.13.3 で扱う"
     issue: 312
   - key: phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.1 任命基準の充足をどう確認するか
     status: marked
@@ -4744,6 +4811,7 @@ sections:
       - IMPL-0467
       - IMPL-0468
       - IMPL-0500
+      - IMPL-0975
     rows:
       要求事項1:
         status: marked
@@ -4778,9 +4846,10 @@ sections:
         ids:
           - IMPL-0332
       要求事項8:
-        status: none
-        category: org-design
-        reason: "ラベルが付いていても判定者が検査の結果などの事実を自ら確かめ、ラベルを事実の代わりにしない定め。探した場所: 判定記録の様式の節「確認した項目」「機械が確認した項目」(判定者が自ら確かめた事実と機械の結果を分けて書く欄)、next.mjs のラベル遷移。違反(ラベルだけを根拠にした判定)は、確認した項目の中身にしか現れず、中身の十分性は機械で確かめられない(判定記録の様式の欄の存在は gate-record-template の一般の検査が追う)"
+        status: marked
+        ids:
+          - IMPL-0975
+        note: ラベルを事実の代わりにしない定めは IMPL-0975(undelivered。常駐の指示に行が無い)。判定記録の様式の節「確認した項目」「機械が確認した項目」は欄の存在までを運び、中身の十分性は機械で確かめられない
       要求事項9:
         status: marked
         ids:
@@ -5553,6 +5622,7 @@ sections:
     ids:
       - IMPL-0103
       - IMPL-0372
+      - IMPL-0976
     rows:
       要求事項1:
         status: marked
@@ -5570,12 +5640,13 @@ sections:
         status: marked
         ids:
           - IMPL-0103
+          - IMPL-0976
       要求事項5:
         status: marked
         ids:
           - IMPL-0103
-          - IMPL-0372
-    note: "要求事項4(能力が上がったことを理由に短縮・緩和しない)は、再評価待ちの件数の表示と値を自動で変えないことと、再評価の記録(残す・外す・移す)を記名で置くこと(IMPL-0103)で追う。要求事項5(外すときは移した先の保証を示す)も同じ再評価の記録に現れる。実績や手段の変化の十分性は人の判断"
+          - IMPL-0976
+    note: "要求事項4(能力が上がったことを理由に短縮・緩和しない)は、再評価待ちの件数の表示と値を自動で変えないことと、再評価の記録(残す・外す・移す)を記名で置くこと(IMPL-0103)で追う。要求事項5(外すときは移した先の保証を示す)も同じ再評価の記録に現れ、IMPL-0976(列「移した先」。「移す」に移した先の保証が無い行は所見に出る)が追う。IMPL-0372 は要求事項5 と無関係のため、行から外した(束 D 突合 D-O08)。実績や手段の変化の十分性は人の判断"
     issue: 316
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.13 AI の採点者の較正
     status: marked
@@ -5997,7 +6068,8 @@ sections:
     status: marked
     ids:
       - IMPL-0310
-    note: 要求事項4(従う本標準の版の宣言)は IMPL-0310。要求事項1〜3 の行は他節のマークが追う(行ごとの追い先は rows の location)
+      - IMPL-0959
+    note: 要求事項4(従う本標準の版の宣言)は IMPL-0310。要求事項2の宣言を附属書D の提案書に含めることは IMPL-0959(undelivered)。要求事項1〜3 の行は他節のマークが追う(行ごとの追い先は rows の location)
     issue: 324
     rows:
       要求事項1:
@@ -6250,7 +6322,7 @@ sections:
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6
         独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 委任の変更は判定の時点を事後へ移す
-    note: 手続の表の実施者・頻度・対象・抜き取り数・確認すること・記録は、条件6 の手続として 5.5.4 の
+    note: 「確認すること」と「所見は是正の完了まで追跡」は附属書H H.3 の観点の側の規定で IMPL-0964 が追い、「当事者に選ばせない」は ADR-0116 決定6 の制度設計だが IMPL-0552・0690(samplerIsAuthor)が同じ違反を検知している(束 D 突合 D-O19)。手続の表の実施者・頻度・対象・抜き取り数・確認すること・記録は、条件6 の手続として 5.5.4 の
       IMPL-0597(頻度・抜き取り数・記録)、IMPL-0690(本人による抜き取りの表示)、G-6 の
       IMPL-0552(抜き取りは別の自然人。条件に反する変更は事前の判定へ戻す)が追う。2期連続で切替を停止する規定は
       IMPL-0842。抽出の対象を当事者に選ばせない規則(#367)は、内部監査を行う者(人)が組織の監査の手続として守る事項であり、附属書H H.3
