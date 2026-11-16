@@ -1838,7 +1838,7 @@ ADR-0036 からの本標準の読みであり、採用者の実測は無い。
 
 本標準は、配備の機構が G-8 の判定記録を確かめてから動くこと(機械による停止)を課しません。課さないと決めた事項です([ADR-0141](/process-compass/adr/0141-g8-by-record-and-deploy-credential-unlisted-deviation/))。
 
-<!-- impl IMPL-0985 target=deploy-workflow state=undelivered check=manual plan=adopter decision=ADR-0141 note="配備を G-8 の判定記録の後に行い、判定記録の無い配備を記録の欠落として扱う。緊急の修正にも G-8 を経ない経路を置かない。準拠テンプレートは配備のワークフローも配備の実行記録の読み取りも持たない(ADR-0090 決定6)。確かめる者: 採用者(配備のワークフローを足すとき、配備の実行記録と G-8 の判定記録を突き合わせる)" -->
+<!-- impl IMPL-0985 target=deploy-workflow state=undelivered check=manual plan=adopter decision=ADR-0141 note="配備を G-8 の判定記録の後に行い、判定記録の無い配備を記録の欠落として扱う。緊急の修正にも G-8 を経ない経路を置かない。準拠テンプレートは配備のワークフローも配備の実行記録の読み取りも持たない(ADR-0090 決定6)。確かめる者: 採用者(配備のワークフローを足すとき、配備の実行記録と G-8 の判定記録を突き合わせる)。「判定記録の後」が判定記録の作成の後か基底ブランチへ入れた後かは定めていない(#354 で決める。厳しい側の読みを義務として課さない)" -->
 
 #### 配備の統制と資格情報の置き場
 
@@ -1879,7 +1879,7 @@ ADR-0036 からの本標準の読みであり、採用者の実測は無い。
 
 **この規定は、[第7章 7.3](/process-compass/phase4-process-design/exception-escalation/)の例外承認の対象です**。7.3 の要求事項のすべてを満たし、効力を失っていない例外承認を経た構成は、列挙に無い離脱として数えず、例外承認の件数に数えます([第1章 1.10.2](/process-compass/phase4-process-design/overview/))。規定を満たしたことにはしません。例外承認の記録では、上の3つを技術負債台帳の「内容」の欄に書きます(7.3 の要求事項3 の想定される影響と対処に当たります)。回収の期限を過ぎた例外承認は効力を失い、記録の欠落になります。
 
-<!-- impl IMPL-0986 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=354 review=2027-05 note="配備の資格情報を参照に結び付けていない構成を列挙に無い離脱として数え、7.3 の要求事項のすべてを満たし効力を失っていない例外承認(対象が配備のワークフローと配備先)を経た構成は離脱に数えず例外承認の件数に数えること。述べられる名(claimStatus)は、この離脱を数えず、構成に欄が無い(2026-11-17。template scripts/gate/config.mjs の claimStatus)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0986 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=354 review=2027-05 note="配備の資格情報を参照に結び付けていない構成を列挙に無い離脱として数え、7.3 の要求事項のすべてを満たし効力を失っていない例外承認(対象が配備のワークフローと配備先)を経た構成は離脱に数えず例外承認の件数に数えること。述べられる名(claimStatus)は、この離脱を数えず、構成に欄が無い(2026-11-17。template scripts/gate/config.mjs の claimStatus)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)。記録の3項目と 7.3 の要求事項3 が台帳のどの欄に現れるかは 7.3 の記録の表で定めていない(本件の前からの欠け。#445 で扱う)" -->
 
 :::caution[暫定 EV-0184 / 見直し 2027-10]
 **対象**: 受け手が参照または参照に限った配備の環境を確かめる短命の資格情報((b) の形)を、配備の資格情報の規定を満たす形に数えること。
