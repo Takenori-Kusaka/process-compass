@@ -1,6 +1,6 @@
 # #325 独立の突合(1巡目・全体。2026-11-16)
 
-対象: コミット 94ec7b8 の `src/` の差分(roles-responsibilities.md の IMPL-0982 は #335 の分なので対象外)と、`05-issue-comment.md`・`06-comment-445.md`。
+対象: コミット 94ec7b8 の `src/` の差分(roles-responsibilities.md の IMPL-0984 は #335 の分なので対象外)と、`05-issue-comment.md`・`06-comment-445.md`。
 読んだ順: Issue #325 本文とコメント → 差分 → 原文(第6章「レビュープロセスの流れ」、3.8.1、3.10.1〜3.10.8、7.3・7.4、附属書H H.4、5.5.5、附属書C、ADR-0057・0075、template-fields.yaml、impl-inventory.yaml、台帳) → 04-ruling.md。01〜03 は裁定 2・4・7 を疑ったときだけ、該当箇所を検索で引いた。
 
 実行での確認: template(1e12ad2)を `git archive` でスクラッチへ写し、`node scripts/gate/test-check-pr.mjs` を node 26.13.0 で実行した。214 場面が一致した。確定者の検査に変異を3つ入れた(下の F6)。写しは消した。node_modules へのリンクは作っていない。template は書き換えていない。

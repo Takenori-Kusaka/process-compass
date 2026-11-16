@@ -889,7 +889,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 - 検知者と承認者が同一人物でも(兼務を記録した案件)、ラベルを経由させ、引き渡しを記録する。どの職務で判断したかは、記録によってしか追えない([ADR-0038](/process-compass/adr/0038-detection-handoff-of-control-weakening/))
 - 統制の弱化は、取り消せない操作([第5章 5.5.1](/process-compass/phase4-process-design/human-ai-boundary/))とは別の停止の事由とする。取り消せない操作の定義に当たらなくても、自律実行を止めて引き渡す。1つの変更が両方に当たる場合は、どちらの停止も外さない(5.5.1)
 
-<!-- impl IMPL-0982 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=335 review=2027-05 note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる。機械(check-process-rules)は、この併記を運ぶ行を確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0984 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=335 review=2027-05 note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる。機械(check-process-rules)は、この併記を運ぶ行を確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0014 target=claude-md-resident state=delivered check=presence note="統制の弱化を性質で定義し検知の対象とする(単位: 行)" -->
 <!-- impl IMPL-0015 target=claude-md-resident state=delivered check=presence note="検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す(単位: 行)" -->
@@ -1269,7 +1269,7 @@ AI の出力を本節の意見に含めないのは、意見を求めるレビ�
 
 期間を短縮できるのは、[第7章 7.4](/process-compass/phase4-process-design/exception-escalation/)のファストトラックを適用した場合に限ります。短縮の下限(何営業日まで縮めてよいか)は、本標準はまだ定めていません(未決)。
 
-:::caution[暫定 EV-0277 / 見直し 2027-05]
+:::caution[暫定 EV-0281 / 見直し 2027-05]
 **対象**: 3.10.2 の事前レビュー期間の短縮の下限が未決であること。第7章 7.4 の限定列挙に事前レビュー期間が無く、3.10.2 の短縮の経路は働かない可能性があること。
 **根拠の水準**: E0(なし)。
 **差し替え条件**: 下限を置くかの重の審議(#445)の結論と、7.4 の限定列挙に事前レビュー期間を加えるか 3.10.2 の経路を改めるかの裁定。

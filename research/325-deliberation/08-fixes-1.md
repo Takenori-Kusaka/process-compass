@@ -1,11 +1,11 @@
 # #325 独立の突合(1巡目)の所見の直し(2026-11-16)
 
-使った番号: EV-0277(3.10.2。下限と 7.4 の限定列挙の未決)、EV-0278(3.8.1。引き下げを許すかの食い違い)。台帳は `impl:write`・`evidence:write`・`scope:write` で再生成した。関係する検査(textlint、lint:refs、provisions、tone、impl、evidence、scope、dekimasu、test:fields)は通った。回帰の全量と `npm run check` は流していない。template/・pit-crew/ は書き換えていない。
+使った番号: EV-0281(3.10.2。下限と 7.4 の限定列挙の未決)、EV-0278(3.8.1。引き下げを許すかの食い違い)。台帳は `impl:write`・`evidence:write`・`scope:write` で再生成した。関係する検査(textlint、lint:refs、provisions、tone、impl、evidence、scope、dekimasu、test:fields)は通った。回帰の全量と `npm run check` は流していない。template/・pit-crew/ は書き換えていない。
 
 | 所見 | 結果 | 所在 |
 | --- | --- | --- |
-| F1 | 直した | roles-responsibilities.md 3.10.2。「まだ定めていない(未決)」+ EV-0277 で #445 を指す。06-comment-445.md 項目1、05-issue-comment.md 1章も未決に直した |
-| F7 | 直した(開示) | 同じ EV-0277 の中で、7.4 の限定列挙に事前レビュー期間が無く経路が働かない可能性を未決とした。IMPL-0830 の note に IMPL-0567(#445)が先に要ることを足した。06-comment-445.md に項目5 を足した。どちらを直すかは重の審議で、決めていない |
+| F1 | 直した | roles-responsibilities.md 3.10.2。「まだ定めていない(未決)」+ EV-0281 で #445 を指す。06-comment-445.md 項目1、05-issue-comment.md 1章も未決に直した |
+| F7 | 直した(開示) | 同じ EV-0281 の中で、7.4 の限定列挙に事前レビュー期間が無く経路が働かない可能性を未決とした。IMPL-0830 の note に IMPL-0567(#445)が先に要ることを足した。06-comment-445.md に項目5 を足した。どちらを直すかは重の審議で、決めていない |
 | F2 | 直した | IMPL-0212 の note(roles-responsibilities.md)。未実装は「ラベルの自動付与と、引き下げに技術判断者の記名を求める検査」。引き下げの扱いは未決と書いた |
 | F3 | 直した | deliverable-templates.md 第6章の行と IMPL-0877 の note。「検出の層に数える場合は H.4 条件5 がその条件とする」(H.4 の表後の箇条書きに合わせた) |
 | F4 | 直した | 05-issue-comment.md T2。対象は AI の担い手でない者の全てのスレッド。意見として扱わないかは manual(3.10.4、IMPL-0215、IMPL-0231)。様式の欄の空欄は T4 に留める |
