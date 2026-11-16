@@ -576,6 +576,10 @@ forms:
         template: 監視
       - standard: '## 復旧手順'
         template: 切り戻し
+      - standard: '## 障害時の連絡先・体制'
+        template: 障害時の連絡先
+      - standard: エスカレーション順序
+        template: エスカレーション順序
       - standard: '## 既知の負債・制約'
         template: 技術負債
       # 理解保持者の表の確認した者と確認日(第3章 3.4.3 の要求事項8。#288 第2巡)
