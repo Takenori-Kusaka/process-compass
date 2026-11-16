@@ -2248,6 +2248,7 @@ sections:
     ids:
       - IMPL-0455
       - IMPL-0459
+      - IMPL-0987
     note: 変更のコードを実行しない判定を基底ブランチの判定のコードで行い、結果を check run で出すことは IMPL-0455、書き込みの権限を持つ処理を基底の定義で動かすことは IMPL-0459。送り手の固定を適合の手段に数えないことは、機械の降ろし先を持たない(env-check が区別されないことを記録に書く。IMPL-0458)
     issue: 371
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 統制の設定の変更の承認
@@ -2659,11 +2660,17 @@ sections:
       - IMPL-0561
     note: 判定基準の表は知識ベースへ降りる(ADR-0048)。基準2 の層1 の版・上申は IMPL-0052(受容の基準との照合と上申の節)。技術品質を蒸し返さないことは X1
     issue: 324
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 判定記録と配備の順序
+    status: marked
+    ids:
+      - IMPL-0985
+    issue: 329
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 配備の統制と資格情報の置き場
     status: marked
     ids:
       - IMPL-0236
       - IMPL-0237
+      - IMPL-0986
       - IMPL-0351
     issue: 316
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-8 リリース決裁(事業決裁者・48時間) > 残存リスクの受容を決断の記録に含める

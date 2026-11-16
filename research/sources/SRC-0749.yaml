@@ -1,0 +1,55 @@
+schemaVersion: 0
+id: SRC-0749
+status: included
+excludeReason: null
+title: GitHub Docs — Managing environments for deployment
+url: https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments
+canonicalUrl: https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-11-15'
+access: open
+readLevel: section
+foundBy:
+  cluster: I329
+  query: GitHub Actions environments required reviewers plan availability
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '環境の管理の頁。環境を設定できるプランと公開範囲、自己承認の禁止・管理者の迂回・配備の参照の限定の設定項目を述べる。Issue #329 の審議で 2026-11-15 に読んだ。'
+claims:
+- id: c1
+  text: GitHub Free のユーザーが環境を設定できるのは公開リポジトリに限る。Team の組織と Pro のユーザーは非公開リポジトリでも環境を設定できる。
+  quote: Users with GitHub Free plans can only configure environments for public repositories.
+  locator: 本文
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 329
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-15'
+  humanChecked: false
+  note: WebFetch の要約から引いた。逐語の確認は一部のみ。
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: '2027-05'

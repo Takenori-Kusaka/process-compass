@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0748
+status: included
+excludeReason: null
+title: GitHub Docs — Deployments and environments
+url: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments
+canonicalUrl: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments
+ids:
+  arxiv: null
+  doi: null
+publisher: GitHub
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-11-15'
+access: open
+readLevel: section
+foundBy:
+  cluster: I329
+  query: GitHub Actions environments required reviewers plan availability
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: '環境と配備の保護規則の頁。必須レビュア・待機時間・配備の参照の限定・環境の秘密情報のプラン別の提供範囲を述べる。Issue #329 の審議で 2026-11-15 に読んだ。'
+claims:
+- id: c1
+  text: GitHub Free・Pro・Team のプランでは、環境の必須レビュアは公開リポジトリでだけ使える。
+  quote: If you are on a GitHub Free, GitHub Pro, or GitHub Team plan, required reviewers are only available for public repositories.
+  locator: Deployment protection rules > Required reviewers
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 329
+  stance: context
+- id: c2
+  text: 環境の秘密情報は、GitHub Free では公開リポジトリでだけ使える。
+  quote: If you are using GitHub Free, environment secrets are only available in public repositories.
+  locator: 本文
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 329
+  stance: context
+- id: c3
+  text: 配備の参照の限定(deployment branches and tags)は、Pro・Team では非公開リポジトリでも使える。
+  quote: For users on GitHub Pro or GitHub Team plans, deployment branches and tags are also available for private repositories.
+  locator: Deployment branches and tags
+  quant: null
+  evidenceKind: vendor-guidance
+  rqs: []
+  issues:
+  - 329
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-15'
+  humanChecked: false
+  note: HTML の本文を取得して読んだ。設定画面での実機の確認は無い。
+  mech: null
+  agent: null
+volatility: fast
+reviewBy: '2027-05'

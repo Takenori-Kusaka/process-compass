@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 740(included 740、excluded 0)。生成日 2026-11-15。
+件数: 742(included 742、excluded 0)。生成日 2026-11-16。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -748,4 +748,6 @@
 | SRC-0745 | 2026-10-01 | vendor-official | global/en | partial | TH12 | GitHub が、チェック・ワークフローの実行・ステータスの保持を、Actions の成果物とログの保持の設定に揃えた旨の変更履歴。Issue #333 の審議 | [GitHub Changelog — Actions retention now covers checks, runs, and statuses (2026-10-01)](https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses) |
 | SRC-0746 | 2026-07-17 | vendor-official | global/en | partial | TH12 | チェック・実行・ステータスの保持を 2026-10-01 から Actions の保持の設定に揃える旨の事前告知(編集注記 9月15日)。既定は 90 日で、リ | [GitHub Changelog — Actions retention will cover checks, workflow runs, and statuses (2026-](https://github.blog/changelog/2026-07-17-actions-retention-will-cover-checks-workflow-runs-and-statuses/) |
 | SRC-0747 | ? | vendor-official | global/en | partial | TH12 | 成果物とログの保持の設定の頁。公開リポジトリは 1〜90 日、非公開は 1〜400 日の範囲で設定でき、組織・企業の上限をリポジトリは超えられない。設定は新しい | [GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in yo](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) |
+| SRC-0748 | ? | vendor-official | global/en | partial | TH12 | 環境と配備の保護規則の頁。必須レビュア・待機時間・配備の参照の限定・環境の秘密情報のプラン別の提供範囲を述べる。Issue #329 の審議で 2026-11- | [GitHub Docs — Deployments and environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) |
+| SRC-0749 | ? | vendor-official | global/en | partial | TH12 | 環境の管理の頁。環境を設定できるプランと公開範囲、自己承認の禁止・管理者の迂回・配備の参照の限定の設定項目を述べる。Issue #329 の審議で 2026-1 | [GitHub Docs — Managing environments for deployment](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) |
 

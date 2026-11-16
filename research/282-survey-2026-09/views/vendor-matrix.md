@@ -225,7 +225,7 @@
 - [SRC-0448] 2026-07-30 [Optimizing CI for stacked pull requests](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests) — スタック型PRでの GitHub Actions の発火規則。pull_request トリガーは各PRがスタック基底を向いているものとして発火し、CI 回数が
 - [SRC-0605] 2026-09 [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions) — GitHub Docs のリポジトリ指示ファイルの手順書(日付表記なし、2026-09-30 取得)。リポジトリ全体(copilot-instructions.
 
-### GitHub(38)
+### GitHub(40)
 
 - [SRC-0176] 2026-09 [Approving a pull request with required reviews](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews) — GitHub Docs の必須レビュー承認ページ本文(取得日 2026-09-23)。PR 作成者の自己承認不可と、Copilot に Issue を割り当てた
 - [SRC-0177] 2026-09 [Risks and mitigations for GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations) — Copilot cloud agent(旧 coding agent)のリスクと緩和策。前回 §9 で未取得だった「依頼者は承認できない」の原文を一次で確認。無
@@ -265,6 +265,8 @@
 - [SRC-0745] 2026-10-01 [GitHub Changelog — Actions retention now covers checks, runs, and statuses (2026-10-01)](https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses) — GitHub が、チェック・ワークフローの実行・ステータスの保持を、Actions の成果物とログの保持の設定に揃えた旨の変更履歴。Issue #333 の審議
 - [SRC-0746] 2026-07-17 [GitHub Changelog — Actions retention will cover checks, workflow runs, and statuses (2026-](https://github.blog/changelog/2026-07-17-actions-retention-will-cover-checks-workflow-runs-and-statuses/) — チェック・実行・ステータスの保持を 2026-10-01 から Actions の保持の設定に揃える旨の事前告知(編集注記 9月15日)。既定は 90 日で、リ
 - [SRC-0747] ? [GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in yo](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) — 成果物とログの保持の設定の頁。公開リポジトリは 1〜90 日、非公開は 1〜400 日の範囲で設定でき、組織・企業の上限をリポジトリは超えられない。設定は新しい
+- [SRC-0748] ? [GitHub Docs — Deployments and environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) — 環境と配備の保護規則の頁。必須レビュア・待機時間・配備の参照の限定・環境の秘密情報のプラン別の提供範囲を述べる。Issue #329 の審議で 2026-11-
+- [SRC-0749] ? [GitHub Docs — Managing environments for deployment](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) — 環境の管理の頁。環境を設定できるプランと公開範囲、自己承認の禁止・管理者の迂回・配備の参照の限定の設定項目を述べる。Issue #329 の審議で 2026-1
 
 ### Google (Antigravity)(1)
 

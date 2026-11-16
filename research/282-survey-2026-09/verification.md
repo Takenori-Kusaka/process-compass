@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-15): verified 652 / partial 87 / unverified 1
+集計(生成日 2026-11-16): verified 652 / partial 89 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -111,6 +111,8 @@
 | SRC-0745 | partial | agent-read | 審議の調査(research-supplement.md)で読んだ記述を引いた。公開リポジトリの最大、非公開の最大はこの頁に記述が無い。 | [GitHub Changelog — Actions retention now covers checks, runs, and statuses (2026-10-01)](https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses) |
 | SRC-0746 | partial | agent-read | 審議の調査(research-supplement.md)で読んだ記述を引いた。 | [GitHub Changelog — Actions retention will cover checks, workflow runs, and statuses (2026-](https://github.blog/changelog/2026-07-17-actions-retention-will-cover-checks-workflow-runs-and-statuses/) |
 | SRC-0747 | partial | agent-read | 審議の調査(research-supplement.md)で読んだ記述を引いた。upload-artifact の retention-days の個別指定の上限は、この頁からは確かめられなかった。 | [GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in yo](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) |
+| SRC-0748 | partial | agent-read | HTML の本文を取得して読んだ。設定画面での実機の確認は無い。 | [GitHub Docs — Deployments and environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) |
+| SRC-0749 | partial | agent-read | WebFetch の要約から引いた。逐語の確認は一部のみ。 | [GitHub Docs — Managing environments for deployment](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) |
 
 ### 除外した出典(却下は成果)
 

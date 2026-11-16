@@ -122,7 +122,7 @@ graph LR
 
 ### 標準の規定との関係
 
-本リポジトリの配布は、[第4章 G-8](/process-compass/phase4-process-design/gate-criteria/)「配備の統制と資格情報の置き場」を満たしません。理由は2つです。書き込みの権限は、`ci.yml` のジョブ `publish` の `permissions` から生じる `GITHUB_TOKEN` です。ワークフローのファイルの権限の宣言だけから生じるトークンは、短命であっても規定の (a)(b) のどちらにも当たりません。また、`dist/standard` は結び付かない資格情報からの書き込みを拒まないため、規定の (c) も満たしません。本リポジトリは本標準に従う開発の案件ではありませんが、`dist/standard` は採用者が submodule で取り込む配布物であるため、未達として開示します([ADR-0090](/process-compass/adr/0090-job-token-and-deploy-credential-binding/))。
+本リポジトリの配布は、[第4章 G-8](/process-compass/phase4-process-design/gate-criteria/)「配備の統制と資格情報の置き場」を満たしません。理由は2つです。書き込みの権限は、`ci.yml` のジョブ `publish` の `permissions` から生じる `GITHUB_TOKEN` です。ワークフローのファイルの権限の宣言だけから生じるトークンは、短命であっても規定の (a)(b) のどちらにも当たりません。また、`dist/standard` は結び付かない資格情報からの書き込みを拒まないため、規定の (c) も満たしません。本リポジトリは本標準に従う開発の案件ではありませんが、`dist/standard` は採用者が submodule で取り込む配布物であるため、列挙に無い離脱として開示します([ADR-0090](/process-compass/adr/0090-job-token-and-deploy-credential-binding/))。
 
 - 区分: 手段はあるが、使わないと決めた。リポジトリは公開で、Environment の秘密情報と配備の参照の限定を使える。「手段が無い」には当たらない
 - 決定者: 保守者(所有者)。保守者の決定(2026-10-23)の中身は、鍵(deploy key・秘密情報に置く長期のトークン)を設定しないこと、配布の書き込みをジョブの権限で行うこと、`dist/standard` のルールセットで更新を制限しないことの3つ

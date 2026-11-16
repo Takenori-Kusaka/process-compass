@@ -98,7 +98,7 @@ graph TD
 | --- | --- | --- | --- | --- |
 | 開発 | CI が壊れ検証が止まる | 時間・モノ | AI 運用担当者 | [CI ゲート](/process-compass/phase5-implementation/ci-gates/)の復旧を最優先の運用作業に置く |
 | 開発 | 開発環境と本番環境の差異による想定外の不具合 | モノ・時間 | 技術判断者 | [非機能検証](/process-compass/phase5-implementation/nonfunctional-verify/) |
-| リリース | 配備の自動化の不備による操作の誤り | モノ・時間 | 出荷判定者 | [PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)、緊急の修正でも PR を経る運用 |
+| リリース | 配備の自動化の不備、PR を経ない起動による操作の誤り | モノ・時間 | 出荷判定者 | [PR ワークフロー](/process-compass/phase5-implementation/pr-workflow/)、緊急の修正でも PR を経る運用。PR を経ない起動(手動の起動、起動元のブランチ上のワークフローの書き換え)は、[第4章 G-8](/process-compass/phase4-process-design/gate-criteria/)「配備の統制と資格情報の置き場」と [CI ゲート構成](/process-compass/phase5-implementation/ci-gates/)「統制と資格情報の置き場」による。受け止めは防止に限らず、規定を満たせない構成は記録して表示する。配備の前の判定は G-8 による |
 | リリース | データ移行の失敗による不整合 | モノ・カネ | 技術判断者 | [G-7 出荷判定](/process-compass/phase4-process-design/gate-criteria/)の復旧手順の確認 |
 | 継続運用 | 計算資源の設定の誤りによる費用の超過 | カネ | AI 運用担当者 | [計算資源の戦略](/process-compass/phase5-implementation/compute-strategy/) |
 | 継続運用 | 監視の不足による検知の遅れ | モノ・時間 | 技術判断者 | [運用作業カタログ](/process-compass/phase6-operation/operations-catalog/)の日次作業 |
