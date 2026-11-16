@@ -239,7 +239,7 @@ gates:
     href: /process-compass/phase4-process-design/gate-criteria/
     name: 技術設計判断
     kind: decision
-    deliverables: [アーキテクチャ設計・技術選定案(AI生成+人レビュー済み), 判断記録(ADR)案]
+    deliverables: [技術設計・アーキテクチャ(AI生成+人レビュー済み), 判断記録(ADR)案]
     criteria: [非機能要件の充足見込みが示されている, 既存資産・コンテキスト基盤と整合している, 選択の可逆性が評価されている, 代替案が最低1つ比較されている, 事業影響が観測可能な事象で記述されている]
     approver: 技術判断者(単独。目安48時間以内に判定)
     approverRole: tech-lead

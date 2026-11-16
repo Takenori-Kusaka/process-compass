@@ -178,7 +178,9 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 
 人数は、D-0 体制図の表5 に記載した人のうち、表5-2 の区分が「体制の内」の人で数えます([第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/) 表5-2 の区分の規定)。AI の担い手、外部の確認者、組織上の任命権者は数えません。外部の確認者と組織上の任命権者は体制の外の人であり、AI の担い手は人ではないためです。受託の案件では、発注側と受注側の、区分が「体制の内」の人を合わせて数えます(軸D「委託の体制の人数と、軸A との組み合わせ」)。
 
-<!-- impl IMPL-0300 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="設問の回答(q-team-size)と、席の責任者と人の名簿(外部の確認者を除く)から数えた人数の食い違いを、3名と10名の境界で検出し、構成の生成と契約検査が拒否する(config.mjs の headcountProblems)。test-roster-rules.mjs が固定する(#312)" -->
+規模の規則は、設問の回答(初期化の時点の見込み)から導きます。名簿の人数から直接は導きません。初期化の時点では名簿がまだ無いためです。名簿を書いた後は、回答と名簿の人数の食い違いを3名と10名の境界で検出し、構成の生成と契約の検査が拒否します。人数が増える向きは少なく申告する誤りを、減る向きは名簿に書かれた離脱を拾うように数えます。数え方の細部は準拠テンプレートの手順です。
+
+<!-- impl IMPL-0300 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="設問の回答(q-team-size)と、席の責任者と人の名簿(外部の確認者を除く)から数えた人数の食い違いを、3名と10名の境界で検出し、構成の生成と契約検査が拒否する(config.mjs の headcountProblems)。test-roster-rules.mjs が固定する(#312)。増える向き(1〜2名→3名以上、3〜9名→10名以上)は席の責任者と名簿の体制の内の人の多い方で、減る向きは名簿の体制の内の人だけで数える。非対称は意図したもの(#351 の裁定)。" -->
 <!-- impl IMPL-0278 target=profile-generator state=undelivered check=manual plan=scheduled issue=351 review=2027-04 note="軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数えること。準拠テンプレートは規模の規則を設問の回答(q-team-size)から導き、名簿の人数から直接は導かない。回答と人数の食い違いの検出(IMPL-0300)は、3名以上の回答で名簿が空の場合を検出しない。数え方は向きで異なる(回答より多い向きは席の責任者と名簿の多い側、少ない向きは名簿だけで数える)。採用者は、名簿へ全員を記入したことを D-0 の改訂の時点で確かめる(#312 で注記を実装に合わせた)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0148 / 見直し 2027-10]
@@ -219,10 +221,10 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 
 | 体制 | 独立レビュー(G-6)の確認者 | 出荷判定(G-7) |
 | --- | --- | --- |
-| 2名 | 作成を指示していない側の人。**この相互の確認で G-6 は成立する**。相手も作成の指示に関与した変更は、外部へ依頼する。置けなければ未達 | 兼務。代償措置つきの逸脱([第3章 3.5.2](/process-compass/phase4-process-design/roles-responsibilities/)) |
-| 1名 | 外部(他チーム・別部門・社外コミュニティ)へ依頼する。置けなければ未達 | 同上 |
+| 2名 | 作成を指示していない側の人。**この相互の確認で G-6 は成立する**。相手も作成の指示に関与した変更は、外部へ依頼する。置けなければ未達 | 兼務(適用: 出荷判定者を兼ねる価値責任者が、開発者または独立レビュアの席の責任者を兼ねる構成)。代償措置つきの逸脱([第3章 3.5.2](/process-compass/phase4-process-design/roles-responsibilities/)) |
+| 1名 | 外部(他チーム・別部門・社外コミュニティ)へ依頼する。置けなければ未達 | 兼務(1名の体制では、出荷判定者を兼ねる価値責任者が開発者の席の責任者を兼ねる)。代償措置つきの逸脱(3.5.2) |
 
-[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/) 決定1 の「外部のレビュア」は、「作成を指示した者以外の確認者」と読みます。2名体制で成立するのは G-6 だけです。出荷判定者の兼務は、3名未満では逸脱のままです([ADR-0029](/process-compass/adr/0029-shipping-approver-merge-exception/))。
+[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/) 決定1 の「外部のレビュア」は、「作成を指示した者以外の確認者」と読みます。2名体制で成立するのは G-6 だけです。出荷判定者が開発ラインの席の責任者を兼ねる限り、3名未満では逸脱のままです([ADR-0029](/process-compass/adr/0029-shipping-approver-merge-exception/))。
 
 確認者を置けるかどうかの判定は、[第4章 G-6](/process-compass/phase4-process-design/gate-criteria/)によります。判定の根拠は、D-0 体制図の表5(人の名簿と席)の記載です。テーラリングの設問への回答は、初期化の時点の見込みであり、判定の根拠にしません。回答だけでは、確認者を置いたことになりません([ADR-0065](/process-compass/adr/0065-s0-omission-premises-and-roster-derived-confirmer/) 決定5)。
 
@@ -259,7 +261,9 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 
 ### 外部の確認者を高リスクの変更へ集中させる(適用: チーム規模 1〜2名)
 
-1〜2名の体制でも、型は変えません。G-6 は作成を指示した本人以外の確認者に置き、置けなければ未達として表示します。G-7 は代償措置つきの逸脱(1.10.2 の D-1)として表示します([第3章 3.5.2](/process-compass/phase4-process-design/roles-responsibilities/))。
+1〜2名の体制でも、型は変えません。G-6 は作成を指示した本人以外の確認者に置き、置けなければ未達として表示します。出荷判定者が開発ラインの席の責任者を兼ねる構成では、G-7 は代償措置つきの逸脱(1.10.2 の D-1)として表示します。兼ねないことを席の割り当てで確かめられない場合も、D-1 として表示します([第3章 3.5.2](/process-compass/phase4-process-design/roles-responsibilities/))。
+
+<!-- impl IMPL-0988 target=profile-generator state=undelivered check=manual plan=scheduled issue=351 review=2027-05 note="1〜2名の体制で、出荷判定者が開発ラインの席の責任者を兼ねる構成に限り D-1 を表示し、兼ねないことを席の割り当てで確かめられない場合(未割当・名簿が空)も表示すること。準拠テンプレートの generate-profile.mjs の detectDeviations は gates.g7.params.approverMode が value-owner-merged なら席の割り当てを見ずに必ず D-1 を出す(過剰の向き。落とす向きの誤りは無い)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 本節が扱うのは、外部の確認者を要する変更です。1名体制の変更と、2名体制で相手も作成の指示に関与した変更が当たります。外部の確認者を独立レビュアの席の責任者に置いた体制は、独立レビュー(G-6)を適用する体制です。その体制では、本節の R2 の件数による表示を用いません。確認を経ていない変更は、記録の欠落として扱います([第3章 3.5](/process-compass/phase4-process-design/roles-responsibilities/))。2名体制で相手が確認できる変更は、相互の確認で成立するため、本節の配分の対象になりません。外部の確認者の帯域は、変更ごとのリスク区分に応じて配分してよいものとします([ADR-0054](/process-compass/adr/0054-seat-accountable-performer/) 決定8)。
 

@@ -103,7 +103,7 @@ gh pr list --base main --state open
 
 ### AI維持管理（Platform）の受信箱
 ```bash
-# 1. 検査・テスト装置の改修、追加、削除の依頼
+# 1. 検査・テスト装置、指示資産(強制層)の変更(追加・改修・統合・削除)の依頼
 gh issue list --label "state:needs-platform" --state open
 gh pr list --label "state:needs-platform" --state open
 ```

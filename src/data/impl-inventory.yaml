@@ -1297,14 +1297,14 @@ sections:
     category: explanation
     reason: 悪い例・問題・良い例の対応の表。例の中の文は規定の文に数えない(判定表 P3)。
     issue: 324
-  - key: phase4-process-design/ears-guide#書き方の手順(formalize-criteria タスクの実施手順)
+  - key: phase4-process-design/ears-guide#書き方の手順(タスク「受入基準の形式化」の実施手順)
     status: marked
     ids:
       - IMPL-0936
       - IMPL-0937
       - IMPL-0938
       - IMPL-0939
-    note: formalize-criteria の語は準拠テンプレート(template/)に0件である。語は標準のプロセスの定義 src/data/processes/integrated.yaml のタスクの識別子で、附属書B の題がそれを引く(題が内部の識別子を露出している形。編集の指摘として fix-D1.md に記録した)。手順の4ステップをそれぞれ1件のマークで追う。
+    note: formalize-criteria の語は準拠テンプレート(template/)に0件である。語は標準のプロセスの定義 src/data/processes/integrated.yaml のタスクの識別子で、附属書B の題はタスクの表示名を引く(識別子 formalize-criteria は integrated.yaml にだけある。#328 で題を表示名へ直した)。手順の4ステップをそれぞれ1件のマークで追う。
     issue: 324
   - key: phase4-process-design/ears-guide#草案を受け取ったときに確かめること
     status: marked
@@ -6253,6 +6253,7 @@ sections:
     status: marked
     ids:
       - IMPL-0739
+      - IMPL-0988
     location:
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6
