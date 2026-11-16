@@ -6296,7 +6296,7 @@ sections:
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.4 委任の条件 >
         登録と、登録した変更種別の経路
   - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 >
-      委任・標準変更・L3 は同じ変更種別を指す"
+      委任・標準変更・AI自律レベル L3 は同じ変更種別を指す"
     status: none
     category: elsewhere
     reason: 委任・標準変更・L3 を同じ登録として扱う説明と、登録の要求事項の表。登録する者・AI

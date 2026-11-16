@@ -12,3 +12,7 @@ template の残り(本束では触っていません)
 2. template/CLAUDE.md・handoff.md に、判定記録の無い ready-to-merge を dev-done へ戻す行があるかの確認
 
 残りの項目と template の項目があるため、開いたままにします。
+
+独立の突合(1巡目)の所見を直しました(research/328-deliberation/08-fixes-1.md)。
+- 1.4 の「不変条件」を 5.4.3 の意味に限定し、公式用語の決め方を 1.4 と ADR-0118 の案内へ出しました
+- IMPL-0984 の note に判断の仕方を足しました。出典の示し方を直しました

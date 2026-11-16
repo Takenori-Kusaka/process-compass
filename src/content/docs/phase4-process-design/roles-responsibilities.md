@@ -884,7 +884,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 - 配備の起動が取り消せない操作に当たるかは、5.5.1 の定義による。この表の例は配備の起動を対象としない
 
 - 検知者は、差分が変更の主張と一致するかまでを確かめる。弱化を許容してよいかは判断しない。許容の判断を検知者が持つと、指示資産の承認の権限を AI維持管理者へ集めた意味(3.11.2)が失われる
-- 強制層の縮小は `state:needs-platform` で AI維持管理者へ渡す。取り消せない操作に当たる場合と、ガード・検証のゲート・重要なテストを削除する場合は、`state:needs-owner` を併記する。弱化の範囲そのものの適否は `state:needs-po` で価値責任者へ渡す。ガード・検証のゲート・重要なテストに当たるかは、列挙で決めず、削除によって止めていたものを止めなくなるかで判断する([ADR-0038](/process-compass/adr/0038-detection-handoff-of-control-weakening/) 決定1)。ルール化で足した検査(G-5)も同じ判断による
+- 強制層の縮小は `state:needs-platform` で AI維持管理者へ渡す。取り消せない操作に当たる場合と、ガード・検証のゲート・重要なテストを削除する場合は、`state:needs-owner` を併記する。弱化の範囲そのものの適否は `state:needs-po` で価値責任者へ渡す。ガード・検証のゲート・重要なテストに当たるかは、列挙で決めず、削除によって止めていたものを止めなくなるかで判断する。理由は、統制の弱化をパスで定義しないことと同じである([ADR-0038](/process-compass/adr/0038-detection-handoff-of-control-weakening/) 決定1)。ルール化で足した検査(G-5)も同じ判断による
 - 監査担当を引き渡し先にしない。監査が個別の変更の許容を決めると、次の監査で自らの判断を監査することになる
 - 引き渡し先を特定できないことを、自ら決める理由にしてはならない。特定できない場合は `state:needs-po` で価値責任者へ渡す
 - 検知者と承認者が同一人物でも(兼務を記録した案件)、ラベルを経由させ、引き渡しを記録する。どの職務で判断したかは、記録によってしか追えない([ADR-0038](/process-compass/adr/0038-detection-handoff-of-control-weakening/))
@@ -896,7 +896,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 **差し替え条件**: 同じ削除について、当たるかの判断が席の間で割れた記録が1件出たとき。割れた例を性質の説明へ足すか、列挙を置くかを審議し直す(列挙は ADR-0038 決定1 の変更になるので重)。
 :::
 
-<!-- impl IMPL-0984 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=335 review=2027-05 note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる。機械(check-process-rules)は、この併記を運ぶ行を確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0984 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=335 review=2027-05 note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる。機械(check-process-rules)は、この併記を運ぶ行を確かめていない。ガード・検証のゲート・重要なテストに当たるかを、列挙でなく削除によって止めていたものを止めなくなるかで判断する(G-5 で足した検査も同じ。#328)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0014 target=claude-md-resident state=delivered check=presence note="統制の弱化を性質で定義し検知の対象とする(単位: 行)" -->
 <!-- impl IMPL-0015 target=claude-md-resident state=delivered check=presence note="検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す(単位: 行)" -->
