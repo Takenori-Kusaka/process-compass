@@ -299,7 +299,7 @@ ADR のファイル名(上のリンクの slug)は実装の担当が決めてよ
 | 5 | `src/content/docs/adr/0019-*.md`・`0173-*.md`・`0175-*.md` | ステータスの節だけに「一部置き換え(→ ADR-0178 の決定 n)」を足す(本文は触らない。adr/index.md 規則4・5) |
 | 6 | `src/data/impl-targets.yaml` | flow-observation(1.5)、ai-free-practice-record・qa-policy-template(3.4) |
 | 7 | `src/data/impl-inventory.yaml` | 2.10.5・2.10.6・5.4.7 の節の note(1.5・2.4・3.4) |
-| 8 | 採番 | IMPL-NEW1・NEW2 は次の空き番号(現在の最大は IMPL-1019 → IMPL-1020・1021 の見込み)。EV-NEW1 は次の空き番号(現在の最大は EV-0319 → EV-0320 の見込み)。並行の束と衝突しないか採番の時点で確かめる。番号を決めたら本文・note・ADR の参照を置き換える |
+| 8 | 採番 | IMPL-NEW1・NEW2 は次の空き番号(現在の最大は IMPL-1019 → IMPL-1020・1021 の見込み)。EV-NEW1 は次の空き番号(現在の最大は EV-0319 → EV-0321 の見込み)。並行の束と衝突しないか採番の時点で確かめる。番号を決めたら本文・note・ADR の参照を置き換える |
 
 流す検査(途中の巡では関係するものだけ。全体の回帰は push の前に1回):
 

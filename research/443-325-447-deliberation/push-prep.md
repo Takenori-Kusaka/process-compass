@@ -9,7 +9,7 @@
 
 ## 番号
 
-- 本束が新設した番号は EV-0320・IMPL-1020・IMPL-1021・ADR-0178。origin/main の最大は EV-0319・IMPL-1019・ADR-0175 で、重ならない(IMPL-1019 は origin/main 側の既存で本束のものではない。ADR-0176・0177 は origin/main にも本ブランチにもない欠番)。付け直しなし
+- 本束が新設した番号は EV-0321・IMPL-1020・IMPL-1021・ADR-0178。origin/main の最大は EV-0319・IMPL-1019・ADR-0175 で、重ならない(IMPL-1019 は origin/main 側の既存で本束のものではない。ADR-0176・0177 は origin/main にも本ブランチにもない欠番)。付け直しなし
 - `evidence:write`・`impl:write`・`scope:write` を再生成。変更は implementation-ledger のみ
 
 ## 検査と回帰

@@ -4,7 +4,7 @@
 
 ## 変えたファイル
 
-- `src/content/docs/phase4-process-design/lifecycle.md`: 2.10.5 冒頭の段落、2.10.6 の「課しません」の段落と EV-0320、IMPL-0954・0899
+- `src/content/docs/phase4-process-design/lifecycle.md`: 2.10.5 冒頭の段落、2.10.6 の「課しません」の段落と EV-0321、IMPL-0954・0899
 - `src/content/docs/phase4-process-design/human-ai-boundary.md`: 5.4.7 箇条1、「未決」の段落、IMPL-0978
 - `src/content/docs/phase4-process-design/deliverable-templates.md`: テンプレ11 の行、IMPL-1020・1021 の新設、IMPL-0070・0071 の note
 - `src/content/docs/adr/0178-scope-procedure-records-backlog-review-and-ai-free-practice-frequency.md`(新設)
@@ -15,7 +15,7 @@
 
 ## 振った番号
 
-IMPL-NEW1 = IMPL-1020、IMPL-NEW2 = IMPL-1021、EV-NEW1 = EV-0320。origin/main の最大(IMPL-1019・EV-0319)の次。push の直前に並行の束と衝突しないか確かめ、必要なら付け直す。
+IMPL-NEW1 = IMPL-1020、IMPL-NEW2 = IMPL-1021、EV-NEW1 = EV-0321。origin/main の最大(IMPL-1019・EV-0319)の次。push の直前に並行の束と衝突しないか確かめ、必要なら付け直す。
 
 ## 流した検査と結果
 
