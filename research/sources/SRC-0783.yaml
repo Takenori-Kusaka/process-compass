@@ -1,0 +1,54 @@
+# 仮番号(#355 束2 外部の調査)
+schemaVersion: 0
+id: SRC-0783
+status: included
+excludeReason: null
+title: "IEC 61508 Commented Version(61508-2/-3 ed2.0 の改訂箇所つき。ANSI 共有の公開版)"
+url: https://share.ansi.org/Shared%20Documents/News%20and%20Publications/Other%20Documents/IEC%2061508%20Commented%20Version.pdf
+canonicalUrl: https://share.ansi.org/Shared%20Documents/News%20and%20Publications/Other%20Documents/IEC%2061508%20Commented%20Version.pdf
+ids: {arxiv: null, doi: null}
+publisher: "IEC(ANSI の共有ページ)"
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: null
+publishedBasis: unknown
+version: "61508:2010 の改訂案(コメント付き)"
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: section
+foundBy: {cluster: I355, query: "#355 束2 外部の調査。安全の検証記録の項目。仮番号"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'IEC 61508-3 の 7.9(ソフトウェアの検証)は、検証を計画して文書にし、結果を記録することを求める。附属書 A の HR の技術を採らないときは、その理由を詳述する。公開の版は改訂箇所とコメントを含む草案で、制定版との一致は未確認。'
+claims:
+  - id: c1
+    text: 'ソフトウェアの検証は、ライフサイクルの各段階で計画し、文書にする。計画は、基準・技術・道具と、検証結果の評価、是正を扱う。'
+    quote: 'The verification of software shall be planned'
+    locator: '61508-3 7.9.2.1 / 7.9.2.2(抜き書きは tavily extract)'
+    quant: null
+    evidenceKind: standard-text
+    rqs: []
+  - id: c2
+    text: '各検証活動の結果は、合格か失敗の理由かを示して文書にする(この文は 61508-2 の 7.9.2.6。-3 の対応する条は未特定)。'
+    quote: 'The result of each verification activity shall be documented, stating either that the E/E/PE safety-related systems have passed the verification, or the reasons for the failures.'
+    locator: '61508-2 7.9.2.6'
+    quant: null
+    evidenceKind: standard-text
+    rqs: []
+  - id: c3
+    text: 'HR(強く推奨)の技術を使わない場合は、使わない理由を詳述する。'
+    quote: 'If this technique or measure is not used then the rationale behind not using it shall be detailed'
+    locator: '61508-3 附属書 A の凡例(検索結果の抜粋。条番号は未特定)'
+    quant: null
+    evidenceKind: standard-text
+    rqs: []
+verification: {status: provisional, method: [tavily-extract, web-search], date: 2026-11-17, humanChecked: false, note: '改訂案の版。制定版との照合は未了。c3 は検索結果の抜粋のみで PDF の該当ページは読んでいない。'}
+volatility: slow
+reviewBy: 2027-05

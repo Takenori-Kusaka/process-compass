@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0759
+status: included
+excludeReason: null
+title: "42 CFR 493.801 Condition: Enrollment and testing of samples(proficiency testing)"
+url: https://www.ecfr.gov/current/title-42/section-493.801
+canonicalUrl: https://www.ecfr.gov/current/title-42/section-493.801
+ids:
+  arxiv: null
+  doi: null
+publisher: "eCFR(米国連邦規則)"
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: regulation
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: section
+foundBy:
+  cluster: I356
+  query: "#356 B(重)の外部の調査 (research/356-deliberation/b-research.md)。仮番号"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: '米国の臨床検査の外部精度管理(PT)。検体は日常の検体と同じ方法・同じ要員で検査する。要員と責任者が日常業務へ組み込んだことを証明する。他の検査室へ送ること(照会)は禁止で、故意なら認証を1年以上取り消しうる。評価の単位は検査室で、個人ではない。'
+claims:
+  - id: c1
+    text: 'PT の検体は日常の検体と同じ要員・同じ方法で検査し、検査した個人と責任者が証明する。他の検査室へ送ってはならない。'
+    quote: 'by personnel who routinely perform the testing in the laboratory, using the laboratory's routine methods'
+    locator: '493.801(b)(1)・(b)(5)(WebFetch の要約による。条番号の細目は原文で再確認)'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [356]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: '#356 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮番号'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-11

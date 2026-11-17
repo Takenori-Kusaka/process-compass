@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0757
+status: included
+excludeReason: null
+title: "TIBER-EU Framework: How to implement the European framework for Threat Intelligence-based Ethical Red Teaming(2018-05)"
+url: https://www.ecb.europa.eu/pub/pdf/other/ecb.tiber_eu_framework.en.pdf
+canonicalUrl: https://www.ecb.europa.eu/pub/pdf/other/ecb.tiber_eu_framework.en.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: "European Central Bank"
+authors: []
+orgType: government
+region: eu
+lang: en
+sourceType: regulation
+published: 2018-05
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: section
+foundBy:
+  cluster: I356
+  query: "#356 B(重)の外部の調査 (research/356-deliberation/b-research.md)。仮番号"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: 'ECB の脅威情報に基づく演習の枠組み。受け手(防御側)に知らせず、体制内の少数の白チームだけが知る。実施は独立した外部の提供者に限り、白チームは演習をいつでも止められる。'
+claims:
+  - id: c1
+    text: '演習の受け手に知らせず、体制内の少数(白チーム)だけが実施を知る。実施は独立した外部の提供者が行う。'
+    quote: 'TIBER-EU tests are to be performed without the knowledge of the target entity's security or response capability (i.e. Blue Team, BT). Only a small group from the entity, referred to as the White Team (WT), knows about the test.'
+    locator: '1 節(概要)。独立した外部の提供者の要件は同節、停止は 6 節 6.8'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [356]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: '#356 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮番号'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-11

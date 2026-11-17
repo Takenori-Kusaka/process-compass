@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0758
+status: included
+excludeReason: null
+title: "Commission Implementing Regulation (EU) 2015/1998 Annex 12.5.1(Threat Image Projection)"
+url: https://legislation.gov.uk/eur/2015/1998/annex/n4/division/12/2020-01-31
+canonicalUrl: https://legislation.gov.uk/eur/2015/1998/annex/n4/division/12
+ids:
+  arxiv: null
+  doi: null
+publisher: "legislation.gov.uk(EU 2015/1998 の保存版)"
+authors: []
+orgType: government
+region: eu
+lang: en
+sourceType: regulation
+published: 2015-11-05
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: section
+foundBy:
+  cluster: I356
+  query: "#356 B(重)の外部の調査 (research/356-deliberation/b-research.md)。仮番号"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: 'EU の航空保安の実施規則。TIP は、注入の印を検査員に示さず(応答の後まで)、管理の手段を許可された者だけに限り、画像を偏りなく置く。個々の検査員の応答は 12 か月保存する(12.5.2.4)。'
+claims:
+  - id: c1
+    text: 'TIP は、応答の後の表示まで、画像が投影される(された)ことを検査員に一切示してはならない。TIP の管理の手段は許可された者だけが使える。'
+    quote: 'No indication shall be given to the screener that a CTI or FTI is about to be projected'
+    locator: '12.5.1.2・12.5.1.3'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [356]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: '#356 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮番号'
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: 2027-11

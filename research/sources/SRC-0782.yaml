@@ -1,0 +1,40 @@
+# 仮番号(#355 束2 外部の調査)
+schemaVersion: 0
+id: SRC-0782
+status: included
+excludeReason: null
+title: "Copilot coding agent supports code referencing(GitHub Changelog 2026-02-18)"
+url: https://github.blog/changelog/2026-02-18-copilot-coding-agent-supports-code-referencing/
+canonicalUrl: https://github.blog/changelog/2026-02-18-copilot-coding-agent-supports-code-referencing
+ids: {arxiv: null, doi: null}
+publisher: "GitHub"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-02-18
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: full
+foundBy: {cluster: I355, query: "#355 束2 外部の調査。類似の検知の実務。仮番号"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: [{date: 2026-02-18, label: "Copilot coding agent が公開コードとの一致をログに強調表示(ブロックは非対応)"}]
+summary: 'ベンダーの類似の検知は、公開コードとの一致を出所のリンクつきで示す機能である。コーディングエージェントでは Block が使えず、一致はセッションログへの強調表示にとどまる。'
+claims:
+  - id: c1
+    text: 'Copilot coding agent は「公開コードに一致する提案」の方針の Block モードに対応せず、一致を止めずにセッションログで強調表示して原コードへのリンクを示す。'
+    quote: 'Copilot coding agent does not support the “Suggestions matching public code” policy’s `Block` mode.'
+    locator: '本文'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+verification: {status: provisional, method: [webfetch], date: 2026-11-17, humanChecked: false, note: 'WebFetch の要約応答の引用。'}
+volatility: fast
+reviewBy: 2027-02

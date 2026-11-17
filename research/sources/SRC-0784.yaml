@@ -1,0 +1,47 @@
+# 仮番号(#355 束2 外部の調査)
+schemaVersion: 0
+id: SRC-0784
+status: included
+excludeReason: null
+title: "Speed of Code Reviews(Google Engineering Practices)"
+url: https://google.github.io/eng-practices/review/reviewer/speed.html
+canonicalUrl: https://google.github.io/eng-practices/review/reviewer/speed.html
+ids: {arxiv: null, doi: null}
+publisher: "Google"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: full
+foundBy: {cluster: I355, query: "#355 束2 外部の調査。レビュー SLA の実務。仮番号"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: 'Google のレビューの速さの指針。応答は1営業日以内を上限とし、最適化の対象は個人の速さではなくチームの速さとする。SLA の判定の記録や個人の測定には触れない。'
+claims:
+  - id: c1
+    text: 'レビュー依頼への応答は1営業日以内を上限とする指針。指針であり、測定・記録の方法は書かない。'
+    quote: 'One business day is the maximum time it should take to respond to a code review request.'
+    locator: 'Maximum response time'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+  - id: c2
+    text: '最適化の対象はチームの速さで、個人の開発の速さではない。'
+    quote: 'we optimize for the speed at which a team of developers can produce a product together'
+    locator: 'Why Should Code Reviews Be Fast?'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+verification: {status: provisional, method: [webfetch], date: 2026-11-17, humanChecked: false, note: 'WebFetch 応答の引用。'}
+volatility: slow
+reviewBy: 2027-11

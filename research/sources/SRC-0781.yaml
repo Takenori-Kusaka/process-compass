@@ -1,0 +1,47 @@
+# 仮番号(#355 束2 外部の調査)
+schemaVersion: 0
+id: SRC-0781
+status: included
+excludeReason: null
+title: "Doe v. GitHub, Inc., No. 24-7700 (9th Cir. Sept. 16, 2026)"
+url: https://law.justia.com/cases/federal/appellate-courts/ca9/24-7700/24-7700-2026-09-16.html
+canonicalUrl: https://law.justia.com/cases/federal/appellate-courts/ca9/24-7700/24-7700-2026-09-16.html
+ids: {arxiv: null, doi: null}
+publisher: "US Court of Appeals for the Ninth Circuit(判決文は Justia の転載)"
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: regulation
+published: 2026-09-16
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: secondary
+foundBy: {cluster: I355, query: "#355 束2 外部の調査。AI 生成コードの知財。仮番号"}
+derivedFrom: []
+derivedFromUrl: [https://www.gibsondunn.com/ninth-circuit-clarifies-limits-of-dmca-liability-for-ai-generated-code, https://www.authorsalliance.org/2026/09/23/resolving-an-interlocutory-appeal-ninth-circuit-affirms-dismissal-of-section-1202-dmca-claims-in-ongoing-doe-v-github-litigation]
+selfReported: false
+themes: []
+events: [{date: 2026-09-16, label: "Doe v. GitHub 第9巡回区控訴裁判所、DMCA 1202(b) の請求棄却を維持"}]
+summary: 'Copilot の出力に著作権管理情報(帰属表示)が無いことを理由とする DMCA 1202(b) の請求を、控訴裁が棄却した判決。契約違反の請求は地裁で係属。判決本文は未読で、検索結果の抜粋(Justia の要約欄)と法律事務所・団体の解説(二次)による。'
+claims:
+  - id: c1
+    text: '控訴裁は 1202(b) の請求に「同一であること」を独立の要件とはしなかったが、Copilot は既存の作品の複製ではなく学習に基づく新しい作品の生成と理解できるとして請求を退けた。出力が実質的な複製で CMI を欠くなら、除去の強い状況証拠になりうる、とも述べた。'
+    quote: 'will often be strong circumstantial evidence'
+    locator: 'Gibson Dunn の解説が引く判決文 p.15(判決文は未読)'
+    quant: null
+    evidenceKind: court-opinion-secondary
+    rqs: []
+  - id: c2
+    text: '契約違反の請求は地裁で係属中で、生成物が既存コードと一致した場合のライセンス上の責任は、この判決で確定していない。'
+    quote: 'The court allowed breach of contract claims to proceed.'
+    locator: 'Justia の要約欄(検索結果の抜粋)'
+    quant: null
+    evidenceKind: court-opinion-secondary
+    rqs: []
+verification: {status: provisional, method: [web-search], date: 2026-11-17, humanChecked: false, note: '判決本文は未読。二次の解説の一致による。採否の根拠にするなら本文の確認が要る。'}
+volatility: fast
+reviewBy: 2027-02
