@@ -18,6 +18,8 @@ sidebar:
 | [ADR-0067](/process-compass/adr/0067-purpose-of-two-approvers/) 決定6 | 動かさない。導入前の検証の記録は見つける者ごとの記録(`perFinder`)を持つ |
 | [ADR-0133](/process-compass/adr/0133-no-conditions-or-compensating-measures-for-unlisted-deviations/) 決定5 | 触れない。運用中の未測定の要求は決めない |
 
+追記(2026-11-17): 決定4 の表で #356 の B を待っていた6規定の待ちは、[ADR-0161](/process-compass/adr/0161-seeded-error-blinding-by-separating-surfaces-and-counting-misses-by-scope/) 決定7 が閉じました。決定は変えていません。
+
 ## コンテキスト
 
 [#356](https://github.com/Takenori-Kusaka/process-compass/issues/356) の部分 A(降ろし方)は、第5章 5.6.2 と第7章 7.9 の `undelivered` 19件を扱います。2委員(起案と反対)の結論は割れました。起案は `adopter` 0件、反対は 9件でした。議長が規定ごとに裁定しました。

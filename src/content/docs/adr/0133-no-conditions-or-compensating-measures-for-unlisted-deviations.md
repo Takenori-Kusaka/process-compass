@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-15)。一部置き換え(→ 本 ADR の決定3): [ADR-0035](/process-compass/adr/0035-separation-by-execution-context/)の決定2 の「代償措置つきの逸脱として記録します。ADR-0029 の出荷判定者の例外と同じ扱い」を置き換えます。一部置き換え(→ 本 ADR の決定2): [ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)の決定7 の「次の4つの規定が常に当たる」を置き換えます。同決定7 と決定8 が別の Issue へ送った2つの問い(1名・2名の体制のための代償措置を閉じた列挙へ加えるか、認証情報の分離が許可に当たるか)を、本 ADR が閉じます。[ADR-0029](/process-compass/adr/0029-shipping-approver-merge-exception/)は変えません。
 
+追記(2026-11-17): 決定5 が #356 へ寄せた運用中の未測定の問いは、[ADR-0161](/process-compass/adr/0161-seeded-error-blinding-by-separating-surfaces-and-counting-misses-by-scope/) 決定1 が閉じました。決定5 は変えていません。
+
 ## コンテキスト
 
 [#352](https://github.com/Takenori-Kusaka/process-compass/issues/352) は、第1章 1.10.2 の「列挙に無い離脱」のうち、条件と代償措置を定めて閉じた列挙へ入れるべきものがあるかを問いました。体制の内の人が1人の体制は、現行の条項では適合の主張と逸脱を伴う適合の主張をどちらも述べられず、述べられるのは適用の表明までです。この帰結の重さが、問いの背景にあります。

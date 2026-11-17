@@ -1861,13 +1861,14 @@ sections:
           - IMPL-0669
         note: "件数を数える部分は IMPL-0669。B-2 の定例で報告するふるまいは、会議の議事にしか現れない制度設計(探した場所: templates/00-d0-governance.md に B-2 の定例の報告の欄なし。impl-targets.yaml に会議体の定例の降ろし先なし)"
   - key: phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.6 記録と可視化
-    status: none
-    category: elsewhere
-    reason: "発動と解除の記録する事項(識別子・対象の人・範囲・根拠の所在・記録した者・解除の識別子)と、人が記録し機械が発動しないことは、7.9.2 の IMPL-0118 の note(event: restriction に範囲・対象の人・根拠・記録した者を必須、解除を記録できる、範囲を記録していない旧い発動は判定できない)で引ける。発動の通知(通知先と通知日の記録)は、第3章 3.13.6 の IMPL-0033 の note(通知する者が通知先と通知日を変化点の記録へ書く。未記入の即時通知は記録の欠落)が追う。残りの文のうち、四半期ごとの確認、行使件数の推移を検出率の推移とあわせて確認することは、確認のふるまいで、違反が本標準の求める記録のどれにも現れない制度設計(探した場所: templates/04-gate-record.md、scripts/gate/aggregate-evidence.mjs の制限の読み、impl-targets.yaml)。EV は無し"
+    status: marked
+    ids:
+      - IMPL-1010
+    note: "発動と解除の記録する事項(識別子・対象の人・範囲・根拠の所在・記録した者・解除の識別子)と、人が記録し機械が発動しないことは、7.9.2 の IMPL-0118 の note(event: restriction に範囲・対象の人・根拠・記録した者を必須、解除を記録できる、範囲を記録していない旧い発動は判定できない)で引ける。発動の通知(通知先と通知日の記録)は、第3章 3.13.6 の IMPL-0033 の note(通知する者が通知先と通知日を変化点の記録へ書く。未記入の即時通知は記録の欠落)が追う。残りの文のうち、四半期ごとの確認、行使件数の推移を検出率の推移とあわせて確認することは、確認のふるまいで、違反が本標準の求める記録のどれにも現れない制度設計(探した場所: templates/04-gate-record.md、scripts/gate/aggregate-evidence.mjs の制限の読み、impl-targets.yaml)。EV は無し"
     location:
       - "phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.2 制限の内容"
       - "phase4-process-design/roles-responsibilities#3.13 体制の変化点 > 3.13.6 品質保証部門への通知"
-    issue: 324
+    issue: 356
   - key: phase4-process-design/exception-escalation#7.10 前提の劣化と受容
     status: none
     category: explanation
@@ -3320,6 +3321,7 @@ sections:
       - IMPL-0161
       - IMPL-0162
       - IMPL-0991
+      - IMPL-1011
     rows:
       要求事項1:
         status: marked

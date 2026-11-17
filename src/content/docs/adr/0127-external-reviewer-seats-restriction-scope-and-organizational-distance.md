@@ -22,6 +22,8 @@ sidebar:
 | [ADR-0110](/process-compass/adr/0110-mixed-change-point-direction-and-signer/) ・[ADR-0122](/process-compass/adr/0122-self-related-decisions-and-arising-separations/) | 維持する。区分の訂正の記名は既存の規則による(決定1)。決定2 が推奨にとどめた任命権者の記載を所見にしない(決定9) |
 | 第6章 テンプレ0 D-0 表1(第3章 3.8.3 の決定者を1名に定める原則) | 受託・委託の席の責任者の任免に限り、組織ごとに決定者を置く形へ改める(決定8) |
 
+一部置き換え(→ [ADR-0161](/process-compass/adr/0161-seeded-error-blinding-by-separating-surfaces-and-counting-misses-by-scope/) 決定5): 決定5 のうち、制限の記録の対象の人(`restriction.person`)を全ての発動で必須にする部分を置き換えます。範囲で数える読みは維持します(2026-11-17)。
+
 ## コンテキスト
 
 [#357](https://github.com/Takenori-Kusaka/process-compass/issues/357) は、外部の確認者の席の限定、確認者の力量の記録、2名必須の制限、段2 以上の照合、受託の価値責任者と任免の決定者、観点6 の所見、名簿の未知の欄の扱いを扱いました。新しい義務と ADR の原則の変更を含むため、重の審議(5 委員)で決めました(`research/357-deliberation/decision.md`)。
