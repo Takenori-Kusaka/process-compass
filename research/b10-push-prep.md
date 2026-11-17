@@ -61,3 +61,9 @@
 - 直し方の候補(未実施): template 側で trial-checklist.md を更新して PR にし参照を進める。または、複製の検査が template の参照に依る旨の除外を設ける。どちらを採るかは議長の裁定。
 - これより後ろの検査(lint:ci〜test:template より後の連鎖)は実行されていない。直した後に再実行が要る。
 - 写しは消した。
+
+## 回帰(3回目・2026-11-17、HEAD 83efe29e)
+
+- 環境: WSL・node v26.13.1。Windows の git で `git archive`(LF)した tar を WSL へ展開(WSL の git は worktree を読めないため)。template は b780a76 を展開して git init。`npm ci` 0。
+- `npm run check` 通常 exit 0、`TZ=UTC npm run check` exit 0。失敗なし。2回目で止まった `test:template` の乖離は、#327 の項目を元の文へ戻したコミット(83efe29e)で解消し、その後ろの連鎖も最後まで通った。
+- 写しは消した。
