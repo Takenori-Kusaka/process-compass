@@ -3135,45 +3135,35 @@ sections:
     rows:
       条件1:
         status: none
-        category: elsewhere
-        reason: 連続運用期間の値は EV-0147。判定は B-2 の人の判断で、登録した変更種別の L3 は 5.5.4 の登録の判定が兼ねる
-        location:
-          - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
+        category: org-design
+        reason: 連続運用期間の値は EV-0147。準拠テンプレートは L2 を表せず(IMPL-0289、ADR-0081 決定6)、判定は B-2 の人の判断で、本標準が求める記録のどれにも現れない。
         issue: 311
       条件2:
         status: none
-        category: elsewhere
-        reason: 基準の範囲は組織が G-1 で定める。判定は B-2 の人の判断
-        location:
-          - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
+        category: org-design
+        reason: 基準の範囲は組織が G-1 で定める。準拠テンプレートは L2 を表せず(IMPL-0289、ADR-0081 決定6)、判定は B-2 の人の判断で、本標準が求める記録のどれにも現れない。
         issue: 311
       条件3:
         status: none
-        category: elsewhere
-        reason: 変更失敗率の値は組織が G-1 で定める。判定は B-2 の人の判断
-        location:
-          - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
+        category: org-design
+        reason: 変更失敗率の値は組織が G-1 で定める。準拠テンプレートは L2 を表せず(IMPL-0289、ADR-0081 決定6)、判定は B-2 の人の判断で、本標準が求める記録のどれにも現れない。
         issue: 311
       条件4:
         status: none
-        category: elsewhere
-        reason: 値は EV-0154。判定は B-2 の人の判断
-        location:
-          - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
+        category: org-design
+        reason: 値は EV-0154。準拠テンプレートは L2 を表せず(IMPL-0289、ADR-0081 決定6)、判定は B-2 の人の判断で、本標準が求める記録のどれにも現れない。
         issue: 311
       条件5:
         status: none
         category: elsewhere
         reason: 能力維持措置の実施記録は 5.4.7 が追う
         location:
-          - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
+          - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.7 能力維持措置
         issue: 311
       条件6:
         status: none
-        category: elsewhere
-        reason: 手順書と実行記録は採用者の記録で、引き下げの検知と戻しは 5.4.6 の IMPL-0289・0284〜0286 が追う
-        location:
-          - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
+        category: org-design
+        reason: 手順書と実行記録は採用者の記録。準拠テンプレートは L2 を表せず(IMPL-0289、ADR-0081 決定6)、判定は B-2 の人の判断で、本標準が求める記録のどれにも現れない。引き下げの検知と戻しの機械の経路は 5.4.6 の IMPL-0289・0284〜0286 が追う
         issue: 311
       条件7:
         status: marked
