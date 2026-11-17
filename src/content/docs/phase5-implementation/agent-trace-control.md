@@ -63,7 +63,7 @@ sidebar:
 
 ### 隔離と拒否が効くことを確かめる手順(例)
 
-以下は、課す手順ではなく、確かめ方の例です。2026-11-17 に WSL2(Claude Code 2.1.314)で行った確認の形を、手順に直したものです(根拠は[第5章 5.8.6](/process-compass/phase4-process-design/human-ai-boundary/)の EV-0317)。
+以下は、課す手順ではなく、確かめ方の例です。2026-11-17 に WSL2(Claude Code 2.1.314)で行った確認の形を、手順に直したものです(根拠は[第5章 5.8.6](/process-compass/phase4-process-design/human-ai-boundary/)の EV-0318)。
 
 | 手順 | 内容 | 見るもの |
 | --- | --- | --- |
@@ -127,7 +127,7 @@ sidebar:
 
 ### 実行の識別子を運べることを確かめる手順(例)
 
-以下は、課す手順ではなく、確かめ方の例です。根拠は[第5章 5.8.2](/process-compass/phase4-process-design/human-ai-boundary/)の EV-0318 です。
+以下は、課す手順ではなく、確かめ方の例です。根拠は[第5章 5.8.2](/process-compass/phase4-process-design/human-ai-boundary/)の EV-0319 です。
 
 | 手順 | 内容 | 見るもの |
 | --- | --- | --- |

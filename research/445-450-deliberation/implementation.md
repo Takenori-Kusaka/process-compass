@@ -4,7 +4,7 @@
 
 ## 変えたファイル
 
-- 新設 `src/content/docs/adr/0175-assign-445-450-undelivered-to-adopter-or-template.md`(ADR-0175。EV-0314 を付与)
+- 新設 `src/content/docs/adr/0175-assign-445-450-undelivered-to-adopter-or-template.md`(ADR-0175。EV-0315 を付与)
 - マーク書き換え 18 件(plan=adopter・decision=ADR-0175・issue=/review= 削除・note 置換。target・state・check は不変)
   - `phase4-process-design/roles-responsibilities.md` 12 件(0568 0665 0707 0712 0713 0715 0716 0718 0826 0827 0832 0833)
   - `exception-escalation.md` 0619、`deliverable-templates.md` 0878、`proposal-template.md` 0960 0961 0962、`assurance-case.md` 0964

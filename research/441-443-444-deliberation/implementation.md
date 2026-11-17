@@ -5,13 +5,13 @@
 ## 採番
 
 - IMPL-1017(#441 短期書き換え率・adopter)、IMPL-1018(#443 予算の入力・adopter)、IMPL-1019(#444 指示資産の版)
-- EV-0316(完了の既定の述語)、EV-0317(隔離)、EV-0318(実行の識別子)
+- EV-0317(完了の既定の述語)、EV-0318(隔離)、EV-0319(実行の識別子)
 - SRC-0765(Claude Code の環境変数の参照)
 - ADR-0172、ADR-0173(ADR-0174 は使っていない)
 
 ## 変えたファイル
 
-- 本文: `gate-criteria.md`(IMPL-0268・0044・1017)、`human-ai-boundary.md`(0174・0175・5.7.5 箇条1・0207・1019・0506・0510・0507・0200・EV-0251・EV-0317・EV-0318)、`lifecycle.md`(2.10.5 の調整の記録の段落・0374・EV-0316・0283・0851・0954・0899)、`exception-escalation.md`(0614・1018・0615・0377)、`roles-responsibilities.md`(0500・0828)、`deliverable-templates.md`(テンプレ4 の注記)
+- 本文: `gate-criteria.md`(IMPL-0268・0044・1017)、`human-ai-boundary.md`(0174・0175・5.7.5 箇条1・0207・1019・0506・0510・0507・0200・EV-0251・EV-0318・EV-0319)、`lifecycle.md`(2.10.5 の調整の記録の段落・0374・EV-0317・0283・0851・0954・0899)、`exception-escalation.md`(0614・1018・0615・0377)、`roles-responsibilities.md`(0500・0828)、`deliverable-templates.md`(テンプレ4 の注記)
 - `tailoring-guide.md` の IMPL-0743 は、別の担当のコミットに含まれて入った(本コミットの差分には出ない)
 - 手引き: `phase5-implementation/agent-trace-control.md`(S1〜S4、範囲の実測、T1〜T3、日付、IMPL-0207・1019 の2文)
 - ADR: `adr/0172-*.md`、`adr/0173-*.md`

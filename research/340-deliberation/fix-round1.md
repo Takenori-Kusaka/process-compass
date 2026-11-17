@@ -11,7 +11,7 @@
 | 低-2 観点23 の監査の方法 | 直した | 条件7 の記録の有無を見る。内容が停止を強制するかは確かめない。`assurance-case.md` 279 行 |
 | 低-3 ADR-0170 の adopter の理由 | 直した | 決定4 に IMPL-1013 を採用者に委ねる理由と求めることを足した |
 | 低-4 IMPL-0519 の旧い語 | 直した | 「AI自律レベルを L1 より上へ上げず、E3 を解禁しない」へ。`roles-responsibilities.md` IMPL-0519 の note |
-| 低-5 EV-0312 の第1文 | 直した | 「確認できませんでした(無いと確かめたのではありません)」の形へ。`human-ai-boundary.md` EV-0312 |
+| 低-5 EV-0313 の第1文 | 直した | 「確認できませんでした(無いと確かめたのではありません)」の形へ。`human-ai-boundary.md` EV-0313 |
 | 低-6 テンプレ9 の注意の引き方 | 直した(編集の指摘) | 「RRS1・RRS2 に数えない記載と同じ」と引いた。`human-ai-boundary.md` 5.4.5 の段落 |
 
 台帳(implementation-ledger)は `npm run impl:write` で再生成した。evidence・scope の台帳は変更なし。

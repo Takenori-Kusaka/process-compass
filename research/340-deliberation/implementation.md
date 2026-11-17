@@ -1,13 +1,13 @@
 # 実装の記録: #340 要求事項5 の L2 への適用(ADR-0170)
 
-- 日付: 2026-11-17。仕様は decision.md。番号は仮(push の前に付け直す): EV-0312・EV-0313、IMPL-1013・IMPL-1014、ADR-0170
+- 日付: 2026-11-17。仕様は decision.md。番号は仮(push の前に付け直す): EV-0313・EV-0314、IMPL-1013・IMPL-1014、ADR-0170
 
 ## 変えたファイル
 
 - `src/content/docs/adr/0170-l2-promotion-requires-enforcement-location-in-safety-risk-assessment.md`(新設)
 - `src/content/docs/adr/0158-…md`(ステータスの節に1文)
 - `src/content/docs/phase4-process-design/roles-responsibilities.md`(3.12.10 の表5行目、L2 の段落、IMPL-0519・0279 の note)
-- `src/content/docs/phase4-process-design/human-ai-boundary.md`(5.4.5 の条件7、移行の段落、EV-0312・0313、IMPL-1013)
+- `src/content/docs/phase4-process-design/human-ai-boundary.md`(5.4.5 の条件7、移行の段落、EV-0313・0314、IMPL-1013)
 - `src/content/docs/phase4-process-design/deliverable-templates.md`(テンプレ9 の記入時の注意、IMPL-1014)
 - `src/content/docs/phase4-process-design/assurance-case.md`(観点23 の不適合の例)
 - `src/data/impl-inventory.yaml`(5.4.5 を marked にし、条件1〜7 の区分を足した。テンプレ9 の記入時の注意に IMPL-1014)
