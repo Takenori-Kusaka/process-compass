@@ -1960,7 +1960,7 @@ graph TD
 6. **再評価**: 保護方策の追加によって生じた新たな危険源を点検し、段階2へ戻る
 7. **受容**: 残留リスクと受容の決裁を記録する
 
-<!-- impl IMPL-0864 target=safety-risk-assessment-template state=delivered check=manual note="SR4 が1件でも残る間は、当該のエージェント運用を開始しないこと。09-safety-risk-assessment.md の節「判定の規則」が置く。SR4 の残存で G-1 の審議を止める検査は無い(IMPL-0849 が降りていない旨を開示している)。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
+<!-- impl IMPL-0864 target=safety-risk-assessment-template state=delivered check=manual note="SR4 が1件でも残る間は、当該のエージェント運用を開始しないこと。09-safety-risk-assessment.md の節「判定の規則」が置く。SR4 の残存で G-1 の審議を止める検査は IMPL-0849 が持つ。 確かめる者: 安全リスクアセスメント表の承認者(承認するとき)。所在を読んだ(実行して確かめていない)" -->
 
 <!-- impl IMPL-0865 target=safety-risk-assessment-template state=delivered check=manual note="手順の記入欄。使用上・空間上・時間上の限界の3種と L・E の宣言(手順1)、判定の根拠(手順3。計算式を定めず文章で書く)、残留リスクの受容の理由・決裁者・日付(手順7)の欄を、軽量版の様式に置く。欄の存在を確かめる検査は無い(必須欄の検査 t9 は上記の欄を持たない)。確かめる者: 技術判断者と安全担当(表を作る・読むとき)" -->
 
