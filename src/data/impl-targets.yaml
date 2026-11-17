@@ -201,6 +201,12 @@ targets:
     path: templates/05-handover.md
     description: コア機能の理解保持者と、本人以外の確認者・確認日の欄の置き場(第3章 3.4.3、#288 第2巡)
 
+  - id: handover-guide
+    name: 運用引き継ぎ文書(テンプレ5)の手引き
+    kind: template-file
+    path: .claude/skills/artifact/artifacts/05-handover.md
+    description: テンプレ5 の手引き。理解保持者の数え方に加え、コンテキスト移管(標準 第2章 2.9)の H-1〜H-3 の記録の書き方を置く。H-1 の必須欄と予告期間別の H-2 の期限と範囲、H-3 の4課題と評価者の条件。専用の様式は作らず、記録の置き場は採用者が決める。機械の検査は無い(Issue #448。束 B16 U5)
+
   - id: ai-sla-template
     name: 成果物テンプレート テンプレ8(AI-SLA 合意確認書)
     kind: template-file
