@@ -53,6 +53,13 @@ test('変異: 表のセルに含まれない保証を検出する', () => {
   detects(run({ registry: r }), /RC-02: 担っている保証が表のセルに含まれない/);
 });
 
+test('変異: 能力に依る行の「超過・未達のときの扱い」が空なら検出する', () => {
+  const blank = (id) => docText.split(/\r?\n/).map((l) => (l.startsWith(`| ${id} |`) ? l.replace(/\|[^|]*\|\s*$/, '|  |') : l)).join('\n');
+  detects(run({ docText: blank('RC-04') }), /RC-04: 「超過・未達のときの扱い」の列が空/);
+  // 能力に依らない行は空でもよい
+  assert.deepEqual(run({ docText: blank('RC-09') }), []);
+});
+
 test('変異: 能力に依るかの食い違いを検出する', () => {
   const r = clone();
   find(r, 'RC-12').capabilityDependent = true;

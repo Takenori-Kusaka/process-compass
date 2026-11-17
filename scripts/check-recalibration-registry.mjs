@@ -48,7 +48,7 @@ export function parseDoc(text) {
   let requirement4 = null;
   for (const line of String(text).replace(/\r\n/g, '\n').split('\n')) {
     const cells = line.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
-    if (/^RC-\d+$/.test(cells[0] ?? '') && cells.length >= 5) rows.set(cells[0], { name: strip(cells[1]), assumption: strip(cells[2]), guarantee: strip(cells[3]), depends: strip(cells[4]) });
+    if (/^RC-\d+$/.test(cells[0] ?? '') && cells.length >= 5) rows.set(cells[0], { name: strip(cells[1]), assumption: strip(cells[2]), guarantee: strip(cells[3]), depends: strip(cells[4]), handling: strip(cells[5] ?? '') });
     if (cells[0] === '4' && /能力に依らない/.test(cells[1] ?? '')) requirement4 = cells[1];
   }
   let notDependent = null;
@@ -81,6 +81,7 @@ export function checkRegistry({ registry, docText, config }) {
     if (r.name !== c.name) problems.push(`${c.id}: 定数の名称が違う(表「${r.name}」/ JSON「${c.name}」)`);
     if (r.assumption !== c.assumption) problems.push(`${c.id}: 依拠する前提が違う(表「${r.assumption}」/ JSON「${c.assumption}」)`);
     if (!r.guarantee.includes(c.guarantee)) problems.push(`${c.id}: 担っている保証が表のセルに含まれない(JSON「${c.guarantee}」/ 表「${r.guarantee}」)`);
+    if (r.depends === '依る' && !r.handling) problems.push(`${c.id}: 「超過・未達のときの扱い」の列が空である(能力に依る定数は、引く条項を書く)`);
     if (r.depends !== '依る' && r.depends !== '依らない') problems.push(`${c.id}: 「能力に依るか」が「依る」「依らない」のいずれでもない(${r.depends})`);
     else if ((r.depends === '依る') !== c.capabilityDependent) problems.push(`${c.id}: 能力に依るかが違う(表「${r.depends}」/ JSON ${c.capabilityDependent})`);
     // configKey: null か、「 / 」で区切ったキーのそれぞれがテンプレートの構成に実在する
