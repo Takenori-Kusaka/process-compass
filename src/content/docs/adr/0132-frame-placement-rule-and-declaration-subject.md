@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-15)。[ADR-0063](/process-compass/adr/0063-normative-informative-and-verbal-forms/) の決定2 と [ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/) の決定3 は置き換えず、足します。注意の枠の種類の地位は、本 ADR では定めません。重い審議(Issue #440 に残す)の結論が、本 ADR を置き換えることがあります。
 
+2026-11-17 に、決定2(注意の枠の種類の地位を定めない)と決定6 の表の1行を、[ADR-0156](/process-compass/adr/0156-caution-frames-count-as-explanation/) が置き換えました。決定5 が保留した「定める」「課す」への動詞の広げ方は、[ADR-0155](/process-compass/adr/0155-safety-prohibitions-and-statements-decided-per-sentence/) の決定8 で、広げないと決めて閉じました。決定3 の登録簿は仕組みを残し、項目を空にしました。
+
 ## コンテキスト
 
 [#440](https://github.com/Takenori-Kusaka/process-compass/issues/440) は、次の2つの食い違いを指摘しました。
