@@ -1,0 +1,188 @@
+0136|a|散文変更にも判定SLAと滞留の措置|散文の識別は決定可能。担い手への指示文書を散文に数える当否は未決(境界)|scripts/gate/check-pr.mjs の isProseDocument
+0534|c|前提が崩れても停止せず可視化し受容決裁|判定者の振る舞いで機械は閉じない。判定の原則へ一文|.claude/skills/gate/SKILL.md 判定の原則
+0536|c|単独判定・非同期コメント期間・会議なし|判定者の運用の規定。手順は手引きへ|.claude/skills/gate/SKILL.md
+0547|c|秘匿情報検出時は無効化を先に行う手順|取り消せない操作に近い。手順なので手引きへ置く|.claude/skills/gate/gates/G-5.md
+0549|c|判定者へ法的評価を求めない限定|判定者の範囲の限定で文で足りる|.claude/skills/gate/gates/G-5.md・G-7.md
+0567|a|7.4の対象ゲート行を例外として拒む|安全・認証・データ保全の迂回を止める。台帳の行の値の一致で決定可能|templates/03-debt-ledger.md 区分欄 + scripts/gate/exception-expiry.mjs の隣
+0569|d|7.7.1 消化率の分母は組織が定めた上限|利用量の単位と上限は採用者の課金・AI実行基盤の値。同じ降ろし先の IMPL-0370 が adopter(ADR-0096)|(降ろさない) decision=ADR-0096 を引く
+0570|d|上限なし・測れない場合は未測定と報告|測定自体が採用者の基盤。IMPL-0569 と同じ判断(境界: 企画書の閾値行に未測定の選択肢を足す案=b)|(降ろさない)
+0576|c|代理指標を満たしても規範未達なら差戻し|人が読んで判断する規定。手順で足りる|.claude/skills/gate/gates/G-6.md
+0577|c|機械的変換3点の充足を満たす変更だけ除外|3点は判断。生成印による除外は降りている。残りは手順|.claude/skills/implement/task-size.md
+0608|b|7.4適用できる期日の種類と外部根拠|台帳の行の理由欄に種類と根拠を書かせる(証跡)|templates/03-debt-ledger.md 欄
+0609|b|7.4申請書の必須4項目|議長裁定T5で台帳の行と同じ入力に乗せる|templates/03-debt-ledger.md 欄
+0610|a|7.4乱用防止 未回収が残る間の新規申請・事後レビュー|台帳の区分と期限から決定可能(0608・0609の欄が前提)|scripts/gate/exception-expiry.mjs
+0613|c|起票者は自分の起票を判定しない・R1に持ち回り不可|運用規則。next.mjs 出力の文を手引きに揃える|.claude/skills/pit/reference/handoff.md
+0618|c|エスカレーションレポートの分量上限と表|手順・体裁。手引きへ|.claude/skills/pit/reference/handoff.md
+0619|d|7.7.2 AI実行費用の単位あたり値の分母|AI実行費用の計測は採用者の基盤。IMPL-0370(ADR-0096)と同じ判断|(降ろさない)
+0620|c|中止判断で縮小継続・条件付き保留を併置|判定の運用。手引きへ|.claude/skills/gate/gates/SG.md
+0621|b|7.7.5 継続の理由・解消期限・再判定期限|判定記録に残す証跡。4値の欄と畳む|templates/04-gate-record.md 欄
+0623|b|7.7.7 中止時の資産・要員・知見・保管|判定記録に残す証跡。4値の欄と畳む|templates/04-gate-record.md 欄
+0630|a|7.9.5 枠の補充・使い切り後の例外を拒む|枠(IMPL-0629)と台帳の件数の比較は決定可能|scripts/gate/exception-expiry.mjs
+0650|c|注意喚起部をパス1の前に開かない|違反は振る舞いにしか現れない。手引きへ|.claude/skills/gate/gates/G-6.md 7確認の範囲
+0652|c|分離したAI確認を代償措置として記録|記録の手順の文。手引きへ|.claude/skills/gate/gates/G-6.md
+0657|b|会議体の4値判定・保留の持ち越し禁止|会議体の判定記録の語彙。判定記録の欄(IMPL-0825と同じ入力)|templates/04-gate-record.md 欄
+0658|b|判定と同時に確定する事項(4値別)|判定記録の証跡。0621・0623と1つの欄群に畳む|templates/04-gate-record.md 欄
+0668|d|決裁後のポートフォリオ調整(他案件の一覧・通知)|案件をまたぐ。テンプレートの単位は単一案件のリポジトリで持てない|(降ろさない)
+0680|a|レビュー依頼を個人へ指名|GitHub の依頼先の種別は決定可能(境界: 待ち行列5件を一括で d にする案)|.github/workflows/review-queue-control.yml(planned)
+0681|a|応答超過の催促・2倍超過の通知|時刻と状態から決定可能。宛先は D-0 表3の記名|.github/workflows/review-queue-control.yml
+0682|a|レビュアあたり同時保有数の上限|依頼の件数は決定可能。既定1人3件|.github/workflows/review-queue-control.yml
+0702|b|起案・意見・決定を分けて記録|判定記録の証跡の欄|templates/04-gate-record.md 欄
+0705|b|持ち回り決議の方式の記録・R1に使わない|決議方式の欄。R1×持ち回りの拒否は欄ができれば(a)で足せる|templates/04-gate-record.md 欄
+0745|c|MVP切替で省略ゲートを戻すことをG-1条件に|判定の条件の文。手引きへ|.claude/skills/gate/gates/G-1.md
+0761|a|CL2以上の安全検証記録をG-7基準に|記録の有無は決定可能。F.7の様式(0933)が前提|scripts/gate/aggregate-evidence.mjs
+0763|a|CL3のCIに故障挿入・ミューテーションを必須化|構成が宣言した段の存在と終了コードは決定可能。ツールは採用者の技術スタック|scripts/gate/adapter.mjs の段
+0771|a|差戻し基準を持たないゲートを作らない|構成のゲートと知識ベースの判定基準の対応は決定可能|scripts/gate/verify-gate-contract.mjs
+0801|a|一般語のみ・「ない」のみの欄を検出|文字列の一致で決定可能。一般語の一覧は標準の列挙に限る|scripts/gate/check-g1.mjs
+0831|b|兼務で実施したときの関与範囲の明記|判定記録の証跡の欄|templates/04-gate-record.md 欄
+0835|c|AI確認の通過を理由に人の確認を減らさない|常駐の規則の文。手引きへ|template/CLAUDE.md 常駐 + gates/G-6.md
+0836|d|規制業の規制要件の自動チェック追加|規制要件の中身は業種・法域ごとで、テンプレートが持てない(境界: 検査の宣言枠を足す案=a)|(降ろさない)
+0838|c|高の出荷判定へ限定的抜き取り確認|手順を手引きへ|.claude/skills/gate/gates/G-7.md
+0878|d|企画書が前案件の記述と同一か|他案件の企画書が入力に要る。入力は採用者の組織が持つ|(降ろさない)
+0884|a|立ち上げの順序(登録→D-0→安全重要度→企画書→G-1)|先行する記録の存在と日付の前後は決定可能|scripts/gate/check-g1.mjs
+0930|a|テスト生成の通過条件をミューテーションスコアに|段の存在と閾値の比較は決定可能。閾値は組織がG-1で定める値|scripts/gate/adapter.mjs の段
+0931|a|ミューテーション試験のCI組込み・差分実行・閾値|0930と同じ段。生き残りの一覧の読解は人(manual)|scripts/gate/adapter.mjs の段
+0943|c|G-2判定者が異常系の有無を確かめる|判定者の確認項目。手引きへ|.claude/skills/gate/gates/G-2.md
+0953|c|SG実証にAI模擬の顧客出力を数えない|判定の材料の限定。手引きへ|.claude/skills/gate/gates/SG.md
+0958|c|G-7でAI-SLAの組込み類型を確かめる|判定の観点。手引きへ|.claude/skills/gate/gates/G-7.md
+0972|a|識別を持つ変更の取込み前にG-3判定記録|判断記録から判定記録への到達は突合で決定可能|scripts/gate/check-pr.mjs
+0979|a|判定期限超過で代理の指名者へ通知|時刻と状態から決定可能。宛先は D-0 表3の記名|.github/workflows/review-queue-control.yml
+0585|c|帯域不足を理由にG-6を省略しない|省略の経路は無い(否定の検索)。禁止の文を置く|.claude/skills/gate/gates/G-6.md
+0592|b|成果物ごとの結果責任者を1名に|担当表の欄(0635と同じ)|templates/00-d0-governance.md 担当表
+0594|a|変更ごとのリスク区分とAI自律レベルの上限の照合|区分から上限への写像は決定可能。安全関連部の単位は構成の欄で与える|scripts/gate/autonomy.mjs + config の安全関連部の範囲
+0595|c|外部ベンチのみを根拠に引き上げない|引き上げの手順の文|.claude/skills/process-change/kinds/mode.md
+0597|a|委任の条件4・6の実績と抜き取りの記録|登録の根拠の欄の存在は決定可能(内容の当否は manual)|scripts/gate/config.mjs changeTypeProblems
+0598|c|人が確定する判断3・4・6と停止権の範囲|no-adopter 節(5.5.5)。常駐の指示に理解の確認の側を足す|template/CLAUDE.md 常駐 + scripts/gate/claude-md-resident.json
+0599|a|席別の委任範囲と協働起案の上限の表|構成が受け付ける値の検査で決定可能(表は暫定 EV-0050)|scripts/gate/config.mjs SEAT_CEILING
+0624|c|引き上げ判断点で下流指標を基準値と比較|判断点で記録させる手順。指標のデータは採用者|.claude/skills/process-change/kinds/mode.md
+0635|b|成果物ごとの結果責任者の担当表|D-0 に担当表の欄を持たない|templates/00-d0-governance.md 担当表
+0636|a|任命基準の充足確認の判定結果と用いた成果物|席の確認欄の存在は決定可能(0640と同じ構成の欄)|scripts/gate/config.mjs seats[].competence
+0637|b|暫定任命の期間と延長の決裁|D-0 節9の欄|templates/00-d0-governance.md 節9
+0640|a|確認に用いた事例・正解の出所の記録|席の確認欄の存在は決定可能|scripts/gate/config.mjs seats[].qualification
+0643|a|適合性評価を通過していないモデルを対象にしない|席のモデルと導入の記録(0405)の突合は決定可能|scripts/gate/model-adoption.mjs
+0651|a|PROCESS-PROFILE が D-0 改訂に追随|構成から再生成して差分を見るのは決定可能|scripts/gate/verify-gate-contract.mjs
+0654|b|委譲を文書で行い口頭で行わない|D-0 の担当表に委譲の欄(0635と同じ表)|templates/00-d0-governance.md 担当表
+0659|b|B-1 判定期限・予算枠・次回判定日|D-0 節10の1つの表に4会議体を畳む|templates/00-d0-governance.md 節10
+0660|b|B-2 判定期限・変更計画・次回判定日|同上|templates/00-d0-governance.md 節10
+0661|b|B-3 適用条件と判定期限|同上|templates/00-d0-governance.md 節10
+0662|b|B-4 変更3区分と判定期限|同上|templates/00-d0-governance.md 節10
+0664|a|標準変更カタログはR3のみ登録|登録時の種別の属性の照合は決定可能|scripts/gate/config.mjs changeTypeProblems
+0701|b|決裁者の既定の割当(リスク×金額)|表は複製せず標準3.8.2への参照一文を節4へ(細かい定義を増やさない)|templates/00-d0-governance.md 節4
+0704|b|判定期限を上程の受理日から起算|D-0 節5の起算点の欄|templates/00-d0-governance.md 節5
+0709|a|評価基準集合の範囲を狭める変更を緩める向きに分類|差分の分類は決定可能|scripts/init/generate-profile.mjs 差分の分類
+0714|b|開発組織のモデルを版を固定して指定|D-0 節12の欄|templates/00-d0-governance.md 節12
+0721|c|担当表を最新に保ち空席を作らない|文脈オーナーの務め。手引きへ|.claude/skills/artifact/artifacts/00-d0-governance.md
+0732|c|責任者でない担い手の増減を契機に数える限定|変化点の手順の文|.claude/skills/process-change/kinds/accountable.md
+0737|c|再実行のたび調整の宣言4要求を満たし直す|手順|.claude/skills/process-change/SKILL.md
+0740|c|市場・顧客仮説が検証できない場合の未達宣言|ゲートでない決定の未達。新しい構造を足さず台帳の「未達」の書き方を手引きへ(境界)|.claude/skills/gate/gates/G-1.md + templates/03-debt-ledger.md の説明
+0759|a|構成要素の最高区分=システム全体の区分|値の一致で決定可能|scripts/gate/check-d0.mjs
+0760|c|CL1以上のAI生成箇所の追跡|規則データを構成生成の文として出す。照合は manual|scripts/init/generate-profile.mjs が PROCESS-PROFILE.md・CLAUDE.md へ出す
+0764|a|CL別のテスト生成の分離の段階|CLから最低の段は決定可能。記録の段との比較|scripts/init/generate-profile.mjs + verify-gate-contract.mjs
+0766|d|CL3で安全関連部の外だけL2以上を認める扱い|規定は許す向き。テンプレートは全体L1の安全側で、外す構成は第7章の例外承認で受ける(Q2)|(降ろさない)
+0767|a|必須制約を外す変更を区分の再判定の対象に|仕様の差分での削除検出は決定可能。必須制約の印(b)が前提|scripts/gate/spec-recheck.mjs + templates/01-feature-spec.md 印
+0768|c|引き下げの対象外4種を根拠に使わない|判断の限定。手引きへ|.claude/skills/artifact/artifacts/09-safety-risk-assessment.md
+0772|a|外した項目を宣言せずに運用しない|導出と unmet・deviations の対応は決定可能|scripts/gate/verify-gate-contract.mjs
+0829|b|認証情報の共有を離脱として記録|D-0 節12の名義の欄(担い手どうしの共有)|templates/00-d0-governance.md 節12
+0834|a|登録の根拠の4点目を欠く種別を止める|欄の存在は決定可能(内容は課さない ADR-0158)|scripts/gate/autonomy.mjs
+0839|c|規制業のAI生成箇所の追跡必須|規則データを構成生成の文として出す(0760と同じ)|scripts/init/generate-profile.mjs
+0840|a|委任対象種別の属性(外部呼出・構造・権限を導入しない)|自己申告の属性の存在と値は決定可能(真偽は manual)|scripts/gate/config.mjs changeTypeProblems
+0841|c|緊急セキュリティ修正は登録種別に含めない|意味の判断。手順の文で足りる(自己申告の属性で閉じない)|.claude/skills/process-change/kinds/delegation.md
+0842|c|条件違反が2期連続なら協働へ戻す|期ごとの違反の記録が無い。戻す操作は変化点の手順|.claude/skills/process-change/kinds/delegation.md
+0900|a|支援関与者を同一案件の出荷判定者にしない|兼務禁止の組を1つ足す。規則データは決定可能|src/data/tailoring/ の組 + template:kb
+0944|c|変化点をまたぐ未完了判定の引継ぎ|旧名義の拒否は日付突合が要る。まず手順(境界)|.claude/skills/process-change/dry-run.md
+0959|d|提案書に外した項目・理由を含める|提案書は導入前に組織が作る稟議文書。案件リポジトリのテンプレートが持てない|(降ろさない)
+0980|a|判断「外す」でも移した先の保証を示す|欄の空が決定可能|scripts/gate/recalibration.mjs
+1004|a|認証情報の離脱のうち機械が数えない部分|条文の食い違い(1.10.2 と 3.5.3)の解消が先。解消後は集約の文言|scripts/gate/aggregate-evidence.mjs
+0568|d|AI実行基盤への直接接続の禁止|AI実行基盤は採用者の環境(ADR-0104)|(降ろさない)
+0665|d|会議体は列挙した事項のみ議題とする|会議運営は組織の体制。案件のテンプレートが持てない|(降ろさない)
+0683|a|暫定許可に期限を付し超過で失効|許可リストと期限の比較は決定可能(exception-expiry と同型)|scripts/gate/adapter.mjs + exception-expiry.mjs
+0707|d|会議体の健全性指標の継続計測|組織の会議体の運営の計測。テンプレートの単位は案件|(降ろさない)
+0708|c|提供者依存の記述に印を付ける四半期の棚卸し|意味の識別。印の付け方と観点を手引きへ|template/CLAUDE.md 指示資産の節 + .claude/skills/pit/reference/
+0712|d|可用性と品質の監視の分離|AI実行基盤の監視(ADR-0104)|(降ろさない)
+0713|d|採点者の識別変更後の基準値の扱い|AI実行基盤の監視(ADR-0104)|(降ろさない)
+0715|d|廃止予定の四半期棚卸しと通知|モデル提供者の廃止予定は採用者の基盤に属する|(降ろさない)
+0716|d|機密情報の送出検査を接続経路に置く|接続経路は採用者の環境|(降ろさない)
+0718|d|全社の統制更新の段階導入|全社の統制と採用者のCI基盤に属する|(降ろさない)
+0826|d|モデル切替先の限定と発生の通知|切替手順は採用者のAI実行基盤|(降ろさない)
+0827|d|切替後の品質監視と基準を下回る場合の停止|品質監視は採用者の基盤(ADR-0104)|(降ろさない)
+0832|d|判定当日の議題を未解決論点に限る|会議運営は組織の体制|(降ろさない)
+0833|d|接続経路上のチーム単位の上限|上限の強制は採用者のAI実行基盤|(降ろさない)
+0882|c|部門間移管の記録をSG-1の判定要件に|部門構造は採用者固有。判定要件の文を手引きに置き、記録は0896等の様式に寄せる|.claude/skills/gate/gates/SG.md
+0883|a|案件登録記録(案件ID)の存在|案件IDの存在は決定可能。IDの付与元は組織(境界: d)|process.config.json projectId + scripts/gate/check-g1.mjs
+0885|c|責任者交代でH-1〜H-3を要する結線|変化点の入口(accountable)に後続作業として足す|.claude/skills/process-change/kinds/accountable.md
+0886|c|移管の成立=問い合わせずに判断できる状態|判断基準の定義。手引きへ|.claude/skills/artifact/artifacts/(移管の手引き)
+0887|b|H-1/H-2/H-3の判定者と期限|移管様式の判定欄|templates/ の移管様式(新規1枚)
+0888|c|予告期間は本人への通知時点から数える|数え方の定義。手引きへ|.claude/skills/artifact/artifacts/(移管の手引き)
+0889|c|H-1の欠落の4類型での洗い出し|手順。手引きへ|.claude/skills/artifact/artifacts/(移管の手引き)
+0890|a|理解保持者が1名の機能を交代前に2名以上へ|引き継ぎ文書の節2の保持者数は決定可能|scripts/gate/org-assurance.mjs
+0892|c|H-2の書き戻しの順序と完了の判定|手順。手引きへ|.claude/skills/artifact/artifacts/(移管の手引き)
+0893|b|予告期間別のH-2の期限と前任者の関与の延長|移管様式の欄(区分は導出値を記録)|templates/ の移管様式
+0894|c|短い予告時の書き戻しの優先順位|手順。手引きへ|.claude/skills/artifact/artifacts/(移管の手引き)
+0895|a|H-1必須欄の機械検査(日付の前後・導出値の一致)|規定自身が決定可能と述べる。様式(0887)が前提|scripts/gate/ の移管記録の検査(新規)
+0896|b|H-3の4課題・評価者・結果の記録|移管様式の欄|templates/ の移管様式
+0897|c|準備段階のAI利用で受動的な委譲をしない|観測できない。手順の文|.claude/skills/artifact/artifacts/(移管の手引き)
+0898|b|H-3不合格時の延長・一時移管の記録|移管様式の欄|templates/ の移管様式
+0901|d|監査担当を置けない場合の選択の明記|内部監査は組織の体制(境界: 適合の主張に響く。bの案あり)|(降ろさない)
+0960|d|提案書を保証すると言える形で書く|提案書は導入前の稟議文書で案件のテンプレートが持てない|(降ろさない)
+0961|d|提案書で変える点を小さく見せない|同上|(降ろさない)
+0962|a|範囲・根拠なしの「品質を保証する」等を使わない|禁止語の文字列走査は決定可能。#355 の IMPL-0963(附属書H)と同じ検査に畳む|scripts/gate/ の表現の走査
+0964|d|内部監査は記録の内容と実態の一致を確かめる|内部監査は組織の体制(境界: 適合の主張に響く)|(降ろさない)
+0974|d|承認レビュー本文を承認者本人が書く確認|機械は書き手を確かめられず内部監査の抜取りが担う|(降ろさない)
+0978|b|AI抜きの実装・調査の機会の頻度と記録|頻度は組織が定める値、欄は様式で持てる。新しい義務なので重の審議を要する(境界)|templates/06-project-brief.md または 00-d0-governance.md 欄
+0914|b|安全度指標を併記しない|F.7の適用規格欄で規格ごとに1指標|templates/09-safety-risk-assessment.md F.7節
+0916|b|組込/応用ソフトウェアの区分と措置|F.7の欄|templates/09-safety-risk-assessment.md F.7節
+0917|b|最上位水準では簡略手順を使わない|F.7の適用規格と水準の欄|templates/09-safety-risk-assessment.md F.7節
+0919|a|安全関連部のAI支援はL1に固定|安全関連部の範囲を構成に持てば決定可能(0594と同じ欄)|scripts/gate/autonomy.mjs
+0920|b|安全関連部の各行の4条件の充足|G-5・G-6が一部を運ぶ。残りは検証記録の欄|templates/09-safety-risk-assessment.md F.7節
+0923|b|実行時の不変条件確認を故障挿入の対象に|F.7の欄|templates/09-safety-risk-assessment.md F.7節
+0924|b|検証手法の適用とHRを適用しない理由|F.7の欄|templates/09-safety-risk-assessment.md F.7節
+0925|a|運用中の安全関連システムへ故障を挿入しない|取り消せない操作。環境欄の値(試験台・模擬環境)の一致で決定可能|F.7の環境欄 + scripts/gate/ の安全記録の検査(新規)
+0926|b|最小限の7試験項目の結果|F.7の欄|templates/09-safety-risk-assessment.md F.7節
+0927|a|項目2(早すぎる応答)を省かない|7項目の記載の有無は決定可能|同上の検査
+0928|b|単純な監視の旨と診断能力の限界|F.7の欄|templates/09-safety-risk-assessment.md F.7節
+0933|b|F.7の検証記録の項目|様式そのもの(1節)。04には所在だけ書く|templates/09-safety-risk-assessment.md F.7節
+0934|a|HR手法を適用しない理由が空の記録を差戻す|欄の空は決定可能|同上の検査
+1007|a|G-7基準7でF.7の欠落を数える|no-adopter 節。欠落は決定可能(内容の妥当性は確かめない)|scripts/gate/aggregate-evidence.mjs
+0579|c|一括整形・リネームを別の変更単位に|手順|.claude/skills/implement/task-size.md
+0580|c|緩和根拠に数える手段を認める手段に限る|手順|.claude/skills/implement/task-size.md
+0593|c|不変条件2 本番反映の承認は人の記名|no-adopter 節。常駐の指示に足す|template/CLAUDE.md 常駐 + claude-md-resident.json
+0646|c|並行する実行主体ごとに作業ツリーを分ける|常駐の指示に置く(実装計画のスキルに一文はある)|template/CLAUDE.md 常駐 + claude-md-resident.json
+0711|d|正解の草案を作るAIに評価対象の出力を渡さない|モデル適合性評価はAI実行基盤の作業(ADR-0104)。案件のテンプレートは持たない|(降ろさない)
+0749|c|高のコア機能の設計判断をAI単独で行わせない|常駐の規則|template/CLAUDE.md 常駐 + claude-md-resident.json
+0819|c|実装方針を人が先に記述する3段階|スキルの手順の順序|.claude/skills/implement/SKILL.md
+0907|c|同一セッション・作業領域・認証情報の確認を数えない|常駐の規則|template/CLAUDE.md 常駐 + claude-md-resident.json
+0918|c|AI自身が安全機能を実現する場合は対象外|領域の限定。常駐の指示に名指す|template/CLAUDE.md 一律で委譲できない領域
+0921|c|自己修正ループの合格転換を完了としない|スキルの手順|.claude/skills/implement/SKILL.md
+0922|c|合格転換の変更を仕様へ戻し4条件を再確認|スキルの手順|.claude/skills/implement/SKILL.md
+0929|c|故障挿入項目の生成順序(人が期待挙動を先に)|スキルの手順|.claude/skills/implement/SKILL.md
+0932|c|境界値の人の点検・スコアだけで十分性を判定しない|スキルの手順|.claude/skills/implement/SKILL.md
+0936|c|受入基準を5型に分類し当てはまらない基準を書き直す|スキルの手順|.claude/skills/spec-write/SKILL.md
+0937|c|各基準に測定可能な値を入れる|スキルの手順|.claude/skills/spec-write/SKILL.md
+0938|c|正常系1本につきUnwantedを最低1本|スキルの手順|.claude/skills/spec-write/SKILL.md
+0939|c|基準をテスト名へ変換して確かめる|スキルの手順|.claude/skills/spec-write/SKILL.md
+0941|c|セルフチェックに「該当なし」欄を置かない|スキルの完了条件の文|.claude/skills/spec-write/SKILL.md
+0942|b|異常系を書けない場合の事実と理由の記載|機能仕様の受入基準節に説明を足す|templates/01-feature-spec.md 受入基準節
+0971|c|見積り精度を根拠に確約範囲の上限を上げない|常駐の規則|template/CLAUDE.md 常駐 + claude-md-resident.json
+0975|c|ラベルを事実の代わりにしない|常駐の規則|template/CLAUDE.md 常駐 + gate/SKILL.md
+0540|b|事業影響を観測可能な事象で書く|判断記録の欄の説明|templates/02-adr.md 欄の説明
+0545|c|再発防止を機械検査にする3条件・凍結の扱い|判断を伴う。項目3の手引きへ|.claude/skills/artifact/artifacts/(欠陥台帳)
+0589|b|既知の不具合の一覧(現象・影響範囲・回避策・解消予定)|台帳の列を足す。公開の経路は採用者|templates/defect-ledger.md 列
+0605|b|事象を送る経路の判断基準をG-1で記録|企画書の欄|templates/06-project-brief.md 欄
+0607|b|未解決事項に対処の担当|台帳の欄|templates/03-debt-ledger.md 欄
+0611|b|FT適用回数の上限をG-1で合意|企画書の欄(0629と1行に畳む)|templates/06-project-brief.md 欄
+0629|b|事業ステージあたりの例外の枠をG-1で定める|企画書の欄(0611と1行に畳む)|templates/06-project-brief.md 欄
+0633|b|利用者別のAI利用量を評価・順位に使わない|層1の方針の既存行(0632)へ文言を足す|templates/11-quality-assurance-policy.md
+0645|a|コア理解保持者1名以下の是正を負債台帳へ登録|org-assurance が受容を見る。台帳の行の存在は決定可能|scripts/gate/org-assurance.mjs
+0673|b|閾値の数値と定めた者を前提の台帳に記録|台帳の列|templates/10-assumption-ledger.md 列
+0752|b|知財潔白性の検査の範囲と手段|第7項の欄(0957と同じ節)|templates/08-ai-sla.md 第7項
+0753|b|受託の引継ぎ文書の粒度を契約で規定|発注側の保持者は既存の節2。粒度は第7章でなく様式08の欄|templates/08-ai-sla.md 欄 + templates/05-handover.md 節2
+0798|c|外部の比率を自組織の補正値に使わない|判断の限定。手引きへ|.claude/skills/artifact/artifacts/06-project-brief.md
+0807|b|G-6の置き先に関わらず確認者の区分を変えない|第9節の欄|templates/08-ai-sla.md 第9節
+0857|c|金銭措置型は客観的に観測できる量に限る|手引き08の記述|.claude/skills/artifact/artifacts/08-ai-sla.md
+0902|b|チーム上限到達時の扱いをG-1で合意|企画書の行|templates/06-project-brief.md 閾値と予算区分
+0945|c|受容基準(項目4)が外枠(項目3)を下回らない|自由文の比較で機械は閉じない。手引きへ|.claude/skills/artifact/artifacts/11-quality-assurance-policy.md
+0946|b|本様式の5項目を適用決定時に文書で定め記名|様式の欄(決定日・記名)|templates/11-quality-assurance-policy.md 欄
+0948|c|各人が役割と申立て経路を認識することを求める|周知は組織が行う。求める文を手引きへ|.claude/skills/artifact/artifacts/11-quality-assurance-policy.md
+0950|d|稟議への投影に出所を持たない項目を加えない|稟議は採用者の決裁制度の文書で、テンプレートが持てない|(降ろさない)
+0957|b|08第7項に禁止ライセンス・提出記録・指摘時措置の3行と注記|様式の欄(template-fields.yaml の両方向)|templates/08-ai-sla.md 第7項
+0969|b|仮説の検証費用を期間予算の内訳に明示|企画書の総費用の区分|templates/06-project-brief.md 総費用内訳
+0977|b|閾値の値・窓・最小標本数・決め方・見直し時期|企画書の行|templates/06-project-brief.md 安定性指標の閾値

@@ -1,0 +1,189 @@
+IMPL	issue	file:line	規定の要約	現target	案	理由	降ろし先の候補
+IMPL-0136	#445	phase4-process-design/gate-criteria:2228	散文変更にも判定SLAと滞留の措置	review-queue-control	a	散文の識別は決定可能。担い手への指示文書を散文に数える当否は未決(境界)	scripts/gate/check-pr.mjs の isProseDocument
+IMPL-0534	#445	phase4-process-design/gate-criteria:47	前提が崩れても停止せず可視化し受容決裁	gate-skill	c	判定者の振る舞いで機械は閉じない。判定の原則へ一文	.claude/skills/gate/SKILL.md 判定の原則
+IMPL-0536	#445	phase4-process-design/gate-criteria:59	単独判定・非同期コメント期間・会議なし	gate-skill	c	判定者の運用の規定。手順は手引きへ	.claude/skills/gate/SKILL.md
+IMPL-0547	#445	phase4-process-design/gate-criteria:1245	秘匿情報検出時は無効化を先に行う手順	gate-skill	c	取り消せない操作に近い。手順なので手引きへ置く	.claude/skills/gate/gates/G-5.md
+IMPL-0549	#445	phase4-process-design/gate-criteria:1227	判定者へ法的評価を求めない限定	gate-skill	c	判定者の範囲の限定で文で足りる	.claude/skills/gate/gates/G-5.md・G-7.md
+IMPL-0567	#445	phase4-process-design/exception-escalation:186	7.4の対象ゲート行を例外として拒む	pr-checks	a	安全・認証・データ保全の迂回を止める。台帳の行の値の一致で決定可能	templates/03-debt-ledger.md 区分欄 + scripts/gate/exception-expiry.mjs の隣
+IMPL-0569	#445	phase4-process-design/exception-escalation:408	7.7.1 消化率の分母は組織が定めた上限	budget-escalation	d	利用量の単位と上限は採用者の課金・AI実行基盤の値。同じ降ろし先の IMPL-0370 が adopter(ADR-0096)	(降ろさない) decision=ADR-0096 を引く
+IMPL-0570	#445	phase4-process-design/exception-escalation:409	上限なし・測れない場合は未測定と報告	budget-escalation	d	測定自体が採用者の基盤。IMPL-0569 と同じ判断(境界: 企画書の閾値行に未測定の選択肢を足す案=b)	(降ろさない)
+IMPL-0576	#445	phase4-process-design/gate-criteria:2115	代理指標を満たしても規範未達なら差戻し	gate-skill-g6	c	人が読んで判断する規定。手順で足りる	.claude/skills/gate/gates/G-6.md
+IMPL-0577	#445	phase4-process-design/gate-criteria:2187	機械的変換3点の充足を満たす変更だけ除外	pr-checks	c	3点は判断。生成印による除外は降りている。残りは手順	.claude/skills/implement/task-size.md
+IMPL-0608	#445	phase4-process-design/exception-escalation:169	7.4適用できる期日の種類と外部根拠	pr-checks	b	台帳の行の理由欄に種類と根拠を書かせる(証跡)	templates/03-debt-ledger.md 欄
+IMPL-0609	#445	phase4-process-design/exception-escalation:199	7.4申請書の必須4項目	pr-checks	b	議長裁定T5で台帳の行と同じ入力に乗せる	templates/03-debt-ledger.md 欄
+IMPL-0610	#445	phase4-process-design/exception-escalation:215	7.4乱用防止 未回収が残る間の新規申請・事後レビュー	pr-checks	a	台帳の区分と期限から決定可能(0608・0609の欄が前提)	scripts/gate/exception-expiry.mjs
+IMPL-0613	#445	phase4-process-design/exception-escalation:290	起票者は自分の起票を判定しない・R1に持ち回り不可	next-role	c	運用規則。next.mjs 出力の文を手引きに揃える	.claude/skills/pit/reference/handoff.md
+IMPL-0618	#445	phase4-process-design/exception-escalation:373	エスカレーションレポートの分量上限と表	handoff-reference	c	手順・体裁。手引きへ	.claude/skills/pit/reference/handoff.md
+IMPL-0619	#445	phase4-process-design/exception-escalation:433	7.7.2 AI実行費用の単位あたり値の分母	budget-escalation	d	AI実行費用の計測は採用者の基盤。IMPL-0370(ADR-0096)と同じ判断	(降ろさない)
+IMPL-0620	#445	phase4-process-design/exception-escalation:516	中止判断で縮小継続・条件付き保留を併置	gate-skill	c	判定の運用。手引きへ	.claude/skills/gate/gates/SG.md
+IMPL-0621	#445	phase4-process-design/exception-escalation:578	7.7.5 継続の理由・解消期限・再判定期限	gate-record-template	b	判定記録に残す証跡。4値の欄と畳む	templates/04-gate-record.md 欄
+IMPL-0623	#445	phase4-process-design/exception-escalation:606	7.7.7 中止時の資産・要員・知見・保管	gate-record-template	b	判定記録に残す証跡。4値の欄と畳む	templates/04-gate-record.md 欄
+IMPL-0630	#445	phase4-process-design/exception-escalation:832	7.9.5 枠の補充・使い切り後の例外を拒む	pr-checks	a	枠(IMPL-0629)と台帳の件数の比較は決定可能	scripts/gate/exception-expiry.mjs
+IMPL-0650	#445	phase4-process-design/roles-responsibilities:686	注意喚起部をパス1の前に開かない	gate-skill	c	違反は振る舞いにしか現れない。手引きへ	.claude/skills/gate/gates/G-6.md 7確認の範囲
+IMPL-0652	#445	phase4-process-design/roles-responsibilities:790	分離したAI確認を代償措置として記録	gate-skill-g6	c	記録の手順の文。手引きへ	.claude/skills/gate/gates/G-6.md
+IMPL-0657	#445	phase4-process-design/roles-responsibilities:979	会議体の4値判定・保留の持ち越し禁止	gate-record-template	b	会議体の判定記録の語彙。判定記録の欄(IMPL-0825と同じ入力)	templates/04-gate-record.md 欄
+IMPL-0658	#445	phase4-process-design/roles-responsibilities:983	判定と同時に確定する事項(4値別)	gate-record-template	b	判定記録の証跡。0621・0623と1つの欄群に畳む	templates/04-gate-record.md 欄
+IMPL-0668	#445	phase4-process-design/exception-escalation:385	決裁後のポートフォリオ調整(他案件の一覧・通知)	gate-record-template	d	案件をまたぐ。テンプレートの単位は単一案件のリポジトリで持てない	(降ろさない)
+IMPL-0680	#445	phase4-process-design/gate-criteria:2450	レビュー依頼を個人へ指名	review-queue-control	a	GitHub の依頼先の種別は決定可能(境界: 待ち行列5件を一括で d にする案)	.github/workflows/review-queue-control.yml(planned)
+IMPL-0681	#445	phase4-process-design/gate-criteria:2469	応答超過の催促・2倍超過の通知	review-queue-control	a	時刻と状態から決定可能。宛先は D-0 表3の記名	.github/workflows/review-queue-control.yml
+IMPL-0682	#445	phase4-process-design/gate-criteria:2506	レビュアあたり同時保有数の上限	review-queue-control	a	依頼の件数は決定可能。既定1人3件	.github/workflows/review-queue-control.yml
+IMPL-0702	#445	phase4-process-design/roles-responsibilities:1189	起案・意見・決定を分けて記録	gate-record-template	b	判定記録の証跡の欄	templates/04-gate-record.md 欄
+IMPL-0705	#445	phase4-process-design/roles-responsibilities:1228	持ち回り決議の方式の記録・R1に使わない	gate-record-template	b	決議方式の欄。R1×持ち回りの拒否は欄ができれば(a)で足せる	templates/04-gate-record.md 欄
+IMPL-0745	#445	phase4-process-design/tailoring-guide:539	MVP切替で省略ゲートを戻すことをG-1条件に	gate-skill	c	判定の条件の文。手引きへ	.claude/skills/gate/gates/G-1.md
+IMPL-0761	#445	phase4-process-design/tailoring-guide:1165	CL2以上の安全検証記録をG-7基準に	gate-skill	a	記録の有無は決定可能。F.7の様式(0933)が前提	scripts/gate/aggregate-evidence.mjs
+IMPL-0763	#445	phase4-process-design/tailoring-guide:1167	CL3のCIに故障挿入・ミューテーションを必須化	g5-adapter	a	構成が宣言した段の存在と終了コードは決定可能。ツールは採用者の技術スタック	scripts/gate/adapter.mjs の段
+IMPL-0771	#445	phase4-process-design/tailoring-guide:1365	差戻し基準を持たないゲートを作らない	gate-contract	a	構成のゲートと知識ベースの判定基準の対応は決定可能	scripts/gate/verify-gate-contract.mjs
+IMPL-0801	#445	phase4-process-design/deliverable-templates:1211	一般語のみ・「ない」のみの欄を検出	g1-check	a	文字列の一致で決定可能。一般語の一覧は標準の列挙に限る	scripts/gate/check-g1.mjs
+IMPL-0831	#445	phase4-process-design/roles-responsibilities:639	兼務で実施したときの関与範囲の明記	gate-record-template	b	判定記録の証跡の欄	templates/04-gate-record.md 欄
+IMPL-0835	#445	phase4-process-design/tailoring-guide:485	AI確認の通過を理由に人の確認を減らさない	gate-skill-g6	c	常駐の規則の文。手引きへ	template/CLAUDE.md 常駐 + gates/G-6.md
+IMPL-0836	#445	phase4-process-design/tailoring-guide:668	規制業の規制要件の自動チェック追加	g5-adapter	d	規制要件の中身は業種・法域ごとで、テンプレートが持てない(境界: 検査の宣言枠を足す案=a)	(降ろさない)
+IMPL-0838	#445	phase4-process-design/tailoring-guide:672	高の出荷判定へ限定的抜き取り確認	gate-skill	c	手順を手引きへ	.claude/skills/gate/gates/G-7.md
+IMPL-0878	#445	phase4-process-design/deliverable-templates:1213	企画書が前案件の記述と同一か	g1-check	d	他案件の企画書が入力に要る。入力は採用者の組織が持つ	(降ろさない)
+IMPL-0884	#445	phase4-process-design/lifecycle:322	立ち上げの順序(登録→D-0→安全重要度→企画書→G-1)	gate-entry-workflow	a	先行する記録の存在と日付の前後は決定可能	scripts/gate/check-g1.mjs
+IMPL-0930	#445	phase4-process-design/safety-verification:255	テスト生成の通過条件をミューテーションスコアに	g5-adapter	a	段の存在と閾値の比較は決定可能。閾値は組織がG-1で定める値	scripts/gate/adapter.mjs の段
+IMPL-0931	#445	phase4-process-design/safety-verification:268	ミューテーション試験のCI組込み・差分実行・閾値	g5-adapter	a	0930と同じ段。生き残りの一覧の読解は人(manual)	scripts/gate/adapter.mjs の段
+IMPL-0943	#445	phase4-process-design/ears-guide:89	G-2判定者が異常系の有無を確かめる	gate-skill	c	判定者の確認項目。手引きへ	.claude/skills/gate/gates/G-2.md
+IMPL-0953	#445	phase4-process-design/lifecycle:121	SG実証にAI模擬の顧客出力を数えない	gate-skill	c	判定の材料の限定。手引きへ	.claude/skills/gate/gates/SG.md
+IMPL-0958	#445	phase4-process-design/deliverable-templates:1352	G-7でAI-SLAの組込み類型を確かめる	gate-skill	c	判定の観点。手引きへ	.claude/skills/gate/gates/G-7.md
+IMPL-0972	#445	phase4-process-design/lifecycle:219	識別を持つ変更の取込み前にG-3判定記録	pr-checks	a	判断記録から判定記録への到達は突合で決定可能	scripts/gate/check-pr.mjs
+IMPL-0979	#445	phase4-process-design/exception-escalation:245	判定期限超過で代理の指名者へ通知	review-queue-control	a	時刻と状態から決定可能。宛先は D-0 表3の記名	.github/workflows/review-queue-control.yml
+IMPL-0585	#446	phase4-process-design/gate-criteria:2522	帯域不足を理由にG-6を省略しない	config-delegation	c	省略の経路は無い(否定の検索)。禁止の文を置く	.claude/skills/gate/gates/G-6.md
+IMPL-0592	#446	phase4-process-design/human-ai-boundary:30	成果物ごとの結果責任者を1名に	config-roles	b	担当表の欄(0635と同じ)	templates/00-d0-governance.md 担当表
+IMPL-0594	#446	phase4-process-design/human-ai-boundary:122	変更ごとのリスク区分とAI自律レベルの上限の照合	autonomy-derivation	a	区分から上限への写像は決定可能。安全関連部の単位は構成の欄で与える	scripts/gate/autonomy.mjs + config の安全関連部の範囲
+IMPL-0595	#446	phase4-process-design/human-ai-boundary:333	外部ベンチのみを根拠に引き上げない	process-change-skill	c	引き上げの手順の文	.claude/skills/process-change/kinds/mode.md
+IMPL-0597	#446	phase4-process-design/human-ai-boundary:506	委任の条件4・6の実績と抜き取りの記録	config-delegation	a	登録の根拠の欄の存在は決定可能(内容の当否は manual)	scripts/gate/config.mjs changeTypeProblems
+IMPL-0598	#446	phase4-process-design/human-ai-boundary:590	人が確定する判断3・4・6と停止権の範囲	config-delegation	c	no-adopter 節(5.5.5)。常駐の指示に理解の確認の側を足す	template/CLAUDE.md 常駐 + scripts/gate/claude-md-resident.json
+IMPL-0599	#446	phase4-process-design/human-ai-boundary:635	席別の委任範囲と協働起案の上限の表	config-delegation	a	構成が受け付ける値の検査で決定可能(表は暫定 EV-0050)	scripts/gate/config.mjs SEAT_CEILING
+IMPL-0624	#446	phase4-process-design/exception-escalation:678	引き上げ判断点で下流指標を基準値と比較	autonomy-derivation	c	判断点で記録させる手順。指標のデータは採用者	.claude/skills/process-change/kinds/mode.md
+IMPL-0635	#446	phase4-process-design/roles-responsibilities:45	成果物ごとの結果責任者の担当表	d0-template	b	D-0 に担当表の欄を持たない	templates/00-d0-governance.md 担当表
+IMPL-0636	#446	phase4-process-design/roles-responsibilities:115	任命基準の充足確認の判定結果と用いた成果物	config-seats	a	席の確認欄の存在は決定可能(0640と同じ構成の欄)	scripts/gate/config.mjs seats[].competence
+IMPL-0637	#446	phase4-process-design/roles-responsibilities:141	暫定任命の期間と延長の決裁	d0-template	b	D-0 節9の欄	templates/00-d0-governance.md 節9
+IMPL-0640	#446	phase4-process-design/roles-responsibilities:249	確認に用いた事例・正解の出所の記録	config-seats	a	席の確認欄の存在は決定可能	scripts/gate/config.mjs seats[].qualification
+IMPL-0643	#446	phase4-process-design/roles-responsibilities:255	適合性評価を通過していないモデルを対象にしない	config-seats	a	席のモデルと導入の記録(0405)の突合は決定可能	scripts/gate/model-adoption.mjs
+IMPL-0651	#446	phase4-process-design/roles-responsibilities:710	PROCESS-PROFILE が D-0 改訂に追随	process-profile	a	構成から再生成して差分を見るのは決定可能	scripts/gate/verify-gate-contract.mjs
+IMPL-0654	#446	phase4-process-design/roles-responsibilities:912	委譲を文書で行い口頭で行わない	d0-template	b	D-0 の担当表に委譲の欄(0635と同じ表)	templates/00-d0-governance.md 担当表
+IMPL-0659	#446	phase4-process-design/roles-responsibilities:1000	B-1 判定期限・予算枠・次回判定日	d0-template	b	D-0 節10の1つの表に4会議体を畳む	templates/00-d0-governance.md 節10
+IMPL-0660	#446	phase4-process-design/roles-responsibilities:1015	B-2 判定期限・変更計画・次回判定日	d0-template	b	同上	templates/00-d0-governance.md 節10
+IMPL-0661	#446	phase4-process-design/roles-responsibilities:1032	B-3 適用条件と判定期限	d0-template	b	同上	templates/00-d0-governance.md 節10
+IMPL-0662	#446	phase4-process-design/roles-responsibilities:1071	B-4 変更3区分と判定期限	d0-template	b	同上	templates/00-d0-governance.md 節10
+IMPL-0664	#446	phase4-process-design/roles-responsibilities:1075	標準変更カタログはR3のみ登録	config-delegation	a	登録時の種別の属性の照合は決定可能	scripts/gate/config.mjs changeTypeProblems
+IMPL-0701	#446	phase4-process-design/roles-responsibilities:1155	決裁者の既定の割当(リスク×金額)	d0-template	b	表は複製せず標準3.8.2への参照一文を節4へ(細かい定義を増やさない)	templates/00-d0-governance.md 節4
+IMPL-0704	#446	phase4-process-design/roles-responsibilities:1218	判定期限を上程の受理日から起算	d0-template	b	D-0 節5の起算点の欄	templates/00-d0-governance.md 節5
+IMPL-0709	#446	phase4-process-design/roles-responsibilities:1805	評価基準集合の範囲を狭める変更を緩める向きに分類	config-change-log	a	差分の分類は決定可能	scripts/init/generate-profile.mjs 差分の分類
+IMPL-0714	#446	phase4-process-design/roles-responsibilities:1900	開発組織のモデルを版を固定して指定	d0-template	b	D-0 節12の欄	templates/00-d0-governance.md 節12
+IMPL-0721	#446	phase4-process-design/roles-responsibilities:2169	担当表を最新に保ち空席を作らない	d0-template	c	文脈オーナーの務め。手引きへ	.claude/skills/artifact/artifacts/00-d0-governance.md
+IMPL-0732	#446	phase4-process-design/tailoring-guide:67	責任者でない担い手の増減を契機に数える限定	process-change-skill	c	変化点の手順の文	.claude/skills/process-change/kinds/accountable.md
+IMPL-0737	#446	phase4-process-design/tailoring-guide:109	再実行のたび調整の宣言4要求を満たし直す	process-change-skill	c	手順	.claude/skills/process-change/SKILL.md
+IMPL-0740	#446	phase4-process-design/tailoring-guide:314	市場・顧客仮説が検証できない場合の未達宣言	config-unmet	c	ゲートでない決定の未達。新しい構造を足さず台帳の「未達」の書き方を手引きへ(境界)	.claude/skills/gate/gates/G-1.md + templates/03-debt-ledger.md の説明
+IMPL-0767	#446	phase4-process-design/tailoring-guide:1215	必須制約を外す変更を区分の再判定の対象に	process-change-skill	a	仕様の差分での削除検出は決定可能。必須制約の印(b)が前提	scripts/gate/spec-recheck.mjs + templates/01-feature-spec.md 印
+IMPL-0768	#446	phase4-process-design/tailoring-guide:1230	引き下げの対象外4種を根拠に使わない	process-change-skill	c	判断の限定。手引きへ	.claude/skills/artifact/artifacts/09-safety-risk-assessment.md
+IMPL-0772	#446	phase4-process-design/tailoring-guide:1366	外した項目を宣言せずに運用しない	config-deviations	a	導出と unmet・deviations の対応は決定可能	scripts/gate/verify-gate-contract.mjs
+IMPL-0829	#446	phase4-process-design/roles-responsibilities:671	認証情報の共有を離脱として記録	d0-template	b	D-0 節12の名義の欄(担い手どうしの共有)	templates/00-d0-governance.md 節12
+IMPL-0834	#446	phase4-process-design/roles-responsibilities:1975	登録の根拠の4点目を欠く種別を止める	autonomy-derivation	a	欄の存在は決定可能(内容は課さない ADR-0158)	scripts/gate/autonomy.mjs
+IMPL-0839	#446	phase4-process-design/tailoring-guide:674	規制業のAI生成箇所の追跡必須	profile-generator	c	規則データを構成生成の文として出す(0760と同じ)	scripts/init/generate-profile.mjs
+IMPL-0840	#446	phase4-process-design/tailoring-guide:428	委任対象種別の属性(外部呼出・構造・権限を導入しない)	config-delegation	a	自己申告の属性の存在と値は決定可能(真偽は manual)	scripts/gate/config.mjs changeTypeProblems
+IMPL-0841	#446	phase4-process-design/tailoring-guide:516	緊急セキュリティ修正は登録種別に含めない	config-delegation	c	意味の判断。手順の文で足りる(自己申告の属性で閉じない)	.claude/skills/process-change/kinds/delegation.md
+IMPL-0842	#446	phase4-process-design/tailoring-guide:451	条件違反が2期連続なら協働へ戻す	config-delegation	c	期ごとの違反の記録が無い。戻す操作は変化点の手順	.claude/skills/process-change/kinds/delegation.md
+IMPL-0900	#446	phase4-process-design/roles-responsibilities:641	支援関与者を同一案件の出荷判定者にしない	config-roles	a	兼務禁止の組を1つ足す。規則データは決定可能	src/data/tailoring/ の組 + template:kb
+IMPL-0944	#446	phase4-process-design/deliverable-templates:216	変化点をまたぐ未完了判定の引継ぎ	process-change-skill	c	旧名義の拒否は日付突合が要る。まず手順(境界)	.claude/skills/process-change/dry-run.md
+IMPL-0959	#446	phase4-process-design/tailoring-guide:33	提案書に外した項目・理由を含める	profile-generator	d	提案書は導入前に組織が作る稟議文書。案件リポジトリのテンプレートが持てない	(降ろさない)
+IMPL-0980	#446	phase4-process-design/roles-responsibilities:2083	判断「外す」でも移した先の保証を示す	process-change-skill	a	欄の空が決定可能	scripts/gate/recalibration.mjs
+IMPL-1004	#446	phase4-process-design/overview:721	認証情報の離脱のうち機械が数えない部分	evidence-aggregation	a	条文の食い違い(1.10.2 と 3.5.3)の解消が先。解消後は集約の文言	scripts/gate/aggregate-evidence.mjs
+IMPL-0568	#447	phase4-process-design/roles-responsibilities:1729	AI実行基盤への直接接続の禁止	ai-runtime-connection	d	AI実行基盤は採用者の環境(ADR-0104)	(降ろさない)
+IMPL-0665	#447	phase4-process-design/roles-responsibilities:1084	会議体は列挙した事項のみ議題とする	committee-agenda	d	会議運営は組織の体制。案件のテンプレートが持てない	(降ろさない)
+IMPL-0683	#447	phase4-process-design/gate-criteria:1274	暫定許可に期限を付し超過で失効	ip-allowlist-operation	a	許可リストと期限の比較は決定可能(exception-expiry と同型)	scripts/gate/adapter.mjs + exception-expiry.mjs
+IMPL-0707	#447	phase4-process-design/roles-responsibilities:1250	会議体の健全性指標の継続計測	committee-agenda	d	組織の会議体の運営の計測。テンプレートの単位は案件	(降ろさない)
+IMPL-0708	#447	phase4-process-design/roles-responsibilities:1804	提供者依存の記述に印を付ける四半期の棚卸し	instruction-asset-inventory	c	意味の識別。印の付け方と観点を手引きへ	template/CLAUDE.md 指示資産の節 + .claude/skills/pit/reference/
+IMPL-0712	#447	phase4-process-design/roles-responsibilities:1837	可用性と品質の監視の分離	model-quality-monitor	d	AI実行基盤の監視(ADR-0104)	(降ろさない)
+IMPL-0713	#447	phase4-process-design/roles-responsibilities:1838	採点者の識別変更後の基準値の扱い	model-quality-monitor	d	AI実行基盤の監視(ADR-0104)	(降ろさない)
+IMPL-0715	#447	phase4-process-design/roles-responsibilities:1901	廃止予定の四半期棚卸しと通知	deprecation-inventory	d	モデル提供者の廃止予定は採用者の基盤に属する	(降ろさない)
+IMPL-0716	#447	phase4-process-design/roles-responsibilities:1930	機密情報の送出検査を接続経路に置く	ai-runtime-connection	d	接続経路は採用者の環境	(降ろさない)
+IMPL-0718	#447	phase4-process-design/roles-responsibilities:1949	全社の統制更新の段階導入	control-rollout	d	全社の統制と採用者のCI基盤に属する	(降ろさない)
+IMPL-0826	#447	phase4-process-design/roles-responsibilities:1853	モデル切替先の限定と発生の通知	ai-runtime-connection	d	切替手順は採用者のAI実行基盤	(降ろさない)
+IMPL-0827	#447	phase4-process-design/roles-responsibilities:1854	切替後の品質監視と基準を下回る場合の停止	model-quality-monitor	d	品質監視は採用者の基盤(ADR-0104)	(降ろさない)
+IMPL-0832	#447	phase4-process-design/roles-responsibilities:1373	判定当日の議題を未解決論点に限る	committee-agenda	d	会議運営は組織の体制	(降ろさない)
+IMPL-0833	#447	phase4-process-design/roles-responsibilities:1912	接続経路上のチーム単位の上限	ai-runtime-connection	d	上限の強制は採用者のAI実行基盤	(降ろさない)
+IMPL-0882	#447	phase4-process-design/lifecycle:289	部門間移管の記録をSG-1の判定要件に	context-transfer-record	c	部門構造は採用者固有。判定要件の文を手引きに置き、記録は0896等の様式に寄せる	.claude/skills/gate/gates/SG.md
+IMPL-0883	#447	phase4-process-design/lifecycle:320	案件登録記録(案件ID)の存在	project-registration-record	a	案件IDの存在は決定可能。IDの付与元は組織(境界: d)	process.config.json projectId + scripts/gate/check-g1.mjs
+IMPL-0885	#447	phase4-process-design/lifecycle:364	責任者交代でH-1〜H-3を要する結線	context-transfer-record	c	変化点の入口(accountable)に後続作業として足す	.claude/skills/process-change/kinds/accountable.md
+IMPL-0886	#447	phase4-process-design/lifecycle:372	移管の成立=問い合わせずに判断できる状態	context-transfer-record	c	判断基準の定義。手引きへ	.claude/skills/artifact/artifacts/(移管の手引き)
+IMPL-0887	#447	phase4-process-design/lifecycle:390	H-1/H-2/H-3の判定者と期限	context-transfer-record	b	移管様式の判定欄	templates/ の移管様式(新規1枚)
+IMPL-0888	#447	phase4-process-design/lifecycle:401	予告期間は本人への通知時点から数える	context-transfer-record	c	数え方の定義。手引きへ	.claude/skills/artifact/artifacts/(移管の手引き)
+IMPL-0889	#447	phase4-process-design/lifecycle:428	H-1の欠落の4類型での洗い出し	context-transfer-record	c	手順。手引きへ	.claude/skills/artifact/artifacts/(移管の手引き)
+IMPL-0890	#447	phase4-process-design/lifecycle:430	理解保持者が1名の機能を交代前に2名以上へ	context-transfer-record	a	引き継ぎ文書の節2の保持者数は決定可能	scripts/gate/org-assurance.mjs
+IMPL-0892	#447	phase4-process-design/lifecycle:442	H-2の書き戻しの順序と完了の判定	context-transfer-record	c	手順。手引きへ	.claude/skills/artifact/artifacts/(移管の手引き)
+IMPL-0893	#447	phase4-process-design/lifecycle:468	予告期間別のH-2の期限と前任者の関与の延長	context-transfer-record	b	移管様式の欄(区分は導出値を記録)	templates/ の移管様式
+IMPL-0894	#447	phase4-process-design/lifecycle:483	短い予告時の書き戻しの優先順位	context-transfer-record	c	手順。手引きへ	.claude/skills/artifact/artifacts/(移管の手引き)
+IMPL-0895	#447	phase4-process-design/lifecycle:498	H-1必須欄の機械検査(日付の前後・導出値の一致)	context-transfer-record	a	規定自身が決定可能と述べる。様式(0887)が前提	scripts/gate/ の移管記録の検査(新規)
+IMPL-0896	#447	phase4-process-design/lifecycle:519	H-3の4課題・評価者・結果の記録	context-transfer-record	b	移管様式の欄	templates/ の移管様式
+IMPL-0897	#447	phase4-process-design/lifecycle:530	準備段階のAI利用で受動的な委譲をしない	context-transfer-record	c	観測できない。手順の文	.claude/skills/artifact/artifacts/(移管の手引き)
+IMPL-0898	#447	phase4-process-design/lifecycle:542	H-3不合格時の延長・一時移管の記録	context-transfer-record	b	移管様式の欄	templates/ の移管様式
+IMPL-0901	#447	phase4-process-design/roles-responsibilities:97	監査担当を置けない場合の選択の明記	internal-audit-record	d	内部監査は組織の体制(境界: 適合の主張に響く。bの案あり)	(降ろさない)
+IMPL-0960	#447	phase4-process-design/proposal-template:16	提案書を保証すると言える形で書く	proposal-record	d	提案書は導入前の稟議文書で案件のテンプレートが持てない	(降ろさない)
+IMPL-0961	#447	phase4-process-design/proposal-template:24	提案書で変える点を小さく見せない	proposal-record	d	同上	(降ろさない)
+IMPL-0962	#447	phase4-process-design/proposal-template:133	範囲・根拠なしの「品質を保証する」等を使わない	proposal-record	a	禁止語の文字列走査は決定可能。#355 の IMPL-0963(附属書H)と同じ検査に畳む	scripts/gate/ の表現の走査
+IMPL-0964	#447	phase4-process-design/assurance-case:292	内部監査は記録の内容と実態の一致を確かめる	internal-audit-record	d	内部監査は組織の体制(境界: 適合の主張に響く)	(降ろさない)
+IMPL-0974	#447	phase4-process-design/gate-criteria:1452	承認レビュー本文を承認者本人が書く確認	internal-audit-record	d	機械は書き手を確かめられず内部監査の抜取りが担う	(降ろさない)
+IMPL-0978	#447	phase4-process-design/human-ai-boundary:323	AI抜きの実装・調査の機会の頻度と記録	ai-free-practice-record	b	頻度は組織が定める値、欄は様式で持てる。新しい義務なので重の審議を要する(境界)	templates/06-project-brief.md または 00-d0-governance.md 欄
+IMPL-0759	#448	phase4-process-design/tailoring-guide:1038	構成要素の最高区分=システム全体の区分	d0-template	a	値の一致で決定可能	scripts/gate/check-d0.mjs
+IMPL-0760	#448	phase4-process-design/tailoring-guide:1164	CL1以上のAI生成箇所の追跡	profile-generator	c	規則データを構成生成の文として出す。照合は manual	scripts/init/generate-profile.mjs が PROCESS-PROFILE.md・CLAUDE.md へ出す
+IMPL-0764	#448	phase4-process-design/tailoring-guide:1168	CL別のテスト生成の分離の段階	profile-generator	a	CLから最低の段は決定可能。記録の段との比較	scripts/init/generate-profile.mjs + verify-gate-contract.mjs
+IMPL-0766	#448	phase4-process-design/tailoring-guide:1189	CL3で安全関連部の外だけL2以上を認める扱い	profile-generator	d	規定は許す向き。テンプレートは全体L1の安全側で、外す構成は第7章の例外承認で受ける(Q2)	(降ろさない)
+IMPL-0914	#448	phase4-process-design/safety-verification:30	安全度指標を併記しない	safety-verification-record	b	F.7の適用規格欄で規格ごとに1指標	templates/09-safety-risk-assessment.md F.7節
+IMPL-0916	#448	phase4-process-design/safety-verification:87	組込/応用ソフトウェアの区分と措置	safety-verification-record	b	F.7の欄	templates/09-safety-risk-assessment.md F.7節
+IMPL-0917	#448	phase4-process-design/safety-verification:99	最上位水準では簡略手順を使わない	safety-verification-record	b	F.7の適用規格と水準の欄	templates/09-safety-risk-assessment.md F.7節
+IMPL-0919	#448	phase4-process-design/safety-verification:127	安全関連部のAI支援はL1に固定	autonomy-derivation	a	安全関連部の範囲を構成に持てば決定可能(0594と同じ欄)	scripts/gate/autonomy.mjs
+IMPL-0920	#448	phase4-process-design/safety-verification:128	安全関連部の各行の4条件の充足	safety-verification-record	b	G-5・G-6が一部を運ぶ。残りは検証記録の欄	templates/09-safety-risk-assessment.md F.7節
+IMPL-0923	#448	phase4-process-design/safety-verification:143	実行時の不変条件確認を故障挿入の対象に	safety-verification-record	b	F.7の欄	templates/09-safety-risk-assessment.md F.7節
+IMPL-0924	#448	phase4-process-design/safety-verification:175	検証手法の適用とHRを適用しない理由	safety-verification-record	b	F.7の欄	templates/09-safety-risk-assessment.md F.7節
+IMPL-0925	#448	phase4-process-design/safety-verification:203	運用中の安全関連システムへ故障を挿入しない	safety-verification-record	a	取り消せない操作。環境欄の値(試験台・模擬環境)の一致で決定可能	F.7の環境欄 + scripts/gate/ の安全記録の検査(新規)
+IMPL-0926	#448	phase4-process-design/safety-verification:219	最小限の7試験項目の結果	safety-verification-record	b	F.7の欄	templates/09-safety-risk-assessment.md F.7節
+IMPL-0927	#448	phase4-process-design/safety-verification:223	項目2(早すぎる応答)を省かない	safety-verification-record	a	7項目の記載の有無は決定可能	同上の検査
+IMPL-0928	#448	phase4-process-design/safety-verification:224	単純な監視の旨と診断能力の限界	safety-verification-record	b	F.7の欄	templates/09-safety-risk-assessment.md F.7節
+IMPL-0933	#448	phase4-process-design/safety-verification:289	F.7の検証記録の項目	safety-verification-record	b	様式そのもの(1節)。04には所在だけ書く	templates/09-safety-risk-assessment.md F.7節
+IMPL-0934	#448	phase4-process-design/safety-verification:293	HR手法を適用しない理由が空の記録を差戻す	safety-verification-record	a	欄の空は決定可能	同上の検査
+IMPL-1007	#448	phase4-process-design/gate-criteria:1681	G-7基準7でF.7の欠落を数える	evidence-aggregation	a	no-adopter 節。欠落は決定可能(内容の妥当性は確かめない)	scripts/gate/aggregate-evidence.mjs
+IMPL-0579	#449	phase4-process-design/gate-criteria:2236	一括整形・リネームを別の変更単位に	implement-skill	c	手順	.claude/skills/implement/task-size.md
+IMPL-0580	#449	phase4-process-design/gate-criteria:2307	緩和根拠に数える手段を認める手段に限る	implement-skill	c	手順	.claude/skills/implement/task-size.md
+IMPL-0593	#449	phase4-process-design/human-ai-boundary:85	不変条件2 本番反映の承認は人の記名	claude-md	c	no-adopter 節。常駐の指示に足す	template/CLAUDE.md 常駐 + claude-md-resident.json
+IMPL-0646	#449	phase4-process-design/roles-responsibilities:555	並行する実行主体ごとに作業ツリーを分ける	claude-md-resident	c	常駐の指示に置く(実装計画のスキルに一文はある)	template/CLAUDE.md 常駐 + claude-md-resident.json
+IMPL-0711	#449	phase4-process-design/roles-responsibilities:1807	正解の草案を作るAIに評価対象の出力を渡さない	claude-md-resident	d	モデル適合性評価はAI実行基盤の作業(ADR-0104)。案件のテンプレートは持たない	(降ろさない)
+IMPL-0749	#449	phase4-process-design/tailoring-guide:666	高のコア機能の設計判断をAI単独で行わせない	claude-md-resident	c	常駐の規則	template/CLAUDE.md 常駐 + claude-md-resident.json
+IMPL-0819	#449	phase4-process-design/deliverable-templates:2202	実装方針を人が先に記述する3段階	implement-skill	c	スキルの手順の順序	.claude/skills/implement/SKILL.md
+IMPL-0907	#449	phase4-process-design/assurance-case:378	同一セッション・作業領域・認証情報の確認を数えない	claude-md-resident	c	常駐の規則	template/CLAUDE.md 常駐 + claude-md-resident.json
+IMPL-0918	#449	phase4-process-design/safety-verification:112	AI自身が安全機能を実現する場合は対象外	claude-md-resident	c	領域の限定。常駐の指示に名指す	template/CLAUDE.md 一律で委譲できない領域
+IMPL-0921	#449	phase4-process-design/safety-verification:129	自己修正ループの合格転換を完了としない	implement-skill	c	スキルの手順	.claude/skills/implement/SKILL.md
+IMPL-0922	#449	phase4-process-design/safety-verification:139	合格転換の変更を仕様へ戻し4条件を再確認	implement-skill	c	スキルの手順	.claude/skills/implement/SKILL.md
+IMPL-0929	#449	phase4-process-design/safety-verification:237	故障挿入項目の生成順序(人が期待挙動を先に)	implement-skill	c	スキルの手順	.claude/skills/implement/SKILL.md
+IMPL-0932	#449	phase4-process-design/safety-verification:274	境界値の人の点検・スコアだけで十分性を判定しない	implement-skill	c	スキルの手順	.claude/skills/implement/SKILL.md
+IMPL-0936	#449	phase4-process-design/ears-guide:52	受入基準を5型に分類し当てはまらない基準を書き直す	spec-write-skill	c	スキルの手順	.claude/skills/spec-write/SKILL.md
+IMPL-0937	#449	phase4-process-design/ears-guide:53	各基準に測定可能な値を入れる	spec-write-skill	c	スキルの手順	.claude/skills/spec-write/SKILL.md
+IMPL-0938	#449	phase4-process-design/ears-guide:54	正常系1本につきUnwantedを最低1本	spec-write-skill	c	スキルの手順	.claude/skills/spec-write/SKILL.md
+IMPL-0939	#449	phase4-process-design/ears-guide:55	基準をテスト名へ変換して確かめる	spec-write-skill	c	スキルの手順	.claude/skills/spec-write/SKILL.md
+IMPL-0941	#449	phase4-process-design/ears-guide:87	セルフチェックに「該当なし」欄を置かない	spec-write-skill	c	スキルの完了条件の文	.claude/skills/spec-write/SKILL.md
+IMPL-0942	#449	phase4-process-design/ears-guide:88	異常系を書けない場合の事実と理由の記載	feature-spec-template	b	機能仕様の受入基準節に説明を足す	templates/01-feature-spec.md 受入基準節
+IMPL-0971	#449	phase4-process-design/lifecycle:605	見積り精度を根拠に確約範囲の上限を上げない	claude-md-resident	c	常駐の規則	template/CLAUDE.md 常駐 + claude-md-resident.json
+IMPL-0975	#449	phase4-process-design/roles-responsibilities:819	ラベルを事実の代わりにしない	claude-md-resident	c	常駐の規則	template/CLAUDE.md 常駐 + gate/SKILL.md
+IMPL-0540	#450	phase4-process-design/gate-criteria:623	事業影響を観測可能な事象で書く	adr-template	b	判断記録の欄の説明	templates/02-adr.md 欄の説明
+IMPL-0545	#450	phase4-process-design/gate-criteria:931	再発防止を機械検査にする3条件・凍結の扱い	defect-ledger-template	c	判断を伴う。項目3の手引きへ	.claude/skills/artifact/artifacts/(欠陥台帳)
+IMPL-0589	#450	phase4-process-design/gate-criteria:2586	既知の不具合の一覧(現象・影響範囲・回避策・解消予定)	defect-ledger-template	b	台帳の列を足す。公開の経路は採用者	templates/defect-ledger.md 列
+IMPL-0605	#450	phase4-process-design/exception-escalation:117	事象を送る経路の判断基準をG-1で記録	project-brief-template	b	企画書の欄	templates/06-project-brief.md 欄
+IMPL-0607	#450	phase4-process-design/exception-escalation:150	未解決事項に対処の担当	debt-ledger-template	b	台帳の欄	templates/03-debt-ledger.md 欄
+IMPL-0611	#450	phase4-process-design/exception-escalation:216	FT適用回数の上限をG-1で合意	project-brief-template	b	企画書の欄(0629と1行に畳む)	templates/06-project-brief.md 欄
+IMPL-0629	#450	phase4-process-design/exception-escalation:831	事業ステージあたりの例外の枠をG-1で定める	project-brief-template	b	企画書の欄(0611と1行に畳む)	templates/06-project-brief.md 欄
+IMPL-0633	#450	phase4-process-design/exception-escalation:679	利用者別のAI利用量を評価・順位に使わない	qa-policy-template	b	層1の方針の既存行(0632)へ文言を足す	templates/11-quality-assurance-policy.md
+IMPL-0645	#450	phase4-process-design/roles-responsibilities:330	コア理解保持者1名以下の是正を負債台帳へ登録	debt-ledger-template	a	org-assurance が受容を見る。台帳の行の存在は決定可能	scripts/gate/org-assurance.mjs
+IMPL-0673	#450	phase4-process-design/exception-escalation:916	閾値の数値と定めた者を前提の台帳に記録	assumption-ledger-template	b	台帳の列	templates/10-assumption-ledger.md 列
+IMPL-0752	#450	phase4-process-design/tailoring-guide:750	知財潔白性の検査の範囲と手段	ai-sla-template	b	第7項の欄(0957と同じ節)	templates/08-ai-sla.md 第7項
+IMPL-0753	#450	phase4-process-design/tailoring-guide:696	受託の引継ぎ文書の粒度を契約で規定	handover-template	b	発注側の保持者は既存の節2。粒度は第7章でなく様式08の欄	templates/08-ai-sla.md 欄 + templates/05-handover.md 節2
+IMPL-0798	#450	phase4-process-design/deliverable-templates:1183	外部の比率を自組織の補正値に使わない	project-brief-template	c	判断の限定。手引きへ	.claude/skills/artifact/artifacts/06-project-brief.md
+IMPL-0807	#450	phase4-process-design/deliverable-templates:1559	G-6の置き先に関わらず確認者の区分を変えない	ai-sla-template	b	第9節の欄	templates/08-ai-sla.md 第9節
+IMPL-0857	#450	phase4-process-design/deliverable-templates:1350	金銭措置型は客観的に観測できる量に限る	ai-sla-guide	c	手引き08の記述	.claude/skills/artifact/artifacts/08-ai-sla.md
+IMPL-0902	#450	phase4-process-design/roles-responsibilities:1914	チーム上限到達時の扱いをG-1で合意	project-brief-template	b	企画書の行	templates/06-project-brief.md 閾値と予算区分
+IMPL-0945	#450	phase4-process-design/deliverable-templates:1674	受容基準(項目4)が外枠(項目3)を下回らない	qa-policy-template	c	自由文の比較で機械は閉じない。手引きへ	.claude/skills/artifact/artifacts/11-quality-assurance-policy.md
+IMPL-0946	#450	phase4-process-design/deliverable-templates:1666	本様式の5項目を適用決定時に文書で定め記名	qa-policy-template	b	様式の欄(決定日・記名)	templates/11-quality-assurance-policy.md 欄
+IMPL-0948	#450	phase4-process-design/deliverable-templates:1678	各人が役割と申立て経路を認識することを求める	qa-policy-template	c	周知は組織が行う。求める文を手引きへ	.claude/skills/artifact/artifacts/11-quality-assurance-policy.md
+IMPL-0950	#450	phase4-process-design/deliverable-templates:1265	稟議への投影に出所を持たない項目を加えない	project-brief-template	d	稟議は採用者の決裁制度の文書で、テンプレートが持てない	(降ろさない)
+IMPL-0957	#450	phase4-process-design/deliverable-templates:1523	08第7項に禁止ライセンス・提出記録・指摘時措置の3行と注記	ai-sla-template	b	様式の欄(template-fields.yaml の両方向)	templates/08-ai-sla.md 第7項
+IMPL-0969	#450	phase4-process-design/exception-escalation:415	仮説の検証費用を期間予算の内訳に明示	project-brief-template	b	企画書の総費用の区分	templates/06-project-brief.md 総費用内訳
+IMPL-0977	#450	phase4-process-design/gate-criteria:2683	閾値の値・窓・最小標本数・決め方・見直し時期	project-brief-template	b	企画書の行	templates/06-project-brief.md 安定性指標の閾値
