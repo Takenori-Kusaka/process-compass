@@ -27,3 +27,10 @@
 ## 流した検査(すべて exit 0)
 
 lint:refs・lint:impl(降りていない IMPL-1024・1025 は scheduled として表示される。意図どおり)・test:impl(56件)・lint:evidence(307件)・lint:scope・lint:sources。全量の `npm run check` は本ファイルの範囲では流していない。
+
+## 載せ直し(2回目)
+
+- template: origin/main(9fb3dcd、B16)の上へ rebase。衝突なし。先端 b9925f1(知識ベースの source.commit の1行だけ再生成)。bundle: tmp/bundles/template-b15-12.bundle
+- 本体: origin/main(56ce0ff9)の上へ rebase。台帳(実装台帳)の衝突は upstream を採り再生成。本文の衝突は roles-responsibilities.md の 3.12.6 の IMPL-0714・0715 の2行: IMPL-0714 は B16 が delivered にしたので upstream を採り、IMPL-0715 は ADR-0184 の adopter(decision=ADR-0184)を採った
+- 番号: origin/main の最大 EV-0321・IMPL-1021・ADR-0178・SRC-0765。本束の EV-0322〜0325・IMPL-1022〜1025・ADR-0179・0184 は重ならず、付け直しなし
+- 検査: check-gate-criteria・lint:refs・lint:evidence・lint:scope・lint:sources・test:template・test:fields は通過。lint:impl・check-impl は IMPL-1024・1025 の降りていない表示のみ(計画つき)。全量の回帰は流していない
