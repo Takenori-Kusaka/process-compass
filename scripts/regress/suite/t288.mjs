@@ -188,6 +188,13 @@ function setup(ws, n) {
   // #319 7.5(入力の直し): 引き継ぎ文書の節2 の表に列「関わる登録した変更種別」が足された(ADR-0081。#311)
   write('docs/handover.md', read('templates/05-handover.md').replace('| 機能 | 理解保持者 | 確認した者(本人以外) | 確認の記録と確認日 | 判断記録 | 関わる登録した変更種別 |\n| --- | --- | --- | --- | --- | --- |\n| | | | | | |', `| 機能 | 理解保持者 | 確認した者(本人以外) | 確認の記録と確認日 | 判断記録 | 関わる登録した変更種別 |\n| --- | --- | --- | --- | --- | --- |\n${(n > 1 ? [NAMES[0], NAMES[1], '代理 太郎'] : [NAMES[0]]).map((h, i, a) => `| 招待 | ${h} | ${n > 1 ? a[(i + 1) % a.length] : '外部 確認者'} | H-3 理解の実証 ${TODAY} | ADR-0001 | |`).join('\n')}`));
   if (!read('docs/handover.md').includes(`| 招待 | ${NAMES[0]} |`)) throw new Error('引き継ぎ文書の節2 の表の置き換えが空振りした(様式の見出しが変わった)');
+  // #355 束1: 運用引き継ぎ文書の3項目(監視・障害時の連絡先・復旧手順)を記入する。置き換えが空振りしたら止める
+  {
+    const h0 = read('docs/handover.md');
+    const h1 = h0.replace('| 何を見るか | どこで | 異常の閾値 | 誰へ通知するか |\n| --- | --- | --- | --- |\n| | | | |', '| 何を見るか | どこで | 異常の閾値 | 誰へ通知するか |\n| --- | --- | --- | --- |\n| 招待の失敗率 | ダッシュボード | 2% 超 | 当番の運用担当 |').replace('- エスカレーション順序: ', '- エスカレーション順序: 当番 → 技術責任者 → 事業責任者').replace(/^\| 切り戻し \|.*$/m, '| 切り戻し | 前の版のタグへ戻す(試験の固定値) |');
+    if ([h0.length, h1.length].every(Boolean) && (h1.split('招待の失敗率').length !== 2 || !h1.includes('当番 → 技術責任者') || !h1.includes('前の版のタグへ戻す'))) throw new Error('引き継ぎ文書の3項目の置き換えが空振りした(様式の見出しが変わった)');
+    write('docs/handover.md', h1);
+  }
   write('docs/debt-ledger.md', '# 技術負債台帳\n\n## 台帳\n\n| ID | 区分 | 対象 | 内容 | 受容した理由 | 顕在化の兆候 | 返却の目安 | 状態 | 記録者 | 承認した者 |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n');
   write('evidence/license-scan.json', '{ "scanRun": true, "result": "success", "scannedAt": "2026-10-01T00:00:00Z" }\n');
   write('evidence/seeded-errors.json', '{ "seeded": 10, "detected": 8, "measuredAt": "2026-10-01", "method": "試験の固定値", "blind": true }\n');
@@ -240,6 +247,8 @@ function setup(ws, n) {
   putCopy();
   git('tag', 'base288');
   const agg = () => {
+    // #356 A: 出荷の経路の走査が先に記録を書く(集約は記録の欠落を失敗にする)
+    W.run('node', ['scripts/gate/seeded-error-scan.mjs', '--from', tpl, '--to', 'HEAD']);
     const r = ghRun(W, '出荷の証跡の集約', 'node', ['scripts/gate/aggregate-evidence.mjs', '--from', tpl, '--to', 'HEAD'], { GITHUB_REPOSITORY: 'example/t288', MOCK_PRS: prs });
     const ev = JSON.parse(read('evidence/evidence.json'));
     return { r, ev, report: read('evidence/quality-report.md'), ext: read('evidence/assurance-disclosure.external.md') };
