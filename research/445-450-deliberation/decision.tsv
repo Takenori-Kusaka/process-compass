@@ -1,0 +1,189 @@
+IMPL	issue	起案	反対	最終	check(降ろした後)	降ろし先(a〜c)/ 寄せ先	plan(d)	新しい note(d)/ 理由
+IMPL-0136	#445	a	同	a	machine(test を対で)	scripts/gate/check-pr.mjs の isProseDocument		散文の識別は決定可能。担い手への指示文書を散文に数える当否は未決(境界)
+IMPL-0534	#445	c	同	c	manual	.claude/skills/gate/SKILL.md 判定の原則		判定者の振る舞いで機械は閉じない。判定の原則へ一文
+IMPL-0536	#445	c	同	c	manual	.claude/skills/gate/SKILL.md		判定者の運用の規定。手順は手引きへ
+IMPL-0547	#445	c	同	c	manual	.claude/skills/gate/gates/G-5.md		取り消せない操作に近い。手順なので手引きへ置く
+IMPL-0549	#445	c	同	c	manual	.claude/skills/gate/gates/G-5.md と G-7.md		判定者の範囲の限定で文で足りる
+IMPL-0567	#445	a	同	a	machine(test を対で)	scripts/gate/exception-expiry.mjs の隣(templates/03-debt-ledger.md の区分欄の値の一致)		安全・認証・データ保全の迂回を止める。台帳の行の値の一致で決定可能
+IMPL-0569	#445	d	b	b	manual	templates/06-project-brief.md 閾値の行「AI 利用量の上限(単位と値、または未設定)」		上限を G-1 で定めるのは企画書の仕事。測定は IMPL-0370(adopter・ADR-0096)のまま
+IMPL-0570	#445	d	b	b	manual	templates/06-project-brief.md 同じ行に「未設定・測れないときは未測定と報告し 7.7.4 の自動の上程が働かない」の一文		0569 と同じ入力
+IMPL-0576	#445	c	同	c	manual	.claude/skills/gate/gates/G-6.md		人が読んで判断する規定。手順で足りる
+IMPL-0577	#445	c	同	c	manual	.claude/skills/implement/reference/task-size.md		3点は判断。生成印による除外は降りている。残りは手順
+IMPL-0608	#445	b	同	b	manual	templates/03-debt-ledger.md 欄		台帳の行の理由欄に種類と根拠を書かせる(証跡)
+IMPL-0609	#445	b	同	b	manual	templates/03-debt-ledger.md 欄		議長裁定T5で台帳の行と同じ入力に乗せる
+IMPL-0610	#445	a	同	a	machine(test を対で)	scripts/gate/exception-expiry.mjs		台帳の区分と期限から決定可能(0608・0609の欄が前提)
+IMPL-0613	#445	c	同	c	manual	.claude/skills/pit/reference/handoff.md		運用規則。next.mjs 出力の文を手引きに揃える
+IMPL-0618	#445	c	同	c	manual	.claude/skills/pit/reference/handoff.md		手順・体裁。手引きへ
+IMPL-0619	#445	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	7.7.2 の AI 実行費用の単位あたりの値の分母。費用の計測は採用者の基盤に属し、準拠テンプレートは費用を測らない。閾値の記録は IMPL-0371 が受ける(ADR-0170。IMPL-0370 の ADR-0096 と同じ型)。確かめる者: 採用者の予算の責任者(上程のとき)
+IMPL-0620	#445	c	同	c	manual	.claude/skills/gate/gates/SG.md		判定の運用。手引きへ
+IMPL-0621	#445	b	同	b	manual	templates/04-gate-record.md 欄		判定記録に残す証跡。4値の欄と畳む
+IMPL-0623	#445	b	同	b	manual	templates/04-gate-record.md 欄		判定記録に残す証跡。4値の欄と畳む
+IMPL-0630	#445	a	同	a	machine(test を対で)	scripts/gate/exception-expiry.mjs		枠(IMPL-0629)と台帳の件数の比較は決定可能
+IMPL-0650	#445	c	同	c	manual	.claude/skills/gate/gates/G-6.md 7確認の範囲		違反は振る舞いにしか現れない。手引きへ
+IMPL-0652	#445	c	同	c	manual	.claude/skills/gate/gates/G-6.md		記録の手順の文。手引きへ
+IMPL-0657	#445	b	同	b	manual	templates/04-gate-record.md 欄		会議体の判定記録の語彙。判定記録の欄(IMPL-0825と同じ入力)
+IMPL-0658	#445	b	同	b	manual	templates/04-gate-record.md 欄		判定記録の証跡。0621・0623と1つの欄群に畳む
+IMPL-0668	#445	d	b+d	b	manual	templates/04-gate-record.md 決裁の結果に3行(影響を受ける他の案件・移動元の責任者への通知の日と宛先・実施できなくなる事項)		条文は内容を規定し手段を組織に任せる。通知の事実も記録の欄で受けられるので分割しない
+IMPL-0680	#445	a	同	a	machine(test を対で)	.github/workflows/review-queue-control.yml(planned)		GitHub の依頼先の種別は決定可能(境界: 待ち行列5件を一括で d にする案)
+IMPL-0681	#445	a	d	a	machine(test を対で)	.github/workflows/review-queue-control.yml		時刻と状態から決定可能。宛先は D-0 表3の記名
+IMPL-0682	#445	a	同	a	machine(test を対で)	.github/workflows/review-queue-control.yml		依頼の件数は決定可能。既定1人3件
+IMPL-0702	#445	b	同	b	manual	templates/04-gate-record.md 欄		判定記録の証跡の欄
+IMPL-0705	#445	b	同	b	manual	templates/04-gate-record.md 欄		決議方式の欄。R1×持ち回りの拒否は欄ができれば(a)で足せる
+IMPL-0745	#445	c	同	c	manual	.claude/skills/gate/gates/G-1.md		判定の条件の文。手引きへ
+IMPL-0761	#445	a	同	a	machine(test を対で)	scripts/gate/aggregate-evidence.mjs		記録の有無は決定可能。F.7の様式(0933)が前提
+IMPL-0763	#445	a	同	a	machine(test を対で)	scripts/gate/adapter.mjs の段		構成が宣言した段の存在と終了コードは決定可能。ツールは採用者の技術スタック
+IMPL-0771	#445	a	同	a	machine(test を対で)	scripts/gate/verify-gate-contract.mjs		構成のゲートと知識ベースの判定基準の対応は決定可能
+IMPL-0801	#445	a	同	a	machine(test を対で)	scripts/gate/check-g1.mjs		文字列の一致で決定可能。一般語の一覧は標準の列挙に限る
+IMPL-0831	#445	b	同	b	manual	templates/04-gate-record.md 欄		判定記録の証跡の欄
+IMPL-0835	#445	c	同	c	manual	template/CLAUDE.md 常駐 + gates/G-6.md		常駐の規則の文。手引きへ
+IMPL-0836	#445	d	a	a	presence	scripts/gate/adapter.mjs: 軸C 規制業の構成で「規制要件の確認」の段が宣言されていること(単位: キー)		0763・0930・0931 と同じ「段の存在」の型。要件の中身と道具は採用者の値で manual
+IMPL-0838	#445	c	同	c	manual	.claude/skills/gate/gates/G-7.md		手順を手引きへ
+IMPL-0878	#445	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	企画書が前の案件の記述と同一でないこと。他の案件の企画書が入力に要り、単一の案件のリポジトリは持たない(ADR-0170)。確かめる者: 採用者の G-1 の判定者(判定のとき)
+IMPL-0884	#445	a	a(存在まで)	a	machine	scripts/gate/check-g1.mjs: 先行する記録の存在と、記録に書かれた日付の前後		日付は書いた者の値で改ざんは閉じない旨を注記で開示
+IMPL-0930	#445	a	同	a	machine(test を対で)	scripts/gate/adapter.mjs の段		段の存在と閾値の比較は決定可能。閾値は組織がG-1で定める値
+IMPL-0931	#445	a	同	a	machine(test を対で)	scripts/gate/adapter.mjs の段		0930と同じ段。生き残りの一覧の読解は人(manual)
+IMPL-0943	#445	c	同	c	manual	.claude/skills/gate/gates/G-2.md		判定者の確認項目。手引きへ
+IMPL-0953	#445	c	同	c	manual	.claude/skills/gate/gates/SG.md		判定の材料の限定。手引きへ
+IMPL-0958	#445	c	同	c	manual	.claude/skills/gate/gates/G-7.md		判定の観点。手引きへ
+IMPL-0972	#445	a	同	a	machine(test を対で)	scripts/gate/check-pr.mjs		判断記録から判定記録への到達は突合で決定可能
+IMPL-0979	#445	a	d	a	machine(test を対で)	.github/workflows/review-queue-control.yml		時刻と状態から決定可能。宛先は D-0 表3の記名
+IMPL-0585	#446	c	同	c	manual	.claude/skills/gate/gates/G-6.md		省略の経路は無い(否定の検索)。禁止の文を置く
+IMPL-0592	#446	b	同	b	manual	templates/00-d0-governance.md 担当表		担当表の欄(0635と同じ)
+IMPL-0594	#446	a	同	a	machine(test を対で)	scripts/gate/autonomy.mjs + config の安全関連部の範囲		区分から上限への写像は決定可能。安全関連部の単位は構成の欄で与える
+IMPL-0595	#446	c	同	c	manual	.claude/skills/process-change/kinds/mode.md		引き上げの手順の文
+IMPL-0597	#446	a	同	a	machine(test を対で)	scripts/gate/config.mjs changeTypeProblems		登録の根拠の欄の存在は決定可能(内容の当否は manual)
+IMPL-0598	#446	c	同	c	manual	template/CLAUDE.md 常駐 + scripts/gate/claude-md-resident.json		no-adopter 節(5.5.5)。常駐の指示に理解の確認の側を足す
+IMPL-0599	#446	a	同	a	machine(test を対で)	scripts/gate/config.mjs SEAT_CEILING		構成が受け付ける値の検査で決定可能(表は暫定 EV-0050)
+IMPL-0624	#446	c	同	c	manual	.claude/skills/process-change/kinds/mode.md		判断点で記録させる手順。指標のデータは採用者
+IMPL-0635	#446	b	同	b	manual	templates/00-d0-governance.md 担当表		D-0 に担当表の欄を持たない
+IMPL-0636	#446	a	a(存在まで)	a	presence	scripts/gate/config.mjs seats[].competence の欄(単位: キー)		判定結果の妥当性は manual
+IMPL-0637	#446	b	同	b	manual	templates/00-d0-governance.md 節9		D-0 節9の欄
+IMPL-0640	#446	a	a(存在まで)	a	presence	scripts/gate/config.mjs seats[].qualification の欄(単位: キー)		正解の出所の真偽は manual
+IMPL-0643	#446	a	同	a	machine(test を対で)	scripts/gate/model-adoption.mjs		席のモデルと導入の記録(0405)の突合は決定可能
+IMPL-0651	#446	a	同	a	machine(test を対で)	scripts/gate/verify-gate-contract.mjs		構成から再生成して差分を見るのは決定可能
+IMPL-0654	#446	b	同	b	manual	templates/00-d0-governance.md 担当表		D-0 の担当表に委譲の欄(0635と同じ表)
+IMPL-0659	#446	b	同	b	manual	templates/00-d0-governance.md 節10		D-0 節10の1つの表に4会議体を畳む
+IMPL-0660	#446	b	同	b	manual	templates/00-d0-governance.md 節10		同上
+IMPL-0661	#446	b	同	b	manual	templates/00-d0-governance.md 節10		同上
+IMPL-0662	#446	b	同	b	manual	templates/00-d0-governance.md 節10		同上
+IMPL-0664	#446	a	同	a	machine(test を対で)	scripts/gate/config.mjs changeTypeProblems		登録時の種別の属性の照合は決定可能
+IMPL-0701	#446	b	同	b	manual	templates/00-d0-governance.md 節4		表は複製せず標準3.8.2への参照一文を節4へ(細かい定義を増やさない)
+IMPL-0704	#446	b	同	b	manual	templates/00-d0-governance.md 節5		D-0 節5の起算点の欄
+IMPL-0709	#446	a	同	a	machine(test を対で)	scripts/init/generate-profile.mjs 差分の分類		差分の分類は決定可能
+IMPL-0714	#446	b	同	b	manual	templates/00-d0-governance.md 節12		D-0 節12の欄
+IMPL-0721	#446	c	同	c	manual	.claude/skills/artifact/artifacts/00-d0-governance.md		文脈オーナーの務め。手引きへ
+IMPL-0732	#446	c	同	c	manual	.claude/skills/process-change/kinds/accountable.md		変化点の手順の文
+IMPL-0737	#446	c	同	c	manual	.claude/skills/process-change/SKILL.md		手順
+IMPL-0740	#446	c	同	c	manual	.claude/skills/gate/gates/G-1.md + templates/03-debt-ledger.md の説明		ゲートでない決定の未達。新しい構造を足さず台帳の「未達」の書き方を手引きへ(境界)
+IMPL-0767	#446	a	同	a	machine(test を対で)	scripts/gate/spec-recheck.mjs + templates/01-feature-spec.md 印		仕様の差分での削除検出は決定可能。必須制約の印(b)が前提
+IMPL-0768	#446	c	同	c	manual	.claude/skills/artifact/artifacts/09-safety-risk-assessment.md		判断の限定。手引きへ
+IMPL-0772	#446	a	同	a	machine(test を対で)	scripts/gate/verify-gate-contract.mjs		導出と unmet・deviations の対応は決定可能
+IMPL-0829	#446	b	同	b	manual	templates/00-d0-governance.md 節12		D-0 節12の名義の欄(担い手どうしの共有)
+IMPL-0834	#446	a	同	a	machine(test を対で)	scripts/gate/autonomy.mjs		欄の存在は決定可能(内容は課さない ADR-0158)
+IMPL-0839	#446	c	同	c	manual	scripts/init/generate-profile.mjs		規則データを構成生成の文として出す(0760と同じ)
+IMPL-0840	#446	a	a(存在まで)	a	presence	scripts/gate/config.mjs changeTypeProblems: 種別の属性3つの欄と値の列挙(単位: キー)		属性を導入しない事実の真偽は閉じない。manual で開示
+IMPL-0841	#446	c	同	c	manual	.claude/skills/process-change/kinds/mode.md(委任の節。delegation.md は無い)		意味の判断。手順の文で足りる(自己申告の属性で閉じない)
+IMPL-0842	#446	c	同	c	manual	.claude/skills/process-change/kinds/mode.md(委任の節。delegation.md は無い)		期ごとの違反の記録が無い。戻す操作は変化点の手順
+IMPL-0900	#446	a	同	a	machine(test を対で)	src/data/tailoring/ の組 + template:kb		兼務禁止の組を1つ足す。規則データは決定可能
+IMPL-0944	#446	c	同	c	manual	.claude/skills/process-change/reference/dry-run.md		旧名義の拒否は日付突合が要る。まず手順(境界)
+IMPL-0959	#446	d	a+b	c	manual	scripts/init/generate-profile.mjs が PROCESS-PROFILE.md に節「提案書へ写す調整の宣言」(外した項目・簡略化した項目・理由)を出す		宣言の中身は構成から導けテンプレートが持てる。提案書そのものは持たない。宣言せずに運用しないことの検査は IMPL-0772(a)が担い、0959 で検査を重ねない。確かめる者: 提案書の起案者(写すとき)
+IMPL-0980	#446	a	a(空まで)	a	presence	scripts/gate/recalibration.mjs: 「移した先の保証」の欄の空(単位: 欄)		文の意味は閉じない旨を注記に書く
+IMPL-1004	#446	a	c	c	manual	scripts/gate/aggregate-evidence.mjs が出す構成書の注記に「数えない項目として人が確かめる」を足す(IMPL-1003 と同じ型)		機械が数えない部分を機械の検査にすると対象を取り違える。1.10.2 と 3.5.3 の揃え方は #446 で先に決める(ADR-0147)
+IMPL-0568	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	AI 実行基盤への直接接続の禁止。接続経路は採用者の AI 実行基盤に属し、準拠テンプレートは接続経路を持たない(ADR-0170)。確かめる者: 採用者の AI運用担当者(経路を設けるとき・改めるとき)
+IMPL-0665	#447	d	b	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	会議体は決定する事項に列挙した事項のみを議題とすること。議題の運営は組織の会議体に属し、列挙を様式へ写すと標準と二重に管理する(IMPL-0701 と同じ理由。ADR-0170)。確かめる者: 判定者(上程の判定資料を読むとき)
+IMPL-0683	#447	a	同	a	machine(test を対で)	scripts/gate/adapter.mjs + exception-expiry.mjs		許可リストと期限の比較は決定可能(exception-expiry と同型)
+IMPL-0707	#447	d	c	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	3.9.4 の会議体の健全性の指標の継続計測。会議体は案件をまたぎ、単一の案件のリポジトリの記録だけでは分母が欠けて誤った値になる(ADR-0170)。確かめる者: 採用者の会議体の事務局(四半期ごと)
+IMPL-0708	#447	c	同	c	manual	template/CLAUDE.md 指示資産の節 + .claude/skills/pit/reference/		意味の識別。印の付け方と観点を手引きへ
+IMPL-0712	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	可用性と品質の監視の分離。品質の監視は AI 実行基盤に属し、準拠テンプレートは監視を持たない(IMPL-0408 と同じ。ADR-0170)。確かめる者: 採用者の AI運用担当者(監視を設けるとき)
+IMPL-0713	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	採点者の識別を変えた後の基準値の扱い。品質の監視は AI 実行基盤に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(採点者を変えるとき)
+IMPL-0715	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	モデルの廃止予定の四半期の棚卸しと通知。提供者の廃止予定は AI 実行基盤の運用に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(四半期ごと)
+IMPL-0716	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	機密情報の送出の検査を接続経路に置くこと。接続経路は採用者の環境に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(経路を設けるとき)
+IMPL-0718	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	全社の統制の更新の段階導入。全社の統制と CI 基盤は案件のリポジトリの外にある(ADR-0170)。確かめる者: 採用者の統制の更新を決める者(更新のとき)
+IMPL-0826	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	モデルの切替先の限定と発生の通知。切替は AI 実行基盤の運用に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(切替のとき)
+IMPL-0827	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	切替後の品質の監視と、基準を下回ったときの停止。品質の監視は AI 実行基盤に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(切替の後)
+IMPL-0832	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	判定の当日の議題を未解決の論点に限ること。会議の当日のふるまいで記録に残らない(ADR-0170)。確かめる者: 採用者の会議体の議長(当日)
+IMPL-0833	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	接続経路上のチーム単位の上限の強制。経路は採用者の AI 実行基盤に属する。G-1 での合意の記録は IMPL-0902 が企画書で受ける(ADR-0170)。確かめる者: 採用者の AI運用担当者(上限を設けるとき)
+IMPL-0882	#447	c	同	c	manual	.claude/skills/gate/gates/SG.md(SG-1 の判定要件)		起案のまま
+IMPL-0883	#447	a	同	a	machine(test を対で)	process.config.json projectId + scripts/gate/check-g1.mjs		案件IDの存在は決定可能。IDの付与元は組織(境界: d)
+IMPL-0885	#447	c	同	c	manual	.claude/skills/process-change/kinds/accountable.md(後続作業 H-1〜H-3)		起案のまま
+IMPL-0886	#447	c	同	c	manual	.claude/skills/artifact/artifacts/05-handover.md		起案のまま(置き場を 05 の手引きに確定)
+IMPL-0887	#447	b	c	c	manual	.claude/skills/process-change/kinds/accountable.md(H-1〜H-3 の判定者と期限)		新様式を作らない。Q3 で安全・取り消せない操作・適合の主張に当たらない
+IMPL-0888	#447	c	同	c	manual	.claude/skills/artifact/artifacts/05-handover.md		同上
+IMPL-0889	#447	c	同	c	manual	.claude/skills/artifact/artifacts/05-handover.md		同上
+IMPL-0890	#447	a	同	a	machine(test を対で)	scripts/gate/org-assurance.mjs		引き継ぎ文書の節2の保持者数は決定可能
+IMPL-0892	#447	c	同	c	manual	.claude/skills/artifact/artifacts/05-handover.md		同上
+IMPL-0893	#447	b	c	c	manual	.claude/skills/artifact/artifacts/05-handover.md(予告期間別の期限と延長の4項目)		同上
+IMPL-0894	#447	c	同	c	manual	.claude/skills/artifact/artifacts/05-handover.md		同上
+IMPL-0895	#447	a	c	c	manual	.claude/skills/artifact/artifacts/05-handover.md に H-1 の必須欄の点検表(機械の検査は足さない)		様式を作らないので機械の検査の入力が無い。決定可能だが降ろさない旨を note に残す
+IMPL-0896	#447	b	c	c	manual	.claude/skills/artifact/artifacts/05-handover.md(H-3 の4課題・評価者・結果の書き方)		同上
+IMPL-0897	#447	c	同	c	manual	.claude/skills/artifact/artifacts/05-handover.md		同上
+IMPL-0898	#447	b	c	c	manual	.claude/skills/process-change/kinds/accountable.md(不合格時の延長・一時移管、A を空席のまま交代日を過ぎない)		同上。空席を作らないことの全般は IMPL-0721(c)と揃える
+IMPL-0901	#447	d	b	b	manual	templates/00-d0-governance.md 体制に1欄「監査担当の充足方法」(置く/他部門へ委託/外部へ委託/相互/未実施)		所見 0 件と未実施の取り違えは適合の主張の信頼に響く(Q3)。監査記録への転記は採用者の監査担当が確かめる
+IMPL-0960	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	提案書を組織として品質を保証すると言える形で書くこと。提案書は導入の前に組織が作る稟議の文書で、案件のリポジトリの外にある(ADR-0170)。調整の宣言の中身は IMPL-0959 が PROCESS-PROFILE に出す。確かめる者: 採用者の提案書の決裁者(決裁のとき)
+IMPL-0961	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	提案書で変える点を小さく見せないこと。提案書は案件のリポジトリの外にある(ADR-0170)。確かめる者: 採用者の提案書の決裁者(決裁のとき)
+IMPL-0962	#447	a	d	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	提案書で範囲・根拠を伴わない「品質を保証する」等を使わないこと。提案書は案件のリポジトリの外にあり走査の対象が無い。附属書H H.8 の表現の検査(IMPL-0963)が降りれば、採用者は提案書に同じ検査を掛けられる(ADR-0170)。確かめる者: 採用者の提案書の決裁者(決裁のとき)
+IMPL-0964	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	内部監査が記録の内容と実態の一致を確かめること、観点13・14 の監査者の限定。内部監査の実施は組織の体制で、機械は名簿の外を検出できない。監査担当の充足方法の記録は IMPL-0901 が D-0 で受ける(ADR-0170)。確かめる者: 採用者の監査担当(監査のとき)
+IMPL-0974	#447	d	c	c	manual	.claude/skills/gate/gates/G-6.md と template/CLAUDE.md 常駐: AI は承認レビューの本文とその草案を書かない		AI が書く側の指示はテンプレートが持てる。書き手の確認は採用者の内部監査の抜き取り(確かめる者)
+IMPL-0978	#447	b	重	重へ送る		#340		5.4.7 の頻度の値と記録の欄は採用者への新しい義務(マーク自身が述べる)。#340 が L2 の規定の重の審議を開いている
+IMPL-0759	#448	a	同	a	machine(test を対で)	scripts/gate/check-d0.mjs		値の一致で決定可能
+IMPL-0760	#448	c	同	c	manual	scripts/init/generate-profile.mjs が PROCESS-PROFILE.md・CLAUDE.md へ出す		規則データを構成生成の文として出す。照合は manual
+IMPL-0764	#448	a	同	a	machine(test を対で)	scripts/init/generate-profile.mjs + verify-gate-contract.mjs		CLから最低の段は決定可能。記録の段との比較
+IMPL-0766	#448	d	a	a	machine	scripts/gate/autonomy.mjs(0594・0919 が足す安全関連部の範囲の外に限り L2 以上を許す分岐。test を対で)		0594・0919 の単位の上の分岐で新しい欄を足さない。許す向きを例外承認へ流すと偽の逸脱が残る。0594・0919 の後に実装
+IMPL-0914	#448	b	c	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の適用規格欄で規格ごとに1指標
+IMPL-0916	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の欄
+IMPL-0917	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の適用規格と水準の欄
+IMPL-0919	#448	a	同	a	machine(test を対で)	scripts/gate/autonomy.mjs		安全関連部の範囲を構成に持てば決定可能(0594と同じ欄)
+IMPL-0920	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		G-5・G-6が一部を運ぶ。残りは検証記録の欄
+IMPL-0923	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の欄
+IMPL-0924	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の欄
+IMPL-0925	#448	a	a(値まで)	a	machine	scripts/gate/check-safety-record.mjs(新規。F.7 の「故障挿入の環境」欄の値が試験台・模擬環境の列挙に一致)		取り消せない操作ゆえ細かく降ろす。本番でない事実は manual で開示
+IMPL-0926	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の欄
+IMPL-0927	#448	a	同	a	machine(test を対で)	scripts/gate/check-safety-record.mjs(7項目の記載の有無。項目2 を含む)		7項目の記載の有無は決定可能
+IMPL-0928	#448	b	c	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の欄
+IMPL-0933	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		様式そのもの(1節)。04には所在だけ書く
+IMPL-0934	#448	a	同	a	machine(test を対で)	scripts/gate/check-safety-record.mjs(HR 手法を適用しない理由の欄の空)		欄の空は決定可能
+IMPL-1007	#448	a	同	a	machine(test を対で)	scripts/gate/aggregate-evidence.mjs		no-adopter 節。欠落は決定可能(内容の妥当性は確かめない)
+IMPL-0579	#449	c	同	c	manual	.claude/skills/implement/reference/task-size.md		手順
+IMPL-0580	#449	c	同	c	manual	.claude/skills/implement/reference/task-size.md		手順
+IMPL-0593	#449	c	同	c	manual	template/CLAUDE.md 常駐 + claude-md-resident.json		no-adopter 節。常駐の指示に足す
+IMPL-0646	#449	c	同	c	manual	template/CLAUDE.md 常駐 + claude-md-resident.json		常駐の指示に置く(実装計画のスキルに一文はある)
+IMPL-0711	#449	d	c	c	manual	template/CLAUDE.md「判断の確定と委任」の IMPL-0404 の隣に1行 + scripts/gate/claude-md-resident.json		ADR-0104 決定9 が同じ 3.12.3 を常駐の指示で降ろした型。草案を作るのは案件の AI
+IMPL-0749	#449	c	同	c	manual	template/CLAUDE.md 常駐 + claude-md-resident.json		常駐の規則
+IMPL-0819	#449	c	同	c	manual	.claude/skills/implement/SKILL.md		スキルの手順の順序
+IMPL-0907	#449	c	同	c	manual	template/CLAUDE.md 常駐 + claude-md-resident.json		常駐の規則
+IMPL-0918	#449	c	同	c	manual	template/CLAUDE.md 一律で委譲できない領域		領域の限定。常駐の指示に名指す
+IMPL-0921	#449	c	同	c	manual	.claude/skills/implement/SKILL.md		スキルの手順
+IMPL-0922	#449	c	同	c	manual	.claude/skills/implement/SKILL.md		スキルの手順
+IMPL-0929	#449	c	同	c	manual	.claude/skills/implement/SKILL.md		スキルの手順
+IMPL-0932	#449	c	同	c	manual	.claude/skills/implement/SKILL.md		スキルの手順
+IMPL-0936	#449	c	同	c	manual	.claude/skills/spec-write/SKILL.md		スキルの手順
+IMPL-0937	#449	c	同	c	manual	.claude/skills/spec-write/SKILL.md		スキルの手順
+IMPL-0938	#449	c	同	c	manual	.claude/skills/spec-write/SKILL.md		スキルの手順
+IMPL-0939	#449	c	同	c	manual	.claude/skills/spec-write/SKILL.md		スキルの手順
+IMPL-0941	#449	c	同	c	manual	.claude/skills/spec-write/SKILL.md		スキルの完了条件の文
+IMPL-0942	#449	b	同	b	manual	templates/01-feature-spec.md 受入基準節		機能仕様の受入基準節に説明を足す
+IMPL-0971	#449	c	同	c	manual	template/CLAUDE.md 常駐 + claude-md-resident.json		常駐の規則
+IMPL-0975	#449	c	同	c	manual	template/CLAUDE.md 常駐 + gate/SKILL.md		常駐の規則
+IMPL-0540	#450	b	同	b	manual	templates/02-adr.md 欄の説明		判断記録の欄の説明
+IMPL-0545	#450	c	同	c	manual	.claude/skills/artifact/artifacts/defect-ledger.md(項目3)		判断を伴う。項目3の手引きへ
+IMPL-0589	#450	b	同	b	manual	templates/defect-ledger.md 列		台帳の列を足す。公開の経路は採用者
+IMPL-0605	#450	b	同	b	manual	templates/06-project-brief.md 欄		企画書の欄
+IMPL-0607	#450	b	同	b	manual	templates/03-debt-ledger.md 欄		台帳の欄
+IMPL-0611	#450	b	同	b	manual	templates/06-project-brief.md 欄		企画書の欄(0629と1行に畳む)
+IMPL-0629	#450	b	同	b	manual	templates/06-project-brief.md 欄		企画書の欄(0611と1行に畳む)
+IMPL-0633	#450	b	c	b	manual	templates/11-quality-assurance-policy.md		層1の方針の既存行(0632)へ文言を足す
+IMPL-0645	#450	a	同	a	machine(test を対で)	scripts/gate/org-assurance.mjs		org-assurance が受容を見る。台帳の行の存在は決定可能
+IMPL-0673	#450	b	同	b	manual	templates/10-assumption-ledger.md 列		台帳の列
+IMPL-0752	#450	b	同	b	manual	templates/08-ai-sla.md 第7項		第7項の欄(0957と同じ節)
+IMPL-0753	#450	b	同	b	manual	templates/08-ai-sla.md 欄 + templates/05-handover.md 節2		発注側の保持者は既存の節2。粒度は第7章でなく様式08の欄
+IMPL-0798	#450	c	同	c	manual	.claude/skills/artifact/artifacts/06-project-brief.md		判断の限定。手引きへ
+IMPL-0807	#450	b	同	b	manual	templates/08-ai-sla.md 第9節		第9節の欄
+IMPL-0857	#450	c	同	c	manual	.claude/skills/artifact/artifacts/08-ai-sla.md		手引き08の記述
+IMPL-0902	#450	b	同	b	manual	templates/06-project-brief.md 閾値と予算区分		企画書の行
+IMPL-0945	#450	c	同	c	manual	.claude/skills/artifact/artifacts/11-quality-assurance-policy.md		自由文の比較で機械は閉じない。手引きへ
+IMPL-0946	#450	b	同	b	manual	templates/11-quality-assurance-policy.md 欄		様式の欄(決定日・記名)
+IMPL-0948	#450	c	同	c	manual	.claude/skills/artifact/artifacts/11-quality-assurance-policy.md		周知は組織が行う。求める文を手引きへ
+IMPL-0950	#450	d	b	b	manual	templates/06-project-brief.md「稟議へ数値を出すとき」に「出所の成果物」の列と「写しを正本にせず判定の対象にしない」の一文		置き場は既にある。出所の列は結果と証跡まで
+IMPL-0957	#450	b	同	b	manual	templates/08-ai-sla.md 第7項		様式の欄(template-fields.yaml の両方向)
+IMPL-0969	#450	b	同	b	manual	templates/06-project-brief.md 総費用内訳		企画書の総費用の区分
+IMPL-0977	#450	b	同	b	manual	templates/06-project-brief.md 安定性指標の閾値		企画書の行

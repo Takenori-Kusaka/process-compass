@@ -1,0 +1,243 @@
+# #445〜#450 降ろし方の裁定(議長の裁定の案・軽の審議)
+
+- 日付: 2026-11-17。議長の裁定の案。起案 `draft.md`・`inventory.tsv`、反対 `opposition.md` を突き合わせた
+- 件ごとの最終の区分: `decision.tsv`(188 件。列: 起案・反対・最終・降ろした後の check・降ろし先/寄せ先・plan・新しい note または理由)
+- 割れた点の条文は、マークの note の全文(`marks.tsv`)と、0978(human-ai-boundary 5.4.7)・1004(overview「列挙に無い離脱」)・0711(ADR-0104 決定9)の本文を読んで裁定した。他の件の条文の後半は読んでいない(8 節)
+
+## 1. 審議の重さ
+
+- **軽を維持する**。188 件はどれも条項を新設・改廃しない。決めるのは降ろし方(a〜d)だけで、(d) は `plan=adopter`(**規定は課したまま**。implementation-marking.md「降りていない規定の扱い」)である。ADR の原則を変えない
+- 割れた点のうち、新しい義務・ADR の原則の変更・安全に当たるのは **IMPL-0978 の1件だけ**。重へ送る(3.5 節)
+- 安全の群(#448)は、起案と反対が区分で割れていない(割れたのは 0914・0928 の b/c の体裁と 0766)。区分を細かくする向きの割れで、安全を弱める向きの案は双方に無い
+
+## 2. 件数(最終)
+
+| Issue | a | b | c | d | 重へ送る | 計 |
+| --- | --- | --- | --- | --- | --- | --- |
+| #445 | 17 | 12 | 17 | 2 | 0 | 48 |
+| #446 | 15 | 12 | 15 | 0 | 0 | 42 |
+| #447 | 3 | 1 | 15 | 16 | 1 | 36 |
+| #448 | 8 | 9 | 1 | 0 | 0 | 18 |
+| #449 | 0 | 1 | 20 | 0 | 0 | 21 |
+| #450 | 1 | 17 | 5 | 0 | 0 | 23 |
+| 計 | 44 | 52 | 73 | 18 | 1 | 188 |
+
+起案(a45・b52・c64・d27)からの差: (d) 27 → 18、新様式 2 枚 → 1 枚(F.7 の節だけ)、(a) のうち 7 件は「存在・値の一致まで」に範囲を絞って check を明記した。
+
+## 3. 割れた点ごとの裁定
+
+3つの問い: Q1 条文は結果と証跡まで・手順は手引き / Q2 珍しい構成は第7章の例外承認で受けられるか / Q3 破られたとき誰が何を失うか(安全・取り消せない操作・適合の主張の信頼だけ細かく)。
+
+### 3.1 起案の (d) 27 件
+
+| IMPL | 起案 | 反対 | 裁定 | 理由(採らない案) |
+| --- | --- | --- | --- | --- |
+| 0959 | d | a+b | **c** | 調整の宣言の中身は構成から導けるので、`generate-profile.mjs` が PROCESS-PROFILE に「提案書へ写す調整の宣言」の節を出す。提案書そのものはテンプレートの外。**反対の a(checkConstraints で c-tailoring を検査)は採らない**: 宣言せずに運用しないことは IMPL-0772(a)が検査し、重ねると同じ規定に検査が2つになる。**起案の d も採らない**: 宣言の中身はテンプレートが持てる |
+| 0950 | d | b | **b** | 06 に「稟議へ数値を出すとき」の節が既にあり、出所の列と一文で足りる(Q1)。起案の d は置き場の実在を見落としていた |
+| 0711 | d | c | **c** | ADR-0104 決定9 が同じ 3.12.3 を CLAUDE.md の1行(IMPL-0404)で降ろした。草案を作るのは案件の AI で、制限は常駐の指示で届く。起案の「AI 実行基盤の作業」は 3.12.4(監視)と 3.12.3(物差しの確定)を取り違えている |
+| 0974 | d | c | **c** | AI が承認レビューの本文・草案を書かないことは、G-6 の手引きと常駐の指示で届く。書き手の確認は採用者の内部監査の抜き取り(確かめる者)。趣旨は 5.5.5 の「人が確定する判断」と同じ型で、d にすると採用者の実装の有無で統制が消える |
+| 0766 | d | a | **a** | **起案の「第7章の例外承認で受ける」は採らない**。規定が許す向きを例外承認に流すと、逸脱でないものが逸脱として記録に残り、適合の主張の読み手を誤らせる(反対の6節に同意)。0594・0919 が安全関連部の範囲を構成に足すので、0766 はその単位の上の分岐で、新しい欄を足さない。実装は 0594・0919 の後 |
+| 0836 | d | a | **a(presence)** | 0763・0930・0931 と同じ「段の宣言の存在」の型に揃える。規制要件の中身・道具は採用者の値で manual。同じ構造に2つの扱いを置かない |
+| 0668 | d | b+d(分割) | **b(分割しない)** | 条文は伝達すべき内容を規定し手段を組織に任せる。通知の事実(日と宛先)も記録の欄で受けられる。**反対の分割は採らない**: マークを割ると識別子が増え、通知の欄1行で足りる。**起案の d も採らない**: 決裁の記録は 04 にある |
+| 0569 | d | b | **b** | 上限を G-1 で定めるのは企画書の仕事で、06 の閾値の行で受ける。測定と自動の上程は IMPL-0370(adopter・ADR-0096)のまま。起案の「ADR-0096 の延長」は、上限の記録と測定を混ぜていた |
+| 0570 | d | b | **b** | 0569 と同じ行の入力。分けると矛盾する |
+| 0707 | d | c | **d** | **反対の c(手引きに集計の式)は採らない**。会議体(B-1〜B-4)は案件をまたぐ。単一の案件のリポジトリの判定記録だけで比率を出すと分母が欠け、誤った健全性の値を手引きが勧めることになる。Q3: 失うのは組織の会議体の運営で、安全・取り消せない操作・適合の主張に当たらない |
+| 0665 | d | b | **d** | **反対の b(D-0 節10 に「決定する事項」の列)は採らない**。列挙は 3.7.4 の本文にあり、様式へ写すと標準と二重に管理する(0701 で双方が採った「参照の一文」と同じ理由)。議題の運営は会議のふるまいで、照合は判定者が判定資料で行う(既存の note のまま) |
+| 0901 | d | b | **b** | Q3 が重い。所見 0 件と未実施の取り違えは適合の主張の信頼に響く。D-0 の体制に列挙値の1欄で足り、新様式は要らない。監査記録への転記は採用者の監査担当が確かめる(manual) |
+| 0962 | a | d | **d** | **起案の a は採らない**。走査の対象(提案書)がテンプレートの外にあり、0960・0961 を d にしながら 0962 を a にするのは食い違う。H.8 の表現の検査(IMPL-0963・#355)が降りれば採用者が提案書に掛けられる旨を note に書く |
+| 0568 0712 0713 0715 0716 0718 0826 0827 0833 | d | 残す | **d** | AI 実行基盤に属する(ADR-0104 の IMPL-0408 と同じ型)。0715 の着手の期限は依存先の欄(IMPL-0065)の拡張で、本件では足さない |
+| 0832 0619 0878 0960 0961 0964 | d | 残す | **d** | 当日のふるまい・費用の計測・他案件の入力・導入前の稟議文書・内部監査の実施。双方一致 |
+
+### 3.2 起案の (a) のうち決定可能でない部分
+
+反対の2節の8件を**すべて採る**。決定可能な条件だけを機械の検査にする(統制の閉じ方)。
+
+| IMPL | 裁定 | check | 機械で閉じない部分(note で開示) |
+| --- | --- | --- | --- |
+| 1004 | c | manual | 集約の構成書の注記に「数えない項目として人が確かめる」を足す(IMPL-1003 と同じ型)。第1章 1.10.2 と第3章 3.5.3 の揃え方は #446 で先に決める(ADR-0147)。揃え方は条文の食い違いの解消で、本裁定では決めない |
+| 0962 | d | manual | 3.1 のとおり |
+| 0840 0636 0640 | a | presence | 申告の真偽・判定結果の妥当性・正解の出所の真偽 |
+| 0884 | a | machine | 記録に書かれた日付は書いた者の値で、改ざんを閉じない |
+| 0925 | a | machine | 環境欄の値の一致まで。実際に本番でないことは manual |
+| 0980 | a | presence | 欄の空まで。「移した先の保証」の文の意味は閉じない |
+
+### 3.3 新様式「移管記録」(#447)
+
+- **反対を採る。新様式は作らない**。新様式は F.7 の節(`templates/09` の1節)の1枚だけにする
+- Q1: 手順(予告期間別の書き戻しの順序、4課題の評価)が多い。Q2: 責任者の交代・部門間の移管は案件のリポジトリの外の人事の事象。Q3: 失うのは組織の知識で、安全・取り消せない操作・適合の主張ではない
+- 0887 0893 0896 0898 0895 を b/a から c へ。置き場は `kinds/accountable.md`(判定者・期限・不合格時)と `artifacts/05-handover.md`(書き方・点検表)。0895 は決定可能な検査だが、入力となる様式が無いので機械の検査にしない。その旨を note に残す(却下の明記)
+- **起案の「新様式は2枚まで」は採らない**
+
+### 3.4 その他の割れ
+
+| 点 | 裁定 | 採らない案と理由 |
+| --- | --- | --- |
+| review-queue 0681・0979(通知) | **a** | 反対の d/scheduled は採らない。期限超過の検出と、D-0 表3 の記名者を名指す GitHub 上のコメント(または Issue)の作成は決定可能。チャット基盤への到達は manual と開示する。0681 の 7.5 代理判定者の部分は 7.5 が pending のまま(既存の note) |
+| 0680・0682・0136 | a | 双方一致。0136 の「担い手への指示の文書を散文に数えるか」は、マークの note どおり #355 に残っている。本件で決めない |
+| 0914・0928(F.7) | **b** | 反対の c は採らない。0914 は「適用規格ごとに1行・指標は1列」の欄の構造そのものが併記を防ぐ。0928 は記録を求める規定で、欄が結果と証跡に当たる。安全で Q3 が重い |
+| 0633 | **b** | 反対の c は採らない。層1 の方針の既存の行(IMPL-0632)の文言で、記名の対象の様式の文に置く |
+| 0883 | a | 双方一致。付与元が組織でも、構成に値があることの存在は決定可能 |
+| 0763 0930 0931 | a | 双方一致。閾値と道具は採用者の値 |
+| 0944 0740 0842 | c | 双方一致 |
+| 0898 0885 | c | 双方一致 |
+| 0701 | b(参照の一文) | 双方一致 |
+
+### 3.5 重へ送る: IMPL-0978
+
+- 5.4.7 の「定められた頻度」の値と実施の記録の欄を足すことは、マーク自身が述べるとおり採用者への新しい義務になる。軽では決めない。(d) にも (a)〜(c) にもしない
+- 寄せ先: **#340**(要求事項5 の L2 への適用の重の審議が開いている。5.4.7 も「L2 以上を適用する範囲」の義務で、ADR-0081 決定6(テンプレートは L2 を支えない)の同じ読みに掛かる)
+- 付け替え: `issue=447` → `issue=340`。`plan=scheduled` と `review=` は保つ。付け替える者は #340 へコメントで、マークの識別子・所在と受け入れ条件の案(「5.4.7 の頻度と記録の欄の採否と理由がある」)を足す(implementation-marking.md の付け替えの規則)。#340 の範囲に含めるかは #340 の議長が受付で決める
+
+## 4. (d) の実装の仕様
+
+### 4.1 マークの属性の変え方(18 件)
+
+- `plan=scheduled` → `plan=adopter`。`issue=`・`review=` を**削除**(残すと `check-impl-plan-issues.mjs --issue N` が数え続ける)。`decision=ADR-0170` を足す
+- `state=undelivered`・`check=manual`・`target` は変えない(`target` が planned でも undelivered では使える)
+- `plan` の値は `scheduled`・`adopter` の2つだけ。依頼の「plan=manual」は値として存在しない。(d) はすべて `plan=adopter`、`check=manual` とする
+- `note` は `decision.tsv` の列「新しい note」で**置き換える**。末尾の「確かめる者: 計画の Issue(issue= の番号)の担当者…」は、採用者の役に書き換えてある(`MANUAL_WHO_RE` を満たす)
+- `decision=ADR-0170 決定N` の形は使わない。既存の adopter 75 件はすべて `decision=ADR-NNNN` の形(空白を含む値は引用符を要し、`check-impl.mjs` は `decision=` の中身を読まない)
+- `decision=` の指す ADR の実在は、`lint:impl` も `lint:provisions` も確かめない(`check-impl.mjs` は `decision-refs.mjs` の `issueIndex` だけを import する。`problemOf` は `check-provisions.mjs` の `by` にだけ掛かる)。ADR-0170 の実在と表の載り方は、実装の後の独立の突合で人が確かめる。機械で閉じない旨は ADR-0170 の影響の節に書く
+- no-adopter の節(`impl-no-adopter.yaml`)に当たる件は 18 件に無い見込み(0598・0593・1007 は c/a)。`npm run lint:impl` の `markAttrProblems` が落とすかで確かめる
+
+### 4.2 ADR-0170 の要旨
+
+- **題**: 「ADR-0170: #445〜#450 の降りていない規定のうち 18 件を採用者が実装するとし、残りを準拠テンプレートの検査・様式・手引きへ降ろす」
+- **ステータス**: 採用(日付)。ADR-0084 決定4(adopter の型)・ADR-0096(IMPL-0370)・ADR-0104(IMPL-0408)を補う。置き換えない
+- **コンテキスト**: #324 の付け替えの後、#445〜#450 が名指す降りていない規定 188 件。審議は `research/445-450-deliberation/`
+- **決定**
+  1. 降ろし方の4区分(a 機械の検査・b 様式の欄・c 手引き・d 採用者が実装する)と、(a) を決定可能な条件(値の一致・存在・構文・日付の前後・件数)に限ること。機械で閉じない部分は check=presence/manual で開示する
+  2. (d) にしてよいのは、テンプレートの単位(単一の案件のリポジトリ)の外にあるものだけ: AI 実行基盤、案件をまたぐ会議体・内部監査の実施、他案件の入力、導入前の稟議文書、費用の計測。テンプレートが欄・手引き・検査のどれかで届けられるものは d にしない
+  3. (d) の 18 件の表: IMPL・規定・採用者に委ねる理由・採用者に求めること(確かめる者)。`decision.tsv` の (d) の行の note から写す
+  4. 新しい様式は F.7 の安全適合性の検証記録(`templates/09` の1節)だけ。移管記録の様式は作らない
+- **課さないと決めたこと**: なし(18 件の規定は課したまま。課さないなら条項を改め not-imposed へ移す。本件はそうしない)
+- **検討した選択肢(採らない)**: 起案の (d) 27 件。0766 を第7章の例外承認で受ける案。移管記録の新様式。0707・0665 を手引き・様式へ置く案。0962 を a にする案。0668 のマークの分割
+- **影響**: `decision=` の先の実在は機械で確かめない(4.1)。0569・0570 は b に降りても測定は IMPL-0370 の adopter のまま
+- 根拠水準: (d) の線引きが採用者の実装の欠けを生まないことは測られていない。ADR-0170 に `:::caution[暫定 EV-NNNN / 見直し 2027-11]` を付け、差し替え条件を「adopter の 18 件について、採用者から『テンプレートが持つべきだった』との申し立ての件数」とする
+
+## 5. Issue ごとに閉じるか
+
+- **どの Issue も閉じない**。全部が (d) か寄せ先へ移った Issue は無い。(a)〜(c) は `plan=scheduled issue=<元の番号>` のまま、テンプレートへ降ろすときに `state=delivered` へ変える
+- #447 は (d) 16 件と重へ 1 件が外れ、19 件(a3・b1・c15)が残る
+- #446 は 1004 の前提(1.10.2 と 3.5.3 の揃え方。ADR-0147)も残す
+- 閉じるときは `npm run impl:issues -- --issue <番号>` が 0 件であることを確かめる
+
+## 6. Issue へのコメントの文案
+
+各 Issue に共通の前置き: 「降ろし方を `research/445-450-deliberation/decision.md` で裁定しました(軽の審議)。準拠テンプレートへ降ろす項目は次のとおりです。(a) 機械の検査、(b) 様式の欄、(c) 手引き。件ごとの欄・検査の名は `decision.tsv` にあります。」
+
+#### #445
+- (a) `scripts/gate/check-pr.mjs`: 0136 0972
+- (a) `scripts/gate/exception-expiry.mjs`(とその隣): 0567 0610 0630
+- (a) `.github/workflows/review-queue-control.yml`(新規): 0680 0681 0682 0979(通知の到達は manual)
+- (a) `scripts/gate/aggregate-evidence.mjs`: 0761
+- (a) `scripts/gate/adapter.mjs` の段の宣言: 0763 0836 0930 0931
+- (a) `scripts/gate/verify-gate-contract.mjs`: 0771
+- (a) `scripts/gate/check-g1.mjs`: 0801 0884
+- (b) `templates/04-gate-record.md`(4値別の確定事項・起案/意見/決定・決議方式・兼務時の関与範囲・ポートフォリオ調整の3行): 0621 0623 0657 0658 0668 0702 0705 0831
+- (b) `templates/03-debt-ledger.md`: 0608 0609
+- (b) `templates/06-project-brief.md` 閾値の行: 0569 0570
+- (c) `.claude/skills/gate/SKILL.md`: 0534 0536
+- (c) `.claude/skills/gate/gates/G-1.md` 0745 / `G-2.md` 0943 / `G-5.md` 0547 0549 / `G-6.md` 0576 0650 0652 / `G-7.md` 0549 0838 0958 / `SG.md` 0620 0953
+- (c) `.claude/skills/implement/reference/task-size.md`: 0577
+- (c) `.claude/skills/pit/reference/handoff.md`: 0613 0618
+- (c) `template/CLAUDE.md` 常駐: 0835
+- 採用者が実装する(ADR-0170): 0619 0878
+
+#### #446
+- (a) `scripts/gate/autonomy.mjs`: 0594 0834
+- (a) `scripts/gate/config.mjs`: 0597 0599 0636 0640 0664 0840(0636・0640・0840 は欄の存在まで)
+- (a) `scripts/gate/model-adoption.mjs`: 0643
+- (a) `scripts/gate/verify-gate-contract.mjs`: 0651 0772
+- (a) `scripts/init/generate-profile.mjs`: 0709
+- (a) `scripts/gate/spec-recheck.mjs`: 0767
+- (a) `src/data/tailoring/` の兼務禁止の組(`npm run template:kb`): 0900
+- (a) `scripts/gate/recalibration.mjs`: 0980(欄の空まで)
+- (b) `templates/00-d0-governance.md`(担当表・節4 の参照の一文・節5・節9・節10 の会議体の表・節12): 0592 0635 0637 0654 0659 0660 0661 0662 0701 0704 0714 0829
+- (c) `.claude/skills/process-change/`: kinds/mode.md 0595 0624 0841 0842 / kinds/accountable.md 0732 / SKILL.md 0737 / reference/dry-run.md 0944
+- (c) `.claude/skills/gate/gates/G-1.md` 0740 / `G-6.md` 0585
+- (c) `.claude/skills/artifact/artifacts/00-d0-governance.md` 0721 / `09-safety-risk-assessment.md` 0768
+- (c) `scripts/init/generate-profile.mjs` の生成文: 0839 0959
+- (c) `scripts/gate/aggregate-evidence.mjs` の構成書の注記: 1004(1.10.2 と 3.5.3 の揃え方を先に決める)
+- (c) `template/CLAUDE.md` 常駐: 0598
+
+#### #447
+- (a) `scripts/gate/adapter.mjs` + `exception-expiry.mjs`: 0683
+- (a) `process.config.json` の projectId + `check-g1.mjs`: 0883
+- (a) `scripts/gate/org-assurance.mjs`: 0890
+- (b) `templates/00-d0-governance.md` 体制「監査担当の充足方法」: 0901
+- (c) `.claude/skills/process-change/kinds/accountable.md`: 0885 0887 0898
+- (c) `.claude/skills/artifact/artifacts/05-handover.md`: 0886 0888 0889 0892 0893 0894 0895 0896 0897
+- (c) `.claude/skills/gate/gates/SG.md` 0882 / `G-6.md` 0974
+- (c) `template/CLAUDE.md`: 0708
+- 採用者が実装する(ADR-0170): 0568 0665 0707 0712 0713 0715 0716 0718 0826 0827 0832 0833 0960 0961 0962 0964
+- 重へ送る: 0978 → #340
+- 移管記録の新様式は作らない(裁定 3.3)
+
+#### #448
+- (a) `scripts/gate/check-d0.mjs`: 0759
+- (a) `scripts/init/generate-profile.mjs` + `verify-gate-contract.mjs`: 0764
+- (a) `scripts/gate/autonomy.mjs`(安全関連部の範囲): 0919 0766
+- (a) `scripts/gate/check-safety-record.mjs`(新規): 0925 0927 0934
+- (a) `scripts/gate/aggregate-evidence.mjs`: 1007
+- (b) `templates/09-safety-risk-assessment.md` に F.7 の節: 0914 0916 0917 0920 0923 0924 0926 0928 0933
+- (c) `scripts/init/generate-profile.mjs` の生成文: 0760
+
+#### #449
+- (b) `templates/01-feature-spec.md` 受入基準の節: 0942
+- (c) `template/CLAUDE.md` 常駐 + `scripts/gate/claude-md-resident.json`: 0593 0646 0711 0749 0907 0918 0971 0975
+- (c) `.claude/skills/implement/SKILL.md`: 0819 0921 0922 0929 0932
+- (c) `.claude/skills/implement/reference/task-size.md`: 0579 0580
+- (c) `.claude/skills/spec-write/SKILL.md`: 0936 0937 0938 0939 0941
+
+#### #450
+- (a) `scripts/gate/org-assurance.mjs`: 0645
+- (b) `templates/06-project-brief.md`: 0605 0611 0629 0902 0950 0969 0977
+- (b) `templates/08-ai-sla.md`: 0752 0753 0807 0957
+- (b) `templates/11-quality-assurance-policy.md`: 0633 0946
+- (b) `templates/02-adr.md` 0540 / `03-debt-ledger.md` 0607 / `10-assumption-ledger.md` 0673 / `defect-ledger.md` 0589
+- (c) `.claude/skills/artifact/artifacts/`: defect-ledger.md 0545 / 06-project-brief.md 0798 / 08-ai-sla.md 0857 / 11-quality-assurance-policy.md 0945 0948
+
+## 7. 実装の担当へ: 変えるファイルと検査
+
+本件の実装は2段に分ける。**段1(標準側。今回)** と **段2(テンプレート側。Issue ごと・直列)**。
+
+### 段1: (d) 18 件と重への付け替え(標準の本文と ADR)
+
+1. `src/content/docs/adr/0170-<slug>.md` を新設(書式は `adr/index.md` のテンプレート。frontmatter の title・description・`sidebar.order: 170`)。4.2 の要旨。EV マークを付ける
+2. マークを書き換える(`decision.tsv` の (d) 18 行の note をそのまま使う)
+   - `src/content/docs/phase4-process-design/roles-responsibilities.md`: 0568 0665 0707 0712 0713 0715 0716 0718 0826 0827 0832 0833
+   - `.../exception-escalation.md`: 0619
+   - `.../deliverable-templates.md`: 0878
+   - `.../proposal-template.md`: 0960 0961 0962
+   - `.../assurance-case.md`: 0964
+3. `.../human-ai-boundary.md` の IMPL-0978: `issue=447` → `issue=340`(他の属性は変えない)
+4. 検査(順に)
+   - `npm run lint:impl`(markAttrProblems・no-adopter)
+   - `npm run impl:write`(台帳 `community/implementation-ledger.md` を再生成。手で編集しない)
+   - `npm run evidence:write`(ADR-0170 の EV マーク)
+   - `npm run lint:refs`(ADR 番号の参照)・`npx textlint src/content/docs/adr/0170-*.md`
+   - `npm run impl:issues -- --issue 447`(残り 19 件が出ることの確認。0 件にはならない)
+   - push の前に1回 `npm run check`
+5. Issue へのコメント: 6 節の文案を #445〜#450 へ。#340 へ 0978 の付け替えのコメント(3.5 節)
+
+### 段2: (a)〜(c) 169 件(テンプレート側。CLAUDE.md の規則で準拠テンプレートを触る Issue は直列)
+
+- 降ろし先は `decision.tsv` の列「降ろし先」。降ろしたマークは `state=delivered`、`plan`・`issue`・`review` を削除。(a) は `check=machine` と `test=`(違反と適合の対)、presence と指定した件は `check=presence` と note に「単位: 欄/キー」
+- 新しい降ろし先(`review-queue-control.yml`・`check-safety-record.mjs`)は `src/data/impl-targets.yaml` の登録を planned から実在へ改める
+- F.7 の節を足したら `src/data/template-fields.yaml` に必須欄を登録する(両方向の検査)
+- 規則データ(0900)を変えたら `npm run template:kb`
+- 0766 は 0594・0919 の後。1007・0761 は 0933(F.7 の節)の後。1004 は 1.10.2/3.5.3 の揃え方の後
+- Issue ごとに関係する試験だけを流し、回帰の全量は push の前に1回
+
+## 8. 未確認の点
+
+- (a)〜(c) で割れなかった件は、起案の理由の列と反対の確認に依った。条文の後半を読んでいない件(0920・0924・0933 ほか)は、段2 の担当が降ろす前に条文を読む
+- 降ろし先の一部は起案の候補を実在の所在へ直した(task-size.md は `implement/reference/`、delegation.md は実在しないので `kinds/mode.md`、dry-run.md は `process-change/reference/`)。他の所在の実在は段2 で確かめる
+- (d) 18 件が no-adopter の節に当たらないことは、段1 の `npm run lint:impl` で確かめる(未実行)
+- 本裁定は実装を見ていない別の文脈による独立の突合を経ていない。段1 の後に1巡目(全体)を行う
+
+## 9. 議長の修正(本スレッド、2026-11-17)
+
+1. **ADR の番号**: ADR-0170 は #340 の裁定(research/340-deliberation/decision.md)が先に使う。本件の ADR は **ADR-0175** とする。本書と decision.tsv の `decision=ADR-0170` は、実装で `decision=ADR-0175` と読み替える
+2. **IMPL-0978 の寄せ先**: #340 の主題(5.4.5・5.4.6 の判定と自己修正)と 0978(AI を用いない実施の機会の頻度)は別の主題であり、#340 へ寄せると #340 の閉じ方を縛る。0978 は **issue=447 のまま残し**、#447 へのコメントに「重の審議へ送る(採用者への新しい義務に当たるため、本仕分けでは決めない)」と書く。3.5 節の付け替え(issue=447 → issue=340)と、7 節の手順 3 は採らない
