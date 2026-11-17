@@ -9,16 +9,16 @@ sidebar:
 
 採用(2026-10-27)。次の決定を一部置き換え、または補います。
 
-一部置き換え(→ ADR-0157 の決定1・2): 決定8 のうち「受け手の検証」と「来歴の証明(artifact attestation)」の2項目は、[ADR-0157](/process-compass/adr/0157-recipient-origin-check-is-guidance-and-kb-source-limited-to-main-history/) で候補から決定へ移りました(2026-11-17)。受け手の検証は義務ではなく手引きの手順とし、来歴の証明は文書の配布に課しません。決定8 の残り(実行の番号の突き合わせ、配布の経路の変更)は候補のままです。
-
 | 対象の決定 | 本 ADR との関係 |
 | --- | --- |
 | [ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/)の決定6 の「標準:」の段落 | 本 ADR の決定1・2 で一部置き換える。置き換えるのは、資格情報の置き場を「配備を許す参照に限った実行環境の秘密情報」に指定する文と、未達を「プランにより手段を使えない場合」に限る文である。禁止の文(統制と資格情報を、起動元のブランチで書き換えられる場所の中だけに置かない)、配布用のブランチの保護を独立の要求事項にしない決定、委任のマージのトークンを Environment の秘密情報に置く決定は維持する |
 | ADR-0077 の決定6 の開示の段落(「#293 で別に扱う」) | 本 ADR の決定5 で決着する。食い違いは規範の側で、置き場の指定を性質の規定へ改めて解く。本リポジトリの配布は、改めた規範でも満たさないため、未達として開示を続ける |
 | ADR-0077 の決定6 の「運営:」の段落 | 置き換えない。配布の書き込みを、ジョブ `publish` にだけ `contents: write` を付けた `GITHUB_TOKEN` で行う運営は維持する。本 ADR の決定5 は、その運営が改めた規範で未達に当たることと、未達の区分を記録する |
 | [ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)(未達と省略の区別) | 維持する。決定2 は未達の範囲を広げ、使わないと決めた構成を省略ではなく未達として表示させる |
-| [ADR-0052](/process-compass/adr/0052-delivery-is-verified-at-the-destination/)の決定1(配布物そのものを検査する) | 維持する。来歴の証明と配布の突合は、決定8 のとおり後継の Issue の候補にする |
+| [ADR-0052](/process-compass/adr/0052-delivery-is-verified-at-the-destination/)の決定1(配布物そのものを検査する) | 維持する。来歴の証明は ADR-0157 の決定2 で文書の配布に課さないと決めた。配布の突合は、決定8 のとおり後継の Issue の候補にする |
 | [ADR-0071](/process-compass/adr/0071-structure-of-principles-decisions-and-gate-records/)の決定3(判定の証跡は判定記録に限る) | 維持する。決定6 の env-check の読み取りと決定4 の狭める措置の設定の事実は、G-8 の適合の判定にも判定の証跡にも使わない |
+
+一部置き換え(→ [ADR-0141](/process-compass/adr/0141-g8-by-record-and-deploy-credential-unlisted-deviation/) の決定4、ADR-0157 の決定1・2): ADR-0141 は、本 ADR の決定2 が構成の状態に使った「未達」をゲートの状態の語に置き換えました。決定8 のうち「受け手の検証」と「来歴の証明(artifact attestation)」の2項目は、[ADR-0157](/process-compass/adr/0157-recipient-origin-check-is-guidance-and-kb-source-limited-to-main-history/) で候補から決定へ移りました(2026-11-17)。受け手の検証は義務ではなく手引きの手順とし、来歴の証明は文書の配布に課しません。決定8 のほかの項目(配布の経路の変更のうち Pages と実行の番号の突き合わせ、語の全体の統一、準拠テンプレートの workflows の最小権限)は候補のままです。
 
 ## コンテキスト
 

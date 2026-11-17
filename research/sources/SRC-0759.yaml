@@ -33,7 +33,7 @@ summary: '米国の臨床検査の外部精度管理(PT)。検体は日常の検
 claims:
   - id: c1
     text: 'PT の検体は日常の検体と同じ要員・同じ方法で検査し、検査した個人と責任者が証明する。他の検査室へ送ってはならない。'
-    quote: 'by personnel who routinely perform the testing in the laboratory, using the laboratory's routine methods'
+    quote: "by personnel who routinely perform the testing in the laboratory, using the laboratory's routine methods"
     locator: '493.801(b)(1)・(b)(5)(WebFetch の要約による。条番号の細目は原文で再確認)'
     quant: null
     evidenceKind: normative

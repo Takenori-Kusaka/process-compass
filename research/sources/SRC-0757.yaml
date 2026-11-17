@@ -33,7 +33,7 @@ summary: 'ECB の脅威情報に基づく演習の枠組み。受け手(防御�
 claims:
   - id: c1
     text: '演習の受け手に知らせず、体制内の少数(白チーム)だけが実施を知る。実施は独立した外部の提供者が行う。'
-    quote: 'TIBER-EU tests are to be performed without the knowledge of the target entity's security or response capability (i.e. Blue Team, BT). Only a small group from the entity, referred to as the White Team (WT), knows about the test.'
+    quote: "TIBER-EU tests are to be performed without the knowledge of the target entity's security or response capability (i.e. Blue Team, BT). Only a small group from the entity, referred to as the White Team (WT), knows about the test."
     locator: '1 節(概要)。独立した外部の提供者の要件は同節、停止は 6 節 6.8'
     quant: null
     evidenceKind: normative
