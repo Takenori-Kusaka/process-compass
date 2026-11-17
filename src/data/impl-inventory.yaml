@@ -2999,13 +2999,15 @@ sections:
       - IMPL-0268
       - IMPL-0516
       - IMPL-0977
+      - IMPL-1003
     note: 観測の窓と最小標本数は、第2区分の差し戻し率・手戻り率が IMPL-0516(降りている)、一発承認率・AI 生成行の短期書き換え率が IMPL-0268(降りていない)
     rows:
       要求事項1:
         status: marked
         ids:
           - IMPL-0977
-        note: 閾値を G-1 で定め5事項を記録することは IMPL-0977(undelivered)。企画書の様式の行「安定性指標の閾値」は値を置く欄までを運ぶ。観測の窓は構成の observationWindow(IMPL-0516)が運ぶ。最小標本数は autonomy.mjs の固定の定数で、組織が定める欄は無い。降りていないのは値の決め方と次の見直しの時期(束 D 突合 2巡目 D2-05)
+          - IMPL-1003
+        note: 手戻り率の基準値の決め方(実測前の組織の値 / 実測から)を構成に持ち表示することは IMPL-1003(undelivered。ADR-0158)。閾値を G-1 で定め5事項を記録することは IMPL-0977(undelivered)。企画書の様式の行「安定性指標の閾値」は値を置く欄までを運ぶ。観測の窓は構成の observationWindow(IMPL-0516)が運ぶ。最小標本数は autonomy.mjs の固定の定数で、組織が定める欄は無い。降りていないのは値の決め方と次の見直しの時期(束 D 突合 2巡目 D2-05)
       要求事項2:
         status: none
         category: org-design

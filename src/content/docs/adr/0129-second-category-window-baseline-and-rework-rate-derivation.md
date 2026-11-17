@@ -11,6 +11,8 @@ sidebar:
 
 準拠テンプレートの変更(`scripts/gate/**`・`.claude/**`。強制層)は、AI維持管理者の承認待ちです。承認者と承認日は未記入です。
 
+(2026-11-17 追記)[ADR-0158](/process-compass/adr/0158-halt-on-rework-rate-indeterminate-and-record-enforcement-location/) は決定3 の1項を置き換え、「重の審議へ送ったこと」の2項へ結論を出しました。置き換えた1項の内容は、基準値の未設定や母数の不足で止めず「発火しない」と表示する扱いです。
+
 | 対象 | 本 ADR との関係 |
 | --- | --- |
 | [ADR-0081](/process-compass/adr/0081-autonomy-downgrade-delivered-as-registration-stop/) 決定2・3・5 | 維持する。自動の1段階の引き下げ、「自動」の定義、判定不能の扱いをそのまま適用する。ADR-0081 が「手戻り率は降りていない」とした記述は、本 ADR の決定3 で部分的に改まる(算出する範囲と、降りていない残り) |
