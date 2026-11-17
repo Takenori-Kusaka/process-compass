@@ -129,7 +129,7 @@ variantForms:
 
 | 印 | 効く検査 | 書く場所 |
 | --- | --- | --- |
-| `<!-- provision-ok: 理由 -->` | 2〜5、7〜11 | 対象の行 |
+| `<!-- provision-ok: 理由 -->` | 2〜5、7〜12、14、17 | 対象の行 |
 | `retired-ok: 理由` | 6 | 対象の行。Markdown では HTML コメントの中、YAML とスクリプトではコメントの中に書く |
 | `variant-ok: 理由` | 15 | `retired-ok` と同じ |
 

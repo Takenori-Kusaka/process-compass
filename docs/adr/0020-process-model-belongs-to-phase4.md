@@ -7,7 +7,12 @@ sidebar:
 
 ## ステータス
 
-採用(2026-08-06)
+採用(2026-08-06)。次の決定を置き換えます。
+
+| 置き換える決定 | 置き換える内容 |
+| --- | --- |
+| [ADR-0017](/process-compass/adr/0017-separate-proposal-from-catalog/)の決定2 | URL の据え置きを、本 ADR の決定2 が置き換える |
+| [ADR-0017](/process-compass/adr/0017-separate-proposal-from-catalog/)の決定1 | 配置(フェーズ3の後、フェーズ4の前)を、本 ADR の決定4 が置き換える |
 
 ## コンテキスト
 
