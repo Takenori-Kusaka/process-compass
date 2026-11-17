@@ -828,7 +828,7 @@ sections:
     status: marked
     ids:
       - IMPL-0799
-    note: "表明である(第1章 1.7.2。#440 の裁定)。本標準は欄を定めず、採用者が欄を足すことを禁じない。#324 の裁定 T9 の「表明と決まれば not-imposed へ改める」は、様式に欄を置かない事実を IMPL-0799 が presence で確かめ続けるため、#440 の重の裁定 5.6 で置き換えた"
+    note: "表明である(第1章 1.7.2。#440 の裁定)。本標準は欄を定めず、採用者が欄を足すことを禁じない。#324 の裁定 T9 の「表明と決まれば not-imposed へ改める」は、様式に欄を置かない事実を IMPL-0799 が presence で確かめ続けるため、#440 の重の裁定 5.6 で置き換えた(理由は research/440-deliberation/chair-on-crosscheck-heavy-2.md)"
     issue: 440
   - key: "phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 記述の充足をどう検査するか"
     status: marked
