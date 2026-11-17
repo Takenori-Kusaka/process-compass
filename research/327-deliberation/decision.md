@@ -249,7 +249,7 @@ S0 の「統合(G-4 へ)」は、要件合意(G-2)を省略する調整ではあ
 | T5 | check-d0 の期日の超過を、G-1 の停止でなく SG を始めない旨の失敗として出す。gates/SG.md に「失敗なら SG を始めない」 | template/scripts/gate/check-d0.mjs・gates/SG.md | IMPL-0951 |
 | T6 | gate スキルの exception-paths.md に、7.3 の対象の限定(判定の記録と記名、7.4 の禁止対象) | template/.claude/skills/gate/reference/exception-paths.md | IMPL-0603 |
 | T7 | 集約の gateExceptions が、`G-4`・`G-5` を対象とし、当該の判定記録・集約の結果の無い行を成立させない | template/scripts/gate/aggregate-evidence.mjs | IMPL-TMP-327-1・IMPL-0567 |
-| T8 | templates/trial-checklist.md の「差し引き」の項目を、差し引きが負であることの確認へ(2巡目の突合 M2-2) | template/templates/trial-checklist.md | IMPL-0999 |
+| T8 | templates/trial-checklist.md の「差し引き」の項目を、差し引きが負であることの確認へ(2巡目の突合 M2-2) | template/templates/trial-checklist.md | IMPL-1002 |
 
 ## 6. Issue を閉じられるか
 

@@ -6,18 +6,18 @@
 
 | ファイル | 変更 |
 | --- | --- |
-| src/content/docs/phase4-process-design/gate-criteria.md | G-5「検査対象が存在しない場合の扱い」に構成で選んだ未実施の段落(EV-0290、IMPL-0989)。項目4 の行と箇条に継続期間(EV-0289、IMPL-0990)。IMPL-0234・0239・0476 の note |
+| src/content/docs/phase4-process-design/gate-criteria.md | G-5「検査対象が存在しない場合の扱い」に構成で選んだ未実施の段落(EV-0293、IMPL-0992)。項目4 の行と箇条に継続期間(EV-0292、IMPL-0993)。IMPL-0234・0239・0476 の note |
 | src/content/docs/phase4-process-design/assurance-case.md | H.6 の併記の表に項目4 の行。C3 の行と観点16 の確かめ方に継続期間 |
 | src/content/docs/phase5-implementation/template-repository.md | 空コマンドの表のカバレッジを分け ADR-0124 に合わせた(編集)。caution の末尾に区別を足した |
 | src/content/docs/phase5-implementation/ci-gates.md | 継続期間の併記と起点・回数の引き継ぎを項目4 へ広げた |
 | src/content/docs/adr/0151-unselected-optional-check-not-failure-disclose-duration.md | ADR-0151 を新設 |
-| src/data/impl-inventory.yaml | 節「検査対象が存在しない場合の扱い」に IMPL-0989、G-7「保証の開示」の節に IMPL-0990 |
+| src/data/impl-inventory.yaml | 節「検査対象が存在しない場合の扱い」に IMPL-0992、G-7「保証の開示」の節に IMPL-0993 |
 | src/content/docs/community/evidence-ledger.md・implementation-ledger.md | 再生成 |
 
 ## 番号
 
-- ADR-0151。EV-0289(決定2 の前提。decision の EV-TMP-330-1)、EV-0290(決定1 の判断。同 -2)。origin/main の最大は EV-0288・IMPL-0988。push の直前に付け直す
-- IMPL-0989(delivered)、IMPL-0990(undelivered、issue=330、review=2027-05)
+- ADR-0151。EV-0292(決定2 の前提。decision の EV-TMP-330-1)、EV-0293(決定1 の判断。同 -2)。origin/main の最大は EV-0288・IMPL-0988。push の直前に付け直す
+- IMPL-0992(delivered)、IMPL-0993(undelivered、issue=330、review=2027-05)
 
 ## 検査
 
@@ -25,9 +25,9 @@ lint:evidence・lint:impl・lint:scope・lint:refs・lint:provisions・lint:deki
 
 ## 裁定から外れた点
 
-1. IMPL-0989 は check=machine ではなく check=manual とした。lint:impl は machine に、試験(test-g5-aggregate.mjs)の中の IMPL-0989:ng・IMPL-0989:ok の目印を要する。template/ を触れないため付けられない。note に理由と確かめる者を書いた。T-4 で目印つきの試験を足したときに machine へ戻す
-2. EV の書式が「根拠の水準」の欄に説明文を許さないため、説明は「対象」の欄へ移した。ADR-0151 は EV の重複を避け、caution を置かず本文で EV-0289・0290 を指す
-3. IMPL-0990 は H.6 の節ではなく、マークのある G-7「保証の開示」の節に登録した(検査が節の中のマークを要する)
+1. IMPL-0992 は check=machine ではなく check=manual とした。lint:impl は machine に、試験(test-g5-aggregate.mjs)の中の IMPL-0992:ng・IMPL-0992:ok の目印を要する。template/ を触れないため付けられない。note に理由と確かめる者を書いた。T-4 で目印つきの試験を足したときに machine へ戻す
+2. EV の書式が「根拠の水準」の欄に説明文を許さないため、説明は「対象」の欄へ移した。ADR-0151 は EV の重複を避け、caution を置かず本文で EV-0292・0290 を指す
+3. IMPL-0993 は H.6 の節ではなく、マークのある G-7「保証の開示」の節に登録した(検査が節の中のマークを要する)
 4. ADR の index には ADR の一覧が無く、更新箇所が無かった
 
 ## 残すもの

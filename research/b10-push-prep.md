@@ -33,3 +33,21 @@
 ## 検査
 - 通過: lint:evidence・lint:refs・lint:scope・lint:sources・lint:provisions・lint:registry・test:provisions・test:registry・test:criteria
 - 失敗 1 件: lint:impl。IMPL-0048(origin/main 自身の記述)の試験 `template/scripts/gate/test-assurance-period.mjs` がこの作業ツリーの template/ に無い。作業ツリーの template/ は 1e12ad2 で、origin/main の参照 8839c80 は手元に無い。このブランチの変更が原因ではない。参照どおりの template を取得すれば解消する見込み(未確認)
+
+## 2回目(2026-11-17)
+
+- origin/main の先頭は 9625626d(B8 の IMPL-0989〜0991・EV-0289〜0291 を含む)。62 コミットを rebase した。
+- 衝突: 台帳(evidence-ledger.md)は origin/main 側を採って再生成した。本文は deliverable-templates.md の1箇所だけ。origin/main 側は IMPL-0821 の実装マークを `plan=adopter decision=ADR-0139` へ書き換え、B10 側(#440)は同マークを閉じて削除していた。B10 側を採った(IMPL-0821 は ADR-0156 の決定で閉じる)。lint:impl は通過しており、食い違いは出ていない。
+- template: `git submodule update template` で b780a76 に合わせた。B10 のコミットでは参照を変えていない。
+- 置換表(B10 側の追加行だけを置き換え。origin/main 側の定義は不変)
+
+| 種別 | 旧 | 新 |
+|---|---|---|
+| EV | EV-0289〜0297 | EV-0292〜0300(+3) |
+| IMPL | IMPL-0989〜0999 | IMPL-0992〜1002(+3) |
+| ADR | 0151・0153〜0156 | 変更なし(origin/main の最大は 0142) |
+| SRC | SRC-0750〜0756 | 変更なし(origin/main の最大は SRC-0749) |
+
+- 上の「1回目」以前の記述にある EV-0289〜0297・IMPL-0989〜0999 は旧番号である。research/327・330・337・440-deliberation/ と impl-inventory.yaml は新番号へ置き換えた。
+- 台帳(evidence・implementation・scope)と出典の索引を再生成した。
+- 検査(lint:evidence・impl・refs・scope・sources・provisions・registry、test:provisions・registry・criteria、impl:issues)はすべて通過。`npm run check` の全量は流していない。
