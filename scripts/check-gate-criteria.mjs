@@ -6,6 +6,7 @@
 //                                                  配布する知識ベースそのものを検査する(既定は
 //                                                  template/scripts/vendor/tailoring-kb.json)。
 //                                                  環境変数 GITHUB_SHA があれば、生成元の版との一致も求める
+//                                                  (--kb が無いときは、生成元が標準の HEAD の祖先であることを求める。#332)
 //
 // 正本は src/content/docs/phase4-process-design/gate-criteria.md の判定基準表です。
 // integrated.yaml の gates[].criteria は生成物であり、手で編集しません(ADR-0048)。
@@ -18,7 +19,7 @@ import { readEdition, editionProblems, editionAt } from './lib/edition.mjs';
 import path from 'node:path';
 import { readYamlCriteria, writeCriteria } from './lib/gate-criteria-yaml.mjs';
 import { fileURLToPath } from 'node:url';
-import { missingInputs, describeMissing, commitProblems } from './lib/inputs.mjs';
+import { missingInputs, describeMissing, commitProblems, ancestryProblems } from './lib/inputs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE = path.join(ROOT, 'src/content/docs/phase4-process-design/gate-criteria.md');
@@ -158,6 +159,9 @@ if (kbMissing.length) {
   // 生成元の版は 40 桁の16進に限る('unknown' を通さない)。配布のジョブでは、起動したコミットとの一致も求める
   const expected = kbArg ? process.env.GITHUB_SHA : undefined;
   problems.push(...commitProblems(kb.source?.commit, expected));
+  // 既定の対象(テンプレートへ複製した知識ベース)は、生成元が標準の HEAD の祖先であることも求める(#332 / ADR-0157 決定3)。
+  // 配布のジョブ(--kb)は、起動したコミットとの一致で足りる(一致すれば祖先でもある)
+  if (!kbArg) problems.push(...ancestryProblems(ROOT, kb.source?.commit));
   // 本標準の版(第1章 1.10.3。#313)。知識ベースは、正本(src/data/edition.yaml)と同じ版を持つ。作業中の版は null
   {
     const ed = readEdition();

@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-17)。[ADR-0090](/process-compass/adr/0090-job-token-and-deploy-credential-binding/) の決定8 のうち、「受け手の検証」と「来歴の証明(artifact attestation)」の2項目を、候補から決定へ移します(一部置き換え)。決定8 のほかの項目(配布の経路の変更のうち Pages と、`dist/standard` の各コミットと `main` の CI の実行との突き合わせ、語の全体の統一、準拠テンプレートの workflows の最小権限)は候補のまま残します。[ADR-0052](/process-compass/adr/0052-delivery-is-verified-at-the-destination/) の決定2、[ADR-0077](/process-compass/adr/0077-repository-ci-wiring-and-distribution/) の `VERSION.md` が自由に書けることの開示、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/) の第1章 1.10.2 は維持します(置き換えません)。軽の審議の結論です(Issue [#332](https://github.com/Takenori-Kusaka/process-compass/issues/332)、`research/332-deliberation/`)。
 
+決定3 の配る側の検査は、2026-11-18 に実装済み(`scripts/check-gate-criteria.mjs`、試験は `scripts/test-kb-ancestry.mjs`)。以下の本文の「未実装」は採用時点(2026-11-17)の記述です。
+
 ## コンテキスト
 
 #332 は、配布物(`dist/standard`、準拠テンプレートの知識ベース)の生成元を、受け取り側に確かめる手段が無いことを問いました。あわせて、PR を経ない1名の体制での検査の段の構成を問いました。

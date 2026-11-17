@@ -8,6 +8,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 
 /** 入力が無いときに出す、取得の命令 */
 export const INIT_HINT = 'git submodule update --init --recursive';
@@ -84,4 +85,34 @@ export function commitProblems(commit, expected) {
     problems.push(`配布する知識ベースの生成元の版(${commit})が、配布を起動したコミット(${expected})と一致しません`);
   }
   return problems;
+}
+
+/**
+ * 知識ベースの生成元(source.commit)が、標準のリポジトリの HEAD の祖先かを検査する(#332 / ADR-0157 決定3)。
+ * rebase で生成元が履歴から外れると、表示(source.commit)と実態が食い違う。
+ * 履歴を読めない場合(浅い clone、コミットのオブジェクトが無い)は、未確認を通さず失敗とする(#293 裁定 J-3)。
+ * 形式が不正な値は commitProblems が報告するので、ここでは見ない。
+ * @returns {string[]} 問題の一覧(空なら問題なし)
+ */
+export function ancestryProblems(root, commit) {
+  if (!COMMIT_RE.test(String(commit ?? ''))) return [];
+  const git = (args) => spawnSync('git', ['-C', root, ...args], { encoding: 'utf8' });
+  const hint = "rebase の後は 'npm run template:kb' で知識ベースを再生成してください";
+  if (git(['rev-parse', '--git-dir']).status !== 0) {
+    return [`生成元の版 ${commit} が標準の履歴の上にあるかを確かめられません(git のリポジトリではありません)。未確認は失敗に数えます`];
+  }
+  if (git(['rev-parse', '--is-shallow-repository']).stdout.trim() === 'true') {
+    return [`生成元の版 ${commit} が標準の履歴の上にあるかを確かめられません(浅い clone です。履歴ごと取得してください: git fetch --unshallow)。未確認は失敗に数えます`];
+  }
+  if (git(['cat-file', '-e', `${commit}^{commit}`]).status !== 0) {
+    return [
+      `生成元の版 ${commit} のコミットが、標準のリポジトリにありません(履歴が外れたか、取得していません)。${hint}`,
+    ];
+  }
+  const r = git(['merge-base', '--is-ancestor', commit, 'HEAD']);
+  if (r.status === 0) return [];
+  if (r.status === 1) {
+    return [`生成元の版 ${commit} は、標準の HEAD の祖先ではありません(到達できないコミットを名乗っています)。${hint}`];
+  }
+  return [`生成元の版 ${commit} の祖先の確認が実行できませんでした: ${(r.stderr || '').trim()}。未確認は失敗に数えます`];
 }
