@@ -25,3 +25,10 @@ origin/main(54c143f8)の上へ 22 コミットを rebase した。衝突は impl
 
 - research/ 配下の B11 の記録(348・355・356 の審議)の IMPL 番号も置き換えた。当時の文脈で origin/main の 1003〜1005 を指す記述があれば、取り違えている可能性が残る(目視は未了)
 - 検査: lint:refs・impl・evidence・sources・citations・scope、test:fields、check-template-drift はいずれも通過。回帰の全量は未実行
+
+## 回帰の全量(2026-11-17、HEAD 994bc855)
+
+- 環境: WSL・node v26.13.1(nvm)。`git archive`(LF)した tar を WSL へ展開(WSL の git は worktree を読めないため)。template は参照 4174f630 を `git -C template archive` で展開して git init。`npm ci` 0。
+- `npm run check` 通常 exit 0、`TZ=UTC npm run check` exit 0。失敗なし。
+- 備考: 初回の写しは `git archive` を既定の設定(core.autocrlf=true)で作ったため template が CRLF になり、`test-discouraged-evidence`・`test-g5-aggregate` が落ちた。`-c core.autocrlf=false -c core.eol=lf` で作り直して解消した。B11 の変更による失敗ではなく、写しの作り方による偽の FAIL。
+- 写しは消した。
