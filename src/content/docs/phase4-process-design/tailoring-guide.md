@@ -1311,14 +1311,14 @@ T-1 の限定試行は、次の試行前チェックリストの全項目を確�
 
 ### 差し引き
 - [ ] 廃止または置換する既存の承認・様式が特定されている
-- [ ] 廃止・置換する既存の承認・様式と、新設する判定の差し引きが負であることを確認した([ADR-0013](/process-compass/adr/0013-enablement-by-bounded-trial/) 決定2)
+- [ ] 導入後の判定件数が、置換前を上回らないことを確認した
 
 ### 撤退
 - [ ] 中止の条件が事前に定められている
 - [ ] 中止した場合に元の手順へ戻す方法が定められている
 ```
 
-<!-- impl IMPL-1002 target=trial-checklist state=undelivered check=manual plan=scheduled issue=327 review=2027-05 note="試行前チェックリストの「差し引き」の項目を、廃止・置換する既存の承認・様式と新設する判定の差し引きが負であることの確認へ改めること(ADR-0013 決定2。ゼロは足りない)。準拠テンプレートの templates/trial-checklist.md は「導入後の判定件数が、置換前を上回らないことを確認した」のまま(2026-11-17 に読んだ)で、ゼロを許す。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-1002 target=trial-checklist state=undelivered check=manual plan=scheduled issue=327 review=2027-05 note="試行前チェックリストの「差し引き」の項目は、標準のこの表も準拠テンプレートの templates/trial-checklist.md も「導入後の判定件数が、置換前を上回らないことを確認した」のままで、ゼロを許す。ADR-0013 決定2(差し引きが負。ゼロは足りない)と食い違う。標準のこの項目と template の様式は、複製の検査(check-template-drift.mjs)が全文一致を求めるため、template を改める束で同時に「廃止・置換する既存の承認・様式と、新設する判定の差し引きが負であることを確認した」へ改める(#327 の template の項目 T8。2026-11-17 の指揮役の裁定)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 移行段階の計画の例は、[社会実装計画](/process-compass/phase5-implementation/enablement/)を参照。
 
