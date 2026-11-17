@@ -2186,8 +2186,8 @@ sections:
     ids:
       - IMPL-0131
       - IMPL-0132
-      - IMPL-0986
-    note: 機械が検査してよい形式の欠落は IMPL-0131(両側の参照)と IMPL-0132(欄の空・単一の値・「なし」)。前の判断記録との一致は IMPL-0986(降りていない。#355 の重の審議)。記述の質を機械判定して承認可否を決めないことは第5章 5.7.4 の規定で、本節は表の「しない」で再掲する
+      - IMPL-0990
+    note: 機械が検査してよい形式の欠落は IMPL-0131(両側の参照)と IMPL-0132(欄の空・単一の値・「なし」)。前の判断記録との一致は IMPL-0990(降りていない。#355 の重の審議)。記述の質を機械判定して承認可否を決めないことは第5章 5.7.4 の規定で、本節は表の「しない」で再掲する
     issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-3 技術設計判断(技術判断者・48時間) > 事業決裁者が受容を拒否した場合
     status: marked
@@ -2531,10 +2531,10 @@ sections:
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 基準4 の記録
     status: marked
     ids:
-      - IMPL-0985
+      - IMPL-0989
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
-    note: 基準4 の完備を出荷判定者が判定することは IMPL-0043(基準の表の所在)、機械の未記入の検出は IMPL-0985。記入が在ることは完備を意味しない旨と限界の箇条書きは、IMPL-0985 の note が追う(#355 束1)
+    note: 基準4 の完備を出荷判定者が判定することは IMPL-0043(基準の表の所在)、機械の未記入の検出は IMPL-0989。記入が在ることは完備を意味しない旨と限界の箇条書きは、IMPL-0989 の note が追う(#355 束1)
     issue: 355
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 壊してはならない品質条件の突合
     status: marked
@@ -3311,13 +3311,13 @@ sections:
     ids:
       - IMPL-0161
       - IMPL-0162
-      - IMPL-0987
+      - IMPL-0991
     rows:
       要求事項1:
         status: marked
         ids:
           - IMPL-0161
-          - IMPL-0987
+          - IMPL-0991
       要求事項2:
         status: marked
         ids:
@@ -3326,7 +3326,7 @@ sections:
         status: marked
         ids:
           - IMPL-0161
-          - IMPL-0987
+          - IMPL-0991
       要求事項4:
         status: none
         category: elsewhere
