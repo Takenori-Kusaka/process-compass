@@ -361,7 +361,7 @@ D-0 を判定基準に含めると、体制の不備が投資対効果と相殺�
 - 文脈オーナーの交代
 - コア機能の理解保持者が交代し、残る保持者が1名以下になる場合
 
-<!-- impl IMPL-0885 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="コンテキスト移管ゲートの適用。結果責任者(A)の交代、文脈オーナーの交代、コア機能の理解保持者の交代(残る保持者が1名以下)のいずれかで、H-1・H-2・H-3 の記録を要すること。準拠テンプレートにコンテキスト移管の記録も、交代から H-1〜H-3 を求める結線もない(席の責任者の交代は /process-change の種別 accountable が変化点として記録するが、H-1〜H-3 を求めない。template/ で予告期間・コンテキスト移管・書き戻し完了を検索して該当無し。2026-11-15)。採用者に委ねるかは本件では決めない。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0885 target=process-change-skill state=delivered check=manual note="コンテキスト移管ゲートの適用。.claude/skills/process-change/kinds/accountable.md の節「交代に続くコンテキスト移管」が、A・文脈オーナーの交代と理解保持者が1名以下になる交代で H-1〜H-3 を残作業として渡す。専用の様式は作らない。記録の置き場は採用者が決める。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 
 ### 2.9.2 移管の成立条件
 
@@ -387,7 +387,7 @@ graph LR
 | H-2 書き戻し完了 | **予告期間に応じて定める**(2.9.5) | 文脈オーナー | 予告期間の区分に対応する範囲の解消 |
 | H-3 理解の実証 | 交代日以降、合意した期限内 | 前任者でも後任者でもない者 | 後任者が独立して判断できること |
 
-<!-- impl IMPL-0887 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3つのゲートの判定。H-1 は価値責任者が交代の通知から3営業日以内(予告期間が5営業日未満は翌営業日まで)、H-2 は文脈オーナーが予告期間に応じた期限で、H-3 は前任者でも後任者でもない者が交代日以降に判定すること。準拠テンプレートにゲートの判定記録の種別も判定者の割当も無い。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0887 target=process-change-skill state=delivered check=manual note="3つのゲートの判定者と期限。.claude/skills/process-change/kinds/accountable.md の節「交代に続くコンテキスト移管」の表が受ける。判定者の割当と判定記録の種別は機械では確かめない。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 
 ### 予告期間
 
@@ -539,7 +539,7 @@ graph LR
 
 最後の項目は運用上の要です。不合格を個人の評価へ跳ね返す運用では、合格の目的化と判定の形式化を招くことがあります。
 
-<!-- impl IMPL-0898 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="H-3 が期限内に合格しない場合。交代日までに H-3 が合格しないときは前任者の関与を延長するか対象を他の理解保持者へ一時的に移し、結果責任者(A)を空席にしたまま交代日を過ぎないこと。延長の記録も空席の検出も準拠テンプレートに無い。H-3 の不合格を後任者の人事評価に用いない旨は、本標準が求める記録に現れない制度設計で、マークを付けない(登録に探した場所を書いた。束 C の突合 1巡目 C1-40)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0898 target=process-change-skill state=delivered check=manual note="H-3 が期限内に合格しない場合。.claude/skills/process-change/kinds/accountable.md の節「交代に続くコンテキスト移管」の箇条が、前任者の関与の延長か一時的な移管、A を空席にしたまま交代日を過ぎないこと、不合格を人事評価に用いないことを置く。空席の機械検出は無い。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 
 ## 2.10 スコープの確約と進捗の統制
 

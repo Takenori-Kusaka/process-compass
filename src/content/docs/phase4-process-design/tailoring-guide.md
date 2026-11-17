@@ -64,7 +64,7 @@ D-0 体制図、テーラリングの入力(軸A〜E)、担い手の適合性確
 - 兼務禁止と独立の再判定に影響する
 - 人数の境界を通過する
 
-<!-- impl IMPL-0732 target=process-change-skill state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="変化点1 の限定。席の責任者でない担い手(人)の増減・交代を、兼務禁止と独立の再判定に影響する場合か、人数の境界を通過する場合に限って契機に数えること。/process-change の種別 accountable(.claude/skills/process-change/kinds/accountable.md)は責任者でない担い手の記入を受け付けるが、契機に数える条件で絞る記述と処理を見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0732 target=process-change-skill state=delivered check=manual note="変化点1 の限定。.claude/skills/process-change/kinds/accountable.md の節「責任者でない担い手(人)の増減・交代は、契機に数える条件で絞る」が、兼務禁止と独立の再判定に影響する場合か人数の境界を通過する場合に限る旨を置く。どちらに当たるかは利用者が判断する。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 
 ### 契機に数えないもの
 
@@ -106,7 +106,7 @@ D-0 体制図、テーラリングの入力(軸A〜E)、担い手の適合性確
 <!-- impl IMPL-0734 target=process-change-skill state=delivered check=manual note="再実行の向きごとの適用。厳しくする向きは即時に適用し、人の離脱で成立しなくなった統制(未達・逸脱・列挙に無い離脱の発生)は記名を要求せず即時に反映し、緩める向きを含む変更は決定した者の記名と理由を受け取るまで適用しない。ステージを前へ戻す変更は SG の判定記録(sgRecord)を要する。.claude/skills/process-change/reference/direction.md の表と kinds/axis.md が置く。IMPL-0722(3.13.3)が差分の分類を追う。確かめる者: 変化点の決定者(/process-change の出力を読むとき)。所在を読んだ(実行して確かめていない)" -->
 <!-- impl IMPL-0735 target=config-change-log state=delivered check=manual note="緩める向きの変更の記名に AI の名義を受け付けないこと(再実行の時点と向きの表)。scripts/init/generate-profile.mjs の deciderProblems が deciderRowProblems を呼び、その先頭で scripts/gate/config.mjs の nameProblems(requireRoster)が、AI の名義・担い手の識別と同じ文字列・名簿にない名義を、緩める向き・任免を含む変化点の決定者(decidedBy)について拒否の理由に積む。IMPL-0722(3.13.3)の note も同じ所在を指す。確かめる者: 変化点の決定者(/process-change の出力を読むとき)。所在を読んだ(実行して確かめていない)" -->
 <!-- impl IMPL-0736 target=process-change-skill state=delivered check=manual note="未達が解けることに伴う代償措置の終了。代償措置で引き上げたカバレッジの下限は、未達が解けると基準値へ戻り、構成の差分に終了の行が出る。代償措置の値は基準値と分け、由来(derived・compensation・calibrated)で記録し、較正した基準値は未達の解消で動かさない。scripts/init/generate-profile.mjs の diffConfig と coverageOrigin の導出、.claude/skills/process-change/kinds/settings.md が置く。終了の行を示さずに戻す変更の拒否までは確かめていない。確かめる者: 変化点の決定者(/process-change の出力を読むとき)。所在を読んだ(実行して確かめていない)" -->
-<!-- impl IMPL-0737 target=process-change-skill state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="再実行のたびに、調整は宣言を伴うの4つの要求事項(軸に基づく調整・外した項目の宣言・目的の達成の提示・従う版の宣言)を満たし直すこと。/process-change の SKILL.md に宣言を更新する手順は無く、従う版の宣言の欄だけが IMPL-0310 で降りている。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0737 target=process-change-skill state=delivered check=manual note="再実行のたびに調整の宣言の4点を満たし直すこと。.claude/skills/process-change/SKILL.md の節「宣言を満たし直す」が受ける。宣言の中身は機械では確かめない。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 
 緩める向きと厳しくする向きを非対称に扱うのは、[第5章 5.4.5・5.4.6](/process-compass/phase4-process-design/human-ai-boundary/)と同じ構成です。**本標準は、再テーラリングのために、新しいゲート・会議体・台帳を定めません**。
 
@@ -448,7 +448,7 @@ graph TD
 
 委任の条件に反する変更が2期連続で出た場合、切替を停止してリリース前の判定へ戻します。
 
-<!-- impl IMPL-0842 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="委任の条件に反する変更が2期連続で出た場合に、切替を停止してリリース前の判定(協働)へ戻すこと。期ごとの条件に反する変更の件数を数え、2期連続で停止へ進める処理を、scripts/gate/config.mjs・delegation.mjs・scripts/init/generate-profile.mjs に見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0842 target=process-change-skill state=delivered check=manual note="委任の条件に反する変更が2期連続で出た場合の切替の停止。.claude/skills/process-change/kinds/mode.md の節「条件に反する変更が出たとき」が、件数を利用者から受け取り席を協働へ戻す入力を作る手順を置く。期ごとの件数を数える機械の記録は無い。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 
 適用範囲を狭めることは、該当する変更種別を協働へ引き下げることに当たります。厳しくする向きの変更であり、検知した時点で適用します。
 
@@ -513,7 +513,7 @@ AI を補助として使う場合、指示資産(プロンプト・恒久層コ�
 
 <!-- impl IMPL-0744 target=config-delegation state=delivered check=manual note="切替の適用中に安全重要度が CL1 以上へ上がった、または規制業に該当したとき、切替を即時に止めること。scripts/init/generate-profile.mjs が回答から delegation.allowed を導き(CL0 以外・規制業は blockedBy)、席の運用形態を協働へ落とし、scripts/gate/config.mjs の classifyDelegation が allowed が真でない構成を「委任を適用できない構成」と返す。変化点(軸の種別)を反映した時点で止まる。抜き取り待ちの全件確認し直しは IMPL-0600・IMPL-0724 が追う。確かめる者: 変化点の決定者(安全重要度の変化点を反映するとき)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0841 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="緊急のセキュリティ修正を登録した変更種別に含めず、7.4 のファストトラックで扱うこと。登録した種別から緊急の修正を除く処理を、scripts/gate/config.mjs に見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0841 target=process-change-skill state=delivered check=manual note="緊急のセキュリティ修正を登録した変更種別に含めず 7.4 のファストトラックで扱うこと。.claude/skills/process-change/kinds/mode.md の節「引き上げと登録の判断点」の箇条が受ける。意味の判断であり、登録した種別から機械が除くことはしない。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 
 ## 軸B: 事業ステージによる調整
 

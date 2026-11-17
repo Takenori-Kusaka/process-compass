@@ -676,7 +676,7 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 導入前の実測との比較は、時期の違いによる交絡を除けません。検証・修正・教育・管理の工数の実績は、既存の記録からの代理でしか取れず、全量は測れません。
 :::
 
-<!-- impl IMPL-0624 target=autonomy-derivation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="7.7.8 要求事項6。AI自律レベルの引き上げ(5.4.5)と委任の範囲の登録(5.5.4)の判断点で、下流の指標を比較の基準値と比べること。委任の登録から現在の AI自律レベルを導く autonomy.mjs と、check-delegation.mjs・gates/ に「比較の基準値」の語は無い(2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0624 target=process-change-skill state=delivered check=manual note="7.7.8 要求事項6。.claude/skills/process-change/kinds/mode.md の節「引き上げと登録の判断点」の箇条が、判断点で下流の指標を比較の基準値と比べた結果を理由に書かせる。指標のデータは採用者が持つ。比較の実施は機械では確かめない。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 <!-- impl IMPL-0633 target=qa-policy-template state=delivered check=manual note="7.7.8 要求事項15。templates/11-quality-assurance-policy.md の項目1 の行「評価の方針」が、利用者ごとの AI の利用量・費用の集計を人の評価・順位・目標に使わないことと、案件単位・機能単位の集計を妨げないことを置く。記名者が書き換えた場合を拒む検査は無い。確かめる者: 記名者と品質保証部門(層1 を記名するとき。所在を読んだ。実行して確かめていない)" -->
 
 ### 7.7.9 見積りの記録と、予算の案の示し方

@@ -27,7 +27,7 @@ sidebar:
 
 <!-- impl IMPL-0591 target=claude-md state=delivered check=manual note="原則1(結果責任は人間に紐づき、AI は実行のみを担う)。準拠テンプレートの CLAUDE.md の「4種類の判断の確定…席の責任者(人)が記名で行う。AI の担い手へ移さない」の行が、結果責任を席の責任者(人)に置く。原則2・3 は別のマークで追う。 確かめる者: AI維持管理者(指示資産・様式を改めるとき)" -->
 
-<!-- impl IMPL-0592 target=config-roles state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="原則2(結果責任は成果物ごとに1名)。構成の席の責任者(seats[].accountable)は席ごとに1名の欄で、成果物ごとの1名を照らす検査は scripts/gate・scripts/init に見つからない(2026-11-15)。原則3(生成を指示した者と別の自然人が確認する席の責任者を置く。兼務で確認しても満たせず G-6 を未達として表示する)は IMPL-0688 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0592 target=d0-template state=delivered check=manual note="原則2(結果責任は成果物ごとに1名)。templates/00-d0-governance.md 節3 末尾の担当表(成果物ごとの結果責任者 A を1名)が受ける。構成の席の責任者(seats[].accountable)との照合は機械では確かめない(内部監査)。原則3 は IMPL-0688 が追う。確かめる者: 体制図(D-0)を承認する席の責任者(承認のとき)と、採用者の内部監査" -->
 <!-- impl IMPL-0688 target=config-unmet state=delivered check=manual note="原則3。生成を指示した者と別の自然人が確認する席の責任者を置くこと。兼務で確認しても満たせず、G-6 を未達として表示すること。scripts/init/generate-profile.mjs の detectUnmet が、確認する人がいない・同一人物・確認の担い手が示されていない構成で gates.g6.state を unmet にし、scripts/gate/config.mjs の confirmerOnRoster と verify-gate-contract.mjs が、未達の記録が無い構成を拒む。3名以上の体制は兼務禁止の表からの導出と、同一人物にする変更の拒否が generate-profile.mjs にある。第3章 3.5 のマークとの突き合わせは別の束で行う。実行は見ていない。確かめる者: 出荷判定者(PROCESS-PROFILE.md の未達の表示を読むとき)" -->
 
 ## 5.3 役割境界の時点表記
@@ -355,7 +355,7 @@ AI 支援を用いた群が、支援なしの後続作業で著しく高い失�
 
 外部指標を単独の根拠にしない理由は、公開ベンチマークに評価データの混入や設問不備が繰り返し報告されており、2026年前半には主要な提供者がその一部の使用を取りやめているためです。
 
-<!-- impl IMPL-0595 target=process-change-skill state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="外部の性能指標(ベンチマークのスコア)のみを根拠にレベルを引き上げないこと、自組織の実測値を根拠とすること。/process-change の SKILL.md・kinds/mode.md・CLAUDE.md・autonomy.mjs・config.mjs を「ベンチマーク」「外部の性能」「指標」で検索して、該当する文は無かった(2026-11-15)。時点の併記と1年後の再評価は本標準の記述の保守であり、案件の実行主体の挙動ではない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0595 target=process-change-skill state=delivered check=manual note="外部の性能指標のみを根拠にレベルを引き上げないこと。.claude/skills/process-change/kinds/mode.md の節「引き上げと登録の判断点」の箇条が受け、自組織の実測値を根拠にする。エージェントの手順の文であり、根拠の中身は機械では確かめない。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 
 ## 5.5 判断の席と、確定の担い手
 

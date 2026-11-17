@@ -213,7 +213,7 @@ graph LR
 
 <!-- impl IMPL-0779 target=d0-template state=delivered check=manual note="成立済みの判定記録は書き換えず、変化点をまたぐ未完了の判定は新しい体制の判定者が引き継ぐこと(文のこと)。templates/00-d0-governance.md の節13 の箇条書きの末尾が同じ文を置く。記録の有無と、判定者の名義の検査は IMPL-0944 が追う。確かめる者: 体制の変化点を反映する席の責任者" -->
 
-<!-- impl IMPL-0944 target=process-change-skill state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="変化点をまたぐ未完了の判定を、変化点の後の体制の判定者(新しい席の責任者)が引き継ぐことの記録と、変化点の前の体制の判定者の名義の判定を変化点の後の判定として受け付けない検査。変化点の入口(/process-change)は dry-run.md の「無効になった確認の候補」に、責任者または運用形態が変わった席の仕掛かり中の判定を挙げる(候補を示すだけ)。引き継ぎの記録と名義の検査は、読んだ範囲(scripts/init/generate-profile.mjs の差分の分類、/process-change の補助ファイル。2026-11-15 に付け替え)で見つかっていない。降ろし先を config-change-log から付け替えた(changeLog は変化点の記録で、仕掛かりの判定を持たない)。IMPL-0723(無効になった確認の特定)と同じ仕掛かりの扱い。IMPL-0779 から分けた(束 C の突合 1巡目 C1-03)。確かめる者: 計画の Issue の担当者" -->
+<!-- impl IMPL-0944 target=process-change-skill state=delivered check=manual note="変化点をまたぐ未完了の判定の引き継ぎ。.claude/skills/process-change/reference/dry-run.md の節「変化点をまたぐ未完了の判定」が、引き継ぎと前任の名義の判定を受け付けないことを残作業として渡す手順を置く。名義の機械の検査は無い(手順の境界のみ)。確かめる者: 体制の変化点を反映する席の責任者(反映のとき)" -->
 
 変化点の列挙と手続は、製造と労働安全の変更管理からの類推です。開発体制へ転用した効果は測定されておらず、根拠の水準は ADR-0055 に開示しています。
 
