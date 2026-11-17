@@ -38,7 +38,7 @@ IMPL-0831	#445	b	同	b	manual	templates/04-gate-record.md 欄		判定記録の�
 IMPL-0835	#445	c	同	c	manual	template/CLAUDE.md 常駐 + gates/G-6.md		常駐の規則の文。手引きへ
 IMPL-0836	#445	d	a	a	presence	scripts/gate/adapter.mjs: 軸C 規制業の構成で「規制要件の確認」の段が宣言されていること(単位: キー)		0763・0930・0931 と同じ「段の存在」の型。要件の中身と道具は採用者の値で manual
 IMPL-0838	#445	c	同	c	manual	.claude/skills/gate/gates/G-7.md		手順を手引きへ
-IMPL-0878	#445	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	企画書が前の案件の記述と同一でないこと。他の案件の企画書が入力に要り、単一の案件のリポジトリは持たない(ADR-0170)。確かめる者: 採用者の G-1 の判定者(判定のとき)
+IMPL-0878	#445	d	同	a	machine(test を対で)	scripts/gate/check-g1.mjs: 前の企画書の所在を受けたときだけ同一の欄を出す。与えなければ未確認		突合 1巡目で (d) から外した。入力を置くことは採用者の値として note で開示
 IMPL-0884	#445	a	a(存在まで)	a	machine	scripts/gate/check-g1.mjs: 先行する記録の存在と、記録に書かれた日付の前後		日付は書いた者の値で改ざんは閉じない旨を注記で開示
 IMPL-0930	#445	a	同	a	machine(test を対で)	scripts/gate/adapter.mjs の段		段の存在と閾値の比較は決定可能。閾値は組織がG-1で定める値
 IMPL-0931	#445	a	同	a	machine(test を対で)	scripts/gate/adapter.mjs の段		0930と同じ段。生き残りの一覧の読解は人(manual)
@@ -49,7 +49,7 @@ IMPL-0972	#445	a	同	a	machine(test を対で)	scripts/gate/check-pr.mjs		判断
 IMPL-0979	#445	a	d	a	machine(test を対で)	.github/workflows/review-queue-control.yml		時刻と状態から決定可能。宛先は D-0 表3の記名
 IMPL-0585	#446	c	同	c	manual	.claude/skills/gate/gates/G-6.md		省略の経路は無い(否定の検索)。禁止の文を置く
 IMPL-0592	#446	b	同	b	manual	templates/00-d0-governance.md 担当表		担当表の欄(0635と同じ)
-IMPL-0594	#446	a	同	a	machine(test を対で)	scripts/gate/autonomy.mjs + config の安全関連部の範囲		区分から上限への写像は決定可能。安全関連部の単位は構成の欄で与える
+IMPL-0594	#446	a	同	a	machine(test を対で)	scripts/gate/autonomy.mjs + config の安全関連部の範囲		区分から上限への写像は決定可能。安全関連部の単位は構成の欄で与える。範囲の宣言が安全関連部を覆うかは人の確認(manual。確かめる者: 安全の責任者)
 IMPL-0595	#446	c	同	c	manual	.claude/skills/process-change/kinds/mode.md		引き上げの手順の文
 IMPL-0597	#446	a	同	a	machine(test を対で)	scripts/gate/config.mjs changeTypeProblems		登録の根拠の欄の存在は決定可能(内容の当否は manual)
 IMPL-0598	#446	c	同	c	manual	template/CLAUDE.md 常駐 + scripts/gate/claude-md-resident.json		no-adopter 節(5.5.5)。常駐の指示に理解の確認の側を足す
@@ -96,12 +96,12 @@ IMPL-0707	#447	d	c	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	3.9
 IMPL-0708	#447	c	同	c	manual	template/CLAUDE.md 指示資産の節 + .claude/skills/pit/reference/		意味の識別。印の付け方と観点を手引きへ
 IMPL-0712	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	可用性と品質の監視の分離。品質の監視は AI 実行基盤に属し、準拠テンプレートは監視を持たない(IMPL-0408 と同じ。ADR-0170)。確かめる者: 採用者の AI運用担当者(監視を設けるとき)
 IMPL-0713	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	採点者の識別を変えた後の基準値の扱い。品質の監視は AI 実行基盤に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(採点者を変えるとき)
-IMPL-0715	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	モデルの廃止予定の四半期の棚卸しと通知。提供者の廃止予定は AI 実行基盤の運用に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(四半期ごと)
+IMPL-0715	#447	d	同	c	manual	着手の期限の欄(IMPL-0065 の拡張の余地)。#447 の範囲		突合 1巡目で (d) から外した。scheduled・issue=447
 IMPL-0716	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	機密情報の送出の検査を接続経路に置くこと。接続経路は採用者の環境に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(経路を設けるとき)
-IMPL-0718	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	全社の統制の更新の段階導入。全社の統制と CI 基盤は案件のリポジトリの外にある(ADR-0170)。確かめる者: 採用者の統制の更新を決める者(更新のとき)
+IMPL-0718	#447	d	同	c	manual	全社の統制の更新の受け手の側(警告の段・昇格の日の表示)。#447 の範囲		突合 1巡目で (d) から外した。CI 基盤は案件の外にない。決めるのは統制の更新と昇格の予定日
 IMPL-0826	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	モデルの切替先の限定と発生の通知。切替は AI 実行基盤の運用に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(切替のとき)
-IMPL-0827	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	切替後の品質の監視と、基準を下回ったときの停止。品質の監視は AI 実行基盤に属する(ADR-0170)。確かめる者: 採用者の AI運用担当者(切替の後)
-IMPL-0832	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	判定の当日の議題を未解決の論点に限ること。会議の当日のふるまいで記録に残らない(ADR-0170)。確かめる者: 採用者の会議体の議長(当日)
+IMPL-0827	#447	d	同	c	manual	通知を受けたら止める側(常駐の指示か手引き)。#447 の範囲		突合 1巡目で (d) から外した。scheduled・issue=447
+IMPL-0832	#447	d	同	c	manual	.claude/skills/gate/SKILL.md(議題を判定資料の未解決の論点に限る)		突合 1巡目で (d) から外した。黙読・読み上げの禁止・判定の後の実行は追わない(旧 note のまま)
 IMPL-0833	#447	d	同	d	manual	(降ろさない)	plan=adopter decision=ADR-0170	接続経路上のチーム単位の上限の強制。経路は採用者の AI 実行基盤に属する。G-1 での合意の記録は IMPL-0902 が企画書で受ける(ADR-0170)。確かめる者: 採用者の AI運用担当者(上限を設けるとき)
 IMPL-0882	#447	c	同	c	manual	.claude/skills/gate/gates/SG.md(SG-1 の判定要件)		起案のまま
 IMPL-0883	#447	a	同	a	machine(test を対で)	process.config.json projectId + scripts/gate/check-g1.mjs		案件IDの存在は決定可能。IDの付与元は組織(境界: d)
@@ -128,11 +128,11 @@ IMPL-0978	#447	b	重	重へ送る		#340		5.4.7 の頻度の値と記録の欄は
 IMPL-0759	#448	a	同	a	machine(test を対で)	scripts/gate/check-d0.mjs		値の一致で決定可能
 IMPL-0760	#448	c	同	c	manual	scripts/init/generate-profile.mjs が PROCESS-PROFILE.md・CLAUDE.md へ出す		規則データを構成生成の文として出す。照合は manual
 IMPL-0764	#448	a	同	a	machine(test を対で)	scripts/init/generate-profile.mjs + verify-gate-contract.mjs		CLから最低の段は決定可能。記録の段との比較
-IMPL-0766	#448	d	a	a	machine	scripts/gate/autonomy.mjs(0594・0919 が足す安全関連部の範囲の外に限り L2 以上を許す分岐。test を対で)		0594・0919 の単位の上の分岐で新しい欄を足さない。許す向きを例外承認へ流すと偽の逸脱が残る。0594・0919 の後に実装
+IMPL-0766	#448	d	a	a	machine	scripts/gate/autonomy.mjs(0594・0919 が足す安全関連部の範囲の外に限り L2 以上を許す分岐。test を対で)		0594・0919 の単位の上の分岐で新しい欄を足さない。許す向きを例外承認へ流すと偽の逸脱が残る。0594・0919 の後に実装。範囲の宣言が安全関連部を覆うかは人の確認(manual。確かめる者: 安全の責任者)
 IMPL-0914	#448	b	c	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の適用規格欄で規格ごとに1指標
 IMPL-0916	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の欄
 IMPL-0917	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の適用規格と水準の欄
-IMPL-0919	#448	a	同	a	machine(test を対で)	scripts/gate/autonomy.mjs		安全関連部の範囲を構成に持てば決定可能(0594と同じ欄)
+IMPL-0919	#448	a	同	a	machine(test を対で)	scripts/gate/autonomy.mjs		安全関連部の範囲を構成に持てば決定可能(0594と同じ欄)。範囲の宣言が安全関連部を覆うかは人の確認(manual。確かめる者: 安全の責任者)
 IMPL-0920	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		G-5・G-6が一部を運ぶ。残りは検証記録の欄
 IMPL-0923	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の欄
 IMPL-0924	#448	b	同	b	manual	templates/09-safety-risk-assessment.md F.7節		F.7の欄
