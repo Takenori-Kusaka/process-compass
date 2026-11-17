@@ -860,8 +860,16 @@ flowchart LR
 - 書き込みの権限を持つ自動の処理(承認レビューの写しを置き場へ追記する処理など)は、変更の側の定義で動かさない。既定ブランチの定義で動かし、変更のコードを取り出さない。変更の側の定義で動けば、取り込まれない変更でも、その権限で任意の手順を動かせるためである
 - 取り込んだ変更では、既定ブランチの先端がその変更を含む。このため、その変更が書き換えた手順(写しの取り出しの手順など)が、その変更自身に使われる。この経路を止めるのは、取り込む前の統制の設定の変更の承認(後掲)だけである。残る経路として保証の開示に出す(G-7「保証の開示」)
 
-<!-- impl IMPL-0987 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=329 review=2027-03 note="PR を経る変更の G-5 の通過に数えるのは、当該の PR を評価した起動(pull_request・pull_request_target)の結果に限ること。出荷の証跡の集約は PR ごとの gate-g5 の結果を読むが、その起動の事象を確かめていない。gate-g5.yml は workflow_dispatch を受け、既定でないブランチでの手動の起動で名が gate-g5 の check run が付く(2026-11-11 の実機。#362 T11)。PR を経ないコミットの G-5(push を契機とする実行、IMPL-0238)と、出荷の証跡の取り込みが出荷の対象のコミットの実行を読むこと(ADR-0123)は、この規定の対象外。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
+<!-- impl IMPL-0987 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-g5-missing.mjs note="PR を経る変更の G-5 の通過に数えるのは、当該の PR を評価した起動(pull_request・pull_request_target)の結果に限ること。準拠テンプレートの aggregate-evidence.mjs は、PR の head の gate-g5 のワークフローの実行を actions/runs から読み(g5RunsOf)、pull_request・pull_request_target の成功が無い PR(手動の起動 workflow_dispatch の成功だけ、PR の実行が失敗で手動が成功)を通過に数えず欠落にし、起動の事象を読めない PR は「未確認(起動の事象を読めない)」として通過に数えない(g5TriggerVerdict)。record-copy.yml は写しの checks.gate_g5.runs に起動の事象を足す(照合できなくなる値で、充足に数えない)。test-g5-missing.mjs が違反と適合の対で固定する。gate-g5.yml の workflow_dispatch は外していない。手動の起動の成功がルールセットの必須チェックを満たすかは実機で未確認で、外すかどうかは実機の結果の後に決める(EV-0325)。PR を経ないコミットの G-5(push を契機とする実行、IMPL-0238)と、出荷の証跡の取り込みが出荷の対象のコミットの実行を読むこと(ADR-0123)は、この規定の対象外。限界: 実行の履歴の保持期間の後は未確認になり、通過に数えない側へ倒れる。" -->
 <!-- impl IMPL-0459 target=record-copy-workflow state=delivered check=machine test=template/scripts/gate/test-base-judge-workflow.mjs note="承認レビューの写しのワークフロー record-copy.yml(contents: write)を、pull_request の closed から pull_request_target の closed へ移し、checkout を既定ブランチにした(PR のコードを取り出さない)。2026-11-05 の実機の確認 E-5 で、pull_request の closed はマージせずに閉じた PR を PR の側の定義で動かし、merged の条件を消した定義が contents: write で動いた。誤ったコメント(マージ後の基底ブランチの定義を読む)を直した。実装した版(準拠テンプレート ba2b7e8)を実機で動かした確認 F-3 で、マージせずに閉じた PR は既定ブランチの定義で評価され、PR の側の merged の条件の削除は効かず(ジョブは skipped)、マージした PR では写しが置かれた。マージした PR が書き換えた手順は、その PR 自身の写しに使われた(残る経路。止めるのは取り込む前の承認 IMPL-0456 だけ)。test-base-judge-workflow.mjs が契機・checkout・merged の条件を静的に確かめる" -->
+
+:::caution[暫定 EV-0325 / 見直し 2027-03]
+**対象**: 手動の起動(workflow_dispatch)の成功が、ルールセットの必須チェックを満たすかどうかの扱い。準拠テンプレートの `gate-g5.yml` が手動の起動を受け続けること。
+**根拠の水準**: E0(なし)。
+**差し替え条件**: 一時のリポジトリで、ルールセットの必須チェックに gate-g5 を指定し、手動の起動の成功だけを持つ PR のマージ可否を確かめた実機の記録。
+
+準拠テンプレートの集約は、PR を評価した起動の成功だけを通過に数え、手動の起動の成功は通過に数えません。一方、マージそのものを止める側(必須チェック)が手動の起動の成功を満たすとみなすかは、実機で確かめていません。実機の結果の後に、`gate-g5.yml` から `workflow_dispatch` を外すかを決めます。外す変更は強制層の変更であり、AI維持管理者として所有者が承認します。
+:::
 
 変更のコードを実行することが目的の判定(基準1〜3・7 のテスト・カバレッジ・静的解析・秘匿情報の検査など)は、変更の側で実行します。基底の版で走らせると、判定の対象を失うためです。その結果は、信頼しないデータとして扱います。統制の設定を変える変更では、変更の側の結果を、書き換えた定義で作られた結果として扱います(後掲「統制の設定の変更の承認」)。
 
