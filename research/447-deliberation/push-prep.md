@@ -1,7 +1,7 @@
 # 束 B14 の #447 の push の準備(担当の記録。push はしていない)
 
 - HEAD: bb6d1b4a。origin/main: d0bbb613(HEAD の祖先)。本束は origin/main の上に 14 コミット
-- 番号: 本束が新設した EV-0321・0322、IMPL-1022・1023、ADR-0179 は origin/main に無い(origin/main の最大は EV-0319・IMPL-1019・ADR-0175)。重ならない
+- 番号: 本束が新設した EV-0322・0322、IMPL-1022・1023、ADR-0179 は origin/main に無い(origin/main の最大は EV-0319・IMPL-1019・ADR-0175)。重ならない
 - template の参照は e9f5590f のまま(origin/main と同じ)。template は触っていない
 
 ## 検査と回帰
