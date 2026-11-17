@@ -1,17 +1,17 @@
 # Graph Report - process-compass  (2026-11-17)
 
 ## Corpus Check
-- 2677 files · ~2,051,261 words
+- 2701 files · ~2,061,130 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 24 file(s) not represented in the graph (top: (none) 10, .tsv 6, .log 6)
 
 ## Summary
-- 92012 nodes · 91530 edges · 8310 communities (8205 shown, 105 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 289 edges (avg confidence: 0.94)
+- 92272 nodes · 91769 edges · 8327 communities (8221 shown, 106 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 292 edges (avg confidence: 0.94)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `119d3c93`
+- Built from commit: `9d33938d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -3779,7 +3779,7 @@
 - verification
 - c2
 - verification
-- scanSkillProvisions
+- check-skill-provisions.mjs
 - c5
 - quotes
 - verification
@@ -3809,7 +3809,7 @@
 - quotes
 - verification
 - verification
-- fix288-tpl2/suite/replay.mjs
+- regress/suite/new.mjs
 - c11
 - c13
 - c6
@@ -6362,7 +6362,7 @@
 - 会議体 #312 意見書 04 — 規格(standards expert)
 - 1. 指摘
 - #346 会議体 意見書 04 — 規格(standards)
-- 1. 現状(突合)
+- 3. 選択肢
 - 2. 業界の実務(AI コーディングエージェント、2025〜2026)
 - 会議体 意見書 02 — 現場(採用組織のテックリード)
 - 会議体 #313 意見書 04 — 規格(standards expert)
@@ -6372,7 +6372,7 @@
 - #422 会議体 委員意見: 品質監査(qa-audit)
 - #315 会議体 意見書 01 — 起案者(drafter)
 - 会議体 #346 意見書 05: 既存決定の擁護者(defender)
-- 反映の記録(Issue #296 固定定数の棚卸し(#295)の後継。裁定 L-1〜L-11)
+- 1. 裁定ごとの記録
 - #312 外部調査 2: 兼務と職務分離(規模別の席の兼務・出荷判定と独立レビュー・人員名簿)
 - #314 会議体 意見書 01: 起草者
 - 1. 指摘(重大度の順)
@@ -7212,10 +7212,10 @@
 - #428 の降ろし(IMPL-0415)の作業記録
 - ゲート判定記録の成立要件 — 本標準の内部の棚卸し(#321)
 - 議長の裁定(#424 第3章 3.12.3 の基準集合の正解を、AI の合議・多数決で作ってよいか)
-- regress/suite/unit.mjs
+- 1. 裁定ごとの記録
 - 会議体の議題(#424 第3章 3.12.3 の基準集合の正解を、AI の合議・多数決で作ってよいか)
 - 決定
-- 低
+- scen2.mjs
 - 議長の裁定(#427 AI の採点者(LLM-as-a-judge)の較正の手法を定めるか)
 - 議長の裁定(#380 判定記録だけの PR に GitHub のルールセットが課す1件の承認)
 - #429 内部調査 1: 担い手の認証情報の共有と、名簿の数値の識別子による照合
@@ -7673,7 +7673,7 @@
 - 議題6 組織上の距離の段2 以上(論点 D、IMPL-0184・0344・0452・0080、X-7)
 - 議題5 2名必須の制限(論点 C、IMPL-0118、X-3)
 - #357 再開時点の状態(2026-11-12)
-- 1. 裁定ごとの記録
+- 項目ごとの案
 - 議題1 外部の確認者を責任者に置ける席の限定(論点 E、IMPL-0463、X-2)
 - 議題3 (イ)の条件の記録(論点 A、IMPL-0116)
 - 議題4 席の責任者でない確認者の力量と、件数・区別の出力(論点 B、IMPL-0117)
@@ -7818,7 +7818,7 @@
 - #334 push の準備(担当の記録。push はしていない)
 - 所見
 - #353 委員「起案」の意見(重。2026-11-15)
-- 3. 選択肢
+- 1. 項目ごとの裁定
 - #334 実装の記録
 - #353 委員の意見: 品質監査(適合の主張を外から読む者・確かめる者の立場)
 - 反対の委員の意見(Issue #324 実装マークの節の棚卸し)
@@ -8077,7 +8077,7 @@
 - Issue #354 項目2 と #352 の残り(template の文の直し2点)の受付(2026-11-17)
 - #355 束1 反対委員の意見書(IMPL-0043・IMPL-0132・IMPL-0042)
 - #356 反対委員の意見(軽の審議・A 降ろし方)
-- ambiguousTerms
+- 1. 項目ごとの案
 - 決定
 - c3
 - #355 束4 起案委員の意見書(IMPL-0048・0136・0159・0230)
@@ -8116,7 +8116,7 @@
 - owner-answers-2026-11-17.md
 - c4
 - SRC-0751.yaml
-- 所見
+- check-claim-terms.mjs
 - b1-fix-round1.md
 - b1-fix-round1-ruling.md
 - b1-fix-round2.md
@@ -8180,7 +8180,7 @@
 - 束 B10 の push の準備の記録(2026-11-17)
 - 0156-caution-frames-count-as-explanation.md
 - #356 B 委員05(弁護)の意見書
-- check-gate-criteria.mjs
+- #332 議長の裁定の案(軽、2026-11-17、束 B11)
 - Issue #440 重の論点の独立の突合(1巡目・全体。2026-11-17)
 - Issue #440 重の論点の独立の突合(2巡目・直した差分。2026-11-17)
 - verification
@@ -8203,7 +8203,7 @@
 - 週次リンク検査(#451)の 4xx の棚卸し
 - verification
 - on
-- check-citations.mjs
+- 項目ごとの反対
 - 1. Q1(#348)
 - L-7 登録簿の最初の運用
 - #327 独立の突合(2巡目)への議長の裁定(2026-11-17)
@@ -8241,7 +8241,7 @@
 - #239 適用範囲マークの仕組みが動いているのに届いていない
 - 2. 所見
 - mixed-change-point.mjs
-- ref_node_fs
+- ref_node_path
 - foundBy
 - ids
 - Issue #353 準拠テンプレートに及ぶ7項目の実装の記録(2026-11-17)
@@ -8284,18 +8284,35 @@
 - #356 B 委員 02(現場)の意見書
 - #376 実行による確認: 任免と緩める向きを同じ変化点に含む場面
 - N7
-- 2. 世の中がどうなっているか
-- 調査: リポジトリ運営(CI・配布)の現状の突合 — Issue #293(#276・#277・#280・#281・#260 の残り)
-- 会議体 意見書 04 — 規格(Issue #292 実装マークを足すべき条項の特定)
+- #337 準拠テンプレート項目1〜5 起案(束 B12・軽)
+- #337 準拠テンプレート項目1〜5 議長の裁定の案(束 B12・軽)
+- 実装の指示(template/。コミットのたびに bundle へ退避する)
 - 所見
 - #355 束2 委員 04(規格)の意見書
-- 1.2 #277 — 配布物の検査と、対象が無いときの扱い
-- 0. 次の担当へ引き継ぐこと
+- 所見
+- 項目ごとの裁定と指示
+- 1. 項目ごとの反対意見
+- 実装の案(そのまま作業できる粒度)
+- #339 template 項目 反対委員の意見(軽、束 B12)
 - #332 起案委員の意見書(軽の会議体、2026-11-17)
 - 1. 規定ごとの意見
+- #354 の残り3マークへの反対意見(束 B12・軽・反対委員)
+- b12-adr-draft.md
+- 0165-statement-facts-by-aggregation-and-adopter-confirmed-resume-and-deploy-credential.md
 - 新しい所見
+- #333 直し(1巡目)
+- #354 の残り3マーク(IMPL-0120・IMPL-0309・IMPL-0986)の起案(束 B12・軽・起案委員)
+- extract.mjs
+- #327 T8: 試行前チェックリストの「差し引き」の項目(束 B12・起案委員)
+- #327 T8 起案の検め(束 B12・反対委員。編集の指摘に準じる)
+- #327 T8 実装の記録(束 B12)
 - template-fix-round1-ruling.md
 - 独立の突合 1巡目(全体)— #348 Q1・#340 Q2
+- 3. 現行の条文の食い違いの直し(文案と所在)
+- #354 の残り3マーク 実装の記録(束 B12)
+- 束 B12 の push の準備(担当の記録。push はしていない)
+- 突合(#401 推定による注意の喚起 / ADR-0103)
+- b12-06-fix.md
 - #332 実装の記録(束 B11、2026-11-17)
 - 実装の記録(#348 Q1・#340 Q2。実装の段)
 - 独立の突合 2巡目(直した差分)— #348 Q1・#340 Q2
@@ -8332,21 +8349,21 @@
 10. `rows` - 25 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `0. impl-plan-issues の仕組み(確かめたこと)` --references--> `marksWithIssue()`  [INFERRED]
+  research/354-deliberation/b12-01-drafter.md → scripts/lib/plan-issues.mjs
+- `L-4(低) 試験の名前が中身と合わない` --references--> `commentBody()`  [INFERRED]
+  research/439-deliberation/crosscheck-1.md → scripts/lib/plan-issues.mjs
+- `変異(HEAD の複製。1つ壊して `test-plan-issues.mjs` を流し、戻す)` --references--> `marksNaming()`  [INFERRED]
+  research/439-deliberation/crosscheck-2.md → scripts/lib/plan-issues.mjs
+- `X-1 要修正 基準線のラチェットが、見出しの改名で素通りする(裁定 I-4 の目的が満たされない)` --references--> `checkInventory()`  [INFERRED]
+  research/292-deliberation/crosscheck.md → scripts/lib/impl-inventory.mjs
 - `0. 実行で確かめたこと` --references--> `machineTestProblems()`  [INFERRED]
   research/355-deliberation/b4-review-round1.md → scripts/lib/impl-inventory.mjs
-- `2.5 調査で見つけた関係する事実` --references--> `marksInFences()`  [INFERRED]
-  research/439-deliberation/intake.md → scripts/lib/impl-inventory.mjs
-- `裁定ごとの確認(問題が無かったもの)` --references--> `renderUndelivered()`  [INFERRED]
-  research/292-deliberation/crosscheck.md → scripts/lib/impl-inventory.mjs
-- `R-4 降りていない規定` --references--> `renderUndelivered()`  [INFERRED]
-  research/314-deliberation/implementation.md → scripts/lib/impl-inventory.mjs
-- `0.1 流したもの` --references--> `fresh()`  [INFERRED]
-  research/319-deliberation/classification.md → scripts/regress/run.mjs
 
 ## Import Cycles
 - None detected.
 
-## Communities (8310 total, 105 thin omitted)
+## Communities (8327 total, 106 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -8590,7 +8607,7 @@ Nodes (5): Mermaid 作図規約, スタイル規約, 書き方, 記法の選択�
 
 ### Community 60 - "ref_node_fs"
 Cohesion: 0.01
-Nodes (229): before, { check, refused, done }, { git, write, read, cfg, gen, contract, checkD0, checkRules, d0 }, r, check, cond(), CYCLE, done (+221 more)
+Nodes (207): before, { check, refused, done }, { git, write, read, cfg, gen, contract, checkD0, checkRules, d0 }, r, check, cond(), CYCLE, done (+199 more)
 
 ### Community 61 - "作図規約の検討メモ(2026-07-08)"
 Cohesion: 0.33
@@ -8989,8 +9006,8 @@ Cohesion: 0.04
 Nodes (48): id, inputs, name, outputs, roles, summary, tasks, category (+40 more)
 
 ### Community 165 - "check-impl-plan-issues.mjs"
-Cohesion: 0.07
-Nodes (47): L-4(低) 試験の名前が中身と合わない, M-2(中) 足された試験は純粋な関数だけを守る。結線と gh の失敗の扱いは、壊しても落ちない, 2. M-1・M-2 と低の直し, 4. 試験の限界の開示, N-1(中) 入力を書き損ねると、黙って別の確認へ落ち、「すべて open」で exit=0 になる, 変異(HEAD の複製。1つ壊して `test-plan-issues.mjs` を流し、戻す), Issue #439 独立の突合 1巡目の直し(2026-11-15), 所見ごとの対応 (+39 more)
+Cohesion: 0.06
+Nodes (49): 1. 所見ごとの対応, 2. 流した試験(1行), #333 直し(2巡目), 3. 実装を壊すと試験が落ちること, 4. 直さなかった点と理由, 5. 確かめられなかった点, M-2(中) 足された試験は純粋な関数だけを守る。結線と gh の失敗の扱いは、壊しても落ちない, 4. 試験の限界の開示 (+41 more)
 
 ### Community 166 - "review-burden-measurement.md"
 Cohesion: 0.12
@@ -9190,7 +9207,7 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 
 ### Community 215 - "check-impl.mjs"
 Cohesion: 0.03
-Nodes (98): X-1 要修正 基準線のラチェットが、見出しの改名で素通りする(裁定 I-4 の目的が満たされない), 0.2 機械の決まり(今回足したもの), I-1 母集団, I-5 0 件(課さないと明記), 本意見書が確かめていないこと, X-11 試験の目印の確かめは容易に満たせる。`:ng` の定義が `machine` の定義と合わない, X-13 降ろす順序の第3段を注記の語で決めるため、付随的な言及を拾う, X-6 `manual` の注記に「確かめる者と時点」が無いマークが多い。`machine` から下げたマークは機械の確かめを持つのに「機械は確かめない」と表示される (+90 more)
+Nodes (104): 0.2 機械の決まり(今回足したもの), I-5 0 件(課さないと明記), X-11 試験の目印の確かめは容易に満たせる。`:ng` の定義が `machine` の定義と合わない, X-13 降ろす順序の第3段を注記の語で決めるため、付随的な言及を拾う, X-6 `manual` の注記に「確かめる者と時点」が無いマークが多い。`machine` から下げたマークは機械の確かめを持つのに「機械は確かめない」と表示される, 8. 突合(crosscheck.md)への裁定への応答, R-1 検査の強さ, X-17 取り込みの手順(PR の作成時に行う) (+96 more)
 
 ### Community 216 - "0024-decision-as-risk-acceptance.md"
 Cohesion: 0.33
@@ -9273,8 +9290,8 @@ Cohesion: 0.04
 Nodes (45): AI どうしの往復, AI の関与を前提にした保証の根拠, H.10 既存の枠組みとの対応, H.11 残るリスク, H.12 品質保証部門が行うこと, H.1 最上位の主張, H.2 主張しないこと, H.3 論証 (+37 more)
 
 ### Community 236 - "run.mjs"
-Cohesion: 0.04
-Nodes (65): 1.2 7.5 節, 1.3 ほかの `refused` の場面の網羅(7.5 J-5), 1.4 898 行と 900 件の差, 1. 裁定の各項目と実装の対応, 2.1 期待値を改めた場面(D。`changed` に記録), 2.2 入力を直した場面(I。期待値は変えていない), 2.3 照合を分けた場面(P。期待の語は元のまま), 2.4 印を付けた場面(J) (+57 more)
+Cohesion: 0.03
+Nodes (77): 1.2 7.5 節, 1.3 ほかの `refused` の場面の網羅(7.5 J-5), 1.4 898 行と 900 件の差, 1. 裁定の各項目と実装の対応, 2.1 期待値を改めた場面(D。`changed` に記録), 2.2 入力を直した場面(I。期待値は変えていない), 2.3 照合を分けた場面(P。期待の語は元のまま), 2.4 印を付けた場面(J) (+69 more)
 
 ### Community 237 - "日本の実務動向(出典一覧)"
 Cohesion: 0.12
@@ -9505,12 +9522,12 @@ Cohesion: 0.08
 Nodes (23): 0. 読めた範囲と読めていない範囲, 1. 結論, 284・285 会議体 意見書04: 規格・法務・安全役(2026-09-30), 2.1 各案と規範の整合, 2.2 自然人に固定するもの、AI が担えるもの、規範が沈黙するもの, 2.3 規範は独立性をどう定義しているか, 2.4 安全重要度(CL)が高い案件での上限, 2.5 変化点管理について規範が求める記録 (+15 more)
 
 ### Community 296 - "decision-refs.mjs"
-Cohesion: 0.08
-Nodes (32): ADR-0036, ADR-0078, 独立の突合(#427 / ADR-0105), 確かめて問題が無かったこと, 項目1 裁定どおりか, ADR-0089, rows, adrCache (+24 more)
+Cohesion: 0.04
+Nodes (56): ADR-0036, ADR-0078, X-10 #426 の本文が、IMPL-0410・0411 と 3.12.13 を受け入れ条件に持たない, X-11 未測定の受容の記録先と表示先が書かれていない, X-12 一致の読み方(組織が定める値)の記録先が書かれていない, X-13 採点のモデルの行で、依存先の一覧の「退出の予行を最後に行った日」の扱いが定まらない, X-14 要求事項3 の「無作為または層別の無作為で選ぶ」は裁定に無い義務である, X-15 「採点者どうしの判定が割れた事例」の主体が曖昧 (+48 more)
 
 ### Community 297 - "check-provisions.mjs"
 Cohesion: 0.02
-Nodes (161): ADR-0097, ADR-0156, (d) 集約が版の無い「Claude」・Co-Authored-By の欠落を通す件(項目6・7), (e) Issue 本文の IMPL 番号の誤り, Issue #326 起案の委員の意見書, template に及ぶ項目 6〜11 の一覧の当否, 全体の弱点, 重とされた項目 12・13 をこの束で決めないことの当否 (+153 more)
+Nodes (151): ADR-0097, ADR-0156, 項目2 provision-ok の早期 return, 1. 裁定との対応, 2. 除外の印の実行での確認, 3. 異表記の登録と自己試験, 4. 記述と実装の食い違い, 5. npm run check への結線 (+143 more)
 
 ### Community 298 - "3.5 兼務ルール(許可 / 禁止)"
 Cohesion: 0.12
@@ -10746,7 +10763,7 @@ Nodes (29): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl
 
 ### Community 609 - "#314 会議体 委員意見書 04: 規格(検証の方法・追跡・評価の深さ)"
 Cohesion: 0.05
-Nodes (39): #314 会議体 委員意見書 04: 規格(検証の方法・追跡・評価の深さ), R-1 検査の強さの分類(`check` の属性), R-2 `claude-md` の常駐の規則の検査, R-3 G-5 基準6(文脈ファイルの形式検査), R-4 降りていない規定の扱い(順序・降ろさない決定), R-5 スキルの文の検査(ADR-0064)の範囲, R-6 の矛盾の確認, R-6 附随 (+31 more)
+Nodes (41): #314 会議体 委員意見書 04: 規格(検証の方法・追跡・評価の深さ), R-1 検査の強さの分類(`check` の属性), R-2 `claude-md` の常駐の規則の検査, R-3 G-5 基準6(文脈ファイルの形式検査), R-4 降りていない規定の扱い(順序・降ろさない決定), R-5 スキルの文の検査(ADR-0064)の範囲, R-6 の矛盾の確認, R-6 附随 (+33 more)
 
 ### Community 610 - "#317 会議体 意見書 02: 現場(受託開発会社・発注側の情報システム部門・スタートアップ)"
 Cohesion: 0.05
@@ -21005,8 +21022,8 @@ Cohesion: 0.06
 Nodes (31): R-1 段階ごとの報告先を、本標準の語で何と書くか, R-2 段階ごとに、報告を受けた者が何を決めるか, R-3 確約範囲(SC-M)の変動が、価値責任者の単独の判定にならないための歯止め, R-4 閾値の数値の扱い, R-5 D-0 と準拠テンプレート, R-6 記録, 内部, 前提として確かめた事実(議題の要旨に足すもの) (+23 more)
 
 ### Community 3174 - "test-check-ci-wiring.mjs"
-Cohesion: 0.02
-Nodes (122): ADR-0040, yaml@^2.9.0, yaml, J-3 検査の対象・入力が無いとき, X-10 軽 委任の実装の表の「次行」が別の行を指す, X-11 軽 compute-strategy の新しい文が、判定の材料を基底から読むことを一般化している, X-12 軽 登録簿の区分: デプロイゲートの親の節を「説明」とした, X-13 軽 `build-template-kb.mjs` は template/ が無いとき失敗しない(反映の記録の確認が偽) (+114 more)
+Cohesion: 0.05
+Nodes (52): X-10 軽 委任の実装の表の「次行」が別の行を指す, X-11 軽 compute-strategy の新しい文が、判定の材料を基底から読むことを一般化している, X-12 軽 登録簿の区分: デプロイゲートの親の節を「説明」とした, X-14 軽 git-strategy の1名の行の重複, X-15 軽 新しい文「失敗に数えなければなりません」と、アダプタの任意の検査の通過, X-1 重大 デプロイゲートの新しい規範が、本標準のタグによるリリースと、プランの制限に反する, X-2 中 テンプレートの `delegation.yml` が、既定で無効のまま、保護の無い Environment を全採用者に作らせる(IMPL-0236 の `delivered` が成り立たない), X-3 中 デプロイゲートに、裁定に無い G-8 の代替の手段が入った(QMS の成立の条件と衝突する) (+44 more)
 
 ### Community 3175 - "arxiv"
 Cohesion: 0.29
@@ -23368,9 +23385,9 @@ Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
 Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
-### Community 3765 - "scanSkillProvisions"
-Cohesion: 0.21
-Nodes (13): 8. 突合(crosscheck.md)への裁定への応答, X-17 取り込みの手順(PR の作成時に行う), 突合への応答の後の値, 6.1 対象と仕組み, 6.2 対象の外(規約の「検査の限界」implementation-marking.md:239-244、ADR-0064:60), 6.3 選択肢(列挙のみ), 6. ADR-0064 スキルの文の検査, scanSkillProvisions() (+5 more)
+### Community 3765 - "check-skill-provisions.mjs"
+Cohesion: 0.17
+Nodes (14): { files, errors, stats }, ADR-0064, ADR-0077, ADR-0084, ROOT, GEN_END, GEN_START, ADR-0064 (+6 more)
 
 ### Community 3766 - "c5"
 Cohesion: 0.33
@@ -23488,9 +23505,9 @@ Nodes (6): verification, date, humanChecked, method, note, status
 Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
-### Community 3795 - "fix288-tpl2/suite/replay.mjs"
-Cohesion: 0.13
-Nodes (15): apply(), back5, { check, refused, accepted, done }, clampDates(), input(), s2b, s3c, s415 (+7 more)
+### Community 3795 - "regress/suite/new.mjs"
+Cohesion: 0.02
+Nodes (85): ADR-0109, ADR-0126, #430 前半(名簿の数値の識別子による照合)の実装の記録, 実装したこと, 未実装・決めきれなかったこと, 着手時の状態, 規定との食い違い, 試験の材料の直し(意図は変えていない) (+77 more)
 
 ### Community 3796 - "c11"
 Cohesion: 0.33
@@ -33696,9 +33713,9 @@ Nodes (35): 0. 結論の要約, 1. 指摘, 2. 申告された逸れ(`implementat
 Cohesion: 0.06
 Nodes (35): 0. 一次資料の水準での吟味(外部調査への所見), #346 会議体 意見書 04 — 規格(standards), EV-0137 の差し替え条件の修正, R-1 条項は、ジョブの権限で発行される短命のトークンをどう扱うか, R-2 何が止めるか。語の定義, R-3 本リポジトリの配布, R-4 採用者とテンプレート, R-5 記録 (+27 more)
 
-### Community 6348 - "1. 現状(突合)"
-Cohesion: 0.13
-Nodes (15): 1.1.1 `npm run check` の中身(`package.json`), 1.1 #276 — 検査の一覧と CI, 1.1.2 ワークフローと契機, 1.1.3 検査を列挙する箇所・CI と同じと主張する箇所(逐語), 1.1.4 CI で `npm run check` を走らせる前提, 1.3.1 標準が既に書いていること(逐語), 1.3 #280 — 手元の検査と CI の境界, 1.3.2 規範の置き場と制約 (+7 more)
+### Community 6348 - "3. 選択肢"
+Cohesion: 0.06
+Nodes (34): 0. 要約(10 行), 1.1.1 `npm run check` の中身(`package.json`), 1.1 #276 — 検査の一覧と CI, 1.1.2 ワークフローと契機, 1.1.3 検査を列挙する箇所・CI と同じと主張する箇所(逐語), 1.1.4 CI で `npm run check` を走らせる前提, 1.2.1 対象が無いときの各検査の振る舞い, 1.2 #277 — 配布物の検査と、対象が無いときの扱い (+26 more)
 
 ### Community 6349 - "2. 業界の実務(AI コーディングエージェント、2025〜2026)"
 Cohesion: 0.06
@@ -33714,7 +33731,7 @@ Nodes (40): 0.1 「本標準を適用する者への要求」と「本標準を�
 
 ### Community 6352 - "#314 内部調査 1: 実装マークの検査の手段と、降りていない規定"
 Cohesion: 0.06
-Nodes (33): 1.1 属性と `check` の値, 1.3 `impl-targets.yaml` の種別, 1. 実装マークの規約と ADR-0061, 2.1 全体(マーク 304 件。識別子は IMPL-0001〜0311、欠番は 0104 だけ), 2.2 降ろし先 × state/check(d=delivered, u=undelivered, -=未分類), 2.3 `check` の無いマーク(未分類 100 件), 2.4 `delivered` かつ `manual`(19 件), 2.5 `machine` のうち note に実行の裏づけを書いていないもの (+25 more)
+Nodes (34): 2.1 全体(マーク 304 件。識別子は IMPL-0001〜0311、欠番は 0104 だけ), 2.2 降ろし先 × state/check(d=delivered, u=undelivered, -=未分類), 2.3 `check` の無いマーク(未分類 100 件), 2.4 `delivered` かつ `manual`(19 件), 2.5 `machine` のうち note に実行の裏づけを書いていないもの, 2.6 note と降ろし先の食い違い(10 件を抽出して確かめた), 2. 定量の棚卸し, #314 内部調査 1: 実装マークの検査の手段と、降りていない規定 (+26 more)
 
 ### Community 6353 - "#315 会議体 意見書 02 — 現場(既存のリポジトリへ持ち込む開発チーム)"
 Cohesion: 0.05
@@ -33736,9 +33753,9 @@ Nodes (39): #315 会議体 意見書 01 — 起案者(drafter), R-1 手順の全
 Cohesion: 0.06
 Nodes (33): 0. 立場の要約, EV-0137 の差し替え条件の扱い, R-1 条項は、ジョブの権限で発行される短命のトークンをどう扱うか, R-2 何が止めるか。語の定義, R-3 本リポジトリの配布, R-4 採用者とテンプレート, R-5 記録, 他の案を落とす理由 (+25 more)
 
-### Community 6358 - "反映の記録(Issue #296 固定定数の棚卸し(#295)の後継。裁定 L-1〜L-11)"
-Cohesion: 0.12
-Nodes (16): 2. 使った番号, 3.1 本リポジトリ, 3.2 テンプレート(pit-in-template), 3. 変えたファイル, 4.1 確かめたこと, 4.2 確かめられなかったこと, 4.3 突合(裁定 7 章), 4. 確かめたこと・確かめられなかったこと (+8 more)
+### Community 6358 - "1. 裁定ごとの記録"
+Cohesion: 0.06
+Nodes (33): 0.1 番号, 0.2 マージの前提(利用者へ伝えること), 0.3 利用者の了承が要るもの, 0.4 別 Issue として起票すること(裁定 6 章), 0. 次の担当へ引き継ぐこと, 1. 裁定ごとの記録, 2. 使った番号, 3.1 本リポジトリ (+25 more)
 
 ### Community 6359 - "#312 外部調査 2: 兼務と職務分離(規模別の席の兼務・出荷判定と独立レビュー・人員名簿)"
 Cohesion: 0.06
@@ -34217,8 +34234,8 @@ Cohesion: 0.08
 Nodes (23): 0. 実行した検査, 1. 所見, 2. 裁定ごとの判定, 3. 既存の ADR・条項との突合, 4. implementation.md の逸脱の判定, 5. テンプレートの実装の確認, 6. 一覧, X-10 表5 の旧い名称と、テンプレートの対応表が残っている(軽) (+15 more)
 
 ### Community 6478 - "1. 所見"
-Cohesion: 0.08
-Nodes (24): 0. 実行して確かめたこと, 1. 所見, 2. 裁定ごとの判定, 3. 実装の離れ(implementation.md §3)の判定, 4. 「逸脱」の棚卸し(implementation.md §2)の判定, 5. 版の仕組みの判定, 6. ADR-0083 の正確さ, 7. まとめ (+16 more)
+Cohesion: 0.03
+Nodes (56): 0. 実行して確かめたこと, 1. 所見, 2. 裁定ごとの判定, 3. 実装の離れ(implementation.md §3)の判定, 4. 「逸脱」の棚卸し(implementation.md §2)の判定, 5. 版の仕組みの判定, 6. ADR-0083 の正確さ, 7. まとめ (+48 more)
 
 ### Community 6479 - "会議体 #318 意見書 01: 起案者(drafter)"
 Cohesion: 0.08
@@ -34349,12 +34366,12 @@ Cohesion: 0.10
 Nodes (19): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, H-10 附属書E E.5, H-11 3.11.4 要求事項6, H-12 3.10.4 と `pre-review-automation.md`, H-13 5.6〜5.8 ほかの未マークの規範と IMPL-0095 (+11 more)
 
 ### Community 6511 - "3. 論点ごとの詳細"
-Cohesion: 0.13
-Nodes (15): 3. 論点ごとの詳細, H-10 附属書E E.5, H-11 3.11.4 要求事項6, H-12 3.10.4 と `pre-review-automation.md`, H-13 5.6〜5.8 ほかの未マークと IMPL-0095, H-14 範囲の外の発見, H-1 母集団, H-2 分類の単位と区分 (+7 more)
+Cohesion: 0.10
+Nodes (19): 1. 立場と全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, H-10 附属書E E.5, H-11 3.11.4 要求事項6, H-12 3.10.4 と `pre-review-automation.md`, H-13 5.6〜5.8 ほかの未マークと IMPL-0095 (+11 more)
 
 ### Community 6512 - "指摘"
 Cohesion: 0.10
-Nodes (19): X-10 軽微 コードブロックの検出が、字下げのコードブロックとインラインのコードを見ない, X-11 軽微 区分の使い方が節によって揺れている, X-12 軽微 IMPL-0160(目的の限定)の `delivered` は、実行主体に届く文を持たない, X-13 軽微 フェーズ5 と第3章で督促の時点が食い違ったまま、両側にマークが付いた, X-14 軽微 ADR-0075 の本文の修正が、ADR-0075 の側に記録されていない, X-2 要修正 棚卸し済みの節を `pending` へ戻しても通る(「減る向きにしか動かない」が偽), X-3 要修正 5.8.4 の新しい文が、裁定に無い要求と準拠テンプレートの名を本文へ入れた, X-4 要検討 事前レビューの「判定者が判定記録で確かめる」が、フェーズ5 の頁にだけある (+11 more)
+Nodes (20): X-10 軽微 コードブロックの検出が、字下げのコードブロックとインラインのコードを見ない, X-11 軽微 区分の使い方が節によって揺れている, X-12 軽微 IMPL-0160(目的の限定)の `delivered` は、実行主体に届く文を持たない, X-13 軽微 フェーズ5 と第3章で督促の時点が食い違ったまま、両側にマークが付いた, X-14 軽微 ADR-0075 の本文の修正が、ADR-0075 の側に記録されていない, X-1 要修正 基準線のラチェットが、見出しの改名で素通りする(裁定 I-4 の目的が満たされない), X-2 要修正 棚卸し済みの節を `pending` へ戻しても通る(「減る向きにしか動かない」が偽), X-3 要修正 5.8.4 の新しい文が、裁定に無い要求と準拠テンプレートの名を本文へ入れた (+12 more)
 
 ### Community 6513 - "3. 論点ごとの詳細"
 Cohesion: 0.10
@@ -36629,8 +36646,8 @@ Cohesion: 0.29
 Nodes (6): 「初期値」の振り分け(規定の文書), 実装の記録(#419 / ADR-0096・ADR-0097), 手引き・データの頁, 検査, 準拠テンプレート, 突合の後の訂正で改めた振り分け
 
 ### Community 7098 - "3. 論点ごとの詳細"
-Cohesion: 0.15
-Nodes (13): 3. 論点ごとの詳細, E-11 (c) を横断の要求にするか(#275 原則5), E-12 (b) 当てはまらない項目を外す規定を採るか, E-13 範囲外の誤り, E-1 装置の総量に上限を置くか, E-2 減らす判断を誰が行うか。ratchet の型。足す費用と外す費用の非対称, E-3 「80 点で止める」(装置の追加凍結)を標準の手続として持つか, E-4 ADR-0073 との関係と、意図して外すときの記録 (+5 more)
+Cohesion: 0.10
+Nodes (20): 1. 立場と、全体の見立て, 2. 判定の一覧表, 3. 論点ごとの詳細, 4. 他の委員に問いたいこと, E-10 (a) の残る隙間, E-11 (c) を横断の要求にするか(#275 原則5), E-12 (b) 当てはまらない項目を外す規定を採るか, E-13 範囲外の誤り (+12 more)
 
 ### Community 7099 - "#401 会議体 意見書 03: 品質監査の委員"
 Cohesion: 0.06
@@ -36941,8 +36958,8 @@ Cohesion: 0.08
 Nodes (23): 1.1 第1章 1.10 の全文(`src/content/docs/phase4-process-design/overview.md:343-392`), 1.2 第1章 1.3 の全文(`overview.md:60-80`), 1.3 1.4 の用語(`overview.md:138-140`), 1.4 附属書H H.8 の該当行(`src/content/docs/phase4-process-design/assurance-case.md:732-771`), 1.5 ADR-0029(`src/content/docs/adr/0029-shipping-approver-merge-exception.md`), 1.6 ADR-0068(`src/content/docs/adr/0068-start-of-application-and-conformance-claim.md`), 1.7 「版」「改訂」「適用の開始/終了」の用例(1.10 以外), 1. 現行の条項の全文 (+15 more)
 
 ### Community 7176 - "調査: 「escape clause」の意味と、基準が言い訳に転用されるパターンの扱い — Issue #290(#269 の残り)・#275 原則5"
-Cohesion: 0.20
-Nodes (9): 0. 要約(10 行), 3. 選択肢, 4. 会議体への問い, 5. 確認できなかったこと, 調査: 「escape clause」の意味と、基準が言い訳に転用されるパターンの扱い — Issue #290(#269 の残り)・#275 原則5, 論点1 「escape clause」をどの意味で採否するか, 論点2 附属書B に (a) の規則を置くか, 論点3 (c) を横断の要求にするか (+1 more)
+Cohesion: 0.12
+Nodes (15): 0. 要約(10 行), 2.1 (a) 要求文の逃げ道の句, 2.2 (b) 当てはまらない項目の扱い, 2.3 (c) 基準が言い訳に転用される — AI の specification gaming, 2.4 (c) 基準が言い訳に転用される — 法の起草実務, 2.5 既存の外部調査の束(282)の該当, 2. 世の中がどうなっているか, 3. 選択肢 (+7 more)
 
 ### Community 7177 - "推す案"
 Cohesion: 0.07
@@ -36981,8 +36998,8 @@ Cohesion: 0.05
 Nodes (37): 1. 裁定ごとの変更, 2. 裁定からの逸れと理由, 3. 7 節の突合の結果, 4. 人が行うこと, ADR との矛盾, R-2 常駐の規則, R-3 G-5 基準6, R-4 降りていない規定 (+29 more)
 
 ### Community 7186 - "2. 所見"
-Cohesion: 0.08
-Nodes (24): 1. 検査の結果の要約, 2. 所見, 3. 裁定の項目ごとの反映(漏れと逆向きの指示の確認), 4. 矛盾が無いと確かめたもの, X-10 低 — 裁定に無い細目を、起案の草案から取り込んでいる(既存の規定とは整合), X-11 低 — 規範が注記の箇条に置かれている, X-12 低 — 要求事項7 の「期限」を過ぎたときの扱いが無い, X-13 低 — 「取り消せない操作の上流の操作として扱う」の言い方が 5.5.1 の定義の形と違う (+16 more)
+Cohesion: 0.10
+Nodes (20): 2. 所見, X-10 低 — 裁定に無い細目を、起案の草案から取り込んでいる(既存の規定とは整合), X-11 低 — 規範が注記の箇条に置かれている, X-12 低 — 要求事項7 の「期限」を過ぎたときの扱いが無い, X-13 低 — 「取り消せない操作の上流の操作として扱う」の言い方が 5.5.1 の定義の形と違う, X-14 低 — IMPL-0399 の note に、担い手へ届いている部分の所在が無い, X-15 低 — テンプレートの CLAUDE.md の「上の3つ」の指す先が離れている。詳細の参照先に同じ規則が無い, X-16 低 — ADR-0103 に裁定 R-3 の「旧ブランチは材料として残す」が無い (+12 more)
 
 ### Community 7187 - "2. 現行の標準とテンプレートで、突き合わせが要る規定"
 Cohesion: 0.10
@@ -37005,8 +37022,8 @@ Cohesion: 0.20
 Nodes (9): 0. 前提として確かめた事実, R-1 位置づけ, R-2 外部送信, R-3 同梱と製品の名指し, R-4 評価と適合性, R-5 記録, 採らない案(まとめ), 突合の後の訂正(2026-11-04、`crosscheck.md`) (+1 more)
 
 ### Community 7192 - "check-scope.mjs"
-Cohesion: 0.03
-Nodes (73): ADR-0049, 10. 棚卸しの入力(IMPL-0145), 11. IMPL-0497(是正の記録の欠け), 12. 「コア機能」の定義の二重(コメント1), 13. 抑止・却下が検査を外す変更に当たるか(コメント2), 14. 1.10.2 と H.8 の文の型, 15. マークの付け替え, 1. scope-exempt の残骸と reason (+65 more)
+Cohesion: 0.02
+Nodes (111): ADR-0049, ADR-0052, yaml@^2.9.0, yaml, 10. 棚卸しの入力(IMPL-0145), 11. IMPL-0497(是正の記録の欠け), 12. 「コア機能」の定義の二重(コメント1), 13. 抑止・却下が検査を外す変更に当たるか(コメント2) (+103 more)
 
 ### Community 7193 - "#424 内部調査: 3.12.3 の基準集合の正解を AI の合議・多数決で作ってよいか"
 Cohesion: 0.11
@@ -37032,9 +37049,9 @@ Nodes (6): 5. 根拠水準マーク, 8.1 許していること, 8.2 禁じてい
 Cohesion: 0.20
 Nodes (9): 0. 前提として確かめた事実, R-1 正解の確定者と置き場, R-2 確定する席と分離, R-3 AI の下書きと人の確定, R-4 正解を持てない評価, R-5 体制・降ろし先・記録, 採らない案(まとめ), 突合の後の訂正(2026-11-04、`crosscheck.md`) (+1 more)
 
-### Community 7199 - "regress/suite/unit.mjs"
-Cohesion: 0.12
-Nodes (14): TPL, appended, base, c, cfg, { check, done, fixes }, cut, dcfg (+6 more)
+### Community 7199 - "1. 裁定ごとの記録"
+Cohesion: 0.09
+Nodes (22): 0.1 番号, 0.2 マージの前提(利用者へ伝えること), 0.3 管理者の設定(利用者が設定画面で行う。AI は行わない), 0.4 Issue に書くこと, 0. 次の担当へ引き継ぐこと, 1. 裁定ごとの記録, 2. 番号の割り当て, 3.1 登録簿で区分した節(すべて `issue: 293`) (+14 more)
 
 ### Community 7200 - "会議体の議題(#424 第3章 3.12.3 の基準集合の正解を、AI の合議・多数決で作ってよいか)"
 Cohesion: 0.25
@@ -37044,9 +37061,9 @@ Nodes (7): R-1 正解の確定者と置き場, R-2 確定する席と分離, R-3
 Cohesion: 0.11
 Nodes (17): 1. 基底ブランチへ入る記録を2つに分ける, 2. 判定記録には記名者以外の者の判定を課さない。残る承認は転記の確認, 3. 効力を持つ記録は、効力を持つ前に記名者本人の操作で帰属を裏づける, 4. 例外承認と停止の解除の受け皿に、対象の PR の上の記名者本人のレビューを加える, 5. 層1・D-0 は効力を持つ記録に数える, 6. 出荷の PR の承認者を出荷判定者の本人と書かない, 7. 採らない手段, IMPL-0124 を delivered にしたのは、言い換えで未達を消したのではないか (+9 more)
 
-### Community 7202 - "低"
-Cohesion: 0.08
-Nodes (24): X-10 #426 の本文が、IMPL-0410・0411 と 3.12.13 を受け入れ条件に持たない, X-11 未測定の受容の記録先と表示先が書かれていない, X-12 一致の読み方(組織が定める値)の記録先が書かれていない, X-13 採点のモデルの行で、依存先の一覧の「退出の予行を最後に行った日」の扱いが定まらない, X-14 要求事項3 の「無作為または層別の無作為で選ぶ」は裁定に無い義務である, X-15 「採点者どうしの判定が割れた事例」の主体が曖昧, X-16 ADR-0105 の細部, X-17 IMPL-0411 の降ろし先 process-change-skill が、記録を読む側と一致しない (+16 more)
+### Community 7202 - "scen2.mjs"
+Cohesion: 0.13
+Nodes (13): commit(), DIR, env, git(), HERE, j, OUT, r (+5 more)
 
 ### Community 7203 - "議長の裁定(#427 AI の採点者(LLM-as-a-judge)の較正の手法を定めるか)"
 Cohesion: 0.20
@@ -37857,8 +37874,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
 
 ### Community 7405 - "regress/suite/lib.mjs"
-Cohesion: 0.02
-Nodes (186): ADR-0075, ADR-0092, ADR-0109, ADR-0126, 1.1 R-1〜R-7, 回帰スイート(観測), 確認1: いまの版で、根の場面が理由1件だけで落ちること(§6-1), 試験スクリプトでの同じ入力(観測) (+178 more)
+Cohesion: 0.03
+Nodes (124): ADR-0075, ADR-0092, 7. 試作に見つけた欠陥, 立場, 1. 結論の要約, 2. 50 場面の対応と判定の式の照合, #378 独立の突合, 3. 所見 (+116 more)
 
 ### Community 7406 - "adjudication"
 Cohesion: 0.38
@@ -38241,8 +38258,8 @@ Cohesion: 0.10
 Nodes (19): 1.1 `scripts/gate/aggregate-evidence.mjs`, 1.2 `scripts/gate/test-tailoring-declaration.mjs`, 1. 準拠テンプレートの変更(`template/`), 2. 本体の変更, 3.1 直す前のコードで落ちること, 3.2 再現の台本(`scratchpad/p435/core-only-435.mjs`), 3.3 試験と検査, 3. 確かめたこと (+11 more)
 
 ### Community 7503 - "指摘"
-Cohesion: 0.06
-Nodes (36): 1. 書き換えの意味と強さ, 2. 裁定に無いこと・採らないとした事項, #366 独立の突合, 3. 登録簿と検査, 4. EV-0172・EV-0234, 5. ADR-0117, 6. 文体と base パス, X-10 ADR-0117 の「能力・可能性と条件の項目の 59 件」が実物の数と合わない(低) (+28 more)
+Cohesion: 0.05
+Nodes (42): 1. 書き換えの意味と強さ, 2. 裁定に無いこと・採らないとした事項, #366 独立の突合, 3. 登録簿と検査, 4. EV-0172・EV-0234, 5. ADR-0117, 6. 文体と base パス, X-10 ADR-0117 の「能力・可能性と条件の項目の 59 件」が実物の数と合わない(低) (+34 more)
 
 ### Community 7504 - "regress/suite/replay.mjs"
 Cohesion: 0.10
@@ -38538,7 +38555,7 @@ Nodes (10): 1. push の契機を別のワークフローに分ける, 2. 事前�
 
 ### Community 7579 - "regress/suite/new.mjs"
 Cohesion: 0.02
-Nodes (118): ADR-0053, ADR-0123, before, { check, refused, done, fixes }, { git, write, read, cfg, gen, contract, checkD0, checkRules, d0 }, ADR-0113, r, after (+110 more)
+Nodes (119): ADR-0053, ADR-0123, 1.1 R-1〜R-7, 回帰スイート(観測), 確認1: いまの版で、根の場面が理由1件だけで落ちること(§6-1), 試験スクリプトでの同じ入力(観測), before, { check, refused, done, fixes } (+111 more)
 
 ### Community 7580 - "claims"
 Cohesion: 0.20
@@ -38577,8 +38594,8 @@ Cohesion: 0.29
 Nodes (7): B-1 条項とマークの現状【確認】, B-2 テンプレートのルールセットと降ろし先の定義【確認】, B-3 GitHub のルールセットで「既定以外へのマージだけを拒否し、作業ブランチへの直接の push は許す」が成り立つか, B-4 テンプレートの AI 向けの統制の現状【確認】, B-5 ワークフロー・集約の現状【確認】, B-6 代わりに取れる手段と強度(案), 論点B: 中間の層へのマージの拒否(IMPL-0248・0254・0255)
 
 ### Community 7589 - "1. 所見"
-Cohesion: 0.11
-Nodes (18): 0. 確かめ方の前提, 1. 所見, 2. 項目ごとの結果, 3. 流せなかった確認, H-1(高) 閉じる者の手順が名指す道具は、閉じる前の問いに答えない, Issue #439 独立の突合 1巡目(全体、2026-11-15), L-1(低) 状態が読めない応答を open と同じに扱う, L-2(低) 404 の判定が、失敗の文に含まれる番号と「Not Found」の語に当たる (+10 more)
+Cohesion: 0.10
+Nodes (19): 0. 確かめ方の前提, 1. 所見, 2. 項目ごとの結果, 3. 流せなかった確認, H-1(高) 閉じる者の手順が名指す道具は、閉じる前の問いに答えない, Issue #439 独立の突合 1巡目(全体、2026-11-15), L-1(低) 状態が読めない応答を open と同じに扱う, L-2(低) 404 の判定が、失敗の文に含まれる番号と「Not Found」の語に当たる (+11 more)
 
 ### Community 7590 - "#359 重の会議体のための外部の調査"
 Cohesion: 0.11
@@ -38586,7 +38603,7 @@ Nodes (17): #359 重の会議体のための外部の調査, 本件への示唆,
 
 ### Community 7591 - "1. 裁定ごとの記録"
 Cohesion: 0.06
-Nodes (32): 0.1 番号, 0.3 見出しを改める・節を足すとき, 0. 次の担当へ引き継ぐこと, 1. 裁定ごとの記録, 2. 番号の割り当て(この担当が使ったもの), 3. 変更したファイル, 4.1 検査と試験の結果(突合の前), 4. 棚卸しの件数(2026-10-23、台帳の冒頭と同じ) (+24 more)
+Nodes (34): 0.1 番号, 0.3 見出しを改める・節を足すとき, 0. 次の担当へ引き継ぐこと, 1. 裁定ごとの記録, 2. 番号の割り当て(この担当が使ったもの), 3. 変更したファイル, 4.1 検査と試験の結果(突合の前), 4. 棚卸しの件数(2026-10-23、台帳の冒頭と同じ) (+26 more)
 
 ### Community 7592 - "受付(#360 PR 単位の検査・ルールセット・AI レビュー・カバレッジのアダプタの欠け)"
 Cohesion: 0.33
@@ -38856,9 +38873,9 @@ Nodes (8): 7.9.6「機械による発動は行わない」との関係, 具体�
 Cohesion: 0.25
 Nodes (7): #357 再開時点の状態(2026-11-12), rebase の衝突と解決, 検査の現況(未完で失敗するもの), 次の段で議長が決めること, 段ごとの状態, 番号の付け直し, 退避の所在
 
-### Community 7660 - "1. 裁定ごとの記録"
-Cohesion: 0.17
-Nodes (12): 1. 裁定ごとの記録, ADR-0079, L-10 運用メトリクスの区分, L-11 範囲の外, L-1 カバレッジの範囲, L-2 承認の失効, L-3 自己修正の停止, L-4 手戻り率 (+4 more)
+### Community 7660 - "項目ごとの案"
+Cohesion: 0.11
+Nodes (17): #335 template の項目 1〜10 の実装案(束 B12 起案委員。軽。2026-11-17), 区分, 実装の順序, 実装マーク IMPL-0984 の扱い, 採らない案, 機械の検査に掛かるか(先に結論), 項目 10(編集の指摘) `test-roster-rules.mjs` L317 の試験名, 項目 1(意味を変える。軽微) `template/CLAUDE.md` L36(c) の「例」の列 (+9 more)
 
 ### Community 7661 - "議題1 外部の確認者を責任者に置ける席の限定(論点 E、IMPL-0463、X-2)"
 Cohesion: 0.29
@@ -39101,8 +39118,8 @@ Cohesion: 0.07
 Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
 
 ### Community 7724 - "Issue #439 起案・反論・裁定の案"
-Cohesion: 0.06
-Nodes (35): #333 直し(1巡目), ワークフローのシェルの確認(H-1), 実装を壊すと試験が落ちること(H-2・H-3), 所見ごとの対応, 流した試験, 確かめていない点(note へ書いた), 裁定に無い設計の変更の有無, 議長の変更の記録 (+27 more)
+Cohesion: 0.10
+Nodes (20): 1.1 合う Issue が無いと判断した理由と、起票の案, 1.2 IMPL-0174 の扱い(本件では決めない), 1.3 見直しの年月(`review=2026-11` の 2 件), 1. 起案: 担い手の付け替え(14 件), 2.1 事実, 2.2 競わせる案, 2.3 起案の推す形: C + E。D の手順は残す, 2.4 機械で閉じない部分(開示する) (+12 more)
 
 ### Community 7725 - "steps"
 Cohesion: 0.07
@@ -39129,8 +39146,8 @@ Cohesion: 0.10
 Nodes (20): 0. 所有者に上げる点, 1. 裁定(事象ごと), 2.1 事象1, 2.2 事象2, 2.3 事象3, 2.4 事象4, 2. 理由, #333 議長の裁定の案 (+12 more)
 
 ### Community 7731 - "#352 議長の裁定の案(「列挙に無い離脱」のうち、閉じた列挙へ入れるべきものがあるか)"
-Cohesion: 0.07
-Nodes (29): 0. 先に示す事実(意見どうしの食い違いを実物で確かめた結果), 1.1 一覧, 1.2 割れた点1: 保持者を D-2 として入れるか, 1.3 割れた点2: 判定記録の置き場を D-3 として入れるか(#329 と同時), 1.4 割れた点3: 離脱を「構造的」と「選べる」に分けて機械が出す(現場の (d)), 1.5 一致した規定について、起案された措置を採らない記録, 1. 規定ごとの裁定の案, 2.1 裁定の案: (a) 主張できないままにし、理由と「課さないと決めた」ことを本文に明記する (+21 more)
+Cohesion: 0.08
+Nodes (23): 0. 先に示す事実(意見どうしの食い違いを実物で確かめた結果), 1.1 一覧, 1.2 割れた点1: 保持者を D-2 として入れるか, 1.3 割れた点2: 判定記録の置き場を D-3 として入れるか(#329 と同時), 1.4 割れた点3: 離脱を「構造的」と「選べる」に分けて機械が出す(現場の (d)), 1.5 一致した規定について、起案された措置を採らない記録, 1. 規定ごとの裁定の案, 2.1 裁定の案: (a) 主張できないままにし、理由と「課さないと決めた」ことを本文に明記する (+15 more)
 
 ### Community 7732 - "0129-second-category-window-baseline-and-rework-rate-derivation.md"
 Cohesion: 0.14
@@ -39416,9 +39433,9 @@ Nodes (23): 1. 裁定どおりか, 2. 義務が意図せず動いていないか
 Cohesion: 0.08
 Nodes (23): 1.1 三案の整合表, 1.2 A を最も強く書くと, 1.3 C を最も強く書くと, 1.4 読み甲・乙を条文に書くか, 1. 例外承認は「逸脱」に当たるか(論点1), 2.1 何を(最小の併記事項。増やすほど読まれない), 2.2 どこへ, 2.3 いつの時点 (+15 more)
 
-### Community 7806 - "3. 選択肢"
-Cohesion: 0.22
-Nodes (9): 3. 選択肢, 論点1(#276)一覧を 1 か所に置き、CI と一致させる形, 論点2(#277)配布物を配る前に検査する形, 論点3(#277)対象・入力が無いときの検査の振る舞い, 論点4(#277)標準側の 1 文, 論点5(#280)段の中の順序・検査定義の鮮度, 論点6(#280)「手元の通過は公式判定ではない」を標準側へ, 論点7(#281)配布ブランチ・手動起動 (+1 more)
+### Community 7806 - "1. 項目ごとの裁定"
+Cohesion: 0.12
+Nodes (15): 0. 共通, 1. 項目ごとの裁定, 2. 標準の側の追随(template の後。同じ担当), #330 準拠テンプレート T-1〜T-8 議長の裁定の案(束 B12・軽), 3. 採らない案, 4. 所有者へ上げる点, 5. 議長の裁定(2026-11-17), T-1 項目4 の未実施の継続期間 — 採る(範囲を広げる) (+7 more)
 
 ### Community 7807 - "#334 実装の記録"
 Cohesion: 0.33
@@ -39849,8 +39866,8 @@ Cohesion: 0.25
 Nodes (7): 1. 登録した降ろし先(`impl-targets.yaml`), 2. 節ごとの区分と足したマーク(IMPL-0855〜0899), 3. 残った pending, 4. 文の食い違いの事実(条文は変えていない。議長が既存の open の Issue へ寄せる), 5. 検査, 6. 次の担当への注意・開示, 束 C の pending の節の登録(Issue #324。2026-11-15)
 
 ### Community 7917 - "#355 束1 議長の裁定の案(IMPL-0043・IMPL-0132・IMPL-0042)"
-Cohesion: 0.06
-Nodes (32): 0. 実行で確かめたこと(WSL、node v26.13.1。template は WSL のホームへ clone した写し。試作は scratchpad の `b1proto.mjs`), 1.1 IMPL-0043: 第3の形を採る(基準は出荷判定者の判定として降ろす。機械は未記入の検出までを別の文・別のマークで持つ), 1.2 IMPL-0132: 3検査を `delivered check=machine` にする。初期セルの比較を採る。「前の記録との一致」は所見として出し、別のマークで manual, 1.3 IMPL-0042: 束2(重)へ移す。この束では note と `review=` だけを直す, 1.4 反対委員の注文(presence と完備): この束の裁定の記録と ADR-0138 に留める。規約は直さない, 1.5 重へ上げる点, 1. 裁定, 2. 採らない案と理由 (+24 more)
+Cohesion: 0.05
+Nodes (36): 0. 実行で確かめたこと(WSL、node v26.13.1。template は WSL のホームへ clone した写し。試作は scratchpad の `b1proto.mjs`), 1.1 IMPL-0043: 第3の形を採る(基準は出荷判定者の判定として降ろす。機械は未記入の検出までを別の文・別のマークで持つ), 1.2 IMPL-0132: 3検査を `delivered check=machine` にする。初期セルの比較を採る。「前の記録との一致」は所見として出し、別のマークで manual, 1.3 IMPL-0042: 束2(重)へ移す。この束では note と `review=` だけを直す, 1.4 反対委員の注文(presence と完備): この束の裁定の記録と ADR-0138 に留める。規約は直さない, 1.5 重へ上げる点, 1. 裁定, 2. 採らない案と理由 (+28 more)
 
 ### Community 7918 - "token-usage.cjs"
 Cohesion: 0.29
@@ -40013,8 +40030,8 @@ Cohesion: 0.50
 Nodes (4): 項目1, ids, location, status
 
 ### Community 7962 - "build-template-kb.mjs"
-Cohesion: 0.04
-Nodes (52): ADR-0031, ADR-0035, ADR-0060, ADR-0062, 0. 本委員が自分で確かめた事実(調査に無いもの), #319 会議体 意見書 02: 現場(field), R-1 何を、どこへ、どの形で移すか, R-2 いま落ちる場面の扱い (+44 more)
+Cohesion: 0.02
+Nodes (97): ADR-0031, ADR-0035, ADR-0040, ADR-0060, ADR-0062, J-3 検査の対象・入力が無いとき, X-13 軽 `build-template-kb.mjs` は template/ が無いとき失敗しない(反映の記録の確認が偽), 7.1 6 章の記録の訂正 (+89 more)
 
 ### Community 7963 - "条件5"
 Cohesion: 0.67
@@ -40273,8 +40290,8 @@ Cohesion: 0.33
 Nodes (5): #351 独立の突合(1巡目・全体)の所見(2026-11-17), ed-1 表8 の欄の呼び方が欄名と合わない, M-1(中) IMPL-0278 の note が、足した説明の段落と食い違う, 所見, 確かめて食い違いが無かった点
 
 ### Community 8033 - "templateTestWired"
-Cohesion: 0.10
-Nodes (20): 4.1 template, 4.2 標準, 4.3 独立の突合へ渡す観点, 4. 実装の指示, #355 束3 template 側の実装の記録, 変えたファイル(すべて template/ の中), 実物の git の場面, 指示書と違えた点とその理由 (+12 more)
+Cohesion: 0.13
+Nodes (12): #355 束3 template 側の実装の記録, 変えたファイル(すべて template/ の中), 実物の git の場面, 指示書と違えた点とその理由, 確かめていないこと, 試験の結果(node 26), 2. IMPL-0023(宣言と実態のずれ), #355 束3 起案委員の意見書(IMPL-0241・IMPL-0023・IMPL-0498) (+4 more)
 
 ### Community 8034 - "0138-handover-items-and-decision-fields-checks.md"
 Cohesion: 0.15
@@ -40321,8 +40338,8 @@ Cohesion: 0.14
 Nodes (13): 0. 裁定の軸, 1. 規定ごとの裁定, 2.1 template(準拠テンプレート), 2.2 標準, 2. 実装の指示, 2委員の結論が割れた点と、重へ上げない理由, #356 議長の裁定の案(部分 A: 降ろし方), 3. 採らない案 (+5 more)
 
 ### Community 8063 - "5. 新しい所見"
-Cohesion: 0.15
-Nodes (12): 0. 確かめ方, 1. H-1 は閉じたか, 3. L-7 を直さない理由, 5. 新しい所見, 6. 流せなかった確認, Issue #439 独立の突合 2巡目(直した差分だけ、2026-11-15), N-2(低) `--issue 443 444`(空白区切り)は 2 つ目を黙って捨てる, N-3(低・編集) EV-0259 の本文に「月次の契機」が 2 回ある (+4 more)
+Cohesion: 0.12
+Nodes (15): 0. 確かめ方, 1. H-1 は閉じたか, 2. M-1・M-2 と低の直し, 3. L-7 を直さない理由, 5. 新しい所見, 6. 流せなかった確認, Issue #439 独立の突合 2巡目(直した差分だけ、2026-11-15), N-1(中) 入力を書き損ねると、黙って別の確認へ落ち、「すべて open」で exit=0 になる (+7 more)
 
 ### Community 8064 - "0139-seeded-error-scan-in-ship-path.md"
 Cohesion: 0.15
@@ -40344,9 +40361,9 @@ Nodes (10): 0. 受付の裁定への異議, 1.1 IMPL-0043(G-7 基準4「完備(�
 Cohesion: 0.18
 Nodes (10): #356 反対委員の意見(軽の審議・A 降ろし方), 予想される案1 「第1〜4層を、決定可能な存在の検査として一式降ろす」, 予想される案2 「集約が `scanRun` を読み、`blind: false` と同じ方式で未測定へ」, 予想される案3 「周知・性質・停止は様式の欄と manual で降ろし、台帳をほぼ全部 delivered にする」, 予想される案4 「0627・0666 は 7.9 の発動を、注入の結果から機械で検出して記録の欠落を出す」, 反対の立場でも降ろすべきと認めるもの, 手続上の指摘, 立場 (+2 more)
 
-### Community 8069 - "ambiguousTerms"
-Cohesion: 0.25
-Nodes (7): 1. 立場と、全体の見立て, 2. 判定の一覧表, 4. 他の委員に問いたいこと, E-10 (a) の残る隙間, 会議体 意見書 03 — 品質保証と監査(Issue #290 検査装置の総量), C-6 曖昧語, ambiguousTerms()
+### Community 8069 - "1. 項目ごとの案"
+Cohesion: 0.13
+Nodes (14): 0. 試験の走らせ方, 1. 項目ごとの案, 2. 実装の順序と優先度, #330 準拠テンプレート T-1〜T-8 の実装案(束 B12 起案委員・軽), 3. 降ろさないと決める点(「書かれていない」と区別する), 4. 議長への確認点, T-1(IMPL-0993)集約が項目4 の未実施の各検査に継続期間を出す, T-2 T-1 の試験 (+6 more)
 
 ### Community 8070 - "決定"
 Cohesion: 0.18
@@ -40472,9 +40489,9 @@ Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
 Cohesion: 0.07
 Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
 
-### Community 8108 - "所見"
-Cohesion: 0.15
-Nodes (12): #326 独立の突合(1巡目・全体、2026-11-15), R-1(高・偽の合格) H.8 の「使ってよい表現」の表から語が消えても通る, R-2(高・表示と実態の食い違い) `provision-ok` が飛ばす検査の範囲, R-3(中) 試験が検査本体への結線を守らない, R-4(中) 節番号が2つ以上のリンクを、番号と名の対応で黙って見ない, R-5(低) 05-issue-comment.md の項目9 の欠け, R-6(低) `writeCriteria` の境界(直す前からの挙動), R-7(低) `check-adr-links` の出力の件数の読み (+4 more)
+### Community 8108 - "check-claim-terms.mjs"
+Cohesion: 0.07
+Nodes (30): #326 独立の突合(1巡目・全体、2026-11-15), R-1(高・偽の合格) H.8 の「使ってよい表現」の表から語が消えても通る, R-2(高・表示と実態の食い違い) `provision-ok` が飛ばす検査の範囲, R-3(中) 試験が検査本体への結線を守らない, R-4(中) 節番号が2つ以上のリンクを、番号と名の対応で黙って見ない, R-5(低) 05-issue-comment.md の項目9 の欠け, R-6(低) `writeCriteria` の境界(直す前からの挙動), R-7(低) `check-adr-links` の出力の件数の読み (+22 more)
 
 ### Community 8117 - "SRC-0752.yaml"
 Cohesion: 0.07
@@ -40696,9 +40713,9 @@ Nodes (8): 1. 注意の枠は、説明の類に数える, 2. 枠の中の誤配�
 Cohesion: 0.08
 Nodes (24): 0. 先に結論(争点ごと), 10. 確かめていないこと(開示), 1. B-1 注入者=発見者を「未測定」として扱う要求を本文に置くか, (1) 条文は結果と証跡まで、手順は手引きへ, 2. B-2 1.10.2 の表から秘匿の不成立の行を外すか, (2) 珍しい構成・抜け道は第7章の例外承認で受けられないか, #356 B 委員05(弁護)の意見書, 3. B-3 注入する者を体制の外に置けることを条文に書くか (+16 more)
 
-### Community 8172 - "check-gate-criteria.mjs"
-Cohesion: 0.03
-Nodes (84): ADR-0052, X-1 重大 版を発行した後の main が、発行した版の名で配られ、記録される, 0. 裁定の一覧, 1. 版(Q-1), 2. 適用の終了(Q-2), 3. 逸脱と適合の主張(Q-3), 4. 引用規格の版(Q-4), 5. 適用の開始の境(Q-5) (+76 more)
+### Community 8172 - "#332 議長の裁定の案(軽、2026-11-17、束 B11)"
+Cohesion: 0.06
+Nodes (38): 8. 突合の裁定の実装(decision.md 8 節 X-1〜X-16), 0. 議長が実行で確かめた事実(2委員の意見書の後に分かったこと), 1. 争点ごとの裁定, 2. 所有者の方針の3つの問いの通し方, #332 議長の裁定の案(軽、2026-11-17、束 B11), 3. 統制の閉じ方, 4. 既存の決定との突合, 5.1 `community/standard-editions.md` に節を足す(「配布物への版の記録」の直後) (+30 more)
 
 ### Community 8173 - "Issue #440 重の論点の独立の突合(1巡目・全体。2026-11-17)"
 Cohesion: 0.25
@@ -40788,9 +40805,9 @@ Nodes (6): verification, date, humanChecked, method, note, status
 Cohesion: 0.40
 Nodes (5): on, pull_request, push, workflow_dispatch, branches
 
-### Community 8195 - "check-citations.mjs"
-Cohesion: 0.26
-Nodes (10): canon(), cardDesignations(), checkCitations(), ADR-0083, norm(), OVERVIEW, ROOT, section13() (+2 more)
+### Community 8195 - "項目ごとの反対"
+Cohesion: 0.14
+Nodes (13): #330 準拠テンプレート T-1〜T-8 への反対意見(束 B12 反対委員・軽), T-1(採る。範囲を1点広げる), T-2(採る), T-3(採る。coverage は OPTIONAL に残す), T-4(採る), T-5(縮小案の後半に反対), T-6(採る。表の写しに反対), T-7(起案の一部に反対) (+5 more)
 
 ### Community 8196 - "1. Q1(#348)"
 Cohesion: 0.09
@@ -40880,9 +40897,9 @@ Nodes (11): 1. 確かめて食い違いが無かった点, 2. 所見, 3. 閉じ�
 Cohesion: 0.13
 Nodes (17): ADR-0110, a1, a2, ALL(), aSetup(), b1, b2, B_MIXED (+9 more)
 
-### Community 8233 - "ref_node_fs"
+### Community 8233 - "ref_node_path"
 Cohesion: 0.02
-Nodes (116): normalized, relative, repoRoot, res, APPOINTER, BASE, BASIS, HERE (+108 more)
+Nodes (99): normalized, relative, repoRoot, res, APPOINTER, BASE, BASIS, HERE (+91 more)
 
 ### Community 8234 - "foundBy"
 Cohesion: 0.67
@@ -41044,17 +41061,17 @@ Nodes (13): #356 B 委員 02(現場)の意見書, B-1 運用中の注入で、�
 Cohesion: 0.14
 Nodes (13): #376 実行による確認: 任免と緩める向きを同じ変化点に含む場面, p302 のテンプレートでの同じ入力(観測), まとめ: 内部調査の仮説の判定, 基準の回帰スイート(観測), 実行環境とコマンド, 確認1: 2名 cl0 の2回目の変化点が出す行(観測), 確認2: §2.2 (a) 任命権者の記名 + 緩める行(観測), 確認3: §2.2 (b) 決定者の交代 + 緩める行(観測) (+5 more)
 
-### Community 8276 - "2. 世の中がどうなっているか"
-Cohesion: 0.33
-Nodes (6): 2.1 (a) 要求文の逃げ道の句, 2.2 (b) 当てはまらない項目の扱い, 2.3 (c) 基準が言い訳に転用される — AI の specification gaming, 2.4 (c) 基準が言い訳に転用される — 法の起草実務, 2.5 既存の外部調査の束(282)の該当, 2. 世の中がどうなっているか
+### Community 8276 - "#337 準拠テンプレート項目1〜5 起案(束 B12・軽)"
+Cohesion: 0.14
+Nodes (13): 0. 前提の確認(実装の担当が先に知ること), 1. 共通の方針の3問, 2. 項目ごとの案, #337 準拠テンプレート項目1〜5 起案(束 B12・軽), 3. 順序・直列, 4. 実装マークの state の変え方(要約), 5. 採らない案(記録), 6. 未確認(担当が実行で確かめる) (+5 more)
 
-### Community 8277 - "調査: リポジトリ運営(CI・配布)の現状の突合 — Issue #293(#276・#277・#280・#281・#260 の残り)"
-Cohesion: 0.33
-Nodes (5): 0. 要約(10 行), 2. 世の中がどうなっているか(GitHub の仕様。取得日 2026-10-23), 4. 会議体への問い, 5. 確認できなかったこと, 調査: リポジトリ運営(CI・配布)の現状の突合 — Issue #293(#276・#277・#280・#281・#260 の残り)
+### Community 8277 - "#337 準拠テンプレート項目1〜5 議長の裁定の案(束 B12・軽)"
+Cohesion: 0.14
+Nodes (13): 1. 項目ごとの裁定と作業の指示, 2. 回帰と仕上げ, #337 準拠テンプレート項目1〜5 議長の裁定の案(束 B12・軽), 3. 所有者へ上げる点, 4. 採らない案, 5. 統制の閉じ方, 6. 既存の決定との突合, 議長の裁定(2026-11-17) (+5 more)
 
-### Community 8278 - "会議体 意見書 04 — 規格(Issue #292 実装マークを足すべき条項の特定)"
-Cohesion: 0.40
-Nodes (4): 1. 立場と全体の見立て, 2. 判定の一覧表, 4. 他の委員に問いたいこと, 会議体 意見書 04 — 規格(Issue #292 実装マークを足すべき条項の特定)
+### Community 8278 - "実装の指示(template/。コミットのたびに bundle へ退避する)"
+Cohesion: 0.15
+Nodes (12): 1. `scripts/gate/config.mjs` — 判定を1つにする(反-1), 2. `scripts/gate/autonomy.mjs`, #339 template 項目 議長の裁定の案(軽、束 B12), 3. `scripts/init/generate-profile.mjs`, 4. `templates/00-d0-governance.md` 385 行, 5. `README.md` 494-500 の表の直後に一文, 6. 試験 `scripts/gate/test-check-delegation.mjs`(新しいファイルは作らない), 実装の指示(template/。コミットのたびに bundle へ退避する) (+4 more)
 
 ### Community 8279 - "所見"
 Cohesion: 0.15
@@ -41064,13 +41081,25 @@ Nodes (12): 1巡目の所見の確認, #332 独立の突合 2巡目(直した差
 Cohesion: 0.15
 Nodes (12): 0. 総論(規格の立場の3点), 10. 先送り・開示の一覧, 1. IMPL-0045(基準7 安全の検証記録), 2. IMPL-0044(基準6 AI 品質指標の確認), #355 束2 委員 04(規格)の意見書, 3. IMPL-0046(基準8 知財潔白性)・IMPL-0548, 4. IMPL-0042(基準3 受容した負債の記録漏れ), 5. IMPL-0136(SLA の判定) (+4 more)
 
-### Community 8281 - "1.2 #277 — 配布物の検査と、対象が無いときの扱い"
-Cohesion: 0.40
-Nodes (5): 1.2.1 対象が無いときの各検査の振る舞い, 1.2 #277 — 配布物の検査と、対象が無いときの扱い, 1.2.2 生成器と配布の経路, 1.2.3 ADR-0052(逐語), 1.2.4 標準側の「対象なし」の既存の規範(逐語)
+### Community 8281 - "所見"
+Cohesion: 0.17
+Nodes (11): #335 template の項目 1〜10 への反対意見(束 B12 反対委員。軽。2026-11-17), O-1(高) 採用者が取り込むと常駐の規則の照合で落ちる。その案内が無い, O-2(中) CR-014 の核に例を入れない(項目 2), O-3(中) 「配備の起動そのものは取り消せない操作の側」は本文より広い(項目 4), O-4(中) 判断の基準が template に降りていない(項目 4・IMPL-0984), O-5(低) 古い節番号の見落とし(項目 8 の同種), O-6(中) IMPL-0984 を delivered にするときの範囲, 所見 (+3 more)
 
-### Community 8282 - "0. 次の担当へ引き継ぐこと"
-Cohesion: 0.40
-Nodes (5): 0.1 番号, 0.2 マージの前提(利用者へ伝えること), 0.3 利用者の了承が要るもの, 0.4 別 Issue として起票すること(裁定 6 章), 0. 次の担当へ引き継ぐこと
+### Community 8282 - "項目ごとの裁定と指示"
+Cohesion: 0.17
+Nodes (11): #335 template の項目 1〜10 議長の裁定の案(束 B12。軽。2026-11-17), A. 項目 1・2・3(採る。2 は反対の案で)— 同じコミット, B. 採用者の取り込みの案内(反対 O-1。採る), C. 項目 4・7・8 と同種(handoff.md。採る。4 は文言を直して), D. 項目 9・10 と同種(編集の指摘。採る), E. 項目 5・6(変えない), F. 本流側(template の main へ入り、submodule の参照を進めた後に、同じ PR で), 所有者へ上げる点 (+3 more)
+
+### Community 8283 - "1. 項目ごとの反対意見"
+Cohesion: 0.17
+Nodes (11): 0. 起案が確かめていなかった前提(実在の確認), 1. 項目ごとの反対意見, 2. 実装マークの点検, #337 準拠テンプレート項目1〜5 反対意見(束 B12・軽), 3. 起案が議長に挙げた確認点への答え, 4. 反対委員として採らないと決めた案, 項目1(基準値の欄と一致の検査) — 骨格は賛成。3点を直す, 項目2(`?? 80`) — 起案に反対。失敗にする (+3 more)
+
+### Community 8284 - "実装の案(そのまま作業できる粒度)"
+Cohesion: 0.17
+Nodes (11): 1. autonomy.mjs, 2. generate-profile.mjs 3180 行, #339 template 項目の降ろし方(起案、軽、束 B12), 3. 00-d0-governance.md 385 行, 3問での選択(項目ごと), 4. README.md, 5. 試験(`scripts/gate/test-check-delegation.mjs`。新しい試験ファイルは作らない), 6. 本文側の IMPL-0983 の変え方(議長の作業、template の取り込みの後) (+3 more)
+
+### Community 8285 - "#339 template 項目 反対委員の意見(軽、束 B12)"
+Cohesion: 0.18
+Nodes (10): #339 template 項目 反対委員の意見(軽、束 B12), 3問に照らして, 反-1(高): 表示の「記入の有無は機械が確かめた」と、登録の検査の判定が一致しない, 反-2(中): `:ng` の目印の置き場が規約に合わない, 反-3(中): 外への開示で「観点23 が確かめる」が、確かめ済みと読める, 反-4(低): 差し戻し率の根拠の文が「手戻り率:」の文の中に入る, 結論, 起案の前提で確かめたこと(問題なし) (+2 more)
 
 ### Community 8286 - "#332 起案委員の意見書(軽の会議体、2026-11-17)"
 Cohesion: 0.17
@@ -41080,13 +41109,65 @@ Nodes (11): #332 起案委員の意見書(軽の会議体、2026-11-17), 争点1
 Cohesion: 0.17
 Nodes (11): 0. 弁護の総論(先に), 1.1 IMPL-0045(基準7。安全の検証記録), 1.2 IMPL-0044(基準6。AI 品質指標の確認), 1.3 IMPL-0046(基準8。知財潔白性)と IMPL-0548, 1.4 IMPL-0042(基準3。受容した負債の記録漏れ), 1.5 IMPL-0136(文書だけの変更の SLA の判定), 1.6 3.11.7 の文(IMPL-0981)の直し方, 1. 規定ごとの意見 (+3 more)
 
+### Community 8288 - "#354 の残り3マークへの反対意見(束 B12・軽・反対委員)"
+Cohesion: 0.18
+Nodes (10): 0. 起案の前提で誤っていたもの, 1. IMPL-0120(表明の様式の値の行), 2. IMPL-0309(同じ案件の再開), #354 の残り3マークへの反対意見(束 B12・軽・反対委員), 3.1 寄せ先の比較, 3.2 機械で一部を数える案(起案が挙げていない代案), 3.3 adopter にするときの条件(P-6), 3.4 弱点(残る) (+2 more)
+
+### Community 8289 - "b12-adr-draft.md"
+Cohesion: 0.18
+Nodes (10): 1. 併記する事項の値を、集約が1行で出す, 2. 同じ案件の再開を、採用者に委ねる, 3. 配備の資格情報の離脱の数え方を、採用者に委ねる。構成に欄を足さない, コンテキスト, ステータス, 影響, 検討した選択肢, 決定 (+2 more)
+
+### Community 8290 - "0165-statement-facts-by-aggregation-and-adopter-confirmed-resume-and-deploy-credential.md"
+Cohesion: 0.18
+Nodes (10): 1. 併記する事項の値を、集約が1行で出す, 2. 同じ案件の再開を、採用者に委ねる, 3. 配備の資格情報の離脱の数え方を、採用者に委ねる。構成に欄を足さない, コンテキスト, ステータス, 影響, 検討した選択肢, 決定 (+2 more)
+
 ### Community 8291 - "新しい所見"
 Cohesion: 0.18
 Nodes (10): 1巡目の所見の直り, #355 束2 独立の突合 2巡目(直した差分), 中-A 軸E の CL0 の升と S0 の G-7 の省略, 中-B IMPL-1008 の有効な例外の行の条件, 低-A 「対象」の第3の型, 低-B 結び付けの向き, 低-C エンジンの構成の値, 新しい所見 (+2 more)
 
+### Community 8292 - "#333 直し(1巡目)"
+Cohesion: 0.22
+Nodes (8): #333 直し(1巡目), ワークフローのシェルの確認(H-1), 実装を壊すと試験が落ちること(H-2・H-3), 所見ごとの対応, 流した試験, 確かめていない点(note へ書いた), 裁定に無い設計の変更の有無, 議長の変更の記録
+
+### Community 8293 - "#354 の残り3マーク(IMPL-0120・IMPL-0309・IMPL-0986)の起案(束 B12・軽・起案委員)"
+Cohesion: 0.25
+Nodes (7): 0. impl-plan-issues の仕組み(確かめたこと), 1. IMPL-0120(適用の表明に併記する事項の様式), 2. IMPL-0309(同じ案件で適用を再開する経路), #354 の残り3マーク(IMPL-0120・IMPL-0309・IMPL-0986)の起案(束 B12・軽・起案委員), 3. IMPL-0986(配備の資格情報を参照に結び付けていない構成), 4. 新 ADR(案。番号は議長が付ける。現在の最後は 0156 なので 0157), 5. 緑になるか
+
+### Community 8294 - "extract.mjs"
+Cohesion: 0.25
+Nodes (6): aux, by, files, items, ADR-0086, part
+
+### Community 8295 - "#327 T8: 試行前チェックリストの「差し引き」の項目(束 B12・起案委員)"
+Cohesion: 0.29
+Nodes (6): 1. 確かめたこと, 2. 差し替えの文, #327 T8: 試行前チェックリストの「差し引き」の項目(束 B12・起案委員), 3. IMPL-1002 の state, 4. 審議の段の判断, 5. 検査の見通し
+
+### Community 8296 - "#327 T8 起案の検め(束 B12・反対委員。編集の指摘に準じる)"
+Cohesion: 0.29
+Nodes (6): #327 T8 起案の検め(束 B12・反対委員。編集の指摘に準じる), IMPL-1002 の state, 採らない案, 条件, 確かめたこと, 結論: 可(条件2点)
+
+### Community 8297 - "#327 T8 実装の記録(束 B12)"
+Cohesion: 0.33
+Nodes (5): #327 T8 実装の記録(束 B12), npm run check の結果, 変えたもの, 採らなかったこと, 検査
+
 ### Community 8299 - "独立の突合 1巡目(全体)— #348 Q1・#340 Q2"
 Cohesion: 0.20
 Nodes (9): 0. 前提と確かめ方, 1.1 重点6 の実行の結果, 1. 重点ごとの結論, 2. 所見, 3. 問題としなかったこと(確かめた結果), 4. 2巡目への申し送り, 中, 低 (+1 more)
+
+### Community 8300 - "3. 現行の条文の食い違いの直し(文案と所在)"
+Cohesion: 0.33
+Nodes (6): 3.1 1.10.2 の注記の「常に当たる」(`overview.md:657-677`), 3.2 ADR-0035 決定2 の「代償措置つきの逸脱」, 3.3 3.4.3 要求事項6・7(`roles-responsibilities.md:248-249`、注記 `:273-274`), 3.4 3.5・3.5.2 の「広げない」理由, 3.5 新しい ADR の骨子(ADR-NNNN), 3. 現行の条文の食い違いの直し(文案と所在)
+
+### Community 8301 - "#354 の残り3マーク 実装の記録(束 B12)"
+Cohesion: 0.33
+Nodes (5): #354 の残り3マーク 実装の記録(束 B12), npm run check の結果, 変えたもの, 指示書と違えた点, 検査
+
+### Community 8302 - "束 B12 の push の準備(担当の記録。push はしていない)"
+Cohesion: 0.33
+Nodes (5): `impl:issues`, 付け直した番号, 回帰(WSL・node v26.13.1・LF の写し・npm ci 後・直列), 束 B12 の push の準備(担当の記録。push はしていない), 載せ直し
+
+### Community 8303 - "突合(#401 推定による注意の喚起 / ADR-0103)"
+Cohesion: 0.40
+Nodes (4): 1. 検査の結果の要約, 3. 裁定の項目ごとの反映(漏れと逆向きの指示の確認), 4. 矛盾が無いと確かめたもの, 突合(#401 推定による注意の喚起 / ADR-0103)
 
 ### Community 8315 - "#332 実装の記録(束 B11、2026-11-17)"
 Cohesion: 0.25
@@ -41170,20 +41251,20 @@ Nodes (3): #356 B 突合2巡目の直し(2026-11-17), 直した, 開示で閉じ
 
 ## Knowledge Gaps
 - **174 isolated node(s):** `ADR-0084`, `ADR-0089`, `ADR-0131`, `ADR-0131`, `ADR-0131` (+169 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 77783 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **105 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 78000 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **106 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `#238: 判定基準の実物が案件へ降りていない` connect `#238: 判定基準の実物が案件へ降りていない` to `build-template-kb.mjs`?**
-  _High betweenness centrality (0.000) - this node is a cross-community bridge._
+- **Why does `evaluate()` connect `test-tailoring-engine.mjs` to `R-4 記録・開示・ADR`, `check-stage-table.mjs`, `#374 内部調査: CL0 の S1 で G-7 を「簡略」とするときの中身`, `調査 318-1: 内部の事実(独立の強さ、S0 の残り、下限、CL2 のルールセット)`, `推す案(項目ごと)`, `proposal-logic.md`, `1.1 第8章 軸D の全文(逐語)`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **What connects `ADR-0084`, `ADR-0089`, `ADR-0131` to the rest of the system?**
   _174 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
-- **Why does `理由` connect `build-template-kb.mjs` to `#238: 判定基準の実物が案件へ降りていない`?**
-  _High betweenness centrality (0.000) - this node is a cross-community bridge._
+- **Why does `gh()` connect `check-impl-plan-issues.mjs` to `#333 直し(1巡目)`, `決定`, `Issue #439 起案・反論・裁定の案`, `2. 所見`, `implementation-marking.md`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
 - **Should `プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査` be split into smaller, more focused modules?**
