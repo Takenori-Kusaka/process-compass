@@ -24,3 +24,14 @@ origin/main の最大: EV-0312、IMPL-1012、SRC-0764、ADR-0165。
 ## 検査
 
 - Windows `npm run check`: lint 群・sources・citations・registry・engine・impl・template ほか前段はすべて通過。`test:template-suite` で `test-discouraged-evidence`・`test-g5-aggregate` が落ち、そこで止まった(後段の regress・build は未実行)。両方とも前例のとおり Windows の CRLF による偽の FAIL と見て判定に使わない。全量は WSL で確かめた(下記)
+
+## 回帰(WSL・node 26.13.1・LF の写し〔`git -c core.autocrlf=false archive`〕。`npm ci` 後。順に流した)
+
+| 条件 | 終了コード | ok の行 | FAIL/NG |
+|---|---|---|---|
+| `npm run check` 通常(template の全量・regress・build を含む) | 0 | 177 | 0 |
+| `TZ=UTC npm run check` | 0 | 177 | 0 |
+
+- 時計依存の偽の FAIL は出なかった。Windows で落ちた 2 本(`test-discouraged-evidence`・`test-g5-aggregate`)も WSL では通過した(CRLF の偽の FAIL と整合)
+- 確かめていないこと: push 後の CI。Windows での regress・build
+- 議長が打つ push: template の変更は無い(本体のみ)。push の前に `git fetch` で origin/main が進んでいないか確かめる。WSL の写し(`~/b13w`)は後始末済み
