@@ -37,3 +37,15 @@ origin/main(54c143f8)の上へ 22 コミットを rebase した。衝突は impl
 
 - 衝突は implementation-ledger.md(自動生成)と graphify-out だけ。本文の衝突なし。指揮役の指示(衝突が無ければ関係する検査だけ流し直す)に従い、回帰の全量は流し直していない
 - 台帳を再生成した後、Windows で次の検査が終了コード 0: lint:refs・lint:impl・lint:evidence・lint:sources・lint:citations・lint:scope・test:fields・lint:provisions・test:provisions・test:impl・test:template・test:criteria・test:engine・lint:registry・test:edition、複製の検査(check-template-drift)
+
+## Issue へ投稿したコメント(2026-11-17)
+
+- #355: https://github.com/Takenori-Kusaka/process-compass/issues/355#issuecomment-6940721950
+- #448: https://github.com/Takenori-Kusaka/process-compass/issues/448#issuecomment-6940722369
+- #445: https://github.com/Takenori-Kusaka/process-compass/issues/445#issuecomment-6940722802
+- #450: https://github.com/Takenori-Kusaka/process-compass/issues/450#issuecomment-6940723224
+- #330: https://github.com/Takenori-Kusaka/process-compass/issues/330#issuecomment-6940723706
+- #356: https://github.com/Takenori-Kusaka/process-compass/issues/356#issuecomment-6940724278
+- #348: https://github.com/Takenori-Kusaka/process-compass/issues/348#issuecomment-6940724645
+- #340: https://github.com/Takenori-Kusaka/process-compass/issues/340#issuecomment-6940725026
+- #332: https://github.com/Takenori-Kusaka/process-compass/issues/332#issuecomment-6940725467
