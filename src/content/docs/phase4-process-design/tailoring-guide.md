@@ -181,7 +181,7 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 規模の規則は、設問の回答(初期化の時点の見込み)から導きます。名簿の人数から直接は導きません。初期化の時点では名簿がまだ無いためです。名簿を書いた後は、回答と名簿の人数の食い違いを3名と10名の境界で検出し、構成の生成と契約の検査が拒否します。人数が増える向きは少なく申告する誤りを、減る向きは名簿に書かれた離脱を拾うように数えます。数え方の細部は準拠テンプレートの手順です。
 
 <!-- impl IMPL-0300 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="設問の回答(q-team-size)と、席の責任者と人の名簿(外部の確認者を除く)から数えた人数の食い違いを、3名と10名の境界で検出し、構成の生成と契約検査が拒否する(config.mjs の headcountProblems)。test-roster-rules.mjs が固定する(#312)。増える向き(1〜2名→3名以上、3〜9名→10名以上)は席の責任者と名簿の体制の内の人の多い方で、減る向きは名簿の体制の内の人だけで数える。非対称は意図したもの(#351 の裁定)。" -->
-<!-- impl IMPL-0278 target=profile-generator state=undelivered check=manual plan=scheduled issue=351 review=2027-04 note="軸A の人数を、D-0 体制図の表5 の人(AI の担い手と外部の確認者を除く)で数え、3名以上の回答で名簿の体制の内が空の場合に、回答と人数の食い違いを検出すること。規模の規則を回答(q-team-size)から導き名簿から直接は導かないことは意図である(#351 の裁定、第8章の説明の段落)。回答と人数の食い違いの検出(IMPL-0300)は、3名以上の回答で名簿が空の場合を検出しない。数え方は向きで異なる(回答より多い向きは席の責任者と名簿の多い側、少ない向きは名簿だけで数える)。採用者は、名簿へ全員を記入したことを D-0 の改訂の時点で確かめる(#312 で注記を実装に合わせた)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0278 target=profile-generator state=undelivered check=manual plan=scheduled issue=351 review=2027-04 note="軸A の人数を、D-0 体制図の表5-2 の区分が「体制の内」の人で数え、3名以上の回答で名簿の体制の内が空の場合に、回答と人数の食い違いを検出すること。規模の規則を回答(q-team-size)から導き名簿から直接は導かないことは意図である(#351 の裁定、第8章の説明の段落)。回答と人数の食い違いの検出(IMPL-0300)は、3名以上の回答で名簿の体制の内が空の場合を検出しない。数え方は向きで異なる(回答より多い向きは席の責任者と名簿の多い側、少ない向きは名簿だけで数える)。採用者は、名簿へ全員を記入したことを D-0 の改訂の時点で確かめる(#312 で注記を実装に合わせた)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0148 / 見直し 2027-10]
 **対象**: 10名の境界(10名以上の列の規則)。
@@ -421,7 +421,7 @@ graph TD
 
 種別の列挙は組織が拡張してよいものとします。ただし拡張は、事後監査の記録を根拠として行います。拡張は登録に当たり、前掲の登録の要求事項によります。委任の範囲を広げる変更であり、緩める向きの変更です。手続は第5章 5.5.7 によります。
 
-<!-- impl IMPL-0741 target=config-delegation state=delivered check=manual note="委任の対象にできる変更の規模の境界。規模が第4章の L0 の既定値を超えないこと(規模の基準値 task を null にしても委任の規模条件は既定値で縛る)。scripts/gate/config.mjs の classifyDelegation が、task.maxChangedFiles・maxChangedLines が整数でなければ既定値で縛り、超過を委任の対象外にする。scripts/gate/delegation.mjs は条件1・3・5・7を判定する(IMPL-0690)。種別の属性は IMPL-0840 が追う。確かめる者: AI維持管理者(構成を生成したとき、PROCESS-PROFILE.md を読む)。所在を読んだ(実行して確かめていない)" -->
+<!-- impl IMPL-0741 target=config-delegation state=delivered check=manual note="委任の対象にできる変更の規模の境界。規模が第4章の担保水準 L0 の既定値を超えないこと(規模の基準値 task を null にしても委任の規模条件は既定値で縛る)。scripts/gate/config.mjs の classifyDelegation が、task.maxChangedFiles・maxChangedLines が整数でなければ既定値で縛り、超過を委任の対象外にする。scripts/gate/delegation.mjs は条件1・3・5・7を判定する(IMPL-0690)。種別の属性は IMPL-0840 が追う。確かめる者: AI維持管理者(構成を生成したとき、PROCESS-PROFILE.md を読む)。所在を読んだ(実行して確かめていない)" -->
 
 <!-- impl IMPL-0840 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="委任の対象にできる変更の種別を、満たすべき属性(新たな外部呼び出し・データ構造・権限を導入しない)で定めること。登録した種別の属性を照らす処理を、scripts/gate/config.mjs・delegation.mjs に見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -1171,7 +1171,7 @@ SaaS の利用権(チャットツール・プロジェクト管理ツールな�
 
 段階を増やして「さらに厳しくすれば実施してよい」とはしません。**上限を段階の延長として表現すると、厳格化によって到達できるという誤読を招きます**。
 
-<!-- impl IMPL-0765 target=autonomy-derivation state=delivered check=manual note="組み合わせ表の「CL3 の安全関連部 × L2 以上」。CL3 の構成は規則 r-e-cl3 の maxAutonomyLevel: L1 で上限を L1 にし(src/data/tailoring/rules-criticality.yaml の複製が template の scripts/vendor/tailoring-kb.json にある)、scripts/gate/autonomy.mjs の capFromAnswers が autonomy.maxLevel へ落とす。上限は構成の全体に掛かり、安全関連部の外に限って L2 以上を認める単位は持たない(IMPL-0766)。確かめる者: AI維持管理者(構成を生成したとき、上限の表示を読む)。所在を読んだ(実行して確かめていない)" -->
+<!-- impl IMPL-0765 target=autonomy-derivation state=delivered check=manual note="組み合わせ表の「CL3 の安全関連部 × AI自律レベル L2 以上」。CL3 の構成は規則 r-e-cl3 の maxAutonomyLevel: L1 で上限を L1 にし(src/data/tailoring/rules-criticality.yaml の複製が template の scripts/vendor/tailoring-kb.json にある)、scripts/gate/autonomy.mjs の capFromAnswers が autonomy.maxLevel へ落とす。上限は構成の全体に掛かり、安全関連部の外に限って L2 以上を認める単位は持たない(IMPL-0766)。確かめる者: AI維持管理者(構成を生成したとき、上限の表示を読む)。所在を読んだ(実行して確かめていない)" -->
 <!-- impl IMPL-0766 target=profile-generator state=undelivered check=manual plan=scheduled issue=448 review=2027-05 note="「適用範囲を安全関連部の外へ限定する」扱い(CL3 の案件で、安全関連部の外だけ L2 以上を認める)。構成の AI自律レベルの上限は案件の全体に掛かり、安全関連部と外を分ける単位を持たない。禁止の側(IMPL-0765)は降りており、外だけ認める側が降りていないため、CL3 の案件は全体が L1 に固定される。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 設計によって区分を下げる
@@ -1330,7 +1330,7 @@ T-1 の限定試行は、次の試行前チェックリストの全項目を確�
 - 価値責任者は発注側に置くことを契約時に合意(最大の交渉点)
 - G-2 / G-8 を、多段階契約の各段階の契約上の確認行為に対応づけると締結時に決めて記録。成果物の適否の確認の基準は受入基準への適合に限定
 - ゲート判定記録を監査書式で運用。AI生成箇所のトレーサビリティを維持
-- CL2 のため、安全適合性の検証記録を G-7 の判定基準に加える。AI自律レベルの上限は L2。安全リスクアセスメントは、第6章の適用条件(L2 のエージェントを使うなど)に当たるため G-1 の前提条件になる
+- CL2 のため、安全適合性の検証記録を G-7 の判定基準に加える。AI自律レベルの上限は L2。安全リスクアセスメントは、第6章の適用条件(AI自律レベル L2 のエージェントを使うなど)に当たるため G-1 の前提条件になる
 
 ## テーラリングの禁止事項
 
