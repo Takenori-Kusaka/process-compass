@@ -11,7 +11,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { hasMark, hasToneOk, hasRefOk, markReason, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
-import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems, unregisteredSentences } from './lib/frame-checks.mjs';
+import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems, prohibitionPresenceProblems, unregisteredSentences } from './lib/frame-checks.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -106,10 +106,22 @@ check('適合: 登録と実物・表示・マークの表が一致すれば通�
 check('違反: 登録の句が本文から消えたら失敗する', up([{ ...base, page: 'gone' }]).some((p) => p.includes('消えた登録')));
 check('違反: 登録の句が枠の外にあるなら枠の登録は失敗する', up([{ ...base, page: 'outside' }]).some((p) => p.includes('消えた登録')));
 check('違反: 実物のそばに表示の文が無ければ失敗する', up([{ ...base, page: 'nonotice' }]).some((p) => p.includes('表示の文')));
-check('違反: マークの表に所在の文字列が無ければ失敗する', up([{ ...base, ledgerKey: '無い所在' }]).some((p) => p.includes('マークの表')));
+check('違反: ledgerPage の頁の全文に所在の文字列が無ければ失敗する(表の行までは見ない)', up([{ ...base, ledgerKey: '無い所在' }]).some((p) => p.includes('文字列がありません')));
 check('違反: 頁が無い登録は失敗する', up([{ ...base, page: 'none' }]).some((p) => p.includes('頁')));
 check('違反: 必須の項目が無い登録は失敗する', up([{ ...base, issue: undefined }]).some((p) => p.includes('issue')));
 check('違反: kind が frame・declaration でない登録は失敗する', up([{ ...base, kind: 'x' }]).some((p) => p.includes('kind')));
+
+// 確かめた安全の禁止の文の存在(検査12 の続き。#440 / ADR-0155)
+const PP = { linesOf: (page) => ({ ok: ['前', '低減後 SR の算定に、RRS3 を数えてはなりません', ':::danger', '枠', ':::'], inframe: ['前', ':::danger', '低減後 SR の算定に、RRS3 を数えてはなりません', ':::'], gone: ['前', '空'] })[page] ?? null, inFrame: (page) => ({ ok: [false, false, true, true, false], inframe: [false, true, true, false], gone: [false, false] })[page] };
+const pb = { page: 'ok', phrase: 'RRS3 を数えてはなりません', adr: 'ADR-0155', issue: 440 };
+const pp = (entries) => prohibitionPresenceProblems({ ...PP, entries });
+check('適合: 禁止の句が本文にあれば通る', pp([pb]).length === 0, pp([pb]).join(' / '));
+check('違反: 禁止の句が本文から消えたら失敗する', pp([{ ...pb, page: 'gone' }]).some((p) => p.includes('にありません')));
+check('違反: 禁止の句が注意の枠の中にしか無いなら失敗する', pp([{ ...pb, page: 'inframe' }]).some((p) => p.includes('にありません')));
+check('違反: 頁が無い登録は失敗する', pp([{ ...pb, page: 'none' }]).some((p) => p.includes('頁')));
+check('違反: 必須の項目が無い登録は失敗する', pp([{ ...pb, adr: undefined }]).some((p) => p.includes('adr')));
+const sp = reg.confirmedSafetyProhibitions?.entries ?? [];
+check('登録簿に、確かめた安全の禁止の文が3件ある(F.5 の禁止・例外承認の対象外・RRS3)', sp.length === 3, String(sp.length));
 
 // 実物: 登録簿の未決の文がすべて、いまの本文と一致している(検査12 の拡張の本体は npm run lint:provisions)
 check('登録簿に未決の文の区画があり、項目は配列である(2026-11-17 に全項目を除いた。0件でよい)', Array.isArray(reg.undecidedFrameSentences?.entries));
@@ -171,7 +183,7 @@ ${NOTICE}
 `;
     const setReg = (ledgerKey) => (t) => t.replace('entries: []', regEntry(ledgerKey));
     const o2a = trial2([[safety, addFrame('')], [REG, setReg('1.7.2 規定と説明の読み分け')]]);
-    check('結線: 登録と表示とマークの表がそろえば登録した枠の文は通る', o2a === '', o2a.slice(-200));
+    check('結線: 登録と表示と ledgerKey の文字列がそろえば登録した枠の文は通る', o2a === '', o2a.slice(-200));
     const o2 = trial2([[safety, addFrame('加えて記録を消してはなりません。')], [REG, setReg('1.7.2 規定と説明の読み分け')]]);
     check('結線: 登録した枠の同じ行へ足した別の禁止で本体が非 0 になる(X-5)', o2.includes('注意の枠の中の要求・禁止'), o2.slice(-200));
     const o2b = trial(safety, (t) => t.replace('禁止の定めは、前の段落にあります', '禁止の定めは、前の段落にあります。記録を省いてはなりません'));
@@ -179,7 +191,14 @@ ${NOTICE}
     const o3 = trial(DOC(`${PG}overview`), (t) => `${t}\n\n新しいゲートを設けません。\n`);
     check('結線: 主語の無い「設けません」で本体が非 0 になる(検査17)', o3.includes('主語の無い表明の文末'), o3.slice(-200));
     const o4 = trial2([[safety, addFrame('')], [REG, setReg('存在しない所在')]]);
-    check('結線: 未決の登録がマークの表と食い違うと本体が非 0 になる', o4.includes('未決の文の登録'), o4.slice(-200));
+    check('結線: 未決の登録の ledgerKey が overview.md に無いと本体が非 0 になる', o4.includes('未決の文の登録'), o4.slice(-200));
+    // 変異試験(重の突合 M-1): 安全の禁止の文を本文から消すと、本体が非 0 になる
+    const dropPhrase = (ph) => (t) => { if (!t.includes(ph)) throw new Error(`変異の対象が無い: ${ph}`); return t.replace(ph, '(削除)'); };
+    for (const e of sp) {
+      const file = DOC(e.page);
+      const m = trial(file, dropPhrase(e.phrase));
+      check(`変異: 安全の禁止の句を消すと本体が非 0 になる「${e.phrase.slice(0, 24)}」`, m.includes('安全の禁止の登録'), m.slice(-200));
+    }
   } finally {
     rmSync(tmp, { recursive: true, force: true });
   }

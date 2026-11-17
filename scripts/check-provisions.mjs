@@ -20,7 +20,8 @@
 //  11. 禁止事項の番号(#316 / ADR-0086)     「禁止事項N」を、一覧の所在(5.8.5 の / テーラリングの)で修飾せずに引く箇所
 //  12. 注記の中の要求(#316 突合 X-13)      規定の文書の注記(:::note)と注意の枠(札に「暫定」を持たない :::caution、:::danger。#440 / ADR-0132)の
 //                                          中の要求・禁止の文末(〜なければなりません/〜てはなりません)。地位が未決の文は登録簿
-//                                          (undecidedFrameSentences)に載せて通し、登録・実物のそばの表示・1.7.2 のマークの表の一致を確かめる
+//                                          (undecidedFrameSentences)に載せて通し、登録・実物のそばの表示・ledgerKey の文字列が overview.md の全文にあることを確かめる
+//      12 の続き: 安全の禁止の文(#440 / ADR-0155)   登録簿(confirmedSafetyProhibitions)の句が、本文(注意の枠の外)に存在する。消すと失敗する
 //  17. 主語の無い表明の文末(#440 / ADR-0132)  規定の文書の文末が「設けません/設けない」で、同じ文に主語(本標準・本章・本節・本附属書・本様式)が無い文。
 //                                          動詞は登録簿(declarationVerbs)で持つ
 //  13. 廃した言い回しの由来(#319 / ADR-0089) 登録簿の各句の by が、実在する ADR を1つ以上指す(Issue は追加として
@@ -56,7 +57,7 @@ import { missingInputs, INIT_HINT } from './lib/inputs.mjs';
 import { problemOf, decisionIdsIn } from './lib/decision-refs.mjs';
 import { simplifiedCellProblem } from './lib/stage-table.mjs';
 import { hasMark, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
-import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems, unregisteredSentences } from './lib/frame-checks.mjs';
+import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems, prohibitionPresenceProblems, unregisteredSentences } from './lib/frame-checks.mjs';
 
 // PROVISIONS_ROOT は試験用。違反の見本を置いた一時の木へ、検査の本体を向ける(scripts/test-provisions.mjs)
 const ROOT = process.env.PROVISIONS_ROOT ? path.resolve(process.env.PROVISIONS_ROOT) : path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -116,6 +117,8 @@ const valueWords = reg.retiredValueWords ?? [];
 // 地位が未決の文の登録(第1章 1.7.2。#440 / ADR-0132)
 const undecidedReg = reg.undecidedFrameSentences ?? {};
 const undecidedFrame = undecidedReg.entries ?? [];
+// 確かめた安全の禁止の文(#440 / ADR-0155)。句が本文にあることだけを確かめる
+const safetyProhibitions = reg.confirmedSafetyProhibitions?.entries ?? [];
 const declReg = reg.declarationVerbs ?? {};
 const declVerbs = declReg.verbs ?? [];
 const declSubject = declReg.subject ?? '本標準は';
@@ -286,8 +289,16 @@ for (const d of docs) {
       report(REGISTRY, 0, '未決の文の登録', e?.phrase ?? '', `page(${e?.page})が規定の文書ではありません`);
     }
   }
-  for (const p of undecidedProblems({ entries: undecidedFrame, notice: undecidedReg.notice, linesOf: pageLines, inFrame: pageFrames, ledgerText })) {
+  for (const p of undecidedProblems({ entries: undecidedFrame, notice: undecidedReg.notice, linesOf: pageLines, inFrame: pageFrames, ledgerText, ledgerPage: undecidedReg.ledgerPage ?? overviewDoc?.page })) {
     report(REGISTRY, 0, '未決の文の登録', '', p);
+  }
+  for (const e of safetyProhibitions) {
+    if (!docs.some((d) => d.page === e?.page && d.kind === 'normative')) {
+      report(REGISTRY, 0, '安全の禁止の登録', e?.phrase ?? '', `page(${e?.page})が規定の文書ではありません`);
+    }
+  }
+  for (const p of prohibitionPresenceProblems({ entries: safetyProhibitions, linesOf: pageLines, inFrame: pageFrames })) {
+    report(REGISTRY, 0, '安全の禁止の登録', '', p);
   }
 }
 

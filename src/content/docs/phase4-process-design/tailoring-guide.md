@@ -1370,5 +1370,5 @@ T-1 の限定試行は、次の試行前チェックリストの全項目を確�
 <!-- impl IMPL-0030 target=claude-md-resident state=delivered check=presence note="運用形態の上限を案件単位で引き上げず、適合性確認が失効した担い手の確認を検出の層に数えない(単位: 行)" -->
 
 :::caution
-このガイドは v0 です。実組織への適用フィードバックで調整表を更新していきます。「うちの条件だとどうなるか」という質問・事例を [GitHub Issues](https://github.com/Takenori-Kusaka/process-compass/issues) で受け付けています。そのやり取り自体が提案ツールの知識ベースを鍛えます。
+このガイドは v0 です。調整表は、実組織への適用フィードバックで更新されることがあります。「うちの条件だとどうなるか」という質問・事例を [GitHub Issues](https://github.com/Takenori-Kusaka/process-compass/issues) で受け付けています。そのやり取り自体が提案ツールの知識ベースを鍛えます。
 :::

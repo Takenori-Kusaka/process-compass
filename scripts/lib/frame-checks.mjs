@@ -83,10 +83,11 @@ export function declarationVerbProblems(entry, subject) {
  *   notice    — { frame, declaration } 実物のそばに置く文
  *   linesOf   — page を渡すと、その頁の行の配列(コードブロック除去済み)を返す関数。頁が無ければ null
  *   inFrame   — page を渡すと、各行が注意の枠の中か(真偽の配列)を返す関数
- *   ledgerText — 第1章 1.7.2 のマークの表を含む頁の全文
+ *   ledgerText — ledgerPage の頁(第1章 overview.md)の全文。ledgerKey の文字列が全文のどこかにあるかだけを見る(1.7.2 のマークの表の行までは見ない)
+ *   ledgerPage — 頁の名(問題の文に使う)
  * 検査は値の一致と存在だけを見る。文の意味は見ない
  */
-export function undecidedProblems({ entries, notice, linesOf, inFrame, ledgerText }) {
+export function undecidedProblems({ entries, notice, linesOf, inFrame, ledgerText, ledgerPage }) {
   const problems = [];
   entries.forEach((e, k) => {
     const label = e?.phrase ?? `(${k + 1} 番目の項目)`;
@@ -106,7 +107,7 @@ export function undecidedProblems({ entries, notice, linesOf, inFrame, ledgerTex
     const frames = e.kind === 'frame' ? inFrame(e.page) : null;
     const idx = lines.findIndex((l, i) => l.includes(e.phrase) && (e.kind === 'declaration' || frames[i]));
     if (idx < 0) {
-      problems.push(`${label}: 登録の句が本文${e.kind === 'frame' ? 'の注意の枠の中' : ''}にありません(本文から消えた登録。審議が済んだなら、登録と第1章 1.7.2 のマークの表の行を除いてください)`);
+      problems.push(`${label}: 登録の句が本文${e.kind === 'frame' ? 'の注意の枠の中' : ''}にありません(本文から消えた登録。審議が済んだなら、登録を除いてください)`);
     } else {
       const want = notice?.[e.kind];
       if (!want) problems.push(`${label}: notice.${e.kind} がありません`);
@@ -117,7 +118,36 @@ export function undecidedProblems({ entries, notice, linesOf, inFrame, ledgerTex
       }
     }
     if (e.ledgerKey && !ledgerText.includes(e.ledgerKey)) {
-      problems.push(`${label}: 第1章 1.7.2 のマークの表に「${e.ledgerKey}」がありません`);
+      problems.push(`${label}: ${ledgerPage ?? 'ledgerPage'} の頁の全文に「${e.ledgerKey}」の文字列がありません`);
+    }
+  });
+  return problems;
+}
+
+/**
+ * 確かめた安全の禁止の文(confirmedSafetyProhibitions。#440 / ADR-0155)の存在の問題を返す(空なら存在する)。
+ *   entries — { page, phrase, adr, issue } の配列
+ *   linesOf — page を渡すと、その頁の行の配列(コードブロック除去済み)を返す関数。頁が無ければ null
+ *   inFrame — page を渡すと、各行が注意の枠の中か(真偽の配列)を返す関数
+ * 検査は決定可能な条件(句が本文にあること。注意の枠の中は数えない)だけを見る。文の意味と、禁止が守られることは見ない。
+ * 句が本文から消えたとき、失敗する
+ */
+export function prohibitionPresenceProblems({ entries, linesOf, inFrame }) {
+  const problems = [];
+  entries.forEach((e, k) => {
+    const label = e?.phrase ?? `(${k + 1} 番目の項目)`;
+    for (const f of ['page', 'phrase', 'adr', 'issue']) {
+      if (e?.[f] === undefined || e[f] === '') problems.push(`${label}: ${f} がありません`);
+    }
+    if (!e?.page || !e?.phrase) return;
+    const lines = linesOf(e.page);
+    if (!lines) {
+      problems.push(`${label}: 頁 ${e.page} がありません`);
+      return;
+    }
+    const frames = inFrame(e.page);
+    if (!lines.some((l, i) => l.includes(e.phrase) && !frames[i])) {
+      problems.push(`${label}: 安全の禁止の句が本文(注意の枠の外)にありません(消した禁止の文は戻してください。外すなら新しい ADR で決めます)`);
     }
   });
   return problems;
