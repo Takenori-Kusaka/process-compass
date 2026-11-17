@@ -585,6 +585,12 @@ sections:
       - IMPL-0029
     note: "縮退の3列・有事の決定者の表・層1 の版の行は IMPL-0056、席の責任者・担い手・運用形態・委任の範囲・改訂履歴の欄は IMPL-0029。後継候補の確認の状態の列と責任者本人の確認の表は IMPL-0777"
     issue: 324
+  - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > AI を用いない実施の記録を書く"
+    status: marked
+    ids:
+      - IMPL-1023
+    note: 表7 の下の「AI を用いない実施の記録」の表は IMPL-1023(降りていない。準拠テンプレートの D-0 にこの表は無い)。記録が無いことと頻度を過ぎたことの表示は第5章 5.4.7 の IMPL-1022
+    issue: 447
   - key: "phase4-process-design/deliverable-templates#テンプレ0: 意思決定・エスカレーション体制図(D-0) > 改訂履歴に体制の変化点を残す"
     status: marked
     ids:
@@ -3211,10 +3217,11 @@ sections:
     status: marked
     ids:
       - IMPL-0978
+      - IMPL-1022
     location:
       - phase4-process-design/roles-responsibilities#3.4 任命基準 > 3.4.3 判断を担う席の力量の維持と後継
       - "phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)"
-    note: "AI を用いずに実装または調査する機会を定められた頻度で確保することは IMPL-0978(降りていない。予定の降ろし先 ai-free-practice-record)。頻度の置き場は層1 の行(IMPL-1020)。照らす時点と常時の記録を課すかは未決(ADR-0178)。コア機能の理解保持者数の維持は第3章 3.4.3 の IMPL-0061・IMPL-0645、挙動要約の記載の継続は第4章 G-6 の IMPL-0093・IMPL-0077・IMPL-0112 が追う"
+    note: "機会の確保は IMPL-0978(降りていない。降ろし先 d0-template)、表示は IMPL-1022、頻度の置き場は IMPL-1020。経路を問わず同じ記録と表示で照らす(ADR-0179)。コア機能の理解保持者数の維持は第3章 3.4.3 の IMPL-0061・IMPL-0645、挙動要約の記載の継続は第4章 G-6 の IMPL-0093・IMPL-0077・IMPL-0112 が追う"
     issue: 324
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.8 見直しの頻度
     status: marked

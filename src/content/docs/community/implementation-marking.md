@@ -274,7 +274,7 @@ sidebar:
 **根拠の水準**: E0(なし)。
 **差し替え条件**: 照合していない範囲で、降りている規定を降りていないと表示した件数、または表示のない規定が見つかった件数。
 
-規定を運ぶ手引きのうち、降ろし先に登録していない 9 枚(01・02・04・05・07・12・adoption-trial・defect-ledger・trial-checklist)は、制度設計と区分した文に照らしていません。1巡目と2巡目の突合は、新しい `undelivered` を該当の手引きに照らし終えています。登録した降ろし先 `context-transfer-record`・`project-registration-record`・`flow-observation`・`proposal-record`・`ai-free-practice-record` の `path` は予定の置き場で、仮です。照合していない向きで起きうる誤りは、降りている規定を降りていないと表示することで、表示を減らす向きではありません。出典の所在は `research/324-deliberation/ruling-C2-D.md` です。
+規定を運ぶ手引きのうち、降ろし先に登録していない 9 枚(01・02・04・05・07・12・adoption-trial・defect-ledger・trial-checklist)は、制度設計と区分した文に照らしていません。1巡目と2巡目の突合は、新しい `undelivered` を該当の手引きに照らし終えています。登録した降ろし先 `context-transfer-record`・`project-registration-record`・`flow-observation`・`proposal-record` の `path` は予定の置き場で、仮です。照合していない向きで起きうる誤りは、降りている規定を降りていないと表示することで、表示を減らす向きではありません。出典の所在は `research/324-deliberation/ruling-C2-D.md` です。
 :::
 
 ### 区分の確かめ方
