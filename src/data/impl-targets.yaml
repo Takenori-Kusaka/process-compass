@@ -252,7 +252,7 @@ targets:
     name: 欠陥の台帳の様式
     kind: template-file
     path: templates/defect-ledger.md
-    description: 出荷判定(G-7)基準2 の既知の欠陥の台帳。欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(第4章 G-5)の様式は、ここにまだ無い
+    description: 出荷判定(G-7)基準2 の既知の欠陥の台帳。欠陥注入の見逃しと統制の弱化の検知を起点とする是正の記録(第4章 G-5)の様式は、節「是正の記録」にある。起点の記録と行の対応は機械が確かめない(IMPL-0497。#356 / ADR-0139)
 
   - id: bug-issue-template
     name: 不具合の報告の Issue の様式
@@ -372,10 +372,10 @@ targets:
     description: 演習用ブランチ(drill/)にマージ先を持たせない規則と、注入の標識(Seeded-Error トレーラ)を持つコミットを本番ブランチが拒否する規則の置き場。準拠テンプレートに実装は無い(Issue #292)
 
   - id: seeded-error-scan
-    name: 欠陥注入のリリース候補の走査(第3層)の置き場(予定)
-    kind: planned
-    path: .github/workflows/seeded-error-scan.yml
-    description: タグの生成時に、標識の残存・注入台帳の未回収の識別子・期限を超過した未回収の注入を走査し、1件でもあれば失敗させるワークフローの置き場。結果を走査の実施記録(seededErrors.scanRun)として集約へ渡す。準拠テンプレートに実装は無い(Issue #292)
+    name: 欠陥注入の標識の走査(第3層)のスクリプト
+    kind: template-file
+    path: scripts/gate/seeded-error-scan.mjs
+    description: 出荷の範囲(直前のタグから当該タグまで)の全コミットの本文に標識(Seeded-Error トレーラの行)があれば失敗させ、走査の記録 evidence/seeded-error-scan.json を作る。ship-evidence のタグの実行と verify ジョブが、集約の前に毎回無条件で走らせる。台帳の照合は、採用者がリポジトリの外の台帳を --ledger で渡したときだけ(任意の入力)。手で写した変更は対象外(#356 / ADR-0139)
 
   - id: seeded-error-drill
     name: 継続の欠陥注入の演習の置き場(予定)

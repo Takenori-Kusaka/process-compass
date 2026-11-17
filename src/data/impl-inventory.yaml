@@ -3311,11 +3311,13 @@ sections:
     ids:
       - IMPL-0161
       - IMPL-0162
+      - IMPL-0987
     rows:
       要求事項1:
         status: marked
         ids:
           - IMPL-0161
+          - IMPL-0987
       要求事項2:
         status: marked
         ids:
@@ -3324,6 +3326,7 @@ sections:
         status: marked
         ids:
           - IMPL-0161
+          - IMPL-0987
       要求事項4:
         status: none
         category: elsewhere
