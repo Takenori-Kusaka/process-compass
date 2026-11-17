@@ -5637,6 +5637,7 @@ sections:
     status: marked
     ids:
       - IMPL-0718
+      - IMPL-1024
     note: 統制の更新から必須検査への昇格の流れの図は説明
     issue: 324
   - key: phase4-process-design/roles-responsibilities#3.12 AI運用担当者と全社統制の接続 > 3.12.10 実行の強制停止(サーキットブレーカー)
