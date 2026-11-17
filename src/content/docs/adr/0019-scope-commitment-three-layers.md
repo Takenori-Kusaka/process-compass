@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-08-06)
+採用(2026-08-06)。決定5 の後半(事前レビュー期間の仕組みへ載せる)は、一部置き換え(→ [ADR-0178](/process-compass/adr/0178-scope-procedure-records-backlog-review-and-ai-free-practice-frequency/)の決定2)
 
 受入基準の識別子を `CR-n` へ改称した決定は、[ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/)の決定5 で置き換えられました。受入基準の識別子は `AC-n`(機能をまたいで引くときは `F-NNN/AC-n`)です。
 
