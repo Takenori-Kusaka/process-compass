@@ -4302,10 +4302,10 @@ sections:
     status: marked
     ids:
       - IMPL-0521
-      - IMPL-1100
-      - IMPL-1101
-      - IMPL-1102
-    note: 一覧は各条項の記録と表示の規定の所在を示す。主張を妨げることは 1.10.2 の IMPL-0308 で追う。記録から決まる離脱(保持者・層1 の記名者・禁止の組の同じ専用アカウント)を名が数える点は IMPL-0521(delivered。ADR-0147)。秘匿の不成立は IMPL-1100(undelivered。#356)、認証情報の残りは IMPL-1101(undelivered。#446)、解けない記録と氏名の表記の確認は IMPL-1102(delivered。出荷判定者が確かめる)
+      - IMPL-1003
+      - IMPL-1004
+      - IMPL-1005
+    note: 一覧は各条項の記録と表示の規定の所在を示す。主張を妨げることは 1.10.2 の IMPL-0308 で追う。記録から決まる離脱(保持者・層1 の記名者・禁止の組の同じ専用アカウント)を名が数える点は IMPL-0521(delivered。ADR-0147)。秘匿の不成立は IMPL-1003(undelivered。#356)、認証情報の残りは IMPL-1004(undelivered。#446)、解けない記録と氏名の表記の確認は IMPL-1005(delivered。出荷判定者が確かめる)
     issue: 352
   - key: phase4-process-design/overview#1.10 適用の開始と適合の主張 > 1.10.3 本標準の版
     status: marked
