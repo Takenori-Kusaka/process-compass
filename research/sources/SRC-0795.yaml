@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0795
+status: included
+excludeReason: null
+title: "Categorizing Variants of Goodhart's Law"
+url: https://arxiv.org/abs/1803.04585
+canonicalUrl: arxiv:1803.04585
+ids:
+  arxiv: null
+  doi: null
+publisher: "arXiv (Manheim, Garrabrant)"
+authors: []
+orgType: academic
+region: us
+lang: en
+sourceType: preprint
+published: 2018-03-13
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: abstract
+foundBy:
+  cluster: I440
+  query: "#440 重の論点の外部の調査 (survey-heavy-external.md)。仮番号"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11, TH12]
+events: []
+summary: 'Goodhart の法則(指標を目標にすると良い指標でなくなる)の失敗様式を4種に分類した論文。経済・公共政策・機械学習で指標の過剰最適化が起きることを論じる。応答に対する報奨や応答率の指標化が操作される懸念の理論的な根拠として引ける(実証ではない)。'
+claims:
+  - id: c1
+    text: '指標に基づく過剰最適化には、いくつかの異なる失敗様式がある。'
+    quote: 'There are several distinct failure modes for overoptimization of systems on the basis of metrics.'
+    locator: 'Abstract'
+    quant: null
+    evidenceKind: review
+    rqs: []
+    issues: [440]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: '#440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-11

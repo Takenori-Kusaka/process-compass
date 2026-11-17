@@ -1,0 +1,53 @@
+schemaVersion: 0
+id: SRC-0796
+status: included
+excludeReason: null
+title: "DORA's software delivery performance metrics(Lead time for changes の定義)"
+url: https://dora.dev/guides/dora-metrics/
+canonicalUrl: https://dora.dev/guides/dora-metrics
+ids:
+  arxiv: null
+  doi: null
+publisher: "DORA (Google Cloud)"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: section
+foundBy:
+  cluster: I440
+  query: "#440 重の論点の外部の調査 (survey-heavy-external.md)。仮番号"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH11]
+events: []
+summary: 'DORA の指標ガイド。変更のリードタイムを、バージョン管理へのコミットから本番デプロイまでと定義する。コミット前の待ち(要求の滞留など)は定義の外。SRC-0467(同じ指標群の別の頁)の補足。'
+claims:
+  - id: c1
+    text: '変更のリードタイムは、変更がバージョン管理へコミットされてから本番へデプロイされるまでの時間である。始点はコミットで、その前の滞留は含まない(頁は除外を明記せず、始点から読める)。'
+    quote: 'The amount of time it takes for a change to go from committed to version control to deployed in production.'
+    locator: 'Lead time for changes の定義'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [440]
+    stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: '#440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-11

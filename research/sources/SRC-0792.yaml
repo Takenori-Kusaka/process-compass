@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0792
+status: included
+excludeReason: null
+title: "EN ISO 12100 and its relation to the Machinery Directive (CEN/TC114 議長の講演資料, 2019-05)"
+url: https://www.cencenelec.eu/media/CEN-CENELEC/Areas of Work/CENELEC sectors/Mechanical and Machines/Documents/Quicklinks/eniso12100relationmachinerydirective.pdf
+canonicalUrl: https://www.cencenelec.eu/media/cen-cenelec/areas of work/cenelec sectors/mechanical and machines/documents/quicklinks/eniso12100relationmachinerydirective.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: "CEN-CENELEC (Otto Gornemann, SICK AG, CEN/TC114 議長)"
+authors: []
+orgType: standards-body
+region: eu
+lang: en
+sourceType: talk
+published: 2019-05
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: section
+foundBy:
+  cluster: I440
+  query: "#440 重の論点の外部の調査 (survey-heavy-external.md)。仮番号"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12]
+events: []
+summary: 'ISO 12100 の3ステップ法(本質的安全設計 → safeguarding と補完的保護方策 → 使用上の情報)を規格策定側の議長が解説した講演資料。ステップ3はステップ1・2の後に残るリスクを使用上の情報で示すものとし、使用上の情報は他のリスク低減策の代わりにならないと述べる。規格本文(6.1)ではなく二次の解説。'
+claims:
+  - id: c1
+    text: '保護方策は3ステップの順に適用する。ステップ1は設計でハザードを除くかリスクを下げる。ステップ2は、ステップ1で除けない・十分に下げられないときに safeguarding と補完的保護方策を適用する。ステップ3は、ステップ1・2の後に残るリスクを使用上の情報で示す。'
+    quote: 'Protective measures shall be applied in the following sequence (3-step method)'
+    locator: 'スライド11(The 3-Step Method)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [440]
+    stance: supports
+  - id: c2
+    text: '使用上の情報(警報、標識、取扱説明、訓練要件)は、他のリスク低減策の代わりにならない。'
+    quote: 'User information shall not be a replacement for other risk reduction measures !'
+    locator: 'スライド15'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [440]
+    stance: supports
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: '#440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-11

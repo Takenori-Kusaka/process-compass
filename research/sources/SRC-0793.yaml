@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0793
+status: included
+excludeReason: null
+title: "Principles of Chaos Engineering"
+url: https://principlesofchaos.org/
+canonicalUrl: https://principlesofchaos.org/
+ids:
+  arxiv: null
+  doi: null
+publisher: "Chaos Engineering community (Netflix 起源)"
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: section
+foundBy:
+  cluster: I440
+  query: "#440 重の論点の外部の調査 (survey-heavy-external.md)。仮番号"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH12, TH10]
+events: []
+summary: 'カオスエンジニアリングの原則集。本番のトラフィックでの実験を選好し、影響範囲を最小化する責務を実験者に置く。安全関連システムの除外には触れない(一般の Web サービスの文脈)。'
+claims:
+  - id: c1
+    text: 'カオスエンジニアリングは本番のトラフィックでの実験を強く選好する。環境と負荷で挙動が変わるため。'
+    quote: 'Chaos strongly prefers to experiment directly on production traffic.'
+    locator: 'Run Experiments in Production'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [440]
+    stance: contradicts
+  - id: c2
+    text: '本番での実験は顧客に不要な苦痛を与え得る。短期の悪影響の許容を認めつつ、影響を抑える責任を実験者に置く。安全関連の除外は書かれていない(沈黙)。'
+    quote: 'Experimenting in production has the potential to cause unnecessary customer pain.'
+    locator: 'Minimize Blast Radius'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [440]
+    stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: '#440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-11

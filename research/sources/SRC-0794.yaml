@@ -1,0 +1,62 @@
+schemaVersion: 0
+id: SRC-0794
+status: included
+excludeReason: null
+title: "To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assisted Decision-making"
+url: https://arxiv.org/abs/2102.09692
+canonicalUrl: arxiv:2102.09692
+ids:
+  arxiv: null
+  doi: null
+publisher: "Proc. ACM Hum.-Comput. Interact. 5(CSCW1) (Bucinca, Malaya, Gajos)"
+authors: []
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: 2021-02-18
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: abstract
+foundBy:
+  cluster: I440
+  query: "#440 重の論点の外部の調査 (survey-heavy-external.md)。仮番号"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: [TH06, TH12]
+events: []
+summary: 'AI の説明の提示だけでは過度な依存は減らず、cognitive forcing(判断の時点で分析的思考を強いる介入)が過度な依存を減らした。199 人の実験。ただし最も減らした設計は主観の評価が最も低く、認知動機の高い人ほど効果が大きく、効果は不完全だった。'
+claims:
+  - id: c1
+    text: '説明を足しても過度な依存は減らない。研究によっては増えることもある。'
+    quote: 'Adding explanations to the AI decisions does not appear to reduce the overreliance.'
+    locator: 'Abstract'
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [440]
+    stance: supports
+  - id: c2
+    text: 'cognitive forcing は単純な説明の提示より過度な依存を有意に減らした(199 人)。ただし最も減らした設計は主観の評価が最も低く、効果は認知動機(Need for Cognition)で異なる。'
+    quote: 'cognitive forcing significantly reduced overreliance compared to the simple explainable AI approaches'
+    locator: 'Abstract'
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [440]
+    stance: qualifies
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: '#440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮'
+  mech: null
+  agent: null
+volatility: medium
+reviewBy: 2027-11
