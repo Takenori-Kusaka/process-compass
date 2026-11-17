@@ -243,17 +243,18 @@ S0 の「統合(G-4 へ)」は、要件合意(G-2)を省略する調整ではあ
 | # | 項目 | 所在 | 関係する IMPL |
 | --- | --- | --- | --- |
 | T1 | 規則データ r-b-poc の注記「要件合意は省略し、仕様承認に統合する」を「要件合意は仕様承認に統合する(G-4 の判定者が G-2 の前提条件1と判定基準1〜5を確かめる。省略ではない)」へ。正本は `src/data/tailoring/rules-business-phase.yaml`。`npm run template:kb` で template の知識ベースが変わるため、template を触る直列の作業で行う | src/data + template/scripts/vendor/tailoring-kb.json | — |
-| T2 | gates/G-4.md: S0 で G-2 の項目番号ごとの結果を確認した項目に書く手順。層の割り当てを範囲内外の判定の前に行う | template/.claude/skills/gate/gates/G-4.md | IMPL-TMP-327-2 |
+| T2 | gates/G-4.md: S0 で G-2 の項目番号ごとの結果を確認した項目に書く手順。G-4 の判定者が層の割り当てを範囲内外の判定の前に同じ判定記録へ記入する(2巡目の裁定) | template/.claude/skills/gate/gates/G-4.md | IMPL-TMP-327-2 |
 | T3 | gates/G-4.md の基準5 の「空欄なら判定を始めない」を「空欄のまま通過を記録しない」へ | 同上 | IMPL-0542 |
 | T4 | check-g1 が、テンプレ9 を置いた案件で SR4 の残存を見て G-1 を止める | template/scripts/gate/check-g1.mjs | IMPL-0849 |
 | T5 | check-d0 の期日の超過を、G-1 の停止でなく SG を始めない旨の失敗として出す。gates/SG.md に「失敗なら SG を始めない」 | template/scripts/gate/check-d0.mjs・gates/SG.md | IMPL-0951 |
 | T6 | gate スキルの exception-paths.md に、7.3 の対象の限定(判定の記録と記名、7.4 の禁止対象) | template/.claude/skills/gate/reference/exception-paths.md | IMPL-0603 |
 | T7 | 集約の gateExceptions が、`G-4`・`G-5` を対象とし、当該の判定記録・集約の結果の無い行を成立させない | template/scripts/gate/aggregate-evidence.mjs | IMPL-TMP-327-1・IMPL-0567 |
+| T8 | templates/trial-checklist.md の「差し引き」の項目を、差し引きが負であることの確認へ(2巡目の突合 M2-2) | template/templates/trial-checklist.md | IMPL-0999 |
 
 ## 6. Issue を閉じられるか
 
 - 4節の標準側の変更(本文・ADR-0153・ADR-0154・マーク・台帳)が入り、実装を見ていない別の文脈の独立の突合(1巡目は全体、2巡目は直した差分)を通れば、**閉じられる**
-- 準拠テンプレートの T1〜T7 は、undelivered の実装マークで表示し続け、#445 へコメントで寄せる(新規の起票はしない)。T1 は規則データの注記が標準の新しい語義と食い違う期間を作るので、#445 の中で先に扱うよう書き添える
+- 準拠テンプレートの T1〜T8 は、undelivered の実装マークで表示し続け、#445 へコメントで寄せる(新規の起票はしない)。T1 は規則データの注記が標準の新しい語義と食い違う期間を作るので、#445 の中で先に扱うよう書き添える
 - 論点5 は Issue のコメントで閉じる
 
 ## 7. 既存の決定との突合

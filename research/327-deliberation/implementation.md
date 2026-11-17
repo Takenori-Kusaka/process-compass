@@ -24,6 +24,6 @@ textlint(変えた md)、lint:evidence、lint:impl、lint:scope、lint:refs、li
 
 ## 準拠テンプレートへ及ぶ項目(本 Issue では触っていない。#327・#445 へコメント)
 
-T1 規則データ r-b-poc の注記(template:kb が template を変える)。T2 gates/G-4.md の S0 の手順(IMPL-0994)。T3 gates/G-4.md 基準5 の「空欄なら判定を始めない」(IMPL-0542)。T4 check-g1 の SR4(IMPL-0849)。T5 check-d0 と gates/SG.md(IMPL-0951)。T6 exception-paths.md(IMPL-0603)。T7 集約の gateExceptions(IMPL-0993・IMPL-0567)。
+T1 規則データ r-b-poc の注記(template:kb が template を変える)。T2 gates/G-4.md の S0 の手順(IMPL-0994)。T3 gates/G-4.md 基準5 の「空欄なら判定を始めない」(IMPL-0542)。T4 check-g1 の SR4(IMPL-0849)。T5 check-d0 と gates/SG.md(IMPL-0951)。T6 exception-paths.md(IMPL-0603)。T7 集約の gateExceptions(IMPL-0993・IMPL-0567)。T8 templates/trial-checklist.md の「差し引き」の項目(IMPL-0999。2巡目の突合 M2-2。ゼロを許す旧い文が残る)。
 
 範囲の外の所見: ci-gates.md の D-0 の検査の例が `scripts/governance/check-d0.mjs` を書き、準拠テンプレートの所在は `scripts/gate/check-d0.mjs` である(採否は未決。ADR-0154 の影響に記録)。G-5 基準1「例外なし」が 7.3 の「例外を認めない基準」に当たるかは未決(ADR-0153 の影響に記録)。論点5 は Issue のコメントで閉じる(議長の作業)。
