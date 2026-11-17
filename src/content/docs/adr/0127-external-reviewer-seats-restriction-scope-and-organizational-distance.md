@@ -14,7 +14,7 @@ sidebar:
 | 対象 | 本 ADR との関係 |
 | --- | --- |
 | [ADR-0060](/process-compass/adr/0060-drafting-context-and-two-layer-independence/) | 維持する。(イ)の3条件は ADR-0060 から条項であり、本 ADR は降ろし方を決める(決定2・3) |
-| [ADR-0067](/process-compass/adr/0067-purpose-of-two-approvers/) 決定2 | 維持する。対象の人の承認を単独で数えない目的を、7.9.2 の字義で実装する(決定5) |
+| [ADR-0067](/process-compass/adr/0067-purpose-of-two-approvers/) 決定2 | 維持する。対象の人の承認を単独で数えない目的を、7.9.2 の字義で実装する(決定5)(目的の文は ADR-0161 決定5 で置き換えた) |
 | [ADR-0069](/process-compass/adr/0069-handing-over-judgements-and-contractual-confirmation/) 決定2・3 | 維持する。席と受信箱の規定の外に名簿を置く読みを確かめ、法令の評価を含まない(決定6・8) |
 | [ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/) 決定6 | 維持する。既存の EV の対象を黙って広げず、EV-0253 を新設する(決定2) |
 | [ADR-0087](/process-compass/adr/0087-outsourcing-gate-placement-enforcement-ownership-and-authority-sources/) 決定3 | 維持する。合意の本文を構成へ写さず、所在だけを置く(決定3) |

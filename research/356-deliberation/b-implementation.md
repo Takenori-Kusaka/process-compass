@@ -47,3 +47,7 @@
 - `npm run impl:write`・`evidence:write`・`scope:write` で台帳を再生成した。`src/data/impl-inventory.yaml` の 7.9.6 を「マークあり(IMPL-1010)」へ、5.6.2 事前の周知に IMPL-1011 を足した
 - `lint:impl`・`lint:evidence` に残る指摘は、並行する #355 束2 の gate-criteria.md(節の登録、EV-0305)と roles-responsibilities.md(EV-0306)の分だけ。#356 B の分は無い
 - `lint:refs`、`check-template-drift` は通過。回帰の全量は流していない
+
+## 追記: 1巡目の直し(b-fix-round1.md)による template 一覧への足し
+
+T-1: 直接の push の経路は PR の検査に乗らない(ルールセットで禁じていない構成では、取り込みの前の拒否が欠ける)。T-2: 1 による発動で集約の出力に対象の人を出さない。検査の文の person の定義を 7.9.1 の2 の対象の人へ改める。T-3: 集約は導入前と運用中を区別しない。詳細は b-fix-round1.md。
