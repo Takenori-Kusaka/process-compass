@@ -25,6 +25,10 @@ const CONFIG_FILE = path.join(ROOT, 'template/process.config.json');
 const DOC = path.join(ROOT, 'src/content/docs/phase4-process-design/roles-responsibilities.md');
 
 const strip = (s) => s.replace(/\*\*/g, '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').trim();
+const HANDLING_HEADER = '超過・未達のときの扱い';
+// 記号だけのセル(「-」「—」「*」など)は空と同じに扱う
+const isBlank = (s) => !/[\p{L}\p{N}]/u.test(s);
+const CITATION = /第\d+章|IMPL-\d+|ADR-\d+/;
 const pad = (n) => `RC-${String(n).padStart(2, '0')}`;
 
 /** 「RC-09〜RC-12」「RC-01・RC-02・RC-04」のような列挙を ID の配列へ展開する */
@@ -46,9 +50,11 @@ export function expandIds(text) {
 export function parseDoc(text) {
   const rows = new Map();
   let requirement4 = null;
+  let header = null;
   for (const line of String(text).replace(/\r\n/g, '\n').split('\n')) {
     const cells = line.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
     if (/^RC-\d+$/.test(cells[0] ?? '') && cells.length >= 5) rows.set(cells[0], { name: strip(cells[1]), assumption: strip(cells[2]), guarantee: strip(cells[3]), depends: strip(cells[4]), handling: strip(cells[5] ?? '') });
+    if (cells[0] === 'ID' && /能力に依るか/.test(cells[4] ?? '')) header = cells;
     if (cells[0] === '4' && /能力に依らない/.test(cells[1] ?? '')) requirement4 = cells[1];
   }
   let notDependent = null;
@@ -59,7 +65,7 @@ export function parseDoc(text) {
     notDependent = nd ? expandIds(nd[1]) : null;
     noRelax = nr ? expandIds(nr[1]) : null;
   }
-  return { rows, requirement4, notDependent, noRelax };
+  return { rows, requirement4, notDependent, noRelax, header };
 }
 
 const getPath = (obj, key) => key.split('.').reduce((o, k) => (o === null || o === undefined ? undefined : o[k]), obj);
@@ -70,7 +76,8 @@ const getPath = (obj, key) => key.split('.').reduce((o, k) => (o === null || o =
  */
 export function checkRegistry({ registry, docText, config }) {
   const problems = [];
-  const { rows, requirement4, notDependent, noRelax } = parseDoc(docText);
+  const { rows, requirement4, notDependent, noRelax, header } = parseDoc(docText);
+  if (!header || strip(header[5] ?? '') !== HANDLING_HEADER) problems.push(`登録簿の表の見出しの6列目が「${HANDLING_HEADER}」でない(列の入れ替えまたは欠落)`);
   const constants = Array.isArray(registry?.constants) ? registry.constants : [];
   for (const c of constants) {
     const r = rows.get(c.id);
@@ -81,7 +88,13 @@ export function checkRegistry({ registry, docText, config }) {
     if (r.name !== c.name) problems.push(`${c.id}: 定数の名称が違う(表「${r.name}」/ JSON「${c.name}」)`);
     if (r.assumption !== c.assumption) problems.push(`${c.id}: 依拠する前提が違う(表「${r.assumption}」/ JSON「${c.assumption}」)`);
     if (!r.guarantee.includes(c.guarantee)) problems.push(`${c.id}: 担っている保証が表のセルに含まれない(JSON「${c.guarantee}」/ 表「${r.guarantee}」)`);
-    if (r.depends === '依る' && !r.handling) problems.push(`${c.id}: 「超過・未達のときの扱い」の列が空である(能力に依る定数は、引く条項を書く)`);
+    if (r.depends === '依る') {
+      if (isBlank(r.handling)) problems.push(`${c.id}: 「超過・未達のときの扱い」の列が空である(能力に依る定数は、引く条項を書く)`);
+      else {
+        if (/対象外/.test(r.handling)) problems.push(`${c.id}: 能力に依る定数の「超過・未達のときの扱い」に「対象外」とある(「依る」と矛盾する)`);
+        if (!CITATION.test(r.handling)) problems.push(`${c.id}: 「超過・未達のときの扱い」が条項(第N章・IMPL-NNNN・ADR-NNNN)を引いていない`);
+      }
+    }
     if (r.depends !== '依る' && r.depends !== '依らない') problems.push(`${c.id}: 「能力に依るか」が「依る」「依らない」のいずれでもない(${r.depends})`);
     else if ((r.depends === '依る') !== c.capabilityDependent) problems.push(`${c.id}: 能力に依るかが違う(表「${r.depends}」/ JSON ${c.capabilityDependent})`);
     // configKey: null か、「 / 」で区切ったキーのそれぞれがテンプレートの構成に実在する

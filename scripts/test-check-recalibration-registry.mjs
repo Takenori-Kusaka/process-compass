@@ -60,6 +60,16 @@ test('変異: 能力に依る行の「超過・未達のときの扱い」が空
   assert.deepEqual(run({ docText: blank('RC-09') }), []);
 });
 
+test('変異: 記号だけのセル・対象外・引用の欠落・見出しの欠落を検出する', () => {
+  const setCell = (id, text) => docText.split(/\r?\n/).map((l) => (l.startsWith(`| ${id} |`) ? l.replace(/\|[^|]*\|\s*$/, `| ${text} |`) : l)).join('\n');
+  detects(run({ docText: setCell('RC-04', '-') }), /RC-04: 「超過・未達のときの扱い」の列が空/);
+  detects(run({ docText: setCell('RC-04', '対象外(能力に依らない)。第4章') }), /RC-04: .*「対象外」とある/);
+  detects(run({ docText: setCell('RC-04', '止めない') }), /RC-04: .*条項.*引いていない/);
+  const doc = docText.replace('| 超過・未達のときの扱い |', '| 備考 |');
+  assert.notEqual(doc, docText);
+  detects(run({ docText: doc }), /見出しの6列目が「超過・未達のときの扱い」でない/);
+});
+
 test('変異: 能力に依るかの食い違いを検出する', () => {
   const r = clone();
   find(r, 'RC-12').capabilityDependent = true;
