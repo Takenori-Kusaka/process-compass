@@ -112,7 +112,7 @@ SG-0 の「実証データ」と SG-1 の「実利用者における価値の実
 
 SG-2 を設けない場合、プロジェクト体制のまま運用が継続し、技術負債の返却主体が消えます。定常運用への移行は明示的に判定しなければなりません。
 
-ステージ移行ゲートの判定は、ステアリングコミッティ(B-2)が行います。会議体の構成・判定の語彙・判定期限は、[第3章 3.7](/process-compass/phase4-process-design/roles-responsibilities/)によります。
+ステージ移行ゲートの判定は、ステアリングコミッティ(B-2)が行います。会議体の構成・判定の語彙・判定期限は、[第3章 3.7](/process-compass/phase4-process-design/roles-responsibilities/)によります。ステージ移行ゲートの前提条件(D-0 の次回レビュー期日)は、2.8「前提条件の統制」によります。
 
 次ステージの予算は、ステージ移行ゲートの判定と同時に確定させます。予算の構成と中止(Kill)の判断基準は、[第7章 7.7](/process-compass/phase4-process-design/exception-escalation/)によります。
 
@@ -342,10 +342,10 @@ D-0 を判定基準に含めると、体制の不備が投資対効果と相殺�
 - D-0 の次回レビュー期日を超過している案件は、ステージ移行ゲート(SG)の判定を開始してはならない
 - 前提条件の充足は、人の確認ではなく機械的な検査によって判定する([フェーズ5](/process-compass/phase5-implementation/ci-gates/))
 
-<!-- impl IMPL-0849 target=g1-check state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="安全リスクアセスメントの適用条件に該当し、かつ SR4 の危険源が残っている案件で、G-1 の審議を開始させないこと。準拠テンプレートの D-0 の検査(check-d0.mjs)は D-0 の承認と期限を見るが、SR4 の残存は見ない。降ろし先 g1-check(scripts/gate/check-g1.mjs)はテンプレ9 の承認の欄を見るが、SR4 の語は同ファイルに無い(templates/09-safety-risk-assessment.md に SR4 の語はあるが検査は無い。2026-11-15 に読んだ)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0849 target=g1-check state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="第4章 G-1 前提条件3 に転記した(ADR-0154)。 安全リスクアセスメントの適用条件に該当し、かつ SR4 の危険源が残っている案件で、G-1 の審議を開始させないこと。準拠テンプレートの D-0 の検査(check-d0.mjs)は D-0 の承認と期限を見るが、SR4 の残存は見ない。降ろし先 g1-check(scripts/gate/check-g1.mjs)はテンプレ9 の承認の欄を見るが、SR4 の語は同ファイルに無い(templates/09-safety-risk-assessment.md に SR4 の語はあるが検査は無い。2026-11-15 に読んだ)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0850 target=gate-entry-workflow state=delivered check=manual note="D-0 の次回レビュー期日を超過している案件を検出し、ステージ移行ゲート(SG)の判定の材料に並べること(検出の分)。scripts/gate/check-d0.mjs が next_review の超過で失敗し、gates/SG.md の節「材料の集め方」1 が check-d0 の結果を SG の材料に並べさせる(G-1 の IMPL-0679 が追う検出と同じ検査を判定者が読む)。check-d0.mjs の冒頭の文言は G-1 だけを名指す。失敗のとき SG を開始しないことは IMPL-0951 が追う。IMPL-0850 から分けた(束 C の突合 1巡目 C1-13)。確かめる者: SG の判定者(判定の材料を集めるとき)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0951 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="D-0 の次回レビュー期日を超過している案件で、ステージ移行ゲート(SG)の判定を開始させないこと。gates/SG.md に「失敗なら SG を始めない」の文は無く、check-d0.mjs の冒頭は「未承認・期限切れの状態では G-1 の審議を開始できません」と G-1 だけを名指す(2026-11-15)。検出は IMPL-0850 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0951 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="D-0 の次回レビュー期日を超過している案件で、ステージ移行ゲート(SG)の判定を開始させないこと。gates/SG.md に「失敗なら SG を始めない」の文は無く、check-d0.mjs の冒頭は「未承認・期限切れの状態では G-1 の審議を開始できません」と G-1 だけを名指す(2026-11-15)。check-d0.mjs は期日の超過を G-1 の停止として出し、SG を名指さない。標準より広い停止である(research/327-deliberation/decision.md X4)。検出は IMPL-0850 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 期日を超過した D-0 を放置したまま判定を続ける運用を認めると、体制図は初回の作成時にのみ存在する文書になります。
 
