@@ -536,7 +536,7 @@ AI を補助として使う場合、指示資産(プロンプト・恒久層コ�
 
 PoC の本質は「捨てる前提で速く学ぶ」ことなので、ゲートを大胆に省略します。ただし **PoC がそのまま本番化する事故**が最頻の失敗パターンです。PoC→MVP の切り替え時に「省略したゲートを適用へ戻し、コア指定をやり直す」ことを、企画承認(G-1)の条件に含めます。
 
-<!-- impl IMPL-0745 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="事業ステージを PoC から MVP へ切り替えるとき、省略したゲートを適用へ戻しコア指定をやり直すことを、企画承認(G-1)の条件に含めること。省略したゲートの復帰は規則による構成の導出(IMPL-0345・IMPL-0109)が追う。規定は G-1 の判定の条件であり、変化点の反映の手順ではないため、降ろし先を G-1 の補助ファイルとする。.claude/skills/gate/gates/G-1.md・SG.md に、この条件とコア指定のやり直しの確認を見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0745 target=gate-skill state=delivered check=manual note="PoC から MVP への切り替えで、省略したゲートを適用へ戻しコア指定をやり直したかを G-1 の判定者が照らすこと。.claude/skills/gate/gates/G-1.md の材料の集め方の項5に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 表の升は、テーラリングの規則が定める結果です。組織が選ぶ余地を示しません(第1章 1.7.3)。行の無いゲートを作らないよう、全ゲートの行を置いています。S0 でも、技術設計判断(G-3)とリリース決裁(G-8)を適用します。出荷判定(G-7)を省略する S0 で、残存リスクの受容を記名する場所は G-8 に残ります。
 
@@ -683,7 +683,7 @@ ISO 13485 7.3.9 と IEC 62304 8.2.1 の読みに基づきます。査察で承�
 
 <!-- impl IMPL-0837 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="規制業の規制当局向けエビデンスと AI 関与範囲の明記(軸C)。注記として構成の why と PROCESS-PROFILE.md に出るが、規制当局向けのエビデンスと AI 関与範囲を出力する処理は scripts/gate/aggregate-evidence.mjs に見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0838 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="高の出荷判定への限定的な抜き取り確認の追加(軸C)。注記として構成の why に出るだけで、.claude/skills/gate/gates/G-7.md に限定的な抜き取り確認の手順を見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0838 target=gate-skill state=delivered check=manual note="品質の軸が高の出荷判定へ、限定的な抜き取り確認を加えること。.claude/skills/gate/gates/G-7.md の判定記録の書き方に置く。範囲と件数は判定者が決めて備考に書く。標準は件数を定めない。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 <!-- impl IMPL-0839 target=profile-generator state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="規制業の AI 生成箇所のトレーサビリティの必須(軸C)。規則データの practice: traceability は scripts/vendor/tailoring-kb.json にあるだけで、scripts/init/generate-profile.mjs は practice を読まず、構成へ運ぶのは gate の状態・設定・注記と maxAutonomyLevel だけである。CL1 以上の追跡は IMPL-0760 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 

@@ -1349,7 +1349,7 @@ AI の利用の3行は、AI の利用そのものが目的になることを防�
 
 <!-- impl IMPL-0857 target=ai-sla-guide state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="金銭措置型は、稼働率など客観的に観測できる量に限って用いること。08-ai-sla.md は比率指標を金銭措置の条件にしないことは置くが、金銭措置型を客観的に観測できる量に限る旨(その逆の向き)は置かない(読んだ範囲。2026-11-15)。 確かめる者: 計画の Issue の担当者" -->
 
-<!-- impl IMPL-0958 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="出荷判定(G-7)で、AI-SLA の契約への組み込みの類型として是正計画型と開示義務型を基本とすること。.claude/skills/gate/gates/G-7.md に是正計画型の語は無く、手引き 08 は契約の側(開示義務型を基本。IMPL-0856)を置く(2026-11-15)。IMPL-0856 は契約の側だけを追う(束 C の突合 1巡目 C1-35)。是正計画の構造は様式 08 の第3項・第4項(IMPL-0804)が運び、出荷判定の側で類型を名指す文が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0958 target=gate-skill state=delivered check=manual note="出荷判定での契約への組み込みの類型を、是正計画型と開示義務型を基本とすること。.claude/skills/gate/gates/G-7.md の判定記録の書き方に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 ### 様式
 

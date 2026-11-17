@@ -44,7 +44,7 @@ sidebar:
 **前提が崩れていることを理由に判定を停止しません**。可視化し、受容の決裁を求めます。停止する設計は、申告そのものを止め、測定を無効にすることがあります。
 
 <!-- impl IMPL-0533 target=gate-skill state=delivered check=manual note="全ゲート共通の通過条件。前提の充足状態が前提の台帳に記録され AS-1 以上に受容の決裁があることを、判定に持ち込める事項として置く(.claude/skills/gate/SKILL.md の「判定の原則(全ゲート共通)」の項4)。台帳が無ければ判定の材料を揃える前に作ることも同じ項に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
-<!-- impl IMPL-0534 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="前提が崩れていることを理由に判定を停止せず、可視化して受容の決裁を求めること。.claude/skills/gate/SKILL.md の「判定の原則(全ゲート共通)」の項4は通過条件を置くが、崩れていても停止しない旨の文は置いていない(2026-11-15 に項4を読んで確かめた)。前提の台帳の手引き(IMPL-0670)は同じ文を置くが、判定者が読む /gate の側には無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0534 target=gate-skill state=delivered check=manual note="前提が崩れていることを理由に判定を停止せず、可視化して受容の決裁を求めること。.claude/skills/gate/SKILL.md の判定の原則の項4に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 ## ゲート運用の共通ルール
 
@@ -56,7 +56,7 @@ sidebar:
 4. **記録をもって成立する**: 判定結果・判定者・日時・差し戻し理由を判定記録へ書く。**記録の作成が判定の成立要件である**(次節)
 
 <!-- impl IMPL-0535 target=gate-skill state=delivered check=manual note="判定の期限を超えても自動承認にしないこと。期限超過はエスカレーション(D-0 の節6 の行「ゲート判定・会議体の決定が期限を超過」の判定する者)へ回す。.claude/skills/gate/SKILL.md の判定の期限を述べる段落(「自動承認にしません」)が置く。差し戻しの理由に項目番号を書くことは IMPL-0127・IMPL-0328、記録をもって成立することは IMPL-0008 が追う。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
-<!-- impl IMPL-0536 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="単独判定。判定者は1人で、関係者の意見を判定前の非同期コメント期間(公開された期限まで)に集め、判定会議は開かないこと。.claude/skills/gate/SKILL.md と reference/ を「判定会議」「非同期」「単独」で検索して 0 件(2026-11-15)。判定者本人の記録を求める点(判定の原則の項1)は単独判定の一部を運ぶが、会議を開かないこと・期間を公開することは置いていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0536 target=gate-skill state=delivered check=manual note="工程ゲートは単独判定で、関係者の意見は公開された期限までの非同期のコメント期間に集め、判定会議を開かないこと。.claude/skills/gate/SKILL.md の判定の原則の項7に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 ## 判定の成立
 
@@ -1224,7 +1224,7 @@ G-5 の結果と保証の開示には、割合だけでなく、次の3つを出
 
 本節は手続を規定します。個々の検知が権利侵害に当たるかどうかの評価は含みません。評価の担い手は法務です。**案件の判定者へ法的評価を求めてはなりません**。判定者に求めるのは、定めた措置を採ったかどうかの確認だけです。
 
-<!-- impl IMPL-0549 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="案件の判定者へ法的評価を求めないこと。判定者に求めるのは、定めた措置を採ったかの確認だけである。/gate の補助ファイル(gates/G-5.md・G-7.md ほか)にこの限定は無い(gates/ を「法的」「法務」で検索して 0 件。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0549 target=gate-skill state=delivered check=manual note="案件の判定者へ法的評価を求めず、定めた措置を採ったかの確認だけを求めること。.claude/skills/gate/gates/G-5.md の「判定者に求めないこと」と gates/G-7.md の基準8 に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 「検知が出たまま先へ進めた履歴が残る」ことへの懸念には、前段の措置が答えになります。残るのは未処理の検知ではなく、**検知ごとに、いつどの措置を採ったかの記録**です。措置を規定しない運用のほうが、説明の材料を失います。
 
@@ -1242,7 +1242,7 @@ G-5 の結果と保証の開示には、割合だけでなく、次の3つを出
 | 2 | 無効化の完了を確認したうえで、参照方法を秘匿情報の管理機構へ置き換える |
 | 3 | 履歴に残った値を、無効化済みの値として台帳へ記録する |
 
-<!-- impl IMPL-0547 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="秘匿情報を検出した場合の手順1〜3(当該の資格情報の無効化をコードの修正より先に行う / 無効化の完了を確認して参照方法を秘匿情報の管理機構へ置き換える / 履歴に残った値を無効化済みとして台帳へ記録する)。/gate の G-5 の補助ファイルは「台帳への記録による通過を認めない」までを置き、手順は置いていない(gates/G-5.md を「無効化」で検索して 0 件。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0547 target=gate-skill state=delivered check=manual note="秘匿情報を検出した場合の手順1〜3(資格情報の無効化をコードの修正より先に、無効化の確認後に参照方法の置き換え、履歴の値を無効化済みとして台帳へ記録)。.claude/skills/gate/gates/G-5.md の「G-5 が落ちたとき」の項9に置く。確かめる者: G-5 が落ちた PR を扱う担い手と判定者。所在を読んだ(実行して確かめていない)" -->
 
 **検出されなかったことは、混入がないことの証明になりません**。検査は既知の様式に一致する文字列を見つける手続であり、独自の様式を持つ資格情報の捕捉は不可能です。この点は類似の検知と同じ構造です。
 
@@ -1549,9 +1549,9 @@ AI のレビューを起点にした人のレビュアが、AI の示した箇�
 <!-- impl IMPL-0041 target=evidence-aggregation state=delivered check=manual note="G-7 基準2。欠陥の台帳(docs/defect-ledger.md。重大度・優先度・状態・コア機能)を取り込み、事業ステージ別の欠陥トリアージ基準の区分ごとの未解決の件数を criteria[2] と項目5 へ出す。台帳が無い出荷と読めない台帳を記載の欠落にする(第4章 G-7「基準1・2 の記録」)。出荷の可否は判定しない。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 <!-- impl IMPL-0042 target=gate-skill state=delivered check=manual note="G-7 基準3。受容した負債の記録漏れを、出荷判定者が PR のチェック項目「受容した妥協・仮実装を技術負債台帳へ記録した」と台帳を突合して判定する。/gate の補助ファイル gates/G-7.md がこの手順を持つ。集約は台帳の有無だけを見る。チェック項目を付けずに受け入れた妥協は検出できない(EV-0304)。負債・未解決の行の対象への PR の記入は課さない(ADR-0159)。確かめる者: 出荷判定者(G-7 の判定で、PR のチェック項目と台帳を読むとき)" -->
 <!-- impl IMPL-0043 target=gate-skill state=delivered check=manual note="G-7 基準4。運用引き継ぎ文書の3項目(監視項目・障害時連絡先・復旧手順)の完備を出荷判定者が読んで判定する。/gate の補助ファイル gates/G-7.md が、集約の基準4 の行と文書の3項目を読む手順を持つ。機械は完備を判定しない(未記入の検出だけを IMPL-0989 が行う)。確かめる者: 出荷判定者(G-7 の判定で、docs/handover.md の3項目を読むとき)" -->
-<!-- impl IMPL-0044 target=gate-skill state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="G-7 基準6。出荷判定者が、G-1 の閾値の記録(IMPL-0977)と、AI 品質指標の比率を合否に用いていないことを確かめ、判定記録の基準6 の行に書く。gates/G-7.md に基準6 の手順が無い。集約は判定せず、欠落に数えない(合否にしないため)。比率の期間の集計は IMPL-0268(一発承認率)と IMPL-1017(AI 生成行の短期書き換え率。採用者)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0045 target=gate-skill state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="G-7 基準7。出荷判定者が、D-0 表10 の F.2 の回答と CL の記録から適用を読み、F.7 の6項目を読んで判定する。gates/G-7.md に基準7 の手順が無い。機械の未記入の検出は IMPL-1007、F.7 の様式は IMPL-0933(#448)、規則 r-e-cl2 の値を G-7 が照らさないことは IMPL-0761(#445)。採用者に委ねない(ADR-0159)。例外承認は 7.3 と ADR-0153。集約の基準7 の行は、構成の安全重要度(q-criticality)だけを判定者へ示しており、F.2 の回答を示さない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0046 target=gate-skill state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="G-7 基準8。出荷判定者が、ライセンス検査の結果・類似の検知の実施記録(IMPL-1009)・区分「類似検知」の行(IMPL-0548・IMPL-1008)を読んで判定する。gates/G-7.md に基準8 の手順が無い。集約はライセンス検査の記録の有無だけを数える。ライセンスの判定不能の行の区分は決めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0044 target=gate-skill state=delivered check=manual note="G-7 基準6。G-1 の閾値の記録と、AI 品質指標の比率を合否に用いていないことを出荷判定者が確かめる。.claude/skills/gate/gates/G-7.md の判定記録の書き方に置く。集約は判定せず欠落に数えない。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
+<!-- impl IMPL-0045 target=gate-skill state=delivered check=manual note="G-7 基準7。D-0 表10 の F.2 の回答と CL から適用を読み、F.7 の6項目を出荷判定者が判定する。.claude/skills/gate/gates/G-7.md の判定記録の書き方に置く。機械の未記入の検出は IMPL-1007(B15)。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
+<!-- impl IMPL-0046 target=gate-skill state=delivered check=manual note="G-7 基準8。ライセンス検査の結果・類似の検知の実施記録の4事項・区分「類似検知」の行を出荷判定者が読んで判定する。.claude/skills/gate/gates/G-7.md の判定記録の書き方に置く。区分の様式は IMPL-0548、実施記録の機械の確認は IMPL-1009・IMPL-1008 が追う。ライセンスの判定不能の行の区分は決めていない。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 事業ステージと判定基準の関係は、次のとおりです([第8章 軸B](/process-compass/phase4-process-design/tailoring-guide/)。[ADR-0112](/process-compass/adr/0112-s1-ship-gate-applied-and-simplified-defined/) 決定1)。
 
@@ -1908,7 +1908,7 @@ G-1 で承認した壊してはならない品質条件(識別子 QC-NN)と、�
 
 出荷判定者の任命基準と、その充足の確認に用いる成果物は[第3章 3.4.1](/process-compass/phase4-process-design/roles-responsibilities/)によります。**読解力を前提としない判定を設計したうえで、突合そのものの力量は確認します**。
 
-<!-- impl IMPL-0560 target=gate-skill state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="生存した変異の一覧は G-7 のエビデンスへ集約するが、その読解を出荷判定者へ求めず、差し戻しの判断は G-5 と G-6 で終えること。/gate の G-7 の補助ファイル gates/G-7.md に変異の一覧の扱いは無い(「変異」「読解」で検索して 0 件。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0560 target=gate-skill state=delivered check=manual note="変異の一覧の読解を出荷判定者へ求めず、差し戻しの判断は G-5 と G-6 で終えること。.claude/skills/gate/gates/G-7.md の判定記録の書き方に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 ### G-8 リリース決裁(事業決裁者・48時間)
 
@@ -2112,7 +2112,7 @@ AIエージェントは、人間のレビュー帯域を超える量の変更を
 
 以降に示す行数・ファイル数・層数は、この規範を満たすための**代理指標**であり、規範そのものではありません。代理指標を満たしても規範を満たさない場合、判定は差し戻しです。逆に、代理指標を超えていても規範を満たすことを示せる場合、後述の手続によって上限を動かせます。
 
-<!-- impl IMPL-0576 target=gate-skill-g6 state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="規範(レビュアーが変更の意図・影響範囲・正しさの根拠を、判定に耐える負荷で確認できること)と、代理指標を満たしても規範を満たさない場合は差し戻すこと。/gate の G-6 の補助ファイル(gates/G-6.md)に、代理指標・規範・レビュー可能の語が無い(2026-11-15 に確認)。人が読んで判断する規定であり、様式・スキルの手順として置けば読まれる。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0576 target=gate-skill-g6 state=delivered check=manual note="規範(レビュアが変更の意図・影響範囲・正しさの根拠を、判定に耐える負荷で確認できること)と、代理指標を満たしても規範を満たさなければ差し戻すこと。.claude/skills/gate/gates/G-6.md の材料の集め方の項8に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 ### 行数を代理指標として扱う根拠と、その限界
 
@@ -2519,7 +2519,7 @@ AIによる生成の速度が上がるほど、待ち行列はレビュー側へ
 
 **AI による事前審査を合否条件として挿入する手段は採りません**。規約・脆弱性・網羅率はすでに G-5 の決定論的な検査であり、判定の間に推定を挟む必要がありません。挟むと、偽陽性が正当な変更を止め、偽陰性が「事前審査を通過した」という記録として残ります。AI の指摘は[事前レビューの自動化](/process-compass/phase5-implementation/pre-review-automation/)の高リスク事項のラベルと同様、**注意を向ける材料として提示し、合否には用いません**。
 
-<!-- impl IMPL-0585 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="帯域不足を理由に G-6 を省略しないこと。帯域を入力に G-6 の状態を変える経路は、.github/workflows・config.mjs・generate-profile.mjs に見つからなかったが、この否定は検索の結果で、標準の文を照らす検査は無い(G-6 を省略する経路は事業ステージによるテーラリングの規則の別の経路)。判定の時点を移す別の経路を新設しないことは IMPL-0694 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0585 target=gate-skill-g6 state=delivered check=manual note="帯域不足を理由に G-6 を省略せず、判定の時点を移す別の経路を作らないこと。.claude/skills/gate/gates/G-6.md の材料の集め方の項9に禁止の文として置く。標準の文を照らす検査は無い。判定の時点を移す別の経路を新設しないことは IMPL-0694 が追う。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 <!-- impl IMPL-0694 target=config-delegation state=delivered check=manual note="判定の時点を移す別の経路を新設しないこと(経路は5.5.4の委任に一本化)。G-6 の判定の時点を事後へ移す仕組みは scripts/gate/delegation.mjs の classifyForSeat と REVIEWER_SEAT に一本化され、aggregate-evidence.mjs も同じ判定を使う。delegation.yml・gate-g5.yml・gate-g5-base.yml・record-copy.yml・ai-review.yml に別の経路は無く、ai-review.yml の冒頭は「独立レビュー(G-6)の代替ではありません」と書く。5.5.4の条件2・6は IMPL-0026・0235・0690 が追う。確かめる者: 出荷判定者(ワークフローと構成を読むとき)" -->
 
 <!-- impl IMPL-0586 target=ai-review-workflow state=delivered check=manual note="AI による事前審査を合否条件として挿入しないこと。AI の指摘は注意を向ける材料に留める。.github/workflows/ai-review.yml の冒頭の注記が「承認(approve)は行わない」「必須ステータスチェックにしない。合否条件にすると自動化バイアスを招く」「判定そのものには使わない」と置き、.github/rulesets/team.json の必須ステータスチェック(required_status_checks)は gate-g5 と gate-g5-base の2つだけで、ai-review を含まない。確かめる者: 出荷判定者・独立レビュア(ルールセットの必須チェックを読むとき)" -->

@@ -86,7 +86,7 @@ AI が起案した受入基準は、形式が整っていても、作りたか�
 
 <!-- impl IMPL-0941 target=spec-write-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="G-2 提出前のセルフチェックに固有の部分(5項目のうち5つの型での記述と曖昧語ゼロは IMPL-0935 と G-2 のマークが追い、測定可能な値は IMPL-0937、正常系に対応する異常系は IMPL-0938、テスト名への変換は IMPL-0939 が追う)として、このチェックリストに「該当なし」の欄を置かず、外すのは第8章の規則と事実の記録に限ること。/spec-write の完了の条件は「条件 + 期待動作」・曖昧語・スコープ外・前提・未確定事項・承認を並べ、測定可能な値・対応する異常系・テスト名への変換の項目を持たない(「該当なし」の欄は置いていない。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0942 target=feature-spec-template state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="正常系に対応する異常系の基準を書けない場合に、その事実と理由を受入基準の節に書くこと。templates/01-feature-spec.md の受入基準の節に、異常条件が見つからない事実と理由を書く欄・説明が無い(2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0943 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="G-2 の判定者が、基準1(検証可能な形式への準拠)の確認で、異常系の基準か、異常条件が見つからない事実の記載のいずれかがあることを確かめること(記載の当否は判定しない)。.claude/skills/gate/gates/G-2.md の基準1 の材料は「受入基準が条件 + 期待動作になっているか」と価値との対応の有無で、異常系の基準・事実の記載の有無を挙げない(2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0943 target=gate-skill state=delivered check=manual note="G-2 の基準1 の確認で、異常系の基準か、異常条件が見つからない事実の記載の有無を確かめること(記載の当否は判定しない)。.claude/skills/gate/gates/G-2.md の材料の集め方に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
 本附属書は、受入基準が言い訳に読み替えられる場合の列挙を、受入基準を書く者に求めません([第1章 1.7.5](/process-compass/phase4-process-design/overview/))。事業ステージ(たとえば「まだ PMF の前だから」)を理由に未完成を許す読み替えは、受入基準の問題ではありません。第8章 軸B(ステージは未達の表示と強制層を動かさない)と [ADR-0050](/process-compass/adr/0050-enforcement-layer-is-not-staged/) が既に塞いでいます。
 
