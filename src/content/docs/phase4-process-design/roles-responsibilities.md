@@ -896,7 +896,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 **差し替え条件**: 同じ削除について、当たるかの判断が席の間で割れた記録が1件出たとき。割れた例を性質の説明へ足すか、列挙を置くかを審議し直す(列挙は ADR-0038 決定1 の変更になるので重)。
 :::
 
-<!-- impl IMPL-0984 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=335 review=2027-05 note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる。機械(check-process-rules)は、この併記を運ぶ行を確かめていない。ガード・検証のゲート・重要なテストに当たるかを、列挙でなく削除によって止めていたものを止めなくなるかで判断する(G-5 で足した検査も同じ。#328)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0984 target=claude-md-resident state=delivered check=presence note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の戻す先の表の行と claude-md-resident.json の CR-014 が運び、check-process-rules が CR-014 の核を行に照合する。pit の handoff.md も運ぶ。ガード・検証のゲート・重要なテストに当たるかを、列挙でなく削除によって止めていたものを止めなくなるかで判断することは handoff.md の行が運び、機械では閉じない(人が確かめる。EV-0286)" -->
 
 <!-- impl IMPL-0014 target=claude-md-resident state=delivered check=presence note="統制の弱化を性質で定義し検知の対象とする(単位: 行)" -->
 <!-- impl IMPL-0015 target=claude-md-resident state=delivered check=presence note="検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す(単位: 行)" -->
