@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-11-17)。採用済みの ADR の決定を置き換えません。[ADR-0051](/process-compass/adr/0051-usability-out-of-scope/) 決定2(確認方法への追加)と [ADR-0013](/process-compass/adr/0013-enablement-by-bounded-trial/) 決定2(導入の差し引き)は有効です。[ADR-0016](/process-compass/adr/0016-business-appraisal-in-intent-brief/)・[ADR-0019](/process-compass/adr/0019-scope-commitment-three-layers/)・[ADR-0021](/process-compass/adr/0021-ip-clearance-evidence-not-guarantee/)・[ADR-0024](/process-compass/adr/0024-decision-as-risk-acceptance/)・[ADR-0041](/process-compass/adr/0041-scope-is-not-exhaustive/) にある「判定の総数」への言及は、決定6 を正として読みます。[#327](https://github.com/Takenori-Kusaka/process-compass/issues/327) の論点1・2・3・4・7 に答えます。
+採用(2026-11-17)。採用済みの ADR の決定を置き換えません。[ADR-0051](/process-compass/adr/0051-usability-out-of-scope/) 決定2(確認方法への追加)と [ADR-0013](/process-compass/adr/0013-enablement-by-bounded-trial/) 決定2(導入の差し引き)は有効です。[ADR-0016](/process-compass/adr/0016-business-appraisal-in-intent-brief/)・[ADR-0019](/process-compass/adr/0019-scope-commitment-three-layers/)・[ADR-0021](/process-compass/adr/0021-ip-clearance-evidence-not-guarantee/)・[ADR-0024](/process-compass/adr/0024-decision-as-risk-acceptance/)・[ADR-0041](/process-compass/adr/0041-scope-is-not-exhaustive/)・[ADR-0051](/process-compass/adr/0051-usability-out-of-scope/) にある「判定の総数」への言及は、決定6 を正として読みます。[ADR-0075](/process-compass/adr/0075-acceptance-criteria-coverage-premises-and-ai-findings/) の「検討した選択肢」の行7(S0 の統合の中身、G-2 基準1 の数え上げ)・行10(ADR-0051 の「判定の総数」の引用)と、ADR-0074 決定11 #2 が #327 へ送った件は、本 ADR の決定1・2・6 で決めます。いずれの本文も書き換えません。[#327](https://github.com/Takenori-Kusaka/process-compass/issues/327) の論点1・2・3・4・7 に答えます。
 
 ## コンテキスト
 
@@ -30,7 +30,7 @@ ADR-0051 決定2 のまま、置き場を表の外の段落から基準1 の確�
 
 ### 3. G-4 基準5 は判定基準のまま、空欄のまま通過を記録しない
 
-番号と文を変えません。確認方法を「空欄のまま通過を記録しない。判定欄は判定者が記入する」に改めます。判定欄の記入は判定の開始の前に求めません。範囲内外の判断の妥当性は基準5 に足しません。独立の確認は 2.10.8 と G-7 にあります。
+番号と文を変えない。確認方法を「空欄のまま通過を記録しない。判定欄は判定者が記入する」に改める。判定欄の記入は判定の開始の前に求めない。範囲内外の判断の妥当性は基準5 に足さない。独立の確認は 2.10.8 と G-7 にある。
 
 ### 4. G-1 の前提条件に、SR4 を足す
 
@@ -38,11 +38,11 @@ ADR-0051 決定2 のまま、置き場を表の外の段落から基準1 の確�
 
 ### 5. D-0 の次回レビュー期日は、SG の前提条件のまま
 
-第2章 2.8 と第5章 ci-gates.md が SG と書き、食い違いません。第2章 2.4 から 2.8 を引きます。G-1 の前提条件1に期日を含めません(新しい義務になります)。準拠テンプレートの G-1 を止める挙動は、標準より広い停止です。IMPL-0951 で表示し続けます。実装に合わせて条文を書き換えません。
+第2章 2.8 と第5章 ci-gates.md が SG と書き、食い違わない。第2章 2.4 から 2.8 を引く。G-1 の前提条件1に期日を含めない(新しい義務になる)。準拠テンプレートの G-1 を止める挙動は、標準より広い停止。IMPL-0951 で表示し続ける。実装に合わせて条文を書き換えない。標準側の根拠は、テンプレ0 表5(人の名簿と席)の欠けが D-0 の承認の対象に当たり、D-0 の承認が G-1 前提条件1 であることによる(ci-gates.md の D-0 の検査の表 行4)。
 
 ### 6. 「判定の総数を増やさない」原則は、採用していない
 
-本標準の決定として採用していません。ADR-0013 決定2(導入時の差し引き)は有効で、別物です。ADR-0016・0019・0021・0024・0041・0051 の引用は本 ADR を正として読みます。gate-criteria.md の「判定の総数は増えません。」を削り、enablement.md の TG-1 基準4 の括弧を ADR-0013 決定2 の中身(廃止・置換する承認・様式と新設する判定の差し引き)へ直しました。TG-1 の基準の主文は変えません。
+本標準の決定として採用していない。ADR-0013 決定2(導入時の差し引き)は有効で、別物。ADR-0016・0019・0021・0024・0041・0051 の引用は本 ADR を正として読む。gate-criteria.md の「判定の総数は増えません。」を削り、enablement.md の TG-1 基準4 の括弧を ADR-0013 決定2 の中身(廃止・置換する承認・様式と新設する判定の差し引き)へ直した。TG-1 の基準の主文は変えない。あわせて、移行計画のチェック項目(enablement.md・tailoring-guide.md の「差し引き」)の「導入後の判定件数が、置換前を上回らない」を、ADR-0013 決定2 の「差し引きが負」へ合わせた。数える対象を判定件数でなく差し引きとし、合否を「上回らない」(ゼロを許す)から「負」へ改めたので、意味が変わる。
 
 ## 検討した選択肢
 
@@ -69,7 +69,7 @@ ADR-0051 決定2 のまま、置き場を表の外の段落から基準1 の確�
 ## 影響
 
 - 第4章: G-1 の前提条件に行3(SR4)を足した。G-2 基準1 の確認方法に数え上げを移し、表の外の段落を削った。G-2 基準5 の後に S0 の文を足した。G-4 基準5 の確認方法を改めた。「判定の総数は増えません。」を削った
-- 第8章 軸B: S0 の統合の段落と EV-0291 を足した。第2章 2.4: 2.8 を引く文を足した。第5章: enablement.md の TG-1 基準4 の括弧と、ci-gates.md の D-0 の検査の表の行4 を直した
+- 第8章 軸B: S0 の統合の段落と EV-0291 を足した。第2章 2.4: 2.8 を引く文を足した。第5章: enablement.md の TG-1 基準4 の括弧と移行計画のチェック項目(tailoring-guide.md にも同じ項目)、ci-gates.md の D-0 の検査の表の行4 を直した
 - 実装マーク: IMPL-0994(S0 の統合の手順。undelivered)を足した。IMPL-0542(状態を undelivered へ)、IMPL-0849、IMPL-0951 の注記を改めた
 - 準拠テンプレート: 変更なし。規則データ r-b-poc の注記(T1)・gates/G-4.md(T2・T3)・check-g1(T4)・check-d0 と gates/SG.md(T5)は #327 に残す。T1 は標準の新しい語義と食い違う期間を作る
 - 範囲の外の所見: ci-gates.md の D-0 の検査の例は `scripts/governance/check-d0.mjs` を書き、準拠テンプレートの所在は `scripts/gate/check-d0.mjs` である
