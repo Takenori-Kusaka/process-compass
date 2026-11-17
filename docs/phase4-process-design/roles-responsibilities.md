@@ -573,7 +573,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 | AI運用担当者 | Ops(案件のレーンと共有しない。全社の実行基盤の側) | なし(ゲートの判定者でなく、引き渡しの経路を要しない) |
 | 事業決裁者 | Owner(決裁のみ) | `state:needs-owner` |
 
-- 独立レビュアと出荷判定者は、別のレーンに置く。旧い既定の写像は両者を1つの QM レーンに置いていた。QM の語は、ラベル `state:qm-blocked` の名に残る
+- 独立レビュアと出荷判定者は、別のレーンに置く。旧い既定の写像は両者を1つの QM レーンに置いていた。QM の語は、ラベル `state:qm-blocked` の名に残る。`state:qm-blocked` は開発者への差し戻しを表す。名の qm は旧い写像の名残であり、ロールを指さない。ラベルの名は変えない([ADR-0142](/process-compass/adr/0142-resolve-name-collisions-by-definition-not-rename/))
 - 文脈オーナーと AI運用担当者には、受信箱のラベルを置かない。ラベルの要否は [ADR-0037](/process-compass/adr/0037-label-points-to-lane-not-role/) の決定2 による
 - ラベルの語彙と遷移は、3.5.5 による。この表は受信箱を引くだけである
 
@@ -811,7 +811,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0330 target=claude-md-resident state=delivered check=presence note="要求事項1〜3。引き渡しを状態のラベルで行い、コメントや宛先の指定だけで済ませず、対応を終えたら遷移先のラベルへ替える。CLAUDE.md の受信箱とラベルの節(Draft PR の間と dev-done への付け替え)と、ラベルによる引き渡しの節の2行(標準の所在の列を含む)に置く。check-process-rules が行の文言を照合する(単位: 行)" -->
 
-<!-- impl IMPL-0331 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。準拠テンプレートの next.mjs --pickup(ラベル・作業単位・needs-dev では前のラベルを渡す)が、遷移の前提の判定記録を最新の判定で読み、無ければ「着手しない」と判定者の受信箱を出す。前提は本節の状態の遷移から導く(state:ready-to-merge は G-6 の通過、state:qm-blocked は G-6 の差し戻し、needs-tech を経た state:needs-dev は G-3 の通過)。needs-dev の G-2・G-4 の通過は本節でなく第5章 5.8.5 の禁止事項1 による。構成にゲートのキーが無い・記録を読めないときは「判定できない」。受け手の手順(handoff.md・/pit・/implement・next.mjs --role)と CLAUDE.md のラベルによる引き渡しの節が着手の前に実行させる。試験は入口を --offline で通す。機械が止めるのは確認の出力までで、着手そのものは指示文。様式の無い記録と実環境の読み出しは IMPL-0467・IMPL-0468。テンプレートの変更は、所有者の作業の指示にもとづいて pit-in-template の main へ直接入れた(#371 の C-11 と同じ扱い)。採用者のリポジトリでの強制層の変更の承認(AI維持管理者)の手続とは別であり、その承認の記録はまだ無い(research/368-delivery/implementation.md)(#368)" -->
+<!-- impl IMPL-0331 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。遷移の表の ready-to-merge → dev-done の行(#328)は、この判定の受信箱の出力に当たる。準拠テンプレートの next.mjs --pickup(ラベル・作業単位・needs-dev では前のラベルを渡す)が、遷移の前提の判定記録を最新の判定で読み、無ければ「着手しない」と判定者の受信箱を出す。前提は本節の状態の遷移から導く(state:ready-to-merge は G-6 の通過、state:qm-blocked は G-6 の差し戻し、needs-tech を経た state:needs-dev は G-3 の通過)。needs-dev の G-2・G-4 の通過は本節でなく第5章 5.8.5 の禁止事項1 による。構成にゲートのキーが無い・記録を読めないときは「判定できない」。受け手の手順(handoff.md・/pit・/implement・next.mjs --role)と CLAUDE.md のラベルによる引き渡しの節が着手の前に実行させる。試験は入口を --offline で通す。機械が止めるのは確認の出力までで、着手そのものは指示文。様式の無い記録と実環境の読み出しは IMPL-0467・IMPL-0468。テンプレートの変更は、所有者の作業の指示にもとづいて pit-in-template の main へ直接入れた(#371 の C-11 と同じ扱い)。採用者のリポジトリでの強制層の変更の承認(AI維持管理者)の手続とは別であり、その承認の記録はまだ無い(research/368-delivery/implementation.md)(#368)" -->
 
 <!-- impl IMPL-0467 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5 のうち、準拠テンプレートが前提の判定記録を読めなかった場面(要求事項9)。next.mjs --pickup が、(a) G-6 が省略・未達の構成の state:qm-blocked で出荷判定者の G-7 の差し戻しの判定記録を、(b) state:needs-po・state:needs-owner を経た state:needs-dev で G-2・G-4 の通過に加えて価値責任者の判断・事業決裁者の決裁の記録(テンプレ4 のゲート欄、対象は作業単位)を、(c) 機能へ対応づけない作業単位(Issue #N と類型の名をあわせて指定する)で価値責任者が前もって記録した類型の判断と、--from の経路の前提(needs-owner は作業単位の決裁、needs-tech は作業単位の G-3、作業単位ごとの価値責任者の差し戻し)を、最新の判定として読む。無ければ (a)(b) と経路の前提は着手しない、類型の判断が無い・作業単位か類型の指定が無いときは判定できない。作業単位がその類型に当たるかと判定者の本人性は機械が確かめない(価値責任者が類型の範囲を定め、内部監査が見る)。確かめる者: 内部監査(#359 の重の裁定5・重の実装の突合への裁定)" -->
 <!-- impl IMPL-0500 target=next-intake state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="--pickup が「判定できない」で止めた件数を、作業単位ごとに数えて /pit に出すこと(合否に使わない表示。止め方の形骸化の兆候を見せる。#359 の重の裁定5)。準拠テンプレートは --pickup の結果を残さず、件数を数えない。結果を残す置き場が要る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
@@ -828,11 +828,11 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 | ラベル | 状態 | 付ける席 | 次に動く席 |
 | --- | --- | --- | --- |
 | `state:needs-dev` | 価値責任者・技術判断者・事業決裁者が、判断の後に開発者へ着手を渡した | 価値責任者・技術判断者・事業決裁者 | 開発者 |
-| `state:dev-done` | 開発者が実装と自動検証を終え、確認へ渡した | 開発者・AI維持管理者 | 独立レビュア(G-6 が省略・未達の構成では出荷判定者) |
+| `state:dev-done` | 開発者が実装と自動検証を終え、確認へ渡した。または、出荷判定者が判定記録の無い作業単位を独立レビュアへ戻した(要求事項5) | 開発者・AI維持管理者・出荷判定者(適用: 要求事項5 の差し戻し) | 独立レビュア(G-6 が省略・未達の構成では出荷判定者) |
 | `state:qm-blocked` | 独立レビュアが G-6 で、または出荷判定者が記録の突合で、差し戻した | 独立レビュア・出荷判定者 | 開発者 |
 | `state:ready-to-merge` | 独立レビュアが G-6 の判定記録を作成し、取り込みを待つ | 独立レビュア | 出荷判定者 |
 | `state:needs-audit` | 監査を依頼した | 価値責任者 | 監査担当 |
-| `state:needs-platform` | 検査・試験の装置、エージェントの指示資産(強制層)の追加・統合・削除を依頼した | 価値責任者・開発者・独立レビュア・出荷判定者 | AI維持管理者 |
+| `state:needs-platform` | 検査・試験の装置、エージェントの指示資産(強制層)の変更(追加・改修・統合・削除)を依頼した | 価値責任者・開発者・独立レビュア・出荷判定者 | AI維持管理者 |
 | `state:needs-po` | 価値の判断(仕様・優先度・語彙の改訂など)を要する | 誰でも | 価値責任者 |
 | `state:needs-tech` | 技術設計の判断(G-3)を要する | 誰でも | 技術判断者 |
 | `state:needs-owner` | 事業決裁者の決裁または追認を要する | 誰でも | 事業決裁者 |
@@ -858,6 +858,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 | `state:dev-done` | 出荷判定者(適用: G-6 が省略・未達の構成) | 記録の突合で差し戻す | `state:qm-blocked` |
 | `state:dev-done` | 出荷判定者(適用: G-6 が省略・未達の構成) | G-6 の省略・未達を開示して取り込む。取り込みが出荷を起動する構成では、G-7 の判定記録の作成の後に限る | (完了。ラベルは残してよい) |
 | `state:qm-blocked` | 開発者 | 差し戻しへの対応を終え、自動検証が通った | `state:dev-done` |
+| `state:ready-to-merge` | 出荷判定者 | G-6 の判定記録が無く、着手せずに判定者へ差し戻す(要求事項5) | `state:dev-done` |
 | `state:ready-to-merge` | 出荷判定者 | 記録の突合で差し戻す | `state:qm-blocked` |
 | `state:ready-to-merge` | 出荷判定者 | 取り込む。取り込みが出荷を起動する構成では、G-7 の判定記録の作成の後に限る | (完了。ラベルは残してよい) |
 | `state:needs-po` | 価値責任者 | 判断を記録に残す | 次に動く席のラベル |
@@ -883,13 +884,19 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 - 配備の起動が取り消せない操作に当たるかは、5.5.1 の定義による。この表の例は配備の起動を対象としない
 
 - 検知者は、差分が変更の主張と一致するかまでを確かめる。弱化を許容してよいかは判断しない。許容の判断を検知者が持つと、指示資産の承認の権限を AI維持管理者へ集めた意味(3.11.2)が失われる
-- 強制層の縮小は `state:needs-platform` で AI維持管理者へ渡す。取り消せない操作に当たる場合と、ガード・検証のゲート・重要なテストを削除する場合は、`state:needs-owner` を併記する。弱化の範囲そのものの適否は `state:needs-po` で価値責任者へ渡す
+- 強制層の縮小は `state:needs-platform` で AI維持管理者へ渡す。取り消せない操作に当たる場合と、ガード・検証のゲート・重要なテストを削除する場合は、`state:needs-owner` を併記する。弱化の範囲そのものの適否は `state:needs-po` で価値責任者へ渡す。ガード・検証のゲート・重要なテストに当たるかは、列挙で決めず、削除によって止めていたものを止めなくなるかで判断する。理由は、統制の弱化をパスで定義しないことと同じである([ADR-0038](/process-compass/adr/0038-detection-handoff-of-control-weakening/) 決定1)。ルール化で足した検査(G-5)も同じ判断による
 - 監査担当を引き渡し先にしない。監査が個別の変更の許容を決めると、次の監査で自らの判断を監査することになる
 - 引き渡し先を特定できないことを、自ら決める理由にしてはならない。特定できない場合は `state:needs-po` で価値責任者へ渡す
 - 検知者と承認者が同一人物でも(兼務を記録した案件)、ラベルを経由させ、引き渡しを記録する。どの職務で判断したかは、記録によってしか追えない([ADR-0038](/process-compass/adr/0038-detection-handoff-of-control-weakening/))
 - 統制の弱化は、取り消せない操作([第5章 5.5.1](/process-compass/phase4-process-design/human-ai-boundary/))とは別の停止の事由とする。取り消せない操作の定義に当たらなくても、自律実行を止めて引き渡す。1つの変更が両方に当たる場合は、どちらの停止も外さない(5.5.1)
 
-<!-- impl IMPL-0984 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=335 review=2027-05 note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる。機械(check-process-rules)は、この併記を運ぶ行を確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+:::caution[暫定 EV-0286 / 見直し 2027-05]
+**対象**: 「ガード・検証のゲート・重要なテスト」に当たるかを列挙でなく性質で判断し、ルール化で足した検査を別扱いにしない判断(3.5.5)。
+**根拠の水準**: E0(なし)。
+**差し替え条件**: 同じ削除について、当たるかの判断が席の間で割れた記録が1件出たとき。割れた例を性質の説明へ足すか、列挙を置くかを審議し直す(列挙は ADR-0038 決定1 の変更になるので重)。
+:::
+
+<!-- impl IMPL-0984 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=335 review=2027-05 note="強制層の変更は state:needs-platform、取り消せない操作に当たる場合とガード・検証のゲート・重要なテストを削除する場合は state:needs-owner も併記する(3.5.5 の語彙の節と本節。単位: 行)。template の CLAUDE.md の該当行と scripts/gate/claude-md-resident.json は取り消せない操作の場合だけを書き、削除の場合の併記を落としている。pit の handoff.md は運んでいる。機械(check-process-rules)は、この併記を運ぶ行を確かめていない。ガード・検証のゲート・重要なテストに当たるかを、列挙でなく削除によって止めていたものを止めなくなるかで判断する(G-5 で足した検査も同じ。#328)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0014 target=claude-md-resident state=delivered check=presence note="統制の弱化を性質で定義し検知の対象とする(単位: 行)" -->
 <!-- impl IMPL-0015 target=claude-md-resident state=delivered check=presence note="検知者は許容可否を判断せず引き渡し先が不明なら価値責任者へ回す(単位: 行)" -->

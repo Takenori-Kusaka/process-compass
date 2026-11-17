@@ -2,9 +2,9 @@
 
 - 版: 作業中の版(未発行)
 - 出所: https://github.com/Takenori-Kusaka/process-compass
-- コミット: `5d5ccdfc78dff1b128f5e71fe5bcb4c779ce2c57`(機械の識別。版の代わりにならない)
+- コミット: `f85e164d8db55b7efbc62e457dc6f65c384bd09c`(機械の識別。版の代わりにならない)
 - 起動: `push` / `refs/heads/main`
-- 生成: CI / run 142(試行 1)
+- 生成: CI / run 143(試行 1)
 
 版が「作業中の版(未発行)」のとき、この内容は発行した版ではありません。
 作業中の版は、適用の表明と適合の主張に名指せません(標準 第1章 1.10.3)。

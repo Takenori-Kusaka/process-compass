@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-10-23)。採用済みの ADR の決定を置き換えません。[ADR-0037](/process-compass/adr/0037-label-points-to-lane-not-role/)を補います。同 ADR の決定1〜4 は維持し、第3章 3.5.1 の既定の写像の行を改めます。同 ADR のコンテキストの「圧縮それ自体は設計」が [ADR-0066](/process-compass/adr/0066-shipping-approver-separation-and-development-line/) 以後は成り立たないこと、同 ADR の「△(避けたい)」を「非推奨」と読むことを、本 ADR の決定7 に記録します。ADR-0066 の決定は維持し、同 ADR の影響の節が後継へ送った2つの論点(価値責任者と技術判断者の兼務の境界、既定の写像)を本 ADR が決めます。
 
+案内(2026-11-17、#328): 決定3 と影響の節の「語の統一は #328 で扱う」は、[ADR-0142](/process-compass/adr/0142-resolve-name-collisions-by-definition-not-rename/) 決定1 でラベルの名を変えないと決めました。
+
 ## コンテキスト
 
 [#312](https://github.com/Takenori-Kusaka/process-compass/issues/312) は、席の兼務の境界と既定の写像が章の間で食い違うことを指摘しました。指摘をそのまま条項にせず、調査・会議体・突合の順で扱いました。記録は `research/312-deliberation/`(`survey-312-1-internal.md`・`survey-312-2-external.md`、意見書5本、`decision.md` の P-1〜P-6、`implementation.md`)にあります。
