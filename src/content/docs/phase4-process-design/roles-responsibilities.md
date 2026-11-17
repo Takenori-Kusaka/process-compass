@@ -1690,7 +1690,7 @@ AI維持管理者は、生成された変更の性質を継続して計測しま
 <!-- impl IMPL-0981 target=evidence-aggregation state=undelivered check=manual plan=adopter decision=ADR-0159 note="4指標を単独で提示せず、採用者が用いる生産性・速度の指標と並べて確認すること。並べる相手と手段は採用者が IMPL-0230 の集計の手段の中で置く。準拠テンプレートは個人の単位の指標を集めない。確かめる者: 採用者の AI維持管理者(集計の手段を置いたとき)" -->
 
 :::caution[暫定 EV-0306 / 見直し 2027-11]
-**対象**: 4指標を採用者の生産性・速度の指標と並べれば、劣化の兆候(生産性の改善と保守性の悪化の組み合わせ)を読めるという判断。根拠は DORA の指標の手引き(複数の指標を緊張関係で組ませる。二次資料)である。SPACE の一次資料は読めていない。
+**対象**: 4指標を採用者の生産性・速度の指標と並べれば、劣化の兆候(生産性の改善と保守性の悪化の組み合わせ)を読めるという判断。根拠は DORA の指標の手引き(複数の指標を緊張関係で組ませる。二次資料)です。SPACE の一次資料は読めていない。
 **根拠の水準**: E1(間接)。
 **差し替え条件**: 採用者が並べた指標の組と、劣化の兆候を見つけた事例、または見落とした事例を観測したとき。
 :::
@@ -1972,7 +1972,7 @@ graph LR
 <!-- impl IMPL-0273 target=self-heal state=delivered check=machine test=template/scripts/gate/test-self-heal.mjs note="要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場のタスクごとのファイル(docs/self-heal/F-NNN-Task-N.tsv の形)に残し、同じ PR でコミットする手順を implement の SKILL.md に置く。書き込みに失敗したら警告を出す。コミットしたかは機械で確かめない" -->
 <!-- impl IMPL-0274 target=profile-generator state=delivered check=manual note="要求事項4 のうち値を定めること。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点の記録は IMPL-0280(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI運用担当者(停止条件の値を /process-change で変えるとき)" -->
 <!-- impl IMPL-0280 target=project-brief-template state=delivered check=machine test=template/scripts/gate/test-brief-thresholds.mjs note="要求事項4 のうち企画承認(G-1)の時点で記録すること。企画書の様式(templates/06-project-brief.md と3つのプロファイル)の「指標の閾値と予算区分」に行「停止条件の値」を置き、G-1 の検査(check-g1.mjs)が行の欠けと空欄・様式の説明のままを、G-1 の前は失敗、G-1 を通過済みは欠落(遡って失敗させない)として出す。G-1 の通過は、基底ブランチの docs/gates/ と記録用ブランチの records/gates/(判定記録の正本)の両方から読み、記録用ブランチの通過の記録は、判定者の記名が人の名簿の人に対応づくものだけを数える(交代の前の責任者・代行者を外さないため席では照らさない。記名の照合は自己申告で、帰属は集約が確かめる)。記録用ブランチを読めないか、対応づかない通過の記録しか無く通過を決められないときは、「G-1 の通過を判定記録で決められない」という失敗として理由と欠けた行を出す(閾値の行・観点3・G-1 の時点の見積り・安全リスクアセスメントの承認も同じ。#359 の独立の突合 高-1)。行の連続失敗・無進捗の上限が構成(task.selfHealMaxIterations・task.selfHealNoProgressLimit)と異なれば、構成の値が効くことを注意に出す。累積消費の上限の中身は確かめない(IMPL-0277)。値の妥当性は G-1 の判定者が確かめる(#359)" -->
-<!-- impl IMPL-0834 target=autonomy-derivation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="3.12.10 要求事項5。登録の根拠の4点目(実行の単位ごとの強制の手段の所在、または該当なし(理由))の記入の有無を登録の時点で確かめ、無い種別の登録を拒み、既に登録した種別で欠けたものを止める。記入の内容が強制するかは確かめない(課さないと決めた。ADR-0158)。準拠テンプレートが強制するのは start を呼んだ単位だけ(IMPL-0272)。scripts/gate/autonomy.mjs は登録した変更種別から範囲ごとの AI自律レベル(L3)を導くが、登録の時点で4点目を照らす検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0834 target=autonomy-derivation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="3.12.10 要求事項5。登録の根拠の4点目(実行の単位ごとの強制の手段の所在、または該当なし(理由))の記入の有無を登録の時点で確かめ、無い種別の登録を拒み(登録の拒否は config.mjs の登録の検査が持つ。IMPL-0035)、既に登録した種別で欠けたものを止める(停止の導出は autonomy.mjs)。4点目は D-0 節12 へ出す(構成から生成する。IMPL-0519)。記入の内容が強制するかは確かめない(課さないと決めた。ADR-0158)。準拠テンプレートが強制するのは start を呼んだ単位だけ(IMPL-0272)。scripts/gate/autonomy.mjs は登録した変更種別から範囲ごとの AI自律レベル(L3)を導くが、登録の時点で4点目を照らす検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### 停止条件の3種
 

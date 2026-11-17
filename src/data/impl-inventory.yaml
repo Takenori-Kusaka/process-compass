@@ -2335,10 +2335,18 @@ sections:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
     note: 検査を AI の利用の有無で変えないことは IMPL-0678(降りている。gate-g5.yml の条件がイベントと構成の有無だけを見る)。依存関係のライセンスの合否(基準5)は判定基準の表(kb)の規定。類似の検知を合否条件にせず、実施と結果を記録して G-7 のエビデンスにすることは、G-7 の IMPL-0046・0548 の note が「類似の検知の実施記録」を名指す(降りていない。location)
     issue: 324
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 類似の検知の実施記録
+    status: marked
+    ids:
+      - IMPL-1006
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+    issue: 355
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 類似が検知された場合の措置
     status: marked
     ids:
       - IMPL-0548
+      - IMPL-1005
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
     note: 検知を未処理のまま先へ進めず、当該の変更単位で処理する(3つの選択肢)こと、期限のない記録を認めないこと、期限超過の未処理項目が残る出荷を止めることは I1(降りていない)。期限超過の確認は IMPL-0046。再検査で検出されなくなったことを潔白の根拠として提示しないことは、記録の文面の禁止で、I1 と同じ確かめで扱う
@@ -2534,6 +2542,14 @@ sections:
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
     issue: 324
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 基準3・6・7・8 の記録
+    status: marked
+    ids:
+      - IMPL-1004
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
+    note: 基準3・6・7・8 を出荷判定者が判定することは IMPL-0042・IMPL-0044・IMPL-0045・IMPL-0046(基準の表の所在)。機械の未記入の検出は IMPL-1004(基準7)と IMPL-1005(基準8)。記入が在ることは完備を意味しない旨と各基準の範囲の箇条書きは、ADR-0159 が追う(#355 束2)
+    issue: 448
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 基準4 の記録
     status: marked
     ids:
@@ -3240,7 +3256,7 @@ sections:
       - IMPL-0035
       - IMPL-0048
       - IMPL-0983
-    note: 登録の根拠は IMPL-0035(記入の内容は機械で確かめていない旨の表示は IMPL-0983)。既定ブランチへの取り込みが本番環境への反映を直接起動する構成で委任の取り込みをこの行の経路に限ることは、5.5.1 の IMPL-0251 が追う
+    note: 登録の根拠は IMPL-0035(記入の内容は機械で確かめていない旨の表示は IMPL-0983)。登録の根拠の4点目(強制の手段の所在)は 3.12.10 の IMPL-0834 が追う。既定ブランチへの取り込みが本番環境への反映を直接起動する構成で委任の取り込みをこの行の経路に限ることは、5.5.1 の IMPL-0251 が追う
     issue: 294
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.5 運用形態にかかわらず人が確定する判断
     status: marked
