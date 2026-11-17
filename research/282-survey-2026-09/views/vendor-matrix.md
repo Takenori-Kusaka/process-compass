@@ -193,10 +193,11 @@
 
 - [SRC-0190] 2026-09-23 [What's New in Cursor — Latest Updates & Release Notes](https://cursor.com/changelog) — Cursor の changelog(取得日 2026-09-23)。Rollouts は自らマージ・ロールバックしない、Security Review は重大
 
-### DORA (Google Cloud)(2)
+### DORA (Google Cloud)(3)
 
 - [SRC-0466] 2026-06-02 [Finding balance in the era of tokenmaxxing](https://dora.dev/insights/finding-balance-in-the-era-of-tokenmaxxing/) — 2026年初頭に広がった「トークン消費量を社内リーダーボードで競わせる」慣行(tokenmaxxing)を、DORA が虚栄指標・Goodhart の法則の典型
 - [SRC-0467] 2026-01-05 [DORA's software delivery performance metrics](https://dora.dev/guides/dora-metrics/) — DORA の5指標(スループット3+不安定性2)の現行定義。不安定性を変更失敗率とデプロイ手戻り率(deployment rework rate)で測ると定め、
+- [SRC-0756] ? [DORA's software delivery performance metrics(Lead time for changes の定義)](https://dora.dev/guides/dora-metrics/) — DORA の指標ガイド。変更のリードタイムを、バージョン管理へのコミットから本番デプロイまでと定義する。コミット前の待ち(要求の滞留など)は定義の外。SRC-0
 
 ### DX(2)
 

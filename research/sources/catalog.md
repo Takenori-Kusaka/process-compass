@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 742(included 742、excluded 0)。生成日 2026-11-16。
+件数: 749(included 749、excluded 0)。生成日 2026-11-17。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -750,4 +750,11 @@
 | SRC-0747 | ? | vendor-official | global/en | partial | TH12 | 成果物とログの保持の設定の頁。公開リポジトリは 1〜90 日、非公開は 1〜400 日の範囲で設定でき、組織・企業の上限をリポジトリは超えられない。設定は新しい | [GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in yo](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) |
 | SRC-0748 | ? | vendor-official | global/en | partial | TH12 | 環境と配備の保護規則の頁。必須レビュア・待機時間・配備の参照の限定・環境の秘密情報のプラン別の提供範囲を述べる。Issue #329 の審議で 2026-11- | [GitHub Docs — Deployments and environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) |
 | SRC-0749 | ? | vendor-official | global/en | partial | TH12 | 環境の管理の頁。環境を設定できるプランと公開範囲、自己承認の禁止・管理者の迂回・配備の参照の限定の設定項目を述べる。Issue #329 の審議で 2026-1 | [GitHub Docs — Managing environments for deployment](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) |
+| SRC-0750 | 2018-12-17 | standard | global/en | partial | TH12 | ISO 26262-2 の公開プレビュー(目次・まえがき・箇条1〜5 の一部・表の解釈)。箇条 4.2 は、適合の主張で全要求を満たすことを求め、除外は「テーラ | [ISO 26262-2:2018 Road vehicles — Functional safety — Part 2: Management of functional safe](https://cdn.standards.iteh.ai/samples/68384/a48c82d694274496bcb249700a63ac2f/ISO-26262-2-2018.pdf) |
+| SRC-0751 | 2013-08 | public-agency | eu/en | partial | TH12 | IEC 62304 の認証機関側の FAQ(2013 年版の規格が対象)。安全クラスの割り当て(4.3)は必須で、プロジェクトの都合で任意にする手順では適合を主 | [EN 62304 - Frequently Asked Questions (Team-NB, 2013-08)](https://www.team-nb.org/wp-content/uploads/2015/05/documents2013/FAQ_62304_Final_130804.pdf) |
+| SRC-0752 | 2019-05 | talk | eu/en | partial | TH12 | ISO 12100 の3ステップ法(本質的安全設計 → safeguarding と補完的保護方策 → 使用上の情報)を規格策定側の議長が解説した講演資料。ステ | [EN ISO 12100 and its relation to the Machinery Directive (CEN/TC114 議長の講演資料, 2019-05)](https://www.cencenelec.eu/media/CEN-CENELEC/Areas of Work/CENELEC sectors/Mechanical and Machines/Documents/Quicklinks/eniso12100relationmachinerydirective.pdf) |
+| SRC-0753 | ? | community | global/en | partial | TH12 TH10 | カオスエンジニアリングの原則集。本番のトラフィックでの実験を選好し、影響範囲を最小化する責務を実験者に置く。安全関連システムの除外には触れない(一般の Web  | [Principles of Chaos Engineering](https://principlesofchaos.org/) |
+| SRC-0754 | 2021-02-18 | paper-peer | us/en | partial | TH06 TH12 | AI の説明の提示だけでは過度な依存は減らず、cognitive forcing(判断の時点で分析的思考を強いる介入)が過度な依存を減らした。199 人の実験。 | [To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assi](https://arxiv.org/abs/2102.09692) |
+| SRC-0755 | 2018-03-13 | preprint | us/en | partial | TH11 TH12 | Goodhart の法則(指標を目標にすると良い指標でなくなる)の失敗様式を4種に分類した論文。経済・公共政策・機械学習で指標の過剰最適化が起きることを論じる。 | [Categorizing Variants of Goodhart's Law](https://arxiv.org/abs/1803.04585) |
+| SRC-0756 | ? | vendor-official | global/en | partial | TH11 | DORA の指標ガイド。変更のリードタイムを、バージョン管理へのコミットから本番デプロイまでと定義する。コミット前の待ち(要求の滞留など)は定義の外。SRC-0 | [DORA's software delivery performance metrics(Lead time for changes の定義)](https://dora.dev/guides/dora-metrics/) |
 

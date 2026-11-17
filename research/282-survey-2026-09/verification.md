@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-16): verified 652 / partial 89 / unverified 1
+集計(生成日 2026-11-17): verified 652 / partial 96 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -113,6 +113,13 @@
 | SRC-0747 | partial | agent-read | 審議の調査(research-supplement.md)で読んだ記述を引いた。upload-artifact の retention-days の個別指定の上限は、この頁からは確かめられなかった。 | [GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in yo](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) |
 | SRC-0748 | partial | agent-read | HTML の本文を取得して読んだ。設定画面での実機の確認は無い。 | [GitHub Docs — Deployments and environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) |
 | SRC-0749 | partial | agent-read | WebFetch の要約から引いた。逐語の確認は一部のみ。 | [GitHub Docs — Managing environments for deployment](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) |
+| SRC-0750 | partial | agent-read | c1・c2 は pdftotext で抽出した本文と逐語一致。c3 は目次の表題だけ。6.4.5 本文は未読。 | [ISO 26262-2:2018 Road vehicles — Functional safety — Part 2: Management of functional safe](https://cdn.standards.iteh.ai/samples/68384/a48c82d694274496bcb249700a63ac2f/ISO-26262-2-2018.pdf) |
+| SRC-0751 | partial | agent-read | c1 は pdftotext の抽出と逐語一致。c2 の quote は検索結果の抜粋(抽出文では未確認)。 | [EN 62304 - Frequently Asked Questions (Team-NB, 2013-08)](https://www.team-nb.org/wp-content/uploads/2015/05/documents2013/FAQ_62304_Final_130804.pdf) |
+| SRC-0752 | partial | agent-read | #440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮 | [EN ISO 12100 and its relation to the Machinery Directive (CEN/TC114 議長の講演資料, 2019-05)](https://www.cencenelec.eu/media/CEN-CENELEC/Areas of Work/CENELEC sectors/Mechanical and Machines/Documents/Quicklinks/eniso12100relationmachinerydirective.pdf) |
+| SRC-0753 | partial | agent-read | #440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮 | [Principles of Chaos Engineering](https://principlesofchaos.org/) |
+| SRC-0754 | partial | agent-read | #440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮 | [To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assi](https://arxiv.org/abs/2102.09692) |
+| SRC-0755 | partial | agent-read | #440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮 | [Categorizing Variants of Goodhart's Law](https://arxiv.org/abs/1803.04585) |
+| SRC-0756 | partial | agent-read | #440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮 | [DORA's software delivery performance metrics(Lead time for changes の定義)](https://dora.dev/guides/dora-metrics/) |
 
 ### 除外した出典(却下は成果)
 

@@ -630,6 +630,8 @@
 | [SRC-0686#c1] | observational |   |  | レビューは、期待されているほど欠陥に関するものではないとされている。 | 2013 | partial |  |
 | [SRC-0687#c1] | observational |   |  | レビューの指標が出荷後の欠陥に直接の効果を持つことは見つからなかった。 | 2020-05 | partial |  |
 | [SRC-0697#c1] | observational |   | 8.2% | コミットの約 8.2% がスナップショットを更新し、他の変更と同時に起きることが多い。 | 2023-10-01 | partial |  |
+| [SRC-0754#c1] | controlled-experiment |   |  | 説明を足しても過度な依存は減らない。研究によっては増えることもある。 | 2021-02-18 | partial |  |
+| [SRC-0754#c2] | controlled-experiment |   |  | cognitive forcing は単純な説明の提示より過度な依存を有意に減らした(199 人)。ただし最も減らした設計は主観の評価が最も低く、効果は認知動機(Need for Cognition) | 2021-02-18 | partial |  |
 
 ## 注記
 
