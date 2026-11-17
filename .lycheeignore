@@ -128,3 +128,16 @@ https://github\.com/hokuto-fg/loan-approval
 ^https://docs\.github\.com/actions/using-workflows/required-workflows
 ^https://johner-institute\.com/articles/software-iec-62304/safety-classes-level-of-concern
 ^https://presencis\.com/regulations/iso-27001/article-A\.5\.3/
+
+# 2026-11-17 の棚卸し(#451)。検査と同じ UA の curl で確かめ直し、404 が続いたもの。調査メモには取得時の記録として残す。保存版は探していない
+^https://github\.com/cursor/agent-trace
+^https://docs\.coveralls\.io/pull-requests
+^https://www\.mdcpp\.com/doc/standard/IEC61508-1-1997\.pdf
+^https://standards\.iteh\.ai/catalog/standards/sist/1fc38e10-624f-4e18-a0a8-5c3283e61a1a/iso-iec-27002-2022
+^https://www\.tenable\.com/audits/items/CIS_Microsoft_365_Foundations_v5\.0\.0_L1_E5\.audit:
+
+# 同上。www.fda.gov は curl では 200 を返すが、lychee には 404 を返す(クライアントによる出し分け。ボット対策と推定)。
+# 実在は curl で確かめた。lychee では確かめられないため、URL を指定して除外する
+^https://www\.fda\.gov/media/(75414|119267|153486|153781|188844|191561)/download
+^https://www\.fda\.gov/medical-devices/artificial-intelligence-enabled-medical-devices/good-machine-learning-practice-medical-device-development-guiding-principles
+^https://www\.fda\.gov/regulatory-information/search-fda-guidance-documents/(part-11-electronic-records-electronic-signatures-scope-and-application|artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing|clinical-performance-assessment-considerations-computer-assisted-detection-devices-applied-radiology)

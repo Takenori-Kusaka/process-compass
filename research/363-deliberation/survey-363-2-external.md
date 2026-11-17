@@ -83,7 +83,7 @@
 
 ### SRC-B3 Turborepo「run」リファレンス
 
-- URL: https://turborepo.dev/docs/reference/run(旧 turborepo.com から 301)
+- URL: https://turborepo.dev/docs/reference/run (旧 turborepo.com から 301)
 - 取得日: 2026-11-11
 - 事実(原文の引用)
   - `--affected`: "Filter to only packages that are affected by changes on the current branch."
@@ -107,7 +107,7 @@
 
 ### SRC-C1 OpenSSF Scorecard「Checks」(CI-Tests・SAST)
 
-- URL: https://github.com/ossf/scorecard/blob/main/docs/checks.md(本文は raw.githubusercontent.com から取得)
+- URL: https://github.com/ossf/scorecard/blob/main/docs/checks.md (本文は raw.githubusercontent.com から取得)
 - 取得日: 2026-11-11
 - 事実(原文の引用・要約)
   - CI-Tests: "This check tries to determine if the project runs tests before pull requests are merged." 直近約30コミットの GitHub `CheckRuns` と `Statuses` から CI の名前(appveyor・buildkite・circleci・e2e・github-actions・jenkins・mergeable・test・travis-ci・woodpecker を含む名前)を探す。成功した検査だけを数える
@@ -145,7 +145,7 @@
 
 ### SRC-D1 ISO/IEC/IEEE 29119-2:2021(iTeh の公開プレビュー)
 
-- URL: https://cdn.standards.iteh.ai/samples/79428/d2457e67b9db443b9504d2ef49a8724a/ISO-IEC-IEEE-29119-2-2021.pdf(目録: https://standards.iteh.ai/catalog/standards/iso/73fff262-e1d4-40f7-8011-c733c462a3b6/iso-iec-ieee-29119-2-2021)
+- URL: https://cdn.standards.iteh.ai/samples/79428/d2457e67b9db443b9504d2ef49a8724a/ISO-IEC-IEEE-29119-2-2021.pdf (目録: https://standards.iteh.ai/catalog/standards/iso/73fff262-e1d4-40f7-8011-c733c462a3b6/iso-iec-ieee-29119-2-2021)
 - 取得日: 2026-11-11
 - 読めた範囲: 表紙〜4.1.2.1(p.9)。7.2(計画)・7.4(完了)の本文はプレビューの外で**未確認**
 - 事実(原文の引用)

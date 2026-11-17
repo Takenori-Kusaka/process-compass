@@ -143,9 +143,9 @@
 
 ## 5. 出典
 
-- Vale Vocabularies: https://docs.vale.sh/keys/vocabularies(2026-11-11 閲覧)
-- Vale WordTemplate: https://docs.vale.sh/keys/wordtemplate(同)
-- Vale existence: https://docs.vale.sh/checks/existence(同)
-- Vale v3.26.0 リリース: https://github.com/errata-ai/vale/releases/tag/v3.26.0(2026-10-31 公開。同日取得)
+- Vale Vocabularies: https://docs.vale.sh/keys/vocabularies (2026-11-11 閲覧)
+- Vale WordTemplate: https://docs.vale.sh/keys/wordtemplate (同)
+- Vale existence: https://docs.vale.sh/checks/existence (同)
+- Vale v3.26.0 リリース: https://github.com/errata-ai/vale/releases/tag/v3.26.0 (2026-10-31 公開。同日取得)
 - textlint-rule-prh 6.1.1(npm。2026-11-11 取得)
 - 内部: `research/phase4-standard/108-tone-guardrail.md`、`scripts/check-tone.mjs`、`scripts/check-provisions.mjs`、`src/data/provision-forms.yaml`、`src/content/docs/community/style-guide-tone.md`、`src/content/docs/community/provision-forms.md`、`src/content/docs/phase4-process-design/overview.md`(1.4・1.7・1.7.4)

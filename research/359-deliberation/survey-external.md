@@ -16,7 +16,7 @@
 | FX-2 | 内部監査員の独立は「実行可能であれば」。小規模組織では完全な独立が不可能な場合を認め、偏りの除去と客観性の確保に努めるよう求める | SRC-0331 c1・c2 | 規範 |
 | FX-3 | 統制のテストの件数は、許容逸脱率・予想逸脱率・統制リスクを低く評価しすぎる許容リスクから決める。統計的でも非統計的でも、条件が同じなら件数への効き方は同じであるべき。件数そのものは定めない | PCAOB AS 2315 .38(https://pcaobus.org/oversight/standards/auditing-standards/details/AS2315) | 規範(件数の値なし) |
 | FX-4 | 頻度の低い統制(母集団が小さい)のテスト件数の表: 四半期(4)→2、月次(12)→2〜4、半月(24)→3〜8、週次(52)→5〜9 | AICPA Audit Guide: Audit Sampling の表を引く二次資料(https://kfinancial.com/sampling-guidance-for-soc-reports)。版・節は二次資料が示さず、原典は未読 | 目安(原典未確認) |
-| FX-5 | 実務の表(大手監査法人の慣行として): 年次1、四半期2、月次5、週次15〜25、日次25〜60。件数は PCAOB 基準に成文化されていないと明記 | https://www.finrep.ai/blog/design-vs-operating-effectiveness-testing-under-sox-2026-practitioner-walkthroug(2026) | 意見(出典の無い慣行の紹介。FX-4 と値が食い違う) |
+| FX-5 | 実務の表(大手監査法人の慣行として): 年次1、四半期2、月次5、週次15〜25、日次25〜60。件数は PCAOB 基準に成文化されていないと明記 | https://www.finrep.ai/blog/design-vs-operating-effectiveness-testing-under-sox-2026-practitioner-walkthroug (2026) | 意見(出典の無い慣行の紹介。FX-4 と値が食い違う) |
 | FX-6 | 母集団 200 未満の遵守テストの目安: 100〜199 件なら少なくとも 20、50〜99 なら 10、20〜49 なら 5、それ未満は 5 未満。表は職業的判断を置き換えない、と明記 | HUD OIG 監査手引き 付録 A(https://www.hudoig.gov/sites/default/files/documents/audit-guides/appendix.pdf) | 目安(公的機関) |
 | FX-7 | 診療報酬請求の監査の件数: 決まった式は無いとした上で、「連邦の支払者ごとに5件以上、または医師1人あたり5〜10件」を基本の目安とする | HHS OIG, Compliance Program Guidance for Individual and Small Group Physician Practices(65 FR 59434、2000-10-05。https://oig.hhs.gov/documents/compliance-guidance/801/physician.pdf) | 目安(公的機関。根拠の実証は示されない) |
 | FX-8 | 非統計的抽出(的を絞った確認)の結果は母集団へ投影できず、限定の文言を付けて報告する。統計的抽出は母集団へ投影できる。報告には抽出の種別・選んだ理由・件数と母集団の関係を書く | CIGIE QAWG, Good Practices for Quality Assurance Reviewers: Audit Sampling(2021。https://www.ignet.gov/sites/default/files/files/QA%20Assessing%20Audit%20Sampling%20__%20QAWG%20Whitepaper%20__%20%20May%202021.pdf) | 規範(手引き) |
@@ -39,7 +39,7 @@
 | ID | 知見 | 出典 | 強さ |
 |---|---|---|---|
 | FX-13 | 職務分離が難しい小規模組織でも、多くは責任を分けられる。それができない場合は、両立しない活動を所有者兼経営者(owner-manager)が直接に監督することで必要な統制になりうる(COSO 1992 の文言の引用) | SEC Advisory Committee on Smaller Public Companies 最終報告書 草稿(2006。https://www.sec.gov/info/smallbus/acspc/acspc-finalreport_d.pdf) | 規範(COSO の文言の引用) |
-| FX-14 | COSO の小規模公開会社向け指針(2006)は、資源不足による職務分離の欠け、経営者による統制の無効化を課題に挙げ、経営者による報告の確認・取引の抽出確認・照合の確認などの代替を示す。2014-12-15 に 2013 年版の Compendium に置き換えられた | https://www.coso.org/guidance-on-ic(置き換えの記述)、要約は https://www.cooley.com/news/insight/2006/new-coso-guidance-for-smaller-companies | 規範(置き換え済みの指針)/要約は二次 |
+| FX-14 | COSO の小規模公開会社向け指針(2006)は、資源不足による職務分離の欠け、経営者による統制の無効化を課題に挙げ、経営者による報告の確認・取引の抽出確認・照合の確認などの代替を示す。2014-12-15 に 2013 年版の Compendium に置き換えられた | https://www.coso.org/guidance-on-ic (置き換えの記述)、要約は https://www.cooley.com/news/insight/2006/new-coso-guidance-for-smaller-companies | 規範(置き換え済みの指針)/要約は二次 |
 | FX-15 | 小規模で単純な会社は、職務分離の機会が少なく代替の統制を置くことがある。監査人はその代替の統制が有効かを評価する。経営者による無効化への統制は、小規模の会社で特に重要 | PCAOB AS 2201 の注記(https://pcaobus.org/oversight/standards/auditing-standards/details/AS2201) | 規範 |
 | FX-16 | J-SOX は、経営者が不当な目的で内部統制を無視・無効化しうることを内部統制の限界に挙げる。令和5年改訂で、取締役会・監査役等がこれに留意することと、職務の分掌・取締役会の監督・監査役等の監査・内部監査人から取締役会等への直接の報告を対策として明記した | SRC-0537(令和5年改訂の意見書)、基準本文(https://www.fsa.go.jp/singi/singi_kigyou/kijun/20191206_naibutousei_kansa.pdf)、改訂の解説(https://www.pwc.com/jp/ja/knowledge/prmagazine/pwcs-view/assets/pdf/47-02.pdf) | 規範 |
 | FX-17 | 一人会社(株主1名)でも、役員の選任・再任は株主総会の決議(または書面による決議の省略、会社法319条)が要る。決議の省略でも議事録の記載事項(提案者・決議があったとみなされた日など。会社法施行規則72条4項)が定まり、役員の変更は登記する | J-Net21(中小機構)Q&A(https://j-net21.smrj.go.jp/solution/qa/officers-shareholders/Q0512.html)、札幌司法書士会の解説(https://sapporo-shiho.or.jp/wp/wp-content/uploads/2021/02/f27ee8a214d7324a9e4037754c6f61a5.pdf)、税理士法人の解説(https://www.ht-tax.or.jp/navi/shareholders-meeting-for-a-sole-shareholder-company) | 規範(法令。出典は解説) |
@@ -60,10 +60,10 @@
 | ID | 知見 | 出典 | 強さ |
 |---|---|---|---|
 | FX-21 | アジャイル開発外部委託モデル契約は、ユーザ企業(発注側)がプロダクトオーナーを選任し、ベンダ企業がスクラムマスターを選任する。契約前のチェックリストは、ユーザ側が適切な PO を選任して権限を委譲できるかを確かめさせる | SRC-0638(IPA・経産省、2020-03、2025-04 R1)。体制の記述は https://www.ipa.go.jp/digital/model/agile20200331.html | 規範(モデル契約) |
-| FX-22 | 同モデル契約の解説の二次要約: ユーザ側に適任者がいないときベンダ側から PO の補佐を出すことはあっても、PO の職務自体をベンダ側に委ねてはならない | https://www.kogures.com/hitoshi/webtext/std-model-keiyaku-ajail/index.html(二次。原典の該当箇所は本調査では未読) | 規範の二次要約(原典で要確認) |
+| FX-22 | 同モデル契約の解説の二次要約: ユーザ側に適任者がいないときベンダ側から PO の補佐を出すことはあっても、PO の職務自体をベンダ側に委ねてはならない | https://www.kogures.com/hitoshi/webtext/std-model-keiyaku-ajail/index.html (二次。原典の該当箇所は本調査では未読) | 規範の二次要約(原典で要確認) |
 | FX-23 | 要件定義は準委任型とする。ユーザには、自らが求める要件を明確に定義する責任がある。準委任型としないと、ユーザのステークホルダとの調整の責任が曖昧になり、ベンダがユーザ内のステークホルダと直接やり取りし始める傾向がある | 経産省 情報システム・モデル取引・契約書(第一版、2007。https://www.meti.go.jp/policy/it_policy/keiyaku/model_keiyakusyo.pdf)。第二版は SRC-0637 | 規範(モデル契約の解説) |
 | FX-24 | JISA モデル契約 2020 も、要件定義を「作成支援業務」(準委任・履行割合型)とし、ベンダは支援を行う | https://www.jisa.or.jp/Portals/0/report/contract_model2020.pdf 第14条 | 規範(業界団体のモデル契約) |
-| FX-25 | 情報処理学会の準委任型アジャイル契約の案は、PO を「価値の最大化をミッションとする者」と定義する一方、スクラムマスターは発注側・受注側のどちらからでも指名できるとする | https://www.ipsj.or.jp/sig/lip/LIPagileRevisedPublicVersion20220304.pdf(2022-03-04) | 規範(学会の契約案。PO の所属側の定めは本調査で未確認) |
+| FX-25 | 情報処理学会の準委任型アジャイル契約の案は、PO を「価値の最大化をミッションとする者」と定義する一方、スクラムマスターは発注側・受注側のどちらからでも指名できるとする | https://www.ipsj.or.jp/sig/lip/LIPagileRevisedPublicVersion20220304.pdf (2022-03-04) | 規範(学会の契約案。PO の所属側の定めは本調査で未確認) |
 | FX-26 | スクラムガイド 2020: PO は製品の価値の最大化に責任を持つ1人で、委員会ではない。作業を委任しても責任は PO に残る | https://scrumguides.org/scrum-guide.html | 規範(業界の定義) |
 | FX-27 | ISO/IEC/IEEE 29148 は、要求工学を取得者(acquirer)と供給者の領域を仲介する機能と位置づける(5.2)。取得者は、解決策の開発を要求し承認する権限を持つ利害関係者 | 29148 の版の所在は SRC-0439。5.2 の記述と取得者の説明は二次(https://www.cwnp.com/req-eng) | 規範(二次で確認) |
 | FX-28 | GitHub は、組織のメンバーと外部の協力者(outside collaborator)をプラットフォームの属性として区別し、API で一覧できる | https://docs.github.com/en/rest/orgs/outside-collaborators | 事例(プラットフォームの仕様) |
@@ -80,7 +80,7 @@
 
 | ID | 知見 | 出典 | 強さ |
 |---|---|---|---|
-| FX-29 | 代表的な予測の道具(Focused Objective の Throughput Forecaster)は、残りの項目数を**下限・上限の幅**で入力し、項目の分割率も下限・上限で入力する。スコープの理解度の区分(4段階)で幅を調整する。スループットは過去の標本か見積の幅を使う。費用の入力・出力は無い | https://focusedobjective.com/throughput(2026-11-12 閲覧) | 事例(道具の仕様) |
+| FX-29 | 代表的な予測の道具(Focused Objective の Throughput Forecaster)は、残りの項目数を**下限・上限の幅**で入力し、項目の分割率も下限・上限で入力する。スコープの理解度の区分(4段階)で幅を調整する。スループットは過去の標本か見積の幅を使う。費用の入力・出力は無い | https://focusedobjective.com/throughput (2026-11-12 閲覧) | 事例(道具の仕様) |
 | FX-30 | 同じ方式の実践の報告: 入力は「残りの項目数の幅・分割率の幅・スループットの幅」。顧客にとって大事なのは費用で、費用は期間に左右される、と書く(費用は期間から導く) | https://www.rpherbig.com/2021/05/25/forecasting-my-process.html(2021) | 事例(個人) |
 | FX-31 | Monte Carlo の予測は「未来が過去に似ている」ことを前提とする | Vacanti『When Will It Be Done?』の引用(https://lucasfcosta.com/blog/monte-carlo-forecasts の引用。原典は未読) | 意見(書籍の主張の二次引用) |
 | FX-32 | 11 チームのスループットで 176 回の予測を比べた: 平均による予測の的中は 59%、Monte Carlo の 50 パーセンタイルは 62%、70 は 73%、85 は 81%。チームには目標が無く、スコープの追加は扱っていない | Nicolas Brown, ProKanban(2025-06-30。https://prokanban.org/blog/trustingmcs) | 実証(単一著者・小標本・査読なし) |
@@ -102,8 +102,8 @@
 | FX-34 | 電子記録の閉じた系では、手順と事象の許された順序を強制する運用上のシステムチェックを、適切な場合に使う。承認した者だけが記録へ署名・操作できる権限のチェックも求める | 21 CFR 11.10(f)・(g)(https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11/subpart-B/section-11.10) | 規範(法令) |
 | FX-35 | 運用上のチェックの例: 必要なレビューの前の承認、必要な試験の前のリリース、前提の工程の前の後段の実行を防ぐ。順序に従うよう指示する手順書は、系が強制するチェックと同等ではない | https://usvalidation.com/kb_article/part11-compliance | 意見(コンサルタントの解説) |
 | FX-36 | 製品の引き渡しは、計画した取り決めが満足に完了するまで進めてはならない(関係する権限者・該当すれば顧客の承認がある場合を除く)。引き渡しの記録には、合否判定基準への適合の証拠と、**引き渡しを承認した者への追跡**を含める | ISO 9001:2015 8.6(条文の二次引用: https://wilkshireconsulting.com/blog/iso-9001-8-6-release-of-products-and-services)。ISO 9001:2026 が 2026-09 に発行(https://www.iso.org/standard/9001。8.6 の 2026 年版の文言は未確認) | 規範 |
-| FX-37 | ITIL 4 の変更の実務: 承認を経ずに実施された変更(後から記録したものを含む)を「無承認の変更」として数え、0へ近づける。増えるのは承認の経路が作業より遅いため経路を迂回されている兆候とされ、対策は標準変更の一覧を広げること | https://www.matrix42.com/en/itil4-change-enablement、https://www.motadata.com/blog/itil-change-management-best-practices | 意見(ベンダの解説。ITIL の原典は有償で未読) |
-| FX-38 | ITIL の標準変更: 危険が低く、よく理解され、完全に文書化され、**事前に承認された**変更で、個別の承認なしに実施できる。初回は完全な評価と承認を経て標準変更になる | https://itsm.tools/why-what-change-management(ITIL の定義の引用)、https://blog.invgate.com/what-are-the-itil-change-categories | 規範の二次引用 |
+| FX-37 | ITIL 4 の変更の実務: 承認を経ずに実施された変更(後から記録したものを含む)を「無承認の変更」として数え、0へ近づける。増えるのは承認の経路が作業より遅いため経路を迂回されている兆候とされ、対策は標準変更の一覧を広げること | https://www.matrix42.com/en/itil4-change-enablement 、https://www.motadata.com/blog/itil-change-management-best-practices | 意見(ベンダの解説。ITIL の原典は有償で未読) |
+| FX-38 | ITIL の標準変更: 危険が低く、よく理解され、完全に文書化され、**事前に承認された**変更で、個別の承認なしに実施できる。初回は完全な評価と承認を経て標準変更になる | https://itsm.tools/why-what-change-management (ITIL の定義の引用)、https://blog.invgate.com/what-are-the-itil-change-categories | 規範の二次引用 |
 | FX-39 | リポジトリのルールセットで、マージの前提(レビューの承認・状態の検査)を強制できる | SRC-0668(GitHub Docs) | 事例(プラットフォームの仕様) |
 
 ### 本件への示唆

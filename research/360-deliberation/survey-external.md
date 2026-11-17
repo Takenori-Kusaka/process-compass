@@ -183,7 +183,7 @@
 ## 5. 規格
 
 - ISO/IEC/IEEE 29119-3(試験の文書)
-  - [確認: 公開の講義資料 https://opencourse.inf.ed.ac.uk/sites/default/files/https/opencourse.inf.ed.ac.uk/st/2024/iso-29119-3-examples.pdf(2021 版の構成)] 試験の完了報告(Test Completion Report)の項目: 実施した試験の要約・**計画からの逸脱(Deviations from planned testing)**・**試験の完了の評価(Test completion evaluation)**・進行を妨げた要因・試験の測定値・**残留リスク(Residual risks)**・試験の成果物・再利用できる資産・教訓。状況報告(Test Status Report)には新しいリスク・変わったリスクがある
+  - [確認: 公開の講義資料 https://opencourse.inf.ed.ac.uk/sites/default/files/https/opencourse.inf.ed.ac.uk/st/2024/iso-29119-3-examples.pdf (2021 版の構成)] 試験の完了報告(Test Completion Report)の項目: 実施した試験の要約・**計画からの逸脱(Deviations from planned testing)**・**試験の完了の評価(Test completion evaluation)**・進行を妨げた要因・試験の測定値・**残留リスク(Residual risks)**・試験の成果物・再利用できる資産・教訓。状況報告(Test Status Report)には新しいリスク・変わったリスクがある
   - [確認: 第三者が公開した 2013 版の写し(https://wildart.github.io/MISG5020/standards/ISO-IEC-IEEE-29119-3.pdf)。正規の入手経路ではない可能性があるため、項目名と趣旨に留める] 「試験の完了の評価」は、**完了の基準をどこまで満たしたかを書き、満たさなかった場合はその理由を説明する**。「残留リスク」は試験の終わりに処置されていないリスクを列挙する。付属書の例示の戦略には「各部品は少なくとも 90% の文のカバレッジ」の完了の基準が出てくる
   - [推論] 29119 は「基準を満たさない・測れない」を禁止するのではなく、**逸脱・未達として理由とリスクを報告し、判断(受け入れ)へ回す**形を取る。これは本標準の ADR-0028(未達と省略の区別)と同じ方向
 - ISO/IEC/IEEE 29119-2(試験の過程)

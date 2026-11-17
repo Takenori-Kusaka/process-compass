@@ -22,7 +22,7 @@
      > 他方で、(略)「スキルシート」の提出を求めたとしても、それが個人を特定できるものではなく、発注者がそれによって個々の労働者を指名したり特定の者の就業を拒否したりできるものでなければ、発注者が受注者の労働者の配置等の決定及び変更に関与しているとまではいえないため、「スキルシート」の提出を求めたからといって直ちに偽装請負と判断されるわけではありません。
    - A8: Q1〜Q7 の考え方は「アジャイル型開発以外のシステム開発を請負業務とする場合についても当てはまります」(2026-05-25 の更新で追加)
    - A1: 準委任(民法 656 条)も同様で、契約の形式を問わず実態で判断する
-3. 【確】疑義応答集 第2集 問12・問13(見出し「発注者による請負労働者の氏名等の事前確認」)[SRC-0671]。厚生労働省の PDF(https://www.mhlw.go.jp/content/000780138.pdf)は埋め込みフォントの都合で本文をテキスト化できなかった。総務省が掲載する同文の写し(https://www.soumu.go.jp/main_content/000543074.pdf、19/57 頁付近)から逐語を取った。厚生労働省の PDF の目視の照合はしていない
+3. 【確】疑義応答集 第2集 問12・問13(見出し「発注者による請負労働者の氏名等の事前確認」)[SRC-0671]。厚生労働省の PDF(https://www.mhlw.go.jp/content/000780138.pdf)は埋め込みフォントの都合で本文をテキスト化できなかった。総務省が掲載する同文の写し(https://www.soumu.go.jp/main_content/000543074.pdf 、19/57 頁付近)から逐語を取った。厚生労働省の PDF の目視の照合はしていない
    - 問12 の答え(要旨の逐語): 「当該決定・変更を請負事業主自らが行っている限り、施設の保安上の理由や企業における秘密保持等、発注者の事業運営上必要な場合に、従事予定労働者の氏名をあらかじめ発注者に提出しても、そのことのみをもって発注者が請負労働者の配置等の決定及び変更に関与しているとは言えず、直ちに労働者派遣事業又は労働者供給事業と判断されることはありません。」
    - 問13 の答え(逐語):
      > 請負事業主が、請負業務に従事する労働者の決定を自ら行っている場合は、発注者が請負事業主に対し、情報漏洩防止のため、請負労働者の請負事業主あての誓約書の写しを求めても、そのことのみをもって労働者派遣事業又は労働者供給事業と判断されることはありません。
@@ -37,7 +37,7 @@
 
 ### 5.2 業界の実務(2026 年時点)
 
-- 【二】SES・受託の実務の解説は、第2集 問13 と第3集 A7 を合わせて「客先が『この人を』『この人は不可』と言う形を作らない」「入館のための氏名の提出は可」「個人を特定しないスキルシートは可」と読む(https://cho-tatsu.com/lab/keiyaku/gisou/kokuji-37、取得 2026-11-12)。法務の点検表の例は、配置・変更の確かめに「要員表、スキルシート、交代依頼メール」を資料として突き合わせる(https://legal-gpt.com/disguised-contracting-criteria、取得 2026-11-12)。記録そのものが実態の判断の材料として読まれる前提の書き方である
+- 【二】SES・受託の実務の解説は、第2集 問13 と第3集 A7 を合わせて「客先が『この人を』『この人は不可』と言う形を作らない」「入館のための氏名の提出は可」「個人を特定しないスキルシートは可」と読む(https://cho-tatsu.com/lab/keiyaku/gisou/kokuji-37 、取得 2026-11-12)。法務の点検表の例は、配置・変更の確かめに「要員表、スキルシート、交代依頼メール」を資料として突き合わせる(https://legal-gpt.com/disguised-contracting-criteria 、取得 2026-11-12)。記録そのものが実態の判断の材料として読まれる前提の書き方である
 - 【二】厚生労働省のガイド(SRC-0673)は第3集の内容を掲げる。告示・疑義応答集に無い事例は都道府県労働局が実態に即して個別に判断する
 
 ### 5.3 問いへの答え: 発注側が受注側の席の責任者の任免に関与する記録は、指揮命令の証拠と読まれうるか
@@ -65,13 +65,13 @@
 - 【確】同 第4条の解説: 「ユーザ企業は開発対象プロダクトの方針・内容を決める立場にあるため、ユーザ企業がプロダクトに関する責任者であるプロダクトオーナーを選任することとしている。」「ベンダ側にプロダクトオーナー補佐の人員を出してもらい、補助してもらうことも考えられる。但し、その場合であっても、(略)プロダクトに対して責任を持つプロダクトオーナーの職務自体をベンダ側に委ねるべきでない。」
 - 【確】同 第5条第3項「乙は、本件業務を開始する前に、スクラムマスターを選任する。」(乙 = ベンダ企業)。第2条の解説: プロダクトオーナーはユーザ企業、スクラムマスターはベンダ企業がそれぞれ選任することを想定
 - 【確】同 第2条の解説: 本条も絶対に変更できない条項ではなく、当事者やプロダクトの特性に応じて適宜変更することも可能
-- 【確】契約前チェックリスト「8. ユーザの体制: 適切なプロダクトオーナーを選任し、権限委譲ができるか」「9. ベンダの体制: アジャイル開発の経験を有するスクラムマスターが選任できるか/必要な能力を有する開発チームを構成できるか/開発チームを固定できるか」(https://www.ipa.go.jp/digital/model/agile20200331.html、取得 2026-11-12)
+- 【確】契約前チェックリスト「8. ユーザの体制: 適切なプロダクトオーナーを選任し、権限委譲ができるか」「9. ベンダの体制: アジャイル開発の経験を有するスクラムマスターが選任できるか/必要な能力を有する開発チームを構成できるか/開発チームを固定できるか」(https://www.ipa.go.jp/digital/model/agile20200331.html 、取得 2026-11-12)
 - 【確】同 第4条第3項はプロダクトオーナーの役割として「開発対象プロダクトの完成確認及びプロダクトバックログに含まれる個々の要求事項の完了確認を行うこと」を挙げる
 
 ### 6.2 業界の実務
 
-- 【二】モデル契約の策定に関わった解説(動画・解説記事)は「ユーザ企業がプロダクトオーナーを選任すると言い切った」点を特徴に挙げ、ユーザ企業が PO を立てられないならアジャイル開発を始めるべきでない、という議論の結論を紹介する(https://www.youtube.com/watch?v=UnJAa3814_c、取得 2026-11-12)
-- 【二】ユーザ企業が PO を選任し、ベンダは PO 補佐まで、という整理は複数の解説で一致する(https://www.kogures.com/hitoshi/webtext/std-model-keiyaku-ajail/index.html、https://bright-flow.jp/articles/outsourced-not-delegated.html)
+- 【二】モデル契約の策定に関わった解説(動画・解説記事)は「ユーザ企業がプロダクトオーナーを選任すると言い切った」点を特徴に挙げ、ユーザ企業が PO を立てられないならアジャイル開発を始めるべきでない、という議論の結論を紹介する(https://www.youtube.com/watch?v=UnJAa3814_c 、取得 2026-11-12)
+- 【二】ユーザ企業が PO を選任し、ベンダは PO 補佐まで、という整理は複数の解説で一致する(https://www.kogures.com/hitoshi/webtext/std-model-keiyaku-ajail/index.html 、https://bright-flow.jp/articles/outsourced-not-delegated.html)
 
 ### 6.3 論点への含意
 
@@ -92,10 +92,10 @@
   - 表4(結果の重大さ A〜D)・表5(SIL 1〜4)の行は「Independent person / Independent department / Independent organization」の3段。表5 は SIL3 で独立した部門 X1・独立した組織 X2、SIL4 で独立した組織 X
   - 定義は IEC 61508-4 の 3.8.11〜3.8.13(独立した者・部門・組織)を参照する(本文は読めていない)
   - 注記3: アセスメントを行う者が範囲内のことに助言すると独立性を損ないうる
-- 【二】8.2.18 は、表5 の解釈で、経験の不足・複雑さ・新規性があれば上の段を使うことを求める(Intertek の解説 2026-05-26 は「IEC 61508-1, cl. 8.2.18, tables 4 and 5」として独立性がリスクに比例すると書く。https://www.intertek.com/blog/2026/05-26-functional-safety-iec-61508-1-clause-8。#318 の調査も safecontrols の解説で同旨を得た)。8.2.18 の本文は読めていない
+- 【二】8.2.18 は、表5 の解釈で、経験の不足・複雑さ・新規性があれば上の段を使うことを求める(Intertek の解説 2026-05-26 は「IEC 61508-1, cl. 8.2.18, tables 4 and 5」として独立性がリスクに比例すると書く。https://www.intertek.com/blog/2026/05-26-functional-safety-iec-61508-1-clause-8 。#318 の調査も safecontrols の解説で同旨を得た)。8.2.18 の本文は読めていない
 - 誰が・どの記録で:
   - 【二】exida の概説(SRC-0678): アセスメントの計画は「the personnel who will perform the assessment, their level of independence, and the competency required」を明記する
-  - 【二】61508 協会の CASS 様式の手引き(https://61508.org/wp-content/uploads/2023/11/guidanceoncompletingacassform.pdf、取得 2026-11-12): 独立性の要求は 8.2.15〜8.2.18 にあり、証拠は完了したアセスメント報告と、独立性をどう達成したかの証拠とする。監査(6.2.7)には独立性の具体の要求が無く、独立性の程度を考慮して計画するとする
+  - 【二】61508 協会の CASS 様式の手引き(https://61508.org/wp-content/uploads/2023/11/guidanceoncompletingacassform.pdf 、取得 2026-11-12): 独立性の要求は 8.2.15〜8.2.18 にあり、証拠は完了したアセスメント報告と、独立性をどう達成したかの証拠とする。監査(6.2.7)には独立性の具体の要求が無く、独立性の程度を考慮して計画するとする
   - 【二】ABB の社内手順の例(https://library.e.abb.com/public/94e085279ca00c3085257625006f6de4/Functional%20Safety%20Assessment.pdf): アセスメントの計画に「Degree of Independence in accordance with IEC 61508」と評価チームの権限を書き、SIL3 は社内の別組織(SLCC)の指揮下の者が行う
   - 【確】第三者認証は要求しない(SRC-0677 p.14)
 
@@ -126,12 +126,12 @@
 ### 1.5 IEC 62304 と医療機器の設計レビュー
 
 - 【確】IEC 62304 の修正票1(SRC-0525)で読んだ範囲に、検証者の独立の段階の規定は無い。独立は品質マネジメントシステム(ISO 13485)側の扱いになる【推】
-- 【二】米 FDA の QMSR(2026-02-02 施行、ISO 13485:2016 を参照で取り込む)は、旧 21 CFR 820.30(e) の「設計の段階に直接の責任を持たない者を設計レビューに含める」という明示の要求を引き継がなかった。FDA は前文で ISO 13485 7.3.5(関係する機能の代表とその他の専門要員)で足りるとし、独立したレビューは「important contribution」と述べる(https://www.greenlight.guru/blog/qmsr-your-guide-to-part-820、https://qualityhub.com/qmsrs-design-development-7-questions-answered-by-fda、取得 2026-11-12。前文の原文は読んでいない)
+- 【二】米 FDA の QMSR(2026-02-02 施行、ISO 13485:2016 を参照で取り込む)は、旧 21 CFR 820.30(e) の「設計の段階に直接の責任を持たない者を設計レビューに含める」という明示の要求を引き継がなかった。FDA は前文で ISO 13485 7.3.5(関係する機能の代表とその他の専門要員)で足りるとし、独立したレビューは「important contribution」と述べる(https://www.greenlight.guru/blog/qmsr-your-guide-to-part-820 、https://qualityhub.com/qmsrs-design-development-7-questions-answered-by-fda 、取得 2026-11-12。前文の原文は読んでいない)
 - 含意(事実): 2026 年に、規制の側で独立したレビュアの**明示の義務が外れた**例がある。業界の解説は実務では独立したレビュアを続けると見る
 
 ### 1.6 機械可読な属性で独立を判定する例
 
-- 【確】Microsoft Entra のアクセスレビュー: レビュアの種別に「Managers of users」を選ぶと、ディレクトリの**上長の属性**(manager)で評価者が決まる。上長が未設定の利用者には「fallback reviewer」を当てる(https://learn.microsoft.com/en-us/entra/id-governance/create-access-review、取得 2026-11-12)。人事の属性を判定の入力にし、属性が欠けた場合の扱いを別に定める形
+- 【確】Microsoft Entra のアクセスレビュー: レビュアの種別に「Managers of users」を選ぶと、ディレクトリの**上長の属性**(manager)で評価者が決まる。上長が未設定の利用者には「fallback reviewer」を当てる(https://learn.microsoft.com/en-us/entra/id-governance/create-access-review 、取得 2026-11-12)。人事の属性を判定の入力にし、属性が欠けた場合の扱いを別に定める形
 - 【二】IGA 製品(SailPoint・Saviynt 等)の職務分掌の方針は、権限の組合せの衝突を、申請時に防ぐか事後に検出する。入力は ID の属性と権限(https://www.decryptiondigest.com/blog/iga-buyers-guide-2026-sailpoint-saviynt-one-identity-omada)。属性は人事システムの正本から連携するのが前提【推】
 - 【確】GitHub・GitLab の承認規則は**同一人物でないこと**(作成者・最後の push をした者を承認から外す)までを機械で判定する。報告線・所属の法人は判定の対象に無い(SRC-0666、GitLab の Code Owners 文書)【推: 両社の文書で組織の属性による判定の機能は見つけていない】
 - 【推】安全規格(I2 の「直属の上長」、I3 の「管理・資源・リリースの権限」、EN 50716 の「部下でない」)は機械可読な属性に写せる形をしている。ただし、規格は属性の値を**誰が確かめるか**を定めず、計画と報告(人の署名)に置く。自己申告の属性をそのまま判定に使う規格の例は見つからなかった
@@ -149,9 +149,9 @@
 
 ### 2.1 一次資料
 
-- 【二】ISO 9001:2015 7.2: a) QMS の成果に影響する「person(s) doing work under its control」の必要な力量を決め、b) 教育・訓練・経験で力量を確かにし、c) 必要なら処置と有効性の評価、d) 「retain appropriate documented information as evidence of competence」。ISO/TC 176 と IAF の監査実務グループの手引き(https://committee.iso.org/files/live/sites/tc176/files/PDF%20APG%20New%20Disclaimer%2012-2023/ISO-TC%20176-TF_APG-Competence.pdf、取得 2026-11-12)は、「appropriate」が記録の形に裁量を与えるとし、記録の例に訓練の必要の識別・訓練記録・資格を挙げる。ISO 9001 本文は有償で読めていない(SRC-0643 は目録のみ)
+- 【二】ISO 9001:2015 7.2: a) QMS の成果に影響する「person(s) doing work under its control」の必要な力量を決め、b) 教育・訓練・経験で力量を確かにし、c) 必要なら処置と有効性の評価、d) 「retain appropriate documented information as evidence of competence」。ISO/TC 176 と IAF の監査実務グループの手引き(https://committee.iso.org/files/live/sites/tc176/files/PDF%20APG%20New%20Disclaimer%2012-2023/ISO-TC%20176-TF_APG-Competence.pdf 、取得 2026-11-12)は、「appropriate」が記録の形に裁量を与えるとし、記録の例に訓練の必要の識別・訓練記録・資格を挙げる。ISO 9001 本文は有償で読めていない(SRC-0643 は目録のみ)
 - 【二】ISO 9001:2026(2026-09-16 発行、SRC-0542)は 7.2 で、力量の証拠の文書化した情報を「retain」から「available」へ改めたとする解説がある(https://www.iso9001help.co.uk/7.2-Competence.html)。本文は読めていない
-- 【確】ISO/IEC 17025:2017(iTeh の公開プレビュー https://cdn.standards.iteh.ai/samples/66912/47063b25710044d7a9523b36b0258047/ISO-IEC-17025-2017.pdf、取得 2026-11-12。検索の抜粋で逐語を得た):
+- 【確】ISO/IEC 17025:2017(iTeh の公開プレビュー https://cdn.standards.iteh.ai/samples/66912/47063b25710044d7a9523b36b0258047/ISO-IEC-17025-2017.pdf 、取得 2026-11-12。検索の抜粋で逐語を得た):
   - 4.2.1: 「The laboratory shall be responsible, through legally enforceable commitments, for the management of all information obtained or created during the performance of laboratory activities.」
   - 4.2.4: 「Personnel, including any committee members, contractors, personnel of external bodies, or individuals acting on the laboratory's behalf, shall keep confidential all information …」(外部の者を明示で含む)
   - 6.2.5: 力量の要求の決定・要員の選定・訓練・監督・**権限付与(authorization)**・力量の監視について、手順を持ち記録を保持する
@@ -160,7 +160,7 @@
 
 ### 2.2 業界の実務
 
-- 【二】17025 の認定の実務では、外部要員の守秘を雇用契約・委託契約の条項で担保し、記録として「confidentiality commitments (contracts, policies, staff agreements)」を示す(https://www.pjlabs.com/downloads/webinar_slides/4.18.2024_Impartiality-Confidentiality.pdf、https://www.limsey.com/blog/understanding-the-17025-quality-management-system)。権限付与の記録は外部審査で求められる(A2LA の解説 https://a2la.org/explaining-iso-iec-17025-competency-requirements)
+- 【二】17025 の認定の実務では、外部要員の守秘を雇用契約・委託契約の条項で担保し、記録として「confidentiality commitments (contracts, policies, staff agreements)」を示す(https://www.pjlabs.com/downloads/webinar_slides/4.18.2024_Impartiality-Confidentiality.pdf 、https://www.limsey.com/blog/understanding-the-17025-quality-management-system)。権限付与の記録は外部審査で求められる(A2LA の解説 https://a2la.org/explaining-iso-iec-17025-competency-requirements)
 - 【二】鉄道(EN 50716)では力量の証拠を文書化し、スキルマトリクスを保つ(1.3)。ISO 26262 は「能力管理证据」を作業成果物とする(1.2)
 - 【推】外部の評価者・コンサルタントとの書面の合意(守秘・規程の遵守・利益相反の申告)は、評価・認証機関の規格(ISO/IEC 17020・17065・17021-1)で公平性・守秘の要求として置かれる。本調査ではこれらの本文を読んでいない
 
@@ -176,16 +176,16 @@
 
 ### 3.1 一次資料と規格
 
-- 【確】ISO 2859-1(抜取検査)の切替え規則 9.3(1999 年版の写し https://chemistry.unt.edu/~tgolden/courses/iso2859-1.pdf、取得 2026-11-12): 「When normal inspection is being carried out, tightened inspection shall be put into operation when two out of five or less consecutive lots have been non-acceptable on original inspection」。きつい検査から通常へは連続5ロットの合格。9.4: きつい検査で不合格が累計5 に達すれば検査を中止し、供給者の改善処置を「The responsible authority shall agree that this action is likely to be effective」まで再開しない。2026 年版(iTeh のプレビュー https://cdn.standards.iteh.ai/samples/iso/iso-2859-1-2026/82891cb8edcf41d28d2b3ad02502ce20/iso-2859-1-2026.pdf)の序文は、品質の悪化を検出したらきつい検査または中止へ切り替える「automatic protection to the consumer」を挙げる(本文の条番号は改められている。13.3 に切替え規則)
+- 【確】ISO 2859-1(抜取検査)の切替え規則 9.3(1999 年版の写し https://chemistry.unt.edu/~tgolden/courses/iso2859-1.pdf 、取得 2026-11-12): 「When normal inspection is being carried out, tightened inspection shall be put into operation when two out of five or less consecutive lots have been non-acceptable on original inspection」。きつい検査から通常へは連続5ロットの合格。9.4: きつい検査で不合格が累計5 に達すれば検査を中止し、供給者の改善処置を「The responsible authority shall agree that this action is likely to be effective」まで再開しない。2026 年版(iTeh のプレビュー https://cdn.standards.iteh.ai/samples/iso/iso-2859-1-2026/82891cb8edcf41d28d2b3ad02502ce20/iso-2859-1-2026.pdf)の序文は、品質の悪化を検出したらきつい検査または中止へ切り替える「automatic protection to the consumer」を挙げる(本文の条番号は改められている。13.3 に切替え規則)
   - 要旨: **入る条件・出る条件・さらに悪いときの停止・再開の承認者**を、事前に規則として定める先例
-- 【確】Google SRE ワークブックのエラーバジェット方針の例(https://sre.google/workbook/error-budget-policy、取得 2026-11-12): 直近4週の誤り予算を超えたら「halt all changes and releases other than P0 issues or security fixes until the service is back within its SLO」。入る条件(予算超過)と出る条件(SLO へ戻る)を明記し、例外の種類を列挙する
+- 【確】Google SRE ワークブックのエラーバジェット方針の例(https://sre.google/workbook/error-budget-policy 、取得 2026-11-12): 直近4週の誤り予算を超えたら「halt all changes and releases other than P0 issues or security fixes until the service is back within its SLO」。入る条件(予算超過)と出る条件(SLO へ戻る)を明記し、例外の種類を列挙する
 - 【二】ISO 9001 10.2(不適合と是正処置)は不適合を管理し修正する処置(封じ込め)と原因の除去を分ける。暫定の封じ込めの範囲と解除の基準を是正処置の記録へ書く実務が一般的【推: 本文未読】
 
 ### 3.2 範囲(パス・コンポーネント)で承認者数を上げる手段(2026-11 時点)
 
-- 【確】GitHub の「required reviewer rule」(ルールセットの規則。2026-02-17 に一般提供): 指定したチームから**指定の数の承認**を求め、ファイル・フォルダをパターン(`!` で除外)で指定でき、リポジトリ・組織・エンタープライズの範囲で適用できる。例として「認証のファイルとフォルダへの変更は常にセキュリティチームの2件のレビューを要する」を挙げる(https://github.blog/changelog/2026-02-17-required-reviewer-rule-is-now-generally-available、取得 2026-11-12)。対象のプランは告知に書かれていない。告知の例はチームで、個人の指定の可否は書かれていない
+- 【確】GitHub の「required reviewer rule」(ルールセットの規則。2026-02-17 に一般提供): 指定したチームから**指定の数の承認**を求め、ファイル・フォルダをパターン(`!` で除外)で指定でき、リポジトリ・組織・エンタープライズの範囲で適用できる。例として「認証のファイルとフォルダへの変更は常にセキュリティチームの2件のレビューを要する」を挙げる(https://github.blog/changelog/2026-02-17-required-reviewer-rule-is-now-generally-available 、取得 2026-11-12)。対象のプランは告知に書かれていない。告知の例はチームで、個人の指定の可否は書かれていない
 - 【確】GitHub の CODEOWNERS は、1行の所有者のうち**いずれか1人**の承認で足りる(「approvals from both are not required」。https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)。パス単位で数を上げる手段は CODEOWNERS には無い(コミュニティの要望 https://github.com/orgs/community/discussions/166110)。ルールセットの「必要な承認の数」はブランチ単位(SRC-0343・SRC-0706)
-- 【確】GitLab の CODEOWNERS は節の名前に `[節名][n]` を付けて、その節の Code Owners から n 件の承認を求められる(https://docs.gitlab.com/user/project/codeowners/advanced、https://docs.gitlab.com/user/project/codeowners/reference、取得 2026-11-12)
+- 【確】GitLab の CODEOWNERS は節の名前に `[節名][n]` を付けて、その節の Code Owners から n 件の承認を求められる(https://docs.gitlab.com/user/project/codeowners/advanced 、https://docs.gitlab.com/user/project/codeowners/reference 、取得 2026-11-12)
 - 【推】GitHub のルールセットの Evaluate 状態(強制せず観測する。SRC-0343・SRC-0667)は、強化の前に影響を観測する段として使える。Evaluate は Enterprise Cloud の機能(SRC-0668 の注記)
 
 ### 3.3 論点への含意
@@ -210,7 +210,7 @@
 ### 4.2 業界の実務
 
 - 【二】IGA の文脈では、アクセス再認定(certification)を期日内に終えないことが「the leading IGA audit finding」とされる(https://www.decryptiondigest.com/blog/iga-buyers-guide-2026-sailpoint-saviynt-one-identity-omada)
-- 【二】日本の IT 全般統制の監査では、権限の付与・変更・削除のルール、ルールが職務分掌になっているか、定期の棚卸し、申請・承認の証跡が問われ、よくある不備に退職者・異動者の ID の残存、開発者の本番アクセス、共有 ID が挙がる。委託先が設定を変えているのに自社が把握していない場合も不備とされうる(https://www.bbs.co.jp/column/column019-83、取得 2026-11-12)。評価は一定期間のサンプルで承認履歴を確かめる(https://lassic.co.jp/media/column/it-general-controls-jsox)
+- 【二】日本の IT 全般統制の監査では、権限の付与・変更・削除のルール、ルールが職務分掌になっているか、定期の棚卸し、申請・承認の証跡が問われ、よくある不備に退職者・異動者の ID の残存、開発者の本番アクセス、共有 ID が挙がる。委託先が設定を変えているのに自社が把握していない場合も不備とされうる(https://www.bbs.co.jp/column/column019-83 、取得 2026-11-12)。評価は一定期間のサンプルで承認履歴を確かめる(https://lassic.co.jp/media/column/it-general-controls-jsox)
 - 【推】ITGC の変更管理の監査では「承認の規則(ワークフロー・ブランチ保護)そのものを変更できる者」が特権アクセスとして棚卸しの対象になる。承認者の名簿の外にいて名簿や規則を書き換えられる者(管理者・任命権者)を、名簿と突き合わせる観点は AC-2(7)・AC-5 の範囲に入る。ただし「任命権者・上長を名簿と突き合わせる」ことを独立の監査項目として名指す公的な文書は見つけていない
 
 ### 4.3 論点への含意
@@ -223,7 +223,7 @@
 
 ## 問7 欄の追加と互換(論点 J)
 
-- 【確】Kubernetes の API 方針: 新しいリソースと新しい欄は頻繁に足してよく、欄の削除は非推奨化の方針に従う。既存のクライアントとの互換を壊さないことを目標にする(https://kubernetes.io/docs/concepts/overview/kubernetes-api、取得 2026-11-12)。API サーバは既定で**未知の欄を落とし**、警告を返す(Warn。Strict にすると要求を失敗させる)(https://kubernetes.io/docs/reference/using-api/api-concepts)
+- 【確】Kubernetes の API 方針: 新しいリソースと新しい欄は頻繁に足してよく、欄の削除は非推奨化の方針に従う。既存のクライアントとの互換を壊さないことを目標にする(https://kubernetes.io/docs/concepts/overview/kubernetes-api 、取得 2026-11-12)。API サーバは既定で**未知の欄を落とし**、警告を返す(Warn。Strict にすると要求を失敗させる)(https://kubernetes.io/docs/reference/using-api/api-concepts)
 - 【推】一般の実務: 足す欄は省略可能にし、欄が無いときの意味(既定値)を定義する。旧い構成は「欄が無い = 既定の扱い」として読む。未知の欄は、落とす・警告する・拒否するのいずれかを明示する(Kubernetes の Ignore・Warn・Strict の3段)
 - 【確】Microsoft Entra は属性(上長)が欠けた者を「fallback reviewer」に回す(1.6)。欄の欠けを、満たす・満たさないのどちらかに倒さず、別の経路で扱う先例
 - 含意(論点 J): 欄の無い旧い構成について、「既定値として読む」「未確認として表示する」「別の経路へ回す」の3つの読み方が実務に並ぶ。どれを選ぶかで、欄を足した版へ上げたときに判定が変わる構成が出る
