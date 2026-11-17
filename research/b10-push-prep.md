@@ -51,3 +51,13 @@
 - 上の「1回目」以前の記述にある EV-0289〜0297・IMPL-0989〜0999 は旧番号である。research/327・330・337・440-deliberation/ と impl-inventory.yaml は新番号へ置き換えた。
 - 台帳(evidence・implementation・scope)と出典の索引を再生成した。
 - 検査(lint:evidence・impl・refs・scope・sources・provisions・registry、test:provisions・registry・criteria、impl:issues)はすべて通過。`npm run check` の全量は流していない。
+
+## 回帰(2回目・2026-11-17、HEAD 2eef0ad2)
+
+- 環境: WSL・node v26.13.1。`git archive` の LF の写し。template は b780a76 を展開して git init。`npm ci` 0。
+- `npm run check` 通常 exit 1、`TZ=UTC npm run check` exit 1(同じ箇所で止まる)。
+- 失敗: `test:template`(`scripts/check-template-drift.mjs`)。`template/templates/trial-checklist.md` が、標準 `phase4-process-design/tailoring-guide.md` の新しい項目「廃止・置換する既存の承認・様式と、新設する判定の差し引きが負であることを確認した…」を持たず、旧項目「導入後の判定件数が、置換前を上回らないことを確認した」が標準に無い、という乖離。
+- 原因(変更の欠陥): #327 が標準の項目を書き換えた(IMPL-1002 は `state=undelivered`)が、template の参照が b780a76 のままで、複製側の trial-checklist.md が追随していない。写しの作り方・時計・CRLF による偽の FAIL ではない。
+- 直し方の候補(未実施): template 側で trial-checklist.md を更新して PR にし参照を進める。または、複製の検査が template の参照に依る旨の除外を設ける。どちらを採るかは議長の裁定。
+- これより後ろの検査(lint:ci〜test:template より後の連鎖)は実行されていない。直した後に再実行が要る。
+- 写しは消した。
