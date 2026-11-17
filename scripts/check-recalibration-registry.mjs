@@ -23,12 +23,15 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const JSON_FILE = path.join(ROOT, 'template/scripts/gate/recalibration-registry.json');
 const CONFIG_FILE = path.join(ROOT, 'template/process.config.json');
 const DOC = path.join(ROOT, 'src/content/docs/phase4-process-design/roles-responsibilities.md');
+const LEDGER = path.join(ROOT, 'src/content/docs/community/implementation-ledger.md');
+const ADR_DIR = path.join(ROOT, 'src/content/docs/adr');
 
 const strip = (s) => s.replace(/\*\*/g, '').replace(/\[([^\]]*)\]\([^)]*\)/g, '$1').trim();
 const HANDLING_HEADER = '超過・未達のときの扱い';
 // 記号だけのセル(「-」「—」「*」など)は空と同じに扱う
 const isBlank = (s) => !/[\p{L}\p{N}]/u.test(s);
 const CITATION = /第\d+章|IMPL-\d+|ADR-\d+/;
+const DEFINED_EXEMPT = /対象外\(能力に依らない\)/;
 const pad = (n) => `RC-${String(n).padStart(2, '0')}`;
 
 /** 「RC-09〜RC-12」「RC-01・RC-02・RC-04」のような列挙を ID の配列へ展開する */
@@ -74,7 +77,7 @@ const getPath = (obj, key) => key.split('.').reduce((o, k) => (o === null || o =
  * 登録簿の整合の検査(純関数)。problems の配列を返す。
  * registry: JSON の内容。docText: 第3章の本文。config: テンプレートの process.config.json の内容
  */
-export function checkRegistry({ registry, docText, config }) {
+export function checkRegistry({ registry, docText, config, implIds, adrIds }) {
   const problems = [];
   const { rows, requirement4, notDependent, noRelax, header } = parseDoc(docText);
   if (!header || strip(header[5] ?? '') !== HANDLING_HEADER) problems.push(`登録簿の表の見出しの6列目が「${HANDLING_HEADER}」でない(列の入れ替えまたは欠落)`);
@@ -91,8 +94,12 @@ export function checkRegistry({ registry, docText, config }) {
     if (r.depends === '依る') {
       if (isBlank(r.handling)) problems.push(`${c.id}: 「超過・未達のときの扱い」の列が空である(能力に依る定数は、引く条項を書く)`);
       else {
-        if (/対象外/.test(r.handling)) problems.push(`${c.id}: 能力に依る定数の「超過・未達のときの扱い」に「対象外」とある(「依る」と矛盾する)`);
+        // 依らない行の定型文「対象外(能力に依らない)」だけを矛盾とする。「委任の対象外とする」のような正しい文は落とさない
+        if (DEFINED_EXEMPT.test(r.handling)) problems.push(`${c.id}: 能力に依る定数の「超過・未達のときの扱い」に「対象外(能力に依らない)」とある(「依る」と矛盾する)`);
         if (!CITATION.test(r.handling)) problems.push(`${c.id}: 「超過・未達のときの扱い」が条項(第N章・IMPL-NNNN・ADR-NNNN)を引いていない`);
+        // 引いた番号の実在(決定可能な条件)。台帳・ADR の一覧を渡されたときだけ確かめる
+        if (implIds) for (const m of r.handling.matchAll(/IMPL-(\d+)/g)) if (!implIds.has(`IMPL-${m[1]}`)) problems.push(`${c.id}: 引いた IMPL-${m[1]} が実装の台帳に無い`);
+        if (adrIds) for (const m of r.handling.matchAll(/ADR-(\d+)/g)) if (!adrIds.has(m[1])) problems.push(`${c.id}: 引いた ADR-${m[1]} が決定の記録に無い`);
       }
     }
     if (r.depends !== '依る' && r.depends !== '依らない') problems.push(`${c.id}: 「能力に依るか」が「依る」「依らない」のいずれでもない(${r.depends})`);
@@ -135,7 +142,9 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   const registry = JSON.parse(fs.readFileSync(JSON_FILE, 'utf8'));
   const config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
   const docText = fs.readFileSync(DOC, 'utf8');
-  const problems = checkRegistry({ registry, docText, config });
+  const implIds = new Set(fs.readFileSync(LEDGER, 'utf8').match(/IMPL-\d+/g) ?? []);
+  const adrIds = new Set(fs.readdirSync(ADR_DIR).map((f) => f.match(/^(\d{4})-/)?.[1]).filter(Boolean));
+  const problems = checkRegistry({ registry, docText, config, implIds, adrIds });
   if (problems.length) {
     console.error('能力依存の定数の登録簿が、標準の表とテンプレートの JSON で一致しません:');
     for (const p of problems) console.error(`  - ${p}`);

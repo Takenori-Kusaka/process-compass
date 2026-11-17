@@ -25,7 +25,10 @@ function test(name, fn) {
 }
 const clone = () => JSON.parse(JSON.stringify(registry));
 const find = (r, id) => r.constants.find((c) => c.id === id);
-const run = (over = {}) => checkRegistry({ registry: over.registry ?? registry, docText: over.docText ?? docText, config: over.config ?? config });
+const implIds = new Set(fs.readFileSync(path.join(ROOT, 'src/content/docs/community/implementation-ledger.md'), 'utf8').match(/IMPL-\d+/g) ?? []);
+const adrIds = new Set(fs.readdirSync(path.join(ROOT, 'src/content/docs/adr')).map((f) => f.match(/^(\d{4})-/)?.[1]).filter(Boolean));
+const run = (over = {}) => checkRegistry({ registry: over.registry ?? registry, docText: over.docText ?? docText, config: over.config ?? config, implIds, adrIds });
+const setCell = (id, text) => docText.split(/\r?\n/).map((l) => (l.startsWith(`| ${id} |`) ? l.replace(/\|[^|]*\|\s*$/, `| ${text} |`) : l)).join('\n');
 const detects = (problems, re) => assert.ok(problems.some((p) => re.test(p)), `検出されない: ${re}\n${problems.join('\n')}`);
 
 test('対照: 実物の表・JSON・構成は一致する', () => assert.deepEqual(run(), []));
@@ -63,7 +66,7 @@ test('変異: 能力に依る行の「超過・未達のときの扱い」が空
 test('変異: 記号だけのセル・対象外・引用の欠落・見出しの欠落を検出する', () => {
   const setCell = (id, text) => docText.split(/\r?\n/).map((l) => (l.startsWith(`| ${id} |`) ? l.replace(/\|[^|]*\|\s*$/, `| ${text} |`) : l)).join('\n');
   detects(run({ docText: setCell('RC-04', '-') }), /RC-04: 「超過・未達のときの扱い」の列が空/);
-  detects(run({ docText: setCell('RC-04', '対象外(能力に依らない)。第4章') }), /RC-04: .*「対象外」とある/);
+  detects(run({ docText: setCell('RC-04', '対象外(能力に依らない)。第4章') }), /RC-04: .*「対象外\(能力に依らない\)」とある/);
   detects(run({ docText: setCell('RC-04', '止めない') }), /RC-04: .*条項.*引いていない/);
   const doc = docText.replace('| 超過・未達のときの扱い |', '| 備考 |');
   assert.notEqual(doc, docText);
@@ -131,6 +134,16 @@ test('変異: 要求事項4 の行が読めなければ検出する', () => {
   const doc = docText.replace(/^\| 4 \| 「能力に依らない」.*\n/m, '');
   assert.notEqual(doc, docText);
   detects(run({ docText: doc }), /要求事項4.*を読めない/);
+});
+
+test('変異: 正しい文の「委任の対象外」は誤検出しない。定型の「対象外(能力に依らない)」は検出する', () => {
+  assert.deepEqual(run({ docText: setCell('RC-01', '超えた変更は委任の対象外とする(IMPL-0741)') }), []);
+  detects(run({ docText: setCell('RC-01', '対象外(能力に依らない)。IMPL-0741') }), /RC-01: .*「対象外\(能力に依らない\)」とある/);
+});
+
+test('変異: 引いた IMPL・ADR の番号が実在しなければ検出する', () => {
+  detects(run({ docText: setCell('RC-01', '規模の確認を求める(IMPL-9741)') }), /RC-01: 引いた IMPL-9741 が実装の台帳に無い/);
+  detects(run({ docText: setCell('RC-03', '理由を記録する(ADR-0998)') }), /RC-03: 引いた ADR-0998 が決定の記録に無い/);
 });
 
 console.log(`登録簿の整合の検査の変異試験: ${passed} 件が期待と一致しました`);
