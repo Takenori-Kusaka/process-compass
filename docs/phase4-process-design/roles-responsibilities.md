@@ -814,7 +814,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 <!-- impl IMPL-0331 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5。ラベルが遷移していて判定記録が無い作業単位に着手せず、判定者へ差し戻すこと。遷移の表の ready-to-merge → dev-done の行(#328)は、この判定の受信箱の出力に当たる。準拠テンプレートの next.mjs --pickup(ラベル・作業単位・needs-dev では前のラベルを渡す)が、遷移の前提の判定記録を最新の判定で読み、無ければ「着手しない」と判定者の受信箱を出す。前提は本節の状態の遷移から導く(state:ready-to-merge は G-6 の通過、state:qm-blocked は G-6 の差し戻し、needs-tech を経た state:needs-dev は G-3 の通過)。needs-dev の G-2・G-4 の通過は本節でなく第5章 5.8.5 の禁止事項1 による。構成にゲートのキーが無い・記録を読めないときは「判定できない」。受け手の手順(handoff.md・/pit・/implement・next.mjs --role)と CLAUDE.md のラベルによる引き渡しの節が着手の前に実行させる。試験は入口を --offline で通す。機械が止めるのは確認の出力までで、着手そのものは指示文。様式の無い記録と実環境の読み出しは IMPL-0467・IMPL-0468。テンプレートの変更は、所有者の作業の指示にもとづいて pit-in-template の main へ直接入れた(#371 の C-11 と同じ扱い)。採用者のリポジトリでの強制層の変更の承認(AI維持管理者)の手続とは別であり、その承認の記録はまだ無い(research/368-delivery/implementation.md)(#368)" -->
 
 <!-- impl IMPL-0467 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5 のうち、準拠テンプレートが前提の判定記録を読めなかった場面(要求事項9)。next.mjs --pickup が、(a) G-6 が省略・未達の構成の state:qm-blocked で出荷判定者の G-7 の差し戻しの判定記録を、(b) state:needs-po・state:needs-owner を経た state:needs-dev で G-2・G-4 の通過に加えて価値責任者の判断・事業決裁者の決裁の記録(テンプレ4 のゲート欄、対象は作業単位)を、(c) 機能へ対応づけない作業単位(Issue #N と類型の名をあわせて指定する)で価値責任者が前もって記録した類型の判断と、--from の経路の前提(needs-owner は作業単位の決裁、needs-tech は作業単位の G-3、作業単位ごとの価値責任者の差し戻し)を、最新の判定として読む。無ければ (a)(b) と経路の前提は着手しない、類型の判断が無い・作業単位か類型の指定が無いときは判定できない。作業単位がその類型に当たるかと判定者の本人性は機械が確かめない(価値責任者が類型の範囲を定め、内部監査が見る)。確かめる者: 内部監査(#359 の重の裁定5・重の実装の突合への裁定)" -->
-<!-- impl IMPL-0500 target=next-intake state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="--pickup が「判定できない」で止めた件数を、作業単位ごとに数えて /pit に出すこと(合否に使わない表示。止め方の形骸化の兆候を見せる。#359 の重の裁定5)。準拠テンプレートは --pickup の結果を残さず、件数を数えない。結果を残す置き場が要る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0500 target=next-intake state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="--pickup が「判定できない」で止めた件数を、作業単位ごとに数えて /pit に出すこと(合否に使わない表示。止め方の形骸化の兆候を見せる。#359 の重の裁定5)。準拠テンプレートは --pickup の結果を残さず、件数を数えない。結果の置き場は、作業単位の Issue へ1行残す宣言行とする(ADR-0173)。書く権限が無く残せなかった件数は、別に数えて出す。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0975 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="3.5.5 要求事項8: ラベルが付いていても、判定者は検査の結果などの事実を自ら確かめ、ラベルを事実の代わりにしないこと。template/CLAUDE.md と skills/gate/SKILL.md に、判定者が事実を自ら確かめる行は無い。近い行(「ラベルが遷移していて判定記録が無ければ、着手せず判定者へ差し戻す」、「ラベルの遷移は判定の成立要件ではない」、implement/SKILL.md「ラベルが付いていても、判定記録が無い作業単位は未判定」)は要求事項5 の側で、判定者の確認は言わない(2026-11-15 に確認。試し c だけで規定とした。IMPL-0918 と同じ裁定。束 D 突合 D-O07)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -1081,7 +1081,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 - 判定を要しない報告のみの議題を、定例の議題としてはならない。報告は非同期の記録で行う
 - 工程ゲートの判定を会議体へ持ち込んではならない。判定者の帯域が不足する場合は、[第7章 7.5](/process-compass/phase4-process-design/exception-escalation/)の措置による
 
-<!-- impl IMPL-0665 target=committee-agenda state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.7.5 と 3.7.4 の、会議体は決定する事項に列挙した事項のみを議題とし(列挙外の事項を議題としない)、判定を要しない報告のみの議題を定例の議題としないこと。B-3・B-4 は工程ゲートを置き換えず、単独判定者の権限を超える事項のみを扱うこと(3.7.2)。工程ゲートの判定は会議体へ持ち込まない(判定記録の様式が判定者を1人とすることで IMPL-0656 が追う)。議題が決定する事項に当たるかの照合は、上程の判定資料(求める判断)に現れる。準拠テンプレートに実装は無い。降ろし先は予定の登録(decision.md 5章 T8)。確かめる者: 判定者(上程の判定資料を読むとき)" -->
+<!-- impl IMPL-0665 target=committee-operation state=undelivered check=manual plan=adopter decision=ADR-0175 note="3.7.5 と 3.7.4 の、会議体は決定する事項に列挙した事項のみを議題とし、判定を要しない報告のみの議題を定例の議題としないこと。B-3・B-4 は工程ゲートを置き換えず単独判定者の権限を超える事項のみを扱うこと(3.7.2)。議題の運営は組織の会議体に属し、列挙を様式へ写すと標準と二重に管理する(IMPL-0701 と同じ理由。ADR-0175)。工程ゲートの判定を会議体へ持ち込まないことは IMPL-0656 が追う。確かめる者: 採用者の会議体の判定者(上程の判定資料を読むとき)" -->
 
 ## 3.8 決裁権限マトリクス
 
@@ -1247,7 +1247,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 
 中止・差し戻しが一度も出ない会議体は、判定の場ではなく通過点です。この状態が続く場合、会議体の廃止または判定基準の見直しを検討します。
 
-<!-- impl IMPL-0707 target=committee-agenda state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.9.4 の会議体の健全性指標(上程から判定までの日数、中止・差し戻しの比率、報告のみの議題の比率、持ち回り決議の比率、標準変更カタログの登録件数)の継続計測。準拠テンプレートに会議体の記録の様式も集計も無い(3.10.8 の IMPL-0216 の形骸化の指標と同じ型)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0707 target=committee-operation state=undelivered check=manual plan=adopter decision=ADR-0175 note="3.9.4 の会議体の健全性の指標の継続計測。会議体は案件をまたぎ、単一の案件のリポジトリの記録だけでは分母が欠けて誤った値になる(ADR-0175)。確かめる者: 採用者の会議体の事務局(四半期ごと)" -->
 
 ## 3.10 事前レビュー期間
 
@@ -1726,7 +1726,7 @@ AI運用担当者は、全社のAI実行基盤に責任を持ち、複数の案�
 
 開発組織が AI 実行基盤へ直接接続することを認めません。**接続はすべて AI運用担当者が用意した経路を通ります**。組織が用意した契約(定額の契約を含む)は、正規の経路です。**個人で契約した経路は、定額であっても、正規の経路に当たりません**。課金の形態は、経路が正規かどうかを変えません。
 
-<!-- impl IMPL-0568 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.2 の接続経路の限定。開発組織が AI 実行基盤へ直接接続せず、接続はすべて AI運用担当者が用意した経路を通る。組織が用意した契約は正規の経路で、個人で契約した経路は定額であっても正規の経路に当たらない。準拠テンプレートは AI 実行基盤を持たず、接続先を縛る設定は無い(agent-settings の deny は秘匿情報の読み取りと gh の操作)。手元のログを日次で複製して退避することは課さない(課さない明記。ADR-0078)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0568 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="AI 実行基盤への直接接続の禁止(個人で契約した経路は定額でも正規の経路に当たらない)。接続経路は採用者の AI 実行基盤に属し、準拠テンプレートは接続経路を持たない(ADR-0175)。案件の側でエージェントの接続先を組織の経路に固定する設定をテンプレートが持つかは、本件で決めていない(課すとも課さないとも決めていない。個人の契約を使っていないことは機械で閉じない)。手元のログの日次複製は課さない(ADR-0078)。確かめる者: 採用者の AI運用担当者(経路を設けるとき・改めるとき)" -->
 
 本標準は、端末に残る実行の記録(手元のログ)を日次で複製して退避することを課しません。消費の実績は接続経路の側で記録します。手元のログの保持は提供者の仕様に依り、本標準の判定が読む記録ではないためです([ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/))。
 
@@ -1834,8 +1834,8 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 :::
 
 <!-- impl IMPL-0408 target=model-quality-monitor state=undelivered check=manual plan=adopter decision=ADR-0104 note="3.12.4 の基準値。品質の監視の基準値を、導入を承認した評価の結果とし、監視の結果から自動で改めない。改めは AI運用担当者の記名と理由・旧い値・新しい値の記録による。基準値を下げる変更を緩める向きとして扱う。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 採用者の AI運用担当者(基準値を定めるとき、改めるとき)" -->
-<!-- impl IMPL-0712 target=model-quality-monitor state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.4 の、可用性の監視(応答の成否・遅延・レート制限への到達。常時)と品質の監視(基準集合に対する定期的な試行と基準値との比較。日次以上)を分けて実施すること。準拠テンプレートは AI 実行基盤と品質の監視を持たない(基準値の定め方の IMPL-0408 と同じ)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0713 target=model-quality-monitor state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.4 の、採点者の識別が変わった後の監視の結果を変わる前の基準値と比べないことと、正解を改めたとき(3.12.3 の要求事項16)に改めた正解で現行のモデルを測り直すこと。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0712 target=model-quality-monitor state=undelivered check=manual plan=adopter decision=ADR-0175 note="可用性と品質の監視の分離。品質の監視は AI 実行基盤に属し、準拠テンプレートは監視を持たない(IMPL-0408 と同じ。ADR-0175)。確かめる者: 採用者の AI運用担当者(監視を設けるとき)" -->
+<!-- impl IMPL-0713 target=model-quality-monitor state=undelivered check=manual plan=adopter decision=ADR-0175 note="採点者の識別を変えた後の監視の結果を変える前の基準値と比べないことと、正解を改めたとき(3.12.3 要求事項16)に改めた正解で現行のモデルを測り直すこと。品質の監視は AI 実行基盤に属する(ADR-0175)。確かめる者: 採用者の AI運用担当者(採点者を変えるとき・正解を改めるとき)" -->
 
 ### 3.12.5 障害と切り替え
 
@@ -1850,9 +1850,9 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 | 5 | 復旧後、切り替え期間中に生成された変更を特定できる状態にする |
 | 6 | 切り替えの期間中は、委任([第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/))を協働へ下げる。担い手の識別が変わり、適合性確認(3.4.2)の前提を欠くためである |
 
-<!-- impl IMPL-0826 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.5 要求事項1・2。切り替え先を 3.12.3 の適合性評価を通過したモデルに限ることと、切り替えの発生を記録して開発組織へ通知すること。切り替えの手順は AI運用担当者が採用者の AI 実行基盤に置き、準拠テンプレートは AI 実行基盤を持たない。切り替えの期間の記録と保証の開示への集約は IMPL-0726・IMPL-0729 が運ぶが、切り替え先の限定と発生の通知を照らす検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0826 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="3.12.5 要求事項1・2 のうち、切替先の限定と切替の発生の通知。切替は AI 実行基盤の運用に属し、準拠テンプレートは AI 実行基盤を持たない(ADR-0175)。切替の期間の記録と保証の開示への集約は IMPL-0726・IMPL-0729 が運び、通知を受けた案件が作業を止めること(要求事項4)は IMPL-0827 が追う。確かめる者: 採用者の AI運用担当者(切替のとき)" -->
 <!-- impl IMPL-0827 target=model-quality-monitor state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.5 要求事項4。切り替え後に品質監視の結果を確認し、基準を下回る場合は作業を停止すること。品質の監視は採用者の AI 実行基盤にあり(ADR-0104)、準拠テンプレートは持たない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0828 target=agent-run-record state=undelivered check=manual plan=scheduled issue=444 review=2027-05 note="3.12.5 要求事項5。復旧後、切り替え期間中に生成された変更を特定できる状態にすること。変更単位の生成の条件(モデルの識別・実行の識別子)の記録の仕組みに乗る。準拠テンプレートに実装は無く、モデルの識別はトレーラ Co-Authored-By に限る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0828 target=agent-run-record state=undelivered check=manual plan=scheduled issue=444 review=2027-05 note="3.12.5 要求事項5。復旧後、切り替え期間中に生成された変更を特定できる状態にすること。変更単位の生成の条件(モデルの識別・実行の識別子)の記録の仕組みに乗る。準拠テンプレートに実装は無く、モデルの識別はトレーラ Co-Authored-By に限る。切り替えの期間の源(切り替えの記録)は IMPL-0826(#447)が追う。識別は IMPL-0207 のトレーラと Co-Authored-By が運ぶ。期間の源が決まるまで、降ろさない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 要求事項3 の下限は L1 です。L1 の範囲では、段階を下げません。代わりに、第5章 5.4.5 の条件1(連続運用期間)を、切り替えの終了の日から数え直します(第5章 5.4.6 の措置の下限と同じ読み)。
 
@@ -1909,7 +1909,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 - 月次の消費実績を B-2 へ報告する。[第7章 7.7.4](/process-compass/phase4-process-design/exception-escalation/)の閾値を超えた場合は自動的に上程する
 
 <!-- impl IMPL-0257 target=claude-md-resident state=delivered check=presence note="待つことで費用が増えることを、ゲートの判定や人の承認を急がせる理由にしない。CLAUDE.md の判断の確定と委任の節の行に置く。催促の有無を機械は確かめない。AI維持管理者が、承認の催促に費用を理由として挙げた記録が無いかを抜き取りで確かめる(#358)(単位: 行)" -->
-<!-- impl IMPL-0833 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.7 の、接続経路の上でチーム単位の上限を設定して消費の前に強制することと、提供者が課す利用上限を組織が設定した上限に数えないこと。上限の強制は AI運用担当者が採用者の AI 実行基盤の接続経路に置き、準拠テンプレートは持たない。上限到達時の扱いを G-1 で合意して記録することは IMPL-0902 が追う。月次の消費実績の B-2 への報告と閾値を超えたときの自動的な上程は第7章 7.7.4 の IMPL-0370 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0833 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="接続経路上のチーム単位の上限の強制(消費の前)と、提供者が課す利用上限を組織の上限に数えないこと。経路は採用者の AI 実行基盤に属する(ADR-0175)。G-1 での上限到達時の扱いの合意の記録は IMPL-0902 が企画書で受け、月次の消費実績の報告と閾値超過の自動の上程は IMPL-0370(ADR-0096)が追う。確かめる者: 採用者の AI運用担当者(上限を設けるとき)" -->
 
 <!-- impl IMPL-0902 target=project-brief-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="3.12.7 の、チーム単位の上限に到達したときの扱いを G-1 で合意して記録すること。企画書の様式 templates/06-project-brief.md の節「指標の閾値と予算区分」は、エスカレーション閾値・自動的な上程の閾値・予算の4区分・停止条件の値の行を持つが、チームの上限へ到達したときの扱いの行は無い(2026-11-15 に確かめた)。「指標の閾値と予算区分」の IMPL-0371 は閾値の記名を追い、上限到達時の扱いは追わない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -1927,7 +1927,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 | 4 | 統制の内容を、CI の必須検査として開発組織へ反映する |
 | 5 | 統制の変更は、猶予期間を置いて開発組織へ通知する |
 
-<!-- impl IMPL-0716 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.8 要求事項2。機密情報の送出を検査する仕組みを接続経路の上に置くこと。置き場は採用者の AI 実行基盤にあり、準拠テンプレートは接続経路を持たない(agent-settings の deny は秘匿情報の読み取りと gh の操作で、モデルへの送出の検査ではない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0716 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="機密情報の送出の検査を接続経路に置くこと。接続経路は採用者の環境に属する(ADR-0175)。確かめる者: 採用者の AI運用担当者(経路を設けるとき)" -->
 <!-- impl IMPL-0717 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.8 要求事項3 のうち、提供者との契約で入出力の学習利用の有無を確認し記録すること。保持の条件は構成の依存先の欄の data(提供者へ渡すデータの種別と保持の条件。IMPL-0065)が運ぶが、学習利用の有無を書く欄は確かめられなかった(/process-change の種別 settings の dependencies の項目は provider・models・noticePeriod・data)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.12.9 統制と CI 検査の同期
@@ -1960,15 +1960,15 @@ graph LR
 | 2 | 停止条件は、下記の3種を最低限含む |
 | 3 | 停止は失敗として記録し、人へ返す。**自動で再開してはならない** |
 | 4 | 停止条件の値は案件ごとに定め、企画承認(G-1)の時点で記録する |
-| 5 | 停止条件を強制できない環境で、AIエージェントの自律実行を解禁してはならない |
+| 5 | 停止条件を強制できない環境で、AI自律レベルを L1 より上へ上げ、または実行形態 E3 を解禁してはならない |
 
-要求5は[第5章](/process-compass/phase4-process-design/human-ai-boundary/)の自律水準および[フェーズ5の実行環境](/process-compass/phase5-implementation/ai-environment/)の段階導入に対応するものです。**遮断の手段を持たないまま自律水準を上げる構成を認めません**。登録した変更種別へ L3 を適用するときは、強制する手段の所在を[第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/)の登録の根拠に記録します。記録が無い種別は登録しません。記録は手段の所在を示すもので、強制が働くことを示しません。
+要求5は[第5章](/process-compass/phase4-process-design/human-ai-boundary/)の自律水準および[フェーズ5の実行環境](/process-compass/phase5-implementation/ai-environment/)の段階導入に対応するものです。**遮断の手段を持たないまま自律水準を上げる構成を認めません**。登録した変更種別へ L3 を適用するときは、強制する手段の所在を[第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/)の登録の根拠に記録します。記録が無い種別は登録しません。記録は手段の所在を示すもので、強制が働くことを示しません。AI自律レベルを L2 へ引き上げるときは、強制する手段の所在を、[第5章 5.4.5](/process-compass/phase4-process-design/human-ai-boundary/) の条件7 により、引き上げの判定で作成または再評価する[第6章 テンプレ9](/process-compass/phase4-process-design/deliverable-templates/)に記録します。記録が無い範囲は引き上げません。実行形態 E3 の解禁の時点でこれを照らすか([フェーズ5](/process-compass/phase5-implementation/ai-environment/) の段階導入の目安の前提条件)は、まだ決めていません。決めていないものであり、課さないと決めたものではありません。
 
 本節は、AI の実行の単位の停止条件の正本です。実行の単位には、自己修正のループ(テストの失敗を AI が直し続ける反復)と、AI の確認側と作成側の往復(レビューの指摘と修正の反復)を含みます。[附属書E](/process-compass/phase4-process-design/developer-guide/) E.7 と[附属書H](/process-compass/phase4-process-design/assurance-case/)は本節を引きます。
 
 <!-- impl IMPL-0272 target=self-heal state=delivered check=machine test=template/scripts/gate/test-self-heal.mjs note="要求事項1(自己修正のループ)。自己修正のループの単位(機能・タスク)ごとに、停止条件を self-heal.mjs の iterate で強制する。iterate はスクリプト自身がテストを実行して結果を判定し、担い手の申告を使わない。強制の範囲は start を呼んだ単位に限る。start を呼ばない自己修正(ロックの外の反復)は検知も遮断もしない(IMPL-0519)。AI のレビューの往復は IMPL-0279。test-self-heal.mjs が固定する" -->
-<!-- impl IMPL-0519 target=self-heal state=undelivered check=manual plan=adopter decision=ADR-0129 note="要求事項1(自己修正のループ)のうち、start を呼ばない反復(ロックの外)。準拠テンプレートは検知も遮断もしない(ロックの外の反復は、テストを先に書く作業と区別できない)。採用者が実行基盤の側で、テストの実行の経路を限る等の手段で強制し、手段の所在を 5.5.4 の登録の根拠に書く(D-0 節12 は構成から出す。IMPL-0834)。強制できない環境では、要求事項5 により自律実行を解禁しない。確かめる者: 採用者(自らの実行層に実装したときに確かめる)" -->
-<!-- impl IMPL-0279 target=ai-review-workflow state=undelivered check=manual plan=adopter decision=ADR-0084 note="要求事項1(AI の確認側と作成側の往復)。準拠テンプレートは、AI のレビューの指摘と修正の往復を実行の単位として数えず、停止条件を強制しない(self-heal.mjs はテストの失敗の反復だけを止める)。採用者が接続経路・エージェント実行基盤の上で往復の停止条件を強制する。手段の所在は登録の根拠の4点目(IMPL-0834)。確かめる者: 採用者(自らの実行層に実装したときに確かめる)" -->
+<!-- impl IMPL-0519 target=self-heal state=undelivered check=manual plan=adopter decision=ADR-0129 note="要求事項1(自己修正のループ)のうち、start を呼ばない反復(ロックの外)。準拠テンプレートは検知も遮断もしない(ロックの外の反復は、テストを先に書く作業と区別できない)。採用者が実行基盤の側で、テストの実行の経路を限る等の手段で強制し、手段の所在を 5.5.4 の登録の根拠に書く(D-0 節12 は構成から出す。IMPL-0834。L2 の範囲では 5.4.5 の条件7。IMPL-1013)。強制できない環境では、要求事項5 により、AI自律レベルを L1 より上へ上げず、E3 を解禁しない。確かめる者: 採用者(自らの実行層に実装したときに確かめる)" -->
+<!-- impl IMPL-0279 target=ai-review-workflow state=undelivered check=manual plan=adopter decision=ADR-0084 note="要求事項1(AI の確認側と作成側の往復)。準拠テンプレートは、AI のレビューの指摘と修正の往復を実行の単位として数えず、停止条件を強制しない(self-heal.mjs はテストの失敗の反復だけを止める)。採用者が接続経路・エージェント実行基盤の上で往復の停止条件を強制する。手段の所在は登録の根拠の4点目(IMPL-0834)。L2 の範囲では 5.4.5 の条件7(IMPL-1013)。確かめる者: 採用者(自らの実行層に実装したときに確かめる)" -->
 <!-- impl IMPL-0273 target=self-heal state=delivered check=machine test=template/scripts/gate/test-self-heal.mjs note="要求事項3。停止は保留として記録し、人へ返す。自動で再開しない。保留の解除(release)は名簿の人の名義に限り、AI の名義と名簿に無い名義を拒否する。保留・解除・解除の拒否を、追跡する置き場のタスクごとのファイル(docs/self-heal/F-NNN-Task-N.tsv の形)に残し、同じ PR でコミットする手順を implement の SKILL.md に置く。書き込みに失敗したら警告を出す。コミットしたかは機械で確かめない" -->
 <!-- impl IMPL-0274 target=profile-generator state=delivered check=manual note="要求事項4 のうち値を定めること。停止条件の値(連続失敗の上限 task.selfHealMaxIterations、無進捗の上限 task.selfHealNoProgressLimit)を構成に持ち、/process-change(種別 settings)で変える。値を上げる向きは緩める向きとして記名を要する。G-1 の時点の記録は IMPL-0280(#314: 機械が確かめるのは降ろし先のファイルの実在までで、規則を運ぶ単位より粗い。単位: ファイルより粗い確認として、presence から manual へ下げた)。確かめる者: AI運用担当者(停止条件の値を /process-change で変えるとき)" -->
 <!-- impl IMPL-0280 target=project-brief-template state=delivered check=machine test=template/scripts/gate/test-brief-thresholds.mjs note="要求事項4 のうち企画承認(G-1)の時点で記録すること。企画書の様式(templates/06-project-brief.md と3つのプロファイル)の「指標の閾値と予算区分」に行「停止条件の値」を置き、G-1 の検査(check-g1.mjs)が行の欠けと空欄・様式の説明のままを、G-1 の前は失敗、G-1 を通過済みは欠落(遡って失敗させない)として出す。G-1 の通過は、基底ブランチの docs/gates/ と記録用ブランチの records/gates/(判定記録の正本)の両方から読み、記録用ブランチの通過の記録は、判定者の記名が人の名簿の人に対応づくものだけを数える(交代の前の責任者・代行者を外さないため席では照らさない。記名の照合は自己申告で、帰属は集約が確かめる)。記録用ブランチを読めないか、対応づかない通過の記録しか無く通過を決められないときは、「G-1 の通過を判定記録で決められない」という失敗として理由と欠けた行を出す(閾値の行・観点3・G-1 の時点の見積り・安全リスクアセスメントの承認も同じ。#359 の独立の突合 高-1)。行の連続失敗・無進捗の上限が構成(task.selfHealMaxIterations・task.selfHealNoProgressLimit)と異なれば、構成の値が効くことを注意に出す。累積消費の上限の中身は確かめない(IMPL-0277)。値の妥当性は G-1 の判定者が確かめる(#359)" -->
