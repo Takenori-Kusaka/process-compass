@@ -125,14 +125,42 @@ export function undecidedProblems({ entries, notice, linesOf, inFrame, ledgerTex
 }
 
 /**
+ * HTML のコメント(<!-- -->。複数行にまたがるものを含む)を空にする。行番号を保つため、コメントの中の改行は残す
+ */
+export function stripBlockComments(lines) {
+  return lines
+    .join('\n')
+    .replace(/<!--[\s\S]*?-->/g, (m) => m.replace(/[^\n]/g, ''))
+    .split('\n');
+}
+
+/**
+ * 各行が、どれかの ::: の囲み(注意の枠・注記・暫定の枠のすべて)の中か(真偽の配列)。開きと閉じの行も中に数える。
+ * 開きは「:::」の後ろに名前のある行、閉じは「:::」だけの行
+ */
+export function containerFlags(lines) {
+  let depth = 0;
+  return lines.map((l) => {
+    const m = /^\s*:{3,}\s*(\S.*)?$/.exec(l);
+    if (!m) return depth > 0;
+    if (m[1]) {
+      depth += 1;
+      return true;
+    }
+    const was = depth > 0;
+    depth = Math.max(0, depth - 1);
+    return was;
+  });
+}
+
+/**
  * 確かめた安全の禁止の文(confirmedSafetyProhibitions。#440 / ADR-0155)の存在の問題を返す(空なら存在する)。
  *   entries — { page, phrase, adr, issue } の配列
  *   linesOf — page を渡すと、その頁の行の配列(コードブロック除去済み)を返す関数。頁が無ければ null
- *   inFrame — page を渡すと、各行が注意の枠の中か(真偽の配列)を返す関数
- * 検査は決定可能な条件(句が本文にあること。注意の枠の中は数えない)だけを見る。文の意味と、禁止が守られることは見ない。
- * 句が本文から消えたとき、失敗する
+ * 検査は決定可能な条件だけを見る。句が、HTML のコメントを除いた本文で、どの ::: の囲み(注意の枠・注記・暫定の枠)の外にもあること。
+ * 文の意味と、禁止が守られることは見ない。句が本文から消えたとき、コメントにだけ残ったとき、囲みの中へ移ったとき、失敗する
  */
-export function prohibitionPresenceProblems({ entries, linesOf, inFrame }) {
+export function prohibitionPresenceProblems({ entries, linesOf }) {
   const problems = [];
   entries.forEach((e, k) => {
     const label = e?.phrase ?? `(${k + 1} 番目の項目)`;
@@ -140,14 +168,15 @@ export function prohibitionPresenceProblems({ entries, linesOf, inFrame }) {
       if (e?.[f] === undefined || e[f] === '') problems.push(`${label}: ${f} がありません`);
     }
     if (!e?.page || !e?.phrase) return;
-    const lines = linesOf(e.page);
-    if (!lines) {
+    const raw = linesOf(e.page);
+    if (!raw) {
       problems.push(`${label}: 頁 ${e.page} がありません`);
       return;
     }
-    const frames = inFrame(e.page);
-    if (!lines.some((l, i) => l.includes(e.phrase) && !frames[i])) {
-      problems.push(`${label}: 安全の禁止の句が本文(注意の枠の外)にありません(消した禁止の文は戻してください。外すなら新しい ADR で決めます)`);
+    const lines = stripBlockComments(raw);
+    const inside = containerFlags(lines);
+    if (!lines.some((l, i) => l.replace(/\*\*/g, '').includes(e.phrase) && !inside[i])) {
+      problems.push(`${label}: 安全の禁止の句が本文(HTML のコメントと、注意の枠・注記・暫定の枠の囲みの外)にありません(消した・弱めた・囲みへ移した禁止の文は戻してください。外すなら新しい ADR で決めます)`);
     }
   });
   return problems;

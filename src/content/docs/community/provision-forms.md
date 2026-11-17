@@ -24,7 +24,7 @@ sidebar:
 | 9 | 手引きへの委任 | 本文8章と規定の附属書 | フェーズ5・6 の頁を「〜による」「〜に規定」「〜に定め」「〜が正本」で引いている(第1章 1.8) |
 | 10 | 章の引用 | 規定の文書とフェーズ5・6 の頁 | 「第N章 X.Y」の X が N でない引用と、リンク先が第N章の頁でない引用 |
 | 11 | 禁止事項の番号 | 公開ドキュメント(ADR と台帳を除く)と準拠テンプレート | 「禁止事項N」を、一覧の所在(「5.8.5 の」「テーラリングの」)で修飾せずに引いている(第1章 1.7。#316) |
-| 12 | 注記と注意の枠の中の要求 | 本文8章と規定の附属書 | 注記(`:::note`)と、注意の枠(札が根拠水準のマーク(`暫定 EV-NNNN`)でない `:::caution` と `:::danger`。`:::tip` と `:::warning` も同じ扱い)の中の、要求・禁止の文末(「〜なければなりません」「〜てはなりません」)。注記は説明に数える(第1章 1.7.2。#316 突合 X-13)。注意の枠は、要求・禁止を枠だけに書かない規則(#440 / [ADR-0132](/process-compass/adr/0132-frame-placement-rule-and-declaration-subject/))。注意の枠は説明の類に数える([ADR-0156](/process-compass/adr/0156-caution-frames-count-as-explanation/))。審議に掛かる文を載せる `undecidedFrameSentences` の仕組みは残し、いまの登録は0件である。載せた文は、登録の句が本文にあること、実物のそばに表示の文があること、登録簿の `ledgerKey` の文字列が第1章(overview.md)の全文にあることを確かめる(1.7.2 のマークの表の行までは見ない)。登録が本文から消えたとき、失敗する。続けて、確かめた安全の禁止の文(`confirmedSafetyProhibitions`。F.5 の故障挿入の禁止と例外承認の対象外、RRS3 を低減後 SR に数えない禁止。[ADR-0155](/process-compass/adr/0155-safety-prohibitions-and-statements-decided-per-sentence/))の句が、本文(注意の枠の外)にあることを確かめる。句を消すと失敗する。文の意味と、禁止が守られることは確かめない(manual) |
+| 12 | 注記と注意の枠の中の要求 | 本文8章と規定の附属書 | 注記(`:::note`)と、注意の枠(札が根拠水準のマーク(`暫定 EV-NNNN`)でない `:::caution` と `:::danger`。`:::tip` と `:::warning` も同じ扱い)の中の、要求・禁止の文末(「〜なければなりません」「〜てはなりません」)。注記は説明に数える(第1章 1.7.2。#316 突合 X-13)。注意の枠は、要求・禁止を枠だけに書かない規則(#440 / [ADR-0132](/process-compass/adr/0132-frame-placement-rule-and-declaration-subject/))。注意の枠は説明の類に数える([ADR-0156](/process-compass/adr/0156-caution-frames-count-as-explanation/))。審議に掛かる文を載せる `undecidedFrameSentences` の仕組みは残し、いまの登録は0件である。載せた文は、登録の句が本文にあること、実物のそばに表示の文があること、登録簿の `ledgerKey` の文字列が第1章(overview.md)の全文にあることを確かめる(1.7.2 のマークの表の行までは見ない)。登録が本文から消えたとき、失敗する。続けて、確かめた安全の禁止の文(`confirmedSafetyProhibitions`。F.5 の故障挿入の禁止と例外承認の対象外、RRS3 を低減後 SR に数えない禁止。[ADR-0155](/process-compass/adr/0155-safety-prohibitions-and-statements-decided-per-sentence/))の句が、HTML のコメントを除いた本文で、どの `:::` の囲み(注意の枠・注記・暫定の枠)の外にもあることを確かめる。句を消す・弱める・コメントに残す・囲みへ移すと失敗する。文の意味と、禁止が守られることは確かめない(manual) |
 | 13 | 廃した言い回しの由来 | 登録簿の `retiredPhrases` | `by` が ADR・Issue を1つも指さない、または指す ADR・Issue が実在しない(#319。[ADR-0089](/process-compass/adr/0089-regression-suite-under-version-control/)) |
 | 14 | 廃した値の語 | 本文8章と規定の附属書(注記とコメントを含む) | 登録簿の `retiredValueWords` の語(「初期値」)。値の扱いは、組織が定める値・既定値・例で書く([第1章 1.7.7](/process-compass/phase4-process-design/overview/)。#419 / [ADR-0097](/process-compass/adr/0097-value-types-replace-initial-value/)) |
 | 15 | 異表記 | 公開ドキュメント、規則データ、準拠テンプレート(検査6 と同じ置き場) | 登録簿の `variantForms` の異表記(正規表現)。正表記を決めた決定のある語だけを登録する(#438 / [ADR-0118](/process-compass/adr/0118-variant-forms-registry-and-no-vale-for-japanese/)) |
@@ -61,7 +61,7 @@ sidebar:
 | `retiredPhrases` | 廃した言い回し。句、廃した日、廃した決定、代わりに書くこと |
 | `variantForms` | 異表記。異表記の正規表現、正表記、正表記を決めた決定、自己試験 |
 | `undecidedFrameSentences` | 地位が未決の文(いまは0件)。種別(`frame`・`declaration`)、頁、実物の句、第1章に現れる所在の文字列(`ledgerKey`)、Issue、見直しの月。実物のそばに置く表示の文(`notice`)。審議が済んで文を直したら項目を除く |
-| `confirmedSafetyProhibitions` | 確かめた安全の禁止の文(本文の禁止)。頁、本文の句、決めた ADR、Issue。句が本文(注意の枠の外)にあることを確かめる。外すときは新しい ADR で決める |
+| `confirmedSafetyProhibitions` | 確かめた安全の禁止の文(本文の禁止)。頁、本文の句、決めた ADR、Issue。句が HTML のコメントを除いた本文で、どの `:::` の囲みの外にもあることを確かめる。外すときは新しい ADR で決める |
 | `declarationVerbs` | 検査17 の動詞。動詞、否定形、決めた決定、自己試験。主語の文字列(`subject`)は全体で1つ |
 | `retiredScan` | 廃した言い回しと異表記を探す置き場と、探さない置き場 |
 | `guides` | 手引きの頁の置き場(フェーズ5・6 のディレクトリ)。検査8 の対象 |

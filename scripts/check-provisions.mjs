@@ -297,7 +297,7 @@ for (const d of docs) {
       report(REGISTRY, 0, '安全の禁止の登録', e?.phrase ?? '', `page(${e?.page})が規定の文書ではありません`);
     }
   }
-  for (const p of prohibitionPresenceProblems({ entries: safetyProhibitions, linesOf: pageLines, inFrame: pageFrames })) {
+  for (const p of prohibitionPresenceProblems({ entries: safetyProhibitions, linesOf: pageLines })) {
     report(REGISTRY, 0, '安全の禁止の登録', '', p);
   }
 }

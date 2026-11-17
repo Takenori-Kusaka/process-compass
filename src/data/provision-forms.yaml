@@ -505,11 +505,11 @@ undecidedFrameSentences:
 # --- 確かめた安全の禁止の文(第6章 RRS3・附属書 F.5。#440 / ADR-0155 決定1・決定2) ---
 # 重の審議で本文の禁止と決めた安全の2文が、本文(注意の枠の外)に存在することを検査12 の続きで確かめる。
 # 決定可能な条件(句の存在)だけを見る。文の意味と、禁止が守られることは見ない(後者は manual。IMPL-0925・IMPL-0871)。
-# 句を消すと失敗する。外すときは新しい ADR で決める。
+# 句が HTML のコメントを除いた本文で、どの ::: の囲み(注意の枠・注記・暫定の枠)の外にもあることを確かめる。消す・弱める・囲みへ移すと失敗する。外すときは新しい ADR で決める。
 #   page — 本文の頁  phrase — 本文の句(字句どおり)  adr — 決めた ADR  issue — Issue
 confirmedSafetyProhibitions:
   entries:
-    - { page: phase4-process-design/safety-verification, phrase: 安全関連システムへ、故障を挿入してはなりません, adr: ADR-0155, issue: 440 }
+    - { page: phase4-process-design/safety-verification, phrase: 運用に供している(本番稼働中の)安全関連システムへ、故障を挿入してはなりません, adr: ADR-0155, issue: 440 }
     - { page: phase4-process-design/safety-verification, phrase: この禁止は、第7章 7.3 の例外承認の対象にしません, adr: ADR-0155, issue: 440 }
     - { page: phase4-process-design/deliverable-templates, phrase: 低減後 SR の算定に、RRS3(使用上の情報)を数えてはなりません, adr: ADR-0155, issue: 440 }
 

@@ -11,7 +11,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 import { hasMark, hasToneOk, hasRefOk, markReason, variantEntryProblems, findVariants } from './lib/exempt-marks.mjs';
-import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems, prohibitionPresenceProblems, unregisteredSentences } from './lib/frame-checks.mjs';
+import { frameOpening, isFenceClose, subjectlessDeclarations, declarationVerbProblems, undecidedProblems, prohibitionPresenceProblems, stripBlockComments, unregisteredSentences } from './lib/frame-checks.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -111,15 +111,41 @@ check('違反: 頁が無い登録は失敗する', up([{ ...base, page: 'none' }
 check('違反: 必須の項目が無い登録は失敗する', up([{ ...base, issue: undefined }]).some((p) => p.includes('issue')));
 check('違反: kind が frame・declaration でない登録は失敗する', up([{ ...base, kind: 'x' }]).some((p) => p.includes('kind')));
 
-// 確かめた安全の禁止の文の存在(検査12 の続き。#440 / ADR-0155)
-const PP = { linesOf: (page) => ({ ok: ['前', '低減後 SR の算定に、RRS3 を数えてはなりません', ':::danger', '枠', ':::'], inframe: ['前', ':::danger', '低減後 SR の算定に、RRS3 を数えてはなりません', ':::'], gone: ['前', '空'] })[page] ?? null, inFrame: (page) => ({ ok: [false, false, true, true, false], inframe: [false, true, true, false], gone: [false, false] })[page] };
+// 確かめた安全の禁止の文の存在(検査12 の続き。#440 / ADR-0155)。句は、HTML のコメントを除いた本文で、どの ::: の囲みの外にもあること
+const SAMPLE_PHRASE = '低減後 SR の算定に、RRS3 を数えてはなりません';
+const PPG = {
+  ok: ['前', '**低減後 SR の算定に、RRS3 を数えてはなりません**。理由です', ':::danger', '枠', ':::'],
+  inframe: ['前', ':::danger', '低減後 SR の算定に、RRS3 を数えてはなりません', ':::'],
+  innote: ['前', ':::note', '低減後 SR の算定に、RRS3 を数えてはなりません', ':::', '後'],
+  intentative: ['前', ':::caution[暫定 EV-0001 / 見直し 2027-05]', '低減後 SR の算定に、RRS3 を数えてはなりません', ':::', '後'],
+  incaution: ['前', ':::caution', '低減後 SR の算定に、RRS3 を数えてはなりません', ':::', '後'],
+  nested: ['前', '::::note', ':::caution', '内', ':::', '低減後 SR の算定に、RRS3 を数えてはなりません', '::::', '後'],
+  afterframe: ['前', ':::note', '説明', ':::', '低減後 SR の算定に、RRS3 を数えてはなりません'],
+  comment1: ['前', '(削除)<!-- 低減後 SR の算定に、RRS3 を数えてはなりません -->'],
+  commentN: ['前', '(削除)<!--', '低減後 SR の算定に、RRS3 を数えてはなりません', '-->', '後'],
+  commentThenBody: ['<!-- 注 -->', '低減後 SR の算定に、RRS3 を数えてはなりません'],
+  weak: ['前', '低減後 SR の算定に、RRS3 を数えないことが望ましいです'],
+  gone: ['前', '空'],
+};
+const PP = { linesOf: (page) => PPG[page] ?? null };
 const pb = { page: 'ok', phrase: 'RRS3 を数えてはなりません', adr: 'ADR-0155', issue: 440 };
 const pp = (entries) => prohibitionPresenceProblems({ ...PP, entries });
-check('適合: 禁止の句が本文にあれば通る', pp([pb]).length === 0, pp([pb]).join(' / '));
-check('違反: 禁止の句が本文から消えたら失敗する', pp([{ ...pb, page: 'gone' }]).some((p) => p.includes('にありません')));
-check('違反: 禁止の句が注意の枠の中にしか無いなら失敗する', pp([{ ...pb, page: 'inframe' }]).some((p) => p.includes('にありません')));
+const absent = (page) => pp([{ ...pb, page }]).some((p) => p.includes('にありません'));
+check('適合: 禁止の句が本文にあれば通る(強調の ** は句の外)', pp([pb]).length === 0, pp([pb]).join(' / '));
+check('適合: 閉じた枠・注記の後の本文は通る', !absent('afterframe'));
+check('適合: 複数行のコメントの後ろの本文は通る', !absent('commentThenBody'));
+check('違反: 禁止の句が本文から消えたら失敗する', absent('gone'));
+check('違反: 句を弱めたら失敗する(消えたと同じ)', absent('weak'));
+check('違反: 禁止の句が注意の枠(danger)の中にしか無いなら失敗する', absent('inframe'));
+check('違反: 禁止の句が注記(:::note)の中へ移ったら失敗する', absent('innote'));
+check('違反: 禁止の句が根拠水準マークの枠の中へ移ったら失敗する', absent('intentative'));
+check('違反: 禁止の句が :::caution の中へ移ったら失敗する', absent('incaution'));
+check('違反: 入れ子の囲みの中なら失敗する', absent('nested'));
+check('違反: 句が HTML のコメント(1行)にだけ残るなら失敗する', absent('comment1'));
+check('違反: 句が HTML のコメント(複数行)にだけ残るなら失敗する', absent('commentN'));
 check('違反: 頁が無い登録は失敗する', pp([{ ...pb, page: 'none' }]).some((p) => p.includes('頁')));
 check('違反: 必須の項目が無い登録は失敗する', pp([{ ...pb, adr: undefined }]).some((p) => p.includes('adr')));
+check('stripBlockComments は行数を保つ', stripBlockComments(['a<!--', 'b', '-->c', 'd']).length === 4 && stripBlockComments(['a<!--', 'b', '-->c', 'd'])[2] === 'c');
 const sp = reg.confirmedSafetyProhibitions?.entries ?? [];
 check('登録簿に、確かめた安全の禁止の文が3件ある(F.5 の禁止・例外承認の対象外・RRS3)', sp.length === 3, String(sp.length));
 
@@ -193,12 +219,48 @@ ${NOTICE}
     const o4 = trial2([[safety, addFrame('')], [REG, setReg('存在しない所在')]]);
     check('結線: 未決の登録の ledgerKey が overview.md に無いと本体が非 0 になる', o4.includes('未決の文の登録'), o4.slice(-200));
     // 変異試験(重の突合 M-1): 安全の禁止の文を本文から消すと、本体が非 0 になる
-    const dropPhrase = (ph) => (t) => { if (!t.includes(ph)) throw new Error(`変異の対象が無い: ${ph}`); return t.replace(ph, '(削除)'); };
+    // 変異試験(2巡目 H-1): 句を、消す・弱める・コメントに残す・注記/暫定の枠/caution へ移す。どれも本体が非 0 になる
+    const weaken = (ph) => ph.replace(/てはなりません$/, 'ないことが望ましいです').replace(/にしません$/, 'にしないことが望ましいです');
+    const rep = (ph, to) => (t0) => { if (!t0.includes(ph)) throw new Error(`変異の対象が無い: ${ph}`); return t0.split(ph).join(to); };
     for (const e of sp) {
       const file = DOC(e.page);
-      const m = trial(file, dropPhrase(e.phrase));
-      check(`変異: 安全の禁止の句を消すと本体が非 0 になる「${e.phrase.slice(0, 24)}」`, m.includes('安全の禁止の登録'), m.slice(-200));
+      const ph = e.phrase;
+      const short = ph.slice(0, 20);
+      const cases = [
+        ['消す', '(削除)'],
+        ['弱める', weaken(ph)],
+        ['コメントに残す', `(削除)<!-- ${ph} -->`],
+        ['注記へ移す', `
+
+:::note
+${ph}
+:::
+
+`],
+        ['暫定の枠へ移す', `
+
+:::caution[暫定 EV-9999 / 見直し 2027-05]
+${ph}
+:::
+
+`],
+        ['caution へ移す', `
+
+:::caution
+${ph}
+:::
+
+`],
+      ];
+      for (const [name, to] of cases) {
+        const m = trial(file, rep(ph, to));
+        check(`変異: 安全の禁止の句を${name}と本体が非 0 になる「${short}」`, m.includes('安全の禁止の登録'), m.slice(-200));
+      }
     }
+    // 範囲を変える変異(2巡目 中(1)): F.5 の禁止の範囲「本番稼働中の」を変えると失敗する
+    const mr = trial(DOC(sp[0].page), rep('(本番稼働中の)安全関連システムへ、故障を挿入', '(試験中の)安全関連システムへ、故障を挿入'));
+    check('変異: F.5 の禁止の範囲「本番稼働中の」を変えると本体が非 0 になる', mr.includes('安全の禁止の登録'), mr.slice(-200));
+    check('登録簿の F.5 の句は範囲「本番稼働中の」を含む', sp[0].phrase.includes('(本番稼働中の)'), sp[0].phrase);
   } finally {
     rmSync(tmp, { recursive: true, force: true });
   }
