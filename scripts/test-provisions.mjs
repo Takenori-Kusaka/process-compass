@@ -112,7 +112,7 @@ check('違反: 必須の項目が無い登録は失敗する', up([{ ...base, is
 check('違反: kind が frame・declaration でない登録は失敗する', up([{ ...base, kind: 'x' }]).some((p) => p.includes('kind')));
 
 // 実物: 登録簿の未決の文がすべて、いまの本文と一致している(検査12 の拡張の本体は npm run lint:provisions)
-check('登録簿に未決の文の区画があり、項目が1つ以上ある', (reg.undecidedFrameSentences?.entries ?? []).length > 0);
+check('登録簿に未決の文の区画があり、項目は配列である(2026-11-17 に全項目を除いた。0件でよい)', Array.isArray(reg.undecidedFrameSentences?.entries));
 
 // 文の単位の除外(X-5): 登録した文だけを通し、同じ行へ足した別の禁止は残す
 const SH = /[てで]はなりません$/;
@@ -147,12 +147,38 @@ check('違反: 登録が無ければ残す', unregisteredSentences('消しては
     const safety = DOC(`${PG}safety-verification`);
     const o1 = trial(safety, (t) => `${t}\n\n:::danger\n記録を省いてはなりません。\n:::\n`);
     check('結線: 枠の中の未登録の禁止で本体が非 0 になる', o1.includes('注意の枠の中の要求・禁止'), o1.slice(-200));
-    const phrase = '本番稼働中の安全関連システムへ故障を挿入してはなりません';
-    const o2 = trial(safety, (t) => t.replace(phrase, `${phrase}。加えて記録を消してはなりません`));
+    // 登録簿は空(2026-11-17。ADR-0156)。登録の仕組みは、見本の木に登録を足して確かめる
+    const NOTICE = '前の枠の中の禁止は、枠の外へ出すかどうかを審議中です。決まるまで要求として読みます(第1章 1.7.2)。';
+    const trial2 = (edits) => {
+      const origs = edits.map(([file]) => readFileSync(file, 'utf8'));
+      edits.forEach(([file, edit], i) => writeFileSync(file, edit(origs[i])));
+      try {
+        const r = run();
+        return r.status !== 0 ? r.stdout + r.stderr : '';
+      } finally {
+        edits.forEach(([file], i) => writeFileSync(file, origs[i]));
+      }
+    };
+    const regEntry = (ledgerKey) => `entries:
+    - { kind: frame, page: ${PG}safety-verification, phrase: 登録句を省いてはなりません, ledgerKey: ${ledgerKey}, issue: 440, review: 2027-05 }`;
+    const addFrame = (extra) => (t) => `${t}
+
+:::danger
+登録句を省いてはなりません。${extra}
+:::
+
+${NOTICE}
+`;
+    const setReg = (ledgerKey) => (t) => t.replace('entries: []', regEntry(ledgerKey));
+    const o2a = trial2([[safety, addFrame('')], [REG, setReg('1.7.2 規定と説明の読み分け')]]);
+    check('結線: 登録と表示とマークの表がそろえば登録した枠の文は通る', o2a === '', o2a.slice(-200));
+    const o2 = trial2([[safety, addFrame('加えて記録を消してはなりません。')], [REG, setReg('1.7.2 規定と説明の読み分け')]]);
     check('結線: 登録した枠の同じ行へ足した別の禁止で本体が非 0 になる(X-5)', o2.includes('注意の枠の中の要求・禁止'), o2.slice(-200));
+    const o2b = trial(safety, (t) => t.replace('禁止の定めは、前の段落にあります', '禁止の定めは、前の段落にあります。記録を省いてはなりません'));
+    check('結線: 登録簿が空のとき、枠の中の強い文末は例外なく失敗する', o2b.includes('注意の枠の中の要求・禁止'), o2b.slice(-200));
     const o3 = trial(DOC(`${PG}overview`), (t) => `${t}\n\n新しいゲートを設けません。\n`);
     check('結線: 主語の無い「設けません」で本体が非 0 になる(検査17)', o3.includes('主語の無い表明の文末'), o3.slice(-200));
-    const o4 = trial(REG, (t) => t.replace('ledgerKey: 附属書F F.5「手法の分類」の枠', 'ledgerKey: 存在しない所在'));
+    const o4 = trial2([[safety, addFrame('')], [REG, setReg('存在しない所在')]]);
     check('結線: 未決の登録がマークの表と食い違うと本体が非 0 になる', o4.includes('未決の文の登録'), o4.slice(-200));
   } finally {
     rmSync(tmp, { recursive: true, force: true });

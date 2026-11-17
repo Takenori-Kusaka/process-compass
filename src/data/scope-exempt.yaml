@@ -63,10 +63,6 @@ exempt:
     heading: 沈黙の扱いの機械化
     reason: 限定は表で定義済み。地の文は R1 に限る理由の説明
 
-  - page: phase4-process-design/deliverable-templates
-    heading: リスク低減の3ステップ
-    reason: 限定ではなく、RRS3 で低減してはならないという段階の順序の規範
-
   - page: phase4-process-design/gate-criteria
     heading: "G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日)"
     reason: 安全関連ソフトウェアへの上乗せであり、本ゲートの適用範囲を狭める限定ではない
