@@ -3,7 +3,7 @@
   "note": "自動生成。正本は process-compass の src/data/。手で編集しない",
   "source": {
     "repository": "https://github.com/Takenori-Kusaka/process-compass",
-    "commit": "5241b937bc07f6298e69625dcaf4fc2c1462f462",
+    "commit": "24a22669d607606bf047d5ad31bead2598ba6c87",
     "edition": null,
     "editionIssuedAt": null,
     "basedOn": null
@@ -202,7 +202,7 @@
           },
           "action": "merge-into",
           "value": "g-spec-cycle",
-          "note": "要件合意は省略し、仕様承認に統合する"
+          "note": "要件合意は省略せず、仕様承認に統合する(G-2 の確認の結果を G-4 の判定記録に残す。第8章 軸B)"
         },
         {
           "target": {
