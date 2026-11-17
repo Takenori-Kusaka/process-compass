@@ -623,7 +623,7 @@ S0 で独立レビュー(G-6)と出荷判定(G-7)を省略するのは、標準�
 
 S0 では、**実装スタックが未確定のままプロセス構成の初期化を実行してよい**ものとします。実装スタックは S0 の出力であり、探索の前に決められる事柄ではありません([第2章 2.3](/process-compass/phase4-process-design/lifecycle/)、[ADR-0034](/process-compass/adr/0034-stack-is-output-of-exploration/))。
 
-- 構成の初期化に、実装スタックの確定を前提条件として課さない
+- 本標準は、構成の初期化に、実装スタックの確定を前提条件として課さない
 - 未確定は正規の状態であり、前節の未達(`unmet`)とは別物である
 - 未確定を未達として宣言しない。未達の宣言は、目的を達成する構成を示せていない場合に限る
 - SG-0 を通過した後も未確定が残る場合、そこで初めて未達として扱う
@@ -735,7 +735,7 @@ IPA のモデル契約は、構想〜要件定義の見積りを参考値とし�
 - 契約上の確認行為が何を対象とし、どの効果を持つかを、本標準は定めない
 - 契約の類型ごとの読み替えの表を、本標準は置かない。類型は契約の実態で決まり、本標準はその認定を扱わない
 - 受注側の価格、見積書の様式、見積りの段の名前、保存期間、受注の決裁を、本標準は定めない([ADR-0100](/process-compass/adr/0100-vendor-estimates-and-contract-fixed-scope/))
-- 本標準は、多段階の契約を必須にしない。確約する範囲の比率の上限を契約に課さない
+- 本標準は、多段階の契約を必須にせず、確約する範囲の比率の上限を契約に課さない
 - 契約の類型(請負・準委任など)ごとの責任の配分を、本標準は扱わない([附属書H H.9](/process-compass/phase4-process-design/assurance-case/) 問16)
 - 計算資源の費用の負担について、法令上の当てはめ(労働者派遣事業と請負の区分、中小受託取引の適正化、特定受託事業者に係る取引の適正化)を、本標準は評価しない(「計算資源の負担を決める」の「外部の制約」の注記。[ADR-0114](/process-compass/adr/0114-compute-cost-record-by-environment-and-external-constraints/)・[ADR-0119](/process-compass/adr/0119-freelance-act-in-compute-cost-external-constraints/))
 - 発注側の設備を受注側が使う場合に、請負契約とは別個の双務契約が要るかを、本標準は判断しない([ADR-0114](/process-compass/adr/0114-compute-cost-record-by-environment-and-external-constraints/))
