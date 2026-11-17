@@ -39,7 +39,7 @@ sidebar:
 
 **本節が、条件を付して先へ進める手続です**。上表の2が条件の内容、4が条件の解消期限と責任者、5が解消までの追跡にあたります。工程ゲートの判定へ「条件付き通過」という値を設けていないのは、これらの要求を伴わない通過の経路を作らないためです([第4章 工程ゲートの判定の語彙](/process-compass/phase4-process-design/gate-criteria/) / [ADR-0036](/process-compass/adr/0036-gate-closure-by-record/))。
 
-<!-- impl IMPL-0011 target=gate-record-template state=delivered check=manual note="条件を付して先へ進める場合は例外承認の5要求事項を満たす。確かめる者: 当該ゲートの判定者(判定記録を書くとき)" -->
+<!-- impl IMPL-0011 target=gate-record-template state=delivered check=manual note="条件を付して先へ進める場合は例外承認の5要求事項を満たす。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。対象は判定基準と条項が7.3を名指した事項に限り、回収の期限を過ぎると効力を失うことも判定者の手順に書いた(.claude/skills/gate/reference/exception-paths.md。IMPL-0575)" -->
 
 例外承認の記録は、技術負債台帳([第6章 テンプレ3](/process-compass/phase4-process-design/deliverable-templates/))へ区分「例外」として置きます。記録は、次の5つの事項を持ちます。要求事項を足すものではなく、上表の要求事項が記録のどの欄に現れるかを定めるものです。
 
@@ -68,9 +68,9 @@ sidebar:
 - 例外承認は、逸脱ではない。範囲で用いた件数は、適用の表明と適合の主張に併記する(第1章 1.10.2)
 - 本標準は、安全重要度 CL1 以上の案件の例外承認に、承認者の追加の独立(上位の者、判定者と別の者など)と、件数の別記を課さない。課さないと決めたことであり、書き漏らしではない。根拠の水準と再び審議する条件は EV-0295 による([ADR-0153](/process-compass/adr/0153-safety-judgment-and-ship-prohibitions-outside-exception-approval/))
 
-<!-- impl IMPL-0574 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-04 note="回収の期限を過ぎた例外承認(状態が有効のまま期限を過ぎた行と、失効の行)を記録の欠落に数え、変更へ対応づけないこと。集約は期限が日付として読めることだけを確かめ、突合の日と比べていない。出荷判定者が台帳の期限を読んで確かめる。対象が出荷の範囲の外の行(ゲートの判定を対象とする行を含む)も数える(#353)。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
+<!-- impl IMPL-0574 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-exception-expiry.mjs note="回収の期限を過ぎた例外承認(状態が有効のまま期限が突合の日より前の行と、失効の行)を、対象が出荷の範囲の外の行とゲートの判定を対象とする行を含めて台帳全体で記録の欠落に数え、変更へ対応づけない。突合の日は引数 --exception-day で渡す(既定は範囲の終点のコミットの日)。機械が比べるのは日付・状態の値・本文の行の識別の有無だけである。承認し直しの識別が正しい行を指すか、期限の書き換えによる延長(行の履歴の比較)は機械で確かめない。確かめる者: 出荷判定者と内部監査(観点3)(#353)" -->
 
-<!-- impl IMPL-0575 target=gate-skill state=undelivered check=manual plan=scheduled issue=355 review=2027-04 note="期限の書き換え(新しい行での承認のし直しでない延長)を承認のし直しとして扱わないこと、回収の期限を過ぎた例外承認を失効として扱うことを、判定記録を書く者と AI の手順(.claude/skills/gate)が書いていない。準拠テンプレートの例外の経路の手順は、これらを持たない。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
+<!-- impl IMPL-0575 target=gate-skill state=delivered check=manual note="期限の書き換え(新しい行での承認のし直しでない延長)を承認のし直しとして扱わないこと、回収の期限を過ぎた例外承認を失効として扱うこと、対象を判定基準と条項が名指す事項に限ることを、AI の手順に書いた(.claude/skills/gate/reference/exception-paths.md の節「例外承認の対象と期限」)。手順に従うかは機械で確かめない。確かめる者: 判定記録を書く者と出荷判定者(G-7 の判定で、台帳の履歴を読むとき)(#353)" -->
 
 :::caution[暫定 EV-0271 / 見直し 2027-05]
 **対象**: 回収の期限を過ぎた例外承認が効力を失い、記録の欠落として出荷判定と主張を妨げる定め。期限の後に回収すれば欠落が消え、期限超過だった期間が主張に残らないこと。期限を過ぎた行を取り下げへ書き換えた場合の扱いを定めておらず、併記の値が良く見える書き換えを機械では防げないこと(内部監査 観点3 の書き換えの例と同じ閉じ先)。

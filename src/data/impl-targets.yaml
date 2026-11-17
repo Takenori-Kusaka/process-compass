@@ -163,6 +163,13 @@ targets:
     checker: aggregate-evidence
     description: G-7 の突合対象と、保証の開示の7項目を、構成と既存の記録から導出する(ADR-0056 決定6)
 
+  - id: exception-expiry
+    name: 例外承認の回収の期限と範囲の件数の算出
+    kind: template-file
+    path: scripts/gate/exception-expiry.mjs
+    checker: aggregate-evidence
+    description: 状態が有効のまま回収の期限を過ぎた行と失効の行を、突合の日(引数)との比較で効力を失った行として数える。承認し直した元の行を除く。範囲の第7章の例外承認の件数(範囲・未回収・期限超過)を算出し、次の一手の注記を作る(#353 / ADR-0134)。集約と next.mjs が呼び、test-exception-expiry.mjs が試験する
+
   - id: d0-template
     name: 成果物テンプレート D-0(体制図)
     kind: template-file
