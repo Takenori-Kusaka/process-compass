@@ -263,7 +263,7 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 
 1〜2名の体制でも、型は変えません。G-6 は作成を指示した本人以外の確認者に置き、置けなければ未達として表示します。出荷判定者が開発ラインの席の責任者を兼ねる構成では、G-7 は代償措置つきの逸脱(1.10.2 の D-1)として表示します。兼ねないことを席の割り当てで確かめられない場合も、D-1 として表示します([第3章 3.5.2](/process-compass/phase4-process-design/roles-responsibilities/))。
 
-<!-- impl IMPL-0988 target=profile-generator state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="1〜2名の体制で、G-7 を判定する席(value-owner-merged の構成では価値責任者の席。判定者の表示と同じ席)の責任者が開発者の席・独立レビュアの席の責任者と別の名簿の人だと席の割り当てで確かめられたときだけ D-1 を出さず、確かめられない場合(席の未割当・名簿が空・名簿に無い名義)は出すこと。準拠テンプレートの detectDeviations は構成の席と名簿を受け取り(config.mjs の shippingSeparatedFromDevLine に判定する席を渡す)、契約検査は同じ条件で D-1 の記録の要否を決める。test-roster-rules.mjs が違反と適合の対で固定する(#351 の H-5)。" -->
+<!-- impl IMPL-0988 target=profile-generator state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="1〜2名の体制で、G-7 を判定する席(value-owner-merged の構成では価値責任者の席。判定者の表示と同じ席)の責任者が開発者の席・独立レビュアの席の責任者と別の名簿の人だと席の割り当てで確かめられたときだけ D-1 を出さず、確かめられない場合(席の未割当・名簿が空・名簿に無い名義)は出すこと。準拠テンプレートの detectDeviations は構成の席と名簿を受け取り(config.mjs の shippingSeparatedFromDevLine に判定する席を渡す)、契約検査は同じ条件で D-1 の記録の要否を決める。分離を確かめられた構成では、判定者の表示・価値責任者の席と qa-gatekeeper の席の注記も「代償措置つきの逸脱」「分離できていない」と言わず、集約の G-7 の成立も同じ席の責任者で語る。test-roster-rules.mjs が違反と適合の対で固定する(#351 の H-5)。" -->
 
 本節が扱うのは、外部の確認者を要する変更です。1名体制の変更と、2名体制で相手も作成の指示に関与した変更が当たります。外部の確認者を独立レビュアの席の責任者に置いた体制は、独立レビュー(G-6)を適用する体制です。その体制では、本節の R2 の件数による表示を用いません。確認を経ていない変更は、記録の欠落として扱います([第3章 3.5](/process-compass/phase4-process-design/roles-responsibilities/))。2名体制で相手が確認できる変更は、相互の確認で成立するため、本節の配分の対象になりません。外部の確認者の帯域は、変更ごとのリスク区分に応じて配分してよいものとします([ADR-0054](/process-compass/adr/0054-seat-accountable-performer/) 決定8)。
 
