@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-11-17)。[ADR-0094](/process-compass/adr/0094-flow-observation-without-new-seats/) 決定4・[ADR-0099](/process-compass/adr/0099-reachability-forecast-three-bands/) 決定3・[ADR-0125](/process-compass/adr/0125-implementation-gaps-in-gate-forms-and-pickup/) を維持する。#359 の再確認の裁定のうち IMPL-0174 の表示を改める(決定1)。軽の審議の結論です(Issue [#443](https://github.com/Takenori-Kusaka/process-compass/issues/443)、`research/441-443-444-deliberation/decision.md` §2)。準拠テンプレートの変更は AI維持管理者の承認待ちです。
+採用(2026-11-17)。決定3 のうち、2.10.6 の記録の義務を重の候補として残した点と IMPL-0899 の降ろし先、および結果の節の「IMPL-0899 の順序の違反を誰が確かめるか」の重の候補は、一部置き換え(→ [ADR-0178](/process-compass/adr/0178-scope-procedure-records-backlog-review-and-ai-free-practice-frequency/)の決定1)。[ADR-0094](/process-compass/adr/0094-flow-observation-without-new-seats/) 決定4・[ADR-0099](/process-compass/adr/0099-reachability-forecast-three-bands/) 決定3・[ADR-0125](/process-compass/adr/0125-implementation-gaps-in-gate-forms-and-pickup/) を維持する。#359 の再確認の裁定のうち IMPL-0174 の表示を改める(決定1)。軽の審議の結論です(Issue [#443](https://github.com/Takenori-Kusaka/process-compass/issues/443)、`research/441-443-444-deliberation/decision.md` §2)。準拠テンプレートの変更は AI維持管理者の承認待ちです。
 
 ## コンテキスト
 

@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-11-17)。[ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/) 決定4(adopter の型)、[ADR-0096](/process-compass/adr/0096-quality-escalation-by-seat-and-single-budget-request/)(IMPL-0370)、ADR-0104(IMPL-0408)を補う。置き換えない。軽の審議の結論です(Issue #445〜#450、`research/445-450-deliberation/`)。
+採用(2026-11-17)。影響の節の IMPL-0978 の分類は、一部置き換え(→ [ADR-0178](/process-compass/adr/0178-scope-procedure-records-backlog-review-and-ai-free-practice-frequency/)の決定3)。[ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/) 決定4(adopter の型)、[ADR-0096](/process-compass/adr/0096-quality-escalation-by-seat-and-single-budget-request/)(IMPL-0370)、ADR-0104(IMPL-0408)を補い、これらを置き換えない。軽の審議の結論です(Issue #445〜#450、`research/445-450-deliberation/`)。
 
 ## コンテキスト
 
