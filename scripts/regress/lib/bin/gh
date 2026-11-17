@@ -32,7 +32,30 @@ if (process.env.MOCK_PRS) {
   // $MOCK_PRS/commit-<sha>.json を返す。無ければ [](PR を経ていない・記録が無い)
   if (args[0] === 'api') {
     const target = args.slice(1).find((a) => a.startsWith('repos/')) ?? '';
-    const m = target.match(/^repos\/[^/]+\/[^/]+\/(?:commits\/([0-9a-f]+)\/pulls|pulls\/(\d+)\/reviews|commits\/([0-9a-f]+))$/);
+    // gh api repos/<r>/actions/runs?head_sha=<sha>: PR の head の gate-g5 のワークフローの実行(IMPL-0987。起動の事象 event を含む)。
+    // 本物の GitHub は、PR を評価した起動の実行に event: pull_request を付けて返す。代役も、gh pr view の材料($MOCK_PRS/<n>.json)の
+    // head(headRefOid、無ければ commits の末尾)が一致し、rollup に gate-g5 がある PR について、同じ形の実行を返す。
+    // 材料に runs-<sha>.json があれば、それをそのまま返す(手動の起動など、PR を評価していない実行を場面が与えるとき)。
+    const runsM = target.match(/^repos\/[^/]+\/[^/]+\/actions\/runs\?(?:.*&)?head_sha=([0-9a-f]+)/);
+    if (runsM) {
+      const sha = runsM[1];
+      const rf = path.join(process.env.MOCK_PRS, `runs-${sha}.json`);
+      let workflow_runs = [];
+      if (fs.existsSync(rf)) workflow_runs = readJson(rf);
+      else {
+        for (const name of fs.readdirSync(process.env.MOCK_PRS).filter((n) => /^\d+\.json$/.test(n))) {
+          const d = readJson(path.join(process.env.MOCK_PRS, name));
+          const head = d.headRefOid ?? (Array.isArray(d.commits) ? d.commits.at(-1)?.oid : null);
+          const g5 = (d.statusCheckRollup ?? []).find((c) => c.name === 'gate-g5' || c.context === 'gate-g5');
+          if (head === sha && g5) {
+            workflow_runs.push({ id: 7000000 + Number(d.number ?? 0), path: '.github/workflows/gate-g5.yml', event: 'pull_request', status: String(g5.status ?? 'COMPLETED').toLowerCase(), conclusion: g5.conclusion == null ? null : String(g5.conclusion).toLowerCase() });
+          }
+        }
+      }
+      process.stdout.write(JSON.stringify({ total_count: workflow_runs.length, workflow_runs }));
+      process.exit(0);
+    }
+    const m =target.match(/^repos\/[^/]+\/[^/]+\/(?:commits\/([0-9a-f]+)\/pulls|pulls\/(\d+)\/reviews|commits\/([0-9a-f]+))$/);
     const f = m ? path.join(process.env.MOCK_PRS, m[1] ? `pulls-${m[1]}.json` : m[2] ? `reviews-${m[2]}.json` : `commit-${m[3]}.json`) : null;
     if (f && fs.existsSync(f)) {
       const v = readJson(f);
