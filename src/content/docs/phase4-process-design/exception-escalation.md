@@ -287,7 +287,7 @@ graph TD
 
 **スコープの発火条件は、確約範囲(SC-M)を動かす必要の見込みのみを対象とします**。計画範囲(SC-P)と調整枠(SC-B)の増減では発火しません。その調整は価値責任者が決めます([第2章 2.10.5](/process-compass/phase4-process-design/lifecycle/))。層を区別せずに変動率を測ると、通常の調整で発火が続き、報告が読まれなくなります。
 
-<!-- impl IMPL-0613 target=handoff-reference state=delivered check=manual note="7.6 の運用の規則。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が、起票した者が自分の起票を判定しないこと・応答期限を過ぎても承認とみなさず代理の判定者の指名を求めること・段階2 の持ち回りを R1 の変更に係る決定に使わないことを書く。next.mjs --role の出力は変えていない。遵守を機械は確かめない。 確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
+<!-- impl IMPL-0613 target=handoff-reference state=delivered check=manual note="7.6 の運用の規則。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が、起票した者が自分の起票を判定しないこと・応答期限を過ぎても承認とみなさず代理の判定者の指名を求めること・段階2 の持ち回りを R1 の変更に係る決定に使わないことを書く。next.mjs --role の出力は変えていない。遵守を機械は確かめない。 確かめる者: 各ロールの席の責任者(/pit の補助ファイル handoff.md を読むとき)" -->
 <!-- impl IMPL-0614 target=next-role state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="7.6 の発火条件の判定に使う材料(残る作業単位の個数・実測スループット・残る期間・SC-M の変動率。SC-P・SC-B へ移すことと分割して外すことは SC-M の減少に数える)を、見込みの報告の Issue へ出す仕組み。見込みの評価と発火の判断は価値責任者が行い、機械はしない。予算の超過の見込みの入力は IMPL-1018(採用者)が追う。IMPL-0374 の後に降ろす。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-1018 target=next-role state=undelivered check=manual plan=adopter decision=ADR-0173 note="7.6 の予算の超過の見込みの入力(費用の実績と確定済みの支出)。準拠テンプレートは会計の基盤を読まない。採用者が、見込みの報告の Issue へ予算の見込みを記録の所在とともに置く(IMPL-0499 と同じ置き場)。確かめる者: 価値責任者(7.6 の発火を判断するとき)" -->
 
@@ -349,10 +349,10 @@ graph TD
 
 ラベルは次に動く席(判定する者)を指すだけであり、段階の階層を表しません。段階1〜3 の実際の宛先は、D-0 体制図のエスカレーションの経路によります。**ラベルの語彙を段階の数だけ増やしてはなりません**。増やすと、階層の定義が本章・D-0・ラベルの3か所に分かれるためです。**ラベルの付与だけで報告を済ませてはなりません**。報告の様式は次項によります。
 
-<!-- impl IMPL-0005 target=next-role state=delivered check=manual note="エスカレーションの段階ごとの判定する者と、判定する席に対応するラベル(SC-M の段階1 は state:needs-owner)。準拠テンプレートの ESCALATION(next.mjs --role の出力)が、7.6 の席の語で写す(#418 で改めた)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
+<!-- impl IMPL-0005 target=next-role state=delivered check=manual note="エスカレーションの段階ごとの判定する者と、判定する席に対応するラベル(SC-M の段階1 は state:needs-owner)。準拠テンプレートの ESCALATION(next.mjs --role の出力)が、7.6 の席の語で写す(#418 で改めた)。確かめる者: 各ロールの席の責任者(/pit の補助ファイル handoff.md を読むとき)" -->
 
 <!-- impl IMPL-0615 target=next-role state=undelivered check=manual plan=adopter decision=ADR-0173 note="7.6 の着手決裁前の累計消費。企画承認(G-1)から機能仕様承認(G-4)までの累計消費を、配賦予定額に対する割合で測り(AI 実行費を含める)、段階1〜3 の参考の値(30%・50%・70%)を超える見込みで発火させる仕組み。閾値の記録は企画書の行「エスカレーション閾値」(IMPL-0371)が追うが、累計消費の算定は準拠テンプレートに無い。この発火のための新しいゲートを定めないことは課さない明記。準拠テンプレートは累計消費を推計しない。採用者が配賦予定額に対する割合で測り、参考の値を超える見込みで 7.6 を起票する。確かめる者: 価値責任者(見込みの報告で累計消費を確かめるとき)" -->
-<!-- impl IMPL-0616 target=handoff-reference state=delivered check=manual note="ラベルの付与だけで報告を済ませないこと。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が、段階・判定する者・ラベルの表は next.mjs --role が出すこと、ラベルの付与だけで報告を済ませてはならないこと、エスカレーションレポートを書くことを書く。ラベルの語彙を段階の数だけ増やさないことは、next.mjs のラベルの表が席の語で写す(IMPL-0005)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
+<!-- impl IMPL-0616 target=handoff-reference state=delivered check=manual note="ラベルの付与だけで報告を済ませないこと。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が、段階・判定する者・ラベルの表は next.mjs --role が出すこと、ラベルの付与だけで報告を済ませてはならないこと、エスカレーションレポートを書くことを書く。ラベルの語彙を段階の数だけ増やさないことは、next.mjs のラベルの表が席の語で写す(IMPL-0005)。確かめる者: 各ロールの席の責任者(/pit の補助ファイル handoff.md を読むとき)" -->
 
 ### エスカレーションレポートの様式
 
@@ -370,8 +370,8 @@ graph TD
 
 項目1〜4の草案は、AI エージェントに生成させてよいものとします。項目5は人間が記入しなければなりません。推奨の提示は、結果責任(A)を負う者の行為であるためです。
 
-<!-- impl IMPL-0617 target=handoff-reference state=delivered check=manual note="エスカレーションレポートの5項目(状態・原因・事業影響・リカバリ選択肢3案・推奨と決裁事項)と、推奨と決裁事項を人が記入すること。handoff.md の節「エスカレーション」に同じ語がある。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
-<!-- impl IMPL-0618 target=handoff-reference state=delivered check=manual note="エスカレーションレポートの分量の上限(状態3行・原因5行・推奨と決裁事項3行)、事業影響とリカバリ選択肢を表で書くこと、項目1〜4の草案を AI に生成させてよいこと。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が書く。遵守を機械は確かめない。 確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
+<!-- impl IMPL-0617 target=handoff-reference state=delivered check=manual note="エスカレーションレポートの5項目(状態・原因・事業影響・リカバリ選択肢3案・推奨と決裁事項)と、推奨と決裁事項を人が記入すること。handoff.md の節「エスカレーション」に同じ語がある。確かめる者: 各ロールの席の責任者(/pit の補助ファイル handoff.md を読むとき)" -->
+<!-- impl IMPL-0618 target=handoff-reference state=delivered check=manual note="エスカレーションレポートの分量の上限(状態3行・原因5行・推奨と決裁事項3行)、事業影響とリカバリ選択肢を表で書くこと、項目1〜4の草案を AI に生成させてよいこと。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が書く。遵守を機械は確かめない。 確かめる者: 各ロールの席の責任者(/pit の補助ファイル handoff.md を読むとき)" -->
 
 ### 決裁後のポートフォリオ調整
 

@@ -15,7 +15,7 @@ template コミット 4468ec6(b16 の先頭 9634671 の上)。bundle: tmp/bundle
 | IMPL-0907 | CLAUDE.md | 同じセッション・作業領域・認証情報の確認を数えない | delivered |
 | IMPL-0918 | CLAUDE.md(一律で委譲できない領域) | AI が安全機能そのものを実現する場合は附属書Fの対象外 | delivered |
 | IMPL-0971 | CLAUDE.md | 見積りの精度を根拠に確約範囲の上限を上げない | delivered |
-| IMPL-0708 | 対象外(担当の指示に無い。mark は U5 以前に handoff.md で delivered 済み) | - | 変更なし |
+| IMPL-0708 | 対象外(担当の指示に無い。mark は U6 で delivered にした(U6 の記録)) | - | 変更なし |
 | C-4 | CLAUDE.md 受信箱の節の指示資産の行(CR-053) | 「追加・統合・削除」を「変更(追加・改修・統合・削除)」へ。json の CR-053 の核も同じコミットで更新 | - |
 | C-14 | 変更なし | pickup の行(判定記録が無ければ判定者へ差し戻す)が既にある。handoff.md の遷移の行は CLAUDE.md の外(別の単位) | - |
 | C-1 | 該当なし | README に「未達として保証の開示へ記録する」は無い(既に揃っている) | IMPL-0986 は adopter のまま |

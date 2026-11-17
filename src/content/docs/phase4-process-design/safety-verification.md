@@ -125,7 +125,7 @@ ISO 13849-1(2015 年版の 4.6)では、応用ソフトウェア向けの簡略�
 | 6 | 自己修正ループ([附属書E E.7](/process-compass/phase4-process-design/developer-guide/))の反復で自動検証が合格へ転じた場合、その合格をもって修正の完了としない |
 
 <!-- impl IMPL-0919 target=autonomy-derivation state=undelivered check=manual plan=scheduled issue=448 review=2027-05 note="安全関連部に AI の支援を用いる場合に、AI自律レベルを L1 に固定し、引き上げの判定の対象としないこと。準拠テンプレートの構成は上限を案件の全体に掛け、安全関連部だけを L1 に固定する単位を持たない(scripts/init/generate-profile.mjs が autonomy.maxLevel へ落とす)。CL3 は全体を L1 とする側が IMPL-0762・0765(delivered)で降りており、降りていないのは CL2 の安全関連部だけである。同じ規定の「安全関連部の R1・L1 固定」は第5章の IMPL-0594 が追う。安全関連部の外に限って引き上げる側は IMPL-0766。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0920 target=safety-risk-assessment-template state=delivered check=manual note="生成された行の4条件の記録の置き場。同節が「生成された行の検証」の欄(要求への追跡・コーディング規約への適合・独立した担当者のレビュー・決定論的な試験の4条件を満たした記録の所在)を置く。4条件のうち前の3つ以外の検査は G-5・G-6・Spec: トレーラが運ぶ。記録の中身の検査は無い。確かめる者: 安全関連部の検証の記録の作成者と承認者(記録を書くとき)" -->
+<!-- impl IMPL-0920 target=safety-risk-assessment-template state=delivered check=manual note="生成された行の4条件の記録の置き場。同節が「生成された行の検証」の欄(要求への追跡・コーディング規約への適合・独立した担当者のレビュー・決定論的な試験の4条件を満たした記録の所在)を置く。4条件の検査は、Spec: トレーラ・G-5・G-6 が全変更に掛けて運ぶ。記録の中身の検査は無い。確かめる者: 安全関連部の検証の記録の作成者と承認者(記録を書くとき)" -->
 <!-- impl IMPL-0921 target=implement-skill state=delivered check=manual note="安全関連部で、自己修正ループが合格へ転じた反復を修正の完了としない手順。.claude/skills/implement/SKILL.md の手順4 が、反復の記録を添えて仕様へ戻し、附属書F F.3 要求3の4条件を改めて満たすことを書く。遵守を機械は確かめない。 確かめる者: AI維持管理者(指示資産・様式を改めるとき)" -->
 
 要求3の4条件は、生成物であるか人間の記述であるかを問わず同一です。**生成物であることは、検証を省く理由にも、追加の検証を課す理由にもなりません**。追加になるのは、要求2の再現性の確保と、要求4の独立性の確保です。
