@@ -122,3 +122,9 @@ files:
   - path: scripts/gate/evidence-manifest.mjs
     reason: library
     why: 出荷の証跡のワークフロー(降ろし先 ship-evidence-workflow)が呼ぶ、証跡の一式の digest の一覧の作成と検査、ワークフローの経路の静的な確認。規定は第4章「判定が指す記録の保管」の IMPL-0522 で追う(process-compass #333 / ADR-0135)
+  - path: scripts/gate/unrun-streak.mjs
+    reason: library
+    why: 出荷の証跡の集約(降ろし先 evidence-aggregation)が使う、未実施・未測定の継続期間の計算(項目4 の検査ごと・項目6 の層ごと)。規定は第4章 G-5「構成で選んだ未実施」の IMPL-0993 で追う(process-compass #330)
+  - path: scripts/gate/license-scan-record.mjs
+    reason: infra
+    why: gate-g5 の ip-clearance ジョブが呼ぶ、ライセンス検査の実施記録(evidence/license-scan.json)の書き出し。コマンドが空・検査対象なしを scanRun false と理由で記録する。規定は第4章 G-5 の IMPL-0995 で追う(process-compass #330)

@@ -1024,7 +1024,7 @@ push のパスの制限とマージのキューは、この要求の手段に数
 
 <!-- impl IMPL-0475 target=g5-adapter state=delivered check=machine test=template/scripts/gate/test-adapter.mjs note="実装が存在する段階で対象なしを用いないことのうち、製品のコードの目印(package.json・pyproject.toml・go.mod など)がアダプタの所在(projectDir。既定は直下)に無く下の階層にある場合。準拠テンプレートの adapter.mjs と coverage-check.mjs は、対象なしにせず失敗させ、所在を projectDir に書くよう出す。projectDir が無いディレクトリを指すときは、目印が直下にあっても、adapter.mjs・coverage-check.mjs・契約検査が失敗させる。所在が直下でないときは、直下の目印も所在の外の目印に数える(突合 X-1)。目印がどこにも無い実装(目印を持たないコード)と、実装の開始の後に対象なしが続くことは IMPL-0239 の範囲(#363)" -->
 
-<!-- impl IMPL-0239 target=g5-adapter state=undelivered check=manual plan=scheduled issue=330 review=2027-04 note="対象なしによる通過(基準1・2・3・5・8)。アダプタはプロジェクトの対象が無いとき実施しない旨を通知して通し(目印が下の階層にある場合は対象なしにしない。IMPL-0475)、カバレッジは製品のコードが無いとき対象なしとして通す。対象なしを記録の3項目(基準・理由・時刻)で証跡へ残すこと、実装の開始後に用いないことは確かめていない。実装の開始の後に続く対象なしは、項目4 の継続期間(IMPL-0993)が降りれば出荷ごとに見える。機械では止めない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0239 target=g5-adapter state=undelivered check=manual plan=scheduled issue=330 review=2027-04 note="対象なしによる通過(基準1・2・3・5・8)。アダプタはプロジェクトの対象が無いとき実施しない旨を通知して通し(目印が下の階層にある場合は対象なしにしない。IMPL-0475)、カバレッジは製品のコードが無いとき対象なしとして通す。基準と理由は項目4 が検査ごとに出し(試験あり)、続いていることは継続期間(IMPL-0993)で出荷ごとに見える。判定の時刻は記録していない(集約の時刻は G-5 の判定の時刻ではない)。実装の開始の後に用いないことは機械で止めない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 「対象なし」は、未達および省略のいずれとも異なります。
 
@@ -1041,18 +1041,18 @@ push のパスの制限とマージのキューは、この要求の手段に数
 アダプタのコマンドが空のため実施しなかった任意の検査(静的解析・依存監査・ライセンス検査・依存の導入。構成で選んだ未実施)は、前段の未実施に当たりません。構成に書かれた選択であり、構成の変更の記録を経るためです。G-5 の判定では失敗に数えません。保証の開示の項目4 には、構成で選んだ未実施の検査(静的解析・依存監査・ライセンス検査)を検査ごとに未実施として出します。基準2 の静的解析と脆弱性スキャンのように1つの基準が複数の検査で成る場合も、検査ごとに出します。依存の導入は、集約の検査の項目を持たない導入の段で、項目4 の対象外です。テストの実行と秘匿情報の混入検査は、この扱いを受けません。言語のアダプタで製品のコードがあるときのカバレッジも受けません。集計の記録が出ないため失敗に数えます(後掲「カバレッジの測る範囲と規模」。[ADR-0124](/process-compass/adr/0124-unmeasured-coverage-merge-control-and-detection-scope/) 決定1。[ADR-0151](/process-compass/adr/0151-unselected-optional-check-not-failure-disclose-duration/))。
 
 :::caution[暫定 EV-0293 / 見直し 2027-05]
-**対象**: 構成で選んだ未実施を失敗にしなくても、項目4 の開示で通過との取り違えを防げるという判断。静的解析と依存監査では、表示が区別されることを実行で確かめた。人が取り違えないかは事例が無い。ライセンス検査の表示の欠陥(IMPL-0995)は集約の表示の誤りで、人が取り違えた事例ではない。設計の推論に依る部分は事例が無い。未実施が通過と取り違えられた事例も、取り違えが起きなかった事例も記録が無い。
+**対象**: 構成で選んだ未実施を失敗にしなくても、項目4 の開示で通過との取り違えを防げるという判断。静的解析と依存監査では、表示が区別されることを実行で確かめた。人が取り違えないかは事例が無い。ライセンス検査の表示の欠陥(空のコマンドを実施と出す誤り。IMPL-0995)は準拠テンプレートで直した。集約の表示の誤りで、人が取り違えた事例ではない。設計の推論に依る部分は事例が無い。未実施が通過と取り違えられた事例も、取り違えが起きなかった事例も記録が無い。
 **根拠の水準**: E0(なし)。
 **差し替え条件**: 未実施が通過と取り違えられた事例が1件記録されたとき。
 :::
 
-<!-- impl IMPL-0992 target=evidence-aggregation state=delivered check=manual note="構成で選んだ未実施。アダプタの静的解析(lint)と依存監査(audit)のコマンドが空のとき、adapter.mjs は通知を出して通し、保証の開示の項目4 は検査ごとに「未実施(コマンドが未設定)」と出す。基準2 の静的解析と依存監査は別に出る(2026-11-17 に複製で実行して確かめた。#330)。ライセンス検査と依存の導入は含めない(IMPL-0995)。通知して通す挙動そのものの試験は無い。試験(test-g5-aggregate.mjs)は項目4 の表示だけを確かめ、違反と適合の対の目印を持たないため manual とする。確かめる者: 計画の Issue(issue= の番号)の担当者(IMPL-0993 を降ろすときに、目印つきの試験を足して machine へ戻す)" -->
+<!-- impl IMPL-0992 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-adapter.mjs note="構成で選んだ未実施。アダプタの任意の段(静的解析・依存監査・ライセンス検査・依存の導入)のコマンドが空のとき、adapter.mjs は通知を出して終了コード 0 で通し、保証の開示の項目4 は検査ごとに「未実施(コマンドが未設定)」と出す。必須の段(test・secretScan)が空なら失敗させる。終了コードの伝播も試験で固定した。カバレッジが空のときの失敗は coverage-check.mjs の側(IMPL-0495)。依存の導入は集約に項目が無いため項目4 の対象外" -->
 
-<!-- impl IMPL-0995 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=330 review=2027-05 note="ライセンス検査のコマンドが空のとき、項目4 に未実施と出し、知財潔白性の検査記録を実施の記録に数えないこと。現状は逆で、空のコマンドで通った段の成功を、ip-clearance の記録の段(gate-g5.yml)が scanRun: true として evidence/license-scan.json に書く。同じ scanRun を読む4か所が誤る。項目4 が「実施(success)」と出る。G-7 基準8 の行が「記録 あり」と出る。「記録」の節が「知財潔白性の検査: 実施」と出る。記載の欠落「知財潔白性の検査記録がありません」が抑えられ、空のコマンドが G-7 の欠落の検出をすり抜ける。none・undetermined のアダプタは licenses が既定で空のため、この2つの構成では既定でこうなる(adapter.mjs の通知「この事実は証跡へ残ります」とも食い違う)。2026-11-17 に複製で実行して確かめた(#330 の独立の突合 X1・Y2)。直す先は準拠テンプレートの申し送り T-8(adapter.mjs print licenses が空なら scanRun: false と理由を書く、または machineChecks の licenses を先に判定する。scanRun を読む全箇所について、違反と適合の対の試験を添える)。依存の導入は集約の検査の項目を持たず、項目4 の対象外。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0995 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-license-scan.mjs note="空のコマンド・検査対象なしのライセンス検査を、実施と記録・表示しない。記録の段(license-scan-record.mjs)が scanRun: false と理由(コマンドが未設定 / 検査対象が存在しない)を書き、集約は記録とアダプタの構成の両側から判定して項目4・G-7 基準8 の行・「記録」の節に「未実施(理由)」と出す。古い記録(scanRun: true)が残っても構成が空なら未実施と出す。記載の欠落は、記録が無いときだけ出す。構成で選んだ未実施(コマンドが空・検査対象なし)は欠落に数えない(議長の裁定 2026-11-17。ADR-0151 決定1・3 が構成で選んだ未実施を失敗にも差し戻しにもしないと決めたため。数えるなら G-7 の新しい差し戻しで、重の審議で ADR-0151 を置き換える)。表示は未実施と出るため、記録の有無を取り違える読みは起きない。依存の導入は集約の検査の項目を持たず、項目4 の対象外" -->
 
 <!-- impl IMPL-0233 target=spec-lint state=delivered check=machine test=template/scripts/gate/test-spec-lint.mjs note="曖昧語の検査(spec-lint)は、検出語の知識ベース(scripts/vendor/tailoring-kb.json)が無ければ読み込みで失敗し、検出語が空なら失敗する。検査の対象(機能仕様)が無いときだけ、対象なしとして通知する(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した)" -->
 
-<!-- impl IMPL-0234 target=g5-adapter state=undelivered check=manual plan=scheduled issue=330 review=2027-04 note="アダプタを使う G-5 のジョブ(test・coverage・lint・audit・licenses・secretScan)は、構成とアダプタが無ければ失敗する。依存の取得に失敗して検査器の入力が欠けたときに、各スタックの検査器が失敗で終わるかは確かめていない。任意の検査のコマンドが空のときに通知を出して通す部分は IMPL-0992 へ分けた。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0234 target=g5-adapter state=undelivered check=manual plan=scheduled issue=330 review=2027-04 note="アダプタを使う G-5 のジョブ(test・coverage・lint・audit・licenses・secretScan)は、構成とアダプタが無ければ失敗する。アダプタの終了コードの伝播は試験がある(test-adapter.mjs)。依存の導入の段(setup-stack)に continue-on-error を置かないことを構文で確かめる(test-g5-aggregate.mjs)。依存の取得に失敗して検査器の入力が欠けたときに、各スタックの検査器(npm audit・license-checker・pip-audit・govulncheck 等)が失敗で終わるかは道具の実装で、テンプレートは保証しない。空の install と lock ファイルだけの構成で license-checker が空の一覧で通りうる筋が残るため、項目4 の表示を続ける。任意の検査のコマンドが空のときに通知を出して通す部分は IMPL-0992 へ分けた。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 #### カバレッジの測る範囲と規模(基準3)
 
@@ -1192,7 +1192,7 @@ G-5 の結果と保証の開示には、割合だけでなく、次の3つを出
 
 類似の検知を実施しなかった出荷は、基準8 を満たしません。先へ進めるには、[第7章 7.3](/process-compass/phase4-process-design/exception-escalation/) の例外承認によります。「使用せず」と理由を書くだけでは、基準8 を外す経路になりません。
 
-<!-- impl IMPL-1009 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="類似の検知の実施記録が4事項(用いた手段・対象の範囲・実施日・結果)を持つこと。準拠テンプレートに類似の検知の実施記録の置き場は無く、集約はライセンス検査の記録の有無(evidence/license-scan.json)だけを基準8 の記録に数える。空のコマンドでも実施ありと数える誤りは IMPL-0995(#330)が追う。事項の有無は機械で数えられるが、手段が実際に走ったかは確かめない(ADR-0159)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-1009 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="類似の検知の実施記録が4事項(用いた手段・対象の範囲・実施日・結果)を持つこと。準拠テンプレートに類似の検知の実施記録の置き場は無く、集約はライセンス検査の記録の有無(evidence/license-scan.json)だけを基準8 の記録に数える。空のコマンド・検査対象なしは scanRun: false の記録になり、実施ありと数えない(IMPL-0995)。事項の有無は機械で数えられるが、手段が実際に走ったかは確かめない(ADR-0159)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0305 / 見直し 2027-05]
 **対象**: 実施記録の4事項と台帳の区分「類似検知」で、侵害の主張への防御に足る記録が残るという判断。根拠は、文化庁「AIと著作権に関する考え方」の依拠性の推認(SRC-0760)と、検知の道具の実務(SRC-0762)です。
@@ -1551,7 +1551,7 @@ AI のレビューを起点にした人のレビュアが、AI の示した箇�
 <!-- impl IMPL-0043 target=gate-skill state=delivered check=manual note="G-7 基準4。運用引き継ぎ文書の3項目(監視項目・障害時連絡先・復旧手順)の完備を出荷判定者が読んで判定する。/gate の補助ファイル gates/G-7.md が、集約の基準4 の行と文書の3項目を読む手順を持つ。機械は完備を判定しない(未記入の検出だけを IMPL-0989 が行う)。確かめる者: 出荷判定者(G-7 の判定で、docs/handover.md の3項目を読むとき)" -->
 <!-- impl IMPL-0044 target=gate-skill state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="G-7 基準6。出荷判定者が、G-1 の閾値の記録(IMPL-0977)と、AI 品質指標の比率を合否に用いていないことを確かめ、判定記録の基準6 の行に書く。gates/G-7.md に基準6 の手順が無い。集約は判定せず、欠落に数えない(合否にしないため)。比率の期間の集計は IMPL-0268(一発承認率)と IMPL-1017(AI 生成行の短期書き換え率。採用者)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0045 target=gate-skill state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="G-7 基準7。出荷判定者が、D-0 表10 の F.2 の回答と CL の記録から適用を読み、F.7 の6項目を読んで判定する。gates/G-7.md に基準7 の手順が無い。機械の未記入の検出は IMPL-1007、F.7 の様式は IMPL-0933(#448)、規則 r-e-cl2 の値を G-7 が照らさないことは IMPL-0761(#445)。採用者に委ねない(ADR-0159)。例外承認は 7.3 と ADR-0153。集約の基準7 の行は、構成の安全重要度(q-criticality)だけを判定者へ示しており、F.2 の回答を示さない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0046 target=gate-skill state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="G-7 基準8。出荷判定者が、ライセンス検査の結果・類似の検知の実施記録(IMPL-1009)・区分「類似検知」の行(IMPL-0548・IMPL-1008)を読んで判定する。gates/G-7.md に基準8 の手順が無い。集約はライセンス検査の記録の有無だけを数え、空のコマンドでも記録ありと数える(IMPL-0995)。ライセンスの判定不能の行の区分は決めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0046 target=gate-skill state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="G-7 基準8。出荷判定者が、ライセンス検査の結果・類似の検知の実施記録(IMPL-1009)・区分「類似検知」の行(IMPL-0548・IMPL-1008)を読んで判定する。gates/G-7.md に基準8 の手順が無い。集約はライセンス検査の記録の有無だけを数える。ライセンスの判定不能の行の区分は決めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 事業ステージと判定基準の関係は、次のとおりです([第8章 軸B](/process-compass/phase4-process-design/tailoring-guide/)。[ADR-0112](/process-compass/adr/0112-s1-ship-gate-applied-and-simplified-defined/) 決定1)。
 
@@ -1760,7 +1760,7 @@ G-1 で承認した壊してはならない品質条件(識別子 QC-NN)と、�
 **差し替え条件**: 続いている未実施の見落としが、1件記録されたとき。
 :::
 
-<!-- impl IMPL-0993 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=330 review=2027-05 note="項目4 の未実施の検査ごとの継続期間(未実施のまま出荷した最初の出荷と、連続した出荷の回数)。準拠テンプレートの集約は項目4 の未実施を理由つきで出すが、継続期間を出さない(項目6 の unmeasuredStreak に当たる処理が項目4 に無い。2026-11-17 に確かめた)。継続は検査ごとに数え、理由が変わっても未実施が続く限り途切れない。降ろすときの試験に含める。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0993 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-unrun-streak.mjs note="項目4 の未実施・未測定の検査ごとの継続期間(未実施のまま出荷した最初の出荷と、連続した出荷の回数)。集約は値が「未実施」「未測定」で始まる検査(テスト・カバレッジ・静的解析・依存監査・ライセンス・秘匿情報)に、machineChecks.unrunStreaks と品質レポートの項目4 の行で起点と回数を出す。カバレッジの「未測定(…)」も数える。継続は検査ごとに数え、理由が変わっても続く限り途切れず、実施に戻れば消える。期間の指定では前回を読まない(項目6 と同じ)。継続が長くても合否に使わず、閾値も課さない(試験で固定)。計算は項目6 と共通の純関数(unrun-streak.mjs)" -->
 
 <!-- impl IMPL-0448 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-tailoring-declaration.mjs note="保証の開示の項目2(evidence/quality-report.md と assurance-disclosure.external.md)に、G-6 の範囲が core-only の構成を「範囲の限定(コア機能)」の行として、範囲の設定の注記を理由に載せる。旧い構成で簡略として記録された G-7 には、未適用の厳格化(現行の規則の再導出では適用。欠落の計上は変えない)を添える。ほかのゲートの旧い状態には添えない。試験は集約を通しで実行して項目2 の行を確かめる(#374)" -->
 
