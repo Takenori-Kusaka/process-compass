@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-11-17)。[ADR-0019](/process-compass/adr/0019-scope-commitment-three-layers/) 決定5 の後半、[ADR-0173](/process-compass/adr/0173-flow-remainders-completion-predicate-adjustment-record-and-adopter-split/) 決定3 の一部、[ADR-0175](/process-compass/adr/0175-assign-445-450-undelivered-to-adopter-or-template/) の影響の節の IMPL-0978 の分類を、一部置き換える。軽の審議の結論です(Issue [#443](https://github.com/Takenori-Kusaka/process-compass/issues/443)・[#325](https://github.com/Takenori-Kusaka/process-compass/issues/325)・[#447](https://github.com/Takenori-Kusaka/process-compass/issues/447)、`research/443-325-447-deliberation/decision.md`)。準拠テンプレートの変更は本件に含めない。
+採用(2026-11-17)。[ADR-0019](/process-compass/adr/0019-scope-commitment-three-layers/) 決定5 の後半、[ADR-0173](/process-compass/adr/0173-flow-remainders-completion-predicate-adjustment-record-and-adopter-split/) 決定3 の一部と結果の節の重の候補、[ADR-0175](/process-compass/adr/0175-assign-445-450-undelivered-to-adopter-or-template/) の影響の節の IMPL-0978 の分類を、一部置き換える。軽の審議の結論です(Issue [#443](https://github.com/Takenori-Kusaka/process-compass/issues/443)・[#325](https://github.com/Takenori-Kusaka/process-compass/issues/325)・[#447](https://github.com/Takenori-Kusaka/process-compass/issues/447)、`research/443-325-447-deliberation/decision.md`)。準拠テンプレートの変更は本件に含めない。
 
 ## コンテキスト
 
@@ -18,7 +18,7 @@ sidebar:
 ## 決定
 
 1. 2.10.6 の見込みの評価そのものと、手順を選んだ順序を記録する義務は課さない。選んだ手順は既存の3記録(2.10.5 の調整の記録、7.6 のエスカレーションレポートと判定記録、7.3 の例外承認の記録)に残る。順序を守ったかを確かめる者は、手続を開始し手順を選ぶ価値責任者とし、後段の判定者・別の席に確かめる務めを課さない(EV-0320)。IMPL-0899 の降ろし先は handoff-reference(手引き)に改める
-2. ADR-0019 決定5 の後半「既存の事前レビュー期間の仕組みへ載せる」を撤回する。滞留の一覧とスコープ3層の現状の確認は判定日と決定者を持たず、3.10 が前提を欠くためである。前半(棚卸しのための会議体を設けない)は維持する。B-1〜B-4 へ上程する調整には 3.10.1 のとおり 3.10 が掛かり、7.6 の段階1・2 の事業決裁者の記名の決定と、B-2 を置かない体制で事業決裁者が判定する段階3 と契約の裁定(上程ではない)には掛からない
+2. ADR-0019 決定5 の後半「既存の事前レビュー期間の仕組みへ載せる」を撤回する。滞留の一覧とスコープ3層の現状の確認は判定日と決定者を持たず、3.10 が前提を欠くためである。前半(棚卸しのための会議体を設けない)は維持する。B-1〜B-4 へ上程する調整には 3.10.1 のとおり 3.10 が掛かり、7.6 の段階1・2 の事業決裁者の記名の決定と、B-2 を置かない体制で事業決裁者が判定する段階3 と契約の裁定(B-1〜B-4 への上程ではない)には掛からない
 3. 5.4.7 の頻度の置き場を、テンプレ11 の層1 の「確認の周期と後継」の行とする(適用: L2 以上を適用する範囲がある場合。空欄は保証の開示の項目7 に表示し、止めない)。ADR-0175 が IMPL-0978 を新しい義務とした分類のうち、頻度の置き場の部分は誤りだったので改める(頻度を組織が定める義務は 5.4.7 と 3.4.3 に既に在る)。実施の記録の欄と、登録の経路で実施を照らす時点を足すことは新しい義務であり、ADR-0175 の分類はこの部分で正しい。これは未決とし、所有者へ問う
 
 ## 課さないと決めたこと
