@@ -1,0 +1,75 @@
+schemaVersion: 0
+id: SRC-0790
+status: included
+excludeReason: null
+title: "ISO 26262-2:2018 Road vehicles — Functional safety — Part 2: Management of functional safety (iTeh preview)"
+url: https://cdn.standards.iteh.ai/samples/68384/a48c82d694274496bcb249700a63ac2f/ISO-26262-2-2018.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/68384/a48c82d694274496bcb249700a63ac2f/ISO-26262-2-2018.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: ISO(iTeh の公開プレビュー)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2018-12-17
+publishedBasis: pdf
+version: null
+updated: null
+accessed: '2026-11-17'
+access: open
+readLevel: section
+foundBy:
+  cluster: I327
+  query: ISO 26262-2 clause 4.2 tailoring non-compliance rationale
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'ISO 26262-2 の公開プレビュー(目次・まえがき・箇条1〜5 の一部・表の解釈)。箇条 4.2 は、適合の主張で全要求を満たすことを求め、除外は「テーラリングで該当しないと示した」か「不適合を受け入れる根拠があり、その根拠が評価済み」の2つに限る。6.4.5(テーラリング)の本文はプレビューに無く未読。Issue #327 の審議で 2026-11-17 に pdftotext で抽出した(一度だけ)。'
+claims:
+- id: c1
+  text: ISO 26262 の適合の主張では、各要求を満たす。満たさなくてよいのは、(a) 規格に従ったテーラリングで要求が該当しないと示した場合、(b) 不適合を受け入れる根拠があり、その根拠が規格に従って評価されている場合の2つだけである。
+  quote: "a) tailoring of the safety activities in accordance with this document has been performed that shows that the requirement does not apply; or"
+  locator: 4.2 General requirements(p.2)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 327
+  stance: context
+- id: c2
+  text: 表の方法を別の方法で置き換えるときは根拠を示す。代替の組合せを選ぶときも、選んだ組合せが要求を満たす根拠を示す。
+  quote: "A rationale shall be given that the selected combination of methods or even a selected"
+  locator: 4.3 Interpretations of tables(p.3)
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 327
+  stance: context
+- id: c3
+  text: 6.4.5 の表題は「安全活動のテーラリング」で、目次では p.16。本文はプレビューに無い。テーラリングの根拠の記載先と評価の場(安全計画の確認レビュー、または機能安全アセスメント)は二次情報(LHP の解説)による。
+  quote: 6.4.5 Tailoring of the safety activities
+  locator: 目次
+  quant: null
+  evidenceKind: normative
+  rqs: []
+  issues:
+  - 327
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: c1・c2 は pdftotext で抽出した本文と逐語一致。c3 は目次の表題だけ。6.4.5 本文は未読。
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-11'

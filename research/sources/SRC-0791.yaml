@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0791
+status: included
+excludeReason: null
+title: "EN 62304 - Frequently Asked Questions (Team-NB, 2013-08)"
+url: https://www.team-nb.org/wp-content/uploads/2015/05/documents2013/FAQ_62304_Final_130804.pdf
+canonicalUrl: https://www.team-nb.org/wp-content/uploads/2015/05/documents2013/FAQ_62304_Final_130804.pdf
+ids:
+  arxiv: null
+  doi: null
+publisher: Team-NB(欧州の医療機器の認証機関の団体)
+authors: []
+orgType: nonprofit
+region: eu
+lang: en
+sourceType: public-agency
+published: 2013-08
+publishedBasis: unknown
+version: null
+updated: null
+accessed: '2026-11-17'
+access: open
+readLevel: section
+foundBy:
+  cluster: I327
+  query: IEC 62304 4.3 software safety class assignment compulsory
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes:
+- TH12
+events: []
+summary: 'IEC 62304 の認証機関側の FAQ(2013 年版の規格が対象)。安全クラスの割り当て(4.3)は必須で、プロジェクトの都合で任意にする手順では適合を主張できないと答える。クラスの記録先はリスクマネジメントファイル。認証機関の審査員の側の運用であって、規格の本文ではない。Issue #327 の審議で 2026-11-17 に抽出した。'
+claims:
+- id: c1
+  text: ソフトウェア安全クラスの割り当ては必須であり、任意ではない。クラス割り当てを、プロジェクトチームの希望で変えられる任意の手順にすると、EN 62304 への適合を主張できない。
+  quote: "No. Assigning a Software Safety Class is compulsory, not optional."
+  locator: FAQ 2.5.x(4.3 の割り当てを任意にする手順の可否への回答)
+  quant: null
+  evidenceKind: expert-opinion
+  rqs: []
+  issues:
+  - 327
+  stance: supports
+- id: c2
+  text: 安全クラスは、リスクマネジメントファイルに記録する(4.3c)。記録の様式は製造業者が決めてよいが、その文書はリスクマネジメントファイルの一部になる。
+  quote: "It is up to the manufacturer to determine how it wants to document the safety classification."
+  locator: FAQ 2.5.12
+  quant: null
+  evidenceKind: expert-opinion
+  rqs: []
+  issues:
+  - 327
+  stance: context
+verification:
+  status: partial
+  method:
+  - agent-read
+  date: '2026-11-17'
+  humanChecked: false
+  note: c1 は pdftotext の抽出と逐語一致。c2 の quote は検索結果の抜粋(抽出文では未確認)。
+  mech: null
+  agent: null
+volatility: slow
+reviewBy: '2027-11'
