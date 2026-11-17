@@ -2302,6 +2302,7 @@ sections:
       - IMPL-0233
       - IMPL-0234
       - IMPL-0239
+      - IMPL-0989
       - IMPL-0474
       - IMPL-0475
     note: 対象なしの通過・記録の項目・実装の開始後に用いないことは IMPL-0239(降りていない)。基準7 が対象なしを認めないことは IMPL-0474、目印が下の階層にある実装を対象なしにしないことは IMPL-0475(#363)。入力の欠如を対象なしにしないことは IMPL-0233(spec-lint)と IMPL-0234(アダプタを使うジョブ。降りていない)
@@ -2558,6 +2559,7 @@ sections:
       - IMPL-0685
       - IMPL-0686
       - IMPL-0687
+      - IMPL-0990
     location:
       - phase4-process-design/assurance-case#H.6 保証の開示
       - "phase4-process-design/tailoring-guide#軸D: 開発形態による調整 > 保証の開示を納品ごとに受け渡す"
