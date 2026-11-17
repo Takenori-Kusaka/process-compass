@@ -33,3 +33,8 @@ lint:evidence・lint:impl・lint:scope・lint:refs・lint:provisions・lint:deki
 ## 残すもの
 
 T-1〜T-7 は template を触らず #330 に残す。Issue は開いたままにする。
+
+## 束 B12 での追随(2026-11-17。T-1〜T-8 の記録)
+
+- template を変えた: T-8(6a7adf2。空のコマンド・対象なしのライセンス検査を実施と記録・表示しない)、T-1〜T-7(fce8273。未実施の継続期間を項目4 に出す、アダプタの空のコマンドの扱いを注釈と試験で固定、手引き)。突合の直し(X1・X3・X5〜X7)は template の次のコミット。経緯は b12-04-implementation.md・b12-05-crosscheck.md・b12-06-fix.md
+- 標準の側で降ろした: IMPL-0995・0992・0993(91d1968c)。ADR-0151 の「影響」(L39・L65)は IMPL-0993・0995 を undelivered と書いたままである。ADR は書き換えない。降りたことは実装マークの台帳(community/implementation-ledger.md)で辿る
