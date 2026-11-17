@@ -2207,7 +2207,7 @@ sequenceDiagram
 
 順序を強制する手段(ツールの機能・運用規律・レビュー時の確認のいずれか)は問いません。本標準が要求するのは順序であり、実現手段ではありません。
 
-<!-- impl IMPL-0819 target=implement-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="コア機能とリスク区分 R1 の変更で、実装の方針を人が自分の言葉で記述し(段階1)、その後に AI の生成結果を参照し(段階2)、方針との相違を記録する(段階3)こと。段階1を経ずに段階2へ進まない(非コア機能かつ R3 の変更は段階1を省略してよい)。実装のスキルは、テストを別の文脈で先に生成する手順を置くが、人が方針を先に確定する順序は置かない(.claude/skills/implement/SKILL.md、templates/07-implementation-plan.md、.github を「方針」「相違」「自分の言葉」で検索して該当なし。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0819 target=implement-skill state=delivered check=manual note="コア機能と R1 の変更で、人が方針を先に書き(段階1)、AI の生成結果を参照し(段階2)、相違を記録する(段階3)順序。.claude/skills/implement/SKILL.md の手順3 の冒頭が置く。非コア機能かつ R3 の変更は段階1を省略してよいことも書く。順序の遵守を機械は確かめない。 確かめる者: AI維持管理者(指示資産・様式を改めるとき)" -->
 
 ### 判定における対比
 

@@ -2184,7 +2184,7 @@ L2 の一次事例は、モノレポ・大規模な自動テスト基盤・高�
 
 リスク採点による深度可変(前項)と本項は、行数から自由になる根拠が異なります。前者は**統計的な予測**、後者は**変換過程の決定論性**です。混同すると、予測の外れ値を決定論と誤認することがあります。
 
-<!-- impl IMPL-0577 target=pr-checks state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="機械的な変換の類型(変換が決定論的・テストが正しさを検出できる・部分的に取り消せる、の3点)を満たす変更だけを行数の算定から外すこと、満たさない変更をこの類型として扱わないこと。check-pr.mjs は、基底の生成の印(linguist-generated・@generated)の付いたファイルを算定から除くだけで、3点を確かめない。印の無い機械的な変換は算定に入る(IMPL-0049 の note が開示済み)。3点の充足を確かめる部分は降りていない。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0577 target=implement-skill state=delivered check=manual note="機械的な変換の3点を満たす変更だけを算定から外し、満たさない変更をこの類型として扱わないこと。.claude/skills/implement/reference/task-size.md の「算定の方法と除外規定」が書く。3点を機械は確かめず(印の有無だけを見る)、人が確かめる。 確かめる者: AI維持管理者(指示資産・様式を改めるとき)" -->
 
 ### L0 の既定値
 
@@ -2233,7 +2233,7 @@ L2 の一次事例は、モノレポ・大規模な自動テスト基盤・高�
 
 <!-- impl IMPL-0578 target=implement-skill state=delivered check=manual note="レビューを分割して対処しないこと。実装のスキル(.claude/skills/implement/SKILL.md)が reference/task-size.md を読ませ(粒度の詳細の行)、task-size.md の「基準値を超えたとき」に、読み切れない変更は実装計画へ戻して関心事で分け直し、行数に合わせて細切れにしないと書く。 確かめる者: AI維持管理者(指示資産・様式を改めるとき)" -->
 
-<!-- impl IMPL-0579 target=implement-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="一括整形やリネームを、実質的な変更と別の変更単位に分けること。task-size.md は、一括整形・内容の変わらない名前の変更を算定から除くと書くだけで、実質的な変更と分ける指示を持たない(2026-11-15 に確認)。check-pr.mjs は空白だけの一括整形を算定から除く。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0579 target=implement-skill state=delivered check=manual note="一括整形やリネームを実質的な変更と別の変更単位に分けること。.claude/skills/implement/reference/task-size.md の「算定の方法と除外規定」が書く。分けたかを機械は確かめない。 確かめる者: AI維持管理者(指示資産・様式を改めるとき)" -->
 
 ### 基準値を超えた変更の扱い(適用: 規模の基準値を超えた PR)
 
@@ -2304,7 +2304,7 @@ L1・L2 を名乗る条件に数えられるのは、**レビュー負荷の削�
 
 AIによる差分要約を緩和根拠から外す理由は別にあります。承認シグナルを出す仕組みを加えると人間の吟味が減る傾向(自動化バイアス)は、訓練や指示では抑えにくいと報告されています。**負荷が下がったように見えて、確認そのものが減ります**。要約は推奨しますが、上限を動かす根拠にはしません。
 
-<!-- impl IMPL-0580 target=implement-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="緩和根拠に数えられる手段を表の「認める」手段(リスクスコア・変異テスト等・構造差分)に限ること。task-size.md の「基準値を上げる・外すとき」は、仕様のレビューへの前倒しと図による可視化を緩和の根拠にしないと書くが、AI による差分要約・自動レビューコメントは書かず、「認める」手段の限定も書かない。一部しか運ばない。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0580 target=implement-skill state=delivered check=manual note="緩和根拠を表の「認める」手段(リスクスコア・変異テスト等・構造差分)に限り、AI による差分の要約・自動レビューコメントを根拠にしないこと。.claude/skills/implement/reference/task-size.md の「基準値を上げる・外すとき」が書く。遵守を機械は確かめない。 確かめる者: AI維持管理者(指示資産・様式を改めるとき)" -->
 
 ### 上限を自組織の実測で較正する
 

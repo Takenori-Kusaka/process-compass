@@ -287,7 +287,7 @@ graph TD
 
 **スコープの発火条件は、確約範囲(SC-M)を動かす必要の見込みのみを対象とします**。計画範囲(SC-P)と調整枠(SC-B)の増減では発火しません。その調整は価値責任者が決めます([第2章 2.10.5](/process-compass/phase4-process-design/lifecycle/))。層を区別せずに変動率を測ると、通常の調整で発火が続き、報告が読まれなくなります。
 
-<!-- impl IMPL-0613 target=next-role state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="7.6 の運用の規則。起票した者が自分の起票を判定しないこと、応答期限を過ぎても承認とみなさず代理の判定者の指名を求めること、段階2 の事業決裁者の決定を非同期の持ち回りにするとき、リスク区分 R1 の変更に係る決定には使わないこと。D-0 の様式(IMPL-0368)は判定する者の列に起票した席だけを書かないことと、兼務の体制の「自己の判定」の記載を置くが、自分の起票を判定しない規則そのものは next.mjs --role の出力(見出し「エスカレーションの段階とラベル」)に無い(scripts/gate/next.mjs に「起票」の語は無い。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0613 target=handoff-reference state=delivered check=manual note="7.6 の運用の規則。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が、起票した者が自分の起票を判定しないこと・応答期限を過ぎても承認とみなさず代理の判定者の指名を求めること・段階2 の持ち回りを R1 の変更に係る決定に使わないことを書く。next.mjs --role の出力は変えていない。遵守を機械は確かめない。 確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
 <!-- impl IMPL-0614 target=next-role state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="7.6 の発火条件の判定に使う材料(残る作業単位の個数・実測スループット・残る期間・SC-M の変動率。SC-P・SC-B へ移すことと分割して外すことは SC-M の減少に数える)を、見込みの報告の Issue へ出す仕組み。見込みの評価と発火の判断は価値責任者が行い、機械はしない。予算の超過の見込みの入力は IMPL-1018(採用者)が追う。IMPL-0374 の後に降ろす。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-1018 target=next-role state=undelivered check=manual plan=adopter decision=ADR-0173 note="7.6 の予算の超過の見込みの入力(費用の実績と確定済みの支出)。準拠テンプレートは会計の基盤を読まない。採用者が、見込みの報告の Issue へ予算の見込みを記録の所在とともに置く(IMPL-0499 と同じ置き場)。確かめる者: 価値責任者(7.6 の発火を判断するとき)" -->
 
@@ -371,7 +371,7 @@ graph TD
 項目1〜4の草案は、AI エージェントに生成させてよいものとします。項目5は人間が記入しなければなりません。推奨の提示は、結果責任(A)を負う者の行為であるためです。
 
 <!-- impl IMPL-0617 target=handoff-reference state=delivered check=manual note="エスカレーションレポートの5項目(状態・原因・事業影響・リカバリ選択肢3案・推奨と決裁事項)と、推奨と決裁事項を人が記入すること。handoff.md の節「エスカレーション」に同じ語がある。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
-<!-- impl IMPL-0618 target=handoff-reference state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="エスカレーションレポートの分量の上限(状態3行・原因5行・推奨と決裁事項3行)、事業影響とリカバリ選択肢を表で書くこと、項目1〜4 の草案を AI に生成させてよいこと。handoff.md は5項目の名と項目5 を人が記入することだけを書き、分量の上限と表の形は書かない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0618 target=handoff-reference state=delivered check=manual note="エスカレーションレポートの分量の上限(状態3行・原因5行・推奨と決裁事項3行)、事業影響とリカバリ選択肢を表で書くこと、項目1〜4の草案を AI に生成させてよいこと。.claude/skills/pit/reference/handoff.md の節「エスカレーション」が書く。遵守を機械は確かめない。 確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
 
 ### 決裁後のポートフォリオ調整
 

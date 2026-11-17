@@ -49,10 +49,10 @@ sidebar:
 3. 正常系1本につき、望まない挙動(Unwanted)パターンを最低1本書く(異常系のない基準セットは片面しか検証していない)
 4. 仕上げに AI へ「この基準をテストコードのテスト名に変換せよ」と指示する。変換できない基準が残っていたら 1 に戻る
 
-<!-- impl IMPL-0936 target=spec-write-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="AI が起案した受入基準を1件ずつ5つの型のどれに当たるかに分類し、どれにも当てはまらない基準は曖昧語が残っているとして書き直すこと。/spec-write は型の表と曖昧語の排除(手順4。spec-lint)を置くが、1件ずつ分類して書き直す手順は書かれていない(2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0937 target=spec-write-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="各基準の動作に測定可能な値(時間・件数・率・表示文言)を入れ、値が決められない場合はその場で価値責任者が決めて後回しにしないこと(未確定事項を責任者と期限を付けて残したまま G-2 を通さないことは、/spec-write の手順6 と spec-lint --gate G-2 が運ぶ)。/spec-write の完了の条件に測定可能な値の項目が無く、spec-lint は検出語だけを見る(値の有無は確かめない。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0938 target=spec-write-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="正常系1本につき、望まない挙動(Unwanted)の型の基準を最低1本書くこと。/spec-write は望まない挙動の型の表を置くが、正常系ごとに1本書く手順も完了の条件も無い(2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0939 target=spec-write-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="仕上げに AI へ受入基準をテストコードのテスト名に変換させ、変換できない基準が残っていれば手順1 に戻ること。/spec-write に変換を試みる手順が無い(2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0936 target=spec-write-skill state=delivered check=manual note="AI が起案した受入基準を1件ずつ5つの型に分類し、当てはまらない基準を書き直すこと。.claude/skills/spec-write/SKILL.md の手順3 が書く。分類したかを機械は確かめない。 確かめる者: 機能仕様の承認者(G-2・G-4 で仕様を判定するとき。所在を読んで確かめる)" -->
+<!-- impl IMPL-0937 target=spec-write-skill state=delivered check=manual note="各基準の動作に測定可能な値を入れ、決められない値はその場で価値責任者が決めること。.claude/skills/spec-write/SKILL.md の手順3 と完了の条件が書く。値の有無を機械は確かめない。 確かめる者: 機能仕様の承認者(G-2・G-4 で仕様を判定するとき。所在を読んで確かめる)" -->
+<!-- impl IMPL-0938 target=spec-write-skill state=delivered check=manual note="正常系1本につき望まない挙動の基準を最低1本書くこと。.claude/skills/spec-write/SKILL.md の手順3 と完了の条件が書く(書けない場合の記録は IMPL-0942)。本数を機械は確かめない。 確かめる者: 機能仕様の承認者(G-2・G-4 で仕様を判定するとき。所在を読んで確かめる)" -->
+<!-- impl IMPL-0939 target=spec-write-skill state=delivered check=manual note="仕上げに AI へ受入基準をテスト名へ変換させ、変換できない基準が残れば手順3 に戻ること。.claude/skills/spec-write/SKILL.md の手順7 が書く。変換を試みたかを機械は確かめない。 確かめる者: 機能仕様の承認者(G-2・G-4 で仕様を判定するとき。所在を読んで確かめる)" -->
 
 ## 草案を受け取ったときに確かめること
 
@@ -84,7 +84,7 @@ AI が起案した受入基準は、形式が整っていても、作りたか�
 
 このチェックリストに「該当なし」の欄を置きません。当てはまらない項目を、作成者や判定者の判断で外せる形にしないためです([ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)、[ADR-0036](/process-compass/adr/0036-gate-closure-by-record/))。外すのは、[第8章](/process-compass/phase4-process-design/tailoring-guide/)の規則と、事実の記録に限ります。異常条件が見つからない機能は、手順3 の例外として扱いません。正常系に対応する異常系の基準を書けない場合は、その事実と理由を受入基準の節に書きます。G-2 の判定者は、基準1(検証可能な形式への準拠)の確認で、異常系の基準か、異常条件が見つからない事実の記載のいずれかがあることを確かめます。**記載の当否(異常条件が本当に無いか)は判定しません**。受入基準の内容そのものを G-2 で判定しないためです([第4章 G-2](/process-compass/phase4-process-design/gate-criteria/)、[ADR-0051](/process-compass/adr/0051-usability-out-of-scope/)の決定2)。
 
-<!-- impl IMPL-0941 target=spec-write-skill state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="G-2 提出前のセルフチェックに固有の部分(5項目のうち5つの型での記述と曖昧語ゼロは IMPL-0935 と G-2 のマークが追い、測定可能な値は IMPL-0937、正常系に対応する異常系は IMPL-0938、テスト名への変換は IMPL-0939 が追う)として、このチェックリストに「該当なし」の欄を置かず、外すのは第8章の規則と事実の記録に限ること。/spec-write の完了の条件は「条件 + 期待動作」・曖昧語・スコープ外・前提・未確定事項・承認を並べ、測定可能な値・対応する異常系・テスト名への変換の項目を持たない(「該当なし」の欄は置いていない。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0941 target=spec-write-skill state=delivered check=manual note="G-2 提出前のセルフチェックに固有の部分。.claude/skills/spec-write/SKILL.md の完了の条件に測定可能な値・異常系・テスト名への変換の3項目を置き、「該当なし」の欄を置かず、外すのは第8章の規則と事実の記録に限ると書く。遵守を機械は確かめない。 確かめる者: 機能仕様の承認者(G-2・G-4 で仕様を判定するとき。所在を読んで確かめる)" -->
 <!-- impl IMPL-0942 target=feature-spec-template state=delivered check=manual note="正常系に対応する異常系の基準を書けない場合に、その事実と理由を受入基準の節に書くこと。templates/01-feature-spec.md の節「受入基準」の表の後の段落が置く(spec-lint の検出語を含まない形で)。書かれていないことを拒む検査は無い。確かめる者: 機能仕様の承認者(G-2・G-4 で仕様を判定するとき。所在を読んだ。実行して確かめていない)" -->
 <!-- impl IMPL-0943 target=gate-skill state=delivered check=manual note="G-2 の基準1 の確認で、異常系の基準か、異常条件が見つからない事実の記載の有無を確かめること(記載の当否は判定しない)。.claude/skills/gate/gates/G-2.md の材料の集め方に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
