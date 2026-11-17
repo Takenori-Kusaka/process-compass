@@ -1,6 +1,5 @@
-# 仮番号(#355 束2 外部の調査)
 schemaVersion: 0
-id: SRC-0783
+id: SRC-0763
 status: included
 excludeReason: null
 title: "IEC 61508 Commented Version(61508-2/-3 ed2.0 の改訂箇所つき。ANSI 共有の公開版)"
@@ -20,7 +19,7 @@ updated: null
 accessed: 2026-11-17
 access: open
 readLevel: section
-foundBy: {cluster: I355, query: "#355 束2 外部の調査。安全の検証記録の項目。仮番号"}
+foundBy: {cluster: I355, query: "#355 束2 外部の調査。安全の検証記録の項目"}
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
@@ -33,22 +32,28 @@ claims:
     quote: 'The verification of software shall be planned'
     locator: '61508-3 7.9.2.1 / 7.9.2.2(抜き書きは tavily extract)'
     quant: null
-    evidenceKind: standard-text
+    evidenceKind: normative
     rqs: []
+    issues: [355]
+    stance: context
   - id: c2
     text: '各検証活動の結果は、合格か失敗の理由かを示して文書にする(この文は 61508-2 の 7.9.2.6。-3 の対応する条は未特定)。'
     quote: 'The result of each verification activity shall be documented, stating either that the E/E/PE safety-related systems have passed the verification, or the reasons for the failures.'
     locator: '61508-2 7.9.2.6'
     quant: null
-    evidenceKind: standard-text
+    evidenceKind: normative
     rqs: []
+    issues: [355]
+    stance: context
   - id: c3
     text: 'HR(強く推奨)の技術を使わない場合は、使わない理由を詳述する。'
     quote: 'If this technique or measure is not used then the rationale behind not using it shall be detailed'
     locator: '61508-3 附属書 A の凡例(検索結果の抜粋。条番号は未特定)'
     quant: null
-    evidenceKind: standard-text
+    evidenceKind: normative
     rqs: []
-verification: {status: provisional, method: [tavily-extract, web-search], date: 2026-11-17, humanChecked: false, note: '改訂案の版。制定版との照合は未了。c3 は検索結果の抜粋のみで PDF の該当ページは読んでいない。'}
+    issues: [355]
+    stance: context
+verification: {status: partial, method: [tavily-extract, web-search], date: 2026-11-17, humanChecked: false, note: '改訂案の版。制定版との照合は未了。c3 は検索結果の抜粋のみで PDF の該当ページは読んでいない。'}
 volatility: slow
 reviewBy: 2027-05

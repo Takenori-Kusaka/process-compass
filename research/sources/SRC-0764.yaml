@@ -1,6 +1,5 @@
-# 仮番号(#355 束2 外部の調査)
 schemaVersion: 0
-id: SRC-0784
+id: SRC-0764
 status: included
 excludeReason: null
 title: "Speed of Code Reviews(Google Engineering Practices)"
@@ -20,7 +19,7 @@ updated: null
 accessed: 2026-11-17
 access: open
 readLevel: full
-foundBy: {cluster: I355, query: "#355 束2 外部の調査。レビュー SLA の実務。仮番号"}
+foundBy: {cluster: I355, query: "#355 束2 外部の調査。レビュー SLA の実務"}
 derivedFrom: []
 derivedFromUrl: []
 selfReported: true
@@ -35,6 +34,8 @@ claims:
     quant: null
     evidenceKind: vendor-guidance
     rqs: []
+    issues: [355]
+    stance: context
   - id: c2
     text: '最適化の対象はチームの速さで、個人の開発の速さではない。'
     quote: 'we optimize for the speed at which a team of developers can produce a product together'
@@ -42,6 +43,8 @@ claims:
     quant: null
     evidenceKind: vendor-guidance
     rqs: []
-verification: {status: provisional, method: [webfetch], date: 2026-11-17, humanChecked: false, note: 'WebFetch 応答の引用。'}
+    issues: [355]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-17, humanChecked: false, note: 'WebFetch 応答の引用。'}
 volatility: slow
 reviewBy: 2027-11

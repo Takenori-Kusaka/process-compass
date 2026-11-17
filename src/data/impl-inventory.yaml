@@ -1863,7 +1863,7 @@ sections:
   - key: phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.6 記録と可視化
     status: marked
     ids:
-      - IMPL-1010
+      - IMPL-1011
     note: "発動と解除の記録する事項(識別子・対象の人(7.9.1 の2 による発動に限る)・範囲・根拠の所在・記録した者・解除の識別子)と、人が記録し機械が発動しないことは、7.9.2 の IMPL-0118 の note(event: restriction に範囲・対象の人・根拠・記録した者を必須、解除を記録できる、範囲を記録していない旧い発動は判定できない)で引ける。発動の通知(通知先と通知日の記録)は、第3章 3.13.6 の IMPL-0033 の note(通知する者が通知先と通知日を変化点の記録へ書く。未記入の即時通知は記録の欠落)が追う。残りの文のうち、四半期ごとの確認、行使件数の推移を検出率の推移とあわせて確認することは、確認のふるまいで、違反が本標準の求める記録のどれにも現れない制度設計(探した場所: templates/04-gate-record.md、scripts/gate/aggregate-evidence.mjs の制限の読み、impl-targets.yaml)。EV は無し"
     location:
       - "phase4-process-design/exception-escalation#7.9 承認権限の一時制限 > 7.9.2 制限の内容"
@@ -2338,7 +2338,7 @@ sections:
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 類似の検知の実施記録
     status: marked
     ids:
-      - IMPL-1006
+      - IMPL-1009
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
     issue: 355
@@ -2346,7 +2346,7 @@ sections:
     status: marked
     ids:
       - IMPL-0548
-      - IMPL-1005
+      - IMPL-1008
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
     note: 検知を未処理のまま先へ進めず、当該の変更単位で処理する(3つの選択肢)こと、期限のない記録を認めないこと、期限超過の未処理項目が残る出荷を止めることは I1(降りていない)。期限超過の確認は IMPL-0046。再検査で検出されなくなったことを潔白の根拠として提示しないことは、記録の文面の禁止で、I1 と同じ確かめで扱う
@@ -2545,10 +2545,10 @@ sections:
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 基準3・6・7・8 の記録
     status: marked
     ids:
-      - IMPL-1004
+      - IMPL-1007
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
-    note: 基準3・6・7・8 を出荷判定者が判定することは IMPL-0042・IMPL-0044・IMPL-0045・IMPL-0046(基準の表の所在)。機械の未記入の検出は IMPL-1004(基準7)と IMPL-1005(基準8)。記入が在ることは完備を意味しない旨と各基準の範囲の箇条書きは、ADR-0159 が追う(#355 束2)
+    note: 基準3・6・7・8 を出荷判定者が判定することは IMPL-0042・IMPL-0044・IMPL-0045・IMPL-0046(基準の表の所在)。機械の未記入の検出は IMPL-1007(基準7)と IMPL-1008(基準8)。記入が在ることは完備を意味しない旨と各基準の範囲の箇条書きは、ADR-0159 が追う(#355 束2)
     issue: 448
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 基準4 の記録
     status: marked
@@ -2807,7 +2807,7 @@ sections:
     ids:
       - IMPL-0049
       - IMPL-0136
-      - IMPL-1007
+      - IMPL-1010
       - IMPL-0578
       - IMPL-0579
     location:
@@ -3017,15 +3017,15 @@ sections:
       - IMPL-0268
       - IMPL-0516
       - IMPL-0977
-      - IMPL-1003
+      - IMPL-1006
     note: 観測の窓と最小標本数は、第2区分の差し戻し率・手戻り率が IMPL-0516(降りている)、一発承認率・AI 生成行の短期書き換え率が IMPL-0268(降りていない)
     rows:
       要求事項1:
         status: marked
         ids:
           - IMPL-0977
-          - IMPL-1003
-        note: 手戻り率の基準値の決め方(実測前の組織の値 / 実測から)を構成に持ち表示することは IMPL-1003(undelivered。ADR-0158)。閾値を G-1 で定め5事項を記録することは IMPL-0977(undelivered)。企画書の様式の行「安定性指標の閾値」は値を置く欄までを運ぶ。観測の窓は構成の observationWindow(IMPL-0516)が運ぶ。最小標本数は autonomy.mjs の固定の定数で、組織が定める欄は無い。降りていないのは値の決め方と次の見直しの時期(束 D 突合 2巡目 D2-05)
+          - IMPL-1006
+        note: 手戻り率の基準値の決め方(実測前の組織の値 / 実測から)を構成に持ち表示することは IMPL-1006(undelivered。ADR-0158)。閾値を G-1 で定め5事項を記録することは IMPL-0977(undelivered)。企画書の様式の行「安定性指標の閾値」は値を置く欄までを運ぶ。観測の窓は構成の observationWindow(IMPL-0516)が運ぶ。最小標本数は autonomy.mjs の固定の定数で、組織が定める欄は無い。降りていないのは値の決め方と次の見直しの時期(束 D 突合 2巡目 D2-05)
       要求事項2:
         status: none
         category: org-design
@@ -3338,7 +3338,7 @@ sections:
       - IMPL-0161
       - IMPL-0162
       - IMPL-0991
-      - IMPL-1011
+      - IMPL-1012
     rows:
       要求事項1:
         status: marked

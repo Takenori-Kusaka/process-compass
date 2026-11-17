@@ -23,7 +23,7 @@ access: open
 readLevel: section
 foundBy:
   cluster: I356
-  query: "#356 B(重)の外部の調査 (research/356-deliberation/b-research.md)。仮番号"
+  query: "#356 B(重)の外部の調査 (research/356-deliberation/b-research.md)"
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
@@ -46,7 +46,7 @@ verification:
   - agent-read
   date: '2026-11-17'
   humanChecked: false
-  note: '#356 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮番号'
+  note: '#356 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない'
   mech: null
   agent: null
 volatility: slow

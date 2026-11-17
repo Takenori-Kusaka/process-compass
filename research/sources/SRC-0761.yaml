@@ -1,6 +1,5 @@
-# 仮番号(#355 束2 外部の調査)
 schemaVersion: 0
-id: SRC-0781
+id: SRC-0761
 status: included
 excludeReason: null
 title: "Doe v. GitHub, Inc., No. 24-7700 (9th Cir. Sept. 16, 2026)"
@@ -20,7 +19,7 @@ updated: null
 accessed: 2026-11-17
 access: open
 readLevel: secondary
-foundBy: {cluster: I355, query: "#355 束2 外部の調査。AI 生成コードの知財。仮番号"}
+foundBy: {cluster: I355, query: "#355 束2 外部の調査。AI 生成コードの知財"}
 derivedFrom: []
 derivedFromUrl: [https://www.gibsondunn.com/ninth-circuit-clarifies-limits-of-dmca-liability-for-ai-generated-code, https://www.authorsalliance.org/2026/09/23/resolving-an-interlocutory-appeal-ninth-circuit-affirms-dismissal-of-section-1202-dmca-claims-in-ongoing-doe-v-github-litigation]
 selfReported: false
@@ -33,15 +32,19 @@ claims:
     quote: 'will often be strong circumstantial evidence'
     locator: 'Gibson Dunn の解説が引く判決文 p.15(判決文は未読)'
     quant: null
-    evidenceKind: court-opinion-secondary
+    evidenceKind: expert-opinion
     rqs: []
+    issues: [355]
+    stance: context
   - id: c2
     text: '契約違反の請求は地裁で係属中で、生成物が既存コードと一致した場合のライセンス上の責任は、この判決で確定していない。'
     quote: 'The court allowed breach of contract claims to proceed.'
     locator: 'Justia の要約欄(検索結果の抜粋)'
     quant: null
-    evidenceKind: court-opinion-secondary
+    evidenceKind: expert-opinion
     rqs: []
-verification: {status: provisional, method: [web-search], date: 2026-11-17, humanChecked: false, note: '判決本文は未読。二次の解説の一致による。採否の根拠にするなら本文の確認が要る。'}
+    issues: [355]
+    stance: context
+verification: {status: partial, method: [web-search], date: 2026-11-17, humanChecked: false, note: '判決本文は未読。二次の解説の一致による。採否の根拠にするなら本文の確認が要る。'}
 volatility: fast
 reviewBy: 2027-02

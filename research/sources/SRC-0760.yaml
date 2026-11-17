@@ -1,6 +1,5 @@
-# 仮番号(#355 束2 外部の調査)。push の前に origin/main の最大の次へ付け直す。0757〜0759 は別の作業が仮に使っているため 0780 から振った
 schemaVersion: 0
-id: SRC-0780
+id: SRC-0760
 status: included
 excludeReason: null
 title: "AI と著作権に関する考え方について(文化審議会著作権分科会 法制度小委員会、令和6年3月15日)"
@@ -20,7 +19,7 @@ updated: null
 accessed: 2026-11-17
 access: open
 readLevel: section
-foundBy: {cluster: I355, query: "#355 束2 外部の調査。生成物の類似性・依拠性。仮番号"}
+foundBy: {cluster: I355, query: "#355 束2 外部の調査。生成物の類似性・依拠性"}
 derivedFrom: []
 derivedFromUrl: []
 selfReported: false
@@ -33,15 +32,19 @@ claims:
     quote: '当該生成AI を利用し、当該著作物に類似した生成物が生成された場合は、通常、依拠性があったと推認され、AI 利用者による著作権侵害になりうると考えられる'
     locator: '生成・利用段階 依拠性 イ②(ページ番号は未特定。pdftotext は文字化けするため tavily extract の文字層による)'
     quant: null
-    evidenceKind: government-guidance
+    evidenceKind: normative
     rqs: []
+    issues: [355]
+    stance: context
   - id: c2
     text: '学習した著作物の創作的表現が生成されない状態が技術的に担保されていれば依拠性が否定されうる。措置の例として出力段階のフィルタリングが注に挙がる。別の意見として、その場合も依拠性は否定されず過失が否定されるにとどまる、という立場も注で併記される。'
     quote: '学習に用いられた著作物と創作的表現が共通した生成物が出力されないよう出力段階においてフィルタリングを行う措置が取られている場合'
     locator: '同 注45・注46'
     quant: null
-    evidenceKind: government-guidance
+    evidenceKind: normative
     rqs: []
-verification: {status: provisional, method: [tavily-extract], date: 2026-11-17, humanChecked: false, note: '抽出文の読みのみ。ページ番号と PDF の目視は未了。'}
+    issues: [355]
+    stance: context
+verification: {status: partial, method: [tavily-extract], date: 2026-11-17, humanChecked: false, note: '抽出文の読みのみ。ページ番号と PDF の目視は未了。'}
 volatility: medium
 reviewBy: 2027-05
