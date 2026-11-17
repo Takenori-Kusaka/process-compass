@@ -22,3 +22,9 @@
 
 - 写し: 本体は `git -c core.autocrlf=false archive HEAD`、template は同じ方法で参照どおりの版(e9f5590f)を展開し git init した。`npm ci` 後に実行
 - 実行の注意: 通常の実行の開始時に、取り消した実行(誤って二重に起動したもの)が /tmp を共有して重なった時間がある。通常は 0 で終わったが、偽の PASS の可能性は低い(偽の FAIL を出す型の干渉)。UTC の実行は、残った実行をすべて止めた後に単独で流した
+
+## origin/main への載せ直し(2026-11-18)
+- 軽の先端 6f6bdde9(元 46348067 を rebase し、EV-0320 → EV-0321 の付け直しと台帳の再生成を1コミットで直後に置いた)。重の先端 8a314f2e(重の5コミットを cherry-pick し EV-0321 → EV-0322、EV-0322 → EV-0323)。
+- 衝突は自動生成の台帳(evidence-ledger・implementation-ledger)のみ。upstream 側を採り再生成で解いた。本文の衝突なし。
+- IMPL-1020〜1023・ADR-0178・0179・SRC は origin/main(IMPL-1019・ADR-0175・SRC-0765 が最大)と重ならず、付け直し不要。template の参照は d871f25 のまま。
+- 検査: lint:refs・sources・evidence・impl・scope・registry・provisions・citations・dekimasu・tone・impl:issues は通過。textlint(変更した docs)通過。test:template は軽の先端で通過、重の先端で失敗(既知。template の tailoring-kb.json の再生成が要る)。
