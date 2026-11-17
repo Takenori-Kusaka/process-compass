@@ -5,6 +5,7 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { ancestryProblems } from './lib/inputs.mjs';
 
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'kb-ancestry-'));
@@ -42,6 +43,14 @@ try {
   test('git のリポジトリでない: 失敗', () => {
     const p = ancestryProblems(os.tmpdir(), a);
     assert.equal(p.length, 1);
+  });
+  test('浅い clone: 失敗(履歴を読めないことを一致として扱わない)', () => {
+    const shallow = path.join(dir, 'shallow-clone');
+    const r = spawnSync('git', ['clone', '-q', '--depth', '1', pathToFileURL(dir).href, shallow], { encoding: 'utf8' });
+    assert.equal(r.status, 0, r.stderr);
+    const p = ancestryProblems(shallow, a);
+    assert.equal(p.length, 1);
+    assert.match(p[0], /浅い clone/);
   });
   console.log(`知識ベースの生成元の祖先の試験: ${passed}件 通過`);
 } finally {
