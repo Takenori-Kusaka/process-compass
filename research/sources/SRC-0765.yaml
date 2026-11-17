@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0765
+status: included
+excludeReason: null
+title: "Environment variables(Claude Code 環境変数の参照)"
+url: https://code.claude.com/docs/en/env-vars
+canonicalUrl: https://code.claude.com/docs/en/env-vars
+ids: {arxiv: null, doi: null}
+publisher: "Anthropic"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-17
+access: open
+readLevel: full
+foundBy: {cluster: I444, query: "#444 実行の識別子の取得。CLAUDE_CODE_SESSION_ID の記載"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: 'Claude Code の環境変数の参照。CLAUDE_CODE_SESSION_ID は、シェルの道具とフックの子プロセスで設定され、フックの入力の session_id と一致し、/clear で更新される。'
+claims:
+  - id: c1
+    text: 'CLAUDE_CODE_SESSION_ID は環境変数の参照に載っている。フックの入力の session_id と一致し、/clear で更新される。'
+    quote: 'CLAUDE_CODE_SESSION_ID'
+    locator: 'Environment variables'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [444]
+    stance: supports
+verification: {status: partial, method: [webfetch], date: 2026-11-17, humanChecked: false, note: '議長が2026-11-17 に文書で確認した。引用は変数名のみ。'}
+volatility: fast
+reviewBy: 2027-02

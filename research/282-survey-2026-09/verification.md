@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-17): verified 652 / partial 96 / unverified 1
+集計(生成日 2026-11-17): verified 652 / partial 105 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -120,6 +120,15 @@
 | SRC-0754 | partial | agent-read | #440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮 | [To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assi](https://arxiv.org/abs/2102.09692) |
 | SRC-0755 | partial | agent-read | #440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮 | [Categorizing Variants of Goodhart's Law](https://arxiv.org/abs/1803.04585) |
 | SRC-0756 | partial | agent-read | #440 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない。番号は仮 | [DORA's software delivery performance metrics(Lead time for changes の定義)](https://dora.dev/guides/dora-metrics/) |
+| SRC-0757 | partial | agent-read | #356 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない | [TIBER-EU Framework: How to implement the European framework for Threat Intelligence-based ](https://www.ecb.europa.eu/pub/pdf/other/ecb.tiber_eu_framework.en.pdf) |
+| SRC-0758 | partial | agent-read | #356 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない | [Commission Implementing Regulation (EU) 2015/1998 Annex 12.5.1(Threat Image Projection)](https://legislation.gov.uk/eur/2015/1998/annex/n4/division/12/2020-01-31) |
+| SRC-0759 | partial | agent-read | #356 の外部の調査で WebFetch(要約モデル経由)または pdftotext により読んだ。原文の目視の照合はしていない | [42 CFR 493.801 Condition: Enrollment and testing of samples(proficiency testing)](https://www.ecfr.gov/current/title-42/section-493.801) |
+| SRC-0760 | partial | tavily-extract | 抽出文の読みのみ。ページ番号と PDF の目視は未了。 | [AI と著作権に関する考え方について(文化審議会著作権分科会 法制度小委員会、令和6年3月15日)](https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/pdf/94037901_01.pdf) |
+| SRC-0761 | partial | web-search | 判決本文は未読。二次の解説の一致による。採否の根拠にするなら本文の確認が要る。 | [Doe v. GitHub, Inc., No. 24-7700 (9th Cir. Sept. 16, 2026)](https://law.justia.com/cases/federal/appellate-courts/ca9/24-7700/24-7700-2026-09-16.html) |
+| SRC-0762 | partial | webfetch | WebFetch の要約応答の引用。 | [Copilot coding agent supports code referencing(GitHub Changelog 2026-02-18)](https://github.blog/changelog/2026-02-18-copilot-coding-agent-supports-code-referencing/) |
+| SRC-0763 | partial | tavily-extract,web-search | 改訂案の版。制定版との照合は未了。c3 は検索結果の抜粋のみで PDF の該当ページは読んでいない。 | [IEC 61508 Commented Version(61508-2/-3 ed2.0 の改訂箇所つき。ANSI 共有の公開版)](https://share.ansi.org/Shared%20Documents/News%20and%20Publications/Other%20Documents/IEC%2061508%20Commented%20Version.pdf) |
+| SRC-0764 | partial | webfetch | WebFetch 応答の引用。 | [Speed of Code Reviews(Google Engineering Practices)](https://google.github.io/eng-practices/review/reviewer/speed.html) |
+| SRC-0765 | partial | webfetch | 議長が2026-11-17 に文書で確認した。引用は変数名のみ。 | [Environment variables(Claude Code 環境変数の参照)](https://code.claude.com/docs/en/env-vars) |
 
 ### 除外した出典(却下は成果)
 

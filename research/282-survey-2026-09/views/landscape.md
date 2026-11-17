@@ -60,6 +60,7 @@
 | 2026-02-17 | NIST CAISI が AI Agent Standards Initiative を開始 | NIST Center for AI Standards and Innovation (CAISI) | [SRC-0497] |
 | 2026-02-18 | CircleCI 2026 State of Software Delivery 公開(2025-09 の 28,738,317 ワークフローを分析) | CircleCI(sponsored by Thoughtworks) | [SRC-0040] |
 | 2026-02-18 | CircleCI が 2026 State of Software Delivery を公開(ブログ告知) | CircleCI Blog | [SRC-0041] |
+| 2026-02-18 | Copilot coding agent が公開コードとの一致をログに強調表示(ブロックは非対応) | GitHub | [SRC-0762] |
 | 2026-02-19 | Jules が自作 PR の CI 失敗を自動修正(CI Fixer) | Google(Jules docs) | [SRC-0048] |
 | 2026-02-19 | OSPS Baseline v2026.02.19 を公開(現行版) | OpenSSF Security Baseline SIG (Linux Foundation) | [SRC-0347] |
 | 2026-02-20 | AWS が FT 報道(Kiro が 13 時間障害を起こした)を否定する声明を公表 | About Amazon(Amazon Staff) | [SRC-0058] |
@@ -264,6 +265,7 @@
 | 2026-09-16 | ISO 9001:2026(第6版)発行、ISO 9001:2015 は廃止 | Qlause | [SRC-0542] |
 | 2026-09-16 | ISO 9001:2026 の発行により 2015 年版は旧版(Historical) | ISO/TC 176 (catalogue record via Bahrain Standards and Metrology Directorate store) | [SRC-0643] |
 | 2026-09-16 | ISO 9001:2026 発行(認証機関の発表) | DQS Holding GmbH | [SRC-0736] |
+| 2026-09-16 | Doe v. GitHub 第9巡回区控訴裁判所、DMCA 1202(b) の請求棄却を維持 | US Court of Appeals for the Ninth Circuit(判決文は Justia の転載) | [SRC-0761] |
 | 2026-09-17 | Anthropic Institute が AI R&D 自動化指標と監視指標を公表 | Anthropic Institute | [SRC-0068] |
 | 2026-09-18 | Kiro Crew チームが「1 週間で 1,000 PR マージ」を公表 | Kiro(AWS) | [SRC-0061] |
 | 2026-09-18 | Faros が高AI採用の深化期を扱う新版を公表。レビューなしマージの増加率が31.3%から76.3%へ | Faros AI | [SRC-0475] |

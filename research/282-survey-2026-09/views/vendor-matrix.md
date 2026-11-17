@@ -129,7 +129,7 @@
 
 - [SRC-0068] 2026-09-17 [Measurements for understanding the pace of AI development inside frontier labs](https://www.anthropic.com/institute/measuring-pace-of-ai-development) — Anthropic 社内の AI R&D を Epoch AI の Automation Level(AL0〜AL5)で測り、2026-08 時点で Claud
 
-### Anthropic(22)
+### Anthropic(23)
 
 - [SRC-0067] 2026-02-18 [Measuring AI agent autonomy in practice](https://www.anthropic.com/research/measuring-agent-autonomy) — Claude Code と API の数百万件の対話から、人がエージェントに与える自律度と、エージェント自身が止まって確認する頻度を測定。経験で auto-ap
 - [SRC-0101] 2026-09-22 [Introducing Claude Opus 5.5](https://www.anthropic.com/news/claude-opus-5-5) — Opus 5.5 の発表文(日付はページに無く、報道と X の投稿時刻 2026-09-22 に基づく)。Anthropic 自身が「キャッシュ読み取りがエージ
@@ -153,6 +153,7 @@
 - [SRC-0353] 2025-10-16 [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) — Agent Skills の設計原理を述べた Anthropic の原典記事。progressive disclosure により、スキルに束ねられる文脈量は事
 - [SRC-0410] 2025-11-21 [From shortcuts to sabotage: natural emergent misalignment from reward hacking](https://arxiv.org/abs/2511.18397) — Anthropic の実運用コーディング RL 環境で reward hacking を学んだモデルが、無関係な場面でも妨害や整合性の偽装へ汎化したという研究の
 - [SRC-0411] 2026-09-22 [Claude Opus 5.5 System Card](https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf) — Claude Opus 5.5 のシステムカード §6.2 は学習中の reward hacking を扱う。必要なファイルが欠けた「不可能課題」では、全モデル
+- [SRC-0765] ? [Environment variables(Claude Code 環境変数の参照)](https://code.claude.com/docs/en/env-vars) — Claude Code の環境変数の参照。CLAUDE_CODE_SESSION_ID は、シェルの道具とフックの子プロセスで設定され、フックの入力の sess
 
 ### Atlassian(1)
 
@@ -226,7 +227,7 @@
 - [SRC-0448] 2026-07-30 [Optimizing CI for stacked pull requests](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/optimizing-ci-for-stacked-pull-requests) — スタック型PRでの GitHub Actions の発火規則。pull_request トリガーは各PRがスタック基底を向いているものとして発火し、CI 回数が
 - [SRC-0605] 2026-09 [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions) — GitHub Docs のリポジトリ指示ファイルの手順書(日付表記なし、2026-09-30 取得)。リポジトリ全体(copilot-instructions.
 
-### GitHub(40)
+### GitHub(41)
 
 - [SRC-0176] 2026-09 [Approving a pull request with required reviews](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews) — GitHub Docs の必須レビュー承認ページ本文(取得日 2026-09-23)。PR 作成者の自己承認不可と、Copilot に Issue を割り当てた
 - [SRC-0177] 2026-09 [Risks and mitigations for GitHub Copilot cloud agent](https://docs.github.com/en/copilot/concepts/security-governance-and-network-settings/risks-and-mitigations) — Copilot cloud agent(旧 coding agent)のリスクと緩和策。前回 §9 で未取得だった「依頼者は承認できない」の原文を一次で確認。無
@@ -268,6 +269,7 @@
 - [SRC-0747] ? [GitHub Docs — Configuring the retention period for GitHub Actions artifacts and logs in yo](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) — 成果物とログの保持の設定の頁。公開リポジトリは 1〜90 日、非公開は 1〜400 日の範囲で設定でき、組織・企業の上限をリポジトリは超えられない。設定は新しい
 - [SRC-0748] ? [GitHub Docs — Deployments and environments](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) — 環境と配備の保護規則の頁。必須レビュア・待機時間・配備の参照の限定・環境の秘密情報のプラン別の提供範囲を述べる。Issue #329 の審議で 2026-11-
 - [SRC-0749] ? [GitHub Docs — Managing environments for deployment](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments) — 環境の管理の頁。環境を設定できるプランと公開範囲、自己承認の禁止・管理者の迂回・配備の参照の限定の設定項目を述べる。Issue #329 の審議で 2026-1
+- [SRC-0762] 2026-02-18 [Copilot coding agent supports code referencing(GitHub Changelog 2026-02-18)](https://github.blog/changelog/2026-02-18-copilot-coding-agent-supports-code-referencing/) — ベンダーの類似の検知は、公開コードとの一致を出所のリンクつきで示す機能である。コーディングエージェントでは Block が使えず、一致はセッションログへの強調表
 
 ### Google (Antigravity)(1)
 
@@ -315,12 +317,13 @@
 - [SRC-0045] 2025-08-06 [Jules, our asynchronous coding agent, is now available for everyone.](https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available) — Jules の一般公開(ベータ終了)を告げる Google 公式記事。日付は 2025-08-06。前回メモの「Google I/O 2026 で GA」は一次
 - [SRC-0046] 2026-05-20 [100 things we announced at I/O 2026](https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements) — Google I/O 2026(記事日付 2026-05-20)の発表 100 項目。開発者向けは Antigravity 2.0(マルチエージェントのデスクト
 
-### Google(4)
+### Google(5)
 
 - [SRC-0183] 2026-09-02 [Introducing Gemini 3.8 Flash and 3.8 Flash Cyber](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber) — Gemini 3.8 Flash の公式発表。6 週間で 3 回目の Flash リリースと明言しており、モデル世代交代の間隔が数週間単位に縮んでいる。
 - [SRC-0184] 2026-08-13 [Introducing Gemini 3.7 Flash](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash) — Gemini 3.7 Flash の公式発表。コーディング性能を FrontierCode と DeepSWE で示し、SWE-bench を前面に出していない
 - [SRC-0185] 2026-07-21 [Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber) — Gemini 3.6 Flash 等の公式発表(発表日の根拠として取得)。
 - [SRC-0338] 2026-09-17 [Models   Gemini API - Google AI for Developers](https://ai.google.dev/gemini-api/docs/models) — Gemini API のモデル版の種別(stable / preview / latest / experimental)の定義。latest 別名は新版ごとに
+- [SRC-0764] ? [Speed of Code Reviews(Google Engineering Practices)](https://google.github.io/eng-practices/review/reviewer/speed.html) — Google のレビューの速さの指針。応答は1営業日以内を上限とし、最適化の対象は個人の速さではなくチームの速さとする。SLA の判定の記録や個人の測定には触れ
 
 ### Graphite(3)
 

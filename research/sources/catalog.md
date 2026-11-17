@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 749(included 749、excluded 0)。生成日 2026-11-17。
+件数: 758(included 758、excluded 0)。生成日 2026-11-17。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -757,4 +757,13 @@
 | SRC-0754 | 2021-02-18 | paper-peer | us/en | partial | TH06 TH12 | AI の説明の提示だけでは過度な依存は減らず、cognitive forcing(判断の時点で分析的思考を強いる介入)が過度な依存を減らした。199 人の実験。 | [To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assi](https://arxiv.org/abs/2102.09692) |
 | SRC-0755 | 2018-03-13 | preprint | us/en | partial | TH11 TH12 | Goodhart の法則(指標を目標にすると良い指標でなくなる)の失敗様式を4種に分類した論文。経済・公共政策・機械学習で指標の過剰最適化が起きることを論じる。 | [Categorizing Variants of Goodhart's Law](https://arxiv.org/abs/1803.04585) |
 | SRC-0756 | ? | vendor-official | global/en | partial | TH11 | DORA の指標ガイド。変更のリードタイムを、バージョン管理へのコミットから本番デプロイまでと定義する。コミット前の待ち(要求の滞留など)は定義の外。SRC-0 | [DORA's software delivery performance metrics(Lead time for changes の定義)](https://dora.dev/guides/dora-metrics/) |
+| SRC-0757 | 2018-05 | regulation | eu/en | partial | TH11 | ECB の脅威情報に基づく演習の枠組み。受け手(防御側)に知らせず、体制内の少数の白チームだけが知る。実施は独立した外部の提供者に限り、白チームは演習をいつでも | [TIBER-EU Framework: How to implement the European framework for Threat Intelligence-based ](https://www.ecb.europa.eu/pub/pdf/other/ecb.tiber_eu_framework.en.pdf) |
+| SRC-0758 | 2015-11-05 | regulation | eu/en | partial | TH11 | EU の航空保安の実施規則。TIP は、注入の印を検査員に示さず(応答の後まで)、管理の手段を許可された者だけに限り、画像を偏りなく置く。個々の検査員の応答は  | [Commission Implementing Regulation (EU) 2015/1998 Annex 12.5.1(Threat Image Projection)](https://legislation.gov.uk/eur/2015/1998/annex/n4/division/12/2020-01-31) |
+| SRC-0759 | ? | regulation | us/en | partial | TH11 | 米国の臨床検査の外部精度管理(PT)。検体は日常の検体と同じ方法・同じ要員で検査する。要員と責任者が日常業務へ組み込んだことを証明する。他の検査室へ送ること(照 | [42 CFR 493.801 Condition: Enrollment and testing of samples(proficiency testing)](https://www.ecfr.gov/current/title-42/section-493.801) |
+| SRC-0760 | 2024-03-15 | public-agency | jp/ja | partial |  | 生成・利用段階の著作権侵害の判断(類似性・依拠性)の考え方。AI 利用者が既存の著作物を知らなくても、学習データに含まれていれば、類似した生成物について依拠性が | [AI と著作権に関する考え方について(文化審議会著作権分科会 法制度小委員会、令和6年3月15日)](https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/pdf/94037901_01.pdf) |
+| SRC-0761 | 2026-09-16 | regulation | us/en | partial |  | Copilot の出力に著作権管理情報(帰属表示)が無いことを理由とする DMCA 1202(b) の請求を、控訴裁が棄却した判決。契約違反の請求は地裁で係属。 | [Doe v. GitHub, Inc., No. 24-7700 (9th Cir. Sept. 16, 2026)](https://law.justia.com/cases/federal/appellate-courts/ca9/24-7700/24-7700-2026-09-16.html) |
+| SRC-0762 | 2026-02-18 | vendor-official | global/en | partial |  | ベンダーの類似の検知は、公開コードとの一致を出所のリンクつきで示す機能である。コーディングエージェントでは Block が使えず、一致はセッションログへの強調表 | [Copilot coding agent supports code referencing(GitHub Changelog 2026-02-18)](https://github.blog/changelog/2026-02-18-copilot-coding-agent-supports-code-referencing/) |
+| SRC-0763 | ? | standard | global/en | partial |  | IEC 61508-3 の 7.9(ソフトウェアの検証)は、検証を計画して文書にし、結果を記録することを求める。附属書 A の HR の技術を採らないときは、そ | [IEC 61508 Commented Version(61508-2/-3 ed2.0 の改訂箇所つき。ANSI 共有の公開版)](https://share.ansi.org/Shared%20Documents/News%20and%20Publications/Other%20Documents/IEC%2061508%20Commented%20Version.pdf) |
+| SRC-0764 | ? | vendor-official | global/en | partial |  | Google のレビューの速さの指針。応答は1営業日以内を上限とし、最適化の対象は個人の速さではなくチームの速さとする。SLA の判定の記録や個人の測定には触れ | [Speed of Code Reviews(Google Engineering Practices)](https://google.github.io/eng-practices/review/reviewer/speed.html) |
+| SRC-0765 | ? | vendor-official | global/en | partial |  | Claude Code の環境変数の参照。CLAUDE_CODE_SESSION_ID は、シェルの道具とフックの子プロセスで設定され、フックの入力の sess | [Environment variables(Claude Code 環境変数の参照)](https://code.claude.com/docs/en/env-vars) |
 
