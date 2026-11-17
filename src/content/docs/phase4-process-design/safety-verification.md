@@ -109,7 +109,7 @@ ISO 13849-1(2015 年版の 4.6)では、応用ソフトウェア向けの簡略�
 
 前者は、学習した振る舞いを安全機能として保証する問題であり、本標準の範囲を超えます。後者は、生成物を人間と機械の検証で捕捉する問題であり、既存の検証体系で扱えます。
 
-<!-- impl IMPL-0918 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="AI が安全機能そのものを実現する場合(推論結果が制御出力になる)を本附属書の対象外とし、適用規格の特定から専門部門と行うこと。常駐の指示(template/CLAUDE.md「一律で AI に委譲できない領域」と claude-md-resident.json)に、推論結果が制御出力になる場合を名指す行が無い(D-0 節16 の欄は Q1 の答えと切り分けまで。templates/09 の適用条件は物理的な危険源・R1・本番資源・L2 以上で、この場合を名指さない。2026-11-15 に実物を開いて確認。試し c だけで規定とした。束 D 突合 D-F05 と議長の裁定)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0918 target=claude-md-resident state=delivered check=manual note="AI が安全機能そのものを実現する場合(推論結果が制御出力になる)を附属書F の対象外とし、適用規格の特定から専門部門と行うこと。template/CLAUDE.md「一律で AI に委譲できない領域」の箇条が名指す(claude-md-resident.json の規則)。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 
 ### 追加要求
 

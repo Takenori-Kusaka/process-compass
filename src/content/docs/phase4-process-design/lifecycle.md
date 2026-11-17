@@ -610,7 +610,7 @@ graph LR
 既定の述語は、取り込みと結び付きから決定できる最小の条件です。実際の完了とどれだけ離れるかを測った記録は、まだありません。
 :::
 
-<!-- impl IMPL-0971 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="2.10.2 要求事項3: 見積りの精度を根拠として確約範囲の上限を引き上げないこと。template/CLAUDE.md と claude-md-resident.json に、見積りの精度を根拠にしない行は無い(2026-11-15 に確認。試し c だけで規定とした。束 D 突合 D-O11 と議長の裁定)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0971 target=claude-md-resident state=delivered check=manual note="2.10.2 要求事項3: 見積りの精度を根拠として確約範囲の上限を引き上げないこと。template/CLAUDE.md「判断の確定と委任」の行が書く(claude-md-resident.json の規則)。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 
 要求事項3を置く理由は、工程の進行によって見積りの不確実性が収束するとは限らないという報告があるためです(2006年、実案件のデータに基づく)。**確約の量を支えるのは見積りの巧拙ではなく、実測された完了の速さです**。
 

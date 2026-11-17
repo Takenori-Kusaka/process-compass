@@ -482,7 +482,7 @@ AI の確認の出力は、検出の層として、また監査の**入力**と�
 
 <!-- impl IMPL-0742 target=gate-skill-g6 state=delivered check=manual note="AI による確認の結果を記録するとき、AI レビュー通過と書かず、指摘の内容と採否を残すこと。AI と bot の承認を数えないこと。.claude/skills/gate/gates/G-6.md の「AI と bot の承認は数えない。AI の確認は検出の層であり、「AI レビュー通過」と書かない。指摘の内容と採否を残す」の行と、CLAUDE.md の常駐の規則(「AI の確認は検出の層」)が運ぶ。AI の確認を検出の層に数える条件は H.4 の IMPL-0075 が追う。次の2文は IMPL-0835(人の確認を減らさない・合否条件に入れない)と IMPL-0843(代償措置)が追う。確かめる者: ゲート判定の記録を作る者(G-6 の判定記録を読むとき)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0835 target=gate-skill-g6 state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="AI の確認を通過したことを理由に人の確認を減らさず、合否条件にも入れないこと。.claude/skills/gate/gates/G-6.md の「承認は数えない」の行は AI の確認を判定に数えないことまでを運び、通過を理由に人の確認の件数や範囲を減らさないことと、合否条件に入れないことを述べる文は見つけていない(CLAUDE.md の常駐の規則にも無い)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0835 target=gate-skill-g6 state=delivered check=manual note="AI の確認を通過したことを理由に人の確認の件数も範囲も減らさず、合否条件にも入れないこと。.claude/skills/gate/gates/G-6.md 手順11 と template/CLAUDE.md「判断の確定と委任」の行が書く。機械は確かめない。確かめる者: ゲート判定の記録を作る者(G-6 の判定記録を読むとき)。所在を読んだ(実行して確かめていない)" -->
 
 <!-- impl IMPL-0843 target=evidence-aggregation state=delivered check=manual note="代償措置として記録しても、未達の解消に数えないこと(AI の確認を独立した人の確認に数えない節の3つ目の項目)。scripts/gate/aggregate-evidence.mjs の保証の開示の未達の表は、未達(unmet)の行と、その行の compensation を別の欄で持ち、代償措置の有無で未達の状態を解消に変えない。代償措置を未達の解消に数えない旨の文は集約の出力に無く、構造で運ぶ(第3章 3.5.4 の IMPL-0652 は、同じ規定のうち分離した AI の確認を代償措置として記録する手順の文が G-6 の補助ファイルに無いことを追う)。確かめる者: 出荷判定者(G-7 で集約の出力の未達の表を読むとき)。所在を読んだ(実行して確かめていない)" -->
 
@@ -677,7 +677,7 @@ ISO 13485 7.3.9 と IEC 62304 8.2.1 の読みに基づきます。査察で承�
 <!-- impl IMPL-0092 target=pr-checks state=delivered check=manual note="G-5 の PR 単位の検査で、変更したファイルがコア機能のパスに当たる PR の承認者の数を coreReviewerCount で数え、満たなければ「承認者 N 名 / 要求 M 名(コア機能)」と警告する(合否にしない)。パスが未宣言なら、その旨を出す(#288 第8巡 Z7)。確かめる者: G-6 の判定者(PR の警告を読むとき)" -->
 
 <!-- impl IMPL-0748 target=config-gates state=delivered check=manual note="軸C の「高」「規制業」の列。規則 r-c-high・r-c-regulated が、CI 基準の引き上げ(カバレッジ基準の強化)・独立レビューの承認者数(高のコア機能は coreReviewerCount 2、規制業は reviewerCount 2)・監査対応書式(recordFormat: audit)・出荷判定の省略(S0)の復帰を調整として持つ。src/data/tailoring/rules-quality.yaml の複製が template の scripts/vendor/tailoring-kb.json にある。エンジンの試験が出力を固定する(IMPL-0345 の note)。AI 生成箇所のトレーサビリティの必須(規制業)は、scripts/init/generate-profile.mjs が practice を読まず構成へ運ばないので、IMPL-0839 が追う。確かめる者: AI維持管理者(構成を生成したとき、PROCESS-PROFILE.md の軸C の調整を読む)。所在を読んだ(実行して確かめていない)" -->
-<!-- impl IMPL-0749 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="軸C の、高のコア機能の設計判断を AI 単独で行わせない制約(人の判断を必須にする)。規則 r-c-high の practice: ai-usage の注記にあるだけで、構成にも PROCESS-PROFILE.md にも出ない。CLAUDE.md の常駐の規則にも見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0749 target=claude-md-resident state=delivered check=manual note="軸C の高のコア機能の設計判断を AI 単独で行わせない制約(人の判断を必須にする)。template/CLAUDE.md「判断の確定と委任」の行が書く(claude-md-resident.json の規則)。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 
 <!-- impl IMPL-0836 target=g5-adapter state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="規制業の規制要件の自動チェックの追加(軸C)。規則 r-c-regulated は調整の注記(note・strengthen)として持つだけで、規制要件の自動チェックを実行する検査を準拠テンプレートに見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 

@@ -1449,7 +1449,7 @@ AI のレビューを起点にした人のレビュアが、AI の示した箇�
 
 <!-- impl IMPL-0973 target=agent-settings state=delivered check=presence note="G-6 条件2 のうち、承認レビューの本文を AI の担い手に書かせないこと。権限設定(template/.claude/settings.json の gh pr review の拒否。generate-profile.mjs の standardReview)が承認・レビューの操作を AI の担い手に許さず、template/CLAUDE.md が「承認・レビュー(状態を問わない)…をしない」を常駐させる。IMPL-0417(例外承認・停止の解除の宣言行)・IMPL-0419(3.5.5 の人と AI の担い手の名義)と同じ降ろし先。本文を別の人に書かせないことは含めない(IMPL-0974)。権限設定が拒むのは AI の名義での提出まで。雛形は /gate が示し、判定者が自分で書く(gate/SKILL.md 手順3)。人が AI の下書きを貼ることは機械が拒まない(挙動要約は IMPL-0189)(単位: 行)" -->
 
-<!-- impl IMPL-0974 target=internal-audit-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="G-6 条件2 のうち、承認レビューの本文を、承認者本人でない別の人に書かせないこと。機械は書き手を確かめられず、本文が内部監査の抜き取りで確かめると定める。準拠テンプレートに内部監査の記録の様式も、抜き取りで書き手を確かめる検査も無い(IMPL-0901・0964 と同じ置き場。2026-11-15 に確認。束 D 突合 D-O03 と議長の裁定)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0974 target=claude-md-resident state=delivered check=manual note="G-6 条件2 のうち、承認レビューの本文もその草案も AI の担い手が書かないこと。G-6.md 手順12 と template/CLAUDE.md「判断の確定と委任」の行が書く。書き手が承認者本人かは機械が確かめず、採用者の内部監査の抜き取りが確かめる。確かめる者: 採用者の内部監査の担当(抜き取りのとき)。所在を読んだ(実行して確かめていない)" -->
 
 - 写しに含める最小の組は、承認レビューの識別子・状態・`commit_id`・提出日時・アカウントの数値の識別子とログイン名・本文・PR 番号・マージのコミット、および同じ期間の bypass と保護の変更の記録である。取れないプランでは、取れない旨を写しに書く
 - 写しは、出荷判定(G-7)の集約でホスティングの一次記録と突き合わせる。欄ごとの正は、次のとおりとする

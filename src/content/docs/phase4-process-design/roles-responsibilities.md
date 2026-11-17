@@ -552,7 +552,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 同じロールの中で複数の実行主体を並行して走らせる場合も、実行主体ごとに作業ツリーを分けます。同一の作業ディレクトリで、複数の実行主体を並行して実行しません。ファイルの上書きと、版管理の索引の破損が起きるためです。
 
-<!-- impl IMPL-0646 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="3.5.1 の、同じロールの中で複数の実行主体を並行して走らせるとき、実行主体ごとに作業ツリーを分け、同一の作業ディレクトリで並行して実行しないこと。準拠テンプレートは、実装計画の並行タスクの手順(.claude/skills/task-breakdown/SKILL.md)に作業ツリーを分離する一文を持つが、全ロールの実行主体へ常駐の指示(CLAUDE.md・claude-md-resident.json)としては置かない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0646 target=claude-md-resident state=delivered check=manual note="3.5.1 の、同じロールの中で複数の実行主体を並行して走らせるとき、実行主体ごとに作業ツリーを分け、同一の作業ディレクトリで並行して実行しないこと。template/CLAUDE.md「判断の確定と委任」の行が書く(claude-md-resident.json の規則)。作業ツリーの分離を機械は照らさない。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 
 #### ロールとレーンの写像
 
@@ -816,7 +816,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 <!-- impl IMPL-0467 target=next-intake state=delivered check=machine test=template/scripts/gate/test-next-records.mjs note="要求事項5 のうち、準拠テンプレートが前提の判定記録を読めなかった場面(要求事項9)。next.mjs --pickup が、(a) G-6 が省略・未達の構成の state:qm-blocked で出荷判定者の G-7 の差し戻しの判定記録を、(b) state:needs-po・state:needs-owner を経た state:needs-dev で G-2・G-4 の通過に加えて価値責任者の判断・事業決裁者の決裁の記録(テンプレ4 のゲート欄、対象は作業単位)を、(c) 機能へ対応づけない作業単位(Issue #N と類型の名をあわせて指定する)で価値責任者が前もって記録した類型の判断と、--from の経路の前提(needs-owner は作業単位の決裁、needs-tech は作業単位の G-3、作業単位ごとの価値責任者の差し戻し)を、最新の判定として読む。無ければ (a)(b) と経路の前提は着手しない、類型の判断が無い・作業単位か類型の指定が無いときは判定できない。作業単位がその類型に当たるかと判定者の本人性は機械が確かめない(価値責任者が類型の範囲を定め、内部監査が見る)。確かめる者: 内部監査(#359 の重の裁定5・重の実装の突合への裁定)" -->
 <!-- impl IMPL-0500 target=next-intake state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="--pickup が「判定できない」で止めた件数を、作業単位ごとに数えて /pit に出すこと(合否に使わない表示。止め方の形骸化の兆候を見せる。#359 の重の裁定5)。準拠テンプレートは --pickup の結果を残さず、件数を数えない。結果の置き場は、作業単位の Issue へ1行残す宣言行とする(ADR-0173)。書く権限が無く残せなかった件数は、別に数えて出す。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0975 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="3.5.5 要求事項8: ラベルが付いていても、判定者は検査の結果などの事実を自ら確かめ、ラベルを事実の代わりにしないこと。template/CLAUDE.md と skills/gate/SKILL.md に、判定者が事実を自ら確かめる行は無い。近い行(「ラベルが遷移していて判定記録が無ければ、着手せず判定者へ差し戻す」、「ラベルの遷移は判定の成立要件ではない」、implement/SKILL.md「ラベルが付いていても、判定記録が無い作業単位は未判定」)は要求事項5 の側で、判定者の確認は言わない(2026-11-15 に確認。試し c だけで規定とした。IMPL-0918 と同じ裁定。束 D 突合 D-O07)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0975 target=claude-md-resident state=delivered check=manual note="3.5.5 要求事項8。ラベルが付いていても判定者は検査の結果などの事実を自ら確かめ、ラベルを事実の代わりにしないこと。template/CLAUDE.md「受信箱とラベル」の行が書く(claude-md-resident.json の規則)。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 
 <!-- impl IMPL-0468 target=next-intake state=undelivered check=manual plan=scheduled issue=361 review=2027-05 note="要求事項5 のうち、開いている PR の判定記録を実環境で読む部分。next.mjs --pickup は state:ready-to-merge・state:qm-blocked で PR のレビューを gh api で読み、写しと同じ形で読むが、実際の GitHub の上で読み出しと承認の失効・挙動要約の読み方を確かめていない(試験は --offline と模擬の写しだけ)(#368 の突合 X-7)。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
 
@@ -1804,7 +1804,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 <!-- impl IMPL-0708 target=handoff-reference state=delivered check=manual note="3.12.3 要求事項6。指示資産のうち提供者の書式・機能に依存する記述を識別して印を付ける、四半期の棚卸し(3.11.4)の観点と印の付け方の例。.claude/skills/pit/reference/handoff.md の節「指示資産の提供者依存の棚卸し」が書く。識別と印の検査は無く、棚卸しを行う者が目で確かめる。 確かめる者: AI維持管理者(四半期の棚卸しのとき)" -->
 <!-- impl IMPL-0709 target=config-change-log state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="3.12.3 要求事項10 のうち、評価用の基準集合の範囲を狭める変更を統制を緩める向きの変更として扱うこと(3.13.3)。基準集合の範囲の承認(AI運用担当者の起案と技術判断者の記名)は IMPL-0063 が追う。範囲を狭める変更を緩める向きに分類する処理は、generate-profile.mjs の差分の分類で確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0710 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.3 要求事項12 のうち、基準集合の正解を確定した者と導入を承認した AI運用担当者が同一人物の場合に、分離が成り立たないことを依存先の一覧と保証の開示の項目5・7 に出し、層1 の受容の権限の段階で定めた権限者が期限つきで受容すること。IMPL-0406 は同一の注記を項目7 に出し、項目5 への投影は行わないと書く。期限つきの受容を照らす処理は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0711 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="3.12.3 要求事項13 のうち、正解の草案を作る AI へ評価の対象のモデルの出力を渡さないこと、確定する者に確定の前に評価の対象のモデルの出力を示さないこと、草案の一覧を一括で承認する記名と抜き取りで確かめた残りを確定に数えないこと。IMPL-0404 は草案を確定した正解として記録に書かないことを常駐の指示に置くが、これらの制限は常駐の指示に無い(CLAUDE.md の判断の確定と委任の節を読んだ)。IMPL-0406 は事例ごとの確定の記録を確かめるが、事例を人が実際に見たかは確かめない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0711 target=claude-md-resident state=delivered check=manual note="3.12.3 要求事項13 のうち、正解の草案を作る AI へ評価の対象のモデルの出力を渡さないこと、確定する者に確定の前に評価の対象のモデルの出力を示さないこと、草案の一覧の一括承認と抜き取りで確かめた残りを確定に数えないこと。template/CLAUDE.md「判断の確定と委任」の IMPL-0404 の隣の行が書く(claude-md-resident.json の規則)。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 
 ### 3.12.4 可用性と品質を分けて監視する
 

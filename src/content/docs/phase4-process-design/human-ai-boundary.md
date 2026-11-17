@@ -82,7 +82,7 @@ AI の能力は短期間で変化するため、役割境界の定義には必�
 
 要求事項2は、2026-08-05 時点の実務における到達点でもあります。エージェントによる変更の提案までを自律化し、反映の判断を人間が保持する構成は、主要な開発基盤で標準となっています。
 
-<!-- impl IMPL-0593 target=claude-md state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="不変条件のうち、不変条件2(本番環境への反映の承認は人間の記名)。CLAUDE.md の「ホスティングの上で、承認・レビュー(状態を問わない)・マージ…をしない」の行と delegation.yml の承認条件が一部を運ぶが、本番反映の承認の記名を照らす検査は IMPL-0251(5.5.1 の取り消せない操作)の範囲に限られる。不変条件1・3・4は IMPL-0689 が追う(不変条件3の外部との契約は CLAUDE.md の節「一律で AI に委譲できない領域」の箇条が置く)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0593 target=claude-md-resident state=delivered check=manual note="不変条件2(本番環境への反映の承認は人の記名)。template/CLAUDE.md「判断の確定と委任」の行が書く(claude-md-resident.json の規則)。記名を照らす検査は IMPL-0251 の範囲に限られる。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 <!-- impl IMPL-0689 target=claude-md state=delivered check=manual note="不変条件1(結果責任は人間)、不変条件3(認証・認可・個人データ・外部との契約に関わる変更の人の判断)、不変条件4(適用範囲の拡大を AI が決定しない)。template/CLAUDE.md の節「一律で AI に委譲できない領域(第5章 5.8.3・5.4.3)」が「認証・認可・個人データ・外部との契約に関わる決定」と「適用範囲(標準の適用境界)そのものの拡大」を箇条で置き、節「判断の確定と委任」が「4種類の判断の確定は席の責任者(人)が記名で行い、AI の担い手へ移さない」と置き(IMPL-0019 が追う)、行「リスク区分は変更ごとに判定」が認証・認可・個人データ・外部 IF を R1 とし、構成の riskFloor.rules を check-pr.mjs の riskFloorOf が下限として機械で課す。行「緩める向きの変更を AI が決めない」と AI の名義の記名の拒否は IMPL-0097 が追う。確かめる者: 各ロールの席の責任者(CLAUDE.md を読むとき)" -->
 
 ### 5.4.4 リスク区分による上限
@@ -612,7 +612,7 @@ graph TD
 
 **本節と 5.5.3 の上限は、既定値ではありません。推奨でもありません**([第1章 1.7.7](/process-compass/phase4-process-design/overview/)の型の外です)。案件が判断記録(ADR)を書けば緩和できる、という規定ではありません。役割境界の見直しは 5.9 によります。**見直しの結果は本章へ反映するものであり、案件側の記録で本章の要求を緩和する経路はありません**。案件が選べるのは、上限の内側での運用形態だけです。
 
-<!-- impl IMPL-0598 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="人が確定する判断3・4・6と、出荷判定者の停止権の範囲。リスク区分の機械の分類(riskFloorOf)と、分類できない変更を協働へ落とす classifyDelegation は判断3の一部を運び、CLAUDE.md と IMPL-0251 が判断4(G-7 の記名・本番反映の承認)の一部を運ぶが、判断6のうち安全の最終判断は CLAUDE.md の節「一律で AI に委譲できない領域」の箇条「安全に関する最終的な判断」が置くが理解の確認の側を運ぶ文は無く、出荷判定者の停止権の範囲は template/ を「停止権」で検索して見つからなかった(2026-11-15)。判断1は5.7.3の IMPL-0172 が追う。判断2・5と4つの席を委任しないことは IMPL-0691 が追う。この節は adopter にできない節のため scheduled とする。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0598 target=claude-md-resident state=delivered check=manual note="人が確定する判断3・6(機械の規則で判定できないリスク区分、コア機能の理解の確認、安全に関する最終的な判断)と、出荷判定者の停止権の範囲。template/CLAUDE.md「判断の確定と委任」の2行が書く(claude-md-resident.json の規則)。判断4は IMPL-0593 が追う。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 <!-- impl IMPL-0691 target=config-delegation state=delivered check=manual note="出荷判定者・事業決裁者・AI運用担当者・AI維持管理者の席を委任しないこと、判断2(委任の範囲の決定は人)、判断5(適合性確認の承認は人)。config.mjs の SEAT_CEILING が biz-approver と ai-ops を人確定、qa-gatekeeper と ai-maintainer を協働の上限とし、verify-gate-contract.mjs が上限を超える宣言を拒み、generate-profile.mjs の delegable が委任の対象を絞る。委任の範囲の決定は NEVER_DELEGATED と ruleDeciderProblems・ruleApprovalProblems(IMPL-0097 が追う)、適合性確認の承認は qualificationAuthorityProblems が人の記名に限る。置き場は降ろし先の構成の鍵 delegation の外にも分かれる(席の欄 seats と、変化点のスキル process-change)。実行は見ていない。確かめる者: 出荷判定者(構成を読むとき)" -->
 
 ### 5.5.6 席ごとの上限

@@ -375,7 +375,7 @@ AI の推定による判定を検出の層として数える条件は、次の5�
 - AI の要約だけを入力にした人の承認を、人の判定として数えること(第3章 3.10.12)
 - 推定による注意の喚起([第5章 5.8.7](/process-compass/phase4-process-design/human-ai-boundary/))。指示・発話・作業の状態を分類した注意は、成果物の欠陥を見つける確認ではないため、欠陥注入による検出率で働きを示せない
 
-<!-- impl IMPL-0907 target=claude-md-resident state=undelivered check=manual plan=scheduled issue=449 review=2027-05 note="H.4 の「生成と同じセッション・作業領域・認証情報で行った確認を、検出の層にも独立した確認にも数えない」。準拠テンプレートの CLAUDE.md には、起案したセッションが判定の草案を作らないこと(3.5.3)と、ホスティングの上の操作をしないことはあるが、同じセッション・作業領域・認証情報の確認を数えないと書いた行は無い(「セッション」「作業領域」「認証情報」で検索。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0907 target=claude-md-resident state=delivered check=manual note="H.4 の、生成と同じセッション・作業領域・認証情報で行った確認を検出の層にも独立した確認にも数えないこと。template/CLAUDE.md「判断の確定と委任」の行が書く(claude-md-resident.json の規則)。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 
 <!-- impl IMPL-0966 target=claude-md-resident state=delivered check=presence note="H.4 の「エージェントを分けた」だけを根拠にした「独立」の表示を、検出の層にも独立した確認にも数えないこと。提供元やモデルの系統の違いは IMPL-0158、役割名(ペルソナ・席名)の付与は IMPL-0639 が追う。template/CLAUDE.md「判断の確定と委任」の行『文脈を分けただけの AI の確認を「独立レビュー」と呼ばない』と、scripts/gate/claude-md-resident.json の CR-043 の核の文言が運ぶ。実物の文は「独立レビューと呼ばない」までで、検出の層に数えない側と「エージェント」の語は言わない(同じ節の『AI の確認は検出の層』の行と合わせて読む。束 D 突合 D-H03・2巡目 D2-01。2026-11-15 に確認)(単位: 行)" -->
 
