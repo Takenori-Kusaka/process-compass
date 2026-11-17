@@ -14,7 +14,7 @@ template(pit-in-template。コミット済み、push していない。bundle: `
 本体
 - `overview.md` IMPL-0120(delivered・machine)、IMPL-0309(undelivered・adopter・ADR-0165)
 - `gate-criteria.md` IMPL-0986(undelivered・adopter・ADR-0165)
-- `src/content/docs/adr/0165-statement-facts-by-aggregation-and-adopter-confirmed-resume-and-deploy-credential.md`(`b12-adr-draft.md` から。EV-0301 は仮の番号)。adr/index.md は一覧を持たないため更新なし
+- `src/content/docs/adr/0165-statement-facts-by-aggregation-and-adopter-confirmed-resume-and-deploy-credential.md`(`b12-adr-draft.md` から。EV-0312 は仮の番号)。adr/index.md は一覧を持たないため更新なし
 - 台帳(evidence-ledger・implementation-ledger)を再生成
 
 ## 検査
