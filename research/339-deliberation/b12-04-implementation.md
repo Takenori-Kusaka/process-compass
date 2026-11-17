@@ -20,3 +20,7 @@
 
 ## impl:issues --issue 339
 0件にならない。issue=339 を持つ別のマークが2つ残る: IMPL-0026(human-ai-boundary.md:526)・IMPL-0235(同:527)。いずれも state=undelivered・plan=scheduled。指示書の範囲外のため触っていない。閉じる前に議長が付け替えるか裁定する
+
+## 議長の付け替え(2026-11-17)
+
+- IMPL-0026・IMPL-0235 は issue=339 の予定のまま残っていた。どちらも note の未達は「実際の GitHub 上で実行していない」で、#339 の範囲(basis.detection の表示)の外にある。領域の合う open の Issue #361(実際の GitHub 上での検証)へ付け替えた。新規の起票はしない
