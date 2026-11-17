@@ -1,0 +1,2 @@
+{"sandbox":{"enabled":true,"autoAllowBashIfSandboxed":true,"allowUnsandboxedCommands":false},
+ "permissions":{"ask":["Edit(./scripts/gate/**)","Edit(./.github/workflows/**)","Edit(./.claude/guard.json)","Edit(./process.config.json)"]}}

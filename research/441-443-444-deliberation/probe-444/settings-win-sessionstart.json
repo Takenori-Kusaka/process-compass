@@ -1,0 +1,1 @@
+{ "hooks": { "SessionStart": [ { "hooks": [ { "type": "command", "command": "node <probe>/hook-dump.mjs <probe>/sessionstart.jsonl", "timeout": 15 } ] } ] } }

@@ -1,0 +1,2 @@
+{"sandbox":{"enabled":true,"autoAllowBashIfSandboxed":true,"allowUnsandboxedCommands":false},
+ "permissions":{"deny":["Edit(./scripts/gate/**)","Edit(./.github/workflows/**)"]}}

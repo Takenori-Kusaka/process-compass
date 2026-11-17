@@ -1,0 +1,5 @@
+#!/bin/sh
+# probe: add the run id trailer from the environment the agent's shell passes to git
+if [ -n "$CLAUDE_CODE_SESSION_ID" ]; then
+  git interpret-trailers --in-place --if-exists doNothing --trailer "Agent-Run: $CLAUDE_CODE_SESSION_ID" "$1"
+fi
