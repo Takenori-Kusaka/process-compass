@@ -11,6 +11,8 @@ sidebar:
 
 「検討した選択肢」で先送りした「人数ではなく、組織上の距離で強さを上げる」は、[ADR-0088](/process-compass/adr/0088-organizational-distance-steps-and-cl1-stage-relaxation/)の決定1〜3 で扱いました。距離は人数を置き換えず、別の軸として足します。本 ADR の決定1〜5 は維持します。決定5 の帰結であるルールセット `safety` は、ADR-0088 の決定6 で記録しました(2026-10-24)。
 
+一部置き換え(→ [ADR-0161](/process-compass/adr/0161-seeded-error-blinding-by-separating-surfaces-and-counting-misses-by-scope/) 決定5): 決定2 の「検出能力の低下を検知された者の承認を単独では数えない」を、「検出能力の低下が測定された範囲で、承認を単独では数えない」へ置き換えます(2026-11-17)。
+
 ## コンテキスト
 
 [#305](https://github.com/Takenori-Kusaka/process-compass/issues/305) は、承認者を2名とする規定に目的が書かれていないことを指摘しました。指摘をそのまま条項にせず、調査・会議体・突合の順で扱いました。記録は `research/302-310-deliberation/`(`survey-305.md`、`council-A-01`〜`05`、`decision.md` の A-8〜A-10)にあります。

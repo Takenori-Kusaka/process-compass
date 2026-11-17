@@ -59,6 +59,40 @@ flowchart LR
 - 発行の後に本標準を変えると、知識ベースの版は `null`(作業中の版。`basedOn` が発行した版)になる。乖離の検査が再生成を求めるので、`npm run template:kb` を実行する。準拠テンプレートは、版を持たない知識ベースからは、構成の版を発行した版へ切り替えない
 - 版の解決は `npm run test:edition` が一時の git リポジトリで確かめる
 
+## 受け取り側が生成元を確かめる手順
+
+本標準は、この確認を採用者に課しません([ADR-0157](/process-compass/adr/0157-recipient-origin-check-is-guidance-and-kb-source-limited-to-main-history/))。適用の表明の読み手・監査する者・採用者のだれでも、適用の開始と版の切り替えのときに行えます。確かめた結果を表明に添えてもかまいません。
+
+確かめるのは2つの条件です。標準の正本のリポジトリ(`https://github.com/Takenori-Kusaka/process-compass`)から履歴ごと取得した clone(`origin/main` と `origin/dist/standard` を持つもの)の中で実行します。fork や、配布物の中の `VERSION.md` の「出所」の値は、正本の代わりに使いません(どちらも自由に書けるため)。以下の `S` は名指されたコミット、`D` は `dist/standard` のコミットです。
+
+| 取り込みの形 | 条件1(来歴) | 条件2(中身) |
+| --- | --- | --- |
+| `dist/standard` のコミット `D` を固定する | `D` の `VERSION.md` の「コミット」の値を `S` とする。`git merge-base --is-ancestor S origin/main` が成功する。`git merge-base --is-ancestor D origin/dist/standard` が成功する(`D` が `dist/standard` の履歴の上にある)。`D` の `tailoring-kb.json` の `source.commit` が `S` と一致する | `git diff --quiet S:src/content/docs D:docs` が成功する |
+| 準拠テンプレートの同梱の知識ベース(`scripts/vendor/tailoring-kb.json`、`source.commit` が `S`) | `git merge-base --is-ancestor S origin/main` が成功する | `git log origin/dist/standard --fixed-strings --grep=S --format=%H` で `source.commit` が `S` の配布のコミット `D` を見つけ、`git show D:tailoring-kb.json` と同梱の知識ベースが `cmp` でバイト一致する。`D` が無いときは「未確認」とし、「一致」とも「不一致」とも書かない |
+
+- 同梱の知識ベースの比較は、`git show <テンプレートのコミット>:scripts/vendor/tailoring-kb.json` で取り出したものに対して行う(作業ツリーのファイルは、改行コードの自動変換でバイトが変わりうる)
+- 条件1 の `D` の確認は、`dist/standard` の履歴の外に置いた配布物(`docs/` が同じで、`tailoring-kb.json` の判定基準だけを差し替え、`source.commit` は `S` のまま)を落とすために置く。`docs/` の比較と `source.commit` の一致だけでは通る
+- 配布のコミットの題に生成元のコミットが入る現行の形(「標準の本文を配布する (S)」)に、準拠テンプレートの同梱の知識ベースの行の `D` の探し方は依る。題の形が変わると、正しい配布物も「未確認」になる(誤って通す向きではない)
+- 同じ `S` の配布のコミットが複数あるとき(再実行)は、いずれか1つと一致すればよい
+- 確かめられるのは、名指したコミットが確かめた時点で既定ブランチの上にあること、`dist/standard` のコミットなら `dist/standard` の履歴の上にあること、`docs/` の本文が CI の生成物と一致すること、同梱の知識ベースが配布のコミットの知識ベースと一致すること
+- 本文が正しいことは確かめない
+- 確かめた後の既定ブランチの書き換えは検出しない
+- 保守者の権限で既定ブランチへ書かれた変更は、CI が配布するため検出しない
+- 書き込みの権限を持つ者が `dist/standard` へ早送りで積んだコミット(知識ベースの差し替えを含む)は検出しない。`dist/standard` の更新はルールセットで限っていない([プロジェクト運営](/process-compass/community/project-management/))。`VERSION.md` の実行の番号と Actions の実行の記録との突き合わせは、ADR-0090 決定8 の候補のままである
+- `D` が正本の clone に無いときは、条件1 を満たさないものとする(失敗の向きは通さない側である)
+
+手順は、使い捨ての git リポジトリに作った例で確かめました。正常な配布物は両条件を通ります。次の配布物は条件1 の `D` の確認で落ちます。`VERSION.md` と `source.commit` に実在の `S` を書き、`docs/` は同じで `tailoring-kb.json` の判定基準だけを差し替えて `dist/standard` の履歴の外に置いた配布物です。`docs/` の比較と `source.commit` の一致だけでは通ります。`VERSION.md` に実在の `main` のコミットを書いて本文を1文変えた配布物は、条件1 を通り、条件2 で落ちます(祖先の確認だけでは通ります)。`main` に無い枝のコミットを名指した配布物は条件1 で落ち、`VERSION.md` と知識ベースの `source.commit` が食い違う配布物も条件1 で落ちます。実物では、`dist/standard` の本文と生成元の本文の差が空であること、同梱の知識ベースの `source.commit` を直して判定基準の1行を変えた写しが条件2 で落ちることを確かめました。
+
+**既知の食い違い(2026-11-17)**: 準拠テンプレートの main が同梱する知識ベースの `source.commit`(59425d2e21db…)は、標準の `main` の祖先ではありません。上の手順は、条件1 でこれを不一致とします。なお知識ベースの中身は、`source.commit` の行を除いて `dist/standard` の知識ベース(生成元 154c2086…)とバイト一致しました。誤っているのは識別だけです。配る側の検査(標準の履歴の上にあることを求める)は、標準のリポジトリの検査としてはまだ実装しておらず(降りていない)、降ろすまでこの食い違いは直りません。検査は、準拠テンプレートの知識ベースを再生成する束で入れる予定です([ADR-0157](/process-compass/adr/0157-recipient-origin-check-is-guidance-and-kb-source-limited-to-main-history/) の決定3)。
+
+:::caution[暫定 EV-0301 / 見直し 2027-05]
+**対象**: 受け取り側が、2つの条件で、名指したコミットの偽装、`docs/` の差し替え、`dist/standard` の履歴の外に置いた知識ベースの差し替えを検出できること。`dist/standard` へ早送りで積まれた差し替えは対象に含めない。
+**根拠の水準**: E1(間接)。
+**差し替え条件**: 採用者または監査する者が実際に手順を行った記録が1件以上できたとき、実施で食い違いが見つかれば見直します。
+
+手順が偽装を落とすことは、使い捨ての git リポジトリの例と、2026-11-17 の `dist/standard` および準拠テンプレートの同梱の知識ベースの1時点で確かめただけです。確認は1時点の事実で、既定ブランチの書き換えの後は結果が変わります。
+:::
+
 ## 引用規格の棚卸し
 
 版を発行するたびに、修正 M を含めて、本標準が引く規格と文書の改訂の有無を確かめます。
@@ -115,3 +149,4 @@ flowchart LR
 - **移行の期間と旧い版の失効を定めない**。旧い版に従う案件は、旧い版への主張を期限なく続けてよい(第1章 1.10.3、EV-0159)
 - 版の発行の周期を定めない。改訂の内容で発行を決める
 - 版ごとの英語の名称を定めない。英語の版を設けるときに決める
+- 受け取り側の生成元の確認を採用者に課さない。確認の結果の併記も求めない([ADR-0157](/process-compass/adr/0157-recipient-origin-check-is-guidance-and-kb-source-limited-to-main-history/)。手順は上の節に置く)
