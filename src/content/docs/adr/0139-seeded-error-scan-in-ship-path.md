@@ -15,8 +15,8 @@ sidebar:
 | --- | --- |
 | [ADR-0076](/process-compass/adr/0076-inventory-of-implementation-marking-targets/) | 維持する。IMPL-0047 の番号と意味(残存の確認)を保って降ろす |
 | [ADR-0084](/process-compass/adr/0084-check-strength-plans-and-resident-rules/) 決定4 | 維持する。`adopter` の理由と採用者に求めることは下の表に書く。理由を書けない規定は `scheduled` に置く |
-| [ADR-0067](/process-compass/adr/0067-adoption-trial-design/) 決定6 | 動かさない。導入前の検証の記録は見つける者ごとの記録(`perFinder`)を持つ |
-| [ADR-0133](/process-compass/adr/0133-secrecy-failure-disclosure/) 決定5 | 触れない。運用中の未測定の要求は決めない |
+| [ADR-0067](/process-compass/adr/0067-purpose-of-two-approvers/) 決定6 | 動かさない。導入前の検証の記録は見つける者ごとの記録(`perFinder`)を持つ |
+| [ADR-0133](/process-compass/adr/0133-no-conditions-or-compensating-measures-for-unlisted-deviations/) 決定5 | 触れない。運用中の未測定の要求は決めない |
 
 ## コンテキスト
 
