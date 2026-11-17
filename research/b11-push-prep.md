@@ -32,3 +32,8 @@ origin/main(54c143f8)の上へ 22 コミットを rebase した。衝突は impl
 - `npm run check` 通常 exit 0、`TZ=UTC npm run check` exit 0。失敗なし。
 - 備考: 初回の写しは `git archive` を既定の設定(core.autocrlf=true)で作ったため template が CRLF になり、`test-discouraged-evidence`・`test-g5-aggregate` が落ちた。`-c core.autocrlf=false -c core.eol=lf` で作り直して解消した。B11 の変更による失敗ではなく、写しの作り方による偽の FAIL。
 - 写しは消した。
+
+## B8 の push(main 5366e4e3、template 2f80544)の上への載せ直し(2026-11-17)
+
+- 衝突は implementation-ledger.md(自動生成)と graphify-out だけ。本文の衝突なし。指揮役の指示(衝突が無ければ関係する検査だけ流し直す)に従い、回帰の全量は流し直していない
+- 台帳を再生成した後、Windows で次の検査が終了コード 0: lint:refs・lint:impl・lint:evidence・lint:sources・lint:citations・lint:scope・test:fields・lint:provisions・test:provisions・test:impl・test:template・test:criteria・test:engine・lint:registry・test:edition、複製の検査(check-template-drift)

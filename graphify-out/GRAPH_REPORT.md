@@ -1,16 +1,16 @@
 # Graph Report - b11  (2026-11-17)
 
 ## Corpus Check
-- 2111 files · ~2,459,754 words
+- 2121 files · ~2,464,604 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 94936 nodes · 97974 edges · 8438 communities (8324 shown, 114 thin omitted)
+- 95016 nodes · 98108 edges · 8439 communities (8323 shown, 116 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 120 edges (avg confidence: 0.7)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cb4dcea8`
+- Built from commit: `c0dc3d3b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,7 +18,7 @@
 - ウォーターフォール開発プロセス 調査メモ
 - エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)
 - プロセス表示のスキーマ駆動化: 既存 OSS / DSL 調査
-- fix288-tpl2/suite/new.mjs
+- push-trigger.mjs
 - 日本企業のガバナンス・決裁ゲートの実態 調査メモ
 - エージェント型開発(自律・マルチエージェント)の現在地 調査メモ
 - コンテキスト移管ゲート(ブートストラップ・プロセス)一次調査メモ
@@ -75,7 +75,7 @@
 - 台帳駆動の返却サイクル
 - 画像生成ワークフロー
 - Mermaid 作図規約
-- fix288-tpl2/suite/lib.mjs
+- ref_node_fs
 - 作図規約の検討メモ(2026-07-08)
 - 付録: 公式出典の一覧(生成)
 - 0001-public-adr.md
@@ -310,7 +310,7 @@
 - モデル・ツールの年表(2026-06〜09)
 - 284・285 会議体 意見書04: 規格・法務・安全役(2026-09-30)
 - decision-refs.mjs
-- test-provisions.mjs
+- check-provisions.mjs
 - 3.5 兼務ルール(許可 / 禁止)
 - 決定
 - 0032-executive-summary-as-projection.md
@@ -521,8 +521,8 @@
 - N6
 - N8
 - M5
-- N13
-- generate-profile.mjs
+- build-template-kb.mjs
+- next.mjs
 - 承認・判定の記録に規制・規格が求めるもの — 手入力帳票とシステム監査証跡の比較
 - 3. 論点ごとの判定
 - 1. 論点ごとの記録
@@ -2639,7 +2639,7 @@
 - c2
 - c1
 - claims
-- c2
+- claims
 - c1
 - claims
 - c2
@@ -3187,7 +3187,7 @@
 - stages
 - constraints
 - 意見書: 規格(standards)— #418 7.6 のエスカレーションの段階の報告先と、確約範囲の変動の扱い
-- fix288-tpl2/suite/scenarios.mjs
+- test-check-ci-wiring.mjs
 - arxiv
 - quotes
 - arxiv
@@ -3552,7 +3552,7 @@
 - c4
 - verification
 - c2
-- c3
+- check-recalibration-registry.mjs
 - c4
 - c5
 - c6
@@ -3652,7 +3652,7 @@
 - c3
 - verification
 - verification
-- claims
+- c3
 - c4
 - c6
 - c7
@@ -7472,7 +7472,7 @@
 - 6. OSS ガバナンス — 「使うときの管理」に閉じているか
 - 8. 日本の実態 — 建前と実運用の乖離(追加調査)
 - 9. 反対側 — 依存を増やすリスク
-- #239 適用範囲マークの仕組みが動いているのに届いていない
+- exception-expiry.mjs
 - 7. 過去の Issue
 - 2. 行数以外にレビュー負荷を規定する要因
 - 6. レビュー SLA の実務
@@ -7818,7 +7818,7 @@
 - #334 push の準備(担当の記録。push はしていない)
 - 所見
 - #353 委員「起案」の意見(重。2026-11-15)
-- build-template-kb.mjs
+- check-gate-criteria.mjs
 - #334 実装の記録
 - #353 委員の意見: 品質監査(適合の主張を外から読む者・確かめる者の立場)
 - 反対の委員の意見(Issue #324 実装マークの節の棚卸し)
@@ -7903,7 +7903,7 @@
 - #374 の実装の記録
 - #355 束3 1巡目の所見の直し(標準の担当)
 - #355 束3 独立の突合 2巡目の所見への議長の裁定(直しの指示)
-- ref_node_fs
+- ref_node_child_process
 - #329 起案の委員の意見書(重の会議体)
 - 5. 議長の裁定が要る点への意見
 - 引き継ぎの記録 10(Issue #324 実装の担当 10人目。範囲: 附属書H)
@@ -7974,12 +7974,12 @@
 - comment-355.md
 - comment-444.md
 - Issue #353 独立の突合 2巡目の直し(2026-11-15)
-- gate/cl-judgment.mjs
+- check-template-fields.mjs
 - 条件5
 - 要求事項1
 - 要求事項3
 - 要求事項6
-- check-provisions.mjs
+- changed-scenes.mjs
 - calibration-answers.md
 - ruling-C1.md
 - ruling-C2-D.md
@@ -8116,7 +8116,7 @@
 - owner-answers-2026-11-17.md
 - #319 第2段の実装の記録
 - SRC-0751.yaml
-- fix288-tpl2/suite/v3.mjs
+- check-claim-terms.mjs
 - b1-fix-round1.md
 - b1-fix-round1-ruling.md
 - b1-fix-round2.md
@@ -8147,7 +8147,7 @@
 - #330 受付と内部の調査
 - Issue #327 独立の突合(2巡目・直した差分)(2026-11-17)
 - #327 外部の調査(論点6 を中心に)
-- fix288-tpl2/suite/verify-n.mjs
+- 2. 所見
 - Issue #440 委員「規格」の意見(重。2026-11-17)
 - 1. 論点ごと
 - #355 束2 議長の裁定の案(重。IMPL-0045・0044・0046・0548・0042・0136・0981)
@@ -8196,7 +8196,7 @@
 - #330 実装の記録
 - #337 実装の記録
 - Issue #327 実装の記録(2026-11-17)
-- check-delegation.mjs
+- g5-local.mjs
 - size-observation.mjs
 - test-env-check.mjs
 - test-ship-evidence-steps.mjs
@@ -8239,12 +8239,12 @@
 - 所見の詳細と直し方の案
 - Issue #440 独立の突合 2巡目(直した差分だけ。2026-11-15)
 - deny
-- fix288-tpl2/suite/replay.mjs
+- 2. 所見
 - mixed-change-point.mjs
-- guard-bash.mjs
+- ref_node_url
 - 企画書(事業意図)
-- test-name-confirmation-timing.mjs
-- fix288-tpl2/suite/v3b.mjs
+- guard-write.mjs
+- Issue #353 準拠テンプレートに及ぶ7項目の実装の記録(2026-11-17)
 - 所見
 - #355 束2 内部の調査(IMPL-0045・0044・0046・0042、IMPL-0136 の SLA の判定、3.11.7 の対)
 - 企画書(事業意図)
@@ -8254,8 +8254,8 @@
 - 3. 所見
 - 企画書(事業意図)
 - 企画書(事業意図)
-- fix288-tpl2/suite/lib288.mjs
-- ta.mjs
+- 束 B11 の載せ直しと番号の付け直し
+- c1
 - Issue #332 受付と調査(内部・外部)
 - regress/suite/matrix-sweep.mjs
 - 手順
@@ -8269,14 +8269,14 @@
 - 判定記録の共通の欄
 - 手順
 - fix288-r3/trial.mjs
-- trial-r7.mjs
+- 3.3 外部の規格・実務(出典つき)
 - #356 B 委員 03 意見書(品質監査)
 - #356 B 委員04 意見書(立場: 規格)
 - 決定
 - 決定
 - 手順
 - tpl2-new/suite/unit.mjs
-- fix288-tpl2/suite/trial.mjs
+- #353 template の7項目 独立の突合 1巡目の所見の直し(2026-11-17)
 - Issue #326 起案の委員の意見書
 - Issue #326 反対の委員の意見書
 - 争点ごとの意見
@@ -8292,7 +8292,7 @@
 - 手順
 - template/.github/PULL_REQUEST_TEMPLATE.md
 - ブランチ保護
-- seeded-error-scan.mjs
+- #247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない
 - #326 実装の記録(本体の項目 1・2・3・4・5・14・15 と重の項目 12、2026-11-15)
 - #332 起案委員の意見書(軽の会議体、2026-11-17)
 - 1. 規定ごとの意見
@@ -8300,13 +8300,13 @@
 - 裁定(Issue #313 標準の版・適用の終了・逸脱と適合の主張)
 - 所見
 - 新しい所見
-- verifyCard
+- T2
 - 決定
 - テンプレ0: 意思決定・エスカレーション体制図(D-0)
 - 手順
 - 役割境界と委譲の制限
 - 手順
-- fix288-tpl2/suite/tz.mjs
+- template-fix-round1-ruling.md
 - 独立の突合 1巡目(全体)— #348 Q1・#340 Q2
 - #438 実装の記録
 - テンプレ10: 前提の台帳
@@ -8330,7 +8330,7 @@
 - #355 束2 会議体の議題(重・5委員)
 - #356 B 実装の記録
 - #356 B 独立の突合(2巡目、直した差分だけ)
-- extract.mjs
+- template-fix-round2.md
 - #430 前半(名簿の数値の識別子による照合)の実装の記録
 - 障害時に使う記録
 - G-5 自動検証(CI)
@@ -8445,16 +8445,17 @@
 - ref_tpl_scripts_gate_config_mjs
 - scripts_regress_suite_lib_regressaccountid
 - scripts_regress_suite_lib_rosteraccount
+- template-fix-round2-ruling.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `付録: 公式出典の一覧(生成)` - 72 edges
-2. `ROOT` - 65 edges
+2. `ROOT` - 66 edges
 3. `isFilledValue()` - 64 edges
 4. `analyzePr()` - 63 edges
-5. `open Issue 全件の突合(2026-10-08)` - 59 edges
-6. `buildConfig()` - 58 edges
+5. `buildConfig()` - 59 edges
+6. `open Issue 全件の突合(2026-10-08)` - 59 edges
 7. `Issue 別の根拠索引` - 54 edges
-8. `computeNext()` - 50 edges
+8. `computeNext()` - 52 edges
 9. `付録 A. 事前点検への適応を足した場合に落ちる 47 場面(出力と差分)` - 48 edges
 10. `scripts` - 45 edges
 
@@ -8463,17 +8464,17 @@
   tmp/EXECUTION_PLAN.md → src/lib/process-diagrams.ts
 - `操作(`scripts/research-ledger.mjs`)` --references--> `lint()`  [INFERRED]
   research/sources/README.md → scripts/research-ledger.mjs
+- `lint()` --indirect_call--> `sub()`  [INFERRED]
+  scripts/research-ledger.mjs → template/scripts/gate/test-push-trigger.mjs
 - `操作(`scripts/research-ledger.mjs`)` --references--> `index()`  [INFERRED]
   research/sources/README.md → scripts/research-ledger.mjs
 - `aiReviewAllowlistProblems()` --indirect_call--> `must()`  [INFERRED]
   template/scripts/gate/base-judge.mjs → scripts/regress/suite/lib-r3.mjs
-- `lint()` --indirect_call--> `d()`  [INFERRED]
-  scripts/research-ledger.mjs → template/scripts/gate/test-aggregate-drift.mjs
 
 ## Import Cycles
 - 3-file cycle: `template/scripts/gate/autonomy.mjs -> template/scripts/gate/check-pr.mjs -> template/scripts/gate/delegation.mjs -> template/scripts/gate/autonomy.mjs`
 
-## Communities (8438 total, 114 thin omitted)
+## Communities (8439 total, 116 thin omitted)
 
 ### Community 0 - "ウォーターフォール開発プロセス 調査メモ"
 Cohesion: 0.12
@@ -8487,9 +8488,9 @@ Nodes (32): 0. 要約: この4週間〜3か月で何が変わったか, 10. 出�
 Cohesion: 0.06
 Nodes (35): 1. BPMN 2.0(OMG 標準)+ bpmn-js, 2. SPEM 2.0 / Eclipse Process Framework (EPF) Composer, 3. Structurizr DSL / C4 model, 4.1 Mermaid, 4.2 PlantUML, 4.3 D2, 4.4 Kroki, 4. テキスト DSL 勢(Mermaid / PlantUML / D2 / Kroki) (+27 more)
 
-### Community 3 - "fix288-tpl2/suite/new.mjs"
-Cohesion: 0.04
-Nodes (38): again, again2, blank, { check, refused, accepted, done }, cl1, drop, early, envBase (+30 more)
+### Community 3 - "push-trigger.mjs"
+Cohesion: 0.05
+Nodes (54): brokenReferences(), contextFiles(), gitignoreMatcher(), ADR-0084, referencesOf(), aggregateFindings(), G5_AGGREGATE_JOB, G5_CRITERION_JOBS (+46 more)
 
 ### Community 4 - "日本企業のガバナンス・決裁ゲートの実態 調査メモ"
 Cohesion: 0.06
@@ -8715,9 +8716,9 @@ Nodes (5): コマンド, ビジュアル規約(サイト全体の統一感), 使
 Cohesion: 0.33
 Nodes (5): Mermaid 作図規約, スタイル規約, 書き方, 記法の選択ガイド, 階層構造の表現(本プロジェクトの核)
 
-### Community 60 - "fix288-tpl2/suite/lib.mjs"
-Cohesion: 0.06
-Nodes (39): before, { check, refused, done }, { git, write, read, cfg, gen, contract, checkD0, checkRules, d0 }, r, APPOINTER, BASE, checker(), fill() (+31 more)
+### Community 60 - "ref_node_fs"
+Cohesion: 0.01
+Nodes (279): ref_node_fs, ref_node_path, before, { check, refused, done }, { git, write, read, cfg, gen, contract, checkD0, checkRules, d0 }, r, { check, done }, cond() (+271 more)
 
 ### Community 61 - "作図規約の検討メモ(2026-07-08)"
 Cohesion: 0.33
@@ -9117,7 +9118,7 @@ Nodes (48): id, inputs, name, outputs, roles, summary, tasks, category (+40 more
 
 ### Community 165 - "check-impl-plan-issues.mjs"
 Cohesion: 0.09
-Nodes (40): ARGS, argValue(), gh(), ghStateOf(), KNOWN_FLAGS, LEDGER, main(), memo() (+32 more)
+Nodes (38): ARGS, argValue(), gh(), ghStateOf(), KNOWN_FLAGS, LEDGER, main(), memo() (+30 more)
 
 ### Community 166 - "review-burden-measurement.md"
 Cohesion: 0.12
@@ -9317,7 +9318,7 @@ Nodes (5): コンテキスト, ステータス, 影響, 検討した選択肢, �
 
 ### Community 215 - "check-impl.mjs"
 Cohesion: 0.03
-Nodes (88): args, base, baseline, checkCounts, CHECKS, collect(), countChecks(), DECISION_SECTIONS (+80 more)
+Nodes (89): args, base, baseline, checkCounts, CHECKS, collect(), countChecks(), DECISION_SECTIONS (+81 more)
 
 ### Community 216 - "0024-decision-as-risk-acceptance.md"
 Cohesion: 0.33
@@ -9635,9 +9636,9 @@ Nodes (23): 0. 読めた範囲と読めていない範囲, 1. 結論, 284・285 
 Cohesion: 0.09
 Nodes (29): ADR-0036, ADR-0089, rows, adrCache, adrDecisions(), adrDir, adrFiles, byProblems() (+21 more)
 
-### Community 297 - "test-provisions.mjs"
-Cohesion: 0.07
-Nodes (40): ADR-0156, RULES, violations, findVariants(), hasCommentMark(), hasMark(), hasRefOk(), hasToneOk() (+32 more)
+### Community 297 - "check-provisions.mjs"
+Cohesion: 0.03
+Nodes (75): ADR-0156, anywhere, chapterPages, citeFiles, excluded(), EXT, guideFiles, informativeAnnexes (+67 more)
 
 ### Community 298 - "3.5 兼務ルール(許可 / 禁止)"
 Cohesion: 0.18
@@ -10285,7 +10286,7 @@ Nodes (46): 0. 先に結論(要約), 1.1 何が記録として要求されるか
 
 ### Community 461 - "Issue #300 決定の反映の記録"
 Cohesion: 0.12
-Nodes (15): Issue #300 決定の反映の記録, M4, M7, N5, N7, `src/content/docs/index.mdx` — トップページ「ピットイン方式」の節へ、状況・疑問から読む先を引く表を新設(リンクだけ。Zenn 概要記事へのリンクは現行のまま残した), `src/content/docs/phase4-process-design/assurance-case.md` — 附属書H 使えない表現の表(「独立検証済み」「第三者レビュー済み」の行)。附属書A A.5・附属書D の表記へ揃えた, `src/content/docs/phase4-process-design/human-ai-boundary.md` — 第5章 5.4.6 の表の直後(「自動承認の比率」が最初に出る箇所)へ根拠水準マークを追加 (+7 more)
+Nodes (15): Issue #300 決定の反映の記録, M4, M7, N13, N5, N7, `src/content/docs/index.mdx` — トップページ「ピットイン方式」の節へ、状況・疑問から読む先を引く表を新設(リンクだけ。Zenn 概要記事へのリンクは現行のまま残した), `src/content/docs/phase4-process-design/human-ai-boundary.md` — 第5章 5.4.6 の表の直後(「自動承認の比率」が最初に出る箇所)へ根拠水準マークを追加 (+7 more)
 
 ### Community 462 - "C. 調査で新たに見つかった論点"
 Cohesion: 0.14
@@ -10316,8 +10317,8 @@ Cohesion: 0.17
 Nodes (12): 2.2 標準側の既存の記述(逐語、所在), (a) 第3章 3.2 責任の種類(`roles-responsibilities.md`), (b) 第8章 軸D の表(`tailoring-guide.md`「軸D: 開発形態による調整」), (c) 軸D「判定をどちらの組織へ置くか」, (d) 軸D「強制層をどちらが所有するか」「受領する記録が保証するもの」, (e) 軸D「発注側に読解の帯域がない場合」, (f) 第8章 例3, (g) 第6章 テンプレ8「AI-SLA 合意確認書(委託契約の添付)」(`deliverable-templates.md`) (+4 more)
 
 ### Community 469 - "3. M7: 外部の確認者の調達方法"
-Cohesion: 0.17
-Nodes (12): 3.1 本の主張(逐語), 3.3 外部の規格・実務(出典つき), 3.4 矛盾・重複・古い箇所, 3.5 採る場合の置き場所の候補と直すべき点、採らない場合の理由の候補, 3.6 確認できなかったこと, 3. M7: 外部の確認者の調達方法, 公開すればレビューが来るか, 守秘義務のあるコードで社外の確認者を使うときの論点 (+4 more)
+Cohesion: 0.29
+Nodes (7): 3.1 本の主張(逐語), 3.4 矛盾・重複・古い箇所, 3.5 採る場合の置き場所の候補と直すべき点、採らない場合の理由の候補, 3.6 確認できなかったこと, 3. M7: 外部の確認者の調達方法, 採らない場合の理由の候補, 採る場合
 
 ### Community 470 - "1.2 標準側の既存の記述(逐語、所在)"
 Cohesion: 0.18
@@ -10425,7 +10426,7 @@ Nodes (4): 0. 先に結論(項目ごとの要点), 4. 3 項目に共通する事
 
 ### Community 496 - "aggregate-evidence.mjs"
 Cohesion: 0.01
-Nodes (333): ADR-0021, ADR-0034, addDeveloper(), approvalCountOfCopy(), approvalMinutes(), arg(), BASE_COPIES_DIR, commitInstructors() (+325 more)
+Nodes (353): ADR-0021, ADR-0034, addDeveloper(), approvalCountOfCopy(), approvalMinutes(), arg(), BASE_COPIES_DIR, commitInstructors() (+345 more)
 
 ### Community 497 - "ゲート判定の記録としての GitHub PR 承認: 永続性・改変可能性・既定ブランチへの固定"
 Cohesion: 0.06
@@ -10467,9 +10468,13 @@ Nodes (3): N6, `src/content/docs/phase4-process-design/roles-responsibilities.md
 Cohesion: 0.67
 Nodes (3): N8, `src/content/docs/phase4-process-design/roles-responsibilities.md` — 第3章 3.5 確認者の表(1名体制の行), `src/content/docs/phase4-process-design/roles-responsibilities.md` — 第3章 3.5 確認者の表(2名体制で相手も関与した変更の行)。第8章 軸A の体制の表の列挙へ揃えた
 
-### Community 509 - "generate-profile.mjs"
-Cohesion: 0.01
-Nodes (302): ADR-0070, key(), MIN_SAMPLE, WINDOW_MONTHS, config, D0, days, emptyCells (+294 more)
+### Community 508 - "build-template-kb.mjs"
+Cohesion: 0.07
+Nodes (38): ADR-0062, ref_github_slugger, ambiguousTerms(), args, buildKb(), clauseScopes(), defaultOut(), gateAnchors() (+30 more)
+
+### Community 509 - "next.mjs"
+Cohesion: 0.03
+Nodes (115): ADR-0070, render(), isGateActive(), MODE_LABEL, reviewersRequiredOf(), trackedFiles(), clarificationStep(), cmd() (+107 more)
 
 ### Community 510 - "承認・判定の記録に規制・規格が求めるもの — 手入力帳票とシステム監査証跡の比較"
 Cohesion: 0.06
@@ -10624,8 +10629,8 @@ Cohesion: 0.09
 Nodes (22): 1. 立場と全体の見立て, 2. 判定の一覧表, 3.10 D-10 IMPL-0049 の後の歯止め, 3.11 D-11 探索の記録の量, 3.12 D-12 「減らす」手続(ADR・成果物の文脈), 3.13 D-13 同種の不具合の昇格(class-lock), 3.14 D-14 値が正しいことと効いていること, 3.15 D-15 範囲の外と食い違い 13 件 (+14 more)
 
 ### Community 548 - "research-ledger.mjs"
-Cohesion: 0.10
-Nodes (46): 操作(`scripts/research-ledger.mjs`), adjudicationTasks(), args, blindTasks(), bundles(), canonicalize(), cell(), claimNumbers() (+38 more)
+Cohesion: 0.08
+Nodes (56): 操作(`scripts/research-ledger.mjs`), adjudicationTasks(), args, arxivWait(), blindTasks(), bundles(), canonicalize(), cell() (+48 more)
 
 ### Community 549 - "SRC-0121.yaml"
 Cohesion: 0.07
@@ -18935,9 +18940,9 @@ Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict,
 Cohesion: 0.22
 Nodes (9): claims, evidenceKind, id, issues, locator, quote, rqs, stance (+1 more)
 
-### Community 2626 - "c2"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+### Community 2626 - "claims"
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 2627 - "c1"
 Cohesion: 0.22
@@ -18968,8 +18973,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
 
 ### Community 2634 - "c1"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
 
 ### Community 2635 - "c1"
 Cohesion: 0.22
@@ -18996,8 +19001,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
 
 ### Community 2641 - "c2"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
 
 ### Community 2642 - "claims"
 Cohesion: 0.22
@@ -19016,8 +19021,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 2646 - "c2"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 2647 - "c1"
 Cohesion: 0.22
@@ -19112,8 +19117,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
 
 ### Community 2670 - "c1"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
 
 ### Community 2671 - "c4"
 Cohesion: 0.22
@@ -19336,8 +19341,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 2726 - "c3"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
 
 ### Community 2727 - "c2"
 Cohesion: 0.22
@@ -19400,8 +19405,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
 
 ### Community 2742 - "c1"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
 
 ### Community 2743 - "c3"
 Cohesion: 0.22
@@ -19412,8 +19417,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 2745 - "c2"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 2746 - "c2"
 Cohesion: 0.22
@@ -19912,8 +19917,8 @@ Cohesion: 0.22
 Nodes (11): date, reason, verdict, adjudication, adjudication, extractedQuote, extractedValue, locator (+3 more)
 
 ### Community 2870 - "c1"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
 
 ### Community 2871 - "c1"
 Cohesion: 0.22
@@ -20124,8 +20129,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
 
 ### Community 2923 - "c1"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
 
 ### Community 2924 - "claims"
 Cohesion: 0.22
@@ -20484,8 +20489,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
 
 ### Community 3013 - "c2"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
 
 ### Community 3014 - "c1"
 Cohesion: 0.22
@@ -20532,8 +20537,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
 
 ### Community 3025 - "c1"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
 
 ### Community 3026 - "adjudication"
 Cohesion: 0.50
@@ -20608,8 +20613,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 3044 - "c1"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
 
 ### Community 3045 - "c1"
 Cohesion: 0.22
@@ -20692,8 +20697,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, verification, agent, date, humanChecked, method, note (+1 more)
 
 ### Community 3065 - "c3"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
 
 ### Community 3066 - "c3"
 Cohesion: 0.22
@@ -20828,8 +20833,8 @@ Cohesion: 0.22
 Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 3099 - "c3"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
 
 ### Community 3100 - "c2"
 Cohesion: 0.22
@@ -21127,9 +21132,9 @@ Nodes (7): constraints, description, id, name, rationale, source, schemaVersion
 Cohesion: 0.06
 Nodes (31): R-1 段階ごとの報告先を、本標準の語で何と書くか, R-2 段階ごとに、報告を受けた者が何を決めるか, R-3 確約範囲(SC-M)の変動が、価値責任者の単独の判定にならないための歯止め, R-4 閾値の数値の扱い, R-5 D-0 と準拠テンプレート, R-6 記録, 内部, 前提として確かめた事実(議題の要旨に足すもの) (+23 more)
 
-### Community 3174 - "fix288-tpl2/suite/scenarios.mjs"
-Cohesion: 0.05
-Nodes (37): addRule, before, blockedChange, { check, refused, accepted, done }, CLAUDE_D, cls, DELEGATE_DEV, digest (+29 more)
+### Community 3174 - "test-check-ci-wiring.mjs"
+Cohesion: 0.09
+Nodes (35): DIR, ADR-0077, ADR-0089, problems, ROOT, workflows, asArray(), bypassesGate() (+27 more)
 
 ### Community 3175 - "arxiv"
 Cohesion: 0.29
@@ -22587,9 +22592,9 @@ Nodes (6): verification, date, humanChecked, method, note, status
 Cohesion: 0.33
 Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
 
-### Community 3539 - "c3"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+### Community 3539 - "check-recalibration-registry.mjs"
+Cohesion: 0.09
+Nodes (26): ADR_DIR, checkRegistry(), CONFIG_FILE, DOC, expandIds(), getPath(), isBlank(), JSON_FILE (+18 more)
 
 ### Community 3540 - "c4"
 Cohesion: 0.33
@@ -22648,8 +22653,8 @@ Cohesion: 0.13
 Nodes (15): claims, date, extractedQuote, extractedValue, locator, note, verdict, extractedQuote (+7 more)
 
 ### Community 3554 - "config.mjs"
-Cohesion: 0.02
-Nodes (203): notRecordReasons(), accountConfirmationCounts(), accountConfirmationProblems(), accountSeats(), agreementProblems(), AI_NAME_RULES, aiAccountCheck(), aiNameHint() (+195 more)
+Cohesion: 0.01
+Nodes (473): key(), MIN_SAMPLE, stopsText(), WINDOW_MONTHS, briefStopConditionState(), config, D0, days (+465 more)
 
 ### Community 3555 - "c5"
 Cohesion: 0.33
@@ -22684,12 +22689,12 @@ Cohesion: 0.33
 Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
 
 ### Community 3563 - "org-assurance.mjs"
-Cohesion: 0.03
-Nodes (179): ADR-0071, arg(), argv, canonicalRecord(), clean(), CRITERIA_FILE, criteriaDigestAt(), DELEGATED_TOKEN_NAMES (+171 more)
+Cohesion: 0.02
+Nodes (210): ADR-0071, adapter, always, command, config, env, failLevels, OPTIONAL (+202 more)
 
 ### Community 3564 - "preflight.mjs"
 Cohesion: 0.03
-Nodes (113): { absent, empty, rules }, actual, b, config, e, expected, FILE, manifest (+105 more)
+Nodes (94): SKIP_DIRS, { absent, empty, rules }, actual, b, config, e, expected, FILE (+86 more)
 
 ### Community 3565 - "verification"
 Cohesion: 0.33
@@ -22788,8 +22793,8 @@ Cohesion: 0.33
 Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
 
 ### Community 3589 - "autonomy.mjs"
-Cohesion: 0.04
-Nodes (92): addMonths(), autonomyCap(), autonomyNoteLines(), autonomyState(), capFromAnswers(), capReason(), capRefusal(), changeInType() (+84 more)
+Cohesion: 0.03
+Nodes (93): addMonths(), autonomyCap(), autonomyNoteLines(), autonomyState(), capFromAnswers(), capReason(), capRefusal(), changeInType() (+85 more)
 
 ### Community 3590 - "c9"
 Cohesion: 0.33
@@ -22987,9 +22992,9 @@ Nodes (6): verification, date, humanChecked, method, note, status
 Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
-### Community 3639 - "claims"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+### Community 3639 - "c3"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
 
 ### Community 3640 - "c4"
 Cohesion: 0.33
@@ -23048,8 +23053,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3654 - "c2"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 3655 - "verification"
 Cohesion: 0.33
@@ -23104,8 +23109,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3668 - "c4"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
 
 ### Community 3669 - "c5"
 Cohesion: 0.33
@@ -23132,8 +23137,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3675 - "c4"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
 
 ### Community 3676 - "verification"
 Cohesion: 0.33
@@ -23268,8 +23273,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3709 - "c2"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 3710 - "c3"
 Cohesion: 0.33
@@ -23284,12 +23289,12 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3713 - "c2"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 3714 - "c3"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
 
 ### Community 3715 - "verification"
 Cohesion: 0.33
@@ -23476,8 +23481,8 @@ Cohesion: 0.33
 Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
 
 ### Community 3761 - "coverage-check.mjs"
-Cohesion: 0.03
-Nodes (94): adapter, always, command, config, env, failLevels, OPTIONAL, r (+86 more)
+Cohesion: 0.07
+Nodes (51): THRESHOLD_FILES, loadAdapter(), nestedTargetProblem(), unquoteGitPath(), briefCoverageScope(), briefScopeRowState(), canMeasureChanged(), changedScopeCoverage() (+43 more)
 
 ### Community 3762 - "verification"
 Cohesion: 0.33
@@ -23493,7 +23498,7 @@ Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3765 - "records.mjs"
 Cohesion: 0.04
-Nodes (91): detectionReferred(), mergeRecordSources(), readPinnedRecordsHead(), RECORDS_HEADS_DIR, recordsHistoryGaps(), recordsWriterStatement(), unbackedSignerForms(), BASE_COUNT (+83 more)
+Nodes (84): detectionReferred(), readPinnedRecordsHead(), RECORDS_HEADS_DIR, recordsHistoryGaps(), recordsWriterStatement(), unbackedSignerForms(), readGateRecords(), BASE_COUNT (+76 more)
 
 ### Community 3766 - "c5"
 Cohesion: 0.33
@@ -23580,8 +23585,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3787 - "c1"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c1 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
 
 ### Community 3788 - "verification"
 Cohesion: 0.33
@@ -23613,7 +23618,7 @@ Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3795 - "test-check-pr.mjs"
 Cohesion: 0.03
-Nodes (73): esc(), negativeCheckOf(), renderG6Material(), renderReport(), renderSpecChanges(), renderTestChanges(), CANCELLED_REASON, judgePass() (+65 more)
+Nodes (68): CANCELLED_REASON, judgePass(), NO_PASS_REASON, specRecheck(), specRecheckGapText(), specRecheckSummary(), targetVersionOfForm(), AC_HEADING (+60 more)
 
 ### Community 3796 - "c11"
 Cohesion: 0.33
@@ -23728,8 +23733,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3824 - "c3"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
 
 ### Community 3825 - "verification"
 Cohesion: 0.33
@@ -23744,8 +23749,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 3828 - "c3"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
 
 ### Community 3829 - "verification"
 Cohesion: 0.33
@@ -24492,8 +24497,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 4015 - "c2"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
 
 ### Community 4016 - "verification"
 Cohesion: 0.33
@@ -24704,8 +24709,8 @@ Cohesion: 0.33
 Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
 
 ### Community 4068 - "c5"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c5 (+1 more)
 
 ### Community 4069 - "verification"
 Cohesion: 0.33
@@ -25096,8 +25101,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 4166 - "c3"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c3
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c3 (+1 more)
 
 ### Community 4167 - "c4"
 Cohesion: 0.33
@@ -25224,8 +25229,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 4198 - "c2"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 4199 - "verification"
 Cohesion: 0.33
@@ -25400,8 +25405,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 4242 - "c2"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c2
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c2 (+1 more)
 
 ### Community 4243 - "verification"
 Cohesion: 0.33
@@ -25592,8 +25597,8 @@ Cohesion: 0.33
 Nodes (6): verification, date, humanChecked, method, note, status
 
 ### Community 4290 - "c4"
-Cohesion: 0.22
-Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c4 (+1 more)
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
 
 ### Community 4291 - "verification"
 Cohesion: 0.33
@@ -25816,8 +25821,8 @@ Cohesion: 0.33
 Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c4
 
 ### Community 4346 - "c5"
-Cohesion: 0.33
-Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c5
+Cohesion: 0.22
+Nodes (9): claims, date, extractedQuote, extractedValue, locator, note, verdict, c5 (+1 more)
 
 ### Community 4347 - "quotes"
 Cohesion: 0.33
@@ -33724,8 +33729,8 @@ Cohesion: 0.05
 Nodes (38): #314 会議体 意見書 02: 現場(準拠テンプレートを使う案件の技術リーダー), A-11(IMPL-0115), `check` の値の陽性対照, IMPL-0209・IMPL-0206, R-1 検査の強さの分類(`check` の属性), R-2 `claude-md` の常駐の規則の検査, R-3 G-5 基準6(文脈ファイルの形式検査), R-4 降りていない規定の扱い(順序・降ろさない決定) (+30 more)
 
 ### Community 6323 - "ROOT"
-Cohesion: 0.04
-Nodes (76): ADR-0116, ROOT, adapter(), argv, base, blocked, config, failed (+68 more)
+Cohesion: 0.05
+Nodes (62): ADR-0116, ROOT, base, changed, MANIFESTS, md, out, result (+54 more)
 
 ### Community 6324 - "254 同一モデルで役割を分ける構成の実証状況(2026-08 時点)"
 Cohesion: 0.08
@@ -35681,7 +35686,7 @@ Nodes (5): BASE, GH_TOKEN, IMPL_BASE_REF, REGRESS_OUT, env
 
 ### Community 6813 - "check-g1.mjs"
 Cohesion: 0.04
-Nodes (62): briefVersionOf(), COST_LABELS, ESTIMATE_GAP_ROWS, estimateGapBlank(), fileAtVersion(), g1EstimateBlank(), g1EstimateChanges(), g1EstimateColumn() (+54 more)
+Nodes (61): briefVersionOf(), COST_LABELS, ESTIMATE_GAP_ROWS, estimateGapBlank(), fileAtVersion(), g1EstimateBlank(), g1EstimateChanges(), g1EstimateColumn() (+53 more)
 
 ### Community 6814 - "会議体 意見書 01 — 起草(Issue #296 固定定数の棚卸し(#295)の後継)"
 Cohesion: 0.40
@@ -35756,8 +35761,8 @@ Cohesion: 0.40
 Nodes (4): schemaVersion, sections, key, why
 
 ### Community 6832 - "self-heal.mjs"
-Cohesion: 0.04
-Nodes (56): loadConfig(), DECISIONS, ADR-0058, readCalibrationRecords(), readRegistry(), REGISTER_PATH, REGISTRY_FILE, arg() (+48 more)
+Cohesion: 0.07
+Nodes (38): arg(), clean(), describe(), failingTestIds(), failureSignatures(), GUARD, headerOf(), limits() (+30 more)
 
 ### Community 6833 - "L-8 PR 分布の実測と規模の算定"
 Cohesion: 0.50
@@ -37128,8 +37133,8 @@ Cohesion: 0.20
 Nodes (9): 0. 前提として確かめた事実, R-1 位置づけ, R-2 外部送信, R-3 同梱と製品の名指し, R-4 評価と適合性, R-5 記録, 採らない案(まとめ), 突合の後の訂正(2026-11-04、`crosscheck.md`) (+1 more)
 
 ### Community 7192 - "check-scope.mjs"
-Cohesion: 0.12
-Nodes (18): ADR-0049, args, classify(), collect(), errors, exempt, files, ledgerText (+10 more)
+Cohesion: 0.10
+Nodes (21): ADR-0049, args, classify(), collect(), errors, exempt, files, ledgerText (+13 more)
 
 ### Community 7193 - "#424 内部調査: 3.12.3 の基準集合の正解を AI の合議・多数決で作ってよいか"
 Cohesion: 0.11
@@ -37725,7 +37730,7 @@ Nodes (12): 1. C-1 サンドボックスの期限, 2. C-2 内部監査の抽出,
 
 ### Community 7341 - "#238 判定基準の実物が案件へ降りていない"
 Cohesion: 0.22
-Nodes (9): #238 判定基準の実物が案件へ降りていない, #247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない, ただし、変更の範囲をここまでに限るべき, ただし、変更の範囲をここまでに限るべき, なぜ成立しないか, なぜ成立しないか, 弁護を試みた形, 弁護を試みた形 (+1 more)
+Nodes (9): #238 判定基準の実物が案件へ降りていない, #239 適用範囲マークの仕組みが動いているのに届いていない, ただし、変更の範囲をここまでに限るべき, ただし、変更の範囲をここまでに限るべき, なぜ成立しないか, なぜ成立しないか, 弁護を試みた形, 弁護を試みた形 (+1 more)
 
 ### Community 7342 - "0007-schema-driven-process-data.md"
 Cohesion: 0.33
@@ -38195,9 +38200,9 @@ Nodes (4): 8.1 IPA オープンソース推進レポート, 8.2 車載: ASPICE R
 Cohesion: 0.50
 Nodes (4): 9.1 事件, 9.2 規模, 9.3 緊張関係を扱った先例, 9. 反対側 — 依存を増やすリスク
 
-### Community 7459 - "#239 適用範囲マークの仕組みが動いているのに届いていない"
-Cohesion: 0.50
-Nodes (4): #239 適用範囲マークの仕組みが動いているのに届いていない, ただし、変更の範囲をここまでに限るべき, なぜ成立しないか, 弁護を試みた形
+### Community 7459 - "exception-expiry.mjs"
+Cohesion: 0.15
+Nodes (25): exceptionMatch(), ACTIVE_EXCEPTION_STATES, dueDayOf(), gateExceptionTarget(), parseLedger(), countRangeExceptions(), exceptionStanding(), idNum() (+17 more)
 
 ### Community 7460 - "7. 過去の Issue"
 Cohesion: 0.50
@@ -38465,7 +38470,7 @@ Nodes (11): 1. 決定者は、自分に関わる変更を自分の記名で決�
 
 ### Community 7527 - "test-base-judge-workflow.mjs"
 Cohesion: 0.07
-Nodes (49): AUTOLOAD_BASENAMES, AUTOLOAD_DIRS, AUTOLOAD_FILES, autoloadCandidates(), block(), collectInputs(), entry(), fenceSafe() (+41 more)
+Nodes (50): AUTOLOAD_BASENAMES, AUTOLOAD_DIRS, AUTOLOAD_FILES, autoloadCandidates(), block(), collectInputs(), entry(), fenceSafe() (+42 more)
 
 ### Community 7528 - "指摘"
 Cohesion: 0.18
@@ -39543,9 +39548,9 @@ Nodes (23): 1. 裁定どおりか, 2. 義務が意図せず動いていないか
 Cohesion: 0.08
 Nodes (23): 1.1 三案の整合表, 1.2 A を最も強く書くと, 1.3 C を最も強く書くと, 1.4 読み甲・乙を条文に書くか, 1. 例外承認は「逸脱」に当たるか(論点1), 2.1 何を(最小の併記事項。増やすほど読まれない), 2.2 どこへ, 2.3 いつの時点 (+15 more)
 
-### Community 7806 - "build-template-kb.mjs"
-Cohesion: 0.01
-Nodes (190): ADR-0031, ADR-0040, ADR-0052, ADR-0062, yaml, ref_github_slugger, ambiguousTerms(), args (+182 more)
+### Community 7806 - "check-gate-criteria.mjs"
+Cohesion: 0.05
+Nodes (46): ADR-0052, yaml, loadCards(), extractCriteria(), fromSource, fromYaml, GATE_IDS, kbAt (+38 more)
 
 ### Community 7807 - "#334 実装の記録"
 Cohesion: 0.33
@@ -39871,9 +39876,9 @@ Nodes (5): #355 束3 1巡目の所見の直し(標準の担当), 所見ごとの
 Cohesion: 0.33
 Nodes (5): #355 束3 独立の突合 2巡目の所見への議長の裁定(直しの指示), R2-01(高)と R2-04(中): 実装を標準の文へ揃える((A) を採る。template の担当が違えた点は採らない), R2-02(高): 直す, R2-03・R2-05〜R2-09: すべて所見の案のとおり直す, 閉じ方
 
-### Community 7891 - "ref_node_fs"
+### Community 7891 - "ref_node_child_process"
 Cohesion: 0.01
-Nodes (251): normalized, relative, repoRoot, res, ref_node_child_process, ref_node_crypto, ref_node_fs, ref_node_module (+243 more)
+Nodes (124): normalized, relative, repoRoot, res, ref_node_child_process, ref_node_module, ref_node_os, APPOINTER (+116 more)
 
 ### Community 7892 - "#329 起案の委員の意見書(重の会議体)"
 Cohesion: 0.05
@@ -40139,9 +40144,9 @@ Nodes (3): 1. 所見への裁定, 2. 読まなかった範囲, 束 B の独立�
 Cohesion: 0.50
 Nodes (4): 項目1, ids, location, status
 
-### Community 7962 - "gate/cl-judgment.mjs"
-Cohesion: 0.07
-Nodes (49): addedAtOf(), adrExists(), BASE_STEP, CL_FIELDS, CL_LABEL, CL_ORDER, CL_RECORD_REQUIRED_SINCE, CL_SECTION_HEADING (+41 more)
+### Community 7962 - "check-template-fields.mjs"
+Cohesion: 0.11
+Nodes (18): ADR-0040, missing, ADR-0077, ADR-0087, problems, ROOT, spec, STANDARD (+10 more)
 
 ### Community 7963 - "条件5"
 Cohesion: 0.67
@@ -40159,9 +40164,9 @@ Nodes (3): 要求事項3, ids, status
 Cohesion: 0.67
 Nodes (3): 要求事項6, ids, status
 
-### Community 7967 - "check-provisions.mjs"
-Cohesion: 0.05
-Nodes (37): anywhere, chapterPages, citeFiles, excluded(), EXT, guideFiles, informativeAnnexes, KIND_LABEL (+29 more)
+### Community 7967 - "changed-scenes.mjs"
+Cohesion: 0.11
+Nodes (15): argv, atBase(), BASE, diff, EXPECTED, git(), HERE, hunks (+7 more)
 
 ### Community 7974 - "regress/suite/scenarios.mjs"
 Cohesion: 0.04
@@ -40599,9 +40604,9 @@ Nodes (31): 1.1 R-1〜R-7, 1.2 7.5 節, 1.3 ほかの `refused` の場面の網�
 Cohesion: 0.07
 Nodes (28): access, accessed, authors, canonicalUrl, derivedFrom, derivedFromUrl, events, excludeReason (+20 more)
 
-### Community 8108 - "fix288-tpl2/suite/v3.mjs"
-Cohesion: 0.07
-Nodes (26): approveWiden, { check, refused, accepted, done }, d13, d5, first4, P2, P4, PDEV (+18 more)
+### Community 8108 - "check-claim-terms.mjs"
+Cohesion: 0.18
+Nodes (11): ADR-0134, problems, ROOT, s1, s2, CLAIM_TERMS, ADR-0134, sectionLines() (+3 more)
 
 ### Community 8117 - "SRC-0752.yaml"
 Cohesion: 0.07
@@ -40691,9 +40696,9 @@ Nodes (15): 1. 実行で確かめたこと, 2. 1巡目の所見の閉じ方, 3. 
 Cohesion: 0.12
 Nodes (15): 1. 論点6 の問い, 2.1 ISO 26262-2(自動車), 2.2 IEC 61508(機能安全の基本規格), 2.3 IEC 62304(医療機器ソフトウェア), 2.4 DO-178C / ARP4754A(航空), 2.5 ISO 14971(医療機器のリスクマネジメント), 2. 規格ごとの要点, #327 外部の調査(論点6 を中心に) (+7 more)
 
-### Community 8139 - "fix288-tpl2/suite/verify-n.mjs"
-Cohesion: 0.07
-Nodes (20): addExt, { check, done }, drift, { ev, report }, EVAL, g1, gapsText, HERE (+12 more)
+### Community 8139 - "2. 所見"
+Cohesion: 0.12
+Nodes (15): 1. 確かめて食い違いが無かった点, 2. 所見, 3. 2巡目へ, H-1(高) 承認し直しの判定が「行のどこかに有効な行の識別がある」だけで、有効な行が未回収から外れ、期限超過の行が欠落から外れる, Issue #353 準拠テンプレートの7項目 独立の突合 1巡目(全体。2026-11-17), L-1(低) CLAUDE.md の生成区間の句が、数えた日と台帳の所在を欠く, L-2(低) 日付として読めない `--today` を黙って捨てる。集約の最後の既定が時計, L-3(低) 返却の目安の欄の最初の日付を期限とみなす (+7 more)
 
 ### Community 8140 - "Issue #440 委員「規格」の意見(重。2026-11-17)"
 Cohesion: 0.12
@@ -40736,8 +40741,8 @@ Cohesion: 0.05
 Nodes (38): 0.1 流したもの, 0.2 分類の枠, 0. 方法, 1.1 事実, 1.2 分類: I(fixture・入力が決定に反する), 1.3 移した試験の側で直すこと, 1. 事前点検で初期化が止まる件(移した版のまま、900 件), 2.1 matrix-sweep(3 場面) (+30 more)
 
 ### Community 8150 - "test-dekimasu.mjs"
-Cohesion: 0.11
-Nodes (22): forms, ADR-0117, pages, { problems, found, registered }, registry, ROOT, END, BASES (+14 more)
+Cohesion: 0.16
+Nodes (16): END, BASES, checkDekimasu(), CLASSES, findDekimasu(), ADR-0117, normalizeSentence(), sentencesOf() (+8 more)
 
 ### Community 8151 - "決定"
 Cohesion: 0.15
@@ -40887,9 +40892,9 @@ Nodes (6): #337 実装の記録, 変えた所在, 検査と結果, 番号, 裁�
 Cohesion: 0.33
 Nodes (5): Issue #327 実装の記録(2026-11-17), 変えた所在, 流した検査(全て通過), 準拠テンプレートへ及ぶ項目(本 Issue では触っていない。#327・#445 へコメント), 裁定から外れた点
 
-### Community 8188 - "check-delegation.mjs"
-Cohesion: 0.12
-Nodes (20): cannotJudge(), comment(), gh(), ghJson(), ghLines(), has(), HEADLINE, headShaArg (+12 more)
+### Community 8188 - "g5-local.mjs"
+Cohesion: 0.14
+Nodes (12): adapter(), argv, base, blocked, config, failed, LABEL, node() (+4 more)
 
 ### Community 8189 - "size-observation.mjs"
 Cohesion: 0.11
@@ -40999,29 +41004,29 @@ Nodes (20): 0. 結論と件数, 1.1 M-18(`phase4-process-design/deliverable-temp
 Cohesion: 0.10
 Nodes (20): Bash(gh api --method DELETE:*), Bash(gh api --method PATCH:*), Bash(gh api --method POST:*), Bash(gh api --method PUT:*), Bash(gh api -X DELETE:*), Bash(gh api -X PATCH:*), Bash(gh api -X POST:*), Bash(gh api -X PUT:*) (+12 more)
 
-### Community 8231 - "fix288-tpl2/suite/replay.mjs"
-Cohesion: 0.12
-Nodes (14): apply(), back5, { check, refused, accepted, done }, clampDates(), input(), s2b, s3c, s415 (+6 more)
+### Community 8231 - "2. 所見"
+Cohesion: 0.17
+Nodes (11): 1. 確かめて食い違いが無かった点, 2. 所見, 3. 閉じ方, Issue #353 準拠テンプレートの7項目 独立の突合 2巡目(直した差分だけ。2026-11-17), L2-1(低) 閉じた値でない状態の行は、期限内なら欠落に出ない。IMPL-0574 の note は条件をつけずに「欠落に出す」と書く, L2-2(低) 連鎖では、元の行が直接名指した行だけを見る。外し方は欠落の文に書かれていない。期限前の承認し直しを重ねると未回収を多く数える, L2-3(低) 対象の一致は表記の正規化(空白・NFKC・小文字)だけで比べる。`PR #14` と `#14` は一致しない, L2-4(低) ship-evidence が渡す日は実行の日(UTC)なのに、出どころには「判定の日」と出る (+3 more)
 
 ### Community 8232 - "mixed-change-point.mjs"
 Cohesion: 0.13
 Nodes (17): a1, a2, ALL(), aSetup(), b1, b2, B_MIXED, { check, refused, accepted, fixes, done } (+9 more)
 
-### Community 8233 - "guard-bash.mjs"
-Cohesion: 0.15
-Nodes (17): checkCommand(), commandOf(), ghWords(), hostingWriteOf(), main(), ADR-0107, PREFIX_WORDS, readStdin() (+9 more)
+### Community 8233 - "ref_node_url"
+Cohesion: 0.02
+Nodes (110): ADR-0031, ref_node_crypto, ref_node_url, cfg, p, DEST, FILES, hashes() (+102 more)
 
 ### Community 8234 - "企画書(事業意図)"
 Cohesion: 0.10
 Nodes (19): コア機能の候補, スコープ外, 中止条件(観点6), 予算の案(示す場合), 事業リスクと受容方針(観点5 / G-1 基準2), 企画書(事業意図), 効果の選択類型（1つ以上選択）, 品質の約束と保証範囲(層2 / G-1 基準2) (+11 more)
 
-### Community 8235 - "test-name-confirmation-timing.mjs"
-Cohesion: 0.10
-Nodes (16): answers, BASIS, blank, DELEGATE, dir, DUPONT, GEMINI, ADR-0111 (+8 more)
+### Community 8235 - "guard-write.mjs"
+Cohesion: 0.31
+Nodes (10): couldMatchWithAlias(), globToRegExp(), main(), match(), mayHaveShortAlias(), ADR-0050, ADR-0109, normalizeTarget() (+2 more)
 
-### Community 8236 - "fix288-tpl2/suite/v3b.mjs"
-Cohesion: 0.11
-Nodes (13): { check, refused, accepted, done }, integ, k50, P, PR, SEATS9, solo, t1 (+5 more)
+### Community 8236 - "Issue #353 準拠テンプレートに及ぶ7項目の実装の記録(2026-11-17)"
+Cohesion: 0.22
+Nodes (8): 1. 項目ごとの結果, 2. 降りなかった部分(note で開示), 3. 機械にした条件(決定可能なものだけ), 4. 使った番号, 5. 壊して確かめた場面(2点), 6. 通した試験, 7. 残り, Issue #353 準拠テンプレートに及ぶ7項目の実装の記録(2026-11-17)
 
 ### Community 8237 - "所見"
 Cohesion: 0.11
@@ -41059,13 +41064,13 @@ Nodes (17): コア機能の候補, スコープ外, 中止条件(観点6), 予�
 Cohesion: 0.11
 Nodes (18): コア機能の候補, スコープ外, 中止条件(観点6), 予算の案(示す場合), 事業リスクと受容方針(観点5 / G-1 基準2), 企画書(事業意図), 品質の約束と保証範囲(層2 / G-1 基準2), 壊してはならない品質条件(識別子) (+10 more)
 
-### Community 8246 - "fix288-tpl2/suite/lib288.mjs"
-Cohesion: 0.21
-Nodes (14): { check, done }, cond(), CYCLE, research_319_deliberation_legacy_suite_fix288_tpl2_suite_lib288_future, g8Extra(), gateRecord(), HERE, MOCK (+6 more)
+### Community 8246 - "束 B11 の載せ直しと番号の付け直し"
+Cohesion: 0.33
+Nodes (5): B8 の push(main 5366e4e3、template 2f80544)の上への載せ直し(2026-11-17), 付け直しの対応表(旧 → 新), 回帰の全量(2026-11-17、HEAD 994bc855), 束 B11 の載せ直しと番号の付け直し, 留意点
 
-### Community 8247 - "ta.mjs"
-Cohesion: 0.12
-Nodes (14): ch, manifest, notStopped, priv, r, rec2, rec2File, recFile (+6 more)
+### Community 8247 - "c1"
+Cohesion: 0.33
+Nodes (6): extractedQuote, extractedValue, locator, note, verdict, c1
 
 ### Community 8248 - "Issue #332 受付と調査(内部・外部)"
 Cohesion: 0.12
@@ -41119,9 +41124,9 @@ Nodes (15): 1. ブランチを切る, 2. テストを先に生成する, 3. 実�
 Cohesion: 0.18
 Nodes (10): commit(), DIR, git(), HERE, log(), now, OUT, run() (+2 more)
 
-### Community 8261 - "trial-r7.mjs"
-Cohesion: 0.13
-Nodes (11): HERE, ch, manifest, manifestIn, manifestOut, nx, r, recs (+3 more)
+### Community 8261 - "3.3 外部の規格・実務(出典つき)"
+Cohesion: 0.40
+Nodes (5): 3.3 外部の規格・実務(出典つき), 公開すればレビューが来るか, 守秘義務のあるコードで社外の確認者を使うときの論点, 有償のコードレビュー, 相互レビューの取り決め
 
 ### Community 8262 - "#356 B 委員 03 意見書(品質監査)"
 Cohesion: 0.13
@@ -41147,9 +41152,9 @@ Nodes (14): 1. ゲートを決め、補助ファイルを読む, 2. ゲートが
 Cohesion: 0.15
 Nodes (13): appended, base, c, cfg, cut, dcfg, eq(), legacy (+5 more)
 
-### Community 8268 - "fix288-tpl2/suite/trial.mjs"
-Cohesion: 0.14
-Nodes (10): ch, manifest, manifestIn, manifestOut, nx, r, recs, sceneRows (+2 more)
+### Community 8268 - "#353 template の7項目 独立の突合 1巡目の所見の直し(2026-11-17)"
+Cohesion: 0.50
+Nodes (3): 2巡目に見る点, #353 template の7項目 独立の突合 1巡目の所見の直し(2026-11-17), CI の Linux の場面(#353 へのコメント案)
 
 ### Community 8269 - "Issue #326 起案の委員の意見書"
 Cohesion: 0.14
@@ -41211,9 +41216,9 @@ Nodes (12): AI 関与範囲, トレーラ(スカッシュのメッセージの�
 Cohesion: 0.15
 Nodes (12): なぜここに置くか, ブランチ保護, 写しを手で作る, 出荷の PR(記録を基底ブランチへ入れる), 必須チェック gate-g5-base(基底から読む判定), 手動のスタックの中間の層をマージしない(process-compass #360 / IMPL-0254), 署名を必須にする構成(`records-signed.json`), 記録だけの PR に残る承認(転記の確認と帰属の確認) (+4 more)
 
-### Community 8284 - "seeded-error-scan.mjs"
-Cohesion: 0.21
-Nodes (12): FALSE_POSITIVE_HINT, git(), hasMarker(), LEDGER_OFF, MARKER, MARKER_LINE, readLedger(), scan() (+4 more)
+### Community 8284 - "#247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない"
+Cohesion: 0.50
+Nodes (4): #247 変更規模の数値を合否条件にすると、較正に必要な実測が採れない, ただし、変更の範囲をここまでに限るべき, なぜ成立しないか, 弁護を試みた形
 
 ### Community 8285 - "#326 実装の記録(本体の項目 1・2・3・4・5・14・15 と重の項目 12、2026-11-15)"
 Cohesion: 0.17
@@ -41243,10 +41248,6 @@ Nodes (10): #355 束1 独立の突合 1巡目(全体), R1-01(高)「言い換え
 Cohesion: 0.18
 Nodes (10): 1巡目の所見の直り, #355 束2 独立の突合 2巡目(直した差分), 中-A 軸E の CL0 の升と S0 の G-7 の省略, 中-B IMPL-1008 の有効な例外の行の条件, 低-A 「対象」の第3の型, 低-B 結び付けの向き, 低-C エンジンの構成の値, 新しい所見 (+2 more)
 
-### Community 8292 - "verifyCard"
-Cohesion: 0.24
-Nodes (11): arxivWait(), decodeEntities(), fetchPdfText(), fetchText(), hashCode(), htmlDate(), htmlTitle(), quoteMatch() (+3 more)
-
 ### Community 8293 - "決定"
 Cohesion: 0.18
 Nodes (10): 1. 受け取り側の生成元の確認を、採用者の義務にしない。手順を手引きに置く, 2. artifact attestation を、文書の配布に課さない, 3. 複製する知識ベースの生成元を、標準の `HEAD` の祖先に限る。ただし降ろすまでの間は未実装とする, 4. 実行の番号の突き合わせと配布の経路は、候補のまま残す, 5. 1名の体制の段の列を足さず、集約が落ちた後の revert・ロックを課さない, コンテキスト, ステータス, 影響 (+2 more)
@@ -41266,10 +41267,6 @@ Nodes (10): 1. 一律で AI に委譲できない領域（第5章 5.8.3）, 2. �
 ### Community 8297 - "手順"
 Cohesion: 0.18
 Nodes (10): 1. 機能仕様を読む, 2. タスクへ分解する, 3. 粒度を確認する, 4. 分解しすぎない, 5. 並行実行する場合, 6. 次の一手を示す, 参照, 完了の条件 (+2 more)
-
-### Community 8298 - "fix288-tpl2/suite/tz.mjs"
-Cohesion: 0.22
-Nodes (8): BASIS, change(), { check, done }, gen(), P, PEOPLE, { run, write, cfg, git, resetTo, commit, d0 }, SEATS
 
 ### Community 8299 - "独立の突合 1巡目(全体)— #348 Q1・#340 Q2"
 Cohesion: 0.20
@@ -41362,10 +41359,6 @@ Nodes (7): #356 B 実装の記録, template に及ぶ分(Issue #356 へのコメ
 ### Community 8321 - "#356 B 独立の突合(2巡目、直した差分だけ)"
 Cohesion: 0.25
 Nodes (7): 1巡目の所見の確かめ, #356 B 独立の突合(2巡目、直した差分だけ), M-4 の (a) の1句の整合, 所見, 確かめて問題が無かったこと, 結論, 議長への申し送り
-
-### Community 8322 - "extract.mjs"
-Cohesion: 0.25
-Nodes (6): aux, by, files, items, ADR-0086, part
 
 ### Community 8323 - "#430 前半(名簿の数値の識別子による照合)の実装の記録"
 Cohesion: 0.25
@@ -41739,22 +41732,26 @@ Nodes (3): 条件3, ids, status
 Cohesion: 0.67
 Nodes (3): 要求事項5, ids, status
 
+### Community 8416 - "基準を満たさないまま進めるときの経路"
+Cohesion: 0.50
+Nodes (3): 例外承認の「対象」は、変更か、ゲートの判定か, 例外承認の対象と期限(標準 第7章 7.3), 基準を満たさないまま進めるときの経路
+
 ## Knowledge Gaps
-- **77500 isolated node(s):** `normalized`, `repoRoot`, `relative`, `res`, `fs` (+77495 more)
+- **77542 isolated node(s):** `normalized`, `repoRoot`, `relative`, `res`, `fs` (+77537 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **114 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **116 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `操作(`scripts/research-ledger.mjs`)` connect `research-ledger.mjs` to `research/ — 調査メモ置き場`?**
-  _High betweenness centrality (0.000) - this node is a cross-community bridge._
 - **Why does `出典台帳(research/sources/)` connect `research/ — 調査メモ置き場` to `research-ledger.mjs`?**
-  _High betweenness centrality (0.000) - this node is a cross-community bridge._
-- **Why does `index()` connect `research-ledger.mjs` to `generate-profile.mjs`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **Why does `操作(`scripts/research-ledger.mjs`)` connect `research-ledger.mjs` to `research/ — 調査メモ置き場`?**
+  _High betweenness centrality (0.001) - this node is a cross-community bridge._
+- **Why does `index()` connect `research-ledger.mjs` to `config.mjs`?**
   _High betweenness centrality (0.000) - this node is a cross-community bridge._
 - **What connects `normalized`, `repoRoot`, `relative` to the rest of the system?**
-  _77500 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _77542 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ウォーターフォール開発プロセス 調査メモ` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `エージェント型開発の現在地 更新調査メモ(2026-08-04 時点)` be split into smaller, more focused modules?**

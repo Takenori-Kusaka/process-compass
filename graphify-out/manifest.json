@@ -455,7 +455,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/deliverable-templates.md": {
-    "mtime": 1794892900.282424,
+    "mtime": 1794895918.285807,
     "ast_hash": "d58d749b33c364e17336ac05bf5c6452",
     "semantic_hash": ""
   },
@@ -465,8 +465,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/gate-criteria.md": {
-    "mtime": 1794892975.5663886,
-    "ast_hash": "0054e73600b01d459bce2d86487d5e6e",
+    "mtime": 1794895918.8314605,
+    "ast_hash": "dc062e1cdcc533aacd963062f54a355a",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/integrated-process.md": {
@@ -475,8 +475,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/overview.md": {
-    "mtime": 1794892881.4251103,
-    "ast_hash": "897361a05dd78855883b10e3932a35f2",
+    "mtime": 1794895914.2802472,
+    "ast_hash": "956a82b2690be4b5b3891b2e6a8690f1",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/proposal-template.md": {
@@ -490,12 +490,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/roles-responsibilities.md": {
-    "mtime": 1794892900.2889824,
+    "mtime": 1794895918.293632,
     "ast_hash": "393b525c563e481a9defc7fd4ec47e16",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/tailoring-guide.md": {
-    "mtime": 1794892901.5345612,
+    "mtime": 1794895918.4694877,
     "ast_hash": "b26e30ca326980b243bc1e3ce3d610f5",
     "semantic_hash": ""
   },
@@ -505,12 +505,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/ci-gates.md": {
-    "mtime": 1794888993.4333537,
-    "ast_hash": "78e9ab645da31ccf8abe820408c79896",
+    "mtime": 1794895914.2898169,
+    "ast_hash": "86eba67bea446b323a97918a83913f11",
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/compute-strategy.md": {
-    "mtime": 1794892883.4137702,
+    "mtime": 1794895916.0524087,
     "ast_hash": "f5ca8ef5871d8ed215d3b84ddca82792",
     "semantic_hash": ""
   },
@@ -735,12 +735,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/exception-escalation.md": {
-    "mtime": 1794892959.756528,
-    "ast_hash": "7fa3d511bb81f1afa9d7de99e639fb2c",
+    "mtime": 1794895918.828691,
+    "ast_hash": "571ab74d51116d727f68e802a954170d",
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/human-ai-boundary.md": {
-    "mtime": 1794892959.76053,
+    "mtime": 1794895918.8334658,
     "ast_hash": "ba4e97a0daa34cb3659c46512421bbc8",
     "semantic_hash": ""
   },
@@ -885,7 +885,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/safety-verification.md": {
-    "mtime": 1794892900.2889824,
+    "mtime": 1794895918.294638,
     "ast_hash": "9d856c213ce8bb874562ddccfbddb427",
     "semantic_hash": ""
   },
@@ -1115,7 +1115,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/evidence-ledger.md": {
-    "mtime": 1794892975.5714695,
+    "mtime": 1794895918.8207245,
     "ast_hash": "69312b513fb8d906b347d882ffadb766",
     "semantic_hash": ""
   },
@@ -1130,7 +1130,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase5-implementation/seeded-error-safety.md": {
-    "mtime": 1794892899.1139479,
+    "mtime": 1794895918.0371344,
     "ast_hash": "76180f2dc78782ac89beb8384fb2fb3d",
     "semantic_hash": ""
   },
@@ -1250,8 +1250,8 @@
     "semantic_hash": ""
   },
   "src/content/docs/community/implementation-ledger.md": {
-    "mtime": 1794892989.0058498,
-    "ast_hash": "3973154247226bb8cd06be40d7fe5f98",
+    "mtime": 1794895960.1049619,
+    "ast_hash": "80a723219156e82f78e8e16bea6900f9",
     "semantic_hash": ""
   },
   "src/content/docs/community/implementation-marking.md": {
@@ -1260,8 +1260,8 @@
     "semantic_hash": ""
   },
   "src/data/impl-targets.yaml": {
-    "mtime": 1794888993.5423753,
-    "ast_hash": "13d278cc2c0a710ccc381c5516ab8f0e",
+    "mtime": 1794895914.2963755,
+    "ast_hash": "88997fb405c5818b9e4a03eb5234101c",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0036-gate-closure-by-record.md": {
@@ -1315,7 +1315,7 @@
     "semantic_hash": ""
   },
   "src/data/template-fields.yaml": {
-    "mtime": 1794892900.2941725,
+    "mtime": 1794895918.3034062,
     "ast_hash": "126df40163f36ed35ff53d2f2f45e193",
     "semantic_hash": ""
   },
@@ -4865,7 +4865,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/phase4-process-design/assurance-case.md": {
-    "mtime": 1794892894.9635592,
+    "mtime": 1794895917.3103013,
     "ast_hash": "c565267706915abb04789d7f5704cb0f",
     "semantic_hash": ""
   },
@@ -5490,7 +5490,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0067-purpose-of-two-approvers.md": {
-    "mtime": 1794892893.6529527,
+    "mtime": 1794895917.004603,
     "ast_hash": "187947d1e07d07fae9c65ce2c4a2369d",
     "semantic_hash": ""
   },
@@ -7090,12 +7090,12 @@
     "semantic_hash": ""
   },
   "src/data/impl-inventory.yaml": {
-    "mtime": 1794892959.7643876,
+    "mtime": 1794895918.8364663,
     "ast_hash": "e48982d34947e0ed542df8a171c706a7",
     "semantic_hash": ""
   },
   "src/data/impl-no-adopter.yaml": {
-    "mtime": 1794892900.2941725,
+    "mtime": 1794895918.3013995,
     "ast_hash": "a5c76902c17c7348a8b29bc25e5387b4",
     "semantic_hash": ""
   },
@@ -8400,12 +8400,12 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0090-job-token-and-deploy-credential-binding.md": {
-    "mtime": 1794892893.4519124,
+    "mtime": 1794895916.7393134,
     "ast_hash": "b5c408206fe51ea4d02af73496a38675",
     "semantic_hash": ""
   },
   "src/content/docs/community/standard-editions.md": {
-    "mtime": 1794892893.4529145,
+    "mtime": 1794895916.7408192,
     "ast_hash": "a88d49af3f883063606f18d98f28ba44",
     "semantic_hash": ""
   },
@@ -10855,8 +10855,8 @@
     "semantic_hash": ""
   },
   "research/token-usage-2026-11.md": {
-    "mtime": 1794888992.883506,
-    "ast_hash": "e479dfb7782752ad86295e9ef867fa64",
+    "mtime": 1794895914.2522478,
+    "ast_hash": "fedc9e4f083bc164e74914f17fef8177",
     "semantic_hash": ""
   },
   "research/358-deliberation/council-01-drafter.md": {
@@ -11035,7 +11035,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0127-external-reviewer-seats-restriction-scope-and-organizational-distance.md": {
-    "mtime": 1794892896.3295612,
+    "mtime": 1794895917.721934,
     "ast_hash": "9d52f2da69e94c2bcd105067a803f727",
     "semantic_hash": ""
   },
@@ -11360,7 +11360,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0129-second-category-window-baseline-and-rework-rate-derivation.md": {
-    "mtime": 1794892897.7444136,
+    "mtime": 1794895917.8934417,
     "ast_hash": "55146716808d77eeff591f693f7637a1",
     "semantic_hash": ""
   },
@@ -11720,7 +11720,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0133-no-conditions-or-compensating-measures-for-unlisted-deviations.md": {
-    "mtime": 1794892893.6539495,
+    "mtime": 1794895917.0076046,
     "ast_hash": "a5fce1e915bd4be9e08262cb6a0cdf4c",
     "semantic_hash": ""
   },
@@ -12790,7 +12790,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0137-period-disclosure-approval-pace-and-degradation-metrics.md": {
-    "mtime": 1794892959.7541611,
+    "mtime": 1794895918.8162198,
     "ast_hash": "0e4010c5da3a84d0c7409571affed7f8",
     "semantic_hash": ""
   },
@@ -12870,7 +12870,7 @@
     "semantic_hash": ""
   },
   "src/content/docs/adr/0139-seeded-error-scan-in-ship-path.md": {
-    "mtime": 1794892893.6547852,
+    "mtime": 1794895917.008603,
     "ast_hash": "bc72c5bff1351e2f07624e3b9bae44cd",
     "semantic_hash": ""
   },
@@ -13365,8 +13365,8 @@
     "semantic_hash": ""
   },
   "template/scripts/gate/aggregate-evidence.mjs": {
-    "mtime": 1794893025.6658187,
-    "ast_hash": "c3d20b7a561380714d12068e8e20dac1",
+    "mtime": 1794895958.0333657,
+    "ast_hash": "8b2e7d4aae8862a9d6677f9815053628",
     "semantic_hash": ""
   },
   "template/scripts/gate/ai-review-record.mjs": {
@@ -13445,8 +13445,8 @@
     "semantic_hash": ""
   },
   "template/scripts/gate/config.mjs": {
-    "mtime": 1794893025.667098,
-    "ast_hash": "eecc4b4742caa9b674d939efc1493b48",
+    "mtime": 1794895958.034372,
+    "ast_hash": "c43ab8fb3e827d4d6f11b2d23d8ae501",
     "semantic_hash": ""
   },
   "template/scripts/gate/content-sampling.mjs": {
@@ -13560,8 +13560,8 @@
     "semantic_hash": ""
   },
   "template/scripts/gate/next.mjs": {
-    "mtime": 1794889384.4562712,
-    "ast_hash": "6c7d7911e8d1151da099ea4c8d39b7e2",
+    "mtime": 1794895958.0373745,
+    "ast_hash": "43751d561087e6bee20730041106f962",
     "semantic_hash": ""
   },
   "template/scripts/gate/org-assurance.mjs": {
@@ -13960,8 +13960,8 @@
     "semantic_hash": ""
   },
   "template/scripts/init/generate-profile.mjs": {
-    "mtime": 1794893025.6734598,
-    "ast_hash": "3e61cf67620bde92b9f14897045477e6",
+    "mtime": 1794895958.0413723,
+    "ast_hash": "ff0719b3d417887ac38aef9773746814",
     "semantic_hash": ""
   },
   "template/scripts/init/set-review-sourcing.mjs": {
@@ -13980,272 +13980,272 @@
     "semantic_hash": ""
   },
   "research/332-deliberation/decision.md": {
-    "mtime": 1794892882.873666,
+    "mtime": 1794895915.8051689,
     "ast_hash": "418805f0dd6dab45da59d74e881b45ce",
     "semantic_hash": ""
   },
   "research/332-deliberation/fix-round1.md": {
-    "mtime": 1794892975.5383303,
+    "mtime": 1794895918.79546,
     "ast_hash": "9254d8da98df68b49af2e9f23dd3d0c9",
     "semantic_hash": ""
   },
   "research/332-deliberation/fix-round2.md": {
-    "mtime": 1794892893.4489157,
+    "mtime": 1794895916.737313,
     "ast_hash": "6014b766c81160af8c881376b04b9665",
     "semantic_hash": ""
   },
   "research/332-deliberation/implementation.md": {
-    "mtime": 1794892893.449911,
+    "mtime": 1794895916.737313,
     "ast_hash": "310e1408151e60992363b7e0a4be98aa",
     "semantic_hash": ""
   },
   "research/332-deliberation/intake-ruling.md": {
-    "mtime": 1794892881.519986,
+    "mtime": 1794895914.514088,
     "ast_hash": "00a929215e143f35811f027324dfb852",
     "semantic_hash": ""
   },
   "research/332-deliberation/intake.md": {
-    "mtime": 1794892881.519986,
+    "mtime": 1794895914.516084,
     "ast_hash": "591712c42d6278011b6c380c39db7763",
     "semantic_hash": ""
   },
   "research/332-deliberation/opinion-opponent.md": {
-    "mtime": 1794892882.543583,
+    "mtime": 1794895915.626031,
     "ast_hash": "3923aab88feac2a25a7d6dfd40c30d86",
     "semantic_hash": ""
   },
   "research/332-deliberation/opinion-proposer.md": {
-    "mtime": 1794892882.5445833,
+    "mtime": 1794895915.6270392,
     "ast_hash": "f039ac8092a3d15ca194075b46e9450b",
     "semantic_hash": ""
   },
   "research/332-deliberation/review-round1.md": {
-    "mtime": 1794892883.7508864,
+    "mtime": 1794895916.3846912,
     "ast_hash": "36365dcae7d2e910b420797448f95b0b",
     "semantic_hash": ""
   },
   "research/332-deliberation/review-round2.md": {
-    "mtime": 1794892893.450912,
+    "mtime": 1794895916.738314,
     "ast_hash": "f0b1acdf0ce0c4b9f0706df1b135ab42",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/council-00-agenda.md": {
-    "mtime": 1794892882.7570019,
+    "mtime": 1794895915.7233436,
     "ast_hash": "b748620bb98c95c5f2a69072a84db23d",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/council-01-drafter.md": {
-    "mtime": 1794892882.7570019,
+    "mtime": 1794895915.7244062,
     "ast_hash": "d098d99454eb9c9d40fa5c2a5b44c78b",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/council-02-field.md": {
-    "mtime": 1794892882.7579997,
+    "mtime": 1794895915.724937,
     "ast_hash": "87ba799bca0ae69c5d39091ef701a643",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/council-03-qa-audit.md": {
-    "mtime": 1794892882.7579997,
+    "mtime": 1794895915.7264516,
     "ast_hash": "cc18d12cea8c445cf763dd8a697584eb",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/council-04-standards.md": {
-    "mtime": 1794892882.7589996,
+    "mtime": 1794895915.727497,
     "ast_hash": "4fb5ad918c5384822bd4505f88ba60da",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/council-05-defender.md": {
-    "mtime": 1794892882.7589996,
+    "mtime": 1794895915.728571,
     "ast_hash": "8604a6099164c98748aaef81a4b7971e",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/decision.md": {
-    "mtime": 1794892883.1345122,
+    "mtime": 1794895915.8850214,
     "ast_hash": "3c0f0bee51df9017cbacea7a43db1f12",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/fix-round1.md": {
-    "mtime": 1794892959.7448626,
+    "mtime": 1794895918.79546,
     "ast_hash": "623155a337d0b08aae18c7b1b690bc25",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/fix-round2.md": {
-    "mtime": 1794892897.7433262,
+    "mtime": 1794895917.8901465,
     "ast_hash": "7e2cef2a8de4ccb82276de8834b9be54",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/implementation.md": {
-    "mtime": 1794892959.7468612,
+    "mtime": 1794895918.7964644,
     "ast_hash": "941e2c0dff7a5508f7d4bbd4ac6316bd",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/research.md": {
-    "mtime": 1794892882.0019379,
+    "mtime": 1794895915.003092,
     "ast_hash": "b182093a9530541b7dff55af5c1d5669",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/review-round1.md": {
-    "mtime": 1794892959.7468612,
+    "mtime": 1794895918.7974627,
     "ast_hash": "bc320fbf684b965e033546c54c5410c8",
     "semantic_hash": ""
   },
   "research/348-340-q-deliberation/review-round2.md": {
-    "mtime": 1794892959.747866,
+    "mtime": 1794895918.7984645,
     "ast_hash": "50e7c93e2bfdfe450cdf592de5059816",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-council-00-agenda.md": {
-    "mtime": 1794892882.7599998,
+    "mtime": 1794895915.7290902,
     "ast_hash": "e384023ea02cdc0af02b5d8a1e79776c",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-council-01-drafter.md": {
-    "mtime": 1794892882.873666,
+    "mtime": 1794895915.8062222,
     "ast_hash": "8598babf6101961f7ceb9f4c11ed6ce3",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-council-02-field.md": {
-    "mtime": 1794892882.8746662,
+    "mtime": 1794895915.80721,
     "ast_hash": "0bbc02a6c2d26e9afb19ced041ac2612",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-council-03-qa-audit.md": {
-    "mtime": 1794892882.8746662,
+    "mtime": 1794895915.80721,
     "ast_hash": "1599acb11c33b48e8db1f394cec06791",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-council-04-standards.md": {
-    "mtime": 1794892975.5403273,
+    "mtime": 1794895918.7994635,
     "ast_hash": "5e79cc568ecab90e1f75ad8ea5709eec",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-council-05-defender.md": {
-    "mtime": 1794892882.875666,
+    "mtime": 1794895915.8090935,
     "ast_hash": "0caa95e1562c23081fa09baee6e6d220",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-decision.md": {
-    "mtime": 1794892975.5433283,
+    "mtime": 1794895918.800464,
     "ast_hash": "ef2d8627aa03992bc61b0275dbcfe9fd",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-fix-round1.md": {
-    "mtime": 1794892975.545326,
+    "mtime": 1794895918.8014686,
     "ast_hash": "0685463b2a989664955df33bab4db11e",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-fix-round2.md": {
-    "mtime": 1794892959.7488678,
+    "mtime": 1794895918.8014686,
     "ast_hash": "2fc073e43240285e6f8a61c9ab361835",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-implementation.md": {
-    "mtime": 1794892959.7488678,
+    "mtime": 1794895918.8024793,
     "ast_hash": "3d5d51d8a399ce12b79f42f1fe4bc921",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-research-external.md": {
-    "mtime": 1794892982.7194657,
+    "mtime": 1794895918.803479,
     "ast_hash": "de2e615190c01ca02fb028792a9efa64",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-research-internal.md": {
-    "mtime": 1794892881.5209856,
+    "mtime": 1794895914.5170858,
     "ast_hash": "10c7f31c6c4baed41e1122f30c982bb4",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-review-round1.md": {
-    "mtime": 1794892975.5495238,
+    "mtime": 1794895918.8044868,
     "ast_hash": "84d24ee385e78c271e7275abc87fff34",
     "semantic_hash": ""
   },
   "research/355-deliberation/b2-review-round2.md": {
-    "mtime": 1794892959.749863,
+    "mtime": 1794895918.8044868,
     "ast_hash": "ab684c73aaf2808e52b1e95725b958b7",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-council-00-agenda.md": {
-    "mtime": 1794892882.7599998,
+    "mtime": 1794895915.730675,
     "ast_hash": "00c93fffc27b9dcd68c6fdc6aa110f67",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-council-01-drafter.md": {
-    "mtime": 1794892882.875666,
+    "mtime": 1794895915.8101015,
     "ast_hash": "349b77b2494a0b2741bec733d2fb8a0a",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-council-02-field.md": {
-    "mtime": 1794892882.875666,
+    "mtime": 1794895915.8101015,
     "ast_hash": "6ed1e8339a9eea0012e581126ed1c4f9",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-council-03-qa-audit.md": {
-    "mtime": 1794892882.8766658,
+    "mtime": 1794895915.8111038,
     "ast_hash": "145c23ebf5e3f2ae4e85378e203f2258",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-council-04-standards.md": {
-    "mtime": 1794892882.8766658,
+    "mtime": 1794895915.8119366,
     "ast_hash": "399a4a13c63822717e9c0b069cb1cd31",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-council-05-defender.md": {
-    "mtime": 1794892882.877666,
+    "mtime": 1794895915.8129451,
     "ast_hash": "c0db2dcf115e1c8aad6b7765211a74be",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-decision.md": {
-    "mtime": 1794892883.6496606,
+    "mtime": 1794895916.2814198,
     "ast_hash": "fd35ad1a79641dbda550d1df534e5185",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-fix-round1.md": {
-    "mtime": 1794892959.749863,
+    "mtime": 1794895918.8054843,
     "ast_hash": "0e7e37b5c8d1b723f19c6a448e153481",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-fix-round2.md": {
-    "mtime": 1794892959.7513719,
+    "mtime": 1794895918.806488,
     "ast_hash": "572d32a11afd10326d03381085df15a0",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-implementation.md": {
-    "mtime": 1794892959.7513719,
+    "mtime": 1794895918.8074872,
     "ast_hash": "2d6e5dbddc0b0dac28426bb4c6e0831d",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-research.md": {
-    "mtime": 1794892882.7610004,
+    "mtime": 1794895915.731741,
     "ast_hash": "b2e7681b1eb616996fe166b0095879e5",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-review-round1.md": {
-    "mtime": 1794892959.7513719,
+    "mtime": 1794895918.8074872,
     "ast_hash": "1915ebaa4485285187005c2d3cb83537",
     "semantic_hash": ""
   },
   "research/356-deliberation/b-review-round2.md": {
-    "mtime": 1794892959.7536275,
+    "mtime": 1794895918.808486,
     "ast_hash": "696ca569b3b390895f7614ee940766c2",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0157-recipient-origin-check-is-guidance-and-kb-source-limited-to-main-history.md": {
-    "mtime": 1794892893.4519124,
+    "mtime": 1794895916.7393134,
     "ast_hash": "5b90c1cd8b278ac777b40fe4d8e991c3",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0158-halt-on-rework-rate-indeterminate-and-record-enforcement-location.md": {
-    "mtime": 1794892959.7549405,
+    "mtime": 1794895918.817219,
     "ast_hash": "d355d139a46b789a0c4e85d54cfe392b",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0159-g7-criteria-3-6-7-8-records-prose-sla-and-degradation-pairing.md": {
-    "mtime": 1794892959.7549405,
+    "mtime": 1794895918.817219,
     "ast_hash": "0983a88047119a50b041cd0c1fb1870a",
     "semantic_hash": ""
   },
   "src/content/docs/adr/0161-seeded-error-blinding-by-separating-surfaces-and-counting-misses-by-scope.md": {
-    "mtime": 1794892959.7555225,
+    "mtime": 1794895918.8182192,
     "ast_hash": "feeaa366c6abb746b0d492eb805612d6",
     "semantic_hash": ""
   },
@@ -14385,8 +14385,8 @@
     "semantic_hash": ""
   },
   "template/.claude/skills/gate/gates/G-7.md": {
-    "mtime": 1794889384.3735578,
-    "ast_hash": "3c3eb34ac6ea763219932dc8043298d0",
+    "mtime": 1794895958.0268602,
+    "ast_hash": "8004eaf3f136d756fb341800161186ad",
     "semantic_hash": ""
   },
   "template/.claude/skills/gate/gates/G-8.md": {
@@ -14400,8 +14400,8 @@
     "semantic_hash": ""
   },
   "template/.claude/skills/gate/reference/exception-paths.md": {
-    "mtime": 1794889384.3752751,
-    "ast_hash": "3977791040f64e24aeb0d8284ab7981c",
+    "mtime": 1794895958.0268602,
+    "ast_hash": "0fdd9232c7e805b04be69e3ffa16b0ca",
     "semantic_hash": ""
   },
   "template/.claude/skills/gate/reference/recording.md": {
@@ -14645,8 +14645,8 @@
     "semantic_hash": ""
   },
   "template/.github/workflows/gate-g5.yml": {
-    "mtime": 1794889384.4049625,
-    "ast_hash": "4171bfc6eb8db28f177a6972090d2962",
+    "mtime": 1794895958.0278635,
+    "ast_hash": "2cec665f561aa180629d078fa686aadd",
     "semantic_hash": ""
   },
   "template/.github/workflows/record-copy.yml": {
@@ -14655,8 +14655,8 @@
     "semantic_hash": ""
   },
   "template/.github/workflows/ship-evidence.yml": {
-    "mtime": 1794889384.4059615,
-    "ast_hash": "6421a7c4391d362a4a0c94b3d3383418",
+    "mtime": 1794895958.0278635,
+    "ast_hash": "934fdac9298069c81433193572862f97",
     "semantic_hash": ""
   },
   "template/AGENTS.md": {
@@ -14675,8 +14675,8 @@
     "semantic_hash": ""
   },
   "template/README.md": {
-    "mtime": 1794893025.6617162,
-    "ast_hash": "dd0d512a013aa097d42cedd4d992cc6f",
+    "mtime": 1794895958.0288594,
+    "ast_hash": "e0b7a51d93c254acf3b7504e51e1137a",
     "semantic_hash": ""
   },
   "template/context/_archive/README.md": {
@@ -14780,8 +14780,8 @@
     "semantic_hash": ""
   },
   "template/templates/03-debt-ledger.md": {
-    "mtime": 1794889384.507612,
-    "ast_hash": "22e33908ebcaf9c55440c4be2b247a84",
+    "mtime": 1794895958.042372,
+    "ast_hash": "f7be2735d1bb7e3b81fc2eb7618e70f3",
     "semantic_hash": ""
   },
   "template/templates/04-gate-record.md": {
@@ -14860,43 +14860,93 @@
     "semantic_hash": ""
   },
   "research/sources/SRC-0757.yaml": {
-    "mtime": 1794892975.7179213,
+    "mtime": 1794895918.8097036,
     "ast_hash": "be6661d0775a5db7fba5c353a739c661",
     "semantic_hash": ""
   },
   "research/sources/SRC-0758.yaml": {
-    "mtime": 1794892975.7199218,
+    "mtime": 1794895918.810393,
     "ast_hash": "8a8d2aafcb2227938e70029ff44d192e",
     "semantic_hash": ""
   },
   "research/sources/SRC-0759.yaml": {
-    "mtime": 1794892975.720759,
+    "mtime": 1794895918.8113985,
     "ast_hash": "3077fab5c7a3ed55b6043e19f413a070",
     "semantic_hash": ""
   },
   "research/sources/SRC-0760.yaml": {
-    "mtime": 1794893044.5946023,
+    "mtime": 1794895918.8122132,
     "ast_hash": "789d3fb1c70b2348d13eeaa9ddbd42d1",
     "semantic_hash": ""
   },
   "research/sources/SRC-0761.yaml": {
-    "mtime": 1794893044.5966015,
+    "mtime": 1794895918.8132193,
     "ast_hash": "d7eacea54e46c8c7b364d2d5b522ad6f",
     "semantic_hash": ""
   },
   "research/sources/SRC-0762.yaml": {
-    "mtime": 1794893044.5986004,
+    "mtime": 1794895918.8132193,
     "ast_hash": "5afd3e9ae26ef925f9d32132f1b7d919",
     "semantic_hash": ""
   },
   "research/sources/SRC-0763.yaml": {
-    "mtime": 1794893044.600108,
+    "mtime": 1794895918.8142197,
     "ast_hash": "b258125b7db2a9e9a2d449e08c574697",
     "semantic_hash": ""
   },
   "research/sources/SRC-0764.yaml": {
-    "mtime": 1794893044.6016312,
+    "mtime": 1794895918.8152213,
     "ast_hash": "91172fc6489509525d898d5e8185d3e6",
+    "semantic_hash": ""
+  },
+  "template/scripts/gate/exception-expiry.mjs": {
+    "mtime": 1794895958.0353734,
+    "ast_hash": "c6fa5d6dd0c892498722cdc8ab8e6e09",
+    "semantic_hash": ""
+  },
+  "template/scripts/gate/test-exception-expiry.mjs": {
+    "mtime": 1794895958.0373745,
+    "ast_hash": "be1891753547f963dbe35adc557297c0",
+    "semantic_hash": ""
+  },
+  "research/353-deliberation/template-fix-round1-ruling.md": {
+    "mtime": 1794895914.248738,
+    "ast_hash": "f90510549d4e9883e185dac068a317af",
+    "semantic_hash": ""
+  },
+  "research/353-deliberation/template-fix-round1.md": {
+    "mtime": 1794895914.2492423,
+    "ast_hash": "6d8e3a3d14dd728778947c3738378120",
+    "semantic_hash": ""
+  },
+  "research/353-deliberation/template-fix-round2-ruling.md": {
+    "mtime": 1794895914.2492423,
+    "ast_hash": "f7109d6512ad8c874b09b98619fe2941",
+    "semantic_hash": ""
+  },
+  "research/353-deliberation/template-fix-round2.md": {
+    "mtime": 1794895914.2502468,
+    "ast_hash": "69b5efbd006e8edaf357f26fbed8739a",
+    "semantic_hash": ""
+  },
+  "research/353-deliberation/template-implementation.md": {
+    "mtime": 1794895914.2502468,
+    "ast_hash": "02ebaa980ad60ddd420d9d287c6dd286",
+    "semantic_hash": ""
+  },
+  "research/353-deliberation/template-review-round1.md": {
+    "mtime": 1794895914.251247,
+    "ast_hash": "e4e167337f2f5f4e329e6b3f1e2d4e50",
+    "semantic_hash": ""
+  },
+  "research/353-deliberation/template-review-round2.md": {
+    "mtime": 1794895914.251247,
+    "ast_hash": "f4a46f8515096eb01cd711f1338ade3b",
+    "semantic_hash": ""
+  },
+  "research/b11-push-prep.md": {
+    "mtime": 1794896036.886167,
+    "ast_hash": "cb4a88b9d7aeba957a7cdc121c3e8e2e",
     "semantic_hash": ""
   }
 }
