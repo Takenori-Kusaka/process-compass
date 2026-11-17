@@ -22,7 +22,7 @@ URL の直後に全角の括弧・読点・句点・日本語、または半角�
 
 ## 消失・削除済み(.lycheeignore へ理由つきで追加。9 件・5 URL)
 
-curl でも 404 が続く。
+curl でも 404 が続く(mdcpp は 000 と 404 が揺れる)。
 
 | 所在 | URL | 状態 |
 | --- | --- | --- |
@@ -33,12 +33,12 @@ curl でも 404 が続く。
 | research/379-deliberation/survey-379-2-external.md:229 | https://standards.iteh.ai/catalog/standards/sist/1fc38e10-624f-4e18-a0a8-5c3283e61a1a/iso-iec-27002-2022 | 404 |
 
 - 最後の iteh は、#431 では 200 だったが今回は 404 が続いた。#431・#437 の棚卸しの表(research/431-link-triage.md:57、research/437-link-triage.md:73・75・76)が同じ URL と mdcpp を引いているため、合わせて 9 件になる
-- mdcpp.com は #437 では接続できず(000)、今回は 404。除外へ移した
+- mdcpp.com は #437 では接続できず(000)、今回は 404。取り直すと 000 と 404 が揺れる(独立の突合の低-2)。どちらでも文書は得られないため、除外へ移した
 
-## クライアントによる出し分け(.lycheeignore へ理由つきで追加。16 件・10 URL)
+## 検査の実行環境からの要求の拒否(.lycheeignore へ理由つきで追加。16 件・10 URL)
 
-www.fda.gov は curl では 200、lychee には 404 を返す。実在は curl で確かめた。lychee では確かめられないため、URL を指定して除外した。
+www.fda.gov は手元の curl では(検査と同じ UA でも)200、検査(GitHub Actions 上の lychee)には 404 を返す。UA ではなく取得元の環境で応答が変わるとみられ、前例の「GitHub Actions の実行環境からの要求を拒否」と同じ扱いにした。実在は curl で確かめた。lychee では確かめられないため、URL を指定して除外した。
 
 - research/373-deliberation/survey-373-2-external.md、379、401、424、434、phase4-standard/gate-record-01-regulatory.md の fda.gov
 - ドメイン全体は除外していない。他の fda.gov の URL は引き続き検査される
-- 根拠水準: 出し分けの原因(ボット対策)は推定であり、実証していない
+- 根拠水準: 拒否の原因(取得元の環境)は推定であり、実証していない(独立の突合の低-1 で UA が原因でないことを確かめた)
