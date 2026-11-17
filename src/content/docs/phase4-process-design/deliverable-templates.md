@@ -1210,7 +1210,7 @@ PR を経ていないコミットで、リスク区分または検証の記載�
 
 <!-- impl IMPL-0801 target=g1-check state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="禁止した一般語のみで書かれた欄と、代替手段の欄に「ない」とのみ書かれた欄を、機械が検査すること。scripts/gate/check-g1.mjs は未記入と様式の説明のままを検出するが、一般語のみ・「ない」のみは「成長」「一般語」「同一」で検索した範囲で見つかっていない。前案件の記述との同一の検査は、他案件の企画書を入力に要し、準拠テンプレートに入力の置き場が無いため、ここでは扱わない。確かめる者: 計画の Issue の担当者" -->
 
-<!-- impl IMPL-0878 target=g1-check state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="企画書の記述が前案件の記述と同一であることを、機械が検査すること(記述の充足をどう検査するかの表)。他案件の企画書を入力に要し、準拠テンプレートの check-g1.mjs に入力の置き場も同一の検査も無い(読んだ範囲。2026-11-15)。検査を足すには新しい記録を要するため、棚卸しでは機械の検査(check=machine)を足さず、降りていない規定として表示する。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0878 target=g1-check state=undelivered check=manual plan=adopter decision=ADR-0175 note="企画書が前の案件の記述と同一でないこと。他の案件の企画書が入力に要り、単一の案件のリポジトリは持たない(ADR-0175)。確かめる者: 採用者の G-1 の判定者(判定のとき)" -->
 
 ### 誰がいつ書くか
 

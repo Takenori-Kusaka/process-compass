@@ -307,6 +307,7 @@ sidebar:
 | EV-0256 | 観点6 に足した所見の例(載せるべき人の欠け、区分の誤り、例外の条件の偽り) | E0(なし) | 未記載 | 2027-11 | 観点6 の監査で、足した3つの所見の例に当たった件数と、当たった体制の規模。2回の監査の周期で1件も当たらず、名簿の変化点の記録(任免・名簿へ人を足す行)の本人以外の記名で同じ欠けが先に見つかっている場合は、所見の例を手引きの例へ移す。当たった所見のうち例外の条件の偽りが多い場合は、例外を使う変化点で組織の記録の所在を求める検査を足す | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | EV-0304 | 基準3 の記録漏れを判定者の突合で受け、結合キー(負債・未解決の行の「対象」への PR の記入)を課さない判断。チェック項目を付けない妥協が見えない点。小さいチームでは、書く者と突合する者が同じ人になる点 | E0(なし) | 未記載 | 2027-11 | 判定者の突合で見つけた、チェック項目を付けた PR の行が台帳に無い件数と、出荷後に見つけた、台帳に無い妥協の件数を観測したとき。前者の件数が1件以上なら、結合キーの義務を審議する | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | EV-0306 | 4指標を採用者の生産性・速度の指標と並べれば、劣化の兆候(生産性の改善と保守性の悪化の組み合わせ)を読めるという判断。根拠は DORA の指標の手引き(複数の指標を緊張関係で組ませる。二次資料)です。SPACE の一次資料は読めていません | E1(間接) | 未記載 | 2027-11 | 採用者が並べた指標の組と、劣化の兆候を見つけた事例、または見落とした事例を観測したとき | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
+| EV-0314 | (d) の線引き(決定2)と 18 件の振り分け。線引きが採用者の実装の欠けを生まないことは測られていない | E0(なし) | 未記載 | 2027-11 | adopter の 18 件について、採用者から「テンプレートが持つべきだった」との申し立てが出た件数 | [adr/0175-assign-445-450-undelivered-to-adopter-or-template](/process-compass/adr/0175-assign-445-450-undelivered-to-adopter-or-template/) |
 
 <!-- evidence-ledger:end -->
 

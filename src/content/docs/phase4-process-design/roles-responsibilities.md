@@ -1081,7 +1081,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 - 判定を要しない報告のみの議題を、定例の議題としてはならない。報告は非同期の記録で行う
 - 工程ゲートの判定を会議体へ持ち込んではならない。判定者の帯域が不足する場合は、[第7章 7.5](/process-compass/phase4-process-design/exception-escalation/)の措置による
 
-<!-- impl IMPL-0665 target=committee-agenda state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.7.5 と 3.7.4 の、会議体は決定する事項に列挙した事項のみを議題とし(列挙外の事項を議題としない)、判定を要しない報告のみの議題を定例の議題としないこと。B-3・B-4 は工程ゲートを置き換えず、単独判定者の権限を超える事項のみを扱うこと(3.7.2)。工程ゲートの判定は会議体へ持ち込まない(判定記録の様式が判定者を1人とすることで IMPL-0656 が追う)。議題が決定する事項に当たるかの照合は、上程の判定資料(求める判断)に現れる。準拠テンプレートに実装は無い。降ろし先は予定の登録(decision.md 5章 T8)。確かめる者: 判定者(上程の判定資料を読むとき)" -->
+<!-- impl IMPL-0665 target=committee-agenda state=undelivered check=manual plan=adopter decision=ADR-0175 note="会議体は決定する事項に列挙した事項のみを議題とすること。議題の運営は組織の会議体に属し、列挙を様式へ写すと標準と二重に管理する(IMPL-0701 と同じ理由。ADR-0175)。確かめる者: 判定者(上程の判定資料を読むとき)" -->
 
 ## 3.8 決裁権限マトリクス
 
@@ -1247,7 +1247,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 
 中止・差し戻しが一度も出ない会議体は、判定の場ではなく通過点です。この状態が続く場合、会議体の廃止または判定基準の見直しを検討します。
 
-<!-- impl IMPL-0707 target=committee-agenda state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.9.4 の会議体の健全性指標(上程から判定までの日数、中止・差し戻しの比率、報告のみの議題の比率、持ち回り決議の比率、標準変更カタログの登録件数)の継続計測。準拠テンプレートに会議体の記録の様式も集計も無い(3.10.8 の IMPL-0216 の形骸化の指標と同じ型)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0707 target=committee-agenda state=undelivered check=manual plan=adopter decision=ADR-0175 note="3.9.4 の会議体の健全性の指標の継続計測。会議体は案件をまたぎ、単一の案件のリポジトリの記録だけでは分母が欠けて誤った値になる(ADR-0175)。確かめる者: 採用者の会議体の事務局(四半期ごと)" -->
 
 ## 3.10 事前レビュー期間
 
@@ -1370,7 +1370,7 @@ sequenceDiagram
 - 期限までに解消しなかった対立は、決定者が判定によって決める。合意の成立を待たない
 - 判定に異議を述べた者も、判定の後はその決定に従って実行する
 
-<!-- impl IMPL-0832 target=committee-agenda state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.10.7 の、判定当日の議題を未解決論点と高リスク事項に限り、事前レビュー期間で解決した事項を再度扱わないこと(判定資料の未解決論点の一覧(3.10.3 の記載事項2)に議題を照らす)。黙読の時間・資料の読み上げの禁止・判定の後の実行は、会議の進め方で違反が当日のふるまいにしか現れない制度設計の事項として追わない。準拠テンプレートに議題の照合は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0832 target=committee-agenda state=undelivered check=manual plan=adopter decision=ADR-0175 note="判定の当日の議題を未解決の論点に限ること。会議の当日のふるまいで記録に残らない(ADR-0175)。確かめる者: 採用者の会議体の議長(当日)" -->
 
 意見が一致するまで議論を続ける運用は、最も長く主張を続けた者の案が通る結果を招きます。決定者を1名に定める(3.8.3)のは、この帰結を避けるためです。
 
@@ -1726,7 +1726,7 @@ AI運用担当者は、全社のAI実行基盤に責任を持ち、複数の案�
 
 開発組織が AI 実行基盤へ直接接続することを認めません。**接続はすべて AI運用担当者が用意した経路を通ります**。組織が用意した契約(定額の契約を含む)は、正規の経路です。**個人で契約した経路は、定額であっても、正規の経路に当たりません**。課金の形態は、経路が正規かどうかを変えません。
 
-<!-- impl IMPL-0568 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.2 の接続経路の限定。開発組織が AI 実行基盤へ直接接続せず、接続はすべて AI運用担当者が用意した経路を通る。組織が用意した契約は正規の経路で、個人で契約した経路は定額であっても正規の経路に当たらない。準拠テンプレートは AI 実行基盤を持たず、接続先を縛る設定は無い(agent-settings の deny は秘匿情報の読み取りと gh の操作)。手元のログを日次で複製して退避することは課さない(課さない明記。ADR-0078)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0568 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="AI 実行基盤への直接接続の禁止。接続経路は採用者の AI 実行基盤に属し、準拠テンプレートは接続経路を持たない(ADR-0175)。確かめる者: 採用者の AI運用担当者(経路を設けるとき・改めるとき)" -->
 
 本標準は、端末に残る実行の記録(手元のログ)を日次で複製して退避することを課しません。消費の実績は接続経路の側で記録します。手元のログの保持は提供者の仕様に依り、本標準の判定が読む記録ではないためです([ADR-0078](/process-compass/adr/0078-rejudge-on-change-and-irreversible-operation/))。
 
@@ -1834,8 +1834,8 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 :::
 
 <!-- impl IMPL-0408 target=model-quality-monitor state=undelivered check=manual plan=adopter decision=ADR-0104 note="3.12.4 の基準値。品質の監視の基準値を、導入を承認した評価の結果とし、監視の結果から自動で改めない。改めは AI運用担当者の記名と理由・旧い値・新しい値の記録による。基準値を下げる変更を緩める向きとして扱う。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 採用者の AI運用担当者(基準値を定めるとき、改めるとき)" -->
-<!-- impl IMPL-0712 target=model-quality-monitor state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.4 の、可用性の監視(応答の成否・遅延・レート制限への到達。常時)と品質の監視(基準集合に対する定期的な試行と基準値との比較。日次以上)を分けて実施すること。準拠テンプレートは AI 実行基盤と品質の監視を持たない(基準値の定め方の IMPL-0408 と同じ)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0713 target=model-quality-monitor state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.4 の、採点者の識別が変わった後の監視の結果を変わる前の基準値と比べないことと、正解を改めたとき(3.12.3 の要求事項16)に改めた正解で現行のモデルを測り直すこと。準拠テンプレートは AI 実行基盤と品質の監視を持たない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0712 target=model-quality-monitor state=undelivered check=manual plan=adopter decision=ADR-0175 note="可用性と品質の監視の分離。品質の監視は AI 実行基盤に属し、準拠テンプレートは監視を持たない(IMPL-0408 と同じ。ADR-0175)。確かめる者: 採用者の AI運用担当者(監視を設けるとき)" -->
+<!-- impl IMPL-0713 target=model-quality-monitor state=undelivered check=manual plan=adopter decision=ADR-0175 note="採点者の識別を変えた後の基準値の扱い。品質の監視は AI 実行基盤に属する(ADR-0175)。確かめる者: 採用者の AI運用担当者(採点者を変えるとき)" -->
 
 ### 3.12.5 障害と切り替え
 
@@ -1850,8 +1850,8 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 | 5 | 復旧後、切り替え期間中に生成された変更を特定できる状態にする |
 | 6 | 切り替えの期間中は、委任([第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/))を協働へ下げる。担い手の識別が変わり、適合性確認(3.4.2)の前提を欠くためである |
 
-<!-- impl IMPL-0826 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.5 要求事項1・2。切り替え先を 3.12.3 の適合性評価を通過したモデルに限ることと、切り替えの発生を記録して開発組織へ通知すること。切り替えの手順は AI運用担当者が採用者の AI 実行基盤に置き、準拠テンプレートは AI 実行基盤を持たない。切り替えの期間の記録と保証の開示への集約は IMPL-0726・IMPL-0729 が運ぶが、切り替え先の限定と発生の通知を照らす検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0827 target=model-quality-monitor state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.5 要求事項4。切り替え後に品質監視の結果を確認し、基準を下回る場合は作業を停止すること。品質の監視は採用者の AI 実行基盤にあり(ADR-0104)、準拠テンプレートは持たない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0826 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="モデルの切替先の限定と発生の通知。切替は AI 実行基盤の運用に属する(ADR-0175)。確かめる者: 採用者の AI運用担当者(切替のとき)" -->
+<!-- impl IMPL-0827 target=model-quality-monitor state=undelivered check=manual plan=adopter decision=ADR-0175 note="切替後の品質の監視と、基準を下回ったときの停止。品質の監視は AI 実行基盤に属する(ADR-0175)。確かめる者: 採用者の AI運用担当者(切替の後)" -->
 <!-- impl IMPL-0828 target=agent-run-record state=undelivered check=manual plan=scheduled issue=444 review=2027-05 note="3.12.5 要求事項5。復旧後、切り替え期間中に生成された変更を特定できる状態にすること。変更単位の生成の条件(モデルの識別・実行の識別子)の記録の仕組みに乗る。準拠テンプレートに実装は無く、モデルの識別はトレーラ Co-Authored-By に限る。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 要求事項3 の下限は L1 です。L1 の範囲では、段階を下げません。代わりに、第5章 5.4.5 の条件1(連続運用期間)を、切り替えの終了の日から数え直します(第5章 5.4.6 の措置の下限と同じ読み)。
@@ -1898,7 +1898,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 猶予期間の全体を移行に使えると想定してはなりません。評価と修正のリードタイムを確保できない計画は、期限直前の無評価の差し替えを招きます。
 
 <!-- impl IMPL-0714 target=d0-template state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="3.12.6 の、開発組織で用いるモデルを版を固定して指定すること。D-0 の様式(節12「担い手と運用形態」)は AI の担い手をモデルの版・指示資産の版・権限の組で識別すると書くが、用いるモデルを版固定で指定することを要求する欄・検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0715 target=deprecation-inventory state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.6 の、廃止予定の一覧を四半期ごとに棚卸しして影響する案件へ通知することと、回帰評価・差分の修正・展開に要する期間を差し引いた着手の期限を定めること。依存先の欄の通知の期間(IMPL-0065)は持つが、廃止予定の棚卸しの実施・影響する案件への通知・着手の期限を定める欄は確かめられなかった。棚卸し・通知・着手の期限を運ぶ置き場は準拠テンプレートに無く、予定の降ろし先 deprecation-inventory(AI運用担当者の側)へ付けた。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0715 target=deprecation-inventory state=undelivered check=manual plan=adopter decision=ADR-0175 note="モデルの廃止予定の四半期の棚卸しと通知。提供者の廃止予定は AI 実行基盤の運用に属する(ADR-0175)。確かめる者: 採用者の AI運用担当者(四半期ごと)" -->
 
 ### 3.12.7 実行予算の配給
 
@@ -1909,7 +1909,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 - 月次の消費実績を B-2 へ報告する。[第7章 7.7.4](/process-compass/phase4-process-design/exception-escalation/)の閾値を超えた場合は自動的に上程する
 
 <!-- impl IMPL-0257 target=claude-md-resident state=delivered check=presence note="待つことで費用が増えることを、ゲートの判定や人の承認を急がせる理由にしない。CLAUDE.md の判断の確定と委任の節の行に置く。催促の有無を機械は確かめない。AI維持管理者が、承認の催促に費用を理由として挙げた記録が無いかを抜き取りで確かめる(#358)(単位: 行)" -->
-<!-- impl IMPL-0833 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.7 の、接続経路の上でチーム単位の上限を設定して消費の前に強制することと、提供者が課す利用上限を組織が設定した上限に数えないこと。上限の強制は AI運用担当者が採用者の AI 実行基盤の接続経路に置き、準拠テンプレートは持たない。上限到達時の扱いを G-1 で合意して記録することは IMPL-0902 が追う。月次の消費実績の B-2 への報告と閾値を超えたときの自動的な上程は第7章 7.7.4 の IMPL-0370 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0833 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="接続経路上のチーム単位の上限の強制。経路は採用者の AI 実行基盤に属する。G-1 での合意の記録は IMPL-0902 が企画書で受ける(ADR-0175)。確かめる者: 採用者の AI運用担当者(上限を設けるとき)" -->
 
 <!-- impl IMPL-0902 target=project-brief-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="3.12.7 の、チーム単位の上限に到達したときの扱いを G-1 で合意して記録すること。企画書の様式 templates/06-project-brief.md の節「指標の閾値と予算区分」は、エスカレーション閾値・自動的な上程の閾値・予算の4区分・停止条件の値の行を持つが、チームの上限へ到達したときの扱いの行は無い(2026-11-15 に確かめた)。「指標の閾値と予算区分」の IMPL-0371 は閾値の記名を追い、上限到達時の扱いは追わない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -1927,7 +1927,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 | 4 | 統制の内容を、CI の必須検査として開発組織へ反映する |
 | 5 | 統制の変更は、猶予期間を置いて開発組織へ通知する |
 
-<!-- impl IMPL-0716 target=ai-runtime-connection state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.8 要求事項2。機密情報の送出を検査する仕組みを接続経路の上に置くこと。置き場は採用者の AI 実行基盤にあり、準拠テンプレートは接続経路を持たない(agent-settings の deny は秘匿情報の読み取りと gh の操作で、モデルへの送出の検査ではない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0716 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="機密情報の送出の検査を接続経路に置くこと。接続経路は採用者の環境に属する(ADR-0175)。確かめる者: 採用者の AI運用担当者(経路を設けるとき)" -->
 <!-- impl IMPL-0717 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.8 要求事項3 のうち、提供者との契約で入出力の学習利用の有無を確認し記録すること。保持の条件は構成の依存先の欄の data(提供者へ渡すデータの種別と保持の条件。IMPL-0065)が運ぶが、学習利用の有無を書く欄は確かめられなかった(/process-change の種別 settings の dependencies の項目は provider・models・noticePeriod・data)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.12.9 統制と CI 検査の同期
@@ -1946,7 +1946,7 @@ graph LR
 - 猶予期間の長さは統制の緊急度によって定める。セキュリティ上の重大な事象に対応する統制は、この限りではない
 - 昇格の予定日を、先行導入の時点で通知する
 
-<!-- impl IMPL-0718 target=control-rollout state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.9 の、全社の統制の更新を、検査ルールの更新・警告として先行導入・猶予期間・必須検査へ昇格の順で開発組織の CI に反映すること(猶予期間なしの昇格の禁止、猶予の長さを統制の緊急度で定めること、昇格の予定日を先行導入の時点で通知すること)。3.12.8 要求事項4・5 も同じ。準拠テンプレートに、検査を警告から必須へ昇格させる猶予と通知の仕組みは確かめられなかった(「猶予期間」「警告として先行」「必須検査へ昇格」の検索で該当なし。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0718 target=control-rollout state=undelivered check=manual plan=adopter decision=ADR-0175 note="全社の統制の更新の段階導入。全社の統制と CI 基盤は案件のリポジトリの外にある(ADR-0175)。確かめる者: 採用者の統制の更新を決める者(更新のとき)" -->
 
 ### 3.12.10 実行の強制停止(サーキットブレーカー)
 

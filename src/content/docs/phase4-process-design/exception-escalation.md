@@ -430,7 +430,7 @@ AI実行予算は、課金の形態(従量・定額・定額の枠と超過の�
 
 指標の閾値は組織が定める値です([第1章 1.7.7](/process-compass/phase4-process-design/overview/))。企画承認(G-1)の判定者(事業決裁者)が確定し、記名して記録しなければなりません。7.7.4 の上程に用いる値も同じです。閾値の記録の無い案件は、G-1 の判定基準4(指標の閾値と予算区分)を満たしません。
 
-<!-- impl IMPL-0619 target=budget-escalation state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="7.7.2 の指標の定義。AI実行費用の単位あたり値の分母を、受入基準を満たして統合された変更に限ること(取り消した変更・統合されなかった試行を分母に含めない)。同じ降ろし先の IMPL-0370(7.7.4。plan=adopter・ADR-0096)は指標を期ごとに測ることを追うが、分母の規則は名指さない。本マークは plan=scheduled とする(議長の裁定 T3 と同じ扱い)。閾値の記録は G-1 の IMPL-0371 が追う。準拠テンプレートは指標を測らない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0619 target=budget-escalation state=undelivered check=manual plan=adopter decision=ADR-0175 note="7.7.2 の AI 実行費用の単位あたりの値の分母。費用の計測は採用者の基盤に属し、準拠テンプレートは費用を測らない。閾値の記録は IMPL-0371 が受ける(ADR-0175。IMPL-0370 の ADR-0096 と同じ型)。確かめる者: 採用者の予算の責任者(上程のとき)" -->
 
 ### 7.7.3 中止の判断基準
 
