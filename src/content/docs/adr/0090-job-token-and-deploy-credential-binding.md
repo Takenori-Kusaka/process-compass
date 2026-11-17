@@ -18,7 +18,7 @@ sidebar:
 | [ADR-0052](/process-compass/adr/0052-delivery-is-verified-at-the-destination/)の決定1(配布物そのものを検査する) | 維持する。来歴の証明は ADR-0157 の決定2 で文書の配布に課さないと決めた。配布の突合は、決定8 のとおり後継の Issue の候補にする |
 | [ADR-0071](/process-compass/adr/0071-structure-of-principles-decisions-and-gate-records/)の決定3(判定の証跡は判定記録に限る) | 維持する。決定6 の env-check の読み取りと決定4 の狭める措置の設定の事実は、G-8 の適合の判定にも判定の証跡にも使わない |
 
-一部置き換え(→ [ADR-0141](/process-compass/adr/0141-g8-by-record-and-deploy-credential-unlisted-deviation/) の決定4、ADR-0157 の決定1・2): ADR-0141 は、本 ADR の決定2 が構成の状態に使った「未達」をゲートの状態の語に置き換えました。決定8 のうち「受け手の検証」と「来歴の証明(artifact attestation)」の2項目は、[ADR-0157](/process-compass/adr/0157-recipient-origin-check-is-guidance-and-kb-source-limited-to-main-history/) で候補から決定へ移りました(2026-11-17)。受け手の検証は義務ではなく手引きの手順とし、来歴の証明は文書の配布に課しません。決定8 のほかの項目(配布の経路の変更のうち Pages と実行の番号の突き合わせ、語の全体の統一、準拠テンプレートの workflows の最小権限)は候補のままです。
+一部置き換え(→ [ADR-0141](/process-compass/adr/0141-g8-by-record-and-deploy-credential-unlisted-deviation/) の決定4、ADR-0157 の決定1・2): ADR-0141 は、本 ADR の決定2 が規定を満たさない構成に使った「未達」の語を「列挙に無い離脱」に置き換えました(2つの場合の分け方と記録の3項目は維持)。決定8 のうち「受け手の検証」と「来歴の証明(artifact attestation)」の2項目は、[ADR-0157](/process-compass/adr/0157-recipient-origin-check-is-guidance-and-kb-source-limited-to-main-history/) で候補から決定へ移りました(2026-11-17)。受け手の検証は義務ではなく手引きの手順とし、来歴の証明は文書の配布に課しません。決定8 のほかの項目(配布の経路の変更のうち Pages と実行の番号の突き合わせ、語の全体の統一、準拠テンプレートの workflows の最小権限)は候補のままです。
 
 ## コンテキスト
 
