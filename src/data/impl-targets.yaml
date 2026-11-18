@@ -546,7 +546,7 @@ targets:
 
   - id: flow-observation
     name: フローの観測と滞留の通知(予定)
-    kind: planned
+    kind: template-file
     path: .github/workflows/flow-observation.yml
     description: 第2章 2.10.4 の滞留期間の観測と非同期の通知の置き場。Issue の事象(割当・PR の結び付き・閉じた時刻と理由)を定期の実行で読み出し、作業単位への Issue のコメントで通知する(他の席のラベルを遷移させない)。準拠テンプレートに実装は無い(2026-11-12 確認。#359 の裁定 2)。あわせて、2.10.5 の調整の記録の置き場とする(予定。IMPL-0954)。2.10.6 の見込みの評価と順序の記録は課さないと決めた(ADR-0178)。経緯は、束 C の突合 1巡目 C1-22 の裁定で説明を広げ、束 C の2巡目の裁定で追認した。path は予定の置き場であり仮である
 
@@ -600,7 +600,7 @@ targets:
 
   - id: review-queue-control
     name: 判定とレビューの滞留の検知・催促・通知・同時保有数の制御(予定)
-    kind: planned
+    kind: template-file
     path: .github/workflows/review-queue-control.yml
     description: 第4章「レビュー SLA と滞留の措置」の、レビュー依頼の個人への指名、応答時間の超過の催促、D-0 表3 の判定する者への通知、同時保有数の上限、指名先が確保できないときの差し戻しの置き場。あわせて、第7章 7.5 の判定期限の超過の検出と、代理を指名する者への通知(IMPL-0979)の置き場とする。準拠テンプレートに実装は無い(2026-11-15 確認。Issue #324。束 A 独立の突合 1巡目の裁定。flow-observation は第2章 2.10.4 の滞留期間の観測に限り、本件の範囲を広げない)
 

@@ -128,3 +128,18 @@ files:
   - path: scripts/gate/license-scan-record.mjs
     reason: infra
     why: gate-g5 の ip-clearance ジョブが呼ぶ、ライセンス検査の実施記録(evidence/license-scan.json)の書き出し。コマンドが空・検査対象なしを scanRun false と理由で記録する。規定は第4章 G-5 の IMPL-0995 で追う(process-compass #330)
+  - path: scripts/gate/business-days.mjs
+    reason: library
+    why: review-queue-control(降ろし先 review-queue-control)の review-queue.mjs が使う営業日の関数(土日と任意の祝日のファイル。ADR-0200 決定3)。規定は IMPL-0681・0979 で追う
+  - path: scripts/gate/review-queue.mjs
+    reason: library
+    why: review-queue-control.yml(降ろし先 review-queue-control)が呼ぶ、レビューの滞留の通知とリスク区分の一次判定のラベルの本体。規定は IMPL-0680・0681・0682・0979・0136・0212 で追う
+  - path: scripts/gate/flow-observation.mjs
+    reason: library
+    why: flow-observation.yml(降ろし先 flow-observation)が呼ぶ、滞留期間の観測と通知の本体。規定は IMPL-0283 で追う
+  - path: scripts/gate/test-review-queue.mjs
+    reason: infra
+    why: review-queue.mjs と business-days.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)
+  - path: scripts/gate/test-flow-observation.mjs
+    reason: infra
+    why: flow-observation.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)
