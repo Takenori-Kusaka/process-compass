@@ -317,7 +317,7 @@ graph LR
 
 手順3b の適用条件と様式は[第6章「AIエージェント安全リスクアセスメント」](/process-compass/phase4-process-design/deliverable-templates/)によります。該当しない案件では手順3b を省略します。
 
-<!-- impl IMPL-0883 target=project-registration-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="案件の登録。S0 の開始時に案件を登録して案件IDを付与し、案件登録記録を残すこと(手順1)。準拠テンプレートに案件登録記録の様式も置き場も無い(template/ で案件登録を検索して該当無し。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0883 target=g1-check state=delivered check=machine test=template/scripts/gate/test-project-id.mjs note="案件の登録。S0 の開始時に案件を登録して案件IDを付与し、案件登録記録を残すこと(手順1)。降ろし先は scripts/gate/check-g1.mjs で、企画書の project_id が構成の projectId と一致すること、案件の記録 context/projects/案件ID.md が実在することを確かめる。ファイルの不在は G-1 の前では失敗にし、G-1 を通過済みの既存の案件では注意にとどめる(遡って失敗させない)。一致の検査は通過済みでも失敗にする。確かめるのは値の一致とファイルの実在だけで、記録の内容は確かめない。専用の様式は置かず、context/projects/README.md の項目を使う(ADR-0222)" -->
 
 <!-- impl IMPL-0884 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="立ち上げの順序(案件の登録、D-0 の作成、D-0 の承認、安全重要度の判定の記録、安全リスクアセスメント、企画書、G-1)を入れ替えないこと。案件の登録が先であることと、手順4 の企画書の作成が手順3 の後であることを、順序として確かめる検査は無い(読んだ範囲。2026-11-15)。D-0 の承認と期限は check-d0.mjs(G-1 の IMPL-0679)、判定の記録は第8章 軸E の IMPL-0449、テンプレ9 の承認の欄の検査は第6章 テンプレ9 の IMPL-0453 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -427,7 +427,7 @@ graph LR
 
 <!-- impl IMPL-0889 target=handover-guide state=delivered check=manual note="H-1 の欠落の棚卸し。同節が4類型(設計の背景と制約・却下した選択肢・運用上の勘所・組織的文脈)と書き戻し先の表を置く。専用の様式は作らず、記録の置き場は採用者が決める。確かめる者: H-1 の判定者(価値責任者)" -->
 
-<!-- impl IMPL-0890 target=context-transfer-record state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="コア機能ごとの理解保持者数を数え、理解保持者が1名の機能を、交代の前に2名以上へ増やすこと。保持者数を数える手段も、交代の前の確認も準拠テンプレートに無い(運用引き継ぎ文書の節2 は保持者を並べる表で、交代の契機での確認を求めない。読んだ範囲。2026-11-15)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0890 target=process-change-skill state=delivered check=manual note="コア機能ごとの理解保持者数を数え、理解保持者が1名の機能を、交代の前に2名以上へ増やすこと。降ろし先は process-change の種別 accountable の手順「交代の前に、理解保持者の数を確かめる」で、運用引き継ぎ文書の節2 の表を人が数える。保持者数を数える機械も、交代を止める機械も置かない(条文に無い停止は課さない。ADR-0222)。確かめる者: H-1 の判定者(交代の変化点を反映する前)" -->
 
 <!-- impl IMPL-0891 target=handover-template state=delivered check=manual note="理解保持者の数え方。保持者に数えるのは、本人以外の者が日付を付けて理解を確認した記録(H-3・3.4.3 の演習・コア機能の障害対応の記録)を持つ人だけを数え、運用引き継ぎ文書へ名前を書いただけの人は数えないこと。templates/05-handover.md が同じ数え方を置き、確認した者が本人である行を受け付けない(IMPL-0066)。 確かめる者: 運用引き継ぎ文書の作成者と技術判断者(保持者を記入するとき)。所在を読んだ(実行して確かめていない)" -->
 
