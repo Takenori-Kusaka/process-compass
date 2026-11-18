@@ -1260,7 +1260,7 @@ B-3 と B-4 は工程ゲートを**置き換えません**。工程ゲートの�
 - 標準変更(3.7.4)には適用しない。事前承認済みの経路であるため
 - AI の担い手の出力は、本節の意見に当たらない。AI の指摘は[附属書H](/process-compass/phase4-process-design/assurance-case/) H.4 による。指名されたレビュアが AI を使って書いた意見は、そのレビュアの意見として本節に従う
 
-<!-- impl IMPL-0571 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-05 note="事前レビュー期間の対象の選び方。B-1〜B-4 の全ての上程と工程ゲート(工程ゲートは非同期コメント期間のみ)を対象にし、標準変更(3.7.4)を対象から外す。AI の担い手の出力を意見に数えないことは、IMPL-0214(pre-review-closed は AI の担い手のコメントを意見に数えない)と IMPL-0216(応答が付いていない意見の比率に含めない)が追う。準拠テンプレートに起票の仕組みが無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0571 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-05 note="実装済み・結線待ち: template の scripts/gate/pre-review.mjs と Issue の様式 .github/ISSUE_TEMPLATE/pre-review.yml が、種別 B-1〜B-4 と工程ゲートの上程を対象にし、標準変更(3.7.4)を対象から外す(試験 test-pre-review.mjs。gate-g5.yml の gate-contract への結線が B20 の push の後)。工程ゲートは非同期コメント期間だけで、判定当日の手順は起動しない。AI の担い手の出力を意見に数えないことは、IMPL-0214 と IMPL-0216 が追う(0216 は実装済み・結線待ち)。実物の GitHub では確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 AI の出力を本節の意見に含めないのは、意見を求めるレビュアを記名で指名する構成(3.10.2)と、全ての意見への応答を期間を閉じる条件にする構成(3.10.4)のためです。AI の出力を意見に数えると、AI の指摘への応答が進行の条件になり、AI の確認を合否条件に入れない附属書H H.4 の条件4 と矛盾するためです。意見は判断への賛否で、AI の指摘は事実の主張です。
 
@@ -1303,7 +1303,7 @@ AI の出力を本節の意見に含めないのは、意見を求めるレビ�
 
 **経緯の記述を評価対象としません**。判定に必要なのは現在の状態と選択肢です。
 
-<!-- impl IMPL-0210 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="判定資料を判定予定日の5営業日前(R1 は10営業日前)に自動で起票し、第3章 3.10.3 の5項目と対応させる。生成された資料を起案者が確定してから公開し、項目4(求める判断)を起案者が記入する。準拠テンプレートに起票の仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0210 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="実装済み・結線待ち: pre-review.mjs が、判定予定日 T の5営業日前(R1 は10営業日前)に判定資料の Issue を題名の先頭「[草案] 」の印つきで起票し、3.10.3 の5項目の見出しを置く(試験 test-pre-review.mjs。gate-g5.yml の gate-contract への結線が B20 の push の後)。各項目の中身(項目5 の求める判断を含む)は起案者が書き、機械は埋めない。印を起案者が外すまで「公開」に数えない。内容の確定は人。実物の GitHub では確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.10.4 意見の様式
 
@@ -1325,7 +1325,7 @@ AI の出力を本節の意見に含めないのは、意見を求めるレビ�
 依るのは、人が書いたコードのレビューについての産業データ(2006 年。対象の行数が大きいほど欠陥の検出が下がる)です。2020 年の追試は、レビューの指標がリリース後の欠陥をほとんど説明しないとしています。ゲート判定の論点について測った資料と、承認者の人数について測った資料は確認できていません(所在は `research/phase4-standard/review-burden-01-evidence.md`)。
 :::
 
-<!-- impl IMPL-0215 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="意見の様式の欄(賛否・理由・反対の代替案または充足条件)の空欄を示し、複数の論点の分割を促す(注意の喚起に限る)。機械の出力で意見を pre-review-closed の応答の対象から外さない。意見として扱わないかを機械は決めない(起案者と決定者の手続は第3章 3.10.4 の IMPL-0231)。準拠テンプレートに検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0215 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="実装済み・結線待ち: pre-review.mjs が、意見のコメントの雛形(賛否:・理由:・代替案または充足条件:)の欄の空をコメントで示し、論点を分けるよう促す(試験 test-pre-review.mjs。gate-g5.yml の gate-contract への結線が B20 の push の後)。注意の喚起に限り、意見を応答の対象から外さない。複数の論点に見えるかは機械が数えない(意味を読むため)。意見として扱わないかは機械が決めない(IMPL-0231)。実物の GitHub では確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.10.5 期限までに意見がない場合の扱い
 
@@ -1386,7 +1386,7 @@ sequenceDiagram
 | 資料公開から判定までの日数 | 期間の短縮が常態化していないか | 規定日数を下回る事例が続く |
 | 起案者の応答が付いていない意見の比率 | 意見が処理されているか | 0%より大きい状態が続く |
 
-<!-- impl IMPL-0216 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="第3章 3.10.8 の形骸化の指標の月次の集計。応答が付いていない意見の比率は、AI の担い手のコメントを分子にも分母にも含めない。準拠テンプレートに集計は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0216 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="実装済み・結線待ち: pre-review.mjs の metrics が、月次で上程の数・事前意見が0件の上程の比率・指名レビュアの応答率・応答が付いていない意見の比率を集計し、指標の Issue(リポジトリの変数 PRE_REVIEW_METRICS_ISSUE)へコメントする。応答は起案者の宣言行(応答: に意見のコメントの URL を続ける1行)で結ぶ。AI の担い手のコメントを分子にも分母にも数えない。個人別の値を出さない(試験 test-pre-review.mjs。gate-g5.yml の gate-contract への結線が B20 の push の後)。判定当日に初めて出た論点の比率と資料公開から判定までの日数は集計していない。警戒の解釈は人。実物の GitHub では確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.10.9 必須応答ロール
 
@@ -1447,7 +1447,7 @@ sequenceDiagram
 
 同期の場の結論は、根拠と反対意見をあわせて記録し、元の非同期スレッドへ戻します。**記録を伴わない口頭の合意を、有効な合意として扱いません**。この一点を外すと、本節は記録に残らない事前調整を復活させる経路になります。
 
-<!-- impl IMPL-0218 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="同一論点の応酬が3往復を超えたときなどに起案者が同期の場へ上げ、判定を保留にし、同期の場の結論を根拠と反対意見とともに元のスレッドへ戻す。準拠テンプレートに往復の検知も保留の仕組みも無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0218 target=pre-review-automation state=delivered check=manual note="同一論点の応酬が3往復を超えたときなどに起案者が同期の場へ上げ、判定を保留にし、同期の場の結論を根拠と反対意見とともに元のスレッドへ戻す手順を、.claude/skills/gate/reference/sync-escalation.md に置き、/gate の SKILL.md の参照から辿れるようにした。往復の機械の検知は作らない(Issue のコメントは平らで、論点の境界が構造に無く、同一論点の判断は意味を読むため)。往復を交互の回数で近似すると、論点が違う往復を数えて誤った保留を促す。確かめる者: 決定者(判定当日に、保留の記録と結論の書き戻しの有無を見る)。所在を読んだ(実行して確かめていない)" -->
 
 ### 3.10.11 応答を引き出す手段
 
@@ -1461,7 +1461,7 @@ sequenceDiagram
 
 **督促を起案者の手作業にしません**。手作業による督促は、起案者と相手の関係の強さに依存し、実施の記録も残りません。
 
-<!-- impl IMPL-0219 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="締切の2営業日前と前営業日の未応答者への自動の通知と、締切で未応答が残るときの 3.9.3 の措置の起動。準拠テンプレートに通知の仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0219 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="実装済み・結線待ち: pre-review.mjs が、締切の2営業日前と前営業日に未応答の者へ通知し(前営業日は D-0 節6 の判定する者にも)、締切を過ぎて未応答が残れば 3.9.3 の措置の宛先(D-0 節6 の同じ行)へ通知する(試験 test-pre-review.mjs。gate-g5.yml の gate-contract への結線が B20 の push の後)。措置(代理の指名)そのものは人が行う。自動の再割り当てと自動承認はしない。賛否の欄が書かれたコメントを応答に数える。実物の GitHub では確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 :::caution[暫定 EV-0003 / 見直し 2027-08]
 **対象**: 締切の2営業日前・前営業日という督促の時点。
@@ -1485,7 +1485,7 @@ sequenceDiagram
 
 <!-- impl IMPL-0999 target=pre-review-automation state=undelivered check=manual plan=adopter decision=ADR-0155 note="3.10.8 で記録する応答率と、応答の件数・速さを、個人の評価指標にしないこと(3.10.11 の本文の禁止)。禁止するのは評価への使用で、ロール単位の計測ではない。評価の基準は採用組織の人事の制度で、標準も準拠テンプレートも見ない。降ろし先に検査は無い。確かめる者: 採用組織(評価の基準を定める者)と、応答率の記録の承認者" -->
 
-<!-- impl IMPL-0213 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="締切の通知(時点は第3章 3.10.11 の2営業日前と前営業日)と、誰がいつ通知を受けて応答したかの記録。準拠テンプレートに通知と記録の仕組みは無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0213 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="実装済み・結線待ち: pre-review.mjs が、締切の2営業日前と前営業日に指名レビュアを記名して通知し(宛先は未応答の者。IMPL-0219)、誰がいつ通知を受け、いつ最初に応答したかの一覧を Issue の1件のコメントに残す(試験 test-pre-review.mjs。gate-g5.yml の gate-contract への結線が B20 の push の後)。営業日は business-days.mjs(祝日のファイルが無ければ土日だけで、その旨を出す)。実物の GitHub では確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 3.10.12 重点箇所の提示
 
