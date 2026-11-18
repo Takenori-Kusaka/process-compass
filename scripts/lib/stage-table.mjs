@@ -44,6 +44,8 @@ export const CONDITIONS = [
   { word: 'CL3', answers: [{ 'q-criticality': 'cl3' }] },
   { word: '品質「高」以上', answers: [{ 'q-quality': 'quality-high' }, { 'q-quality': 'quality-regulated' }] },
   { word: '規制業', answers: [{ 'q-quality': 'quality-regulated' }] },
+  // 前提4(ADR-0171 決定1・2): 附属書F F.2 の Q1 の写し。CL ではなく、G-7 の省略だけを取り消す
+  { word: 'F.2 の Q1「はい」', answers: [{ 'q-f2-q1': 'f2q1-yes' }] },
 ];
 
 /** 走査する上書きの値(条件の語に依らず、すべての値で出力を見る) */
@@ -53,6 +55,7 @@ const PROBES = [
   { 'q-criticality': 'cl3' },
   { 'q-quality': 'quality-high' },
   { 'q-quality': 'quality-regulated' },
+  { 'q-f2-q1': 'f2q1-yes' },
 ];
 
 const probeText = (p) => Object.values(p).join('');

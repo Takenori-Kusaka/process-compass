@@ -39,6 +39,20 @@ rules:
     source: /process-compass/phase4-process-design/tailoring-guide/
     priority: 50
 
+  # S0 の省略の前提4(ADR-0171 決定1・2)。附属書F F.2 の Q1 の写しが「ある」なら、事業ステージ(軸B)による G-7 の省略を適用しない。
+  # G-6 は戻さない(決定3)。CL は Q1 から導かない(決定4)ため、r-e-cl1 の条件には加えず、この規則だけが G-7 を戻す。
+  # restore は厳格化(strengthen)を下げない。正本は D-0 表10 の Q1 で、写しとの食い違いは出荷の証跡の集約が見る(IMPL-1016)
+  - id: r-e-f2q1-yes
+    when:
+      q-f2-q1: [f2q1-yes]
+    adjustments:
+      - target: { type: gate, id: g-ship }
+        action: restore
+        note: 附属書F F.2 の Q1 が「はい」の案件は、事業ステージによる出荷判定の省略(S0)の対象にしない。安全適合性の検証記録(F.7)を判定する席を残す。G-6 は省略のまま
+    reason: 人身への危害を受けうる実験参加者を、F.7 の記録を判定する席の無いまま出荷先に置かないため。安全重要度(CL)の区分は変えない
+    source: /process-compass/adr/0171-s0-omission-premise-f2-q1-restores-g7/
+    priority: 50
+
   # 安全リスクアセスメント(テンプレ9)の要否は、第6章の CL に依らない4条件(物理的な危険源・R1 の変更種別・本番到達・
   # L2 以上)を正とする(#373 / ADR-0113 決定3)。どの区分でも、条件のいずれかに当たれば G-1 の前提条件になる。
   # 構成は4条件の入力を持たないため、要否を「適用条件による」として出し、該当の有無は人が判定する。

@@ -549,4 +549,63 @@ console.log('restore の優先度と、上書きされた省略の設定の復�
   console.log('最小体制は3名(兼務禁止の組から導出) OK');
 }
 
+// S0 の省略の前提4(ADR-0171 決定1・2)。附属書F F.2 の Q1 の写し(q-f2-q1)が「はい」なら、S0・標準品質・CL0 でも G-7 を適用する。
+// G-6 は省略のまま(決定3)。写しが「いいえ」か回答なしなら、従来どおり G-7 は省略。厳格化は restore で下がらない。CL は Q1 から導かない(決定4)
+{
+  const PHASES = ['poc', 'mvp', 'growth', 'stable'];
+  const QUALITIES = ['quality-standard', 'quality-high', 'quality-regulated'];
+  const CLS = ['cl0', 'cl1', 'cl2', 'cl3'];
+  const base = {
+    'q-team-size': 'size-3-9',
+    'q-biz-phase': 'poc',
+    'q-quality': 'quality-standard',
+    'q-criticality': 'cl0',
+    'q-dev-form': 'inhouse',
+    'q-existing-gates': 'gates-none',
+    'q-ai-constraint': 'ai-free',
+  };
+  const rank = { omit: 0, simplify: 1, standard: 2, strengthen: 3 };
+  /** Q1「はい」の入力で期待と食い違う点を返す(空なら期待どおり) */
+  const q1Problems = (k) => {
+    const out = [];
+    const yes = evaluate(k, { ...base, 'q-f2-q1': 'f2q1-yes' });
+    const g7 = yes.profile['gate:g-ship'];
+    if ((g7?.state ?? 'standard') !== 'standard') out.push(`S0・標準・CL0・Q1「はい」の G-7 が ${g7?.state}(期待 適用)`);
+    if (yes.profile['gate:g-indep-review']?.state !== 'omit') out.push('Q1「はい」で G-6 が省略のままでない(G-6 は戻さない。決定3)');
+    if (!g7?.params?.approverMode) out.push('適用へ戻した G-7 が、省略の前の判定者の方式を失った');
+    if (!yes.matchedRuleIds.includes('r-e-f2q1-yes')) out.push('規則 r-e-f2q1-yes が成立しない');
+    // 全升: Q1「はい」は G-7 を適用へ戻すだけで、他のゲートを動かさず、厳格化を下げない
+    for (const q of QUALITIES) {
+      for (const phase of PHASES) {
+        for (const cl of CLS) {
+          const a = { ...base, 'q-quality': q, 'q-biz-phase': phase, 'q-criticality': cl };
+          const without = evaluate(k, a);
+          const withYes = evaluate(k, { ...a, 'q-f2-q1': 'f2q1-yes' });
+          const sw = without.profile['gate:g-ship']?.state ?? 'standard';
+          const sy = withYes.profile['gate:g-ship']?.state ?? 'standard';
+          if (rank[sy] < Math.max(rank[sw], rank.standard)) out.push(`${q}・${phase}・${cl}: Q1「はい」の G-7 が ${sy}(Q1 なしは ${sw})`);
+          for (const g of ['g-indep-review', 'g-ci', 'g-plan-approval']) {
+            if (JSON.stringify(withYes.profile[`gate:${g}`]) !== JSON.stringify(without.profile[`gate:${g}`])) out.push(`${q}・${phase}・${cl}: Q1「はい」が ${g} を動かした`);
+          }
+        }
+      }
+    }
+    return out;
+  };
+  // IMPL-1015:ng Q1 の写しが G-7 を戻さない規則データ(規則 r-e-f2q1-yes を外したもの)では、S0・標準・CL0・Q1「はい」の G-7 が省略のままで落ちる
+  {
+    const noRule = { questions, rules: rules.filter((r) => r.id !== 'r-e-f2q1-yes') };
+    assert(q1Problems(noRule).length > 0, 'Q1 の写しが G-7 を戻さない規則データを、検査が見逃した');
+  }
+  // IMPL-1015:ok 規則データのとおりなら、Q1「はい」は S0・標準・CL0 の G-7 を適用へ戻し、G-6 は省略のまま、全升で厳格化を下げない
+  assert.deepEqual(q1Problems(kb), [], 'Q1「はい」の導出が期待と食い違う');
+  // 写しが「いいえ」か回答なし(既存の構成)は従来どおり G-7 を省略する
+  for (const extra of [{ 'q-f2-q1': 'f2q1-no' }, {}]) {
+    assert.equal(evaluate(kb, { ...base, ...extra }).profile['gate:g-ship']?.state, 'omit', `Q1 ${JSON.stringify(extra)} の S0 の G-7 は省略のはず`);
+  }
+  // CL は Q1 から導かない(ADR-0171 決定4): Q1「はい」でも CL0 の規則(CL1 以上の追跡の必須など)は成立しない
+  assert(!evaluate(kb, { ...base, 'q-f2-q1': 'f2q1-yes' }).matchedRuleIds.includes('r-e-cl1'), 'Q1「はい」から CL1 の規則を導いてはならない');
+  console.log('S0 の G-7(F.2 の Q1「はい」は適用、G-6 は省略のまま) OK');
+}
+
 console.log('\nすべてのシナリオ検証に合格しました');
