@@ -114,3 +114,45 @@ macOS・ネイティブ Linux・ネイティブ Windows(2.1.327 の観測を含�
 - S1・S2・S4・自身の手順・Windows の観測(範囲は T1〜T3 と S3。T4 は事実の記録として再実施した)
 - 対話の起動、macOS・ネイティブ Linux・ネイティブ Windows
 - 実験の誤りは 1 件: T2d の最初の版が `/tmp` へ書こうとして隔離に拒否され、状態を得られなかった。書き込み先を作業ディレクトリに変えて再実行した(`t2e.txt`。隔離の設定は変えていない)
+
+## 再確認 2(束 B20 段 F2T。2026-11-18 13:05 UTC。T2 のやり直し)
+
+議長の裁定(`chair-ruling-0506.md` 末尾「T2 の再確認の不一致についての議長の裁定」)に従い、`assetsUncommitted` を直した後に、WSL2 で T2 をやり直した。上の節の表と判定は消していない。生の記録は `raw/v3/`(`t2.txt`、スクリプトは `raw/v3/scripts/`)。
+
+### 足場の実物
+
+隔離のもとの実行中に `stat` で確かめた。`.claude/agents`・`commands`・`launch.json`・`loop.md`・`output-styles`・`routines`・`scheduled_tasks.json`・`workflows` の 8 個は、すべて**文字特殊ファイル(character special file)、大きさ 0**(隔離が空の入れ物として置く)。ディレクトリではない。`git status -uall` は `??` で出す。なお ` D context/_archive/README.md` も実行中に出る(読み取りの拒否で隠れる追跡中のファイル)が、`context/_archive` は `excluded()` の除外に入っており、数えない(直す前から)。
+
+### 直した内容
+
+`template/scripts/gate/agent-run-record.mjs` の `assetsUncommitted` が、状態が `??` で、`lstat` が大きさ 0 の通常ファイルか文字特殊ファイルのパスだけを数えない(`isEmptyScaffold`)。追跡中の変更(ファイルを空にした変更と削除を含む)、内容のある未追跡のファイル、リンクは、これまでどおり `dirty`。`lstat` が読めないときも数える側へ倒す。
+
+### 試験(`test-agent-run-record.mjs`、25 件)
+
+| 目印 | 内容 | 直す前 | 直した後 |
+| --- | --- | --- | --- |
+| IMPL-1019:ok | 未追跡で大きさ 0 の足場は dirty に数えない | **NG(落ちた)** | ok |
+| IMPL-1019:ng | 内容のある未追跡は dirty | ok | ok |
+| IMPL-1019:ng | 追跡中の変更は dirty | ok | ok |
+| IMPL-1019:ng | 追跡中のファイルを空にした変更は dirty | ok | ok |
+| IMPL-1019:ng | 追跡中のファイルの削除は dirty | ok | ok |
+
+直す前に落ちたのは ok の 1 件だけである。ng の 4 件は「過剰に直して足場以外を落とす」誤りを止める役で、直す前は元から通る。そこで、判定を「常に足場」にした変異版でも走らせ、ng のうち 3 件(内容のある未追跡・追跡中の変更・空にした変更)が実際に落ちることを確かめた。試験の一時のリポジトリでは文字特殊ファイルを作れないため、足場は大きさ 0 の通常ファイルで代用した。文字特殊ファイルの実物は下の WSL2 の確認で確かめた。
+
+### T2 のやり直し(WSL2)
+
+| 項目 | 値 |
+| --- | --- |
+| 基盤 | 前節と同じ(Ubuntu-24.04、Claude Code 2.1.314、node v22.23.4、git 2.43.0。隔離・許可は変えていない)。信頼を受け入れていない作業場所の `claude -p` |
+| 作業場所 | 前節の確認用の複製から作った使い捨てのクローン(`~/b20-verify/533d8c7/w3`)。直した `agent-run-record.mjs` を置いてコミットした |
+| 認証 | 導入済みのものをそのまま使った。読み出し・複製・変更はしていない |
+
+| 確認 | 期待 | 結果 |
+| --- | --- | --- |
+| T2 | トレーラの `assets=` と、隔離の外の `assets <id>` が一致 | **一致した**。トレーラ `Agent-Assets: sha256:3d7f70d9…7974; base=2000b8e7…; assets=clean; user-scope=unrecorded`。隔離の外の `assets <id>` の出力も同じ文字列(`assets=clean`)。`Agent-Run` は 1 度だけ。実行中の `git status` は前節と同じ 8 個の足場と ` D context/_archive/README.md` を出したが、数えられなかった |
+
+### 判定
+
+- IMPL-0207・IMPL-1019: T2 を含めて満たした。state は delivered のまま。note に再確認の結果と、足場の扱いを足した
+- IMPL-0510: S3 の再確認(前節)の 11 パスに合わせて note を改めた。state は delivered のまま
+- 確かめていないこと: S3 の再実施(前節の結果のまま)、T1・T3・T4 の再実施、macOS・ネイティブ Linux・ネイティブ Windows、対話の起動。足場の一覧と型は Claude Code の版と構成で変わりうる。この版・この構成だけの確認である

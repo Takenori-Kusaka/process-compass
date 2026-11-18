@@ -1,0 +1,29 @@
+T2v3 2026-11-18T13:05:22Z template=2000b8e
+Ignoring 21 permissions.allow entries from .claude/settings.json: this workspace has not been trusted. Run Claude Code interactively here once and accept the trust dialog, or set projects["/home/kokor
+--- log
+test: t2v3
+
+Agent-Run: 11111111-2222-4333-8444-5555555555c1
+Agent-Assets: sha256:3d7f70d9dc009def4e235ccb56816a90acc2e88e3ccab05d2ef96c57c1e67974; base=2000b8e79e8948ceb10345191e037b7cdfa7a7f8; assets=clean; user-scope=unrecorded
+
+--- status during
+ D context/_archive/README.md
+?? .claude/agents
+?? .claude/commands
+?? .claude/launch.json
+?? .claude/loop.md
+?? .claude/output-styles
+?? .claude/routines
+?? .claude/scheduled_tasks.json
+?? .claude/workflows
+--- status after
+--- assets cmd (outside isolation)
+sha256:3d7f70d9dc009def4e235ccb56816a90acc2e88e3ccab05d2ef96c57c1e67974; base=2000b8e79e8948ceb10345191e037b7cdfa7a7f8; assets=clean; user-scope=unrecorded--- record
+{
+  "runId": "11111111-2222-4333-8444-5555555555c1",
+  "startedAt": "2026-11-18T13:05:22.930Z",
+  "base": "2000b8e79e8948ceb10345191e037b7cdfa7a7f8",
+  "digest": "3d7f70d9dc009def4e235ccb56816a90acc2e88e3ccab05d2ef96c57c1e67974",
+  "assets": "clean",
+  "userScope": "unrecorded"
+}
