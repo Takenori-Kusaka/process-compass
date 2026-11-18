@@ -161,7 +161,7 @@ targets:
     kind: template-file
     path: scripts/gate/aggregate-evidence.mjs
     checker: aggregate-evidence
-    description: G-7 の突合対象と、保証の開示の7項目を、構成と既存の記録から導出する(ADR-0056 決定6)。5.4.7 の記録なし・頻度超過の表示(IMPL-1022。予定)
+    description: G-7 の突合対象と、保証の開示の7項目を、構成と既存の記録から導出する(ADR-0056 決定6)。5.4.7 の頻度の空欄・読めない値の表示(IMPL-1021)と記録なし・頻度超過の表示(IMPL-1022。項目7。止めない)
 
   - id: exception-expiry
     name: 例外承認の回収の期限と範囲の件数の算出
@@ -175,7 +175,7 @@ targets:
     kind: template-file
     path: templates/00-d0-governance.md
     checker: check-d0
-    description: 案件の体制・兼務・エスカレーションの経路を案件ごとに定める成果物。5.4.7 の AI を用いない実施の記録の表(IMPL-1023。予定)
+    description: 案件の体制・兼務・エスカレーションの経路を案件ごとに定める成果物。5.4.7 の AI を用いない実施の記録の表(IMPL-1023。節12 の生成区間の直後に手で書く表として置く)
 
   - id: project-brief-template
     name: 成果物テンプレート テンプレ6(企画書)
@@ -193,7 +193,7 @@ targets:
     name: 成果物テンプレート テンプレ11(品質保証の方針と受容の基準)
     kind: template-file
     path: templates/11-quality-assurance-policy.md
-    description: 層1 の様式。適用範囲の組織単位・記名者の権限・必須行・確認の周期と後継の欄の置き場(ADR-0057、#288 第2巡)。5.4.7 の頻度の行(IMPL-1020。予定)
+    description: 層1 の様式。適用範囲の組織単位・記名者の権限・必須行・確認の周期と後継の欄の置き場(ADR-0057、#288 第2巡)。5.4.7 の頻度の行(IMPL-1020)
 
   - id: handover-template
     name: 成果物テンプレート テンプレ5(運用引き継ぎ文書)
