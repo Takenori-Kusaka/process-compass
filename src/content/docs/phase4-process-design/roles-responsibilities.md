@@ -140,7 +140,7 @@ A と R の分離は、ロール(席)に置く人と実行主体の区別に対�
 
 <!-- impl IMPL-0637 target=d0-template state=delivered check=manual note="暫定任命の期間を組織が定めること。templates/00-d0-governance.md 節9 末尾の表「暫定任命の期間」(期間・満了時の扱い・延長の決裁)と、併記・未達の表示の箇条が受ける。期間内の確認の有無は機械では確かめない(内部監査)。確かめる者: 体制図(D-0)を承認する席の責任者(承認のとき)と、採用者の内部監査" -->
 
-<!-- impl IMPL-0638 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="暫定任命の期間中は、当該ロールの判定を単独で確定させず確認済みの者の併記を求めること。併記を置けない判定は未達として表示し、併記のない判定を成立した判定として表示しない。準拠テンプレートの集約は、任命時の確認の記録が無い責任者を未確認(確認を経ない任命)と表示する(IMPL-0082)が、暫定任命の期間中の判定の併記の有無は確かめず、併記のない判定を未達として出す処理を見つけていない(aggregate-evidence.mjs の「併記」の語を検索した。2026-11-15)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0638 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-aggregate-records.mjs note="暫定任命の期間中(D-0 節9)の判定の併記。席の責任者(対象が責任者)か代行者(対象が代理者)の判定で、判定日が期間内のものについて、様式の任意の欄「確認済みの者の併記」が無い・名簿の人でない・AI の名義・判定者本人なら未達として項目1 に出す(止めない)。G-6 は対象にしない(第3章「席の責任者でない確認者の力量」が別の扱いを定める)。期間が日付として読めない行は確認できないと表示し、欠落にしない(ADR-0217 決定11)" -->
 
 #### 席の責任者でない確認者の力量(適用: 承認を独立した人の確認に数える人)
 
@@ -911,7 +911,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0654 target=d0-template state=delivered check=manual note="3.6 の委譲を文書(担当表)で行い口頭で行わないこと。templates/00-d0-governance.md 節3 末尾の担当表の「委譲先」「委譲を文書にした日」の欄と箇条が受ける。アーキテクチャに影響する判断は委譲しない旨を含む。委譲の有無は機械では確かめない。確かめる者: 体制図(D-0)を承認する席の責任者(承認のとき)と、採用者の内部監査" -->
 
-<!-- impl IMPL-0655 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.6 の、委譲しても結果責任(A)は価値責任者に残ること、委任で移るのは判定の時点であり判定の主体と結果責任は席の責任者に残ること。準拠テンプレートの集約は G-4 の判定者を価値責任者の席のままと開示するが、委譲先の記名を判定者として受け付けない検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0655 target=d0-template state=delivered check=manual note="3.6 の、委譲しても結果責任(A)は価値責任者に残ること、委任で移るのは判定の時点であり判定の主体と結果責任は席の責任者に残ること。G-4 の補助ファイルに、委譲先の記名を判定者の欄へ書かない旨の1文を足した。委譲先の記名を判定者として受け付けない検査は、記名の意味を機械が決められないため置かない。確かめる者: 内部監査(ADR-0217 決定14)" -->
 
 ## 3.7 会議体
 
@@ -1803,7 +1803,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 <!-- impl IMPL-0063 target=evidence-aggregation state=delivered check=manual note="退出の予行の最後の日が、層1 の『確認の周期と後継』の表の退出の予行の間隔を過ぎた依存先を『退出を試していない』へ戻して出す。間隔の欄が空欄なら、予行の記録があっても『退出を試していない』と出す。基準集合の範囲の承認(AI運用担当者の起案と技術判断者の記名)の記録が無い場合は、その旨を出す。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 <!-- impl IMPL-0708 target=handoff-reference state=delivered check=manual note="3.12.3 要求事項6。指示資産のうち提供者の書式・機能に依存する記述を識別して印を付ける、四半期の棚卸し(3.11.4)の観点と印の付け方の例。.claude/skills/pit/reference/handoff.md の節「指示資産の提供者依存の棚卸し」が書く。識別と印の検査は無く、棚卸しを行う者が目で確かめる。 確かめる者: AI維持管理者(四半期の棚卸しのとき)" -->
 <!-- impl IMPL-0709 target=config-change-log state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="3.12.3 要求事項10 のうち、評価用の基準集合の範囲を狭める変更を統制を緩める向きの変更として扱うこと(3.13.3)。基準集合の範囲の承認(AI運用担当者の起案と技術判断者の記名)は IMPL-0063 が追う。範囲を狭める変更を緩める向きに分類する処理は、generate-profile.mjs の差分の分類で確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0710 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.3 要求事項12 のうち、基準集合の正解を確定した者と導入を承認した AI運用担当者が同一人物の場合に、分離が成り立たないことを依存先の一覧と保証の開示の項目5・7 に出し、層1 の受容の権限の段階で定めた権限者が期限つきで受容すること。IMPL-0406 は同一の注記を項目7 に出し、項目5 への投影は行わないと書く。期限つきの受容を照らす処理は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0710 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-model-adoption.mjs note="3.12.3 要求事項12。基準集合の正解を確定した者と導入を承認した AI運用担当者が同一人物の場合、分離が成り立たないことを単一障害点の項目(受容の対象「基準集合の確定者と導入承認者が同一人物」)として項目5・7 に出し、層1 の品質の残存リスクの受容者が D-0 節15 で期限つきで受容する。期限切れは記載の欠落。同一の判定は名簿の識別の一致までで、別名義の同一人物は閉じない(ADR-0217 決定13)" -->
 <!-- impl IMPL-0711 target=claude-md-resident state=delivered check=manual note="3.12.3 要求事項13 のうち、正解の草案を作る AI へ評価の対象のモデルの出力を渡さないこと、確定する者に確定の前に評価の対象のモデルの出力を示さないこと、草案の一覧の一括承認と抜き取りで確かめた残りを確定に数えないこと。template/CLAUDE.md「判断の確定と委任」の IMPL-0404 の隣の行が書く(claude-md-resident.json の規則)。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 
 ### 3.12.4 可用性と品質を分けて監視する
@@ -1928,7 +1928,7 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 | 5 | 統制の変更は、猶予期間を置いて開発組織へ通知する |
 
 <!-- impl IMPL-0716 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="機密情報の送出の検査を接続経路に置くこと。接続経路は採用者の環境に属する(ADR-0175)。確かめる者: 採用者の AI運用担当者(経路を設けるとき)" -->
-<!-- impl IMPL-0717 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.8 要求事項3 のうち、提供者との契約で入出力の学習利用の有無を確認し記録すること。保持の条件は構成の依存先の欄の data(提供者へ渡すデータの種別と保持の条件。IMPL-0065)が運ぶが、学習利用の有無を書く欄は確かめられなかった(/process-change の種別 settings の dependencies の項目は provider・models・noticePeriod・data)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0717 target=process-change-skill state=delivered check=manual note="3.12.8 要求事項3 のうち、提供者との契約で入出力の学習利用の有無を確認し記録すること。構成の依存先の欄の data に学習利用の有無を書く手引きを /process-change の種別 settings に足した。学習利用の有無の値は機械で閉じない(自由な文の意味)ので機械は見ない。新しいキーは足さない。確かめる者: AI運用担当者(依存先の欄を書くとき。ADR-0217 決定14)" -->
 
 ### 3.12.9 統制と CI 検査の同期
 
@@ -2037,8 +2037,8 @@ AI運用担当者は、3.12.2 の承認済みモデルの一覧を広げ、**依
 <!-- impl IMPL-0055 target=evidence-aggregation state=delivered check=manual note="依存先の一覧(モデルと提供者、指示資産、評価用の基準集合、鍵となる個人、データ)を構成・D-0・運用引き継ぎ文書・退出の予行の記録から生成し、単一障害点の一覧(代替の無い依存先、退出を試していない依存先、止める席と処理量が未確認の席、後継不在の席、保持者1名以下のコア機能、自組織に無い資産)を機械で出す。期限切れの受容を記載の欠落にする。通知の期間とデータは構成から導けず『記録なし』と出す。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
 
 <!-- impl IMPL-0065 target=evidence-aggregation state=delivered check=manual note="プロセス構成に依存先の欄(提供者ごとの廃止・契約変更の通知の期間、提供者へ渡すデータの種別と保持の条件)を置き、証跡の集約が依存先の一覧へ転記する。欄が空欄の依存先を、単一障害点の候補として単一障害点の一覧へ出す。確かめる者: 出荷判定者(G-7 の判定で、集約の出力と保証の開示を読むとき)" -->
-<!-- impl IMPL-0719 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.11 要求事項5。依存先の一覧の再生成を、3.12.6 の四半期の棚卸し、ステージ移行ゲートの判定時、体制の変化点で行うこと。一覧は出荷の証跡の集約の実行のたびに生成される(IMPL-0055)が、これらの契機で再生成を求める手順や検査は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0720 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="3.12.11 要求事項6。単一障害点の一覧を B-2 へ報告し、解消するか受容するかを層1 の受容の権限の段階に従い記名で決めること(受容は期限つき)。期限を過ぎた受容を記載の欠落にすることは IMPL-0055 が追う。B-2 への報告と、解消か受容かの記名の決定を記録する様式は確かめられなかった。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0719 target=process-change-skill state=delivered check=manual note="3.12.11 要求事項5。依存先の一覧(単一障害点の一覧を含む)の再生成を、四半期の棚卸し・ステージ移行ゲートの判定時・体制の変化点の時に行うこと。SG の補助ファイル・/process-change の入口・handoff に再生成の手順を1行ずつ足した。一覧は集約の実行のたびに生成される(IMPL-0055)ので、契機で実行したかは機械で見ない。確かめる者: AI運用担当者(ADR-0217 決定14)" -->
+<!-- impl IMPL-0720 target=d0-template state=delivered check=manual note="3.12.11 要求事項6。単一障害点の一覧を B-2 へ報告し、解消するか受容するかを層1 の受容の権限の段階に従い記名で決めること(受容は期限つき)。受容の記録の書き場所は D-0 節15 で既にあり、期限切れの欠落は IMPL-0055 が追う。B-2 への報告そのものは会議の議事にしか現れず、機械は見ない。ファイルの変更なし。確かめる者: 事業決裁者(ADR-0217 決定15)" -->
 
 ### 3.12.12 能力依存の定数の再評価(適用: 能力依存として登録した定数)
 

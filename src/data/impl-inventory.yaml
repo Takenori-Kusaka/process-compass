@@ -1573,6 +1573,7 @@ sections:
     ids:
       - IMPL-0621
       - IMPL-0667
+      - IMPL-1026
     note: "要求事項1〜3 は IMPL-0621、要求事項4(同一の必達基準の不合格に3回を超えて継続と判定しない上限)は IMPL-0667(いずれも降りていない)。要求事項4の回数の欄は、7.7.3 の IMPL-0378 の note(7.7.5 の回数)と IMPL-0380(SG への引き継ぎ)が追う"
     issue: 324
     rows:
@@ -1592,10 +1593,12 @@ sections:
         status: marked
         ids:
           - IMPL-0667
+          - IMPL-1026
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.6 案件に関与していない者による棚卸し
     status: marked
     ids:
       - IMPL-0622
+      - IMPL-1027
     note: "年1回以上の点検・実施者・結果の提出は IMPL-0622(降りていない)。棚卸しの判定記録の「AI の利用の評価」の節は IMPL-0068(テンプレ4)が追う。理由(当事者は中止を提起しにくい)は説明"
     issue: 324
   - key: phase4-process-design/exception-escalation#7.7 予算統制と中止の判断 > 7.7.7 中止と判定した場合の要求事項
@@ -1775,6 +1778,7 @@ sections:
     ids:
       - IMPL-0625
       - IMPL-0626
+      - IMPL-1028
     note: "例外承認の記録の区別と突合は IMPL-0625(降りている)、エスカレーションの記録の突合と保管は IMPL-0626(降りていない)。判定が指す記録の保管は第4章 IMPL-0243・0244 の側"
     issue: 324
   - key: phase4-process-design/exception-escalation#7.9 承認権限の一時制限

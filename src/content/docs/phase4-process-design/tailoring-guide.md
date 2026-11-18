@@ -681,7 +681,7 @@ ISO 13485 7.3.9 と IEC 62304 8.2.1 の読みに基づきます。査察で承�
 
 <!-- impl IMPL-0836 target=g5-adapter state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="規制業の規制要件の自動チェックの追加(軸C)。規則 r-c-regulated は調整の注記(note・strengthen)として持つだけで、規制要件の自動チェックを実行する検査を準拠テンプレートに見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0837 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="規制業の規制当局向けエビデンスと AI 関与範囲の明記(軸C)。注記として構成の why と PROCESS-PROFILE.md に出るが、規制当局向けのエビデンスと AI 関与範囲を出力する処理は scripts/gate/aggregate-evidence.mjs に見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0837 target=evidence-aggregation state=undelivered check=manual plan=adopter decision=ADR-0216 note="規制業の規制当局向けエビデンスと AI 関与範囲の明記(軸C)。求める形が業法と当局ごとに違うので、準拠テンプレートは出力しない。採用者が当局の求める形で作る(ADR-0216。根拠水準 EV-0330)。確かめる者: 採用者(規制対応の責任者)" -->
 
 <!-- impl IMPL-0838 target=gate-skill state=delivered check=manual note="品質の軸が高の出荷判定へ、限定的な抜き取り確認を加えること。.claude/skills/gate/gates/G-7.md の判定記録の書き方に置く。範囲と件数は判定者が決めて備考に書く。標準は件数を定めない。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 

@@ -163,6 +163,20 @@ targets:
     checker: aggregate-evidence
     description: G-7 の突合対象と、保証の開示の7項目を、構成と既存の記録から導出する(ADR-0056 決定6)。5.4.7 の頻度の空欄・読めない値の表示(IMPL-1021)と記録なし・頻度超過の表示(IMPL-1022。項目7。止めない)
 
+  - id: judgement-records
+    name: 判定記録の回数・点検・併記の読み取り
+    kind: template-file
+    path: scripts/gate/judgement-records.mjs
+    checker: aggregate-evidence
+    description: 必達基準2 の継続・保留の通算の回数(IMPL-0667)、案件に関与していない者による点検の経過(IMPL-0622)、暫定任命の期間中の判定の併記(IMPL-0638)を、判定記録と D-0 から算出する純関数。集約が呼び、test-aggregate-records.mjs が試験する
+
+  - id: decision-recheck
+    name: 判断記録の再検査
+    kind: template-file
+    path: scripts/gate/decision-recheck.mjs
+    checker: aggregate-evidence
+    description: G-3 で判定した版と先端の判断記録を、状態の行を除いた文字列の一致で3値に比べる純関数(IMPL-0523。ADR-0136 と同じ正規化)。集約が呼び、test-decisions.mjs が試験する
+
   - id: exception-expiry
     name: 例外承認の回収の期限と範囲の件数の算出
     kind: template-file
