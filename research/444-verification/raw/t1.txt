@@ -1,0 +1,19 @@
+2026-11-18T10:49:30Z
+claude 2.1.314 (Claude Code)
+Error: Session ID 11111111-2222-4333-8444-555555555551 is already in use.
+--- ls
+total 12
+drwxr-xr-x 2 kokor kokor 4096 Nov 18 19:49 .
+drwxr-xr-x 5 kokor kokor 4096 Nov 18 19:49 ..
+-rw-r--r-- 1 kokor kokor  281 Nov 18 19:49 11111111-2222-4333-8444-555555555551.json
+{
+  "runId": "11111111-2222-4333-8444-555555555551",
+  "startedAt": "2026-11-18T10:49:21.598Z",
+  "base": "525db47ddbd32e490627746b13864e19e04ce854",
+  "digest": "01502cc0a67e251f16e20487f7ab2d04d81eedf36cb5091569832bcf9d5ad2fb",
+  "assets": "clean",
+  "userScope": "unrecorded"
+}
+--- head
+525db47ddbd32e490627746b13864e19e04ce854
+01502cc0a67e251f16e20487f7ab2d04d81eedf36cb5091569832bcf9d5ad2fb

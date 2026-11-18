@@ -1,0 +1,15 @@
+T2 2026-11-18T10:49:46Z
+hooksPath before: .githooks
+Ignoring 21 permissions.allow entries from .claude/settings.json: this workspace has not been trusted. Run Claude Code interactively here once and accept the trust dialog, or set projects["/home/kokor/b20-verify/6c416e6/w"].hasTrustDialogAccepted: true in /home/kokor/.claude.json.
+{"duration_api_ms":2093,"stop_reason":"end_turn","session_id":"11111111-2222-4333-8444-555555555552","total_cost_usd":0.2319704,"usage":{"input_tokens":4,"cache_creation_input_tokens":27445,"cache_read_input_tokens":51472,"output_tokens":105,"output_tokens_details":{"thinking_tokens":0},"server_tool_use":{"web_search_requests":0,"web_fetch_requests":0},"service_tier":"standard","cache_creation":{"ephemeral_1h_input_tokens":27445,"ephemeral_5m_input_tokens":0},"inference_geo":"global","iterations":[],"speed":"standard","fallback_credit":null},"modelUsage":{"claude-opus-5-5":{"inputTokens":4,"outputTokens":105,"cacheReadInputTokens":51472,"cacheCreationInputTokens":27445,"webSearchRequests":0,"costUSD":0.2319704,"contextWindow":1000000,"maxOutputTokens":128000,"thinkingTokens":0,"cacheCreationEphemeral5mInputTokens":0,"cacheCreationEphemeral1hInputTokens":27445,"canonicalModel":"claude-opus-5-5","provider":--- hooksPath after: .githooks
+--- log
+test: t2
+
+Agent-Run: 11111111-2222-4333-8444-555555555552
+Agent-Assets: sha256:01502cc0a67e251f16e20487f7ab2d04d81eedf36cb5091569832bcf9d5ad2fb; base=525db47ddbd32e490627746b13864e19e04ce854; assets=clean; user-scope=unrecorded
+
+--- runs
+11111111-2222-4333-8444-555555555551.json
+11111111-2222-4333-8444-555555555552.json
+--- assets cmd
+sha256:01502cc0a67e251f16e20487f7ab2d04d81eedf36cb5091569832bcf9d5ad2fb; base=525db47ddbd32e490627746b13864e19e04ce854; assets=clean; user-scope=unrecorded

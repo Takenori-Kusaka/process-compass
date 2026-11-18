@@ -1,0 +1,20 @@
+T4 2026-11-18T10:50:18Z
+Ignoring 21 permissions.allow entries from .claude/settings.json: this workspace has not been trusted. Run Claude Code interactively here once and accept the trust dialog, or set projects["/home/kokor/b20-verify/6c416e6/w"].hasTrustDialogAccepted: true in /home/kokor/.claude.json.
+{"duration_api_ms":18351,"stop_reason":"end_turn","session_id":"11111111-2222-4333-8444-555555555554","total_cost_usd":0.45666720000000005,"usage":{"input_tokens":4,"cache_creation_input_tokens":28540,"cache_read_input_tokens":51542,"output_tokens":1114,"output_tokens_details":{"thinking_tokens":401},"server_tool_use
+--- before:
+11111111-2222-4333-8444-555555555551.json
+11111111-2222-4333-8444-555555555552.json
+--- after:
+11111111-2222-4333-8444-555555555551.json
+11111111-2222-4333-8444-555555555552.json
+11111111-2222-4333-8444-555555555554.json
+9c31c04 test: t4
+Agent-Run: 11111111-2222-4333-8444-555555555554
+Agent-Assets: sha256:01502cc0a67e251f16e20487f7ab2d04d81eedf36cb5091569832bcf9d5ad2fb; base=b53b9e1a3ceb0c26b3eba5724cf0d70c5dd5e89f; assets=clean; user-scope=unrecorded
+
+b53b9e1 test: t3
+Agent-Run: 11111111-2222-4333-8444-555555555552
+Agent-Assets: sha256:01502cc0a67e251f16e20487f7ab2d04d81eedf36cb5091569832bcf9d5ad2fb; base=525db47ddbd32e490627746b13864e19e04ce854; assets=clean; user-scope=unrecorded
+
+3ddec23 human: commit
+

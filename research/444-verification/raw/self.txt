@@ -1,0 +1,28 @@
+SELF 2026-11-18T10:54:21Z sandbox=true
+```
+commit rc=0
+test: self
+
+Agent-Run: 36f76109-827e-44cb-8bc6-693f9b81bfea
+Agent-Assets: sha256:01502cc0a67e251f16e20487f7ab2d04d81eedf36cb5091569832bcf9d5ad2fb; base=9c31c0438f3235a6527bc9efb2be4fac900b0e7f; assets=clean; user-scope=unrecorded
+next.mjs rc=0
+aggregate-evidence.mjs rc=1
+```
+--- n.out tail
+- 写し: 承認レビューを、マージの時点で機械が記録用ブランチ records へ複製したもの(records/reviews/pr-<番号>.json)。要約と評価を含まない
+- 未達: 体制などの都合で、目的を達成する構成を示せていないゲート。隠さずに構成書と出荷の証跡へ出る
+- 層1: 組織が品質を保証すると主張するための最上位の文書(品質保証の方針と受容の基準。docs/quality-assurance-policy.md)。トップマネジメントが記名する。無くても進めるが、出荷は「品質保証の対象外」と出る
+
+見ていないもの: PR・ラベル・CI の状態(ローカルの git と、記録用ブランチにあるマージ時点の写しだけを見ています)
+--- a.out tail
+::error::コミット 525db47d: PR を経ていないコミットに、リスク区分のトレーラ(Risk: R1 / R2 / R3 のいずれか)がありません(記録の置き場の外のファイルを含む(.claude/guard.json))。リスク区分は変更ごとに確定する記録です(第3章 3.8.1)。成立済みのコミットは書き換えず、判定記録(docs/gates)の「対象」へコミットの識別子 525db47 を、「変更のリスク区分」へ区分を書いて確定してください
+::error::安全関連部の検証の記録(基準7): docs/safety-risk-assessment.md がありません
+::error::責任者が未記入の席があります: 価値責任者(Value Owner) / 技術判断者(Tech Lead) / 開発者(検証者) / 独立レビュア / 品質保証(出荷判定者) / 事業決裁者 / コンテキストオーナー / AI維持管理者(AI Maintainer) / AI運用担当者(AIOps)
+::error::知財潔白性の検査記録がありません。判定するのは検査を実施し記録したことです
+::error::欠陥注入の標識の走査: 走査の記録 evidence/seeded-error-scan.json がありません。標識の残存がないことを確かめられません(標準 5.6.2。seeded-error-scan.mjs が出荷の経路で作る記録です)
+::error::安全重要度の判定の確認: 判定の記録または判定者の記名に不備がある(1 件。D-0(docs/D-0-governance.md)が無く、安全重要度の判定の記録を読めない)。判定者本人が書ける欠落であり、記載の欠落に数える(第8章 軸E「判定の記録と確認」)。**未達**(判定の記録なし。初期化の回答 CL0 は仮の判定のまま)(D-0 節16。第8章 軸E「判定の記録と確認」)。次の一手: templates/00-d0-governance.md の節16「安全重要度の判定の記録」を docs/D-0-governance.md へ写し、D-0 表1「体制と運用形態」の決定者が欄を埋めて判定者として記名する
+
+記録の欠落が 17 件あります。出荷判定(G-7)は通過できません
+plain-shell aggregate rc=1
+diff sandboxed vs plain: 0 lines
+denial-keywords in sandboxed output: 0

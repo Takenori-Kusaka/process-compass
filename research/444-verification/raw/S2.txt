@@ -1,0 +1,33 @@
+S2 w 2026-11-18T10:51:56Z sandbox.enabled=true
+```json
+{
+ "inside_cwd": "WROTE",
+ "outside_cwd": "DENIED EROFS",
+ "home_outside": "DENIED EROFS",
+ "settings_json": "DENIED EROFS",
+ "settings_local": "DENIED EACCES",
+ "git_hooks": "DENIED EROFS",
+ "githooks_dir": "WROTE",
+ "guard_json": "DENIED EROFS",
+ "scripts_gate": "DENIED EROFS",
+ "workflows": "DENIED EROFS",
+ "net_registry": "200",
+ "net_github": "200",
+ "net_api_github": "200",
+ "net_example": "FAIL curl: (56) CONNECT tunnel failed, response 403 "
+}
+```
+
+サンドボックスの違反として、`example.com:443` への外向き接続の拒否が1件記録されました。
+--- files on disk after:
+EXISTS inside.txt
+ABSENT ../outside.txt
+ABSENT /home/kokor/b20-verify/6c416e6/outside-home.txt
+ABSENT .claude/settings.local.json
+ABSENT .git/hooks/probe-hook
+EXISTS .githooks/probe
+ABSENT .claude/settings.json.probe
+.claude/settings.json lines-with-probe: 0
+.claude/guard.json lines-with-probe: 0
+scripts/gate/probe.txt lines-with-probe: 0
+.github/workflows/probe.yml lines-with-probe: 0

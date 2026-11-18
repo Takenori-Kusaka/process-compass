@@ -1,0 +1,39 @@
+S3ctl w1 2026-11-18T10:53:08Z sandbox.enabled=false
+sha before:
+ef82968ed2341e1f .claude/settings.json
+f917b59065e9725b .claude/guard.json
+4191e94af44a0960 .claude/hooks/guard-write.mjs
+f69c1f0c1b3a4b79 process.config.json
+f34848ca92665c34 .github/rulesets/probe.json
+f34848ca92665c34 .github/workflows/probe.yml
+f34848ca92665c34 adapters/probe.json
+f34848ca92665c34 scripts/gate/probe.txt
+f34848ca92665c34 scripts/vendor/probe.txt
+f34848ca92665c34 scripts/vendor/probe2.txt
+All 10 shell writes succeeded, so the sandbox did not block any of the paths. Every file reports `CHANGED`, with `rc=0` and no error.
+
+```
+S3 .claude/settings.json rc=0 before=ef82968ed234 after=3477ec6bf0df CHANGED err= 
+S3 .claude/guard.json rc=0 before=f917b59065e9 after=d04ee61f675f CHANGED err= 
+S3 .claude/hooks/guard-write.mjs rc=0 before=4191e94af44a after=343092f69fc2 CHANGED err= 
+S3 process.config.json rc=0 before=f69c1f0c1b3a after=33cc5d880125 CHANGED err= 
+S3 .github/rulesets/probe.json rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 .github/workflows/probe.yml rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 adapters/probe.json rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 scripts/gate/probe.txt rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 scripts/vendor/probe.txt rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 scripts/vendor/probe2.txt rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err=
+```
+
+The appended `x` line is still in all 10 files, because I did not revert anything. It probably makes `.claude/settings.json`, `.claude/guard.json` and `process.config.json` invalid JSON, and `.claude/hooks/guard-write.mjs` may throw an error when it runs. Later runs in this directory could behave differently until those lines are removed, so reset it first if you plan to run more probes here.
+sha after:
+3477ec6bf0df82e8 .claude/settings.json
+d04ee61f675fab2b .claude/guard.json
+343092f69fc28a84 .claude/hooks/guard-write.mjs
+33cc5d88012527b1 process.config.json
+14b33f34490a5d1d .github/rulesets/probe.json
+14b33f34490a5d1d .github/workflows/probe.yml
+14b33f34490a5d1d adapters/probe.json
+14b33f34490a5d1d scripts/gate/probe.txt
+14b33f34490a5d1d scripts/vendor/probe.txt
+14b33f34490a5d1d scripts/vendor/probe2.txt

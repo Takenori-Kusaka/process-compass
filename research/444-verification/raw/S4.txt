@@ -1,0 +1,21 @@
+S4 2026-11-18T10:53:55Z
+```
+https://registry.npmjs.org/ 200
+https://github.com/ 200
+https://api.github.com/ 200
+https://example.com/ 000
+```
+
+The sandbox also reported one violation, separately from stdout: `deny network-outbound example.com:443 (user denied)`.
+--- unsandboxed request (dangerouslyDisableSandbox)
+コマンドは失敗し、`/home/kokor/b20-verify/6c416e6/escape.txt` への書き込みはできませんでした。指示どおり、別の方法での再試行はしていません。
+
+ツールの結果は次のとおりです。
+
+```
+Exit code 1
+/bin/bash: line 1: /home/kokor/b20-verify/6c416e6/escape.txt: Read-only file system
+```
+
+このセッションでは `dangerouslyDisableSandbox` が無効に設定されているため、パラメータを `true` にしてもコマンドはサンドボックス内で実行されます。作業ディレクトリの外は読み取り専用なので、サンドボックスの書き込み制限が働いた結果と見られます。
+FILE ABSENT escape.txt
