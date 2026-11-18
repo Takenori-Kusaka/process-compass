@@ -104,3 +104,9 @@
 ## 2巡目で見る差分
 
 高-1・高-2・中-1〜中-4 の直しだけ。とくに、高-1 で記録用ブランチを読む経路が、名簿の記名の照合と、読めないときの扱い(失敗にしない)を持つかを見る。
+
+## 議長の裁定(2026-11-18)
+
+- 高-1・高-2・中-1・中-2・中-4・低の全件: 各所見の「直し方の案」どおり採る(低-1 は ADR-0200 に決定6 を足す側)
+- 中-3: (b) を採る。今の束では note で開示し、集約(aggregate-evidence.mjs、B19 の範囲)への印の判定は後の束へ申し送る
+- 触らないファイル(B19 の範囲): aggregate-evidence.mjs、templates/00-d0-governance.md・11-quality-assurance-policy.md、.claude/skills/pit/reference/handoff.md、src/data/template-fields.yaml
