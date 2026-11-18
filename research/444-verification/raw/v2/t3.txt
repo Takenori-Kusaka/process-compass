@@ -1,0 +1,14 @@
+T3 2026-11-18T12:57:31Z
+36533811c7ba6bfefd7f278901e653391dbd16aa3d91653274a0bfc15e1917a5  .claude/agent-runs/11111111-2222-4333-8444-555555555552.json
+Ignoring 21 permissions.allow entries from .claude/settings.json: this workspace has not been trusted. Run Claude Code interactively here once and accept the trust dialog, or set projects["/home/kokor/b20-verify/533d8c7/w"].hasTrustDialogAccepted: true in /home/kokor/.claude.json.
+{"duration_api_ms"
+36533811c7ba6bfefd7f278901e653391dbd16aa3d91653274a0bfc15e1917a5  .claude/agent-runs/11111111-2222-4333-8444-555555555552.json
+test: t3
+
+Agent-Run: 11111111-2222-4333-8444-555555555552
+Agent-Assets: sha256:641860db6d15684b55862e85356d3893703a4616d39f10d0a96e97492ac7188f; base=ce4710c906209fd27bce827bcdcfffe2f626527b; assets=dirty; user-scope=unrecorded; start=sha256:81235be65fd3b7eb05a4beb6a9b11f182a34998e55aa75bdea3592d0a5e6ef41
+
+11111111-2222-4333-8444-555555555551.json
+11111111-2222-4333-8444-555555555552.json
+11111111-2222-4333-8444-5555555555a1.json
+digest now (CLAUDE.md changed): 641860db6d15684b55862e85356d3893703a4616d39f10d0a96e97492ac7188f

@@ -1,0 +1,11 @@
+T2d 2026-11-18T12:58:27Z
+Ignoring 21 permissions.allow entries from .claude/settings.json: this workspace has not been truste
+--- log
+test: t2d
+
+Agent-Run: 11111111-2222-4333-8444-555555555557
+Agent-Assets: sha256:3d7f70d9dc009def4e235ccb56816a90acc2e88e3ccab05d2ef96c57c1e67974; base=7993144b8bba061d8d0c9eaaabfde502813a62ae; assets=dirty; user-scope=unrecorded
+
+--- status during
+cat: /tmp/t2d-status.txt: No such file or directory
+--- status after

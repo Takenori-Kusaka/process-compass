@@ -1,0 +1,18 @@
+T2c mid-run asset change 2026-11-18T12:57:54Z
+Ignoring 21 permissions.allow entries from .claude/settings.json: this workspace has not been trusted. Run Claude Code interactively here once and accept the trust dialog, or set projects["/home/kokor/b20-verify/533d8c7/w"].hasTrustDialogAccepted: true in /home/kokor/.claude.json.
+{"duration_api_ms"
+--- log
+test: t2c
+
+Agent-Run: 11111111-2222-4333-8444-555555555556
+Agent-Assets: sha256:3d7f70d9dc009def4e235ccb56816a90acc2e88e3ccab05d2ef96c57c1e67974; base=285b53e0565cb32e10910a1f42fb7867a51353c8; assets=dirty; user-scope=unrecorded; start=sha256:81235be65fd3b7eb05a4beb6a9b11f182a34998e55aa75bdea3592d0a5e6ef41
+
+--- record
+{
+  "runId": "11111111-2222-4333-8444-555555555556",
+  "startedAt": "2026-11-18T12:57:55.187Z",
+  "base": "285b53e0565cb32e10910a1f42fb7867a51353c8",
+  "digest": "81235be65fd3b7eb05a4beb6a9b11f182a34998e55aa75bdea3592d0a5e6ef41",
+  "assets": "clean",
+  "userScope": "unrecorded"
+}

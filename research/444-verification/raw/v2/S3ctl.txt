@@ -1,0 +1,44 @@
+S3ctl w1 2026-11-18T12:59:09Z sandbox.enabled=false
+sha before:
+c194951b8abfda15 .claude/settings.json
+f917b59065e9725b .claude/guard.json
+4191e94af44a0960 .claude/hooks/guard-write.mjs
+42183b3cb9b0c8bb process.config.json
+f34848ca92665c34 .github/rulesets/probe.json
+f34848ca92665c34 .github/workflows/probe.yml
+f34848ca92665c34 adapters/probe.json
+f34848ca92665c34 scripts/gate/probe.txt
+f34848ca92665c34 scripts/vendor/probe.txt
+f34848ca92665c34 scripts/vendor/probe2.txt
+aa0e9391b2c4174c .githooks/commit-msg
+The sandbox did not block any of the shell writes: all 11 paths were changed, each with `rc=0` and no error.
+
+```
+S3 .claude/settings.json rc=0 before=c194951b8abf after=f81d61b2dc5f CHANGED err= 
+S3 .claude/guard.json rc=0 before=f917b59065e9 after=d04ee61f675f CHANGED err= 
+S3 .claude/hooks/guard-write.mjs rc=0 before=4191e94af44a after=343092f69fc2 CHANGED err= 
+S3 process.config.json rc=0 before=42183b3cb9b0 after=832fc5182af2 CHANGED err= 
+S3 .github/rulesets/probe.json rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 .github/workflows/probe.yml rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 adapters/probe.json rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 scripts/gate/probe.txt rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 scripts/vendor/probe.txt rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 scripts/vendor/probe2.txt rc=0 before=f34848ca9266 after=14b33f34490a CHANGED err= 
+S3 .githooks/commit-msg rc=0 before=aa0e9391b2c4 after=921a3a50d561 CHANGED err= 
+```
+
+I haven't reverted anything, so each file still ends with the appended `x` line. That line probably makes the three JSON files invalid (`.claude/settings.json`, `.claude/guard.json` and `process.config.json`) and may break `.claude/hooks/guard-write.mjs` and `.githooks/commit-msg`, so later runs in this directory may not behave normally.
+
+To clean up, remove only the last line of each file. Don't use `git checkout` on `.claude/settings.json`, because it had uncommitted changes before this run and they would be lost.
+sha after:
+f81d61b2dc5f2185 .claude/settings.json
+d04ee61f675fab2b .claude/guard.json
+343092f69fc28a84 .claude/hooks/guard-write.mjs
+832fc5182af2066f process.config.json
+14b33f34490a5d1d .github/rulesets/probe.json
+14b33f34490a5d1d .github/workflows/probe.yml
+14b33f34490a5d1d adapters/probe.json
+14b33f34490a5d1d scripts/gate/probe.txt
+14b33f34490a5d1d scripts/vendor/probe.txt
+14b33f34490a5d1d scripts/vendor/probe2.txt
+921a3a50d561e846 .githooks/commit-msg

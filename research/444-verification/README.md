@@ -67,3 +67,50 @@ macOS・ネイティブ Linux・ネイティブ Windows(2.1.327 の観測を含�
 | --- | --- | --- |
 | T1〜T3 の「WSL2 と Windows で」 | Windows を条件から外し、WSL2 の実機の記録で受ける | 所有者の回答の問1 は WSL2 を実機の記録と定めた。ネイティブの Windows の T1〜T3 は未実施であり、EV-0319 の差し替え条件に「ネイティブの Windows」を足して開示した |
 | T4 の期待「`unknown` と出る」 | 「`unknown` か、親の識別子と親の要約値」へ改める | 実機では親の値が付いた。版は親の実行から引けるので、外す対象にしない。下位の担当を親と区別できない限界は EV-0319 が開示している |
+
+## 再確認(束 B20 直しの段 F2V。2026-11-18 12:57〜13:00 UTC)
+
+フックと deny の直し(F2。R1-03・16 の `Agent-Assets`、R1-07 の `.githooks/**`)の後の template で、T1〜T4 と S3 をやり直した。上の「結果」の表と判定は消していない。生の記録は `raw/v2/`(スクリプトは `raw/v2/scripts/`)。
+
+### 環境
+
+| 項目 | 値 |
+| --- | --- |
+| 基盤 | WSL2、Ubuntu-24.04。Claude Code 2.1.314。node v22.23.4、git 2.43.0(前回と同じ) |
+| template | コミット 533d8c70d492a2e1cec0403f08d6a2f66fc5c1a1(ブランチ b20)。前回は 6c416e66。`git clone` で Linux 側 `~/b20-verify/533d8c7/` に作り、前回と同じ回答(1〜2名・PoC・CL0)で初期化した |
+| 設定 | 生成された `.claude/settings.json` に `Edit(./.githooks/**)` を確認した。`sandbox.enabled:true`・`allowUnsandboxedCommands:false` は前回と同じ。隔離や許可は緩めていない |
+| 実行の方法 | 前回と同じ(`claude -p`、信頼を受け入れていない作業場所) |
+| 認証 | 導入済みのものをそのまま使った。読み出し・複製・変更はしていない |
+
+### 結果
+
+| 確認 | 期待 | 結果(前回との差) | 証跡(`raw/v2/`) |
+| --- | --- | --- | --- |
+| T1 | 記録が 1 件でき、id・base・digest が一致 | 満たした。前回と同じ。初期化の出力を**コミットする前**の実行は `assets: dirty`(指示資産が未コミットのため。新しい定義どおり)。コミットした後の実行は `assets: clean`。base は `git rev-parse HEAD` と、digest は `assetsDigest()` と一致 | `t1-uncommitted-init.txt`、`pre.sh` の出力は本節の記録に要約(id 5555555555a1) |
+| T2 | `Agent-Run` が 1 度、`Agent-Assets` が `assets <id>` の出力と一致。人のコミットには付かない | **差あり**。`Agent-Run` は 1 度だけ付き、`sha256:` と `base=` は `assets <id>` の出力と一致した。人の端末のコミットには付かなかった。ただしトレーラの `assets=` は `dirty`、隔離の外で実行した `assets <id>` は `clean` で、**文字列は一致しない**(下の「差の原因」) | `t2.txt`、`t2b.txt` |
+| T2c(新) | 実行の途中で `CLAUDE.md` を変えてコミットに含めたとき、`start=` が付き `dirty` になる | 満たした。`start=sha256:81235be6…`(開始の値)が付き、`assets=dirty`。`sha256:` はコミットの時点の値(3d7f70db…)に変わった | `t2c.txt` |
+| T3 | 再開の後も同じ id、記録の sha256 が前後で同一。`CLAUDE.md` を変えても記録の値が変わらない | 満たした。記録の sha256 は 36533811…で前後同一。`CLAUDE.md` を変えた状態のコミットは、新しい定義どおり `sha256:` がコミットの時点の値(641860db…)になり、`start=` に開始の値が付いて `assets=dirty`。前回は記録の値のままだった(F2 の変更点) | `t3.txt` |
+| T4 | `unknown` か、親の識別子と親の要約値 | 前回と同じ。SessionStart の記録は増えず(前 3 件、後 4 件、増えたのは親の 1 件)、下位の担当のコミットには親の `Agent-Run` が付いた。`assets=dirty`(下の「差の原因」) | `t4.txt` |
+| S3 | deny の Edit と Write のパスから、シェルで書けない(sha256 の前後が同一) | 満たした。前回の 10 パスに `.githooks/commit-msg` を足した 11 パスすべてで `Read-only file system`・rc=1・sha256 が前後で同一。対照(`sandbox.enabled:false`)は 11 パスすべてが書き換わった。前回は `.githooks/` が書けた(S2 の記録)が、今回は書けない | `S3.txt`、`S3ctl.txt` |
+
+### 差の原因(T2・T4 の `assets=dirty`)
+
+- 隔離のもとの Claude Code 2.1.314(Linux)は、作業ディレクトリに無い拒否の対象のパスへ、実行の間だけ空の足場を作る。実行中の `git status` は `?? .claude/agents`・`.claude/commands`・`.claude/launch.json`・`.claude/loop.md`・`.claude/output-styles`・`.claude/routines`・`.claude/scheduled_tasks.json`・`.claude/workflows` と ` D context/_archive/README.md` を出した(`raw/v2/t2e.txt`)。実行の後の `git status` は空
+- `assetsUncommitted` がこれらを「コミットに入らない指示資産の変更」と数えるため、隔離のもとでのコミットは必ず `assets=dirty` になる。開始の記録(隔離の前)は `clean`、隔離の外での `assets <id>` も `clean`
+- 影響: 誤りの向きは止める側(clean を dirty と出す)で、`clean` と偽る向きではない。ただし、隔離を使う Linux 系の採用者では `clean` が出ない。集約の `dirty` の件数が実態より多くなる。これは F2 の実装が想定していない事実であり、**state は動かしていない**。議長の裁定に回す
+- 足場の一覧は Claude Code の版と構成で変わりうる。今回の確認はこの版・この構成だけである
+
+### 前回と結果が変わったマーク
+
+| マーク | 前回 | 今回 | 扱い |
+| --- | --- | --- | --- |
+| IMPL-0207 | T1〜T3 満たした | T1・T3 満たした。T2 は `Agent-Run` と `sha256:`・`base=` は満たしたが、`assets=` が隔離のもとで `dirty` になり、`assets <id>`(隔離の外)と一致しない | state を動かさない。議長へ |
+| IMPL-1019 | 同上 | 同上(`dirty` の偽陽性) | state を動かさない。議長へ |
+| IMPL-0510 | S3 満たした | S3 満たした(`.githooks` を含む 11 パス) | note の「10 行」を「11 パス(.githooks を足した)」と改める根拠になる。state は変えていない |
+| IMPL-0506 | — | S1・S2・S4・自身の手順は再実施していない(範囲外) | 前回の結果のまま |
+
+### 実施しなかったこと
+
+- S1・S2・S4・自身の手順・Windows の観測(範囲は T1〜T3 と S3。T4 は事実の記録として再実施した)
+- 対話の起動、macOS・ネイティブ Linux・ネイティブ Windows
+- 実験の誤りは 1 件: T2d の最初の版が `/tmp` へ書こうとして隔離に拒否され、状態を得られなかった。書き込み先を作業ディレクトリに変えて再実行した(`t2e.txt`。隔離の設定は変えていない)

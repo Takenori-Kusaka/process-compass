@@ -1,0 +1,19 @@
+2026-11-18T12:57:01Z
+claude 2.1.314 (Claude Code)
+Ignoring 21 permissions.allow entries from .claude/settings.json: this workspace has not been trusted. Run Claude Code interactively here once and accept the trust dialog, or set projects["/home/kokor/b20-verify/533d8c7/w"].hasTrustDialogAccepted: true in /home/kokor/.claude.json.
+{"duration_api_ms":870,"stop_reason":"end_turn","session_id":"11111111-2222-4333-8444-555555555551","total_cost_usd":0.326928,"usage":{"input_tokens":2,"cache_creation_input_tokens":40855,"cache_read_input_tokens":0,"output_tokens":4,"output_tokens_details":{"thinking_tokens":0},"server_tool_use":{"web_search_requests":0,"web_fetch_requests":0},"service_tier":"standard","cache_creation":{"ephemeral_1h_input_tokens":40855,"ephemeral_5m_input_tokens":0},"inference_geo":"global","iterations":[],"speed":"standard","fallback_credit":null},"modelUsage":{"claude-opus-5-5":{"inputTokens":2,"outputTokens":4,"cacheReadInputTokens":0,"cacheCreationInputTokens":40855,"webSearchRequests":0,"costUSD":0.326928,"contextWindow":1000000,"maxOutputTokens":128000,"thinkingTokens":0,"cacheCreationEphemeral5mInputTokens":0,"cacheCreationEphemeral1hInputTokens":40855,"canonicalModel":"claude-opus-5-5","provider":"firstParty","costBasis":"list"}},"permission_denials":[],"terminal_reason":"completed","fast_mode_state":"off","fast_mode_disabled_reason":"sdk_opt_in_required","subagent_stats":{"spawned":0,"requested":{"background":0,"foreground":0,"unset":0},"started_in_background":0,"max_depth":0,"spawned_by_subagents":0,"com--- ls
+total 12
+drwxr-xr-x 2 kokor kokor 4096 Nov 18 21:57 .
+drwxr-xr-x 5 kokor kokor 4096 Nov 18 21:57 ..
+-rw-r--r-- 1 kokor kokor  281 Nov 18 21:57 11111111-2222-4333-8444-555555555551.json
+{
+  "runId": "11111111-2222-4333-8444-555555555551",
+  "startedAt": "2026-11-18T12:57:02.569Z",
+  "base": "1912691f62ea2c7dbea7419be6d7609f7b85c0b7",
+  "digest": "81235be65fd3b7eb05a4beb6a9b11f182a34998e55aa75bdea3592d0a5e6ef41",
+  "assets": "dirty",
+  "userScope": "unrecorded"
+}
+--- head
+1912691f62ea2c7dbea7419be6d7609f7b85c0b7
+81235be65fd3b7eb05a4beb6a9b11f182a34998e55aa75bdea3592d0a5e6ef41

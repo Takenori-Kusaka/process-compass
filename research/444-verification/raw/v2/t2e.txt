@@ -1,0 +1,19 @@
+T2d 2026-11-18T12:58:51Z
+Ignoring 21 permissions.allow entries from .claude/settings.json: this workspace has not been truste
+--- log
+test: t2e
+
+Agent-Run: 11111111-2222-4333-8444-555555555558
+Agent-Assets: sha256:3d7f70d9dc009def4e235ccb56816a90acc2e88e3ccab05d2ef96c57c1e67974; base=cbb1b68e99d62a31b277f93f6eb7af7e8b3d9f68; assets=dirty; user-scope=unrecorded
+
+--- status during
+ D context/_archive/README.md
+?? .claude/agents
+?? .claude/commands
+?? .claude/launch.json
+?? .claude/loop.md
+?? .claude/output-styles
+?? .claude/routines
+?? .claude/scheduled_tasks.json
+?? .claude/workflows
+--- status after
