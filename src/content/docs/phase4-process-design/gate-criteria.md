@@ -2233,7 +2233,7 @@ L2 の一次事例は、モノレポ・大規模な自動テスト基盤・高�
 
 <!-- impl IMPL-0049 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="基準値を超える変更を失敗にせず、size:over を出して区分の下限を R2 へ引き上げる。算定はファイルごとの max(追加, 削除)で、テスト・fixture・snapshot は別に数える。ロックファイル・印のある自動生成ファイル・空白だけの一括整形と、文書の置き場(docs・context・specs・templates・evidence・profiles とリポジトリの直下)の *.md を算定から除く。置き場の外の *.md は数える。基底ブランチの台帳の既存の例外承認の行は有効のまま。印の無い生成物と機械的な変換は機械で識別しない" -->
 
-<!-- impl IMPL-0136 target=review-queue-control state=delivered check=machine test=template/scripts/gate/test-review-queue.mjs note="実装済み・結線済み(試験 test-review-queue.mjs が gate-g5.yml の gate-contract から実行される。2026-11-18): review-queue.mjs は散文のファイル(isProseDocument)だけを変える PR を検出から外さない(試験で確かめる)。散文のファイルの変更にも判定完了時間の SLA と滞留の措置を掛けること。行数の算定からの除外は IMPL-0049、SLA の既定値は IMPL-0583、催促・通知・代理の指名は IMPL-0681・IMPL-0979 が追う。文書だけの変更に固有の判定は置かない(ADR-0159)。読まれずに通る散文の検知は IMPL-1010 が追う。降りた部分: 識別(isProseDocument)と時計時間の分布の観測、および review-queue.mjs による散文だけの PR の滞留の検出(試験で確認)。担い手への指示の文書を散文に数える当否は #355 に残した。 実物の GitHub では未確認。" -->
+<!-- impl IMPL-0136 target=review-queue-control state=delivered check=machine test=template/scripts/gate/test-review-queue.mjs note="実装済み・結線済み(試験 test-review-queue.mjs が gate-g5.yml の gate-contract から実行される。2026-11-18): review-queue.mjs は散文のファイル(isProseDocument)だけを変える PR を検出から外さない(試験で確かめる)。散文のファイルの変更にも判定完了時間の SLA と滞留の措置を掛けること。行数の算定からの除外は IMPL-0049、SLA の既定値は IMPL-0583、催促・通知・代理の指名は IMPL-0681・IMPL-0979 が追う。文書だけの変更に固有の判定は置かない(ADR-0159)。読まれずに通る散文の検知は IMPL-1010 が追う。降りた部分: 識別(isProseDocument)と時計時間の分布の観測、および review-queue.mjs による散文だけの PR の滞留の検出(試験で確認)。担い手への指示の文書を散文に数える当否は #355 に残した。 実物の GitHub では未確認。workflow の契機と呼び出しは試験で確かめていない(実物の GitHub で未確認)。" -->
 
 <!-- impl IMPL-1010 target=review-queue-control state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="AI が生成した大量の散文が読まれずに通ることの検知(ADR-0092 決定7)。判定完了時間と変更規模の分布の観測(IMPL-0136 の降りた部分)は、読まれずに通ったことの検知ではない。散文の変更を人が読み切ったかを確かめる仕組みは準拠テンプレートに無い。製品のコードの変更は IMPL-0159 が追う(ADR-0137)。以前は IMPL-0136 の note が表示していたが、主題が違うため本マークへ分けた(ADR-0159)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
@@ -2455,7 +2455,7 @@ AIによる生成の速度が上がるほど、待ち行列はレビュー側へ
 
 チーム宛ての依頼は着手が遅れます。個人への明示的な割り当てが遅延を有意に減らしたという比較実験の報告があります(2023年)。一方、チーム宛てのほうが品質と作業の分配に優れるという逆向きの報告もあります(2026年)。**速度と分配はトレードオフの関係にあります**。本標準は速度を優先し、分配は下記の偏りの監視で担保します。
 
-<!-- impl IMPL-0680 target=review-queue-control state=delivered check=machine test=template/scripts/gate/test-review-queue.mjs note="実装済み・結線済み(試験 test-review-queue.mjs が gate-g5.yml の gate-contract から実行される。2026-11-18): template の scripts/gate/review-queue.mjs が、チームだけを指名した PR へ個人の指名を求めるコメントを出す。レビュー依頼を個人へ指名し、チーム宛てのままにしないこと。違反はレビュー依頼の宛先に現れる。判定はレビュー依頼の正本の値(requested_reviewers)が空であることで行う。2026-11-15 時点では、レビュー依頼の宛先を読む置き場が準拠テンプレートに無く、降ろし先(review-queue-control)を足した(独立の突合 1巡目の裁定)。 機械で閉じないのは、個人の指名を実際に行うこと(人が行う)。試験が確かめるのは求めのコメントが出ることまで。実物の GitHub では未確認。" -->
+<!-- impl IMPL-0680 target=review-queue-control state=delivered check=machine test=template/scripts/gate/test-review-queue.mjs note="実装済み・結線済み(試験 test-review-queue.mjs が gate-g5.yml の gate-contract から実行される。2026-11-18): template の scripts/gate/review-queue.mjs が、チームだけを指名した PR へ個人の指名を求めるコメントを出す。レビュー依頼を個人へ指名し、チーム宛てのままにしないこと。違反はレビュー依頼の宛先に現れる。判定はレビュー依頼の正本の値(requested_reviewers)が空であることで行う。2026-11-15 時点では、レビュー依頼の宛先を読む置き場が準拠テンプレートに無く、降ろし先(review-queue-control)を足した(独立の突合 1巡目の裁定)。 機械で閉じないのは、個人の指名を実際に行うこと(人が行う)。試験が確かめるのは求めのコメントが出ることまで。実物の GitHub では未確認。workflow の契機と呼び出しは試験で確かめていない(実物の GitHub で未確認)。" -->
 
 ### 滞留したときの措置
 
@@ -2474,7 +2474,7 @@ AIによる生成の速度が上がるほど、待ち行列はレビュー側へ
 
 したがって措置の順序は「**催促 → 代理を指名する者への通知 → 人による代理の指名**」とします。
 
-<!-- impl IMPL-0681 target=review-queue-control state=delivered check=machine test=template/scripts/gate/test-review-queue.mjs note="実装済み・結線済み(試験 test-review-queue.mjs が gate-g5.yml の gate-contract から実行される。2026-11-18): review-queue.mjs が応答の超過で指名した者へ記名で催促し、2倍の超過で D-0 節6 の宛先へ記名で通知する(営業日は business-days.mjs。祝日のファイルが無ければ祝日を数えていない旨を出す)。代理判定者の指名の適用は人。実物の GitHub では未確認。滞留したときの措置。応答時間の超過で指名したレビュアへ自動で催促すること、応答時間の2倍の超過で D-0 表3 の判定する者へ通知すること、判定完了時間の超過で第7章 7.5 の代理判定者の指名を適用すること、自動的な再割り当てを第一の手段にしないこと。応答は、その指名(依頼)の時刻より後のレビューに限る(付け直した依頼は新しい依頼として数える)。営業日の暦の日は UTC からの固定の差(既定は日本時間の +540 分。変数 REVIEW_UTC_OFFSET_MINUTES で変える)で直し、夏時間には対応しない。催促の文に、祝日を数えていない旨を出す。2026-11-15 時点では催促と通知の置き場は準拠テンプレートに無かった(CLAUDE.md の「催促」は費用を挙げて承認を催促しない規則で別の規定。flow-observation は第2章 2.10.4 の滞留期間の観測に限る)。第7章 7.5 の代理判定者の指名の求めは、7.5 の節が未決(pending。束の終わりに議長が寄せ先を決める)で、いまは追うマークが無い。 機械で閉じないのは、代理判定者の指名の適用(人が行う)。" -->
+<!-- impl IMPL-0681 target=review-queue-control state=delivered check=machine test=template/scripts/gate/test-review-queue.mjs note="実装済み・結線済み(試験 test-review-queue.mjs が gate-g5.yml の gate-contract から実行される。2026-11-18): review-queue.mjs が応答の超過で指名した者へ記名で催促し、2倍の超過で D-0 節6 の宛先へ記名で通知する(営業日は business-days.mjs。祝日のファイルが無ければ祝日を数えていない旨を出す)。代理判定者の指名の適用は人。実物の GitHub では未確認。滞留したときの措置。応答時間の超過で指名したレビュアへ自動で催促すること、応答時間の2倍の超過で D-0 表3 の判定する者へ通知すること、判定完了時間の超過で第7章 7.5 の代理判定者の指名を適用すること、自動的な再割り当てを第一の手段にしないこと。応答は、その指名(依頼)の時刻より後のレビューに限る(付け直した依頼は新しい依頼として数える)。営業日の暦の日は UTC からの固定の差(既定は日本時間の +540 分。変数 REVIEW_UTC_OFFSET_MINUTES で変える)で直し、夏時間には対応しない。催促の文に、祝日を数えていない旨を出す。2026-11-15 時点では催促と通知の置き場は準拠テンプレートに無かった(CLAUDE.md の「催促」は費用を挙げて承認を催促しない規則で別の規定。flow-observation は第2章 2.10.4 の滞留期間の観測に限る)。判定完了時間の超過で 7.5 の措置を求める通知は IMPL-0979 が追う(PR を持たないゲートと会議体の決定の期限の超過は、IMPL-0979 のとおり降りていない)。自動的な再割り当てを第一の手段にしないことは、再割り当ての処理を持たないことで満たす(試験の場面なし)。 機械で閉じないのは、代理判定者の指名の適用(人が行う)。workflow の契機と呼び出しは試験で確かめていない(実物の GitHub で未確認)。" -->
 
 ### 偏りの監視
 
@@ -2511,7 +2511,7 @@ AIによる生成の速度が上がるほど、待ち行列はレビュー側へ
 
 既定値は1人あたり3件とし、[レビュー負荷削減手段の効果測定](/process-compass/phase5-implementation/review-burden-measurement/)の記録から較正します。較正の歯止めは、前掲「較正の歯止め」によります。
 
-<!-- impl IMPL-0682 target=review-queue-control state=delivered check=machine test=template/scripts/gate/test-review-queue.mjs note="実装済み・結線済み(試験 test-review-queue.mjs が gate-g5.yml の gate-contract から実行される。2026-11-18): review-queue.mjs が未応答の指名が上限(既定3)を超えたレビュアへ PR で知らせる。指名は外さない。差し戻しの手引きは /gate の SKILL.md の「期限を超えたとき」に一文あり、通知の文から参照する(差し戻しの実行は人が行う。実物の /gate の使用では確かめていない)。数えるのは未応答の指名で、応答した後も判定待ちの PR は数えない(第4章の制御1の「判定待ちとして同時に抱える件数」より狭い近似)。実物の GitHub では未確認。流入を絞る制御1・2。レビュアあたりの同時保有数の上限(既定は1人3件)を置き上限に達したレビュアへ新たに指名しないこと、指名先が確保できない場合は新たな判定依頼を作らず実装計画へ差し戻すこと。2026-11-15 時点では準拠テンプレートに同時保有数を数える置き場が無かった(templates/08-ai-sla.md の受け入れの速度の欄は受託の契約の記入欄で、実行主体を縛る置き場ではない)。" -->
+<!-- impl IMPL-0682 target=review-queue-control state=delivered check=machine test=template/scripts/gate/test-review-queue.mjs note="実装済み・結線済み(試験 test-review-queue.mjs が gate-g5.yml の gate-contract から実行される。2026-11-18): review-queue.mjs が未応答の指名が上限(既定3)を超えたレビュアへ PR で知らせる。指名は外さない。差し戻しの手引きは /gate の SKILL.md の「期限を超えたとき」に一文あり、通知の文から参照する(差し戻しの実行は人が行う。実物の /gate の使用では確かめていない)。数えるのは未応答の指名で、応答した後も判定待ちの PR は数えない(第4章の制御1の「判定待ちとして同時に抱える件数」より狭い近似。応答した後も判定待ちの PR は数えないので、上限を超えても知らせない場合がある)。実物の GitHub では未確認。流入を絞る制御1・2。レビュアあたりの同時保有数の上限(既定は1人3件)を置き上限に達したレビュアへ新たに指名しないこと、指名先が確保できない場合は新たな判定依頼を作らず実装計画へ差し戻すこと。2026-11-15 時点では準拠テンプレートに同時保有数を数える置き場が無かった(templates/08-ai-sla.md の受け入れの速度の欄は受託の契約の記入欄で、実行主体を縛る置き場ではない)。workflow の契機と呼び出しは試験で確かめていない(実物の GitHub で未確認)。" -->
 
 ### 帯域を理由に判定を省略しない
 
