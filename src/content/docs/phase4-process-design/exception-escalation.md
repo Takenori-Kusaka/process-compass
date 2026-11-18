@@ -214,7 +214,7 @@ G-4 と G-5 を短縮できない理由は、この2つを外すと「何を作�
 
 <!-- impl IMPL-0610 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="制約1(未回収のファストトラック項目が残る間は同一案件で新たに申請しない)を G-5 が拒む(印の行どうしで、閉じた値でない行が基底の台帳に残るとき)。制約3(期限内の事後レビュー・権限の停止)は機械で閉じず、確かめる者: 出荷判定者と内部監査。印の無い行は見分けられない(ADR-0200)" -->
 <!-- impl IMPL-0611 target=project-brief-template state=delivered check=manual note="7.4 の乱用を防ぐ制約2。templates/06-project-brief.md の節「G-1 で定めて記録する例外の統制」の行「ファストトラックの適用回数の上限(事業ステージあたり)」が置く。値の有無を拒む検査は無い。確かめる者: 事業決裁者(G-1 で企画書を判定するとき。所在を読んだ。実行して確かめていない)" -->
-<!-- impl IMPL-0612 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="7.4 の乱用を防ぐ制約5のうち、ファストトラックの発生率・回収完了率・適用後の欠陥発生率を継続して測定すること(会議体へ報告するふるまいは会議の議事にしか現れず、制度設計として扱う。7.9.5 要求事項5 の IMPL-0669 と同じ)。出荷の証跡の集約にこれらの指標は無い(ファストトラックを見分ける区分が台帳に無い)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0612 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-aggregate-records.mjs note="7.4 の乱用を防ぐ制約5のうち、ファストトラックの発生率・回収完了率・適用後の欠陥を項目7 に表示すること。既存の印(ADR-0200 決定2)を数え、新しい語は作らない。印の読みは強調・バッククォート・括弧の前の空白・全角を許す fastTrackMarkOf に統一し、check-pr.mjs の拒否(IMPL-0567・IMPL-0610)と集約が同じ関数を使う。欠陥は原因の変更を印の行と結べた件数と、原因の変更が空欄の件数を併記する。印の付け忘れは数えられない。会議体へ報告するふるまいは会議の議事にしか現れず、制度設計として扱う(IMPL-0669 と同じ)" -->
 
 ## 7.5 判定の滞留に対する措置
 
@@ -811,7 +811,7 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 | 4 | 回収の期限と回収責任者を定め、技術負債台帳へ登録する |
 | 5 | 7.9.5 の枠から1件を消費する |
 
-<!-- impl IMPL-0628 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="7.9.4 の制限された状態での例外決裁。2名の独立レビューを確保できない場合に 7.4 のファストトラックと同じ手続を適用し、追加の要求事項1〜5(適用できる期日の要件、B-2 の決定者の記名、検証されないまま残る範囲の特定、回収の期限と責任者の台帳への登録、7.9.5 の枠から1件の消費)を満たすこと。IMPL-0118 は制限の範囲に触れる変更で独立した人の確認の承認が2名に満たないものを数えないところまでで、2名に満たない変更の例外承認の行を、B-2 の決定者の記名・範囲の特定・枠の消費で照らす検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0628 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-aggregate-records.mjs note="7.9.4 の制限された状態での例外決裁。対象の変更が承認権限の一時制限の範囲に触れ数えた承認が2名に満たない区分「例外」の行について、承認した者が D-0 の会議体の表の B-2 の決定者(B-2 が該当なしなら事業決裁者の席の責任者)でないこと、返却の目安に日付か回収責任者が無いことを記録の欠落にする(restrictedStateExceptions)。読めないときは未確認と表示し欠落にしない。印の無い行は件数だけ項目7 に出す(印の付け忘れの検出を課さない。ADR-0200 決定5(a))。要求事項1・3 は IMPL-0608・IMPL-0609、5 は IMPL-0669 が追う。7.9.4 専用の区分・様式は設けない" -->
 
 ### 7.9.5 例外の枠
 
@@ -831,7 +831,7 @@ AI の効果が出ないことは、案件を止める理由ではなく、AI �
 
 <!-- impl IMPL-0629 target=project-brief-template state=delivered check=manual note="7.9.5 要求事項1。templates/06-project-brief.md の節「G-1 で定めて記録する例外の統制」の行「例外の枠(事業ステージあたり)」が、件数で定めることと期の途中で補充しないことを置く。枠と台帳の件数の比較は IMPL-0630(機械)。確かめる者: 事業決裁者(G-1 で企画書を判定するとき。所在を読んだ。実行して確かめていない)" -->
 <!-- impl IMPL-0630 target=pr-checks state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="7.9.5 要求事項2〜4。枠を期の途中で補充しないこと、使い切った後は例外を認めないこと、行使のたびに事後レビューを実施し未実施なら以降の行使を認めないこと。枠の残りを数えて例外承認の行を拒む検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0669 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="7.9.5 要求事項5のうち、行使した件数と残りの件数を数えること。出荷の証跡の集約(scripts/gate/aggregate-evidence.mjs)に「枠」の語は無く、枠の件数と行使の件数を数えて出す箇所は無い(2026-11-15)。B-2 の定例で報告するふるまい自体は会議の議事にしか現れず、制度設計として扱う(7.4 制約5 の IMPL-0612 の報告の部分と同じ)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0669 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-aggregate-records.mjs note="7.9.5 要求事項5のうち、行使した件数と残りの件数を数えて項目7 に出すこと(exceptionQuotaText)。枠は企画書の「例外の枠」、行使は直前のステージ移行ゲートの通過のコミットの台帳との差で数える。累計は範囲の中で 7.9.4 の条件に当たる行だけで、範囲の外で足された行は再判定できず下限の値。読めないときは確認できないと出す。超過は表示して止めない(拒否は IMPL-0630)。B-2 の定例で報告するふるまいは会議の議事にしか現れず、制度設計として扱う" -->
 
 ### 7.9.6 記録と可視化
 
@@ -959,7 +959,7 @@ AS-1 または AS-2 の前提を抱えたまま進む場合、7.3 の5項目に�
 | 7 | 停止の申し立て、差し戻し、異議、所見、権限の一時制限の発動の件数を、申し立てた者・受けた者・チームの評価の減点に用いてはならない。AI の利用量、PR の本数、リードタイムを、人の目標値にしてはならない(層1 の項目1) |
 | 8 | 申し立てと解除の記録は、統制が作動した記録として、保証の開示の項目7 へ表示する |
 
-<!-- impl IMPL-0631 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="7.11 要求事項6。保証の開示に載った未達・未測定についての出荷判定者の見解を G-8 の異議で扱い、停止の申し立てに数えないこと。集約は G-8 の判定記録の「出荷判定者の異議」欄を読む(aggregate-evidence.mjs)が、異議を停止の申し立て(ラベル state:stop-requested)の保留に数えない扱いを確かめる試験は見つけていない。ラベルと異議の欄は別の入力で、数えない側に働くと読めるが、確かめていないため降りていない規定として表示する。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0631 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-aggregate-records.mjs note="7.11 要求事項6。保証の開示に載った未達・未測定への出荷判定者の見解は G-8 の異議の欄で扱い、停止の申し立て(ラベル state:stop-requested)の保留に数えないこと。保留はラベルの付与と履歴だけで決まり(stopFindings)、異議の記入では保留にならない。実装は規定どおりで、試験で固定した" -->
 <!-- impl IMPL-0632 target=qa-policy-template state=delivered check=presence note="7.11 要求事項7。templates/11-quality-assurance-policy.md の項目1 の行「評価の方針」が、停止の申し立て・差し戻し・異議・所見・権限の一時制限の発動の件数を、個人と組織の評価の減点に使わないこと、AI の利用量・PR の本数・リードタイムを人の目標値にしないことを書く(単位: 行)。記入は採用者が行い、記入の中身は検査しない。" -->
 
 #### 保留の範囲と強制の方法

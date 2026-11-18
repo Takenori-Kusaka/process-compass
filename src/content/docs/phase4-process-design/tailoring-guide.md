@@ -278,7 +278,7 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 - 抜き取りを行う者が作成を指示した者と同一人物である場合、独立は成立しないままである。その旨を保証の開示([附属書H](/process-compass/phase4-process-design/assurance-case/))へ表示する
 - 本節の配分を適用できるのは、1〜2名の構成が認められる案件までである。安全重要度 CL1 以上および規制業では、1〜2名の構成そのものを認めない(ADR-0028)
 
-<!-- impl IMPL-0739 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="R2 の変更のうち G-6 が未達のままの変更の件数を、リリースごとに保証の開示へ表示すること(案件単位の1行にしない)。出荷の証跡の集約は独立した人の確認を経ていない変更の件数を保証の開示の項目1 に出す(IMPL-0690 ほか)が、リスク区分 R2 の G-6 未達に絞ってリリースごとに表示する処理は読めていない。R3 の事後への移行と抜き取りの識別の表示は IMPL-0552・IMPL-0690 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0739 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-aggregate-records.mjs note="R2 の変更のうち G-6 が未達のまま入った変更の件数を、保証の開示の項目3 へリリースごとに表示すること。止めない。r2G6UnmetOf が独立した人の確認を経ていない R2 の変更を数える(IMPL-0690 ほかの項目1 の件数とは別の行)" -->
 
 **この配分は独立を作りません**。整えるのは開示であり、人の確認を高リスクの変更へ寄せることだけです。外部の確認者を置けない1名の体制では、R2 の変更は、別の人が出荷前に見ることなく出荷されます。残るのは、壊れたことを後から検出して取り消せる状態だけです。
 
@@ -784,7 +784,7 @@ IPA のモデル契約は、構想〜要件定義の見積りを参考値とし�
 - 発注側が価値責任者を置かない委託は、上表「価値責任者の所属」を満たさない。受注側の判定で要件合意(G-2)を代えない。置けない判定は未達として表示する([ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/))
 
 <!-- impl IMPL-0754 target=ai-sla-template state=delivered check=presence note="判定の置き先。技術設計(G-3)と独立レビュー(G-6)の判定を置く組織(発注側/受注側)の欄と、企画承認(G-1)・要件合意(G-2)・仕様承認(G-4)・出荷判定(G-7)・リリース決裁(G-8)の判定を発注側に置くこと、受注側が受注の可否を決める社内の決裁を標準のゲートに数えないこと、レビューの実施を成果物の完成の承認としないことの記述。templates/08-ai-sla.md の第9項が置く。記入の有無と中身は確かめない(単位: 行)" -->
-<!-- impl IMPL-0755 target=evidence-aggregation state=undelivered check=manual plan=scheduled issue=355 review=2027-05 note="発注側が価値責任者を置かない委託で、要件合意(G-2)を受注側の判定で代えず、置けない判定を未達として表示すること。IMPL-0462 は価値責任者の席の責任者と様式 08 第9項の行の食い違いを記録の欠落にするが、空欄は次の一手の注記にとどめ、未達としては表示しない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0755 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-roster-conditions.mjs note="発注側が価値責任者を置かない委託で、様式 08 の価値責任者の行の明示の値「置かない」(NFKC で正規化した完全一致だけ)を、要件合意(G-2)の未達として表示すること。欠落には数えない。空欄は注記のまま(IMPL-0462・ADR-0127 決定7)。「置かない」のとき例外承認で受ける道は設けない(例外承認はゲートの未達を解かない)。valueOwnerAgreementState が not-placed を返す" -->
 
 G-6 を発注側へ置くと完成責任が移るという懸念があります。**レビューの実施は、成果物の完成の承認ではありません**。この区別を契約へ明記しない場合、実施そのものが承認と読まれます。
 
