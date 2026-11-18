@@ -30,7 +30,7 @@ sidebar:
 
 要求事項2の宣言は、[附属書D](/process-compass/phase4-process-design/proposal-template/)の提案書に含めます。宣言のない省略には、後から妥当性を検証する手段がありません。
 
-<!-- impl IMPL-0959 target=profile-generator state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="要求事項2の宣言(外した項目・簡略化した項目と理由)を附属書D の提案書に含めること。複製した知識ベース(scripts/vendor/tailoring-kb.json)の禁止 c-tailoring-must-be-declared が「理由と承認者とともに提案書へ記載せずに運用しない」を文として持つが、データのままで、generate-profile.mjs の checkConstraints はこれを検査せず、構成にも出さない。準拠テンプレートに提案書の様式も検査も無い(template の vendor 以外に提案書の様式と検査と c-tailoring の語が0件。process-init に外部ページへのリンクが1行ある。2026-11-15 確認)。宣言せずに運用しないことの全般は IMPL-0772。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0959 target=profile-generator state=delivered check=manual note="要求事項2の宣言(外した項目・簡略化した項目と理由)を附属書D の提案書に含めること。準拠テンプレートの generate-profile.mjs(renderProfileMd)が、PROCESS-PROFILE.md の「提案書へ写す調整の宣言」の節に、外した・簡略化した・統合したゲートと、practice・constraint の調整を理由とともに並べ、無い構成では「なし」と出す。test-edition-end.mjs が違反と適合の対で固定する。節は材料であり、提案書へ写すのは提案書の起案者(人)、承認者の欄は提案書の決裁者が記名する(節は承認者を書かない)ため check=manual。複製した知識ベースの禁止 c-tailoring-must-be-declared の検査(checkConstraints)は、提案書の有無を検査しない(準拠テンプレートに提案書の様式も検査も無い)。宣言せずに運用しないことの全般は IMPL-0772。確かめる者: 採用者の提案書の決裁者(決裁のとき)" -->
 
 ## 再テーラリングの契機
 
@@ -181,7 +181,7 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 規模の規則は、設問の回答(初期化の時点の見込み)から導きます。名簿の人数から直接は導きません。初期化の時点では名簿がまだ無いためです。名簿を書いた後は、回答と名簿の人数の食い違いを3名と10名の境界で検出し、構成の生成と契約の検査が拒否します。人数が増える向きは少なく申告する誤りを、減る向きは名簿に書かれた離脱を拾うように数えます。数え方の細部は準拠テンプレートの手順です。
 
 <!-- impl IMPL-0300 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="設問の回答(q-team-size)と、席の責任者と人の名簿(外部の確認者を除く)から数えた人数の食い違いを、3名と10名の境界で検出し、構成の生成と契約検査が拒否する(config.mjs の headcountProblems)。test-roster-rules.mjs が固定する(#312)。増える向き(1〜2名→3名以上、3〜9名→10名以上)は席の責任者と名簿の体制の内の人の多い方で、減る向きは名簿の体制の内の人だけで数える。非対称は意図したもの(#351 の裁定)。" -->
-<!-- impl IMPL-0278 target=profile-generator state=undelivered check=manual plan=scheduled issue=351 review=2027-04 note="軸A の人数を、D-0 体制図の表5-2 の区分が「体制の内」の人で数え、3名以上の回答で名簿の体制の内が空の場合に、回答と人数の食い違いを検出すること。規模の規則を回答(q-team-size)から導き名簿から直接は導かないことは意図である(#351 の裁定、第8章の説明の段落)。回答と人数の食い違いの検出(IMPL-0300)は、3名以上の回答で名簿の体制の内が空の場合を検出しない。数え方は向きで異なる(回答より多い向きは席の責任者と名簿の多い側、少ない向きは名簿だけで数える)。採用者は、名簿へ全員を記入したことを D-0 の改訂の時点で確かめる(#312 で注記を実装に合わせた)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0278 target=gate-contract state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="軸A の人数を、D-0 体制図の表5-2 の区分が「体制の内」の人で数え、3名以上の回答で、D-0 を作成済み(構成が追随する版を取得済み)で、変化点も受け付け済みなのに名簿の体制の内が空の場合に、記載の欠落として検出すること(config.mjs の headcountProblems。構成の整合の検査と契約検査が失敗にする)。D-0 の作成前の構成、版を取得しただけで変化点がまだ無い段(名簿は D-0 表5-2 の記入後に変化点で取り込むため、空が途中の正常な状態)、名簿を埋める変化点の受け付けは止めない。外部の確認者だけの名簿は空に数える。規模の規則を回答(q-team-size)から導き名簿から直接は導かないことは意図であり、この検査は人数を導かず存在だけを見る(#351 の裁定、第8章の説明の段落)。test-roster-rules.mjs が違反と適合の対で固定する(#351 の H-2)。名簿の記入の完全さ(全員を記入したか)は機械で確かめられず、採用者が D-0 の改訂の時点で確かめる。" -->
 
 :::caution[暫定 EV-0148 / 見直し 2027-10]
 **対象**: 10名の境界(10名以上の列の規則)。
@@ -263,7 +263,7 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 
 1〜2名の体制でも、型は変えません。G-6 は作成を指示した本人以外の確認者に置き、置けなければ未達として表示します。出荷判定者が開発ラインの席の責任者を兼ねる構成では、G-7 は代償措置つきの逸脱(1.10.2 の D-1)として表示します。兼ねないことを席の割り当てで確かめられない場合も、D-1 として表示します([第3章 3.5.2](/process-compass/phase4-process-design/roles-responsibilities/))。
 
-<!-- impl IMPL-0988 target=profile-generator state=undelivered check=manual plan=scheduled issue=351 review=2027-05 note="1〜2名の体制で、出荷判定者が開発ラインの席の責任者を兼ねる構成に限り D-1 を表示し、兼ねないことを席の割り当てで確かめられない場合(未割当・名簿が空)も表示すること。準拠テンプレートの generate-profile.mjs の detectDeviations は gates.g7.params.approverMode が value-owner-merged なら席の割り当てを見ずに必ず D-1 を出す(過剰の向き。落とす向きの誤りは無い)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0988 target=profile-generator state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="1〜2名の体制で、G-7 を判定する席(value-owner-merged の構成では価値責任者の席。判定者の表示と同じ席)の責任者が開発者の席・独立レビュアの席の責任者と別の名簿の人だと席の割り当てで確かめられたときだけ D-1 を出さず、確かめられない場合(席の未割当・名簿が空・名簿に無い名義)は出すこと。準拠テンプレートの detectDeviations は構成の席と名簿を受け取り(config.mjs の shippingSeparatedFromDevLine に判定する席を渡す)、契約検査は同じ条件で D-1 の記録の要否を決める。分離を確かめられた構成では、判定者の表示・価値責任者の席と qa-gatekeeper の席の注記も「代償措置つきの逸脱」「分離できていない」と言わず、集約の G-7 の成立も同じ席の責任者で語る。test-roster-rules.mjs が違反と適合の対で固定する(#351 の H-5)。" -->
 
 本節が扱うのは、外部の確認者を要する変更です。1名体制の変更と、2名体制で相手も作成の指示に関与した変更が当たります。外部の確認者を独立レビュアの席の責任者に置いた体制は、独立レビュー(G-6)を適用する体制です。その体制では、本節の R2 の件数による表示を用いません。確認を経ていない変更は、記録の欠落として扱います([第3章 3.5](/process-compass/phase4-process-design/roles-responsibilities/))。2名体制で相手が確認できる変更は、相互の確認で成立するため、本節の配分の対象になりません。外部の確認者の帯域は、変更ごとのリスク区分に応じて配分してよいものとします([ADR-0054](/process-compass/adr/0054-seat-accountable-performer/) 決定8)。
 
@@ -685,7 +685,7 @@ ISO 13485 7.3.9 と IEC 62304 8.2.1 の読みに基づきます。査察で承�
 
 <!-- impl IMPL-0838 target=gate-skill state=delivered check=manual note="品質の軸が高の出荷判定へ、限定的な抜き取り確認を加えること。.claude/skills/gate/gates/G-7.md の判定記録の書き方に置く。範囲と件数は判定者が決めて備考に書く。標準は件数を定めない。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0839 target=profile-generator state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="規制業の AI 生成箇所のトレーサビリティの必須(軸C)。規則データの practice: traceability は scripts/vendor/tailoring-kb.json にあるだけで、scripts/init/generate-profile.mjs は practice を読まず、構成へ運ぶのは gate の状態・設定・注記と maxAutonomyLevel だけである。CL1 以上の追跡は IMPL-0760 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0839 target=profile-generator state=delivered check=manual note="規制業の AI 生成箇所のトレーサビリティの必須(軸C)。規則 r-c-regulated が practice traceability を required にする。準拠テンプレートの generate-profile.mjs(traceabilityText)が、その構成の PROCESS-PROFILE.md の「AI 生成箇所の追跡」の節と CLAUDE.md の構成依存部分へ、追跡の文(規則の名つき)を出す。test-edition-end.mjs が違反と適合の対で固定する。箇所の単位の照合は機械で確かめず、人が確かめる(check=manual)。CL1 以上の追跡は IMPL-0760 が追う。確かめる者: AI維持管理者(構成を生成したとき、PROCESS-PROFILE.md の「AI 生成箇所の追跡」の節を読む)" -->
 
 ## 軸D: 開発形態による調整
 
@@ -1175,7 +1175,7 @@ SaaS の利用権(チャットツール・プロジェクト管理ツールな�
 
 <!-- impl IMPL-0080 target=gate-record-template state=delivered check=presence note="CL2 以上の独立した安全性の評価(構成 independentSafetyAssessment: true)。テンプレ4 の「監査対応書式」の表に「安全性の評価者」「安全性の評価の記録の所在」を置き、出荷の証跡の集約が、G-6 の判定記録ごとに記名の有無と段1(名簿の人で、開発者の席の責任者・作成を指示した者・判定者と別人)、または「該当なし(理由)」を確かめる。記録した段と求める段(CL2 は段2 以上、CL3 は段3 以上)の比較は IMPL-0344、距離そのものは IMPL-0514(#357)。評価の実施と内容は確かめない(#288 第5巡)(単位: 欄)" -->
 
-<!-- impl IMPL-0760 target=profile-generator state=undelivered check=manual plan=scheduled issue=448 review=2027-05 note="CL1 以上の AI 生成箇所の追跡(成果物のどの箇所を AI が生成し誰が承認したかを箇所の単位で辿れる状態)。規則 r-e-cl1 が practice traceability を required にするが、scripts/init/generate-profile.mjs は practice を読まず、構成にも PROCESS-PROFILE.md にも出ない。箇所の単位の追跡を照らす検査も準拠テンプレートに見つけていない。5.8.2 の変更ごとの利用記録とは別の規定である。規制業の同じ必須は IMPL-0839 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0760 target=profile-generator state=delivered check=manual note="CL1 以上の AI 生成箇所の追跡(成果物のどの箇所を AI が生成し誰が承認したかを箇所の単位で辿れる状態)。規則 r-e-cl1 が practice traceability を required にする。準拠テンプレートの generate-profile.mjs(traceabilityText)が、その構成の PROCESS-PROFILE.md の「AI 生成箇所の追跡」の節と CLAUDE.md の構成依存部分へ、追跡の文(規則の名つき)を出す。test-edition-end.mjs が違反と適合の対で固定する。箇所の単位の照合は機械で確かめず、人が確かめる(check=manual)。5.8.2 の変更ごとの利用記録とは別の規定である。規制業の同じ必須は IMPL-0839 が追う。確かめる者: AI維持管理者(構成を生成したとき、PROCESS-PROFILE.md の「AI 生成箇所の追跡」の節を読む)" -->
 <!-- impl IMPL-0761 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="CL2 以上の安全適合性の検証記録(附属書F F.7)を出荷判定(G-7)の判定基準にすること。規則 r-e-cl2 が g-ship の safetyVerificationRecord を required にするが、準拠テンプレートの scripts 配下にこの値の参照が無く、G-7 の判定が検証記録の有無を照らさない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0762 target=autonomy-derivation state=delivered check=manual note="案件の安全重要度ごとの AI自律レベルの上限(CL2 は L2、CL3 は L1 固定)。規則 r-e-cl2・r-e-cl3 の maxAutonomyLevel を、scripts/gate/autonomy.mjs の capFromAnswers が autonomy.maxLevel へ落とし、PROCESS-PROFILE.md に上限を出す。CL0・CL1 は本軸が上限の値を置かない。確かめる者: AI維持管理者(構成を生成したとき、上限の表示を読む)。所在を読んだ(実行して確かめていない)" -->
 <!-- impl IMPL-0763 target=g5-adapter state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="CL3 の CI の必須チェックに故障挿入試験とミューテーション試験を加えること。規則 r-e-cl3 が g-ci の強化として注記するが、G-5 の入口(g5-adapter のコマンド)に故障挿入試験の段は無い。ミューテーションの降ろしは附属書F の IMPL-0930・0931 が追う(IMPL-0560 は一覧の読解を出荷判定者へ求めないことだけを追う)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->

@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-11-17)。[ADR-0019](/process-compass/adr/0019-scope-commitment-three-layers/) 決定5 の後半、[ADR-0173](/process-compass/adr/0173-flow-remainders-completion-predicate-adjustment-record-and-adopter-split/) 決定3 の一部と結果の節の重の候補、[ADR-0175](/process-compass/adr/0175-assign-445-450-undelivered-to-adopter-or-template/) の影響の節の IMPL-0978 の分類を、一部置き換える。軽の審議の結論です(Issue [#443](https://github.com/Takenori-Kusaka/process-compass/issues/443)・[#325](https://github.com/Takenori-Kusaka/process-compass/issues/325)・[#447](https://github.com/Takenori-Kusaka/process-compass/issues/447)、`research/443-325-447-deliberation/decision.md`)。準拠テンプレートの変更は本件に含めない。
+採用(2026-11-17)。[ADR-0019](/process-compass/adr/0019-scope-commitment-three-layers/) 決定5 の後半、[ADR-0173](/process-compass/adr/0173-flow-remainders-completion-predicate-adjustment-record-and-adopter-split/) 決定3 の一部と結果の節の重の候補、[ADR-0175](/process-compass/adr/0175-assign-445-450-undelivered-to-adopter-or-template/) の影響の節の IMPL-0978 の分類を、一部置き換える。軽の審議の結論です(Issue [#443](https://github.com/Takenori-Kusaka/process-compass/issues/443)・[#325](https://github.com/Takenori-Kusaka/process-compass/issues/325)・[#447](https://github.com/Takenori-Kusaka/process-compass/issues/447)、`research/443-325-447-deliberation/decision.md`)。準拠テンプレートの変更は本件に含めない。未決の節(5.4.7 の常時の実施の記録と登録の経路で照らす時点)は [ADR-0179](/process-compass/adr/0179-ai-free-practice-record-and-overdue-disclosure/) で決めた。
 
 ## コンテキスト
 

@@ -24,8 +24,9 @@ sidebar:
 
 | 条項 | 適用範囲 | 判定の単位 | 記載箇所 |
 | --- | --- | --- | --- |
+| AI を用いない実施の記録を書く | L2 以上を適用する範囲がある場合 | その他 | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/#ai-を用いない実施の記録を書く適用-l2-以上を適用する範囲がある場合) |
 | 置く場合の規定 | プロダクトの原則を置いた場合 | その他 | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/#置く場合の規定適用-プロダクトの原則を置いた場合) |
-| AIエージェント安全リスクアセスメント | 物理的な危険源・R1 の変更種別・本番到達・L2 以上のいずれか | 変更ごと | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/#aiエージェント安全リスクアセスメント適用-物理的な危険源r1-の変更種別本番到達l2-以上のいずれか) |
+| AIエージェント安全リスクアセスメント | 物理的な危険源・R1 の変更種別・本番到達・AI自律レベル L2 以上のいずれか | 変更ごと | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/#aiエージェント安全リスクアセスメント適用-物理的な危険源r1-の変更種別本番到達ai自律レベル-l2-以上のいずれか) |
 | 統制の設定の変更の承認 | 統制の設定を変える変更 | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#統制の設定の変更の承認適用-統制の設定を変える変更) |
 | 確認の範囲と深さ | G-6 の承認 | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#確認の範囲と深さ適用-g-6-の承認) |
 | 承認レビューを判定記録とする条件 | G-6。規制業の監査対応書式を除く | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#承認レビューを判定記録とする条件適用-g-6規制業の監査対応書式を除く) |
