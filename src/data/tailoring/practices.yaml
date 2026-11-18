@@ -24,8 +24,8 @@ practices:
     description: 受託開発で、契約が成果物の適否を確認する行為を定める場合の確認の基準(受入基準への適合に限定し生成手段を問わない)
     source: /process-compass/phase4-process-design/tailoring-guide/
   - id: outer-gates
-    name: 外殻ゲートの対応づけ
-    description: 組織の既存決裁ゲートと参照モデルの外殻ゲートの接続方法
+    name: 既存の決裁ゲートとの対応づけ
+    description: 組織の既存の決裁ゲートと、参照モデルのゲートの接続方法
     source: /process-compass/phase4-process-design/integrated-process/
   - id: core-understanding
     name: コア理解の維持

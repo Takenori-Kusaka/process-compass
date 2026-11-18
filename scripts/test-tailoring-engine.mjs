@@ -262,7 +262,7 @@ console.log('S0 の G-3・G-4・G-5・G-8 は適用 OK');
   console.log('条件付き質問の無効化 OK');
 }
 
-// AI利用不可: AIロールが外れ、外殻はそのまま機能する
+// AI利用不可: AIロールが外れ、ゲートと記録の原則はそのまま機能する
 {
   const r = evaluate(kb, {
     'q-team-size': 'size-3-9',
