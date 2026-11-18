@@ -149,3 +149,9 @@ files:
   - path: scripts/gate/test-pre-review.mjs
     reason: infra
     why: pre-review.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)
+  - path: scripts/gate/test-review-order.mjs
+    reason: infra
+    why: review-order.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)
+  - path: scripts/gate/test-enforcement-inventory.mjs
+    reason: infra
+    why: enforcement-inventory.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)

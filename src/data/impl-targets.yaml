@@ -352,7 +352,19 @@ targets:
     name: 事前レビュー期間の受付・判定資料の起票・締切の通知と一覧・意見の様式の欄の注意・月次の集計
     kind: template-file
     path: scripts/gate/pre-review.mjs
-    description: フェーズ5「事前レビュー期間の自動化」の置き場。Issue の様式 .github/ISSUE_TEMPLATE/pre-review.yml で起票した上程を、workflow pre-review.yml が定期に読み、判定資料の Issue の起票(草案の印つき)・締切の通知・通知と応答の一覧・意見の欄の注意・月次の集計を行う。いずれも観測と通知で合否を持たない。必須ステータスチェック(pre-review-closed・pre-review-all-responded。IMPL-0214)は作らない(重の審議に残す。束 B18 の裁定 §5)。実物の GitHub では確かめていない(2026-11-18。束 B21 単位11・12)
+    description: フェーズ5「事前レビュー期間の自動化」の置き場。Issue の様式 .github/ISSUE_TEMPLATE/pre-review.yml で起票した上程を、workflow pre-review.yml が定期に読み、判定資料の Issue の起票(草案の印つき)・締切の通知・通知と応答の一覧・意見の欄の注意・月次の集計を行う。いずれも観測と通知で合否を持たない。必須ステータスチェック(pre-review-closed・pre-review-all-responded。IMPL-0214)は作らない(重の審議に残す。束 B18 の裁定 §5)。判定資料の所在が PR を指すときの必須応答の記載(CODEOWNERS から導出。IMPL-0217)と、行の無い短縮の通知(IMPL-0830)も持つ。いずれも通知で、判定へ進めない強制は作らない。実物の GitHub では確かめていない(2026-11-18。束 B21 単位11・12)。必須応答と短縮は 束 B21 P3
+
+  - id: review-order
+    name: 確認を求める項目の並びの周期的な変更
+    kind: template-file
+    path: scripts/gate/review-order.mjs
+    description: /gate のレビュー本文の雛形と判定記録の草案で確認を求める項目を、ゲート・対象・ISO 週から決定的に並べ替える(R3 は回さない。項目の文と番号、見出しと機械が読む欄は変えない)。/human-verify の検証の順序は対象外。慣れが遅れる効果は機械で確かめない。実物の /gate の使用では確かめていない(2026-11-18。束 B21 P2)
+
+  - id: enforcement-inventory
+    name: 強制層の検査の棚卸しの入力の一覧
+    kind: template-file
+    path: scripts/gate/enforcement-inventory.mjs
+    description: 四半期の窓で、欠陥の台帳の節「是正の記録」のうち検査装置を対象とする行と、GitHub Actions のワークフロー・ジョブごとの失敗の回数と最後の失敗の日を一覧に出す。合否に使わず、廃止の候補を選ばない(解釈と棚卸しは AI維持管理者)。読めないときは「読めない」と出す。実物の GitHub では確かめていない(2026-11-18。束 B21 P4)
 
   - id: attention-estimator
     name: 推定による注意の喚起の部品(採用者)
