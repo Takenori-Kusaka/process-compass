@@ -37,7 +37,7 @@ sidebar:
 - 拒否の発生そのものが、タスクの範囲の設定が実態と合っていない兆候になる。記録の要求は 5.8.6 要求事項5
 - 準拠テンプレートでは、書き込みの遮断のフック(`.claude/hooks/guard-write.mjs`)が拒否を `.claude/denied.log` へ記録し、強制層への書き込みを遮断する
 - 準拠テンプレートの権限設定(`.claude/settings.json`)は、秘匿情報の経路の読み取りを拒否に置き、コマンドを許可リストに置く。強制層への書き込みは、ファイルの道具の経路だけをフックが拒否する(シェルの経路は開いている)
-- 書き込みの範囲(実装計画の対象のパスの和と計画外の置き場)とネットワークの既定の拒否は、まだ降りていない。確認つき(ask)は拒否に数えない。実行基盤の隔離はシェルだけに掛かり、ネイティブの Windows では効かない(2026-11-17 時点、Claude Code 2.1.326)([ADR-0126](/process-compass/adr/0126-instruction-asset-checks-write-scope-and-agent-records/)、[実装の台帳](/process-compass/community/implementation-ledger/))
+- 書き込みの範囲(実装計画の対象のパスの和と計画外の置き場)の既定の拒否は、まだ降りていない(実測は[#452](https://github.com/Takenori-Kusaka/process-compass/issues/452)で追う)。隔離とネットワークの既定は、構成の生成が設定の値として置く(2026-11-18、[ADR-0222](/process-compass/adr/0222-b20-run-record-isolation-and-provisional-license/))が、隔離が効くことの実機の確認が終わるまで、降りたとしない。確認つき(ask)は拒否に数えない。実行基盤の隔離はシェルだけに掛かり、ネイティブの Windows では効かない(2026-11-17 時点、Claude Code 2.1.326)([ADR-0126](/process-compass/adr/0126-instruction-asset-checks-write-scope-and-agent-records/)、[実装の台帳](/process-compass/community/implementation-ledger/))
 
 ### 拒否を指示ではなく設定で行う
 

@@ -423,10 +423,10 @@ targets:
     description: 運用中の継続の欠陥注入(事前周知の記録・頻度・停止の条件・注入に気づいたときの報告・見逃した類型の反映の経路・個人識別子を含めない台帳)の置き場。準拠テンプレートにあるのは附属書I I.11 の導入前の検証の 1 回の測定(adoption-trial)だけである(Issue #292)
 
   - id: agent-run-record
-    name: 変更単位の生成の条件の記録(予定)
-    kind: planned
+    name: 変更単位の生成の条件の記録(実行の識別子・指示資産の版)
+    kind: template-file
     path: scripts/gate/agent-run-record.mjs
-    description: フェーズ5「エージェントの操作の統制」の生成の条件(実行の識別子・指示資産の版)を、変更単位で自動で記録する仕組みの置き場。準拠テンプレートに実装は無い。モデルの識別はトレーラ Co-Authored-By による(Issue #292)
+    description: フェーズ5「エージェントの操作の統制」の生成の条件を、変更単位で自動で記録する。SessionStart のフックが実行の識別子ごとに開始の時点の HEAD・指示資産の要約値・コミットに無い変更の有無を .claude/agent-runs/ へ書き、.githooks/commit-msg が Claude Code の実行のコミットにだけ Agent-Run と Agent-Assets を足す。出荷の証跡の集約が AI の印のあるコミットを5区分で数える。モデルの識別はトレーラ Co-Authored-By による。実機の確認は未了(ADR-0222。Issue #444)
 
   - id: g5-local
     name: G-5 の手元の検査(g5-local)
@@ -631,10 +631,10 @@ targets:
     description: 第4章「レビュー SLA と滞留の措置」の、レビュー依頼の個人への指名、応答時間の超過の催促、D-0 表3 の判定する者への通知、同時保有数の上限、指名先が確保できないときの差し戻しの置き場。あわせて、第7章 7.5 の判定期限の超過の検出と、代理を指名する者への通知(IMPL-0979)の置き場とする。あわせて、リスク区分の一次判定のラベル(IMPL-0212。ジョブ risk-label)の置き場とする。実装は scripts/gate/review-queue.mjs と review-queue-control.yml にある(束 B21 単位9。試験 test-review-queue.mjs は gate-g5.yml の gate-contract から実行される。実物の GitHub の上の動作は未確認)。2026-11-15 時点では準拠テンプレートに実装が無かった(Issue #324。束 A 独立の突合 1巡目の裁定。flow-observation は第2章 2.10.4 の滞留期間の観測に限り、本件の範囲を広げない)
 
   - id: ip-allowlist-operation
-    name: 暫定の許可(期限つき)の記録欄と失効の検査(予定)
-    kind: planned
-    path: (process.config.json の ci.allowedLicenses を置き場とする暫定の許可の記録欄と失効の検査)
-    description: 第4章 G-5「許可リストが判定を妨げた場合の救済」の、暫定の許可の期限と期限超過の失効の置き場。許可リスト自体は process.config.json の ci.allowedLicenses にあるが、暫定の許可を記録する欄と失効の検査は準拠テンプレートに無い(「暫定の許可」で template/ を引いて 0 件。2026-11-15 確認。Issue #324。束 A 独立の突合 2巡目の裁定)。恒久の追加の所管は process-change-skill が運ぶ
+    name: 暫定のライセンスの許可(期限つき)の記録欄と失効
+    kind: template-file
+    path: scripts/gate/license-allowlist.mjs
+    description: 第4章 G-5「許可リストが判定を妨げた場合の救済」の、暫定の許可の期限と期限超過の失効。構成の ci.provisionalLicenses(license・expires・approvedBy・reason)を、effectiveAllowedLicenses が期限の日までだけ許可リストに入れる(adapter.mjs だけが呼ぶ)。期限を過ぎた許可は入らず基準5 が再び止める。欠けた行は設定の検査が拒否する。許可を出した者の資格は確かめない。test-adapter.mjs が試験する。恒久の追加の所管は process-change-skill が運ぶ(ADR-0222)
 
   - id: adr-write-skill
     name: 判断記録を書くスキル(/adr-write)

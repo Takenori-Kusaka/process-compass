@@ -1851,8 +1851,8 @@ AI 同士の誤りの相関、合議の実効の票の少なさ、判定のモ�
 | 6 | 切り替えの期間中は、委任([第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/))を協働へ下げる。担い手の識別が変わり、適合性確認(3.4.2)の前提を欠くためである |
 
 <!-- impl IMPL-0826 target=ai-runtime-connection state=undelivered check=manual plan=adopter decision=ADR-0175 note="3.12.5 要求事項1・2 のうち、切替先の限定と切替の発生の通知。切替は AI 実行基盤の運用に属し、準拠テンプレートは AI 実行基盤を持たない(ADR-0175)。切替の期間の記録と保証の開示への集約は IMPL-0726・IMPL-0729 が運び、通知を受けた案件が作業を止めること(要求事項4)は IMPL-0827 が追う。確かめる者: 採用者の AI運用担当者(切替のとき)" -->
-<!-- impl IMPL-0827 target=model-quality-monitor state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.5 要求事項4。切り替え後に品質監視の結果を確認し、基準を下回る場合は作業を停止すること。品質の監視は採用者の AI 実行基盤にあり(ADR-0104)、準拠テンプレートは持たない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0828 target=agent-run-record state=undelivered check=manual plan=scheduled issue=444 review=2027-05 note="3.12.5 要求事項5。復旧後、切り替え期間中に生成された変更を特定できる状態にすること。変更単位の生成の条件(モデルの識別・実行の識別子)の記録の仕組みに乗る。準拠テンプレートに実装は無く、モデルの識別はトレーラ Co-Authored-By に限る。切り替えの期間の源(切り替えの記録)は IMPL-0826(#447)が追う。識別は IMPL-0207 のトレーラと Co-Authored-By が運ぶ。期間の源が決まるまで、降ろさない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0827 target=process-change-skill state=delivered check=manual note="3.12.5 要求事項4。切り替え後に品質監視の結果を確認し、基準を下回る場合は作業を停止すること。品質の監視は採用者の AI 実行基盤にあり(ADR-0104)、準拠テンプレートは持たない。降ろし先は process-change の種別 outage の手順で、切り替えを記録するとき結果を確かめ、基準を下回る、または読めないときは handling を stop で記録する。基準を決めて値を読むのは人で、機械は確かめない(ADR-0222)。確かめる者: AI運用担当者(切り替えを記録するとき)" -->
+<!-- impl IMPL-0828 target=agent-run-record state=delivered check=machine test=template/scripts/gate/test-aggregate-records.mjs note="3.12.5 要求事項5。復旧後、切り替え期間中に生成された変更を特定できる状態にすること。出荷の証跡の集約(保証の開示 項目7)が、切り替えの期間(outage の switched)の件数と、その期間に生成された AI の印のあるコミットの一覧を出す。一覧は長くなりすぎないよう20件までとし、超えた分は件数で示す。AI の印は Co-Authored-By または実行の識別子のトレーラによる。トレーラ Agent-Run の付与は IMPL-0207 が追い、その実機の確認は未了である(#444)。AI の印の付かないコミットと、--no-verify のコミットは見えない" -->
 
 要求事項3 の下限は L1 です。L1 の範囲では、段階を下げません。代わりに、第5章 5.4.5 の条件1(連続運用期間)を、切り替えの終了の日から数え直します(第5章 5.4.6 の措置の下限と同じ読み)。
 
