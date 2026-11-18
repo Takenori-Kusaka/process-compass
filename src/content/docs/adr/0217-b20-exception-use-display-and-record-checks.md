@@ -9,7 +9,7 @@ sidebar:
 
 採用(2026-11-18)。束 B20 の軽の件のうち、台帳の行(#355 の U1)、開示の表示(U2)、第7章の行使(U3)の決定です。判定記録の回数・点検・併記の欄・判断記録の再検査(U4)と、手引きの追記・採用者の確認に委ねる件(U5〜U6)の決定は、同じ ADR の決定 9 以降に足す。
 
-[ADR-0200](/process-compass/adr/0200-b18-first-group-adopter-record-conventions/) の決定2・決定5(a) と [ADR-0153](/process-compass/adr/0153-assign-0996-gate-exception-targets/) 決定2 を前提とする。審議の記録は `research/448-deliberation/b20-decision-light.md`(1 節から 4 節)にある。
+[ADR-0200](/process-compass/adr/0200-b18-first-group-adopter-record-conventions/) の決定2・決定5(a) と [ADR-0153](/process-compass/adr/0153-safety-judgment-and-ship-prohibitions-outside-exception-approval/) 決定2 を前提とする。審議の記録は `research/448-deliberation/b20-decision-light.md`(1 節から 4 節)にある。
 
 ## コンテキスト
 

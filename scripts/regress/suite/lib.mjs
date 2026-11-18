@@ -57,9 +57,17 @@ export function workspace(name) {
     }
   };
   const git = (...args) => run('git', args);
+  const F2_PLACEHOLDER = /^\| 附属書F F\.2 の回答 \| </m;
   const write = (rel, obj) => {
-    fs.mkdirSync(path.dirname(path.join(DIR, rel)), { recursive: true });
-    fs.writeFileSync(path.join(DIR, rel), typeof obj === 'string' ? obj : JSON.stringify(obj, null, 2));
+    const abs = path.join(DIR, rel);
+    fs.mkdirSync(path.dirname(abs), { recursive: true });
+    const before = rel === 'docs/D-0-governance.md' && fs.existsSync(abs) ? fs.readFileSync(abs, 'utf8') : null;
+    fs.writeFileSync(abs, typeof obj === 'string' ? obj : JSON.stringify(obj, null, 2));
+    // F.2 の回答を様式のまま(仮)から実の回答へ改めると、節12 の生成区間(表の委任の段階)が回答に連動して変わる(ADR-0171 決定2)。
+    // 検査の指示どおり、生成区間だけを構成から作り直す(`generate-profile.mjs --answers process.config.json`)
+    if (before !== null && typeof obj === 'string' && F2_PLACEHOLDER.test(before) && !F2_PLACEHOLDER.test(obj) && fs.existsSync(path.join(DIR, 'process.config.json'))) {
+      run('node', ['scripts/init/generate-profile.mjs', '--answers', 'process.config.json']);
+    }
   };
   const read = (rel) => fs.readFileSync(path.join(DIR, rel), 'utf8');
   const cfg = () => JSON.parse(read('process.config.json'));
@@ -159,6 +167,11 @@ export function clRecord(text, { judge, cls = 'CL0', confirmer = '未達', step 
     if (!re.test(out)) throw new Error(`lib.mjs: D-0 の節16 の欄「${k}」の置き換えが空振りした(様式の欄の名が変わった)`);
     out = out.replace(re, `| ${k} | ${v} |`);
   }
+  // ADR-0221(IMPL-0759): 「構成要素ごとの判定」の表を全 CL に求める。単一の構成要素なら「システム全体」の1行で足りる。
+  // 区分は低減の後の区分で、判定した区分と同じ値にする(表の最大が判定した区分を下回らない)
+  const compRe = /(^### 構成要素ごとの判定\r?\n\r?\n\| 構成要素 [^\n]*\|\r?\n\| ---[^\n]*\|\r?\n)\|[^\n]*\|/m;
+  if (!compRe.test(out)) throw new Error('lib.mjs: D-0 の節16 の「構成要素ごとの判定」の表の置き換えが空振りした(様式の表が変わった)');
+  out = out.replace(compRe, (_, head) => `${head}| システム全体 | ${cls} | ${rows['対策を入れる前の最悪の帰結']} |`);
   return out;
 }
 

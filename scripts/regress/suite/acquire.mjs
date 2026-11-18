@@ -18,10 +18,11 @@ check('再生成で、版を取得し、生成区間と節3 の2行を書く', r
 // この時点の D-0 の検査は、判定の記録の欠落(と、仮の判定の旨)だけで落ちる。ほかの不備が無いことを確かめる
 const clOnly = (out) => {
   const errs = out.split('\n').filter((l) => /::error::/.test(l));
-  return errs.length > 0 && errs.every((l) => /安全重要度の判定|仮の判定/.test(l));
+  return errs.length > 0 && errs.every((l) => /安全重要度の判定|仮の判定|「構成要素ごとの判定」の表/.test(l));
 };
 check('全検査', contract().ok && clOnly(checkD0().out) && checkRules().ok, contract().out + checkD0().out, {
-  changed: [{ by: 'ADR-0113 決定4', on: '2026-11-05', from: 'contract().ok && checkD0().ok && checkRules().ok(D-0 の検査が通る)' }],
+  changed: [{ by: 'ADR-0113 決定4', on: '2026-11-05', from: 'contract().ok && checkD0().ok && checkRules().ok(D-0 の検査が通る)' },
+    { by: 'ADR-0221', on: '2026-11-19', from: '落ちる理由は、安全重要度の判定の記録の欠落と仮の判定の旨だけ(「構成要素ごとの判定」の表の雛形のままの行は、判定の記録の欠落の一部として数えなかった)' }],
 });
 check('節3 の決定者(3名以上の既定: 事業決裁者 / リリース判定会)', /\| 体制と運用形態[^|]*\| 事業決裁者 \|/.test(read('docs/D-0-governance.md')) && /\| 標準変更カタログへの登録[^|]*\| リリース判定会\(B-4\) \|/.test(read('docs/D-0-governance.md')));
 const before = read('process.config.json');

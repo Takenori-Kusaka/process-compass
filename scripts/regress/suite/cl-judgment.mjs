@@ -103,6 +103,12 @@ check('確認: 準備(CL0)', init('cl0').ok);
 }
 setRecord({ confirmer: NAMES[1], step: '段2', basis: '直属の上長が異なる', confirmedAt: '2026-09-30' });
 write('docs/D-0-governance.md', read('docs/D-0-governance.md').replace(/^\| 附属書F F\.2 の回答 \| .*\|$/m, '| 附属書F F.2 の回答 | はい。搬送機の停止を制御する。安全関連部は停止の監視 |'));
+// ADR-0171 決定2(IMPL-1016): D-0 表10 が「はい」なら、構成の回答 q-f2-q1(Q1 の写し)も「ある」へ改める(食い違いは別の記録の不備になる)
+{
+  const c = cfg();
+  c.answers['q-f2-q1'] = 'f2q1-yes';
+  write('process.config.json', c);
+}
 {
   const a = aggregate();
   check('確認: F.2 の Q1 が「はい」で段3 の確認が欠ければ、CL0 でも欠落に数える(G-8 の受容で代えない)', clGap(a.out) && /G-8 の受容で代えない/.test(a.out), a.out.split('\n').slice(-12).join('\n'));
