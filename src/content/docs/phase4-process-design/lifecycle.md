@@ -319,7 +319,7 @@ graph LR
 
 <!-- impl IMPL-0883 target=g1-check state=delivered check=machine test=template/scripts/gate/test-project-id.mjs note="案件の登録。S0 の開始時に案件を登録して案件IDを付与し、案件登録記録を残すこと(手順1)。降ろし先は scripts/gate/check-g1.mjs で、企画書の project_id が構成の projectId と一致すること、案件の記録 context/projects/案件ID.md が実在することを確かめる。ファイルの不在は G-1 の前では失敗にし、G-1 を通過済みの既存の案件では注意にとどめる(遡って失敗させない)。一致の検査は通過済みでも失敗にする。確かめるのは値の一致とファイルの実在だけで、記録の内容は確かめない。専用の様式は置かず、context/projects/README.md の項目を使う(ADR-0222)" -->
 
-<!-- impl IMPL-0884 target=gate-entry-workflow state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="立ち上げの順序(案件の登録、D-0 の作成、D-0 の承認、安全重要度の判定の記録、安全リスクアセスメント、企画書、G-1)を入れ替えないこと。案件の登録が先であることと、手順4 の企画書の作成が手順3 の後であることを、順序として確かめる検査は無い(読んだ範囲。2026-11-15)。D-0 の承認と期限は check-d0.mjs(G-1 の IMPL-0679)、判定の記録は第8章 軸E の IMPL-0449、テンプレ9 の承認の欄の検査は第6章 テンプレ9 の IMPL-0453 が追う。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0884 target=gate-entry-workflow state=delivered check=machine test=template/scripts/gate/test-brief-estimates.mjs note="立ち上げの順序(D-0 の承認、安全重要度の判定の記録、安全リスクアセスメント、企画書、G-1)を入れ替えないこと。scripts/gate/check-g1.mjs(gate-entry.yml の g1-check。fetch-depth: 0)が、(a) D-0 の承認日 ≤ (b) 節16 の判定日 ≤ (c) 様式 09 の承認日(表を置いた案件だけ) ≤ (d) G-1 で判定する企画書の版のコミットの日付(G-1 の記録が無ければ docs/project-brief.md の最後のコミットの日付)を読み、前後が逆なら失敗にする。読めない日付は確認できないと注意に出し、失敗にしない。企画書の作成は判定する版のコミットの日付で見る(下書きを先に置くことは妨げない)。案件の登録(組織の台帳)はリポジトリの外で確かめない。D-0 の承認日は変化点で版を上げるたびに改まるため、G-1 を通過済みの案件は遡って失敗させず注意にする(条文に無い緩和。理由はこの note)。判定の記録(第8章 軸E)は IMPL-0449、テンプレ9 の承認の欄は IMPL-0453 が追う。確かめる者: G-1 の判定者" -->
 
 ### D-0 を前提条件とする理由
 

@@ -1236,9 +1236,9 @@ PR を経ていないコミットで、リスク区分または検証の記載�
 
 <!-- impl IMPL-0800 target=g1-check state=delivered check=manual note="観点1(戦略整合)と観点2(自社が勝てる理由)の未記入(TBD / 未定 / ??? / 空欄)を、scripts/gate/check-g1.mjs が G-1 の審議開始前に問題として出す。確かめる者: 価値責任者(G-1 の審議開始前に check-g1 を流すとき)" -->
 
-<!-- impl IMPL-0801 target=g1-check state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="禁止した一般語のみで書かれた欄と、代替手段の欄に「ない」とのみ書かれた欄を、機械が検査すること。scripts/gate/check-g1.mjs は未記入と様式の説明のままを検出するが、一般語のみ・「ない」のみは「成長」「一般語」「同一」で検索した範囲で見つかっていない。前案件の記述との同一の検査は、他案件の企画書を入力に要し、準拠テンプレートに入力の置き場が無いため、ここでは扱わない。確かめる者: 計画の Issue の担当者" -->
+<!-- impl IMPL-0801 target=g1-check state=delivered check=machine test=template/scripts/gate/test-brief-estimates.mjs note="禁止した一般語のみで書かれた欄と、代替手段の欄に「ない」とのみ書かれた欄を、機械が検査すること。scripts/gate/check-g1.mjs が、欄の値を NFKC にして空白・句読点・括弧を除いた文字列で、観点1の欄「対応する戦略目標」が「成長」、観点2の欄が「知見がある」「実績がある」、欄「現在の代替手段」が「ない」「なし」「無い」「無し」と完全に一致するときを問題として出す(形式だけを見る)。一般語は様式が名指す語に限り、「等」の先は機械が広げない。ほかの一般語のみの記述と記述の質は G-1 の判定者が確かめる。確かめる者: G-1 の判定者" -->
 
-<!-- impl IMPL-0878 target=g1-check state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="企画書の記述が前案件の記述と同一であることを、機械が検査すること(記述の充足をどう検査するかの表)。他案件の企画書を入力に要し、準拠テンプレートの check-g1.mjs に入力の置き場も同一の検査も無い(読んだ範囲。2026-11-15)。検査を足すには新しい記録を要するため、棚卸しでは機械の検査(check=machine)を足さず、降りていない規定として表示する。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0878 target=g1-check state=delivered check=machine test=template/scripts/gate/test-brief-estimates.mjs note="企画書の記述が前案件の記述と同一であることを、機械が警告として出すこと。前案件の企画書の所在は採用者が環境変数 PREVIOUS_BRIEF(リポジトリの中のパス、または git show で読める「版:パス」の形)で与える値。与えたとき、観点1・観点2・代替手段の欄ごとに、正規化(IMPL-0801 と同じ)の後の完全一致を警告に出す。与えないときは「前案件の企画書を与えていないため、同一の確認をしていない」と出す。同一を承認可否に使わない(同じ組織で目標が同じことがあるため失敗にしない)。類似度は見ない。確かめる者: G-1 の判定者" -->
 
 ### 誰がいつ書くか
 
