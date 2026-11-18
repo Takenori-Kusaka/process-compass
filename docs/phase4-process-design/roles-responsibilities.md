@@ -370,7 +370,7 @@ graph TD
 
 <!-- impl IMPL-0296 target=config-roles state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="10名以上の体制で、価値責任者の席と技術判断者の席の責任者を同一人物にする構成を拒否する(規模の規則 r-a-large の mustSplitFrom から、構成の生成が兼務禁止の組 sep-size-value-owner-tech-lead を足す)。構成の変更と契約検査が拒否する。3〜9名では拒否しない。test-roster-rules.mjs が固定する(#312)" -->
 <!-- impl IMPL-0297 target=next-role state=delivered check=machine test=template/scripts/gate/test-roster-rules.mjs note="非推奨の兼務(3〜9名の価値責任者 × 技術判断者、3名以上の事業決裁者 × 価値責任者)の席の責任者が同一人物の構成を拒否せず、次の一手(/pit)と構成の生成の出力の注記に、兼務の事実と D-0 節2 への記録の要否を出す。test-roster-rules.mjs が固定する(#312)" -->
-<!-- impl IMPL-0298 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-discouraged-evidence.mjs note="非推奨の兼務があり、D-0 節2「非推奨の兼務の記録」に、その組の担当者と理由を書いた行が無い場合、出荷の証跡の集約が記載の欠落として扱う。理由の中身の妥当性は確かめない(プロセス内部監査で確かめる)。test-roster-rules.mjs が固定する(#312)" -->
+<!-- impl IMPL-0298 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-discouraged-evidence.mjs note="非推奨の兼務があり、D-0 節2「非推奨の兼務の記録」に、その組の担当者と理由を書いた行が無い場合、出荷の証跡の集約が記載の欠落として扱う。理由の中身の妥当性は確かめない(プロセス内部監査で確かめる)。test-roster-rules.mjs が固定する(#312)。理由の欄が「節13 の YYYY-MM-DD の行」(標準の様式の呼び方「表8 の YYYY-MM-DD の行」も同じ)と書いて節13 の改訂履歴の行を指すときは、その日付の変化点の記録が在り、決定した者と理由がともに埋まったもの(節13 に理由が出る形)が1件以上あることも確かめる(#351 H-4。test-discouraged-evidence.mjs が通しで、test-roster-rules.mjs が単体で固定する)。指した行が当該の兼務の決定かどうかは自由な文の意味で、機械では閉じない(manual。標準の内部監査が確かめる)。日付の字面は1つに絞り、広げない(決定可能に保つ)" -->
 
 :::caution[暫定 EV-0156 / 見直し 2027-10]
 **対象**: 10名以上の体制で価値責任者 × 技術判断者の兼務を禁止し、3〜9名では非推奨にとどめる判断。
@@ -1947,7 +1947,7 @@ graph LR
 - 昇格の予定日を、先行導入の時点で通知する
 
 <!-- impl IMPL-0718 target=control-rollout state=undelivered check=manual plan=adopter decision=ADR-0184 note="3.12.9 の、全社の統制の更新を、検査ルールの更新・警告として先行導入・猶予期間・必須検査へ昇格の順で開発組織の CI に反映すること(猶予期間なしの昇格の禁止、猶予の長さを統制の緊急度で定めること、昇格の予定日を先行導入の時点で通知すること)。3.12.8 要求事項4・5 も同じ。統制の更新と予定日を決めるのは全社の側で、組織の側の文だけを採用者に委ねる。受け手の側(新しい検査を警告として先に入れる書き方)は IMPL-1024 が追う。昇格の予定日で gate-g5 の阻止を切り替える仕組みは採らない(ADR-0184)。確かめる者: 採用者の AI運用担当者(統制を更新するとき)" -->
-<!-- impl IMPL-1024 target=handoff-reference state=undelivered check=manual plan=scheduled issue=447 review=2027-05 note="3.12.9 の受け手の側。新しい検査を、警告として先に入れ、猶予の後に必須へ昇格させる書き方を、準拠テンプレートの手引き(README または handoff.md)に置くこと。昇格の予定日を構成に持たせる仕組みは持たない(ADR-0184)。手引きの追記は束 B16 の範囲。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-1024 target=handoff-reference state=delivered check=manual note="3.12.9 の受け手の側。新しい検査を、警告として先に入れ、猶予の後に必須へ昇格させる書き方を、準拠テンプレートの手引き .claude/skills/pit/reference/handoff.md の節「全社の統制の更新を受けるとき」に置く。昇格の予定日は全社の側の通知(Issue)で受け取り、構成には持たせない(ADR-0184)。昇格の変更の承認の経路は採用者の定めによる(手引きは特定の承認の経路を課さない。AI維持管理者の承認を経るとは書かないと決めた。根拠が無い)。猶予の長さと予定日はエージェントが決めない。確かめる者: 採用者の AI運用担当者(全社の統制の更新を受けるとき)" -->
 
 ### 3.12.10 実行の強制停止(サーキットブレーカー)
 
