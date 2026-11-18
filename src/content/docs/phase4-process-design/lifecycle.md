@@ -216,7 +216,7 @@ AI協調ループは、機能単位で次の4工程を反復します。
 <!-- impl IMPL-0389 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-direct-commit-rules.mjs note="要求事項2・3・6 のうち、PR を経ないコミット(トレーラ Risk・Verification で扱う経路)への照合。出荷の証跡の集約が、当該コミットの直前の構成の decisionRules.rules をコミットの差分に当て、トレーラ ADR が無い、または指す判断記録がそのコミットの context/decisions/ に無いコミットを記載の欠落にする。事業ステージ S0 では欠落にせず品質レポートに注意を出す。decisionRules と製品のコードを同じコミットで変えたコミットを欠落にする。成立済みのコミットは書き換えず、判定記録の「対象」で補う(#423)" -->
 <!-- impl IMPL-0390 target=config-change-log state=delivered check=machine test=template/scripts/gate/test-loosening-decider.mjs note="要求事項5 のうち、規則を削る・対象のパスを外す・変更の種類を絞る構成の変更を、緩める向きの変更として D-0 表1『体制と運用形態』の決定者の記名と理由なしには受け付けないこと。変化点の入口(generate-profile.mjs --change の種別 settings)が拒否する。起案者が技術判断者であること、AI維持管理者の承認は確かめない" -->
 
-<!-- impl IMPL-0972 target=pr-checks state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="2.6 要求事項4: 識別を持つ変更は、取り込む前に、その判断記録の G-3 の判定記録を要すること。check-pr.mjs は判断記録の実在までを確かめ(IMPL-0384)、判断記録の G-3 の判定記録への到達を PR と判定記録の突き合わせで拒む処理を持たない(失敗の文が判断記録を G-3 の判定に掛けることを伝えるが、到達は確かめない。2026-11-15 に確認。束 D 突合 D-O06)。 確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0972 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="2.6 要求事項4: トレーラ ADR が指す判断記録ごとに、基底ブランチの G-3 の判定記録(通過)か、判断記録を入れた PR の名簿の人(AI の名義でない)の承認を確かめ、無ければ G-5 が失敗させる(S0 は注意)。判定した版と取り込む版の一致は確かめない(IMPL-0523)。判定の中身は G-3 の判定者が確かめる。G-3 の判定記録は基底ブランチの docs/gates/ から読む(records ブランチの記録は読まない)" -->
 
 :::caution[暫定 EV-0206 / 見直し 2027-11]
 **対象**: 判断記録の要否をパスと変更種別の規則で導き、当たった変更に判断記録の識別を求め、申告で外す経路を置かない判断。S0 で失敗させず注意に留める扱い。
