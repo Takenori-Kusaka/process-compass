@@ -55,6 +55,9 @@ assert(noScope.some((p) => /cl1 の構成でエンジンは全変更へ戻すが
 // 範囲の限定(コア機能)を書き落とした升(S1 の G-6 を「適用」だけにする。突合 X-1)
 const noCore = stageTableProblems(replaceCell('G-6', 1, '適用'), kb);
 assert(noCore.some((p) => /範囲をコア機能に限るが、升の括弧に限定「コア機能」が無い/.test(p)), `範囲の限定の書き落としを検出する: ${noCore.join(' / ')}`);
+// 前提4(ADR-0171): Q1「はい」で出荷判定を適用へ戻す条件を書き落とした升(S0 の G-7)は、エンジンが戻す条件の欠けとして出る(IMPL-1015:ng)
+const noQ1 = stageTableProblems(replaceCell('G-7', 0, '省略(CL1 以上・品質「高」以上は適用)'), kb);
+assert(noQ1.some((p) => /f2q1-yes の構成でエンジンは「適用」へ戻すが/.test(p)), `Q1 の戻す条件の欠けを検出する: ${noQ1.join(' / ')}`);
 assert.equal(emptySimplified('簡略'), true, '括弧の無い簡略は中身が無い');
 // 表記の揺れで読めない「簡略」の升を止める(突合 X-4)
 for (const c of ['簡略化', '簡略(1枚企画書)。', '**簡略化**']) assert.equal(simplifiedCellProblem(c), 'unreadable', `読めない簡略の升を止める: ${c}`);
