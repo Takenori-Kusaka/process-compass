@@ -1411,7 +1411,7 @@ sequenceDiagram
 
 <!-- impl IMPL-0217 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="必須応答ロールの該当を自動検査の出力(対象パス・依存関係・設定項目の種別)から判定して判定資料へ記載し、当該ロールの記名応答が揃わない状態で判定へ進めない。準拠テンプレートに該当の判定も応答の検査も無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
-<!-- impl IMPL-0211 target=pre-review-automation state=undelivered check=manual plan=scheduled issue=325 review=2027-04 note="所有者定義からレビュアを記名で指名し、所有者が定義されていない対象領域を CI で失敗させる。部署名・グループ名だけの指名を認めない。準拠テンプレートの CODEOWNERS は例の行を置くだけで、検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0211 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="所有者の定義が基底ブランチの CODEOWNERS に在ることを G-5 が確かめる。置き字 @OWNER が残る行・所有者がチームだけの行・名簿(people[].accounts)の人へ対応づかない個人・どの行の型にも当たらない変更を失敗させる。部署名・グループ名の実質(チームの構成員が誰か)は確かめない。型は gitignore の書式の部分集合(*・**・?・先頭と末尾の /)。採用者の既存のリポジトリで @OWNER のままの PR は落ちる(移行の注意: CHANGELOG は準拠テンプレートに無く、CODEOWNERS の冒頭の注記に書いた)" -->
 
 ### 3.10.10 同期の場へのエスカレーション
 
