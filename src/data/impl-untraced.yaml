@@ -137,21 +137,6 @@ files:
   - path: scripts/gate/flow-observation.mjs
     reason: library
     why: flow-observation.yml(降ろし先 flow-observation)が呼ぶ、滞留期間の観測と通知の本体。規定は IMPL-0283 で追う
-  - path: scripts/gate/test-review-queue.mjs
-    reason: infra
-    why: review-queue.mjs と business-days.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)
-  - path: scripts/gate/test-flow-observation.mjs
-    reason: infra
-    why: flow-observation.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)
   - path: .github/workflows/pre-review.yml
     reason: infra
     why: pre-review-automation(降ろし先 pre-review-automation)の pre-review.mjs を定期に呼ぶ workflow。起票と通知と月次の集計の契機だけを持つ。必須チェックにしない(ADR-0200 決定4)。規定は IMPL-0571・0210・0213・0219・0215・0216 で追う
-  - path: scripts/gate/test-pre-review.mjs
-    reason: infra
-    why: pre-review.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)
-  - path: scripts/gate/test-review-order.mjs
-    reason: infra
-    why: review-order.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)
-  - path: scripts/gate/test-enforcement-inventory.mjs
-    reason: infra
-    why: enforcement-inventory.mjs の試験。gate-g5.yml の gate-contract への結線が B20 の push の後に入る(結線の後はこの行は不要)

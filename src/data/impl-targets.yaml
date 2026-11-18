@@ -557,10 +557,10 @@ targets:
     description: 附属書D の提案書(組織として品質を保証すると言える形・変える点を小さく見せない・使わない表現)の置き場。提案書は導入の前に組織が作る稟議の文書で案件のリポジトリの外にあり、採用者が自ら実装する(ADR-0175)。準拠テンプレートに提案書の様式も表現の検査も無い(template/templates/00〜12 と scripts/gate に「提案書」の語が0件。2026-11-15 確認。Issue #324。ADR-0175 で採用者の実装とした)
 
   - id: flow-observation
-    name: フローの観測と滞留の通知(予定)
+    name: フローの観測と滞留の通知
     kind: template-file
     path: .github/workflows/flow-observation.yml
-    description: 第2章 2.10.4 の滞留期間の観測と非同期の通知の置き場。Issue の事象(割当・PR の結び付き・閉じた時刻と理由)を定期の実行で読み出し、作業単位への Issue のコメントで通知する(他の席のラベルを遷移させない)。実装は scripts/gate/flow-observation.mjs と flow-observation.yml にある(束 B21 単位10。結線待ち)。2026-11-12 時点では無かった(#359 の裁定 2)。あわせて、2.10.5 の調整の記録の置き場とする(予定。IMPL-0954)。2.10.6 の見込みの評価と順序の記録は課さないと決めた(ADR-0178)。経緯は、束 C の突合 1巡目 C1-22 の裁定で説明を広げ、束 C の2巡目の裁定で追認した。
+    description: 第2章 2.10.4 の滞留期間の観測と非同期の通知の置き場。Issue の事象(割当・PR の結び付き・閉じた時刻と理由)を定期の実行で読み出し、作業単位への Issue のコメントで通知する(他の席のラベルを遷移させない)。実装は scripts/gate/flow-observation.mjs と flow-observation.yml にある(束 B21 単位10。試験 test-flow-observation.mjs は gate-g5.yml の gate-contract から実行される。実物の GitHub の上の動作は未確認)。2026-11-12 時点では無かった(#359 の裁定 2)。あわせて、2.10.5 の調整の記録の置き場とする(予定。IMPL-0954)。2.10.6 の見込みの評価と順序の記録は課さないと決めた(ADR-0178)。経緯は、束 C の突合 1巡目 C1-22 の裁定で説明を広げ、束 C の2巡目の裁定で追認した。
 
   - id: ai-runtime-connection
     name: AI 実行基盤への接続経路の統制(予定・採用者)
@@ -611,10 +611,10 @@ targets:
     description: テンプレ10 の手引き。判定を停止せず受容の決裁を求めること・安全リスク区分 SR3 以上の工程は劣化を受容しないこと・二値で書かないこと・劣化は観測された事象で定義し自己申告で決めないこと・決裁者は当該の前提に責任を負う者であること(incident-artifact と同じく手引きを降ろし先とする。Issue #324。束 A 独立の突合 1巡目の裁定)
 
   - id: review-queue-control
-    name: 判定とレビューの滞留の検知・催促・通知・同時保有数の制御(予定)
+    name: 判定とレビューの滞留の検知・催促・通知・同時保有数の制御
     kind: template-file
     path: .github/workflows/review-queue-control.yml
-    description: 第4章「レビュー SLA と滞留の措置」の、レビュー依頼の個人への指名、応答時間の超過の催促、D-0 表3 の判定する者への通知、同時保有数の上限、指名先が確保できないときの差し戻しの置き場。あわせて、第7章 7.5 の判定期限の超過の検出と、代理を指名する者への通知(IMPL-0979)の置き場とする。あわせて、リスク区分の一次判定のラベル(IMPL-0212。ジョブ risk-label)の置き場とする。実装は scripts/gate/review-queue.mjs と review-queue-control.yml にある(束 B21 単位9。結線待ち)。2026-11-15 時点では準拠テンプレートに実装が無かった(Issue #324。束 A 独立の突合 1巡目の裁定。flow-observation は第2章 2.10.4 の滞留期間の観測に限り、本件の範囲を広げない)
+    description: 第4章「レビュー SLA と滞留の措置」の、レビュー依頼の個人への指名、応答時間の超過の催促、D-0 表3 の判定する者への通知、同時保有数の上限、指名先が確保できないときの差し戻しの置き場。あわせて、第7章 7.5 の判定期限の超過の検出と、代理を指名する者への通知(IMPL-0979)の置き場とする。あわせて、リスク区分の一次判定のラベル(IMPL-0212。ジョブ risk-label)の置き場とする。実装は scripts/gate/review-queue.mjs と review-queue-control.yml にある(束 B21 単位9。試験 test-review-queue.mjs は gate-g5.yml の gate-contract から実行される。実物の GitHub の上の動作は未確認)。2026-11-15 時点では準拠テンプレートに実装が無かった(Issue #324。束 A 独立の突合 1巡目の裁定。flow-observation は第2章 2.10.4 の滞留期間の観測に限り、本件の範囲を広げない)
 
   - id: ip-allowlist-operation
     name: 暫定の許可(期限つき)の記録欄と失効の検査(予定)
