@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-17)。採用済みの ADR の決定を置き換えません。[ADR-0033](/process-compass/adr/0033-no-target-as-recorded-state/) 決定6(対象なし)を未実施へ広げず、[ADR-0056](/process-compass/adr/0056-assurance-argument/) の項目4 の行を、項目6 と同じ型で補います。[#330](https://github.com/Takenori-Kusaka/process-compass/issues/330) に答えます。
 
+一部置き換え(→ [ADR-0224](/process-compass/adr/0224-g5-mutation-and-regulatory-stages-required-for-safety-and-regulated/)の決定1・決定2): 決定1 の必須の段の集合(テストの実行と秘匿情報の混入検査)に、条件に当たる構成のミューテーション試験と規制要件の段を足します(2026-11-19)。決定3 と決定4 は置き換えません。決定3 の「閾値」は継続期間の閾値で、ミューテーションスコアの閾値とは別です。
+
 ## コンテキスト
 
 - アダプタのコマンドが空の任意の検査(静的解析・依存監査・ライセンス検査・依存の導入)は、通知を出して通過する。2026-11-17 に準拠テンプレートの複製で実行して確かめた。G-5 のジョブ `static-analysis` は、静的解析と依存監査のどちらか一方を実施しなくても成功する

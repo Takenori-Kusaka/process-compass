@@ -84,3 +84,7 @@ exempt:
   - page: phase4-process-design/roles-responsibilities
     heading: 3.10.11 応答を引き出す手段
     reason: 地の文に見える限定は、実装マーク(IMPL-0219)の注記の中の、機械の通知の文面の説明(R1 と R2・R3 で措置の文を分ける)である。条項の限定は 3.10.5 の表の行に書かれている
+
+  - page: phase4-process-design/safety-verification
+    heading: CI への組み込み
+    reason: 地の文の限定(附属書F の適用の判定が「はい」の案件と CL3 の案件)は、同じ段落の規範の文の中に書いてあり、限定と規範が分かれていない。節の表(実行範囲・判定・対象・記録)は案件を限らない方針であり、見出しへ併記すると表の適用範囲を誤る(束 B22)
