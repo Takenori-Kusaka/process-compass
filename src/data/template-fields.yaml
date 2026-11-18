@@ -202,6 +202,11 @@ forms:
         template: '| 段の根拠 |'
       - standard: '| 確認日 | YYYY-MM-DD |'
         template: '| 確認日 | <YYYY-MM-DD> |'
+      # D-0 表10 の下の構成要素ごとの判定の表(IMPL-0759 / ADR-0221)
+      - standard: '### 構成要素ごとの判定'
+        template: '### 構成要素ごとの判定'
+      - standard: '| 構成要素 | 区分(低減の後) | 対策を入れる前の最悪の帰結 |'
+        template: '| 構成要素 | 区分(低減の後) | 対策を入れる前の最悪の帰結 |'
       - standard: '| 区分の引き下げの根拠 |'
         template: '| 区分の引き下げの根拠 |'
       # --- #288 第6巡 ---
