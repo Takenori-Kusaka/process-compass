@@ -667,7 +667,7 @@ S0 では、**実装スタックが未確定のままプロセス構成の初期
 
 規制業では「どこをAIが生成し、誰が承認したか」の追跡が監査要件になります。ゲート判定記録(テンプレ4)を、最初から監査書式で運用します。監査対応書式では、承認レビューは機械が出す欄(判定者・判定日時・対象)の出所になります。判断の中身の監査対応書式と変更ごとの記録が無ければ、記録になりません。変更ごとに G-6 の判定記録を残し、テンプレ4 の「監査対応書式」の表(2人目の承認者と、その人自身の挙動要約)を埋めます。出荷判定の証跡の集約は、記録の無い変更と、表の空欄を記録の欠落として扱います。
 
-規制業の構成では、G-5 に規制要件の自動チェックの段を置きます。段が空なら G-5 を通過しません(適用: 軸C が規制業の構成)。照らす規則集は採用者が G-1 で定めます。段の不合格は、第7章 7.3 の例外承認の対象にしません。法令・規制の要求を組織の例外承認で外す経路を作らないためです([ADR-0224](/process-compass/adr/0224-g5-mutation-and-regulatory-stages-required-for-safety-and-regulated/))。
+規制業の構成では、G-5 に規制要件の自動チェックの段を置きます。段が空なら G-5 を通過しません(適用: 軸C が規制業の構成)。照らす規則集は採用者が G-1 で定めます。段の不合格は、第7章 7.3 の例外承認の対象にしません。法令・規制の要求を組織の例外承認で外す経路を作らないためです。規則集の変更(規則の削除・除外)は、第4章 G-5 の「基準値と除外設定の変更」に当たるものとして扱います。段の中身の実質は機械で確かめません(附属書F F.6 の EV-0329)。([ADR-0224](/process-compass/adr/0224-g5-mutation-and-regulatory-stages-required-for-safety-and-regulated/))。
 
 :::caution[暫定 EV-0114 / 見直し 2027-04]
 **対象**: 規制業(軸C)・CL2 以上(軸E)で、変更ごとの G-6 の判定記録と監査対応書式を維持し、承認レビューだけを記録と認めない判断。
@@ -689,7 +689,7 @@ ISO 13485 7.3.9 と IEC 62304 8.2.1 の読みに基づきます。査察で承�
 <!-- impl IMPL-0748 target=config-gates state=delivered check=manual note="軸C の「高」「規制業」の列。規則 r-c-high・r-c-regulated が、CI 基準の引き上げ(カバレッジ基準の強化)・独立レビューの承認者数(高のコア機能は coreReviewerCount 2、規制業は reviewerCount 2)・監査対応書式(recordFormat: audit)・出荷判定の省略(S0)の復帰を調整として持つ。src/data/tailoring/rules-quality.yaml の複製が template の scripts/vendor/tailoring-kb.json にある。エンジンの試験が出力を固定する(IMPL-0345 の note)。AI 生成箇所のトレーサビリティの必須(規制業)は、scripts/init/generate-profile.mjs が practice を読まず構成へ運ばないので、IMPL-0839 が追う。確かめる者: AI維持管理者(構成を生成したとき、PROCESS-PROFILE.md の軸C の調整を読む)。所在を読んだ(実行して確かめていない)" -->
 <!-- impl IMPL-0749 target=claude-md-resident state=delivered check=manual note="軸C の高のコア機能の設計判断を AI 単独で行わせない制約(人の判断を必須にする)。template/CLAUDE.md「判断の確定と委任」の行が書く(claude-md-resident.json の規則)。確かめる者: AI維持管理者(指示資産の四半期の棚卸しのとき、template/CLAUDE.md の該当の行を読む)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0836 target=g5-adapter state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="規制業の規制要件の自動チェックの追加(軸C)。規則 r-c-regulated は調整の注記(note・strengthen)として持つだけで、規制要件の自動チェックを実行する検査を準拠テンプレートに見つけていない。規制業の構成では段が空なら G-5 の失敗とし、規則集は採用者が G-1 で定める。不合格は 7.3 の対象にしない(ADR-0224)。段の中身の実質は機械で確かめない。G-5 の入口に段が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0836 target=g5-adapter state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="規制業の規制要件の自動チェックの追加(軸C)。規則 r-c-regulated は調整の注記(note・strengthen)として持つだけで、規制要件の自動チェックを実行する検査を準拠テンプレートに見つけていない。規制業の構成では段が空なら G-5 の失敗とし、規則集は採用者が G-1 で定める。不合格は 7.3 の対象にしない(ADR-0224)。規則集の変更を G-5 の「基準値と除外設定の変更」として扱うことは、IMPL-0202 の検査の範囲外で降りていない。集約が、条件に当たる構成で段のジョブの success を確かめ、skipped を通さないこと(いまの gate-g5 は skipped を通す)も降りていない。段の中身の実質は機械で確かめない。G-5 の入口に段が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 <!-- impl IMPL-0837 target=evidence-aggregation state=undelivered check=manual plan=adopter decision=ADR-0216 note="規制業の規制当局向けエビデンスと AI 関与範囲の明記(軸C)。求める形が業法と当局ごとに違うので、準拠テンプレートは出力しない。採用者が当局の求める形で作る(ADR-0216。根拠水準 EV-0330)。確かめる者: 採用者(規制対応の責任者)" -->
 
@@ -1133,7 +1133,7 @@ SaaS の利用権(チャットツール・プロジェクト管理ツールな�
 | 独立した安全性の評価 | 不要 | 不要 | 必須(G-6 に重ねる。評価者は段2 以上) | 必須(評価者は段3 以上) |
 | AI自律レベルの上限 | 本軸による制限なし。L3 は、[第5章 5.5.4](/process-compass/phase4-process-design/human-ai-boundary/)で登録した変更種別に限る。安全関連部は附属書F F.3 により L1 固定 | 本軸による制限なし。ただし委任を適用しないため、L3 の対象となる登録が無い。実質の上限は L2。安全関連部は附属書F F.3 により L1 固定 | L2(案件の上限。安全関連部は附属書F F.3 により L1 固定) | **L1(固定)** |
 | 独立レビューの人数 | 1名 | 1名 | 1名 | 2名 |
-| CI の必須チェック | 参照モデルどおり | 同左 | 同左 | +ミューテーション試験(実行前の故障挿入を含む。G-5 の段。実行時・ハードウェアの故障挿入は G-7 基準7 の記録) |
+| CI の必須チェック | 参照モデルどおり | 同左 | 同左 | +ミューテーション試験(実行前の故障挿入を含む。G-5 の段。実行時・ハードウェアの故障挿入は G-7 基準7 の記録。附属書F の適用の判定が「はい」の案件も同じ。[附属書F](/process-compass/phase4-process-design/safety-verification/) F.4 の注) |
 | テスト生成の分離の段階([第5章 5.8.4](/process-compass/phase4-process-design/human-ai-boundary/)) | 弱〜中 | 中 | 最強(段2 以上) | **最強(段3 以上)** |
 
 準拠テンプレートは安全関連部の範囲を持たないため、附属書F F.2 の Q1 が「はい」の案件では、委任を案件の全体で止めます。これは準拠テンプレートの振る舞いです。本標準が求めるのは、安全関連部の L1 固定までです。
@@ -1207,7 +1207,7 @@ SaaS の利用権(チャットツール・プロジェクト管理ツールな�
 <!-- impl IMPL-0760 target=profile-generator state=delivered check=manual note="CL1 以上の AI 生成箇所の追跡(成果物のどの箇所を AI が生成し誰が承認したかを箇所の単位で辿れる状態)。規則 r-e-cl1 が practice traceability を required にする。準拠テンプレートの generate-profile.mjs(traceabilityText)が、その構成の PROCESS-PROFILE.md の「AI 生成箇所の追跡」の節と CLAUDE.md の構成依存部分へ、追跡の文(規則の名つき)を出す。test-edition-end.mjs が違反と適合の対で固定する。箇所の単位の照合は機械で確かめず、人が確かめる(check=manual)。5.8.2 の変更ごとの利用記録とは別の規定である。規制業の同じ必須は IMPL-0839 が追う。確かめる者: AI維持管理者(構成を生成したとき、PROCESS-PROFILE.md の「AI 生成箇所の追跡」の節を読む)" -->
 <!-- impl IMPL-0761 target=gate-skill state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="CL2 以上の安全適合性の検証記録(附属書F F.7)を出荷判定(G-7)の判定基準にすること。規則 r-e-cl2 が g-ship の safetyVerificationRecord を required にするが、準拠テンプレートの scripts 配下にこの値の参照が無く、G-7 の判定が検証記録の有無を照らさない。欄の検査(F.7 の記載の欠落)は IMPL-1007。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0762 target=autonomy-derivation state=delivered check=manual note="案件の安全重要度ごとの AI自律レベルの上限(CL2 は L2、CL3 は L1 固定)。規則 r-e-cl2・r-e-cl3 の maxAutonomyLevel を、scripts/gate/autonomy.mjs の capFromAnswers が autonomy.maxLevel へ落とし、PROCESS-PROFILE.md に上限を出す。CL0・CL1 は本軸が上限の値を置かない。CL2 の上限 L2 は案件の上限で、安全関連部は CL に依らず附属書F F.3 により L1 固定(IMPL-0919)。確かめる者: AI維持管理者(構成を生成したとき、上限の表示を読む)。所在を読んだ(実行して確かめていない)" -->
-<!-- impl IMPL-0763 target=g5-adapter state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="CL3 の CI の必須チェックに故障挿入試験とミューテーション試験を加えること。CI で回る故障挿入(実行前の挿入)はミューテーション試験の段で受け、独立の段を置かない(附属書F F.5、ADR-0224)。実行時・ハードウェアの挿入は G-7 基準7 の記録(IMPL-0761 ほか)で受ける。規則 r-e-cl3 が g-ci の強化として注記するが、G-5 の入口(g5-adapter のコマンド)に段は無い。規則 r-e-cl3 の注記の文言の改めは template の束で行う。ミューテーションの降ろしは附属書F の IMPL-0930・0931 が追う(IMPL-0560 は一覧の読解を出荷判定者へ求めないことだけを追う)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0763 target=g5-adapter state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="CL3 の CI の必須チェックにミューテーション試験(実行前の故障挿入を含む)の段を加えること。CI で回る故障挿入(実行前の挿入)はミューテーション試験の段で受け、独立の段を置かない(附属書F F.5、ADR-0224)。実行時・ハードウェアの挿入は G-7 基準7 の記録(IMPL-0761 ほか)で受ける。規則 r-e-cl3 が g-ci の強化として注記するが、G-5 の入口(g5-adapter のコマンド)に段は無い。規則 r-e-cl3 の注記の文言の改めは template の束で行う。ミューテーションの降ろしは附属書F の IMPL-0930・0931 が追う(IMPL-0560 は一覧の読解を出荷判定者へ求めないことだけを追う)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 <!-- impl IMPL-0764 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-roster-conditions.mjs note="案件の安全重要度ごとのテスト生成の分離の段階(CL2 は最強〈段2 以上〉、CL3 は最強〈段3 以上〉)。新しい設定は足さない。案件の値は構成の回答 q-criticality から導き、判定記録ごとに比べる(IMPL-0184)。規則 r-e-cl2・r-e-cl3 は ai-usage への注記として持つ。CL2 で段1、CL3 で段2 が届かないことを対の試験で固定した。最強の検証の担当者の段は IMPL-0344 が追う。確かめる者: 計画の Issue(issue= の番号)の担当者" -->
 
 上表の2つの行は、名称の近い別の規定と区別して読みます。
