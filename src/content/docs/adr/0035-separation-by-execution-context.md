@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-08-12)。一部置き換え(→ ADR-0060 の決定1): 決定1 の適用範囲を、[ADR-0060](/process-compass/adr/0060-drafting-context-and-two-layer-independence/)の決定1 が置き換えました(2026-10-13)。決定2 の「代償措置つきの逸脱」は、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)の決定8 により、同 ADR の列挙に無い離脱と読みます(2026-10-24)。一部置き換え(→ ADR-0133 の決定3): 決定2 の「代償措置つきの逸脱」は、[ADR-0133](/process-compass/adr/0133-no-conditions-or-compensating-measures-for-unlisted-deviations/)の決定3 が、列挙に無い離脱であり措置を持たないと置き換えました(2026-11-15)。
 
+一部置き換え(→ [ADR-0225](/process-compass/adr/0225-credential-departure-split-seats-and-natural-persons/)の決定1): 決定2 の表の3 の「共有する場合は、権限の分離が成立していないものとして扱う」の範囲を、兼務を禁止した組の席どうしの共有へ限ります(2026-11-19)。
+
 ## コンテキスト
 
 本標準は「作成者と承認者を分離する」ことを前提に組み立てられています。第3章 3.5 の兼務禁止表、G-6 の判定基準「作成を指示した本人でない」、[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)の未達の定義は、いずれもこの前提の上にあります。

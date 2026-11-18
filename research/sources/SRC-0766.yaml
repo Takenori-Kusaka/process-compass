@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0766
+status: included
+excludeReason: null
+title: "NIST SP 800-53 Rev.5 セキュリティ・プライバシー管理策(OSCAL 版カタログ v5.2.0)IA-2・IA-2(5)"
+url: https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json
+canonicalUrl: https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json
+ids: {arxiv: null, doi: null}
+publisher: "NIST"
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: null
+publishedBasis: unknown
+version: "Rev.5(OSCAL 1.2.3、catalog v5.2.0)"
+updated: null
+accessed: 2026-11-19
+access: open
+readLevel: section
+foundBy: {cluster: I446, query: "#446 共有の認証情報と個別の認証。束 B22 調査C"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'NIST SP 800-53 Rev.5 の識別と認証の管理策。IA-2 は組織の利用者を一意に識別・認証し、その識別を代理の処理と結び付けることを求める。IA-2(5) は共有のアカウントや認証子を使うとき、共有のアカウントや資源へ入る前に利用者を個別に認証させることを求める。該当の制御の本文を OSCAL カタログの原文で確認した。'
+claims:
+  - id: c1
+    text: 'IA-2(5) は、共有のアカウントまたは認証子を使うとき、共有のアカウントや資源へのアクセスを与える前に、利用者を個別に認証させることを求める。'
+    quote: 'When shared accounts or authenticators are employed, require users to be individually authenticated before granting access to the shared accounts or resources.'
+    locator: 'IA-2(5) Individual Authentication with Group Authentication'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [446]
+    stance: supports
+verification: {status: partial, method: [webfetch], date: 2026-11-19, humanChecked: false, note: '束 B22 調査C が OSCAL カタログの原文で該当の制御を確認した。議長は原文を再取得していない。'}
+volatility: slow
+reviewBy: 2027-05

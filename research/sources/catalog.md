@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 758(included 758、excluded 0)。生成日 2026-11-17。
+件数: 760(included 760、excluded 0)。生成日 2026-11-18。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -766,4 +766,6 @@
 | SRC-0763 | ? | standard | global/en | partial |  | IEC 61508-3 の 7.9(ソフトウェアの検証)は、検証を計画して文書にし、結果を記録することを求める。附属書 A の HR の技術を採らないときは、そ | [IEC 61508 Commented Version(61508-2/-3 ed2.0 の改訂箇所つき。ANSI 共有の公開版)](https://share.ansi.org/Shared%20Documents/News%20and%20Publications/Other%20Documents/IEC%2061508%20Commented%20Version.pdf) |
 | SRC-0764 | ? | vendor-official | global/en | partial |  | Google のレビューの速さの指針。応答は1営業日以内を上限とし、最適化の対象は個人の速さではなくチームの速さとする。SLA の判定の記録や個人の測定には触れ | [Speed of Code Reviews(Google Engineering Practices)](https://google.github.io/eng-practices/review/reviewer/speed.html) |
 | SRC-0765 | ? | vendor-official | global/en | partial |  | Claude Code の環境変数の参照。CLAUDE_CODE_SESSION_ID は、シェルの道具とフックの子プロセスで設定され、フックの入力の sess | [Environment variables(Claude Code 環境変数の参照)](https://code.claude.com/docs/en/env-vars) |
+| SRC-0766 | ? | public-agency | us/en | partial |  | NIST SP 800-53 Rev.5 の識別と認証の管理策。IA-2 は組織の利用者を一意に識別・認証し、その識別を代理の処理と結び付けることを求める。IA | [NIST SP 800-53 Rev.5 セキュリティ・プライバシー管理策(OSCAL 版カタログ v5.2.0)IA-2・IA-2(5)](https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json) |
+| SRC-0767 | ? | community | global/en | partial |  | OWASP の非人間の識別(NHI)の上位10項目のうち、NHI9 は同じ NHI を複数のアプリケーション・サービス・構成要素で使い回すことを危険とし、アプリ | [OWASP Non-Human Identities Top 10 (2025) NHI9: NHI Reuse](https://owasp.github.io/www-project-non-human-identities-top-10/2025/9-nhi-reuse) |
 

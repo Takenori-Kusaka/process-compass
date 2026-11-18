@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-17): verified 652 / partial 105 / unverified 1
+集計(生成日 2026-11-18): verified 652 / partial 107 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -129,6 +129,8 @@
 | SRC-0763 | partial | tavily-extract,web-search | 改訂案の版。制定版との照合は未了。c3 は検索結果の抜粋のみで PDF の該当ページは読んでいない。 | [IEC 61508 Commented Version(61508-2/-3 ed2.0 の改訂箇所つき。ANSI 共有の公開版)](https://share.ansi.org/Shared%20Documents/News%20and%20Publications/Other%20Documents/IEC%2061508%20Commented%20Version.pdf) |
 | SRC-0764 | partial | webfetch | WebFetch 応答の引用。 | [Speed of Code Reviews(Google Engineering Practices)](https://google.github.io/eng-practices/review/reviewer/speed.html) |
 | SRC-0765 | partial | webfetch | 議長が2026-11-17 に文書で確認した。引用は変数名のみ。 | [Environment variables(Claude Code 環境変数の参照)](https://code.claude.com/docs/en/env-vars) |
+| SRC-0766 | partial | webfetch | 束 B22 調査C が OSCAL カタログの原文で該当の制御を確認した。議長は原文を再取得していない。 | [NIST SP 800-53 Rev.5 セキュリティ・プライバシー管理策(OSCAL 版カタログ v5.2.0)IA-2・IA-2(5)](https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json) |
+| SRC-0767 | partial | webfetch | 束 B22 調査C が NHI9 の頁を原典で確認した。議長は再取得していない。NHI5・NHI7・NHI8 は二次の要約までで登録しない。 | [OWASP Non-Human Identities Top 10 (2025) NHI9: NHI Reuse](https://owasp.github.io/www-project-non-human-identities-top-10/2025/9-nhi-reuse) |
 
 ### 除外した出典(却下は成果)
 

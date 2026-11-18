@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0767
+status: included
+excludeReason: null
+title: "OWASP Non-Human Identities Top 10 (2025) NHI9: NHI Reuse"
+url: https://owasp.github.io/www-project-non-human-identities-top-10/2025/9-nhi-reuse
+canonicalUrl: https://owasp.github.io/www-project-non-human-identities-top-10/2025/9-nhi-reuse
+ids: {arxiv: null, doi: null}
+publisher: "OWASP"
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: null
+publishedBasis: unknown
+version: "2025"
+updated: null
+accessed: 2026-11-19
+access: open
+readLevel: section
+foundBy: {cluster: I446, query: "#446 AI の実行主体どうしの認証情報の共有。束 B22 調査C"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'OWASP の非人間の識別(NHI)の上位10項目のうち、NHI9 は同じ NHI を複数のアプリケーション・サービス・構成要素で使い回すことを危険とし、アプリケーションやサービスごとに固有の NHI を割り当てる対策を示す。指針であり、要求事項の形の規格ではない。NHI9 の頁のみ原典で確認した。'
+claims:
+  - id: c1
+    text: 'NHI9 は NHI の使い回しを危険として挙げ、アプリケーションやサービスごとに固有の NHI を割り当てることを対策とする。'
+    quote: 'reusing the same NHI across different applications, services, or components'
+    locator: 'NHI9:2025 NHI Reuse'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [446]
+    stance: supports
+verification: {status: partial, method: [webfetch], date: 2026-11-19, humanChecked: false, note: '束 B22 調査C が NHI9 の頁を原典で確認した。議長は再取得していない。NHI5・NHI7・NHI8 は二次の要約までで登録しない。'}
+volatility: fast
+reviewBy: 2027-05
