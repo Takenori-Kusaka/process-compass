@@ -1085,7 +1085,7 @@ R1 の決定および例外承認では、2案以上の比較を経た記録を�
 
 同じ文面の確認欄を毎回同じ位置に置く運用は、最短で形骸化することがあります。
 
-<!-- impl IMPL-0175 target=review-order state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="承認時に確認を求める項目の並び・表現・強調を周期的に変える。対象は提示の層(/gate のレビュー本文の雛形と、判定記録の草案で確認を求める項目)で、判定記録の見出しと機械が読む欄は変えない。/human-verify の検証の順序は検証の論理であり、回さない。実装済み・結線待ち: scripts/gate/review-order.mjs が、ゲート・対象・ISO 週から項目の並びを決定的に入れ替え(R3 は回さない。項目の文と番号は変えない)、/gate の SKILL.md が提示の順に使う手順を置いた(試験 test-review-order.mjs。gate-g5.yml の gate-contract への結線が B20 の push の後)。慣れが遅れることは機械で確かめない。実物の /gate の使用では確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0175 target=review-order state=undelivered check=manual plan=scheduled issue=443 review=2027-05 note="承認時に確認を求める項目の並び・表現・強調を周期的に変える。対象は提示の層(/gate のレビュー本文の雛形と、判定記録の草案で確認を求める項目)で、判定記録の見出しと機械が読む欄は変えない。/human-verify の検証の順序は検証の論理であり、回さない。実装済み・結線待ち: scripts/gate/review-order.mjs が、ゲート・対象・ISO 週から項目の並びを決定的に入れ替え(R3 は回さない。項目の文と番号は変えない。隣り合う週で並びが同じになる週は回転して変える。項目の集合が週の間で変われば保証しない)、/gate の SKILL.md が提示の順に使う手順を置いた(試験 test-review-order.mjs。gate-g5.yml の gate-contract への結線が B20 の push の後)。降ろしたのは並びだけで、表現・強調は降ろしていない(人が変える。降りていない部分であり、結線の後も check=machine にせず、表現・強調は undelivered として残す)。表現・強調の検査は作らない(意味を読む検査になる)。慣れが遅れることは機械で確かめない。実物の /gate の使用では確かめていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
 
 ### 5.7.6 承認設計の評価指標
 
