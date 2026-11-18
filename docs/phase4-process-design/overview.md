@@ -260,7 +260,7 @@ graph TD
 | 章 | 種別 | 表題 | 内容 |
 | --- | --- | --- | --- |
 | [第1章](/process-compass/phase4-process-design/overview/) | 規定(本文) | 総則 | 目的・適用範囲・引用規格・用語・構成・主張の範囲・適用の開始と適合の主張 |
-| [第2章](/process-compass/phase4-process-design/lifecycle/) | 規定(本文) | ライフサイクルとマイルストーン | 事業フェーズ、マクロゲート、AI協調ループとの接続 |
+| [第2章](/process-compass/phase4-process-design/lifecycle/) | 規定(本文) | ライフサイクルとマイルストーン | 事業フェーズ、ステージ移行ゲート、AI協調ループとの接続 |
 | [第3章](/process-compass/phase4-process-design/roles-responsibilities/) | 規定(本文) | 実施体制・ロール・会議体 | ロール定義、RACI、任命・兼務、会議体と決裁権限、体制の変化点 |
 | [第4章](/process-compass/phase4-process-design/gate-criteria/) | 規定(本文) | ゲートと判定基準 | 各ゲートの判定基準、期限、計測指標 |
 | [第5章](/process-compass/phase4-process-design/human-ai-boundary/) | 規定(本文) | 人間とAIの役割境界 | AI自律レベル、判断の席と確定の担い手、形骸化の防止 |

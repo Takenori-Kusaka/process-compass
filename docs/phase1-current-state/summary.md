@@ -53,7 +53,7 @@ graph TD
 
 | 発見 | フェーズ4での規定 |
 | --- | --- |
-| 発見1 意思決定の集中と分散 | [第2章](/process-compass/phase4-process-design/lifecycle/) 二層構造。外殻(ステージ移行ゲート SG)と内殻(工程ゲート G)を分ける |
+| 発見1 意思決定の集中と分散 | [第2章](/process-compass/phase4-process-design/lifecycle/) 二層構造。ステージ移行ゲート(SG)と工程ゲート(G)を分ける |
 | 発見2 決裁型への回帰 | [第4章](/process-compass/phase4-process-design/gate-criteria/) 8つの工程ゲートと判定基準 |
 | 発見3 責任の非集中 | 結果責任は1名(テーラリングの禁止事項)、[第3章 3.8.2](/process-compass/phase4-process-design/roles-responsibilities/) 決裁権限マトリクス、[第6章 テンプレ0](/process-compass/phase4-process-design/deliverable-templates/) D-0 |
 

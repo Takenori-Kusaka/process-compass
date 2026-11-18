@@ -98,11 +98,14 @@ jobs:
 
 ```
 # .github/CODEOWNERS(構成例)
-/src/auth/            @org/security-reviewers @org/tech-leads
-/src/payment/         @org/finance-reviewers @org/tech-leads
-/docs/adr/            @org/tech-leads
-/src/data/processes/  @org/context-owners
+*                     @alice
+/src/auth/            @alice @org/security-reviewers
+/src/payment/         @bob @org/finance-reviewers
+/docs/adr/            @alice @org/tech-leads
+/src/data/processes/  @carol @org/context-owners
 ```
+
+各行に、名簿の人の個人のログイン名(`@alice` など)を併記することを勧めます。名簿に無い個人(外部の保守担当など)は注意として示し、失敗にしません。チームだけの行は、次の「記名」の規定を満たしません。全体を覆う行(`*`)を先頭に置きます(後の行が勝ちます)。
 
 - 所有者定義ファイルの保守責任は文脈オーナーが負う
 - 対象領域に所有者が定義されていない状態を検出し、CI で失敗させる
