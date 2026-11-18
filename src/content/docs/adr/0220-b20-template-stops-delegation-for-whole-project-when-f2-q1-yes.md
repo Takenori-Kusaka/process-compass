@@ -12,8 +12,8 @@ sidebar:
 ## コンテキスト
 
 - 附属書F F.3 は、安全関連部に AI の支援を用いる場合の AI自律レベルを L1 に固定する。標準の表は CL2 の上限を「L2」と書き、安全関連部だけが L1 であることを読み取れなかった
-- 準拠テンプレートの構成は、AI自律レベルの上限を案件の全体へ掛ける。安全関連部と外を分ける単位を持たない。L2 を支えない点は [ADR-0081](/process-compass/adr/0081-autonomy-l3-deferral-and-level-derivation/) の決定6 のとおり
-- 受付は、Q1 の答えと CL の組を「定義の上ほぼ矛盾」と見た。[ADR-0171](/process-compass/adr/0171-d0-table10-f2-q1-is-the-source-and-config-copy-changes-gates-only/) は、CL0 と Q1「はい」の組は正当に生じうると書く。矛盾とは扱わない
+- 準拠テンプレートの構成は、AI自律レベルの上限を案件の全体へ掛ける。安全関連部と外を分ける単位を持たない。L2 を支えない点は [ADR-0081](/process-compass/adr/0081-autonomy-downgrade-delivered-as-registration-stop/) の決定6 のとおり
+- 受付は、Q1 の答えと CL の組を「定義の上ほぼ矛盾」と見た。[ADR-0171](/process-compass/adr/0171-s0-omission-premise-f2-q1-restores-g7/) は、CL0 と Q1「はい」の組は正当に生じうると書く。矛盾とは扱わない
 
 ## 決定
 

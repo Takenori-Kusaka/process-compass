@@ -9,7 +9,7 @@ sidebar:
 
 採用(2026-11-18)。束 B20 の軽の件のうち、#447 の 4 件(IMPL-0683・0883・0890・0827)と #444 の 7 件(IMPL-0207・1019・0743・0828・0506・0510・0200)の決定です。
 
-[ADR-0126](/process-compass/adr/0126-instruction-asset-checks-write-scope-and-agent-records/) の決定3・4・5 と [ADR-0153](/process-compass/adr/0153-g5-reached-gates-not-resolved-by-exception/) の決定2 を保ちます。置き換える決定はありません。
+[ADR-0126](/process-compass/adr/0126-instruction-asset-checks-write-scope-and-agent-records/) の決定3・4・5 と [ADR-0153](/process-compass/adr/0153-safety-judgment-and-ship-prohibitions-outside-exception-approval/) の決定2 を保ちます。置き換える決定はありません。
 
 ## コンテキスト
 
@@ -42,19 +42,19 @@ sidebar:
    - 再開(同じ識別子)は、元の記録を書き換えない
    - `core.hooksPath` は未設定のときだけ `.githooks` にする。別の値があれば変えず、効かないことを起動の出力に出す
 9. トレーラ `Agent-Assets:` の値は、次のとおり分ける。
-   - 版を特定できる: `sha256:<要約値>; base=<HEAD>; assets=clean|dirty; user-scope=unrecorded`
-   - 特定できない: `unknown(no-run-record)`・`unknown(unreadable-run-record)`、トレーラなし(AI の印あり)
-10. `assets=dirty` は指示資産のパスだけで判定する。製品のコードの未コミットの変更は、版の特定に関わらないので数えない。`dirty` は要約値で版を特定できるので入力に用いる。件数を別に出す
+   - 版を特定できる: `sha256:<要約値>; base=<HEAD>; assets=clean|dirty; user-scope=unrecorded`。実行の途中で指示資産を変えたときは `; start=sha256:<開始の要約値>` を末尾に足す。要約値は、コミットの時点の値である
+   - 特定できない: `unknown(no-run-record)`・`unknown(unreadable-run-record)`・`unknown(assets-unreadable)`(git の状態を読めない。`clean` と偽らない)、トレーラなし(AI の印あり)
+10. `assets=dirty` は指示資産のパスだけで判定する。開始の時点でコミットに無い変更があった場合に加え、実行の途中で指示資産を変えた場合と、コミットに入らない指示資産の変更(未ステージと未追跡)が残る場合を含む。ステージ済みの変更は、そのコミットに入るので数えない。製品のコードの未コミットの変更は、版の特定に関わらないので数えない。`dirty` は要約値で版を特定できるので入力に用いる。件数を別に出す
 11. 監査の抽出から外す対象は、版を特定できないもの(`unknown` と、フックの導入後のトレーラなし)に限る。フックの導入前のコミットは、外す対象に数えず、件数を別に出す。境は `.githooks/commit-msg` を入れたコミットの祖先かで決める(日付で決めない。ADR-0115 に揃える)
 12. 機械は 5 区分の件数と外す対象の一覧を出す。外すのは監査人である(区分が `manual` の IMPL-0743)。切り替えの期間(IMPL-0828)の件数と、その期間の AI の印のあるコミットの一覧も出す。一覧は 20 件までとし、超えた分は件数で示す
-13. 見えないものを開示する。`--no-verify`、別の `core.hooksPath`、AI の印も付かないコミットは見えない。別のセッションの amend は元の識別子が残る。利用者の範囲の指示は、版を記録できない
+13. 見えないものを開示する。`--no-verify`、別の `core.hooksPath`、AI の印も付かないコミットは見えない。別のセッションの amend は元の識別子が残る。利用者の範囲の指示は、版を記録できない。**トレーラの真正さは機械で閉じない**: トレーラ `Agent-Run`・`Agent-Assets` は、作成者が本文に書けば偽れる。`--if-exists doNothing` のため、書かれた値はそのまま残り、集約は `clean` に分類する。機械の検査は改ざんを防がない。監査人は、トレーラを実行の記録の自己申告として読む。抽出した変更は、実行基盤の記録で突き合わせる。この統制は manual と開示で閉じる。要約値を基底の版から計算し直す検査は採らない。偽る者も同じ計算ができる。検査が閉じていないのに、閉じた表示が残るためである
 
 **隔離(IMPL-0506・0510・0200)**
 
 14. 構成の生成が、`sandbox.enabled: true`・`allowUnsandboxedCommands: false`・`network.allowedDomains`(宛先は `registry.npmjs.org`・`github.com`・`api.github.com` だけ)を置く。採用者が足した宛先は、再生成しても残す。宛先を足すのは緩める向きなので、強制層の変更として AI維持管理者が承認する
 15. 初期化の試験は、隔離の設定の値と、生成後の deny の全パスの存在を固定する。**この試験は値の存在だけを確かめ、隔離が効くことは確かめない**。効くかは基盤ごとの実機の確認である
 16. 確認済みの基盤は WSL2 だけである。ネイティブの Windows では効かない。macOS とネイティブ Linux は未確認であり、確認の手順と EV-0318 の開示で受ける。**未確認の基盤を確認済みと書かない**
-17. IMPL-0207・1019・0506・0510 の `delivered` への移行は、WSL2 の実機の確認の結果が揃ってからにする。確認を通すために設定を緩めない。揃わない項目は `undelivered` のまま残す
+17. IMPL-0207・1019・0506・0510 の `delivered` への移行は、WSL2 の実機の確認の結果が揃ってからにする。確認を通すために設定を緩めない。IMPL-0506 の「自身の手順」の条件は、確認の結果を見た後に、議長の裁定(`research/444-verification/chair-ruling-0506.md`)により「隔離のもとの終了コードと出力が、隔離なしの対照と一致する」へ改めた
 18. IMPL-0200 は `undelivered` のまま、実測を #452 へ移す。note に「実測の材料が無い」を書く。拒否しない動作の形は作らない(B13 の裁定のまま)
 
 ## 課さないと決めたこと
@@ -65,6 +65,7 @@ sidebar:
 - 品質の監視そのものの同梱
 - コミットを監査の抽出の母集団から機械で外すこと(導入の直後に AI の印のあるコミットが全部外れ、母集団が空になる)
 - 作業ツリー全体の未コミットの有無で `dirty` を判定すること(日常の作業が `dirty` に数えられる)
+- トレーラの真正さを、基底の版から要約値を計算し直して確かめること(偽る者も同じ計算ができる)
 - `--no-verify` の検出、コミットの日付の偽りの検出
 - 実際の隔離の拒否を CI の試験にすること(実機が要り、決定可能にならない)
 
@@ -86,6 +87,6 @@ sidebar:
 - 暫定の許可を持つ採用者は、`/process-change` の種別 `settings` で `ci.provisionalLicenses` を書く。足すのは緩める向きで、決定した者の記名と理由を要する
 - G-1 を通過する前の案件は、`context/projects/<案件ID>.md` を作らないと G-1 の検査が失敗する。通過済みの既存の案件は注意にとどまる
 - 既存の採用者の `.claude/settings.json` には、再生成のとき `sandbox` が足される。ネイティブの Windows では効かないが、設定の値は置かれる
-- `.githooks/commit-msg` は、`NEVER_DELEGATED` と `NON_PRODUCT` に載せた。権限設定の Edit の拒否には載せていない。申し送りとする
-- 実機の確認(WSL2)は次の段が行う。結果が揃うまで、IMPL-0207・1019・0506・0510 は降りていない規定として台帳に出続ける
+- `.githooks/commit-msg` は、`NEVER_DELEGATED` と `NON_PRODUCT` に載せた。加えて、`.githooks/**` を G-5 の統制の設定(`CONTROL_FILES`)、強制層の要約値、権限設定の `Edit(./.githooks/**)` の拒否に載せた
+- 実機の確認は WSL2 で行い、IMPL-0207・1019・0506・0510 を `delivered` へ移した。macOS・ネイティブの Linux・ネイティブの Windows は確かめていない(EV-0318・EV-0319)
 - 回帰の全量と EV 番号の付け直しは、push の前に行う
