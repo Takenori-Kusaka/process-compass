@@ -32,7 +32,7 @@ rules:
     adjustments:
       - target: { type: practice, id: outer-gates }
         action: note
-        note: 既存の決裁ゲート(品質部門の判定・CTOレビュー等)に、参照モデルのゲートを対応づける。新設や二重化はしない
+        note: 既存の決裁ゲート(品質部門の判定・CTOレビュー等)に、参照モデルの企画承認(G-1)・出荷判定(G-7)を対応づける。新設や二重化はしない
     reason: ピットイン方式のマクロライフサイクルは既存制度を置き換えるものではなく、対応づけて再利用する設計。既存制度への変更は、技術判断の分離・単独判定・出荷判定者の署名の意味・品質保証の方針と受容の基準の記名の4点である(附属書A A.5)
     source: /process-compass/phase4-process-design/integrated-process/
     priority: 10

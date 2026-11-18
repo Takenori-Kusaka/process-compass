@@ -25,7 +25,7 @@ practices:
     source: /process-compass/phase4-process-design/tailoring-guide/
   - id: outer-gates
     name: 既存の決裁ゲートとの対応づけ
-    description: 組織の既存の決裁ゲートと、参照モデルのゲートの接続方法
+    description: 組織の既存の決裁ゲートと、参照モデルの企画承認(G-1)・出荷判定(G-7)の接続方法
     source: /process-compass/phase4-process-design/integrated-process/
   - id: core-understanding
     name: コア理解の維持
