@@ -763,7 +763,7 @@ D-0 は監査の対象です。記録として成立するために、次を満�
 
 <!-- impl IMPL-0786 target=evidence-aggregation state=delivered check=manual note="技術負債台帳の区分「例外」の行を変更の例外承認として対応づける条件(「対象」の欄が当該の変更を明示している、状態が「未返却」と完全一致する、承認した者・理由・期限が記入されている、承認した者が名簿の人で作成を指示した者でない)。scripts/gate/aggregate-evidence.mjs の例外承認の対応づけの規則(コメントの 1〜4)と material-attribution.mjs を読んだ範囲で、試験は実行していない。確かめる者: 出荷判定者(集約を読むとき)" -->
 
-<!-- impl IMPL-0787 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-exception-expiry.mjs note="返却目安の期限を延ばす書き換え(範囲の始点の台帳より後の日付、または日付として読めない値への変更)を記録の欠落にすること。期限を過ぎた未返却の行と失効の行の欠落は IMPL-0573・IMPL-0574。短くする向き・状態だけの変更は欠落にしない。始点の台帳が読めないときは比べず欠落にしない。範囲の外の履歴の書き換えと、行の消去(未回収の件数に既に数える)は検出しない。集約が exception-expiry.mjs の extendedDueRows で数える(ADR-0217)" -->
+<!-- impl IMPL-0787 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-exception-expiry.mjs note="返却目安の期限を延ばす書き換え(範囲の始点の台帳より後の日付、または日付として読めない値への変更)を記録の欠落にすること。期限を過ぎた未返却の行と失効の行の欠落は IMPL-0573・IMPL-0574。短くする向き・状態だけの変更は欠落にしない。始点の台帳が読めないときは比べず欠落にしない。範囲の外の履歴の書き換えと、行の消去(未回収の件数に既に数える)は検出しない。終点の行は区分で絞らず ID で引くので、区分を変えて期限を延ばしても検出する。集約が exception-expiry.mjs の extendedDueRows で数える(ADR-0217)" -->
 
 運用ルール(である調 / 体言止め):
 
