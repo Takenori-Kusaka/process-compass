@@ -252,7 +252,7 @@ AI生成コードの読解に必要な能力は、モデルの世代交代によ
 
 <!-- impl IMPL-0642 target=d0-template state=delivered check=presence note="3.4.2 要求事項8。確認の日付・確認した担い手の識別・失効後の再確認の期日を D-0 体制図へ記載する。D-0 の様式の節12 の表に、担い手(人 / AI の担い手の識別)と適合性確認の期限または失効条件の列がある(単位: 欄。識別と失効条件)。確認の日付と失効後の再確認の期日は表の見出しに列を持たず、構成の qualification.confirmedAt から生成区間の出力で運ぶ" -->
 
-<!-- impl IMPL-0643 target=config-seats state=delivered check=machine test=template/scripts/gate/test-model-adoption.mjs note="3.4.2 の、3.12.3 のモデルの適合性評価を通過していないモデルを、席の単位の適合性確認の対象にしてはならないこと。席の適合性確認の対象のモデルが、導入の記録(docs/model-adoption.json)に同じ識別(正規化の一致)で在り、その記録に問題が無いことを照らす。記録のファイルが無いときは確かめられないと問題の一覧に出す。評価の中身(正解の正しさ・一致の十分さ)は確かめない(IMPL-0405 と同じ)" -->
+<!-- impl IMPL-0643 target=config-seats state=delivered check=machine test=template/scripts/gate/test-model-adoption.mjs note="3.4.2 の、3.12.3 のモデルの適合性評価を通過していないモデルを、席の単位の適合性確認の対象にしてはならないこと。席の適合性確認の対象のモデルが、導入の記録(docs/model-adoption.json)に同じ識別(正規化の一致)で在り、その記録に問題が無いことを照らす。記録のファイルが無いときは確かめられないと問題の一覧に出す。表示だけで止めない(確認の記録の有効性と委任の可否は変えない。出荷の証跡の集約の読めない記録に出る。止める向きは採らない。再検討の契機: 評価を通過していないモデルが席の確認の対象のまま出荷された記録が出たとき)。評価の中身(正解の正しさ・一致の十分さ)は確かめない(IMPL-0405 と同じ)" -->
 
 ### 3.4.3 判断を担う席の力量の維持と後継
 
@@ -707,7 +707,7 @@ AI維持管理者 × AI運用担当者の兼務禁止と、欠陥注入におけ
 
 <!-- impl IMPL-0003 target=next-role state=delivered check=manual note="実行主体が起動時に参照する内容(判定するゲート・担ってはならない工程・引き渡し先)。確かめる者: 各ロールの席の責任者(/pit の出力を読むとき)" -->
 
-<!-- impl IMPL-0651 target=process-profile state=delivered check=machine test=template/scripts/gate/test-init-g5.mjs note="3.5.3 の、実行主体が参照する内容(自ロールと判定ゲート・担ってはならない工程・引き渡し先)が D-0 の改訂に追随しているかを機械的に検査できること。check-process-rules.mjs(gate-entry.yml が呼ぶ)が、PROCESS-PROFILE.md の全体を、構成から生成し直した内容(profileMdProblems。生成日時は構成の generatedAt から出るため非決定の値は入らない)と文字列で比べ、一致しなければ失敗させる。ロールの表と追随している D-0 の版を含む。D-0 の生成区間は check-d0.mjs(IMPL-0728)、CLAUDE.md の構成依存部分は IMPL-0824 が追う。取り込んだテンプレートの更新で構成書の生成の内容が変わると、再生成(/process-change)まで失敗する" -->
+<!-- impl IMPL-0651 target=process-profile state=delivered check=machine test=template/scripts/gate/test-init-g5.mjs note="3.5.3 の、実行主体が参照する内容(自ロールと判定ゲート・担ってはならない工程・引き渡し先)が D-0 の改訂に追随しているかを機械的に検査できること。check-process-rules.mjs(gate-entry.yml が呼ぶ)が、PROCESS-PROFILE.md の全体を、構成から生成し直した内容(profileMdProblems。生成日時は構成の generatedAt から出るため非決定の値は入らない)と文字列で比べ、一致しなければ失敗させる。ロールの表と追随している D-0 の版を含む。D-0 の生成区間は check-d0.mjs(IMPL-0728)、CLAUDE.md の構成依存部分は IMPL-0824 が追う。取り込んだテンプレートの更新で構成書の生成の内容が変わると、再生成(/process-change)まで失敗する。要約値の連鎖を持たない旧い構成(最初の /process-change の前)は、check-d0.mjs の生成区間と同じく注意にとどめる" -->
 <!-- impl IMPL-0824 target=claude-md state=delivered check=manual note="3.5.3 の、実行主体が参照する内容(自ロールと判定ゲート・担ってはならない工程・引き渡し先)が D-0 の改訂に追随しているかを、機械的に検査できること。scripts/gate/check-process-rules.mjs が CLAUDE.md の構成依存部分と process.config.json の一致を検査し、不一致で失敗する。D-0 の生成区間と構成の一致は check-d0.mjs(IMPL-0728)が、次の一手は next.mjs --role が構成から毎回導出する。D-0 → 構成 → CLAUDE.md・次の一手の連鎖は機械で検査される。PROCESS-PROFILE.md の追随は IMPL-0651 が追う。確かめる者: AI維持管理者(D-0 を改訂するとき)。実行して確かめていない(所在を読んだ)" -->
 
 #### 人と AI の担い手の名義(適用: AI の担い手がホスティングを操作する構成)
@@ -2104,7 +2104,7 @@ AI運用担当者は、3.12.2 の承認済みモデルの一覧を広げ、**依
 
 <!-- impl IMPL-0103 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-recalibration.mjs note="再評価待ちの能力依存の定数の件数を /process-change の出力と /pit の注記に出す。契機は performer の変化点の記録と暦だけで、値を自動で変えない。再評価の記録(残す・外す・移す)は docs/calibration-register.md に記名で置き、AI の名義は数えない" -->
 
-<!-- impl IMPL-0976 target=process-change-skill state=delivered check=manual note="3.12.12 要求事項4・5。能力が上がったことを理由に定数を短縮・緩和しないこと(recalibration.mjs は capabilityDependent の定数を再評価待ちの件数として数えるだけで、値を自動で変えない)と、判断「移す」の行に移した先の保証を示させること(docs/calibration-register.md の再評価の記録の表の列「移した先の保証」。recalibration.mjs は「移す」に移した先の保証が無い行を無視して所見に出す)。判断「外す」の行に移した先の保証を求めないことは IMPL-0980(undelivered)。IMPL-0103 と同じ降ろし先。実績や手段の変化の十分性は人の判断。確かめる者: AI維持管理者(再評価の記録を記名するとき)(単位: 列)" -->
+<!-- impl IMPL-0976 target=process-change-skill state=delivered check=manual note="3.12.12 要求事項4・5。能力が上がったことを理由に定数を短縮・緩和しないこと(recalibration.mjs は capabilityDependent の定数を再評価待ちの件数として数えるだけで、値を自動で変えない)と、判断「移す」の行に移した先の保証を示させること(docs/calibration-register.md の再評価の記録の表の列「移した先の保証」。recalibration.mjs は「移す」と「外す」に移した先の保証が無い行を無視して所見に出す。「外す」の行にも移した先の保証を求めることは IMPL-0980)。IMPL-0103 と同じ降ろし先。実績や手段の変化の十分性は人の判断。確かめる者: AI維持管理者(再評価の記録を記名するとき)(単位: 列)" -->
 
 <!-- impl IMPL-0980 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-recalibration.mjs note="3.12.12 要求事項5 のうち、判断「外す」の再評価の記録でも、外した後に失わない保証(移した先)を示すこと。recalibration.mjs は判断「外す」と「移す」の行で移した先が空なら再評価の記録に数えず、docs/calibration-register.md の説明も「外す」に広げた。移した先が保証を運ぶかの中身は確かめない。外すことを保証ごと不要とする読みは採らない(束 D 突合 2巡目 D2-03 と議長の裁定)" -->
 
