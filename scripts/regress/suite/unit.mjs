@@ -120,14 +120,14 @@ const dcfg = {
     { role: 'dev-verifier', name: '開発者', accountable: '山田', mode: 'delegated', performer: { model: 'm' }, qualification: { confirmedAt: 'x', performedBy: 'a', approvedBy: 'b', cases: 'c', result: 'd', performer: { model: 'm' } } },
   ],
   governance: { structureDecider: 'biz-approver', catalogRegistrar: 'biz-approver' },
-  delegation: { allowed: true, changeTypes: [{ id: '表示文言', registeredBy: '山田', registeredAt: '2026-10-01', basis: { detection: { rejectionRate: 'd1', duplicationRate: 'd2', reworkRate: 'd3' }, rollback: 'r', tests: 't' } }], protectedPaths: ['src/core/**'], rules: [{ id: 'DR-1', seat: 'dev-verifier', changeType: '表示文言', paths: ['src/**'], decidedBy: '山田', reason: 'r', approvedBy: '山田' }] },
+  delegation: { allowed: true, changeTypes: [{ id: '表示文言', registeredBy: '山田', registeredAt: '2026-10-01', basis: { detection: { rejectionRate: 'd1', duplicationRate: 'd2', reworkRate: 'd3' }, rollback: 'r', tests: 't', enforcement: { selfCorrection: 'e1', aiReviewRound: '該当なし(往復を使わない)' } } }], protectedPaths: ['src/core/**'], rules: [{ id: 'DR-1', seat: 'dev-verifier', changeType: '表示文言', paths: ['src/**'], decidedBy: '山田', reason: 'r', approvedBy: '山田' }] },
 };
 eq('規則: 登録済みの変更種別', m.delegationRuleProblems(dcfg.delegation.rules[0], dcfg), []);
 eq('規則: 未登録の変更種別', m.delegationRuleProblems({ ...dcfg.delegation.rules[0], changeType: 'なんでも' }, dcfg).length, 1);
 eq('規則: config を渡さなければ形式だけ', m.delegationRuleProblems({ ...dcfg.delegation.rules[0], changeType: 'なんでも' }), []);
 eq('変更種別: 登録者が決定者', m.changeTypeProblems(dcfg), []);
-eq('変更種別: 登録者が決定者でない', m.changeTypeProblems({ ...dcfg, people: [...dcfg.people, { id: 'b', name: '佐藤' }], delegation: { ...dcfg.delegation, changeTypes: [{ id: 'x', registeredBy: '佐藤', registeredAt: '2026-10-01', basis: { detection: { rejectionRate: 'd1', duplicationRate: 'd2', reworkRate: 'd3' }, rollback: 'r', tests: 't' } }] } }).length, 1);
-eq('変更種別: b4 なら名簿の人でよい', m.changeTypeProblems({ ...dcfg, governance: { ...dcfg.governance, catalogRegistrar: 'b4' }, people: [...dcfg.people, { id: 'b', name: '佐藤' }], delegation: { ...dcfg.delegation, changeTypes: [{ id: 'x', registeredBy: '佐藤', registeredAt: '2026-10-01', basis: { detection: { rejectionRate: 'd1', duplicationRate: 'd2', reworkRate: 'd3' }, rollback: 'r', tests: 't' } }] } }), []);
+eq('変更種別: 登録者が決定者でない', m.changeTypeProblems({ ...dcfg, people: [...dcfg.people, { id: 'b', name: '佐藤' }], delegation: { ...dcfg.delegation, changeTypes: [{ id: 'x', registeredBy: '佐藤', registeredAt: '2026-10-01', basis: { detection: { rejectionRate: 'd1', duplicationRate: 'd2', reworkRate: 'd3' }, rollback: 'r', tests: 't', enforcement: { selfCorrection: 'e1', aiReviewRound: '該当なし(往復を使わない)' } } }] } }).length, 1);
+eq('変更種別: b4 なら名簿の人でよい', m.changeTypeProblems({ ...dcfg, governance: { ...dcfg.governance, catalogRegistrar: 'b4' }, people: [...dcfg.people, { id: 'b', name: '佐藤' }], delegation: { ...dcfg.delegation, changeTypes: [{ id: 'x', registeredBy: '佐藤', registeredAt: '2026-10-01', basis: { detection: { rejectionRate: 'd1', duplicationRate: 'd2', reworkRate: 'd3' }, rollback: 'r', tests: 't', enforcement: { selfCorrection: 'e1', aiReviewRound: '該当なし(往復を使わない)' } } }] } }), []);
 eq('変更種別: 日付なし', m.changeTypeProblems({ ...dcfg, delegation: { ...dcfg.delegation, changeTypes: [{ id: 'x', registeredBy: '山田' }] } }).length, 1);
 eq('classify: 範囲内', m.classifyDelegation(dcfg, ['src/i18n/ja.json']).rule, 'DR-1');
 eq('classify: 確約範囲・コア指定に触れる', m.classifyDelegation(dcfg, ['src/core/a.js']).rule, null);
@@ -141,7 +141,7 @@ eq('適合性確認: 失効', m.qualificationProblems({ qualification: { lapsed:
 
 // 第3巡(K55・K62・K65)
 eq('変更種別: 登録の根拠(basis)が無い', m.changeTypeProblems({ ...dcfg, delegation: { ...dcfg.delegation, changeTypes: [{ id: 'x', registeredBy: '山田', registeredAt: '2026-10-01' }] } }).some((p) => p.includes('登録の根拠(basis)がない')), true);
-eq('変更種別: basis の一部が空', m.changeTypeProblems({ ...dcfg, delegation: { ...dcfg.delegation, changeTypes: [{ id: 'x', registeredBy: '山田', registeredAt: '2026-10-01', basis: { detection: { rejectionRate: 'd1', duplicationRate: 'd2', reworkRate: 'd3' }, rollback: '', tests: 't' } }] } }).length, 1);
+eq('変更種別: basis の一部が空', m.changeTypeProblems({ ...dcfg, delegation: { ...dcfg.delegation, changeTypes: [{ id: 'x', registeredBy: '山田', registeredAt: '2026-10-01', basis: { detection: { rejectionRate: 'd1', duplicationRate: 'd2', reworkRate: 'd3' }, rollback: '', tests: 't', enforcement: { selfCorrection: 'e1', aiReviewRound: '該当なし(往復を使わない)' } } }] } }).length, 1);
 eq('classify: basis の無い変更種別の規則は該当しない', m.classifyDelegation({ ...dcfg, delegation: { ...dcfg.delegation, changeTypes: [{ id: '表示文言', registeredBy: '山田', registeredAt: '2026-10-01' }] } }, ['src/i18n/ja.json']).rule, null);
 eq('isRealDay: 2026-02-31 は無い', m.isRealDay('2026-02-31'), false);
 eq('isRealDay: 2028-02-29 はある', m.isRealDay('2028-02-29'), true);

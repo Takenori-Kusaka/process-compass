@@ -417,7 +417,7 @@ export function fill(W, people, seats, { date = TODAY, summary = '体制を記�
   return W.change({ kind: 'accountable', date, summary, people, seats, decidedBy: who, reason: '初期の体制を記入する', ...extra });
 }
 // 第3巡(K55): 変更種別の登録の根拠(#302〜#310 組C の C-3 の決定で、detection を検知条件ごとの 3 欄へ)
-export const BASIS = { detection: { rejectionRate: 'docs/metrics/q3.md(差し戻しの件数から算出)', duplicationRate: 'docs/metrics/q3.md(類似の検知の出力から算出)', reworkRate: 'docs/metrics/q3.md(14日以内の書き換えの行数から算出)' }, rollback: 'docs/rollback/2026-09.md(文言の取り消しを3回実行)', tests: 'tests/i18n/*.spec.ts が全キーの表示を確かめる' };
+export const BASIS = { detection: { rejectionRate: 'docs/metrics/q3.md(差し戻しの件数から算出)', duplicationRate: 'docs/metrics/q3.md(類似の検知の出力から算出)', reworkRate: 'docs/metrics/q3.md(14日以内の書き換えの行数から算出)' }, rollback: 'docs/rollback/2026-09.md(文言の取り消しを3回実行)', tests: 'tests/i18n/*.spec.ts が全キーの表示を確かめる', enforcement: { selfCorrection: 'e1', aiReviewRound: '該当なし(往復を使わない)' } };
 // 第3巡(K65): 発効日は未来を受け付けず、最後の記録より前も受け付けない。初期化の記録は実行日になるため、
 // 場面の発効日は実行日(手元の時刻帯)にそろえる。実行日は、run.mjs がスクリプトごとに宣言した時刻(止めた時計)である
 export const TODAY = (() => {

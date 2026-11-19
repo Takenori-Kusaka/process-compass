@@ -85,7 +85,7 @@ check('確認した後は、契約検査が確認待ちを出さない', resolve
 // ---------------------------------------------------------------- AR-4・AR-5(追加の裁定 2。再確認 Y-1・Y-2)
 fixes(['ADR-0111 決定6', 'ADR-0111 決定5']);
 const PF = { model: 'claude-fable-5-1', instructions: 'CLAUDE.md@v1', permissions: 'tok-dev' };
-const BASIS2 = { detection: { rejectionRate: 'docs/metrics/q3.md(差し戻しの件数から算出)', reworkRate: 'docs/metrics/q3.md(14日以内の書き換えの行数から算出)' }, rollback: 'docs/rollback/2026-09.md(文言の取り消しを3回実行)', tests: 'tests/i18n/*.spec.ts が全キーの表示を確かめる' };
+const BASIS2 = { detection: { rejectionRate: 'docs/metrics/q3.md(差し戻しの件数から算出)', reworkRate: 'docs/metrics/q3.md(14日以内の書き換えの行数から算出)' }, rollback: 'docs/rollback/2026-09.md(文言の取り消しを3回実行)', tests: 'tests/i18n/*.spec.ts が全キーの表示を確かめる', enforcement: { selfCorrection: 'e1', aiReviewRound: '該当なし(往復を使わない)' } };
 const DTYPES = [{ id: '表示文言', registeredBy: 'Claude Dupont', registeredAt: '2026-09-30', basis: BASIS2 }];
 const DRULE = { id: 'DR-001', seat: 'dev-verifier', changeType: '表示文言', paths: ['src/i18n/**'], decidedBy: 'Claude Dupont', decidedAt: '2026-09-30', reason: '文言のレビュー待ちを無くす' };
 const DQ = { confirmedAt: '2026-09-30', performedBy: 'Claude Dupont', approvedBy: 'Claude Dupont', cases: '注入事例10件', result: '9/10', performer: PF };
