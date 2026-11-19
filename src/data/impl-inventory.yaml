@@ -6440,6 +6440,7 @@ sections:
     ids:
       - IMPL-0741
       - IMPL-0840
+      - IMPL-1032
     location:
       - phase4-process-design/roles-responsibilities#3.7 会議体 > 3.7.4 各会議体の規定 > B-4
         リリース判定会

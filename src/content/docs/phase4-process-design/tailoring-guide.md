@@ -439,7 +439,9 @@ graph TD
 
 <!-- impl IMPL-0741 target=config-delegation state=delivered check=manual note="委任の対象にできる変更の規模の境界。規模が第4章の担保水準 L0 の既定値を超えないこと(規模の基準値 task を null にしても委任の規模条件は既定値で縛る)。scripts/gate/config.mjs の classifyDelegation が、task.maxChangedFiles・maxChangedLines が整数でなければ既定値で縛り、超過を委任の対象外にする。scripts/gate/delegation.mjs は条件1・3・5・7を判定する(IMPL-0690)。種別の属性は IMPL-0840 が追う。確かめる者: AI維持管理者(構成を生成したとき、PROCESS-PROFILE.md を読む)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0840 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="委任の対象にできる変更の種別を、満たすべき属性(新たな外部呼び出し・データ構造・権限を導入しない)で定めること。登録した種別の属性を照らす処理を、scripts/gate/config.mjs・delegation.mjs に見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0840 target=config-delegation state=delivered check=machine test=template/scripts/gate/test-check-delegation.mjs note="委任の対象にできる変更の種別を、満たすべき属性(新たな外部呼び出し・データ構造・権限を導入しない)で定めること。機械が確かめる範囲は、依存の目印のファイル(マニフェスト・ロックファイル)の追加の行に限る。委任の条件2 が、対応する削除の行が無い追加の行を持つ変更を協働へ戻す。版の数字・ハッシュだけが変わる更新は戻さない。差分を読めないときは追加の行数で判定する。外部呼び出し・データ構造・権限の導入そのものと、マイグレーション・権限の設定の置き場は、ここでは確かめない(置き場の手引きは IMPL-1032)。delegation.introducesPaths は足さない(excludePaths と二重になる)" -->
+
+<!-- impl IMPL-1032 target=process-change-skill state=delivered check=manual note="マイグレーション・権限の設定の置き場を、委任の規則の excludePaths に書く手引き(process-change の mode)。全ての委任の規則に置く。委任から外すのであって禁止ではない(人の判定へ戻る)。置き場が変わったら登録を改める。置き場に書いた分だけ委任から外れる。書いていない規則・所在の外の導入は確かめない。典型のパスの注意は足さない。確かめる者: 登録する者と事後の抜き取り" -->
 
 #### 事後監査の手続(適用: 委任を適用した R3 の変更。体制の規模によらない)
 
