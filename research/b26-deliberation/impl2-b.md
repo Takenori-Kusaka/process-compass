@@ -1,6 +1,6 @@
 # 束 B26 後半の実装 担当B(単位 U3)の記録
 
-差分の範囲: template は afa73bc..75be9f5(bundle: tmp/bundles/template-b26b-03.bundle)、本体は 7b56bd01..(この記録を含むコミット)
+差分の範囲: template は afa73bc..1ca7be2(bundle: template-b26b-04.bundle)、本体は 7b56bd01..(この記録を含むコミット)
 
 ## 変えたもの
 
@@ -33,5 +33,5 @@
 
 ## コミット・bundle
 
-- template: 75be9f5(afa73bc の次。1コミット)。bundle: E:/Github/process-compass/tmp/bundles/template-b26b-03.bundle
+- template: 75be9f5 と 1ca7be2(試験名の目印)。bundle: tmp/bundles/template-b26b-03.bundle・template-b26b-04.bundle
 - 本体: 次のコミット(template の参照の更新を含む)
