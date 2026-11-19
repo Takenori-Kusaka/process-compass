@@ -286,6 +286,7 @@
 | 2026-09-29 | in-toto/attestation に AI Change Review predicate の追加 PR(#603)が提出された(未マージ) | in-toto Attestation Framework (GitHub pull request) | [SRC-0618] |
 | 2026-10-01 | 改正(知的財産取引に関する指針の内容を反映。掲載ページの記載による) | 公正取引委員会 | [SRC-0724] |
 | 2026-10-01 | 改正 | 公正取引委員会・厚生労働省 | [SRC-0727] |
+| 2026-10-01 | 保持期間の方針が、成果物とログに加えて、チェック・ワークフローの実行・コミットの状態にも適用される(文書の予告) | GitHub | [SRC-0768] |
 | 2026-11-12 | OpenAI モデルの Cursor への提供終了の提案日(将来モデルは提供しない) | OpenAI | [SRC-0293] |
 | 2027-12-02 | Annex III 高リスク系への第14条適用開始(Omnibus 後) | Regulation (EU) 2024/1689 (AI Act Explorer, Future of Life Institute) | [SRC-0087] |
 | 2027-12-02 | 高リスク AI システムの規則の適用日(延期後) | European Commission (Shaping Europe's digital future) | [SRC-0299] |
