@@ -1,7 +1,7 @@
 # 束 B26 後半 — 突合1巡目への直し(fix2-1)
 
 - 日付: 2026-11-20
-- 直しの差分の範囲: template `1ca7be2..fa52793`、本体 `43bf6fa1..<このコミット>`(最後のコミットは `git log -1` で見る)
+- 直しの差分の範囲: template `1ca7be2..fa52793`、本体 `43bf6fa1..c982204e`(この記録の訂正は含まない)
 - 退避: `E:/Github/process-compass/tmp/bundles/template-b26b-05.bundle`
 - 根拠: `ruling2-fix1.md`(裁定)・`review2-1.md`(所見)。2巡目は直した差分だけを見る
 
