@@ -345,7 +345,7 @@ S2 を2区分に分けるのは、負債の扱いとゲートの厳格さが実�
 :::caution[暫定 EV-0342 / 見直し 2027-05]
 **対象**: どの登録した変更種別がコア機能に「関わる」かの対応。本標準の本文は、この対応を定めていません。準拠テンプレートの運用引き継ぎ文書の節2 が、機能ごとの記録と、記録の無い場合にすべての登録した変更種別を止める扱いを持ちます。本文へ同じ扱いを書くことは、採らないと決めています(2026-11-19)。
 **根拠の水準**: E0(なし)。
-**差し替え条件**: 準拠テンプレートを使わない採用組織での、関わる種別の決め方と停止の記録の観測。
+**差し替え条件**: 準拠テンプレートを使わない採用組織での、関わる種別の決め方と停止の記録の観測。または、所有者が本文への定義の追加を決めたとき(別の審議)。
 :::
 
 #### 委任・標準変更・AI自律レベル L3 は同じ変更種別を指す
@@ -439,7 +439,9 @@ graph TD
 
 <!-- impl IMPL-0741 target=config-delegation state=delivered check=manual note="委任の対象にできる変更の規模の境界。規模が第4章の担保水準 L0 の既定値を超えないこと(規模の基準値 task を null にしても委任の規模条件は既定値で縛る)。scripts/gate/config.mjs の classifyDelegation が、task.maxChangedFiles・maxChangedLines が整数でなければ既定値で縛り、超過を委任の対象外にする。scripts/gate/delegation.mjs は条件1・3・5・7を判定する(IMPL-0690)。種別の属性は IMPL-0840 が追う。確かめる者: AI維持管理者(構成を生成したとき、PROCESS-PROFILE.md を読む)。所在を読んだ(実行して確かめていない)" -->
 
-<!-- impl IMPL-0840 target=config-delegation state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="委任の対象にできる変更の種別を、満たすべき属性(新たな外部呼び出し・データ構造・権限を導入しない)で定めること。登録した種別の属性を照らす処理を、scripts/gate/config.mjs・delegation.mjs に見つけていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0840 target=config-delegation state=delivered check=machine test=template/scripts/gate/test-check-delegation.mjs note="委任の対象にできる変更の種別を、満たすべき属性(新たな外部呼び出し・データ構造・権限を導入しない)で定めること。機械が確かめる範囲は、依存の目印のファイル(マニフェスト・ロックファイル)の追加の行に限る。依存の目印は準拠テンプレートの一覧(DEPENDENCY_MANIFESTS。15 のファイル名)に限り、一覧に無いマニフェストは確かめない(excludePaths に書けば委任から外せる)。委任の条件2 が、対応する削除の行が無い追加の行を持つ変更を協働へ戻す。版の数字・16進のハッシュ・sha の integrity だけが変わる更新は戻さない。それ以外の追加の行(依存でない行を含む。go.sum の base64 のハッシュだけの更新を含む)は戻す。差分を読めないときは追加の行数で判定する。外部呼び出し・データ構造・権限の導入そのものと、マイグレーション・権限の設定の置き場は、ここでは確かめない(置き場の手引きは IMPL-1032)。delegation.introducesPaths は足さない(excludePaths と二重になる)" -->
+
+<!-- impl IMPL-1032 target=process-change-skill state=delivered check=manual note="マイグレーション・権限の設定の置き場を、委任の規則の excludePaths に書く手引き(process-change の mode)。全ての委任の規則に置く。委任から外すのであって禁止ではない(人の判定へ戻る)。置き場が変わったら登録を改める。置き場に書いた分だけ委任から外れる。書いていない規則・所在の外の導入は確かめない。典型のパスの注意は足さない。確かめる者: 登録する者と事後の抜き取り" -->
 
 #### 事後監査の手続(適用: 委任を適用した R3 の変更。体制の規模によらない)
 
@@ -1412,7 +1414,7 @@ T-1 の限定試行は、次の試行前チェックリストの全項目を確�
 9. **適合性確認が失効した担い手の確認を検出の層に数える** — 担い手の識別が変わった時点で確認は失効する。測り直すまで、その担い手の確認を検出能力の根拠にしない。席の責任者が交代した時点で、承認も失効する(第3章 3.4.2)
 
 <!-- impl IMPL-0771 target=gate-contract state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="差し戻し基準(判定基準の表)を持たないゲートを作らないこと(テーラリングの禁止事項3)。構成のゲートは知識ベースの gates からだけ作られ、採用者が構成へゲートを足す経路は構成に無い。構成のゲートの契約検査(verify-gate-contract.mjs)は、有効なゲートと判定者・逸脱の記録を照らすが、構成に置いたゲートが差し戻し基準を持つことを照らす処理は読めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0772 target=config-deviations state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="標準から外した項目を宣言せずに運用しないこと(テーラリングの禁止事項6)。契約検査は deviations の記録の形(理由・解消の時点・ゲート)を照らす(verify-gate-contract.mjs)が、規則による導出から外れた構成の状態と、unmet[]・deviations[] の宣言の対応を照らす処理は読めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0772 target=config-deviations state=delivered check=machine test=template/scripts/gate/test-adoption.mjs note="標準から外した項目を宣言せずに運用しないこと(テーラリングの禁止事項6)。verify-gate-contract.mjs が、構成の answers から規則による導出(derivedGateStates)をやり直し、ゲートの状態が導出より弱い向き(required から simplified・omitted・merged-into、simplified から omitted・merged-into)で、unmet[] にも deviations[] にも当該ゲートの記録が無いものを扱う。失敗にするのは、変更の後の構成で導出より弱い状態に宣言が無く、かつ(状態・宣言の有無)の組が基底と同じでないもの(基底にあった宣言を外す変更と、基底の未達 unmet を宣言なしの omitted へ移す変更も失敗)。状態も宣言の有無も基底と同じ差だけを、取り込みで導出が強くなった未適用の厳格化(ADR-0088 決定4)として、失敗にせず注記にとどめる(構成へ知識ベースの版の欄は足さず、基底との比較で分ける。基底に既に入った宣言なしの弱めは以後の PR でも注記になり、基底へ入った経路は確かめない)。PR と既定ブランチへの push は基底と比べて失敗にする。基底を渡さない実行(--base なしのローカル実行、ブランチの作成の push、workflow_dispatch)だけが、基底を読めず弱めたかどうかを確かめていない旨を出して注記にとどめる。強い向きの差は問わない。確かめるのはゲートの状態の差に限り、パラメータ(reviewerCount など)の弱めは確かめない。導出は取り込んだテンプレートの知識ベースで行い、構成が記録した知識ベースの版では行わない(構成は知識ベースの版を記録しない)。確かめる者: プロセス内部監査(パラメータの弱めと、宣言の理由の妥当性)" -->
 
 テーラリングの禁止事項7 は、テーラリングの出力が扱える範囲の限界でもあります。**案件の構成で確定できるのは、軸A〜E に依存する条項の適用だけです**。リスク区分に依存する条項について構成が示せるのは「変更ごとに判定を要する」までであり、適用の有無ではありません([適用範囲の台帳](/process-compass/community/scope-ledger/))。
 
