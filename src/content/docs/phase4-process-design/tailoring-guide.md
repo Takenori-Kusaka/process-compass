@@ -1412,7 +1412,7 @@ T-1 の限定試行は、次の試行前チェックリストの全項目を確�
 9. **適合性確認が失効した担い手の確認を検出の層に数える** — 担い手の識別が変わった時点で確認は失効する。測り直すまで、その担い手の確認を検出能力の根拠にしない。席の責任者が交代した時点で、承認も失効する(第3章 3.4.2)
 
 <!-- impl IMPL-0771 target=gate-contract state=undelivered check=manual plan=scheduled issue=445 review=2027-05 note="差し戻し基準(判定基準の表)を持たないゲートを作らないこと(テーラリングの禁止事項3)。構成のゲートは知識ベースの gates からだけ作られ、採用者が構成へゲートを足す経路は構成に無い。構成のゲートの契約検査(verify-gate-contract.mjs)は、有効なゲートと判定者・逸脱の記録を照らすが、構成に置いたゲートが差し戻し基準を持つことを照らす処理は読めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
-<!-- impl IMPL-0772 target=config-deviations state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="標準から外した項目を宣言せずに運用しないこと(テーラリングの禁止事項6)。契約検査は deviations の記録の形(理由・解消の時点・ゲート)を照らす(verify-gate-contract.mjs)が、規則による導出から外れた構成の状態と、unmet[]・deviations[] の宣言の対応を照らす処理は読めていない。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0772 target=config-deviations state=delivered check=machine test=template/scripts/gate/test-adoption.mjs note="標準から外した項目を宣言せずに運用しないこと(テーラリングの禁止事項6)。verify-gate-contract.mjs が、構成の answers から規則による導出(derivedGateStates)をやり直し、ゲートの状態が導出より弱い向き(required から simplified・omitted・merged-into、simplified から omitted・merged-into)で、unmet[] にも deviations[] にも当該ゲートの記録が無ければ失敗させる。強い向きの差は問わない。確かめるのはゲートの状態の差に限り、パラメータ(reviewerCount など)の弱めは確かめない。導出は取り込んだテンプレートの知識ベースで行い、構成が記録した知識ベースの版では行わない(構成は知識ベースの版を記録しない)。確かめる者: プロセス内部監査(パラメータの弱めと、宣言の理由の妥当性)" -->
 
 テーラリングの禁止事項7 は、テーラリングの出力が扱える範囲の限界でもあります。**案件の構成で確定できるのは、軸A〜E に依存する条項の適用だけです**。リスク区分に依存する条項について構成が示せるのは「変更ごとに判定を要する」までであり、適用の有無ではありません([適用範囲の台帳](/process-compass/community/scope-ledger/))。
 

@@ -137,6 +137,13 @@ targets:
     checker: aggregate-evidence
     description: G-6 の判定記録の書き方。G-6 を事後へ移した委任の変更を通過として記録しないこと、開発者の席だけの委任の変更の事前の承認、独立した人の確認の条件(#286)
 
+  - id: gate-skill-g7
+    name: ゲート判定記録のスキルの G-7 の補助ファイル
+    kind: template-file
+    path: .claude/skills/gate/gates/G-7.md
+    checker: aggregate-evidence
+    description: G-7 の判定記録の書き方。出荷判定の突合の範囲と、支援に関与した者を同一案件の判定者にしないことの判定者本人による確認、兼務のまま実施するときの様式 04 の節「支援と判定の兼務」の書き方(3.5.2)
+
   - id: pr-checks
     name: G-5 の PR 単位の検査(pr-rules)
     kind: template-file
