@@ -11,6 +11,8 @@ sidebar:
 
 追記(2026-11-17): 決定5 が #356 へ寄せた運用中の未測定の問いは、[ADR-0161](/process-compass/adr/0161-seeded-error-blinding-by-separating-surfaces-and-counting-misses-by-scope/) 決定1 が閉じました。決定5 は変えていません。
 
+一部置き換え(→ [ADR-0225](/process-compass/adr/0225-credential-departure-split-seats-and-natural-persons/)の決定1・決定7): 決定1 の表の行「認証情報を席ごとに分けられない構成」の定めない理由と、決定3 の第1箇条の「席ごと」を置き換えます(2026-11-19)。認証情報の離脱は、兼務を禁止した組の席どうしと、別の自然人どうしの2つに分けます。条件と代償措置を定めない点は変えません。
+
 ## コンテキスト
 
 [#352](https://github.com/Takenori-Kusaka/process-compass/issues/352) は、第1章 1.10.2 の「列挙に無い離脱」のうち、条件と代償措置を定めて閉じた列挙へ入れるべきものがあるかを問いました。体制の内の人が1人の体制は、現行の条項では適合の主張と逸脱を伴う適合の主張をどちらも述べられず、述べられるのは適用の表明までです。この帰結の重さが、問いの背景にあります。

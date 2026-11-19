@@ -17,6 +17,8 @@ sidebar:
 
 一部置き換え(→ ADR-0133 の決定2): 決定7 の「次の4つの規定が常に当たる」を、[ADR-0133](/process-compass/adr/0133-no-conditions-or-compensating-measures-for-unlisted-deviations/)の決定2 が置き換えました(2026-11-15)。常に当たるのは兼務の2組で、ほかは第1章 1.10.2 の表の「当たる条件」によります。決定7・決定8 が別の Issue へ送った問い(1名・2名の体制のための代償措置を閉じた列挙へ加えるか、認証情報の分離が許可に当たるか)を、ADR-0133 が閉じました。決定の本文は変わりません。
 
+一部置き換え(→ [ADR-0225](/process-compass/adr/0225-credential-departure-split-seats-and-natural-persons/)の決定1): 決定7 の表の行「認証情報を席ごとに分けられない構成」(第3章 3.5.3)を、兼務を禁止した組の席どうしの共有と、別の自然人どうしの共有の2行に分けました。本文は書き換えません。
+
 ## コンテキスト
 
 [#313](https://github.com/Takenori-Kusaka/process-compass/issues/313) は、本標準の版・適用の終了・逸脱と適合の主張の関係を問いました。指摘をそのまま条項にせず、調査(内部1本・外部1本)、会議体(起草・現場・品質保証と監査・規格・擁護の5つの立場)、突合の順で扱いました。記録は `research/313-deliberation/`(`survey-313-1-internal.md`、`survey-313-2-external.md`、`council-01`〜`05`、`decision.md` の Q-1〜Q-6、`implementation.md`)にあります。

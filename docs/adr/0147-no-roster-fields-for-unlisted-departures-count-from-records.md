@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-17)。審議は軽です。記録は `research/354-deliberation/` にあります。採用済みの ADR の決定を置き換えません。[ADR-0133](/process-compass/adr/0133-no-conditions-or-compensating-measures-for-unlisted-deviations/) の決定(列挙に無い離脱の条件と代償措置は定めない)と、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/) の述べられる名の導き方を、実装の側から補います。
 
+一部置き換え(→ [ADR-0225](/process-compass/adr/0225-credential-departure-split-seats-and-natural-persons/)の決定1・決定7): 決定4 の「揃える向きの決定は #446 の審議」を閉じます(2026-11-19)。1.10.2 の側を、兼務を禁止した組の席どうしと別の自然人どうしの2行に直し、3.5.3 は変えません。
+
 ## コンテキスト
 
 [#354](https://github.com/Takenori-Kusaka/process-compass/issues/354) の項目2 は、第1章 1.10.2 の表が挙げる列挙に無い離脱のうち、準拠テンプレートの述べられる名(`claimStatus`)が数えない5つの扱いを問いました。

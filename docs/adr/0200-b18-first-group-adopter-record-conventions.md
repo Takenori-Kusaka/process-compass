@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-18)。[ADR-0175](/process-compass/adr/0175-assign-445-450-undelivered-to-adopter-or-template/)の降ろし方の4区分を前提とし、降ろしたものが採用者に書かせる記録の形を決める。ADR-0175 は置き換えない。
 
+一部置き換え(→ [ADR-0223](/process-compass/adr/0223-pre-review-shortening-requires-all-named-responses/)の決定6): 決定4 の「必須にするかは、IMPL-0214 と同じ重の審議に残す」を置き換えます(2026-11-19)。観測と通知の workflow を必須ステータスチェックにしない部分は保ちます。
+
 ## コンテキスト
 
 - ADR-0175 は降ろし方を 4 区分(機械の検査・様式の欄・手引き・採用者の実装)までしか決めていない。降ろした検査が読む記録の形は決めていない

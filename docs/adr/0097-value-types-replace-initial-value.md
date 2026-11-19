@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-04)。次の決定を補います。
 
+一部置き換え(→ [ADR-0224](/process-compass/adr/0224-g5-mutation-and-regulatory-stages-required-for-safety-and-regulated/)の決定13): 決定1 の値の型の表の「附属書F の R1〜R3 の列」のうち、ミューテーション試験の R1・R2 の欄を、既定値から外しました(附属書H H.1 の規定による。2026-11-19)。本文は書き換えていません。
+
 | 対象の決定 | 本 ADR との関係 |
 | --- | --- |
 | [ADR-0095](/process-compass/adr/0095-escalation-stages-by-seat-and-scm-without-tolerance/) 決定5(閾値は初期値のまま、G-1 の判定者が確定する) | 決定5 の「初期値」の語を「組織が定める値(示す値は参考の値)」へ読み替える。中身(規範値にしない、G-1 の判定者が確定して記名する、記録の無い案件は G-1 の基準4 を満たさない)は維持する。決定7 が #419 へ送った「初期値」の強さを本 ADR が受ける |
