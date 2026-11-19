@@ -177,6 +177,16 @@ if (kbMissing.length) {
       }
     }
   }
+  // 配布した知識ベースのゲートは、すべて GATE_IDS に在り、判定基準を持つ(IMPL-0771。差し戻し基準を持たないゲートを作らない)。
+  // GATE_IDS に無いゲートは、第4章の判定基準の表を照らされないため、上の突合をすり抜ける
+  const knownIds = new Set(Object.values(GATE_IDS));
+  for (const g of kb.gates ?? []) {
+    if (!knownIds.has(g.id)) {
+      problems.push(`${g.label ?? g.id}(${g.id}): 知識ベースのゲートが GATE_IDS に在りません。第4章の判定基準の表を照らされない(差し戻し基準を持たない)ゲートは作れません(テーラリングの禁止事項3)`);
+    } else if (!Array.isArray(g.criteria) || g.criteria.length === 0) {
+      problems.push(`${g.label ?? g.id}(${g.id}): 知識ベースのゲートが判定基準を持ちません(テーラリングの禁止事項3)`);
+    }
+  }
   for (const g of kb.gates ?? []) {
     if (g.criteriaComplete !== false) {
       problems.push(

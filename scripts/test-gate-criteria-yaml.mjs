@@ -104,4 +104,35 @@ test('検査本体: yaml の判定基準の文が第4章とずれると落ちる
   }
 });
 
+// IMPL-0771:知識ベースの gates の id がすべて GATE_IDS に在り、判定基準を持つこと。--kb に渡した写しで、入口(検査本体の起動)を通して確かめる。
+// 検査の行を無効にすると、この試験が落ちる
+test('検査本体(IMPL-0771): 知識ベースに GATE_IDS に無いゲート・判定基準の無いゲートがあると落ち、実物の写しは通る', () => {
+  const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+  const KB = path.join(ROOT, 'template/scripts/vendor/tailoring-kb.json');
+  // 検査は入力の所在を ROOT からの相対で確かめるため、写しは ROOT の中(tmp/。git の対象外)に置く
+  fs.mkdirSync(path.join(ROOT, 'tmp'), { recursive: true });
+  const dir = fs.mkdtempSync(path.join(ROOT, 'tmp', 'crit-kb-'));
+  const run = (kb) => {
+    const file = path.join(dir, 'kb.json');
+    fs.writeFileSync(file, JSON.stringify(kb));
+    const env = { ...process.env };
+    delete env.GITHUB_SHA;
+    const r = spawnSync(process.execPath, [path.join(ROOT, 'scripts/check-gate-criteria.mjs'), '--kb', file], { encoding: 'utf8', env });
+    return { status: r.status, out: `${r.stdout}${r.stderr}` };
+  };
+  try {
+    const kb = JSON.parse(fs.readFileSync(KB, 'utf8'));
+    const ok = run(kb);
+    assert.equal(ok.status, 0, ok.out);
+    const extra = run({ ...kb, gates: [...kb.gates, { ...kb.gates[0], id: 'g-extra', label: 'G-9' }] });
+    assert.equal(extra.status, 1);
+    assert.match(extra.out, /G-9\(g-extra\): 知識ベースのゲートが GATE_IDS に在りません/);
+    const empty = run({ ...kb, gates: kb.gates.map((g, i) => (i === 0 ? { ...g, criteria: [] } : g)) });
+    assert.equal(empty.status, 1);
+    assert.match(empty.out, /知識ベースのゲートが判定基準を持ちません/);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 console.log(`判定基準の書き戻しの試験: ${passed}件通過`);
