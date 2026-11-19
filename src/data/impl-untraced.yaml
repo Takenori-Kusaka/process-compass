@@ -11,6 +11,9 @@
 # why    — 理由。どの降ろし先の部品か、何の足回りかを書く
 schemaVersion: 0
 files:
+  - path: scripts/gate/mutation-stage.mjs
+    reason: library
+    why: adapter.mjs(降ろし先 g5-adapter)が呼ぶ、段 mutation・regulatory の必須の判定(案件の条件・R1)と出力の約束の判定。規定は附属書H H.1 の IMPL-1029・附属書F F.6 の IMPL-0930・0931 で追う(process-compass #445)
   - path: scripts/gate/check-delegation.mjs
     reason: library
     why: 委任の経路のワークフロー(降ろし先 delegation-workflow)が呼ぶ判定の本体。規定は delegation-workflow のマークで追う

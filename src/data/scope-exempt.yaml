@@ -9,6 +9,9 @@
 # reason  — なぜ適用範囲の注記が要らないか
 schemaVersion: 0
 exempt:
+  - page: phase4-process-design/assurance-case
+    heading: 「切り離された検証」が指すもの
+    reason: "地の文に見える限定は、R1 の変更の段の文の中の(適用: …)で、規範と同じ文の中に書いている(#226 の書式。ADR-0244)。節全体に掛かる限定ではない"
   - page: phase4-process-design/exception-escalation
     heading: 7.10.1 なぜ止めないか
     reason: 限定は独立した段落の先頭で「**例外**」として示されており、規範を述べる箇条書きと分離していない
