@@ -140,6 +140,9 @@ files:
   - path: .github/workflows/pre-review.yml
     reason: infra
     why: pre-review-automation(降ろし先 pre-review-automation)の pre-review.mjs を定期に呼ぶ workflow。起票と通知と月次の集計の契機だけを持つ。必須チェックにしない(ADR-0200 決定4)。規定は IMPL-0571・0210・0213・0219・0215・0216 で追う
+  - path: .github/workflows/pre-review-responded.yml
+    reason: infra
+    why: pre-review-automation(降ろし先 pre-review-automation)の pre-review.mjs responded を、判定の記録を入れる PR で呼ぶ workflow。応答の宣言行の有無の確認の契機だけを持つ。既定では必須にしない(ADR-0223 決定6)。規定は IMPL-0214 で追う
   - path: scripts/gate/e2e-fixture.mjs
     reason: infra
     why: 結線の試験(test-aggregate-wiring.mjs・test-delegation-wiring.mjs)が使う足場。template の写しと使い捨てのリポジトリを作り、実物の集約・入口・D-0 の検査を動かす。それ自体は規定を実装しない(束 B20 の独立の突合 2巡目 R2-01)

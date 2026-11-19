@@ -5253,6 +5253,7 @@ sections:
     issue: 316
     ids:
       - IMPL-0216
+      - IMPL-1031
   - key: phase4-process-design/roles-responsibilities#3.10 事前レビュー期間 > 3.10.9 必須応答ロール
     status: marked
     ids:
