@@ -112,7 +112,7 @@ A と R の分離は、ロール(席)に置く人と実行主体の区別に対�
 | 4 | 確認を経ない任命は、期限付きの暫定任命に限る(下記) |
 | 5 | 確認の有効期間を定める。無期限としない |
 
-<!-- impl IMPL-0636 target=config-seats state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="3.4.1 要求事項1〜3 と「確認に用いるもの」。ロールへの任命に先立つ任命基準の充足の確認を、実務の成果物か演習の記録で行い(筆記試験を主たる手段としない)、判定者・判定日・用いた成果物・判定結果を記録する。準拠テンプレートは、判断を担う4席の責任者本人について確認日・本人以外の確認した者・記録の所在を seats[].competence に持つ(IMPL-0082・0089)が、判定結果と用いた成果物の欄は無く、開発者・事業決裁者・文脈オーナー・AI維持管理者・AI運用担当者の任命の確認の置き場は無い(generate-profile.mjs の JUDGE_SEAT_IDS を読んだ)。要求事項5 の確認の有効期間も、判断を担う4席の力量の確認の周期(層1。IMPL-0070)のほかは、これらの席の任命の確認の有効期間を書く置き場が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0636 target=config-seats state=delivered check=manual note="3.4.1 要求事項1〜3 と「確認に用いるもの」。ロールへの任命に先立つ任命基準の充足の確認を、実務の成果物か演習の記録で行い(筆記試験を主たる手段としない)、判定者・判定日・用いた成果物・判定結果を記録する。準拠テンプレートは、判断を担う4席の責任者本人について seats[].competence を持つ(IMPL-0082・0089)。4席の外の席の competence は任意で、書いた席は4席と同じ照合(本人以外・日付・所在)を当て、書いていない席は D-0 節9 の表と /pit に任命の確認の記録なしと注意に出す(失敗にしない)。判定結果と用いた成果物は記録の所在の中身に置き、欄は足さない。機械は書いた席の照合と欠けの注意を出す。確かめる者: 任命する者(D-0 表1)。要求事項5 の有効期間は4席の外では確かめない" -->
 
 #### 確認に用いるもの
 
@@ -246,13 +246,13 @@ AI生成コードの読解に必要な能力は、モデルの世代交代によ
 
 <!-- impl IMPL-0639 target=config-seats state=delivered check=manual note="3.4.2 要求事項1・3・4・7・9。担い手の識別(モデルの版・指示資産の版・権限の組)を確認の単位とし、ペルソナや席名の付与を確認に数えない。実施は AI維持管理者、承認は席の責任者が行い、識別が変われば確認の記録が失効し、承認した席の責任者が交代すれば承認が失効して新しい責任者が承認し直すまで協働を上限とする。D-0 の様式の節12(templates/00-d0-governance.md の担い手の識別・実施と承認の者・失効の記述)と、generate-profile.mjs の qualification(performedBy・approvedBy・lapsed の処理、識別の変更と承認の失効の差分)が運ぶ。確かめる者: 席の責任者(確認の記録を読むとき)。実行して確かめていない(所在を読んだ)" -->
 
-<!-- impl IMPL-0640 target=config-seats state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="3.4.2 要求事項2・5。確認に、当該の席で人が確定した過去の判定の再現と、欠陥注入による検出の記録を用いること。確認の記録に実施者・承認者・実施日・担い手の識別・用いた事例・事例の正解の出所・結果を含めること。準拠テンプレートの qualification は performedBy・approvedBy・confirmedAt・result・conditions を持つが、用いた事例と正解の出所の欄、再現と欠陥注入の記録を確認に使う検査は無い(generate-profile.mjs の qualification の項目を読んだ)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0640 target=config-seats state=delivered check=presence note="3.4.2 要求事項2・5。確認に、当該の席で人が確定した過去の判定の再現と、欠陥注入による検出の記録を用いること。準拠テンプレートは確認の記録の所在(単位: キー seats[].qualification.record)の実在だけを確かめ、欠けは問題の一覧に出す(失敗にしない)。所在の指す先の中身、再現と欠陥注入が行われたか、事例の正解の出所は確かめない(確かめる者: AI維持管理者の席の責任者と内部監査)" -->
 
 <!-- impl IMPL-0641 target=config-seats state=delivered check=manual note="3.4.2 の協働へ下げずに切り替える4条件(確認の記録の識別が新しい識別と一致する、旧い記録の使い回しでない(確認日が旧い記録より後)、実施者が AI維持管理者の席の責任者で承認者が当該の席の責任者、当該の席の責任者が委任を続ける決定として記名し理由を書く)。generate-profile.mjs の担い手の識別が変わる変更の処理が、1つでも欠ければ委任を協働へ下げ、確認日が旧い記録より後でない記録の使い回しを受け付けない。確かめる者: 席の責任者(確認の記録を読むとき)。実行して確かめていない(所在を読んだ)" -->
 
 <!-- impl IMPL-0642 target=d0-template state=delivered check=presence note="3.4.2 要求事項8。確認の日付・確認した担い手の識別・失効後の再確認の期日を D-0 体制図へ記載する。D-0 の様式の節12 の表に、担い手(人 / AI の担い手の識別)と適合性確認の期限または失効条件の列がある(単位: 欄。識別と失効条件)。確認の日付と失効後の再確認の期日は表の見出しに列を持たず、構成の qualification.confirmedAt から生成区間の出力で運ぶ" -->
 
-<!-- impl IMPL-0643 target=config-seats state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="3.4.2 の、3.12.3 のモデルの適合性評価を通過していないモデルを、席の単位の適合性確認の対象にしてはならないこと。準拠テンプレートは AI 実行基盤とモデルの適合性評価を持たない(ADR-0104)。scripts/gate/model-adoption.mjs はモデルの導入の記録を読む(IMPL-0405)が、席の適合性確認の対象のモデルが導入の記録の評価を通過したかを照らす検査は無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0643 target=config-seats state=delivered check=machine test=template/scripts/gate/test-model-adoption.mjs note="3.4.2 の、3.12.3 のモデルの適合性評価を通過していないモデルを、席の単位の適合性確認の対象にしてはならないこと。席の適合性確認の対象のモデルが、導入の記録(docs/model-adoption.json)に同じ識別(正規化の一致)で在り、その記録に問題が無いことを照らす。記録のファイルが無いときは確かめられないと問題の一覧に出す。評価の中身(正解の正しさ・一致の十分さ)は確かめない(IMPL-0405 と同じ)" -->
 
 ### 3.4.3 判断を担う席の力量の維持と後継
 
@@ -2106,7 +2106,7 @@ AI運用担当者は、3.12.2 の承認済みモデルの一覧を広げ、**依
 
 <!-- impl IMPL-0976 target=process-change-skill state=delivered check=manual note="3.12.12 要求事項4・5。能力が上がったことを理由に定数を短縮・緩和しないこと(recalibration.mjs は capabilityDependent の定数を再評価待ちの件数として数えるだけで、値を自動で変えない)と、判断「移す」の行に移した先の保証を示させること(docs/calibration-register.md の再評価の記録の表の列「移した先の保証」。recalibration.mjs は「移す」に移した先の保証が無い行を無視して所見に出す)。判断「外す」の行に移した先の保証を求めないことは IMPL-0980(undelivered)。IMPL-0103 と同じ降ろし先。実績や手段の変化の十分性は人の判断。確かめる者: AI維持管理者(再評価の記録を記名するとき)(単位: 列)" -->
 
-<!-- impl IMPL-0980 target=process-change-skill state=undelivered check=manual plan=scheduled issue=446 review=2027-05 note="3.12.12 要求事項5 のうち、判断「外す」の再評価の記録でも、外した後に失わない保証(移した先)を示すこと。recalibration.mjs が移した先の保証を求めるのは判断「移す」の行だけで、判断「外す」の行は移した先が空でも再評価の記録として受け付ける。docs/calibration-register.md の説明も「移す」場合だけを挙げる(2026-11-15 に確認。束 D 突合 2巡目 D2-03 と議長の裁定。外すことを保証ごと不要とする読みは採らない)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0980 target=process-change-skill state=delivered check=machine test=template/scripts/gate/test-recalibration.mjs note="3.12.12 要求事項5 のうち、判断「外す」の再評価の記録でも、外した後に失わない保証(移した先)を示すこと。recalibration.mjs は判断「外す」と「移す」の行で移した先が空なら再評価の記録に数えず、docs/calibration-register.md の説明も「外す」に広げた。移した先が保証を運ぶかの中身は確かめない。外すことを保証ごと不要とする読みは採らない(束 D 突合 2巡目 D2-03 と議長の裁定)" -->
 
 :::caution[暫定 EV-0089 / 見直し 2027-04]
 **対象**: 能力依存の定数の登録簿と、再評価の契機(performer の変化点の記録と暦)、能力に依らない周期・窓の区分。
