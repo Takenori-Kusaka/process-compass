@@ -35,7 +35,7 @@
 - template: `scripts/gate/next.mjs` に `adjustmentRecordCount`(ゲート欄が「価値責任者の調整」の記録を、判定日時が観測の窓にあるものだけ数える。日時を読めない記録は別に数える。同じ所在は1件)。`flowReportText` が節「フロー」に件数と「種別は本文に書かれ、機械は読まない」を出す。`records.mjs` は変えていない(ゲート欄は任意の語を受ける。試験で確かめた)
 - 試験: `test-next-records.mjs` に5件追加(140 件通過)
 - 本体: `lifecycle.md` の IMPL-0954 は `undelivered` のまま。note の降りていない部分を「集約(aggregate-evidence.mjs)が調整の記録を欠落に数えないこと」だけに改めた
-- コミット: template(最後のコミット、bundle `template-b26-06.bundle`)、本体(最後のコミット)
+- コミット: template aef21e3(bundle `template-b26-06.bundle`)、本体 c1a71552(この記録を含む)
 
 ## 触れていないもの
 
