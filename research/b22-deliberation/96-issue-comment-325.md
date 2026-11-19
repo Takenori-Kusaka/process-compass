@@ -11,7 +11,7 @@
 
 ### 変更の所在
 
-- コミット: (push の後に議長が記入)
+- コミット: 27f122ed(本文)・0114a455・835eb5de(突合の所見の直し)。main ad9c6490、CI run 44424279416(緑)。審議の記録は `research/b22-deliberation/`
 - 本文: `roles-responsibilities.md` 3.10.2・3.10.5・3.10.9 と IMPL-0830・0214・0217 の note
 - ADR: `adr/0223-pre-review-shortening-requires-all-named-responses.md`、`adr/index.md`
 - 審議の記録: `research/b22-deliberation/`(30・60・91 が裁定)

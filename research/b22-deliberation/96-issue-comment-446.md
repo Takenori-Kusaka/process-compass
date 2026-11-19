@@ -11,7 +11,7 @@
 
 ### 変更の所在
 
-- コミット: (push の後に議長が記入)
+- コミット: 1ff58452(本文)・0114a455・835eb5de(突合の所見の直し)。main ad9c6490、CI run 44424279416(緑)。審議の記録は `research/b22-deliberation/`
 - 本文: `overview.md` 1.10.2(表の2行と帰結の注記、IMPL-1003・1004・1030)
 - ADR: `adr/0225-credential-departure-split-seats-and-natural-persons.md`(ADR-0133 と ADR-0083 の表の行を一部置き換え。ADR-0082 は保つ)、`adr/index.md`
 - 出典: NIST SP 800-53 Rev.5 IA-2(5)、OWASP NHI9(`research/sources/`)

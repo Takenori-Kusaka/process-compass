@@ -12,7 +12,7 @@
 
 ### 変更の所在
 
-- コミット: (push の後に議長が記入)
+- コミット: 8d394619(本文)・22eb5d8c・d91d1df6・835eb5de(突合の所見の直しと附属書F F.4 の直し)。main ad9c6490、CI run 44424279416(緑)。審議の記録は `research/b22-deliberation/`
 - 本文: `safety-verification.md`(附属書F F.4 の注と R1・R2 の欄、F.5、F.6、IMPL-0930・0931)、`tailoring-guide.md`(軸C、IMPL-0763・0836)、`gate-criteria.md`(G-5 の列挙、IMPL-0202 の note)、`assurance-case.md`(IMPL-1029)
 - ADR: `adr/0224-g5-mutation-and-regulatory-stages-required-for-safety-and-regulated.md`(ADR-0097 の表を一部置き換え)、`adr/index.md`
 - 審議の記録: `research/b22-deliberation/`(30・60・81・91 が裁定)
