@@ -45,9 +45,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 279 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 280 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 151 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 587 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 586 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -64,13 +64,13 @@ sidebar:
 
 ### 降りていない規定
 
-降りていない規定: **122件**
+降りていない規定: **121件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 38 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 84 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 38 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 83 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -126,7 +126,6 @@ sidebar:
 | IMPL-0490 | 落ちることを期待する印の、照合する失敗の理由との一致(別の理由で落ちた場合を失敗にすること)と、印を持たない枠組み(go の testing・JUnit 5 ほか)の印。枠組みごとの扱いと採用者に求めることは ADR-0124 決定3 の表による。確かめる者: 採用者(自らの試験の補助に実装したときに確かめる) | G-5 の PR 単位の検査(pr-rules) | 採用者が実装する(ADR-0124) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-0492 | 入力の記録を、条件の確認の時点(四半期の抜き取り)まで取り出せる状態で残すこと。準拠テンプレートは成果物を保持 90 日で上げるだけで、公開のリポジトリは 90 日を超えて保てない。採る形は、マージを契機に記録用ブランチへ写す形(record-copy.yml)。確認の項目: PR の先頭の SHA と既定ブランチの定義で走った実行に限る、再実行で成果物が複数あるときの選び方、バイト列のままの写しと sha256 の照合、写した成果物の中のスクリプトを実行しない、actions: read を足す変更の陰性の確認、マージせずに閉じた PR の扱い(抜き取りの母集団)、記録用ブランチから実際に取り出す試行。GitHub Actions の実機で確かめていないため降ろしていない(ADR-0126 決定6)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | AI レビューのワークフロー(差し込み口) | 予定 [#361](https://github.com/Takenori-Kusaka/process-compass/issues/361)(見直し 2027-05) | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
 | IMPL-0493 | 道具にしか分からない入力(実際の起動の指示・道具の定義・実際に読んだファイル)を、差し込む手順が契約のファイル(.github/ai-review/README.md の tool-inputs.json)に書くこと。差し込む道具ごとに取り出し方が異なるため、採用者が差し込みの実装に置く。準拠テンプレートは契約と、ファイルの欠けの表示だけを持つ。申告と実際の入力の一致は機械で確かめない。確かめる者: 採用者(差し込みの実装を置いたとき)と AI維持管理者(四半期の抜き取り) | AI レビューのワークフロー(差し込み口) | 採用者が実装する(ADR-0124) | [phase4-process-design/assurance-case](/process-compass/phase4-process-design/assurance-case/) |
-| IMPL-0497 | 是正の記録の欠けの検出。導入前の検証の集計で見逃された類型と、統制の弱化の引き渡し(state:needs-platform)の記録があるのに、欠陥の台帳の節「是正の記録」に対応する行が無いことを、/pit か導入前の検証が出すこと。準拠テンプレートは様式と手順だけを置き、起点の記録と行を突き合わせない(#359 の裁定 1-1)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 導入前の検証のコマンド | 予定 [#326](https://github.com/Takenori-Kusaka/process-compass/issues/326)(見直し 2027-05) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0499 | 到達の見込みの費用の組の入力のうち、単位期間あたりの費用の実績と、確定済みでまだ発生していない支出。入力は採用組織の会計の基盤(原価の記録・購買の記録)に依存し、準拠テンプレートは読まない。採用者は、単位期間ごとの費用の実績と確定済みの支出を、見込みの報告の Issue と判定記録の「費用の見込み」へ記録の所在とともに書く。入力の無い組は算定できない組になる(ADR-0099 決定3)。確かめる者: 価値責任者(見込みを確かめて記名するとき)(#359 の重の裁定4) | 次の一手のスクリプト(ロールの詳細) | 採用者が実装する(ADR-0125) | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0505 | 要求事項1・5のうち、利用者の範囲(Claude Code の user・local の範囲。~/.claude.json)に足した外部ツール。リポジトリの外に保存され、案件の設定では止められない。採用者が組織の管理の設定(許可・拒否の一覧)で限る。確かめる者: 採用者(組織の管理の設定を置いたとき) | エージェントの権限設定 | 採用者が実装する(ADR-0126) | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | IMPL-0507 | 要求事項1・3 のうち、隔離が効かない経路。ネイティブの Windows のシェル(2026-11-17 時点、Claude Code 2.1.326。隔離は機能ゲートの裏にあり、有効にしても警告を出して隔離なしで動いた。EV-0318)、MCP サーバー、WebFetch の宛先。準拠テンプレートの設定では既定の拒否にならない。採用者が実行環境(WSL2・コンテナ・送信の代理と許可の一覧)で拒否を置く。確かめる者: 採用者(実行環境を置いたとき) | エージェントの権限設定 | 採用者が実装する(ADR-0126) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
@@ -698,7 +697,7 @@ sidebar:
 | IMPL-0494 | 担保水準 L2 で規模の基準なし(null)が効いた PR の結果に、担保水準の根拠の中身を機械で確かめていない旨を定型の文で毎回出す(#360) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0495 | 言語のアダプタ(node・python・go)で被覆の記録が出ない構成と、集計の記録(coverageSummary)の無い言語のアダプタは、基準3 を未実施として失敗させる。測らずに通過(終了コード 0)を返す分岐を除いた(ADR-0124 決定1。#360) | G-5 基準3 のカバレッジの判定(coverage-check.mjs) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-coverage-scope.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0496 | python の全体の割合から、テストのファイル(.claude/guard.json の testPatterns)を除いて数える。coverage.py の既定(--cov に対象の指定なし)ではテストのファイルが分母と分子に入り、割合を上へ寄せるため(#360) | G-5 基準3 のカバレッジの判定(coverage-check.mjs) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-coverage-scope.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0497 | 是正の記録の欠けの検出。導入前の検証の集計で見逃された類型と、統制の弱化の引き渡し(state:needs-platform)の記録があるのに、欠陥の台帳の節「是正の記録」に対応する行が無いことを、/pit か導入前の検証が出すこと。準拠テンプレートは様式と手順だけを置き、起点の記録と行を突き合わせない(#359 の裁定 1-1)。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る) | 導入前の検証のコマンド | — | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0497 | 是正の記録の欠けの検出。導入前の検証の集計で見逃された類型と、統制の弱化の引き渡し(state:needs-platform)の記録があるのに、欠陥の台帳の節「是正の記録」に対応する行が無いことを、/pit が品質保証の担当の次の一手として出す。実装済み・試験済み(2026-11-19): scripts/gate/adoption-trial.mjs の correctionGaps(純関数)が、起点ごとに、節の対象の欄が起点の番号(#N・/issues/N・/pull/N。後ろに数字が続くものは別の番号で、#12 は #123 に当たらない)か見逃した類型の名(目隠しを確かめられた層だけ)を含む行を求め、無ければ欠けとして出し、next.mjs の注記が出す。起点の読み出し(events からの state:needs-platform の履歴、注入の記録 docs/adoption-trial/injection-result.json)は差し替えられる形で、試験は網に出ない。合否に使わず、段階を止めない。対応の判定は文字列の包含で、行の4つの問いの中身は機械が確かめない(確かめる者: 品質保証の担当。欠陥の台帳の様式の文も同じに改めた)。残る誤りは一覧に余分に出る側(偽陽性)である: 番号や類型の名を書かずに言葉で指した行は対応に数えず、一覧に出る(品質保証の担当が見て番号を足す。安全側に倒れる)。events の読み出しは実物の GitHub では未確認(gh api の issues/events の形を模擬で確かめた)。--offline では GitHub の履歴を読まず、欠けがあれば読んでいないことを添える | 導入前の検証のコマンド | — | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0498 | 承認の無い下の層(基底が既定ブランチ以外の写し)の merge_commit_sha が、既定ブランチへ入った PR の head_sha の祖先なら、その PR を層ごとの G-6 の確認に数えない(stackedLayer)。浅い取得、または先頭を取得できないときも数えない(stackedUnconfirmed。数えない側へ倒す)。承認の無い層があるときだけ、PR ごとに git fetch --no-tags origin refs/pull/N/head を行う。数えなかった結果は G-7 基準5 の表(exceptionNeeded)がそのまま扱い、新しい停止を足さない。開示に、承認の無い層の件数・数えなかった件数・未確認の件数・見逃す場面を出す。層に承認があるかは件数でなく、層の写しへ独立した人の確認の判定(independentConfirmation)を当てて決める(bot・AI の名義・作成者本人・作成を指示した者の承認は有効な承認でない。判定できないときは承認なし)。見逃す場面: 層を取り込んだ後の rebase。入力の限界: 写しの base.ref と merge_commit_sha、履歴の深さ。refs/pull/N/head の取得は使い捨ての git リポジトリでだけ確かめ、GitHub の実機と verify ジョブでは確かめていない。確かめる者: 出荷判定者(集約の開示の行を読むとき) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-aggregate-records.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0499 | 到達の見込みの費用の組の入力のうち、単位期間あたりの費用の実績と、確定済みでまだ発生していない支出。入力は採用組織の会計の基盤(原価の記録・購買の記録)に依存し、準拠テンプレートは読まない。採用者は、単位期間ごとの費用の実績と確定済みの支出を、見込みの報告の Issue と判定記録の「費用の見込み」へ記録の所在とともに書く。入力の無い組は算定できない組になる(ADR-0099 決定3)。確かめる者: 価値責任者(見込みを確かめて記名するとき)(#359 の重の裁定4) | 次の一手のスクリプト(ロールの詳細) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/exception-escalation](/process-compass/phase4-process-design/exception-escalation/) |
 | IMPL-0500 | --pickup が「判定できない」で止めた件数を、作業単位ごとに数えて /pit に出すこと(合否に使わない表示。止め方の形骸化の兆候を見せる。#359 の重の裁定5)。結果の置き場は、作業単位の Issue へ1行残す宣言行とする(ADR-0173)。書く権限が無く残せなかった件数は、別に数えて出す。実装(降りている): --pickup が判定できないで止めたとき、指定から導ける作業単位の Issue へ宣言行(pit-in: pickup-undecided に日付とラベルを続けた1行)をコメントし、書けなかった(権限なし・F-NNN など Issue を導けない・--offline)件数を evidence/pickup-undecided-unwritten.jsonl に数える。/pit が宣言行を作業単位ごとに数え、書けなかった件数を別に出す。手元の記録は端末ごとで共有されない。GitHub の読み書きは試験で確かめていない。止め方が妥当かは確かめない。開示: 宣言行は PR の番号の指定でも、その PR の番号の Issue として数える。宣言行は誰が書いた行も数え、偽造を防がない(結果を書くだけで判定には読まない) | 次の一手のスクリプト(着手の前の判定記録の確認) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-next-records.mjs` | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
