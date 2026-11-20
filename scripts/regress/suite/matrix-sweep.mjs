@@ -138,6 +138,12 @@ const mine = (tag) => {
   const i = SWEEP_KEYS.indexOf(tag);
   return i < 0 ? shardNo === 1 : i % shardOf === shardNo - 1;
 };
+// CL3 の案件は、段 mutation の閾値が構成に無いと契約検査が落ちる(ADR-0224 決定6。既定値は置かない)。採用者の手順と同じく、
+// 初期化の直後に /process-change の種別 settings で閾値を入れる(束 B28 の回帰の落ちの直し。期待の「契約○」は変えない)
+const mutationFor = (cl) =>
+  cl === 'cl3'
+    ? change({ kind: 'settings', date: TODAY, summary: '段 mutation の閾値を入れる(G-1 で定めた値)', settings: { ci: { mutationThreshold: 60 } } })
+    : { ok: true, out: '' };
 let total = 0;
 let index = 0;
 let rejected = 0;
@@ -170,6 +176,8 @@ for (const size of ['size-1-2', 'size-3-9', 'size-10plus'])
                 // 3名で初期化し、名簿を記入してから、1人が離脱して 1〜2名になる。拒否せず、出荷できない状態として反映されること
                 write('answers.json', { ...a, 'q-team-size': 'size-3-9', 'q-external-reviewer': undefined });
                 const init3 = gen('--answers', 'answers.json', '--stack', stack);
+                const mut3 = init3.ok ? mutationFor(cl) : init3;
+                if (!mut3.ok) failures.push(`${tag}: 閾値の設定 ${mut3.out.trim().split('\n').slice(-3).join(' ')}`);
                 const g6Before = ['required', 'simplified'].includes(cfg().gates.g6.state);
                 // 第3巡(K65): D-0 が無い状態では変化点を適用しない。(K60) 3名の席は任命権者の記名で埋める
                 d0('1.0');
@@ -196,7 +204,7 @@ for (const size of ['size-1-2', 'size-3-9', 'size-10plus'])
                 const refusedAsDecision = !ch.ok && rv === 'reviewer-no' && g6Before && ch.out.includes('決定した者の記名') && ch.out.includes('独立レビューを置かない決定');
                 // 第3巡: 任免を同じ入力に含む場合、向きは「任免の決定」(出荷できない状態の発生は arising の一覧に残る)
                 const reflected = ch.ok && c0.shipBlocked && ['arising', 'appoint'].includes(c0.changeLog.at(-1).direction) && c0.changeLog.at(-1).arising.some((x) => x.includes('出荷できない状態')) && c.ok && r.ok;
-                const okBlocked = init3.ok && filled.ok && (refusedAsDecision || reflected);
+                const okBlocked = init3.ok && mut3.ok && filled.ok && (refusedAsDecision || reflected);
                 if (!okBlocked) {
                   failures.push(`${tag}: 3名を割る変化点 init3=${init3.ok} fill=${filled.ok} change=${ch.ok} shipBlocked=${Boolean(c0.shipBlocked)} 契約=${c.ok} 規則=${r.ok}\n   ${(ch.ok ? c.out : ch.out).trim().split('\n').slice(-4).join('\n   ')}`);
                 }
@@ -210,6 +218,8 @@ for (const size of ['size-1-2', 'size-3-9', 'size-10plus'])
                 );
                 continue;
               }
+              const mut = mutationFor(cl);
+              if (!mut.ok) failures.push(`${tag}: 閾値の設定 ${mut.out.trim().split('\n').slice(-3).join(' ')}`);
               const c = contract();
               const r = checkRules();
               const rg = gen('--answers', 'process.config.json');
