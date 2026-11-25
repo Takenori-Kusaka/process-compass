@@ -12,7 +12,7 @@
   - `template/.claude/skills/gate/SKILL.md:93-95`(四半期の抽出。「確かめるのは、抽出した記録の判定者以外の人です」「機械だけでは選び直しを止められません」)
   - `template/scripts/init/generate-profile.mjs:6822-6911`(guard が有効なら、強制層の AB・C の区分を `permissions.deny` に置く)、`template/.claude/settings.json`(sandbox の設定は無い。強制層は初期化の前だけ `ask`)
   - `community/implementation-marking.md:53-76・96・129-134`(振る舞いの規則をファイルの実在で確かめても manual になる。adopter は「採用者が自ら実装する」)
-  - 提供者の文書: `CLAUDE_CODE_SESSION_ID` は環境変数の参照に載っている(https://code.claude.com/docs/en/env-vars。2026-11-17 に確認。Bash・PowerShell の道具とフックの子プロセスで設定される。フックの入力の `session_id` と一致し、`/clear` で更新される)。起案の「文書に載っていない」は誤り
+  - 提供者の文書: `CLAUDE_CODE_SESSION_ID` は環境変数の参照に載っている(https://code.claude.com/docs/en/env-vars 。2026-11-17 に確認。Bash・PowerShell の道具とフックの子プロセスで設定される。フックの入力の `session_id` と一致し、`/clear` で更新される)。起案の「文書に載っていない」は誤り
 - 番号: IMPL の現在の最大は 1014、EV の最大は 0313。新しい番号は実装の段で採り、この記録では IMPL-TBD・EV-TBD と書く。ADR は ADR-0172(#441)と ADR-0173(#443)を使う。#444 は ADR を要しないため、ADR-0174 は使わずに返す
 - 重へ上げる点: この束では無い。重の候補は2つ見つけたが、この束では実装しない。既存の open Issue に残す(§2.5)
 

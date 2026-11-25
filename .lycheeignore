@@ -141,3 +141,14 @@ https://github\.com/hokuto-fg/loan-approval
 ^https://www\.fda\.gov/media/(75414|119267|153486|153781|188844|191561)/download
 ^https://www\.fda\.gov/medical-devices/artificial-intelligence-enabled-medical-devices/good-machine-learning-practice-medical-device-development-guiding-principles
 ^https://www\.fda\.gov/regulatory-information/search-fda-guidance-documents/(part-11-electronic-records-electronic-signatures-scope-and-application|artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing|clinical-performance-assessment-considerations-computer-assisted-detection-devices-applied-radiology)
+
+# 2026-11-26 の棚卸し(#453)。検査と同じ UA の curl で確かめ直し、404・410・402 が続いたもの。調査メモには取得時の記録として残す。保存版は探していない
+^https://iso27001security\.com/ISO27k_ISMS_A8\.32_skeleton_policy_on_change_management_2023\.txt
+^https://preview\.aclanthology\.org/ingest-eacl/2026\.eacl-long\.182\.pdf
+^https://www\.cs\.wm\.edu/semeru/tefse2011/papers/p58-dekhtyar\.pdf
+^https://arxiv\.org/html/2606\.19544
+^https://awesome\.ecosyste\.ms/projects/github\.com%2Fzimmski%2FGo-mutesting
+^https://depscope\.dev/pkg/pypi/mutmut
+
+# 同上。tr.linkedin.com は curl でも 999(自動の取得の拒否)を返す。書き方の誤りを直した後も残るため、URL を指定して除外する
+^https://tr\.linkedin\.com/in/nida-baser

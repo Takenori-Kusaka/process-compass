@@ -269,7 +269,7 @@
 - **SWE-bench Verified**(OpenAI、2024-08)
   - Python 経験のある開発者 93 人が、SWE-bench のテスト集合から無作為に選んだ 1,699 件を人手で選別し、500 件を採用
   - **各件に 3 人が独立にラベル**。不一致のときは平均せず**最も深刻な問題の評定を採る**
-  - 出典: https://openai.com/index/introducing-swe-bench-verified/(本体は 403 で読めず、検索結果の抜粋と二次記事 https://wandb.ai/byyoung3/ml-news/reports/OpenAI-Releases-SWE-bench-Verified--Vmlldzo5MDI3NzU0 で確認)
+  - 出典: https://openai.com/index/introducing-swe-bench-verified/ (本体は 403 で読めず、検索結果の抜粋と二次記事 https://wandb.ai/byyoung3/ml-news/reports/OpenAI-Releases-SWE-bench-Verified--Vmlldzo5MDI3NzU0 で確認)
 - **platinum benchmarks・Northcutt**(1.6 節): 機械が候補を挙げ、人が確定する形
 
 ### 3.3 評価基盤ベンダの実務(二次情報)

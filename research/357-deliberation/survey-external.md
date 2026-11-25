@@ -115,7 +115,7 @@
 
 - 【確】EN 50716:2023 の公開プレビュー(SAI Global、https://i2.saiglobal.com/mpc2v/preview/1412600409546.pdf?sku=1348800_SAIG_NSAI_NSAI_3361513&nsai_sku=i-s-en-50716-2023-1348800_saig_nsai_nsai_3361513、取得 2026-11-12)で読めたのは目次と序文まで: 箇条5.1(組織)・5.2(要員の力量と責任)・附属書B(役割の仕様 B.1〜B.9)、図2「Illustration of the organizational structure」。序文は「requirements concerning organizational structure, the relationship between organizations and division of responsibility」を定めるとする。**5.1.2 の本文は読めていない**
 - 【二】CSA の解説(SRC-0679、2026-11-12 に再取得): 評価者は供給者または顧客が指名でき、プロジェクトチームから独立し別の組織単位に属する。SIL3・4 では妥当性確認者がプロジェクトマネージャの部下であることを明示的に禁じる。「The allocation of roles must be appropriately documented and traceable in case of changes to the organisation.」検証者と妥当性確認者の入れ替えは文書化と正当化を要する。力量の証拠は文書化し、スキルマトリクスの維持を勧める
-- 【二】EN 50716 の AI に関する改正の草案の紹介(Prover、https://www.prover.com/formal-methods/cenelec-is-amending-en-50716-for-ai-here-is-what-the-draft-says、取得 2026-11-12): 設計者と検証者が同じ・類似の AI ツールを使うと共有の偏りが独立を損なうとし、AI の誤りを人が拾う形で最終判断が1人に寄り、箇条5 が想定する2人目の独立したレビュアを迂回する危険を挙げる。草案で、発行版ではない
+- 【二】EN 50716 の AI に関する改正の草案の紹介(Prover、https://www.prover.com/formal-methods/cenelec-is-amending-en-50716-for-ai-here-is-what-the-draft-says 、取得 2026-11-12): 設計者と検証者が同じ・類似の AI ツールを使うと共有の偏りが独立を損なうとし、AI の誤りを人が拾う形で最終判断が1人に寄り、箇条5 が想定する2人目の独立したレビュアを迂回する危険を挙げる。草案で、発行版ではない
 - 要旨: 鉄道は独立を**報告線**(誰の部下か)と**組織単位**で書き、役割の割当てを組織の変更に追随して文書化させる
 
 ### 1.4 DO-178C

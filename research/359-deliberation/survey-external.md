@@ -81,7 +81,7 @@
 | ID | 知見 | 出典 | 強さ |
 |---|---|---|---|
 | FX-29 | 代表的な予測の道具(Focused Objective の Throughput Forecaster)は、残りの項目数を**下限・上限の幅**で入力し、項目の分割率も下限・上限で入力する。スコープの理解度の区分(4段階)で幅を調整する。スループットは過去の標本か見積の幅を使う。費用の入力・出力は無い | https://focusedobjective.com/throughput (2026-11-12 閲覧) | 事例(道具の仕様) |
-| FX-30 | 同じ方式の実践の報告: 入力は「残りの項目数の幅・分割率の幅・スループットの幅」。顧客にとって大事なのは費用で、費用は期間に左右される、と書く(費用は期間から導く) | https://www.rpherbig.com/2021/05/25/forecasting-my-process.html(2021) | 事例(個人) |
+| FX-30 | 同じ方式の実践の報告: 入力は「残りの項目数の幅・分割率の幅・スループットの幅」。顧客にとって大事なのは費用で、費用は期間に左右される、と書く(費用は期間から導く) | https://www.rpherbig.com/2021/05/25/forecasting-my-process.html (2021) | 事例(個人) |
 | FX-31 | Monte Carlo の予測は「未来が過去に似ている」ことを前提とする | Vacanti『When Will It Be Done?』の引用(https://lucasfcosta.com/blog/monte-carlo-forecasts の引用。原典は未読) | 意見(書籍の主張の二次引用) |
 | FX-32 | 11 チームのスループットで 176 回の予測を比べた: 平均による予測の的中は 59%、Monte Carlo の 50 パーセンタイルは 62%、70 は 73%、85 は 81%。チームには目標が無く、スコープの追加は扱っていない | Nicolas Brown, ProKanban(2025-06-30。https://prokanban.org/blog/trustingmcs) | 実証(単一著者・小標本・査読なし) |
 | FX-33 | Jira の予測アプリの手引き: 安定した予測には少なくとも6期・約50件の完了項目を推奨 | https://www.brokenbuild.net/examples/kanban-monte-carlo-simulation-chart | 意見(製品の手引き。根拠を示さない) |

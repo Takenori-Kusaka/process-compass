@@ -1,7 +1,7 @@
 # #441・#443・#444 独立の突合 1巡目(全体)
 
 - 日付: 2026-11-17。対象: コミット f5fce2e9 の差分と、IMPL-0743 の変更を含むコミット 68b43df0(#355 のコミットに混ざって入った)
-- 突合者は、裁定にも実装にも加わっていない別の文脈。読んだもの: decision.md・implementation.md・intake.md §3・probe-444/、差分、`template/.claude/skills/gate/SKILL.md`、`template/scripts/init/generate-profile.mjs:6822-6911`、`template/templates/04-gate-record.md`、`community/implementation-marking.md`・`evidence-marking.md`、ADR-0098・ADR-0125、提供者の文書(https://code.claude.com/docs/en/env-vars。2026-11-17 に取得)
+- 突合者は、裁定にも実装にも加わっていない別の文脈。読んだもの: decision.md・implementation.md・intake.md §3・probe-444/、差分、`template/.claude/skills/gate/SKILL.md`、`template/scripts/init/generate-profile.mjs:6822-6911`、`template/templates/04-gate-record.md`、`community/implementation-marking.md`・`evidence-marking.md`、ADR-0098・ADR-0125、提供者の文書(https://code.claude.com/docs/en/env-vars 。2026-11-17 に取得)
 - 流した検査: lint:sources・lint:impl・lint:refs・lint:evidence・lint:scope。いずれも通過(lint:sources の注意は既存の SRC-0511 だけ)
 
 ## 結論

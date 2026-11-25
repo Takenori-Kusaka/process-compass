@@ -132,7 +132,7 @@
 
 #### F9. 国交省の自動運転の実証の事故事例集(2025年度版)
 
-- 出典: 二次(検索の要約)。URL: https://www.mlit.go.jp/jidosha/content/001913915.pdf、https://www.mlit.go.jp/jidosha/content/001447496.pdf (どちらを事例集と見るかは未確認。本文は読んでいない)
+- 出典: 二次(検索の要約)。URL: https://www.mlit.go.jp/jidosha/content/001913915.pdf 、 https://www.mlit.go.jp/jidosha/content/001447496.pdf (どちらを事例集と見るかは未確認。本文は読んでいない)
   - 検索の要約: 実証で発生した事故・事案を紹介し、計画者に留意点の確認を促す
 - 確かさ: 低。追加調査の候補(建前と実運用の乖離の材料になりうる)
 
