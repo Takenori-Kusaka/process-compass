@@ -133,3 +133,4 @@
 - B1・B4・B6 は Google Play で購入済み(.acsm)。読み方は所有者が検討中。DRM は外さない
 - 今後の書籍の候補は、DRM の無い PDF・EPUB を直販する出版社に限る。Google Play・Kindle・.acsm の配布は除く。販売頁で DRM の有無を確かめた記録を本書に残す
 - 技術評論社の PDF には購入者の ID とメールアドレスが入る。抜き書き・画像を research/ へ写さない。出典台帳には短い引用と頁だけを残す
+- L5 の追加の本は買わない(所有者 2026-11-27)。規格の対応表(SRC-0900)・記念誌(SRC-0901)・P1(2.2〜2.6・第36章)で進める。ACT 2 LEAD・Lean Testing・QA Leadership and Mentoring は採らない候補として残す
