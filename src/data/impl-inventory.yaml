@@ -2415,6 +2415,11 @@ sections:
     ids:
       - IMPL-0550
       - IMPL-0551
+      - IMPL-1037
+      - IMPL-1038
+      - IMPL-1039
+      - IMPL-1040
+      - IMPL-1041
     note: 追加・更新の一覧の出力(合否なし)は L1、依存の必要性を G-6 で確かめることは L2。ライセンスの適合は基準5(kb)
     issue: 324
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-5 自動検証 CI(機械判定・即時) > 許可リストが判定を妨げた場合の救済
