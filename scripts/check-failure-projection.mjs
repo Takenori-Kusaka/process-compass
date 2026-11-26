@@ -7,17 +7,18 @@
 //
 // 検査する条件(表は <!-- failure-projection:start --> と <!-- failure-projection:end --> の間):
 //   (a) 見出しの列が定めた7列である
-//   (b) 表の中の IMPL-NNNN が、標準の本文のマーク(<!-- impl IMPL-NNNN ... -->)に実在する(台帳でなくマークを読む)
-//   (c) 区分の列を「/」で分けた各部分が、6値のいずれかで始まる
-//   (d) 「未達」の部分の IMPL は state=undelivered。区分の列で引いた state=undelivered の IMPL は「未達」の部分にある
+//   (b) 表の中の IMPL-NNNN が、標準の本文のマーク(<!-- impl IMPL-NNNN ... -->。囲みのコードと規約の例は除く)に実在する(台帳でなくマークを読む)。仮番号(IMPL-TBD-…)は違反
+//   (c) 区分の列を「/」で分けた各部分が、6値のいずれかで始まり、値の直後が括弧・コロン・行末である
+//   (d) 「未達」の部分は IMPL を1つ以上持ち、すべて state=undelivered。区分の列で引いた state=undelivered の IMPL は「未達」の部分にある
 //   (e) 「機械が止める」の部分は、state=delivered かつ check=machine の IMPL を1つ以上持つ(必要条件)
 //   (f) 最も弱い止め方の列の先頭の値が、区分の列の値のうち最も弱いものと一致する
-//   (g) 区分に「審議中」がある行は、審議中の表示が「#番号」と「YYYY-MM-DD 時点」を持つ。無い行は「—」
+//   (g) 区分に「審議中」がある行は、審議中の表示が「#番号」と「審議中(#番号、YYYY-MM-DD 時点)」の形。無い行は「—」
 //
 //   node scripts/check-failure-projection.mjs   (npm run lint:refs の一部)
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { MARK_RE, maskFences } from './lib/impl-inventory.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DOCS = path.join(ROOT, 'src/content/docs');
@@ -28,14 +29,16 @@ export const END = '<!-- failure-projection:end -->';
 export const HEADER = ['困りごと', '止める場所', '区分', '最も弱い止め方', '証拠(保証の開示の項目・記録)', '引く条項', '審議中の表示'];
 /** 強い順。後ろほど弱い */
 export const VALUES = ['機械が止める', '機械が示し人が止める', '人', '未達', '審議中', '開示'];
-const MARK_RE = /<!--\s*impl\s+(IMPL-\d{4})\s+([^>]*?)-->/;
 const IMPL_RE = /IMPL-\d{4}/g;
+/** 仮番号(IMPL-TBD-…)は、実在しない番号として違反にする */
+const TENTATIVE_RE = /IMPL-[A-Za-z]/;
+const DELIBERATING_RE = /^審議中[(（]#\d+、\d{4}-\d{2}-\d{2} 時点[)）]$/;
 
 /** 標準の本文の実装マークを読む。Map<IMPL-NNNN, {state, check}> */
 export function readMarks(texts) {
   const marks = new Map();
   for (const text of texts) {
-    for (const line of text.split(/\r?\n/)) {
+    for (const line of maskFences(text.split(/\r?\n/)).masked) {
       const m = MARK_RE.exec(line);
       if (!m) continue;
       marks.set(m[1], { state: /\bstate=(\w+)/.exec(m[2])?.[1], check: /\bcheck=(\w+)/.exec(m[2])?.[1] });
@@ -60,7 +63,8 @@ export function splitParts(cell) {
   return parts;
 }
 
-const valueOf = (part) => [...VALUES].sort((a, b) => b.length - a.length).find((v) => part.startsWith(v));
+/** 値の直後が、括弧・コロン・行末のいずれかであること(「人工知能が…」を「人」と読まない) */
+const valueOf = (part) => VALUES.find((v) => part.startsWith(v) && (part.length === v.length || /^[(（:：]/.test(part.slice(v.length))));
 
 /** @returns {string[]} 違反の一覧 */
 export function checkProjection(text, marks) {
@@ -75,6 +79,7 @@ export function checkProjection(text, marks) {
     const n = i + 1; const cells = splitCells(line);
     if (cells.length !== HEADER.length) { problems.push(`行${n}: 列が ${cells.length} 個(7個であること)`); continue; }
     const [, , kubun, weakest, , , deliberating] = cells;
+    if (TENTATIVE_RE.test(line)) problems.push(`(b) 行${n}: 仮番号の IMPL(IMPL-TBD など)が残っている`);
     for (const id of new Set(line.match(IMPL_RE) ?? [])) if (!marks.has(id)) problems.push(`(b) 行${n}: ${id} が標準の本文のマークに無い`);
     const parts = splitParts(kubun); const vals = [];
     for (const p of parts) {
@@ -82,6 +87,7 @@ export function checkProjection(text, marks) {
       if (!v) { problems.push(`(c) 行${n}: 区分の部分が6値で始まらない: ${p}`); continue; }
       vals.push(v);
       const ids = p.match(IMPL_RE) ?? [];
+      if (v === '未達' && ids.length === 0) problems.push(`(d) 行${n}: 「未達」の部分に IMPL が無い: ${p}`);
       if (v === '未達') for (const id of ids) if (marks.has(id) && marks.get(id).state !== 'undelivered') problems.push(`(d) 行${n}: 「未達」の ${id} が state=undelivered でない(${marks.get(id).state})`);
       if (v === '機械が止める' && !ids.some((id) => marks.get(id)?.state === 'delivered' && marks.get(id)?.check === 'machine')) problems.push(`(e) 行${n}: 「機械が止める」に、state=delivered かつ check=machine の IMPL が無い`);
       if (v !== '未達') for (const id of ids) if (marks.get(id)?.state === 'undelivered') problems.push(`(d) 行${n}: state=undelivered の ${id} が「未達」の部分に無い(${v})`);
@@ -91,7 +97,7 @@ export function checkProjection(text, marks) {
       const got = /^([^:：]+)[:：]/.exec(weakest)?.[1]?.trim();
       if (got !== expect) problems.push(`(f) 行${n}: 最も弱い止め方の先頭が「${got ?? '(無し)'}」。区分から導く値は「${expect}」`);
       const has = vals.includes('審議中');
-      if (has && !(/#\d+/.test(deliberating) && /\d{4}-\d{2}-\d{2} 時点/.test(deliberating))) problems.push(`(g) 行${n}: 区分に「審議中」があるが、審議中の表示に #番号 と YYYY-MM-DD 時点が無い`);
+      if (has && !DELIBERATING_RE.test(deliberating)) problems.push(`(g) 行${n}: 区分に「審議中」があるが、審議中の表示が「審議中(#番号、YYYY-MM-DD 時点)」の形でない`);
       if (!has && deliberating !== '—') problems.push(`(g) 行${n}: 区分に「審議中」が無いのに、審議中の表示が「—」でない`);
     }
   }
@@ -103,7 +109,8 @@ function walk(dir) {
 }
 
 export function loadMarks() {
-  return readMarks(walk(DOCS).filter((f) => !f.includes(`${path.sep}community${path.sep}implementation-ledger`)).map((f) => fs.readFileSync(f, 'utf8')));
+  // 台帳(自動生成)と、書式の例のマークを持つ規約は読まない(check-impl.mjs と同じ)
+  return readMarks(walk(DOCS).filter((f) => !f.includes(`${path.sep}community${path.sep}implementation-ledger`) && !f.endsWith(`${path.sep}community${path.sep}implementation-marking.md`)).map((f) => fs.readFileSync(f, 'utf8')));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

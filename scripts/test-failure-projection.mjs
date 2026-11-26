@@ -2,6 +2,7 @@
 //
 // 検査が既知の違反で落ちることを確かめる。実物の表を1か所ずつ壊し、条件 (a)〜(g) のそれぞれが検出されることと、
 // 適合する実物が通ることを確かめる。
+// 注意: 試験は実物の表の文字列を前提に壊す。#454・#455・#457 の実装の段で行を改めるときは、本試験の前提の文字列も直す。
 //
 //   node scripts/test-failure-projection.mjs
 import assert from 'node:assert/strict';
@@ -44,6 +45,20 @@ test('(e) 機械が止める に check=machine の IMPL が無いと落ちる', 
 test('(e) 機械が止める に state=delivered の IMPL が無いと落ちる', () => detects(run(text, withMark('IMPL-0474', { state: 'undelivered' })), /\(e\)/));
 test('(f) 最も弱い止め方が導かれる値と違えば落ちる', () => detects(run(mutate('開示: 人のレビューが全行を', '人: 人のレビューが全行を')), /\(f\) 行1/));
 test('(f) 最も弱い止め方の先頭の値が無ければ落ちる', () => detects(run(mutate('人: 機械検査で確かめられない', '機械検査で確かめられない')), /\(f\) 行2/));
+test('(c) 値の前方一致(人工知能が止める)は落ちる', () => detects(run(mutate('/ 人(G-6 基準1・2)/ 開示', '/ 人工知能が止める(G-6 基準1・2)/ 開示')), /\(c\)/));
+test('(d) 未達の部分に IMPL が無いと落ちる', () => detects(run(mutate('未達(IMPL-0512。実行の記録そのものの保持。採用者)', '未達(実行の記録そのものの保持。採用者)')), /\(d\).*IMPL が無い/));
+test('(b) 仮番号の IMPL は落ちる', () => detects(run(mutate('IMPL-0512。実行の記録そのものの保持。採用者', 'IMPL-TBD-457-1。実行の記録そのものの保持。採用者')), /\(b\).*仮番号/));
+test('(g) 審議中の表示が定めた形でないと落ちる', () => detects(run(mutate('審議中(#455、2026-11-27 時点)', '審議中(#455、2026-11-27 時点 参考)')), /\(g\) 行6/));
+test('マークの読み: 囲みのコードの中の例を読まない', () => {
+  const m = readMarks(['```\n<!-- impl IMPL-9997 target=x state=delivered note="a" -->\n```']);
+  assert.equal(m.has('IMPL-9997'), false);
+});
+test('マークの読み: 規約(implementation-marking.md)の例の番号を loadMarks が読まない', () => {
+  const ex = fs.readFileSync(path.join(ROOT, 'src/content/docs/community/implementation-marking.md'), 'utf8').match(/<!-- impl (IMPL-\d{4})/g)?.map((s) => s.slice(-9)) ?? [];
+  const ledger = fs.readFileSync(path.join(ROOT, 'src/content/docs/community/implementation-ledger.md'), 'utf8');
+  const onlyThere = ex.filter((id) => !ledger.includes(id));
+  for (const id of onlyThere) assert.equal(marks.has(id), false, `規約の例の ${id} を読んでいる`);
+});
 test('(g) 審議中の行に日付が無いと落ちる', () => detects(run(mutate('審議中(#455、2026-11-27 時点)', '審議中(#455)')), /\(g\) 行6/));
 test('(g) 審議中の行に番号が無いと落ちる', () => detects(run(mutate('審議中(#455、2026-11-27 時点)', '審議中(2026-11-27 時点)')), /\(g\) 行6/));
 test('(g) 審議中でない行の表示が「—」でないと落ちる', () => detects(run(mutate('| G-5 基準1〜8、G-6 基準1・2、', '| G-5 基準1〜8、G-6 基準1・2、').replace(/(H\.9 問2・6 \| )—/, '$1審議中(#454、2026-11-27 時点)')), /\(g\) 行1/));
