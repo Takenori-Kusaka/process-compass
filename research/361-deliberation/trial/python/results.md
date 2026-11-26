@@ -43,3 +43,7 @@
 ## 5. 削除
 
 (下記)
+
+```
+GraphQL: Could not resolve to a Repository with the name 'Takenori-Kusaka/pit-in-trial-python-tmp'. (repository)
+```
