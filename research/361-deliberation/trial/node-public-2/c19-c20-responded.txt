@@ -1,0 +1,32 @@
+=== 45802819901
+failure
+pre-review-responded failure
+Complete job name: pre-review-responded
+hint: to use in all of your new repositories, which will suppress this warning,
+(Use `node --trace-deprecation ...` to show where the warning was created)
+0Z ##[group]Run node scripts/gate/pre-review.mjs responded --pr "$PR_NUMBER"
+[36;1mnode scripts/gate/pre-review.mjs responded --pr "$PR_NUMBER"[0m
+応答の揃いの検査: 失敗: 応答の宣言行が揃っていない。ブランチ保護の回避は確かめない。実物の GitHub では確かめていない。
+##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+=== 45802827631
+success
+pre-review-responded success
+Complete job name: pre-review-responded
+hint: to use in all of your new repositories, which will suppress this warning,
+(Use `node --trace-deprecation ...` to show where the warning was created)
+3Z ##[group]Run node scripts/gate/pre-review.mjs responded --pr "$PR_NUMBER"
+[36;1mnode scripts/gate/pre-review.mjs responded --pr "$PR_NUMBER"[0m
+docs/gates/g4-F-002-2026-12-01.md: 事前レビューの上程と結べない(ゲート G-4・対象 #999。結ぶのは、ゲートの語の一致と、対象の欄の #番号が上程か判定資料の PR の番号に等しいこと)。確かめていない
+応答の揃いの検査: 確かめていない(理由は個別の行を見よ。失敗にはしない)。ブランチ保護の回避は確かめない。実物の GitHub では確かめていない。
+##[warning]確かめていない: docs/gates/g4-F-002-2026-12-01.md: 事前レビューの上程と結べない(ゲート G-4・対象 #999。結ぶのは、ゲートの語の一致と、対象の欄の #番号が上程か判定資料の PR の番号に等しいこと)。確かめていない
+=== 45802837153
+success
+pre-review-responded success
+Complete job name: pre-review-responded
+hint: to use in all of your new repositories, which will suppress this warning,
+(Use `node --trace-deprecation ...` to show where the warning was created)
+6Z ##[group]Run node scripts/gate/pre-review.mjs responded --pr "$PR_NUMBER"
+[36;1mnode scripts/gate/pre-review.mjs responded --pr "$PR_NUMBER"[0m
+docs/gates/g4-F-003-2026-12-01.md: 事前レビューの上程と結べない(ゲート (読めない)・対象 (読めない)。結ぶのは、ゲートの語の一致と、対象の欄の #番号が上程か判定資料の PR の番号に等しいこと)。確かめていない
+応答の揃いの検査: 確かめていない(理由は個別の行を見よ。失敗にはしない)。ブランチ保護の回避は確かめない。実物の GitHub では確かめていない。
+##[warning]確かめていない: docs/gates/g4-F-003-2026-12-01.md: 事前レビューの上程と結べない(ゲート (読めない)・対象 (読めない)。結ぶのは、ゲートの語の一致と、対象の欄の #番号が上程か判定資料の PR の番号に等しいこと)。確かめていない

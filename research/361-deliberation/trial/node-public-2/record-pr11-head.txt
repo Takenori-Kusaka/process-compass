@@ -1,0 +1,20 @@
+{
+  "repository": "Takenori-Kusaka/pit-in-trial-node-pub2-tmp",
+  "pr": 11,
+  "title": "docs: trial a",
+  "body": "## 対応タスク\n\n## 変更の概要\n\n承認の試行 A。\n\n## 検証方法と結果\n\n試行の代記(人の検証ではない): 手元で npm test を実行し通過を確認した。\n\n## リスク区分\n\nR3\n\nSpec: setup",
+  "head_ref": "t/a",
+  "merge_commit_sha": "b5a55da3779a9e0a896016f03c8f05a2516a9cac",
+  "head_sha": "6f70e606dd9aa367f0e4c38519dd6131ba3281fd",
+  "author": {
+    "id": 22556919,
+    "login": "Takenori-Kusaka"
+  },
+  "merged_at": "2026-11-26T10:41:14Z",
+  "merged_by": {
+    "login": "Takenori-Kusaka"
+  },
+  "base": {
+    "ref": "main"
+  },
+  "

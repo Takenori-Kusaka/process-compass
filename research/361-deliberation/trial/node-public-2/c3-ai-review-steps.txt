@@ -1,0 +1,40 @@
+ai-review success :: Set up job=success | Run actions/checkout@v4=success | Run actions/setup-node@v4=success | 有効かどうかを確認する=success | PR の先頭を取得する=success | 差分を書き出す=success | 入力を記録する=success | Run actions/upload-artifact@v4=success | レビューの実行(未設定)=success | レビューの失敗を表示する=skipped | 道具の側の入力と指摘の欠落を表示する=success | Post Run actions/setup-node@v4=success | Post Run actions/checkout@v4=success | Complete job=success
+ai-review-notice success :: Set up job=success | 位置づけを PR へ明記する=success | Complete job=success
+[36;1m    echo "::notice::フォークからの PR のため、AI の手順を動かしません(既定。構成の aiReview.allowForks で変える)"[0m
+[36;1m    echo "フォークからの PR のため、AI の手順を動かしていません(aiReview.allowForks が true でない)" >> "$GITHUB_STEP_SUMMARY"[0m
+[36;1mecho "AI レビューの指示の版(既定ブランチ): $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"[0m
+[36;1m  echo "::warning::既定ブランチに .github/ai-review/instructions.md がありません。指示の置き場を既定ブランチへ入れるまで、AI レビューを実行しません"[0m
+[36;1m  echo "既定ブランチに .github/ai-review/instructions.md が無いため、AI レビューを実行していません" >> "$GITHUB_STEP_SUMMARY"[0m
+### AI レビューへ渡した入力の記録(ワークフローが列挙できるもの)
+3Z ##[group]Run echo "::notice::AI レビューの実装は未設定です。使いたい仕組みをこのステップへ追加してください(指示: ${AI_REVIEW_INSTRUCTIONS})"
+[36;1mecho "::notice::AI レビューの実装は未設定です。使いたい仕組みをこのステップへ追加してください(指示: ${AI_REVIEW_INSTRUCTIONS})"[0m
+##[notice]AI レビューの実装は未設定です。使いたい仕組みをこのステップへ追加してください(指示: .github/ai-review/instructions.md)
+### 道具の側の入力と、指摘の欄の欠落(AI レビューの出力の形の表示)
+github-actions[bot]: ### AI レビューの位置づけ
+
+このワークフローが出す指摘は **検出の層** であり、監査の入力です。判定には数えません。
+
+- 独立レビュー(G-6)の代替にはなりません
+- 承認(approve)は行いません
+- 合否条件にしていないため、指摘が残っていてもマージは止まりません
+- 指摘はワークフローの実行の要約(ai-review のジョブ)に出ます。PR へのコメントにはしません
+-
+github-actions[bot]: <!-- pit-in:g6-test-changes -->
+### 既存のテストの変更(G-6 の材料。合否には使わない)
+
+基底ブランチにあるテストの削除・名前の変更・行の削除はありません。
+
+### 検証を弱める変更の検出(G-6 の必須の確認事項。合否には使わない)
+
+- 新しいテストのファイル: なし
+- 追加行の skip・only・todo: 0 件
+- 追加行の落ちることを期待す
+github-actions[bot]: ### AI レビューの位置づけ
+
+このワークフローが出す指摘は **検出の層** であり、監査の入力です。判定には数えません。
+
+- 独立レビュー(G-6)の代替にはなりません
+- 承認(approve)は行いません
+- 合否条件にしていないため、指摘が残っていてもマージは止まりません
+- 指摘はワークフローの実行の要約(ai-review のジョブ)に出ます。PR へのコメントにはしません
+-

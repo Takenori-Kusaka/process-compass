@@ -1,0 +1,6 @@
+ai-review success :: Set up job=success | Run actions/checkout@v4=success | Run actions/setup-node@v4=success | 有効かどうかを確認する=success | PR の先頭を取得する=success | 差分を書き出す=success | 入力を記録する=success | Run actions/upload-artifact@v4=success | レビューの実行(未設定)=success | レビューの失敗を表示する=success | 道具の側の入力と指摘の欠落を表示する=success | Post Run actions/setup-node@v4=success | Post Run actions/checkout@v4=success | Complete job=success
+ai-review-notice success :: Set up job=success | 位置づけを PR へ明記する=success | Complete job=success
+gh: Resource not accessible by integration (HTTP 403)
+{"message":"Resource not accessible by integration","documentation_url":"https://docs.github.com/rest/issues/comments#create-an-issue-comment","status":"403"}
+4Z ##[group]Run echo "::warning::AI レビューの手順が失敗しました。指摘は出ていません。PR へコメントする実装は read の権限で失敗します。出し先をジョブの要約へ移し�
+[36;1mecho "::warning::AI レビューの手順が失敗しました。指摘は出ていません。PR へコメントする実装は read の権限で失敗します。出し先をジョブの要約へ移してくだ�

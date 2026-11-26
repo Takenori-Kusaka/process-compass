@@ -1,0 +1,18 @@
+::warning::ルールセットの適用(必須チェック gate-g5。G-6 が有効なら要求する承認の数・最後の push の後の承認・コードオーナー): 不一致(効いている規則が構成(ルールセットなし。G-6 無効)と一致しない: 必須チェックに gate-g5 が無い。旧来のブランチ保護と合わせても満たさない: ルールセットにも旧来の保護にも、必須チェック gate-g5 が無い)
+::notice::旧来のブランチ保護との重なり(gh api …/branches/<branch>/protection): 確認済み(旧来のブランチ保護がルールセットと重なっている(必須チェック test/test・承認 なし・管理者にも適用 する)。重なりは厳しい方が勝つ。緩める根拠には使わない)
+::notice::効いている CODEOWNERS の所在と codeowners/errors の結果: 確認済み(効いている CODEOWNERS は .github/CODEOWNERS(codeowners/errors は 0 件))
+::notice::ルールセットのバイパスの主体(bypass_actors): 確認済み(効いているルールセット 28155750 にバイパスの主体は無い)
+::notice::PR のレビューの取得(gate-g5 が PR_REVIEWS に渡す gh api …/pulls/N/reviews): 確認済み(PR #11 のレビュー 2 件を取得(承認 1 件。user.login と state の形))
+::warning::ship-evidence の成果物の取得(gate-g5 の実行の license-scan・test-results): 未確認(確かめる対象がまだ無い)(gate-g5 の成功した実行が無い(最初の PR の後に確かめる))
+::notice::Workflow permissions の既定(GITHUB_TOKEN の既定の権限。上限ではなく出発点): 確認済み(既定は read。permissions を書かないワークフローは書き込みを得ない。permissions を明示した昇格は止めない(既定であり上限ではない)。G-8 の適合の判定には使わない(狭める措置の事実))
+::notice::Actions による PR の承認の可否(can_approve_pull_request_reviews): 確認済み(Actions は PR を承認できない(GITHUB_TOKEN による承認を止める)。G-8 の適合の判定には使わない(狭める措置の事実))
+::notice::Environment の配備の参照の限定(delegated-merge を含む): 対象外(Environment が無く、委任のトークンも Environment の外に無い。確認済みには数えない。委任のマージを有効にする前に delegated-merge を作り、配備のブランチを既定ブランチに限る。リポジトリの秘密情報と変数は名前だけを読み、値は読まない。組織の秘密情報は読んでいない。G-8 の適合の判定には使わない(狭める措置の事実))
+::notice::所見 記録用ブランチ(records)の存在と保護(non_fast_forward・deletion。bypass actor なし): 確認済み(ブランチ records(144d10f)に non_fast_forward/deletion が効き、bypass actor は無い)
+::notice::所見 record-copy.yml の存在と直近の実行の成否: 確認済み(record-copy.yml は active。直近の実行 45803644149 は成功(2026-11-26T10:41:18Z))
+::notice::所見 最新のマージ済み PR の写し(records/reviews/pr-<n>.json)の到着: 確認済み(PR #11 の写し records/reviews/pr-11.json が records ブランチにある)
+::notice::所見 既定ブランチのルールセットの bypass actor(Integration など): 確認済み(既定ブランチ main のルールセット(28155750)に bypass actor は無い)
+::warning::所見 GITHUB_TOKEN/App の承認が required approving review に数えられる組織設定: API で取れない(GITHUB_TOKEN と GitHub App の承認レビューが required approving review に数えられるかは、組織の設定(Actions の権限「Allow GitHub Actions to approve pull requests」)で決まり、リポジトリの API では取れない。組織の設定の画面で人が確かめ、記録の節9 へ書く。数えられる設定では、機械の承認が承認の数に入るため、独立した人の確認の数え方(出荷の集約)と食い違う)
+::notice::所見 AI の担い手の名義の照合: 席の指定なし(どの席の担い手の環境かを指定していない(--seat <ロール>)。席ごとの名義の照合に使わない)。この照合は、env-check を実行した環境(その環境の gh が認証したアカウント)と時点に限る。担い手が別の環境・別の認証情報で動く場合は確かめていない
+::notice::基底から読む判定(gate-g5-base): 満たす(既定ブランチ main の gate-g5-base.yml(pull_request_target)の結果 gate-g5-base が必須チェックとして効いている。定義の中身は静的な試験と同じ観点で読んだ(実際の振る舞いは確かめていない)。設定の値であり、止まるべきものが止まることは陰性の確認で確かめる)
+::notice::実環境の識別(査察で GitHub の画面と突合する鍵): リポジトリ https://github.com/Takenori-Kusaka/pit-in-trial-node-pub2-tmp / ルールセット id 28155750 / 旧来のブランチ保護 あり(https://api.github.com/repos/Takenori-Kusaka/pit-in-trial-node-pub2-tmp/branches/main/protection) / CODEOWNERS .github/CODEOWNERS(blob 782e2517950f) / バイパスの主体を読んだルールセット id 28155750 / PR #11 のレビュー id 6072613487・6072639328(最後の提出 2026-11-26T10:40:53Z) / Workflow permissions の既定 read / Actions による PR の承認 不可 / Environment なし / 応答の取得 2026-11-26T19:41:52〜2026-11-26T19:42:00
+::notice::docs/adoption-trial/env-check.json を書きました(確認した者 試行の代記。対象 Takenori-Kusaka/pit-in-trial-node-pub2-tmp / main)。記録だけのコミットとしてコミットします。確認済みでない項目は、記録と出荷の集約に「未確認」と出続けます(消えません)

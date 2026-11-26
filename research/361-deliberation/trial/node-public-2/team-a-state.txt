@@ -1,0 +1,4 @@
+{"mergeStateStatus":"BLOCKED","reviewDecision":"REVIEW_REQUIRED"}
+{"mergeStateStatus":"UNSTABLE","reviewDecision":"APPROVED"}
+{"d":"REVIEW_REQUIRED","m":"BLOCKED","r":["DISMISSED"]}
+{"mergeStateStatus":"UNSTABLE","reviewDecision":"APPROVED"}

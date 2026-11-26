@@ -1,0 +1,12 @@
+45804887215 success 2026-11-26T10:49:28Z docs: rc 5
+45804875036 success 2026-11-26T10:49:23Z docs: rc 4
+45804867085 success 2026-11-26T10:49:20Z docs: rc 3
+45804854612 success 2026-11-26T10:49:15Z docs: rc 2
+45804840708 success 2026-11-26T10:49:10Z docs: rc 1
+45804454563 success 2026-11-26T10:46:37Z docs: c3 (コードオーナーの対照)
+45804264160 success 2026-11-26T10:45:24Z chore: CODEOWNERS を戻す
+45804082969 success 2026-11-26T10:44:13Z chore: CODEOWNERS を lab へ
+45803644149 success 2026-11-26T10:41:18Z docs: trial a
+45802147117 success 2026-11-26T10:31:35Z chore: env-check の記録
+45801373639 success 2026-11-26T10:26:36Z chore: process-init
+45800395396 success 2026-11-26T10:20:24Z chore: pit-in の持ち込み

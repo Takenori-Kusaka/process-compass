@@ -1,0 +1,13 @@
+# trial-log (node public 3巡目。時刻は JST 2026-11-26)
+- 19:15 `gh repo create Takenori-Kusaka/pit-in-trial-node-pub2-tmp --public`。clone の git 設定は user.name "pit-in trial"・user.email 22556919+Takenori-Kusaka@users.noreply.github.com。マージの方式は rebase のみに設定(squash・merge commit を無効)。グローバルの git の email は実アドレスなので、clone の設定で必ず上書き。
+- 19:16 既存のアプリ(6コミット)、旧来の保護(必須 test・enforce_admins)、開いた PR #1(feat/wip)を置いた。全コミットの `%ae %ce` は noreply のみ。ganbariquestsupport-lab を collaborator(write)に招待し、そのアカウントで受諾。
+- 19:20 持ち込み: `git archive 616f039 | tar -x -k`(作業ツリーでなくコミットの中身。README の手順どおり)。重なり4件(CODEOWNERS 既存を残す・.gitignore・CLAUDE.md・README)を合成。手引きは README の重なりの扱いに指示が無く、追記の形は実行役が選んだ(手順に無い判断。1巡目と同じ)。preflight 1回目: 止める3、2回目(CLAUDE.md 等を合成)止める1(資産一覧)、3回目 0。
+- 手順に無い作業: 合成の際に `git show <sha>: <path>` のコロンの後に空白を入れて誤り(実行役の入力誤り。テンプレートの欠陥ではない)。直した。
+- 19:23 PR #2(持ち込み): ship-evidence-verify は赤。理由は基底に `.github/gate-node-version` が無いこと。メッセージは「持ち込みの最初の PR は検査できない。採用者の既存の保護の必須チェックに従って取り込む」と書き改まっていた(1巡目の F-2 の直し)。旧来の保護の必須は test だけのため取り込めた(rebase)。gate-contract は赤(NG 4: test-discouraged-evidence)。
+- 19:27 PR #3(初期化): 手順に無い作業 = package.json に coverage のスクリプトを手で足した(jest の json-summary・json)。D-0(templates から複製+`generate-profile --answers process.config.json`)・project-brief・defect-ledger を templates から複製した。初期化の出力は D-0 だけを「次のコマンド」に挙げた。
+- 19:31 checks-only と records を適用(実ルールセット id 28155750)。以後 gate-g5 は D-0 等の人の欄が未記入のため一度も成功せず、実の checks-only の下では PR を取り込めない(B-7 の止まり方の観測)。**以下の変種は、人の欄を埋めずに効きを観測するための手順外の操作**(ルールセット 28155750 を PUT で差し替え。最後は enforcement=disabled、削除で消えた):
+  - v1: 必須を gate-g5-base のみ(C-25 の SHA の push) / v2: 必須を pre-review-responded のみ(C-21) / team-v: team.json の必須を gate-g5-base のみ(承認の観測) / team-co: team.json から必須チェックを外し require_code_owner_review を false から true へ(CODEOWNERS の観測) / disabled(record-copy の連続マージ)
+- 19:36 ai-review.yml の定義を既定ブランチで一時に替え(PR へ書く模擬)、観測の後に PR #22 で元(616f039 の内容)へ戻した。
+- 手順に無い作業: `git push origin main`(ai-review の差し替え)は旧来の保護で拒否されたため、PR を経た。旧来の保護(enforce_admins)は、ルールセットを disabled にした後も効いていた。
+- メールの確認: 全マージ(#2・#3・#4 の SHA 直 push・#11〜#14・#15〜#19・#21・#22)の直後に commits API で作者・コミッターを確認。42 件すべて 22556919+Takenori-Kusaka@users.noreply.github.com。実アドレス 0 件。push の前の `git log --format='%ae %ce'` も毎回 noreply のみ。`merge-email-checks.txt`・`all-commit-emails.txt`。3巡目では露出が起きなかった(Keep my email private が rebase マージのコミッターに効いた)。
+- 新しい欠陥の候補(D-1 の残り): 持ち込み・初期化の後の gate-contract が、次の4試験を NG にする。再現: 空のリポへ `git archive 616f039 | tar -x`(LF)で複製し、D-0 等が未記入の状態で PR を開く → `node scripts/gate/test-discouraged-evidence.mjs` が「試験の前提: D-0 の記録の表へ行を書き込めた」ほか3件を NG(`gate-contract-pr2-ng.txt`・`gate-contract-pr3-ng.txt`)。1巡目(Windows の作業ツリー複製)と同じ4件。LF の複製でも同じため、改行が原因ではない。初期化の前(PR #2)でも後(PR #3)でも出る。

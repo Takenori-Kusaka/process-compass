@@ -1,0 +1,8 @@
+remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: Review all repository rules at https://github.com/Takenori-Kusaka/pit-in-trial-node-pub2-tmp/rules?ref=refs%2Fheads%2Fmain        
+remote: 
+remote: - Required status check "gate-g5" is failing.        
+remote: 
+To https://github.com/Takenori-Kusaka/pit-in-trial-node-pub2-tmp.git
+ ! [remote rejected] d1faf662afe70232eee81777313bf29c48889ee4 -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/Takenori-Kusaka/pit-in-trial-node-pub2-tmp.git'

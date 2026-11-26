@@ -1,0 +1,2 @@
+To https://github.com/Takenori-Kusaka/pit-in-trial-node-pub2-tmp.git
+   4dba77e..d1faf66  d1faf662afe70232eee81777313bf29c48889ee4 -> main
