@@ -1,0 +1,2020 @@
+{
+  "range": {
+    "from": null,
+    "to": "v0.1.0",
+    "toCommit": "854e78fcfe6d9d5c5631580c4e66e11c973428d4"
+  },
+  "previousSource": null,
+  "period": null,
+  "preInit": {
+    "commits": 11,
+    "initCommit": "2b6a556f",
+    "outOfScope": true
+  },
+  "criteria": [
+    {
+      "id": 1,
+      "label": "計画したテストの消化率",
+      "machine": "partial",
+      "result": "受入基準 0 件、計画したテスト(受入基準 F-NNN/AC-N を参照するテストのファイル)0 件。実行の記録(evidence/test-results.json)なし。消化数を数えていない。対応するテストの無い受入基準 0 件",
+      "humanReconcile": "計画したテストが受入基準を十分に確かめているか(機械は件数だけを数える)と、対応するテストの無い受入基準・未消化のテストの理由と残存リスク(G-7 の判定記録の「未消化のテスト」の節)"
+    },
+    {
+      "id": 2,
+      "label": "未解決の欠陥",
+      "machine": "not-checked",
+      "result": "欠陥の台帳(docs/defect-ledger.md)が無い(記載の欠落)",
+      "humanReconcile": "区分ごとの件数が欠陥トリアージ基準を満たすか(出荷の可否を機械は判定しない)。台帳に載っていない欠陥が無いか"
+    },
+    {
+      "id": 3,
+      "label": "受容した負債の台帳記録",
+      "machine": "partial",
+      "result": "技術負債台帳 なし(台帳の有無だけを見た)",
+      "humanReconcile": "記録漏れ(台帳に無い妥協)は機械で確かめていない。PR のチェックリスト「受容した妥協・仮実装を技術負債台帳へ記録した」と台帳"
+    },
+    {
+      "id": 4,
+      "label": "運用引き継ぎ文書",
+      "machine": "partial",
+      "result": "docs/handover.md なし",
+      "humanReconcile": "記入が在ることは完備を意味しない。閾値の妥当性、連絡先へ届くか、復旧手順の実行の実績は機械で確かめていない。docs/handover.md の中身を読んで判定する"
+    },
+    {
+      "id": 5,
+      "label": "全ゲートの通過記録",
+      "machine": "partial",
+      "result": "G-5: gate-g5 成功 0 / 成功以外 1 / 記録なし 2(PR ごと)。G-6: 独立した人の確認あり 0 件 / G-6 を事後へ移した 0 件 / 例外承認の記録が対応づいた 0 件 / 独立した人の確認を経ていない 3 件(G-6 を適用しない体制。R1 の変更だけ例外承認を要する)。G-4: トレーラ Spec が指す仕様 0 件のうち、機能仕様承認の判定記録が無い 0 件。判断記録の再検査(範囲で変わった判断記録。G-3 で判定した版との比較): 一致 0 / 不一致 0 / 未確認 0(文字列の一致までで、意味の変更かは確かめない。実証なし)。確定した版の再確認(範囲で変わった機能仕様): 一致 0 / 不一致 0 / 未確認 0(未確認は欠落に数えない。出荷判定者が判定記録の版と突合する)。当該出荷の範囲の判定記録の件数: G-1 企画承認 0 / G-3 技術設計判断 0 / G-4 機能仕様承認(反復内) 0 / G-5 自動検証(CI) 0 / G-8 リリース決裁 0",
+      "humanReconcile": "適用するゲートごとの判定記録の件数が、当該の出荷に対応しているか(G-1〜G-3・G-7・G-8 の、出荷に対応する件数は機械で決められない)"
+    },
+    {
+      "id": 6,
+      "label": "AI 品質指標の確認",
+      "machine": "not-checked",
+      "result": null,
+      "humanReconcile": "第4章「AI 品質指標の扱い」に従った指標の記録"
+    },
+    {
+      "id": 7,
+      "label": "安全適合性の検証記録(安全関連ソフトウェアのみ)",
+      "machine": "partial",
+      "result": "適用(適用を判定できない(Q1 または区分を読めない)ため適用として扱う)。記載の欠落 1 件。記載の欠落の検査のみ。内容の妥当性は確かめていない",
+      "humanReconcile": "安全関連ソフトウェアを含むか(構成の安全重要度: cl0)と、含む場合は附属書F F.7 の記録"
+    },
+    {
+      "id": 8,
+      "label": "知財潔白性の検査記録",
+      "machine": "partial",
+      "result": "依存関係のライセンス検査の記録 なし(記録の有無だけを見た)",
+      "humanReconcile": "類似の検知の実施記録と結果、判定できなかった項目の台帳記録"
+    },
+    {
+      "id": 9,
+      "label": "保証の開示の完備",
+      "machine": "checked",
+      "result": "7項目と、保証の主張の成立判定(成立 0 件 / 不成立 3 件)を出力した。記録の欠落 12 件(欠落の一覧による)。受容しない条件(層1 の項目2)に当たる事実: 機械で照合した条件 0 件に対して 0 件",
+      "humanReconcile": "受容しない条件のうち、機械で照合していない 0 件(層1 なし)に当たる事実が、保証の開示に無いこと(G-7「保証の主張の成立判定」(b))"
+    }
+  ],
+  "gatesInRange": [
+    {
+      "gate": "g1",
+      "label": "G-1 企画承認",
+      "records": 0
+    },
+    {
+      "gate": "g3",
+      "label": "G-3 技術設計判断",
+      "records": 0
+    },
+    {
+      "gate": "g4",
+      "label": "G-4 機能仕様承認(反復内)",
+      "records": 0
+    },
+    {
+      "gate": "g5",
+      "label": "G-5 自動検証(CI)",
+      "records": 0
+    },
+    {
+      "gate": "g8",
+      "label": "G-8 リリース決裁",
+      "records": 0
+    }
+  ],
+  "specsWithoutG4": [],
+  "specOutsideParagraph": 0,
+  "specRecheck": {
+    "match": 0,
+    "mismatch": 0,
+    "unconfirmed": 0,
+    "unconfirmedReasons": {},
+    "items": []
+  },
+  "decisionRecheck": {
+    "match": 0,
+    "mismatch": 0,
+    "unconfirmed": 0,
+    "items": []
+  },
+  "sampling": [],
+  "samplingByMonth": {
+    "months": [],
+    "short": [],
+    "undated": 0,
+    "source": "default",
+    "unresolved": true
+  },
+  "generatedAt": "2026-11-26T08:21:42.493Z",
+  "profile": {
+    "projectId": "P-001",
+    "answers": {
+      "q-team-size": "size-1-2",
+      "q-biz-phase": "poc",
+      "q-quality": "quality-standard",
+      "q-criticality": "cl0",
+      "q-dev-form": "inhouse",
+      "q-external-reviewer": "reviewer-no",
+      "q-existing-gates": "gates-none",
+      "q-ai-constraint": "ai-free",
+      "q-f2-q1": "f2q1-no"
+    },
+    "gates": {
+      "g1": "simplified",
+      "g2": "merged-into-g4",
+      "g3": "required",
+      "g4": "required",
+      "g5": "required",
+      "g6": "unmet",
+      "g7": "omitted",
+      "g8": "required"
+    }
+  },
+  "prs": [
+    {
+      "size": {
+        "lines": 1,
+        "files": 1,
+        "testLines": 0,
+        "testFiles": 0,
+        "excluded": 0,
+        "over": false,
+        "limits": null,
+        "reason": "変更の起点の構成が未設定(初回)のため判定しない"
+      },
+      "sizeAttestation": null,
+      "reviewMinutes": null,
+      "docOnly": false,
+      "number": 2,
+      "title": "chore: process-init",
+      "recordFound": true,
+      "recordSource": "api",
+      "bodySource": "api",
+      "fetchError": null,
+      "recordOnly": false,
+      "files": 38,
+      "control": {
+        "files": [
+          ".claude/guard.json",
+          ".claude/settings.json",
+          ".github/actions/setup-stack/action.yml",
+          ".github/workflows/go.yml",
+          ".secretlintrc.json",
+          "CLAUDE.md",
+          "scripts/gate/e2e-fixture.mjs",
+          "scripts/gate/test-adoption.mjs",
+          "scripts/gate/test-aggregate-drift.mjs",
+          "scripts/gate/test-aggregate-records.mjs",
+          "scripts/gate/test-ai-free-practice.mjs",
+          "scripts/gate/test-assurance-period.mjs",
+          "scripts/gate/test-cl-judgment.mjs",
+          "scripts/gate/test-defect-stages.mjs",
+          "scripts/gate/test-direct-commit-rules.mjs",
+          "scripts/gate/test-discouraged-evidence.mjs",
+          "scripts/gate/test-edition-end.mjs",
+          "scripts/gate/test-env-check.mjs",
+          "scripts/gate/test-exception-expiry.mjs",
+          "scripts/gate/test-handover-items.mjs",
+          "scripts/gate/test-init-g5.mjs",
+          "scripts/gate/test-license-scan.mjs",
+          "scripts/gate/test-loosening-decider.mjs",
+          "scripts/gate/test-material-records-more.mjs",
+          "scripts/gate/test-name-confirmation-timing.mjs",
+          "scripts/gate/test-reach-forecast-record.mjs",
+          "scripts/gate/test-roster-conditions.mjs",
+          "scripts/gate/test-safety-record.mjs",
+          "scripts/gate/test-self-heal.mjs",
+          "scripts/gate/test-spec-recheck.mjs",
+          "scripts/gate/test-tailoring-declaration.mjs",
+          "scripts/gate/test-unrun-streak.mjs",
+          "scripts/gate/test-uplift-evidence.mjs"
+        ],
+        "parentConfigured": false
+      },
+      "g6Scope": {
+        "limited": false,
+        "outOfScope": false,
+        "core": null,
+        "why": null
+      },
+      "copy": {
+        "source": "records/reviews/pr-2.json",
+        "sources": [
+          "records/reviews/pr-2.json"
+        ],
+        "head": "959b7b1a8fb103e06237ce4c83c6f0d729c88052",
+        "stale": [],
+        "findings": [],
+        "verificationSectionDiffers": false,
+        "reconciled": true,
+        "defects": [],
+        "unverifiable": [],
+        "counted": true
+      },
+      "headRef": "chore/process-init",
+      "mergedAt": "2026-11-26T08:15:52Z",
+      "specsTouched": [],
+      "specFilesTouched": [],
+      "mergeCommit": "2b6a556f",
+      "mergeCommitFull": "2b6a556f3174c5b1db0bced8b34a67bf11daa8c1",
+      "mergeMethod": "merge-commit",
+      "riskClass": "R3",
+      "riskConfirmer": null,
+      "labels": [
+        "risk/R3"
+      ],
+      "g5": "failure",
+      "g5Trigger": null,
+      "g5AtMerge": {
+        "found": true,
+        "id": 139777073261,
+        "status": "completed",
+        "conclusion": "failure",
+        "completed_at": "2026-11-26T08:13:09Z",
+        "head_sha": "959b7b1a8fb103e06237ce4c83c6f0d729c88052",
+        "runs": [
+          {
+            "id": 45780633406,
+            "event": "pull_request",
+            "status": "completed",
+            "conclusion": "failure"
+          },
+          {
+            "id": 45780630699,
+            "event": "pull_request",
+            "status": "completed",
+            "conclusion": "failure"
+          }
+        ]
+      },
+      "authorVerificationPresent": true,
+      "instructedBy": [
+        "@Takenori-Kusaka(名簿の人へ対応づかない。識別子 22556919)"
+      ],
+      "instructedBySource": "declared",
+      "specs": [],
+      "developerApproved": false,
+      "g6": {
+        "approver": null,
+        "approvers": [],
+        "approverAccounts": [],
+        "hostApproverAccounts": [],
+        "approvals": 0,
+        "withdrawnApprovals": 0,
+        "staleApprovals": 0,
+        "unboundApprovals": 0,
+        "independentHuman": false,
+        "notCountedReason": "no-approval-record",
+        "independent": {
+          "counted": false,
+          "reason": "noApproval",
+          "reasonText": "人のアカウントによる承認がない",
+          "by": [],
+          "byLogins": [],
+          "restrictionTouched": false,
+          "instructors": [],
+          "instructorsByDefault": false,
+          "unresolvedInstructors": [
+            "@Takenori-Kusaka(名簿の人へ対応づかない。識別子 22556919)"
+          ],
+          "unmappedApprovers": [],
+          "core": null,
+          "formerApprovers": [],
+          "withdrawnApprovals": 0,
+          "staleApprovals": 0,
+          "unboundApprovals": 0
+        },
+        "reviewerSummaryPresent": false,
+        "reviewerSummarySource": null
+      },
+      "commits": [
+        "2b6a556f",
+        "959b7b1a",
+        "3f98ee12",
+        "6e42d7e9"
+      ],
+      "material": {
+        "reviews": [],
+        "head": "959b7b1a8fb103e06237ce4c83c6f0d729c88052",
+        "author": "Takenori-Kusaka",
+        "authorId": 22556919,
+        "commitAuthors": [
+          "",
+          "",
+          ""
+        ]
+      },
+      "delegated": false,
+      "g6PostHocBlockers": [],
+      "g6PostHoc": false,
+      "developerSeatCollab": false,
+      "exceptionRecords": [],
+      "exceptionRejected": []
+    },
+    {
+      "size": {
+        "lines": 0,
+        "files": 0,
+        "testLines": 0,
+        "testFiles": 0,
+        "excluded": 0,
+        "over": false,
+        "limits": {
+          "lines": 400,
+          "files": 15
+        },
+        "reason": null,
+        "changes": [
+          {
+            "path": "docs/probe-m4.md",
+            "from": null,
+            "kind": "add"
+          }
+        ],
+        "overReasons": {
+          "lines": false,
+          "files": false,
+          "test": false
+        },
+        "testRatio": 0
+      },
+      "sizeAttestation": null,
+      "reviewMinutes": null,
+      "docOnly": true,
+      "number": 4,
+      "title": "docs: probe 4",
+      "recordFound": true,
+      "recordSource": "api",
+      "bodySource": "api",
+      "fetchError": null,
+      "recordOnly": false,
+      "files": 1,
+      "control": {
+        "files": [],
+        "parentConfigured": false
+      },
+      "g6Scope": {
+        "limited": false,
+        "outOfScope": false,
+        "core": null,
+        "why": null
+      },
+      "copy": {
+        "source": "records/reviews/pr-4.json",
+        "sources": [
+          "records/reviews/pr-4.json"
+        ],
+        "head": "8e708f242a76ee147cc917cc6add6d6b675af700",
+        "stale": [],
+        "findings": [],
+        "verificationSectionDiffers": false,
+        "reconciled": true,
+        "defects": [],
+        "unverifiable": [],
+        "counted": true
+      },
+      "headRef": "probe/m4",
+      "mergedAt": "2026-11-26T08:17:23Z",
+      "specsTouched": [],
+      "specFilesTouched": [],
+      "mergeCommit": "d046d0bb",
+      "mergeCommitFull": "d046d0bbd8ed53032e6d6e302389950975d1d812",
+      "mergeMethod": "squash",
+      "riskClass": "R3",
+      "riskConfirmer": null,
+      "labels": [
+        "risk/R3"
+      ],
+      "g5": "unknown",
+      "g5Trigger": null,
+      "g5AtMerge": {
+        "found": false,
+        "runs": [
+          {
+            "id": 45781885237,
+            "event": "pull_request",
+            "status": "queued",
+            "conclusion": null
+          }
+        ]
+      },
+      "authorVerificationPresent": false,
+      "instructedBy": [
+        "@Takenori-Kusaka(名簿の人へ対応づかない。識別子 22556919)"
+      ],
+      "instructedBySource": "declared",
+      "specs": [],
+      "developerApproved": false,
+      "g6": {
+        "approver": null,
+        "approvers": [],
+        "approverAccounts": [],
+        "hostApproverAccounts": [],
+        "approvals": 0,
+        "withdrawnApprovals": 0,
+        "staleApprovals": 0,
+        "unboundApprovals": 0,
+        "independentHuman": false,
+        "notCountedReason": "no-approval-record",
+        "independent": {
+          "counted": false,
+          "reason": "noApproval",
+          "reasonText": "人のアカウントによる承認がない",
+          "by": [],
+          "byLogins": [],
+          "restrictionTouched": false,
+          "instructors": [],
+          "instructorsByDefault": false,
+          "unresolvedInstructors": [
+            "@Takenori-Kusaka(名簿の人へ対応づかない。識別子 22556919)"
+          ],
+          "unmappedApprovers": [],
+          "core": null,
+          "formerApprovers": [],
+          "withdrawnApprovals": 0,
+          "staleApprovals": 0,
+          "unboundApprovals": 0
+        },
+        "reviewerSummaryPresent": false,
+        "reviewerSummarySource": null
+      },
+      "commits": [
+        "d046d0bb"
+      ],
+      "material": {
+        "reviews": [],
+        "head": "8e708f242a76ee147cc917cc6add6d6b675af700",
+        "author": "Takenori-Kusaka",
+        "authorId": 22556919,
+        "commitAuthors": [
+          "",
+          ""
+        ]
+      },
+      "delegated": false,
+      "g6PostHocBlockers": [],
+      "g6PostHoc": false,
+      "developerSeatCollab": false,
+      "exceptionRecords": [],
+      "exceptionRejected": []
+    },
+    {
+      "size": {
+        "lines": 0,
+        "files": 0,
+        "testLines": 0,
+        "testFiles": 0,
+        "excluded": 0,
+        "over": false,
+        "limits": {
+          "lines": 400,
+          "files": 15
+        },
+        "reason": null,
+        "changes": [
+          {
+            "path": "docs/probe-m5.md",
+            "from": null,
+            "kind": "add"
+          }
+        ],
+        "overReasons": {
+          "lines": false,
+          "files": false,
+          "test": false
+        },
+        "testRatio": 0
+      },
+      "sizeAttestation": null,
+      "reviewMinutes": null,
+      "docOnly": true,
+      "number": 5,
+      "title": "docs: probe 5",
+      "recordFound": true,
+      "recordSource": "api",
+      "bodySource": "api",
+      "fetchError": null,
+      "recordOnly": false,
+      "files": 1,
+      "control": {
+        "files": [],
+        "parentConfigured": false
+      },
+      "g6Scope": {
+        "limited": false,
+        "outOfScope": false,
+        "core": null,
+        "why": null
+      },
+      "copy": {
+        "source": "records/reviews/pr-5.json",
+        "sources": [
+          "records/reviews/pr-5.json"
+        ],
+        "head": "d8ee2e601c0fd04f4390b820552eab7bdd4089f7",
+        "stale": [],
+        "findings": [],
+        "verificationSectionDiffers": false,
+        "reconciled": true,
+        "defects": [],
+        "unverifiable": [],
+        "counted": true
+      },
+      "headRef": "probe/m5",
+      "mergedAt": "2026-11-26T08:17:32Z",
+      "specsTouched": [],
+      "specFilesTouched": [],
+      "mergeCommit": "854e78fc",
+      "mergeCommitFull": "854e78fcfe6d9d5c5631580c4e66e11c973428d4",
+      "mergeMethod": "rebase",
+      "riskClass": "R3",
+      "riskConfirmer": null,
+      "labels": [
+        "risk/R3"
+      ],
+      "g5": "unknown",
+      "g5Trigger": null,
+      "g5AtMerge": {
+        "found": false,
+        "runs": [
+          {
+            "id": 45781900173,
+            "event": "pull_request",
+            "status": "queued",
+            "conclusion": null
+          }
+        ]
+      },
+      "authorVerificationPresent": false,
+      "instructedBy": [
+        "@Takenori-Kusaka(名簿の人へ対応づかない。識別子 22556919)"
+      ],
+      "instructedBySource": "declared",
+      "specs": [],
+      "developerApproved": false,
+      "g6": {
+        "approver": null,
+        "approvers": [],
+        "approverAccounts": [],
+        "hostApproverAccounts": [],
+        "approvals": 0,
+        "withdrawnApprovals": 0,
+        "staleApprovals": 0,
+        "unboundApprovals": 0,
+        "independentHuman": false,
+        "notCountedReason": "no-approval-record",
+        "independent": {
+          "counted": false,
+          "reason": "noApproval",
+          "reasonText": "人のアカウントによる承認がない",
+          "by": [],
+          "byLogins": [],
+          "restrictionTouched": false,
+          "instructors": [],
+          "instructorsByDefault": false,
+          "unresolvedInstructors": [
+            "@Takenori-Kusaka(名簿の人へ対応づかない。識別子 22556919)"
+          ],
+          "unmappedApprovers": [],
+          "core": null,
+          "formerApprovers": [],
+          "withdrawnApprovals": 0,
+          "staleApprovals": 0,
+          "unboundApprovals": 0
+        },
+        "reviewerSummaryPresent": false,
+        "reviewerSummarySource": null
+      },
+      "commits": [
+        "216fb34f",
+        "854e78fc"
+      ],
+      "material": {
+        "reviews": [],
+        "head": "d8ee2e601c0fd04f4390b820552eab7bdd4089f7",
+        "author": "Takenori-Kusaka",
+        "authorId": 22556919,
+        "commitAuthors": [
+          "",
+          ""
+        ]
+      },
+      "delegated": false,
+      "g6PostHocBlockers": [],
+      "g6PostHoc": false,
+      "developerSeatCollab": false,
+      "exceptionRecords": [],
+      "exceptionRejected": []
+    }
+  ],
+  "commits": 6,
+  "tests": {
+    "coverage": {
+      "measured": false,
+      "reason": "集計ファイルがありません"
+    }
+  },
+  "dependencies": null,
+  "debt": {
+    "ledgerPresent": false
+  },
+  "handover": {
+    "updated": false,
+    "items": null,
+    "compared": null
+  },
+  "gateRecords": [],
+  "gateRecordsInRange": [],
+  "recordPrs": [
+    {
+      "number": 3,
+      "approvers": [],
+      "files": 1,
+      "g5": "failure",
+      "g5AtMerge": {
+        "found": false,
+        "runs": [
+          {
+            "id": 45781768219,
+            "event": "pull_request",
+            "status": "in_progress",
+            "conclusion": null
+          }
+        ]
+      }
+    }
+  ],
+  "decisions": {
+    "counts": {
+      "adopted": 0,
+      "partial": 0,
+      "superseded": 0,
+      "abolished": 0,
+      "unknown": 0
+    },
+    "problems": []
+  },
+  "ipClearance": {
+    "scanRun": false
+  },
+  "ipClearanceStatus": {
+    "run": false,
+    "text": "未実施"
+  },
+  "seededErrorScan": {
+    "scanRun": false,
+    "residual": null,
+    "ledgerChecked": false,
+    "range": null,
+    "scannedAt": null,
+    "statement": null
+  },
+  "shipBlocked": null,
+  "unmet": [
+    {
+      "gate": "g6",
+      "howToResolve": [
+        "2名体制では、作成を指示していない側の人が確認する(相手も作成の指示に関与した変更は除く)",
+        "リポジトリを公開し、コミュニティのレビューを受ける",
+        "他の個人開発者と相互レビューの取り決めをする",
+        "有償のコードレビューを利用する",
+        "確認者を置けたら、/process-change で変化点として反映する(確認者は人の名簿 people[] へ記入する)"
+      ],
+      "label": "G-6 独立レビュー",
+      "reason": "作成を指示した本人以外が挙動を確認する条件を満たす構成が存在しない(最小体制3名未満、かつ作成を指示した本人以外の確認者がいない)",
+      "compensation": [
+        "ci-strict",
+        "post-release-audit"
+      ],
+      "compensationNote": null,
+      "reviewSourcing": null
+    }
+  ],
+  "deviations": [],
+  "delegatedChanges": [],
+  "directChanges": [],
+  "assurance": {
+    "independence": {
+      "g6": "未達(確認者の調達先は未記入)",
+      "reviewers": {
+        "required": 1,
+        "configured": 1,
+        "applied": false,
+        "recordFormat": "standard",
+        "independentSafetyAssessment": false,
+        "insufficient": [],
+        "enforced": null,
+        "pendingTightenings": [],
+        "core": null,
+        "formerRosterApprovals": []
+      },
+      "coreReview": null,
+      "qaAffiliation": null,
+      "teamSize": "size-1-2",
+      "g6PostHocSampling": "なし",
+      "g7": "省略(omitted。テーラリングの宣言による)",
+      "clJudgment": {
+        "text": "**未達**(判定の記録なし。初期化の回答 CL0 は仮の判定のまま)",
+        "externalText": "**未達**(判定の記録なし。初期化の回答 CL0 は仮の判定のまま)",
+        "present": true,
+        "cls": null,
+        "provisional": "cl0",
+        "judge": null,
+        "confirmer": null,
+        "requiredStep": 1,
+        "recordedStep": null,
+        "countedStep": null,
+        "unmet": true,
+        "unmetReasons": [
+          "安全重要度の判定の記録の「判定した区分」が未記入です(空欄、または様式の説明 <…> のまま)",
+          "安全重要度の判定の記録の「対策を入れる前の最悪の帰結」が未記入です(空欄、または様式の説明 <…> のまま)",
+          "安全重要度の判定の記録の「1つ上の区分に当たらない理由」が未記入です(空欄、または様式の説明 <…> のまま)",
+          "安全重要度の判定の記録の「附属書F F.2 の回答」が未記入です(空欄、または様式の説明 <…> のまま)",
+          "安全重要度の判定の記録の「判定者」が未記入です(空欄、または様式の説明 <…> のまま)",
+          "安全重要度の判定の記録の「判定日」が未記入です(空欄、または様式の説明 <…> のまま)",
+          "「構成要素ごとの判定」の表の1行目(<構成要素。単一なら「システム全体」>)の区分「<CL0 / CL1 / CL2 / CL3>」を CL0〜CL3 のどれか1つとして読めません",
+          "確認者が未記入(未達)"
+        ],
+        "legacy": false,
+        "blocking": true
+      },
+      "sameAccountable": [],
+      "separationDeviations": [],
+      "seatsWithoutAccountable": 9,
+      "objectionSelfAccepted": false,
+      "rosterPresent": false,
+      "nameOverrides": [],
+      "nameOverrideDetails": [],
+      "laterSignerChecks": [],
+      "stepChecked": {
+        "safety": 0,
+        "strongest": 0
+      },
+      "valueOwnerState": null,
+      "restrictions": {
+        "active": [],
+        "legacy": 0,
+        "causeless": 0,
+        "notCounted": 0,
+        "touched": 0,
+        "g6Applied": false
+      },
+      "changes": {
+        "total": 3,
+        "withoutIndependentHuman": 3,
+        "approvalRecordNotFound": 0,
+        "unconfirmed": {
+          "noApproval": 3,
+          "aiOrBot": 0,
+          "approverUnmapped": 0,
+          "approverIsInstructor": 0,
+          "structure": 0,
+          "instructorUnresolved": 0,
+          "noReviewerSummary": 0,
+          "insufficientApprovers": 0,
+          "recordNotFound": 0,
+          "directCommits": 0
+        },
+        "approverNotInRoster": 0,
+        "withoutReviewerSummary": 0,
+        "r1WithoutException": 0,
+        "instructorsByDefault": 0,
+        "byReviewerSeat": 0,
+        "overriddenApprovals": 0,
+        "noCompetenceConfirmations": 0,
+        "requesterConfirmations": 0,
+        "sharedAccountApprovals": 0,
+        "sharedAccountChanges": 0,
+        "dedicatedApprovalChanges": 0,
+        "notByReviewerSeat": 0,
+        "withdrawnApprovals": 0,
+        "staleApprovals": 0,
+        "unboundApprovals": 0
+      },
+      "accountsRegistered": false,
+      "accountMatching": {
+        "withoutId": [],
+        "findings": [],
+        "formerUnfixable": 0,
+        "instructorResolution": {
+          "mode": "id",
+          "at": "2026-11-26T08:21:27.721Z",
+          "tokens": 1,
+          "entries": [
+            {
+              "token": "@Takenori-Kusaka",
+              "login": "Takenori-Kusaka",
+              "id": 22556919,
+              "at": "2026-11-26T08:21:27.721Z",
+              "error": null
+            }
+          ]
+        }
+      },
+      "performerAccounts": {
+        "seats": [],
+        "sharedApprovals": 0,
+        "sharedAttribution": {
+          "confirmed": 0,
+          "selfAttested": 0,
+          "records": []
+        }
+      },
+      "r1WithoutIndependentHuman": {
+        "total": 0,
+        "withExceptionRecord": 0,
+        "withoutExceptionRecord": []
+      },
+      "unclassifiedWithoutIndependentHuman": 0,
+      "reviewerSummary": {
+        "confirmedChanges": 0,
+        "present": 0,
+        "absent": []
+      },
+      "statement": "本成果物は、作成を指示した者から独立した人による確認を経ていません。",
+      "previous": "前回なし",
+      "preInit": {
+        "commits": 11
+      }
+    },
+    "controls": {
+      "baseJudge": {
+        "status": "unconfirmed",
+        "detail": "既定ブランチに効いている規則を読めない",
+        "evidence": {
+          "rulesetIds": [],
+          "workflowBlob": "d1b61f25abc3b398045abfc171db819f6120622b",
+          "fetchedAt": "2026-11-26T17:15:57+09:00"
+        }
+      },
+      "layers": {
+        "definition": {
+          "state": "satisfied",
+          "detail": "既定ブランチの定義(pull_request_target)"
+        },
+        "script": {
+          "state": "satisfied",
+          "detail": "既定ブランチを checkout し、既定ブランチの check-pr.mjs で判定する(PR の先頭は fetch だけ)"
+        },
+        "execution": {
+          "state": "satisfied",
+          "detail": "PR のコードを実行しない(手元の action・依存の導入・アダプタ・秘密情報なし)"
+        },
+        "result": {
+          "state": "satisfied",
+          "detail": "ジョブの結果(check run)gate-g5-base。権限は read だけ"
+        }
+      },
+      "approval": {
+        "changes": 0,
+        "review": 0,
+        "author": 0,
+        "selfAttested": 0,
+        "missing": [],
+        "beforeRule": [],
+        "boundary": "fe2b4fe4e79d",
+        "boundaryReason": null,
+        "items": []
+      }
+    },
+    "records": {
+      "branch": {
+        "available": true,
+        "ref": "records",
+        "reason": null,
+        "head": "ce708559",
+        "headFull": "ce708559950c3660c127a42960e88acce835914c",
+        "copies": 5,
+        "forms": 0,
+        "skipped": [],
+        "conflicts": []
+      },
+      "writers": {
+        "statement": "記録用ブランチ records へは、リポジトリへの書き込みの権限を持つ者と、ジョブのトークン(GITHUB_TOKEN。どのワークフローにも同じ名義で出る)が書き込めます。記録用ブランチの規則の適用は、実環境の統制の確認で確かめていません。規則を適用した構成でも、規則が止めるのは履歴の書き換え(force push)とブランチの削除であり、新しいコミットによる記録の追加と既存の記録の変更ではありません。ホスティングの管理者(個人所有のリポジトリでは所有者)は、規則そのものを外せます。本標準は書き込みの防止を課さず、成立した記録の書き換えを出荷判定の集約が履歴から検出して欠落に数えます(検出の件数が 0 であることは、書き換えを防いだことを示しません)。この構成は書き込みに署名を課しません。書き込んだ主体を記録から確かめられません",
+        "protection": {
+          "status": "unconfirmed",
+          "detail": "ブランチ records はある(3fa73de)が、効いている規則を読めない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)))"
+        },
+        "signatureRequired": false,
+        "pinned": null,
+        "scanned": 5,
+        "range": "refs/remotes/origin/records",
+        "rewrites": 0,
+        "premature": 0,
+        "unsigned": 0,
+        "unverifiedSigner": 0,
+        "conflicts": 0,
+        "accepted": [],
+        "historyReadable": true
+      },
+      "reconcile": {
+        "defects": 0,
+        "unverifiable": [],
+        "notReconciled": [],
+        "notCounted": []
+      },
+      "base": {
+        "present": false,
+        "copies": 0,
+        "skipped": []
+      },
+      "range": {
+        "merged": 4,
+        "copied": 4,
+        "missing": []
+      },
+      "offDefaultMerges": {
+        "status": "none",
+        "detected": [],
+        "unconfirmed": [],
+        "checked": 5,
+        "defaultBranch": {
+          "name": "master",
+          "how": "ホスティング(repos/Takenori-Kusaka/pit-in-trial-go-tmp の default_branch)"
+        },
+        "reason": null,
+        "limit": "PR を経ない push による取り込み(手元で上の層を下の層へ git merge して git push する経路を含む)は、承認レビューの写しが作られないため拾いません。写しの base.ref は、マージの時点の PR の基底です。マージの前に基底を付け替えた経過は見ません。この検出の一覧は合否・出荷の失敗に使いません(層の合わさりの承認の数え方は、別に IMPL-0498 が定めます)"
+      },
+      "stackedLayers": {
+        "unapprovedLayers": 0,
+        "fetched": 0,
+        "verdicts": [],
+        "text": "承認の無い層 0 件。確認ありに数えなかった PR 0 件、履歴を読めず数えなかった PR 0 件。層を取り込んだ後に rebase した変更は見つかりません"
+      },
+      "mismatches": [],
+      "copyFindings": [],
+      "verificationSectionDiffs": [],
+      "staleApprovals": [],
+      "judgements": [],
+      "g24": {
+        "recorded": [],
+        "headMismatch": [],
+        "notJudge": [],
+        "judgeUnverified": []
+      },
+      "inRange": {
+        "forms": 0,
+        "branchForms": [],
+        "judgements": 0,
+        "g6Approvals": []
+      },
+      "attribution": {
+        "backed": 0,
+        "selfAttested": [],
+        "clerical": []
+      },
+      "recordPrs": [
+        {
+          "number": 3,
+          "approvers": [],
+          "files": 1,
+          "g5": "failure",
+          "g5AtMerge": {
+            "found": false,
+            "runs": [
+              {
+                "id": 45781768219,
+                "event": "pull_request",
+                "status": "in_progress",
+                "conclusion": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "autonomy": {
+      "asOf": "2026-11-26",
+      "cap": {
+        "level": "L3",
+        "source": "config",
+        "reason": null
+      },
+      "window": {
+        "months": 2,
+        "longer": false,
+        "decidedBy": null,
+        "recordedAt": null,
+        "reason": null,
+        "pending": null,
+        "minSample": 30
+      },
+      "reworkUncounted": "数えていない残り: 計画表に「やり直し」と書かれず、トレーラの取り込みも1回だけの、不採用(マージされずに閉じた PR)の後の再作成。採用者が登録の根拠 basis.detection.reworkRate に書いた手段で補う。その手段の内容は機械で確かめていない(内部監査で確かめる)。トレーラは、第1親のコミットの本文の末尾の段落のものだけを読む(トレーラの後に段落が続くもの、マージコミットで取り込んだ第2親の側のトレーラは数えない)",
+      "otherLevel": "L1",
+      "types": [],
+      "unattributedRejections": [],
+      "notes": [],
+      "coreUnregistered": [],
+      "defectUnregistered": []
+    },
+    "tailoring": [
+      {
+        "label": "G-1 企画承認",
+        "state": "簡略化",
+        "why": [
+          "企画承認は1枚企画書に簡略化する",
+          "安全リスクアセスメント(第6章 テンプレ9)は、第6章の適用条件(物理的な危険源・R1 の変更種別・本番到達・AI自律レベル L2 以上)のいずれかに当たれば、企画承認の前提条件にする。該当の有無は人が判定する"
+        ]
+      },
+      {
+        "label": "G-2 要件合意",
+        "state": "統合(merged-into-g4)",
+        "why": [
+          "要件合意は省略せず、仕様承認に統合する(G-2 の確認の結果を G-4 の判定記録に残す。第8章 軸B)"
+        ]
+      },
+      {
+        "label": "G-6 独立レビュー",
+        "state": "未達",
+        "why": [
+          "作成を指示した本人以外の確認者を置けない。省略ではなく未達として表示する(ADR-0028)"
+        ]
+      },
+      {
+        "label": "G-7 出荷判定",
+        "state": "省略",
+        "why": [
+          "出荷判定は省略する。安全重要度 CL1 以上、または附属書F F.2 の Q1 が「はい」の案件では省略しない"
+        ]
+      },
+      {
+        "label": "指示資産の分量の上限(G-5 基準6)",
+        "state": "未設定(組織が定める値)",
+        "why": [
+          "未設定の間、基準6 の分量の項を満たしたと記録しない。未設定を G-5 の失敗にしない(ADR-0126)",
+          "第1章 1.7.7 では記録の無い値はテーラリングの宣言の欠落に当たる。準拠テンプレートの集約は、欠落の件数に数えていない(IMPL-1001)"
+        ]
+      }
+    ],
+    "changes": {
+      "byRiskClass": {
+        "R1": 0,
+        "R2": 0,
+        "R3": 3,
+        "notRecorded": 0
+      },
+      "byRiskClassDetail": {
+        "R1": {
+          "total": 0,
+          "withIndependentHuman": 0,
+          "withBehaviorSummary": 0,
+          "g6PostHoc": 0
+        },
+        "R2": {
+          "total": 0,
+          "withIndependentHuman": 0,
+          "withBehaviorSummary": 0,
+          "g6PostHoc": 0
+        },
+        "R3": {
+          "total": 3,
+          "withIndependentHuman": 0,
+          "withBehaviorSummary": 0,
+          "g6PostHoc": 0
+        },
+        "notRecorded": {
+          "total": 0,
+          "withIndependentHuman": 0,
+          "withBehaviorSummary": 0,
+          "g6PostHoc": 0
+        }
+      },
+      "riskClassSource": "PR 本文の自己記載だけに依る。区分を確定した者の記名は、判定記録にも PR 本文にも無い",
+      "riskClassConfirmedRecords": 0,
+      "r2G6Unmet": 0,
+      "r2G6UnmetLabels": [],
+      "riskConfirmation": {
+        "high": 0,
+        "confirmed": 0,
+        "unconfirmed": []
+      },
+      "byMode": "記録なし",
+      "delegated": {
+        "inScope": 0,
+        "withIndependentHuman": 0,
+        "withoutPriorHuman": 0,
+        "withoutPriorHumanBreakdown": {
+          "g6PostHoc": 0,
+          "other": 0
+        },
+        "outOfScope": 0,
+        "g6PostHoc": 0
+      },
+      "directCommits": {
+        "total": 0,
+        "R1": 0,
+        "R2": 0,
+        "R3": 0,
+        "notRecorded": 0,
+        "exempt": {
+          "recordOnly": 0,
+          "empty": 0
+        }
+      },
+      "gateRecordsWithoutD0Version": 0,
+      "previous": "前回なし"
+    },
+    "machineChecks": {
+      "gateG5": {
+        "success": 0,
+        "notSuccess": 1,
+        "notRecorded": 2,
+        "notRecordedAtMerge": [
+          {
+            "number": 4,
+            "g5AtMerge": {
+              "found": false,
+              "runs": [
+                {
+                  "id": 45781885237,
+                  "event": "pull_request",
+                  "status": "queued",
+                  "conclusion": null
+                }
+              ]
+            }
+          },
+          {
+            "number": 5,
+            "g5AtMerge": {
+              "found": false,
+              "runs": [
+                {
+                  "id": 45781900173,
+                  "event": "pull_request",
+                  "status": "queued",
+                  "conclusion": null
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "test": "実施(結果は gate-g5 に含む)",
+      "coverage": "未測定(集計ファイルがありません)",
+      "staticAnalysis": "実施(結果は gate-g5 に含む)",
+      "dependencyAudit": "実施(結果は gate-g5 に含む)",
+      "licenses": "未実施",
+      "secretScan": "実施(結果は gate-g5 に含む)",
+      "mutationThresholdNote": "**注意**: 構成に閾値(ci.mutationThreshold)がありません。G-5 の段 mutation は、走った事実と生き残りの所在だけを証跡として「閾値なしで通過」します。検出力が足りるとは示していません(附属書H H.1・H.4)",
+      "aggregateProblems": [],
+      "dependencyDiff": "記録なし",
+      "envControls": "未確認(ルールセットの適用: 未確認(権限不足で読めない)。gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)) / 旧来のブランチ保護との重なり: 未確認(権限不足で読めない)。gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)) / ルールセットのバイパスの主体: 未確認(権限不足で読めない)。ルールセットを読めないため、バイパスの主体を確かめられない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403))) / PR のレビューの取得: 未確認(確かめる対象がまだ無い)。PR #2 のレビューが 0 件(承認のある PR で確かめる。--pr N) / ship-evidence の成果物の取得: 未確認(確かめる対象がまだ無い)。gate-g5 の成功した実行が無い(最初の PR の後に確かめる))",
+      "envFindings": "record-copy.yml の存在と直近の実行の成否 **一致しない**(record-copy.yml の直近の実行 45781697348 が (https://github.com/Takenori-Kusaka/pit-in-trial-go-tmp/actions/runs/45781697348。署名を必須にするルールセットを、構成の回答が署名を要しない構成で適用している、または records ブランチの初期化が止まった、など)) / 記録用ブランチ 未確認(読めない)(ブランチ records はある(3fa73de)が、効いている規則を読めない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)))) / 最新のマージ済み PR の写し 未確認(読めない)(PR #2 の写しが records ブランチに無い(gh を実行できない、または失敗した(gh: Not Found (HTTP 404))。record-copy.yml の実行の記録を見る)) / 既定ブランチのルールセットの bypass actor 未確認(読めない)(既定ブランチ master の規則を読めない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)))) / GITHUB_TOKEN/App の承認が required approving review に数えられる組織設定 API で取れない(GITHUB_TOKEN と GitHub App の承認レビューが required approving review に数えられるかは、組織の設定(Actions の権限「Allow GitHub Actions to approve pull requests」)で決まり、リポジトリの API では取れない。組織の設定の画面で人が確かめ、記録の節9 へ書く。数えられる設定では、機械の承認が承認の数に入るため、独立した人の確認の数え方(出荷の集約)と食い違う)",
+      "envControlsDetail": {
+        "present": true,
+        "confirmed": false,
+        "items": [
+          {
+            "id": "ruleset",
+            "label": "ルールセットの適用(必須チェック gate-g5。G-6 が有効なら要求する承認の数・最後の push の後の承認・コードオーナー)",
+            "status": "unconfirmed",
+            "reason": "permission",
+            "detail": "gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403))",
+            "evidence": null
+          },
+          {
+            "id": "classicProtection",
+            "label": "旧来のブランチ保護との重なり(gh api …/branches/<branch>/protection)",
+            "status": "unconfirmed",
+            "reason": "permission",
+            "detail": "gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403))",
+            "evidence": null
+          },
+          {
+            "id": "codeowners",
+            "label": "効いている CODEOWNERS の所在と codeowners/errors の結果",
+            "status": "confirmed",
+            "reason": null,
+            "detail": "効いている CODEOWNERS は .github/CODEOWNERS(codeowners/errors は 0 件)",
+            "evidence": {
+              "path": ".github/CODEOWNERS",
+              "blobSha": "2f830dc16c97d8502101cc57c6c748fab279df98",
+              "errorCount": 0,
+              "api": "repos/Takenori-Kusaka/pit-in-trial-go-tmp/codeowners/errors?ref=master",
+              "fetchedAt": "2026-11-26T17:15:58+09:00"
+            }
+          },
+          {
+            "id": "bypass",
+            "label": "ルールセットのバイパスの主体(bypass_actors)",
+            "status": "unconfirmed",
+            "reason": "permission",
+            "detail": "ルールセットを読めないため、バイパスの主体を確かめられない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)))",
+            "evidence": null
+          },
+          {
+            "id": "prReviews",
+            "label": "PR のレビューの取得(gate-g5 が PR_REVIEWS に渡す gh api …/pulls/N/reviews)",
+            "status": "unconfirmed",
+            "reason": "no-subject",
+            "detail": "PR #2 のレビューが 0 件(承認のある PR で確かめる。--pr N)",
+            "evidence": null
+          },
+          {
+            "id": "shipEvidence",
+            "label": "ship-evidence の成果物の取得(gate-g5 の実行の license-scan・test-results)",
+            "status": "unconfirmed",
+            "reason": "no-subject",
+            "detail": "gate-g5 の成功した実行が無い(最初の PR の後に確かめる)",
+            "evidence": null
+          },
+          {
+            "id": "workflowPermissions",
+            "label": "Workflow permissions の既定(GITHUB_TOKEN の既定の権限。上限ではなく出発点)",
+            "status": "confirmed",
+            "reason": null,
+            "detail": "既定は read。permissions を書かないワークフローは書き込みを得ない。permissions を明示した昇格は止めない(既定であり上限ではない)。G-8 の適合の判定には使わない(狭める措置の事実)",
+            "evidence": {
+              "defaultWorkflowPermissions": "read",
+              "api": "repos/Takenori-Kusaka/pit-in-trial-go-tmp/actions/permissions/workflow",
+              "fetchedAt": "2026-11-26T17:16:01+09:00"
+            }
+          },
+          {
+            "id": "actionsApproval",
+            "label": "Actions による PR の承認の可否(can_approve_pull_request_reviews)",
+            "status": "confirmed",
+            "reason": null,
+            "detail": "Actions は PR を承認できない(GITHUB_TOKEN による承認を止める)。G-8 の適合の判定には使わない(狭める措置の事実)",
+            "evidence": {
+              "canApprovePullRequestReviews": false,
+              "api": "repos/Takenori-Kusaka/pit-in-trial-go-tmp/actions/permissions/workflow",
+              "fetchedAt": "2026-11-26T17:16:01+09:00"
+            }
+          },
+          {
+            "id": "environments",
+            "label": "Environment の配備の参照の限定(delegated-merge を含む)",
+            "status": "notApplicable",
+            "reason": null,
+            "detail": "Environment が無く、委任のトークンも Environment の外に無い。確認済みには数えない。委任のマージを有効にする前に delegated-merge を作り、配備のブランチを既定ブランチに限る。リポジトリの秘密情報と変数は名前だけを読み、値は読まない。組織の秘密情報は読んでいない。G-8 の適合の判定には使わない(狭める措置の事実)",
+            "evidence": {
+              "environmentNames": [],
+              "environmentIds": [],
+              "credentialScopes": [
+                "repository-secrets",
+                "repository-variables"
+              ],
+              "delegatedTokenOutside": [],
+              "tagRulesetIds": [],
+              "findings": [],
+              "api": "repos/Takenori-Kusaka/pit-in-trial-go-tmp/environments",
+              "fetchedAt": "2026-11-26T17:16:02+09:00"
+            }
+          }
+        ],
+        "findings": [
+          {
+            "id": "recordsBranch",
+            "label": "記録用ブランチ(records)の存在と保護(non_fast_forward・deletion。bypass actor なし)",
+            "status": "unconfirmed",
+            "detail": "ブランチ records はある(3fa73de)が、効いている規則を読めない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)))",
+            "evidence": null
+          },
+          {
+            "id": "recordCopy",
+            "label": "record-copy.yml の存在と直近の実行の成否",
+            "status": "mismatch",
+            "detail": "record-copy.yml の直近の実行 45781697348 が (https://github.com/Takenori-Kusaka/pit-in-trial-go-tmp/actions/runs/45781697348。署名を必須にするルールセットを、構成の回答が署名を要しない構成で適用している、または records ブランチの初期化が止まった、など)",
+            "evidence": {
+              "workflowId": 431327452,
+              "state": "active",
+              "runId": 45781697348,
+              "runUrl": "https://github.com/Takenori-Kusaka/pit-in-trial-go-tmp/actions/runs/45781697348",
+              "runCreatedAt": "2026-11-26T08:15:55Z",
+              "conclusion": "",
+              "fetchedAt": "2026-11-26T17:16:05+09:00"
+            }
+          },
+          {
+            "id": "recordsCopy",
+            "label": "最新のマージ済み PR の写し(records/reviews/pr-<n>.json)の到着",
+            "status": "unconfirmed",
+            "detail": "PR #2 の写しが records ブランチに無い(gh を実行できない、または失敗した(gh: Not Found (HTTP 404))。record-copy.yml の実行の記録を見る)",
+            "evidence": null
+          },
+          {
+            "id": "defaultBypass",
+            "label": "既定ブランチのルールセットの bypass actor(Integration など)",
+            "status": "unconfirmed",
+            "detail": "既定ブランチ master の規則を読めない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)))",
+            "evidence": null
+          },
+          {
+            "id": "approvalCounting",
+            "label": "GITHUB_TOKEN/App の承認が required approving review に数えられる組織設定",
+            "status": "unknown",
+            "detail": "GITHUB_TOKEN と GitHub App の承認レビューが required approving review に数えられるかは、組織の設定(Actions の権限「Allow GitHub Actions to approve pull requests」)で決まり、リポジトリの API では取れない。組織の設定の画面で人が確かめ、記録の節9 へ書く。数えられる設定では、機械の承認が承認の数に入るため、独立した人の確認の数え方(出荷の集約)と食い違う",
+            "evidence": null
+          }
+        ],
+        "attention": [
+          "recordCopy"
+        ],
+        "problems": [],
+        "committed": true,
+        "checkedAt": "2026-11-26T17:16:08+09:00",
+        "checkedBy": "試行の代記(人の判定ではない)",
+        "repoUrl": "https://github.com/Takenori-Kusaka/pit-in-trial-go-tmp",
+        "evidenceText": "リポジトリ https://github.com/Takenori-Kusaka/pit-in-trial-go-tmp / CODEOWNERS .github/CODEOWNERS(blob 2f830dc16c97) / Workflow permissions の既定 read / Actions による PR の承認 不可 / Environment なし / 応答の取得 2026-11-26T17:15:58〜2026-11-26T17:16:02"
+      },
+      "unrunStreaks": {
+        "coverage": {
+          "since": "2026-11-26",
+          "releases": 1,
+          "note": "前回の出力なし。起点は今回"
+        },
+        "licenses": {
+          "since": "2026-11-26",
+          "releases": 1,
+          "note": "前回の出力なし。起点は今回"
+        }
+      }
+    },
+    "residual": {
+      "unmet": [
+        "G-6 独立レビュー"
+      ],
+      "provisionalLicenses": {
+        "active": [],
+        "expired": [],
+        "problems": []
+      },
+      "deviations": [],
+      "exceptedChanges": [],
+      "openExceptions": "記録なし",
+      "gateExceptions": [],
+      "openUnresolved": "記録なし",
+      "openDebt": "記録なし",
+      "defectStages": {
+        "present": false,
+        "measurable": false
+      },
+      "knownDefects": "記録なし(欠陥の台帳 docs/defect-ledger.md が無い)",
+      "qcNoTest": [],
+      "qcUnreferenced": [],
+      "preInitCommits": 11
+    },
+    "detection": {
+      "source": "記録なし(docs/adoption-trial/seeded-errors.json / evidence/seeded-errors.json のいずれも無い)",
+      "human": "未測定",
+      "humanFinders": null,
+      "unmeasuredSince": "2026-11-26",
+      "unmeasuredReleases": 1,
+      "unmeasuredNote": "前回の出力なし。起点は今回",
+      "ai": "未測定(AI の担い手の宣言なし)",
+      "aiPerformers": {
+        "recorded": null,
+        "current": [],
+        "mismatch": null,
+        "comparedBy": null
+      },
+      "aiUnmeasuredSince": null,
+      "aiUnmeasuredReleases": 0,
+      "aiUnmeasuredNote": null,
+      "conformity": [],
+      "previous": "前回なし"
+    },
+    "detectionExternal": {
+      "human": {
+        "measuring": false,
+        "note": "未測定",
+        "unmeasuredSince": "2026-11-26",
+        "unmeasuredReleases": 1
+      },
+      "ai": {
+        "measuring": false,
+        "note": "未測定(AI の担い手の宣言なし)",
+        "unmeasuredSince": null,
+        "unmeasuredReleases": 0
+      },
+      "conformity": []
+    },
+    "sizeObservation": {
+      "total": 3,
+      "measured": 3,
+      "unreadable": [],
+      "undetermined": [],
+      "lineDist": [
+        {
+          "range": "100 行以下",
+          "count": 3
+        },
+        {
+          "range": "101〜400 行",
+          "count": 0
+        },
+        {
+          "range": "401〜1000 行",
+          "count": 0
+        },
+        {
+          "range": "1001 行以上",
+          "count": 0
+        }
+      ],
+      "fileDist": [
+        {
+          "range": "5 以下",
+          "count": 3
+        },
+        {
+          "range": "6〜15",
+          "count": 0
+        },
+        {
+          "range": "16〜30",
+          "count": 0
+        },
+        {
+          "range": "31 以上",
+          "count": 0
+        }
+      ],
+      "over": 0,
+      "overReasons": {
+        "lines": 0,
+        "files": 0,
+        "test": 0,
+        "filesOnly": 0,
+        "unknown": 0
+      },
+      "testRatio": {
+        "measured": 2,
+        "over": [
+          {
+            "factor": 1,
+            "count": 0
+          },
+          {
+            "factor": 2,
+            "count": 0
+          },
+          {
+            "factor": 5,
+            "count": 0
+          }
+        ]
+      },
+      "overPrs": [],
+      "attestation": {
+        "yes": 0,
+        "no": 0,
+        "unanswered": 0,
+        "absent": 0
+      },
+      "reviewMinutes": {
+        "n": 0,
+        "median": null,
+        "max": null
+      },
+      "approvalPace": {
+        "byLines": [
+          {
+            "range": "100 行以下",
+            "count": 0,
+            "minPer100": null,
+            "q1Per100": null,
+            "medianPer100": null
+          },
+          {
+            "range": "101〜400 行",
+            "count": 0,
+            "minPer100": null,
+            "q1Per100": null,
+            "medianPer100": null
+          },
+          {
+            "range": "401〜1000 行",
+            "count": 0,
+            "minPer100": null,
+            "q1Per100": null,
+            "medianPer100": null
+          },
+          {
+            "range": "1001 行以上",
+            "count": 0,
+            "minPer100": null,
+            "q1Per100": null,
+            "medianPer100": null
+          }
+        ],
+        "unmeasured": 1,
+        "noDenominator": 0,
+        "points": []
+      },
+      "docOnly": {
+        "count": 2,
+        "hours": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "unmeasured": 2
+      },
+      "notObserved": [],
+      "testLines": 0
+    },
+    "generation": {
+      "agentRecord": {
+        "hookIntroduced": true,
+        "counts": {
+          "clean": 0,
+          "dirty": 0,
+          "unknown": 0,
+          "no-trailer": 1,
+          "pre-hook": 0
+        },
+        "total": 1,
+        "excludeCandidates": [
+          {
+            "hash": "d046d0bbd8",
+            "class": "no-trailer"
+          }
+        ],
+        "switched": {
+          "periods": 0,
+          "commits": []
+        }
+      },
+      "modelIdGaps": {
+        "noCoAuthor": [],
+        "noVersion": []
+      },
+      "declaredPerformers": "宣言なし",
+      "observedCoAuthors": [
+        "Takenori Kusaka <takenori.kusaka@gmail.com>"
+      ],
+      "instructionAssets": "3f98ee1 2026-11-26",
+      "changePoints": [
+        {
+          "date": "2026-11-26",
+          "kind": "init",
+          "changePoint": null,
+          "summary": "構成を生成した",
+          "result": "changed",
+          "direction": "none",
+          "arising": [],
+          "decidedBy": null,
+          "appointerSigned": false,
+          "selfDecided": false,
+          "selfAppointed": false,
+          "selfAppointedNoExternalRef": false,
+          "samePersonApproval": false,
+          "rosterEdits": [],
+          "notice": null
+        },
+        {
+          "date": "2026-11-26",
+          "kind": "init",
+          "changePoint": null,
+          "summary": "D-0 体制図の版を取得した",
+          "result": "no-change",
+          "direction": "none",
+          "arising": [],
+          "decidedBy": null,
+          "appointerSigned": false,
+          "selfDecided": false,
+          "selfAppointed": false,
+          "selfAppointedNoExternalRef": false,
+          "samePersonApproval": false,
+          "rosterEdits": [],
+          "notice": null
+        }
+      ],
+      "outages": [],
+      "changeLogPresent": true,
+      "decisionAttribution": []
+    },
+    "exceptionUse": {
+      "fastTrack": "ファストトラック(7.4)の指標: 印のある行 0 件(うち範囲の変更へ対応づく 0 件 / 範囲へ対応づかない行 0 件。範囲の変更 3 件に対する発生率 0%) / 回収完了 0 件(回収完了率 —) / 欠陥の台帳が無く、適用後の欠陥は数えていない。印の付け忘れは数えられず、会議体への報告のふるまいは見ない",
+      "restricted": {
+        "count": 0,
+        "unmarked": [],
+        "unconfirmed": []
+      },
+      "quota": "制限された状態での例外決裁(7.9.4)の対応づけは 7.9.4 の条件による。枠: 確認できない(企画書の「例外の枠」が件数として読めない) / 行使 0 件",
+      "unverifiedExtensions": 0
+    },
+    "judgementRecords": {
+      "reach": {
+        "text": "必達基準2 の継続・保留の通算の回数(第7章 7.7.5): 判定記録 0 件、乙・丙の継続・保留を 0 回と数えた。判定か区分を読めない記録は未確認 0 件。機械が数えるのは必達基準2 の乙・丙だけで、甲へ戻した継続と必達基準 1・3・4・5 は数えない",
+        "total": 0,
+        "unreadable": 0
+      },
+      "inventory": {
+        "level": "na",
+        "text": "案件に関与していない者による点検(7.7.6): 事業ステージ S0 は対象外(S1 以降の規定)"
+      },
+      "provisional": {
+        "text": null,
+        "unmet": 0,
+        "checked": 0,
+        "unconfirmed": []
+      }
+    },
+    "drift": [
+      "担い手の識別: 宣言にない共著者の記録がある(Takenori Kusaka <takenori.kusaka@gmail.com>)。人の共著者を含む場合がある。直し方: AI の担い手なら、/process-change の種別 performer で、その席の担い手の識別(モデルの名称と版)を宣言する(補助ファイル .claude/skills/process-change/kinds/performer.md)。宣言した版と異なる版がコミットに残っているなら、担い手の識別の変更(変化点)として扱う。人の共著者なら宣言は要らない。どちらかを出荷判定者が確かめる"
+    ],
+    "aiFreePractice": {
+      "scope": [],
+      "day": "2026-11-26",
+      "freq": {
+        "blank": false,
+        "raw": null,
+        "readable": false
+      },
+      "freqNotice": null,
+      "ranges": [],
+      "d0Present": false,
+      "tablePresent": false,
+      "clockFallback": false
+    },
+    "continuity": {
+      "d0Policy": "<`docs/quality-assurance-policy.md` の版と記名日。記名が無い組織は「層1 なし」と書く>",
+      "policy": "層1 なし",
+      "successors": [
+        {
+          "seat": "価値責任者",
+          "role": "value-owner",
+          "deputy": null,
+          "state": "unrecorded",
+          "candidates": [],
+          "counted": 0,
+          "min": null,
+          "vacant": true,
+          "reason": "層1 の判断の席ごとの後継候補の最低数が空欄(確認済みの候補 0 名)"
+        },
+        {
+          "seat": "技術判断者",
+          "role": "tech-lead",
+          "deputy": null,
+          "state": "unrecorded",
+          "candidates": [],
+          "counted": 0,
+          "min": null,
+          "vacant": true,
+          "reason": "層1 の判断の席ごとの後継候補の最低数が空欄(確認済みの候補 0 名)"
+        },
+        {
+          "seat": "独立レビュア",
+          "role": "independent-reviewer",
+          "deputy": null,
+          "state": "unrecorded",
+          "candidates": [],
+          "counted": 0,
+          "min": null,
+          "vacant": true,
+          "reason": "層1 の判断の席ごとの後継候補の最低数が空欄(確認済みの候補 0 名)"
+        },
+        {
+          "seat": "出荷判定者",
+          "role": "qa-gatekeeper",
+          "deputy": null,
+          "state": "unrecorded",
+          "candidates": [],
+          "counted": 0,
+          "min": null,
+          "vacant": true,
+          "reason": "層1 の判断の席ごとの後継候補の最低数が空欄(確認済みの候補 0 名)"
+        }
+      ],
+      "degradation": [],
+      "emergencyBlank": 12,
+      "emergencyMissing": [
+        "重大事故: 停止の決定者",
+        "重大事故: 切替の決定者",
+        "重大事故: 顧客説明の決定者",
+        "情報漏えい: 停止の決定者",
+        "情報漏えい: 切替の決定者",
+        "情報漏えい: 顧客説明の決定者",
+        "契約変更: 停止の決定者",
+        "契約変更: 切替の決定者",
+        "契約変更: 顧客説明の決定者",
+        "規制変更: 停止の決定者",
+        "規制変更: 切替の決定者",
+        "規制変更: 顧客説明の決定者"
+      ],
+      "cycle": {
+        "drill": null,
+        "exit": null,
+        "degradation": null,
+        "competence": null,
+        "successorMin": null,
+        "trainer": null
+      },
+      "cycleNotices": [
+        "演習の頻度を定めていない(層1 の「確認の周期と後継」の演習の頻度が空欄)",
+        "育成の担当(役割)が空欄。後継不在の受容を更新できない"
+      ],
+      "baselineScope": {
+        "approved": false,
+        "why": []
+      },
+      "core": [],
+      "competence": [
+        {
+          "seat": "価値責任者",
+          "role": "value-owner",
+          "accountable": null,
+          "record": null,
+          "status": "no-accountable",
+          "why": "席の責任者が未記入",
+          "nextDue": null,
+          "ok": false,
+          "outsideRoster": false,
+          "note": null
+        },
+        {
+          "seat": "技術判断者",
+          "role": "tech-lead",
+          "accountable": null,
+          "record": null,
+          "status": "no-accountable",
+          "why": "席の責任者が未記入",
+          "nextDue": null,
+          "ok": false,
+          "outsideRoster": false,
+          "note": null
+        },
+        {
+          "seat": "独立レビュア",
+          "role": "independent-reviewer",
+          "accountable": null,
+          "record": null,
+          "status": "no-accountable",
+          "why": "席の責任者が未記入",
+          "nextDue": null,
+          "ok": false,
+          "outsideRoster": false,
+          "note": null
+        },
+        {
+          "seat": "出荷判定者",
+          "role": "qa-gatekeeper",
+          "accountable": null,
+          "record": null,
+          "status": "no-accountable",
+          "why": "席の責任者が未記入",
+          "nextDue": null,
+          "ok": false,
+          "outsideRoster": false,
+          "note": null
+        }
+      ],
+      "rehearsals": [],
+      "dependencies": [
+        {
+          "kind": "指示資産",
+          "name": "CLAUDE.md・.claude/",
+          "inRepo": true
+        },
+        {
+          "kind": "鍵となる個人",
+          "name": "席の責任者 0 名、コア機能の理解保持者(本人以外の確認つき)0 名"
+        },
+        {
+          "kind": "データ",
+          "name": "記録なし(構成の dependencies[] に記載が無い)"
+        }
+      ],
+      "spof": [
+        {
+          "state": "後継不在の席",
+          "subject": "価値責任者",
+          "detail": "層1 の判断の席ごとの後継候補の最低数が空欄(確認済みの候補 0 名)",
+          "acceptance": {
+            "status": "none"
+          }
+        },
+        {
+          "state": "後継不在の席",
+          "subject": "技術判断者",
+          "detail": "層1 の判断の席ごとの後継候補の最低数が空欄(確認済みの候補 0 名)",
+          "acceptance": {
+            "status": "none"
+          }
+        },
+        {
+          "state": "後継不在の席",
+          "subject": "独立レビュア",
+          "detail": "層1 の判断の席ごとの後継候補の最低数が空欄(確認済みの候補 0 名)",
+          "acceptance": {
+            "status": "none"
+          }
+        },
+        {
+          "state": "後継不在の席",
+          "subject": "出荷判定者",
+          "detail": "層1 の判断の席ごとの後継候補の最低数が空欄(確認済みの候補 0 名)",
+          "acceptance": {
+            "status": "none"
+          }
+        },
+        {
+          "state": "コア理解の保持者が1名以下",
+          "subject": "コア機能",
+          "detail": "docs/handover.md が無く、理解保持者を確かめられない",
+          "acceptance": {
+            "status": "none"
+          }
+        }
+      ],
+      "problems": [],
+      "coreRemediation": {
+        "ledger": "absent",
+        "missing": [],
+        "checked": []
+      }
+    },
+    "verification": {
+      "qc": [],
+      "qcMissingIds": [],
+      "criterion1": {
+        "acceptanceCriteria": 0,
+        "plannedTests": 0,
+        "plannedFiles": [],
+        "acWithoutTest": [],
+        "results": null
+      },
+      "defects": {
+        "present": false,
+        "file": "docs/defect-ledger.md"
+      }
+    },
+    "stopHolds": [],
+    "stopHistoryUnread": [],
+    "stopReleases": [],
+    "objectionMatters": {
+      "matters": [],
+      "notJudged": [
+        "事項3(独立した人の確認を経ていない変更の件数、または構成上の未達のゲート・逸脱・列挙に無い離脱の数が、前回より増えた): 前回の出力が無いため、判定していない"
+      ]
+    },
+    "claim": {
+      "policy": {
+        "present": false,
+        "valid": false,
+        "label": "層1 なし",
+        "problems": [
+          "docs/quality-assurance-policy.md が無い(層1 なし)"
+        ],
+        "file": "docs/quality-assurance-policy.md",
+        "attribution": null
+      },
+      "scope": {
+        "declared": false,
+        "reason": "企画書(docs/project-brief.md)が無い"
+      },
+      "conditions": [
+        {
+          "id": 1,
+          "label": "層1 の方針と受容の基準が、トップマネジメントの記名で有効である",
+          "ok": false,
+          "reason": "docs/quality-assurance-policy.md が無い(層1 なし)"
+        },
+        {
+          "id": 2,
+          "label": "層2 の保証範囲が、G-1 で宣言されている",
+          "ok": false,
+          "reason": "企画書(docs/project-brief.md)が無い"
+        },
+        {
+          "id": 3,
+          "label": "範囲内の変更が、作成の指示者と別の自然人の確認(G-6。委任の変更は事後の抜き取り)を経ている",
+          "ok": false,
+          "reason": "満たさない変更 3 件(保証の開示 項目1・3)"
+        },
+        {
+          "id": 4,
+          "label": "出荷判定(G-7)と残存リスクの受容(G-8)を、別の自然人が記名している。出荷判定を記名した人は、範囲内の変更の作成を指示した者でも G-6 の承認者でもない",
+          "ok": false,
+          "reason": "G-7 が省略の構成",
+          "basis": "structure"
+        },
+        {
+          "id": 5,
+          "label": "検出能力を測定している(未測定が、層1 の定める期間を超えて続いていない)",
+          "ok": false,
+          "reason": "未測定が許容する期間(層1 なし(許容しないとして扱う))を超えている: 人の層(2026-11-26 の出荷から 1 回連続。前回の出力なし。起点は今回)"
+        },
+        {
+          "id": 6,
+          "label": "保証の開示に記載の欠落が無く、層1 の「受容しない条件」に当たる事実が無い",
+          "ok": false,
+          "reason": "記録の欠落 12 件"
+        }
+      ],
+      "total": 3,
+      "established": 0,
+      "notEstablished": 3,
+      "byCondition": {
+        "1": 3,
+        "2": 3,
+        "3": 3,
+        "4": 3,
+        "5": 3,
+        "6": 3
+      },
+      "notEstablishedChanges": [
+        "#2(条件 1・2・3・4・5・6)",
+        "#4(条件 1・2・3・4・5・6)",
+        "#5(条件 1・2・3・4・5・6)"
+      ],
+      "nonAcceptable": {
+        "checked": 0,
+        "facts": [],
+        "notChecked": [],
+        "notes": []
+      },
+      "tolerance": "層1 なし(許容しないとして扱う)",
+      "statement": "本リリースは、品質保証の対象外として出荷しました。実施した検証と、確かめていない範囲は、添付の保証の開示のとおりです。",
+      "outOfScopeAcceptance": null
+    }
+  },
+  "g8Objection": {
+    "matters": [],
+    "notJudged": [
+      "事項3(独立した人の確認を経ていない変更の件数、または構成上の未達のゲート・逸脱・列挙に無い離脱の数が、前回より増えた): 前回の出力が無いため、判定していない"
+    ],
+    "records": []
+  },
+  "claim": {
+    "edition": "作業中の版(未発行。標準のコミット b9ff0f4171e8)",
+    "endRevision": "854e78fcfe6d",
+    "name": "適用の表明",
+    "editionsInRange": [
+      "作業中の版"
+    ],
+    "ended": null,
+    "listedDeviations": [],
+    "unlistedDepartures": [],
+    "unverifiable": [
+      "docs/handover.md が無く、コア機能の理解の保持者を確かめられません",
+      "docs/quality-assurance-policy.md が無く(層1 なし)、層1 の記名者と事業決裁者の同一性を確かめられません"
+    ],
+    "statementFacts": {
+      "editionLabel": "作業中の版(未発行。標準のコミット b9ff0f4171e8)",
+      "edition": null,
+      "kbCommit": "b9ff0f4171e8d30f46d6de95be5f6bc7dab5d597",
+      "unmet": [
+        "G-6 独立レビュー"
+      ],
+      "gapCount": 12
+    },
+    "exceptions": {
+      "day": "2026-11-26",
+      "ledger": "docs/debt-ledger.md",
+      "inRange": 0,
+      "uncollected": 0,
+      "overdue": 0,
+      "withoutIndependentConfirmation": 0,
+      "undatedDue": 0,
+      "daySource": "引数 --exception-day で渡された日"
+    },
+    "blockers": [
+      "従う版が作業中の版です。適用の表明は作業中の版をコミットとともに名指せますが、適合の主張と逸脱を伴う適合の主張は発行した版を要します(第1章 1.10.3)",
+      "未達のゲートがあります(G-6 独立レビュー)。適合の主張を述べられません",
+      "docs/handover.md が無く、コア機能の理解の保持者を確かめられません(この項目では名を下げません。人が確かめます)",
+      "docs/quality-assurance-policy.md が無く(層1 なし)、層1 の記名者と事業決裁者の同一性を確かめられません(この項目では名を下げません。人が確かめます)",
+      "この範囲に記録の欠落などの欠落が 12 件あります。適合の主張を述べられません"
+    ]
+  },
+  "gaps": [
+    "PR #4: 作成側の検証の記載(PR 本文「検証方法と結果」)がありません",
+    "PR #5: 作成側の検証の記載(PR 本文「検証方法と結果」)がありません",
+    "安全関連部の検証の記録(基準7): docs/safety-risk-assessment.md がありません",
+    "責任者が未記入の席があります: 価値責任者(Value Owner) / 技術判断者(Tech Lead) / 開発者(検証者) / 独立レビュア / 品質保証(出荷判定者) / 事業決裁者 / コンテキストオーナー / AI維持管理者(AI Maintainer) / AI運用担当者(AIOps)",
+    "PR #2: gate-g5 が failure です",
+    "PR #4: gate-g5 の結果の記録がありません。マージの時点の写しにも gate-g5 の check run がありません(必須チェックを経ずにマージされた可能性。ブランチ保護の適用を確かめる)",
+    "PR #5: gate-g5 の結果の記録がありません。マージの時点の写しにも gate-g5 の check run がありません(必須チェックを経ずにマージされた可能性。ブランチ保護の適用を確かめる)",
+    "PR #3: gate-g5 が failure です",
+    "知財潔白性の検査記録がありません。判定するのは検査を実施し記録したことです",
+    "欠陥注入の標識の走査: 走査の記録 evidence/seeded-error-scan.json がありません。標識の残存がないことを確かめられません(標準 5.6.2。seeded-error-scan.mjs が出荷の経路で作る記録です)",
+    "安全重要度の判定の確認: 判定の記録または判定者の記名に不備がある(7 件。安全重要度の判定の記録の「判定した区分」が未記入です(空欄、または様式の説明 <…> のまま))。判定者本人が書ける欠落であり、記載の欠落に数える(第8章 軸E「判定の記録と確認」)。**未達**(判定の記録なし。初期化の回答 CL0 は仮の判定のまま)(D-0 節16。第8章 軸E「判定の記録と確認」)。次の一手: D-0 の節16 の欄を埋め、D-0 表1「体制と運用形態」の決定者が判定者として記名する(判定者・判定日の行を入れたコミットの時点の決定者で照らす)",
+    "D-0 節7 の有事の決定者に空欄が 12 欄あります(重大事故: 停止の決定者 / 重大事故: 切替の決定者 / 重大事故: 顧客説明の決定者 / 情報漏えい: 停止の決定者 / 情報漏えい: 切替の決定者 / 情報漏えい: 顧客説明の決定者 / 契約変更: 停止の決定者 / 契約変更: 切替の決定者 / 契約変更: 顧客説明の決定者 / 規制変更: 停止の決定者 / 規制変更: 切替の決定者 / 規制変更: 顧客説明の決定者)。記載の欠落です。4つの事象 × 3つの決定(停止・切替・顧客説明)の12欄を役割名で埋めます。該当しない事象は「層1 の項目4 による」と書き、層1 の該当行の受容者を埋めます"
+  ]
+}

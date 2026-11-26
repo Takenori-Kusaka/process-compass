@@ -1,0 +1,43 @@
+# 強制層の検査の棚卸しの入力(2026Q4。2026-10-01 〜 2026-12-31、UTC の暦)
+
+入力の一覧です。解釈と、廃止の候補の選定は、AI維持管理者が四半期の棚卸しで行います。機械は候補を選ばず、合否に使いません(標準 3.11.4 要求事項4)。
+
+## 1. 欠陥の台帳の「是正の記録」のうち、検査装置を対象とする行
+
+読めない: docs/defect-ledger.md がありません。
+
+## 2. GitHub Actions の実行の失敗(ワークフロー・ジョブごと)
+
+注意: 読めた最も古い実行は 2026-11-26 で、窓の始まり 2026-10-01 より後です。90 日はログと成果物の保持期間です。GitHub の文書は 2026-10-01 以降、実行の記録にも保持期間(既定 90 日)を適用すると書いています(保持期間を変えたときは新しい対象にだけ適用し、既存の対象には遡らない、とも書いています。2026-10-01 の適用が既存の実行に及ぶかは、書いていません)。その期間に実行が無かったか、実行の記録が保持期間または手で削除されたかを、この出力からは区別できません。数を確定の値として読まないでください。
+
+| ワークフロー | ジョブ | 失敗 | 実行 | 最後の失敗の日(UTC) | 対応する是正の行 |
+| --- | --- | --- | --- | --- | --- |
+| .github/workflows/ai-review.yml | (全体) | 0 | 6 | — | — |
+| .github/workflows/assurance-period.yml | (全体) | 0 | 2 | — | — |
+| .github/workflows/delegation.yml | (全体) | 0 | 13 | — | — |
+| .github/workflows/gate-entry.yml | (全体) | 3 | 5 | 2026-11-26 | — |
+| .github/workflows/gate-entry.yml | d0-check | 3 | — | 2026-11-26 | — |
+| .github/workflows/gate-entry.yml | g1-check | 3 | — | 2026-11-26 | — |
+| .github/workflows/gate-g5-base.yml | (全体) | 0 | 8 | — | — |
+| .github/workflows/gate-g5-push.yml | (全体) | 1 | 13 | 2026-11-26 | — |
+| .github/workflows/gate-g5-push.yml | default-push / gate-contract | 1 | — | 2026-11-26 | — |
+| .github/workflows/gate-g5-push.yml | default-push / gate-g5 | 1 | — | 2026-11-26 | — |
+| .github/workflows/gate-g5.yml | (全体) | 7 | 10 | 2026-11-26 | — |
+| .github/workflows/gate-g5.yml | gate-contract | 7 | — | 2026-11-26 | — |
+| .github/workflows/gate-g5.yml | gate-g5 | 7 | — | 2026-11-26 | — |
+| .github/workflows/gate-g5.yml | ip-clearance | 1 | — | 2026-11-26 | — |
+| .github/workflows/gate-g5.yml | pr-rules | 2 | — | 2026-11-26 | — |
+| .github/workflows/gate-g5.yml | static-analysis | 1 | — | 2026-11-26 | — |
+| .github/workflows/go.yml | (全体) | 0 | 22 | — | — |
+| .github/workflows/mutation-weekly.yml | (全体) | 0 | 2 | — | — |
+| .github/workflows/pre-review-responded.yml | (全体) | 0 | 6 | — | — |
+| .github/workflows/record-copy.yml | (全体) | 0 | 5 | — | — |
+| .github/workflows/review-queue-control.yml | (全体) | 0 | 8 | — | — |
+| .github/workflows/ship-evidence.yml | (全体) | 2 | 2 | 2026-11-26 | — |
+| .github/workflows/ship-evidence.yml | ship-evidence-verify | 2 | — | 2026-11-26 | — |
+
+- ジョブの失敗は、失敗した実行のジョブの記録から数えます。ジョブの記録を読めなかった実行は、ワークフローの失敗にだけ数えます。
+- 実行の一覧は各実行の最新の試行の結論だけを持ちます。再実行で成功した失敗(run_attempt が 2 以上)は数えません。
+- 是正の行との対応は、対象の欄にワークフローのパス、またはジョブの名が書かれているかの文字列の一致です。意味は読んでいません。
+- 失敗が多い・少ないことは、検査の要否を示しません。働いていない検査(失敗が一度も無い)かどうかは、人が判断します。
+

@@ -1,0 +1,4 @@
+mutation-weekly success 2026-11-26T08:17:53Z 2026-11-26T08:21:06Z jobs: mutation-weekly success 2026-11-26T08:19:08Z-2026-11-26T08:21:05Z
+assurance-period success 2026-11-26T08:17:57Z 2026-11-26T08:18:57Z jobs: assurance-period success 2026-11-26T08:18:48Z-2026-11-26T08:18:56Z
+2026-11-26T08:19:12.6292514Z [36;1m  echo "::notice::プロセス構成が未設定です。/process-init を実行するまで週次の変異試験は実施しません"[0m
+2026-11-26T08:21:00.5978056Z ##[notice]週次: アダプタ go の "mutation" のコマンドが空のため、何も測っていません(週次の型は合否にしません。測るには commands.mutation へコマンドを書きます)

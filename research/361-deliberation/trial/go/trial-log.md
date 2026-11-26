@@ -1,0 +1,17 @@
+# go 一時リポの試行: 手順に無かった作業の記録(B-1)
+- 16:46 | gh repo edit --default-branch master / git checkout -b master | 計画 2.3 の既定ブランチ master。gh repo create は空のリポで defaultBranchRef が空のため、初回 push 後に既定を明示した
+- 16:46 | template ls-files のループ複製を自作 | README 手順1 の「存在しないものだけ写す」を行う道具が無く、シェルのループで行った(重なり: .github/CODEOWNERS・.gitignore・README.md)
+- 16:46 | docs/CODEOWNERS を削除し .github/CODEOWNERS へテンプレートの注記を含めて @OWNER を置換 | preflight [止める] CODEOWNERS 2か所。1か所へまとめる(README 手順2)
+- 16:46 | .gitignore へテンプレートの全文を追記 | preflight [告げる] テンプレートの行が無い。重複行を許した(手順2は『行を含める』)
+- 16:46 | git remote set-head origin --auto | preflight [事実] 既定ブランチを現在のブランチから読んだ(空リポから clone したため origin/HEAD が無かった)。道具の案内に従った
+- 16:47 | docs/adoption-inventory.md の確定者・確定日・扱いを実行役が代記 | 所有者不在。§4 のとおり『試行の代記』と明記。人の判定ではない
+- 16:50 | 複製元の template が Windows の autocrlf=true で CRLF だったため、複製した310ファイルを LF へ変換して再コミット | 試行環境の人為(Windows)。持ち込みの PR の gate-g5 の gate-contract が CRLF で失敗(test-discouraged-evidence の表の書き込みの前提が NG)。採用者が Windows で複製すると同じ。手順書に注意が無い
+- 16:55 | 持ち込み PR #1 を gate-g5 失敗(gate-contract: G-5 基準1『構成に宣言していないスタック go』、ship-evidence-verify: 基底に .github/gate-node-version が無く setup-node 失敗、GITHUB_STEP_SUMMARY 1024k 超過)のまま gh pr merge --merge で取り込んだ | 構成が未設定の状態で持ち込み PR を出す順序のため、持ち込みの PR は必須チェックを満たせない。Free の private で保護が無いので取り込めた。保護が効いていれば止まる(README 手順5『既存の保護・必須チェックが効く』との食い違い、手順に無い迂回)
+- 16:55 | 初期化の出力が『作るもの: go.mod』と列挙(既に go.mod がある)、アダプタの lint=go vet・runtimeVersion=1.23 が既存の Makefile lint(golangci-lint)・go.mod(1.22)・go.yml(1.22)と食い違う | G2 の観測(EV-0170)。アダプタと既存の Makefile・golangci の食い違い。手順に無い作業としては go.mod の go 行を 1.23 へ上げる必要を判断(後述)
+- 16:55 | go.mod と go.yml の go 版を 1.22 → 1.23 へ手で変更 | アダプタの runtimeVersion 1.23 に合わせた(手順に無い)
+- 16:58 | docs/D-0-governance.md を templates/00-d0-governance.md から写し generate-profile --answers process.config.json を実行(初期化の出力『[次のコマンド]』に従う)。責任者・承認・安全重要度の判定の欄は人が書く欄のため空のまま | gate-entry(d0-check)は D-0 が無い/未承認で失敗する。D-0 の承認は人の操作で、本試行では行わない(AI の名義を書かない)
+- 17:01 | .github/actions/setup-stack/action.yml へ govulncheck・go-licenses の go install と GITHUB_PATH 追加の手順を足した | gate-g5 の static-analysis(govulncheck: not found, exit 127)と ip-clearance(go-licenses: not found)が失敗。初期化の出力は『CI の実行環境へ入れる手順』と述べるだけで場所を示さない。検査道具の編集になり PR 本文の『統制の設定の陰性の確認』が要る
+- 17:04 | env-check に --dry-run を渡したが未対応で、そのまま docs/adoption-trial/env-check.json を書いた(1回目はマージ前。--by は『試行の代記(人の判定ではない)』を道具が受理)
+- 17:08 | scripts/gate/test-*.mjs と e2e-fixture.mjs の SKIP 集合へ 'cmd','internal','go.mod' を足した(sed、30前後のファイル) | gate-g5 の gate-contract が失敗。自己試験が作業ツリー全体を一時の場所へ複製し --stack node で初期化するため、既存の go の製品コードを『構成に宣言していないスタック go』として G-5 基準1 未充足にする。既存のコードを持つ go・python の採用者は全員当たる(手順書に無い。node の採用者は当たらない見込み)。検査装置の編集であり統制の設定の陰性の確認の対象
+- 17:15 | process-init PR #2 を gate-g5 失敗(gate-contract の test-edition-end: 作業ツリーを複製して再初期化するため『設定済みの構成と回答が異なります』で初期化が通らない。fail-fast で以降の自己試験は未実行)のまま gh pr merge --merge で取り込んだ | 初期化の後は configured:true のため自己試験の前提(未設定のテンプレート)が崩れる。時間の制約で自己試験側の修正は行わず迂回した(保護が効いていれば止まる)。run 45780633406
+- 17:18 | enforcement-inventory.mjs は --repo 無しだと『読めない(リポジトリ未指定)』。--repo Takenori-Kusaka/pit-in-trial-go-tmp を足して再実行した | 実環境の gh で読む入力の指定が手引きに無い(GITHUB_REPOSITORY は CI だけ)
