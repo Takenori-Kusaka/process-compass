@@ -1698,6 +1698,8 @@ EU 域内に関わる案件では、生成された出力を機械可読な形�
 
 <!-- impl IMPL-0814 target=qa-policy-template state=delivered check=manual note="テンプレ11 要求事項12。品質保証部門を置く組織では、同部門が層1 を起案してよいが、品質保証部門を記名者にしないこと。templates/11-quality-assurance-policy.md の冒頭の箇条1 が「品質保証部門は起案してよいが、記名者にしない」と置き、様式に「起案者」の行を持つ。品質保証部門が記名していないかは機械では確かめない。確かめる者: 出荷判定者(G-7 の判定で層1 の記名者を読むとき)" -->
 
+層1 を置かないまま本標準の適用を始めた組織の扱いは、[第4章 G-1](/process-compass/phase4-process-design/gate-criteria/)によります。保証範囲の欄に「層1 なし」と書き、その組織の変更は保証の主張の成立条件1 を満たしません。
+
 <!-- impl IMPL-0815 target=qa-policy-guide state=delivered check=manual note="テンプレ11 要求事項9 のうち、受容しない条件(項目2)が外枠(項目3)を下回らないこと、外へ約束する品質の水準を事業規模を理由に下げないこと。.claude/skills/artifact/artifacts/11-quality-assurance-policy.md の節「レビューの観点」の「受容しない条件が外枠(法令・契約・規格)を下回っていないか」と「規模を理由に、外へ約束する品質の水準を下げていないか」が置く。項目4 の分は IMPL-0945 が追う。様式の項目3 の注記「外枠は受容の対象ではありません」は IMPL-0563。確かめる者: 層1 をレビューする者(品質保証部門と事業決裁者)" -->
 
 <!-- impl IMPL-0945 target=qa-policy-guide state=delivered check=manual note="テンプレ11 要求事項9 のうち、受容の基準(項目4)が外枠(項目3)を下回らないこと。.claude/skills/artifact/artifacts/11-quality-assurance-policy.md の節「レビューの観点」の「受容の基準(項目4)が外枠(項目3)を下回っていないか」が置く。確かめる者: 層1 をレビューする者(品質保証部門と事業決裁者。所在を読んだ。実行して確かめていない)" -->
