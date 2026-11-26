@@ -152,3 +152,6 @@ files:
   - path: scripts/gate/e2e-fixture.mjs
     reason: infra
     why: 結線の試験(test-aggregate-wiring.mjs・test-delegation-wiring.mjs)が使う足場。template の写しと使い捨てのリポジトリを作り、実物の集約・入口・D-0 の検査を動かす。それ自体は規定を実装しない(束 B20 の独立の突合 2巡目 R2-01)
+  - path: scripts/gate/template-copy.mjs
+    reason: infra
+    why: 自己試験(gate-g5.yml の gate-contract が流す test-*.mjs)が作業ツリーを一時の置き場へ複製する足回り。採用者の製品のコードと構成を複製から外す。規定を実装しない(process-compass #361 D-1)。同期の試験は test-template-copy.mjs
