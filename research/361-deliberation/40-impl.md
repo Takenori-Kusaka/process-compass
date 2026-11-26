@@ -12,12 +12,12 @@
 | R-4 / D-3 | 実装。理由 `plan`(HTTP 403 と文言「Upgrade to GitHub Pro or make this repository public」の組)。一致しなければ `permission` に戻る。文言は定数 1 か所 |
 | R-5 / D-4 と手引き | 実装。verify の最初の手順で、基底に `.github/gate-node-version` が無ければ理由つきで失敗(通過にしない)。手引き(本文・README)は事実だけ。順序を課す文は書いていない |
 | D-6 | 手引きだけ(README 手順1、本文)。`.gitattributes` は触っていない |
-| D-7 | 実装(go.mod があれば挙げない、置き場と例、go 行と runtimeVersion の食い違いを告げる)。setup-stack で道具を入れる案は採っていない |
+| D-7 | 実装(go.mod があれば挙げない、置き場と例)。go 行と runtimeVersion の版の比較は、突合 H-1 を受けて取り除いた(60-fix.md)。setup-stack で道具を入れる案は採っていない |
 | D-8・D-15 | README のみ |
-| D-9 | 実装(既存の package.json に scripts.coverage が無ければ todo に出す。README に jest の例。jest は実行して確かめていない旨を併記) |
+| D-9 | README に jest の例だけ(jest は実行して確かめていない旨を併記)。既存の package.json の中身の検査は、突合 H-1 を受けて取り除いた(60-fix.md) |
 | D-10 | 本文 EV-0170 の本文に事実として足した(python のアダプタは pyproject の dev を読み requirements を読まない) |
 | D-14 | 実装(env-check の未知のオプションを exit 2 で拒む。警告で置く案は採っていない) |
-| R-6 | 実装しない(D-7 の版の比較は go 行と runtimeVersion の一致の告げだけ。「初期化の検査」は足していない) |
+| R-6 | 実装しない。初回の実装は版の比較と初期化の検査を入れていたが、突合 H-1 で指摘され、取り除いた(60-fix.md) |
 | R-7 | 判定の表は本文に載せていない(research の記録の側の裁定。本文には「合」の件数を出していない) |
 | R-8 | IMPL-0200 の note を「差が出る場面を作れなかった」へ。所見 1・2 は「文書の読みから導ける食い違い(観測ではない)」と書き、EV-0350 の根拠に数えない |
 | R-9 | §4 |
