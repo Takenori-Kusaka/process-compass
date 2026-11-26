@@ -29,9 +29,12 @@ export const END = '<!-- failure-projection:end -->';
 export const HEADER = ['困りごと', '止める場所', '区分', '最も弱い止め方', '証拠(保証の開示の項目・記録)', '引く条項', '審議中の表示'];
 /** 強い順。後ろほど弱い */
 export const VALUES = ['機械が止める', '機械が示し人が止める', '人', '未達', '審議中', '開示'];
-const IMPL_RE = /IMPL-\d{4}/g;
-/** 仮番号(IMPL-TBD-…)は、実在しない番号として違反にする */
-const TENTATIVE_RE = /IMPL-[A-Za-z]/;
+const IMPL_RE = /IMPL-\d{4}(?!\d)/g;
+/** IMPL を含む語のうち、IMPL-NNNN の形でないもの(仮番号 IMPL-TBD-…、大文字小文字・ハイフン・桁数の違いを含む)は、実在しない番号として違反にする */
+const IMPL_WORD_RE = /impl(?![a-z])[-_‐-―]?[0-9A-Za-z]*/gi;
+const isTentative = (line) => (line.match(IMPL_WORD_RE) ?? []).some((w) => !/^IMPL-\d{4}$/.test(w));
+/** 実在する日付か(2026-13-45 を通さない) */
+const isRealDate = (ymd) => { const d = new Date(`${ymd}T00:00:00Z`); return !Number.isNaN(d.getTime()) && d.toISOString().slice(0, 10) === ymd; };
 const DELIBERATING_RE = /^審議中[(（]#\d+、\d{4}-\d{2}-\d{2} 時点[)）]$/;
 
 /** 標準の本文の実装マークを読む。Map<IMPL-NNNN, {state, check}> */
@@ -79,7 +82,7 @@ export function checkProjection(text, marks) {
     const n = i + 1; const cells = splitCells(line);
     if (cells.length !== HEADER.length) { problems.push(`行${n}: 列が ${cells.length} 個(7個であること)`); continue; }
     const [, , kubun, weakest, , , deliberating] = cells;
-    if (TENTATIVE_RE.test(line)) problems.push(`(b) 行${n}: 仮番号の IMPL(IMPL-TBD など)が残っている`);
+    if (isTentative(line)) problems.push(`(b) 行${n}: 仮番号の IMPL(IMPL-TBD など)が残っている`);
     for (const id of new Set(line.match(IMPL_RE) ?? [])) if (!marks.has(id)) problems.push(`(b) 行${n}: ${id} が標準の本文のマークに無い`);
     const parts = splitParts(kubun); const vals = [];
     for (const p of parts) {
@@ -97,7 +100,7 @@ export function checkProjection(text, marks) {
       const got = /^([^:：]+)[:：]/.exec(weakest)?.[1]?.trim();
       if (got !== expect) problems.push(`(f) 行${n}: 最も弱い止め方の先頭が「${got ?? '(無し)'}」。区分から導く値は「${expect}」`);
       const has = vals.includes('審議中');
-      if (has && !DELIBERATING_RE.test(deliberating)) problems.push(`(g) 行${n}: 区分に「審議中」があるが、審議中の表示が「審議中(#番号、YYYY-MM-DD 時点)」の形でない`);
+      if (has && !(DELIBERATING_RE.test(deliberating) && isRealDate(/\d{4}-\d{2}-\d{2}/.exec(deliberating)[0]))) problems.push(`(g) 行${n}: 区分に「審議中」があるが、審議中の表示が「審議中(#番号、YYYY-MM-DD 時点)」の形でない、または日付が実在しない`);
       if (!has && deliberating !== '—') problems.push(`(g) 行${n}: 区分に「審議中」が無いのに、審議中の表示が「—」でない`);
     }
   }
@@ -108,9 +111,13 @@ function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((d) => (d.isDirectory() ? walk(path.join(dir, d.name)) : d.name.endsWith('.md') ? [path.join(dir, d.name)] : []));
 }
 
+/** マークを読むファイルの選別。台帳(自動生成)と、書式の例のマークを持つ規約は読まない(check-impl.mjs と同じ) */
+export function markSources(files) {
+  return files.filter((f) => !f.includes(`${path.sep}community${path.sep}implementation-ledger`) && !f.endsWith(`${path.sep}community${path.sep}implementation-marking.md`));
+}
+
 export function loadMarks() {
-  // 台帳(自動生成)と、書式の例のマークを持つ規約は読まない(check-impl.mjs と同じ)
-  return readMarks(walk(DOCS).filter((f) => !f.includes(`${path.sep}community${path.sep}implementation-ledger`) && !f.endsWith(`${path.sep}community${path.sep}implementation-marking.md`)).map((f) => fs.readFileSync(f, 'utf8')));
+  return readMarks(markSources(walk(DOCS)).map((f) => fs.readFileSync(f, 'utf8')));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

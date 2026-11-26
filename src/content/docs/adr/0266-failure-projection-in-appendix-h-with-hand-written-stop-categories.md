@@ -18,7 +18,7 @@ sidebar:
 ## コンテキスト
 
 - [#456](https://github.com/Takenori-Kusaka/process-compass/issues/456): 第三者の意見(レビュー報告 2026-11-27)。決裁者は困りごと(失敗の型)で尋ねる。H.3 は主張起点、H.9 は問い起点で、個々の困りごとの止め方の区分と、降りていない規定(未達)の結線を持たない
-- 外部の分類(OWASP の LLM アプリ向けと Agentic アプリ向けの Top 10、NIST AI 600-1)は、開発工程の失敗の型を構成原理に持たない(出典は下の「出典」)。MITRE ATLAS は出典台帳に無く、読んでいないため、本 ADR は根拠にしない
+- 外部の分類(OWASP の LLM アプリ向けと Agentic アプリ向けの Top 10、NIST AI 600-1)は、開発工程の失敗の型を構成原理に持たない(出典は下の「出典」)
 - 軽の審議(起案・反対の2委員)で割れた点を、議長が裁定した
 
 ## 決定
@@ -61,7 +61,7 @@ sidebar:
 
 ## 出典
 
-- SRC-0495・SRC-0623(OWASP Top 10 for Agentic Applications 2026)、SRC-0496(OWASP Top 10 for LLM Applications 2026)、SRC-0520(NIST AI 600-1)。いずれも攻撃者・利用側のリスクの分類で、開発工程の失敗の型は構成原理でない
+- SRC-0495・SRC-0623(OWASP Top 10 for Agentic Applications 2026)、SRC-0496(OWASP Top 10 for LLM Applications 2026)、SRC-0520(NIST AI 600-1)。OWASP の2件は攻撃者・利用側のリスクの分類、NIST AI 600-1 は生成 AI のリスクごとに組織の推奨行動を並べる枠組みで、いずれも開発工程の失敗の型を構成原理に持たない
 - FND-0091(読んでいない作業を完了と報告する現象)・FND-0175・FND-0178・FND-0273
 
 ## 根拠水準
