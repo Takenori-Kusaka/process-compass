@@ -1,0 +1,3 @@
+PR5 rd=REVIEW_REQUIRED ms=BLOCKED
+X Pull request Takenori-Kusaka/pit-in-trial-python-pub2-tmp#5 is not mergeable: the base branch policy prohibits the merge.
+PR5 rd=APPROVED ms=UNSTABLE

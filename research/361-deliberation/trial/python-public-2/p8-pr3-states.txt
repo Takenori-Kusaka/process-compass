@@ -1,0 +1,7 @@
+{"m":"MERGEABLE","ms":"BLOCKED","rd":"REVIEW_REQUIRED","rv":[]}
+{"m":"MERGEABLE","ms":"BLOCKED","rd":"APPROVED","rv":["APPROVED"]}
+{"m":"MERGEABLE","ms":"BLOCKED","rd":"APPROVED","rv":["APPROVED"]}
+X Pull request Takenori-Kusaka/pit-in-trial-python-pub2-tmp#3 is not mergeable: the base branch policy prohibits the merge.
+To have the pull request merged after all the requirements have been met, add the `--auto` flag.
+{"commit_id":"e3355a5","state":"DISMISSED"}
+{"mergeStateStatus":"BLOCKED","reviewDecision":"REVIEW_REQUIRED"}

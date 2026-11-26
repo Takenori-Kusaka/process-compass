@@ -1,0 +1,7 @@
+51Z ##[group]Run echo "secret-length=${#S}"
+ [36;1mecho "secret-length=${#S}"[0m
+ [36;1mecho "title-as-data: $T"[0m
+ [36;1mecho "token-perm: $(curl -s -o /dev/null -w '%{http_code}' -X POST -H "Authorization: ***" https://api.github.com/repos/Takenori-Kusaka/pit-in-trial-python-pub2-tmp/issues/1/labels -d '{"labels":["x"]}')"[0m
+ secret-length=0
+ title-as-data: fix: $(echo PWNED-EXPANDED) `echo PWNED-BQ` ${{ secrets.TRIAL_SYNTHETIC_SECRET }}
+ token-perm: 403

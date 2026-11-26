@@ -1,0 +1,1 @@
+delegation-eligibility|success|該当しない(協働。人の確定を受ける): 条件2: トレーラから規則 ID が定まらないため、規則を特定できない

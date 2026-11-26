@@ -1,0 +1,13 @@
+== 45805633549
+ai-review | 84Z ##[group]Run enabled=$(node -e "const c=require('./process.config.json');console.log(c.aiReview?.enabled ? 'yes':'no')")
+ai-review |  [36;1menabled=$(node -e "const c=require('./process.config.json');console.log(c.aiReview?.enabled ? 'yes':'no')")[0m
+ai-review |  [36;1mif [ "$enabled" = "yes" ]; then[0m
+ai-review |  [36;1m    echo "::notice::フォークからの PR のため、AI の手順を動かしません(既定。構成の aiReview.allowForks で変える)"[0m
+ai-review |  [36;1m    echo "フォークからの PR のため、AI の手順を動かしていません(aiReview.allowForks が true でない)" >> "$GITHUB_STEP_SUMMARY"[0m
+ai-review |  [36;1mecho "enabled=$enabled" >> "$GITHUB_OUTPUT"[0m
+ai-review |  ##[notice]フォークからの PR のため、AI の手順を動かしません(既定。構成の aiReview.allowForks で変える)
+ai-review |  Set output 'enabled'
+== 45805633870
+gate-g5-base |  [36;1mecho "::notice::判定のコードの版: 定義 ${GITHUB_SHA} / スクリプト ${used}"[0m
+gate-g5-base |  [36;1m  echo "::notice::既定ブランチのプロセス構成が未設定です。/process-init を既定ブランチへ入れるまで、基底から読む判定は実施しません"[0m
+gate-g5-base |    PR_TITLE: fix: $(echo PWNED-EXPANDED) `echo PWNED-BQ` ${{ secrets.TRIAL_SYNTHETIC_SECRET }}

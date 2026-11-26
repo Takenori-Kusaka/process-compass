@@ -1,0 +1,24 @@
+ ##[notice]記録用ブランチ records を取り込みました(3d5300e)
+ [36;1m  # license-scan の取得の成否に依らず、後の取り込みへ進む(失敗を明示して受ける。集約が「知財潔白性の検査記録がありません」を欠落として出す)[0m
+ ##[warning]b965f822c6efceb0920e5308bbae36a25187f128 に対する gate-g5 の成功した実行がありません。知財潔白性の検査記録とテストの実行の記録は取り込みません
+ ##[warning]前回の実行 45802300898 の成果物 ship-evidence を取得できません(成果物を持たない実行、または保持の経過)。基底ブランチの写しから読みます
+ ##[warning]前回の証跡を読めません。成果物: 実行 45802300898 から取得できず。写し: docs/evidence の置き場 0 件を見て、読めるものがありません
+ [36;1mnode scripts/gate/seeded-error-scan.mjs ${FROM:+--from "$FROM"} ${TO:+--to "$TO"}[0m
+ [36;1m# 例外承認の回収の期限(第7章 7.3)と比べる突合の日は、判定の日(この実行の日。UTC)を明示して渡し、出力に記録する。[0m
+ ##[error]PR #2: 独立した人の確認を経ていません(承認者を名簿と対応づけられない(組織上の任命権者は確認者に数えない))。G-6 を適用する体制では記録の欠落です(G-6 の範囲をコア機能に限る構成だが、変更の親の版の構成が
+ ##[error]PR #2: 作成側の検証の記載(PR 本文「検証方法と結果」)がありません
+ ##[error]安全関連部の検証の記録(基準7): docs/safety-risk-assessment.md がありません
+ ##[error]責任者が未記入の席があります: 価値責任者(Value Owner) / 技術判断者(Tech Lead) / 開発者(検証者) / 独立レビュア / 品質保証(出荷判定者) / 事業決裁者 / コンテキストオーナー / AI維持管理者(AI Maintainer) / AI運用担当者(AIOps)
+ ##[error]PR #2: gate-g5 が failure です
+ ##[error]運用引き継ぎ文書(docs/handover.md)がありません
+ ##[error]D-0(docs/D-0-governance.md)がありません。保証の開示の項目(体制と独立性・生成の条件と変化点など)を導けない記載の欠落です(第4章 G-7 基準9)
+ ##[error]技術負債台帳(docs/debt-ledger.md)がありません
+ ##[error]ゲート判定記録(docs/gates/、承認レビューの写し、記録用ブランチの様式)が1件もありません
+ ##[error]知財潔白性の検査記録がありません。判定するのは検査を実施し記録したことです
+ ##[error]安全重要度の判定の確認: 判定の記録または判定者の記名に不備がある(1 件。D-0(docs/D-0-governance.md)が無く、安全重要度の判定の記録を読めない)。判定者本人が書ける欠落であり、記載の欠落に数える(第8章 軸E「判定�
+ ##[error]欠陥の台帳(docs/defect-ledger.md)がありません。基準2(未解決の欠陥)を確かめられないため、記載の欠落です。既知の欠陥が無い場合も「既知の欠陥なし」と書いた台帳を置きます(templates/defect-ledger.md)
+ 記録の欠落が 12 件あります。出荷判定(G-7)は通過できません
+ ##[error]Process completed with exit code 1.
+   if-no-files-found: error
+ (node:2418) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+ ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions

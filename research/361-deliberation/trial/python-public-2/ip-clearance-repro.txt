@@ -1,0 +1,9 @@
+PASS: MIT
+PASS: MIT License
+PASS: Apache Software License
+PASS: BSD License
+FAIL: Mozilla Public License 2.0 (MPL 2.0)
+PASS: MPL-2.0
+FAIL: Python Software Foundation License
+PASS: PSF-2.0
+PASS: Apache-2.0 OR BSD-3-Clause

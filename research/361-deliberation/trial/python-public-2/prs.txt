@@ -1,0 +1,7 @@
+#7 OPEN chore: control file touch
+#6 MERGED probe y
+#5 MERGED probe x
+#4 OPEN fix: $(echo PWNED-EXPANDED) `echo PWNED-BQ` ${{ secrets.TRIAL_SYNTHETIC_SECRET }}
+#3 OPEN chore: env-check
+#2 MERGED chore: process-init
+#1 MERGED chore: adopt pit-in

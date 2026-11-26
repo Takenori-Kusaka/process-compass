@@ -1,0 +1,4 @@
+PR#1 merge(--merge) sha 7d7f49d: author=22556919+Takenori-Kusaka@users.noreply.github.com committer=noreply@github.com 他の全コミットも noreply。作成者のマージは 'base branch policy prohibits' で拒否され、別アカウントの承認後に成立
+PR#2 merge sha b965f82: author=22556919+...@users.noreply.github.com committer=noreply@github.com。main の直近 12 コミットの author/committer は noreply のみ(一覧は gh api commits で確認)
+b4ae9ec 22556919+Takenori-Kusaka@users.noreply.github.com noreply@github.com
+b107f9a 22556919+Takenori-Kusaka@users.noreply.github.com noreply@github.com

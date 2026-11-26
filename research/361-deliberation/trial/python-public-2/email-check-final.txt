@@ -1,0 +1,23 @@
+== main
+     10 22556919+Takenori-Kusaka@users.noreply.github.com 22556919+Takenori-Kusaka@users.noreply.github.com
+      2 22556919+Takenori-Kusaka@users.noreply.github.com noreply@github.com
+== trial-target
+     13 22556919+Takenori-Kusaka@users.noreply.github.com 22556919+Takenori-Kusaka@users.noreply.github.com
+      4 22556919+Takenori-Kusaka@users.noreply.github.com noreply@github.com
+== records
+      5 41898282+github-actions[bot]@users.noreply.github.com 41898282+github-actions[bot]@users.noreply.github.com
+== chore/env-check
+     13 22556919+Takenori-Kusaka@users.noreply.github.com 22556919+Takenori-Kusaka@users.noreply.github.com
+      2 22556919+Takenori-Kusaka@users.noreply.github.com noreply@github.com
+== ctl
+     11 22556919+Takenori-Kusaka@users.noreply.github.com 22556919+Takenori-Kusaka@users.noreply.github.com
+      2 22556919+Takenori-Kusaka@users.noreply.github.com noreply@github.com
+== cx
+     12 22556919+Takenori-Kusaka@users.noreply.github.com 22556919+Takenori-Kusaka@users.noreply.github.com
+      2 22556919+Takenori-Kusaka@users.noreply.github.com noreply@github.com
+== cy
+     13 22556919+Takenori-Kusaka@users.noreply.github.com 22556919+Takenori-Kusaka@users.noreply.github.com
+      3 22556919+Takenori-Kusaka@users.noreply.github.com noreply@github.com
+      1 22556919+Takenori-Kusaka@users.noreply.github.com 22556919+Takenori-Kusaka@users.noreply.github.com
+      1 22556919+Takenori-Kusaka@users.noreply.github.com noreply@github.com
+      1 279162543+ganbariquestsupport-lab@users.noreply.github.com 279162543+ganbariquestsupport-lab@users.noreply.github.com
