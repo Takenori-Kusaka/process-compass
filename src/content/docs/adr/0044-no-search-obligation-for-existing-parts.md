@@ -7,7 +7,7 @@ sidebar:
 
 ## ステータス
 
-採用(2026-08-14)。一部置き換え(→ [ADR-0261](/process-compass/adr/0261-dependency-provenance-in-list-and-g6-not-in-g5-gate/)): 決定5 の「G-5 の既存の検査で捕まります。新しい条文を置きません」を、未登録の名前が解決の失敗で捕まる範囲(依存の解決が走る構成)に限り、登録済みの悪性の名前は基準8 の一覧と G-6 基準5 で扱う。
+採用(2026-08-14)。一部置き換え(→ [ADR-0261](/process-compass/adr/0261-dependency-provenance-in-list-and-g6-not-in-g5-gate/)): 決定5 の「G-5 の既存の検査で捕まります。新しい条文を置きません」を、未登録の名前が解決の失敗で捕まる範囲(依存の解決が走る構成)に限り、[ADR-0261](/process-compass/adr/0261-dependency-provenance-in-list-and-g6-not-in-g5-gate/) の決定1 が置き換えました(2026-11-27)。登録済みの悪性の名前は、基準8 の一覧と G-6 基準5 で扱います。
 
 ## コンテキスト
 
