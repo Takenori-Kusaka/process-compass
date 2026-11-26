@@ -195,7 +195,7 @@ R1 の変更の変異試験は、第4章 G-5 の段 `mutation` で実施しま�
 | 既存規格への適合 | 対応関係(H.10) | 第1章 1.3、[QMS 文書管理との対応](/process-compass/phase5-implementation/qms-document-control/) |
 | 契約上の責任の帰結 | なし(本標準は答えを持たない) | [第8章 軸D](/process-compass/phase4-process-design/tailoring-guide/) |
 | 使いやすさ | なし(判定の対象にしない) | [ADR-0051](/process-compass/adr/0051-usability-out-of-scope/) |
-| 生成物の保守性(理解しやすさ・変更しやすさ)。本標準が保守性の証跡と合格水準を持たないため | 受入基準との突合と挙動の説明を行った記録(G-6 基準1・2。保守性の主張ではない) | [ADR-0262](/process-compass/adr/0262-incomplete-words-and-assertionless-tests-as-g6-items-maintainability-not-claimed/)、[ADR-0051](/process-compass/adr/0051-usability-out-of-scope/) |
+| 生成物の保守性 | 受入基準との突合と挙動の説明を行った記録(G-6 基準1・2。保守性の主張ではない。本標準は保守性の証跡と合格水準を持たない) | [ADR-0262](/process-compass/adr/0262-incomplete-words-and-assertionless-tests-as-g6-items-maintainability-not-claimed/)、[ADR-0051](/process-compass/adr/0051-usability-out-of-scope/) |
 
 ## H.3 論証
 
