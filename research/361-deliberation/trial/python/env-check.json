@@ -1,0 +1,149 @@
+{
+  "ghVersion": "2.81.0",
+  "checkedAt": "2026-11-26T16:53:00+09:00",
+  "checkedBy": "試行の代記",
+  "repo": "Takenori-Kusaka/pit-in-trial-python-tmp",
+  "repoUrl": "https://github.com/Takenori-Kusaka/pit-in-trial-python-tmp",
+  "branch": "main",
+  "commit": "55982f55bb37dbc8bcb8c2e3e055e76ef2dbb6bc",
+  "config": {
+    "reviewerCount": 1,
+    "ruleset": "team",
+    "g6": "required"
+  },
+  "items": {
+    "ruleset": {
+      "status": "unconfirmed",
+      "reason": "permission",
+      "detail": "gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403))"
+    },
+    "classicProtection": {
+      "status": "unconfirmed",
+      "reason": "permission",
+      "detail": "gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403))"
+    },
+    "codeowners": {
+      "status": "confirmed",
+      "detail": "効いている CODEOWNERS は .github/CODEOWNERS(codeowners/errors は 0 件)",
+      "evidence": {
+        "path": ".github/CODEOWNERS",
+        "blobSha": "2f830dc16c97d8502101cc57c6c748fab279df98",
+        "errorCount": 0,
+        "api": "repos/Takenori-Kusaka/pit-in-trial-python-tmp/codeowners/errors?ref=main",
+        "fetchedAt": "2026-11-26T16:52:49+09:00"
+      }
+    },
+    "bypass": {
+      "status": "unconfirmed",
+      "reason": "permission",
+      "detail": "ルールセットを読めないため、バイパスの主体を確かめられない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)))"
+    },
+    "prReviews": {
+      "status": "unconfirmed",
+      "reason": "no-subject",
+      "detail": "PR #2 のレビューが 0 件(承認のある PR で確かめる。--pr N)"
+    },
+    "shipEvidence": {
+      "status": "unconfirmed",
+      "reason": "no-subject",
+      "detail": "gate-g5 の成功した実行が無い(最初の PR の後に確かめる)"
+    },
+    "workflowPermissions": {
+      "status": "confirmed",
+      "detail": "既定は read。permissions を書かないワークフローは書き込みを得ない。permissions を明示した昇格は止めない(既定であり上限ではない)。G-8 の適合の判定には使わない(狭める措置の事実)",
+      "evidence": {
+        "defaultWorkflowPermissions": "read",
+        "api": "repos/Takenori-Kusaka/pit-in-trial-python-tmp/actions/permissions/workflow",
+        "fetchedAt": "2026-11-26T16:52:53+09:00"
+      }
+    },
+    "actionsApproval": {
+      "status": "confirmed",
+      "detail": "Actions は PR を承認できない(GITHUB_TOKEN による承認を止める)。G-8 の適合の判定には使わない(狭める措置の事実)",
+      "evidence": {
+        "canApprovePullRequestReviews": false,
+        "api": "repos/Takenori-Kusaka/pit-in-trial-python-tmp/actions/permissions/workflow",
+        "fetchedAt": "2026-11-26T16:52:53+09:00"
+      }
+    },
+    "environments": {
+      "status": "notApplicable",
+      "detail": "Environment が無く、委任のトークンも Environment の外に無い。確認済みには数えない。委任のマージを有効にする前に delegated-merge を作り、配備のブランチを既定ブランチに限る。リポジトリの秘密情報と変数は名前だけを読み、値は読まない。組織の秘密情報は読んでいない。G-8 の適合の判定には使わない(狭める措置の事実)",
+      "evidence": {
+        "environmentNames": [],
+        "environmentIds": [],
+        "credentialScopes": [
+          "repository-secrets",
+          "repository-variables"
+        ],
+        "delegatedTokenOutside": [],
+        "tagRulesetIds": [],
+        "findings": [],
+        "api": "repos/Takenori-Kusaka/pit-in-trial-python-tmp/environments",
+        "fetchedAt": "2026-11-26T16:52:55+09:00"
+      }
+    }
+  },
+  "findings": {
+    "recordsBranch": {
+      "status": "unconfirmed",
+      "detail": "ブランチ records はある(dd64195)が、効いている規則を読めない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)))"
+    },
+    "recordCopy": {
+      "status": "mismatch",
+      "detail": "record-copy.yml の直近の実行 45778610014 が (https://github.com/Takenori-Kusaka/pit-in-trial-python-tmp/actions/runs/45778610014。署名を必須にするルールセットを、構成の回答が署名を要しない構成で適用している、または records ブランチの初期化が止まった、など)",
+      "evidence": {
+        "workflowId": 431322861,
+        "state": "active",
+        "runId": 45778610014,
+        "runUrl": "https://github.com/Takenori-Kusaka/pit-in-trial-python-tmp/actions/runs/45778610014",
+        "runCreatedAt": "2026-11-26T07:52:47Z",
+        "conclusion": "",
+        "fetchedAt": "2026-11-26T16:52:58+09:00"
+      }
+    },
+    "recordsCopy": {
+      "status": "confirmed",
+      "detail": "PR #2 の写し records/reviews/pr-2.json が records ブランチにある",
+      "evidence": {
+        "pr": 2,
+        "blobSha": "54f237db0f784d2c2d524e1e7deffc14755ea7b1",
+        "api": "repos/Takenori-Kusaka/pit-in-trial-python-tmp/contents/records/reviews/pr-2.json?ref=records",
+        "fetchedAt": "2026-11-26T16:52:59+09:00"
+      }
+    },
+    "defaultBypass": {
+      "status": "unconfirmed",
+      "detail": "既定ブランチ main の規則を読めない(gh を実行できない、または失敗した(gh: Upgrade to GitHub Pro or make this repository public to enable this feature. (HTTP 403)))"
+    },
+    "approvalCounting": {
+      "status": "unknown",
+      "detail": "GITHUB_TOKEN と GitHub App の承認レビューが required approving review に数えられるかは、組織の設定(Actions の権限「Allow GitHub Actions to approve pull requests」)で決まり、リポジトリの API では取れない。組織の設定の画面で人が確かめ、記録の節9 へ書く。数えられる設定では、機械の承認が承認の数に入るため、独立した人の確認の数え方(出荷の集約)と食い違う"
+    }
+  },
+  "performerAccount": {
+    "checkedAt": "2026-11-26T16:53:00+09:00",
+    "api": "user",
+    "account": {
+      "login": "Takenori-Kusaka",
+      "id": 22556919
+    },
+    "scope": "この照合は、env-check を実行した環境(その環境の gh が認証したアカウント)と時点に限る。担い手が別の環境・別の認証情報で動く場合は確かめていない",
+    "status": "notSpecified",
+    "person": null,
+    "detail": "どの席の担い手の環境かを指定していない(--seat <ロール>)。席ごとの名義の照合に使わない",
+    "seats": []
+  },
+  "performerAccountBySeat": {},
+  "baseJudge": {
+    "status": "unconfirmed",
+    "detail": "既定ブランチに効いている規則を読めない",
+    "evidence": {
+      "rulesetIds": [],
+      "workflowBlob": "1f830448eb24ef1ac06887144fd7496cfebfbffc",
+      "fetchedAt": "2026-11-26T16:52:49+09:00"
+    }
+  },
+  "integrationId": "確かめていない。必須チェックの送り手(integration_id)を GitHub Actions に固定しても、PR の側のワークフローの結果と区別されない(2026-11-05 の実機の確認)。送り手の固定は適合の手段に数えない(process-compass #371 / ADR-0115)",
+  "note": "実環境の gh で読んだ結果。結果は確認済み / 不一致 / 未確認(理由)/ 対象外の4値で、対象外は確認済みに数えない(#315 R-4)。項目が確認済みでない記録は、導入前の検証の記録と出荷の集約に「実環境の統制 未確認」と出続ける(附属書I I.11 要件⑦)。各項目の evidence は API の応答の識別(査察で GitHub の画面と突合する鍵)であり、識別の無い確認済みは読む側で未確認に倒れる。findings は記録用ブランチ(records)の所見で、確認済みの判定に入れない(人が読む。mismatch は強制層の縮小または保護の欠落)"
+}

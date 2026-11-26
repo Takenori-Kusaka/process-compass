@@ -1,0 +1,6 @@
+1	chore: adopt pit-in template	MERGED	b4db2b3	0
+2	chore: process-init	MERGED	55982f5	0
+3	chore: record env-check	MERGED	bad5049	0
+4	feat: add sub	MERGED	a369ae7	0
+5	feat: add neg	MERGED	6ae143c	0
+6	docs: trial note	MERGED	65566f8	1
