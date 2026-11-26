@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: SRC-0971
+status: included
+excludeReason: null
+title: "Quality Assurance Director(Powerley)求人"
+url: https://powerley.com/qadirector
+canonicalUrl: https://powerley.com/qadirector
+ids: {arxiv: null, doi: null}
+publisher: "Powerley"
+authors: []
+orgType: enterprise
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "Director of Quality Assurance software job description responsibilities reports to VP Engineering KPIs"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events:
+  - date: 2026-11-27
+    label: 求人ページの取得日(削除されやすい)
+summary: '北米のソフトウェア企業の QA ディレクターの求人。要件を試験計画・ケースに落とすこと、機能・結合・回帰・性能・セキュリティのテストの統括、Web・モバイル・API の QA 戦略と標準、自動化フレームワークの主導、オンショア・オフショアの QA チームの管理が職務。報告先・KPI・リリース承認の権限の記載は無い。経験要件は7年以上、うちリーダー職5年以上。DevOps の品質ゲートの支援経験が歓迎要件。'
+claims:
+  - id: c1
+    text: '求人に、報告先・KPI・リリース承認権限の記載は無い。職務はテストの統括と QA チームの管理が中心で、権限の記述が薄い。'
+    quote: 'Manage and mentor a global team of QA professionals, including onshore and offshore resources.'
+    locator: 'Responsibilities(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。報告先・KPI・承認権限が書かれていないという否定の確認は、ページ全体を読んだ要約モデルの報告による。'}
+volatility: fast
+reviewBy: 2026-12

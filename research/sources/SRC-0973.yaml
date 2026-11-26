@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: SRC-0973
+status: included
+excludeReason: null
+title: "DORA Report Finds AI Is an Amplifier in Software Development, But Trust Remains Low(InfoQ)"
+url: https://www.infoq.com/news/2025/09/dora-state-of-ai-in-dev-2025
+canonicalUrl: https://www.infoq.com/news/2025/09/dora-state-of-ai-in-dev-2025
+ids: {arxiv: null, doi: null}
+publisher: "InfoQ"
+authors: ["Matt Saunders"]
+orgType: media
+region: global
+lang: en
+sourceType: news
+published: 2025-09-29
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "DORA 2025 State of AI-assisted Software Development report quality assurance implications"}
+derivedFrom: [SRC-0972]
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'DORA 2025 報告の報道。AI は高業績の組織の強みと苦しむ組織の機能不全の双方を拡大する。生成 AI の採用以降、ソフトウェア配信の不安定さが増している。Stack Overflow 2025 の調査を引いて、高い信頼を置く開発者は 3% にとどまる。一方、59% はコード品質への良い影響を報告する。3% は DORA の数値ではなく Stack Overflow の数値である点に注意。'
+claims:
+  - id: c1
+    text: 'AI は高業績の組織の強みと、苦しむ組織の機能不全の両方を拡大する。'
+    quote: 'AI''s primary role in software development is that of an amplifier. It magnifies the strengths of high-performing organisations and the dysfunctions of struggling ones.'
+    locator: '本文冒頭付近'
+    quant: null
+    evidenceKind: survey
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '生成 AI の採用以降、ソフトウェアの安定性が重大な問題になり、配信の不安定さは上がり続けている。品質保証部長が懸念する安定性の面の根拠になる。'
+    quote: 'software stability has become a significant issue since generative AI started to be adopted.'
+    locator: '本文'
+    quant: null
+    evidenceKind: survey
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: 'Stack Overflow 2025 の開発者調査を引き、AI の出力に高い信頼を置くのは 3% にとどまる。DORA 自身の数値ではない。'
+    quote: 'Only 3% of developers report "high trust" in AI-generated output.'
+    locator: '本文(Stack Overflow 2025 Developer Survey の引用)'
+    quant: {value: '3%', n: null, design: 'Stack Overflow 2025 Developer Survey の引用(InfoQ 経由)', population: '開発者'}
+    evidenceKind: survey
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。報告書本体との照合は未実施。数値 3% と 59% の母集団・設問は未確認。'}
+volatility: medium
+reviewBy: 2027-05

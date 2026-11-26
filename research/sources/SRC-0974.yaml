@@ -1,0 +1,70 @@
+schemaVersion: 0
+id: SRC-0974
+status: included
+excludeReason: null
+title: "QA4AI 2026-Oct 生成AI時代の品質保証(SQiP 研究会 特別講義資料、徳 隆宏。Speaker Deck)"
+url: https://speakerdeck.com/tokuty/qa4ai-2026-oct-seisei-ai-jidai-no-hinshitsu-hoshou
+canonicalUrl: https://speakerdeck.com/tokuty/qa4ai-2026-oct-seisei-ai-jidai-no-hinshitsu-hoshou
+ids: {arxiv: null, doi: null}
+publisher: "Speaker Deck(徳 隆宏。検索結果上の所属は三菱電機、QA4AI 副運営委員)"
+authors: ["徳 隆宏"]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: talk
+published: 2026-10-15
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "QA4AI ガイドライン 生成AI 品質保証 JaSST 2026"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events:
+  - date: 2026-10-12
+    label: 講演日(スライド内の記載)
+summary: 'QA4AI の副運営委員による、生成 AI 時代の品質保証の講演資料(掲載 2026-10-15、講演 2026-10-12)。品質部門を通過を管理するゲートから評価基盤と語彙を提供するイネーブラーへ、品質保証の重心を学習データと精度から評価・監視・人の関与・責任分界へ、体制を開発の最終工程から初期段階の関与へ、と動かすことを述べる。末尾は講演者の私見である。スライドは 83 枚以上あるが、読んだのは WebFetch の要約モデルが返した抜粋だけ。'
+claims:
+  - id: c1
+    text: '講演者は、品質部門の役割を、ゲートから、評価基盤と語彙を提供するイネーブラーへ移すべきだと述べる(スライド 28)。「ゲート」を承認の場とする部長の自己像と衝突しうる。'
+    quote: '品質部門は「ゲート」から「評価基盤と語彙を提供するイネーブラー」へ。小さく出して計測で育てる'
+    locator: 'スライド 28'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '品質保証の重心が、学習データと精度から、評価・監視・人の関与・責任分界へ移る(スライド 14)。品質保証部門の新しい仕事として、生成された経緯の説明可能性の管理を挙げる(スライド 45)。'
+    quote: '「学習データと精度」から「評価・監視・人の関与・責任分界」へ品質保証の重心が移る'
+    locator: 'スライド 14、45'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: '体制は、品質保証が開発の最終工程にぶら下がる形から、設計・検証に AI 活用の初期段階から関与する形へ。エージェントに対しては、ルールの所有とゲートの判定を持つ監視役・審判役になる(スライド 57)。'
+    quote: 'エージェントの監視役・審判役：ルールの所有、ゲートの判定'
+    locator: 'スライド 57'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c4
+    text: '講演者の私見として、テストを書く人の需要は AI 生成で減り、何を良しとするかを定義し、測り、説明する人の需要は増える(スライド 83)。'
+    quote: '私見：「テストを書く人」の需要はAI生成で減るが、「何を良しとするかを定義し、測り、説明する人」の需要は増える'
+    locator: 'スライド 83'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルが返した抜粋で、スライド番号と原文を機械照合していない。所属は検索結果の要約による。講演者個人の見解で、QA4AI の公式見解ではない。'}
+volatility: fast
+reviewBy: 2027-02

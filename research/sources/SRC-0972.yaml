@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0972
+status: included
+excludeReason: null
+title: "Download the 2025 DORA Report(State of AI-assisted Software Development)"
+url: https://dora.dev/dora-report-2025/
+canonicalUrl: https://dora.dev/dora-report-2025/
+ids: {arxiv: null, doi: null}
+publisher: "DORA(Google Cloud)"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: 2025-09
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: abstract
+foundBy: {cluster: I461C, query: "DORA 2025 State of AI-assisted Software Development report quality assurance implications"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'DORA 2025 報告の入口ページ。AI の主な役割は組織の強みと弱みを増幅する増幅器だと述べる。報告書本体(PDF)は読んでおらず、安定性・テスト・信頼に関する記述は InfoQ の記事(SRC-0973)で補った。QA への含意は報告書自身の主張ではなく、読み手の解釈である。'
+claims:
+  - id: c1
+    text: 'DORA 2025 は、AI の主な役割を、組織の既存の強みと弱みを拡大する増幅器と述べる。品質保証部長が AI 導入の提案を読むとき、既存の品質プロセスの弱さがそのまま拡大されるという懸念の根拠になる(解釈)。'
+    quote: 'AI’s primary role is as an amplifier, magnifying an organization’s existing strengths and weaknesses.'
+    locator: 'ページ冒頭の概要'
+    quant: null
+    evidenceKind: survey
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。報告書本体は未読。発行日はページに無く、2025-09 は InfoQ の記事日付(2025-09-29)から推定した。'}
+volatility: medium
+reviewBy: 2027-05
