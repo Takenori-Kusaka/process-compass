@@ -48,3 +48,5 @@ template(コミット 18e93b8。`E:/Github/process-compass` の `wip/b32` へ退
 
 - IMPL-0645 の note: 書式の検査が `>` を含む note を拒むため、裁定 §2.4 の文のうち `` `コア理解: <名前>` `` を言い換えた。実装を変えていない。異論があれば書式の側を直す
 - IMPL-0645 の機械の試験の目印(`集約(IMPL-0645)` の `:ng`・`:ok`)は足していない。`impl:write` は通っている
+
+訂正(独立の突合 1巡目 中-1・低-4。`52-fix-r1.md`): 上の「IMPL-0284 の末尾の句は B29 の Y1 で既に入っていた」は実物と合わなかった。§2.5 の句(欠陥の台帳の登録外の ID・取り下げ・区切り)は 1巡目の直しで足した。また集約の側の試験の置き場は、指示の test-aggregate-records.mjs でなく test-roster-conditions.mjs・test-edition-end.mjs(どちらも gate-g5.yml で結線済み)だった。
