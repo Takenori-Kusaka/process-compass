@@ -1,0 +1,11 @@
+[止める] .github/CODEOWNERS / CODEOWNERS: CODEOWNERS が 2 か所にある。GitHub は決まった順に探して最初に見つけた1つ(.github/CODEOWNERS)を使い、ほかは使われない。PR の失敗としては出ない。直し方: 1か所(.github/CODEOWNERS を推奨)へまとめ、ほかを消す
+[止める] .github/CODEOWNERS: .github/CODEOWNERS に雛形の所有者 @OWNER が残っている(16 行目)。@OWNER は不明な所有者として扱われ、コードオーナーが割り当てられない。誤りは CODEOWNERS の画面と API に出るが、PR の失敗としては出ない。直し方: @OWNER を名簿(people[].accounts)の人の個人のログイン名(チームを書くときは個人と併記する)へ置き換える(人が決める)
+[止める] docs/adoption-inventory.md: 既存の統制の資産を 6 件検出した。資産ごとの扱いの一覧(docs/adoption-inventory.md)が無い。直し方: node scripts/gate/preflight.mjs --draft > docs/adoption-inventory.md で下書きを作り、扱いと確定した者(技術判断の席の責任者)を人が書く
+[告げる] scripts/CLAUDE.md: 入れ子の指示ファイル。近いファイルが優先される基盤があり、テンプレートの規則より優先されうる
+[告げる] 履歴: テンプレートの配置の外のファイル 6 件、コミット 5 件。適用の開始より前の履歴は、出所を問わず要求事項の対象外として件数だけを開示する
+[告げる] .github/workflows/lint.yml: 既存のワークフロー。必須チェックの名・パスの絞り・契機が gate-g5 と重ならないかを確かめる
+[告げる] .github/workflows/test.yml: 既存のワークフロー。必須チェックの名・パスの絞り・契機が gate-g5 と重ならないかを確かめる
+[告げる] pyproject.toml: python の目印
+[告げる] requirements-dev.txt: python の目印
+[事実] 既定ブランチ: main(手元の main ブランチ(origin の HEAD を読めない))。コミット 5 件、根のコミット 1 件
+事前点検: 止める項目が 3 件あります。初期化は構成を書きません

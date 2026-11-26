@@ -1,0 +1,1 @@
+{"checks":["lint"],"enforce_admins":true,"url":"https://api.github.com/repos/Takenori-Kusaka/pit-in-trial-python-pub-tmp/branches/main/protection"}
