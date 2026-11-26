@@ -76,4 +76,8 @@ N10〜N13(上程・結び付け)、N14(手動の起動と必須チェック。�
 
 ## 6. 削除の確認
 
-(削除の後に追記)
+`gh repo delete Takenori-Kusaka/pit-in-trial-node-tmp --yes` の後(2026-11-26)、`gh repo view Takenori-Kusaka/pit-in-trial-node-tmp` の出力:
+
+```
+GraphQL: Could not resolve to a Repository with the name 'Takenori-Kusaka/pit-in-trial-node-tmp'. (repository)
+```
