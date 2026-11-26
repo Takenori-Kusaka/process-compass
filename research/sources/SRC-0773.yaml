@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0773
+status: included
+excludeReason: null
+title: "ISO/IEC/IEEE 42010:2022 Software, systems and enterprise: Architecture description(目次)"
+url: https://cdn.standards.iteh.ai/samples/74393/fc7b7f103d8446a4b87a3261e31370d3/ISO-IEC-IEEE-42010-2022.pdf
+canonicalUrl: https://cdn.standards.iteh.ai/samples/74393/fc7b7f103d8446a4b87a3261e31370d3/ISO-IEC-IEEE-42010-2022.pdf
+ids: {arxiv: null, doi: null}
+publisher: ISO/IEC/IEEE(目次は iTeh Standards の公開サンプル)
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2022-11
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: secondary
+foundBy: {cluster: I457, query: "#457 変更ごとの設計の理由を求める規格・法令の有無(束 D2 の突合1巡目の直し。裁定 §4.3)"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'アーキテクチャ記述の規格。目次に 5.2.12 の判断と理由の要素、6.10 の判断と理由の記録がある。本文は読んでいない(目次だけを読んだ)。対象は architecturally significant な判断で、全変更ではない。'
+claims:
+  - id: c1
+    text: '規格の目次が、アーキテクチャ上の判断と理由(5.2.12)とその記録(6.10。6.10.2 は理由の記録)を定めると示す。本文は未読で、対象の範囲は目次からは確かめていない。'
+    quote: '5.2.12 Architecture decisions and rationale'
+    locator: '目次(5.2.12、6.10、6.10.2)'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [457]
+    stance: context
+verification: {status: partial, method: [curl], date: 2026-11-27, humanChecked: false, note: '束 D2 担当が公開サンプル PDF の目次の検索断片で見出しを確かめた。本文は読んでいない。対象の範囲(重要な判断に限ること)は二次資料に依る。'}
+volatility: slow
+reviewBy: 2027-11

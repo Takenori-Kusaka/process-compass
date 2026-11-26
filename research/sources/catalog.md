@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 762(included 762、excluded 0)。生成日 2026-11-26。
+件数: 766(included 766、excluded 0)。生成日 2026-11-26。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -770,4 +770,8 @@
 | SRC-0767 | ? | community | global/en | partial |  | OWASP の非人間の識別(NHI)の上位10項目のうち、NHI9 は同じ NHI を複数のアプリケーション・サービス・構成要素で使い回すことを危険とし、アプリ | [OWASP Non-Human Identities Top 10 (2025) NHI9: NHI Reuse](https://owasp.github.io/www-project-non-human-identities-top-10/2025/9-nhi-reuse) |
 | SRC-0768 | ? | vendor-official | global/en | verified |  | GitHub の組織設定の文書。既定では、チェック・ワークフローの実行・コミットの状態と、ワークフローが作る成果物・ログが 90 日で自動削除される。文書は「実 | [Configuring the retention period for checks, workflow runs, commit statuses, artifacts, an](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) |
 | SRC-0769 | 2025-05-08 | preprint | global/en | verified |  | 推論モデルの思考の連鎖が、モデルが実際に使った手掛かりを言語化する割合を、6種類の手掛かりで測った研究の要旨。多くの設定で手掛かりの使用を言語化する割合は 1% | [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) |
+| SRC-0770 | 2024-06 | regulation | eu/en | verified |  | EU AI Act 第11条の条文。高リスク AI の技術文書は市場投入の前に作成し、最新に保つ。内容は附属書IV に従う。変更の単位でなく、システムの単位の文 | [EU AI Act Article 11: Technical documentation](https://artificialintelligenceact.eu/article/11/) |
+| SRC-0771 | 2024-06 | regulation | eu/en | verified |  | EU AI Act 第12条の条文。高リスク AI システムは、システムの生涯にわたって事象(ログ)を自動で記録できなければならない。対象は高リスク AI シス | [EU AI Act Article 12: Record-keeping](https://artificialintelligenceact.eu/article/12/) |
+| SRC-0772 | 2024-06 | regulation | eu/en | verified |  | EU AI Act 附属書IV の条文。技術文書の内容を列挙する。2(b) は、システムの主要な設計上の選択を、その理由と前提を含めて求める。システムの単位の設 | [EU AI Act Annex IV: Technical documentation referred to in Article 11(1)](https://artificialintelligenceact.eu/annex/4/) |
+| SRC-0773 | 2022-11 | standard | global/en | partial |  | アーキテクチャ記述の規格。目次に 5.2.12 の判断と理由の要素、6.10 の判断と理由の記録がある。本文は読んでいない(目次だけを読んだ)。対象は arch | [ISO/IEC/IEEE 42010:2022 Software, systems and enterprise: Architecture description(目次)](https://cdn.standards.iteh.ai/samples/74393/fc7b7f103d8446a4b87a3261e31370d3/ISO-IEC-IEEE-42010-2022.pdf) |
 

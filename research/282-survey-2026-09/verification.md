@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-26): verified 654 / partial 107 / unverified 1
+集計(生成日 2026-11-26): verified 657 / partial 108 / unverified 1
 
 ### 要確認(verified 以外)
 
@@ -131,6 +131,7 @@
 | SRC-0765 | partial | webfetch | 議長が2026-11-17 に文書で確認した。引用は変数名のみ。 | [Environment variables(Claude Code 環境変数の参照)](https://code.claude.com/docs/en/env-vars) |
 | SRC-0766 | partial | webfetch | 束 B22 調査C が OSCAL カタログの原文で該当の制御を確認した。議長は原文を再取得していない。 | [NIST SP 800-53 Rev.5 セキュリティ・プライバシー管理策(OSCAL 版カタログ v5.2.0)IA-2・IA-2(5)](https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json) |
 | SRC-0767 | partial | webfetch | 束 B22 調査C が NHI9 の頁を原典で確認した。議長は再取得していない。NHI5・NHI7・NHI8 は二次の要約までで登録しない。 | [OWASP Non-Human Identities Top 10 (2025) NHI9: NHI Reuse](https://owasp.github.io/www-project-non-human-identities-top-10/2025/9-nhi-reuse) |
+| SRC-0773 | partial | curl | 束 D2 担当が公開サンプル PDF の目次の検索断片で見出しを確かめた。本文は読んでいない。対象の範囲(重要な判断に限ること)は二次資料に依る。 | [ISO/IEC/IEEE 42010:2022 Software, systems and enterprise: Architecture description(目次)](https://cdn.standards.iteh.ai/samples/74393/fc7b7f103d8446a4b87a3261e31370d3/ISO-IEC-IEEE-42010-2022.pdf) |
 
 ### 除外した出典(却下は成果)
 

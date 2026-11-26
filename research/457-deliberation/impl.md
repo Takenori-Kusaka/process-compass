@@ -7,3 +7,4 @@
 - 検査: textlint(変えた md)・lint:evidence・lint:impl・lint:scope・lint:refs(check-failure-projection と試験17件を含む)・lint:provisions・lint:tone・lint:sources・test:fields・test:template は通過。全量の回帰は流していない
 - 範囲外: review-guide L106 は本束で直した。テンプレートのレビューの様式に同じ文があるかは template 未初期化のため確かめていない(束 D1 で `grep`)。軽の2件のコメントは議長が投稿
 - 採らなかったこと: ADR の index には ADR の一覧が無いため更新なし(ADR-0266 と同じ)
+- 標準の改訂の記録(裁定 §4.4): 該当なし。本標準は版を発行していない(community/standard-editions.md)

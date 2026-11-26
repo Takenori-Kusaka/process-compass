@@ -35,7 +35,7 @@ claims:
     evidenceKind: controlled-experiment
     rqs: []
     issues: [457]
-    stance: supports
+    stance: qualifies
 verification: {status: verified, method: [curl], date: 2026-11-27, humanChecked: false, note: '束 D2 担当が arxiv.org/abs の頁の要旨を取得し、引用が一致することを確かめた。本文は読んでいない。'}
 volatility: slow
 reviewBy: 2027-11

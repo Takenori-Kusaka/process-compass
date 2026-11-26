@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0771
+status: included
+excludeReason: null
+title: "EU AI Act Article 12: Record-keeping"
+url: https://artificialintelligenceact.eu/article/12/
+canonicalUrl: https://artificialintelligenceact.eu/article/12/
+ids: {arxiv: null, doi: null}
+publisher: Regulation (EU) 2024/1689 (AI Act Explorer, Future of Life Institute)
+authors: []
+orgType: government
+region: eu
+lang: en
+sourceType: regulation
+published: 2024-06
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy: {cluster: I457, query: "#457 変更ごとの設計の理由を求める規格・法令の有無(束 D2 の突合1巡目の直し。裁定 §4.3)"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'EU AI Act 第12条の条文。高リスク AI システムは、システムの生涯にわたって事象(ログ)を自動で記録できなければならない。対象は高リスク AI システムの運用で、AI を道具に使った開発の作業ではない。'
+claims:
+  - id: c1
+    text: '高リスク AI システムは、生涯にわたる事象の自動記録を技術的に可能にしなければならない。製品の AI の義務であり、開発の道具として使う AI の会話の保存を求める条文ではない。'
+    quote: 'shall technically allow for the automatic recording of events (logs) over the lifetime of the system.'
+    locator: 'Article 12(1)'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [457]
+    stance: context
+verification: {status: verified, method: [curl], date: 2026-11-27, humanChecked: false, note: '束 D2 担当が artificialintelligenceact.eu の条文ページを取得し、引用が一致することを確かめた。'}
+volatility: slow
+reviewBy: 2027-11
