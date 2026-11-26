@@ -651,6 +651,7 @@ sections:
     status: marked
     ids:
       - IMPL-0782
+      - IMPL-1047
     note: "承認者・承認日・承認の対象・次回見直し・改訂履歴の欄は IMPL-0782。要求事項4(過去の版を隠蔽しない)は版管理による。承認者を後から同定できる点の機械の確認は、D-0 の記名の帰属の照合(IMPL-0415)の側"
     issue: 324
     rows:
@@ -923,6 +924,7 @@ sections:
       - IMPL-0803
       - IMPL-0804
       - IMPL-0805
+      - IMPL-1048
       - IMPL-0957
     location:
       - "phase4-process-design/deliverable-templates#テンプレ8: AI-SLA 合意確認書(委託契約の添付) > 第10項〜第14項を様式に置く理由"
@@ -1159,6 +1161,7 @@ sections:
     status: marked
     ids:
       - IMPL-0453
+      - IMPL-1049
       - IMPL-0454
       - IMPL-0858
       - IMPL-0859
