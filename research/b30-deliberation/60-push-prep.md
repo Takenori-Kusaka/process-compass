@@ -29,3 +29,17 @@ title: 束 B32 の push の準備(回帰)
 - template 先頭: 3769f797229d1f6211cfe15e2476f9d0801e77f0(origin/main b5f406f の上)
 - 本体の先頭: 本記録のコミット(報告に記す)
 - 写しは削除した。
+
+## 2回目
+回帰の全量を、修正後の本体 8f7426f1・template 3769f79 で流し直した(WSL Ubuntu-24.04・node v26.13.1・LF の写し、npm ci 終了 0、直列)。
+
+- 写しの作り方: 本体は bundle を clone(autocrlf=false)、template は git archive の1コミット。今回は template の写しが CRLF だったため、先に LF へ揃えた(CRLF のままだと t288・trial・r3-scen・r3-verify・r3-succession が D-0 の表の置き換えで中断する。写しの不備で、本束の欠陥ではない。判定に使わない)。
+- `node scripts/regress/run.mjs --write-scenes`: 終了 0、29 本すべて通った。場面の一覧の差分は scenarios.txt の1行追加だけ: 「一時制限の発動に根拠の区分(cause)が無い → 拒否 → 拒否」(承認権限の一時制限の発動を記録する の直前)。それ以外の一覧の差分なし。Windows の作業ツリーへ LF のまま持ち帰った。
+- 表示の注意: 追加行の末尾が「→ 拒否 → 拒否」と重なる。場面の名に「→ 拒否」を含めたため。意味は変えないが、直すなら場面の名から「→ 拒否」を外す。直していない。
+
+| 条件 | 終了コード | ok 行 | FAIL |
+|---|---|---|---|
+| 通常 | 0 | 449 | 0 |
+| TZ=UTC | 0 | 449 | 0 |
+
+- 写しは削除した(node_modules は写しの内側で、Windows へのリンクなし)。
