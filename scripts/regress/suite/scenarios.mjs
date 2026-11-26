@@ -280,7 +280,7 @@ commit('chore: 2名');
 git('tag', 'two');
 
 // K15: 後から通知を記録する(過去の記録は書き換えない)。通知の対象として、承認権限の一時制限の発動を使う
-refused('一時制限の発動に根拠の区分(cause)が無い → 拒否', change({ kind: 'notice', date: DAY, summary: '注入欠陥を連続2回見逃した', event: 'restriction', restriction: { id: 'r1', person: '佐藤 花子', paths: ['src/**'], basis: 'docs/measurements/injected-defects.md', recordedBy: '山田 太郎' } }), 'restriction.cause');
+refused('一時制限の発動に根拠の区分(cause)が無い', change({ kind: 'notice', date: DAY, summary: '注入欠陥を連続2回見逃した', event: 'restriction', restriction: { id: 'r1', person: '佐藤 花子', paths: ['src/**'], basis: 'docs/measurements/injected-defects.md', recordedBy: '山田 太郎' } }), 'restriction.cause');
 accepted('承認権限の一時制限の発動を記録する(通知は未記入)', change({ kind: 'notice', date: DAY, summary: '注入欠陥を連続2回見逃した', event: 'restriction', restriction: { id: 'r1', cause: '7.9.1-2', person: '佐藤 花子', paths: ['src/**'], basis: 'docs/measurements/injected-defects.md', recordedBy: '山田 太郎' } }), '[即時通知]');
 check('一時制限の発動が、未記入の通知として残る', contract().out.includes('即時通知が未記録') && cfg().changeLog.at(-1).notice.reasons[0].includes('7.9'), contract().out);
 const idx = cfg().changeLog.length - 1;
