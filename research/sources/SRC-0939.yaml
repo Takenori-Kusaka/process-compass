@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0939
+status: included
+excludeReason: null
+title: "低品質ソフトウェアは売上減、機会・工数損失に直結 約6割が実感:手戻りをどう防ぐか(ラクスパートナーズ調査)"
+url: https://atmarkit.itmedia.co.jp/ait/spv/2605/27/news058.html
+canonicalUrl: https://atmarkit.itmedia.co.jp/ait/spv/2605/27/news058.html
+ids: {arxiv: null, doi: null}
+publisher: "@IT(調査: ラクスパートナーズ株式会社)"
+authors: []
+orgType: media
+region: jp
+lang: ja
+sourceType: news
+published: 2026-05-27
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461B, query: "#461 日本の Web・ソフトウェア開発の QA 体制の実態(専任 QA の有無)"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: 'ラクスパートナーズがソフトウェア・Web アプリ開発に関わる 1,003 人へ行ったオンライン調査(結果の公表は 2026-03-31)。QA 体制は、社内の専任 QA 24.9%、外部パートナーの QA 22.7%、両方の併用 25.0%、専任 QA なしで開発エンジニアが兼務 18.2%。調査会社は QA の受託・派遣を営む事業者で、利害を持つ。回答者の業種・規模の内訳は読んでいない。頁の文字化けを要約モデルが復元したため、数値は元記事での確認が要る。'
+claims:
+  - id: c1
+    text: '専任 QA を置かず開発エンジニアが兼務する現場が 18.2%。専任 QA を社内に持つ現場は 24.9%。'
+    quote: '専任QAはおらず、開発エンジニアが兼務'
+    locator: '調査結果の QA 体制'
+    quant: '18.2% / 社内専任 24.9% / 外部 22.7% / 併用 25.0%(n=1,003)'
+    evidenceKind: survey
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '頁の文字化けを要約モデルが復元した旨の注記あり。数値の元記事での照合が未了。調査主体は QA 受託の事業者(自己申告・利害あり)。'}
+volatility: medium
+reviewBy: 2027-05

@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0940
+status: included
+excludeReason: null
+title: "リリース判定(atsoho ブログ)"
+url: https://atsoho.com/blog/release-decision
+canonicalUrl: https://atsoho.com/blog/release-decision
+ids: {arxiv: null, doi: null}
+publisher: "atsoho"
+authors: []
+orgType: individual
+region: jp
+lang: ja
+sourceType: individual
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461B, query: "#461 日本のソフトウェア開発のリリース判定の責任者と基準の事前合意"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: 'リリース判定の実務を説明する個人・小規模事業者のブログ。最終的に出すと決める人を会議の前に決めること、基準を開発・テストの前(遅くともテスト計画の時点)に合意しておくことを書く。QA と開発の責任分担を論じてはいない。実務の一例であり、業種を代表するとは言えない。'
+claims:
+  - id: c1
+    text: '誰が最終的に出すと決めるのかは、会議の前に決めておく。'
+    quote: '誰が最終的に「出す」と決めるのかは、会議の前に決めておきます。'
+    locator: '判定の責任者'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '判定基準は当日に決めず、テスト計画の時点までに関係者と合意する。'
+    quote: '開発やテストが始まる前、遅くともテストの計画を立てる時点で決め、関係者と合意しておきます。'
+    locator: '基準の事前合意'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '要約モデルの抽出。運営者の属性は未確認。'}
+volatility: medium
+reviewBy: 2027-05

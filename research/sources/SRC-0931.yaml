@@ -1,0 +1,70 @@
+schemaVersion: 0
+id: SRC-0931
+status: included
+excludeReason: null
+title: "Quality Management System Regulation (QMSR)"
+url: https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr
+canonicalUrl: https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr
+ids: {arxiv: null, doi: null}
+publisher: "U.S. Food and Drug Administration"
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461B, query: "#461 FDA QMSR の施行日と査察の変更"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events:
+  - date: 2026-02-02
+    label: QMSR の施行。ISO 13485:2016 を引用で取り込む。QSIT の使用を止める
+summary: 'FDA の QMSR の公式頁。21 CFR 820 が ISO 13485:2016 を引用で取り込み、2026-02-02 に施行された。同日から FDA は査察の手法 QSIT を使わない。頁には management representative(管理責任者)の記述は見つからなかった(WebFetch の確認)。'
+claims:
+  - id: c1
+    text: 'QMSR は 2026-02-02 に施行され、規則の名称が QMSR になった。'
+    quote: 'The rule is effective February 2, 2026, and is now titled Quality Management System Regulation (QMSR).'
+    locator: '冒頭'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: 'ISO 13485:2016 を品質マネジメントシステムの基礎の枠組みとして引用で取り込む。'
+    quote: 'Incorporating by reference ISO 13485:2016 as the foundational quality management system framework'
+    locator: '頁の要点'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: 'リスクマネジメントを明示して求めるようになった。'
+    quote: 'now specifically requires risk management'
+    locator: '頁の要点'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c4
+    text: '2026-02-02 から FDA は査察で QSIT を使わない。'
+    quote: 'On February 2, 2026, the FDA stopped using the Quality System Inspection Technique (QSIT) for device inspections'
+    locator: '査察の節'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '引用は WebFetch の要約モデルの抽出。逐語照合は未了。連邦官報の最終規則(2024-01709)は 302 でブロックされ未読。'}
+volatility: medium
+reviewBy: 2027-05

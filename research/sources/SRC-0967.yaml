@@ -1,0 +1,52 @@
+schemaVersion: 0
+id: SRC-0967
+status: included
+excludeReason: null
+title: "品質保証部門 部長職(サプリメント)求人 37442-1(リクルートダイレクトスカウト)"
+url: https://directscout.recruit.co.jp/job_descriptions/5924862
+canonicalUrl: https://directscout.recruit.co.jp/job_descriptions/5924862
+ids: {arxiv: null, doi: null}
+publisher: "リクルートダイレクトスカウト(求人元は栄養補給食品メーカー、企業名は非公開)"
+authors: []
+orgType: consultancy
+region: jp
+lang: ja
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "品質保証部長 求人 職務内容 責任 出荷判定 報告先"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events:
+  - date: 2026-11-27
+    label: 求人票の取得日(削除されやすい。以後の再確認では消えている可能性がある)
+summary: '従業員 95 名の栄養補給食品・化粧品メーカーの品質保証部門の部長職の求人票。ソフトウェアではなく食品・化粧品の品質保証である点に注意。部長 1 名とスタッフ 2 名で管理本部に属する。官能検査と出荷判定、安定性試験、委託先の指導、アレルギー物質管理、クレーム調査が職務に入る。報告先・KPI の記載は無い。必須要件はマネジメント経験 5 名程度と関連法規の知識。'
+claims:
+  - id: c1
+    text: '部門は部長 1 名とスタッフ 2 名の 3 名で、管理本部の品質保証部に属する。部長の職務に、官能検査と出荷判定が入る。'
+    quote: '所属：管理本部　品質保証部'
+    locator: '求人票 所属欄(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '職務に、栄養補給食品や化粧品などの官能検査と出荷判定が入る。出荷判定が部長の職務として明記されている、公開求人の例。'
+    quote: '官能検査と出荷判定'
+    locator: '求人票 職務内容(WebFetch の要約に基づく。原文の語順は要確認)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。引用は語句単位で、原文の語順を確かめていない。報告先の記載は無かった。求人は削除されうる。'}
+volatility: fast
+reviewBy: 2026-12

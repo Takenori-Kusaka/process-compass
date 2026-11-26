@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0964
+status: included
+excludeReason: null
+title: "2019年も検査不正は続くのか――モノづくりのプライドを調査報告書から学べ(MONOist 2019年展望)"
+url: https://monoist.itmedia.co.jp/mn/articles/1901/11/news044_3.html
+canonicalUrl: https://monoist.itmedia.co.jp/mn/articles/1901/11/news044_3.html
+ids: {arxiv: null, doi: null}
+publisher: "MONOist(ITmedia)"
+authors: []
+orgType: media
+region: jp
+lang: ja
+sourceType: news
+published: 2019-01-11
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "品質保証部門 独立性 最後の砦 形骸化 出荷判定会議 品質保証部長 SQiP"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '製造業の検査不正の調査報告書を読む展望記事(3/4 ページ)。品質保証部門が顧客と取り決めた品質を守る最後のとりでとされる建前と、改善の指摘が営業部門に止められる、意見が尊重されないという実運用の乖離を、調査報告書の記述から引く。ソフトウェアの記事ではない。ページに文字化けがあり、著者名は判読できていない。報告書本体(宇部興産 p.120 など)は未読。'
+claims:
+  - id: c1
+    text: '品質保証部門は、顧客と取り決めた品質を守る最後のとりでの役目を負うとされる。建前としての位置づけを示す。'
+    quote: '品質保証部門は顧客と取り決めた品質を守る「最後のとりで」としての役目を負っている'
+    locator: '3/4 ページ'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '同じ記事は、品質保証部門の繰り返しの指摘が販売部門に止められた事例や、意見が尊重されなかった事例を調査報告書から引いている(詳細は報告書本体を要確認)。'
+    quote: '品質保証部門の意向が尊重されず'
+    locator: '3/4 ページ(検索結果の抜粋に基づく。報告書の引用部分)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch, websearch], date: 2026-11-27, humanChecked: false, note: 'c1 は WebFetch の要約モデルの抜粋。c2 の quote は検索結果の抜粋の一部で、記事の文字化けにより原文照合ができていない。報告書本体を読んで固めること。'}
+volatility: slow
+reviewBy: 2027-11

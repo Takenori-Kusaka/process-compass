@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0905
+status: included
+excludeReason: null
+title: "ISO 9001:2015 guidance(TÜV SÜD のスライド資料。SlideShare 掲載)"
+url: https://www.slideshare.net/slideshow/tuvsudiso90012015guidancepdf/253023881
+canonicalUrl: https://www.slideshare.net/slideshow/tuvsudiso90012015guidancepdf/253023881
+ids: {arxiv: null, doi: null}
+publisher: "TÜV SÜD(認証機関)"
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461A, query: "ISO 9001:2015 clause 5.3 organizational roles responsibilities authorities top management assign 5.3 a b c d e text"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '認証機関 TÜV SÜD の ISO 9001:2015 手引き(ページの先頭 10 万字を読んだ)。管理責任者(QMR)は絶対に必要ではなくなったが、機能は定義して委譲できると述べる。8.6 の本文は読んだ範囲に無い。ISO 9001 の一次ではない。引用は WebFetch の要約を通しており、一字一句の一致は未確認。'
+claims:
+  - id: c1
+    text: '管理責任者は絶対に必要なものではなくなった。個々の業務を管理責任者へ割り当てることはできる。'
+    quote: 'A Quality Management Representative (QMR) is no longer absolutely necessary.'
+    locator: 'Part 1 section 6, p.11(WebFetch 要約の引用)'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: supports
+  - id: c2
+    text: '規格は QMR の選任を明示的に求めないが、組織はこの機能を定義して委譲できる。'
+    quote: 'ISO 9001:2015 does not explicitly require quality management representative.'
+    locator: 'Part 2 clause 5.3, p.24(WebFetch 要約の引用)'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: supports
+verification: {status: needs-agent, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約器が返した引用。ページは 27 万字で、先頭 10 万字だけを読んだ。8.6 の本文は読んだ範囲に無かった。'}
+volatility: slow
+reviewBy: 2028-11

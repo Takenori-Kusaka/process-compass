@@ -1,0 +1,86 @@
+schemaVersion: 0
+id: SRC-0930
+status: included
+excludeReason: null
+title: "医療機器及び体外診断用医薬品の製造管理及び品質管理の基準に関する省令(平成16年厚生労働省令第169号)"
+url: https://laws.e-gov.go.jp/law/416M60000100169
+canonicalUrl: https://laws.e-gov.go.jp/law/416M60000100169
+ids: {arxiv: null, doi: null}
+publisher: "厚生労働省(e-Gov 法令検索)"
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: regulation
+published: null
+publishedBasis: unknown
+version: "令和3年3月26日改正を含む(検索結果の記述。版の確認は未了)"
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461B, query: "#461 品質保証部長のペルソナ。医療機器の QMS 省令の管理監督者・管理責任者・国内品質業務運営責任者・設計開発の変更の条文"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'QMS 省令(医療機器)の条文。管理監督者(最上位の役員等)、管理責任者、医療機器等総括製造販売責任者、国内品質業務運営責任者(品質保証部門の責任者であること)、設計開発の変更の照査・検証・バリデーション・承認、品質管理監督システムに使うソフトウェアのバリデーションを定める。e-Gov の API の応答(約31万字)を WebFetch の要約モデル経由で読み、条文の引用を取り出した。第71条・第72条は前半、他は別の範囲から取得した。条文の全文照合は未了。'
+claims:
+  - id: c1
+    text: '管理監督者は、品質管理監督システムに係る業務を最上位で管理監督する役員等である。'
+    quote: 'この省令で「管理監督者」とは、製造販売業者等の品質管理監督システムに係る業務を最上位で管理監督する役員等をいう。'
+    locator: '第2条第10項'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '管理監督者は、品質管理監督システムの実施及び維持の責任者(管理責任者)を任命する。'
+    quote: '管理監督者は、製造販売業者等の役員、管理職の地位にある者その他これに相当する者のうちから製造販売業者等の品質管理監督システムの実施及び維持の責任者（以下「管理責任者」という。）を任命しなければならない。'
+    locator: '第16条第1項'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: '国内品質業務運営責任者の要件の1つが、品質保証部門の責任者であること。'
+    quote: '製造販売業者における品質保証部門の責任者であること。'
+    locator: '第72条第1項第1号'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c4
+    text: '医療機器等総括製造販売責任者は、製品の出荷の決定を含む製造管理・品質管理を統括し責任を負う。'
+    quote: '製品の出荷の決定その他の製造管理及び品質管理に係る業務を統括し、これに責任を負うこと。'
+    locator: '第71条第1項第1号'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c5
+    text: '設計開発の変更は、あらかじめ照査・検証・バリデーション・承認を実施する(正当な理由のある場合の例外は但書)。'
+    quote: '製造販売業者等は、設計開発の変更を実施する場合においては、あらかじめ、当該変更の照査、検証、バリデーション及び承認を実施しなければならない。'
+    locator: '第36条第4項'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c6
+    text: '品質管理監督システムに使うソフトウェアは、初回使用時と、ソフトウェアまたはその適用の変更時に、あらかじめバリデーションを行う。'
+    quote: '製造販売業者等は、前項のソフトウェアを品質管理監督システムに初めて使用するとき及び当該ソフトウェア又はその適用を変更するときは、あらかじめ、バリデーションを行わなければならない。'
+    locator: '第5条の6第2項'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '引用は WebFetch の要約モデルが e-Gov の API 応答から取り出したもの。条文の全文との逐語照合は未了。第72条第2項以降(業務の内容)は引用していない。'}
+volatility: slow
+reviewBy: 2027-11

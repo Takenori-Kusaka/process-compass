@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0907
+status: included
+excludeReason: null
+title: "JSQC規格「プロセス保証の指針」講習会 ―品質はプロセスで作りこむ―"
+url: https://jsqc.org/std21-001_2023/
+canonicalUrl: https://jsqc.org/std21-001_2023/
+ids: {arxiv: null, doi: null}
+publisher: "一般社団法人 日本品質管理学会"
+authors: []
+orgType: academic
+region: jp
+lang: ja
+sourceType: standard
+published: null
+publishedBasis: unknown
+version: "JSQC-Std 21-001:2023(プロセス保証の指針)の講習会案内"
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461A, query: "JSQC-Std 品質保証 定義 「品質保証」 顧客・社会のニーズを満たすことを確実にし 確認し 実証する 日本品質管理学会 用語"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'JSQC 規格「プロセス保証の指針」の講習会案内ページの概要段落。品質保証を「顧客・社会のニーズを満たすことを確実にし、確認し、実証するために、組織が行うべき体系的活動」と書き、TQM の中核の一つとする。規格の用語編(JSQC-Std 01-001:2023、PDF は取得したが未読)の定義と同趣旨と思われるが、定義の原文はこのページの概要で読んだ。用語規格そのものの確認は残っている。'
+claims:
+  - id: c1
+    text: 'JSQC は品質保証を、顧客・社会のニーズを満たすことを「確実にし、確認し、実証する」ために組織が行う体系的活動と述べ、TQM の中核の一つとする。品質保証部長の責任を「検査」ではなく、確実にする・確認する・実証するの三つで読む根拠になる。'
+    quote: '顧客・社会のニーズを満たすことを確実にし、確認し、実証するために、組織が行うべき体系的活動であり、TQMの中核となる活動の一つです。'
+    locator: '「概要」段落(「これは、品質保証、すなわち、」に続く文)'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: supports
+verification: {status: needs-agent, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約器が返した 1 文。講習会の案内ページであり、規格の用語編(JSQC-Std 01-001:2023)の本文ではない。用語編の PDF(https://jsqc.org/wp/wp-content/uploads/2023/10/JSQC-Std-00-001_yougo.pdf)は取得したが、本調査では読んでいない。'}
+volatility: slow
+reviewBy: 2028-11

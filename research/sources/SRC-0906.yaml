@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0906
+status: included
+excludeReason: null
+title: "ISO 9001 Clause 5.3 Organizational Roles, Responsibilities and Authorities(ISMS.online)"
+url: https://www.isms.online/iso-9001/clause-5-3-organizational-roles-responsibilities-and-authorities/
+canonicalUrl: https://www.isms.online/iso-9001/clause-5-3-organizational-roles-responsibilities-and-authorities/
+ids: {arxiv: null, doi: null}
+publisher: "ISMS.online"
+authors: []
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461A, query: "ISO 9001:2015 clause 5.3 organizational roles responsibilities authorities top management assign 5.3 a b c d e text"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: 'ISMS ソフトウェアのベンダーによる 5.3 の解説。5.3 の a)〜e) の文言は載せず、自社の言葉でまとめる。管理責任者の役職は使われなくなったが、似た責任は割り当てられ続ける、とする。規格の一次ではない。引用は WebFetch の要約を通しており、一字一句の一致は未確認。SRC-0904・SRC-0905 と同じ趣旨で、独立した根拠にはならない。'
+claims:
+  - id: c1
+    text: '「管理責任者」の役職は使われなくなったが、似た責任はその名称を求めずに割り当てられ続ける、と解説する。'
+    quote: 'the older “management representative” role is no longer used'
+    locator: '5.3 の解説(WebFetch 要約の引用)'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: supports
+verification: {status: needs-agent, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約器が返した引用。ベンダー(自社製品の販売目的)の二次情報で、独立出典の数には数えない。'}
+volatility: slow
+reviewBy: 2028-11

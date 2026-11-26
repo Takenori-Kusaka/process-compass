@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: SRC-0969
+status: included
+excludeReason: null
+title: "産業分野向けITシステム開発プロジェクトの品質保証(大手総合電機会社)求人(コトラ。主任クラス、募集終了)"
+url: https://www.kotora.jp/job/detail.php?jid=1550609
+canonicalUrl: https://www.kotora.jp/job/detail.php?jid=1550609
+ids: {arxiv: null, doi: null}
+publisher: "株式会社コトラ(人材紹介。求人元は大手総合電機会社)"
+authors: []
+orgType: consultancy
+region: jp
+lang: ja
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "ソフトウェア品質保証部門長 求人 品質保証部長 IT 出荷判定 品質会議 リリース判定 部門長 募集"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events:
+  - date: 2026-11-27
+    label: 取得時点で募集終了。部長の求人ではなく主任クラス(部長の下の実務の手がかり)
+summary: '大手総合電機会社の産業分野向け IT システム開発の品質保証の求人。ポジションは主任クラスで、部長ではない。部長の下で何が行われるかの手がかりとして使う。職務は、設計・製造・テストの各工程の品質検査と分析、稼働に向けた合否判定、稼働・品質状況の監視で、SE 部門から独立した立場で開発プロセスとプロダクトの両面を客観的に測定・評価する。報告先の記載は無い。'
+claims:
+  - id: c1
+    text: '職務に稼働に向けた合否判定が入り、SE 部門から独立した立場で、プロセスとプロダクトの両面を客観的に評価する、とされる。独立性が求人票の文言にも出ている。'
+    quote: 'SE部門から独立した立場'
+    locator: '職務内容(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋で、quote は語句単位。主任クラスの求人で、部長の職務記述書ではない。募集終了後のため再確認できない可能性が高い。'}
+volatility: fast
+reviewBy: 2026-12

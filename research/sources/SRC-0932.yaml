@@ -1,0 +1,61 @@
+schemaVersion: 0
+id: SRC-0932
+status: included
+excludeReason: null
+title: "Marketing Submission Recommendations for a Predetermined Change Control Plan for Artificial Intelligence-Enabled Device Software Functions (Federal Register notice of availability)"
+url: https://www.govinfo.gov/content/pkg/FR-2024-12-04/html/2024-28361.htm
+canonicalUrl: https://www.govinfo.gov/content/pkg/FR-2024-12-04/html/2024-28361.htm
+ids: {arxiv: null, doi: null}
+publisher: "U.S. Food and Drug Administration(連邦官報)"
+authors: []
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 2024-12-04
+publishedBasis: page
+version: "final guidance"
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461B, query: "#461 AI を含む医療機器ソフトウェアの PCCP の最終ガイダンス"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events:
+  - date: 2024-12-04
+    label: PCCP 最終ガイダンスの利用可能性の告示(連邦官報)
+summary: 'AI を含む医療機器ソフトウェア機能(AI-DSF)の PCCP の最終ガイダンスの告示。PCCP に含める内容として、計画する変更の記述・変更を開発し検証し実施する方法論・変更の影響の評価を挙げる。告示は3つを Description of Modifications 等の名称で定義していない(WebFetch の確認)。告示の本文であり、ガイダンス本体は読んでいない。'
+claims:
+  - id: c1
+    text: 'PCCP は計画する AI-DSF の変更を記述する。'
+    quote: 'describe the planned AI-DSF modifications'
+    locator: 'SUMMARY'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: 'PCCP は変更を開発・検証・実施する方法論を含む。'
+    quote: 'the associated methodology to develop, validate, and implement those modifications'
+    locator: 'SUMMARY'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: 'PCCP は変更の影響の評価を含む。'
+    quote: 'an assessment of the impact of those modifications'
+    locator: 'SUMMARY'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '告示の本文のみ。ガイダンス本体(fda.gov の PDF)は 404 で取得できず未読。'}
+volatility: medium
+reviewBy: 2027-05

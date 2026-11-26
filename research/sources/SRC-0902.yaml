@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: SRC-0902
+status: included
+excludeReason: null
+title: "ISO 9001:redline:2015(E) Quality management systems — Requirements(JSA 掲載の公開プレビュー。第5版と第4版の差分表示)"
+url: https://webdesk.jsa.or.jp/pdf/book/Redline/previewisoredline.pdf
+canonicalUrl: https://webdesk.jsa.or.jp/pdf/book/Redline/previewisoredline.pdf
+ids: {arxiv: null, doi: null}
+publisher: "ISO(日本規格協会掲載のプレビュー)"
+authors: []
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2015-09-01
+publishedBasis: meta
+version: "ISO 9001:2015 redline"
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461A, query: "ISO 9001:2015 clause 5.3 organizational roles responsibilities authorities top management assign"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'ISO 9001:2015 の赤字・緑字による差分版の公開プレビュー(15 ページ。目次、序文 0.1〜0.4、適用範囲まで)。箇条 5.3・8.6・9.3 の本文はプレビューの範囲外で読めていない。読めたのは、品質マネジメントシステムの採用を組織の戦略的な決定とする序文と、品質マネジメントの原則の一覧(顧客重視、リーダーシップ、人々の積極的参加、プロセスアプローチ、改善、客観的事実に基づく意思決定、関係性管理)と、旧版との対応表の所在である。差分版は公式の規格ではないと明記されている。'
+claims:
+  - id: c1
+    text: '2015 年版の序文は、品質マネジメントシステムの採用を組織の戦略的な決定と位置づける。品質保証部長の決裁を、品質の技術的な点検ではなく経営の決定の一部として読む根拠になる。'
+    quote: 'The adoption of a quality management system is a strategic decision for an organization that can help to improve its overall performance and provide a sound basis for sustainable development initiatives.'
+    locator: 'p.ix 0.1 General(緑字=2015 年版で追加された文)'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: supports
+  - id: c2
+    text: '2015 年版が土台にする品質マネジメントの原則に、リーダーシップと客観的事実に基づく意思決定が入る。'
+    quote: 'The quality management principles are: — customer focus; — leadership; — engagement of people; — process approach; — improvement; — evidence-based decision making; — relationship management.'
+    locator: 'p.xi 0.2 Quality management principles(箇条書きを連結)'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: '旧版(2008 年版)との箇条の対応表は、ISO/TC 176/SC 2 の公開サイトにあると序文が案内する(日本語の参考訳は SRC-0900)。'
+    quote: 'A matrix showing the correlation between the clauses of this edition of this International Standard and the previous edition (ISO 9001:2008) can be found on the ISO/TC 176/SC 2 open access web site at: www.iso.org/tc176/sc02/public.'
+    locator: 'p.xiv'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: verified, method: [curl, webfetch, read-full-pdf], date: 2026-11-27, humanChecked: false, note: 'プレビューの 15 ページを Read で読んだ。5.3・8.6・9.3 の本文は含まれていない。差分版であり、緑字は追加、赤字は削除。公式の規格は差分なしの版である(プレビュー自身が明記)。'}
+volatility: slow
+reviewBy: 2028-11

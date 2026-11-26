@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0904
+status: included
+excludeReason: null
+title: "品質管理責任者(QMR)の仕事は何か(DQS Japan ナレッジセンター)"
+url: https://www.dqsglobal.com/ja/topics/dqs-knowledge-center/what-is-the-job-of-a-quality-management-representative
+canonicalUrl: https://www.dqsglobal.com/ja/topics/dqs-knowledge-center/what-is-the-job-of-a-quality-management-representative
+ids: {arxiv: null, doi: null}
+publisher: "DQS(認証機関)"
+authors: []
+orgType: consultancy
+region: global
+lang: ja
+sourceType: individual
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461A, query: "管理責任者 ISO9001:2015 要求事項から削除 それでも任命 実務 品質保証部長 管理責任者 兼務"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '認証機関 DQS の解説ページ。2008 年版までの規格が「トップマネジメントの代表」を求めていたこと、2015 年版では QMS の責任が経営陣全体に割り当てられ代表者の設置が必須でなくなったこと、それでも機能は社内にほとんど残っていることを述べる。残っている割合の統計は示さない。認証機関の観察であり、調査ではない。引用は WebFetch の要約を通しており、一字一句の一致は未確認。'
+claims:
+  - id: c1
+    text: '2015 年版は、品質マネジメント代表や品質管理者の選任を明示的に要求しない、とする。経営陣全体が説明責任を負うため。'
+    quote: '品質マネジメント代表や品質管理者の選任は明示的に要求されていません。'
+    locator: '2015 年版の説明の段(WebFetch 要約の引用)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: supports
+  - id: c2
+    text: '代表者の役職は規格から消えたが、機能は社内に残り、品質管理責任者がトップマネジメントへ報告する立場にある、という実務の観察。日本の実態の裏づけとしては弱い(認証機関の一般的な観察で、日本企業の統計ではない)。'
+    quote: '品質管理責任者は、依然としてトップマネジメントに報告する立場にあります。'
+    locator: '実務の段(WebFetch 要約の引用)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: qualifies
+verification: {status: needs-agent, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約器が返した引用。ページ本文との一字一句の一致は未確認。日本の企業で管理責任者を置き続ける割合の調査は、探したが見つからなかった。'}
+volatility: medium
+reviewBy: 2027-11

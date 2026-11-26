@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0938
+status: included
+excludeReason: null
+title: "ISO 27001 control A.8.32 Change management (Advisera)"
+url: https://advisera.com/iso27001/control-8-32-change-management/
+canonicalUrl: https://advisera.com/iso27001/control-8-32-change-management/
+ids: {arxiv: null, doi: null}
+publisher: "Advisera"
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: secondary
+foundBy: {cluster: I461B, query: "#461 ISMS の変更管理(A.8.32)の要求"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: 'ISO 27001:2022 附属書A の A.8.32 変更管理の解説(コンサルティング会社)。目的を、情報システムの変更が適切に管理され承認されることと書き、変更の計画・評価・承認・実施・レビュー・周知の責任を定めることを勧める。ISO/IEC 27002:2022 の管理策の原文ではない。影響評価・テスト・ロールバックの項目はこの頁に無かった。'
+claims:
+  - id: c1
+    text: '目的は、情報システムの変更が適切に管理され承認されること。'
+    quote: 'changes in information systems are properly controlled and authorized'
+    locator: '目的'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '変更の計画・評価・承認・実施・レビュー・周知の責任を定める。'
+    quote: 'responsibilities for planning, evaluating, authorizing, implementing, reviewing and communicating changes'
+    locator: '実施の節'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '二次の解説。ISO/IEC 27002:2022 8.32 の原文は有償で未読。'}
+volatility: slow
+reviewBy: 2027-11

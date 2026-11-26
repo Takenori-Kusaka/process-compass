@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0934
+status: included
+excludeReason: null
+title: "Automotive SPICE Quality Assurance (SUP.1)"
+url: https://www.ul.com/sis/resources/automotive-spice-quality-assurance-sup-1
+canonicalUrl: https://www.ul.com/sis/resources/automotive-spice-quality-assurance-sup-1
+ids: {arxiv: null, doi: null}
+publisher: "UL Solutions"
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461B, query: "#461 Automotive SPICE の SUP.1 品質保証の独立性とエスカレーション(PAM 本文は未取得)"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: 'UL Solutions による SUP.1 の解説。独立を「品質保証の担当が、品質問題があればプロジェクトを止められること」と定義し、問題は独立した報告経路で管理者へ上げると書く。VDA の PAM 4.0 の SUP.1 本文ではない二次の解説。PAM の本文(VDA QMC)は検索で所在を確認したが読んでいない。'
+claims:
+  - id: c1
+    text: '独立とは、品質保証の担当が品質問題の場合にプロジェクトを止められることだと、UL は説明する。'
+    quote: 'independent means the quality assurance engineer responsible could stop the project in case of quality problems'
+    locator: '独立性の説明'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '品質保証の担当は、独立した報告経路を通じて問題を管理者へ上げる。'
+    quote: 'escalate the issue to management through an independent reporting channel'
+    locator: 'エスカレーションの説明'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '要約モデルの抽出。PAM の原文との照合は未了。UL の解釈であり PAM の条項そのものではない。'}
+volatility: medium
+reviewBy: 2027-05

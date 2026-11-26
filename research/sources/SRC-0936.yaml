@@ -1,0 +1,54 @@
+schemaVersion: 0
+id: SRC-0936
+status: included
+excludeReason: null
+title: "金融機関等におけるAIの活用実態と健全な利活用の促進に向けた初期的な論点整理(AIディスカッションペーパー)公表頁"
+url: https://www.fsa.go.jp/news/r6/sonota/20250304/aidp.html
+canonicalUrl: https://www.fsa.go.jp/news/r6/sonota/20250304/aidp.html
+ids: {arxiv: null, doi: null}
+publisher: "金融庁"
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2025-03-04
+publishedBasis: page
+version: "第1.0版(2025-03-04)、第1.1版(2026-03-03)"
+updated: 2026-03-03
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461B, query: "#461 金融庁の AI ディスカッションペーパーの位置づけ"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events:
+  - date: 2025-03-04
+    label: 第1.0版の公表
+  - date: 2026-03-03
+    label: 第1.1版の公表
+summary: '金融庁の AI ディスカッションペーパーの公表頁。初期的な論点整理であり、論点は技術や事業環境で変わりうると書く。「チャレンジしないリスク」に言及する。本文(PDF)は圧縮された PDF を解析できず読んでいない。したがって第2線の関与・モデルリスク管理など本文の論点は、この出典では支えない。'
+claims:
+  - id: c1
+    text: '金融庁は、リスクを恐れて挑戦しないこと自体のリスクに懸念を示す。'
+    quote: 'チャレンジしないリスク'
+    locator: '公表頁の本文'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '文書の題は「初期的な論点整理」で、規範(義務)を課す文書ではなく対話のための論点である。'
+    quote: '金融機関等におけるAIの活用実態と健全な利活用の促進に向けた初期的な論点整理'
+    locator: '頁の題'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '頁のみ。PDF の本文(aidp.pdf、aidp_version1.1.pdf)は WebFetch が圧縮ストリームを読めず、Read は pdftoppm が無く不可。追加調査が必要。'}
+volatility: fast
+reviewBy: 2027-03

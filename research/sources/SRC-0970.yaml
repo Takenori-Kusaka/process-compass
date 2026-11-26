@@ -1,0 +1,52 @@
+schemaVersion: 0
+id: SRC-0970
+status: included
+excludeReason: null
+title: "Director, Quality Assurance(KEV Group、Toronto。Built In 掲載)"
+url: https://builtin.com/job/director-quality-assurance/6928234
+canonicalUrl: https://builtin.com/job/director-quality-assurance/6928234
+ids: {arxiv: null, doi: null}
+publisher: "KEV Group(Built In 掲載)"
+authors: []
+orgType: enterprise
+region: other
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "Director of Quality Assurance software job description responsibilities reports to VP Engineering KPIs"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events:
+  - date: 2026-01-09
+    label: Built In の表示で求人が削除された(取得時点では掲載終了)
+summary: 'SaaS 企業の QA ディレクターの求人(カナダ・トロント、出社)。分散した QA チームを率い、シフトレフトと品質の全員所有の文化を作り、品質戦略を製品チーム間で揃え、CI/CD 連携を含むテストを統括し、テスト設計・実行・トレーサビリティ・報告の標準を決める。セキュリティ・アクセシビリティ・規制順守を徹底させ、リリース後の障害対応を主導する。報告先と個別の KPI は無く、品質・信頼性・顧客満足を測る指標を定義・改善する、とだけある。リリース承認の権限の記載は無い。'
+claims:
+  - id: c1
+    text: '求人は具体の KPI 値を挙げず、品質・信頼性・顧客満足を測る主要な指標を定義し磨く役割を求める。報告先の記載は無い。'
+    quote: 'Define and refine key metrics to measure software quality, reliability, and customer satisfaction.'
+    locator: 'Responsibilities(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '経験要件は、ソフトウェア QA 7 年以上でうちリーダー職 5 年以上、SaaS・DevOps・アジャイルの経験。ISTQB 等の資格は要件に無い。'
+    quote: '7+ years of software QA experience'
+    locator: 'Requirements(WebFetch の要約に基づく)'
+    quant: {value: '7+ years (うちリーダー職 5+ years)', n: 1, design: 'single job posting', population: 'KEV Group Director QA'}
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。引用の機械照合は未実施。掲載は 2026-01-09 に削除済みの表示。'}
+volatility: fast
+reviewBy: 2026-12

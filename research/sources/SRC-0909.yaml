@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0909
+status: included
+excludeReason: null
+title: "ソフトウェア品質保証の基本 : 時代の変化に対応する品質保証のあり方・考え方"
+url: https://ndlsearch.ndl.go.jp/en/books/R100000002-I029280402
+canonicalUrl: https://ndlsearch.ndl.go.jp/en/books/R100000002-I029280402
+ids: {arxiv: null, doi: null}
+publisher: "日科技連出版社(東京)"
+authors: ["梯 雅人", "居駒 幹夫"]
+orgType: nonprofit
+region: jp
+lang: ja
+sourceType: book
+published: 2018-11-01
+publishedBasis: page
+version: "ISBN 978-4-8171-9657-6、202p"
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: abstract
+foundBy: {cluster: I461A, query: "ソフトウェア品質保証入門 書籍 ISBN 日科技連 ソフトウェア品質保証部門 組織 責任 出荷判定 目次"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '国立国会図書館サーチの書誌記録(本文は未読)。著者の居駒・梯の両氏は、SQiP 品質保証部長の会の 2019-07-22 の講演「ソフトウェア品質保証の基本: 時代の変化に対応する品質保証のあり方・考え方」の講師でもある(SRC-0901 p.20)。章は第1章 今日的な課題、第2章 原則、第3章 開発の品質保証、第4章 フィールド品質保証、第5章 組織的なソフトウェア品質マネジメント(ほか 7 件は記録に表示されず)。第5章が品質保証部門の組織・責任に当たると思われるが、中身は未読。'
+claims:
+  - id: c1
+    text: '書誌記録に見える目次の最後は「第5章 組織的なソフトウェア品質マネジメント」。品質保証部門の組織と責任の論点を含むと推測できる(推測。本文は未読)。'
+    quote: '第5章　組織的なソフトウェア品質マネジメント'
+    locator: 'NDL サーチ 書誌記録の目次(「See More (7)」の手前)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '書誌と章題だけを確認した。本文は未読。発行・ISBN・ページ数は NDL の記録による。'}
+volatility: slow
+reviewBy: 2028-11

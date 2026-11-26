@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: SRC-0933
+status: included
+excludeReason: null
+title: "Regulation (EU) 2021/388 - UN Regulation No 156 (software update and software update management system)"
+url: https://eur-lex.europa.eu/eli/reg/2021/388/oj
+canonicalUrl: https://eur-lex.europa.eu/eli/reg/2021/388/oj
+ids: {arxiv: null, doi: null}
+publisher: "EUR-Lex(UNECE の規則の EU 官報への掲載)"
+authors: []
+orgType: government
+region: eu
+lang: en
+sourceType: regulation
+published: 2021-03-04
+publishedBasis: unknown
+version: "UN R156"
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461B, query: "#461 UN R156 の SUMS の定義・型式承認・適合証明書・RXSWIN の記録"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'UN R156(ソフトウェアアップデートとその管理システム)の規則本文。SUMS の定義、型式承認、適合証明書の有効期間(最長3年)、RXSWIN ごとの監査可能な登録簿を定める。UNECE の頁は 403/404 で読めず、EUR-Lex の掲載を読んだ。引用は要約モデルの抽出。'
+claims:
+  - id: c1
+    text: 'SUMS は、ソフトウェア更新の要件に適合するための組織の過程と手順を定める系統的な取り組みである。'
+    quote: '‘Software Update Management System (SUMS)’ means a systematic approach defining organizational processes and procedures'
+    locator: '2.5'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '型式承認の当局は、ソフトウェア更新の手順と過程について型式承認を与える。'
+    quote: 'Approval Authorities shall grant, as appropriate, type approval with regard to software update procedures and processes'
+    locator: '5.1'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: 'SUMS の適合証明書の有効期間は最長3年である。'
+    quote: 'The Certificate of Compliance for SUMS shall remain valid for a maximum of three years'
+    locator: '6.6'
+    quant: '最長3年'
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c4
+    text: 'RXSWIN ごとに、関連するソフトウェアを記述する監査可能な登録簿を持つ。'
+    quote: 'For every RXSWIN, there shall be an auditable register describing all the software relevant to the RXSWIN'
+    locator: '7.1.2.3'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '引用は要約モデルの抽出で、125 文字以内に切ってある。節番号は抽出時の記述。逐語照合は未了。'}
+volatility: slow
+reviewBy: 2027-11

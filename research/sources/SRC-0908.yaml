@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0908
+status: included
+excludeReason: null
+title: "つながる世界のソフトウェア品質ガイド あたらしい価値提供のための品質モデル活用のすすめ(IPA 公開ページ)"
+url: https://www.ipa.go.jp/publish/tn20150529.html
+canonicalUrl: https://www.ipa.go.jp/publish/tn20150529.html
+ids: {arxiv: null, doi: null}
+publisher: "独立行政法人 情報処理推進機構(IPA)技術本部 ソフトウェア高信頼化センター"
+authors: []
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: 2015-05-29
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: abstract
+foundBy: {cluster: I461A, query: "IPA ソフトウェア品質説明力 品質保証 つながる世界のソフトウェア品質ガイド 経営者 品質 責任"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'IPA の公開ページ(ガイド本体の PDF は未読)。ガイドは SQuaRE(ISO/IEC 25000、JIS X 25000 シリーズ)を使い、事業者が品質を広い視点で捉えて要求・設計・評価をするための指針で、読者に会社経営者を含む。ページは、利用者への品質の説明責任を果たすために事業者に広範な理解と包括的な取組みが求められると書く。事業は終了し、紙書籍の販売は 2024-04-01 に終了している。ページに「品質保証」の語は見当たらなかった。'
+claims:
+  - id: c1
+    text: 'IPA は、利用者への品質の説明責任を果たすために、事業者に品質への広範な理解と包括的な取組みが求められると述べる。決裁者が問われる「品質の説明」の根拠の一つ。'
+    quote: '利用者に対する品質に関する説明責任を果たすために、事業者にはこれまで以上に品質に対する広範囲な理解と包括的な取組みが求められます。'
+    locator: 'ページ冒頭の概要'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: supports
+  - id: c2
+    text: 'ガイドは現場の技術者・リーダーだけでなく、会社経営者も対象にする。品質の判断が経営の領分に及ぶという位置づけ。'
+    quote: '現場の技術者やリーダーだけでなく、会社経営者の方々にもご活用いただけます。'
+    locator: 'ページの対象読者の記述'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: needs-agent, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約器が返した引用。ガイド本体(PDF)は未読で、品質説明の具体的な手順・チェック項目は未確認。'}
+volatility: slow
+reviewBy: 2028-11

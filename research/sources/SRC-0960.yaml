@@ -1,0 +1,122 @@
+schemaVersion: 0
+id: SRC-0960
+status: included
+excludeReason: null
+title: "SQiP ソフトウェア品質保証部長の会 10 年を振り返る"
+url: https://www.juse.jp/sqip/bucho/10th/kinenshi.pdf
+canonicalUrl: https://www.juse.jp/sqip/bucho/10th/kinenshi.pdf
+ids: {arxiv: null, doi: null}
+publisher: "SQiP ソフトウェア品質保証部長の会 企画委員(日本科学技術連盟 SQiP)"
+authors: []
+orgType: community
+region: jp
+lang: ja
+sourceType: community
+published: 2019-12
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy: {cluster: I461C, query: "品質保証部門 独立性 最後の砦 形骸化 出荷判定会議 品質保証部長 SQiP"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '日本のソフトウェア品質保証部門長が各社から集まる会(2009-11 発足、10 年で 78 社 104 名)の 10 年間の活動記録(32 ページ)。部長自身が書いた、悩み・出荷許可の権限・アジャイル・経営視点・品質事故再発防止の討議の要約である。第1期に出荷許可の権限とその方法を実態アンケートの項目に挙げたが、結果の数値は本書に載っていない。アジャイルについては、プロセス確認型の品質保証が機能しなくなる懸念、組込系ではチームに入り、エンタープライズ系では外から監視するという結論が書かれている。PDF のテキスト層には字間の空白が入るため、quote はページの描画から取った。'
+claims:
+  - id: c1
+    text: '部長の会の冒頭は、品質保証部門長を「品質の最終責任者」と位置づけている。部長が日々の業務に追われて根本解決に至らない、という声が発足の動機として書かれている。'
+    quote: '品質の最終責任者である品質保証部門長が一堂に会し、会社の壁を越えて議論を始めることができたのは大きな一歩だったと思う。'
+    locator: 'p.2 はじめに'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '第1期(2009-11〜2010-11)の実態アンケートは、出荷許可の権限とその方法を調べる項目に入れた。権限の置き方は会社ごとに違うことが前提になっている。'
+    quote: '・出荷許可の権限とその方法'
+    locator: 'p.6 第1期 ① SQiP ソフトウェア品質保証実態アンケート'
+    quant: null
+    evidenceKind: survey
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: '品質保証部門の組織の在り方にベストプラクティスはなく、自社の機能を当然と思いがちだが、あるべき姿の掘り下げが要るとまとめている。'
+    quote: '組織としての在り方は機能・位置付けとも幅広く、ベストプラクティスはない'
+    locator: 'p.6 第1期 ② 品質保証部最前線'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c4
+    text: 'レビューが形式化(形骸化)すると、開発者の負担になるだけで品質向上に結び付かない。形骸化の防止策として、利害関係者以外のクロスレビュアを選ぶ事例が挙がっている。'
+    quote: '属人性が高く、形式化(形骸化)してしまった「レビュー」は、開発者の負担・苦痛になるばかりであり、真の品質向上に結び付かない。'
+    locator: 'p.7 第3期 ② レビューの質の向上'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c5
+    text: '品質保証部門のミッションを、ルールを作ることではなく競争力の向上に置く。建前(統制する部門)から実運用の望み(頼りにされる部門)への動きが、第4期と第2期の進化論に書かれている。'
+    quote: '品質保証部門のミッションはプロセス(ルール)を作ることではなく、チーム／組織の競争力向上にある。'
+    locator: 'p.8 第4期 ④、p.21 付録C-1(「管理する品質保証部門から、ありがたがれる、頼りにされる品質保証部門」への進化)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c6
+    text: '納期優先・コスト優先で品質活動が二の次になる案件が実在し、受注を止めるよう経営陣に言う必要があるとまで書かれている。部長が経営へ物を言う場面の実態を示す。'
+    quote: '現場を知っている品質保証部門だからこそ、経営陣にモノを言う必要がある。'
+    locator: 'p.26 付録C-4 第5期'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c7
+    text: 'アジャイルについて部長の会は、従来の品質保証がウォーターフォール前提でプロセス準拠性の確認に重きを置き、それがアジャイルでは機能しなくなる、と書いた。最後の合否判定テストも、仕様書が無いか最後では遅いという懸念がある。'
+    quote: 'プロセス準拠性の確認、各工程でのアウトプットの確認などプロセスの確認を重視してきたが、これらがアジャイルでは機能しなくなる。'
+    locator: 'p.28 付録C-5 アジャイルと品質保証(第5期、2013)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c8
+    text: '第6期の結論は、組込系ではチームに入るのが有効でも、エンタープライズ系受託では人数や業務知識の限界でチームに入るのは現実的でないという意見が多く、外からプロセスと成果物品質を監視する、というものだった。'
+    quote: 'エンタープライズ系受託開発では適用が難しいという意見が多くあった。'
+    locator: 'p.28 付録C-5(第6期、2014-11〜2015-10)、p.14 第10期 ③'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c9
+    text: '品質事故の再発防止策として、プロセス遵守の啓蒙や、未熟な品質保証を品質管理の番人とするケースが現にあると書く。「正しいプロセスで開発すれば正しいソフトが出来る」という通念と、品質保証の実力育成の遅さの乖離を示す。'
+    quote: '世の中の多くの人は正しいプロセスで開発すれば正しいソフトウェアが完成すると信じているため、品質事故の再発防止策としてプロセス順守の啓蒙や未熟な品質保証を品質管理の番人とするケースを目の当たりにすることがある。'
+    locator: 'p.30 付録C-7 (3) 品質力に着目した人財育成'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c10
+    text: 'AI システムの品質保証について(2018〜2019)、AI が確率的・帰納的な開発であるため最適解に達したかの見極めが難しいと書く。生成 AI 以前の整理であり、現在の論点とは区別する。'
+    quote: 'AIの品質保証の難しさは、AIが確率的および帰納的な開発であるため、最適解に辿り着いたかの見極めが困難であることや、'
+    locator: 'p.14 第10期 ② AI システムの品質保証'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: verified, method: [read-pdf], date: 2026-11-27, humanChecked: false, note: 'PDF を Read ツールで全32ページ読み、ページの描画と引用を照合した。テキスト層は字間に空白が入る(機械照合では空白を除いて比べること)。アンケートの結果数値は本書に無い。'}
+volatility: slow
+reviewBy: 2027-11

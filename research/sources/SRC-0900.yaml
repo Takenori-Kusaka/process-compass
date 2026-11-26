@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: SRC-0900
+status: included
+excludeReason: null
+title: "ISO 9001:2008 と ISO 9001:2015 との相関表(ISO/TC176/SC2/N1293 品質マネジメントシステム規格国内委員会 参考訳)"
+url: https://webdesk.jsa.or.jp/pdf/dev/md_871.pdf
+canonicalUrl: https://webdesk.jsa.or.jp/pdf/dev/md_871.pdf
+ids: {arxiv: null, doi: null}
+publisher: "日本規格協会(JSA)掲載。品質マネジメントシステム規格国内委員会 参考訳"
+authors: []
+orgType: standards-body
+region: jp
+lang: ja
+sourceType: standard
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy: {cluster: I461A, query: "ISO 9001:2015 管理責任者 廃止 5.5.2 2015年版 5.3 組織の役割、責任及び権限"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'JIS Q 9001:2008 と JIS Q 9001:2015 の箇条の対応表(国内委員会の参考訳、全7ページ)。2008 年版の 5.5.1 責任及び権限と 5.5.2 管理責任者は、2015 年版では 5.3 組織の役割,責任及び権限へ対応する。2015 年版の 8.6 製品及びサービスのリリースは、2008 年版の 7.4.3 購買製品の検証と 8.2.4 製品の監視及び測定に対応する。マネジメントレビューは 5.6 から 9.3 へ移った。表は箇条の対応を示すだけで、管理責任者を置くことを求めるかどうかは、表からは読めない。'
+claims:
+  - id: c1
+    text: '2008 年版の 5.5.2 管理責任者は、2015 年版では独立した箇条を持たず、5.3 組織の役割,責任及び権限へ対応する(2008 年版から 2015 年版への対応表)。'
+    quote: '5.5.2 管理責任者 5.3 組織の役割，責任及び権限'
+    locator: '「ISO 9001:2008 から ISO 9001:2015 の相関表」の 5 経営者の責任の段'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: supports
+  - id: c2
+    text: '2015 年版の 5.3 は、2008 年版の 5.5.1 責任及び権限・5.5.2 管理責任者・5.4.2 品質マネジメントシステムの計画の三つに対応する。'
+    quote: '5.3 組織の役割，責任及び権限 5.5.1 責任及び権限 5.5.2 管理責任者 5.4.2 品質マネジメントシステムの計画'
+    locator: '「ISO 9001:2015 から ISO 9001:2008 の相関表」の 5 リーダーシップの段'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: supports
+  - id: c3
+    text: '2015 年版の 8.6 製品及びサービスのリリースは、2008 年版の 7.4.3 購買製品の検証と 8.2.4 製品の監視及び測定に対応する。リリースの箇条は 2015 年版で独立した。'
+    quote: '8.6 製品及びサービスのリリース 7.4.3 購買製品の検証 8.2.4 製品の監視及び測定'
+    locator: '「ISO 9001:2015 から ISO 9001:2008 の相関表」の 8 運用の段'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: supports
+  - id: c4
+    text: '2015 年版の 9.3 マネジメントレビューは 2008 年版の 5.6 に対応する。箇条の置き場が、経営者の責任の章からパフォーマンス評価の章へ移った。'
+    quote: '9.3 マネジメントレビュー 5.6 マネジメントレビュー'
+    locator: '「ISO 9001:2015 から ISO 9001:2008 の相関表」の 9 パフォーマンス評価の段'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: verified, method: [curl, webfetch, read-full-pdf], date: 2026-11-27, humanChecked: false, note: 'WebFetch で取得した PDF の全 7 ページを Read で読み、表の行を原文のまま抜いた。表は箇条の対応のみで、管理責任者を置くかどうかの要求の有無は表から読めない(それは規格本文の 5.3 に当たる。本文は未読)。'}
+volatility: slow
+reviewBy: 2028-11

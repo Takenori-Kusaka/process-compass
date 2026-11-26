@@ -1,0 +1,95 @@
+schemaVersion: 0
+id: SRC-0961
+status: included
+excludeReason: null
+title: "QA部門とアジャイル アジャイルな開発アプローチに品質管理を適用したいQA部門の悩み(第10期ソフトウェア品質保証部長の会 第4グループ)"
+url: https://www.juse.or.jp/sqip/community/bucyo/10/files/shiryou_seika5.pdf
+canonicalUrl: https://www.juse.or.jp/sqip/community/bucyo/10/files/shiryou_seika5.pdf
+ids: {arxiv: null, doi: null}
+publisher: "SQiP ソフトウェア品質保証部長の会(日本科学技術連盟)"
+authors: ["神崎和洋(SCSK)", "日下宏(キヤノンITソリューションズ)", "里富豊(リコーITソリューションズ)", "秦正行(NTTコムウェア)", "宮城幸生(トッパン・フォームズ)"]
+orgType: community
+region: jp
+lang: ja
+sourceType: community
+published: 2019
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy: {cluster: I461C, query: "品質保証部門 アジャイル 導入 品質保証部長 承認 条件 リスク 懸念 トレーサビリティ"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'SIer・IT メーカー系 5 社の品質保証部門の担当者が、アジャイル開発に品質管理を適用するときの悩みを整理した 13 枚のスライド。品質保証部門の悩みを「品質の見方」と「QA 部門の役割」に分け、従来の第三者評価(成果物評価とプロセス評価)がアジャイルでは成り立ちにくいことを出発点にする。結論として、アジャイル開発関係者の成熟度に応じて品質保証部門の関与を4段階で変える成熟度モデルを示す。採否判断の材料の提供(レベル1)から、開発チームへの品質エンジニアの参画(レベル4)までを含む。事例の数値は無い。'
+claims:
+  - id: c1
+    text: '従来の品質保証部門は第三者として、成果物が契約スコープ通りか、レビュー・テストの記録があるか、標準化できているか、計画(QCD)の予実管理ができているかを見る、と整理されている。部長が資料で最初に探す観点の手がかりになる。'
+    quote: '契約スコープ通りの成果物が出来ているか？'
+    locator: 'p.3 2. アジャイル開発の品質とは?(1/4)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: 'アジャイルでは、決められたプロセスや成果物の遵守より対面コミュニケーションや変化への対応が重いとされるため、品質の良し悪しを何で判断するのかが品質保証部門の悩みになっている。'
+    quote: '“対面コミュニケーション” や “変化への対応” ってどうやって確認するの？ 品質の良し悪しは何で判断するの？'
+    locator: 'p.4 2. アジャイル開発の品質とは?(2/4)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: '品質保証部門の悩みとして、品質保証プロセスは必要か、ステークホルダーに何を示せばよいか、品証メンバーの関わり方とスキルは何か、が挙がっている。'
+    quote: 'ステークホルダーに何を示せば良い？'
+    locator: 'p.2 1. QA部門の悩み'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c4
+    text: '第三者的な立場の外部評価には限界があるとして、QA も当事者として関わらないと品質は見られないと結論した。第三者の独立性と、当事者としての関与の緊張がここに出ている。'
+    quote: 'QAも当事者として関係しないと品質は見られない'
+    locator: 'p.6 2. アジャイル開発の品質とは?(4/4)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c5
+    text: '外部からの品質評価があまり意味を持たないなら第三者のQA部門は必要か、という問いを部門自身が立てている。その答えは、関係者の成熟度に応じて関与の度合いを変えるモデルである。'
+    quote: 'アジャイル開発において、外部からの品質評価があまり意味を持たないとしたら、第三者的な立場のQA部門は必要なのだろうか？'
+    locator: 'p.7 3. QA部門の役割は?'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c6
+    text: '導入検討期(レベル1)のQA部門の役割は、アジャイル開発の採用可否の判断材料の提供と、案件の関係者へのマインドセット醸成である。適合性フィルターなどの診断ツールを挙げる。新しい手法の提案を審査する側に回るときの作法の一例である。'
+    quote: '「アジャイル開発の採用可否について判断材料を提供」'
+    locator: 'p.8 4. アジャイル開発の成熟度モデル、p.9 4-1 QAの組織的な支援の例(レベル1)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c7
+    text: 'スプリントレビューでの品質評価では遅く、設計・開発段階から品質を作り込む人材(品質エンジニア)が要る、という。受入テストの自動化を品質エンジニアが推進する図が付く。'
+    quote: '“動くソフトウェア”をリリースするには、スプリントレビューでの品質評価では遅い'
+    locator: 'p.10 4-2 QAの組織的な支援の例(レベル2〜3)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: verified, method: [read-pdf], date: 2026-11-27, humanChecked: false, note: 'PDF を Read ツールで全13ページ読み、ページの描画と引用を照合した。発表の公開年はページ下部の Copyright (C) 2019 による。事例の定量値は無い。'}
+volatility: slow
+reviewBy: 2027-11

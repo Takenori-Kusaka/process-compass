@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0912
+status: included
+excludeReason: null
+title: "ソフトウェア品質保証の極意(日科技連ソフトウェア品質保証プロフェッショナルの会 編)"
+url: https://www.maruzenjunkudo.co.jp/products/9784274232305
+canonicalUrl: https://www.maruzenjunkudo.co.jp/products/9784274232305
+ids: {arxiv: null, doi: null}
+publisher: "オーム社(東京)"
+authors: ["日科技連ソフトウェア品質保証プロフェッショナルの会(編)"]
+orgType: sier
+region: jp
+lang: ja
+sourceType: book
+published: 2024-09-18
+publishedBasis: page
+version: "ISBN 978-4-274-23230-5"
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: snippet
+foundBy: {cluster: I461A, query: "ソフトウェア品質保証入門 書籍 ISBN 日科技連 ソフトウェア品質保証部門 組織 責任 出荷判定 目次"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '検索結果の要約(snippet)だけで確認した書誌。販売ページは取得時に 429 で読めなかった。品質保証部門と開発チームの対立とその解き方を扱う書籍と、検索結果は記す。書名・出版社・年月・ISBN も検索結果の要約によるため、購入前に出版社ページで確かめる。根拠には使わない。候補の書籍としてのみ記録する。'
+claims:
+  - id: c1
+    text: '検索結果の要約によれば、本書は品質保証部門と開発チームが対立する場面と、その解決を扱う。根拠には使わない(snippet)。'
+    quote: 'ソフトウェア品質保証の極意'
+    locator: '販売ページの題名(取得不能。検索結果の要約による)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: unreachable, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '販売ページは HTTP 429(Retry-After 60)で取得できなかった。snippet は知見の根拠に使えない。記録は候補の書籍の一覧に載せるためのもの。'}
+volatility: slow
+reviewBy: 2027-05

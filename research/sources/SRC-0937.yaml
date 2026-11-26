@@ -1,0 +1,52 @@
+schemaVersion: 0
+id: SRC-0937
+status: included
+excludeReason: null
+title: "FISC安全対策基準 第14版の解説(一創のコラム)"
+url: https://www.issoh.co.jp/column/details/17146/
+canonicalUrl: https://www.issoh.co.jp/column/details/17146/
+ids: {arxiv: null, doi: null}
+publisher: "株式会社一創"
+authors: []
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: secondary
+foundBy: {cluster: I461B, query: "#461 FISC 安全対策基準の最新版と法的位置づけ(一次の FISC 文書は有償)"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events:
+  - date: 2026-03-25
+    label: FISC 安全対策基準 第14版の公表(コラムの記述)
+summary: 'IT 事業者の解説。FISC 安全対策基準は法令ではなく民間の財団法人の自主基準だと書き、第14版(2026-03-25 公表)で AI・生成AI の安全対策と耐量子暗号が反映されたと書く。FISC の一次文書は有償で未読。第14版の日付と内容は FISC の公式の確認が要る。'
+claims:
+  - id: c1
+    text: '第14版が 2026-03-25 に公表され、AI・生成AI と PQC が反映されたと、この事業者は書く。'
+    quote: '2026年3月25日に第14版が公表され、AI・生成AIの安全対策と耐量子計算機暗号（PQC）への対応が新たに反映されました。'
+    locator: '冒頭'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: 'FISC 安全対策基準は法令ではなく、民間の財団法人が示す自主基準である。'
+    quote: 'FISC安全対策基準は法令ではなく、FISCという民間の財団法人が示す自主基準です。'
+    locator: '位置づけの節'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '二次の解説。FISC の公式の公表(fisc.or.jp)で版と日付を確認していない。'}
+volatility: fast
+reviewBy: 2027-03

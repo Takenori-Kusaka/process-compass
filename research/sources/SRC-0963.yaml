@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0963
+status: included
+excludeReason: null
+title: "製造業のアジャイル開発導入における6つのポイント【1】ユーザーが喜ぶものを作る(製造業のためのアジャイル開発入門(2))"
+url: https://monoist.itmedia.co.jp/mn/articles/2302/16/news016_2.html
+canonicalUrl: https://monoist.itmedia.co.jp/mn/articles/2302/16/news016_2.html
+ids: {arxiv: null, doi: null}
+publisher: "MONOist(ITmedia)"
+authors: []
+orgType: media
+region: jp
+lang: ja
+sourceType: news
+published: 2023-02-16
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "アジャイル導入 品質保証部門 説得 事例 品質保証 反対"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '製造業向けのアジャイル開発入門の連載記事(2/3 ページ)。クリエーションライン所属の筆者がスクラム導入後もリリース頻度が上がらない原因として、開発チームと品質保証チームの組織が分かれ、引き渡しがドキュメント経由になることを挙げる。対策は、QA エンジニアを開発の序盤から参加させ、スプリントプランニングやリファインメントに入れることである。別組織で同じチームにできない場合は、週に1日だけでも共に活動する案を示す。品質保証部長を説得した事例ではなく、現場側からの提案である。'
+claims:
+  - id: c1
+    text: '開発チームと品質保証チームの組織が分かれ、引き渡しがドキュメント経由であるため、テストできない仕様や手戻りが起き、リリース頻度が上がらないと書く。'
+    quote: '開発チームと品質保証チームは組織が分かれている。'
+    locator: '2/3 ページ ポイント2'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '対策は、QA エンジニアを開発の終了後ではなく序盤から参加させることだと書く。'
+    quote: '開発終了後ではなく、序盤からQA(品質保証)エンジニアに関わってもらおう。'
+    locator: '2/3 ページ ポイント2 の見出し'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋と検索結果の抜粋に基づく。ページに文字化けがあり、筆者名は確認できていない。引用の機械照合は未実施。'}
+volatility: slow
+reviewBy: 2027-11

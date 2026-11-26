@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: SRC-0903
+status: included
+excludeReason: null
+title: "ISO 9001:2015 Clause 5.3 Organizational roles, responsibilities, and authorities"
+url: https://blog.auditortrainingonline.com/blog/explaining-iso-90012015-clause-5.3
+canonicalUrl: https://blog.auditortrainingonline.com/blog/explaining-iso-90012015-clause-5.3
+ids: {arxiv: null, doi: null}
+publisher: "Auditor Training Online(ブログ)"
+authors: []
+orgType: consultancy
+region: global
+lang: en
+sourceType: individual
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461A, query: "ISO 9001:2015 clause 5.3 organizational roles responsibilities authorities top management assign 5.3 a b c d e text"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'ISO 9001:2015 の 5.3 を解説する審査員研修会社のブログ。5.3 の導入文と a)(規格への適合の確保)・b)(プロセスが意図したアウトプットを出していることの確保)・c)(QMS のパフォーマンスと改善の機会の報告)・e)(変更時の QMS の完全性の維持)を引く。d)(顧客重視の促進)は引かれていない。規格の一次ではなく二次情報。引用は WebFetch の要約を通しており、規格本文との一字一句の一致は未確認。'
+claims:
+  - id: c1
+    text: '5.3 は、関連する役割の責任と権限をトップマネジメントが割り当て、組織内に伝達し、理解されることを求める。品質保証部長のような役職名を規格は指定せず、役割で定める。'
+    quote: 'Top Management shall ensure that the responsibilities and authorities for relevant roles are assigned,'
+    locator: '5.3 の導入文(ブログの引用。文は途中で切れている)'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: supports
+  - id: c2
+    text: '割り当てる責任と権限の一つは、プロセスが意図したアウトプットを出していることの確保。もう一つは、QMS のパフォーマンスと改善の機会をトップマネジメントへ報告すること。'
+    quote: 'ensuring that the processes are delivering their intended outputs.'
+    locator: '5.3 b)(ブログの引用)'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: supports
+  - id: c3
+    text: '報告の責任は、QMS のパフォーマンスと改善の機会について、特にトップマネジメントへ行うものとして書かれている。'
+    quote: 'reporting on the performance of the quality management system and on opportunities for improvement,'
+    locator: '5.3 c)(ブログの引用)'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: supports
+verification: {status: needs-agent, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約器が返した引用で、5.3 d) は抜けていた。規格本文(有償)は未読。5.3 の全文は有償規格か JIS Q 9001:2015 で確かめる必要がある。根拠としては二次情報。'}
+volatility: slow
+reviewBy: 2028-11

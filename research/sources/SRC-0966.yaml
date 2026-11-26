@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: SRC-0966
+status: included
+excludeReason: null
+title: "フェンリル 品質保証部長へのインタビュー(Wantedly 掲載)"
+url: https://www.wantedly.com/companies/fenrir/post_articles/1082571
+canonicalUrl: https://www.wantedly.com/companies/fenrir/post_articles/1082571
+ids: {arxiv: null, doi: null}
+publisher: "フェンリル株式会社"
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2026-07-31
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "品質保証部 部長 品質保証部門の悩み 開発部門と対立 出荷判定 権限"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: '受託・自社製品の Web・モバイル開発会社の品質保証部長が語る部の役割。2025年度に品質管理部から品質保証部へ改編され、結合テスト対応とフェーズゲート運用を担う。開発センター長の直下に置かれ、運用方針はセンター長と品質保証部の間で決まるため意思決定が速い、と自社採用向けに書く(自社報告であり、好意的に書かれる傾向がある)。悩みとして、AI 検証でベテランの領域を AI が想像以上に代替したこと、担うべき本質的な作業の模索、若手の育成を挙げる。出荷・リリース判断とアジャイル・スクラムの記述は無い。'
+claims:
+  - id: c1
+    text: '品質保証部は開発センター長の直下に置かれる。運用方針はセンター長と品質保証部の間で決まるため、意思決定が速いと書く。報告先の一例である。'
+    quote: '品質保証部は開発センター長の直下'
+    locator: '組織・運用の節(WebFetch の要約に基づく。原文の語順は要確認)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '主な業務は結合テスト対応全般とフェーズゲート運用で、フェーズゲートレポートを発行して工程の移行を判定する。'
+    quote: 'フェーズゲート運用'
+    locator: '業務の節(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: 'AI 検証で、ベテランの知識や技術の領域を AI が想像以上に代替でき、担うべき本質的な作業や身に付けるべき知識を今も模索している、と書く(2026-07 時点)。'
+    quote: '担うべき本質的な作業'
+    locator: '悩み・課題の節(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋で、quote は短い語句だけ。原文の文脈を確かめていない。自社採用記事で selfReported。'}
+volatility: fast
+reviewBy: 2027-02

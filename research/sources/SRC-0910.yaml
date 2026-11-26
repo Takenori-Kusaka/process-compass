@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0910
+status: included
+excludeReason: null
+title: "ソフトウェア品質知識体系ガイド : SQuBOK Guide V3(第3版)"
+url: https://ndlsearch.ndl.go.jp/en/books/R100000002-I030738995
+canonicalUrl: https://ndlsearch.ndl.go.jp/en/books/R100000002-I030738995
+ids: {arxiv: null, doi: null}
+publisher: "オーム社(東京)"
+authors: ["飯泉 紀子", "鷲崎 弘宜", "誉田 直美(監修)", "SQuBOK 策定部会(編)"]
+orgType: sier
+region: jp
+lang: ja
+sourceType: book
+published: 2020-11-01
+publishedBasis: page
+version: "第3版、ISBN 978-4-274-22631-1、381p"
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: abstract
+foundBy: {cluster: I461A, query: "SQuBOK V3 ソフトウェア品質知識体系ガイド 品質保証部門 組織 目次 日科技連"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '国立国会図書館サーチの書誌記録。目次は記録に無く、本文は未読。検索結果の二次情報は、第3版を「ソフトウェア品質の基本概念、ソフトウェア品質マネジメント、ソフトウェア品質技術、専門的な品質概念と技術、応用領域」の5章立てとし、品質マネジメントを組織レベルとプロジェクトレベルに分けると述べるが、その一次(日科技連の SQuBOK ページ)は読めなかった。品質保証部門・組織の節が V3 のどこにあるかは未確認。'
+claims:
+  - id: c1
+    text: 'SQuBOK Guide V3 は 2020-11 にオーム社から出た 381 ページの書籍で、ISBN は 978-4-274-22631-1。監修は飯泉紀子・鷲崎弘宜・誉田直美、編は SQuBOK 策定部会。'
+    quote: 'ソフトウェア品質知識体系ガイド : SQuBOK Guide V3'
+    locator: 'NDL サーチ 書誌記録の題名欄'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '書誌のみを確認した。目次・本文は未読。SQuBOK の組織レベルの品質マネジメントの記述は、V3 の本文で確かめる必要がある。'}
+volatility: slow
+reviewBy: 2028-11

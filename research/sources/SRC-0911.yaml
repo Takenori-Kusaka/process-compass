@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0911
+status: included
+excludeReason: null
+title: "ソフトウェア品質判定メソッド : 計画・各工程・出荷時の審査と分析評価技法"
+url: https://ndlsearch.ndl.go.jp/en/books/R100000002-I029873475
+canonicalUrl: https://ndlsearch.ndl.go.jp/en/books/R100000002-I029873475
+ids: {arxiv: null, doi: null}
+publisher: "日科技連出版社(東京)"
+authors: ["誉田 直美(編著)", "佐藤 孝司", "森 岳志", "倉下 亮"]
+orgType: nonprofit
+region: jp
+lang: ja
+sourceType: book
+published: 2019-08-01
+publishedBasis: page
+version: "ISBN 978-4-8171-9676-7、244p、3600円"
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: abstract
+foundBy: {cluster: I461A, query: "ソフトウェア品質保証入門 書籍 ISBN 日科技連 ソフトウェア品質保証部門 組織 責任 出荷判定 目次"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '国立国会図書館サーチの書誌記録。内容紹介は、開発計画から工程移行、出荷判定までのライフサイクルに沿って、審査と分析評価の技法を解説する書籍とする。第3章が「ソフトウェア品質を審査する」。出荷判定の基準・手順・合否の分け方の中身は、公開の資料では未読で、この書籍で埋まる論点の候補。'
+claims:
+  - id: c1
+    text: '書誌記録の目次に「第3章 ソフトウェア品質を審査する」と「第4章 データで開発途中の品質を分析する」がある。出荷判定の審査の枠組みを含むと推測できる(推測。本文は未読)。'
+    quote: '第3章　ソフトウェア品質を審査する'
+    locator: 'NDL サーチ 書誌記録の目次(8 章分は「See More」で省略)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '書誌と章題の一部だけを確認した。本文は未読。'}
+volatility: slow
+reviewBy: 2028-11

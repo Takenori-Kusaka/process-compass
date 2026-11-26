@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0941
+status: included
+excludeReason: null
+title: "Three lines of defence (Wikipedia)"
+url: https://en.wikipedia.org/wiki/Three_lines_of_defence
+canonicalUrl: https://en.wikipedia.org/wiki/Three_lines_of_defence
+ids: {arxiv: null, doi: null}
+publisher: "Wikipedia"
+authors: []
+orgType: community
+region: global
+lang: en
+sourceType: community
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: secondary
+foundBy: {cluster: I461B, query: "#461 3線モデルでの第2線・第3線の独立性。IIA の原典 PDF が読めなかったための代替"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '3線(ディフェンス)の二次の解説。第2線(リスク管理・コンプライアンス)は第1線を監督し問いただすが、経営の指揮系統からは独立していない。第3線の内部監査は取締役会へ直接報告し、客観的で独立した保証を与える。IIA の 2020 年の3線モデルの原典(PDF)は圧縮で読めず、この頁は 2020 年版を扱っていない(WebFetch の確認)。'
+claims:
+  - id: c1
+    text: '第2線は第1線から分かれるが、経営の指揮系統から独立してはいない。'
+    quote: 'not independent of the management chain'
+    locator: 'Three lines の節'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '第3線の内部監査は、客観的で独立した保証を与える。'
+    quote: 'objective and independent assurance'
+    locator: 'Three lines の節'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '二次。IIA の 2020 年版の原典に置き換えるべき。'}
+volatility: slow
+reviewBy: 2027-11

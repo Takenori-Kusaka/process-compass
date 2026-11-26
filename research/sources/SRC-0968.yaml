@@ -1,0 +1,61 @@
+schemaVersion: 0
+id: SRC-0968
+status: included
+excludeReason: null
+title: "【新設部署】社内システム開発の品質管理をリードする部長候補(株式会社電通コーポレートワン)"
+url: https://hrmos.co/pages/dc1/jobs/10000012
+canonicalUrl: https://hrmos.co/pages/dc1/jobs/10000012
+ids: {arxiv: null, doi: null}
+publisher: "株式会社電通コーポレートワン(HRMOS 採用ページ)"
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "ソフトウェア品質保証部門長 求人 品質保証部長 IT 出荷判定 品質会議 リリース判定 部門長 募集"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events:
+  - date: 2026-11-27
+    label: 求人票の取得日(削除されやすい)
+summary: '広告・メディア系グループ会社の社内システム開発向けの新設部署の部長候補の求人。ガイドライン・レビュー基準の策定と定着、ゲートチェックと稼働判定プロセスの設計・運用、重要成果物の最終レビュー・承認、品質 KPI の設計・モニタリング・経営報告、AI 開発管理ルールの標準化が即時の職務。必須は QA 組織のマネジメント 5 年以上など。報告先と掲載日は書かれていない。現在の公開求人の中で、品質保証部長の職務に AI 開発管理ルールが入った例として有用。'
+claims:
+  - id: c1
+    text: '即時の職務に、ゲートチェックと稼働判定プロセスの設計・運用、重要成果物の最終レビュー・承認が入る。承認が部長の職務に置かれている。'
+    quote: 'ゲートチェック・稼働判定プロセスの設計・運用、重要成果物の最終レビュー・承認'
+    locator: '職務内容'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '品質 KPI の設計・モニタリングと経営報告、AI 開発管理ルールの標準化が職務に入る。部長が経営に報告し、AI のルールを持つ形である。'
+    quote: '品質KPIの設計・モニタリング・経営報告、AI開発管理ルールの標準化'
+    locator: '職務内容'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: '必須要件に、品質基準を事業上の優先順位やリスクに応じて適用した経験と、開発現場と調整しながら実行可能な品質管理プロセスを定着させた経験が入る。基準を一律に当てない姿勢の表れである。'
+    quote: '品質基準を事業上の優先順位やリスクに応じて適用した経験'
+    locator: '必須要件(MUST)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。引用の機械照合は未実施。報告先は記載なし。求人は削除されうる。'}
+volatility: fast
+reviewBy: 2026-12

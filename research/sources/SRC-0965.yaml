@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0965
+status: included
+excludeReason: null
+title: "アジャイル開発における品質管理(NTTデータ DATA INSIGHT 技術トレンド/展望)"
+url: https://www.nttdata.com/jp/ja/data-insight/2020/102201/
+canonicalUrl: https://www.nttdata.com/jp/ja/data-insight/2020/102201/
+ids: {arxiv: null, doi: null}
+publisher: "株式会社NTTデータ 技術革新統括本部 システム技術本部 デジタル技術部"
+authors: ["町田 欣史"]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2020-10-22
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "アジャイル導入 品質保証部門 説得 事例 品質保証 反対"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'NTT データの技術者によるアジャイル開発の品質管理の解説。定量的品質管理は要るが従来のやり方が通じない点が難しいとし、品質を ISO 9000:2015 の定義(要求事項を満たす程度)で置き、リソース品質を代用特性にする考えを示す。最適解はまだ無いと自認している。'
+claims:
+  - id: c1
+    text: 'アジャイル開発でも定量的品質管理は必要だが、従来と同じやり方が通じないことが難しい点だという。'
+    quote: 'アジャイル開発でも定量的品質管理は必要ですが、今までと同じやり方が通じないところが難しい点です。'
+    locator: '本文'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: 'アジャイル開発の品質管理に最適解はまだ無く、過去のノウハウを土台に探っている状態だという。2020 時点の認識であり、現在の状況とは区別する。'
+    quote: 'アジャイル開発における品質管理については、まだ最適解はなく、過去の開発ノウハウをベースにしつつ、アジャイル開発に合った品質管理方法を探っている状態と言えます。'
+    locator: '本文末尾付近'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。引用の機械照合は未実施。'}
+volatility: medium
+reviewBy: 2027-05

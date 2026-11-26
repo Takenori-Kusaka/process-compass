@@ -1,0 +1,65 @@
+schemaVersion: 0
+id: SRC-0935
+status: included
+excludeReason: null
+title: "AI Act (European Commission, Shaping Europe's digital future)"
+url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+canonicalUrl: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai
+ids: {arxiv: null, doi: null}
+publisher: "European Commission"
+authors: []
+orgType: government
+region: eu
+lang: en
+sourceType: public-agency
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461B, query: "#461 EU AI Act の適用日程と AI Omnibus による高リスクの延期(2026-11 時点)"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events:
+  - date: 2026-08-02
+    label: AI Act が適用になる(一部例外あり)
+  - date: 2027-12-02
+    label: Annex III の高リスクの適用が延期された日
+  - date: 2028-08-02
+    label: Annex I(規制製品に組み込まれた AI)の移行期間の終わり
+summary: 'EU 委員会の AI Act の頁。AI Act は 2024-08-01 に発効し、2026-08-02 に(一部例外を除き)適用になった。AI Omnibus の政治合意(2026-05-07)と発効(2026-07-27)により、Annex III の高リスクは 2027-12-02 へ、Annex I(規制製品に組み込まれる AI)は 2028-08-02 までの移行期間へ延びたと、頁は書く。医療機器・車載などの個別の取り扱いは頁から読んでいない。'
+claims:
+  - id: c1
+    text: 'AI Act は 2024-08-01 に発効し、2026-08-02 に適用になった(一部例外あり)。'
+    quote: 'The AI Act entered into force on 1 August 2024 and became applicable on 2 August 2026, with some exceptions'
+    locator: '適用日程'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: 'Annex III の高リスクの適用が延期された。'
+    quote: 'have been extended to 2 December 2027'
+    locator: '適用日程'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: 'Annex I(規制製品に組み込まれた AI)は 2028-08-02 までの移行期間を持つ。'
+    quote: 'have an extended transition period until 2 August 2028'
+    locator: '適用日程'
+    quant: null
+    evidenceKind: normative
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '要約モデルの抽出。引用が指す対象(どの条項が延期か)は抽出時の文脈で、頁での逐語確認は未了。'}
+volatility: fast
+reviewBy: 2027-02

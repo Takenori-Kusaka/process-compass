@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0962
+status: included
+excludeReason: null
+title: "ソフトウェア品質シンポジウム 2024 B1-3 発表資料(スクラムにおける品質保証部門の関与。DXイノベーションセンター 開発・品質管理部 湯川 純・細谷 泰夫)"
+url: https://juse.jp/sqip/symposium/2024/timetable/files/B1-3_happyou.pdf
+canonicalUrl: https://juse.jp/sqip/symposium/2024/timetable/files/B1-3_happyou.pdf
+ids: {arxiv: null, doi: null}
+publisher: "日本科学技術連盟 SQiP"
+authors: ["湯川 純", "細谷 泰夫"]
+orgType: community
+region: jp
+lang: ja
+sourceType: talk
+published: 2024
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-27
+access: blocked
+readLevel: snippet
+foundBy: {cluster: I461C, query: "スクラム 品質保証部門 出荷判定 プロダクトオーナーに委譲 Doneの定義 品質部門長 承認 ソフトウェア品質シンポジウム2024"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '検索結果の要約でしか確認できていない手がかり。本文の取得は www 無しの URL で 404 になり、別の URL(library/download/index.cgi/B1-3.pdf?id=S2024-aN7m)は PDF 本体が圧縮されていて抽出できなかった。要約が正しければ、スクラムの計画時にテスト設計方針と Done の定義を作り、開発部門長と品質部門長が承認し、品質エンジニア(QE)が Done の事前判定を行い、出荷判定の権限は PO へ委譲する、という運用である。本文の確認まで知見の根拠に使わない(snippet)。'
+claims:
+  - id: c1
+    text: '(未確認の手がかり)出荷判定の権限を PO に委譲し、品質保証部門から QE を派遣し、QE は開発チームと別のレポートラインを持つ、という運用が紹介されているとされる。'
+    quote: '出荷判定の権限をPOに明示的に委譲'
+    locator: '検索結果の要約(スライド番号は不明)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: unreachable, method: [webfetch, websearch], date: 2026-11-27, humanChecked: false, note: '本文を取得できていない。quote は検索結果の抜粋で、原文との照合は未実施。次の担当は Read でライブラリ版の PDF(3.3 MB)を開くこと。'}
+volatility: medium
+reviewBy: 2027-05
