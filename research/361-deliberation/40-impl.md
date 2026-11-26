@@ -85,3 +85,7 @@ template の先頭: `616f039`(7 コミット)。bundle: `E:/Github/process-compa
 ## 8. 採らない案(実装していない)
 
 R-2 の許す一覧(案A)、D-7 の道具の setup-stack 導入、D-6 の `.gitattributes`、D-8 の読み方の変更、手引きでの順序の義務、並行グループを分けるだけの D-2 の直し、応答の文言の一致だけの D-3 の判定(状態コードとの組にした)。
+
+## 9. 直しの後の確認(WSL、node 26、最終の template 616f039 の内容)
+
+gocfg(製品のコードあり)と nodecfg に、template の最新の道具を重ねた複製で、複製を使う 31 の自己試験と test-adapter・test-template-copy・test-scaffold-todo(go のみ)・test-base-judge-workflow(go のみ)・test-env-check を流した。go は 35 件中 34 件、node は 33 件中 32 件が rc=0 かつ NG=0。残る 1 件は両方とも test-ship-evidence-steps で、2 構成の並列実行の負荷の下で rc=1(NG の語なし)になる。単独で流すと go・node とも rc=0(2 回)。負荷に依る不安定で、直しとは関係がない可能性が高いが、原因の特定はしていない(基準の複製でも nodecfg で同じ形の失敗があった)。#361 へ寄せる。
