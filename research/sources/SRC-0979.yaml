@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0979
+status: included
+excludeReason: null
+title: "[レポート] QA不在のスクラムチームは品質向上の夢を見るか #jassttokyo(DevelopersIO)"
+url: https://dev.classmethod.jp/articles/jasst-tokyo2024-qa-fuzai-report/
+canonicalUrl: https://dev.classmethod.jp/articles/jasst-tokyo2024-qa-fuzai-report/
+ids: {arxiv: null, doi: null}
+publisher: "クラスメソッド DevelopersIO(JaSST'24 Tokyo の講演レポート。講演者はダイキン工業の谷尾 虎之介氏・森鳰 武史氏)"
+authors: ["今泉 大樹"]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2024-03-14
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "スクラム 品質保証部門 出荷判定 プロダクトオーナーに委譲 Doneの定義 品質部門長 承認 ソフトウェア品質シンポジウム2024"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'ダイキン工業(非 IT 企業)のスクラムチームの講演のレポート。QA エンジニアがおらず、開発者が品質面でチームをリードする方式を採った。品質活動を PBI として扱い、完成の定義を見直し、デプロイ頻度の増加とリードタイムの短縮が報告されている。承認プロセスやリリース判断の権限に関する記述は無い。品質保証部門が無い組織の事例であり、品質保証部長を説得した事例ではない。二次情報(レポート)であり、講演資料そのものは未読。'
+claims:
+  - id: c1
+    text: '品質活動を主体的に行い、品質に責任を持つのは開発チーム全員とする運用を採った。品質保証部門を置かない組織の言い方で、品質保証部長が読むと警戒する語の例である(解釈)。'
+    quote: '主体的に品質活動を実施するのは**開発チーム全員**'
+    locator: '役割と責任分担(WebFetch の要約に基づく。**は強調記号)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '導入当初は機能開発が優先され、品質活動は後回しになっていた。品質活動を PBI として扱い、優先度を議論できるようにした。'
+    quote: '品質活動をPBIとして扱う'
+    locator: '課題と対応(WebFetch の要約に基づく。語句単位の抜粋)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋で、二次情報(講演のレポート)。引用の機械照合は未実施。'}
+volatility: slow
+reviewBy: 2027-11

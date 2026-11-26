@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: SRC-0975
+status: included
+excludeReason: null
+title: "ベリサーブ、社内向け「生成AIの品質保証サービス」ガイドライン(QA4AI/QA4AIDD プロセスガイドライン)を策定(プレスリリース)"
+url: https://www.excite.co.jp/news/article/Prtimes_2026-05-24-48768-100/
+canonicalUrl: https://www.excite.co.jp/news/article/Prtimes_2026-05-24-48768-100/
+ids: {arxiv: null, doi: null}
+publisher: "株式会社ベリサーブ(PR TIMES 経由)"
+authors: []
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: vendor-official
+published: 2026-05-24
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "QA4AI ガイドライン 生成AI 品質保証 JaSST 2026"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events:
+  - date: 2026-05-24
+    label: ベリサーブが社内向けに QA4AI と QA4AIDD のプロセスガイドラインを策定したと発表
+summary: '第三者検証会社が、AI 搭載プロダクトの品質保証(QA4AI)と、AI 駆動開発でコーディングエージェントのプロセス品質を保証する取り組み(QA4AIDD)の 2 つのガイドラインを社内向けに策定したというプレスリリース。AI 駆動開発の品質保証の枠組みは発展途上で、出力のばらつきと再現性の確保が課題だと書く。自社のサービス宣伝であり(selfReported)、ガイドライン本体は社内公開で外部から読めない。'
+claims:
+  - id: c1
+    text: 'AI 駆動開発でも、出力のばらつきや再現性の確保が課題で、体系的な枠組みはまだ発展途上だと、第三者検証会社が 2026-05 に述べている。'
+    quote: '生成AIプロダクトは出力が変わりやすく、従来のテスト手法だけでは品質を十分に保証しにくい'
+    locator: '背景の節(WebFetch の要約に基づく。原文の語順は要確認)'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。ガイドライン本体は社内向けで未読。自社報告。'}
+volatility: fast
+reviewBy: 2027-02

@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0978
+status: included
+excludeReason: null
+title: "Quality Engineering in the AI Era: From Gatekeeper to Strategic Guardrail(QASource)"
+url: https://www.qasource.com/blog/quality-engineering-ai-era
+canonicalUrl: https://www.qasource.com/blog/quality-engineering-ai-era
+ids: {arxiv: null, doi: null}
+publisher: "QASource"
+authors: ["Timothy Joseph"]
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-10-07
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "Head of QA AI-generated code quality gate Head of QA 2026 agentic development release sign-off accountability"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: 'QA 外注・コンサルティング会社のブログ(2026-10-07)。QA リーダーの役割を、リリース統制から設計の規律へ移すべきだと主張し、QA リーダーシップの主な成果物は個々のテストケースではなく標準・ポリシー・自動化された防護だとする。開発者に品質の所有を渡しても支援がなければ、責任なき委譲になる。AI が検査なしで書いてよいコードの種類を決めるのも品質リーダーシップの仕事だとする。リリース承認の責任者は直接論じていない。自社サービスの宣伝を兼ねる(selfReported)。'
+claims:
+  - id: c1
+    text: '開発者に品質の所有を渡しても支援が無ければ、権限委譲ではなく責任の喪失になる、と書く。部長が「品質は全員の責任」という言い方に出す警戒の根拠の一つ(解釈)。'
+    quote: 'It is a loss of responsibility due to delegation without accountability.'
+    locator: '本文(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: 'AI が検査なしで書いてよいコードの種類を決める役割を品質リーダーシップに置く。AI の利用方針を正式に持つ組織は非常に少ない、とも書く。'
+    quote: 'Determine what classes of code AI can produce without inspection.'
+    locator: '本文(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。引用の機械照合は未実施。ベンダー自社のブログで中立でない。'}
+volatility: fast
+reviewBy: 2027-02

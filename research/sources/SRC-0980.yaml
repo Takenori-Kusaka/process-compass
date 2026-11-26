@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0980
+status: included
+excludeReason: null
+title: "ソフトウェア品質保証の極意 経験者が語る、組織を強く進化させる勘所(日科技連ソフトウェア品質保証プロフェッショナルの会 編)"
+url: https://www.ohmsha.co.jp/book/9784274232305/
+canonicalUrl: https://www.ohmsha.co.jp/book/9784274232305/
+ids: {arxiv: null, doi: null}
+publisher: "オーム社"
+authors: ["日科技連ソフトウェア品質保証プロフェッショナルの会(編)"]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: book
+published: 2024-09
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: abstract
+foundBy: {cluster: I461C, query: "ソフトウェア品質保証入門 保田勝通 ISBN 品質保証部長の役割"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '書籍の出版社ページ(書誌・内容紹介・目次)。A5 判 216 頁、ISBN 978-4-274-23230-5、定価 3,300 円(税込)。品質保証部門と開発部門が検査の頻度や納期・コストをめぐって対立しがちだと書き、対象読者に品質保証責任者を含む。第4章に品質計画・要求分析・設計・実装・レビュー・テスト・リリース判定・運用保守の項がある。本文は未読で、読んだのは出版社ページの内容紹介と目次だけ。'
+claims:
+  - id: c1
+    text: '出版社の紹介は、品質保証部門と開発部門が検査の頻度や納期・コストをめぐって対立しがちで、品質保証部門は要求の意図と意義を正しく伝える必要がある、と書く(WebFetch の要約による言い換え)。リリース判定が第4章の目次に入っている。'
+    quote: '品質保証責任者'
+    locator: '内容紹介・目次・対象読者(WebFetch の要約に基づく。語句単位)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '出版社ページの要約モデルによる抜粋。ISBN・版元・年・頁数は出版社ページで確認した(検索結果の書誌とも一致)。本文は未読。'}
+volatility: slow
+reviewBy: 2027-11

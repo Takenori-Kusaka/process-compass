@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0977
+status: included
+excludeReason: null
+title: "AI時代のQAは何が変わったのか：品質保証の再定義と設計思想(CIO 日本版)"
+url: https://www.cio.com/article/4138542/ai%E6%99%82%E4%BB%A3%E3%81%AEqa%E3%81%AF%E4%BD%95%E3%81%8C%E5%A4%89%E3%82%8F%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%8B%EF%BC%9A%E5%93%81%E8%B3%AA%E4%BF%9D%E8%A8%BC%E3%81%AE%E5%86%8D%E5%AE%9A%E7%BE%A9.html
+canonicalUrl: https://www.cio.com/article/4138542
+ids: {arxiv: null, doi: null}
+publisher: "CIO(日本版)"
+authors: []
+orgType: media
+region: jp
+lang: ja
+sourceType: news
+published: 2026-04-01
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "QA 部門 生成AI AI駆動開発 品質保証部長 懸念 説明責任 リリース判定 2026"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'AI 時代の QA の役割変化を論じる記事(2026-04-01)。QA は終盤で検査して合否を決める役割から、最初から品質が崩れにくい形に仕立てる役割へ移る。品質を正しさではなく期待に沿う振る舞いとして捉え直し、完成物を測る対象ではなく動き続けるものを維持する営みとする。結論は検査ではなく品質の設計。署名記事ではなく編集部名義で、根拠となる調査や事例は示されていない。'
+claims:
+  - id: c1
+    text: 'QA は、終盤の検査で合否を決める役割から、最初から品質が崩れにくい形に仕立てる役割へ移る、と主張する。合否判定を担う品質保証部長の自己像との緊張を示す(解釈)。'
+    quote: '終盤で検査して合否を決める役割から、最初から品質が崩れにくい形に仕立てる役割へとシフトする'
+    locator: '本文(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '結論は、AI 時代の QA は検査ではなく品質の設計だとする。'
+    quote: 'AI時代のQAは「検査」ではなく「品質の設計」'
+    locator: '結論(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。引用の機械照合は未実施。編集部名義で、実証の根拠は示されていない。'}
+volatility: fast
+reviewBy: 2027-02

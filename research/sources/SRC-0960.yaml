@@ -82,7 +82,7 @@ claims:
     issues: [461]
     stance: context
   - id: c7
-    text: 'アジャイルについて部長の会は、従来の品質保証がウォーターフォール前提でプロセス準拠性の確認に重きを置き、それがアジャイルでは機能しなくなる、と書いた。最後の合否判定テストも、仕様書が無いか最後では遅いという懸念がある。'
+    text: 'アジャイルについて部長の会は、従来の品質保証がウォーターフォール前提でプロセス準拠性の確認に重きを置き、それがアジャイルでは機能しなくなる、と書いた。'
     quote: 'プロセス準拠性の確認、各工程でのアウトプットの確認などプロセスの確認を重視してきたが、これらがアジャイルでは機能しなくなる。'
     locator: 'p.28 付録C-5 アジャイルと品質保証(第5期、2013)'
     quant: null
@@ -114,6 +114,78 @@ claims:
     locator: 'p.14 第10期 ② AI システムの品質保証'
     quant: null
     evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c11
+    text: '品質保証部門には2つの型がある。設計から試験までの各工程で成果物の完成と内容の十分さを確認して品質担保を判断するプロセス中心型と、実機で出荷試験を行うプロダクト中心型である。出荷判定の根拠が何かは、型で異なる。'
+    quote: '設計から試験までの各プロセスで、成果物が完成しているか、その内容は十分かを確認することで、プロダクトの品質担保を判断している品質保証部門(プロセス中心型品質保証部門)'
+    locator: 'p.14 第10期 ⑤ プロセス中心型品質保証部門の品質保証の質の向上'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c12
+    text: '各工程の品質確保として、工程移行判定だけでなく工程開始判定のプロセスを導入し、数値だけでなく設計内容を確認する、という改善策を第2期に提言した。'
+    quote: '工程移行判定だけでなく工程開始判定プロセスの導入'
+    locator: 'p.6 第2期 ② 品質保証部最前線(各工程での品質確保)'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c13
+    text: '第4期の自己評価は、品質問題を経営者に報告して判断を仰ぐだけでよいのか、と自問している。報告して判断を仰ぐ型が部長の定型の動きだったことを示す。'
+    quote: '品質問題を経営者に報告して判断を仰ぐだけでよいのか？'
+    locator: 'p.26 付録C-4 第4期'
+    quant: null
+    evidenceKind: case-report
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c14
+    text: '部長は、最適な品質保証活動や中長期の品質保証戦略への問題意識を持ちながら、日々の業務に追われて根本的な解決策が見いだせない、と書かれている。'
+    quote: '日々の業務に追われなかなか根本的な解決策が見いだせないという声をよく耳にする。'
+    locator: 'p.2 1. SQiP ソフトウェア品質保証部長の会とは'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c15
+    text: 'アジャイルでは、最終の合否判定テストをやるにしても詳細な仕様書類が無かったり、最後の確認だけでは遅すぎたりする、という懸念が出た。従来の合否判定の前提が崩れる点である。'
+    quote: '最終的なソフトウェアの合否判定テストをやるにしても、これまでのような詳細な仕様書類は存在しなかったり、最後の確認だけでは遅すぎたりするケースも多いだろう。'
+    locator: 'p.28 付録C-5(第5期)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c16
+    text: '第6期に有識者・先行会社から、アジャイルでも従来と同じ品質判定のプロセスを加える、という助言を得た。品質保証部門が受け入れる条件の一つの形である。'
+    quote: '「WFと同じ品質判定プロセスを加える」'
+    locator: 'p.28 付録C-5(第6期)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c17
+    text: '第4期は、経営者は品質保証部門に何を期待しているのか、それに応えられているのかを問う形で活動を分析した。部長が経営からの期待を気にする問いの言い回しである。'
+    quote: '経営者は品質保証部門に何を期待しているのだろうか？'
+    locator: 'p.26 付録C-4 第4期'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c18
+    text: '部長の会は 2012-07-04 に、元日立製作所の保田勝通氏を招いて「品質保証部長の役割について」の講演を開いた。講演資料は本書に載っていない。'
+    quote: '品質保証部長の役割について'
+    locator: 'p.19 付録B 講演テーマ一覧'
+    quant: null
+    evidenceKind: news-fact
     rqs: []
     issues: [461]
     stance: context

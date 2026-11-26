@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: SRC-0976
+status: included
+excludeReason: null
+title: "生成AI時代の品質保証(NTTデータ DATA INSIGHT 技術トレンド/展望、町田 欣史・伊東 武史)"
+url: https://www.nttdata.com/jp/ja/trends/data-insight/2025/1016
+canonicalUrl: https://www.nttdata.com/jp/ja/trends/data-insight/2025/1016
+ids: {arxiv: null, doi: null}
+publisher: "株式会社NTTデータグループ 技術革新統括本部 品質保証部"
+authors: ["町田 欣史", "伊東 武史"]
+orgType: sier
+region: jp
+lang: ja
+sourceType: corp-techblog
+published: 2025-10-16
+publishedBasis: byline
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: section
+foundBy: {cluster: I461C, query: "QA 部門 生成AI AI駆動開発 品質保証部長 懸念 説明責任 リリース判定 2026"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'NTT データの品質保証部の技術者による、生成 AI が設計・コーディング・レビュー・テストを担う開発の品質保証の課題の整理(2025-10-16)。見た目は正しくても動かすと失敗する、出力が毎回変わる、生成の経緯を説明しにくい、をリスクに挙げる。バグ検出密度だけでは評価しにくいとして、観点カバレッジや DDP モニタリングを挙げる。生成 AI の出力はたたき台で、最終判断は人間が行う線引きを示す。社内検証の正解率が概ね 60% だったという数値は WebFetch の要約モデルの報告で、原文は未確認。'
+claims:
+  - id: c1
+    text: '従来のバグ検出密度だけでは、生成 AI 開発の品質を十分に評価しにくい。保守性・例外処理の妥当性・規約順守など複数の観点を組み合わせる必要があるという。'
+    quote: 'この指標だけでは品質を十分に評価することが難しくなります。'
+    locator: '品質指標の節'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '生成 AI は成果物作成やレビューの道具として使い、最終判断は人間が行う、という線引きを示す。責任の所在に関する大企業 SIer の標準的な言い方の一例である。'
+    quote: '最終判断は人間が行う。'
+    locator: '人の責任の節(WebFetch の要約に基づく)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: '生成 AI のコードは、見た目は正しくても実際に動かすと失敗することがあるという。'
+    quote: '見た目には正しく見えても、実際に動かすと失敗することがあります。'
+    locator: '品質保証の課題の節'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: 'WebFetch の要約モデルの抜粋。引用の機械照合は未実施。社内検証の正解率 約 60% は要約モデルの報告だけで、quote を取っていないため主張に採らなかった。'}
+volatility: fast
+reviewBy: 2027-02

@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: SRC-0981
+status: included
+excludeReason: null
+title: "ソフトウェア品質保証ガイド チームで顧客満足を実現するためのアプローチ・手法・技術(井芹 洋輝、KADOKAWA)"
+url: https://www.kadokawa.co.jp/product/302607002896/
+canonicalUrl: https://www.kadokawa.co.jp/product/302607002896/
+ids: {arxiv: null, doi: null}
+publisher: "KADOKAWA"
+authors: ["井芹 洋輝"]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: book
+published: 2026-08-28
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: abstract
+foundBy: {cluster: I461C, query: "ソフトウェア品質保証入門 保田勝通 ISBN 品質保証部長の役割"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events:
+  - date: 2026-08-28
+    label: 書籍の発売日
+summary: '書籍の出版社ページ。B5 変形判 384 頁、ISBN 9784049012057、本体 4,500 円。開発チーム向けに現代のソフトウェア開発の品質保証を解説し、アジャイル・DevOps、自動化、生成 AI の活用、品質改善サイクルを扱う。目次に、アジャイル・DevOps に合わせた品質保証(第3章)、マネジメントの支援(第8章)、品質保証の仕組みと体制づくり(第9章)がある。本文は未読。発売から 3 か月で、書評・実務者の評価は見つかっていない。'
+claims:
+  - id: c1
+    text: '書籍の目次に、アジャイル・DevOps に合わせた品質保証、生成 AI の活用、品質保証の仕組みと体制づくりが入る。部長の関心に近い章立てだが、部長の判断や承認を扱うかは本文を読まないと分からない。'
+    quote: '品質保証の仕組みと体制づくり'
+    locator: '目次の第9章(WebFetch の要約に基づく。語句単位)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [webfetch], date: 2026-11-27, humanChecked: false, note: '出版社ページの要約モデルによる抜粋。ISBN・頁数・価格は出版社ページで確認した。本文は未読で、内容の評価はできない。'}
+volatility: medium
+reviewBy: 2027-05
