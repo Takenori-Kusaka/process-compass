@@ -2,7 +2,7 @@
 
 > 自動生成(`node scripts/research-ledger.mjs index`)。手で編集しない。注記は notes マーカーの内側にだけ書く。
 
-件数: 761(included 761、excluded 0)。生成日 2026-11-19。
+件数: 762(included 762、excluded 0)。生成日 2026-11-26。
 
 読み方: ID で `research/sources/SRC-NNNN.yaml` を開くと主張(claims)と検証結果がある。テーマ・Issue から引くときは調査スナップショットの `by-issue.md` / `questions.md` を先に見る。
 
@@ -769,4 +769,5 @@
 | SRC-0766 | ? | public-agency | us/en | partial |  | NIST SP 800-53 Rev.5 の識別と認証の管理策。IA-2 は組織の利用者を一意に識別・認証し、その識別を代理の処理と結び付けることを求める。IA | [NIST SP 800-53 Rev.5 セキュリティ・プライバシー管理策(OSCAL 版カタログ v5.2.0)IA-2・IA-2(5)](https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json) |
 | SRC-0767 | ? | community | global/en | partial |  | OWASP の非人間の識別(NHI)の上位10項目のうち、NHI9 は同じ NHI を複数のアプリケーション・サービス・構成要素で使い回すことを危険とし、アプリ | [OWASP Non-Human Identities Top 10 (2025) NHI9: NHI Reuse](https://owasp.github.io/www-project-non-human-identities-top-10/2025/9-nhi-reuse) |
 | SRC-0768 | ? | vendor-official | global/en | verified |  | GitHub の組織設定の文書。既定では、チェック・ワークフローの実行・コミットの状態と、ワークフローが作る成果物・ログが 90 日で自動削除される。文書は「実 | [Configuring the retention period for checks, workflow runs, commit statuses, artifacts, an](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization) |
+| SRC-0769 | 2025-05-08 | preprint | global/en | verified |  | 推論モデルの思考の連鎖が、モデルが実際に使った手掛かりを言語化する割合を、6種類の手掛かりで測った研究の要旨。多くの設定で手掛かりの使用を言語化する割合は 1% | [Reasoning Models Don't Always Say What They Think](https://arxiv.org/abs/2505.05410) |
 

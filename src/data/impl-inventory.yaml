@@ -3264,9 +3264,12 @@ sections:
       - IMPL-0024
       - IMPL-0251
       - IMPL-0398
+      - IMPL-1050
+      - IMPL-1051
+      - IMPL-1052
     location:
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.3 リスク区分による上限
-    note: 人へ戻す場合と経路は IMPL-0024、取り消せない操作の定義は IMPL-0251、推定による注意の不在を根拠にしないことは IMPL-0398(#401)。席と責任者の宣言は 5.5.3 の IMPL-0025(config-seats)で追う
+    note: 人へ戻す場合と経路は IMPL-0024、取り消せない操作の定義は IMPL-0251、推定による注意の不在を根拠にしないことは IMPL-0398(#401)。作業上の選択の理由の記録は IMPL-1050〜1052(#457。いずれも undelivered)。席と責任者の宣言は 5.5.3 の IMPL-0025(config-seats)で追う
     issue: 294
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.2 運用形態
     status: none

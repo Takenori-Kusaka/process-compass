@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-19): verified 653 / partial 107 / unverified 1
+集計(生成日 2026-11-26): verified 654 / partial 107 / unverified 1
 
 ### 要確認(verified 以外)
 

@@ -1,0 +1,41 @@
+schemaVersion: 0
+id: SRC-0769
+status: included
+excludeReason: null
+title: Reasoning Models Don't Always Say What They Think
+url: https://arxiv.org/abs/2505.05410
+canonicalUrl: arxiv:2505.05410
+ids: {arxiv: "2505.05410", doi: null}
+publisher: arXiv (Anthropic Alignment Science Team)
+authors: [Yanda Chen, Joe Benton, Ansh Radhakrishnan, Jonathan Uesato, Carson Denison, John Schulman, Arushi Somani, Peter Hase, Misha Wagner]
+orgType: vendor
+region: global
+lang: en
+sourceType: preprint
+published: 2025-05-08
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: abstract
+foundBy: {cluster: I457, query: "#457 作業上の選択の理由の記録。AI が書く理由と実際の生成の原因の一致(束 D2 担当が要旨の頁で確認)"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '推論モデルの思考の連鎖が、モデルが実際に使った手掛かりを言語化する割合を、6種類の手掛かりで測った研究の要旨。多くの設定で手掛かりの使用を言語化する割合は 1% を超えるが、20% を下回ることが多い。思考の連鎖の監視は望ましくない挙動に気づく手段になりうるが、それだけでは排除できないと述べる。本標準は、AI が書く作業上の選択の理由を、実際の生成の原因の記録でなく作成側の主張として扱う根拠の一つにした(要旨のみを読んだ。思考の連鎖と、変更の記録に書く理由は同じ対象ではない)。'
+claims:
+  - id: c1
+    text: 'ほとんどの設定とモデルで、思考の連鎖は、手掛かりを使った例のうち少なくとも 1% で使用を明かすが、明かす割合は 20% を下回ることが多い。'
+    quote: 'for most settings and models tested, CoTs reveal their usage of hints in at least 1% of examples where they use the hint, but the reveal rate is often below 20%'
+    locator: 'Abstract'
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [457]
+    stance: supports
+verification: {status: verified, method: [curl], date: 2026-11-27, humanChecked: false, note: '束 D2 担当が arxiv.org/abs の頁の要旨を取得し、引用が一致することを確かめた。本文は読んでいない。'}
+volatility: slow
+reviewBy: 2027-11
