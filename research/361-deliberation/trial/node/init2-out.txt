@@ -1,0 +1,15 @@
+wrote process.config.json / PROCESS-PROFILE.md
+wrote docs/D-0-governance.md (生成区間)
+[プロセス構成] エージェント用ガードを有効化（enabled: true）し、検査コードやワークフロー（Category C）への直接編集をロックダウン（遮断）しました。事業ステージ（PoC を含む）に依らず有効です（標準 第8章 軸B、ADR-0050）。
+[プロセス構成] 案件タイプ "revenue" に合わせた 06-project-brief.md テンプレートを配置しました。
+wrote CLAUDE.md (構成依存部分)
+
+[未達] 次のゲートは目的を達成する構成を示せていません:
+  - G-6 独立レビュー: 作成を指示した本人以外が挙動を確認する条件を満たす構成が存在しない(最小体制3名未満、かつ作成を指示した本人以外の確認者がいない)
+
+[ピットイン] 次の一手(node scripts/gate/next.mjs。詳細は /pit)
+構成: 1〜2名 / 検証中(PoC)。未達 1 件
+判定記録: docs/gates/ 0 件。記録用ブランチ records が手元に無い(refs/remotes/origin/records・refs/heads/records のいずれも無い)。承認レビューの写しと様式を読めない(様式は docs/gates/ だけを読む)
+- 席の責任者が未記入: [人の判断待ち] 席の責任者の任免(9 席。名簿と全席を1回の変化点で出す) — 待つ席: 事業決裁者(責任者未記入) / 受信箱 `state:needs-owner` `state:stop-requested`
+- 注記 10 件(段階を止めない。node scripts/gate/next.mjs)
+人の判断待ちは終端です。AI の担い手はコマンドを実行せず、待つ席へ受信箱のラベルで渡します。

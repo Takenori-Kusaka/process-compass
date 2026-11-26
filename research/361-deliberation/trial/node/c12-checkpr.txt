@@ -1,0 +1,2 @@
+errors ["統制の設定の陰性の確認: 統制の設定(.github/workflows/record-copy.yml)を変える PR です。PR の本文に「## 統制の設定の陰性の確認」の節がありません(本文は .github/PULL_REQUEST_TEMPLATE.md から作る)。`## 統制の設定の陰性の確認` の節へ、通した違反の場面・結果(止まった / 止まらなかった / 外した)・確かめた者を書く(標準 第4章 G-5。人が確かめ、人が書く)"]
+warnings []

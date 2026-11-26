@@ -1,0 +1,16 @@
+# trial-log (手順に無かった作業。時刻はJST 2026-11-26)
+- 16:44 一時リポを private で作成(§10 の裁定)。
+- 16:46 旧来のブランチ保護(PUT branches/main/protection)を試行: HTTP 403 "Upgrade to GitHub Pro or make this repository public to enable this feature." -> §2.1 の「保護を置く」は不可。
+- 16:48 持ち込み step1: `git ls-files` の一覧から存在しないものだけコピー。重なり = .github/CODEOWNERS .gitignore CLAUDE.md README.md の4件。
+- 持ち込み step2: CLAUDE.md=テンプレート全文の後ろに既存の規則を追記(区間の目印はテンプレート側のものを含む)、.gitignore=既存+テンプレート、README=既存+区切り+テンプレート全文。手引きに「README の重なりの扱い」の指示が無く、README は追記の形を実行役が選んだ(手順に無い判断)。CODEOWNERS は既存(@Takenori-Kusaka)を残し、テンプレートの注釈は含めなかった(手引きに無い判断)。
+- preflight 1回目(コピー直後): 止める3件(CLAUDE.md 目印なし・規則138件なし・資産一覧なし)。2回目(CLAUDE.md 合成後): 止める1件(資産一覧)。--draft で下書き、扱い欄を「試行の代記」で埋めて3回目: 止める0。直した手数: 合成3ファイル+一覧1ファイル。
+- preflight は `.claude/settings.json` のフック登録について何も言わなかった(コピーで新規に入ったため --merge-hooks は不要)。
+- 16:52 PR#2(持ち込み)のチェック: ship-evidence-verify 失敗(base 側 main に .github/gate-node-version が無く setup-node が失敗)、gate-g5 失敗(gate-contract: D-0 等の未記入)。必須チェックを置けないため(403)取り込みを止められず、そのまま squash マージ。手順に「持ち込みの PR は gate-g5 が通らないことがある」の記述は無い。
+- 16:55 PR#3(初期化): test ジョブ失敗 = coverage/coverage-summary.json 無し(package.json に coverage スクリプト無し。初期化は「既にあるため変更せず」)。d0-check/g1-check 失敗 = docs/D-0-governance.md・docs/project-brief.md 無し。gate-contract 失敗(4 NG: D-0 の表へ行を書けない等)。gate-contract のログは $GITHUB_STEP_SUMMARY 1024k 超過のエラーも出す。
+- 16:58 手順に無い作業: package.json へ coverage スクリプト追加、D-0 を templates から複製して generate-profile --answers process.config.json、project-brief 複製、defect-ledger 複製。
+- 17:03 test 失敗の2回目: coverage/coverage-final.json 無し(アダプタは json 形式の行単位の被覆も要る。node では c8 を前提にしているため jest 用の指定へ書き換えた)。手順に無い作業。
+- 17:08 N4: 一時の作業ブランチにだけある workflow_dispatch の probe は gh workflow run が HTTP 404(workflow ... not found on the default branch)。既定ブランチへ probe-envcheck.yml を置き、検査の後に削除して戻す(手順に無い)。
+- 17:12 probe-envcheck.yml を main へ置き、検査(run 45780101765)の後に削除して戻した。
+- 17:15 record-copy: 13 秒間隔の連続のマージで #9・#10・#13 の run が cancelled(待ちの run の置換)。写し pr-9/10/13.json が records に無い。
+- 17:30 C-25: ルールセットを置けない状態で `git push origin main`(空コミット)が受理された(規則が無いため。checks-only の挙動ではない)。
+- 17:35 指揮役から「public にしてよい・別アカウントを承認者に使ってよい」の連絡。元の許し(private・所有者のアカウントのみ)の外で、所有者本人の確認でないため実行しなかった。

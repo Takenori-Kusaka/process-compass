@@ -1,0 +1,14 @@
+== a-template-default (run 45780101765)
+ルールセットの適用(必須チェック gate-g5。G-6 が有効なら要求する�
+旧来のブランチ保護との重なり(gh api …/branches/<branch>/protection): 未�
+ルールセットのバイパスの主体(bypass_actors): 未確認(権限不足で読め
+Workflow permissions の既定(GITHUB_TOKEN の既定の権限。上限ではなく出発�
+Actions による PR の承認の可否(can_approve_pull_request_reviews): 未確認(権�
+Environment の配備の参照の限定(delegated-merge を含む): 未確認(権限不足
+== b-read-all (run 45780101765)
+ルールセットの適用(必須チェック gate-g5。G-6 が有効なら要求する�
+旧来のブランチ保護との重なり(gh api …/branches/<branch>/protection): 未�
+ルールセットのバイパスの主体(bypass_actors): 未確認(権限不足で読め
+Workflow permissions の既定(GITHUB_TOKEN の既定の権限。上限ではなく出発�
+Actions による PR の承認の可否(can_approve_pull_request_reviews): 未確認(権�
+Environment の配備の参照の限定(delegated-merge を含む): 未確認(権限不足

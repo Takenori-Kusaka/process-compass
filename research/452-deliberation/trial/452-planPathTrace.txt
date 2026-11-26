@@ -1,0 +1,10 @@
+=== 3027835 (Spec: F-003 / Task-1)
+{"tasks":[{"feature":"F-003","task":"Task-1","globs":["src/args.js"]}],"notInBase":[],"unreadable":[],"columnChanges":[],"outside":["package-lock.json","package.json","specs/F-003/plan.md"],"outsideTests":[],"limit":"計画は既定ブランチの先端から読む。差・列の変更は合否に使わない。glob は ** と * だけを読む({a,b}・? は読まない)"}
+=== b221b2c (Spec: F-002 / Task-1)
+{"tasks":[],"notInBase":["F-002 / Task-1(既定ブランチに specs/F-002/plan.md が無い)"],"unreadable":[],"columnChanges":[],"outside":["specs/F-002/plan.md","specs/F-002/spec.md","src/config.js"],"outsideTests":[],"limit":"計画は既定ブランチの先端から読む。差・列の変更は合否に使わない。glob は ** と * だけを読む({a,b}・? は読まない)"}
+=== 3feb6fc (Spec: F-001 / Task-2)
+{"tasks":[{"feature":"F-001","task":"Task-2","globs":["src/cli.js"]}],"notInBase":[],"unreadable":[],"columnChanges":[],"outside":["README.md"],"outsideTests":[],"limit":"計画は既定ブランチの先端から読む。差・列の変更は合否に使わない。glob は ** と * だけを読む({a,b}・? は読まない)"}
+=== 9c62268 (Spec: F-002 / Task-2)
+{"tasks":[{"feature":"F-002","task":"Task-2","globs":["__tests__/config.test.js"]}],"notInBase":[],"unreadable":[],"columnChanges":[],"outside":["specs/F-002/plan.md"],"outsideTests":["__tests__/fixtures/config.json"],"limit":"計画は既定ブランチの先端から読む。差・列の変更は合否に使わない。glob は ** と * だけを読む({a,b}・? は読まない)"}
+=== 3969c7c (Spec: F-002 / Task-3)
+{"tasks":[{"feature":"F-002","task":"Task-3","globs":["src/cli.js"]}],"notInBase":[],"unreadable":[],"columnChanges":[],"outside":["docs/config.md","specs/F-002/plan.md"],"outsideTests":[],"limit":"計画は既定ブランチの先端から読む。差・列の変更は合否に使わない。glob は ** と * だけを読む({a,b}・? は読まない)"}
