@@ -136,6 +136,13 @@ sections:
       - phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.6 レベルの引き下げ > 登録した変更種別での停止
     note: 変化点の後の状態の次の一手は IMPL-0087。C9 の観測(登録した変更種別の停止と判定不能)の表示は 5.4.6 の IMPL-0287・0288
     issue: 311
+  - key: phase4-process-design/assurance-case#H.3 論証 > 困りごとから、止める場所と証跡へ引く
+    status: none
+    category: elsewhere
+    reason: 各行の要求事項の正本は引く条項にあり、本節は投影である。案件に記入を求めない。IMPL は引く条項の側のマークが運ぶ
+    location:
+      - phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.1 未検証の入力として扱う
+    issue: 456
   - key: phase4-process-design/assurance-case#H.3 論証 > 内部監査で確かめる観点
     status: marked
     ids:

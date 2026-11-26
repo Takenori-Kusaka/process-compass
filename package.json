@@ -19,7 +19,7 @@
     "impl:write": "node scripts/check-impl.mjs --write",
     "lint:scope": "node scripts/check-scope.mjs && node scripts/test-scope-exempt.mjs",
     "scope:write": "node scripts/check-scope.mjs --write",
-    "lint:refs": "node scripts/check-section-refs.mjs && node scripts/regress/check-fixes.mjs && node scripts/test-decision-refs.mjs && node scripts/test-section-refs.mjs && node scripts/check-adr-links.mjs && node scripts/test-adr-links.mjs && node scripts/check-claim-terms.mjs && node scripts/test-claim-terms.mjs",
+    "lint:refs": "node scripts/check-section-refs.mjs && node scripts/regress/check-fixes.mjs && node scripts/test-decision-refs.mjs && node scripts/test-section-refs.mjs && node scripts/check-adr-links.mjs && node scripts/test-adr-links.mjs && node scripts/check-claim-terms.mjs && node scripts/test-claim-terms.mjs && node scripts/check-failure-projection.mjs && node scripts/test-failure-projection.mjs",
     "test:regress": "node scripts/regress/test-run.mjs && node scripts/regress/run.mjs",
     "test:template-suite": "node scripts/test-template-suite.mjs",
     "issues:snapshot": "node scripts/issues-snapshot.mjs",
