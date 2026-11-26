@@ -327,7 +327,7 @@ AI生成コードの読解に必要な能力は、モデルの世代交代によ
 
 <!-- impl IMPL-0644 target=evidence-aggregation state=delivered check=manual note="3.4.3 要求事項9。育成の担当(役割)を空欄にした層1 では、後継不在の受容を更新しない。scripts/gate/org-assurance.mjs が、層1 の育成の担当が空欄のとき後継不在の受容を受け付けず、集約と next.mjs が空欄の旨と、育成の担当が後継候補を力量の確認へ進める案内を出す。確かめる者: 出荷判定者(G-7 の判定で、集約の出力を読むとき)。実行して確かめていない(所在を読んだ)" -->
 
-<!-- impl IMPL-0645 target=debt-ledger-template state=undelivered check=manual plan=scheduled issue=450 review=2027-05 note="3.4.3 要求事項6・7。コア機能の理解の保持者が1名以下の状態を、列挙に無い離脱として扱い、是正の期限と責任者を技術負債台帳へ登録すること。列挙に無い離脱の数への算入は IMPL-0521(aggregate-evidence.mjs の recordDepartures)が運ぶ。層1 の権限者が期限つきで受容することは、D-0 節15「組織継続の状態の受容」と scripts/gate/org-assurance.mjs が運び、このマークは追わない。templates/03-debt-ledger.md に是正の行の書き方(区分「負債」、対象の先頭が「コア理解:」と運用引き継ぎ文書のコア機能の名前、返却の目安に期限と責任者。ADR-0200 決定2)を置いた。残り: 台帳への是正の行の登録を確かめる検査が無い。確かめる者: 計画の Issue(issue= の番号)の担当者(降ろすときに確かめる。それまでは降りていない規定として台帳に出る)" -->
+<!-- impl IMPL-0645 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-model-adoption.mjs note="3.4.3 要求事項6・7。コア機能の理解の保持者が1名以下の状態を、列挙に無い離脱として扱い、是正の期限と責任者を技術負債台帳へ登録すること。scripts/gate/org-assurance.mjs の coreRemediationState が、保持者が1名以下のコア機能ごとに、技術負債台帳に区分「負債」・対象の先頭が「コア理解: 」に運用引き継ぎ文書の節2 の機能の名前を続けた形(NFKC で比べる)・状態「未返却」・返却の目安が空でない行があるかを確かめ、無ければ次の一手と保証の開示に機能の名前を出す(台帳が無ければ「確かめられない」と出す)。出荷・記載の欠落・委任の判定には数えない(要求事項7)。印の無い行は是正の行として見分けない(ADR-0200 決定5)。返却の目安の期限と責任者の中身は確かめない。確かめる者: 層1 の権限者(D-0 節15 で受容するとき)と出荷判定者(G-7 で保証の開示を読むとき)。列挙に無い離脱の数への算入は IMPL-0521(aggregate-evidence.mjs の recordDepartures)が運ぶ。期限つきの受容は D-0 節15 と org-assurance.mjs が運び、このマークは追わない。様式の書き方は templates/03-debt-ledger.md" -->
 
 ## 3.5 兼務ルール(許可 / 禁止)
 
