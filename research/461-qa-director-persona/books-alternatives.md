@@ -102,3 +102,34 @@
 - P3 の 7.3 の本文。出荷の承認の条件を書いているか
 - Black の第6章に出荷判定の節があるか(目次の節名を確かめられなかった)
 - ASQ の電子書籍の DRM(ASQ に直接問い合わせる必要がある)
+
+## L5 の代わりの本(条件: DRM の無い直販に限る、2026-11-27)
+
+- 条件(所有者 2026-11-27): DRM の無い PDF・EPUB を直販する出版社に限る。Google Play・Kindle・Adobe DRM は除く。Galin『Software Quality』(Google Play)は買わない
+- 確認の方法: 販売頁を 2026-11-27 に取得した。目次は販売頁の記載のみで、本文は未確認(Leanpub は無料サンプルで確かめる)
+- 結果: 品質保証部門の組織・独立性・部門長の権限・出荷判定の権限をまとめて書く本は、DRM の無い直販では見つからなかった。下表は部分的に埋まる見込みの本である。上の P1(2.2〜2.6、第36章)は条件に合う既出の候補で、引き続き L5 の最有力である
+
+| 書名 | 著者 | 出版社 | 年 | ISBN | 入手先の URL | 形式 | DRM の確かめ方(販売頁のどの記載か) | 埋まる見込み(目次の節) | 優先度 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ACT 2 LEAD: Software Testing Leadership Handbook | Kari Kakkonen、Marko Rytkönen | Leanpub(自費出版) | 頁に年の記載なし | 頁に記載なし | https://leanpub.com/act2lead | PDF、EPUB(最低 $20、推奨 $29) | 販売頁の文言「Leanpub books don't have any DRM copy-protection nonsense, so you can easily read them on any supported device.」 | 5.1「Organizational test leadership」、17「Who is involved in testing?」(17.1 Leadership)、19「What organizational testing capabilities are needed?」、20「How to organize testing?」(20.1 製品チームの一部、20.3 独立したテストチーム、20.5 集中型テストチーム)。部門の位置づけと独立性(L5 の前半)に当たる。部門長の権限・出荷判定の権限の節は目次に無い | 高 |
+| Lean Testing(Lean Software Test Architecture) | Stefan Friese | Leanpub(自費出版) | 2025(最終更新 2025-01-29) | 頁に記載なし | https://leanpub.com/leantestarchitecture | PDF、EPUB(最低 $8、推奨 $12。268 頁) | 同上の文言が販売頁にある | 「Lean Testing Way of Working」の Organizational Design、Matrix Organization and Chapter Team、Role of Test Architects。「Lean Test Management」の Testing Sign-Off(出荷の承認)。結論の Concerns About Development Teams Owning Tests。独立性の見出しは無い。開発チームがテストを持つ側の本で、別組織の QA 部門を扱う本ではない | 中 |
+| QA Leadership and Mentoring: Multiplying Your Impact | Yuri Syuganov | Leanpub(自費出版) | 2026(最終更新 2026-08-30、完成) | 頁に記載なし | https://leanpub.com/modernqa-23-qa-leadership-mentoring | PDF(EPUB は本書の形式として明示なし。最低 $4.99) | 同上の文言が販売頁にある(Leanpub 全般の記述) | 目次の節の一覧が頁に無い。説明文は QA チームの構築、管理職の道を挙げる。組織・独立性・出荷判定は頁に記載なし。見込みは薄い | 低 |
+
+### 探して候補にしなかったもの
+
+- 技術評論社 Gihyo Digital Publishing: 『ソフトウェアテスト徹底指南書』(P1)と『QAエンジニア入門』(P2)が既出。P2 の目次は 7.2「QA組織をゼロから立ち上げるときの品質活動プレイブック」と 4.2.2 のリリース判断があるが、独立性・権限・開発部門との関係を節名に持つ項目は無い。DRM は無い(同社の案内 https://gihyo.jp/dp/help/reading/drm の文言「いわゆるDRMと呼ばれている利用や複製を制限するような機構は入っていませんが」)。購入者のユニーク ID とメールアドレス等が付く点は 1 節のとおり
+- オライリー・ジャパン、達人出版会、翔泳社 SEshop、インプレス: 品質保証部門の組織・出荷判定を扱う本は検索で当たらなかった。販売頁は開いていない
+- Springer(O'Regan『Introduction to Software Quality』2014、電子版 ISBN 978-3-319-06106-1): 第9章が SQA(プロジェクト・供給者・部門の監査)。販売頁は Cookie の転送で取得できず、形式・DRM・目次の全体を確かめられなかった。未確認につき表に入れない。https://link.springer.com/book/10.1007/978-3-319-06106-1
+- InformIT(Black『Critical Testing Processes』など)、Manning、Pragmatic Bookshelf: 検索で品質保証部門の組織を扱う本は当たらなかった。InformIT の検索頁は 404 だった。Black『Managing the Testing Process』の Wiley 電子版は、外部書店で Adobe DRM の表示があり、条件に合わない
+- Leanpub『Communication and Stakeholder Management for QA』(Syuganov): 既出(5 節)。「blocking a release」の項目がある。L1 向け
+- Leanpub『The Quality Coach's Handbook』(Charrett): 品質コーチを論じ、ゲートキーパーでない側に立つ本。部門の独立性とは逆の立場で、L5 には使わない(検索結果の説明による。販売頁の目次は未確認)
+- Wiley『Software Quality』(Galin): 第4章「Organization for Assuring Software Quality」が L5 に最も近いが、Google Play の配布のみで条件に合わない。購入しない
+- 考察: L5 の書籍による補強は、DRM の無い直販では P1 と ACT 2 LEAD の組み合わせが現実的である。ただし、部門長の責任・権限と出荷判定の権限は、書籍では埋まらない見込みが高い。規格(JSA の相関表)と部長の会の記念誌 [SRC-0901] を主にする見立ては変わらない
+
+## 所有者の回答と条件の訂正(2026-11-27、指揮役経由)
+
+- 購入する: 技術評論社の3冊(P1『ソフトウェアテスト徹底指南書』、P2『QAエンジニア入門』、P3『生成AIアプリケーション評価入門』)。所有者が入手したら tmp/books/461/ に置く
+- 購入しない: G2 Galin『Software Quality』。Google Play の本は .acsm(Adobe の DRM)で配られ、作業役が読めないため
+- B1・B4・B6 は Google Play で購入済み(.acsm)。読み方は所有者が検討中。DRM は外さない
+- 今後の書籍の候補は、DRM の無い PDF・EPUB を直販する出版社に限る。Google Play・Kindle・.acsm の配布は除く。販売頁で DRM の有無を確かめた記録を本書に残す
+- 技術評論社の PDF には購入者の ID とメールアドレスが入る。抜き書き・画像を research/ へ写さない。出典台帳には短い引用と頁だけを残す
