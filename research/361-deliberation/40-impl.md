@@ -80,7 +80,7 @@
 5. fix(init) go と node の「作るもの」(D-7・D-9)
 6. docs README(D-6・D-8・D-15)
 
-bundle: `E:/Github/process-compass/tmp/bundles/template-b34.bundle`(`origin/main..b34`)。
+template の先頭: `616f039`(7 コミット)。bundle: `E:/Github/process-compass/tmp/bundles/template-b34.bundle`(`origin/main..b34`)。
 
 ## 8. 採らない案(実装していない)
 
