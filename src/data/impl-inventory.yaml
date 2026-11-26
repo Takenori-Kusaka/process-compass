@@ -3725,6 +3725,9 @@ sections:
       - IMPL-0488
       - IMPL-0489
       - IMPL-0490
+      - IMPL-1042
+      - IMPL-1043
+      - IMPL-1044
     rows:
       禁止事項1:
         status: marked
