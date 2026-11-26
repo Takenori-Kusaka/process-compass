@@ -25,7 +25,7 @@ derivedFromUrl: []
 selfReported: false
 themes: []
 events: []
-summary: 'アーキテクチャ記述の規格。目次に 5.2.12 の判断と理由の要素、6.10 の判断と理由の記録がある。本文は読んでいない(目次だけを読んだ)。対象は architecturally significant な判断で、全変更ではない。'
+summary: 'アーキテクチャ記述の規格。目次に 5.2.12 の判断と理由の要素、6.10 の判断と理由の記録がある。本文は読んでいない(一次の規格の公開サンプルの目次だけを読んだ)。題目と目次から、アーキテクチャの記述の単位の判断に掛かると読んだ。'
 claims:
   - id: c1
     text: '規格の目次が、アーキテクチャ上の判断と理由(5.2.12)とその記録(6.10。6.10.2 は理由の記録)を定めると示す。本文は未読で、対象の範囲は目次からは確かめていない。'
@@ -36,6 +36,6 @@ claims:
     rqs: []
     issues: [457]
     stance: context
-verification: {status: partial, method: [curl], date: 2026-11-27, humanChecked: false, note: '束 D2 担当が公開サンプル PDF の目次の検索断片で見出しを確かめた。本文は読んでいない。対象の範囲(重要な判断に限ること)は二次資料に依る。'}
+verification: {status: partial, method: [curl], date: 2026-11-27, humanChecked: false, note: '束 D2 担当が公開サンプル PDF の目次の検索断片で見出しを確かめた。本文は読んでいない。readLevel は語彙に目次の水準が無いため secondary とした(実際は一次の目次)。範囲は題目と目次からの読みに止める。'}
 volatility: slow
 reviewBy: 2027-11
