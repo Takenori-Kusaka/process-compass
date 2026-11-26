@@ -8,5 +8,5 @@
 - 番号: ADR-0243 は origin/main に無く衝突なし(B32 は 0244・0250 を使用)。EV-0347・0348 も origin/main に無い。IMPL-1036 は B32 の ADR-0244 が undelivered で予約したマークで、B33 が同じ番号のまま delivered にする(別番号にしない。意図した引き継ぎ)。SRC の追加は無い
 - 台帳: impl:write で差分が出たので再生成。evidence:write・scope:write は変更なし
 - template:kb: 複製の差は commit 欄(自己参照)のみで、規則データの差は無いため、template 側は戻して先頭を動かさない
-- 試験(template の LF の写し): test-adapter 232・exception-expiry 109/109・push-trigger 27/27・init-g5 208 は通過。check-pr・g5-aggregate は最終報告の記載を参照
+- 試験(template の LF の写し): test-adapter 232・exception-expiry 109/109・push-trigger 27/27・init-g5 208 は通過。check-pr 299 場面・g5-aggregate 61 件も通過
 - 本体: lint:impl・lint:evidence・lint:refs・test:fields は終了 0
