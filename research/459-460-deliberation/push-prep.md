@@ -27,3 +27,9 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
   ```
 - 26816cfd は附属書D の文だけを直し、proposal-template.md:22 には届いていない。直していない。議長の裁定を待つ
 - ログは WSL の ~/d2w-normal.log・~/d2w-utc.log(終了コードは当てにならないためログの内容で判定)
+
+## 議長の再実行(2026-11-27)
+
+- 前の追記の「26816cfd で lint:dekimasu が再び落ちた」は誤り。HEAD の本文は直っており(`git show HEAD:` で「始めてもよいものとします」を確かめた)、担当は直す前の写しを読んでいた。
+- `git archive` の写しは git のリポジトリでないため、test:criteria(test-kb-ancestry)が「生成元の版が標準の履歴の上にあるかを確かめられません」で落ちる。写しは `git clone`(core.autocrlf=false)で作る。
+- 回帰(WSL ubuntu-24.04・node 26.13.1・本体 3d4711f5 の clone・template cfd4ff4 の clone・npm ci): `npm run check` を通常と `TZ=UTC` で各1回。どちらも終了 0、build まで完了(410 頁)。
