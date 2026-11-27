@@ -1,0 +1,29 @@
+# 検知・知らせ・抜き取りの値の列挙(#466)
+#
+# 第1章 1.7.7 の例外(「組織が定める値」とし、参考の値も既定値も置かない。定めていない値は、一覧と
+# 働いていない検知の名を出荷の証跡の集約と保証の開示に出す)が及ぶ値は、ここに挙げた 5 つだけである。
+# 権限の境界・受容の基準を数で配る値には、この例外が及ばない(1.7.7)。
+# scripts/check-detection-values.mjs が、次を確かめる(決定可能な条件だけ)。
+#   - 1.7.7 の本文が、ここと同じ 5 つの名を同じ順で挙げていること
+#   - 構成の欄の根(configRoot)が、許す根の集合の内側にあること(権限・受容の値の欄へ及ばない)
+#   - 準拠テンプレートの値の読み取り(scripts/gate/detection-values.mjs)が、各欄の名を読んでいること
+# name   — 本文の名(第1章 1.7.7 と同じ文字列)
+# configKey — 準拠テンプレートの構成(process.config.json)の欄
+schemaVersion: 0
+allowedConfigRoots:
+  - detection
+  - observationWindow
+  - reviewQueue
+  - delegation.sampling
+  - reworkBaseline
+values:
+  - name: 最小標本数
+    configKey: detection.minSample
+  - name: 観測の窓
+    configKey: observationWindow
+  - name: 同時保有の上限
+    configKey: reviewQueue.loadLimit
+  - name: 事後の抜き取りの件数
+    configKey: delegation.sampling.perMonth
+  - name: 手戻り率の基準値
+    configKey: reworkBaseline
