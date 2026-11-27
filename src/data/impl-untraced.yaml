@@ -157,10 +157,10 @@ files:
     why: 自己試験(gate-g5.yml の gate-contract が流す test-*.mjs)が作業ツリーを一時の置き場へ複製する足回り。採用者の製品のコードと構成を複製から外す。規定を実装しない(process-compass #361 D-1)。同期の試験は test-template-copy.mjs
   - path: scripts/gate/dependency-parse.mjs
     reason: library
-    why: 依存の差分の解析と印の付け方の純関数。dependency-diff.mjs(降ろし先 dependency-diff)が呼ぶ。規定は IMPL-1037・IMPL-1038 のマークで追う
+    why: 依存の差分の解析と印の付け方の純関数。dependency-diff.mjs(降ろし先 dependency-diff)が呼ぶ。規定は IMPL-1053・IMPL-1054 のマークで追う
   - path: scripts/gate/dependency-collect.mjs
     reason: library
-    why: 基底との差分から依存の追加・更新を集める(git の読み出しだけ)。dependency-diff.mjs と dependency-provenance.mjs が使う。規定は IMPL-1037 のマークで追う
+    why: 基底との差分から依存の追加・更新を集める(git の読み出しだけ)。dependency-diff.mjs と dependency-provenance.mjs が使う。規定は IMPL-1053 のマークで追う
   - path: scripts/gate/dependency-provenance.mjs
     reason: library
-    why: レジストリへの照会と検証の実行(ネットワークを使う唯一のファイル)。gate-g5.yml の dependency-diff ジョブ(降ろし先 dependency-diff)が呼ぶ。規定は IMPL-1037・IMPL-1038 のマークで追う
+    why: レジストリへの照会と検証の実行(ネットワークを使う唯一のファイル)。gate-g5.yml の dependency-diff ジョブ(降ろし先 dependency-diff)が呼ぶ。規定は IMPL-1053・IMPL-1054 のマークで追う

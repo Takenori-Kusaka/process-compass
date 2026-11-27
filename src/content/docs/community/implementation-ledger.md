@@ -45,9 +45,9 @@ sidebar:
 
 | 検査の手段 | 意味 | 件数 |
 | --- | --- | --- |
-| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 306 |
+| 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 311 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 159 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 573 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 576 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -60,17 +60,17 @@ sidebar:
 | 走査したファイル(スキルと CLAUDE.md の生成区間の外) | 64 |
 | 印を求める要求・禁止の文 | 67 |
 | 範囲の外: 太字の否定を含む行 | 188 |
-| 範囲の外: 平叙の否定で終わる行 | 531 |
+| 範囲の外: 平叙の否定で終わる行 | 535 |
 
 ### 降りていない規定
 
-降りていない規定: **108件**
+降りていない規定: **109件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 40 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 68 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 40 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 69 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -184,6 +184,7 @@ sidebar:
 | IMPL-1047 | D-0 の様式の承認の欄(frontmatter の approver・approved_at)を、承認の記録の所在(決裁の仕組みの識別子、または PR の承認への参照)を受ける形へ改め、D-0 の検査(check-d0)が所在の参照で承認を受けること。準拠テンプレートの D-0 と check-d0 は、承認者・承認日を frontmatter から読む。IMPL-0679・IMPL-0782 は降りているが、所在の参照の経路は未達。束 D1。#460(単位: 欄) | 成果物テンプレート D-0(体制図) | 予定 [#460](https://github.com/Takenori-Kusaka/process-compass/issues/460)(見直し 2027-02) | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-1048 | テンプレ8 第15項の合意の表(役割・氏名・日付)を、合意の記録の所在の欄へ改めること。準拠テンプレートのテンプレ8 は氏名と日付の欄を持つ。束 D1。#460(単位: 欄) | 成果物テンプレート テンプレ8(AI-SLA 合意確認書) | 予定 [#460](https://github.com/Takenori-Kusaka/process-compass/issues/460)(見直し 2027-02) | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-1049 | テンプレ9 の承認の欄(承認者・承認日)と残留リスクの受容の表(決裁者・日付)を、承認の記録の所在・決裁の記録の所在の欄へ改め、check-g1 が承認の記録の所在を読むこと。準拠テンプレートのテンプレ9 は承認者・承認日・決裁者・日付の欄を持ち、template-fields.yaml の template 側の欄名もそれに合わせている。束 D1。#460(単位: 欄) | 成果物テンプレート テンプレ9(AIエージェント安全リスクアセスメント表) | 予定 [#460](https://github.com/Takenori-Kusaka/process-compass/issues/460)(見直し 2027-02) | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
+| IMPL-1055 | python・go の依存の解析・照会・検証。準拠テンプレートは node だけ降ろし、ほかの言語は差分の行だけを出して解析せずと表示する。採用者は自らの言語の解析・照会を足せる。確かめる者: 採用者(自らの言語の解析を足したとき) | 依存の追加・更新の一覧(G-5 基準8) | 採用者が実装する(ADR-0261) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 
 ### 全件
 
@@ -728,7 +729,7 @@ sidebar:
 | IMPL-0547 | 秘匿情報を検出した場合の手順1〜3(資格情報の無効化をコードの修正より先に、無効化の確認後に参照方法の置き換え、履歴の値を無効化済みとして台帳へ記録)。.claude/skills/gate/gates/G-5.md の「G-5 が落ちたとき」の項9に置く。確かめる者: G-5 が落ちた PR を扱う担い手と判定者。所在を読んだ(実行して確かめていない) | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0548 | 類似の検知を当該の変更単位で処理できないときに限り、台帳へ記録して先へ進めること。templates/03-debt-ledger.md が区分「類似検知」を足す(欄「区分」、区分の表、対象に検知した変更、返却の目安は日付、延長は区分「例外」の新しい行)(単位: 欄)。期限超過の確認は IMPL-1008。確かめる者: 出荷判定者(G-7 基準8 の突合のとき。所在を読んだ(実行して確かめていない)) | 成果物テンプレート テンプレ3(技術負債台帳) | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0549 | 案件の判定者へ法的評価を求めず、定めた措置を採ったかの確認だけを求めること。.claude/skills/gate/gates/G-5.md の「判定者に求めないこと」と gates/G-7.md の基準8 に置く。確かめる者: 当該ゲートの判定者(判定記録を書くとき)。所在を読んだ(実行して確かめていない) | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
-| IMPL-0550 | G-5 基準8。PR の基底と比べて依存の追加・更新を一覧に出し、合否は判定しない(scripts/gate/dependency-diff.mjs。gate-g5.yml の dependency-diff ジョブが呼ぶ)。AI が追加した依存と人が追加した依存を区別しないことは、スクリプトを読んで確かめていない。確かめる者: AI維持管理者(依存の一覧の出力を改める変更のレビューのとき) | 依存の追加・更新の一覧(G-5 基準8) | — | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-0550 | G-5 基準8。PR の基底と比べて依存の追加・更新を一覧に出し、合否は判定しない(scripts/gate/dependency-diff.mjs。gate-g5.yml の dependency-diff ジョブが呼ぶ)。出力の先は PR から辿れる G-5 の記録(ジョブの要約と evidence/dependency-diff.{json,md})で、PR の記述へは書かない(ADR-0261)。AI が追加した依存と人が追加した依存を区別しないことは、スクリプトを読んで確かめていない。確かめる者: AI維持管理者(依存の一覧の出力を改める変更のレビューのとき) | 依存の追加・更新の一覧(G-5 基準8) | — | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0551 | 人が確認するのは「その依存を追加する必要があるか」であり、この確認は G-6 の判定に含めること。.claude/skills/gate/gates/G-6.md の「材料の集め方」の項3 が、G-5 の dependency-diff の一覧があれば追加・更新した依存が必要かを確かめることを置く。確かめる者: G-6 の判定者(判定記録を書くとき) | ゲート判定記録のスキルの G-6 の補助ファイル | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0552 | G-6 の判定の時点を事後へ移せるのは、独立レビュアの席が委任で、その席の機械の規則に該当し、リスク区分が R3 の変更だけ。抜き取りは作成を指示した者と別の自然人が行い、委任の条件に反する変更は事前の判定へ戻す。.claude/skills/gate/gates/G-6.md の節「委任で先へ進めた変更を、人の判定と同じ語で記録しない」が置く。確かめる者: G-6 の判定者(独立レビュアの席の責任者。委任の変更を記録するとき) | ゲート判定記録のスキルの G-6 の補助ファイル | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0553 | G-6 が未達の体制で R1 の変更を出荷する場合に、第7章 7.3 の例外承認を要すること。例外承認は変更ごとに技術負債台帳の区分「例外」の行として置き、承認した者は名簿の人で作成を指示した者でない。.claude/skills/gate/gates/G-6.md の節「独立した人の確認を経ないまま出荷する場合(例外承認)」が置く。確かめる者: G-6 の判定者(未達の R1 の変更を記録するとき) | ゲート判定記録のスキルの G-6 の補助ファイル | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
@@ -1227,5 +1228,13 @@ sidebar:
 | IMPL-1050 | 作業上の選択のうち、退けた案がある選択と外部の制約に従った選択では理由も記録する。理由は所在か退けた案で示し、示せなければ推測と書く。理由は作成側の主張で判定の根拠に数えない。準拠テンプレートの CLAUDE.md の作業上の選択の行と claude-md-resident.json の core に置く(束 D1)。現在は manual(降りていない)。束 D1 で行を置いた時点で check=presence(単位: 行)へ移す。presence は語の存在だけを確かめ、理由が書かれたこと・質は確かめない。確かめる者: 確定の場の人、委任では事後の抜き取りの判定者。#457 / ADR-0267 | CLAUDE.md の常駐の規則(構成依存部分の外) | `check-process-rules` | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-1051 | PR の「変更の概要」の注記に、退けた案と従った制約の所在を書くこと、理由は作成側の主張で判定の根拠に数えないこと、確定の後の訂正は追記で行うことを置く(束 D1)。様式は既に「何を・なぜ」を求めており先行している。降りていないのは範囲と形と扱い。機械は節を読まない。確かめる者: 確定の場の人。#457 / ADR-0267 | PR の本文の様式 | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-1052 | /implement の手順3 の作業上の選択の記録に、範囲に当たる選択の理由を、選択の時点のコミットのメッセージへ書くことを置く(束 D1)。機械は確かめない。確かめる者: 確定の場の人。#457 / ADR-0267 | 実装のスキル(/implement) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-1053 | 基準8 の一覧の来歴の欄(版の公開日時・名前の初回公開日時・公開者・署名と来歴の証明)、状態行(依存の解決・照会・検証)、印(初出の名前・解決元の変更・公開者の変更・証明の退行・照会せず・取得できず・対象外)、表示の省略の件数。公開者は、trusted publishing の版が公開者の名前を GitHub Actions に揃えるため、来歴の証明の出どころのリポジトリでも比べる(証明の本文は読むだけで、検証は npm audit signatures)。同じリポジトリの中の変更と、証明が無い版の出どころは拾わない。証明がある版で出どころを読めなかった行(取得の失敗・旧い形の証明)は、比べず、照会の欄を「取得(欠け: 証明の出どころ)」と出して印「取得できず」を付ける。node の package-lock.json と package.json だけを解析する。解析・照会の入力は表示で切った後の行にせず、印の付いた行は省かない。レジストリへの照会は応答を差し替えて試験し、実レジストリの読み取り(公開日時・初回公開日時・公開者・証明の有無・証明の出どころ)は、読み取りだけの照会で確かめた(2026-11-27。semver・@sigstore/core・lodash ほか)(#455) | 依存の追加・更新の一覧(G-5 基準8) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-dependency-diff.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-1054 | 基準8 の一覧の検証の結果の欄と検証の失敗の印(node。npm audit signatures の結果を署名と来歴の証明の種類で書く)。合否にしない。頭の失敗の件数は npm audit signatures が報告した全名前の数で、差分に無い既存の依存の失敗は件数だけに出て行には出ない。検証の出力の読み方(終了コード・失敗の節の種類・名前。失敗の節が無い非 0 の終了は、検証を実行できなかったものとして未実施と出す)は試験し、依存 0 件の実出力で未実施になることを確かめ、実レジストリでの署名の検証の挙動(私設レジストリ・ミラー・鍵の更新の時期)は確かめていない(EV-0361)(#455) | 依存の追加・更新の一覧(G-5 基準8) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-dependency-diff.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-1055 | python・go の依存の解析・照会・検証。準拠テンプレートは node だけ降ろし、ほかの言語は差分の行だけを出して解析せずと表示する。採用者は自らの言語の解析・照会を足せる。確かめる者: 採用者(自らの言語の解析を足したとき) | 依存の追加・更新の一覧(G-5 基準8) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-1056 | G-6 基準5 の2つの観点(意図した部品であること、一覧で印の付いた行を読んだこと)。.claude/skills/gate/gates/G-6.md の「材料の集め方」の項3 に置き、照会せずの行は再実行するか直接読む旨と、確認が悪意の不在を確かめない旨を添える。確認の記載の中身は機械が確かめない(5.8.5 の検出の一覧の型と同じ。記載の存在も確かめない)。確かめる者: G-6 の判定者(判定記録を書くとき) | ゲート判定記録のスキルの G-6 の補助ファイル | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-1057 | 依存の解決が走る構成(アダプタ node の npm ci)で、未登録の名前が依存の取得の失敗になり、段・ジョブ・集約の失敗として G-5 を落とすこと(ADR-0044 決定5 の前提)。実レジストリで 404・終了コード 1 になることは実行で確かめ(ADR-0261 決定1)、試験は代役の npm で結線を固定する。依存の取得が空の構成・アダプタ none・undetermined では捕まらず、一覧の「依存の解決: 未実施」に出る。python・go での確認はしていない(#455) | G-5 のワークフロー(gate-g5.yml) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-unregistered-name.mjs` | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
+| IMPL-1058 | 製品のコードの追加行の未完了の語(行注釈の未完了を示す慣習の3語と、未実装の例外・マクロ)を、検証を弱める変更とは別の節で一覧に出す(合否に使わない。リスク区分に依らない)。製品のコードの拡張子に限り、文書・生成物・vendor・ロックファイル、同じ PR で削除した行と同じ本文の追加行は出さない。0 件でも限界の文を出す。空の本体・固定値を返す本体・既存の行の語は拾わない(#454) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-1059 | 検証の語が1つも無い追加のテストのファイルを、別の節で一覧に出す(合否に使わない。リスク区分に依らない)。ファイル単位の近似で、同じファイルに検証の語が1つでもあれば他の空のテストは出ない。テストのパス(testPatterns)の外は対象外。題の文字列と宣言の名前を検証の語に数えない(既存の IMPL-0204 の削除行のアサーションの検出にも効く)。アダプタ(go・node・python 系)と Rust・JUnit の主な書式を試験で確かめる。行注釈の中の語は数えない。0 件でも限界の文を出す(#454) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-1060 | G-6 の判定者が、2種の一覧の各行(未完了の語は台帳の行か受入基準に要らない箇所か、検証の語が無いテストは受入基準のどの項目を確かめるか)を確かめる。確かめて偽陽性と分かった行は確かめた結果として扱う。確認が行われたことは機械で確かめない(自己申告)。確かめる者: G-6 の判定者(#454) | ゲート判定記録のスキルの G-6 の補助ファイル | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 
 <!-- implementation-ledger:end -->
