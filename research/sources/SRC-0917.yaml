@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: SRC-0917
+status: included
+excludeReason: null
+title: "ソフトウェア品質知識体系ガイド : SQuBOK Guide V3(第3版)"
+url: https://ndlsearch.ndl.go.jp/en/books/R100000002-I030738995
+canonicalUrl: https://ndlsearch.ndl.go.jp/en/books/R100000002-I030738995
+ids: {arxiv: null, doi: null}
+publisher: "オーム社"
+authors: ["SQuBOK 策定部会(編)"]
+orgType: sier
+region: jp
+lang: ja
+sourceType: book
+published: 2020-11
+publishedBasis: page
+version: "第3版、ISBN 978-4-274-22631-1(電子版)"
+updated: null
+accessed: 2026-11-27
+access: paywall
+readLevel: section
+foundBy: {cluster: I461E, query: "所有者が購入した電子版(Google Play ブックス)。books.md の候補 B4"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '日本のソフトウェア品質の知識体系の書。出荷の判定はプロジェクト全体の責任者が行うのが一般的で、品質保証の責任者は補佐か委譲を受けて務める(2.20)。一方で、検査部門は合否判定に責任を持ち、組織上は開発から独立させるとよいとする(2.4)。節によって権限の書き方が違い、品質保証部長に固有の拒否権の明記は無い。2.8(意思決定)は未読。'
+claims:
+  - id: c1
+    text: '出荷・移行の判定には判定責任者を置き、権限を明確にする。製品出荷の判定は、プロジェクト全体の責任者が行うのが一般的。品質保証の責任者は判定責任者を補佐し、権限の委譲を受ければ判定責任者を務めることもある。判定会議には、企画・サポート・運用などライフサイクルの各部門の関係者が加わり、総合的に判定する。'
+    quote: '判定責任者'
+    locator: '2.20 リリース可否判定(書籍頁 119)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '前もって定めた基準に対し、事実とデータで評価する。観点は、プログラム品質・ドキュメント品質・前提条件の3つ。不合格は是正処置の後に再判定する。基準を満たさなくても、使い方によって許容できれば特別採用でき、その場合は限度・数量・期間・用途を限る。同じ体制・基準の繰り返しは形骸化しうるので、第三者による定期の監査を勧める。'
+    quote: '特別採用'
+    locator: '2.20 リリース可否判定(書籍頁 119-120)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: '検査の主眼は、顧客へ提供してよいかの合否判定で、検査部門か品質保証部門が担うことが多い。合否判定の責任を負うため、組織上は開発部門から独立させるとよい。出荷した品質には検査部門が責任を持ち、出荷後の問題をプロセスへ返す。独立した第三者組織による検査には、経営幹部の品質最優先の意識が要る。'
+    quote: '合否判定'
+    locator: '2.4 検査のマネジメント(書籍頁 62-63)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c4
+    text: '品質マネジメントシステムを推進する組織には、製品の品質とプロセスの品質の2つの責務が要る。検査だけでは良いものは作れず、プロセス改善だけでは最終成果物を判定できない。両方を1つの組織が持っても別々の組織が持ってもよく、肝心なのは両方の責務を持つ動機付けのある組織が推進すること。'
+    quote: '2つの責務'
+    locator: '2.1 QMS の構築と運用(書籍頁 38-39)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [owner-ebook-read], date: 2026-11-27, humanChecked: false, note: '指揮役が Google Play の Web のリーダーで読んだ抜き書き(tmp/books/461/B4-B6-notes.md)に依る。本文は転載しない。書誌のカードは SRC-0910。2.8 は未読'}
+volatility: slow
+reviewBy: 2028-11

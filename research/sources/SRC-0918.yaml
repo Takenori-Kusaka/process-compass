@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0918
+status: included
+excludeReason: null
+title: "LeanとDevOpsの科学[Accelerate]"
+url: https://ndlsearch.ndl.go.jp/search?cs=bib&keyword=9784295004905
+canonicalUrl: https://ndlsearch.ndl.go.jp/search?cs=bib&keyword=9784295004905
+ids: {arxiv: null, doi: null}
+publisher: "インプレス"
+authors: ["Nicole Forsgren", "Jez Humble", "Gene Kim"]
+orgType: enterprise
+region: global
+lang: ja
+sourceType: book
+published: 2018-11
+publishedBasis: page
+version: "日本語版、ISBN 978-4-295-00490-5(電子版)"
+updated: null
+accessed: 2026-11-27
+access: paywall
+readLevel: section
+foundBy: {cluster: I461E, query: "所有者が購入した電子版(Google Play ブックス)。books.md の候補 B6"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'ソフトウェアの提供の性能を調べた調査の書。変更の承認を4つのやり方で比べ、チームの外の承認は速度を落とし、安定性を上げないと報告する。規制業界の職務の分離は、作成に関わらない人のレビューの記録か、完全に自動化したパイプラインで満たせるとする。'
+claims:
+  - id: c1
+    text: '変更の承認を、チーム外の承認が必須、高リスクの変更だけ承認、ピアレビューだけ、承認なし、の4つで比べた。高リスクだけの承認と性能に相関は無い。性能が高いのはピアレビューだけと承認なしで、最も低いのは外部の承認が必須の形。外部の承認は、リードタイム・デプロイ頻度・復旧時間と負の相関があり、変更失敗率とは相関が無い。軽い承認とデプロイメントパイプラインの併用を勧める。'
+    quote: 'ピアレビュー'
+    locator: '7.2 負担の軽い変更管理プロセス(書籍頁 95-96)'
+    quant: null
+    evidenceKind: survey
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '規制業界の職務の分離は、変更管理委員会や専任チームが無くても満たせる。方法は2つ。コードの作成に関わっていない人がレビューし、記録管理システムに承認を記録する。または、すべての変更を完全に自動化したパイプラインに通さなければ本番へ入れない。どちらでも、変更の出どころ・受けた検証・誰がいつ承認したかの完全な記録を、監査人が得られる。'
+    quote: '職務分離'
+    locator: '7.2 囲み「役割分担のコツ」(書籍頁 97)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [owner-ebook-read], date: 2026-11-27, humanChecked: false, note: '指揮役が Google Play の Web のリーダーで読んだ抜き書き(tmp/books/461/B4-B6-notes.md)に依る。本文は転載しない。書誌のカードは無い'}
+volatility: slow
+reviewBy: 2028-11
