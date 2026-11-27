@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-17)。[ADR-0129](/process-compass/adr/0129-second-category-window-baseline-and-rework-rate-derivation/) 決定3 のうち、「基準値が未設定、または母数が最小標本数に満たないときは、止めずに『発火しない』と表示する」の**1項だけ**を置き換えます。決定3 の残り(母数・分子・基準値の欄・表示)と、ADR-0129 の他の決定は維持します。決定3 の「履歴を読めないときは『読めない』と表示する」は表示として維持し、読めないときに止めない扱いだけを置き換えます(決定1)。あわせて、ADR-0129「採用者に委ねる規定」の表の IMPL-0519 の行のうち、手段の所在を書く場所(D-0)を、5.5.4 の登録の根拠(4点目)へ移します(決定5)。ADR-0129 の「重の審議へ送ったこと」は、1項目(手戻り率の判定不能・基準値の未設定で止めるか)に結論を出します。2項目(強制の手段の所在の記録を求めるか)は、L3 の登録に限って結論を出します。L2 への引き上げは決めていません(決定8)。決定8 の論点には [ADR-0170](/process-compass/adr/0170-l2-promotion-requires-enforcement-location-in-safety-risk-assessment/) が結論を出しました。[ADR-0081](/process-compass/adr/0081-autonomy-downgrade-delivered-as-registration-stop/) 決定5 は維持し、手戻り率にも当てます。重の審議の結論です(Issue [#348](https://github.com/Takenori-Kusaka/process-compass/issues/348)・[#340](https://github.com/Takenori-Kusaka/process-compass/issues/340)、`research/348-340-q-deliberation/`)。
 
+一部置き換え(→ [ADR-0272](/process-compass/adr/0272-delegation-path-passable-without-halting-until-evidence-is-ready/)の決定1、[ADR-0273](/process-compass/adr/0273-detection-values-set-by-adopter-and-undefined-or-post-incident-warns-only/)の決定2): 決定1(第2区分の比率の窓が判定不能のとき止める)と決定2(手戻り率の基準値が未設定のとき止める)を、止めずに当月の全件を事後に確かめる形へ置き換えました(2026-11-28)。手戻り率の記録を読めないときに止める定めは置き換えません。採らなかった案「移行の猶予」「止めない」の却下も、この範囲で改まります。本文は書き換えていません。
+
 ## コンテキスト
 
 ADR-0081 決定5 は、登録した変更種別で判定不能となったときは、判定可能な窓が得られるまで委任を止めると決めました。比率を差し戻し率に限っていません。「何もしない(表示だけ)」は採らなかった案に挙がっています。ADR-0129 は、ステータスの表で決定5 の維持を宣言しながら、決定3 で手戻り率の判定不能・基準値の未設定を止めないとしました。同じ ADR が、止めるかを重の審議へ送っています。この決定3 の1項は、手戻り率の算出だけを先に降ろした時点の実装の状態であり、停止についての決定ではありません。

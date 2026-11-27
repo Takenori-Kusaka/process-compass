@@ -11,6 +11,8 @@ sidebar:
 
 「影響」の「手戻り率は『発火しない』と表示され続ける」旨も、同じく改まります。「重の審議へ送ったこと」の1項目は ADR-0158 が結論を出し、2項目は L3 の登録に限って結論を出しました(L2 は未決)。
 
+一部置き換え(→ [ADR-0272](/process-compass/adr/0272-delegation-path-passable-without-halting-until-evidence-is-ready/)の決定3、[ADR-0273](/process-compass/adr/0273-detection-values-set-by-adopter-and-undefined-or-post-incident-warns-only/)の決定1、2026-11-28。本文は書き換えていません): 決定3 の母数(タスク)の項に変更の単位を足し、タスクの記録を持たない変更の分子を取り消しにします(ADR-0272)。決定2(窓の下限 2 の既定・最小標本は欄を持たない・長くするのは緩める向き)は、値を採用者が定める形へ置き換えます。ただし、窓の下限 2 は残します(ADR-0273)。
+
 次の決定を補います。採用済みの ADR の本文は書き換えていません。
 
 準拠テンプレートの変更(`scripts/gate/**`・`.claude/**`。強制層)は、AI維持管理者の承認待ちです。承認者と承認日は未記入です。
