@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: SRC-0915
+status: included
+excludeReason: null
+title: "生成AIアプリケーション評価入門"
+url: https://gihyo.jp/dp/ebook/2026/978-4-297-15615-2
+canonicalUrl: https://gihyo.jp/dp/ebook/2026/978-4-297-15615-2
+ids: {arxiv: null, doi: null}
+publisher: "技術評論社"
+authors: ["松木 晋祐"]
+orgType: media
+region: jp
+lang: ja
+sourceType: book
+published: 2026-01-01
+publishedBasis: unknown
+version: "ISBN 978-4-297-15615-2(電子版)"
+updated: null
+accessed: 2026-11-27
+access: paywall
+readLevel: section
+foundBy: {cluster: I461E, query: "所有者が購入した PDF(DRM なし)。books-alternatives.md の候補から"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '生成 AI を使うアプリの評価・テストの入門書。2.6 は開発チームと QA チームの役割分担の例で、組織により QA の立ち位置はさまざまとする。7.3 は AI 駆動開発のテスト・QA(リスクと対策)。AI で書いたコードの出荷承認の条件を書いた本ではない。'
+claims:
+  - id: c1
+    text: 'QA チームの立ち位置は組織によってさまざまで、開発と同じチームの場合もあれば、プロジェクトの外から第三者として出荷時の総合的な品質を判断する場合もある。'
+    quote: 'QAチームの立ち位置'
+    locator: '2.6(書籍頁 44)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: 'AI が生成するコードは構文上は動いても、入力検証・認証・エラー処理などの防御が欠けやすく、堅牢性が弱い。テストを通すことが目的化し、指標が高くても機能やセキュリティに欠陥があり得る。'
+    quote: '報酬ハッキング'
+    locator: '7.3.2(書籍頁 161-162)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: 'AI 駆動開発では、従来以上に慎重なセキュリティテストと、CI/CD への静的解析などの組み込みが要る。内部品質は引き続き必要で、AGENTS.md などの規則を監査することも一案とする。'
+    quote: 'AGENTS.md'
+    locator: '7.3.3(書籍頁 162-163)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [owner-pdf-read], date: 2026-11-27, humanChecked: false, note: '所有者が購入した PDF の該当の節を読んだ。本文は転載しない。読んだのは 2.6 の冒頭と 7.3.1〜7.3.3。'}
+volatility: slow
+reviewBy: 2028-11

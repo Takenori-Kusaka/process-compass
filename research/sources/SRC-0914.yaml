@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0914
+status: included
+excludeReason: null
+title: "QAエンジニア入門 : チームで品質を高める連携のしかた"
+url: https://gihyo.jp/dp/ebook/2026/978-4-297-15833-0
+canonicalUrl: https://gihyo.jp/dp/ebook/2026/978-4-297-15833-0
+ids: {arxiv: null, doi: null}
+publisher: "技術評論社"
+authors: ["岩崎 駿"]
+orgType: media
+region: jp
+lang: ja
+sourceType: book
+published: 2026-01-01
+publishedBasis: unknown
+version: "頁の URL の符号 978-4-297-15833-0(本文に ISBN の記載なし)"
+updated: null
+accessed: 2026-11-27
+access: paywall
+readLevel: section
+foundBy: {cluster: I461E, query: "所有者が購入した PDF(DRM なし)。books-alternatives.md の候補から"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'QA エンジニア向けの実務書。7.2.2 は QA 組織の立ち上げの手順(情報・会議・テスト・リリース判断)。リリース判断の場は、OK/NG を宣言する場でなく、決める材料を整えて届ける場とする。品質保証部長の承認や拒否の基準は書かれていない。'
+claims:
+  - id: c1
+    text: 'リリース判断の場は「リリース OK/NG」を宣言することより、意思決定に必要な情報(事実・影響・提案)を整理して届けることが重要で、提案には条件つき Go・スコープ調整・段階的ロールアウトなどの選択肢を置く。'
+    quote: '条件つきGo'
+    locator: '7.2.2 手順8・表7-3(書籍頁 234-235)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '証拠の残し方、不具合の管理場所、既知の不具合の扱いを立ち上げ時に決めておかないと、リリース判断で根拠が出せない。'
+    quote: 'リリース判断'
+    locator: '7.2.2 手順6(書籍頁 234)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [owner-pdf-read], date: 2026-11-27, humanChecked: false, note: '所有者が購入した PDF の該当の節を読んだ。本文は転載しない。読んだのは 7.2.2 と 7.2.3 の一部。'}
+volatility: slow
+reviewBy: 2028-11

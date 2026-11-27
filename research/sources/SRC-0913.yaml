@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: SRC-0913
+status: included
+excludeReason: null
+title: "ソフトウェアテスト徹底指南書 : 開発の高品質と高スピードを両立させる実践アプローチ"
+url: https://gihyo.jp/dp/ebook/2025/978-4-297-14910-9
+canonicalUrl: https://gihyo.jp/dp/ebook/2025/978-4-297-14910-9
+ids: {arxiv: null, doi: null}
+publisher: "技術評論社"
+authors: ["井芹 洋輝"]
+orgType: media
+region: jp
+lang: ja
+sourceType: book
+published: 2025-01-01
+publishedBasis: unknown
+version: "ISBN 978-4-297-14910-9(電子版)"
+updated: null
+accessed: 2026-11-27
+access: paywall
+readLevel: section
+foundBy: {cluster: I461E, query: "所有者が購入した PDF(DRM なし)。books-alternatives.md の候補から"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'テスト・品質マネジメントの実務書(開発チーム向け)。2.2〜2.6 は品質マネジメントと、品質保証部門の陳腐化。20.6 はテスト結果の評価とリリース判定。第36章はテストを担う組織の構築で、36.6 がチーム全体アプローチ。品質保証部長の拒否権や承認の基準を直接書いた本ではない。'
+claims:
+  - id: c1
+    text: '独立した品質保証部門には、法規制・標準化への対応、QMS の継続的改善、客観的な品質報告という存在理由がある。一方で、権限をもって旧来のプロセスを強制し、開発の変更を妨げる状態を「陳腐化」と呼び、予防策に品質マネジメントの担当を法規制対応などに絞ることを挙げる。独立した品質ゲートを構えるやり方は通用しないとする。'
+    quote: '品質保証部門の陳腐化'
+    locator: '2.6(書籍頁 16-19)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: 'テスト結果の評価と、ソフトウェアをリリースしてよいかの判断を分ける。後者はマネジメントの判断で責務であり、バグや課題が残ったまま出す判断もあり得る。'
+    quote: '別のマネジメントの判断'
+    locator: '20.6(書籍頁 244-246)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: 'リリース判定には、リリース基準を整備し、ステークホルダーから事前に合意を得る。リリース後のリスク管理・インシデント管理の体制も整える。'
+    quote: 'リリース基準を整備'
+    locator: '20.6(書籍頁 246)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c4
+    text: 'チーム全体アプローチは、品質とプロジェクトの成功をメンバー全員で共同に責任を負う形で、現代の自律性の高い開発の基本形とされる。専任のテスト担当の置き方はプロジェクトの規模で変える。'
+    quote: 'チーム全体アプローチ'
+    locator: '36.5・36.6(書籍頁 438-440)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [owner-pdf-read], date: 2026-11-27, humanChecked: false, note: '所有者が購入した PDF の該当の節を読んだ。本文は転載しない。読んだのは 2.2〜2.6、20.6、36.1〜36.6 の一部。'}
+volatility: slow
+reviewBy: 2028-11
