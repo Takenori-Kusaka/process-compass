@@ -12,10 +12,10 @@ sidebar:
 | 対象 | 本 ADR との関係 |
 | --- | --- |
 | [ADR-0023](/process-compass/adr/0023-review-package-cues-not-conclusions/) | 従う(導出は事実だけで、要約・結論を生まない) |
-| [ADR-0040](/process-compass/adr/0040-template-fields-by-presence-with-reasons/) | 従う(様式の必須欄の存在を、両方向で検査する) |
-| [ADR-0070](/process-compass/adr/0070-gate-record-fields-and-sources/) | 従う(判定記録と承認レビューが帰属の記録として残る) |
-| [ADR-0075](/process-compass/adr/0075-assumption-ledger-and-project-layer/) | 従う(前提の表を残す) |
-| [ADR-0106](/process-compass/adr/0106-approval-confirmation-of-shipping-pr/) | 従う(出荷 PR の「転記の確認」とは別物。本件の「写し」は様式内の写し) |
+| [ADR-0040](/process-compass/adr/0040-template-forms-as-subset-of-standard/) | 従う(様式の必須欄の存在を、両方向で検査する) |
+| [ADR-0070](/process-compass/adr/0070-gate-record-medium-and-field-sources/) | 従う(判定記録と承認レビューが帰属の記録として残る) |
+| [ADR-0018](/process-compass/adr/0018-assumption-ledger/) | 従う(前提の表を残す) |
+| [ADR-0106](/process-compass/adr/0106-material-records-attributed-before-effect/) | 従う(出荷 PR の「転記の確認」とは別物。本件の「写し」は様式内の写し) |
 | [ADR-0216](/process-compass/adr/0216-b20-delegate-to-adopter-four-rules/) | 従う(規制業の AI 関与範囲の集計元は採用者に委ねる) |
 | [ADR-0267](/process-compass/adr/0267-work-choice-rationale-limited-to-rejected-alternatives-and-external-constraints/) | 従う(段階3 で生成結果を採った選択は、作業上の選択の理由として残る) |
 
