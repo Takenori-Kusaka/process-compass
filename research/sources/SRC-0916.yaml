@@ -1,0 +1,77 @@
+schemaVersion: 0
+id: SRC-0916
+status: included
+excludeReason: null
+title: "ソフトウェア品質保証の極意 経験者が語る、組織を強く進化させる勘所"
+url: https://www.ohmsha.co.jp/book/9784274232305/
+canonicalUrl: https://www.ohmsha.co.jp/book/9784274232305/
+ids: {arxiv: null, doi: null}
+publisher: "オーム社"
+authors: ["日科技連ソフトウェア品質保証プロフェッショナルの会(編)"]
+orgType: enterprise
+region: jp
+lang: ja
+sourceType: book
+published: 2024-09
+publishedBasis: page
+version: "ISBN 978-4-274-23230-5(電子版)"
+updated: null
+accessed: 2026-11-27
+access: paywall
+readLevel: section
+foundBy: {cluster: I461E, query: "所有者が購入した電子版(Google Play ブックス)。books-alternatives.md の候補 B1"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '品質保証の実務者による事例集(経験者の語り)。品質保証部門の長の拒否権を書いた本ではなく、判定の権限は任命された品質管理責任者と、プロジェクトから独立した監査者に置く。リリースの判定は顧客と受注者の責任者の合意で、節目の会議でオーナーが判断する。成果は出荷後の実績で振り返る。'
+claims:
+  - id: c1
+    text: '品質計画を実行する責任者を別に任命し、タスクの優先度を決める権限を与えて、スケジュールやコストを優先する動きを牽制する。第三者の監査者はプロジェクトから独立した部門から選び、各工程の完了判定の評価者として次工程へ着手してよいかを判定する権限を与え、オーナーへの報告の経路を設ける。権限は品質保証部門の長ではなく、任命された責任者と独立の監査者に置く。'
+    quote: 'タスク優先度を決める権限'
+    locator: '極意25(書籍頁 118-120)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c2
+    text: '意思決定のプロセスとタイミングを前もって決め、判断の基準(閾値)を設定して維持する。節目にプロジェクトオーナーの会議を開き、リリース判定を含める。工程完了の条件と判定は、顧客と受注者の双方の責任者が合意して行い、品質保証部門の単独の権限としては書かれない。'
+    quote: 'プロジェクト全体で行う'
+    locator: '3.1・極意14・極意15(書籍頁 84・88-91)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c3
+    text: 'リリース可否の判定の条件を、納品物の品質から、移行・業務運用・保守体制・本番トラブル時の取り決めまで広げる。顧客との事前の合意の4点を挙げる。利用部門の習熟度を確かめずに通して、約4人月超の費用が出た失敗例がある。'
+    quote: 'リリース後の準備状況も確認'
+    locator: '4.8・極意42・コラム(書籍頁 184-187)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c4
+    text: '所定の検査を終えて出荷したのに、数か月後に顧客の経営層から苦情が届く型がある。原因は、検査が形だけになる、駐在先の問題が届かない、出荷後の品質を把握していない、の3つ。品質保証部門の成果は出荷後の実績で振り返る。報告を責めない風土を求める。'
+    quote: '痛い目をみないと改善しない'
+    locator: '極意07・コラム(書籍頁 54-57)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+  - id: c5
+    text: '品質は納期やコストより優先とし、暴走するプロジェクトを止めるきっかけを引く責務は自分にあると心得る。予兆を見る観点は、ルール・プロセス・期日の遵守、体制と責任の明確さ、コミュニケーションの3つ。'
+    quote: '立ち止まるトリガーを引く'
+    locator: 'コラム「品質管理責任者の心得」(書籍頁 121)'
+    quant: null
+    evidenceKind: expert-opinion
+    rqs: []
+    issues: [461]
+    stance: context
+verification: {status: partial, method: [owner-ebook-read], date: 2026-11-27, humanChecked: false, note: '指揮役が Google Play の Web のリーダーで読んだ抜き書き(tmp/books/461/B1-notes.md)に依る。本文は転載しない。書誌は SRC-0980'}
+volatility: slow
+reviewBy: 2028-11
