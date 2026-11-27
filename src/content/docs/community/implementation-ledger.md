@@ -47,7 +47,7 @@ sidebar:
 | --- | --- | --- |
 | 機械が確かめる | 機械が規定の中身を検査し、違反を止めるか件数で出す | 311 |
 | 実在だけ確かめる | 機械が確かめるのは、規則を運ぶ単位(欄・キー・行・ファイル)の有無までである | 159 |
-| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 577 |
+| 人が確かめる | 機械は確かめない。確かめる者と時点は注記に書く | 578 |
 
 「機械が確かめる」について検査が確かめるのは、試験(全件の表の試験の列)が違反の入力で検出する場面(落ちる、または件数・一覧・警告に出る)と適合の入力で通る場面の対を別の行の目印で持つこと、必須の集約から結線の不備なく実行されることまでです。試験の中身が規定を正しく確かめていることは示しません。「実在だけ確かめる」は、規則を運ぶ単位(欄・キー・行・ファイル。注記に書く)の実在の確認に限ります。それより粗い単位(節の見出し)の確認は「人が確かめる」です。
 
@@ -60,17 +60,17 @@ sidebar:
 | 走査したファイル(スキルと CLAUDE.md の生成区間の外) | 64 |
 | 印を求める要求・禁止の文 | 67 |
 | 範囲の外: 太字の否定を含む行 | 188 |
-| 範囲の外: 平叙の否定で終わる行 | 535 |
+| 範囲の外: 平叙の否定で終わる行 | 537 |
 
 ### 降りていない規定
 
-降りていない規定: **110件**
+降りていない規定: **111件**
 
 見直しの年月を過ぎた計画(予定): **0件**(2026-11 の時点。合否に使わない)
 
 件数は、マークを付けた規定についてだけ数えます。件数を、合否にも警戒の条件にも使いません。0 件は、マークを付けた規定がすべて降りていることだけを示します。
 
-降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 40 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 70 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
+降ろし先の種別で、案件から見える状態が違います。降ろし先が「予定」の 40 件は、準拠テンプレートに置き場がまだありません。降ろし先が実在する 71 件は、置き場はありますが、規定の全部または一部が置き場にありません(無い部分は注記で示します)。どちらも、無い部分は**案件からは「規定がない」ものとして扱われます**。
 
 計画の「予定」は Issue と見直しの年月を持ちます。「採用者が実装する」は、準拠テンプレートが実装せず、採用者が自ら実装する規定です。規定は課したままです。並びは、採用者が実装するにできない規定 → G-7・G-8・R1 の決定に関わる規定 → その他の順です。
 
@@ -186,6 +186,7 @@ sidebar:
 | IMPL-1049 | テンプレ9 の承認の欄(承認者・承認日)と残留リスクの受容の表(決裁者・日付)を、承認の記録の所在・決裁の記録の所在の欄へ改め、check-g1 が承認の記録の所在を読むこと。準拠テンプレートのテンプレ9 は承認者・承認日・決裁者・日付の欄を持ち、template-fields.yaml の template 側の欄名もそれに合わせている。束 D1。#460(単位: 欄) | 成果物テンプレート テンプレ9(AIエージェント安全リスクアセスメント表) | 予定 [#460](https://github.com/Takenori-Kusaka/process-compass/issues/460)(見直し 2027-02) | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-1055 | python・go の依存の解析・照会・検証。準拠テンプレートは node だけ降ろし、ほかの言語は差分の行だけを出して解析せずと表示する。採用者は自らの言語の解析・照会を足せる。確かめる者: 採用者(自らの言語の解析を足したとき) | 依存の追加・更新の一覧(G-5 基準8) | 採用者が実装する(ADR-0261) | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-1061 | 生成の条件(Agent-Run・Agent-Assets と、モデルの識別の Co-Authored-By)を、複数コミットの PR を既定ブランチへ取り込んだ後も、変更から引けるようにする(5.8.2 の目的: 同じ条件で生成された成果物の一覧)。準拠テンプレートは途中のコミットに付ける(IMPL-0207・IMPL-1019)が、スカッシュの後のコミットへ運ばず、集約は既定ブランチの第1親の履歴を読む。運ぶ手段は束 D1 で決める。候補は、PR の本文へ PR のコミットの値を機械で写し、値の一致を機械で確かめる形と、集約が PR のコミットをホスティングから読む形。前者は、GitHub が本文の後に段落を足す(#361 の D-8)ため、末尾の段落の読み方と併せて決める。後者はホスティングの保持に依る。人の転記に頼る形は採らない(5.8.2)。スカッシュの設定をコミットのメッセージを含む形に変える案は採らない(ADR-0269)。観測は EV-0367。確かめる者: 束 D1 の担当(降ろすとき。それまでは降りていない規定として台帳に出る)。#457 / ADR-0269 | 出荷判定の証跡の集約(保証の開示) | 予定 [#457](https://github.com/Takenori-Kusaka/process-compass/issues/457)(見直し 2027-01) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-1062 | PR の「AI 関与範囲」欄を、コミットのトレーラ(Co-Authored-By・Agent-Run)から導出して表示する。準拠テンプレートへ降ろす予定。それまで欄にはトレーラが正本である旨だけを置く。確かめる者: 出荷判定者(出荷 PR の本文とトレーラを突き合わせるとき) | PR の本文の様式 | 予定 [#464](https://github.com/Takenori-Kusaka/process-compass/issues/464)(見直し 2027-05) | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 
 ### 全件
 
@@ -499,7 +500,7 @@ sidebar:
 | IMPL-0307 | 適用の終了を changeLog の end の種別で記録する(理由の区分 closed・operation-ended・withdrawn、決定した者、理由)。終了の後の構成の変更は notice だけを受け付ける。終了の後は述べられる名を出さず、現在形の表明をしない旨を PROCESS-PROFILE.md に出す。契約の検査が理由の区分と記名を確かめ、test-edition-end.mjs が実行して確かめる(#313) | process.config.json の changeLog[] | `verify-gate-contract` | 降りている | 機械が確かめる | `template/scripts/gate/test-edition-end.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0308 | 集約の範囲について述べられる名(適合の主張・逸脱を伴う適合の主張・適用の表明だけ・述べられない)を、範囲の終点のコミットの構成の版・未達・閉じた列挙の逸脱・列挙に無い離脱と、範囲の記録の欠落から導いて出力する(claim)。範囲の中で従う版が変われば名を出さず、範囲を分けるよう出す。終了の記録は、終了を含む範囲の名を消さず、過去の範囲として述べる旨を出す。PROCESS-PROFILE.md と CLAUDE.md の生成区間も構成について同じ名を出す。作業中の版では適用の表明までとし、列挙に無い離脱があれば適用の表明までとすることを、版をまたぐ範囲と終了を含む範囲とあわせて test-edition-end.mjs が実行して確かめる。範囲の時点の未達と兼務は範囲の終点の構成で読み、範囲の途中の構成の変化は版のほかは見ない(#313) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-edition-end.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0309 | 同じ案件で適用を再開する経路は無い。準拠テンプレートは終了の後の構成の変更を notice のほかは拒む(IMPL-0307)。再開した採用者は、件数を最初の適用の開始から数え、終了と再開の間を記録の欠落として表明に書く(ADR-0165 決定2)。確かめる者: 表明する者 | process.config.json の changeLog[] | `verify-gate-contract` | **降りていない** | 人が確かめる | — | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
-| IMPL-0310 | 従う本標準の版の欄を D-0 体制図の冒頭に置く。構成の standard.edition と一致させる旨を書く。欄の存在は check-template-fields が確かめる。採用者の D-0 で欄が無い・空欄であることは /pit が注記する(IMPL-0311)。欄の値と構成の standard.edition の一致と、宣言に加える規格の発行年は、機械で確かめない(#313)(単位: 欄) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | — | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
+| IMPL-0310 | 従う本標準の版の欄を D-0 体制図の冒頭に置く。構成の standard.edition と一致させる旨を書く。欄の存在は check-template-fields が確かめる。採用者の D-0 で欄が無い・空欄であることは /pit が注記する(IMPL-0311)。宣言に加える規格の発行年は、機械で確かめない(#313)。準拠テンプレートは、この欄を構成から生成する区間にした(#467)。目印の無い旧い D-0 では、欄の値と構成の standard.edition の一致を確かめない。生成区間を持つ D-0 では、check-d0 が一致を確かめる(単位: 欄) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 実在だけ確かめる | — | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
 | IMPL-0311 | D-0 体制図の冒頭に「従う本標準の版」の欄が無い、または空欄のとき、/pit(next.mjs)が、宣言の要求事項4 の欠けとして注記する。段階は止めない。D-0 の欄と構成の standard.edition の一致は検査しない。test-edition-end.mjs が、欄の無い D-0 で注記が出ることを実行して確かめる(#313)(#314 の突合 X-6 で違反と適合の対の試験を足し、machine へ戻した) | 次の一手のスクリプト(ロールの詳細) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-edition-end.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
 | IMPL-0312 | G-5 基準6 の1ファイルの分量の上限超過 0 件を、リポジトリ全体で確かめるジョブ。上限の値(第3章 3.11.4 要求事項1 の参考の値)を支える実証が無いため、準拠テンプレートは値を定めない。変えた指示資産だけを数える検査は降りた(IMPL-0501)。変えていない指示資産の超過を拾う全体の検査は降りていない。採用者が値を定め、全体を数える検査を足して集約の needs へ入れる(IMPL-0222)。人が確かめるのは、採用者の G-5 の集約の定義を読む技術判断者 | G-5 のワークフロー(gate-g5.yml) | — | **降りていない** | 人が確かめる | — | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | IMPL-0313 | 適用の開始の境を、既定ブランチの第1親の連鎖の上で configured: true になった最初のコミットとする(findInitCommit が git log --first-parent で探す)。併合した別の履歴の中の configured: true のコミットを境にしない。旧い探し方(全履歴を歩く)が、開始の後に併合した別の履歴の古いコミットを境にすることを、先に test-adoption.mjs で再現した(品質保証 V-4)。境がマージのときは、第2親の側を含む境の全祖先を開始より前とする(#315) | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | 降りている | 機械が確かめる | `template/scripts/gate/test-adoption.mjs` | [phase4-process-design/overview](/process-compass/phase4-process-design/overview/) |
@@ -998,7 +999,7 @@ sidebar:
 | IMPL-0816 | 技術設計判断(G-3)の基準2 の突合先(恒久層の用語集・設計標準・プロダクトの原則、状態が採用または一部置き換えの判断記録)がどれも無い場合に、チェックリスト突合の基準2 の備考へ「突合先なし」と書くこと。templates/04-gate-record.md の「判定した判断記録」の説明が置く。備考の記入の有無は機械で確かめない。確かめる者: G-3 の判定者(判定記録を書くとき) | 成果物テンプレート テンプレ4(ゲート判定記録) | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0817 | プロダクトの原則を、置いた場合もゲートの判定の対象にせず、G-3 基準2 の突合先として読むこと。templates/12-product-principles.md の節「書き方」の箇条4(原則は、ゲートの判定の対象になりません。G-3 の基準2 の突合先として読まれます)が置く。確かめる者: G-3 の判定者(基準2 を判定するとき) | 成果物テンプレート テンプレ12(プロダクトの原則) | — | 降りている | 人が確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0818 | 事業の軸(戦略整合・価値仮説・品質の約束)は企画書(テンプレ6)と層1(テンプレ11)が持ち、プロダクトの原則へ再掲しないこと。templates/12-product-principles.md の節「書き方」の箇条5 が置く。再掲の有無は検査しない。確かめる者: 技術判断者(原則を記名するとき) | 成果物テンプレート テンプレ12(プロダクトの原則) | — | 降りている | 人が確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
-| IMPL-0819 | コア機能と R1 の変更で、人が方針を先に書き(段階1)、AI の生成結果を参照し(段階2)、相違を記録する(段階3)順序。.claude/skills/implement/SKILL.md の手順3 の冒頭が置く。非コア機能かつ R3 の変更は段階1を省略してよいことも書く。順序の遵守を機械は確かめない。 確かめる者: AI維持管理者(指示資産・様式を改めるとき) | 実装のスキル(/implement) | — | 降りている | 人が確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
+| IMPL-0819 | コア機能と R1 の変更で、人が方針を先に書き(段階1)、AI の生成結果を参照し(段階2)、方針と比べる(段階3。相違の有無の記録は求めない)順序。.claude/skills/implement/SKILL.md の手順3 の冒頭が置く。非コア機能かつ R3 の変更は段階1を省略してよいことも書く。順序の遵守を機械は確かめない。 確かめる者: AI維持管理者(指示資産・様式を改めるとき) | 実装のスキル(/implement) | — | 降りている | 人が確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0820 | リリース決裁(G-8)・ステージ移行(SG)・R1 の決定(G-3)の判定記録で、比較した選択肢の採否の理由を人が記入し、AI に生成させないこと(AI は案とリスクの見積を示してよい)。.claude/skills/gate/gates/G-8.md が「採否の理由は人が書く」、SG.md が「比較した選択肢(2案以上。採否の理由は人が書く)」、G-3.md が「R1 に当たる決定は人確定。「比較した選択肢」の欄が必須で、採否の理由は人が書く」と置く。例外承認は templates/04-gate-record.md の節「比較した選択肢(適用: R1 の決定・例外承認)」が、どの案を選ぶかの理由は人が記入すると置く。確かめる者: 各ゲートの判定者(判定記録の決断の記録を確かめるとき) | ゲート判定記録の入口のスキル(/gate) | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0822 | 層1(テンプレ11)の版の更新を、各案件の体制の変化点に数えること。templates/00-d0-governance.md の層1 の版の行の次の段落が「層1(テンプレ11)の版の更新は、この案件の体制の変化点に数えます」と置き、出荷判定の証跡の集約がこの行を保証の開示の項目7 へ出す。確かめる者: 品質保証部門(層1 を改めるとき) | 成果物テンプレート D-0(体制図) | `check-d0` | 降りている | 人が確かめる | — | [phase4-process-design/deliverable-templates](/process-compass/phase4-process-design/deliverable-templates/) |
 | IMPL-0823 | 3.7.4 B-4 の標準変更カタログの規定のうち、登録する者を B-4(置かない体制は D-0 表1 の決定者の人)とし AI の名義の登録を受け付けないことと、登録の判定で第5章 5.4.6 の検知条件を計測できる種別だけを登録すること。scripts/gate/config.mjs の changeTypeProblems が、変更種別ごとに登録した者(registeredBy)と登録日(registeredAt)を必須とし、AI の名義を受け付けず(nameProblems の requireRoster で名簿の人に限る)、登録する者の席を governance.catalogRegistrar(既定は D-0 表1 の決定者の席。B-4 のときは注記を出す)で定める。missingBasis が、登録の根拠 basis.detection(検知条件ごとの算出の所在)の無い種別を「登録しない(標準 第5章 5.5.4)」と拒む。第5章 5.5.4 の IMPL-0035 が登録の根拠の欄を追う。確かめる者: 席の責任者(委任の範囲を定めるとき)。実行して確かめていない(所在を読んだ) | process.config.json の delegation | `verify-gate-contract` | 降りている | 人が確かめる | — | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
@@ -1238,5 +1239,6 @@ sidebar:
 | IMPL-1059 | 検証の語が1つも無い追加のテストのファイルを、別の節で一覧に出す(合否に使わない。リスク区分に依らない)。ファイル単位の近似で、同じファイルに検証の語が1つでもあれば他の空のテストは出ない。テストのパス(testPatterns)の外は対象外。題の文字列と宣言の名前を検証の語に数えない(既存の IMPL-0204 の削除行のアサーションの検出にも効く)。アダプタ(go・node・python 系)と Rust・JUnit の主な書式を試験で確かめる。行注釈の中の語は数えない。0 件でも限界の文を出す(#454) | G-5 の PR 単位の検査(pr-rules) | — | 降りている | 機械が確かめる | `template/scripts/gate/test-check-pr.mjs` | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-1060 | G-6 の判定者が、2種の一覧の各行(未完了の語は台帳の行か受入基準に要らない箇所か、検証の語が無いテストは受入基準のどの項目を確かめるか)を確かめる。確かめて偽陽性と分かった行は確かめた結果として扱う。確認が行われたことは機械で確かめない(自己申告)。確かめる者: G-6 の判定者(#454) | ゲート判定記録のスキルの G-6 の補助ファイル | `aggregate-evidence` | 降りている | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | IMPL-1061 | 生成の条件(Agent-Run・Agent-Assets と、モデルの識別の Co-Authored-By)を、複数コミットの PR を既定ブランチへ取り込んだ後も、変更から引けるようにする(5.8.2 の目的: 同じ条件で生成された成果物の一覧)。準拠テンプレートは途中のコミットに付ける(IMPL-0207・IMPL-1019)が、スカッシュの後のコミットへ運ばず、集約は既定ブランチの第1親の履歴を読む。運ぶ手段は束 D1 で決める。候補は、PR の本文へ PR のコミットの値を機械で写し、値の一致を機械で確かめる形と、集約が PR のコミットをホスティングから読む形。前者は、GitHub が本文の後に段落を足す(#361 の D-8)ため、末尾の段落の読み方と併せて決める。後者はホスティングの保持に依る。人の転記に頼る形は採らない(5.8.2)。スカッシュの設定をコミットのメッセージを含む形に変える案は採らない(ADR-0269)。観測は EV-0367。確かめる者: 束 D1 の担当(降ろすとき。それまでは降りていない規定として台帳に出る)。#457 / ADR-0269 | 出荷判定の証跡の集約(保証の開示) | `aggregate-evidence` | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| IMPL-1062 | PR の「AI 関与範囲」欄を、コミットのトレーラ(Co-Authored-By・Agent-Run)から導出して表示する。準拠テンプレートへ降ろす予定。それまで欄にはトレーラが正本である旨だけを置く。確かめる者: 出荷判定者(出荷 PR の本文とトレーラを突き合わせるとき) | PR の本文の様式 | — | **降りていない** | 人が確かめる | — | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 
 <!-- implementation-ledger:end -->

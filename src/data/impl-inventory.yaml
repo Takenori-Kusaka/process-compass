@@ -3693,6 +3693,7 @@ sections:
       - IMPL-1033
       - IMPL-1034
       - IMPL-1061
+      - IMPL-1062
     note: 成果物から生成時の指示資産の版を参照できる状態は、フェーズ5 エージェントの操作の統制の IMPL-1019(降りていない)が追跡する。実行の識別子は IMPL-0207
     issue: 292
   - key: phase4-process-design/human-ai-boundary#5.8 AI が生成した成果物の統制 > 5.8.3 AI に担わせない領域
