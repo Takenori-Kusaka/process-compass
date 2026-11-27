@@ -253,6 +253,8 @@ sidebar:
 | EV-0362 | G-6 の「意図した部品か」の確認が、名前の取り違えを実際に捕まえること | E0(なし) | 未記載 | 2027-05 | 欠陥注入(5.6.2)の類型に、似た名前の依存の追加を足した結果 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/) |
 | EV-0363 | 未完了の語と検証の語が無い追加のテストを、列挙した語の照合で検出する方式と、その検出の範囲(ファイル単位の近似) | E0(なし) | 未記載 | 2027-05 | G-6 の確認の記録か是正の記録での、拾い漏れの事例と一覧の誤検出の件数の観測。実際の案件での誤検出の率は測っていません。誤検出が多く G-6 が一覧を読み飛ばしたと観測されたら、語の範囲を狭める向きで見直します | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | EV-0364 | G-6 の判定者が、2種の一覧の各行を確かめること | E0(なし) | 未記載 | 2027-05 | 一覧に出た行が確かめられないまま G-6 を通った事例の観測 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| EV-0366 | スカッシュのマージで、途中のコミットのメッセージが既定ブランチに残らないこと | E2(単一事例) | 未記載 | 2027-05 | 保護を掛けた GitHub 上のリポジトリで、スカッシュの2つの設定(PR の題名と本文、コミットの箇条)とマージコミットを取り込み、既定ブランチのメッセージを記録したもの | [phase5-implementation/pr-workflow](/process-compass/phase5-implementation/pr-workflow/) |
+| EV-0367 | スカッシュのマージの後に、途中のコミットのトレーラ(`Agent-Run`・`Agent-Assets`・AI の `Co-Authored-By`)が既定ブランチに残らないこと | E0(なし) | 未記載 | 2027-05 | 保護を掛けた GitHub 上のリポジトリで、`Agent-Run` を持つ複数コミットの PR を、スカッシュの2つの設定とマージコミットで取り込み、既定ブランチに残ったトレーラを記録したもの。残ると分かれば IMPL-1061 を改める | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
 | EV-0002 | 同一論点の応酬3往復というエスカレーションの閾値 | E0(なし) | 未記載 | 2027-08 | 自組織における、往復回数と合意到達率の記録 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0003 | 締切の2営業日前・前営業日という督促の時点 | E0(なし) | 未記載 | 2027-08 | 自組織における、督促の時点別の応答率 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/) |
 | EV-0004 | 抜き取り数(当月の全件と5件のいずれか少ないほう)と、切替を停止する条件(委任の条件に反する変更が2期連続) | E0(なし) | 未記載 | 2027-08 | 自組織における、抜き取り数別の、委任の条件に反する変更の検出率 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/) |
@@ -357,6 +359,7 @@ sidebar:
 | EV-0324 | 3 件を採用者の実装とする線引き。採用者の実装の欠けを生まないことは測られていない | E0(なし) | 未記載 | 2027-11 | 3 件について、採用者から「テンプレートが持つべきだった」との申し立てが出た件数 | [adr/0184-assign-0303-0715-0718-to-adopter](/process-compass/adr/0184-assign-0303-0715-0718-to-adopter/) |
 | EV-0326 | 決定1〜3 の記録の約束(宣言の置き場・印の語・営業日の数え方)。採用者が実際にこの書式で書けること、書き漏らしが抜け道にならないことは測られていない | E0(なし) | 未記載 | 2027-11 | 採用者の台帳で、印の無いファストトラックの行が見つかった件数と、宣言を欠いて変更種別が止まった件数 | [adr/0200-b18-first-group-adopter-record-conventions](/process-compass/adr/0200-b18-first-group-adopter-record-conventions/) |
 | EV-0358 | 退けた案がある選択と外部の制約に従った選択だけの理由の記録(所在か退けた案で示す)。この記録が後からの説明を支え、定型文で埋まらないこと。範囲の限り方が、後から読む者の要る選択を取りこぼさないこと。人の判定者に読む順序を課さないこと(理由を先に読んでも、数えない扱いで閉じること) | E0(なし) | 未記載 | 2027-11 | 採用組織の変更の記録で、(a) 理由が定型文だった割合(所在と退けた案のどちらも含まない理由の文を数える)、(b) 後の障害の調査・保守で理由の記録を引いた件数、(c) 理由が実際と違っていた件数、(d) 理由が無い選択のうち、後で制約に従っていたと判明した件数(過少申告)。(a) が高ければ形の書き方を、(d) が多ければ範囲を見直す。見直しの担い手は保守者で、材料は採用組織からの報告と、評価基盤・通し実行の記録の数え上げとする。採用者へ測定の義務は課さない | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/) |
+| EV-0365 | PR の本文を起点に、本節の順序で1つの変更を辿れることが、後からの説明を支えること | E0(なし) | 未記載 | 2027-11 | 採用組織の抜き取りの監査で、既定ブランチの1コミットから PR の本文・Spec・検証の記録・生成の条件へ到達できた件数と、到達できなかった箇所の内訳 | [phase5-implementation/pr-workflow](/process-compass/phase5-implementation/pr-workflow/) |
 
 <!-- evidence-ledger:end -->
 
