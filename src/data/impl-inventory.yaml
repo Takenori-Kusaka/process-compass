@@ -2545,6 +2545,53 @@ sections:
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日)
     issue: 324
+  - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 出荷の前の確認
+    status: marked
+    ids:
+      - IMPL-1069
+      - IMPL-1070
+      - IMPL-1071
+      - IMPL-1072
+      - IMPL-1073
+      - IMPL-1074
+      - IMPL-1075
+      - IMPL-1076
+      - IMPL-1077
+    rows:
+      当たる変更1:
+        status: marked
+        ids:
+          - IMPL-1069
+      当たる変更2:
+        status: marked
+        ids:
+          - IMPL-1069
+      当たる変更3:
+        status: marked
+        ids:
+          - IMPL-1069
+      当たる変更4:
+        status: marked
+        ids:
+          - IMPL-1069
+      当たる変更5:
+        status: marked
+        ids:
+          - IMPL-1069
+      当たる変更6:
+        status: marked
+        ids:
+          - IMPL-1069
+      当たる変更7:
+        status: marked
+        ids:
+          - IMPL-1069
+      当たる変更9:
+        status: marked
+        ids:
+          - IMPL-1073
+    note: 範囲の判定・範囲の外の識別・使う構成の条件・配備の検出は fixture の試験(IMPL-1069〜1071)。実機は IMPL-1072、累積の差分の組は IMPL-1074、workflows の外の配備は IMPL-1075、読んだ中身の質は IMPL-1077。記録の独立性は IMPL-1068(同じ G-6 の節の足し手の条件)。委任との分離と区分の確定の時点は IMPL-0062(3.8.1)
+    issue: 466
   - key: phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 未達のまま出荷する場合の例外承認
     status: marked
     ids:
