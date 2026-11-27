@@ -24,7 +24,7 @@
 | V-15 | 「写し・転記に当たる記録」を「写しに当たる記録」へ(ADR-0106 の固有の語「転記の確認」は残した) |
 | V-16 | ADR ステータスを「独立の突合(2 巡)」へ。`impl-body.md` の「33 行」を実数 30 行へ(O-1 (b) を足した後) |
 | V-17 | `tailoring-kb.json` を HEAD の blob で書き戻し、`git add` で改行の差を解消。`git -C template status` は清浄 |
-| V-18 | `next.mjs` の機能ごとの実装段を `taskProgressStep` へ切り出し(挙動は同じ)、「不明」を detail に併記して段の判定を続ける。`test-plan-trace.mjs` に 4 場面(実装中・実装前・不明のみ・不明なし) |
+| V-18 | `next.mjs` の機能ごとの実装段を `taskProgressStep` へ切り出し(併存時だけ段の判定を続ける)、「不明」を detail に併記して段の判定を続ける。`test-plan-trace.mjs` に 4 場面(実装中・実装前・不明のみ・不明なし) |
 | V-19 | 「この行」を「層1 の版の行」へ |
 | V-20 | `implement/SKILL.md` に「残した項目4・6・7 は、機械が止めない面への促しとして置く」を添えた |
 
