@@ -51,6 +51,7 @@ sidebar:
 | 3.12.13 AI の採点者の較正 | AI の採点を用いる評価 | その他 | [phase4-process-design/roles-responsibilities](/process-compass/phase4-process-design/roles-responsibilities/#31213-ai-の採点者の較正適用-ai-の採点を用いる評価) |
 | 外部の確認者を高リスクの変更へ集中させる | チーム規模 1〜2名 | その他 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#外部の確認者を高リスクの変更へ集中させる適用-チーム規模-12名) |
 | 事後監査の手続 | 委任を適用した R3 の変更。体制の規模によらない | 変更ごと | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#事後監査の手続適用-委任を適用した-r3-の変更体制の規模によらない) |
+| 人が触る場所 | 安全重要度 CL0・標準品質以上・確認者を置ける体制 | 案件ごと | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#人が触る場所適用-安全重要度-cl0標準品質以上確認者を置ける体制) |
 | S0 の省略が成立する前提 | 事業ステージ S0 で、標準品質かつ CL0 の構成 | ステージごと | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#s0-の省略が成立する前提適用-事業ステージ-s0-で標準品質かつ-cl0-の構成) |
 | 委託の体制の人数と、軸A との組み合わせ | 開発形態が受託 | その他 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#委託の体制の人数と軸a-との組み合わせ適用-開発形態が受託) |
 | 判定の結果を受け取る者を決める | 判定を置いた組織と、判定の対象を作成した組織が異なる場合 | その他 | [phase4-process-design/tailoring-guide](/process-compass/phase4-process-design/tailoring-guide/#判定の結果を受け取る者を決める適用-判定を置いた組織と判定の対象を作成した組織が異なる場合) |

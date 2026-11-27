@@ -2981,6 +2981,7 @@ sections:
     status: marked
     ids:
       - IMPL-0682
+      - IMPL-1067
     note: 制御1・2 は IMPL-0682(降りていない。予定の降ろし先 review-queue-control)
     issue: 324
     rows:
@@ -3240,6 +3241,8 @@ sections:
       - IMPL-0291
       - IMPL-0517
       - IMPL-0518
+      - IMPL-1063
+      - IMPL-1066
     note: 第1区分の停止 IMPL-0284、差し戻し率の集計と発火 IMPL-0285、判定不能 IMPL-0286、表示 IMPL-0287・0288、手戻り率の算出と発火 IMPL-0517(降りている)、手戻り率の判定不能・基準値未設定で止めるか IMPL-0291(降りている)、書かれない不採用の後の再作成 IMPL-0518(採用者に委ねる)。登録の根拠の4点目が無い種別の停止(停止の表の8行目)は 3.12.10 の IMPL-0834(降りていない)。理解保持者数の停止は、運用引き継ぎ文書の履歴から1名以下だった時点を導き、回復の後の登録の判定まで解かない(#311 突合 X-2)。原因を特定できない事象の停止は、原因の特定まで解かない(突合 X-3)
     issue: 311
   - key: phase4-process-design/human-ai-boundary#5.4 AI自律レベル > 5.4.7 能力維持措置
@@ -6569,6 +6572,12 @@ sections:
       - "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > S0 の省略が成立する前提"
     note: 軸の間の優先と升の一致は IMPL-0447、S1 の G-6 の範囲と G-7 の適用は IMPL-0469・IMPL-0345、保証の開示の項目2 への表示は IMPL-0469 が追う。S0 の簡略が宣言を外さないこと・新しい様式を定めないことは課さない側の明記
     issue: 324
+  - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > 人が触る場所"
+    status: marked
+    ids:
+      - IMPL-1064
+      - IMPL-1065
+    note: S1 の承認数 0 とコア機能だけの承認は IMPL-1064(実機未確認のため降りていない扱い)、ステージの宣言の真偽は IMPL-1065。R の列の読みは manual(機械で照らすのは S×G-6 の升と導出の一致まで。IMPL-0447)
   - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > S0 の省略が成立する前提"
     status: marked
     ids:

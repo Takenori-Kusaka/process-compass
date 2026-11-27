@@ -160,11 +160,6 @@ entries:
     class: capability
     basis: ai-blind
     text: "*2026-08-05 時点の前提**: 生成AIエージェントは、仕様を入力として実装・テスト生成・自己修正を主導的に実行できます"
-  - id: K-039
-    page: phase4-process-design/human-ai-boundary
-    class: capability
-    basis: ai-blind
-    text: 生成AIエージェントは、仕様を入力として実装・テスト生成・自己修正を主導的に実行できます
   - id: K-040
     page: phase4-process-design/human-ai-boundary
     class: capability

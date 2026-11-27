@@ -164,3 +164,13 @@ files:
   - path: scripts/gate/dependency-provenance.mjs
     reason: library
     why: レジストリへの照会と検証の実行(ネットワークを使う唯一のファイル)。gate-g5.yml の dependency-diff ジョブ(降ろし先 dependency-diff)が呼ぶ。規定は IMPL-1053・IMPL-1054 のマークで追う
+  - path: .github/rulesets/team-core.json
+    reason: variant
+    of: rulesets
+    why: ルールセット team.json の変種。S1・範囲限定(コア機能)の構成で、必須の承認数を 0 にし、必須チェック gate-g5 と gate-g5-base を残す。承認はコア機能のパスに触れる PR にだけ、gate-g5-base が掛ける。承認数 0 を問題に数える検査(IMPL-0416)の例外は、この変種だけ。実環境で受理されるかは未確認(IMPL-1064)
+  - path: scripts/gate/detection-values.mjs
+    reason: library
+    why: 検知・知らせ・抜き取りの値(最小標本数・観測の窓・同時保有の上限・事後の抜き取りの件数・手戻り率の基準値)を構成から読み、未定義を判定し、働いていない検知の名を出す部品。autonomy.mjs・review-queue.mjs・aggregate-evidence.mjs・next.mjs が使う。規定は IMPL-1068 が追う
+  - path: scripts/gate/post-hoc-confirmation.mjs
+    reason: library
+    why: 事後の確認の記録の月ごとの件数の導出(判定と集約が同じ値を読む共通の部品)。規定は IMPL-0597・IMPL-1069 が追う
