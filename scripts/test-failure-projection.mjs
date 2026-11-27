@@ -2,7 +2,7 @@
 //
 // 検査が既知の違反で落ちることを確かめる。実物の表を1か所ずつ壊し、条件 (a)〜(g) のそれぞれが検出されることと、
 // 適合する実物が通ることを確かめる。
-// 注意: 試験は実物の表の文字列を前提に壊す。#454・#455・#457 の実装の段で行を改めるときは、本試験の前提の文字列も直す。
+// 注意: 試験は実物の表の文字列を前提に壊す。行を改めるときは、本試験の前提の文字列も直す。審議中の行の試験は、実物の行11 から作った土台(deliberatingBase)で行う
 //
 //   node scripts/test-failure-projection.mjs
 import assert from 'node:assert/strict';
@@ -20,12 +20,17 @@ function test(name, fn) { fn(); passed += 1; console.log(`  ok ${name}`); }
 const run = (t = text, m = marks) => checkProjection(t, m);
 const detects = (problems, re) => assert.ok(problems.some((p) => re.test(p)), `検出されない: ${re}\n${problems.join('\n')}`);
 /** 表の中だけの置換(1回) */
-function mutate(from, to) {
-  const s = text.indexOf('<!-- failure-projection:start -->'); const e = text.indexOf('<!-- failure-projection:end -->');
-  const table = text.slice(s, e);
+function mutateIn(base, from, to) {
+  const s = base.indexOf('<!-- failure-projection:start -->'); const e = base.indexOf('<!-- failure-projection:end -->');
+  const table = base.slice(s, e);
   assert.ok(table.includes(from), `試験の前提: 表に「${from}」がある`);
-  return text.slice(0, s) + table.replace(from, to) + text.slice(e);
+  return base.slice(0, s) + table.replace(from, to) + base.slice(e);
 }
+const mutate = (from, to) => mutateIn(text, from, to);
+// 審議中の行の試験の土台。実物の表に審議中の行が無い間も (g) を試せるように、行11(仕様そのものが誤っている)を正しい形の審議中の行にする
+const DELIB = '審議中(#455、2026-11-27 時点)';
+const deliberatingBase = mutateIn(mutate('| 無い | 開示 | 開示:', '| 無い | 審議中 / 開示 | 開示:'), '| H.2、H.11 | — |', `| H.2、H.11 | ${DELIB} |`);
+const mutateDelib = (to) => mutateIn(deliberatingBase, DELIB, to);
 const withMark = (id, over) => new Map([...marks, [id, { ...marks.get(id), ...over }]]);
 
 test('対照: 実物の表は通る', () => assert.deepEqual(run(), []));
@@ -48,7 +53,8 @@ test('(f) 最も弱い止め方の先頭の値が無ければ落ちる', () => d
 test('(c) 値の前方一致(人工知能が止める)は落ちる', () => detects(run(mutate('/ 人(G-6 基準1・2)/ 開示', '/ 人工知能が止める(G-6 基準1・2)/ 開示')), /\(c\)/));
 test('(d) 未達の部分に IMPL が無いと落ちる', () => detects(run(mutate('未達(IMPL-0512。実行の記録そのものの保持。採用者)', '未達(実行の記録そのものの保持。採用者)')), /\(d\).*IMPL が無い/));
 test('(b) 仮番号の IMPL は落ちる', () => detects(run(mutate('IMPL-0512。実行の記録そのものの保持。採用者', 'IMPL-TBD-457-1。実行の記録そのものの保持。採用者')), /\(b\).*仮番号/));
-test('(g) 審議中の表示が定めた形でないと落ちる', () => detects(run(mutate('審議中(#455、2026-11-27 時点)', '審議中(#455、2026-11-27 時点 参考)')), /\(g\) 行6/));
+test('(g) 土台: 正しい形の審議中の行は通る', () => assert.deepEqual(run(deliberatingBase), []));
+test('(g) 審議中の表示が定めた形でないと落ちる', () => detects(run(mutateDelib('審議中(#455、2026-11-27 時点 参考)')), /\(g\) 行11/));
 test('マークの読み: 囲みのコードの中の例を読まない', () => {
   const m = readMarks(['```\n<!-- impl IMPL-9997 target=x state=delivered note="a" -->\n```']);
   assert.equal(m.has('IMPL-9997'), false);
@@ -62,8 +68,8 @@ test('(b) 仮番号の別の形(小文字・全角ハイフン・下線・3桁�
   for (const w of ['impl-tbd-1', 'IMPL‐TBD', 'IMPL_TBD', 'IMPL-045', 'IMPL-04870'])
     detects(run(mutate('IMPL-0512。実行の記録そのものの保持。採用者', `IMPL-0512。${w}。実行の記録そのものの保持。採用者`)), /\(b\)/);
 });
-test('(g) 審議中の表示の日付が実在しないと落ちる', () => detects(run(mutate('審議中(#455、2026-11-27 時点)', '審議中(#455、2026-13-45 時点)')), /\(g\) 行6/));
-test('(g) 審議中の行に日付が無いと落ちる', () => detects(run(mutate('審議中(#455、2026-11-27 時点)', '審議中(#455)')), /\(g\) 行6/));
-test('(g) 審議中の行に番号が無いと落ちる', () => detects(run(mutate('審議中(#455、2026-11-27 時点)', '審議中(2026-11-27 時点)')), /\(g\) 行6/));
+test('(g) 審議中の表示の日付が実在しないと落ちる', () => detects(run(mutateDelib('審議中(#455、2026-13-45 時点)')), /\(g\) 行11/));
+test('(g) 審議中の行に日付が無いと落ちる', () => detects(run(mutateDelib('審議中(#455)')), /\(g\) 行11/));
+test('(g) 審議中の行に番号が無いと落ちる', () => detects(run(mutateDelib('審議中(2026-11-27 時点)')), /\(g\) 行11/));
 test('(g) 審議中でない行の表示が「—」でないと落ちる', () => detects(run(mutate('| G-5 基準1〜8、G-6 基準1・2、', '| G-5 基準1〜8、G-6 基準1・2、').replace(/(H\.9 問2・6 \| )—/, '$1審議中(#454、2026-11-27 時点)')), /\(g\) 行1/));
 console.log(`${passed} 件の試験が通りました`);
