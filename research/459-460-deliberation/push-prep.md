@@ -15,3 +15,15 @@
 - 先頭: 本ファイルのコミット(下の git log を参照)。その直前は fbc8b953
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+## 回帰の再実行(HEAD 26816cfd。fetch 後も origin/main は HEAD の祖先)
+
+- 条件は前回と同じ(WSL ubuntu-24.04・node 26.13.1・git archive HEAD の LF の写し・template は submodule の HEAD cfd4ff4・npm ci)。通常と TZ=UTC で各1回
+- **両方とも途中で落ちた。通過していない**。ログの末尾が build ではなく lint:dekimasu の失敗で、build まで進んでいない。落ちた検査は前回と同じ lint:dekimasu
+- 最初の失敗(2通りとも同じ。ログは各 338 行):
+  ```
+  文末の「できます/できる」の登録簿の検査: 1 件の問題
+    - phase4-process-design/proposal-template.md:22: 文末の「できます/できる」が登録簿にありません。「得ずに試行を始めることもできます」。許容なら「〜し…
+  ```
+- 26816cfd は附属書D の文だけを直し、proposal-template.md:22 には届いていない。直していない。議長の裁定を待つ
+- ログは WSL の ~/d2w-normal.log・~/d2w-utc.log(終了コードは当てにならないためログの内容で判定)
