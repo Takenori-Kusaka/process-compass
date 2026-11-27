@@ -7,7 +7,7 @@
 
 | ファイル | 要点 |
 | --- | --- |
-| `src/content/docs/adr/0271-burden-review-drop-copies-...-to-machine.md`(新規) | ADR-0271。点検の軸・やめる 5 項・機械へ移す 6 項・まとめる・残す(段階1)・採らない案 33 行(ruling-draft §4 の 27 件と、M-7・B-13・G-1 の 3 件)・影響と限界・EV 3 件。ADR の一覧は autogenerate なので index.md への追記は無い |
+| `src/content/docs/adr/0271-burden-review-drop-copies-...-to-machine.md`(新規) | ADR-0271。点検の軸・やめる 5 項・機械へ移す 6 項・まとめる・残す(段階1)・採らない案 30 行(1 巡目の所見で O-1 (b) を足した後の数)(ruling-draft §4 の 27 件と、M-7・B-13・G-1 の 3 件)・影響と限界・EV 3 件。ADR の一覧は autogenerate なので index.md への追記は無い |
 | `phase4-process-design/deliverable-templates.md` | 第4章「実装作業における順序」の段階3 を「比べる。記録は求めない。生成結果を採った場合は 5.5.1 の作業上の選択の理由として残す」へ。IMPL-0819 の note を改めた(マークは残す)。段階1 と「段階1 を経ずに段階2 へ進んではならない」は不変。実装計画の運用ルールへ「着手・完了は履歴から導いてよい。人が書くのは『やり直し』だけ」の 1 行を足した(下の食い違い 1) |
 | `phase5-implementation/pr-workflow.md` | 例の PR の「AI 関与範囲」を「トレーラが正本」の 1 行へ(見出しは残した)。補足の文(旧 104 行)を同じ形へ。導出が未実装で IMPL-1061 で表示される旨を足した |
 | `phase4-process-design/human-ai-boundary.md` | IMPL-1061 を 5.8.2 の IMPL-1034 の直後へ置いた(下の「見送り・判断」の 1) |
