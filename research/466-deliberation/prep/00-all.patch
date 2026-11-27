@@ -1,0 +1,486 @@
+diff --git a/.claude/skills/process-init/SKILL.md b/.claude/skills/process-init/SKILL.md
+index d04955b..26280b0 100644
+--- a/.claude/skills/process-init/SKILL.md
++++ b/.claude/skills/process-init/SKILL.md
+@@ -172,6 +172,23 @@ node scripts/init/generate-profile.mjs --answers /tmp/answers.json --stack node
+ 7. **安全重要度 CL3 の案件は、初期化の直後は契約検査(CI の check)が落ちる**。段 mutation の閾値(`ci.mutationThreshold`)は、既定値を置かないため未設定で始まる。既存コードの実測から較正した値を G-1 で定めてから、`/process-change`(種別 settings の `ci.mutationThreshold`)で入れると通る。後から CL3 になる案件(D-0 の CL の判定、または種別の変化点)と、附属書F の適用(D-0 で Q1 を「はい」と記録した案件)も、閾値を入れるまで落ちる。初期化の出力に警告は出ないため、ここで伝える
+ 8. 次にやること。生成の出力の末尾に、`next.mjs` が導いた次の一手が出ます。それをそのまま示します
+ 
++### 6b. 委任の案を出す(任意。有効にするかは採用者が決める) <!-- 根拠: 標準 第5章 5.5.4。#466 O-4 (b)。人が確認する量を、1件ずつの事前の確認から登録・抜き取り・開示の記名へ移す経路があることを、採用の初日に示す -->
++
++CL0 で規制業でない案件(`delegation.allowed` を構成に書けるもの)のとき、次の3つを**案として示し**、利用者に「いま進めるか・後で進めるか・使わないか」を選んでもらいます。**既定では有効にしません**。答えが「後で」「使わない」でも、初期化は完了です。
++
++| 示すもの | 中身 | 実行する者 |
++| --- | --- | --- |
++| 登録の案 | 登録できる変更種別の例(標準 第8章の手引き: 依存パッケージのパッチ更新・表示文言・スタイル)と、登録に要る根拠の4点(検知・取り消し・テスト・実行の単位ごとの強制)の書き方。種別ごとに、規則の `paths` と `excludePaths`(マイグレーション・権限の設定の置き場)の案を示す。**登録日(`registeredAt`)・登録した者・根拠の中身は、利用者が決める。案に値を埋めない** | 登録は `/process-change`(種別 mode)で利用者が行う |
++| 取り消しの演習の手順 | 条件4 の「戻せることの実証」。対象のリポジトリで、その種別の配布の経路を使い、変更を1件入れて取り消し(`git revert`)、取り消した記録の所在を根拠の「取り消し」へ書く。演習で足りるかの判断は、登録する者が行う | 利用者 |
++| 有効化の手順 | 試験用のリポジトリで該当する変更と該当しない変更を流して確かめる → Environment `delegated-merge`(配備のブランチを既定ブランチに限る)を作る → その秘密情報へ `DELEGATED_MERGE_TOKEN` を置く → リポジトリの変数 `DELEGATED_MERGE_ENABLED` を `true` にする。順は README「委任した変更のマージの経路」。コマンドは示し、**実行しない** | 利用者(トークンは必須承認を回避できる権限を持つため、採用者が用意する) |
++
++伝えること:
++
++- 有効にするまで、委任の範囲の変更も協働として人の承認を待ちます(人の確認の量は、有効にするまで減りません)
++- 有効にした後も、判定の材料(窓の標本 30 件)が揃うまでの間は、止めずに、当月に事後へ移した変更の全件を、独立レビュアの席の責任者が事後に確かめます。確かめた記録が足りない月は種別が止まります
++- マージの経路は、実際の GitHub 上では確かめていません(未達の表示。#361)。有効化の前に試験用のリポジトリで確かめるのは採用者です
++- 取り消しの演習の記録を機械が確かめるのは記入の有無までです。内容は登録する者が判定します
++
+ ### 7. 構成に応じて後片付けをする
+ 
+ `process.config.json` を読み、次を行います。
+@@ -261,6 +278,7 @@ node scripts/gate/next.mjs
+ - 逸脱と列挙に無い離脱(`deviations[]`)の記録を消して、通常の `required` に見せること
+ - D-0 体制図の兼務表を、逸脱・列挙に無い離脱の記録なしに埋めること
+ - ブランチ保護を代わりに適用すること
++- 委任の有効化(Environment の作成・`DELEGATED_MERGE_TOKEN` の設定・`DELEGATED_MERGE_ENABLED` の変更)を代わりに行うこと。登録の案の根拠・登録日・登録した者を埋めること。委任を使うよう誘導すること(手順6b は案を示すだけで、使わない選択を等しく扱う)
+ - 席の責任者(`seats[].accountable`)へ AI を書くこと、氏名を推測で埋めること。人の名簿(`people[]`)へ、利用者から受け取っていない名前を足すこと
+ - 運用形態を委任(`delegated`)へ書き換えること。委任は `/process-change` で、席の責任者の記名と理由を伴って行う
+ - 生成した `process.config.json` を手で編集すること。個別の値を変える場合も `/process-change`(種別 `settings`)を使う
+diff --git a/.github/workflows/review-queue-control.yml b/.github/workflows/review-queue-control.yml
+index 2c96750..ad3ef58 100644
+--- a/.github/workflows/review-queue-control.yml
++++ b/.github/workflows/review-queue-control.yml
+@@ -57,6 +57,8 @@ jobs:
+           GH_TOKEN: ${{ github.token }}
+           GITHUB_REPOSITORY: ${{ github.repository }}
+           REVIEW_LOAD_LIMIT: ${{ vars.REVIEW_LOAD_LIMIT }}
++          # 委任した変更のマージの経路を有効にしているとき(delegation.yml と同じ変数)だけ、判定が「該当」の PR を同時保有数・催促から除く
++          DELEGATED_MERGE_ENABLED: ${{ vars.DELEGATED_MERGE_ENABLED }}
+           # UTC からの差(分)。空なら日本時間の 540。固定の差で、夏時間には対応しない
+           REVIEW_UTC_OFFSET_MINUTES: ${{ vars.REVIEW_UTC_OFFSET_MINUTES }}
+           DRY_RUN: ${{ inputs.dry-run }}
+diff --git a/scripts/gate/aggregate-evidence.mjs b/scripts/gate/aggregate-evidence.mjs
+index 57ba930..a3bf0d7 100644
+--- a/scripts/gate/aggregate-evidence.mjs
++++ b/scripts/gate/aggregate-evidence.mjs
+@@ -229,7 +229,7 @@ export const BASE_COPIES_DIR = 'docs/records/reviews';
+  * perMonth が n を上回る月は n を上限とする)に満たない月を short に出す。合否・欠落には数えない(本文は不足を差し戻しの条件にしていない)。
+  * 機械が確かめないもの: 抜き取りの選び方(当事者に選ばせない)・確認の中身・条件4 の実績の中身(確かめる者: プロセス内部監査)
+  */
+-export function samplingMonthly(items, { perMonth = null, defaultCap = 5, reviewerResolved = true } = {}) {
++export function samplingMonthly(items, { perMonth = null, defaultCap = 5, reviewerResolved = true, fullMonths = [] } = {}) {
+   // 独立レビュアの席の責任者を名簿から引けないとき、記録があっても k=0 になり全ての月が不足に見える(誤報)。件数を数えず、その旨を返す
+   if (!reviewerResolved) return { months: [], short: [], undated: 0, source: Number.isInteger(perMonth) && perMonth >= 1 ? 'config' : 'default', unresolved: true };
+   const by = new Map();
+@@ -247,8 +247,10 @@ export function samplingMonthly(items, { perMonth = null, defaultCap = 5, review
+   const months = [...by.values()]
+     .sort((a, b) => a.month.localeCompare(b.month))
+     .map((e) => {
+-      const required = Number.isInteger(perMonth) && perMonth >= 1 ? Math.min(e.n, perMonth) : Math.min(e.n, defaultCap);
+-      return { ...e, required, short: e.k < required };
++      // 判定不能の月(autonomyState の postHoc.fullMonths。#466 O-2 (b))は、全件を事後に確かめる(定めは月の件数 n)
++      const full = fullMonths.includes(e.month);
++      const required = full ? e.n : Number.isInteger(perMonth) && perMonth >= 1 ? Math.min(e.n, perMonth) : Math.min(e.n, defaultCap);
++      return { ...e, required, full, short: e.k < required };
+     });
+   return { months, short: months.filter((m) => m.short), undated, source: Number.isInteger(perMonth) && perMonth >= 1 ? 'config' : 'default' };
+ }
+@@ -258,7 +260,7 @@ export function samplingMonthlyText(m) {
+   if (m.unresolved) return '独立レビュアの席の責任者を名簿から引けず、事後の抜き取りの件数を数えていません。抜き取りが行われていないことを意味しません。席の責任者を記録すると、月ごとの不足を表示します(この表示は合否にも記載の欠落にも数えません)';
+   const basis = m.source === 'config' ? '構成 delegation.sampling.perMonth' : `既定(月の件数と ${5} のうち小さいほう)`;
+   const head = m.short.length
+-    ? `抜き取りが定めに満たない月: ${m.short.map((x) => `${x.month}(事後へ移した変更 ${x.n} 件・抜き取り ${x.k} 件・定め ${x.required} 件)`).join(' / ')}`
++    ? `抜き取りが定めに満たない月: ${m.short.map((x) => `${x.month}(事後へ移した変更 ${x.n} 件・抜き取り ${x.k} 件・定め ${x.required} 件${x.full ? '。判定不能の月のため全件' : ''})`).join(' / ')}`
+     : '抜き取りが定めに満たない月はありません';
+   return `${head}。定めの出所: ${basis}。この表示は合否にも記載の欠落にも数えません。抜き取りの選び方(当事者に選ばせない)・確認の中身・取り消しの実績の中身は機械で確かめていません(確かめる者: プロセス内部監査)${m.undated ? `。マージの時刻を読めない変更 ${m.undated} 件は月ごとの表示に含めていません` : ''}`;
+ }
+diff --git a/scripts/gate/autonomy.mjs b/scripts/gate/autonomy.mjs
+index c58f244..2040d74 100644
+--- a/scripts/gate/autonomy.mjs
++++ b/scripts/gate/autonomy.mjs
+@@ -88,8 +88,17 @@ export const STOP_KIND = {
+   cap: '適用の条件の欠落(上限)',
+   'safety-part': '適用の条件の欠落(安全関連部)',
+   enforcement: '適用の条件の欠落(登録の根拠の4点目)',
++  'post-hoc': '適用の条件の欠落(判定不能の月の全件の事後確認が足りない)',
+ };
+ 
++/**
++ * 判定の材料(窓の標本)が最小標本数に満たない間の、事後の全件確認(#466 O-2 (b)。ADR-0158 決定1・決定2 の一部を置き換える)。
++ * 判定不能の月は、種別を止めず、その月に G-6 を事後へ移した変更の全件を、事後に確かめる(抜き取りの件数 k を、月の件数 n と 5 の小さいほうから n へ上げる)。
++ * 月が終わった後、この月数の猶予(翌月の末まで)を過ぎても全件に届かない月がある間だけ、種別を止める(確認を済ませれば判定を待たずに戻る)。
++ * 猶予の月数は議長が決める(未決。0 なら月の翌日から止める)
++ */
++export const POST_HOC_GRACE_MONTHS = 1;
++
+ /**
+  * 安全関連部の判定の唯一の所在(IMPL-0919。ADR-0220)。D-0 表10 の F.2 の Q1(読めた値: 真=はい、偽=いいえ、読めなければ null)を受け、
+  * 委任を止めるかを返す。止めないのは「いいえ」と読めたときだけである。「はい」・未記入・様式のまま・読めない・D-0 が無い、はすべて止める。
+@@ -372,6 +381,13 @@ export function autonomyState(config, records) {
+       }
+     }
+ 
++    // 判定の材料が足りない間(判定不能)の扱い(#466 O-2 (b))。事後の全件確認の記録(records.postHoc)を渡されたときは、止めずに全件を事後に確かめる。
++    // 渡されないときは従来どおり(適用の条件の欠落として止める)。記録が無いのに止めない側へ倒さない
++    const postHocOn = Boolean(records.postHoc?.available);
++    const sampleGaps = [];
++    let rejAt = null;
++    let rwAt = null;
++    const gap = (reason) => (postHocOn ? sampleGaps.push(reason) : stop('第2区分', 'unmeasurable', reason));
+     // 第2区分: 差し戻し率
+     let rejection = null;
+     if (!records.history?.available) {
+@@ -400,9 +416,11 @@ export function autonomyState(config, records) {
+       };
+       // 現在の状態は、直近の評価の日(monthStart(asOf))に効く窓で数える。窓を長くした日から次の評価の日までは前の値で数え、
+       // 判定不能の停止も残る(記録した日より後の評価の日から当てる。窓の効く日を差し戻し率と手戻り率で揃える)
++      rejAt = (m) => count(m, observationWindowAt(config, m));
+       const latest = count(monthStart(asOf), observationWindowAt(config, monthStart(asOf)));
+       latest.windowText = windowLengthText(observationWindowInfo(config, monthStart(asOf)), observationWindowPending(config, monthStart(asOf)));
+       latest.state = latest.n < MIN_SAMPLE ? '判定不能' : latest.rejected === 0 ? '0%' : '判定可能';
++      latest.postHocFull = postHocOn && latest.n < MIN_SAMPLE;
+       rejection = latest;
+       // 登録より後の評価の日ごとに、0% の窓を探す
+       if (registeredAt) {
+@@ -415,7 +433,7 @@ export function autonomyState(config, records) {
+         }
+       }
+       if (latest.n < MIN_SAMPLE) {
+-        stop('第2区分', 'unmeasurable', `差し戻し率の窓(${latest.from}〜${latest.to})の変更が ${latest.n} 件で、最小標本数 ${MIN_SAMPLE} 件に満たない(判定不能。0% の継続は判定しない。適用の条件の欠落として止める)`);
++        gap(`差し戻し率の窓(${latest.from}〜${latest.to})の変更が ${latest.n} 件で、最小標本数 ${MIN_SAMPLE} 件に満たない(判定不能。0% の継続は判定しない。適用の条件の欠落として止める)`);
+       }
+     }
+     // 第2区分: 手戻り率(差し戻し率と同じ評価の日・同じ窓。記録は評価の日の前日以前だけで数える)
+@@ -436,12 +454,14 @@ export function autonomyState(config, records) {
+         const state = c.n < MIN_SAMPLE ? '判定不能' : b.percent === null ? '基準値未設定' : c.numerator * 100 > b.percent * c.n ? '基準値超過' : '基準値以内';
+         return { ...c, baseline: b.percent, baselineBy: b.decidedBy, baselineAt: b.recordedAt, baselineMethod: b.method, state };
+       };
++      rwAt = reworkAt;
+       rework = reworkAt(monthStart(asOf));
++      rework.postHocFull = postHocOn && rework.state === '判定不能';
+       // 決め方が measured の値は、記録した日以前に、この構成の窓に先立つ判定可能な窓があったかを確かめる(IMPL-1006。表示の偽り防止。L・停止には効かせない)
+       rework.noPriorWindow = rework.baselineMethod === 'measured' && isRealDay(rework.baselineAt) ? !priorWindowExists(config, rr, String(rework.baselineAt)) : false;
+       rework.pendingBaseline = pendingBaselineOf(config, monthStart(asOf));
+       if (rework.state === '判定不能') {
+-        stop('第2区分', 'unmeasurable', `手戻り率の窓(${rework.from}〜${rework.to})の母数が ${rework.n} 件で、最小標本数 ${MIN_SAMPLE} 件に満たない(判定不能。適用の条件の欠落として止める)。両方の窓が判定可能になった評価の日に、判定を待たずに戻る。母数が貯まらないなら観測の窓を長くする(種別 settings。緩める向きの決定者の記名と理由)`);
++        gap(`手戻り率の窓(${rework.from}〜${rework.to})の母数が ${rework.n} 件で、最小標本数 ${MIN_SAMPLE} 件に満たない(判定不能。適用の条件の欠落として止める)。両方の窓が判定可能になった評価の日に、判定を待たずに戻る。母数が貯まらないなら観測の窓を長くする(種別 settings。緩める向きの決定者の記名と理由)`);
+       } else if (rework.state === '基準値未設定') {
+         const pb = rework.pendingBaseline;
+         const pbText = pb ? `。記録済みの基準値 ${pb.percent}%(記録した日 ${pb.recordedAt})は、次の評価の日 ${pb.effectiveFrom} から効く(記録し直さなくてよい)` : '';
+@@ -457,9 +477,30 @@ export function autonomyState(config, records) {
+         }
+       }
+     }
++    // 判定不能の月の全件の事後確認(#466 O-2 (b))。評価の日 M(月初)に判定不能だった月は、その月の事後へ移した変更の全件(k >= n)を確かめる。
++    // 月が終わって猶予を過ぎてもなお足りない月があるときだけ止める。状態は持たず、記録から導く
++    let postHoc = null;
++    if (postHocOn && registeredAt && (rejAt || rwAt)) {
++      const rows = records.postHoc.months ?? [];
++      const months = [];
++      for (let m = monthStart(registeredAt); m <= monthStart(asOf); m = addMonths(m, 1)) {
++        const insufficient = (rejAt && rejAt(m).n < MIN_SAMPLE) || (rwAt && rwAt(m).state === '判定不能');
++        if (!insufficient) continue;
++        const row = rows.find((x) => x.month === m.slice(0, 7));
++        const n = row?.n ?? 0;
++        const k = row?.k ?? 0;
++        const due = addMonths(m, 1 + POST_HOC_GRACE_MONTHS);
++        months.push({ month: m.slice(0, 7), n, k, required: n, short: k < n, overdue: asOf >= due });
++      }
++      postHoc = { months, fullMonths: months.map((x) => x.month), graceMonths: POST_HOC_GRACE_MONTHS };
++      const over = months.filter((x) => x.short && x.overdue);
++      if (over.length) {
++        stop('第2区分', 'post-hoc', `判定不能の月の全件の事後確認が足りない: ${over.map((x) => `${x.month}(G-6 を事後へ移した変更 ${x.n} 件・確認 ${x.k} 件)`).join(' / ')}。確認を済ませると、判定を待たずに戻る`);
++      }
++    }
+     // 窓の長さは、履歴を読めないときも出す(rejection が null でも)
+     const windowText = asOf ? windowLengthText(observationWindowInfo(config, monthStart(asOf)), observationWindowPending(config, monthStart(asOf))) : windowLengthText({ months: WINDOW_MONTHS, longer: false });
+-    out.types.push({ id, registeredAt, level: stops.length ? 'L1' : 'L3', stops, rejection, rework, windowText, detectionFilled: detectionFilled(t?.basis), enforcementFilled: enforcementFilled(t?.basis) });
++    out.types.push({ id, registeredAt, level: stops.length ? 'L1' : 'L3', stops, rejection, rework, postHoc, windowText, detectionFilled: detectionFilled(t?.basis), enforcementFilled: enforcementFilled(t?.basis) });
+   }
+   return out;
+ }
+@@ -489,6 +530,7 @@ export function rejectionText(type) {
+   if (!r) return `判定できない(履歴を読めない)(${type.windowText})`;
+   const head = `窓 ${r.from}〜${r.to}: 変更 ${r.n} 件、差し戻し ${r.rejected} 件(${r.windowText ?? `観測の窓 ${r.months ?? WINDOW_MONTHS}か月`})`;
+   const und = `。${undeclaredText(r.undeclared)}。${approvalRateText(r)}`;
++  if (r.state === '判定不能' && r.postHocFull) return `${head}。判定不能(0% の継続は判定しない。最小標本数 ${MIN_SAMPLE} 件に満たない間は、止めずに、当月の G-6 を事後へ移した変更の全件を事後に確かめる)${und}`;
+   return r.state === '判定不能' ? `${head}。判定不能(0% の継続は判定しない。適用の条件の欠落として止める。最小標本数 ${MIN_SAMPLE} 件に満たない)${und}` : `${head}(${r.state})${und}`;
+ }
+ 
+@@ -500,6 +542,21 @@ export function specTaskOfLine(line) {
+   return m ? `${m[1]}/${m[2]}` : null;
+ }
+ 
++/**
++ * 本文が指す、取り消し・再修正の対象の変更(コミット)。取り消し = git revert の本文行 `This reverts commit <ref>`、
++ * 再修正 = 末尾の段落の `Fixes: <ref>`(7桁以上の16進)。タスクの記録を持たない変更の手戻りを、変更を単位に数える印(#466 O-3 (a))。
++ * 印の無い手戻り(同じ箇所を黙って直す)は数えない。数えていない旨は REWORK_UNCOUNTED が常に表示する
++ */
++export function reworkTargetsOf(body) {
++  const out = new Set();
++  for (const m of String(body ?? '').matchAll(/^\s*This reverts commit ([0-9a-f]{7,40})\b/gim)) out.add(m[1].toLowerCase());
++  for (const l of lastParagraph(body).split('\n')) {
++    const m = /^Fixes:\s*([0-9a-f]{7,40})\s*$/i.exec(l.trim());
++    if (m) out.add(m[1].toLowerCase());
++  }
++  return [...out];
++}
++
+ /** 本文の末尾の段落(check-pr.mjs の lastParagraph と同じ読み方)のうち、`Spec:` で始まる行(trim した後)。値の形は問わない */
+ export function specLinesOf(body) {
+   return lastParagraph(body).split('\n').map((l) => l.trim()).filter((l) => l.startsWith('Spec:'));
+@@ -544,7 +601,7 @@ function ratioText(c) {
+  * 探す範囲は、手戻り率の記録の最も古い日の月から R の月まで。種別の範囲の規則(changeInType)は現在のものを読む(後から変えると判定が変わりうる)
+  */
+ export function priorWindowExists(config, rr, recordedAt) {
+-  const days = [...(rr?.trailers ?? []).map((c) => c.date), ...(rr?.plan ?? []).map((p) => p.date)].filter(isRealDay).map(String).sort();
++  const days = [...(rr?.trailers ?? []).map((c) => c.date), ...(rr?.plan ?? []).map((p) => p.date), ...(rr?.plain ?? []).map((c) => c.date)].filter(isRealDay).map(String).sort();
+   if (!days.length) return false;
+   const ids = (config.delegation?.changeTypes ?? []).map((t) => String(t?.id ?? '')).filter(Boolean);
+   for (let m = monthStart(days[0]); m <= recordedAt; m = addMonths(m, 1)) {
+@@ -588,7 +645,15 @@ function reworkCount(config, typeId, rr, m, months) {
+     else if (t) trailer += 1;
+     else if (p) plan += 1;
+   }
+-  return { ...w, n, numerator: trailer + plan + both, trailer, plan, both };
++  // タスクの記録を持たない変更(変更を単位に数える。#466 O-3 (a))。母数: 窓の中の、種別の範囲に入る変更のうち、取り消し・再修正の印を持たないもの。
++  // 分子: そのうち、評価の日の前日以前に、同じ種別の範囲の変更が取り消し・再修正の印で指しているもの
++  const plainAll = (rr.plain ?? []).filter((c) => upto(c.date) && changeInType(config, typeId, c.files));
++  const pointedAt = new Set(plainAll.flatMap((c) => c.reworks ?? []));
++  const isPointed = (ref) => [...pointedAt].some((t) => String(ref).toLowerCase().startsWith(t));
++  const plainUnits = plainAll.filter((c) => inW(c.date) && !(c.reworks ?? []).length);
++  const plainN = plainUnits.length;
++  const plainReworked = plainUnits.filter((c) => isPointed(c.ref)).length;
++  return { ...w, n: n + plainN, numerator: trailer + plan + both + plainReworked, trailer, plan, both, taskN: n, plainN, plainReworked };
+ }
+ 
+ /**
+@@ -625,12 +690,14 @@ function reworkTextBody(type) {
+   const r = type.rework;
+   if (!r) return `手戻り率: 判定できない(検知の記録を読んでいない)。${REWORK_UNCOUNTED}`;
+   if (r.state === '読めない') return `手戻り率: 読めない(${r.reason})。${REWORK_UNCOUNTED}`;
+-  const head = `手戻り率: 窓 ${r.from}〜${r.to}: 母数 ${r.n} 件(タスク)のうち手戻り ${r.numerator} 件 = ${ratioText(r)}(内訳: トレーラの取り込みが2回以上のみ ${r.trailer} 件 / 計画表の「やり直し」のみ ${r.plan} 件 / 両方 ${r.both} 件)`;
++  const head = `手戻り率: 窓 ${r.from}〜${r.to}: 母数 ${r.n} 件(タスク ${r.taskN ?? r.n} 件 + タスクの記録の無い変更 ${r.plainN ?? 0} 件)のうち手戻り ${r.numerator} 件 = ${ratioText(r)}(内訳: トレーラの取り込みが2回以上のみ ${r.trailer} 件 / 計画表の「やり直し」のみ ${r.plan} 件 / 両方 ${r.both} 件 / タスクの記録の無い変更で取り消し・再修正を受けたもの ${r.plainReworked ?? 0} 件)`;
+   const pend = r.pendingBaseline ? `。記録済みの基準値 ${r.pendingBaseline.percent}%(記録した日 ${r.pendingBaseline.recordedAt})は、次の評価の日 ${r.pendingBaseline.effectiveFrom} から効く` : '';
+   const baseline = r.baseline === null ? `基準値が未設定(適用の条件の欠落として止めている)${pend}` : `基準値 ${r.baseline}%(決定: ${r.baselineBy ?? '記録なし'}、記録した日 ${r.baselineAt ?? '記録なし'}、${methodText(r)})`;
+   const state =
+     r.state === '判定不能'
+-      ? `判定不能(適用の条件の欠落として止めている。最小標本数 ${MIN_SAMPLE} 件に満たない)。${baseline}`
++      ? r.postHocFull
++        ? `判定不能(最小標本数 ${MIN_SAMPLE} 件に満たない間は、止めずに、当月の G-6 を事後へ移した変更の全件を事後に確かめる)。${baseline}`
++        : `判定不能(適用の条件の欠落として止めている。最小標本数 ${MIN_SAMPLE} 件に満たない)。${baseline}`
+       : r.state === '基準値未設定'
+         ? baseline
+         : r.state === '基準値超過'
+@@ -1053,12 +1120,16 @@ export function readReworkRecords({ root = ROOT, until = null } = {}) {
+     const untilArgs = until ? [`--until=${until}T23:59:59`] : [];
+     const out = git(['log', '--first-parent', '--no-renames', '--format=%x1e%H%x09%cs%n%B%x1f', '--name-only', ...untilArgs, 'HEAD'], root);
+     const trailers = [];
++    const plain = [];
+     for (const block of out.split('\x1e').filter((b) => b.trim())) {
+       const nl = block.indexOf('\n');
+       const [ref, date] = block.slice(0, nl).split('\t');
+       const [body, files = ''] = block.slice(nl + 1).split('\x1f');
+       const tasks = specTrailersOf(body);
+-      if (tasks.length) trailers.push({ ref, date, tasks, files: files.split('\n').map((x) => x.trim()).filter(Boolean) });
++      const fileList = files.split('\n').map((x) => x.trim()).filter(Boolean);
++      if (tasks.length) trailers.push({ ref, date, tasks, files: fileList });
++      // タスクの記録(トレーラ)を持たない変更は、変更を単位に数える(#466 O-3 (a))。取り消し・再修正の印だけを読む
++      else plain.push({ ref, date, files: fileList, reworks: reworkTargetsOf(body) });
+     }
+     const patches = git(['log', '--first-parent', '-m', '--no-renames', '--unified=0', '--format=%x1e%H%x09%cs', '-p', ...untilArgs, 'HEAD', '--', 'specs/*/plan.md'], root);
+     const plan = [];
+@@ -1067,9 +1138,9 @@ export function readReworkRecords({ root = ROOT, until = null } = {}) {
+       const [, date] = block.slice(0, nl).split('\t');
+       for (const task of planReworkTasks(block.slice(nl + 1))) plan.push({ date, task });
+     }
+-    return { available: true, trailers, plan };
++    return { available: true, trailers, plan, plain };
+   } catch (e) {
+-    return { available: false, reason: `git の履歴を読めない(${String(e.message).split('\n')[0]})`, trailers: [], plan: [] };
++    return { available: false, reason: `git の履歴を読めない(${String(e.message).split('\n')[0]})`, trailers: [], plan: [], plain: [] };
+   }
+ }
+ 
+diff --git a/scripts/gate/review-queue.mjs b/scripts/gate/review-queue.mjs
+index 04d81d4..3038c97 100644
+--- a/scripts/gate/review-queue.mjs
++++ b/scripts/gate/review-queue.mjs
+@@ -27,6 +27,12 @@ import { addBusinessDays, dayOf, loadHolidays, DEFAULT_OFFSET_MINUTES } from './
+ 
+ const D0_FILE = 'docs/D-0-governance.md';
+ export const MARKER = 'pit-in:review-queue';
++/**
++ * 委任の判定(check-delegation.mjs --status)が head のコミットへ出すステータスの文脈と、「該当」の書き出し(#466 罠C)。
++ * check-delegation.mjs の STATUS_CONTEXT と postStatus の文と同じ値(2か所で保つ。食い違いは test-review-queue.mjs が検出する)
++ */
++export const DELEGATION_STATUS_CONTEXT = 'delegation-eligibility';
++export const DELEGATION_ELIGIBLE_PREFIX = '該当(G-6 を事後へ移す委任)';
+ 
+ /** 標準の既定(D-0 節5 の表が読めないときに使う。使ったことは出力に書く) */
+ export const DEFAULT_DEADLINES = {
+@@ -147,7 +153,7 @@ const mention = (login) => (login ? `@${login}` : null);
+  * pr: { number, draft, createdAt, readyAt, firstRequestAt, files[], requestedTeams[], requestedReviewers[], requests:[{login, at}], reviews:[{login, state, at, bot, assoc, commit}], headSha, comments:[{body, login}] }
+  * 戻り値: { actions: [{ pr, key, body }], notes: [] }
+  */
+-export function queueActions({ prs, now, config, d0Text, holidays = new Set(), loadLimit = DEFAULT_LOAD_LIMIT, offsetMinutes = DEFAULT_OFFSET_MINUTES, holidaysNote = null }) {
++export function queueActions({ prs, now, config, d0Text, holidays = new Set(), loadLimit = DEFAULT_LOAD_LIMIT, offsetMinutes = DEFAULT_OFFSET_MINUTES, holidaysNote = null, excludeDelegated = false }) {
+   const { deadlines, defaulted } = parseDeadlines(d0Text);
+   const esc = escalationTarget(d0Text, config);
+   const notes = [];
+@@ -160,7 +166,9 @@ export function queueActions({ prs, now, config, d0Text, holidays = new Set(), l
+   const push = (pr, key, text) => {
+     if (!hasMarker(pr, key) && !actions.some((a) => a.pr === pr.number && a.key === key)) actions.push({ pr: pr.number, key, body: stamp(key, text) });
+   };
+-  const open = prs.filter((p) => !p.draft);
++  // 委任の判定が「該当(G-6 を事後へ移す)」の PR は、事前の確認を待たない。マージの経路を有効にしている(excludeDelegated)ときに限り、
++  // 同時保有数(0682)と応答・判定の催促(0681・0979)の対象から除く。有効でない間は、該当の PR も人の承認を待つので数える(#466 罠C)
++  const open = prs.filter((p) => !p.draft && !(excludeDelegated && p.delegated === true));
+   // 応答は、その指名(依頼)の時刻より後のレビューに限る。付け直した依頼では、過去のレビューを応答に数えない
+   const respondedBy = (pr, login, since = null) => {
+     const sinceMs = Date.parse(since);
+@@ -293,6 +301,9 @@ export function fetchSnapshot(gh, repo, { only = null } = {}) {
+     const files = json(gh, [`repos/${repo}/pulls/${n}/files?per_page=100`]);
+     const reviews = json(gh, [`repos/${repo}/pulls/${n}/reviews?per_page=100`]);
+     const comments = json(gh, [`repos/${repo}/issues/${n}/comments?per_page=100`]);
++    // 委任の判定のステータス(新しいものが先頭)。head のコミットの最新が「該当」のときだけ delegated
++    const statuses = p.head?.sha ? json(gh, [`repos/${repo}/commits/${p.head.sha}/statuses?per_page=100`]) : [];
++    const delegationStatus = statuses.find((s) => s.context === DELEGATION_STATUS_CONTEXT);
+     return {
+       number: n,
+       draft: Boolean(p.draft),
+@@ -309,6 +320,7 @@ export function fetchSnapshot(gh, repo, { only = null } = {}) {
+       reviews: reviews.map((r) => ({ login: r.user?.login ?? '', state: r.state, at: r.submitted_at, bot: r.user?.type === 'Bot', assoc: r.author_association ?? null, commit: r.commit_id ?? null })),
+       comments: comments.map((c) => ({ body: c.body, login: c.user?.login ?? '' })),
+       labels: (p.labels ?? []).map((l) => l.name),
++      delegated: String(delegationStatus?.description ?? '').startsWith(DELEGATION_ELIGIBLE_PREFIX),
+     };
+   });
+ }
+@@ -355,7 +367,7 @@ function main(argv) {
+   const d0Text = fs.existsSync(d0) ? fs.readFileSync(d0, 'utf8') : '';
+   const hol = loadHolidays(ROOT);
+   const limit = Number(process.env.REVIEW_LOAD_LIMIT) > 0 ? Number(process.env.REVIEW_LOAD_LIMIT) : DEFAULT_LOAD_LIMIT;
+-  const r = queueActions({ prs, now, config, d0Text, holidays: hol.days, loadLimit: limit, offsetMinutes: offset, holidaysNote: hol.note });
++  const r = queueActions({ prs, now, config, d0Text, holidays: hol.days, loadLimit: limit, offsetMinutes: offset, holidaysNote: hol.note, excludeDelegated: process.env.DELEGATED_MERGE_ENABLED === 'true' });
+   for (const n of r.notes) console.log(`注意: ${n}`);
+   for (const a of r.actions) {
+     console.log(`PR #${a.pr}: ${a.key}${dry ? '(dry-run)' : ''}`);
+diff --git a/scripts/gate/test-aggregate-records.mjs b/scripts/gate/test-aggregate-records.mjs
+index 1913bed..253b6e5 100644
+--- a/scripts/gate/test-aggregate-records.mjs
++++ b/scripts/gate/test-aggregate-records.mjs
+@@ -907,6 +907,9 @@ const config = {
+   const text = samplingMonthlyText(ng);
+   check('IMPL-0597:ok 表示は合否に数えない旨と、確かめない範囲(選び方・中身・実績の中身。内部監査)を出す', /2026-10/.test(text) && /合否にも記載の欠落にも数えません/.test(text) && /内部監査/.test(text));
+   // IMPL-0597:ng(席の責任者を引けない構成。記録があっても k=0 となり全ての月が不足に見える誤報を出さない)
++  // #466 O-2 (b): 判定不能の月(fullMonths)は、定めが月の件数 n(全件)になる。ほかの月は従来どおり
++  const fullM = samplingMonthly([...rows('2026-10', 8, 5), ...rows('2026-11', 8, 5)], { fullMonths: ['2026-10'] });
++  check('#466 O-2: 判定不能の月は全件(n)が定め。他の月は n と 5 の小さいほう', fullM.months[0].required === 8 && fullM.months[0].short === true && fullM.months[0].full === true && fullM.months[1].required === 5 && fullM.months[1].short === false && /判定不能の月のため全件/.test(samplingMonthlyText(fullM)));
+   const unres = samplingMonthly(rows('2026-10', 8, 0), { reviewerResolved: false });
+   check('IMPL-0597:ng 独立レビュアの席の責任者を引けないときは、月ごとの不足を出さず、数えていない旨を出す', unres.short.length === 0 && unres.unresolved === true && /名簿から引けず/.test(samplingMonthlyText(unres)) && samplingMonthly(rows('2026-10', 8, 0)).short.length === 1);
+   // IMPL-0597:ng
+diff --git a/scripts/gate/test-check-delegation.mjs b/scripts/gate/test-check-delegation.mjs
+index 1cfc0cc..4f438c8 100644
+--- a/scripts/gate/test-check-delegation.mjs
++++ b/scripts/gate/test-check-delegation.mjs
+@@ -814,7 +814,24 @@ check('ワークフロー: 履歴の全体を取得する(差し戻し率の窓
+     i.config.reworkBaseline = { percent: 20, history: [{ percent: 20, recordedAt: '2026-09-01', decidedBy: '鈴木 一郎', reason: '置く' }] };
+     i.records.rework = rr;
+     const t = autonomyState(i.config, i.records).types[0];
+-    check('手戻り率(実 git): 窓の中の2タスクのうち、トレーラの2回(Task-1)と計画表(Task-2)の2件を、内訳つきで数える', t.rework.n === 2 && t.rework.numerator === 2 && t.rework.trailer === 1 && t.rework.plan === 1 && t.rework.state === '判定不能', JSON.stringify(t.rework));
++    // #466 O-3 (a)(ADR-0129 決定3「母数はトレーラを持つタスク」の置き換え): 末尾の段落でないトレーラの変更(Task-9)は、タスクの記録を持たない変更として、変更を単位に母数へ入る
++    check('手戻り率(実 git): 窓の中の2タスクのうち、トレーラの2回(Task-1)と計画表(Task-2)の2件を、内訳つきで数える。タスクの記録の無い変更は変更を単位に母数へ足す', t.rework.taskN === 2 && t.rework.plainN === 1 && t.rework.plainReworked === 0 && t.rework.n === 3 && t.rework.numerator === 2 && t.rework.trailer === 1 && t.rework.plan === 1 && t.rework.state === '判定不能', JSON.stringify(t.rework));
++    // #466 O-3 (a): トレーラの無い変更の取り消し(git revert)と再修正(Fixes:)を、同じ種別の変更を単位に分子へ数える
++    {
++      const sha = (n) => g(['rev-list', '--first-parent', 'HEAD']).trim().split('\n').slice(n, n + 1)[0];
++      commit('2026-09-05', 'src/i18n/ja.json', '5', 'chore(deps): bump x (#5)');
++      commit('2026-09-06', 'src/i18n/ja.json', '6', 'chore(deps): bump y (#6)');
++      const bumpX = sha(1);
++      commit('2026-09-10', 'src/i18n/ja.json', '7', 'Revert "chore(deps): bump x (#5)"', 'This reverts commit ' + bumpX + '.');
++      commit('2026-09-12', 'src/i18n/ja.json', '8', 'fix(deps): y の直し (#8)', 'Fixes: ' + sha(1).slice(0, 10));
++      commit('2026-09-14', 'src/i18n/ja.json', '9', 'chore(deps): bump z (#9)');
++      const rr2 = readReworkRecords({ root: dir, until: '2026-09-30' });
++      const i2 = base();
++      i2.records.rework = rr2;
++      const t2 = autonomyState(i2.config, i2.records).types[0];
++      // 母数: 末尾の段落でないトレーラ(Task-9)・x・y・z の4件(印を持つ変更は母数に入れない)。分子: 取り消された x と、Fixes: を受けた y
++      check('手戻り率(実 git): トレーラの無い変更の取り消し・再修正を、同じ種別の変更を単位に分子へ数える', t2.rework.plainN === 4 && t2.rework.plainReworked === 2, JSON.stringify(t2.rework));
++    }
+     const shallow = fs.mkdtempSync(path.join(os.tmpdir(), 'rework-shallow-'));
+     try {
+       execFileSync('git', ['clone', '-q', '--depth', '1', `file://${dir}`, shallow], { stdio: 'ignore' });
+@@ -1252,6 +1269,42 @@ check('ワークフロー: 履歴の全体を取得する(差し戻し率の窓
+   check('IMPL-0594: リスク区分が R3 なら、同じ種別の変更が委任で進む', okJudged.autonomy?.level === 'L3' && okJudged.eligible);
+ }
+ 
++// #466 O-2 (b): 判定の材料(窓の標本)が最小標本数に満たない間は、止めずに、判定不能の月の全件を事後に確かめる。
++// ADR-0158 決定1・決定2 の一部の置き換え(判定不能は、事後の全件確認の記録を渡したときに限り止めない。渡さなければ従来どおり止める)。時計は使わず、asOf を入力で与える
++{
++  const mk = (asOf, postHoc, { nChanges = 20 } = {}) => {
++    const f = base();
++    f.records.asOf = asOf;
++    f.config.delegation.changeTypes[0].registeredAt = '2026-10-05';
++    f.records.history.changes = [];
++    for (let i = 0; i < nChanges; i++) {
++      const d = new Date(Date.UTC(2026, 8, 1 + i)).toISOString().slice(0, 10);
++      f.records.history.changes.push({ ref: String(i + 1).padStart(40, '0'), date: d, pr: String(100 + i), files: ['src/i18n/ja.json'] });
++    }
++    f.records.rejections = [{ file: 'x', date: '2026-09-02', target: 'PR #101', cited: true }];
++    f.records.rework = { available: true, plan: [], trailers: f.records.history.changes.map((c, i) => ({ ref: c.ref, date: c.date, tasks: ['F-001/Task-' + (i + 1)], files: c.files })) };
++    if (postHoc) f.records.postHoc = postHoc;
++    return f;
++  };
++  const st = (f) => autonomyState(f.config, f.records).types[0];
++  const kinds = (t) => t.stops.map((s) => s.kind).join(',');
++  const none = mk('2026-10-20', null);
++  check('#466 O-2: 事後の全件確認の記録を渡さないときは、従来どおり判定不能で止める(ADR-0158)', st(none).level === 'L1' && kinds(st(none)).includes('unmeasurable'), kinds(st(none)));
++  const p1 = st(mk('2026-10-20', { available: true, months: [] }));
++  check('#466 O-2: 標本が足りない間も止めない(登録の月。全件確認の対象の月として出す)', p1.level === 'L3' && p1.stops.length === 0 && p1.postHoc.fullMonths.includes('2026-10') && p1.rejection.postHocFull === true && p1.rework.postHocFull === true, JSON.stringify(p1.stops));
++  const p2 = st(mk('2026-11-05', { available: true, months: [{ month: '2026-10', n: 6, k: 2 }] }));
++  check('#466 O-2: 月が終わって猶予の内なら、確認が足りなくても止めない(不足は出す)', p2.level === 'L3' && p2.postHoc.months.find((x) => x.month === '2026-10').short === true && p2.postHoc.months.find((x) => x.month === '2026-10').overdue === false);
++  const p3 = st(mk('2026-12-05', { available: true, months: [{ month: '2026-10', n: 6, k: 2 }] }));
++  check('#466 O-2: 猶予を過ぎて全件に届かない月がある間だけ止める', p3.level === 'L1' && kinds(p3) === 'post-hoc' && /2026-10\(G-6 を事後へ移した変更 6 件・確認 2 件\)/.test(p3.stops[0].reason), JSON.stringify(p3.stops));
++  const p4 = st(mk('2026-12-05', { available: true, months: [{ month: '2026-10', n: 6, k: 6 }] }));
++  check('#466 O-2: 全件の確認を済ませると、判定を待たずに戻る', p4.level === 'L3' && p4.stops.length === 0);
++  const full = mk('2026-10-20', { available: true, months: [] }, { nChanges: 40 });
++  full.records.history.changes = full.records.history.changes.slice(0, 40);
++  const p5 = st(full);
++  check('#466 O-2: 標本が足りている窓は、判定不能の月に数えない(従来の差し戻し率・手戻り率の判定のまま)', p5.postHoc.fullMonths.length === 0 && p5.rejection.postHocFull === false);
++  check('#466 O-2: 判定不能の表示は「止めずに事後に全件を確かめる」と出し、「止めている」と書かない', /止めずに/.test(rejectionText(p1)) && /止めずに/.test(reworkText(p1)) && !/適用の条件の欠落として止める/.test(rejectionText(p1)));
++}
++
+ console.log('');
+ if (failed) {
+   console.log(`::error::委任の経路の試験: ${failed} 件が期待と一致しません`);
+diff --git a/scripts/gate/test-review-queue.mjs b/scripts/gate/test-review-queue.mjs
+index df19687..37c69bd 100644
+--- a/scripts/gate/test-review-queue.mjs
++++ b/scripts/gate/test-review-queue.mjs
+@@ -3,10 +3,11 @@
+ //
+ //   node scripts/gate/test-review-queue.mjs
+ 
++import fs from 'node:fs';
+ import { execFileSync } from 'node:child_process';
+ import { fileURLToPath } from 'node:url';
+ import { addBusinessDays, businessDaysBetween, dayOf, isBusinessDay, parseHolidays, loadHolidays, HOLIDAYS_UNCOUNTED_NOTE } from './business-days.mjs';
+-import { queueActions, riskLabelAction, parseDeadlines, escalationTarget, seatLogin, fetchSnapshot, isApproved, DEFAULT_DEADLINES } from './review-queue.mjs';
++import { DELEGATION_STATUS_CONTEXT, DELEGATION_ELIGIBLE_PREFIX, queueActions, riskLabelAction, parseDeadlines, escalationTarget, seatLogin, fetchSnapshot, isApproved, DEFAULT_DEADLINES } from './review-queue.mjs';
+ import { isProseDocument } from './check-pr.mjs';
+ 
+ let failures = 0;
+@@ -169,12 +170,25 @@ const canned = (args) => {
+   if (/issues\/7\/events/.test(p)) return JSON.stringify([[{ event: 'review_requested', requested_reviewer: { login: 'rev1' }, created_at: '2026-11-16T00:00:00Z' }, { event: 'labeled', label: { name: 'risk/R2' }, actor: { login: 'github-actions[bot]' }, created_at: '2026-11-10T00:00:00Z' }], [{ event: 'ready_for_review', created_at: '2026-11-11T00:00:00Z' }]]);
+   if (/pulls\/7\/files/.test(p)) return JSON.stringify([[{ filename: 'a.md', status: 'modified' }]]);
+   if (/pulls\/7\/reviews/.test(p)) return '[[]]';
++  if (/commits\/h1\/statuses/.test(p)) return JSON.stringify([[{ context: 'delegation-eligibility', state: 'success', description: '該当(G-6 を事後へ移す委任): 規則 r1。マージの実行: 有効' }]]);
+   if (/issues\/7\/comments/.test(p)) return JSON.stringify([[{ body: 'x[a][b]', user: { login: 'github-actions[bot]' } }]]);
+   throw new Error(`想定外: ${p}`);
+ };
+ const snap = fetchSnapshot((a) => canned(a), 'o/r');
+ check('読み取り: ページ連結の応答と事象を PR の記録へ整える', snap.length === 1 && snap[0].requests[0].login === 'rev1' && snap[0].readyAt === '2026-11-11T00:00:00Z' && snap[0].requestedTeams[0] === 'core' && snap[0].labels[0] === 'risk/R2' && snap[0].firstRequestAt === '2026-11-16T00:00:00Z' && snap[0].headSha === 'h1' && snap[0].machineRiskLabels[0] === 'risk/R2' && snap[0].requestedReviewers[0] === 'rev1' && snap[0].comments[0].body === 'x[a][b]' && snap[0].comments[0].login === 'github-actions[bot]', JSON.stringify(snap));
+ check('読み取り: --paginate --slurp で呼び、本文の中の ][ を壊さない', slurped);
++check('読み取り(#466 罠C): head のコミットの委任の判定のステータスが「該当」なら delegated を立てる', snap[0].delegated === true);
++
++// #466 罠C: 委任した PR(判定が該当)は、マージの経路を有効にしているときに限り、同時保有数と催促から除く
++const deleg = [1, 2, 3, 4].map((n) => mk({ number: n, createdAt: NOW, labels: ['risk/R3'], delegated: true, requests: [{ login: 'busy', at: `2026-11-18T0${n}:00:00Z` }] }));
++check('#466 罠C:ng マージの経路が有効でない間は、委任の判定が該当でも同時保有に数える(人の承認を待つため。従来どおり)', queueActions({ ...base, prs: deleg }).actions.some((x) => x.key === 'load:busy'));
++check('#466 罠C:ok マージの経路が有効なら、該当の PR 4 件で同時保有の通知が出ない', !queueActions({ ...base, prs: deleg, excludeDelegated: true }).actions.some((x) => x.key === 'load:busy'));
++check('#466 罠C:ng 該当でない PR は、有効でも数える(3件の該当 + 該当でない 2 件ならば 2 件だけ)', (() => {
++  const mixed = [...deleg.slice(0, 3), ...[5, 6, 7, 8].map((n) => mk({ number: n, createdAt: NOW, requests: [{ login: 'busy', at: `2026-11-18T0${n}:00:00Z` }] }))];
++  const a = queueActions({ ...base, prs: mixed, excludeDelegated: true }).actions.filter((x) => x.key === 'load:busy');
++  return a.length === 1 && a[0].pr === 8;
++})());
++check('#466 罠C: 状態の文字列は check-delegation.mjs と同じ値', DELEGATION_STATUS_CONTEXT === 'delegation-eligibility' && fs.readFileSync(new URL('./check-delegation.mjs', import.meta.url), 'utf8').includes(DELEGATION_ELIGIBLE_PREFIX) && fs.readFileSync(new URL('./check-delegation.mjs', import.meta.url), 'utf8').includes(`'${DELEGATION_STATUS_CONTEXT}'`));
+ 
+ console.log(failures ? `\nレビューの滞留の試験: ${checks} 件のうち ${failures} 件が期待と一致しません` : `\nレビューの滞留の試験: ${checks} 件が期待と一致しました`);
+ process.exit(failures ? 1 : 0);

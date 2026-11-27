@@ -1,0 +1,120 @@
+diff --git a/.github/workflows/review-queue-control.yml b/.github/workflows/review-queue-control.yml
+index 2c96750..ad3ef58 100644
+--- a/.github/workflows/review-queue-control.yml
++++ b/.github/workflows/review-queue-control.yml
+@@ -57,6 +57,8 @@ jobs:
+           GH_TOKEN: ${{ github.token }}
+           GITHUB_REPOSITORY: ${{ github.repository }}
+           REVIEW_LOAD_LIMIT: ${{ vars.REVIEW_LOAD_LIMIT }}
++          # 委任した変更のマージの経路を有効にしているとき(delegation.yml と同じ変数)だけ、判定が「該当」の PR を同時保有数・催促から除く
++          DELEGATED_MERGE_ENABLED: ${{ vars.DELEGATED_MERGE_ENABLED }}
+           # UTC からの差(分)。空なら日本時間の 540。固定の差で、夏時間には対応しない
+           REVIEW_UTC_OFFSET_MINUTES: ${{ vars.REVIEW_UTC_OFFSET_MINUTES }}
+           DRY_RUN: ${{ inputs.dry-run }}
+diff --git a/scripts/gate/review-queue.mjs b/scripts/gate/review-queue.mjs
+index 04d81d4..3038c97 100644
+--- a/scripts/gate/review-queue.mjs
++++ b/scripts/gate/review-queue.mjs
+@@ -27,6 +27,12 @@ import { addBusinessDays, dayOf, loadHolidays, DEFAULT_OFFSET_MINUTES } from './
+ 
+ const D0_FILE = 'docs/D-0-governance.md';
+ export const MARKER = 'pit-in:review-queue';
++/**
++ * 委任の判定(check-delegation.mjs --status)が head のコミットへ出すステータスの文脈と、「該当」の書き出し(#466 罠C)。
++ * check-delegation.mjs の STATUS_CONTEXT と postStatus の文と同じ値(2か所で保つ。食い違いは test-review-queue.mjs が検出する)
++ */
++export const DELEGATION_STATUS_CONTEXT = 'delegation-eligibility';
++export const DELEGATION_ELIGIBLE_PREFIX = '該当(G-6 を事後へ移す委任)';
+ 
+ /** 標準の既定(D-0 節5 の表が読めないときに使う。使ったことは出力に書く) */
+ export const DEFAULT_DEADLINES = {
+@@ -147,7 +153,7 @@ const mention = (login) => (login ? `@${login}` : null);
+  * pr: { number, draft, createdAt, readyAt, firstRequestAt, files[], requestedTeams[], requestedReviewers[], requests:[{login, at}], reviews:[{login, state, at, bot, assoc, commit}], headSha, comments:[{body, login}] }
+  * 戻り値: { actions: [{ pr, key, body }], notes: [] }
+  */
+-export function queueActions({ prs, now, config, d0Text, holidays = new Set(), loadLimit = DEFAULT_LOAD_LIMIT, offsetMinutes = DEFAULT_OFFSET_MINUTES, holidaysNote = null }) {
++export function queueActions({ prs, now, config, d0Text, holidays = new Set(), loadLimit = DEFAULT_LOAD_LIMIT, offsetMinutes = DEFAULT_OFFSET_MINUTES, holidaysNote = null, excludeDelegated = false }) {
+   const { deadlines, defaulted } = parseDeadlines(d0Text);
+   const esc = escalationTarget(d0Text, config);
+   const notes = [];
+@@ -160,7 +166,9 @@ export function queueActions({ prs, now, config, d0Text, holidays = new Set(), l
+   const push = (pr, key, text) => {
+     if (!hasMarker(pr, key) && !actions.some((a) => a.pr === pr.number && a.key === key)) actions.push({ pr: pr.number, key, body: stamp(key, text) });
+   };
+-  const open = prs.filter((p) => !p.draft);
++  // 委任の判定が「該当(G-6 を事後へ移す)」の PR は、事前の確認を待たない。マージの経路を有効にしている(excludeDelegated)ときに限り、
++  // 同時保有数(0682)と応答・判定の催促(0681・0979)の対象から除く。有効でない間は、該当の PR も人の承認を待つので数える(#466 罠C)
++  const open = prs.filter((p) => !p.draft && !(excludeDelegated && p.delegated === true));
+   // 応答は、その指名(依頼)の時刻より後のレビューに限る。付け直した依頼では、過去のレビューを応答に数えない
+   const respondedBy = (pr, login, since = null) => {
+     const sinceMs = Date.parse(since);
+@@ -293,6 +301,9 @@ export function fetchSnapshot(gh, repo, { only = null } = {}) {
+     const files = json(gh, [`repos/${repo}/pulls/${n}/files?per_page=100`]);
+     const reviews = json(gh, [`repos/${repo}/pulls/${n}/reviews?per_page=100`]);
+     const comments = json(gh, [`repos/${repo}/issues/${n}/comments?per_page=100`]);
++    // 委任の判定のステータス(新しいものが先頭)。head のコミットの最新が「該当」のときだけ delegated
++    const statuses = p.head?.sha ? json(gh, [`repos/${repo}/commits/${p.head.sha}/statuses?per_page=100`]) : [];
++    const delegationStatus = statuses.find((s) => s.context === DELEGATION_STATUS_CONTEXT);
+     return {
+       number: n,
+       draft: Boolean(p.draft),
+@@ -309,6 +320,7 @@ export function fetchSnapshot(gh, repo, { only = null } = {}) {
+       reviews: reviews.map((r) => ({ login: r.user?.login ?? '', state: r.state, at: r.submitted_at, bot: r.user?.type === 'Bot', assoc: r.author_association ?? null, commit: r.commit_id ?? null })),
+       comments: comments.map((c) => ({ body: c.body, login: c.user?.login ?? '' })),
+       labels: (p.labels ?? []).map((l) => l.name),
++      delegated: String(delegationStatus?.description ?? '').startsWith(DELEGATION_ELIGIBLE_PREFIX),
+     };
+   });
+ }
+@@ -355,7 +367,7 @@ function main(argv) {
+   const d0Text = fs.existsSync(d0) ? fs.readFileSync(d0, 'utf8') : '';
+   const hol = loadHolidays(ROOT);
+   const limit = Number(process.env.REVIEW_LOAD_LIMIT) > 0 ? Number(process.env.REVIEW_LOAD_LIMIT) : DEFAULT_LOAD_LIMIT;
+-  const r = queueActions({ prs, now, config, d0Text, holidays: hol.days, loadLimit: limit, offsetMinutes: offset, holidaysNote: hol.note });
++  const r = queueActions({ prs, now, config, d0Text, holidays: hol.days, loadLimit: limit, offsetMinutes: offset, holidaysNote: hol.note, excludeDelegated: process.env.DELEGATED_MERGE_ENABLED === 'true' });
+   for (const n of r.notes) console.log(`注意: ${n}`);
+   for (const a of r.actions) {
+     console.log(`PR #${a.pr}: ${a.key}${dry ? '(dry-run)' : ''}`);
+diff --git a/scripts/gate/test-review-queue.mjs b/scripts/gate/test-review-queue.mjs
+index df19687..37c69bd 100644
+--- a/scripts/gate/test-review-queue.mjs
++++ b/scripts/gate/test-review-queue.mjs
+@@ -3,10 +3,11 @@
+ //
+ //   node scripts/gate/test-review-queue.mjs
+ 
++import fs from 'node:fs';
+ import { execFileSync } from 'node:child_process';
+ import { fileURLToPath } from 'node:url';
+ import { addBusinessDays, businessDaysBetween, dayOf, isBusinessDay, parseHolidays, loadHolidays, HOLIDAYS_UNCOUNTED_NOTE } from './business-days.mjs';
+-import { queueActions, riskLabelAction, parseDeadlines, escalationTarget, seatLogin, fetchSnapshot, isApproved, DEFAULT_DEADLINES } from './review-queue.mjs';
++import { DELEGATION_STATUS_CONTEXT, DELEGATION_ELIGIBLE_PREFIX, queueActions, riskLabelAction, parseDeadlines, escalationTarget, seatLogin, fetchSnapshot, isApproved, DEFAULT_DEADLINES } from './review-queue.mjs';
+ import { isProseDocument } from './check-pr.mjs';
+ 
+ let failures = 0;
+@@ -169,12 +170,25 @@ const canned = (args) => {
+   if (/issues\/7\/events/.test(p)) return JSON.stringify([[{ event: 'review_requested', requested_reviewer: { login: 'rev1' }, created_at: '2026-11-16T00:00:00Z' }, { event: 'labeled', label: { name: 'risk/R2' }, actor: { login: 'github-actions[bot]' }, created_at: '2026-11-10T00:00:00Z' }], [{ event: 'ready_for_review', created_at: '2026-11-11T00:00:00Z' }]]);
+   if (/pulls\/7\/files/.test(p)) return JSON.stringify([[{ filename: 'a.md', status: 'modified' }]]);
+   if (/pulls\/7\/reviews/.test(p)) return '[[]]';
++  if (/commits\/h1\/statuses/.test(p)) return JSON.stringify([[{ context: 'delegation-eligibility', state: 'success', description: '該当(G-6 を事後へ移す委任): 規則 r1。マージの実行: 有効' }]]);
+   if (/issues\/7\/comments/.test(p)) return JSON.stringify([[{ body: 'x[a][b]', user: { login: 'github-actions[bot]' } }]]);
+   throw new Error(`想定外: ${p}`);
+ };
+ const snap = fetchSnapshot((a) => canned(a), 'o/r');
+ check('読み取り: ページ連結の応答と事象を PR の記録へ整える', snap.length === 1 && snap[0].requests[0].login === 'rev1' && snap[0].readyAt === '2026-11-11T00:00:00Z' && snap[0].requestedTeams[0] === 'core' && snap[0].labels[0] === 'risk/R2' && snap[0].firstRequestAt === '2026-11-16T00:00:00Z' && snap[0].headSha === 'h1' && snap[0].machineRiskLabels[0] === 'risk/R2' && snap[0].requestedReviewers[0] === 'rev1' && snap[0].comments[0].body === 'x[a][b]' && snap[0].comments[0].login === 'github-actions[bot]', JSON.stringify(snap));
+ check('読み取り: --paginate --slurp で呼び、本文の中の ][ を壊さない', slurped);
++check('読み取り(#466 罠C): head のコミットの委任の判定のステータスが「該当」なら delegated を立てる', snap[0].delegated === true);
++
++// #466 罠C: 委任した PR(判定が該当)は、マージの経路を有効にしているときに限り、同時保有数と催促から除く
++const deleg = [1, 2, 3, 4].map((n) => mk({ number: n, createdAt: NOW, labels: ['risk/R3'], delegated: true, requests: [{ login: 'busy', at: `2026-11-18T0${n}:00:00Z` }] }));
++check('#466 罠C:ng マージの経路が有効でない間は、委任の判定が該当でも同時保有に数える(人の承認を待つため。従来どおり)', queueActions({ ...base, prs: deleg }).actions.some((x) => x.key === 'load:busy'));
++check('#466 罠C:ok マージの経路が有効なら、該当の PR 4 件で同時保有の通知が出ない', !queueActions({ ...base, prs: deleg, excludeDelegated: true }).actions.some((x) => x.key === 'load:busy'));
++check('#466 罠C:ng 該当でない PR は、有効でも数える(3件の該当 + 該当でない 2 件ならば 2 件だけ)', (() => {
++  const mixed = [...deleg.slice(0, 3), ...[5, 6, 7, 8].map((n) => mk({ number: n, createdAt: NOW, requests: [{ login: 'busy', at: `2026-11-18T0${n}:00:00Z` }] }))];
++  const a = queueActions({ ...base, prs: mixed, excludeDelegated: true }).actions.filter((x) => x.key === 'load:busy');
++  return a.length === 1 && a[0].pr === 8;
++})());
++check('#466 罠C: 状態の文字列は check-delegation.mjs と同じ値', DELEGATION_STATUS_CONTEXT === 'delegation-eligibility' && fs.readFileSync(new URL('./check-delegation.mjs', import.meta.url), 'utf8').includes(DELEGATION_ELIGIBLE_PREFIX) && fs.readFileSync(new URL('./check-delegation.mjs', import.meta.url), 'utf8').includes(`'${DELEGATION_STATUS_CONTEXT}'`));
+ 
+ console.log(failures ? `\nレビューの滞留の試験: ${checks} 件のうち ${failures} 件が期待と一致しません` : `\nレビューの滞留の試験: ${checks} 件が期待と一致しました`);
+ process.exit(failures ? 1 : 0);

@@ -1,0 +1,220 @@
+diff --git a/scripts/gate/aggregate-evidence.mjs b/scripts/gate/aggregate-evidence.mjs
+index 57ba930..a3bf0d7 100644
+--- a/scripts/gate/aggregate-evidence.mjs
++++ b/scripts/gate/aggregate-evidence.mjs
+@@ -229,7 +229,7 @@ export const BASE_COPIES_DIR = 'docs/records/reviews';
+  * perMonth が n を上回る月は n を上限とする)に満たない月を short に出す。合否・欠落には数えない(本文は不足を差し戻しの条件にしていない)。
+  * 機械が確かめないもの: 抜き取りの選び方(当事者に選ばせない)・確認の中身・条件4 の実績の中身(確かめる者: プロセス内部監査)
+  */
+-export function samplingMonthly(items, { perMonth = null, defaultCap = 5, reviewerResolved = true } = {}) {
++export function samplingMonthly(items, { perMonth = null, defaultCap = 5, reviewerResolved = true, fullMonths = [] } = {}) {
+   // 独立レビュアの席の責任者を名簿から引けないとき、記録があっても k=0 になり全ての月が不足に見える(誤報)。件数を数えず、その旨を返す
+   if (!reviewerResolved) return { months: [], short: [], undated: 0, source: Number.isInteger(perMonth) && perMonth >= 1 ? 'config' : 'default', unresolved: true };
+   const by = new Map();
+@@ -247,8 +247,10 @@ export function samplingMonthly(items, { perMonth = null, defaultCap = 5, review
+   const months = [...by.values()]
+     .sort((a, b) => a.month.localeCompare(b.month))
+     .map((e) => {
+-      const required = Number.isInteger(perMonth) && perMonth >= 1 ? Math.min(e.n, perMonth) : Math.min(e.n, defaultCap);
+-      return { ...e, required, short: e.k < required };
++      // 判定不能の月(autonomyState の postHoc.fullMonths。#466 O-2 (b))は、全件を事後に確かめる(定めは月の件数 n)
++      const full = fullMonths.includes(e.month);
++      const required = full ? e.n : Number.isInteger(perMonth) && perMonth >= 1 ? Math.min(e.n, perMonth) : Math.min(e.n, defaultCap);
++      return { ...e, required, full, short: e.k < required };
+     });
+   return { months, short: months.filter((m) => m.short), undated, source: Number.isInteger(perMonth) && perMonth >= 1 ? 'config' : 'default' };
+ }
+@@ -258,7 +260,7 @@ export function samplingMonthlyText(m) {
+   if (m.unresolved) return '独立レビュアの席の責任者を名簿から引けず、事後の抜き取りの件数を数えていません。抜き取りが行われていないことを意味しません。席の責任者を記録すると、月ごとの不足を表示します(この表示は合否にも記載の欠落にも数えません)';
+   const basis = m.source === 'config' ? '構成 delegation.sampling.perMonth' : `既定(月の件数と ${5} のうち小さいほう)`;
+   const head = m.short.length
+-    ? `抜き取りが定めに満たない月: ${m.short.map((x) => `${x.month}(事後へ移した変更 ${x.n} 件・抜き取り ${x.k} 件・定め ${x.required} 件)`).join(' / ')}`
++    ? `抜き取りが定めに満たない月: ${m.short.map((x) => `${x.month}(事後へ移した変更 ${x.n} 件・抜き取り ${x.k} 件・定め ${x.required} 件${x.full ? '。判定不能の月のため全件' : ''})`).join(' / ')}`
+     : '抜き取りが定めに満たない月はありません';
+   return `${head}。定めの出所: ${basis}。この表示は合否にも記載の欠落にも数えません。抜き取りの選び方(当事者に選ばせない)・確認の中身・取り消しの実績の中身は機械で確かめていません(確かめる者: プロセス内部監査)${m.undated ? `。マージの時刻を読めない変更 ${m.undated} 件は月ごとの表示に含めていません` : ''}`;
+ }
+diff --git a/scripts/gate/autonomy.mjs b/scripts/gate/autonomy.mjs
+index 27fbb59..2040d74 100644
+--- a/scripts/gate/autonomy.mjs
++++ b/scripts/gate/autonomy.mjs
+@@ -88,8 +88,17 @@ export const STOP_KIND = {
+   cap: '適用の条件の欠落(上限)',
+   'safety-part': '適用の条件の欠落(安全関連部)',
+   enforcement: '適用の条件の欠落(登録の根拠の4点目)',
++  'post-hoc': '適用の条件の欠落(判定不能の月の全件の事後確認が足りない)',
+ };
+ 
++/**
++ * 判定の材料(窓の標本)が最小標本数に満たない間の、事後の全件確認(#466 O-2 (b)。ADR-0158 決定1・決定2 の一部を置き換える)。
++ * 判定不能の月は、種別を止めず、その月に G-6 を事後へ移した変更の全件を、事後に確かめる(抜き取りの件数 k を、月の件数 n と 5 の小さいほうから n へ上げる)。
++ * 月が終わった後、この月数の猶予(翌月の末まで)を過ぎても全件に届かない月がある間だけ、種別を止める(確認を済ませれば判定を待たずに戻る)。
++ * 猶予の月数は議長が決める(未決。0 なら月の翌日から止める)
++ */
++export const POST_HOC_GRACE_MONTHS = 1;
++
+ /**
+  * 安全関連部の判定の唯一の所在(IMPL-0919。ADR-0220)。D-0 表10 の F.2 の Q1(読めた値: 真=はい、偽=いいえ、読めなければ null)を受け、
+  * 委任を止めるかを返す。止めないのは「いいえ」と読めたときだけである。「はい」・未記入・様式のまま・読めない・D-0 が無い、はすべて止める。
+@@ -372,6 +381,13 @@ export function autonomyState(config, records) {
+       }
+     }
+ 
++    // 判定の材料が足りない間(判定不能)の扱い(#466 O-2 (b))。事後の全件確認の記録(records.postHoc)を渡されたときは、止めずに全件を事後に確かめる。
++    // 渡されないときは従来どおり(適用の条件の欠落として止める)。記録が無いのに止めない側へ倒さない
++    const postHocOn = Boolean(records.postHoc?.available);
++    const sampleGaps = [];
++    let rejAt = null;
++    let rwAt = null;
++    const gap = (reason) => (postHocOn ? sampleGaps.push(reason) : stop('第2区分', 'unmeasurable', reason));
+     // 第2区分: 差し戻し率
+     let rejection = null;
+     if (!records.history?.available) {
+@@ -400,9 +416,11 @@ export function autonomyState(config, records) {
+       };
+       // 現在の状態は、直近の評価の日(monthStart(asOf))に効く窓で数える。窓を長くした日から次の評価の日までは前の値で数え、
+       // 判定不能の停止も残る(記録した日より後の評価の日から当てる。窓の効く日を差し戻し率と手戻り率で揃える)
++      rejAt = (m) => count(m, observationWindowAt(config, m));
+       const latest = count(monthStart(asOf), observationWindowAt(config, monthStart(asOf)));
+       latest.windowText = windowLengthText(observationWindowInfo(config, monthStart(asOf)), observationWindowPending(config, monthStart(asOf)));
+       latest.state = latest.n < MIN_SAMPLE ? '判定不能' : latest.rejected === 0 ? '0%' : '判定可能';
++      latest.postHocFull = postHocOn && latest.n < MIN_SAMPLE;
+       rejection = latest;
+       // 登録より後の評価の日ごとに、0% の窓を探す
+       if (registeredAt) {
+@@ -415,7 +433,7 @@ export function autonomyState(config, records) {
+         }
+       }
+       if (latest.n < MIN_SAMPLE) {
+-        stop('第2区分', 'unmeasurable', `差し戻し率の窓(${latest.from}〜${latest.to})の変更が ${latest.n} 件で、最小標本数 ${MIN_SAMPLE} 件に満たない(判定不能。0% の継続は判定しない。適用の条件の欠落として止める)`);
++        gap(`差し戻し率の窓(${latest.from}〜${latest.to})の変更が ${latest.n} 件で、最小標本数 ${MIN_SAMPLE} 件に満たない(判定不能。0% の継続は判定しない。適用の条件の欠落として止める)`);
+       }
+     }
+     // 第2区分: 手戻り率(差し戻し率と同じ評価の日・同じ窓。記録は評価の日の前日以前だけで数える)
+@@ -436,12 +454,14 @@ export function autonomyState(config, records) {
+         const state = c.n < MIN_SAMPLE ? '判定不能' : b.percent === null ? '基準値未設定' : c.numerator * 100 > b.percent * c.n ? '基準値超過' : '基準値以内';
+         return { ...c, baseline: b.percent, baselineBy: b.decidedBy, baselineAt: b.recordedAt, baselineMethod: b.method, state };
+       };
++      rwAt = reworkAt;
+       rework = reworkAt(monthStart(asOf));
++      rework.postHocFull = postHocOn && rework.state === '判定不能';
+       // 決め方が measured の値は、記録した日以前に、この構成の窓に先立つ判定可能な窓があったかを確かめる(IMPL-1006。表示の偽り防止。L・停止には効かせない)
+       rework.noPriorWindow = rework.baselineMethod === 'measured' && isRealDay(rework.baselineAt) ? !priorWindowExists(config, rr, String(rework.baselineAt)) : false;
+       rework.pendingBaseline = pendingBaselineOf(config, monthStart(asOf));
+       if (rework.state === '判定不能') {
+-        stop('第2区分', 'unmeasurable', `手戻り率の窓(${rework.from}〜${rework.to})の母数が ${rework.n} 件で、最小標本数 ${MIN_SAMPLE} 件に満たない(判定不能。適用の条件の欠落として止める)。両方の窓が判定可能になった評価の日に、判定を待たずに戻る。母数が貯まらないなら観測の窓を長くする(種別 settings。緩める向きの決定者の記名と理由)`);
++        gap(`手戻り率の窓(${rework.from}〜${rework.to})の母数が ${rework.n} 件で、最小標本数 ${MIN_SAMPLE} 件に満たない(判定不能。適用の条件の欠落として止める)。両方の窓が判定可能になった評価の日に、判定を待たずに戻る。母数が貯まらないなら観測の窓を長くする(種別 settings。緩める向きの決定者の記名と理由)`);
+       } else if (rework.state === '基準値未設定') {
+         const pb = rework.pendingBaseline;
+         const pbText = pb ? `。記録済みの基準値 ${pb.percent}%(記録した日 ${pb.recordedAt})は、次の評価の日 ${pb.effectiveFrom} から効く(記録し直さなくてよい)` : '';
+@@ -457,9 +477,30 @@ export function autonomyState(config, records) {
+         }
+       }
+     }
++    // 判定不能の月の全件の事後確認(#466 O-2 (b))。評価の日 M(月初)に判定不能だった月は、その月の事後へ移した変更の全件(k >= n)を確かめる。
++    // 月が終わって猶予を過ぎてもなお足りない月があるときだけ止める。状態は持たず、記録から導く
++    let postHoc = null;
++    if (postHocOn && registeredAt && (rejAt || rwAt)) {
++      const rows = records.postHoc.months ?? [];
++      const months = [];
++      for (let m = monthStart(registeredAt); m <= monthStart(asOf); m = addMonths(m, 1)) {
++        const insufficient = (rejAt && rejAt(m).n < MIN_SAMPLE) || (rwAt && rwAt(m).state === '判定不能');
++        if (!insufficient) continue;
++        const row = rows.find((x) => x.month === m.slice(0, 7));
++        const n = row?.n ?? 0;
++        const k = row?.k ?? 0;
++        const due = addMonths(m, 1 + POST_HOC_GRACE_MONTHS);
++        months.push({ month: m.slice(0, 7), n, k, required: n, short: k < n, overdue: asOf >= due });
++      }
++      postHoc = { months, fullMonths: months.map((x) => x.month), graceMonths: POST_HOC_GRACE_MONTHS };
++      const over = months.filter((x) => x.short && x.overdue);
++      if (over.length) {
++        stop('第2区分', 'post-hoc', `判定不能の月の全件の事後確認が足りない: ${over.map((x) => `${x.month}(G-6 を事後へ移した変更 ${x.n} 件・確認 ${x.k} 件)`).join(' / ')}。確認を済ませると、判定を待たずに戻る`);
++      }
++    }
+     // 窓の長さは、履歴を読めないときも出す(rejection が null でも)
+     const windowText = asOf ? windowLengthText(observationWindowInfo(config, monthStart(asOf)), observationWindowPending(config, monthStart(asOf))) : windowLengthText({ months: WINDOW_MONTHS, longer: false });
+-    out.types.push({ id, registeredAt, level: stops.length ? 'L1' : 'L3', stops, rejection, rework, windowText, detectionFilled: detectionFilled(t?.basis), enforcementFilled: enforcementFilled(t?.basis) });
++    out.types.push({ id, registeredAt, level: stops.length ? 'L1' : 'L3', stops, rejection, rework, postHoc, windowText, detectionFilled: detectionFilled(t?.basis), enforcementFilled: enforcementFilled(t?.basis) });
+   }
+   return out;
+ }
+@@ -489,6 +530,7 @@ export function rejectionText(type) {
+   if (!r) return `判定できない(履歴を読めない)(${type.windowText})`;
+   const head = `窓 ${r.from}〜${r.to}: 変更 ${r.n} 件、差し戻し ${r.rejected} 件(${r.windowText ?? `観測の窓 ${r.months ?? WINDOW_MONTHS}か月`})`;
+   const und = `。${undeclaredText(r.undeclared)}。${approvalRateText(r)}`;
++  if (r.state === '判定不能' && r.postHocFull) return `${head}。判定不能(0% の継続は判定しない。最小標本数 ${MIN_SAMPLE} 件に満たない間は、止めずに、当月の G-6 を事後へ移した変更の全件を事後に確かめる)${und}`;
+   return r.state === '判定不能' ? `${head}。判定不能(0% の継続は判定しない。適用の条件の欠落として止める。最小標本数 ${MIN_SAMPLE} 件に満たない)${und}` : `${head}(${r.state})${und}`;
+ }
+ 
+@@ -653,7 +695,9 @@ function reworkTextBody(type) {
+   const baseline = r.baseline === null ? `基準値が未設定(適用の条件の欠落として止めている)${pend}` : `基準値 ${r.baseline}%(決定: ${r.baselineBy ?? '記録なし'}、記録した日 ${r.baselineAt ?? '記録なし'}、${methodText(r)})`;
+   const state =
+     r.state === '判定不能'
+-      ? `判定不能(適用の条件の欠落として止めている。最小標本数 ${MIN_SAMPLE} 件に満たない)。${baseline}`
++      ? r.postHocFull
++        ? `判定不能(最小標本数 ${MIN_SAMPLE} 件に満たない間は、止めずに、当月の G-6 を事後へ移した変更の全件を事後に確かめる)。${baseline}`
++        : `判定不能(適用の条件の欠落として止めている。最小標本数 ${MIN_SAMPLE} 件に満たない)。${baseline}`
+       : r.state === '基準値未設定'
+         ? baseline
+         : r.state === '基準値超過'
+diff --git a/scripts/gate/test-aggregate-records.mjs b/scripts/gate/test-aggregate-records.mjs
+index 1913bed..253b6e5 100644
+--- a/scripts/gate/test-aggregate-records.mjs
++++ b/scripts/gate/test-aggregate-records.mjs
+@@ -907,6 +907,9 @@ const config = {
+   const text = samplingMonthlyText(ng);
+   check('IMPL-0597:ok 表示は合否に数えない旨と、確かめない範囲(選び方・中身・実績の中身。内部監査)を出す', /2026-10/.test(text) && /合否にも記載の欠落にも数えません/.test(text) && /内部監査/.test(text));
+   // IMPL-0597:ng(席の責任者を引けない構成。記録があっても k=0 となり全ての月が不足に見える誤報を出さない)
++  // #466 O-2 (b): 判定不能の月(fullMonths)は、定めが月の件数 n(全件)になる。ほかの月は従来どおり
++  const fullM = samplingMonthly([...rows('2026-10', 8, 5), ...rows('2026-11', 8, 5)], { fullMonths: ['2026-10'] });
++  check('#466 O-2: 判定不能の月は全件(n)が定め。他の月は n と 5 の小さいほう', fullM.months[0].required === 8 && fullM.months[0].short === true && fullM.months[0].full === true && fullM.months[1].required === 5 && fullM.months[1].short === false && /判定不能の月のため全件/.test(samplingMonthlyText(fullM)));
+   const unres = samplingMonthly(rows('2026-10', 8, 0), { reviewerResolved: false });
+   check('IMPL-0597:ng 独立レビュアの席の責任者を引けないときは、月ごとの不足を出さず、数えていない旨を出す', unres.short.length === 0 && unres.unresolved === true && /名簿から引けず/.test(samplingMonthlyText(unres)) && samplingMonthly(rows('2026-10', 8, 0)).short.length === 1);
+   // IMPL-0597:ng
+diff --git a/scripts/gate/test-check-delegation.mjs b/scripts/gate/test-check-delegation.mjs
+index 192f8ca..4f438c8 100644
+--- a/scripts/gate/test-check-delegation.mjs
++++ b/scripts/gate/test-check-delegation.mjs
+@@ -1269,6 +1269,42 @@ check('ワークフロー: 履歴の全体を取得する(差し戻し率の窓
+   check('IMPL-0594: リスク区分が R3 なら、同じ種別の変更が委任で進む', okJudged.autonomy?.level === 'L3' && okJudged.eligible);
+ }
+ 
++// #466 O-2 (b): 判定の材料(窓の標本)が最小標本数に満たない間は、止めずに、判定不能の月の全件を事後に確かめる。
++// ADR-0158 決定1・決定2 の一部の置き換え(判定不能は、事後の全件確認の記録を渡したときに限り止めない。渡さなければ従来どおり止める)。時計は使わず、asOf を入力で与える
++{
++  const mk = (asOf, postHoc, { nChanges = 20 } = {}) => {
++    const f = base();
++    f.records.asOf = asOf;
++    f.config.delegation.changeTypes[0].registeredAt = '2026-10-05';
++    f.records.history.changes = [];
++    for (let i = 0; i < nChanges; i++) {
++      const d = new Date(Date.UTC(2026, 8, 1 + i)).toISOString().slice(0, 10);
++      f.records.history.changes.push({ ref: String(i + 1).padStart(40, '0'), date: d, pr: String(100 + i), files: ['src/i18n/ja.json'] });
++    }
++    f.records.rejections = [{ file: 'x', date: '2026-09-02', target: 'PR #101', cited: true }];
++    f.records.rework = { available: true, plan: [], trailers: f.records.history.changes.map((c, i) => ({ ref: c.ref, date: c.date, tasks: ['F-001/Task-' + (i + 1)], files: c.files })) };
++    if (postHoc) f.records.postHoc = postHoc;
++    return f;
++  };
++  const st = (f) => autonomyState(f.config, f.records).types[0];
++  const kinds = (t) => t.stops.map((s) => s.kind).join(',');
++  const none = mk('2026-10-20', null);
++  check('#466 O-2: 事後の全件確認の記録を渡さないときは、従来どおり判定不能で止める(ADR-0158)', st(none).level === 'L1' && kinds(st(none)).includes('unmeasurable'), kinds(st(none)));
++  const p1 = st(mk('2026-10-20', { available: true, months: [] }));
++  check('#466 O-2: 標本が足りない間も止めない(登録の月。全件確認の対象の月として出す)', p1.level === 'L3' && p1.stops.length === 0 && p1.postHoc.fullMonths.includes('2026-10') && p1.rejection.postHocFull === true && p1.rework.postHocFull === true, JSON.stringify(p1.stops));
++  const p2 = st(mk('2026-11-05', { available: true, months: [{ month: '2026-10', n: 6, k: 2 }] }));
++  check('#466 O-2: 月が終わって猶予の内なら、確認が足りなくても止めない(不足は出す)', p2.level === 'L3' && p2.postHoc.months.find((x) => x.month === '2026-10').short === true && p2.postHoc.months.find((x) => x.month === '2026-10').overdue === false);
++  const p3 = st(mk('2026-12-05', { available: true, months: [{ month: '2026-10', n: 6, k: 2 }] }));
++  check('#466 O-2: 猶予を過ぎて全件に届かない月がある間だけ止める', p3.level === 'L1' && kinds(p3) === 'post-hoc' && /2026-10\(G-6 を事後へ移した変更 6 件・確認 2 件\)/.test(p3.stops[0].reason), JSON.stringify(p3.stops));
++  const p4 = st(mk('2026-12-05', { available: true, months: [{ month: '2026-10', n: 6, k: 6 }] }));
++  check('#466 O-2: 全件の確認を済ませると、判定を待たずに戻る', p4.level === 'L3' && p4.stops.length === 0);
++  const full = mk('2026-10-20', { available: true, months: [] }, { nChanges: 40 });
++  full.records.history.changes = full.records.history.changes.slice(0, 40);
++  const p5 = st(full);
++  check('#466 O-2: 標本が足りている窓は、判定不能の月に数えない(従来の差し戻し率・手戻り率の判定のまま)', p5.postHoc.fullMonths.length === 0 && p5.rejection.postHocFull === false);
++  check('#466 O-2: 判定不能の表示は「止めずに事後に全件を確かめる」と出し、「止めている」と書かない', /止めずに/.test(rejectionText(p1)) && /止めずに/.test(reworkText(p1)) && !/適用の条件の欠落として止める/.test(rejectionText(p1)));
++}
++
+ console.log('');
+ if (failed) {
+   console.log(`::error::委任の経路の試験: ${failed} 件が期待と一致しません`);
