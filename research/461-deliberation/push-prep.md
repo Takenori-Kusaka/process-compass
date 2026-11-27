@@ -9,3 +9,4 @@
 - WSL の写し(`~/p1w`)は後始末する
 
 Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+- rebase の後(2026-11-27): origin/main(束 D2 の 03c1b5d9)の上へ 19 コミットを衝突なしで載せ直した。D2 の新番は SRC-0773 までで、本束の新番と重ならない。本束の変更は research/ だけのため、全量は再び流さず lint:sources・lint:citations・impl:issues を流して通過を確かめた(D2 の変更は D2 が全量で確かめ済み)
