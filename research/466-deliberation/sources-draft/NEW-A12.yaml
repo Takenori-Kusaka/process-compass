@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: NEW-A12
+status: draft
+excludeReason: null
+title: "Set up Claude Approvals"
+url: https://code.claude.com/docs/en/approvals-setup
+canonicalUrl: https://code.claude.com/docs/en/approvals-setup
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (Claude Code Docs)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: null
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "導入の手順。観察モード(判定を出すが強制しない)で始め、チェックの表示が人の判断と合ってから強制へ移す。人が要るファイルを先に決める。"
+claims:
+  - id: c1
+    text: "観察モードの結果が人の判断と合ったら強制する。"
+    quote: "Enforce the policy once the Claude Approvals check titles that you see in observe mode match what your reviewers decide."
+    locator: "Enforce your policy"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "Claude の review が通れば著者だけで足りる方針を、最初の方針の 1 つに挙げる。"
+    quote: "a pull request that passes Claude's review usually needs only its author"
+    locator: "Plan your first policy"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: contradicts-h4c4
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

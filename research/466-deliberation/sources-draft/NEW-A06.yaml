@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: NEW-A06
+status: draft
+excludeReason: null
+title: "Finding bugs across the Python ecosystem with Claude and property-based testing"
+url: https://www.anthropic.com/research/property-based-testing
+canonicalUrl: https://www.anthropic.com/research/property-based-testing
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (Research)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-01-14
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "Claude が見つけた不具合の候補を、優先度で絞り、専門家 3 人の確認を経て、報告した研究の記事。誤検出を減らすことを強く優先した。984 件の報告のうち抽出した 50 件で 56% が有効。採点の上位は 86% が有効。"
+claims:
+  - id: c1
+    text: "誤検出の低減を優先した。"
+    quote: "we strongly preferred to reduce the number of false positives"
+    locator: "Methodology(取得時の読み取り)"
+    quant: null
+    evidenceKind: research-report
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "フィルタは人手が重く、自分たちのコードには使わない水準。"
+    quote: "the filtering process is labor-intensive (取得時の要約。逐語は要再確認)"
+    locator: "Limits"
+    quant: null
+    evidenceKind: research-report
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

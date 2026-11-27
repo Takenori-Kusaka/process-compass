@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: NEW-A09
+status: draft
+excludeReason: null
+title: "Running an AI-native engineering org"
+url: https://claude.com/resources/articles/running-an-ai-native-engineering-org
+canonicalUrl: https://claude.com/resources/articles/running-an-ai-native-engineering-org
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (claude.com)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-06-03
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "Code w/ Claude SF 2026 の登壇の書き起こし。定型の指摘は Claude が担い、信頼境界・セキュリティに関わるコードはドメインの専門家を求める。リスクの段の仕組み・数値はない。逸話的。"
+claims:
+  - id: c1
+    text: "信頼境界・セキュリティのコードは専門家を求める。"
+    quote: "For trust boundaries and security-sensitive code, I want the domain experts."
+    locator: "本文"
+    quant: null
+    evidenceKind: anecdote
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "信頼と検証の釣り合いは、モデルの改善とともに見直し続ける。"
+    quote: "the right balance of trust vs. verify will keep changing as the models improve"
+    locator: "本文"
+    quant: null
+    evidenceKind: anecdote
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

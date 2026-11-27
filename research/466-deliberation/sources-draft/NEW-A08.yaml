@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: NEW-A08
+status: draft
+excludeReason: null
+title: "The AI-native SDLC playbook"
+url: https://claude.com/resources/articles/the-ai-native-sdlc-playbook
+canonicalUrl: https://claude.com/resources/articles/the-ai-native-sdlc-playbook
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (claude.com)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-08-21
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "AI ネイティブの開発工程の手引き。REVIEW.md で方針を決め、指摘を重大度で順位づけする。書いたエージェントは承認できない。ルーチンの変更は技術者が、高リスクは技術リード・アーキテクトが承認する。本番の門をエージェントは越えられない。成果の数値はない。"
+claims:
+  - id: c1
+    text: "作ったエージェントは承認できない。"
+    quote: "the agent that wrote the code cannot approve it (取得時の要約。逐語は要再確認)"
+    locator: "Code review"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "エージェントは本番の門まで行けて越えられない。"
+    quote: "the agent may act up to the production gate and cannot pass it"
+    locator: "Autonomy tiers"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c3
+    text: "指摘は単独で承認も阻止もしない。ブランチ保護が承認を要求する。"
+    quote: "Findings do not approve or block a PR on their own. (取得時の要約。逐語でない)"
+    locator: "Code review"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

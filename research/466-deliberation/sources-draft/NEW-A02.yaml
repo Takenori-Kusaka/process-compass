@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: NEW-A02
+status: draft
+excludeReason: null
+title: "Code Review plugin"
+url: https://claude.com/plugins/code-review
+canonicalUrl: https://claude.com/plugins/code-review
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (claude.com)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: null
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "Claude Code の公式プラグイン。5 つの独立した査読者が見て、0〜100 の確信度を付け、既定で 80 を超えるものだけを投稿する。承認はせずコメントのみ。偽陽性の低減を数値なしで主張する。"
+claims:
+  - id: c1
+    text: "確信度 0〜100 を付ける。"
+    quote: "0-100 confidence scale"
+    locator: "ページ本文(取得時の要約と照合)"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "既定の閾値は 80。超えるものだけ投稿。"
+    quote: "default threshold 80 (取得時の読み取り。原文の逐語は未控え)"
+    locator: "ページ本文"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: NEW-A11
+status: draft
+excludeReason: null
+title: "Claude Approvals policy file reference"
+url: https://code.claude.com/docs/en/approvals-policy
+canonicalUrl: https://code.claude.com/docs/en/approvals-policy
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (Claude Code Docs)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: null
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "方針ファイル .claude/approvals.yml の仕様。条件に PR の事実(変更行数・作成者・対象ブランチ)と分類器の答え(Code Review の pass/fail、リスクの評価)を読める。最も厳しい判定が採られる。"
+claims:
+  - id: c1
+    text: "Code Review が pass のとき、2 人を 1 人に下げ Claude が承認する例の方針。"
+    quote: "{ if: \"claude/code_review = pass\", verdict: { claude: approves, seats: 1 } }"
+    locator: "override の例"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: contradicts-h4c4
+  - id: c2
+    text: "全規則のうち最も厳しい判定を採る。"
+    quote: "Approvals takes the strictest of the verdicts that apply"
+    locator: "How rules combine into one verdict"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c3
+    text: "分類器の答えが無いとき、規則自身の(厳しい)判定が残る。"
+    quote: "The run ended with no answer: reading stops at that override, and the rule's own verdict applies. Put the strict verdict on the rule for this reason."
+    locator: "override"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

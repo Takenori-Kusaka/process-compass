@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: NEW-A04
+status: draft
+excludeReason: null
+title: "How Anthropic secures its AI-native software development lifecycle"
+url: https://claude.com/resources/articles/how-anthropic-secures-its-ai-native-software-development-lifecycle
+canonicalUrl: https://claude.com/resources/articles/how-anthropic-secures-its-ai-native-software-development-lifecycle
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (claude.com)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-07-21
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "Anthropic の副 CISO による解説。自動のエージェントのレビューと決定論的なレビューを重ね、人のレビューは規制のかかるコード・本当に重要なコードに残す。新しいエージェントは信頼を得るまで人の承認用のコメントを投稿する。数値の大半は自己報告で方法の記載が薄い。"
+claims:
+  - id: c1
+    text: "人のレビューを残す範囲。"
+    quote: "reserves human review for regulated or truly critical code"
+    locator: "本文(取得時の要約と照合。原文の逐語は要再確認)"
+    quant: null
+    evidenceKind: vendor-selfreport
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "新しいエージェントは信頼を得るまで人の承認用のコメントを出す。"
+    quote: "New agents post comments for human approval until trust is earned."
+    locator: "本文(同上)"
+    quant: null
+    evidenceKind: vendor-selfreport
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c3
+    text: "人は最終の承認の責任を持ち、自動承認の一部を抽出して見る。"
+    quote: "Humans retain final approval accountability, review a risk-weighted sample of automated approvals (取得時の要約。逐語でない)"
+    locator: "本文"
+    quant: null
+    evidenceKind: vendor-selfreport
+    rqs: []
+    issues: []
+    stance: mixed
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

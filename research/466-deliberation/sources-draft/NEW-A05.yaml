@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: NEW-A05
+status: draft
+excludeReason: null
+title: "Building multi-agent systems: when and how to use them"
+url: https://claude.com/blog/building-multi-agent-systems-when-and-how-to-use-them
+canonicalUrl: https://claude.com/blog/building-multi-agent-systems-when-and-how-to-use-them
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (claude.com blog)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-01-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "検証専用の下位エージェントの型を述べる。網羅の検証を明示して求めないと、検証エージェントは近道をして通過とする、と注意する。"
+claims:
+  - id: c1
+    text: "検証エージェントの近道。"
+    quote: "Without explicit requirements for comprehensive validation, verification agents take shortcuts."
+    locator: "Verification subagent"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "多エージェントは単一より 3〜10 倍のトークンを使う(Anthropic の試験)。"
+    quote: "3-10x more tokens (取得時の要約。逐語は要再確認)"
+    locator: "数値"
+    quant: null
+    evidenceKind: vendor-selfreport
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

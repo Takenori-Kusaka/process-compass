@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: NEW-A10
+status: draft
+excludeReason: null
+title: "Claude Approvals"
+url: https://code.claude.com/docs/en/approvals
+canonicalUrl: https://code.claude.com/docs/en/approvals
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (Claude Code Docs)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: null
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "GitHub の PR で、あと誰が承認する必要があるかを示すチェック。方針ファイルで、パスごとに要る人数と、Claude が承認してよい範囲を決める。公開ベータ。"
+claims:
+  - id: c1
+    text: "リスクの高い変更に多く、定型の変更に少なく人を求める。例は Code Review の通過で 1 人。"
+    quote: "test fixtures can need one person once Code Review passes"
+    locator: "冒頭の例"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: contradicts-h4c4
+  - id: c2
+    text: "著者以外の人が見ずに併合できる場合を列挙して警告する。"
+    quote: "A pull request can merge when nobody but its author has looked at it."
+    locator: "Merges without human review"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

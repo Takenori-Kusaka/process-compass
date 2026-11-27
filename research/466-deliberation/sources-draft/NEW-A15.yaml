@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: NEW-A15
+status: draft
+excludeReason: null
+title: "Read and request reviews on a pull request"
+url: https://code.claude.com/docs/en/code-review-pull-requests
+canonicalUrl: https://code.claude.com/docs/en/code-review-pull-requests
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (Claude Code Docs)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: null
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "指摘の重大度(Important・Nit・Pre-existing)と、チェックの出力。チェックは失敗で終わらない(neutral)。指摘の解消は、スレッドを閉じるか修正を push する。"
+claims:
+  - id: c1
+    text: "重大度の定義。Important は併合前に直すべき不具合。"
+    quote: "A bug that should be fixed before merging"
+    locator: "Severity levels"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "チェックは失敗にならず、必須のチェックを落とさない。"
+    quote: "It never concludes as a failure, so a finished review doesn't fail a required check."
+    locator: "Check run output"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: NEW-A13
+status: draft
+excludeReason: null
+title: "Claude Approvals classifiers"
+url: https://code.claude.com/docs/en/approvals-classifiers
+canonicalUrl: https://code.claude.com/docs/en/approvals-classifiers
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (Claude Code Docs)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: null
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "方針の条件が読む分類器。claude/code_review は未解決の重要指摘が無ければ pass。利用者が repo/change_risk のようなリスクの評価を定義できる。PR の本文が分類器の答えを動かしうると明記する。"
+claims:
+  - id: c1
+    text: "pass の定義。"
+    quote: "A review finished with no Important finding open"
+    locator: "claude/code_review"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: mixed
+  - id: c2
+    text: "PR の著者の文が、分類器の答えを誘導しうる。重要なパスは分類器を読まない規則で人を求めよ。"
+    quote: "A run reads text that the pull request's author wrote, and that text can try to steer the classifier's answer."
+    locator: "What a classifier run can read"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c3
+    text: "リスクの評価が low のとき 2 人を 1 人に下げる例。"
+    quote: "Two people. One is enough when the risk is low."
+    locator: "Read a classifier's answer"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: contradicts-h4c4
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

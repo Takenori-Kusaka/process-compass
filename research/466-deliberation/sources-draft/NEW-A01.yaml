@@ -1,0 +1,68 @@
+schemaVersion: 0
+id: NEW-A01
+status: draft
+excludeReason: null
+title: "Code Review (Claude Code Docs)"
+url: https://code.claude.com/docs/en/code-review
+canonicalUrl: https://code.claude.com/docs/en/code-review
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (Claude Code Docs)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: null
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "Claude Code の Code Review の公式ドキュメント。複数エージェントが探し、検証で誤検出を落とし、重複を除いて重大度で順位づけし、単体では承認も阻止もしない。結果は Claude Approvals の方針から参照できる。"
+claims:
+  - id: c1
+    text: "Code Review の 4 段(探す・検証・順位づけ・投稿)を述べる。"
+    quote: "A verification step checks the candidate findings against the code and filters out false positives."
+    locator: "How reviews work"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "単体では承認も阻止もしない。結果は Claude Approvals が使える。"
+    quote: "By itself, a review doesn't approve or block the pull request. Its result counts toward approvals in a repository whose Claude Approvals policy file uses it."
+    locator: "冒頭"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: mixed
+  - id: c3
+    text: "AI のレビューが見逃しうると明記する。"
+    quote: "A review with no findings doesn't mean your code is error-free or secure."
+    locator: "NOTE"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

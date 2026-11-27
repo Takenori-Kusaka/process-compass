@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: NEW-A07
+status: draft
+excludeReason: null
+title: "Building effective agents"
+url: https://www.anthropic.com/research/building-effective-agents
+canonicalUrl: https://www.anthropic.com/research/building-effective-agents
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (Research)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2024-12-19
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "エージェントの設計の原典。自動のテストが通っても、解がより広いシステムの要求に合うかは人のレビューが要ると述べる。人の確認の節目と停止条件を勧める。"
+claims:
+  - id: c1
+    text: "テストが通っても人のレビューが要る。"
+    quote: "human review remains crucial for ensuring solutions align with broader system requirements"
+    locator: "Appendix 1"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

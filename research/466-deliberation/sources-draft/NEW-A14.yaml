@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: NEW-A14
+status: draft
+excludeReason: null
+title: "Claude Approvals and your GitHub rules"
+url: https://code.claude.com/docs/en/approvals-github-rules
+canonicalUrl: https://code.claude.com/docs/en/approvals-github-rules
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (Claude Code Docs)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: null
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: full
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "GitHub の規則との関係。分類器の答えに依る条件は、PR の文で動かされうるので、著者以外の人 1 人を全パスで求める規則を勧める。"
+claims:
+  - id: c1
+    text: "分類器の答えを読む規則は、PR の文に誘導されうる。"
+    quote: "a steered answer can lower what the pull request needs"
+    locator: "Classifier answers that a pull request can steer"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "著者以外の人を、分類器を読まない規則で求める例を示す。"
+    quote: "A change takes one person who isn't an author."
+    locator: "Ask for a person who isn't an author"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02

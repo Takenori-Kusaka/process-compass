@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: NEW-A03
+status: draft
+excludeReason: null
+title: "How the Claude Code team does code review(ウェビナー)"
+url: https://claude.com/resources/webinars/how-the-claude-code-team-does-code-review
+canonicalUrl: https://claude.com/resources/webinars/how-the-claude-code-team-does-code-review
+ids:
+  arxiv: null
+  doi: null
+publisher: "Anthropic (claude.com)"
+authors: []
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: null
+version: null
+updated: null
+accessed: 2026-11-27
+access: open
+readLevel: abstract
+foundBy:
+  cluster: TH06
+  query: "Anthropic の公開実務: AI レビューの絞り込みと人の承認(#466 外部の調査 追加)"
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: [TH06]
+events: []
+summary: "ウェビナー(登録して視聴する形式)の紹介ページ。本文は動画で、取得できたのは概要の 2 文だけ。人の承認をリスクの段で変える旨の題目はあるが、段の中身は書かれていない。"
+claims:
+  - id: c1
+    text: "人の承認を、作成者でなく変更で決めた段で調整する、という題目。"
+    quote: "How to scale human approval by risk, with tiers set by the change rather than the author."
+    locator: "概要"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+  - id: c2
+    text: "PR の前に、Claude が走らせる検査と新しい文脈での差分のレビューで確かめる、という題目。"
+    quote: "How to verify work before a pull request exists, with checks Claude can run and a fresh-context review of the diff."
+    locator: "概要"
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: []
+    stance: supports
+verification:
+  status: unverified
+  method: [manual-webfetch]
+  date: 2026-11-27
+  humanChecked: false
+  note: "WebFetch の要約を介して読んだ。引用に「取得時の要約」「逐語は要再確認」と付けたものは、原文との照合が済んでいない。stance の contradicts-h4c4 は暫定の語で、台帳の語彙へ付け替える。"
+volatility: high
+reviewBy: 2027-02
