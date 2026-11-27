@@ -161,7 +161,7 @@ targets:
     kind: template-file
     path: .claude/skills/process-change/SKILL.md
     checker: verify-gate-contract
-    description: 変化点の種別を入力に取り、構成の差分・失効と発生の一覧・残作業を出力する手順(ADR-0055 決定8)
+    description: 変化点の種別を入力に取り、構成の差分・失効と発生の一覧・残作業を出力する手順(ADR-0055 決定8)。責任者の入力は人ごとの席の列挙でも書ける(accountable の seatsByPerson)。D-0 の「従う本標準の版」は生成区間(d0-edition)で、「層1 の版」は人が書く(#467)
 
   - id: evidence-aggregation
     name: 出荷判定の証跡の集約(保証の開示)
@@ -304,7 +304,7 @@ targets:
     name: PR の本文の様式
     kind: template-file
     path: .github/PULL_REQUEST_TEMPLATE.md
-    description: PR の本文の節(変更の概要・作成を指示した者・リスク区分・規模の確認・統制の設定の陰性の確認・トレーラ)。G-5 の PR 単位の検査(check-pr.mjs)が節を読む
+    description: PR の本文の節(変更の概要・AI 関与範囲・作成を指示した者・リスク区分・規模の確認・統制の設定の陰性の確認・トレーラ)。G-5 の PR 単位の検査(check-pr.mjs)が節を読む。「AI 関与範囲」はトレーラが正本で、欄への導出は未実装(IMPL-1061)。自己チェックの項目(テスト・外部インタフェース・再発明・閾値)は様式に置かず、観点は /implement の手順3 へ置いた(#467)
 
   - id: gate-contract
     name: 契約検査と、G-5 の集約が合否に使う検査の読み方

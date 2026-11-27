@@ -24,7 +24,7 @@ sidebar:
 | 3 | 調整後の構成で、当該ゲートの目的が達成されることを示す |
 | 4 | **従う本標準の版を宣言する**(第N版と発行日。発行した版が無い間は「作業中の版(未発行)」と書く。[第1章 1.10.3](/process-compass/phase4-process-design/overview/))。本章で加える規格(業種固有の規格など)は、発行年を付けて宣言する |
 
-<!-- impl IMPL-0310 target=d0-template state=delivered check=presence note="従う本標準の版の欄を D-0 体制図の冒頭に置く。構成の standard.edition と一致させる旨を書く。欄の存在は check-template-fields が確かめる。採用者の D-0 で欄が無い・空欄であることは /pit が注記する(IMPL-0311)。欄の値と構成の standard.edition の一致と、宣言に加える規格の発行年は、機械で確かめない(#313)(単位: 欄)" -->
+<!-- impl IMPL-0310 target=d0-template state=delivered check=presence note="従う本標準の版の欄を D-0 体制図の冒頭に置く。構成の standard.edition と一致させる旨を書く。欄の存在は check-template-fields が確かめる。採用者の D-0 で欄が無い・空欄であることは /pit が注記する(IMPL-0311)。欄の値と構成の standard.edition の一致と、宣言に加える規格の発行年は、機械で確かめない(#313)。準拠テンプレートは、この欄を構成から生成する区間にした(#467)。生成区間の値と構成の食い違いは check-d0 が問題にする(単位: 欄)" -->
 
 版を切り替えるときは、新しい版で要求事項1〜4 を満たし直します。版の切り替えは適用の開始を動かしません(第1章 1.10.1)。
 
