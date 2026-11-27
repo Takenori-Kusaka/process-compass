@@ -39,7 +39,8 @@ const s2b = change({ kind: 'accountable', date: DAY, summary: '2人目が加わ�
 check('1人 → 2人で席だけを書くと、回答と名簿の矛盾として拒否し、回答を改める案内を出す', !s2b.ok && s2b.out.includes('回答を reviewer-yes へ改めます'), s2b.out);
 const s2c = change({ kind: 'accountable', date: DAY, summary: '2人目が加わり、相互の確認で独立レビューを置く', answers: { 'q-external-reviewer': 'reviewer-yes' }, people: two, seats: { 'independent-reviewer': { accountable: '佐藤 花子' }, 'ai-ops': { accountable: '佐藤 花子' } }, decidedBy: '山田 太郎', reason: '佐藤を独立レビュアに任命' });
 accepted('1人 → 2人(相互の確認で G-6 が成立。任命は決定者の記名)', s2c, '未達の解消');
-check('G-6 が成立し、ブランチ保護が付く', cfg().gates.g6.state === 'required' && cfg().ruleset === 'team' && cfg().review.requiredApprovals === 1);
+// 価値確立(S1)・CL0・標準の品質では、ブランチ保護の必須の承認数は 0 で、承認はコア機能に触れる PR にだけ基底の判定が掛ける(ADR-0274 決定3。旧: team・承認 1)
+check('G-6 が成立し、ブランチ保護が付く', cfg().gates.g6.state === 'required' && cfg().ruleset === 'team-core' && cfg().review.requiredApprovals === 0, JSON.stringify({ ruleset: cfg().ruleset, approvals: cfg().review.requiredApprovals }));
 check('全検査(2名)', allChecks(), why());
 commit('chore: two');
 git('tag', 'two');
