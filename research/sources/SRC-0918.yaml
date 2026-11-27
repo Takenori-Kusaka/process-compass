@@ -45,6 +45,6 @@ claims:
     rqs: []
     issues: [461]
     stance: context
-verification: {status: partial, method: [owner-ebook-read], date: 2026-11-27, humanChecked: false, note: '指揮役が Google Play の Web のリーダーで読んだ抜き書き(tmp/books/461/B4-B6-notes.md)に依る。本文は転載しない。書誌のカードは無い'}
+verification: {status: partial, method: [owner-ebook-read], date: 2026-11-27, humanChecked: false, note: '指揮役が Google Play の Web のリーダーで読んだ抜き書き(tmp/books/461/B4-B6-notes.md)に依る。quote は抜き書きの要旨の語で、紙面との逐語照合は未了。本文は転載しない。書誌のカードは無い'}
 volatility: slow
 reviewBy: 2028-11
