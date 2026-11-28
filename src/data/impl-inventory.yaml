@@ -3323,10 +3323,24 @@ sections:
       - IMPL-1050
       - IMPL-1051
       - IMPL-1052
+      - IMPL-1078
+      - IMPL-1079
+      - IMPL-1080
+      - IMPL-1081
+      - IMPL-1082
+      - IMPL-1083
     location:
       - phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.3 リスク区分による上限
-    note: 人へ戻す場合と経路は IMPL-0024、取り消せない操作の定義は IMPL-0251、推定による注意の不在を根拠にしないことは IMPL-0398(#401)。作業上の選択の理由の記録は IMPL-1050〜1052(#457。いずれも undelivered)。席と責任者の宣言は 5.5.3 の IMPL-0025(config-seats)で追う
+    note: 人へ戻す場合と経路は IMPL-0024、取り消せない操作の定義は IMPL-0251、推定による注意の不在を根拠にしないことは IMPL-0398(#401)。作業上の選択の理由の記録は IMPL-1050〜1052(#457。いずれも delivered)。仕様に無い事項の決め方(段の順)は IMPL-1078・1079、記録された選択を読む対象から外す規則は IMPL-1080〜1083(#470)。席と責任者の宣言は 5.5.3 の IMPL-0025(config-seats)で追う
     issue: 294
+  - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.1 席・責任者・担い手 > 決め事を先に人へ上げる範囲
+    status: marked
+    ids:
+      - IMPL-1084
+      - IMPL-1085
+      - IMPL-1086
+    note: 安全重要度 CL1 以上・規制業の案件と R1 の変更で、決め事を先に人へ上げる範囲(#470)。常駐の指示は IMPL-1084、実装のスキルは IMPL-1085、分解のスキルは IMPL-1086
+    issue: 470
   - key: phase4-process-design/human-ai-boundary#5.5 判断の席と、確定の担い手 > 5.5.2 運用形態
     status: none
     category: elsewhere
