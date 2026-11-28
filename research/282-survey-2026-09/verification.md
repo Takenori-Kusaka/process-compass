@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-26): verified 657 / partial 108 / unverified 1
+集計(生成日 2026-11-28): verified 665 / partial 148 / unverified 1 / needs-agent 6 / unreachable 1
 
 ### 要確認(verified 以外)
 
@@ -131,12 +131,60 @@
 | SRC-0765 | partial | webfetch | 議長が2026-11-17 に文書で確認した。引用は変数名のみ。 | [Environment variables(Claude Code 環境変数の参照)](https://code.claude.com/docs/en/env-vars) |
 | SRC-0766 | partial | webfetch | 束 B22 調査C が OSCAL カタログの原文で該当の制御を確認した。議長は原文を再取得していない。 | [NIST SP 800-53 Rev.5 セキュリティ・プライバシー管理策(OSCAL 版カタログ v5.2.0)IA-2・IA-2(5)](https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/json/NIST_SP-800-53_rev5_catalog.json) |
 | SRC-0767 | partial | webfetch | 束 B22 調査C が NHI9 の頁を原典で確認した。議長は再取得していない。NHI5・NHI7・NHI8 は二次の要約までで登録しない。 | [OWASP Non-Human Identities Top 10 (2025) NHI9: NHI Reuse](https://owasp.github.io/www-project-non-human-identities-top-10/2025/9-nhi-reuse) |
-| SRC-0773 | partial | curl | 束 D2 担当が公開サンプル PDF の目次の検索断片で見出しを確かめた。本文は読んでいない。対象の範囲(重要な判断に限ること)は二次資料に依る。 | [ISO/IEC/IEEE 42010:2022 Software, systems and enterprise: Architecture description(目次)](https://cdn.standards.iteh.ai/samples/74393/fc7b7f103d8446a4b87a3261e31370d3/ISO-IEC-IEEE-42010-2022.pdf) |
+| SRC-0773 | partial | curl | 束 D2 担当が公開サンプル PDF の目次の検索断片で見出しを確かめた。本文は読んでいない。readLevel は語彙に目次の水準が無いため secondary とした(実際は一次の目次)。範囲は題目と目次からの読みに止める。 | [ISO/IEC/IEEE 42010:2022 Software, systems and enterprise: Architecture description(目次)](https://cdn.standards.iteh.ai/samples/74393/fc7b7f103d8446a4b87a3261e31370d3/ISO-IEC-IEEE-42010-2022.pdf) |
+| SRC-0903 | needs-agent | webfetch | WebFetch の要約器が返した引用で、5.3 d) は抜けていた。規格本文(有償)は未読。5.3 の全文は有償規格か JIS Q 9001:2015 で確かめる必要がある。根拠としては二次情報。 | [ISO 9001:2015 Clause 5.3 Organizational roles, responsibilities, and authorities](https://blog.auditortrainingonline.com/blog/explaining-iso-90012015-clause-5.3) |
+| SRC-0904 | needs-agent | webfetch | WebFetch の要約器が返した引用。ページ本文との一字一句の一致は未確認。日本の企業で管理責任者を置き続ける割合の調査は、探したが見つからなかった。 | [品質管理責任者(QMR)の仕事は何か(DQS Japan ナレッジセンター)](https://www.dqsglobal.com/ja/topics/dqs-knowledge-center/what-is-the-job-of-a-quality-management-representative) |
+| SRC-0905 | needs-agent | webfetch | WebFetch の要約器が返した引用。ページは 27 万字で、先頭 10 万字だけを読んだ。8.6 の本文は読んだ範囲に無かった。 | [ISO 9001:2015 guidance(TÜV SÜD のスライド資料。SlideShare 掲載)](https://www.slideshare.net/slideshow/tuvsudiso90012015guidancepdf/253023881) |
+| SRC-0906 | needs-agent | webfetch | WebFetch の要約器が返した引用。ベンダー(自社製品の販売目的)の二次情報で、独立出典の数には数えない。 | [ISO 9001 Clause 5.3 Organizational Roles, Responsibilities and Authorities(ISMS.online)](https://www.isms.online/iso-9001/clause-5-3-organizational-roles-responsibilities-and-authorities/) |
+| SRC-0907 | needs-agent | webfetch | WebFetch の要約器が返した 1 文。講習会の案内ページであり、規格の用語編(JSQC-Std 01-001:2023)の本文ではない。用語編の PDF(https://jsqc.org/wp/wp-content/uploads/2023/10/JSQC-Std-00-001_yougo.pdf)は取得したが、本調査では読んでいない。 | [JSQC規格「プロセス保証の指針」講習会 ―品質はプロセスで作りこむ―](https://jsqc.org/std21-001_2023/) |
+| SRC-0908 | needs-agent | webfetch | WebFetch の要約器が返した引用。ガイド本体(PDF)は未読で、品質説明の具体的な手順・チェック項目は未確認。 | [つながる世界のソフトウェア品質ガイド あたらしい価値提供のための品質モデル活用のすすめ(IPA 公開ページ)](https://www.ipa.go.jp/publish/tn20150529.html) |
+| SRC-0909 | partial | webfetch | 書誌と章題だけを確認した。本文は未読。発行・ISBN・ページ数は NDL の記録による。 | [ソフトウェア品質保証の基本 : 時代の変化に対応する品質保証のあり方・考え方](https://ndlsearch.ndl.go.jp/en/books/R100000002-I029280402) |
+| SRC-0910 | partial | webfetch | 書誌のみを確認した。目次・本文は未読。SQuBOK の組織レベルの品質マネジメントの記述は、V3 の本文で確かめる必要がある。 | [ソフトウェア品質知識体系ガイド : SQuBOK Guide V3(第3版)](https://ndlsearch.ndl.go.jp/en/books/R100000002-I030738995) |
+| SRC-0911 | partial | webfetch | 書誌と章題の一部だけを確認した。本文は未読。 | [ソフトウェア品質判定メソッド : 計画・各工程・出荷時の審査と分析評価技法](https://ndlsearch.ndl.go.jp/en/books/R100000002-I029873475) |
+| SRC-0913 | partial | owner-pdf-read | 所有者が購入した PDF の該当の節を読んだ。本文は転載しない。読んだのは 2.2〜2.6、20.6、36.1〜36.6 の一部。 | [ソフトウェアテスト徹底指南書 : 開発の高品質と高スピードを両立させる実践アプローチ](https://gihyo.jp/dp/ebook/2025/978-4-297-14910-9) |
+| SRC-0914 | partial | owner-pdf-read | 所有者が購入した PDF の該当の節を読んだ。本文は転載しない。読んだのは 7.2.2 と 7.2.3 の一部。 | [QAエンジニア入門 : チームで品質を高める連携のしかた](https://gihyo.jp/dp/ebook/2026/978-4-297-15833-0) |
+| SRC-0915 | partial | owner-pdf-read | 所有者が購入した PDF の該当の節を読んだ。本文は転載しない。読んだのは 2.6 の冒頭と 7.3.1〜7.3.3。 | [生成AIアプリケーション評価入門](https://gihyo.jp/dp/ebook/2026/978-4-297-15615-2) |
+| SRC-0916 | partial | owner-ebook-read | 指揮役が Google Play の Web のリーダーで読んだ抜き書き(tmp/books/461/B1-notes.md)に依る。本文は転載しない。書誌は SRC-0980。SRC-0917 と同じ日科技連の系統の可能性があり、独立の2出典に数えない(未確認) | [ソフトウェア品質保証の極意 経験者が語る、組織を強く進化させる勘所](https://www.ohmsha.co.jp/book/9784274232305/) |
+| SRC-0917 | partial | owner-ebook-read | 指揮役が Google Play の Web のリーダーで読んだ抜き書き(tmp/books/461/B4-B6-notes.md)に依る。quote は抜き書きの要旨の語で、紙面との逐語照合は未了。本文は転載しない。書誌のカードは SRC-0910。2.8 は未読 | [ソフトウェア品質知識体系ガイド : SQuBOK Guide V3(第3版)](https://ndlsearch.ndl.go.jp/en/books/R100000002-I030738995) |
+| SRC-0918 | partial | owner-ebook-read | 指揮役が Google Play の Web のリーダーで読んだ抜き書き(tmp/books/461/B4-B6-notes.md)に依る。quote は抜き書きの要旨の語で、紙面との逐語照合は未了。本文は転載しない。書誌のカードは無い | [LeanとDevOpsの科学 Accelerate ](https://ndlsearch.ndl.go.jp/search?cs=bib&keyword=9784295004905) |
+| SRC-0930 | partial | webfetch | 引用は WebFetch の要約モデルが e-Gov の API 応答から取り出したもの。条文の全文との逐語照合は未了。第72条第2項以降(業務の内容)は引用していない。 | [医療機器及び体外診断用医薬品の製造管理及び品質管理の基準に関する省令(平成16年厚生労働省令第169号)](https://laws.e-gov.go.jp/law/416M60000100169) |
+| SRC-0931 | partial | webfetch | 引用は WebFetch の要約モデルの抽出。逐語照合は未了。連邦官報の最終規則(2024-01709)は 302 でブロックされ未読。 | [Quality Management System Regulation (QMSR)](https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-management-system-regulation-qmsr) |
+| SRC-0932 | partial | webfetch | 告示の本文のみ。ガイダンス本体(fda.gov の PDF)は 404 で取得できず未読。 | [Marketing Submission Recommendations for a Predetermined Change Control Plan for Artificia](https://www.govinfo.gov/content/pkg/FR-2024-12-04/html/2024-28361.htm) |
+| SRC-0933 | partial | webfetch | 引用は要約モデルの抽出で、125 文字以内に切ってある。節番号は抽出時の記述。逐語照合は未了。 | [Regulation (EU) 2021/388 - UN Regulation No 156 (software update and software update manag](https://eur-lex.europa.eu/eli/reg/2021/388/oj) |
+| SRC-0934 | partial | webfetch | 要約モデルの抽出。PAM の原文との照合は未了。UL の解釈であり PAM の条項そのものではない。 | [Automotive SPICE Quality Assurance (SUP.1)](https://www.ul.com/sis/resources/automotive-spice-quality-assurance-sup-1) |
+| SRC-0935 | partial | webfetch | 要約モデルの抽出。引用が指す対象(どの条項が延期か)は抽出時の文脈で、頁での逐語確認は未了。 | [AI Act (European Commission, Shaping Europe's digital future)](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) |
+| SRC-0936 | partial | webfetch | 頁のみ。PDF の本文(aidp.pdf、aidp_version1.1.pdf)は WebFetch が圧縮ストリームを読めず、Read は pdftoppm が無く不可。追加調査が必要。 | [金融機関等におけるAIの活用実態と健全な利活用の促進に向けた初期的な論点整理(AIディスカッションペーパー)公表頁](https://www.fsa.go.jp/news/r6/sonota/20250304/aidp.html) |
+| SRC-0937 | partial | webfetch | 二次の解説。FISC の公式の公表(fisc.or.jp)で版と日付を確認していない。 | [FISC安全対策基準 第14版の解説(一創のコラム)](https://www.issoh.co.jp/column/details/17146/) |
+| SRC-0938 | partial | webfetch | 二次の解説。ISO/IEC 27002:2022 8.32 の原文は有償で未読。 | [ISO 27001 control A.8.32 Change management (Advisera)](https://advisera.com/iso27001/control-8-32-change-management/) |
+| SRC-0939 | partial | webfetch | 頁の文字化けを要約モデルが復元した旨の注記あり。数値の元記事での照合が未了。調査主体は QA 受託の事業者(自己申告・利害あり)。 | [低品質ソフトウェアは売上減、機会・工数損失に直結 約6割が実感:手戻りをどう防ぐか(ラクスパートナーズ調査)](https://atmarkit.itmedia.co.jp/ait/spv/2605/27/news058.html) |
+| SRC-0940 | partial | webfetch | 要約モデルの抽出。運営者の属性は未確認。 | [リリース判定(atsoho ブログ)](https://atsoho.com/blog/release-decision) |
+| SRC-0941 | partial | webfetch | 二次。IIA の 2020 年版の原典に置き換えるべき。 | [Three lines of defence (Wikipedia)](https://en.wikipedia.org/wiki/Three_lines_of_defence) |
+| SRC-0962 | unreachable | webfetch,websearch | 本文を取得できていない。quote は検索結果の抜粋で、原文との照合は未実施。次の担当は Read でライブラリ版の PDF(3.3 MB)を開くこと。 | [ソフトウェア品質シンポジウム 2024 B1-3 発表資料(スクラムにおける品質保証部門の関与。DXイノベーションセンター 開発・品質管理部 湯川 純・細谷 泰夫)](https://juse.jp/sqip/symposium/2024/timetable/files/B1-3_happyou.pdf) |
+| SRC-0963 | partial | webfetch | WebFetch の要約モデルの抜粋と検索結果の抜粋に基づく。ページに文字化けがあり、筆者名は確認できていない。引用の機械照合は未実施。 | [製造業のアジャイル開発導入における6つのポイント【1】ユーザーが喜ぶものを作る(製造業のためのアジャイル開発入門(2))](https://monoist.itmedia.co.jp/mn/articles/2302/16/news016_2.html) |
+| SRC-0964 | partial | webfetch,websearch | c1 は WebFetch の要約モデルの抜粋。c2 の quote は検索結果の抜粋の一部で、記事の文字化けにより原文照合ができていない。報告書本体を読んで固めること。 | [2019年も検査不正は続くのか――モノづくりのプライドを調査報告書から学べ(MONOist 2019年展望)](https://monoist.itmedia.co.jp/mn/articles/1901/11/news044_3.html) |
+| SRC-0965 | partial | webfetch | WebFetch の要約モデルの抜粋。引用の機械照合は未実施。 | [アジャイル開発における品質管理(NTTデータ DATA INSIGHT 技術トレンド/展望)](https://www.nttdata.com/jp/ja/data-insight/2020/102201/) |
+| SRC-0966 | partial | webfetch | WebFetch の要約モデルの抜粋で、quote は短い語句だけ。原文の文脈を確かめていない。自社採用記事で selfReported。 | [フェンリル 品質保証部長へのインタビュー(Wantedly 掲載)](https://www.wantedly.com/companies/fenrir/post_articles/1082571) |
+| SRC-0967 | partial | webfetch | WebFetch の要約モデルの抜粋。引用は語句単位で、原文の語順を確かめていない。報告先の記載は無かった。求人は削除されうる。 | [品質保証部門 部長職(サプリメント)求人 37442-1(リクルートダイレクトスカウト)](https://directscout.recruit.co.jp/job_descriptions/5924862) |
+| SRC-0968 | partial | webfetch | WebFetch の要約モデルの抜粋。引用の機械照合は未実施。報告先は記載なし。求人は削除されうる。 | [【新設部署】社内システム開発の品質管理をリードする部長候補(株式会社電通コーポレートワン)](https://hrmos.co/pages/dc1/jobs/10000012) |
+| SRC-0969 | partial | webfetch | WebFetch の要約モデルの抜粋で、quote は語句単位。主任クラスの求人で、部長の職務記述書ではない。募集終了後のため再確認できない可能性が高い。 | [産業分野向けITシステム開発プロジェクトの品質保証(大手総合電機会社)求人(コトラ。主任クラス、募集終了)](https://www.kotora.jp/job/detail.php?jid=1550609) |
+| SRC-0970 | partial | webfetch | WebFetch の要約モデルの抜粋。引用の機械照合は未実施。掲載は 2026-01-09 に削除済みの表示。 | [Director, Quality Assurance(KEV Group、Toronto。Built In 掲載)](https://builtin.com/job/director-quality-assurance/6928234) |
+| SRC-0971 | partial | webfetch | WebFetch の要約モデルの抜粋。報告先・KPI・承認権限が書かれていないという否定の確認は、ページ全体を読んだ要約モデルの報告による。 | [Quality Assurance Director(Powerley)求人](https://powerley.com/qadirector) |
+| SRC-0972 | partial | webfetch | WebFetch の要約モデルの抜粋。報告書本体は未読。発行日はページに無く、2025-09 は InfoQ の記事日付(2025-09-29)から推定した。 | [Download the 2025 DORA Report(State of AI-assisted Software Development)](https://dora.dev/dora-report-2025/) |
+| SRC-0973 | partial | webfetch | WebFetch の要約モデルの抜粋。報告書本体との照合は未実施。数値 3% と 59% の母集団・設問は未確認。 | [DORA Report Finds AI Is an Amplifier in Software Development, But Trust Remains Low(InfoQ)](https://www.infoq.com/news/2025/09/dora-state-of-ai-in-dev-2025) |
+| SRC-0974 | partial | webfetch | WebFetch の要約モデルが返した抜粋で、スライド番号と原文を機械照合していない。所属は検索結果の要約による。講演者個人の見解で、QA4AI の公式見解ではない。 | [QA4AI 2026-Oct 生成AI時代の品質保証(SQiP 研究会 特別講義資料、徳 隆宏。Speaker Deck)](https://speakerdeck.com/tokuty/qa4ai-2026-oct-seisei-ai-jidai-no-hinshitsu-hoshou) |
+| SRC-0975 | partial | webfetch | WebFetch の要約モデルの抜粋。ガイドライン本体は社内向けで未読。自社報告。 | [ベリサーブ、社内向け「生成AIの品質保証サービス」ガイドライン(QA4AI/QA4AIDD プロセスガイドライン)を策定(プレスリリース)](https://www.excite.co.jp/news/article/Prtimes_2026-05-24-48768-100/) |
+| SRC-0976 | partial | webfetch | WebFetch の要約モデルの抜粋。引用の機械照合は未実施。社内検証の正解率 約 60% は要約モデルの報告だけで、quote を取っていないため主張に採らなかった。 | [生成AI時代の品質保証(NTTデータ DATA INSIGHT 技術トレンド/展望、町田 欣史・伊東 武史)](https://www.nttdata.com/jp/ja/trends/data-insight/2025/1016) |
+| SRC-0977 | partial | webfetch | WebFetch の要約モデルの抜粋。引用の機械照合は未実施。編集部名義で、実証の根拠は示されていない。 | [AI時代のQAは何が変わったのか：品質保証の再定義と設計思想(CIO 日本版)](https://www.cio.com/article/4138542/ai%E6%99%82%E4%BB%A3%E3%81%AEqa%E3%81%AF%E4%BD%95%E3%81%8C%E5%A4%89%E3%82%8F%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%8B%EF%BC%9A%E5%93%81%E8%B3%AA%E4%BF%9D%E8%A8%BC%E3%81%AE%E5%86%8D%E5%AE%9A%E7%BE%A9.html) |
+| SRC-0978 | partial | webfetch | WebFetch の要約モデルの抜粋。引用の機械照合は未実施。ベンダー自社のブログで中立でない。 | [Quality Engineering in the AI Era: From Gatekeeper to Strategic Guardrail(QASource)](https://www.qasource.com/blog/quality-engineering-ai-era) |
+| SRC-0979 | partial | webfetch | WebFetch の要約モデルの抜粋で、二次情報(講演のレポート)。引用の機械照合は未実施。 | [ レポート  QA不在のスクラムチームは品質向上の夢を見るか #jassttokyo(DevelopersIO)](https://dev.classmethod.jp/articles/jasst-tokyo2024-qa-fuzai-report/) |
+| SRC-0980 | partial | webfetch | 出版社ページの要約モデルによる抜粋。ISBN・版元・年・頁数は出版社ページで確認した(検索結果の書誌とも一致)。本文は未読。 | [ソフトウェア品質保証の極意 経験者が語る、組織を強く進化させる勘所(日科技連ソフトウェア品質保証プロフェッショナルの会 編)](https://www.ohmsha.co.jp/book/9784274232305/) |
+| SRC-0981 | partial | webfetch | 出版社ページの要約モデルによる抜粋。ISBN・頁数・価格は出版社ページで確認した。本文は未読で、内容の評価はできない。 | [ソフトウェア品質保証ガイド チームで顧客満足を実現するためのアプローチ・手法・技術(井芹 洋輝、KADOKAWA)](https://www.kadokawa.co.jp/product/302607002896/) |
 
 ### 除外した出典(却下は成果)
 
 | ID | 理由 | 出典 |
 |---|---|---|
+| SRC-0912 | duplicate | [ソフトウェア品質保証の極意(日科技連ソフトウェア品質保証プロフェッショナルの会 編)](https://www.maruzenjunkudo.co.jp/products/9784274232305) |
 <!-- ledger:verification:end -->
 
 ## Issue と調査メモが引く文献の判定(クラスタ C00a / C00b、2026-09-23)

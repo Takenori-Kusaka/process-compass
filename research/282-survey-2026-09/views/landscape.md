@@ -6,6 +6,7 @@
 
 | 日付 | 出来事 | 発表元 | 根拠 |
 |---|---|---|---|
+| 2009-11-01 | SQiP ソフトウェア品質保証部長の会が発足 | SQiP ソフトウェア品質保証部長の会(日本科学技術連盟 SQiP の下に置かれたコミュニティ) | [SRC-0901] |
 | 2013-05-25 | JIS B 9700:2013 を制定(ISO 12100:2010 に一致) | 日本産業標準調査会・日本規格協会(ISO/TC 199 の ISO 12100:2010 に一致) | [SRC-0645] |
 | 2015-09 | ISO 9001:2015 を承認・発行 | ISO/TC 176 (catalogue record via Bahrain Standards and Metrology Directorate store) | [SRC-0643] |
 | 2017-11 | ISO/IEC/IEEE 12207 第1版を発行 | ISO/IEC JTC 1/SC 7 and IEEE Computer Society (BSI adoption, preview via ANSI Webstore) | [SRC-0642] |
@@ -20,8 +21,10 @@
 | 2024-07 | NIST が生成 AI プロファイル(AI 600-1)を公開 | National Institute of Standards and Technology (NIST) | [SRC-0520] |
 | 2024-09-17 | MADR 4.0.0 を公開(GitHub API の最新リリースも 4.0.0) | ADR GitHub organization (adr/madr) | [SRC-0548] |
 | 2024-10-18 | 改定 | 公正取引委員会・中小企業庁・厚生労働省 | [SRC-0729] |
+| 2024-12-04 | PCCP 最終ガイダンスの利用可能性の告示(連邦官報) | U.S. Food and Drug Administration(連邦官報) | [SRC-0932] |
 | 2025-02-18 | ISO/IEC 29110-5-1-2:2025 発行(TR 29110-5-1-2:2011 を置き換え) | International Organization for Standardization (ISO) / IEC JTC 1/SC 7 | [SRC-0533] |
 | 2025-02-21 | IEC 61508-3 第 3 版の CDV を回付(投票締切 2025-05-16) | International Electrotechnical Commission (IEC) SC 65A | [SRC-0528] |
+| 2025-03-04 | 第1.0版の公表 | 金融庁 | [SRC-0936] |
 | 2025-03-21 | JIS Q 9001:2015 追補1 を公示(ISO 9001:2015/Amd 1:2024 と一致) | 日本規格協会(JSA) | [SRC-0737] |
 | 2025-05-27 | DS-920 初版を策定 | デジタル庁(デジタル社会推進会議幹事会決定) | [SRC-0250] |
 | 2025-06-04 | AI 法を公布・一部施行 | e-Gov 法令検索(デジタル庁) | [SRC-0619] |
@@ -47,11 +50,13 @@
 | 2025-12-23 | 第1期 人工知能基本計画を閣議決定 | 内閣府(人工知能戦略本部) | [SRC-0499] |
 | 2026-01-01 | 改正 | 公正取引委員会 | [SRC-0728] |
 | 2026-01-01 | 改定 | 公正取引委員会・中小企業庁・厚生労働省 | [SRC-0729] |
+| 2026-01-09 | Built In の表示で求人が削除された(取得時点では掲載終了) | KEV Group(Built In 掲載) | [SRC-0970] |
 | 2026-01-15 | Cursor が Bugbot の設計と解決率の推移を公開 | Cursor (Anysphere) | [SRC-0401] |
 | 2026-01-21 | Cognition が Devin Review（PR レビュー支援）を公開 | Cognition | [SRC-0238] |
 | 2026-01-29 | METR が Time Horizon 1.1 を公開(タスク 170→228、Inspect へ移行) | METR | [SRC-0159] |
 | 2026-01-30 | Jules の基盤モデルが全ティアで Gemini 3 Flash に | Google(Jules docs) | [SRC-0048] |
 | 2026-02-02 | 改正 21 CFR Part 820(QMSR、ISO 13485:2016 を引用)が発効(文書冒頭の告知による) | U.S. Food and Drug Administration (FDA), CDRH / CBER | [SRC-0524] |
+| 2026-02-02 | QMSR の施行。ISO 13485:2016 を引用で取り込む。QSIT の使用を止める | U.S. Food and Drug Administration | [SRC-0931] |
 | 2026-02-10 | Devin がレビューボット・lint・CI のコメントを自動修正する機能を公開 | Cognition | [SRC-0239] |
 | 2026-02-11 | OpenAI が手書きコード 0 行の社内製品開発(harness engineering)を公開 | OpenAI | [SRC-0208] |
 | 2026-02-13 | GitHub Agentic Workflows（gh-aw）を technical preview で公開（GitHub Next / Microsoft Research） | The GitHub Blog | [SRC-0232] |
@@ -73,6 +78,7 @@
 | 2026-03 | A2A v1.0(最初の安定仕様)出荷(AAIF の記述) | Agentic AI Foundation(Linux Foundation) | [SRC-0037] |
 | 2026-03-03 | METR が時間地平の正則化の誤りを修正 | METR | [SRC-0158] |
 | 2026-03-03 | 金融庁が AI ディスカッションペーパー第1.1版を公表 | 金融庁 | [SRC-0503] |
+| 2026-03-03 | 第1.1版の公表 | 金融庁 | [SRC-0936] |
 | 2026-03-04 | Claude Code の既定 effort を high→medium に変更(4/7 に撤回) | Anthropic | [SRC-0200] |
 | 2026-03-06 | DeNA × AI Day 2026 で AI 社員の初号機 Lemon を紹介 | DeNA Engineering | [SRC-0266] |
 | 2026-03-09 | Jules に Gemini 3.1 Pro(Pro プラン)— 取得時点の最新エントリ | Google(Jules docs) | [SRC-0048] |
@@ -82,6 +88,7 @@
 | 2026-03-15 | Issue 起票(2026-09-23 時点 closed、コメント3) | GitHub Issue (bmad-code-org/BMAD-METHOD) | [SRC-0074] |
 | 2026-03-24 | OpenAI が Videos API と Sora 2 の廃止を告知(停止 2026-09-24) | OpenAI | [SRC-0337] |
 | 2026-03-25 | Claude Code auto mode を公開 | Anthropic (Engineering at Anthropic) | [SRC-0072] |
+| 2026-03-25 | FISC 安全対策基準 第14版の公表(コラムの記述) | 株式会社一創 | [SRC-0937] |
 | 2026-03-26 | NTTデータがホワイトペーパー「アカウンタビリティを軸としたAI-Native開発のデザイン戦略」を公開(記事中のリンク先ニュース日付) | NTTデータ DATA INSIGHT | [SRC-0254] |
 | 2026-03-31 | NTTデータの公共分野Webアプリ(要件定義からリリースまでGitHub Copilot活用)が2026年3月末にリリース、4月稼働 | NTTデータ DATA INSIGHT | [SRC-0255] |
 | 2026-03-31 | AI事業者ガイドライン第1.2版を公表(AI エージェント・フィジカル AI の定義を追加) | 総務省・経済産業省 | [SRC-0500] |
@@ -120,6 +127,7 @@
 | 2026-05-19 | METR が Frontier Risk Report(評価窓 2026-02-16〜03-16)を公開 | METR | [SRC-0160] |
 | 2026-05-19 | METR が Anthropic・Google・Meta・OpenAI 参加のフロンティアリスク報告(2026年2〜3月期)を公開 | METR | [SRC-0160] |
 | 2026-05-21 | arXiv v1 公開 | MSR '26 (ACM) / Waseda University, The University of Osaka, Ritsumeikan University ほか | [SRC-0315] |
+| 2026-05-24 | ベリサーブが社内向けに QA4AI と QA4AIDD のプロセスガイドラインを策定したと発表 | 株式会社ベリサーブ(PR TIMES 経由) | [SRC-0975] |
 | 2026-05-25 | 第3集の更新(Q8 を追加。掲載ページの注記による) | 厚生労働省 | [SRC-0636] |
 | 2026-05-28 | A2A v1.0.1 リリース | a2aproject(GitHub) | [SRC-0036] |
 | 2026-06-01 | Ultracode の並列エージェントが親の Opus/xhigh を継承し、5時間枠と Extra Usage $200 を一晩で消費 | Zenn | [SRC-0275] |
@@ -199,6 +207,7 @@
 | 2026-07-31 | IPA ICSCoE 9期生の成果物として公開 | 独立行政法人情報処理推進機構 産業サイバーセキュリティセンター 中核人材育成プログラム 9期生 | [SRC-0094] |
 | 2026-07-31 | カカクコムが AI DevEx Conference 2026(ファインディ主催)のブース調査結果を公開 | Tabelog Tech Blog(株式会社カカクコム) | [SRC-0308] |
 | 2026-08-02 | ganbari-quest #4121 で装置行数 51,607 を「再現不能」として 58,720 / 60,146 へ訂正 | GitHub: Takenori-Kusaka/ganbari-quest | [SRC-0510] |
+| 2026-08-02 | AI Act が適用になる(一部例外あり) | European Commission | [SRC-0935] |
 | 2026-08-03 | OWASP Top 10 for LLM Applications 2026 を公開(Excessive Agency が3位へ) | OWASP Gen AI Security Project | [SRC-0496] |
 | 2026-08-04 | UK AISI が Mythos 5 の無許可行動を報告 | Anthropic | [SRC-0203] |
 | 2026-08-04 | npm の keyv / cacheable 名前空間のパッケージが乗っ取られ、Shai-Hulud 系ワームが拡散 | Socket (Threat Research Team) | [SRC-0295] |
@@ -229,6 +238,7 @@
 | 2026-08-26 | JetBrains が Developer Ecosystem Survey 2026(2026-05〜07 実施、1.5 万人超)のエージェント生成コード比率を公表 | JetBrains Research | [SRC-0597] |
 | 2026-08-27 | Johann Rehberger による Claude Code Opus 5 auto mode の突破手法を Simon Willison が紹介 | Simon Willison's Weblog | [SRC-0291] |
 | 2026-08-28 | OpenAI が SpaceX 傘下となった Cursor へのモデル供給契約の終了を通知 | OpenAI | [SRC-0293] |
+| 2026-08-28 | 書籍の発売日 | KADOKAWA | [SRC-0981] |
 | 2026-09 | 経産省が AI エージェント利用企業向けセキュリティガイドライン策定の検討方針を審議会(WG)資料として公表 | 経済産業省 商務情報政策局 サイバーセキュリティ課 | [SRC-0307] |
 | 2026-09 | NBER w35275 改訂。対象50万人超・効果量を更新(5月版は10万人超・40/140/180%) | National Bureau of Economic Research | [SRC-0477] |
 | 2026-09 | DORA が 2026 年は年次調査を行わず State of AI-assisted Software Development 2026 年版を出さないと発表(Waydev の二次情報。一次発表は未取得) | Waydev | [SRC-0596] |
@@ -287,10 +297,17 @@
 | 2026-10-01 | 改正(知的財産取引に関する指針の内容を反映。掲載ページの記載による) | 公正取引委員会 | [SRC-0724] |
 | 2026-10-01 | 改正 | 公正取引委員会・厚生労働省 | [SRC-0727] |
 | 2026-10-01 | 保持期間の方針が、成果物とログに加えて、チェック・ワークフローの実行・コミットの状態にも適用される(文書の予告) | GitHub | [SRC-0768] |
+| 2026-10-12 | 講演日(スライド内の記載) | Speaker Deck(徳 隆宏。検索結果上の所属は三菱電機、QA4AI 副運営委員) | [SRC-0974] |
 | 2026-11-12 | OpenAI モデルの Cursor への提供終了の提案日(将来モデルは提供しない) | OpenAI | [SRC-0293] |
+| 2026-11-27 | 求人票の取得日(削除されやすい。以後の再確認では消えている可能性がある) | リクルートダイレクトスカウト(求人元は栄養補給食品メーカー、企業名は非公開) | [SRC-0967] |
+| 2026-11-27 | 求人票の取得日(削除されやすい) | 株式会社電通コーポレートワン(HRMOS 採用ページ) | [SRC-0968] |
+| 2026-11-27 | 取得時点で募集終了。部長の求人ではなく主任クラス(部長の下の実務の手がかり) | 株式会社コトラ(人材紹介。求人元は大手総合電機会社) | [SRC-0969] |
+| 2026-11-27 | 求人ページの取得日(削除されやすい) | Powerley | [SRC-0971] |
 | 2027-12-02 | Annex III 高リスク系への第14条適用開始(Omnibus 後) | Regulation (EU) 2024/1689 (AI Act Explorer, Future of Life Institute) | [SRC-0087] |
 | 2027-12-02 | 高リスク AI システムの規則の適用日(延期後) | European Commission (Shaping Europe's digital future) | [SRC-0299] |
+| 2027-12-02 | Annex III の高リスクの適用が延期された日 | European Commission | [SRC-0935] |
 | 2028-08-02 | Annex I 高リスク系への第14条適用開始(Omnibus 後) | Regulation (EU) 2024/1689 (AI Act Explorer, Future of Life Institute) | [SRC-0087] |
+| 2028-08-02 | Annex I(規制製品に組み込まれた AI)の移行期間の終わり | European Commission | [SRC-0935] |
 | 2029-09-30 | ISO 9001:2015 の認証の有効期限(GAC Inc. の最終の決定による) | DQS Holding GmbH | [SRC-0736] |
 
 ## 注記

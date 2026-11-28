@@ -76,6 +76,10 @@
 
 - [SRC-0556] 2021-02-09 [An insider look at Amazon's culture and processes](https://www.aboutamazon.com/news/workplace/an-insider-look-at-amazons-culture-and-processes) — Amazon 公式サイトが掲載した PR/FAQ の説明(元社員の著書の抜粋、2021-02-09)。PR は1ページ未満・FAQ は5ページ以下と長さを様式で
 
+### Advisera(1)
+
+- [SRC-0938] ? [ISO 27001 control A.8.32 Change management (Advisera)](https://advisera.com/iso27001/control-8-32-change-management/) — ISO 27001:2022 附属書A の A.8.32 変更管理の解説(コンサルティング会社)。目的を、情報システムの変更が適切に管理され承認されることと書き
+
 ### Agentic AI Foundation(Linux Foundation)(1)
 
 - [SRC-0037] 2026-08-17 [A2A joins AAIF’s open agentic stack](https://aaif.io/blog/a2a-joins-aaif) — AAIF 公式ブログ。A2A が AAIF 傘下に入ったのは 2026-08-17 であり、前回メモ(2026-08-04 時点)の「MCP と A2A はいず
@@ -336,6 +340,10 @@
 
 - [SRC-0662] ? [State upgrade - Terraform Plugin Framework](https://developer.hashicorp.com/terraform/plugin/framework/resources/state-upgrade) — Terraform のプラグインの状態の移行。schema の版を整数で持ち、旧い版ごとに現行の版への直接の変換を用意する。中間の版を順に辿らない。該当の変換が
 
+### ISMS.online(1)
+
+- [SRC-0906] ? [ISO 9001 Clause 5.3 Organizational Roles, Responsibilities and Authorities(ISMS.online)](https://www.isms.online/iso-9001/clause-5-3-organizational-roles-responsibilities-and-authorities/) — ISMS ソフトウェアのベンダーによる 5.3 の解説。5.3 の a)〜e) の文言は載せず、自社の言葉でまとめる。管理責任者の役職は使われなくなったが、似た
+
 ### Intercom (Fin Help Center)(1)
 
 - [SRC-0083] 2026-08 [Manage Fin AI Agent's escalation guidance and rules](https://fin.ai/help/en/articles/13976161-manage-fin-ai-agent-s-escalation-guidance-and-rules) — Intercom の Fin(サポート AI エージェント)公式ヘルプ(「Updated over 3 weeks ago」表示、2026-09-23 取得)。
@@ -343,6 +351,10 @@
 ### Jest(Meta / OpenJS)(1)
 
 - [SRC-0696] ? [Snapshot Testing](https://jestjs.io/docs/snapshot-testing) — Jest のスナップショット試験の公式の手引き。スナップショットはコードの変更と一緒にコミットしてレビューし、CI では明示しない限り書き換えない。落ちた原因を
+
+### KEV Group(Built In 掲載)(1)
+
+- [SRC-0970] ? [Director, Quality Assurance(KEV Group、Toronto。Built In 掲載)](https://builtin.com/job/director-quality-assurance/6928234) — SaaS 企業の QA ディレクターの求人(カナダ・トロント、出社)。分散した QA チームを率い、シフトレフトと品質の全員所有の文化を作り、品質戦略を製品チー
 
 ### Kiro (AWS)(4)
 
@@ -417,6 +429,14 @@
 
 - [SRC-0699] ? [Node.js v24.22.0 Documentation: Test runner](https://nodejs.org/download/release/v24.22.0/docs/api/test.html) — Node.js のテストランナーの文書。スナップショットのファイルを試験と一緒にソース管理へ入れることを最善の慣行とし、todo の試験は失敗しても終了コードに
 
+### Powerley(1)
+
+- [SRC-0971] ? [Quality Assurance Director(Powerley)求人](https://powerley.com/qadirector) — 北米のソフトウェア企業の QA ディレクターの求人。要件を試験計画・ケースに落とすこと、機能・結合・回帰・性能・セキュリティのテストの統括、Web・モバイル・A
+
+### QASource(1)
+
+- [SRC-0978] 2026-10-07 [Quality Engineering in the AI Era: From Gatekeeper to Strategic Guardrail(QASource)](https://www.qasource.com/blog/quality-engineering-ai-era) — QA 外注・コンサルティング会社のブログ(2026-10-07)。QA リーダーの役割を、リリース統制から設計の規律へ移すべきだと主張し、QA リーダーシップの
+
 ### Quarto (Posit)(1)
 
 - [SRC-0557] 2026-06 [Conditional Content – Quarto](https://quarto.org/docs/authoring/conditional.html) — 1つの原稿から HTML・PDF・スライド(revealjs)などを生成する Quarto の公式文書。出力形式やプロファイルごとに表示する内容を出し分けられる
@@ -454,6 +474,14 @@
 - [SRC-0038] 2025-12-09 [Linux Foundation Announces the Formation of the Agentic AI Foundation (AAIF), Anchored by ](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation) — AAIF 設立の一次プレスリリース。設立日 2025-12-09、創設寄贈 3 プロジェクト(MCP / goose / AGENTS.md)、Platinum
 - [SRC-0039] 2026-02-24 [Agentic AI Foundation Welcomes 97 New Members As Demand for Open, Collaborative Agent Stan](https://www.linuxfoundation.org/press/agentic-ai-foundation-welcomes-97-new-members) — AAIF 設立後 2.5 か月で会員が 146 になったことを示す LF プレスリリース。curl で冒頭段落のみ確認。
 
+### TÜV SÜD(認証機関)(1)
+
+- [SRC-0905] ? [ISO 9001:2015 guidance(TÜV SÜD のスライド資料。SlideShare 掲載)](https://www.slideshare.net/slideshow/tuvsudiso90012015guidancepdf/253023881) — 認証機関 TÜV SÜD の ISO 9001:2015 手引き(ページの先頭 10 万字を読んだ)。管理責任者(QMR)は絶対に必要ではなくなったが、機能は定
+
+### UL Solutions(1)
+
+- [SRC-0934] ? [Automotive SPICE Quality Assurance (SUP.1)](https://www.ul.com/sis/resources/automotive-spice-quality-assurance-sup-1) — UL Solutions による SUP.1 の解説。独立を「品質保証の担当が、品質問題があればプロジェクトを止められること」と定義し、問題は独立した報告経路で
+
 ### pytest-dev(1)
 
 - [SRC-0695] ? [How to use skip and xfail to deal with tests that cannot succeed](https://pytest.org/skipping.html) — pytest の skip と xfail の公式の手引き。xfail は落ちると期待する試験で、strict にすると予期せず通った結果がスイートを落とす。r
@@ -462,8 +490,24 @@
 
 - [SRC-0385] 2026-05-08 [「そもそも、ドキュメントをExcelで作成している理由って何ですか？」──AI活用を停滞させていた「慣習」を打破。(オーエムネットワーク プレスリリース)](https://prtimes.jp/main/html/rd/p/000000122.000092212.html) — 新潟の業務システム開発会社 OMN のプレスリリース(2026-05-08)。Claude Code が Excel 設計書の階層を誤認したため、2026年4月
 
+### リクルートダイレクトスカウト(求人元は栄養補給食品メーカー、企業名は非公開)(1)
+
+- [SRC-0967] ? [品質保証部門 部長職(サプリメント)求人 37442-1(リクルートダイレクトスカウト)](https://directscout.recruit.co.jp/job_descriptions/5924862) — 従業員 95 名の栄養補給食品・化粧品メーカーの品質保証部門の部長職の求人票。ソフトウェアではなく食品・化粧品の品質保証である点に注意。部長 1 名とスタッフ 
+
 ### 富士通株式会社(1)
 
 - [SRC-0257] 2026-02-17 [大規模言語モデル「Takane」を活用し、ソフトウェアの要件定義から設計、実装、結合テストに渡る全工程をAIエージェントが協調し実行するAIドリブン開発基盤を開発し、運用開始](https://global.fujitsu/ja-JP/pr/news/2026/02/17-01) — 富士通のプレスリリース。要件定義から結合テストまで複数AIエージェントが協調し人が介さず自動化すると主張。「生産性100倍」は約300件中1案件の結果である。
+
+### 株式会社コトラ(人材紹介。求人元は大手総合電機会社)(1)
+
+- [SRC-0969] ? [産業分野向けITシステム開発プロジェクトの品質保証(大手総合電機会社)求人(コトラ。主任クラス、募集終了)](https://www.kotora.jp/job/detail.php?jid=1550609) — 大手総合電機会社の産業分野向け IT システム開発の品質保証の求人。ポジションは主任クラスで、部長ではない。部長の下で何が行われるかの手がかりとして使う。職務は
+
+### 株式会社ベリサーブ(PR TIMES 経由)(1)
+
+- [SRC-0975] 2026-05-24 [ベリサーブ、社内向け「生成AIの品質保証サービス」ガイドライン(QA4AI/QA4AIDD プロセスガイドライン)を策定(プレスリリース)](https://www.excite.co.jp/news/article/Prtimes_2026-05-24-48768-100/) — 第三者検証会社が、AI 搭載プロダクトの品質保証(QA4AI)と、AI 駆動開発でコーディングエージェントのプロセス品質を保証する取り組み(QA4AIDD)の 
+
+### 株式会社電通コーポレートワン(HRMOS 採用ページ)(1)
+
+- [SRC-0968] ? [【新設部署】社内システム開発の品質管理をリードする部長候補(株式会社電通コーポレートワン)](https://hrmos.co/pages/dc1/jobs/10000012) — 広告・メディア系グループ会社の社内システム開発向けの新設部署の部長候補の求人。ガイドライン・レビュー基準の策定と定着、ゲートチェックと稼働判定プロセスの設計・運
 
 <!-- ledger:vendors:end -->
