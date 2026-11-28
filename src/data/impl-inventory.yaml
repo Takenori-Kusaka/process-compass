@@ -153,6 +153,7 @@ sections:
     status: marked
     ids:
       - IMPL-0075
+      - IMPL-1091
       - IMPL-0031
       - IMPL-0153
       - IMPL-0907
@@ -277,6 +278,7 @@ sections:
       - IMPL-0147
       - IMPL-0032
       - IMPL-0967
+      - IMPL-1092
     location:
       - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-7 出荷判定(QA・3営業日) > 保証の開示
       - 'phase4-process-design/deliverable-templates#テンプレ6: 企画書(intent-brief) > 決裁制度への提示'
@@ -2609,6 +2611,7 @@ sections:
       - IMPL-0045
       - IMPL-0046
       - IMPL-0470
+      - IMPL-1093
       - IMPL-0436
       - IMPL-0039
       - IMPL-0554
@@ -6925,3 +6928,55 @@ sections:
       - "phase4-process-design/tailoring-guide#軸E: 安全重要度による調整 > 区分ごとの調整"
     note: 禁止事項1・2 は 5.2 の IMPL-0591(結果責任は人間、AI は実行のみ)・IMPL-0592(成果物ごとに1名。降りていない)と 3.2 の IMPL-0634(責任者を名簿と照合し AI の名義を受け付けない)・IMPL-0635、4 は IMPL-0765、5 は IMPL-0454(安全リスクアセスメント)と IMPL-0761(CL2 以上の検証記録)、7 は IMPL-0017、8・9 は IMPL-0030 が追う
     issue: 324
+
+  - key: "phase4-process-design/tailoring-guide#軸A: チーム規模による調整 > 極小規模での事後監査への切替 > 事後監査の手続 > AI のレビューで取り込む行の抜き取り"
+    status: marked
+    ids:
+      - IMPL-1087
+  - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > AI のレビューで取り込む範囲を決める"
+    status: none
+    category: elsewhere
+    reason: 準備物に AI のレビューで取り込む行を書いたときの取り込みの流れの説明と図。規定は下の各小節のマークと既存のマークが追う
+    location:
+      - "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > AI のレビューで取り込む範囲を決める > 準備物に書くこと"
+  - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > AI のレビューで取り込む範囲を決める > 準備物に書くこと"
+    status: marked
+    ids:
+      - IMPL-1088
+      - IMPL-1089
+  - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > AI のレビューで取り込む範囲を決める > 根拠の段と単調の規則"
+    status: none
+    category: org-design
+    reason: 準備物の行ごとの根拠の段と単調の規則はチームが準備物に書く制度設計で、確かめるのは判定者と内部監査(人)である。機械の検査にしない(決定可能な入力が無い)
+  - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > AI のレビューで取り込む範囲を決める > 人が必ず決める範囲"
+    status: none
+    category: elsewhere
+    reason: 人が必ず決める範囲の6項目は既存の定めの再掲である。範囲の機械の判定は IMPL-1069、区分の下限は IMPL-0062 が追う
+    location:
+      - phase4-process-design/gate-criteria#各ゲートの判定チェックリスト > G-6 独立レビュー(独立レビュア・応答1営業日 / 判定2営業日) > 出荷の前の確認
+  - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > AI のレビューで取り込む範囲を決める > 人の読みを置き換える行の前提"
+    status: marked
+    ids:
+      - IMPL-1090
+  - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > AI のレビューで取り込む範囲を決める > 準備物の項目(値は書かない)"
+    status: none
+    category: org-design
+    reason: 準備物の項目はチームが書く制度設計である。準拠テンプレートの必須欄にしない(IMPL-1088 が追う)
+  - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > AI のレビューで取り込む範囲を決める > 例の行(例であり要求ではない)"
+    status: none
+    category: explanation
+    reason: 例の行は例であり要求ではない。標準は線の値を置かない
+  - key: "phase4-process-design/tailoring-guide#軸B: 事業ステージによる調整 > AI のレビューで取り込む範囲を決める > 取り込みの行の開示"
+    status: none
+    category: explanation
+    reason: 手当てが成り立たない場面の開示。保証の開示への出し方は IMPL-1092、集約の区別は IMPL-1093 が追う
+  - key: "phase4-process-design/assurance-case#H.1 最上位の主張 > AI の関与を前提にした保証の根拠 > 従来の担保と、AI の作り手で変わる点"
+    status: none
+    category: explanation
+    reason: 従来の担保との対比の表。統制の理由の説明であり、要求事項ではない。各行の規定は各章のマークが追う
+  - key: "phase4-process-design/assurance-case#H.1 最上位の主張 > AI の関与を前提にした保証の根拠 > 保証の根拠"
+    status: none
+    category: elsewhere
+    reason: 保証の根拠4つの表。各行の規定は C2〜C11 の支える条項のマークと H.4 が追う
+    location:
+      - phase4-process-design/assurance-case#H.4 AI による確認の数え方
