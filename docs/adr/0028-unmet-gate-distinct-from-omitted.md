@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-08-08)
 
+一部置き換え(→ [ADR-0277](/process-compass/adr/0277-ai-review-intake-range-written-by-team-in-prep-document-with-sampling-audit/) の決定1): 決定7 のうち、AI の確認を合否条件にしない部分を、準備物に書いた行の範囲だけ置き換えました(2026-11-28)。AI に承認させない部分は保ちます。
+
 ## コンテキスト
 
 [ピットイン方式 準拠テンプレート](https://github.com/Takenori-Kusaka/pit-in-template)は、軸A〜E の回答からゲートの構成を導出します。ここで、1人の開発者が AI エージェントへ実行を委ねる構成をどう扱うかが問題になりました。
