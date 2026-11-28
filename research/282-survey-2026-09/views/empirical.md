@@ -57,6 +57,10 @@
 | [SRC-0009#c5] | controlled-experiment | 30 Run 1 only | N=30 for tests | 有意差検定は Run 1 の 30 成果物のみで行われ、F1 の平均値は 3 回分(N=90)。検定と報告値の母集団が異なる。 | 2026-03-12 | verified |  |
 | [SRC-0009#c6] | controlled-experiment | 1 all four conditions | 1 model (Opus 4.6) | API クレジット不足のため、計画していた claude-sonnet-4-6 ではなくホストセッションのモデル(Opus 4.6)で全条件を実行した。生成器とレビュアが同一モデル・単一モデル系統。 | 2026-03-12 | verified |  |
 | [SRC-0009#c8] | controlled-experiment | N=90 best condition | F1 28.6% | 著者自身が絶対水準の低さ(最良でも F1 28.6%)を認めている。相対改善のみを主張。 | 2026-03-12 | verified |  |
+| [SRC-0009#c9] | controlled-experiment | N=90 per condition Claude Opus 4.6 generated artifacts | CCR 28.6% vs SR2 21.7% | v2(2026-10-01)で、CCR は同一セッションの 2 回目のレビュー(SR2、21.7%)に頑健に優る。この比較の優位は 3 回平均でも保たれる(p=0.004)。 | 2026-03-12 | verified |  |
+| [SRC-0009#c10] | controlled-experiment | N=90 per condition same artifacts | SR に対し p=0.26(3 回平均) | v2 は、v1 が示した SR(1 回のレビュー)・SA(文脈つきサブエージェント)に対する CCR の優位を 1 回目の実行に由来するものとして取り下げた(3 回平均では SR に対し p=0.26 | 2026-03-12 | verified |  |
+| [SRC-0009#c11] | controlled-experiment |   |  | v1 は順位(CCR > SR ≈ SA > SR2)が全 3 回で保たれたと書いた。v2 は CCR が 1 位なのは 1 回目だけと訂正した。 | 2026-03-12 | verified |  |
+| [SRC-0009#c12] | controlled-experiment |   |  | 再現率の表(Table 2)の CCR 行は v1 と v2 で同じ(再現率 27.1%)。見逃しの割合を書いた文は論文に無い。約 73% は 100−27.1 の算術で、CCR 条件・注入欠陥 15 | 2026-03-12 | verified |  |
 | [SRC-0010#c1] | benchmark | GPQA 448 / MathVision 190 / RealWorldQA 437 MAD, DMAD frameworks | up to 74.8% (relative) | 動的割当は一様割当(全役割を同一モデル)を最大 74.8%、無作為割当を最大 29.7% 上回ると Abstract で述べる。ただし 74.8% を導ける表は本文・付録に無い(GPQA の Tabl | 2026-01-23 | verified |  |
 | [SRC-0010#c2] | benchmark | 448 questions GPQA, Claude 3.5 / Nova Premier / Pixtral-Large, temperature 0 | +4.91pt (MAD) / +7.36pt (DMAD) | GPQA(Table 2): 一様割当 Claude は MAD 54.24% / DMAD 58.93%、提案手法は MAD 59.15% / DMAD 66.29%。同一枠組み内の改善は +4.9 | 2026-01-23 | verified |  |
 | [SRC-0010#c3] | benchmark | 190 / 437 items Pixtral-Large-Instruct-2411 | 31.05% vs 32.10% (MathVision); 62.24% vs 70.25% (RealWorldQA) | MathVision で Pixtral を全役割に割り当てた MAD は 31.05% で、単体 Pixtral 32.10% を下回る。RealWorldQA でも 62.24% 対 70.25% | 2026-01-23 | verified |  |
@@ -649,6 +653,31 @@
 | [SRC-0984#c3] | controlled-experiment | 10 SKILL.md を置くだけの構成 | 0/10 | SKILL.md を置くだけでは、10 セッションで自分から働いたのは 0 回。 | 2026-07-28 | verified |  |
 | [SRC-0984#c4] | controlled-experiment |   |  | 検証・安全の保持は測っていない。検査器は課題の完了だけを測る。 | 2026-07-28 | verified |  |
 | [SRC-0984#c5] | controlled-experiment |   |  | 品質の差は検出できなかったが、80 組では大きな差しか除けない。ベンチマークは過剰に作る罠が少なく、宣伝の −54% を否定しない。 | 2026-07-28 | verified |  |
+| [SRC-0985#c1] | benchmark |   |  | 別系統のモデル 3 つの組は、統制した保留集合の 17.0% で同時に誤る。 | ? | partial |  |
+| [SRC-0985#c2] | benchmark |   |  | 独立の仮定(誤り率の積)は 3.0%。17.0% はその 5.7 倍。 | ? | partial |  |
+| [SRC-0985#c3] | benchmark |   |  | 47 の Python リポジトリの 141 件では同時の誤りが 19.2%。 | ? | partial |  |
+| [SRC-0986#c1] | controlled-experiment |   |  | 29 名の専門家を使った統制実験。 | 2024-11 | partial |  |
+| [SRC-0986#c2] | controlled-experiment |   |  | レビュアは LLM が指した箇所に集中する。 | 2024-11 | partial |  |
+| [SRC-0988#c1] | observational |   |  | Google は 2014 年から変異試験を使い、変異体 14,730,562 個を変更 662,584 件に対して作った。 | 2021-03-12 | partial |  |
+| [SRC-0988#c2] | observational |   |  | 1,502 件の欠陥のうち 1,043 件(70%)で、変異体が欠陥と連動した。 | 2021-03-12 | partial |  |
+| [SRC-0989#c1] | observational |   |  | 重複した不具合報告の約 51% で、人が付けた重大度が食い違う。 | 2016 | partial |  |
+| [SRC-0989#c2] | observational |   |  | 食い違いの割合は 3 つの対象で 28.9%・36.6%・50.8%。 | 2016 | partial |  |
+| [SRC-0990#c1] | survey |   |  | 追跡の調査で、同じ脆弱性に対して 68% の参加者が違う重大度を付けた。 | 2023-08-29 | partial |  |
+| [SRC-0990#c2] | survey |   |  | 9 か月後の追跡では、同じ人の評価が 68% の参加者で変わった。 | 2023-08-29 | partial |  |
+| [SRC-0991#c1] | benchmark |   |  | 欠陥を正しいと固定する試験は Copilot で 4.2%、CodiumAI で 59.6%、CoverUp で 68.1%。 | 2024-12-18 | partial |  |
+| [SRC-0992#c1] | observational |   |  | 仕様の成果物の有無で、欠陥の導入に差は無い。 | 2026 | partial |  |
+| [SRC-0992#c2] | observational |   |  | 仕様と欠陥の正の素の関連は課題の複雑さで説明される(開発者は最も難しい仕事に仕様を書く)。 | 2026 | partial |  |
+| [SRC-0994#c1] | observational |   |  | 従来研究が同じデータで互いに矛盾する理由を示し、評価の文脈が決め手だと示す。 | 2022 | partial |  |
+| [SRC-0995#c1] | observational |   |  | reviews are less about defects than expected and instead provide additional benefits such as knowled | 2013 | partial |  |
+| [SRC-0995#c2] | observational |   |  | while finding defects remains the main motivation for review | 2013 | partial |  |
+| [SRC-0995#c3] | observational |   |  | code and change understanding is the key aspect of code reviewing | 2013 | partial |  |
+| [SRC-0996#c1] | controlled-experiment |   |  | the AI group averaged 50% on the quiz, compared to 67% in the hand-coding group | 2026-01-29 | verified | yes |
+| [SRC-0996#c2] | controlled-experiment |   |  | participants in the AI group finished about two minutes faster, although the difference was not stat | 2026-01-29 | verified | yes |
+| [SRC-0996#c3] | controlled-experiment |   |  | The largest gap in scores between the two groups was on debugging questions | 2026-01-29 | verified | yes |
+| [SRC-0996#c4] | controlled-experiment |   |  | There is a 4.15 point difference between the means of the treatment and control groups. For a 27-poi | 2026-01-29 | verified | yes |
+| [SRC-0997#c1] | observational |   |  | Informal peer reviews              35.00%   50.00%     60.00% | 2011 | verified |  |
+| [SRC-0997#c2] | observational |   |  | Formal code inspections            60.00%   85.00%     96.00% | 2011 | verified |  |
+| [SRC-0997#c3] | observational |   |  | Desk checking                      25.00%   45.00%     55.00% | 2011 | verified |  |
 
 ## 注記
 

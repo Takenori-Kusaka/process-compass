@@ -1,0 +1,64 @@
+schemaVersion: 0
+id: SRC-0997
+status: included
+excludeReason: null
+title: Software Defect Removal Efficiency (Capers Jones, 2011)
+url: https://www.ppi-int.com/wp-content/uploads/2021/01/Software-Defect-Removal-Efficiency.pdf
+canonicalUrl: https://www.ppi-int.com/wp-content/uploads/2021/01/Software-Defect-Removal-Efficiency.pdf
+ids:
+  arxiv: null
+  doi: null
+orgType: consultancy
+region: us
+lang: en
+sourceType: industry-report
+published: "2011"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I472
+  query: "#472 外部調査の照合(research/472-deliberation/external-verify.md)"
+derivedFrom: []
+selfReported: false
+themes:
+  - TH06
+events: []
+summary: Capers Jones の白書(Copyright 2011)Table 2。欠陥除去率の最小・平均・最大(%)は、正式のコード検査 60/85/96、静的解析 65/85/95、ペアプログラミング 40/55/65、非公式のピアレビュー 35/50/60、机上チェック 25/45/55。標本・測定法はこの白書に書かれていない。
+claims:
+  - id: c1
+    text: Informal peer reviews              35.00%   50.00%     60.00%
+    quote: Informal peer reviews              35.00%   50.00%     60.00%
+    locator: "Table 2: Pre-Test and Test Defect Removal Efficiency Ranges(pdftotext の抽出)。列は Minimum / Average / Maximum"
+    evidenceKind: observational
+    issues:
+      - 472
+    stance: supports
+  - id: c2
+    text: Formal code inspections            60.00%   85.00%     96.00%
+    quote: Formal code inspections            60.00%   85.00%     96.00%
+    locator: Table 2
+    evidenceKind: observational
+    issues:
+      - 472
+    stance: supports
+  - id: c3
+    text: Desk checking                      25.00%   45.00%     55.00%
+    quote: Desk checking                      25.00%   45.00%     55.00%
+    locator: Table 2
+    evidenceKind: observational
+    issues:
+      - 472
+    stance: supports
+verification:
+  status: verified
+  method:
+    - pdf-text-extract
+  date: 2026-11-28
+  humanChecked: false
+  note: Table 2 の値は一次(Jones 本人の白書)で逐語照合した。他の版の「検査 93%、机上 27%」は今回未照合(引かない)。「人のレビューも約5割」は非公式ピアレビューの平均 50% に当たるが、白書は標本数・測定法を示さない
+volatility: medium
+reviewBy: null

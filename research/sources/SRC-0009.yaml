@@ -16,9 +16,9 @@ lang: en
 sourceType: preprint
 published: 2026-03-12
 publishedBasis: arxiv-v1
-version: v1
-updated: null
-accessed: 2026-09-23
+version: v2
+updated: 2026-10-01
+accessed: 2026-11-28
 access: open
 readLevel: full
 foundBy:
@@ -29,7 +29,7 @@ derivedFromUrl: []
 selfReported: false
 themes: [TH06]
 events: []
-summary: 同一モデル(Claude Opus 4.6)で、生成セッションと切り離した新規セッションで再レビューする CCR を 4 条件で比較した統制実験。254 メモが引く数値(30/150/360、F1 24.6/21.7/23.8/28.6、p=0.008、d=0.52、SR2 p=0.11)はすべて原典どおり。単著・単一モデル・有意差検定は Run 1(N=30)のみという限定がある。
+summary: v2(2026-10-01)で優位の主張が縮んだ。c9〜c12 と verification.note を先に読むこと。以下は v1 の要約。同一モデル(Claude Opus 4.6)で、生成セッションと切り離した新規セッションで再レビューする CCR を 4 条件で比較した統制実験。254 メモが引く数値(30/150/360、F1 24.6/21.7/23.8/28.6、p=0.008、d=0.52、SR2 p=0.11)はすべて原典どおり。単著・単一モデル・有意差検定は Run 1(N=30)のみという限定がある。
 claims:
   - id: c1
     text: 30 成果物(コード・技術文書・発表原稿)へ 150 件の欠陥を注入し、4 条件 × 3 回で 360 レビューを行った。
@@ -135,12 +135,54 @@ claims:
     rqs: [TH06-Q5]
     issues: [258]
     stance: qualifies
+  - id: c9
+    text: v2(2026-10-01)で、CCR は同一セッションの 2 回目のレビュー(SR2、21.7%)に頑健に優る。この比較の優位は 3 回平均でも保たれる(p=0.004)。
+    quote: "CCR (F1 28.6%) outperforms a second review in the same session (SR2, 21.7%) robustly."
+    locator: Abstract (v2)
+    quant:
+      value: CCR 28.6% vs SR2 21.7%
+      n: N=90 per condition
+      design: controlled experiment
+      population: Claude Opus 4.6 generated artifacts
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [473]
+    stance: qualifies
+  - id: c10
+    text: v2 は、v1 が示した SR(1 回のレビュー)・SA(文脈つきサブエージェント)に対する CCR の優位を 1 回目の実行に由来するものとして取り下げた(3 回平均では SR に対し p=0.26)。c2・c3 の SR・SA に対する優位はこの訂正を受ける。
+    quote: "the first version’s advantages over these two baselines came from run 1."
+    locator: Abstract (v2)
+    quant:
+      value: SR に対し p=0.26(3 回平均)
+      n: N=90 per condition
+      design: controlled experiment
+      population: same artifacts
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [473]
+    stance: qualifies
+  - id: c11
+    text: v1 は順位(CCR > SR ≈ SA > SR2)が全 3 回で保たれたと書いた。v2 は CCR が 1 位なのは 1 回目だけと訂正した。
+    quote: "CCR ranks first in run 1 only"
+    locator: Section 6 Update in Version 2
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [473]
+    stance: qualifies
+  - id: c12
+    text: 再現率の表(Table 2)の CCR 行は v1 と v2 で同じ(再現率 27.1%)。見逃しの割合を書いた文は論文に無い。約 73% は 100−27.1 の算術で、CCR 条件・注入欠陥 150 件の値である。c4 と同じ行の再確認。
+    quote: "| CCR | 4.5 | 1.4 | 3.1 | 3.6 | 31.5 | 27.1 | 28.6 |"
+    locator: Table 2 (v1・v2 とも)
+    evidenceKind: controlled-experiment
+    rqs: [TH06-Q5]
+    issues: [473]
+    stance: context
 verification:
   status: verified
   method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
   date: 2026-09-23
   humanChecked: false
-  note: ""
+  note: "v1 の検証(2026-09-23)に、v2 の主張 c9〜c12 の手動の逐語照合(2026-11-28、html v1・v2 を全文取得)を足した。c9〜c12 は機械照合と目隠し抽出が未実施。c2・c3 の SR・SA に対する優位は v2 で取り下げられた(c10)。"
   mech:
     checkedAt: 2026-09-23T22:37:07.761Z
     httpStatus: 200

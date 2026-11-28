@@ -17,7 +17,7 @@
 ## 集計
 
 <!-- ledger:verification:start -->
-集計(生成日 2026-11-28): verified 665 / partial 148 / unverified 1 / needs-agent 6 / unreachable 1
+集計(生成日 2026-11-28): verified 667 / partial 159 / unverified 1 / needs-agent 6 / unreachable 1
 
 ### 要確認(verified 以外)
 
@@ -179,6 +179,17 @@
 | SRC-0979 | partial | webfetch | WebFetch の要約モデルの抜粋で、二次情報(講演のレポート)。引用の機械照合は未実施。 | [ レポート  QA不在のスクラムチームは品質向上の夢を見るか #jassttokyo(DevelopersIO)](https://dev.classmethod.jp/articles/jasst-tokyo2024-qa-fuzai-report/) |
 | SRC-0980 | partial | webfetch | 出版社ページの要約モデルによる抜粋。ISBN・版元・年・頁数は出版社ページで確認した(検索結果の書誌とも一致)。本文は未読。 | [ソフトウェア品質保証の極意 経験者が語る、組織を強く進化させる勘所(日科技連ソフトウェア品質保証プロフェッショナルの会 編)](https://www.ohmsha.co.jp/book/9784274232305/) |
 | SRC-0981 | partial | webfetch | 出版社ページの要約モデルによる抜粋。ISBN・頁数・価格は出版社ページで確認した。本文は未読で、内容の評価はできない。 | [ソフトウェア品質保証ガイド チームで顧客満足を実現するためのアプローチ・手法・技術(井芹 洋輝、KADOKAWA)](https://www.kadokawa.co.jp/product/302607002896/) |
+| SRC-0985 | partial | web-fetch,manual-quote-check | 読み方: abstract のみ。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [Three Agents Are Not Three Verifiers: Measuring Common-Mode Failure in LLM Verification](https://neurips.cc/virtual/2026/171491) |
+| SRC-0986 | partial | web-fetch,manual-quote-check | 読み方: abstract のみ。数値(中央値 50%、72 レビュー等)は本文を未開封で、メモに依る。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [Tufano et al.: controlled experiment on LLM-supported code review (arXiv:2411.11401)](https://arxiv.org/abs/2411.11401) |
+| SRC-0987 | partial | pdftotext,manual-quote-check | 読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [WaTech(ワシントン州)ITSM Change Management Process Guide (2024-12)](https://watech.wa.gov/sites/default/files/2024-12/ITSM%20-%20Change%20-%20Process%20Guide.pdf) |
+| SRC-0988 | partial | web-fetch,manual-quote-check | 読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [Does mutation testing improve testing practices? (Petrović, Ivanković, Fraser, Just; ICSE ](https://arxiv.org/abs/2103.07189) |
+| SRC-0989 | partial | pdftotext,manual-quote-check | 読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [On the unreliability of bug severity data (Tian, Ali, Lo, Hassan; EMSE 21(6), 2016)](https://sail.cs.queensu.ca/data/pdfs/EMSE2015_OnTheUnreliabilityOfBugSeverityData.pdf) |
+| SRC-0990 | partial | web-fetch,manual-quote-check | 読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [Shedding Light on CVSS Scoring Inconsistencies: A User-Centric Study on Evaluating Widespr](https://arxiv.org/abs/2308.15259) |
+| SRC-0991 | partial | web-fetch,manual-quote-check | 読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [Design choices made by LLM-based test generators prevent them from finding bugs (Mathews &](https://arxiv.org/abs/2412.14137) |
+| SRC-0992 | partial | pdftotext,manual-quote-check | 読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [Specification Artifacts in Open-Source Pull Request Workflows Do Not Reduce Defects: An Em](https://drops.dagstuhl.de/storage/00lipics/lipics-vol394-esem2026/LIPIcs.ESEM.2026.84/LIPIcs.ESEM.2026.84.pdf) |
+| SRC-0993 | partial | pdftotext,manual-quote-check | 読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [NIST SP 500-235: Structured Testing: A Testing Methodology Using the Cyclomatic Complexity](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-235.pdf) |
+| SRC-0994 | partial | pdftotext,manual-quote-check | 読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。 | [Revisiting the Debate: Are Code Metrics Useful for Measuring Maintenance Effort? (Chowdhur](https://www.cs.ubc.ca/~rtholmes/papers/emse_2022_chowdhury_preprint.pdf) |
+| SRC-0995 | partial | webfetch-publisher-page | abstract の逐語は一次の出版頁(Microsoft Research)で照合した。本文は未読。「欠陥発見が主ではない」と書くときは、abstract の「欠陥の発見が主な動機であり続ける」と並べて引くこと(動機と成果は別)。abstract は成果の中心が知識の共有だとは言っておらず「追加の恩恵」と書く | [Expectations, Outcomes, and Challenges of Modern Code Review](https://www.microsoft.com/en-us/research/publication/expectations-outcomes-and-challenges-of-modern-code-review/) |
 
 ### 除外した出典(却下は成果)
 

@@ -1,0 +1,64 @@
+schemaVersion: 0
+id: SRC-0995
+status: included
+excludeReason: null
+title: Expectations, Outcomes, and Challenges of Modern Code Review
+url: https://www.microsoft.com/en-us/research/publication/expectations-outcomes-and-challenges-of-modern-code-review/
+canonicalUrl: https://www.microsoft.com/en-us/research/publication/expectations-outcomes-and-challenges-of-modern-code-review/
+ids:
+  arxiv: null
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: "2013"
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: abstract
+foundBy:
+  cluster: I472
+  query: "#472 外部調査の照合(research/472-deliberation/external-verify.md)"
+derivedFrom: []
+selfReported: false
+themes:
+  - TH06
+events: []
+summary: Microsoft の開発者・管理者への観察・面接・調査と数百件のレビューコメントの分類。レビューの第一の動機は欠陥発見だが、成果には知識の移転・チームの認知・代替案が含まれ、変更の理解が鍵。abstract のみ逐語で照合(本文の数値は未読)。
+claims:
+  - id: c1
+    text: reviews are less about defects than expected and instead provide additional benefits such as knowledge transfer, increased team awareness, and creation of alternative solutions to problems.
+    quote: reviews are less about defects than expected and instead provide additional benefits such as knowledge transfer, increased team awareness, and creation of alternative solutions to problems.
+    locator: abstract(Microsoft Research の出版頁で逐語を確認。文は頁上で分割して表示されていた)
+    evidenceKind: observational
+    issues:
+      - 472
+    stance: supports
+  - id: c2
+    text: while finding defects remains the main motivation for review
+    quote: while finding defects remains the main motivation for review
+    locator: abstract
+    evidenceKind: observational
+    issues:
+      - 472
+    stance: supports
+  - id: c3
+    text: code and change understanding is the key aspect of code reviewing
+    quote: code and change understanding is the key aspect of code reviewing
+    locator: abstract
+    evidenceKind: observational
+    issues:
+      - 472
+    stance: supports
+verification:
+  status: partial
+  method:
+    - webfetch-publisher-page
+  date: 2026-11-28
+  humanChecked: false
+  note: abstract の逐語は一次の出版頁(Microsoft Research)で照合した。本文は未読。「欠陥発見が主ではない」と書くときは、abstract の「欠陥の発見が主な動機であり続ける」と並べて引くこと(動機と成果は別)。abstract は成果の中心が知識の共有だとは言っておらず「追加の恩恵」と書く
+volatility: medium
+reviewBy: null

@@ -1,0 +1,66 @@
+schemaVersion: 0
+id: SRC-0985
+status: included
+excludeReason: null
+title: "Three Agents Are Not Three Verifiers: Measuring Common-Mode Failure in LLM Verification"
+url: https://neurips.cc/virtual/2026/171491
+canonicalUrl: https://neurips.cc/virtual/2026/171491
+ids:
+  arxiv: null
+  doi: null
+orgType: individual
+region: global
+lang: en
+sourceType: paper-peer
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: abstract
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes:
+  - TH06
+summary: 別モデル 3 つの組が同時に誤る率は 17.0%。各モデルの誤り率の積(独立の仮定)は 3.0%、5.7 倍。47 の Python リポジトリの 141 件では 19.2%。
+note: NeurIPS 2026 のワークショップ(AI for Verifiable Coding)のポスター、単著(Adarsh Agrawal)。査読の水準はワークショップ。メモが挙げる arXiv:2604.19049 は未開封。
+claims:
+  - id: c1
+    text: 別系統のモデル 3 つの組は、統制した保留集合の 17.0% で同時に誤る。
+    quote: a cross-model trio fails together on 17.0% of candidates
+    locator: Abstract
+    evidenceKind: benchmark
+    issues:
+      - 473
+    stance: supports
+  - id: c2
+    text: 独立の仮定(誤り率の積)は 3.0%。17.0% はその 5.7 倍。
+    quote: 5.7 times the 3.0% rate
+    locator: Abstract
+    evidenceKind: benchmark
+    issues:
+      - 473
+    stance: supports
+  - id: c3
+    text: 47 の Python リポジトリの 141 件では同時の誤りが 19.2%。
+    quote: cross-model joint failure is 19.2%
+    locator: Abstract
+    evidenceKind: benchmark
+    issues:
+      - 473
+    stance: supports
+verification:
+  status: partial
+  method:
+    - web-fetch
+    - manual-quote-check
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: abstract のみ。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"
+events: []
+volatility: medium
+reviewBy: null

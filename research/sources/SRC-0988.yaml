@@ -1,0 +1,58 @@
+schemaVersion: 0
+id: SRC-0988
+status: included
+excludeReason: null
+title: Does mutation testing improve testing practices? (Petrović, Ivanković, Fraser, Just; ICSE 2021)
+url: https://arxiv.org/abs/2103.07189
+canonicalUrl: https://arxiv.org/abs/2103.07189
+ids:
+  arxiv: "2103.07189"
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: 2021-03-12
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: full
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes:
+  - TH06
+summary: Google の変異試験の運用(2014 年から。変異体 14,730,562 個、変更 662,584 件)。変異体は高優先の実欠陥の 70% と連動する。著者に Google の者を含む。
+note: ar5iv の本文で数値を照合。単一企業・無作為化でない。
+claims:
+  - id: c1
+    text: Google は 2014 年から変異試験を使い、変異体 14,730,562 個を変更 662,584 件に対して作った。
+    quote: Google has used mutation testing since 2014. At the time of this writing, a total of 14,730,562 mutants have been generated for 662,584 code changes in 446,604 files.
+    locator: Mutant dataset の節
+    evidenceKind: observational
+    issues:
+      - 473
+    stance: supports
+  - id: c2
+    text: 1,502 件の欠陥のうち 1,043 件(70%)で、変異体が欠陥と連動した。
+    quote: We found that for 1043 (70%) of the bugs, mutation
+    locator: RQ3
+    evidenceKind: observational
+    issues:
+      - 473
+    stance: supports
+verification:
+  status: partial
+  method:
+    - web-fetch
+    - manual-quote-check
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"
+events: []
+volatility: medium
+reviewBy: null

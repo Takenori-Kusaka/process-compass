@@ -59,6 +59,10 @@
 ## 付録: 公式出典の一覧(生成)
 
 <!-- ledger:vendors:start -->
+### undefined(1)
+
+- [SRC-0996] 2026-01-29 [How AI assistance impacts the formation of coding skills (Shen & Tamkin, arXiv 2601.20245 ](https://www.anthropic.com/research/AI-assistance-coding-skills) — 52名(多くは初級)の無作為化試験。Anthropic の頁は小テスト 50% 対 67% と書く。arXiv 本文は 27 点満点の差 4.15 点=15.4
+
 ### AWS Executive in Residence Blog(1)
 
 - [SRC-0379] 2025-03-11 [From Empty Values to Working Principles: A Leader’s Guide](https://aws.amazon.com/blogs/enterprise-strategy/from-empty-values-to-working-principles-a-leaders-guide) — AWS の Executive in Residence による原則の作り方(2025-03-11)。価値観の標語ではなく判断を変える原則を書き、行き詰まったと

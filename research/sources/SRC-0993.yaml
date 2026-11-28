@@ -1,0 +1,58 @@
+schemaVersion: 0
+id: SRC-0993
+status: included
+excludeReason: null
+title: "NIST SP 500-235: Structured Testing: A Testing Methodology Using the Cyclomatic Complexity Metric (Watson & McCabe, 1996)"
+url: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-235.pdf
+canonicalUrl: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-235.pdf
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: 1996-09
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes:
+  - TH06
+summary: サイクロマティック複雑度の上限 10 には相当の裏づけがあり、15 までの上限も使われてきた。正確な数は議論の余地がある。10 超は条件を満たす案件に限る。
+note: 1996 年の文書。付録の事例の中身は未読。
+claims:
+  - id: c1
+    text: McCabe の 10 には相当の裏づけがあり、15 までの上限も使われてきた。
+    quote: The original limit of 10 as proposed by McCabe has significant supporting evidence, but limits as high as 15 have been used successfully as well.
+    locator: "2.5"
+    evidenceKind: review
+    issues:
+      - 473
+    stance: qualifies
+  - id: c2
+    text: 上限に使う正確な数は議論が残る。
+    quote: The precise number to use as a limit, however, remains somewhat controversial.
+    locator: "2.5"
+    evidenceKind: review
+    issues:
+      - 473
+    stance: qualifies
+verification:
+  status: partial
+  method:
+    - pdftotext
+    - manual-quote-check
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"
+events: []
+volatility: medium
+reviewBy: null

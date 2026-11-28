@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0994
+status: included
+excludeReason: null
+title: "Revisiting the Debate: Are Code Metrics Useful for Measuring Maintenance Effort? (Chowdhury, Holmes, Zaidman, Kazman; EMSE 2022)"
+url: https://www.cs.ubc.ca/~rtholmes/papers/emse_2022_chowdhury_preprint.pdf
+canonicalUrl: https://www.cs.ubc.ca/~rtholmes/papers/emse_2022_chowdhury_preprint.pdf
+ids:
+  arxiv: null
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: "2022"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: abstract
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes:
+  - TH06
+summary: OSS 47 件の Java メソッド約 73 万個で、コード指標と保守の負荷(変更されやすさ)の関係を調べ、従来研究が互いに矛盾する理由を示す。評価の文脈が決め手と結ぶ。
+note: preprint 版。要旨のみ照合。
+claims:
+  - id: c1
+    text: 従来研究が同じデータで互いに矛盾する理由を示し、評価の文脈が決め手だと示す。
+    quote: we demonstrate why past studies contradict one another while examining the same data. We also show that evaluation context is king.
+    locator: 要旨
+    evidenceKind: observational
+    issues:
+      - 473
+    stance: qualifies
+verification:
+  status: partial
+  method:
+    - pdftotext
+    - manual-quote-check
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"
+events: []
+volatility: medium
+reviewBy: null

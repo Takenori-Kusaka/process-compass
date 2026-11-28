@@ -1,0 +1,58 @@
+schemaVersion: 0
+id: SRC-0986
+status: included
+excludeReason: null
+title: "Tufano et al.: controlled experiment on LLM-supported code review (arXiv:2411.11401)"
+url: https://arxiv.org/abs/2411.11401
+canonicalUrl: arxiv:2411.11401
+ids:
+  arxiv: "2411.11401"
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2024-11
+publishedBasis: page
+version: v3
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: abstract
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes:
+  - TH06
+summary: 29 名の専門家が、自動生成のコードレビューの支援の有無でレビューした。レビュアは LLM が指した箇所に集中し、ほかの箇所を探さない傾向があった。
+note: 著者名・所属・正確な投稿日は abstract 頁から取り直していない。注入欠陥・職業開発者 29 名。2024 年の模型(GPT-4)。
+claims:
+  - id: c1
+    text: 29 名の専門家を使った統制実験。
+    quote: We run a controlled experiment with 29 experts who reviewed different programs
+    locator: Abstract
+    evidenceKind: controlled-experiment
+    issues:
+      - 473
+    stance: supports
+  - id: c2
+    text: レビュアは LLM が指した箇所に集中する。
+    quote: Reviewers tend to focus on the code locations indicated by the LLM
+    locator: Abstract
+    evidenceKind: controlled-experiment
+    issues:
+      - 473
+    stance: supports
+verification:
+  status: partial
+  method:
+    - web-fetch
+    - manual-quote-check
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: abstract のみ。数値(中央値 50%、72 レビュー等)は本文を未開封で、メモに依る。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"
+events: []
+volatility: medium
+reviewBy: null

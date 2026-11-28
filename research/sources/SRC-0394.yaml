@@ -16,9 +16,9 @@ lang: en
 sourceType: preprint
 published: 2026-03-19
 publishedBasis: arxiv-v1
-version: v3
-updated: 2026-09-12
-accessed: 2026-09-24
+version: v5
+updated: 2026-10-27
+accessed: 2026-11-28
 access: open
 readLevel: section
 foundBy:
@@ -75,7 +75,7 @@ verification:
   method: [mech-fetch, arxiv-abs, agent-blind, agent-adjudication]
   date: 2026-09-24
   humanChecked: false
-  note: ""
+  note: "2026-11-28: 版を v3 から v5(2026-10-27 改訂、ICSE 2027 採録予定)へ更新。c2 の逐語(32/33 (97%))は v5 でも同じ文で照合済み(research/473-deliberation/external.md)。c1・c3 の v5 での再照合は未実施。"
   mech:
     checkedAt: 2026-09-23T23:47:52.933Z
     httpStatus: 200

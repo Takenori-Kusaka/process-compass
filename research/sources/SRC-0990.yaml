@@ -1,0 +1,58 @@
+schemaVersion: 0
+id: SRC-0990
+status: included
+excludeReason: null
+title: "Shedding Light on CVSS Scoring Inconsistencies: A User-Centric Study on Evaluating Widespread Security Vulnerabilities (Wunder et al., IEEE S&P 2024)"
+url: https://arxiv.org/abs/2308.15259
+canonicalUrl: https://arxiv.org/abs/2308.15259
+ids:
+  arxiv: "2308.15259"
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: 2023-08-29
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes:
+  - TH06
+summary: CVSS 利用者 196 名の調査。複数の評価者が同じ脆弱性を評価すると指標の値が食い違う。追跡の 59 名では、9 か月後に同じ人の 68% が違う重大度を付けた(同一人物の再評価)。
+note: 68% は評価者間の不一致でなく、同じ人が 9 か月後に付け直した重大度の変化。評価者間の食い違いは指標ごとの記述。公開日は arXiv v1 を概算。
+claims:
+  - id: c1
+    text: 追跡の調査で、同じ脆弱性に対して 68% の参加者が違う重大度を付けた。
+    quote: In a follow-up survey with 59 participants, we found that for the same vulnerabilities from the main study, 68% of these users gave different severity ratings.
+    locator: 要旨
+    evidenceKind: survey
+    issues:
+      - 473
+    stance: qualifies
+  - id: c2
+    text: 9 か月後の追跡では、同じ人の評価が 68% の参加者で変わった。
+    quote: evaluations of the same person changed severity for 68% of participants.
+    locator: 序論の貢献の項
+    evidenceKind: survey
+    issues:
+      - 473
+    stance: qualifies
+verification:
+  status: partial
+  method:
+    - web-fetch
+    - manual-quote-check
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"
+events: []
+volatility: medium
+reviewBy: null

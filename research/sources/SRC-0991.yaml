@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0991
+status: included
+excludeReason: null
+title: Design choices made by LLM-based test generators prevent them from finding bugs (Mathews & Nagappan)
+url: https://arxiv.org/abs/2412.14137
+canonicalUrl: https://arxiv.org/abs/2412.14137
+ids:
+  arxiv: "2412.14137"
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2024-12-18
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes:
+  - TH06
+summary: 欠陥のあるコードを入力した LLM 試験生成の測定。Copilot は欠陥を固定する試験が 4.2%、CoverAgent は 59.6%、CoverUp は 68.1%。ツールの設計(通る試験だけを残す)に依る。
+note: 未査読。標本の分母が表で混在する(試験の件数と標本の件数)。CoverUp・CoverAgent は欠陥ありの標本で試験スイートを作れない場合が多い。
+claims:
+  - id: c1
+    text: 欠陥を正しいと固定する試験は Copilot で 4.2%、CodiumAI で 59.6%、CoverUp で 68.1%。
+    quote: We found 12 such cases (4.2%) in Copilot's output, while CodiumAI and CoverUp produced 171 (59.6%) and 62 (68.1%) such cases respectively in their final test suites.
+    locator: 結果
+    evidenceKind: benchmark
+    issues:
+      - 473
+    stance: supports
+verification:
+  status: partial
+  method:
+    - web-fetch
+    - manual-quote-check
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"
+events: []
+volatility: medium
+reviewBy: null

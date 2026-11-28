@@ -1,0 +1,73 @@
+schemaVersion: 0
+id: SRC-0996
+status: included
+excludeReason: null
+title: How AI assistance impacts the formation of coding skills (Shen & Tamkin, arXiv 2601.20245 v3)
+url: https://www.anthropic.com/research/AI-assistance-coding-skills
+canonicalUrl: https://www.anthropic.com/research/AI-assistance-coding-skills
+ids:
+  arxiv: null
+  doi: null
+orgType: vendor
+region: us
+lang: en
+sourceType: vendor-official
+published: 2026-01-29
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: full
+foundBy:
+  cluster: I472
+  query: "#472 外部調査の照合(research/472-deliberation/external-verify.md)"
+derivedFrom: []
+selfReported: true
+themes:
+  - TH06
+events: []
+summary: 52名(多くは初級)の無作為化試験。Anthropic の頁は小テスト 50% 対 67% と書く。arXiv 本文は 27 点満点の差 4.15 点=15.4%(Cohen d=0.738, p=0.010)。AI 群の完了時間の短縮は有意でない。最大の差はデバッグの設問。両者の数は同じ差の別の言い方に見えるが、50 対 67 は頁だけにあり本文では確認できていない。
+claims:
+  - id: c1
+    text: the AI group averaged 50% on the quiz, compared to 67% in the hand-coding group
+    quote: the AI group averaged 50% on the quiz, compared to 67% in the hand-coding group
+    locator: Anthropic の頁(逐語を確認)。arXiv 本文には同じ表現を見つけられなかった
+    evidenceKind: controlled-experiment
+    issues:
+      - 472
+    stance: supports
+  - id: c2
+    text: participants in the AI group finished about two minutes faster, although the difference was not statistically significant
+    quote: participants in the AI group finished about two minutes faster, although the difference was not statistically significant
+    locator: Anthropic の頁(逐語を確認)
+    evidenceKind: controlled-experiment
+    issues:
+      - 472
+    stance: supports
+  - id: c3
+    text: The largest gap in scores between the two groups was on debugging questions
+    quote: The largest gap in scores between the two groups was on debugging questions
+    locator: Anthropic の頁(逐語を確認)。本文でも「the largest score gap occurs in the debugging questions」
+    evidenceKind: controlled-experiment
+    issues:
+      - 472
+    stance: supports
+  - id: c4
+    text: There is a 4.15 point difference between the means of the treatment and control groups. For a 27-point quiz, this translates into a 15.4% score difference or 2 grade points.
+    quote: There is a 4.15 point difference between the means of the treatment and control groups. For a 27-point quiz, this translates into a 15.4% score difference or 2 grade points.
+    locator: arXiv 2601.20245 §5.2.2 Results(pdftotext で本文を逐語照合)
+    evidenceKind: controlled-experiment
+    issues:
+      - 472
+    stance: supports
+verification:
+  status: verified
+  method:
+    - webfetch-primary-page
+    - pdftotext-arxiv-body
+  date: 2026-11-28
+  humanChecked: false
+  note: 引くときは本文の数(15.4%、d=0.738)を主にし、50% 対 67% は「Anthropic の頁の表現」と断る。試験は小標本・短期・単一ライブラリ。「mostly junior 52名」は頁、26名ずつの割付は本文
+volatility: medium
+reviewBy: null
