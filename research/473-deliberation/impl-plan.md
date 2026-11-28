@@ -1,0 +1,109 @@
+# 束 D6(#472・#473。#470 の残り 1 点を含む)実装の段取り(次の段の担当へ渡す 1 枚。2026-11-28)
+
+- 正本: `research/473-deliberation/ruling.md`(#473。規定 R-1〜R-11)、`research/472-deliberation/ruling.md`(#472。R-1〜R-5)。本書は段取りだけ。中身はこの 2 本を読む
+- 作業ツリー: `E:/Github/orca/workspace/process-compass/d6`。`template/` は初期化済み(`22fc9667`)。pit-crew は初期化しない
+- 並べ方: **A・B・C・D は本文だけなので並行してよい**(ただし A と B は同じ `assurance-case.md` の H.1 根拠 2・3 を触るので、同じ担当にするか、A を先にする)。**E(template)は直列**。コミットのたびに template を bundle へ退避する。F は最後
+- 全段に共通してしてはならないこと:
+  - 新しい検査・設定の鍵・スキル・様式・欄・役・合意の場を足す(足したくなったら、足す前に指揮役へ問う)
+  - 線・件数・周期・閾値の値を標準に書く(例は「例であり要求ではない」と行の中に書く)
+  - 製品の名を条項に書く。責任者・承認者の欄に AI の名義を書く。氏名・記名・押印・日付の欄を足す
+  - 採用チーム向けの文(様式・スキル・手引き・検査の出力・template の文)に ADR 番号と Issue 番号を引く
+  - 採用済み ADR の本文を書き換える。台帳(evidence・implementation・scope の ledger)を手で編集する
+  - #474(プロセス定義の線の基準)に手を付ける
+  - 「引かない」とした値を引く(`ruling.md` 冒頭の一覧)
+- 模型: 本文・ADR の実装は `sonnet`。試験の実行・台帳の再生成は `haiku`。独立の突合は既定(Opus)
+
+---
+
+## 段 A 標準の本文(#472 の H.1 の組み替え)
+
+| 変えるファイル | 箇所(目安) | 書く内容(規定) |
+| --- | --- | --- |
+| `src/content/docs/phase4-process-design/assurance-case.md` | H.1「AI の関与を前提にした保証の根拠」(:62-71) | 書き出しを「作り手が人でも AI でも誤る」へ(#472 R-1)。小見出し「従来の担保と、AI の作り手で変わる点」に対比の表 7 行・注 2 文・`:::caution[暫定 EV-NNNN / 見直し 2027-05]` 1 つ(#472 R-2・R-3)。小見出し「保証の根拠」に 4 つの根拠の表を移し、列「導く対比の行」を足す。根拠 1 の「AI の出力」→「作り手の出力」、根拠 2・3 を #472 R-4 の文へ。受ける節の 1 文 |
+| 同上 | H.3 の冒頭(「決裁者は、困りごとを起点に尋ねます」) | 編集の指摘: 出所の段落と合わせ「尋ねることを想定します」の向きへ |
+| `src/content/docs/phase4-process-design/human-ai-boundary.md` | 5.8.1 付近(:1291) | 統制 1 の理由の文に従来の検収の型を添える |
+| 同上 | H.1 から `phase3-*/summary.md`(AI = 外注の位置)への参照 | 結ぶだけ |
+
+- してはならないこと: H.3 の表を変える。根拠を 5 つに増やす。行ごとにマークを付ける。表に Issue 番号を書く
+- 確かめ方: `npm run lint:refs`、textlint(hook が自動)、`npm run lint:evidence`(あれば)。H.1 を引く節番号が変わっていないこと
+
+## 段 B 標準の本文(#473。#470 の R-11 を含む)
+
+| 変えるファイル | 箇所(目安) | 書く内容(#473 の規定) |
+| --- | --- | --- |
+| `phase4-process-design/tailoring-guide.md` | 「人が触る場所」(:593-632) | 凡例「後」を「取り込んだ後に、抜き取りで別の人が確かめる(事後監査の手続。委任の変更と、AI のレビューで取り込む行の変更)」へ。表の直後に小見出し「AI のレビューで取り込む範囲を決める」: R-1(準備物に書いた行だけ・書かなければ今の表・開示の 1 行・構成へ写すかは採用者)、R-2(根拠の段の表・単調の規則・統制を弱める向きの記録)、R-3(下限 6 項目)、R-4(人の読みを置き換える行の前提 4 つ)、準備物の項目 11(ruling 5.2 の表。値は書かない)、例の行と E0 のマーク |
+| 同上 | 事後監査の手続(:446-455) | 見出しの適用を「委任を適用した変更と、AI のレビューで取り込む行の変更」へ。確認することに AI の判断・AI のレビュー・承認の流れ(R-5)。選び方(作成を指示した者・AI・当事者に選ばせない。無作為の部分と再現の手段)・必ず含める変更(指摘ゼロ・指摘を却下・版が変わった期)・母数と抜き取った数・不適合が出たときの扱い(書いていなければその行を人の読みへ戻す)・見つけなかったときに確かめた内容。1〜3 名の扱いは既存の文のまま、G-6 の未達の表示が消えない旨を 1 文。推定の強さの E0 |
+| 同上 | :479「AI の確認を独立した人の確認に数えません」 | 理由 2 を「人の判定には数えない」へ。理由 3 の 73% を 27.1% の文へ(ruling 13 章) |
+| `phase4-process-design/assurance-case.md` | H.1 根拠 3 | 原則「存在を数えず、働きを数える」の正本(R-9。ruling 7 章)。段 A と同じ差分 |
+| 同上 | H.4 種別の表・条件 4 と注記・5 条件の確認の手続(:444-460)・要約の行・H.6・H.9 問 3・:496 の 73% | ruling 10.1 のとおり(範囲を限る/前提へ移す/AI取 を書いた案件は抜き取りへ寄せ、書かない案件は手続を引く) |
+| 同上 | 内部監査の観点 22(:351-415 の表) | 「AI のレビューで取り込む行の抜き取りの記録に、3 つの確認と、不適合の記録または見つけなかったときに確かめた内容が残っているか」へ。番号は保つ |
+| `phase4-process-design/gate-criteria.md` | 是正の起動(:968-985) | 置き先に AI のレビューへの指示資産、起点に抜き取りで見つけた見逃し(R-7) |
+| 同上 | G-6「出荷の前の確認」の節 | 準備物で書いた行では抜き取りへ移る旨と参照 1 文。対応テストが無い受入基準に触れる変更は AI取 にしない(R-6) |
+| `phase4-process-design/human-ai-boundary.md` | 5.5.4 の「AI の確認は…合否条件にも用いない」 | 範囲を限る |
+| 同上 | 指示資産の節(5.8.x) | 仕分けの既定 3 項目・追記の由来(R-7) |
+| 同上 | **5.5.1 の依る先の順: 表の前の文(:478)と、要求事項の箇条「段5 の調べは、段1〜段4 で成り立たない事項で、自分で作る前に毎回行う…」(:491)** | **#470 由来(R-11)**: 「手元(段 1〜4)で成り立つ事項でも段 5 を調べるかは、チームが準備物に定める。定めていなければ調べない」を足す。「手元で成り立たない事項では毎回調べる」「段 1〜4 で成り立った事項に段 5 の部品・サービスを足さない」と他の箇条は保つ。議長の読み 2・3 に当たる箇条(各社の定めの条件・先に人へ上げる 3 つ。:605・:621 付近)は触れない。IMPL-1078 の note を文に合わせる |
+| `phase4-process-design/roles-responsibilities.md` | 3.7.3 の「継続」の確定事項(:958-977) | 「次段階の AI のレビューで取り込む範囲(書くなら)」(R-8) |
+| 同上 | 3.10.12 | 要約を入口に原資料へ辿る使い方を認める。抜き取りは原資料で行う(#472 の統制 20) |
+| 同上 | 3.11.4 | 由来を添える・引く候補(R-7)。3.5.3 の 5 条件の確認の扱い |
+| `phase4-process-design/lifecycle.md` | 2.10.3 | SG の継続で次段階の AI取 の範囲を確定する 1 文 |
+| `phase4-process-design/deliverable-templates.md` | テンプレ6(企画書)の「スコープ外」等の並び/様式 04 の「継続」の行 | 企画書に任意の節「AI のレビューで取り込む範囲(書くとき)」(項目は第8章を指す。手元で決められる事項でも世の中の標準を調べるか=項目 11 を含む)。様式 04 の継続の行に 1 項目 |
+| `phase4-process-design/review-guide.md` | 承認の権限・挙動要約 | ruling 10.1 |
+| `adoption-guide.md`・`proposal-template.md`・`overview.md` | 「判定に数えない」の重複 | H.4 への参照へ寄せる。adoption-guide:99 の取り違え、:169 の 73% |
+| `phase5-implementation/template-repository.md` | AI のレビューの位置づけ・契約検査 | テンプレートは既定(準備物に書かない形)だけを実装する旨 |
+| `phase6-operation/process-audit.md` | 観点の節・形骸化の検知(:247-259) | 観点 22 の参照、形骸化の検知を抜き取りにも当てる 1 文 |
+
+- 実装マーク(新しい降ろし先は足さない。`src/data/impl-targets.yaml` の既存から選ぶ): ruling 16.4 の 5 件を `state=undelivered check=manual plan=adopter decision=ADR-NNNN`、R-11 は adopter(定めるかはチーム)。`check=manual` の note には「確かめる者: 」を書く
+- 根拠水準マーク: 例の行(E0)、段 b(E1)、抜き取りの推定と先例の照合なし(E0)、前提を満たしても見逃し率は未測定(E0)、R-11 は既存の 5.5.1 の EV の対象に含める(新しいマークを足さない)
+- してはならないこと: 準備物の項目を必須欄にする(template-fields.yaml に登録しない)。単調の規則・下限・前提を機械の検査として書く。区分の確定(記)を抜き取りへ移す。議長の読み 2・3 に触れる
+- 確かめ方: `npm run lint:refs`、`npm run lint:impl`(または `impl:write` の検査)、`npm run lint:scope`、textlint。適用範囲を見出しへ併記したら `scope:write`
+
+## 段 C 新しい決定の記録(ADR)
+
+- 変えるファイル: `src/content/docs/adr/NNNN-*.md` を 1 本(番号は実装の時に `adr/` の最大+1。今は 0276 まで)。`adr/index.md` の一覧
+- 書く内容: ruling 10.3 の決定の行 1〜9。置き換わる決定の表(ruling 10.2。**ADR-0276 決定 2 の「手元で足りる事項は調べない」の一部の置き換え**を含む)。議長の勧め A が所有者の判断で採られなかったことと理由。採らない案(ruling 14 章)。関連と訂正(ADR-0054:46 の FND の指し違い、ADR-0056:164 の 73%)。根拠水準
+- してはならないこと: 既存 ADR の本文を書き換える。2 本に分ける。#472 の対比を ADR にする
+- 確かめ方: `npm run lint:refs`(ADR 番号の実在)、textlint
+
+## 段 D 根拠の直しと出典台帳
+
+| 作業 | 内容 |
+| --- | --- |
+| 更新 | SRC-0009 を v2(2026-10-01)へ(`sources-draft/draft-01-arxiv-2603-12123v2.yaml` を寄せる)。SRC-0394 を v5(2026-10-27)へ。FND-0087 を読み直し、「同じセッションの 2 回目に優る」「1 回のレビューへの優位は取り下げ」「再現率 27.1% は不変」に分けて水準を付け直す |
+| 新規(#473。本文が引くものだけ) | `draft-06`(相関 5.7 倍)・`draft-07`(Tufano 29 名)・`draft-26`(WaTech)・`draft-28`(Petrović)・`draft-33`(Tian)・`draft-34`(Wunder)・`draft-35`(Mathews)・`draft-37`(Hill)・`draft-38`(NIST SP 500-235)・`draft-39`(Chowdhury)。3.11.4 の理由に引くなら `draft-30`・`31`・`32`。開示に自社の公開を引くなら `draft-13`・`14`・`15`。Inozemtseva は既存 SRC-0420 |
+| 新規(#472) | `472-deliberation/sources-draft/draft-01`・`03`・`04`・`07`・`08` |
+| 登録しない | 本文が引かない下書き(#473 の `draft-02`・`03`〜`05`・`08`〜`12`・`16`〜`25`・`27`・`29`・`36`・`40`・`41`、#472 の `draft-02`・`05`・`06`)。実装で本文が引くことになったら、そのときに登録する。`draft-29`(Just 2014)は値の照合の範囲を確かめてから |
+| 本文の値の直し | 73% → 27.1%(`AC:496`、`TG:485`、`adoption-guide.md:169`)。「適合率 3〜17%」があれば SWR-Bench の 2.79〜16.65%(定義を併記) |
+
+- してはならないこと: PDF を読み直す(抜き書きを読む)。既存と重複する出典を新規にする(`draft-11` は SRC-0574 へ主張を足す)
+- 確かめ方: `npm run lint:sources`。目隠しの抽出(登録した主張が出典の逐語にあるか)
+
+## 段 E template の食い違いの直しと引くもの(**直列**)
+
+正本は ruling 16.3。直すのは文と note だけで、挙動は変えない。
+
+| # | ファイル | 扱い |
+| --- | --- | --- |
+| 1 | `template/scripts/gate/verify-gate-contract.mjs:487-496` | 拒否は保ち、理由の文だけ直す |
+| 2 | `template/CLAUDE.md:116, 124` と原本 `template/scripts/gate/claude-md-resident.json:286, 641, 651` | 「準備物で AI のレビューで取り込むと決めた範囲を除き」の限定を足す。「承認と記録しない」・:118・:126 は保つ。`test-claude-md-resident.mjs:65, 159` の変異の対象を合わせる |
+| 3 | `template/.claude/skills/gate/gates/G-6.md:11, 53, 76` | 2 と同じ限定(:53 の「AI と bot の承認は数えない」は保つ) |
+| 4 | `template/.github/workflows/ai-review.yml:1-6` | 冒頭の注記だけ。`continue-on-error`・必須の検査にしない形は保つ |
+| 5 | `template/templates/00-d0-governance.md:512` | 限定を足す。「承認として扱わない」は保つ |
+| 6 | **#470 由来**: `template/CLAUDE.md:46`・`template/scripts/gate/claude-md-resident.json:681`(IMPL-1078 が presence で運ぶ)・`template/.claude/skills/implement/SKILL.md:72` | 既定を固定する文「手元で足りない事項では、作る前に毎回調べる」「手元(最初の 4 段)に依る先が無い事項では、自分で作る前に、毎回調べます」は保ち、「手元で足りる事項でも調べるかは、チームの定めがあればそれに従う」を足すにとどめる。新しい設定の鍵を足さない。`CLAUDE.md:48`・`SKILL.md:80` は触れない。Grep の範囲(`template/CLAUDE.md`・`template/.claude/skills/`・`template/templates/`)で他に既定を固定する文は見つからなかった |
+| 変えない | `aggregate-evidence.mjs`・`test-deferred-review.mjs`・`config.mjs`(`approvalByPreRead`)・`check-pr.mjs`(`CONTROL_CONFIG_KEYS`)・`templates/06-project-brief.md`・`04-gate-record.md`・`pull_request_template.md` | テンプレートは既定(準備物に AI取 を書かない形)を実装する。adopter のマークで開示(段 B) |
+| 引くもの | template 側には無い | 引くのは標準の本文の手続と重複の記述(段 B) |
+
+- 手順: template でブランチを切る → 1〜6 を直す → コミットごとに `git -C template bundle create <退避先> --all` → template の関係する試験 → 本体の submodule の参照は push の後に進める
+- してはならないこと: 新しい鍵・検査・スキル。拒否を外す。集約の挙動を変える。採用チーム向けの文に ADR・Issue 番号を書く。template の main へ、本体の push と離して push する
+- 確かめ方: `node template/scripts/gate/test-claude-md-resident.mjs`、`test-base-judge-workflow.mjs`(注記の文を固定していないこと)、`test-deferred-review.mjs`(変わらないこと)、`verify-gate-contract` の試験(拒否を固定する試験は未確認。見つからなければその旨を記録)、本体の `npm run test:fields`・`npm run check` の template 関係の検査
+
+## 段 F 台帳の再生成と関係する試験
+
+1. `npm run evidence:write`・`npm run impl:write`・`npm run scope:write`(手で編集しない)
+2. 規則データ(`src/data/tailoring/`)は変えない見込み。変えたら `npm run template:kb`
+3. 関係する試験: 標準の suite `scripts/regress/suite/t288b.mjs`・`trial.mjs`・`lib-r3.mjs`(どれも変わらない見込み。本文の文と期待の文がずれたら fixture `expected/scenes/*.txt` を合わせる。過去の決定を固定した場面なので、合わせる前に ruling と突合する)、`scripts/test-provisions.mjs`(:85 の例文と `src/data/provision-forms.yaml:528` が本文の対応文と食い違えば直す)。時計に依る suite は時刻を置き換えて流す
+4. 独立の突合 1 巡目(全体。既定の Opus。実装を見ていない文脈。渡すのは ruling 2 本と差分だけ)→ 直し → 2 巡目(直した差分だけ)。3 巡目以降の所見は根拠水準マークか undelivered の表示で開示して閉じる(表示と実態が食い違う「高」だけは直す)
+5. 回帰の全量 `npm run check` を push の前に 1 回(WSL では node 26。出力は要約の 1 行だけを読む)。push の前に、git の名義なし・Linux でだけ走る場面・過去の決定を固定した場面の 3 つを先に潰す
+6. push の順: template を先に、続けて本体(submodule の参照を進める)。対で続けて行う
+7. Issue #472・#473: 受け入れ条件のチェックを埋め、`issue=472`・`issue=473` の降りていない計画のマークを確かめてから閉じる
+8. **#470 は、5.5.1 の箇条の直し(R-11)が main に入った時点で閉じる**。閉じるコメントに所在(5.5.1 の箇条・新しい決定の記録・template の 3 か所)を書く。外部の操作なので、指揮役が所有者の許しのもとで行う
+9. 1 件ごとに `node .claude/tools/token-usage.cjs <担当の記録の所在>` で読み直しの量を記録する
