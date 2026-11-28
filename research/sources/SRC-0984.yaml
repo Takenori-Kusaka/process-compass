@@ -1,0 +1,77 @@
+schemaVersion: 0
+id: SRC-0984
+status: included
+excludeReason: null
+title: "Ponytail Skill for Claude Code: Does It Really Cut Agent Code by 54%? (JetBrains AI blog)"
+url: https://blog.jetbrains.com/ai/2026/07/ponytail-skill-claude-tested/
+canonicalUrl: https://blog.jetbrains.com/ai/2026/07/ponytail-skill-claude-tested/
+ids: {arxiv: null, doi: null}
+publisher: "JetBrains"
+authors: ["Denis Shiryaev"]
+orgType: vendor
+region: global
+lang: en
+sourceType: corp-techblog
+published: 2026-07-28
+publishedBasis: meta
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: full
+foundBy: {cluster: I470, query: "ponytail skill tested"}
+derivedFrom: [SRC-0983]
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: 'ponytail スキルを SkillsBench の 80 組で A/B 比較した独立の試験(JetBrains による。ponytail の作者ではない)。試験した版は v4.8.4(commit 16f2980)、モデルは claude-sonnet-5(medium)。検証・安全の保持は測っていない。'
+claims:
+  - id: c1
+    text: '80 組で典型の課題は書くコードが 15.4% 減ったが、p=0.088 で見出しの数値のうち最も弱い。'
+    quote: 'Across 80 paired tasks a typical task shed 15.4% of the code the agent wrote; in total, 10,205 lines became 8,756.'
+    locator: 'Finding 2'
+    quant: {value: "-15.4% (p=0.088)", n: 80, design: "paired A/B", population: "SkillsBench, claude-sonnet-5, ponytail v4.8.4"}
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [470]
+    stance: qualifies
+  - id: c2
+    text: '費用は 10.3% 減(p=0.004)。'
+    quote: 'p=0.004'
+    locator: 'Finding 3 付近(「10.3% less with ponytail installed: p=0.004 across 80 pairs」)'
+    quant: {value: "-10.3% (p=0.004)", n: 80, design: "paired A/B, 46 tasks cheaper / 34 dearer", population: "SkillsBench"}
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [470]
+    stance: context
+  - id: c3
+    text: 'SKILL.md を置くだけでは、10 セッションで自分から働いたのは 0 回。'
+    quote: 'If you copy the SKILL.md into a skills folder and let the model decide when to use it, it will self-activate zero times — we confirmed this across ten sessions.'
+    locator: 'FAQ'
+    quant: {value: "0/10", n: 10, design: "セッション", population: "SKILL.md を置くだけの構成"}
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [470]
+    stance: context
+  - id: c4
+    text: '検証・安全の保持は測っていない。検査器は課題の完了だけを測る。'
+    quote: 'Nothing below tests whether ponytail preserves a guard, only whether the work still passes.'
+    locator: 'Finding 5'
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [470]
+    stance: qualifies
+  - id: c5
+    text: '品質の差は検出できなかったが、80 組では大きな差しか除けない。ベンチマークは過剰に作る罠が少なく、宣伝の −54% を否定しない。'
+    quote: 'It does not refute their −54% on their own task set.'
+    locator: 'What this cannot tell you'
+    quant: null
+    evidenceKind: controlled-experiment
+    rqs: []
+    issues: [470]
+    stance: qualifies
+verification: {status: verified, method: [mech-fetch], date: 2026-11-28, humanChecked: false, note: 'User-Agent を付けた curl で HTML を取得し、タグを除いて照合した。c1 は改行を空白へ直して逐語。公開日は HTML 中の 2026-07-28 と URL の 2026/07 による。'}
+volatility: medium
+reviewBy: 2027-05

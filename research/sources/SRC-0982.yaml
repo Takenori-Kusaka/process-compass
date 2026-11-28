@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: SRC-0982
+status: included
+excludeReason: null
+title: "We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs (Spracklen et al., USENIX Security 2025)"
+url: https://arxiv.org/abs/2406.10279
+canonicalUrl: arxiv:2406.10279
+ids: {arxiv: "2406.10279", doi: null}
+publisher: "arXiv / USENIX Security 2025"
+authors: ["Spracklen et al."]
+orgType: academic
+region: us
+lang: en
+sourceType: paper-peer
+published: null
+publishedBasis: unknown
+version: null
+updated: 2025-03-02
+accessed: 2026-11-28
+access: open
+readLevel: abstract
+foundBy: {cluster: I470, query: "package hallucination slopsquatting"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: false
+themes: []
+events: []
+summary: '16 のコード生成モデル・2 言語・57.6 万のコード標本を調べた実測。要旨のみ読了(本文は未読)。「19.7%」は要旨で確認できないので引かない。slopsquatting の定義は二次情報による。'
+claims:
+  - id: c1
+    text: 'AI が出す存在しないパッケージ名(幻覚)の平均の割合は、商用モデルで 5.2% 以上、オープンソースモデルで 21.7%。固有の幻覚名は 205,474 件。'
+    quote: 'the average percentage of hallucinated packages is at least 5.2% for commercial models and 21.7% for open-source models, including a staggering 205,474 unique examples of hallucinated package names'
+    locator: 'abstract'
+    quant: {value: "5.2%以上(商用) / 21.7%(OSS) / 205,474 固有名", n: "576,000 code samples", design: "16 モデル、2 言語、2 つのプロンプト集合", population: "コード生成 LLM"}
+    evidenceKind: observational
+    rqs: []
+    issues: [470]
+    stance: supports
+  - id: c2
+    text: '標本の規模と対象。16 の LLM と 2 つのプロンプト集合で、2 言語の 57.6 万のコード標本を生成して分析した。'
+    quote: '16 popular LLMs for code generation and two unique prompt datasets, we generate 576,000 code samples in two programming languages'
+    locator: 'abstract'
+    quant: {value: "576,000", n: 576000, design: "生成と分析", population: "16 モデル"}
+    evidenceKind: observational
+    rqs: []
+    issues: [470]
+    stance: context
+verification: {status: verified, method: [mech-fetch], date: 2026-11-28, humanChecked: false, note: 'arxiv.org/abs/2406.10279 を curl で取得し、要旨の 2 引用が原文に逐語であることを確認した。要旨のみ。本文は未読。'}
+volatility: medium
+reviewBy: 2027-05

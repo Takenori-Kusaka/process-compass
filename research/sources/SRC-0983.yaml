@@ -1,0 +1,59 @@
+schemaVersion: 0
+id: SRC-0983
+status: included
+excludeReason: null
+title: "DietrichGebert/ponytail: skills/ponytail/SKILL.md"
+url: https://github.com/DietrichGebert/ponytail/blob/main/skills/ponytail/SKILL.md
+canonicalUrl: https://github.com/DietrichGebert/ponytail
+ids: {arxiv: null, doi: null}
+publisher: "GitHub (DietrichGebert/ponytail)"
+authors: []
+orgType: individual
+region: global
+lang: en
+sourceType: repo
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: full
+foundBy: {cluster: I470, query: "ponytail skill"}
+derivedFrom: []
+derivedFromUrl: []
+selfReported: true
+themes: []
+events: []
+summary: '判断の段(梯子)を AI に与える公開のスキルの SKILL.md(main、2026-11-28 に raw を取得、約 3.5 KB)。作者による自己の記述で、効果の実証ではない。'
+claims:
+  - id: c1
+    text: '最初に完全に成り立つ選択肢を採る梯子。(1)そもそも要るか(2)コードベースに既にあるか(3)標準ライブラリか基盤の機能(4)導入済みの依存(5)1 行(6)動く最小限。'
+    quote: 'Take the first option that fully works:'
+    locator: '## The smallest complete change'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [470]
+    stance: context
+  - id: c2
+    text: '削らないものの列挙。'
+    quote: 'Never cut: validation at trust boundaries, error handling that prevents data loss, security, accessibility, the calibration real hardware needs, anything the user asked for.'
+    locator: '## The smallest complete change 末尾'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [470]
+    stance: context
+  - id: c3
+    text: '返答の終わりに、省いたこと・確かめていないこと・利用者が知るべきリスクを 1〜2 行で示す。'
+    quote: 'End your reply with one or two lines: what you skipped or did not check, and any risk the user must know.'
+    locator: '冒頭の本文'
+    quant: null
+    evidenceKind: vendor-guidance
+    rqs: []
+    issues: [470]
+    stance: context
+verification: {status: verified, method: [mech-fetch], date: 2026-11-28, humanChecked: false, note: 'raw.githubusercontent.com/DietrichGebert/ponytail/main/skills/ponytail/SKILL.md を curl で取得し、3 引用が逐語であることを確認した。'}
+volatility: fast
+reviewBy: 2027-02
