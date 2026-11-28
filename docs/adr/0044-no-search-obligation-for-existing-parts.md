@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-08-14)。一部置き換え(→ [ADR-0261](/process-compass/adr/0261-dependency-provenance-in-list-and-g6-not-in-g5-gate/)): 決定5 の「G-5 の既存の検査で捕まります。新しい条文を置きません」を、未登録の名前が解決の失敗で捕まる範囲(依存の解決が走る構成)に限り、[ADR-0261](/process-compass/adr/0261-dependency-provenance-in-list-and-g6-not-in-g5-gate/) の決定1 が置き換えました(2026-11-27)。登録済みの悪性の名前は、基準8 の一覧と G-6 基準5 で扱います。
 
+一部置き換え(→ [ADR-0276](/process-compass/adr/0276-undefined-matters-lean-on-existing-then-world-standards-review-exclusion-by-adopter/)): 次の 4 点を、作業上の選択のうち手元に依る先が無く自作になる事項について、[ADR-0276](/process-compass/adr/0276-undefined-matters-lean-on-existing-then-world-standards-review-exclusion-by-adopter/) の決定1〜3 が置き換えました(2026-11-28)。(1) 決定1 の「探す義務を課さない」。(2) 決定3 の「第5章の本文には条文を足しません」。(3) 「検討した選択肢」で退けた「なるべく既存のものを使え」。(4) 帰結の「推奨として書かず、義務としても書かない」。設計上の選択を新たに起こすときの探索の義務は、課さないままです。決定2・4・5 は保ちます。
+
 ## コンテキスト
 
 本標準は、**依存を追加するときに必要性を人が確認する**規定を持ちます(G-5 基準8、G-6 基準5)。一方で、**自前で実装しようとしているものに既存の部品が無いかを探す義務がありません**([#237](https://github.com/Takenori-Kusaka/process-compass/issues/237))。

@@ -38,6 +38,7 @@ sidebar:
 | AI 品質指標の扱い | AI が関与した成果物の品質を比率で扱う場合。傾向の確認と第5章 5.4.6 の検知条件を含む | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#ai-品質指標の扱い適用-ai-が関与した成果物の品質を比率で扱う場合傾向の確認と第5章-546-の検知条件を含む) |
 | 新規に変更した範囲へ限定する | G-5 基準3 以外の定量条件 | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#新規に変更した範囲へ限定する適用-g-5-基準3-以外の定量条件) |
 | 登録した変更種別での停止 | 5.5.4 で登録した変更種別 | その他 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#登録した変更種別での停止適用-554-で登録した変更種別) |
+| 決め事を先に人へ上げる範囲 | 安全重要度 CL1 以上の案件と規制業に該当する案件の変更、および R1 の変更 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#決め事を先に人へ上げる範囲適用-安全重要度-cl1-以上の案件と規制業に該当する案件の変更および-r1-の変更) |
 | 5.5.4 委任の条件 | CL0・R3 の変更 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#554-委任の条件適用-cl0r3-の変更) |
 | 5.7.3 選択肢の比較 | R1 の決定・例外承認 | 変更ごと | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#573-選択肢の比較適用-r1-の決定例外承認) |
 | 5.8.7 推定による注意の喚起 | 推定による注意の喚起を置く案件 | その他 | [phase4-process-design/human-ai-boundary](/process-compass/phase4-process-design/human-ai-boundary/#587-推定による注意の喚起適用-推定による注意の喚起を置く案件) |

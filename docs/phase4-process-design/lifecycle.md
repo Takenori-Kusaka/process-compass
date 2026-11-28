@@ -185,6 +185,7 @@ AI協調ループは、機能単位で次の4工程を反復します。
 
 - 原則と規約は、恒久層(プロダクトの原則・用語集・設計標準)に置く。判断記録に置かない。プロダクトの原則の様式は[第6章 テンプレ12](/process-compass/phase4-process-design/deliverable-templates/)による
 - 選択が可逆であることを理由に、判断記録を省いてはならない。可逆性は、判断記録の「可逆性」欄に書き、技術設計判断(G-3)の基準3 で判定者が評価する。可逆性で判断記録の要否を分けると、可逆性の評価が判定の前に起案者の申告で済むためである([ADR-0071](/process-compass/adr/0071-structure-of-principles-decisions-and-gate-records/))
+- [第5章 5.5.1](/process-compass/phase4-process-design/human-ai-boundary/)の決め方で、部品・マネージドサービスを足す選択は、依存の追加として判断記録の対象である。1つの機能のために足す複数の依存は、1つの判断記録にまとめて書いてよい
 
 <!-- impl IMPL-0848 target=adr-template state=delivered check=manual note="判断記録の範囲。様式 templates/02-adr.md の冒頭の注記が範囲を 2.6 から引き、節「可逆性」の欄が可逆性を書く場所を置く(様式が運ぶ分)。原則と規約を判断記録でなく恒久層に置くこと、選択が戻せることを理由に判断記録を省かないこと、プロセスの構造の変更・安全重要度の引き下げ・記録済みの実装スタックの変更を判断記録の対象とすることのスキル側は IMPL-0952 が追う。確かめる者: 技術判断者(判断記録を起こすとき)。所在を読んだ(実行して確かめていない)" -->
 
@@ -211,6 +212,7 @@ AI協調ループは、機能単位で次の4工程を反復します。
 - 作成者・レビュア・AI の担い手は、規則に当たらない変更について「判断記録が要る」と足してよい。AI の担い手の「当たらない」との出力で、規則の当たりを外さない
 - 依存の追加・更新は、G-5 基準8 と G-6 基準5 に既に経路がある。規則に自動で含めない。依存のマニフェストを規則に書くことは妨げない
 - 区分の下限の規則([第3章 3.8.1](/process-compass/phase4-process-design/roles-responsibilities/))と同じ構成に置いてよい。区分の下限と判断記録の要否は、別の値として書く。区分が R3 であることを、判断記録を要しない理由にしない
+- 記録された作業上の選択を読む対象から外す規則([第5章 5.5.1](/process-compass/phase4-process-design/human-ai-boundary/))は、本表の規則と同じ構成に、同じ形(パスと変更種別)で置いてよい。要求事項6 を同じく当てる。要求事項5 は、規則を置く変更と広げる変更を緩める向きとして当てる。この規則は、判断記録の要否を外さない
 
 <!-- impl IMPL-0384 target=pr-checks state=delivered check=machine test=template/scripts/gate/test-check-pr.mjs note="判断記録の要否の規則(構成の decisionRules.rules。基底ブランチから読む)に当たる変更で、本文の末尾の段落にトレーラ ADR が無い、または指す判断記録が context/decisions/ に無い PR を、G-5(pr-rules)が失敗させる。事業ステージ S0(構成の回答 q-biz-phase が poc)では失敗させず注意を出す。ステージを確かめられない構成(回答 q-biz-phase が無い)は失敗させる。申告で外す経路を置かない。規則が無い・規則のパスが追跡中のファイルに1件も当たらない・形の誤った規則だけの構成は、検出できない旨を出す。保管領域(context/_archive/decisions/)の判断記録を指すトレーラは、置き換え・廃止済みとして失敗させる。PR を経ないコミットは、出荷の証跡の集約が照合する(IMPL-0389)。decisionRules を変える PR の下限を R2 とし、decisionRules と製品のコードの同時変更を失敗させる。G-3 の判定記録への到達(要求事項4)は IMPL-0972 が確かめる。判断記録の中身は確かめない(G-3・G-6 の判定者が確かめる)" -->
 <!-- impl IMPL-0389 target=evidence-aggregation state=delivered check=machine test=template/scripts/gate/test-direct-commit-rules.mjs note="要求事項2・3・6 のうち、PR を経ないコミット(トレーラ Risk・Verification で扱う経路)への照合。出荷の証跡の集約が、当該コミットの直前の構成の decisionRules.rules をコミットの差分に当て、トレーラ ADR が無い、または指す判断記録がそのコミットの context/decisions/ に無いコミットを記載の欠落にする。事業ステージ S0 では欠落にせず品質レポートに注意を出す。decisionRules と製品のコードを同じコミットで変えたコミットを欠落にする。成立済みのコミットは書き換えず、判定記録の「対象」で補う(#423)" -->
