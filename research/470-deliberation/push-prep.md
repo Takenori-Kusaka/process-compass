@@ -38,3 +38,10 @@
 1. template で `npm run template:kb` を流し、template の複製の更新をコミットする。本体の `source.commit` は本体のコミットで変わるので、**本体のコミットの後に作り直す**順序に注意(`test:template` が commit の値まで見るかは未確認。見るなら、本体を確定してから複製を作り直し、template と本体の参照を対で進める)
 2. ADR-0276 の 25 行目のリンクを、実在する ADR-0267 の slug に直す
 3. 直した後、コミット済みの状態で `npm run check` を通常と `TZ=UTC` で全量流し直す(`test:template` の後の `test:regress` と `build` の全量は、2 通りとも未実施)
+
+## 流し直し(本体 d0fc5b59・template 22fc966)
+
+- 環境: WSL・node v26.13.1・`$HOME/p470reg2/repo`(bundle から autocrlf=false で clone、`npm ci`、名義は仮設定)。`git ls-tree HEAD template` は 22fc966 で、写しの template の HEAD と一致
+- 流し方: `npm run check` の連結を検査ごとに分け、落ちても止めずに全 32 検査を、通常と `TZ=UTC` の 2 通りで流した(計 64 回)
+- 結果: **64 回すべて終了コード 0**。`lint:sources`・`test:template`・`test:fields`・`test:criteria`・`test:template-suite`・`test:regress`・`build` を含む。先の 2 件(知識ベースの複製・ADR-0276 のリンク)は解消した
+- 判定: 本物の失敗 0 件。**push してよい**(この写しの検査の範囲で)。確かめていないこと: push の後の CI
