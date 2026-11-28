@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 12
+status: draft
+title: "npm left-pad incident (Wikipedia / The Register ほか。検索要約のみ)"
+url: "https://en.wikipedia.org/wiki/Npm_left-pad_incident"
+accessed: 2026-11-28
+sourceType: media
+region: global
+readLevel: snippet
+取得の様子: "二次(検索結果の要約のみ。頁は未取得)"
+claims:
+  - id: c1
+    quote: "(原文未取得)2016-03-22 に作者が left-pad を含む npm のパッケージを取り下げ、依存する多くのプロジェクトのビルドが壊れた。"
+    text: "2016-03-22、11 行ほどの関数のパッケージの取り下げで、React・Babel など多数のビルドが失敗した。npm は約 2 時間後に版を復元した。"
+    locator: "—"
+  - id: c2
+    quote: "(原文未取得)取り下げの後、同名のパッケージを別人が登録できる状態になり、悪意ある配布の危険も露わになった。"
+    text: "検索要約による。引用は取得していないので、台帳に入れる前に原文を取り直す。"
+    locator: "—"

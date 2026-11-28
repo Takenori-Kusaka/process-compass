@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 19
+status: draft
+title: "デジタル庁 デジタル社会推進標準ガイドライン(DS-310 の位置づけ)"
+url: "https://www.digital.go.jp/resources/standard_guidelines"
+accessed: 2026-11-28
+sourceType: public-agency
+region: jp
+readLevel: section
+取得の様子: "一次(WebFetch で頁の記述を確認。DS-310 本文の PDF は未取得)"
+claims:
+  - id: c1
+    quote: "クラウドサービスの採用をデフォルト(第一候補)"
+    text: "システム方式について、クラウドの採用を既定(第一候補)とし、クラウドを適切に使う考え方を示す。DS-310 は Normative(順守する文書)に分類される。"
+    locator: "DS-310 の説明"
+  - id: c2
+    quote: "標準ガイドライン(Normative)= 政府情報システムの整備及び管理に関するルールとして順守する内容を定めたドキュメント"
+    text: "策定 2025-05-27、本文更新 2025-06-19(頁の記述)。「第一候補」であり、例外の扱いは本文で未確認。"
+    locator: "標準ガイドラインの位置づけ"

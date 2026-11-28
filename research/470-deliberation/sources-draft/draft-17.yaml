@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 17
+status: draft
+title: "JetBrains AI blog: Ponytail Skill for Claude Code: Does It Really Cut Tokens (2026-07)"
+url: "https://blog.jetbrains.com/ai/2026/07/ponytail-skill-claude-tested/"
+accessed: 2026-11-28
+sourceType: corp-techblog
+region: global
+readLevel: section
+取得の様子: "一次(WebFetch は 403。tavily extract で本文の一部を取得。全文は未読。著者・公開日は未確認)"
+claims:
+  - id: c1
+    quote: "If you copy the SKILL.md into a skills folder and let the model decide when to use it, it will self-activate zero times — we confirmed this across ten sessions."
+    text: "SKILL.md を置いてモデルに任せると、10 セッションで自分から働いたのは 0 回。SessionStart フックで規則を注入する方式でだけ測れる効果が出た。"
+    locator: "FAQ / 導入前の試験"
+  - id: c2
+    quote: "Across 80 paired tasks a typical task shed 15.4% of the code the agent wrote; in total, 10,205 lines became 8,756. ... At p=0.088, however, it is the softest of our headline numbers. / SkillsBench ... contains few of the front-end over-build traps ... It does not refute their −54% on their own task set. / ~80 pairs can only rule out large [quality differences]."
+    text: "80 組で典型の課題は書くコードが 15.4% 減(p=0.088 で最も弱い)。費用 −10.3%(p=0.004、検索要約。本文の該当箇所は未読)。品質の差は検出できず、80 組では大きな差しか除けない。検査器は完了だけを測り、検証・安全の保持は測らない。試験した版は v4.8.4(commit 16f2980)で、最新版ではない。"
+    locator: "Findings 2, 5 / 限界"

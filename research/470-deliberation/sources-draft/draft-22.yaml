@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 22
+status: draft
+title: "Thoughtworks Technology Radar: Complacency with AI-generated code"
+url: "https://www.thoughtworks.com/radar/techniques/complacency-with-ai-generated-code"
+accessed: 2026-11-28
+sourceType: industry-report
+region: global
+readLevel: snippet
+取得の様子: "二次(検索要約のみ。頁は未取得)"
+claims:
+  - id: c1
+    quote: "(原文未取得)コード品質は時間とともに下がりうる。TDD と静的解析を作業の流れに組み込む。"
+    text: "AI の出力を既定で本番に出せると扱うことを戒める。2024-10 に初出、のち更新。最新の版では現行の Radar から外れている。"
+    locator: "—"
+  - id: c2
+    quote: "(該当なし)"
+    text: "幻覚パッケージや依存の健全性についての Radar の記述は、検索で見つからなかった(未確認)。"
+    locator: "—"

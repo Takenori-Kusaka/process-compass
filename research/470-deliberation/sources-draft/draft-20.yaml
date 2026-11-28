@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 20
+status: draft
+title: "ISO/IEC 25010 の Compatibility の定義(iso25000.com による解説)"
+url: "https://iso25000.com/index.php/en/iso-25000-standards/iso-25010"
+accessed: 2026-11-28
+sourceType: community
+region: global
+readLevel: section
+取得の様子: "二次(規格の解説サイト。規格本文は未取得。Portability の定義は頁の範囲に無く未確認)"
+claims:
+  - id: c1
+    quote: "Degree to which a system, product or component can exchange information with other products."
+    text: "互換性の下位の特性 interoperability の定義(情報を交換できる程度)。co-existence は共通の環境・資源を共有して機能を果たす程度。"
+    locator: "Compatibility"
+  - id: c2
+    quote: "(該当なし)"
+    text: "品質特性としての互換性は「製品が他と動く程度」であり、「既存規格へ適合を優先せよ」という意思決定の原則ではない。"
+    locator: "—"

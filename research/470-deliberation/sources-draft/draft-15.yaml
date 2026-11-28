@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 15
+status: draft
+title: "OpenSSF: Concise Guide for Evaluating Open Source Software"
+url: "https://best.openssf.org/Concise-Guide-for-Evaluating-Open-Source-Software"
+accessed: 2026-11-28
+sourceType: standards-body
+region: global
+readLevel: section
+取得の様子: "一次(WebFetch の要約経由)"
+claims:
+  - id: c1
+    quote: "identify candidates and evaluate the leading ones against your needs"
+    text: "候補を挙げ、有力なものを自分の必要に照らして評価する。"
+    locator: "Purpose"
+  - id: c2
+    quote: "依存が要るか(Initial Assessment)・保守の持続・安全な実践・採用の度合いとライセンス・名前の確認(typosquatting)・隔離環境での試験・コードの評価"
+    text: "評価の項目は 7 区分。最初の確認に「そもそもその依存は必要か」を含む。"
+    locator: "Checks"

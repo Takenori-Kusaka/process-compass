@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 16
+status: draft
+title: "DietrichGebert/ponytail: skills/ponytail/SKILL.md"
+url: "https://raw.githubusercontent.com/DietrichGebert/ponytail/main/skills/ponytail/SKILL.md"
+accessed: 2026-11-28
+sourceType: repo
+region: global
+readLevel: full
+取得の様子: "一次(WebFetch の要約。逐語照合は要約を経由しており、短い句のみ)"
+claims:
+  - id: c1
+    quote: "Take the first option that fully works: 1 Does the feature need to exist? 2 Reuse something already in the codebase 3 standard library or platform feature, unless the project has its own 4 installed dependency; do not add one for a few lines 5 one line 6 minimum code that works"
+    text: "最初に完全に成り立つ段を採る。(1)そもそも要るか(2)コードベースに既にあるか(3)標準ライブラリか基盤の機能(プロジェクト独自があればそれ)(4)導入済みの依存(数行のために足さない)(5)1 行で書けるか(6)動く最小限。"
+    locator: "Decision ladder"
+  - id: c2
+    quote: "Never cut: validation at trust boundaries, error handling that prevents data loss, security, accessibility, hardware calibration, and anything the user asked for. / Every reply ends with one or two lines covering what was skipped or left unchecked, and any risk the user must know."
+    text: "削らないもの(信頼の境界での検証・データ損失を防ぐエラー処理・セキュリティ・アクセシビリティ・ハードウェア校正・頼まれたこと)。すべての返答は、省いたこと・確かめていないこと・知らせるべきリスクを 1〜2 行で終える。近道には \"shortcut: <limit>, <when to upgrade>\" の注記。強さは lite / full(既定) / ultra の 3 段。"
+    locator: "Never cut / Reporting / Intensity"

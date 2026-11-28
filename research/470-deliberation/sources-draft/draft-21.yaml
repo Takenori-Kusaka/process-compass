@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 21
+status: draft
+title: "The Twelve-Factor App: II. Dependencies"
+url: "https://12factor.net/dependencies"
+accessed: 2026-11-28
+sourceType: community
+region: global
+readLevel: section
+取得の様子: "一次(WebFetch で確認)"
+claims:
+  - id: c1
+    quote: "A twelve-factor app never relies on implicit existence of system-wide packages."
+    text: "12-factor のアプリは、システム全体のパッケージの暗黙の存在に依らない。依存は宣言して隔離する。"
+    locator: "II. Dependencies"
+  - id: c2
+    quote: "(該当なし)"
+    text: "依存を「使うか自作か」ではなく「宣言して管理せよ」と述べる。どちらを優先するかの向きは示さない。"
+    locator: "—"

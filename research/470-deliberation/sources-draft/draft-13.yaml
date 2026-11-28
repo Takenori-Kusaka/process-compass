@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 13
+status: draft
+title: "UK DfE Enterprise Architecture principles: Cloud first (Rent, before buy, before build)"
+url: "https://deliver-good-services.education.gov.uk/guides/enterprise-architecture-principles/5-cloud-first"
+accessed: 2026-11-28
+sourceType: public-agency
+region: eu
+readLevel: section
+取得の様子: "一次(WebFetch で確認。英国教育省の原則。TOGAF 本文ではない)"
+claims:
+  - id: c1
+    quote: "Rent before you buy, and buy before you build. Do not build what can easily be bought off-the-shelf."
+    text: "借りる、買う、作るの順。既製で容易に買えるものを作らない。"
+    locator: "Principle"
+  - id: c2
+    quote: "Develop an exit strategy before adopting COTS, to prevent vendor lock-in."
+    text: "COTS を採る前に、ロックインを防ぐ出口の策を作る。「選択肢の評価で、COTS と特注の TCO を比べる(ホスティング・基盤・要員・保守を製品の寿命にわたり)」とも言う。"
+    locator: "Implications"

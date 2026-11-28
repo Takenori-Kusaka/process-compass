@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 18
+status: draft
+title: "ITIL standard change(ベンダー文書による説明。ITIL 原典は未取得)"
+url: "https://www.atlassian.com/itsm/change-management/types"
+accessed: 2026-11-28
+sourceType: vendor-official
+region: global
+readLevel: snippet
+取得の様子: "二次(検索要約のみ。Atlassian の頁本文は取得できず。ITIL 原典は有償で未取得)"
+claims:
+  - id: c1
+    quote: "a pre-authorized change that is low risk, relatively common and follows a procedure or work instruction"
+    text: "(検索要約が ITIL の定義として引くもの)事前承認済みで、低リスク・比較的よくあり、手順書に従う変更。"
+    locator: "—"
+  - id: c2
+    quote: "repeatable steps and a proven track record of success"
+    text: "(検索要約)繰り返せる手順と成功の実績が要る。事前承認は CAB や同僚の承認を飛ばすが、記録や手順への適合は残る。"
+    locator: "—"

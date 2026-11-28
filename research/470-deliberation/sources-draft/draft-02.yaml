@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 02
+status: draft
+title: "The Technology Code of Practice (GOV.UK)"
+url: "https://www.gov.uk/guidance/the-technology-code-of-practice"
+accessed: 2026-11-28
+sourceType: public-agency
+region: eu
+readLevel: section
+取得の様子: "一次(WebFetch の要約を経由。原文の全文照合はしていない)"
+claims:
+  - id: c1
+    quote: "Build technology that uses open standards to ensure your technology works and communicates with other technology."
+    text: "オープン標準を使い、他の技術と連携できるようにする(項目 4)。"
+    locator: "Point 4"
+  - id: c2
+    quote: "Before building something new, find out whether government has already solved this problem."
+    text: "新しく作る前に、政府がすでに解いていないか調べる(項目 8)。また「実務上可能な限り多くの項目に従う」とあり、comply-or-explain の仕組みは無い。"
+    locator: undefined

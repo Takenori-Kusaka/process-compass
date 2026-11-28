@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 04
+status: draft
+title: "Go Proverbs (Rob Pike, Gopherfest 2015)"
+url: "https://go-proverbs.github.io/"
+accessed: 2026-11-28
+sourceType: individual
+region: global
+readLevel: section
+取得の様子: "一次(索引ページ)"
+claims:
+  - id: c1
+    quote: "A little copying is better than a little dependency."
+    text: "少しの複製は、少しの依存よりよい。"
+    locator: "Go Proverbs"
+  - id: c2
+    quote: "Rob Pike, Gopherfest SV 2015 の講演に由来するとページが述べる"
+    text: "出典の帰属はページの記述による。"
+    locator: "—"

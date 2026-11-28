@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 08
+status: draft
+title: "Kiro docs: Steering"
+url: "https://kiro.dev/docs/steering/"
+accessed: 2026-11-28
+sourceType: vendor-official
+region: us
+readLevel: section
+取得の様子: "一次(WebFetch の要約経由)"
+claims:
+  - id: c1
+    quote: "Documents your chosen frameworks, libraries, development tools, and technical constraints."
+    text: "tech.md は、選んだフレームワーク・ライブラリ・道具・技術上の制約を記す。"
+    locator: "Technology stack (tech.md)"
+  - id: c2
+    quote: "will prefer your established stack over alternatives"
+    text: "提案するとき、確立された技術の組を、代替より優先する(要約の言い回し。原文の逐語かは未確認)。基盤ファイルは既定で毎回含まれる。"
+    locator: "Steering"

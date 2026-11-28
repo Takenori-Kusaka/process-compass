@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 06
+status: draft
+title: "We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs (Spracklen et al., USENIX Security 2025)"
+url: "https://arxiv.org/abs/2406.10279"
+accessed: 2026-11-28
+sourceType: paper-peer
+region: us
+readLevel: abstract
+取得の様子: "一次(arXiv 要旨を WebFetch で確認)"
+claims:
+  - id: c1
+    quote: "the average percentage of hallucinated packages is at least 5.2% for commercial models and 21.7% for open-source models"
+    text: "幻覚パッケージの平均の割合は、商用モデルで 5.2% 以上、オープンソースモデルで 21.7%。16 モデル・57.6 万のコード標本・20.5 万の固有の幻覚名。"
+    locator: "abstract (v3, 2025-03-02)"
+  - id: c2
+    quote: "(slopsquatting = 幻覚された名前を攻撃者が先に登録して悪意あるコードを置く攻撃。この語の定義は二次の解説による)"
+    text: "攻撃の定義は Socket・CSA などの二次情報。「19.7%」は二次情報にあるが、要旨では確認できなかったので使わない。"
+    locator: "—"

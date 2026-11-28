@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 07
+status: draft
+title: "github/spec-kit: spec-driven.md"
+url: "https://github.com/github/spec-kit/blob/main/spec-driven.md"
+accessed: 2026-11-28
+sourceType: repo
+region: global
+readLevel: section
+取得の様子: "一次(WebFetch の要約経由。全文照合はしていない)"
+claims:
+  - id: c1
+    quote: "Mark all ambiguities: Use [NEEDS CLARIFICATION: specific question]"
+    text: "曖昧な点はすべて [NEEDS CLARIFICATION: 具体の問い] で印を付ける。「推測するな。仕様に無ければ印を付けよ」。"
+    locator: "テンプレート節"
+  - id: c2
+    quote: "Use framework features directly rather than wrapping them"
+    text: "フレームワークの機能を、包まずに直接使う(Article VIII Anti-Abstraction)。Article I は「すべての機能はまず独立のライブラリとして始まる」。"
+    locator: "Constitution Article I, VIII"

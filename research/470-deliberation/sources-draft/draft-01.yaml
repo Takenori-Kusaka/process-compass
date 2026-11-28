@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 01
+status: draft
+title: "OMB Circular A-119 (Revised 2016-01-22): Federal Participation in the Development and Use of Voluntary Consensus Standards"
+url: "https://www.whitehouse.gov/wp-content/uploads/2020/07/revised_circular_a-119_as_of_1_22.pdf"
+accessed: 2026-11-28
+sourceType: public-agency
+region: us
+readLevel: full
+取得の様子: "一次(PDF を pdftotext で全文取得)"
+claims:
+  - id: c1
+    quote: "agency must use voluntary consensus standards in lieu of government-unique standards, unless inconsistent with applicable law or otherwise impractical"
+    text: "連邦機関は、法に反するか実行不能でない限り、政府固有の標準に代えて自発的合意標準を使わなければならない。"
+    locator: "序文・質疑(Q&A の「When must my agency use voluntary consensus standards?」)"
+  - id: c2
+    quote: "In all cases, your agency has the discretion to decline to use existing voluntary consensus standards if your agency determines that such standards are inconsistent with applicable law or otherwise impractical"
+    text: "いかなる場合も、機関は、法に反するか実行不能と判断すれば、既存の自発的合意標準を使わない裁量を持つ(= 適合の優先は、逸脱を認める裁量つきの規定)。"
+    locator: undefined

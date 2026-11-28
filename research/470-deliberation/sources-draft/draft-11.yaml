@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 11
+status: draft
+title: "FRC: Improving the quality of comply or explain reporting / 英国コーポレートガバナンス・コードの検索結果"
+url: "https://media.frc.org.uk/documents/Improving_the_quality_of_comply_or_explain_reporting_March_2026_cLjoThIr.pdf"
+accessed: 2026-11-28
+sourceType: public-agency
+region: eu
+readLevel: snippet
+取得の様子: "二次(検索結果の要約のみ。本文は未取得)"
+claims:
+  - id: c1
+    quote: "a meaningful explanation for a departure shows that an alternative arrangement is more appropriate and beneficial"
+    text: "(検索要約の引用)逸脱の意味ある説明は、代わりの取り決めのほうが適切で有益だと示す。"
+    locator: "—(PDF 本文は未取得)"
+  - id: c2
+    quote: "comply or explain is a genuine choice and the Code is not intended to be \"comply or else\""
+    text: "(検索要約の引用)comply or explain は本物の選択で、「従うか、さもなくば」ではない。FRC は定型文の報告(boilerplate)を繰り返し戒める。本文未取得のため、確かさは二次。"
+    locator: "—"

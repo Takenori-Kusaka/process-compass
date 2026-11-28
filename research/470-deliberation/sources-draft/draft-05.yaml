@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 05
+status: draft
+title: "Choose Boring Technology (Dan McKinley)"
+url: "https://boringtechnology.club/"
+accessed: 2026-11-28
+sourceType: individual
+region: global
+readLevel: section
+取得の様子: "一次(WebFetch の要約経由)"
+claims:
+  - id: c1
+    quote: "Let's say that we all get a limited number of innovation tokens to spend."
+    text: "革新のトークンは数に限りがあると考える。"
+    locator: "Innovation tokens"
+  - id: c2
+    quote: "Early on in a company's life, we get like maybe three."
+    text: "会社の初期には 3 つほど。(「既定は退屈な技術」という語そのものは本文に無く、近い記述は「よく理解され、失敗の仕方が分かっている技術を好む」)"
+    locator: "Innovation tokens"

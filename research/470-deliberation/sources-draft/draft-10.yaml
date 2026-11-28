@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 10
+status: draft
+title: "OpenAI Model Spec (main)"
+url: "https://raw.githubusercontent.com/openai/model_spec/main/model_spec.md"
+accessed: 2026-11-28
+sourceType: vendor-official
+region: us
+readLevel: section
+取得の様子: "一次(先頭 10 万字を WebFetch の要約で確認。残りは未読)"
+claims:
+  - id: c1
+    quote: "When clarification is unavailable, GPT should account for the risks of both action and inaction."
+    text: "確認できないときは、動くリスクと動かないリスクの両方を勘定する。"
+    locator: "Respect the letter and spirit of instructions"
+  - id: c2
+    quote: "When an action is outside the agreed scope, notify the user and seek approval. (要約。逐語は未照合)"
+    text: "範囲外の行動は、利用者に知らせて承認を求める。曖昧で推測に進むときは「前提と不確かさを最終回答で大きな声で示す」。注: 版により文言が異なる(2025-10-27 版の別検索の要約には「前提を見える形にし、直しやすくする」)。"
+    locator: "Act within an agreed-upon scope of autonomy"

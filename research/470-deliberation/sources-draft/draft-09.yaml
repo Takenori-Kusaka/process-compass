@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 09
+status: draft
+title: "AGENTS.md"
+url: "https://agents.md/"
+accessed: 2026-11-28
+sourceType: community
+region: global
+readLevel: section
+取得の様子: "一次(WebFetch の要約経由)"
+claims:
+  - id: c1
+    quote: "a dedicated, predictable place to provide the context and instructions to help AI coding agents work on your project"
+    text: "AI のコーディングエージェントへ、文脈と指示を渡すための決まった置き場。"
+    locator: "冒頭"
+  - id: c2
+    quote: "AGENTS.md is now stewarded by the Agentic AI Foundation under the Linux Foundation."
+    text: "Linux Foundation 傘下の Agentic AI Foundation が管理する。依存の選び方の規則は、この頁には無い(例は install コマンドなど)。"
+    locator: "Footer / FAQ"

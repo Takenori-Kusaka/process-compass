@@ -1,0 +1,19 @@
+# 下書き(SRC 番号は未付与。後で採番する)
+draft: 03
+status: draft
+title: "GOV.UK Service Standard, point 13: Use and contribute to open standards, common components and patterns"
+url: "https://www.gov.uk/service-manual/service-standard/point-13-use-common-standards-components-patterns"
+accessed: 2026-11-28
+sourceType: public-agency
+region: eu
+readLevel: section
+取得の様子: "一次(WebFetch の要約経由)"
+claims:
+  - id: c1
+    quote: "use open standards, and propose a new open standard if there is not one that already meets their needs"
+    text: "オープン標準を使い、合うものが無ければ新しい標準を提案する。"
+    locator: "Point 13"
+  - id: c2
+    quote: "use standard government technology components where possible"
+    text: "可能な限り政府共通の技術部品を使う。(検索結果の要約には「免除が認められない限り」とあるが、この点は原文で未確認)"
+    locator: "Point 13"
