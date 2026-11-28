@@ -1,0 +1,64 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Claude Approvals and your GitHub rules (Claude Code Docs)"
+url: https://code.claude.com/docs/en/approvals-github-rules
+canonicalUrl: "https://code.claude.com/docs/en/approvals-github-rules"
+ids:
+  arxiv: null
+  doi: null
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: full
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "Claude の承認が GitHub の必須承認を 1 つ満たしうること、人が誰も見ずにマージされうる設定の一覧、PR の本文が分類器の答えを誘導しうることを、製品の文書自身が書く。"
+note: "文書の日付は頁に無い。承認の ZIP ページ群のうち approvals-setup・approvals-classifiers・approvals-policy は本調べでは未読。"
+claims:
+  - id: c1
+    text: "Claude の承認レビューは、承認を 1 つ求める GitHub の分岐規則を満たしうる。"
+    quote: "Claude’s approving review can meet a GitHub branch rule that requires one approval."
+    locator: "Merges without human review"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "Approvals を有効にすると、作成者以外の人が誰も見ずに、作者が bot なら人が誰もいないままマージされうる。"
+    quote: "With Approvals on, a pull request can merge with no person but its author looking at it, or with no person at all if a bot wrote it."
+    locator: "Merges without human review"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: qualifies
+  - id: c3
+    text: "PR の作成者の文が分類器の答えを誘導しうる。"
+    quote: "A pull request’s author’s text can steer a classifier’s answer."
+    locator: "Who can change or loosen a policy / Classifier answers that a pull request can steer"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: qualifies
+  - id: c4
+    text: "チェックが必須にされた場合に限りマージを止める。"
+    quote: "The check blocks a merge only where you make it a required check in GitHub, and your branch rules decide what merges."
+    locator: "冒頭"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: context
+verification:
+  status: verified
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 全文(2026-11-28 に取得)。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

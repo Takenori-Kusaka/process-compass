@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "SWR-Bench (arXiv:2509.01494)"
+url: https://arxiv.org/abs/2509.01494
+canonicalUrl: "arxiv:2509.01494"
+ids:
+  arxiv: "2509.01494"
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2025-09-01
+publishedBasis: page
+version: v2
+updated: 2026-06-05
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "GitHub の PR 1,000 件で LLM のコードレビューを測った。最良の構成で適合率 16.65%・再現率 23.18%・F1 19.38%。5 ツールの平均の適合率は 2.79〜15.39%。"
+note: "適合率の範囲は表の平均行からの読み取りで、本文の 1 文にはない。"
+claims:
+  - id: c1
+    text: "最良の構成(PR-Review + Gemini-2.5-Pro)の F1 は 19.38%(適合率 16.65%、再現率 23.18%)。"
+    quote: "the top-performing combination, PR-Review leveraged with Gemini-2.5-Pro, achieved an F1 score of only 19.38%."
+    locator: "RQ2 / 表 III・IV"
+    evidenceKind: benchmark
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: html v1 の表 III・IV の要約。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

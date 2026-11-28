@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "PCI DSS v4.0.1 Requirement 6.2.3 / 6.2.3.1"
+url: https://www.middlebury.edu/sites/default/files/2025-01/PCI-DSS-v4_0_1.pdf
+canonicalUrl: "https://www.middlebury.edu/sites/default/files/2025-01/PCI-DSS-v4_0_1.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: 2024-06
+publishedBasis: page
+version: 4.0.1
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "6.2.3 の適用注記は、コードレビューを手動か自動かその組合せで行ってよいと書く。6.2.3.1 は、手動のコードレビューを行う場合に限り、作成者以外が確かめ、リリース前に管理者が承認することを求める。"
+note: "PCI SSC の公式の配布ではなく大学サイトの写し。公式は PCI SSC の文書庫(要登録)。"
+claims:
+  - id: c1
+    text: "コードレビューは手動でも自動でもその組合せでもよい。"
+    quote: "Code reviews may be performed using either manual or automated processes, or a combination of both."
+    locator: "6.2.3 Applicability Notes, p.139"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "6.2.3.1 は手動のコードレビューを行う場合の条件(作成者以外の人など)。"
+    quote: "If manual code reviews are performed for bespoke and custom software prior to release to production, code changes are:"
+    locator: "6.2.3.1, p.140"
+    evidenceKind: normative
+    issues: [473]
+    stance: context
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: p.139〜140 を pdftotext で抽出。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

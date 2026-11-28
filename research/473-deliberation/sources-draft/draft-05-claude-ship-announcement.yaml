@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Introducing Claude Ship (claude.com)"
+url: https://claude.com/resources/articles/introducing-claude-ship
+canonicalUrl: "https://claude.com/resources/articles/introducing-claude-ship"
+ids:
+  arxiv: null
+  doi: null
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-11-23
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "2026-11-23 に Claude Ship を公表。Code Review は一般提供、PR Steward と Claude Approvals は beta。方針が許せば Claude は定型の変更を自分で承認できる。"
+note: "逐語の抜き書きは弱い。beta の記述は要約に依る。引くなら再取得して逐語を取り直す。"
+claims:
+  - id: c1
+    text: "方針が許せば、Claude は定型の変更を自分で承認できる。"
+    quote: "Claude can approve routine changes on its own if the policy allows it."
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "PR Steward と Claude Approvals は beta。"
+    quote: "PR Steward and Claude Approvals are in beta."
+    locator: "本文"
+    evidenceKind: news-fact
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: WebFetch の要約(本文の逐語は 2 文のみ)。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

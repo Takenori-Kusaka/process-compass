@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Intercom: AI is approving our pull requests (blog)"
+url: https://www.intercom.com/blog/ai-is-approving-our-pull-requests-heres-how-we-made-it-safe
+canonicalUrl: "https://www.intercom.com/blog/ai-is-approving-our-pull-requests-heres-how-we-made-it-safe"
+ids:
+  arxiv: null
+  doi: null
+orgType: enterprise
+region: global
+lang: en
+sourceType: corp-techblog
+published: 2026-04-21
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: true
+themes: [TH06]
+summary: "19% 超の PR が人のレビュアなしで自動承認される。大きな PR は承認しない。出荷する人が結果の責任を負う。"
+note: "メモは公開日を未確認としていた。ページから 2026-04-21 を得た(WebFetch の読み取り)。マージの操作を人が行うかは本文に明記が無い。"
+claims:
+  - id: c1
+    text: "19% 超が人のレビュアなしで自動承認される。"
+    quote: "And over 19% are auto-approved with no human reviewer in the loop."
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "大きな PR は承認しない。"
+    quote: "It won't approve large PRs."
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: context
+  - id: c3
+    text: "出荷する人が結果の責任を負う。"
+    quote: "The human who ships the code remains accountable for the outcome."
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: context
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: WebFetch の抜粋。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

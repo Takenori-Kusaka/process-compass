@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Customer.io: How we taught AI to approve pull requests"
+url: https://customer.io/learn/how-we-work/how-we-taught-ai-to-approve-pull-requests
+canonicalUrl: "https://customer.io/learn/how-we-work/how-we-taught-ai-to-approve-pull-requests"
+ids:
+  arxiv: null
+  doi: null
+orgType: enterprise
+region: global
+lang: en
+sourceType: corp-techblog
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: true
+themes: [TH06]
+summary: "変更を Routine・Structural・Critical に分け、AI は 60% 超の PR を承認。500 件の AI 承認 PR で本番障害 0(自社報告)。"
+note: "公開日なし。データの期間は 3 か月(500+ PR)。マージを誰が行うかは本文に無い。"
+claims:
+  - id: c1
+    text: "Routine は文書・設定・軽微な更新で、基本の証拠で足りる。"
+    quote: "Routine changes: Documentation, config files, minor updates. Low complexity, basic evidence is enough."
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "AI は全 PR の 60% 超を承認している。"
+    quote: "The AI is approving over 60% of all PRs."
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c3
+    text: "500 件の AI 承認 PR の後で本番障害は 0。"
+    quote: "After 500 AI-approved PRs: zero production incidents"
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: WebFetch の抜粋。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

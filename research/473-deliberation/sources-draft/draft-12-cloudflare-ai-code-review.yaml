@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Cloudflare: AI code review (blog)"
+url: https://blog.cloudflare.com/ai-code-review/
+canonicalUrl: "https://blog.cloudflare.com/ai-code-review/"
+ids:
+  arxiv: null
+  doi: null
+orgType: enterprise
+region: global
+lang: en
+sourceType: corp-techblog
+published: 2026-04-20
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: true
+themes: [TH06]
+summary: "MR を変更の大きさと性質で 3 つのリスク層に分け、層ごとにエージェントの数を変える。重大な問題でマージを阻止する。人が break glass で上書きできる。"
+note: "自社の運用の報告。承認(approve)の機能はあるが、置き換えではないと自ら書く。"
+claims:
+  - id: c1
+    text: "AI のレビューは人のレビューの置き換えではない。"
+    quote: "This isn't a replacement for human code review, at least not yet with today’s models."
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: qualifies
+  - id: c2
+    text: "変更の大きさと性質で 3 つのリスク層に分ける。"
+    quote: "The system classifies every MR into one of three risk tiers based on the size and nature of the diff."
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c3
+    text: "人が break glass とコメントすれば AI の結果に関わらず承認される。"
+    quote: "the system forces an approval regardless of what the AI found."
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: context
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: WebFetch の抜粋。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

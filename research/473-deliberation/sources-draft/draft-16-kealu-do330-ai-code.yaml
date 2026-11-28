@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Kealu: Design assurance level for AI-generated code (DO-330 FAQ)"
+url: https://www.kealu.com/blog/design-assurance-level-ai-generated-code
+canonicalUrl: "https://www.kealu.com/blog/design-assurance-level-ai-generated-code"
+ids:
+  arxiv: null
+  doi: null
+orgType: consultancy
+region: global
+lang: en
+sourceType: corp-techblog
+published: 2026-11-08
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "言語モデルのコーディングツールを DO-330 で認定した公開の記録は見つからなかったとする。ツール認定は特定の機上システムの文脈で功績を得る過程。"
+note: "二次。DO-330 本体は有償で未開封。FAA 命令 8110.49A の定義はこの記事の引用。"
+claims:
+  - id: c1
+    text: "言語モデルのコーディングツールが DO-330 で認定された公開の記録は見つからなかった。"
+    quote: "we found no public record of a language-model coding tool qualified under DO-330"
+    locator: "FAQ"
+    evidenceKind: expert-opinion
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: WebFetch の抜粋。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

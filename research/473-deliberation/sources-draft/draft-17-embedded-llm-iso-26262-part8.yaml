@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "embedded.com: LLMs Under ISO 26262 Part 8 — Qualify the Tool or Prove the Review"
+url: https://www.embedded.com/llms-under-iso-26262-part-8-qualify-the-tool-or-prove-the-review
+canonicalUrl: "https://www.embedded.com/llms-under-iso-26262-part-8-qualify-the-tool-or-prove-the-review"
+ids:
+  arxiv: null
+  doi: null
+orgType: media
+region: global
+lang: en
+sourceType: corp-techblog
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "LLM の起草支援は TI2。実際の道は、モデルの誤りを検出する検証で TD1 を立て TCL1 にすること。認定の 4 つの方法はホスト型の汎用 LLM に合いにくい。"
+note: "二次の実務家の解説。ISO 26262-8 箇条 11 の本体は有償で、公開プレビューを未開封。"
+claims:
+  - id: c1
+    text: "多くのチームの実際の道は、誤りの検出による TCL1。"
+    quote: "For most teams today, though, the realistic route is TCL1 through error detection."
+    locator: "本文"
+    evidenceKind: expert-opinion
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: WebFetch の抜粋。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

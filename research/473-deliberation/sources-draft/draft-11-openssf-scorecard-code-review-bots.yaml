@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "OpenSSF Scorecard: Code-Review check (docs/checks.md) — bot review not counted"
+url: https://github.com/ossf/scorecard/blob/main/docs/checks.md
+canonicalUrl: "https://github.com/ossf/scorecard/blob/main/docs/checks.md"
+ids:
+  arxiv: null
+  doi: null
+orgType: community
+region: global
+lang: en
+sourceType: repo
+published: null
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "Code-Review 検査は、AI/ML を使う bot を含む bot のレビューをコードレビューに数えない。"
+note: "既存 SRC-0574 は同じ頁で、bot だけの変更のとき結論なしを返す点だけを主張にしていた。AI の bot を数えない 1 文は未登録。SRC-0574 への主張の追加として扱うのが妥当。"
+claims:
+  - id: c1
+    text: "AI/ML を使う bot を含む bot のレビューは、コードレビューに数えない。"
+    quote: "Review by bots, including bots powered by artificial intelligence / machine learning (AI/ML), do not count as code review."
+    locator: "Code-Review"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: raw の Code-Review 節(2026-11-28)。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

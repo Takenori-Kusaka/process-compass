@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Ona: Auto-approving low-risk PRs"
+url: https://ona.com/stories/auto-approving-low-risk-prs
+canonicalUrl: "https://ona.com/stories/auto-approving-low-risk-prs"
+ids:
+  arxiv: null
+  doi: null
+orgType: enterprise
+region: global
+lang: en
+sourceType: corp-techblog
+published: 2026-04-09
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: true
+themes: [TH06]
+summary: "1,000 行未満・protobuf なし・DB migration なし・インフラと CI の設定なし・認証認可なし・監査ログと監視なし、の 6 条件をすべて満たす変更だけを承認する。マージは人。"
+note: "低リスクの定義が 6 つの決定可能な条件である点が審議に要る。"
+claims:
+  - id: c1
+    text: "低リスクは 6 つの条件のすべてを満たす変更(例: 変更が 1,000 行未満)。"
+    quote: "Fewer than 1,000 lines changed"
+    locator: "本文の 6 条件"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "承認とマージを分け、マージは人が行う。"
+    quote: "a person always clicks the merge button"
+    locator: "本文"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: WebFetch の抜粋。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

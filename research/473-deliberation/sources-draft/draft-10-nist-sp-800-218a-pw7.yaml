@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "NIST SP 800-218A: SSDF Community Profile for Generative AI and Dual-Use Foundation Models (PW.7.1)"
+url: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.pdf
+canonicalUrl: "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218A.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: global
+lang: en
+sourceType: standard
+published: 2024-07
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "PW.7.1 は、コードレビュー(人が直接コードを見る)かコード解析(ツールが使われる。完全自動でも人との併用でもよい)かを、組織の定めに従って and/or で使うよう求める。"
+note: "本書の対象は生成 AI・基盤モデルの開発で、AI コーディング支援の利用ではないとの解説がある(二次、未確認)。PW.7.1 の文言は SSDF 1.1(SP 800-218、SRC-0718)に由来する。"
+claims:
+  - id: c1
+    text: "コードレビュー(人が直接見る)と コード解析(完全自動または人と併用のツール)を、組織の定めに従って使う。"
+    quote: "Determine whether code review (a person looks directly at the code to find issues) and/or code analysis (tools are used to find issues in code, either in a fully automated way or in conjunction with a person) should be used, as defined by the organization."
+    locator: "PW.7.1 の表"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: PW.7 の表を pdftotext で抽出。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Copilot code review: merge with confidence with Max and approvals (GitHub Changelog)"
+url: https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals
+canonicalUrl: "https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals"
+ids:
+  arxiv: null
+  doi: null
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: 2026-10-28
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: full
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "Copilot の承認が一般提供になった。承認は必須承認に数えられる。既定はオフで、管理者が enterprise・organization・repository の各水準で有効にする。"
+note: "既存 SRC-0179(2026-09-01 の public preview)の後続。製品の名は記録には書いてよいが条項には書かない。"
+claims:
+  - id: c1
+    text: "Copilot の承認は public preview から一般提供になった。"
+    quote: "Copilot approvals, previously available in public preview, are now generally available."
+    locator: "本文"
+    evidenceKind: news-fact
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "その承認は必須承認に数えられる。"
+    quote: "and that approval counts toward your repository’s required approvals."
+    locator: "本文"
+    evidenceKind: news-fact
+    issues: [473]
+    stance: supports
+  - id: c3
+    text: "承認は既定でオフ。管理者が有効にする。"
+    quote: "Approvals are off by default. Admins can turn them on at the enterprise, organization, or repository level"
+    locator: "本文"
+    evidenceKind: news-fact
+    issues: [473]
+    stance: context
+verification:
+  status: verified
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 全文。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

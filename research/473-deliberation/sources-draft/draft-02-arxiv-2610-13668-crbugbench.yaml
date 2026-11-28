@@ -1,0 +1,71 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "CRBugBench (arXiv:2610.13668)"
+url: https://arxiv.org/abs/2610.13668
+canonicalUrl: "arxiv:2610.13668"
+ids:
+  arxiv: "2610.13668"
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: 2026-10-09
+publishedBasis: page
+version: v1
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部調査の照合(research/473-deliberation/external.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "人が検証した欠陥と導入 PR の組で、コードレビューのエージェントを測った。上位 5 件の再現率は 5 か月で 47.7% から 71.9% へ。人のレビューは約半分。人とエージェントの和集合は 82.1%。社内リポジトリでは最大 25.5% 低下。"
+note: "著者に Microsoft 所属を含む(メモの記述。本調べでは所属を開いていない)。適合率は未報告。"
+claims:
+  - id: c1
+    text: "上位 5 件の再現率は opus-4.6 の 47.7% から opus-5 の 71.9% へ上がった(事前・事後の平均)。"
+    quote: "the review agents have gone from catching 47.7% to 71.9%"
+    locator: "Section 4.3 RQ1"
+    evidenceKind: benchmark
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "人のレビュー単独は約半分(50%)。最良のエージェント単独は 71.9%。"
+    quote: "humans alone only catch 50% of the bugs, while best agent alone catches 71.9%."
+    locator: "Section 4.3 Opportunities for human-agent collaboration"
+    evidenceKind: benchmark
+    issues: [473]
+    stance: context
+  - id: c3
+    text: "人とエージェントの検出を合わせると 82.1%。"
+    quote: "If they were to collaborate together and combine their findings, this can catch 82.1% of the bugs."
+    locator: "Section 4.3"
+    evidenceKind: benchmark
+    issues: [473]
+    stance: supports
+  - id: c4
+    text: "自社の社内リポジトリで同じエージェントを使うと最大 25.5% 下がった。"
+    quote: "we have seen a significant (up to 25.5%) performance decrease when we apply the same agent on our internal repositories."
+    locator: "Section 4.3 Agents fall short at large industry repositories"
+    evidenceKind: benchmark
+    issues: [473]
+    stance: qualifies
+  - id: c5
+    text: "無人運用を支えるのは範囲が狭く影響の小さい PR に限られる。"
+    quote: "supports “lights-off” operation only for narrowly scoped, low-consequence PRs."
+    locator: "Section 5.1 When can a software factory be lights-off?"
+    evidenceKind: expert-opinion
+    issues: [473]
+    stance: qualifies
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: abstract と html の 100,000 字まで(残り 6,492 字は未読)。逐語は取得した頁の文。機械照合(npm run lint:sources)と目隠し抽出は未実施。"
