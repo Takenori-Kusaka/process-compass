@@ -1,22 +1,30 @@
 schemaVersion: 0
 id: DRAFT-02
-status: draft(SRC 番号未付与)
-title: Best Practices for Code Review / The Largest Case Study of Code Reviews—Ever
+status: draft(SRC 番号未付与。2026-11-28 に頁本文で照合し、数値を訂正した)
+title: Best Practices for Code Review (SmartBear)
 url: https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/
 accessed: '2026-11-28'
 published: '2006'
 sourceType: vendor-official
 selfReported: true
-summary: SmartBear が Cisco の約2,500件・320万行のレビューを10か月追跡した報告。1回200行・最大400行、毎時300〜500行以下、1回60分(最大90分)の目安。ベンダー自社報告で独立の再現は見つからない。数値は検索結果の要約で、頁本文での逐語照合は未実施(未照合)。
+summary: SmartBear の頁。1回のレビューは200〜400行まで、毎時 500 行未満、60〜90分が目安。Cisco の事例を引くが、この頁には「約2,500件・320万行」の数は無い(別の頁の数。未照合)。ベンダー自社報告で独立の再現は見つからない。
 claims:
 - id: c1
-  quote: (逐語未取得)
-  locator: '検索結果の要約: 200 LOC を上限の目安、400 を絶対上限、毎時 300〜500 LOC 未満'
+  quote: developers should review no more than 200 to 400 lines of code (LOC) at a time.
+  locator: 頁本文(WebFetch の逐語抜粋)
+  evidenceKind: observational
+- id: c2
+  quote: performance starts dropping off after about 60 minutes.
+  locator: 頁本文
+  evidenceKind: observational
+- id: c3
+  quote: SmartBear research shows a significant drop in defect density at rates faster than 500 LOC per hour.
+  locator: 頁本文。見出しは「Inspection rates should under 500 LOC per hour」
   evidenceKind: observational
 verification:
-  status: unverified
+  status: partial
   method:
-  - web-search-summary
+  - webfetch-primary-page
   date: '2026-11-28'
   humanChecked: false
-  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない
+  note: '訂正: 前の版は「毎時300〜500行以下」としたが、頁は「毎時500行未満」だけを述べる(300 は頁に無い)。「約2,500件・320万行」もこの頁に無く未照合のため引かない。「200〜400行」「500行/時」「60分」は頁で逐語を確認した'

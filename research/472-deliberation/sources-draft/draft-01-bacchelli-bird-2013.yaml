@@ -1,24 +1,30 @@
 schemaVersion: 0
 id: DRAFT-01
-status: draft(SRC 番号未付与)
+status: draft(SRC 番号未付与。2026-11-28 に abstract を逐語で照合)
 title: Expectations, Outcomes, and Challenges of Modern Code Review
 url: https://www.microsoft.com/en-us/research/publication/expectations-outcomes-and-challenges-of-modern-code-review/
 accessed: '2026-11-28'
 published: '2013'
 sourceType: paper-peer
 selfReported: false
-summary: Microsoft の開発者・管理者への観察・面接・調査と数百件のレビューコメントの分類。レビューの第一の動機は欠陥発見だが、成果には知識の共有・チームの認知・代替案が含まれ、変更の理解が中心課題。WebFetch
-  は abstract の要約のみ返し逐語を取れなかった(abstract のみ)。
+summary: Microsoft の開発者・管理者への観察・面接・調査と数百件のレビューコメントの分類。レビューの第一の動機は欠陥発見だが、成果には知識の移転・チームの認知・代替案が含まれ、変更の理解が鍵。abstract のみ逐語で照合(本文の数値は未読)。
 claims:
 - id: c1
-  quote: Code review is a common software engineering practice employed both in open
-    source and industrial contexts.
-  locator: abstract 冒頭(逐語。以降の結論は要約で取得、逐語未確認)
+  quote: reviews are less about defects than expected and instead provide additional benefits such as knowledge transfer, increased team awareness, and creation of alternative solutions to problems.
+  locator: abstract(Microsoft Research の出版頁で逐語を確認。文は頁上で分割して表示されていた)
+  evidenceKind: observational
+- id: c2
+  quote: while finding defects remains the main motivation for review
+  locator: abstract
+  evidenceKind: observational
+- id: c3
+  quote: code and change understanding is the key aspect of code reviewing
+  locator: abstract
   evidenceKind: observational
 verification:
-  status: unverified
+  status: partial
   method:
-  - web-search-summary
+  - webfetch-publisher-page
   date: '2026-11-28'
   humanChecked: false
-  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない
+  note: abstract の逐語は一次の出版頁(Microsoft Research)で照合した。本文は未読。「欠陥発見が主ではない」と書くときは、abstract の「欠陥の発見が主な動機であり続ける」と並べて引くこと(動機と成果は別)。abstract は成果の中心が知識の共有だとは言っておらず「追加の恩恵」と書く

@@ -1,23 +1,30 @@
 schemaVersion: 0
 id: DRAFT-07
-status: draft(SRC 番号未付与)
-title: Software Defect Removal Efficiency(Capers Jones の表)
+status: draft(SRC 番号未付与。2026-11-28 に原文 PDF を開いて照合)
+title: Software Defect Removal Efficiency (Capers Jones, 2011)
 url: https://www.ppi-int.com/wp-content/uploads/2021/01/Software-Defect-Removal-Efficiency.pdf
 accessed: '2026-11-28'
 published: '2011'
 sourceType: industry-report
 selfReported: false
-summary: '欠陥除去率の表で、正式のコード検査は最小 60%・平均 85%・最大 96%、非公式のピアレビューは 35%・50%・60%、机上チェック 25%・45%・55%。ほかの
-  Jones の版では数値が異なる(例: 検査 93%、机上 27%)。検索結果の要約経由で原表は未開封。'
+summary: 'Capers Jones の白書(Copyright 2011)Table 2。欠陥除去率の最小・平均・最大(%)は、正式のコード検査 60/85/96、静的解析 65/85/95、ペアプログラミング 40/55/65、非公式のピアレビュー 35/50/60、机上チェック 25/45/55。標本・測定法はこの白書に書かれていない。'
 claims:
 - id: c1
-  quote: (逐語未取得)
-  locator: '要約: formal inspections 60/85/96、informal peer reviews 35/50/60'
+  quote: 'Informal peer reviews              35.00%   50.00%     60.00%'
+  locator: 'Table 2: Pre-Test and Test Defect Removal Efficiency Ranges(pdftotext の抽出)。列は Minimum / Average / Maximum'
+  evidenceKind: observational
+- id: c2
+  quote: 'Formal code inspections            60.00%   85.00%     96.00%'
+  locator: Table 2
+  evidenceKind: observational
+- id: c3
+  quote: 'Desk checking                      25.00%   45.00%     55.00%'
+  locator: Table 2
   evidenceKind: observational
 verification:
-  status: unverified
+  status: verified
   method:
-  - web-search-summary
+  - pdf-text-extract
   date: '2026-11-28'
   humanChecked: false
-  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない
+  note: 'Table 2 の値は一次(Jones 本人の白書)で逐語照合した。他の版の「検査 93%、机上 27%」は今回未照合(引かない)。「人のレビューも約5割」は非公式ピアレビューの平均 50% に当たるが、白書は標本数・測定法を示さない'

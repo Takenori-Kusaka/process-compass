@@ -1,24 +1,34 @@
 schemaVersion: 0
 id: DRAFT-04
-status: draft(SRC 番号未付与)
-title: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer
-  Productivity (arXiv 2507.09089)
-url: https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/
+status: draft(SRC 番号未付与。2026-11-28 に arXiv abstract で照合)
+title: Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity (arXiv 2507.09089)
+url: https://arxiv.org/abs/2507.09089
 accessed: '2026-11-28'
 published: '2025-07-10'
-sourceType: industry-report
+sourceType: paper-preprint
 selfReported: false
-summary: 16名の経験ある OSS 開発者・246 タスクの無作為化試験。AI 許可で完了時間が 19% 増。開発者は事前に 24% 短縮を予測、事後も 20%
-  短縮したと信じた(自己認識のずれ)。METR 自身が適用範囲を限定。検索要約からの取得で本文の逐語は未照合。
+summary: 16名・246 タスクの無作為化試験。AI 許可で完了時間が 19% 増。開発者は事前に 24% 短縮を予測、事後も 20% 短縮したと推定した。
 claims:
 - id: c1
-  quote: (逐語未取得)
-  locator: '検索結果の要約: 19% 増・予測 24% 短縮・事後認識 20% 短縮'
+  quote: Surprisingly, we find that allowing AI actually increases completion time by 19%
+  locator: arXiv abstract
+  evidenceKind: controlled-experiment
+- id: c2
+  quote: Before starting tasks, developers forecast that allowing AI will reduce completion time by 24%.
+  locator: arXiv abstract
+  evidenceKind: controlled-experiment
+- id: c3
+  quote: After completing the study, developers estimate that allowing AI reduced completion time by 20%.
+  locator: arXiv abstract
+  evidenceKind: controlled-experiment
+- id: c4
+  quote: 16 developers with moderate AI experience complete 246 tasks in mature projects
+  locator: arXiv abstract
   evidenceKind: controlled-experiment
 verification:
-  status: unverified
+  status: verified
   method:
-  - web-search-summary
+  - webfetch-arxiv-abstract
   date: '2026-11-28'
   humanChecked: false
-  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない
+  note: 'abstract は開発者を「moderate AI experience」と書く。external.md の「経験ある OSS 開発者」は題名(Experienced Open-Source Developer)に基づく。url を METR のブログから arXiv へ直した(ブログは今回未開封)'

@@ -1,22 +1,26 @@
 schemaVersion: 0
 id: DRAFT-06
-status: draft(SRC 番号未付与)
+status: draft(SRC 番号未付与。2026-11-28 に一次の頁で照合し、表現を訂正した)
 title: 2025 GenAI Code Security Report
-url: https://www.veracode.com/genai-code-security-report
+url: https://www.veracode.com/blog/genai-code-security-report/
 accessed: '2026-11-28'
 published: '2025-07-30'
 sourceType: vendor-official
 selfReported: true
-summary: 100 超の LLM・80 課題で、安全・不安全の選択肢がある課題の約 45% で脆弱なコードを選んだ。新しい・大きいモデルでも改善せず。ベンダー自社報告。二次要約経由で頁本文は未照合。
+summary: 100 超の LLM を試し、コード標本の 45% がセキュリティの試験に落ち OWASP Top 10 の脆弱性を持ち込んだ。ベンダー自社報告。
 claims:
 - id: c1
-  quote: (逐語未取得)
-  locator: '二次要約: 約 45% のテストケースで OWASP Top 10 の脆弱性'
+  quote: 45% of code samples failed security tests and introduced OWASP Top 10 security vulnerabilities into the code.
+  locator: 頁本文
+  evidenceKind: observational
+- id: c2
+  quote: we tested over 100 large language models across Java, Python, C#, and JavaScript
+  locator: 頁本文
   evidenceKind: observational
 verification:
-  status: unverified
+  status: partial
   method:
-  - web-search-summary
+  - webfetch-primary-page
   date: '2026-11-28'
   humanChecked: false
-  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない
+  note: '訂正: 前の版の「80 課題」は頁に無く未照合(引かない)。「安全・不安全の選択肢がある課題で脆弱な選択をした」という言い方も頁に無い。頁の言い方は「コード標本の 45% が試験に落ちた」。新しい・大きいモデルでも改善しないという記述は今回未照合'

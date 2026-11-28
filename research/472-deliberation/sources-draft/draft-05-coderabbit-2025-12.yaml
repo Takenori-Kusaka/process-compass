@@ -1,23 +1,30 @@
 schemaVersion: 0
 id: DRAFT-05
-status: draft(SRC 番号未付与)
+status: draft(SRC 番号未付与。2026-11-28 に一次の頁で照合)
 title: State of AI vs Human Code Generation Report
 url: https://www.coderabbit.ai/blog/state-of-AI-vs-human-code-generation-report
 accessed: '2026-11-28'
 published: '2025-12-17'
 sourceType: vendor-official
 selfReported: true
-summary: 470 の OSS PR(AI 共著 320・人のみ 150)で、AI の PR は 1 件あたり指摘 10.83 件対 6.45 件(約 1.7
-  倍)。AI レビュー製品の販売元の自社報告。人のみの PR の人手の確認が保証できないと同社が注記。一次の頁は未開封、二次(Register・DEV)経由。
+summary: 470 の OSS PR(AI 共著 320・人のみ 150)で、AI の PR は 1 件あたり指摘 10.83 件対 6.45 件(約 1.7 倍)。AI レビュー製品の販売元の自社報告。人のみの PR が本当に人のみかは保証できないと同社が注記。
 claims:
 - id: c1
-  quote: (逐語未取得)
-  locator: '二次要約: 10.83 対 6.45 issues/PR、論理 1.75 倍、保守性 1.64 倍'
+  quote: AI-authored changes produced 10.83 issues per PR, compared to 6.45 for human-only PRs.
+  locator: 頁本文
+  evidenceKind: observational
+- id: c2
+  quote: We analyzed 470 open-source GitHub pull requests, including 320 AI-co-authored PRs and 150 human-only PRs.
+  locator: 頁本文
+  evidenceKind: observational
+- id: c3
+  quote: we cannot guarantee all the PRs we labelled as human authored were actually authored only by humans.
+  locator: 頁本文
   evidenceKind: observational
 verification:
-  status: unverified
+  status: verified
   method:
-  - web-search-summary
+  - webfetch-primary-page
   date: '2026-11-28'
   humanChecked: false
-  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない
+  note: 一次の頁で数値と注記を逐語照合した。論理 1.75 倍・保守性 1.64 倍の個別の値は今回の照合の対象外(引かない)

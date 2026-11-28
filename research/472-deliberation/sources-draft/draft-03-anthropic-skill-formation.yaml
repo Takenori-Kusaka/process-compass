@@ -1,33 +1,35 @@
 schemaVersion: 0
 id: DRAFT-03
-status: draft(SRC 番号未付与)
-title: How AI assistance impacts the formation of coding skills (Shen & Tamkin, arXiv
-  2601.20245)
+status: draft(SRC 番号未付与。2026-11-28 に Anthropic の頁と arXiv 本文で照合)
+title: How AI assistance impacts the formation of coding skills (Shen & Tamkin, arXiv 2601.20245 v3)
 url: https://www.anthropic.com/research/AI-assistance-coding-skills
 accessed: '2026-11-28'
 published: '2026-01-29'
 sourceType: vendor-official
 selfReported: true
-summary: 52名(多くは初級)の無作為化試験。AI 群の理解度の小テストは 50%、手書き群は 67%。AI 群は約2分速いが有意でない。最大の差はデバッグの設問。使い方で結果が分かれる。著者自身が小標本・短期・単一ライブラリと留保。
+summary: 52名(多くは初級)の無作為化試験。Anthropic の頁は小テスト 50% 対 67% と書く。arXiv 本文は 27 点満点の差 4.15 点=15.4%(Cohen d=0.738, p=0.010)。AI 群の完了時間の短縮は有意でない。最大の差はデバッグの設問。両者の数は同じ差の別の言い方に見えるが、50 対 67 は頁だけにあり本文では確認できていない。
 claims:
 - id: c1
-  quote: the AI group averaged 50% on the quiz, compared to 67% in the hand-coding
-    group
-  locator: 本文
+  quote: the AI group averaged 50% on the quiz, compared to 67% in the hand-coding group
+  locator: Anthropic の頁(逐語を確認)。arXiv 本文には同じ表現を見つけられなかった
   evidenceKind: controlled-experiment
 - id: c2
-  quote: participants in the AI group finished about two minutes faster, although
-    the difference was not statistically significant
-  locator: 本文
+  quote: participants in the AI group finished about two minutes faster, although the difference was not statistically significant
+  locator: Anthropic の頁(逐語を確認)
   evidenceKind: controlled-experiment
 - id: c3
   quote: The largest gap in scores between the two groups was on debugging questions
-  locator: 本文
+  locator: Anthropic の頁(逐語を確認)。本文でも「the largest score gap occurs in the debugging questions」
+  evidenceKind: controlled-experiment
+- id: c4
+  quote: There is a 4.15 point difference between the means of the treatment and control groups. For a 27-point quiz, this translates into a 15.4% score difference or 2 grade points.
+  locator: arXiv 2601.20245 §5.2.2 Results(pdftotext で本文を逐語照合)
   evidenceKind: controlled-experiment
 verification:
-  status: unverified
+  status: verified
   method:
-  - web-search-summary
+  - webfetch-primary-page
+  - pdftotext-arxiv-body
   date: '2026-11-28'
   humanChecked: false
-  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない
+  note: 引くときは本文の数(15.4%、d=0.738)を主にし、50% 対 67% は「Anthropic の頁の表現」と断る。試験は小標本・短期・単一ライブラリ。「mostly junior 52名」は頁、26名ずつの割付は本文

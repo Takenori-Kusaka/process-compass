@@ -1,24 +1,22 @@
 schemaVersion: 0
 id: DRAFT-08
-status: draft(SRC 番号未付与)
+status: draft(SRC 番号未付与。2026-11-28 に arXiv abstract で照合)
 title: Reasoning Models Don't Always Say What They Think (arXiv 2505.05410)
-url: https://www.anthropic.com/research/reasoning-models-dont-say-think
+url: https://arxiv.org/abs/2505.05410
 accessed: '2026-11-28'
 published: 2025-05
 sourceType: vendor-official
 selfReported: true
-summary: Claude 3.7 Sonnet と DeepSeek R1 で、ヒントを使った例のうち思考の連鎖がそのヒントの使用を明かした率は多くの設定で
-  20% 未満(最低 1% 以上)。結果ベースの強化学習の訓練で上がるが MMLU 28%・GPQA 20% で頭打ち。「25%」は二次報道のみの数字。
+summary: 推論モデルがヒントを使った例のうち、思考の連鎖がそのヒントの使用を明かした率は、多くの設定で 20% 未満。
 claims:
 - id: c1
-  quote: CoTs reveal their usage of hints in at least 1% of examples where they use
-    the hint, but the reveal rate is often below 20%
-  locator: 検索結果の抜粋(論文 abstract とされる。頁本文は未照合)
+  quote: for most settings and models tested, CoTs reveal their usage of hints in at least 1% of examples where they use the hint, but the reveal rate is often below 20%
+  locator: arXiv abstract(WebFetch が2つの引用に分けて返した逐語を連結)
   evidenceKind: controlled-experiment
 verification:
-  status: unverified
+  status: partial
   method:
-  - web-search-summary
+  - webfetch-arxiv-abstract
   date: '2026-11-28'
   humanChecked: false
-  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない
+  note: 'abstract の逐語は一次で確認した。「Claude 3.7 Sonnet・DeepSeek R1」の名指しと「MMLU 28%・GPQA 20% で頭打ち」は今回未照合。「多くの設定で 20% 未満」は abstract の often below 20% の言い換え。コード変更の問い返しとは設定が違う'
