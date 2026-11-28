@@ -31,6 +31,7 @@ sidebar:
 | 確認の範囲と深さ | G-6 の承認 | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#確認の範囲と深さ適用-g-6-の承認) |
 | 承認レビューを判定記録とする条件 | G-6。規制業の監査対応書式を除く | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#承認レビューを判定記録とする条件適用-g-6規制業の監査対応書式を除く) |
 | 委任の変更は判定の時点を事後へ移す | CL0・R3 の変更 | 変更ごと | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#委任の変更は判定の時点を事後へ移す適用-cl0r3-の変更) |
+| 出荷の前の確認 | 事業ステージ S2・安全重要度 CL0・品質が標準で「高」と規制業を除く・承認者 1 名・取り込みが本番への反映を直接起動しない構成 | ステージごと | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#出荷の前の確認適用-事業ステージ-s2安全重要度-cl0品質が標準で高と規制業を除く承認者-1-名取り込みが本番への反映を直接起動しない構成) |
 | 未達のまま出荷する場合の例外承認 | R1 の変更 | 変更ごと | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#未達のまま出荷する場合の例外承認適用-r1-の変更) |
 | 変更の要求を経ないコミット | PR を経ずに既定ブランチへ入れるコミット | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#変更の要求を経ないコミット適用-pr-を経ずに既定ブランチへ入れるコミット) |
 | 基準値を超えた変更の扱い | 規模の基準値を超えた PR | その他 | [phase4-process-design/gate-criteria](/process-compass/phase4-process-design/gate-criteria/#基準値を超えた変更の扱い適用-規模の基準値を超えた-pr) |
