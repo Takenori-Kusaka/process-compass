@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-06)。次の決定を補います。採用済みの ADR の本文は書き換えていません。
 
+一部置き換え(→ [ADR-0277](/process-compass/adr/0277-ai-review-intake-range-written-by-team-in-prep-document-with-sampling-audit/) の決定5): 「採らなかった案」(母集団の取り方・抽出の方法の記録を本文へ上げない)を、準備物の AI のレビューで取り込む行の抜き取りに限って置き換えました(2026-11-28)。委任の事後監査と内部監査の抽出には広げません。
+
 | 対象 | 本 ADR との関係 |
 | --- | --- |
 | [ADR-0086](/process-compass/adr/0086-guide-pages-and-remaining-verbal-forms/)(フェーズ5・6 を参考の手引きとする) | 維持する。手引きの頁にしか無かった規範のうち、判定で漏れた2つの事項を本文へ上げる。頁を参考とする定めは改めない |

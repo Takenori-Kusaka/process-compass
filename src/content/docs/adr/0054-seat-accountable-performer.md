@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-09-30)。一部置き換え(→ [ADR-0275](/process-compass/adr/0275-medium-change-review-moved-to-before-shipping/) の決定1): 決定4 の箇条「G-6 の判定の時点を事後へ移すのは…R3 である場合に限る」のうち、取り込んだ後・出荷判定の前へ移す経路を別に置く部分(2026-11-28)。抜き取りと出荷の後へ移すのは、引き続き R3 の委任に限ります。一部置き換え(→ ADR-0059 の決定1・決定5): 決定4 のうち、「5.4.6 の検知条件」として4つの比率を数える部分と、登録の根拠の1点目を、[ADR-0059](/process-compass/adr/0059-no-approval-ratio-trigger/)が置き換えました(2026-10-13)。[ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/)・[ADR-0029](/process-compass/adr/0029-shipping-approver-merge-exception/)・[ADR-0035](/process-compass/adr/0035-separation-by-execution-context/)・[ADR-0036](/process-compass/adr/0036-gate-closure-by-record/)・[ADR-0039](/process-compass/adr/0039-scope-in-heading-and-unit-of-judgement/)は維持します。本 ADR はこれらを置き換えず、第5章 5.5 の書き方を改めます。
 
+一部置き換え(→ [ADR-0277](/process-compass/adr/0277-ai-review-intake-range-written-by-team-in-prep-document-with-sampling-audit/) の決定1・5・8): 決定3(R2 の上限は協働)、決定4 のうち AI の確認を合否条件にも用いない部分、決定4 の「G-6 の判定の時点を事後へ移すのは R3 の委任に限る」を、準備物に書いた行の範囲だけ置き換えました(2026-11-28)。委任の経路と 7 条件、独立は人の単位とする決定(7・8)は保ちます。
+
 次の3点は、既存の決定と規定への補足です。採用済みの ADR の本文は書き換えません。
 
 - [ADR-0028](/process-compass/adr/0028-unmet-gate-distinct-from-omitted/) 決定1 の「外部のレビュア」を、「作成を指示した者以外の確認者」と読む(決定8)。2名体制では、作成を指示していない側の人がこれに当たる

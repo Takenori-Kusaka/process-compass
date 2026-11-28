@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-09-30)。一部置き換え(→ ADR-0057 の決定2・決定7・決定13): 決定2、決定3 の一部(本標準は品質を保証すると主張しない、に当たる部分)、決定8、帰結の一部(本標準は「品質を保証する」と主張しない)を[ADR-0057](/process-compass/adr/0057-organizational-quality-assurance/)で置き換えました(2026-10-03)。その他の決定は維持します。決定5 の「逸脱」は、[ADR-0083](/process-compass/adr/0083-standard-edition-end-of-application-and-deviation/)の決定8 により、同 ADR の列挙に無い離脱と読みます(2026-10-24)。
 
+一部置き換え(→ [ADR-0277](/process-compass/adr/0277-ai-review-intake-range-written-by-team-in-prep-document-with-sampling-audit/) の決定1・5): 決定4(数え方の表と 5 条件)の表の範囲を、準備物に書いた行の分だけ置き換えました(2026-11-28)。5 条件の確認の手続は ADR-0057 の S6 に属し、そちらに書きます。
+
 ## コンテキスト
 
 品質保証部門は、AI を介した開発成果物をどう担保するかという問いを抱えています。本標準は個々の統制(独立レビュー、ゲート、AI 生成物の統制、形骸化の検出)を規定していますが、「本標準に従えば何が言えるのか」を1か所で示していませんでした。

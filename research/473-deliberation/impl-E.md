@@ -1,6 +1,6 @@
 # 段 E 実装記録(準拠テンプレート)
 
-template ブランチ `d6-473`、コミット 84b4a86d74e5e7a8dccb4e8d914adafe4676afee(1 コミットに #1〜#6)。退避: `E:/Github/process-compass/tmp/473/template-d6-473-1.bundle`。push していない。
+template ブランチ `d6-473`、コミット a2ffeff91b74341af95d9ce61d82aaa9baa0e0da(1 コミットに #1〜#6)。退避: `E:/Github/process-compass/tmp/473/template-d6-473-3.bundle`。push していない。
 
 ## 直した箇所(文と note だけ。挙動は変えない)
 
@@ -36,3 +36,9 @@ template ブランチ `d6-473`、コミット 84b4a86d74e5e7a8dccb4e8d914adafe46
 
 - 足したくなった検査・鍵・スキル・欄は無い
 - 上記の未実行の試験(test-adapter ほか)を push の前の全量で確かめる
+
+## 追補
+
+- 最初の版で CLAUDE.md の :116 に括弧で限定を足したところ、常駐の規則の照合(原本の核の文との一致)が落ち、test-adoption・test-edition-end・test-init-g5 が失敗した。CLAUDE.md の文を原本の核の文と同じ語順に直して解消(amend)。test-adoption 123 件・test-edition-end 103 件・test-claude-md-resident が通過
+- test-adapter 232 件通過、test-loosening-decider 通過。test-init-g5 は長く、再確認は push 前の全量で
+- 試験の実行が scripts/vendor/tailoring-kb.json を書き換える場面があり、一度コミットに混じったので戻した。最終のコミットは 7 ファイルだけ。test-base-judge-workflow は再実行が 300 秒を超えた(初回は 133/133)

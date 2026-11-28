@@ -9,6 +9,8 @@ sidebar:
 
 採用(2026-11-28)。審議は重です(調査、5 委員の会議体 3 回、所有者への確認 4 回、実装前の確認、独立の突合)。記録は `research/466-deliberation/` にあります。置き換える ADR はありません。次の ADR と突き合わせた結果は、決定9 に書きます。
 
+一部置き換え(→ [ADR-0277](/process-compass/adr/0277-ai-review-intake-range-written-by-team-in-prep-document-with-sampling-audit/) の決定1・2): 決定7(附属書H H.4 条件4 は文言を変えず注記 1 文)を、条件4 の文言を「準備物に書いた行の範囲を超えて減らさない」へ改める形で置き換えました(2026-11-28)。
+
 | 対象 | 本 ADR との関係 |
 | --- | --- |
 | [ADR-0050](/process-compass/adr/0050-enforcement-layer-is-not-staged/) | 置き換えない。決定3 の「遮断の範囲を絞る」に当たり、決定4 により、範囲を書いた記録を同じ変更で更新する(決定9) |
