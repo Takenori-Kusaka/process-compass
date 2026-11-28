@@ -618,7 +618,7 @@ graph LR
 
 ### 2.10.3 スコープを確定する時期
 
-ステージ移行ゲート(SG)の「継続」の判定と同時に、次ステージの SC-M・SC-P・SC-B を確定させます。[第3章 3.7.3](/process-compass/phase4-process-design/roles-responsibilities/)が「継続」の判定に求める確定事項へ、スコープを加える形をとります。**本標準は、事業ステージのスコープを定めるための場を、ステージ移行ゲート(SG)の判定と別に定めません**。
+ステージ移行ゲート(SG)の「継続」の判定と同時に、次ステージの SC-M・SC-P・SC-B を確定させます。[第3章 3.7.3](/process-compass/phase4-process-design/roles-responsibilities/)が「継続」の判定に求める確定事項へ、スコープを加える形をとります。**本標準は、事業ステージのスコープを定めるための場を、ステージ移行ゲート(SG)の判定と別に定めません**。AI のレビューで取り込む範囲を書くチームは、同じ判定で、次ステージの範囲を確定させます([第8章](/process-compass/phase4-process-design/tailoring-guide/)「AI のレビューで取り込む範囲を決める」)。
 
 S0 の初回については、企画承認(G-1)の時点で確定させます。様式は[第6章 テンプレ6](/process-compass/phase4-process-design/deliverable-templates/)によります。
 

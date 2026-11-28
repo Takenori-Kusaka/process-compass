@@ -132,11 +132,11 @@ EV-0061 は、人のレビュアにもこの順序を「課す」と開示して
 ## AI をレビューに使う場合
 
 - AI による事前レビュー(静的な指摘出し)は**パス2の補助**として推奨する。ただし AI の指摘の採否はレビュアが判断する
-- **承認の権限は AI に与えない**(テーラリングの禁止事項「AI を結果責任に割り当てない」)。AI レビューで代替してよいのは指摘の列挙までで、挙動要約は必ず人間が書く
+- **承認の権限は AI に与えない**(テーラリングの禁止事項「AI を結果責任に割り当てない」)。人が判定する行では、AI レビューで代替してよいのは指摘の列挙までで、挙動要約は必ず人間が書く。準備物に書いた AI のレビューで取り込む行では、1件ごとの人の挙動要約を求めない。抜き取った変更には書く([第8章](/process-compass/phase4-process-design/tailoring-guide/)「AI のレビューで取り込む範囲を決める」)
 - AI へ渡す入力は、仕様・受入基準・差分とする。作成側の説明文・主張・推論の過程を、判断の前に渡さない(前掲「入力の分離」)
 - AI のレビュー用の指示は、レビューの対象となる変更から書き換えられない場所に置く([第5章 5.8.6](/process-compass/phase4-process-design/human-ai-boundary/) 要求事項7)
 - 記録には「AI レビュー通過」と書かない。指摘の内容と、レビュアによる採否を残す
-- AI の確認を「独立レビュー」と呼ばない。G-6 の判定に数えず、検出の層としてのみ数える([第3章 3.5.4](/process-compass/phase4-process-design/roles-responsibilities/)、[附属書H](/process-compass/phase4-process-design/assurance-case/) H.4)
+- AI の確認を「独立レビュー」と呼ばない。G-6 の判定に数えず、検出の層として数える。準備物に書いた AI のレビューで取り込む行だけは、決まりに照らした取り込みの材料に数える(承認ではない)([第3章 3.5.4](/process-compass/phase4-process-design/roles-responsibilities/)、[附属書H](/process-compass/phase4-process-design/assurance-case/) H.4)
 
 ### 委任を適用した変更(適用: CL0・R3 の変更)
 
