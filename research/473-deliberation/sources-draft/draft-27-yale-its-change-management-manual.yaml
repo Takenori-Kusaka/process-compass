@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Yale ITS: Change Management Training Manual (ServiceNow, v0.3)"
+url: https://its.yale.edu/sites/default/files/ServiceNow_Change_Management_v0.3.pdf
+canonicalUrl: "https://its.yale.edu/sites/default/files/ServiceNow_Change_Management_v0.3.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: academic
+region: us
+lang: en
+sourceType: public-agency
+published: "unknown"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "軽微な変更は、件数が多く影響とリスクが予測でき手順が明確なら標準的変更の候補になる。実施後レビューを検討する条件に Failed Standard Change を挙げる。"
+note: "大学の手順書。発行日は取得できず。表組みの抽出で文が折れている。"
+claims:
+  - id: c1
+    text: "軽微な変更が、予測でき手順が明確なら標準的変更の候補になる(実績による昇格)。"
+    quote: "If there is a high volume of minor changes, their impact and risk are predictable and the procedures are well defined, they become candidates for standard changes"
+    locator: "Change Types の表"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "実施後レビューの検討条件に「Failed Standard Change」を挙げる。"
+    quote: "Failed Standard Change"
+    locator: "PIR の条件の一覧"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

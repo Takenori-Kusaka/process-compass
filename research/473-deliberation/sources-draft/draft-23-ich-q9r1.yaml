@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "ICH Q9(R1) Quality Risk Management (Step 4, 2022-12-19)"
+url: https://database.ich.org/sites/default/files/ICH_Q9%28R1%29_Guideline_Step4_2022_1219.pdf
+canonicalUrl: "https://database.ich.org/sites/default/files/ICH_Q9%28R1%29_Guideline_Step4_2022_1219.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: "2022-12-19"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "品質リスクマネジメントの労力・形式性・文書化の水準は、リスクの水準に見合うべきとする。"
+note: "ICH の公式の Step 4 文書。pdftotext で照合。"
+claims:
+  - id: c1
+    text: "労力・形式性・文書化の水準はリスクの水準に見合うべき(低い側を軽くするのも規範)。"
+    quote: "The level of effort, formality and documentation of the quality risk management process should be commensurate with the level of risk."
+    locator: "冒頭の原則の箇条書き(2 頁目の直前)"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

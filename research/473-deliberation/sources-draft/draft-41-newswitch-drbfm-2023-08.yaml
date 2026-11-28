@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "ニュースイッチ: 未然防止ツール「DRBFM」の特徴(鷲﨑・栗山の書籍の抜粋、2023-08-08)"
+url: https://newswitch.jp/p/37955
+canonicalUrl: "https://newswitch.jp/p/37955"
+ids:
+  arxiv: null
+  doi: null
+orgType: media
+region: jp
+lang: ja
+sourceType: news
+published: "2023-08-08"
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "不具合のたびにチェックシートや再発防止シートを足した結果、設計がルールに縛られ工数が膨大になり、同様の不具合も止まらなかった、と述べる書籍の抜粋。"
+note: "書籍(鷲﨑・栗山)の抜粋の掲載。一次は書籍。引用は WebFetch(要約モデル)経由で、文字単位の照合は未実施。"
+claims:
+  - id: c1
+    text: "不具合のたびに再発防止の対策を足しても、同じような不具合が止まらなくなった。"
+    quote: "設計チェックシートや再発防止シートなどを用いて、不具合が起きるたびに再発防止対策を講じていた。しかし、それでも同じような不具合が発生し、なかなか止まらなくなってきた。"
+    locator: "本文"
+    evidenceKind: expert-opinion
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "設計がルールに縛られ、対応工数が膨大になった。"
+    quote: "設計自体が益々ルールに縛られた作業となり、かつその対応工数が膨大になったため"
+    locator: "本文"
+    evidenceKind: expert-opinion
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 取得した頁の要約経由。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

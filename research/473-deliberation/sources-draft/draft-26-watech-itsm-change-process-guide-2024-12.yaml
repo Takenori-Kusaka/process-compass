@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "WaTech(ワシントン州)ITSM Change Management Process Guide (2024-12)"
+url: https://watech.wa.gov/sites/default/files/2024-12/ITSM%20-%20Change%20-%20Process%20Guide.pdf
+canonicalUrl: "https://watech.wa.gov/sites/default/files/2024-12/ITSM%20-%20Change%20-%20Process%20Guide.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: "2024-12"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "ServiceNow を使う州機関の手順書。標準的変更は低リスク・反復可能・成功の実績のあるもので、型(テンプレート)を変更管理チームが審査して公開し、型から起こす変更は個別の長い承認を要さない。"
+note: "組織の手順書で、ITIL 4 の原典ではない。ITIL 4 の定義は有償で未読(二次のみ)。"
+claims:
+  - id: c1
+    text: "標準的変更は低リスクで、手順が反復可能で、成功の実績がある。"
+    quote: "Standard changes are those that are low risk, with repeatable implementation steps and a proven history of success."
+    locator: "Standard Change Template Lifecycle"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "型の提案は「不成功」と記録されていない既存の変更からだけ。"
+    quote: "Users can propose a new standard change template through the Service Catalog or directly from an existing change if that change has not been marked as unsuccessful."
+    locator: "Standard Change Templates"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+  - id: c3
+    text: "型は使用の頻度と失敗を監視し、定期レビューで廃止か一時停止を決める。"
+    quote: "A periodic review can take place by Change Management to decide whether the template ought to be retired or temporarily withdrawn."
+    locator: "Standard Change Templates"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

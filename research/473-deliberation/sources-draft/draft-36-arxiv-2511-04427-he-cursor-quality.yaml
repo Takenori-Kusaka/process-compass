@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Does AI-Assisted Coding Deliver? A Difference-in-Differences Study of Cursor's Impact on Software Projects (He et al.)"
+url: https://arxiv.org/abs/2511.04427
+canonicalUrl: "https://arxiv.org/abs/2511.04427"
+ids:
+  arxiv: "2511.04427"
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: preprint
+published: "2025-11"
+publishedBasis: arxiv-v1
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "Cursor の採用で開発速度は一時的に上がり、静的解析の警告とコードの複雑度は大きく持続的に増える。それが長期の速度低下の主因とされる。"
+note: "MSR 2026 採択とする点は未確認。複雑度の増加が表では +41.64%、考察では 25% と本文内で食い違う、と指揮役のメモが指摘する(表側は本文で確認)。"
+claims:
+  - id: c1
+    text: "Cursor の採用は、開発速度の一時的な増加と、静的解析の警告・コードの複雑度の持続的な増加をもたらす。"
+    quote: "a statistically significant, large, but transient increase in project-level development velocity, along with a substantial and persistent increase in static analysis warnings and code complexity."
+    locator: "要旨"
+    evidenceKind: observational
+    issues: [473]
+    stance: context
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

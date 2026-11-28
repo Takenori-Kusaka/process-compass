@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "IPA/SEC 障害未然防止のための設計知識の整理手法ガイドブック (2017)"
+url: https://www.ipa.go.jp/archive/files/000058073.pdf
+canonicalUrl: "https://www.ipa.go.jp/archive/files/000058073.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: jp
+lang: ja
+sourceType: public-agency
+published: "2017"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "「過去トラ DB」が有効活用されない理由と、障害情報記録を一般化した設計知識へ変換する必要を述べる。"
+note: "pdftotext -enc UTF-8 で本文を照合(改行位置の空白は除いて引用)。節番号は 1.1 とみられるが抽出では未確認。"
+claims:
+  - id: c1
+    text: "過去トラ DB が有効活用されない理由は、ノウハウが整理されず表面的な情報しか書かれていないため。"
+    quote: "「過去トラDB」が有効活用されない理由は、障害を防止するためのノウハウが整理されておらず、表面的な障害の事象とどこにどんな対処をしたかぐらいの情報しか書かれていないためである。"
+    locator: "1 章(図 1.1 の直後)"
+    evidenceKind: expert-opinion
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "活用するには、障害情報記録を後の人に伝承できる形に一般化した設計知識へ変換し整理する必要がある。"
+    quote: "「過去トラDB」を障害の再発防止や未然防止の活動に活用するためには、障害情報記録を後の人に伝承できるような形に一般化した設計知識に変換し整理する必要がある。"
+    locator: "1 章"
+    evidenceKind: expert-opinion
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

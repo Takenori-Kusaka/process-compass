@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "NIST SP 800-53A Rev.5 Assessing Security and Privacy Controls in Information Systems and Organizations"
+url: https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53Ar5.pdf
+canonicalUrl: "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53Ar5.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: us
+lang: en
+sourceType: standard
+published: "2022-01"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "評価の深さ(depth)を basic・focused・comprehensive の 3 段で定義し、段ごとに使う証拠・文書の量(limited / substantial / extensive)を定める。RA-02 の評価目的に、分類の決定を権限者が承認することを含む。"
+note: "pdftotext で付録 C(p.707-708)と RA-02 を照合。RA-02 の抽出テキストは合字の欠落(categorization → categorizaon)があり、引用は原綴りに直した。"
+claims:
+  - id: c1
+    text: "examine の basic は限られた量の証拠・文書で行う。"
+    quote: "The basic examination is conducted using a limited body of evidence or documentation"
+    locator: "付録 C(p.707)"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "focused は相当な量、comprehensive は広範な量の証拠・文書で行う。"
+    quote: "The comprehensive examination is conducted using an extensive body of evidence or documentation"
+    locator: "付録 C(p.708)"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+  - id: c3
+    text: "RA-02 の評価目的(c): 分類の決定を authorizing official か指名代理がレビューし承認する。"
+    quote: "the authorizing official or authorizing official designated representative reviews and approves the security categorization decision."
+    locator: "RA-02c"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

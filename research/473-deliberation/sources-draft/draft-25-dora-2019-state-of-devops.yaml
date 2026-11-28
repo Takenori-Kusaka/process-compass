@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "2019 Accelerate State of DevOps Report (DORA)"
+url: https://dora.dev/research/2019/dora-report/2019-dora-accelerate-state-of-devops-report.pdf
+canonicalUrl: "https://dora.dev/research/2019/dora-report/2019-dora-accelerate-state-of-devops-report.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: vendor
+region: global
+lang: en
+sourceType: industry-report
+published: "2019"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: true
+themes: [TH06]
+summary: "外部の承認機関を要する重い変更承認は配信性能に負の影響。より正式な承認過程が低い変更失敗率と結び付くという仮説を支持する証拠は見つからなかった。"
+note: "自己申告の横断調査(相関)。2.6 倍の文は報告書の PDF に在るが、抽出テキストでは条件部が段の切れ目で欠け、条件の続きは原頁で要確認。"
+claims:
+  - id: c1
+    text: "より正式な承認過程が低い変更失敗率と結び付くという仮説の証拠は見つからなかった。"
+    quote: "we investigated whether a more formal approval process was associated with lower change fail rates and we found no evidence to support this hypothesis, consistent with earlier research."
+    locator: "p.50"
+    evidenceKind: observational
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "外部の承認機関を要する公式の変更管理は配信性能に負の影響。回答者は低パフォーマーである確率が 2.6 倍。"
+    quote: "Survey respondents were 2.6 times more likely to be low performers if their organization"
+    locator: "p.50(条件の続きは抽出で欠落)"
+    evidenceKind: observational
+    issues: [473]
+    stance: supports
+  - id: c3
+    text: "外部承認から離れ、開発過程の中の同僚レビューに基づく承認へ寄せることを勧める。"
+    quote: "We recommend that organizations move away from external change approval because of the negative effects on performance."
+    locator: "p.51"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: context
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

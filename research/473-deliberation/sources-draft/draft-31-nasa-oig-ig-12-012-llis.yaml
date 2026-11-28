@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "NASA OIG IG-12-012: NASA's Process for Providing Lessons Learned (LLIS)"
+url: https://www.oversight.gov/sites/default/files/oig-reports/IG-12-012.pdf
+canonicalUrl: "https://www.oversight.gov/sites/default/files/oig-reports/IG-12-012.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: "2012-03"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "NASA の教訓情報システム LLIS は管理者にほとんど使われず、価値は減り疑わしい、とする監察総監の報告。"
+note: "発行月(2012-03)は一覧の記述に依り、PDF 表紙では未確認。"
+claims:
+  - id: c1
+    text: "LLIS は他の知識共有の手段に押され、価値は減り疑わしい。"
+    quote: "LLIS has been marginalized in favor of other NASA knowledge sharing system components and is of diminishing and questionable value."
+    locator: "要約"
+    evidenceKind: expert-opinion
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "プログラム・プロジェクトの管理者は LLIS をほとんど参照も寄稿もしない。"
+    quote: "NASA program and project managers rarely consult or contribute to LLIS"
+    locator: "Managers Are Not Using LLIS"
+    evidenceKind: expert-opinion
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

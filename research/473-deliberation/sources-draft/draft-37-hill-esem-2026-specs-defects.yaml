@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Specification Artifacts in Open-Source Pull Request Workflows Do Not Reduce Defects: An Empirical Test of Spec-Driven Development Claims (Hill, ESEM 2026)"
+url: https://drops.dagstuhl.de/storage/00lipics/lipics-vol394-esem2026/LIPIcs.ESEM.2026.84/LIPIcs.ESEM.2026.84.pdf
+canonicalUrl: "https://drops.dagstuhl.de/storage/00lipics/lipics-vol394-esem2026/LIPIcs.ESEM.2026.84/LIPIcs.ESEM.2026.84.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: "2026"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: full
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "OSS 119 リポジトリ・PR 88,052 件で、仕様の成果物(大半は課題・チケットへの参照)の有無・質は欠陥の導入を予測しない。素の関連は課題の複雑さで説明される。"
+note: "仕様の成果物は SDD ツールの出力でなく課題・チケットの参照が大半。単著・目的抽出の標本。"
+claims:
+  - id: c1
+    text: "仕様の成果物の有無で、欠陥の導入に差は無い。"
+    quote: "spec'd and unspec'd PRs are indistinguishable in defect introduction (−0.6 percentage points (pp), p = 0.133)."
+    locator: "Results"
+    evidenceKind: observational
+    issues: [473]
+    stance: qualifies
+  - id: c2
+    text: "仕様と欠陥の正の素の関連は課題の複雑さで説明される(開発者は最も難しい仕事に仕様を書く)。"
+    quote: "The positive raw association between specification artifacts and defects is explained by task complexity: developers spec their hardest work."
+    locator: "Results"
+    evidenceKind: observational
+    issues: [473]
+    stance: qualifies
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

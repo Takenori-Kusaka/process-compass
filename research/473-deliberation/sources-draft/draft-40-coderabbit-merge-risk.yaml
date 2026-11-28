@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "CodeRabbit docs: Merge Risk"
+url: https://docs.coderabbit.ai/pr-reviews/merge-risk
+canonicalUrl: "https://docs.coderabbit.ai/pr-reviews/merge-risk"
+ids:
+  arxiv: null
+  doi: null
+orgType: vendor
+region: global
+lang: en
+sourceType: vendor-official
+published: "unknown"
+publishedBasis: unknown
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: true
+themes: [TH06]
+summary: "Merge Risk は変更が持ち込む・悪化させる具体のリスクを数え、触れたコードの重要さは数えない。重要さを数えさせるには利用者の指示を足す。"
+note: "ベンダーの製品文書。引用は WebFetch(要約モデル)経由で、文字単位の照合は未実施。"
+claims:
+  - id: c1
+    text: "触れたコードの重要さは数えない。"
+    quote: "It does not count how important the touched code is, general uncertainty about rolling out a change"
+    locator: "Merge Risk の定義"
+    evidenceKind: vendor-guidance
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 取得した頁の要約経由。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

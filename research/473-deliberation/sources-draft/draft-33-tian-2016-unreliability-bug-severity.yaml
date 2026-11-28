@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "On the unreliability of bug severity data (Tian, Ali, Lo, Hassan; EMSE 21(6), 2016)"
+url: https://sail.cs.queensu.ca/data/pdfs/EMSE2015_OnTheUnreliabilityOfBugSeverityData.pdf
+canonicalUrl: "https://sail.cs.queensu.ca/data/pdfs/EMSE2015_OnTheUnreliabilityOfBugSeverityData.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: "2016"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: full
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "同じ問題の重複した不具合報告で、人が付けた重大度が食い違う割合は OpenOffice 28.9%・Mozilla 36.6%・Eclipse 50.8%。「約 51%」は最大の値で、3 つの平均ではない。"
+note: "pdftotext で照合。DOI 10.1007/s10664-015-9409-1。論文は全データへの一般化を今後の課題とする。"
+claims:
+  - id: c1
+    text: "重複した不具合報告の約 51% で、人が付けた重大度が食い違う。"
+    quote: "we find that around 51 % of the duplicate bug reports have inconsistent human-assigned severity labels even though they refer to the same software problem."
+    locator: "要旨"
+    evidenceKind: observational
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "食い違いの割合は 3 つの対象で 28.9%・36.6%・50.8%。"
+    quote: "28.9 %, 36.6 %, and 50.8 % of the duplicate bug reports have inconsistent severity labels in the OpenOffice, Mozilla, and Eclipse datasets, respectively."
+    locator: "結果(表 2 の説明)"
+    evidenceKind: observational
+    issues: [473]
+    stance: qualifies
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

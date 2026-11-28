@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "IAEA GSR Part 2: Leadership and Management for Safety (2016)"
+url: https://gnssn.iaea.org/CSN/Trainings%20and%20Workshops/National%20Training%20Course%20on%20Safety%20Assessment%20in%20O/Bibliography/IAEA%20GSR%20Part%202.pdf
+canonicalUrl: "https://gnssn.iaea.org/CSN/Trainings%20and%20Workshops/National%20Training%20Course%20on%20Safety%20Assessment%20in%20O/Bibliography/IAEA%20GSR%20Part%202.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: "2016"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "要件 7 は、マネジメントシステムを段階的な適用(graded approach)で策定・適用することを求め、段を決める基準をマネジメントシステムに文書化することを求める。"
+note: "GNSSN 配布の写し。IAEA の公式の版との一致は未確認。"
+claims:
+  - id: c1
+    text: "段を決める基準をマネジメントシステムに文書化する。"
+    quote: "The criteria used to grade the development and application of the management system shall be documented in the management system."
+    locator: "4.15(要件 7)"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

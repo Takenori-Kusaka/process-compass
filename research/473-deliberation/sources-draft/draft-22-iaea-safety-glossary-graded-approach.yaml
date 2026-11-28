@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "IAEA Safety Glossary(2018 年版)の graded approach の定義"
+url: https://www-pub.iaea.org/MTCD/Publications/PDF/PUB1830_web.pdf
+canonicalUrl: "https://www-pub.iaea.org/MTCD/Publications/PDF/PUB1830_web.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: standards-body
+region: global
+lang: en
+sourceType: standard
+published: "2018"
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "段階的な適用は、必要な分析・文書化・行動の水準を、危険の大きさ、施設の性質、施設の寿命のうちの段階に見合わせるためのもの、と定義する。"
+note: "「施設の寿命のうちの段階(stage in the lifetime of a facility)」は原子力施設の話で、事業の段階への直接の先例ではなく類推にとどまる。版の発行年は表紙で未確認。"
+claims:
+  - id: c1
+    text: "必要な分析・文書化・行動の水準を、危険の大きさ・施設の性質・施設の寿命の段階に見合わせる。"
+    quote: "commensurate with, for example, the magnitudes of any radiological hazards and non-radiological hazards, the nature and the particular characteristics of a facility, and the stage in the lifetime of a facility"
+    locator: "graded approach の項"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

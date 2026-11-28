@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Are Mutants a Valid Substitute for Real Faults in Software Testing? (Just et al., FSE 2014)"
+url: https://homes.cs.washington.edu/~mernst/pubs/mutation-effectiveness-fse2014.pdf
+canonicalUrl: "https://homes.cs.washington.edu/~mernst/pubs/mutation-effectiveness-fse2014.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: academic
+region: global
+lang: en
+sourceType: paper-peer
+published: "2014"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "実欠陥 357 件で、変異体の検出と実欠陥の検出に有意な相関があり、その相関は文網羅と実欠陥の検出の相関より強い。"
+note: "pdftotext で照合。"
+claims:
+  - id: c1
+    text: "実欠陥の 73% が、よく使われる変異演算子の変異体と連動する。"
+    quote: "The results show the existence of a coupling effect for 73% of real faults."
+    locator: "貢献の箇条書き"
+    evidenceKind: observational
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "変異体の検出と実欠陥の検出の相関は、文網羅と実欠陥の検出の相関より強い。"
+    quote: "The results show a statistically significant correlation that is stronger than the correlation between statement coverage and real fault detection."
+    locator: "貢献の箇条書き"
+    evidenceKind: observational
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

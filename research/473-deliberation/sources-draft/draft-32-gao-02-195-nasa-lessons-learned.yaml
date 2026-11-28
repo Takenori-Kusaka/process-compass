@@ -1,0 +1,50 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "GAO-02-195 NASA: Better Mechanisms Needed for Sharing Lessons Learned (2002-01)"
+url: https://www.govinfo.gov/content/pkg/GAOREPORTS-GAO-02-195/html/GAOREPORTS-GAO-02-195.htm
+canonicalUrl: "https://www.govinfo.gov/content/pkg/GAOREPORTS-GAO-02-195/html/GAOREPORTS-GAO-02-195.htm"
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: "2002-01-30"
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "NASA の管理者調査。過去 2 年に教訓を LLIS へ入れていない管理者が 43%、入れた管理者が 23%。58% が適切な教訓を適切な時に取り出せないと答えた。"
+note: "引用は WebFetch(要約モデル)経由で、文字単位の照合は未実施。govinfo の HTML 版。"
+claims:
+  - id: c1
+    text: "過去 2 年に教訓を LLIS へ提出していない管理者 43%、提出した管理者 23%。"
+    quote: "in the past 2 years, 43 percent of program and project managers have not submitted a lesson to the LLIS"
+    locator: "第 3 章"
+    evidenceKind: survey
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "58% の管理者が、現在の仕組みでは適切な教訓を適切な時に取り出せないと答えた。"
+    quote: "58 percent of managers stated that current processes and systems do not allow them to retrieve the right lessons at the right time"
+    locator: "第 3 章"
+    evidenceKind: survey
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 取得した頁の要約経由。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

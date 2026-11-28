@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "FDA: Computer Software Assurance for Production and Quality Management System Software (2026-02-03)"
+url: https://www.fda.gov/media/188844/download
+canonicalUrl: "https://www.fda.gov/media/188844/download"
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: us
+lang: en
+sourceType: public-agency
+published: "2026-02-03"
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "2026-02-03 発行の最終ガイダンス。2025-09-24 版に取って代わる。高プロセスリスクほどより多くの客観的証拠を、低リスクは少なくてよいとする。"
+note: "拘束力のない推奨。製造・品質システムのソフトウェアが対象で、開発プロセスの標準の直接の先例ではない。pdftotext で本文を抽出して照合。"
+claims:
+  - id: c1
+    text: "リスクが高い機能ほど保証の厳密さ(より多くの客観的証拠)を求め、リスクが低ければ集める客観的証拠は少なくてよい。"
+    quote: "heightened risks of software features, functions, or operations generally entail greater rigor for assurance efforts (i.e., a greater amount of objective evidence)."
+    locator: "V.A(assurance rigor の段落)"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "記録は、特定したリスクに対して意図どおり動くことを示すのに必要以上の証拠を含めなくてよい。"
+    quote: "Documentation of assurance activities need not include more evidence than necessary to show that the software feature, function, or operation performs as intended for the risk identified."
+    locator: "V.A(記録の段落)"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+  - id: c3
+    text: "表紙: 2026-02-03 発行で、2025-09-24 発行の同名の指針に取って代わる。"
+    quote: "This document supersedes \"Computer Software Assurance for Production and Quality System Software,\" issued September 24, 2025."
+    locator: "表紙"
+    evidenceKind: news-fact
+    issues: [473]
+    stance: context
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

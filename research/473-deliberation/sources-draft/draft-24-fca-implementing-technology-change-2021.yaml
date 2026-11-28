@@ -1,0 +1,57 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "FCA: Implementing Technology Change (multi-firm review, 2021-02-05)"
+url: https://www.fca.org.uk/publications/multi-firm-reviews/implementing-technology-change
+canonicalUrl: "https://www.fca.org.uk/publications/multi-firm-reviews/implementing-technology-change"
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: eu
+lang: en
+sourceType: public-agency
+published: "2021-02-05"
+publishedBasis: page
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "英国の金融規制当局の複数社横断の調査(2019 年のデータ)。CAB が審査した大きな変更の 90% 超を承認し、保証の機能より「航空管制」の役をしている可能性を指摘する。"
+note: "観察研究で因果は示さない。引用は WebFetch(要約モデル)経由で、文字単位の照合は未実施。"
+claims:
+  - id: c1
+    text: "CAB は審査した大きな変更の 90% 超を承認した。"
+    quote: "CABs approved over 90% of the major changes they reviewed"
+    locator: "結果の節"
+    evidenceKind: observational
+    issues: [473]
+    stance: supports
+  - id: c2
+    text: "多くの CAB は保証の機能より「航空管制」の役をしている可能性がある。"
+    quote: "This may indicate that many CABs perform more of a 'flight control' role rather than an assurance function."
+    locator: "結果の節"
+    evidenceKind: observational
+    issues: [473]
+    stance: supports
+  - id: c3
+    text: "大きな変更は標準的変更に比べて障害に至る確率が 2 倍。"
+    quote: "Major changes were twice as likely to result in an incident when compared with standard changes"
+    locator: "結果の節"
+    evidenceKind: observational
+    issues: [473]
+    stance: context
+verification:
+  status: partial
+  method: [web-fetch, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 取得した頁の要約経由。機械照合(npm run lint:sources)と目隠し抽出は未実施。"

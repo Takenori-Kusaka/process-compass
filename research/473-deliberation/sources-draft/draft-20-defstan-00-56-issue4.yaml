@@ -1,0 +1,43 @@
+schemaVersion: 0
+id: null  # SRC 番号は議長が振る
+status: included
+excludeReason: null
+title: "Def Stan 00-56 Part 1 Issue 4: Safety Management Requirements for Defence Systems (2007)"
+url: https://skybrary.aero/sites/default/files/bookshelf/344.pdf
+canonicalUrl: "https://skybrary.aero/sites/default/files/bookshelf/344.pdf"
+ids:
+  arxiv: null
+  doi: null
+orgType: government
+region: other
+lang: en
+sourceType: standard
+published: "2007"
+publishedBasis: pdf
+version: null
+updated: null
+accessed: 2026-11-28
+access: open
+readLevel: section
+foundBy:
+  cluster: I473
+  query: "#473 外部の調査の一次の所在での照合(research/473-deliberation/external-02.md)"
+derivedFrom: []
+selfReported: false
+themes: [TH06]
+summary: "安全の証拠の量と質を、システムがもたらし得るリスク・複雑さ・状況の不慣れさに見合わせることを定める(Issue 4)。"
+note: "Issue 4 は旧版。Issue 7(2017)の抜粋に同じ文言があるかは未確認。SKYbrary の写しを pdftotext で照合。"
+claims:
+  - id: c1
+    text: "証拠の量と質を、システムのリスク・複雑さ・不慣れさに見合わせる。"
+    quote: "The quantity and quality of the evidence shall be commensurate with the potential risk posed by the system, the complexity of the system and the unfamiliarity of the circumstances involved."
+    locator: "11.3.1"
+    evidenceKind: normative
+    issues: [473]
+    stance: supports
+verification:
+  status: partial
+  method: [pdftotext, manual-quote-check]
+  date: 2026-11-28
+  humanChecked: false
+  note: "読み方: 本文を抽出して該当文を目で照合。機械照合(npm run lint:sources)と目隠し抽出は未実施。"
