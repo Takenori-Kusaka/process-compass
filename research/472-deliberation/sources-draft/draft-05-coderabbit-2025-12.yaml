@@ -1,0 +1,23 @@
+schemaVersion: 0
+id: DRAFT-05
+status: draft(SRC 番号未付与)
+title: State of AI vs Human Code Generation Report
+url: https://www.coderabbit.ai/blog/state-of-AI-vs-human-code-generation-report
+accessed: '2026-11-28'
+published: '2025-12-17'
+sourceType: vendor-official
+selfReported: true
+summary: 470 の OSS PR(AI 共著 320・人のみ 150)で、AI の PR は 1 件あたり指摘 10.83 件対 6.45 件(約 1.7
+  倍)。AI レビュー製品の販売元の自社報告。人のみの PR の人手の確認が保証できないと同社が注記。一次の頁は未開封、二次(Register・DEV)経由。
+claims:
+- id: c1
+  quote: (逐語未取得)
+  locator: '二次要約: 10.83 対 6.45 issues/PR、論理 1.75 倍、保守性 1.64 倍'
+  evidenceKind: observational
+verification:
+  status: unverified
+  method:
+  - web-search-summary
+  date: '2026-11-28'
+  humanChecked: false
+  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない

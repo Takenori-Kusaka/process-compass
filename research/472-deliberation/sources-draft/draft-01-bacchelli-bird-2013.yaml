@@ -1,0 +1,24 @@
+schemaVersion: 0
+id: DRAFT-01
+status: draft(SRC 番号未付与)
+title: Expectations, Outcomes, and Challenges of Modern Code Review
+url: https://www.microsoft.com/en-us/research/publication/expectations-outcomes-and-challenges-of-modern-code-review/
+accessed: '2026-11-28'
+published: '2013'
+sourceType: paper-peer
+selfReported: false
+summary: Microsoft の開発者・管理者への観察・面接・調査と数百件のレビューコメントの分類。レビューの第一の動機は欠陥発見だが、成果には知識の共有・チームの認知・代替案が含まれ、変更の理解が中心課題。WebFetch
+  は abstract の要約のみ返し逐語を取れなかった(abstract のみ)。
+claims:
+- id: c1
+  quote: Code review is a common software engineering practice employed both in open
+    source and industrial contexts.
+  locator: abstract 冒頭(逐語。以降の結論は要約で取得、逐語未確認)
+  evidenceKind: observational
+verification:
+  status: unverified
+  method:
+  - web-search-summary
+  date: '2026-11-28'
+  humanChecked: false
+  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない

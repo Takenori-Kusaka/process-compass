@@ -1,0 +1,22 @@
+schemaVersion: 0
+id: DRAFT-02
+status: draft(SRC 番号未付与)
+title: Best Practices for Code Review / The Largest Case Study of Code Reviews—Ever
+url: https://smartbear.com/learn/code-review/best-practices-for-peer-code-review/
+accessed: '2026-11-28'
+published: '2006'
+sourceType: vendor-official
+selfReported: true
+summary: SmartBear が Cisco の約2,500件・320万行のレビューを10か月追跡した報告。1回200行・最大400行、毎時300〜500行以下、1回60分(最大90分)の目安。ベンダー自社報告で独立の再現は見つからない。数値は検索結果の要約で、頁本文での逐語照合は未実施(未照合)。
+claims:
+- id: c1
+  quote: (逐語未取得)
+  locator: '検索結果の要約: 200 LOC を上限の目安、400 を絶対上限、毎時 300〜500 LOC 未満'
+  evidenceKind: observational
+verification:
+  status: unverified
+  method:
+  - web-search-summary
+  date: '2026-11-28'
+  humanChecked: false
+  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない

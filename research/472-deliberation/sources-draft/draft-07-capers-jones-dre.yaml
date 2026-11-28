@@ -1,0 +1,23 @@
+schemaVersion: 0
+id: DRAFT-07
+status: draft(SRC 番号未付与)
+title: Software Defect Removal Efficiency(Capers Jones の表)
+url: https://www.ppi-int.com/wp-content/uploads/2021/01/Software-Defect-Removal-Efficiency.pdf
+accessed: '2026-11-28'
+published: '2011'
+sourceType: industry-report
+selfReported: false
+summary: '欠陥除去率の表で、正式のコード検査は最小 60%・平均 85%・最大 96%、非公式のピアレビューは 35%・50%・60%、机上チェック 25%・45%・55%。ほかの
+  Jones の版では数値が異なる(例: 検査 93%、机上 27%)。検索結果の要約経由で原表は未開封。'
+claims:
+- id: c1
+  quote: (逐語未取得)
+  locator: '要約: formal inspections 60/85/96、informal peer reviews 35/50/60'
+  evidenceKind: observational
+verification:
+  status: unverified
+  method:
+  - web-search-summary
+  date: '2026-11-28'
+  humanChecked: false
+  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない

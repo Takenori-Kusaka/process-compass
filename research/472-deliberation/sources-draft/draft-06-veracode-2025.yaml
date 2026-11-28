@@ -1,0 +1,22 @@
+schemaVersion: 0
+id: DRAFT-06
+status: draft(SRC 番号未付与)
+title: 2025 GenAI Code Security Report
+url: https://www.veracode.com/genai-code-security-report
+accessed: '2026-11-28'
+published: '2025-07-30'
+sourceType: vendor-official
+selfReported: true
+summary: 100 超の LLM・80 課題で、安全・不安全の選択肢がある課題の約 45% で脆弱なコードを選んだ。新しい・大きいモデルでも改善せず。ベンダー自社報告。二次要約経由で頁本文は未照合。
+claims:
+- id: c1
+  quote: (逐語未取得)
+  locator: '二次要約: 約 45% のテストケースで OWASP Top 10 の脆弱性'
+  evidenceKind: observational
+verification:
+  status: unverified
+  method:
+  - web-search-summary
+  date: '2026-11-28'
+  humanChecked: false
+  note: WebSearch/WebFetch の要約のみ。逐語・数値は一次の本文と照合していない
